@@ -1,221 +1,86 @@
 # FT-STR-07 — Fiche de spécification
 
-## Stabilité d’image, déterminisme et cohérence multi-registres
-
----
+## Stabilité d’image et cohérence temporelle
 
 ## 1. Identification
 
 - **ID** : FT-STR-07
-- **Nom** : Stabilité d’image
-- **Famille parente** : FT-STR
-- **Criticité** : P0 (bloquant)
-
----
+- **Famille** : FT-STR
+- **Criticité** : P0
 
 ## 2. Objectif
 
-Valider que, dans un état stable du capteur :
+Valider que l’image Modbus est exploitable sans ambiguïté temporelle :
+- les données réellement statiques restent stables tant que leur contexte ne change pas ;
+- chaque réponse multi-registres est cohérente à un même instant logique ;
+- les `uint32` ne peuvent pas être reconstruits à partir d’un MSW et d’un LSW provenant de deux instants différents ;
+- le mode de découpage des lectures n’introduit aucun effet de bord.
 
-- les lectures sont reproductibles,
-- les champs structurels ne varient pas,
-- l’image registre est déterministe,
-- les champs multi-registres restent cohérents,
-- aucune incohérence de reconstruction `uint32` n’est observable.
+## 3. Règles normatives appliquées
 
----
+La règle critique de `charte_typage.md` s’applique à toute lecture multi-registres : tous les registres retournés doivent correspondre à un **même instant logique**.
 
-## 3. Périmètre
+Elle implique notamment :
+- cohérence intra-champ `uint32` ;
+- cohérence inter-champs d’une même réponse ;
+- absence de mélange ancien/nouveau dans une même réponse.
 
-### Inclus
+## 4. Stabilité entre requêtes
 
-- répétabilité des lectures
-- stabilité des champs statiques
-- stabilité des registres réservés
-- stabilité des champs ASCII fixes
-- cohérence des champs multi-registres
-- absence de bruit mémoire
-- absence d’effet de bord entre champs
-- comparaison snapshot à snapshot
-- alternance de lectures unitaires et de lectures bloc
+L’identité bit à bit entre plusieurs requêtes successives n’est exigée que pour une cible dont la stabilité est explicitement garantie par V1 ou par un scénario de test maîtrisé.
 
-### Exclus
+Il est interdit de déclarer un champ « stable » uniquement parce qu’il varie peu ou parce que le capteur ne reçoit aucune commande externe.
 
-- dynamique métier
-- événements
-- transitions fonctionnelles volontaires
-- performance bus
-- contention multi-maître
+Les données naturellement dynamiques, notamment temps, uptime, compteurs, états, mesures et indicateurs, peuvent évoluer normalement entre deux requêtes.
 
----
+## 5. Atomicité `uint32`
 
-## 4. Références
+Une lecture d’un `uint32` doit toujours retourner un couple MSW/LSW cohérent. Un test probant doit, lorsque possible, observer ou provoquer une évolution contrôlée de la valeur. Une valeur immobile ne suffit pas à démontrer l’atomicité.
 
-- état stable défini
-- mapping
-- convention `uint32 = MSW puis LSW`
+## 6. Cohérence inter-champs
 
----
+Pour une réponse contenant plusieurs champs dynamiques, les valeurs doivent appartenir au même instant logique.
 
-## 5. Règles
+La preuve doit reposer sur un oracle observable : compteur de séquence, timestamp associé, relation normative entre champs, instrumentation firmware ou mécanisme équivalent.
 
-Une image est conforme si :
+En l’absence d’oracle suffisant, le résultat est : **NON DÉMONTRABLE PAR L’INTERFACE SEULE / INSTRUMENTATION REQUISE**. Une simple plausibilité des valeurs ne vaut pas preuve.
 
-- deux lectures successives d’un même champ structurel stable sont identiques ;
-- deux snapshots successifs d’un même bloc stable sont identiques ;
-- aucun champ réservé ne varie ;
-- aucun champ ASCII fixe ne varie hors cas explicitement prévu ;
-- toute reconstruction `uint32` reste identique sur les lectures répétées en état stable ;
-- aucune incohérence de type lecture croisée `MSW(t0) + LSW(t1)` n’est observable en lecture passive sur état stable.
+## 7. Découpage des lectures
 
----
+Les règles de FT-STR-06 restent applicables. En particulier :
+- FC03 est limitée à 125 registres par requête ;
+- le Bloc 4 (176 registres) ne peut pas être assimilé à un snapshot atomique complet obtenu par plusieurs requêtes successives ;
+- plusieurs requêtes segmentées ne constituent pas, par elles-mêmes, un même instant logique.
 
-## 6. Préconditions
+## 8. Périmètre
 
-- capteur figé
-- aucune acquisition active
-- environnement stable
-- FT-STR-03 validée
-- FT-STR-05 validée
+Inclus :
+- données statiques explicitement identifiées ;
+- zones réservées ;
+- `uint32` ;
+- réponses multi-registres dynamiques ;
+- alternance de modes de lecture valides.
 
----
+Exclus :
+- dynamique métier elle-même ;
+- performance bus ;
+- contention multi-maître ;
+- persistance après reboot ;
+- droits d’écriture.
 
-## 7. Résultats attendus
+## 9. Préconditions
 
-- image identique à répétition
-- aucune fluctuation
-- aucune incohérence multi-registres
-- aucune instabilité localisée
+- FT-STR-03, FT-STR-05 et FT-STR-06 gelées ;
+- mapping GEL-MAP-V1 disponible ;
+- scénario de test définissant les éventuelles cibles statiques ;
+- moyen d’observation suffisant pour les tests de cohérence dynamique.
 
----
+## 10. Critères de conformité
 
-## 8. Risques
+Conforme si :
+- aucune cible déclarée statique ne varie hors événement explicatif ;
+- aucun `uint32` déchiré n’est observé ;
+- aucune réponse multi-registres ne mélange deux instants logiques ;
+- le découpage de lecture n’altère ni l’état ni la cohérence exposée.
 
-| Risque | Impact |
-|---|---|
-| instabilité | non fiabilité |
-| bruit mémoire | erreurs |
-| incohérence multi-registre | corruption |
-| effet de bord | non déterminisme |
-| lecture croisée MSW/LSW | valeur fausse |
-
----
-
-## 9. Cas
-
-### Nominal
-
-- lecture répétée identique d’un champ statique
-- lecture répétée identique d’un bloc complet
-- reconstruction répétée identique d’un `uint32`
-
-### Limites
-
-- lecture rapide répétée
-- lecture espacée
-- alternance champ / bloc / champ
-- alternance champ A / champ B / champ A
-
-### Erreurs
-
-- variation inattendue
-- instabilité localisée
-- mismatch `MSW/LSW`
-- variation d’un réservé
-
-### Robustesse
-
-- série longue de lectures
-- snapshots comparés en séquence
-- répétition avec tailles de lecture différentes
-
----
-
-## 10. Points critiques
-
-- rafraîchissement mémoire
-- concurrence lecture / mise à jour interne
-- latence
-- champs multi-registres exposés comme valeur logique unique
-- faux positifs sur valeurs peu variées
-
----
-
-## 11. Ambiguïtés
-
-- quels champs sont explicitement autorisés à varier en état stable ?
-- atomicité firmware garantie ou non ?
-- politique de rafraîchissement de l’image registre ?
-
----
-
-## 12. Réussite
-
-- stabilité totale des champs structurels
-- stabilité totale des snapshots de blocs stables
-- 0 incohérence de reconstruction `uint32`
-- 0 variation sur champs réservés
-
----
-
-## 13. Échec
-
-- variation non expliquée
-- incohérence multi-registres
-- instabilité locale ou globale
-- effet de bord structurel
-
----
-
-## 14. Anomalies
-
-| Type | Exemple |
-|---|---|
-| BLOQUANTE | instabilité globale |
-| MAJEURE | incohérence `uint32` observable |
-| MAJEURE | variation d’un réservé |
-| SPEC | champ supposé stable non défini comme tel |
-
----
-
-## 15. Dépendances
-
-### Amont
-
-- FT-STR-03
-- FT-STR-05
-
-### Aval
-
-- FT-INT
-- FT-BLK
-
----
-
-## 16. Ordre
-
-1. lecture répétée champ unitaire
-2. lecture répétée champ réservé
-3. lecture répétée champ ASCII
-4. lecture répétée `uint32`
-5. snapshots bloc
-6. alternance de lectures
-7. détection d’instabilité localisée
-8. validation globale
-
----
-
-## 17. Livrables
-
-- logs lecture
-- comparaison champ à champ
-- comparaison snapshot à snapshot
-- liste des incohérences multi-registres
-
----
-
-## 18. Maturité
-
-- image déterministe
-- reproductibilité totale
-- aucune incohérence observable sur champs logiques multi-registres
+Toute conclusion non démontrable doit rester explicitement non démontrée, jamais transformée en PASS implicite.

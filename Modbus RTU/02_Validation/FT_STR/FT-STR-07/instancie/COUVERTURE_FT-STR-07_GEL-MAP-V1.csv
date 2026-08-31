@@ -1,0 +1,12 @@
+test_id,scope,target,applicability,evidence
+TT-STR-07-GEN-001,stabilite_statique,Bloc_0_identite,applicable,comparaison_bit_a_bit_sous_contexte_fige
+TT-STR-07-GEN-001,stabilite_statique,zones_reservees_GEL-MAP-V1,applicable,comparaison_bit_a_bit
+TT-STR-07-GEN-001,stabilite_statique,autres_champs,conditionnel,uniquement_si_stabilite_explicitement_justifiee
+TT-STR-07-GEN-002,atomicite_uint32,tous_uint32_GEL-MAP-V1,applicable_si_evolution_observable,transition_controlee_ou_instrumentation
+TT-STR-07-GEN-003,coherence_intra_reponse,Bloc_1,prioritaire,oracle_temporel_ou_instrumentation
+TT-STR-07-GEN-003,coherence_intra_reponse,Bloc_2,prioritaire,oracle_temporel_ou_instrumentation
+TT-STR-07-GEN-003,coherence_intra_reponse,Bloc_3,prioritaire,sequence_timestamp_ou_instrumentation
+TT-STR-07-GEN-003,coherence_intra_reponse,Bloc_6,prioritaire,oracle_temporel_ou_instrumentation
+TT-STR-07-GEN-003,coherence_intra_reponse,Bloc_7,prioritaire,oracle_temporel_ou_instrumentation
+TT-STR-07-GEN-003,coherence_intra_reponse,autres_reponses_multi_registres,applicable,oracle_si_disponible
+TT-STR-07-GEN-004,effet_de_bord,Blocs_0_a_7,applicable,comparaison_selon_nature_statique_ou_dynamique
