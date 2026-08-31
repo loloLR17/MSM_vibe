@@ -12,7 +12,7 @@ TT-LIM-04-C06-002,LIM04-G06,command 10,valid confirmation,confirm=0xA55A,"confir
 TT-LIM-04-C06-003,LIM04-G06,command 11,missing confirmation,confirm=0,"result 9 if other preconditions isolated",ACTIVE
 TT-LIM-04-C06-004,LIM04-G06,command 11,valid confirmation,confirm=0xA55A,"confirmation condition satisfied; overall result depends remaining preconditions",ACTIVE
 TT-LIM-04-C07-001,LIM04-G07,command 1,valid baseline,complete valid prepared config CRC correct acquisition stopped,"command may succeed; CRC/state proof delegated FT-LIM-03",ACTIVE
-TT-LIM-04-C07-002,LIM04-G07,command 1,acquisition active,otherwise valid prepared config,"result 5 or normative incompatible-state refusal per V1",ACTIVE
+TT-LIM-04-C07-002,LIM04-G07,command 1,acquisition active,otherwise valid prepared config,"result 5",ACTIVE
 TT-LIM-04-C07-003,LIM04-G07,command 1,incomplete config,acquisition stopped,"result 20",ACTIVE
 TT-LIM-04-C08-001,LIM04-G08,command 2,prepared time present,clock available,"success path",ACTIVE
 TT-LIM-04-C08-002,LIM04-G08,command 2,no prepared time,clock available,"result 19",ACTIVE
