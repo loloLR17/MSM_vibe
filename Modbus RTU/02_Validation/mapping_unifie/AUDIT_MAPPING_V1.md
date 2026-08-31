@@ -2,7 +2,7 @@
 
 ## Statut
 
-**AUDIT EN COURS — MAPPING NON GELÉ**
+**AUDIT TERMINÉ — CANDIDAT GEL-MAP-V1**
 
 Référence normative :
 
@@ -19,71 +19,79 @@ mapping_unifie dérivé
 tests
 ```
 
-Toute divergence est corrigée dans le mapping dérivé. La V1 n’est pas modifiée pour faire correspondre la spécification à un artefact ancien.
+Toute divergence a été corrigée dans le mapping dérivé. Aucun fichier normatif de la V1 n’a été modifié pour faire correspondre la spécification à un artefact ancien.
 
-## Résultat structurel intermédiaire
+## Résultat final par bloc
 
-La couverture d’adresses annoncée est continue pour les huit blocs, mais ce contrôle historique ne détecte pas les doublons/chevauchements ni les divergences de type.
+| Bloc | Plage | Couverture | Chevauchement | Résultat audit mapping |
+|---:|---|---:|---:|---|
+| 0 | 0-20 | complète | 0 | conforme après correction `reserved_0` |
+| 1 | 1000-1019 | complète | 0 | conforme |
+| 2 | 2000-2015 | complète | 0 | conforme |
+| 3 | 3000-3047 | complète | 0 | conforme après correction du type de `B3_RESERVED_0` |
+| 4 | 4000-4175 | complète | 0 | conforme après déduplication de 4017 et restauration des types V1 |
+| 5 | 5000-5019 | complète | 0 | conforme |
+| 6 | 6000-6063 | complète | 0 | conforme après normalisation `uint16[n]` |
+| 7 | 7000-7015 | complète | 0 | conforme après correction `reset_cause = enum16` et normalisation `uint16[n]` |
 
-Blocs sans divergence structurelle identifiée à cette étape :
+## Registre des anomalies
 
-- Bloc 1 ;
-- Bloc 2 ;
-- Bloc 5.
-
-Ces constats restent subordonnés au contrôle croisé final après correction globale des CSV.
-
-## Registre des anomalies certaines
-
-| ID | Bloc | Élément | Mapping actuel | V1 gelée | Action |
+| ID | Bloc | Élément | Anomalie initiale | Correction | Statut |
 |---|---:|---|---|---|---|
-| MAP-01 | 0 | adresse 20 | `reserved` | `reserved_0` | corriger nom dans brut et logique |
-| MAP-02 | 3 | `B3_RESERVED_0` | type `réservé` | `uint16[8]` | corriger type |
-| MAP-03 | 4 | adresse 4017 | deux entrées : `reserved` et `reserved_4B_17` | une seule entrée `reserved_4B_0` | supprimer doublon et corriger nom |
-| MAP-04 | 4 | `axes_enable_mask` | `uint16` | `bitfield16` | corriger type |
-| MAP-05 | 4 | `full_scale_code` | `uint16` | `enum16` | corriger type |
-| MAP-06 | 4 | `acquisition_mode` | `uint16` | `enum16` | corriger type |
-| MAP-07 | 4 | `storage_mode` | `uint16` | `enum16` | corriger type |
-| MAP-08 | 4 | `active_axes_enable_mask` | `uint16` | `bitfield16` | corriger type |
-| MAP-09 | 4 | `active_full_scale_code` | `uint16` | `enum16` | corriger type |
-| MAP-10 | 4 | `active_acquisition_mode` | `uint16` | `enum16` | corriger type |
-| MAP-11 | 4 | `active_storage_mode` | `uint16` | `enum16` | corriger type |
-| MAP-12 | 6 | `reserved_6A` | `uint16\\[2]` | `uint16[2]` | normaliser échappement |
-| MAP-13 | 6 | `reserved_6B` | `uint16\\[6]` | `uint16[6]` | normaliser échappement |
-| MAP-14 | 7 | `reset_cause` | `uint16` | `enum16` | corriger type |
-| MAP-15 | 7 | `reserved_7A` | `uint16\\[2]` | `uint16[2]` | normaliser échappement |
+| MAP-01 | 0 | adresse 20 | `reserved` au lieu de `reserved_0` | nom aligné V1 dans brut et logique | **CLOS** |
+| MAP-02 | 3 | `B3_RESERVED_0` | type `réservé` | `uint16[8]` | **CLOS** |
+| MAP-03 | 4 | adresse 4017 | deux entrées historiques | une entrée unique `reserved_4B_0` | **CLOS** |
+| MAP-04 | 4 | `axes_enable_mask` | `uint16` | `bitfield16` | **CLOS** |
+| MAP-05 | 4 | `full_scale_code` | `uint16` | `enum16` | **CLOS** |
+| MAP-06 | 4 | `acquisition_mode` | `uint16` | `enum16` | **CLOS** |
+| MAP-07 | 4 | `storage_mode` | `uint16` | `enum16` | **CLOS** |
+| MAP-08 | 4 | `active_axes_enable_mask` | `uint16` | `bitfield16` | **CLOS** |
+| MAP-09 | 4 | `active_full_scale_code` | `uint16` | `enum16` | **CLOS** |
+| MAP-10 | 4 | `active_acquisition_mode` | `uint16` | `enum16` | **CLOS** |
+| MAP-11 | 4 | `active_storage_mode` | `uint16` | `enum16` | **CLOS** |
+| MAP-12 | 6 | `reserved_6A` | type échappé `uint16\\[2]` | `uint16[2]` | **CLOS** |
+| MAP-13 | 6 | `reserved_6B` | type échappé `uint16\\[6]` | `uint16[6]` | **CLOS** |
+| MAP-14 | 7 | `reset_cause` | `uint16` | `enum16` | **CLOS** |
+| MAP-15 | 7 | `reserved_7A` | type échappé `uint16\\[2]` | `uint16[2]` | **CLOS** |
 
-## Cause probable
+## Contrôles finaux exécutés
 
-Les anomalies observées indiquent que le problème n’est pas seulement situé dans la vue logique : plusieurs divergences existent déjà dans `tr2_mapping_unifie_brut.csv`.
+Les vues `brut` et `logique` corrigées ont été vérifiées sur les invariants suivants :
 
-Le mécanisme historique de déduplication retire les doublons exacts, mais peut conserver deux lignes documentaires différentes décrivant la même adresse, comme observé en Bloc 4 à l’adresse 4017.
+1. huit blocs présents ;
+2. plages d’adresses conformes aux blocs V1 ;
+3. couverture complète de chaque plage ;
+4. zéro trou à l’intérieur de chaque plage ;
+5. zéro chevauchement d’adresse ;
+6. aucune plage dupliquée ;
+7. cohérence `register_count` ↔ étendue d’offsets ↔ étendue d’adresses ;
+8. types limités aux types autorisés de la charte, avec `uint16[n]` comme notation documentaire de regroupement ;
+9. accès limités à `RO` / `RW` et alignés sur les mappings normatifs ;
+10. restauration des types spécialisés `enum16`, `bitfield16` et `int16` ;
+11. noms des réservés alignés sur la spécification ;
+12. regroupements logiques `uint32` et ASCII conservés sans perte de portée ni d’accès.
 
-Le contrôle de couverture historique ne suffit donc pas à garantir la conformité du mapping.
+Le fichier `tr2_mapping_couverture.csv` a été renforcé pour exposer les comptes de lacunes et chevauchements.
 
-## Contrôles obligatoires avant gel
+Le script `03_Automatisation/validate_mapping_structure.py` permet de rejouer les invariants mécaniques. Il ne remplace pas l’audit normatif contre les fichiers `bloc0.md` à `bloc7.md` et `charte_typage.md`.
 
-Le mapping V1 ne pourra être gelé qu’après vérification automatique ou systématique de :
+## Cause racine retenue
 
-1. couverture complète des plages normatives ;
-2. absence de trou ;
-3. absence de doublon/chevauchement non justifié ;
-4. unicité de représentation de chaque adresse physique dans la vue brute ;
-5. conformité des noms ;
-6. conformité des types ;
-7. conformité des accès ;
-8. conformité des tailles / nombres de registres ;
-9. cohérence des regroupements logiques `uint32` et ASCII ;
-10. conformité des champs réservés à la convention `reserved_*` ;
-11. absence de types hors charte ;
-12. audit croisé final V1 ↔ mapping corrigé.
+La génération historique reposait en partie sur une déduplication de doublons textuels exacts. Cette approche était insuffisante : deux lignes documentaires différentes pouvaient décrire la même adresse et survivre à l’extraction, comme observé à l’adresse 4017.
 
-## Critère de gel proposé
+Le contrôle historique de couverture vérifiait les trous mais ne détectait pas les chevauchements. Il pouvait donc annoncer une couverture complète malgré un doublon d’adresse.
 
-Le statut **GEL-MAP-V1** ne pourra être attribué que si :
+La doctrine corrigée impose désormais un contrôle structurel par plage/adresse en plus de la comparaison normative.
 
-- toutes les anomalies MAP-XX sont closes ;
-- le mapping brut est conforme à la V1 ;
-- le mapping logique est une transformation déterministe et sans perte du mapping brut ;
-- le contrôle de couverture ne masque aucun chevauchement ;
-- une passe finale indépendante ne détecte aucune divergence normative.
+## Critère de gel
+
+Tous les critères techniques de `GEL-MAP-V1` sont satisfaits sur la branche d’audit :
+
+- MAP-01 à MAP-15 clos ;
+- mapping brut aligné sur la V1 ;
+- mapping logique cohérent avec le brut et la V1 ;
+- couverture sans trou ni chevauchement ;
+- aucun type hors charte détecté ;
+- audit croisé final terminé.
+
+Le statut `GEL-MAP-V1` devient effectif après validation et intégration de cette branche dans `main`.
