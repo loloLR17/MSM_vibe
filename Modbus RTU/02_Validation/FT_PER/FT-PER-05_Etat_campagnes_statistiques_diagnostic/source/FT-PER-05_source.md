@@ -32,47 +32,53 @@ Le registre est RW pour naviguer dans l'inventaire, sans politique d'initialisat
 
 ## PER05-R06 — Compteurs de stockage après reboot
 
-**Classification : `NOT_DEFINED` pour la propriété de persistance.**
+**Classification : `NOT_DEFINED`.**
 
 `total_campaign_count`, `valid_campaign_count`, `storage_used_mb` et `storage_free_mb` ont une sémantique nominale, mais aucune règle de reprise post-reboot n'est spécifiée.
 
 ## PER05-R07 — Défauts/warnings tant que la condition est présente
 
-**Classification : `DELEGATED` pour la sémantique nominale ; `NOT_DEFINED` pour la mémoire non volatile.**
+**Classification : `DELEGATED`.**
 
-Bloc 1 impose que défauts et avertissements persistent tant que la condition est présente. Cette règle ne définit pas une mémoire historique non volatile à travers reboot.
+Bloc 1 impose que défauts et avertissements persistent tant que la condition est présente. Cette règle décrit la sémantique nominale de la condition active et ne constitue pas, à elle seule, une propriété de reprise après reboot.
 
-## PER05-R08 — last_fault_code / last_fault_timestamp après reboot
+## PER05-R08 — Mémoire non volatile des défauts/warnings après reboot
+
+**Classification : `NOT_DEFINED`.**
+
+La V1 ne précise pas si l'état de défaut/avertissement doit être mémorisé en non volatil, restauré, réévalué ou reconstruit après reboot. La règle « persistants tant que la condition est présente » ne suffit pas à définir cette politique.
+
+## PER05-R09 — last_fault_code / last_fault_timestamp après reboot
 
 **Classification : `NOT_DEFINED`.**
 
 Bloc 7 définit le dernier défaut significatif et son timestamp, sans règle de conservation post-reboot.
 
-## PER05-R09 — selftest_* après reboot
+## PER05-R10 — selftest_* après reboot
 
 **Classification : `NOT_DEFINED`.**
 
 Les valeurs de statut/résultat d'autotest sont définies, mais leur rétention après reboot ne l'est pas.
 
-## PER05-R10 — Statistiques et compteurs après reboot
+## PER05-R11 — Statistiques et compteurs après reboot
 
 **Classification : `NOT_DEFINED`.**
 
 Aucune politique générale V1 ne classe les statistiques/compteurs en volatils, persistants, reconstruits au boot ou réinitialisés.
 
-## PER05-R11 — RESET STATISTICS
+## PER05-R12 — RESET STATISTICS
 
 **Classification : `DELEGATED` vers FT-CMD-07.**
 
 RESET STATISTICS est une commande protégée distincte du reboot. Ses exclusions normatives ne peuvent pas être transformées en règle de persistance au reboot.
 
-## PER05-R12 — reset_cause / uptime_s
+## PER05-R13 — reset_cause / uptime_s
 
 **Classification : `DELEGATED` vers FT-PER-01.**
 
 Ces observables de reboot ont déjà un propriétaire.
 
-## PER05-R13 — Caractérisation globale avant/après RESET SOFTWARE
+## PER05-R14 — Caractérisation globale avant/après RESET SOFTWARE
 
 **Classification : `TRACE_ONLY`.**
 
