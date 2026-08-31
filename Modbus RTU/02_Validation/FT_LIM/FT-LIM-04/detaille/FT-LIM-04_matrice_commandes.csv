@@ -1,0 +1,23 @@
+constraint_id,status,scope,registers_or_command,normative_rule,generic_case,notes
+C01,ACTIVE,DOMAIN,5000 cmd_request_code,"0 none; 1..11 defined; 12..65535 reserved",LIM04-G01,"Reserved is functional invalidity on valid RW"
+C02,ACTIVE,TRANSACTION,5001 transaction_id,"new command => new valid transaction_id",LIM04-G02,
+C03,ACTIVE,IDEMPOTENCE,5001 transaction_id,"already processed ID never executed twice",LIM04-G03,
+C04,ACTIVE,SUBMIT,5007 bit0,"evaluation on rising edge 0->1; no repeated execution at level 1",LIM04-G04/LIM04-G05,
+C05,ACTIVE,CONFIRMATION,5006,"0 none; 0xA55A valid; protected commands 10/11",LIM04-G06,
+C06,ACTIVE,COMMAND,1,"apply prepared config preconditions",LIM04-G07,"CRC details in FT-LIM-03"
+C07,ACTIVE,COMMAND,2,"prepared time present; clock available",LIM04-G08,
+C08,ACTIVE,COMMAND,3,"active valid config; SD; memory; no critical fault; not active",LIM04-G09,
+C09,ACTIVE,COMMAND,4,"acquisition active",LIM04-G10,
+C10,ACTIVE,COMMAND,5,"param1=0 standard autotest",LIM04-G11,"other masks conditional extension"
+C11,ACTIVE,COMMAND,6,"param2=0 unit; param2=1 global; fault present and acknowledgeable",LIM04-G12,
+C12,ACTIVE,COMMAND,7,"refresh indicators/states per explicit V1 effects",LIM04-G13,
+C13,ACTIVE,COMMAND,8,"enter maintenance per explicit V1 preconditions/effects",LIM04-G13,
+C14,ACTIVE,COMMAND,9,"exit maintenance per explicit V1 preconditions/effects",LIM04-G13,
+C15,ACTIVE,COMMAND,10,"protected; confirmation; acquisition stopped; no critical operation unfinished",LIM04-G14,
+C16,ACTIVE,COMMAND,11,"protected; confirmation required",LIM04-G14,"no extra precondition invented"
+C17,CONDITIONAL,CANCEL,5007 bit1 + 5013 bit9,"cancel only if current command cancellable; otherwise result 15",LIM04-G15,"specific cancellable command list not defined"
+C18,ACTIVE,CLEAR,5007 bit2,"clear request fields without new command execution",LIM04-G16,
+ND01,NOT_DEFINED,AUTOTEST,command 5,"meaning of nonzero param1 masks",NONE,"conditional extension only"
+ND02,NOT_DEFINED,CANCEL,commands 1..11,"exhaustive list of cancellable commands",NONE,
+ND03,NOT_DEFINED,RESULT_DETAIL,5012,"cause-specific detail codes",NONE,
+ND04,NOT_DEFINED,TIMING,Bloc5,"execution/state visibility durations",NONE,

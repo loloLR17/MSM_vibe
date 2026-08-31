@@ -1,0 +1,39 @@
+test_id,generic_case,command_or_scope,condition,input_or_setup,expected_result,execution_status
+TT-LIM-04-C01-001,LIM04-G01,cmd_request_code,none,code=0 no submit,"no command executed",ACTIVE
+TT-LIM-04-C01-002,LIM04-G01,cmd_request_code,defined domain,codes=1..11 individually,"recognized command path; outcome depends isolated preconditions",ACTIVE
+TT-LIM-04-C01-003,LIM04-G01,cmd_request_code,reserved,code=12 with valid transaction and submit,"functional unknown/refused command; no invented Modbus exception",ACTIVE
+TT-LIM-04-C01-004,LIM04-G01,cmd_request_code,reserved,code=65535 with valid transaction and submit,"functional unknown/refused command; no invented Modbus exception",ACTIVE
+TT-LIM-04-C02-001,LIM04-G02,transaction_id,new commands,two successive distinct IDs,"each correlated and processed once",ACTIVE
+TT-LIM-04-C03-001,LIM04-G03,transaction_id,replay,reuse already processed ID,"no second execution; previous result reused",ACTIVE
+TT-LIM-04-C04-001,LIM04-G04,submit,rising edge,0->1,"one evaluation",ACTIVE
+TT-LIM-04-C05-001,LIM04-G05,submit,level semantics,hold/reobserve submit without new edge,"no repeated execution",CONDITIONAL
+TT-LIM-04-C06-001,LIM04-G06,command 10,missing confirmation,confirm=0,"result 9 if other preconditions isolated",ACTIVE
+TT-LIM-04-C06-002,LIM04-G06,command 10,valid confirmation,confirm=0xA55A,"confirmation condition satisfied; overall result depends remaining preconditions",ACTIVE
+TT-LIM-04-C06-003,LIM04-G06,command 11,missing confirmation,confirm=0,"result 9 if other preconditions isolated",ACTIVE
+TT-LIM-04-C06-004,LIM04-G06,command 11,valid confirmation,confirm=0xA55A,"confirmation condition satisfied; overall result depends remaining preconditions",ACTIVE
+TT-LIM-04-C07-001,LIM04-G07,command 1,valid baseline,complete valid prepared config CRC correct acquisition stopped,"command may succeed; CRC/state proof delegated FT-LIM-03",ACTIVE
+TT-LIM-04-C07-002,LIM04-G07,command 1,acquisition active,otherwise valid prepared config,"result 5 or normative incompatible-state refusal per V1",ACTIVE
+TT-LIM-04-C07-003,LIM04-G07,command 1,incomplete config,acquisition stopped,"result 20",ACTIVE
+TT-LIM-04-C08-001,LIM04-G08,command 2,prepared time present,clock available,"success path",ACTIVE
+TT-LIM-04-C08-002,LIM04-G08,command 2,no prepared time,clock available,"result 19",ACTIVE
+TT-LIM-04-C08-003,LIM04-G08,command 2,clock unavailable,prepared time present,"result 12",CONDITIONAL
+TT-LIM-04-C09-001,LIM04-G09,command 3,valid start baseline,active config valid SD/memory OK no critical fault inactive,"success path",ACTIVE
+TT-LIM-04-C09-002,LIM04-G09,command 3,no active valid config,other conditions OK,"result 22",ACTIVE
+TT-LIM-04-C09-003,LIM04-G09,command 3,SD absent,other conditions OK,"result 6",CONDITIONAL
+TT-LIM-04-C09-004,LIM04-G09,command 3,memory insufficient,other conditions OK,"result 7",CONDITIONAL
+TT-LIM-04-C09-005,LIM04-G09,command 3,critical fault active,other conditions OK,"result 8",CONDITIONAL
+TT-LIM-04-C10-001,LIM04-G10,command 4,acquisition active,submit stop,"success path",ACTIVE
+TT-LIM-04-C10-002,LIM04-G10,command 4,acquisition inactive,submit stop,"result 21",ACTIVE
+TT-LIM-04-C11-001,LIM04-G11,command 5,standard autotest,param1=0,"standard autotest command path",ACTIVE
+TT-LIM-04-C11-002,LIM04-G11,command 5,optional subtest mask,param1!=0,"N/A unless extension implemented/documented",CONDITIONAL
+TT-LIM-04-C12-001,LIM04-G12,command 6,unit acknowledge,param2=0 + characterized acknowledgeable fault,"fault acknowledged according V1",CONDITIONAL
+TT-LIM-04-C12-002,LIM04-G12,command 6,global acknowledge,param2=1 + acknowledgeable faults,"global acknowledge of acknowledgeable faults",CONDITIONAL
+TT-LIM-04-C12-003,LIM04-G12,command 6,non-acknowledgeable fault,target characterized non-acknowledgeable fault,"result 16",CONDITIONAL
+TT-LIM-04-C13-001,LIM04-G13,command 7,valid context,parameters per V1,"refresh indicators/states",ACTIVE
+TT-LIM-04-C13-002,LIM04-G13,command 8,valid context,parameters per V1,"enter maintenance observable effect",ACTIVE
+TT-LIM-04-C13-003,LIM04-G13,command 9,maintenance context,parameters per V1,"exit maintenance observable effect",ACTIVE
+TT-LIM-04-C14-001,LIM04-G14,command 10,valid protected baseline,confirm=0xA55A acquisition stopped no critical operation,"controlled reset path",CONDITIONAL
+TT-LIM-04-C14-002,LIM04-G14,command 11,valid protected baseline,confirm=0xA55A,"statistics reset path",CONDITIONAL
+TT-LIM-04-C15-001,LIM04-G15,cancel_request,cancellable current command,engine flag bit9=1 then cancel,"documented cancellation behavior",CONDITIONAL
+TT-LIM-04-C15-002,LIM04-G15,cancel_request,non-cancellable current command,engine flag bit9=0 then cancel,"result 15",CONDITIONAL
+TT-LIM-04-C16-001,LIM04-G16,clear_request_fields,request fields populated,set control bit2,"request fields cleared; no parasitic command execution",ACTIVE
