@@ -37,7 +37,9 @@ Sont notamment à tracer sans fabrication d'oracle :
 - politique recommandée d'entrée en maintenance acquisition arrêtée, non normative en V1 ;
 - absence de code résultat spécifique à une incohérence CRC lors d'APPLY CONFIG, la V1 utilisant le code générique `4` de configuration invalide ;
 - priorité entre causes simultanées de refus START non définie ;
-- périmètre exact du masque optionnel de sous-tests SELFTEST et des indicateurs recalculés par REFRESH non défini de manière exhaustive.
+- périmètre exact du masque optionnel de sous-tests SELFTEST et des indicateurs recalculés par REFRESH non défini de manière exhaustive ;
+- définition exhaustive d'une opération critique et code de refus associé pour RESET SOFTWARE non définis ;
+- périmètre exact des statistiques réinitialisées et usage futur de `param1` pour RESET STATISTICS non définis.
 
 Ces points sont conservés pour le rapport d'audit final et pourront alimenter une éventuelle spécification V1.1 après clôture de l'audit V1.
 
@@ -48,7 +50,7 @@ Ces points sont conservés pour le rapport d'audit final et pourront alimenter u
 - FT-CMD-03 : validée et mergée dans `main` ;
 - FT-CMD-04 : validée et mergée dans `main` ;
 - FT-CMD-05 : validée et mergée dans `main` ;
-- FT-CMD-06 : reconstruite, en attente de validation ;
-- FT-CMD-07 : non démarrée.
+- FT-CMD-06 : validée et mergée dans `main` ;
+- FT-CMD-07 : reconstruite, en attente de validation.
 
 Aucun gel ni merge global sans validation explicite.
