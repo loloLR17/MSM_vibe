@@ -1,0 +1,16 @@
+constraint_id,scope,field_or_relation,status,normative_rule,generic_case
+LIM08-C01,Bloc0,device_capabilities,ACTIVE,"bits 4..15 reserved zero; mask 0xFFF0",LIM08-G01
+LIM08-C02,Bloc0,identification fields,ACTIVE,"static during normal operation",LIM08-G02
+LIM08-C03,Bloc0,device_id persistence,CONDITIONAL,"persistent identity",LIM08-G03
+LIM08-C04,Bloc0,device_id uniqueness,CONDITIONAL,"unique identity across devices",LIM08-G04
+LIM08-C05,Bloc1,last_reset_cause,ACTIVE,"enum {0..6}; 7..65535 reserved",LIM08-G05/G09
+LIM08-C06,Bloc1,storage_status,ACTIVE,"enum {0,1,2,3}",LIM08-G06
+LIM08-C07,Bloc1,acquisition_state,ACTIVE,"enum {0,1,2,3}",LIM08-G07
+LIM08-C08,Bloc1,uptime_s,ACTIVE,"monotonic outside reset",LIM08-G08/G09
+LIM08-C09,Bloc1,fault/warning persistence,CONDITIONAL,"persistent while condition present",LIM08-G10
+LIM08-ND01,Bloc1,system_status,NOT_DEFINED,"detailed domain to arbitrate",LIM08-G11
+LIM08-ND02,Bloc1,system_flags/fault_flags/warning_flags,NOT_DEFINED,"no normative bit tables",LIM08-G11
+LIM08-ND03,Bloc1,error_code/warning_code,NOT_DEFINED,"no normative code tables",LIM08-G11
+LIM08-ND04,Bloc1,internal_temp_dC,NOT_DEFINED,"no functional range",LIM08-G11
+LIM08-ND05,Bloc1,cpu/memory/storage percent,NOT_DEFINED,"no explicit normative functional bounds",LIM08-G11
+LIM08-ND06,Bloc1,flags/global-state exact relation,NOT_DEFINED,"generic coherence statement only",LIM08-G10/G11
