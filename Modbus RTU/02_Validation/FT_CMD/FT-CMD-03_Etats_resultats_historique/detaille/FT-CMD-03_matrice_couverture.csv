@@ -1,0 +1,8 @@
+id;exigence;source_v1;classification;test;remarque
+CMD03-001;Valeurs et états finaux de cmd_status;bloc5 §7.9;COVERED;TT-CMD-B05-200/201/202;Ne pas imposer la séquence intermédiaire
+CMD03-002;Séquence exhaustive reçu-accepte-en_cours-final;bloc5 §7.9 et §9;NOT_DEFINED;;Séquence côté centrale recommandée seulement
+CMD03-003;Domaine cmd_result_code 0..22;bloc5 §7.10;COVERED;TT-CMD-B05-200/201/202;Conditions métier déléguées FT-CMD-05..07
+CMD03-004;Cohérence nominale cmd_active_code et transaction_id;bloc5 §7.7-7.8;COVERED;TT-CMD-B05-203;Concurrence exclue
+CMD03-005;Historique dernière commande terminée quel que soit résultat;bloc5 §7.13-7.16;COVERED;TT-CMD-B05-204/205;
+CMD03-006;Timestamp de fin dernière commande;bloc5 §7.17;COVERED;TT-CMD-B05-206;Codage uint32 délégué FT-STR
+CMD03-007;Sémantique exhaustive cmd_result_detail;bloc5 §7.11;NOT_DEFINED;;Exemples uniquement
