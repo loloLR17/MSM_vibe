@@ -1,90 +1,52 @@
-# FT-STR-06 — README
+# FT-STR-06 — Accessibilité et découpage de lecture Modbus
 
-## 1. Objet
+## Objet
 
-Cette famille de tests appartient au plan de validation **FT-STR (Conformité structurelle)**.
+FT-STR-06 valide que les plages exposées par le mapping TR2 sont lisibles via Modbus FC03 sans hypothèse implicite de découpage des champs logiques.
 
-Elle a pour objectif de valider :
-- la conformité du mapping Modbus
-- la structure des données
-- leur encodage et accessibilité
+## Référentiel de vérité
 
----
+1. spécification V1 (`bloc0.md` à `bloc7.md` et `charte_typage.md`) ;
+2. GEL-MAP-V1, dérivé de V1 ;
+3. `source/FT-STR-06.md` ;
+4. tests génériques de `detaille/` ;
+5. validation instanciée.
 
-## 2. Structure du dossier
+Une lecture partielle d'une zone exposée reste valide si toutes les adresses demandées sont valides.
+
+Une requête qui traverse une adresse inexistante est invalide et relève de GEL-GOV-02.
+
+## Structure active
 
 ```text
 FT-STR-06/
-├── source/
+├── README.md
+├── source/FT-STR-06.md
 ├── detaille/
+│   ├── TT-STR-06-GEN-001.md
+│   ├── TT-STR-06-GEN-002.md
+│   ├── TT-STR-06-GEN-003.md
+│   └── TT-STR-06-GEN-004.md
 ├── instancie/
-└── archive_pre_renforcement/ (optionnel)
+│   ├── README.md
+│   ├── COUVERTURE_FT-STR-06_GEL-MAP-V1.csv
+│   └── RESULTAT_FT-STR-06_GEL-MAP-V1.md
+└── archive_pre_renforcement/
+    └── instancie_legacy/
 ```
 
-### source/
-Contient la fiche de spécification officielle :
-- `FT-STR-XX.md`
+Le validateur mécanique est `Modbus RTU/03_Automatisation/validate_ft_str_06_read_access.py`.
 
-👉 Référence fonctionnelle
+## Répartition avec les autres sous-familles
 
----
+- géométrie et frontières du mapping : FT-STR-01 ;
+- typage : FT-STR-02 ;
+- encodage multi-registres : FT-STR-03 ;
+- stabilité/cohérence temporelle des réponses : FT-STR-07 ;
+- droits et refus d'écriture : FT-ACC.
 
-### detaille/
-Contient les cas de test génériques :
-- `TT-STR-XX-XXX.md`
+FT-PER reste la famille persistance/recovery. La performance Modbus non spécifiée est hors périmètre actuel.
 
-👉 Niveau :
-- logique
-- indépendant du mapping
+## Statut
 
----
-
-### instancie/
-Contient les cas de test appliqués au mapping réel.
-
-👉 Niveau :
-- exécutable terrain
-- basé sur mapping_unifie
-
----
-
-### archive_pre_renforcement/
-Contient les anciennes versions.
-
-👉 Non utilisé en opérationnel
-
----
-
-## 3. Référentiel de vérité
-
-Ordre de priorité :
-
-1. mapping_unifie
-2. source/FT-STR-XX.md
-3. instancie/
-4. detaille/
-
----
-
-## 4. Règles
-
-- aucun test instancié ne doit exister sans mapping
-- aucun champ ne doit être testé deux fois dans instancie/
-- detaille/ ne doit jamais contenir d’adresse
-- archive ne doit jamais être utilisée en validation
-
----
-
-## 5. Utilisation
-
-Ordre recommandé :
-
-1. FT-STR-08 (doc ↔ mapping)
-2. FT-STR-01 → 07
-3. exécution instanciée
-
----
-
-## 6. Statut
-
-Famille validée pour usage industriel.
+Sous-famille reconstruite lors de l'audit FT-STR contre V1, GEL-MAP-V1 et GEL-GOV-02.
