@@ -39,7 +39,8 @@ Sont notamment à tracer sans fabrication d'oracle :
 ## 6. Statut
 
 - FT-CMD-01 : validée et mergée dans `main` ;
-- FT-CMD-02 : reconstruite, en attente de validation ;
-- FT-CMD-03 à FT-CMD-07 : non démarrées.
+- FT-CMD-02 : validée et mergée dans `main` ;
+- FT-CMD-03 : reconstruite, en attente de validation ;
+- FT-CMD-04 à FT-CMD-07 : non démarrées.
 
 Aucun gel ni merge global sans validation explicite.
