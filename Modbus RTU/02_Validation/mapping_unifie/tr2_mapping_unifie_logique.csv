@@ -1,4 +1,4 @@
-﻿block,logical_name,kind,source_fields,offset_start,offset_end,address_start,address_end,declared_type,register_count,access,description,source_file
+block,logical_name,kind,source_fields,offset_start,offset_end,address_start,address_end,declared_type,register_count,access,description,source_file
 0,device_id,uint32_from_split_words,device_id_msw;device_id_lsw,0,1,0,1,uint32,2,RO,Identifiant unique capteur,bloc0.md
 0,hardware_version,declared_as_is,hardware_version,2,2,2,2,uint16,1,RO,Version hardware,bloc0.md
 0,firmware_version_major,declared_as_is,firmware_version_major,3,3,3,3,uint16,1,RO,Version firmware majeure,bloc0.md
@@ -8,7 +8,7 @@
 0,device_capabilities,declared_as_is,device_capabilities,7,7,7,7,bitfield16,1,RO,Capacités du capteur,bloc0.md
 0,serial_number,ascii_fixed_from_register_parts,serial_number_r0;serial_number_r1;serial_number_r2;serial_number_r3;serial_number_r4;serial_number_r5;serial_number_r6;serial_number_r7,8,15,8,15,ASCII fixe,8,RO,Numéro de série,bloc0.md
 0,manufacturer,ascii_fixed_from_register_parts,manufacturer_r0;manufacturer_r1;manufacturer_r2;manufacturer_r3,16,19,16,19,ASCII fixe,4,RO,Fabricant,bloc0.md
-0,reserved,declared_as_is,reserved,20,20,20,20,uint16,1,RO,Réservé (0),bloc0.md
+0,reserved_0,declared_as_is,reserved_0,20,20,20,20,uint16,1,RO,Réservé (0),bloc0.md
 1,system_status,declared_as_is,system_status,0,0,1000,1000,enum16,1,RO,État global du capteur,bloc1.md
 1,system_flags,declared_as_is,system_flags,1,1,1001,1001,bitfield16,1,RO,Drapeaux d’état système,bloc1.md
 1,fault_flags,declared_as_is,fault_flags,2,2,1002,1002,bitfield16,1,RO,Drapeaux de défauts actifs,bloc1.md
@@ -64,7 +64,7 @@
 3,B3_ALARM_LATCHED,declared_as_is,B3_ALARM_LATCHED,35,35,3035,3035,enum16,1,RO,Présence d’une alarme mémorisée,bloc3.md
 3,B3_EXCEED_COUNT,declared_as_is,B3_EXCEED_COUNT,36,37,3036,3037,uint32,2,RO,Compteur total de dépassements détectés,bloc3.md
 3,B3_ALARM_COUNT,declared_as_is,B3_ALARM_COUNT,38,39,3038,3039,uint32,2,RO,Compteur total d’alarmes générées,bloc3.md
-3,B3_RESERVED_0,declared_as_is,B3_RESERVED_0,40,47,3040,3047,réservé,8,RO,Réserve d’extension future,bloc3.md
+3,B3_RESERVED_0,declared_as_is,B3_RESERVED_0,40,47,3040,3047,uint16[8],8,RO,Réserve d’extension future,bloc3.md
 4,config_structure_version,declared_as_is,config_structure_version,0,0,4000,4000,uint16,1,RO,Version structure Bloc 4,bloc4.md
 4,config_capabilities_mask,declared_as_is,config_capabilities_mask,1,1,4001,4001,uint16,1,RO,Masque de capacités,bloc4.md
 4,prepared_config_id,declared_as_is,prepared_config_id,2,3,4002,4003,uint32,2,RW,ID configuration préparée,bloc4.md
@@ -76,15 +76,14 @@
 4,config_revision_counter,declared_as_is,config_revision_counter,12,13,4012,4013,uint32,2,RO,Compteur de révision,bloc4.md
 4,reserved_4A,declared_as_is,reserved_4A,14,15,4014,4015,uint16[2],2,RO,Réservé,bloc4.md
 4,sampling_frequency_hz,declared_as_is,sampling_frequency_hz,16,16,4016,4016,uint16,1,RW,Fréquence d’échantillonnage,bloc4.md
-4,reserved,declared_as_is,reserved,17,17,4017,4017,uint16,1,RO,Réservé,bloc4.md
-4,reserved_4B_17,declared_as_is,reserved_4B_17,17,17,4017,4017,uint16,1,RO,"Réservé, doit lire 0",bloc4.md
-4,axes_enable_mask,declared_as_is,axes_enable_mask,18,18,4018,4018,uint16,1,RW,Activation axes,bloc4.md
-4,full_scale_code,declared_as_is,full_scale_code,19,19,4019,4019,uint16,1,RW,Pleine échelle,bloc4.md
-4,acquisition_mode,declared_as_is,acquisition_mode,20,20,4020,4020,uint16,1,RW,Mode acquisition,bloc4.md
+4,reserved_4B_0,declared_as_is,reserved_4B_0,17,17,4017,4017,uint16,1,RO,Réservé,bloc4.md
+4,axes_enable_mask,declared_as_is,axes_enable_mask,18,18,4018,4018,bitfield16,1,RW,Activation axes,bloc4.md
+4,full_scale_code,declared_as_is,full_scale_code,19,19,4019,4019,enum16,1,RW,Pleine échelle,bloc4.md
+4,acquisition_mode,declared_as_is,acquisition_mode,20,20,4020,4020,enum16,1,RW,Mode acquisition,bloc4.md
 4,window_size_samples,declared_as_is,window_size_samples,21,21,4021,4021,uint16,1,RW,Taille fenêtre,bloc4.md
 4,indicator_period_ms,declared_as_is,indicator_period_ms,22,22,4022,4022,uint16,1,RW,Période indicateurs,bloc4.md
 4,campaign_duration_s,declared_as_is,campaign_duration_s,23,24,4023,4024,uint32,2,RW,Durée campagne,bloc4.md
-4,storage_mode,declared_as_is,storage_mode,25,25,4025,4025,uint16,1,RW,Mode stockage,bloc4.md
+4,storage_mode,declared_as_is,storage_mode,25,25,4025,4025,enum16,1,RW,Mode stockage,bloc4.md
 4,storage_limit_mb,declared_as_is,storage_limit_mb,26,27,4026,4027,uint32,2,RW,Limite stockage,bloc4.md
 4,reserved_4B,declared_as_is,reserved_4B,28,39,4028,4039,uint16[12],12,RO,Réservé,bloc4.md
 4,supervision_enable_mask,declared_as_is,supervision_enable_mask,40,40,4040,4040,uint16,1,RW,Masque supervision,bloc4.md
@@ -105,13 +104,13 @@
 4,sea_state_code,declared_as_is,sea_state_code,95,95,4095,4095,uint16,1,RW,État mer,bloc4.md
 4,reserved_4D,declared_as_is,reserved_4D,96,99,4096,4099,uint16[4],4,RO,Réservé,bloc4.md
 4,active_sampling_frequency_hz,declared_as_is,active_sampling_frequency_hz,100,100,4100,4100,uint16,1,RO,Miroir actif,bloc4.md
-4,active_axes_enable_mask,declared_as_is,active_axes_enable_mask,101,101,4101,4101,uint16,1,RO,Miroir actif,bloc4.md
-4,active_full_scale_code,declared_as_is,active_full_scale_code,102,102,4102,4102,uint16,1,RO,Miroir actif,bloc4.md
-4,active_acquisition_mode,declared_as_is,active_acquisition_mode,103,103,4103,4103,uint16,1,RO,Miroir actif,bloc4.md
+4,active_axes_enable_mask,declared_as_is,active_axes_enable_mask,101,101,4101,4101,bitfield16,1,RO,Miroir actif,bloc4.md
+4,active_full_scale_code,declared_as_is,active_full_scale_code,102,102,4102,4102,enum16,1,RO,Miroir actif,bloc4.md
+4,active_acquisition_mode,declared_as_is,active_acquisition_mode,103,103,4103,4103,enum16,1,RO,Miroir actif,bloc4.md
 4,active_window_size_samples,declared_as_is,active_window_size_samples,104,104,4104,4104,uint16,1,RO,Miroir actif,bloc4.md
 4,active_indicator_period_ms,declared_as_is,active_indicator_period_ms,105,105,4105,4105,uint16,1,RO,Miroir actif,bloc4.md
 4,active_campaign_duration_s,declared_as_is,active_campaign_duration_s,106,107,4106,4107,uint32,2,RO,Miroir actif,bloc4.md
-4,active_storage_mode,declared_as_is,active_storage_mode,108,108,4108,4108,uint16,1,RO,Miroir actif,bloc4.md
+4,active_storage_mode,declared_as_is,active_storage_mode,108,108,4108,4108,enum16,1,RO,Miroir actif,bloc4.md
 4,active_storage_limit_mb,declared_as_is,active_storage_limit_mb,109,110,4109,4110,uint32,2,RO,Miroir actif,bloc4.md
 4,reserved_4E_A,declared_as_is,reserved_4E_A,111,115,4111,4115,uint16[5],5,RO,"Réservé, doit lire 0",bloc4.md
 4,active_supervision_enable_mask,declared_as_is,active_supervision_enable_mask,116,116,4116,4116,uint16,1,RO,Miroir actif,bloc4.md
@@ -157,7 +156,7 @@
 6,storage_used_mb,declared_as_is,storage_used_mb,5,6,6005,6006,uint32,2,RO,Espace utilisé,bloc6.md
 6,storage_free_mb,declared_as_is,storage_free_mb,7,8,6007,6008,uint32,2,RO,Espace libre,bloc6.md
 6,storage_health_status,declared_as_is,storage_health_status,9,9,6009,6009,uint16,1,RO,État stockage,bloc6.md
-6,reserved_6A,declared_as_is,reserved_6A,10,11,6010,6011,uint16\[2],2,RO,Réservé,bloc6.md
+6,reserved_6A,declared_as_is,reserved_6A,10,11,6010,6011,uint16[2],2,RO,Réservé,bloc6.md
 6,campaign_id,declared_as_is,campaign_id,12,13,6012,6013,uint32,2,RO,Identifiant campagne,bloc6.md
 6,mission_id,declared_as_is,mission_id,14,15,6014,6015,uint32,2,RO,Identifiant mission,bloc6.md
 6,start_timestamp,declared_as_is,start_timestamp,16,17,6016,6017,uint32,2,RO,Début campagne,bloc6.md
@@ -168,7 +167,7 @@
 6,campaign_label,declared_as_is,campaign_label,25,40,6025,6040,ASCII fixe,16,RO,Label campagne,bloc6.md
 6,mission_label,declared_as_is,mission_label,41,56,6041,6056,ASCII fixe,16,RO,Label mission,bloc6.md
 6,data_integrity_status,declared_as_is,data_integrity_status,57,57,6057,6057,uint16,1,RO,Intégrité données,bloc6.md
-6,reserved_6B,declared_as_is,reserved_6B,58,63,6058,6063,uint16\[6],6,RO,Réservé,bloc6.md
+6,reserved_6B,declared_as_is,reserved_6B,58,63,6058,6063,uint16[6],6,RO,Réservé,bloc6.md
 7,diag_structure_version,declared_as_is,diag_structure_version,0,0,7000,7000,uint16,1,RO,Version structure Bloc 7,bloc7.md
 7,system_health_status,declared_as_is,system_health_status,1,1,7001,7001,enum16,1,RO,État global,bloc7.md
 7,system_fault_flags,declared_as_is,system_fault_flags,2,2,7002,7002,bitfield16,1,RO,Flags défauts,bloc7.md
@@ -178,7 +177,7 @@
 7,selftest_result_code,declared_as_is,selftest_result_code,7,7,7007,7007,uint16,1,RO,Résultat autotest,bloc7.md
 7,selftest_detail,declared_as_is,selftest_detail,8,8,7008,7008,uint16,1,RO,Détail autotest,bloc7.md
 7,uptime_s,declared_as_is,uptime_s,9,10,7009,7010,uint32,2,RO,Temps fonctionnement,bloc7.md
-7,reset_cause,declared_as_is,reset_cause,11,11,7011,7011,uint16,1,RO,Cause dernier reset,bloc7.md
+7,reset_cause,declared_as_is,reset_cause,11,11,7011,7011,enum16,1,RO,Cause dernier reset,bloc7.md
 7,internal_temp_dC,declared_as_is,internal_temp_dC,12,12,7012,7012,int16,1,RO,Température interne (déci °C),bloc7.md
 7,supply_voltage_mV,declared_as_is,supply_voltage_mV,13,13,7013,7013,uint16,1,RO,Tension alimentation,bloc7.md
-7,reserved_7A,declared_as_is,reserved_7A,14,15,7014,7015,uint16\[2],2,RO,Réservé,bloc7.md
+7,reserved_7A,declared_as_is,reserved_7A,14,15,7014,7015,uint16[2],2,RO,Réservé,bloc7.md
