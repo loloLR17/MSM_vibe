@@ -10,7 +10,8 @@
 - **Nom** : Conformité structurelle
 - **Type** : Validation protocolaire bas niveau
 - **Niveau de criticité** : **P0 (bloquant)**
-- **Dépendance** : aucune
+- **Dépendance inter-familles** : aucune
+- **Entrées de référence obligatoires** : spécification Modbus RTU V1 gelée et mapping unifié dérivé
 - **Pré-requis pour autres familles** : obligatoire
 
 ---
@@ -48,7 +49,8 @@ Cette famille garantit que :
   - ASCII fixe avec padding `0x00` ;
 - registres réservés ;
 - sentinelles uniquement lorsqu’elles sont explicitement définies par la spécification normative ;
-- modes de lecture structurels ;
+- accessibilité en lecture des plages exposées ;
+- validité des lectures portant sur des sous-plages valides, y compris lorsqu’elles sont partielles ;
 - stabilité et cohérence des lectures.
 
 ### 3.2 Exclus
@@ -57,6 +59,7 @@ Cette famille garantit que :
 - validité fonctionnelle des états ;
 - logique de commande ;
 - séquences d’usage ;
+- validation des droits d’écriture et des refus d’accès en écriture, couverte par FT-ACC ;
 - persistance après reboot ;
 - performances physiques ou temporelles hors exigences explicitement spécifiées.
 
@@ -89,7 +92,7 @@ Toute ambiguïté doit être remontée comme anomalie de spécification ; aucune
 | FT-STR-03 | Encodage multi-registres |
 | FT-STR-04 | ASCII fixe |
 | FT-STR-05 | Réservés et sentinelles |
-| FT-STR-06 | Accessibilité lecture |
+| FT-STR-06 | Accessibilité et découpage de lecture Modbus |
 | FT-STR-07 | Stabilité d’image |
 | FT-STR-08 | Conformité documentaire |
 
@@ -176,7 +179,7 @@ Rejet notamment en cas de :
 | Endianness incorrecte | Données inutilisables |
 | ASCII mal formé | Interface illisible |
 | Réservés pollués | Ambiguïté |
-| Lecture non standard | Intégration difficile |
+| Découpage de lecture non conforme | Intégration difficile |
 | Incohérence multi-registres | Valeur reconstruite invalide |
 | Instabilité d’image | Non-fiabilité |
 
@@ -187,7 +190,7 @@ Rejet notamment en cas de :
 | Risque | Famille |
 |---|---|
 | Cohérence métier | FT-BLK |
-| Droits d’accès | FT-ACC |
+| Droits d’accès et refus d’écriture | FT-ACC |
 | Valeurs limites / domaines invalides | FT-LIM |
 | Commandes | FT-CMD |
 | Séquences | FT-SEQ |
@@ -203,7 +206,7 @@ Rejet notamment en cas de :
 Toute inversion MSW/LSW constitue une anomalie critique.
 
 ### Réservés
-Les registres réservés doivent respecter la valeur et les règles d’accès définies par la spécification V1. Lorsqu’ils sont définis comme réservés à zéro, toute valeur non nulle est non conforme.
+Les registres réservés doivent respecter la valeur et les règles structurelles définies par la spécification V1. La validation du refus d’écriture sur un registre réservé relève de FT-ACC. Lorsqu’un réservé est normativement défini à zéro, toute valeur lue non nulle est non conforme.
 
 ### ASCII
 Le padding `0x00` est obligatoire pour les chaînes ASCII fixes conformément à la charte de typage.
@@ -239,7 +242,7 @@ Les anomalies SPEC doivent être levées avant les familles aval qui dépendent 
 4. FT-STR-03 — Encodage
 5. FT-STR-04 — ASCII
 6. FT-STR-05 — Réservés et sentinelles
-7. FT-STR-06 — Accessibilité lecture
+7. FT-STR-06 — Accessibilité et découpage de lecture Modbus
 8. FT-STR-07 — Stabilité
 
 ---
