@@ -1,0 +1,15 @@
+ID,Propriete,Bloc,Classification,Test_ou_owner,Commentaire
+OBS02-R01,Validite explicite base de temps,B2,COVERED,TT-OBS-B02-001,time_status fournit les etats definis
+OBS02-R02,Drapeau TIME_VALID,B2,COVERED,TT-OBS-B02-001,Pas d heuristique current_time non nul
+OBS02-R03,Etat de synchronisation explicite,B2,COVERED,TT-OBS-B02-001,Cohérences detaillees deleguees
+OBS02-R04,Validite globale valeurs supervision,B3,COVERED,TT-OBS-B03-001,status global et VALUES_VALID
+OBS02-R05,Fraicheur explicite valeurs supervision,B3,COVERED,TT-OBS-B03-001,VALUES_FRESH plus age et timestamp
+OBS02-R06,Derniere valeur conservee,B3,COVERED,TT-OBS-B03-002,LAST_VALUE_HELD evite heuristique
+OBS02-R07,Donnee degradee distincte invalide,B3,COVERED,TT-OBS-B03-001,Degrade mais exploitable
+OBS02-R08,Erreur de calcul observable,B3,COVERED,TT-OBS-B03-001,CALC_ERROR explicite
+OBS02-R09,Seuil numerique universel de fraicheur,B3,NOT_DEFINED,V1.1 candidate,Aucun seuil a inventer
+OBS02-R10,Sentinelle globale absence invalidite,GLOBAL,NOT_DEFINED,V1.1 candidate,Ne pas generaliser 0 FFFF FFFFFFFF
+OBS02-R11,Distinction universelle absent indisponible non renseigne,GLOBAL,NOT_DEFINED,V1.1 candidate,Aucun mecanisme transversal unique
+OBS02-R12,Domaines enums bits reserves,B2/B3,DELEGATED,FT-STR / FT-LIM,Ownership conserve
+OBS02-R13,Cohérence temporelle B2,B2,DELEGATED,FT-BLK / FT-INT,Monotonie et derivations
+OBS02-R14,Cohérence snapshot et calcul B3,B3,DELEGATED,FT-BLK / FT-INT,Pas de duplication
