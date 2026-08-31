@@ -86,16 +86,18 @@ Sont non conformes sans évolution formelle de la charte :
 
 ## 9. Instanciation
 
-Les contrôles GEN-001 et GEN-002 sont appliqués aux 183 champs logiques de GEL-MAP-V1. GEN-003 est contrôlé globalement sur l'ensemble du mapping et des artefacts actifs.
+Les contrôles GEN-001 et GEN-002 s'appliquent directement aux **183 lignes logiques de GEL-MAP-V1**. GEN-003 est contrôlé globalement sur le mapping et les artefacts actifs.
 
-La vérification d'une fiche instanciée est documentaire/structurelle : elle compare les références normatives et dérivées. Elle ne prétend pas identifier le type en observant uniquement les bits retournés par le serveur Modbus.
+L'instanciation active n'est donc pas matérialisée par 183 fichiers redondants. Le mapping gelé porte l'identité champ par champ ; `validate_ft_str_02_typing.py` porte l'application mécanique des invariants ; `instancie/` porte la couverture et le résultat.
+
+La vérification est documentaire/structurelle : elle compare les références normatives et dérivées. Elle ne prétend pas identifier le type en observant uniquement les bits retournés par le serveur Modbus.
 
 ## 10. Critères de réussite
 
-- 100 % des champs ont un type explicite autorisé ;
+- 100 % des 183 champs ont un type explicite autorisé ou une notation documentaire `uint16[n]` conforme ;
 - 100 % des tailles sont compatibles avec le type déclaré ;
 - aucun type implicite, interdit ou historique n'est actif ;
-- les 183 instanciations sont traçables à GEL-MAP-V1 et aux génériques.
+- couverture exacte des huit blocs de GEL-MAP-V1.
 
 ## 11. Critères d'échec
 
