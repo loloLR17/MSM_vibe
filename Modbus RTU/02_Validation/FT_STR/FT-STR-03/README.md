@@ -1,90 +1,57 @@
-# FT-STR-03 — README
+# FT-STR-03 — Encodage multi-registres
 
-## 1. Objet
+## Objet
 
-Cette famille de tests appartient au plan de validation **FT-STR (Conformité structurelle)**.
+FT-STR-03 valide la convention d'encodage des champs `uint32` du protocole TR2.
 
-Elle a pour objectif de valider :
-- la conformité du mapping Modbus
-- la structure des données
-- leur encodage et accessibilité
+La règle normative est unique :
 
----
+- registre N = MSW ;
+- registre N+1 = LSW ;
+- reconstruction = `(MSW << 16) | LSW`.
 
-## 2. Structure du dossier
+FT-STR-03 ne déduit jamais l'ordre des mots de la plausibilité d'une valeur observée.
 
-```text
-FT-STR-03/
-├── source/
-├── detaille/
-├── instancie/
-└── archive_pre_renforcement/ (optionnel)
-```
-
-### source/
-Contient la fiche de spécification officielle :
-- `FT-STR-XX.md`
-
-👉 Référence fonctionnelle
-
----
-
-### detaille/
-Contient les cas de test génériques :
-- `TT-STR-XX-XXX.md`
-
-👉 Niveau :
-- logique
-- indépendant du mapping
-
----
-
-### instancie/
-Contient les cas de test appliqués au mapping réel.
-
-👉 Niveau :
-- exécutable terrain
-- basé sur mapping_unifie
-
----
-
-### archive_pre_renforcement/
-Contient les anciennes versions.
-
-👉 Non utilisé en opérationnel
-
----
-
-## 3. Référentiel de vérité
+## Référentiel de vérité
 
 Ordre de priorité :
 
-1. mapping_unifie
-2. source/FT-STR-XX.md
-3. instancie/
-4. detaille/
+1. spécification V1 (`bloc0.md` à `bloc7.md` et `charte_typage.md`) ;
+2. GEL-MAP-V1, dérivé de V1 ;
+3. `source/FT-STR-03.md` ;
+4. tests génériques de `detaille/` ;
+5. validation instanciée.
 
----
+Une incohérence se corrige dans l'artefact dérivé concerné, jamais en modifiant silencieusement V1.
 
-## 4. Règles
+## Structure active
 
-- aucun test instancié ne doit exister sans mapping
-- aucun champ ne doit être testé deux fois dans instancie/
-- detaille/ ne doit jamais contenir d’adresse
-- archive ne doit jamais être utilisée en validation
+```text
+FT-STR-03/
+├── README.md
+├── source/FT-STR-03.md
+├── detaille/
+│   ├── TT-STR-03-GEN-001.md
+│   ├── TT-STR-03-GEN-002.md
+│   └── TT-STR-03-GEN-003.md
+├── instancie/
+│   ├── README.md
+│   └── RESULTAT_FT-STR-03_GEL-MAP-V1.md
+└── archive_pre_renforcement/
+    └── instancie_legacy/
+```
 
----
+Le validateur mécanique est `Modbus RTU/03_Automatisation/validate_ft_str_03_multireg.py`.
 
-## 5. Utilisation
+## Répartition avec les autres sous-familles
 
-Ordre recommandé :
+- typage et taille structurelle : FT-STR-02 ;
+- accessibilité et lectures partielles : FT-STR-06 ;
+- cohérence temporelle, snapshot et atomicité de l'image : FT-STR-07 ;
+- ASCII fixe : FT-STR-04.
 
-1. FT-STR-08 (doc ↔ mapping)
-2. FT-STR-01 → 07
-3. exécution instanciée
+La contiguïté physique des deux registres d'un `uint32` est vérifiée ici uniquement comme précondition nécessaire à son encodage, sans reprendre l'audit global de géométrie de FT-STR-01.
 
----
+## Statut
 
-## 6. Statut
-
-Famille validée pour usage industriel.
+Sous-famille reconstruite lors de l'audit FT-STR contre V1 et GEL-MAP-V1.

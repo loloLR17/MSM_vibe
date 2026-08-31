@@ -1,255 +1,74 @@
-# FT-STR-03 — Fiche de spécification
-
-## Encodage multi-registres et endianness applicative
-
----
+# FT-STR-03 — Encodage multi-registres
 
 ## 1. Identification
 
 - **ID** : FT-STR-03
 - **Nom** : Encodage multi-registres
 - **Famille parente** : FT-STR
-- **Criticité** : P0 (bloquant)
-
----
+- **Criticité** : P0
 
 ## 2. Objectif
 
-Valider que les données multi-registres (notamment `uint32`) sont :
+Vérifier que tout champ protocolaire déclaré `uint32` est représenté et décodé sans ambiguïté selon la convention normative TR2 : registre N = MSW, registre N+1 = LSW.
 
-- correctement ordonnées (MSW puis LSW),
-- contiguës,
-- cohérentes en lecture,
-- sans inversion ni ambiguïté.
+## 3. Références normatives
 
----
+- V1 : `bloc0.md` à `bloc7.md` ;
+- `charte_typage.md` ;
+- GEL-MAP-V1 comme dérivé opérationnel gelé de V1.
 
-## 3. Périmètre
+En cas de contradiction, V1 prévaut. Une règle absente de V1 n'est pas inventée : `NON DÉFINI / À ARBITRER`.
 
-### Inclus
+## 4. Périmètre inclus
 
-- Champs `uint32`
-- Ordre des mots (MSW → LSW)
-- Continuité des registres
-- Reconstruction logique des valeurs
-- Cohérence en lecture répétée (état stable)
-- Cas limites `uint32`
-- Détection de faux positifs de reconstruction
+- identification exhaustive des champs `uint32` ;
+- présence de deux registres consécutifs pour chaque `uint32` ;
+- ordre N = MSW, N+1 = LSW ;
+- reconstruction déterministe `(MSW << 16) | LSW` ;
+- vecteurs de test capables de révéler une permutation de mots ;
+- absence d'heuristique de plausibilité ou de permutation implicite côté centrale, firmware ou tests.
 
-### Exclus
+## 5. Hors périmètre
 
-- Valeur métier
-- Atomicité stricte firmware non spécifiée
-- Typage (FT-STR-02)
+- typage général : FT-STR-02 ;
+- géométrie globale des plages : FT-STR-01 ;
+- lectures partielles et accessibilité Modbus : FT-STR-06 ;
+- atomicité temporelle, cohérence MSW/LSW au même instant logique et stabilité de l'image : FT-STR-07 ;
+- contenu et padding des chaînes : FT-STR-04 ;
+- valeurs métier et domaines fonctionnels.
 
----
+## 6. Règles de conformité
 
-## 4. Références
+Pour chaque `uint32` :
 
-- Convention : `uint32 = MSW puis LSW`
-- Mapping des champs `uint32`
+1. `register_count = 2` ;
+2. `address_end = address_start + 1` ;
+3. `offset_end = offset_start + 1` ;
+4. le premier mot est interprété comme MSW et le second comme LSW ;
+5. le décodeur applique strictement `(MSW << 16) | LSW` ;
+6. aucune décision d'ordre des mots ne dépend de la valeur obtenue.
 
----
+Les champs dont GEL-MAP-V1 porte `kind = uint32_from_split_words` doivent en outre référencer exactement deux composants sources dans l'ordre documentaire MSW puis LSW. Les autres `uint32` restent soumis à la même convention normative, même si le mapping logique les représente `declared_as_is`.
 
-## 5. Règles de conformité
+## 7. Vecteurs génériques
 
-Un champ `uint32` est conforme si :
+Les vecteurs asymétriques sont obligatoires pour démontrer l'ordre :
 
-- il occupe exactement 2 registres consécutifs ;
-- le registre de poids fort est lu en premier ;
-- la reconstruction donne une valeur cohérente ;
-- aucune inversion de mots n’est observée ;
-- les valeurs limites restent reconstruisibles sans ambiguïté.
+| Valeur | MSW | LSW | Inversion |
+|---|---:|---:|---:|
+| `0x12345678` | `0x1234` | `0x5678` | `0x56781234` |
+| `0x00010002` | `0x0001` | `0x0002` | `0x00020001` |
+| `0x89ABCDEF` | `0x89AB` | `0xCDEF` | `0xCDEF89AB` |
 
----
+`0x00000000` et `0xFFFFFFFF` peuvent contrôler les bornes de reconstruction mais ne prouvent jamais l'ordre des mots, car leur permutation produit la même valeur.
 
-## 6. Préconditions
+## 8. Critères de réussite
 
-- FT-STR-02 validée
-- Accès Modbus stable
-- État capteur figé
+- 100 % des `uint32` GEL-MAP-V1 satisfont les invariants structurels d'encodage ;
+- tous les vecteurs asymétriques sont reconstruits conformément à la convention ;
+- aucune heuristique ou convention concurrente n'est utilisée dans les artefacts actifs.
 
----
+## 9. Dépendances
 
-## 7. Résultats attendus
-
-- reconstruction correcte des `uint32`
-- aucune ambiguïté d’ordre
-- comportement stable
-- valeurs limites correctement reconstruites
-
----
-
-## 8. Risques couverts
-
-| Risque | Impact |
-|---|---|
-| Inversion MSW/LSW | Données fausses |
-| Registres non contigus | Valeur corrompue |
-| Lecture incohérente | Instabilité |
-| Interprétation ambiguë | Intégration impossible |
-| Faux positif sur valeur symétrique | Validation erronée |
-
----
-
-## 9. Cas de figure
-
-### Nominal
-
-- Lecture complète d’un uint32
-- Reconstruction correcte
-
-### Limites
-
-- Lecture du MSW seul
-- Lecture du LSW seul
-- Lecture partielle puis complète
-- Valeurs limites `uint32`
-
-### Erreurs
-
-- Inversion volontaire
-- Décalage de registre
-- Reconstruction incohérente
-
-### Robustesse
-
-- Lecture répétée
-- Lecture avec timing variable
-- Vérification sur jeux de valeurs extrêmes
-
----
-
-## 10. Points critiques
-
-### Endianness
-
-Erreur la plus critique du protocole.
-
-### Faux positifs
-
-Certaines valeurs symétriques masquent une inversion.
-
-### Cohérence temporelle
-
-MSW et LSW doivent représenter le même instant.
-
----
-
-## 11. Ambiguïtés
-
-- Atomicité garantie ou non ?
-- Valeurs de test injectables ?
-- Comportement en lecture concurrente ?
-- Mode de forçage des valeurs limites disponible ou non ?
-
----
-
-## 12. Critères de réussite
-
-- 100% des uint32 correctement reconstruits
-- aucune inversion détectée
-- comportement stable
-- jeux de valeurs limites correctement traités
-
----
-
-## 13. Critères d’échec
-
-- inversion MSW/LSW
-- incohérence de reconstruction
-- discontinuité
-- faux positif non détecté
-
----
-
-## 14. Anomalies
-
-| Type | Exemple |
-|---|---|
-| BLOQUANTE | inversion |
-| MAJEURE | registre non contigu |
-| MAJEURE | reconstruction limite incorrecte |
-| MINEURE | instabilité faible |
-| SPEC | ambiguïté doc |
-
----
-
-## 15. Dépendances
-
-### Amont
-
-- FT-STR-02
-
-### Aval
-
-- FT-BLK
-- FT-INT
-
----
-
-## 16. Ordre d’exécution
-
-1. Identifier champs uint32
-2. Lire MSW + LSW
-3. Reconstituer
-4. Tester inversion
-5. Tester répétabilité
-6. Tester valeurs limites
-7. Tester faux positifs
-
----
-
-## 17. Livrables
-
-- tableau des uint32
-- reconstruction validée
-- traces lecture
-- résultats des jeux de valeurs limites
-
----
-
-## 18. Tests de limites et robustesse des types
-
-### Objectif
-
-Valider que les champs multi-registres (`uint32`) sont correctement reconstruits et interprétés sur toute leur plage de définition.
-
-### Cas à couvrir
-
-#### Valeurs limites
-
-- `0x00000000`
-- `0x00000001`
-- `0x7FFFFFFF`
-- `0x80000000`
-- `0xFFFFFFFF`
-
-### Vérifications
-
-Pour chaque valeur :
-
-- reconstruction correcte `MSW << 16 | LSW`
-- absence d’inversion MSW/LSW
-- absence de troncature
-- cohérence sur lectures répétées
-
-### Détection d’erreurs
-
-- inversion MSW/LSW
-- overflow implicite
-- valeur incohérente
-- variation entre lectures
-
-### Critères d’acceptation
-
-- valeur reconstruite strictement conforme
-- aucune variation en état stable
-- aucune ambiguïté de reconstruction
-
-### Note d’applicabilité
-
-Ces tests peuvent nécessiter :
-- un banc de simulation,
-- un mode debug firmware,
-- ou un mécanisme de forçage contrôlé des valeurs.
+- amont : FT-STR-02 et GEL-MAP-V1 ;
+- complément temporel : FT-STR-07.
