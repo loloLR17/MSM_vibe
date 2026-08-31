@@ -1,0 +1,9 @@
+test_id,generic_case,precondition,observation,expected_result,execution_status
+TT-LIM-06-C01-001,LIM06-G01,selected campaign valid,read campaign_state,"value in {0,1,2,3,4,5}",CONDITIONAL
+TT-LIM-06-C02-001,LIM06-G02,selected campaign valid,read data_integrity_status,"value in {0,1,2,3}",CONDITIONAL
+TT-LIM-06-C03-001,LIM06-G03,none,read storage_health_status,"value in {0,1,2,3}",ACTIVE
+TT-LIM-06-C04-001,LIM06-G04,selected campaign valid,read campaign_id,"campaign_id != 0",CONDITIONAL
+TT-LIM-06-C05-001,LIM06-G05,"selected campaign valid and campaign_state=2",read end_timestamp,"end_timestamp=0",CONDITIONAL
+TT-LIM-06-C06-001,LIM06-G07,selected campaign valid,"record start_timestamp,end_timestamp,duration_s","TRACE_ONLY — normative coherence lacks precise numerical oracle",CONDITIONAL
+TT-LIM-06-C07-001,LIM06-G08,N>0,iterate valid indices,"apply C01,C02,C04 to every exposed valid campaign inspected","all inspected entries satisfy domains/invariant",CONDITIONAL
+TT-LIM-06-C08-001,LIM06-G09,"normative enum state not safely producible",record coverage,"N/A or non-observed, never artificial RO write",CONDITIONAL
