@@ -77,7 +77,7 @@ FT-STR s’appuie sur la hiérarchie documentaire suivante :
 
 Le mapping unifié est la source opérationnelle d’instanciation des tests, mais il ne constitue pas une norme indépendante. En cas de divergence avec la spécification V1, la spécification fait foi et la divergence doit être remontée comme anomalie documentaire.
 
-Convention de repérage : tout champ logique réservé doit être nommé avec le préfixe `reserved_` dans le mapping unifié.
+Convention de repérage : tout champ logique réservé doit être identifiable sans ambiguïté dans le mapping unifié ; la convention `reserved_*` est utilisée lorsqu’elle est applicable au nom dérivé, sans remettre en cause les noms normatifs explicitement définis par V1 (par exemple `B3_RESERVED_0`).
 
 Toute ambiguïté doit être remontée comme anomalie de spécification ; aucune règle implicite ne doit être inventée par FT-STR.
 
