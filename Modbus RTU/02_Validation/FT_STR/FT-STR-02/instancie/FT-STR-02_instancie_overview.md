@@ -1,20 +1,31 @@
-# FT-STR-02 — Tests instanciés
+# FT-STR-02 — Tests instanciés GEL-MAP-V1
 
 ## Objet
-Tests instanciés à partir du mapping unifié logique TR2.
+
+Contrôler le type déclaré et la taille structurelle des 183 champs logiques du mapping unifié gelé.
+
+## Références
+
+- V1 : `01_Specification_source/bloc0.md` à `bloc7.md`
+- charte : `01_Specification_source/charte_typage.md`
+- mapping : GEL-MAP-V1
+- gel mapping : `ff948e5917becceed7637d9c7864ec9b279be0ca`
+- génériques : `TT-STR-02-GEN-001` à `TT-STR-02-GEN-003`
 
 ## Règle d'instanciation
-- 1 fiche de test par champ logique
-- vérification de l'adresse de début
-- vérification de l'adresse de fin
-- vérification de la taille en registres
-- vérification du type déclaré
-- vérification de l'absence d'empiètement sur le champ suivant du même bloc
 
-## Convention d'identifiant
-`TT-STR-02-B<bloc>-NNN`
+Une fiche par champ logique contrôle :
+
+1. le type déclaré dans GEL-MAP-V1 par rapport à V1/charte ;
+2. l'appartenance à la liste des types autorisés ;
+3. la compatibilité entre le type et le nombre de registres.
+
+Les adresses présentes dans les fiches servent à identifier sans ambiguïté l'instanciation. Leur géométrie est validée par FT-STR-01.
+
+Une lecture Modbus n'est pas utilisée comme preuve du type : `uint16`, `int16`, `enum16` et `bitfield16` transportent tous un mot brut de 16 bits.
 
 ## Couverture
+
 - Bloc 0 : 10 champs logiques
 - Bloc 1 : 18 champs logiques
 - Bloc 2 : 12 champs logiques
@@ -23,8 +34,12 @@ Tests instanciés à partir du mapping unifié logique TR2.
 - Bloc 5 : 18 champs logiques
 - Bloc 6 : 20 champs logiques
 - Bloc 7 : 13 champs logiques
+- **Total : 183 champs logiques**
 
-## Notes
-- Les champs sont issus de `tr2_mapping_unifie_logique.csv`.
-- Les champs réservés sont inclus.
-- Les champs multi-registres déjà regroupés logiquement (`uint32`, `ASCII fixe`) sont testés comme unités logiques.
+## Convention
+
+`TT-STR-02-B<bloc>-NNN`
+
+## Statut documentaire
+
+Les 183 champs sont issus de `tr2_mapping_unifie_logique.csv`. GEN-003 est également applicable globalement à l'ensemble des artefacts actifs FT-STR-02.

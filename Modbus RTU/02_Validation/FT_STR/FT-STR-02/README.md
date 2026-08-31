@@ -1,90 +1,62 @@
-# FT-STR-02 — README
+# FT-STR-02 — Typage des champs
 
 ## 1. Objet
 
-Cette famille de tests appartient au plan de validation **FT-STR (Conformité structurelle)**.
+FT-STR-02 valide le typage déclaré des champs Modbus TR2 et la compatibilité structurelle entre chaque type et son nombre de registres.
 
-Elle a pour objectif de valider :
-- la conformité du mapping Modbus
-- la structure des données
-- leur encodage et accessibilité
+Elle vérifie la chaîne V1 → charte de typage → GEL-MAP-V1 → tests instanciés.
 
----
+Elle ne cherche pas à déduire un type à partir d'une lecture Modbus : un registre transporte toujours 16 bits et son interprétation provient du type déclaré.
 
-## 2. Structure du dossier
+## 2. Architecture
 
 ```text
 FT-STR-02/
-├── source/
+├── README.md
+├── source/FT-STR-02.md
 ├── detaille/
-├── instancie/
-└── archive_pre_renforcement/ (optionnel)
+│   ├── TT-STR-02-GEN-001.md
+│   ├── TT-STR-02-GEN-002.md
+│   └── TT-STR-02-GEN-003.md
+└── instancie/
+    ├── FT-STR-02_instancie_index.csv
+    ├── FT-STR-02_instancie_overview.md
+    └── TT-STR-02-B<bloc>-NNN__...md
 ```
-
-### source/
-Contient la fiche de spécification officielle :
-- `FT-STR-XX.md`
-
-👉 Référence fonctionnelle
-
----
-
-### detaille/
-Contient les cas de test génériques :
-- `TT-STR-XX-XXX.md`
-
-👉 Niveau :
-- logique
-- indépendant du mapping
-
----
-
-### instancie/
-Contient les cas de test appliqués au mapping réel.
-
-👉 Niveau :
-- exécutable terrain
-- basé sur mapping_unifie
-
----
-
-### archive_pre_renforcement/
-Contient les anciennes versions.
-
-👉 Non utilisé en opérationnel
-
----
 
 ## 3. Référentiel de vérité
 
-Ordre de priorité :
+1. spécification V1 et `charte_typage.md` ;
+2. GEL-MAP-V1, dérivé de V1 ;
+3. `source/FT-STR-02.md` ;
+4. `detaille/` ;
+5. `instancie/`.
 
-1. mapping_unifie
-2. source/FT-STR-XX.md
-3. instancie/
-4. detaille/
+Une incohérence se corrige dans l'artefact dérivé concerné, jamais en modifiant silencieusement une source supérieure.
 
----
+## 4. Types protocolaires autorisés
 
-## 4. Règles
+- `uint16`
+- `int16`
+- `uint32`
+- `bitfield16`
+- `enum16`
+- `ASCII fixe`
 
-- aucun test instancié ne doit exister sans mapping
-- aucun champ ne doit être testé deux fois dans instancie/
-- detaille/ ne doit jamais contenir d’adresse
-- archive ne doit jamais être utilisée en validation
+`uint16[n]` est uniquement une notation documentaire de regroupement de `n` registres `uint16` consécutifs ; ce n'est pas un type protocolaire supplémentaire.
 
----
+Tout autre type est interdit sans évolution formelle de la charte.
 
-## 5. Utilisation
+## 5. Répartition avec les autres sous-familles
 
-Ordre recommandé :
-
-1. FT-STR-08 (doc ↔ mapping)
-2. FT-STR-01 → 07
-3. exécution instanciée
-
----
+- bornes et chevauchements : FT-STR-01 ;
+- ordre MSW/LSW et cohérence des multi-registres : FT-STR-03 ;
+- encodage ASCII : FT-STR-04 ;
+- réservés/sentinelles : FT-STR-05 ;
+- accessibilité et découpage de lecture : FT-STR-06 ;
+- stabilité temporelle : FT-STR-07 ;
+- conformité documentaire globale : FT-STR-08.
 
 ## 6. Statut
 
-Famille validée pour usage industriel.
+Sous-famille reconstruite lors de l'audit FT-STR. Les 183 instanciations correspondent aux 183 champs logiques de GEL-MAP-V1 et servent à contrôler leur type déclaré et leur taille structurelle.
