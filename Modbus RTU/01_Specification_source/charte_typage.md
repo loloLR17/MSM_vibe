@@ -315,6 +315,14 @@ Usage :
 
 - 2 caractères / registre
 
+- dans chaque registre, le premier caractère est placé dans l’octet de poids fort (bits 15..8)
+
+- le second caractère est placé dans l’octet de poids faible (bits 7..0)
+
+- exemple : `"AB"` est encodé `0x4142`
+
+- si un seul caractère reste à encoder, l’octet faible est paddé à `0x00` (exemple : `"A"` → `0x4100`)
+
 - padding `0x00`
 
 - longueur fixe obligatoire
