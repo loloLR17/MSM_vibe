@@ -202,7 +202,7 @@ Le référentiel doit comporter au minimum :
 9. traces et rapports ;
 10. automatisation.
 
-L’arborescence détaillée est définie dans `00_gourvernance/CHARTE_ARBORESCENCE.md`.
+L’arborescence détaillée est définie dans `00_gouvernance/CHARTE_ARBORESCENCE.md`.
 
 ---
 
