@@ -1,0 +1,203 @@
+﻿block,offset_start,offset_end,address_start,address_end,field_name,declared_type,register_count,access,description,source_file
+0,0,0,0,0,device_id_msw,uint16,1,RO,Identifiant unique capteur (MSW),bloc0.md
+0,1,1,1,1,device_id_lsw,uint16,1,RO,Identifiant unique capteur (LSW),bloc0.md
+0,2,2,2,2,hardware_version,uint16,1,RO,Version hardware,bloc0.md
+0,3,3,3,3,firmware_version_major,uint16,1,RO,Version firmware majeure,bloc0.md
+0,4,4,4,4,firmware_version_minor,uint16,1,RO,Version firmware mineure,bloc0.md
+0,5,5,5,5,firmware_version_patch,uint16,1,RO,Version firmware patch,bloc0.md
+0,6,6,6,6,protocol_version,uint16,1,RO,Version du protocole Modbus TR2,bloc0.md
+0,7,7,7,7,device_capabilities,bitfield16,1,RO,Capacités du capteur,bloc0.md
+0,8,8,8,8,serial_number_r0,uint16,1,RO,Numéro de série (caractères 1-2),bloc0.md
+0,9,9,9,9,serial_number_r1,uint16,1,RO,Numéro de série (caractères 3-4),bloc0.md
+0,10,10,10,10,serial_number_r2,uint16,1,RO,Numéro de série (caractères 5-6),bloc0.md
+0,11,11,11,11,serial_number_r3,uint16,1,RO,Numéro de série (caractères 7-8),bloc0.md
+0,12,12,12,12,serial_number_r4,uint16,1,RO,Numéro de série (caractères 9-10),bloc0.md
+0,13,13,13,13,serial_number_r5,uint16,1,RO,Numéro de série (caractères 11-12),bloc0.md
+0,14,14,14,14,serial_number_r6,uint16,1,RO,Numéro de série (caractères 13-14),bloc0.md
+0,15,15,15,15,serial_number_r7,uint16,1,RO,Numéro de série (caractères 15-16),bloc0.md
+0,16,16,16,16,manufacturer_r0,uint16,1,RO,Fabricant (caractères 1-2),bloc0.md
+0,17,17,17,17,manufacturer_r1,uint16,1,RO,Fabricant (caractères 3-4),bloc0.md
+0,18,18,18,18,manufacturer_r2,uint16,1,RO,Fabricant (caractères 5-6),bloc0.md
+0,19,19,19,19,manufacturer_r3,uint16,1,RO,Fabricant (caractères 7-8),bloc0.md
+0,20,20,20,20,reserved,uint16,1,RO,Réservé (0),bloc0.md
+1,0,0,1000,1000,system_status,enum16,1,RO,État global du capteur,bloc1.md
+1,1,1,1001,1001,system_flags,bitfield16,1,RO,Drapeaux d’état système,bloc1.md
+1,2,2,1002,1002,fault_flags,bitfield16,1,RO,Drapeaux de défauts actifs,bloc1.md
+1,3,3,1003,1003,warning_flags,bitfield16,1,RO,Drapeaux d’avertissements,bloc1.md
+1,4,4,1004,1004,uptime_s_msw,uint16,1,RO,Temps de fonctionnement (MSW),bloc1.md
+1,5,5,1005,1005,uptime_s_lsw,uint16,1,RO,Temps de fonctionnement (LSW),bloc1.md
+1,6,6,1006,1006,last_reset_cause,enum16,1,RO,Cause du dernier redémarrage,bloc1.md
+1,7,7,1007,1007,internal_temp_dC,int16,1,RO,Température interne (déci °C),bloc1.md
+1,8,8,1008,1008,cpu_load_percent,uint16,1,RO,Charge CPU (%),bloc1.md
+1,9,9,1009,1009,memory_usage_percent,uint16,1,RO,Utilisation mémoire (%),bloc1.md
+1,10,10,1010,1010,storage_status,enum16,1,RO,État du stockage,bloc1.md
+1,11,11,1011,1011,storage_usage_percent,uint16,1,RO,Occupation stockage (%),bloc1.md
+1,12,12,1012,1012,acquisition_state,enum16,1,RO,État de l’acquisition,bloc1.md
+1,13,13,1013,1013,active_campaign_id_msw,uint16,1,RO,ID campagne active (MSW),bloc1.md
+1,14,14,1014,1014,active_campaign_id_lsw,uint16,1,RO,ID campagne active (LSW),bloc1.md
+1,15,15,1015,1015,error_code,uint16,1,RO,Code erreur principal,bloc1.md
+1,16,16,1016,1016,warning_code,uint16,1,RO,Code avertissement principal,bloc1.md
+1,17,17,1017,1017,reserved_1,uint16,1,RO,Réservé (0),bloc1.md
+1,18,18,1018,1018,reserved_2,uint16,1,RO,Réservé (0),bloc1.md
+1,19,19,1019,1019,reserved_3,uint16,1,RO,Réservé (0),bloc1.md
+2,0,0,2000,2000,time_status,enum16,1,RO,État global de la base de temps,bloc2.md
+2,1,1,2001,2001,time_flags,bitfield16,1,RO,Drapeaux de validité et synchronisation,bloc2.md
+2,2,2,2002,2002,current_time_msw,uint16,1,RO,Temps courant (MSW),bloc2.md
+2,3,3,2003,2003,current_time_lsw,uint16,1,RO,Temps courant (LSW),bloc2.md
+2,4,4,2004,2004,last_sync_time_msw,uint16,1,RO,Dernière synchronisation (MSW),bloc2.md
+2,5,5,2005,2005,last_sync_time_lsw,uint16,1,RO,Dernière synchronisation (LSW),bloc2.md
+2,6,6,2006,2006,time_since_sync_s_msw,uint16,1,RO,Temps écoulé depuis dernière sync (MSW),bloc2.md
+2,7,7,2007,2007,time_since_sync_s_lsw,uint16,1,RO,Temps écoulé depuis dernière sync (LSW),bloc2.md
+2,8,8,2008,2008,prepared_time_msw,uint16,1,RW,Temps préparé (MSW),bloc2.md
+2,9,9,2009,2009,prepared_time_lsw,uint16,1,RW,Temps préparé (LSW),bloc2.md
+2,10,10,2010,2010,prepared_time_status,enum16,1,RO,État du temps préparé,bloc2.md
+2,11,11,2011,2011,time_accuracy_ms,uint16,1,RO,Précision estimée de l’horloge (ms),bloc2.md
+2,12,12,2012,2012,drift_ppm,int16,1,RO,Dérive estimée (ppm),bloc2.md
+2,13,13,2013,2013,sync_source,enum16,1,RO,Source de synchronisation,bloc2.md
+2,14,14,2014,2014,reserved_1,uint16,1,RO,Réservé (0),bloc2.md
+2,15,15,2015,2015,reserved_2,uint16,1,RO,Réservé (0),bloc2.md
+3,0,0,3000,3000,B3_STATUS_GLOBAL,enum16,1,RO,Statut global de supervision vibratoire,bloc3.md
+3,1,1,3001,3001,B3_VALIDITY_FLAGS,bitfield16,1,RO,Drapeaux détaillés de validité / fraîcheur / cohérence,bloc3.md
+3,2,2,3002,3002,B3_ALARM_FLAGS,bitfield16,1,RO,Drapeaux détaillés d’alarme vibratoire,bloc3.md
+3,3,3,3003,3003,B3_SEVERITY_GLOBAL,enum16,1,RO,Niveau de sévérité global courant,bloc3.md
+3,4,5,3004,3005,B3_LAST_UPDATE_TR2,uint32,2,RO,Horodatage UTC de la dernière mise à jour valide,bloc3.md
+3,6,7,3006,3007,B3_VALUE_AGE_MS,uint32,2,RO,Âge de la dernière valeur valide,bloc3.md
+3,8,9,3008,3009,B3_CALC_SEQUENCE,uint32,2,RO,Compteur monotone de calcul,bloc3.md
+3,10,11,3010,3011,B3_WINDOW_DURATION_MS,uint32,2,RO,Durée de la fenêtre de calcul associée aux valeurs,bloc3.md
+3,12,13,3012,3013,B3_VALID_SAMPLE_COUNT,uint32,2,RO,Nombre d’échantillons valides utilisés dans la fenêtre,bloc3.md
+3,14,15,3014,3015,B3_RMS_GLOBAL_MG,uint32,2,RO,RMS global en norme vectorielle,bloc3.md
+3,16,17,3016,3017,B3_PEAK_GLOBAL_MG,uint32,2,RO,Crête globale en norme vectorielle,bloc3.md
+3,18,19,3018,3019,B3_RMS_X_MG,uint32,2,RO,RMS axe X,bloc3.md
+3,20,21,3020,3021,B3_RMS_Y_MG,uint32,2,RO,RMS axe Y,bloc3.md
+3,22,23,3022,3023,B3_RMS_Z_MG,uint32,2,RO,RMS axe Z,bloc3.md
+3,24,25,3024,3025,B3_PEAK_X_MG,uint32,2,RO,Crête axe X,bloc3.md
+3,26,27,3026,3027,B3_PEAK_Y_MG,uint32,2,RO,Crête axe Y,bloc3.md
+3,28,29,3028,3029,B3_PEAK_Z_MG,uint32,2,RO,Crête axe Z,bloc3.md
+3,30,30,3030,3030,B3_DOMINANT_AXIS,enum16,1,RO,Axe dominant sur la dernière fenêtre,bloc3.md
+3,31,31,3031,3031,B3_EXCEED_GLOBAL,enum16,1,RO,Dépassement global courant,bloc3.md
+3,32,32,3032,3032,B3_EXCEED_X,enum16,1,RO,Dépassement courant axe X,bloc3.md
+3,33,33,3033,3033,B3_EXCEED_Y,enum16,1,RO,Dépassement courant axe Y,bloc3.md
+3,34,34,3034,3034,B3_EXCEED_Z,enum16,1,RO,Dépassement courant axe Z,bloc3.md
+3,35,35,3035,3035,B3_ALARM_LATCHED,enum16,1,RO,Présence d’une alarme mémorisée,bloc3.md
+3,36,37,3036,3037,B3_EXCEED_COUNT,uint32,2,RO,Compteur total de dépassements détectés,bloc3.md
+3,38,39,3038,3039,B3_ALARM_COUNT,uint32,2,RO,Compteur total d’alarmes générées,bloc3.md
+3,40,47,3040,3047,B3_RESERVED_0,réservé,8,RO,Réserve d’extension future,bloc3.md
+4,0,0,4000,4000,config_structure_version,uint16,1,RO,Version structure Bloc 4,bloc4.md
+4,1,1,4001,4001,config_capabilities_mask,uint16,1,RO,Masque de capacités,bloc4.md
+4,2,3,4002,4003,prepared_config_id,uint32,2,RW,ID configuration préparée,bloc4.md
+4,4,5,4004,4005,active_config_id,uint32,2,RO,ID configuration active,bloc4.md
+4,6,6,4006,4006,config_state,uint16,1,RO,État configuration,bloc4.md
+4,7,7,4007,4007,config_error_code,uint16,1,RO,Code erreur configuration,bloc4.md
+4,8,9,4008,4009,prepared_config_crc,uint32,2,RW,CRC configuration préparée,bloc4.md
+4,10,11,4010,4011,active_config_crc,uint32,2,RO,CRC configuration active,bloc4.md
+4,12,13,4012,4013,config_revision_counter,uint32,2,RO,Compteur de révision,bloc4.md
+4,14,15,4014,4015,reserved_4A,uint16[2],2,RO,Réservé,bloc4.md
+4,16,16,4016,4016,sampling_frequency_hz,uint16,1,RW,Fréquence d’échantillonnage,bloc4.md
+4,17,17,4017,4017,reserved,uint16,1,RO,Réservé,bloc4.md
+4,17,17,4017,4017,reserved_4B_17,uint16,1,RO,"Réservé, doit lire 0",bloc4.md
+4,18,18,4018,4018,axes_enable_mask,uint16,1,RW,Activation axes,bloc4.md
+4,19,19,4019,4019,full_scale_code,uint16,1,RW,Pleine échelle,bloc4.md
+4,20,20,4020,4020,acquisition_mode,uint16,1,RW,Mode acquisition,bloc4.md
+4,21,21,4021,4021,window_size_samples,uint16,1,RW,Taille fenêtre,bloc4.md
+4,22,22,4022,4022,indicator_period_ms,uint16,1,RW,Période indicateurs,bloc4.md
+4,23,24,4023,4024,campaign_duration_s,uint32,2,RW,Durée campagne,bloc4.md
+4,25,25,4025,4025,storage_mode,uint16,1,RW,Mode stockage,bloc4.md
+4,26,27,4026,4027,storage_limit_mb,uint32,2,RW,Limite stockage,bloc4.md
+4,28,39,4028,4039,reserved_4B,uint16[12],12,RO,Réservé,bloc4.md
+4,40,40,4040,4040,supervision_enable_mask,uint16,1,RW,Masque supervision,bloc4.md
+4,41,41,4041,4041,rms_warn_threshold_mg,uint16,1,RW,Seuil RMS warning,bloc4.md
+4,42,42,4042,4042,rms_alarm_threshold_mg,uint16,1,RW,Seuil RMS alarme,bloc4.md
+4,43,43,4043,4043,peak_warn_threshold_mg,uint16,1,RW,Seuil crête warning,bloc4.md
+4,44,44,4044,4044,peak_alarm_threshold_mg,uint16,1,RW,Seuil crête alarme,bloc4.md
+4,45,45,4045,4045,threshold_hysteresis_mg,uint16,1,RW,Hystérésis,bloc4.md
+4,46,46,4046,4046,alarm_hold_time_ms,uint16,1,RW,Maintien alarme,bloc4.md
+4,47,55,4047,4055,reserved_4C,uint16[9],9,RO,Réservé,bloc4.md
+4,56,57,4056,4057,campaign_context_id,uint32,2,RW,ID contexte,bloc4.md
+4,58,59,4058,4059,mission_id,uint32,2,RW,ID mission,bloc4.md
+4,60,75,4060,4075,campaign_label,ASCII fixe,16,RW,Label campagne,bloc4.md
+4,76,91,4076,4091,mission_label,ASCII fixe,16,RW,Label mission,bloc4.md
+4,92,92,4092,4092,operating_mode_code,uint16,1,RW,Mode opératoire,bloc4.md
+4,93,93,4093,4093,navigation_zone_code,uint16,1,RW,Zone navigation,bloc4.md
+4,94,94,4094,4094,load_state_code,uint16,1,RW,État charge,bloc4.md
+4,95,95,4095,4095,sea_state_code,uint16,1,RW,État mer,bloc4.md
+4,96,99,4096,4099,reserved_4D,uint16[4],4,RO,Réservé,bloc4.md
+4,100,100,4100,4100,active_sampling_frequency_hz,uint16,1,RO,Miroir actif,bloc4.md
+4,101,101,4101,4101,active_axes_enable_mask,uint16,1,RO,Miroir actif,bloc4.md
+4,102,102,4102,4102,active_full_scale_code,uint16,1,RO,Miroir actif,bloc4.md
+4,103,103,4103,4103,active_acquisition_mode,uint16,1,RO,Miroir actif,bloc4.md
+4,104,104,4104,4104,active_window_size_samples,uint16,1,RO,Miroir actif,bloc4.md
+4,105,105,4105,4105,active_indicator_period_ms,uint16,1,RO,Miroir actif,bloc4.md
+4,106,107,4106,4107,active_campaign_duration_s,uint32,2,RO,Miroir actif,bloc4.md
+4,108,108,4108,4108,active_storage_mode,uint16,1,RO,Miroir actif,bloc4.md
+4,109,110,4109,4110,active_storage_limit_mb,uint32,2,RO,Miroir actif,bloc4.md
+4,111,115,4111,4115,reserved_4E_A,uint16[5],5,RO,"Réservé, doit lire 0",bloc4.md
+4,116,116,4116,4116,active_supervision_enable_mask,uint16,1,RO,Miroir actif,bloc4.md
+4,117,117,4117,4117,active_rms_warn_threshold_mg,uint16,1,RO,Miroir actif,bloc4.md
+4,118,118,4118,4118,active_rms_alarm_threshold_mg,uint16,1,RO,Miroir actif,bloc4.md
+4,119,119,4119,4119,active_peak_warn_threshold_mg,uint16,1,RO,Miroir actif,bloc4.md
+4,120,120,4120,4120,active_peak_alarm_threshold_mg,uint16,1,RO,Miroir actif,bloc4.md
+4,121,121,4121,4121,active_threshold_hysteresis_mg,uint16,1,RO,Miroir actif,bloc4.md
+4,122,122,4122,4122,active_alarm_hold_time_ms,uint16,1,RO,Miroir actif,bloc4.md
+4,123,127,4123,4127,reserved_4E_B,uint16[5],5,RO,"Réservé, doit lire 0",bloc4.md
+4,128,129,4128,4129,active_campaign_context_id,uint32,2,RO,Miroir actif,bloc4.md
+4,130,131,4130,4131,active_mission_id,uint32,2,RO,Miroir actif,bloc4.md
+4,132,147,4132,4147,active_campaign_label,ASCII fixe,16,RO,"Miroir actif, ASCII fixe 32 caractères, padding 0x00",bloc4.md
+4,148,163,4148,4163,active_mission_label,ASCII fixe,16,RO,"Miroir actif, ASCII fixe 32 caractères, padding 0x00",bloc4.md
+4,164,164,4164,4164,active_operating_mode_code,uint16,1,RO,Miroir actif,bloc4.md
+4,165,165,4165,4165,active_navigation_zone_code,uint16,1,RO,Miroir actif,bloc4.md
+4,166,166,4166,4166,active_load_state_code,uint16,1,RO,Miroir actif,bloc4.md
+4,167,167,4167,4167,active_sea_state_code,uint16,1,RO,Miroir actif,bloc4.md
+4,168,175,4168,4175,reserved_4E_C,uint16[8],8,RO,"Réservé, doit lire 0",bloc4.md
+5,0,0,5000,5000,cmd_request_code,uint16,1,RW,Code commande demandé par la centrale,bloc5.md
+5,1,1,5001,5001,cmd_request_transaction_id,uint16,1,RW,Identifiant de transaction de la commande,bloc5.md
+5,2,2,5002,5002,cmd_request_param1,uint16,1,RW,Paramètre 1,bloc5.md
+5,3,3,5003,5003,cmd_request_param2,uint16,1,RW,Paramètre 2,bloc5.md
+5,4,4,5004,5004,cmd_request_param3_msw,uint16,1,RW,"Paramètre 3, mot fort",bloc5.md
+5,5,5,5005,5005,cmd_request_param3_lsw,uint16,1,RW,"Paramètre 3, mot faible",bloc5.md
+5,6,6,5006,5006,cmd_request_confirm_key,uint16,1,RW,Clé de confirmation pour commande protégée,bloc5.md
+5,7,7,5007,5007,cmd_request_control,bitfield16,1,RW,Bits de soumission / annulation / nettoyage,bloc5.md
+5,8,8,5008,5008,cmd_active_code,uint16,1,RO,Code de la commande active ou dernière commande prise en compte,bloc5.md
+5,9,9,5009,5009,cmd_active_transaction_id,uint16,1,RO,Transaction ID de la commande active / dernière prise en compte,bloc5.md
+5,10,10,5010,5010,cmd_status,enum16,1,RO,Statut de traitement,bloc5.md
+5,11,11,5011,5011,cmd_result_code,enum16,1,RO,Code résultat détaillé,bloc5.md
+5,12,12,5012,5012,cmd_result_detail,uint16,1,RO,Détail complémentaire spécifique,bloc5.md
+5,13,13,5013,5013,cmd_engine_flags,bitfield16,1,RO,Flags moteur de commande,bloc5.md
+5,14,14,5014,5014,cmd_last_code,uint16,1,RO,Dernière commande terminée,bloc5.md
+5,15,15,5015,5015,cmd_last_transaction_id,uint16,1,RO,Transaction ID de la dernière commande terminée,bloc5.md
+5,16,16,5016,5016,cmd_last_status_final,enum16,1,RO,Statut final de la dernière commande,bloc5.md
+5,17,17,5017,5017,cmd_last_result_code,enum16,1,RO,Résultat final de la dernière commande,bloc5.md
+5,18,18,5018,5018,cmd_last_timestamp_msw,uint16,1,RO,"Timestamp de fin de dernière commande, mot fort",bloc5.md
+5,19,19,5019,5019,cmd_last_timestamp_lsw,uint16,1,RO,"Timestamp de fin de dernière commande, mot faible",bloc5.md
+6,0,0,6000,6000,inventory_structure_version,uint16,1,RO,Version structure Bloc 6,bloc6.md
+6,1,1,6001,6001,total_campaign_count,uint16,1,RO,Nombre total de campagnes,bloc6.md
+6,2,2,6002,6002,valid_campaign_count,uint16,1,RO,Nombre campagnes valides,bloc6.md
+6,3,3,6003,6003,selected_campaign_index,uint16,1,RW,Index sélectionné,bloc6.md
+6,4,4,6004,6004,selected_campaign_valid,uint16,1,RO,0 = invalide / 1 = valide,bloc6.md
+6,5,6,6005,6006,storage_used_mb,uint32,2,RO,Espace utilisé,bloc6.md
+6,7,8,6007,6008,storage_free_mb,uint32,2,RO,Espace libre,bloc6.md
+6,9,9,6009,6009,storage_health_status,uint16,1,RO,État stockage,bloc6.md
+6,10,11,6010,6011,reserved_6A,uint16\[2],2,RO,Réservé,bloc6.md
+6,12,13,6012,6013,campaign_id,uint32,2,RO,Identifiant campagne,bloc6.md
+6,14,15,6014,6015,mission_id,uint32,2,RO,Identifiant mission,bloc6.md
+6,16,17,6016,6017,start_timestamp,uint32,2,RO,Début campagne,bloc6.md
+6,18,19,6018,6019,end_timestamp,uint32,2,RO,Fin campagne,bloc6.md
+6,20,20,6020,6020,campaign_state,enum16,1,RO,État campagne,bloc6.md
+6,21,22,6021,6022,duration_s,uint32,2,RO,Durée,bloc6.md
+6,23,24,6023,6024,data_size_mb,uint32,2,RO,Taille données,bloc6.md
+6,25,40,6025,6040,campaign_label,ASCII fixe,16,RO,Label campagne,bloc6.md
+6,41,56,6041,6056,mission_label,ASCII fixe,16,RO,Label mission,bloc6.md
+6,57,57,6057,6057,data_integrity_status,uint16,1,RO,Intégrité données,bloc6.md
+6,58,63,6058,6063,reserved_6B,uint16\[6],6,RO,Réservé,bloc6.md
+7,0,0,7000,7000,diag_structure_version,uint16,1,RO,Version structure Bloc 7,bloc7.md
+7,1,1,7001,7001,system_health_status,enum16,1,RO,État global,bloc7.md
+7,2,2,7002,7002,system_fault_flags,bitfield16,1,RO,Flags défauts,bloc7.md
+7,3,3,7003,7003,last_fault_code,uint16,1,RO,Dernier défaut détecté,bloc7.md
+7,4,5,7004,7005,last_fault_timestamp,uint32,2,RO,Timestamp dernier défaut,bloc7.md
+7,6,6,7006,7006,selftest_status,enum16,1,RO,État autotest,bloc7.md
+7,7,7,7007,7007,selftest_result_code,uint16,1,RO,Résultat autotest,bloc7.md
+7,8,8,7008,7008,selftest_detail,uint16,1,RO,Détail autotest,bloc7.md
+7,9,10,7009,7010,uptime_s,uint32,2,RO,Temps fonctionnement,bloc7.md
+7,11,11,7011,7011,reset_cause,uint16,1,RO,Cause dernier reset,bloc7.md
+7,12,12,7012,7012,internal_temp_dC,int16,1,RO,Température interne (déci °C),bloc7.md
+7,13,13,7013,7013,supply_voltage_mV,uint16,1,RO,Tension alimentation,bloc7.md
+7,14,15,7014,7015,reserved_7A,uint16\[2],2,RO,Réservé,bloc7.md

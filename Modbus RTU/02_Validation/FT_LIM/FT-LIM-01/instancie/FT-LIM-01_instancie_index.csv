@@ -1,0 +1,6 @@
+id,nom
+TT-LIM-01-B4-001__B4__prepared_config_id__valeur_valide_minimale.md
+TT-LIM-01-B4-002__B4__campaign_context_id__valeur_valide_minimale.md
+TT-LIM-01-B4-003__B4__mission_id__valeur_valide_minimale.md
+TT-LIM-01-B4-004__B4__campaign_label__ascii_longueur_exacte_32.md
+TT-LIM-01-B4-005__B4__mission_label__ascii_longueur_exacte_32.md

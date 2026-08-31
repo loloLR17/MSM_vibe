@@ -1,0 +1,9 @@
+﻿test_id,block,field,address_start,address_end,register_count,file
+TT-STR-04-B0-001,0,serial_number,8,15,8,TT-STR-04-B0-001__B0__serial_number.md
+TT-STR-04-B0-002,0,manufacturer,16,19,4,TT-STR-04-B0-002__B0__manufacturer.md
+TT-STR-04-B4-001,4,campaign_label,4060,4075,16,TT-STR-04-B4-001__B4__campaign_label.md
+TT-STR-04-B4-002,4,mission_label,4076,4091,16,TT-STR-04-B4-002__B4__mission_label.md
+TT-STR-04-B4-003,4,active_campaign_label,4132,4147,16,TT-STR-04-B4-003__B4__active_campaign_label.md
+TT-STR-04-B4-004,4,active_mission_label,4148,4163,16,TT-STR-04-B4-004__B4__active_mission_label.md
+TT-STR-04-B6-001,6,campaign_label,6025,6040,16,TT-STR-04-B6-001__B6__campaign_label.md
+TT-STR-04-B6-002,6,mission_label,6041,6056,16,TT-STR-04-B6-002__B6__mission_label.md

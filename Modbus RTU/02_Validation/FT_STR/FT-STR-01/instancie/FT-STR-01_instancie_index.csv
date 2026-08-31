@@ -1,0 +1,10 @@
+﻿test_id,scope,block,address_start,address_end,missing_inside_span,file
+TT-STR-01-B0-001,block_0,0,0,20,0,TT-STR-01-B0-001__B0__structure_globale.md
+TT-STR-01-B1-001,block_1,1,1000,1019,0,TT-STR-01-B1-001__B1__structure_globale.md
+TT-STR-01-B2-001,block_2,2,2000,2015,0,TT-STR-01-B2-001__B2__structure_globale.md
+TT-STR-01-B3-001,block_3,3,3000,3047,0,TT-STR-01-B3-001__B3__structure_globale.md
+TT-STR-01-B4-001,block_4,4,4000,4175,0,TT-STR-01-B4-001__B4__structure_globale.md
+TT-STR-01-B5-001,block_5,5,5000,5019,0,TT-STR-01-B5-001__B5__structure_globale.md
+TT-STR-01-B6-001,block_6,6,6000,6063,0,TT-STR-01-B6-001__B6__structure_globale.md
+TT-STR-01-B7-001,block_7,7,7000,7015,0,TT-STR-01-B7-001__B7__structure_globale.md
+TT-STR-01-GLOBAL-001,global,,0,7015,,TT-STR-01-GLOBAL-001__global__coherence_inter_blocs.md

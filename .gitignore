@@ -1,0 +1,17 @@
+# Windows
+Thumbs.db
+Desktop.ini
+
+# Temporary / backup files
+*.tmp
+*.bak
+*.swp
+*~
+~$*
+
+# Python
+__pycache__/
+*.pyc
+
+# Archives generated for transport/export
+*.zip

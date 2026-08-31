@@ -1,0 +1,13 @@
+# TT-STR-08-069 — Bloc 4 — prepared_config_id
+
+## Objectif
+Valider la conformité documentaire du champ `prepared_config_id`.
+
+## Vérifications
+- champ présent dans le mapping
+- type `uint32` cohérent
+- description non vide
+- unicité du nom
+
+## Résultat attendu
+- correspondance parfaite doc ↔ mapping

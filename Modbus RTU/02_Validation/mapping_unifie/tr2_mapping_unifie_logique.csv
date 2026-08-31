@@ -1,0 +1,184 @@
+﻿block,logical_name,kind,source_fields,offset_start,offset_end,address_start,address_end,declared_type,register_count,access,description,source_file
+0,device_id,uint32_from_split_words,device_id_msw;device_id_lsw,0,1,0,1,uint32,2,RO,Identifiant unique capteur,bloc0.md
+0,hardware_version,declared_as_is,hardware_version,2,2,2,2,uint16,1,RO,Version hardware,bloc0.md
+0,firmware_version_major,declared_as_is,firmware_version_major,3,3,3,3,uint16,1,RO,Version firmware majeure,bloc0.md
+0,firmware_version_minor,declared_as_is,firmware_version_minor,4,4,4,4,uint16,1,RO,Version firmware mineure,bloc0.md
+0,firmware_version_patch,declared_as_is,firmware_version_patch,5,5,5,5,uint16,1,RO,Version firmware patch,bloc0.md
+0,protocol_version,declared_as_is,protocol_version,6,6,6,6,uint16,1,RO,Version du protocole Modbus TR2,bloc0.md
+0,device_capabilities,declared_as_is,device_capabilities,7,7,7,7,bitfield16,1,RO,Capacités du capteur,bloc0.md
+0,serial_number,ascii_fixed_from_register_parts,serial_number_r0;serial_number_r1;serial_number_r2;serial_number_r3;serial_number_r4;serial_number_r5;serial_number_r6;serial_number_r7,8,15,8,15,ASCII fixe,8,RO,Numéro de série,bloc0.md
+0,manufacturer,ascii_fixed_from_register_parts,manufacturer_r0;manufacturer_r1;manufacturer_r2;manufacturer_r3,16,19,16,19,ASCII fixe,4,RO,Fabricant,bloc0.md
+0,reserved,declared_as_is,reserved,20,20,20,20,uint16,1,RO,Réservé (0),bloc0.md
+1,system_status,declared_as_is,system_status,0,0,1000,1000,enum16,1,RO,État global du capteur,bloc1.md
+1,system_flags,declared_as_is,system_flags,1,1,1001,1001,bitfield16,1,RO,Drapeaux d’état système,bloc1.md
+1,fault_flags,declared_as_is,fault_flags,2,2,1002,1002,bitfield16,1,RO,Drapeaux de défauts actifs,bloc1.md
+1,warning_flags,declared_as_is,warning_flags,3,3,1003,1003,bitfield16,1,RO,Drapeaux d’avertissements,bloc1.md
+1,uptime_s,uint32_from_split_words,uptime_s_msw;uptime_s_lsw,4,5,1004,1005,uint32,2,RO,Temps de fonctionnement,bloc1.md
+1,last_reset_cause,declared_as_is,last_reset_cause,6,6,1006,1006,enum16,1,RO,Cause du dernier redémarrage,bloc1.md
+1,internal_temp_dC,declared_as_is,internal_temp_dC,7,7,1007,1007,int16,1,RO,Température interne (déci °C),bloc1.md
+1,cpu_load_percent,declared_as_is,cpu_load_percent,8,8,1008,1008,uint16,1,RO,Charge CPU (%),bloc1.md
+1,memory_usage_percent,declared_as_is,memory_usage_percent,9,9,1009,1009,uint16,1,RO,Utilisation mémoire (%),bloc1.md
+1,storage_status,declared_as_is,storage_status,10,10,1010,1010,enum16,1,RO,État du stockage,bloc1.md
+1,storage_usage_percent,declared_as_is,storage_usage_percent,11,11,1011,1011,uint16,1,RO,Occupation stockage (%),bloc1.md
+1,acquisition_state,declared_as_is,acquisition_state,12,12,1012,1012,enum16,1,RO,État de l’acquisition,bloc1.md
+1,active_campaign_id,uint32_from_split_words,active_campaign_id_msw;active_campaign_id_lsw,13,14,1013,1014,uint32,2,RO,ID campagne active,bloc1.md
+1,error_code,declared_as_is,error_code,15,15,1015,1015,uint16,1,RO,Code erreur principal,bloc1.md
+1,warning_code,declared_as_is,warning_code,16,16,1016,1016,uint16,1,RO,Code avertissement principal,bloc1.md
+1,reserved_1,declared_as_is,reserved_1,17,17,1017,1017,uint16,1,RO,Réservé (0),bloc1.md
+1,reserved_2,declared_as_is,reserved_2,18,18,1018,1018,uint16,1,RO,Réservé (0),bloc1.md
+1,reserved_3,declared_as_is,reserved_3,19,19,1019,1019,uint16,1,RO,Réservé (0),bloc1.md
+2,time_status,declared_as_is,time_status,0,0,2000,2000,enum16,1,RO,État global de la base de temps,bloc2.md
+2,time_flags,declared_as_is,time_flags,1,1,2001,2001,bitfield16,1,RO,Drapeaux de validité et synchronisation,bloc2.md
+2,current_time,uint32_from_split_words,current_time_msw;current_time_lsw,2,3,2002,2003,uint32,2,RO,Temps courant,bloc2.md
+2,last_sync_time,uint32_from_split_words,last_sync_time_msw;last_sync_time_lsw,4,5,2004,2005,uint32,2,RO,Dernière synchronisation,bloc2.md
+2,time_since_sync_s,uint32_from_split_words,time_since_sync_s_msw;time_since_sync_s_lsw,6,7,2006,2007,uint32,2,RO,Temps écoulé depuis dernière sync,bloc2.md
+2,prepared_time,uint32_from_split_words,prepared_time_msw;prepared_time_lsw,8,9,2008,2009,uint32,2,RW,Temps préparé,bloc2.md
+2,prepared_time_status,declared_as_is,prepared_time_status,10,10,2010,2010,enum16,1,RO,État du temps préparé,bloc2.md
+2,time_accuracy_ms,declared_as_is,time_accuracy_ms,11,11,2011,2011,uint16,1,RO,Précision estimée de l’horloge (ms),bloc2.md
+2,drift_ppm,declared_as_is,drift_ppm,12,12,2012,2012,int16,1,RO,Dérive estimée (ppm),bloc2.md
+2,sync_source,declared_as_is,sync_source,13,13,2013,2013,enum16,1,RO,Source de synchronisation,bloc2.md
+2,reserved_1,declared_as_is,reserved_1,14,14,2014,2014,uint16,1,RO,Réservé (0),bloc2.md
+2,reserved_2,declared_as_is,reserved_2,15,15,2015,2015,uint16,1,RO,Réservé (0),bloc2.md
+3,B3_STATUS_GLOBAL,declared_as_is,B3_STATUS_GLOBAL,0,0,3000,3000,enum16,1,RO,Statut global de supervision vibratoire,bloc3.md
+3,B3_VALIDITY_FLAGS,declared_as_is,B3_VALIDITY_FLAGS,1,1,3001,3001,bitfield16,1,RO,Drapeaux détaillés de validité / fraîcheur / cohérence,bloc3.md
+3,B3_ALARM_FLAGS,declared_as_is,B3_ALARM_FLAGS,2,2,3002,3002,bitfield16,1,RO,Drapeaux détaillés d’alarme vibratoire,bloc3.md
+3,B3_SEVERITY_GLOBAL,declared_as_is,B3_SEVERITY_GLOBAL,3,3,3003,3003,enum16,1,RO,Niveau de sévérité global courant,bloc3.md
+3,B3_LAST_UPDATE_TR2,declared_as_is,B3_LAST_UPDATE_TR2,4,5,3004,3005,uint32,2,RO,Horodatage UTC de la dernière mise à jour valide,bloc3.md
+3,B3_VALUE_AGE_MS,declared_as_is,B3_VALUE_AGE_MS,6,7,3006,3007,uint32,2,RO,Âge de la dernière valeur valide,bloc3.md
+3,B3_CALC_SEQUENCE,declared_as_is,B3_CALC_SEQUENCE,8,9,3008,3009,uint32,2,RO,Compteur monotone de calcul,bloc3.md
+3,B3_WINDOW_DURATION_MS,declared_as_is,B3_WINDOW_DURATION_MS,10,11,3010,3011,uint32,2,RO,Durée de la fenêtre de calcul associée aux valeurs,bloc3.md
+3,B3_VALID_SAMPLE_COUNT,declared_as_is,B3_VALID_SAMPLE_COUNT,12,13,3012,3013,uint32,2,RO,Nombre d’échantillons valides utilisés dans la fenêtre,bloc3.md
+3,B3_RMS_GLOBAL_MG,declared_as_is,B3_RMS_GLOBAL_MG,14,15,3014,3015,uint32,2,RO,RMS global en norme vectorielle,bloc3.md
+3,B3_PEAK_GLOBAL_MG,declared_as_is,B3_PEAK_GLOBAL_MG,16,17,3016,3017,uint32,2,RO,Crête globale en norme vectorielle,bloc3.md
+3,B3_RMS_X_MG,declared_as_is,B3_RMS_X_MG,18,19,3018,3019,uint32,2,RO,RMS axe X,bloc3.md
+3,B3_RMS_Y_MG,declared_as_is,B3_RMS_Y_MG,20,21,3020,3021,uint32,2,RO,RMS axe Y,bloc3.md
+3,B3_RMS_Z_MG,declared_as_is,B3_RMS_Z_MG,22,23,3022,3023,uint32,2,RO,RMS axe Z,bloc3.md
+3,B3_PEAK_X_MG,declared_as_is,B3_PEAK_X_MG,24,25,3024,3025,uint32,2,RO,Crête axe X,bloc3.md
+3,B3_PEAK_Y_MG,declared_as_is,B3_PEAK_Y_MG,26,27,3026,3027,uint32,2,RO,Crête axe Y,bloc3.md
+3,B3_PEAK_Z_MG,declared_as_is,B3_PEAK_Z_MG,28,29,3028,3029,uint32,2,RO,Crête axe Z,bloc3.md
+3,B3_DOMINANT_AXIS,declared_as_is,B3_DOMINANT_AXIS,30,30,3030,3030,enum16,1,RO,Axe dominant sur la dernière fenêtre,bloc3.md
+3,B3_EXCEED_GLOBAL,declared_as_is,B3_EXCEED_GLOBAL,31,31,3031,3031,enum16,1,RO,Dépassement global courant,bloc3.md
+3,B3_EXCEED_X,declared_as_is,B3_EXCEED_X,32,32,3032,3032,enum16,1,RO,Dépassement courant axe X,bloc3.md
+3,B3_EXCEED_Y,declared_as_is,B3_EXCEED_Y,33,33,3033,3033,enum16,1,RO,Dépassement courant axe Y,bloc3.md
+3,B3_EXCEED_Z,declared_as_is,B3_EXCEED_Z,34,34,3034,3034,enum16,1,RO,Dépassement courant axe Z,bloc3.md
+3,B3_ALARM_LATCHED,declared_as_is,B3_ALARM_LATCHED,35,35,3035,3035,enum16,1,RO,Présence d’une alarme mémorisée,bloc3.md
+3,B3_EXCEED_COUNT,declared_as_is,B3_EXCEED_COUNT,36,37,3036,3037,uint32,2,RO,Compteur total de dépassements détectés,bloc3.md
+3,B3_ALARM_COUNT,declared_as_is,B3_ALARM_COUNT,38,39,3038,3039,uint32,2,RO,Compteur total d’alarmes générées,bloc3.md
+3,B3_RESERVED_0,declared_as_is,B3_RESERVED_0,40,47,3040,3047,réservé,8,RO,Réserve d’extension future,bloc3.md
+4,config_structure_version,declared_as_is,config_structure_version,0,0,4000,4000,uint16,1,RO,Version structure Bloc 4,bloc4.md
+4,config_capabilities_mask,declared_as_is,config_capabilities_mask,1,1,4001,4001,uint16,1,RO,Masque de capacités,bloc4.md
+4,prepared_config_id,declared_as_is,prepared_config_id,2,3,4002,4003,uint32,2,RW,ID configuration préparée,bloc4.md
+4,active_config_id,declared_as_is,active_config_id,4,5,4004,4005,uint32,2,RO,ID configuration active,bloc4.md
+4,config_state,declared_as_is,config_state,6,6,4006,4006,uint16,1,RO,État configuration,bloc4.md
+4,config_error_code,declared_as_is,config_error_code,7,7,4007,4007,uint16,1,RO,Code erreur configuration,bloc4.md
+4,prepared_config_crc,declared_as_is,prepared_config_crc,8,9,4008,4009,uint32,2,RW,CRC configuration préparée,bloc4.md
+4,active_config_crc,declared_as_is,active_config_crc,10,11,4010,4011,uint32,2,RO,CRC configuration active,bloc4.md
+4,config_revision_counter,declared_as_is,config_revision_counter,12,13,4012,4013,uint32,2,RO,Compteur de révision,bloc4.md
+4,reserved_4A,declared_as_is,reserved_4A,14,15,4014,4015,uint16[2],2,RO,Réservé,bloc4.md
+4,sampling_frequency_hz,declared_as_is,sampling_frequency_hz,16,16,4016,4016,uint16,1,RW,Fréquence d’échantillonnage,bloc4.md
+4,reserved,declared_as_is,reserved,17,17,4017,4017,uint16,1,RO,Réservé,bloc4.md
+4,reserved_4B_17,declared_as_is,reserved_4B_17,17,17,4017,4017,uint16,1,RO,"Réservé, doit lire 0",bloc4.md
+4,axes_enable_mask,declared_as_is,axes_enable_mask,18,18,4018,4018,uint16,1,RW,Activation axes,bloc4.md
+4,full_scale_code,declared_as_is,full_scale_code,19,19,4019,4019,uint16,1,RW,Pleine échelle,bloc4.md
+4,acquisition_mode,declared_as_is,acquisition_mode,20,20,4020,4020,uint16,1,RW,Mode acquisition,bloc4.md
+4,window_size_samples,declared_as_is,window_size_samples,21,21,4021,4021,uint16,1,RW,Taille fenêtre,bloc4.md
+4,indicator_period_ms,declared_as_is,indicator_period_ms,22,22,4022,4022,uint16,1,RW,Période indicateurs,bloc4.md
+4,campaign_duration_s,declared_as_is,campaign_duration_s,23,24,4023,4024,uint32,2,RW,Durée campagne,bloc4.md
+4,storage_mode,declared_as_is,storage_mode,25,25,4025,4025,uint16,1,RW,Mode stockage,bloc4.md
+4,storage_limit_mb,declared_as_is,storage_limit_mb,26,27,4026,4027,uint32,2,RW,Limite stockage,bloc4.md
+4,reserved_4B,declared_as_is,reserved_4B,28,39,4028,4039,uint16[12],12,RO,Réservé,bloc4.md
+4,supervision_enable_mask,declared_as_is,supervision_enable_mask,40,40,4040,4040,uint16,1,RW,Masque supervision,bloc4.md
+4,rms_warn_threshold_mg,declared_as_is,rms_warn_threshold_mg,41,41,4041,4041,uint16,1,RW,Seuil RMS warning,bloc4.md
+4,rms_alarm_threshold_mg,declared_as_is,rms_alarm_threshold_mg,42,42,4042,4042,uint16,1,RW,Seuil RMS alarme,bloc4.md
+4,peak_warn_threshold_mg,declared_as_is,peak_warn_threshold_mg,43,43,4043,4043,uint16,1,RW,Seuil crête warning,bloc4.md
+4,peak_alarm_threshold_mg,declared_as_is,peak_alarm_threshold_mg,44,44,4044,4044,uint16,1,RW,Seuil crête alarme,bloc4.md
+4,threshold_hysteresis_mg,declared_as_is,threshold_hysteresis_mg,45,45,4045,4045,uint16,1,RW,Hystérésis,bloc4.md
+4,alarm_hold_time_ms,declared_as_is,alarm_hold_time_ms,46,46,4046,4046,uint16,1,RW,Maintien alarme,bloc4.md
+4,reserved_4C,declared_as_is,reserved_4C,47,55,4047,4055,uint16[9],9,RO,Réservé,bloc4.md
+4,campaign_context_id,declared_as_is,campaign_context_id,56,57,4056,4057,uint32,2,RW,ID contexte,bloc4.md
+4,mission_id,declared_as_is,mission_id,58,59,4058,4059,uint32,2,RW,ID mission,bloc4.md
+4,campaign_label,declared_as_is,campaign_label,60,75,4060,4075,ASCII fixe,16,RW,Label campagne,bloc4.md
+4,mission_label,declared_as_is,mission_label,76,91,4076,4091,ASCII fixe,16,RW,Label mission,bloc4.md
+4,operating_mode_code,declared_as_is,operating_mode_code,92,92,4092,4092,uint16,1,RW,Mode opératoire,bloc4.md
+4,navigation_zone_code,declared_as_is,navigation_zone_code,93,93,4093,4093,uint16,1,RW,Zone navigation,bloc4.md
+4,load_state_code,declared_as_is,load_state_code,94,94,4094,4094,uint16,1,RW,État charge,bloc4.md
+4,sea_state_code,declared_as_is,sea_state_code,95,95,4095,4095,uint16,1,RW,État mer,bloc4.md
+4,reserved_4D,declared_as_is,reserved_4D,96,99,4096,4099,uint16[4],4,RO,Réservé,bloc4.md
+4,active_sampling_frequency_hz,declared_as_is,active_sampling_frequency_hz,100,100,4100,4100,uint16,1,RO,Miroir actif,bloc4.md
+4,active_axes_enable_mask,declared_as_is,active_axes_enable_mask,101,101,4101,4101,uint16,1,RO,Miroir actif,bloc4.md
+4,active_full_scale_code,declared_as_is,active_full_scale_code,102,102,4102,4102,uint16,1,RO,Miroir actif,bloc4.md
+4,active_acquisition_mode,declared_as_is,active_acquisition_mode,103,103,4103,4103,uint16,1,RO,Miroir actif,bloc4.md
+4,active_window_size_samples,declared_as_is,active_window_size_samples,104,104,4104,4104,uint16,1,RO,Miroir actif,bloc4.md
+4,active_indicator_period_ms,declared_as_is,active_indicator_period_ms,105,105,4105,4105,uint16,1,RO,Miroir actif,bloc4.md
+4,active_campaign_duration_s,declared_as_is,active_campaign_duration_s,106,107,4106,4107,uint32,2,RO,Miroir actif,bloc4.md
+4,active_storage_mode,declared_as_is,active_storage_mode,108,108,4108,4108,uint16,1,RO,Miroir actif,bloc4.md
+4,active_storage_limit_mb,declared_as_is,active_storage_limit_mb,109,110,4109,4110,uint32,2,RO,Miroir actif,bloc4.md
+4,reserved_4E_A,declared_as_is,reserved_4E_A,111,115,4111,4115,uint16[5],5,RO,"Réservé, doit lire 0",bloc4.md
+4,active_supervision_enable_mask,declared_as_is,active_supervision_enable_mask,116,116,4116,4116,uint16,1,RO,Miroir actif,bloc4.md
+4,active_rms_warn_threshold_mg,declared_as_is,active_rms_warn_threshold_mg,117,117,4117,4117,uint16,1,RO,Miroir actif,bloc4.md
+4,active_rms_alarm_threshold_mg,declared_as_is,active_rms_alarm_threshold_mg,118,118,4118,4118,uint16,1,RO,Miroir actif,bloc4.md
+4,active_peak_warn_threshold_mg,declared_as_is,active_peak_warn_threshold_mg,119,119,4119,4119,uint16,1,RO,Miroir actif,bloc4.md
+4,active_peak_alarm_threshold_mg,declared_as_is,active_peak_alarm_threshold_mg,120,120,4120,4120,uint16,1,RO,Miroir actif,bloc4.md
+4,active_threshold_hysteresis_mg,declared_as_is,active_threshold_hysteresis_mg,121,121,4121,4121,uint16,1,RO,Miroir actif,bloc4.md
+4,active_alarm_hold_time_ms,declared_as_is,active_alarm_hold_time_ms,122,122,4122,4122,uint16,1,RO,Miroir actif,bloc4.md
+4,reserved_4E_B,declared_as_is,reserved_4E_B,123,127,4123,4127,uint16[5],5,RO,"Réservé, doit lire 0",bloc4.md
+4,active_campaign_context_id,declared_as_is,active_campaign_context_id,128,129,4128,4129,uint32,2,RO,Miroir actif,bloc4.md
+4,active_mission_id,declared_as_is,active_mission_id,130,131,4130,4131,uint32,2,RO,Miroir actif,bloc4.md
+4,active_campaign_label,declared_as_is,active_campaign_label,132,147,4132,4147,ASCII fixe,16,RO,"Miroir actif, ASCII fixe 32 caractères, padding 0x00",bloc4.md
+4,active_mission_label,declared_as_is,active_mission_label,148,163,4148,4163,ASCII fixe,16,RO,"Miroir actif, ASCII fixe 32 caractères, padding 0x00",bloc4.md
+4,active_operating_mode_code,declared_as_is,active_operating_mode_code,164,164,4164,4164,uint16,1,RO,Miroir actif,bloc4.md
+4,active_navigation_zone_code,declared_as_is,active_navigation_zone_code,165,165,4165,4165,uint16,1,RO,Miroir actif,bloc4.md
+4,active_load_state_code,declared_as_is,active_load_state_code,166,166,4166,4166,uint16,1,RO,Miroir actif,bloc4.md
+4,active_sea_state_code,declared_as_is,active_sea_state_code,167,167,4167,4167,uint16,1,RO,Miroir actif,bloc4.md
+4,reserved_4E_C,declared_as_is,reserved_4E_C,168,175,4168,4175,uint16[8],8,RO,"Réservé, doit lire 0",bloc4.md
+5,cmd_request_code,declared_as_is,cmd_request_code,0,0,5000,5000,uint16,1,RW,Code commande demandé par la centrale,bloc5.md
+5,cmd_request_transaction_id,declared_as_is,cmd_request_transaction_id,1,1,5001,5001,uint16,1,RW,Identifiant de transaction de la commande,bloc5.md
+5,cmd_request_param1,declared_as_is,cmd_request_param1,2,2,5002,5002,uint16,1,RW,Paramètre 1,bloc5.md
+5,cmd_request_param2,declared_as_is,cmd_request_param2,3,3,5003,5003,uint16,1,RW,Paramètre 2,bloc5.md
+5,cmd_request_param3,uint32_from_split_words,cmd_request_param3_msw;cmd_request_param3_lsw,4,5,5004,5005,uint32,2,RW,"Paramètre 3, mot fort",bloc5.md
+5,cmd_request_confirm_key,declared_as_is,cmd_request_confirm_key,6,6,5006,5006,uint16,1,RW,Clé de confirmation pour commande protégée,bloc5.md
+5,cmd_request_control,declared_as_is,cmd_request_control,7,7,5007,5007,bitfield16,1,RW,Bits de soumission / annulation / nettoyage,bloc5.md
+5,cmd_active_code,declared_as_is,cmd_active_code,8,8,5008,5008,uint16,1,RO,Code de la commande active ou dernière commande prise en compte,bloc5.md
+5,cmd_active_transaction_id,declared_as_is,cmd_active_transaction_id,9,9,5009,5009,uint16,1,RO,Transaction ID de la commande active / dernière prise en compte,bloc5.md
+5,cmd_status,declared_as_is,cmd_status,10,10,5010,5010,enum16,1,RO,Statut de traitement,bloc5.md
+5,cmd_result_code,declared_as_is,cmd_result_code,11,11,5011,5011,enum16,1,RO,Code résultat détaillé,bloc5.md
+5,cmd_result_detail,declared_as_is,cmd_result_detail,12,12,5012,5012,uint16,1,RO,Détail complémentaire spécifique,bloc5.md
+5,cmd_engine_flags,declared_as_is,cmd_engine_flags,13,13,5013,5013,bitfield16,1,RO,Flags moteur de commande,bloc5.md
+5,cmd_last_code,declared_as_is,cmd_last_code,14,14,5014,5014,uint16,1,RO,Dernière commande terminée,bloc5.md
+5,cmd_last_transaction_id,declared_as_is,cmd_last_transaction_id,15,15,5015,5015,uint16,1,RO,Transaction ID de la dernière commande terminée,bloc5.md
+5,cmd_last_status_final,declared_as_is,cmd_last_status_final,16,16,5016,5016,enum16,1,RO,Statut final de la dernière commande,bloc5.md
+5,cmd_last_result_code,declared_as_is,cmd_last_result_code,17,17,5017,5017,enum16,1,RO,Résultat final de la dernière commande,bloc5.md
+5,cmd_last_timestamp,uint32_from_split_words,cmd_last_timestamp_msw;cmd_last_timestamp_lsw,18,19,5018,5019,uint32,2,RO,"Timestamp de fin de dernière commande, mot fort",bloc5.md
+6,inventory_structure_version,declared_as_is,inventory_structure_version,0,0,6000,6000,uint16,1,RO,Version structure Bloc 6,bloc6.md
+6,total_campaign_count,declared_as_is,total_campaign_count,1,1,6001,6001,uint16,1,RO,Nombre total de campagnes,bloc6.md
+6,valid_campaign_count,declared_as_is,valid_campaign_count,2,2,6002,6002,uint16,1,RO,Nombre campagnes valides,bloc6.md
+6,selected_campaign_index,declared_as_is,selected_campaign_index,3,3,6003,6003,uint16,1,RW,Index sélectionné,bloc6.md
+6,selected_campaign_valid,declared_as_is,selected_campaign_valid,4,4,6004,6004,uint16,1,RO,0 = invalide / 1 = valide,bloc6.md
+6,storage_used_mb,declared_as_is,storage_used_mb,5,6,6005,6006,uint32,2,RO,Espace utilisé,bloc6.md
+6,storage_free_mb,declared_as_is,storage_free_mb,7,8,6007,6008,uint32,2,RO,Espace libre,bloc6.md
+6,storage_health_status,declared_as_is,storage_health_status,9,9,6009,6009,uint16,1,RO,État stockage,bloc6.md
+6,reserved_6A,declared_as_is,reserved_6A,10,11,6010,6011,uint16\[2],2,RO,Réservé,bloc6.md
+6,campaign_id,declared_as_is,campaign_id,12,13,6012,6013,uint32,2,RO,Identifiant campagne,bloc6.md
+6,mission_id,declared_as_is,mission_id,14,15,6014,6015,uint32,2,RO,Identifiant mission,bloc6.md
+6,start_timestamp,declared_as_is,start_timestamp,16,17,6016,6017,uint32,2,RO,Début campagne,bloc6.md
+6,end_timestamp,declared_as_is,end_timestamp,18,19,6018,6019,uint32,2,RO,Fin campagne,bloc6.md
+6,campaign_state,declared_as_is,campaign_state,20,20,6020,6020,enum16,1,RO,État campagne,bloc6.md
+6,duration_s,declared_as_is,duration_s,21,22,6021,6022,uint32,2,RO,Durée,bloc6.md
+6,data_size_mb,declared_as_is,data_size_mb,23,24,6023,6024,uint32,2,RO,Taille données,bloc6.md
+6,campaign_label,declared_as_is,campaign_label,25,40,6025,6040,ASCII fixe,16,RO,Label campagne,bloc6.md
+6,mission_label,declared_as_is,mission_label,41,56,6041,6056,ASCII fixe,16,RO,Label mission,bloc6.md
+6,data_integrity_status,declared_as_is,data_integrity_status,57,57,6057,6057,uint16,1,RO,Intégrité données,bloc6.md
+6,reserved_6B,declared_as_is,reserved_6B,58,63,6058,6063,uint16\[6],6,RO,Réservé,bloc6.md
+7,diag_structure_version,declared_as_is,diag_structure_version,0,0,7000,7000,uint16,1,RO,Version structure Bloc 7,bloc7.md
+7,system_health_status,declared_as_is,system_health_status,1,1,7001,7001,enum16,1,RO,État global,bloc7.md
+7,system_fault_flags,declared_as_is,system_fault_flags,2,2,7002,7002,bitfield16,1,RO,Flags défauts,bloc7.md
+7,last_fault_code,declared_as_is,last_fault_code,3,3,7003,7003,uint16,1,RO,Dernier défaut détecté,bloc7.md
+7,last_fault_timestamp,declared_as_is,last_fault_timestamp,4,5,7004,7005,uint32,2,RO,Timestamp dernier défaut,bloc7.md
+7,selftest_status,declared_as_is,selftest_status,6,6,7006,7006,enum16,1,RO,État autotest,bloc7.md
+7,selftest_result_code,declared_as_is,selftest_result_code,7,7,7007,7007,uint16,1,RO,Résultat autotest,bloc7.md
+7,selftest_detail,declared_as_is,selftest_detail,8,8,7008,7008,uint16,1,RO,Détail autotest,bloc7.md
+7,uptime_s,declared_as_is,uptime_s,9,10,7009,7010,uint32,2,RO,Temps fonctionnement,bloc7.md
+7,reset_cause,declared_as_is,reset_cause,11,11,7011,7011,uint16,1,RO,Cause dernier reset,bloc7.md
+7,internal_temp_dC,declared_as_is,internal_temp_dC,12,12,7012,7012,int16,1,RO,Température interne (déci °C),bloc7.md
+7,supply_voltage_mV,declared_as_is,supply_voltage_mV,13,13,7013,7013,uint16,1,RO,Tension alimentation,bloc7.md
+7,reserved_7A,declared_as_is,reserved_7A,14,15,7014,7015,uint16\[2],2,RO,Réservé,bloc7.md
