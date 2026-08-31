@@ -1,0 +1,9 @@
+requirement_id;objet;classification;test_ids;oracle_v1;dette
+CMD05-R01;APPLY CONFIG admissible si préconditions satisfaites;COVERED;TT-CMD-B05-400;Traitement sans refus 3/4/5/20;Effets Bloc 4 délégués FT-INT
+CMD05-R02;APPLY refusée acquisition en cours;COVERED;TT-CMD-B05-401;cmd_result_code=5;
+CMD05-R03;APPLY refusée configuration préparée incomplète;COVERED;TT-CMD-B05-402;cmd_result_code=20;
+CMD05-R04;APPLY refusée configuration invalide ou CRC incohérent;COVERED;TT-CMD-B05-403;cmd_result_code=4;Pas de code CRC distinct en V1
+CMD05-R05;APPLY refusée état incompatible distinct;CONDITIONAL;TT-CMD-B05-404;cmd_result_code=3;Cas distinct à construire sans autre cause prioritaire
+CMD05-R06;SYNC TIME admissible si temps préparé et horloge disponible;COVERED;TT-CMD-B05-405;Pas de refus 12/19;Effets Bloc 2 délégués FT-INT
+CMD05-R07;SYNC refusée sans temps préparé;COVERED;TT-CMD-B05-406;cmd_result_code=19;
+CMD05-R08;SYNC refusée horloge indisponible;COVERED;TT-CMD-B05-407;cmd_result_code=12;Constructibilité pratique potentiellement conditionnelle
