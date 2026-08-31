@@ -1,52 +1,23 @@
-# TT-ACC-02-GEN-003 — Écriture registre milieu de plage RW
+# TT-ACC-02-GEN-003 — Écriture complète d'un champ ASCII fixe RW
 
-## 1. Objectif
-Vérifier qu’un registre strictement interne à une plage RW est modifiable.
+## Objectif
+Vérifier qu'un champ `ASCII fixe` entièrement déclaré `RW` accepte une écriture nominale sur toute sa longueur.
 
-## 2. Références
-- FT-ACC-02 — Écriture des zones RW
-- Mapping Modbus unifié
+## Préconditions
+- champ ASCII RW confirmé par V1 et GEL-MAP-V1 ;
+- longueur fixe et encodage confirmés ;
+- chaîne de test sûre, ASCII uniquement, padding `0x00` conforme.
 
-## 3. Préconditions
-- FT-STR validée
-- FT-ACC-01 validée
-- La cible testée est déclarée `RW`
-- Le simulateur est en état stable
-- La valeur initiale est connue ou lisible
+## Étapes
+1. Lire le champ initial.
+2. Encoder une chaîne de test sur la longueur complète.
+3. Écrire tous les registres du champ avec FC16.
+4. Vérifier l'absence d'exception.
+5. Relire et décoder le champ.
+6. Restaurer la valeur initiale si nécessaire.
 
-## 4. Données d’entrée
-- Adresse : `@ADDR`
-- Longueur : `@LEN`
-- Valeur initiale : `V0`
-- Valeur(s) de test : `V1`, le cas échéant `V2`
+## Résultat attendu
+L'écriture complète est acceptée et la chaîne est observable conformément à V1.
 
-## 5. Étapes
-1. Lire la valeur initiale sur la cible.
-2. Écrire la valeur de test sur la cible.
-3. Relire immédiatement la cible.
-4. Comparer la valeur relue à la valeur écrite.
-
-## 6. Résultat attendu
-- aucune exception Modbus ;
-- écriture acceptée ;
-- relecture immédiate cohérente avec la valeur écrite.
-
-## 7. Critères d’acceptation
-- accès en écriture conforme ;
-- longueur conforme ;
-- cohérence write → read ;
-- comportement cohérent avec l’attribut `RW`.
-
-## 8. Mode d’exécution
-- simulateur déterministe
-- automatisable
-
-## 9. Traces à conserver
-- adresse et longueur ;
-- trame d’écriture ;
-- trame(s) de lecture ;
-- `V0`, `V1`, éventuellement `V2` ;
-- verdict.
-
-## 10. Niveau de criticité
-P0
+## Règle
+Aucune écriture partielle du champ ASCII n'est exigée sans règle V1 explicite.

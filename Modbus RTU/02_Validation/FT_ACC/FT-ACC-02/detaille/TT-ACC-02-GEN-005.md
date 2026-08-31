@@ -1,52 +1,22 @@
-# TT-ACC-02-GEN-005 — Écriture plage courte RW
+# TT-ACC-02-GEN-005 — Répétition d'une écriture nominale autorisée
 
-## 1. Objectif
-Valider une écriture multi-registres courte sur une zone RW contiguë.
+## Objectif
+Vérifier qu'une cible RW stable accepte de manière déterministe la répétition d'une écriture nominale non déclenchante.
 
-## 2. Références
-- FT-ACC-02 — Écriture des zones RW
-- Mapping Modbus unifié
+## Préconditions
+- cible RW sans sémantique de déclenchement ;
+- valeur de test sûre ;
+- état initial connu.
 
-## 3. Préconditions
-- FT-STR validée
-- FT-ACC-01 validée
-- La cible testée est déclarée `RW`
-- Le simulateur est en état stable
-- La valeur initiale est connue ou lisible
+## Étapes
+1. Écrire une première fois la valeur de test.
+2. Contrôler l'acceptation.
+3. Répéter la même écriture.
+4. Contrôler l'acceptation et l'état attendu.
+5. Restaurer si nécessaire.
 
-## 4. Données d’entrée
-- Adresse : `@ADDR`
-- Longueur : `@LEN`
-- Valeur initiale : `V0`
-- Valeur(s) de test : `V1`, le cas échéant `V2`
+## Résultat attendu
+Aucun refus d'accès injustifié n'apparaît du seul fait de la répétition.
 
-## 5. Étapes
-1. Lire la valeur initiale sur la cible.
-2. Écrire la valeur de test sur la cible.
-3. Relire immédiatement la cible.
-4. Comparer la valeur relue à la valeur écrite.
-
-## 6. Résultat attendu
-- aucune exception Modbus ;
-- écriture acceptée ;
-- relecture immédiate cohérente avec la valeur écrite.
-
-## 7. Critères d’acceptation
-- accès en écriture conforme ;
-- longueur conforme ;
-- cohérence write → read ;
-- comportement cohérent avec l’attribut `RW`.
-
-## 8. Mode d’exécution
-- simulateur déterministe
-- automatisable
-
-## 9. Traces à conserver
-- adresse et longueur ;
-- trame d’écriture ;
-- trame(s) de lecture ;
-- `V0`, `V1`, éventuellement `V2` ;
-- verdict.
-
-## 10. Niveau de criticité
-P0
+## Exclusion
+L'idempotence des commandes du Bloc 5 relève de leur logique fonctionnelle, pas de ce générique.

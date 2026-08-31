@@ -1,24 +1,24 @@
-# TT-ACC-05-GEN-002 — Écriture registre RW début de bloc
+# TT-ACC-05-GEN-002 — Configuration préparée et effets normatifs
 
 ## Objectif
-Valider l'absence d'effet de bord pour le scénario `Écriture registre RW début de bloc`.
+Vérifier qu’une écriture dans la configuration préparée du Bloc 4 ne produit que les effets explicitement prévus par la V1.
 
 ## Préconditions
-- FT-STR validée
-- FT-ACC-01 et FT-ACC-02 validées
-- cible `RW`
-- snapshot bloc complet disponible
+- cible RW de la configuration préparée ;
+- valeur nominale maîtrisée ;
+- état de la configuration connu.
 
 ## Étapes
-1. Capturer le snapshot complet du bloc avant écriture.
-2. Écrire sur la cible.
-3. Capturer le snapshot complet du bloc après écriture.
-4. Comparer avant/après.
-5. Vérifier que seules les adresses ciblées diffèrent.
+1. Capturer le Bloc 4 avant écriture, y compris l’image active.
+2. Écrire la cible préparée.
+3. Capturer le Bloc 4 après stabilisation.
+4. Vérifier la cible et classifier les autres différences.
 
 ## Résultat attendu
-- aucune modification hors cible ;
-- comportement déterministe.
+- la cible préparée évolue conformément à l’écriture ;
+- `config_state` peut évoluer vers `BROUILLON` conformément à la V1 ;
+- l’image active n’est pas appliquée ou modifiée implicitement ;
+- aucun autre effet non spécifié n’apparaît.
 
 ## Criticité
 P0

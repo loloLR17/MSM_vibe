@@ -1,24 +1,22 @@
-# TT-ACC-05-GEN-001 — Écriture registre RW unitaire
+# TT-ACC-05-GEN-001 — Écriture RW sans effet fonctionnel associé
 
 ## Objectif
-Valider l'absence d'effet de bord pour le scénario `Écriture registre RW unitaire`.
+Vérifier qu’une écriture RW nominale ne modifie que sa cible et les éventuelles évolutions autonomes démontrées comme indépendantes.
 
 ## Préconditions
-- FT-STR validée
-- FT-ACC-01 et FT-ACC-02 validées
-- cible `RW`
-- snapshot bloc complet disponible
+- FT-STR gelée ; FT-ACC-02 validée ;
+- cible RW identifiée par le mapping ;
+- valeur nominale maîtrisée ;
+- état de référence capturable.
 
 ## Étapes
-1. Capturer le snapshot complet du bloc avant écriture.
-2. Écrire sur la cible.
-3. Capturer le snapshot complet du bloc après écriture.
-4. Comparer avant/après.
-5. Vérifier que seules les adresses ciblées diffèrent.
+1. Capturer l’état pertinent avant écriture.
+2. Écrire la valeur nominale sur la cible.
+3. Capturer l’état après écriture.
+4. Classer toutes les différences observées.
 
 ## Résultat attendu
-- aucune modification hors cible ;
-- comportement déterministe.
+Aucun changement hors cible n’est imputable à l’écriture, sauf effet V1 explicitement autorisé ou évolution autonome démontrée.
 
 ## Criticité
 P0

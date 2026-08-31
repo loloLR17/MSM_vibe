@@ -1,24 +1,20 @@
-# FT-ACC-06 — Tests instanciés
+# FT-ACC-06 — Vue d'ensemble instanciée
 
-## Doctrine retenue
-- Choix A : exception Modbus explicite obligatoire
-- aucune modification mémoire
-- aucune exécution partielle silencieuse
+## Couverture active
 
-## Source d’instanciation
-- frontières de bloc
-- débuts / fins de plages valides
-- frontières logiques entre champs adjacents incompatibles
+- Bloc 2 : 2 cas
+- Bloc 4 : 12 cas
+- Bloc 5 : 1 cas
+- Bloc 6 : 2 cas
+- **Total : 17 cas**
 
-## Couverture par bloc
-- Bloc 0 : 9 cas instanciés
-- Bloc 1 : 11 cas instanciés
-- Bloc 2 : 12 cas instanciés
-- Bloc 3 : 8 cas instanciés
-- Bloc 4 : 28 cas instanciés
-- Bloc 5 : 9 cas instanciés
-- Bloc 6 : 13 cas instanciés
-- Bloc 7 : 7 cas instanciés
+## Principe
+Chaque cas couvre une frontière adjacente où une FC16 peut mêler au moins un registre RW et au moins un registre non inscriptible (RO ou réservé).
 
-## Total
-- 97 cas instanciés
+Les lectures partielles, franchissements de champs logiques en lecture, quantités FC03 invalides et adresses inexistantes en lecture sont exclus de FT-ACC-06 actif car déjà couverts par FT-STR-06 gelée.
+
+## Critère central
+Le rejet doit être atomique : aucun registre RW pourtant inclus dans la requête ne peut être modifié, et aucun effet interne ne peut être produit.
+
+## Cas de commande B5
+Le cas 5007-5008 impose `cmd_request_control = 0x0000` pour ne créer aucun front de commande pendant l'essai de rejet.

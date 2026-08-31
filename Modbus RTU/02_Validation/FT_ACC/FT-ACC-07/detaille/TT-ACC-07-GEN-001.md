@@ -1,36 +1,51 @@
-# TT-ACC-07-GEN-001 — Lecture champ RO
+# TT-ACC-07-GEN-001 — Audit croisé de couverture mapping ↔ FT-ACC
 
-## 1. Objectif
-Valider la conformité mapping ↔ comportement observé pour le scénario `Lecture champ RO`.
+## Objectif
+Vérifier statiquement la complétude, l'unicité et la cohérence de la couverture FT-ACC par rapport au mapping unifié dérivé de la V1.
 
-## 2. Références
-- FT-ACC-07 — Conformité mapping ↔ permissions observées
-- Mapping Modbus unifié
-- Gouvernance `reserved*`
-- Doctrine d’exception explicite sur accès invalide
+## Sources
+- spécification Modbus RTU V1 gelée ;
+- mapping unifié gelé ;
+- GEL-GOV-02 ;
+- sources et index actifs FT-ACC-02 à FT-ACC-06 ;
+- FT-STR-06 gelée pour la couverture structurelle en lecture.
 
-## 3. Préconditions
-- FT-STR validée
-- FT-ACC-01 à FT-ACC-06 validées
-- système stable
-- cible connue dans le mapping
+## Préconditions
+- artefacts gelés disponibles ;
+- FT-ACC-02 à FT-ACC-06 auditées ;
+- index actifs disponibles et cohérents avec leurs fiches source.
 
-## 4. Étapes
-1. Identifier le type d’accès documentaire de la cible.
-2. Exécuter la lecture de la cible.
-3. Exécuter l’écriture ou la tentative d’écriture selon le scénario.
-4. Relire la cible si nécessaire.
-5. Comparer le comportement observé au comportement attendu issu du mapping.
+## Étapes
+1. Extraire les cibles logiques du mapping.
+2. Classer chaque cible en RW, RO non réservé ou réservé selon la V1 et le mapping dérivé conforme.
+3. Vérifier la présence de chaque RW dans l'index actif FT-ACC-02.
+4. Vérifier la présence de chaque RO non réservé dans l'index actif FT-ACC-03.
+5. Vérifier la présence de chaque réservé dans l'index actif FT-ACC-04.
+6. Détecter les cibles absentes, dupliquées ou classées dans plusieurs classes primaires.
+7. Vérifier explicitement l'unicité de l'adresse 4017 et le classement réservé de `B3_RESERVED_0`.
+8. Vérifier la cohérence des couvertures complémentaires FT-ACC-05 et FT-ACC-06 avec leurs sources.
+9. Rechercher dans le chemin actif toute tolérance contraire à GEL-GOV-02, notamment « refusée ou sans effet observable ».
+10. Vérifier qu'aucun test FT-ACC actif ne réintroduit une exigence structurelle déjà gelée dans FT-STR.
+11. Produire la matrice et le verdict de consolidation.
 
-## 5. Résultat attendu
-- comportement strictement conforme au mapping ;
-- aucune ambiguïté ;
-- stabilité sur répétition.
+## Résultats attendus
+- 35 RW couverts par FT-ACC-02 ;
+- 129 RO non réservés couverts par FT-ACC-03 ;
+- 18 réservés couverts par FT-ACC-04 ;
+- total : 182 cibles primaires uniques ;
+- aucune cible orpheline ;
+- aucun conflit de classification ;
+- aucun doublon injustifié ;
+- aucune doctrine obsolète active ;
+- couvertures FT-ACC-05/06 cohérentes avec leur périmètre.
 
-## 6. Critères d’acceptation
-- verdict cohérent avec le type d’accès ;
-- absence de divergence documentaire ;
-- comportement déterministe.
+## Critère d'acceptation
+PASS si tous les résultats attendus sont satisfaits. Toute divergence produit FAIL et une anomalie traçable ; aucun artefact gelé n'est modifié silencieusement.
 
-## 7. Criticité
-P0
+## Mode d'exécution
+Statique, automatisable.
+
+## Traces à conserver
+- matrice de consolidation ;
+- liste éventuelle des anomalies ;
+- versions/commits des artefacts audités.

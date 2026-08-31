@@ -1,92 +1,40 @@
-# FT-ACC-01 — README
+# FT-ACC-01 — Lecture des zones exposées — RETIRÉE
 
-## 1. Objet
+## Statut
 
-Cette famille de tests appartient au plan de validation **FT-ACC (Accès et permissions)**.
+**Sous-famille retirée du référentiel actif V1.**
 
-Elle a pour objectif de valider :
-- la lisibilité effective des zones exposées ;
-- la cohérence entre mapping et lecture observée ;
-- l’absence d’effet de bord d’une lecture nominale.
+FT-ACC-01 avait pour objet historique de vérifier la lecture des zones Modbus exposées. Après audit croisé avec la famille FT-STR gelée, ce périmètre est couvert intégralement et plus précisément par **FT-STR-06 — Accessibilité et découpage de lecture Modbus**.
 
----
+FT-ACC-01 ne doit donc plus être utilisée pour produire de nouveaux verdicts de validation.
 
-## 2. Structure du dossier
+## Motif du retrait
 
-```text
-FT-ACC-01/
-├── source/
-├── detaille/
-├── instancie/
-└── archive_pre_renforcement/
-```
+L'ancienne suite FT-ACC-01 dupliquait notamment :
 
-### source/
-Contient la fiche de spécification officielle :
-- `FT-ACC-01.md`
+- la lecture d'un registre exposé isolé ;
+- les lectures en début, milieu et fin de plage ;
+- les sous-plages contiguës ;
+- les lectures multi-registres ;
+- les lectures traversant plusieurs champs logiques ;
+- les lectures de plages de blocs.
 
-👉 Référence fonctionnelle
+Ces contrôles appartiennent désormais à FT-STR-06.
 
----
+L'ancien référentiel FT-ACC-01 contenait en outre des hypothèses devenues incompatibles avec la doctrine gelée, notamment sur la lecture partielle d'un champ logique multi-registres. FT-STR-06 précise qu'une sous-plage entièrement exposée reste valide même lorsqu'elle ne couvre qu'une partie d'un champ logique.
 
-### detaille/
-Contient les cas de test génériques :
-- `TT-ACC-01-GEN-XXX.md`
+## Référentiel actif
 
-👉 Niveau :
-- logique
-- indépendant du mapping
+Pour toute validation de lecture Modbus :
 
----
+- structure et exposition des adresses : FT-STR ;
+- accessibilité, découpage et comportement FC03 : **FT-STR-06** ;
+- droits et refus d'écriture : FT-ACC-02 à FT-ACC-06 selon le cas.
 
-### instancie/
-Contient les cas de test appliqués au mapping réel.
+## Historique
 
-👉 Niveau :
-- exécutable terrain
-- basé sur `tr2_mapping_unifie_logique.csv`
-- stratégie hybride **Option C**
+Les anciens artefacts `source/`, `detaille/` et `instancie/` ont été déplacés sous `archive_pre_renforcement/` afin de conserver la traçabilité historique sans polluer le référentiel actif.
 
----
+Ils sont **informatifs uniquement** et ne doivent pas être exécutés comme tests V1 actifs.
 
-### archive_pre_renforcement/
-Contient les anciennes versions.
-
-👉 Non utilisé en opérationnel
-
----
-
-## 3. Référentiel de vérité
-
-Ordre de priorité :
-
-1. `mapping_unifie/`
-2. `source/FT-ACC-01.md`
-3. `instancie/`
-4. `detaille/`
-
----
-
-## 4. Règles
-
-- aucun test instancié ne doit exister sans cible du mapping ;
-- aucun champ logique ne doit être testé deux fois comme lecture unitaire ;
-- les tests de plage bloc sont explicitement distincts des tests de champ ;
-- `detaille/` ne doit jamais contenir d’adresse ;
-- `archive_pre_renforcement/` ne doit jamais être utilisée en validation.
-
----
-
-## 5. Utilisation
-
-Ordre recommandé :
-
-1. valider FT-STR ;
-2. exécuter FT-ACC-01 sur simulateur déterministe ;
-3. poursuivre avec FT-ACC-02 et suivantes.
-
----
-
-## 6. Statut
-
-Famille préparée pour usage industriel et instanciation terrain.
+L'identifiant `FT-ACC-01` est conservé et n'est pas réattribué afin de préserver la traçabilité documentaire et l'historique du projet.

@@ -1,17 +1,15 @@
-﻿test_id,block,field,address_start,address_end,declared_type,register_count,access,file
+test_id,block,field,address_start,address_end,declared_type,register_count,access,file
 TT-ACC-02-B2-001,2,prepared_time,2008,2009,uint32,2,RW,TT-ACC-02-B2-001__B2__prepared_time__ecriture_champ_complet.md
-TT-ACC-02-B2-002,2,plage_rw_bloc,2008,2009,plage_RW,2,RW,TT-ACC-02-B2-002__B2__plage_rw_bloc__ecriture_plage.md
 TT-ACC-02-B4-001,4,prepared_config_id,4002,4003,uint32,2,RW,TT-ACC-02-B4-001__B4__prepared_config_id__ecriture_champ_complet.md
-TT-ACC-02-B4-027,4,plage_rw_bloc,4002,4095,plage_RW,94,RW,TT-ACC-02-B4-027__B4__plage_rw_bloc__ecriture_plage.md
 TT-ACC-02-B4-002,4,prepared_config_crc,4008,4009,uint32,2,RW,TT-ACC-02-B4-002__B4__prepared_config_crc__ecriture_champ_complet.md
 TT-ACC-02-B4-003,4,sampling_frequency_hz,4016,4016,uint16,1,RW,TT-ACC-02-B4-003__B4__sampling_frequency_hz__ecriture_unitaire.md
-TT-ACC-02-B4-004,4,axes_enable_mask,4018,4018,uint16,1,RW,TT-ACC-02-B4-004__B4__axes_enable_mask__ecriture_unitaire.md
-TT-ACC-02-B4-005,4,full_scale_code,4019,4019,uint16,1,RW,TT-ACC-02-B4-005__B4__full_scale_code__ecriture_unitaire.md
-TT-ACC-02-B4-006,4,acquisition_mode,4020,4020,uint16,1,RW,TT-ACC-02-B4-006__B4__acquisition_mode__ecriture_unitaire.md
+TT-ACC-02-B4-004,4,axes_enable_mask,4018,4018,bitfield16,1,RW,TT-ACC-02-B4-004__B4__axes_enable_mask__ecriture_unitaire.md
+TT-ACC-02-B4-005,4,full_scale_code,4019,4019,enum16,1,RW,TT-ACC-02-B4-005__B4__full_scale_code__ecriture_unitaire.md
+TT-ACC-02-B4-006,4,acquisition_mode,4020,4020,enum16,1,RW,TT-ACC-02-B4-006__B4__acquisition_mode__ecriture_unitaire.md
 TT-ACC-02-B4-007,4,window_size_samples,4021,4021,uint16,1,RW,TT-ACC-02-B4-007__B4__window_size_samples__ecriture_unitaire.md
 TT-ACC-02-B4-008,4,indicator_period_ms,4022,4022,uint16,1,RW,TT-ACC-02-B4-008__B4__indicator_period_ms__ecriture_unitaire.md
 TT-ACC-02-B4-009,4,campaign_duration_s,4023,4024,uint32,2,RW,TT-ACC-02-B4-009__B4__campaign_duration_s__ecriture_champ_complet.md
-TT-ACC-02-B4-010,4,storage_mode,4025,4025,uint16,1,RW,TT-ACC-02-B4-010__B4__storage_mode__ecriture_unitaire.md
+TT-ACC-02-B4-010,4,storage_mode,4025,4025,enum16,1,RW,TT-ACC-02-B4-010__B4__storage_mode__ecriture_unitaire.md
 TT-ACC-02-B4-011,4,storage_limit_mb,4026,4027,uint32,2,RW,TT-ACC-02-B4-011__B4__storage_limit_mb__ecriture_champ_complet.md
 TT-ACC-02-B4-012,4,supervision_enable_mask,4040,4040,uint16,1,RW,TT-ACC-02-B4-012__B4__supervision_enable_mask__ecriture_unitaire.md
 TT-ACC-02-B4-013,4,rms_warn_threshold_mg,4041,4041,uint16,1,RW,TT-ACC-02-B4-013__B4__rms_warn_threshold_mg__ecriture_unitaire.md
@@ -24,12 +22,11 @@ TT-ACC-02-B4-019,4,campaign_context_id,4056,4057,uint32,2,RW,TT-ACC-02-B4-019__B
 TT-ACC-02-B4-020,4,mission_id,4058,4059,uint32,2,RW,TT-ACC-02-B4-020__B4__mission_id__ecriture_champ_complet.md
 TT-ACC-02-B4-021,4,campaign_label,4060,4075,ASCII fixe,16,RW,TT-ACC-02-B4-021__B4__campaign_label__ecriture_champ_ascii_complet.md
 TT-ACC-02-B4-022,4,mission_label,4076,4091,ASCII fixe,16,RW,TT-ACC-02-B4-022__B4__mission_label__ecriture_champ_ascii_complet.md
-TT-ACC-02-B4-023,4,operating_mode_code,4092,4092,uint16,1,RW,TT-ACC-02-B4-023__B4__operating_mode_code__ecriture_unitaire.md
-TT-ACC-02-B4-024,4,navigation_zone_code,4093,4093,uint16,1,RW,TT-ACC-02-B4-024__B4__navigation_zone_code__ecriture_unitaire.md
-TT-ACC-02-B4-025,4,load_state_code,4094,4094,uint16,1,RW,TT-ACC-02-B4-025__B4__load_state_code__ecriture_unitaire.md
-TT-ACC-02-B4-026,4,sea_state_code,4095,4095,uint16,1,RW,TT-ACC-02-B4-026__B4__sea_state_code__ecriture_unitaire.md
+TT-ACC-02-B4-023,4,operating_mode_code,4092,4092,enum16,1,RW,TT-ACC-02-B4-023__B4__operating_mode_code__ecriture_unitaire.md
+TT-ACC-02-B4-024,4,navigation_zone_code,4093,4093,enum16,1,RW,TT-ACC-02-B4-024__B4__navigation_zone_code__ecriture_unitaire.md
+TT-ACC-02-B4-025,4,load_state_code,4094,4094,enum16,1,RW,TT-ACC-02-B4-025__B4__load_state_code__ecriture_unitaire.md
+TT-ACC-02-B4-026,4,sea_state_code,4095,4095,enum16,1,RW,TT-ACC-02-B4-026__B4__sea_state_code__ecriture_unitaire.md
 TT-ACC-02-B5-001,5,cmd_request_code,5000,5000,uint16,1,RW,TT-ACC-02-B5-001__B5__cmd_request_code__ecriture_unitaire.md
-TT-ACC-02-B5-008,5,plage_rw_bloc,5000,5007,plage_RW,8,RW,TT-ACC-02-B5-008__B5__plage_rw_bloc__ecriture_plage.md
 TT-ACC-02-B5-002,5,cmd_request_transaction_id,5001,5001,uint16,1,RW,TT-ACC-02-B5-002__B5__cmd_request_transaction_id__ecriture_unitaire.md
 TT-ACC-02-B5-003,5,cmd_request_param1,5002,5002,uint16,1,RW,TT-ACC-02-B5-003__B5__cmd_request_param1__ecriture_unitaire.md
 TT-ACC-02-B5-004,5,cmd_request_param2,5003,5003,uint16,1,RW,TT-ACC-02-B5-004__B5__cmd_request_param2__ecriture_unitaire.md
@@ -37,4 +34,3 @@ TT-ACC-02-B5-005,5,cmd_request_param3,5004,5005,uint32,2,RW,TT-ACC-02-B5-005__B5
 TT-ACC-02-B5-006,5,cmd_request_confirm_key,5006,5006,uint16,1,RW,TT-ACC-02-B5-006__B5__cmd_request_confirm_key__ecriture_unitaire.md
 TT-ACC-02-B5-007,5,cmd_request_control,5007,5007,bitfield16,1,RW,TT-ACC-02-B5-007__B5__cmd_request_control__ecriture_unitaire.md
 TT-ACC-02-B6-001,6,selected_campaign_index,6003,6003,uint16,1,RW,TT-ACC-02-B6-001__B6__selected_campaign_index__ecriture_unitaire.md
-TT-ACC-02-B6-002,6,plage_rw_bloc,6003,6003,plage_RW,1,RW,TT-ACC-02-B6-002__B6__plage_rw_bloc__ecriture_plage.md

@@ -1,24 +1,21 @@
-# TT-ACC-05-GEN-003 — Écriture registre RW fin de bloc
+# TT-ACC-05-GEN-003 — Préparation de commande sans déclenchement
 
 ## Objectif
-Valider l'absence d'effet de bord pour le scénario `Écriture registre RW fin de bloc`.
+Vérifier que la préparation des registres de requête du Bloc 5 ne déclenche aucune commande en l’absence de front `submit`.
 
 ## Préconditions
-- FT-STR validée
-- FT-ACC-01 et FT-ACC-02 validées
-- cible `RW`
-- snapshot bloc complet disponible
+- aucune commande active ;
+- `cmd_request_control.submit = 0` ;
+- cible RW de la zone de requête.
 
 ## Étapes
-1. Capturer le snapshot complet du bloc avant écriture.
-2. Écrire sur la cible.
-3. Capturer le snapshot complet du bloc après écriture.
-4. Comparer avant/après.
-5. Vérifier que seules les adresses ciblées diffèrent.
+1. Capturer le Bloc 5 avant écriture.
+2. Écrire une valeur nominale sur la cible en maintenant `submit = 0`.
+3. Capturer le Bloc 5 après écriture.
+4. Vérifier qu’aucune commande n’a été prise en compte.
 
 ## Résultat attendu
-- aucune modification hors cible ;
-- comportement déterministe.
+La zone de requête reflète la préparation autorisée ; aucun changement de statut/historique imputable à une exécution de commande n’est observé. Pour `cmd_request_control`, utiliser `0x0000` afin de ne générer aucun front `submit`, `cancel` ou `clear`.
 
 ## Criticité
 P0
