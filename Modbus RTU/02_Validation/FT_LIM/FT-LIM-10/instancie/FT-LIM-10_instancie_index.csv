@@ -1,0 +1,18 @@
+test_id,generic_case,precondition,observation,expected_result,execution_status
+TT-LIM-10-C01-001,LIM10-G01,none,read B3_STATUS_GLOBAL,"value in {0..5}",ACTIVE
+TT-LIM-10-C02-001,LIM10-G02,none,read B3_VALIDITY_FLAGS,"(value & 0xE000)==0",ACTIVE
+TT-LIM-10-C03-001,LIM10-G03,none,read B3_ALARM_FLAGS,"(value & 0xFE00)==0",ACTIVE
+TT-LIM-10-C04-001,LIM10-G04,none,read B3_SEVERITY_GLOBAL,"value in {0..5}",ACTIVE
+TT-LIM-10-C05-001,LIM10-G05,none,read B3_DOMINANT_AXIS,"value in {0..4}",ACTIVE
+TT-LIM-10-C06-001,LIM10-G06,none,read four B3_EXCEED fields,"each value in {0,1}",ACTIVE
+TT-LIM-10-C07-001,LIM10-G07,none,read B3_ALARM_LATCHED,"value in {0,1}",ACTIVE
+TT-LIM-10-C08-001,LIM10-G08,no reset/statistics reset,"read exceed counter t1/t2","count2 >= count1",ACTIVE
+TT-LIM-10-C08-002,LIM10-G08,no reset/statistics reset,"read alarm counter t1/t2","count2 >= count1",ACTIVE
+TT-LIM-10-C09-001,LIM10-G09,counter reaches max if observable,"observe counter at 0xFFFFFFFF","remaining saturated is conforming",CONDITIONAL
+TT-LIM-10-C10-001,LIM10-G10,none,read 3040..3047,"all zero",ACTIVE
+TT-LIM-10-C11-001,LIM10-G11,known active configuration,"associate calculated window with thresholds","threshold source is active config",CONDITIONAL
+TT-LIM-10-C12-001,LIM10-G12,new prepared config not activated,"compare prior calculated results","no retroactive reinterpretation",CONDITIONAL
+TT-LIM-10-C13-001,LIM10-G13,new config successfully activated,"observe next validated window","new thresholds effective from next validated window",CONDITIONAL
+TT-LIM-10-C14-001,LIM10-G14,temporary calculation unavailability observable,"observe retained values and qualification","retained numeric value not treated as valid by presence alone",CONDITIONAL
+TT-LIM-10-C15-001,LIM10-G15,none,"audit mapping/unit traceability","vibration values expressed as acceleration mg; no mm/s field",ACTIVE
+TT-LIM-10-C16-001,LIM10-G16,none,"record undefined cross-relations","TRACE_ONLY — no invented oracle",ACTIVE
