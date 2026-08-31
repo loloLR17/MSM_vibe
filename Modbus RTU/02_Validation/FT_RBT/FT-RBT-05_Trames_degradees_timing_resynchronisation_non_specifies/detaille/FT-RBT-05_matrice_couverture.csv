@@ -1,0 +1,11 @@
+id,objet,classification,proprietaire,test,commentaire
+RBT05-R01,Trame RTU CRC invalide,NOT_DEFINED,FT-RBT-05,,Aucun comportement TR2 V1 explicite
+RBT05-R02,Trame tronquée framing invalide,NOT_DEFINED,FT-RBT-05,,Aucune règle de récupération V1
+RBT05-R03,Résynchronisation après trame dégradée,NOT_DEFINED,FT-RBT-05,,Aucun délai ou séquence normative
+RBT05-R04,Timeout de réponse Modbus,NOT_DEFINED,FT-RBT-05,,Aucune borne temporelle V1
+RBT05-R05,Politique retry backoff,NOT_DEFINED,FT-RBT-05,,Aucun nombre délai ou abandon normatif
+RBT05-R06,Fréquence maximale débit minimal,NOT_DEFINED,FT-RBT-05,,Aucune exigence quantitative V1
+RBT05-R07,Rafale de trames invalides récupération automatique,NOT_DEFINED,FT-RBT-05,,Aucun seuil ou comportement normatif
+RBT05-R08,Priorité entre erreurs simultanées transport,NOT_DEFINED,FT-RBT-05,,Aucune hiérarchie V1
+RBT05-R09,Accès invalide au sens mapping,DELEGATED,FT-ACC,,Oracle charte typage §14
+RBT05-R10,CRC applicatif configuration,DELEGATED,Famille fonctionnelle concernée,,Ne pas confondre avec CRC de trame Modbus RTU
