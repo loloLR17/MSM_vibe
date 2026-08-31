@@ -81,6 +81,16 @@ Les bits réservés d'un bitfield RW restent une contrainte fonctionnelle de val
 
 ## 8. État de la famille
 
+**Statut : GELÉE V1.**
+
 La famille V1 est structurée en FT-LIM-01 à FT-LIM-10. La grande passe croisée de fermeture a identifié et corrigé les écarts documentaires résiduels sans nécessiter de nouvelle sous-famille métier.
 
-Le verdict final de gel est établi après contrôle de la matrice globale de couverture et du diff complet de la branche d'audit contre `main`.
+Le contrôle final de gel a confirmé :
+- couverture fonctionnelle des Blocs 0 à 7 par FT-LIM-01 à FT-LIM-10 ;
+- séparation cohérente avec FT-STR et FT-ACC gelées ;
+- absence de FT-LIM-11 nécessaire en V1 ;
+- conservation explicite des zones `NOT_DEFINED`, `TRACE_ONLY` et `CONDITIONAL` sans invention d'oracle ;
+- correction normative de Bloc 1 : les codes 0..6 sont rattachés à `last_reset_cause`, tandis que le domaine détaillé de `system_status` reste à arbitrer ;
+- présence d'une matrice globale de couverture V1 à la racine de FT_LIM.
+
+Toute évolution ultérieure de FT-LIM V1 doit être motivée par une modification normative amont, une contradiction démontrée ou une décision de gouvernance explicitement validée.
