@@ -1,0 +1,12 @@
+rule_id,relation,status,test_id,owner,notes
+INT04-R01,"Succès B5 START -> acquisition B1 active",COVERED,TT-INT-B01B05-001,FT-INT-04,"B1 acquisition_state=1 après succès B5"
+INT04-R02,"Succès B5 START -> ouverture nouvelle campagne B6",COVERED,TT-INT-B05B06-001,FT-INT-04,"Ne pas imposer index ni incrément immédiat du compteur"
+INT04-R03,"Campagne ouverte après START cohérente avec état en cours B6",COVERED,TT-INT-B05B06-002,FT-INT-04,"campaign_state=2 et end_timestamp=0 utilisés comme preuve inter-blocs"
+INT04-R04,"Succès B5 STOP -> acquisition B1 arrêtée",COVERED,TT-INT-B01B05B06-001,FT-INT-04,"B1 acquisition_state=0"
+INT04-R05,"STOP -> campagne précédemment ouverte mise en cohérence / clôturée",COVERED,TT-INT-B01B05B06-001,FT-INT-04,"Oracle borné; pas d'égalité universelle duration=end-start"
+INT04-R06,"Timestamps campagne B6 utilisent base temporelle B2",COVERED,TT-INT-B02B06-001,FT-INT-04,"Fenêtres temporelles; pas d'égalité bit-à-bit entre lectures séparées"
+INT04-R07,"B1.active_campaign_id == B6.campaign_id courant",NOT_DEFINED,,FT-INT-04,"Égalité non explicitement normative en V1"
+INT04-R08,"START -> total_campaign_count augmente exactement de 1 immédiatement",NOT_DEFINED,,FT-INT-04,"Ouverture normative mais timing/publication stricts non définis"
+INT04-R09,"RAZ statistiques B5 ne supprime pas campagnes B6",COVERED,TT-INT-B05B06-003,FT-INT-04,"Interdiction explicite d'effacer les campagnes"
+INT04-R10,"RAZ statistiques ne supprime pas identité/configuration",COVERED,TT-INT-B05B06-003,FT-INT-04,"Contrôle transversal associé; persistance reboot hors scope"
+INT04-R11,"Refus START/STOP et codes résultat 21/22/préconditions",DELEGATED,,FT-CMD,"Moteur transactionnel et décisions accept/refuse"
