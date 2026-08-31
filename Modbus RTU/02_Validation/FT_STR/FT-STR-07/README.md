@@ -1,90 +1,35 @@
-# FT-STR-07 — README
+# FT-STR-07 — Stabilité d’image et cohérence temporelle
 
-## 1. Objet
+## Objet
 
-Cette famille de tests appartient au plan de validation **FT-STR (Conformité structurelle)**.
+FT-STR-07 valide la stabilité des données réellement statiques et la cohérence temporelle des réponses Modbus multi-registres.
 
-Elle a pour objectif de valider :
-- la conformité du mapping Modbus
-- la structure des données
-- leur encodage et accessibilité
+## Référentiel
 
----
+Ordre de vérité :
+1. spécification Modbus RTU V1 (`bloc0.md` à `bloc7.md`, `charte_typage.md`) ;
+2. GEL-MAP-V1, mapping dérivé ;
+3. `source/FT-STR-07.md` ;
+4. `detaille/TT-STR-07-GEN-XXX.md` ;
+5. `instancie/`.
 
-## 2. Structure du dossier
+## Doctrine
 
-```text
-FT-STR-07/
-├── source/
-├── detaille/
-├── instancie/
-└── archive_pre_renforcement/ (optionnel)
-```
+FT-STR-07 distingue strictement :
+- la **stabilité entre requêtes**, exigible uniquement pour une donnée normativement ou contextuellement stable ;
+- la **cohérence interne d’une réponse multi-registres**, exigée même si les données évoluent entre deux requêtes.
 
-### source/
-Contient la fiche de spécification officielle :
-- `FT-STR-XX.md`
+Une donnée dynamique (`current_time`, `uptime_s`, compteurs, états, mesures, etc.) n’est pas non conforme parce qu’elle varie normalement entre deux lectures.
 
-👉 Référence fonctionnelle
+Une réponse multi-registres doit en revanche représenter un **même instant logique**, conformément à `charte_typage.md`.
 
----
+## Validation active
 
-### detaille/
-Contient les cas de test génériques :
-- `TT-STR-XX-XXX.md`
+- `GEN-001` : répétabilité des données réellement statiques ;
+- `GEN-002` : atomicité des `uint32` en évolution contrôlée ;
+- `GEN-003` : cohérence intra-réponse des zones dynamiques ;
+- `GEN-004` : absence d’effet de bord lié au mode de lecture.
 
-👉 Niveau :
-- logique
-- indépendant du mapping
+Les anciens tests sont archivés et ne participent plus à la validation active.
 
----
-
-### instancie/
-Contient les cas de test appliqués au mapping réel.
-
-👉 Niveau :
-- exécutable terrain
-- basé sur mapping_unifie
-
----
-
-### archive_pre_renforcement/
-Contient les anciennes versions.
-
-👉 Non utilisé en opérationnel
-
----
-
-## 3. Référentiel de vérité
-
-Ordre de priorité :
-
-1. mapping_unifie
-2. source/FT-STR-XX.md
-3. instancie/
-4. detaille/
-
----
-
-## 4. Règles
-
-- aucun test instancié ne doit exister sans mapping
-- aucun champ ne doit être testé deux fois dans instancie/
-- detaille/ ne doit jamais contenir d’adresse
-- archive ne doit jamais être utilisée en validation
-
----
-
-## 5. Utilisation
-
-Ordre recommandé :
-
-1. FT-STR-08 (doc ↔ mapping)
-2. FT-STR-01 → 07
-3. exécution instanciée
-
----
-
-## 6. Statut
-
-Famille validée pour usage industriel.
+Aucun résultat terrain n’est déduit du mapping seul.
