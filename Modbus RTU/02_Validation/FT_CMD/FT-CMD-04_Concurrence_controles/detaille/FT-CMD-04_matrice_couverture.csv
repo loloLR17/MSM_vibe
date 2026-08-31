@@ -1,0 +1,10 @@
+requirement_id;objet;classification;test_ids;oracle_v1;dette
+CMD04-R01;Une seule commande active à la fois;COVERED;TT-CMD-B05-300|TT-CMD-B05-301;Pas de seconde commande concurrente;Preuve interne limitée aux observables
+CMD04-R02;Nouvelle commande pendant commande en cours refusée code 13;COVERED;TT-CMD-B05-300;cmd_result_code=13;
+CMD04-R03;Représentation cmd_active_* du refus concurrent;NOT_DEFINED;;;A ou B non précisé et corrélation ambiguë
+CMD04-R04;Existence cancel_request;TRACE_ONLY;;Bit1 défini;Pas de cycle complet défini
+CMD04-R05;Indication annulation supportée bit9;TRACE_ONLY;;cmd_engine_flags.bit9 défini;Aucune liste de commandes annulables
+CMD04-R06;Refus d'une commande non annulable code 15;CONDITIONAL;TT-CMD-B05-302;cmd_result_code=15 si cas constructible;Commande concrète non définie
+CMD04-R07;Succès d'annulation;NOT_DEFINED;;;Etat final et code de succès non définis
+CMD04-R08;Existence clear_request_fields;TRACE_ONLY;;Bit2 défini;Portée et timing non définis
+CMD04-R09;Effet exact clear_request_fields;NOT_DEFINED;;;Ne pas imposer 5000..5007=0

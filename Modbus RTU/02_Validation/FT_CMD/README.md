@@ -36,11 +36,14 @@ Sont notamment à tracer sans fabrication d'oracle :
 - table sémantique exhaustive de `cmd_result_detail` ;
 - politique recommandée d'entrée en maintenance acquisition arrêtée, non normative en V1.
 
+Ces points sont conservés pour le rapport d'audit final et pourront alimenter une éventuelle spécification V1.1 après clôture de l'audit V1.
+
 ## 6. Statut
 
 - FT-CMD-01 : validée et mergée dans `main` ;
 - FT-CMD-02 : validée et mergée dans `main` ;
-- FT-CMD-03 : reconstruite, en attente de validation ;
-- FT-CMD-04 à FT-CMD-07 : non démarrées.
+- FT-CMD-03 : validée et mergée dans `main` ;
+- FT-CMD-04 : reconstruite, en attente de validation ;
+- FT-CMD-05 à FT-CMD-07 : non démarrées.
 
 Aucun gel ni merge global sans validation explicite.
