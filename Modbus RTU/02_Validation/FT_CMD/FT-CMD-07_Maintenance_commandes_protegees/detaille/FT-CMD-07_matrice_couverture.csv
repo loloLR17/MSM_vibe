@@ -1,0 +1,12 @@
+requirement_id;objet;classification;test_ids;oracle_v1;dette
+CMD07-R01;ENTER MAINTENANCE transactionnel;COVERED;TT-CMD-B05-600;Commande 8 admissible hors autre interdiction normative;Acquisition arrêtée seulement recommandée
+CMD07-R02;EXIT MAINTENANCE transactionnel;COVERED;TT-CMD-B05-601;Commande 9 admissible;Effet de mode délégué FT-INT
+CMD07-R03;Protection limitée aux commandes 10 et 11;COVERED;TT-CMD-B05-608;Absence de clé ne doit pas causer code 9 pour 1..9;
+CMD07-R04;Clé de confirmation valide 0xA55A;COVERED;TT-CMD-B05-603|TT-CMD-B05-607;Confirmation valide pour commandes protégées;
+CMD07-R05;Commande protégée sans confirmation valide;COVERED;TT-CMD-B05-602|TT-CMD-B05-606;cmd_result_code=9;
+CMD07-R06;RESET SOFTWARE acquisition arrêtée;COVERED;TT-CMD-B05-603|TT-CMD-B05-604;Acquisition active -> code 5;
+CMD07-R07;RESET SOFTWARE sans opération critique non terminée;CONDITIONAL;TT-CMD-B05-605;Refus si opération critique identifiée;Définition et code exact NOT_DEFINED
+CMD07-R08;RESET SOFTWARE post-reboot;DELEGATED;;FT-PER;Persistance hors FT-CMD
+CMD07-R09;RESET STATISTICS transaction protégée;COVERED;TT-CMD-B05-606|TT-CMD-B05-607;Clé obligatoire;
+CMD07-R10;Non-effets RESET STATISTICS;DELEGATED;;FT-INT;Campagnes identité configuration journaux critiques préservés
+CMD07-R11;Portée exacte statistiques et param1 futur;NOT_DEFINED;;;Liste/masque non définis
