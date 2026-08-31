@@ -1,90 +1,38 @@
-# FT-STR-05 — README
+# FT-STR-05 — Registres réservés et sentinelles structurelles
 
-## 1. Objet
+## Objet
 
-Cette famille de tests appartient au plan de validation **FT-STR (Conformité structurelle)**.
+FT-STR-05 valide les règles structurelles applicables aux zones explicitement réservées et l'absence de sentinelles implicites.
 
-Elle a pour objectif de valider :
-- la conformité du mapping Modbus
-- la structure des données
-- leur encodage et accessibilité
+## Référentiel
 
----
+Ordre de vérité :
+1. spécification Modbus RTU V1 (`bloc0.md` à `bloc7.md`, `charte_typage.md`) ;
+2. GEL-MAP-V1, mapping dérivé ;
+3. `source/FT-STR-05.md` ;
+4. `detaille/TT-STR-05-GEN-XXX.md` ;
+5. `instancie/`.
 
-## 2. Structure du dossier
+Aucune règle héritée ne peut modifier V1.
 
-```text
-FT-STR-05/
-├── source/
-├── detaille/
-├── instancie/
-└── archive_pre_renforcement/ (optionnel)
-```
+## Architecture
 
-### source/
-Contient la fiche de spécification officielle :
-- `FT-STR-XX.md`
+- `source/` : définition de la sous-famille ;
+- `detaille/` : contrôles génériques indépendants des adresses ;
+- `instancie/` : application compacte à GEL-MAP-V1 ;
+- `archive_pre_renforcement/` : historique uniquement.
 
-👉 Référence fonctionnelle
+## Doctrine
 
----
+- un registre n'est réservé que si V1 le définit comme tel ;
+- les registres réservés doivent lire `0` lorsque V1 l'impose ;
+- `0` n'est jamais une sentinelle globale ;
+- une signification telle que « absent », « invalide » ou « non renseigné » n'existe que si V1 la définit explicitement pour le champ concerné ;
+- la stabilité temporelle relève de FT-STR-07 ;
+- le refus des écritures sur réservés relève de FT-ACC et GEL-GOV-02.
 
-### detaille/
-Contient les cas de test génériques :
-- `TT-STR-XX-XXX.md`
+## Validation active
 
-👉 Niveau :
-- logique
-- indépendant du mapping
+La couverture active est dérivée directement de GEL-MAP-V1. Le validateur `03_Automatisation/validate_ft_str_05_reserved.py` contrôle mécaniquement l'identification, la géométrie et la couverture des zones réservées. La valeur réellement lue à `0` reste un contrôle d'implémentation à exécuter sur la cible.
 
----
-
-### instancie/
-Contient les cas de test appliqués au mapping réel.
-
-👉 Niveau :
-- exécutable terrain
-- basé sur mapping_unifie
-
----
-
-### archive_pre_renforcement/
-Contient les anciennes versions.
-
-👉 Non utilisé en opérationnel
-
----
-
-## 3. Référentiel de vérité
-
-Ordre de priorité :
-
-1. mapping_unifie
-2. source/FT-STR-XX.md
-3. instancie/
-4. detaille/
-
----
-
-## 4. Règles
-
-- aucun test instancié ne doit exister sans mapping
-- aucun champ ne doit être testé deux fois dans instancie/
-- detaille/ ne doit jamais contenir d’adresse
-- archive ne doit jamais être utilisée en validation
-
----
-
-## 5. Utilisation
-
-Ordre recommandé :
-
-1. FT-STR-08 (doc ↔ mapping)
-2. FT-STR-01 → 07
-3. exécution instanciée
-
----
-
-## 6. Statut
-
-Famille validée pour usage industriel.
+Les anciennes fiches instanciées sont archivées et ne participent plus à la validation active.
