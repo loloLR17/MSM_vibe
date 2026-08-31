@@ -1,5 +1,9 @@
 # FT-BLK — Specifications de famille
 
+## Statut
+
+**Gelée V1.** Les critères de gel définis au §6 ont été vérifiés lors de l’audit croisé final. Toute évolution doit être formellement tracée et ne peut pas modifier silencieusement le référentiel gelé.
+
 ## 1. Définition
 
 FT-BLK valide la cohérence fonctionnelle interne de chaque bloc à partir des règles normatives V1, sans créer de second référentiel métier.
@@ -49,3 +53,7 @@ La famille est gelable lorsque :
 5. aucune règle informative n'est promue au rang normatif ;
 6. les dettes normatives sont consolidées ;
 7. l'audit croisé avec charte de typage, mapping et familles gelées ne révèle pas de contradiction.
+
+## 6. Verdict de gel V1
+
+Tous les critères ci-dessus ont été vérifiés lors de la passe finale de traçabilité et de l’audit croisé. La famille FT-BLK est donc **gelée V1** sur le périmètre documenté dans `README.md` et `MATRICE_COUVERTURE_FT_BLK_V1.md`.
