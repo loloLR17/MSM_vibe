@@ -1,0 +1,8 @@
+id,objet,classification,proprietaire,test,commentaire
+RBT03-R01,Rejeu immédiat transaction déjà traitée,DELEGATED,FT-CMD-02,,Oracle idempotence déjà gelé
+RBT03-R02,Perte réponse puis rejeu même transaction_id,DELEGATED,FT-RBT-02,,Composition robuste déjà couverte
+RBT03-R03,Nouvelle commande pendant commande active,DELEGATED,FT-CMD-04,,Concurrence transactionnelle déjà gelée
+RBT03-R04,Rafale de répétitions du même transaction_id,NOT_DEFINED,FT-RBT-03,,Aucun nombre cadence ou fenêtre normative
+RBT03-R05,Cadence maximale espacement minimal débit transactionnel,NOT_DEFINED,FT-RBT-03,,Aucun seuil V1
+RBT03-R06,File d'attente accumulation de requêtes,NOT_DEFINED,FT-RBT-03,,Aucune profondeur ou politique V1
+RBT03-R07,Même transaction_id avec contenu différent,DELEGATED,FT-CMD-02,,Dette FT-CMD-02 déjà NOT_DEFINED

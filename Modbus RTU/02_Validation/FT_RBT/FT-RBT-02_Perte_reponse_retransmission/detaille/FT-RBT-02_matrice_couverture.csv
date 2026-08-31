@@ -1,0 +1,7 @@
+ID,Objet,Classification,Test,Proprietaire_Oracle,Remarque
+RBT02-R01,Perte de réponse puis retransmission du même transaction_id,CONDITIONAL,TT-RBT-B05-001,FT-RBT + FT-CMD-02,"Injection déterministe de perte de réponse requise"
+RBT02-R02,Absence de double exécution sous perte et retransmission,CONDITIONAL,TT-RBT-B05-002,FT-CMD-02 composé par FT-RBT,"Observable discriminant obligatoire"
+RBT02-R03,Corrélation du résultat récupéré,DELEGATED,,FT-CMD-02,"Utilisé comme jalon sans nouvel oracle"
+RBT02-R04,Nombre/délai/backoff/politique de retry,NOT_DEFINED,,,"Aucune politique de retry définie en V1"
+RBT02-R05,Profondeur ou durée de mémoire d'idempotence,DELEGATED,,FT-CMD-02,"Déjà NOT_DEFINED dans FT-CMD-02"
+RBT02-R06,Même transaction_id avec payload différent après perte,DELEGATED,,FT-CMD-02,"Déjà NOT_DEFINED dans FT-CMD-02"

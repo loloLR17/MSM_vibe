@@ -1,0 +1,7 @@
+ID,Objet,Classification,Test,Proprietaire_oracle,Remarque
+RBT01-R01,Qualification de l'accès invalide,DELEGATED,,FT-ACC,FT-RBT ne redéfinit ni la validité ni l'exception
+RBT01-R02,Absence d'effet de bord élémentaire de la requête rejetée,DELEGATED,,FT-ACC,Utilisé comme jalon dans le scénario robuste
+RBT01-R03,Requête invalide intercalée sans corruption observable du fonctionnement nominal,COVERED,TT-RBT-GEN-001,FT-RBT,Composition d'oracles gelés sans délai de récupération inventé
+RBT01-R04,Temps maximal de récupération après accès invalide,NOT_DEFINED,,,Aucun délai V1 défini
+RBT01-R05,Rafale d'accès invalides ou seuil de tolérance,NOT_DEFINED,,,Aucun N ni fréquence V1 définis
+RBT01-R06,Reset watchdog ou changement de mode après accès invalide,NOT_DEFINED,,,Aucun comportement V1 défini; post-reboot réservé FT-PER
