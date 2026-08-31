@@ -1,0 +1,22 @@
+constraint_id,scope,status,normative_rule,generic_case
+LIM10-C01,B3_STATUS_GLOBAL,ACTIVE,"enum 0..5",LIM10-G01
+LIM10-C02,B3_VALIDITY_FLAGS,ACTIVE,"bits13..15 reserved zero",LIM10-G02
+LIM10-C03,B3_ALARM_FLAGS,ACTIVE,"bits9..15 reserved zero",LIM10-G03
+LIM10-C04,B3_SEVERITY_GLOBAL,ACTIVE,"enum 0..5",LIM10-G04
+LIM10-C05,B3_DOMINANT_AXIS,ACTIVE,"enum 0..4",LIM10-G05
+LIM10-C06,B3_EXCEED_GLOBAL/X/Y/Z,ACTIVE,"enum 0/1",LIM10-G06
+LIM10-C07,B3_ALARM_LATCHED,ACTIVE,"enum 0/1",LIM10-G07
+LIM10-C08,B3_EXCEED_COUNT/B3_ALARM_COUNT,ACTIVE,"monotonic; saturation allowed at 0xFFFFFFFF",LIM10-G08/G09
+LIM10-C09,B3_RESERVED_0,ACTIVE,"3040..3047 = 0",LIM10-G10
+LIM10-C10,threshold source,CONDITIONAL,"active configuration at calculation time",LIM10-G11
+LIM10-C11,configuration non-retroactivity,CONDITIONAL,"prepared change does not alter prior calculated values",LIM10-G12
+LIM10-C12,new active config timing,CONDITIONAL,"effective from next validated calculation window",LIM10-G13
+LIM10-C13,held value qualification,CONDITIONAL,"presence does not imply validity; confidence qualified",LIM10-G14
+LIM10-C14,vibration unit convention,TRACEABLE,"acceleration mg only in V1",LIM10-G15
+LIM10-ND01,status/validity exact relation,NOT_DEFINED,"no exhaustive exact mask mapping",LIM10-G16
+LIM10-ND02,alarm/severity exact relation,NOT_DEFINED,"no exhaustive normative relation",LIM10-G16
+LIM10-ND03,exceed/alarm/latch exact relation,NOT_DEFINED,"no exhaustive normative relation",LIM10-G16
+LIM10-ND04,freshness numeric threshold,NOT_DEFINED,"no numeric limit",LIM10-G16
+LIM10-ND05,age/timestamp exact equality,NOT_DEFINED,"no exact arithmetic tolerance",LIM10-G16
+LIM10-ND06,RMS/peak functional ranges,NOT_DEFINED,"no functional range",LIM10-G16
+LIM10-ND07,global/axis algebraic register relation,NOT_DEFINED,"no exposed-register oracle specified",LIM10-G16
