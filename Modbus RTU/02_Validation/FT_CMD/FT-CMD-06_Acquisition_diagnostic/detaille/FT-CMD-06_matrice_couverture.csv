@@ -1,0 +1,19 @@
+requirement_id;objet;classification;test_ids;oracle_v1;dette
+CMD06-START-001;START nominal;COVERED;TT-CMD-B05-500;Succès transactionnel;Effet acquisition délégué FT-INT
+CMD06-START-002;START sans configuration active valide;COVERED;TT-CMD-B05-501;cmd_result_code=22;
+CMD06-START-003;START SD absente;COVERED;TT-CMD-B05-502;cmd_result_code=6;
+CMD06-START-004;START mémoire insuffisante;COVERED;TT-CMD-B05-503;cmd_result_code=7;
+CMD06-START-005;START défaut critique actif;COVERED;TT-CMD-B05-504;cmd_result_code=8;
+CMD06-START-006;START acquisition déjà active / état incompatible;COVERED;TT-CMD-B05-505;cmd_result_code=3;Priorité entre causes non définie
+CMD06-START-007;Priorité entre causes simultanées de refus START;NOT_DEFINED;TT-CMD-B05-506;;Ne pas fabriquer de priorité
+CMD06-STOP-001;STOP nominal;COVERED;TT-CMD-B05-507;Succès transactionnel;Effets de fermeture délégués FT-INT
+CMD06-STOP-002;STOP acquisition non active;COVERED;TT-CMD-B05-508;cmd_result_code=21;
+CMD06-SELF-001;SELFTEST standard param1=0;COVERED;TT-CMD-B05-509;Résultat transactionnel;Publication Bloc 7 déléguée FT-INT
+CMD06-SELF-002;SELFTEST échec;CONDITIONAL;TT-CMD-B05-510;cmd_result_code=11 si faute injectable;Injection déterministe requise
+CMD06-SELF-003;SELFTEST timeout;CONDITIONAL;TT-CMD-B05-511;cmd_result_code=10 si timeout injectable;Injection déterministe requise
+CMD06-SELF-004;Masque sous-tests param1 non nul;CONDITIONAL;;;Extension seulement si implémentée
+CMD06-ACK-001;ACK nominal défaut acquittable;COVERED;TT-CMD-B05-512;Succès transactionnel;Effet cause délégué FT-INT
+CMD06-ACK-002;ACK défaut non acquittable;COVERED;TT-CMD-B05-513;cmd_result_code=16;
+CMD06-ACK-003;ACK paramètre invalide;CONDITIONAL;TT-CMD-B05-514;cmd_result_code=2 si cas constructible;Domaine concret invalide non exhaustif
+CMD06-REF-001;REFRESH nominal;COVERED;TT-CMD-B05-515;Succès transactionnel;Périmètre exact des indicateurs non défini
+CMD06-REF-002;REFRESH ne modifie pas configuration;DELEGATED;;Oracle inter-blocs;FT-INT
