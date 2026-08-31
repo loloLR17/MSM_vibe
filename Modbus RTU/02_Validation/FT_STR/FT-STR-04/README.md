@@ -1,90 +1,61 @@
-# FT-STR-04 — README
+# FT-STR-04 — ASCII fixe
 
-## 1. Objet
+## Objet
 
-Cette famille de tests appartient au plan de validation **FT-STR (Conformité structurelle)**.
+FT-STR-04 valide l’encodage des champs de type `ASCII fixe` du protocole TR2.
 
-Elle a pour objectif de valider :
-- la conformité du mapping Modbus
-- la structure des données
-- leur encodage et accessibilité
+Règles normatives :
 
----
+- 2 caractères ASCII par registre ;
+- premier caractère dans l’octet de poids fort (bits 15..8) ;
+- second caractère dans l’octet de poids faible (bits 7..0) ;
+- padding terminal avec `0x00` ;
+- longueur fixe définie par V1 ;
+- ASCII uniquement.
 
-## 2. Structure du dossier
+Exemple : `"AB"` → `0x4142` ; `"A"` suivi du padding → `0x4100`.
 
-```text
-FT-STR-04/
-├── source/
-├── detaille/
-├── instancie/
-└── archive_pre_renforcement/ (optionnel)
-```
-
-### source/
-Contient la fiche de spécification officielle :
-- `FT-STR-XX.md`
-
-👉 Référence fonctionnelle
-
----
-
-### detaille/
-Contient les cas de test génériques :
-- `TT-STR-XX-XXX.md`
-
-👉 Niveau :
-- logique
-- indépendant du mapping
-
----
-
-### instancie/
-Contient les cas de test appliqués au mapping réel.
-
-👉 Niveau :
-- exécutable terrain
-- basé sur mapping_unifie
-
----
-
-### archive_pre_renforcement/
-Contient les anciennes versions.
-
-👉 Non utilisé en opérationnel
-
----
-
-## 3. Référentiel de vérité
+## Référentiel de vérité
 
 Ordre de priorité :
 
-1. mapping_unifie
-2. source/FT-STR-XX.md
-3. instancie/
-4. detaille/
+1. spécification V1 (`bloc0.md` à `bloc7.md` et `charte_typage.md`) ;
+2. GEL-MAP-V1, dérivé de V1 ;
+3. `source/FT-STR-04.md` ;
+4. tests génériques de `detaille/` ;
+5. validation instanciée.
 
----
+Une incohérence se corrige dans l’artefact dérivé concerné, jamais en modifiant silencieusement V1.
 
-## 4. Règles
+## Structure active
 
-- aucun test instancié ne doit exister sans mapping
-- aucun champ ne doit être testé deux fois dans instancie/
-- detaille/ ne doit jamais contenir d’adresse
-- archive ne doit jamais être utilisée en validation
+```text
+FT-STR-04/
+├── README.md
+├── source/FT-STR-04.md
+├── detaille/
+│   ├── TT-STR-04-GEN-001.md
+│   ├── TT-STR-04-GEN-002.md
+│   └── TT-STR-04-GEN-003.md
+├── instancie/
+│   ├── README.md
+│   ├── COUVERTURE_FT-STR-04_GEL-MAP-V1.csv
+│   └── RESULTAT_FT-STR-04_GEL-MAP-V1.md
+└── archive_pre_renforcement/
+    └── instancie_legacy/
+```
 
----
+Validateur mécanique : `Modbus RTU/03_Automatisation/validate_ft_str_04_ascii.py`.
 
-## 5. Utilisation
+## Répartition avec les autres sous-familles
 
-Ordre recommandé :
+- typage et taille structurelle générale : FT-STR-02 ;
+- géométrie et absence de chevauchement : FT-STR-01 ;
+- accessibilité et lectures partielles : FT-STR-06 ;
+- stabilité temporelle de l’image : FT-STR-07.
 
-1. FT-STR-08 (doc ↔ mapping)
-2. FT-STR-01 → 07
-3. exécution instanciée
+FT-STR-04 contrôle la capacité du champ comme précondition de son encodage ASCII, sans reprendre l’audit global de géométrie.
 
----
+## Statut
 
-## 6. Statut
-
-Famille validée pour usage industriel.
+Sous-famille reconstruite lors de l’audit FT-STR. Les artefacts historiques sont conservés en archive uniquement.

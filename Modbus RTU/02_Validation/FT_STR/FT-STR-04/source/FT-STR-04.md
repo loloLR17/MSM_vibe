@@ -1,354 +1,90 @@
-\# FT-STR-04 — Fiche de spécification  
+# FT-STR-04 — Encodage des chaînes ASCII fixes
 
-\## Encodage des chaînes ASCII fixes
+## 1. Identification
 
+- **ID** : FT-STR-04
+- **Nom** : ASCII fixe
+- **Famille parente** : FT-STR
+- **Criticité** : P1
 
+## 2. Objectif
 
----
+Valider que tout champ déclaré `ASCII fixe` respecte sans ambiguïté la convention V1 de représentation des caractères dans les registres Modbus.
 
+## 3. Références normatives
 
+- `Modbus RTU/01_Specification_source/charte_typage.md`
+- blocs V1 contenant des champs ASCII fixes
+- GEL-MAP-V1 comme dérivé opérationnel de V1
 
-\## 1. Identification
+La règle V1 est :
 
+- 2 caractères par registre ;
+- caractère 1 → octet haut ;
+- caractère 2 → octet bas ;
+- `"AB"` → `0x4142` ;
+- caractère final isolé → octet haut, octet bas `0x00` ;
+- octets inutilisés en fin de champ → `0x00` ;
+- ASCII uniquement ;
+- longueur fixe obligatoire.
 
+## 4. Périmètre inclus
 
-\- \*\*ID\*\* : FT-STR-04  
+FT-STR-04 couvre :
 
-\- \*\*Nom\*\* : ASCII fixe  
+- identification exhaustive des champs `ASCII fixe` dans GEL-MAP-V1 ;
+- capacité du champ : 2 caractères par registre ;
+- ordre des deux caractères dans chaque registre ;
+- reconstruction déterministe de la séquence d’octets ;
+- padding terminal `0x00` ;
+- rejet d’un encodage non ASCII dans un scénario d’essai contrôlé ;
+- cas chaîne vide, chaîne partielle et chaîne occupant toute la capacité.
 
-\- \*\*Famille parente\*\* : FT-STR  
+## 5. Hors périmètre
 
-\- \*\*Criticité\*\* : P1 (majeur)
+Ne sont pas validés ici :
 
+- la sémantique métier du texte ;
+- les règles métier de caractères autorisés au-delà de la contrainte ASCII ;
+- la géométrie globale des blocs (FT-STR-01) ;
+- le typage général (FT-STR-02) ;
+- les droits d’accès ou lectures partielles (FT-STR-06 / FT-ACC) ;
+- la stabilité temporelle des lectures (FT-STR-07).
 
+## 6. Règles de conformité
 
----
+Un champ ASCII fixe est structurellement conforme si :
 
+1. son type déclaré est `ASCII fixe` ;
+2. son nombre de registres est strictement positif ;
+3. sa plage d’adresses contient exactement ce nombre de registres ;
+4. sa capacité est exactement `2 × nombre_de_registres` caractères/octet ASCII ;
+5. aucun artefact dérivé n’introduit un ordre d’octets différent de V1.
 
+L’implémentation est conforme à l’encodage si, sur des valeurs d’essai connues :
 
-\## 2. Objectif
+1. chaque paire de caractères est encodée dans l’ordre octet haut puis octet bas ;
+2. les octets inutilisés en fin de champ sont `0x00` ;
+3. aucun octet de donnée ne sort de la plage ASCII 7 bits ;
+4. aucune heuristique de décodage, inversion ou trim implicite ne remplace la convention normative.
 
+## 7. Tests génériques
 
+- `TT-STR-04-GEN-001` — structure et capacité ASCII fixe ;
+- `TT-STR-04-GEN-002` — ordre des octets et reconstruction ;
+- `TT-STR-04-GEN-003` — padding terminal et ASCII strict.
 
-Valider que les chaînes ASCII :
+## 8. Instanciation
 
+L’instanciation active est dérivée directement de GEL-MAP-V1. Les anciennes fiches champ-par-champ ne sont pas une source de vérité et sont archivées.
 
+Le validateur mécanique contrôle les invariants structurels du mapping ; les vecteurs d’encodage et de padding restent des tests d’implémentation à exécuter sur banc, simulation ou firmware.
 
-\- respectent la longueur fixe,
+## 9. Critère de clôture
 
-\- sont correctement encodées,
+FT-STR-04 est prête pour validation terrain lorsque :
 
-\- sont paddées en `0x00`,
-
-\- ne contaminent pas les champs adjacents.
-
-
-
----
-
-
-
-\## 3. Périmètre
-
-
-
-\### Inclus
-
-
-
-\- longueur fixe
-
-\- encodage ASCII
-
-\- padding 0x00
-
-\- absence de débordement
-
-\- comportement chaîne vide / pleine
-
-
-
-\### Exclus
-
-
-
-\- sémantique des chaînes
-
-\- caractères autorisés métier
-
-
-
----
-
-
-
-\## 4. Références
-
-
-
-\- ASCII fixe (padding 0x00)
-
-\- taille définie dans mapping
-
-
-
----
-
-
-
-\## 5. Règles de conformité
-
-
-
-Une chaîne est conforme si :
-
-
-
-\- sa longueur est fixe
-
-\- les caractères sont ASCII valides
-
-\- les octets inutilisés = 0x00
-
-\- aucun débordement
-
-
-
----
-
-
-
-\## 6. Préconditions
-
-
-
-\- FT-STR-02 validée
-
-
-
----
-
-
-
-\## 7. Résultats attendus
-
-
-
-\- chaînes propres
-
-\- padding correct
-
-\- lecture stable
-
-
-
----
-
-
-
-\## 8. Risques
-
-
-
-| Risque | Impact |
-
-|---|---|
-
-| Mauvais padding | pollution |
-
-| Mauvaise longueur | décalage |
-
-| Caractères invalides | parsing cassé |
-
-| Débordement | corruption |
-
-
-
----
-
-
-
-\## 9. Cas de test
-
-
-
-\### Nominal
-
-\- chaîne partiellement remplie
-
-\- chaîne pleine
-
-
-
-\### Limites
-
-\- chaîne vide
-
-\- longueur max
-
-
-
-\### Erreurs
-
-\- absence de padding
-
-\- caractères invalides
-
-
-
-\### Robustesse
-
-\- lecture répétée
-
-
-
----
-
-
-
-\## 10. Points critiques
-
-
-
-\- padding obligatoire
-
-\- zéro terminal non garanti → vérifier toute la zone
-
-\- résidus mémoire fréquents
-
-
-
----
-
-
-
-\## 11. Ambiguïtés
-
-
-
-\- ASCII strict ou étendu ?
-
-\- caractères autorisés ?
-
-\- trim côté centrale ?
-
-
-
----
-
-
-
-\## 12. Critères de réussite
-
-
-
-\- 100% ASCII conforme
-
-\- padding correct
-
-\- aucune contamination
-
-
-
----
-
-
-
-\## 13. Échec
-
-
-
-\- octets non nuls dans padding
-
-\- débordement
-
-\- encodage invalide
-
-
-
----
-
-
-
-\## 14. Anomalies
-
-
-
-| Type | Exemple |
-
-|---|---|
-
-| MAJEURE | mauvais padding |
-
-| MINEURE | caractère non critique |
-
-| SPEC | règle ASCII floue |
-
-
-
----
-
-
-
-\## 15. Dépendances
-
-
-
-\### Amont
-
-\- FT-STR-02
-
-
-
----
-
-
-
-\## 16. Ordre
-
-
-
-1\. Lire chaîne
-
-2\. Vérifier longueur
-
-3\. Vérifier ASCII
-
-4\. Vérifier padding
-
-5\. Vérifier isolation
-
-
-
----
-
-
-
-\## 17. Livrables
-
-
-
-\- dump chaînes
-
-\- validation padding
-
-
-
----
-
-
-
-\## 18. Maturité
-
-
-
-\- chaînes propres
-
-\- padding strict
-
-\- comportement stable
-
-
-
----
-
+- tous les champs ASCII GEL-MAP-V1 sont couverts une fois ;
+- les invariants structurels sont conformes ;
+- les tests génériques sont définis sans ambiguïté ;
+- aucun artefact historique n’est actif.

@@ -1,0 +1,9 @@
+block,logical_name,address_start,address_end,register_count,capacity_chars,source_file
+0,serial_number,8,15,8,16,bloc0.md
+0,manufacturer,16,19,4,8,bloc0.md
+4,campaign_label,4060,4075,16,32,bloc4.md
+4,mission_label,4076,4091,16,32,bloc4.md
+4,active_campaign_label,4132,4147,16,32,bloc4.md
+4,active_mission_label,4148,4163,16,32,bloc4.md
+6,campaign_label,6025,6040,16,32,bloc6.md
+6,mission_label,6041,6056,16,32,bloc6.md
