@@ -1,0 +1,13 @@
+requirement_id,block,rule,source,classification,priority,test_id,delegation_or_limit
+BLK02-B01-R01,B1,uptime monotone,bloc1 §7,COVERED,P1,TT-BLK-B01-001,Aucune cadence exacte imposée
+BLK02-B02-R01,B2,current_time monotone hors resynchronisation,bloc2 §7,COVERED,P0,TT-BLK-B02-101,Resynchronisation exclue de la fenêtre
+BLK02-B02-R02,B2,prepared_time ne modifie pas immédiatement current_time,bloc2 §7,COVERED,P0,TT-BLK-B02-102,Application B5 déléguée FT-CMD
+BLK02-B02-R03A,B2,last_sync_time stable hors synchronisation effective,bloc2 §7,COVERED,P0,TT-BLK-B02-103,Contrôle négatif intra-bloc
+BLK02-B02-R03B,B2,last_sync_time mis à jour après synchronisation effective,bloc2 §7,TRACE_ONLY,P0,,FT-CMD / FT-INT
+BLK02-B02-R04,B2,time_since_sync dérivé de manière cohérente,bloc2 §7,COVERED,P0,TT-BLK-B02-104,Tolérance dérivée du temps réel de lecture
+BLK02-B03-R01,B3,B3_CALC_SEQUENCE monotone,bloc3 mapping,COVERED,P1,TT-BLK-B03-101,Aucune cadence minimale imposée
+BLK02-B03-R02,B3,B3_VALUE_AGE_MS cohérent avec dernière valeur valide,bloc3 §6 + mapping,CONDITIONAL,P1,,Formule/tolérance normatives incomplètes
+BLK02-B03-R03,B3,B3_EXCEED_COUNT et B3_ALARM_COUNT monotones et saturables,bloc3 §9,TRACE_ONLY,P0,,FT-BLK-03
+BLK02-B07-R01,B7,uptime_s ne recule pas hors reset,bloc7 §8.3,COVERED,P1,TT-BLK-B07-001,Reset délégué FT-PER
+BLK02-X-R01,B1+B7,cohérence entre les deux uptime,règle inter-blocs,TRACE_ONLY,P1,,FT-INT
+BLK02-X-R02,B1+B7,comportement uptime après reset,règle liée au reset,TRACE_ONLY,P1,,FT-PER
