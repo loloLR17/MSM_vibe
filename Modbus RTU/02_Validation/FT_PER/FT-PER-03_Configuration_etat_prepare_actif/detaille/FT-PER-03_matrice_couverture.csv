@@ -1,0 +1,13 @@
+requirement_id,scope,relation,status,test_id,owner,justification
+PER03-R01,B04,persistance configuration active,NOT_DEFINED,,FT-PER-03,Aucune règle V1 de conservation ou effacement après reboot
+PER03-R02,B04,persistance active_config_id,NOT_DEFINED,,FT-PER-03,Identifie l'état courant mais persistance non explicitée
+PER03-R03,B04,persistance active_config_crc,NOT_DEFINED,,FT-PER-03,CRC actif sans règle de conservation post-reboot
+PER03-R04,B04,persistance image active 4E,NOT_DEFINED,,FT-PER-03,RO et actif ne signifient pas non volatil
+PER03-R05,B04,persistance configuration préparée,NOT_DEFINED,,FT-PER-03,Ni conservation ni effacement défini
+PER03-R06,B04,persistance prepared_config_id,NOT_DEFINED,,FT-PER-03,Aucune règle post-reboot explicite
+PER03-R07,B04,persistance prepared_config_crc,NOT_DEFINED,,FT-PER-03,Aucune règle post-reboot explicite
+PER03-R08,B04,config_state après reboot,NOT_DEFINED,,FT-PER-03,Aucun état initial ou restauré défini après reboot
+PER03-R09,B04,config_error_code après reboot,NOT_DEFINED,,FT-PER-03,Aucune politique de conservation ou remise à zéro
+PER03-R10,B04,config_revision_counter après reboot,NOT_DEFINED,,FT-PER-03,Aucune monotonie ou valeur initiale inter-reboot définie
+PER03-R11,B04-B05,effets normaux APPLY CONFIG avant reboot,DELEGATED,,FT-CMD-05 / FT-INT-02,Préconditions transactionnelles et effets inter-blocs déjà couverts
+PER03-R12,B04,observation configuration avant après reboot,TRACE_ONLY,TT-PER-B04-001,FT-PER-03,Caractérisation autorisée sans oracle V1 PASS FAIL
