@@ -1,0 +1,11 @@
+requirement_id,scope,relation,status,test_id,owner,justification
+PER02-R01,B00,device_id conservé à travers RESET SOFTWARE,COVERED,TT-PER-B00-001,FT-PER-02,device_id explicitement qualifié unique et persistent par B0
+PER02-R02,B00,unicité du device_id,DELEGATED,,Hors propriété reboot,Normatif mais nécessite comparaison multi-équipements et n'est pas une propriété de persistance seule
+PER02-R03,B00,stabilité des informations B0 pendant fonctionnement normal,DELEGATED,,FT-STR-07,Stabilité sans reboot déjà possédée par FT-STR
+PER02-R04,B00,persistance post-reboot hardware_version,NOT_DEFINED,,FT-PER-02,Statique en fonctionnement normal mais persistance non explicitée
+PER02-R05,B00,persistance post-reboot versions firmware,NOT_DEFINED,,FT-PER-02,Statique en fonctionnement normal mais persistance non explicitée
+PER02-R06,B00,persistance post-reboot protocol_version,NOT_DEFINED,,FT-PER-02,Persistance non explicitée
+PER02-R07,B00,persistance post-reboot device_capabilities,NOT_DEFINED,,FT-PER-02,Persistance non explicitée
+PER02-R08,B00,persistance post-reboot serial_number,NOT_DEFINED,,FT-PER-02,Contrainte de non-modification seulement dans complément métier informatif
+PER02-R09,B00,persistance post-reboot manufacturer,NOT_DEFINED,,FT-PER-02,Persistance non explicitée
+PER02-R10,B00,persistance device_id identique pour toutes causes de reset,NOT_DEFINED,,FT-PER-02,Aucune matrice normative cause de reset vers politique de persistance
