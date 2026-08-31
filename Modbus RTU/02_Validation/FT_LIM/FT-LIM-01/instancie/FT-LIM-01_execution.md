@@ -20,7 +20,7 @@ Pour les essais modifiant une valeur de 4B+4C+4D, recalculer le CRC conformémen
 2. prendre un snapshot de l'image active ;
 3. écrire la valeur `test_value` à l'adresse logique indiquée ;
 4. lire le champ préparé pour vérifier la prise en compte de l'écriture ;
-5. vérifier l'état `BROUILLON` après modification préparée ;
+5. si la cible appartient à `4B + 4C + 4D`, vérifier l'état `BROUILLON` après modification ; pour `prepared_config_id` en 4A, relever l'état sans imposer de transition non définie ;
 6. recalculer et écrire le CRC si nécessaire ;
 7. soumettre la commande Bloc 5 code `1` avec un `transaction_id` neuf et un front montant de `submit` ;
 8. relever `config_state`, le résultat de commande et l'image active ;

@@ -18,7 +18,7 @@ Une valeur fonctionnellement invalide écrite dans un champ RW de la configurati
 
 ### LIM01-RQ-002 — Effet d'une modification préparée
 
-Toute modification d'un champ de la configuration préparée fait quitter un éventuel état `VALIDE` et repositionne la configuration en `BROUILLON`.
+Toute modification d'un champ des zones préparées `4B + 4C + 4D` fait quitter un éventuel état `VALIDE` et repositionne la configuration en `BROUILLON`. Aucun effet d'état supplémentaire n'est inventé ici pour `prepared_config_id` situé en 4A.
 
 ### LIM01-RQ-003 — Protection de l'image active
 

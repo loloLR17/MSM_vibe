@@ -23,7 +23,7 @@ Pour toute instance déclarée invalide :
 
 1. écrire la valeur cible dans le champ RW ;
 2. vérifier que l'écriture Modbus n'est pas rejetée du seul fait du domaine métier ;
-3. vérifier le passage de la configuration préparée en `BROUILLON` après modification ;
+3. pour une cible située en `4B + 4C + 4D`, vérifier le passage de la configuration préparée en `BROUILLON` après modification ; pour `prepared_config_id` en 4A, ne pas imposer une transition d'état non explicitement définie ;
 4. mettre à jour le CRC préparé si la cible appartient à 4B+4C+4D ;
 5. demander l'application ;
 6. vérifier que la configuration n'est pas appliquée ;
