@@ -17,6 +17,7 @@ C15,ACTIVE,COMMAND,10,"protected; confirmation; acquisition stopped; no critical
 C16,ACTIVE,COMMAND,11,"protected; confirmation required",LIM04-G14,"no extra precondition invented"
 C17,CONDITIONAL,CANCEL,5007 bit1 + 5013 bit9,"cancel only if current command cancellable; otherwise result 15",LIM04-G15,"specific cancellable command list not defined"
 C18,ACTIVE,CLEAR,5007 bit2,"clear request fields without new command execution",LIM04-G16,
+C19,ACTIVE,CONTROL_RESERVED,5007 bits3..15,"reserved bits must be written 0",LIM04-G17,"Functional invalidity on valid RW; no invented Modbus exception"
 ND01,NOT_DEFINED,AUTOTEST,command 5,"meaning of nonzero param1 masks",NONE,"conditional extension only"
 ND02,NOT_DEFINED,CANCEL,commands 1..11,"exhaustive list of cancellable commands",NONE,
 ND03,NOT_DEFINED,RESULT_DETAIL,5012,"cause-specific detail codes",NONE,
