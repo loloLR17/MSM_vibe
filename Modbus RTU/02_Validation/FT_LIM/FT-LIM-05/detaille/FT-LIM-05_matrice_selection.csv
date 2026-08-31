@@ -1,0 +1,11 @@
+constraint_id,scope,field_or_relation,status,normative_rule,generic_case
+LIM05-C01,Bloc6,selected_campaign_index,ACTIVE,"valid iff 0<=index<N",LIM05-G01/G02/G03/G04
+LIM05-C02,Bloc6,selected_campaign_index out of range,ACTIVE,"write accepted; selected_campaign_valid=0; no Modbus exception solely due value",LIM05-G01/G05/G06/G10
+LIM05-C03,Bloc6,N=0,ACTIVE,"no valid campaign index",LIM05-G01
+LIM05-C04,Bloc6,selected_campaign_valid,ACTIVE,"0 invalid / 1 valid",LIM05-G01/G02/G03/G04/G05/G06
+LIM05-C05,Bloc6,campaign_id for valid selection,ACTIVE,"campaign_id != 0",LIM05-G02/G03/G04/G09
+LIM05-C06,Bloc6,metadata when selected_campaign_valid=0,PARTIAL,"must not be interpreted valid; exact register values not defined",LIM05-G07
+LIM05-C07,Bloc6,selected entry coherence,ACTIVE,"one response must not mix campaigns",LIM05-G08
+LIM05-C08,Bloc6,campaign_state enum,DEFERRED,"RO domain 0..5; outside FT-LIM-05",-
+LIM05-C09,Bloc6,data_integrity_status enum,DEFERRED,"RO domain 0..3; outside FT-LIM-05",-
+LIM05-C10,Bloc6,storage_health_status enum,DEFERRED,"RO domain 0..3; outside FT-LIM-05",-
