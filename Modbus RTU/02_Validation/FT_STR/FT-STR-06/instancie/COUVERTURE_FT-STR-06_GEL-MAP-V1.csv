@@ -1,0 +1,16 @@
+kind,id,address_start,address_end,register_count,fc03_single_request,expected
+exposed_block,B0,0,20,21,yes,lisible
+exposed_block,B1,1000,1019,20,yes,lisible
+exposed_block,B2,2000,2015,16,yes,lisible
+exposed_block,B3,3000,3047,48,yes,lisible
+exposed_block,B4,4000,4175,176,no,lisible_par_segmentation
+exposed_block,B5,5000,5019,20,yes,lisible
+exposed_block,B6,6000,6063,64,yes,lisible
+exposed_block,B7,7000,7015,16,yes,lisible
+invalid_gap,G0_1,21,999,979,no,rejet_si_traversee
+invalid_gap,G1_2,1020,1999,980,no,rejet_si_traversee
+invalid_gap,G2_3,2016,2999,984,no,rejet_si_traversee
+invalid_gap,G3_4,3048,3999,952,no,rejet_si_traversee
+invalid_gap,G4_5,4176,4999,824,no,rejet_si_traversee
+invalid_gap,G5_6,5020,5999,980,no,rejet_si_traversee
+invalid_gap,G6_7,6064,6999,936,no,rejet_si_traversee
