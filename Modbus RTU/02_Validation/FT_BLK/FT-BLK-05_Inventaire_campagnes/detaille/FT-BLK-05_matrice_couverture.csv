@@ -1,0 +1,15 @@
+requirement_id,block,relation,status,test_id,priority,reason_or_oracle
+BLK05-B6-001,B6,selected index pilots exposed campaign,COVERED,TT-BLK-B06-001 / TT-BLK-B06-002 / TT-BLK-B06-003,P0,Explicit V1 selection mechanism
+BLK05-B6-002,B6,index 0 selects first campaign,COVERED,TT-BLK-B06-001,P0,Explicit V1 indexing rule
+BLK05-B6-003,B6,index N-1 selects last campaign,COVERED,TT-BLK-B06-003,P0,Explicit V1 indexing rule
+BLK05-B6-004,B6,valid intermediate index selects corresponding entry,COVERED,TT-BLK-B06-002,P0,Explicit navigation semantics with known inventory
+BLK05-B6-005,B6,out-of-range index yields selected_campaign_valid=0,COVERED,TT-BLK-B06-004,P0,Explicit V1 consequence
+BLK05-B6-006,B6,metadata not interpreted valid when selected_campaign_valid=0,COVERED,TT-BLK-B06-005,P1,Explicit V1 rule no field reset values invented
+BLK05-B6-007,B6,valid campaign has nonzero campaign_id,COVERED,TT-BLK-B06-006,P0,Explicit V1 invariant
+BLK05-B6-008,B6,ongoing campaign has end_timestamp=0,CONDITIONAL,TT-BLK-B06-007,P0,Explicit oracle requires controllable ongoing campaign
+BLK05-B6-009,B6,duration coherent with timestamps,CONDITIONAL,,P1,V1 requires coherence but does not define exhaustive exact equation
+BLK05-B6-010,B6,selected entry coherent during multi-register read,TRACE_ONLY,,P0,Snapshot and read coherence belongs to FT-STR
+BLK05-B6-011,B6,valid count relation to total count,NOT_DEFINED,,P1,V1 exposes both counters but does not explicitly formalize numerical invariant
+BLK05-B6-012,B6,used and free storage relation,NOT_DEFINED,,P1,No total capacity or normative equation supplied
+BLK05-B6-013,B6,storage health derivation,NOT_DEFINED,,P1,Codes defined thresholds and derivation absent
+BLK05-B6-014,B6,data integrity derivation,NOT_DEFINED,,P1,Codes defined determining algorithm absent
