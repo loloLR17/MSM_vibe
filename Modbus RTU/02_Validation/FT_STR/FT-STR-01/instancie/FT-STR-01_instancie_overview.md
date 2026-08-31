@@ -1,24 +1,41 @@
-# FT-STR-01 — Tests instanciés
+# FT-STR-01 — Tests instanciés GEL-MAP-V1
 
 ## Objet
-Tests instanciés de conformité structurelle globale à partir du mapping unifié brut et de la couverture par bloc.
+
+Appliquer les invariants génériques de FT-STR-01 aux huit blocs du mapping unifié gelé.
+
+## Références
+
+- V1 : `01_Specification_source/bloc0.md` à `bloc7.md`
+- mapping : GEL-MAP-V1
+- gel mapping : `ff948e5917becceed7637d9c7864ec9b279be0ca`
+- génériques : `TT-STR-01-GEN-001` à `TT-STR-01-GEN-003`
 
 ## Principe
-- 1 fiche de test de structure par bloc
-- 1 fiche de test globale inter-blocs
-- vérification des plages couvertes
-- vérification de l'absence de chevauchement
-- vérification de l'absence de trous à l'intérieur de la portée couverte du bloc
 
-## Convention d’identifiant
-- `TT-STR-01-B<bloc>-001` pour les tests bloc
-- `TT-STR-01-GLOBAL-001` pour le test global
+- une fiche instanciée par bloc applique GEN-001 et GEN-002 ;
+- une fiche globale inter-blocs applique GEN-003 ;
+- les intervalles inter-blocs sont explicitement recensés mais ne sont pas considérés comme des trous internes ;
+- aucun comportement de lecture Modbus n'est déduit de FT-STR-01.
 
-- Bloc 0 : portée 0..20, 21 registre(s) couverts, 0 trou(x) interne(s)
-- Bloc 1 : portée 1000..1019, 20 registre(s) couverts, 0 trou(x) interne(s)
-- Bloc 2 : portée 2000..2015, 16 registre(s) couverts, 0 trou(x) interne(s)
-- Bloc 3 : portée 3000..3047, 48 registre(s) couverts, 0 trou(x) interne(s)
-- Bloc 4 : portée 4000..4175, 176 registre(s) couverts, 0 trou(x) interne(s)
-- Bloc 5 : portée 5000..5019, 20 registre(s) couverts, 0 trou(x) interne(s)
-- Bloc 6 : portée 6000..6063, 64 registre(s) couverts, 0 trou(x) interne(s)
-- Bloc 7 : portée 7000..7015, 16 registre(s) couverts, 0 trou(x) interne(s)
+## Couverture GEL-MAP-V1
+
+| Bloc | Portée | Registres | Trous internes | Chevauchements |
+|---|---|---:|---:|---:|
+| B0 | 0..20 | 21 | 0 | 0 |
+| B1 | 1000..1019 | 20 | 0 | 0 |
+| B2 | 2000..2015 | 16 | 0 | 0 |
+| B3 | 3000..3047 | 48 | 0 | 0 |
+| B4 | 4000..4175 | 176 | 0 | 0 |
+| B5 | 5000..5019 | 20 | 0 | 0 |
+| B6 | 6000..6063 | 64 | 0 | 0 |
+| B7 | 7000..7015 | 16 | 0 | 0 |
+
+## Convention d'identifiant
+
+- `TT-STR-01-B<bloc>-001` : structure du bloc ;
+- `TT-STR-01-GLOBAL-001` : cohérence inter-blocs.
+
+## Statut documentaire
+
+Les valeurs ci-dessus sont cohérentes avec `tr2_mapping_couverture.csv` de GEL-MAP-V1. L'exécution instrumentée éventuelle est distincte de ce constat documentaire.

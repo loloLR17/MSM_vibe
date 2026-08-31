@@ -1,550 +1,132 @@
-\# FT-STR-01 — Fiche de spécification  
+# FT-STR-01 — Fiche de spécification
 
-\## Structure des plages et cartographie Modbus
+## Structure des plages Modbus
 
+## 1. Identification
 
+- **ID** : FT-STR-01
+- **Nom** : Structure des plages
+- **Famille parente** : FT-STR
+- **Criticité** : P0
 
----
+## 2. Objectif
 
+Valider que la structure d'adressage exposée par les blocs Modbus est conforme à la spécification V1 et à son mapping unifié dérivé GEL-MAP-V1.
 
+FT-STR-01 porte exclusivement sur la géométrie des plages : bornes, longueurs, continuité interne, absence de chevauchement et cohérence inter-blocs.
 
-\## 1. Identification
+## 3. Références d'entrée
 
+Par ordre de priorité :
 
+1. `Modbus RTU/01_Specification_source/bloc0.md` à `bloc7.md` ;
+2. `Modbus RTU/01_Specification_source/charte_typage.md` lorsque pertinent ;
+3. `Modbus RTU/02_Validation/mapping_unifie/` — GEL-MAP-V1 ;
+4. gouvernance gelée applicable.
 
-\- \*\*ID\*\* : FT-STR-01  
+Le mapping est une représentation dérivée de la V1. Il ne peut pas modifier la V1.
 
-\- \*\*Nom\*\* : Structure des plages  
+## 4. Périmètre inclus
 
-\- \*\*Famille parente\*\* : FT-STR  
+- présence des blocs 0 à 7 dans le mapping dérivé ;
+- adresse de début et adresse de fin de chaque bloc ;
+- longueur de chaque bloc en registres ;
+- couverture continue à l'intérieur de la portée définie d'un bloc ;
+- absence de chevauchement entre champs ;
+- absence de chevauchement entre blocs ;
+- identification explicite des intervalles non exposés entre blocs ;
+- cohérence de l'ordre croissant des plages.
 
-\- \*\*Criticité\*\* : P0 (bloquant)
+## 5. Hors périmètre
 
+- typage des champs : FT-STR-02 ;
+- encodage multi-registres : FT-STR-03 ;
+- ASCII fixe : FT-STR-04 ;
+- réservés et sentinelles : FT-STR-05 ;
+- accessibilité et découpage des lectures Modbus : FT-STR-06 ;
+- stabilité temporelle de l'image : FT-STR-07 ;
+- conformité documentaire : FT-STR-08 ;
+- droits d'écriture et refus d'accès : FT-ACC et GEL-GOV-02.
 
+## 6. Invariants de conformité
 
----
+### 6.1 Bloc individuel
 
+Un bloc est structurellement conforme si :
 
+- sa première adresse correspond à la borne V1 ;
+- sa dernière adresse correspond à la borne V1 ;
+- sa longueur calculée vaut `fin - début + 1` ;
+- les plages de ses champs ne se chevauchent pas ;
+- la couverture interne ne présente aucun trou non défini par V1.
 
-\## 2. Objectif
+### 6.2 Ensemble des blocs
 
+La structure globale est conforme si :
 
+- les huit blocs sont représentés ;
+- leurs plages sont ordonnées sans chevauchement ;
+- les intervalles entre blocs sont explicitement identifiables ;
+- aucun intervalle inter-blocs n'est interprété comme un bloc ou un champ implicite.
 
-Valider que la \*\*cartographie Modbus globale\*\* du capteur est conforme à la spécification :
+Un intervalle non exposé entre deux blocs n'est pas une anomalie structurelle lorsqu'il découle directement des bornes définies par V1.
 
+## 7. Cas génériques à couvrir
 
+- **GEN-001** : conformité des bornes et de la longueur d'un bloc ;
+- **GEN-002** : continuité interne et absence de chevauchement ;
+- **GEN-003** : cohérence globale inter-blocs.
 
-\- les blocs existent,
+## 8. Instanciation GEL-MAP-V1
 
-\- leurs adresses sont correctes,
+Les invariants sont appliqués aux huit blocs :
 
-\- leurs tailles sont respectées,
+| Bloc | Début | Fin | Longueur |
+|---|---:|---:|---:|
+| B0 | 0 | 20 | 21 |
+| B1 | 1000 | 1019 | 20 |
+| B2 | 2000 | 2015 | 16 |
+| B3 | 3000 | 3047 | 48 |
+| B4 | 4000 | 4175 | 176 |
+| B5 | 5000 | 5019 | 20 |
+| B6 | 6000 | 6063 | 64 |
+| B7 | 7000 | 7015 | 16 |
 
-\- aucune dérive ou collision n’existe.
+Ces valeurs sont celles de GEL-MAP-V1 et doivent rester cohérentes avec la V1.
 
+## 9. Critères de réussite
 
+FT-STR-01 est conforme lorsque :
 
-Cette sous-famille garantit que la centrale lit \*\*les bons registres au bon endroit\*\*.
+- 100 % des blocs respectent leurs bornes et longueurs attendues ;
+- aucun trou interne non défini n'est détecté ;
+- aucun chevauchement intra-bloc ou inter-bloc n'est détecté ;
+- tous les intervalles inter-blocs sont identifiés sans être assimilés à des plages exposées ;
+- les tests instanciés sont traçables aux tests génériques et à GEL-MAP-V1.
 
+## 10. Critères d'échec
 
+Constituent notamment une non-conformité FT-STR-01 :
 
----
+- bloc manquant dans la représentation dérivée ;
+- borne de début ou de fin différente de V1 ;
+- longueur incorrecte ;
+- trou interne non prévu ;
+- chevauchement de champs ou de blocs ;
+- création implicite d'une plage dans un intervalle inter-blocs non exposé.
 
+## 11. Dépendances
 
+### Amont
 
-\## 3. Périmètre
+- V1 gelée ;
+- GEL-MAP-V1 ;
+- FT-STR-08 pour le contrôle documentaire préalable.
 
+### Aval
 
+- FT-STR-02 à FT-STR-07 utilisent une structure de plages préalablement établie.
 
-\### Inclus
+## 12. Traçabilité
 
-
-
-\- Présence des blocs 0 à 7
-
-\- Adresse de début de chaque bloc
-
-\- Taille de chaque bloc (nombre de registres)
-
-\- Continuité ou discontinuité conforme
-
-\- Absence de recouvrement entre blocs
-
-\- Accessibilité des plages
-
-\- Détection des trous non spécifiés
-
-
-
-\### Exclus
-
-
-
-\- Typage des champs internes
-
-\- Valeurs des registres
-
-\- Encodage des données
-
-\- Droits d’accès (RO/RW)
-
-\- Cohérence métier
-
-
-
----
-
-
-
-\## 4. Références d’entrée
-
-
-
-\- Mapping Modbus officiel (version figée)
-
-\- Définition des blocs 0 à 7
-
-\- Table d’adressage complète
-
-
-
-⚠️ Toute incohérence documentaire doit être signalée (pas corrigée implicitement)
-
-
-
----
-
-
-
-\## 5. Règles de conformité
-
-
-
-Un bloc est conforme si :
-
-
-
-\- son adresse de début correspond exactement à la spécification
-
-\- sa longueur correspond exactement à la spécification
-
-\- il est entièrement accessible en lecture
-
-\- aucun autre bloc n’empiète sur sa plage
-
-
-
-La cartographie globale est conforme si :
-
-
-
-\- tous les blocs sont présents
-
-\- aucun recouvrement non spécifié
-
-\- aucun trou interdit
-
-\- toutes les plages sont cohérentes
-
-
-
----
-
-
-
-\## 6. Préconditions
-
-
-
-\- Capteur alimenté et opérationnel
-
-\- Communication Modbus fonctionnelle
-
-\- Aucun mode dégradé actif
-
-\- Capteur dans un état stable
-
-\- Mapping de référence disponible
-
-
-
----
-
-
-
-\## 7. Résultats attendus
-
-
-
-À l’issue des tests :
-
-
-
-\- chaque bloc est localisable précisément
-
-\- la taille réelle correspond à la taille attendue
-
-\- aucune dérive d’adresse n’est détectée
-
-\- la centrale peut adresser chaque bloc sans ambiguïté
-
-
-
----
-
-
-
-\## 8. Risques couverts
-
-
-
-| Risque | Impact |
-
-|---|---|
-
-| Décalage d’adresse | Lecture erronée |
-
-| Mauvaise taille de bloc | Mauvais parsing |
-
-| Chevauchement de blocs | Données corrompues |
-
-| Bloc absent | Fonction indisponible |
-
-| Trou non documenté | Comportement imprévisible |
-
-
-
----
-
-
-
-\## 9. Cas de figure à couvrir (logique de test)
-
-
-
-\### 9.1 Cas nominaux
-
-
-
-\- Lecture du premier registre de chaque bloc
-
-\- Lecture du dernier registre de chaque bloc
-
-\- Lecture complète du bloc (si taille raisonnable)
-
-
-
----
-
-
-
-\### 9.2 Cas limites
-
-
-
-\- Lecture à la frontière entre deux blocs
-
-\- Lecture incluant le dernier registre d’un bloc
-
-\- Lecture démarrant juste après un bloc
-
-\- Lecture d’un bloc de taille minimale (si existant)
-
-
-
----
-
-
-
-\### 9.3 Cas d’erreur
-
-
-
-\- Lecture dans une zone non définie
-
-\- Lecture chevauchant deux blocs non contigus
-
-\- Lecture hors plage globale
-
-
-
----
-
-
-
-\### 9.4 Cas de robustesse structurelle
-
-
-
-\- Lecture répétée des mêmes adresses
-
-\- Lecture avec tailles variables
-
-\- Lecture multi-blocs (si autorisée implicitement)
-
-
-
----
-
-
-
-\## 10. Points d’attention critiques
-
-
-
-\### 10.1 Off-by-one
-
-Erreur classique :
-
-\- bloc déclaré sur N registres
-
-\- implémenté sur N±1
-
-
-
----
-
-
-
-\### 10.2 Alignement implicite
-
-Certains firmwares imposent :
-
-\- alignement pair,
-
-\- padding non documenté
-
-
-
-→ Doit être détecté
-
-
-
----
-
-
-
-\### 10.3 Chevauchement silencieux
-
-Deux blocs peuvent :
-
-\- partager un registre sans que ce soit visible immédiatement
-
-
-
-→ critique
-
-
-
----
-
-
-
-\### 10.4 Zones non documentées
-
-Présence possible de :
-
-\- registres “fantômes”
-
-\- zones mémoire exposées accidentellement
-
-
-
----
-
-
-
-\### 10.5 Dépendance taille de requête
-
-Certains capteurs :
-
-\- fonctionnent uniquement avec certaines tailles de lecture
-
-
-
-→ non acceptable
-
-
-
----
-
-
-
-\## 11. Ambiguïtés à lever
-
-
-
-\- Les trous entre blocs sont-ils autorisés ?
-
-\- Lecture multi-blocs autorisée ou non ?
-
-\- Taille max de requête supportée ?
-
-\- Comportement attendu hors plage (exception vs silence) ?
-
-
-
-Ces points doivent être :
-
-\- soit spécifiés,
-
-\- soit classés en anomalie SPEC
-
-
-
----
-
-
-
-\## 12. Critères de réussite
-
-
-
-FT-STR-01 est validée si :
-
-
-
-\- 100% des blocs sont conformes
-
-\- aucune collision détectée
-
-\- aucune dérive d’adresse
-
-\- aucune ambiguïté structurelle
-
-
-
----
-
-
-
-\## 13. Critères d’échec
-
-
-
-FT-STR-01 échoue si :
-
-
-
-\- un bloc est absent
-
-\- un bloc est mal positionné
-
-\- un bloc a une mauvaise taille
-
-\- deux blocs se chevauchent
-
-\- une zone critique est inaccessible
-
-
-
----
-
-
-
-\## 14. Classification des anomalies
-
-
-
-| Type | Exemple |
-
-|---|---|
-
-| BLOQUANTE | bloc absent / décalé |
-
-| MAJEURE | taille incorrecte |
-
-| MINEURE | trou non critique |
-
-| SPEC | doc ambiguë |
-
-
-
----
-
-
-
-\## 15. Dépendances
-
-
-
-\### Amont
-
-\- FT-STR-08 (mapping validé)
-
-
-
-\### Aval
-
-\- FT-STR-02 (typage)
-
-\- FT-STR-06 (lecture)
-
-
-
----
-
-
-
-\## 16. Ordre d’exécution interne
-
-
-
-1\. Vérification documentaire (mapping)
-
-2\. Détection des blocs
-
-3\. Vérification des adresses de début
-
-4\. Vérification des tailles
-
-5\. Vérification des frontières
-
-6\. Tests hors plage
-
-7\. Tests de robustesse lecture
-
-
-
----
-
-
-
-\## 17. Livrables
-
-
-
-\- tableau de validation des blocs
-
-\- liste des anomalies
-
-\- cartographie réelle observée
-
-\- traces Modbus associées
-
-
-
----
-
-
-
-\## 18. Critère de maturité
-
-
-
-FT-STR-01 est mature si :
-
-
-
-\- cartographie parfaitement alignée avec la doc
-
-\- aucune hypothèse implicite nécessaire
-
-\- comportement hors plage maîtrisé
-
-\- structure stable et reproductible
-
-
-
----
-
+Toute évolution des bornes ou longueurs doit provenir d'une évolution explicite de la V1, suivie d'une nouvelle dérivation/version du mapping. FT-STR-01 ne doit jamais être utilisée pour modifier silencieusement la spécification normative.

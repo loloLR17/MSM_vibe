@@ -1,47 +1,65 @@
 # TT-STR-01-GLOBAL-001 — Cohérence globale inter-blocs
 
+## Traçabilité
+
+- Test générique : `TT-STR-01-GEN-003`
+- Mapping : GEL-MAP-V1
+- Gel mapping : `ff948e5917becceed7637d9c7864ec9b279be0ca`
+
 ## Objectif
-Valider la cohérence structurelle globale de l’ensemble des blocs Modbus couverts par le mapping unifié.
 
-## Référence couverture
-- Nombre de blocs couverts : `8`
-- Première adresse observée : `0`
-- Dernière adresse observée : `7015`
+Valider la cohérence structurelle globale des huit blocs Modbus définis par V1 et représentés dans GEL-MAP-V1.
 
-## Préconditions
-- Toutes les vues de couverture par bloc sont disponibles
-- Mapping unifié brut validé
-- Les blocs 0 à 7 sont figés au niveau spécification
+## Référence de couverture
 
-## Contrôles à effectuer
-- ordre croissant des blocs selon leurs plages d’adresses ;
-- absence de chevauchement inter-bloc ;
-- identification explicite des éventuels trous inter-blocs.
+| Bloc | Début | Fin |
+|---|---:|---:|
+| B0 | 0 | 20 |
+| B1 | 1000 | 1019 |
+| B2 | 2000 | 2015 |
+| B3 | 3000 | 3047 |
+| B4 | 4000 | 4175 |
+| B5 | 5000 | 5019 |
+| B6 | 6000 | 6063 |
+| B7 | 7000 | 7015 |
 
-## Étapes
-1. Lister les portées d’adresses de tous les blocs.
-2. Trier les blocs par adresse de début.
-3. Vérifier que deux blocs successifs ne se chevauchent pas.
-4. Identifier les éventuels intervalles non couverts entre deux blocs successifs.
-5. Vérifier que la structure globale reste déterministe et non ambiguë.
+## Contrôles
+
+1. Vérifier l'ordre croissant des blocs.
+2. Vérifier l'absence de chevauchement inter-bloc.
+3. Identifier les intervalles non exposés entre blocs.
+4. Vérifier qu'aucun intervalle non exposé n'est interprété comme une plage implicite.
+
+## Intervalles inter-blocs non exposés
+
+- B0 → B1 : `21..999`
+- B1 → B2 : `1020..1999`
+- B2 → B3 : `2016..2999`
+- B3 → B4 : `3048..3999`
+- B4 → B5 : `4176..4999`
+- B5 → B6 : `5020..5999`
+- B6 → B7 : `6064..6999`
+
+Ces intervalles découlent des bornes V1. Ils ne constituent pas des trous internes aux blocs et leur seule existence n'est pas une non-conformité FT-STR-01.
+
+FT-STR-01 ne définit pas le comportement d'une requête Modbus visant ces adresses.
 
 ## Résultat attendu
-- structure inter-blocs cohérente ;
-- aucun chevauchement inter-bloc observé.
-- trou inter-bloc entre bloc 0 et bloc 1 : `21..999`
-- trou inter-bloc entre bloc 1 et bloc 2 : `1020..1999`
-- trou inter-bloc entre bloc 2 et bloc 3 : `2016..2999`
-- trou inter-bloc entre bloc 3 et bloc 4 : `3048..3999`
-- trou inter-bloc entre bloc 4 et bloc 5 : `4176..4999`
-- trou inter-bloc entre bloc 5 et bloc 6 : `5020..5999`
-- trou inter-bloc entre bloc 6 et bloc 7 : `6064..6999`
 
-## Critères d’acceptation
-- aucune ambiguïté de portée entre blocs ;
+- huit blocs présents dans la représentation dérivée ;
 - aucun chevauchement inter-bloc ;
-- tout trou inter-bloc est explicitement connu et acceptable au regard de la spécification.
+- sept intervalles non exposés explicitement identifiés ;
+- aucune plage implicite entre blocs.
+
+## Critères d'acceptation
+
+- bornes conformes à V1/GEL-MAP-V1 ;
+- aucune ambiguïté de portée ;
+- aucun chevauchement ;
+- intervalles inter-blocs correctement distingués des trous internes.
 
 ## Classification
+
 - Famille : `FT-STR-01`
-- Sous-famille : `Conformité structurelle`
 - Niveau : `instancié`
+- Générique associé : `TT-STR-01-GEN-003`
