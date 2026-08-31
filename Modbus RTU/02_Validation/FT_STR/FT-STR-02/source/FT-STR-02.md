@@ -1,530 +1,120 @@
-\# FT-STR-02 — Fiche de spécification  
+# FT-STR-02 — Fiche de spécification
 
-\## Typage Modbus des champs
+## Typage des champs
 
+## 1. Identification
 
+- **ID** : FT-STR-02
+- **Nom** : Typage des champs
+- **Famille parente** : FT-STR
+- **Criticité** : P0
 
----
+## 2. Objectif
 
+Valider que chaque champ logique du protocole possède un type explicitement déclaré, autorisé par `charte_typage.md`, conforme à V1 et correctement dérivé dans GEL-MAP-V1.
 
+FT-STR-02 vérifie également que la taille structurelle du champ est compatible avec son type.
 
-\## 1. Identification
+## 3. Références d'entrée
 
+Par ordre de priorité :
 
+1. `bloc0.md` à `bloc7.md` ;
+2. `charte_typage.md` ;
+3. GEL-MAP-V1 ;
+4. gouvernance gelée applicable.
 
-\- \*\*ID\*\* : FT-STR-02  
+## 4. Types autorisés
 
-\- \*\*Nom\*\* : Typage des champs  
+Types protocolaires strictement autorisés :
 
-\- \*\*Famille parente\*\* : FT-STR  
+- `uint16` : 1 registre ;
+- `int16` : 1 registre ;
+- `uint32` : 2 registres ;
+- `bitfield16` : 1 registre ;
+- `enum16` : 1 registre ;
+- `ASCII fixe` : nombre de registres fixé par la longueur normative du champ, à raison de 2 caractères par registre.
 
-\- \*\*Criticité\*\* : P0 (bloquant)
+La notation `uint16[n]` peut apparaître comme regroupement documentaire. Elle signifie `n` registres consécutifs de type `uint16` et ne crée aucun type protocolaire nouveau.
 
+## 5. Périmètre inclus
 
+- présence d'un type explicite pour chaque champ logique ;
+- appartenance du type à la liste autorisée ;
+- conformité du type entre V1, charte et mapping ;
+- compatibilité du nombre de registres avec le type déclaré ;
+- détection de types historiques ou implicites (`enum`, `bitfield`, float, etc.) ;
+- absence de conversion cachée ou d'interprétation heuristique dans les artefacts de validation.
 
----
+## 6. Hors périmètre
 
+- position et frontières des champs : FT-STR-01 ;
+- ordre MSW/LSW et atomicité des `uint32` : FT-STR-03/07 selon le contrôle ;
+- contenu et padding des `ASCII fixe` : FT-STR-04 ;
+- validité des valeurs d'énumération et signification des bits : familles fonctionnelles concernées ;
+- règles de réservés/sentinelles : FT-STR-05 ;
+- comportement des lectures partielles ou décalées : FT-STR-06 ;
+- droits d'accès : FT-ACC.
 
+## 7. Invariants
 
-\## 2. Objectif
+### 7.1 Type déclaré
 
+Chaque champ doit être interprété exclusivement selon son type normatif déclaré. Une lecture Modbus brute ne constitue pas une preuve du type.
 
+### 7.2 Taille
 
-Valider que chaque champ exposé dans les blocs Modbus :
+- `uint16`, `int16`, `enum16`, `bitfield16` occupent exactement 1 registre ;
+- `uint32` occupe exactement 2 registres ;
+- `ASCII fixe` occupe exactement la longueur normative prévue ;
+- `uint16[n]`, lorsqu'utilisé comme notation documentaire, correspond exactement à `n` registres `uint16`.
 
+### 7.3 Types interdits ou hérités
 
+Sont non conformes sans évolution formelle de la charte :
 
-\- occupe le bon nombre de registres,
+- `float`, `float32`, `float64` ;
+- `enum` en lieu et place de `enum16` ;
+- `bitfield` en lieu et place de `bitfield16` ;
+- tout type implicite ou non documenté.
 
-\- respecte le type attendu,
+## 8. Cas génériques
 
-\- est correctement aligné,
+- **GEN-001** — type déclaré autorisé et conforme à V1/charte ;
+- **GEN-002** — taille structurelle compatible avec le type ;
+- **GEN-003** — absence de type implicite, historique ou interdit.
 
-\- n’empiète pas sur les champs adjacents.
+## 9. Instanciation
 
+Les contrôles GEN-001 et GEN-002 sont appliqués aux 183 champs logiques de GEL-MAP-V1. GEN-003 est contrôlé globalement sur l'ensemble du mapping et des artefacts actifs.
 
+La vérification d'une fiche instanciée est documentaire/structurelle : elle compare les références normatives et dérivées. Elle ne prétend pas identifier le type en observant uniquement les bits retournés par le serveur Modbus.
 
-Cette sous-famille garantit que la centrale peut \*\*interpréter correctement la structure binaire des données\*\*.
+## 10. Critères de réussite
 
+- 100 % des champs ont un type explicite autorisé ;
+- 100 % des tailles sont compatibles avec le type déclaré ;
+- aucun type implicite, interdit ou historique n'est actif ;
+- les 183 instanciations sont traçables à GEL-MAP-V1 et aux génériques.
 
+## 11. Critères d'échec
 
----
+- type absent ou ambigu ;
+- type différent entre V1 et mapping ;
+- type hors charte ;
+- taille incompatible avec le type ;
+- interprétation heuristique utilisée comme substitut à la déclaration normative.
 
+## 12. Dépendances
 
+### Amont
 
-\## 3. Périmètre
+- FT-STR-08 ;
+- FT-STR-01 ;
+- V1, charte de typage et GEL-MAP-V1.
 
+### Aval
 
-
-\### Inclus
-
-
-
-\- Correspondance type ↔ nombre de registres :
-
-&nbsp; - `uint16` → 1 registre
-
-&nbsp; - `uint32` → 2 registres
-
-&nbsp; - `enum` → 1 registre
-
-&nbsp; - `bitfield` → 1 registre
-
-&nbsp; - `ASCII fixe` → N registres
-
-\- Alignement des champs
-
-\- Ordonnancement des champs dans un bloc
-
-\- Absence de chevauchement entre champs
-
-\- Continuité des champs multi-registres
-
-
-
-\### Exclus
-
-
-
-\- Valeurs métier
-
-\- Validité des enums
-
-\- Interprétation des bitfields
-
-\- Encodage interne des types (traité en FT-STR-03 et FT-STR-04)
-
-\- Droits d’accès
-
-
-
----
-
-
-
-\## 4. Références d’entrée
-
-
-
-\- Mapping Modbus détaillé (registre par registre)
-
-\- Définition des types autorisés
-
-\- Spécification des champs par bloc
-
-
-
-⚠️ Toute incohérence doc ↔ implémentation = anomalie
-
-
-
----
-
-
-
-\## 5. Règles de conformité
-
-
-
-Un champ est conforme si :
-
-
-
-\- son type correspond à la spécification
-
-\- sa taille (en registres) est correcte
-
-\- il commence à la bonne adresse
-
-\- il se termine à la bonne adresse
-
-\- il n’empiète pas sur le champ suivant
-
-
-
-Un bloc est conforme si :
-
-
-
-\- tous les champs respectent leur typage
-
-\- aucun décalage cumulatif n’est observé
-
-
-
----
-
-
-
-\## 6. Préconditions
-
-
-
-\- FT-STR-01 validée
-
-\- Mapping stabilisé
-
-\- Accès Modbus opérationnel
-
-\- Capteur en état stable
-
-
-
----
-
-
-
-\## 7. Résultats attendus
-
-
-
-\- chaque champ est identifiable avec précision
-
-\- les tailles correspondent exactement
-
-\- aucun décalage structurel n’est détecté
-
-\- le parsing est possible sans heuristique
-
-
-
----
-
-
-
-\## 8. Risques couverts
-
-
-
-| Risque | Impact |
-
-|---|---|
-
-| Mauvaise taille de champ | Décalage global |
-
-| Mauvais type | Mauvaise interprétation |
-
-| Chevauchement | Données corrompues |
-
-| Champ tronqué | Valeur inutilisable |
-
-| Mauvais alignement | Parsing instable |
-
-
-
----
-
-
-
-\## 9. Cas de figure à couvrir
-
-
-
-\### 9.1 Cas nominaux
-
-
-
-\- Lecture complète d’un champ `uint16`
-
-\- Lecture complète d’un champ `uint32`
-
-\- Lecture complète d’un champ ASCII
-
-\- Lecture d’un champ enum / bitfield
-
-
-
----
-
-
-
-\### 9.2 Cas limites
-
-
-
-\- Lecture du premier registre d’un champ
-
-\- Lecture du dernier registre d’un champ
-
-\- Lecture partielle d’un champ multi-registre
-
-\- Lecture à cheval entre deux champs
-
-
-
----
-
-
-
-\### 9.3 Cas d’erreur
-
-
-
-\- Champ supposé sur 2 registres mais accessible sur 1
-
-\- Champ débordant sur le suivant
-
-\- Mauvaise taille effective
-
-
-
----
-
-
-
-\### 9.4 Cas de robustesse
-
-
-
-\- Lecture répétée d’un champ
-
-\- Lecture avec tailles variables
-
-\- Lecture décalée (offset incorrect volontaire)
-
-
-
----
-
-
-
-\## 10. Points d’attention critiques
-
-
-
-\### 10.1 Effet domino
-
-Une erreur sur un champ entraîne :
-
-→ décalage de tous les suivants
-
-
-
----
-
-
-
-\### 10.2 Faux positifs
-
-Un champ peut sembler correct :
-
-→ mais être mal aligné si le précédent est faux
-
-
-
----
-
-
-
-\### 10.3 Champs multi-registres
-
-Doivent être :
-
-\- contigus
-
-\- sans trou
-
-\- sans interférence
-
-
-
----
-
-
-
-\### 10.4 ASCII mal dimensionné
-
-Très fréquent :
-
-\- longueur incorrecte
-
-\- débordement sur champ suivant
-
-
-
----
-
-
-
-\### 10.5 Champs implicites
-
-Certains firmwares ajoutent :
-
-\- padding non documenté
-
-→ interdit
-
-
-
----
-
-
-
-\## 11. Ambiguïtés à lever
-
-
-
-\- Alignement obligatoire sur 2 registres ?
-
-\- Padding autorisé ou interdit ?
-
-\- Ordre strict des champs garanti ?
-
-\- Champs optionnels possibles ?
-
-
-
----
-
-
-
-\## 12. Critères de réussite
-
-
-
-FT-STR-02 est validée si :
-
-
-
-\- 100% des champs respectent leur typage
-
-\- aucune dérive d’adresse
-
-\- aucun chevauchement
-
-\- aucun champ ambigu
-
-
-
----
-
-
-
-\## 13. Critères d’échec
-
-
-
-FT-STR-02 échoue si :
-
-
-
-\- un champ a une taille incorrecte
-
-\- un champ est mal positionné
-
-\- un champ empiète sur un autre
-
-\- un champ est non décodable
-
-
-
----
-
-
-
-\## 14. Classification des anomalies
-
-
-
-| Type | Exemple |
-
-|---|---|
-
-| BLOQUANTE | décalage global |
-
-| MAJEURE | champ mal dimensionné |
-
-| MINEURE | alignement non critique |
-
-| SPEC | doc incohérente |
-
-
-
----
-
-
-
-\## 15. Dépendances
-
-
-
-\### Amont
-
-\- FT-STR-01
-
-
-
-\### Aval
-
-\- FT-STR-03 (endianness)
-
-\- FT-STR-04 (ASCII)
-
-\- FT-BLK
-
-
-
----
-
-
-
-\## 16. Ordre d’exécution interne
-
-
-
-1\. Vérification du mapping champ par champ
-
-2\. Vérification des tailles
-
-3\. Vérification des positions
-
-4\. Vérification des frontières
-
-5\. Détection des chevauchements
-
-6\. Tests de lecture partielle
-
-
-
----
-
-
-
-\## 17. Livrables
-
-
-
-\- tableau des champs validés
-
-\- liste anomalies
-
-\- mapping réel observé
-
-\- traces Modbus
-
-
-
----
-
-
-
-\## 18. Critère de maturité
-
-
-
-FT-STR-02 est mature si :
-
-
-
-\- parsing possible sans ambiguïté
-
-\- aucun effet domino détecté
-
-\- structure robuste et stable
-
-\- mapping fiable pour implémentation tiers
-
-
-
----
-
+- FT-STR-03 ;
+- FT-STR-04 ;
+- familles fonctionnelles qui décodent les champs.
