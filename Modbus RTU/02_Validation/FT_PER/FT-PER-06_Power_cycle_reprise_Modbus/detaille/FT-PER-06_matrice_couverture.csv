@@ -1,0 +1,13 @@
+requirement_id,scope,relation,status,test_id,owner,justification
+PER06-R01,B01,last_reset_cause après power cycle = 1,COVERED,TT-PER-B01B07-002,FT-PER-06,Code 1 normativement défini comme Power-on
+PER06-R02,B07,reset_cause après power cycle = 1,COVERED,TT-PER-B01B07-002,FT-PER-06,Code 1 normativement défini comme power-on
+PER06-R03,B01-B07,distinction power-on code 1 et reset logiciel code 2,COVERED,TT-PER-B01B07-002,FT-PER-06,Causes distinctes explicitement codées
+PER06-R04,B01-B07,cohérence générale des causes entre blocs,DELEGATED,,FT-INT-05,Pas de nouvelle règle générale d'égalité créée par FT-PER
+PER06-R05,B07,uptime après power-on,TRACE_ONLY,TT-PER-B01B07-002,FT-PER-06,Aucune valeur exacte imposable à la première lecture
+PER06-R06,SYS,délai maximal de boot,NOT_DEFINED,,FT-PER-06,Aucune limite V1
+PER06-R07,MODBUS,délai maximal avant première réponse valide,NOT_DEFINED,,FT-PER-06,Aucune limite V1
+PER06-R08,MODBUS,comportement pendant initialisation,NOT_DEFINED,,FT-PER-06,Silence exception ou réponse non spécifiés
+PER06-R09,SYS,état système initial après power-on,NOT_DEFINED,,FT-PER-06,Aucun état initial global normatif
+PER06-R10,SYS,équivalence de persistance power cycle et RESET SOFTWARE,NOT_DEFINED,,FT-PER-06,Aucune politique commune définie
+PER06-R11,SYS,reprise selon watchdog brown-out reset externe firmware update,NOT_DEFINED,,FT-PER-06,Codes de cause définis sans politique de reprise associée
+PER06-R12,MODBUS,temps mesuré de reprise Modbus,TRACE_ONLY,TT-PER-B01B07-002,FT-PER-06,Caractérisation sans oracle temporel V1
