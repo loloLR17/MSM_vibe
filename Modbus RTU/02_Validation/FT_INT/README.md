@@ -32,14 +32,21 @@ FT-INT peut utiliser une commande B5 réussie comme stimulus afin d'en vérifier
 
 Les cas détaillés utilisent la forme `TT-INT-<scope>-<numéro>`, où `<scope>` identifie les blocs effectivement observés, par exemple `TT-INT-B02B05-001`.
 
-## 5. Sous-familles prévues
+## 5. Sous-familles
 
 - `FT-INT-01_Temps_commandes` : relations B2 ↔ B5 liées à la synchronisation temporelle ;
 - `FT-INT-02_Configuration_application` : relations B4 ↔ B5 liées à l'application de configuration ;
 - `FT-INT-03_Configuration_supervision` : relations B4 ↔ B3 liées aux paramètres actifs de supervision ;
-- `FT-INT-04_Acquisition_campagnes` : relations B5 ↔ B1 ↔ B6 et bases temporelles de campagne ;
-- `FT-INT-05_Etat_diagnostic_transversal` : relations transversales d'état et de diagnostic.
+- `FT-INT-04_Acquisition_campagnes` : relations B0/B1/B2/B4/B5/B6 liées à l'acquisition, aux campagnes et à la RAZ statistiques ;
+- `FT-INT-05_Etat_diagnostic_transversal` : relations transversales B1/B2/B5/B6/B7 d'état et de diagnostic.
 
-## 6. Statut
+## 6. Consolidation
 
-Famille en reconstruction sur la branche d'audit FT-INT. Aucun gel V1 avant audit croisé complet et validation explicite.
+- `MATRICE_COUVERTURE_FT_INT_V1.md` : matrice consolidée et audit B0→B7 ;
+- `AUDIT_FINAL_FT_INT_V1.md` : rapport de passe finale.
+
+## 7. Statut
+
+Les cinq sous-familles sont reconstruites et auditées. La passe finale a normalisé les matrices, contrôlé les identifiants, les délégations et la couverture B0→B7.
+
+FT-INT est **candidate au gel V1**. Aucun merge de la passe finale ni gel définitif ne doit être effectué avant validation explicite.
