@@ -2,7 +2,9 @@
 
 ## Statut
 
-Famille reconstruite et auditée sur la spécification Modbus RTU V1 gelée. Le présent état est candidat au gel après validation explicite de la passe finale.
+**Famille gelée V1.**
+
+FT-BLK a été reconstruite, auditée et validée contre la spécification Modbus RTU V1 gelée, la charte de typage, le mapping unifié et les frontières de familles du plan maître. Toute évolution ultérieure de ce périmètre doit faire l’objet d’une évolution formelle et tracée du référentiel.
 
 ## Objet
 
