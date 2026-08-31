@@ -1,0 +1,10 @@
+requirement_id,scope,relation,status,test_id,owner,justification
+PER01-R01,B05,RESET SOFTWARE accepté provoque un redémarrage logiciel contrôlé,CONDITIONAL,TT-PER-B01B05B07-001,FT-PER-01,Oracle post-reboot exploitable seulement si le banc permet un reboot contrôlé; acceptation B5 déléguée FT-CMD-07
+PER01-R02,B01,last_reset_cause post-RESET SOFTWARE vaut 2,COVERED,TT-PER-B01B05B07-001,FT-PER-01,Table normative B1: 2 = Reset logiciel
+PER01-R03,B07,reset_cause post-RESET SOFTWARE vaut 2,COVERED,TT-PER-B01B05B07-001,FT-PER-01,Table normative B7: 2 = reset logiciel
+PER01-R04,B01-B07,Cohérence générale des causes de reset B1 et B7,DELEGATED,,FT-INT-05,Relation inter-blocs déjà classifiée par FT-INT; FT-PER applique séparément la sémantique post-reset de chaque champ
+PER01-R05,B01-B07,Uptime après reset,TRACE_ONLY,TT-PER-B01B05B07-001,FT-PER-01,Le reset autorise la rupture de monotonie mais aucune valeur post-boot ni tolérance n'est définie
+PER01-R06,SYS,Délai de redémarrage logiciel,NOT_DEFINED,,FT-PER-01,Aucune borne temporelle V1
+PER01-R07,SYS,Délai avant première réponse Modbus valide post-reboot,NOT_DEFINED,,FT-PER-01,Aucune borne temporelle V1
+PER01-R08,B05,État des champs et historique B5 après reboot,NOT_DEFINED,,FT-PER-04,Aucune politique post-reboot normative; dette documentée dans FT-PER
+PER01-R09,B05,Accusé de prise en compte avant reboot,DELEGATED,,FT-CMD-07,Sémantique transactionnelle de RESET SOFTWARE propriétaire FT-CMD

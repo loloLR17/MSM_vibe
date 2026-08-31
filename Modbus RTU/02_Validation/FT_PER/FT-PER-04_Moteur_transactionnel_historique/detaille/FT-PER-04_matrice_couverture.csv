@@ -1,0 +1,13 @@
+requirement_id,scope,relation,status,test_id,owner,justification
+PER04-R01,B05,idempotence nominale sans reboot,DELEGATED,,FT-CMD-02,Propriété transactionnelle nominale déjà couverte
+PER04-R02,B05,persistance mémoire idempotence après reboot,NOT_DEFINED,,FT-PER-04,Aucune durée profondeur ou persistance post-reboot définie
+PER04-R03,B05,rejeu post-reboot transaction_id déjà traité,NOT_DEFINED,,FT-PER-04,Aucun oracle entre réutilisation ancien résultat et nouvelle transaction
+PER04-R04,B05,même transaction_id payload différent après reboot,NOT_DEFINED,,FT-PER-04,Priorité idempotence/incohérence non définie même hors reboot
+PER04-R05,B05,persistance cmd_last_*,NOT_DEFINED,TT-PER-B05-001,FT-PER-04,Historique minimal défini mais non qualifié non volatil
+PER04-R06,B05,persistance cmd_last_timestamp,NOT_DEFINED,TT-PER-B05-001,FT-PER-04,Aucune règle post-reboot
+PER04-R07,B05,état post-reboot cmd_active_*,NOT_DEFINED,TT-PER-B05-001,FT-PER-04,Aucune valeur initiale ni politique de conservation
+PER04-R08,B05,état post-reboot cmd_status et cmd_result_*,NOT_DEFINED,TT-PER-B05-001,FT-PER-04,Aucun état de boot obligatoire
+PER04-R09,B05,état post-reboot champs de requête,NOT_DEFINED,TT-PER-B05-001,FT-PER-04,Conservation ou remise à zéro non définie
+PER04-R10,B05,commande interrompue par reset imprévu,NOT_DEFINED,,FT-PER-04,Aucune règle de reprise abandon rollback replay ou historisation
+PER04-R11,B05,RESET SOFTWARE avec opération critique inachevée,DELEGATED,,FT-CMD-07,Précondition de RESET possédée par FT-CMD
+PER04-R12,B05,observation moteur avant après reboot,TRACE_ONLY,TT-PER-B05-001,FT-PER-04,Caractérisation sans oracle de conformité V1
