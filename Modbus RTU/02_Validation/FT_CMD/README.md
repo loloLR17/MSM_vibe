@@ -29,6 +29,7 @@ Convention retenue : `TT-CMD-B05-<numéro>` avec numérotation globale à FT-CMD
 Sont notamment à tracer sans fabrication d'oracle :
 - domaine exact d'un `transaction_id` invalide ;
 - profondeur/durée de mémoire d'idempotence ;
+- comportement exact si un `transaction_id` déjà traité est réutilisé avec un contenu de requête différent ;
 - exposition exacte de `cmd_active_*` lors du refus d'une commande concurrente ;
 - liste des commandes annulables et état final d'une annulation réussie ;
 - effet exact de `clear_request_fields` ;
@@ -37,4 +38,8 @@ Sont notamment à tracer sans fabrication d'oracle :
 
 ## 6. Statut
 
-Famille en reconstruction sur branche d'audit. Aucun gel ni merge global sans validation explicite.
+- FT-CMD-01 : validée et mergée dans `main` ;
+- FT-CMD-02 : reconstruite, en attente de validation ;
+- FT-CMD-03 à FT-CMD-07 : non démarrées.
+
+Aucun gel ni merge global sans validation explicite.

@@ -1,0 +1,7 @@
+id;exigence;classification;test;oracle;source;note
+CMD02-IDEM-001A;Réutilisation du résultat précédent pour un transaction_id déjà traité;COVERED;TT-CMD-B05-100;Le rejeu est terminé et réutilise le résultat précédent;bloc5 §4.2;Rejeu immédiat retenu
+CMD02-IDEM-001B;Aucune seconde exécution pour un transaction_id déjà traité;CONDITIONAL;TT-CMD-B05-101;Aucune seconde exécution observable;bloc5 §4.2;Instrumentation ou effet discriminant requis
+CMD02-IDEM-002;Un nouvel identifiant distingue une nouvelle transaction;COVERED;TT-CMD-B05-102;cmd_active_transaction_id expose T2 et la requête est réévaluée;bloc5 §7.2 et §10.1;Même code possible
+CMD02-CORR-001;Corrélation nominale stricte requête/réponse;COVERED;TT-CMD-B05-103;Réponse recevable seulement si cmd_active_transaction_id == transaction_id envoyé;bloc5 §7.2 §7.8 §9.2;Cas concurrent délégué FT-CMD-04
+CMD02-MEM-001;Profondeur ou durée de mémoire d'idempotence;NOT_DEFINED;;Aucun oracle V1;bloc5 §4.2;Ne pas imposer N transactions ou une durée
+CMD02-PAYLOAD-001;Même transaction_id rejoué avec contenu de requête différent;NOT_DEFINED;;Aucun oracle détaillé V1;bloc5 §4.2;Dette normative à préciser
