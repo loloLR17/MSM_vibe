@@ -6,171 +6,137 @@ La famille **FT_ACC** couvre la validation complète des règles d’accès au m
 
 Elle garantit que :
 
-* les droits d’accès (RO / RW / reserved) sont respectés ;
-* les comportements sont déterministes ;
-* aucune écriture illégitime n’est possible ;
-* le mapping constitue une **source de vérité fiable**.
-
----
+- les droits d’accès (`RO` / `RW` / réservés) sont respectés ;
+- les comportements sont déterministes ;
+- aucune écriture illégitime n’est possible ;
+- le comportement observé reste conforme à la spécification Modbus RTU V1 gelée et à son mapping dérivé.
 
 ## 2. Position dans le plan de test
 
 FT_ACC est une famille **P0 critique**, exécutée après :
 
-* FT_STR — Conformité structurelle
+- FT_STR — Conformité structurelle.
 
-Elle constitue le socle de validation des interactions Modbus avant :
+Elle constitue le socle de validation des interactions Modbus avant les tests fonctionnels métier et les tests de robustesse avancés.
 
-* les tests fonctionnels métier
-* les tests de robustesse avancés
+## 3. Référentiel
 
----
+Hiérarchie applicable :
 
-## 3. Périmètre couvert
+```text
+Spécification Modbus RTU V1 gelée
+        ↓
+mapping_unifie dérivé
+        ↓
+FT_ACC source
+        ↓
+tests détaillés
+        ↓
+tests instanciés
+```
+
+Le mapping unifié constitue la source opérationnelle pour l’instanciation des tests. Il n’est pas une source normative indépendante.
+
+En cas de divergence mapping ↔ spécification V1, la divergence doit être remontée et la spécification V1 fait foi tant qu’aucune évolution normative n’est explicitement validée.
+
+## 4. Périmètre couvert
 
 FT_ACC couvre :
 
-* lecture des zones exposées
-* écriture des zones RW
-* refus d’écriture sur zones RO
-* comportement des champs reserved*
-* absence d’effets de bord
-* accès hors plage ou invalides
-* conformité globale mapping ↔ comportement
+- lecture des zones exposées ;
+- écriture des zones RW ;
+- refus d’écriture sur zones RO ;
+- refus d’écriture sur registres réservés ;
+- absence d’effets de bord ;
+- accès hors plage ou autrement non autorisés ;
+- conformité globale spécification ↔ mapping dérivé ↔ comportement.
 
----
+Une lecture portant sur un sous-ensemble valide d’une zone exposée n’est pas invalide du seul fait qu’elle est partielle.
 
-## 4. Décomposition
+## 5. Décomposition
 
-La famille est structurée en 7 sous-familles :
+| ID | Nom | Objectif |
+|---|---|---|
+| FT-ACC-01 | Lecture | Vérifier que toutes les zones exposées sont lisibles |
+| FT-ACC-02 | Écriture RW | Vérifier le comportement d’écriture des champs RW |
+| FT-ACC-03 | Refus RO | Vérifier que les champs RO sont protégés |
+| FT-ACC-04 | Reserved | Vérifier la neutralité en lecture et le refus d’écriture des réservés |
+| FT-ACC-05 | Effets de bord | Garantir qu’aucune écriture n’impacte d’autres champs |
+| FT-ACC-06 | Accès invalides | Vérifier les accès hors plage / non autorisés |
+| FT-ACC-07 | Conformité globale | Vérifier la cohérence spécification ↔ mapping ↔ comportement |
 
-| ID        | Nom                | Objectif                                              |
-| --------- | ------------------ | ----------------------------------------------------- |
-| FT-ACC-01 | Lecture            | Vérifier que toutes les zones exposées sont lisibles  |
-| FT-ACC-02 | Écriture RW        | Vérifier que les champs RW sont modifiables           |
-| FT-ACC-03 | Refus RO           | Vérifier que les champs RO sont protégés              |
-| FT-ACC-04 | Reserved           | Vérifier le comportement des champs reserved*         |
-| FT-ACC-05 | Effets de bord     | Garantir qu’aucune écriture n’impacte d’autres champs |
-| FT-ACC-06 | Accès invalides    | Vérifier les accès hors plage / partiels              |
-| FT-ACC-07 | Conformité globale | Vérifier la cohérence mapping ↔ comportement          |
+## 6. Doctrine de gouvernance
 
----
-
-## 5. Doctrine de gouvernance
-
-### 5.1 Accès invalides (règle critique)
+### 6.1 Accès Modbus invalides
 
 Toute requête Modbus invalide doit :
 
-* générer une **exception Modbus explicite**
-* ne produire **aucune modification mémoire**
-* ne jamais être exécutée partiellement
+- générer une exception Modbus standard appropriée ;
+- ne produire aucune modification de registre ni d’état interne ;
+- ne jamais être exécutée partiellement ;
+- être traitée de manière déterministe.
 
-Aucun comportement implicite n’est autorisé.
+Aucun comportement implicite, aucune acceptation silencieuse et aucune correction automatique ne sont autorisés.
 
----
+### 6.2 Champs réservés
 
-### 5.2 Champs reserved*
+Les champs réservés exposés doivent respecter :
 
-Les champs nommés `reserved*` doivent respecter :
+- lecture : autorisée conformément au mapping ;
+- valeur : neutre conformément à la spécification, notamment `0` lorsque cette valeur est imposée ;
+- écriture : refusée par une exception Modbus standard ;
+- aucune modification de registre ni d’état interne à la suite de la requête rejetée.
 
-* lecture : autorisée si exposée
-* écriture :
+L’ancienne tolérance « écriture acceptée sans effet observable » n’est pas conforme à la V1 gelée et n’est plus admise.
 
-  * refusée, ou
-  * acceptée sans effet observable
-* comportement :
+### 6.3 Valeurs métier invalides dans un registre RW
 
-  * neutre
-  * stable
-  * sans impact système
+Une valeur métier hors domaine écrite dans un registre explicitement RW ne constitue pas, à elle seule, un accès Modbus invalide.
 
----
+Son traitement relève des règles fonctionnelles normatives du bloc concerné et des familles de validation adaptées, notamment FT-LIM / FT-BLK selon le cas.
 
-### 5.3 Mapping = source de vérité
+## 7. Méthodologie de test
 
-Le mapping unifié :
+Chaque sous-famille suit, lorsque les niveaux sont applicables, la structure définie par `CHARTE_ARBORESCENCE.md` :
 
-* définit le comportement attendu
-* doit être strictement respecté par le firmware
-* ne doit jamais être contredit par l’implémentation
-
----
-
-## 6. Méthodologie de test
-
-Chaque sous-famille suit la structure standard :
-
-```
+```text
 FT-ACC-0X/
+├── README.md
 ├── source/
 ├── detaille/
 ├── instancie/
 └── archive_pre_renforcement/
 ```
 
-### Niveaux de test
+Niveaux principaux :
 
-* **GEN** : cas génériques (logiques)
-* **instancié** : cas réels basés sur le mapping
+- **GEN** : cas génériques logiques ;
+- **instancié** : cas réels dérivés du mapping.
 
----
+## 8. Règles d’industrialisation
 
-## 7. Règles d’industrialisation
+- un test instancié par champ ou scénario réel lorsque pertinent ;
+- index CSV systématique lorsque prévu par la sous-famille ;
+- overview synthétique lorsque prévu ;
+- traçabilité test ↔ mapping ↔ spécification ;
+- nomenclature normalisée selon la sous-famille.
 
-* 1 test instancié par champ ou par scénario réel
-* index CSV systématique
-* overview synthétique obligatoire
-* traçabilité complète test ↔ mapping
-* nomenclature normalisée :
-
-```
-TT-ACC-XX-B<bloc>-XXX
-```
-
----
-
-## 8. Critères de validation globale
+## 9. Critères de validation globale
 
 La famille FT_ACC est validée si :
 
-* aucun champ RO n’est modifiable
-* tous les champs RW sont modifiables
-* les champs reserved restent neutres
-* aucune écriture ne génère d’effet de bord
-* tous les accès invalides sont refusés correctement
-* le comportement réel est conforme au mapping à 100 %
+- aucun champ RO n’est modifiable ;
+- les écritures valides sur champs RW se comportent conformément à leur spécification ;
+- les écritures sur réservés sont rejetées conformément à la doctrine V1 ;
+- aucune écriture ne génère d’effet de bord non prévu ;
+- tous les accès Modbus invalides sont refusés correctement ;
+- aucune erreur métier n’est arbitrairement reclassée en erreur d’adressage ;
+- le comportement réel est conforme à la spécification V1 et au mapping dérivé validé.
 
----
+## 10. Automatisation
 
-## 9. Automatisation
+FT_ACC est fortement automatisable et structurée pour une exécution batch sur banc de test Modbus.
 
-FT_ACC est :
+## 11. Résultat attendu
 
-* fortement automatisable
-* compatible avec un banc de test Modbus
-* structuré pour exécution batch complète
-
----
-
-## 10. Résultat attendu
-
-À l’issue de FT_ACC :
-
-* le protocole Modbus est **fiable**
-* le mapping est **exploitable sans ambiguïté**
-* la centrale peut s’appuyer dessus en confiance
-
----
-
-## 11. Conclusion
-
-FT_ACC constitue :
-
-👉 le **socle de sécurité et de cohérence du protocole**
-
-C’est une famille indispensable pour :
-
-* éviter les comportements implicites
-* garantir la robustesse terrain
-* permettre l’industrialisation du système
+À l’issue de FT_ACC, les règles d’accès Modbus sont déterministes, traçables et exploitables sans ambiguïté par la centrale.
