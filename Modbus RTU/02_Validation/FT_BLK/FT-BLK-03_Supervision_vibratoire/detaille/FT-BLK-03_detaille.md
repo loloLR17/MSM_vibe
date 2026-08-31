@@ -1,92 +1,138 @@
 # FT-BLK-03 — Cas de test détaillés
 
+> Chaque cas est autonome et suit le format du plan maître. Les traces minimales comprennent données injectées, valeurs d'oracle, lectures Modbus brutes, horodatage du banc et verdict.
+
 ## TT-BLK-B03-201 — Calcul RMS global
 - **Objectif** : vérifier la convention RMS de la norme vectorielle.
-- **Source** : Bloc 3 §5.1 et §5.3.
+- **Exigence couverte** : BLK03-B3-001.
+- **Source normative** : Bloc 3 §5.1 et §5.3.
 - **Préconditions** : banc capable d'injecter/rejouer une fenêtre X/Y/Z déterministe ; fenêtre validée.
-- **Entrées** : séquence connue `(x_i, y_i, z_i)` en accélération.
-- **Étapes** : calculer indépendamment `sqrt(mean(x_i²+y_i²+z_i²))` selon les règles numériques applicables ; injecter la fenêtre ; lire `B3_RMS_GLOBAL_MG`.
+- **Entrées** : séquence connue `(x_i, y_i, z_i)`.
+- **Étapes** : calculer indépendamment `sqrt(mean(x_i²+y_i²+z_i²))` ; injecter la fenêtre ; lire `B3_RMS_GLOBAL_MG`.
 - **Résultat attendu** : résultat compatible avec l'oracle indépendant.
-- **Critère d'acceptation** : écart conforme à la règle d'arrondi/quantification normative ou au plan de banc ; aucune tolérance arbitraire n'est créée ici.
-- **Mode** : conditionnel, automatisable avec banc déterministe.
+- **Critère d’acceptation** : écart conforme à la règle numérique normative ou au plan de banc ; aucune tolérance arbitraire.
+- **Mode d’exécution** : conditionnel sur banc déterministe.
+- **Automatisation** : oui si injection/rejeu disponible.
+- **Traces** : fenêtre injectée, oracle, valeur lue, trames et verdict.
 - **Criticité** : P0.
+- **Limites / arbitrages** : aucune règle d'arrondi non spécifiée n'est inventée.
 
 ## TT-BLK-B03-202 — Calcul crête globale
 - **Objectif** : vérifier le maximum de norme vectorielle.
-- **Source** : Bloc 3 §5.1 et §5.3.
+- **Exigence couverte** : BLK03-B3-002.
+- **Source normative** : Bloc 3 §5.1 et §5.3.
 - **Préconditions** : banc déterministe.
-- **Étapes** : calculer indépendamment `max(sqrt(x_i²+y_i²+z_i²))`, injecter la fenêtre, lire `B3_PEAK_GLOBAL_MG`.
-- **Résultat attendu** : résultat compatible avec l'oracle indépendant selon les règles numériques applicables.
-- **Mode** : conditionnel.
+- **Entrées** : séquence X/Y/Z connue.
+- **Étapes** : calculer `max(sqrt(x_i²+y_i²+z_i²))`, injecter la fenêtre, lire `B3_PEAK_GLOBAL_MG`.
+- **Résultat attendu** : résultat compatible avec l'oracle indépendant.
+- **Critère d’acceptation** : conformité à l'oracle selon les règles numériques applicables.
+- **Mode d’exécution** : conditionnel.
+- **Automatisation** : oui si banc déterministe.
+- **Traces** : entrée, oracle, valeur lue et trames.
 - **Criticité** : P0.
+- **Limites / arbitrages** : aucune tolérance arbitraire.
 
 ## TT-BLK-B03-203 — Calcul RMS par axe
-- **Objectif** : vérifier `B3_RMS_X_MG`, `B3_RMS_Y_MG`, `B3_RMS_Z_MG`.
-- **Source** : Bloc 3 §5.2 et §5.3.
+- **Objectif** : vérifier les RMS X/Y/Z.
+- **Exigence couverte** : BLK03-B3-003.
+- **Source normative** : Bloc 3 §5.2 et §5.3.
 - **Préconditions** : banc déterministe.
-- **Étapes** : calculer indépendamment le RMS de chaque axe, injecter la fenêtre, lire les trois résultats.
-- **Résultat attendu** : chaque axe est compatible avec son oracle indépendant.
-- **Mode** : conditionnel.
+- **Entrées** : séquences connues X/Y/Z.
+- **Étapes** : calculer le RMS de chaque axe, injecter, lire `B3_RMS_X_MG`, `Y`, `Z`.
+- **Résultat attendu** : chaque axe est compatible avec son oracle.
+- **Critère d’acceptation** : trois comparaisons conformes.
+- **Mode d’exécution** : conditionnel.
+- **Automatisation** : oui si banc déterministe.
+- **Traces** : entrées, trois oracles, trois valeurs et trames.
 - **Criticité** : P0.
+- **Limites / arbitrages** : pas de règle numérique supplémentaire inventée.
 
 ## TT-BLK-B03-204 — Calcul crête par axe
 - **Objectif** : vérifier les maxima absolus X/Y/Z.
-- **Source** : Bloc 3 §5.2 et §5.3.
+- **Exigence couverte** : BLK03-B3-004.
+- **Source normative** : Bloc 3 §5.2 et §5.3.
 - **Préconditions** : banc déterministe.
-- **Étapes** : calculer `max(abs(x_i))`, `max(abs(y_i))`, `max(abs(z_i))`, injecter la fenêtre et comparer aux champs exposés.
+- **Entrées** : séquences connues X/Y/Z.
+- **Étapes** : calculer `max(abs(x_i))`, `max(abs(y_i))`, `max(abs(z_i))`, injecter et comparer.
 - **Résultat attendu** : résultats compatibles avec les oracles indépendants.
-- **Mode** : conditionnel.
+- **Critère d’acceptation** : trois comparaisons conformes.
+- **Mode d’exécution** : conditionnel.
+- **Automatisation** : oui si banc déterministe.
+- **Traces** : entrées, oracles, valeurs et trames.
 - **Criticité** : P0.
+- **Limites / arbitrages** : aucune tolérance non spécifiée.
 
 ## TT-BLK-B03-205 — Conservation conditionnelle de la dernière valeur
-- **Objectif** : vérifier la politique de qualification si l'implémentation choisit de conserver la dernière valeur calculée lors d'une indisponibilité temporaire.
-- **Source** : Bloc 3 §6.
-- **Préconditions** : une valeur valide existe ; le firmware implémente la conservation autorisée ; indisponibilité temporaire reproductible.
-- **Étapes** : relever les valeurs valides ; provoquer l'indisponibilité sans reset ; relire le Bloc 3.
-- **Résultat attendu** : si les valeurs sont conservées, elles ne sont pas présentées comme un nouveau calcul valide/frais et les états de qualification reflètent cette situation sans contradiction avec les définitions normatives.
-- **Critère d'acceptation** : aucune nouvelle valeur fictive ; qualification cohérente avec la politique effectivement implémentée.
-- **Mode** : conditionnel.
+- **Objectif** : qualifier le comportement si l'implémentation choisit de conserver la dernière valeur calculée lors d'une indisponibilité temporaire.
+- **Exigence couverte** : BLK03-B3-006.
+- **Source normative** : Bloc 3 §6.
+- **Préconditions** : valeur valide existante ; conservation effectivement implémentée ; indisponibilité reproductible.
+- **Entrées** : scénario d'indisponibilité maîtrisé.
+- **Étapes** : relever les valeurs valides ; provoquer l'indisponibilité ; relire B3.
+- **Résultat attendu** : si conservées, les valeurs ne sont pas présentées comme un nouveau calcul frais et la qualification reste non contradictoire.
+- **Critère d’acceptation** : aucune nouvelle valeur fictive et qualification cohérente.
+- **Mode d’exécution** : conditionnel à l'implémentation.
+- **Automatisation** : selon capacité d'injection.
+- **Traces** : état avant/après, flags, valeurs, événement injecté.
 - **Criticité** : P1.
+- **Limites / arbitrages** : la V1 autorise la conservation sans la rendre obligatoire.
 
 ## TT-BLK-B03-206 — Indication LAST_VALUE_HELD
 - **Objectif** : vérifier l'indication explicite d'une dernière valeur conservée.
-- **Source** : Bloc 3 §6 et §8.2 bit 9.
-- **Préconditions** : scénario où une dernière valeur est effectivement conservée sans recalcul récent.
+- **Exigence couverte** : BLK03-B3-007.
+- **Source normative** : Bloc 3 §6 et §8.2 bit 9.
+- **Préconditions** : scénario effectif de valeur conservée sans recalcul récent.
+- **Entrées** : scénario maîtrisé.
 - **Étapes** : provoquer le scénario ; lire `B3_VALIDITY_FLAGS`.
-- **Résultat attendu** : `LAST_VALUE_HELD=1` pendant l'état correspondant.
-- **Critère d'acceptation** : le bit signale la situation qu'il définit normativement.
-- **Mode** : conditionnel.
+- **Résultat attendu** : `LAST_VALUE_HELD = 1` pendant la situation correspondante.
+- **Critère d’acceptation** : concordance entre situation et bit.
+- **Mode d’exécution** : conditionnel.
+- **Automatisation** : selon banc.
+- **Traces** : scénario, flags et trames.
 - **Criticité** : P1.
+- **Limites / arbitrages** : non applicable si l'implémentation ne conserve pas la dernière valeur.
 
 ## TT-BLK-B03-207 — Stabilité de B3_CALC_SEQUENCE sans nouvelle fenêtre
-- **Objectif** : vérifier qu'aucune nouvelle séquence n'est imputée en l'absence de nouvelle fenêtre validée.
-- **Source** : Bloc 3 mapping et §9.
-- **Préconditions** : capacité à maintenir le système dans un état où aucune nouvelle fenêtre de calcul n'est validée, sans reset.
-- **Étapes** : lire `B3_CALC_SEQUENCE`, attendre dans cet état, relire le compteur.
+- **Objectif** : vérifier l'absence de nouvelle séquence sans nouvelle fenêtre validée.
+- **Exigence couverte** : BLK03-B3-008.
+- **Source normative** : Bloc 3 mapping et §9.
+- **Préconditions** : état contrôlé sans nouvelle fenêtre validée et sans reset.
+- **Entrées** : scénario de maintien sans nouvelle fenêtre.
+- **Étapes** : lire `B3_CALC_SEQUENCE`, attendre, relire.
 - **Résultat attendu** : valeur inchangée.
-- **Critère d'acceptation** : aucune progression sans nouvelle fenêtre validée.
-- **Mode** : automatisable sous précondition maîtrisée.
+- **Critère d’acceptation** : aucune progression.
+- **Mode d’exécution** : sous précondition maîtrisée.
+- **Automatisation** : oui si le banc contrôle l'absence de nouvelle fenêtre.
+- **Traces** : deux valeurs, durée, état du banc.
 - **Criticité** : P1.
-- **Limite** : la monotonie générale du compteur est déjà couverte par FT-BLK-02.
+- **Limites / arbitrages** : la monotonie générale est couverte par FT-BLK-02.
 
 ## TT-BLK-B03-208 — Monotonie de B3_EXCEED_COUNT
-- **Objectif** : vérifier que le compteur total de dépassements ne régresse pas en fonctionnement sans reset.
-- **Source** : Bloc 3 §9.
+- **Objectif** : vérifier que le compteur total de dépassements ne régresse pas hors reset.
+- **Exigence couverte** : BLK03-B3-009.
+- **Source normative** : Bloc 3 §9.
 - **Préconditions** : aucun reset pendant le test.
-- **Étapes** : lire le compteur à plusieurs instants couvrant idéalement au moins un événement de dépassement.
+- **Entrées** : aucune ; idéalement scénario incluant un dépassement.
+- **Étapes** : lire plusieurs fois `B3_EXCEED_COUNT`.
 - **Résultat attendu** : `count[n+1] >= count[n]`.
-- **Critère d'acceptation** : aucune diminution observée.
-- **Mode** : automatisable.
+- **Critère d’acceptation** : aucune diminution.
+- **Mode d’exécution** : fonctionnel intra-bloc.
+- **Automatisation** : oui.
+- **Traces** : série horodatée des valeurs.
 - **Criticité** : P1.
-- **Limite** : le lien événement B4/B3 → incrément est traité séparément ; ce test ne fixe pas la politique de saturation.
+- **Limites / arbitrages** : pas de politique de saturation supplémentaire imposée.
 
 ## TT-BLK-B03-209 — Monotonie de B3_ALARM_COUNT
-- **Objectif** : vérifier que le compteur total d'alarmes ne régresse pas en fonctionnement sans reset.
-- **Source** : Bloc 3 §9.
+- **Objectif** : vérifier que le compteur total d'alarmes ne régresse pas hors reset.
+- **Exigence couverte** : BLK03-B3-010.
+- **Source normative** : Bloc 3 §9.
 - **Préconditions** : aucun reset pendant le test.
-- **Étapes** : lire le compteur à plusieurs instants couvrant idéalement au moins une alarme.
+- **Entrées** : aucune ; idéalement scénario incluant une alarme.
+- **Étapes** : lire plusieurs fois `B3_ALARM_COUNT`.
 - **Résultat attendu** : `count[n+1] >= count[n]`.
-- **Critère d'acceptation** : aucune diminution observée.
-- **Mode** : automatisable.
+- **Critère d’acceptation** : aucune diminution.
+- **Mode d’exécution** : fonctionnel intra-bloc.
+- **Automatisation** : oui.
+- **Traces** : série horodatée des valeurs.
 - **Criticité** : P1.
-- **Limite** : aucune exigence de wrap/saturation supplémentaire n'est inventée.
+- **Limites / arbitrages** : aucune exigence de wrap/saturation non explicite n'est ajoutée.
