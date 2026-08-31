@@ -6,7 +6,7 @@
 - configuration active valide lorsque START doit réussir ;
 - stockage exploitable et capacité suffisante ;
 - absence de défaut critique bloquant ;
-- accès aux Blocs 1, 2, 5 et 6 ;
+- accès aux Blocs 0, 1, 2, 4, 5 et 6 selon les scénarios ;
 - exécution des commandes B5 selon la procédure FT-CMD applicable ;
 - pour FT-INT, une commande B5 n'est utilisée comme stimulus que lorsqu'elle est confirmée terminée avec succès.
 
@@ -155,34 +155,37 @@ Ne pas exiger l'égalité bit-à-bit entre `start_timestamp`/`end_timestamp` et 
 
 ---
 
-## TT-INT-B05B06-003 — Conservation des campagnes après RAZ statistiques
+## TT-INT-B00B04B05B06-001 — Conservation identité/configuration/campagnes après RAZ statistiques
 
 ### Objectif
-Démontrer que la commande B5 `11 — RAZ statistiques` ne supprime pas les campagnes.
+Démontrer que la commande B5 `11 — RAZ statistiques` ne supprime ni les campagnes, ni l'identité capteur, ni la configuration.
 
 ### Préconditions
 - au moins une campagne B6 valide et identifiable ;
+- identité B0 lisible ;
+- configuration B4 active identifiable ;
 - acquisition arrêtée si requis par la procédure d'exécution retenue ;
 - clé de confirmation correcte selon FT-CMD.
 
 ### Procédure
-1. Construire une empreinte de référence de l'inventaire B6 : nombre de campagnes et liste d'identifiants/métadonnées suffisante pour retrouver les campagnes existantes.
-2. En contrôle transversal léger, relever les éléments d'identité/configuration utiles sans en faire l'objet principal du test.
-3. Exécuter avec succès B5 commande `11`.
-4. Rebalayer l'inventaire B6.
-5. Vérifier que les campagnes présentes avant la commande sont toujours présentes et accessibles.
-6. Consigner les éventuels contrôles associés d'identité/configuration.
+1. Relever une empreinte de référence de l'identité B0 suffisante pour détecter un effacement.
+2. Relever l'identité/état de la configuration active B4.
+3. Construire une empreinte de référence de l'inventaire B6 : campagnes et identifiants suffisants pour retrouver les entrées existantes.
+4. Exécuter avec succès B5 commande `11`.
+5. Relire B0 et vérifier que l'identité n'a pas été effacée.
+6. Relire B4 et vérifier que la configuration n'a pas été effacée.
+7. Rebalayer B6 et vérifier que les campagnes préexistantes sont toujours présentes et accessibles.
 
 ### Oracle
-PASS si aucune campagne préexistante n'a été effacée par la RAZ statistiques.
+PASS si l'identité B0, la configuration B4 et les campagnes B6 préexistantes sont conservées après la RAZ statistiques.
 
-FAIL si une campagne préexistante disparaît du fait de la commande 11.
+FAIL si l'un de ces éléments est effacé du fait de la commande 11.
 
-INCONCLUSIVE si l'inventaire avant ou après n'est pas suffisamment déterministe pour établir la conservation.
+INCONCLUSIVE si les états de référence ne permettent pas d'établir la conservation de façon déterministe.
 
 ### Délégation
-- la validation de la clé, les statuts et les refus appartiennent à FT-CMD ;
-- la persistance après reboot appartient à FT-PER.
+- validation de la clé, statuts et refus : FT-CMD ;
+- persistance après reboot : FT-PER.
 
 ---
 
