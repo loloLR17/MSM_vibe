@@ -1,0 +1,7 @@
+requirement_id,scope,relation,status,test_id,owner,justification
+INT01-R01,B02B05,Application effective du temps préparé après synchronisation B5 réussie,COVERED,TT-INT-B02B05-001,FT-INT-01,Oracle inter-blocs explicite avec progression temporelle légitime
+INT01-R02,B02B05,Mise à jour de last_sync_time après synchronisation effective,COVERED,TT-INT-B02B05-002,FT-INT-01,Branche positive explicitement déléguée par FT-BLK-02
+INT01-R03,B02B05,Cohérence minimale de l'état temporel après synchronisation réussie,COVERED,TT-INT-B02B05-003,FT-INT-01,Oracle borné aux significations explicitement normatives de B2
+INT01-R04,B02B05,cmd_last_timestamp utilise la base Epoch TR2 de B2,TRACE_ONLY,,FT-INT-01,Base commune normative mais absence de relation numérique ou tolérance imposée
+INT01-R05,B02B05,Cohérence des indicateurs de synchronisation préparée B2 et B5,NOT_DEFINED,,FT-INT-01,Aucune équivalence normative explicite entre flags ou statuts
+INT01-R06,B02B05,Refus de synchronisation en absence de préparation,DELEGATED,,FT-CMD,Le verdict porte sur le moteur transactionnel B5 et son résultat
