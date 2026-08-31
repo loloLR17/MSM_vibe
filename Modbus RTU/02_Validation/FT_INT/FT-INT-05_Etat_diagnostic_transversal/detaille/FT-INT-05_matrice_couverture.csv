@@ -1,6 +1,6 @@
 requirement_id,scope,relation,status,test_id,owner,justification
 INT05-R01,B05-B07,Publication de l'autotest B5 dans B7,COVERED,TT-INT-B05B07-001;TT-INT-B05B07-002,FT-INT-05,Effet métier inter-blocs; mécanique B5 déléguée FT-CMD
-INT05-R02,B05-B07,Issue réelle de l'autotest observable dans B7,COVERED_CONDITIONAL,TT-INT-B05B07-001;TT-INT-B05B07-002,FT-INT-05,Oracle normatif mais injection déterministe requise pour choisir OK ou échec
+INT05-R02,B05-B07,Issue réelle de l'autotest observable dans B7,CONDITIONAL,TT-INT-B05B07-001;TT-INT-B05B07-002,FT-INT-05,Oracle normatif mais injection déterministe requise pour choisir OK ou échec
 INT05-R03,B01-B05-B07,ACK ne supprime pas une cause de défaut encore présente,CONDITIONAL,TT-INT-B01B05B07-001,FT-INT-05,Injection et maintien contrôlés du défaut nécessaires
 INT05-R04,B02-B07,last_fault_timestamp utilise la base temporelle B2,COVERED,TT-INT-B02B07-001,FT-INT-05,Règle explicite B7; comparaison par fenêtre sans tolérance inventée
 INT05-R05,B01-B07,Égalité exhaustive des bitfields défaut B1 et B7,NOT_DEFINED,,FT-INT-05,Aucune table normative exhaustive V1
