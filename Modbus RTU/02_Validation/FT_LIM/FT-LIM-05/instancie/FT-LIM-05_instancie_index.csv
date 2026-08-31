@@ -1,0 +1,13 @@
+test_id,generic_case,precondition,input,expected_result,execution_status
+TT-LIM-05-C01-001,LIM05-G01,N=0,index=0,"Modbus write accepted; selected_campaign_valid=0",CONDITIONAL
+TT-LIM-05-C02-001,LIM05-G02,N>0,index=0,"selected_campaign_valid=1; campaign_id!=0",CONDITIONAL
+TT-LIM-05-C03-001,LIM05-G03,N>0,index=N-1,"selected_campaign_valid=1; campaign_id!=0",CONDITIONAL
+TT-LIM-05-C04-001,LIM05-G04,N>2,index=k with 0<k<N-1,"selected_campaign_valid=1; metadata correspond to k",CONDITIONAL
+TT-LIM-05-C05-001,LIM05-G05,0<N<=65535,index=N,"Modbus write accepted; no value-based exception; selected_campaign_valid=0",CONDITIONAL
+TT-LIM-05-C05-002,LIM05-G05,N=0,index=N=0,"covered by C01-001; do not double count",CONDITIONAL
+TT-LIM-05-C06-001,LIM05-G06,N<=65535,index=65535,"Modbus write accepted; selected_campaign_valid=0",ACTIVE
+TT-LIM-05-C07-001,LIM05-G07,after invalid selection,read 6004 then metadata,"6004=0; metadata not interpreted valid; exact values unconstrained",ACTIVE
+TT-LIM-05-C08-001,LIM05-G08,N>=2,"select i; read entry; select j!=i; read entry","each completed response coherent with one selected campaign",CONDITIONAL
+TT-LIM-05-C09-001,LIM05-G09,N>0,"select valid i twice with stable inventory","valid remains 1; campaign_id nonzero and coherent",CONDITIONAL
+TT-LIM-05-C10-001,LIM05-G10,N=65535,index=65534,"selected_campaign_valid=1; campaign_id!=0",CONDITIONAL
+TT-LIM-05-C10-002,LIM05-G10,N=65535,index=65535,"write accepted; selected_campaign_valid=0",CONDITIONAL

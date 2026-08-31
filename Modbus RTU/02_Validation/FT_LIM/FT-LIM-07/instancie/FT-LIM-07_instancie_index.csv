@@ -1,0 +1,11 @@
+test_id,generic_case,precondition,observation,expected_result,execution_status
+TT-LIM-07-C01-001,LIM07-G01,none,read system_health_status,"value in {0,1,2,3}",ACTIVE
+TT-LIM-07-C02-001,LIM07-G02,none,read system_fault_flags,"(value & 0xFC00)==0",ACTIVE
+TT-LIM-07-C03-001,LIM07-G03,none,read selftest_status,"value in {0,1,2,3}",ACTIVE
+TT-LIM-07-C04-001,LIM07-G04,none,read reset_cause,"value in {0,1,2,3,4,5,6}",ACTIVE
+TT-LIM-07-C05-001,LIM07-G05,no reset between observations,"read uptime t1 then t2","uptime2 >= uptime1",ACTIVE
+TT-LIM-07-C06-001,LIM07-G06,reset genuinely observed,"compare uptime before/after; read reset_cause","uptime decrease allowed; reset cause remains in normative domain",CONDITIONAL
+TT-LIM-07-C07-001,LIM07-G07,last_fault_code=0,read code/timestamp,"interpret no known fault; no constraint imposed on timestamp",CONDITIONAL
+TT-LIM-07-C08-001,LIM07-G08,reliable fault timestamp available,"interpret last_fault_timestamp using Bloc2 time base","TRACE_ONLY — same time base used",CONDITIONAL
+TT-LIM-07-C09-001,LIM07-G09,none,"record internal_temp_dC and supply_voltage_mV","TRACE_ONLY — no V1 functional range",ACTIVE
+TT-LIM-07-C10-001,LIM07-G10,values available,"record last_fault_code/selftest_result_code/selftest_detail","TRACE_ONLY — no invented domain",ACTIVE

@@ -1,0 +1,14 @@
+constraint_id,scope,field_or_relation,status,normative_rule,generic_case
+LIM07-C01,Bloc7,system_health_status,ACTIVE,"enum {0,1,2,3}",LIM07-G01
+LIM07-C02,Bloc7,system_fault_flags,ACTIVE,"bits 10..15 reserved zero; mask 0xFC00",LIM07-G02
+LIM07-C03,Bloc7,selftest_status,ACTIVE,"enum {0,1,2,3}",LIM07-G03
+LIM07-C04,Bloc7,reset_cause,ACTIVE,"enum {0..6}; 7..65535 reserved",LIM07-G04
+LIM07-C05,Bloc7,uptime_s,ACTIVE,"nondecreasing except reset",LIM07-G05/G06
+LIM07-C06,Bloc7,last_fault_code=0,ACTIVE,"means no known fault",LIM07-G07
+LIM07-C07,Bloc7,last_fault_timestamp,TRACE_ONLY,"same time base as Bloc2",LIM07-G08
+LIM07-ND01,Bloc7,last_fault_code nonzero,NOT_DEFINED,"no normative code table",LIM07-G10
+LIM07-ND02,Bloc7,selftest_result_code,NOT_DEFINED,"no normative domain table",LIM07-G10
+LIM07-ND03,Bloc7,selftest_detail,NOT_DEFINED,"no normative domain table",LIM07-G10
+LIM07-ND04,Bloc7,internal_temp_dC,NOT_DEFINED,"no functional range",LIM07-G09
+LIM07-ND05,Bloc7,supply_voltage_mV,NOT_DEFINED,"no functional range",LIM07-G09
+LIM07-ND06,Bloc7,health/fault cross relation,NOT_DEFINED,"no normative relation",-

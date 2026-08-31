@@ -1,0 +1,29 @@
+bloc,normative_scope,coverage,status,notes
+0,device_capabilities reserved bits,FT-LIM-08,ACTIVE,"bits4..15 zero"
+0,identification stability and device_id persistence/uniqueness,FT-LIM-08,ACTIVE_CONDITIONAL,"uniqueness needs multiple devices"
+1,last_reset_cause/storage_status/acquisition_state domains,FT-LIM-08,ACTIVE,"system_status detailed domain remains NOT_DEFINED"
+1,uptime and fault/warning persistence,FT-LIM-08,ACTIVE_CONDITIONAL,"exact flag mappings not invented"
+2,time_status/time_flags/prepared_time_status/sync_source domains,FT-LIM-09,ACTIVE,"reserved bits included"
+2,prepared time vs current time and effective synchronization,FT-LIM-09,ACTIVE_CONDITIONAL,"command acceptance remains FT-LIM-04"
+2,current_time/last_sync_time/time_since_sync invariants,FT-LIM-09,ACTIVE_CONDITIONAL,"no invented tolerance"
+3,status/severity/dominant axis/exceed/latch domains,FT-LIM-10,ACTIVE,
+3,validity/alarm reserved bits and reserved registers,FT-LIM-10,ACTIVE,
+3,counters monotonic/saturation,FT-LIM-10,ACTIVE_CONDITIONAL,
+3,active thresholds/non-retroactivity/freshness qualification,FT-LIM-10,CONDITIONAL,"no invented exact cross-relations"
+4,unitary explicit RW functional domains,FT-LIM-01,ACTIVE,"undefined fields explicitly tracked"
+4,cross-field period/window/frequency constraint,FT-LIM-02,ACTIVE,
+4,dynamic storage capacity constraint,FT-LIM-02,CONDITIONAL,
+4,CRC/completeness/config states/active image,FT-LIM-03,ACTIVE_CONDITIONAL,
+5,command code/transaction/submit/confirmation,FT-LIM-04,ACTIVE,
+5,cmd_request_control reserved bits3..15,FT-LIM-04,ACTIVE,"closure correction"
+5,command preconditions and functional results,FT-LIM-04,ACTIVE_CONDITIONAL,"no extra preconditions invented"
+5,cancel/clear semantics,FT-LIM-04,ACTIVE_CONDITIONAL,"cancellable command list NOT_DEFINED"
+6,dynamic selected campaign index validity,FT-LIM-05,ACTIVE,
+6,campaign_state/data_integrity/storage_health domains,FT-LIM-06,ACTIVE_CONDITIONAL,
+6,campaign_id/end_timestamp invariants,FT-LIM-06,CONDITIONAL,
+6,duration/timestamp coherence,FT-LIM-06,TRACE_ONLY,"exact formula/tolerance not defined"
+7,health/selftest/reset cause domains and reserved fault bits,FT-LIM-07,ACTIVE,
+7,uptime/last fault invariants,FT-LIM-07,ACTIVE_CONDITIONAL,"physical ranges and detailed nonzero fault codes NOT_DEFINED"
+GLOBAL,structural existence/types/multi-register coherence,FT-STR,OUT_OF_SCOPE,"frozen family"
+GLOBAL,RW/RO/reserved access permissions,FT-ACC,OUT_OF_SCOPE,"frozen family"
+GLOBAL,undefined normative domains,FT-LIM-01..10,TRACKED,"NOT_DEFINED/TRACE_ONLY retained without invention"

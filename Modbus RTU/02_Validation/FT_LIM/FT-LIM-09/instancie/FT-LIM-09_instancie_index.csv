@@ -1,0 +1,14 @@
+test_id,generic_case,precondition,observation,expected_result,execution_status
+TT-LIM-09-C01-001,LIM09-G01,none,read time_status,"value in {0..4}",ACTIVE
+TT-LIM-09-C02-001,LIM09-G02,none,read time_flags,"(value & 0xFF00)==0",ACTIVE
+TT-LIM-09-C03-001,LIM09-G03,none,read prepared_time_status,"value in {0..3}",ACTIVE
+TT-LIM-09-C04-001,LIM09-G04,none,read sync_source,"value in {0..4}",ACTIVE
+TT-LIM-09-C05-001,LIM09-G05,valid prepared value writable,"write prepared_time; no command2","current_time not immediately replaced",ACTIVE
+TT-LIM-09-C06-001,LIM09-G06,prepared value present,"observe before command2","prepared state exposed; current clock remains independent",ACTIVE
+TT-LIM-09-C07-001,LIM09-G07,FT-LIM-04 command2 preconditions satisfied,"submit command2 and observe clock","effective synchronization coherent with prepared value",CONDITIONAL
+TT-LIM-09-C08-001,LIM09-G08,no effective sync between reads,"read current_time t1/t2","t2 >= t1",ACTIVE
+TT-LIM-09-C09-001,LIM09-G09,effective sync observed,"observe current_time around sync","clock correction allowed only with sync event",CONDITIONAL
+TT-LIM-09-C10-001,LIM09-G10,no effective sync,"read last_sync_time twice","unchanged",ACTIVE
+TT-LIM-09-C11-001,LIM09-G11,effective sync observed,"compare last_sync_time before/after","updated coherently with sync",CONDITIONAL
+TT-LIM-09-C12-001,LIM09-G12,recent effective sync,"read time_since_sync repeatedly","coherent increasing age outside new sync",CONDITIONAL
+TT-LIM-09-C13-001,LIM09-G13,none,"record accuracy drift and undefined relations","TRACE_ONLY — no invented limit",ACTIVE

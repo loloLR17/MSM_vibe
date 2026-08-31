@@ -1,0 +1,13 @@
+test_id,generic_case,precondition,observation,expected_result,execution_status
+TT-LIM-08-C01-001,LIM08-G01,none,read device_capabilities,"(value & 0xFFF0)==0",ACTIVE
+TT-LIM-08-C02-001,LIM08-G02,no maintenance/version change,"compare Bloc0 snapshots across normal state change","identification fields unchanged",ACTIVE
+TT-LIM-08-C03-001,LIM08-G03,authorized reset observed,"compare device_id before/after reset","device_id unchanged",CONDITIONAL
+TT-LIM-08-C04-001,LIM08-G04,at least two distinct devices,"compare device_id values","all device_id values unique",CONDITIONAL
+TT-LIM-08-C05-001,LIM08-G05,none,read last_reset_cause,"value in {0,1,2,3,4,5,6}",ACTIVE
+TT-LIM-08-C06-001,LIM08-G06,none,read storage_status,"value in {0,1,2,3}",ACTIVE
+TT-LIM-08-C07-001,LIM08-G07,none,read acquisition_state,"value in {0,1,2,3}",ACTIVE
+TT-LIM-08-C08-001,LIM08-G08,no reset between observations,"read uptime t1 then t2","uptime2 >= uptime1",ACTIVE
+TT-LIM-08-C09-001,LIM08-G09,reset genuinely observed,"compare uptime and read last_reset_cause","uptime decrease allowed; reset cause remains in domain",CONDITIONAL
+TT-LIM-08-C10-001,LIM08-G10,stable identifiable fault condition,"observe indication twice while condition persists","indication remains present",CONDITIONAL
+TT-LIM-08-C11-001,LIM08-G10,stable identifiable warning condition,"observe indication twice while condition persists","indication remains present",CONDITIONAL
+TT-LIM-08-C12-001,LIM08-G11,none,"record system_status flags codes temperature and percent fields","TRACE_ONLY — no invented domain",ACTIVE

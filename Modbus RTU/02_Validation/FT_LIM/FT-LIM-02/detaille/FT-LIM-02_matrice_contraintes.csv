@@ -1,0 +1,8 @@
+constraint_id,generic_case,fields,addresses,constraint_type,normative_rule,status,notes
+LIM02-C01,LIM02-G01,"sampling_frequency_hz;window_size_samples;indicator_period_ms","4016;4021;4022",CROSS_FIELD,"indicator_period_ms >= 1000 * window_size_samples / sampling_frequency_hz",ACTIVE,"20 combinations from valid V1 domains; integer-equivalent check lhs=period*frequency >= rhs=1000*window"
+LIM02-C02,LIM02-G02,storage_limit_mb,4026-4027,DYNAMIC_ENVIRONMENT,"1 <= storage_limit_mb <= C where C is usable storage capacity determined by firmware",ACTIVE,"C must be characterized by reliable test-environment evidence"
+LIM02-ND01,,"rms_warn_threshold_mg;rms_alarm_threshold_mg","4041;4042",NOT_DEFINED,"No normative V1 ordering rule",NOT_DEFINED,"Do not invent warn < alarm"
+LIM02-ND02,,"peak_warn_threshold_mg;peak_alarm_threshold_mg","4043;4044",NOT_DEFINED,"No normative V1 ordering rule",NOT_DEFINED,"Do not invent warn < alarm"
+LIM02-ND03,,"threshold_hysteresis_mg;threshold fields","4045;4041-4044",NOT_DEFINED,"No normative V1 numeric relation",NOT_DEFINED,"Business guidance is non-normative"
+LIM02-ND04,,"supervision_enable_mask;threshold fields","4040;4041-4046",NOT_DEFINED,"No normative V1 dependency",NOT_DEFINED,"No PASS/FAIL relation"
+LIM02-ND05,,"campaign_duration_s;storage_limit_mb","4023-4024;4026-4027",NOT_DEFINED,"No normative V1 sizing formula",NOT_DEFINED,"Business compatibility guidance is insufficient for protocol validation"

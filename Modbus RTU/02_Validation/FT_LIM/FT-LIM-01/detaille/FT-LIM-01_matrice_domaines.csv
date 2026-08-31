@@ -1,0 +1,27 @@
+field,address,type,representation_domain,functional_domain_v1,classification,coverage,note
+prepared_config_id,4002-4003,uint32,0..4294967295,1..4294967295 pour validation; 0=non renseigné,STATIC_TESTABLE,FT-LIM-01,ID non nul requis
+prepared_config_crc,4008-4009,uint32,0..4294967295,CRC-32 calculé sur 4B+4C+4D,DEFERRED,FT-LIM-03,"Sémantique CRC, pas domaine unitaire"
+sampling_frequency_hz,4016,uint16,0..65535,26667 uniquement,STATIC_TESTABLE,FT-LIM-01,Singleton normatif
+axes_enable_mask,4018,bitfield16,0x0000..0xFFFF,0x0001..0x0007; bits 3..15=0; 0 invalide,STATIC_TESTABLE,FT-LIM-01,Au moins un axe
+full_scale_code,4019,enum16,0..65535,"0,1,2,3; 4..65535 réservés/invalides",STATIC_TESTABLE,FT-LIM-01,Enum V1
+acquisition_mode,4020,enum16,0..65535,1 valide; 0 non configuré; 2..65535 invalides,STATIC_TESTABLE,FT-LIM-01,Enum V1
+window_size_samples,4021,uint16,0..65535,4096|8192|16384|32768,STATIC_TESTABLE,FT-LIM-01,Ensemble discret
+indicator_period_ms,4022,uint16,0..65535,2000|5000|10000|30000|60000,STATIC_TESTABLE,FT-LIM-01,Ensemble discret; contrainte croisée différée
+campaign_duration_s,4023-4024,uint32,0..4294967295,60..604800 inclus,STATIC_TESTABLE,FT-LIM-01,Intervalle borné
+storage_mode,4025,enum16,0..65535,1 valide; 0 non configuré; 2..65535 invalides,STATIC_TESTABLE,FT-LIM-01,Enum V1
+storage_limit_mb,4026-4027,uint32,0..4294967295,1..4294967295 sous réserve compatibilité capacité firmware; 0 invalide,STATIC_PARTIAL,FT-LIM-01/02,0 statiquement invalide; capacité dynamique différée
+supervision_enable_mask,4040,uint16,0..65535,NON DÉFINI en V1,NOT_DEFINED,,Aucune sémantique de bits normative trouvée
+rms_warn_threshold_mg,4041,uint16,0..65535,NON DÉFINI en V1,NOT_DEFINED,,"Unité mg normative, pas de borne fonctionnelle"
+rms_alarm_threshold_mg,4042,uint16,0..65535,NON DÉFINI en V1,NOT_DEFINED,,"Unité mg normative, pas de borne fonctionnelle"
+peak_warn_threshold_mg,4043,uint16,0..65535,NON DÉFINI en V1,NOT_DEFINED,,"Unité mg normative, pas de borne fonctionnelle"
+peak_alarm_threshold_mg,4044,uint16,0..65535,NON DÉFINI en V1,NOT_DEFINED,,"Unité mg normative, pas de borne fonctionnelle"
+threshold_hysteresis_mg,4045,uint16,0..65535,NON DÉFINI en V1,NOT_DEFINED,,"Unité mg normative, pas de borne fonctionnelle"
+alarm_hold_time_ms,4046,uint16,0..65535,NON DÉFINI en V1,NOT_DEFINED,,Pas de borne fonctionnelle normative
+campaign_context_id,4056-4057,uint32,0..4294967295,1..4294967295 pour validation; 0=non renseigné,STATIC_TESTABLE,FT-LIM-01,ID non nul requis
+mission_id,4058-4059,uint32,0..4294967295,1..4294967295 pour validation; 0=non renseigné,STATIC_TESTABLE,FT-LIM-01,ID non nul requis
+campaign_label,4060-4075,ASCII fixe,32 caractères encodés sur 16 registres,Aucun domaine métier additionnel défini,STRUCTURAL,FT-STR,Longueur/padding déjà structurels
+mission_label,4076-4091,ASCII fixe,32 caractères encodés sur 16 registres,Aucun domaine métier additionnel défini,STRUCTURAL,FT-STR,Longueur/padding déjà structurels
+operating_mode_code,4092,uint16,0..65535,NON DÉFINI en V1,NOT_DEFINED,,Exemples métier non normatifs
+navigation_zone_code,4093,uint16,0..65535,NON DÉFINI en V1,NOT_DEFINED,,Exemples métier non normatifs
+load_state_code,4094,uint16,0..65535,NON DÉFINI en V1,NOT_DEFINED,,Exemples métier non normatifs
+sea_state_code,4095,uint16,0..65535,NON DÉFINI en V1,NOT_DEFINED,,Exemples métier non normatifs

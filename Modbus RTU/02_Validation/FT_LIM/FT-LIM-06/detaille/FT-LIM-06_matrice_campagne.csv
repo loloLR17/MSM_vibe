@@ -1,0 +1,12 @@
+constraint_id,scope,status,normative_rule,generic_case,notes
+LIM06-C01,campaign_state,CONDITIONAL,"enum {0,1,2,3,4,5}",LIM06-G01,"selected campaign valid"
+LIM06-C02,data_integrity_status,CONDITIONAL,"enum {0,1,2,3}",LIM06-G02,"selected campaign valid"
+LIM06-C03,storage_health_status,ACTIVE,"enum {0,1,2,3}",LIM06-G03,"global storage status"
+LIM06-C04,campaign_id,CONDITIONAL,"valid selected campaign => campaign_id != 0",LIM06-G04,
+LIM06-C05,end_timestamp,CONDITIONAL,"campaign_state=2 => end_timestamp=0",LIM06-G05,
+LIM06-ND01,end_timestamp outside state2,NOT_DEFINED,"V1 does not require nonzero for every other state",LIM06-G06,
+LIM06-C06,duration_s,TRACE_ONLY,"must be coherent with timestamps but exact formula/tolerance not defined",LIM06-G07,"NOT_TESTABLE_PRECISELY"
+LIM06-C07,inventory traversal,CONDITIONAL,"apply domains/invariants to each exposed valid campaign",LIM06-G08,
+LIM06-C08,unobservable enum states,CONDITIONAL,"record N/A/non-observed; never force RO state",LIM06-G09,
+LIM06-ND02,campaign_state/data_integrity relation,NOT_DEFINED,"no automatic relation defined",NONE,
+LIM06-ND03,storage_health/campaign_integrity relation,NOT_DEFINED,"no automatic relation defined",NONE,

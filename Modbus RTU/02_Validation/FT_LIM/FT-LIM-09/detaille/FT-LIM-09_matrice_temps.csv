@@ -1,0 +1,15 @@
+constraint_id,scope,status,normative_rule,generic_case
+LIM09-C01,time_status,ACTIVE,"enum 0..4",LIM09-G01
+LIM09-C02,time_flags,ACTIVE,"bits 8..15 reserved zero",LIM09-G02
+LIM09-C03,prepared_time_status,ACTIVE,"enum 0..3",LIM09-G03
+LIM09-C04,sync_source,ACTIVE,"enum 0..4",LIM09-G04
+LIM09-C05,prepared_time/current_time,ACTIVE,"preparation has no immediate clock effect",LIM09-G05/G06
+LIM09-C06,command2 temporal effect,CONDITIONAL,"application only through command 2",LIM09-G07
+LIM09-C07,current_time monotonicity,ACTIVE,"monotonic outside resync",LIM09-G08/G09
+LIM09-C08,last_sync_time no-sync,ACTIVE,"updated only on effective sync",LIM09-G10
+LIM09-C09,last_sync_time after sync,CONDITIONAL,"updated on effective sync",LIM09-G11
+LIM09-C10,time_since_sync,CONDITIONAL,"coherent with elapsed time since sync; no exact tolerance defined",LIM09-G12
+LIM09-ND01,time_accuracy_ms,NOT_DEFINED,"no functional maximum",LIM09-G13
+LIM09-ND02,drift_ppm,NOT_DEFINED,"no functional acceptable range",LIM09-G13
+LIM09-ND03,status/flags exact relation,NOT_DEFINED,"no exhaustive mapping",LIM09-G13
+LIM09-ND04,time arithmetic tolerance,NOT_DEFINED,"no exact tolerance/rounding rule",LIM09-G12/G13
