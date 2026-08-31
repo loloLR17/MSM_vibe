@@ -35,7 +35,9 @@ Sont notamment à tracer sans fabrication d'oracle :
 - effet exact de `clear_request_fields` ;
 - table sémantique exhaustive de `cmd_result_detail` ;
 - politique recommandée d'entrée en maintenance acquisition arrêtée, non normative en V1 ;
-- absence de code résultat spécifique à une incohérence CRC lors d'APPLY CONFIG, la V1 utilisant le code générique `4` de configuration invalide.
+- absence de code résultat spécifique à une incohérence CRC lors d'APPLY CONFIG, la V1 utilisant le code générique `4` de configuration invalide ;
+- priorité entre causes simultanées de refus START non définie ;
+- périmètre exact du masque optionnel de sous-tests SELFTEST et des indicateurs recalculés par REFRESH non défini de manière exhaustive.
 
 Ces points sont conservés pour le rapport d'audit final et pourront alimenter une éventuelle spécification V1.1 après clôture de l'audit V1.
 
@@ -45,7 +47,8 @@ Ces points sont conservés pour le rapport d'audit final et pourront alimenter u
 - FT-CMD-02 : validée et mergée dans `main` ;
 - FT-CMD-03 : validée et mergée dans `main` ;
 - FT-CMD-04 : validée et mergée dans `main` ;
-- FT-CMD-05 : reconstruite, en attente de validation ;
-- FT-CMD-06 à FT-CMD-07 : non démarrées.
+- FT-CMD-05 : validée et mergée dans `main` ;
+- FT-CMD-06 : reconstruite, en attente de validation ;
+- FT-CMD-07 : non démarrée.
 
 Aucun gel ni merge global sans validation explicite.
