@@ -5,8 +5,10 @@
 FT-INT-04 valide les relations fonctionnelles inter-blocs associées au démarrage et à l'arrêt de l'acquisition, à l'ouverture et à la clôture des campagnes, à leur base temporelle et au non-effacement des campagnes par la RAZ statistiques.
 
 Blocs concernés :
+- Bloc 0 — identité capteur, pour le contrôle transversal de non-effacement par RAZ statistiques ;
 - Bloc 1 — état système ;
 - Bloc 2 — temps ;
+- Bloc 4 — configuration, pour le contrôle transversal de non-effacement par RAZ statistiques ;
 - Bloc 5 — commandes ;
 - Bloc 6 — inventaire campagnes.
 
@@ -30,7 +32,7 @@ FT-INT-04 couvre :
 - succès STOP B5 → acquisition B1 arrêtée ;
 - STOP → mise en cohérence / clôture de la campagne ouverte ;
 - utilisation par B6 de la base temporelle B2 ;
-- conservation des campagnes après RAZ statistiques B5.
+- conservation des campagnes, de l'identité et de la configuration après RAZ statistiques B5.
 
 ## 4. Limites normatives conservées
 
@@ -57,7 +59,7 @@ Restent hors FT-INT-04 :
 - `TT-INT-B05B06-002` — Cohérence de la campagne en cours
 - `TT-INT-B01B05B06-001` — Arrêt acquisition et clôture de campagne
 - `TT-INT-B02B06-001` — Base temporelle des campagnes
-- `TT-INT-B05B06-003` — Conservation des campagnes après RAZ statistiques
+- `TT-INT-B00B04B05B06-001` — Conservation identité/configuration/campagnes après RAZ statistiques
 
 ## 7. Artefacts
 

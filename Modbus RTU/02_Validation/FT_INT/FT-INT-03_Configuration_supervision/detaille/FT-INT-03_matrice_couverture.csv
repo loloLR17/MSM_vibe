@@ -1,9 +1,9 @@
-rule_id,relation,status,test_id,owner,notes
-INT03-R01,B3 utilise la configuration B4 active au moment du calcul,CONDITIONAL,TT-INT-B03B04-001,FT-INT-03,Stimulus déterministe requis
-INT03-R02,Une configuration seulement préparée ne modifie pas la décision B3,CONDITIONAL,TT-INT-B03B04-001,FT-INT-03,Discrimination A/B requise
-INT03-R03,Une nouvelle configuration ne réinterprète pas rétroactivement un snapshot B3 validé,COVERED,TT-INT-B03B04-002,FT-INT-03,Observation conditionnée à l'absence de nouvelle fenêtre déjà produite
-INT03-R04,La nouvelle configuration prend effet à la prochaine fenêtre B3 validée,CONDITIONAL,TT-INT-B03B04-003;TT-INT-B03B04-004,FT-INT-03,Stimulus et fenêtre déterministes requis
-INT03-R05,Seuils B4 et grandeurs B3 exprimés en mg,TRACE_ONLY,,FT-LIM/FT-STR,Pas de retest unité/domaine ici
-INT03-R06,Dérivation exhaustive seuils vers tous les états B3,NOT_DEFINED,,FT-INT-03,Aucune table de vérité complète V1
-INT03-R07,Hystérésis et alarm_hold_time vers chronologie exacte,NOT_DEFINED,,FT-INT-03,Ne pas inventer la chronologie
-INT03-R08,CONFIG_VALID B3 équivalent exactement à un état B4,NOT_DEFINED,,FT-INT-03,Aucune égalité normative explicite
+requirement_id,scope,relation,status,test_id,owner,justification
+INT03-R01,B03-B04,B3 utilise la configuration B4 active au moment du calcul,CONDITIONAL,TT-INT-B03B04-001,FT-INT-03,Stimulus déterministe requis
+INT03-R02,B03-B04,Une configuration seulement préparée ne modifie pas la décision B3,CONDITIONAL,TT-INT-B03B04-001,FT-INT-03,Discrimination A/B requise
+INT03-R03,B03-B04,Une nouvelle configuration ne réinterprète pas rétroactivement un snapshot B3 validé,COVERED,TT-INT-B03B04-002,FT-INT-03,Observation conditionnée à l'absence de nouvelle fenêtre déjà produite
+INT03-R04,B03-B04,La nouvelle configuration prend effet à la prochaine fenêtre B3 validée,CONDITIONAL,TT-INT-B03B04-003;TT-INT-B03B04-004,FT-INT-03,Stimulus et fenêtre déterministes requis
+INT03-R05,B03-B04,Seuils B4 et grandeurs B3 exprimés en mg,TRACE_ONLY,,FT-LIM/FT-STR,Pas de retest unité/domaine ici
+INT03-R06,B03-B04,Dérivation exhaustive seuils vers tous les états B3,NOT_DEFINED,,FT-INT-03,Aucune table de vérité complète V1
+INT03-R07,B03-B04,Hystérésis et alarm_hold_time vers chronologie exacte,NOT_DEFINED,,FT-INT-03,Ne pas inventer la chronologie
+INT03-R08,B03-B04,CONFIG_VALID B3 équivalent exactement à un état B4,NOT_DEFINED,,FT-INT-03,Aucune égalité normative explicite
