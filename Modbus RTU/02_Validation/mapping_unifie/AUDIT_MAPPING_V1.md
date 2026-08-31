@@ -19,7 +19,7 @@ mapping_unifie dérivé
 tests
 ```
 
-Toute divergence a été corrigée dans le mapping dérivé. Aucun fichier normatif de la V1 n’a été modifié pour faire correspondre la spécification à un artefact ancien.
+Toute divergence constatée a été corrigée dans le mapping dérivé. Aucun fichier normatif de la V1 n’a été modifié pour faire correspondre la spécification à un artefact ancien.
 
 ## Résultat final par bloc
 
@@ -54,7 +54,7 @@ Toute divergence a été corrigée dans le mapping dérivé. Aucun fichier norma
 | MAP-14 | 7 | `reset_cause` | `uint16` | `enum16` | **CLOS** |
 | MAP-15 | 7 | `reserved_7A` | type échappé `uint16\\[2]` | `uint16[2]` | **CLOS** |
 
-## Contrôles finaux exécutés
+## Contrôles finaux
 
 Les vues `brut` et `logique` corrigées ont été vérifiées sur les invariants suivants :
 
@@ -65,23 +65,51 @@ Les vues `brut` et `logique` corrigées ont été vérifiées sur les invariants
 5. zéro chevauchement d’adresse ;
 6. aucune plage dupliquée ;
 7. cohérence `register_count` ↔ étendue d’offsets ↔ étendue d’adresses ;
-8. types limités aux types autorisés de la charte, avec `uint16[n]` comme notation documentaire de regroupement ;
-9. accès limités à `RO` / `RW` et alignés sur les mappings normatifs ;
-10. restauration des types spécialisés `enum16`, `bitfield16` et `int16` ;
-11. noms des réservés alignés sur la spécification ;
-12. regroupements logiques `uint32` et ASCII conservés sans perte de portée ni d’accès.
+8. relation `adresse absolue = base bloc + offset` ;
+9. types limités aux types autorisés de la charte, avec `uint16[n]` comme notation documentaire de regroupement ;
+10. accès limités à `RO` / `RW` et alignés sur les mappings normatifs ;
+11. restauration des types spécialisés `enum16`, `bitfield16` et `int16` ;
+12. noms des réservés alignés sur la spécification ;
+13. regroupements logiques `uint32` et ASCII conservés sans perte de portée ni d’accès ;
+14. chaque `source_field` logique existe dans la vue brute ;
+15. chaque champ brut est représenté exactement une fois dans la vue logique ;
+16. cohérence de `source_file` entre vues brute et logique ;
+17. cohérence du fichier `tr2_mapping_couverture.csv` avec les plages attendues.
 
-Le fichier `tr2_mapping_couverture.csv` a été renforcé pour exposer les comptes de lacunes et chevauchements.
+Le fichier `tr2_mapping_couverture.csv` expose explicitement les comptes de lacunes, chevauchements et plages dupliquées.
 
-Le script `03_Automatisation/validate_mapping_structure.py` permet de rejouer les invariants mécaniques. Il ne remplace pas l’audit normatif contre les fichiers `bloc0.md` à `bloc7.md` et `charte_typage.md`.
+Le script `03_Automatisation/validate_mapping_structure.py` formalise et permet de rejouer ces invariants mécaniques. Il contrôle désormais :
+
+- la vue brute ;
+- la vue logique ;
+- la relation brut ↔ logique ;
+- la synthèse de couverture.
+
+Il **ne remplace pas** l’audit normatif manuel contre les fichiers `bloc0.md` à `bloc7.md` et `charte_typage.md`.
 
 ## Cause racine retenue
 
 La génération historique reposait en partie sur une déduplication de doublons textuels exacts. Cette approche était insuffisante : deux lignes documentaires différentes pouvaient décrire la même adresse et survivre à l’extraction, comme observé à l’adresse 4017.
 
-Le contrôle historique de couverture vérifiait les trous mais ne détectait pas les chevauchements. Il pouvait donc annoncer une couverture complète malgré un doublon d’adresse.
+Le contrôle historique de couverture vérifiait les trous mais ne détectait pas suffisamment les chevauchements. Il pouvait donc annoncer une couverture complète malgré un doublon d’adresse.
 
-La doctrine corrigée impose désormais un contrôle structurel par plage/adresse en plus de la comparaison normative.
+La doctrine corrigée impose désormais un contrôle structurel par plage/adresse, une vérification brut ↔ logique et une comparaison normative.
+
+## Conclusion d’audit
+
+Aucune contradiction résiduelle n’a été identifiée entre le mapping corrigé et les éléments normatifs de structure contrôlés dans la V1 :
+
+- adresses ;
+- offsets ;
+- noms de champs ;
+- types ;
+- nombre de registres ;
+- accès `RO` / `RW` ;
+- regroupements multi-registres ;
+- chaînes ASCII fixes ;
+- registres réservés.
+
+Les domaines métier, valeurs limites, codes d’énumération et comportements fonctionnels restent définis par les fichiers normatifs des blocs ; le mapping unifié ne se substitue pas à ces règles.
 
 ## Critère de gel
 
@@ -91,7 +119,8 @@ Tous les critères techniques de `GEL-MAP-V1` sont satisfaits sur la branche d�
 - mapping brut aligné sur la V1 ;
 - mapping logique cohérent avec le brut et la V1 ;
 - couverture sans trou ni chevauchement ;
-- aucun type hors charte détecté ;
+- aucun type hors charte identifié lors de la passe finale ;
+- contrôles mécaniques reproductibles ;
 - audit croisé final terminé.
 
 Le statut `GEL-MAP-V1` devient effectif après validation et intégration de cette branche dans `main`.
