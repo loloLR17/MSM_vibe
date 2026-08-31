@@ -1,90 +1,47 @@
-# FT-STR-08 — README
+# FT-STR-08 — Conformité documentaire
 
-## 1. Objet
+## Objet
 
-Cette famille de tests appartient au plan de validation **FT-STR (Conformité structurelle)**.
+FT-STR-08 vérifie la conformité et la traçabilité documentaire de la chaîne V1 → mapping unifié → artefacts de validation.
 
-Elle a pour objectif de valider :
-- la conformité du mapping Modbus
-- la structure des données
-- leur encodage et accessibilité
+## Hiérarchie documentaire
 
----
+Ordre de priorité obligatoire :
 
-## 2. Structure du dossier
+1. spécification Modbus RTU V1 gelée (`01_Specification_source/bloc0.md` à `bloc7.md` et `charte_typage.md`) ;
+2. `mapping_unifie`, artefact dérivé ;
+3. fiche source FT-STR-08 ;
+4. tests détaillés génériques ;
+5. résultats/tests instanciés.
+
+En cas de divergence, le niveau supérieur fait foi. Aucune correction silencieuse de la V1 n'est autorisée.
+
+## Structure
 
 ```text
 FT-STR-08/
+├── README.md
 ├── source/
+│   └── FT-STR-08.md
 ├── detaille/
+│   ├── TT-STR-08-GEN-001.md
+│   ├── TT-STR-08-GEN-002.md
+│   ├── TT-STR-08-GEN-003.md
+│   └── TT-STR-08-GEN-004.md
 ├── instancie/
-└── archive_pre_renforcement/ (optionnel)
+│   └── RESULTAT_FT-STR-08_GEL-MAP-V1.md
+└── archive_pre_renforcement/
+    └── auto_legacy/
 ```
 
-### source/
-Contient la fiche de spécification officielle :
-- `FT-STR-XX.md`
+## Règles
 
-👉 Référence fonctionnelle
+- `source/` définit la sous-famille de validation, sans devenir une norme indépendante.
+- `detaille/` contient les contrôles génériques, sans adresse concrète ni dépendance à un champ particulier.
+- `instancie/` matérialise l'application de ces contrôles au mapping gelé.
+- l'archive conserve uniquement l'historique et n'est jamais utilisée pour valider ou générer.
+- une information absente de la V1 est classée `NON DÉFINI / À ARBITRER`.
 
----
+## Statut
 
-### detaille/
-Contient les cas de test génériques :
-- `TT-STR-XX-XXX.md`
-
-👉 Niveau :
-- logique
-- indépendant du mapping
-
----
-
-### instancie/
-Contient les cas de test appliqués au mapping réel.
-
-👉 Niveau :
-- exécutable terrain
-- basé sur mapping_unifie
-
----
-
-### archive_pre_renforcement/
-Contient les anciennes versions.
-
-👉 Non utilisé en opérationnel
-
----
-
-## 3. Référentiel de vérité
-
-Ordre de priorité :
-
-1. mapping_unifie
-2. source/FT-STR-XX.md
-3. instancie/
-4. detaille/
-
----
-
-## 4. Règles
-
-- aucun test instancié ne doit exister sans mapping
-- aucun champ ne doit être testé deux fois dans instancie/
-- detaille/ ne doit jamais contenir d’adresse
-- archive ne doit jamais être utilisée en validation
-
----
-
-## 5. Utilisation
-
-Ordre recommandé :
-
-1. FT-STR-08 (doc ↔ mapping)
-2. FT-STR-01 → 07
-3. exécution instanciée
-
----
-
-## 6. Statut
-
-Famille validée pour usage industriel.
+Sous-famille reconstruite après GEL-GOV-01 et GEL-MAP-V1. Les anciens micro-tests champ-par-champ sont archivés car ils ne matérialisaient pas correctement la hiérarchie normative.
