@@ -48,6 +48,9 @@ Si `cmd_engine_flags.bit9=1`, exercer `cancel_request` sur une commande réellem
 ## LIM04-G16 — `clear_request_fields`
 Demander le nettoyage des champs de requête et vérifier leur remise à zéro sans exécution parasite.
 
+## LIM04-G17 — Bits réservés de `cmd_request_control`
+Écrire sur 5007 une valeur positionnant au moins un bit réservé 3..15, dans un contexte qui n'introduit pas volontairement de nouvelle commande valide. Vérifier que cette valeur est traitée comme fonctionnellement invalide conformément à la V1 et ne bénéficie jamais d'une sémantique de commande inventée. L'écriture vise une adresse RW valide : ne pas attendre une exception Modbus au seul motif de la valeur.
+
 ## Règles transverses
 - transaction ID neuf sauf test d'idempotence ;
 - contrôler les préconditions avant chaque essai ;
