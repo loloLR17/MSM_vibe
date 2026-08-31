@@ -1,37 +1,38 @@
-# FT-ACC-04 — README
+# FT-ACC-04 — Registres réservés
 
-## 1. Objet
-Cette sous-famille valide le comportement des registres réservés :
-- neutralité ;
-- stabilité ;
-- absence de sémantique cachée ;
-- comportement cohérent en lecture et lors des tentatives d’écriture.
+## Objet
+Valider l’interdiction d’écriture sur toute zone réservée exposée par le mapping V1.
 
-## 2. Convention d’identification des réservés
-La gouvernance retenue est :
-- tout registre réservé est identifié par un `logical_name` commençant par `reserved`.
+FT-ACC-04 ne revalide pas la structure des réservés ni leur valeur de lecture nominale : ces aspects relèvent de FT-STR. Elle vérifie exclusivement le comportement d’accès en écriture.
 
-## 3. Structure du dossier
+## Référentiel de vérité
+1. spécification V1 ;
+2. mapping unifié gelé ;
+3. `source/` ;
+4. `detaille/` ;
+5. `instancie/`.
 
-```text
-FT-ACC-04/
-├── source/
-├── detaille/
-├── instancie/
-└── archive_pre_renforcement/
-```
+## Doctrine GEL-GOV-02
+Toute écriture visant un registre réservé constitue un accès Modbus invalide :
+- exception Modbus standard appropriée obligatoire ;
+- aucune modification de registre ou d’état interne ;
+- aucune exécution partielle ;
+- comportement déterministe.
 
-## 4. Référentiel de vérité
-1. `mapping_unifie/`
-2. `source/FT-ACC-04.md`
-3. `instancie/`
-4. `detaille/`
+Une écriture « acceptée mais ignorée » est non conforme.
 
-## 5. Règles
-- aucun test instancié ne doit exister sans cible `reserved*` du mapping ;
-- aucune adresse dans `detaille/` ;
-- `archive_pre_renforcement/` ne doit jamais être utilisée en validation ;
-- la règle `reserved*` appartient à la gouvernance et doit rester stable.
+## Périmètre
+- zones réservées mono-registre ;
+- zones réservées multi-registres ;
+- une instanciation par zone réservée logique unique.
 
-## 6. Statut
-Package industrialisé et exhaustif sur la base du mapping fourni.
+Sont hors périmètre : lecture structurale des réservés (FT-STR), champs RO non réservés (FT-ACC-03), adresses inexistantes ou requêtes composites invalides (FT-ACC-06).
+
+## Structure
+- `source/` : exigence de validation ;
+- `detaille/` : tests génériques sans adresse ;
+- `instancie/` : tests dérivés du mapping ;
+- `archive_pre_renforcement/` : historique non exécutable.
+
+## Statut
+Reconstruction alignée sur GEL-GOV-02.

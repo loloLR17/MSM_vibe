@@ -1,138 +1,112 @@
-# FT-ACC-02 — Fiche de spécification
-
-## Écriture des zones RW
-
----
+# FT-ACC-02 — Écriture autorisée des zones RW
 
 ## 1. Identification
 
 - **ID** : FT-ACC-02
-- **Nom** : Écriture des zones RW
-- **Famille parente** : FT-ACC
+- **Nom** : Écriture autorisée des zones RW
+- **Famille parente** : FT-ACC — Accès et permissions
 - **Criticité** : P0
-
----
 
 ## 2. Objectif
 
-Valider que toute zone déclarée **modifiable (`RW`)** par le mapping unifié :
-- accepte les écritures Modbus conformes ;
-- applique techniquement la valeur écrite ;
-- restitue cette valeur en lecture immédiate après écriture.
+Valider qu'un registre ou champ explicitement déclaré `RW` par la spécification V1 et le mapping dérivé accepte une écriture Modbus **autorisée et correctement bornée**.
 
-Cette sous-famille valide l’**accessibilité en écriture** et la cohérence **write → read**, sans traiter la validité métier des valeurs.
+FT-ACC-02 vérifie le droit d'écriture technique. Elle ne transforme pas l'attribut `RW` en autorisation implicite d'écrire n'importe quelle sous-partie d'un champ logique ni de traverser des registres non inscriptibles.
 
----
+## 3. Référentiel
 
-## 3. Périmètre
+Ordre de vérité :
 
-### Inclus
-- écriture unitaire sur registre `RW` ;
-- écriture de début, milieu et fin de plage `RW` ;
-- écriture multi-registres ;
-- écriture de champs `uint32` ;
-- écriture de champs `ASCII fixe` ;
-- écriture partielle d’une zone `RW` ;
-- répétabilité d’écriture ;
-- cohérence write → read ;
-- cohérence mapping ↔ comportement observé.
+1. spécification Modbus RTU V1 gelée ;
+2. GEL-MAP-V1, mapping dérivé ;
+3. présente fiche source ;
+4. tests génériques ;
+5. tests instanciés.
 
-### Exclus
-- validité métier de la valeur écrite ;
-- transitions fonctionnelles ;
-- persistance après reboot ;
-- comportement en communication dégradée ;
-- effets système complexes pilotés par commande.
+Pré-requis : FT-STR gelée, notamment FT-STR-06 pour l'exposition structurelle des adresses.
 
----
+## 4. Périmètre inclus
 
-## 4. Références d’entrée
+- écriture nominale d'un registre mono-registre `RW` ;
+- écriture nominale d'un champ logique multi-registres entièrement `RW` ;
+- écriture d'une plage contiguë uniquement lorsqu'**chaque registre** de la plage est RW et que la V1 n'impose pas une granularité plus forte ;
+- utilisation de FC06 pour un registre unique lorsque la V1 et l'implémentation l'autorisent ;
+- utilisation de FC16 pour plusieurs registres contigus RW ;
+- relecture de contrôle lorsque la sémantique V1 permet d'attendre une image stable de la valeur écrite ;
+- cohérence entre droits `RW` V1, mapping dérivé et comportement observé.
 
-- Mapping unifié logique TR2
-- Plan de test Modbus TR2
-- FT-STR validée
-- FT-ACC-01 validée
+## 5. Hors périmètre
 
----
+- écriture d'un registre `RO`, réservé ou non exposé ;
+- requêtes couvrant à la fois des registres RW et non-RW ;
+- écritures partielles arbitraires à l'intérieur d'un `uint32` ou d'un champ `ASCII fixe` en l'absence d'une règle V1 explicite ;
+- validité métier d'une valeur écrite dans un champ RW ;
+- validation, application ou rejet fonctionnel d'une configuration ;
+- effets secondaires fonctionnels explicitement définis par V1 ;
+- persistance après redémarrage ;
+- robustesse sur trames invalides ou communication dégradée.
 
-## 5. Règles de conformité
+Les écritures interdites relèvent de FT-ACC-03, FT-ACC-04 et FT-ACC-06. Les valeurs métier relèvent de FT-LIM ou de la famille fonctionnelle concernée. Les effets secondaires relèvent de FT-ACC-05 lorsqu'ils concernent l'intégrité des accès.
 
-Une zone `RW` est conforme si :
-- l’écriture est acceptée sans exception Modbus ;
-- la longueur écrite est conforme ;
-- la valeur écrite est restituée en lecture immédiate ;
-- le comportement observé reste cohérent avec l’attribut `RW` du mapping.
+## 6. Règles de conformité
 
----
+### 6.1 Cible mono-registre RW
 
-## 6. Préconditions
+Une écriture nominale est conforme si :
 
-- FT-STR validée
-- FT-ACC-01 validée
-- mapping stabilisé
-- accès Modbus opérationnel
-- simulateur en état stable
-- valeur initiale connue ou lisible
+- la cible est explicitement RW ;
+- la fonction Modbus utilisée est autorisée ;
+- aucune exception Modbus n'est retournée ;
+- la valeur est effectivement prise en compte au niveau de l'image préparée ou du registre concerné, sous réserve de la sémantique V1 ;
+- aucun registre non ciblé n'est modifié en dehors d'un effet explicitement normatif.
 
----
+### 6.2 Champ logique multi-registres RW
 
-## 7. Résultats attendus
+Pour `uint32` et `ASCII fixe`, le scénario nominal porte sur le **champ complet**.
 
-- chaque zone `RW` est effectivement modifiable ;
-- aucune écriture nominale autorisée n’échoue sans justification normative ;
-- la relecture immédiate reflète la valeur écrite ;
-- aucune divergence mapping ↔ comportement n’est observée.
+Une écriture partielle n'est pas considérée comme exigence de conformité FT-ACC-02 sauf si la V1 l'autorise explicitement pour le champ concerné.
 
----
+### 6.3 Plage contiguë
 
-## 8. Risques couverts
+Une écriture FC16 de plage n'est nominalement valide que si tous les registres couverts par la requête sont inscriptibles.
 
-| Risque | Impact |
-|---|---|
-| Zone `RW` non modifiable | protocole inutilisable |
-| Écriture acceptée mais ignorée | comportement trompeur |
-| Write → read incohérent | perte de confiance centrale |
-| Divergence mapping ↔ réel | défaut documentaire ou implémentatif |
+Une plage qui contient au moins un registre RO, réservé ou non exposé n'est pas une "plage RW" ; son traitement appartient aux accès invalides et doit respecter GEL-GOV-02.
 
----
+### 6.4 Valeurs métier
 
-## 9. Axes de couverture
+Une valeur hors domaine écrite dans une cible explicitement RW ne constitue pas à elle seule un accès Modbus invalide.
 
-- écriture unitaire nominale ;
-- écriture de frontière de plage `RW` ;
-- écriture multi-registres ;
-- écriture de champs structurés ;
-- écritures partielles ;
-- répétabilité ;
-- cohérence write → read ;
-- conformité mapping ↔ permissions observées.
+FT-ACC-02 ne conclut donc pas sur la validité métier de cette valeur. Les jeux de test nominaux utilisent de préférence des valeurs V1 connues comme sûres afin d'éviter de confondre droit d'accès et logique fonctionnelle.
 
----
+### 6.5 Relecture
 
-## 10. Critères d’acceptation
+La relecture immédiate doit confirmer la prise en compte lorsque le registre représente une donnée mémorisée ou préparée stable.
 
-La sous-famille est satisfaite si, pour toutes les instanciations retenues :
-- chaque cible `RW` est modifiable ;
-- la relecture immédiate restitue la valeur écrite ;
-- aucune écriture autorisée n’est refusée sans justification ;
-- les divergences éventuelles sont tracées comme anomalies ou ambiguïtés de spécification.
+Pour un registre de commande, déclencheur ou champ dont V1 définit une évolution autonome après écriture, le critère de conformité porte sur l'acceptation de l'accès et sur le comportement explicitement défini par V1 ; l'égalité brute `valeur relue = valeur écrite` n'est pas imposée sans base normative.
 
----
+## 7. Axes de couverture génériques
 
-## 11. Automatisation
+1. registre RW mono-registre ;
+2. champ `uint32` RW complet ;
+3. champ `ASCII fixe` RW complet ;
+4. plage contiguë entièrement RW avec FC16 ;
+5. répétition d'une écriture nominale autorisée ;
+6. cohérence permission V1 ↔ mapping ↔ comportement.
 
-**Oui, fortement automatisable.**
+## 8. Critères d'acceptation
 
-Cette sous-famille est compatible avec une génération automatique à partir du mapping :
-- choix de la cible ;
-- lecture valeur initiale ;
-- écriture valeur de test ;
-- relecture ;
-- assertion.
+FT-ACC-02 est satisfaite si :
 
----
+- chaque cible RW retenue est accessible en écriture selon une granularité explicitement défendable par V1 ;
+- aucune cible nominale entièrement RW n'est refusée sans justification normative ;
+- aucune plage mélangeant RW et non-RW n'est présentée comme écriture nominale ;
+- les tests ne déduisent aucune règle d'écriture partielle absente de V1 ;
+- les verdicts distinguent clairement permission Modbus, validité métier et comportement fonctionnel.
 
-## 12. Conclusion
+## 9. Automatisation
 
-FT-ACC-02 valide la capacité effective d’écriture technique du protocole TR2 sur toutes les zones déclarées `RW`.  
-Elle constitue un prérequis direct avant les familles de refus d’écriture, de limites métier et de robustesse.
+Fortement automatisable à partir de GEL-MAP-V1, sous réserve d'une sélection des valeurs de test sûre et d'un traitement spécifique des registres à sémantique de commande.
+
+## 10. Conclusion
+
+FT-ACC-02 valide strictement le **droit d'écriture autorisé** des éléments RW de l'interface Modbus TR2, sans empiéter sur FT-LIM, les fonctions métier ou les tests d'accès interdits.

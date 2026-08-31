@@ -1,52 +1,26 @@
-# TT-ACC-04-GEN-001 — Lecture registre réservé unitaire
+# TT-ACC-04-GEN-001 — Écriture interdite sur réservé mono-registre
 
-## 1. Objectif
-Valider le comportement attendu d’un registre ou d’une plage réservée dans le périmètre FT-ACC-04.
+## Objectif
+Vérifier qu’une écriture visant un registre réservé unique est rejetée.
 
-## 2. Références
-- FT-ACC-04 — Comportement des registres réservés
-- Mapping Modbus unifié
-- Gouvernance `reserved*`
+## Préconditions
+- cible issue du mapping gelé et identifiée comme réservée ;
+- état du simulateur stable ;
+- état de référence capturé.
 
-## 3. Préconditions
-- FT-STR validée
-- FT-ACC-01 validée
-- cible identifiée comme `reserved*`
-- simulateur stable
-- valeur initiale lisible
+## Étapes
+1. Capturer l’état de référence de la cible et des états pertinents.
+2. Tenter une écriture sur le registre réservé avec une valeur de test.
+3. Vérifier la réception d’une exception Modbus standard appropriée.
+4. Relire la cible et les états surveillés.
+5. Répéter si nécessaire pour vérifier le déterminisme.
 
-## 4. Données d’entrée
-- adresse : `@ADDR`
-- longueur : `@LEN`
-- valeur initiale : `V0`
-- valeur de tentative : `V1` si le scénario inclut une écriture
+## Résultat attendu
+- requête rejetée ;
+- aucune modification de registre ;
+- aucun état interne modifié du fait de la requête ;
+- aucune exécution partielle ;
+- comportement déterministe.
 
-## 5. Étapes
-1. Lire la cible.
-2. Si prévu, tenter une écriture sur la cible.
-3. Relire la cible.
-4. Comparer le comportement observé au comportement attendu.
-
-## 6. Résultat attendu
-- comportement déterministe ;
-- aucune modification illégitime ;
-- cohérence mapping ↔ comportement.
-
-## 7. Critères d’acceptation
-- lecture stable ;
-- tentative d’écriture refusée ou sans effet observable ;
-- aucune sémantique cachée.
-
-## 8. Mode d’exécution
-- simulateur déterministe
-- automatisable
-
-## 9. Traces à conserver
-- trames de lecture ;
-- trame d’écriture éventuelle ;
-- valeur initiale ;
-- valeur finale ;
-- verdict.
-
-## 10. Niveau de criticité
-P0
+## Critère d’échec
+Toute écriture acceptée, y compris silencieusement sans effet observable, est non conforme.

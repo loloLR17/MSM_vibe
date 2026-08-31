@@ -1,18 +1,10 @@
-# FT-ACC-04 — Tests instanciés
+# FT-ACC-04 — Overview instancié
 
-## Objet
-Tests instanciés à partir du mapping unifié logique TR2 pour valider le comportement des registres réservés.
+Couverture active reconstruite selon GEL-GOV-02.
 
-## Règle d’identification retenue
-- un champ réservé est identifié par un `logical_name` commençant par `reserved`
-
-## Couverture par bloc
-- Bloc 0 : 1 champ(s) réservé(s)
-- Bloc 1 : 3 champ(s) réservé(s)
-- Bloc 2 : 2 champ(s) réservé(s)
-- Bloc 4 : 9 champ(s) réservé(s)
-- Bloc 6 : 2 champ(s) réservé(s)
-- Bloc 7 : 1 champ(s) réservé(s)
-
-## Total
-- 18 champs réservés instanciés
+- 18 zones réservées logiques uniques ;
+- une seule instanciation par zone ;
+- doublon historique de l’adresse 4017 supprimé ;
+- `B3_RESERVED_0` intégré à FT-ACC-04 ;
+- aucune lecture structurelle redondante avec FT-STR ;
+- toute écriture réservée doit être rejetée par exception Modbus, sans effet ni exécution partielle.

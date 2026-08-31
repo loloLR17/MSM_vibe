@@ -1,24 +1,21 @@
-# TT-ACC-05-GEN-004 — Vérification registre précédent
+# TT-ACC-05-GEN-004 — Sélecteur et mise à jour normative de la vue
 
 ## Objectif
-Valider l'absence d'effet de bord pour le scénario `Vérification registre précédent`.
+Vérifier qu’une écriture de sélecteur ne modifie que le sélecteur et la vue RO explicitement associée par la V1.
 
 ## Préconditions
-- FT-STR validée
-- FT-ACC-01 et FT-ACC-02 validées
-- cible `RW`
-- snapshot bloc complet disponible
+- cible RW de sélection ;
+- index nominal existant ;
+- état de référence capturable.
 
 ## Étapes
-1. Capturer le snapshot complet du bloc avant écriture.
-2. Écrire sur la cible.
-3. Capturer le snapshot complet du bloc après écriture.
-4. Comparer avant/après.
-5. Vérifier que seules les adresses ciblées diffèrent.
+1. Capturer le bloc avant sélection.
+2. Écrire un index nominal différent lorsque possible.
+3. Attendre la mise à jour cohérente de la vue.
+4. Capturer le bloc et classifier les différences.
 
 ## Résultat attendu
-- aucune modification hors cible ;
-- comportement déterministe.
+Le sélecteur et la vue associée peuvent changer conformément à la sélection ; aucune donnée persistante de campagne ni aucun état sans lien avec la sélection ne doit être modifié.
 
 ## Criticité
 P0

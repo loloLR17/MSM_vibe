@@ -1,52 +1,25 @@
-# TT-ACC-02-GEN-001 — Écriture registre RW unitaire
+# TT-ACC-02-GEN-001 — Écriture d'un registre RW mono-registre
 
-## 1. Objectif
-Vérifier qu’un registre déclaré RW dans le mapping accepte une écriture unitaire.
+## Objectif
+Vérifier qu'un registre unique explicitement déclaré `RW` accepte une écriture Modbus nominale autorisée.
 
-## 2. Références
-- FT-ACC-02 — Écriture des zones RW
-- Mapping Modbus unifié
+## Préconditions
+- FT-STR gelée ;
+- cible mono-registre explicitement `RW` dans V1 et GEL-MAP-V1 ;
+- valeur de test sûre et compatible avec le scénario ;
+- état initial connu ou lisible.
 
-## 3. Préconditions
-- FT-STR validée
-- FT-ACC-01 validée
-- La cible testée est déclarée `RW`
-- Le simulateur est en état stable
-- La valeur initiale est connue ou lisible
+## Étapes
+1. Lire l'état initial utile.
+2. Écrire la valeur de test sur le registre cible avec une fonction autorisée.
+3. Vérifier l'absence d'exception Modbus.
+4. Relire la cible lorsque sa sémantique V1 permet une image stable.
+5. Restaurer la valeur initiale si nécessaire et sûr.
 
-## 4. Données d’entrée
-- Adresse : `@ADDR`
-- Longueur : `@LEN`
-- Valeur initiale : `V0`
-- Valeur(s) de test : `V1`, le cas échéant `V2`
-
-## 5. Étapes
-1. Lire la valeur initiale sur la cible.
-2. Écrire la valeur de test sur la cible.
-3. Relire immédiatement la cible.
-4. Comparer la valeur relue à la valeur écrite.
-
-## 6. Résultat attendu
-- aucune exception Modbus ;
+## Résultat attendu
 - écriture acceptée ;
-- relecture immédiate cohérente avec la valeur écrite.
+- prise en compte observable conformément à V1 ;
+- aucun refus injustifié sur une cible RW.
 
-## 7. Critères d’acceptation
-- accès en écriture conforme ;
-- longueur conforme ;
-- cohérence write → read ;
-- comportement cohérent avec l’attribut `RW`.
-
-## 8. Mode d’exécution
-- simulateur déterministe
-- automatisable
-
-## 9. Traces à conserver
-- adresse et longueur ;
-- trame d’écriture ;
-- trame(s) de lecture ;
-- `V0`, `V1`, éventuellement `V2` ;
-- verdict.
-
-## 10. Niveau de criticité
-P0
+## Exclusions
+La validité métier et les effets fonctionnels ne sont pas jugés par ce test.

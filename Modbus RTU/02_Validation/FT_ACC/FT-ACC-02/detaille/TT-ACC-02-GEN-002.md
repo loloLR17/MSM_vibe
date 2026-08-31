@@ -1,52 +1,22 @@
-# TT-ACC-02-GEN-002 — Écriture registre début de plage RW
+# TT-ACC-02-GEN-002 — Écriture complète d'un champ uint32 RW
 
-## 1. Objectif
-Vérifier qu’un registre situé en début d’une plage RW est modifiable.
+## Objectif
+Vérifier qu'un champ logique `uint32` entièrement déclaré `RW` accepte une écriture nominale sur ses deux registres.
 
-## 2. Références
-- FT-ACC-02 — Écriture des zones RW
-- Mapping Modbus unifié
+## Préconditions
+- champ `uint32` RW confirmé par V1 et GEL-MAP-V1 ;
+- ordre MSW puis LSW confirmé ;
+- valeur de test sûre.
 
-## 3. Préconditions
-- FT-STR validée
-- FT-ACC-01 validée
-- La cible testée est déclarée `RW`
-- Le simulateur est en état stable
-- La valeur initiale est connue ou lisible
+## Étapes
+1. Lire la valeur initiale.
+2. Écrire les deux registres du champ en une requête FC16.
+3. Vérifier l'absence d'exception.
+4. Relire les deux registres et reconstruire le `uint32`.
+5. Restaurer la valeur initiale si nécessaire.
 
-## 4. Données d’entrée
-- Adresse : `@ADDR`
-- Longueur : `@LEN`
-- Valeur initiale : `V0`
-- Valeur(s) de test : `V1`, le cas échéant `V2`
+## Résultat attendu
+L'écriture complète est acceptée et la valeur est prise en compte conformément à V1.
 
-## 5. Étapes
-1. Lire la valeur initiale sur la cible.
-2. Écrire la valeur de test sur la cible.
-3. Relire immédiatement la cible.
-4. Comparer la valeur relue à la valeur écrite.
-
-## 6. Résultat attendu
-- aucune exception Modbus ;
-- écriture acceptée ;
-- relecture immédiate cohérente avec la valeur écrite.
-
-## 7. Critères d’acceptation
-- accès en écriture conforme ;
-- longueur conforme ;
-- cohérence write → read ;
-- comportement cohérent avec l’attribut `RW`.
-
-## 8. Mode d’exécution
-- simulateur déterministe
-- automatisable
-
-## 9. Traces à conserver
-- adresse et longueur ;
-- trame d’écriture ;
-- trame(s) de lecture ;
-- `V0`, `V1`, éventuellement `V2` ;
-- verdict.
-
-## 10. Niveau de criticité
-P0
+## Règle
+Ce test ne crée aucune exigence d'écriture partielle d'un `uint32`.

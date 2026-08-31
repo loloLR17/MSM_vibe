@@ -1,52 +1,23 @@
-# TT-ACC-02-GEN-004 — Écriture registre fin de plage RW
+# TT-ACC-02-GEN-004 — Écriture FC16 d'une plage contiguë entièrement RW
 
-## 1. Objectif
-Vérifier qu’un registre situé en fin d’une plage RW est modifiable.
+## Objectif
+Vérifier une écriture multi-registres sur une plage dont **tous** les registres sont explicitement inscriptibles.
 
-## 2. Références
-- FT-ACC-02 — Écriture des zones RW
-- Mapping Modbus unifié
+## Préconditions
+- chaque adresse de la plage est RW ;
+- aucune adresse RO, réservée ou non exposée n'est incluse ;
+- les granularités logiques V1 sont respectées.
 
-## 3. Préconditions
-- FT-STR validée
-- FT-ACC-01 validée
-- La cible testée est déclarée `RW`
-- Le simulateur est en état stable
-- La valeur initiale est connue ou lisible
+## Étapes
+1. Déterminer une plage contiguë réellement RW.
+2. Sauvegarder son état initial.
+3. Écrire la plage avec FC16.
+4. Vérifier l'absence d'exception.
+5. Relire les éléments stables et contrôler leur prise en compte.
+6. Restaurer si nécessaire.
 
-## 4. Données d’entrée
-- Adresse : `@ADDR`
-- Longueur : `@LEN`
-- Valeur initiale : `V0`
-- Valeur(s) de test : `V1`, le cas échéant `V2`
+## Résultat attendu
+La requête entièrement RW est acceptée.
 
-## 5. Étapes
-1. Lire la valeur initiale sur la cible.
-2. Écrire la valeur de test sur la cible.
-3. Relire immédiatement la cible.
-4. Comparer la valeur relue à la valeur écrite.
-
-## 6. Résultat attendu
-- aucune exception Modbus ;
-- écriture acceptée ;
-- relecture immédiate cohérente avec la valeur écrite.
-
-## 7. Critères d’acceptation
-- accès en écriture conforme ;
-- longueur conforme ;
-- cohérence write → read ;
-- comportement cohérent avec l’attribut `RW`.
-
-## 8. Mode d’exécution
-- simulateur déterministe
-- automatisable
-
-## 9. Traces à conserver
-- adresse et longueur ;
-- trame d’écriture ;
-- trame(s) de lecture ;
-- `V0`, `V1`, éventuellement `V2` ;
-- verdict.
-
-## 10. Niveau de criticité
-P0
+## Règle
+Une plage traversant un seul registre non-RW n'est pas un cas nominal FT-ACC-02.

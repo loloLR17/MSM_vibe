@@ -1,77 +1,37 @@
-# FT-ACC-04 — Fiche de spécification
+# FT-ACC-04 — Interdiction d’écriture des zones réservées
 
-## Comportement des registres réservés
+## Identification
+- ID : FT-ACC-04
+- Famille : FT-ACC
+- Criticité : P0
 
-## 1. Identification
-- **ID** : FT-ACC-04
-- **Nom** : Comportement des registres réservés
-- **Famille parente** : FT-ACC
-- **Criticité** : P0
+## Objectif
+Démontrer que toute tentative d’écriture sur une zone réservée exposée par le mapping est rejetée conformément à GEL-GOV-02.
 
-## 2. Objectif
-Valider que toute zone déclarée réservée :
-- reste neutre ;
-- conserve un comportement déterministe ;
-- n’expose aucune sémantique cachée ;
-- ne peut pas être modifiée de manière illégitime.
+## Règle normative
+Pour toute requête d’écriture visant un registre réservé :
+1. la requête est rejetée par une exception Modbus standard appropriée ;
+2. aucun registre n’est modifié ;
+3. aucun état interne n’est modifié du fait de la requête ;
+4. aucune partie de la requête n’est exécutée ;
+5. le comportement est déterministe et répétable.
 
-## 3. Périmètre
+Une écriture acceptée silencieusement, même sans effet observable, est non conforme.
 
-### Inclus
-- lecture des réservés si exposés ;
-- réservés unitaires et multi-registres ;
-- tentative d’écriture sur réservés ;
-- stabilité read → read ;
-- stabilité write-attempt → read ;
-- cohérence gouvernance ↔ comportement observé.
+## Périmètre inclus
+- réservés unitaires ;
+- zones réservées multi-registres ;
+- écriture unitaire lorsque la cible logique ne contient qu’un registre ;
+- écriture de la zone logique complète lorsqu’elle contient plusieurs registres.
 
-### Exclus
-- hors plage ;
-- robustesse communication ;
-- effets de bord détaillés ;
-- validité métier de champs non réservés.
+## Hors périmètre
+- valeur nominale de lecture des réservés : FT-STR ;
+- champs RO non réservés : FT-ACC-03 ;
+- adresse inexistante, débordement ou requête composite mêlant zones autorisées et interdites : FT-ACC-06 ;
+- validité métier : FT-LIM.
 
-## 4. Références d’entrée
-- Mapping unifié logique TR2
-- FT-STR validée
-- FT-ACC-01 validée
-- Gouvernance : tout registre réservé est nommé `reserved*`
+## Règle d’instanciation
+Le mapping gelé est la source opérationnelle des zones réservées. Une seule fiche active est créée par zone logique réservée unique ; aucun doublon d’adresse ou d’alias documentaire ne doit générer un second test logique.
 
-## 5. Règles de conformité
-Un registre réservé est conforme si :
-- son comportement reste cohérent et déterministe ;
-- aucune tentative d’écriture n’aboutit à une modification illégitime ;
-- aucune sémantique cachée n’est observée ;
-- la gouvernance documentaire est respectée.
-
-## 6. Préconditions
-- mapping stabilisé ;
-- accès Modbus opérationnel ;
-- simulateur en état stable ;
-- valeur initiale lisible.
-
-## 7. Résultats attendus
-- réservés identifiés sans ambiguïté ;
-- lecture stable ;
-- tentative d’écriture refusée ou sans effet observable ;
-- aucune divergence documentaire non justifiée.
-
-## 8. Axes de couverture
-- lecture réservés ;
-- réservés en plage ;
-- tentatives d’écriture ;
-- répétabilité ;
-- stabilité ;
-- conformité mapping ↔ comportement.
-
-## 9. Critères d’acceptation
-La sous-famille est satisfaite si :
-- tous les `reserved*` du mapping ont un comportement déterministe ;
-- aucune tentative d’écriture n’altère leur valeur ;
-- aucune sémantique cachée n’est révélée par l’accès.
-
-## 10. Automatisation
-Oui, fortement automatisable.
-
-## 11. Conclusion
-FT-ACC-04 verrouille la neutralité et la stabilité des réservés, base importante pour la robustesse documentaire et l’évolutivité du protocole.
+## Critère de réussite
+FT-ACC-04 est satisfaite si toutes les zones réservées instanciées refusent l’écriture selon la règle ci-dessus, sans mutation ni exécution partielle.

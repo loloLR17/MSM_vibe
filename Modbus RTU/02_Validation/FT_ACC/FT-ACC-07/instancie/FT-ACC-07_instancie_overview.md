@@ -1,27 +1,25 @@
-# FT-ACC-07 — Tests instanciés
+# FT-ACC-07 — Vue de consolidation
 
 ## Objet
-Tests instanciés à partir du mapping unifié logique TR2 pour valider la conformité globale mapping ↔ comportement.
+Contrôle final de couverture croisée de la famille FT-ACC.
 
-## Règles appliquées
-- RO : lecture OK, écriture refusée avec exception explicite
-- RW : lecture OK, écriture OK, write → read cohérent
-- reserved* : lecture exploitable si exposée, écriture refusée ou sans effet observable
+## Couverture primaire
+- 35 champs RW → FT-ACC-02 ;
+- 129 champs RO non réservés → FT-ACC-03 ;
+- 18 zones réservées → FT-ACC-04 ;
+- total : **182 cibles logiques uniques**.
 
-## Couverture par bloc
-- Bloc 0 : 10 champ(s)
-- Bloc 1 : 18 champ(s)
-- Bloc 2 : 12 champ(s)
-- Bloc 3 : 26 champ(s)
-- Bloc 4 : 66 champ(s)
-- Bloc 5 : 18 champ(s)
-- Bloc 6 : 20 champ(s)
-- Bloc 7 : 13 champ(s)
+## Couvertures complémentaires
+- FT-ACC-05 : effets de bord non spécifiés sur les écritures autorisées ;
+- FT-ACC-06 : rejet atomique des écritures composites invalides ;
+- FT-STR-06 : accessibilité en lecture et découpage FC03, couverture gelée non rejouée.
 
-## Répartition par type d’accès
-- RO : 130
-- RW : 35
-- reserved* : 18
-
-## Total
-- 183 champs instanciés
+## Règles de consolidation
+Un verdict conforme exige :
+- 182 lignes détaillées dans `FT-ACC-07_matrice_couverture.csv` ;
+- aucune cible primaire orpheline ;
+- aucune cible classée dans deux classes primaires ;
+- une seule occurrence canonique de l’adresse 4017 ;
+- `B3_RESERVED_0` classé réservé ;
+- aucune tolérance « écriture interdite acceptée mais ignorée » dans le chemin actif ;
+- cohérence documentaire avec GEL-GOV-02 et `FT_ACC/Specifications.md`.
