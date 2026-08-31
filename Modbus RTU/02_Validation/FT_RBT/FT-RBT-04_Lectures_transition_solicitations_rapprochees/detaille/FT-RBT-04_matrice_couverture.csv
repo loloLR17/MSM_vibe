@@ -1,0 +1,8 @@
+id,objet,classification,proprietaire,test,commentaire
+RBT04-R01,Cohérence interne pendant évolution,CONDITIONAL,FT-RBT-04,TT-RBT-GEN-020,Composition de l'oracle FT-STR sous transition contrôlée
+RBT04-R02,Cohérence multi-registres nominale,DELEGATED,FT-STR-07,,Oracle structurel déjà gelé
+RBT04-R03,Variation entre lectures dynamiques,TRACE_ONLY,FT-STR-07,,Variation inter-requêtes admise
+RBT04-R04,Observation obligatoire état intermédiaire,NOT_DEFINED,FT-RBT-04,,Aucune garantie V1 de capture de chaque état
+RBT04-R05,Durée générique de transition,NOT_DEFINED,FT-RBT-04,,Aucune borne temporelle V1
+RBT04-R06,Cadence polling sollicitations rapprochées,NOT_DEFINED,FT-RBT-04,,Aucun intervalle normatif V1
+RBT04-R07,Nombre minimal de lectures ou transitions capturées,NOT_DEFINED,FT-RBT-04,,Aucun seuil quantitatif V1
