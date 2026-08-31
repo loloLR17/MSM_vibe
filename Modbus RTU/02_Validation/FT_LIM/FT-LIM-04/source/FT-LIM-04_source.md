@@ -53,6 +53,9 @@ Reset logiciel contrôlé et RAZ statistiques exigent `confirm_key=0xA55A`. La c
 ### LIM04-RQ-017 — Résultats
 Les codes résultat 0..22 sont ceux de la table V1 ; 23..65535 sont réservés. FT-LIM-04 n'invente aucun code ni détail de résultat.
 
+### LIM04-RQ-018 — Bits réservés de cmd_request_control
+Dans `cmd_request_control` (5007), les bits 0, 1 et 2 portent respectivement `submit`, `cancel_request` et `clear_request_fields`. Les bits 3..15 sont réservés et doivent être écrits à 0. Une valeur qui positionne un de ces bits réservés est une valeur fonctionnellement invalide sur un registre RW valide ; elle ne devient pas une erreur d'accès Modbus.
+
 ## Non défini / à ne pas inventer
 - liste exhaustive des commandes annulables ;
 - sémantique des masques d'autotest autres que `param1=0`, sauf extension effectivement implémentée et documentée ;
