@@ -1,342 +1,60 @@
-\# FT-STR-05 — Fiche de spécification  
+# FT-STR-05 — Registres réservés et sentinelles structurelles
 
-\## Registres réservés et sentinelles structurelles
+## 1. Identification
 
+- **ID** : FT-STR-05
+- **Famille** : FT-STR
+- **Criticité** : P0
 
+## 2. Objectif
 
----
+Vérifier que les zones explicitement réservées par V1 sont identifiées sans ambiguïté, conservent leur géométrie normative et respectent la valeur structurelle imposée. Vérifier également qu'aucune sentinelle globale n'est inventée pour les champs non réservés.
 
+## 3. Règle de vérité
 
+V1 est normative. GEL-MAP-V1 est dérivé. En cas de contradiction, V1 prévaut et l'écart doit être signalé ; il ne doit jamais être corrigé silencieusement dans la validation.
 
-\## 1. Identification
+## 4. Inclus
 
+- identification des champs/plages explicitement réservés ;
+- adresses, tailles et types documentaires de ces plages ;
+- valeur `0` lorsqu'elle est imposée par V1 ;
+- absence de règle globale `0 = absent / invalide / non renseigné` ;
+- sentinelles explicitement définies champ par champ par V1.
 
+## 5. Exclus
 
-\- \*\*ID\*\* : FT-STR-05  
+- stabilité temporelle et répétition des lectures : FT-STR-07 ;
+- accessibilité et découpage des lectures : FT-STR-06 ;
+- refus d'écriture sur réservés : FT-ACC / GEL-GOV-02 ;
+- logique métier des valeurs hors sentinelles explicitement normées.
 
-\- \*\*Nom\*\* : Réservés et sentinelles  
+## 6. Doctrine
 
-\- \*\*Famille parente\*\* : FT-STR  
+Un nom, une description ou une habitude historique ne suffit pas à créer une sentinelle. La valeur `0` garde sa valeur numérique normale sauf règle V1 explicite.
 
-\- \*\*Criticité\*\* : P0 (bloquant)
+Les zones réservées sont des emplacements structurels sans sémantique métier. Lorsque V1 impose leur lecture à zéro, toute valeur non nulle sur la cible est non conforme.
 
+## 7. Cas génériques
 
+- `TT-STR-05-GEN-001` — Identification exhaustive des zones réservées.
+- `TT-STR-05-GEN-002` — Valeur structurelle nulle des zones réservées.
+- `TT-STR-05-GEN-003` — Absence de sentinelle implicite.
 
----
+## 8. Instanciation
 
+L'instanciation active s'appuie directement sur les lignes GEL-MAP-V1 dont le champ est explicitement réservé. Elle ne duplique pas une fiche Markdown par plage.
 
+Le validateur mécanique vérifie la sélection, les noms, les plages, les tailles, les types `uint16` / `uint16[n]`, l'accès RO documentaire et la couverture attendue. Il ne peut pas démontrer la valeur réellement retournée par un firmware.
 
-\## 2. Objectif
+## 9. Réussite
 
+- toutes les zones réservées V1 sont représentées une fois dans GEL-MAP-V1 ;
+- aucune zone historique obsolète ou dupliquée n'est active ;
+- la géométrie et le type documentaire sont cohérents ;
+- les contrôles terrain confirment `0` pour chaque registre réservé lorsque V1 l'impose ;
+- aucune sentinelle implicite n'est introduite.
 
+## 10. Ambiguïté
 
-Valider que les zones non utilisées ou spéciales :
-
-
-
-\- respectent les conventions (ex : 0),
-
-\- sont stables,
-
-\- ne véhiculent aucune information parasite.
-
-
-
----
-
-
-
-\## 3. Périmètre
-
-
-
-\### Inclus
-
-
-
-\- registres réservés
-
-\- valeurs imposées (ex : ID = 0)
-
-\- zones non utilisées
-
-\- stabilité de ces zones
-
-
-
-\### Exclus
-
-
-
-\- logique métier des valeurs
-
-\- états dynamiques
-
-
-
----
-
-
-
-\## 4. Références
-
-
-
-\- "Registres réservés = 0"
-
-\- "ID = 0 → non renseigné"
-
-
-
----
-
-
-
-\## 5. Règles
-
-
-
-Un registre réservé est conforme si :
-
-
-
-\- valeur = 0
-
-\- stable dans le temps
-
-\- jamais utilisé implicitement
-
-
-
----
-
-
-
-\## 6. Préconditions
-
-
-
-\- FT-STR-02 validée
-
-
-
----
-
-
-
-\## 7. Résultats attendus
-
-
-
-\- zones neutres
-
-\- absence de bruit
-
-\- cohérence totale
-
-
-
----
-
-
-
-\## 8. Risques
-
-
-
-| Risque | Impact |
-
-|---|---|
-
-| Valeurs non nulles | ambiguïté |
-
-| Valeurs instables | non fiabilité |
-
-| fuite mémoire | comportement caché |
-
-| mauvaise sentinelle | erreur logique |
-
-
-
----
-
-
-
-\## 9. Cas de test
-
-
-
-\### Nominal
-
-\- lecture réservés → 0
-
-
-
-\### Limites
-
-\- lecture répétée
-
-\- lecture multi-blocs
-
-
-
-\### Erreurs
-
-\- valeur non nulle
-
-\- variation
-
-
-
----
-
-
-
-\## 10. Points critiques
-
-
-
-\- zones mémoire non initialisées
-
-\- valeurs fantômes
-
-\- confusion entre "0" et "valide"
-
-
-
----
-
-
-
-\## 11. Ambiguïtés
-
-
-
-\- différence entre :
-
-&nbsp; - réservé
-
-&nbsp; - non renseigné
-
-&nbsp; - invalide
-
-&nbsp; - absent
-
-
-
----
-
-
-
-\## 12. Réussite
-
-
-
-\- 100% réservés à 0
-
-\- stabilité totale
-
-
-
----
-
-
-
-\## 13. Échec
-
-
-
-\- valeur non nulle
-
-\- instabilité
-
-\- comportement implicite
-
-
-
----
-
-
-
-\## 14. Anomalies
-
-
-
-| Type | Exemple |
-
-|---|---|
-
-| BLOQUANTE | valeur ≠ 0 |
-
-| MAJEURE | instabilité |
-
-| SPEC | doctrine floue |
-
-
-
----
-
-
-
-\## 15. Dépendances
-
-
-
-\### Amont
-
-\- FT-STR-02
-
-
-
----
-
-
-
-\## 16. Ordre
-
-
-
-1\. Identifier zones réservées
-
-2\. Lire valeurs
-
-3\. Vérifier nullité
-
-4\. Vérifier stabilité
-
-5\. Vérifier isolation
-
-
-
----
-
-
-
-\## 17. Livrables
-
-
-
-\- dump registres réservés
-
-\- rapport conformité
-
-
-
----
-
-
-
-\## 18. Maturité
-
-
-
-\- aucune valeur parasite
-
-\- comportement totalement neutre
-
-\- doctrine claire
-
-
-
----
-
+Toute signification de sentinelle absente de V1 est classée `NON DÉFINI / À ARBITRER`.
