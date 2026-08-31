@@ -37,3 +37,4 @@ TT-LIM-04-C14-002,LIM04-G14,command 11,valid protected baseline,confirm=0xA55A,"
 TT-LIM-04-C15-001,LIM04-G15,cancel_request,cancellable current command,engine flag bit9=1 then cancel,"documented cancellation behavior",CONDITIONAL
 TT-LIM-04-C15-002,LIM04-G15,cancel_request,non-cancellable current command,engine flag bit9=0 then cancel,"result 15",CONDITIONAL
 TT-LIM-04-C16-001,LIM04-G16,clear_request_fields,request fields populated,set control bit2,"request fields cleared; no parasitic command execution",ACTIVE
+TT-LIM-04-C17-001,LIM04-G17,cmd_request_control,reserved bits,"set one or more bits3..15 on valid RW 5007","functional invalidity; reserved bits have no defined command semantics; no invented Modbus exception",ACTIVE
