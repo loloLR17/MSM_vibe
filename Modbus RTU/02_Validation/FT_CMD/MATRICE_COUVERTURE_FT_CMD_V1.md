@@ -5,13 +5,13 @@
 Cette matrice consolide les sept sous-familles FT-CMD validées pour le Bloc 5 — moteur de commandes.
 
 Répartition des 66 exigences / points de couverture :
-- `COVERED` : 40 ;
+- `COVERED` : 41 ;
 - `CONDITIONAL` : 9 ;
-- `NOT_DEFINED` : 10 ;
+- `NOT_DEFINED` : 9 ;
 - `TRACE_ONLY` : 4 ;
 - `DELEGATED` : 3.
 
-Nombre de tests identifiés dans FT-CMD : 53.
+Nombre de tests identifiés dans FT-CMD : 54.
 
 Les classifications `NOT_DEFINED`, `TRACE_ONLY`, `CONDITIONAL` et `DELEGATED` ne constituent pas des échecs de validation : elles matérialisent respectivement une absence d'oracle V1, une traçabilité sans test autonome, une exécutabilité conditionnelle ou une propriété confiée à une autre famille.
 
@@ -24,7 +24,7 @@ Les classifications `NOT_DEFINED`, `TRACE_ONLY`, `CONDITIONAL` et `DELEGATED` ne
 | CMD01-R03 | Auto-clear de `submit` | COVERED | TT-CMD-B05-004 | Règle normative finale du Bloc 5 |
 | CMD01-R04 | Code commande non nul requis | COVERED | TT-CMD-B05-005 | Aucun code résultat spécifique inventé |
 | CMD01-R05 | `transaction_id` obligatoire | TRACE_ONLY | — | Absence non représentée distinctement |
-| CMD01-R06 | Domaine exact d'un `transaction_id` invalide | NOT_DEFINED | — | Aucune valeur/plage invalide définie |
+| CMD01-R06 | Domaine d'un `transaction_id` invalide | COVERED | TT-CMD-B05-007 | `0` invalide à la soumission ; `1..65535` valides ; refus fonctionnel code 14 |
 | CMD01-R07 | Bits réservés de contrôle soumis | COVERED | TT-CMD-B05-006 | Refus fonctionnel code 2 |
 
 ## 3. FT-CMD-02 — Idempotence et corrélation
