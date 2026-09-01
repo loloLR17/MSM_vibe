@@ -8,8 +8,8 @@ OBS03-R06,Dernier defaut detecte B7,B7,COVERED,TT-OBS-B07-001,Historique minimal
 OBS03-R07,Aucun defaut connu B7,B7,COVERED,TT-OBS-B07-001,last_fault_code=0 localement defini
 OBS03-R08,Timestamp associe au dernier defaut connu,B7,COVERED,TT-OBS-B07-001,Interpretable lorsqu un dernier defaut est connu
 OBS03-R09,Timestamp quand aucun defaut connu,B7,NOT_DEFINED,V1.1 candidate,Aucune valeur obligatoire
-OBS03-R10,Details B1 fault_flags,B1,NOT_DEFINED,TT-OBS-B01B07-001,Aucune table normative des bits
-OBS03-R11,Details B1 warning_flags,B1,NOT_DEFINED,TT-OBS-B01B07-001,Aucune table normative des bits
+OBS03-R10,Details B1 fault_flags,B1,COVERED,TT-OBS-B01B07-001,Bits 0..5 normativement definis et 6..15 reserves
+OBS03-R11,Details B1 warning_flags,B1,COVERED,TT-OBS-B01B07-001,Bits 0..2 normativement definis et 3..15 reserves
 OBS03-R12,Tables B1 error_code warning_code,B1,NOT_DEFINED,TT-OBS-B01B07-001,Aucun catalogue normatif
 OBS03-R13,Modele global actif memorise acquitte,GLOBAL,NOT_DEFINED,V1.1 candidate,Mecanismes locaux seulement
 OBS03-R14,Acquittement universel,GLOBAL,NOT_DEFINED,V1.1 candidate,Aucun etat transversal defini
