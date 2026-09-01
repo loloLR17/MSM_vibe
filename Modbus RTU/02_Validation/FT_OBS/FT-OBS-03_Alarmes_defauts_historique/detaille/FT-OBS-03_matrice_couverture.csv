@@ -1,0 +1,18 @@
+ID,Propriete,Bloc,Classification,Test_ou_owner,Commentaire
+OBS03-R01,Alarmes actives B3,B3,COVERED,TT-OBS-B03-003,Bits ALARM_*_ACTIVE explicites
+OBS03-R02,Alarme memorisee B3,B3,COVERED,TT-OBS-B03-003,ALARM_LATCHED_PRESENT et B3_ALARM_LATCHED
+OBS03-R03,Severite globale B3,B3,COVERED,TT-OBS-B03-003,Enum normatif
+OBS03-R04,Defauts systeme actifs B7,B7,COVERED,TT-OBS-B07-001,system_fault_flags detaille
+OBS03-R05,Etat sante global B7,B7,COVERED,TT-OBS-B07-001,OK Warning Degrade Critique
+OBS03-R06,Dernier defaut detecte B7,B7,COVERED,TT-OBS-B07-001,Historique minimal distinct du courant
+OBS03-R07,Aucun defaut connu B7,B7,COVERED,TT-OBS-B07-001,last_fault_code=0 localement defini
+OBS03-R08,Timestamp associe au dernier defaut connu,B7,COVERED,TT-OBS-B07-001,Interpretable lorsqu un dernier defaut est connu
+OBS03-R09,Timestamp quand aucun defaut connu,B7,NOT_DEFINED,V1.1 candidate,Aucune valeur obligatoire
+OBS03-R10,Details B1 fault_flags,B1,NOT_DEFINED,TT-OBS-B01B07-001,Aucune table normative des bits
+OBS03-R11,Details B1 warning_flags,B1,NOT_DEFINED,TT-OBS-B01B07-001,Aucune table normative des bits
+OBS03-R12,Tables B1 error_code warning_code,B1,NOT_DEFINED,TT-OBS-B01B07-001,Aucun catalogue normatif
+OBS03-R13,Modele global actif memorise acquitte,GLOBAL,NOT_DEFINED,V1.1 candidate,Mecanismes locaux seulement
+OBS03-R14,Acquittement universel,GLOBAL,NOT_DEFINED,V1.1 candidate,Aucun etat transversal defini
+OBS03-R15,Coherence B1 B7 des defauts,B1/B7,DELEGATED,FT-INT,Pas d egalite ajoutee
+OBS03-R16,Apparition disparition fonctionnelle des defauts,B1/B3/B7,DELEGATED,FT-BLK / FT-INT,OBS consomme l etat expose
+OBS03-R17,Persistance alarmes et historique apres reboot,B3/B7,DELEGATED,FT-PER,Politique post reboot hors FT-OBS
