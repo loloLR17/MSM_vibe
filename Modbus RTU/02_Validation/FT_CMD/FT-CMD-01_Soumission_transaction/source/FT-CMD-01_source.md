@@ -24,7 +24,7 @@ Les compléments métier explicitement informatifs ne servent pas d'oracle.
 - Condition : disposer d'un moyen d'essai permettant d'observer ou de maintenir le niveau logique `1` sans créer de nouveau front artificiel. L'auto-clear obligatoire peut rendre cette condition non observable depuis la seule interface Modbus.
 
 ### CMD01-R03 — Auto-clear de submit
-- Source : Bloc 5 §7.6, conséquence normative finale.
+- Source : Bloc 5 §7.6.
 - Exigence : le firmware remet automatiquement `submit` à `0` après prise en compte.
 - Classification : `COVERED`.
 - Test : `TT-CMD-B05-004`.
@@ -39,13 +39,14 @@ Les compléments métier explicitement informatifs ne servent pas d'oracle.
 - Source : Bloc 5 §4, §7.2 et §10.1.
 - Exigence documentaire : `transaction_id` est obligatoire pour distinguer les commandes et permettre leur corrélation.
 - Classification : `TRACE_ONLY` dans FT-CMD-01.
-- Justification : la V1 ne définit pas de représentation observable de « transaction_id absent » distincte d'une valeur présente dans le registre. La réutilisation et la corrélation sont testées dans FT-CMD-02.
+- Justification : la représentation d'un champ « absent » n'existe pas distinctement dans le registre. La réutilisation et la corrélation sont testées dans FT-CMD-02.
 
 ### CMD01-R06 — transaction_id invalide
-- Source : Bloc 5, condition « transaction_id valide » et `cmd_result_code = 14`.
-- Classification : `NOT_DEFINED`.
-- Justification : aucune valeur, plage ou règle d'invalidité numérique n'est définie. Il est interdit d'inventer que `0` ou toute autre valeur est invalide.
-- Dette normative : définir ultérieurement le domaine ou la règle d'invalidité si le code résultat 14 doit être testable de façon déterministe.
+- Source : Bloc 5 §7.2, §7.6 et `cmd_result_code = 14`.
+- Exigence : `transaction_id = 0` est invalide pour une soumission ; les valeurs `1..65535` sont valides. Une soumission avec ID `0` ne doit pas exécuter l'action et doit exposer `cmd_result_code = 14`.
+- Classification : `COVERED`.
+- Test : `TT-CMD-B05-007`.
+- Frontière : l'écriture de `0` dans le registre RW reste un accès Modbus valide ; FT-CMD valide uniquement la conséquence fonctionnelle de la soumission.
 
 ### CMD01-R07 — Bits réservés dans cmd_request_control
 - Source : Bloc 5 §7.6 et §10.5.
@@ -60,12 +61,13 @@ FT-CMD-01 ne couvre pas :
 - domaine des codes commande : FT-LIM ;
 - accès aux registres et exceptions Modbus : FT-ACC ;
 - idempotence d'un ID déjà traité : FT-CMD-02 ;
+- politique de réutilisation d'un ID après disparition de l'historique d'idempotence : `NOT_DEFINED` en V1 ;
 - concurrence : FT-CMD-04 ;
 - effets métier inter-blocs : FT-INT.
 
 ## 4. Règles anti-fabrication
 
-- ne pas définir `transaction_id = 0` comme invalide sans évolution normative ;
+- ne pas inventer de valeurs invalides autres que `transaction_id = 0` ;
 - ne pas imposer une séquence complète des états `cmd_status` pour prouver une prise en compte ;
 - ne pas déclarer le maintien à `1` directement testable si l'auto-clear empêche son observation ;
 - ne pas utiliser un effet inter-blocs comme unique oracle lorsque la propriété peut être observée dans B5 ;
