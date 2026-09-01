@@ -17,16 +17,30 @@ Aucun PASS FT-OBS ne vaut PASS de la transition ayant produit l'état.
 
 ### Objectif
 
-Vérifier que `storage_status` et `acquisition_state` possèdent une interprétation univoque côté centrale, tout en confirmant que `system_status` et `system_flags` ne reçoivent aucune sémantique inventée.
+Vérifier que `storage_status`, `acquisition_state`, `system_status` et les bits définis de `system_flags` possèdent une interprétation univoque côté centrale, sans inventer de règle exhaustive de synthèse entre ces observables.
 
 ### Sources normatives
 
 - B1 §5 mapping ;
 - B1 §6.1 `system_status` ;
+- B1 §6.2 `system_flags` ;
 - B1 §6.6 `storage_status` ;
 - B1 §6.7 `acquisition_state`.
 
 ### Jeux d'essai normatifs
+
+Pour `system_status` :
+- 0 → UNKNOWN ;
+- 1 → NOMINAL ;
+- 2 → DEGRADED ;
+- 3 → FAULT.
+
+Pour `system_flags` :
+- bit 0 → READY ;
+- bit 1 → ACQUISITION_ACTIVE ;
+- bit 2 → CONFIG_VALID ;
+- bit 3 → TIME_VALID ;
+- bit 4 → STORAGE_AVAILABLE.
 
 Pour `storage_status` :
 - 0 → Non disponible ;
@@ -42,24 +56,27 @@ Pour `acquisition_state` :
 
 ### Étapes
 
-1. Présenter successivement au décodeur/à la centrale chacune des valeurs définies de `storage_status`.
-2. Vérifier que chaque valeur produit exactement la signification V1 correspondante et qu'aucune paire de codes définis n'est confondue.
-3. Répéter pour `acquisition_state`.
-4. Présenter une ou plusieurs valeurs quelconques de `system_status` et vérifier que le banc FT-OBS ne leur attribue aucune signification V1 au-delà de « domaine non défini ».
-5. Présenter des motifs sur `system_flags` et vérifier qu'aucune signification de bit non spécifiée n'est créée par le test.
+1. Présenter successivement au décodeur/à la centrale chacune des valeurs définies de `system_status` et vérifier l'interprétation exacte.
+2. Présenter des motifs couvrant chacun des bits définis de `system_flags` et vérifier leur décodage ; ne donner aucune signification aux bits 5..15.
+3. Présenter successivement chacune des valeurs définies de `storage_status` et vérifier leur signification V1.
+4. Répéter pour `acquisition_state`.
+5. Vérifier que le banc ne calcule pas une valeur attendue de `system_status` depuis `system_flags`, `storage_status`, `acquisition_state` ou un autre bloc selon une règle non spécifiée.
 6. Si le moyen d'essai possède déjà une gestion générique des valeurs réservées, consigner son comportement sans le requalifier : ce contrôle appartient à FT-LIM.
 
 ### PASS
 
+- les quatre valeurs définies de `system_status` sont décodées sans ambiguïté ;
+- les cinq bits définis de `system_flags` sont interprétés conformément à B1 ;
 - les quatre valeurs définies de `storage_status` sont décodées sans ambiguïté ;
 - les quatre valeurs définies de `acquisition_state` sont décodées sans ambiguïté ;
-- aucune table privée n'est utilisée pour `system_status` ou `system_flags`.
+- aucune règle privée de dérivation de `system_status` n'est utilisée comme oracle V1.
 
 ### FAIL
 
 - confusion entre deux codes définis ;
 - signification différente de la table V1 ;
-- utilisation comme oracle V1 d'une table non normative pour `system_status` ou `system_flags`.
+- signification inventée pour un bit réservé de `system_flags` ;
+- utilisation comme oracle V1 d'une règle de synthèse non normative pour `system_status`.
 
 ### Pas de FAIL FT-OBS-01
 
@@ -166,13 +183,9 @@ Vérifier qu'une centrale peut déterminer explicitement :
 
 ## Cas volontairement non instanciés dans FT-OBS-01
 
-### État global `system_status`
+### Dérivation exhaustive de `system_status`
 
-`NOT_DEFINED`. Aucun test ne doit imposer les valeurs recommandées des compléments métier.
-
-### Bits `system_flags`
-
-`NOT_DEFINED`. Aucun dictionnaire de bits n'est construit à partir d'hypothèses.
+`NOT_DEFINED`. Aucun test ne doit imposer une formule de calcul, une priorité ou une machine d'état reliant `system_status` aux autres états/flags au-delà des règles explicitement écrites en V1.
 
 ### Cohérence acquisition B1 / campagne B6
 
