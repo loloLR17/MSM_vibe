@@ -288,7 +288,7 @@ Ce bloc supporte une logique **préparé / appliqué** cohérente avec l’archi
 
 &nbsp; * les flags doivent refléter clairement l’état
 
-* Les transitions d’état doivent être explicites (pas d’ambiguïté)
+* La V1 ne définit pas de machine d’état exhaustive de `time_status`. Les transitions imposées sont uniquement celles résultant explicitement des règles normatives du Bloc 2 et des commandes associées. Aucune autre transition, priorité ou condition de changement d’état ne doit être déduite implicitement.
 
 
 
