@@ -4,9 +4,8 @@ Ce document consolide les limites observées pendant FT-OBS. Elles ne constituen
 
 ## État système et diagnostic
 
-- définir normativement `B1.system_status` ;
-- définir la table détaillée `B1.system_flags` ;
-- définir les tables B1 `fault_flags`, `warning_flags`, `error_code`, `warning_code` si leur exploitation distante est souhaitée ;
+- définir, si nécessaire, une règle exhaustive de dérivation de `B1.system_status` depuis les états/flags sous-jacents ;
+- définir les catalogues B1 `error_code` et `warning_code` si leur exploitation distante est souhaitée ;
 - définir, seulement si nécessaire, les relations normatives entre l'état synthétique B1 et les diagnostics B7.
 
 ## Validité et fraîcheur
@@ -36,7 +35,7 @@ Ce document consolide les limites observées pendant FT-OBS. Elles ne constituen
 
 ## Verdict d'exploitabilité
 
-Un état transversal unique « exploitable/inexploitable » n'est recommandé que si un besoin système clair apparaît. En son absence, conserver les discriminants locaux B2/B3/B6/B7 évite une perte d'information et des dépendances implicites.
+Un état transversal unique « exploitable/inexploitable » n'est recommandé que si un besoin système clair apparaît. En son absence, conserver les discriminants locaux B1/B2/B3/B6/B7 évite une perte d'information et des dépendances implicites.
 
 ## Règle de gouvernance
 
