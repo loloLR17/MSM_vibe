@@ -76,16 +76,22 @@ Test : `TT-OBS-B07-001`.
 Aucune sentinelle ou valeur obligatoire n'est définie. FT-OBS-03 n'impose ni `0`, ni conservation d'une ancienne valeur, ni valeur spéciale.
 
 ### OBS03-R10 — Détails `B1.fault_flags`
-**Classification : `NOT_DEFINED`.**
+**Classification : `COVERED`.**
 
-B1 expose un bitfield de défauts actifs, mais aucune table normative détaillée des bits n'est définie dans la section normative. Les exemples des compléments métier sont informatifs seulement.
+B1 définit normativement les bits `SENSOR_FAULT`, `ACQUISITION_FAULT`, `STORAGE_FAULT`, `TIME_FAULT`, `CONFIG_FAULT` et `SYSTEM_INTERNAL_FAULT`. Les bits 6..15 sont réservés à 0.
 
-Test de non-généralisation : `TT-OBS-B01B07-001`.
+Une centrale peut donc interpréter ces catégories de défauts actifs sans table privée. Aucune égalité bit-à-bit avec B7 n'est imposée.
+
+Test : `TT-OBS-B01B07-001`.
 
 ### OBS03-R11 — Détails `B1.warning_flags`
-**Classification : `NOT_DEFINED`.**
+**Classification : `COVERED`.**
 
-Même limite que pour `fault_flags` : la présence du champ est normative, mais la signification détaillée des bits ne l'est pas.
+B1 définit normativement les bits `STORAGE_WARNING`, `TIME_WARNING` et `TEMPERATURE_WARNING`. Les bits 3..15 sont réservés à 0.
+
+Une centrale peut donc interpréter ces catégories d'avertissements sans convention externe.
+
+Test : `TT-OBS-B01B07-001`.
 
 ### OBS03-R12 — Tables `B1.error_code` et `B1.warning_code`
 **Classification : `NOT_DEFINED`.**
@@ -122,7 +128,7 @@ La survie de `last_fault_code`, `last_fault_timestamp`, des alarmes mémorisées
 ## 3. Règles anti-fabrication
 
 FT-OBS-03 interdit explicitement :
-- d'interpréter les exemples informatifs de B1 comme table de bits normative ;
+- d'attribuer une signification aux bits réservés de B1 ou de compléter les tables B1 par les catégories propres à B7 ;
 - d'assimiler `last_fault_code` à un défaut actif ;
 - d'assimiler une alarme B3 mémorisée à un défaut système B7 ;
 - d'inventer un état d'acquittement ;
@@ -131,7 +137,6 @@ FT-OBS-03 interdit explicitement :
 
 ## 4. Dette V1.1 candidate
 
-- définir les bits normatifs de `B1.fault_flags` et `B1.warning_flags` si B1 doit être exploitable sans B7 ;
 - définir les catalogues `B1.error_code` / `B1.warning_code` ;
 - préciser le comportement de `last_fault_timestamp` quand aucun défaut n'est connu ;
 - définir, si réellement nécessaire, un modèle transversal actif / latched / acknowledged ;
