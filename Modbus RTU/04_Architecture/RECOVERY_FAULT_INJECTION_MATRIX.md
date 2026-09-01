@@ -414,6 +414,139 @@ Oracle :
 - aucune campagne récupérée ne reçoit arbitrairement une heure de fin ;
 - aucun `last_fault_timestamp` fabriqué.
 
+### J-TIME-02 — RTC utilisable + historique sync valide + continuité prouvée
+
+**Classe** : FW_POLICY + V1 pour la cohérence des projections existantes
+
+Préconditions :
+
+```text
+WallClock technically usable
+LastSyncHistory = VALID
+continuity proof = positive
+```
+
+Oracle :
+
+- `CONTINUITY_PROVEN` ;
+- `civil_time_usable = true` si aucun autre fait technique ne l'interdit ;
+- `sync_continuity_proven = true` ;
+- `time_since_sync` reconstructible de manière cohérente ;
+- `time_status = SYNCHRONIZED` autorisé sous les autres règles temporelles applicables ;
+- aucun fait historique n'est recalculé depuis une projection B2 antérieure.
+
+### J-TIME-03 — RTC utilisable + historique sync valide + continuité indéterminée
+
+**Classe** : FW_POLICY
+
+Préconditions :
+
+```text
+WallClock technically usable
+LastSyncHistory = VALID
+no positive continuity proof
+no explicit rupture proof
+```
+
+Oracle :
+
+- `CONTINUITY_INDETERMINATE` ;
+- `civil_time_usable` peut rester vrai si l'RTC est techniquement utilisable ;
+- `sync_continuity_proven = false` ;
+- `TimeSinceSync = UNAVAILABLE` ;
+- aucune soustraction `WallClock - last_sync_time` ;
+- `time_status = 3` interdit ;
+- `time_status = 2` est la projection FW_POLICY attendue lorsque le temps civil est utilisable et qu'aucune dégradation positive distincte n'impose un autre état ;
+- `SYNC_PERFORMED = 1` si l'historique prouve une synchronisation effective ;
+- `CONTINUITY_INDETERMINATE` seul n'impose jamais `DEGRADED`.
+
+### J-TIME-04 — Historique sync valide + rupture temporelle prouvée
+
+**Classe** : FW_POLICY
+
+Préconditions :
+
+```text
+LastSyncHistory = VALID
+RTC loss/reset/backup-domain rupture positively proven
+```
+
+Oracle :
+
+- `CONTINUITY_BROKEN` ;
+- l'historique de synchronisation reste conservé comme fait passé ;
+- `sync_continuity_proven = false` ;
+- `TimeSinceSync = UNAVAILABLE` ;
+- aucun calcul depuis le RTC courant ;
+- aucun timestamp historique durable n'est modifié rétroactivement ;
+- toute éventuelle utilisabilité du temps civil courant est réévaluée indépendamment de l'ancien historique.
+
+### J-TIME-05 — Aucune synchronisation historique
+
+**Classe** : FW_POLICY + NOT_DEFINED V1 pour les sentinelles
+
+Précondition :
+
+```text
+LastSyncHistory = NONE
+```
+
+Oracle interne :
+
+- état distinct de toute corruption d'historique ;
+- `SYNC_PERFORMED = 0` ;
+- `TimeSinceSync = UNAVAILABLE` ;
+- aucun faux `last_sync_time` n'est créé.
+
+Projection firmware attendue tant que V1 ne définit pas d'indisponibilité explicite :
+
+```text
+last_sync_time    = 0x00000000
+time_since_sync_s = 0xFFFFFFFF
+```
+
+Ces valeurs restent des conventions `FW_POLICY` de projection et non des sentinelles normatives V1.
+
+### J-TIME-06 — Synchronisation réussie dans le boot courant puis ajustement WallClock
+
+**Classe** : FW_POLICY
+
+Scénario :
+
+```text
+boot
+→ successful B5 SYNCHRONIZE
+→ establish monotonic reference M0
+→ later WallClock correction / resynchronization adjustment
+```
+
+Oracle :
+
+- la durée depuis la synchronisation courante est suivie depuis `MonotonicClock` ;
+- un ajustement de WallClock ne provoque ni retour arrière ni saut artificiel de `time_since_sync` ;
+- `last_sync_time` ne change que sur une synchronisation effective conformément aux règles B2/B5 ;
+- `MonotonicClock` n'est jamais modifiée par `WallClock.set`.
+
+### J-TIME-07 — Stabilité du recovery temporel au second reboot
+
+**Classe** : FW_POLICY
+
+Pour chacun des scénarios J-TIME-02 à J-TIME-05 :
+
+```text
+establish recovered temporal state S
+→ normal reboot without new temporal event/fault
+→ establish S'
+```
+
+Oracle :
+
+- aucun nouveau fait historique n'est inventé entre S et S' ;
+- l'historique durable reste stable ;
+- une absence de preuve ne devient pas spontanément une preuve positive ;
+- aucune indisponibilité interne n'est remplacée par une valeur numérique interprétée comme autorité métier ;
+- les projections B1/B2 restent cohérentes avec les faits du nouveau boot.
+
 ---
 
 ## 10. Matrice diagnostic
@@ -595,6 +728,8 @@ No arbitrary corruption winner
 No hidden CORRUPTED → EMPTY conversion
 No Modbus exposure before initial barrier
 No WallClock dependency for uptime/recovery timeout logic
+No implicit continuity proof
+No hidden unavailable → numeric authority conversion
 ```
 
 ---
@@ -609,7 +744,7 @@ No WallClock dependency for uptime/recovery timeout logic
 - J-RST-01 / 01B / 02 / 03 / 04 ;
 - J-CORR-01 ;
 - J-STOR-01 ;
-- J-TIME-01 ;
+- J-TIME-01 / 02 / 03 / 04 / 05 / 06 / 07 ;
 - J-DIAG-01 / 02 ;
 - J-REC-01 ;
 - J-PUB-01 ;
@@ -646,7 +781,9 @@ Ne pas inventer comme critères V1 :
 - fréquence des checkpoints ;
 - algorithme exact de GC ;
 - priorité normative entre flags reset concurrents ;
-- résultat normatif « même txid + requête différente » si la V1 ne le définit pas.
+- résultat normatif « même txid + requête différente » si la V1 ne le définit pas ;
+- sentinelle normative d'indisponibilité temporelle ;
+- machine exhaustive `time_status` au-delà des règles V1 existantes.
 
 ---
 
