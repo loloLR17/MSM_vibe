@@ -49,7 +49,9 @@
 - ensemble du moteur transactionnel : délégué FT-CMD ; aucun doublon actif FT-BLK.
 
 ### B6
-- équation exacte de `duration_s` : insuffisamment formalisée ;
+- pour une campagne terminée sans discontinuité temporelle, `duration_s = end_timestamp - start_timestamp` est désormais normé et couvert conditionnellement par FT-BLK-05 ;
+- pour une campagne en cours ou traversant une discontinuité temporelle, la relation exacte entre `duration_s` et les timestamps reste `NOT_DEFINED` en V1 ;
+- unicité locale des `campaign_id` entre campagnes distinctes d'un même TR2 : normée et couverte conditionnellement ;
 - invariant numérique `valid_campaign_count <= total_campaign_count` : non explicitement normé ;
 - relation stockage utilisé/libre/capacité : `NOT_DEFINED` ;
 - dérivation `storage_health_status` : `NOT_DEFINED` ;
