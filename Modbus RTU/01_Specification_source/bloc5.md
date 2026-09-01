@@ -267,6 +267,12 @@ Ce champ est obligatoire pour :
 * éviter l’ambiguïté en cas de répétition de trame ;
 * permettre la corrélation stricte entre requête et réponse.
 
+Pour une soumission de commande, `transaction_id = 0` est invalide. Les valeurs `1..65535` constituent des identifiants de transaction valides.
+
+L’écriture de `0` dans le registre RW reste une écriture Modbus valide. Si une commande est soumise avec `transaction_id = 0`, l’action ne doit pas être exécutée et `cmd_result_code = 14` (`transaction_id invalide`) doit être exposé.
+
+La politique de réutilisation d’un identifiant après disparition de son historique d’idempotence n’est pas définie par la V1.
+
 
 
 ---
@@ -416,11 +422,7 @@ Règles associées :
 
 * une commande n’est évaluée que lors du passage de `submit` de `0` à `1` ;
 * le maintien de `submit = 1` ne doit pas provoquer de réexécution répétée ;
-* après prise en compte, le firmware peut :
-
-  - soit remettre automatiquement `submit` à `0`,
-
-  - soit ignorer tout nouvel examen tant qu’un nouveau front montant n’a pas été observé.
+* après prise en compte, le firmware remet automatiquement `submit` à `0`.
 
 
 
@@ -428,11 +430,7 @@ Règles associées :
 
 
 
-Une commande identique avec le même `transaction\_id` ne doit jamais être exécutée une seconde fois, même si `submit` reste à `1`.
-
-
-
-Le firmware remet automatiquement `submit` à `0` après prise en compte.
+Une commande identique avec le même `transaction\_id` ne doit jamais être exécutée une seconde fois.
 
 
 
@@ -510,6 +508,8 @@ Identifiant de transaction de la commande active / dernière commande prise en c
 | 7 | commande inconnue |
 
 | 8 | commande non autorisée dans l’état courant |
+
+| 9..65535 | réservés |
 
 
 
@@ -727,7 +727,7 @@ Même table de valeurs que `cmd\_status`, mais mémorisée comme **état final**
 
 
 
-Code résultat final de la dernière commande terminée.
+Même table de valeurs que `cmd\_result\_code`, mémorisée comme résultat final de la dernière commande terminée.
 
 
 
