@@ -53,19 +53,28 @@ Test : `TT-OBS-B01-001`.
 
 ### OBS01-R03 — B1 `system_status` est interprétable globalement
 
-**Classification : `NOT_DEFINED`.**
+**Classification : `COVERED`.**
 
-La V1 indique explicitement que le domaine détaillé de `system_status` n'est pas défini et reste à arbitrer. Le champ existe, mais aucune table normative ne permet à une centrale V1 d'en interpréter les valeurs de manière portable.
+La V1 définit explicitement :
+- `0` = UNKNOWN ;
+- `1` = NOMINAL ;
+- `2` = DEGRADED ;
+- `3` = FAULT ;
+- `4..65535` = réservés.
 
-Aucun code issu des compléments métier ne peut être utilisé comme oracle.
+Une centrale V1 peut donc interpréter la qualification globale exposée sans convention privée. La règle exhaustive de dérivation de `system_status` à partir des autres états et flags n'est en revanche pas définie en V1.
+
+Test : `TT-OBS-B01-001`.
 
 ### OBS01-R04 — B1 `system_flags` possède une sémantique détaillée exploitable
 
-**Classification : `NOT_DEFINED`.**
+**Classification : `COVERED`.**
 
-B1 expose `system_flags` comme bitfield d'état système, mais la source normative V1 ne fournit pas de table détaillée des bits.
+B1 définit explicitement les bits `READY`, `ACQUISITION_ACTIVE`, `CONFIG_VALID`, `TIME_VALID` et `STORAGE_AVAILABLE`; les bits 5..15 sont réservés à 0.
 
-Une centrale ne peut donc pas attribuer une signification normative à chacun de ces bits sans convention externe.
+Une centrale peut donc interpréter ces cinq indicateurs sans convention externe. Aucune machine d'état ni règle exhaustive de synthèse avec `system_status` n'est déduite de cette table.
+
+Test : `TT-OBS-B01-001`.
 
 ### OBS01-R05 — B4 `config_state` est discriminant
 
@@ -145,9 +154,9 @@ Test : `TT-OBS-B06-001`.
 
 **Classification : `NOT_DEFINED`.**
 
-La présence de plusieurs états locaux dans B1, B4, B6 et B7 ne définit pas une règle normative permettant de calculer un « état global » par priorité, maximum de sévérité ou combinaison de bits.
+`B1.system_status` fournit désormais une qualification globale directement interprétable, mais la V1 ne définit pas de règle exhaustive permettant à la centrale de la recalculer à partir des états locaux B1, B4, B6, B7 ou des bitfields.
 
-En particulier, l'absence de domaine normatif de `B1.system_status` interdit de fabriquer un tel oracle en V1.
+La centrale doit donc consommer `system_status` selon sa table normative sans fabriquer une priorité ou une formule de synthèse absente de V1.
 
 ### OBS01-R12 — Relations entre états de blocs différents
 
@@ -158,8 +167,8 @@ Toute relation normative entre acquisition, configuration, campagne ou diagnosti
 ## 4. Règles anti-fabrication
 
 FT-OBS-01 interdit explicitement :
-- d'utiliser les valeurs recommandées des compléments métier pour `system_status` ;
-- de définir des bits de `system_flags` absents de la section normative ;
+- de déduire une règle exhaustive de calcul de `system_status` à partir des autres états ou flags ;
+- de donner une signification aux bits réservés de `system_flags` ;
 - de considérer `0` comme « inconnu » ou « absent » hors convention locale explicite ;
 - de déduire qu'une campagne est valide à partir de ses métadonnées lorsque `selected_campaign_valid = 0` ;
 - de transformer un état RO en preuve de stabilité ou de persistance ;
@@ -169,6 +178,5 @@ FT-OBS-01 interdit explicitement :
 ## 5. Dette V1.1 candidate
 
 À documenter comme évolution informative, sans modifier V1 :
-- définir une table normative de `B1.system_status` si un état global synthétique est réellement souhaité ;
-- définir une table normative de `B1.system_flags` si ces bits doivent être exploitables par une centrale générique ;
+- définir, si nécessaire, une règle exhaustive de dérivation de `B1.system_status` depuis les états/flags sous-jacents ;
 - définir, uniquement si nécessaire, une règle explicite de synthèse/priorité entre états locaux. Aucune telle règle n'est présumée en V1.
