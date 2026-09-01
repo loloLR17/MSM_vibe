@@ -315,6 +315,7 @@ immutable CommandRequest
       ↓
 CommandEngine
       ├── CommandJournal (persistent)
+      ├── CommandRecoveryContext when required
       └── dispatch to Domain Services
       ↓
 CommandSnapshot
@@ -322,13 +323,359 @@ CommandSnapshot
 B5 projection
 ```
 
-### Idempotence
+### 9.1 Séparation des responsabilités
 
-Un `transaction_id` déjà traité n’est jamais redispatché. Le journal conserve assez d’identité de requête pour détecter un même txid associé à une requête différente. La réponse protocolaire exacte à ce dernier cas reste `NOT_DEFINED V1`.
+Les notions suivantes restent strictement distinctes :
 
-### Recovery
+```text
+transaction_id
+      ↓
+identifie la transaction
 
-Une transaction interne `STARTED` retrouvée au boot n’est jamais rejouée automatiquement. Le moteur reconcile le journal avec les autorités métier déjà récupérées et distingue conceptuellement : effet prouvé, absence d’effet prouvée, résultat indéterminé.
+CommandRequest identity
+      ↓
+identifie le contenu B5 soumis
+
+CommandRecoveryContext
+      ↓
+relie éventuellement la transaction à son objet métier
+
+Domain Authority
+      ↓
+établit les faits métier réellement produits
+```
+
+Le `CommandJournal` fournit l'autorité transactionnelle et les preuves nécessaires à l'idempotence. Il ne devient jamais l'autorité de l'état métier.
+
+Le `CommandRecoveryContext`, lorsqu'il existe, ne contient que l'identité minimale permettant de corréler une transaction à son objet ou effet métier. Il ne constitue jamais une copie de l'autorité métier.
+
+### 9.2 Admission transactionnelle
+
+Une simple écriture des registres B5 ne crée aucune transaction. Seul le front montant de `submit` capture une `CommandRequest` complète et cohérente.
+
+Séquence logique :
+
+```text
+submit rising edge
+↓
+capture immutable CommandRequest
+↓
+validate transaction_id
+↓
+lookup transaction_id in CommandJournal
+├── known + same request identity
+│       → retry
+├── known + different request identity
+│       → collision
+└── new valid transaction_id
+        → durable RESERVED
+```
+
+Une écriture rejetée au niveau Modbus ne crée aucune transaction. Un `transaction_id = 0` soumis reste invalide selon la V1 et ne crée aucune identité persistante d'idempotence.
+
+Pour un `transaction_id` valide et nouveau, l'identité transactionnelle durable est créée avant toute évaluation ou exécution pouvant conduire à un résultat transactionnel idempotent.
+
+### 9.3 Identité canonique de requête
+
+Le `transaction_id` identifie la transaction mais ne fait pas partie de l'identité de contenu de la requête.
+
+Pour la V1, l'identité canonique candidate couvre au minimum les valeurs effectivement capturées de :
+
+```text
+command_code
+param1
+param2
+param3
+confirm_key
+```
+
+Les bits `submit`, `cancel_request` et `clear_request_fields` n'appartiennent pas à cette identité.
+
+Même `transaction_id` + même identité de requête :
+
+```text
+retry
+→ aucune nouvelle exécution
+→ restitution du résultat précédent
+```
+
+Même `transaction_id` + identité différente :
+
+```text
+collision transactionnelle
+→ aucun redispatch métier
+```
+
+La réponse protocolaire exacte à cette collision reste `NOT_DEFINED V1`.
+
+La représentation physique de l'identité — champs complets, fingerprint, hash ou combinaison — reste `IMPLEMENTATION`.
+
+### 9.4 Cycle de vie transactionnel
+
+Les états internes conceptuels retenus sont :
+
+```text
+RESERVED
+STARTED
+COMPLETED
+```
+
+Ils ne constituent pas de nouveaux états Modbus.
+
+Sémantique :
+
+```text
+RESERVED
+→ identité transactionnelle durable
+→ aucun effet métier significatif autorisé à commencer
+
+STARTED
+→ frontière autorisant un effet métier franchie
+→ effet possible mais non prouvé
+
+COMPLETED
+→ résultat transactionnel final durable disponible
+```
+
+Une transaction refusée ou finalisée sans effet métier significatif peut évoluer directement de `RESERVED` vers `COMPLETED`.
+
+### 9.5 Barrières de durabilité
+
+Ordre logique :
+
+```text
+capture immutable CommandRequest
+↓
+RESERVED power-loss-safe
+↓
+CommandRecoveryContext power-loss-safe when required
+↓
+STARTED power-loss-safe
+↓
+first significant business effect
+↓
+COMPLETED + final result power-loss-safe
+↓
+final B5 publication
+```
+
+`RESERVED`, `STARTED` et `COMPLETED` sont des barrières logiques de durabilité ; elles n'imposent pas un nombre particulier d'écritures physiques.
+
+L'échec de persistance de `RESERVED` interdit le dispatch.
+
+L'échec de persistance d'un `CommandRecoveryContext` requis interdit le passage à `STARTED`.
+
+L'échec de persistance de `STARTED` interdit le début de tout effet métier significatif.
+
+L'échec de persistance de `COMPLETED` interdit la publication d'un résultat final B5 prétendument durable.
+
+Le contrat de persistance doit fournir une barrière réellement power-loss-safe ; une acceptation en RAM ou dans un cache non durable ne suffit pas.
+
+### 9.6 Idempotence et rétention
+
+Un `transaction_id` déjà traité n'est jamais redispatché.
+
+Succès, refus et échecs finaux appartiennent tous à l'histoire d'idempotence lorsqu'une transaction valide a été admise.
+
+Pour toute transaction finalisée encore considérée comme déjà traitée, l'information durable doit permettre :
+
+- de reconnaître son `transaction_id` ;
+- de comparer l'identité de la requête ;
+- de restituer son résultat précédent sans redispatch.
+
+La profondeur visible B5 de la dernière commande terminée n'est pas la profondeur de l'historique interne d'idempotence.
+
+La politique firmware V1 retenue est `lifetime strict` :
+
+```text
+once admitted
+→ transaction_id permanently known
+→ no implicit reuse
+```
+
+Cette politique est une `FW_POLICY` de confinement. Elle ne définit pas un cycle de vie normatif général du `transaction_id`.
+
+L'espace transactionnel disponible est donc fini :
+
+```text
+1..65535
+```
+
+Après admission des 65535 identifiants, aucun ancien identifiant n'est automatiquement évincé ou rendu libre.
+
+La réponse protocolaire explicite à l'épuisement du namespace reste `NOT_DEFINED V1`.
+
+La politique V1 de réutilisation après disparition de l'historique reste elle-même `NOT_DEFINED V1`.
+
+### 9.7 Recovery d'une transaction RESERVED
+
+Un `RESERVED` valide retrouvé au boot prouve que l'identité transactionnelle a été durablement admise mais que la barrière `STARTED` n'a pas été franchie.
+
+Il fournit donc une preuve d'absence d'effet métier significatif de cette transaction.
+
+Une transaction `RESERVED` :
+
+- conserve définitivement son `transaction_id` ;
+- n'est jamais restaurée comme requête de mailbox ;
+- n'est jamais automatiquement redispatchée ;
+- converge vers une finalisation interne durable d'interruption avant effet.
+
+Le mapping exact de cette finalisation vers `cmd_status`, `cmd_result_code` et `cmd_result_detail` reste `NOT_DEFINED V1`.
+
+Le moteur ne réévalue pas la commande après reboot pour deviner le résultat qu'elle aurait hypothétiquement produit.
+
+### 9.8 Recovery d'une transaction STARTED
+
+Un `STARTED` valide prouve seulement que la frontière autorisant un effet significatif a été franchie.
+
+Il ne prouve ni que l'effet a eu lieu ni que la commande a réussi.
+
+La réconciliation confronte :
+
+```text
+transaction evidence
++
+recovered domain evidence
+↓
+reconciliation outcome
+```
+
+Outcomes conceptuels :
+
+```text
+TERMINAL_EFFECT_PROVEN
+ABSENCE_PROVEN
+INDETERMINATE
+```
+
+`TERMINAL_EFFECT_PROVEN` exige que l'effet terminal pertinent soit durablement démontré avec une causalité suffisante pour être attribué à la transaction considérée.
+
+Un état métier courant simplement compatible avec la commande ne constitue pas une preuve suffisante.
+
+La preuve d'un effet partiel ne constitue pas une preuve de succès terminal.
+
+`ABSENCE_PROVEN` exige une preuve que cette transaction n'a pas produit l'effet significatif considéré. Cette conclusion n'autorise jamais le replay.
+
+Toute situation où ni l'effet terminal ni son absence ne peuvent être prouvés est classée `INDETERMINATE`.
+
+`INDETERMINATE` est un résultat sûr de recovery. Il ne rend jamais le `transaction_id` libre et n'autorise jamais un redispatch.
+
+Le mapping B5 exact des conclusions de recovery non représentées explicitement par la V1 reste `NOT_DEFINED V1`.
+
+### 9.9 CommandRecoveryContext
+
+L'identité canonique de requête utilisée pour l'idempotence B5 et le contexte nécessaire à la réconciliation métier sont deux notions distinctes.
+
+Pour la politique firmware V1 :
+
+```text
+REQUIRED
+  APPLY_CONFIG
+  SYNC_TIME
+  START_ACQUISITION
+  STOP_ACQUISITION
+  SOFTWARE_RESET
+
+OPTIONAL
+  SELFTEST
+
+NO ADDITIONAL B5 RECOVERY PERSISTENCE REQUIRED
+  ACK_FAULT
+  REFRESH_INDICATORS
+  ENTER_MAINTENANCE
+  EXIT_MAINTENANCE
+  RESET_STATISTICS
+```
+
+Cette classification est une `FW_POLICY`.
+
+Contextes conceptuels minimaux possibles :
+
+```text
+APPLY_CONFIG       → identity of candidate configuration
+SYNC_TIME          → identity of prepared synchronization
+START_ACQUISITION  → allocated campaign_id
+STOP_ACQUISITION   → target campaign_id
+SOFTWARE_RESET     → BootIntent correlation
+```
+
+Les formes physiques restent `IMPLEMENTATION`.
+
+Pour `START_ACQUISITION`, l'allocation/réservation d'un `campaign_id` doit rester distincte de l'ouverture métier autoritative de la campagne afin qu'aucun effet significatif n'apparaisse avant `STARTED`.
+
+### 9.10 Recovery d'une transaction COMPLETED
+
+Un `COMPLETED` valide constitue l'autorité transactionnelle du résultat final historique.
+
+Il n'est jamais revalidé à partir de l'état métier courant et n'est jamais redispatché.
+
+Un retry cohérent restitue le résultat durable précédent.
+
+Une évolution ultérieure de l'état métier ne modifie jamais rétroactivement le résultat de la transaction.
+
+Après `COMPLETED`, les informations spécifiques de recovery peuvent être compactées si restent durablement disponibles :
+
+- l'identité transactionnelle ;
+- l'identité de requête ;
+- le résultat final nécessaire à l'idempotence.
+
+### 9.11 Projection B5
+
+B5 reste une projection du moteur transactionnel.
+
+`cmd_last_*` représente la dernière transaction logiquement terminée, quel que soit son résultat final.
+
+L'ordre de terminaison n'est jamais déduit de la valeur numérique du `transaction_id`.
+
+Le `CommandJournal`, son ordre durable ou une métadonnée reconstructible doivent permettre d'identifier la dernière transaction terminée.
+
+Une copie persistante éventuelle de `cmd_last_*` reste un cache dérivé, jamais une seconde autorité.
+
+Un timestamp original durable est restitué sans modification. Un retry ou un reboot ne crée jamais un nouveau timestamp de terminaison.
+
+Lorsqu'aucun timestamp valide n'existait lors de la terminaison, le recovery n'en invente aucun. La représentation B5 exacte de cette absence reste `NOT_DEFINED V1`.
+
+### 9.12 Corruption
+
+Une preuve transactionnelle corrompue ou indéterminée n'est jamais interprétée comme une identité libre.
+
+Si l'identité d'une transaction reste démontrable mais que son résultat final est perdu ou corrompu :
+
+```text
+transaction remains protected
+→ never redispatch
+→ result becomes indeterminate
+```
+
+La présence d'une preuve plus récente corrompue interdit de considérer silencieusement un record valide plus ancien comme étant nécessairement la dernière commande terminée.
+
+Les index et métadonnées d'optimisation reconstructibles ne sont jamais l'autorité transactionnelle.
+
+### 9.13 Endurance et représentation physique
+
+Le coût informationnel conservateur d'une transaction complète est de l'ordre de 24 à 32 octets avant choix final du format persistant.
+
+Conserver une preuve complète pour 65535 identifiants représente conceptuellement environ 1,5 à 2 MiB.
+
+Cette estimation ne préjuge pas de la technologie NVM.
+
+Capacité, amplification d'écriture, endurance, distribution des écritures et atomicité power-loss doivent être évaluées séparément lors de l'architecture d'implémentation.
+
+L'architecture n'impose jamais une concentration inutile des écritures sur une cellule ou une métadonnée unique.
+
+### 9.14 Limitations V1 identifiées par K1
+
+Restent explicitement `NOT_DEFINED V1` :
+
+- cycle de vie normatif du `transaction_id` ;
+- wrap / réutilisation après disparition de l'historique ;
+- comportement protocolaire explicite en cas d'épuisement des 65535 identifiants ;
+- réponse exacte à même txid + requête différente ;
+- représentation B5 d'une transaction interrompue avant effet ;
+- représentation B5 d'un résultat post-crash `INDETERMINATE` ;
+- représentation d'un timestamp final indisponible.
+
+Ces points sont candidats V1.1 et ne sont pas complétés silencieusement par la politique firmware V1.
 
 ### Invariants
 
@@ -346,8 +693,27 @@ Une transaction interne `STARTED` retrouvée au boot n’est jamais rejouée aut
 - **H-REC-02** — la réconciliation s’effectue contre les autorités métier récupérées.
 - **H-RST-01** — un reset logiciel commandé laisse sa trace durable et son `BootIntent` avant reset.
 - **H-PUB-01** — B5 est exposé depuis un `CommandSnapshot` cohérent.
+- **H-ADM-01** — une requête valide avec txid nouveau est durablement admise avant son résultat transactionnel.
+- **H-REQ-01** — identité transactionnelle et identité de contenu de requête restent distinctes.
+- **H-IDEM-03** — un même txid associé à une requête différente est une collision et n'autorise aucun redispatch.
+- **H-STATE-01** — `RESERVED`, `STARTED` et `COMPLETED` sont des barrières logiques de durabilité.
+- **H-STATE-02** — `RESERVED` prouve l'absence d'effet métier significatif de la transaction.
+- **H-STATE-03** — `STARTED` prouve seulement qu'un effet a pu commencer.
+- **H-STATE-04** — `COMPLETED` prouve l'existence d'un résultat transactionnel final durable.
+- **H-REC-03** — un état métier compatible ne constitue pas à lui seul une preuve causale de la transaction.
+- **H-REC-04** — un effet partiel ne constitue pas une preuve de succès terminal.
+- **H-REC-05** — `INDETERMINATE` reste protégé contre tout replay.
+- **H-RCTX-01** — le `CommandRecoveryContext` est une preuve de corrélation minimale et jamais une autorité métier.
+- **H-RCTX-02** — tout contexte requis pour attribuer un effet est durable avant cet effet.
+- **H-LIFE-01** — la politique firmware V1 ne rend jamais volontairement libre un txid déjà admis.
+- **H-LIFE-02** — le renouvellement du namespace des txid reste une limite normative ouverte.
+- **H-CPL-01** — un résultat `COMPLETED` valide est historique et immuable.
+- **H-CPL-02** — l'ordre numérique des txid ne définit jamais l'ordre de terminaison.
+- **H-CORR-01** — corruption ou indétermination d'une preuve ne transforme jamais une identité connue en identité libre.
 
-Restent ouverts : profondeur/rétention du journal, wrap/réutilisation txid, fingerprint exact, mapping d’un cas indéterminé, timestamp final si WallClock invalide.
+Restent ouverts au niveau d'implémentation : représentation physique du journal, technologie NVM, format du fingerprint, indexation, stratégie d'endurance et emplacement physique des contextes de recovery.
+
+Restent `NOT_DEFINED V1` les limitations listées en 9.14.
 
 ---
 
@@ -525,19 +891,27 @@ La méthode de génération reste ouverte, mais elle doit être crash-safe vis-�
 
 ### À résoudre avant implémentation fonctionnelle
 
-- profondeur/rétention du `CommandJournal` ;
-- wrap/réutilisation du `transaction_id` ;
 - comportement global si identité absente/corrompue ;
 - projection B4 lorsqu’aucune active n’est récupérable et que le staging est vide ;
 - critères de validité temporelle au boot et reconstruction de `time_since_sync` ;
 - projection B7 d’un timestamp historique absent et d’un selftest interrompu ;
 - politique d’agrégation `system_status` B1 / `system_health_status` B7.
 
+### Limitations transactionnelles V1 identifiées par K1
+
+- cycle de vie normatif, wrap et réutilisation du `transaction_id` ;
+- comportement protocolaire explicite en cas d’épuisement des 65535 identifiants ;
+- réponse protocolaire pour même `transaction_id` + requête/fingerprint différent ;
+- représentation B5 d’une transaction interrompue avant effet ;
+- représentation B5 d’un résultat post-crash `INDETERMINATE` ;
+- représentation d’un timestamp final indisponible.
+
 ### FW_POLICY / IMPLEMENTATION pouvant être traitées plus tard
 
 - algorithme exact de `campaign_id` ;
 - format et taille des chunks ;
 - média physique, filesystem, layout NVM ;
+- représentation physique du `CommandJournal`, indexation et stratégie d’endurance ;
 - GC/compaction/wear strategy ;
 - DMA, RTOS, synchronisation, publication lock-free/mutex/double-buffer ;
 - seuils techniques température/tension/surconsommation ;
@@ -545,7 +919,10 @@ La méthode de génération reste ouverte, mais elle doit être crash-safe vis-�
 
 ### Candidats V1.1
 
+- cycle de vie / renouvellement du namespace `transaction_id` ;
+- indication explicite d’approche ou d’épuisement du namespace ;
 - réponse protocolaire explicite pour même `transaction_id` + requête/fingerprint différent ;
+- représentation B5 des transactions interrompues avant effet et des résultats `INDETERMINATE` ;
 - clarification de certaines projections lorsque le temps historique est indisponible ;
 - éventuel journal circulaire de défauts ou statistiques persistantes supplémentaires.
 
