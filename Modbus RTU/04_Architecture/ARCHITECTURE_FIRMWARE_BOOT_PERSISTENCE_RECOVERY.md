@@ -115,7 +115,10 @@ Une donnée peut être `P/R` si l'autorité persistante permet de la reconstruir
 - état runtime de commande active : `V` avec éventuelle trace de recovery ;
 - journal d'exécution durable : `PF` ;
 - dernière commande terminée : `PF` ;
-- historique minimal / idempotence : `PF`.
+- historique minimal / idempotence : `PF` ;
+- identité canonique des transactions admises : `PF` ;
+- résultat final nécessaire à l'idempotence : `PF` ;
+- `CommandRecoveryContext` minimal lorsque requis par la commande : `PF` jusqu'à finalisation/compaction de la transaction.
 
 ### 3.6 Diagnostic B7
 
@@ -132,7 +135,9 @@ Une donnée peut être `P/R` si l'autorité persistante permet de la reconstruir
 - **A-PERSIST-01** — Les zones de staging Modbus ne constituent jamais par elles-mêmes un état métier persistant.
 - **A-PERSIST-02** — On persiste l'autorité métier minimale ; une projection reconstructible n'est pas persistée sans besoin explicite.
 
-Restent ouverts : mécanisme exact de génération `campaign_id`, profondeur/rétention B5 et périmètre exact des statistiques persistantes.
+Restent ouverts : mécanisme exact de génération `campaign_id`, périmètre exact des statistiques persistantes et représentation physique du stockage transactionnel B5.
+
+La profondeur/rétention logique B5 est désormais définie par la politique firmware `lifetime strict` décrite dans `ARCHITECTURE_FIRMWARE_SERVICES_MODBUS_V1.md` : aucune identité transactionnelle admise n'est volontairement rendue libre en V1.
 
 ---
 
@@ -183,6 +188,62 @@ Le curseur `selected_campaign_index` reste volatile.
 
 Le `CommandJournal` est persistant par politique firmware TR2.
 
+Le détail de l'architecture transactionnelle B5, de la politique `lifetime strict`, de l'identité canonique de requête et des `CommandRecoveryContext` est défini dans la section H de `ARCHITECTURE_FIRMWARE_SERVICES_MODBUS_V1.md`.
+
+Le présent document fixe uniquement les conséquences nécessaires au boot et au recovery.
+
+### 6.1 États transactionnels récupérés
+
+Les états conceptuels internes sont :
+
+```text
+RESERVED
+STARTED
+COMPLETED
+```
+
+Ils ne constituent pas de nouveaux états Modbus.
+
+Au boot :
+
+```text
+RESERVED
+→ absence d'effet significatif prouvée
+→ aucune reprise / aucun redispatch
+→ finalisation recovery durable
+
+STARTED
+→ effet possible
+→ réconciliation avec les autorités métier déjà récupérées
+→ TERMINAL_EFFECT_PROVEN / ABSENCE_PROVEN / INDETERMINATE
+→ aucun redispatch
+
+COMPLETED
+→ résultat final transactionnel durable
+→ aucune réévaluation métier
+→ restauration de l'idempotence et des projections B5
+```
+
+Une transaction admise n'est jamais transformée en identité libre par le recovery.
+
+### 6.2 RecoveryContext
+
+Lorsqu'une commande nécessite une preuve de corrélation métier, le `CommandRecoveryContext` correspondant est récupéré avec le journal.
+
+Ce contexte ne constitue jamais l'autorité métier.
+
+Il ne sert qu'à relier la transaction aux faits détenus par les repositories/services métier déjà récupérés.
+
+Un contexte absent, corrompu ou insuffisant ne permet jamais d'inventer une conclusion positive ; le résultat reste au minimum `INDETERMINATE`.
+
+### 6.3 Corruption
+
+`ABSENT`, `CORRUPTED`, `UNAVAILABLE` et `UNSUPPORTED` restent distincts au niveau du stockage transactionnel.
+
+Une preuve transactionnelle corrompue ou indéterminée n'est jamais considérée comme un txid libre.
+
+Si l'identité d'une transaction reste démontrable mais que son résultat final est perdu, elle reste protégée contre tout replay.
+
 Invariants principaux :
 
 - **D-CMD-01** — L'historique nécessaire au recovery/idempotence est persistant.
@@ -196,8 +257,11 @@ Invariants principaux :
 - **D-CMD-10** — Historique corrompu et historique absent restent distincts.
 - **D-CMD-11** — Une commande provoquant un reboot laisse une trace durable avant déclenchement du reset.
 - **D-CMD-12** — L'objectif est « no blind replay + deterministic recovery when provable », pas une promesse générique « exactly once ».
-
-États conceptuels internes possibles : `RESERVED`, `STARTED`, `COMPLETED`. Ils ne constituent pas de nouveaux états Modbus.
+- **D-CMD-13** — Une transaction `RESERVED` valide trouvée au boot prouve que son effet significatif n'a pas commencé.
+- **D-CMD-14** — Une transaction `COMPLETED` valide n'est jamais revalidée depuis l'état métier courant.
+- **D-CMD-15** — Aucun txid durablement admis n'est rendu libre par reboot, recovery, corruption ou résultat indéterminé.
+- **D-CMD-16** — Les preuves de corrélation requises sont récupérées avant toute conclusion de réconciliation.
+- **D-CMD-17** — Un état métier simplement compatible avec la commande ne constitue pas à lui seul une preuve causale.
 
 ---
 
@@ -278,6 +342,8 @@ Invariants :
 - **G-BOOT-05** — l'absence de configuration valide n'empêche pas le système de devenir diagnostiquable.
 - **G-BOOT-06** — recovery campagne uniquement depuis son contexte historique propre.
 - **G-BOOT-07** — reconciliation B5 après récupération des autorités métier nécessaires.
+- **G-BOOT-07A** — les `CommandRecoveryContext` nécessaires sont récupérés et validés avant conclusion de la réconciliation B5.
+- **G-BOOT-07B** — aucune transaction durablement admise n'est interprétée comme nouvelle ou libre pendant le recovery.
 - **G-BOOT-08** — aucun service runtime ne déclenche automatiquement une action métier lors de son initialisation.
 - **G-BOOT-09** — les conditions diagnostiques actives sont évaluées après disponibilité de leurs producteurs.
 - **G-BOOT-10** — aucune projection Modbus initiale ne dérive d'un recovery encore incomplet.
@@ -428,15 +494,20 @@ Principes :
 
 Les sujets suivants restent explicitement non gelés par cette architecture :
 
-- profondeur/durée/rétention du journal d'idempotence B5 ;
+- cycle de vie normatif, réutilisation et wrap des transaction IDs ;
+- comportement protocolaire explicite en cas d'épuisement des 65535 identifiants ;
 - comportement protocolaire exact « même txid, requête différente » lorsqu'il n'est pas défini par V1 ;
-- réutilisation/wrap des transaction IDs ;
+- représentation B5 d'une transaction interrompue avant effet ;
+- représentation B5 d'un résultat post-crash `INDETERMINATE` ;
+- représentation d'un timestamp final indisponible ;
 - mécanisme exact de génération/récupération de `campaign_id` ;
 - périmètre exact des statistiques persistantes et de `RESET STATISTICS` ;
 - priorité précise entre plusieurs causes matérielles de reset concurrentes ;
 - comportement exact à saturation de certains compteurs si la V1 ne le définit pas ;
 - type de NVM, filesystem, layout physique, taille des slots/chunks, fréquence des checkpoints, algorithme de GC ;
 - politique cryptographique éventuelle de confidentialité/authenticité, hors baseline V1 actuelle.
+
+La profondeur/rétention logique du `CommandJournal` n'est plus ouverte : la politique firmware V1 `lifetime strict` conserve toute identité transactionnelle admise. La représentation physique de cette politique reste un choix d'implémentation.
 
 Ces points doivent rester `NOT_DEFINED V1`, `FW_POLICY à définir` ou `IMPLEMENTATION` selon leur nature.
 
