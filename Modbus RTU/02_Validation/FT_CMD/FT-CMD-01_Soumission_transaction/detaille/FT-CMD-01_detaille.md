@@ -143,6 +143,26 @@ La conformité de l'accès Modbus en lui-même est propriétaire FT-ACC ; le ver
 
 ---
 
-## Dette non instanciée — transaction_id invalide
+## TT-CMD-B05-007 — transaction_id nul refusé fonctionnellement
 
-Aucun test n'est généré pour `cmd_result_code = 14` tant que la V1 ne définit pas une valeur ou une règle déterministe permettant de produire un `transaction_id` invalide.
+**Objectif**  
+Vérifier la règle normative selon laquelle `transaction_id = 0` est invalide pour toute soumission de commande.
+
+**Préconditions**
+- aucune commande active ;
+- choisir un code de commande valide et non protégé, par exemple `7` ;
+- `submit = 0`.
+
+**Étapes**
+1. écrire le code de commande valide ;
+2. écrire `cmd_request_transaction_id = 0` ;
+3. générer `submit : 0 → 1` sans bit réservé ;
+4. observer les informations de résultat B5.
+
+**Résultat attendu**
+- l'écriture de `0` dans le registre RW est acceptée au niveau Modbus ;
+- l'action demandée n'est pas exécutée ;
+- `cmd_result_code = 14` (`transaction_id invalide`) est exposé.
+
+**Frontière**  
+La validité de l'accès Modbus au registre 5001 reste propriétaire FT-ACC ; FT-CMD valide ici le refus fonctionnel lors de la soumission.
