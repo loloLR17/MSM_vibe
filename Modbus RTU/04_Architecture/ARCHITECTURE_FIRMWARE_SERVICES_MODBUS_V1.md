@@ -168,6 +168,9 @@ Prepared, validated, active durable et active runtime sont quatre états distinc
 - **D-CONF-10** — aucune configuration active par défaut n’est inventée lorsqu’aucune autorité récupérable n’existe.
 - **D-CONF-11** — une nouvelle configuration active ne déclenche pas implicitement une campagne.
 - **D-CONF-12** — une campagne historique n’est jamais reconstruite depuis l’active actuelle.
+- **D-CONF-13** — L'absence d'`ActiveConfigurationSnapshot` constitue un état runtime explicite ; une projection B4 neutralisée ne constitue jamais une `ActiveConfiguration`.
+- **D-CONF-14** — Le commit durable du `ConfigurationStore` constitue la frontière d'existence d'une nouvelle `ActiveConfiguration` ; les snapshots runtime et B4 sont des projections postérieures à cette frontière.
+- **D-CONF-15** — `ActiveConfiguration` et `config_revision_counter` appartiennent au même commit logique par `FW_POLICY`.
 
 ---
 
@@ -250,6 +253,8 @@ B3 projection
 - **F-SUP-06** — les âges/durées runtime utilisent un repère monotone lorsque possible ; les timestamps civils viennent de `TimeService`.
 - **F-SUP-07** — les snapshots live ne sont pas restaurés depuis NVM comme autorité après reboot.
 - **F-RUN-01** — l’initialisation acquisition/supervision au boot ne lance aucune campagne.
+- **F-RUN-02** — `AcquisitionService` ne peut démarrer sans `ActiveConfigurationSnapshot` autoritatif.
+- **F-RUN-03** — `AcquisitionService` ne reconstruit jamais sa configuration depuis la projection Modbus B4.
 
 ---
 
@@ -892,10 +897,11 @@ La méthode de génération reste ouverte, mais elle doit être crash-safe vis-�
 ### À résoudre avant implémentation fonctionnelle
 
 - comportement global si identité absente/corrompue ;
-- projection B4 lorsqu’aucune active n’est récupérable et que le staging est vide ;
 - critères de validité temporelle au boot et reconstruction de `time_since_sync` ;
 - projection B7 d’un timestamp historique absent et d’un selftest interrompu ;
 - politique d’agrégation `system_status` B1 / `system_health_status` B7.
+
+La projection B4 sans active récupérable est désormais confinée par la `FW_POLICY` K2 documentée dans `ARCHITECTURE_FIRMWARE_BOOT_PERSISTENCE_RECOVERY.md`. Sa représentation normative exhaustive reste `NOT_DEFINED V1` et candidate V1.1.
 
 ### Limitations transactionnelles V1 identifiées par K1
 

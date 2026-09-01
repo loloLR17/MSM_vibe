@@ -145,6 +145,8 @@ La profondeur/rétention logique B5 est désormais définie par la politique fir
 
 **FW_POLICY** : l'`ActiveConfiguration` survit au reboot ; les zones prepared/validated ne survivent pas.
 
+### 4.1 Autorité et recovery
+
 Séquence :
 
 ```text
@@ -152,17 +154,139 @@ ConfigurationStore
 → lecture des candidats
 → validation structure / version / intégrité
 → validation métier
-→ sélection de la dernière génération autoritative valide
-→ construction d'un ActiveConfigurationSnapshot immuable
-→ publication atomique
-→ reconstruction de la projection B4
+→ ConfigurationRecoveryResult
+    ├── VALID
+    ├── EMPTY
+    ├── CORRUPTED
+    ├── UNAVAILABLE
+    └── UNSUPPORTED
 ```
 
-Aucune configuration partiellement récupérée n'est publiée.
+`VALID` conduit à la sélection de la dernière génération autoritative valide, à la construction d'un `ActiveConfigurationSnapshot` immuable, à sa publication atomique puis à la reconstruction de la projection B4.
 
-Si aucune configuration valide n'existe, le firmware ne transforme pas silencieusement cette situation en configuration active par défaut, sauf politique distincte explicitement définie plus tard.
+`EMPTY`, `CORRUPTED`, `UNAVAILABLE` et `UNSUPPORTED` restent des résultats de recovery distincts. Aucun d'eux n'autorise la publication d'une `ActiveConfiguration` runtime.
+
+Aucune configuration partiellement récupérée n'est publiée. Une ancienne projection B4, une image 4E, un CRC B4 ou un ancien état volatile ne sont jamais utilisés pour reconstruire ou inventer une autorité `ActiveConfiguration`.
+
+Prepared et validated étant volatiles, ils ne sont jamais restaurés au reboot.
 
 Le CRC B4 reste calculé sur la représentation normative B4 ; il n'est pas confondu avec l'intégrité physique du record persistant.
+
+### 4.2 Absence d'ActiveConfiguration et projection B4 neutre
+
+Lorsque prepared, validated et active sont tous absents, la politique firmware TR2 projette un état B4 neutre :
+
+```text
+prepared_config_id       = 0
+prepared staging         = neutral / empty
+active_config_id         = 0
+config_state             = VIDE
+config_error_code        = 0
+active zone 4E           = 76 registres à 0
+active_config_crc        = CRC-32/IEEE 802.3 de la 4E exposée
+config_revision_counter  = valeur historique persistante récupérée,
+                           ou traitement recovery distinct si elle-même indisponible
+```
+
+`config_state = VIDE` et `config_error_code = 0` sont ici des `FW_POLICY` de projection neutre ; ils ne créent pas une nouvelle sémantique normative V1 de l'absence d'active.
+
+La zone 4E neutralisée ne possède aucune autorité métier. `active_config_id = 0` est la condition déterminante d'absence d'active ; un CRC mathématiquement correct ne constitue jamais une preuve d'existence.
+
+Pour 76 registres nuls, soit 152 octets nuls, le CRC-32/IEEE 802.3 de la 4E neutre vaut `0x177C92D9`.
+
+Aucun ancien contenu 4E ni ancien `active_config_crc` n'est conservé lorsqu'aucune `ActiveConfiguration` autoritative n'est récupérable.
+
+Le `config_revision_counter` n'est ni remis à zéro ni incrémenté du seul fait d'un reboot ou de l'absence d'active. Il est récupéré depuis son autorité persistante lorsqu'elle est disponible.
+
+### 4.3 Diagnostic de recovery
+
+`EMPTY` décrit l'absence de record autoritatif et n'est pas, à lui seul, un défaut.
+
+`CORRUPTED`, `UNAVAILABLE` et `UNSUPPORTED` produisent des faits diagnostiques internes distincts. Ils ne sont jamais normalisés en `EMPTY` et ne sont pas automatiquement transformés en `ERREUR_VALIDATION`, `ERREUR_APPLICATION` ou nouveau `config_error_code`.
+
+Ces quatre résultats convergent vers la même projection B4 neutre lorsque aucune active autoritative n'existe, mais la cause interne de recovery est conservée et transmise au `DiagnosticService` / `SystemStateAggregator`.
+
+Toute projection éventuelle de `CORRUPTED`, `UNAVAILABLE` ou `UNSUPPORTED` vers B1/B7 utilise exclusivement les états, flags et codes déjà définis par la V1. Une correspondance absente reste `NOT_DEFINED V1`.
+
+### 4.4 Conséquences fonctionnelles de l'absence d'active
+
+Une acquisition ne peut jamais démarrer sans `ActiveConfigurationSnapshot` autoritatif.
+
+Une zone B4/4E neutralisée n'est jamais consommée par `AcquisitionService` comme configuration de remplacement.
+
+Une commande B5 de démarrage soumise sans configuration active valide est refusée avec le résultat V1 existant `cmd_result_code = 22` (« démarrage impossible : aucune configuration active valide »).
+
+Ce refus intervient avant tout effet métier significatif : aucune acquisition n'est lancée, aucune campagne durable n'est ouverte et aucun `campaign_id` n'est consommé durablement.
+
+L'absence d'active ne constitue pas un verrou global du firmware. Le serveur Modbus reste disponible et le staging B4, la validation puis `APPLY` restent accessibles selon leurs propres préconditions afin de permettre la création d'une nouvelle active. Les autres commandes B5 conservent leurs propres règles V1/FW_POLICY.
+
+Une `ActiveConfiguration` récupérée au boot ne déclenche jamais automatiquement une acquisition ou une campagne.
+
+### 4.5 Premier APPLY depuis l'état neutre
+
+L'application d'une première configuration active respecte les barrières transactionnelles B5 définies dans `ARCHITECTURE_FIRMWARE_SERVICES_MODBUS_V1.md` :
+
+```text
+capture immutable CommandRequest
+↓
+RESERVED power-loss-safe
+↓
+APPLY CommandRecoveryContext power-loss-safe
+↓
+STARTED power-loss-safe
+↓
+construction / validation du nouveau record ActiveConfiguration
+↓
+ConfigurationStore durable commit   ← frontière métier d'existence de l'active
+↓
+construction ActiveConfigurationSnapshot
+↓
+publication runtime atomique
+↓
+construction / publication cohérente de B4
+↓
+COMPLETED + final result power-loss-safe
+↓
+publication finale B5
+```
+
+Le commit durable du `ConfigurationStore` constitue la frontière logique d'existence de la nouvelle `ActiveConfiguration`. Le nombre d'écritures physiques, le format du record et le mécanisme d'atomicité restent `IMPLEMENTATION`.
+
+Avant cette frontière, un power-loss ne peut pas produire la nouvelle active au reboot. Après cette frontière, un power-loss ne peut pas faire revenir le système à « no active configuration » tant que le record autoritatif reste récupérable.
+
+`ActiveConfigurationSnapshot` et B4 sont des reconstructions postérieures à l'autorité durable ; ils ne déterminent jamais le résultat du recovery.
+
+La publication runtime/B4 est cohérente par génération : aucune combinaison intermédiaire old/new/neutral ne doit être exposée.
+
+Par `FW_POLICY`, la nouvelle `ActiveConfiguration` et la nouvelle valeur de `config_revision_counter` appartiennent au même commit logique. L'événement normatif exact d'incrément du compteur reste `NOT_DEFINED V1`.
+
+Le `CommandRecoveryContext` d'`APPLY` identifie suffisamment le candidat pour permettre une réconciliation causale après crash. Une transaction `STARTED` n'est classée `TERMINAL_EFFECT_PROVEN` que si l'autorité récupérée peut être corrélée à ce candidat ; une simple compatibilité d'état ne suffit pas.
+
+Après le commit durable, le staging n'est plus une autorité nécessaire à l'existence ni au recovery de l'`ActiveConfiguration`.
+
+### 4.6 Invariants K2
+
+- **K2-01** — `PreparedConfiguration` et `ValidatedConfiguration` sont volatiles et ne survivent pas au reboot.
+- **K2-02** — Seule une `ActiveConfiguration` complètement récupérée, intègre et métier-valide peut devenir autorité runtime.
+- **K2-03** — Aucune configuration par défaut, ancienne projection B4 ou image 4E n'est utilisée pour fabriquer une `ActiveConfiguration` absente.
+- **K2-04** — `EMPTY`, `CORRUPTED`, `UNAVAILABLE` et `UNSUPPORTED` restent distincts dans le recovery même s'ils conduisent tous à no `ActiveConfiguration`.
+- **K2-05** — Sans `ActiveConfiguration` et sans staging, B4 utilise la projection neutre firmware : `active_config_id=0`, `config_state=VIDE`, `config_error_code=0`, 4E neutralisée.
+- **K2-06** — Une 4E neutralisée n'a aucune autorité métier ; `active_config_id=0` est la condition déterminante d'absence d'active.
+- **K2-07** — `active_config_crc` reste cohérent avec la 4E effectivement exposée ; pour la 4E neutre V1, sa valeur est `0x177C92D9`.
+- **K2-08** — `config_revision_counter` est une autorité historique persistante ; reboot et absence d'active ne le modifient pas implicitement.
+- **K2-09** — `CORRUPTED`, `UNAVAILABLE` et `UNSUPPORTED` produisent des faits diagnostic distincts sans inventer de nouvel état/code B4 V1.
+- **K2-10** — Une acquisition ne peut jamais démarrer sans `ActiveConfigurationSnapshot` autoritatif.
+- **K2-11** — B5 START sans active valide utilise le résultat V1 existant `22`.
+- **K2-12** — Un START refusé faute d'active ne crée aucun effet métier : pas de campagne ouverte et pas de `campaign_id` consommé durablement.
+- **K2-13** — L'absence d'active ne bloque pas le processus prepared → validate → APPLY permettant de sortir de l'état neutre.
+- **K2-14** — Le commit durable du `ConfigurationStore` constitue la frontière d'existence d'une nouvelle `ActiveConfiguration`.
+- **K2-15** — Une `ActiveConfiguration` n'est jamais publiée runtime/B4 avant son commit durable.
+- **K2-16** — Après commit durable, snapshots et B4 sont des reconstructions ; une coupure ne peut annuler l'autorité engagée.
+- **K2-17** — La publication runtime/B4 est cohérente par génération et n'expose jamais un mélange old/new/neutral.
+- **K2-18** — L'APPLY respecte les barrières transactionnelles K1 ; son `RecoveryContext` identifie le candidat appliqué.
+- **K2-19** — Après crash, un APPLY `STARTED` ne devient `TERMINAL_EFFECT_PROVEN` que si l'autorité récupérée est causalement corrélable à cette transaction.
+- **K2-20** — Nouvelle `ActiveConfiguration` et nouvelle valeur du `config_revision_counter` appartiennent au même commit logique par `FW_POLICY`.
+- **K2-21** — La représentation normative exhaustive de « no active configuration » reste `NOT_DEFINED V1` et demeure portée par `V11-CFG-02`.
 
 ---
 
