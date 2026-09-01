@@ -164,6 +164,8 @@ Le Bloc 6 ne contient **qu’une seule entrée visible à la fois**.
 
 |      5 | partiellement corrompue |
 
+| 6..65535 | réservés              |
+
 
 
 ---
@@ -297,9 +299,10 @@ Le Bloc 6 ne contient **qu’une seule entrée visible à la fois**.
 
 
 
-* identifiant unique de campagne
-
-* ne doit jamais être `0` pour une campagne valide
+* ne doit jamais être `0` pour une campagne valide ;
+* deux campagnes distinctes présentes dans l’inventaire d’un même TR2 doivent avoir des valeurs de `campaign_id` distinctes ;
+* aucune unicité inter-capteurs n’est imposée par la V1 ;
+* côté centrale, l’identification globale d’une campagne repose sur le couple `(device_id, campaign_id)`.
 
 
 
@@ -325,9 +328,10 @@ Le Bloc 6 ne contient **qu’une seule entrée visible à la fois**.
 
 
 
-* cohérent avec timestamps
-
-* peut être recalculé firmware
+* pour une campagne terminée dont `start_timestamp` et `end_timestamp` appartiennent à une base de temps continue sans resynchronisation affectant l’intervalle : `duration_s = end_timestamp - start_timestamp` ;
+* pour une campagne en cours (`end_timestamp = 0`), la V1 ne définit pas de relation arithmétique obligatoire entre `duration_s` et les timestamps ;
+* pour une campagne traversant une discontinuité de la base de temps due à une resynchronisation, la V1 ne définit pas de relation arithmétique obligatoire entre `duration_s` et les timestamps ;
+* dans ces deux derniers cas, la centrale ne doit pas déduire une durée par simple soustraction des timestamps.
 
 
 
