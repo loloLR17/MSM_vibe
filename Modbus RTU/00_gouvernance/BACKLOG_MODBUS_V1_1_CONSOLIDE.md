@@ -190,14 +190,14 @@ Répartition après consolidation :
 ### V11-TIME-01 — Modèle complet de `time_status` et état DEGRADED
 
 - **Domaine** : B2 — Temps
-- **Origine** : audit transversal V1 ; registre des limites
+- **Origine** : audit transversal V1 ; registre des limites ; arbitrage K3
 - **Règle V1 actuelle** : machine d'état exhaustive, critères complets de DEGRADED et priorités entre causes temporelles non définis.
 - **Limite observée** : mêmes faits temporels susceptibles de produire des états différents.
 - **Classification actuelle** : `NOT_DEFINED V1` / `V1.1 CANDIDATE`
 - **Impact opérationnel** : confiance temporelle interprétée différemment par la centrale.
 - **Impact safety / idempotence** : indirect, notamment sur datation et synchronisation.
-- **Contournement V1 actuel** : politique temporelle firmware conservatrice.
-- **Besoin réel V1.1** : définir les transitions et invariants réellement interopérables.
+- **Contournement V1 actuel** : politique temporelle firmware conservatrice K3 ; `CONTINUITY_INDETERMINATE` n'est pas assimilé automatiquement à `DEGRADED` et `SYNCHRONIZED` exige une continuité prouvée.
+- **Besoin réel V1.1** : définir les transitions, critères de DEGRADED et invariants réellement interopérables.
 - **Risque de compatibilité** : moyen à élevé.
 - **Décision** : `IMPORTANT`
 - **Proposition normative** :
@@ -205,15 +205,15 @@ Répartition après consolidation :
 ### V11-TIME-02 — Validité temporelle après boot et `time_since_sync`
 
 - **Domaine** : B2 / Boot-Recovery
-- **Origine** : architecture firmware Modbus V1
-- **Règle V1 actuelle** : les critères exacts permettant de considérer le temps civil valide après boot et la reconstruction de `time_since_sync` ne sont pas entièrement définis.
-- **Limite observée** : un reboot peut casser la continuité d'informations temporelles exposées.
-- **Classification actuelle** : `FW_POLICY` à définir sur les parties non normées / `V1.1 CANDIDATE`
-- **Impact opérationnel** : interprétation de la fraîcheur de synchronisation.
-- **Impact safety / idempotence** : indirect.
-- **Contournement V1 actuel** : ne pas inventer d'information temporelle absente et appliquer une politique conservative.
-- **Besoin réel V1.1** : clarifier ce qui doit être observable après reboot.
-- **Risque de compatibilité** : moyen.
+- **Origine** : architecture firmware Modbus V1 ; arbitrage K3
+- **Règle V1 actuelle** : les critères exacts permettant de considérer le temps civil valide après boot, de prouver la continuité d'une synchronisation historique et de représenter l'indisponibilité de `last_sync_time` / `time_since_sync_s` ne sont pas entièrement définis.
+- **Limite observée** : un reboot peut casser la continuité des informations temporelles exposées ; V1 impose des champs `uint32` mais ne fournit pas de sentinel normative ni d'indicateur d'indisponibilité explicite pour ces deux informations.
+- **Classification actuelle** : `NOT_DEFINED V1` sur la représentabilité / `FW_POLICY` K3 définie pour le confinement V1 / `V1.1 CANDIDATE`
+- **Impact opérationnel** : interprétation de la fraîcheur de synchronisation, distinction entre heure civile utilisable et heure encore démontrablement synchronisée, et lecture des valeurs numériques en situation d'indisponibilité.
+- **Impact safety / idempotence** : indirect ; important pour la fidélité temporelle des historiques et la non-fabrication de timestamps.
+- **Contournement V1 actuel** : K3 sépare `civil_time_usable`, `sync_continuity_proven`, `LastSyncHistory` et `TimeSinceSync`; la continuité n'est reconnue que sur preuve positive ; `time_since_sync` reste `UNAVAILABLE` si la continuité n'est pas prouvée. Pour la projection V1, `time_since_sync_s = 0xFFFFFFFF` lorsque la durée est indisponible et, en cas de `NEVER_SYNCHRONIZED`, `last_sync_time = 0` avec `SYNC_PERFORMED = 0`; ces valeurs sont explicitement des conventions `FW_POLICY`, jamais des sentinelles normatives V1.
+- **Besoin réel V1.1** : définir explicitement la représentation de l'indisponibilité de `last_sync_time` et `time_since_sync_s` — sentinelles réservées, indicateurs de validité/disponibilité ou mécanisme équivalent — ainsi que les invariants observables nécessaires après reboot, sans imposer le mécanisme matériel de preuve de continuité.
+- **Risque de compatibilité** : moyen à élevé si une future représentation réserve des valeurs actuellement valides ou modifie l'interprétation de combinaisons status/flags existantes.
 - **Décision** : `IMPORTANT`
 - **Proposition normative** :
 
