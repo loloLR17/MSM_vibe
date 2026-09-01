@@ -64,10 +64,10 @@ Aucun de ces éléments ne reçoit de verdict V1 lorsqu'il n'est pas spécifié.
 
 ---
 
-## TT-OBS-B01B07-001 — Non-généralisation des diagnostics B1 depuis B7
+## TT-OBS-B01B07-001 — Décodage B1 sans équivalence implicite avec B7
 
 ### Objectif
-Vérifier la règle de méthode FT-OBS : une information détaillée définie dans B7 ne doit pas être utilisée pour fabriquer une table normative absente dans B1.
+Vérifier que les catégories normatives de `B1.fault_flags` et `B1.warning_flags` sont exploitables par la centrale, sans fabriquer de correspondance bit-à-bit avec B7 ni de catalogue pour les codes B1.
 
 ### Données à lire
 - `B1.fault_flags` ;
@@ -78,18 +78,20 @@ Vérifier la règle de méthode FT-OBS : une information détaillée définie da
 - `B7.last_fault_code`.
 
 ### Vérification
-Le banc relève les valeurs simultanément ou dans une fenêtre documentée. Les valeurs B1 sont enregistrées mais aucun bit ni code B1 n'est interprété au-delà de ce que la V1 définit explicitement.
-
-Même si une corrélation empirique apparaît avec B7, elle reste `TRACE_ONLY` tant qu'aucune relation normative ne l'établit.
+1. Présenter des motifs couvrant chacun des bits définis de `B1.fault_flags` et vérifier le décodage `SENSOR_FAULT`, `ACQUISITION_FAULT`, `STORAGE_FAULT`, `TIME_FAULT`, `CONFIG_FAULT`, `SYSTEM_INTERNAL_FAULT`.
+2. Présenter des motifs couvrant chacun des bits définis de `B1.warning_flags` et vérifier le décodage `STORAGE_WARNING`, `TIME_WARNING`, `TEMPERATURE_WARNING`.
+3. Vérifier qu'aucune signification n'est attribuée aux bits réservés.
+4. Relever éventuellement B7 dans la même fenêtre, mais ne créer aucune égalité ou correspondance bit-à-bit B1/B7 absente de la V1.
+5. Enregistrer `B1.error_code` et `B1.warning_code` sans interpréter leurs valeurs au moyen d'un catalogue non normatif.
 
 ### PASS
-Le verdict de validation n'utilise aucune table inventée pour les flags/codes B1 et ne crée aucune égalité bit-à-bit B1/B7.
+Les bits B1 définis sont décodés conformément à leur table normative, les bits réservés ne reçoivent aucune signification, et aucune relation B1/B7 ou table de codes B1 n'est inventée.
 
 ### FAIL
-Le test ou l'implémentation de supervision prétend déduire normativement la signification détaillée des bits/codes B1 à partir des tables B7 ou des compléments métier informatifs.
+Un bit B1 défini est mal interprété, un bit réservé reçoit une signification métier, ou le test/implémentation prétend déduire normativement une équivalence B1/B7 ou un catalogue de codes absent de V1.
 
 ### Remarque
-Ce test est un test d'exploitabilité et de non-fabrication du référentiel, pas un test d'égalité inter-blocs. Les relations inter-blocs restent propriétaires FT-INT.
+Ce test porte sur l'exploitabilité des bitfields B1 et la non-fabrication de relations supplémentaires. Les relations inter-blocs restent propriétaires FT-INT.
 
 ---
 
@@ -107,5 +109,5 @@ Faux comme oracle : la V1 définit le champ comme dernier défaut détecté, pas
 ### Persistance du dernier défaut après reboot
 `DELEGATED` à FT-PER ; politique V1 largement non définie.
 
-### Table détaillée B1 fault/warning
-`NOT_DEFINED` malgré les exemples informatifs.
+### Catalogues B1 `error_code` / `warning_code`
+`NOT_DEFINED` en V1.
