@@ -12,10 +12,10 @@ La famille FT-CMD V1 est cohérente avec les sources normatives actuelles et ave
 
 Aucune contradiction bloquante n'a été identifiée lors de la passe croisée finale.
 
-La couverture consolidée comprend 66 exigences / points de couverture et 53 tests identifiés :
-- 40 `COVERED` ;
+La couverture consolidée comprend 66 exigences / points de couverture et 54 tests identifiés :
+- 41 `COVERED` ;
 - 9 `CONDITIONAL` ;
-- 10 `NOT_DEFINED` ;
+- 9 `NOT_DEFINED` ;
 - 4 `TRACE_ONLY` ;
 - 3 `DELEGATED`.
 
@@ -59,6 +59,7 @@ La passe finale confirme notamment :
 - déclenchement sur front montant de `submit` ;
 - remise automatique de `submit` à 0 après prise en compte ;
 - `transaction_id` obligatoire ;
+- `transaction_id = 0` invalide à la soumission, valeurs `1..65535` valides, avec refus fonctionnel code `14` sans exception Modbus du seul fait de la valeur ;
 - rejeu d'un ID déjà traité sans seconde exécution et avec réutilisation du résultat ;
 - corrélation stricte par `cmd_active_transaction_id` en contexte nominal ;
 - une seule commande active ;
@@ -72,7 +73,7 @@ La passe finale confirme notamment :
 ## 5. Dettes normatives non bloquantes
 
 Les zones suivantes restent volontairement non figées dans la V1 :
-- domaine numérique exact des `transaction_id` invalides ;
+- règle de réutilisation/bouclage des `transaction_id` après `65535` vis-à-vis de l'historique d'idempotence ;
 - profondeur et durée de mémorisation d'idempotence ;
 - rejeu du même ID avec un payload différent ;
 - représentation exacte de `cmd_active_*` lors d'un refus concurrent ;
