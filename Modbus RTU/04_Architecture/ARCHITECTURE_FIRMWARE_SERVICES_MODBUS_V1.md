@@ -184,7 +184,7 @@ MonotonicClock ≠ WallClock
 
 `TimeService` est l’autorité métier runtime de l’heure civile TR2. `WallClock` fournit seulement une abstraction de lecture/écriture du temps civil. `TimeHistoryStore` conserve uniquement les faits historiques utiles de synchronisation.
 
-### Chaîne de synchronisation
+### 6.1 Chaîne de synchronisation
 
 ```text
 PreparedTime (volatile)
@@ -204,7 +204,113 @@ TimeSnapshot
 B2 projection
 ```
 
-### Invariants
+### 6.2 K3 — Recovery de la base de temps
+
+K3 est une `FW_POLICY` d'architecture. Elle ne complète pas la machine normative V1 de `time_status` et ne transforme aucune valeur de projection en nouvelle sémantique protocolaire.
+
+Les faits matériels, les preuves historiques et les projections Modbus restent séparés :
+
+```text
+RTC / platform facts
++ TimeHistoryStore
++ current MonotonicClock
+        ↓
+TimeRecoveryContext
+        ↓
+TimeService temporal policy
+        ↓
+TimeSnapshot
+        ↓
+B1 / B2 / B5 / B6 / B7 projections
+```
+
+Le recovery temporel classe la continuité entre une synchronisation historique et l'heure civile courante selon trois états internes non Modbus :
+
+```text
+CONTINUITY_PROVEN
+CONTINUITY_BROKEN
+CONTINUITY_INDETERMINATE
+```
+
+`CONTINUITY_PROVEN` exige une preuve positive fournie par la plateforme ou une autorité persistante dédiée. L'absence de preuve n'est jamais interprétée comme une preuve de continuité. Une perte/reset explicite de RTC, de backup domain ou une preuve matérielle équivalente impose `CONTINUITY_BROKEN`. Si ni continuité ni rupture ne sont démontrables, le résultat interne est `CONTINUITY_INDETERMINATE`.
+
+`TimeService` sépare au minimum :
+
+```text
+civil_time_usable
+sync_continuity_proven
+LastSyncHistory = NONE | VALID(timestamp, source, ...)
+TimeSinceSync   = AVAILABLE(duration) | UNAVAILABLE
+```
+
+Une heure civile techniquement utilisable n'implique pas qu'elle soit encore démontrablement synchronisée. Inversement, la perte de continuité n'efface jamais le fait historique qu'une synchronisation effective a eu lieu.
+
+Après reboot, `time_since_sync` n'est reconstructible depuis l'historique que si la continuité nécessaire est `CONTINUITY_PROVEN`. Une simple soustraction `current RTC - last_sync_time` est interdite lorsque la continuité n'est pas prouvée. Après une synchronisation réussie pendant le boot courant, `time_since_sync` est dérivé du `MonotonicClock` courant afin qu'un ajustement ultérieur du `WallClock` ne modifie pas artificiellement la durée depuis cette synchronisation.
+
+### 6.3 Projection B1 / B2
+
+Par `FW_POLICY`, B1 `TIME_VALID` et B2 `time_flags.bit0` proviennent de la même propriété interne `civil_time_usable`.
+
+Après achèvement du recovery temporel, `time_status = 0` (« Non initialisé ») n'est pas utilisé comme état générique persistant d'incertitude. La projection est dérivée des faits établis sans reprendre comme exigence normative les recommandations informatives post-reboot de la documentation source.
+
+Un historique de synchronisation à lui seul n'autorise jamais `time_status = 3` (« Temps synchronisé »). Cet état exige que la synchronisation soit encore causalement liée à l'heure courante par une continuité prouvée.
+
+Exemple autorisé par la politique firmware :
+
+```text
+RTC techniquement utilisable
++ historique de synchronisation valide
++ CONTINUITY_INDETERMINATE
+→ civil_time_usable = true
+→ sync_continuity_proven = false
+→ time_status = 2
+→ TIME_VALID = 1
+→ SYNC_PERFORMED = 1
+```
+
+`CONTINUITY_INDETERMINATE` n'implique pas à lui seul `time_status = 4` (« Temps dégradé »). L'état DEGRADED requiert une condition de dégradation temporelle positivement connue ; sa machine exhaustive reste `NOT_DEFINED V1`.
+
+Le flag B2 `Synchronisation effectuée` représente l'existence d'une synchronisation effectivement réalisée dans l'histoire connue et reste indépendant de la continuité actuelle.
+
+### 6.4 `last_sync_time` et `time_since_sync_s`
+
+Un `last_sync_time` historique n'est restauré que depuis un record durable valide associé à une synchronisation réellement réussie. S'il existe, il peut continuer à être exposé même lorsque la continuité actuelle est `BROKEN` ou `INDETERMINATE`, car il décrit un fait historique et non la qualité courante de l'horloge.
+
+Lorsque aucune synchronisation effective n'est connue, la représentation normative d'une absence de `last_sync_time` reste `NOT_DEFINED V1`.
+
+Lorsque `TimeSinceSync = UNAVAILABLE`, aucune valeur `uint32` V1 ne représente exactement cette indisponibilité. La politique firmware V1 projette alors :
+
+```text
+time_since_sync_s = 0xFFFFFFFF
+```
+
+uniquement comme convention interne de projection, sans lui attribuer une sémantique normative V1. Les états/flags temporels restent l'autorité sémantique.
+
+Pour `NEVER_SYNCHRONIZED`, la politique firmware projette :
+
+```text
+last_sync_time    = 0x00000000
+time_since_sync_s = 0xFFFFFFFF
+SYNC_PERFORMED    = 0
+```
+
+`0x00000000` et `0xFFFFFFFF` ne sont donc pas promus en sentinelles normatives V1. Une future V1.1 devra, si le besoin est retenu, définir explicitement la représentation d'indisponibilité.
+
+### 6.5 Timestamps métier B5 / B6 / B7
+
+Aucun composant métier ne fabrique de timestamp civil lorsqu'aucun `civil_time_usable` n'existe au moment causal correspondant.
+
+Un timestamp historique durable reste un fait historique valide en tant que donnée enregistrée, même si la continuité temporelle courante est ensuite perdue.
+
+Les règles K1 restent inchangées : le recovery B5 ne reconstruit jamais un timestamp historique absent depuis l'heure du reboot, `uptime`, `last_sync_time` ou une estimation.
+
+Pour une campagne B6, un timestamp de début ou de fin n'est produit que si le `WallClock` est utilisable au moment causal de l'événement. Un timestamp manquant n'est jamais complété ultérieurement par estimation.
+
+Pour B7, `last_fault_timestamp` ne peut provenir que d'un instant réellement connu pour le défaut concerné. Un défaut observé sans heure civile utilisable ne reçoit jamais rétrospectivement l'heure d'un boot ou d'une synchronisation ultérieure.
+
+La représentation protocolaire exacte de certains timestamps métier absents reste `NOT_DEFINED V1` lorsqu'aucune disponibilité/sentinelle n'est définie par la norme.
+
+### 6.6 Invariants E existants
 
 - **E-TIME-01** — le prepared time est volatile et sans effet immédiat.
 - **E-TIME-02** — synchroniser le `WallClock` ne modifie jamais le `MonotonicClock`.
@@ -216,6 +322,27 @@ B2 projection
 - **E-TIME-08** — un reboot n’invalide pas automatiquement une RTC conservée ; la validité dépend des faits et d’une policy explicite.
 - **E-TIME-09** — un `WallClock` invalide ne bloque pas le boot global.
 - **E-TIME-10** — aucun timestamp historique manquant n’est reconstruit depuis l’heure courante postboot.
+
+### 6.7 Invariants K3
+
+- **K3-01** — RTC lisible ne signifie ni RTC valide ni continuité prouvée.
+- **K3-02** — synchronisation historique et continuité actuelle restent deux faits distincts.
+- **K3-03** — `CONTINUITY_PROVEN` exige une preuve positive.
+- **K3-04** — l'absence de preuve de continuité ne produit jamais `CONTINUITY_PROVEN`.
+- **K3-05** — une preuve explicite de rupture produit `CONTINUITY_BROKEN`.
+- **K3-06** — un historique de synchronisation valide survit à une perte de continuité.
+- **K3-07** — `time_since_sync` n'est reconstructible après reboot que lorsque la continuité nécessaire est démontrée.
+- **K3-08** — aucune soustraction `WallClock - last_sync_time` n'est utilisée lorsque la continuité n'est pas prouvée.
+- **K3-09** — après synchronisation dans le boot courant, `time_since_sync` repose sur `MonotonicClock`.
+- **K3-10** — B1 `TIME_VALID` et B2 `TIME_VALID` proviennent de la même propriété `civil_time_usable`.
+- **K3-11** — `time_status = SYNCHRONIZED` exige une continuité de synchronisation démontrée.
+- **K3-12** — un historique de synchronisation peut rester exposé sans que l'heure courante soit `SYNCHRONIZED`.
+- **K3-13** — `CONTINUITY_INDETERMINATE` n'implique pas à lui seul `TIME_DEGRADED`.
+- **K3-14** — aucun timestamp civil métier n'est fabriqué.
+- **K3-15** — une perte de continuité actuelle ne modifie pas rétroactivement un timestamp historique durable.
+- **K3-16** — le recovery B5 ne reconstruit jamais un timestamp historique à partir du reboot ou d'une estimation.
+- **K3-17** — une valeur de projection `FW_POLICY` utilisée pour combler une lacune V1 ne devient jamais une sémantique normative V1.
+- **K3-18** — l'indisponibilité d'une information temporelle reste explicite dans le modèle interne même lorsque l'adaptation Modbus doit produire une valeur numérique.
 
 ---
 
@@ -889,6 +1016,7 @@ La méthode de génération reste ouverte, mais elle doit être crash-safe vis-�
 - **TR-CAMP-ID-01** — allocation/récupération de `campaign_id` garantit l’unicité parmi les campagnes valides présentes malgré les resets.
 - **TR-STOR-02** — importance métier d’une métadonnée et choix de son média physique sont deux notions distinctes.
 - **TR-CRC-01** — CRC RTU, CRC B4 et intégrité persistante restent trois mécanismes indépendants.
+- **TR-TIME-02** — les autorités de recovery configurationnelle, transactionnelle et temporelle restent indépendantes ; aucune ne reconstruit les faits appartenant à une autre autorité.
 
 ---
 
@@ -897,9 +1025,10 @@ La méthode de génération reste ouverte, mais elle doit être crash-safe vis-�
 ### À résoudre avant implémentation fonctionnelle
 
 - comportement global si identité absente/corrompue ;
-- critères de validité temporelle au boot et reconstruction de `time_since_sync` ;
 - projection B7 d’un timestamp historique absent et d’un selftest interrompu ;
 - politique d’agrégation `system_status` B1 / `system_health_status` B7.
+
+Les critères de validité temporelle au boot, la preuve de continuité et la reconstruction de `time_since_sync` sont désormais confinés par la `FW_POLICY` K3 documentée en section E. Les lacunes de représentabilité normative restent candidates V1.1.
 
 La projection B4 sans active récupérable est désormais confinée par la `FW_POLICY` K2 documentée dans `ARCHITECTURE_FIRMWARE_BOOT_PERSISTENCE_RECOVERY.md`. Sa représentation normative exhaustive reste `NOT_DEFINED V1` et candidate V1.1.
 
@@ -929,7 +1058,8 @@ La projection B4 sans active récupérable est désormais confinée par la `FW_P
 - indication explicite d’approche ou d’épuisement du namespace ;
 - réponse protocolaire explicite pour même `transaction_id` + requête/fingerprint différent ;
 - représentation B5 des transactions interrompues avant effet et des résultats `INDETERMINATE` ;
-- clarification de certaines projections lorsque le temps historique est indisponible ;
+- représentation explicite de l'indisponibilité de `last_sync_time`, `time_since_sync_s` et de certains timestamps historiques métier ;
+- machine exhaustive `time_status`, critères et priorités de `DEGRADED` ;
 - éventuel journal circulaire de défauts ou statistiques persistantes supplémentaires.
 
 ---
@@ -947,4 +1077,6 @@ une autorité par fait
 + Modbus entièrement en périphérie
 ```
 
-Ce document constitue le gel de la passe A→J de l’architecture firmware Modbus RTU V1. Toute évolution ultérieure doit préserver la distinction entre exigence V1, politique firmware, choix d’implémentation et comportement `NOT_DEFINED V1`.
+Ce document constitue le gel de la passe A→J de l’architecture firmware Modbus RTU V1. Les arbitrages K1, K2 et K3 complètent ce gel respectivement pour la recovery transactionnelle B5, la recovery d'absence d'`ActiveConfiguration` et la recovery de la base de temps.
+
+Toute évolution ultérieure doit préserver la distinction entre exigence V1, politique firmware, choix d’implémentation et comportement `NOT_DEFINED V1`.
