@@ -77,13 +77,63 @@ Ce bloc est **strictement en lecture seule (RO)**.
 
 Le champ représente l’état global du capteur.
 
-**Le domaine détaillé des codes de `system_status` n’est pas défini dans la V1 et reste À ARBITRER.**
+| Valeur | Signification |
+|---:|---|
+| 0 | UNKNOWN — état global indéterminé ou initialisation incomplète |
+| 1 | NOMINAL — aucune condition connue n’empêche le fonctionnement nominal |
+| 2 | DEGRADED — fonctionnement possible mais au moins une condition dégradée ou d’avertissement est active |
+| 3 | FAULT — au moins une condition de défaut affecte le fonctionnement attendu |
+| 4-65535 | Réservé |
 
-Aucune table de codes issue des compléments métier informatifs ne doit être considérée comme normative tant qu’elle n’a pas été intégrée explicitement à cette section.
+La V1 n’impose pas de fonction de dérivation exhaustive entre `system_status`, `system_flags`, `fault_flags` et `warning_flags`. Les valeurs exposées doivent néanmoins rester cohérentes avec les conditions effectivement représentées par les flags définis ci-dessous.
 
 ---
 
-### 6.2 `last_reset_cause`
+### 6.2 `system_flags`
+
+| Bit | Nom | Signification |
+|---:|---|---|
+| 0 | READY | Le capteur est disponible pour accepter les opérations normales permises par son état courant |
+| 1 | ACQUISITION_ACTIVE | Une acquisition est active |
+| 2 | CONFIG_VALID | Une configuration active valide est disponible |
+| 3 | TIME_VALID | La base de temps courante est valide |
+| 4 | STORAGE_AVAILABLE | Le stockage nécessaire au fonctionnement normal est disponible |
+| 5-15 | Réservés | Doivent rester à `0` |
+
+---
+
+### 6.3 `fault_flags`
+
+| Bit | Nom | Signification |
+|---:|---|---|
+| 0 | SENSOR_FAULT | Défaut actif de la chaîne capteur |
+| 1 | ACQUISITION_FAULT | Défaut actif empêchant ou altérant l’acquisition |
+| 2 | STORAGE_FAULT | Défaut actif du stockage |
+| 3 | TIME_FAULT | Défaut actif de la base de temps |
+| 4 | CONFIG_FAULT | Défaut actif de configuration |
+| 5 | SYSTEM_INTERNAL_FAULT | Défaut interne actif du système |
+| 6-15 | Réservés | Doivent rester à `0` |
+
+---
+
+### 6.4 `warning_flags`
+
+| Bit | Nom | Signification |
+|---:|---|---|
+| 0 | STORAGE_WARNING | Condition d’avertissement active liée au stockage |
+| 1 | TIME_WARNING | Condition d’avertissement active liée à la base de temps |
+| 2 | TEMPERATURE_WARNING | Condition d’avertissement active liée à la température interne |
+| 3-15 | Réservés | Doivent rester à `0` |
+
+Pour les trois bitfields du Bloc 1 :
+- plusieurs bits peuvent être actifs simultanément ;
+- tout bit réservé doit être exposé à `0` ;
+- un bit de défaut ou d’avertissement reste actif tant que la condition associée reste présente ;
+- la V1 ne définit ni priorité entre défauts, ni relation exhaustive avec `error_code` / `warning_code`, ni égalité exhaustive avec les indicateurs du Bloc 7.
+
+---
+
+### 6.5 `last_reset_cause`
 
 | Valeur | Signification |
 |---|---|
@@ -139,7 +189,7 @@ Exemples :
 ## 7. Règles d’implémentation
 
 - Les informations doivent représenter un **état cohérent du système**.
-- Les flags doivent être **cohérents avec les états globaux**.
+- Les flags doivent être **cohérents avec les états globaux**, sans qu’une dérivation exhaustive soit imposée par la V1.
 - Les compteurs (`uptime`) doivent être **monotones**.
 - Les valeurs critiques doivent être mises à jour de manière atomique.
 - Les défauts et avertissements doivent être **persistants tant que la condition est présente**.
