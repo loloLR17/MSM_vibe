@@ -90,7 +90,7 @@
 - **Automatisation** : oui.
 - **Traces** : validité, identifiant et trame.
 - **Criticité** : P0.
-- **Limites / arbitrages** : l'unicité globale entre campagnes n'est pas dérivée ici au-delà de ce que la V1 permet.
+- **Limites / arbitrages** : aucune unicité inter-capteurs n’est testée ici.
 
 ## TT-BLK-B06-007 — Campagne en cours sans timestamp de fin
 - **Objectif** : vérifier l’invariant temporel explicite d’une campagne en cours.
@@ -105,7 +105,37 @@
 - **Automatisation** : oui si le banc sait maintenir une campagne en cours.
 - **Traces** : index, état, timestamp et trames.
 - **Criticité** : P0.
-- **Limites / arbitrages** : aucune équation exacte de `duration_s` n’est ajoutée.
+- **Limites / arbitrages** : aucune équation exacte de `duration_s` n’est exigée pour une campagne en cours.
+
+## TT-BLK-B06-008 — Unicité locale des campaign_id
+- **Objectif** : vérifier que deux campagnes distinctes présentes dans l’inventaire du même TR2 n’exposent pas le même `campaign_id`.
+- **Exigence couverte** : BLK05-B6-015.
+- **Source normative** : Bloc 6 §8.3.
+- **Préconditions** : inventaire contenant au moins deux campagnes distinctes et navigables.
+- **Entrées** : sélectionner successivement au moins deux index valides distincts.
+- **Étapes** : pour chaque campagne sélectionnée, lire `selected_campaign_valid` et `campaign_id` ; comparer les identifiants.
+- **Résultat attendu** : chaque campagne distincte sélectionnée possède un `campaign_id` non nul et distinct des autres campagnes présentes dans l’inventaire examiné.
+- **Critère d’acceptation** : aucune collision d’identifiant entre campagnes distinctes du même TR2.
+- **Mode d’exécution** : conditionnel.
+- **Automatisation** : oui si l’inventaire de référence contient au moins deux campagnes.
+- **Traces** : index, identifiants, validité et trames.
+- **Criticité** : P0.
+- **Limites / arbitrages** : aucune unicité entre deux TR2 différents n’est requise.
+
+## TT-BLK-B06-009 — Durée nominale d’une campagne terminée
+- **Objectif** : vérifier l’égalité normative de durée dans le seul cas où la base de temps est continue sur toute la campagne.
+- **Exigence couverte** : BLK05-B6-009.
+- **Source normative** : Bloc 6 §8.5.
+- **Préconditions** : campagne terminée ; `end_timestamp != 0` ; aucune resynchronisation temporelle n’a affecté l’intervalle entre début et fin.
+- **Entrées** : sélectionner la campagne terminée de référence.
+- **Étapes** : lire `start_timestamp`, `end_timestamp` et `duration_s` dans un état cohérent.
+- **Résultat attendu** : `duration_s = end_timestamp - start_timestamp`.
+- **Critère d’acceptation** : égalité exacte en secondes.
+- **Mode d’exécution** : conditionnel.
+- **Automatisation** : oui si le banc maîtrise l’historique de synchronisation de la campagne.
+- **Traces** : timestamps, durée, preuve de précondition temporelle et trames.
+- **Criticité** : P1.
+- **Limites / arbitrages** : aucune égalité n’est extrapolée aux campagnes en cours ni aux campagnes traversant une discontinuité de temps.
 
 ## Exigences sans test exécutable strict
-Restent tracées sans faux oracle : équation exacte de `duration_s`, relation total/valides, relation stockage utilisé/libre/capacité, dérivation `storage_health_status`, dérivation `data_integrity_status`. La cohérence snapshot multi-registres reste FT-STR.
+Restent tracées sans faux oracle : relation total/valides, relation stockage utilisé/libre/capacité, dérivation `storage_health_status`, dérivation `data_integrity_status`. La cohérence snapshot multi-registres reste FT-STR.
