@@ -8,14 +8,13 @@ Il n'est pas normatif pour la V1 et ne doit pas être utilisé comme oracle de t
 
 ## 2. Priorité haute — cohérence transactionnelle
 
-### V1.1-CMD-001 — Domaine de validité de `transaction_id`
+### V1.1-CMD-001 — Bouclage et réutilisation de `transaction_id`
 
-À définir explicitement :
-- valeur `0` valide ou invalide ;
-- éventuelles valeurs réservées ;
+La V1 définit désormais `transaction_id = 0` comme invalide à la soumission et `1..65535` comme identifiants valides. Restent à définir pour une éventuelle V1.1 :
 - règle de bouclage après `65535` ;
-- comportement attendu sur ID invalide ;
-- cohérence avec le code résultat `14`.
+- conditions de réutilisation d'un identifiant ancien ;
+- interaction avec la profondeur et la durée de mémoire d'idempotence ;
+- comportement lorsque l'identifiant réutilisé est encore présent dans l'historique interne.
 
 ### V1.1-CMD-002 — Mémoire d'idempotence
 
