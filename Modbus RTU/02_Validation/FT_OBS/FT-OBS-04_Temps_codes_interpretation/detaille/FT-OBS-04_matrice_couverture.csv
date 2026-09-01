@@ -1,0 +1,21 @@
+ID,Propriete,Scope,Classification,Test_ou_owner,Commentaire
+OBS04-R01,Code enum explicitement defini,B2-B7,COVERED,TT-OBS-CODE-001,Interpretation normative
+OBS04-R02,Valeur reservee sans sens implicite,B2-B7,COVERED,TT-OBS-CODE-001,Production du reserve deleguee FT-LIM
+OBS04-R03,B1 system_status,B1,NOT_DEFINED,V1.1 candidate,Domaine a arbitrer
+OBS04-R04,B1 flags et codes non detailles,B1,NOT_DEFINED,V1.1 candidate,Pas de table exhaustive
+OBS04-R05,B4 config_error_code,B4,NOT_DEFINED,V1.1 candidate,Pas de table normative
+OBS04-R06,B5 cmd_result_detail,B5,NOT_DEFINED,V1.1 candidate,Exemples non exhaustifs
+OBS04-R07,B7 selftest result/detail,B7,NOT_DEFINED,V1.1 candidate,Pas de catalogue complet
+OBS04-R08,Sentinelle B4 ID zero,B4,COVERED,TT-OBS-SENT-001,Locale B4
+OBS04-R09,Parametres B5 non utilises zero,B5,COVERED,TT-OBS-SENT-001,Locale B5
+OBS04-R10,B6 end_timestamp zero campagne en cours,B6,COVERED,TT-OBS-SENT-001,Locale B6
+OBS04-R11,B6 campaign_id non nul campagne valide,B6,COVERED,TT-OBS-SENT-001,Locale B6
+OBS04-R12,B7 last_fault_code zero,B7,COVERED,TT-OBS-SENT-001,Locale B7
+OBS04-R13,Sentinelle universelle zero,GLOBAL,NOT_DEFINED,V1.1 candidate,Aucune generalisation
+OBS04-R14,Base temporelle timestamps B6 B7,B2/B6/B7,COVERED,TT-OBS-TIME-001,Rattachement explicite B2
+OBS04-R15,Timestamp B7 sans defaut connu,B7,NOT_DEFINED,TRACE_ONLY,Aucune valeur imposee
+OBS04-R16,Fraicheur universelle timestamps,GLOBAL,NOT_DEFINED,V1.1 candidate,Pas de regle transversale
+OBS04-R17,Domaines numeriques,B2-B7,DELEGATED,FT-LIM,Pas de duplication
+OBS04-R18,Encodage uint32 timestamps,B2-B7,DELEGATED,FT-STR,Pas de duplication
+OBS04-R19,Relations calculs entre timestamps,B2/B3/B6/B7,DELEGATED,FT-BLK / FT-INT,Pas de nouvelle relation
+OBS04-R20,Mecanique et resultats transactionnels B5,B5,DELEGATED,FT-CMD,Vocabulaire couvert par R01
