@@ -1,0 +1,17 @@
+ID,Propriete,Bloc,Classification,Test_ou_owner,Commentaire
+OBS05-R01,Correlation requete etat par transaction_id,B5,COVERED,TT-OBS-B05-001,Cle normative de correlation
+OBS05-R02,Correlation derniere commande terminee,B5,COVERED,TT-OBS-B05-002,Historique minimal identifiable
+OBS05-R03,Distinction etat courant historique,B5,COVERED,TT-OBS-B05-002,Zones distinctes
+OBS05-R04,Historique superieur a une commande,B5,NOT_DEFINED,V1.1 candidate,Une seule derniere commande promise
+OBS05-R05,Duree retention historique B5,B5,NOT_DEFINED,V1.1 candidate,Pas de duree normative
+OBS05-R06,Meme transaction_id payload different,B5,NOT_DEFINED,Dette FT-CMD,Ne pas inventer
+OBS05-R07,Selection campagne explicitement qualifiee,B6,COVERED,TT-OBS-B06-001,selected_campaign_valid
+OBS05-R08,Identite unique campagne exposee,B6,COVERED,TT-OBS-B06-001,campaign_id
+OBS05-R09,Distinction index et campaign_id,B6,COVERED,TT-OBS-B06-001,Pas d egalite implicite
+OBS05-R10,Mission_id associe a entree campagne,B6,COVERED,Observation B6,Semantique inter-blocs non inferee
+OBS05-R11,Relation stricte mission_id B4 B6,B4/B6,DELEGATED,FT-INT,Pas de nouvelle egalite
+OBS05-R12,Effet commande B5 sur campagne B6,B5/B6,DELEGATED,FT-CMD / FT-SEQ / FT-INT,Pas de re-audit
+OBS05-R13,Mecanique transactionnelle B5,B5,DELEGATED,FT-CMD,Famille gelee
+OBS05-R14,Scenario complet commande effet,B5/autres,DELEGATED,FT-SEQ,Famille gelee
+OBS05-R15,Persistance correlation apres reboot,B5/B6,DELEGATED,FT-PER,Famille gelee
+OBS05-R16,Types domaines snapshots,B5/B6,DELEGATED,FT-STR / FT-LIM,Pas de duplication
