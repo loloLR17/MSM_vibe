@@ -2,7 +2,7 @@
 
 ## 1. Référence normative
 
-Source principale : `01_Specification_source/bloc6.md` V1 gelé.
+Source principale : `01_Specification_source/bloc6.md` V1 corrigé lors de l'audit final transversal.
 
 Les compléments métier informatifs ne sont pas utilisés comme oracles normatifs.
 
@@ -48,10 +48,12 @@ Si `campaign_state = 2` (en cours), alors `end_timestamp = 0`.
 
 **Classification** : CONDITIONAL côté exécution, car il faut disposer d’une campagne réellement en cours ; oracle normatif explicite.
 
-### BLK05-B6-009 — Cohérence de durée
-`duration_s` doit être cohérent avec les timestamps et peut être recalculé par le firmware.
+### BLK05-B6-009 — Cohérence de durée en cas nominal
+Pour une campagne terminée dont `start_timestamp` et `end_timestamp` appartiennent à une base de temps continue sans resynchronisation affectant l’intervalle, `duration_s = end_timestamp - start_timestamp`.
 
-**Classification** : CONDITIONAL / À FORMALISER. La V1 ne fixe pas une égalité exhaustive applicable à tous les états de campagne.
+Pour une campagne en cours (`end_timestamp = 0`) ou traversant une discontinuité temporelle liée à une resynchronisation, la V1 ne définit pas de relation arithmétique obligatoire entre `duration_s` et les timestamps.
+
+**Classification** : CONDITIONAL. L’oracle exact est applicable uniquement sous la précondition nominale ci-dessus.
 
 ### BLK05-B6-010 — Cohérence multi-registres de l’entrée sélectionnée
 Les champs d’une même réponse doivent provenir d’une seule campagne et aucun mélange de deux campagnes n’est permis.
@@ -78,8 +80,15 @@ Les codes de `data_integrity_status` sont définis, mais la méthode qui déterm
 
 **Classification** : NOT_DEFINED.
 
+### BLK05-B6-015 — Unicité locale des identifiants de campagne
+Deux campagnes distinctes présentes simultanément dans l’inventaire d’un même TR2 doivent exposer des valeurs de `campaign_id` distinctes. Aucune unicité inter-capteurs n’est exigée par la V1.
+
+**Classification** : CONDITIONAL côté exécution, car il faut un inventaire contenant au moins deux campagnes distinctes et navigables.
+
 ## 3. Limites d’exécution
 
 Les tests de navigation exigent un inventaire de référence dont l’ordre logique et les identifiants sont connus du banc. Le test de campagne en cours exige un scénario déterministe produisant réellement `campaign_state = 2`.
+
+Le test de durée exacte exige une campagne terminée dont l’intervalle n’a pas été affecté par une resynchronisation temporelle. Aucune équation n’est imposée hors de cette précondition.
 
 Aucune valeur n’est inventée pour les métadonnées lorsqu’une sélection est invalide ; seul `selected_campaign_valid = 0` constitue l’oracle normatif direct.
