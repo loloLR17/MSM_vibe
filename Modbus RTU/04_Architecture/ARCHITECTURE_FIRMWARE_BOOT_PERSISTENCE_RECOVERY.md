@@ -93,7 +93,7 @@ Une donnée peut être `P/R` si l'autorité persistante permet de la reconstruir
 - RTC courant : hors copie NVM applicative ;
 - dernier succès de synchronisation / source : `PF` ;
 - qualité instantanée / drift : `R/V` ;
-- `time_since_sync` : `R`.
+- `time_since_sync` : `R` sous condition K3 : reconstructible seulement si la continuité temporelle nécessaire est démontrée ou depuis le `MonotonicClock` du boot courant après synchronisation.
 
 ### 3.4 Campagnes B6
 
@@ -444,7 +444,7 @@ RESET
 ├─ G1  capture reset cause + BootContext
 ├─ G2  initialize PersistentStorageCore
 ├─ G3  recover identity
-├─ G4  initialize TimeService
+├─ G4  recover temporal facts / TimeHistory + initialize TimeService
 ├─ G5  recover ActiveConfiguration
 ├─ G6  recover CampaignRepository / StorageService
 ├─ G7  recover + reconcile B5 CommandJournal
@@ -463,6 +463,7 @@ Invariants :
 - **G-BOOT-02** — initialiser le stockage générique avant les repositories métier persistants.
 - **G-BOOT-03** — établir l'identité avant les objets qui dépendent de `device_id`.
 - **G-BOOT-04** — un WallClock invalide ne bloque pas le boot global.
+- **G-BOOT-04A** — le recovery temporel établit les faits de continuité et le `TimeSnapshot` initial avant toute projection B1/B2 ou consommation métier qui dépend de la qualité temporelle.
 - **G-BOOT-05** — l'absence de configuration valide n'empêche pas le système de devenir diagnostiquable.
 - **G-BOOT-06** — recovery campagne uniquement depuis son contexte historique propre.
 - **G-BOOT-07** — reconciliation B5 après récupération des autorités métier nécessaires.
@@ -608,6 +609,7 @@ Principes :
 - **TR-REC-02** — Le `CommandJournal` apporte preuve transactionnelle et idempotence B5 mais n'est jamais l'autorité de l'état métier commandé.
 - **TR-REC-03** — Le recovery d'un objet historique utilise uniquement son propre contexte durable ; aucun état courant post-reboot ne reconstruit rétroactivement son histoire.
 - **TR-TIME-01** — La capacité de recovery ne dépend jamais de la validité du WallClock, sauf lorsqu'une donnée métier exige intrinsèquement une information civile déjà persistée.
+- **TR-TIME-02** — Les autorités de recovery configurationnelle, transactionnelle et temporelle restent indépendantes ; aucune ne reconstruit les faits appartenant à une autre autorité.
 - **TR-REC-04** — `EMPTY`, `CORRUPTED`, `UNAVAILABLE` et `UNSUPPORTED` ne sont jamais normalisés silencieusement vers un même état vide.
 - **TR-BOOT-01** — L'ordre G exprime les dépendances logiques/barrières, pas une obligation de sérialisation CPU.
 - **TR-PUB-01** — La cohérence transversale repose sur les autorités et snapshots stables, pas sur une transaction globale B0…B7.
@@ -623,7 +625,9 @@ Les sujets suivants restent explicitement non gelés par cette architecture :
 - comportement protocolaire exact « même txid, requête différente » lorsqu'il n'est pas défini par V1 ;
 - représentation B5 d'une transaction interrompue avant effet ;
 - représentation B5 d'un résultat post-crash `INDETERMINATE` ;
-- représentation d'un timestamp final indisponible ;
+- représentation normative d'un timestamp final indisponible ;
+- représentation normative de `last_sync_time` / `time_since_sync_s` indisponibles ;
+- machine normative exhaustive de `time_status` et critères complets de `DEGRADED` ;
 - mécanisme exact de génération/récupération de `campaign_id` ;
 - périmètre exact des statistiques persistantes et de `RESET STATISTICS` ;
 - priorité précise entre plusieurs causes matérielles de reset concurrentes ;
@@ -646,6 +650,7 @@ BOOT:
   capture BootContext
   initialize persistence
   recover authoritative states
+  recover temporal facts and establish TimeRecoveryContext
   reconcile B5
   evaluate diagnostics
   build immutable snapshots
@@ -662,3 +667,70 @@ RUN:
 ```
 
 Aucune décision de ce document n'autorise à étendre silencieusement la spécification Modbus RTU V1.
+
+---
+
+## 16. K3 — Recovery de la base de temps
+
+Cette section raccorde le boot/recovery à la politique temporelle K3 définie dans la section E de `ARCHITECTURE_FIRMWARE_SERVICES_MODBUS_V1.md`.
+
+### 16.1 Sources de faits et autorité
+
+Le recovery temporel ne lit jamais B1/B2 comme autorité. Il combine uniquement les faits disponibles :
+
+```text
+RTC / backup-domain / platform facts
++ valid durable TimeHistoryStore
++ current MonotonicClock
+        ↓
+TimeRecoveryContext
+        ↓
+TimeService
+        ↓
+TimeSnapshot
+        ↓
+B1/B2 and business consumers
+```
+
+Les preuves historiques et la qualité de l'heure courante restent séparées.
+
+### 16.2 Continuité
+
+Le résultat de continuité interne est :
+
+```text
+CONTINUITY_PROVEN
+CONTINUITY_BROKEN
+CONTINUITY_INDETERMINATE
+```
+
+- `CONTINUITY_PROVEN` exige une preuve positive ;
+- une rupture RTC/backup-domain explicitement démontrée produit `CONTINUITY_BROKEN` ;
+- l'absence de preuve de continuité et de rupture produit `CONTINUITY_INDETERMINATE` ;
+- un historique de synchronisation valide, à lui seul, ne prouve jamais la continuité de l'heure actuelle.
+
+### 16.3 Reconstruction de `time_since_sync`
+
+Après reboot, `time_since_sync` est reconstructible uniquement si :
+
+```text
+valid LastSyncHistory
++ CONTINUITY_PROVEN
++ technically usable WallClock
+```
+
+Sinon le modèle interne conserve explicitement `TimeSinceSync = UNAVAILABLE`.
+
+Après une synchronisation réussie dans le boot courant, la durée depuis synchronisation est calculée depuis le `MonotonicClock` du boot courant et non depuis les variations ultérieures du `WallClock`.
+
+### 16.4 Timestamps historiques
+
+Une perte de continuité courante ne modifie jamais rétroactivement les timestamps durables déjà connus. Inversement, un timestamp absent n'est jamais reconstruit depuis l'heure du reboot, `uptime`, `last_sync_time` ou une estimation.
+
+Cette règle s'applique notamment à B5/K1, aux métadonnées B6 et au `last_fault_timestamp` B7.
+
+### 16.5 Projection V1
+
+Les éventuelles valeurs numériques de confinement utilisées lorsque V1 ne possède pas d'état d'indisponibilité sont des `FW_POLICY` de l'adaptateur Modbus uniquement. Le modèle interne conserve toujours l'état sémantique réel et ne confond jamais `UNAVAILABLE` avec une valeur numérique ordinaire.
+
+La représentation normative exhaustive de ces indisponibilités reste `NOT_DEFINED V1` et candidate V1.1.
