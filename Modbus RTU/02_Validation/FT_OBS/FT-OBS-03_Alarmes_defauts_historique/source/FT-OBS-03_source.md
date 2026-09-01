@@ -63,14 +63,12 @@ Cette sentinelle ne doit pas être généralisée aux autres codes du protocole.
 
 Test : `TT-OBS-B07-001`.
 
-### OBS03-R08 — Timestamp du dernier défaut
-**Classification : `COVERED` partiel sur présence, `NOT_DEFINED` sur valeur en absence.**
+### OBS03-R08 — Timestamp associé au dernier défaut connu
+**Classification : `COVERED`.**
 
-Le champ `last_fault_timestamp` est défini comme le timestamp du dernier défaut, sur la même base temporelle que B2. Lorsque `last_fault_code` identifie un défaut connu, ce timestamp est interprétable comme horodatage associé au dernier défaut.
+Le champ `last_fault_timestamp` est défini comme le timestamp du dernier défaut, sur la même base temporelle que B2. Lorsque `last_fault_code` identifie un défaut connu, ce champ est interprétable comme l'horodatage associé au dernier défaut détecté.
 
-En revanche, la V1 ne fixe aucune valeur obligatoire de `last_fault_timestamp` lorsque `last_fault_code = 0`.
-
-Pour conserver une classification primaire unique, la propriété de valeur en absence est séparée en OBS03-R09.
+Test : `TT-OBS-B07-001`.
 
 ### OBS03-R09 — `last_fault_timestamp` lorsque `last_fault_code = 0`
 **Classification : `NOT_DEFINED`.**
