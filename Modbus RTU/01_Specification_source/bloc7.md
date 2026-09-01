@@ -120,6 +120,8 @@ Ce bloc est **strictement en lecture seule**.
 
 |      3 | Critique      |
 
+| 4..65535 | réservés    |
+
 
 
 ---
@@ -181,6 +183,8 @@ Ce bloc est **strictement en lecture seule**.
 |      2 | OK             |
 
 |      3 | échec          |
+
+| 4..65535 | réservés     |
 
 
 
