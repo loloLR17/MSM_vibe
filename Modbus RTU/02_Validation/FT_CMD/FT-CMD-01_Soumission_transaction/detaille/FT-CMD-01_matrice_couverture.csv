@@ -1,8 +1,8 @@
 Req_ID,Bloc,Intitule,Source,Classification,Proprietaire,Test_ID,Remarques
 CMD01-R01,B5,Déclenchement sur front montant,bloc5 §7.6,COVERED,FT-CMD-01,TT-CMD-B05-001;TT-CMD-B05-002,Évaluation uniquement sur 0→1
 CMD01-R02,B5,Maintien submit=1 sans réexécution,bloc5 §7.6,CONDITIONAL,FT-CMD-01,TT-CMD-B05-003,Nécessite moyen d'essai permettant d'observer le niveau 1 sans recréer un front; auto-clear peut empêcher l'observation
-CMD01-R03,B5,Auto-clear submit après prise en compte,bloc5 §7.6,COVERED,FT-CMD-01,TT-CMD-B05-004,Conséquence normative finale
+CMD01-R03,B5,Auto-clear submit après prise en compte,bloc5 §7.6,COVERED,FT-CMD-01,TT-CMD-B05-004,Règle normative obligatoire
 CMD01-R04,B5,Code commande non nul requis,bloc5 §7.6 et §10.1,COVERED,FT-CMD-01,TT-CMD-B05-005,Aucun code résultat spécifique inventé
 CMD01-R05,B5,transaction_id obligatoire,bloc5 §4 §7.2 §10.1,TRACE_ONLY,FT-CMD-01,,Absence non représentée distinctement; corrélation/idempotence en FT-CMD-02
-CMD01-R06,B5,Domaine transaction_id invalide,bloc5 §7.6 et code résultat 14,NOT_DEFINED,FT-CMD-01,,Aucune valeur/plage invalide définie en V1
+CMD01-R06,B5,transaction_id=0 invalide à la soumission,bloc5 §7.2 §7.6 et code résultat 14,COVERED,FT-CMD-01,TT-CMD-B05-007,0 invalide; 1..65535 valides; écriture RW de 0 reste Modbus-valide
 CMD01-R07,B5,Bits réservés control soumis,bloc5 §7.6 §10.5,COVERED,FT-CMD-01,TT-CMD-B05-006,Refus fonctionnel code 2; accès RW reste FT-ACC
