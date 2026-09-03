@@ -2,7 +2,7 @@
 
 ## 1. Statut
 
-Compagnon gelé de `ARCHITECTURE_TRANSACTION_EPOCH_V1_1.md`. Il ne modifie pas la baseline V1.
+Compagnon gelé de `ARCHITECTURE_TRANSACTION_EPOCH_V1_1.md`. Il couvre TRANSACTION-01, TRANSACTION-04 / TRANSACTION-05 et TRANSACTION-06. Il ne modifie pas la baseline V1.
 
 Les injections utilisent les abstractions réelles de persistance/recovery ; aucun registre de test privé n'est requis.
 
@@ -191,3 +191,168 @@ Ils ne doivent jamais être confondus.
 - l'absence de preuve reste absence de preuve ;
 - la terminalisation durable précède toute projection B5 terminale 28/29 ;
 - le firmware bloque plutôt qu'inventer une continuité.
+
+## 6. TRANSACTION-06 — Fault injection du timestamp terminal historique
+
+Frontière générique T06 :
+
+```text
+résultat terminal déterminé
+↓ T1
+construction de l'état terminal
+↓ T2
+COMPLETED + final_status + final_result
++ terminal_timestamp_valid
++ terminal_timestamp si valide
+↓ T3
+power-loss-safe barrier
+↓ T4
+publication B5 terminale
+```
+
+La classification K1 reste l'autorité de terminalité. T06 ne permet jamais de déduire `COMPLETED` à partir du timestamp.
+
+### J-T06-01 — Terminalisation avec temps civil fiable
+Précondition : transaction admise, terminalisation autoritative possible et temps civil fiable disponible à cet instant.
+
+Oracle : `COMPLETED`, résultat final correct, `terminal_timestamp_valid=1`; B5 publie le `LastCommandSnapshot` cohérent, `LAST_TIMESTAMP_VALID=1` et le timestamp de la terminalisation autoritative. Ne pas dater l'effet métier ou la publication B5 à la place.
+
+### J-T06-02 — Terminalisation sans temps civil fiable
+Précondition identique mais aucun instant civil fiable disponible.
+
+Oracle : `COMPLETED` n'est ni retardé ni bloqué ; final_status/result restent autoritatifs ; `LAST_TIMESTAMP_VALID=0`, `cmd_last_timestamp=0`. Aucune heure approximative ou synchronisation future ne remplace l'instant absent.
+
+### J-T06-03 — Crash avant l'autorité terminale durable
+Injection après détermination du résultat mais sans preuve que T3 a été franchie.
+
+Oracle : ne pas considérer le nouveau last ni son timestamp comme autoritatifs ; reprendre le recovery transactionnel applicable. Le timestamp ne prouve jamais `COMPLETED`.
+
+### J-T06-04 — Crash après barrière avant publication B5
+Injection après T3 et avant T4.
+
+Oracle : aucun redispatch ; restaurer depuis l'autorité durable identité, status/result, `terminal_timestamp_valid` et timestamp éventuel. valid=0 publie timestamp=0.
+
+### J-T06-05 — Reboots répétés après timestamp valide
+État durable terminal avec `valid=1`, timestamp=t.
+
+Oracle à chaque boot : même identité/résultat, valid=1, même t. Interdit de redater au reboot ou d'invalider arbitrairement t.
+
+### J-T06-06 — Reboots répétés après timestamp indisponible
+État durable terminal avec `valid=0`.
+
+Oracle : valid reste 0, timestamp reste 0, y compris si le temps civil devient ensuite fiable.
+
+### J-T06-07 — Corruption isolée du timestamp
+Identité/status/result du last restent positivement fiables ; la composante temporelle est corrompue de façon isolable.
+
+Oracle : conserver le LastCommandSnapshot ; `LAST_TIMESTAMP_VALID=0`, timestamp=0. Aucun timestamp reconstruit depuis l'heure courante.
+
+### J-T06-08 — Corruption compromettant l'autorité globale
+L'intégrité ne permet plus de prouver identité/status/result comme snapshot cohérent.
+
+Oracle : neutralisation complète du last : code/txid/status/result/timestamp/last_epoch à zéro, valid=0. Aucun best effort.
+
+### J-T06-09 — Flag valide mais timestamp non prouvable
+Stockage récupéré présentant `timestamp_valid=1` mais valeur temporelle non fiable.
+
+Oracle : si la corruption temporelle est isolable, conserver le last et dégrader en valid=0/timestamp=0 ; sinon appliquer J-T06-08.
+
+### J-T06-10 — Timestamp lisible mais snapshot non prouvable
+La valeur temporelle paraît intègre mais identité/status/result ne sont pas autoritatifs.
+
+Oracle : neutralisation complète. Un timestamp orphelin ne constitue jamais un LastCommandSnapshot.
+
+### J-T06-11 — Retry exact après terminal avec timestamp valide
+État terminal `(N,T)`, status S, result R, valid=1, timestamp=t. Effectuer retry exact.
+
+Oracle : même S/R/valid/t ; aucun nouveau RESERVED, aucun nouvel effet, aucune nouvelle terminalisation.
+
+### J-T06-12 — Retry exact après terminal sans timestamp et sync ultérieure
+Terminal valid=0/timestamp=0, puis synchronisation temporelle et retry exact.
+
+Oracle : même résultat terminal ; valid reste 0, timestamp reste 0.
+
+### J-T06-13 — Changement de l'état temporel courant
+Avec last valid=1 puis valid=0, faire varier TIME_VALID, synchronisation, perte de continuité et nouvelle synchronisation.
+
+Oracle : identité/status/result, flag et timestamp du last restent inchangés. `LAST_TIMESTAMP_VALID` n'est jamais un miroir de B2.
+
+### J-T06-14 — Nouveau last valide remplaçant un last sans timestamp
+Last A valid=0 ; transaction B terminalise avec temps fiable.
+
+Oracle : last=B, valid=1, timestamp=tB.
+
+### J-T06-15 — Nouveau last sans timestamp remplaçant un last valide
+Last A valid=1/tA ; B terminalise sans temps fiable.
+
+Oracle : last=B, valid=0, timestamp=0. Interdit de conserver tA.
+
+### J-T06-16 — `clear_request_fields` et activité mailbox
+Avec un last établi, vider/modifier la mailbox sans installer de nouveau terminal.
+
+Oracle : last, flag et timestamp inchangés.
+
+### J-T06-17 — Cohérence intra-réponse du LastCommandSnapshot
+Pendant le remplacement de A par B, lire plusieurs champs historiques dans une même réponse Modbus.
+
+Oracle : snapshot A complet ou B complet ; jamais identité B + résultat A, valid B + timestamp A, ou autre mélange.
+
+### J-T06-18 — Cohérence uint32 du timestamp
+Lire MSW/LSW du timestamp au moment où le last peut changer.
+
+Oracle : les deux mots proviennent du même uint32 et du même snapshot logique.
+
+### J-T06-19 — Recovery result 28 avec temps fiable
+`RESERVED` → crash → preuve positive que `STARTED` n'a jamais été franchi → terminalisation 6/28 avec temps civil fiable.
+
+Oracle : last status=6/result=28, valid=1, timestamp de la terminalisation recovery ; ne pas dater RESERVED ou crash.
+
+### J-T06-20 — Recovery result 28 sans temps fiable
+Même scénario sans temps civil fiable à la terminalisation.
+
+Oracle : status=6/result=28, valid=0, timestamp=0 ; identité consommée et terminalité inchangées.
+
+### J-T06-21 — Recovery result 29 avec/sans temps fiable
+`STARTED` → crash → `ABSENCE_PROVEN` → terminalisation 6/29.
+
+Oracle : avec temps fiable, valid=1 et timestamp de terminalisation recovery ; sans temps fiable, valid=0/timestamp=0. La classification 6/29 ne dépend jamais du timestamp.
+
+### J-T06-22 — Synchronisation après 28/29 sans timestamp
+Après 6/28 ou 6/29 avec valid=0/timestamp=0, effectuer une synchronisation temporelle fiable.
+
+Oracle : result inchangé ; valid reste 0 ; timestamp reste 0. Aucune datation rétroactive.
+
+### J-T06-23 — Renouvellement d'epoch terminal
+Le renewal `(N,65535)` active N+1 puis devient terminal et last.
+
+Oracle : `current_epoch=N+1`, `last_epoch=N`, `last_txid=65535`. Si temps fiable à la terminalisation : valid=1/timestamp terminal ; sinon valid=0/timestamp=0. Aucun invariant `last_epoch==current_epoch` n'est requis.
+
+### J-T06-24 — Absence de LastCommandSnapshot
+Boot/recovery sans last autoritatif reconstructible.
+
+Oracle :
+
+```text
+cmd_last_code                  = 0
+cmd_last_transaction_id        = 0
+cmd_last_status_final          = 0
+cmd_last_result_code           = 0
+cmd_last_timestamp             = 0
+cmd_last_transaction_epoch     = 0
+LAST_TIMESTAMP_VALID           = 0
+```
+
+Distinction : `last_epoch=0,valid=0` = aucun last ; `last_epoch!=0,valid=0` = last existant sans timestamp ; `last_epoch!=0,valid=1` = last existant avec timestamp fiable.
+
+## 7. Critères transversaux TRANSACTION-06
+
+- terminalité et disponibilité temporelle sont indépendantes ;
+- `LAST_TIMESTAMP_VALID=0` impose timestamp zéro mais zéro n'est pas une sentinelle autonome ;
+- aucune synchronisation ultérieure ne fabrique un timestamp terminal passé ;
+- retry exact et reboot ne redatent jamais une transaction ;
+- perte de la seule composante temporelle ne détruit pas des faits terminaux indépendamment fiables ;
+- perte de l'autorité globale du snapshot neutralise la zone last ;
+- une même réponse Modbus doit publier un snapshot last cohérent ;
+- la terminalisation durable incluant validité/timestamp éventuel précède la publication B5 ;
+- les résultats 28/29 gardent leur classification quel que soit l'état de disponibilité du timestamp ;
+- `LAST_TIMESTAMP_VALID` n'est jamais calculé depuis l'état temporel B2 courant.

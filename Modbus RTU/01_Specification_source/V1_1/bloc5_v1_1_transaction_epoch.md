@@ -2,7 +2,7 @@
 
 ## 1. Statut et portée
 
-Ce document est le compagnon protocolaire V1.1 de `../bloc5.md` pour **V1.1-TRANSACTION-01**, incluant les arbitrages de recovery TRANSACTION-04 / TRANSACTION-05.
+Ce document est le compagnon protocolaire V1.1 de `../bloc5.md` pour **V1.1-TRANSACTION-01**, incluant les arbitrages de recovery TRANSACTION-04 / TRANSACTION-05 et TRANSACTION-06 sur la validité de `cmd_last_timestamp`.
 
 Il ne modifie pas la spécification normative V1. Les adresses V1 `5000..5019` sont conservées. La V1.1 étend B5 jusqu'à `5028` et modifie explicitement la sémantique transactionnelle nécessaire à l'identité `(transaction_epoch, transaction_id)`.
 
@@ -50,6 +50,17 @@ adresses  = 5000..5028
 | 28 | 5028 | `cmd_transaction_epoch_status` | enum16 | RO |
 
 Tous les champs `uint32` sont exposés MSW puis LSW et doivent être cohérents dans une même réponse Modbus.
+
+### 2.1 `cmd_engine_flags` V1.1
+
+Les bits V1 `0..10` conservent strictement leur sémantique V1. V1.1 affecte :
+
+```text
+bit 11     = LAST_TIMESTAMP_VALID
+bits 12..15 = réservés
+```
+
+`LAST_TIMESTAMP_VALID` est une propriété historique du `LastCommandSnapshot`. Il ne doit jamais être dérivé de l'état temporel courant B2.
 
 ## 3. Identité de transaction
 
@@ -217,9 +228,58 @@ Cette sémantique V1.1 est une évolution explicite par rapport au texte V1 où 
 
 `last` est la dernière transaction **admise** devenue terminale. Une tentative rejetée avant `RESERVED` ne crée ni ne remplace `LastCommandSnapshot`.
 
-Une transaction terminalisée par recovery avec résultat 28 ou 29 peut devenir `last` avec `cmd_last_status_final=6` et le résultat correspondant. Aucun timestamp historique ne doit être fabriqué si l'instant fiable de terminalisation n'est pas disponible.
+Une transaction terminalisée par recovery avec résultat 28 ou 29 peut devenir `last` avec `cmd_last_status_final=6` et le résultat correspondant.
 
 `last` n'est jamais une autorité d'idempotence. Sa restauration après reboot n'est requise que si une source persistante fiable permet de reconstruire un snapshot cohérent ; sinon il est neutralisé.
+
+### 11.1 Timestamp terminal historique — TRANSACTION-06
+
+`cmd_last_timestamp` représente l'instant civil fiable de la **terminalisation autoritative** du `LastCommandSnapshot`. Il ne représente pas nécessairement l'instant de l'effet métier et ne peut jamais être remplacé par l'heure du reboot, de la reconstruction B5, de la lecture Modbus ou d'une synchronisation ultérieure.
+
+```text
+LAST_TIMESTAMP_VALID = 1
+→ cmd_last_timestamp contient l'instant civil fiable de terminalisation
+
+LAST_TIMESTAMP_VALID = 0
+→ cmd_last_timestamp = 0x00000000
+→ aucune information temporelle n'est déductible
+```
+
+La valeur `0x00000000` n'est pas une sentinelle autonome : seul `LAST_TIMESTAMP_VALID` porte la validité. Une valeur numérique zéro avec `LAST_TIMESTAMP_VALID=1` reste interprétée dans le domaine temporel défini par la spécification.
+
+La terminalité et la disponibilité temporelle sont indépendantes. L'absence d'un temps civil fiable ne retarde ni n'interdit `COMPLETED`.
+
+Le `LastCommandSnapshot` logique comprend :
+
+```text
+cmd_last_code
+cmd_last_transaction_id
+cmd_last_status_final
+cmd_last_result_code
+cmd_last_timestamp
+cmd_last_transaction_epoch
+LAST_TIMESTAMP_VALID
+```
+
+Une même réponse Modbus couvrant plusieurs de ces champs doit provenir du même snapshot logique. Aucune atomicité inter-requêtes n'est garantie : deux requêtes distinctes peuvent observer deux `last` successifs.
+
+Projection canonique en absence de `LastCommandSnapshot` autoritatif :
+
+```text
+cmd_last_code                  = 0
+cmd_last_transaction_id        = 0
+cmd_last_status_final          = 0
+cmd_last_result_code           = 0
+cmd_last_timestamp             = 0x00000000
+cmd_last_transaction_epoch     = 0x00000000
+LAST_TIMESTAMP_VALID           = 0
+```
+
+En V1.1, `cmd_last_transaction_epoch=0` est le discriminateur d'absence de `last`. Un `last_epoch` non nul avec `LAST_TIMESTAMP_VALID=0` signifie au contraire qu'un last terminal existe mais que son instant terminal fiable est indisponible.
+
+La synchronisation temporelle courante, sa perte, son rétablissement ou un reboot ne modifient jamais rétroactivement l'information temporelle d'un last autoritatif. Un retry exact restitue le même statut final, le même résultat, le même `LAST_TIMESTAMP_VALID` et le même timestamp.
+
+Lorsqu'un nouveau `LastCommandSnapshot` remplace l'ancien, tous les champs ci-dessus, y compris le timestamp et son bit de validité, sont remplacés comme une unité logique. `clear_request_fields` et les écritures de mailbox ne modifient jamais cette zone historique.
 
 ## 12. Renouvellement / recovery
 
@@ -237,6 +297,8 @@ Si l'activation de N+1 ne peut être ni prouvée ni exclue, `cmd_transaction_epo
 
 Après `COMPLETED`, l'artefact spécial de transition peut être libéré ; une requête de N peut alors être classée `STALE` même si `last` affiche encore le renouvellement de N.
 
+Lorsque le renouvellement terminal `(N,65535)` devient `last` après activation de N+1, `last_epoch=N` peut coexister avec `current_epoch=N+1`. Son timestamp suit exactement les règles de la section 11.1.
+
 ## 13. Barrière durable de terminalisation recovery
 
 Pour les résultats 28 et 29 :
@@ -244,8 +306,37 @@ Pour les résultats 28 et 29 :
 ```text
 recovery concluant
 → écriture durable COMPLETED + status final 6 + result 28/29
+  + terminal_timestamp_valid
+  + terminal_timestamp si valide
 → barrière power-loss-safe
 → publication B5 terminale
 ```
 
 Une coupure avant la barrière reprend le recovery sans redispatch métier. Une coupure après la barrière conserve le résultat terminal comme autorité et la projection B5 est reconstruite depuis cette autorité durable.
+
+Pour un résultat 28 ou 29, si un temps civil fiable est disponible au moment de cette terminalisation recovery, `cmd_last_timestamp` date cette terminalisation recovery et `LAST_TIMESTAMP_VALID=1`. Sinon `LAST_TIMESTAMP_VALID=0` et `cmd_last_timestamp=0`. Une synchronisation ultérieure ne crée jamais rétroactivement ce timestamp.
+
+## 14. Recovery de la composante temporelle historique
+
+La persistance physique reste `IMPLEMENTATION`, mais la sémantique récupérée est normative :
+
+```text
+LastCommandSnapshot fiable + timestamp fiable
+→ restaurer le last
+→ LAST_TIMESTAMP_VALID=1
+→ restaurer exactement le timestamp durable
+
+LastCommandSnapshot fiable + timestamp non fiable / indisponible
+→ restaurer le last
+→ LAST_TIMESTAMP_VALID=0
+→ cmd_last_timestamp=0
+
+LastCommandSnapshot non autoritatif / non reconstructible
+→ neutraliser toute la zone last
+→ LAST_TIMESTAMP_VALID=0
+→ cmd_last_timestamp=0
+```
+
+Une corruption strictement isolable à la composante temporelle ne doit pas contaminer les faits terminaux indépendamment fiables. Inversement, un timestamp lisible ne permet jamais de reconstruire un `LastCommandSnapshot` dont l'identité, le statut final ou le résultat ne sont pas autoritatifs.
+
+Si `LAST_TIMESTAMP_VALID=1` a été durablement établi avec un timestamp fiable, un reboot doit restaurer exactement cette valeur ; il ne doit ni la redater ni l'invalider arbitrairement. Si la valeur durable était invalide, le reboot conserve `LAST_TIMESTAMP_VALID=0` même si l'horloge courante est ensuite fiable.

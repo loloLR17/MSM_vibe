@@ -2,7 +2,7 @@
 
 ## 1. Statut
 
-Ce document enregistre le gel **V1.1-TRANSACTION-01 — Cycle de vie normatif du `transaction_id` et mapping B5**, complété par les arbitrages de recovery **TRANSACTION-04 / TRANSACTION-05**.
+Ce document enregistre le gel **V1.1-TRANSACTION-01 — Cycle de vie normatif du `transaction_id` et mapping B5**, complété par les arbitrages de recovery **TRANSACTION-04 / TRANSACTION-05** et par **TRANSACTION-06 — validité de `cmd_last_timestamp`**.
 
 Statut : **FUNCTIONALLY AND PROTOCOL-MAPPING FROZEN**.
 
@@ -13,6 +13,7 @@ Ce gel :
 - fige le modèle fonctionnel TRANSACTION-01 ;
 - fige le mapping B5 V1.1, les offsets, les codes numériques et les règles de projection/recovery associées ;
 - fige les résultats de recovery 28 et 29 pour les transactions déjà admises ;
+- fige l'observabilité explicite de la validité du timestamp terminal historique via `cmd_engine_flags.bit11 = LAST_TIMESTAMP_VALID` ;
 - ne garantit pas la compatibilité transactionnelle d'une centrale V1 avec un capteur V1.1.
 
 Références :
@@ -62,6 +63,15 @@ Les registres V1 `5000..5019` restent aux mêmes adresses. L'extension V1.1 est 
 5027 cmd_last_transaction_epoch_lsw        RO
 5028 cmd_transaction_epoch_status          RO enum16
 ```
+
+Le registre V1 `5013 cmd_engine_flags` conserve les bits 0..10 définis en V1. V1.1 affecte explicitement :
+
+```text
+bit 11 = LAST_TIMESTAMP_VALID
+bits 12..15 = réservés
+```
+
+Aucune adresse ni taille B5 supplémentaire n'est introduite par TRANSACTION-06.
 
 ## 4. Codes numériques gelés
 
@@ -184,6 +194,61 @@ TRANSACTION-01 absorbe le problème principal d'épuisement du namespace `transa
 
 ## 8. Traçabilité
 
-Les arbitrages fonctionnels A..D10, mapping M1..M28, corrections transversales CROSS-01/CROSS-02, ainsi que TRANSACTION-04 T04-A..T04-F/T04-CROSS-01 et TRANSACTION-05 T05-A..T05-F sont gelés.
+Les arbitrages fonctionnels A..D10, mapping M1..M28, corrections transversales CROSS-01/CROSS-02, TRANSACTION-04 T04-A..T04-F/T04-CROSS-01, TRANSACTION-05 T05-A..T05-F et TRANSACTION-06 T06-A..T06-S sont gelés.
 
 Les tests V1.1 associés sont `SPECIFIED_NOT_EXECUTED` lorsqu'ils dépendent du mapping protocolaire ; aucun statut n'est assimilé à `PASS` avant exécution effective.
+
+## 9. TRANSACTION-06 — validité du timestamp terminal historique
+
+La terminalité d'une transaction est indépendante de la disponibilité de son timestamp terminal. Une transaction peut être `COMPLETED` et pleinement autoritative alors qu'aucun instant civil fiable de terminalisation n'est disponible.
+
+`cmd_last_timestamp` représente exclusivement l'instant civil fiable de la terminalisation autoritative du `LastCommandSnapshot`, et non nécessairement l'instant de l'effet métier, du crash, du reboot, de la reconstruction B5 ou de la lecture Modbus.
+
+Contrat de projection :
+
+```text
+LAST_TIMESTAMP_VALID = 1
+→ cmd_last_timestamp = instant civil fiable de terminalisation autoritative
+
+LAST_TIMESTAMP_VALID = 0
+→ cmd_last_timestamp = 0x00000000
+→ aucune information temporelle ne peut être déduite de cette valeur
+```
+
+La valeur numérique `0x00000000` n'est pas une sentinelle autonome ; seul `LAST_TIMESTAMP_VALID` porte la validité.
+
+Le `LastCommandSnapshot` logique comprend de façon cohérente :
+
+```text
+cmd_last_code
+cmd_last_transaction_id
+cmd_last_status_final
+cmd_last_result_code
+cmd_last_timestamp
+cmd_last_transaction_epoch
+LAST_TIMESTAMP_VALID
+```
+
+Une même réponse Modbus couvrant plusieurs de ces champs doit provenir du même snapshot logique. Deux requêtes Modbus distinctes peuvent naturellement observer deux snapshots successifs.
+
+Absence de `LastCommandSnapshot` autoritatif :
+
+```text
+cmd_last_code                  = 0
+cmd_last_transaction_id        = 0
+cmd_last_status_final          = 0
+cmd_last_result_code           = 0
+cmd_last_timestamp             = 0x00000000
+cmd_last_transaction_epoch     = 0x00000000
+LAST_TIMESTAMP_VALID           = 0
+```
+
+En V1.1, `last_epoch=0` distingue donc l'absence de last d'un last existant dont le timestamp est indisponible.
+
+La synchronisation temporelle courante, sa perte, son rétablissement ou un reboot ne redatent jamais un snapshot terminal. Un retry exact restitue la même validité temporelle et le même timestamp que la transaction terminale originale. Si le timestamp était indisponible à la terminalisation, une synchronisation ultérieure ne le crée pas rétroactivement.
+
+À la terminalisation durable, `COMPLETED`, le statut final, le résultat final, `terminal_timestamp_valid` et le timestamp éventuel doivent être causalement cohérents dans l'autorité persistante. Le mécanisme physique de stockage reste `IMPLEMENTATION`.
+
+Si le snapshot terminal est fiable mais sa composante temporelle ne l'est pas, seule la composante temporelle est dégradée : `LAST_TIMESTAMP_VALID=0`, timestamp zéro. Si l'autorité du snapshot lui-même n'est pas prouvable, la zone last est entièrement neutralisée. Aucune récupération « au meilleur effort » depuis des fragments non autoritatifs n'est permise.
+
+Pour les résultats 28 et 29, le timestamp éventuel date la terminalisation de recovery elle-même. La disponibilité ou non de ce timestamp ne modifie jamais la classification transactionnelle 6/28 ou 6/29.

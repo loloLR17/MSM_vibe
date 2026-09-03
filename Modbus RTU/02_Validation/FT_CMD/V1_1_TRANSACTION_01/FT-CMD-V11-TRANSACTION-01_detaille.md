@@ -150,6 +150,70 @@ Oracle : résultat 6/28 ou 6/29 restauré depuis l'autorité durable ; active ne
 Après `STARTED`, une observation provisoire suggère l'absence mais la preuve autoritative n'est plus disponible avant la barrière et aucun résultat probatoire fiable n'a été capturé.
 Oracle : result 29 interdit ; chemin indéterminé si aucun autre résultat terminal n'est prouvé.
 
+## TRANSACTION-06 — Validité de `cmd_last_timestamp`
+
+### TT-CMD-V11-T01-037 — Terminalisation avec temps civil fiable
+Terminaliser une transaction admise alors qu'un instant civil fiable de terminalisation est disponible.
+Oracle : `last` terminal cohérent, `cmd_engine_flags.bit11 LAST_TIMESTAMP_VALID=1`, `cmd_last_timestamp` égal à l'instant civil fiable de terminalisation autoritative.
+
+### TT-CMD-V11-T01-038 — Terminalisation sans temps civil fiable
+Terminaliser une transaction admise sans instant civil fiable disponible.
+Oracle : terminalité et résultat inchangés, `LAST_TIMESTAMP_VALID=0`, `cmd_last_timestamp=0x00000000`; aucune attente de synchronisation avant `COMPLETED`.
+
+### TT-CMD-V11-T01-039 — Retry exact préserve la temporalité
+Après un terminal avec timestamp valide puis après un terminal sans timestamp, effectuer un retry exact.
+Oracle : même statut/résultat, même `LAST_TIMESTAMP_VALID`, même timestamp ; aucun nouveau `RESERVED` ni nouvelle terminalisation.
+
+### TT-CMD-V11-T01-040 — État temporel courant indépendant du last
+Faire varier B2 : temps valide/invalide, synchronisation, perte de synchronisation, nouvelle synchronisation.
+Oracle : identité/status/result de `last`, `LAST_TIMESTAMP_VALID` et `cmd_last_timestamp` restent inchangés.
+
+### TT-CMD-V11-T01-041 — Nouveau last sans timestamp remplace un last valide
+Précharger un last A avec timestamp valide, puis terminaliser B sans temps civil fiable.
+Oracle : last=B, `LAST_TIMESTAMP_VALID=0`, timestamp=0 ; le timestamp de A ne subsiste pas.
+
+### TT-CMD-V11-T01-042 — Nouveau last valide remplace un last sans timestamp
+Précharger A avec `LAST_TIMESTAMP_VALID=0`, puis terminaliser B avec temps fiable.
+Oracle : last=B, `LAST_TIMESTAMP_VALID=1`, timestamp de B.
+
+### TT-CMD-V11-T01-043 — Mailbox indépendante du last
+Avec un last autoritatif, utiliser `clear_request_fields`, modifier la mailbox et préparer une nouvelle requête sans la terminaliser.
+Oracle : toute la zone last, le timestamp et `LAST_TIMESTAMP_VALID` restent inchangés.
+
+### TT-CMD-V11-T01-044 — Projection neutre sans LastCommandSnapshot
+Boot/recovery sans snapshot terminal autoritatif reconstructible.
+Oracle : code/txid/status/result/timestamp/last_epoch tous à zéro et `LAST_TIMESTAMP_VALID=0`.
+
+### TT-CMD-V11-T01-045 — Cohérence intra-réponse Modbus
+Pendant le remplacement de last A par B, lire dans une même réponse plusieurs champs de la zone last incluant timestamp/epoch/flags.
+Oracle : snapshot A complet ou B complet, jamais mélange A/B ; MSW/LSW du timestamp issus du même uint32.
+
+### TT-CMD-V11-T01-046 — Restauration après reboot
+Récupérer successivement un terminal durable avec timestamp valide puis un terminal durable avec timestamp invalide.
+Oracle : le premier restaure exactement le timestamp et valid=1 ; le second restaure valid=0/timestamp=0 même si le temps courant est devenu fiable.
+
+### TT-CMD-V11-T01-047 — Corruption temporelle isolée
+Conserver identité/status/result terminal fiables mais rendre la composante temporelle non authentifiable de façon isolable.
+Oracle : conserver le last, dégrader uniquement la temporalité : valid=0, timestamp=0.
+
+### TT-CMD-V11-T01-048 — Corruption globale du snapshot
+Rendre impossible la preuve d'un snapshot cohérent identité/status/result.
+Oracle : neutralisation complète de la zone last ; un timestamp éventuellement lisible ne suffit jamais à recréer le snapshot.
+
+### TT-CMD-V11-T01-049 — Result 28 et timestamp de recovery
+Terminaliser par recovery 6/28 successivement avec puis sans temps civil fiable à l'instant de terminalisation.
+Oracle : si fiable, valid=1 et timestamp de terminalisation recovery ; sinon valid=0/timestamp=0. Le timestamp ne date ni le `RESERVED` ni le crash.
+
+### TT-CMD-V11-T01-050 — Result 29 et timestamp de recovery
+Terminaliser par recovery 6/29 successivement avec puis sans temps civil fiable.
+Oracle : même règle que 28 ; la disponibilité temporelle ne change jamais la classification 6/29.
+
+### TT-CMD-V11-T01-051 — Renewal terminal et last_epoch
+Terminaliser le renouvellement `(N,65535)` après activation autoritative de N+1.
+Oracle : `current_epoch=N+1`, `last_epoch=N`, txid=65535 ; timestamp/validité suivent les règles TRANSACTION-06 ordinaires.
+
 ## Tests de power-loss associés
 
 Les scénarios J-EPOCH-01..34 et les frontières E1..E7 / R1..R4 sont définis dans `RECOVERY_FAULT_INJECTION_TRANSACTION_EPOCH_V1_1.md`.
+
+Les scénarios J-T06-01..24 du même document couvrent les frontières de terminalisation, reboot, corruption, retry, cohérence Modbus, results 28/29, renewal et projection neutre relatives à TRANSACTION-06.

@@ -2,7 +2,7 @@
 
 ## 1. Statut
 
-Ce document formalise **V1.1-TRANSACTION-01**, incluant les arbitrages de recovery TRANSACTION-04 / TRANSACTION-05.
+Ce document formalise **V1.1-TRANSACTION-01**, incluant les arbitrages de recovery TRANSACTION-04 / TRANSACTION-05 et TRANSACTION-06 sur l'observabilité temporelle du `LastCommandSnapshot`.
 
 Statut : **FUNCTIONALLY AND PROTOCOL-MAPPING FROZEN**.
 
@@ -80,6 +80,8 @@ B5 V1.1 conserve les offsets V1 `0..19` et ajoute :
 Taille totale : 29 registres, adresses `5000..5028`.
 
 Les `uint32` sont MSW puis LSW et cohérents dans une même réponse Modbus.
+
+`cmd_engine_flags` conserve les bits V1 `0..10`. V1.1 utilise `bit11 = LAST_TIMESTAMP_VALID`; bits 12..15 restent réservés. TRANSACTION-06 n'ajoute aucun registre.
 
 ## 6. Requête immuable et mailbox
 
@@ -381,6 +383,80 @@ Pour le chemin 29, la preuve d'`ABSENCE_PROVEN` doit rester suffisante jusqu'à 
 
 Les invariants T01-01..T01-25 du gel fonctionnel restent applicables, notamment : identité `(epoch,txid)`, epoch 0 invalide, changement d'epoch explicite uniquement, txid 65535 réservé au renouvellement, pas de blind replay, corrélation de transition durable, pas de N+2 après retry du renouvellement, et pas de reconstruction d'autorité depuis le journal.
 
-## 18. Points hors TRANSACTION-01
+## 18. TRANSACTION-06 — LastCommandSnapshot et temporalité terminale
 
-Restent séparés : factory reset/reprovisioning, politique d'échappement après `0xFFFFFFFF`, éventuel signal d'approche d'épuisement, autres sujets résiduels TRANSACTION-02, et sémantique exhaustive des timestamps historiques lorsqu'aucun temps civil fiable n'est disponible.
+Principe :
+
+```text
+terminalité autoritative
+!=
+disponibilité de l'instant civil terminal
+```
+
+L'absence d'un timestamp fiable ne bloque, ne retarde ni ne remet en cause `COMPLETED`. La temporalité historique est une composante d'observabilité du `LastCommandSnapshot`, jamais une autorité d'idempotence ou de recovery.
+
+Le `LastCommandSnapshot` logique comprend : identité `(last_epoch,last_txid)`, code, statut final, résultat final, `terminal_timestamp_valid` et le timestamp éventuel. La projection B5 de ces champs doit être cohérente dans une même réponse Modbus.
+
+Contrat durable de terminalisation :
+
+```text
+terminal result determined
+→ COMPLETED + final_status + final_result
+→ terminal_timestamp_valid
+→ terminal_timestamp si valid
+→ power-loss-safe barrier
+→ publication B5 terminale
+```
+
+Le mécanisme de persistance peut séparer physiquement ces données, mais il doit garantir leur cohérence causale.
+
+Recovery du snapshot :
+
+```text
+snapshot terminal fiable + temporalité fiable
+→ restaurer exactement le snapshot et le timestamp
+
+snapshot terminal fiable + temporalité non fiable
+→ conserver les faits terminaux
+→ LAST_TIMESTAMP_VALID=0
+→ timestamp=0
+
+snapshot terminal non autoritatif
+→ neutraliser le last complet
+```
+
+Une corruption temporelle isolable ne contamine pas les faits terminaux indépendamment prouvés. Une corruption compromettant l'autorité globale interdit toute reconstruction « au meilleur effort ».
+
+L'information temporelle terminale est immuable : reboot, retry exact, perte ou acquisition de synchronisation, lecture Modbus et activité mailbox ne la réécrivent jamais. Lorsqu'un nouveau terminal devient `last`, l'ancien snapshot et sa temporalité sont remplacés comme une unité logique.
+
+Pour recovery 28/29, le timestamp éventuel est celui de la terminalisation de recovery, pas l'instant historique du crash ou de l'effet supposé. Si aucun temps civil fiable n'est disponible à cette terminalisation, le timestamp reste définitivement indisponible pour ce snapshot, sauf si le vrai instant avait déjà été capturé de façon autoritative.
+
+### Invariants T06 gelés
+
+- T06-01 : terminalité et disponibilité du timestamp sont indépendantes.
+- T06-02 : absence de timestamp fiable ne retarde ni n'interdit `COMPLETED`.
+- T06-03 : `cmd_engine_flags.bit11 = LAST_TIMESTAMP_VALID`; bits 0..10 V1 inchangés, bits 12..15 réservés.
+- T06-04 : valid=1 implique un instant civil fiable de terminalisation autoritative.
+- T06-05 : valid=0 implique `cmd_last_timestamp=0` sans information temporelle.
+- T06-06 : la valeur numérique zéro n'est pas une sentinelle autonome ; la validité est portée par le flag.
+- T06-07 : existence du last et validité temporelle sont indépendantes ; `last_epoch=0` signifie absence de last autoritatif.
+- T06-08 : les champs last, last_epoch, timestamp et flag appartiennent au même snapshot logique.
+- T06-09 : cohérence obligatoire dans une même réponse Modbus ; aucune atomicité inter-requêtes.
+- T06-10 : le timestamp date la terminalisation autoritative, pas nécessairement l'effet métier, le reboot ou la publication.
+- T06-11 : aucun instant historique n'est reconstruit, estimé ou fabriqué.
+- T06-12 : une synchronisation ultérieure ne crée jamais rétroactivement un timestamp absent.
+- T06-13 : retry exact conserve statut, résultat, validité et timestamp.
+- T06-14 : remplacement de `last` remplace aussi timestamp et validité comme une unité logique.
+- T06-15 : mailbox et `clear_request_fields` ne modifient pas le last ni sa temporalité.
+- T06-16 : `LAST_TIMESTAMP_VALID` ne dérive jamais de B2.TIME_VALID ni de l'état temporel courant.
+- T06-17 : snapshot fiable + timestamp non fiable → conserver le snapshot et dégrader seulement la temporalité.
+- T06-18 : snapshot non reconstructible → neutralisation complète de la zone last.
+- T06-19 : timestamp durable valide → restauration exacte après reboot, sans redatation ni invalidation arbitraire.
+- T06-20 : corruption temporelle isolable dégrade seulement la temporalité ; corruption globale interdit le snapshot.
+- T06-21 : validité et timestamp éventuel font partie de l'état terminal durable causalement cohérent.
+- T06-22 : terminalisation durable précède la publication B5 terminale, y compris pour 28/29.
+- T06-23 : une fois autoritative, l'information temporelle terminale est immuable pour cette transaction.
+
+## 19. Points hors TRANSACTION-01
+
+Restent séparés : factory reset/reprovisioning, politique d'échappement après `0xFFFFFFFF`, éventuel signal d'approche d'épuisement et autres sujets résiduels TRANSACTION-02.

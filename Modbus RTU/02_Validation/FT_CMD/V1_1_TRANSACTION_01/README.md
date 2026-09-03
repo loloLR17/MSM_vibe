@@ -2,7 +2,7 @@
 
 ## Objet
 
-Cette famille valide **V1.1-TRANSACTION-01 — Cycle de vie normatif du transaction_id et mapping B5**, incluant les branches de recovery TRANSACTION-04 / TRANSACTION-05.
+Cette famille valide **V1.1-TRANSACTION-01 — Cycle de vie normatif du transaction_id et mapping B5**, incluant les branches de recovery TRANSACTION-04 / TRANSACTION-05 et l'observabilité temporelle historique TRANSACTION-06.
 
 Elle reste séparée des FT-CMD V1. Les tests V1 continuent d'utiliser la spécification V1 comme oracle.
 
@@ -53,6 +53,10 @@ epoch_status 0 UNINITIALIZED
              3 UNAVAILABLE
              4 UNSUPPORTED
              5 INDETERMINATE
+
+cmd_engine_flags bit 11 = LAST_TIMESTAMP_VALID
 ```
 
 Les résultats 28 et 29 sont terminaux avec `status=6` et ne sont valides que sous les conditions probatoires définies par l'architecture. En cas de preuve insuffisante après `STARTED`, l'oracle reste `status=9 RECOVERY_INDETERMINATE`.
+
+Pour TRANSACTION-06, `LAST_TIMESTAMP_VALID=0` impose `cmd_last_timestamp=0x00000000` mais la valeur numérique zéro n'est pas, à elle seule, une sentinelle de validité. La validité historique est portée exclusivement par le bit 11. Le changement de l'état temporel courant B2 ne modifie jamais rétroactivement ce bit ni le timestamp du `LastCommandSnapshot`.
