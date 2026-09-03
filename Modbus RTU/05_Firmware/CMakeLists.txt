@@ -1,0 +1,55 @@
+cmake_minimum_required(VERSION 3.20)
+project(tr2_firmware_p0 LANGUAGES C)
+
+set(CMAKE_C_STANDARD 11)
+set(CMAKE_C_STANDARD_REQUIRED ON)
+set(CMAKE_C_EXTENSIONS OFF)
+
+if(MSVC)
+    add_compile_options(/W4 /WX)
+else()
+    add_compile_options(-Wall -Wextra -Wpedantic -Werror)
+endif()
+
+add_library(tr2_core STATIC
+    src/application/system_runtime.c
+    src/modbus/codec.c
+    src/modbus/register_model.c
+)
+
+target_include_directories(tr2_core
+    PUBLIC
+        ${CMAKE_CURRENT_SOURCE_DIR}/include
+)
+
+add_library(tr2_platform_host STATIC
+    platform/host/host_platform.c
+)
+
+target_include_directories(tr2_platform_host
+    PUBLIC
+        ${CMAKE_CURRENT_SOURCE_DIR}/include
+        ${CMAKE_CURRENT_SOURCE_DIR}/platform/host/include
+)
+
+target_link_libraries(tr2_platform_host PUBLIC tr2_core)
+
+add_executable(tr2_host
+    platform/host/main.c
+)
+
+target_link_libraries(tr2_host PRIVATE tr2_platform_host)
+
+enable_testing()
+
+add_executable(test_register_model
+    tests/unit/test_register_model.c
+)
+target_link_libraries(test_register_model PRIVATE tr2_core)
+add_test(NAME register_model COMMAND test_register_model)
+
+add_executable(test_system_runtime
+    tests/integration/test_system_runtime.c
+)
+target_link_libraries(test_system_runtime PRIVATE tr2_platform_host)
+add_test(NAME system_runtime COMMAND test_system_runtime)
