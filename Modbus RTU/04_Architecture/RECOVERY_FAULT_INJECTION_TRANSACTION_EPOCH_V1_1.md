@@ -2,15 +2,11 @@
 
 ## 1. Statut
 
-Compagnon de `ARCHITECTURE_TRANSACTION_EPOCH_V1_1.md`.
+Compagnon gelé de `ARCHITECTURE_TRANSACTION_EPOCH_V1_1.md`. Il ne modifie pas la baseline V1.
 
-Ce document traduit les invariants V1.1-TRANSACTION-01 en scénarios falsifiables. Il ne modifie pas la baseline V1.
-
-Les injections utilisent les abstractions normales de persistance/recovery ; aucun registre de test privé n'est requis par le protocole.
+Les injections utilisent les abstractions réelles de persistance/recovery ; aucun registre de test privé n'est requis.
 
 ## 2. Frontières génériques
-
-Séquence nominale :
 
 ```text
 epoch N active
@@ -30,133 +26,104 @@ COMPLETED durable
 B5 publication
 ```
 
-L'injection doit pouvoir interrompre à chacune de ces frontières lorsque le mécanisme réel les matérialise.
-
-## 3. Scénarios
+## 3. Scénarios et projections
 
 ### J-EPOCH-01 — Crash avant RESERVED
+N reste courante ; aucune transaction renewal ; aucune N+1.
 
-Oracle : N reste courante ; aucune transaction de renouvellement n'existe ; aucune N+1 n'existe.
+### J-EPOCH-02 — Après RESERVED avant STARTED
+N reste courante ; renewal recoverable sans effet ; active peut publier `(N,65535)`.
 
-### J-EPOCH-02 — Crash après RESERVED, avant STARTED
+### J-EPOCH-03 — Après STARTED avant préparation N+1
+N reste courante ; `STARTED` seul ne prouve aucune activation.
 
-Oracle : N reste courante ; aucun effet d'epoch ; le renouvellement peut être recoveré comme transaction sans effet.
+### J-EPOCH-04 — Après préparation N+1 avant activation
+N reste seule courante ; N+1 préparée sans autorité.
 
-### J-EPOCH-03 — Crash après STARTED, avant préparation durable N+1
+### J-EPOCH-05 — Immédiatement après activation N+1
+`epoch_status=VALID`, `current_epoch=N+1`; la transaction `(N,65535)` reste récupérable comme active tant qu'elle n'est pas terminale ; jamais N+2.
 
-Oracle : N reste courante ; aucune activation ne peut être inférée de `STARTED` seul.
+### J-EPOCH-06 — Après activation avant COMPLETED
+Projection autorisée : `current_epoch=N+1`, `active_epoch=N`, `active_txid=65535`. Recovery finalise la même transaction sans nouvelle activation.
 
-### J-EPOCH-04 — Crash après préparation N+1, avant activation
+### J-EPOCH-07 — Reboots répétés
+Jamais `N → N+1 → reboot → N+2`. Recovery idempotent.
 
-Oracle : N reste seule courante ; le candidat N+1 préparé n'a aucune autorité.
+### J-EPOCH-08 — Retry `(N,65535)` après activation
+Retry K1 de la transition ; aucun nouvel effet ; N+1 reste courante.
 
-### J-EPOCH-05 — Crash immédiatement après activation N+1
+### J-EPOCH-09 — Retry après finalisation durable
+Aucune nouvelle activation. Si l'artefact spécial a été libéré, la requête de N peut être `STALE`; `last` peut encore afficher `(N,65535)` sans créer un droit à restitution.
 
-Oracle : N+1 est restaurée comme seule epoch courante ; l'effet terminal est prouvé par `TransactionEpochStore` ; aucune activation supplémentaire n'est autorisée.
+### J-EPOCH-10 — Ancienne epoch
+`status=5`, `result=24`, aucun `RESERVED`, aucun dispatch métier.
 
-### J-EPOCH-06 — Crash après activation, avant `COMPLETED`
+### J-EPOCH-11 — epoch=0
+`status=5`, `result=23`, aucune transaction créée.
 
-Oracle : le recovery finalise `(N,65535)` sans N+2 ; la corrélation de transition reste durable jusqu'à finalisation.
+### J-EPOCH-12 — Epoch inconnue
+`status=5`, `result=25`, aucune transaction créée.
 
-### J-EPOCH-07 — Reboots répétés au même point
+### J-EPOCH-13 — Store corrompu
+`epoch_status=2 CORRUPTED`, `current_epoch=0`, aucune admission, aucune reconstruction depuis le journal.
 
-Répéter le reboot après J-EPOCH-05/06.
+### J-EPOCH-14 — Store indisponible
+`epoch_status=3 UNAVAILABLE`, `current_epoch=0`, aucune admission.
 
-Oracle :
+### J-EPOCH-15 — Format non supporté
+`epoch_status=4 UNSUPPORTED`, `current_epoch=0`, aucune admission, jamais normalisé en UNINITIALIZED.
 
-```text
-jamais N → N+1 → reboot → N+2
-```
-
-Le recovery est idempotent.
-
-### J-EPOCH-08 — Retry `(N,65535)` après activation N+1
-
-Oracle : retry K1 de la transaction de transition ; aucun nouvel effet ; N+1 reste courante ; jamais N+2.
-
-### J-EPOCH-09 — Retry `(N,65535)` après finalisation durable
-
-Oracle : aucune nouvelle activation. La restitution individuelle du résultat historique peut dépendre de la rétention retenue après la frontière de finalisation, mais aucun redispatch n'est permis.
-
-### J-EPOCH-10 — Requête d'une ancienne epoch
-
-Oracle : aucun `RESERVED`, aucun dispatch métier, aucun nouvel effet.
-
-### J-EPOCH-11 — `transaction_epoch=0`
-
-Oracle : rejet `TRANSACTION_EPOCH_INVALID` conceptuel ; aucune transaction créée.
-
-### J-EPOCH-12 — Epoch différente non reconnue
-
-Oracle : rejet `TRANSACTION_EPOCH_UNKNOWN` conceptuel ; aucune transaction créée.
-
-### J-EPOCH-13 — TransactionEpochStore corrompu
-
-Oracle : état interne `CORRUPTED`; aucune nouvelle transaction B5 admise ; aucune epoch inventée depuis le journal.
-
-### J-EPOCH-14 — TransactionEpochStore indisponible
-
-Oracle : état `UNAVAILABLE`; aucune nouvelle transaction B5 admise.
-
-### J-EPOCH-15 — Format d'epoch non supporté
-
-Oracle : état `UNSUPPORTED`; aucune nouvelle transaction B5 admise ; jamais normalisé en `UNINITIALIZED`.
-
-### J-EPOCH-16 — Recovery indéterminé d'une transition
-
-Précondition : les preuves disponibles ne permettent de démontrer ni N ni N+1 comme autorité unique.
-
-Oracle : `INDETERMINATE`; aucune nouvelle transaction B5 admise ; aucun choix arbitraire.
+### J-EPOCH-16 — Autorité de transition indéterminée
+Ni N ni N+1 ne peuvent être prouvées autoritatives. Oracle : `epoch_status=5 INDETERMINATE`, `current_epoch=0`, aucune admission, aucun choix arbitraire.
 
 ### J-EPOCH-17 — Première initialisation légitime
-
-Précondition : preuve positive `UNINITIALIZED`.
-
-Oracle : création d'une epoch non nulle, commit durable, puis seulement admission B5.
+Précondition `UNINITIALIZED` positivement prouvée. Avant activation durable : `epoch_status=0`, `current_epoch=0`. Après commit valide : `epoch_status=1`, epoch non nulle, puis seulement admission.
 
 ### J-EPOCH-18 — Coupure pendant première initialisation
+Aucune admission tant qu'une epoch autoritative non nulle n'est pas récupérable ; une écriture partielle n'est jamais VALID.
 
-Oracle : jamais d'admission B5 tant qu'une epoch autoritative non nulle n'est pas récupérable ; une écriture partielle ne devient pas une epoch valide.
+### J-EPOCH-19 — Corruption assimilée à tort à première init
+Interdit : CORRUPTED ne devient jamais silencieusement UNINITIALIZED.
 
-### J-EPOCH-19 — Corruption assimilée à tort à première initialisation
-
-Oracle : interdit. `CORRUPTED` ne peut jamais être converti silencieusement en `UNINITIALIZED`.
-
-### J-EPOCH-20 — Renouvellement alors qu'une autre transaction est non terminale
-
-Oracle : rejet `TRANSACTION_EPOCH_RENEWAL_NOT_ALLOWED` conceptuel ; aucune N+1 préparée/activée.
+### J-EPOCH-20 — Renewal avec autre transaction non terminale
+`status=5`, `result=26`; aucune N+1 préparée/activée.
 
 ### J-EPOCH-21 — Commande ordinaire avec txid 65535
-
-Oracle : rejet avant effet métier ; 65535 reste réservé.
+`status=5`, `result=2`; aucun RESERVED, aucun effet métier.
 
 ### J-EPOCH-22 — RENEW avec txid autre que 65535
+`status=5`, `result=2`; aucune activation.
 
-Oracle : rejet ; aucune activation.
+### J-EPOCH-23 — Même txid dans deux epochs
+`(N,42)` et `(N+1,42)` sont deux identités différentes ; la seconde est une nouvelle transaction.
 
-### J-EPOCH-23 — Même txid dans deux epochs successives
+### J-EPOCH-24 — Collision même epoch
+Même `(N,T)` avec requêtes différentes : `status=5`, `result=27`; aucun redispatch ; transaction originale et `last` inchangés par la tentative conflictuelle.
 
-Exécuter `(N,42)` puis, après renouvellement, `(N+1,42)`.
+### J-EPOCH-25 — Perte historique allocation centrale
+La centrale ne devine pas un txid libre ; elle obtient une nouvelle frontière d'epoch.
 
-Oracle : identités transactionnelles différentes ; la seconde est une nouvelle transaction et ne doit pas être confondue avec l'historique de N.
+## 4. Recovery K1 indéterminé distinct de l'autorité epoch
 
-### J-EPOCH-24 — Collision dans une même epoch
+Deux diagnostics distincts existent :
 
-Même `(N,T)` avec deux requêtes différentes.
+```text
+cmd_status=9 RECOVERY_INDETERMINATE
+→ transaction active non terminale, identité active conservée
 
-Oracle : collision détectée ; aucun redispatch de la seconde requête.
+epoch_status=5 INDETERMINATE
+→ autorité epoch elle-même indéterminée, current_epoch=0
+```
 
-### J-EPOCH-25 — Perte d'historique d'allocation côté centrale
+Ils ne doivent jamais être confondus.
 
-Oracle côté centrale : ne pas deviner un txid libre dans N ; obtenir une nouvelle frontière d'epoch avant nouvelles transactions.
-
-## 4. Critères transversaux
-
-Pour tous les scénarios :
+## 5. Critères transversaux
 
 - aucune donnée B5 ne devient autorité de l'epoch ;
-- aucune projection Modbus antérieure ne reconstruit l'autorité ;
-- aucun `STARTED` seul ne prouve l'effet ;
+- aucune projection Modbus antérieure ne reconstruit une autorité ;
+- aucun `STARTED` seul ne prouve un effet ;
 - aucune ancienne epoch ne redevient active par reboot ;
 - aucune collision n'est convertie en effet métier ;
-- l'absence de preuve reste absence de preuve.
+- une tentative rejetée avant RESERVED ne remplace pas `last` ;
+- l'absence de preuve reste absence de preuve ;
+- le firmware bloque plutôt qu'inventer une continuité.

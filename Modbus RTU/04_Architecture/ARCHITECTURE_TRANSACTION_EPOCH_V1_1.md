@@ -2,82 +2,88 @@
 
 ## 1. Statut
 
-Ce document formalise l'arbitrage fonctionnel **V1.1-TRANSACTION-01**.
+Ce document formalise **V1.1-TRANSACTION-01**.
 
-Il est **FUNCTIONALLY FROZEN** mais ne constitue pas encore, à lui seul, la spécification protocolaire normative V1.1. Les offsets B5, codes numériques et règles de compatibilité V1/V1.1 restent à intégrer explicitement lors de la passe mapping.
+Statut : **FUNCTIONALLY AND PROTOCOL-MAPPING FROZEN**.
 
-La baseline V1 reste inchangée. Pour V1, la politique firmware actuelle `lifetime strict` reste applicable.
+La baseline Modbus RTU V1 reste inchangée. Pour V1, la politique firmware `lifetime strict` reste applicable. Le présent document définit la promotion V1.1 ; il n'établit pas de compatibilité transactionnelle avec une centrale V1.
 
 ## 2. Problème traité
 
-La V1 impose l'idempotence par `transaction_id` mais ne définit pas :
+La V1 impose une idempotence par `transaction_id` mais ne définit ni frontière de réutilisation, ni cycle de vie fini du namespace, ni mécanisme interopérable après perte de l'historique d'allocation côté centrale.
 
-- la durée/profondeur de conservation de l'historique ;
-- le moment où un identifiant ancien peut être réutilisé ;
-- le wrap après épuisement du domaine 16 bits ;
-- une frontière interopérable permettant à la centrale et au capteur de savoir si un identifiant appartient encore à l'histoire courante.
-
-V1.1 doit fournir une frontière explicite et observable sans dépendre du `WallClock`.
+V1.1 introduit une frontière explicite, persistante et indépendante du `WallClock`.
 
 ## 3. Identité transactionnelle
-
-La V1.1 retient :
 
 ```text
 TransactionIdentity = (transaction_epoch, transaction_id)
 ```
 
-`transaction_id` seul n'est donc plus suffisant comme identité globale.
-
-Le même `transaction_id` peut être utilisé dans deux epochs différentes sans collision d'identité.
-
-## 4. Autorité de l'epoch
-
-L'epoch courante est possédée par une autorité persistante dédiée :
+`transaction_epoch` est un `uint32` MSW/LSW :
 
 ```text
-TransactionEpochStore
+0             = invalide / réservé
+1..0xFFFFFFFF = valide
 ```
 
-ou un composant sémantiquement équivalent.
+Aucun wrap implicite n'est autorisé.
 
-Le `CommandJournal` reste l'autorité transactionnelle des commandes et ne devient jamais l'autorité de l'epoch courante.
-
-Séparation :
+Namespace txid :
 
 ```text
-renewal command transaction authority != current epoch business authority
+1..65534 = transactions ordinaires
+65535    = RENEW_TRANSACTION_EPOCH uniquement
 ```
 
-## 5. Domaine de `transaction_epoch`
+Le même txid peut être utilisé dans deux epochs différentes sans collision d'identité.
 
-Le champ est un `uint32`, encodé MSW puis LSW.
+## 4. Autorités
+
+L'epoch courante est possédée par `TransactionEpochStore` ou équivalent sémantique. Le `CommandJournal` reste l'autorité transactionnelle des commandes et ne devient jamais l'autorité de l'epoch.
 
 ```text
-0              = invalide / réservé
-1..0xFFFFFFFF  = valide
+renewal command transaction authority != current epoch authority
 ```
 
-Aucun wrap implicite de l'epoch n'est autorisé.
+La première epoch n'est créée que depuis `UNINITIALIZED` positivement prouvé, avec une valeur non nulle choisie par l'implémentation et rendue durable avant toute admission B5.
 
-La valeur initiale exacte de la première epoch reste `IMPLEMENTATION`, sous réserve qu'elle soit non nulle et durable avant toute admission B5.
-
-## 6. Représentation conceptuelle B5
-
-La V1.1 devra permettre à chaque soumission de porter explicitement l'epoch cible et devra exposer séparément l'epoch courante autoritative.
-
-Champs conceptuels :
+Recovery de l'autorité d'epoch :
 
 ```text
-cmd_request_transaction_epoch_msw  RW
-cmd_request_transaction_epoch_lsw  RW
-cmd_current_transaction_epoch_msw  RO
-cmd_current_transaction_epoch_lsw  RO
+UNINITIALIZED
+VALID
+CORRUPTED
+UNAVAILABLE
+UNSUPPORTED
+INDETERMINATE
 ```
 
-Les offsets/adresses exacts sont différés à la passe mapping.
+`CORRUPTED`, `UNAVAILABLE`, `UNSUPPORTED` et `INDETERMINATE` n'autorisent aucune nouvelle transaction B5. Aucun journal ni registre B5 ne reconstruit implicitement l'epoch courante.
 
-La requête immuable capturée doit contenir au minimum :
+## 5. Mapping B5 V1.1
+
+B5 V1.1 conserve les offsets V1 `0..19` et ajoute :
+
+```text
+20 / 5020 cmd_request_transaction_epoch_msw    RW
+21 / 5021 cmd_request_transaction_epoch_lsw    RW
+22 / 5022 cmd_current_transaction_epoch_msw    RO
+23 / 5023 cmd_current_transaction_epoch_lsw    RO
+24 / 5024 cmd_active_transaction_epoch_msw     RO
+25 / 5025 cmd_active_transaction_epoch_lsw     RO
+26 / 5026 cmd_last_transaction_epoch_msw       RO
+27 / 5027 cmd_last_transaction_epoch_lsw       RO
+28 / 5028 cmd_transaction_epoch_status         RO enum16
+```
+
+Taille totale : 29 registres, adresses `5000..5028`.
+
+Les `uint32` sont MSW puis LSW et cohérents dans une même réponse Modbus.
+
+## 6. Requête immuable et mailbox
+
+À la prise en compte du `submit`, le firmware capture de façon cohérente :
 
 ```text
 transaction_epoch
@@ -89,269 +95,216 @@ param3
 confirm_key
 ```
 
-## 7. Admission transactionnelle
+`submit`, `cancel_request` et `clear_request_fields` ne font pas partie de l'identité canonique.
 
-Ordre logique :
+Une écriture normale ne vide pas automatiquement les champs d'identité/paramètres. Après prise en compte, `submit` revient automatiquement à 0 conformément à la V1.
 
-```text
-capture coherent request
-↓
-Modbus syntax validation
-↓
-transaction_epoch validation
-↓
-transaction_id validation
-↓
-idempotence / collision lookup
-↓
-command / parameter / business validation
-↓
-RESERVED / processing
-```
+`clear_request_fields` remet à zéro la mailbox entière, y compris l'epoch de requête, mais ne modifie jamais une transaction capturée, son journal, ses effets, `TransactionEpochStore`, `active` ou `last`.
 
-Les erreurs d'epoch sont rejetées avant tout dispatch métier et avant création d'une nouvelle transaction `RESERVED`.
+Une centrale écrit complètement les deux mots d'epoch avant `submit`. Aucun FC16 n'est imposé normativement ; une valeur transitoire hybride de mailbox n'a aucune autorité tant qu'elle n'est pas soumise.
 
-## 8. Cycle de vie de l'epoch
+## 7. Canonicalisation
 
-L'epoch ne change jamais implicitement à cause :
+Tout champ non utilisé doit être exactement à 0. Une nouvelle identité présentant un champ inutilisé non canonique est rejetée `status=5 / result=2` avant `RESERVED`.
 
-- d'un reboot capteur ;
-- d'un reboot centrale ;
-- d'une perte de liaison ;
-- du temps écoulé ;
-- d'un changement de centrale ;
-- d'un `transaction_id` atteignant sa valeur maximale.
-
-Le renouvellement est une opération protocolaire explicite.
-
-La centrale demande le renouvellement ; le capteur possède l'autorité d'attribution de la nouvelle valeur.
-
-## 9. Namespace et commande de renouvellement
-
-La V1.1 réserve :
+Requête canonique de renouvellement :
 
 ```text
-1..65534 → transactions ordinaires
-65535    → RENEW_TRANSACTION_EPOCH uniquement
+transaction_epoch = N
+transaction_id    = 65535
+command_code      = 12
+param1            = 0
+param2            = 0
+param3            = 0
+confirm_key       = 0
 ```
 
-Règles :
+## 8. Ordre normatif de validation/admission
 
-- une commande ordinaire avec `transaction_id=65535` est rejetée sans effet métier ;
-- `RENEW_TRANSACTION_EPOCH` avec un txid différent de `65535` est rejetée ;
-- le renouvellement reste une transaction K1 complète avec `RESERVED`, `STARTED`, recovery et `COMPLETED` ;
-- le renouvellement ne peut se produire qu'une fois dans une epoch ;
-- un retry exact `(epoch N,65535)` après activation de N+1 ne déclenche jamais N+2 ;
-- aucune consommation minimale préalable des txid ordinaires n'est imposée.
+```text
+1. validation accès Modbus
+2. capture cohérente mailbox
+3. validation transaction_epoch
+4. validation transaction_id / couple txid-command
+5. lookup identité (epoch,txid)
+6. retry ou collision
+7. validation command_code
+8. validation paramètres / confirm_key
+9. validation contexte métier
+10. préconditions spécifiques renewal
+11. admission transactionnelle
+12. RESERVED durable
+13. exécution K1
+```
 
-## 10. Précondition de renouvellement
+Conséquences :
 
-Le renouvellement est interdit tant qu'une transaction de l'epoch courante est non terminale (`RESERVED` ou `STARTED`).
+- `epoch=0` → `status=5 / result=23`, aucun `RESERVED` ;
+- epoch ancienne reconnue → `5/24`, aucun `RESERVED` ;
+- epoch valide mais inconnue → `5/25`, aucun `RESERVED` ;
+- `txid=0` → résultat V1 `14` ;
+- `code=12` avec txid != 65535 ou txid=65535 avec code !=12 → `5/2`, aucun `RESERVED` ;
+- même identité + même requête → retry avant revalidation métier ;
+- même identité + requête différente → `5/27`, aucune nouvelle transaction ;
+- renewal canonique mais préconditions non satisfaites → `5/26`, aucune activation d'epoch.
 
-La transaction de renouvellement elle-même est évidemment exclue de cette interdiction une fois admise.
+Une tentative rejetée avant `RESERVED` ne crée ni ne remplace `LastCommandSnapshot`.
 
-## 11. Séquence durable de renouvellement
+## 9. Codes gelés
 
-Ordre logique :
+### `cmd_request_code`
+
+```text
+12 = RENEW_TRANSACTION_EPOCH
+13..65535 = réservés
+```
+
+### `cmd_status`
+
+Valeurs V1 `0..8` inchangées.
+
+```text
+9 = RECOVERY_INDETERMINATE
+10..65535 = réservés
+```
+
+`9` est non terminal. Il ne peut jamais être publié comme `cmd_last_status_final`.
+
+### `cmd_result_code`
+
+Valeurs V1 `0..22` inchangées.
+
+```text
+23 = TRANSACTION_EPOCH_INVALID
+24 = TRANSACTION_EPOCH_STALE
+25 = TRANSACTION_EPOCH_UNKNOWN
+26 = TRANSACTION_EPOCH_RENEWAL_NOT_ALLOWED
+27 = TRANSACTION_IDENTITY_COLLISION
+28..65535 = réservés
+```
+
+### `cmd_transaction_epoch_status`
+
+```text
+0 = UNINITIALIZED
+1 = VALID
+2 = CORRUPTED
+3 = UNAVAILABLE
+4 = UNSUPPORTED
+5 = INDETERMINATE
+6..65535 = réservés
+```
+
+`VALID` implique `current_epoch != 0`. Tout autre statut publie `current_epoch=0`.
+
+## 10. Sémantique `active`, `last`, `current`
+
+La V1.1 resserre explicitement la zone `active` : elle représente uniquement une transaction autoritative non terminale.
+
+Absence d'active :
+
+```text
+active_epoch = 0
+active_transaction_id = 0
+active_code = 0
+```
+
+Une transaction `RESERVED`, `STARTED` ou `RECOVERY_INDETERMINATE` reste publiée dans `active` avec son identité complète. `active` n'est jamais reconstruit depuis une ancienne projection B5 ; il provient du recovery transactionnel fiable.
+
+`last` représente une transaction admise devenue terminale. Il est d'observabilité uniquement :
+
+- il peut être restauré au reboot seulement depuis une preuve persistante fiable ;
+- sinon il est neutralisé ;
+- sa perte ne libère jamais un txid ;
+- sa présence ne prouve pas qu'un retry détaillé est encore restituable ;
+- un rejet pré-`RESERVED` ne remplace pas `last`.
+
+`current_epoch`, `active_epoch` et `last_epoch` peuvent différer.
+
+## 11. Renouvellement d'epoch
+
+L'epoch ne change jamais implicitement à cause d'un reboot, d'une perte de liaison, du temps, d'un changement de centrale ou de l'épuisement du namespace ordinaire.
+
+Le renouvellement est explicitement demandé par la centrale et attribué par le capteur.
+
+Il est interdit tant qu'une autre transaction de l'epoch courante est non terminale.
+
+Séquence durable :
 
 ```text
 epoch N active
-↓
-RENEW_TRANSACTION_EPOCH RESERVED
-↓
-preconditions validated
-↓
-RENEW STARTED
-↓
-N+1 prepared durably
-↓
-DURABLE ACTIVATION of N+1   ← significant business effect boundary
-↓
-final command result durable
-↓
-COMPLETED
-↓
-final B5 publication
+→ RENEW RESERVED durable
+→ preconditions validated
+→ RENEW STARTED durable
+→ N+1 prepared durable
+→ DURABLE ACTIVATION N+1
+→ final result durable
+→ COMPLETED durable
+→ final B5 publication
 ```
 
-La préparation de N+1 n'a aucune autorité avant la frontière d'activation durable.
+La frontière d'activation durable de N+1 est l'effet métier significatif. La préparation de N+1 n'a aucune autorité avant cette frontière.
 
-## 12. Recovery autour de l'activation
+Crash avant activation : N reste courante.
 
-### 12.1 Crash avant activation N+1
+Crash après activation avant `COMPLETED` : N+1 est restaurée ; la même transaction `(N,65535)` est finalisée sans activation supplémentaire. Une corrélation durable minimale entre N+1 et `(N,65535)` est conservée jusqu'à finalisation.
 
-N reste la seule epoch courante. Une représentation préparée de N+1 ne possède aucune autorité.
-
-### 12.2 Crash après activation N+1 mais avant `COMPLETED`
-
-N+1 est restaurée comme epoch courante.
-
-Le `TransactionEpochStore` fournit la preuve de l'effet terminal ; le recovery de la commande de renouvellement classe alors l'effet comme `TERMINAL_EFFECT_PROVEN` et finalise la transaction sans nouvelle activation.
-
-### 12.3 Crash après `COMPLETED`
-
-N+1 est restaurée et le résultat durable de la transaction est réutilisable conformément aux règles d'idempotence encore applicables.
-
-### 12.4 Interdiction de reconstruction aveugle
-
-Il est interdit d'inférer :
-
-```text
-old epoch=N + RENEW STARTED => epoch=N+1
-```
-
-`STARTED` prouve seulement qu'un effet a pu commencer.
-
-## 13. Transition de renouvellement
-
-L'activation N+1 et la finalisation de `(N,65535)` sont deux frontières distinctes.
-
-Entre elles, N+1 est l'unique epoch courante mais l'état minimal nécessaire à la finalisation/restitution du renouvellement de N doit rester durablement récupérable.
-
-Une autorité persistante conserve donc au minimum la corrélation causale :
+Projection autorisée pendant cette fenêtre :
 
 ```text
 current_epoch = N+1
-predecessor_epoch = N
-renewal_transaction = (N,65535)
-renewal_transition_state = PENDING_FINALIZATION
+active_epoch  = N
+active_txid   = 65535
 ```
 
-Ce mécanisme ne maintient pas N comme epoch courante et n'impose pas la conservation de tout son historique.
+Aucun retry exact `(N,65535)` ne peut produire N+2.
 
-Un retry exact de `(N,65535)` pendant cette transition est traité comme retry K1 et ne peut jamais provoquer N+2.
+Après `COMPLETED`, l'artefact spécial de transition peut être libéré immédiatement. Un retry ultérieur peut alors être classé `STALE`; la présence éventuelle de `(N,65535)` dans `last` ne constitue pas un droit à restitution détaillée.
 
-L'obligation spéciale de conservation peut disparaître après `COMPLETED` durable.
+## 12. Anciennes epochs et rétention
 
-## 14. Anciennes epochs et rétention
-
-Dans l'epoch courante, tout txid admis reste connu pendant toute la durée de cette epoch.
+Dans l'epoch courante, tout txid admis reste connu pendant toute la durée de cette epoch. Un txid `1..65534` n'est jamais libéré par GC d'un résultat ou par reboot.
 
 Après changement d'epoch :
 
 - l'ancien namespace est fermé ;
-- aucune requête de l'ancienne epoch ne peut être redispatchée ;
-- la conservation illimitée du résultat individuel de toutes les anciennes transactions n'est pas requise ;
-- la centrale ne peut plus exiger la restitution individuelle d'un ancien résultat après la frontière de renouvellement, hors règle transitoire spéciale de la transaction de renouvellement elle-même.
+- une ancienne requête ne peut jamais être redispatchée ;
+- l'historique détaillé illimité n'est pas requis ;
+- `STALE` ne se déduit pas d'une simple comparaison numérique `< current`.
 
-États conceptuels :
+L'epoch `0xFFFFFFFF` est valide. Aucun wrap vers une nouvelle epoch n'est autorisé ; un renouvellement à cette limite est refusé `result=26`.
 
-```text
-CURRENT_EPOCH
-STALE_EPOCH
-UNKNOWN_OR_INVALID_EPOCH
-```
+## 13. Contrat centrale
 
-La classification `STALE` n'est pas fondée sur une simple comparaison numérique `< current`.
+- si l'epoch courante n'est pas connue de façon fiable, la centrale la lit avant de créer une transaction ;
+- un retry conserve exactement `(epoch,txid,requête canonique)` ;
+- une requête historique n'est jamais transformée en nouvelle transaction par substitution de l'epoch courante ;
+- une centrale ayant perdu son historique d'allocation ne devine pas un txid libre : elle obtient une nouvelle frontière d'epoch ;
+- une epoch constitue un domaine logique unique d'allocation ; plusieurs centrales physiques doivent coordonner les txid ;
+- aucun `client_id` n'est ajouté par TRANSACTION-01.
 
-## 15. Résultats conceptuels d'epoch
+## 14. Boot / Recovery
 
-Les résultats fonctionnels suivants sont retenus, sans valeur numérique encore attribuée :
+Ordre : récupérer l'autorité `TransactionEpochStore`, puis le recovery transactionnel, puis projeter B5. Aucune nouvelle admission n'est possible avant résolution.
 
-```text
-TRANSACTION_EPOCH_STALE
-TRANSACTION_EPOCH_INVALID
-TRANSACTION_EPOCH_UNKNOWN
-TRANSACTION_EPOCH_RENEWAL_NOT_ALLOWED
-```
-
-Aucun de ces rejets ne crée une nouvelle transaction ni un état `RESERVED`.
-
-Aucun résultat `NAMESPACE_EXHAUSTED` n'est introduit à ce stade sans besoin distinct démontré.
-
-## 16. Contrat côté centrale
-
-- une centrale sans connaissance fiable de l'epoch courante doit la lire avant de créer une nouvelle transaction ;
-- un retry conserve strictement `(epoch, txid, request identity)` ;
-- un retry historique n'est jamais transformé en nouvelle transaction en substituant l'epoch courante ;
-- un reboot capteur n'autorise aucune réutilisation spéciale ;
-- une centrale qui conserve un état fiable peut continuer à utiliser l'epoch courante après son reboot ;
-- une centrale ayant perdu son historique d'allocation ne doit pas deviner un txid libre ; elle doit obtenir une nouvelle frontière d'epoch avant de créer de nouvelles transactions.
-
-## 17. Domaine d'allocation / multi-master
-
-Une epoch possède un unique domaine logique d'allocation des nouveaux txid.
-
-Plusieurs centrals physiques sont compatibles uniquement si leur allocation est coordonnée.
-
-V1.1 n'introduit pas de `client_id` dans l'identité transactionnelle.
-
-La responsabilité est séparée :
+Cas principaux :
 
 ```text
-CENTRAL / infrastructure de contrôle
-→ éviter les doubles allocations
-
-SENSOR
-→ détecter toute collision
-→ garantir qu'aucune collision ne devient un effet métier
+VALID(N), aucun non-terminal       → current=N, active neutre, admission oui
+VALID(N), RESERVED/STARTED (N,T)   → current=N, active=(N,T), admission bloquée jusqu'à résolution
+VALID(N), transaction INDETERMINATE→ current=N, active=(N,T), cmd_status=9, admission bloquée
+VALID(N+1), renewal (N,65535) après activation → current=N+1, active=(N,65535), admission bloquée
+UNINITIALIZED prouvé               → current=0, création durable première epoch avant admission
+CORRUPTED/UNAVAILABLE/UNSUPPORTED  → current=0, aucune admission
+INDETERMINATE autorité epoch       → current=0, aucune admission
 ```
 
-Le multi-master indépendant non coordonné pour créer des transactions B5 est hors contrat V1.1-TRANSACTION-01.
+`STARTED` seul ne prouve jamais un effet. Une transaction `STARTED` est résolue uniquement par `TERMINAL_EFFECT_PROVEN`, `ABSENCE_PROVEN` ou `INDETERMINATE`. Aucun choix du cas « le plus probable » n'est autorisé.
 
-## 18. Initialisation et recovery de l'autorité d'epoch
+## 15. Invariants T01 conservés
 
-Le recovery distingue au minimum :
+Les invariants T01-01..T01-25 du gel fonctionnel restent applicables, notamment : identité `(epoch,txid)`, epoch 0 invalide, changement d'epoch explicite uniquement, txid 65535 réservé au renouvellement, pas de blind replay, corrélation de transition durable, pas de N+2 après retry du renouvellement, et pas de reconstruction d'autorité depuis le journal.
 
-```text
-VALID
-UNINITIALIZED
-CORRUPTED
-UNAVAILABLE
-UNSUPPORTED
-```
+## 16. Points hors TRANSACTION-01
 
-`UNINITIALIZED` exige une preuve positive de première initialisation. Il ne signifie jamais simplement « aucune epoch lisible ».
-
-La première epoch :
-
-- n'est créée que depuis un état `UNINITIALIZED` démontré ;
-- est non nulle ;
-- est durable avant toute admission de transaction B5.
-
-En cas `CORRUPTED`, `UNAVAILABLE` ou `UNSUPPORTED`, aucune nouvelle transaction B5 n'est acceptée.
-
-Le `CommandJournal` ne reconstruit jamais l'epoch courante par simple inférence.
-
-Si un renouvellement interrompu ne permet pas de prouver l'activation ou son absence, l'autorité d'epoch est `INDETERMINATE` et aucune nouvelle transaction B5 ne peut être admise.
-
-Un éventuel factory reset transactionnel est un arbitrage séparé.
-
-## 19. Invariants gelés
-
-- **T01-01** — `TransactionIdentity = (transaction_epoch, transaction_id)`.
-- **T01-02** — `transaction_epoch=0` est invalide.
-- **T01-03** — une epoch courante possède un namespace transactionnel propre.
-- **T01-04** — dans l'epoch courante, un txid admis reste connu pendant toute la durée de cette epoch.
-- **T01-05** — même `(epoch,txid)` + même requête implique retry et jamais second effet.
-- **T01-06** — même `(epoch,txid)` + requête différente implique collision et jamais redispatch.
-- **T01-07** — une requête d'une ancienne epoch ne produit jamais de nouvel effet métier.
-- **T01-08** — un changement d'epoch est uniquement explicite.
-- **T01-09** — reboot, perte de liaison, temps écoulé et wrap txid ne changent jamais implicitement l'epoch.
-- **T01-10** — l'epoch courante est une autorité persistante du capteur.
-- **T01-11** — une activation d'epoch possède une frontière durable unique.
-- **T01-12** — un recovery ne déduit jamais une activation de la seule présence d'un `STARTED`.
-- **T01-13** — une autorité d'epoch indéterminée interdit l'admission de nouvelles transactions B5.
-- **T01-14** — txid 65535 est réservé au renouvellement d'epoch.
-- **T01-15** — txid 1..65534 constitue le namespace métier ordinaire.
-- **T01-16** — le renouvellement est lui-même une transaction K1.
-- **T01-17** — une epoch possède un seul domaine coordonné d'allocation des nouveaux txid.
-- **T01-18** — un retry conserve son identité d'epoch originale.
-- **T01-19** — une centrale ayant perdu son état d'allocation ne devine jamais un txid libre.
-- **T01-20** — une ancienne epoch peut perdre son historique détaillé mais jamais redevenir implicitement active.
-- **T01-21** — l'activation N+1 ne permet pas de perdre l'état nécessaire à la finalisation de `(N,65535)`.
-- **T01-22** — une autorité persistante conserve la corrélation causale entre N+1 et la transaction de renouvellement qui l'a activée jusqu'à finalisation durable.
-- **T01-23** — après activation N+1 mais avant `COMPLETED`, un retry exact du renouvellement de N reste un retry K1 et ne produit jamais de nouvelle activation.
-- **T01-24** — cette conservation transitoire ne maintient pas N comme epoch courante et n'impose pas de conserver tout son historique.
-- **T01-25** — après `COMPLETED` durable du renouvellement, l'obligation spéciale de conservation peut disparaître et les règles ordinaires d'ancienne epoch s'appliquent.
-
-## 20. Frontières différées
-
-Restent à traiter dans la passe mapping/compatibilité :
-
-- offsets/adresses B5 ;
-- code de commande `RENEW_TRANSACTION_EPOCH` ;
-- valeurs numériques des résultats d'epoch ;
-- stratégie exacte de compatibilité avec une centrale V1 ;
-- évolution des champs `cmd_active_*` / `cmd_last_*` pour porter ou corréler l'epoch ;
-- règles de négociation/capability si nécessaires.
+Restent séparés : factory reset/reprovisioning, politique d'échappement après `0xFFFFFFFF`, éventuel signal d'approche d'épuisement, et autres sujets résiduels TRANSACTION-02.

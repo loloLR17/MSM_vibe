@@ -2,29 +2,53 @@
 
 ## Objet
 
-Cette famille valide le gel fonctionnel **V1.1-TRANSACTION-01 — Cycle de vie normatif du `transaction_id`**.
+Cette famille valide **V1.1-TRANSACTION-01 — Cycle de vie normatif du transaction_id et mapping B5**.
 
-Elle est volontairement séparée des cas FT-CMD V1 existants. Les tests V1 restent inchangés et continuent d'utiliser la spécification V1 comme oracle.
+Elle reste séparée des FT-CMD V1. Les tests V1 continuent d'utiliser la spécification V1 comme oracle.
+
+## Statut
+
+Le mapping protocolaire V1.1 est gelé. Les cas qui étaient `PENDING_MAPPING` deviennent :
+
+```text
+SPECIFIED_NOT_EXECUTED
+```
+
+Ce statut signifie : oracle fonctionnel gelé + adresses/codes numériques gelés + test protocolaire spécifiable/exécutable, mais aucune exécution firmware n'est démontrée.
+
+`SPECIFIED_NOT_EXECUTED` ne vaut jamais `PASS`.
 
 ## Oracle
 
 Références :
 
+- `Modbus RTU/00_gouvernance/FREEZE_V1_1_TRANSACTION_01.md` ;
+- `Modbus RTU/01_Specification_source/V1_1/bloc5_v1_1_transaction_epoch.md` ;
 - `Modbus RTU/04_Architecture/ARCHITECTURE_TRANSACTION_EPOCH_V1_1.md` ;
 - `Modbus RTU/04_Architecture/RECOVERY_FAULT_INJECTION_TRANSACTION_EPOCH_V1_1.md` ;
-- `Modbus RTU/00_gouvernance/FREEZE_V1_1_TRANSACTION_01.md`.
-
-Les offsets B5 et valeurs numériques des nouveaux codes n'étant pas encore gelés, les tests de cette famille utilisent les noms conceptuels des champs/résultats.
-
-Ils deviendront exécutables au niveau protocolaire complet après la passe mapping/compatibilité.
+- `Modbus RTU/02_Validation/mapping_unifie/V1_1/tr2_mapping_unifie_logique_v1_1.csv`.
 
 ## Contenu
 
-- `FT-CMD-V11-TRANSACTION-01_detaille.md` : cas fonctionnels ;
-- `FT-CMD-V11-TRANSACTION-01_matrice_couverture.csv` : couverture des invariants T01.
+- `FT-CMD-V11-TRANSACTION-01_detaille.md` : cas fonctionnels/protocolaires ;
+- `FT-CMD-V11-TRANSACTION-01_matrice_couverture.csv` : couverture et statut ;
+- fault injection : document d'architecture dédié.
 
-## Principe
+## Valeurs V1.1 utilisées par les tests
 
-Un test est `PENDING_MAPPING` lorsque son oracle fonctionnel est gelé mais que son exécution Modbus nécessite des adresses ou valeurs numériques encore non attribuées.
+```text
+command 12 = RENEW_TRANSACTION_EPOCH
+status 9  = RECOVERY_INDETERMINATE
+result 23 = TRANSACTION_EPOCH_INVALID
+result 24 = TRANSACTION_EPOCH_STALE
+result 25 = TRANSACTION_EPOCH_UNKNOWN
+result 26 = TRANSACTION_EPOCH_RENEWAL_NOT_ALLOWED
+result 27 = TRANSACTION_IDENTITY_COLLISION
 
-Ce statut ne doit pas être converti en `PASS`.
+epoch_status 0 UNINITIALIZED
+             1 VALID
+             2 CORRUPTED
+             3 UNAVAILABLE
+             4 UNSUPPORTED
+             5 INDETERMINATE
+```
