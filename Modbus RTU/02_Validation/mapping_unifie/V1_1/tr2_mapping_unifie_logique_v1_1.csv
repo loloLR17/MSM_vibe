@@ -9,13 +9,13 @@ block,logical_name,kind,source_fields,offset_start,offset_end,address_start,addr
 5,cmd_active_code,declared_as_is,cmd_active_code,8,8,5008,5008,uint16,1,RO,Code transaction non terminale active,bloc5_v1_1_transaction_epoch.md,V1.1 semantic evolution
 5,cmd_active_transaction_id,declared_as_is,cmd_active_transaction_id,9,9,5009,5009,uint16,1,RO,Txid transaction non terminale active,bloc5_v1_1_transaction_epoch.md,V1.1 semantic evolution
 5,cmd_status,declared_as_is,cmd_status,10,10,5010,5010,enum16,1,RO,Statut inclut 9 RECOVERY_INDETERMINATE,bloc5_v1_1_transaction_epoch.md,V1+V1.1
-5,cmd_result_code,declared_as_is,cmd_result_code,11,11,5011,5011,enum16,1,RO,Résultat inclut codes 23..27,bloc5_v1_1_transaction_epoch.md,V1+V1.1
+5,cmd_result_code,declared_as_is,cmd_result_code,11,11,5011,5011,enum16,1,RO,Résultat inclut codes 23..29,bloc5_v1_1_transaction_epoch.md,V1+V1.1
 5,cmd_result_detail,declared_as_is,cmd_result_detail,12,12,5012,5012,uint16,1,RO,Détail résultat,bloc5_v1_1_transaction_epoch.md,V1
 5,cmd_engine_flags,declared_as_is,cmd_engine_flags,13,13,5013,5013,bitfield16,1,RO,Flags moteur,bloc5_v1_1_transaction_epoch.md,V1
 5,cmd_last_code,declared_as_is,cmd_last_code,14,14,5014,5014,uint16,1,RO,Dernière transaction admise terminale,bloc5_v1_1_transaction_epoch.md,V1+V1.1
 5,cmd_last_transaction_id,declared_as_is,cmd_last_transaction_id,15,15,5015,5015,uint16,1,RO,Txid dernière transaction admise terminale,bloc5_v1_1_transaction_epoch.md,V1+V1.1
 5,cmd_last_status_final,declared_as_is,cmd_last_status_final,16,16,5016,5016,enum16,1,RO,Statut final last jamais 9,bloc5_v1_1_transaction_epoch.md,V1+V1.1
-5,cmd_last_result_code,declared_as_is,cmd_last_result_code,17,17,5017,5017,enum16,1,RO,Résultat final last,bloc5_v1_1_transaction_epoch.md,V1
+5,cmd_last_result_code,declared_as_is,cmd_last_result_code,17,17,5017,5017,enum16,1,RO,Résultat final last inclut 28/29 recovery V1.1,bloc5_v1_1_transaction_epoch.md,V1+V1.1
 5,cmd_last_timestamp,uint32_from_split_words,cmd_last_timestamp_msw;cmd_last_timestamp_lsw,18,19,5018,5019,uint32,2,RO,Timestamp last selon règles temps/recovery,bloc5_v1_1_transaction_epoch.md,V1
 5,cmd_request_transaction_epoch,uint32_from_split_words,cmd_request_transaction_epoch_msw;cmd_request_transaction_epoch_lsw,20,21,5020,5021,uint32,2,RW,Epoch explicitement portée par la soumission,bloc5_v1_1_transaction_epoch.md,V1.1
 5,cmd_current_transaction_epoch,uint32_from_split_words,cmd_current_transaction_epoch_msw;cmd_current_transaction_epoch_lsw,22,23,5022,5023,uint32,2,RO,Epoch autoritative courante ou 0 si autorité non VALID,bloc5_v1_1_transaction_epoch.md,V1.1

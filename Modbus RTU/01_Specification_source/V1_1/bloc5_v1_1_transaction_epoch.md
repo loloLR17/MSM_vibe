@@ -2,7 +2,7 @@
 
 ## 1. Statut et portée
 
-Ce document est le compagnon protocolaire V1.1 de `../bloc5.md` pour **V1.1-TRANSACTION-01**.
+Ce document est le compagnon protocolaire V1.1 de `../bloc5.md` pour **V1.1-TRANSACTION-01**, incluant les arbitrages de recovery TRANSACTION-04 / TRANSACTION-05.
 
 Il ne modifie pas la spécification normative V1. Les adresses V1 `5000..5019` sont conservées. La V1.1 étend B5 jusqu'à `5028` et modifie explicitement la sémantique transactionnelle nécessaire à l'identité `(transaction_epoch, transaction_id)`.
 
@@ -110,10 +110,35 @@ Les valeurs V1 `0..22` restent inchangées.
 25 = TRANSACTION_EPOCH_UNKNOWN
 26 = TRANSACTION_EPOCH_RENEWAL_NOT_ALLOWED
 27 = TRANSACTION_IDENTITY_COLLISION
-28..65535 = réservés
+28 = TRANSACTION_ABORTED_BEFORE_EFFECT
+29 = TRANSACTION_ABORTED_NO_EFFECT
+30..65535 = réservés
 ```
 
 Les résultats 23, 24, 25 et 27 sont produits avant admission d'une nouvelle transaction et ne créent pas de `RESERVED`. Le résultat 26 ne permet aucune activation d'une nouvelle epoch.
+
+Les résultats 28 et 29 sont réservés au recovery de transactions déjà admises :
+
+```text
+28 TRANSACTION_ABORTED_BEFORE_EFFECT
+→ transaction durablement RESERVED
+→ recovery prouve positivement que STARTED n'a jamais été franchi
+→ recovery prouve qu'aucun effet métier significatif n'a pu commencer
+→ cmd_status=6
+→ terminal
+
+29 TRANSACTION_ABORTED_NO_EFFECT
+→ transaction durablement STARTED
+→ recovery établit ABSENCE_PROVEN
+→ cmd_status=6
+→ terminal
+```
+
+`ABSENCE_PROVEN` exige une preuve positive, autoritative et causalement pertinente que l'effet métier significatif attribuable à cette transaction n'a pas eu lieu. L'absence de trace, un timeout, un reboot ou un état simplement compatible avec « pas d'effet » ne constituent pas cette preuve.
+
+Le résultat 28 est interdit si `STARTED` a été durablement franchi. Le résultat 29 est interdit si l'absence d'effet ne peut pas être positivement démontrée. Dans ce dernier cas, si aucun effet terminal ne peut non plus être prouvé, la transaction reste non terminale avec `cmd_status=9 RECOVERY_INDETERMINATE`.
+
+Pour 28 et 29 : aucun redispatch métier ; identité consommée ; retry exact = restitution du même résultat terminal ; même identité avec requête canonique différente = résultat 27 sans modification de la transaction originale.
 
 ## 7. `cmd_transaction_epoch_status`
 
@@ -184,11 +209,15 @@ Absence d'active : `active_epoch=0`, `active_transaction_id=0`, `active_code=0`.
 
 Une transaction récupérée `RESERVED`, `STARTED` ou `RECOVERY_INDETERMINATE` reste active. `cmd_status=9` implique une identité active complète et bloque l'admission de nouvelles transactions.
 
+Après terminalisation durable d'un recovery 28 ou 29, la zone active devient neutre avant/avec la projection terminale B5 cohérente.
+
 Cette sémantique V1.1 est une évolution explicite par rapport au texte V1 où les champs active pouvaient aussi refléter la dernière commande prise en compte.
 
 ## 11. Zone last V1.1
 
 `last` est la dernière transaction **admise** devenue terminale. Une tentative rejetée avant `RESERVED` ne crée ni ne remplace `LastCommandSnapshot`.
+
+Une transaction terminalisée par recovery avec résultat 28 ou 29 peut devenir `last` avec `cmd_last_status_final=6` et le résultat correspondant. Aucun timestamp historique ne doit être fabriqué si l'instant fiable de terminalisation n'est pas disponible.
 
 `last` n'est jamais une autorité d'idempotence. Sa restauration après reboot n'est requise que si une source persistante fiable permet de reconstruire un snapshot cohérent ; sinon il est neutralisé.
 
@@ -207,3 +236,16 @@ Un retry exact de `(N,65535,code12)` reste le retry de cette même transition et
 Si l'activation de N+1 ne peut être ni prouvée ni exclue, `cmd_transaction_epoch_status=5 INDETERMINATE`, `current_epoch=0` et aucune nouvelle transaction B5 n'est admise.
 
 Après `COMPLETED`, l'artefact spécial de transition peut être libéré ; une requête de N peut alors être classée `STALE` même si `last` affiche encore le renouvellement de N.
+
+## 13. Barrière durable de terminalisation recovery
+
+Pour les résultats 28 et 29 :
+
+```text
+recovery concluant
+→ écriture durable COMPLETED + status final 6 + result 28/29
+→ barrière power-loss-safe
+→ publication B5 terminale
+```
+
+Une coupure avant la barrière reprend le recovery sans redispatch métier. Une coupure après la barrière conserve le résultat terminal comme autorité et la projection B5 est reconstruite depuis cette autorité durable.

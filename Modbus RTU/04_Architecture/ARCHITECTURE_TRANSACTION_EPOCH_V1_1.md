@@ -2,7 +2,7 @@
 
 ## 1. Statut
 
-Ce document formalise **V1.1-TRANSACTION-01**.
+Ce document formalise **V1.1-TRANSACTION-01**, incluant les arbitrages de recovery TRANSACTION-04 / TRANSACTION-05.
 
 Statut : **FUNCTIONALLY AND PROTOCOL-MAPPING FROZEN**.
 
@@ -68,12 +68,12 @@ B5 V1.1 conserve les offsets V1 `0..19` et ajoute :
 ```text
 20 / 5020 cmd_request_transaction_epoch_msw    RW
 21 / 5021 cmd_request_transaction_epoch_lsw    RW
-22 / 5022 cmd_current_transaction_epoch_msw    RO
-23 / 5023 cmd_current_transaction_epoch_lsw    RO
-24 / 5024 cmd_active_transaction_epoch_msw     RO
-25 / 5025 cmd_active_transaction_epoch_lsw     RO
-26 / 5026 cmd_last_transaction_epoch_msw       RO
-27 / 5027 cmd_last_transaction_epoch_lsw       RO
+22 / 5022 cmd_current_transaction_epoch_msw     RO
+23 / 5023 cmd_current_transaction_epoch_lsw     RO
+24 / 5024 cmd_active_transaction_epoch_msw      RO
+25 / 5025 cmd_active_transaction_epoch_lsw      RO
+26 / 5026 cmd_last_transaction_epoch_msw        RO
+27 / 5027 cmd_last_transaction_epoch_lsw        RO
 28 / 5028 cmd_transaction_epoch_status         RO enum16
 ```
 
@@ -180,8 +180,12 @@ Valeurs V1 `0..22` inchangées.
 25 = TRANSACTION_EPOCH_UNKNOWN
 26 = TRANSACTION_EPOCH_RENEWAL_NOT_ALLOWED
 27 = TRANSACTION_IDENTITY_COLLISION
-28..65535 = réservés
+28 = TRANSACTION_ABORTED_BEFORE_EFFECT
+29 = TRANSACTION_ABORTED_NO_EFFECT
+30..65535 = réservés
 ```
+
+Les résultats 28 et 29 sont des résultats terminaux de recovery avec `cmd_status=6`. Ils ne doivent jamais être utilisés comme raccourci pour masquer une preuve insuffisante.
 
 ### `cmd_transaction_epoch_status`
 
@@ -211,13 +215,17 @@ active_code = 0
 
 Une transaction `RESERVED`, `STARTED` ou `RECOVERY_INDETERMINATE` reste publiée dans `active` avec son identité complète. `active` n'est jamais reconstruit depuis une ancienne projection B5 ; il provient du recovery transactionnel fiable.
 
+Après terminalisation durable 6/28 ou 6/29, `active` devient neutre.
+
 `last` représente une transaction admise devenue terminale. Il est d'observabilité uniquement :
 
 - il peut être restauré au reboot seulement depuis une preuve persistante fiable ;
 - sinon il est neutralisé ;
 - sa perte ne libère jamais un txid ;
 - sa présence ne prouve pas qu'un retry détaillé est encore restituable ;
-- un rejet pré-`RESERVED` ne remplace pas `last`.
+- un rejet pré-`RESERVED` ne remplace pas `last` ;
+- une transaction terminalisée 6/28 ou 6/29 peut devenir `last` avec son identité complète et son résultat final ;
+- aucun timestamp historique n'est fabriqué si l'instant fiable n'est pas disponible.
 
 `current_epoch`, `active_epoch` et `last_epoch` peuvent différer.
 
@@ -299,12 +307,80 @@ CORRUPTED/UNAVAILABLE/UNSUPPORTED  → current=0, aucune admission
 INDETERMINATE autorité epoch       → current=0, aucune admission
 ```
 
-`STARTED` seul ne prouve jamais un effet. Une transaction `STARTED` est résolue uniquement par `TERMINAL_EFFECT_PROVEN`, `ABSENCE_PROVEN` ou `INDETERMINATE`. Aucun choix du cas « le plus probable » n'est autorisé.
+Classification K1 V1.1 :
 
-## 15. Invariants T01 conservés
+```text
+RESERVED récupéré
++ preuve STARTED jamais franchi
++ aucun effet significatif possible
+→ COMPLETED / status 6 / result 28
+
+STARTED récupéré
++ ABSENCE_PROVEN
+→ COMPLETED / status 6 / result 29
+
+STARTED récupéré
++ TERMINAL_EFFECT_PROVEN
+→ finalisation selon l'effet métier terminal prouvé
+
+STARTED récupéré
++ ni ABSENCE_PROVEN ni TERMINAL_EFFECT_PROVEN
+→ status 9 RECOVERY_INDETERMINATE
+```
+
+`STARTED` seul ne prouve jamais un effet. `ABSENCE_PROVEN` exige une preuve positive, autoritative et causalement pertinente. Aucun choix du cas « le plus probable » n'est autorisé.
+
+## 15. Barrières durables de recovery 28/29
+
+Pour les deux chemins terminaux :
+
+```text
+recovery concluant
+→ COMPLETED + status final + result final durables
+→ power-loss-safe barrier
+→ publication B5 terminale
+```
+
+Avant cette barrière, la transaction reste récupérable comme non terminale et aucun redispatch métier n'est permis. Après cette barrière, le résultat terminal durable est l'autorité ; `active` est neutralisé et `last` peut être projeté depuis une source persistante fiable.
+
+Un second crash avant la barrière reprend seulement la résolution de recovery. Un second crash après la barrière ne peut ni redispatcher la commande ni modifier 28/29 en une nouvelle exécution.
+
+Pour le chemin 29, la preuve d'`ABSENCE_PROVEN` doit rester suffisante jusqu'à la barrière ou son résultat probatoire doit lui-même avoir été capturé de manière fiable.
+
+## 16. Invariants TRANSACTION-04 / TRANSACTION-05
+
+- T04-01 : `RESERVED` + preuve que `STARTED` n'a jamais été franchi → aucun redispatch.
+- T04-02 : l'absence d'effet est prouvée positivement, jamais inférée d'une absence d'observation.
+- T04-03 : ce cas terminalise `COMPLETED`, status 6, result 28.
+- T04-04 : l'identité reste consommée.
+- T04-05 : retry exact → 28 sans nouvel effet.
+- T04-06 : même identité + requête différente → collision 27.
+- T04-07 : terminalisation durable avant publication B5 terminale.
+- T04-08 : après terminalisation durable, active neutre.
+- T04-09 : la transaction peut devenir `LastCommandSnapshot` avec status final 6 / result 28.
+- T04-10 : `last` reste observabilité uniquement.
+- T04-11 : aucun timestamp historique fabriqué.
+- T04-12 : si la preuve requise n'existe pas, le chemin 28 est interdit.
+- T05-01 : `STARTED + ABSENCE_PROVEN` → résolution terminale sans redispatch.
+- T05-02 : `ABSENCE_PROVEN` exige une preuve positive, autoritative et causalement pertinente.
+- T05-03 : absence de trace, timeout, reboot ou état seulement compatible avec « pas d'effet » ne suffisent pas.
+- T05-04 : `STARTED + ABSENCE_PROVEN` → COMPLETED / status 6 / result 29.
+- T05-05 : result 28 interdit dès que `STARTED` a été durablement franchi.
+- T05-06 : identité consommée.
+- T05-07 : retry exact → 6/29, aucun effet supplémentaire.
+- T05-08 : même identité + requête différente → collision 27.
+- T05-09 : terminalisation durable 6/29 avant publication B5.
+- T05-10 : après terminalisation durable, active neutre.
+- T05-11 : peut devenir `LastCommandSnapshot` avec status final 6 / result 29.
+- T05-12 : `last` n'est jamais autorité de recovery/idempotence.
+- T05-13 : aucun timestamp historique fabriqué.
+- T05-14 : si la preuve d'absence n'est plus suffisamment fiable avant terminalisation durable, result 29 interdit.
+- T05-15 : `STARTED` sans preuve concluante → status 9, non terminal, bloquant.
+
+## 17. Invariants T01 conservés
 
 Les invariants T01-01..T01-25 du gel fonctionnel restent applicables, notamment : identité `(epoch,txid)`, epoch 0 invalide, changement d'epoch explicite uniquement, txid 65535 réservé au renouvellement, pas de blind replay, corrélation de transition durable, pas de N+2 après retry du renouvellement, et pas de reconstruction d'autorité depuis le journal.
 
-## 16. Points hors TRANSACTION-01
+## 18. Points hors TRANSACTION-01
 
-Restent séparés : factory reset/reprovisioning, politique d'échappement après `0xFFFFFFFF`, éventuel signal d'approche d'épuisement, et autres sujets résiduels TRANSACTION-02.
+Restent séparés : factory reset/reprovisioning, politique d'échappement après `0xFFFFFFFF`, éventuel signal d'approche d'épuisement, autres sujets résiduels TRANSACTION-02, et sémantique exhaustive des timestamps historiques lorsqu'aucun temps civil fiable n'est disponible.

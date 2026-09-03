@@ -2,7 +2,7 @@
 
 ## Objet
 
-Cette famille valide **V1.1-TRANSACTION-01 — Cycle de vie normatif du transaction_id et mapping B5**.
+Cette famille valide **V1.1-TRANSACTION-01 — Cycle de vie normatif du transaction_id et mapping B5**, incluant les branches de recovery TRANSACTION-04 / TRANSACTION-05.
 
 Elle reste séparée des FT-CMD V1. Les tests V1 continuent d'utiliser la spécification V1 comme oracle.
 
@@ -44,6 +44,8 @@ result 24 = TRANSACTION_EPOCH_STALE
 result 25 = TRANSACTION_EPOCH_UNKNOWN
 result 26 = TRANSACTION_EPOCH_RENEWAL_NOT_ALLOWED
 result 27 = TRANSACTION_IDENTITY_COLLISION
+result 28 = TRANSACTION_ABORTED_BEFORE_EFFECT
+result 29 = TRANSACTION_ABORTED_NO_EFFECT
 
 epoch_status 0 UNINITIALIZED
              1 VALID
@@ -52,3 +54,5 @@ epoch_status 0 UNINITIALIZED
              4 UNSUPPORTED
              5 INDETERMINATE
 ```
+
+Les résultats 28 et 29 sont terminaux avec `status=6` et ne sont valides que sous les conditions probatoires définies par l'architecture. En cas de preuve insuffisante après `STARTED`, l'oracle reste `status=9 RECOVERY_INDETERMINATE`.

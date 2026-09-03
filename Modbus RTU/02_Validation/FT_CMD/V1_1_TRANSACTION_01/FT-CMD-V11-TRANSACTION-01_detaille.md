@@ -102,6 +102,54 @@ Oracle : `cmd_status=9`, identité complète dans active, transaction non termin
 Précharger `last` avec une transaction terminale puis provoquer result 23/24/25/27.
 Oracle : `last` reste inchangé.
 
+## TRANSACTION-04 — RESERVED interrompu avant effet
+
+### TT-CMD-V11-T01-026 — RESERVED récupéré, STARTED jamais franchi
+Admettre `(N,T)`, rendre `RESERVED` durable, provoquer une coupure avant `STARTED`, puis fournir une preuve positive que `STARTED` n'a jamais été franchi et qu'aucun effet significatif n'a pu commencer.
+Oracle : `COMPLETED`, `cmd_status=6`, `cmd_result_code=28 TRANSACTION_ABORTED_BEFORE_EFFECT`, aucun redispatch, identité consommée.
+
+### TT-CMD-V11-T01-027 — Retry exact après 28
+Retransmettre exactement `(N,T,request)` après terminalisation durable 6/28.
+Oracle : restitution 6/28, aucun nouveau `RESERVED`, aucun nouvel effet.
+
+### TT-CMD-V11-T01-028 — Collision après 28
+Réutiliser `(N,T)` avec une requête canonique différente.
+Oracle : `status=5`, `result=27`; la transaction originale 6/28 et `last` ne sont pas remplacés par la tentative conflictuelle.
+
+### TT-CMD-V11-T01-029 — Projection active/last après 28
+Observer avant puis après la barrière durable de terminalisation.
+Oracle : avant barrière la transaction reste récupérable comme active ; après terminalisation durable `active=(0,0)` et la transaction peut devenir `last=(N,T)` avec `last_status_final=6`, `last_result_code=28`. Aucun timestamp historique n'est fabriqué.
+
+## TRANSACTION-05 — STARTED avec absence d'effet prouvée
+
+### TT-CMD-V11-T01-030 — STARTED + ABSENCE_PROVEN
+Admettre `(N,T)`, franchir `STARTED` durablement, provoquer une coupure, puis établir par autorité métier `ABSENCE_PROVEN`.
+Oracle : `COMPLETED`, `cmd_status=6`, `cmd_result_code=29 TRANSACTION_ABORTED_NO_EFFECT`, aucun redispatch, identité consommée ; result 28 interdit.
+
+### TT-CMD-V11-T01-031 — Retry exact après 29
+Retransmettre exactement la requête `(N,T)` après terminalisation durable 6/29.
+Oracle : restitution 6/29, aucun nouvel effet.
+
+### TT-CMD-V11-T01-032 — Collision après 29
+Même identité `(N,T)` avec requête canonique différente.
+Oracle : `status=5`, `result=27`; transaction 6/29 originale inchangée.
+
+### TT-CMD-V11-T01-033 — Absence d'observation non suffisante
+Après `STARTED` et reboot, ne disposer que d'une absence de trace, d'un timeout ou d'un état compatible avec plusieurs historiques.
+Oracle : ne pas produire 29 ; si aucun effet terminal n'est prouvé, `cmd_status=9 RECOVERY_INDETERMINATE`, active conservée, admission bloquée.
+
+### TT-CMD-V11-T01-034 — Second crash avant barrière 28/29
+Interrompre le recovery après conclusion probatoire mais avant terminalisation durable.
+Oracle : reprise du recovery sans redispatch métier ; aucune publication terminale non durable ne devient autorité.
+
+### TT-CMD-V11-T01-035 — Second crash après barrière 28/29
+Interrompre après terminalisation durable mais avant publication B5.
+Oracle : résultat 6/28 ou 6/29 restauré depuis l'autorité durable ; active neutre ; aucun redispatch.
+
+### TT-CMD-V11-T01-036 — Perte de la preuve ABSENCE_PROVEN avant terminalisation
+Après `STARTED`, une observation provisoire suggère l'absence mais la preuve autoritative n'est plus disponible avant la barrière et aucun résultat probatoire fiable n'a été capturé.
+Oracle : result 29 interdit ; chemin indéterminé si aucun autre résultat terminal n'est prouvé.
+
 ## Tests de power-loss associés
 
-Les scénarios J-EPOCH-01..25 et les frontières E1..E7 sont définis dans `RECOVERY_FAULT_INJECTION_TRANSACTION_EPOCH_V1_1.md`.
+Les scénarios J-EPOCH-01..34 et les frontières E1..E7 / R1..R4 sont définis dans `RECOVERY_FAULT_INJECTION_TRANSACTION_EPOCH_V1_1.md`.
