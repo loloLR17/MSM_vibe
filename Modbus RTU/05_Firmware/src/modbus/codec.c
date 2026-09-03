@@ -1,3 +1,4 @@
+#include <stddef.h>
 #include "tr2/modbus/codec.h"
 
 void modbus_codec_u32_to_msw_lsw(uint32_t value, uint16_t *msw, uint16_t *lsw)

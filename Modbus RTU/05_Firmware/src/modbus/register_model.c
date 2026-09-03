@@ -1,3 +1,4 @@
+#include <stddef.h>
 #include "tr2/modbus/register_model.h"
 
 bool modbus_register_descriptor_is_valid(const ModbusRegisterDescriptor *descriptor)
