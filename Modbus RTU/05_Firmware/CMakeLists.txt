@@ -70,6 +70,12 @@ add_executable(test_projection_b1
 target_link_libraries(test_projection_b1 PRIVATE tr2_core)
 add_test(NAME projection_b1 COMMAND test_projection_b1)
 
+add_executable(test_projection_b2
+    tests/unit/test_projection_b2.c
+)
+target_link_libraries(test_projection_b2 PRIVATE tr2_core)
+add_test(NAME projection_b2 COMMAND test_projection_b2)
+
 add_executable(test_time_service
     tests/unit/test_time_service.c
 )

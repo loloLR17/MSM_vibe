@@ -36,7 +36,9 @@ Tr2Result time_service_get_snapshot(const TimeService *service, TimeSnapshot *sn
         return TR2_ERROR_INTERNAL;
     }
 
+    *snapshot = (TimeSnapshot){0};
     snapshot->generation = service->generation;
+    snapshot->synchronization_facts_available = false;
     snapshot->current_time_available = wall_result == WALL_CLOCK_OK;
     snapshot->current_time = snapshot->current_time_available ? current_time : 0u;
     snapshot->prepared_time_available = service->prepared_time_available;

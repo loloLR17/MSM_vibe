@@ -9,11 +9,19 @@
 
 typedef struct {
     uint32_t generation;
+    bool synchronization_facts_available;
+    uint16_t time_status;
+    uint16_t time_flags;
     bool current_time_available;
     Tr2CivilTimestamp current_time;
+    Tr2CivilTimestamp last_sync_time;
+    uint32_t time_since_sync_s;
     bool prepared_time_available;
     Tr2CivilTimestamp prepared_time;
     uint16_t prepared_time_status;
+    uint16_t time_accuracy_ms;
+    int16_t drift_ppm;
+    uint16_t sync_source;
 } TimeSnapshot;
 
 typedef struct {

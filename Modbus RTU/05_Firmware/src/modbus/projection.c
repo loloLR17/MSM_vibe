@@ -6,6 +6,7 @@
 #define TR2_B1_SYSTEM_FLAGS_MASK UINT16_C(0x001F)
 #define TR2_B1_FAULT_FLAGS_MASK UINT16_C(0x003F)
 #define TR2_B1_WARNING_FLAGS_MASK UINT16_C(0x0007)
+#define TR2_B2_TIME_FLAGS_MASK UINT16_C(0x00FF)
 
 Tr2Result modbus_project_b0(const IdentitySnapshot *snapshot, ModbusBlock0Image *output)
 {
@@ -81,7 +82,45 @@ Tr2Result modbus_project_b1(const SystemStateSnapshot *snapshot, ModbusBlock1Ima
     return TR2_OK;
 }
 
+Tr2Result modbus_project_b2(const TimeSnapshot *snapshot, ModbusBlock2Image *output)
+{
+    ModbusBlock2Image candidate = { { 0u }, 0u };
+
+    if (snapshot == NULL || output == NULL) {
+        return TR2_ERROR_INVALID_ARGUMENT;
+    }
+    if (!snapshot->synchronization_facts_available || !snapshot->current_time_available) {
+        return TR2_ERROR_NOT_AVAILABLE;
+    }
+
+    candidate.registers[0] = snapshot->time_status;
+    candidate.registers[1] = (uint16_t)(snapshot->time_flags & TR2_B2_TIME_FLAGS_MASK);
+    modbus_codec_u32_to_msw_lsw(snapshot->current_time,
+                                &candidate.registers[2],
+                                &candidate.registers[3]);
+    modbus_codec_u32_to_msw_lsw(snapshot->last_sync_time,
+                                &candidate.registers[4],
+                                &candidate.registers[5]);
+    modbus_codec_u32_to_msw_lsw(snapshot->time_since_sync_s,
+                                &candidate.registers[6],
+                                &candidate.registers[7]);
+    modbus_codec_u32_to_msw_lsw(snapshot->prepared_time,
+                                &candidate.registers[8],
+                                &candidate.registers[9]);
+    candidate.registers[10] = snapshot->prepared_time_status;
+    candidate.registers[11] = snapshot->time_accuracy_ms;
+    candidate.registers[12] = modbus_codec_i16_to_register(snapshot->drift_ppm);
+    candidate.registers[13] = snapshot->sync_source;
+    candidate.registers[14] = 0u;
+    candidate.registers[15] = 0u;
+    candidate.source_generation = snapshot->generation;
+
+    *output = candidate;
+    return TR2_OK;
+}
+
 #undef TR2_B0_CAPABILITIES_MASK
 #undef TR2_B1_SYSTEM_FLAGS_MASK
 #undef TR2_B1_FAULT_FLAGS_MASK
 #undef TR2_B1_WARNING_FLAGS_MASK
+#undef TR2_B2_TIME_FLAGS_MASK
