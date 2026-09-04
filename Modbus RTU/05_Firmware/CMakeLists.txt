@@ -3,7 +3,7 @@ project(tr2_firmware_p0 LANGUAGES C)
 
 set(CMAKE_C_STANDARD 11)
 set(CMAKE_C_STANDARD_REQUIRED ON)
-set(CMAKE_C_EXTENSIONS OFF)
+set(CMAKE_EXTENSIONS OFF)
 
 if(MSVC)
     add_compile_options(/W4 /WX)
@@ -83,6 +83,12 @@ add_executable(test_time_service
 )
 target_link_libraries(test_time_service PRIVATE tr2_core)
 add_test(NAME time_service COMMAND test_time_service)
+
+add_executable(test_configuration_types
+    tests/unit/test_configuration_types.c
+)
+target_link_libraries(test_configuration_types PRIVATE tr2_core)
+add_test(NAME configuration_types COMMAND test_configuration_types)
 
 add_executable(test_read_adapter
     tests/unit/test_read_adapter.c
