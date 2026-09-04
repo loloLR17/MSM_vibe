@@ -42,6 +42,12 @@ target_link_libraries(tr2_host PRIVATE tr2_platform_host)
 
 enable_testing()
 
+add_executable(test_codec
+    tests/unit/test_codec.c
+)
+target_link_libraries(test_codec PRIVATE tr2_core)
+add_test(NAME codec COMMAND test_codec)
+
 add_executable(test_register_model
     tests/unit/test_register_model.c
 )
