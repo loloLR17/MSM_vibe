@@ -14,6 +14,7 @@ endif()
 add_library(tr2_core STATIC
     src/application/system_runtime.c
     src/domain/configuration/configuration_staging.c
+    src/domain/configuration/configuration_validator.c
     src/domain/identity/identity.c
     src/domain/system_state/system_state.c
     src/domain/time/time_service.c
@@ -96,6 +97,12 @@ add_executable(test_configuration_staging
 )
 target_link_libraries(test_configuration_staging PRIVATE tr2_core)
 add_test(NAME configuration_staging COMMAND test_configuration_staging)
+
+add_executable(test_configuration_validator
+    tests/unit/test_configuration_validator.c
+)
+target_link_libraries(test_configuration_validator PRIVATE tr2_core)
+add_test(NAME configuration_validator COMMAND test_configuration_validator)
 
 add_executable(test_read_adapter
     tests/unit/test_read_adapter.c
