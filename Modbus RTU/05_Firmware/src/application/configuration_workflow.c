@@ -143,7 +143,12 @@ bool configuration_workflow_validated_snapshot(
     const ConfigurationWorkflow *workflow,
     ValidatedConfiguration *out_snapshot)
 {
-    if (workflow == NULL || out_snapshot == NULL || !workflow->has_validated) {
+    PreparedConfiguration current = { 0 };
+
+    if (workflow == NULL || out_snapshot == NULL || !workflow->has_validated ||
+        !configuration_staging_is_validation_current(workflow->staging) ||
+        !configuration_staging_snapshot(workflow->staging, &current) ||
+        !validated_matches_current(workflow, &current)) {
         return false;
     }
 
