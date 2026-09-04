@@ -4,6 +4,7 @@
 #include <stdint.h>
 
 #include "tr2/common/result.h"
+#include "tr2/domain/configuration/configuration_staging.h"
 #include "tr2/domain/time/time_service.h"
 #include "tr2/modbus/register_model.h"
 
@@ -13,6 +14,11 @@ typedef struct {
 } ModbusWriteOutcome;
 
 ModbusWriteOutcome modbus_write_adapter_write_b2(TimeService *time_service,
+                                                 uint16_t start_address,
+                                                 const uint16_t *values,
+                                                 uint16_t quantity);
+
+ModbusWriteOutcome modbus_write_adapter_write_b4(ConfigurationStagingService *staging_service,
                                                  uint16_t start_address,
                                                  const uint16_t *values,
                                                  uint16_t quantity);
