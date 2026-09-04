@@ -1,4 +1,8 @@
+#include <stdbool.h>
 #include <stddef.h>
+#include <string.h>
+
+#include "tr2/modbus/b4_configuration_codec.h"
 #include "tr2/modbus/codec.h"
 #include "tr2/modbus/projection.h"
 
@@ -7,6 +11,16 @@
 #define TR2_B1_FAULT_FLAGS_MASK UINT16_C(0x003F)
 #define TR2_B1_WARNING_FLAGS_MASK UINT16_C(0x0007)
 #define TR2_B2_TIME_FLAGS_MASK UINT16_C(0x00FF)
+
+static bool b4_config_state_is_emittable(uint16_t state)
+{
+    return state == UINT16_C(0) ||
+           state == UINT16_C(1) ||
+           state == UINT16_C(2) ||
+           state == UINT16_C(4) ||
+           state == UINT16_C(5) ||
+           state == UINT16_C(6);
+}
 
 Tr2Result modbus_project_b0(const IdentitySnapshot *snapshot, ModbusBlock0Image *output)
 {
@@ -114,6 +128,66 @@ Tr2Result modbus_project_b2(const TimeSnapshot *snapshot, ModbusBlock2Image *out
     candidate.registers[14] = 0u;
     candidate.registers[15] = 0u;
     candidate.source_generation = snapshot->generation;
+
+    *output = candidate;
+    return TR2_OK;
+}
+
+Tr2Result modbus_project_b4(const ModbusBlock4ProjectionSource *source, ModbusBlock4Image *output)
+{
+    ModbusBlock4Image candidate = { { 0u } };
+    uint16_t payload_registers[TR2_B4_PREPARED_REGISTER_COUNT];
+
+    if (source == NULL || output == NULL) {
+        return TR2_ERROR_INVALID_ARGUMENT;
+    }
+    if (!b4_config_state_is_emittable(source->config_state)) {
+        return TR2_ERROR_INVALID_STATE;
+    }
+
+    candidate.registers[0] = source->config_structure_version;
+    candidate.registers[1] = source->config_capabilities_mask;
+    candidate.registers[6] = source->config_state;
+    candidate.registers[7] = source->config_error_code;
+
+    if (source->prepared != NULL) {
+        modbus_codec_u32_to_msw_lsw(source->prepared->config_id,
+                                    &candidate.registers[2],
+                                    &candidate.registers[3]);
+        modbus_codec_u32_to_msw_lsw(source->prepared->supplied_crc,
+                                    &candidate.registers[8],
+                                    &candidate.registers[9]);
+        tr2_b4_serialize_prepared_payload(&source->prepared->payload, payload_registers);
+        memcpy(&candidate.registers[16],
+               payload_registers,
+               TR2_B4_PREPARED_REGISTER_COUNT * sizeof(payload_registers[0]));
+    }
+
+    if (source->active != NULL) {
+        uint16_t active_registers[TR2_B4_ACTIVE_REGISTER_COUNT];
+        const uint32_t active_crc = tr2_b4_active_payload_crc(&source->active->payload);
+
+        modbus_codec_u32_to_msw_lsw(source->active->config_id,
+                                    &candidate.registers[4],
+                                    &candidate.registers[5]);
+        modbus_codec_u32_to_msw_lsw(active_crc,
+                                    &candidate.registers[10],
+                                    &candidate.registers[11]);
+        modbus_codec_u32_to_msw_lsw(source->active->revision_counter,
+                                    &candidate.registers[12],
+                                    &candidate.registers[13]);
+        tr2_b4_serialize_active_payload(&source->active->payload, active_registers);
+        memcpy(&candidate.registers[100],
+               active_registers,
+               TR2_B4_ACTIVE_REGISTER_COUNT * sizeof(active_registers[0]));
+    } else {
+        const ConfigurationPayload neutral_payload = { 0 };
+        const uint32_t neutral_crc = tr2_b4_active_payload_crc(&neutral_payload);
+
+        modbus_codec_u32_to_msw_lsw(neutral_crc,
+                                    &candidate.registers[10],
+                                    &candidate.registers[11]);
+    }
 
     *output = candidate;
     return TR2_OK;
