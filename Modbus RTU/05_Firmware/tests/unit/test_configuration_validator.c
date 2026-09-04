@@ -1,4 +1,5 @@
 #include <assert.h>
+#include <stddef.h>
 #include <stdint.h>
 
 #include "tr2/domain/configuration/configuration_validator.h"
@@ -127,8 +128,8 @@ int main(void)
     {
         static const uint16_t windows[] = {4096u, 8192u, 16384u, 32768u};
         static const uint16_t periods[] = {2000u, 5000u, 10000u, 30000u, 60000u};
-        unsigned int wi;
-        unsigned int pi;
+        size_t wi;
+        size_t pi;
 
         for (wi = 0u; wi < sizeof(windows) / sizeof(windows[0]); ++wi) {
             for (pi = 0u; pi < sizeof(periods) / sizeof(periods[0]); ++pi) {
