@@ -12,6 +12,7 @@ else()
 endif()
 
 add_library(tr2_core STATIC
+    src/application/configuration_workflow.c
     src/application/system_runtime.c
     src/domain/configuration/configuration_staging.c
     src/domain/configuration/configuration_validator.c
@@ -116,6 +117,12 @@ add_executable(test_configuration_validator
 )
 target_link_libraries(test_configuration_validator PRIVATE tr2_core)
 add_test(NAME configuration_validator COMMAND test_configuration_validator)
+
+add_executable(test_configuration_workflow
+    tests/unit/test_configuration_workflow.c
+)
+target_link_libraries(test_configuration_workflow PRIVATE tr2_core)
+add_test(NAME configuration_workflow COMMAND test_configuration_workflow)
 
 add_executable(test_read_adapter
     tests/unit/test_read_adapter.c
