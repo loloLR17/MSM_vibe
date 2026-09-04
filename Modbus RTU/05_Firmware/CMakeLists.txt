@@ -14,6 +14,7 @@ endif()
 add_library(tr2_core STATIC
     src/application/system_runtime.c
     src/domain/identity/identity.c
+    src/domain/system_state/system_state.c
     src/modbus/codec.c
     src/modbus/register_model.c
     src/modbus/projection.c
@@ -61,6 +62,12 @@ add_executable(test_projection_b0
 )
 target_link_libraries(test_projection_b0 PRIVATE tr2_core)
 add_test(NAME projection_b0 COMMAND test_projection_b0)
+
+add_executable(test_projection_b1
+    tests/unit/test_projection_b1.c
+)
+target_link_libraries(test_projection_b1 PRIVATE tr2_core)
+add_test(NAME projection_b1 COMMAND test_projection_b1)
 
 add_executable(test_system_runtime
     tests/integration/test_system_runtime.c

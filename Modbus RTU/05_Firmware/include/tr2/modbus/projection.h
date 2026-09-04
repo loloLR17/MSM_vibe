@@ -5,14 +5,22 @@
 
 #include "tr2/common/result.h"
 #include "tr2/domain/identity/identity.h"
+#include "tr2/domain/system_state/system_state.h"
 
 #define TR2_B0_REGISTER_COUNT 21u
+#define TR2_B1_REGISTER_COUNT 20u
 
 typedef struct {
     uint16_t registers[TR2_B0_REGISTER_COUNT];
     uint32_t source_generation;
 } ModbusBlock0Image;
 
+typedef struct {
+    uint16_t registers[TR2_B1_REGISTER_COUNT];
+    uint32_t source_generation;
+} ModbusBlock1Image;
+
 Tr2Result modbus_project_b0(const IdentitySnapshot *snapshot, ModbusBlock0Image *output);
+Tr2Result modbus_project_b1(const SystemStateSnapshot *snapshot, ModbusBlock1Image *output);
 
 #endif
