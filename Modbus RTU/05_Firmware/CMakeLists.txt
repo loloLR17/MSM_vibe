@@ -18,6 +18,7 @@ add_library(tr2_core STATIC
     src/domain/identity/identity.c
     src/domain/system_state/system_state.c
     src/domain/time/time_service.c
+    src/modbus/b4_configuration_codec.c
     src/modbus/codec.c
     src/modbus/register_model.c
     src/modbus/projection.c
@@ -55,6 +56,12 @@ add_executable(test_codec
 )
 target_link_libraries(test_codec PRIVATE tr2_core)
 add_test(NAME codec COMMAND test_codec)
+
+add_executable(test_b4_configuration_codec
+    tests/unit/test_b4_configuration_codec.c
+)
+target_link_libraries(test_b4_configuration_codec PRIVATE tr2_core)
+add_test(NAME b4_configuration_codec COMMAND test_b4_configuration_codec)
 
 add_executable(test_register_model
     tests/unit/test_register_model.c
