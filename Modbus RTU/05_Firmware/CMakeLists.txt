@@ -141,3 +141,9 @@ add_executable(test_system_runtime
 )
 target_link_libraries(test_system_runtime PRIVATE tr2_platform_host)
 add_test(NAME system_runtime COMMAND test_system_runtime)
+
+add_executable(test_configuration_b4_flow
+    tests/integration/test_configuration_b4_flow.c
+)
+target_link_libraries(test_configuration_b4_flow PRIVATE tr2_core)
+add_test(NAME configuration_b4_flow COMMAND test_configuration_b4_flow)
