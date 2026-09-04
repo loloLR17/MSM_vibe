@@ -160,6 +160,7 @@ int main(void)
     configuration_staging_set_supplied_crc(&staging, UINT32_C(0));
     assert(!configuration_staging_is_validation_current(&staging));
     assert(configuration_workflow_state(&workflow) == CONFIGURATION_STATE_VALID);
+    assert(!configuration_workflow_validated_snapshot(&workflow, &validated));
     assert(configuration_workflow_apply(&workflow) == TR2_ERROR_INVALID_STATE);
     assert(commit_context.calls == 1u);
     assert(configuration_workflow_active_snapshot(&workflow, &active));
