@@ -141,6 +141,7 @@ int main(void)
     ModbusWriteOutcome write_outcome;
     uint16_t invalid_frequency = UINT16_C(0xFFFF);
     uint16_t attempted_ro = UINT16_C(0x1234);
+    uint32_t prepared_crc = tr2_b4_prepared_payload_crc(&payload);
     uint32_t active_crc;
 
     configuration_staging_init(&staging);
@@ -160,8 +161,8 @@ int main(void)
     image = project_current(&staging, &workflow, CONFIGURATION_STATE_DRAFT);
     assert(image.registers[2] == UINT16_C(0));
     assert(image.registers[3] == UINT16_C(42));
-    assert(image.registers[8] == UINT16_C(0x5207));
-    assert(image.registers[9] == UINT16_C(0xCCFC));
+    assert(image.registers[8] == (uint16_t)(prepared_crc >> 16u));
+    assert(image.registers[9] == (uint16_t)(prepared_crc & UINT32_C(0xFFFF)));
     assert(image.registers[16] == UINT16_C(26667));
     assert(image.registers[18] == UINT16_C(7));
     assert(image.registers[60] == UINT16_C(0x4341));
