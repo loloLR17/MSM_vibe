@@ -35,6 +35,9 @@ typedef struct {
 
 Tr2Result time_service_init(TimeService *service, const WallClock *wall_clock);
 Tr2Result time_service_get_snapshot(const TimeService *service, TimeSnapshot *snapshot);
+Tr2Result time_service_get_prepared_time(const TimeService *service,
+                                         bool *available,
+                                         Tr2CivilTimestamp *prepared_time);
 Tr2Result time_service_prepare_time(TimeService *service, Tr2CivilTimestamp prepared_time);
 
 #endif

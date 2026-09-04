@@ -47,6 +47,22 @@ Tr2Result time_service_get_snapshot(const TimeService *service, TimeSnapshot *sn
     return TR2_OK;
 }
 
+Tr2Result time_service_get_prepared_time(const TimeService *service,
+                                         bool *available,
+                                         Tr2CivilTimestamp *prepared_time)
+{
+    if (service == NULL || available == NULL || prepared_time == NULL) {
+        return TR2_ERROR_INVALID_ARGUMENT;
+    }
+    if (!service->initialized) {
+        return TR2_ERROR_INVALID_STATE;
+    }
+
+    *available = service->prepared_time_available;
+    *prepared_time = service->prepared_time;
+    return TR2_OK;
+}
+
 Tr2Result time_service_prepare_time(TimeService *service, Tr2CivilTimestamp prepared_time)
 {
     if (service == NULL) {

@@ -19,6 +19,7 @@ add_library(tr2_core STATIC
     src/modbus/codec.c
     src/modbus/register_model.c
     src/modbus/projection.c
+    src/modbus/write_adapter.c
 )
 
 target_include_directories(tr2_core
@@ -81,6 +82,12 @@ add_executable(test_time_service
 )
 target_link_libraries(test_time_service PRIVATE tr2_core)
 add_test(NAME time_service COMMAND test_time_service)
+
+add_executable(test_write_adapter
+    tests/unit/test_write_adapter.c
+)
+target_link_libraries(test_write_adapter PRIVATE tr2_core)
+add_test(NAME write_adapter COMMAND test_write_adapter)
 
 add_executable(test_system_runtime
     tests/integration/test_system_runtime.c
