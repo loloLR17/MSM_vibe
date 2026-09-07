@@ -24,6 +24,8 @@ int main(void)
         UINT16_C(0x1357),
         UINT16_C(0x2468)
     };
+    TimeSnapshot time = { 0 };
+    ModbusBlock1ProjectionSource projection_source = { &source, &time };
     SystemStateService service = { 0 };
     SystemStateSnapshot snapshot = { 0 };
     ModbusBlock1Image image = { { 0u }, 0u };
@@ -34,10 +36,11 @@ int main(void)
     assert(snapshot.generation == UINT32_C(23));
     assert(snapshot.cpu_load_percent == UINT16_C(73));
 
-    assert(modbus_project_b1(&snapshot, &image) == TR2_OK);
+    projection_source.system_state = &snapshot;
+    assert(modbus_project_b1(&projection_source, &image) == TR2_OK);
     assert(image.source_generation == UINT32_C(23));
     assert(image.registers[0] == UINT16_C(3));
-    assert(image.registers[1] == UINT16_C(0x001F));
+    assert(image.registers[1] == UINT16_C(0x0017));
     assert(image.registers[2] == UINT16_C(0x003F));
     assert(image.registers[3] == UINT16_C(0x0007));
     assert(image.registers[4] == UINT16_C(0x1234));
@@ -56,6 +59,17 @@ int main(void)
     assert(image.registers[17] == 0u);
     assert(image.registers[18] == 0u);
     assert(image.registers[19] == 0u);
+
+    time.civil_time_usable = true;
+    assert(modbus_project_b1(&projection_source, &image) == TR2_OK);
+    assert(image.registers[1] == UINT16_C(0x001F));
+
+    time.civil_time_usable = false;
+    assert(modbus_project_b1(&projection_source, &image) == TR2_OK);
+    assert((image.registers[1] & UINT16_C(0x0008)) == 0u);
+
+    projection_source.time = NULL;
+    assert(modbus_project_b1(&projection_source, &image) == TR2_ERROR_INVALID_ARGUMENT);
 
     return 0;
 }
