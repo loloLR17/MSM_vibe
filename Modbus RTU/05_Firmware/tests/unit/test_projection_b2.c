@@ -14,8 +14,8 @@ int main(void)
 
     snapshot.generation = UINT32_C(9);
     snapshot.synchronization_facts_available = true;
-    snapshot.time_status = UINT16_C(3);
-    snapshot.time_flags = UINT16_C(0xFFFF);
+    snapshot.time_status = UINT16_C(4);
+    snapshot.time_flags = UINT16_C(0x00F4);
     snapshot.current_time_available = true;
     snapshot.current_time = UINT32_C(0x12345678);
     snapshot.last_sync_time = UINT32_C(0x11223344);
@@ -26,6 +26,10 @@ int main(void)
     snapshot.time_accuracy_ms = UINT16_C(25);
     snapshot.drift_ppm = INT16_C(-20);
     snapshot.sync_source = UINT16_C(2);
+    snapshot.civil_time_usable = true;
+    snapshot.continuity = TIME_CONTINUITY_PROVEN;
+    snapshot.last_sync_history = time_last_sync_history_valid(snapshot.last_sync_time,
+                                                              snapshot.sync_source);
 
     assert(modbus_project_b2(&snapshot, &image) == TR2_OK);
     assert(image.source_generation == UINT32_C(9));
@@ -46,6 +50,28 @@ int main(void)
     assert(image.registers[14] == 0u);
     assert(image.registers[15] == 0u);
 
+    snapshot.continuity = TIME_CONTINUITY_BROKEN;
+    assert(modbus_project_b2(&snapshot, &image) == TR2_OK);
+    assert(image.registers[0] == UINT16_C(2));
+    assert((image.registers[1] & UINT16_C(0x0001)) != 0u);
+    assert((image.registers[1] & UINT16_C(0x0002)) != 0u);
+
+    snapshot.continuity = TIME_CONTINUITY_INDETERMINATE;
+    assert(modbus_project_b2(&snapshot, &image) == TR2_OK);
+    assert(image.registers[0] == UINT16_C(2));
+
+    snapshot.last_sync_history = time_last_sync_history_none();
+    assert(modbus_project_b2(&snapshot, &image) == TR2_OK);
+    assert(image.registers[0] == UINT16_C(2));
+    assert((image.registers[1] & UINT16_C(0x0002)) == 0u);
+
+    snapshot.last_sync_history = time_last_sync_history_valid(snapshot.last_sync_time,
+                                                              snapshot.sync_source);
+    snapshot.prepared_time_available = false;
+    assert(modbus_project_b2(&snapshot, &image) == TR2_OK);
+    assert((image.registers[1] & UINT16_C(0x0008)) == 0u);
+
+    snapshot.civil_time_usable = false;
     snapshot.current_time_available = false;
     image.registers[0] = UINT16_C(0xBEEF);
     assert(modbus_project_b2(&snapshot, &image) == TR2_ERROR_NOT_AVAILABLE);
