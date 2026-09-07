@@ -12,6 +12,7 @@ typedef struct {
     int context_step;
     int started_step;
     int source_stop_step;
+    int checkpoint_step;
     int data_finish_step;
     int close_step;
     CampaignMetadata repository_metadata;
@@ -167,6 +168,25 @@ static Tr2Result data_begin(void *context, CampaignId campaign_id)
     return campaign_id == 77u ? TR2_OK : TR2_ERROR_INVALID_ARGUMENT;
 }
 
+static Tr2Result data_append(void *context, CampaignId campaign_id,
+                             const uint8_t *data, size_t size)
+{
+    (void)context;
+    (void)data;
+    (void)size;
+    return campaign_id == 77u ? TR2_OK : TR2_ERROR_INVALID_ARGUMENT;
+}
+
+static Tr2Result data_checkpoint(void *context, CampaignId campaign_id)
+{
+    TestContext *test = context;
+    if (campaign_id != 77u) {
+        return TR2_ERROR_INVALID_ARGUMENT;
+    }
+    test->checkpoint_step = ++test->step;
+    return TR2_OK;
+}
+
 static Tr2Result data_finish(void *context, CampaignId campaign_id)
 {
     TestContext *test = context;
@@ -286,6 +306,8 @@ static void init_campaign_service(TestContext *test,
     memset(data_store, 0, sizeof(*data_store));
     data_store->context = test;
     data_store->begin_campaign = data_begin;
+    data_store->append = data_append;
+    data_store->checkpoint = data_checkpoint;
     data_store->finish_campaign = data_finish;
     data_store->recover_campaign = data_recover;
 
@@ -318,6 +340,7 @@ static void test_stop_orders_barrier_before_effect_and_reconciles(void)
     test.context_step = 0;
     test.started_step = 0;
     test.source_stop_step = 0;
+    test.checkpoint_step = 0;
     test.data_finish_step = 0;
     test.close_step = 0;
 
@@ -333,7 +356,8 @@ static void test_stop_orders_barrier_before_effect_and_reconciles(void)
     assert(entry.final_result.status == COMMAND_STATUS_SUCCESS);
     assert(test.context_step < test.started_step);
     assert(test.started_step < test.source_stop_step);
-    assert(test.source_stop_step < test.data_finish_step);
+    assert(test.source_stop_step < test.checkpoint_step);
+    assert(test.checkpoint_step < test.data_finish_step);
     assert(test.data_finish_step < test.close_step);
     assert(!campaign_service_campaign_open(&campaign_service));
 
