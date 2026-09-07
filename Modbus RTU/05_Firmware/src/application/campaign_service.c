@@ -134,6 +134,7 @@ Tr2Result campaign_service_start(CampaignService *service,
         return result;
     }
     service->data_store_started = true;
+    service->data_store_recovery_pending = false;
 
     result = acquisition_service_begin_window(service->acquisition_service);
     if (result != TR2_OK) {
@@ -173,8 +174,6 @@ Tr2Result campaign_service_stop(CampaignService *service,
     }
 
     if (service->data_store_started) {
-        CampaignDataRecoveryResult recovery;
-
         result = service->data_store->finish_campaign(
             service->data_store->context,
             service->active_metadata.campaign_id);
@@ -182,6 +181,11 @@ Tr2Result campaign_service_stop(CampaignService *service,
             return result;
         }
         service->data_store_started = false;
+        service->data_store_recovery_pending = true;
+    }
+
+    if (service->data_store_recovery_pending) {
+        CampaignDataRecoveryResult recovery;
 
         memset(&recovery, 0, sizeof(recovery));
         result = service->data_store->recover_campaign(
@@ -196,6 +200,7 @@ Tr2Result campaign_service_stop(CampaignService *service,
         }
         service->active_metadata.durable_data_size_bytes =
             recovery.durable_prefix_bytes;
+        service->data_store_recovery_pending = false;
     }
 
     service->active_metadata.lifecycle_state = CAMPAIGN_LIFECYCLE_CLOSED;
