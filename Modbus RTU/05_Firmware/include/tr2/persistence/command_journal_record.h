@@ -7,8 +7,8 @@
 #include "tr2/common/result.h"
 #include "tr2/persistence/command_journal.h"
 
-#define TR2_COMMAND_JOURNAL_RECORD_FORMAT_VERSION 1u
-#define TR2_COMMAND_JOURNAL_RECORD_SIZE 50u
+#define TR2_COMMAND_JOURNAL_RECORD_FORMAT_VERSION 2u
+#define TR2_COMMAND_JOURNAL_RECORD_SIZE 66u
 
 typedef struct {
     uint32_t generation;
