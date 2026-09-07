@@ -368,6 +368,12 @@ add_executable(test_p7m_command_policy
 target_link_libraries(test_p7m_command_policy PRIVATE tr2_core)
 add_test(NAME p7m_command_policy COMMAND test_p7m_command_policy)
 
+add_executable(test_p7n_transaction_fault_injection
+    tests/unit/test_p7n_transaction_fault_injection.c
+)
+target_link_libraries(test_p7n_transaction_fault_injection PRIVATE tr2_core)
+add_test(NAME p7n_transaction_fault_injection COMMAND test_p7n_transaction_fault_injection)
+
 add_executable(test_acquisition_service
     tests/unit/test_acquisition_service.c
 )
