@@ -59,14 +59,23 @@ int main(void)
             .source = UINT16_C(1)
         }
     };
-    ModbusReadSources sources = {
-        .identity = &identity,
-        .system_state = &system_state,
-        .time = &time,
-        .supervision = NULL
-    };
+    ModbusBlock7Image b7 = { { 0u }, UINT32_C(77) };
+    ModbusReadSources sources;
     ModbusReadOutcome outcome;
     uint16_t values[21] = { 0u };
+    uint16_t index;
+
+    for (index = 0u; index < TR2_B7_REGISTER_COUNT; ++index) {
+        b7.registers[index] = (uint16_t)(UINT16_C(0x7000) + index);
+    }
+
+    sources.identity = &identity;
+    sources.system_state = &system_state;
+    sources.time = &time;
+    sources.supervision = NULL;
+    sources.b5_image = NULL;
+    sources.b6_image = NULL;
+    sources.b7_image = &b7;
 
     outcome = modbus_read_adapter_read(&sources, UINT16_C(0), UINT16_C(21), values);
     assert(outcome.access_result == MODBUS_ACCESS_OK);
@@ -102,6 +111,40 @@ int main(void)
     assert(values[12] == UINT16_C(0xFFEC));
     assert(values[14] == 0u);
     assert(values[15] == 0u);
+
+    outcome = modbus_read_adapter_read(&sources, UINT16_C(7000), UINT16_C(16), values);
+    assert(outcome.access_result == MODBUS_ACCESS_OK);
+    assert(outcome.operation_result == TR2_OK);
+    for (index = 0u; index < TR2_B7_REGISTER_COUNT; ++index) {
+        assert(values[index] == (uint16_t)(UINT16_C(0x7000) + index));
+    }
+
+    outcome = modbus_read_adapter_read(&sources, UINT16_C(7006), UINT16_C(3), values);
+    assert(outcome.access_result == MODBUS_ACCESS_OK);
+    assert(outcome.operation_result == TR2_OK);
+    assert(values[0] == UINT16_C(0x7006));
+    assert(values[1] == UINT16_C(0x7007));
+    assert(values[2] == UINT16_C(0x7008));
+
+    sources.b7_image = NULL;
+    values[0] = UINT16_C(0xD00D);
+    outcome = modbus_read_adapter_read(&sources, UINT16_C(7000), UINT16_C(1), values);
+    assert(outcome.access_result == MODBUS_ACCESS_OK);
+    assert(outcome.operation_result == TR2_ERROR_NOT_AVAILABLE);
+    assert(values[0] == UINT16_C(0xD00D));
+    sources.b7_image = &b7;
+
+    values[0] = UINT16_C(0xBEEF);
+    outcome = modbus_read_adapter_read(&sources, UINT16_C(7015), UINT16_C(2), values);
+    assert(outcome.access_result == MODBUS_ACCESS_ILLEGAL_ADDRESS);
+    assert(outcome.operation_result == TR2_OK);
+    assert(values[0] == UINT16_C(0xBEEF));
+
+    values[0] = UINT16_C(0xCAFE);
+    outcome = modbus_read_adapter_read(&sources, UINT16_C(7016), UINT16_C(1), values);
+    assert(outcome.access_result == MODBUS_ACCESS_ILLEGAL_ADDRESS);
+    assert(outcome.operation_result == TR2_OK);
+    assert(values[0] == UINT16_C(0xCAFE));
 
     time.civil_time_usable = false;
     time.current_time_available = false;
