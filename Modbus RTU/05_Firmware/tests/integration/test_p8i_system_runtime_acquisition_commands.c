@@ -309,6 +309,7 @@ int main(void)
     assert(system_runtime_b5_image(&runtime, &b5));
     assert((b5.registers[13] & COMMAND_ENGINE_FLAG_MAINTENANCE_ACTIVE) == 0u);
 
+    /* P9-N3: REFRESH_INDICATORS rebuilds B1 only from current runtime authorities. */
     host_platform_advance_monotonic(&platform, UINT64_C(12345));
     memset(&request, 0, sizeof(request));
     request.transaction_id = UINT16_C(506);
@@ -320,19 +321,20 @@ int main(void)
     assert(entry.final_result.status == COMMAND_STATUS_SUCCESS);
     assert(system_runtime_b1_image(&runtime, &b1));
     assert(b1.registers[0] == UINT16_C(1));
-    assert((b1.registers[1] & UINT16_C(0x0001)) != 0u);
-    assert((b1.registers[1] & UINT16_C(0x0002)) == 0u);
-    assert((b1.registers[1] & UINT16_C(0x0004)) != 0u);
-    assert((b1.registers[1] & UINT16_C(0x0010)) != 0u);
+    assert((b1.registers[1] & UINT16_C(0x0001)) != 0u); /* READY */
+    assert((b1.registers[1] & UINT16_C(0x0002)) == 0u); /* acquisition stopped */
+    assert((b1.registers[1] & UINT16_C(0x0004)) != 0u); /* config valid */
+    assert((b1.registers[1] & UINT16_C(0x0010)) != 0u); /* storage available */
     assert(b1.registers[4] == UINT16_C(0));
     assert(b1.registers[5] == UINT16_C(12));
-    assert(b1.registers[6] == UINT16_C(4));
+    assert(b1.registers[6] == UINT16_C(4)); /* B1 brown-out code, not platform enum ordinal */
     assert(b1.registers[10] == UINT16_C(1));
     assert(b1.registers[12] == UINT16_C(0));
     assert(b1.registers[13] == UINT16_C(0));
     assert(b1.registers[14] == UINT16_C(0));
     b1_generation = b1.source_generation;
 
+    /* Retry must not execute a second refresh or advance the B1 snapshot generation. */
     host_platform_advance_monotonic(&platform, UINT64_C(5000));
     assert(system_runtime_execute_p9_command(&runtime, &request, &timestamp,
                                              &admission, &entry) == TR2_OK);
@@ -341,6 +343,7 @@ int main(void)
     assert(b1.source_generation == b1_generation);
     assert(b1.registers[5] == UINT16_C(12));
 
+    /* P9-N4b: absence of a platform executor is explicit and reserves nothing. */
     memset(&request, 0, sizeof(request));
     request.transaction_id = UINT16_C(507);
     request.identity.command_code = COMMAND_CODE_SELFTEST;
@@ -350,6 +353,8 @@ int main(void)
     assert(!command_engine_has_active_transaction(&runtime.command_engine));
     assert(selftest_double.calls == 0u);
 
+    /* Re-inject the host test double: the same txid is still new because the
+       unavailable executor path did not reserve it. */
     runtime.deps.selftest_executor = &selftest_executor;
     assert(system_runtime_execute_p9_command(&runtime, &request, &timestamp,
                                              &admission, &entry) == TR2_OK);
@@ -364,12 +369,15 @@ int main(void)
     assert(diagnostic_snapshot.facts.selftest.result_code == UINT16_C(0));
     assert(diagnostic_snapshot.facts.selftest.detail == UINT16_C(0));
 
+    /* Lifetime-strict retry reuses the terminal journal result and never
+       invokes the platform selftest executor again. */
     assert(system_runtime_execute_p9_command(&runtime, &request, &timestamp,
                                              &admission, &entry) == TR2_OK);
     assert(admission.kind == COMMAND_ADMISSION_RETRY);
     assert(entry.lifecycle == COMMAND_LIFECYCLE_COMPLETED);
     assert(selftest_double.calls == 1u);
 
+    /* P9-N5a: an unavailable reset trigger reserves nothing. */
     memset(&request, 0, sizeof(request));
     request.transaction_id = UINT16_C(508);
     request.identity.command_code = COMMAND_CODE_SOFTWARE_RESET;
@@ -380,6 +388,8 @@ int main(void)
     assert(!command_engine_has_active_transaction(&runtime.command_engine));
     assert(reset_double.calls == 0u);
 
+    /* Re-inject the trigger. The significant effect is the trigger itself;
+       host execution returns, so the transaction intentionally remains STARTED. */
     runtime.deps.reset_trigger = &reset_trigger;
     assert(system_runtime_execute_p9_command(&runtime, &request, &timestamp,
                                              &admission, &entry) == TR2_OK);
@@ -424,6 +434,9 @@ int main(void)
     assert(boot_recovery.incomplete_transaction.transaction_id == UINT16_C(508));
     assert(boot_recovery.incomplete_transaction.lifecycle == COMMAND_LIFECYCLE_STARTED);
 
+    /* P9-N5b2: the recovered BootIntent is one-shot and durably consumed only
+       after reconciliation. The same hardware cause on a later boot cannot
+       re-prove the old SOFTWARE_RESET transaction. */
     assert(boot_intent_store_recover(&runtime_after_reset.boot_intent_store,
                                      &boot_intent_recovery) == TR2_OK);
     assert(boot_intent_recovery.status == BOOT_INTENT_RECOVERY_EMPTY);
