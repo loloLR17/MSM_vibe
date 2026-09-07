@@ -231,6 +231,12 @@ add_executable(test_supervision_service
 target_link_libraries(test_supervision_service PRIVATE tr2_core)
 add_test(NAME supervision_service COMMAND test_supervision_service)
 
+add_executable(test_supervision_temporal_envelope
+    tests/unit/test_supervision_temporal_envelope.c
+)
+target_link_libraries(test_supervision_temporal_envelope PRIVATE tr2_core)
+add_test(NAME supervision_temporal_envelope COMMAND test_supervision_temporal_envelope)
+
 add_executable(test_system_runtime
     tests/integration/test_system_runtime.c
 )
