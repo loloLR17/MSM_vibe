@@ -118,8 +118,5 @@ CommandReconciliationOutcome command_stop_acquisition_reconcile(
     if (metadata.lifecycle_state == CAMPAIGN_LIFECYCLE_CLOSED) {
         return COMMAND_RECONCILIATION_TERMINAL_EFFECT_PROVEN;
     }
-    if (metadata.lifecycle_state == CAMPAIGN_LIFECYCLE_OPEN) {
-        return COMMAND_RECONCILIATION_ABSENCE_PROVEN;
-    }
     return COMMAND_RECONCILIATION_INDETERMINATE;
 }
