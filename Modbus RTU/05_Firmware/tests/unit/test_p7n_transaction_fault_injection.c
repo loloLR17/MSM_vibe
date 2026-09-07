@@ -231,9 +231,8 @@ static void test_failed_completed_commit_recovers_started_and_never_publishes_te
     media.fail_commit_call = media.commit_calls + 1u;
     assert(command_engine_complete(&runtime.engine, 4u, &result, &timestamp, &entry) ==
            TR2_ERROR_STORAGE);
-    assert(command_engine_snapshot(&runtime.engine, &snapshot) == TR2_OK);
-    assert(snapshot.status == COMMAND_STATUS_RUNNING);
-    assert(!snapshot.last.present);
+    assert(command_journal_store_recovery_required(&runtime.store));
+    assert(command_engine_snapshot(&runtime.engine, &snapshot) != TR2_OK);
 
     runtime_reboot(&media, &runtime);
     entry = find_entry(&runtime, 4u);
