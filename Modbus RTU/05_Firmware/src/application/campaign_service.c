@@ -243,6 +243,23 @@ Tr2Result campaign_service_drive_acquisition_step(
     return read_result;
 }
 
+Tr2Result campaign_service_publish_supervision_step(
+    SupervisionService *supervision_service,
+    const CampaignAcquisitionStep *step)
+{
+    if (supervision_service == NULL || step == NULL) {
+        return TR2_ERROR_INVALID_ARGUMENT;
+    }
+    if (!supervision_service_is_initialized(supervision_service)) {
+        return TR2_ERROR_INVALID_STATE;
+    }
+    if (step->kind != CAMPAIGN_ACQUISITION_STEP_WINDOW_COMPLETED) {
+        return TR2_ERROR_INVALID_STATE;
+    }
+
+    return supervision_service_publish_window(supervision_service, &step->window);
+}
+
 Tr2Result campaign_service_stop(CampaignService *service,
                                 CampaignMetadata *out_closed_metadata)
 {
