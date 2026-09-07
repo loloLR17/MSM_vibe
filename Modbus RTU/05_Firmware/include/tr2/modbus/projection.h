@@ -25,6 +25,11 @@ typedef struct {
 } ModbusBlock1Image;
 
 typedef struct {
+    const SystemStateSnapshot *system_state;
+    const TimeSnapshot *time;
+} ModbusBlock1ProjectionSource;
+
+typedef struct {
     uint16_t registers[TR2_B2_REGISTER_COUNT];
     uint32_t source_generation;
 } ModbusBlock2Image;
@@ -43,7 +48,8 @@ typedef struct {
 } ModbusBlock4Image;
 
 Tr2Result modbus_project_b0(const IdentitySnapshot *snapshot, ModbusBlock0Image *output);
-Tr2Result modbus_project_b1(const SystemStateSnapshot *snapshot, ModbusBlock1Image *output);
+Tr2Result modbus_project_b1(const ModbusBlock1ProjectionSource *source,
+                            ModbusBlock1Image *output);
 Tr2Result modbus_project_b2(const TimeSnapshot *snapshot, ModbusBlock2Image *output);
 Tr2Result modbus_project_b4(const ModbusBlock4ProjectionSource *source, ModbusBlock4Image *output);
 
