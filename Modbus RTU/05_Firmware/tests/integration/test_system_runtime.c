@@ -43,7 +43,8 @@ static SystemRuntimeDependencies make_dependencies(
     ResetCauseProvider *reset,
     TimeContinuityEvidenceProvider *time_continuity,
     PersistentMedia *media,
-    const ConfigurationValidationEnvironment *environment)
+    const ConfigurationValidationEnvironment *environment,
+    VibrationSource *vibration_source)
 {
     SystemRuntimeDependencies deps;
 
@@ -53,6 +54,7 @@ static SystemRuntimeDependencies make_dependencies(
     deps.time_continuity_evidence_provider = time_continuity;
     deps.persistent_media = media;
     deps.configuration_validation_environment = environment;
+    deps.vibration_source = vibration_source;
     return deps;
 }
 
@@ -76,6 +78,32 @@ static CampaignMetadata make_open(CampaignId campaign_id, uint32_t mission_id)
     return metadata;
 }
 
+static void assert_fg_composed_and_idle(SystemRuntime *runtime,
+                                        const HostPlatform *platform)
+{
+    AcquisitionService *acquisition = system_runtime_acquisition_service(runtime);
+    SupervisionService *supervision = system_runtime_supervision_service(runtime);
+    CampaignService *campaign = system_runtime_campaign_service(runtime);
+    SupervisionSnapshot snapshot;
+
+    assert(acquisition != NULL);
+    assert(supervision != NULL);
+    assert(campaign != NULL);
+    assert(acquisition_service_is_initialized(acquisition));
+    assert(!acquisition_service_window_active(acquisition));
+    assert(supervision_service_is_initialized(supervision));
+    assert(!supervision_service_snapshot(supervision, &snapshot));
+    assert(campaign_service_is_initialized(campaign));
+    assert(!campaign_service_campaign_open(campaign));
+    assert(!campaign_service_acquisition_running(campaign));
+
+    assert(platform->vibration_configure_calls == 0u);
+    assert(platform->vibration_start_calls == 0u);
+    assert(platform->vibration_read_calls == 0u);
+    assert(platform->vibration_stop_calls == 0u);
+    assert(!platform->vibration_started);
+}
+
 static void test_campaign_boot_recovery(void)
 {
     HostPlatform platform;
@@ -85,6 +113,7 @@ static void test_campaign_boot_recovery(void)
     ResetCauseProvider reset;
     TimeContinuityEvidenceProvider time_continuity;
     PersistentMedia media;
+    VibrationSource vibration;
     SystemRuntimeDependencies deps;
     SystemRuntime runtime_a;
     SystemRuntime runtime_b;
@@ -107,15 +136,18 @@ static void test_campaign_boot_recovery(void)
     reset = host_platform_reset_cause_provider(&platform);
     time_continuity = host_platform_time_continuity_evidence_provider(&platform);
     media = host_platform_persistent_media(&platform);
+    vibration = host_platform_vibration_source(&platform);
     deps = make_dependencies(&monotonic,
                              &wall,
                              &reset,
                              &time_continuity,
                              &media,
-                             &environment);
+                             &environment,
+                             &vibration);
 
     assert(system_runtime_init(&runtime_a, &deps) == TR2_OK);
     assert(system_runtime_boot(&runtime_a) == TR2_OK);
+    assert_fg_composed_and_idle(&runtime_a, &platform);
 
     repository = campaign_repository_store_interface(
         &runtime_a.campaign_repository_store);
@@ -148,6 +180,7 @@ static void test_campaign_boot_recovery(void)
     assert(system_runtime_boot(&runtime_b) == TR2_OK);
     assert(system_runtime_is_ready_for_modbus(&runtime_b));
     assert(!runtime_b.campaign_data_store.campaign_active);
+    assert_fg_composed_and_idle(&runtime_b, &platform);
 
     assert(system_runtime_campaign_recovery_snapshot(&runtime_b, &recovery));
     assert(recovery.repository_status == CAMPAIGN_REPOSITORY_RECOVERY_VALID);
@@ -193,6 +226,7 @@ static void test_campaign_boot_recovery(void)
     assert(system_runtime_boot(&runtime_c) == TR2_OK);
     assert(system_runtime_is_ready_for_modbus(&runtime_c));
     assert(!runtime_c.campaign_data_store.campaign_active);
+    assert_fg_composed_and_idle(&runtime_c, &platform);
     assert(system_runtime_campaign_recovery_snapshot(&runtime_c, &recovery));
     assert(recovery.repository_status == CAMPAIGN_REPOSITORY_RECOVERY_VALID);
     assert(recovery.campaigns[0].metadata.campaign_id == first.campaign_id);
@@ -211,7 +245,9 @@ int main(void)
     ResetCauseProvider reset;
     TimeContinuityEvidenceProvider time_continuity;
     PersistentMedia media;
+    VibrationSource vibration;
     SystemRuntimeDependencies deps;
+    SystemRuntimeDependencies invalid_deps;
     SystemRuntime runtime_a;
     SystemRuntime runtime_b;
     SystemRuntime runtime_c;
@@ -232,14 +268,29 @@ int main(void)
     reset = host_platform_reset_cause_provider(&platform);
     time_continuity = host_platform_time_continuity_evidence_provider(&platform);
     media = host_platform_persistent_media(&platform);
-    deps = make_dependencies(&monotonic, &wall, &reset, &time_continuity, &media, &environment);
+    vibration = host_platform_vibration_source(&platform);
+    deps = make_dependencies(&monotonic,
+                             &wall,
+                             &reset,
+                             &time_continuity,
+                             &media,
+                             &environment,
+                             &vibration);
+
+    invalid_deps = deps;
+    invalid_deps.vibration_source = NULL;
+    assert(system_runtime_init(&runtime_a, &invalid_deps) == TR2_ERROR_INVALID_ARGUMENT);
 
     assert(system_runtime_init(&runtime_a, &deps) == TR2_OK);
     assert(!system_runtime_is_ready_for_modbus(&runtime_a));
+    assert(system_runtime_acquisition_service(&runtime_a) == NULL);
+    assert(system_runtime_supervision_service(&runtime_a) == NULL);
+    assert(system_runtime_campaign_service(&runtime_a) == NULL);
     assert(!system_runtime_b4_image(&runtime_a, &image));
     assert(!system_runtime_b6_image(&runtime_a, &b6));
     assert(system_runtime_boot(&runtime_a) == TR2_OK);
     assert(system_runtime_is_ready_for_modbus(&runtime_a));
+    assert_fg_composed_and_idle(&runtime_a, &platform);
     assert(system_runtime_boot_context(&runtime_a) != NULL);
     assert(system_runtime_boot_context(&runtime_a)->reset_cause == RESET_CAUSE_SOFTWARE);
     assert(configuration_service_recovery_status(&runtime_a.configuration_service,
@@ -279,6 +330,7 @@ int main(void)
     assert(system_runtime_init(&runtime_b, &deps) == TR2_OK);
     assert(system_runtime_boot(&runtime_b) == TR2_OK);
     assert(system_runtime_is_ready_for_modbus(&runtime_b));
+    assert_fg_composed_and_idle(&runtime_b, &platform);
     assert(configuration_service_recovery_status(&runtime_b.configuration_service,
                                                  &recovery_status));
     assert(recovery_status == CONFIGURATION_RECOVERY_VALID);
@@ -302,6 +354,7 @@ int main(void)
     assert(system_runtime_init(&runtime_c, &deps) == TR2_OK);
     assert(system_runtime_boot(&runtime_c) == TR2_OK);
     assert(system_runtime_is_ready_for_modbus(&runtime_c));
+    assert_fg_composed_and_idle(&runtime_c, &platform);
     assert(configuration_service_recovery_status(&runtime_c.configuration_service,
                                                  &recovery_status));
     assert(recovery_status == CONFIGURATION_RECOVERY_CORRUPTED);

@@ -83,6 +83,60 @@ static Tr2Result host_media_commit(void *context)
     return TR2_OK;
 }
 
+static Tr2Result host_vibration_configure(
+    void *context,
+    const VibrationSourceConfiguration *configuration)
+{
+    HostPlatform *platform = (HostPlatform *)context;
+
+    if (platform == NULL || configuration == NULL) {
+        return TR2_ERROR_INVALID_ARGUMENT;
+    }
+    platform->vibration_configure_calls += 1u;
+    return TR2_OK;
+}
+
+static Tr2Result host_vibration_start(void *context)
+{
+    HostPlatform *platform = (HostPlatform *)context;
+
+    if (platform == NULL) {
+        return TR2_ERROR_INVALID_ARGUMENT;
+    }
+    platform->vibration_start_calls += 1u;
+    platform->vibration_started = true;
+    return TR2_OK;
+}
+
+static Tr2Result host_vibration_read(void *context, VibrationSample *sample)
+{
+    HostPlatform *platform = (HostPlatform *)context;
+
+    if (platform == NULL || sample == NULL) {
+        return TR2_ERROR_INVALID_ARGUMENT;
+    }
+    if (!platform->vibration_started) {
+        return TR2_ERROR_INVALID_STATE;
+    }
+
+    platform->vibration_read_calls += 1u;
+    memset(sample, 0, sizeof(*sample));
+    sample->valid = true;
+    return TR2_OK;
+}
+
+static Tr2Result host_vibration_stop(void *context)
+{
+    HostPlatform *platform = (HostPlatform *)context;
+
+    if (platform == NULL) {
+        return TR2_ERROR_INVALID_ARGUMENT;
+    }
+    platform->vibration_stop_calls += 1u;
+    platform->vibration_started = false;
+    return TR2_OK;
+}
+
 void host_platform_init(HostPlatform *platform)
 {
     if (platform == NULL) {
@@ -154,4 +208,16 @@ PersistentMedia host_platform_persistent_media(HostPlatform *platform)
 {
     PersistentMedia media = { platform, host_media_read, host_media_write, host_media_commit };
     return media;
+}
+
+VibrationSource host_platform_vibration_source(HostPlatform *platform)
+{
+    VibrationSource source = {
+        platform,
+        host_vibration_configure,
+        host_vibration_start,
+        host_vibration_read,
+        host_vibration_stop
+    };
+    return source;
 }

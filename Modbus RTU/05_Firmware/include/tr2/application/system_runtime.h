@@ -3,11 +3,14 @@
 
 #include <stdbool.h>
 
+#include "tr2/application/acquisition_service.h"
 #include "tr2/application/campaign_inventory_service.h"
+#include "tr2/application/campaign_service.h"
 #include "tr2/application/command_boot_recovery.h"
 #include "tr2/application/command_engine.h"
 #include "tr2/application/command_request_mailbox.h"
 #include "tr2/application/configuration_service.h"
+#include "tr2/application/supervision_service.h"
 #include "tr2/common/result.h"
 #include "tr2/domain/configuration/configuration_validator.h"
 #include "tr2/domain/time/time_service.h"
@@ -23,6 +26,7 @@
 #include "tr2/platform/persistent_media.h"
 #include "tr2/platform/reset_cause_provider.h"
 #include "tr2/platform/time_continuity_evidence.h"
+#include "tr2/platform/vibration_source.h"
 #include "tr2/platform/wall_clock.h"
 
 typedef struct {
@@ -48,6 +52,7 @@ typedef struct {
     const TimeContinuityEvidenceProvider *time_continuity_evidence_provider;
     const PersistentMedia *persistent_media;
     const ConfigurationValidationEnvironment *configuration_validation_environment;
+    VibrationSource *vibration_source;
 } SystemRuntimeDependencies;
 
 typedef struct {
@@ -72,6 +77,10 @@ typedef struct {
     CampaignInventoryService campaign_inventory_service;
     CampaignInventoryViewSnapshot campaign_inventory_snapshot;
     bool campaign_inventory_snapshot_available;
+    AcquisitionService acquisition_service;
+    SupervisionService supervision_service;
+    CampaignService campaign_service;
+    bool fg_runtime_available;
     PersistentMediaRegion command_journal_media_region;
     PersistentStorageCore command_journal_storage_core;
     CommandJournalStore command_journal_store;
@@ -104,6 +113,9 @@ bool system_runtime_campaign_recovery_snapshot(
 bool system_runtime_campaign_inventory_snapshot(
     const SystemRuntime *runtime,
     CampaignInventoryViewSnapshot *out_snapshot);
+AcquisitionService *system_runtime_acquisition_service(SystemRuntime *runtime);
+SupervisionService *system_runtime_supervision_service(SystemRuntime *runtime);
+CampaignService *system_runtime_campaign_service(SystemRuntime *runtime);
 bool system_runtime_command_boot_recovery(
     const SystemRuntime *runtime,
     CommandBootRecoveryResult *out_recovery);

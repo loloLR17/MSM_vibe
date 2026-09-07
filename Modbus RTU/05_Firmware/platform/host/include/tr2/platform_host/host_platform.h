@@ -8,6 +8,7 @@
 #include "tr2/platform/persistent_media.h"
 #include "tr2/platform/reset_cause_provider.h"
 #include "tr2/platform/time_continuity_evidence.h"
+#include "tr2/platform/vibration_source.h"
 #include "tr2/platform/wall_clock.h"
 
 #define HOST_PLATFORM_PERSISTENT_BYTES (9u * 1024u * 1024u)
@@ -20,6 +21,11 @@ typedef struct {
     TimeContinuityEvidence time_continuity_evidence;
     uint8_t *persistent_committed;
     uint8_t *persistent_candidate;
+    uint32_t vibration_configure_calls;
+    uint32_t vibration_start_calls;
+    uint32_t vibration_read_calls;
+    uint32_t vibration_stop_calls;
+    bool vibration_started;
 } HostPlatform;
 
 void host_platform_init(HostPlatform *platform);
@@ -33,5 +39,6 @@ WallClock host_platform_wall_clock(HostPlatform *platform);
 ResetCauseProvider host_platform_reset_cause_provider(HostPlatform *platform);
 TimeContinuityEvidenceProvider host_platform_time_continuity_evidence_provider(HostPlatform *platform);
 PersistentMedia host_platform_persistent_media(HostPlatform *platform);
+VibrationSource host_platform_vibration_source(HostPlatform *platform);
 
 #endif

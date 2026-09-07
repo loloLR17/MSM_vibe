@@ -15,6 +15,7 @@ int main(void)
     TimeContinuityEvidenceProvider time_continuity =
         host_platform_time_continuity_evidence_provider(&platform);
     PersistentMedia media = host_platform_persistent_media(&platform);
+    VibrationSource vibration = host_platform_vibration_source(&platform);
 
     SystemRuntimeDependencies deps = {
         &monotonic,
@@ -22,7 +23,8 @@ int main(void)
         &reset,
         &time_continuity,
         &media,
-        &configuration_environment
+        &configuration_environment,
+        &vibration
     };
     SystemRuntime runtime;
 

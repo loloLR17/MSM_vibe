@@ -31,7 +31,12 @@ static bool dependencies_are_valid(const SystemRuntimeDependencies *deps)
            deps->persistent_media->read != NULL &&
            deps->persistent_media->write != NULL &&
            deps->persistent_media->commit != NULL &&
-           deps->configuration_validation_environment != NULL;
+           deps->configuration_validation_environment != NULL &&
+           deps->vibration_source != NULL &&
+           deps->vibration_source->configure != NULL &&
+           deps->vibration_source->start != NULL &&
+           deps->vibration_source->read_sample != NULL &&
+           deps->vibration_source->stop != NULL;
 }
 
 static TimeContinuity continuity_from_platform(TimeContinuityEvidence evidence,
@@ -241,6 +246,52 @@ static Tr2Result recover_campaigns(SystemRuntime *runtime)
     return TR2_OK;
 }
 
+static Tr2Result compose_fg_runtime(SystemRuntime *runtime)
+{
+    CampaignRepository *repository;
+    CampaignDataStore *data_store;
+    Tr2Result result;
+
+    repository = campaign_repository_store_interface(&runtime->campaign_repository_store);
+    data_store = campaign_data_store_persistent_interface(&runtime->campaign_data_store);
+    if (repository == NULL || data_store == NULL) {
+        return TR2_ERROR_INTERNAL;
+    }
+
+    result = acquisition_service_init(&runtime->acquisition_service,
+                                      &runtime->configuration_service,
+                                      runtime->deps.monotonic_clock,
+                                      runtime->deps.vibration_source);
+    if (result != TR2_OK) {
+        return result;
+    }
+
+    result = supervision_service_init(&runtime->supervision_service);
+    if (result != TR2_OK) {
+        return result;
+    }
+
+    result = supervision_service_bind_temporal_dependencies(
+        &runtime->supervision_service,
+        runtime->deps.monotonic_clock,
+        &runtime->time_service);
+    if (result != TR2_OK) {
+        return result;
+    }
+
+    result = campaign_service_init(&runtime->campaign_service,
+                                   &runtime->configuration_service,
+                                   &runtime->acquisition_service,
+                                   repository,
+                                   data_store);
+    if (result != TR2_OK) {
+        return result;
+    }
+
+    runtime->fg_runtime_available = true;
+    return TR2_OK;
+}
+
 static Tr2Result recover_commands(SystemRuntime *runtime)
 {
     CommandBootRecoveryAuthorities authorities;
@@ -439,6 +490,7 @@ Tr2Result system_runtime_boot(SystemRuntime *runtime)
     runtime->time_snapshot_available = false;
     runtime->campaign_recovery_available = false;
     runtime->campaign_inventory_snapshot_available = false;
+    runtime->fg_runtime_available = false;
     runtime->command_runtime_available = false;
     runtime->b4_image_available = false;
     runtime->b5_image_available = false;
@@ -465,6 +517,11 @@ Tr2Result system_runtime_boot(SystemRuntime *runtime)
     }
 
     result = recover_campaigns(runtime);
+    if (result != TR2_OK) {
+        return result;
+    }
+
+    result = compose_fg_runtime(runtime);
     if (result != TR2_OK) {
         return result;
     }
@@ -549,6 +606,33 @@ bool system_runtime_campaign_inventory_snapshot(const SystemRuntime *runtime,
     }
     *out_snapshot = runtime->campaign_inventory_snapshot;
     return true;
+}
+
+AcquisitionService *system_runtime_acquisition_service(SystemRuntime *runtime)
+{
+    if (runtime == NULL || !runtime->initialized || !runtime->system_ready_for_modbus ||
+        !runtime->fg_runtime_available) {
+        return NULL;
+    }
+    return &runtime->acquisition_service;
+}
+
+SupervisionService *system_runtime_supervision_service(SystemRuntime *runtime)
+{
+    if (runtime == NULL || !runtime->initialized || !runtime->system_ready_for_modbus ||
+        !runtime->fg_runtime_available) {
+        return NULL;
+    }
+    return &runtime->supervision_service;
+}
+
+CampaignService *system_runtime_campaign_service(SystemRuntime *runtime)
+{
+    if (runtime == NULL || !runtime->initialized || !runtime->system_ready_for_modbus ||
+        !runtime->fg_runtime_available) {
+        return NULL;
+    }
+    return &runtime->campaign_service;
 }
 
 bool system_runtime_command_boot_recovery(const SystemRuntime *runtime,
