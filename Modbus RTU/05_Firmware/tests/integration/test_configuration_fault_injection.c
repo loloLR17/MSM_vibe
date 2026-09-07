@@ -12,21 +12,28 @@
 #define NO_PARTIAL_FAILURE ((size_t)-1)
 
 typedef struct {
-    uint8_t durable[TR2_CONFIGURATION_STORE_STORAGE_SIZE];
-    uint8_t staged[TR2_CONFIGURATION_STORE_STORAGE_SIZE];
+    HostPlatform *platform;
     size_t partial_write_count;
     bool fail_commit;
 } FaultMediaContext;
+
+static bool fault_media_range_valid(uint32_t offset, size_t size)
+{
+    return offset <= HOST_PLATFORM_PERSISTENT_BYTES &&
+           size <= HOST_PLATFORM_PERSISTENT_BYTES - offset;
+}
 
 static Tr2Result fault_media_read(void *context, uint32_t offset, void *buffer, size_t size)
 {
     FaultMediaContext *media = (FaultMediaContext *)context;
 
-    if (buffer == NULL || (size_t)offset + size > sizeof(media->staged)) {
+    if (media == NULL || media->platform == NULL ||
+        media->platform->persistent_committed == NULL || buffer == NULL ||
+        !fault_media_range_valid(offset, size)) {
         return TR2_ERROR_STORAGE;
     }
 
-    memcpy(buffer, &media->staged[offset], size);
+    memcpy(buffer, &media->platform->persistent_committed[offset], size);
     return TR2_OK;
 }
 
@@ -38,18 +45,21 @@ static Tr2Result fault_media_write(void *context,
     FaultMediaContext *media = (FaultMediaContext *)context;
     size_t copy_size = size;
 
-    if (buffer == NULL || (size_t)offset + size > sizeof(media->staged)) {
+    if (media == NULL || media->platform == NULL ||
+        media->platform->persistent_candidate == NULL || buffer == NULL ||
+        !fault_media_range_valid(offset, size)) {
         return TR2_ERROR_STORAGE;
     }
 
-    if (media->partial_write_count != NO_PARTIAL_FAILURE &&
+    if (offset < (uint32_t)TR2_CONFIGURATION_STORE_STORAGE_SIZE &&
+        media->partial_write_count != NO_PARTIAL_FAILURE &&
         media->partial_write_count < size) {
         copy_size = media->partial_write_count;
-        memcpy(&media->staged[offset], buffer, copy_size);
+        memcpy(&media->platform->persistent_candidate[offset], buffer, copy_size);
         return TR2_ERROR_STORAGE;
     }
 
-    memcpy(&media->staged[offset], buffer, size);
+    memcpy(&media->platform->persistent_candidate[offset], buffer, size);
     return TR2_OK;
 }
 
@@ -57,25 +67,42 @@ static Tr2Result fault_media_commit(void *context)
 {
     FaultMediaContext *media = (FaultMediaContext *)context;
 
+    if (media == NULL || media->platform == NULL ||
+        media->platform->persistent_committed == NULL ||
+        media->platform->persistent_candidate == NULL) {
+        return TR2_ERROR_STORAGE;
+    }
     if (media->fail_commit) {
         return TR2_ERROR_STORAGE;
     }
 
-    memcpy(media->durable, media->staged, sizeof(media->durable));
+    memcpy(media->platform->persistent_committed,
+           media->platform->persistent_candidate,
+           HOST_PLATFORM_PERSISTENT_BYTES);
     return TR2_OK;
 }
 
-static void fault_media_init(FaultMediaContext *media)
+static void fault_media_init(FaultMediaContext *media, HostPlatform *platform)
 {
     memset(media, 0, sizeof(*media));
-    memset(media->durable, 0xFF, sizeof(media->durable));
-    memcpy(media->staged, media->durable, sizeof(media->staged));
+    media->platform = platform;
     media->partial_write_count = NO_PARTIAL_FAILURE;
+    assert(platform != NULL);
+    assert(platform->persistent_committed != NULL);
+    assert(platform->persistent_candidate != NULL);
+    memset(platform->persistent_committed, 0xFF, HOST_PLATFORM_PERSISTENT_BYTES);
+    memcpy(platform->persistent_candidate,
+           platform->persistent_committed,
+           HOST_PLATFORM_PERSISTENT_BYTES);
 }
 
 static void simulate_power_loss(FaultMediaContext *media)
 {
-    memcpy(media->staged, media->durable, sizeof(media->staged));
+    assert(media != NULL);
+    assert(media->platform != NULL);
+    memcpy(media->platform->persistent_candidate,
+           media->platform->persistent_committed,
+           HOST_PLATFORM_PERSISTENT_BYTES);
     media->partial_write_count = NO_PARTIAL_FAILURE;
     media->fail_commit = false;
 }
@@ -152,14 +179,17 @@ static SystemRuntimeDependencies make_dependencies(
     MonotonicClock *monotonic,
     WallClock *wall,
     ResetCauseProvider *reset,
+    TimeContinuityEvidenceProvider *time_continuity,
     PersistentMedia *media,
     const ConfigurationValidationEnvironment *environment)
 {
     SystemRuntimeDependencies deps;
 
+    memset(&deps, 0, sizeof(deps));
     deps.monotonic_clock = monotonic;
     deps.wall_clock = wall;
     deps.reset_cause_provider = reset;
+    deps.time_continuity_evidence_provider = time_continuity;
     deps.persistent_media = media;
     deps.configuration_validation_environment = environment;
     return deps;
@@ -227,6 +257,7 @@ static void test_every_partial_write_recovers_a(void)
         MonotonicClock monotonic;
         WallClock wall;
         ResetCauseProvider reset;
+        TimeContinuityEvidenceProvider time_continuity;
         ConfigurationValidationEnvironment environment = { true, UINT32_C(4096) };
         SystemRuntimeDependencies deps;
         SystemRuntime runtime_before;
@@ -236,12 +267,13 @@ static void test_every_partial_write_recovers_a(void)
         const ValidatedConfiguration validated_b = make_validated(2u, 20u, 2u);
 
         host_platform_init(&platform);
-        fault_media_init(&fault_media);
+        fault_media_init(&fault_media, &platform);
         media = fault_media_port(&fault_media);
         monotonic = host_platform_monotonic_clock(&platform);
         wall = host_platform_wall_clock(&platform);
         reset = host_platform_reset_cause_provider(&platform);
-        deps = make_dependencies(&monotonic, &wall, &reset, &media, &environment);
+        time_continuity = host_platform_time_continuity_evidence_provider(&platform);
+        deps = make_dependencies(&monotonic, &wall, &reset, &time_continuity, &media, &environment);
 
         establish_active_a(&runtime_before, &deps, &validated_a, UINT32_C(100), &active_a);
         fault_media.partial_write_count = failed_bytes;
@@ -264,6 +296,7 @@ static void test_commit_failure_recovers_a(void)
     MonotonicClock monotonic;
     WallClock wall;
     ResetCauseProvider reset;
+    TimeContinuityEvidenceProvider time_continuity;
     ConfigurationValidationEnvironment environment = { true, UINT32_C(4096) };
     SystemRuntimeDependencies deps;
     SystemRuntime runtime_before;
@@ -273,12 +306,13 @@ static void test_commit_failure_recovers_a(void)
     const ValidatedConfiguration validated_b = make_validated(2u, 20u, 2u);
 
     host_platform_init(&platform);
-    fault_media_init(&fault_media);
+    fault_media_init(&fault_media, &platform);
     media = fault_media_port(&fault_media);
     monotonic = host_platform_monotonic_clock(&platform);
     wall = host_platform_wall_clock(&platform);
     reset = host_platform_reset_cause_provider(&platform);
-    deps = make_dependencies(&monotonic, &wall, &reset, &media, &environment);
+    time_continuity = host_platform_time_continuity_evidence_provider(&platform);
+    deps = make_dependencies(&monotonic, &wall, &reset, &time_continuity, &media, &environment);
 
     establish_active_a(&runtime_before, &deps, &validated_a, UINT32_C(100), &active_a);
     fault_media.fail_commit = true;
@@ -300,6 +334,7 @@ static void test_power_loss_after_durable_commit_recovers_b(void)
     MonotonicClock monotonic;
     WallClock wall;
     ResetCauseProvider reset;
+    TimeContinuityEvidenceProvider time_continuity;
     ConfigurationValidationEnvironment environment = { true, UINT32_C(4096) };
     SystemRuntimeDependencies deps;
     SystemRuntime runtime_before;
@@ -311,12 +346,13 @@ static void test_power_loss_after_durable_commit_recovers_b(void)
         active_from_validated(&validated_b, UINT32_C(200));
 
     host_platform_init(&platform);
-    fault_media_init(&fault_media);
+    fault_media_init(&fault_media, &platform);
     media = fault_media_port(&fault_media);
     monotonic = host_platform_monotonic_clock(&platform);
     wall = host_platform_wall_clock(&platform);
     reset = host_platform_reset_cause_provider(&platform);
-    deps = make_dependencies(&monotonic, &wall, &reset, &media, &environment);
+    time_continuity = host_platform_time_continuity_evidence_provider(&platform);
+    deps = make_dependencies(&monotonic, &wall, &reset, &time_continuity, &media, &environment);
 
     establish_active_a(&runtime_before, &deps, &validated_a, UINT32_C(100), &active_a);
     (void)active_a;
@@ -338,6 +374,7 @@ static void test_power_loss_after_runtime_publication_recovers_b(void)
     MonotonicClock monotonic;
     WallClock wall;
     ResetCauseProvider reset;
+    TimeContinuityEvidenceProvider time_continuity;
     ConfigurationValidationEnvironment environment = { true, UINT32_C(4096) };
     SystemRuntimeDependencies deps;
     SystemRuntime runtime_before;
@@ -348,12 +385,13 @@ static void test_power_loss_after_runtime_publication_recovers_b(void)
     const ValidatedConfiguration validated_b = make_validated(2u, 20u, 2u);
 
     host_platform_init(&platform);
-    fault_media_init(&fault_media);
+    fault_media_init(&fault_media, &platform);
     media = fault_media_port(&fault_media);
     monotonic = host_platform_monotonic_clock(&platform);
     wall = host_platform_wall_clock(&platform);
     reset = host_platform_reset_cause_provider(&platform);
-    deps = make_dependencies(&monotonic, &wall, &reset, &media, &environment);
+    time_continuity = host_platform_time_continuity_evidence_provider(&platform);
+    deps = make_dependencies(&monotonic, &wall, &reset, &time_continuity, &media, &environment);
 
     establish_active_a(&runtime_before, &deps, &validated_a, UINT32_C(100), &active_a);
     (void)active_a;
