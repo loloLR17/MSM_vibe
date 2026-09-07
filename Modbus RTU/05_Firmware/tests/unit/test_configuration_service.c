@@ -136,6 +136,23 @@ static void assert_identity(const ActiveConfigurationSnapshot *expected,
     assert(memcmp(&expected->payload, &actual->payload, sizeof(expected->payload)) == 0);
 }
 
+static void test_initial_state_has_no_invented_recovery_result(void)
+{
+    TestMediaContext media;
+    PersistentMedia persistent_media;
+    PersistentStorageCore core;
+    ConfigurationStore store;
+    ConfigurationService service;
+    ConfigurationRecoveryStatus status;
+    ActiveConfigurationSnapshot active;
+
+    media_init(&media);
+    init_service(&media, &persistent_media, &core, &store, &service);
+
+    assert(!configuration_service_recovery_status(&service, &status));
+    assert(!configuration_service_active_snapshot(&service, &active));
+}
+
 static void test_empty_recovery_has_no_runtime_active(void)
 {
     TestMediaContext media;
@@ -144,13 +161,15 @@ static void test_empty_recovery_has_no_runtime_active(void)
     ConfigurationStore store;
     ConfigurationService service;
     ActiveConfigurationSnapshot active;
+    ConfigurationRecoveryStatus status;
     ConfigurationValidationEnvironment environment = valid_environment();
 
     media_init(&media);
     init_service(&media, &persistent_media, &core, &store, &service);
 
     assert(configuration_service_recover(&service, &environment) == TR2_OK);
-    assert(configuration_service_recovery_status(&service) == CONFIGURATION_RECOVERY_EMPTY);
+    assert(configuration_service_recovery_status(&service, &status));
+    assert(status == CONFIGURATION_RECOVERY_EMPTY);
     assert(!configuration_service_active_snapshot(&service, &active));
 }
 
@@ -162,6 +181,7 @@ static void test_commit_publishes_only_after_durable_success(void)
     ConfigurationStore store;
     ConfigurationService service;
     ActiveConfigurationSnapshot active;
+    ConfigurationRecoveryStatus status;
     const ActiveConfigurationSnapshot a = make_snapshot(1u, 10u, 100u);
 
     media_init(&media);
@@ -170,8 +190,7 @@ static void test_commit_publishes_only_after_durable_success(void)
     media.fail_commit = true;
     assert(configuration_service_commit_candidate(&service, &a) == TR2_ERROR_STORAGE);
     assert(!configuration_service_active_snapshot(&service, &active));
-
-    simulate_reboot(&media);
+    assert(!configuration_service_recovery_status(&service, &status));
 }
 
 static void test_commit_success_publishes_coherent_snapshot(void)
@@ -182,13 +201,15 @@ static void test_commit_success_publishes_coherent_snapshot(void)
     ConfigurationStore store;
     ConfigurationService service;
     ActiveConfigurationSnapshot active;
+    ConfigurationRecoveryStatus status;
     const ActiveConfigurationSnapshot a = make_snapshot(1u, 10u, 100u);
 
     media_init(&media);
     init_service(&media, &persistent_media, &core, &store, &service);
 
     assert(configuration_service_commit_candidate(&service, &a) == TR2_OK);
-    assert(configuration_service_recovery_status(&service) == CONFIGURATION_RECOVERY_VALID);
+    assert(configuration_service_recovery_status(&service, &status));
+    assert(status == CONFIGURATION_RECOVERY_VALID);
     assert(configuration_service_active_snapshot(&service, &active));
     assert_identity(&a, &active);
 }
@@ -227,6 +248,7 @@ static void test_reboot_recovers_committed_runtime_authority(void)
     ConfigurationStore store_b;
     ConfigurationService service_b;
     ActiveConfigurationSnapshot active;
+    ConfigurationRecoveryStatus status;
     ConfigurationValidationEnvironment environment = valid_environment();
     const ActiveConfigurationSnapshot a = make_snapshot(7u, 42u, 11u);
 
@@ -238,7 +260,8 @@ static void test_reboot_recovers_committed_runtime_authority(void)
     init_service(&media, &persistent_media_b, &core_b, &store_b, &service_b);
     assert(configuration_service_recover(&service_b, &environment) == TR2_OK);
 
-    assert(configuration_service_recovery_status(&service_b) == CONFIGURATION_RECOVERY_VALID);
+    assert(configuration_service_recovery_status(&service_b, &status));
+    assert(status == CONFIGURATION_RECOVERY_VALID);
     assert(configuration_service_active_snapshot(&service_b, &active));
     assert_identity(&a, &active);
 }
@@ -251,6 +274,7 @@ static void test_corrupted_recovery_publishes_no_active(void)
     ConfigurationStore store;
     ConfigurationService service;
     ActiveConfigurationSnapshot active;
+    ConfigurationRecoveryStatus status;
     ConfigurationValidationEnvironment environment = valid_environment();
 
     media_init(&media);
@@ -259,7 +283,8 @@ static void test_corrupted_recovery_publishes_no_active(void)
     init_service(&media, &persistent_media, &core, &store, &service);
 
     assert(configuration_service_recover(&service, &environment) == TR2_OK);
-    assert(configuration_service_recovery_status(&service) == CONFIGURATION_RECOVERY_CORRUPTED);
+    assert(configuration_service_recovery_status(&service, &status));
+    assert(status == CONFIGURATION_RECOVERY_CORRUPTED);
     assert(!configuration_service_active_snapshot(&service, &active));
 }
 
@@ -272,10 +297,12 @@ static void test_invalid_arguments(void)
     ConfigurationService service;
     ConfigurationValidationEnvironment environment = valid_environment();
     ActiveConfigurationSnapshot snapshot = make_snapshot(1u, 1u, 1u);
+    ConfigurationRecoveryStatus status;
 
     memset(&service, 0, sizeof(service));
     assert(configuration_service_commit_candidate(&service, &snapshot) == TR2_ERROR_INVALID_STATE);
     assert(configuration_service_recover(&service, &environment) == TR2_ERROR_INVALID_STATE);
+    assert(!configuration_service_recovery_status(&service, &status));
     assert(configuration_service_init(NULL, &store) == TR2_ERROR_INVALID_ARGUMENT);
 
     media_init(&media);
@@ -288,10 +315,12 @@ static void test_invalid_arguments(void)
     assert(configuration_service_init(&service, &store) == TR2_OK);
     assert(configuration_service_commit_candidate(&service, NULL) == TR2_ERROR_INVALID_ARGUMENT);
     assert(configuration_service_recover(&service, NULL) == TR2_ERROR_INVALID_ARGUMENT);
+    assert(!configuration_service_recovery_status(&service, NULL));
 }
 
 int main(void)
 {
+    test_initial_state_has_no_invented_recovery_result();
     test_empty_recovery_has_no_runtime_active();
     test_commit_publishes_only_after_durable_success();
     test_commit_success_publishes_coherent_snapshot();
