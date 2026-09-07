@@ -145,6 +145,12 @@ add_executable(test_configuration_store
 target_link_libraries(test_configuration_store PRIVATE tr2_core)
 add_test(NAME configuration_store COMMAND test_configuration_store)
 
+add_executable(test_configuration_store_recovery
+    tests/unit/test_configuration_store_recovery.c
+)
+target_link_libraries(test_configuration_store_recovery PRIVATE tr2_core)
+add_test(NAME configuration_store_recovery COMMAND test_configuration_store_recovery)
+
 add_executable(test_read_adapter
     tests/unit/test_read_adapter.c
 )
