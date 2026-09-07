@@ -99,7 +99,7 @@ int main(void)
     assert(modbus_register_model_validate_write(3000u, 1u) == MODBUS_ACCESS_READ_ONLY);
     assert(modbus_register_model_validate_write(3039u, 1u) == MODBUS_ACCESS_READ_ONLY);
     assert(modbus_register_model_validate_write(3040u, 1u) == MODBUS_ACCESS_RESERVED);
-    assert(modbus_register_model_validate_write(3039u, 2u) == MODBUS_ACCESS_RESERVED);
+    assert(modbus_register_model_validate_write(3039u, 2u) == MODBUS_ACCESS_READ_ONLY);
     assert(modbus_register_model_validate_write(3048u, 1u) == MODBUS_ACCESS_ILLEGAL_ADDRESS);
 
     assert(modbus_register_model_validate_write(4002u, 2u) == MODBUS_ACCESS_OK);
