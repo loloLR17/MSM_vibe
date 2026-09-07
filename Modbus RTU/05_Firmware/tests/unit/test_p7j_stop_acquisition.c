@@ -18,6 +18,34 @@ typedef struct {
     bool repository_metadata_present;
 } TestContext;
 
+static Tr2Result media_read(void *context, uint32_t offset, void *buffer, size_t size)
+{
+    (void)context;
+    (void)offset;
+    if (buffer != NULL) {
+        memset(buffer, 0, size);
+    }
+    return TR2_OK;
+}
+
+static Tr2Result media_write(void *context,
+                             uint32_t offset,
+                             const void *buffer,
+                             size_t size)
+{
+    (void)context;
+    (void)offset;
+    (void)buffer;
+    (void)size;
+    return TR2_OK;
+}
+
+static Tr2Result media_commit(void *context)
+{
+    (void)context;
+    return TR2_OK;
+}
+
 static Tr2Result journal_find(void *context, uint16_t transaction_id, CommandJournalEntry *entry)
 {
     TestContext *test = context;
@@ -217,8 +245,18 @@ static void init_campaign_service(TestContext *test,
                                   MonotonicClock *clock,
                                   VibrationSource *source)
 {
-    memset(configuration, 0, sizeof(*configuration));
-    configuration->initialized = true;
+    static PersistentMedia media;
+    static PersistentStorageCore storage;
+    static ConfigurationStore configuration_store;
+
+    memset(&media, 0, sizeof(media));
+    media.context = test;
+    media.read = media_read;
+    media.write = media_write;
+    media.commit = media_commit;
+    assert(persistent_storage_core_init(&storage, &media) == TR2_OK);
+    assert(configuration_store_init(&configuration_store, &storage) == TR2_OK);
+    assert(configuration_service_init(configuration, &configuration_store) == TR2_OK);
     configuration->has_active = true;
     configuration->active.generation = 3u;
     configuration->active.config_id = 4u;
