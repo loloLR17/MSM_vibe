@@ -1,4 +1,5 @@
 #include <assert.h>
+#include <stddef.h>
 #include <stdint.h>
 #include <string.h>
 
@@ -16,6 +17,48 @@ typedef struct {
     uint32_t calls;
     Tr2Result result;
 } ResetTriggerTestDouble;
+
+typedef struct {
+    PersistentMedia base;
+    uint32_t commit_calls;
+    uint32_t fail_commit_call;
+} FailingPersistentMediaContext;
+
+static Tr2Result failing_media_read(void *context, uint32_t offset, void *buffer, size_t size)
+{
+    FailingPersistentMediaContext *media = (FailingPersistentMediaContext *)context;
+
+    if (media == NULL || media->base.read == NULL) {
+        return TR2_ERROR_INVALID_ARGUMENT;
+    }
+    return media->base.read(media->base.context, offset, buffer, size);
+}
+
+static Tr2Result failing_media_write(void *context, uint32_t offset,
+                                     const void *buffer, size_t size)
+{
+    FailingPersistentMediaContext *media = (FailingPersistentMediaContext *)context;
+
+    if (media == NULL || media->base.write == NULL) {
+        return TR2_ERROR_INVALID_ARGUMENT;
+    }
+    return media->base.write(media->base.context, offset, buffer, size);
+}
+
+static Tr2Result failing_media_commit(void *context)
+{
+    FailingPersistentMediaContext *media = (FailingPersistentMediaContext *)context;
+
+    if (media == NULL || media->base.commit == NULL) {
+        return TR2_ERROR_INVALID_ARGUMENT;
+    }
+    ++media->commit_calls;
+    if (media->fail_commit_call != 0u &&
+        media->commit_calls == media->fail_commit_call) {
+        return TR2_ERROR_STORAGE;
+    }
+    return media->base.commit(media->base.context);
+}
 
 static Tr2Result selftest_run_standard(void *context, SelfTestExecutionResult *result)
 {
@@ -92,7 +135,9 @@ int main(void)
     WallClock wall;
     ResetCauseProvider reset;
     TimeContinuityEvidenceProvider time_continuity;
+    PersistentMedia base_media;
     PersistentMedia media;
+    FailingPersistentMediaContext failing_media;
     VibrationSource vibration;
     SelfTestTestDouble selftest_double = {
         0u,
@@ -104,6 +149,7 @@ int main(void)
     PlatformResetTrigger reset_trigger = { &reset_double, reset_trigger_software_reset };
     SystemRuntimeDependencies deps;
     SystemRuntime runtime;
+    SystemRuntime runtime_clear_failure;
     SystemRuntime runtime_after_reset;
     SystemRuntime runtime_second_boot;
     ValidatedConfiguration validated;
@@ -132,7 +178,13 @@ int main(void)
     wall = host_platform_wall_clock(&platform);
     reset = host_platform_reset_cause_provider(&platform);
     time_continuity = host_platform_time_continuity_evidence_provider(&platform);
-    media = host_platform_persistent_media(&platform);
+    base_media = host_platform_persistent_media(&platform);
+    memset(&failing_media, 0, sizeof(failing_media));
+    failing_media.base = base_media;
+    media.context = &failing_media;
+    media.read = failing_media_read;
+    media.write = failing_media_write;
+    media.commit = failing_media_commit;
     vibration = host_platform_vibration_source(&platform);
     deps = make_dependencies(&monotonic, &wall, &reset, &time_continuity,
                              &media, &environment, &vibration,
@@ -355,9 +407,24 @@ int main(void)
     assert(boot_intent_recovery.intent.kind == BOOT_INTENT_SOFTWARE_RESET);
     assert(boot_intent_recovery.intent.transaction_id == UINT16_C(508));
 
-    /* Simulate the actual next boot. Hardware reset cause remains authoritative;
-       matching SOFTWARE + durable BootIntent proves the STARTED effect. */
     host_platform_set_reset_cause(&platform, RESET_CAUSE_SOFTWARE);
+
+    /* P9-N5c: fail exactly the next durable commit. On this boot the first
+       commit is BootIntent consumption after reconciliation. Boot must fail
+       closed, must not expose Modbus readiness, and the durable intent must
+       remain available for a later boot. */
+    failing_media.fail_commit_call = failing_media.commit_calls + 1u;
+    assert(system_runtime_init(&runtime_clear_failure, &deps) == TR2_OK);
+    assert(system_runtime_boot(&runtime_clear_failure) == TR2_ERROR_STORAGE);
+    assert(!system_runtime_is_ready_for_modbus(&runtime_clear_failure));
+    failing_media.fail_commit_call = 0u;
+    assert(boot_intent_store_recover(&runtime.boot_intent_store,
+                                     &boot_intent_recovery) == TR2_OK);
+    assert(boot_intent_recovery.status == BOOT_INTENT_RECOVERY_VALID);
+    assert(boot_intent_recovery.intent.transaction_id == UINT16_C(508));
+
+    /* The next clean boot may use the still-durable evidence once, then must
+       consume it successfully. */
     assert(system_runtime_init(&runtime_after_reset, &deps) == TR2_OK);
     assert(system_runtime_boot(&runtime_after_reset) == TR2_OK);
     assert(system_runtime_is_ready_for_modbus(&runtime_after_reset));
