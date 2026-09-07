@@ -6,6 +6,8 @@
 
 #include "tr2/common/result.h"
 #include "tr2/domain/time/time_recovery.h"
+#include "tr2/persistence/time_history_store.h"
+#include "tr2/platform/monotonic_clock.h"
 #include "tr2/platform/wall_clock.h"
 
 typedef struct {
@@ -32,16 +34,24 @@ typedef struct {
 
 typedef struct {
     const WallClock *wall_clock;
+    const MonotonicClock *monotonic_clock;
+    TimeHistoryStore *time_history_store;
     uint32_t generation;
     bool prepared_time_available;
     Tr2CivilTimestamp prepared_time;
     uint16_t prepared_time_status;
     TimeRecoveryContext recovery_context;
     bool recovery_context_available;
+    MonotonicTimeMs current_boot_sync_anchor_ms;
+    bool current_boot_sync_anchor_available;
     bool initialized;
 } TimeService;
 
 Tr2Result time_service_init(TimeService *service, const WallClock *wall_clock);
+Tr2Result time_service_bind_synchronization_dependencies(
+    TimeService *service,
+    const MonotonicClock *monotonic_clock,
+    TimeHistoryStore *time_history_store);
 Tr2Result time_service_apply_recovery_context(TimeService *service,
                                               const TimeRecoveryContext *context);
 Tr2Result time_service_get_snapshot(const TimeService *service, TimeSnapshot *snapshot);
@@ -49,5 +59,6 @@ Tr2Result time_service_get_prepared_time(const TimeService *service,
                                          bool *available,
                                          Tr2CivilTimestamp *prepared_time);
 Tr2Result time_service_prepare_time(TimeService *service, Tr2CivilTimestamp prepared_time);
+Tr2Result time_service_synchronize_prepared(TimeService *service, uint16_t sync_source);
 
 #endif
