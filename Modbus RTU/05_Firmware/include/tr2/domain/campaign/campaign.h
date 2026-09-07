@@ -66,4 +66,9 @@ typedef struct {
     size_t valid_campaign_count;
 } CampaignInventorySummary;
 
+typedef struct {
+    uint32_t generation;
+    CampaignInventorySummary inventory;
+} CampaignInventorySnapshot;
+
 #endif
