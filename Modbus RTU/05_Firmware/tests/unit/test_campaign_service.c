@@ -16,7 +16,41 @@ typedef struct {
     Tr2Result source_start_result;
     CampaignMetadata opened;
     CampaignMetadata closed;
+    PersistentMedia media;
+    PersistentStorageCore storage;
+    ConfigurationStore configuration_store;
 } TestContext;
+
+static Tr2Result fake_media_read(void *context,
+                                 uint32_t offset,
+                                 void *buffer,
+                                 size_t size)
+{
+    (void)context;
+    (void)offset;
+    if (buffer != NULL) {
+        memset(buffer, 0, size);
+    }
+    return TR2_OK;
+}
+
+static Tr2Result fake_media_write(void *context,
+                                  uint32_t offset,
+                                  const void *buffer,
+                                  size_t size)
+{
+    (void)context;
+    (void)offset;
+    (void)buffer;
+    (void)size;
+    return TR2_OK;
+}
+
+static Tr2Result fake_media_commit(void *context)
+{
+    (void)context;
+    return TR2_OK;
+}
 
 static MonotonicTimeMs fake_now(void *context)
 {
@@ -123,8 +157,17 @@ static void build_dependencies(TestContext *test,
                                MonotonicClock *clock,
                                VibrationSource *source)
 {
-    memset(configuration, 0, sizeof(*configuration));
-    configuration->initialized = true;
+    memset(&test->media, 0, sizeof(test->media));
+    test->media.context = test;
+    test->media.read = fake_media_read;
+    test->media.write = fake_media_write;
+    test->media.commit = fake_media_commit;
+    assert(persistent_storage_core_init(&test->storage, &test->media) == TR2_OK);
+    assert(configuration_store_init(&test->configuration_store,
+                                    &test->storage) == TR2_OK);
+    assert(configuration_service_init(configuration,
+                                      &test->configuration_store) == TR2_OK);
+
     configuration->has_active = true;
     configuration->active.generation = 3u;
     configuration->active.config_id = 4u;
