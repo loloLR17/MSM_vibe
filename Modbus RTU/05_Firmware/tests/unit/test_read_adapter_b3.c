@@ -1,62 +1,50 @@
 #include <assert.h>
 #include <stdint.h>
-#include <string.h>
 
 #include "tr2/modbus/read_adapter.h"
 
 int main(void)
 {
+    ModbusBlock3Image b3 = { { 0u }, UINT32_C(7) };
     ModbusReadSources sources = {0};
     ModbusReadOutcome outcome;
-    SupervisionSnapshot supervision;
     uint16_t values[48] = {0u};
+    uint16_t index;
 
-    memset(&supervision, 0, sizeof(supervision));
-    supervision.values_available = true;
-    supervision.window_complete = true;
-    supervision.saturation_observed = false;
-    supervision.calculation_sequence = UINT32_C(7);
-    supervision.window_duration_ms = UINT32_C(125);
-    supervision.valid_sample_count = UINT32_C(2);
-    supervision.rms_global_mg = UINT32_C(9);
-    supervision.peak_global_mg = UINT32_C(12);
-    supervision.rms_x_mg = UINT32_C(2);
-    supervision.rms_y_mg = UINT32_C(2);
-    supervision.rms_z_mg = UINT32_C(8);
-    supervision.peak_x_mg = UINT32_C(3);
-    supervision.peak_y_mg = UINT32_C(4);
-    supervision.peak_z_mg = UINT32_C(12);
-    sources.supervision = &supervision;
+    for (index = 0u; index < TR2_B3_REGISTER_COUNT; ++index) {
+        b3.registers[index] = (uint16_t)(UINT16_C(0x3000) + index);
+    }
+    b3.registers[40] = 0u;
+    b3.registers[47] = 0u;
+    sources.b3_image = &b3;
 
     outcome = modbus_read_adapter_read(&sources, UINT16_C(3000), UINT16_C(48), values);
     assert(outcome.access_result == MODBUS_ACCESS_OK);
     assert(outcome.operation_result == TR2_OK);
-    assert(values[0] == 0u);
-    assert(values[1] == UINT16_C(0x0028));
-    assert(values[8] == 0u);
-    assert(values[9] == UINT16_C(7));
-    assert(values[10] == 0u);
-    assert(values[11] == UINT16_C(125));
-    assert(values[14] == 0u);
-    assert(values[15] == UINT16_C(9));
-    assert(values[16] == 0u);
-    assert(values[17] == UINT16_C(12));
-    assert(values[30] == 0u);
-    assert(values[39] == 0u);
+    assert(values[0] == UINT16_C(0x3000));
+    assert(values[9] == UINT16_C(0x3009));
+    assert(values[39] == UINT16_C(0x3027));
+    assert(values[40] == 0u);
     assert(values[47] == 0u);
 
-    sources.supervision = NULL;
+    outcome = modbus_read_adapter_read(&sources, UINT16_C(3014), UINT16_C(4), values);
+    assert(outcome.access_result == MODBUS_ACCESS_OK);
+    assert(outcome.operation_result == TR2_OK);
+    assert(values[0] == UINT16_C(0x300E));
+    assert(values[3] == UINT16_C(0x3011));
+
+    sources.b3_image = NULL;
     values[0] = UINT16_C(0xBEEF);
     outcome = modbus_read_adapter_read(&sources, UINT16_C(3000), UINT16_C(1), values);
     assert(outcome.access_result == MODBUS_ACCESS_OK);
     assert(outcome.operation_result == TR2_ERROR_NOT_AVAILABLE);
     assert(values[0] == UINT16_C(0xBEEF));
 
-    sources.supervision = &supervision;
-    supervision.values_available = false;
-    outcome = modbus_read_adapter_read(&sources, UINT16_C(3000), UINT16_C(1), values);
-    assert(outcome.access_result == MODBUS_ACCESS_OK);
-    assert(outcome.operation_result == TR2_ERROR_NOT_AVAILABLE);
+    values[0] = UINT16_C(0xCAFE);
+    outcome = modbus_read_adapter_read(&sources, UINT16_C(3047), UINT16_C(2), values);
+    assert(outcome.access_result == MODBUS_ACCESS_ILLEGAL_ADDRESS);
+    assert(outcome.operation_result == TR2_OK);
+    assert(values[0] == UINT16_C(0xCAFE));
 
     return 0;
 }

@@ -5,17 +5,15 @@
 
 #include "tr2/common/result.h"
 #include "tr2/domain/identity/identity.h"
-#include "tr2/domain/supervision/supervision.h"
-#include "tr2/domain/system_state/system_state.h"
 #include "tr2/domain/time/time_service.h"
 #include "tr2/modbus/projection.h"
 #include "tr2/modbus/register_model.h"
 
 typedef struct {
     const IdentitySnapshot *identity;
-    const SystemStateSnapshot *system_state;
     const TimeSnapshot *time;
-    const SupervisionSnapshot *supervision;
+    const ModbusBlock1Image *b1_image;
+    const ModbusBlock3Image *b3_image;
     const ModbusBlock4Image *b4_image;
     const ModbusBlock5Image *b5_image;
     const ModbusBlock6Image *b6_image;

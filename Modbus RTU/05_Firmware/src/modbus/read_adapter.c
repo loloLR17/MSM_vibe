@@ -3,6 +3,8 @@
 #include "tr2/modbus/projection.h"
 #include "tr2/modbus/read_adapter.h"
 
+#define TR2_B1_BASE_ADDRESS UINT16_C(1000)
+#define TR2_B3_BASE_ADDRESS UINT16_C(3000)
 #define TR2_B4_BASE_ADDRESS UINT16_C(4000)
 #define TR2_B5_BASE_ADDRESS UINT16_C(5000)
 #define TR2_B5_LAST_ADDRESS UINT16_C(5019)
@@ -40,22 +42,15 @@ static ModbusReadOutcome read_from_b1(const ModbusReadSources *sources,
                                       uint16_t *values)
 {
     ModbusReadOutcome outcome = { MODBUS_ACCESS_OK, TR2_OK };
-    ModbusBlock1Image image;
-    ModbusBlock1ProjectionSource source;
     uint16_t index;
 
-    if (sources->system_state == NULL) {
+    if (sources->b1_image == NULL) {
         outcome.operation_result = TR2_ERROR_NOT_AVAILABLE;
         return outcome;
     }
-    source.system_state = sources->system_state;
-    source.time = sources->time;
-    outcome.operation_result = modbus_project_b1(&source, &image);
-    if (outcome.operation_result != TR2_OK) {
-        return outcome;
-    }
     for (index = 0u; index < quantity; ++index) {
-        values[index] = image.registers[(uint16_t)(start_address - UINT16_C(1000) + index)];
+        values[index] = sources->b1_image->registers[
+            (uint16_t)(start_address - TR2_B1_BASE_ADDRESS + index)];
     }
     return outcome;
 }
@@ -89,19 +84,15 @@ static ModbusReadOutcome read_from_b3(const ModbusReadSources *sources,
                                       uint16_t *values)
 {
     ModbusReadOutcome outcome = { MODBUS_ACCESS_OK, TR2_OK };
-    ModbusBlock3Image image;
     uint16_t index;
 
-    if (sources->supervision == NULL) {
+    if (sources->b3_image == NULL) {
         outcome.operation_result = TR2_ERROR_NOT_AVAILABLE;
         return outcome;
     }
-    outcome.operation_result = modbus_project_b3(sources->supervision, &image);
-    if (outcome.operation_result != TR2_OK) {
-        return outcome;
-    }
     for (index = 0u; index < quantity; ++index) {
-        values[index] = image.registers[(uint16_t)(start_address - UINT16_C(3000) + index)];
+        values[index] = sources->b3_image->registers[
+            (uint16_t)(start_address - TR2_B3_BASE_ADDRESS + index)];
     }
     return outcome;
 }
@@ -265,6 +256,8 @@ ModbusReadOutcome modbus_read_adapter_read(const ModbusReadSources *sources,
     }
 }
 
+#undef TR2_B1_BASE_ADDRESS
+#undef TR2_B3_BASE_ADDRESS
 #undef TR2_B4_BASE_ADDRESS
 #undef TR2_B5_BASE_ADDRESS
 #undef TR2_B5_LAST_ADDRESS
