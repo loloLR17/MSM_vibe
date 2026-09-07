@@ -28,6 +28,8 @@ typedef struct {
     bool calculation_error;
 
     MonotonicTimeMs value_monotonic_ms;
+    bool value_age_available;
+    uint32_t value_age_ms;
     bool civil_timestamp_available;
     Tr2CivilTimestamp civil_timestamp;
 } SupervisionSnapshot;
