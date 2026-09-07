@@ -20,6 +20,7 @@ add_library(tr2_core STATIC
     src/domain/configuration/configuration_validator.c
     src/domain/identity/identity.c
     src/domain/system_state/system_state.c
+    src/domain/time/time_recovery.c
     src/domain/time/time_service.c
     src/modbus/b4_configuration_codec.c
     src/modbus/codec.c
@@ -104,6 +105,12 @@ add_executable(test_time_service
 )
 target_link_libraries(test_time_service PRIVATE tr2_core)
 add_test(NAME time_service COMMAND test_time_service)
+
+add_executable(test_time_recovery_types
+    tests/unit/test_time_recovery_types.c
+)
+target_link_libraries(test_time_recovery_types PRIVATE tr2_core)
+add_test(NAME time_recovery_types COMMAND test_time_recovery_types)
 
 add_executable(test_configuration_types
     tests/unit/test_configuration_types.c
