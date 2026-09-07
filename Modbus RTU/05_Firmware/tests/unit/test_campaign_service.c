@@ -355,7 +355,7 @@ static void test_stop_retries_data_recovery_without_refinishing(void)
     CampaignService service;
     CampaignId id;
     CampaignMetadata closed;
-    const int finish_step_before_retry;
+    int finish_step_before_retry;
 
     test.source_start_result = TR2_OK;
     test.fail_data_recover_once = true;
