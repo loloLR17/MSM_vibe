@@ -12,6 +12,7 @@ else()
 endif()
 
 add_library(tr2_core STATIC
+    src/application/configuration_activation_adapter.c
     src/application/configuration_service.c
     src/application/configuration_workflow.c
     src/application/system_runtime.c
@@ -193,3 +194,9 @@ add_executable(test_configuration_fault_injection
 )
 target_link_libraries(test_configuration_fault_injection PRIVATE tr2_platform_host)
 add_test(NAME configuration_fault_injection COMMAND test_configuration_fault_injection)
+
+add_executable(test_configuration_activation_adapter
+    tests/integration/test_configuration_activation_adapter.c
+)
+target_link_libraries(test_configuration_activation_adapter PRIVATE tr2_core)
+add_test(NAME configuration_activation_adapter COMMAND test_configuration_activation_adapter)
