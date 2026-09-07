@@ -12,6 +12,25 @@ static CommandFinalResult final_result(uint16_t status, uint16_t result_code)
     return result;
 }
 
+static Tr2Result converge_failed_start(CampaignService *campaign_service,
+                                       Tr2Result start_result)
+{
+    CampaignMetadata closed_metadata;
+    Tr2Result convergence_result;
+
+    if (!campaign_service_campaign_open(campaign_service)) {
+        return start_result;
+    }
+
+    memset(&closed_metadata, 0, sizeof(closed_metadata));
+    convergence_result = campaign_service_stop(campaign_service, &closed_metadata);
+    if (convergence_result != TR2_OK) {
+        return convergence_result;
+    }
+
+    return start_result;
+}
+
 Tr2Result command_start_acquisition_execute(
     CommandEngine *engine,
     CampaignService *campaign_service,
@@ -83,7 +102,7 @@ Tr2Result command_start_acquisition_execute(
 
     operation_result = campaign_service_start_reserved(campaign_service, campaign_id);
     if (operation_result != TR2_OK) {
-        return operation_result;
+        return converge_failed_start(campaign_service, operation_result);
     }
 
     result = final_result(COMMAND_STATUS_SUCCESS, COMMAND_RESULT_SUCCESS);
