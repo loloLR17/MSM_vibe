@@ -2,6 +2,7 @@
 #include <stdint.h>
 #include <string.h>
 
+#include "tr2/application/command_policy.h"
 #include "tr2/application/system_runtime.h"
 #include "tr2/platform_host/host_platform.h"
 
@@ -69,6 +70,9 @@ int main(void)
     CommandTerminalTimestamp timestamp = { false, 0u };
     CommandSnapshot command_snapshot;
     CampaignInventoryViewSnapshot inventory;
+    DiagnosticActiveFault active_fault;
+    DiagnosticFaultAcknowledgement acknowledgement;
+    ModbusBlock5Image b5;
     uint32_t start_calls;
     uint32_t stop_calls;
 
@@ -185,6 +189,81 @@ int main(void)
                                                       &entry) == TR2_OK);
     assert(admission.kind == COMMAND_ADMISSION_RETRY);
     assert(platform.vibration_stop_calls == stop_calls);
+
+    /* P9-N2: ACKNOWLEDGE_FAULT is dispatched to DiagnosticService. */
+    memset(&active_fault, 0, sizeof(active_fault));
+    active_fault.code = UINT16_C(42);
+    active_fault.acknowledgeable = true;
+    assert(diagnostic_service_publish_active_faults(&runtime.diagnostic_service,
+                                                    &active_fault,
+                                                    1u) == TR2_OK);
+
+    memset(&request, 0, sizeof(request));
+    request.transaction_id = UINT16_C(503);
+    request.identity.command_code = COMMAND_CODE_ACKNOWLEDGE_FAULT;
+    request.identity.param1 = UINT16_C(42);
+    assert(system_runtime_execute_p9_command(&runtime,
+                                             &request,
+                                             &timestamp,
+                                             &admission,
+                                             &entry) == TR2_OK);
+    assert(admission.kind == COMMAND_ADMISSION_NEW);
+    assert(entry.lifecycle == COMMAND_LIFECYCLE_COMPLETED);
+    assert(entry.has_final_result);
+    assert(entry.final_result.status == COMMAND_STATUS_SUCCESS);
+    assert(diagnostic_service_fault_acknowledgement(&runtime.diagnostic_service,
+                                                    UINT16_C(42),
+                                                    &acknowledgement));
+    assert(acknowledgement.acknowledged);
+
+    /* Retry is lifetime-strict and must not redispatch the business effect. */
+    assert(system_runtime_execute_p9_command(&runtime,
+                                             &request,
+                                             &timestamp,
+                                             &admission,
+                                             &entry) == TR2_OK);
+    assert(admission.kind == COMMAND_ADMISSION_RETRY);
+    assert(diagnostic_service_fault_acknowledgement(&runtime.diagnostic_service,
+                                                    UINT16_C(42),
+                                                    &acknowledgement));
+    assert(acknowledgement.acknowledged);
+
+    /* P9-N2: MaintenanceService is the sole source of B5 maintenance_active. */
+    memset(&request, 0, sizeof(request));
+    request.transaction_id = UINT16_C(504);
+    request.identity.command_code = COMMAND_CODE_ENTER_MAINTENANCE;
+    assert(system_runtime_execute_p9_command(&runtime,
+                                             &request,
+                                             &timestamp,
+                                             &admission,
+                                             &entry) == TR2_OK);
+    assert(admission.kind == COMMAND_ADMISSION_NEW);
+    assert(entry.final_result.status == COMMAND_STATUS_SUCCESS);
+    assert(maintenance_service_active(&runtime.maintenance_service));
+    assert(system_runtime_b5_image(&runtime, &b5));
+    assert((b5.registers[13] & COMMAND_ENGINE_FLAG_MAINTENANCE_ACTIVE) != 0u);
+
+    assert(system_runtime_execute_p9_command(&runtime,
+                                             &request,
+                                             &timestamp,
+                                             &admission,
+                                             &entry) == TR2_OK);
+    assert(admission.kind == COMMAND_ADMISSION_RETRY);
+    assert(maintenance_service_active(&runtime.maintenance_service));
+
+    memset(&request, 0, sizeof(request));
+    request.transaction_id = UINT16_C(505);
+    request.identity.command_code = COMMAND_CODE_EXIT_MAINTENANCE;
+    assert(system_runtime_execute_p9_command(&runtime,
+                                             &request,
+                                             &timestamp,
+                                             &admission,
+                                             &entry) == TR2_OK);
+    assert(admission.kind == COMMAND_ADMISSION_NEW);
+    assert(entry.final_result.status == COMMAND_STATUS_SUCCESS);
+    assert(!maintenance_service_active(&runtime.maintenance_service));
+    assert(system_runtime_b5_image(&runtime, &b5));
+    assert((b5.registers[13] & COMMAND_ENGINE_FLAG_MAINTENANCE_ACTIVE) == 0u);
 
     return 0;
 }

@@ -142,6 +142,13 @@ Tr2Result system_runtime_execute_acquisition_command(
     CommandAdmissionResult *out_admission,
     CommandJournalEntry *out_entry);
 
+Tr2Result system_runtime_execute_p9_command(
+    SystemRuntime *runtime,
+    const CommandRequest *request,
+    const CommandTerminalTimestamp *terminal_timestamp,
+    CommandAdmissionResult *out_admission,
+    CommandJournalEntry *out_entry);
+
 Tr2Result system_runtime_drive_acquisition_step(
     SystemRuntime *runtime,
     CampaignAcquisitionStep *out_step);

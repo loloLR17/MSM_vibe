@@ -2,6 +2,9 @@
 
 #include <string.h>
 
+#include "tr2/application/command_acknowledge_fault.h"
+#include "tr2/application/command_maintenance.h"
+#include "tr2/application/command_policy.h"
 #include "tr2/application/command_start_acquisition.h"
 #include "tr2/application/command_stop_acquisition.h"
 
@@ -28,6 +31,7 @@ static Tr2Result refresh_b3(SystemRuntime *runtime)
 static Tr2Result refresh_b5(SystemRuntime *runtime)
 {
     ModbusBlock5ProjectionSource source;
+    CommandEngineFlagsSource flags_source;
     Tr2Result result;
 
     result = command_engine_snapshot(&runtime->command_engine,
@@ -36,6 +40,10 @@ static Tr2Result refresh_b5(SystemRuntime *runtime)
         runtime->b5_image_available = false;
         return result;
     }
+
+    memset(&flags_source, 0, sizeof(flags_source));
+    flags_source.maintenance_active = maintenance_service_active(&runtime->maintenance_service);
+    runtime->command_snapshot.engine_flags = command_engine_flags_project(&flags_source);
 
     memset(&source, 0, sizeof(source));
     source.mailbox = &runtime->command_mailbox;
@@ -157,6 +165,83 @@ Tr2Result system_runtime_execute_acquisition_command(
         return b5_result;
     }
     return b6_result;
+}
+
+Tr2Result system_runtime_execute_p9_command(
+    SystemRuntime *runtime,
+    const CommandRequest *request,
+    const CommandTerminalTimestamp *terminal_timestamp,
+    CommandAdmissionResult *out_admission,
+    CommandJournalEntry *out_entry)
+{
+    Tr2Result operation_result;
+    Tr2Result b5_result;
+
+    if (runtime == NULL || request == NULL || terminal_timestamp == NULL ||
+        out_admission == NULL || out_entry == NULL) {
+        return TR2_ERROR_INVALID_ARGUMENT;
+    }
+    if (!runtime->initialized || !runtime->system_ready_for_modbus ||
+        !runtime->command_runtime_available || !runtime->fg_runtime_available ||
+        !runtime->p9_authorities_available) {
+        return TR2_ERROR_INVALID_STATE;
+    }
+    if (request->identity.command_code != COMMAND_CODE_ACKNOWLEDGE_FAULT &&
+        request->identity.command_code != COMMAND_CODE_ENTER_MAINTENANCE &&
+        request->identity.command_code != COMMAND_CODE_EXIT_MAINTENANCE) {
+        return TR2_ERROR_UNSUPPORTED;
+    }
+
+    memset(out_admission, 0, sizeof(*out_admission));
+    memset(out_entry, 0, sizeof(*out_entry));
+
+    operation_result = command_engine_admit(&runtime->command_engine,
+                                            request,
+                                            out_admission);
+    if (operation_result != TR2_OK) {
+        return operation_result;
+    }
+    *out_entry = out_admission->entry;
+
+    if (out_admission->kind != COMMAND_ADMISSION_NEW) {
+        return refresh_b5(runtime);
+    }
+
+    switch (request->identity.command_code) {
+    case COMMAND_CODE_ACKNOWLEDGE_FAULT:
+        operation_result = command_acknowledge_fault_execute(
+            &runtime->command_engine,
+            &runtime->diagnostic_service,
+            request->transaction_id,
+            terminal_timestamp,
+            out_entry);
+        break;
+    case COMMAND_CODE_ENTER_MAINTENANCE:
+        operation_result = command_enter_maintenance_execute(
+            &runtime->command_engine,
+            &runtime->maintenance_service,
+            campaign_service_acquisition_running(&runtime->campaign_service),
+            request->transaction_id,
+            terminal_timestamp,
+            out_entry);
+        break;
+    case COMMAND_CODE_EXIT_MAINTENANCE:
+        operation_result = command_exit_maintenance_execute(
+            &runtime->command_engine,
+            &runtime->maintenance_service,
+            request->transaction_id,
+            terminal_timestamp,
+            out_entry);
+        break;
+    default:
+        return TR2_ERROR_UNSUPPORTED;
+    }
+
+    b5_result = refresh_b5(runtime);
+    if (operation_result != TR2_OK) {
+        return operation_result;
+    }
+    return b5_result;
 }
 
 Tr2Result system_runtime_drive_acquisition_step(
