@@ -8,9 +8,15 @@
 
 #define TR2_B0_CAPABILITIES_MASK UINT16_C(0x000F)
 #define TR2_B1_SYSTEM_FLAGS_MASK UINT16_C(0x001F)
+#define TR2_B1_SYSTEM_FLAG_TIME_VALID UINT16_C(0x0008)
 #define TR2_B1_FAULT_FLAGS_MASK UINT16_C(0x003F)
 #define TR2_B1_WARNING_FLAGS_MASK UINT16_C(0x0007)
 #define TR2_B2_TIME_FLAGS_MASK UINT16_C(0x00FF)
+#define TR2_B2_TIME_FLAG_VALID UINT16_C(0x0001)
+#define TR2_B2_TIME_FLAG_SYNC_PERFORMED UINT16_C(0x0002)
+#define TR2_B2_TIME_FLAG_PREPARED_AVAILABLE UINT16_C(0x0008)
+#define TR2_B2_TIME_STATUS_VALID_NOT_SYNCHRONIZED UINT16_C(2)
+#define TR2_B2_TIME_STATUS_SYNCHRONIZED UINT16_C(3)
 
 static bool b4_config_state_is_emittable(uint16_t state)
 {
@@ -20,6 +26,56 @@ static bool b4_config_state_is_emittable(uint16_t state)
            state == UINT16_C(4) ||
            state == UINT16_C(5) ||
            state == UINT16_C(6);
+}
+
+static uint16_t project_b1_system_flags(const SystemStateSnapshot *system_state,
+                                        const TimeSnapshot *time)
+{
+    uint16_t flags = (uint16_t)(system_state->system_flags & TR2_B1_SYSTEM_FLAGS_MASK);
+
+    flags = (uint16_t)(flags & (uint16_t)~TR2_B1_SYSTEM_FLAG_TIME_VALID);
+    if (time->civil_time_usable) {
+        flags = (uint16_t)(flags | TR2_B1_SYSTEM_FLAG_TIME_VALID);
+    }
+
+    return flags;
+}
+
+static uint16_t project_b2_time_status(const TimeSnapshot *snapshot)
+{
+    if (snapshot->civil_time_usable &&
+        snapshot->continuity == TIME_CONTINUITY_PROVEN &&
+        snapshot->last_sync_history.state == LAST_SYNC_HISTORY_VALID) {
+        return TR2_B2_TIME_STATUS_SYNCHRONIZED;
+    }
+
+    if (snapshot->civil_time_usable) {
+        return TR2_B2_TIME_STATUS_VALID_NOT_SYNCHRONIZED;
+    }
+
+    return snapshot->time_status;
+}
+
+static uint16_t project_b2_time_flags(const TimeSnapshot *snapshot)
+{
+    uint16_t flags = (uint16_t)(snapshot->time_flags & TR2_B2_TIME_FLAGS_MASK);
+
+    flags = (uint16_t)(flags &
+                       (uint16_t)~(TR2_B2_TIME_FLAG_VALID |
+                                   TR2_B2_TIME_FLAG_SYNC_PERFORMED |
+                                   TR2_B2_TIME_FLAG_PREPARED_AVAILABLE));
+
+    if (snapshot->civil_time_usable) {
+        flags = (uint16_t)(flags | TR2_B2_TIME_FLAG_VALID);
+    }
+    if (snapshot->last_sync_history.state == LAST_SYNC_HISTORY_VALID) {
+        flags = (uint16_t)(flags | TR2_B2_TIME_FLAG_SYNC_PERFORMED);
+    }
+    if (snapshot->prepared_time_available) {
+        flags = (uint16_t)(flags | TR2_B2_TIME_FLAG_PREPARED_AVAILABLE);
+    }
+
+    return flags;
 }
 
 Tr2Result modbus_project_b0(const IdentitySnapshot *snapshot, ModbusBlock0Image *output)
@@ -60,16 +116,19 @@ Tr2Result modbus_project_b0(const IdentitySnapshot *snapshot, ModbusBlock0Image 
     return TR2_OK;
 }
 
-Tr2Result modbus_project_b1(const SystemStateSnapshot *snapshot, ModbusBlock1Image *output)
+Tr2Result modbus_project_b1(const ModbusBlock1ProjectionSource *source,
+                            ModbusBlock1Image *output)
 {
     ModbusBlock1Image candidate = { { 0u }, 0u };
+    const SystemStateSnapshot *snapshot;
 
-    if (snapshot == NULL || output == NULL) {
+    if (source == NULL || source->system_state == NULL || source->time == NULL || output == NULL) {
         return TR2_ERROR_INVALID_ARGUMENT;
     }
 
+    snapshot = source->system_state;
     candidate.registers[0] = snapshot->system_status;
-    candidate.registers[1] = (uint16_t)(snapshot->system_flags & TR2_B1_SYSTEM_FLAGS_MASK);
+    candidate.registers[1] = project_b1_system_flags(snapshot, source->time);
     candidate.registers[2] = (uint16_t)(snapshot->fault_flags & TR2_B1_FAULT_FLAGS_MASK);
     candidate.registers[3] = (uint16_t)(snapshot->warning_flags & TR2_B1_WARNING_FLAGS_MASK);
     modbus_codec_u32_to_msw_lsw(snapshot->uptime_s,
@@ -107,8 +166,8 @@ Tr2Result modbus_project_b2(const TimeSnapshot *snapshot, ModbusBlock2Image *out
         return TR2_ERROR_NOT_AVAILABLE;
     }
 
-    candidate.registers[0] = snapshot->time_status;
-    candidate.registers[1] = (uint16_t)(snapshot->time_flags & TR2_B2_TIME_FLAGS_MASK);
+    candidate.registers[0] = project_b2_time_status(snapshot);
+    candidate.registers[1] = project_b2_time_flags(snapshot);
     modbus_codec_u32_to_msw_lsw(snapshot->current_time,
                                 &candidate.registers[2],
                                 &candidate.registers[3]);
@@ -195,6 +254,12 @@ Tr2Result modbus_project_b4(const ModbusBlock4ProjectionSource *source, ModbusBl
 
 #undef TR2_B0_CAPABILITIES_MASK
 #undef TR2_B1_SYSTEM_FLAGS_MASK
+#undef TR2_B1_SYSTEM_FLAG_TIME_VALID
 #undef TR2_B1_FAULT_FLAGS_MASK
 #undef TR2_B1_WARNING_FLAGS_MASK
 #undef TR2_B2_TIME_FLAGS_MASK
+#undef TR2_B2_TIME_FLAG_VALID
+#undef TR2_B2_TIME_FLAG_SYNC_PERFORMED
+#undef TR2_B2_TIME_FLAG_PREPARED_AVAILABLE
+#undef TR2_B2_TIME_STATUS_VALID_NOT_SYNCHRONIZED
+#undef TR2_B2_TIME_STATUS_SYNCHRONIZED
