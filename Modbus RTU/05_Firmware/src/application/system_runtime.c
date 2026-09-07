@@ -11,6 +11,7 @@
 #define TR2_CAMPAIGN_DATA_STORAGE_OFFSET \
     (TR2_CAMPAIGN_REPOSITORY_STORAGE_OFFSET + \
      (uint32_t)TR2_CAMPAIGN_REPOSITORY_STORAGE_SIZE)
+#define TR2_B6_INVENTORY_STRUCTURE_VERSION UINT16_C(1)
 
 static bool dependencies_are_valid(const SystemRuntimeDependencies *deps)
 {
@@ -295,6 +296,7 @@ static Tr2Result rebuild_b6(SystemRuntime *runtime)
 
     memset(&source, 0, sizeof(source));
     source.inventory_snapshot = &runtime->campaign_inventory_snapshot;
+    source.inventory_structure_version = TR2_B6_INVENTORY_STRUCTURE_VERSION;
     result = modbus_project_b6(&source, &runtime->b6_image);
     if (result != TR2_OK) {
         return result;
@@ -467,6 +469,7 @@ bool system_runtime_b6_image(const SystemRuntime *runtime, ModbusBlock6Image *ou
     return true;
 }
 
+#undef TR2_B6_INVENTORY_STRUCTURE_VERSION
 #undef TR2_CAMPAIGN_DATA_STORAGE_OFFSET
 #undef TR2_CAMPAIGN_REPOSITORY_STORAGE_OFFSET
 #undef TR2_TIME_HISTORY_STORAGE_OFFSET
