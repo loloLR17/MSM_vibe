@@ -17,6 +17,9 @@
 #define TR2_B2_TIME_FLAG_PREPARED_AVAILABLE UINT16_C(0x0008)
 #define TR2_B2_TIME_STATUS_VALID_NOT_SYNCHRONIZED UINT16_C(2)
 #define TR2_B2_TIME_STATUS_SYNCHRONIZED UINT16_C(3)
+#define TR2_B3_VALIDITY_FLAG_WINDOW_COMPLETE UINT16_C(0x0008)
+#define TR2_B3_VALIDITY_FLAG_SENSOR_NOT_SATURATED UINT16_C(0x0020)
+#define TR2_B3_VALIDITY_FLAG_CALC_ERROR UINT16_C(0x0800)
 
 static bool b4_config_state_is_emittable(uint16_t state)
 {
@@ -73,6 +76,23 @@ static uint16_t project_b2_time_flags(const TimeSnapshot *snapshot)
     }
     if (snapshot->prepared_time_available) {
         flags = (uint16_t)(flags | TR2_B2_TIME_FLAG_PREPARED_AVAILABLE);
+    }
+
+    return flags;
+}
+
+static uint16_t project_b3_validity_flags(const SupervisionSnapshot *snapshot)
+{
+    uint16_t flags = 0u;
+
+    if (snapshot->window_complete) {
+        flags = (uint16_t)(flags | TR2_B3_VALIDITY_FLAG_WINDOW_COMPLETE);
+    }
+    if (!snapshot->saturation_observed) {
+        flags = (uint16_t)(flags | TR2_B3_VALIDITY_FLAG_SENSOR_NOT_SATURATED);
+    }
+    if (snapshot->calculation_error) {
+        flags = (uint16_t)(flags | TR2_B3_VALIDITY_FLAG_CALC_ERROR);
     }
 
     return flags;
@@ -192,6 +212,69 @@ Tr2Result modbus_project_b2(const TimeSnapshot *snapshot, ModbusBlock2Image *out
     return TR2_OK;
 }
 
+Tr2Result modbus_project_b3(const SupervisionSnapshot *snapshot, ModbusBlock3Image *output)
+{
+    ModbusBlock3Image candidate = { { 0u }, 0u };
+
+    if (snapshot == NULL || output == NULL) {
+        return TR2_ERROR_INVALID_ARGUMENT;
+    }
+    if (!snapshot->values_available) {
+        return TR2_ERROR_NOT_AVAILABLE;
+    }
+
+    candidate.registers[1] = project_b3_validity_flags(snapshot);
+
+    if (snapshot->civil_timestamp_available) {
+        modbus_codec_u32_to_msw_lsw(snapshot->civil_timestamp,
+                                    &candidate.registers[4],
+                                    &candidate.registers[5]);
+    }
+    if (snapshot->value_age_available) {
+        modbus_codec_u32_to_msw_lsw(snapshot->value_age_ms,
+                                    &candidate.registers[6],
+                                    &candidate.registers[7]);
+    }
+
+    modbus_codec_u32_to_msw_lsw(snapshot->calculation_sequence,
+                                &candidate.registers[8],
+                                &candidate.registers[9]);
+    modbus_codec_u32_to_msw_lsw(snapshot->window_duration_ms,
+                                &candidate.registers[10],
+                                &candidate.registers[11]);
+    modbus_codec_u32_to_msw_lsw(snapshot->valid_sample_count,
+                                &candidate.registers[12],
+                                &candidate.registers[13]);
+    modbus_codec_u32_to_msw_lsw(snapshot->rms_global_mg,
+                                &candidate.registers[14],
+                                &candidate.registers[15]);
+    modbus_codec_u32_to_msw_lsw(snapshot->peak_global_mg,
+                                &candidate.registers[16],
+                                &candidate.registers[17]);
+    modbus_codec_u32_to_msw_lsw(snapshot->rms_x_mg,
+                                &candidate.registers[18],
+                                &candidate.registers[19]);
+    modbus_codec_u32_to_msw_lsw(snapshot->rms_y_mg,
+                                &candidate.registers[20],
+                                &candidate.registers[21]);
+    modbus_codec_u32_to_msw_lsw(snapshot->rms_z_mg,
+                                &candidate.registers[22],
+                                &candidate.registers[23]);
+    modbus_codec_u32_to_msw_lsw(snapshot->peak_x_mg,
+                                &candidate.registers[24],
+                                &candidate.registers[25]);
+    modbus_codec_u32_to_msw_lsw(snapshot->peak_y_mg,
+                                &candidate.registers[26],
+                                &candidate.registers[27]);
+    modbus_codec_u32_to_msw_lsw(snapshot->peak_z_mg,
+                                &candidate.registers[28],
+                                &candidate.registers[29]);
+
+    candidate.source_calculation_sequence = snapshot->calculation_sequence;
+    *output = candidate;
+    return TR2_OK;
+}
+
 Tr2Result modbus_project_b4(const ModbusBlock4ProjectionSource *source, ModbusBlock4Image *output)
 {
     ModbusBlock4Image candidate = { { 0u } };
@@ -263,3 +346,6 @@ Tr2Result modbus_project_b4(const ModbusBlock4ProjectionSource *source, ModbusBl
 #undef TR2_B2_TIME_FLAG_PREPARED_AVAILABLE
 #undef TR2_B2_TIME_STATUS_VALID_NOT_SYNCHRONIZED
 #undef TR2_B2_TIME_STATUS_SYNCHRONIZED
+#undef TR2_B3_VALIDITY_FLAG_WINDOW_COMPLETE
+#undef TR2_B3_VALIDITY_FLAG_SENSOR_NOT_SATURATED
+#undef TR2_B3_VALIDITY_FLAG_CALC_ERROR
