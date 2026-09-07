@@ -232,6 +232,15 @@ static Tr2Result recover_campaigns(SystemRuntime *runtime)
         }
     }
 
+    if (repository_recovery.status == CAMPAIGN_REPOSITORY_RECOVERY_VALID ||
+        repository_recovery.status == CAMPAIGN_REPOSITORY_RECOVERY_EMPTY) {
+        result = campaign_inventory_service_init(&runtime->campaign_inventory_service,
+                                                 repository);
+        if (result != TR2_OK) {
+            return result;
+        }
+    }
+
     runtime->campaign_recovery_available = true;
     return TR2_OK;
 }
@@ -263,6 +272,38 @@ static Tr2Result rebuild_b4(SystemRuntime *runtime)
     return TR2_OK;
 }
 
+static Tr2Result rebuild_b6(SystemRuntime *runtime)
+{
+    ModbusBlock6ProjectionSource source;
+    Tr2Result result;
+
+    runtime->campaign_inventory_snapshot_available = false;
+    runtime->b6_image_available = false;
+
+    if (!campaign_inventory_service_is_initialized(
+            &runtime->campaign_inventory_service)) {
+        return TR2_OK;
+    }
+
+    result = campaign_inventory_service_snapshot(
+        &runtime->campaign_inventory_service,
+        &runtime->campaign_inventory_snapshot);
+    if (result != TR2_OK) {
+        return result;
+    }
+    runtime->campaign_inventory_snapshot_available = true;
+
+    memset(&source, 0, sizeof(source));
+    source.inventory_snapshot = &runtime->campaign_inventory_snapshot;
+    result = modbus_project_b6(&source, &runtime->b6_image);
+    if (result != TR2_OK) {
+        return result;
+    }
+
+    runtime->b6_image_available = true;
+    return TR2_OK;
+}
+
 Tr2Result system_runtime_init(SystemRuntime *runtime, const SystemRuntimeDependencies *deps)
 {
     if (runtime == NULL || !dependencies_are_valid(deps)) {
@@ -290,7 +331,9 @@ Tr2Result system_runtime_boot(SystemRuntime *runtime)
     runtime->system_ready_for_modbus = false;
     runtime->time_snapshot_available = false;
     runtime->campaign_recovery_available = false;
+    runtime->campaign_inventory_snapshot_available = false;
     runtime->b4_image_available = false;
+    runtime->b6_image_available = false;
 
     /* G0/G1: establish minimal platform facts before domain recovery. */
     (void)runtime->deps.monotonic_clock->now_ms(runtime->deps.monotonic_clock->context);
@@ -325,6 +368,11 @@ Tr2Result system_runtime_boot(SystemRuntime *runtime)
     }
 
     result = rebuild_b4(runtime);
+    if (result != TR2_OK) {
+        return result;
+    }
+
+    result = rebuild_b6(runtime);
     if (result != TR2_OK) {
         return result;
     }
@@ -383,6 +431,20 @@ bool system_runtime_campaign_recovery_snapshot(
     return true;
 }
 
+bool system_runtime_campaign_inventory_snapshot(
+    const SystemRuntime *runtime,
+    CampaignInventoryViewSnapshot *out_snapshot)
+{
+    if (runtime == NULL || out_snapshot == NULL || !runtime->initialized ||
+        !runtime->system_ready_for_modbus ||
+        !runtime->campaign_inventory_snapshot_available) {
+        return false;
+    }
+
+    *out_snapshot = runtime->campaign_inventory_snapshot;
+    return true;
+}
+
 bool system_runtime_b4_image(const SystemRuntime *runtime, ModbusBlock4Image *out_image)
 {
     if (runtime == NULL || out_image == NULL || !runtime->initialized ||
@@ -391,6 +453,17 @@ bool system_runtime_b4_image(const SystemRuntime *runtime, ModbusBlock4Image *ou
     }
 
     *out_image = runtime->b4_image;
+    return true;
+}
+
+bool system_runtime_b6_image(const SystemRuntime *runtime, ModbusBlock6Image *out_image)
+{
+    if (runtime == NULL || out_image == NULL || !runtime->initialized ||
+        !runtime->system_ready_for_modbus || !runtime->b6_image_available) {
+        return false;
+    }
+
+    *out_image = runtime->b6_image;
     return true;
 }
 
