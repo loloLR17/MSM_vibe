@@ -82,12 +82,11 @@ bool campaign_service_acquisition_running(const CampaignService *service)
            service->acquisition_window_started;
 }
 
-Tr2Result campaign_service_start(CampaignService *service,
-                                 CampaignId *out_campaign_id)
+Tr2Result campaign_service_reserve_start_id(CampaignService *service,
+                                            CampaignId *out_campaign_id)
 {
     ActiveConfigurationSnapshot active;
     CampaignIdReservation reservation;
-    CampaignMetadata metadata;
     Tr2Result result;
 
     if (!campaign_service_is_initialized(service)) {
@@ -107,18 +106,41 @@ Tr2Result campaign_service_start(CampaignService *service,
     }
 
     memset(&reservation, 0, sizeof(reservation));
-    result = service->repository->reserve_campaign_id(
-        service->repository->context,
-        &reservation);
+    result = service->repository->reserve_campaign_id(service->repository->context,
+                                                      &reservation);
     if (result != TR2_OK) {
         return result;
     }
-    if (!reservation.valid ||
-        reservation.campaign_id == TR2_CAMPAIGN_ID_INVALID) {
+    if (!reservation.valid || reservation.campaign_id == TR2_CAMPAIGN_ID_INVALID) {
         return TR2_ERROR_INTERNAL;
     }
 
-    metadata_from_active(&active, reservation.campaign_id, &metadata);
+    *out_campaign_id = reservation.campaign_id;
+    return TR2_OK;
+}
+
+Tr2Result campaign_service_start_reserved(CampaignService *service,
+                                          CampaignId campaign_id)
+{
+    ActiveConfigurationSnapshot active;
+    CampaignMetadata metadata;
+    Tr2Result result;
+
+    if (!campaign_service_is_initialized(service)) {
+        return TR2_ERROR_INVALID_STATE;
+    }
+    if (campaign_id == TR2_CAMPAIGN_ID_INVALID) {
+        return TR2_ERROR_INVALID_ARGUMENT;
+    }
+    if (service->campaign_open) {
+        return TR2_ERROR_INVALID_STATE;
+    }
+    if (!configuration_service_active_snapshot(service->configuration_service,
+                                               &active)) {
+        return TR2_ERROR_NOT_AVAILABLE;
+    }
+
+    metadata_from_active(&active, campaign_id, &metadata);
     result = service->repository->open_campaign(service->repository->context,
                                                 &metadata);
     if (result != TR2_OK) {
@@ -129,7 +151,7 @@ Tr2Result campaign_service_start(CampaignService *service,
     service->active_metadata = metadata;
 
     result = service->data_store->begin_campaign(service->data_store->context,
-                                                  reservation.campaign_id);
+                                                  campaign_id);
     if (result != TR2_OK) {
         return result;
     }
@@ -141,7 +163,30 @@ Tr2Result campaign_service_start(CampaignService *service,
         return result;
     }
     service->acquisition_window_started = true;
-    *out_campaign_id = reservation.campaign_id;
+    return TR2_OK;
+}
+
+Tr2Result campaign_service_start(CampaignService *service,
+                                 CampaignId *out_campaign_id)
+{
+    CampaignId campaign_id;
+    Tr2Result result;
+
+    if (out_campaign_id == NULL) {
+        return TR2_ERROR_INVALID_ARGUMENT;
+    }
+    *out_campaign_id = TR2_CAMPAIGN_ID_INVALID;
+
+    result = campaign_service_reserve_start_id(service, &campaign_id);
+    if (result != TR2_OK) {
+        return result;
+    }
+    result = campaign_service_start_reserved(service, campaign_id);
+    if (result != TR2_OK) {
+        return result;
+    }
+
+    *out_campaign_id = campaign_id;
     return TR2_OK;
 }
 
