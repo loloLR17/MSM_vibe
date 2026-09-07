@@ -55,9 +55,11 @@ int main(void)
     SystemRuntimeDependencies deps;
     SystemRuntime runtime_a;
     SystemRuntime runtime_b;
+    SystemRuntime runtime_c;
     ModbusBlock4Image image;
     ValidatedConfiguration validated;
     ActiveConfigurationSnapshot committed;
+    ConfigurationRecoveryStatus recovery_status;
     const ConfigurationPayload payload = valid_payload();
     const uint32_t active_crc = tr2_b4_active_payload_crc(&payload);
 
@@ -78,6 +80,9 @@ int main(void)
     assert(system_runtime_is_ready_for_modbus(&runtime_a));
     assert(system_runtime_boot_context(&runtime_a) != NULL);
     assert(system_runtime_boot_context(&runtime_a)->reset_cause == RESET_CAUSE_SOFTWARE);
+    assert(configuration_service_recovery_status(&runtime_a.configuration_service,
+                                                 &recovery_status));
+    assert(recovery_status == CONFIGURATION_RECOVERY_EMPTY);
 
     assert(system_runtime_b4_image(&runtime_a, &image));
     assert(image.registers[6] == UINT16_C(0));
@@ -105,6 +110,9 @@ int main(void)
     assert(system_runtime_init(&runtime_b, &deps) == TR2_OK);
     assert(system_runtime_boot(&runtime_b) == TR2_OK);
     assert(system_runtime_is_ready_for_modbus(&runtime_b));
+    assert(configuration_service_recovery_status(&runtime_b.configuration_service,
+                                                 &recovery_status));
+    assert(recovery_status == CONFIGURATION_RECOVERY_VALID);
     assert(system_runtime_b4_image(&runtime_b, &image));
 
     assert(image.registers[6] == UINT16_C(4));
@@ -118,6 +126,25 @@ int main(void)
     assert(image.registers[13] == UINT16_C(17));
     assert(image.registers[100] == UINT16_C(26667));
     assert(image.registers[101] == UINT16_C(7));
+
+    /* A non-recoverable active never becomes runtime authority: B4 returns neutral. */
+    platform.persistent_committed[0] ^= UINT8_C(0x01);
+    platform.persistent_candidate[0] = platform.persistent_committed[0];
+    assert(system_runtime_init(&runtime_c, &deps) == TR2_OK);
+    assert(system_runtime_boot(&runtime_c) == TR2_OK);
+    assert(system_runtime_is_ready_for_modbus(&runtime_c));
+    assert(configuration_service_recovery_status(&runtime_c.configuration_service,
+                                                 &recovery_status));
+    assert(recovery_status == CONFIGURATION_RECOVERY_CORRUPTED);
+    assert(system_runtime_b4_image(&runtime_c, &image));
+    assert(image.registers[6] == UINT16_C(0));
+    assert(image.registers[4] == UINT16_C(0));
+    assert(image.registers[5] == UINT16_C(0));
+    assert(image.registers[10] == UINT16_C(0x177C));
+    assert(image.registers[11] == UINT16_C(0x92D9));
+    assert(image.registers[12] == UINT16_C(0));
+    assert(image.registers[13] == UINT16_C(0));
+    assert(image.registers[100] == UINT16_C(0));
 
     return 0;
 }
