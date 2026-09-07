@@ -291,3 +291,9 @@ add_executable(test_configuration_activation_adapter
 )
 target_link_libraries(test_configuration_activation_adapter PRIVATE tr2_core)
 add_test(NAME configuration_activation_adapter COMMAND test_configuration_activation_adapter)
+
+add_executable(test_p5h_acquisition_supervision_b3
+    tests/integration/test_p5h_acquisition_supervision_b3.c
+)
+target_link_libraries(test_p5h_acquisition_supervision_b3 PRIVATE tr2_platform_host)
+add_test(NAME p5h_acquisition_supervision_b3 COMMAND test_p5h_acquisition_supervision_b3)
