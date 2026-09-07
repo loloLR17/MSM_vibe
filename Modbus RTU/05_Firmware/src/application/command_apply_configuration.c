@@ -33,6 +33,7 @@ Tr2Result command_apply_configuration_execute(
         command_engine_active_transaction_id(engine) != transaction_id) {
         return TR2_ERROR_INVALID_ARGUMENT;
     }
+    (void)journal_store;
 
     operation_result = engine->journal->find(engine->journal->context,
                                              transaction_id,
@@ -62,10 +63,13 @@ Tr2Result command_apply_configuration_execute(
     context.value2 = validated.config_id;
     context.value3 = validated.supplied_crc;
 
-    operation_result = command_journal_store_set_recovery_context(journal_store,
-                                                                   transaction_id,
-                                                                   &context,
-                                                                   entry);
+    if (engine->journal->set_recovery_context == NULL) {
+        return TR2_ERROR_INVALID_STATE;
+    }
+    operation_result = engine->journal->set_recovery_context(engine->journal->context,
+                                                              transaction_id,
+                                                              &context,
+                                                              entry);
     if (operation_result != TR2_OK) {
         return operation_result;
     }
