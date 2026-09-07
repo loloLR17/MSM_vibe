@@ -31,6 +31,7 @@ static SystemRuntimeDependencies make_dependencies(
     MonotonicClock *monotonic,
     WallClock *wall,
     ResetCauseProvider *reset,
+    TimeContinuityEvidenceProvider *time_continuity,
     PersistentMedia *media,
     const ConfigurationValidationEnvironment *environment)
 {
@@ -39,6 +40,7 @@ static SystemRuntimeDependencies make_dependencies(
     deps.monotonic_clock = monotonic;
     deps.wall_clock = wall;
     deps.reset_cause_provider = reset;
+    deps.time_continuity_evidence_provider = time_continuity;
     deps.persistent_media = media;
     deps.configuration_validation_environment = environment;
     return deps;
@@ -51,6 +53,7 @@ int main(void)
     MonotonicClock monotonic;
     WallClock wall;
     ResetCauseProvider reset;
+    TimeContinuityEvidenceProvider time_continuity;
     PersistentMedia media;
     SystemRuntimeDependencies deps;
     SystemRuntime runtime_a;
@@ -70,8 +73,9 @@ int main(void)
     monotonic = host_platform_monotonic_clock(&platform);
     wall = host_platform_wall_clock(&platform);
     reset = host_platform_reset_cause_provider(&platform);
+    time_continuity = host_platform_time_continuity_evidence_provider(&platform);
     media = host_platform_persistent_media(&platform);
-    deps = make_dependencies(&monotonic, &wall, &reset, &media, &environment);
+    deps = make_dependencies(&monotonic, &wall, &reset, &time_continuity, &media, &environment);
 
     assert(system_runtime_init(&runtime_a, &deps) == TR2_OK);
     assert(!system_runtime_is_ready_for_modbus(&runtime_a));
