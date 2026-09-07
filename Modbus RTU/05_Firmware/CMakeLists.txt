@@ -30,6 +30,7 @@ add_library(tr2_core STATIC
     src/domain/time/time_service.c
     src/modbus/b4_configuration_codec.c
     src/modbus/b6_projection.c
+    src/modbus/b6_write_adapter.c
     src/modbus/codec.c
     src/modbus/register_model.c
     src/modbus/projection.c
@@ -123,6 +124,12 @@ add_executable(test_campaign_inventory_b6
 )
 target_link_libraries(test_campaign_inventory_b6 PRIVATE tr2_core)
 add_test(NAME campaign_inventory_b6 COMMAND test_campaign_inventory_b6)
+
+add_executable(test_b6_adapters
+    tests/unit/test_b6_adapters.c
+)
+target_link_libraries(test_b6_adapters PRIVATE tr2_core)
+add_test(NAME b6_adapters COMMAND test_b6_adapters)
 
 add_executable(test_time_service
     tests/unit/test_time_service.c
