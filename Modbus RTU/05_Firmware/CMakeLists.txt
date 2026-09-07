@@ -26,6 +26,7 @@ add_library(tr2_core STATIC
     src/application/configuration_activation_adapter.c
     src/application/configuration_service.c
     src/application/configuration_workflow.c
+    src/application/diagnostic_service.c
     src/application/supervision_service.c
     src/application/system_runtime.c
     src/application/system_runtime_acquisition_command.c
@@ -374,6 +375,12 @@ add_executable(test_p7n_transaction_fault_injection
 )
 target_link_libraries(test_p7n_transaction_fault_injection PRIVATE tr2_core)
 add_test(NAME p7n_transaction_fault_injection COMMAND test_p7n_transaction_fault_injection)
+
+add_executable(test_p9b_diagnostic_service
+    tests/unit/test_p9b_diagnostic_service.c
+)
+target_link_libraries(test_p9b_diagnostic_service PRIVATE tr2_core)
+add_test(NAME p9b_diagnostic_service COMMAND test_p9b_diagnostic_service)
 
 add_executable(test_acquisition_service
     tests/unit/test_acquisition_service.c
