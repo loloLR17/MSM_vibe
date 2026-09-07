@@ -5,7 +5,17 @@
 #include "tr2/application/configuration_service.h"
 #include "tr2/application/system_runtime.h"
 #include "tr2/modbus/b4_configuration_codec.h"
+#include "tr2/persistence/time_history_record.h"
 #include "tr2/platform_host/host_platform.h"
+
+#define TEST_CAMPAIGN_DATA_STORAGE_OFFSET \
+    ((uint32_t)TR2_CONFIGURATION_STORE_STORAGE_SIZE + \
+     (uint32_t)TR2_TIME_HISTORY_RECORD_SIZE + \
+     (uint32_t)TR2_CAMPAIGN_REPOSITORY_STORAGE_SIZE)
+#define TEST_FIRST_DATA_CHUNK_OFFSET \
+    (TEST_CAMPAIGN_DATA_STORAGE_OFFSET + \
+     (uint32_t)(TR2_CAMPAIGN_DATA_DESCRIPTOR_COPY_COUNT * \
+                TR2_CAMPAIGN_DATA_DESCRIPTOR_SIZE))
 
 static ConfigurationPayload valid_payload(void)
 {
@@ -78,6 +88,7 @@ static void test_campaign_boot_recovery(void)
     SystemRuntimeDependencies deps;
     SystemRuntime runtime_a;
     SystemRuntime runtime_b;
+    SystemRuntime runtime_c;
     CampaignRepository *repository;
     CampaignDataStore *data_store;
     CampaignIdReservation first;
@@ -171,6 +182,23 @@ static void test_campaign_boot_recovery(void)
     assert(b6.registers[12] == 0u);
     assert(b6.registers[13] == first.campaign_id);
     assert(b6.registers[20] == 2u);
+
+    /* A durable chunk corruption is reported, but historical OPEN metadata
+       remains unchanged and no end timestamp or duration is fabricated. */
+    platform.persistent_committed[TEST_FIRST_DATA_CHUNK_OFFSET] ^= UINT8_C(0x01);
+    platform.persistent_candidate[TEST_FIRST_DATA_CHUNK_OFFSET] =
+        platform.persistent_committed[TEST_FIRST_DATA_CHUNK_OFFSET];
+    assert(system_runtime_init(&runtime_c, &deps) == TR2_OK);
+    assert(system_runtime_boot(&runtime_c) == TR2_OK);
+    assert(system_runtime_is_ready_for_modbus(&runtime_c));
+    assert(!runtime_c.campaign_data_store.campaign_active);
+    assert(system_runtime_campaign_recovery_snapshot(&runtime_c, &recovery));
+    assert(recovery.repository_status == CAMPAIGN_REPOSITORY_RECOVERY_VALID);
+    assert(recovery.campaigns[0].metadata.campaign_id == first.campaign_id);
+    assert(recovery.campaigns[0].metadata.lifecycle_state == CAMPAIGN_LIFECYCLE_OPEN);
+    assert(!recovery.campaigns[0].metadata.end_timestamp.available);
+    assert(!recovery.campaigns[0].metadata.duration.available);
+    assert(recovery.campaigns[0].data_recovery.status == CAMPAIGN_DATA_RECOVERY_CORRUPTED);
 }
 
 int main(void)
@@ -288,3 +316,6 @@ int main(void)
     test_campaign_boot_recovery();
     return 0;
 }
+
+#undef TEST_FIRST_DATA_CHUNK_OFFSET
+#undef TEST_CAMPAIGN_DATA_STORAGE_OFFSET
