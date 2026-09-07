@@ -58,6 +58,12 @@ static void test_known_parameter_and_confirmation_protections(void)
     assert(command_request_policy_validate(&value) ==
            COMMAND_REQUEST_POLICY_INVALID_PARAMETER);
 
+    value = request(COMMAND_CODE_REFRESH_INDICATORS);
+    assert(command_request_policy_validate(&value) == COMMAND_REQUEST_POLICY_VALID);
+    value.identity.param1 = 1u;
+    assert(command_request_policy_validate(&value) ==
+           COMMAND_REQUEST_POLICY_INVALID_PARAMETER);
+
     value = request(COMMAND_CODE_SYNCHRONIZE_TIME);
     value.identity.param1 = 9u;
     assert(command_request_policy_validate(&value) == COMMAND_REQUEST_POLICY_VALID);

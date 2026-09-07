@@ -4,6 +4,7 @@
 #include <stdbool.h>
 #include <stdint.h>
 
+#include "tr2/application/diagnostic_service.h"
 #include "tr2/common/result.h"
 #include "tr2/domain/diagnostic/diagnostic.h"
 #include "tr2/domain/system_state/system_state.h"
@@ -27,6 +28,16 @@ typedef struct {
     const DiagnosticSnapshot *diagnostic;
 } SystemStateAggregationInput;
 
+typedef Tr2Result (*SystemStateRefreshCollectFn)(
+    void *context,
+    DiagnosticFacts *diagnostic_facts,
+    SystemStateAggregationInput *aggregation_input);
+
+typedef struct {
+    void *context;
+    SystemStateRefreshCollectFn collect;
+} SystemStateRefreshSource;
+
 typedef struct {
     bool initialized;
     uint32_t next_generation;
@@ -36,5 +47,11 @@ Tr2Result system_state_aggregator_init(SystemStateAggregator *aggregator);
 Tr2Result system_state_aggregator_build(SystemStateAggregator *aggregator,
                                        const SystemStateAggregationInput *input,
                                        SystemStateSnapshot *snapshot);
+Tr2Result system_state_aggregator_refresh(
+    SystemStateAggregator *aggregator,
+    DiagnosticService *diagnostic_service,
+    const SystemStateRefreshSource *source,
+    DiagnosticSnapshot *diagnostic_snapshot,
+    SystemStateSnapshot *system_snapshot);
 
 #endif

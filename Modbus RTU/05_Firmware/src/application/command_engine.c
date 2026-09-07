@@ -1,7 +1,7 @@
 #include <stddef.h>
 #include <string.h>
 
-#include "tr2/application/command_engine.h"
+#include "tr2/application/command_refresh_indicators.h"
 
 static bool journal_contract_valid(const CommandJournal *journal)
 {
@@ -287,4 +287,62 @@ Tr2Result command_engine_release_active(CommandEngine *engine,
     engine->active_transaction_id = TR2_COMMAND_TRANSACTION_ID_INVALID;
     ++engine->snapshot_generation;
     return TR2_OK;
+}
+
+Tr2Result command_refresh_indicators_execute(
+    CommandEngine *engine,
+    DiagnosticService *diagnostic_service,
+    SystemStateAggregator *aggregator,
+    const SystemStateRefreshSource *refresh_source,
+    uint16_t transaction_id,
+    const CommandTerminalTimestamp *terminal_timestamp,
+    DiagnosticSnapshot *diagnostic_snapshot,
+    SystemStateSnapshot *system_snapshot,
+    CommandJournalEntry *entry)
+{
+    CommandJournalEntry current;
+    CommandFinalResult final_result;
+    Tr2Result result;
+
+    if (engine == NULL || diagnostic_service == NULL || aggregator == NULL ||
+        refresh_source == NULL || terminal_timestamp == NULL ||
+        diagnostic_snapshot == NULL || system_snapshot == NULL || entry == NULL ||
+        !command_transaction_id_is_valid(transaction_id) ||
+        !command_engine_has_active_transaction(engine) ||
+        command_engine_active_transaction_id(engine) != transaction_id) {
+        return TR2_ERROR_INVALID_ARGUMENT;
+    }
+
+    result = engine->journal->find(engine->journal->context, transaction_id, &current);
+    if (result != TR2_OK) {
+        return result;
+    }
+    if (current.request_identity.command_code != COMMAND_CODE_REFRESH_INDICATORS ||
+        current.lifecycle != COMMAND_LIFECYCLE_RESERVED ||
+        current.has_recovery_context) {
+        return TR2_ERROR_INVALID_STATE;
+    }
+
+    result = command_engine_mark_started(engine, transaction_id, entry);
+    if (result != TR2_OK) {
+        return result;
+    }
+
+    result = system_state_aggregator_refresh(aggregator,
+                                             diagnostic_service,
+                                             refresh_source,
+                                             diagnostic_snapshot,
+                                             system_snapshot);
+    if (result != TR2_OK) {
+        return result;
+    }
+
+    memset(&final_result, 0, sizeof(final_result));
+    final_result.status = COMMAND_STATUS_SUCCESS;
+    final_result.result_code = COMMAND_RESULT_SUCCESS;
+    return command_engine_complete(engine,
+                                   transaction_id,
+                                   &final_result,
+                                   terminal_timestamp,
+                                   entry);
 }

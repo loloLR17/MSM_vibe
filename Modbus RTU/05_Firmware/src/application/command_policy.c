@@ -6,7 +6,8 @@ static bool request_parameters_must_be_zero(uint16_t command_code)
 {
     return command_code == COMMAND_CODE_APPLY_CONFIGURATION ||
            command_code == COMMAND_CODE_START_ACQUISITION ||
-           command_code == COMMAND_CODE_STOP_ACQUISITION;
+           command_code == COMMAND_CODE_STOP_ACQUISITION ||
+           command_code == COMMAND_CODE_REFRESH_INDICATORS;
 }
 
 static bool protected_command(uint16_t command_code)

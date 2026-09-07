@@ -16,6 +16,10 @@ typedef struct {
     bool fail_read;
 } TestMedia;
 
+typedef struct {
+    unsigned int collect_count;
+} RefreshContext;
+
 static Tr2Result media_read(void *context, uint32_t offset, void *buffer, size_t size)
 {
     TestMedia *media = (TestMedia *)context;
@@ -39,6 +43,30 @@ static Tr2Result media_commit(void *context)
     return TR2_OK;
 }
 
+static Tr2Result collect_refresh(void *context,
+                                 DiagnosticFacts *facts,
+                                 SystemStateAggregationInput *input)
+{
+    RefreshContext *refresh = (RefreshContext *)context;
+
+    if (refresh == NULL || facts == NULL || input == NULL) {
+        return TR2_ERROR_INVALID_ARGUMENT;
+    }
+
+    ++refresh->collect_count;
+    memset(facts, 0, sizeof(*facts));
+    memset(input, 0, sizeof(*input));
+    facts->health = DIAGNOSTIC_HEALTH_WARNING;
+    facts->active_conditions.sensor_fault = true;
+    facts->internal_temperature_available = true;
+    facts->internal_temp_dC = 311;
+    input->ready = true;
+    input->storage_available = true;
+    input->uptime_s = 456u;
+    input->storage_status = 1u;
+    return TR2_OK;
+}
+
 int main(void)
 {
     TestMedia media;
@@ -52,6 +80,8 @@ int main(void)
     SystemStateAggregator aggregator;
     SystemStateAggregationInput input;
     SystemStateSnapshot system;
+    RefreshContext refresh_context = {0};
+    SystemStateRefreshSource refresh_source;
 
     memset(&media, 0xFF, sizeof(media));
     media.fail_read = false;
@@ -117,6 +147,23 @@ int main(void)
     assert(system.internal_temp_dC == 425);
     assert(system.uptime_s == 123u);
     assert(system.last_reset_cause == 1u);
+
+    refresh_source.context = &refresh_context;
+    refresh_source.collect = collect_refresh;
+    assert(system_state_aggregator_refresh(&aggregator,
+                                           &diagnostic_service,
+                                           &refresh_source,
+                                           &diagnostic,
+                                           &system) == TR2_OK);
+    assert(refresh_context.collect_count == 1u);
+    assert(diagnostic.generation == 2u);
+    assert(diagnostic.facts.active_conditions.sensor_fault);
+    assert(system.generation == 2u);
+    assert(system.fault_flags == UINT16_C(0x0001));
+    assert(system.warning_flags == 0u);
+    assert(system.internal_temp_dC == 311);
+    assert(system.uptime_s == 456u);
+    assert(system.storage_status == 1u);
 
     return 0;
 }

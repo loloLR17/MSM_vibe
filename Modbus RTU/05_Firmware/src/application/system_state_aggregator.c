@@ -86,3 +86,41 @@ Tr2Result system_state_aggregator_build(SystemStateAggregator *aggregator,
     snapshot->warning_code = input->warning_code;
     return TR2_OK;
 }
+
+Tr2Result system_state_aggregator_refresh(
+    SystemStateAggregator *aggregator,
+    DiagnosticService *diagnostic_service,
+    const SystemStateRefreshSource *source,
+    DiagnosticSnapshot *diagnostic_snapshot,
+    SystemStateSnapshot *system_snapshot)
+{
+    DiagnosticFacts facts;
+    SystemStateAggregationInput input;
+    Tr2Result result;
+
+    if (aggregator == NULL || diagnostic_service == NULL || source == NULL ||
+        source->collect == NULL || diagnostic_snapshot == NULL || system_snapshot == NULL) {
+        return TR2_ERROR_INVALID_ARGUMENT;
+    }
+    if (!aggregator->initialized || !diagnostic_service_is_initialized(diagnostic_service)) {
+        return TR2_ERROR_INVALID_STATE;
+    }
+
+    memset(&facts, 0, sizeof(facts));
+    memset(&input, 0, sizeof(input));
+    result = source->collect(source->context, &facts, &input);
+    if (result != TR2_OK) {
+        return result;
+    }
+
+    result = diagnostic_service_publish_facts(diagnostic_service, &facts);
+    if (result != TR2_OK) {
+        return result;
+    }
+    if (!diagnostic_service_snapshot(diagnostic_service, diagnostic_snapshot)) {
+        return TR2_ERROR_INTERNAL;
+    }
+
+    input.diagnostic = diagnostic_snapshot;
+    return system_state_aggregator_build(aggregator, &input, system_snapshot);
+}
