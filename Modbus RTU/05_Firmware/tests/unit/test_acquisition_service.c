@@ -203,7 +203,6 @@ int main(void)
     assert(acquisition_service_is_initialized(&acquisition));
     assert(!acquisition_service_window_active(&acquisition));
 
-    /* F-RUN-02: no authoritative active configuration means no acquisition. */
     assert(acquisition_service_begin_window(&acquisition) == TR2_ERROR_NOT_AVAILABLE);
     assert(source_context.configure_calls == 0u);
     assert(source_context.start_calls == 0u);
@@ -227,7 +226,6 @@ int main(void)
     assert(acquisition.current_window.configuration.revision_counter == 7u);
     assert(acquisition.current_window.start_monotonic_ms == 1000u);
 
-    /* F-ACQ-02/F-ACQ-03: changing the authority cannot alter this window. */
     active_b = make_active(11u, 101u, 8u, 1u);
     active_b.payload.axes_enable_mask = 0x0001u;
     active_b.payload.full_scale_code = 3u;
@@ -242,6 +240,15 @@ int main(void)
     assert(acquisition.current_window.acquired_sample_count == 2u);
     assert(acquisition.current_window.valid_sample_count == 1u);
     assert(acquisition.current_window.saturation_observed);
+    assert(!acquisition.current_window.statistics_overflow);
+    assert(acquisition.current_window.sum_square_x_mg2 == 100u);
+    assert(acquisition.current_window.sum_square_y_mg2 == 400u);
+    assert(acquisition.current_window.sum_square_z_mg2 == 900u);
+    assert(acquisition.current_window.sum_square_vector_mg2 == 1400u);
+    assert(acquisition.current_window.peak_abs_x_mg == 10u);
+    assert(acquisition.current_window.peak_abs_y_mg == 20u);
+    assert(acquisition.current_window.peak_abs_z_mg == 30u);
+    assert(acquisition.current_window.peak_vector_square_mg2 == 1400u);
     assert(acquisition_service_read_sample(&acquisition, &sample) == TR2_ERROR_INVALID_STATE);
 
     clock_context.now_ms = 1125u;
@@ -255,7 +262,6 @@ int main(void)
     assert(window.end_monotonic_ms == 1125u);
     assert(source_context.stop_calls == 1u);
 
-    /* The next window observes the new ActiveConfigurationSnapshot. */
     source_context.read_index = 0u;
     source_context.sample_count = 1u;
     assert(acquisition_service_begin_window(&acquisition) == TR2_OK);
@@ -273,7 +279,6 @@ int main(void)
     assert(window.complete);
     assert(window.configuration.generation == 11u);
 
-    /* An early stop is a technically incomplete window, not an invented B3 state. */
     active_a.payload.window_size_samples = 2u;
     publish_active(&configuration_service, &active_a);
     source_context.read_index = 0u;
@@ -285,7 +290,6 @@ int main(void)
     assert(!window.complete);
     assert(window.acquired_sample_count == 1u);
 
-    /* A source read failure is preserved as a fact on the window. */
     source_context.read_result = TR2_ERROR_UNAVAILABLE;
     assert(acquisition_service_begin_window(&acquisition) == TR2_OK);
     assert(acquisition_service_read_sample(&acquisition, &sample) == TR2_ERROR_UNAVAILABLE);
