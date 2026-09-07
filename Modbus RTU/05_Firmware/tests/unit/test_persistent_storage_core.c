@@ -3,6 +3,7 @@
 #include <stdint.h>
 #include <string.h>
 
+#include "tr2/application/command_software_reset.h"
 #include "tr2/persistence/boot_intent_store.h"
 #include "tr2/persistence/persistent_storage_core.h"
 #include "tr2/platform/reset_trigger.h"
@@ -16,6 +17,13 @@ typedef struct {
     Tr2Result write_result;
     Tr2Result commit_result;
 } FakeMediaContext;
+
+typedef struct {
+    uint8_t durable[64];
+    uint8_t staged[64];
+    uint32_t commit_calls;
+    uint32_t fail_commit_call;
+} PowerLossMediaContext;
 
 typedef struct {
     uint32_t calls;
@@ -65,12 +73,86 @@ static Tr2Result fake_commit(void *context)
     return fake->commit_result;
 }
 
+static Tr2Result power_loss_read(void *context,
+                                 uint32_t offset,
+                                 void *buffer,
+                                 size_t size)
+{
+    PowerLossMediaContext *media = (PowerLossMediaContext *)context;
+
+    if (media == NULL || buffer == NULL ||
+        (size_t)offset + size > sizeof(media->durable)) {
+        return TR2_ERROR_INVALID_ARGUMENT;
+    }
+    memcpy(buffer, &media->durable[offset], size);
+    return TR2_OK;
+}
+
+static Tr2Result power_loss_write(void *context,
+                                  uint32_t offset,
+                                  const void *buffer,
+                                  size_t size)
+{
+    PowerLossMediaContext *media = (PowerLossMediaContext *)context;
+
+    if (media == NULL || buffer == NULL ||
+        (size_t)offset + size > sizeof(media->staged)) {
+        return TR2_ERROR_INVALID_ARGUMENT;
+    }
+    memcpy(&media->staged[offset], buffer, size);
+    return TR2_OK;
+}
+
+static Tr2Result power_loss_commit(void *context)
+{
+    PowerLossMediaContext *media = (PowerLossMediaContext *)context;
+
+    if (media == NULL) {
+        return TR2_ERROR_INVALID_ARGUMENT;
+    }
+    ++media->commit_calls;
+    if (media->fail_commit_call != 0u &&
+        media->commit_calls == media->fail_commit_call) {
+        return TR2_ERROR_STORAGE;
+    }
+    memcpy(media->durable, media->staged, sizeof(media->durable));
+    return TR2_OK;
+}
+
+static void power_loss_media_init(PowerLossMediaContext *media)
+{
+    memset(media, 0, sizeof(*media));
+    memset(media->durable, 0xFF, sizeof(media->durable));
+    memcpy(media->staged, media->durable, sizeof(media->staged));
+}
+
+static void power_loss_media_reboot(PowerLossMediaContext *media)
+{
+    memcpy(media->staged, media->durable, sizeof(media->staged));
+    media->fail_commit_call = 0u;
+}
+
 static Tr2Result fake_software_reset(void *context)
 {
     FakeResetContext *fake = (FakeResetContext *)context;
     assert(fake != NULL);
     fake->calls += 1u;
     return fake->result;
+}
+
+static CommandJournalEntry started_software_reset_entry(uint16_t transaction_id)
+{
+    CommandJournalEntry entry;
+
+    memset(&entry, 0, sizeof(entry));
+    entry.transaction_id = transaction_id;
+    entry.request_identity.command_code = COMMAND_CODE_SOFTWARE_RESET;
+    entry.request_identity.confirm_key = TR2_COMMAND_CONFIRM_KEY_VALID;
+    entry.lifecycle = COMMAND_LIFECYCLE_STARTED;
+    entry.has_recovery_context = true;
+    entry.recovery_context.kind = COMMAND_RECOVERY_CONTEXT_BOOT_INTENT;
+    entry.recovery_context.value1 = transaction_id;
+    return entry;
 }
 
 static void test_boot_intent_store(void)
@@ -118,6 +200,146 @@ static void test_reset_trigger_contract(void)
     state.result = TR2_ERROR_INTERNAL;
     assert(trigger.software_reset(trigger.context) == TR2_ERROR_INTERNAL);
     assert(state.calls == 2u);
+}
+
+static void test_p9k_boot_intent_commit_cut_recovers_empty(void)
+{
+    PowerLossMediaContext media;
+    PersistentMedia backend;
+    PersistentStorageCore storage;
+    PersistentStorageCore reboot_storage;
+    BootIntentStore store;
+    BootIntentStore reboot_store;
+    BootIntentRecoveryResult recovery;
+    BootIntent intent = boot_intent_software_reset(51u);
+    CommandJournalEntry entry = started_software_reset_entry(51u);
+
+    power_loss_media_init(&media);
+    backend.context = &media;
+    backend.read = power_loss_read;
+    backend.write = power_loss_write;
+    backend.commit = power_loss_commit;
+    assert(persistent_storage_core_init(&storage, &backend) == TR2_OK);
+    assert(boot_intent_store_init(&store, &storage, 16u) == TR2_OK);
+
+    media.fail_commit_call = 1u;
+    assert(boot_intent_store_commit(&store, &intent) == TR2_ERROR_STORAGE);
+    assert(boot_intent_store_recovery_required(&store));
+
+    power_loss_media_reboot(&media);
+    assert(persistent_storage_core_init(&reboot_storage, &backend) == TR2_OK);
+    assert(boot_intent_store_init(&reboot_store, &reboot_storage, 16u) == TR2_OK);
+    assert(boot_intent_store_recover(&reboot_store, &recovery) == TR2_OK);
+    assert(recovery.status == BOOT_INTENT_RECOVERY_EMPTY);
+    assert(command_software_reset_reconcile(&entry,
+                                            &recovery,
+                                            RESET_CAUSE_SOFTWARE) ==
+           COMMAND_RECONCILIATION_INDETERMINATE);
+}
+
+static void test_p9k_durable_intent_power_on_never_proves_software_reset(void)
+{
+    PowerLossMediaContext media;
+    PersistentMedia backend;
+    PersistentStorageCore storage;
+    PersistentStorageCore reboot_storage;
+    BootIntentStore store;
+    BootIntentStore reboot_store;
+    BootIntentRecoveryResult recovery;
+    BootIntent intent = boot_intent_software_reset(52u);
+    CommandJournalEntry entry = started_software_reset_entry(52u);
+
+    power_loss_media_init(&media);
+    backend.context = &media;
+    backend.read = power_loss_read;
+    backend.write = power_loss_write;
+    backend.commit = power_loss_commit;
+    assert(persistent_storage_core_init(&storage, &backend) == TR2_OK);
+    assert(boot_intent_store_init(&store, &storage, 16u) == TR2_OK);
+    assert(boot_intent_store_commit(&store, &intent) == TR2_OK);
+
+    power_loss_media_reboot(&media);
+    assert(persistent_storage_core_init(&reboot_storage, &backend) == TR2_OK);
+    assert(boot_intent_store_init(&reboot_store, &reboot_storage, 16u) == TR2_OK);
+    assert(boot_intent_store_recover(&reboot_store, &recovery) == TR2_OK);
+    assert(recovery.status == BOOT_INTENT_RECOVERY_VALID);
+    assert(recovery.intent.transaction_id == 52u);
+
+    assert(command_software_reset_reconcile(&entry,
+                                            &recovery,
+                                            RESET_CAUSE_POWER_ON) ==
+           COMMAND_RECONCILIATION_INDETERMINATE);
+    assert(command_software_reset_reconcile(&entry,
+                                            &recovery,
+                                            RESET_CAUSE_BROWNOUT) ==
+           COMMAND_RECONCILIATION_INDETERMINATE);
+    assert(command_software_reset_reconcile(&entry,
+                                            &recovery,
+                                            RESET_CAUSE_WATCHDOG) ==
+           COMMAND_RECONCILIATION_INDETERMINATE);
+    assert(command_software_reset_reconcile(&entry,
+                                            &recovery,
+                                            RESET_CAUSE_SOFTWARE) ==
+           COMMAND_RECONCILIATION_TERMINAL_EFFECT_PROVEN);
+}
+
+static void test_p9k_corrupt_or_mismatched_intent_never_proves_reset(void)
+{
+    PowerLossMediaContext media;
+    PersistentMedia backend;
+    PersistentStorageCore storage;
+    BootIntentStore store;
+    BootIntentRecoveryResult recovery;
+    BootIntent intent = boot_intent_software_reset(53u);
+    CommandJournalEntry entry = started_software_reset_entry(53u);
+
+    power_loss_media_init(&media);
+    backend.context = &media;
+    backend.read = power_loss_read;
+    backend.write = power_loss_write;
+    backend.commit = power_loss_commit;
+    assert(persistent_storage_core_init(&storage, &backend) == TR2_OK);
+    assert(boot_intent_store_init(&store, &storage, 16u) == TR2_OK);
+    assert(boot_intent_store_commit(&store, &intent) == TR2_OK);
+
+    media.durable[25] ^= UINT8_C(0x01);
+    power_loss_media_reboot(&media);
+    assert(boot_intent_store_recover(&store, &recovery) == TR2_OK);
+    assert(recovery.status == BOOT_INTENT_RECOVERY_CORRUPTED);
+    assert(command_software_reset_reconcile(&entry,
+                                            &recovery,
+                                            RESET_CAUSE_SOFTWARE) ==
+           COMMAND_RECONCILIATION_INDETERMINATE);
+
+    recovery.status = BOOT_INTENT_RECOVERY_VALID;
+    recovery.intent = boot_intent_software_reset(54u);
+    assert(command_software_reset_reconcile(&entry,
+                                            &recovery,
+                                            RESET_CAUSE_SOFTWARE) ==
+           COMMAND_RECONCILIATION_INDETERMINATE);
+}
+
+static void test_p9k_reserved_journal_dominates_stale_boot_intent(void)
+{
+    BootIntentRecoveryResult recovery;
+    CommandJournalEntry entry;
+
+    memset(&entry, 0, sizeof(entry));
+    entry.transaction_id = 55u;
+    entry.request_identity.command_code = COMMAND_CODE_SOFTWARE_RESET;
+    entry.request_identity.confirm_key = TR2_COMMAND_CONFIRM_KEY_VALID;
+    entry.lifecycle = COMMAND_LIFECYCLE_RESERVED;
+    entry.has_recovery_context = true;
+    entry.recovery_context.kind = COMMAND_RECOVERY_CONTEXT_BOOT_INTENT;
+    entry.recovery_context.value1 = 55u;
+
+    recovery.status = BOOT_INTENT_RECOVERY_VALID;
+    recovery.intent = boot_intent_software_reset(55u);
+
+    assert(command_software_reset_reconcile(&entry,
+                                            &recovery,
+                                            RESET_CAUSE_SOFTWARE) ==
+           COMMAND_RECONCILIATION_INDETERMINATE);
 }
 
 int main(void)
@@ -174,5 +396,9 @@ int main(void)
 
     test_boot_intent_store();
     test_reset_trigger_contract();
+    test_p9k_boot_intent_commit_cut_recovers_empty();
+    test_p9k_durable_intent_power_on_never_proves_software_reset();
+    test_p9k_corrupt_or_mismatched_intent_never_proves_reset();
+    test_p9k_reserved_journal_dominates_stale_boot_intent();
     return 0;
 }
