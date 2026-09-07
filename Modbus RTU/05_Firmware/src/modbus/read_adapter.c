@@ -3,6 +3,9 @@
 #include "tr2/modbus/projection.h"
 #include "tr2/modbus/read_adapter.h"
 
+#define TR2_B6_BASE_ADDRESS UINT16_C(6000)
+#define TR2_B6_LAST_ADDRESS UINT16_C(6063)
+
 static ModbusReadOutcome read_from_b0(const ModbusReadSources *sources,
                                       uint16_t start_address,
                                       uint16_t quantity,
@@ -106,6 +109,37 @@ static ModbusReadOutcome read_from_b3(const ModbusReadSources *sources,
     return outcome;
 }
 
+static ModbusReadOutcome read_from_b6(const ModbusReadSources *sources,
+                                      uint16_t start_address,
+                                      uint16_t quantity,
+                                      uint16_t *values)
+{
+    ModbusReadOutcome outcome = { MODBUS_ACCESS_OK, TR2_OK };
+    uint16_t index;
+
+    if (sources->b6_image == NULL) {
+        outcome.operation_result = TR2_ERROR_NOT_AVAILABLE;
+        return outcome;
+    }
+
+    for (index = 0u; index < quantity; ++index) {
+        values[index] = sources->b6_image->registers[
+            (uint16_t)(start_address - TR2_B6_BASE_ADDRESS + index)];
+    }
+    return outcome;
+}
+
+static bool range_is_b6(uint16_t start_address, uint16_t quantity)
+{
+    uint32_t last_address;
+
+    if (quantity == 0u || start_address < TR2_B6_BASE_ADDRESS) {
+        return false;
+    }
+    last_address = (uint32_t)start_address + (uint32_t)quantity - 1u;
+    return last_address <= TR2_B6_LAST_ADDRESS;
+}
+
 ModbusReadOutcome modbus_read_adapter_read(const ModbusReadSources *sources,
                                            uint16_t start_address,
                                            uint16_t quantity,
@@ -118,6 +152,14 @@ ModbusReadOutcome modbus_read_adapter_read(const ModbusReadSources *sources,
 
     if (sources == NULL || values == NULL) {
         outcome.operation_result = TR2_ERROR_INVALID_ARGUMENT;
+        return outcome;
+    }
+
+    if (range_is_b6(start_address, quantity)) {
+        return read_from_b6(sources, start_address, quantity, values);
+    }
+    if (start_address >= TR2_B6_BASE_ADDRESS && start_address <= TR2_B6_LAST_ADDRESS) {
+        outcome.access_result = MODBUS_ACCESS_ILLEGAL_ADDRESS;
         return outcome;
     }
 
@@ -153,3 +195,6 @@ ModbusReadOutcome modbus_read_adapter_read(const ModbusReadSources *sources,
         return outcome;
     }
 }
+
+#undef TR2_B6_BASE_ADDRESS
+#undef TR2_B6_LAST_ADDRESS
