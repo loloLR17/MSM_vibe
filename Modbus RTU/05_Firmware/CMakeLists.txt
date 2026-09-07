@@ -210,6 +210,12 @@ add_executable(test_system_runtime
 target_link_libraries(test_system_runtime PRIVATE tr2_platform_host)
 add_test(NAME system_runtime COMMAND test_system_runtime)
 
+add_executable(test_time_boot_recovery
+    tests/integration/test_time_boot_recovery.c
+)
+target_link_libraries(test_time_boot_recovery PRIVATE tr2_platform_host)
+add_test(NAME time_boot_recovery COMMAND test_time_boot_recovery)
+
 add_executable(test_configuration_b4_flow
     tests/integration/test_configuration_b4_flow.c
 )
