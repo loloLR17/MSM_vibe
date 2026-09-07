@@ -12,6 +12,11 @@ typedef struct {
     SelfTestExecutionResult result;
 } SelfTestTestDouble;
 
+typedef struct {
+    uint32_t calls;
+    Tr2Result result;
+} ResetTriggerTestDouble;
+
 static Tr2Result selftest_run_standard(void *context, SelfTestExecutionResult *result)
 {
     SelfTestTestDouble *test_double = (SelfTestTestDouble *)context;
@@ -25,6 +30,17 @@ static Tr2Result selftest_run_standard(void *context, SelfTestExecutionResult *r
     }
     *result = test_double->result;
     return TR2_OK;
+}
+
+static Tr2Result reset_trigger_software_reset(void *context)
+{
+    ResetTriggerTestDouble *test_double = (ResetTriggerTestDouble *)context;
+
+    if (test_double == NULL) {
+        return TR2_ERROR_INVALID_ARGUMENT;
+    }
+    ++test_double->calls;
+    return test_double->result;
 }
 
 static ConfigurationPayload valid_payload(void)
@@ -52,7 +68,7 @@ static SystemRuntimeDependencies make_dependencies(
     MonotonicClock *monotonic, WallClock *wall, ResetCauseProvider *reset,
     TimeContinuityEvidenceProvider *time_continuity, PersistentMedia *media,
     const ConfigurationValidationEnvironment *environment, VibrationSource *vibration_source,
-    const SelfTestExecutor *selftest_executor)
+    const SelfTestExecutor *selftest_executor, const PlatformResetTrigger *reset_trigger)
 {
     SystemRuntimeDependencies deps;
     memset(&deps, 0, sizeof(deps));
@@ -64,6 +80,7 @@ static SystemRuntimeDependencies make_dependencies(
     deps.configuration_validation_environment = environment;
     deps.vibration_source = vibration_source;
     deps.selftest_executor = selftest_executor;
+    deps.reset_trigger = reset_trigger;
     return deps;
 }
 
@@ -83,8 +100,11 @@ int main(void)
         { true, UINT16_C(0), UINT16_C(0) }
     };
     SelfTestExecutor selftest_executor = { &selftest_double, selftest_run_standard };
+    ResetTriggerTestDouble reset_double = { 0u, TR2_OK };
+    PlatformResetTrigger reset_trigger = { &reset_double, reset_trigger_software_reset };
     SystemRuntimeDependencies deps;
     SystemRuntime runtime;
+    SystemRuntime runtime_after_reset;
     ValidatedConfiguration validated;
     ActiveConfigurationSnapshot committed;
     CommandRequest request;
@@ -93,10 +113,12 @@ int main(void)
     CommandJournalEntry entry;
     CommandTerminalTimestamp timestamp = { false, 0u };
     CommandSnapshot command_snapshot;
+    CommandBootRecoveryResult boot_recovery;
     CampaignInventoryViewSnapshot inventory;
     DiagnosticActiveFault active_fault;
     DiagnosticFaultAcknowledgement acknowledgement;
     DiagnosticSnapshot diagnostic_snapshot;
+    BootIntentRecoveryResult boot_intent_recovery;
     ModbusBlock1Image b1;
     ModbusBlock5Image b5;
     uint32_t start_calls;
@@ -112,7 +134,8 @@ int main(void)
     media = host_platform_persistent_media(&platform);
     vibration = host_platform_vibration_source(&platform);
     deps = make_dependencies(&monotonic, &wall, &reset, &time_continuity,
-                             &media, &environment, &vibration, &selftest_executor);
+                             &media, &environment, &vibration,
+                             &selftest_executor, &reset_trigger);
 
     assert(system_runtime_init(&runtime, &deps) == TR2_OK);
     assert(system_runtime_boot(&runtime) == TR2_OK);
@@ -300,6 +323,48 @@ int main(void)
     assert(admission.kind == COMMAND_ADMISSION_RETRY);
     assert(entry.lifecycle == COMMAND_LIFECYCLE_COMPLETED);
     assert(selftest_double.calls == 1u);
+
+    /* P9-N5a: an unavailable reset trigger reserves nothing. */
+    memset(&request, 0, sizeof(request));
+    request.transaction_id = UINT16_C(508);
+    request.identity.command_code = COMMAND_CODE_SOFTWARE_RESET;
+    request.identity.confirm_key = TR2_COMMAND_CONFIRM_KEY_VALID;
+    runtime.deps.reset_trigger = NULL;
+    assert(system_runtime_execute_p9_command(&runtime, &request, &timestamp,
+                                             &admission, &entry) == TR2_ERROR_NOT_AVAILABLE);
+    assert(!command_engine_has_active_transaction(&runtime.command_engine));
+    assert(reset_double.calls == 0u);
+
+    /* Re-inject the trigger. The significant effect is the trigger itself;
+       host execution returns, so the transaction intentionally remains STARTED. */
+    runtime.deps.reset_trigger = &reset_trigger;
+    assert(system_runtime_execute_p9_command(&runtime, &request, &timestamp,
+                                             &admission, &entry) == TR2_OK);
+    assert(admission.kind == COMMAND_ADMISSION_NEW);
+    assert(entry.lifecycle == COMMAND_LIFECYCLE_STARTED);
+    assert(!entry.has_final_result);
+    assert(entry.has_recovery_context);
+    assert(entry.recovery_context.kind == COMMAND_RECOVERY_CONTEXT_BOOT_INTENT);
+    assert(entry.recovery_context.value1 == UINT16_C(508));
+    assert(reset_double.calls == 1u);
+
+    assert(boot_intent_store_recover(&runtime.boot_intent_store,
+                                     &boot_intent_recovery) == TR2_OK);
+    assert(boot_intent_recovery.status == BOOT_INTENT_RECOVERY_VALID);
+    assert(boot_intent_recovery.intent.kind == BOOT_INTENT_SOFTWARE_RESET);
+    assert(boot_intent_recovery.intent.transaction_id == UINT16_C(508));
+
+    /* Simulate the actual next boot. Hardware reset cause remains authoritative;
+       matching SOFTWARE + durable BootIntent proves the STARTED effect. */
+    host_platform_set_reset_cause(&platform, RESET_CAUSE_SOFTWARE);
+    assert(system_runtime_init(&runtime_after_reset, &deps) == TR2_OK);
+    assert(system_runtime_boot(&runtime_after_reset) == TR2_OK);
+    assert(system_runtime_is_ready_for_modbus(&runtime_after_reset));
+    assert(system_runtime_command_boot_recovery(&runtime_after_reset, &boot_recovery));
+    assert(boot_recovery.status == COMMAND_BOOT_RECOVERY_STARTED_EFFECT_PROVEN);
+    assert(boot_recovery.has_incomplete_transaction);
+    assert(boot_recovery.incomplete_transaction.transaction_id == UINT16_C(508));
+    assert(boot_recovery.incomplete_transaction.lifecycle == COMMAND_LIFECYCLE_STARTED);
 
     return 0;
 }
