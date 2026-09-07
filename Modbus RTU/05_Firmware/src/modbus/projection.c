@@ -34,7 +34,7 @@ static uint16_t project_b1_system_flags(const SystemStateSnapshot *system_state,
     uint16_t flags = (uint16_t)(system_state->system_flags & TR2_B1_SYSTEM_FLAGS_MASK);
 
     flags = (uint16_t)(flags & (uint16_t)~TR2_B1_SYSTEM_FLAG_TIME_VALID);
-    if (time->civil_time_usable) {
+    if (time != NULL && time->civil_time_usable) {
         flags = (uint16_t)(flags | TR2_B1_SYSTEM_FLAG_TIME_VALID);
     }
 
@@ -122,7 +122,7 @@ Tr2Result modbus_project_b1(const ModbusBlock1ProjectionSource *source,
     ModbusBlock1Image candidate = { { 0u }, 0u };
     const SystemStateSnapshot *snapshot;
 
-    if (source == NULL || source->system_state == NULL || source->time == NULL || output == NULL) {
+    if (source == NULL || source->system_state == NULL || output == NULL) {
         return TR2_ERROR_INVALID_ARGUMENT;
     }
 
