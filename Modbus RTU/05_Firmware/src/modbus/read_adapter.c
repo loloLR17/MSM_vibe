@@ -81,6 +81,31 @@ static ModbusReadOutcome read_from_b2(const ModbusReadSources *sources,
     return outcome;
 }
 
+static ModbusReadOutcome read_from_b3(const ModbusReadSources *sources,
+                                      uint16_t start_address,
+                                      uint16_t quantity,
+                                      uint16_t *values)
+{
+    ModbusReadOutcome outcome = { MODBUS_ACCESS_OK, TR2_OK };
+    ModbusBlock3Image image;
+    uint16_t index;
+
+    if (sources->supervision == NULL) {
+        outcome.operation_result = TR2_ERROR_NOT_AVAILABLE;
+        return outcome;
+    }
+
+    outcome.operation_result = modbus_project_b3(sources->supervision, &image);
+    if (outcome.operation_result != TR2_OK) {
+        return outcome;
+    }
+
+    for (index = 0u; index < quantity; ++index) {
+        values[index] = image.registers[(uint16_t)(start_address - UINT16_C(3000) + index)];
+    }
+    return outcome;
+}
+
 ModbusReadOutcome modbus_read_adapter_read(const ModbusReadSources *sources,
                                            uint16_t start_address,
                                            uint16_t quantity,
@@ -121,6 +146,8 @@ ModbusReadOutcome modbus_read_adapter_read(const ModbusReadSources *sources,
         return read_from_b1(sources, start_address, quantity, values);
     case MODBUS_BLOCK_2:
         return read_from_b2(sources, start_address, quantity, values);
+    case MODBUS_BLOCK_3:
+        return read_from_b3(sources, start_address, quantity, values);
     default:
         outcome.operation_result = TR2_ERROR_UNSUPPORTED;
         return outcome;
