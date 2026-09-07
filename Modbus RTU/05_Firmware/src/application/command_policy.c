@@ -49,9 +49,6 @@ uint16_t command_engine_flags_project(const CommandEngineFlagsSource *source)
     if (source->prepared_configuration_available) {
         flags |= COMMAND_ENGINE_FLAG_PREPARED_CONFIG_AVAILABLE;
     }
-    if (source->cancellation_supported) {
-        flags |= COMMAND_ENGINE_FLAG_CANCELLATION_SUPPORTED;
-    }
     if (source->command_logging_performed) {
         flags |= COMMAND_ENGINE_FLAG_COMMAND_LOGGING_PERFORMED;
     }
