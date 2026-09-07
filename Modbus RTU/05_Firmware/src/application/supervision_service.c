@@ -10,6 +10,13 @@ static uint32_t next_sequence_value(uint32_t current)
     return current == UINT32_MAX ? UINT32_MAX : current + 1u;
 }
 
+static uint32_t saturating_age_ms(MonotonicTimeMs now_ms,
+                                  MonotonicTimeMs value_ms)
+{
+    const uint64_t age_ms = now_ms - value_ms;
+    return age_ms > UINT32_MAX ? UINT32_MAX : (uint32_t)age_ms;
+}
+
 Tr2Result supervision_service_init(SupervisionService *service)
 {
     if (service == NULL) {
@@ -19,6 +26,24 @@ Tr2Result supervision_service_init(SupervisionService *service)
     memset(service, 0, sizeof(*service));
     service->initialized = true;
     service->next_calculation_sequence = 1u;
+    return TR2_OK;
+}
+
+Tr2Result supervision_service_bind_temporal_dependencies(
+    SupervisionService *service,
+    const MonotonicClock *monotonic_clock,
+    const TimeService *time_service)
+{
+    if (service == NULL || monotonic_clock == NULL ||
+        monotonic_clock->now_ms == NULL || time_service == NULL) {
+        return TR2_ERROR_INVALID_ARGUMENT;
+    }
+    if (!service->initialized || !time_service->initialized) {
+        return TR2_ERROR_INVALID_STATE;
+    }
+
+    service->monotonic_clock = monotonic_clock;
+    service->time_service = time_service;
     return TR2_OK;
 }
 
@@ -32,6 +57,7 @@ Tr2Result supervision_service_publish_window(SupervisionService *service,
 {
     SupervisionSnapshot candidate;
     VibrationIndicators indicators;
+    TimeSnapshot time_snapshot;
     Tr2Result result;
 
     if (service == NULL || window == NULL) {
@@ -64,7 +90,13 @@ Tr2Result supervision_service_publish_window(SupervisionService *service,
     candidate.saturation_observed = window->saturation_observed;
     candidate.calculation_error = false;
     candidate.value_monotonic_ms = window->end_monotonic_ms;
-    candidate.civil_timestamp_available = false;
+
+    if (service->time_service != NULL &&
+        time_service_get_snapshot(service->time_service, &time_snapshot) == TR2_OK &&
+        time_snapshot.current_time_available) {
+        candidate.civil_timestamp_available = true;
+        candidate.civil_timestamp = time_snapshot.current_time;
+    }
 
     service->snapshot = candidate;
     service->has_snapshot = true;
@@ -76,11 +108,27 @@ Tr2Result supervision_service_publish_window(SupervisionService *service,
 bool supervision_service_snapshot(const SupervisionService *service,
                                   SupervisionSnapshot *out_snapshot)
 {
+    MonotonicTimeMs now_ms;
+
     if (service == NULL || !service->initialized || out_snapshot == NULL ||
         !service->has_snapshot) {
         return false;
     }
 
     *out_snapshot = service->snapshot;
+    if (service->monotonic_clock == NULL || service->monotonic_clock->now_ms == NULL) {
+        return true;
+    }
+
+    now_ms = service->monotonic_clock->now_ms(service->monotonic_clock->context);
+    if (now_ms < out_snapshot->value_monotonic_ms) {
+        out_snapshot->value_age_available = false;
+        out_snapshot->value_age_ms = 0u;
+        return true;
+    }
+
+    out_snapshot->value_age_available = true;
+    out_snapshot->value_age_ms = saturating_age_ms(now_ms,
+                                                   out_snapshot->value_monotonic_ms);
     return true;
 }
