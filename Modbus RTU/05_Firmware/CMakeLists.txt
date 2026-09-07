@@ -226,6 +226,12 @@ add_executable(test_p5a_contracts
 target_link_libraries(test_p5a_contracts PRIVATE tr2_core)
 add_test(NAME p5a_contracts COMMAND test_p5a_contracts)
 
+add_executable(test_p6a_contracts
+    tests/unit/test_p6a_contracts.c
+)
+target_link_libraries(test_p6a_contracts PRIVATE tr2_core)
+add_test(NAME p6a_contracts COMMAND test_p6a_contracts)
+
 add_executable(test_acquisition_service
     tests/unit/test_acquisition_service.c
 )
