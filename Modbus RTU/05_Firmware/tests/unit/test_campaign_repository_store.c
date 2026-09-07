@@ -10,6 +10,7 @@ typedef struct {
     Tr2Result read_result;
     Tr2Result write_result;
     Tr2Result commit_result;
+    PersistentMedia media;
 } FakeMedia;
 
 static Tr2Result fake_read(void *context, uint32_t offset, void *buffer, size_t size)
@@ -36,12 +37,23 @@ static Tr2Result fake_commit(void *context)
     return fake->commit_result;
 }
 
+static void init_fake(FakeMedia *fake)
+{
+    memset(fake, 0, sizeof(*fake));
+    fake->read_result = TR2_OK;
+    fake->write_result = TR2_OK;
+    fake->commit_result = TR2_OK;
+    fake->media.context = fake;
+    fake->media.read = fake_read;
+    fake->media.write = fake_write;
+    fake->media.commit = fake_commit;
+}
+
 static void init_store(FakeMedia *fake,
                        PersistentStorageCore *core,
                        CampaignRepositoryStore *store)
 {
-    PersistentMedia media = { fake, fake_read, fake_write, fake_commit };
-    assert(persistent_storage_core_init(core, &media) == TR2_OK);
+    assert(persistent_storage_core_init(core, &fake->media) == TR2_OK);
     assert(campaign_repository_store_init(store, core) == TR2_OK);
 }
 
@@ -75,10 +87,7 @@ static void test_reservation_is_persistent_and_not_reused_after_reboot(void)
     CampaignIdReservation second;
     CampaignRepository *repo;
 
-    memset(&fake, 0, sizeof(fake));
-    fake.read_result = TR2_OK;
-    fake.write_result = TR2_OK;
-    fake.commit_result = TR2_OK;
+    init_fake(&fake);
 
     init_store(&fake, &core1, &store1);
     repo = campaign_repository_store_interface(&store1);
@@ -105,10 +114,7 @@ static void test_open_close_inventory_and_lookup_survive_reboot(void)
     CampaignInventorySummary summary;
     CampaignRepositoryRecoveryResult recovery;
 
-    memset(&fake, 0, sizeof(fake));
-    fake.read_result = TR2_OK;
-    fake.write_result = TR2_OK;
-    fake.commit_result = TR2_OK;
+    init_fake(&fake);
 
     init_store(&fake, &core1, &store1);
     repo = campaign_repository_store_interface(&store1);
@@ -150,9 +156,7 @@ static void test_failed_commit_requires_recovery(void)
     CampaignIdReservation reservation;
     CampaignRepositoryRecoveryResult recovery;
 
-    memset(&fake, 0, sizeof(fake));
-    fake.read_result = TR2_OK;
-    fake.write_result = TR2_OK;
+    init_fake(&fake);
     fake.commit_result = TR2_ERROR_STORAGE;
     init_store(&fake, &core, &store);
     repo = campaign_repository_store_interface(&store);
@@ -174,10 +178,7 @@ static void test_capacity_is_bounded(void)
     CampaignRepository *repo;
     size_t index;
 
-    memset(&fake, 0, sizeof(fake));
-    fake.read_result = TR2_OK;
-    fake.write_result = TR2_OK;
-    fake.commit_result = TR2_OK;
+    init_fake(&fake);
     init_store(&fake, &core, &store);
     repo = campaign_repository_store_interface(&store);
 
