@@ -42,6 +42,8 @@ add_library(tr2_core STATIC
     src/persistence/campaign_record.c
     src/persistence/campaign_repository_store.c
     src/persistence/command_journal.c
+    src/persistence/command_journal_record.c
+    src/persistence/command_journal_store.c
     src/persistence/configuration_record.c
     src/persistence/configuration_store.c
     src/persistence/persistent_storage_core.c
@@ -295,6 +297,12 @@ add_executable(test_p7c_command_journal
 )
 target_link_libraries(test_p7c_command_journal PRIVATE tr2_core)
 add_test(NAME p7c_command_journal COMMAND test_p7c_command_journal)
+
+add_executable(test_p7d_command_journal_store
+    tests/unit/test_p7d_command_journal_store.c
+)
+target_link_libraries(test_p7d_command_journal_store PRIVATE tr2_core)
+add_test(NAME p7d_command_journal_store COMMAND test_p7d_command_journal_store)
 
 add_executable(test_acquisition_service
     tests/unit/test_acquisition_service.c
