@@ -102,6 +102,55 @@ static Tr2Result project_runtime_b1(SystemRuntime *runtime)
     return TR2_OK;
 }
 
+static Tr2Result project_runtime_b7(SystemRuntime *runtime)
+{
+    ModbusBlock7ProjectionSource source;
+    Tr2Result result;
+
+    memset(&source, 0, sizeof(source));
+    source.diagnostic = &runtime->diagnostic_snapshot;
+    source.uptime_s = runtime->system_state_snapshot.uptime_s;
+    source.reset_cause = runtime->system_state_snapshot.last_reset_cause;
+    result = modbus_project_b7(&source, &runtime->b7_image);
+    if (result != TR2_OK) {
+        runtime->b7_image_available = false;
+        return result;
+    }
+
+    runtime->b7_image_available = true;
+    return TR2_OK;
+}
+
+static Tr2Result project_runtime_status_images(SystemRuntime *runtime)
+{
+    Tr2Result result;
+
+    result = project_runtime_b1(runtime);
+    if (result != TR2_OK) {
+        return result;
+    }
+    return project_runtime_b7(runtime);
+}
+
+static Tr2Result refresh_runtime_status(SystemRuntime *runtime)
+{
+    SystemStateRefreshSource refresh_source;
+    Tr2Result result;
+
+    refresh_source.context = runtime;
+    refresh_source.collect = collect_runtime_system_state;
+    result = system_state_aggregator_refresh(
+        &runtime->system_state_aggregator,
+        &runtime->diagnostic_service,
+        &refresh_source,
+        &runtime->diagnostic_snapshot,
+        &runtime->system_state_snapshot);
+    if (result != TR2_OK) {
+        return result;
+    }
+    return project_runtime_status_images(runtime);
+}
+
 static Tr2Result refresh_b3(SystemRuntime *runtime)
 {
     SupervisionSnapshot snapshot;
@@ -262,7 +311,7 @@ Tr2Result system_runtime_execute_p9_command(
 {
     SystemStateRefreshSource refresh_source;
     Tr2Result operation_result;
-    Tr2Result b1_result = TR2_OK;
+    Tr2Result status_result = TR2_OK;
     Tr2Result b5_result;
 
     if (runtime == NULL || request == NULL || terminal_timestamp == NULL ||
@@ -317,6 +366,9 @@ Tr2Result system_runtime_execute_p9_command(
             request->transaction_id,
             terminal_timestamp,
             out_entry);
+        if (operation_result == TR2_OK) {
+            status_result = refresh_runtime_status(runtime);
+        }
         break;
     case COMMAND_CODE_ACKNOWLEDGE_FAULT:
         operation_result = command_acknowledge_fault_execute(
@@ -337,7 +389,7 @@ Tr2Result system_runtime_execute_p9_command(
             &runtime->system_state_snapshot,
             out_entry);
         if (operation_result == TR2_OK) {
-            b1_result = project_runtime_b1(runtime);
+            status_result = project_runtime_status_images(runtime);
         }
         break;
     case COMMAND_CODE_ENTER_MAINTENANCE:
@@ -368,7 +420,7 @@ Tr2Result system_runtime_execute_p9_command(
 
     b5_result = refresh_b5(runtime);
     if (operation_result != TR2_OK) return operation_result;
-    if (b1_result != TR2_OK) return b1_result;
+    if (status_result != TR2_OK) return status_result;
     return b5_result;
 }
 
@@ -419,6 +471,18 @@ bool system_runtime_b3_image(const SystemRuntime *runtime, ModbusBlock3Image *ou
     }
 
     *out_image = runtime->b3_image;
+    return true;
+}
+
+bool system_runtime_b7_image(const SystemRuntime *runtime, ModbusBlock7Image *out_image)
+{
+    if (runtime == NULL || out_image == NULL || !runtime->initialized ||
+        !runtime->system_ready_for_modbus || !runtime->b7_image_available ||
+        !runtime->system_state_snapshot_available ||
+        runtime->b7_image.source_generation != runtime->diagnostic_snapshot.generation) {
+        return false;
+    }
+    *out_image = runtime->b7_image;
     return true;
 }
 
