@@ -1,3 +1,4 @@
+#include <stdlib.h>
 #include <string.h>
 #include "tr2/platform_host/host_platform.h"
 
@@ -50,7 +51,8 @@ static bool host_media_range_valid(uint32_t offset, size_t size)
 static Tr2Result host_media_read(void *context, uint32_t offset, void *buffer, size_t size)
 {
     HostPlatform *platform = (HostPlatform *)context;
-    if (buffer == NULL || !host_media_range_valid(offset, size)) {
+    if (buffer == NULL || platform == NULL || platform->persistent_committed == NULL ||
+        !host_media_range_valid(offset, size)) {
         return TR2_ERROR_INVALID_ARGUMENT;
     }
     memcpy(buffer, &platform->persistent_committed[offset], size);
@@ -60,7 +62,8 @@ static Tr2Result host_media_read(void *context, uint32_t offset, void *buffer, s
 static Tr2Result host_media_write(void *context, uint32_t offset, const void *buffer, size_t size)
 {
     HostPlatform *platform = (HostPlatform *)context;
-    if (buffer == NULL || !host_media_range_valid(offset, size)) {
+    if (buffer == NULL || platform == NULL || platform->persistent_candidate == NULL ||
+        !host_media_range_valid(offset, size)) {
         return TR2_ERROR_INVALID_ARGUMENT;
     }
     memcpy(&platform->persistent_candidate[offset], buffer, size);
@@ -70,6 +73,10 @@ static Tr2Result host_media_write(void *context, uint32_t offset, const void *bu
 static Tr2Result host_media_commit(void *context)
 {
     HostPlatform *platform = (HostPlatform *)context;
+    if (platform == NULL || platform->persistent_committed == NULL ||
+        platform->persistent_candidate == NULL) {
+        return TR2_ERROR_INVALID_STATE;
+    }
     memcpy(platform->persistent_committed,
            platform->persistent_candidate,
            HOST_PLATFORM_PERSISTENT_BYTES);
@@ -82,6 +89,17 @@ void host_platform_init(HostPlatform *platform)
         return;
     }
     memset(platform, 0, sizeof(*platform));
+    platform->persistent_committed =
+        (uint8_t *)calloc(HOST_PLATFORM_PERSISTENT_BYTES, sizeof(uint8_t));
+    platform->persistent_candidate =
+        (uint8_t *)calloc(HOST_PLATFORM_PERSISTENT_BYTES, sizeof(uint8_t));
+    if (platform->persistent_committed == NULL || platform->persistent_candidate == NULL) {
+        free(platform->persistent_committed);
+        free(platform->persistent_candidate);
+        platform->persistent_committed = NULL;
+        platform->persistent_candidate = NULL;
+        return;
+    }
     platform->reset_cause = RESET_CAUSE_POWER_ON;
     platform->time_continuity_evidence = TIME_CONTINUITY_EVIDENCE_INDETERMINATE;
 }
