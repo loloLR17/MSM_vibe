@@ -15,6 +15,7 @@ add_library(tr2_core STATIC
     src/application/acquisition_service.c
     src/application/campaign_inventory_service.c
     src/application/campaign_service.c
+    src/application/command_request_mailbox.c
     src/application/configuration_activation_adapter.c
     src/application/configuration_service.c
     src/application/configuration_workflow.c
@@ -281,6 +282,12 @@ add_executable(test_p7a_command_types
 )
 target_link_libraries(test_p7a_command_types PRIVATE tr2_core)
 add_test(NAME p7a_command_types COMMAND test_p7a_command_types)
+
+add_executable(test_p7b_command_request_mailbox
+    tests/unit/test_p7b_command_request_mailbox.c
+)
+target_link_libraries(test_p7b_command_request_mailbox PRIVATE tr2_core)
+add_test(NAME p7b_command_request_mailbox COMMAND test_p7b_command_request_mailbox)
 
 add_executable(test_acquisition_service
     tests/unit/test_acquisition_service.c
