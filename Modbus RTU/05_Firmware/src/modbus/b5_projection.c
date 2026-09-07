@@ -24,11 +24,19 @@ Tr2Result modbus_project_b5(const ModbusBlock5ProjectionSource *source,
     candidate.registers[6] = source->mailbox->confirm_key;
     candidate.registers[7] = source->mailbox->control & COMMAND_REQUEST_CONTROL_ALLOWED_MASK;
 
-    candidate.registers[8] = source->snapshot->active_command_code;
-    candidate.registers[9] = source->snapshot->active_transaction_id;
-    candidate.registers[10] = source->snapshot->status;
-    candidate.registers[11] = source->snapshot->result_code;
-    candidate.registers[12] = source->snapshot->result_detail;
+    if (source->snapshot->active_transaction_id != TR2_COMMAND_TRANSACTION_ID_INVALID) {
+        candidate.registers[8] = source->snapshot->active_command_code;
+        candidate.registers[9] = source->snapshot->active_transaction_id;
+        candidate.registers[10] = source->snapshot->status;
+        candidate.registers[11] = source->snapshot->result_code;
+        candidate.registers[12] = source->snapshot->result_detail;
+    } else if (source->snapshot->last.present) {
+        candidate.registers[8] = source->snapshot->last.command_code;
+        candidate.registers[9] = source->snapshot->last.transaction_id;
+        candidate.registers[10] = source->snapshot->last.final_result.status;
+        candidate.registers[11] = source->snapshot->last.final_result.result_code;
+        candidate.registers[12] = source->snapshot->last.final_result.result_detail;
+    }
     candidate.registers[13] = source->snapshot->engine_flags;
 
     if (source->snapshot->last.present) {
