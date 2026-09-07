@@ -15,8 +15,59 @@ static bool data_store_valid(const CampaignDataStore *data_store)
 {
     return data_store != NULL &&
            data_store->begin_campaign != NULL &&
+           data_store->append != NULL &&
+           data_store->checkpoint != NULL &&
            data_store->finish_campaign != NULL &&
            data_store->recover_campaign != NULL;
+}
+
+static void encode_u16_le(uint8_t *destination, uint16_t value)
+{
+    destination[0] = (uint8_t)(value & UINT16_C(0x00FF));
+    destination[1] = (uint8_t)(value >> 8u);
+}
+
+static void encode_u32_le(uint8_t *destination, uint32_t value)
+{
+    destination[0] = (uint8_t)(value & UINT32_C(0x000000FF));
+    destination[1] = (uint8_t)((value >> 8u) & UINT32_C(0x000000FF));
+    destination[2] = (uint8_t)((value >> 16u) & UINT32_C(0x000000FF));
+    destination[3] = (uint8_t)((value >> 24u) & UINT32_C(0x000000FF));
+}
+
+static void encode_campaign_sample(const VibrationSample *sample,
+                                   uint8_t record[TR2_CAMPAIGN_SAMPLE_RECORD_SIZE])
+{
+    uint16_t flags = 0u;
+
+    memset(record, 0, TR2_CAMPAIGN_SAMPLE_RECORD_SIZE);
+    encode_u32_le(&record[0], (uint32_t)sample->x_mg);
+    encode_u32_le(&record[4], (uint32_t)sample->y_mg);
+    encode_u32_le(&record[8], (uint32_t)sample->z_mg);
+    if (sample->valid) {
+        flags |= UINT16_C(0x0001);
+    }
+    if (sample->saturated) {
+        flags |= UINT16_C(0x0002);
+    }
+    encode_u16_le(&record[12], flags);
+    encode_u16_le(&record[14], UINT16_C(0));
+}
+
+static Tr2Result checkpoint_completed_window(CampaignService *service,
+                                             CampaignAcquisitionStep *step)
+{
+    Tr2Result result;
+
+    if (!service->data_store_started) {
+        step->storage_result = TR2_ERROR_INVALID_STATE;
+        return step->storage_result;
+    }
+
+    result = service->data_store->checkpoint(service->data_store->context,
+                                             service->active_metadata.campaign_id);
+    step->storage_result = result;
+    return result;
 }
 
 static void metadata_from_active(const ActiveConfigurationSnapshot *active,
@@ -194,10 +245,12 @@ Tr2Result campaign_service_drive_acquisition_step(
     CampaignService *service,
     CampaignAcquisitionStep *out_step)
 {
+    uint8_t record[TR2_CAMPAIGN_SAMPLE_RECORD_SIZE];
     VibrationSample sample;
     AcquisitionWindow window;
     Tr2Result read_result;
     Tr2Result stop_result;
+    Tr2Result storage_result;
 
     if (!campaign_service_is_initialized(service)) {
         return TR2_ERROR_INVALID_STATE;
@@ -209,8 +262,10 @@ Tr2Result campaign_service_drive_acquisition_step(
     memset(out_step, 0, sizeof(*out_step));
     out_step->source_result = TR2_OK;
     out_step->stop_result = TR2_OK;
+    out_step->storage_result = TR2_OK;
 
-    if (!service->campaign_open || !service->acquisition_window_started ||
+    if (!service->campaign_open || !service->data_store_started ||
+        !service->acquisition_window_started ||
         !acquisition_service_window_active(service->acquisition_service)) {
         return TR2_ERROR_INVALID_STATE;
     }
@@ -222,6 +277,10 @@ Tr2Result campaign_service_drive_acquisition_step(
         out_step->kind = CAMPAIGN_ACQUISITION_STEP_WINDOW_COMPLETED;
         out_step->window = window;
         out_step->stop_result = stop_result;
+        storage_result = checkpoint_completed_window(service, out_step);
+        if (storage_result != TR2_OK) {
+            return storage_result;
+        }
         return stop_result;
     }
 
@@ -230,7 +289,13 @@ Tr2Result campaign_service_drive_acquisition_step(
     if (read_result == TR2_OK) {
         out_step->kind = CAMPAIGN_ACQUISITION_STEP_SAMPLE_READ;
         out_step->sample = sample;
-        return TR2_OK;
+        encode_campaign_sample(&sample, record);
+        storage_result = service->data_store->append(service->data_store->context,
+                                                     service->active_metadata.campaign_id,
+                                                     record,
+                                                     sizeof(record));
+        out_step->storage_result = storage_result;
+        return storage_result;
     }
 
     out_step->source_result = read_result;
@@ -239,6 +304,10 @@ Tr2Result campaign_service_drive_acquisition_step(
     out_step->kind = CAMPAIGN_ACQUISITION_STEP_WINDOW_COMPLETED;
     out_step->window = window;
     out_step->stop_result = stop_result;
+    storage_result = checkpoint_completed_window(service, out_step);
+    if (storage_result != TR2_OK) {
+        return storage_result;
+    }
 
     return read_result;
 }
@@ -253,7 +322,8 @@ Tr2Result campaign_service_publish_supervision_step(
     if (!supervision_service_is_initialized(supervision_service)) {
         return TR2_ERROR_INVALID_STATE;
     }
-    if (step->kind != CAMPAIGN_ACQUISITION_STEP_WINDOW_COMPLETED) {
+    if (step->kind != CAMPAIGN_ACQUISITION_STEP_WINDOW_COMPLETED ||
+        step->storage_result != TR2_OK) {
         return TR2_ERROR_INVALID_STATE;
     }
 
@@ -283,6 +353,15 @@ Tr2Result campaign_service_stop(CampaignService *service,
         result = acquisition_service_end_window(service->acquisition_service,
                                                 &window);
         service->acquisition_window_started = false;
+        if (result != TR2_OK) {
+            return result;
+        }
+
+        if (!service->data_store_started) {
+            return TR2_ERROR_INVALID_STATE;
+        }
+        result = service->data_store->checkpoint(service->data_store->context,
+                                                 service->active_metadata.campaign_id);
         if (result != TR2_OK) {
             return result;
         }

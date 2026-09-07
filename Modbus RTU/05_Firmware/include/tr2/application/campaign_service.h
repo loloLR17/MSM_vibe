@@ -11,6 +11,8 @@
 #include "tr2/persistence/campaign_data_store.h"
 #include "tr2/persistence/campaign_repository.h"
 
+#define TR2_CAMPAIGN_SAMPLE_RECORD_SIZE 16u
+
 typedef enum {
     CAMPAIGN_ACQUISITION_STEP_NONE = 0,
     CAMPAIGN_ACQUISITION_STEP_SAMPLE_READ = 1,
@@ -23,6 +25,7 @@ typedef struct {
     AcquisitionWindow window;
     Tr2Result source_result;
     Tr2Result stop_result;
+    Tr2Result storage_result;
 } CampaignAcquisitionStep;
 
 typedef struct {
