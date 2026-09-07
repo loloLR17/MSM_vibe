@@ -3,6 +3,7 @@
 
 #include <stdbool.h>
 
+#include "tr2/application/campaign_inventory_service.h"
 #include "tr2/application/configuration_service.h"
 #include "tr2/common/result.h"
 #include "tr2/domain/configuration/configuration_validator.h"
@@ -64,8 +65,13 @@ typedef struct {
     CampaignDataStorePersistent campaign_data_store;
     CampaignBootRecoverySnapshot campaign_recovery_snapshot;
     bool campaign_recovery_available;
+    CampaignInventoryService campaign_inventory_service;
+    CampaignInventoryViewSnapshot campaign_inventory_snapshot;
+    bool campaign_inventory_snapshot_available;
     ModbusBlock4Image b4_image;
     bool b4_image_available;
+    ModbusBlock6Image b6_image;
+    bool b6_image_available;
     bool initialized;
     bool system_ready_for_modbus;
 } SystemRuntime;
@@ -80,6 +86,10 @@ bool system_runtime_time_history_recovery_status(const SystemRuntime *runtime,
 bool system_runtime_campaign_recovery_snapshot(
     const SystemRuntime *runtime,
     CampaignBootRecoverySnapshot *out_snapshot);
+bool system_runtime_campaign_inventory_snapshot(
+    const SystemRuntime *runtime,
+    CampaignInventoryViewSnapshot *out_snapshot);
 bool system_runtime_b4_image(const SystemRuntime *runtime, ModbusBlock4Image *out_image);
+bool system_runtime_b6_image(const SystemRuntime *runtime, ModbusBlock6Image *out_image);
 
 #endif
