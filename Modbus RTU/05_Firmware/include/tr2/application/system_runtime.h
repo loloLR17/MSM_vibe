@@ -2,7 +2,13 @@
 #define TR2_APPLICATION_SYSTEM_RUNTIME_H
 
 #include <stdbool.h>
+
+#include "tr2/application/configuration_service.h"
 #include "tr2/common/result.h"
+#include "tr2/domain/configuration/configuration_validator.h"
+#include "tr2/modbus/projection.h"
+#include "tr2/persistence/configuration_store.h"
+#include "tr2/persistence/persistent_storage_core.h"
 #include "tr2/platform/monotonic_clock.h"
 #include "tr2/platform/persistent_media.h"
 #include "tr2/platform/reset_cause_provider.h"
@@ -17,11 +23,17 @@ typedef struct {
     const WallClock *wall_clock;
     const ResetCauseProvider *reset_cause_provider;
     const PersistentMedia *persistent_media;
+    const ConfigurationValidationEnvironment *configuration_validation_environment;
 } SystemRuntimeDependencies;
 
 typedef struct {
     SystemRuntimeDependencies deps;
     BootContext boot_context;
+    PersistentStorageCore persistent_storage_core;
+    ConfigurationStore configuration_store;
+    ConfigurationService configuration_service;
+    ModbusBlock4Image b4_image;
+    bool b4_image_available;
     bool initialized;
     bool system_ready_for_modbus;
 } SystemRuntime;
@@ -30,5 +42,6 @@ Tr2Result system_runtime_init(SystemRuntime *runtime, const SystemRuntimeDepende
 Tr2Result system_runtime_boot(SystemRuntime *runtime);
 const BootContext *system_runtime_boot_context(const SystemRuntime *runtime);
 bool system_runtime_is_ready_for_modbus(const SystemRuntime *runtime);
+bool system_runtime_b4_image(const SystemRuntime *runtime, ModbusBlock4Image *out_image);
 
 #endif
