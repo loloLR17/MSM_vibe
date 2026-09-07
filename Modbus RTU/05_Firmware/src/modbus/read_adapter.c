@@ -7,6 +7,8 @@
 #define TR2_B5_LAST_ADDRESS UINT16_C(5019)
 #define TR2_B6_BASE_ADDRESS UINT16_C(6000)
 #define TR2_B6_LAST_ADDRESS UINT16_C(6063)
+#define TR2_B7_BASE_ADDRESS UINT16_C(7000)
+#define TR2_B7_LAST_ADDRESS UINT16_C(7015)
 
 static ModbusReadOutcome read_from_b0(const ModbusReadSources *sources,
                                       uint16_t start_address,
@@ -141,6 +143,25 @@ static ModbusReadOutcome read_from_b6(const ModbusReadSources *sources,
     return outcome;
 }
 
+static ModbusReadOutcome read_from_b7(const ModbusReadSources *sources,
+                                      uint16_t start_address,
+                                      uint16_t quantity,
+                                      uint16_t *values)
+{
+    ModbusReadOutcome outcome = { MODBUS_ACCESS_OK, TR2_OK };
+    uint16_t index;
+
+    if (sources->b7_image == NULL) {
+        outcome.operation_result = TR2_ERROR_NOT_AVAILABLE;
+        return outcome;
+    }
+    for (index = 0u; index < quantity; ++index) {
+        values[index] = sources->b7_image->registers[
+            (uint16_t)(start_address - TR2_B7_BASE_ADDRESS + index)];
+    }
+    return outcome;
+}
+
 static bool range_is(uint16_t start_address,
                      uint16_t quantity,
                      uint16_t base_address,
@@ -183,6 +204,13 @@ ModbusReadOutcome modbus_read_adapter_read(const ModbusReadSources *sources,
         outcome.access_result = MODBUS_ACCESS_ILLEGAL_ADDRESS;
         return outcome;
     }
+    if (range_is(start_address, quantity, TR2_B7_BASE_ADDRESS, TR2_B7_LAST_ADDRESS)) {
+        return read_from_b7(sources, start_address, quantity, values);
+    }
+    if (start_address >= TR2_B7_BASE_ADDRESS && start_address <= TR2_B7_LAST_ADDRESS) {
+        outcome.access_result = MODBUS_ACCESS_ILLEGAL_ADDRESS;
+        return outcome;
+    }
 
     outcome.access_result = modbus_register_model_validate_read(start_address, quantity);
     if (outcome.access_result != MODBUS_ACCESS_OK) {
@@ -219,3 +247,5 @@ ModbusReadOutcome modbus_read_adapter_read(const ModbusReadSources *sources,
 #undef TR2_B5_LAST_ADDRESS
 #undef TR2_B6_BASE_ADDRESS
 #undef TR2_B6_LAST_ADDRESS
+#undef TR2_B7_BASE_ADDRESS
+#undef TR2_B7_LAST_ADDRESS
