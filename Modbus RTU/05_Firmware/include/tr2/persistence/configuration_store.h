@@ -18,12 +18,15 @@
 typedef struct {
     PersistentStorageCore *storage;
     bool initialized;
+    bool recovery_required;
 } ConfigurationStore;
 
 Tr2Result configuration_store_init(ConfigurationStore *store,
                                    PersistentStorageCore *storage);
 
 bool configuration_store_is_initialized(const ConfigurationStore *store);
+
+bool configuration_store_recovery_required(const ConfigurationStore *store);
 
 Tr2Result configuration_store_commit(ConfigurationStore *store,
                                      const ActiveConfigurationSnapshot *snapshot);
