@@ -11,6 +11,8 @@
 #define TR2_CAMPAIGN_DATA_STORAGE_OFFSET \
     (TR2_CAMPAIGN_REPOSITORY_STORAGE_OFFSET + \
      (uint32_t)TR2_CAMPAIGN_REPOSITORY_STORAGE_SIZE)
+#define TR2_COMMAND_JOURNAL_STORAGE_OFFSET \
+    (TR2_CAMPAIGN_DATA_STORAGE_OFFSET + (uint32_t)TR2_CAMPAIGN_DATA_STORAGE_SIZE)
 #define TR2_B6_INVENTORY_STRUCTURE_VERSION UINT16_C(1)
 
 static bool dependencies_are_valid(const SystemRuntimeDependencies *deps)
@@ -183,10 +185,8 @@ static Tr2Result recover_campaigns(SystemRuntime *runtime)
         return result;
     }
 
-    repository = campaign_repository_store_interface(
-        &runtime->campaign_repository_store);
-    data_store = campaign_data_store_persistent_interface(
-        &runtime->campaign_data_store);
+    repository = campaign_repository_store_interface(&runtime->campaign_repository_store);
+    data_store = campaign_data_store_persistent_interface(&runtime->campaign_data_store);
     if (repository == NULL || data_store == NULL) {
         return TR2_ERROR_INTERNAL;
     }
@@ -197,11 +197,8 @@ static Tr2Result recover_campaigns(SystemRuntime *runtime)
         return result;
     }
 
-    memset(&runtime->campaign_recovery_snapshot,
-           0,
-           sizeof(runtime->campaign_recovery_snapshot));
-    runtime->campaign_recovery_snapshot.repository_status =
-        repository_recovery.status;
+    memset(&runtime->campaign_recovery_snapshot, 0, sizeof(runtime->campaign_recovery_snapshot));
+    runtime->campaign_recovery_snapshot.repository_status = repository_recovery.status;
     runtime->campaign_recovery_snapshot.inventory = repository_recovery.inventory;
 
     if (repository_recovery.status == CAMPAIGN_REPOSITORY_RECOVERY_VALID) {
@@ -212,8 +209,7 @@ static Tr2Result recover_campaigns(SystemRuntime *runtime)
         }
 
         for (index = 0u; index < recover_count; ++index) {
-            CampaignBootRecoveryEntry *entry =
-                &runtime->campaign_recovery_snapshot.campaigns[index];
+            CampaignBootRecoveryEntry *entry = &runtime->campaign_recovery_snapshot.campaigns[index];
 
             result = repository->get_campaign_by_index(repository->context,
                                                        index,
@@ -235,8 +231,7 @@ static Tr2Result recover_campaigns(SystemRuntime *runtime)
 
     if (repository_recovery.status == CAMPAIGN_REPOSITORY_RECOVERY_VALID ||
         repository_recovery.status == CAMPAIGN_REPOSITORY_RECOVERY_EMPTY) {
-        result = campaign_inventory_service_init(&runtime->campaign_inventory_service,
-                                                 repository);
+        result = campaign_inventory_service_init(&runtime->campaign_inventory_service, repository);
         if (result != TR2_OK) {
             return result;
         }
@@ -246,13 +241,97 @@ static Tr2Result recover_campaigns(SystemRuntime *runtime)
     return TR2_OK;
 }
 
+static Tr2Result recover_commands(SystemRuntime *runtime)
+{
+    CommandBootRecoveryAuthorities authorities;
+    CommandJournal *journal;
+    CampaignRepository *repository;
+    Tr2Result result;
+
+    result = persistent_media_region_init(
+        &runtime->command_journal_media_region,
+        runtime->deps.persistent_media,
+        TR2_COMMAND_JOURNAL_STORAGE_OFFSET,
+        (uint32_t)TR2_COMMAND_JOURNAL_STORE_STORAGE_SIZE);
+    if (result != TR2_OK) {
+        return result;
+    }
+
+    result = persistent_storage_core_init(
+        &runtime->command_journal_storage_core,
+        persistent_media_region_interface(&runtime->command_journal_media_region));
+    if (result != TR2_OK) {
+        return result;
+    }
+
+    result = command_journal_store_init(&runtime->command_journal_store,
+                                        &runtime->command_journal_storage_core,
+                                        TR2_COMMAND_JOURNAL_STORE_MAX_TRANSACTION_ID);
+    if (result != TR2_OK) {
+        return result;
+    }
+
+    result = command_journal_store_recover(&runtime->command_journal_store,
+                                           &runtime->command_journal_recovery);
+    if (result != TR2_OK) {
+        return result;
+    }
+    if (runtime->command_journal_recovery.status == COMMAND_JOURNAL_RECOVERY_CORRUPTED) {
+        return TR2_ERROR_CORRUPTED;
+    }
+    if (runtime->command_journal_recovery.status == COMMAND_JOURNAL_RECOVERY_UNSUPPORTED) {
+        return TR2_ERROR_UNSUPPORTED;
+    }
+    if (runtime->command_journal_recovery.status == COMMAND_JOURNAL_RECOVERY_UNAVAILABLE) {
+        return TR2_ERROR_UNAVAILABLE;
+    }
+
+    journal = command_journal_store_journal(&runtime->command_journal_store);
+    repository = campaign_repository_store_interface(&runtime->campaign_repository_store);
+    if (journal == NULL || repository == NULL) {
+        return TR2_ERROR_INTERNAL;
+    }
+
+    memset(&authorities, 0, sizeof(authorities));
+    authorities.configuration_service = &runtime->configuration_service;
+    authorities.time_service = &runtime->time_service;
+    authorities.campaign_repository = repository;
+    result = command_boot_recovery_scan(&runtime->command_journal_store,
+                                        &authorities,
+                                        &runtime->command_boot_recovery);
+    if (result != TR2_OK) {
+        return result;
+    }
+
+    result = command_engine_init(&runtime->command_engine, journal);
+    if (result != TR2_OK) {
+        return result;
+    }
+    if (runtime->command_boot_recovery.has_incomplete_transaction) {
+        result = command_engine_restore_incomplete(
+            &runtime->command_engine,
+            &runtime->command_boot_recovery.incomplete_transaction);
+        if (result != TR2_OK) {
+            return result;
+        }
+    }
+
+    command_request_mailbox_init(&runtime->command_mailbox);
+    result = command_engine_snapshot(&runtime->command_engine, &runtime->command_snapshot);
+    if (result != TR2_OK) {
+        return result;
+    }
+
+    runtime->command_runtime_available = true;
+    return TR2_OK;
+}
+
 static Tr2Result rebuild_b4(SystemRuntime *runtime)
 {
     ActiveConfigurationSnapshot active;
     ModbusBlock4ProjectionSource source;
-    const bool has_active = configuration_service_active_snapshot(
-        &runtime->configuration_service,
-        &active);
+    const bool has_active = configuration_service_active_snapshot(&runtime->configuration_service,
+                                                                  &active);
     Tr2Result result;
 
     memset(&source, 0, sizeof(source));
@@ -273,6 +352,33 @@ static Tr2Result rebuild_b4(SystemRuntime *runtime)
     return TR2_OK;
 }
 
+static Tr2Result rebuild_b5(SystemRuntime *runtime)
+{
+    ModbusBlock5ProjectionSource source;
+    Tr2Result result;
+
+    if (!runtime->command_runtime_available) {
+        return TR2_ERROR_INVALID_STATE;
+    }
+
+    result = command_engine_snapshot(&runtime->command_engine, &runtime->command_snapshot);
+    if (result != TR2_OK) {
+        return result;
+    }
+
+    memset(&source, 0, sizeof(source));
+    source.mailbox = &runtime->command_mailbox;
+    source.snapshot = &runtime->command_snapshot;
+    result = modbus_project_b5(&source, &runtime->b5_image);
+    if (result != TR2_OK) {
+        runtime->b5_image_available = false;
+        return result;
+    }
+
+    runtime->b5_image_available = true;
+    return TR2_OK;
+}
+
 static Tr2Result rebuild_b6(SystemRuntime *runtime)
 {
     ModbusBlock6ProjectionSource source;
@@ -281,14 +387,12 @@ static Tr2Result rebuild_b6(SystemRuntime *runtime)
     runtime->campaign_inventory_snapshot_available = false;
     runtime->b6_image_available = false;
 
-    if (!campaign_inventory_service_is_initialized(
-            &runtime->campaign_inventory_service)) {
+    if (!campaign_inventory_service_is_initialized(&runtime->campaign_inventory_service)) {
         return TR2_OK;
     }
 
-    result = campaign_inventory_service_snapshot(
-        &runtime->campaign_inventory_service,
-        &runtime->campaign_inventory_snapshot);
+    result = campaign_inventory_service_snapshot(&runtime->campaign_inventory_service,
+                                                 &runtime->campaign_inventory_snapshot);
     if (result != TR2_OK) {
         return result;
     }
@@ -316,8 +420,9 @@ Tr2Result system_runtime_init(SystemRuntime *runtime, const SystemRuntimeDepende
     runtime->deps = *deps;
     runtime->boot_context.reset_cause = RESET_CAUSE_UNKNOWN;
     runtime->time_history_recovery_status = TIME_HISTORY_RECOVERY_EMPTY;
-    runtime->campaign_recovery_snapshot.repository_status =
-        CAMPAIGN_REPOSITORY_RECOVERY_EMPTY;
+    runtime->campaign_recovery_snapshot.repository_status = CAMPAIGN_REPOSITORY_RECOVERY_EMPTY;
+    runtime->command_journal_recovery.status = COMMAND_JOURNAL_RECOVERY_EMPTY;
+    runtime->command_boot_recovery.status = COMMAND_BOOT_RECOVERY_CLEAN;
     runtime->initialized = true;
     return TR2_OK;
 }
@@ -334,42 +439,49 @@ Tr2Result system_runtime_boot(SystemRuntime *runtime)
     runtime->time_snapshot_available = false;
     runtime->campaign_recovery_available = false;
     runtime->campaign_inventory_snapshot_available = false;
+    runtime->command_runtime_available = false;
     runtime->b4_image_available = false;
+    runtime->b5_image_available = false;
     runtime->b6_image_available = false;
 
-    /* G0/G1: establish minimal platform facts before domain recovery. */
     (void)runtime->deps.monotonic_clock->now_ms(runtime->deps.monotonic_clock->context);
     runtime->boot_context.reset_cause =
         runtime->deps.reset_cause_provider->get(runtime->deps.reset_cause_provider->context);
 
-    /* G2: initialize generic persistence before domain stores. */
     result = persistent_storage_core_init(&runtime->persistent_storage_core,
                                           runtime->deps.persistent_media);
     if (result != TR2_OK) {
         return result;
     }
 
-    /* G4: establish temporal recovery facts and initial TimeSnapshot before
-       any projection or business consumer depends on temporal quality. */
     result = recover_time(runtime);
     if (result != TR2_OK) {
         return result;
     }
 
-    /* G5: recover authoritative ActiveConfiguration. */
     result = recover_configuration(runtime);
     if (result != TR2_OK) {
         return result;
     }
 
-    /* G6: recover campaign metadata and durable data prefixes. Recovery is
-       observational only: no campaign or acquisition is automatically resumed. */
     result = recover_campaigns(runtime);
     if (result != TR2_OK) {
         return result;
     }
 
+    /* P7-O: transaction recovery is completed before CommandEngine admission
+       and before Modbus readiness. No incomplete transaction is replayed. */
+    result = recover_commands(runtime);
+    if (result != TR2_OK) {
+        return result;
+    }
+
     result = rebuild_b4(runtime);
+    if (result != TR2_OK) {
+        return result;
+    }
+
+    result = rebuild_b5(runtime);
     if (result != TR2_OK) {
         return result;
     }
@@ -388,7 +500,6 @@ const BootContext *system_runtime_boot_context(const SystemRuntime *runtime)
     if (runtime == NULL || !runtime->initialized) {
         return NULL;
     }
-
     return &runtime->boot_context;
 }
 
@@ -403,7 +514,6 @@ bool system_runtime_time_snapshot(const SystemRuntime *runtime, TimeSnapshot *ou
         !runtime->system_ready_for_modbus || !runtime->time_snapshot_available) {
         return false;
     }
-
     *out_snapshot = runtime->time_snapshot;
     return true;
 }
@@ -415,35 +525,51 @@ bool system_runtime_time_history_recovery_status(const SystemRuntime *runtime,
         !runtime->system_ready_for_modbus || !runtime->time_snapshot_available) {
         return false;
     }
-
     *out_status = runtime->time_history_recovery_status;
     return true;
 }
 
-bool system_runtime_campaign_recovery_snapshot(
-    const SystemRuntime *runtime,
-    CampaignBootRecoverySnapshot *out_snapshot)
+bool system_runtime_campaign_recovery_snapshot(const SystemRuntime *runtime,
+                                               CampaignBootRecoverySnapshot *out_snapshot)
 {
     if (runtime == NULL || out_snapshot == NULL || !runtime->initialized ||
         !runtime->system_ready_for_modbus || !runtime->campaign_recovery_available) {
         return false;
     }
-
     *out_snapshot = runtime->campaign_recovery_snapshot;
     return true;
 }
 
-bool system_runtime_campaign_inventory_snapshot(
-    const SystemRuntime *runtime,
-    CampaignInventoryViewSnapshot *out_snapshot)
+bool system_runtime_campaign_inventory_snapshot(const SystemRuntime *runtime,
+                                                CampaignInventoryViewSnapshot *out_snapshot)
 {
     if (runtime == NULL || out_snapshot == NULL || !runtime->initialized ||
-        !runtime->system_ready_for_modbus ||
-        !runtime->campaign_inventory_snapshot_available) {
+        !runtime->system_ready_for_modbus || !runtime->campaign_inventory_snapshot_available) {
         return false;
     }
-
     *out_snapshot = runtime->campaign_inventory_snapshot;
+    return true;
+}
+
+bool system_runtime_command_boot_recovery(const SystemRuntime *runtime,
+                                          CommandBootRecoveryResult *out_recovery)
+{
+    if (runtime == NULL || out_recovery == NULL || !runtime->initialized ||
+        !runtime->system_ready_for_modbus || !runtime->command_runtime_available) {
+        return false;
+    }
+    *out_recovery = runtime->command_boot_recovery;
+    return true;
+}
+
+bool system_runtime_command_snapshot(const SystemRuntime *runtime,
+                                     CommandSnapshot *out_snapshot)
+{
+    if (runtime == NULL || out_snapshot == NULL || !runtime->initialized ||
+        !runtime->system_ready_for_modbus || !runtime->command_runtime_available) {
+        return false;
+    }
+    *out_snapshot = runtime->command_snapshot;
     return true;
 }
 
@@ -453,8 +579,17 @@ bool system_runtime_b4_image(const SystemRuntime *runtime, ModbusBlock4Image *ou
         !runtime->system_ready_for_modbus || !runtime->b4_image_available) {
         return false;
     }
-
     *out_image = runtime->b4_image;
+    return true;
+}
+
+bool system_runtime_b5_image(const SystemRuntime *runtime, ModbusBlock5Image *out_image)
+{
+    if (runtime == NULL || out_image == NULL || !runtime->initialized ||
+        !runtime->system_ready_for_modbus || !runtime->b5_image_available) {
+        return false;
+    }
+    *out_image = runtime->b5_image;
     return true;
 }
 
@@ -464,12 +599,12 @@ bool system_runtime_b6_image(const SystemRuntime *runtime, ModbusBlock6Image *ou
         !runtime->system_ready_for_modbus || !runtime->b6_image_available) {
         return false;
     }
-
     *out_image = runtime->b6_image;
     return true;
 }
 
 #undef TR2_B6_INVENTORY_STRUCTURE_VERSION
+#undef TR2_COMMAND_JOURNAL_STORAGE_OFFSET
 #undef TR2_CAMPAIGN_DATA_STORAGE_OFFSET
 #undef TR2_CAMPAIGN_REPOSITORY_STORAGE_OFFSET
 #undef TR2_TIME_HISTORY_STORAGE_OFFSET
