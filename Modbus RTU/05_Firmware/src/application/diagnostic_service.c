@@ -2,6 +2,7 @@
 #include <string.h>
 
 #include "tr2/application/diagnostic_service.h"
+#include "tr2/application/selftest_service.h"
 
 static bool active_fault_input_valid(const DiagnosticActiveFault *faults, size_t fault_count)
 {
@@ -57,6 +58,15 @@ static DiagnosticFaultAcknowledgement *find_active_fault_mutable(
     return NULL;
 }
 
+static void ensure_snapshot(DiagnosticService *service)
+{
+    if (!service->has_snapshot) {
+        memset(&service->snapshot, 0, sizeof(service->snapshot));
+        service->snapshot.facts.health = DIAGNOSTIC_HEALTH_OK;
+        service->snapshot.facts.selftest.state = DIAGNOSTIC_SELFTEST_NEVER_RUN;
+    }
+}
+
 Tr2Result diagnostic_service_init(DiagnosticService *service)
 {
     if (service == NULL) {
@@ -101,15 +111,42 @@ Tr2Result diagnostic_service_restore_last_fault(DiagnosticService *service,
         return TR2_ERROR_INVALID_STATE;
     }
 
-    if (!service->has_snapshot) {
-        memset(&service->snapshot, 0, sizeof(service->snapshot));
-        service->snapshot.facts.health = DIAGNOSTIC_HEALTH_OK;
-        service->snapshot.facts.selftest.state = DIAGNOSTIC_SELFTEST_NEVER_RUN;
-    }
+    ensure_snapshot(service);
     service->snapshot.facts.last_fault = *last_fault;
     service->snapshot.generation = service->next_generation++;
     service->has_snapshot = true;
     return TR2_OK;
+}
+
+Tr2Result diagnostic_service_publish_selftest(DiagnosticService *service,
+                                              const DiagnosticSelfTestFacts *selftest)
+{
+    if (service == NULL || selftest == NULL) {
+        return TR2_ERROR_INVALID_ARGUMENT;
+    }
+    if (!service->initialized) {
+        return TR2_ERROR_INVALID_STATE;
+    }
+    if (selftest->state > DIAGNOSTIC_SELFTEST_FAILED) {
+        return TR2_ERROR_INVALID_ARGUMENT;
+    }
+
+    ensure_snapshot(service);
+    service->snapshot.facts.selftest = *selftest;
+    service->snapshot.generation = service->next_generation++;
+    service->has_snapshot = true;
+    return TR2_OK;
+}
+
+Tr2Result diagnostic_service_restore_selftest(DiagnosticService *service,
+                                              const DiagnosticSelfTestFacts *selftest)
+{
+    if (selftest == NULL ||
+        (selftest->state != DIAGNOSTIC_SELFTEST_PASSED &&
+         selftest->state != DIAGNOSTIC_SELFTEST_FAILED)) {
+        return TR2_ERROR_INVALID_ARGUMENT;
+    }
+    return diagnostic_service_publish_selftest(service, selftest);
 }
 
 Tr2Result diagnostic_service_publish_active_faults(DiagnosticService *service,
@@ -244,4 +281,115 @@ bool diagnostic_service_snapshot(const DiagnosticService *service,
 
     *out_snapshot = service->snapshot;
     return true;
+}
+
+Tr2Result selftest_service_init(SelfTestService *service,
+                                DiagnosticService *diagnostic_service,
+                                DiagnosticHistoryStore *history_store)
+{
+    if (service == NULL || diagnostic_service == NULL || history_store == NULL ||
+        !diagnostic_service_is_initialized(diagnostic_service) ||
+        !diagnostic_history_store_is_initialized(history_store)) {
+        return TR2_ERROR_INVALID_ARGUMENT;
+    }
+
+    memset(service, 0, sizeof(*service));
+    service->diagnostic_service = diagnostic_service;
+    service->history_store = history_store;
+    service->initialized = true;
+    return TR2_OK;
+}
+
+bool selftest_service_is_initialized(const SelfTestService *service)
+{
+    return service != NULL && service->initialized &&
+           service->diagnostic_service != NULL &&
+           diagnostic_service_is_initialized(service->diagnostic_service) &&
+           service->history_store != NULL &&
+           diagnostic_history_store_is_initialized(service->history_store);
+}
+
+bool selftest_service_running(const SelfTestService *service)
+{
+    return selftest_service_is_initialized(service) && service->running;
+}
+
+Tr2Result selftest_service_recover(SelfTestService *service,
+                                   DiagnosticHistoryRecoveryStatus *out_status)
+{
+    DiagnosticSelfTestRecoveryResult recovery;
+    Tr2Result result;
+
+    if (!selftest_service_is_initialized(service) || out_status == NULL) {
+        return TR2_ERROR_INVALID_ARGUMENT;
+    }
+    if (service->running) {
+        return TR2_ERROR_INVALID_STATE;
+    }
+
+    result = diagnostic_history_store_recover_selftest(service->history_store, &recovery);
+    if (result != TR2_OK) {
+        return result;
+    }
+    *out_status = recovery.status;
+    if (recovery.status == DIAGNOSTIC_HISTORY_RECOVERY_VALID) {
+        return diagnostic_service_restore_selftest(service->diagnostic_service,
+                                                   &recovery.selftest);
+    }
+    return TR2_OK;
+}
+
+Tr2Result selftest_service_begin_standard(SelfTestService *service)
+{
+    DiagnosticSelfTestFacts selftest;
+    Tr2Result result;
+
+    if (!selftest_service_is_initialized(service)) {
+        return TR2_ERROR_INVALID_STATE;
+    }
+    if (service->running) {
+        return TR2_ERROR_INVALID_STATE;
+    }
+
+    memset(&selftest, 0, sizeof(selftest));
+    selftest.state = DIAGNOSTIC_SELFTEST_RUNNING;
+    result = diagnostic_service_publish_selftest(service->diagnostic_service, &selftest);
+    if (result != TR2_OK) {
+        return result;
+    }
+    service->running = true;
+    return TR2_OK;
+}
+
+Tr2Result selftest_service_complete(SelfTestService *service,
+                                    bool passed,
+                                    uint16_t result_code,
+                                    uint16_t detail)
+{
+    DiagnosticSelfTestFacts selftest;
+    Tr2Result result;
+
+    if (!selftest_service_is_initialized(service)) {
+        return TR2_ERROR_INVALID_STATE;
+    }
+    if (!service->running) {
+        return TR2_ERROR_INVALID_STATE;
+    }
+
+    memset(&selftest, 0, sizeof(selftest));
+    selftest.state = passed ? DIAGNOSTIC_SELFTEST_PASSED : DIAGNOSTIC_SELFTEST_FAILED;
+    selftest.result_code = result_code;
+    selftest.detail = detail;
+
+    result = diagnostic_history_store_commit_selftest(service->history_store, &selftest);
+    if (result != TR2_OK) {
+        return result;
+    }
+    result = diagnostic_service_publish_selftest(service->diagnostic_service, &selftest);
+    if (result != TR2_OK) {
+        return result;
+    }
+
+    service->running = false;
+    return TR2_OK;
 }

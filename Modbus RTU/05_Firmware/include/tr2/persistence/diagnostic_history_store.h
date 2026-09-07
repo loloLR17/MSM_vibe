@@ -23,6 +23,11 @@ typedef struct {
 } DiagnosticHistoryRecoveryResult;
 
 typedef struct {
+    DiagnosticHistoryRecoveryStatus status;
+    DiagnosticSelfTestFacts selftest;
+} DiagnosticSelfTestRecoveryResult;
+
+typedef struct {
     PersistentStorageCore *storage;
     uint32_t storage_offset;
     bool initialized;
@@ -42,5 +47,12 @@ Tr2Result diagnostic_history_store_commit_last_fault(DiagnosticHistoryStore *sto
 
 Tr2Result diagnostic_history_store_recover(const DiagnosticHistoryStore *store,
                                            DiagnosticHistoryRecoveryResult *result);
+
+Tr2Result diagnostic_history_store_commit_selftest(DiagnosticHistoryStore *store,
+                                                   const DiagnosticSelfTestFacts *selftest);
+
+Tr2Result diagnostic_history_store_recover_selftest(
+    const DiagnosticHistoryStore *store,
+    DiagnosticSelfTestRecoveryResult *result);
 
 #endif

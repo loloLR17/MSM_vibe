@@ -4,16 +4,20 @@
 #include <string.h>
 
 #include "tr2/application/diagnostic_service.h"
+#include "tr2/application/selftest_service.h"
 #include "tr2/application/system_state_aggregator.h"
 #include "tr2/persistence/diagnostic_history_store.h"
 
 #define TEST_OFFSET UINT32_C(5)
-#define TEST_MEDIA_SIZE (TEST_OFFSET + TR2_DIAGNOSTIC_HISTORY_RECORD_SIZE + 4u)
+#define TEST_MEDIA_SIZE \
+    (TEST_OFFSET + TR2_DIAGNOSTIC_HISTORY_RECORD_SIZE + \
+     TR2_DIAGNOSTIC_SELFTEST_RECORD_SIZE + 4u)
 
 typedef struct {
     uint8_t durable[TEST_MEDIA_SIZE];
     uint8_t staged[TEST_MEDIA_SIZE];
     bool fail_read;
+    bool fail_commit;
 } TestMedia;
 
 typedef struct {
@@ -39,6 +43,7 @@ static Tr2Result media_write(void *context, uint32_t offset, const void *buffer,
 static Tr2Result media_commit(void *context)
 {
     TestMedia *media = (TestMedia *)context;
+    if (media->fail_commit) return TR2_ERROR_STORAGE;
     memcpy(media->durable, media->staged, sizeof(media->durable));
     return TR2_OK;
 }
@@ -67,7 +72,7 @@ static Tr2Result collect_refresh(void *context,
     return TR2_OK;
 }
 
-int main(void)
+static void test_diagnostic_history_and_aggregation(void)
 {
     TestMedia media;
     PersistentMedia backend;
@@ -85,6 +90,7 @@ int main(void)
 
     memset(&media, 0xFF, sizeof(media));
     media.fail_read = false;
+    media.fail_commit = false;
     backend.context = &media;
     backend.read = media_read;
     backend.write = media_write;
@@ -115,6 +121,7 @@ int main(void)
     media.fail_read = true;
     assert(diagnostic_history_store_recover(&store, &recovery) == TR2_OK);
     assert(recovery.status == DIAGNOSTIC_HISTORY_RECOVERY_UNAVAILABLE);
+    media.fail_read = false;
 
     memset(&diagnostic, 0, sizeof(diagnostic));
     diagnostic.generation = 7u;
@@ -164,6 +171,82 @@ int main(void)
     assert(system.internal_temp_dC == 311);
     assert(system.uptime_s == 456u);
     assert(system.storage_status == 1u);
+}
 
+static void test_selftest_last_completed_recovery(void)
+{
+    TestMedia media;
+    PersistentMedia backend;
+    PersistentStorageCore storage;
+    DiagnosticHistoryStore store = {0};
+    DiagnosticSelfTestRecoveryResult recovered;
+    DiagnosticHistoryRecoveryStatus recovery_status;
+    DiagnosticService diagnostic_service;
+    DiagnosticService reboot_diagnostic;
+    SelfTestService selftest;
+    SelfTestService reboot_selftest;
+    DiagnosticSnapshot snapshot;
+
+    memset(&media, 0xFF, sizeof(media));
+    media.fail_read = false;
+    media.fail_commit = false;
+    backend.context = &media;
+    backend.read = media_read;
+    backend.write = media_write;
+    backend.commit = media_commit;
+    assert(persistent_storage_core_init(&storage, &backend) == TR2_OK);
+    assert(diagnostic_history_store_init(&store, &storage, TEST_OFFSET) == TR2_OK);
+    assert(diagnostic_history_store_recover_selftest(&store, &recovered) == TR2_OK);
+    assert(recovered.status == DIAGNOSTIC_HISTORY_RECOVERY_EMPTY);
+
+    assert(diagnostic_service_init(&diagnostic_service) == TR2_OK);
+    assert(selftest_service_init(&selftest, &diagnostic_service, &store) == TR2_OK);
+    assert(selftest_service_recover(&selftest, &recovery_status) == TR2_OK);
+    assert(recovery_status == DIAGNOSTIC_HISTORY_RECOVERY_EMPTY);
+    assert(!selftest_service_running(&selftest));
+
+    assert(selftest_service_begin_standard(&selftest) == TR2_OK);
+    assert(selftest_service_running(&selftest));
+    assert(diagnostic_service_snapshot(&diagnostic_service, &snapshot));
+    assert(snapshot.facts.selftest.state == DIAGNOSTIC_SELFTEST_RUNNING);
+    assert(snapshot.facts.selftest.result_code == 0u);
+    assert(snapshot.facts.selftest.detail == 0u);
+
+    assert(selftest_service_complete(&selftest, true, 0u, 0u) == TR2_OK);
+    assert(!selftest_service_running(&selftest));
+    assert(diagnostic_service_snapshot(&diagnostic_service, &snapshot));
+    assert(snapshot.facts.selftest.state == DIAGNOSTIC_SELFTEST_PASSED);
+    assert(diagnostic_history_store_recover_selftest(&store, &recovered) == TR2_OK);
+    assert(recovered.status == DIAGNOSTIC_HISTORY_RECOVERY_VALID);
+    assert(recovered.selftest.state == DIAGNOSTIC_SELFTEST_PASSED);
+
+    assert(selftest_service_begin_standard(&selftest) == TR2_OK);
+    assert(selftest_service_running(&selftest));
+
+    assert(diagnostic_service_init(&reboot_diagnostic) == TR2_OK);
+    assert(selftest_service_init(&reboot_selftest, &reboot_diagnostic, &store) == TR2_OK);
+    assert(selftest_service_recover(&reboot_selftest, &recovery_status) == TR2_OK);
+    assert(recovery_status == DIAGNOSTIC_HISTORY_RECOVERY_VALID);
+    assert(!selftest_service_running(&reboot_selftest));
+    assert(diagnostic_service_snapshot(&reboot_diagnostic, &snapshot));
+    assert(snapshot.facts.selftest.state == DIAGNOSTIC_SELFTEST_PASSED);
+
+    assert(selftest_service_begin_standard(&reboot_selftest) == TR2_OK);
+    assert(diagnostic_service_snapshot(&reboot_diagnostic, &snapshot));
+    assert(snapshot.facts.selftest.state == DIAGNOSTIC_SELFTEST_RUNNING);
+    media.fail_commit = true;
+    assert(selftest_service_complete(&reboot_selftest,
+                                     false,
+                                     UINT16_C(0x1234),
+                                     UINT16_C(0x0042)) == TR2_ERROR_STORAGE);
+    assert(selftest_service_running(&reboot_selftest));
+    assert(diagnostic_service_snapshot(&reboot_diagnostic, &snapshot));
+    assert(snapshot.facts.selftest.state == DIAGNOSTIC_SELFTEST_RUNNING);
+}
+
+int main(void)
+{
+    test_diagnostic_history_and_aggregation();
+    test_selftest_last_completed_recovery();
     return 0;
 }

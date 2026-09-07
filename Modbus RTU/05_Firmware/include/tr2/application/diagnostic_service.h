@@ -27,6 +27,12 @@ Tr2Result diagnostic_service_publish_facts(DiagnosticService *service,
 Tr2Result diagnostic_service_restore_last_fault(DiagnosticService *service,
                                                 const DiagnosticLastFault *last_fault);
 
+Tr2Result diagnostic_service_publish_selftest(DiagnosticService *service,
+                                              const DiagnosticSelfTestFacts *selftest);
+
+Tr2Result diagnostic_service_restore_selftest(DiagnosticService *service,
+                                              const DiagnosticSelfTestFacts *selftest);
+
 Tr2Result diagnostic_service_publish_active_faults(DiagnosticService *service,
                                                    const DiagnosticActiveFault *faults,
                                                    size_t fault_count);

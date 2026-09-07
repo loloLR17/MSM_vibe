@@ -2,11 +2,11 @@
 
 #include <string.h>
 
-static bool record_is_uniform(const uint8_t *record, uint8_t value)
+static bool record_is_uniform(const uint8_t *record, size_t record_size, uint8_t value)
 {
     size_t index;
 
-    for (index = 0u; index < TR2_DIAGNOSTIC_HISTORY_RECORD_SIZE; ++index) {
+    for (index = 0u; index < record_size; ++index) {
         if (record[index] != value) {
             return false;
         }
@@ -14,10 +14,15 @@ static bool record_is_uniform(const uint8_t *record, uint8_t value)
     return true;
 }
 
-static bool record_is_empty(const uint8_t *record)
+static bool record_is_empty(const uint8_t *record, size_t record_size)
 {
-    return record_is_uniform(record, UINT8_C(0x00)) ||
-           record_is_uniform(record, UINT8_C(0xFF));
+    return record_is_uniform(record, record_size, UINT8_C(0x00)) ||
+           record_is_uniform(record, record_size, UINT8_C(0xFF));
+}
+
+static uint32_t selftest_offset(const DiagnosticHistoryStore *store)
+{
+    return store->storage_offset + (uint32_t)TR2_DIAGNOSTIC_HISTORY_RECORD_SIZE;
 }
 
 Tr2Result diagnostic_history_store_init(DiagnosticHistoryStore *store,
@@ -105,7 +110,7 @@ Tr2Result diagnostic_history_store_recover(const DiagnosticHistoryStore *store,
         result->status = DIAGNOSTIC_HISTORY_RECOVERY_UNAVAILABLE;
         return TR2_OK;
     }
-    if (record_is_empty(record)) {
+    if (record_is_empty(record, sizeof(record))) {
         result->status = DIAGNOSTIC_HISTORY_RECOVERY_EMPTY;
         return TR2_OK;
     }
@@ -119,6 +124,84 @@ Tr2Result diagnostic_history_store_recover(const DiagnosticHistoryStore *store,
     }
 
     memset(&result->last_fault, 0, sizeof(result->last_fault));
+    result->status = status == TR2_ERROR_UNSUPPORTED
+                         ? DIAGNOSTIC_HISTORY_RECOVERY_UNSUPPORTED
+                         : DIAGNOSTIC_HISTORY_RECOVERY_CORRUPTED;
+    return TR2_OK;
+}
+
+Tr2Result diagnostic_history_store_commit_selftest(DiagnosticHistoryStore *store,
+                                                   const DiagnosticSelfTestFacts *selftest)
+{
+    uint8_t record[TR2_DIAGNOSTIC_SELFTEST_RECORD_SIZE];
+    Tr2Result result;
+
+    if (!diagnostic_history_store_is_initialized(store) || store->recovery_required) {
+        return TR2_ERROR_INVALID_STATE;
+    }
+    if (selftest == NULL) {
+        return TR2_ERROR_INVALID_ARGUMENT;
+    }
+
+    result = tr2_diagnostic_selftest_record_encode(selftest, record, sizeof(record));
+    if (result != TR2_OK) {
+        return result;
+    }
+
+    result = persistent_storage_core_write(store->storage,
+                                           selftest_offset(store),
+                                           record,
+                                           sizeof(record));
+    if (result != TR2_OK) {
+        store->recovery_required = true;
+        return result;
+    }
+
+    result = persistent_storage_core_commit(store->storage);
+    if (result != TR2_OK) {
+        store->recovery_required = true;
+        return result;
+    }
+    return TR2_OK;
+}
+
+Tr2Result diagnostic_history_store_recover_selftest(
+    const DiagnosticHistoryStore *store,
+    DiagnosticSelfTestRecoveryResult *result)
+{
+    uint8_t record[TR2_DIAGNOSTIC_SELFTEST_RECORD_SIZE];
+    Tr2Result status;
+
+    if (!diagnostic_history_store_is_initialized(store) || store->recovery_required) {
+        return TR2_ERROR_INVALID_STATE;
+    }
+    if (result == NULL) {
+        return TR2_ERROR_INVALID_ARGUMENT;
+    }
+
+    memset(result, 0, sizeof(*result));
+    status = persistent_storage_core_read(store->storage,
+                                          selftest_offset(store),
+                                          record,
+                                          sizeof(record));
+    if (status != TR2_OK) {
+        result->status = DIAGNOSTIC_HISTORY_RECOVERY_UNAVAILABLE;
+        return TR2_OK;
+    }
+    if (record_is_empty(record, sizeof(record))) {
+        result->status = DIAGNOSTIC_HISTORY_RECOVERY_EMPTY;
+        return TR2_OK;
+    }
+
+    status = tr2_diagnostic_selftest_record_decode(record,
+                                                   sizeof(record),
+                                                   &result->selftest);
+    if (status == TR2_OK) {
+        result->status = DIAGNOSTIC_HISTORY_RECOVERY_VALID;
+        return TR2_OK;
+    }
+
+    memset(&result->selftest, 0, sizeof(result->selftest));
     result->status = status == TR2_ERROR_UNSUPPORTED
                          ? DIAGNOSTIC_HISTORY_RECOVERY_UNSUPPORTED
                          : DIAGNOSTIC_HISTORY_RECOVERY_CORRUPTED;
