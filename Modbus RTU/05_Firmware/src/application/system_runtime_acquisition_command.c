@@ -199,4 +199,20 @@ Tr2Result system_runtime_drive_acquisition_step(
     return b3_result;
 }
 
+bool system_runtime_b3_image(const SystemRuntime *runtime, ModbusBlock3Image *out_image)
+{
+    SupervisionSnapshot snapshot;
+
+    if (runtime == NULL || out_image == NULL || !runtime->initialized ||
+        !runtime->system_ready_for_modbus || !runtime->fg_runtime_available ||
+        !runtime->b3_image_available ||
+        !supervision_service_snapshot(&runtime->supervision_service, &snapshot) ||
+        runtime->b3_image.source_calculation_sequence != snapshot.calculation_sequence) {
+        return false;
+    }
+
+    *out_image = runtime->b3_image;
+    return true;
+}
+
 #undef TR2_B6_INVENTORY_STRUCTURE_VERSION
