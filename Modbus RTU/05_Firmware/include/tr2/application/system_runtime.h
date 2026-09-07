@@ -105,6 +105,8 @@ typedef struct {
     bool system_state_snapshot_available;
     ModbusBlock1Image b1_image;
     bool b1_image_available;
+    ModbusBlock7Image b7_image;
+    bool b7_image_available;
     BootIntentStore boot_intent_store;
     BootIntentRecoveryResult boot_intent_recovery;
     bool p9_authorities_available;
@@ -172,5 +174,6 @@ bool system_runtime_b3_image(const SystemRuntime *runtime, ModbusBlock3Image *ou
 bool system_runtime_b4_image(const SystemRuntime *runtime, ModbusBlock4Image *out_image);
 bool system_runtime_b5_image(const SystemRuntime *runtime, ModbusBlock5Image *out_image);
 bool system_runtime_b6_image(const SystemRuntime *runtime, ModbusBlock6Image *out_image);
+bool system_runtime_b7_image(const SystemRuntime *runtime, ModbusBlock7Image *out_image);
 
 #endif
