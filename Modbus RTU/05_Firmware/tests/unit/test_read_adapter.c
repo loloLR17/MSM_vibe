@@ -141,11 +141,10 @@ int main(void)
 
     sources.system_state = &system_state;
     sources.time = NULL;
-    values[0] = UINT16_C(0xFACE);
-    outcome = modbus_read_adapter_read(&sources, UINT16_C(1000), UINT16_C(1), values);
+    outcome = modbus_read_adapter_read(&sources, UINT16_C(1001), UINT16_C(1), values);
     assert(outcome.access_result == MODBUS_ACCESS_OK);
-    assert(outcome.operation_result == TR2_ERROR_NOT_AVAILABLE);
-    assert(values[0] == UINT16_C(0xFACE));
+    assert(outcome.operation_result == TR2_OK);
+    assert((values[0] & UINT16_C(0x0008)) == 0u);
 
     return 0;
 }
