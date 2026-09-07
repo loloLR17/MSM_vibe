@@ -18,6 +18,7 @@ add_library(tr2_core STATIC
     src/application/command_apply_configuration.c
     src/application/command_engine.c
     src/application/command_request_mailbox.c
+    src/application/command_synchronize_time.c
     src/application/configuration_activation_adapter.c
     src/application/configuration_service.c
     src/application/configuration_workflow.c
@@ -324,6 +325,12 @@ add_executable(test_p7g_apply_configuration
 )
 target_link_libraries(test_p7g_apply_configuration PRIVATE tr2_core)
 add_test(NAME p7g_apply_configuration COMMAND test_p7g_apply_configuration)
+
+add_executable(test_p7h_synchronize_time
+    tests/unit/test_p7h_synchronize_time.c
+)
+target_link_libraries(test_p7h_synchronize_time PRIVATE tr2_core)
+add_test(NAME p7h_synchronize_time COMMAND test_p7h_synchronize_time)
 
 add_executable(test_acquisition_service
     tests/unit/test_acquisition_service.c
