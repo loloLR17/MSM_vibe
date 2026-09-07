@@ -354,7 +354,7 @@ static Tr2Result publish_checkpoint(CampaignDataStorePersistent *store,
         return result;
     }
 
-    descriptor_copy = (size_t)((store->active_generation + 1u) % 2u);
+    descriptor_copy = (size_t)(store->active_generation % 2u);
     result = write_descriptor(store,
                               store->active_slot,
                               descriptor_copy,
