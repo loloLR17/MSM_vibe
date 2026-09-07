@@ -14,6 +14,7 @@ typedef struct {
     int started_step;
     int open_step;
     CampaignMetadata opened;
+    Tr2Result source_start_result;
     PersistentMedia media;
     PersistentStorageCore storage;
     ConfigurationStore configuration_store;
@@ -132,8 +133,8 @@ static Tr2Result open_campaign(void *context, const CampaignMetadata *metadata)
 
 static Tr2Result close_campaign(void *context, const CampaignMetadata *metadata)
 {
-    (void)context;
-    (void)metadata;
+    TestContext *test = context;
+    test->opened = *metadata;
     return TR2_OK;
 }
 
@@ -208,8 +209,8 @@ static Tr2Result source_configure(void *context, const VibrationSourceConfigurat
 
 static Tr2Result source_start(void *context)
 {
-    (void)context;
-    return TR2_OK;
+    TestContext *test = context;
+    return test->source_start_result;
 }
 
 static Tr2Result source_read(void *context, VibrationSample *sample)
@@ -239,6 +240,7 @@ int main(void)
     CampaignRepository repository = {0};
     CampaignDataStore data_store = {0};
     CampaignService campaign_service;
+    CampaignMetadata closed;
     MonotonicClock clock = {0};
     VibrationSource source = {0};
 
@@ -312,5 +314,31 @@ int main(void)
     test.open_step = 0;
     assert(command_start_acquisition_reconcile(&entry, &repository) ==
            COMMAND_RECONCILIATION_ABSENCE_PROVEN);
+
+    assert(campaign_service_stop(&campaign_service, &closed) == TR2_OK);
+    assert(!campaign_service_campaign_open(&campaign_service));
+
+    memset(&test.entry, 0, sizeof(test.entry));
+    test.present = false;
+    test.open_step = 0;
+    test.source_start_result = TR2_ERROR_UNAVAILABLE;
+    assert(command_engine_init(&engine, &journal) == TR2_OK);
+    memset(&request, 0, sizeof(request));
+    request.transaction_id = 302u;
+    request.identity.command_code = COMMAND_CODE_START_ACQUISITION;
+    assert(command_engine_admit(&engine, &request, &admission) == TR2_OK);
+    assert(command_start_acquisition_execute(&engine, &campaign_service, 302u,
+                                             &timestamp, &entry) == TR2_ERROR_UNAVAILABLE);
+    assert(entry.lifecycle == COMMAND_LIFECYCLE_STARTED);
+    assert(entry.has_recovery_context);
+    assert(entry.recovery_context.kind == COMMAND_RECOVERY_CONTEXT_START_CAMPAIGN);
+    assert(entry.recovery_context.value1 == 77u);
+    assert(!entry.has_final_result);
+    assert(test.open_step != 0);
+    assert(test.opened.lifecycle_state == CAMPAIGN_LIFECYCLE_CLOSED);
+    assert(!campaign_service_campaign_open(&campaign_service));
+    assert(!campaign_service_acquisition_running(&campaign_service));
+    assert(command_start_acquisition_reconcile(&entry, &repository) ==
+           COMMAND_RECONCILIATION_TERMINAL_EFFECT_PROVEN);
     return 0;
 }
