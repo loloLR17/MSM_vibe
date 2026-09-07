@@ -64,6 +64,18 @@ static void test_known_parameter_and_confirmation_protections(void)
     assert(command_request_policy_validate(&value) ==
            COMMAND_REQUEST_POLICY_INVALID_PARAMETER);
 
+    value = request(COMMAND_CODE_ENTER_MAINTENANCE);
+    assert(command_request_policy_validate(&value) == COMMAND_REQUEST_POLICY_VALID);
+    value.identity.param1 = 1u;
+    assert(command_request_policy_validate(&value) ==
+           COMMAND_REQUEST_POLICY_INVALID_PARAMETER);
+
+    value = request(COMMAND_CODE_EXIT_MAINTENANCE);
+    assert(command_request_policy_validate(&value) == COMMAND_REQUEST_POLICY_VALID);
+    value.identity.param3 = 1u;
+    assert(command_request_policy_validate(&value) ==
+           COMMAND_REQUEST_POLICY_INVALID_PARAMETER);
+
     value = request(COMMAND_CODE_ACKNOWLEDGE_FAULT);
     value.identity.param1 = UINT16_C(0x1234);
     assert(command_request_policy_validate(&value) == COMMAND_REQUEST_POLICY_VALID);

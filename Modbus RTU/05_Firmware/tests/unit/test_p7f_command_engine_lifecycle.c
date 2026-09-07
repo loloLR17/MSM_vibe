@@ -4,6 +4,7 @@
 #include <string.h>
 
 #include "tr2/application/command_engine.h"
+#include "tr2/application/command_maintenance.h"
 
 #define FAKE_CAPACITY 4u
 
@@ -141,6 +142,16 @@ static CommandRequest make_request(uint16_t transaction_id, uint16_t command_cod
     request.transaction_id = transaction_id;
     request.identity.command_code = command_code;
     request.identity.param1 = 1u;
+    return request;
+}
+
+static CommandRequest make_zero_parameter_request(uint16_t transaction_id,
+                                                  uint16_t command_code)
+{
+    CommandRequest request;
+    memset(&request, 0, sizeof(request));
+    request.transaction_id = transaction_id;
+    request.identity.command_code = command_code;
     return request;
 }
 
@@ -293,11 +304,126 @@ static void test_refusal_can_complete_directly_from_reserved(void)
     assert(!snapshot.last.terminal_timestamp.available);
 }
 
+static void test_maintenance_service_is_volatile_and_transition_owned(void)
+{
+    MaintenanceService service;
+    MaintenanceService rebooted;
+    SystemModeSnapshot snapshot;
+
+    assert(maintenance_service_init(&service) == TR2_OK);
+    assert(!maintenance_service_active(&service));
+    assert(maintenance_service_snapshot(&service, &snapshot));
+    assert(snapshot.generation == 1u);
+    assert(snapshot.mode == SYSTEM_MODE_NORMAL);
+
+    assert(maintenance_service_enter(&service) == TR2_OK);
+    assert(maintenance_service_active(&service));
+    assert(maintenance_service_snapshot(&service, &snapshot));
+    assert(snapshot.generation == 2u);
+    assert(snapshot.mode == SYSTEM_MODE_MAINTENANCE);
+    assert(maintenance_service_enter(&service) == TR2_ERROR_INVALID_STATE);
+
+    assert(maintenance_service_exit(&service) == TR2_OK);
+    assert(!maintenance_service_active(&service));
+    assert(maintenance_service_snapshot(&service, &snapshot));
+    assert(snapshot.generation == 3u);
+    assert(snapshot.mode == SYSTEM_MODE_NORMAL);
+
+    assert(maintenance_service_init(&rebooted) == TR2_OK);
+    assert(!maintenance_service_active(&rebooted));
+    assert(maintenance_service_snapshot(&rebooted, &snapshot));
+    assert(snapshot.generation == 1u);
+    assert(snapshot.mode == SYSTEM_MODE_NORMAL);
+}
+
+static void test_maintenance_commands_apply_only_after_started_barrier(void)
+{
+    FakeJournalContext fake;
+    CommandJournal journal;
+    CommandEngine engine;
+    CommandAdmissionResult admission;
+    CommandJournalEntry entry;
+    CommandRequest request;
+    CommandTerminalTimestamp timestamp = {false, 0u};
+    MaintenanceService service;
+
+    init_fake(&fake);
+    journal = make_journal(&fake);
+    assert(command_engine_init(&engine, &journal) == TR2_OK);
+    assert(maintenance_service_init(&service) == TR2_OK);
+
+    request = make_zero_parameter_request(200u, COMMAND_CODE_ENTER_MAINTENANCE);
+    assert(command_engine_admit(&engine, &request, &admission) == TR2_OK);
+    assert(command_enter_maintenance_execute(&engine, &service, true, 200u,
+                                             &timestamp, &entry) == TR2_OK);
+    assert(entry.lifecycle == COMMAND_LIFECYCLE_COMPLETED);
+    assert(entry.final_result.status == COMMAND_STATUS_REFUSED);
+    assert(entry.final_result.result_code == COMMAND_RESULT_ACQUISITION_RUNNING);
+    assert(!maintenance_service_active(&service));
+
+    request = make_zero_parameter_request(201u, COMMAND_CODE_ENTER_MAINTENANCE);
+    assert(command_engine_admit(&engine, &request, &admission) == TR2_OK);
+    assert(command_enter_maintenance_execute(&engine, &service, false, 201u,
+                                             &timestamp, &entry) == TR2_OK);
+    assert(entry.lifecycle == COMMAND_LIFECYCLE_COMPLETED);
+    assert(!entry.has_recovery_context);
+    assert(entry.final_result.status == COMMAND_STATUS_SUCCESS);
+    assert(entry.final_result.result_code == COMMAND_RESULT_SUCCESS);
+    assert(maintenance_service_active(&service));
+
+    request = make_zero_parameter_request(202u, COMMAND_CODE_ENTER_MAINTENANCE);
+    assert(command_engine_admit(&engine, &request, &admission) == TR2_OK);
+    assert(command_enter_maintenance_execute(&engine, &service, false, 202u,
+                                             &timestamp, &entry) == TR2_OK);
+    assert(entry.final_result.status == COMMAND_STATUS_REFUSED);
+    assert(entry.final_result.result_code == COMMAND_RESULT_MAINTENANCE_ACTIVE);
+    assert(maintenance_service_active(&service));
+
+    request = make_zero_parameter_request(203u, COMMAND_CODE_EXIT_MAINTENANCE);
+    assert(command_engine_admit(&engine, &request, &admission) == TR2_OK);
+    assert(command_exit_maintenance_execute(&engine, &service, 203u,
+                                            &timestamp, &entry) == TR2_OK);
+    assert(entry.lifecycle == COMMAND_LIFECYCLE_COMPLETED);
+    assert(!entry.has_recovery_context);
+    assert(entry.final_result.status == COMMAND_STATUS_SUCCESS);
+    assert(entry.final_result.result_code == COMMAND_RESULT_SUCCESS);
+    assert(!maintenance_service_active(&service));
+}
+
+static void test_exit_normal_is_refused_without_mode_effect(void)
+{
+    FakeJournalContext fake;
+    CommandJournal journal;
+    CommandEngine engine;
+    CommandAdmissionResult admission;
+    CommandJournalEntry entry;
+    CommandRequest request;
+    CommandTerminalTimestamp timestamp = {false, 0u};
+    MaintenanceService service;
+
+    init_fake(&fake);
+    journal = make_journal(&fake);
+    assert(command_engine_init(&engine, &journal) == TR2_OK);
+    assert(maintenance_service_init(&service) == TR2_OK);
+
+    request = make_zero_parameter_request(204u, COMMAND_CODE_EXIT_MAINTENANCE);
+    assert(command_engine_admit(&engine, &request, &admission) == TR2_OK);
+    assert(command_exit_maintenance_execute(&engine, &service, 204u,
+                                            &timestamp, &entry) == TR2_OK);
+    assert(entry.lifecycle == COMMAND_LIFECYCLE_COMPLETED);
+    assert(entry.final_result.status == COMMAND_STATUS_REFUSED);
+    assert(entry.final_result.result_code == COMMAND_RESULT_INCOMPATIBLE_STATE);
+    assert(!maintenance_service_active(&service));
+}
+
 int main(void)
 {
     test_reserved_started_completed_projection();
     test_started_persistence_failure_keeps_reserved_active();
     test_completion_failure_never_publishes_false_terminal_result();
     test_refusal_can_complete_directly_from_reserved();
+    test_maintenance_service_is_volatile_and_transition_owned();
+    test_maintenance_commands_apply_only_after_started_barrier();
+    test_exit_normal_is_refused_without_mode_effect();
     return 0;
 }

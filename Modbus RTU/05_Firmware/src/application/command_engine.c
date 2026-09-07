@@ -2,6 +2,7 @@
 #include <string.h>
 
 #include "tr2/application/command_acknowledge_fault.h"
+#include "tr2/application/command_maintenance.h"
 #include "tr2/application/command_refresh_indicators.h"
 
 static bool journal_contract_valid(const CommandJournal *journal)
@@ -477,4 +478,205 @@ Tr2Result command_acknowledge_fault_execute(
                                         : 0u,
                                     terminal_timestamp,
                                     entry);
+}
+
+Tr2Result maintenance_service_init(MaintenanceService *service)
+{
+    if (service == NULL) {
+        return TR2_ERROR_INVALID_ARGUMENT;
+    }
+
+    memset(service, 0, sizeof(*service));
+    service->initialized = true;
+    service->generation = 1u;
+    service->mode = SYSTEM_MODE_NORMAL;
+    return TR2_OK;
+}
+
+bool maintenance_service_is_initialized(const MaintenanceService *service)
+{
+    return service != NULL && service->initialized;
+}
+
+bool maintenance_service_active(const MaintenanceService *service)
+{
+    return maintenance_service_is_initialized(service) &&
+           service->mode == SYSTEM_MODE_MAINTENANCE;
+}
+
+Tr2Result maintenance_service_enter(MaintenanceService *service)
+{
+    if (!maintenance_service_is_initialized(service)) {
+        return TR2_ERROR_INVALID_STATE;
+    }
+    if (service->mode != SYSTEM_MODE_NORMAL) {
+        return TR2_ERROR_INVALID_STATE;
+    }
+
+    service->mode = SYSTEM_MODE_MAINTENANCE;
+    ++service->generation;
+    return TR2_OK;
+}
+
+Tr2Result maintenance_service_exit(MaintenanceService *service)
+{
+    if (!maintenance_service_is_initialized(service)) {
+        return TR2_ERROR_INVALID_STATE;
+    }
+    if (service->mode != SYSTEM_MODE_MAINTENANCE) {
+        return TR2_ERROR_INVALID_STATE;
+    }
+
+    service->mode = SYSTEM_MODE_NORMAL;
+    ++service->generation;
+    return TR2_OK;
+}
+
+bool maintenance_service_snapshot(const MaintenanceService *service,
+                                  SystemModeSnapshot *snapshot)
+{
+    if (!maintenance_service_is_initialized(service) || snapshot == NULL) {
+        return false;
+    }
+
+    snapshot->generation = service->generation;
+    snapshot->mode = service->mode;
+    return true;
+}
+
+static Tr2Result complete_maintenance_command(
+    CommandEngine *engine,
+    uint16_t transaction_id,
+    uint16_t status,
+    uint16_t result_code,
+    const CommandTerminalTimestamp *terminal_timestamp,
+    CommandJournalEntry *entry)
+{
+    CommandFinalResult final_result;
+
+    memset(&final_result, 0, sizeof(final_result));
+    final_result.status = status;
+    final_result.result_code = result_code;
+    return command_engine_complete(engine,
+                                   transaction_id,
+                                   &final_result,
+                                   terminal_timestamp,
+                                   entry);
+}
+
+Tr2Result command_enter_maintenance_execute(
+    CommandEngine *engine,
+    MaintenanceService *maintenance_service,
+    bool acquisition_active,
+    uint16_t transaction_id,
+    const CommandTerminalTimestamp *terminal_timestamp,
+    CommandJournalEntry *entry)
+{
+    CommandJournalEntry current;
+    Tr2Result result;
+
+    if (engine == NULL || !maintenance_service_is_initialized(maintenance_service) ||
+        terminal_timestamp == NULL || entry == NULL ||
+        !command_transaction_id_is_valid(transaction_id) ||
+        !command_engine_has_active_transaction(engine) ||
+        command_engine_active_transaction_id(engine) != transaction_id) {
+        return TR2_ERROR_INVALID_ARGUMENT;
+    }
+
+    result = engine->journal->find(engine->journal->context, transaction_id, &current);
+    if (result != TR2_OK) {
+        return result;
+    }
+    if (current.request_identity.command_code != COMMAND_CODE_ENTER_MAINTENANCE ||
+        current.lifecycle != COMMAND_LIFECYCLE_RESERVED ||
+        current.has_recovery_context) {
+        return TR2_ERROR_INVALID_STATE;
+    }
+
+    if (acquisition_active) {
+        return complete_maintenance_command(engine,
+                                            transaction_id,
+                                            COMMAND_STATUS_REFUSED,
+                                            COMMAND_RESULT_ACQUISITION_RUNNING,
+                                            terminal_timestamp,
+                                            entry);
+    }
+    if (maintenance_service_active(maintenance_service)) {
+        return complete_maintenance_command(engine,
+                                            transaction_id,
+                                            COMMAND_STATUS_REFUSED,
+                                            COMMAND_RESULT_MAINTENANCE_ACTIVE,
+                                            terminal_timestamp,
+                                            entry);
+    }
+
+    result = command_engine_mark_started(engine, transaction_id, entry);
+    if (result != TR2_OK) {
+        return result;
+    }
+    result = maintenance_service_enter(maintenance_service);
+    if (result != TR2_OK) {
+        return result;
+    }
+
+    return complete_maintenance_command(engine,
+                                        transaction_id,
+                                        COMMAND_STATUS_SUCCESS,
+                                        COMMAND_RESULT_SUCCESS,
+                                        terminal_timestamp,
+                                        entry);
+}
+
+Tr2Result command_exit_maintenance_execute(
+    CommandEngine *engine,
+    MaintenanceService *maintenance_service,
+    uint16_t transaction_id,
+    const CommandTerminalTimestamp *terminal_timestamp,
+    CommandJournalEntry *entry)
+{
+    CommandJournalEntry current;
+    Tr2Result result;
+
+    if (engine == NULL || !maintenance_service_is_initialized(maintenance_service) ||
+        terminal_timestamp == NULL || entry == NULL ||
+        !command_transaction_id_is_valid(transaction_id) ||
+        !command_engine_has_active_transaction(engine) ||
+        command_engine_active_transaction_id(engine) != transaction_id) {
+        return TR2_ERROR_INVALID_ARGUMENT;
+    }
+
+    result = engine->journal->find(engine->journal->context, transaction_id, &current);
+    if (result != TR2_OK) {
+        return result;
+    }
+    if (current.request_identity.command_code != COMMAND_CODE_EXIT_MAINTENANCE ||
+        current.lifecycle != COMMAND_LIFECYCLE_RESERVED ||
+        current.has_recovery_context) {
+        return TR2_ERROR_INVALID_STATE;
+    }
+
+    if (!maintenance_service_active(maintenance_service)) {
+        return complete_maintenance_command(engine,
+                                            transaction_id,
+                                            COMMAND_STATUS_REFUSED,
+                                            COMMAND_RESULT_INCOMPATIBLE_STATE,
+                                            terminal_timestamp,
+                                            entry);
+    }
+
+    result = command_engine_mark_started(engine, transaction_id, entry);
+    if (result != TR2_OK) {
+        return result;
+    }
+    result = maintenance_service_exit(maintenance_service);
+    if (result != TR2_OK) {
+        return result;
+    }
+
+    return complete_maintenance_command(engine,
+                                        transaction_id,
+                                        COMMAND_STATUS_SUCCESS,
+                                        COMMAND_RESULT_SUCCESS,
+                                        terminal_timestamp,
+                                        entry);
 }
