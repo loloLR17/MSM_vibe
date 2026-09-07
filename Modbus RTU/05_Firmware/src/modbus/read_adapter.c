@@ -35,14 +35,17 @@ static ModbusReadOutcome read_from_b1(const ModbusReadSources *sources,
 {
     ModbusReadOutcome outcome = { MODBUS_ACCESS_OK, TR2_OK };
     ModbusBlock1Image image;
+    ModbusBlock1ProjectionSource source;
     uint16_t index;
 
-    if (sources->system_state == NULL) {
+    if (sources->system_state == NULL || sources->time == NULL) {
         outcome.operation_result = TR2_ERROR_NOT_AVAILABLE;
         return outcome;
     }
 
-    outcome.operation_result = modbus_project_b1(sources->system_state, &image);
+    source.system_state = sources->system_state;
+    source.time = sources->time;
+    outcome.operation_result = modbus_project_b1(&source, &image);
     if (outcome.operation_result != TR2_OK) {
         return outcome;
     }
