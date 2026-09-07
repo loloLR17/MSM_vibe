@@ -17,7 +17,6 @@ typedef struct {
     bool active_configuration_valid;
     bool prepared_sync_available;
     bool prepared_configuration_available;
-    bool cancellation_supported;
     bool command_logging_performed;
 } CommandEngineFlagsSource;
 
