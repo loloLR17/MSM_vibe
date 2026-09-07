@@ -102,28 +102,39 @@ static ConfigurationValidationEnvironment valid_environment(void)
     return environment;
 }
 
-static ActiveConfigurationSnapshot make_snapshot(uint32_t generation,
-                                                 uint32_t config_id,
-                                                 uint32_t revision_counter)
+static ValidatedConfiguration make_validated(uint32_t generation, uint32_t config_id)
+{
+    ValidatedConfiguration validated;
+
+    memset(&validated, 0, sizeof(validated));
+    validated.generation = generation;
+    validated.config_id = config_id;
+    validated.payload.sampling_frequency_hz = 26667u;
+    validated.payload.axes_enable_mask = 0x0007u;
+    validated.payload.full_scale_code = 1u;
+    validated.payload.acquisition_mode = 1u;
+    validated.payload.window_size_samples = 4096u;
+    validated.payload.indicator_period_ms = 2000u;
+    validated.payload.campaign_duration_s = 3600u;
+    validated.payload.storage_mode = 1u;
+    validated.payload.storage_limit_mb = 100u;
+    validated.payload.campaign_context_id = UINT32_C(0x12345678);
+    validated.payload.mission_id = UINT32_C(0x87654321);
+    validated.payload.operating_mode_code = 1u;
+    return validated;
+}
+
+static ActiveConfigurationSnapshot expected_snapshot(
+    const ValidatedConfiguration *validated,
+    uint32_t revision_counter)
 {
     ActiveConfigurationSnapshot snapshot;
 
     memset(&snapshot, 0, sizeof(snapshot));
-    snapshot.generation = generation;
-    snapshot.config_id = config_id;
+    snapshot.generation = validated->generation;
+    snapshot.config_id = validated->config_id;
     snapshot.revision_counter = revision_counter;
-    snapshot.payload.sampling_frequency_hz = 26667u;
-    snapshot.payload.axes_enable_mask = 0x0007u;
-    snapshot.payload.full_scale_code = 1u;
-    snapshot.payload.acquisition_mode = 1u;
-    snapshot.payload.window_size_samples = 4096u;
-    snapshot.payload.indicator_period_ms = 2000u;
-    snapshot.payload.campaign_duration_s = 3600u;
-    snapshot.payload.storage_mode = 1u;
-    snapshot.payload.storage_limit_mb = 100u;
-    snapshot.payload.campaign_context_id = UINT32_C(0x12345678);
-    snapshot.payload.mission_id = UINT32_C(0x87654321);
-    snapshot.payload.operating_mode_code = 1u;
+    snapshot.payload = validated->payload;
     return snapshot;
 }
 
@@ -182,13 +193,14 @@ static void test_commit_publishes_only_after_durable_success(void)
     ConfigurationService service;
     ActiveConfigurationSnapshot active;
     ConfigurationRecoveryStatus status;
-    const ActiveConfigurationSnapshot a = make_snapshot(1u, 10u, 100u);
+    const ValidatedConfiguration validated = make_validated(1u, 10u);
 
     media_init(&media);
     init_service(&media, &persistent_media, &core, &store, &service);
 
     media.fail_commit = true;
-    assert(configuration_service_commit_candidate(&service, &a) == TR2_ERROR_STORAGE);
+    assert(configuration_service_commit_validated(&service, &validated, 100u, NULL) ==
+           TR2_ERROR_STORAGE);
     assert(!configuration_service_active_snapshot(&service, &active));
     assert(!configuration_service_recovery_status(&service, &status));
 }
@@ -201,17 +213,21 @@ static void test_commit_success_publishes_coherent_snapshot(void)
     ConfigurationStore store;
     ConfigurationService service;
     ActiveConfigurationSnapshot active;
+    ActiveConfigurationSnapshot committed;
     ConfigurationRecoveryStatus status;
-    const ActiveConfigurationSnapshot a = make_snapshot(1u, 10u, 100u);
+    const ValidatedConfiguration validated = make_validated(1u, 10u);
+    const ActiveConfigurationSnapshot expected = expected_snapshot(&validated, 100u);
 
     media_init(&media);
     init_service(&media, &persistent_media, &core, &store, &service);
 
-    assert(configuration_service_commit_candidate(&service, &a) == TR2_OK);
+    assert(configuration_service_commit_validated(&service, &validated, 100u, &committed) ==
+           TR2_OK);
+    assert_identity(&expected, &committed);
     assert(configuration_service_recovery_status(&service, &status));
     assert(status == CONFIGURATION_RECOVERY_VALID);
     assert(configuration_service_active_snapshot(&service, &active));
-    assert_identity(&a, &active);
+    assert_identity(&expected, &active);
 }
 
 static void test_failed_replacement_keeps_old_runtime_active(void)
@@ -222,18 +238,20 @@ static void test_failed_replacement_keeps_old_runtime_active(void)
     ConfigurationStore store;
     ConfigurationService service;
     ActiveConfigurationSnapshot active;
-    const ActiveConfigurationSnapshot a = make_snapshot(1u, 10u, 100u);
-    const ActiveConfigurationSnapshot b = make_snapshot(2u, 20u, 200u);
+    const ValidatedConfiguration validated_a = make_validated(1u, 10u);
+    const ValidatedConfiguration validated_b = make_validated(2u, 20u);
+    const ActiveConfigurationSnapshot expected_a = expected_snapshot(&validated_a, 100u);
 
     media_init(&media);
     init_service(&media, &persistent_media, &core, &store, &service);
 
-    assert(configuration_service_commit_candidate(&service, &a) == TR2_OK);
+    assert(configuration_service_commit_validated(&service, &validated_a, 100u, NULL) == TR2_OK);
     media.fail_commit = true;
-    assert(configuration_service_commit_candidate(&service, &b) == TR2_ERROR_STORAGE);
+    assert(configuration_service_commit_validated(&service, &validated_b, 200u, NULL) ==
+           TR2_ERROR_STORAGE);
 
     assert(configuration_service_active_snapshot(&service, &active));
-    assert_identity(&a, &active);
+    assert_identity(&expected_a, &active);
 }
 
 static void test_reboot_recovers_committed_runtime_authority(void)
@@ -250,11 +268,12 @@ static void test_reboot_recovers_committed_runtime_authority(void)
     ActiveConfigurationSnapshot active;
     ConfigurationRecoveryStatus status;
     ConfigurationValidationEnvironment environment = valid_environment();
-    const ActiveConfigurationSnapshot a = make_snapshot(7u, 42u, 11u);
+    const ValidatedConfiguration validated = make_validated(7u, 42u);
+    const ActiveConfigurationSnapshot expected = expected_snapshot(&validated, 11u);
 
     media_init(&media);
     init_service(&media, &persistent_media_a, &core_a, &store_a, &service_a);
-    assert(configuration_service_commit_candidate(&service_a, &a) == TR2_OK);
+    assert(configuration_service_commit_validated(&service_a, &validated, 11u, NULL) == TR2_OK);
 
     simulate_reboot(&media);
     init_service(&media, &persistent_media_b, &core_b, &store_b, &service_b);
@@ -263,7 +282,7 @@ static void test_reboot_recovers_committed_runtime_authority(void)
     assert(configuration_service_recovery_status(&service_b, &status));
     assert(status == CONFIGURATION_RECOVERY_VALID);
     assert(configuration_service_active_snapshot(&service_b, &active));
-    assert_identity(&a, &active);
+    assert_identity(&expected, &active);
 }
 
 static void test_corrupted_recovery_publishes_no_active(void)
@@ -296,11 +315,12 @@ static void test_invalid_arguments(void)
     ConfigurationStore store;
     ConfigurationService service;
     ConfigurationValidationEnvironment environment = valid_environment();
-    ActiveConfigurationSnapshot snapshot = make_snapshot(1u, 1u, 1u);
+    ValidatedConfiguration validated = make_validated(1u, 1u);
     ConfigurationRecoveryStatus status;
 
     memset(&service, 0, sizeof(service));
-    assert(configuration_service_commit_candidate(&service, &snapshot) == TR2_ERROR_INVALID_STATE);
+    assert(configuration_service_commit_validated(&service, &validated, 1u, NULL) ==
+           TR2_ERROR_INVALID_STATE);
     assert(configuration_service_recover(&service, &environment) == TR2_ERROR_INVALID_STATE);
     assert(!configuration_service_recovery_status(&service, &status));
     assert(configuration_service_init(NULL, &store) == TR2_ERROR_INVALID_ARGUMENT);
@@ -313,7 +333,8 @@ static void test_invalid_arguments(void)
     assert(persistent_storage_core_init(&core, &persistent_media) == TR2_OK);
     assert(configuration_store_init(&store, &core) == TR2_OK);
     assert(configuration_service_init(&service, &store) == TR2_OK);
-    assert(configuration_service_commit_candidate(&service, NULL) == TR2_ERROR_INVALID_ARGUMENT);
+    assert(configuration_service_commit_validated(&service, NULL, 1u, NULL) ==
+           TR2_ERROR_INVALID_ARGUMENT);
     assert(configuration_service_recover(&service, NULL) == TR2_ERROR_INVALID_ARGUMENT);
     assert(!configuration_service_recovery_status(&service, NULL));
 }
