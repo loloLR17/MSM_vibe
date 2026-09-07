@@ -100,6 +100,12 @@ add_executable(test_projection_b2
 target_link_libraries(test_projection_b2 PRIVATE tr2_core)
 add_test(NAME projection_b2 COMMAND test_projection_b2)
 
+add_executable(test_projection_b3
+    tests/unit/test_projection_b3.c
+)
+target_link_libraries(test_projection_b3 PRIVATE tr2_core)
+add_test(NAME projection_b3 COMMAND test_projection_b3)
+
 add_executable(test_projection_b4
     tests/unit/test_projection_b4.c
 )
@@ -201,6 +207,12 @@ add_executable(test_read_adapter
 )
 target_link_libraries(test_read_adapter PRIVATE tr2_core)
 add_test(NAME read_adapter COMMAND test_read_adapter)
+
+add_executable(test_read_adapter_b3
+    tests/unit/test_read_adapter_b3.c
+)
+target_link_libraries(test_read_adapter_b3 PRIVATE tr2_core)
+add_test(NAME read_adapter_b3 COMMAND test_read_adapter_b3)
 
 add_executable(test_write_adapter
     tests/unit/test_write_adapter.c
