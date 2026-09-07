@@ -13,9 +13,11 @@ typedef struct {
     int source_stop_step;
     int data_finish_step;
     int close_step;
+    uint32_t source_read_calls;
     uint32_t data_recover_calls;
     bool fail_data_recover_once;
     Tr2Result source_start_result;
+    Tr2Result source_read_result;
     CampaignMetadata opened;
     CampaignMetadata closed;
     PersistentMedia media;
@@ -77,8 +79,21 @@ static Tr2Result fake_source_start(void *context)
 
 static Tr2Result fake_read(void *context, VibrationSample *sample)
 {
-    (void)context;
+    TestContext *test = context;
+
+    test->source_read_calls++;
+    if (test->source_read_result != TR2_OK) {
+        return test->source_read_result;
+    }
+    if (sample == NULL) {
+        return TR2_ERROR_INVALID_ARGUMENT;
+    }
+
     memset(sample, 0, sizeof(*sample));
+    sample->x_mg = (int32_t)test->source_read_calls;
+    sample->y_mg = -(int32_t)test->source_read_calls;
+    sample->z_mg = (int32_t)(10u * test->source_read_calls);
+    sample->valid = true;
     return TR2_OK;
 }
 
@@ -226,18 +241,8 @@ static void test_start_stop_freezes_context_and_orders_durability(void)
     CampaignMetadata closed;
 
     test.source_start_result = TR2_OK;
-    build_dependencies(&test,
-                       &configuration,
-                       &acquisition,
-                       &repository,
-                       &data_store,
-                       &clock,
-                       &source);
-    assert(campaign_service_init(&service,
-                                 &configuration,
-                                 &acquisition,
-                                 &repository,
-                                 &data_store) == TR2_OK);
+    build_dependencies(&test, &configuration, &acquisition, &repository, &data_store, &clock, &source);
+    assert(campaign_service_init(&service, &configuration, &acquisition, &repository, &data_store) == TR2_OK);
 
     assert(campaign_service_start(&service, &id) == TR2_OK);
     assert(id == 7u);
@@ -270,6 +275,95 @@ static void test_start_stop_freezes_context_and_orders_durability(void)
     assert(!campaign_service_acquisition_running(&service));
 }
 
+static void test_live_driver_completes_window(void)
+{
+    TestContext test = {0};
+    ConfigurationService configuration;
+    AcquisitionService acquisition;
+    CampaignRepository repository;
+    CampaignDataStore data_store;
+    MonotonicClock clock;
+    VibrationSource source;
+    CampaignService service;
+    CampaignAcquisitionStep step;
+    CampaignId id;
+    CampaignMetadata closed;
+
+    test.source_start_result = TR2_OK;
+    test.source_read_result = TR2_OK;
+    build_dependencies(&test, &configuration, &acquisition, &repository, &data_store, &clock, &source);
+    configuration.active.payload.window_size_samples = 2u;
+    assert(campaign_service_init(&service, &configuration, &acquisition, &repository, &data_store) == TR2_OK);
+    assert(campaign_service_drive_acquisition_step(&service, &step) == TR2_ERROR_INVALID_STATE);
+    assert(campaign_service_start(&service, &id) == TR2_OK);
+
+    assert(campaign_service_drive_acquisition_step(&service, &step) == TR2_OK);
+    assert(step.kind == CAMPAIGN_ACQUISITION_STEP_SAMPLE_READ);
+    assert(step.sample.x_mg == 1);
+    assert(step.sample.y_mg == -1);
+    assert(step.sample.z_mg == 10);
+    assert(campaign_service_acquisition_running(&service));
+
+    assert(campaign_service_drive_acquisition_step(&service, &step) == TR2_OK);
+    assert(step.kind == CAMPAIGN_ACQUISITION_STEP_SAMPLE_READ);
+    assert(step.sample.x_mg == 2);
+    assert(test.source_read_calls == 2u);
+    assert(campaign_service_acquisition_running(&service));
+
+    assert(campaign_service_drive_acquisition_step(&service, &step) == TR2_OK);
+    assert(step.kind == CAMPAIGN_ACQUISITION_STEP_WINDOW_COMPLETED);
+    assert(step.source_result == TR2_OK);
+    assert(step.stop_result == TR2_OK);
+    assert(step.window.complete);
+    assert(!step.window.source_error);
+    assert(step.window.acquired_sample_count == 2u);
+    assert(step.window.valid_sample_count == 2u);
+    assert(!campaign_service_acquisition_running(&service));
+    assert(test.source_stop_step != 0);
+
+    assert(campaign_service_stop(&service, &closed) == TR2_OK);
+    assert(closed.lifecycle_state == CAMPAIGN_LIFECYCLE_CLOSED);
+}
+
+static void test_live_driver_closes_window_on_source_error(void)
+{
+    TestContext test = {0};
+    ConfigurationService configuration;
+    AcquisitionService acquisition;
+    CampaignRepository repository;
+    CampaignDataStore data_store;
+    MonotonicClock clock;
+    VibrationSource source;
+    CampaignService service;
+    CampaignAcquisitionStep step;
+    CampaignId id;
+    CampaignMetadata closed;
+    int stop_step_after_error;
+
+    test.source_start_result = TR2_OK;
+    test.source_read_result = TR2_ERROR_UNAVAILABLE;
+    build_dependencies(&test, &configuration, &acquisition, &repository, &data_store, &clock, &source);
+    configuration.active.payload.window_size_samples = 2u;
+    assert(campaign_service_init(&service, &configuration, &acquisition, &repository, &data_store) == TR2_OK);
+    assert(campaign_service_start(&service, &id) == TR2_OK);
+
+    assert(campaign_service_drive_acquisition_step(&service, &step) == TR2_ERROR_UNAVAILABLE);
+    assert(step.kind == CAMPAIGN_ACQUISITION_STEP_WINDOW_COMPLETED);
+    assert(step.source_result == TR2_ERROR_UNAVAILABLE);
+    assert(step.stop_result == TR2_OK);
+    assert(step.window.source_error);
+    assert(!step.window.complete);
+    assert(step.window.acquired_sample_count == 0u);
+    assert(!campaign_service_acquisition_running(&service));
+    assert(test.source_read_calls == 1u);
+    stop_step_after_error = test.source_stop_step;
+    assert(stop_step_after_error != 0);
+
+    assert(campaign_service_stop(&service, &closed) == TR2_OK);
+    assert(test.source_stop_step == stop_step_after_error);
+    assert(closed.lifecycle_state == CAMPAIGN_LIFECYCLE_CLOSED);
+}
+
 static void test_start_without_active_configuration_is_rejected(void)
 {
     TestContext test = {0};
@@ -283,19 +377,9 @@ static void test_start_without_active_configuration_is_rejected(void)
     CampaignId id = 99u;
 
     test.source_start_result = TR2_OK;
-    build_dependencies(&test,
-                       &configuration,
-                       &acquisition,
-                       &repository,
-                       &data_store,
-                       &clock,
-                       &source);
+    build_dependencies(&test, &configuration, &acquisition, &repository, &data_store, &clock, &source);
     configuration.has_active = false;
-    assert(campaign_service_init(&service,
-                                 &configuration,
-                                 &acquisition,
-                                 &repository,
-                                 &data_store) == TR2_OK);
+    assert(campaign_service_init(&service, &configuration, &acquisition, &repository, &data_store) == TR2_OK);
     assert(campaign_service_start(&service, &id) == TR2_ERROR_NOT_AVAILABLE);
     assert(id == TR2_CAMPAIGN_ID_INVALID);
     assert(test.reserve_step == 0);
@@ -315,18 +399,8 @@ static void test_partial_start_remains_closable(void)
     CampaignMetadata closed;
 
     test.source_start_result = TR2_ERROR_UNAVAILABLE;
-    build_dependencies(&test,
-                       &configuration,
-                       &acquisition,
-                       &repository,
-                       &data_store,
-                       &clock,
-                       &source);
-    assert(campaign_service_init(&service,
-                                 &configuration,
-                                 &acquisition,
-                                 &repository,
-                                 &data_store) == TR2_OK);
+    build_dependencies(&test, &configuration, &acquisition, &repository, &data_store, &clock, &source);
+    assert(campaign_service_init(&service, &configuration, &acquisition, &repository, &data_store) == TR2_OK);
 
     assert(campaign_service_start(&service, &id) == TR2_ERROR_UNAVAILABLE);
     assert(id == TR2_CAMPAIGN_ID_INVALID);
@@ -359,18 +433,8 @@ static void test_stop_retries_data_recovery_without_refinishing(void)
 
     test.source_start_result = TR2_OK;
     test.fail_data_recover_once = true;
-    build_dependencies(&test,
-                       &configuration,
-                       &acquisition,
-                       &repository,
-                       &data_store,
-                       &clock,
-                       &source);
-    assert(campaign_service_init(&service,
-                                 &configuration,
-                                 &acquisition,
-                                 &repository,
-                                 &data_store) == TR2_OK);
+    build_dependencies(&test, &configuration, &acquisition, &repository, &data_store, &clock, &source);
+    assert(campaign_service_init(&service, &configuration, &acquisition, &repository, &data_store) == TR2_OK);
     assert(campaign_service_start(&service, &id) == TR2_OK);
 
     assert(campaign_service_stop(&service, &closed) == TR2_ERROR_STORAGE);
@@ -394,6 +458,8 @@ static void test_stop_retries_data_recovery_without_refinishing(void)
 int main(void)
 {
     test_start_stop_freezes_context_and_orders_durability();
+    test_live_driver_completes_window();
+    test_live_driver_closes_window_on_source_error();
     test_start_without_active_configuration_is_rejected();
     test_partial_start_remains_closable();
     test_stop_retries_data_recovery_without_refinishing();

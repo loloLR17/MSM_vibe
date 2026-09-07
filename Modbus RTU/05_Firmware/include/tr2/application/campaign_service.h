@@ -10,6 +10,20 @@
 #include "tr2/persistence/campaign_data_store.h"
 #include "tr2/persistence/campaign_repository.h"
 
+typedef enum {
+    CAMPAIGN_ACQUISITION_STEP_NONE = 0,
+    CAMPAIGN_ACQUISITION_STEP_SAMPLE_READ = 1,
+    CAMPAIGN_ACQUISITION_STEP_WINDOW_COMPLETED = 2
+} CampaignAcquisitionStepKind;
+
+typedef struct {
+    CampaignAcquisitionStepKind kind;
+    VibrationSample sample;
+    AcquisitionWindow window;
+    Tr2Result source_result;
+    Tr2Result stop_result;
+} CampaignAcquisitionStep;
+
 typedef struct {
     ConfigurationService *configuration_service;
     AcquisitionService *acquisition_service;
@@ -41,6 +55,10 @@ Tr2Result campaign_service_start_reserved(CampaignService *service,
 
 Tr2Result campaign_service_start(CampaignService *service,
                                  CampaignId *out_campaign_id);
+
+Tr2Result campaign_service_drive_acquisition_step(
+    CampaignService *service,
+    CampaignAcquisitionStep *out_step);
 
 Tr2Result campaign_service_stop(CampaignService *service,
                                 CampaignMetadata *out_closed_metadata);

@@ -190,6 +190,59 @@ Tr2Result campaign_service_start(CampaignService *service,
     return TR2_OK;
 }
 
+Tr2Result campaign_service_drive_acquisition_step(
+    CampaignService *service,
+    CampaignAcquisitionStep *out_step)
+{
+    VibrationSample sample;
+    AcquisitionWindow window;
+    Tr2Result read_result;
+    Tr2Result stop_result;
+
+    if (!campaign_service_is_initialized(service)) {
+        return TR2_ERROR_INVALID_STATE;
+    }
+    if (out_step == NULL) {
+        return TR2_ERROR_INVALID_ARGUMENT;
+    }
+
+    memset(out_step, 0, sizeof(*out_step));
+    out_step->source_result = TR2_OK;
+    out_step->stop_result = TR2_OK;
+
+    if (!service->campaign_open || !service->acquisition_window_started ||
+        !acquisition_service_window_active(service->acquisition_service)) {
+        return TR2_ERROR_INVALID_STATE;
+    }
+
+    if (service->acquisition_service->current_window.acquired_sample_count >=
+        service->acquisition_service->current_window.configuration.payload.window_size_samples) {
+        stop_result = acquisition_service_end_window(service->acquisition_service, &window);
+        service->acquisition_window_started = false;
+        out_step->kind = CAMPAIGN_ACQUISITION_STEP_WINDOW_COMPLETED;
+        out_step->window = window;
+        out_step->stop_result = stop_result;
+        return stop_result;
+    }
+
+    memset(&sample, 0, sizeof(sample));
+    read_result = acquisition_service_read_sample(service->acquisition_service, &sample);
+    if (read_result == TR2_OK) {
+        out_step->kind = CAMPAIGN_ACQUISITION_STEP_SAMPLE_READ;
+        out_step->sample = sample;
+        return TR2_OK;
+    }
+
+    out_step->source_result = read_result;
+    stop_result = acquisition_service_end_window(service->acquisition_service, &window);
+    service->acquisition_window_started = false;
+    out_step->kind = CAMPAIGN_ACQUISITION_STEP_WINDOW_COMPLETED;
+    out_step->window = window;
+    out_step->stop_result = stop_result;
+
+    return read_result;
+}
+
 Tr2Result campaign_service_stop(CampaignService *service,
                                 CampaignMetadata *out_closed_metadata)
 {
