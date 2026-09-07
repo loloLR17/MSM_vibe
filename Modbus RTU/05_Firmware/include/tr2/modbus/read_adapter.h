@@ -8,6 +8,7 @@
 #include "tr2/domain/supervision/supervision.h"
 #include "tr2/domain/system_state/system_state.h"
 #include "tr2/domain/time/time_service.h"
+#include "tr2/modbus/projection.h"
 #include "tr2/modbus/register_model.h"
 
 typedef struct {
@@ -15,6 +16,7 @@ typedef struct {
     const SystemStateSnapshot *system_state;
     const TimeSnapshot *time;
     const SupervisionSnapshot *supervision;
+    const ModbusBlock6Image *b6_image;
 } ModbusReadSources;
 
 typedef struct {
