@@ -343,7 +343,7 @@ static void test_stop_orders_barrier_before_effect_and_reconciles(void)
            COMMAND_RECONCILIATION_TERMINAL_EFFECT_PROVEN);
     test.repository_metadata.lifecycle_state = CAMPAIGN_LIFECYCLE_OPEN;
     assert(command_stop_acquisition_reconcile(&entry, &repository) ==
-           COMMAND_RECONCILIATION_ABSENCE_PROVEN);
+           COMMAND_RECONCILIATION_INDETERMINATE);
     test.repository_metadata_present = false;
     assert(command_stop_acquisition_reconcile(&entry, &repository) ==
            COMMAND_RECONCILIATION_INDETERMINATE);
