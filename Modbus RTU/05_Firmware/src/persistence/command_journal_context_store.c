@@ -63,6 +63,8 @@ Tr2Result command_journal_store_set_recovery_context(
     CommandJournalRecord current;
     CommandJournalRecord next;
     bool found = false;
+    bool saw_corrupted = false;
+    bool saw_unsupported = false;
     size_t current_slot = 0u;
     size_t index;
     Tr2Result result;
@@ -86,11 +88,14 @@ Tr2Result command_journal_store_set_recovery_context(
         if (slots[index].empty) {
             continue;
         }
-        if (slots[index].decode_status != TR2_OK) {
-            return slots[index].decode_status;
+        if (slots[index].decode_status == TR2_ERROR_UNSUPPORTED) {
+            saw_unsupported = true;
+            continue;
         }
-        if (slots[index].record.entry.transaction_id != transaction_id) {
-            return TR2_ERROR_CORRUPTED;
+        if (slots[index].decode_status != TR2_OK ||
+            slots[index].record.entry.transaction_id != transaction_id) {
+            saw_corrupted = true;
+            continue;
         }
         if (!found || slots[index].record.generation > current.generation) {
             current = slots[index].record;
@@ -100,6 +105,12 @@ Tr2Result command_journal_store_set_recovery_context(
     }
 
     if (!found) {
+        if (saw_unsupported) {
+            return TR2_ERROR_UNSUPPORTED;
+        }
+        if (saw_corrupted) {
+            return TR2_ERROR_CORRUPTED;
+        }
         return TR2_ERROR_NOT_FOUND;
     }
     if (current.entry.lifecycle != COMMAND_LIFECYCLE_RESERVED ||
