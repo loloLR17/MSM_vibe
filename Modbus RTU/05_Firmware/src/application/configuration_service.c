@@ -54,28 +54,42 @@ Tr2Result configuration_service_recover(
     return TR2_OK;
 }
 
-Tr2Result configuration_service_commit_candidate(
+Tr2Result configuration_service_commit_validated(
     ConfigurationService *service,
-    const ActiveConfigurationSnapshot *candidate)
+    const ValidatedConfiguration *validated,
+    uint32_t revision_counter,
+    ActiveConfigurationSnapshot *out_committed_snapshot)
 {
+    ActiveConfigurationSnapshot candidate;
     Tr2Result result;
 
     if (!configuration_service_is_initialized(service)) {
         return TR2_ERROR_INVALID_STATE;
     }
-    if (candidate == NULL) {
+    if (validated == NULL) {
         return TR2_ERROR_INVALID_ARGUMENT;
     }
 
-    result = configuration_store_commit(service->store, candidate);
+    memset(&candidate, 0, sizeof(candidate));
+    candidate.generation = validated->generation;
+    candidate.config_id = validated->config_id;
+    candidate.revision_counter = revision_counter;
+    candidate.payload = validated->payload;
+
+    result = configuration_store_commit(service->store, &candidate);
     if (result != TR2_OK) {
         return result;
     }
 
-    service->active = *candidate;
+    service->active = candidate;
     service->has_active = true;
     service->recovery_status = CONFIGURATION_RECOVERY_VALID;
     service->has_recovery_status = true;
+
+    if (out_committed_snapshot != NULL) {
+        *out_committed_snapshot = candidate;
+    }
+
     return TR2_OK;
 }
 
