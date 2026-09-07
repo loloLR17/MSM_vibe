@@ -33,6 +33,7 @@ add_library(tr2_core STATIC
     src/modbus/read_adapter.c
     src/modbus/write_adapter.c
     src/persistence/campaign_record.c
+    src/persistence/campaign_repository_store.c
     src/persistence/configuration_record.c
     src/persistence/configuration_store.c
     src/persistence/persistent_storage_core.c
@@ -190,6 +191,12 @@ add_executable(test_campaign_record
 )
 target_link_libraries(test_campaign_record PRIVATE tr2_core)
 add_test(NAME campaign_record COMMAND test_campaign_record)
+
+add_executable(test_campaign_repository_store
+    tests/unit/test_campaign_repository_store.c
+)
+target_link_libraries(test_campaign_repository_store PRIVATE tr2_core)
+add_test(NAME campaign_repository_store COMMAND test_campaign_repository_store)
 
 add_executable(test_configuration_store
     tests/unit/test_configuration_store.c
