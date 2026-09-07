@@ -64,6 +64,26 @@ static void test_known_parameter_and_confirmation_protections(void)
     assert(command_request_policy_validate(&value) ==
            COMMAND_REQUEST_POLICY_INVALID_PARAMETER);
 
+    value = request(COMMAND_CODE_ACKNOWLEDGE_FAULT);
+    value.identity.param1 = UINT16_C(0x1234);
+    assert(command_request_policy_validate(&value) == COMMAND_REQUEST_POLICY_VALID);
+    value.identity.param1 = 0u;
+    assert(command_request_policy_validate(&value) ==
+           COMMAND_REQUEST_POLICY_INVALID_PARAMETER);
+    value.identity.param2 = 1u;
+    assert(command_request_policy_validate(&value) == COMMAND_REQUEST_POLICY_VALID);
+    value.identity.param1 = UINT16_C(0x1234);
+    assert(command_request_policy_validate(&value) ==
+           COMMAND_REQUEST_POLICY_INVALID_PARAMETER);
+    value.identity.param1 = 0u;
+    value.identity.param2 = 2u;
+    assert(command_request_policy_validate(&value) ==
+           COMMAND_REQUEST_POLICY_INVALID_PARAMETER);
+    value.identity.param2 = 1u;
+    value.identity.param3 = 1u;
+    assert(command_request_policy_validate(&value) ==
+           COMMAND_REQUEST_POLICY_INVALID_PARAMETER);
+
     value = request(COMMAND_CODE_SYNCHRONIZE_TIME);
     value.identity.param1 = 9u;
     assert(command_request_policy_validate(&value) == COMMAND_REQUEST_POLICY_VALID);

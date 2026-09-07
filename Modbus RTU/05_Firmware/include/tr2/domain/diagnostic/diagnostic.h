@@ -4,6 +4,8 @@
 #include <stdbool.h>
 #include <stdint.h>
 
+#define TR2_DIAGNOSTIC_ACK_TRACKING_CAPACITY 16u
+
 typedef enum {
     DIAGNOSTIC_HEALTH_OK = 0,
     DIAGNOSTIC_HEALTH_WARNING,
@@ -37,6 +39,18 @@ typedef struct {
     bool timestamp_available;
     uint32_t timestamp;
 } DiagnosticLastFault;
+
+typedef struct {
+    uint16_t code;
+    bool acknowledgeable;
+} DiagnosticActiveFault;
+
+typedef struct {
+    bool active;
+    uint16_t code;
+    bool acknowledgeable;
+    bool acknowledged;
+} DiagnosticFaultAcknowledgement;
 
 typedef struct {
     DiagnosticSelfTestState state;

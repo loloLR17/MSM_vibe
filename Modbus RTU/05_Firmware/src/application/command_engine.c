@@ -1,6 +1,7 @@
 #include <stddef.h>
 #include <string.h>
 
+#include "tr2/application/command_acknowledge_fault.h"
 #include "tr2/application/command_refresh_indicators.h"
 
 static bool journal_contract_valid(const CommandJournal *journal)
@@ -345,4 +346,135 @@ Tr2Result command_refresh_indicators_execute(
                                    &final_result,
                                    terminal_timestamp,
                                    entry);
+}
+
+static bool acknowledge_fault_request_parameters_valid(const CommandRequestIdentity *identity)
+{
+    if (identity->param3 != 0u) {
+        return false;
+    }
+    if (identity->param2 == 0u) {
+        return identity->param1 != 0u;
+    }
+    if (identity->param2 == 1u) {
+        return identity->param1 == 0u;
+    }
+    return false;
+}
+
+static Tr2Result complete_acknowledgement(
+    CommandEngine *engine,
+    uint16_t transaction_id,
+    uint16_t status,
+    uint16_t result_code,
+    uint16_t result_detail,
+    const CommandTerminalTimestamp *terminal_timestamp,
+    CommandJournalEntry *entry)
+{
+    CommandFinalResult final_result;
+
+    memset(&final_result, 0, sizeof(final_result));
+    final_result.status = status;
+    final_result.result_code = result_code;
+    final_result.result_detail = result_detail;
+    return command_engine_complete(engine,
+                                   transaction_id,
+                                   &final_result,
+                                   terminal_timestamp,
+                                   entry);
+}
+
+Tr2Result command_acknowledge_fault_execute(
+    CommandEngine *engine,
+    DiagnosticService *diagnostic_service,
+    uint16_t transaction_id,
+    const CommandTerminalTimestamp *terminal_timestamp,
+    CommandJournalEntry *entry)
+{
+    CommandJournalEntry current;
+    DiagnosticFaultAcknowledgement fault_state;
+    Tr2Result result;
+
+    if (engine == NULL || diagnostic_service == NULL || terminal_timestamp == NULL ||
+        entry == NULL || !command_transaction_id_is_valid(transaction_id) ||
+        !command_engine_has_active_transaction(engine) ||
+        command_engine_active_transaction_id(engine) != transaction_id) {
+        return TR2_ERROR_INVALID_ARGUMENT;
+    }
+
+    result = engine->journal->find(engine->journal->context, transaction_id, &current);
+    if (result != TR2_OK) {
+        return result;
+    }
+    if (current.request_identity.command_code != COMMAND_CODE_ACKNOWLEDGE_FAULT ||
+        current.lifecycle != COMMAND_LIFECYCLE_RESERVED ||
+        current.has_recovery_context) {
+        return TR2_ERROR_INVALID_STATE;
+    }
+
+    if (!acknowledge_fault_request_parameters_valid(&current.request_identity)) {
+        return complete_acknowledgement(engine,
+                                        transaction_id,
+                                        COMMAND_STATUS_REFUSED,
+                                        COMMAND_RESULT_INVALID_PARAMETER,
+                                        0u,
+                                        terminal_timestamp,
+                                        entry);
+    }
+
+    if (current.request_identity.param2 == 0u) {
+        if (!diagnostic_service_fault_acknowledgement(diagnostic_service,
+                                                      current.request_identity.param1,
+                                                      &fault_state)) {
+            return complete_acknowledgement(engine,
+                                            transaction_id,
+                                            COMMAND_STATUS_REFUSED,
+                                            COMMAND_RESULT_INVALID_PARAMETER,
+                                            current.request_identity.param1,
+                                            terminal_timestamp,
+                                            entry);
+        }
+        if (!fault_state.acknowledgeable) {
+            return complete_acknowledgement(engine,
+                                            transaction_id,
+                                            COMMAND_STATUS_REFUSED,
+                                            COMMAND_RESULT_FAULT_NOT_ACKNOWLEDGEABLE,
+                                            current.request_identity.param1,
+                                            terminal_timestamp,
+                                            entry);
+        }
+    } else if (diagnostic_service_acknowledgeable_fault_count(diagnostic_service) == 0u) {
+        return complete_acknowledgement(engine,
+                                        transaction_id,
+                                        COMMAND_STATUS_REFUSED,
+                                        COMMAND_RESULT_FAULT_NOT_ACKNOWLEDGEABLE,
+                                        0u,
+                                        terminal_timestamp,
+                                        entry);
+    }
+
+    result = command_engine_mark_started(engine, transaction_id, entry);
+    if (result != TR2_OK) {
+        return result;
+    }
+
+    if (current.request_identity.param2 == 0u) {
+        result = diagnostic_service_acknowledge_fault(diagnostic_service,
+                                                      current.request_identity.param1);
+    } else {
+        result = diagnostic_service_acknowledge_all(diagnostic_service);
+    }
+    if (result != TR2_OK) {
+        return result;
+    }
+
+    return complete_acknowledgement(engine,
+                                    transaction_id,
+                                    COMMAND_STATUS_SUCCESS,
+                                    COMMAND_RESULT_SUCCESS,
+                                    current.request_identity.param2 == 0u
+                                        ? current.request_identity.param1
+                                        : 0u,
+                                    terminal_timestamp,
+                                    entry);
 }

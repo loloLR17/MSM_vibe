@@ -10,6 +10,20 @@ static bool request_parameters_must_be_zero(uint16_t command_code)
            command_code == COMMAND_CODE_REFRESH_INDICATORS;
 }
 
+static bool acknowledge_fault_parameters_valid(const CommandRequestIdentity *identity)
+{
+    if (identity->param3 != 0u) {
+        return false;
+    }
+    if (identity->param2 == 0u) {
+        return identity->param1 != 0u;
+    }
+    if (identity->param2 == 1u) {
+        return identity->param1 == 0u;
+    }
+    return false;
+}
+
 static bool protected_command(uint16_t command_code)
 {
     return command_code == COMMAND_CODE_SOFTWARE_RESET ||
@@ -67,6 +81,11 @@ CommandRequestPolicyResult command_request_policy_validate(const CommandRequest 
     if (request_parameters_must_be_zero(request->identity.command_code) &&
         (request->identity.param1 != 0u || request->identity.param2 != 0u ||
          request->identity.param3 != 0u)) {
+        return COMMAND_REQUEST_POLICY_INVALID_PARAMETER;
+    }
+
+    if (request->identity.command_code == COMMAND_CODE_ACKNOWLEDGE_FAULT &&
+        !acknowledge_fault_parameters_valid(&request->identity)) {
         return COMMAND_REQUEST_POLICY_INVALID_PARAMETER;
     }
 
