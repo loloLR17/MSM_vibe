@@ -55,6 +55,42 @@ uint16_t command_engine_active_transaction_id(const CommandEngine *engine)
     return engine->active_transaction_id;
 }
 
+Tr2Result command_engine_restore_incomplete(CommandEngine *engine,
+                                            const CommandJournalEntry *entry)
+{
+    CommandJournalEntry durable_entry;
+    Tr2Result result;
+
+    if (!command_engine_is_initialized(engine) || entry == NULL ||
+        !command_journal_entry_is_consistent(entry) ||
+        entry->lifecycle == COMMAND_LIFECYCLE_COMPLETED ||
+        !command_transaction_id_is_valid(entry->transaction_id)) {
+        return TR2_ERROR_INVALID_ARGUMENT;
+    }
+    if (engine->has_active_transaction) {
+        return TR2_ERROR_INVALID_STATE;
+    }
+
+    result = engine->journal->find(engine->journal->context,
+                                   entry->transaction_id,
+                                   &durable_entry);
+    if (result != TR2_OK) {
+        return result;
+    }
+    if (!command_journal_entry_is_consistent(&durable_entry) ||
+        durable_entry.lifecycle == COMMAND_LIFECYCLE_COMPLETED ||
+        durable_entry.transaction_id != entry->transaction_id ||
+        !command_request_identity_equal(&durable_entry.request_identity,
+                                        &entry->request_identity)) {
+        return TR2_ERROR_CORRUPTED;
+    }
+
+    engine->has_active_transaction = true;
+    engine->active_transaction_id = entry->transaction_id;
+    ++engine->snapshot_generation;
+    return TR2_OK;
+}
+
 Tr2Result command_engine_admit(CommandEngine *engine,
                                const CommandRequest *request,
                                CommandAdmissionResult *result)
