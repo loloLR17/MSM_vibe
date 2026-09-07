@@ -54,11 +54,12 @@ static Tr2Result fake_vibration_read(void *context, VibrationSample *sample)
     if (source->read_result != TR2_OK) {
         return source->read_result;
     }
-    if (source->read_index >= source->sample_count) {
+    if (source->sample_count == 0u) {
         return TR2_ERROR_NOT_AVAILABLE;
     }
 
-    *sample = source->samples[source->read_index++];
+    *sample = source->samples[source->read_index % source->sample_count];
+    source->read_index++;
     return TR2_OK;
 }
 
@@ -170,8 +171,9 @@ int main(void)
     ModbusReadSources read_sources = {0};
     ModbusReadOutcome outcome;
     uint16_t registers[48] = {0u};
-    const ConfigurationPayload payload_a = make_payload(2u, 8u, 20u);
-    const ConfigurationPayload payload_b = make_payload(1u, 100u, 200u);
+    uint32_t index;
+    const ConfigurationPayload payload_a = make_payload(UINT16_C(4096), 8u, 20u);
+    const ConfigurationPayload payload_b = make_payload(UINT16_C(4096), 100u, 200u);
     ActiveConfigurationSnapshot active_a;
     ActiveConfigurationSnapshot active_b;
 
@@ -234,8 +236,9 @@ int main(void)
     active_b = commit_active(&runtime_a, 11u, 101u, 8u, &payload_b);
     assert(active_b.config_id == UINT32_C(101));
 
-    assert(acquisition_service_read_sample(&acquisition, &sample) == TR2_OK);
-    assert(acquisition_service_read_sample(&acquisition, &sample) == TR2_OK);
+    for (index = 0u; index < UINT32_C(4096); ++index) {
+        assert(acquisition_service_read_sample(&acquisition, &sample) == TR2_OK);
+    }
     host_platform_advance_monotonic(&platform, UINT64_C(125));
     assert(acquisition_service_end_window(&acquisition, &window) == TR2_OK);
     assert(window.complete);
@@ -306,7 +309,9 @@ int main(void)
     source_context.samples[0] = (VibrationSample){ 6, 8, 0, true, false };
     source_context.sample_count = 1u;
     assert(acquisition_service_begin_window(&acquisition) == TR2_OK);
-    assert(acquisition_service_read_sample(&acquisition, &sample) == TR2_OK);
+    for (index = 0u; index < UINT32_C(4096); ++index) {
+        assert(acquisition_service_read_sample(&acquisition, &sample) == TR2_OK);
+    }
     host_platform_advance_monotonic(&platform, UINT64_C(50));
     assert(acquisition_service_end_window(&acquisition, &window) == TR2_OK);
     assert(supervision_service_publish_window(&supervision, &window) == TR2_OK);
