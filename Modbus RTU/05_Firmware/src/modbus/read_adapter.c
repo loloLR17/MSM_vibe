@@ -256,3 +256,10 @@ ModbusReadOutcome modbus_read_adapter_read(const ModbusReadSources *sources,
 #undef TR2_B0_BASE_ADDRESS
 #undef TR2_B1_BASE_ADDRESS
 #undef TR2_B3_BASE_ADDRESS
+#undef TR2_B4_BASE_ADDRESS
+#undef TR2_B5_BASE_ADDRESS
+#undef TR2_B5_LAST_ADDRESS
+#undef TR2_B6_BASE_ADDRESS
+#undef TR2_B6_LAST_ADDRESS
+#undef TR2_B7_BASE_ADDRESS
+#undef TR2_B7_LAST_ADDRESS
