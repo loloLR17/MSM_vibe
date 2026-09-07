@@ -20,6 +20,7 @@
 #define TR2_B3_VALIDITY_FLAG_WINDOW_COMPLETE UINT16_C(0x0008)
 #define TR2_B3_VALIDITY_FLAG_SENSOR_NOT_SATURATED UINT16_C(0x0020)
 #define TR2_B3_VALIDITY_FLAG_CALC_ERROR UINT16_C(0x0800)
+#define TR2_B7_STRUCTURE_VERSION UINT16_C(1)
 
 static bool b4_config_state_is_emittable(uint16_t state)
 {
@@ -94,6 +95,24 @@ static uint16_t project_b3_validity_flags(const SupervisionSnapshot *snapshot)
     if (snapshot->calculation_error) {
         flags = (uint16_t)(flags | TR2_B3_VALIDITY_FLAG_CALC_ERROR);
     }
+
+    return flags;
+}
+
+static uint16_t project_b7_fault_flags(const DiagnosticActiveConditions *conditions)
+{
+    uint16_t flags = 0u;
+
+    if (conditions->sensor_fault) flags |= UINT16_C(0x0001);
+    if (conditions->acquisition_fault) flags |= UINT16_C(0x0002);
+    if (conditions->memory_fault) flags |= UINT16_C(0x0004);
+    if (conditions->storage_fault) flags |= UINT16_C(0x0008);
+    if (conditions->time_fault) flags |= UINT16_C(0x0010);
+    if (conditions->configuration_fault) flags |= UINT16_C(0x0020);
+    if (conditions->firmware_fault) flags |= UINT16_C(0x0040);
+    if (conditions->overcurrent_fault) flags |= UINT16_C(0x0080);
+    if (conditions->temperature_out_of_range) flags |= UINT16_C(0x0100);
+    if (conditions->internal_communication_fault) flags |= UINT16_C(0x0200);
 
     return flags;
 }
@@ -335,6 +354,49 @@ Tr2Result modbus_project_b4(const ModbusBlock4ProjectionSource *source, ModbusBl
     return TR2_OK;
 }
 
+Tr2Result modbus_project_b7(const ModbusBlock7ProjectionSource *source,
+                            ModbusBlock7Image *output)
+{
+    ModbusBlock7Image candidate = { { 0u }, 0u };
+    const DiagnosticFacts *facts;
+
+    if (source == NULL || source->diagnostic == NULL || output == NULL) {
+        return TR2_ERROR_INVALID_ARGUMENT;
+    }
+
+    facts = &source->diagnostic->facts;
+    candidate.registers[0] = TR2_B7_STRUCTURE_VERSION;
+    candidate.registers[1] = (uint16_t)facts->health;
+    candidate.registers[2] = project_b7_fault_flags(&facts->active_conditions);
+    if (facts->last_fault.present) {
+        candidate.registers[3] = facts->last_fault.code;
+        if (facts->last_fault.timestamp_available) {
+            modbus_codec_u32_to_msw_lsw(facts->last_fault.timestamp,
+                                        &candidate.registers[4],
+                                        &candidate.registers[5]);
+        }
+    }
+    candidate.registers[6] = (uint16_t)facts->selftest.state;
+    candidate.registers[7] = facts->selftest.result_code;
+    candidate.registers[8] = facts->selftest.detail;
+    modbus_codec_u32_to_msw_lsw(source->uptime_s,
+                                &candidate.registers[9],
+                                &candidate.registers[10]);
+    candidate.registers[11] = source->reset_cause;
+    if (facts->internal_temperature_available) {
+        candidate.registers[12] = modbus_codec_i16_to_register(facts->internal_temp_dC);
+    }
+    if (facts->supply_voltage_available) {
+        candidate.registers[13] = facts->supply_voltage_mV;
+    }
+    candidate.registers[14] = 0u;
+    candidate.registers[15] = 0u;
+    candidate.source_generation = source->diagnostic->generation;
+
+    *output = candidate;
+    return TR2_OK;
+}
+
 #undef TR2_B0_CAPABILITIES_MASK
 #undef TR2_B1_SYSTEM_FLAGS_MASK
 #undef TR2_B1_SYSTEM_FLAG_TIME_VALID
@@ -349,3 +411,4 @@ Tr2Result modbus_project_b4(const ModbusBlock4ProjectionSource *source, ModbusBl
 #undef TR2_B3_VALIDITY_FLAG_WINDOW_COMPLETE
 #undef TR2_B3_VALIDITY_FLAG_SENSOR_NOT_SATURATED
 #undef TR2_B3_VALIDITY_FLAG_CALC_ERROR
+#undef TR2_B7_STRUCTURE_VERSION

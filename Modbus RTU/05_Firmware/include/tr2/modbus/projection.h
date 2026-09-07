@@ -8,6 +8,7 @@
 #include "tr2/common/result.h"
 #include "tr2/domain/command/command.h"
 #include "tr2/domain/configuration/configuration.h"
+#include "tr2/domain/diagnostic/diagnostic.h"
 #include "tr2/domain/identity/identity.h"
 #include "tr2/domain/supervision/supervision.h"
 #include "tr2/domain/system_state/system_state.h"
@@ -20,6 +21,7 @@
 #define TR2_B4_REGISTER_COUNT 176u
 #define TR2_B5_REGISTER_COUNT 20u
 #define TR2_B6_REGISTER_COUNT 64u
+#define TR2_B7_REGISTER_COUNT 16u
 
 typedef struct {
     uint16_t registers[TR2_B0_REGISTER_COUNT];
@@ -82,6 +84,17 @@ typedef struct {
     uint32_t source_generation;
 } ModbusBlock6Image;
 
+typedef struct {
+    const DiagnosticSnapshot *diagnostic;
+    uint32_t uptime_s;
+    uint16_t reset_cause;
+} ModbusBlock7ProjectionSource;
+
+typedef struct {
+    uint16_t registers[TR2_B7_REGISTER_COUNT];
+    uint32_t source_generation;
+} ModbusBlock7Image;
+
 Tr2Result modbus_project_b0(const IdentitySnapshot *snapshot, ModbusBlock0Image *output);
 Tr2Result modbus_project_b1(const ModbusBlock1ProjectionSource *source,
                             ModbusBlock1Image *output);
@@ -93,5 +106,7 @@ Tr2Result modbus_project_b5(const ModbusBlock5ProjectionSource *source,
                             ModbusBlock5Image *output);
 Tr2Result modbus_project_b6(const ModbusBlock6ProjectionSource *source,
                             ModbusBlock6Image *output);
+Tr2Result modbus_project_b7(const ModbusBlock7ProjectionSource *source,
+                            ModbusBlock7Image *output);
 
 #endif
