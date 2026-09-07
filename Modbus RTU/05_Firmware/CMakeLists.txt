@@ -41,6 +41,7 @@ add_library(tr2_core STATIC
     src/persistence/campaign_data_store_persistent.c
     src/persistence/campaign_record.c
     src/persistence/campaign_repository_store.c
+    src/persistence/command_journal.c
     src/persistence/configuration_record.c
     src/persistence/configuration_store.c
     src/persistence/persistent_storage_core.c
@@ -288,6 +289,12 @@ add_executable(test_p7b_command_request_mailbox
 )
 target_link_libraries(test_p7b_command_request_mailbox PRIVATE tr2_core)
 add_test(NAME p7b_command_request_mailbox COMMAND test_p7b_command_request_mailbox)
+
+add_executable(test_p7c_command_journal
+    tests/unit/test_p7c_command_journal.c
+)
+target_link_libraries(test_p7c_command_journal PRIVATE tr2_core)
+add_test(NAME p7c_command_journal COMMAND test_p7c_command_journal)
 
 add_executable(test_acquisition_service
     tests/unit/test_acquisition_service.c
