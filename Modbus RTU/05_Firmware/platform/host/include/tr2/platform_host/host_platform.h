@@ -7,6 +7,7 @@
 #include "tr2/platform/monotonic_clock.h"
 #include "tr2/platform/persistent_media.h"
 #include "tr2/platform/reset_cause_provider.h"
+#include "tr2/platform/time_continuity_evidence.h"
 #include "tr2/platform/wall_clock.h"
 
 #define HOST_PLATFORM_PERSISTENT_BYTES 1024u
@@ -16,17 +17,21 @@ typedef struct {
     Tr2CivilTimestamp civil_time;
     bool civil_time_valid;
     ResetCause reset_cause;
+    TimeContinuityEvidence time_continuity_evidence;
     uint8_t persistent_committed[HOST_PLATFORM_PERSISTENT_BYTES];
     uint8_t persistent_candidate[HOST_PLATFORM_PERSISTENT_BYTES];
 } HostPlatform;
 
 void host_platform_init(HostPlatform *platform);
 void host_platform_set_reset_cause(HostPlatform *platform, ResetCause cause);
+void host_platform_set_time_continuity_evidence(HostPlatform *platform,
+                                                TimeContinuityEvidence evidence);
 void host_platform_advance_monotonic(HostPlatform *platform, MonotonicTimeMs delta_ms);
 
 MonotonicClock host_platform_monotonic_clock(HostPlatform *platform);
 WallClock host_platform_wall_clock(HostPlatform *platform);
 ResetCauseProvider host_platform_reset_cause_provider(HostPlatform *platform);
+TimeContinuityEvidenceProvider host_platform_time_continuity_evidence_provider(HostPlatform *platform);
 PersistentMedia host_platform_persistent_media(HostPlatform *platform);
 
 #endif
