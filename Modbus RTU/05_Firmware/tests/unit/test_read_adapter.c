@@ -39,8 +39,8 @@ int main(void)
     TimeSnapshot time = {
         .generation = UINT32_C(13),
         .synchronization_facts_available = true,
-        .time_status = UINT16_C(3),
-        .time_flags = UINT16_C(0x008B),
+        .time_status = UINT16_C(4),
+        .time_flags = UINT16_C(0x0080),
         .current_time_available = true,
         .current_time = UINT32_C(0x10203040),
         .last_sync_time = UINT32_C(0x01020304),
@@ -50,7 +50,14 @@ int main(void)
         .prepared_time_status = UINT16_C(1),
         .time_accuracy_ms = UINT16_C(25),
         .drift_ppm = INT16_C(-20),
-        .sync_source = UINT16_C(1)
+        .sync_source = UINT16_C(1),
+        .civil_time_usable = true,
+        .continuity = TIME_CONTINUITY_PROVEN,
+        .last_sync_history = {
+            .state = LAST_SYNC_HISTORY_VALID,
+            .timestamp = UINT32_C(0x01020304),
+            .source = UINT16_C(1)
+        }
     };
     ModbusReadSources sources = { &identity, &system_state, &time };
     ModbusReadOutcome outcome;
@@ -67,6 +74,11 @@ int main(void)
 
     values[0] = UINT16_C(0xAAAA);
     values[1] = UINT16_C(0xBBBB);
+    outcome = modbus_read_adapter_read(&sources, UINT16_C(1001), UINT16_C(1), values);
+    assert(outcome.access_result == MODBUS_ACCESS_OK);
+    assert(outcome.operation_result == TR2_OK);
+    assert((values[0] & UINT16_C(0x0008)) != 0u);
+
     outcome = modbus_read_adapter_read(&sources, UINT16_C(1004), UINT16_C(2), values);
     assert(outcome.access_result == MODBUS_ACCESS_OK);
     assert(outcome.operation_result == TR2_OK);
@@ -86,6 +98,21 @@ int main(void)
     assert(values[14] == 0u);
     assert(values[15] == 0u);
 
+    time.civil_time_usable = false;
+    time.current_time_available = false;
+    outcome = modbus_read_adapter_read(&sources, UINT16_C(1001), UINT16_C(1), values);
+    assert(outcome.access_result == MODBUS_ACCESS_OK);
+    assert(outcome.operation_result == TR2_OK);
+    assert((values[0] & UINT16_C(0x0008)) == 0u);
+
+    values[0] = UINT16_C(0xD00D);
+    outcome = modbus_read_adapter_read(&sources, UINT16_C(2000), UINT16_C(1), values);
+    assert(outcome.access_result == MODBUS_ACCESS_OK);
+    assert(outcome.operation_result == TR2_ERROR_NOT_AVAILABLE);
+    assert(values[0] == UINT16_C(0xD00D));
+
+    time.civil_time_usable = true;
+    time.current_time_available = true;
     values[0] = UINT16_C(0xCAFE);
     outcome = modbus_read_adapter_read(&sources, UINT16_C(21), UINT16_C(1), values);
     assert(outcome.access_result == MODBUS_ACCESS_ILLEGAL_ADDRESS);
@@ -106,6 +133,14 @@ int main(void)
     assert(values[0] == UINT16_C(0xD00D));
 
     sources.system_state = NULL;
+    values[0] = UINT16_C(0xFACE);
+    outcome = modbus_read_adapter_read(&sources, UINT16_C(1000), UINT16_C(1), values);
+    assert(outcome.access_result == MODBUS_ACCESS_OK);
+    assert(outcome.operation_result == TR2_ERROR_NOT_AVAILABLE);
+    assert(values[0] == UINT16_C(0xFACE));
+
+    sources.system_state = &system_state;
+    sources.time = NULL;
     values[0] = UINT16_C(0xFACE);
     outcome = modbus_read_adapter_read(&sources, UINT16_C(1000), UINT16_C(1), values);
     assert(outcome.access_result == MODBUS_ACCESS_OK);
