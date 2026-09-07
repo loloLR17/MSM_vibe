@@ -1,10 +1,12 @@
 #include <stdio.h>
+
 #include "tr2/application/system_runtime.h"
 #include "tr2/platform_host/host_platform.h"
 
 int main(void)
 {
     HostPlatform platform;
+    ConfigurationValidationEnvironment configuration_environment = { true, UINT32_C(4096) };
     host_platform_init(&platform);
 
     MonotonicClock monotonic = host_platform_monotonic_clock(&platform);
@@ -12,7 +14,13 @@ int main(void)
     ResetCauseProvider reset = host_platform_reset_cause_provider(&platform);
     PersistentMedia media = host_platform_persistent_media(&platform);
 
-    SystemRuntimeDependencies deps = { &monotonic, &wall, &reset, &media };
+    SystemRuntimeDependencies deps = {
+        &monotonic,
+        &wall,
+        &reset,
+        &media,
+        &configuration_environment
+    };
     SystemRuntime runtime;
 
     if (system_runtime_init(&runtime, &deps) != TR2_OK ||
