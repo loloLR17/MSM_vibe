@@ -187,7 +187,8 @@ static SystemRuntimeDependencies make_dependencies(
     ResetCauseProvider *reset,
     TimeContinuityEvidenceProvider *time_continuity,
     PersistentMedia *media,
-    const ConfigurationValidationEnvironment *environment)
+    const ConfigurationValidationEnvironment *environment,
+    VibrationSource *vibration_source)
 {
     SystemRuntimeDependencies deps;
 
@@ -198,6 +199,7 @@ static SystemRuntimeDependencies make_dependencies(
     deps.time_continuity_evidence_provider = time_continuity;
     deps.persistent_media = media;
     deps.configuration_validation_environment = environment;
+    deps.vibration_source = vibration_source;
     return deps;
 }
 
@@ -323,6 +325,7 @@ static void test_commit_failure_recovers_a(void)
     WallClock wall;
     ResetCauseProvider reset;
     TimeContinuityEvidenceProvider time_continuity;
+    VibrationSource vibration;
     ConfigurationValidationEnvironment environment = { true, UINT32_C(4096) };
     SystemRuntimeDependencies deps;
     SystemRuntime runtime_before;
@@ -338,7 +341,9 @@ static void test_commit_failure_recovers_a(void)
     wall = host_platform_wall_clock(&platform);
     reset = host_platform_reset_cause_provider(&platform);
     time_continuity = host_platform_time_continuity_evidence_provider(&platform);
-    deps = make_dependencies(&monotonic, &wall, &reset, &time_continuity, &media, &environment);
+    vibration = host_platform_vibration_source(&platform);
+    deps = make_dependencies(&monotonic, &wall, &reset, &time_continuity, &media, &environment,
+                             &vibration);
 
     establish_active_a(&runtime_before, &deps, &validated_a, UINT32_C(100), &active_a);
     fault_media.fail_commit = true;
@@ -361,6 +366,7 @@ static void test_power_loss_after_durable_commit_recovers_b(void)
     WallClock wall;
     ResetCauseProvider reset;
     TimeContinuityEvidenceProvider time_continuity;
+    VibrationSource vibration;
     ConfigurationValidationEnvironment environment = { true, UINT32_C(4096) };
     SystemRuntimeDependencies deps;
     SystemRuntime runtime_before;
@@ -378,7 +384,9 @@ static void test_power_loss_after_durable_commit_recovers_b(void)
     wall = host_platform_wall_clock(&platform);
     reset = host_platform_reset_cause_provider(&platform);
     time_continuity = host_platform_time_continuity_evidence_provider(&platform);
-    deps = make_dependencies(&monotonic, &wall, &reset, &time_continuity, &media, &environment);
+    vibration = host_platform_vibration_source(&platform);
+    deps = make_dependencies(&monotonic, &wall, &reset, &time_continuity, &media, &environment,
+                             &vibration);
 
     establish_active_a(&runtime_before, &deps, &validated_a, UINT32_C(100), &active_a);
     (void)active_a;
@@ -401,6 +409,7 @@ static void test_power_loss_after_runtime_publication_recovers_b(void)
     WallClock wall;
     ResetCauseProvider reset;
     TimeContinuityEvidenceProvider time_continuity;
+    VibrationSource vibration;
     ConfigurationValidationEnvironment environment = { true, UINT32_C(4096) };
     SystemRuntimeDependencies deps;
     SystemRuntime runtime_before;
@@ -417,7 +426,9 @@ static void test_power_loss_after_runtime_publication_recovers_b(void)
     wall = host_platform_wall_clock(&platform);
     reset = host_platform_reset_cause_provider(&platform);
     time_continuity = host_platform_time_continuity_evidence_provider(&platform);
-    deps = make_dependencies(&monotonic, &wall, &reset, &time_continuity, &media, &environment);
+    vibration = host_platform_vibration_source(&platform);
+    deps = make_dependencies(&monotonic, &wall, &reset, &time_continuity, &media, &environment,
+                             &vibration);
 
     establish_active_a(&runtime_before, &deps, &validated_a, UINT32_C(100), &active_a);
     (void)active_a;
