@@ -20,6 +20,7 @@ add_library(tr2_core STATIC
     src/domain/configuration/configuration_staging.c
     src/domain/configuration/configuration_validator.c
     src/domain/identity/identity.c
+    src/domain/supervision/indicator_calculator.c
     src/domain/system_state/system_state.c
     src/domain/time/time_recovery.c
     src/domain/time/time_service.c
@@ -216,6 +217,12 @@ add_executable(test_acquisition_service
 )
 target_link_libraries(test_acquisition_service PRIVATE tr2_core)
 add_test(NAME acquisition_service COMMAND test_acquisition_service)
+
+add_executable(test_indicator_calculator
+    tests/unit/test_indicator_calculator.c
+)
+target_link_libraries(test_indicator_calculator PRIVATE tr2_core)
+add_test(NAME indicator_calculator COMMAND test_indicator_calculator)
 
 add_executable(test_system_runtime
     tests/integration/test_system_runtime.c
