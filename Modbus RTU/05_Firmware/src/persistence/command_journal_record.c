@@ -3,7 +3,7 @@
 #include <string.h>
 
 #define TR2_COMMAND_JOURNAL_RECORD_MAGIC UINT32_C(0x5452324A)
-#define TR2_COMMAND_JOURNAL_RECORD_CRC_OFFSET 46u
+#define TR2_COMMAND_JOURNAL_RECORD_CRC_OFFSET 62u
 
 static void put_u16_be(uint8_t *output, uint16_t value)
 {
@@ -79,13 +79,18 @@ Tr2Result tr2_command_journal_record_encode(const CommandJournalRecord *record_v
     put_u16_be(&record[20], entry->request_identity.param2);
     put_u32_be(&record[22], entry->request_identity.param3);
     put_u16_be(&record[26], entry->request_identity.confirm_key);
-    put_u16_be(&record[28], entry->has_final_result ? 1u : 0u);
-    put_u16_be(&record[30], entry->final_result.status);
-    put_u16_be(&record[32], entry->final_result.result_code);
-    put_u16_be(&record[34], entry->final_result.result_detail);
-    put_u16_be(&record[36], entry->terminal_timestamp.available ? 1u : 0u);
-    put_u32_be(&record[38], entry->terminal_timestamp.value);
-    put_u32_be(&record[42], entry->completion_order);
+    put_u16_be(&record[28], entry->has_recovery_context ? 1u : 0u);
+    put_u16_be(&record[30], (uint16_t)entry->recovery_context.kind);
+    put_u32_be(&record[32], entry->recovery_context.value1);
+    put_u32_be(&record[36], entry->recovery_context.value2);
+    put_u32_be(&record[40], entry->recovery_context.value3);
+    put_u16_be(&record[44], entry->has_final_result ? 1u : 0u);
+    put_u16_be(&record[46], entry->final_result.status);
+    put_u16_be(&record[48], entry->final_result.result_code);
+    put_u16_be(&record[50], entry->final_result.result_detail);
+    put_u16_be(&record[52], entry->terminal_timestamp.available ? 1u : 0u);
+    put_u32_be(&record[54], entry->terminal_timestamp.value);
+    put_u32_be(&record[58], entry->completion_order);
     crc = crc32_bytes(record, TR2_COMMAND_JOURNAL_RECORD_CRC_OFFSET);
     put_u32_be(&record[TR2_COMMAND_JOURNAL_RECORD_CRC_OFFSET], crc);
     return TR2_OK;
@@ -125,13 +130,18 @@ Tr2Result tr2_command_journal_record_decode(const uint8_t *record,
     record_value->entry.request_identity.param2 = get_u16_be(&record[20]);
     record_value->entry.request_identity.param3 = get_u32_be(&record[22]);
     record_value->entry.request_identity.confirm_key = get_u16_be(&record[26]);
-    record_value->entry.has_final_result = (get_u16_be(&record[28]) != 0u);
-    record_value->entry.final_result.status = get_u16_be(&record[30]);
-    record_value->entry.final_result.result_code = get_u16_be(&record[32]);
-    record_value->entry.final_result.result_detail = get_u16_be(&record[34]);
-    record_value->entry.terminal_timestamp.available = (get_u16_be(&record[36]) != 0u);
-    record_value->entry.terminal_timestamp.value = get_u32_be(&record[38]);
-    record_value->entry.completion_order = get_u32_be(&record[42]);
+    record_value->entry.has_recovery_context = (get_u16_be(&record[28]) != 0u);
+    record_value->entry.recovery_context.kind = (CommandRecoveryContextKind)get_u16_be(&record[30]);
+    record_value->entry.recovery_context.value1 = get_u32_be(&record[32]);
+    record_value->entry.recovery_context.value2 = get_u32_be(&record[36]);
+    record_value->entry.recovery_context.value3 = get_u32_be(&record[40]);
+    record_value->entry.has_final_result = (get_u16_be(&record[44]) != 0u);
+    record_value->entry.final_result.status = get_u16_be(&record[46]);
+    record_value->entry.final_result.result_code = get_u16_be(&record[48]);
+    record_value->entry.final_result.result_detail = get_u16_be(&record[50]);
+    record_value->entry.terminal_timestamp.available = (get_u16_be(&record[52]) != 0u);
+    record_value->entry.terminal_timestamp.value = get_u32_be(&record[54]);
+    record_value->entry.completion_order = get_u32_be(&record[58]);
 
     if (record_value->generation == 0u ||
         !command_journal_entry_is_consistent(&record_value->entry)) {
