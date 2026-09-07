@@ -15,6 +15,7 @@ add_library(tr2_core STATIC
     src/application/acquisition_service.c
     src/application/campaign_inventory_service.c
     src/application/campaign_service.c
+    src/application/command_apply_configuration.c
     src/application/command_engine.c
     src/application/command_request_mailbox.c
     src/application/configuration_activation_adapter.c
@@ -43,6 +44,7 @@ add_library(tr2_core STATIC
     src/persistence/campaign_record.c
     src/persistence/campaign_repository_store.c
     src/persistence/command_journal.c
+    src/persistence/command_journal_context_store.c
     src/persistence/command_journal_record.c
     src/persistence/command_journal_store.c
     src/persistence/configuration_record.c
@@ -316,6 +318,12 @@ add_executable(test_p7f_command_engine_lifecycle
 )
 target_link_libraries(test_p7f_command_engine_lifecycle PRIVATE tr2_core)
 add_test(NAME p7f_command_engine_lifecycle COMMAND test_p7f_command_engine_lifecycle)
+
+add_executable(test_p7g_apply_configuration
+    tests/unit/test_p7g_apply_configuration.c
+)
+target_link_libraries(test_p7g_apply_configuration PRIVATE tr2_core)
+add_test(NAME p7g_apply_configuration COMMAND test_p7g_apply_configuration)
 
 add_executable(test_acquisition_service
     tests/unit/test_acquisition_service.c
