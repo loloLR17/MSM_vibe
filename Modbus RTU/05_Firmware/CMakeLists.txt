@@ -16,6 +16,7 @@ add_library(tr2_core STATIC
     src/application/configuration_activation_adapter.c
     src/application/configuration_service.c
     src/application/configuration_workflow.c
+    src/application/supervision_service.c
     src/application/system_runtime.c
     src/domain/configuration/configuration_staging.c
     src/domain/configuration/configuration_validator.c
@@ -223,6 +224,12 @@ add_executable(test_indicator_calculator
 )
 target_link_libraries(test_indicator_calculator PRIVATE tr2_core)
 add_test(NAME indicator_calculator COMMAND test_indicator_calculator)
+
+add_executable(test_supervision_service
+    tests/unit/test_supervision_service.c
+)
+target_link_libraries(test_supervision_service PRIVATE tr2_core)
+add_test(NAME supervision_service COMMAND test_supervision_service)
 
 add_executable(test_system_runtime
     tests/integration/test_system_runtime.c
