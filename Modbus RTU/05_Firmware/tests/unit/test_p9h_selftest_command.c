@@ -8,6 +8,7 @@
 
 #define TEST_MEDIA_SIZE 128u
 #define TEST_HISTORY_OFFSET UINT32_C(8)
+#define TEST_BOOT_INTENT_OFFSET UINT32_C(64)
 #define TEST_JOURNAL_MAX_TRANSACTION_ID 4u
 #define TEST_JOURNAL_STORAGE_SIZE \
     (TEST_JOURNAL_MAX_TRANSACTION_ID * TR2_COMMAND_JOURNAL_STORE_REDUNDANT_SLOTS * \
@@ -24,6 +25,7 @@ typedef struct {
     bool present;
     uint32_t completion_order;
     unsigned int started_count;
+    unsigned int recovery_context_count;
 } TestJournal;
 
 typedef struct {
@@ -36,6 +38,13 @@ typedef struct {
     uint8_t durable[TEST_JOURNAL_STORAGE_SIZE];
     uint8_t staged[TEST_JOURNAL_STORAGE_SIZE];
 } BootMedia;
+
+typedef struct {
+    TestJournal *journal;
+    BootIntentStore *boot_intent_store;
+    unsigned int calls;
+    Tr2Result result;
+} TestResetTrigger;
 
 static Tr2Result media_read(void *context, uint32_t offset, void *buffer, size_t size)
 {
@@ -137,6 +146,27 @@ static Tr2Result journal_reserve(void *context,
     return TR2_OK;
 }
 
+static Tr2Result journal_set_recovery_context(
+    void *context,
+    uint16_t transaction_id,
+    const CommandRecoveryContext *recovery_context,
+    CommandJournalEntry *entry)
+{
+    TestJournal *journal = (TestJournal *)context;
+    if (journal == NULL || recovery_context == NULL || entry == NULL ||
+        !journal->present || journal->entry.transaction_id != transaction_id ||
+        journal->entry.lifecycle != COMMAND_LIFECYCLE_RESERVED ||
+        journal->entry.has_recovery_context ||
+        !command_recovery_context_is_valid(recovery_context)) {
+        return TR2_ERROR_INVALID_STATE;
+    }
+    journal->entry.has_recovery_context = true;
+    journal->entry.recovery_context = *recovery_context;
+    ++journal->recovery_context_count;
+    *entry = journal->entry;
+    return TR2_OK;
+}
+
 static Tr2Result journal_mark_started(void *context,
                                       uint16_t transaction_id,
                                       CommandJournalEntry *entry)
@@ -202,6 +232,25 @@ static Tr2Result run_standard(void *context, SelfTestExecutionResult *result)
     return TR2_OK;
 }
 
+static Tr2Result trigger_software_reset(void *context)
+{
+    TestResetTrigger *trigger = (TestResetTrigger *)context;
+    BootIntentRecoveryResult recovery;
+
+    assert(trigger != NULL);
+    assert(trigger->journal != NULL);
+    assert(trigger->journal->entry.lifecycle == COMMAND_LIFECYCLE_STARTED);
+    assert(trigger->journal->entry.has_recovery_context);
+    assert(trigger->journal->entry.recovery_context.kind ==
+           COMMAND_RECOVERY_CONTEXT_BOOT_INTENT);
+    assert(trigger->boot_intent_store != NULL);
+    assert(boot_intent_store_recover(trigger->boot_intent_store, &recovery) == TR2_OK);
+    assert(recovery.status == BOOT_INTENT_RECOVERY_VALID);
+    assert(recovery.intent.transaction_id == trigger->journal->entry.transaction_id);
+    ++trigger->calls;
+    return trigger->result;
+}
+
 static PersistentMedia make_media(TestMedia *media)
 {
     PersistentMedia backend;
@@ -229,6 +278,19 @@ static void setup_services(TestMedia *media,
     assert(selftest_service_init(selftest, diagnostic, history) == TR2_OK);
 }
 
+static void setup_boot_intent_store(TestMedia *media,
+                                    PersistentStorageCore *storage,
+                                    BootIntentStore *store)
+{
+    static PersistentMedia backend;
+
+    memset(media, 0xFF, sizeof(*media));
+    media->fail_commit = false;
+    backend = make_media(media);
+    assert(persistent_storage_core_init(storage, &backend) == TR2_OK);
+    assert(boot_intent_store_init(store, storage, TEST_BOOT_INTENT_OFFSET) == TR2_OK);
+}
+
 static void setup_engine(TestJournal *state, CommandJournal *journal, CommandEngine *engine)
 {
     memset(state, 0, sizeof(*state));
@@ -236,6 +298,7 @@ static void setup_engine(TestJournal *state, CommandJournal *journal, CommandEng
     journal->context = state;
     journal->find = journal_find;
     journal->reserve = journal_reserve;
+    journal->set_recovery_context = journal_set_recovery_context;
     journal->mark_started = journal_mark_started;
     journal->complete = journal_complete;
     journal->latest_completed = journal_latest_completed;
@@ -248,6 +311,16 @@ static CommandRequest request(uint16_t transaction_id)
     memset(&value, 0, sizeof(value));
     value.transaction_id = transaction_id;
     value.identity.command_code = COMMAND_CODE_SELFTEST;
+    return value;
+}
+
+static CommandRequest reset_request(uint16_t transaction_id)
+{
+    CommandRequest value;
+    memset(&value, 0, sizeof(value));
+    value.transaction_id = transaction_id;
+    value.identity.command_code = COMMAND_CODE_SOFTWARE_RESET;
+    value.identity.confirm_key = TR2_COMMAND_CONFIRM_KEY_VALID;
     return value;
 }
 
@@ -403,11 +476,107 @@ static void test_started_selftest_boot_scan_is_indeterminate(void)
     assert(boot_result.status == COMMAND_BOOT_RECOVERY_STARTED_INDETERMINATE);
 }
 
+static void test_software_reset_barriers_and_reconciliation(void)
+{
+    TestMedia media;
+    PersistentStorageCore storage;
+    BootIntentStore boot_intent_store;
+    BootIntentRecoveryResult recovery;
+    TestJournal journal_state;
+    CommandJournal journal;
+    CommandEngine engine;
+    CommandAdmissionResult admission;
+    CommandJournalEntry entry;
+    CommandTerminalTimestamp timestamp = {false, 0u};
+    TestResetTrigger trigger_state;
+    PlatformResetTrigger trigger;
+    CommandRequest command;
+
+    setup_boot_intent_store(&media, &storage, &boot_intent_store);
+    setup_engine(&journal_state, &journal, &engine);
+    memset(&trigger_state, 0, sizeof(trigger_state));
+    trigger_state.journal = &journal_state;
+    trigger_state.boot_intent_store = &boot_intent_store;
+    trigger_state.result = TR2_OK;
+    trigger.context = &trigger_state;
+    trigger.software_reset = trigger_software_reset;
+
+    command = reset_request(610u);
+    assert(command_engine_admit(&engine, &command, &admission) == TR2_OK);
+    assert(command_software_reset_execute(&engine,
+                                          &boot_intent_store,
+                                          &trigger,
+                                          false,
+                                          false,
+                                          610u,
+                                          &timestamp,
+                                          &entry) == TR2_OK);
+    assert(trigger_state.calls == 1u);
+    assert(journal_state.recovery_context_count == 1u);
+    assert(journal_state.started_count == 1u);
+    assert(journal_state.entry.lifecycle == COMMAND_LIFECYCLE_STARTED);
+    assert(!journal_state.entry.has_final_result);
+    assert(boot_intent_store_recover(&boot_intent_store, &recovery) == TR2_OK);
+    assert(recovery.status == BOOT_INTENT_RECOVERY_VALID);
+    assert(command_software_reset_reconcile(&journal_state.entry,
+                                            &recovery,
+                                            RESET_CAUSE_SOFTWARE) ==
+           COMMAND_RECONCILIATION_TERMINAL_EFFECT_PROVEN);
+    assert(command_software_reset_reconcile(&journal_state.entry,
+                                            &recovery,
+                                            RESET_CAUSE_POWER_ON) ==
+           COMMAND_RECONCILIATION_INDETERMINATE);
+}
+
+static void test_software_reset_refusals_have_no_reset_effect(void)
+{
+    TestMedia media;
+    PersistentStorageCore storage;
+    BootIntentStore boot_intent_store;
+    TestJournal journal_state;
+    CommandJournal journal;
+    CommandEngine engine;
+    CommandAdmissionResult admission;
+    CommandJournalEntry entry;
+    CommandTerminalTimestamp timestamp = {false, 0u};
+    TestResetTrigger trigger_state;
+    PlatformResetTrigger trigger;
+    CommandRequest command;
+
+    setup_boot_intent_store(&media, &storage, &boot_intent_store);
+    setup_engine(&journal_state, &journal, &engine);
+    memset(&trigger_state, 0, sizeof(trigger_state));
+    trigger_state.journal = &journal_state;
+    trigger_state.boot_intent_store = &boot_intent_store;
+    trigger_state.result = TR2_OK;
+    trigger.context = &trigger_state;
+    trigger.software_reset = trigger_software_reset;
+
+    command = reset_request(611u);
+    assert(command_engine_admit(&engine, &command, &admission) == TR2_OK);
+    assert(command_software_reset_execute(&engine,
+                                          &boot_intent_store,
+                                          &trigger,
+                                          true,
+                                          false,
+                                          611u,
+                                          &timestamp,
+                                          &entry) == TR2_OK);
+    assert(entry.lifecycle == COMMAND_LIFECYCLE_COMPLETED);
+    assert(entry.final_result.status == COMMAND_STATUS_REFUSED);
+    assert(entry.final_result.result_code == COMMAND_RESULT_ACQUISITION_RUNNING);
+    assert(trigger_state.calls == 0u);
+    assert(journal_state.recovery_context_count == 0u);
+    assert(journal_state.started_count == 0u);
+}
+
 int main(void)
 {
     test_success_and_failure_are_terminal_and_durable();
     test_invalid_extension_is_refused_before_started();
     test_persistence_failure_leaves_started_and_running();
     test_started_selftest_boot_scan_is_indeterminate();
+    test_software_reset_barriers_and_reconciliation();
+    test_software_reset_refusals_have_no_reset_effect();
     return 0;
 }

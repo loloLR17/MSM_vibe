@@ -10,7 +10,8 @@ static bool request_parameters_must_be_zero(uint16_t command_code)
            command_code == COMMAND_CODE_SELFTEST ||
            command_code == COMMAND_CODE_REFRESH_INDICATORS ||
            command_code == COMMAND_CODE_ENTER_MAINTENANCE ||
-           command_code == COMMAND_CODE_EXIT_MAINTENANCE;
+           command_code == COMMAND_CODE_EXIT_MAINTENANCE ||
+           command_code == COMMAND_CODE_SOFTWARE_RESET;
 }
 
 static bool acknowledge_fault_parameters_valid(const CommandRequestIdentity *identity)

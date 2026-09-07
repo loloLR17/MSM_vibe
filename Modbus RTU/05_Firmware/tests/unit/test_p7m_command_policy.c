@@ -111,6 +111,13 @@ static void test_known_parameter_and_confirmation_protections(void)
            COMMAND_REQUEST_POLICY_CONFIRMATION_MISSING);
     value.identity.confirm_key = TR2_COMMAND_CONFIRM_KEY_VALID;
     assert(command_request_policy_validate(&value) == COMMAND_REQUEST_POLICY_VALID);
+    value.identity.param1 = 1u;
+    assert(command_request_policy_validate(&value) ==
+           COMMAND_REQUEST_POLICY_INVALID_PARAMETER);
+    value.identity.param1 = 0u;
+    value.identity.param3 = UINT32_C(1);
+    assert(command_request_policy_validate(&value) ==
+           COMMAND_REQUEST_POLICY_INVALID_PARAMETER);
 
     value = request(COMMAND_CODE_RESET_STATISTICS);
     value.identity.confirm_key = TR2_COMMAND_CONFIRM_KEY_VALID;

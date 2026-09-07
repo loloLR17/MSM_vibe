@@ -5,6 +5,7 @@
 
 #include "tr2/application/command_apply_configuration.h"
 #include "tr2/application/command_selftest.h"
+#include "tr2/application/command_software_reset.h"
 #include "tr2/application/command_start_acquisition.h"
 #include "tr2/application/command_stop_acquisition.h"
 #include "tr2/application/command_synchronize_time.h"
@@ -21,6 +22,8 @@ typedef struct {
     const ConfigurationService *configuration_service;
     const TimeService *time_service;
     const CampaignRepository *campaign_repository;
+    const BootIntentRecoveryResult *boot_intent;
+    ResetCause reset_cause;
 } CommandBootRecoveryAuthorities;
 
 typedef struct {
