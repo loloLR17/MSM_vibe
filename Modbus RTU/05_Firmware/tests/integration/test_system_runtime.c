@@ -175,6 +175,7 @@ static void test_campaign_boot_recovery(void)
     assert(inventory.selected_campaign.campaign_id == first.campaign_id);
 
     assert(system_runtime_b6_image(&runtime_b, &b6));
+    assert(b6.registers[0] == 1u);
     assert(b6.registers[1] == 2u);
     assert(b6.registers[2] == 2u);
     assert(b6.registers[3] == 0u);
@@ -255,6 +256,7 @@ int main(void)
     assert(image.registers[13] == UINT16_C(0));
 
     assert(system_runtime_b6_image(&runtime_a, &b6));
+    assert(b6.registers[0] == 1u);
     assert(b6.registers[1] == 0u);
     assert(b6.registers[2] == 0u);
     assert(b6.registers[3] == 0u);
