@@ -2,6 +2,7 @@
 #define TR2_APPLICATION_CONFIGURATION_SERVICE_H
 
 #include <stdbool.h>
+#include <stdint.h>
 
 #include "tr2/common/result.h"
 #include "tr2/domain/configuration/configuration.h"
@@ -26,9 +27,11 @@ Tr2Result configuration_service_recover(
     ConfigurationService *service,
     const ConfigurationValidationEnvironment *environment);
 
-Tr2Result configuration_service_commit_candidate(
+Tr2Result configuration_service_commit_validated(
     ConfigurationService *service,
-    const ActiveConfigurationSnapshot *candidate);
+    const ValidatedConfiguration *validated,
+    uint32_t revision_counter,
+    ActiveConfigurationSnapshot *out_committed_snapshot);
 
 bool configuration_service_active_snapshot(
     const ConfigurationService *service,
