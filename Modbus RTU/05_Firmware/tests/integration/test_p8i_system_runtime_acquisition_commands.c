@@ -105,6 +105,7 @@ int main(void)
     SystemRuntimeDependencies deps;
     SystemRuntime runtime;
     SystemRuntime runtime_after_reset;
+    SystemRuntime runtime_second_boot;
     ValidatedConfiguration validated;
     ActiveConfigurationSnapshot committed;
     CommandRequest request;
@@ -365,6 +366,20 @@ int main(void)
     assert(boot_recovery.has_incomplete_transaction);
     assert(boot_recovery.incomplete_transaction.transaction_id == UINT16_C(508));
     assert(boot_recovery.incomplete_transaction.lifecycle == COMMAND_LIFECYCLE_STARTED);
+
+    /* P9-N5b2: the recovered BootIntent is one-shot and durably consumed only
+       after reconciliation. The same hardware cause on a later boot cannot
+       re-prove the old SOFTWARE_RESET transaction. */
+    assert(boot_intent_store_recover(&runtime_after_reset.boot_intent_store,
+                                     &boot_intent_recovery) == TR2_OK);
+    assert(boot_intent_recovery.status == BOOT_INTENT_RECOVERY_EMPTY);
+    assert(system_runtime_init(&runtime_second_boot, &deps) == TR2_OK);
+    assert(system_runtime_boot(&runtime_second_boot) == TR2_OK);
+    assert(system_runtime_is_ready_for_modbus(&runtime_second_boot));
+    assert(system_runtime_command_boot_recovery(&runtime_second_boot, &boot_recovery));
+    assert(boot_recovery.status == COMMAND_BOOT_RECOVERY_STARTED_INDETERMINATE);
+    assert(boot_recovery.has_incomplete_transaction);
+    assert(boot_recovery.incomplete_transaction.transaction_id == UINT16_C(508));
 
     return 0;
 }

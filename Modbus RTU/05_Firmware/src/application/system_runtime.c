@@ -446,6 +446,15 @@ static Tr2Result recover_commands(SystemRuntime *runtime)
         }
     }
 
+    if (runtime->boot_intent_recovery.status == BOOT_INTENT_RECOVERY_VALID) {
+        result = boot_intent_store_clear(&runtime->boot_intent_store);
+        if (result != TR2_OK) {
+            return result;
+        }
+        runtime->boot_intent_recovery.status = BOOT_INTENT_RECOVERY_EMPTY;
+        runtime->boot_intent_recovery.intent = boot_intent_none();
+    }
+
     command_request_mailbox_init(&runtime->command_mailbox);
     result = command_engine_snapshot(&runtime->command_engine, &runtime->command_snapshot);
     if (result != TR2_OK) {
