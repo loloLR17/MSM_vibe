@@ -423,6 +423,12 @@ add_executable(test_p8j_system_runtime_b3_projection
 target_link_libraries(test_p8j_system_runtime_b3_projection PRIVATE tr2_platform_host)
 add_test(NAME p8j_system_runtime_b3_projection COMMAND test_p8j_system_runtime_b3_projection)
 
+add_executable(test_p8k_power_loss_boot_recovery
+    tests/integration/test_p8k_power_loss_boot_recovery.c
+)
+target_link_libraries(test_p8k_power_loss_boot_recovery PRIVATE tr2_platform_host)
+add_test(NAME p8k_power_loss_boot_recovery COMMAND test_p8k_power_loss_boot_recovery)
+
 add_executable(test_time_boot_recovery
     tests/integration/test_time_boot_recovery.c
 )
