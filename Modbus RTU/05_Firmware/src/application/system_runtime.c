@@ -585,9 +585,12 @@ Tr2Result system_runtime_boot(SystemRuntime *runtime)
     runtime->fg_runtime_available = false;
     runtime->p9_authorities_available = false;
     runtime->command_runtime_available = false;
+    runtime->system_state_snapshot_available = false;
+    runtime->b1_image_available = false;
     runtime->b4_image_available = false;
     runtime->b5_image_available = false;
     runtime->b6_image_available = false;
+    runtime->b7_image_available = false;
 
     (void)runtime->deps.monotonic_clock->now_ms(runtime->deps.monotonic_clock->context);
     runtime->boot_context.reset_cause =
@@ -642,6 +645,11 @@ Tr2Result system_runtime_boot(SystemRuntime *runtime)
     }
 
     result = rebuild_b6(runtime);
+    if (result != TR2_OK) {
+        return result;
+    }
+
+    result = system_runtime_build_boot_status_images(runtime);
     if (result != TR2_OK) {
         return result;
     }
