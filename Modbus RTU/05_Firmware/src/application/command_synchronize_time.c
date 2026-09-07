@@ -124,7 +124,7 @@ CommandReconciliationOutcome command_synchronize_time_reconcile(
             snapshot.last_sync_history.source == (uint16_t)entry->recovery_context.value2) {
             return COMMAND_RECONCILIATION_TERMINAL_EFFECT_PROVEN;
         }
-        return COMMAND_RECONCILIATION_ABSENCE_PROVEN;
+        return COMMAND_RECONCILIATION_INDETERMINATE;
     }
 
     if (snapshot.last_sync_history.state == LAST_SYNC_HISTORY_NONE) {
