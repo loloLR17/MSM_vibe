@@ -5,6 +5,7 @@
 #include <stdint.h>
 
 #include "tr2/domain/acquisition/acquisition.h"
+#include "tr2/domain/supervision/threshold_evaluator.h"
 #include "tr2/platform/wall_clock.h"
 
 typedef struct {
@@ -26,6 +27,9 @@ typedef struct {
     bool window_complete;
     bool saturation_observed;
     bool calculation_error;
+
+    bool threshold_facts_available;
+    SupervisionThresholdFacts threshold_facts;
 
     MonotonicTimeMs value_monotonic_ms;
     bool value_age_available;
