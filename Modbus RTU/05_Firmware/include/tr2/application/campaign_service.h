@@ -33,6 +33,12 @@ bool campaign_service_is_initialized(const CampaignService *service);
 bool campaign_service_campaign_open(const CampaignService *service);
 bool campaign_service_acquisition_running(const CampaignService *service);
 
+Tr2Result campaign_service_reserve_start_id(CampaignService *service,
+                                            CampaignId *out_campaign_id);
+
+Tr2Result campaign_service_start_reserved(CampaignService *service,
+                                          CampaignId campaign_id);
+
 Tr2Result campaign_service_start(CampaignService *service,
                                  CampaignId *out_campaign_id);
 
