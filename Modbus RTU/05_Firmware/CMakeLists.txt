@@ -16,6 +16,7 @@ add_library(tr2_core STATIC
     src/application/campaign_inventory_service.c
     src/application/campaign_service.c
     src/application/command_apply_configuration.c
+    src/application/command_boot_recovery.c
     src/application/command_engine.c
     src/application/command_request_mailbox.c
     src/application/command_start_acquisition.c
@@ -345,6 +346,12 @@ add_executable(test_p7j_stop_acquisition
 )
 target_link_libraries(test_p7j_stop_acquisition PRIVATE tr2_core)
 add_test(NAME p7j_stop_acquisition COMMAND test_p7j_stop_acquisition)
+
+add_executable(test_p7k_command_boot_recovery
+    tests/unit/test_p7k_command_boot_recovery.c
+)
+target_link_libraries(test_p7k_command_boot_recovery PRIVATE tr2_core)
+add_test(NAME p7k_command_boot_recovery COMMAND test_p7k_command_boot_recovery)
 
 add_executable(test_acquisition_service
     tests/unit/test_acquisition_service.c
