@@ -13,7 +13,6 @@ Tr2Result configuration_service_init(ConfigurationService *service,
     memset(service, 0, sizeof(*service));
     service->store = store;
     service->initialized = true;
-    service->recovery_status = CONFIGURATION_RECOVERY_EMPTY;
     return TR2_OK;
 }
 
@@ -43,6 +42,7 @@ Tr2Result configuration_service_recover(
     }
 
     service->recovery_status = recovery.status;
+    service->has_recovery_status = true;
     if (recovery.status == CONFIGURATION_RECOVERY_VALID && recovery.has_snapshot) {
         service->active = recovery.snapshot;
         service->has_active = true;
@@ -75,6 +75,7 @@ Tr2Result configuration_service_commit_candidate(
     service->active = *candidate;
     service->has_active = true;
     service->recovery_status = CONFIGURATION_RECOVERY_VALID;
+    service->has_recovery_status = true;
     return TR2_OK;
 }
 
@@ -91,12 +92,15 @@ bool configuration_service_active_snapshot(
     return true;
 }
 
-ConfigurationRecoveryStatus configuration_service_recovery_status(
-    const ConfigurationService *service)
+bool configuration_service_recovery_status(
+    const ConfigurationService *service,
+    ConfigurationRecoveryStatus *out_status)
 {
-    if (!configuration_service_is_initialized(service)) {
-        return CONFIGURATION_RECOVERY_UNAVAILABLE;
+    if (!configuration_service_is_initialized(service) || out_status == NULL ||
+        !service->has_recovery_status) {
+        return false;
     }
 
-    return service->recovery_status;
+    *out_status = service->recovery_status;
+    return true;
 }
