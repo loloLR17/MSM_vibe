@@ -31,6 +31,7 @@ add_library(tr2_core STATIC
     src/persistence/configuration_record.c
     src/persistence/configuration_store.c
     src/persistence/persistent_storage_core.c
+    src/persistence/time_history_record.c
 )
 
 target_include_directories(tr2_core
@@ -111,6 +112,12 @@ add_executable(test_time_recovery_types
 )
 target_link_libraries(test_time_recovery_types PRIVATE tr2_core)
 add_test(NAME time_recovery_types COMMAND test_time_recovery_types)
+
+add_executable(test_time_history_record
+    tests/unit/test_time_history_record.c
+)
+target_link_libraries(test_time_history_record PRIVATE tr2_core)
+add_test(NAME time_history_record COMMAND test_time_history_record)
 
 add_executable(test_configuration_types
     tests/unit/test_configuration_types.c
