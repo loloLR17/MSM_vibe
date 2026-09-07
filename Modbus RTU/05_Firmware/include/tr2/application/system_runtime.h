@@ -4,6 +4,9 @@
 #include <stdbool.h>
 
 #include "tr2/application/campaign_inventory_service.h"
+#include "tr2/application/command_boot_recovery.h"
+#include "tr2/application/command_engine.h"
+#include "tr2/application/command_request_mailbox.h"
 #include "tr2/application/configuration_service.h"
 #include "tr2/common/result.h"
 #include "tr2/domain/configuration/configuration_validator.h"
@@ -11,6 +14,7 @@
 #include "tr2/modbus/projection.h"
 #include "tr2/persistence/campaign_data_store_persistent.h"
 #include "tr2/persistence/campaign_repository_store.h"
+#include "tr2/persistence/command_journal_store.h"
 #include "tr2/persistence/configuration_store.h"
 #include "tr2/persistence/persistent_media_region.h"
 #include "tr2/persistence/persistent_storage_core.h"
@@ -68,8 +72,19 @@ typedef struct {
     CampaignInventoryService campaign_inventory_service;
     CampaignInventoryViewSnapshot campaign_inventory_snapshot;
     bool campaign_inventory_snapshot_available;
+    PersistentMediaRegion command_journal_media_region;
+    PersistentStorageCore command_journal_storage_core;
+    CommandJournalStore command_journal_store;
+    CommandJournalRecoveryResult command_journal_recovery;
+    CommandBootRecoveryResult command_boot_recovery;
+    CommandEngine command_engine;
+    CommandRequestMailbox command_mailbox;
+    CommandSnapshot command_snapshot;
+    bool command_runtime_available;
     ModbusBlock4Image b4_image;
     bool b4_image_available;
+    ModbusBlock5Image b5_image;
+    bool b5_image_available;
     ModbusBlock6Image b6_image;
     bool b6_image_available;
     bool initialized;
@@ -89,7 +104,13 @@ bool system_runtime_campaign_recovery_snapshot(
 bool system_runtime_campaign_inventory_snapshot(
     const SystemRuntime *runtime,
     CampaignInventoryViewSnapshot *out_snapshot);
+bool system_runtime_command_boot_recovery(
+    const SystemRuntime *runtime,
+    CommandBootRecoveryResult *out_recovery);
+bool system_runtime_command_snapshot(const SystemRuntime *runtime,
+                                     CommandSnapshot *out_snapshot);
 bool system_runtime_b4_image(const SystemRuntime *runtime, ModbusBlock4Image *out_image);
+bool system_runtime_b5_image(const SystemRuntime *runtime, ModbusBlock5Image *out_image);
 bool system_runtime_b6_image(const SystemRuntime *runtime, ModbusBlock6Image *out_image);
 
 #endif
