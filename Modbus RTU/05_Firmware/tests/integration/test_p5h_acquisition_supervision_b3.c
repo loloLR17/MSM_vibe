@@ -268,7 +268,7 @@ int main(void)
                                        registers);
     assert(outcome.access_result == MODBUS_ACCESS_OK);
     assert(outcome.operation_result == TR2_OK);
-    assert(registers[4] == UINT16_C(0));
+    assert(registers[4] == UINT16_C(0x0001));
     assert(registers[5] == UINT16_C(0xE240));
     assert(registers[6] == UINT16_C(0));
     assert(registers[7] == UINT16_C(75));
