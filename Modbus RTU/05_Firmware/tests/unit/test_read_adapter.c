@@ -59,7 +59,12 @@ int main(void)
             .source = UINT16_C(1)
         }
     };
-    ModbusReadSources sources = {\n        .identity = &identity,\n        .system_state = &system_state,\n        .time = &time,\n        .supervision = NULL\n    };
+    ModbusReadSources sources = {
+        .identity = &identity,
+        .system_state = &system_state,
+        .time = &time,
+        .supervision = NULL
+    };
     ModbusReadOutcome outcome;
     uint16_t values[21] = { 0u };
 
