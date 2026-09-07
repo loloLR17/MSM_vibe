@@ -4,13 +4,12 @@
 #include <stdint.h>
 
 #include "tr2/common/result.h"
-#include "tr2/domain/identity/identity.h"
 #include "tr2/domain/time/time_service.h"
 #include "tr2/modbus/projection.h"
 #include "tr2/modbus/register_model.h"
 
 typedef struct {
-    const IdentitySnapshot *identity;
+    const ModbusBlock0Image *b0_image;
     const TimeSnapshot *time;
     const ModbusBlock1Image *b1_image;
     const ModbusBlock3Image *b3_image;

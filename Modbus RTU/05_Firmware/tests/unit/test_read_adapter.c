@@ -40,6 +40,7 @@ int main(void)
             .source = UINT16_C(1)
         }
     };
+    ModbusBlock0Image b0 = { { 0u }, 0u };
     ModbusBlock1Image b1 = { { 0u }, UINT32_C(12) };
     ModbusBlock3Image b3 = { { 0u }, UINT32_C(7) };
     ModbusBlock4Image b4 = { { 0u } };
@@ -49,6 +50,7 @@ int main(void)
     uint16_t values[48] = {0u};
     uint16_t index;
 
+    assert(modbus_project_b0(&identity, &b0) == TR2_OK);
     for (index = 0u; index < TR2_B1_REGISTER_COUNT; ++index) {
         b1.registers[index] = (uint16_t)(UINT16_C(0x1100) + index);
     }
@@ -65,7 +67,7 @@ int main(void)
         b7.registers[index] = (uint16_t)(UINT16_C(0x7000) + index);
     }
 
-    sources.identity = &identity;
+    sources.b0_image = &b0;
     sources.time = &time;
     sources.b1_image = &b1;
     sources.b3_image = &b3;
@@ -78,6 +80,14 @@ int main(void)
     assert(values[0] == UINT16_C(0x1234));
     assert(values[1] == UINT16_C(0x5678));
     assert(values[20] == 0u);
+
+    sources.b0_image = NULL;
+    values[0] = UINT16_C(0xBEEF);
+    outcome = modbus_read_adapter_read(&sources, UINT16_C(0), UINT16_C(1), values);
+    assert(outcome.access_result == MODBUS_ACCESS_OK);
+    assert(outcome.operation_result == TR2_ERROR_NOT_AVAILABLE);
+    assert(values[0] == UINT16_C(0xBEEF));
+    sources.b0_image = &b0;
 
     outcome = modbus_read_adapter_read(&sources, UINT16_C(1000), UINT16_C(20), values);
     assert(outcome.access_result == MODBUS_ACCESS_OK);

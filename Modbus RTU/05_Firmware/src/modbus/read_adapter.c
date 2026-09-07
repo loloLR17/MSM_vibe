@@ -3,6 +3,7 @@
 #include "tr2/modbus/projection.h"
 #include "tr2/modbus/read_adapter.h"
 
+#define TR2_B0_BASE_ADDRESS UINT16_C(0)
 #define TR2_B1_BASE_ADDRESS UINT16_C(1000)
 #define TR2_B3_BASE_ADDRESS UINT16_C(3000)
 #define TR2_B4_BASE_ADDRESS UINT16_C(4000)
@@ -19,19 +20,15 @@ static ModbusReadOutcome read_from_b0(const ModbusReadSources *sources,
                                       uint16_t *values)
 {
     ModbusReadOutcome outcome = { MODBUS_ACCESS_OK, TR2_OK };
-    ModbusBlock0Image image;
     uint16_t index;
 
-    if (sources->identity == NULL) {
+    if (sources->b0_image == NULL) {
         outcome.operation_result = TR2_ERROR_NOT_AVAILABLE;
         return outcome;
     }
-    outcome.operation_result = modbus_project_b0(sources->identity, &image);
-    if (outcome.operation_result != TR2_OK) {
-        return outcome;
-    }
     for (index = 0u; index < quantity; ++index) {
-        values[index] = image.registers[(uint16_t)(start_address + index)];
+        values[index] = sources->b0_image->registers[
+            (uint16_t)(start_address - TR2_B0_BASE_ADDRESS + index)];
     }
     return outcome;
 }
@@ -256,12 +253,6 @@ ModbusReadOutcome modbus_read_adapter_read(const ModbusReadSources *sources,
     }
 }
 
+#undef TR2_B0_BASE_ADDRESS
 #undef TR2_B1_BASE_ADDRESS
 #undef TR2_B3_BASE_ADDRESS
-#undef TR2_B4_BASE_ADDRESS
-#undef TR2_B5_BASE_ADDRESS
-#undef TR2_B5_LAST_ADDRESS
-#undef TR2_B6_BASE_ADDRESS
-#undef TR2_B6_LAST_ADDRESS
-#undef TR2_B7_BASE_ADDRESS
-#undef TR2_B7_LAST_ADDRESS
