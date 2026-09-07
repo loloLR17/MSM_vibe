@@ -187,3 +187,9 @@ add_executable(test_configuration_b4_flow
 )
 target_link_libraries(test_configuration_b4_flow PRIVATE tr2_core)
 add_test(NAME configuration_b4_flow COMMAND test_configuration_b4_flow)
+
+add_executable(test_configuration_fault_injection
+    tests/integration/test_configuration_fault_injection.c
+)
+target_link_libraries(test_configuration_fault_injection PRIVATE tr2_platform_host)
+add_test(NAME configuration_fault_injection COMMAND test_configuration_fault_injection)
