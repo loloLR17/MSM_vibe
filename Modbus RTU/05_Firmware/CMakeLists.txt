@@ -28,6 +28,7 @@ add_library(tr2_core STATIC
     src/application/configuration_workflow.c
     src/application/supervision_service.c
     src/application/system_runtime.c
+    src/application/system_runtime_acquisition_command.c
     src/domain/command/command.c
     src/domain/configuration/configuration_staging.c
     src/domain/configuration/configuration_validator.c
@@ -409,6 +410,12 @@ add_executable(test_system_runtime
 )
 target_link_libraries(test_system_runtime PRIVATE tr2_platform_host)
 add_test(NAME system_runtime COMMAND test_system_runtime)
+
+add_executable(test_p8i_system_runtime_acquisition_commands
+    tests/integration/test_p8i_system_runtime_acquisition_commands.c
+)
+target_link_libraries(test_p8i_system_runtime_acquisition_commands PRIVATE tr2_platform_host)
+add_test(NAME p8i_system_runtime_acquisition_commands COMMAND test_p8i_system_runtime_acquisition_commands)
 
 add_executable(test_time_boot_recovery
     tests/integration/test_time_boot_recovery.c
