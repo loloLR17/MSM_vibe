@@ -15,6 +15,7 @@ add_library(tr2_core STATIC
     src/application/acquisition_service.c
     src/application/campaign_inventory_service.c
     src/application/campaign_service.c
+    src/application/command_engine.c
     src/application/command_request_mailbox.c
     src/application/configuration_activation_adapter.c
     src/application/configuration_service.c
@@ -303,6 +304,12 @@ add_executable(test_p7d_command_journal_store
 )
 target_link_libraries(test_p7d_command_journal_store PRIVATE tr2_core)
 add_test(NAME p7d_command_journal_store COMMAND test_p7d_command_journal_store)
+
+add_executable(test_p7e_command_engine_admission
+    tests/unit/test_p7e_command_engine_admission.c
+)
+target_link_libraries(test_p7e_command_engine_admission PRIVATE tr2_core)
+add_test(NAME p7e_command_engine_admission COMMAND test_p7e_command_engine_admission)
 
 add_executable(test_acquisition_service
     tests/unit/test_acquisition_service.c
