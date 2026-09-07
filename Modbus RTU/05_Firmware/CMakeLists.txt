@@ -37,6 +37,8 @@ add_library(tr2_core STATIC
     src/domain/time/time_recovery.c
     src/domain/time/time_service.c
     src/modbus/b4_configuration_codec.c
+    src/modbus/b5_projection.c
+    src/modbus/b5_write_adapter.c
     src/modbus/b6_projection.c
     src/modbus/b6_write_adapter.c
     src/modbus/codec.c
@@ -352,6 +354,12 @@ add_executable(test_p7k_command_boot_recovery
 )
 target_link_libraries(test_p7k_command_boot_recovery PRIVATE tr2_core)
 add_test(NAME p7k_command_boot_recovery COMMAND test_p7k_command_boot_recovery)
+
+add_executable(test_p7l_b5_adapters
+    tests/unit/test_p7l_b5_adapters.c
+)
+target_link_libraries(test_p7l_b5_adapters PRIVATE tr2_core)
+add_test(NAME p7l_b5_adapters COMMAND test_p7l_b5_adapters)
 
 add_executable(test_acquisition_service
     tests/unit/test_acquisition_service.c
