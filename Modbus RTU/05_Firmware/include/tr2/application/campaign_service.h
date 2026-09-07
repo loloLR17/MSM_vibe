@@ -18,6 +18,7 @@ typedef struct {
     bool initialized;
     bool campaign_open;
     bool data_store_started;
+    bool data_store_recovery_pending;
     bool acquisition_window_started;
     CampaignMetadata active_metadata;
 } CampaignService;
