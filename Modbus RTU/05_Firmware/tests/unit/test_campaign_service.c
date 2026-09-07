@@ -13,6 +13,8 @@ typedef struct {
     int source_stop_step;
     int data_finish_step;
     int close_step;
+    uint32_t data_recover_calls;
+    bool fail_data_recover_once;
     Tr2Result source_start_result;
     CampaignMetadata opened;
     CampaignMetadata closed;
@@ -141,8 +143,13 @@ static Tr2Result fake_data_recover(void *context,
                                    CampaignId campaign_id,
                                    CampaignDataRecoveryResult *result)
 {
-    (void)context;
+    TestContext *test = context;
     assert(campaign_id == 7u);
+    test->data_recover_calls++;
+    if (test->fail_data_recover_once) {
+        test->fail_data_recover_once = false;
+        return TR2_ERROR_STORAGE;
+    }
     memset(result, 0, sizeof(*result));
     result->status = CAMPAIGN_DATA_RECOVERY_VALID;
     result->durable_prefix_bytes = UINT64_C(123);
@@ -336,10 +343,59 @@ static void test_partial_start_remains_closable(void)
     assert(test.close_step != 0);
 }
 
+static void test_stop_retries_data_recovery_without_refinishing(void)
+{
+    TestContext test = {0};
+    ConfigurationService configuration;
+    AcquisitionService acquisition;
+    CampaignRepository repository;
+    CampaignDataStore data_store;
+    MonotonicClock clock;
+    VibrationSource source;
+    CampaignService service;
+    CampaignId id;
+    CampaignMetadata closed;
+    const int finish_step_before_retry;
+
+    test.source_start_result = TR2_OK;
+    test.fail_data_recover_once = true;
+    build_dependencies(&test,
+                       &configuration,
+                       &acquisition,
+                       &repository,
+                       &data_store,
+                       &clock,
+                       &source);
+    assert(campaign_service_init(&service,
+                                 &configuration,
+                                 &acquisition,
+                                 &repository,
+                                 &data_store) == TR2_OK);
+    assert(campaign_service_start(&service, &id) == TR2_OK);
+
+    assert(campaign_service_stop(&service, &closed) == TR2_ERROR_STORAGE);
+    assert(campaign_service_campaign_open(&service));
+    assert(!campaign_service_acquisition_running(&service));
+    assert(!service.data_store_started);
+    assert(service.data_store_recovery_pending);
+    assert(test.data_recover_calls == 1u);
+    finish_step_before_retry = test.data_finish_step;
+
+    assert(campaign_service_stop(&service, &closed) == TR2_OK);
+    assert(test.data_finish_step == finish_step_before_retry);
+    assert(test.data_recover_calls == 2u);
+    assert(closed.durable_data_size_bytes == UINT64_C(123));
+    assert(closed.lifecycle_state == CAMPAIGN_LIFECYCLE_CLOSED);
+    assert(!closed.end_timestamp.available);
+    assert(!closed.duration.available);
+    assert(!campaign_service_campaign_open(&service));
+}
+
 int main(void)
 {
     test_start_stop_freezes_context_and_orders_durability();
     test_start_without_active_configuration_is_rejected();
     test_partial_start_remains_closable();
+    test_stop_retries_data_recovery_without_refinishing();
     return 0;
 }
