@@ -5,6 +5,7 @@
 
 #include "tr2/application/acquisition_service.h"
 #include "tr2/application/configuration_service.h"
+#include "tr2/application/supervision_service.h"
 #include "tr2/common/result.h"
 #include "tr2/domain/campaign/campaign.h"
 #include "tr2/persistence/campaign_data_store.h"
@@ -59,6 +60,10 @@ Tr2Result campaign_service_start(CampaignService *service,
 Tr2Result campaign_service_drive_acquisition_step(
     CampaignService *service,
     CampaignAcquisitionStep *out_step);
+
+Tr2Result campaign_service_publish_supervision_step(
+    SupervisionService *supervision_service,
+    const CampaignAcquisitionStep *step);
 
 Tr2Result campaign_service_stop(CampaignService *service,
                                 CampaignMetadata *out_closed_metadata);
