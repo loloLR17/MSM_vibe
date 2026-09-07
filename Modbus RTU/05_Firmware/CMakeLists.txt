@@ -32,6 +32,7 @@ add_library(tr2_core STATIC
     src/persistence/configuration_store.c
     src/persistence/persistent_storage_core.c
     src/persistence/time_history_record.c
+    src/persistence/time_history_store.c
 )
 
 target_include_directories(tr2_core
@@ -118,6 +119,12 @@ add_executable(test_time_history_record
 )
 target_link_libraries(test_time_history_record PRIVATE tr2_core)
 add_test(NAME time_history_record COMMAND test_time_history_record)
+
+add_executable(test_time_history_store
+    tests/unit/test_time_history_store.c
+)
+target_link_libraries(test_time_history_store PRIVATE tr2_core)
+add_test(NAME time_history_store COMMAND test_time_history_store)
 
 add_executable(test_configuration_types
     tests/unit/test_configuration_types.c
