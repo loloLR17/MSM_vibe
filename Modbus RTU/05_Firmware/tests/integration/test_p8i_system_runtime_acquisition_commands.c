@@ -168,9 +168,11 @@ int main(void)
     BootIntentRecoveryResult boot_intent_recovery;
     ModbusBlock1Image b1;
     ModbusBlock5Image b5;
+    ModbusBlock7Image b7;
     uint32_t start_calls;
     uint32_t stop_calls;
     uint32_t b1_generation;
+    uint32_t b7_generation;
 
     host_platform_init(&platform);
     host_platform_set_reset_cause(&platform, RESET_CAUSE_BROWNOUT);
@@ -194,6 +196,7 @@ int main(void)
     assert(system_runtime_boot(&runtime) == TR2_OK);
     assert(system_runtime_is_ready_for_modbus(&runtime));
     assert(!system_runtime_b1_image(&runtime, &b1));
+    assert(!system_runtime_b7_image(&runtime, &b7));
 
     memset(&validated, 0, sizeof(validated));
     validated.generation = UINT32_C(1);
@@ -309,7 +312,8 @@ int main(void)
     assert(system_runtime_b5_image(&runtime, &b5));
     assert((b5.registers[13] & COMMAND_ENGINE_FLAG_MAINTENANCE_ACTIVE) == 0u);
 
-    /* P9-N3: REFRESH_INDICATORS rebuilds B1 only from current runtime authorities. */
+    /* P9-N3 / N6b1: REFRESH_INDICATORS rebuilds B1 and B7 from one coherent
+       runtime diagnostic/system-state snapshot pair. */
     host_platform_advance_monotonic(&platform, UINT64_C(12345));
     memset(&request, 0, sizeof(request));
     request.transaction_id = UINT16_C(506);
@@ -320,6 +324,7 @@ int main(void)
     assert(entry.lifecycle == COMMAND_LIFECYCLE_COMPLETED);
     assert(entry.final_result.status == COMMAND_STATUS_SUCCESS);
     assert(system_runtime_b1_image(&runtime, &b1));
+    assert(system_runtime_b7_image(&runtime, &b7));
     assert(b1.registers[0] == UINT16_C(1));
     assert((b1.registers[1] & UINT16_C(0x0001)) != 0u); /* READY */
     assert((b1.registers[1] & UINT16_C(0x0002)) == 0u); /* acquisition stopped */
@@ -332,16 +337,26 @@ int main(void)
     assert(b1.registers[12] == UINT16_C(0));
     assert(b1.registers[13] == UINT16_C(0));
     assert(b1.registers[14] == UINT16_C(0));
+    assert(b7.registers[0] == UINT16_C(1));
+    assert(b7.registers[9] == b1.registers[4]);
+    assert(b7.registers[10] == b1.registers[5]);
+    assert(b7.registers[11] == b1.registers[6]);
+    assert(b7.registers[12] == UINT16_C(0));
+    assert(b7.registers[13] == UINT16_C(0));
     b1_generation = b1.source_generation;
+    b7_generation = b7.source_generation;
 
-    /* Retry must not execute a second refresh or advance the B1 snapshot generation. */
+    /* Retry must not execute a second refresh or advance either projection. */
     host_platform_advance_monotonic(&platform, UINT64_C(5000));
     assert(system_runtime_execute_p9_command(&runtime, &request, &timestamp,
                                              &admission, &entry) == TR2_OK);
     assert(admission.kind == COMMAND_ADMISSION_RETRY);
     assert(system_runtime_b1_image(&runtime, &b1));
+    assert(system_runtime_b7_image(&runtime, &b7));
     assert(b1.source_generation == b1_generation);
+    assert(b7.source_generation == b7_generation);
     assert(b1.registers[5] == UINT16_C(12));
+    assert(b7.registers[10] == UINT16_C(12));
 
     /* P9-N4b: absence of a platform executor is explicit and reserves nothing. */
     memset(&request, 0, sizeof(request));
@@ -368,14 +383,28 @@ int main(void)
     assert(diagnostic_snapshot.facts.selftest.state == DIAGNOSTIC_SELFTEST_PASSED);
     assert(diagnostic_snapshot.facts.selftest.result_code == UINT16_C(0));
     assert(diagnostic_snapshot.facts.selftest.detail == UINT16_C(0));
+    assert(system_runtime_b1_image(&runtime, &b1));
+    assert(system_runtime_b7_image(&runtime, &b7));
+    assert(b7.registers[6] == UINT16_C(2));
+    assert(b7.registers[7] == UINT16_C(0));
+    assert(b7.registers[8] == UINT16_C(0));
+    assert(b7.registers[9] == b1.registers[4]);
+    assert(b7.registers[10] == b1.registers[5]);
+    assert(b7.registers[11] == b1.registers[6]);
 
     /* Lifetime-strict retry reuses the terminal journal result and never
        invokes the platform selftest executor again. */
+    b1_generation = b1.source_generation;
+    b7_generation = b7.source_generation;
     assert(system_runtime_execute_p9_command(&runtime, &request, &timestamp,
                                              &admission, &entry) == TR2_OK);
     assert(admission.kind == COMMAND_ADMISSION_RETRY);
     assert(entry.lifecycle == COMMAND_LIFECYCLE_COMPLETED);
     assert(selftest_double.calls == 1u);
+    assert(system_runtime_b1_image(&runtime, &b1));
+    assert(system_runtime_b7_image(&runtime, &b7));
+    assert(b1.source_generation == b1_generation);
+    assert(b7.source_generation == b7_generation);
 
     /* P9-N5a: an unavailable reset trigger reserves nothing. */
     memset(&request, 0, sizeof(request));
