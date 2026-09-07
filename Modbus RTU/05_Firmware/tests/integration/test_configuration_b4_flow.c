@@ -2,35 +2,73 @@
 #include <stdint.h>
 #include <string.h>
 
+#include "tr2/application/configuration_activation_adapter.h"
 #include "tr2/application/configuration_workflow.h"
 #include "tr2/modbus/b4_configuration_codec.h"
 #include "tr2/modbus/projection.h"
 #include "tr2/modbus/write_adapter.h"
+#include "tr2/persistence/configuration_store.h"
+#include "tr2/persistence/persistent_storage_core.h"
+
+#define TEST_STORAGE_SIZE TR2_CONFIGURATION_STORE_STORAGE_SIZE
 
 typedef struct {
-    bool fail;
-    uint32_t calls;
-    uint32_t revision;
-    uint32_t generation;
-} TestCommitContext;
+    uint8_t durable[TEST_STORAGE_SIZE];
+    uint8_t staged[TEST_STORAGE_SIZE];
+} TestMedia;
 
-static Tr2Result test_commit(void *context,
-                             const ValidatedConfiguration *validated,
-                             ActiveConfigurationSnapshot *out_committed_snapshot)
+typedef struct {
+    uint32_t persistent_generation;
+    uint32_t revision_counter;
+    uint32_t calls;
+} TestActivationMetadata;
+
+static Tr2Result test_media_read(void *context, uint32_t offset, void *buffer, size_t size)
 {
-    TestCommitContext *commit = (TestCommitContext *)context;
-    assert(commit != NULL);
-    assert(validated != NULL);
-    assert(out_committed_snapshot != NULL);
-    commit->calls += 1u;
-    if (commit->fail) {
+    TestMedia *media = (TestMedia *)context;
+
+    if ((size_t)offset + size > TEST_STORAGE_SIZE) {
         return TR2_ERROR_STORAGE;
     }
-    memset(out_committed_snapshot, 0, sizeof(*out_committed_snapshot));
-    out_committed_snapshot->generation = commit->generation;
-    out_committed_snapshot->config_id = validated->config_id;
-    out_committed_snapshot->revision_counter = commit->revision;
-    out_committed_snapshot->payload = validated->payload;
+    memcpy(buffer, &media->staged[offset], size);
+    return TR2_OK;
+}
+
+static Tr2Result test_media_write(void *context,
+                                  uint32_t offset,
+                                  const void *buffer,
+                                  size_t size)
+{
+    TestMedia *media = (TestMedia *)context;
+
+    if ((size_t)offset + size > TEST_STORAGE_SIZE) {
+        return TR2_ERROR_STORAGE;
+    }
+    memcpy(&media->staged[offset], buffer, size);
+    return TR2_OK;
+}
+
+static Tr2Result test_media_commit(void *context)
+{
+    TestMedia *media = (TestMedia *)context;
+
+    memcpy(media->durable, media->staged, TEST_STORAGE_SIZE);
+    return TR2_OK;
+}
+
+static Tr2Result acquire_activation_metadata(
+    void *context,
+    const ValidatedConfiguration *validated,
+    ConfigurationActivationMetadata *out_metadata)
+{
+    TestActivationMetadata *metadata = (TestActivationMetadata *)context;
+
+    assert(metadata != NULL);
+    assert(validated != NULL);
+    assert(out_metadata != NULL);
+    metadata->calls += UINT32_C(1);
+    out_metadata->persistent_generation = metadata->persistent_generation;
+    out_metadata->revision_counter = metadata->revision_counter;
     return TR2_OK;
 }
 
@@ -112,11 +150,16 @@ static ModbusBlock4Image project_current(const ConfigurationStagingService *stag
 
 int main(void)
 {
+    TestMedia media;
+    PersistentMedia persistent_media;
+    PersistentStorageCore storage_core;
+    ConfigurationStore configuration_store;
+    ConfigurationService configuration_service;
+    ConfigurationActivationAdapter activation_adapter;
+    TestActivationMetadata activation_metadata = { UINT32_C(1001), UINT32_C(17), 0u };
     ConfigurationStagingService staging;
     ConfigurationWorkflow workflow;
     ConfigurationIntegrityPort integrity = { tr2_b4_prepared_payload_crc };
-    TestCommitContext commit_context = { false, 0u, UINT32_C(17), UINT32_C(1001) };
-    ActivationCommitPort activation = { &commit_context, test_commit };
     ConfigurationValidationEnvironment environment = { true, UINT32_C(1024) };
     ConfigurationPayload payload = valid_payload();
     ConfigurationValidationResult validation;
@@ -129,8 +172,24 @@ int main(void)
     const uint32_t prepared_crc = tr2_b4_prepared_payload_crc(&payload);
     uint32_t active_crc;
 
+    memset(&media, 0xFF, sizeof(media));
+    persistent_media.context = &media;
+    persistent_media.read = test_media_read;
+    persistent_media.write = test_media_write;
+    persistent_media.commit = test_media_commit;
+    assert(persistent_storage_core_init(&storage_core, &persistent_media) == TR2_OK);
+    assert(configuration_store_init(&configuration_store, &storage_core) == TR2_OK);
+    assert(configuration_service_init(&configuration_service, &configuration_store) == TR2_OK);
+    assert(configuration_activation_adapter_init(&activation_adapter,
+                                                 &configuration_service,
+                                                 &activation_metadata,
+                                                 acquire_activation_metadata) == TR2_OK);
+
     configuration_staging_init(&staging);
-    assert(configuration_workflow_init(&workflow, &staging, integrity, activation) == TR2_OK);
+    assert(configuration_workflow_init(&workflow,
+                                       &staging,
+                                       integrity,
+                                       configuration_activation_adapter_port(&activation_adapter)) == TR2_OK);
 
     image = project_current(&staging, &workflow);
     assert(image.registers[6] == UINT16_C(CONFIGURATION_STATE_EMPTY));
@@ -161,7 +220,7 @@ int main(void)
     assert(image.registers[6] == UINT16_C(CONFIGURATION_STATE_VALID));
 
     assert(configuration_workflow_apply(&workflow) == TR2_OK);
-    assert(commit_context.calls == UINT32_C(1));
+    assert(activation_metadata.calls == UINT32_C(1));
     assert(configuration_workflow_state(&workflow) == CONFIGURATION_STATE_ACTIVE);
     image = project_current(&staging, &workflow);
     active_crc = tr2_b4_active_payload_crc(&payload);
@@ -176,6 +235,7 @@ int main(void)
     assert(image.registers[133] == UINT16_C(0x4D50));
 
     assert(configuration_workflow_active_snapshot(&workflow, &active_before));
+    assert(active_before.generation == UINT32_C(1001));
     assert(configuration_staging_snapshot(&staging, &prepared_before));
     write_outcome = modbus_write_adapter_write_b4(&staging, UINT16_C(4100), &attempted_ro, UINT16_C(1));
     assert(write_outcome.access_result == MODBUS_ACCESS_READ_ONLY);
@@ -199,7 +259,7 @@ int main(void)
     assert(validation.status == CONFIGURATION_VALIDATION_INVALID);
     assert(configuration_workflow_state(&workflow) == CONFIGURATION_STATE_VALIDATION_ERROR);
     assert(configuration_workflow_apply(&workflow) == TR2_ERROR_INVALID_STATE);
-    assert(commit_context.calls == UINT32_C(1));
+    assert(activation_metadata.calls == UINT32_C(1));
     {
         ActiveConfigurationSnapshot active_after;
         assert(configuration_workflow_active_snapshot(&workflow, &active_after));
