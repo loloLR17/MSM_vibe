@@ -38,7 +38,7 @@ static ModbusReadOutcome read_from_b1(const ModbusReadSources *sources,
     ModbusBlock1ProjectionSource source;
     uint16_t index;
 
-    if (sources->system_state == NULL || sources->time == NULL) {
+    if (sources->system_state == NULL) {
         outcome.operation_result = TR2_ERROR_NOT_AVAILABLE;
         return outcome;
     }
