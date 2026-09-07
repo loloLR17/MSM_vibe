@@ -17,6 +17,12 @@ typedef struct {
     bool fail_commit;
 } FaultMediaContext;
 
+typedef struct {
+    PersistentStorageCore storage_core;
+    ConfigurationStore store;
+    ConfigurationService service;
+} ConfigurationTestRuntime;
+
 static bool fault_media_range_valid(uint32_t offset, size_t size)
 {
     return offset <= HOST_PLATFORM_PERSISTENT_BYTES &&
@@ -195,6 +201,32 @@ static SystemRuntimeDependencies make_dependencies(
     return deps;
 }
 
+static void configuration_test_runtime_boot(
+    ConfigurationTestRuntime *runtime,
+    PersistentMedia *media,
+    const ConfigurationValidationEnvironment *environment)
+{
+    assert(runtime != NULL);
+    memset(runtime, 0, sizeof(*runtime));
+    assert(persistent_storage_core_init(&runtime->storage_core, media) == TR2_OK);
+    assert(configuration_store_init(&runtime->store, &runtime->storage_core) == TR2_OK);
+    assert(configuration_service_init(&runtime->service, &runtime->store) == TR2_OK);
+    assert(configuration_service_recover(&runtime->service, environment) == TR2_OK);
+}
+
+static void assert_configuration_service_matches(
+    const ConfigurationService *service,
+    const ActiveConfigurationSnapshot *expected)
+{
+    ActiveConfigurationSnapshot recovered;
+
+    assert(configuration_service_active_snapshot(service, &recovered));
+    assert(recovered.generation == expected->generation);
+    assert(recovered.config_id == expected->config_id);
+    assert(recovered.revision_counter == expected->revision_counter);
+    assert(memcmp(&recovered.payload, &expected->payload, sizeof(recovered.payload)) == 0);
+}
+
 static void assert_runtime_matches(
     const SystemRuntime *runtime,
     const ActiveConfigurationSnapshot *expected)
@@ -254,14 +286,9 @@ static void test_every_partial_write_recovers_a(void)
         HostPlatform platform;
         FaultMediaContext fault_media;
         PersistentMedia media;
-        MonotonicClock monotonic;
-        WallClock wall;
-        ResetCauseProvider reset;
-        TimeContinuityEvidenceProvider time_continuity;
         ConfigurationValidationEnvironment environment = { true, UINT32_C(4096) };
-        SystemRuntimeDependencies deps;
-        SystemRuntime runtime_before;
-        SystemRuntime runtime_after;
+        ConfigurationTestRuntime runtime_before;
+        ConfigurationTestRuntime runtime_after;
         ActiveConfigurationSnapshot active_a;
         const ValidatedConfiguration validated_a = make_validated(1u, 10u, 1u);
         const ValidatedConfiguration validated_b = make_validated(2u, 20u, 2u);
@@ -269,22 +296,21 @@ static void test_every_partial_write_recovers_a(void)
         host_platform_init(&platform);
         fault_media_init(&fault_media, &platform);
         media = fault_media_port(&fault_media);
-        monotonic = host_platform_monotonic_clock(&platform);
-        wall = host_platform_wall_clock(&platform);
-        reset = host_platform_reset_cause_provider(&platform);
-        time_continuity = host_platform_time_continuity_evidence_provider(&platform);
-        deps = make_dependencies(&monotonic, &wall, &reset, &time_continuity, &media, &environment);
 
-        establish_active_a(&runtime_before, &deps, &validated_a, UINT32_C(100), &active_a);
+        configuration_test_runtime_boot(&runtime_before, &media, &environment);
+        assert(configuration_service_commit_validated(&runtime_before.service,
+                                                      &validated_a,
+                                                      UINT32_C(100),
+                                                      &active_a) == TR2_OK);
         fault_media.partial_write_count = failed_bytes;
-        assert(configuration_service_commit_validated(&runtime_before.configuration_service,
+        assert(configuration_service_commit_validated(&runtime_before.service,
                                                       &validated_b,
                                                       UINT32_C(200),
                                                       NULL) == TR2_ERROR_STORAGE);
 
         simulate_power_loss(&fault_media);
-        boot_runtime(&runtime_after, &deps);
-        assert_runtime_matches(&runtime_after, &active_a);
+        configuration_test_runtime_boot(&runtime_after, &media, &environment);
+        assert_configuration_service_matches(&runtime_after.service, &active_a);
     }
 }
 
