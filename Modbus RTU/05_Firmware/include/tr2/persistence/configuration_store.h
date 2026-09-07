@@ -7,6 +7,7 @@
 
 #include "tr2/common/result.h"
 #include "tr2/domain/configuration/configuration.h"
+#include "tr2/domain/configuration/configuration_validator.h"
 #include "tr2/persistence/configuration_record.h"
 #include "tr2/persistence/persistent_storage_core.h"
 
@@ -14,6 +15,20 @@
 #define TR2_CONFIGURATION_STORE_SLOT_SIZE TR2_CONFIGURATION_RECORD_SIZE
 #define TR2_CONFIGURATION_STORE_STORAGE_SIZE \
     (TR2_CONFIGURATION_STORE_SLOT_COUNT * TR2_CONFIGURATION_STORE_SLOT_SIZE)
+
+typedef enum {
+    CONFIGURATION_RECOVERY_VALID = 0,
+    CONFIGURATION_RECOVERY_EMPTY,
+    CONFIGURATION_RECOVERY_CORRUPTED,
+    CONFIGURATION_RECOVERY_UNAVAILABLE,
+    CONFIGURATION_RECOVERY_UNSUPPORTED
+} ConfigurationRecoveryStatus;
+
+typedef struct {
+    ConfigurationRecoveryStatus status;
+    bool has_snapshot;
+    ActiveConfigurationSnapshot snapshot;
+} ConfigurationRecoveryResult;
 
 typedef struct {
     PersistentStorageCore *storage;
@@ -30,5 +45,10 @@ bool configuration_store_recovery_required(const ConfigurationStore *store);
 
 Tr2Result configuration_store_commit(ConfigurationStore *store,
                                      const ActiveConfigurationSnapshot *snapshot);
+
+Tr2Result configuration_store_recover(
+    const ConfigurationStore *store,
+    const ConfigurationValidationEnvironment *environment,
+    ConfigurationRecoveryResult *result);
 
 #endif
