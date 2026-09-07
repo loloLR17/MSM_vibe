@@ -35,6 +35,12 @@ static ResetCause host_reset_cause_get(void *context)
     return platform->reset_cause;
 }
 
+static TimeContinuityEvidence host_time_continuity_get(void *context)
+{
+    HostPlatform *platform = (HostPlatform *)context;
+    return platform->time_continuity_evidence;
+}
+
 static bool host_media_range_valid(uint32_t offset, size_t size)
 {
     return offset <= HOST_PLATFORM_PERSISTENT_BYTES &&
@@ -77,12 +83,21 @@ void host_platform_init(HostPlatform *platform)
     }
     memset(platform, 0, sizeof(*platform));
     platform->reset_cause = RESET_CAUSE_POWER_ON;
+    platform->time_continuity_evidence = TIME_CONTINUITY_EVIDENCE_INDETERMINATE;
 }
 
 void host_platform_set_reset_cause(HostPlatform *platform, ResetCause cause)
 {
     if (platform != NULL) {
         platform->reset_cause = cause;
+    }
+}
+
+void host_platform_set_time_continuity_evidence(HostPlatform *platform,
+                                                TimeContinuityEvidence evidence)
+{
+    if (platform != NULL) {
+        platform->time_continuity_evidence = evidence;
     }
 }
 
@@ -108,6 +123,12 @@ WallClock host_platform_wall_clock(HostPlatform *platform)
 ResetCauseProvider host_platform_reset_cause_provider(HostPlatform *platform)
 {
     ResetCauseProvider provider = { platform, host_reset_cause_get };
+    return provider;
+}
+
+TimeContinuityEvidenceProvider host_platform_time_continuity_evidence_provider(HostPlatform *platform)
+{
+    TimeContinuityEvidenceProvider provider = { platform, host_time_continuity_get };
     return provider;
 }
 
