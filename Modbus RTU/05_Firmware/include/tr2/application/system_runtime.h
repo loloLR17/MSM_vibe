@@ -10,15 +10,21 @@
 #include "tr2/application/command_engine.h"
 #include "tr2/application/command_request_mailbox.h"
 #include "tr2/application/configuration_service.h"
+#include "tr2/application/diagnostic_service.h"
+#include "tr2/application/maintenance_service.h"
+#include "tr2/application/selftest_service.h"
 #include "tr2/application/supervision_service.h"
+#include "tr2/application/system_state_aggregator.h"
 #include "tr2/common/result.h"
 #include "tr2/domain/configuration/configuration_validator.h"
 #include "tr2/domain/time/time_service.h"
 #include "tr2/modbus/projection.h"
+#include "tr2/persistence/boot_intent_store.h"
 #include "tr2/persistence/campaign_data_store_persistent.h"
 #include "tr2/persistence/campaign_repository_store.h"
 #include "tr2/persistence/command_journal_store.h"
 #include "tr2/persistence/configuration_store.h"
+#include "tr2/persistence/diagnostic_history_store.h"
 #include "tr2/persistence/persistent_media_region.h"
 #include "tr2/persistence/persistent_storage_core.h"
 #include "tr2/persistence/time_history_store.h"
@@ -83,6 +89,16 @@ typedef struct {
     bool fg_runtime_available;
     ModbusBlock3Image b3_image;
     bool b3_image_available;
+    DiagnosticHistoryStore diagnostic_history_store;
+    DiagnosticHistoryRecoveryStatus diagnostic_history_recovery_status;
+    DiagnosticHistoryRecoveryStatus selftest_history_recovery_status;
+    DiagnosticService diagnostic_service;
+    SelfTestService selftest_service;
+    MaintenanceService maintenance_service;
+    SystemStateAggregator system_state_aggregator;
+    BootIntentStore boot_intent_store;
+    BootIntentRecoveryResult boot_intent_recovery;
+    bool p9_authorities_available;
     PersistentMediaRegion command_journal_media_region;
     PersistentStorageCore command_journal_storage_core;
     CommandJournalStore command_journal_store;

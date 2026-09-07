@@ -3,6 +3,7 @@
 #include <string.h>
 
 #include "tr2/application/configuration_workflow.h"
+#include "tr2/persistence/diagnostic_history_record.h"
 #include "tr2/persistence/time_history_record.h"
 
 #define TR2_TIME_HISTORY_STORAGE_OFFSET ((uint32_t)TR2_CONFIGURATION_STORE_STORAGE_SIZE)
@@ -13,6 +14,13 @@
      (uint32_t)TR2_CAMPAIGN_REPOSITORY_STORAGE_SIZE)
 #define TR2_COMMAND_JOURNAL_STORAGE_OFFSET \
     (TR2_CAMPAIGN_DATA_STORAGE_OFFSET + (uint32_t)TR2_CAMPAIGN_DATA_STORAGE_SIZE)
+#define TR2_DIAGNOSTIC_HISTORY_STORAGE_OFFSET \
+    (TR2_COMMAND_JOURNAL_STORAGE_OFFSET + \
+     (uint32_t)TR2_COMMAND_JOURNAL_STORE_STORAGE_SIZE)
+#define TR2_BOOT_INTENT_STORAGE_OFFSET \
+    (TR2_DIAGNOSTIC_HISTORY_STORAGE_OFFSET + \
+     (uint32_t)TR2_DIAGNOSTIC_HISTORY_RECORD_SIZE + \
+     (uint32_t)TR2_DIAGNOSTIC_SELFTEST_RECORD_SIZE)
 #define TR2_B6_INVENTORY_STRUCTURE_VERSION UINT16_C(1)
 
 static bool dependencies_are_valid(const SystemRuntimeDependencies *deps)
@@ -292,6 +300,75 @@ static Tr2Result compose_fg_runtime(SystemRuntime *runtime)
     return TR2_OK;
 }
 
+static Tr2Result compose_p9_authorities(SystemRuntime *runtime)
+{
+    DiagnosticHistoryRecoveryResult diagnostic_recovery;
+    Tr2Result result;
+
+    result = diagnostic_history_store_init(&runtime->diagnostic_history_store,
+                                           &runtime->persistent_storage_core,
+                                           TR2_DIAGNOSTIC_HISTORY_STORAGE_OFFSET);
+    if (result != TR2_OK) {
+        return result;
+    }
+
+    result = diagnostic_service_init(&runtime->diagnostic_service);
+    if (result != TR2_OK) {
+        return result;
+    }
+
+    result = diagnostic_history_store_recover(&runtime->diagnostic_history_store,
+                                              &diagnostic_recovery);
+    if (result != TR2_OK) {
+        return result;
+    }
+    runtime->diagnostic_history_recovery_status = diagnostic_recovery.status;
+    if (diagnostic_recovery.status == DIAGNOSTIC_HISTORY_RECOVERY_VALID) {
+        result = diagnostic_service_restore_last_fault(&runtime->diagnostic_service,
+                                                       &diagnostic_recovery.last_fault);
+        if (result != TR2_OK) {
+            return result;
+        }
+    }
+
+    result = selftest_service_init(&runtime->selftest_service,
+                                   &runtime->diagnostic_service,
+                                   &runtime->diagnostic_history_store);
+    if (result != TR2_OK) {
+        return result;
+    }
+    result = selftest_service_recover(&runtime->selftest_service,
+                                      &runtime->selftest_history_recovery_status);
+    if (result != TR2_OK) {
+        return result;
+    }
+
+    result = maintenance_service_init(&runtime->maintenance_service);
+    if (result != TR2_OK) {
+        return result;
+    }
+
+    result = system_state_aggregator_init(&runtime->system_state_aggregator);
+    if (result != TR2_OK) {
+        return result;
+    }
+
+    result = boot_intent_store_init(&runtime->boot_intent_store,
+                                    &runtime->persistent_storage_core,
+                                    TR2_BOOT_INTENT_STORAGE_OFFSET);
+    if (result != TR2_OK) {
+        return result;
+    }
+    result = boot_intent_store_recover(&runtime->boot_intent_store,
+                                       &runtime->boot_intent_recovery);
+    if (result != TR2_OK) {
+        return result;
+    }
+
+    runtime->p9_authorities_available = true;
+    return TR2_OK;
+}
+
 static Tr2Result recover_commands(SystemRuntime *runtime)
 {
     CommandBootRecoveryAuthorities authorities;
@@ -347,6 +424,8 @@ static Tr2Result recover_commands(SystemRuntime *runtime)
     authorities.configuration_service = &runtime->configuration_service;
     authorities.time_service = &runtime->time_service;
     authorities.campaign_repository = repository;
+    authorities.boot_intent = &runtime->boot_intent_recovery;
+    authorities.reset_cause = runtime->boot_context.reset_cause;
     result = command_boot_recovery_scan(&runtime->command_journal_store,
                                         &authorities,
                                         &runtime->command_boot_recovery);
@@ -472,6 +551,10 @@ Tr2Result system_runtime_init(SystemRuntime *runtime, const SystemRuntimeDepende
     runtime->boot_context.reset_cause = RESET_CAUSE_UNKNOWN;
     runtime->time_history_recovery_status = TIME_HISTORY_RECOVERY_EMPTY;
     runtime->campaign_recovery_snapshot.repository_status = CAMPAIGN_REPOSITORY_RECOVERY_EMPTY;
+    runtime->diagnostic_history_recovery_status = DIAGNOSTIC_HISTORY_RECOVERY_EMPTY;
+    runtime->selftest_history_recovery_status = DIAGNOSTIC_HISTORY_RECOVERY_EMPTY;
+    runtime->boot_intent_recovery.status = BOOT_INTENT_RECOVERY_EMPTY;
+    runtime->boot_intent_recovery.intent = boot_intent_none();
     runtime->command_journal_recovery.status = COMMAND_JOURNAL_RECOVERY_EMPTY;
     runtime->command_boot_recovery.status = COMMAND_BOOT_RECOVERY_CLEAN;
     runtime->initialized = true;
@@ -491,6 +574,7 @@ Tr2Result system_runtime_boot(SystemRuntime *runtime)
     runtime->campaign_recovery_available = false;
     runtime->campaign_inventory_snapshot_available = false;
     runtime->fg_runtime_available = false;
+    runtime->p9_authorities_available = false;
     runtime->command_runtime_available = false;
     runtime->b4_image_available = false;
     runtime->b5_image_available = false;
@@ -522,6 +606,11 @@ Tr2Result system_runtime_boot(SystemRuntime *runtime)
     }
 
     result = compose_fg_runtime(runtime);
+    if (result != TR2_OK) {
+        return result;
+    }
+
+    result = compose_p9_authorities(runtime);
     if (result != TR2_OK) {
         return result;
     }
@@ -688,6 +777,8 @@ bool system_runtime_b6_image(const SystemRuntime *runtime, ModbusBlock6Image *ou
 }
 
 #undef TR2_B6_INVENTORY_STRUCTURE_VERSION
+#undef TR2_BOOT_INTENT_STORAGE_OFFSET
+#undef TR2_DIAGNOSTIC_HISTORY_STORAGE_OFFSET
 #undef TR2_COMMAND_JOURNAL_STORAGE_OFFSET
 #undef TR2_CAMPAIGN_DATA_STORAGE_OFFSET
 #undef TR2_CAMPAIGN_REPOSITORY_STORAGE_OFFSET
