@@ -7,6 +7,7 @@
 Tr2Result command_stop_acquisition_execute(
     CommandEngine *engine,
     CampaignService *campaign_service,
+    SupervisionService *supervision_service,
     uint16_t transaction_id,
     const CommandTerminalTimestamp *terminal_timestamp,
     CommandJournalEntry *entry);
