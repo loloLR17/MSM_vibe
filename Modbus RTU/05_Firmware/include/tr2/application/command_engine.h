@@ -33,6 +33,9 @@ bool command_engine_is_initialized(const CommandEngine *engine);
 bool command_engine_has_active_transaction(const CommandEngine *engine);
 uint16_t command_engine_active_transaction_id(const CommandEngine *engine);
 
+Tr2Result command_engine_restore_incomplete(CommandEngine *engine,
+                                            const CommandJournalEntry *entry);
+
 Tr2Result command_engine_admit(CommandEngine *engine,
                                const CommandRequest *request,
                                CommandAdmissionResult *result);
