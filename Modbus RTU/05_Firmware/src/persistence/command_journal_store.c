@@ -359,6 +359,7 @@ Tr2Result command_journal_store_init(CommandJournalStore *store,
     store->journal.context = store;
     store->journal.find = journal_find;
     store->journal.reserve = journal_reserve;
+    store->journal.set_recovery_context = command_journal_store_set_recovery_context;
     store->journal.mark_started = journal_mark_started;
     store->journal.complete = journal_complete;
     store->journal.latest_completed = journal_latest_completed;
