@@ -10,7 +10,7 @@
 #include "tr2/platform/time_continuity_evidence.h"
 #include "tr2/platform/wall_clock.h"
 
-#define HOST_PLATFORM_PERSISTENT_BYTES 32768u
+#define HOST_PLATFORM_PERSISTENT_BYTES (9u * 1024u * 1024u)
 
 typedef struct {
     MonotonicTimeMs monotonic_ms;
@@ -18,8 +18,8 @@ typedef struct {
     bool civil_time_valid;
     ResetCause reset_cause;
     TimeContinuityEvidence time_continuity_evidence;
-    uint8_t persistent_committed[HOST_PLATFORM_PERSISTENT_BYTES];
-    uint8_t persistent_candidate[HOST_PLATFORM_PERSISTENT_BYTES];
+    uint8_t *persistent_committed;
+    uint8_t *persistent_candidate;
 } HostPlatform;
 
 void host_platform_init(HostPlatform *platform);
