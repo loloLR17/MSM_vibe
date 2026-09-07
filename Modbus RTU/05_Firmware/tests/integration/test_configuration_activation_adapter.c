@@ -68,15 +68,15 @@ static Tr2Result acquire_metadata(void *context,
     return TR2_OK;
 }
 
-static ConfigurationPayload valid_payload(uint16_t frequency)
+static ConfigurationPayload valid_payload(uint16_t window_size)
 {
     ConfigurationPayload payload;
     memset(&payload, 0, sizeof(payload));
-    payload.sampling_frequency_hz = frequency;
+    payload.sampling_frequency_hz = UINT16_C(26667);
     payload.axes_enable_mask = UINT16_C(7);
     payload.full_scale_code = UINT16_C(2);
     payload.acquisition_mode = UINT16_C(1);
-    payload.window_size_samples = UINT16_C(4096);
+    payload.window_size_samples = window_size;
     payload.indicator_period_ms = UINT16_C(2000);
     payload.campaign_duration_s = UINT32_C(3600);
     payload.storage_mode = UINT16_C(1);
@@ -132,8 +132,8 @@ int main(void)
     ActiveConfigurationSnapshot active;
     ConfigurationRecoveryStatus status;
     PersistentMedia persistent_media_b;
-    const ConfigurationPayload payload_a = valid_payload(UINT16_C(26667));
-    const ConfigurationPayload payload_b = valid_payload(UINT16_C(13333));
+    const ConfigurationPayload payload_a = valid_payload(UINT16_C(4096));
+    const ConfigurationPayload payload_b = valid_payload(UINT16_C(8192));
 
     media_init(&media);
     init_persistence(&media, &persistent_media, &core_a, &store_a, &service_a);
@@ -170,7 +170,7 @@ int main(void)
     assert(active.generation == UINT32_C(101));
     assert(active.revision_counter == UINT32_C(11));
     assert(active.config_id == UINT32_C(43));
-    assert(active.payload.sampling_frequency_hz == UINT16_C(13333));
+    assert(active.payload.window_size_samples == UINT16_C(8192));
 
     return 0;
 }
