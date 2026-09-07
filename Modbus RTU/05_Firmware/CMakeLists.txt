@@ -204,6 +204,12 @@ add_executable(test_write_adapter
 target_link_libraries(test_write_adapter PRIVATE tr2_core)
 add_test(NAME write_adapter COMMAND test_write_adapter)
 
+add_executable(test_p5a_contracts
+    tests/unit/test_p5a_contracts.c
+)
+target_link_libraries(test_p5a_contracts PRIVATE tr2_core)
+add_test(NAME p5a_contracts COMMAND test_p5a_contracts)
+
 add_executable(test_system_runtime
     tests/integration/test_system_runtime.c
 )
