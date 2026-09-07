@@ -8,7 +8,10 @@
 #include "tr2/domain/configuration/configuration_validator.h"
 #include "tr2/domain/time/time_service.h"
 #include "tr2/modbus/projection.h"
+#include "tr2/persistence/campaign_data_store_persistent.h"
+#include "tr2/persistence/campaign_repository_store.h"
 #include "tr2/persistence/configuration_store.h"
+#include "tr2/persistence/persistent_media_region.h"
 #include "tr2/persistence/persistent_storage_core.h"
 #include "tr2/persistence/time_history_store.h"
 #include "tr2/platform/monotonic_clock.h"
@@ -20,6 +23,18 @@
 typedef struct {
     ResetCause reset_cause;
 } BootContext;
+
+typedef struct {
+    CampaignMetadata metadata;
+    CampaignDataRecoveryResult data_recovery;
+} CampaignBootRecoveryEntry;
+
+typedef struct {
+    CampaignRepositoryRecoveryStatus repository_status;
+    CampaignInventorySummary inventory;
+    size_t recovered_campaign_count;
+    CampaignBootRecoveryEntry campaigns[TR2_CAMPAIGN_REPOSITORY_CAPACITY];
+} CampaignBootRecoverySnapshot;
 
 typedef struct {
     const MonotonicClock *monotonic_clock;
@@ -41,6 +56,14 @@ typedef struct {
     TimeService time_service;
     TimeSnapshot time_snapshot;
     bool time_snapshot_available;
+    PersistentMediaRegion campaign_repository_media_region;
+    PersistentMediaRegion campaign_data_media_region;
+    PersistentStorageCore campaign_repository_storage_core;
+    PersistentStorageCore campaign_data_storage_core;
+    CampaignRepositoryStore campaign_repository_store;
+    CampaignDataStorePersistent campaign_data_store;
+    CampaignBootRecoverySnapshot campaign_recovery_snapshot;
+    bool campaign_recovery_available;
     ModbusBlock4Image b4_image;
     bool b4_image_available;
     bool initialized;
@@ -54,6 +77,9 @@ bool system_runtime_is_ready_for_modbus(const SystemRuntime *runtime);
 bool system_runtime_time_snapshot(const SystemRuntime *runtime, TimeSnapshot *out_snapshot);
 bool system_runtime_time_history_recovery_status(const SystemRuntime *runtime,
                                                  TimeHistoryRecoveryStatus *out_status);
+bool system_runtime_campaign_recovery_snapshot(
+    const SystemRuntime *runtime,
+    CampaignBootRecoverySnapshot *out_snapshot);
 bool system_runtime_b4_image(const SystemRuntime *runtime, ModbusBlock4Image *out_image);
 
 #endif
