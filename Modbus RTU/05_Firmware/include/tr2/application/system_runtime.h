@@ -81,6 +81,8 @@ typedef struct {
     SupervisionService supervision_service;
     CampaignService campaign_service;
     bool fg_runtime_available;
+    ModbusBlock3Image b3_image;
+    bool b3_image_available;
     PersistentMediaRegion command_journal_media_region;
     PersistentStorageCore command_journal_storage_core;
     CommandJournalStore command_journal_store;
@@ -102,12 +104,6 @@ typedef struct {
 
 Tr2Result system_runtime_init(SystemRuntime *runtime, const SystemRuntimeDependencies *deps);
 Tr2Result system_runtime_boot(SystemRuntime *runtime);
-Tr2Result system_runtime_execute_acquisition_command(
-    SystemRuntime *runtime,
-    const CommandRequest *request,
-    const CommandTerminalTimestamp *terminal_timestamp,
-    CommandAdmissionResult *out_admission,
-    CommandJournalEntry *out_entry);
 const BootContext *system_runtime_boot_context(const SystemRuntime *runtime);
 bool system_runtime_is_ready_for_modbus(const SystemRuntime *runtime);
 bool system_runtime_time_snapshot(const SystemRuntime *runtime, TimeSnapshot *out_snapshot);
@@ -122,11 +118,24 @@ bool system_runtime_campaign_inventory_snapshot(
 AcquisitionService *system_runtime_acquisition_service(SystemRuntime *runtime);
 SupervisionService *system_runtime_supervision_service(SystemRuntime *runtime);
 CampaignService *system_runtime_campaign_service(SystemRuntime *runtime);
+
+Tr2Result system_runtime_execute_acquisition_command(
+    SystemRuntime *runtime,
+    const CommandRequest *request,
+    const CommandTerminalTimestamp *terminal_timestamp,
+    CommandAdmissionResult *out_admission,
+    CommandJournalEntry *out_entry);
+
+Tr2Result system_runtime_drive_acquisition_step(
+    SystemRuntime *runtime,
+    CampaignAcquisitionStep *out_step);
+
 bool system_runtime_command_boot_recovery(
     const SystemRuntime *runtime,
     CommandBootRecoveryResult *out_recovery);
 bool system_runtime_command_snapshot(const SystemRuntime *runtime,
                                      CommandSnapshot *out_snapshot);
+bool system_runtime_b3_image(const SystemRuntime *runtime, ModbusBlock3Image *out_image);
 bool system_runtime_b4_image(const SystemRuntime *runtime, ModbusBlock4Image *out_image);
 bool system_runtime_b5_image(const SystemRuntime *runtime, ModbusBlock5Image *out_image);
 bool system_runtime_b6_image(const SystemRuntime *runtime, ModbusBlock6Image *out_image);
