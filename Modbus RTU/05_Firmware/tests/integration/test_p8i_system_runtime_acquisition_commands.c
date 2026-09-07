@@ -6,6 +6,27 @@
 #include "tr2/application/system_runtime.h"
 #include "tr2/platform_host/host_platform.h"
 
+typedef struct {
+    uint32_t calls;
+    Tr2Result execution_result;
+    SelfTestExecutionResult result;
+} SelfTestTestDouble;
+
+static Tr2Result selftest_run_standard(void *context, SelfTestExecutionResult *result)
+{
+    SelfTestTestDouble *test_double = (SelfTestTestDouble *)context;
+
+    if (test_double == NULL || result == NULL) {
+        return TR2_ERROR_INVALID_ARGUMENT;
+    }
+    ++test_double->calls;
+    if (test_double->execution_result != TR2_OK) {
+        return test_double->execution_result;
+    }
+    *result = test_double->result;
+    return TR2_OK;
+}
+
 static ConfigurationPayload valid_payload(void)
 {
     ConfigurationPayload payload;
@@ -30,9 +51,11 @@ static ConfigurationPayload valid_payload(void)
 static SystemRuntimeDependencies make_dependencies(
     MonotonicClock *monotonic, WallClock *wall, ResetCauseProvider *reset,
     TimeContinuityEvidenceProvider *time_continuity, PersistentMedia *media,
-    const ConfigurationValidationEnvironment *environment, VibrationSource *vibration_source)
+    const ConfigurationValidationEnvironment *environment, VibrationSource *vibration_source,
+    const SelfTestExecutor *selftest_executor)
 {
     SystemRuntimeDependencies deps;
+    memset(&deps, 0, sizeof(deps));
     deps.monotonic_clock = monotonic;
     deps.wall_clock = wall;
     deps.reset_cause_provider = reset;
@@ -40,6 +63,7 @@ static SystemRuntimeDependencies make_dependencies(
     deps.persistent_media = media;
     deps.configuration_validation_environment = environment;
     deps.vibration_source = vibration_source;
+    deps.selftest_executor = selftest_executor;
     return deps;
 }
 
@@ -53,6 +77,12 @@ int main(void)
     TimeContinuityEvidenceProvider time_continuity;
     PersistentMedia media;
     VibrationSource vibration;
+    SelfTestTestDouble selftest_double = {
+        0u,
+        TR2_OK,
+        { true, UINT16_C(0), UINT16_C(0) }
+    };
+    SelfTestExecutor selftest_executor = { &selftest_double, selftest_run_standard };
     SystemRuntimeDependencies deps;
     SystemRuntime runtime;
     ValidatedConfiguration validated;
@@ -66,6 +96,7 @@ int main(void)
     CampaignInventoryViewSnapshot inventory;
     DiagnosticActiveFault active_fault;
     DiagnosticFaultAcknowledgement acknowledgement;
+    DiagnosticSnapshot diagnostic_snapshot;
     ModbusBlock1Image b1;
     ModbusBlock5Image b5;
     uint32_t start_calls;
@@ -81,7 +112,7 @@ int main(void)
     media = host_platform_persistent_media(&platform);
     vibration = host_platform_vibration_source(&platform);
     deps = make_dependencies(&monotonic, &wall, &reset, &time_continuity,
-                             &media, &environment, &vibration);
+                             &media, &environment, &vibration, &selftest_executor);
 
     assert(system_runtime_init(&runtime, &deps) == TR2_OK);
     assert(system_runtime_boot(&runtime) == TR2_OK);
@@ -235,6 +266,40 @@ int main(void)
     assert(system_runtime_b1_image(&runtime, &b1));
     assert(b1.source_generation == b1_generation);
     assert(b1.registers[5] == UINT16_C(12));
+
+    /* P9-N4b: absence of a platform executor is explicit and reserves nothing. */
+    memset(&request, 0, sizeof(request));
+    request.transaction_id = UINT16_C(507);
+    request.identity.command_code = COMMAND_CODE_SELFTEST;
+    runtime.deps.selftest_executor = NULL;
+    assert(system_runtime_execute_p9_command(&runtime, &request, &timestamp,
+                                             &admission, &entry) == TR2_ERROR_NOT_AVAILABLE);
+    assert(!command_engine_has_active_transaction(&runtime.command_engine));
+    assert(selftest_double.calls == 0u);
+
+    /* Re-inject the host test double: the same txid is still new because the
+       unavailable executor path did not reserve it. */
+    runtime.deps.selftest_executor = &selftest_executor;
+    assert(system_runtime_execute_p9_command(&runtime, &request, &timestamp,
+                                             &admission, &entry) == TR2_OK);
+    assert(admission.kind == COMMAND_ADMISSION_NEW);
+    assert(entry.lifecycle == COMMAND_LIFECYCLE_COMPLETED);
+    assert(entry.has_final_result);
+    assert(entry.final_result.status == COMMAND_STATUS_SUCCESS);
+    assert(entry.final_result.result_code == COMMAND_RESULT_SUCCESS);
+    assert(selftest_double.calls == 1u);
+    assert(diagnostic_service_snapshot(&runtime.diagnostic_service, &diagnostic_snapshot));
+    assert(diagnostic_snapshot.facts.selftest.state == DIAGNOSTIC_SELFTEST_PASSED);
+    assert(diagnostic_snapshot.facts.selftest.result_code == UINT16_C(0));
+    assert(diagnostic_snapshot.facts.selftest.detail == UINT16_C(0));
+
+    /* Lifetime-strict retry reuses the terminal journal result and never
+       invokes the platform selftest executor again. */
+    assert(system_runtime_execute_p9_command(&runtime, &request, &timestamp,
+                                             &admission, &entry) == TR2_OK);
+    assert(admission.kind == COMMAND_ADMISSION_RETRY);
+    assert(entry.lifecycle == COMMAND_LIFECYCLE_COMPLETED);
+    assert(selftest_double.calls == 1u);
 
     return 0;
 }

@@ -9,6 +9,7 @@
 #include "tr2/application/command_boot_recovery.h"
 #include "tr2/application/command_engine.h"
 #include "tr2/application/command_request_mailbox.h"
+#include "tr2/application/command_selftest.h"
 #include "tr2/application/configuration_service.h"
 #include "tr2/application/diagnostic_service.h"
 #include "tr2/application/maintenance_service.h"
@@ -59,6 +60,7 @@ typedef struct {
     const PersistentMedia *persistent_media;
     const ConfigurationValidationEnvironment *configuration_validation_environment;
     VibrationSource *vibration_source;
+    const SelfTestExecutor *selftest_executor;
 } SystemRuntimeDependencies;
 
 typedef struct {

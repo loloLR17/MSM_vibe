@@ -24,7 +24,8 @@ int main(void)
         &time_continuity,
         &media,
         &configuration_environment,
-        &vibration
+        &vibration,
+        NULL
     };
     SystemRuntime runtime;
 

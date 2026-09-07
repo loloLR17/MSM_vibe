@@ -6,6 +6,7 @@
 #include "tr2/application/command_maintenance.h"
 #include "tr2/application/command_policy.h"
 #include "tr2/application/command_refresh_indicators.h"
+#include "tr2/application/command_selftest.h"
 #include "tr2/application/command_start_acquisition.h"
 #include "tr2/application/command_stop_acquisition.h"
 
@@ -273,11 +274,20 @@ Tr2Result system_runtime_execute_p9_command(
         !runtime->p9_authorities_available) {
         return TR2_ERROR_INVALID_STATE;
     }
-    if (request->identity.command_code != COMMAND_CODE_ACKNOWLEDGE_FAULT &&
+    if (request->identity.command_code != COMMAND_CODE_SELFTEST &&
+        request->identity.command_code != COMMAND_CODE_ACKNOWLEDGE_FAULT &&
         request->identity.command_code != COMMAND_CODE_REFRESH_INDICATORS &&
         request->identity.command_code != COMMAND_CODE_ENTER_MAINTENANCE &&
         request->identity.command_code != COMMAND_CODE_EXIT_MAINTENANCE) {
         return TR2_ERROR_UNSUPPORTED;
+    }
+
+    /* P9-N4b: platform selftest capability is explicit and optional. An
+       unavailable executor must not reserve a transaction or fabricate PASS. */
+    if (request->identity.command_code == COMMAND_CODE_SELFTEST &&
+        (runtime->deps.selftest_executor == NULL ||
+         runtime->deps.selftest_executor->run_standard == NULL)) {
+        return TR2_ERROR_NOT_AVAILABLE;
     }
 
     memset(out_admission, 0, sizeof(*out_admission));
@@ -294,6 +304,15 @@ Tr2Result system_runtime_execute_p9_command(
     }
 
     switch (request->identity.command_code) {
+    case COMMAND_CODE_SELFTEST:
+        operation_result = command_selftest_execute(
+            &runtime->command_engine,
+            &runtime->selftest_service,
+            runtime->deps.selftest_executor,
+            request->transaction_id,
+            terminal_timestamp,
+            out_entry);
+        break;
     case COMMAND_CODE_ACKNOWLEDGE_FAULT:
         operation_result = command_acknowledge_fault_execute(
             &runtime->command_engine, &runtime->diagnostic_service,
