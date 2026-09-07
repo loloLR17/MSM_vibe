@@ -96,6 +96,11 @@ typedef struct {
     SelfTestService selftest_service;
     MaintenanceService maintenance_service;
     SystemStateAggregator system_state_aggregator;
+    DiagnosticSnapshot diagnostic_snapshot;
+    SystemStateSnapshot system_state_snapshot;
+    bool system_state_snapshot_available;
+    ModbusBlock1Image b1_image;
+    bool b1_image_available;
     BootIntentStore boot_intent_store;
     BootIntentRecoveryResult boot_intent_recovery;
     bool p9_authorities_available;
@@ -158,6 +163,7 @@ bool system_runtime_command_boot_recovery(
     CommandBootRecoveryResult *out_recovery);
 bool system_runtime_command_snapshot(const SystemRuntime *runtime,
                                      CommandSnapshot *out_snapshot);
+bool system_runtime_b1_image(const SystemRuntime *runtime, ModbusBlock1Image *out_image);
 bool system_runtime_b3_image(const SystemRuntime *runtime, ModbusBlock3Image *out_image);
 bool system_runtime_b4_image(const SystemRuntime *runtime, ModbusBlock4Image *out_image);
 bool system_runtime_b5_image(const SystemRuntime *runtime, ModbusBlock5Image *out_image);

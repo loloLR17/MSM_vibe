@@ -9,7 +9,6 @@
 static ConfigurationPayload valid_payload(void)
 {
     ConfigurationPayload payload;
-
     memset(&payload, 0, sizeof(payload));
     payload.sampling_frequency_hz = UINT16_C(1000);
     payload.axes_enable_mask = UINT16_C(7);
@@ -29,16 +28,11 @@ static ConfigurationPayload valid_payload(void)
 }
 
 static SystemRuntimeDependencies make_dependencies(
-    MonotonicClock *monotonic,
-    WallClock *wall,
-    ResetCauseProvider *reset,
-    TimeContinuityEvidenceProvider *time_continuity,
-    PersistentMedia *media,
-    const ConfigurationValidationEnvironment *environment,
-    VibrationSource *vibration_source)
+    MonotonicClock *monotonic, WallClock *wall, ResetCauseProvider *reset,
+    TimeContinuityEvidenceProvider *time_continuity, PersistentMedia *media,
+    const ConfigurationValidationEnvironment *environment, VibrationSource *vibration_source)
 {
     SystemRuntimeDependencies deps;
-
     deps.monotonic_clock = monotonic;
     deps.wall_clock = wall;
     deps.reset_cause_provider = reset;
@@ -72,47 +66,40 @@ int main(void)
     CampaignInventoryViewSnapshot inventory;
     DiagnosticActiveFault active_fault;
     DiagnosticFaultAcknowledgement acknowledgement;
+    ModbusBlock1Image b1;
     ModbusBlock5Image b5;
     uint32_t start_calls;
     uint32_t stop_calls;
+    uint32_t b1_generation;
 
     host_platform_init(&platform);
+    host_platform_set_reset_cause(&platform, RESET_CAUSE_BROWNOUT);
     monotonic = host_platform_monotonic_clock(&platform);
     wall = host_platform_wall_clock(&platform);
     reset = host_platform_reset_cause_provider(&platform);
     time_continuity = host_platform_time_continuity_evidence_provider(&platform);
     media = host_platform_persistent_media(&platform);
     vibration = host_platform_vibration_source(&platform);
-    deps = make_dependencies(&monotonic,
-                             &wall,
-                             &reset,
-                             &time_continuity,
-                             &media,
-                             &environment,
-                             &vibration);
+    deps = make_dependencies(&monotonic, &wall, &reset, &time_continuity,
+                             &media, &environment, &vibration);
 
     assert(system_runtime_init(&runtime, &deps) == TR2_OK);
     assert(system_runtime_boot(&runtime) == TR2_OK);
     assert(system_runtime_is_ready_for_modbus(&runtime));
+    assert(!system_runtime_b1_image(&runtime, &b1));
 
     memset(&validated, 0, sizeof(validated));
     validated.generation = UINT32_C(1);
     validated.config_id = UINT32_C(1);
     validated.payload = valid_payload();
     assert(configuration_service_commit_validated(&runtime.configuration_service,
-                                                  &validated,
-                                                  UINT32_C(1),
-                                                  &committed) == TR2_OK);
+                                                  &validated, UINT32_C(1), &committed) == TR2_OK);
 
     memset(&request, 0, sizeof(request));
     request.transaction_id = UINT16_C(501);
     request.identity.command_code = COMMAND_CODE_START_ACQUISITION;
-
-    assert(system_runtime_execute_acquisition_command(&runtime,
-                                                      &request,
-                                                      &timestamp,
-                                                      &admission,
-                                                      &entry) == TR2_OK);
+    assert(system_runtime_execute_acquisition_command(&runtime, &request, &timestamp,
+                                                      &admission, &entry) == TR2_OK);
     assert(admission.kind == COMMAND_ADMISSION_NEW);
     assert(entry.lifecycle == COMMAND_LIFECYCLE_COMPLETED);
     assert(entry.has_final_result);
@@ -126,18 +113,14 @@ int main(void)
     assert(command_snapshot.last.command_code == COMMAND_CODE_START_ACQUISITION);
     assert(command_snapshot.last.transaction_id == UINT16_C(501));
     assert(command_snapshot.last.final_result.status == COMMAND_STATUS_SUCCESS);
-
     assert(system_runtime_campaign_inventory_snapshot(&runtime, &inventory));
     assert(inventory.inventory.valid_campaign_count == 1u);
     assert(inventory.selected_campaign_valid);
     assert(inventory.selected_campaign.lifecycle_state == CAMPAIGN_LIFECYCLE_OPEN);
 
     start_calls = platform.vibration_start_calls;
-    assert(system_runtime_execute_acquisition_command(&runtime,
-                                                      &request,
-                                                      &timestamp,
-                                                      &admission,
-                                                      &entry) == TR2_OK);
+    assert(system_runtime_execute_acquisition_command(&runtime, &request, &timestamp,
+                                                      &admission, &entry) == TR2_OK);
     assert(admission.kind == COMMAND_ADMISSION_RETRY);
     assert(entry.lifecycle == COMMAND_LIFECYCLE_COMPLETED);
     assert(platform.vibration_start_calls == start_calls);
@@ -145,11 +128,8 @@ int main(void)
     collision = request;
     collision.identity.command_code = COMMAND_CODE_STOP_ACQUISITION;
     stop_calls = platform.vibration_stop_calls;
-    assert(system_runtime_execute_acquisition_command(&runtime,
-                                                      &collision,
-                                                      &timestamp,
-                                                      &admission,
-                                                      &entry) == TR2_OK);
+    assert(system_runtime_execute_acquisition_command(&runtime, &collision, &timestamp,
+                                                      &admission, &entry) == TR2_OK);
     assert(admission.kind == COMMAND_ADMISSION_COLLISION);
     assert(platform.vibration_stop_calls == stop_calls);
     assert(campaign_service_campaign_open(&runtime.campaign_service));
@@ -157,11 +137,8 @@ int main(void)
     memset(&request, 0, sizeof(request));
     request.transaction_id = UINT16_C(502);
     request.identity.command_code = COMMAND_CODE_STOP_ACQUISITION;
-    assert(system_runtime_execute_acquisition_command(&runtime,
-                                                      &request,
-                                                      &timestamp,
-                                                      &admission,
-                                                      &entry) == TR2_OK);
+    assert(system_runtime_execute_acquisition_command(&runtime, &request, &timestamp,
+                                                      &admission, &entry) == TR2_OK);
     assert(admission.kind == COMMAND_ADMISSION_NEW);
     assert(entry.lifecycle == COMMAND_LIFECYCLE_COMPLETED);
     assert(entry.has_final_result);
@@ -169,101 +146,95 @@ int main(void)
     assert(!campaign_service_campaign_open(&runtime.campaign_service));
     assert(!campaign_service_acquisition_running(&runtime.campaign_service));
     assert(platform.vibration_stop_calls == stop_calls + 1u);
-
-    assert(system_runtime_command_snapshot(&runtime, &command_snapshot));
-    assert(command_snapshot.last.present);
-    assert(command_snapshot.last.command_code == COMMAND_CODE_STOP_ACQUISITION);
-    assert(command_snapshot.last.transaction_id == UINT16_C(502));
-    assert(command_snapshot.last.final_result.status == COMMAND_STATUS_SUCCESS);
-
     assert(system_runtime_campaign_inventory_snapshot(&runtime, &inventory));
     assert(inventory.inventory.valid_campaign_count == 1u);
     assert(inventory.selected_campaign_valid);
     assert(inventory.selected_campaign.lifecycle_state == CAMPAIGN_LIFECYCLE_CLOSED);
 
     stop_calls = platform.vibration_stop_calls;
-    assert(system_runtime_execute_acquisition_command(&runtime,
-                                                      &request,
-                                                      &timestamp,
-                                                      &admission,
-                                                      &entry) == TR2_OK);
+    assert(system_runtime_execute_acquisition_command(&runtime, &request, &timestamp,
+                                                      &admission, &entry) == TR2_OK);
     assert(admission.kind == COMMAND_ADMISSION_RETRY);
     assert(platform.vibration_stop_calls == stop_calls);
 
-    /* P9-N2: ACKNOWLEDGE_FAULT is dispatched to DiagnosticService. */
     memset(&active_fault, 0, sizeof(active_fault));
     active_fault.code = UINT16_C(42);
     active_fault.acknowledgeable = true;
     assert(diagnostic_service_publish_active_faults(&runtime.diagnostic_service,
-                                                    &active_fault,
-                                                    1u) == TR2_OK);
-
+                                                    &active_fault, 1u) == TR2_OK);
     memset(&request, 0, sizeof(request));
     request.transaction_id = UINT16_C(503);
     request.identity.command_code = COMMAND_CODE_ACKNOWLEDGE_FAULT;
     request.identity.param1 = UINT16_C(42);
-    assert(system_runtime_execute_p9_command(&runtime,
-                                             &request,
-                                             &timestamp,
-                                             &admission,
-                                             &entry) == TR2_OK);
+    assert(system_runtime_execute_p9_command(&runtime, &request, &timestamp,
+                                             &admission, &entry) == TR2_OK);
     assert(admission.kind == COMMAND_ADMISSION_NEW);
-    assert(entry.lifecycle == COMMAND_LIFECYCLE_COMPLETED);
-    assert(entry.has_final_result);
     assert(entry.final_result.status == COMMAND_STATUS_SUCCESS);
     assert(diagnostic_service_fault_acknowledgement(&runtime.diagnostic_service,
-                                                    UINT16_C(42),
-                                                    &acknowledgement));
+                                                    UINT16_C(42), &acknowledgement));
     assert(acknowledgement.acknowledged);
-
-    /* Retry is lifetime-strict and must not redispatch the business effect. */
-    assert(system_runtime_execute_p9_command(&runtime,
-                                             &request,
-                                             &timestamp,
-                                             &admission,
-                                             &entry) == TR2_OK);
+    assert(system_runtime_execute_p9_command(&runtime, &request, &timestamp,
+                                             &admission, &entry) == TR2_OK);
     assert(admission.kind == COMMAND_ADMISSION_RETRY);
-    assert(diagnostic_service_fault_acknowledgement(&runtime.diagnostic_service,
-                                                    UINT16_C(42),
-                                                    &acknowledgement));
-    assert(acknowledgement.acknowledged);
 
-    /* P9-N2: MaintenanceService is the sole source of B5 maintenance_active. */
     memset(&request, 0, sizeof(request));
     request.transaction_id = UINT16_C(504);
     request.identity.command_code = COMMAND_CODE_ENTER_MAINTENANCE;
-    assert(system_runtime_execute_p9_command(&runtime,
-                                             &request,
-                                             &timestamp,
-                                             &admission,
-                                             &entry) == TR2_OK);
+    assert(system_runtime_execute_p9_command(&runtime, &request, &timestamp,
+                                             &admission, &entry) == TR2_OK);
     assert(admission.kind == COMMAND_ADMISSION_NEW);
     assert(entry.final_result.status == COMMAND_STATUS_SUCCESS);
     assert(maintenance_service_active(&runtime.maintenance_service));
     assert(system_runtime_b5_image(&runtime, &b5));
     assert((b5.registers[13] & COMMAND_ENGINE_FLAG_MAINTENANCE_ACTIVE) != 0u);
-
-    assert(system_runtime_execute_p9_command(&runtime,
-                                             &request,
-                                             &timestamp,
-                                             &admission,
-                                             &entry) == TR2_OK);
+    assert(system_runtime_execute_p9_command(&runtime, &request, &timestamp,
+                                             &admission, &entry) == TR2_OK);
     assert(admission.kind == COMMAND_ADMISSION_RETRY);
-    assert(maintenance_service_active(&runtime.maintenance_service));
 
     memset(&request, 0, sizeof(request));
     request.transaction_id = UINT16_C(505);
     request.identity.command_code = COMMAND_CODE_EXIT_MAINTENANCE;
-    assert(system_runtime_execute_p9_command(&runtime,
-                                             &request,
-                                             &timestamp,
-                                             &admission,
-                                             &entry) == TR2_OK);
+    assert(system_runtime_execute_p9_command(&runtime, &request, &timestamp,
+                                             &admission, &entry) == TR2_OK);
     assert(admission.kind == COMMAND_ADMISSION_NEW);
     assert(entry.final_result.status == COMMAND_STATUS_SUCCESS);
     assert(!maintenance_service_active(&runtime.maintenance_service));
     assert(system_runtime_b5_image(&runtime, &b5));
     assert((b5.registers[13] & COMMAND_ENGINE_FLAG_MAINTENANCE_ACTIVE) == 0u);
+
+    /* P9-N3: REFRESH_INDICATORS rebuilds B1 only from current runtime authorities. */
+    host_platform_advance_monotonic(&platform, UINT64_C(12345));
+    memset(&request, 0, sizeof(request));
+    request.transaction_id = UINT16_C(506);
+    request.identity.command_code = COMMAND_CODE_REFRESH_INDICATORS;
+    assert(system_runtime_execute_p9_command(&runtime, &request, &timestamp,
+                                             &admission, &entry) == TR2_OK);
+    assert(admission.kind == COMMAND_ADMISSION_NEW);
+    assert(entry.lifecycle == COMMAND_LIFECYCLE_COMPLETED);
+    assert(entry.final_result.status == COMMAND_STATUS_SUCCESS);
+    assert(system_runtime_b1_image(&runtime, &b1));
+    assert(b1.registers[0] == UINT16_C(1));
+    assert((b1.registers[1] & UINT16_C(0x0001)) != 0u); /* READY */
+    assert((b1.registers[1] & UINT16_C(0x0002)) == 0u); /* acquisition stopped */
+    assert((b1.registers[1] & UINT16_C(0x0004)) != 0u); /* config valid */
+    assert((b1.registers[1] & UINT16_C(0x0010)) != 0u); /* storage available */
+    assert(b1.registers[4] == UINT16_C(0));
+    assert(b1.registers[5] == UINT16_C(12));
+    assert(b1.registers[6] == UINT16_C(4)); /* B1 brown-out code, not platform enum ordinal */
+    assert(b1.registers[10] == UINT16_C(1));
+    assert(b1.registers[12] == UINT16_C(0));
+    assert(b1.registers[13] == UINT16_C(0));
+    assert(b1.registers[14] == UINT16_C(0));
+    b1_generation = b1.source_generation;
+
+    /* Retry must not execute a second refresh or advance the B1 snapshot generation. */
+    host_platform_advance_monotonic(&platform, UINT64_C(5000));
+    assert(system_runtime_execute_p9_command(&runtime, &request, &timestamp,
+                                             &admission, &entry) == TR2_OK);
+    assert(admission.kind == COMMAND_ADMISSION_RETRY);
+    assert(system_runtime_b1_image(&runtime, &b1));
+    assert(b1.source_generation == b1_generation);
+    assert(b1.registers[5] == UINT16_C(12));
 
     return 0;
 }

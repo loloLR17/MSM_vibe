@@ -5,10 +5,101 @@
 #include "tr2/application/command_acknowledge_fault.h"
 #include "tr2/application/command_maintenance.h"
 #include "tr2/application/command_policy.h"
+#include "tr2/application/command_refresh_indicators.h"
 #include "tr2/application/command_start_acquisition.h"
 #include "tr2/application/command_stop_acquisition.h"
 
 #define TR2_B6_INVENTORY_STRUCTURE_VERSION UINT16_C(1)
+#define TR2_B1_STORAGE_AVAILABLE UINT16_C(1)
+#define TR2_B1_ACQUISITION_STOPPED UINT16_C(0)
+#define TR2_B1_ACQUISITION_RUNNING UINT16_C(1)
+
+static uint16_t b1_reset_cause_from_platform(ResetCause cause)
+{
+    switch (cause) {
+    case RESET_CAUSE_POWER_ON: return UINT16_C(1);
+    case RESET_CAUSE_SOFTWARE: return UINT16_C(2);
+    case RESET_CAUSE_WATCHDOG: return UINT16_C(3);
+    case RESET_CAUSE_BROWNOUT: return UINT16_C(4);
+    case RESET_CAUSE_EXTERNAL: return UINT16_C(5);
+    case RESET_CAUSE_UNKNOWN:
+    default: return UINT16_C(0);
+    }
+}
+
+static Tr2Result collect_runtime_system_state(
+    void *context,
+    DiagnosticFacts *diagnostic_facts,
+    SystemStateAggregationInput *aggregation_input)
+{
+    SystemRuntime *runtime = (SystemRuntime *)context;
+    DiagnosticSnapshot diagnostic_snapshot;
+    ActiveConfigurationSnapshot active_configuration;
+    TimeSnapshot time_snapshot;
+    const bool acquisition_active = runtime != NULL &&
+        campaign_service_acquisition_running(&runtime->campaign_service);
+
+    if (runtime == NULL || diagnostic_facts == NULL || aggregation_input == NULL ||
+        !runtime->initialized || !runtime->system_ready_for_modbus ||
+        !runtime->p9_authorities_available || !runtime->fg_runtime_available) {
+        return TR2_ERROR_INVALID_STATE;
+    }
+
+    memset(diagnostic_facts, 0, sizeof(*diagnostic_facts));
+    if (diagnostic_service_snapshot(&runtime->diagnostic_service, &diagnostic_snapshot)) {
+        *diagnostic_facts = diagnostic_snapshot.facts;
+    }
+
+    memset(aggregation_input, 0, sizeof(*aggregation_input));
+    aggregation_input->ready = true;
+    aggregation_input->acquisition_active = acquisition_active;
+    aggregation_input->active_configuration_valid =
+        configuration_service_active_snapshot(&runtime->configuration_service,
+                                              &active_configuration);
+
+    if (time_service_get_snapshot(&runtime->time_service, &time_snapshot) == TR2_OK) {
+        runtime->time_snapshot = time_snapshot;
+        runtime->time_snapshot_available = true;
+        aggregation_input->time_valid = time_snapshot.civil_time_usable;
+    }
+
+    aggregation_input->storage_available = true;
+    aggregation_input->uptime_s = (uint32_t)(
+        runtime->deps.monotonic_clock->now_ms(runtime->deps.monotonic_clock->context) /
+        UINT64_C(1000));
+    aggregation_input->last_reset_cause =
+        b1_reset_cause_from_platform(runtime->boot_context.reset_cause);
+    aggregation_input->storage_status = TR2_B1_STORAGE_AVAILABLE;
+    aggregation_input->acquisition_state = acquisition_active
+                                               ? TR2_B1_ACQUISITION_RUNNING
+                                               : TR2_B1_ACQUISITION_STOPPED;
+    if (campaign_service_campaign_open(&runtime->campaign_service)) {
+        aggregation_input->active_campaign_id = runtime->campaign_service.active_metadata.campaign_id;
+    }
+
+    /* CPU, memory, storage usage and primary error/warning codes have no
+       authoritative runtime producer yet. Keep their V1 projection neutral. */
+    return TR2_OK;
+}
+
+static Tr2Result project_runtime_b1(SystemRuntime *runtime)
+{
+    ModbusBlock1ProjectionSource source;
+    Tr2Result result;
+
+    memset(&source, 0, sizeof(source));
+    source.system_state = &runtime->system_state_snapshot;
+    source.time = runtime->time_snapshot_available ? &runtime->time_snapshot : NULL;
+    result = modbus_project_b1(&source, &runtime->b1_image);
+    if (result != TR2_OK) {
+        runtime->b1_image_available = false;
+        return result;
+    }
+
+    runtime->system_state_snapshot_available = true;
+    runtime->b1_image_available = true;
+    return TR2_OK;
+}
 
 static Tr2Result refresh_b3(SystemRuntime *runtime)
 {
@@ -155,15 +246,9 @@ Tr2Result system_runtime_execute_acquisition_command(
     b5_result = refresh_b5(runtime);
     b6_result = refresh_b6(runtime);
 
-    if (operation_result != TR2_OK) {
-        return operation_result;
-    }
-    if (b3_result != TR2_OK) {
-        return b3_result;
-    }
-    if (b5_result != TR2_OK) {
-        return b5_result;
-    }
+    if (operation_result != TR2_OK) return operation_result;
+    if (b3_result != TR2_OK) return b3_result;
+    if (b5_result != TR2_OK) return b5_result;
     return b6_result;
 }
 
@@ -174,7 +259,9 @@ Tr2Result system_runtime_execute_p9_command(
     CommandAdmissionResult *out_admission,
     CommandJournalEntry *out_entry)
 {
+    SystemStateRefreshSource refresh_source;
     Tr2Result operation_result;
+    Tr2Result b1_result = TR2_OK;
     Tr2Result b5_result;
 
     if (runtime == NULL || request == NULL || terminal_timestamp == NULL ||
@@ -187,6 +274,7 @@ Tr2Result system_runtime_execute_p9_command(
         return TR2_ERROR_INVALID_STATE;
     }
     if (request->identity.command_code != COMMAND_CODE_ACKNOWLEDGE_FAULT &&
+        request->identity.command_code != COMMAND_CODE_REFRESH_INDICATORS &&
         request->identity.command_code != COMMAND_CODE_ENTER_MAINTENANCE &&
         request->identity.command_code != COMMAND_CODE_EXIT_MAINTENANCE) {
         return TR2_ERROR_UNSUPPORTED;
@@ -198,9 +286,7 @@ Tr2Result system_runtime_execute_p9_command(
     operation_result = command_engine_admit(&runtime->command_engine,
                                             request,
                                             out_admission);
-    if (operation_result != TR2_OK) {
-        return operation_result;
-    }
+    if (operation_result != TR2_OK) return operation_result;
     *out_entry = out_admission->entry;
 
     if (out_admission->kind != COMMAND_ADMISSION_NEW) {
@@ -210,37 +296,44 @@ Tr2Result system_runtime_execute_p9_command(
     switch (request->identity.command_code) {
     case COMMAND_CODE_ACKNOWLEDGE_FAULT:
         operation_result = command_acknowledge_fault_execute(
+            &runtime->command_engine, &runtime->diagnostic_service,
+            request->transaction_id, terminal_timestamp, out_entry);
+        break;
+    case COMMAND_CODE_REFRESH_INDICATORS:
+        refresh_source.context = runtime;
+        refresh_source.collect = collect_runtime_system_state;
+        operation_result = command_refresh_indicators_execute(
             &runtime->command_engine,
             &runtime->diagnostic_service,
+            &runtime->system_state_aggregator,
+            &refresh_source,
             request->transaction_id,
             terminal_timestamp,
+            &runtime->diagnostic_snapshot,
+            &runtime->system_state_snapshot,
             out_entry);
+        if (operation_result == TR2_OK) {
+            b1_result = project_runtime_b1(runtime);
+        }
         break;
     case COMMAND_CODE_ENTER_MAINTENANCE:
         operation_result = command_enter_maintenance_execute(
-            &runtime->command_engine,
-            &runtime->maintenance_service,
+            &runtime->command_engine, &runtime->maintenance_service,
             campaign_service_acquisition_running(&runtime->campaign_service),
-            request->transaction_id,
-            terminal_timestamp,
-            out_entry);
+            request->transaction_id, terminal_timestamp, out_entry);
         break;
     case COMMAND_CODE_EXIT_MAINTENANCE:
         operation_result = command_exit_maintenance_execute(
-            &runtime->command_engine,
-            &runtime->maintenance_service,
-            request->transaction_id,
-            terminal_timestamp,
-            out_entry);
+            &runtime->command_engine, &runtime->maintenance_service,
+            request->transaction_id, terminal_timestamp, out_entry);
         break;
     default:
         return TR2_ERROR_UNSUPPORTED;
     }
 
     b5_result = refresh_b5(runtime);
-    if (operation_result != TR2_OK) {
-        return operation_result;
-    }
+    if (operation_result != TR2_OK) return operation_result;
+    if (b1_result != TR2_OK) return b1_result;
     return b5_result;
 }
 
@@ -252,36 +345,30 @@ Tr2Result system_runtime_drive_acquisition_step(
     Tr2Result supervision_result;
     Tr2Result b3_result;
 
-    if (runtime == NULL || out_step == NULL) {
-        return TR2_ERROR_INVALID_ARGUMENT;
-    }
+    if (runtime == NULL || out_step == NULL) return TR2_ERROR_INVALID_ARGUMENT;
     if (!runtime->initialized || !runtime->system_ready_for_modbus ||
-        !runtime->fg_runtime_available) {
-        return TR2_ERROR_INVALID_STATE;
-    }
+        !runtime->fg_runtime_available) return TR2_ERROR_INVALID_STATE;
 
-    operation_result = campaign_service_drive_acquisition_step(
-        &runtime->campaign_service,
-        out_step);
-
+    operation_result = campaign_service_drive_acquisition_step(&runtime->campaign_service, out_step);
     if (out_step->kind != CAMPAIGN_ACQUISITION_STEP_WINDOW_COMPLETED ||
-        out_step->storage_result != TR2_OK) {
-        return operation_result;
-    }
+        out_step->storage_result != TR2_OK) return operation_result;
 
-    supervision_result = campaign_service_publish_supervision_step(
-        &runtime->supervision_service,
-        out_step);
-    if (supervision_result == TR2_OK) {
-        b3_result = refresh_b3(runtime);
-    } else {
-        b3_result = supervision_result;
-    }
-
-    if (operation_result != TR2_OK) {
-        return operation_result;
-    }
+    supervision_result = campaign_service_publish_supervision_step(&runtime->supervision_service, out_step);
+    b3_result = supervision_result == TR2_OK ? refresh_b3(runtime) : supervision_result;
+    if (operation_result != TR2_OK) return operation_result;
     return b3_result;
+}
+
+bool system_runtime_b1_image(const SystemRuntime *runtime, ModbusBlock1Image *out_image)
+{
+    if (runtime == NULL || out_image == NULL || !runtime->initialized ||
+        !runtime->system_ready_for_modbus || !runtime->b1_image_available ||
+        !runtime->system_state_snapshot_available ||
+        runtime->b1_image.source_generation != runtime->system_state_snapshot.generation) {
+        return false;
+    }
+    *out_image = runtime->b1_image;
+    return true;
 }
 
 bool system_runtime_b3_image(const SystemRuntime *runtime, ModbusBlock3Image *out_image)
@@ -300,4 +387,7 @@ bool system_runtime_b3_image(const SystemRuntime *runtime, ModbusBlock3Image *ou
     return true;
 }
 
+#undef TR2_B1_ACQUISITION_RUNNING
+#undef TR2_B1_ACQUISITION_STOPPED
+#undef TR2_B1_STORAGE_AVAILABLE
 #undef TR2_B6_INVENTORY_STRUCTURE_VERSION
