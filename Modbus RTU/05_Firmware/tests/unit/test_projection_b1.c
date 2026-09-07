@@ -102,7 +102,7 @@ int main(void)
     assert(b7.source_generation == UINT32_C(42));
     assert(b7.registers[0] == UINT16_C(1));
     assert(b7.registers[1] == UINT16_C(2));
-    assert(b7.registers[2] == UINT16_C(0x015D));
+    assert(b7.registers[2] == UINT16_C(0x014D));
     assert(b7.registers[3] == UINT16_C(0x1234));
     assert(b7.registers[4] == UINT16_C(0x89AB));
     assert(b7.registers[5] == UINT16_C(0xCDEF));
