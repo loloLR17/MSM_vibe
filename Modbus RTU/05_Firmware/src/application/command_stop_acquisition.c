@@ -15,6 +15,7 @@ static CommandFinalResult final_result(uint16_t status, uint16_t result_code)
 Tr2Result command_stop_acquisition_execute(
     CommandEngine *engine,
     CampaignService *campaign_service,
+    SupervisionService *supervision_service,
     uint16_t transaction_id,
     const CommandTerminalTimestamp *terminal_timestamp,
     CommandJournalEntry *entry)
@@ -26,8 +27,9 @@ Tr2Result command_stop_acquisition_execute(
     CampaignId campaign_id;
     Tr2Result operation_result;
 
-    if (engine == NULL || campaign_service == NULL || terminal_timestamp == NULL ||
-        entry == NULL || !command_transaction_id_is_valid(transaction_id) ||
+    if (engine == NULL || campaign_service == NULL || supervision_service == NULL ||
+        terminal_timestamp == NULL || entry == NULL ||
+        !command_transaction_id_is_valid(transaction_id) ||
         !command_engine_has_active_transaction(engine) ||
         command_engine_active_transaction_id(engine) != transaction_id) {
         return TR2_ERROR_INVALID_ARGUMENT;
@@ -76,7 +78,9 @@ Tr2Result command_stop_acquisition_execute(
         return operation_result;
     }
 
-    operation_result = campaign_service_stop(campaign_service, &closed_metadata);
+    operation_result = campaign_service_stop_with_supervision(campaign_service,
+                                                               supervision_service,
+                                                               &closed_metadata);
     if (operation_result != TR2_OK) {
         return operation_result;
     }
