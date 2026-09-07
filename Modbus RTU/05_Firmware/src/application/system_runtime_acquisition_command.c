@@ -278,15 +278,20 @@ Tr2Result system_runtime_execute_p9_command(
         request->identity.command_code != COMMAND_CODE_ACKNOWLEDGE_FAULT &&
         request->identity.command_code != COMMAND_CODE_REFRESH_INDICATORS &&
         request->identity.command_code != COMMAND_CODE_ENTER_MAINTENANCE &&
-        request->identity.command_code != COMMAND_CODE_EXIT_MAINTENANCE) {
+        request->identity.command_code != COMMAND_CODE_EXIT_MAINTENANCE &&
+        request->identity.command_code != COMMAND_CODE_SOFTWARE_RESET) {
         return TR2_ERROR_UNSUPPORTED;
     }
 
-    /* P9-N4b: platform selftest capability is explicit and optional. An
-       unavailable executor must not reserve a transaction or fabricate PASS. */
+    /* Platform capabilities are explicit and optional. An unavailable seam
+       must not reserve a transaction or fabricate a business result. */
     if (request->identity.command_code == COMMAND_CODE_SELFTEST &&
         (runtime->deps.selftest_executor == NULL ||
          runtime->deps.selftest_executor->run_standard == NULL)) {
+        return TR2_ERROR_NOT_AVAILABLE;
+    }
+    if (request->identity.command_code == COMMAND_CODE_SOFTWARE_RESET &&
+        !platform_reset_trigger_is_valid(runtime->deps.reset_trigger)) {
         return TR2_ERROR_NOT_AVAILABLE;
     }
 
@@ -345,6 +350,17 @@ Tr2Result system_runtime_execute_p9_command(
         operation_result = command_exit_maintenance_execute(
             &runtime->command_engine, &runtime->maintenance_service,
             request->transaction_id, terminal_timestamp, out_entry);
+        break;
+    case COMMAND_CODE_SOFTWARE_RESET:
+        operation_result = command_software_reset_execute(
+            &runtime->command_engine,
+            &runtime->boot_intent_store,
+            runtime->deps.reset_trigger,
+            campaign_service_acquisition_running(&runtime->campaign_service),
+            selftest_service_running(&runtime->selftest_service),
+            request->transaction_id,
+            terminal_timestamp,
+            out_entry);
         break;
     default:
         return TR2_ERROR_UNSUPPORTED;

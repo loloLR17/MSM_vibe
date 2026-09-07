@@ -32,6 +32,7 @@
 #include "tr2/platform/monotonic_clock.h"
 #include "tr2/platform/persistent_media.h"
 #include "tr2/platform/reset_cause_provider.h"
+#include "tr2/platform/reset_trigger.h"
 #include "tr2/platform/time_continuity_evidence.h"
 #include "tr2/platform/vibration_source.h"
 #include "tr2/platform/wall_clock.h"
@@ -61,6 +62,7 @@ typedef struct {
     const ConfigurationValidationEnvironment *configuration_validation_environment;
     VibrationSource *vibration_source;
     const SelfTestExecutor *selftest_executor;
+    const PlatformResetTrigger *reset_trigger;
 } SystemRuntimeDependencies;
 
 typedef struct {
