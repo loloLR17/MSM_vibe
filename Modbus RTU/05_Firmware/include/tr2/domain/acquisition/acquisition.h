@@ -20,9 +20,20 @@ typedef struct {
     MonotonicTimeMs end_monotonic_ms;
     uint32_t acquired_sample_count;
     uint32_t valid_sample_count;
+
+    uint64_t sum_square_x_mg2;
+    uint64_t sum_square_y_mg2;
+    uint64_t sum_square_z_mg2;
+    uint64_t sum_square_vector_mg2;
+    uint32_t peak_abs_x_mg;
+    uint32_t peak_abs_y_mg;
+    uint32_t peak_abs_z_mg;
+    uint64_t peak_vector_square_mg2;
+
     bool complete;
     bool saturation_observed;
     bool source_error;
+    bool statistics_overflow;
 } AcquisitionWindow;
 
 #endif
