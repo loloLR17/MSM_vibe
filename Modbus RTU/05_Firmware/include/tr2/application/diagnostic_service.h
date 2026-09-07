@@ -21,6 +21,9 @@ bool diagnostic_service_is_initialized(const DiagnosticService *service);
 Tr2Result diagnostic_service_publish_facts(DiagnosticService *service,
                                            const DiagnosticFacts *facts);
 
+Tr2Result diagnostic_service_restore_last_fault(DiagnosticService *service,
+                                                const DiagnosticLastFault *last_fault);
+
 bool diagnostic_service_snapshot(const DiagnosticService *service,
                                  DiagnosticSnapshot *out_snapshot);
 

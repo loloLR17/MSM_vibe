@@ -30,6 +30,7 @@ add_library(tr2_core STATIC
     src/application/supervision_service.c
     src/application/system_runtime.c
     src/application/system_runtime_acquisition_command.c
+    src/application/system_state_aggregator.c
     src/domain/command/command.c
     src/domain/configuration/configuration_staging.c
     src/domain/configuration/configuration_validator.c
@@ -58,6 +59,8 @@ add_library(tr2_core STATIC
     src/persistence/command_journal_store.c
     src/persistence/configuration_record.c
     src/persistence/configuration_store.c
+    src/persistence/diagnostic_history_record.c
+    src/persistence/diagnostic_history_store.c
     src/persistence/persistent_storage_core.c
     src/persistence/time_history_record.c
     src/persistence/time_history_store.c
@@ -381,6 +384,12 @@ add_executable(test_p9b_diagnostic_service
 )
 target_link_libraries(test_p9b_diagnostic_service PRIVATE tr2_core)
 add_test(NAME p9b_diagnostic_service COMMAND test_p9b_diagnostic_service)
+
+add_executable(test_p9c_diagnostic_recovery
+    tests/unit/test_p9c_diagnostic_recovery.c
+)
+target_link_libraries(test_p9c_diagnostic_recovery PRIVATE tr2_core)
+add_test(NAME p9c_diagnostic_recovery COMMAND test_p9c_diagnostic_recovery)
 
 add_executable(test_acquisition_service
     tests/unit/test_acquisition_service.c
