@@ -3,6 +3,7 @@
 #include <stdint.h>
 #include <string.h>
 
+#include "tr2/application/campaign_service.h"
 #include "tr2/application/supervision_service.h"
 
 static AcquisitionWindow make_window(uint32_t generation,
@@ -41,12 +42,14 @@ static AcquisitionWindow make_window(uint32_t generation,
 int main(void)
 {
     SupervisionService service;
+    SupervisionService bridge_service;
     SupervisionSnapshot first;
     SupervisionSnapshot second;
     SupervisionSnapshot held;
     AcquisitionWindow window_a;
     AcquisitionWindow window_b;
     AcquisitionWindow invalid_window;
+    CampaignAcquisitionStep step;
 
     memset(&service, 0xA5, sizeof(service));
     assert(supervision_service_init(&service) == TR2_OK);
@@ -80,7 +83,6 @@ int main(void)
     assert(!first.civil_timestamp_available);
     assert(first.civil_timestamp == 0u);
 
-    /* A second publication replaces the whole coherent snapshot. */
     window_b = make_window(8u, 43u, 2000u, 2200u);
     window_b.sum_square_x_mg2 = 50u;
     window_b.sum_square_y_mg2 = 50u;
@@ -104,7 +106,6 @@ int main(void)
     assert(second.value_monotonic_ms == 2200u);
     assert(!second.saturation_observed);
 
-    /* Failed calculation must not partially replace the published snapshot. */
     invalid_window = make_window(9u, 99u, 3000u, 3100u);
     invalid_window.valid_sample_count = 0u;
     invalid_window.sum_square_x_mg2 = 0u;
@@ -115,13 +116,11 @@ int main(void)
     assert(supervision_service_snapshot(&service, &held));
     assert(memcmp(&held, &second, sizeof(held)) == 0);
 
-    /* Sequence is assigned only to successfully published calculations. */
     window_a = make_window(10u, 44u, 4000u, 4100u);
     assert(supervision_service_publish_window(&service, &window_a) == TR2_OK);
     assert(supervision_service_snapshot(&service, &held));
     assert(held.calculation_sequence == 3u);
 
-    /* FW implementation policy: sequence saturates rather than wrapping. */
     service.next_calculation_sequence = UINT32_MAX;
     window_a = make_window(11u, 45u, 5000u, 5100u);
     assert(supervision_service_publish_window(&service, &window_a) == TR2_OK);
@@ -131,6 +130,41 @@ int main(void)
     assert(supervision_service_publish_window(&service, &window_a) == TR2_OK);
     assert(supervision_service_snapshot(&service, &held));
     assert(held.calculation_sequence == UINT32_MAX);
+
+    /* P8-E: only a completed acquisition window may feed supervision. */
+    assert(supervision_service_init(&bridge_service) == TR2_OK);
+    memset(&step, 0, sizeof(step));
+    step.kind = CAMPAIGN_ACQUISITION_STEP_SAMPLE_READ;
+    assert(campaign_service_publish_supervision_step(&bridge_service, &step) ==
+           TR2_ERROR_INVALID_STATE);
+    assert(!supervision_service_snapshot(&bridge_service, &held));
+
+    step.kind = CAMPAIGN_ACQUISITION_STEP_WINDOW_COMPLETED;
+    step.window = make_window(21u, 46u, 6000u, 6125u);
+    assert(campaign_service_publish_supervision_step(&bridge_service, &step) == TR2_OK);
+    assert(supervision_service_snapshot(&bridge_service, &held));
+    assert(held.configuration.generation == 21u);
+    assert(held.configuration.config_id == 46u);
+    assert(held.configuration.revision_counter == 31u);
+    assert(held.value_monotonic_ms == 6125u);
+    assert(held.window_complete);
+
+    second = held;
+    step.window.configuration.generation = 99u;
+    step.window.valid_sample_count = 0u;
+    step.window.sum_square_x_mg2 = 0u;
+    step.window.sum_square_y_mg2 = 0u;
+    step.window.sum_square_z_mg2 = 0u;
+    step.window.sum_square_vector_mg2 = 0u;
+    assert(campaign_service_publish_supervision_step(&bridge_service, &step) ==
+           TR2_ERROR_NOT_AVAILABLE);
+    assert(supervision_service_snapshot(&bridge_service, &held));
+    assert(memcmp(&held, &second, sizeof(held)) == 0);
+
+    assert(campaign_service_publish_supervision_step(NULL, &step) ==
+           TR2_ERROR_INVALID_ARGUMENT);
+    assert(campaign_service_publish_supervision_step(&bridge_service, NULL) ==
+           TR2_ERROR_INVALID_ARGUMENT);
 
     return 0;
 }
