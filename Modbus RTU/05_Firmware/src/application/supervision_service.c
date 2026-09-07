@@ -4,6 +4,7 @@
 #include <string.h>
 
 #include "tr2/domain/supervision/indicator_calculator.h"
+#include "tr2/domain/supervision/threshold_evaluator.h"
 
 static uint32_t next_sequence_value(uint32_t current)
 {
@@ -57,6 +58,7 @@ Tr2Result supervision_service_publish_window(SupervisionService *service,
 {
     SupervisionSnapshot candidate;
     VibrationIndicators indicators;
+    SupervisionThresholdFacts threshold_facts;
     TimeSnapshot time_snapshot;
     Tr2Result result;
 
@@ -68,6 +70,13 @@ Tr2Result supervision_service_publish_window(SupervisionService *service,
     }
 
     result = vibration_indicators_from_window(window, &indicators);
+    if (result != TR2_OK) {
+        return result;
+    }
+
+    result = supervision_thresholds_compare(&indicators,
+                                            &window->configuration.payload,
+                                            &threshold_facts);
     if (result != TR2_OK) {
         return result;
     }
@@ -89,6 +98,8 @@ Tr2Result supervision_service_publish_window(SupervisionService *service,
     candidate.window_complete = window->complete;
     candidate.saturation_observed = window->saturation_observed;
     candidate.calculation_error = false;
+    candidate.threshold_facts_available = true;
+    candidate.threshold_facts = threshold_facts;
     candidate.value_monotonic_ms = window->end_monotonic_ms;
 
     if (service->time_service != NULL &&
