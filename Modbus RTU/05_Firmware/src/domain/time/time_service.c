@@ -15,12 +15,13 @@ static TimeSinceSync reconstruct_time_since_sync(const TimeService *service,
         service->monotonic_clock != NULL && service->monotonic_clock->now_ms != NULL) {
         const MonotonicTimeMs now_ms =
             service->monotonic_clock->now_ms(service->monotonic_clock->context);
-        const MonotonicTimeMs elapsed_ms =
-            now_ms >= service->current_boot_sync_anchor_ms
-                ? now_ms - service->current_boot_sync_anchor_ms
-                : 0u;
-        const uint64_t elapsed_s = elapsed_ms / UINT64_C(1000);
+        uint64_t elapsed_s;
 
+        if (now_ms < service->current_boot_sync_anchor_ms) {
+            return time_since_sync_unavailable();
+        }
+
+        elapsed_s = (now_ms - service->current_boot_sync_anchor_ms) / UINT64_C(1000);
         return time_since_sync_available(
             elapsed_s > UINT32_MAX ? UINT32_MAX : (uint32_t)elapsed_s);
     }
@@ -218,7 +219,6 @@ Tr2Result time_service_synchronize_prepared(TimeService *service, uint16_t sync_
     service->prepared_time_available = false;
     service->prepared_time = 0u;
     service->prepared_time_status = TR2_PREPARED_TIME_STATUS_NONE;
-    service->generation++;
 
     return TR2_OK;
 }
