@@ -5,6 +5,7 @@
 #include <stdint.h>
 
 #include "tr2/common/result.h"
+#include "tr2/domain/time/time_recovery.h"
 #include "tr2/platform/wall_clock.h"
 
 typedef struct {
@@ -22,6 +23,11 @@ typedef struct {
     uint16_t time_accuracy_ms;
     int16_t drift_ppm;
     uint16_t sync_source;
+
+    bool civil_time_usable;
+    TimeContinuity continuity;
+    LastSyncHistory last_sync_history;
+    TimeSinceSync time_since_sync;
 } TimeSnapshot;
 
 typedef struct {
@@ -30,10 +36,14 @@ typedef struct {
     bool prepared_time_available;
     Tr2CivilTimestamp prepared_time;
     uint16_t prepared_time_status;
+    TimeRecoveryContext recovery_context;
+    bool recovery_context_available;
     bool initialized;
 } TimeService;
 
 Tr2Result time_service_init(TimeService *service, const WallClock *wall_clock);
+Tr2Result time_service_apply_recovery_context(TimeService *service,
+                                              const TimeRecoveryContext *context);
 Tr2Result time_service_get_snapshot(const TimeService *service, TimeSnapshot *snapshot);
 Tr2Result time_service_get_prepared_time(const TimeService *service,
                                          bool *available,
