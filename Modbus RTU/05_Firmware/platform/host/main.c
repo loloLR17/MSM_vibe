@@ -25,6 +25,7 @@ int main(void)
         &media,
         &configuration_environment,
         &vibration,
+        NULL,
         NULL
     };
     SystemRuntime runtime;
