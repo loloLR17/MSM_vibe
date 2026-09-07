@@ -16,6 +16,7 @@ typedef struct {
     const SystemStateSnapshot *system_state;
     const TimeSnapshot *time;
     const SupervisionSnapshot *supervision;
+    const ModbusBlock4Image *b4_image;
     const ModbusBlock5Image *b5_image;
     const ModbusBlock6Image *b6_image;
     const ModbusBlock7Image *b7_image;

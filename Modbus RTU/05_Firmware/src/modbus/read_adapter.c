@@ -3,6 +3,7 @@
 #include "tr2/modbus/projection.h"
 #include "tr2/modbus/read_adapter.h"
 
+#define TR2_B4_BASE_ADDRESS UINT16_C(4000)
 #define TR2_B5_BASE_ADDRESS UINT16_C(5000)
 #define TR2_B5_LAST_ADDRESS UINT16_C(5019)
 #define TR2_B6_BASE_ADDRESS UINT16_C(6000)
@@ -101,6 +102,25 @@ static ModbusReadOutcome read_from_b3(const ModbusReadSources *sources,
     }
     for (index = 0u; index < quantity; ++index) {
         values[index] = image.registers[(uint16_t)(start_address - UINT16_C(3000) + index)];
+    }
+    return outcome;
+}
+
+static ModbusReadOutcome read_from_b4(const ModbusReadSources *sources,
+                                      uint16_t start_address,
+                                      uint16_t quantity,
+                                      uint16_t *values)
+{
+    ModbusReadOutcome outcome = { MODBUS_ACCESS_OK, TR2_OK };
+    uint16_t index;
+
+    if (sources->b4_image == NULL) {
+        outcome.operation_result = TR2_ERROR_NOT_AVAILABLE;
+        return outcome;
+    }
+    for (index = 0u; index < quantity; ++index) {
+        values[index] = sources->b4_image->registers[
+            (uint16_t)(start_address - TR2_B4_BASE_ADDRESS + index)];
     }
     return outcome;
 }
@@ -237,12 +257,15 @@ ModbusReadOutcome modbus_read_adapter_read(const ModbusReadSources *sources,
         return read_from_b2(sources, start_address, quantity, values);
     case MODBUS_BLOCK_3:
         return read_from_b3(sources, start_address, quantity, values);
+    case MODBUS_BLOCK_4:
+        return read_from_b4(sources, start_address, quantity, values);
     default:
         outcome.operation_result = TR2_ERROR_UNSUPPORTED;
         return outcome;
     }
 }
 
+#undef TR2_B4_BASE_ADDRESS
 #undef TR2_B5_BASE_ADDRESS
 #undef TR2_B5_LAST_ADDRESS
 #undef TR2_B6_BASE_ADDRESS
