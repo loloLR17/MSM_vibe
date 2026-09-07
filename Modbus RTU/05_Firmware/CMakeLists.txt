@@ -20,6 +20,7 @@ add_library(tr2_core STATIC
     src/application/command_engine.c
     src/application/command_policy.c
     src/application/command_request_mailbox.c
+    src/application/command_selftest.c
     src/application/command_start_acquisition.c
     src/application/command_stop_acquisition.c
     src/application/command_synchronize_time.c
@@ -390,6 +391,12 @@ add_executable(test_p9c_diagnostic_recovery
 )
 target_link_libraries(test_p9c_diagnostic_recovery PRIVATE tr2_core)
 add_test(NAME p9c_diagnostic_recovery COMMAND test_p9c_diagnostic_recovery)
+
+add_executable(test_p9h_selftest_command
+    tests/unit/test_p9h_selftest_command.c
+)
+target_link_libraries(test_p9h_selftest_command PRIVATE tr2_core)
+add_test(NAME p9h_selftest_command COMMAND test_p9h_selftest_command)
 
 add_executable(test_acquisition_service
     tests/unit/test_acquisition_service.c

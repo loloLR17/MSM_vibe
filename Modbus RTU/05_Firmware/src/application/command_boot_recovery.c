@@ -20,6 +20,8 @@ static CommandReconciliationOutcome reconcile_started(
     case COMMAND_CODE_STOP_ACQUISITION:
         return command_stop_acquisition_reconcile(entry,
                                                   authorities->campaign_repository);
+    case COMMAND_CODE_SELFTEST:
+        return command_selftest_reconcile(entry);
     default:
         return COMMAND_RECONCILIATION_INDETERMINATE;
     }

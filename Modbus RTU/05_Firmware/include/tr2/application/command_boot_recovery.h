@@ -4,6 +4,7 @@
 #include <stdbool.h>
 
 #include "tr2/application/command_apply_configuration.h"
+#include "tr2/application/command_selftest.h"
 #include "tr2/application/command_start_acquisition.h"
 #include "tr2/application/command_stop_acquisition.h"
 #include "tr2/application/command_synchronize_time.h"
