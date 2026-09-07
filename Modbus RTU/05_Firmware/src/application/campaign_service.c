@@ -330,10 +330,13 @@ Tr2Result campaign_service_publish_supervision_step(
     return supervision_service_publish_window(supervision_service, &step->window);
 }
 
-Tr2Result campaign_service_stop(CampaignService *service,
-                                CampaignMetadata *out_closed_metadata)
+static Tr2Result campaign_service_stop_internal(
+    CampaignService *service,
+    SupervisionService *supervision_service,
+    CampaignMetadata *out_closed_metadata)
 {
     Tr2Result result;
+    Tr2Result supervision_result = TR2_OK;
 
     if (!campaign_service_is_initialized(service)) {
         return TR2_ERROR_INVALID_STATE;
@@ -348,22 +351,29 @@ Tr2Result campaign_service_stop(CampaignService *service,
     }
 
     if (service->acquisition_window_started) {
-        AcquisitionWindow window;
+        CampaignAcquisitionStep step;
 
-        result = acquisition_service_end_window(service->acquisition_service,
-                                                &window);
+        memset(&step, 0, sizeof(step));
+        step.kind = CAMPAIGN_ACQUISITION_STEP_WINDOW_COMPLETED;
+        step.source_result = TR2_OK;
+        step.stop_result = acquisition_service_end_window(service->acquisition_service,
+                                                          &step.window);
         service->acquisition_window_started = false;
+        if (step.stop_result != TR2_OK) {
+            return step.stop_result;
+        }
+
+        result = checkpoint_completed_window(service, &step);
         if (result != TR2_OK) {
             return result;
         }
 
-        if (!service->data_store_started) {
-            return TR2_ERROR_INVALID_STATE;
-        }
-        result = service->data_store->checkpoint(service->data_store->context,
-                                                 service->active_metadata.campaign_id);
-        if (result != TR2_OK) {
-            return result;
+        if (supervision_service != NULL) {
+            supervision_result = campaign_service_publish_supervision_step(supervision_service,
+                                                                           &step);
+            if (supervision_result == TR2_ERROR_NOT_AVAILABLE) {
+                supervision_result = TR2_OK;
+            }
         }
     }
 
@@ -407,5 +417,27 @@ Tr2Result campaign_service_stop(CampaignService *service,
     *out_closed_metadata = service->active_metadata;
     service->campaign_open = false;
     memset(&service->active_metadata, 0, sizeof(service->active_metadata));
-    return TR2_OK;
+
+    return supervision_result;
+}
+
+Tr2Result campaign_service_stop(CampaignService *service,
+                                CampaignMetadata *out_closed_metadata)
+{
+    return campaign_service_stop_internal(service, NULL, out_closed_metadata);
+}
+
+Tr2Result campaign_service_stop_with_supervision(
+    CampaignService *service,
+    SupervisionService *supervision_service,
+    CampaignMetadata *out_closed_metadata)
+{
+    if (supervision_service == NULL ||
+        !supervision_service_is_initialized(supervision_service)) {
+        return TR2_ERROR_INVALID_ARGUMENT;
+    }
+
+    return campaign_service_stop_internal(service,
+                                          supervision_service,
+                                          out_closed_metadata);
 }
