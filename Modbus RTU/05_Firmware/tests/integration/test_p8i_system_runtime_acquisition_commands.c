@@ -195,8 +195,24 @@ int main(void)
     assert(system_runtime_init(&runtime, &deps) == TR2_OK);
     assert(system_runtime_boot(&runtime) == TR2_OK);
     assert(system_runtime_is_ready_for_modbus(&runtime));
-    assert(!system_runtime_b1_image(&runtime, &b1));
-    assert(!system_runtime_b7_image(&runtime, &b7));
+    assert(system_runtime_b1_image(&runtime, &b1));
+    assert(system_runtime_b7_image(&runtime, &b7));
+    assert(b1.registers[0] == UINT16_C(1));
+    assert((b1.registers[1] & UINT16_C(0x0001)) != 0u);
+    assert((b1.registers[1] & UINT16_C(0x0002)) == 0u);
+    assert((b1.registers[1] & UINT16_C(0x0004)) == 0u);
+    assert((b1.registers[1] & UINT16_C(0x0010)) != 0u);
+    assert(b1.registers[4] == UINT16_C(0));
+    assert(b1.registers[5] == UINT16_C(0));
+    assert(b1.registers[6] == UINT16_C(4));
+    assert(b1.registers[12] == UINT16_C(0));
+    assert(b7.registers[0] == UINT16_C(1));
+    assert(b7.registers[6] == UINT16_C(0));
+    assert(b7.registers[9] == b1.registers[4]);
+    assert(b7.registers[10] == b1.registers[5]);
+    assert(b7.registers[11] == b1.registers[6]);
+    assert(b7.registers[12] == UINT16_C(0));
+    assert(b7.registers[13] == UINT16_C(0));
 
     memset(&validated, 0, sizeof(validated));
     validated.generation = UINT32_C(1);

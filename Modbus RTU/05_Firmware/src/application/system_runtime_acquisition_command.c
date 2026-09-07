@@ -41,8 +41,8 @@ static Tr2Result collect_runtime_system_state(
         campaign_service_acquisition_running(&runtime->campaign_service);
 
     if (runtime == NULL || diagnostic_facts == NULL || aggregation_input == NULL ||
-        !runtime->initialized || !runtime->system_ready_for_modbus ||
-        !runtime->p9_authorities_available || !runtime->fg_runtime_available) {
+        !runtime->initialized || !runtime->p9_authorities_available ||
+        !runtime->fg_runtime_available) {
         return TR2_ERROR_INVALID_STATE;
     }
 
@@ -149,6 +149,11 @@ static Tr2Result refresh_runtime_status(SystemRuntime *runtime)
         return result;
     }
     return project_runtime_status_images(runtime);
+}
+
+Tr2Result system_runtime_build_boot_status_images(SystemRuntime *runtime)
+{
+    return refresh_runtime_status(runtime);
 }
 
 static Tr2Result refresh_b3(SystemRuntime *runtime)
