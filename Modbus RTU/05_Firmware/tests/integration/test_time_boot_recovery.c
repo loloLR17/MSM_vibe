@@ -86,7 +86,8 @@ static SystemRuntimeDependencies make_dependencies(
     ResetCauseProvider *reset,
     TimeContinuityEvidenceProvider *continuity,
     PersistentMedia *media,
-    const ConfigurationValidationEnvironment *environment)
+    const ConfigurationValidationEnvironment *environment,
+    VibrationSource *vibration_source)
 {
     SystemRuntimeDependencies deps;
 
@@ -96,6 +97,7 @@ static SystemRuntimeDependencies make_dependencies(
     deps.time_continuity_evidence_provider = continuity;
     deps.persistent_media = media;
     deps.configuration_validation_environment = environment;
+    deps.vibration_source = vibration_source;
     return deps;
 }
 
@@ -121,6 +123,7 @@ int main(void)
     ResetCauseProvider reset;
     TimeContinuityEvidenceProvider continuity;
     PersistentMedia media;
+    VibrationSource vibration;
     SystemRuntimeDependencies deps;
     SystemRuntime runtime;
     TimeSnapshot snapshot;
@@ -133,7 +136,9 @@ int main(void)
     reset = host_platform_reset_cause_provider(&platform);
     continuity = host_platform_time_continuity_evidence_provider(&platform);
     media = host_platform_persistent_media(&platform);
-    deps = make_dependencies(&monotonic, &wall, &reset, &continuity, &media, &environment);
+    vibration = host_platform_vibration_source(&platform);
+    deps = make_dependencies(&monotonic, &wall, &reset, &continuity, &media, &environment,
+                             &vibration);
     assert(system_runtime_init(&runtime, &deps) == TR2_OK);
     assert(system_runtime_boot(&runtime) == TR2_OK);
     assert(system_runtime_is_ready_for_modbus(&runtime));
@@ -152,10 +157,12 @@ int main(void)
     reset = host_platform_reset_cause_provider(&platform);
     continuity = host_platform_time_continuity_evidence_provider(&platform);
     media = host_platform_persistent_media(&platform);
+    vibration = host_platform_vibration_source(&platform);
     persist_history(&media, UINT32_C(900), UINT16_C(2));
     assert(wall.set(wall.context, UINT32_C(1000)) == TR2_OK);
     host_platform_set_time_continuity_evidence(&platform, TIME_CONTINUITY_EVIDENCE_PROVEN);
-    deps = make_dependencies(&monotonic, &wall, &reset, &continuity, &media, &environment);
+    deps = make_dependencies(&monotonic, &wall, &reset, &continuity, &media, &environment,
+                             &vibration);
     assert(system_runtime_init(&runtime, &deps) == TR2_OK);
     assert(system_runtime_boot(&runtime) == TR2_OK);
     assert(system_runtime_time_history_recovery_status(&runtime, &history_status));
@@ -213,7 +220,8 @@ int main(void)
                                  &reset,
                                  &continuity,
                                  &failing_media,
-                                 &environment);
+                                 &environment,
+                                 &vibration);
         assert(system_runtime_init(&runtime, &deps) == TR2_OK);
         assert(system_runtime_boot(&runtime) == TR2_OK);
         assert(system_runtime_is_ready_for_modbus(&runtime));
@@ -233,6 +241,7 @@ int main(void)
         reset = host_platform_reset_cause_provider(&platform);
         continuity = host_platform_time_continuity_evidence_provider(&platform);
         media = host_platform_persistent_media(&platform);
+        vibration = host_platform_vibration_source(&platform);
         persist_history(&media, UINT32_C(900), UINT16_C(3));
         host_platform_set_time_continuity_evidence(&platform, TIME_CONTINUITY_EVIDENCE_PROVEN);
         deps = make_dependencies(&monotonic,
@@ -240,7 +249,8 @@ int main(void)
                                  &reset,
                                  &continuity,
                                  &media,
-                                 &environment);
+                                 &environment,
+                                 &vibration);
         assert(system_runtime_init(&runtime, &deps) == TR2_OK);
         assert(system_runtime_boot(&runtime) == TR2_OK);
         assert(system_runtime_is_ready_for_modbus(&runtime));
