@@ -14,7 +14,33 @@ typedef struct {
     int started_step;
     int open_step;
     CampaignMetadata opened;
+    PersistentMedia media;
+    PersistentStorageCore storage;
+    ConfigurationStore configuration_store;
 } TestContext;
+
+static Tr2Result media_read(void *context, uint32_t offset, void *buffer, size_t size)
+{
+    (void)context;
+    (void)offset;
+    memset(buffer, 0, size);
+    return TR2_OK;
+}
+
+static Tr2Result media_write(void *context, uint32_t offset, const void *buffer, size_t size)
+{
+    (void)context;
+    (void)offset;
+    (void)buffer;
+    (void)size;
+    return TR2_OK;
+}
+
+static Tr2Result media_commit(void *context)
+{
+    (void)context;
+    return TR2_OK;
+}
 
 static Tr2Result journal_find(void *context, uint16_t transaction_id, CommandJournalEntry *entry)
 {
@@ -193,8 +219,8 @@ int main(void)
     CommandAdmissionResult admission;
     CommandJournalEntry entry;
     CommandTerminalTimestamp timestamp = { false, 0u };
-    ConfigurationService configuration = {0};
-    AcquisitionService acquisition = {0};
+    ConfigurationService configuration;
+    AcquisitionService acquisition;
     CampaignRepository repository = {0};
     CampaignDataStore data_store = {0};
     CampaignService campaign_service;
@@ -210,7 +236,13 @@ int main(void)
     journal.latest_completed = journal_latest;
     assert(command_engine_init(&engine, &journal) == TR2_OK);
 
-    configuration.initialized = true;
+    test.media.context = &test;
+    test.media.read = media_read;
+    test.media.write = media_write;
+    test.media.commit = media_commit;
+    assert(persistent_storage_core_init(&test.storage, &test.media) == TR2_OK);
+    assert(configuration_store_init(&test.configuration_store, &test.storage) == TR2_OK);
+    assert(configuration_service_init(&configuration, &test.configuration_store) == TR2_OK);
     configuration.has_active = true;
     configuration.active.generation = 3u;
     configuration.active.config_id = 4u;
