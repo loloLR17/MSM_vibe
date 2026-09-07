@@ -92,6 +92,7 @@ Tr2Result configuration_store_init(ConfigurationStore *store,
 
     store->storage = storage;
     store->initialized = true;
+    store->recovery_required = false;
     return TR2_OK;
 }
 
@@ -99,6 +100,11 @@ bool configuration_store_is_initialized(const ConfigurationStore *store)
 {
     return store != NULL && store->initialized && store->storage != NULL &&
            persistent_storage_core_is_initialized(store->storage);
+}
+
+bool configuration_store_recovery_required(const ConfigurationStore *store)
+{
+    return configuration_store_is_initialized(store) && store->recovery_required;
 }
 
 Tr2Result configuration_store_commit(ConfigurationStore *store,
@@ -112,7 +118,7 @@ Tr2Result configuration_store_commit(ConfigurationStore *store,
     size_t slot_index;
     Tr2Result result;
 
-    if (!configuration_store_is_initialized(store)) {
+    if (!configuration_store_is_initialized(store) || store->recovery_required) {
         return TR2_ERROR_INVALID_STATE;
     }
     if (snapshot == NULL) {
@@ -122,6 +128,7 @@ Tr2Result configuration_store_commit(ConfigurationStore *store,
     for (slot_index = 0u; slot_index < TR2_CONFIGURATION_STORE_SLOT_COUNT; ++slot_index) {
         result = read_slot(store, slot_index, &slots[slot_index]);
         if (result != TR2_OK) {
+            store->recovery_required = true;
             return result;
         }
     }
@@ -148,8 +155,15 @@ Tr2Result configuration_store_commit(ConfigurationStore *store,
                                            record,
                                            sizeof(record));
     if (result != TR2_OK) {
+        store->recovery_required = true;
         return result;
     }
 
-    return persistent_storage_core_commit(store->storage);
+    result = persistent_storage_core_commit(store->storage);
+    if (result != TR2_OK) {
+        store->recovery_required = true;
+        return result;
+    }
+
+    return TR2_OK;
 }
