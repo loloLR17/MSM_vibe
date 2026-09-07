@@ -203,6 +203,7 @@ static void test_partial_write_failures_recover_previous_commit(void)
 
         media.partial_write_count = failed_bytes;
         assert(configuration_store_commit(&store, &b) == TR2_ERROR_STORAGE);
+        assert(configuration_store_recovery_required(&store));
         simulate_reboot(&media);
 
         assert(recover_newest(&media, &recovered));
@@ -226,10 +227,51 @@ static void test_commit_failure_recovers_previous_commit(void)
 
     media.fail_commit = true;
     assert(configuration_store_commit(&store, &b) == TR2_ERROR_STORAGE);
+    assert(configuration_store_recovery_required(&store));
     simulate_reboot(&media);
 
     assert(recover_newest(&media, &recovered));
     assert_snapshot_identity(&a, &recovered);
+}
+
+static void test_failed_commit_blocks_retry_until_recovery(void)
+{
+    TestMediaContext media;
+    PersistentMedia persistent_media;
+    PersistentStorageCore core;
+    ConfigurationStore store;
+    ActiveConfigurationSnapshot recovered;
+    const ActiveConfigurationSnapshot a = make_snapshot(1u, 10u, 100u, 1000u);
+    const ActiveConfigurationSnapshot b = make_snapshot(2u, 20u, 200u, 2000u);
+    const ActiveConfigurationSnapshot c = make_snapshot(3u, 30u, 300u, 3000u);
+    unsigned writes_before_retry;
+    unsigned commits_before_retry;
+
+    test_media_init(&media);
+    init_store(&media, &persistent_media, &core, &store);
+    assert(configuration_store_commit(&store, &a) == TR2_OK);
+
+    media.fail_commit = true;
+    assert(configuration_store_commit(&store, &b) == TR2_ERROR_STORAGE);
+    assert(configuration_store_recovery_required(&store));
+    media.fail_commit = false;
+    writes_before_retry = media.write_calls;
+    commits_before_retry = media.commit_calls;
+
+    assert(configuration_store_commit(&store, &c) == TR2_ERROR_INVALID_STATE);
+    assert(media.write_calls == writes_before_retry);
+    assert(media.commit_calls == commits_before_retry);
+
+    simulate_reboot(&media);
+    assert(recover_newest(&media, &recovered));
+    assert_snapshot_identity(&a, &recovered);
+
+    assert(configuration_store_init(&store, &core) == TR2_OK);
+    assert(!configuration_store_recovery_required(&store));
+    assert(configuration_store_commit(&store, &c) == TR2_OK);
+    simulate_reboot(&media);
+    assert(recover_newest(&media, &recovered));
+    assert_snapshot_identity(&c, &recovered);
 }
 
 static void test_stale_generation_is_rejected_before_write(void)
@@ -269,6 +311,7 @@ static void test_invalid_initialization_and_arguments(void)
 
     memset(&store, 0, sizeof(store));
     assert(configuration_store_commit(&store, &snapshot) == TR2_ERROR_INVALID_STATE);
+    assert(!configuration_store_recovery_required(&store));
     assert(configuration_store_init(NULL, &core) == TR2_ERROR_INVALID_ARGUMENT);
     assert(configuration_store_init(&store, NULL) == TR2_ERROR_INVALID_ARGUMENT);
 
@@ -280,6 +323,7 @@ static void test_invalid_initialization_and_arguments(void)
     assert(persistent_storage_core_init(&core, &persistent_media) == TR2_OK);
     assert(configuration_store_init(&store, &core) == TR2_OK);
     assert(configuration_store_is_initialized(&store));
+    assert(!configuration_store_recovery_required(&store));
     assert(configuration_store_commit(&store, NULL) == TR2_ERROR_INVALID_ARGUMENT);
 }
 
@@ -288,6 +332,7 @@ int main(void)
     test_successive_commits_preserve_previous_slot();
     test_partial_write_failures_recover_previous_commit();
     test_commit_failure_recovers_previous_commit();
+    test_failed_commit_blocks_retry_until_recovery();
     test_stale_generation_is_rejected_before_write();
     test_invalid_initialization_and_arguments();
     return 0;
