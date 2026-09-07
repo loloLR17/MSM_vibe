@@ -3,6 +3,7 @@
 
 #include <stdint.h>
 
+#include "tr2/application/campaign_inventory_service.h"
 #include "tr2/common/result.h"
 #include "tr2/domain/configuration/configuration.h"
 #include "tr2/domain/identity/identity.h"
@@ -15,6 +16,7 @@
 #define TR2_B2_REGISTER_COUNT 16u
 #define TR2_B3_REGISTER_COUNT 48u
 #define TR2_B4_REGISTER_COUNT 176u
+#define TR2_B6_REGISTER_COUNT 64u
 
 typedef struct {
     uint16_t registers[TR2_B0_REGISTER_COUNT];
@@ -54,11 +56,27 @@ typedef struct {
     uint16_t registers[TR2_B4_REGISTER_COUNT];
 } ModbusBlock4Image;
 
+typedef struct {
+    const CampaignInventoryViewSnapshot *inventory_snapshot;
+    uint16_t inventory_structure_version;
+    uint32_t storage_used_mb;
+    uint32_t storage_free_mb;
+    uint16_t storage_health_status;
+} ModbusBlock6ProjectionSource;
+
+typedef struct {
+    uint16_t registers[TR2_B6_REGISTER_COUNT];
+    uint32_t source_generation;
+} ModbusBlock6Image;
+
 Tr2Result modbus_project_b0(const IdentitySnapshot *snapshot, ModbusBlock0Image *output);
 Tr2Result modbus_project_b1(const ModbusBlock1ProjectionSource *source,
                             ModbusBlock1Image *output);
 Tr2Result modbus_project_b2(const TimeSnapshot *snapshot, ModbusBlock2Image *output);
 Tr2Result modbus_project_b3(const SupervisionSnapshot *snapshot, ModbusBlock3Image *output);
-Tr2Result modbus_project_b4(const ModbusBlock4ProjectionSource *source, ModbusBlock4Image *output);
+Tr2Result modbus_project_b4(const ModbusBlock4ProjectionSource *source,
+                            ModbusBlock4Image *output);
+Tr2Result modbus_project_b6(const ModbusBlock6ProjectionSource *source,
+                            ModbusBlock6Image *output);
 
 #endif
