@@ -126,6 +126,12 @@ add_executable(test_time_history_store
 target_link_libraries(test_time_history_store PRIVATE tr2_core)
 add_test(NAME time_history_store COMMAND test_time_history_store)
 
+add_executable(test_time_synchronization
+    tests/unit/test_time_synchronization.c
+)
+target_link_libraries(test_time_synchronization PRIVATE tr2_core)
+add_test(NAME time_synchronization COMMAND test_time_synchronization)
+
 add_executable(test_configuration_types
     tests/unit/test_configuration_types.c
 )
