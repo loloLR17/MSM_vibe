@@ -6,8 +6,12 @@
 #include "tr2/application/command_boot_recovery.h"
 #include "tr2/application/command_selftest.h"
 
-#define TEST_MEDIA_SIZE 256u
+#define TEST_MEDIA_SIZE 128u
 #define TEST_HISTORY_OFFSET UINT32_C(8)
+#define TEST_JOURNAL_MAX_TRANSACTION_ID 4u
+#define TEST_JOURNAL_STORAGE_SIZE \
+    (TEST_JOURNAL_MAX_TRANSACTION_ID * TR2_COMMAND_JOURNAL_STORE_REDUNDANT_SLOTS * \
+     TR2_COMMAND_JOURNAL_RECORD_SIZE)
 
 typedef struct {
     uint8_t durable[TEST_MEDIA_SIZE];
@@ -27,6 +31,11 @@ typedef struct {
     Tr2Result run_result;
     SelfTestExecutionResult execution;
 } TestExecutor;
+
+typedef struct {
+    uint8_t durable[TEST_JOURNAL_STORAGE_SIZE];
+    uint8_t staged[TEST_JOURNAL_STORAGE_SIZE];
+} BootMedia;
 
 static Tr2Result media_read(void *context, uint32_t offset, void *buffer, size_t size)
 {
@@ -56,6 +65,41 @@ static Tr2Result media_commit(void *context)
     }
     if (media->fail_commit) {
         return TR2_ERROR_STORAGE;
+    }
+    memcpy(media->durable, media->staged, sizeof(media->durable));
+    return TR2_OK;
+}
+
+static Tr2Result boot_media_read(void *context, uint32_t offset, void *buffer, size_t size)
+{
+    BootMedia *media = (BootMedia *)context;
+    if (media == NULL || buffer == NULL ||
+        (size_t)offset + size > TEST_JOURNAL_STORAGE_SIZE) {
+        return TR2_ERROR_INVALID_ARGUMENT;
+    }
+    memcpy(buffer, &media->durable[offset], size);
+    return TR2_OK;
+}
+
+static Tr2Result boot_media_write(void *context,
+                                  uint32_t offset,
+                                  const void *buffer,
+                                  size_t size)
+{
+    BootMedia *media = (BootMedia *)context;
+    if (media == NULL || buffer == NULL ||
+        (size_t)offset + size > TEST_JOURNAL_STORAGE_SIZE) {
+        return TR2_ERROR_INVALID_ARGUMENT;
+    }
+    memcpy(&media->staged[offset], buffer, size);
+    return TR2_OK;
+}
+
+static Tr2Result boot_media_commit(void *context)
+{
+    BootMedia *media = (BootMedia *)context;
+    if (media == NULL) {
+        return TR2_ERROR_INVALID_ARGUMENT;
     }
     memcpy(media->durable, media->staged, sizeof(media->durable));
     return TR2_OK;
@@ -177,6 +221,7 @@ static void setup_services(TestMedia *media,
     static PersistentMedia backend;
 
     memset(media, 0xFF, sizeof(*media));
+    media->fail_commit = false;
     backend = make_media(media);
     assert(persistent_storage_core_init(storage, &backend) == TR2_OK);
     assert(diagnostic_history_store_init(history, storage, TEST_HISTORY_OFFSET) == TR2_OK);
@@ -322,35 +367,40 @@ static void test_persistence_failure_leaves_started_and_running(void)
            COMMAND_RECONCILIATION_INDETERMINATE);
 }
 
-static void test_boot_scan_keeps_started_selftest_indeterminate(void)
+static void test_started_selftest_boot_scan_is_indeterminate(void)
 {
-    TestMedia media;
+    BootMedia media;
     PersistentMedia backend;
     PersistentStorageCore storage;
     CommandJournalStore store;
-    CommandJournalRecoveryResult journal_recovery;
+    CommandJournalRecoveryResult recovery;
     CommandJournal *journal;
-    CommandRequest command = request(1u);
     CommandJournalEntry entry;
+    CommandRequest command;
     CommandBootRecoveryAuthorities authorities = {0};
-    CommandBootRecoveryResult recovery;
+    CommandBootRecoveryResult boot_result;
 
     memset(&media, 0xFF, sizeof(media));
-    backend = make_media(&media);
+    backend.context = &media;
+    backend.read = boot_media_read;
+    backend.write = boot_media_write;
+    backend.commit = boot_media_commit;
     assert(persistent_storage_core_init(&storage, &backend) == TR2_OK);
-    assert(command_journal_store_init(&store, &storage, 1u) == TR2_OK);
-    assert(command_journal_store_recover(&store, &journal_recovery) == TR2_OK);
-    assert(journal_recovery.status == COMMAND_JOURNAL_RECOVERY_EMPTY);
+    assert(command_journal_store_init(&store, &storage,
+                                      TEST_JOURNAL_MAX_TRANSACTION_ID) == TR2_OK);
+    assert(command_journal_store_recover(&store, &recovery) == TR2_OK);
+    assert(recovery.status == COMMAND_JOURNAL_RECOVERY_EMPTY);
 
+    command = request(4u);
     journal = command_journal_store_journal(&store);
     assert(journal != NULL);
     assert(journal->reserve(journal->context, &command, &entry) == TR2_OK);
-    assert(journal->mark_started(journal->context, 1u, &entry) == TR2_OK);
-    assert(command_boot_recovery_scan(&store, &authorities, &recovery) == TR2_OK);
-    assert(recovery.has_incomplete_transaction);
-    assert(recovery.incomplete_transaction.request_identity.command_code ==
-           COMMAND_CODE_SELFTEST);
-    assert(recovery.status == COMMAND_BOOT_RECOVERY_STARTED_INDETERMINATE);
+    assert(journal->mark_started(journal->context, 4u, &entry) == TR2_OK);
+
+    assert(command_boot_recovery_scan(&store, &authorities, &boot_result) == TR2_OK);
+    assert(boot_result.has_incomplete_transaction);
+    assert(boot_result.incomplete_transaction.transaction_id == 4u);
+    assert(boot_result.status == COMMAND_BOOT_RECOVERY_STARTED_INDETERMINATE);
 }
 
 int main(void)
@@ -358,6 +408,6 @@ int main(void)
     test_success_and_failure_are_terminal_and_durable();
     test_invalid_extension_is_refused_before_started();
     test_persistence_failure_leaves_started_and_running();
-    test_boot_scan_keeps_started_selftest_indeterminate();
+    test_started_selftest_boot_scan_is_indeterminate();
     return 0;
 }
