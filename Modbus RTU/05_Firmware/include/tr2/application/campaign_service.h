@@ -71,4 +71,9 @@ Tr2Result campaign_service_publish_supervision_step(
 Tr2Result campaign_service_stop(CampaignService *service,
                                 CampaignMetadata *out_closed_metadata);
 
+Tr2Result campaign_service_stop_with_supervision(
+    CampaignService *service,
+    SupervisionService *supervision_service,
+    CampaignMetadata *out_closed_metadata);
+
 #endif
