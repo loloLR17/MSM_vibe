@@ -12,12 +12,15 @@ int main(void)
     MonotonicClock monotonic = host_platform_monotonic_clock(&platform);
     WallClock wall = host_platform_wall_clock(&platform);
     ResetCauseProvider reset = host_platform_reset_cause_provider(&platform);
+    TimeContinuityEvidenceProvider time_continuity =
+        host_platform_time_continuity_evidence_provider(&platform);
     PersistentMedia media = host_platform_persistent_media(&platform);
 
     SystemRuntimeDependencies deps = {
         &monotonic,
         &wall,
         &reset,
+        &time_continuity,
         &media,
         &configuration_environment
     };
