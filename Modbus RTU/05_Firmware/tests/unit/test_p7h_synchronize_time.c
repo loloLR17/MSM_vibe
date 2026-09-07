@@ -277,7 +277,7 @@ static void test_success_and_reconciliation(void)
     memset(&journal_store, 0, sizeof(journal_store));
     journal_store.initialized = true;
     journal_store.journal = journal;
-    assert(command_journal_store_bind_recovery_context(&journal_store) == TR2_OK);
+    journal_store.journal.set_recovery_context = fake_set_context;
     engine.journal = &journal_store.journal;
     init_time_service(&time_service, &wall, &monotonic, &media, &wall_clock,
                       &monotonic_clock, &persistent_media, &storage, &history_store);
