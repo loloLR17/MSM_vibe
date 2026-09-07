@@ -233,6 +233,10 @@ static Tr2Result source_read(void *context, VibrationSample *sample)
 {
     (void)context;
     memset(sample, 0, sizeof(*sample));
+    sample->x_mg = 3;
+    sample->y_mg = 4;
+    sample->z_mg = 12;
+    sample->valid = true;
     return TR2_OK;
 }
 
@@ -332,10 +336,17 @@ static void test_stop_orders_barrier_before_effect_and_reconciles(void)
     CampaignService campaign_service;
     MonotonicClock clock;
     VibrationSource source;
+    SupervisionService supervision;
+    SupervisionSnapshot snapshot;
+    CampaignAcquisitionStep acquisition_step;
 
     init_journal(&test, &journal, &engine);
     init_campaign_service(&test, &configuration, &acquisition, &repository,
                           &data_store, &campaign_service, &clock, &source);
+    assert(supervision_service_init(&supervision) == TR2_OK);
+    assert(campaign_service_drive_acquisition_step(&campaign_service,
+                                                   &acquisition_step) == TR2_OK);
+    assert(acquisition_step.kind == CAMPAIGN_ACQUISITION_STEP_SAMPLE_READ);
     test.step = 0;
     test.context_step = 0;
     test.started_step = 0;
@@ -347,8 +358,8 @@ static void test_stop_orders_barrier_before_effect_and_reconciles(void)
     request.transaction_id = 401u;
     request.identity.command_code = COMMAND_CODE_STOP_ACQUISITION;
     assert(command_engine_admit(&engine, &request, &admission) == TR2_OK);
-    assert(command_stop_acquisition_execute(&engine, &campaign_service, 401u,
-                                            &timestamp, &entry) == TR2_OK);
+    assert(command_stop_acquisition_execute(&engine, &campaign_service, &supervision,
+                                            401u, &timestamp, &entry) == TR2_OK);
     assert(entry.lifecycle == COMMAND_LIFECYCLE_COMPLETED);
     assert(entry.has_recovery_context);
     assert(entry.recovery_context.kind == COMMAND_RECOVERY_CONTEXT_STOP_CAMPAIGN);
@@ -359,6 +370,13 @@ static void test_stop_orders_barrier_before_effect_and_reconciles(void)
     assert(test.source_stop_step < test.checkpoint_step);
     assert(test.checkpoint_step < test.data_finish_step);
     assert(test.data_finish_step < test.close_step);
+    assert(supervision_service_snapshot(&supervision, &snapshot));
+    assert(snapshot.configuration.generation == 3u);
+    assert(snapshot.configuration.config_id == 4u);
+    assert(snapshot.valid_sample_count == 1u);
+    assert(!snapshot.window_complete);
+    assert(snapshot.rms_global_mg == 13u);
+    assert(snapshot.peak_global_mg == 13u);
     assert(!campaign_service_campaign_open(&campaign_service));
 
     entry.lifecycle = COMMAND_LIFECYCLE_STARTED;
@@ -389,10 +407,12 @@ static void test_stop_without_campaign_is_terminal_refusal(void)
     CampaignService campaign_service;
     MonotonicClock clock;
     VibrationSource source;
+    SupervisionService supervision;
 
     init_journal(&test, &journal, &engine);
     init_campaign_service(&test, &configuration, &acquisition, &repository,
                           &data_store, &campaign_service, &clock, &source);
+    assert(supervision_service_init(&supervision) == TR2_OK);
     campaign_service.campaign_open = false;
     campaign_service.acquisition_window_started = false;
     campaign_service.data_store_started = false;
@@ -401,8 +421,8 @@ static void test_stop_without_campaign_is_terminal_refusal(void)
     request.transaction_id = 402u;
     request.identity.command_code = COMMAND_CODE_STOP_ACQUISITION;
     assert(command_engine_admit(&engine, &request, &admission) == TR2_OK);
-    assert(command_stop_acquisition_execute(&engine, &campaign_service, 402u,
-                                            &timestamp, &entry) == TR2_OK);
+    assert(command_stop_acquisition_execute(&engine, &campaign_service, &supervision,
+                                            402u, &timestamp, &entry) == TR2_OK);
     assert(entry.lifecycle == COMMAND_LIFECYCLE_COMPLETED);
     assert(entry.final_result.status == COMMAND_STATUS_REFUSED);
     assert(entry.final_result.result_code == COMMAND_RESULT_ACQUISITION_NOT_ACTIVE);
