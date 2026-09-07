@@ -10,7 +10,7 @@
 #include "tr2/platform/time_continuity_evidence.h"
 #include "tr2/platform/wall_clock.h"
 
-#define HOST_PLATFORM_PERSISTENT_BYTES 1024u
+#define HOST_PLATFORM_PERSISTENT_BYTES 32768u
 
 typedef struct {
     MonotonicTimeMs monotonic_ms;
