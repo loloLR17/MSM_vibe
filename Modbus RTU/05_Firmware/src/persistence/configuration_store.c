@@ -210,11 +210,13 @@ static ConfigurationRecoveryStatus select_recovery_status(
         }
     }
 
+    if (saw_unavailable) {
+        *has_snapshot = false;
+        memset(snapshot, 0, sizeof(*snapshot));
+        return CONFIGURATION_RECOVERY_UNAVAILABLE;
+    }
     if (*has_snapshot) {
         return CONFIGURATION_RECOVERY_VALID;
-    }
-    if (saw_unavailable) {
-        return CONFIGURATION_RECOVERY_UNAVAILABLE;
     }
     if (saw_unsupported) {
         return CONFIGURATION_RECOVERY_UNSUPPORTED;
