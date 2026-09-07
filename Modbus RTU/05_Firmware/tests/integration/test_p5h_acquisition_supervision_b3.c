@@ -113,16 +113,19 @@ static SystemRuntimeDependencies make_dependencies(
     ResetCauseProvider *reset,
     TimeContinuityEvidenceProvider *time_continuity,
     PersistentMedia *media,
-    const ConfigurationValidationEnvironment *environment)
+    const ConfigurationValidationEnvironment *environment,
+    VibrationSource *vibration_source)
 {
     SystemRuntimeDependencies deps;
 
+    memset(&deps, 0, sizeof(deps));
     deps.monotonic_clock = monotonic;
     deps.wall_clock = wall;
     deps.reset_cause_provider = reset;
     deps.time_continuity_evidence_provider = time_continuity;
     deps.persistent_media = media;
     deps.configuration_validation_environment = environment;
+    deps.vibration_source = vibration_source;
     return deps;
 }
 
@@ -155,6 +158,7 @@ int main(void)
     ResetCauseProvider reset;
     TimeContinuityEvidenceProvider time_continuity;
     PersistentMedia media;
+    VibrationSource runtime_vibration;
     SystemRuntimeDependencies deps;
     SystemRuntime runtime_a;
     SystemRuntime runtime_b;
@@ -189,7 +193,9 @@ int main(void)
     reset = host_platform_reset_cause_provider(&platform);
     time_continuity = host_platform_time_continuity_evidence_provider(&platform);
     media = host_platform_persistent_media(&platform);
-    deps = make_dependencies(&monotonic, &wall, &reset, &time_continuity, &media, &environment);
+    runtime_vibration = host_platform_vibration_source(&platform);
+    deps = make_dependencies(&monotonic, &wall, &reset, &time_continuity,
+                             &media, &environment, &runtime_vibration);
 
     assert(system_runtime_init(&runtime_a, &deps) == TR2_OK);
     assert(system_runtime_boot(&runtime_a) == TR2_OK);
