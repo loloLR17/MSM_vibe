@@ -69,7 +69,8 @@ int main(void)
     assert((image.registers[1] & UINT16_C(0x0008)) == 0u);
 
     projection_source.time = NULL;
-    assert(modbus_project_b1(&projection_source, &image) == TR2_ERROR_INVALID_ARGUMENT);
+    assert(modbus_project_b1(&projection_source, &image) == TR2_OK);
+    assert((image.registers[1] & UINT16_C(0x0008)) == 0u);
 
     return 0;
 }
