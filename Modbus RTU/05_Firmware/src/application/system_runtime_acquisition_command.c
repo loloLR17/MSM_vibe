@@ -7,6 +7,24 @@
 
 #define TR2_B6_INVENTORY_STRUCTURE_VERSION UINT16_C(1)
 
+static Tr2Result refresh_b3(SystemRuntime *runtime)
+{
+    SupervisionSnapshot snapshot;
+    Tr2Result result;
+
+    if (!supervision_service_snapshot(&runtime->supervision_service, &snapshot)) {
+        return TR2_ERROR_NOT_AVAILABLE;
+    }
+
+    result = modbus_project_b3(&snapshot, &runtime->b3_image);
+    if (result != TR2_OK) {
+        return result;
+    }
+
+    runtime->b3_image_available = true;
+    return TR2_OK;
+}
+
 static Tr2Result refresh_b5(SystemRuntime *runtime)
 {
     ModbusBlock5ProjectionSource source;
@@ -71,6 +89,7 @@ Tr2Result system_runtime_execute_acquisition_command(
     CommandJournalEntry *out_entry)
 {
     Tr2Result operation_result;
+    Tr2Result b3_result = TR2_OK;
     Tr2Result b5_result;
     Tr2Result b6_result = TR2_OK;
 
@@ -117,6 +136,12 @@ Tr2Result system_runtime_execute_acquisition_command(
             request->transaction_id,
             terminal_timestamp,
             out_entry);
+        if (operation_result == TR2_OK) {
+            b3_result = refresh_b3(runtime);
+            if (b3_result == TR2_ERROR_NOT_AVAILABLE) {
+                b3_result = TR2_OK;
+            }
+        }
     }
 
     b5_result = refresh_b5(runtime);
@@ -125,10 +150,53 @@ Tr2Result system_runtime_execute_acquisition_command(
     if (operation_result != TR2_OK) {
         return operation_result;
     }
+    if (b3_result != TR2_OK) {
+        return b3_result;
+    }
     if (b5_result != TR2_OK) {
         return b5_result;
     }
     return b6_result;
+}
+
+Tr2Result system_runtime_drive_acquisition_step(
+    SystemRuntime *runtime,
+    CampaignAcquisitionStep *out_step)
+{
+    Tr2Result operation_result;
+    Tr2Result supervision_result;
+    Tr2Result b3_result;
+
+    if (runtime == NULL || out_step == NULL) {
+        return TR2_ERROR_INVALID_ARGUMENT;
+    }
+    if (!runtime->initialized || !runtime->system_ready_for_modbus ||
+        !runtime->fg_runtime_available) {
+        return TR2_ERROR_INVALID_STATE;
+    }
+
+    operation_result = campaign_service_drive_acquisition_step(
+        &runtime->campaign_service,
+        out_step);
+
+    if (out_step->kind != CAMPAIGN_ACQUISITION_STEP_WINDOW_COMPLETED ||
+        out_step->storage_result != TR2_OK) {
+        return operation_result;
+    }
+
+    supervision_result = campaign_service_publish_supervision_step(
+        &runtime->supervision_service,
+        out_step);
+    if (supervision_result == TR2_OK) {
+        b3_result = refresh_b3(runtime);
+    } else {
+        b3_result = supervision_result;
+    }
+
+    if (operation_result != TR2_OK) {
+        return operation_result;
+    }
+    return b3_result;
 }
 
 #undef TR2_B6_INVENTORY_STRUCTURE_VERSION
