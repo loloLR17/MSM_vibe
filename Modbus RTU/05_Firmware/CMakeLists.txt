@@ -311,6 +311,12 @@ add_executable(test_p7e_command_engine_admission
 target_link_libraries(test_p7e_command_engine_admission PRIVATE tr2_core)
 add_test(NAME p7e_command_engine_admission COMMAND test_p7e_command_engine_admission)
 
+add_executable(test_p7f_command_engine_lifecycle
+    tests/unit/test_p7f_command_engine_lifecycle.c
+)
+target_link_libraries(test_p7f_command_engine_lifecycle PRIVATE tr2_core)
+add_test(NAME p7f_command_engine_lifecycle COMMAND test_p7f_command_engine_lifecycle)
+
 add_executable(test_acquisition_service
     tests/unit/test_acquisition_service.c
 )
