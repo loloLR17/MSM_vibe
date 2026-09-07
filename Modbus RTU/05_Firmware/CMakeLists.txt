@@ -12,6 +12,7 @@ else()
 endif()
 
 add_library(tr2_core STATIC
+    src/application/acquisition_service.c
     src/application/configuration_activation_adapter.c
     src/application/configuration_service.c
     src/application/configuration_workflow.c
@@ -209,6 +210,12 @@ add_executable(test_p5a_contracts
 )
 target_link_libraries(test_p5a_contracts PRIVATE tr2_core)
 add_test(NAME p5a_contracts COMMAND test_p5a_contracts)
+
+add_executable(test_acquisition_service
+    tests/unit/test_acquisition_service.c
+)
+target_link_libraries(test_acquisition_service PRIVATE tr2_core)
+add_test(NAME acquisition_service COMMAND test_acquisition_service)
 
 add_executable(test_system_runtime
     tests/integration/test_system_runtime.c
