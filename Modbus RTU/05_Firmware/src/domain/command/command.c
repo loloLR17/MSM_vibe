@@ -1,3 +1,5 @@
+#include <stddef.h>
+
 #include "tr2/domain/command/command.h"
 
 bool command_transaction_id_is_valid(uint16_t transaction_id)
