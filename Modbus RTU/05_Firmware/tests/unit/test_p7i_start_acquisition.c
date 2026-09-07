@@ -161,6 +161,21 @@ static Tr2Result data_begin(void *context, CampaignId campaign_id)
     return campaign_id == 77u ? TR2_OK : TR2_ERROR_INVALID_ARGUMENT;
 }
 
+static Tr2Result data_append(void *context, CampaignId campaign_id,
+                             const uint8_t *data, size_t size)
+{
+    (void)context;
+    (void)data;
+    (void)size;
+    return campaign_id == 77u ? TR2_OK : TR2_ERROR_INVALID_ARGUMENT;
+}
+
+static Tr2Result data_checkpoint(void *context, CampaignId campaign_id)
+{
+    (void)context;
+    return campaign_id == 77u ? TR2_OK : TR2_ERROR_INVALID_ARGUMENT;
+}
+
 static Tr2Result data_finish(void *context, CampaignId campaign_id)
 {
     (void)context;
@@ -267,6 +282,8 @@ int main(void)
     repository.recover = repo_recover;
     data_store.context = &test;
     data_store.begin_campaign = data_begin;
+    data_store.append = data_append;
+    data_store.checkpoint = data_checkpoint;
     data_store.finish_campaign = data_finish;
     data_store.recover_campaign = data_recover;
     assert(campaign_service_init(&campaign_service, &configuration, &acquisition,
