@@ -102,6 +102,12 @@ typedef struct {
 
 Tr2Result system_runtime_init(SystemRuntime *runtime, const SystemRuntimeDependencies *deps);
 Tr2Result system_runtime_boot(SystemRuntime *runtime);
+Tr2Result system_runtime_execute_acquisition_command(
+    SystemRuntime *runtime,
+    const CommandRequest *request,
+    const CommandTerminalTimestamp *terminal_timestamp,
+    CommandAdmissionResult *out_admission,
+    CommandJournalEntry *out_entry);
 const BootContext *system_runtime_boot_context(const SystemRuntime *runtime);
 bool system_runtime_is_ready_for_modbus(const SystemRuntime *runtime);
 bool system_runtime_time_snapshot(const SystemRuntime *runtime, TimeSnapshot *out_snapshot);
