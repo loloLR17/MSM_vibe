@@ -4,6 +4,7 @@
 #include <stdint.h>
 
 #include "tr2/application/campaign_inventory_service.h"
+#include "tr2/application/command_request_mailbox.h"
 #include "tr2/common/result.h"
 #include "tr2/domain/configuration/configuration_staging.h"
 #include "tr2/domain/time/time_service.h"
@@ -24,6 +25,14 @@ ModbusWriteOutcome modbus_write_adapter_write_b4(ConfigurationStagingService *st
                                                  uint16_t start_address,
                                                  const uint16_t *values,
                                                  uint16_t quantity);
+
+ModbusWriteOutcome modbus_write_adapter_write_b5(
+    CommandRequestMailbox *mailbox,
+    uint16_t start_address,
+    const uint16_t *values,
+    uint16_t quantity,
+    CommandMailboxSubmitResult *submit_result,
+    CommandRequest *captured_request);
 
 ModbusWriteOutcome modbus_write_adapter_write_b6(CampaignInventoryService *inventory_service,
                                                  ModbusBlock6Image *image,
