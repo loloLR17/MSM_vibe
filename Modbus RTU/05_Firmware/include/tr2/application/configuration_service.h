@@ -13,6 +13,7 @@ typedef struct {
     bool initialized;
     bool has_active;
     ActiveConfigurationSnapshot active;
+    bool has_recovery_status;
     ConfigurationRecoveryStatus recovery_status;
 } ConfigurationService;
 
@@ -33,7 +34,8 @@ bool configuration_service_active_snapshot(
     const ConfigurationService *service,
     ActiveConfigurationSnapshot *out_snapshot);
 
-ConfigurationRecoveryStatus configuration_service_recovery_status(
-    const ConfigurationService *service);
+bool configuration_service_recovery_status(
+    const ConfigurationService *service,
+    ConfigurationRecoveryStatus *out_status);
 
 #endif
