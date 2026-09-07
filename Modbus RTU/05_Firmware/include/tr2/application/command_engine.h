@@ -25,6 +25,7 @@ typedef struct {
     bool initialized;
     bool has_active_transaction;
     uint16_t active_transaction_id;
+    uint32_t snapshot_generation;
 } CommandEngine;
 
 Tr2Result command_engine_init(CommandEngine *engine, CommandJournal *journal);
@@ -35,6 +36,19 @@ uint16_t command_engine_active_transaction_id(const CommandEngine *engine);
 Tr2Result command_engine_admit(CommandEngine *engine,
                                const CommandRequest *request,
                                CommandAdmissionResult *result);
+
+Tr2Result command_engine_mark_started(CommandEngine *engine,
+                                      uint16_t transaction_id,
+                                      CommandJournalEntry *entry);
+
+Tr2Result command_engine_complete(CommandEngine *engine,
+                                  uint16_t transaction_id,
+                                  const CommandFinalResult *final_result,
+                                  const CommandTerminalTimestamp *terminal_timestamp,
+                                  CommandJournalEntry *entry);
+
+Tr2Result command_engine_snapshot(const CommandEngine *engine,
+                                  CommandSnapshot *snapshot);
 
 Tr2Result command_engine_release_active(CommandEngine *engine,
                                         uint16_t transaction_id);
