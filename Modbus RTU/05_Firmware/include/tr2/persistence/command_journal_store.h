@@ -47,6 +47,12 @@ bool command_journal_store_is_initialized(const CommandJournalStore *store);
 bool command_journal_store_recovery_required(const CommandJournalStore *store);
 CommandJournal *command_journal_store_journal(CommandJournalStore *store);
 
+Tr2Result command_journal_store_set_recovery_context(
+    CommandJournalStore *store,
+    uint16_t transaction_id,
+    const CommandRecoveryContext *recovery_context,
+    CommandJournalEntry *entry);
+
 Tr2Result command_journal_store_recover(CommandJournalStore *store,
                                         CommandJournalRecoveryResult *result);
 
