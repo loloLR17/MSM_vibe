@@ -212,6 +212,18 @@ static Tr2Result journal_reserve(void *context,
     return result;
 }
 
+static Tr2Result journal_set_recovery_context(
+    void *context,
+    uint16_t transaction_id,
+    const CommandRecoveryContext *recovery_context,
+    CommandJournalEntry *entry)
+{
+    return command_journal_store_set_recovery_context((CommandJournalStore *)context,
+                                                       transaction_id,
+                                                       recovery_context,
+                                                       entry);
+}
+
 static Tr2Result journal_mark_started(void *context,
                                       uint16_t transaction_id,
                                       CommandJournalEntry *entry)
@@ -359,7 +371,7 @@ Tr2Result command_journal_store_init(CommandJournalStore *store,
     store->journal.context = store;
     store->journal.find = journal_find;
     store->journal.reserve = journal_reserve;
-    store->journal.set_recovery_context = command_journal_store_set_recovery_context;
+    store->journal.set_recovery_context = journal_set_recovery_context;
     store->journal.mark_started = journal_mark_started;
     store->journal.complete = journal_complete;
     store->journal.latest_completed = journal_latest_completed;
