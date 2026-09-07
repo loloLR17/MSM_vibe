@@ -85,6 +85,8 @@ static void test_campaign_boot_recovery(void)
     CampaignMetadata first_open;
     CampaignMetadata second_open;
     CampaignBootRecoverySnapshot recovery;
+    CampaignInventoryViewSnapshot inventory;
+    ModbusBlock6Image b6;
     const uint8_t durable[] = { 1u, 2u, 3u, 4u, 5u };
     const uint8_t uncheckpointed[] = { 6u, 7u, 8u };
 
@@ -154,6 +156,21 @@ static void test_campaign_boot_recovery(void)
     assert(!recovery.campaigns[1].metadata.duration.available);
     assert(recovery.campaigns[1].data_recovery.status == CAMPAIGN_DATA_RECOVERY_EMPTY);
     assert(recovery.campaigns[1].data_recovery.durable_prefix_bytes == 0u);
+
+    assert(system_runtime_campaign_inventory_snapshot(&runtime_b, &inventory));
+    assert(inventory.inventory.valid_campaign_count == 2u);
+    assert(inventory.selected_campaign_index == 0u);
+    assert(inventory.selected_campaign_valid);
+    assert(inventory.selected_campaign.campaign_id == first.campaign_id);
+
+    assert(system_runtime_b6_image(&runtime_b, &b6));
+    assert(b6.registers[1] == 2u);
+    assert(b6.registers[2] == 2u);
+    assert(b6.registers[3] == 0u);
+    assert(b6.registers[4] == 1u);
+    assert(b6.registers[12] == 0u);
+    assert(b6.registers[13] == first.campaign_id);
+    assert(b6.registers[20] == 2u);
 }
 
 int main(void)
@@ -170,6 +187,7 @@ int main(void)
     SystemRuntime runtime_b;
     SystemRuntime runtime_c;
     ModbusBlock4Image image;
+    ModbusBlock6Image b6;
     ValidatedConfiguration validated;
     ActiveConfigurationSnapshot committed;
     ConfigurationRecoveryStatus recovery_status;
@@ -190,6 +208,7 @@ int main(void)
     assert(system_runtime_init(&runtime_a, &deps) == TR2_OK);
     assert(!system_runtime_is_ready_for_modbus(&runtime_a));
     assert(!system_runtime_b4_image(&runtime_a, &image));
+    assert(!system_runtime_b6_image(&runtime_a, &b6));
     assert(system_runtime_boot(&runtime_a) == TR2_OK);
     assert(system_runtime_is_ready_for_modbus(&runtime_a));
     assert(system_runtime_boot_context(&runtime_a) != NULL);
@@ -206,6 +225,12 @@ int main(void)
     assert(image.registers[11] == UINT16_C(0x92D9));
     assert(image.registers[12] == UINT16_C(0));
     assert(image.registers[13] == UINT16_C(0));
+
+    assert(system_runtime_b6_image(&runtime_a, &b6));
+    assert(b6.registers[1] == 0u);
+    assert(b6.registers[2] == 0u);
+    assert(b6.registers[3] == 0u);
+    assert(b6.registers[4] == 0u);
 
     memset(&validated, 0, sizeof(validated));
     validated.generation = UINT32_C(7);
