@@ -20,6 +20,7 @@ add_library(tr2_core STATIC
     src/application/configuration_workflow.c
     src/application/supervision_service.c
     src/application/system_runtime.c
+    src/domain/command/command.c
     src/domain/configuration/configuration_staging.c
     src/domain/configuration/configuration_validator.c
     src/domain/identity/identity.c
@@ -274,6 +275,12 @@ add_executable(test_p6a_contracts
 )
 target_link_libraries(test_p6a_contracts PRIVATE tr2_core)
 add_test(NAME p6a_contracts COMMAND test_p6a_contracts)
+
+add_executable(test_p7a_command_types
+    tests/unit/test_p7a_command_types.c
+)
+target_link_libraries(test_p7a_command_types PRIVATE tr2_core)
+add_test(NAME p7a_command_types COMMAND test_p7a_command_types)
 
 add_executable(test_acquisition_service
     tests/unit/test_acquisition_service.c
