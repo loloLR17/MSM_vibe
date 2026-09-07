@@ -19,6 +19,7 @@ add_library(tr2_core STATIC
     src/application/command_engine.c
     src/application/command_request_mailbox.c
     src/application/command_start_acquisition.c
+    src/application/command_stop_acquisition.c
     src/application/command_synchronize_time.c
     src/application/configuration_activation_adapter.c
     src/application/configuration_service.c
@@ -338,6 +339,12 @@ add_executable(test_p7i_start_acquisition
 )
 target_link_libraries(test_p7i_start_acquisition PRIVATE tr2_core)
 add_test(NAME p7i_start_acquisition COMMAND test_p7i_start_acquisition)
+
+add_executable(test_p7j_stop_acquisition
+    tests/unit/test_p7j_stop_acquisition.c
+)
+target_link_libraries(test_p7j_stop_acquisition PRIVATE tr2_core)
+add_test(NAME p7j_stop_acquisition COMMAND test_p7j_stop_acquisition)
 
 add_executable(test_acquisition_service
     tests/unit/test_acquisition_service.c
