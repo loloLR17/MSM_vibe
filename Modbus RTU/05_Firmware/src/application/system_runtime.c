@@ -702,7 +702,7 @@ bool system_runtime_campaign_inventory_snapshot(const SystemRuntime *runtime,
         !runtime->system_ready_for_modbus || !runtime->campaign_inventory_snapshot_available) {
         return false;
     }
-    *out_snapshot = runtime->campaign_recovery_snapshot.inventory;
+    *out_snapshot = runtime->campaign_inventory_snapshot;
     return true;
 }
 
