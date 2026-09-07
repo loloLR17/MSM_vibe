@@ -25,6 +25,7 @@ add_library(tr2_core STATIC
     src/modbus/projection.c
     src/modbus/read_adapter.c
     src/modbus/write_adapter.c
+    src/persistence/configuration_record.c
     src/persistence/persistent_storage_core.c
 )
 
@@ -130,6 +131,12 @@ add_executable(test_persistent_storage_core
 )
 target_link_libraries(test_persistent_storage_core PRIVATE tr2_core)
 add_test(NAME persistent_storage_core COMMAND test_persistent_storage_core)
+
+add_executable(test_configuration_record
+    tests/unit/test_configuration_record.c
+)
+target_link_libraries(test_configuration_record PRIVATE tr2_core)
+add_test(NAME configuration_record COMMAND test_configuration_record)
 
 add_executable(test_read_adapter
     tests/unit/test_read_adapter.c
