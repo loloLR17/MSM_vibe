@@ -1,5 +1,6 @@
 #include <string.h>
 
+#include "tr2/application/command_policy.h"
 #include "tr2/modbus/projection.h"
 #include "tr2/modbus/codec.h"
 
@@ -37,7 +38,8 @@ Tr2Result modbus_project_b5(const ModbusBlock5ProjectionSource *source,
         candidate.registers[11] = source->snapshot->last.final_result.result_code;
         candidate.registers[12] = source->snapshot->last.final_result.result_detail;
     }
-    candidate.registers[13] = source->snapshot->engine_flags;
+    candidate.registers[13] =
+        source->snapshot->engine_flags & COMMAND_ENGINE_FLAG_V1_ALLOWED_MASK;
 
     if (source->snapshot->last.present) {
         candidate.registers[14] = source->snapshot->last.command_code;
