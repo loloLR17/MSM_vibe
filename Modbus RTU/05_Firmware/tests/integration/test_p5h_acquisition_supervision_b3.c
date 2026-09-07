@@ -170,6 +170,7 @@ int main(void)
     SupervisionService reboot_supervision;
     SupervisionSnapshot snapshot;
     SupervisionSnapshot previous_snapshot;
+    ModbusBlock3Image b3_image;
     AcquisitionWindow window;
     VibrationSample sample;
     ModbusReadSources read_sources = {0};
@@ -270,7 +271,8 @@ int main(void)
     assert(snapshot.threshold_facts.global.rms_warning == SUPERVISION_THRESHOLD_ABOVE);
     assert(snapshot.threshold_facts.global.rms_alarm == SUPERVISION_THRESHOLD_BELOW);
 
-    read_sources.supervision = &snapshot;
+    assert(modbus_project_b3(&snapshot, &b3_image) == TR2_OK);
+    read_sources.b3_image = &b3_image;
     outcome = modbus_read_adapter_read(&read_sources,
                                        UINT16_C(3000),
                                        UINT16_C(48),
@@ -327,7 +329,8 @@ int main(void)
     assert(snapshot.civil_timestamp == UINT32_C(0));
     assert(snapshot.value_age_available);
 
-    read_sources.supervision = &snapshot;
+    assert(modbus_project_b3(&snapshot, &b3_image) == TR2_OK);
+    read_sources.b3_image = &b3_image;
     outcome = modbus_read_adapter_read(&read_sources,
                                        UINT16_C(3000),
                                        UINT16_C(8),
@@ -348,7 +351,7 @@ int main(void)
 
     assert(supervision_service_init(&reboot_supervision) == TR2_OK);
     assert(!supervision_service_snapshot(&reboot_supervision, &snapshot));
-    read_sources.supervision = NULL;
+    read_sources.b3_image = NULL;
     registers[0] = UINT16_C(0xBEEF);
     outcome = modbus_read_adapter_read(&read_sources,
                                        UINT16_C(3000),
