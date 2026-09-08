@@ -4,9 +4,6 @@
 #include "tr2/modbus/write_adapter.h"
 #include "tr2/modbus/codec.h"
 
-#define TR2_B5_BASE_ADDRESS UINT16_C(5000)
-#define TR2_B5_LAST_RW_ADDRESS UINT16_C(5007)
-#define TR2_B5_LAST_ADDRESS UINT16_C(5019)
 #define TR2_B5_CONTROL_ADDRESS UINT16_C(5007)
 
 ModbusWriteOutcome modbus_write_adapter_write_b5(
@@ -32,20 +29,11 @@ ModbusWriteOutcome modbus_write_adapter_write_b5(
     *submit_result = COMMAND_MAILBOX_NO_SUBMISSION;
     memset(captured_request, 0, sizeof(*captured_request));
 
-    if (quantity == 0u || start_address < TR2_B5_BASE_ADDRESS ||
-        start_address > TR2_B5_LAST_ADDRESS) {
-        outcome.access_result = MODBUS_ACCESS_ILLEGAL_ADDRESS;
+    outcome.access_result = modbus_register_model_validate_write(start_address, quantity);
+    if (outcome.access_result != MODBUS_ACCESS_OK) {
         return outcome;
     }
     last_address = (uint32_t)start_address + (uint32_t)quantity - 1u;
-    if (last_address > TR2_B5_LAST_ADDRESS) {
-        outcome.access_result = MODBUS_ACCESS_ILLEGAL_ADDRESS;
-        return outcome;
-    }
-    if (last_address > TR2_B5_LAST_RW_ADDRESS) {
-        outcome.access_result = MODBUS_ACCESS_READ_ONLY;
-        return outcome;
-    }
 
     for (index = 0u; index < quantity; ++index) {
         uint16_t address = (uint16_t)(start_address + index);
@@ -106,7 +94,4 @@ ModbusWriteOutcome modbus_write_adapter_write_b5(
     return outcome;
 }
 
-#undef TR2_B5_BASE_ADDRESS
-#undef TR2_B5_LAST_RW_ADDRESS
-#undef TR2_B5_LAST_ADDRESS
 #undef TR2_B5_CONTROL_ADDRESS
