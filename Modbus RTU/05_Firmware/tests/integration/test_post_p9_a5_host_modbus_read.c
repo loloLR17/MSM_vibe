@@ -97,9 +97,12 @@ int main(void)
     assert(outcome.access_result == MODBUS_ACCESS_OK);
     assert(outcome.operation_result == TR2_OK);
 
+    /* Host boot exposes the runtime TimeSnapshot, but B2 remains unavailable
+       until authoritative current-time and synchronization facts exist. */
     outcome = read_one(&sources, UINT16_C(2000), &value);
     assert(outcome.access_result == MODBUS_ACCESS_OK);
-    assert(outcome.operation_result == TR2_OK);
+    assert(outcome.operation_result == TR2_ERROR_NOT_AVAILABLE);
+    assert(value == UINT16_C(0xBEEF));
 
     outcome = read_one(&sources, UINT16_C(3000), &value);
     assert(outcome.access_result == MODBUS_ACCESS_OK);
