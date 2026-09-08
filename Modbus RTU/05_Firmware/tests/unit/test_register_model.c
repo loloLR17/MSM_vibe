@@ -56,6 +56,38 @@ int main(void)
     assert_descriptor(4132u, MODBUS_BLOCK_4, MODBUS_REGISTER_RO, MODBUS_REGISTER_ASCII);
     assert_descriptor(4175u, MODBUS_BLOCK_4, MODBUS_REGISTER_RESERVED, MODBUS_REGISTER_UINT16);
 
+    assert_descriptor(5000u, MODBUS_BLOCK_5, MODBUS_REGISTER_RW, MODBUS_REGISTER_UINT16);
+    assert_descriptor(5004u, MODBUS_BLOCK_5, MODBUS_REGISTER_RW, MODBUS_REGISTER_UINT32_MSW);
+    assert_descriptor(5005u, MODBUS_BLOCK_5, MODBUS_REGISTER_RW, MODBUS_REGISTER_UINT32_LSW);
+    assert_descriptor(5007u, MODBUS_BLOCK_5, MODBUS_REGISTER_RW, MODBUS_REGISTER_BITFIELD16);
+    assert_descriptor(5008u, MODBUS_BLOCK_5, MODBUS_REGISTER_RO, MODBUS_REGISTER_UINT16);
+    assert_descriptor(5010u, MODBUS_BLOCK_5, MODBUS_REGISTER_RO, MODBUS_REGISTER_ENUM16);
+    assert_descriptor(5013u, MODBUS_BLOCK_5, MODBUS_REGISTER_RO, MODBUS_REGISTER_BITFIELD16);
+    assert_descriptor(5018u, MODBUS_BLOCK_5, MODBUS_REGISTER_RO, MODBUS_REGISTER_UINT32_MSW);
+    assert_descriptor(5019u, MODBUS_BLOCK_5, MODBUS_REGISTER_RO, MODBUS_REGISTER_UINT32_LSW);
+
+    assert_descriptor(6000u, MODBUS_BLOCK_6, MODBUS_REGISTER_RO, MODBUS_REGISTER_UINT16);
+    assert_descriptor(6003u, MODBUS_BLOCK_6, MODBUS_REGISTER_RW, MODBUS_REGISTER_UINT16);
+    assert_descriptor(6005u, MODBUS_BLOCK_6, MODBUS_REGISTER_RO, MODBUS_REGISTER_UINT32_MSW);
+    assert_descriptor(6006u, MODBUS_BLOCK_6, MODBUS_REGISTER_RO, MODBUS_REGISTER_UINT32_LSW);
+    assert_descriptor(6010u, MODBUS_BLOCK_6, MODBUS_REGISTER_RESERVED, MODBUS_REGISTER_UINT16);
+    assert_descriptor(6012u, MODBUS_BLOCK_6, MODBUS_REGISTER_RO, MODBUS_REGISTER_UINT32_MSW);
+    assert_descriptor(6020u, MODBUS_BLOCK_6, MODBUS_REGISTER_RO, MODBUS_REGISTER_ENUM16);
+    assert_descriptor(6025u, MODBUS_BLOCK_6, MODBUS_REGISTER_RO, MODBUS_REGISTER_ASCII);
+    assert_descriptor(6041u, MODBUS_BLOCK_6, MODBUS_REGISTER_RO, MODBUS_REGISTER_ASCII);
+    assert_descriptor(6057u, MODBUS_BLOCK_6, MODBUS_REGISTER_RO, MODBUS_REGISTER_UINT16);
+    assert_descriptor(6058u, MODBUS_BLOCK_6, MODBUS_REGISTER_RESERVED, MODBUS_REGISTER_UINT16);
+    assert_descriptor(6063u, MODBUS_BLOCK_6, MODBUS_REGISTER_RESERVED, MODBUS_REGISTER_UINT16);
+
+    assert_descriptor(7000u, MODBUS_BLOCK_7, MODBUS_REGISTER_RO, MODBUS_REGISTER_UINT16);
+    assert_descriptor(7001u, MODBUS_BLOCK_7, MODBUS_REGISTER_RO, MODBUS_REGISTER_ENUM16);
+    assert_descriptor(7002u, MODBUS_BLOCK_7, MODBUS_REGISTER_RO, MODBUS_REGISTER_BITFIELD16);
+    assert_descriptor(7004u, MODBUS_BLOCK_7, MODBUS_REGISTER_RO, MODBUS_REGISTER_UINT32_MSW);
+    assert_descriptor(7005u, MODBUS_BLOCK_7, MODBUS_REGISTER_RO, MODBUS_REGISTER_UINT32_LSW);
+    assert_descriptor(7012u, MODBUS_BLOCK_7, MODBUS_REGISTER_RO, MODBUS_REGISTER_INT16);
+    assert_descriptor(7014u, MODBUS_BLOCK_7, MODBUS_REGISTER_RESERVED, MODBUS_REGISTER_UINT16);
+    assert_descriptor(7015u, MODBUS_BLOCK_7, MODBUS_REGISTER_RESERVED, MODBUS_REGISTER_UINT16);
+
     assert(modbus_register_model_find(21u) == NULL);
     assert(modbus_register_model_find(999u) == NULL);
     assert(modbus_register_model_find(1020u) == NULL);
@@ -65,16 +97,28 @@ int main(void)
     assert(modbus_register_model_find(3048u) == NULL);
     assert(modbus_register_model_find(3999u) == NULL);
     assert(modbus_register_model_find(4176u) == NULL);
+    assert(modbus_register_model_find(4999u) == NULL);
+    assert(modbus_register_model_find(5020u) == NULL);
+    assert(modbus_register_model_find(5999u) == NULL);
+    assert(modbus_register_model_find(6064u) == NULL);
+    assert(modbus_register_model_find(6999u) == NULL);
+    assert(modbus_register_model_find(7016u) == NULL);
 
     assert(modbus_register_model_range_exists(0u, 21u));
     assert(modbus_register_model_range_exists(1000u, 20u));
     assert(modbus_register_model_range_exists(2000u, 16u));
     assert(modbus_register_model_range_exists(3000u, 48u));
     assert(modbus_register_model_range_exists(4000u, 176u));
+    assert(modbus_register_model_range_exists(5000u, 20u));
+    assert(modbus_register_model_range_exists(6000u, 64u));
+    assert(modbus_register_model_range_exists(7000u, 16u));
     assert(!modbus_register_model_range_exists(0u, 22u));
     assert(!modbus_register_model_range_exists(20u, 2u));
     assert(!modbus_register_model_range_exists(3047u, 2u));
     assert(!modbus_register_model_range_exists(4175u, 2u));
+    assert(!modbus_register_model_range_exists(5019u, 2u));
+    assert(!modbus_register_model_range_exists(6063u, 2u));
+    assert(!modbus_register_model_range_exists(7015u, 2u));
     assert(!modbus_register_model_range_exists(0u, 0u));
     assert(!modbus_register_model_range_exists(UINT16_MAX, 2u));
 
@@ -83,6 +127,9 @@ int main(void)
     assert(modbus_register_model_validate_read(2000u, 16u) == MODBUS_ACCESS_OK);
     assert(modbus_register_model_validate_read(3000u, 48u) == MODBUS_ACCESS_OK);
     assert(modbus_register_model_validate_read(4000u, 176u) == MODBUS_ACCESS_OK);
+    assert(modbus_register_model_validate_read(5000u, 20u) == MODBUS_ACCESS_OK);
+    assert(modbus_register_model_validate_read(6000u, 64u) == MODBUS_ACCESS_OK);
+    assert(modbus_register_model_validate_read(7000u, 16u) == MODBUS_ACCESS_OK);
     assert(modbus_register_model_validate_read(20u, 2u) == MODBUS_ACCESS_ILLEGAL_ADDRESS);
 
     assert(modbus_register_model_validate_write(2008u, 1u) == MODBUS_ACCESS_OK);
@@ -116,6 +163,22 @@ int main(void)
     assert(modbus_register_model_validate_write(4175u, 1u) == MODBUS_ACCESS_RESERVED);
     assert(modbus_register_model_validate_write(4176u, 1u) == MODBUS_ACCESS_ILLEGAL_ADDRESS);
 
+    assert(modbus_register_model_validate_write(5000u, 8u) == MODBUS_ACCESS_OK);
+    assert(modbus_register_model_validate_write(5007u, 2u) == MODBUS_ACCESS_READ_ONLY);
+    assert(modbus_register_model_validate_write(5008u, 1u) == MODBUS_ACCESS_READ_ONLY);
+    assert(modbus_register_model_validate_write(5020u, 1u) == MODBUS_ACCESS_ILLEGAL_ADDRESS);
+
+    assert(modbus_register_model_validate_write(6003u, 1u) == MODBUS_ACCESS_OK);
+    assert(modbus_register_model_validate_write(6002u, 1u) == MODBUS_ACCESS_READ_ONLY);
+    assert(modbus_register_model_validate_write(6003u, 2u) == MODBUS_ACCESS_READ_ONLY);
+    assert(modbus_register_model_validate_write(6010u, 1u) == MODBUS_ACCESS_RESERVED);
+    assert(modbus_register_model_validate_write(6058u, 1u) == MODBUS_ACCESS_RESERVED);
+    assert(modbus_register_model_validate_write(6064u, 1u) == MODBUS_ACCESS_ILLEGAL_ADDRESS);
+
+    assert(modbus_register_model_validate_write(7000u, 1u) == MODBUS_ACCESS_READ_ONLY);
+    assert(modbus_register_model_validate_write(7014u, 1u) == MODBUS_ACCESS_RESERVED);
+    assert(modbus_register_model_validate_write(7016u, 1u) == MODBUS_ACCESS_ILLEGAL_ADDRESS);
+
     assert(modbus_register_is_writable(modbus_register_model_find(2008u)));
     assert(!modbus_register_is_writable(modbus_register_model_find(2007u)));
     assert(!modbus_register_is_writable(modbus_register_model_find(2014u)));
@@ -125,6 +188,12 @@ int main(void)
     assert(modbus_register_is_writable(modbus_register_model_find(4060u)));
     assert(!modbus_register_is_writable(modbus_register_model_find(4100u)));
     assert(!modbus_register_is_writable(modbus_register_model_find(4168u)));
+    assert(modbus_register_is_writable(modbus_register_model_find(5000u)));
+    assert(!modbus_register_is_writable(modbus_register_model_find(5008u)));
+    assert(modbus_register_is_writable(modbus_register_model_find(6003u)));
+    assert(!modbus_register_is_writable(modbus_register_model_find(6010u)));
+    assert(!modbus_register_is_writable(modbus_register_model_find(7000u)));
+    assert(!modbus_register_is_writable(modbus_register_model_find(7014u)));
 
     return 0;
 }
