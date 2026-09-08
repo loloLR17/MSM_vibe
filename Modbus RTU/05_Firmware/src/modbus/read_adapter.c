@@ -8,11 +8,8 @@
 #define TR2_B3_BASE_ADDRESS UINT16_C(3000)
 #define TR2_B4_BASE_ADDRESS UINT16_C(4000)
 #define TR2_B5_BASE_ADDRESS UINT16_C(5000)
-#define TR2_B5_LAST_ADDRESS UINT16_C(5019)
 #define TR2_B6_BASE_ADDRESS UINT16_C(6000)
-#define TR2_B6_LAST_ADDRESS UINT16_C(6063)
 #define TR2_B7_BASE_ADDRESS UINT16_C(7000)
-#define TR2_B7_LAST_ADDRESS UINT16_C(7015)
 
 static ModbusReadOutcome read_from_b0(const ModbusReadSources *sources,
                                       uint16_t start_address,
@@ -170,20 +167,6 @@ static ModbusReadOutcome read_from_b7(const ModbusReadSources *sources,
     return outcome;
 }
 
-static bool range_is(uint16_t start_address,
-                     uint16_t quantity,
-                     uint16_t base_address,
-                     uint16_t last_valid_address)
-{
-    uint32_t last_address;
-
-    if (quantity == 0u || start_address < base_address) {
-        return false;
-    }
-    last_address = (uint32_t)start_address + (uint32_t)quantity - 1u;
-    return last_address <= last_valid_address;
-}
-
 ModbusReadOutcome modbus_read_adapter_read(const ModbusReadSources *sources,
                                            uint16_t start_address,
                                            uint16_t quantity,
@@ -196,27 +179,6 @@ ModbusReadOutcome modbus_read_adapter_read(const ModbusReadSources *sources,
 
     if (sources == NULL || values == NULL) {
         outcome.operation_result = TR2_ERROR_INVALID_ARGUMENT;
-        return outcome;
-    }
-    if (range_is(start_address, quantity, TR2_B5_BASE_ADDRESS, TR2_B5_LAST_ADDRESS)) {
-        return read_from_b5(sources, start_address, quantity, values);
-    }
-    if (start_address >= TR2_B5_BASE_ADDRESS && start_address <= TR2_B5_LAST_ADDRESS) {
-        outcome.access_result = MODBUS_ACCESS_ILLEGAL_ADDRESS;
-        return outcome;
-    }
-    if (range_is(start_address, quantity, TR2_B6_BASE_ADDRESS, TR2_B6_LAST_ADDRESS)) {
-        return read_from_b6(sources, start_address, quantity, values);
-    }
-    if (start_address >= TR2_B6_BASE_ADDRESS && start_address <= TR2_B6_LAST_ADDRESS) {
-        outcome.access_result = MODBUS_ACCESS_ILLEGAL_ADDRESS;
-        return outcome;
-    }
-    if (range_is(start_address, quantity, TR2_B7_BASE_ADDRESS, TR2_B7_LAST_ADDRESS)) {
-        return read_from_b7(sources, start_address, quantity, values);
-    }
-    if (start_address >= TR2_B7_BASE_ADDRESS && start_address <= TR2_B7_LAST_ADDRESS) {
-        outcome.access_result = MODBUS_ACCESS_ILLEGAL_ADDRESS;
         return outcome;
     }
 
@@ -247,6 +209,12 @@ ModbusReadOutcome modbus_read_adapter_read(const ModbusReadSources *sources,
         return read_from_b3(sources, start_address, quantity, values);
     case MODBUS_BLOCK_4:
         return read_from_b4(sources, start_address, quantity, values);
+    case MODBUS_BLOCK_5:
+        return read_from_b5(sources, start_address, quantity, values);
+    case MODBUS_BLOCK_6:
+        return read_from_b6(sources, start_address, quantity, values);
+    case MODBUS_BLOCK_7:
+        return read_from_b7(sources, start_address, quantity, values);
     default:
         outcome.operation_result = TR2_ERROR_UNSUPPORTED;
         return outcome;
@@ -258,8 +226,5 @@ ModbusReadOutcome modbus_read_adapter_read(const ModbusReadSources *sources,
 #undef TR2_B3_BASE_ADDRESS
 #undef TR2_B4_BASE_ADDRESS
 #undef TR2_B5_BASE_ADDRESS
-#undef TR2_B5_LAST_ADDRESS
 #undef TR2_B6_BASE_ADDRESS
-#undef TR2_B6_LAST_ADDRESS
 #undef TR2_B7_BASE_ADDRESS
-#undef TR2_B7_LAST_ADDRESS
