@@ -17,6 +17,12 @@ The purpose is limited to proving the physical-target software foundation:
 - SysTick HAL time base;
 - visible board bring-up through LED1 (green, PC7).
 
+## Validation state
+
+The P11-C software side is cross-build validated with STM32CubeU5 v1.9.0 and Arm GNU 12.2.1.
+
+Hardware validation is explicitly pending until a NUCLEO-U575ZI-Q is available. Until then, no claim is made about real silicon boot, 160 MHz clock operation, SysTick timing, SMPS configuration, LED1 toggling or SWD after programming.
+
 ## STM32CubeU5 dependency
 
 P11-C is validated against **STM32CubeU5 v1.9.0**.
@@ -26,20 +32,36 @@ The dependency is intentionally external to the TR2 repository. Do not vendor HA
 Example installation beside the TR2 repository:
 
 ```sh
-git clone --recursive --depth 1 --branch v1.9.0 \
+git clone --recursive --branch v1.9.0 \
     https://github.com/STMicroelectronics/STM32CubeU5.git
 ```
 
 A recursive checkout is required because STM32CubeU5 publishes CMSIS Device and HAL as submodules.
 
-## Build
+## Reproducible cross-build
 
-From `Modbus RTU/05_Firmware`:
+From `Modbus RTU/05_Firmware`, use the P11-D helper script:
 
 ```sh
-cmake -S platform/stm32 \
+STM32CUBE_U5_ROOT=/absolute/path/to/STM32CubeU5 \
+    ./platform/stm32/tr2_build_stm32.sh
+```
+
+The Cube root may alternatively be passed as the first argument:
+
+```sh
+./platform/stm32/tr2_build_stm32.sh /absolute/path/to/STM32CubeU5
+```
+
+The script checks the required host tools and CubeU5 files, performs a clean Ninja configuration/build using the STM32 toolchain file, and verifies the expected artifacts.
+
+Equivalent manual commands from `Modbus RTU/05_Firmware`:
+
+```sh
+cmake -G Ninja \
+      -S platform/stm32 \
       -B build-stm32-p11c \
-      -DCMAKE_TOOLCHAIN_FILE=cmake/arm-none-eabi-gcc.cmake \
+      -DCMAKE_TOOLCHAIN_FILE="$PWD/platform/stm32/cmake/arm-none-eabi-gcc.cmake" \
       -DSTM32CUBE_U5_ROOT=/absolute/path/to/STM32CubeU5
 cmake --build build-stm32-p11c
 ```
@@ -52,7 +74,7 @@ Expected artifacts:
 
 ## Hardware acceptance for this slice
 
-Flash `tr2_stm32_p11c.bin` at `0x08000000` using ST-LINK / STM32CubeProgrammer.
+When the target board becomes available, flash `tr2_stm32_p11c.bin` at `0x08000000` using ST-LINK / STM32CubeProgrammer.
 
 Expected observable result after reset:
 
