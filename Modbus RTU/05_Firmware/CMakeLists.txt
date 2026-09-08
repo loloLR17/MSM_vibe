@@ -487,3 +487,9 @@ add_executable(test_p5h_acquisition_supervision_b3
 )
 target_link_libraries(test_p5h_acquisition_supervision_b3 PRIVATE tr2_platform_host)
 add_test(NAME p5h_acquisition_supervision_b3 COMMAND test_p5h_acquisition_supervision_b3)
+
+add_executable(test_post_p9_a5_host_modbus_read
+    tests/integration/test_post_p9_a5_host_modbus_read.c
+)
+target_link_libraries(test_post_p9_a5_host_modbus_read PRIVATE tr2_platform_host)
+add_test(NAME post_p9_a5_host_modbus_read COMMAND test_post_p9_a5_host_modbus_read)
