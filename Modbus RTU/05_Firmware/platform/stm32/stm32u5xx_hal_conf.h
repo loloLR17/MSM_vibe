@@ -12,9 +12,11 @@
 #define HSE_STARTUP_TIMEOUT   100U
 #define MSI_VALUE              4000000U
 #define HSI_VALUE             16000000U
+#define HSI48_VALUE           48000000U
 #define LSI_VALUE                32000U
 #define LSE_VALUE                32768U
 #define LSE_STARTUP_TIMEOUT  5000U
+#define EXTERNAL_SAI1_CLOCK_VALUE 48000U
 #define EXTERNAL_CLOCK_VALUE 12288000U
 
 #define VDD_VALUE               3300U
