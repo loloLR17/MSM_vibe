@@ -1,23 +1,36 @@
-# TR2 STM32 target — P11-B minimal skeleton
+# TR2 STM32 target — P11-C CMSIS/HAL bring-up
 
 ## Scope
 
-This directory is the first physical-target build boundary for `NUCLEO-U575ZI-Q / STM32U575ZIT6Q`.
+P11-C turns the P11-B bare-metal skeleton into the first real `NUCLEO-U575ZI-Q / STM32U575ZIT6Q` bring-up image.
 
-P11-B intentionally contains no TR2 business-service wiring and no peripheral driver. It proves only that a minimal Cortex-M33 image can be cross-compiled and linked for the retained MCU without changing the Host build.
+This slice deliberately remains below the TR2 portable core. It does not link `tr2_core`, does not instantiate any TR2 service and does not configure SPI, SDMMC, LPUART, RTC, GPDMA or IWDG.
 
-The portable core remains in `src/` and generic contracts remain in `include/tr2/platform/`. STM32-specific dependencies must remain below `platform/stm32/`.
+The purpose is limited to proving the physical-target software foundation:
 
-## Required toolchain
+- Arm GNU cross-toolchain;
+- official STM32U5 CMSIS Device startup and vector table;
+- official `system_stm32u5xx.c`;
+- minimal STM32U5 HAL subset;
+- 160 MHz system clock from MSI + PLL;
+- Nucleo power supply configuration;
+- SysTick HAL time base;
+- visible board bring-up through LED1 (green, PC7).
 
-Install an Arm GNU Embedded toolchain exposing at least:
+## STM32CubeU5 dependency
 
-- `arm-none-eabi-gcc`
-- `arm-none-eabi-objcopy`
-- `arm-none-eabi-size`
-- CMake >= 3.20
+P11-C is validated against **STM32CubeU5 v1.9.0**.
 
-No STM32CubeU5 package is required by P11-B because HAL/CMSIS integration is deliberately deferred.
+The dependency is intentionally external to the TR2 repository. Do not vendor HAL/CMSIS into `tr2_core` or `include/tr2/platform`.
+
+Example installation beside the TR2 repository:
+
+```sh
+git clone --recursive --depth 1 --branch v1.9.0 \
+    https://github.com/STMicroelectronics/STM32CubeU5.git
+```
+
+A recursive checkout is required because STM32CubeU5 publishes CMSIS Device and HAL as submodules.
 
 ## Build
 
@@ -25,28 +38,54 @@ From `Modbus RTU/05_Firmware`:
 
 ```sh
 cmake -S platform/stm32 \
-      -B build-stm32-p11b \
-      -DCMAKE_TOOLCHAIN_FILE=cmake/arm-none-eabi-gcc.cmake
-cmake --build build-stm32-p11b
+      -B build-stm32-p11c \
+      -DCMAKE_TOOLCHAIN_FILE=cmake/arm-none-eabi-gcc.cmake \
+      -DSTM32CUBE_U5_ROOT=/absolute/path/to/STM32CubeU5
+cmake --build build-stm32-p11c
 ```
 
 Expected artifacts:
 
-- `tr2_stm32_p11b.elf`
-- `tr2_stm32_p11b.bin`
-- `tr2_stm32_p11b.map`
+- `tr2_stm32_p11c.elf`
+- `tr2_stm32_p11c.bin`
+- `tr2_stm32_p11c.map`
 
-## Memory contract used by this bootstrap
+## Hardware acceptance for this slice
 
-The linker script uses the STM32U575ZIT6Q flash configuration retained for the prototype:
+Flash `tr2_stm32_p11c.bin` at `0x08000000` using ST-LINK / STM32CubeProgrammer.
 
-- Flash: `0x08000000`, 2048 KiB
-- main RAM region: `0x20000000`, 768 KiB
+Expected observable result after reset:
 
-SRAM4 and backup SRAM are intentionally not used by this minimal image.
+- LED1 (green, PC7) toggles every 250 ms;
+- SWD remains available;
+- no TR2 peripheral or Modbus behavior is expected yet.
 
-## Non-goals of P11-B
+A failure to blink is a target bring-up failure and must be resolved before introducing any TR2 peripheral driver.
 
-P11-B does not yet configure clocks, GPIO, SPI, SDMMC, LPUART, RTC, GPDMA, watchdog, HAL, CMSIS device startup, SysTick, or any TR2 domain/application service.
+## Architectural boundary
 
-The next physical-target slices must introduce those dependencies explicitly and keep them isolated from `tr2_core`.
+The dependency direction remains:
+
+```text
+tr2_core
+    ↓
+include/tr2/platform
+    ↓
+platform/stm32
+    ↓
+STM32CubeU5 CMSIS / HAL
+```
+
+P11-C adds only the bottom layer. No STM32 header may be introduced into `src/` or generic `include/tr2/platform/` contracts.
+
+## Deferred work
+
+Explicitly deferred after P11-C:
+
+- IIS3DWB / SPI1 / EXTI / GPDMA;
+- MB85RS2MTA and W25Q64JV / SPI2;
+- SDMMC1 bulk storage;
+- ADM2587E / LPUART1 / DE-/RE;
+- RTC/LSE/VBAT service binding;
+- IWDG;
+- connection of the generic TR2 platform contracts to STM32 implementations.
