@@ -106,13 +106,27 @@ int main(void)
                                                   6002u,
                                                   &write_value,
                                                   1u);
-    assert(write_outcome.access_result == MODBUS_ACCESS_ILLEGAL_ADDRESS);
+    assert(write_outcome.access_result == MODBUS_ACCESS_READ_ONLY);
 
     write_outcome = modbus_write_adapter_write_b6(&inventory,
                                                   &image,
                                                   6003u,
                                                   &write_value,
                                                   2u);
+    assert(write_outcome.access_result == MODBUS_ACCESS_READ_ONLY);
+
+    write_outcome = modbus_write_adapter_write_b6(&inventory,
+                                                  &image,
+                                                  6010u,
+                                                  &write_value,
+                                                  1u);
+    assert(write_outcome.access_result == MODBUS_ACCESS_RESERVED);
+
+    write_outcome = modbus_write_adapter_write_b6(&inventory,
+                                                  &image,
+                                                  6064u,
+                                                  &write_value,
+                                                  1u);
     assert(write_outcome.access_result == MODBUS_ACCESS_ILLEGAL_ADDRESS);
 
     values[0] = 0xBEEFu;

@@ -21,6 +21,11 @@ ModbusWriteOutcome modbus_write_adapter_write_b6(CampaignInventoryService *inven
         return outcome;
     }
 
+    outcome.access_result = modbus_register_model_validate_write(start_address, quantity);
+    if (outcome.access_result != MODBUS_ACCESS_OK) {
+        return outcome;
+    }
+
     if (start_address != TR2_B6_SELECTED_CAMPAIGN_INDEX_ADDRESS || quantity != 1u) {
         outcome.access_result = MODBUS_ACCESS_ILLEGAL_ADDRESS;
         return outcome;
