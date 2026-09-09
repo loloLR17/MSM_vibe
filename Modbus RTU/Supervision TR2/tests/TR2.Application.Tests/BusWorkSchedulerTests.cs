@@ -106,6 +106,54 @@ public sealed class BusWorkSchedulerTests
             scheduler.QueuePriority(endpoint, BusWorkKind.Polling, Now));
     }
 
+    [Fact]
+    public void Sustained_mixed_work_preserves_one_active_item_per_bus_and_drains_all_work()
+    {
+        const int workPerBus = 400;
+        var scheduler = new BusWorkScheduler();
+        var endpointA = Endpoint("RS485-A", 10);
+        var endpointB = Endpoint("RS485-B", 20);
+        var expectedA = new HashSet<long>();
+        var expectedB = new HashSet<long>();
+
+        for (var index = 0; index < workPerBus; index++)
+        {
+            var dueAt = Now.AddMilliseconds(index % 7);
+            var workA = index % 5 == 0
+                ? scheduler.QueuePriority(endpointA, BusWorkKind.ExplicitRefresh, dueAt)
+                : scheduler.QueuePolling(endpointA, PollingGroup.Fast, dueAt);
+            var workB = index % 3 == 0
+                ? scheduler.QueuePriority(endpointB, BusWorkKind.CommandTransaction, dueAt)
+                : scheduler.QueuePolling(endpointB, PollingGroup.Medium, dueAt);
+
+            Assert.True(expectedA.Add(workA.WorkId));
+            Assert.True(expectedB.Add(workB.WorkId));
+        }
+
+        var completedA = new HashSet<long>();
+        var completedB = new HashSet<long>();
+        var observedAt = Now.AddSeconds(1);
+
+        for (var index = 0; index < workPerBus; index++)
+        {
+            var activeA = Assert.IsType<ScheduledBusWork>(scheduler.BeginNext(endpointA.Bus, observedAt));
+            Assert.Null(scheduler.BeginNext(endpointA.Bus, observedAt));
+            Assert.True(completedA.Add(activeA.WorkId));
+
+            var activeB = Assert.IsType<ScheduledBusWork>(scheduler.BeginNext(endpointB.Bus, observedAt));
+            Assert.Null(scheduler.BeginNext(endpointB.Bus, observedAt));
+            Assert.True(completedB.Add(activeB.WorkId));
+
+            scheduler.Complete(endpointA.Bus, activeA.WorkId);
+            scheduler.Complete(endpointB.Bus, activeB.WorkId);
+        }
+
+        Assert.Equal(expectedA, completedA);
+        Assert.Equal(expectedB, completedB);
+        Assert.Null(scheduler.BeginNext(endpointA.Bus, observedAt));
+        Assert.Null(scheduler.BeginNext(endpointB.Bus, observedAt));
+    }
+
     private static TR2Endpoint Endpoint(string bus, byte address) =>
         new(new SerialBus(bus), new ModbusAddress(address));
 }
