@@ -23,6 +23,7 @@ public sealed class SqliteCommunicationJournalTests : IDisposable
             endpoint,
             new DeviceId(0x12345678),
             CommunicationOperation.Polling,
+            CommunicationFailureCategory.Timeout,
             observedAt,
             "System.TimeoutException",
             "No response from TR2"));
@@ -61,6 +62,7 @@ public sealed class SqliteCommunicationJournalTests : IDisposable
             endpoint,
             null,
             CommunicationOperation.ExplicitRefresh,
+            CommunicationFailureCategory.Io,
             DateTimeOffset.UtcNow,
             "System.IO.IOException",
             string.Empty));
@@ -87,6 +89,7 @@ public sealed class SqliteCommunicationJournalTests : IDisposable
             endpoint,
             new DeviceId(42),
             CommunicationOperation.Polling,
+            CommunicationFailureCategory.Unclassified,
             DateTimeOffset.UtcNow,
             "FirstException",
             "first"));
@@ -94,6 +97,7 @@ public sealed class SqliteCommunicationJournalTests : IDisposable
             endpoint,
             new DeviceId(42),
             CommunicationOperation.Polling,
+            CommunicationFailureCategory.Unclassified,
             DateTimeOffset.UtcNow.AddSeconds(1),
             "SecondException",
             "second"));
