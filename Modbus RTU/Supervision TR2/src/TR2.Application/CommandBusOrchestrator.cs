@@ -5,12 +5,21 @@ namespace TR2.Application;
 public sealed class CommandBusOrchestrator
 {
     private readonly BusWorkScheduler _scheduler;
+    private readonly B5ReconciliationService? _reconciliationService;
     private readonly Dictionary<long, CommandCoordinator> _coordinatorsByWorkId = [];
 
     public CommandBusOrchestrator(BusWorkScheduler scheduler)
+        : this(scheduler, null)
+    {
+    }
+
+    public CommandBusOrchestrator(
+        BusWorkScheduler scheduler,
+        B5ReconciliationService? reconciliationService)
     {
         ArgumentNullException.ThrowIfNull(scheduler);
         _scheduler = scheduler;
+        _reconciliationService = reconciliationService;
     }
 
     public async ValueTask<ScheduledBusWork> PrepareAndQueueAsync(
@@ -96,6 +105,42 @@ public sealed class CommandBusOrchestrator
         }
 
         return work;
+    }
+
+    public async ValueTask<B5ReconciliationResult> ExecuteReconciliationAsync(
+        ScheduledBusWork work,
+        DateTimeOffset observedAt,
+        CancellationToken cancellationToken = default)
+    {
+        ArgumentNullException.ThrowIfNull(work);
+
+        if (work.Kind != BusWorkKind.TransactionReconciliation)
+        {
+            throw new InvalidOperationException("The active work item is not a transaction reconciliation.");
+        }
+
+        if (_reconciliationService is null)
+        {
+            throw new InvalidOperationException("A B5 reconciliation service is required to execute reconciliation work.");
+        }
+
+        if (!_coordinatorsByWorkId.TryGetValue(work.WorkId, out var coordinator))
+        {
+            throw new InvalidOperationException("No command coordinator is associated with this reconciliation work item.");
+        }
+
+        try
+        {
+            return await _reconciliationService.ReconcileAsync(
+                work.Endpoint,
+                coordinator,
+                observedAt,
+                cancellationToken);
+        }
+        finally
+        {
+            Complete(work.Endpoint.Bus, work.WorkId);
+        }
     }
 
     public void Complete(SerialBus bus, long workId)
