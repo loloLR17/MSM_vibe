@@ -148,7 +148,24 @@ public sealed class SqliteEquipmentModelStoreTests : IDisposable
         {
             connection.Open();
             using var command = connection.CreateCommand();
-            command.CommandText = "PRAGMA user_version = 4;";
+            command.CommandText = """
+                CREATE TABLE communication_failure_journal (
+                    failure_id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+                    bus_id TEXT NOT NULL CHECK (length(trim(bus_id)) > 0),
+                    modbus_address INTEGER NOT NULL CHECK (modbus_address BETWEEN 0 AND 255),
+                    device_id INTEGER NULL CHECK (device_id IS NULL OR device_id BETWEEN 0 AND 4294967295),
+                    operation TEXT NOT NULL CHECK (operation IN ('Polling', 'ExplicitRefresh')),
+                    observed_utc TEXT NOT NULL,
+                    exception_type TEXT NOT NULL CHECK (length(trim(exception_type)) > 0),
+                    message TEXT NOT NULL
+                );
+                CREATE INDEX ix_communication_failure_journal_endpoint_failure
+                ON communication_failure_journal(bus_id, modbus_address, failure_id);
+                CREATE INDEX ix_communication_failure_journal_device_failure
+                ON communication_failure_journal(device_id, failure_id)
+                WHERE device_id IS NOT NULL;
+                PRAGMA user_version = 4;
+                """;
             command.ExecuteNonQuery();
         }
 
