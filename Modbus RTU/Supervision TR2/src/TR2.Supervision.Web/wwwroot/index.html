@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>MSM — Supervision vibrations</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div class="brand">MSM<span>Supervision vibrations</span></div>
+      <nav><button class="nav-item active">Vue générale</button></nav>
+      <div class="scope">S7-D · lecture seule<br>Aucune commande B5</div>
+    </aside>
+    <main>
+      <header class="status-band">
+        <div><span>API Web</span><strong id="apiState">Connexion…</strong></div>
+        <div><span>Dernière observation</span><strong id="observedAt">—</strong></div>
+        <div><span>Heure PC</span><strong id="pcClock">—</strong></div>
+      </header>
+
+      <section>
+        <div class="page-head">
+          <div><h1>Vue générale</h1><p>Parc TR2 — état réel projeté par la supervision</p></div>
+          <div class="filter-row">
+            <button class="chip active" data-filter="all">Tous</button>
+            <button class="chip" data-filter="attention">Attention</button>
+          </div>
+        </div>
+
+        <div id="webError" class="error-banner hidden" role="status"></div>
+
+        <div class="kpis">
+          <article><span>Endpoints surveillés</span><strong id="kpiTotal">—</strong></article>
+          <article><span>TR2 compatibles</span><strong id="kpiCompatible">—</strong></article>
+          <article><span>Attention</span><strong id="kpiAttention">—</strong></article>
+          <article><span>Données fraîches</span><strong id="kpiFresh">—</strong></article>
+        </div>
+
+        <div class="table-card">
+          <table>
+            <thead><tr><th>Point</th><th>device_id</th><th>Communication</th><th>Données PC</th><th>Vibration</th><th>État TR2</th><th>Attention</th><th>Dernière réception</th></tr></thead>
+            <tbody id="fleetRows"><tr><td colspan="8" class="empty">Chargement…</td></tr></tbody>
+          </table>
+        </div>
+        <p class="scope-note">RMS global B3 affiché en mg. Aucune vitesse mm/s, FFT, fréquence dominante, seuil ISO ou score santé n'est calculé.</p>
+      </section>
+    </main>
+  </div>
+  <script src="/app.js"></script>
+</body>
+</html>

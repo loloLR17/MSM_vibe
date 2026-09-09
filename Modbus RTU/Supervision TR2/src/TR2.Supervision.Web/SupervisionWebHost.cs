@@ -77,6 +77,8 @@ public sealed class SupervisionWebHost
             options.SerializerOptions.Converters.Add(new JsonStringEnumConverter()));
 
         var application = builder.Build();
+        application.UseDefaultFiles();
+        application.UseStaticFiles();
         application.MapGet("/api/v1/fleet", () =>
         {
             var observedAt = _timeProvider.GetUtcNow();

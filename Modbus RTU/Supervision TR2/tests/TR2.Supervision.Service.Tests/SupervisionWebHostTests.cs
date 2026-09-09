@@ -57,11 +57,7 @@ public sealed class SupervisionWebHostTests
         await application.StartAsync();
         try
         {
-            var server = application.Services.GetRequiredService<IServer>();
-            var addresses = server.Features.Get<IServerAddressesFeature>()
-                ?? throw new InvalidOperationException("Server addresses are unavailable.");
-            var baseAddress = new Uri(Assert.Single(addresses.Addresses));
-
+            var baseAddress = GetBaseAddress(application);
             using var client = new HttpClient { BaseAddress = baseAddress };
             using var response = await client.GetAsync("/api/v1/fleet");
             response.EnsureSuccessStatusCode();
@@ -78,9 +74,7 @@ public sealed class SupervisionWebHostTests
             Assert.Equal(42u, device.GetProperty("deviceId").GetUInt32());
             Assert.Equal("Compatible", device.GetProperty("sessionState").GetString());
 
-            var vibration = device
-                .GetProperty("telemetry")
-                .GetProperty("vibrationState");
+            var vibration = device.GetProperty("telemetry").GetProperty("vibrationState");
             Assert.True(vibration.GetProperty("hasValue").GetBoolean());
             Assert.True(vibration.GetProperty("isAvailable").GetBoolean());
             Assert.Equal("Fresh", vibration.GetProperty("freshness").GetString());
@@ -93,27 +87,35 @@ public sealed class SupervisionWebHostTests
     }
 
     [Fact]
-    public async Task FleetEndpointDoesNotAcceptPost()
+    public async Task RootServesS7DFleetPage()
     {
-        var projection = new SupervisionReadProjection(
-            new FleetRegistry(),
-            new DeviceTelemetrySnapshotRegistry(),
-            new SnapshotFreshnessPolicy(TimeSpan.FromSeconds(5), TimeSpan.FromSeconds(10)));
-        var host = new SupervisionWebHost(
-            new SupervisionWebOptions(new Uri("http://127.0.0.1:0"), allowRemote: false),
-            projection,
-            new FixedTimeProvider(ObservedAt));
-
+        var host = CreateEmptyHost();
         await using var application = host.CreateApplication();
         await application.StartAsync();
         try
         {
-            var server = application.Services.GetRequiredService<IServer>();
-            var addresses = server.Features.Get<IServerAddressesFeature>()
-                ?? throw new InvalidOperationException("Server addresses are unavailable.");
-            var baseAddress = new Uri(Assert.Single(addresses.Addresses));
+            using var client = new HttpClient { BaseAddress = GetBaseAddress(application) };
+            var html = await client.GetStringAsync("/");
 
-            using var client = new HttpClient { BaseAddress = baseAddress };
+            Assert.Contains("Vue générale", html, StringComparison.Ordinal);
+            Assert.Contains("fleetRows", html, StringComparison.Ordinal);
+            Assert.DoesNotContain("MAQUETTE S6-H", html, StringComparison.Ordinal);
+        }
+        finally
+        {
+            await application.StopAsync();
+        }
+    }
+
+    [Fact]
+    public async Task FleetEndpointDoesNotAcceptPost()
+    {
+        var host = CreateEmptyHost();
+        await using var application = host.CreateApplication();
+        await application.StartAsync();
+        try
+        {
+            using var client = new HttpClient { BaseAddress = GetBaseAddress(application) };
             using var response = await client.PostAsync("/api/v1/fleet", content: null);
 
             Assert.Equal(System.Net.HttpStatusCode.MethodNotAllowed, response.StatusCode);
@@ -122,6 +124,26 @@ public sealed class SupervisionWebHostTests
         {
             await application.StopAsync();
         }
+    }
+
+    private static SupervisionWebHost CreateEmptyHost()
+    {
+        var projection = new SupervisionReadProjection(
+            new FleetRegistry(),
+            new DeviceTelemetrySnapshotRegistry(),
+            new SnapshotFreshnessPolicy(TimeSpan.FromSeconds(5), TimeSpan.FromSeconds(10)));
+        return new SupervisionWebHost(
+            new SupervisionWebOptions(new Uri("http://127.0.0.1:0"), allowRemote: false),
+            projection,
+            new FixedTimeProvider(ObservedAt));
+    }
+
+    private static Uri GetBaseAddress(Microsoft.AspNetCore.Builder.WebApplication application)
+    {
+        var server = application.Services.GetRequiredService<IServer>();
+        var addresses = server.Features.Get<IServerAddressesFeature>()
+            ?? throw new InvalidOperationException("Server addresses are unavailable.");
+        return new Uri(Assert.Single(addresses.Addresses));
     }
 
     private sealed class FixedTimeProvider : TimeProvider
