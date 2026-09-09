@@ -10,14 +10,16 @@ public sealed class ModbusBusConnectionManagerTests
     {
         var factory = new FakeFactory();
         await using var manager = new ModbusBusConnectionManager(factory);
+        var settings = Settings("COM7");
 
-        var connection = await manager.OpenAsync("bus-a", "COM7");
+        var connection = await manager.OpenAsync("bus-a", settings);
 
         Assert.Equal("bus-a", connection.BusId);
         Assert.True(manager.TryGet("bus-a", out var registered));
         Assert.Same(connection, registered);
         Assert.Equal(new[] { "bus-a" }, manager.ConnectedBusIds);
-        Assert.Equal(("bus-a", "COM7"), factory.OpenRequests.Single());
+        Assert.Equal("bus-a", factory.OpenRequests.Single().BusId);
+        Assert.Same(settings, factory.OpenRequests.Single().Settings);
     }
 
     [Fact]
@@ -25,10 +27,10 @@ public sealed class ModbusBusConnectionManagerTests
     {
         var factory = new FakeFactory();
         await using var manager = new ModbusBusConnectionManager(factory);
-        await manager.OpenAsync("bus-a", "COM7");
+        await manager.OpenAsync("bus-a", Settings("COM7"));
 
         await Assert.ThrowsAsync<InvalidOperationException>(async () =>
-            await manager.OpenAsync("bus-a", "COM8"));
+            await manager.OpenAsync("bus-a", Settings("COM8")));
 
         Assert.Single(factory.OpenRequests);
     }
@@ -43,7 +45,7 @@ public sealed class ModbusBusConnectionManagerTests
         await using var manager = new ModbusBusConnectionManager(factory);
 
         await Assert.ThrowsAsync<IOException>(async () =>
-            await manager.OpenAsync("bus-a", "COM7"));
+            await manager.OpenAsync("bus-a", Settings("COM7")));
 
         Assert.False(manager.TryGet("bus-a", out _));
         Assert.Empty(manager.ConnectedBusIds);
@@ -60,7 +62,7 @@ public sealed class ModbusBusConnectionManagerTests
         await using var manager = new ModbusBusConnectionManager(factory);
 
         await Assert.ThrowsAsync<InvalidOperationException>(async () =>
-            await manager.OpenAsync("bus-a", "COM7"));
+            await manager.OpenAsync("bus-a", Settings("COM7")));
 
         Assert.True(wrongConnection.Disposed);
         Assert.Empty(manager.ConnectedBusIds);
@@ -71,7 +73,7 @@ public sealed class ModbusBusConnectionManagerTests
     {
         var factory = new FakeFactory();
         await using var manager = new ModbusBusConnectionManager(factory);
-        var connection = (FakeConnection)await manager.OpenAsync("bus-a", "COM7");
+        var connection = (FakeConnection)await manager.OpenAsync("bus-a", Settings("COM7"));
 
         var closed = await manager.CloseAsync("bus-a");
 
@@ -86,15 +88,15 @@ public sealed class ModbusBusConnectionManagerTests
     {
         var factory = new FakeFactory();
         var manager = new ModbusBusConnectionManager(factory);
-        var first = (FakeConnection)await manager.OpenAsync("bus-a", "COM7");
-        var second = (FakeConnection)await manager.OpenAsync("bus-b", "COM8");
+        var first = (FakeConnection)await manager.OpenAsync("bus-a", Settings("COM7"));
+        var second = (FakeConnection)await manager.OpenAsync("bus-b", Settings("COM8"));
 
         await manager.DisposeAsync();
 
         Assert.True(first.Disposed);
         Assert.True(second.Disposed);
         await Assert.ThrowsAsync<ObjectDisposedException>(async () =>
-            await manager.OpenAsync("bus-c", "COM9"));
+            await manager.OpenAsync("bus-c", Settings("COM9")));
     }
 
     [Fact]
@@ -106,30 +108,39 @@ public sealed class ModbusBusConnectionManagerTests
         cancellation.Cancel();
 
         await Assert.ThrowsAnyAsync<OperationCanceledException>(async () =>
-            await manager.OpenAsync("bus-a", "COM7", cancellation.Token));
+            await manager.OpenAsync("bus-a", Settings("COM7"), cancellation.Token));
 
         Assert.Empty(factory.OpenRequests);
     }
 
+    private static ModbusSerialConnectionSettings Settings(string portName) =>
+        new(
+            portName,
+            115200,
+            8,
+            ModbusSerialParity.None,
+            ModbusSerialStopBits.One,
+            750);
+
     private sealed class FakeFactory : IModbusBusConnectionFactory
     {
-        public List<(string BusId, string PortName)> OpenRequests { get; } = [];
+        public List<(string BusId, ModbusSerialConnectionSettings Settings)> OpenRequests { get; } = [];
         public Exception? Failure { get; init; }
-        public Func<string, string, IModbusBusConnection>? ConnectionFactory { get; init; }
+        public Func<string, ModbusSerialConnectionSettings, IModbusBusConnection>? ConnectionFactory { get; init; }
 
         public ValueTask<IModbusBusConnection> OpenAsync(
             string busId,
-            string portName,
+            ModbusSerialConnectionSettings settings,
             CancellationToken cancellationToken = default)
         {
-            OpenRequests.Add((busId, portName));
+            OpenRequests.Add((busId, settings));
 
             if (Failure is not null)
             {
                 return ValueTask.FromException<IModbusBusConnection>(Failure);
             }
 
-            var connection = ConnectionFactory?.Invoke(busId, portName) ?? new FakeConnection(busId);
+            var connection = ConnectionFactory?.Invoke(busId, settings) ?? new FakeConnection(busId);
             return ValueTask.FromResult(connection);
         }
     }
