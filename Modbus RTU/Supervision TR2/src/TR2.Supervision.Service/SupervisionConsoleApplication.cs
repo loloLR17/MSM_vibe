@@ -41,6 +41,8 @@ public static class SupervisionConsoleApplication
             return UsageOrConfigurationExitCode;
         }
 
+        await WriteConfigurationSummaryAsync(configuration, configurationPath, output);
+
         try
         {
             var runtime = PhysicalSupervisionRuntimeFactory.Create(
@@ -62,6 +64,35 @@ public static class SupervisionConsoleApplication
         {
             await error.WriteLineAsync($"Runtime failure: {exception.Message}");
             return RuntimeFailureExitCode;
+        }
+    }
+
+    private static async Task WriteConfigurationSummaryAsync(
+        RuntimeConfiguration configuration,
+        string configurationPath,
+        TextWriter output)
+    {
+        await output.WriteLineAsync($"Configuration: {Path.GetFullPath(configurationPath)}");
+        await output.WriteLineAsync($"Database: {configuration.Persistence.DatabasePath}");
+        await output.WriteLineAsync($"Buses: {configuration.Buses.Count}");
+
+        foreach (var bus in configuration.Buses)
+        {
+            var endpoints = bus.Endpoints.Count == 0
+                ? "none"
+                : string.Join(",", bus.Endpoints.Select(endpoint => endpoint.Address.Value));
+
+            if (bus.Serial is null)
+            {
+                await output.WriteLineAsync(
+                    $"Bus {bus.Bus.Id}: logical-only; endpoints={endpoints}");
+                continue;
+            }
+
+            await output.WriteLineAsync(
+                $"Bus {bus.Bus.Id}: port={bus.Serial.PortName}; " +
+                $"serial={bus.Serial.BaudRate}/{bus.Serial.DataBits}/{bus.Serial.Parity}/{bus.Serial.StopBits}; " +
+                $"timeoutMs={bus.Serial.ResponseTimeout.TotalMilliseconds:0}; endpoints={endpoints}");
         }
     }
 
