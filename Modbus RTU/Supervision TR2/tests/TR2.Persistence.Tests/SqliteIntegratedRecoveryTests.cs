@@ -79,6 +79,7 @@ public sealed class SqliteIntegratedRecoveryTests : IDisposable
             endpoint,
             deviceId,
             CommunicationOperation.Polling,
+            CommunicationFailureCategory.Timeout,
             Start.AddMinutes(2),
             "System.TimeoutException",
             "No response"));
