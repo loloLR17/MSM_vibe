@@ -16,10 +16,7 @@ public sealed class DeviceTelemetrySnapshotRegistry
         }
     }
 
-    public DeviceTelemetrySnapshots ReceiveSystemState(
-        DeviceId deviceId,
-        B1SystemState value,
-        DateTimeOffset receivedAt)
+    public DeviceTelemetrySnapshots ReceiveSystemState(DeviceId deviceId, B1SystemState value, DateTimeOffset receivedAt)
     {
         lock (_sync)
         {
@@ -29,10 +26,7 @@ public sealed class DeviceTelemetrySnapshotRegistry
         }
     }
 
-    public DeviceTelemetrySnapshots ReceiveTimeState(
-        DeviceId deviceId,
-        B2TimeState value,
-        DateTimeOffset receivedAt)
+    public DeviceTelemetrySnapshots ReceiveTimeState(DeviceId deviceId, B2TimeState value, DateTimeOffset receivedAt)
     {
         lock (_sync)
         {
@@ -42,10 +36,7 @@ public sealed class DeviceTelemetrySnapshotRegistry
         }
     }
 
-    public DeviceTelemetrySnapshots ReceiveVibrationState(
-        DeviceId deviceId,
-        B3VibrationSupervision value,
-        DateTimeOffset receivedAt)
+    public DeviceTelemetrySnapshots ReceiveVibrationState(DeviceId deviceId, B3VibrationSupervision value, DateTimeOffset receivedAt)
     {
         lock (_sync)
         {
@@ -55,10 +46,17 @@ public sealed class DeviceTelemetrySnapshotRegistry
         }
     }
 
-    public DeviceTelemetrySnapshots ReceiveDiagnosticState(
-        DeviceId deviceId,
-        B7DiagnosticState value,
-        DateTimeOffset receivedAt)
+    public DeviceTelemetrySnapshots ReceiveConfigurationState(DeviceId deviceId, B4ConfigurationState value, DateTimeOffset receivedAt)
+    {
+        lock (_sync)
+        {
+            var updated = GetUnsafe(deviceId).ReceiveConfigurationState(value, receivedAt);
+            _snapshots[deviceId] = updated;
+            return updated;
+        }
+    }
+
+    public DeviceTelemetrySnapshots ReceiveDiagnosticState(DeviceId deviceId, B7DiagnosticState value, DateTimeOffset receivedAt)
     {
         lock (_sync)
         {

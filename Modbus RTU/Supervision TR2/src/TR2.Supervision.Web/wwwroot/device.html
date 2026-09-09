@@ -15,9 +15,10 @@
         <button class="nav-item active" data-view="summary">Synthèse</button>
         <button class="nav-item" data-view="vibration">Vibrations</button>
         <button class="nav-item" data-view="system">État système</button>
+        <button class="nav-item" data-view="configuration">Configuration</button>
         <button class="nav-item" data-view="diagnostic">Diagnostic</button>
       </nav>
-      <div class="scope">S7-E2 · lecture seule<br>Aucune commande B5</div>
+      <div class="scope">S7-E3 · lecture seule<br>Aucune commande B5</div>
     </aside>
     <main>
       <header class="status-band">
@@ -25,54 +26,17 @@
         <div><span>Dernière observation</span><strong id="observedAt">—</strong></div>
         <div><span>Heure PC</span><strong id="pcClock">—</strong></div>
       </header>
-
       <section>
-        <div class="page-head">
-          <div>
-            <a class="back-link" href="/">← Vue générale</a>
-            <h1 id="deviceTitle">TR2</h1>
-            <p id="deviceSubtitle">Chargement du détail…</p>
-          </div>
-        </div>
-
+        <div class="page-head"><div><a class="back-link" href="/">← Vue générale</a><h1 id="deviceTitle">TR2</h1><p id="deviceSubtitle">Chargement du détail…</p></div></div>
         <div id="webError" class="error-banner hidden" role="status"></div>
-
         <div id="summaryView" class="device-view">
-          <div class="kpis detail-kpis">
-            <article><span>Session</span><strong id="summarySession">—</strong></article>
-            <article><span>RMS global</span><strong id="summaryRms">—</strong></article>
-            <article><span>Crête globale</span><strong id="summaryPeak">—</strong></article>
-            <article><span>Santé B7</span><strong id="summaryHealth">—</strong></article>
-          </div>
-          <div class="detail-grid">
-            <article class="detail-card"><h2>Fraîcheur PC</h2><dl id="summaryFreshness"></dl></article>
-            <article class="detail-card"><h2>État courant</h2><dl id="summaryState"></dl></article>
-          </div>
+          <div class="kpis detail-kpis"><article><span>Session</span><strong id="summarySession">—</strong></article><article><span>RMS global</span><strong id="summaryRms">—</strong></article><article><span>Crête globale</span><strong id="summaryPeak">—</strong></article><article><span>Santé B7</span><strong id="summaryHealth">—</strong></article></div>
+          <div class="detail-grid"><article class="detail-card"><h2>Fraîcheur PC</h2><dl id="summaryFreshness"></dl></article><article class="detail-card"><h2>État courant</h2><dl id="summaryState"></dl></article></div>
         </div>
-
-        <div id="vibrationView" class="device-view hidden">
-          <div class="detail-grid">
-            <article class="detail-card"><h2>Grandeurs globales B3</h2><dl id="vibrationGlobal"></dl></article>
-            <article class="detail-card"><h2>Axes B3</h2><dl id="vibrationAxes"></dl></article>
-            <article class="detail-card"><h2>Qualification B3</h2><dl id="vibrationQuality"></dl></article>
-            <article class="detail-card"><h2>Compteurs B3</h2><dl id="vibrationCounters"></dl></article>
-          </div>
-          <p class="scope-note">Toutes les valeurs vibratoires affichées proviennent du Bloc 3 et sont exprimées en accélération mg. Aucun calcul mm/s, FFT ou seuil ISO n'est effectué.</p>
-        </div>
-
-        <div id="systemView" class="device-view hidden">
-          <div class="detail-grid">
-            <article class="detail-card"><h2>Bloc 1 — État système</h2><dl id="systemState"></dl></article>
-            <article class="detail-card"><h2>Bloc 2 — Temps</h2><dl id="timeState"></dl></article>
-          </div>
-        </div>
-
-        <div id="diagnosticView" class="device-view hidden">
-          <div class="detail-grid">
-            <article class="detail-card"><h2>Bloc 7 — Diagnostic</h2><dl id="diagnosticState"></dl></article>
-            <article class="detail-card"><h2>Contexte de réception</h2><dl id="diagnosticContext"></dl></article>
-          </div>
-        </div>
+        <div id="vibrationView" class="device-view hidden"><div class="detail-grid"><article class="detail-card"><h2>Grandeurs globales B3</h2><dl id="vibrationGlobal"></dl></article><article class="detail-card"><h2>Axes B3</h2><dl id="vibrationAxes"></dl></article><article class="detail-card"><h2>Qualification B3</h2><dl id="vibrationQuality"></dl></article><article class="detail-card"><h2>Compteurs B3</h2><dl id="vibrationCounters"></dl></article></div><p class="scope-note">Toutes les valeurs vibratoires affichées proviennent du Bloc 3 et sont exprimées en accélération mg. Aucun calcul mm/s, FFT ou seuil ISO n'est effectué.</p></div>
+        <div id="systemView" class="device-view hidden"><div class="detail-grid"><article class="detail-card"><h2>Bloc 1 — État système</h2><dl id="systemState"></dl></article><article class="detail-card"><h2>Bloc 2 — Temps</h2><dl id="timeState"></dl></article></div></div>
+        <div id="configurationView" class="device-view hidden"><div class="detail-grid"><article class="detail-card"><h2>B4 — Métadonnées</h2><dl id="configMeta"></dl></article><article class="detail-card"><h2>Configuration préparée</h2><dl id="configPrepared"></dl></article><article class="detail-card"><h2>Configuration active</h2><dl id="configActive"></dl></article><article class="detail-card"><h2>Contexte B4</h2><dl id="configContext"></dl></article></div><p class="scope-note">Lecture seule. Les valeurs préparées et actives sont affichées séparément ; aucun APPLY_CONFIG n'est émis depuis cette vue.</p></div>
+        <div id="diagnosticView" class="device-view hidden"><div class="detail-grid"><article class="detail-card"><h2>Bloc 7 — Diagnostic</h2><dl id="diagnosticState"></dl></article><article class="detail-card"><h2>Contexte de réception</h2><dl id="diagnosticContext"></dl></article></div></div>
       </section>
     </main>
   </div>
