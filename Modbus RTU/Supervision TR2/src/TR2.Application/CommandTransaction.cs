@@ -24,4 +24,9 @@ public sealed record CommandTransaction(
         State == CommandTransactionState.Submitted
             ? this with { State = CommandTransactionState.Ambiguous }
             : throw new InvalidOperationException("Only a submitted transaction can become ambiguous.");
+
+    public CommandTransaction MarkAmbiguousAfterSubmitAttempt() =>
+        State is CommandTransactionState.Prepared or CommandTransactionState.Submitted
+            ? this with { State = CommandTransactionState.Ambiguous }
+            : throw new InvalidOperationException("Only a prepared or submitted transaction can become ambiguous after a submit attempt.");
 }

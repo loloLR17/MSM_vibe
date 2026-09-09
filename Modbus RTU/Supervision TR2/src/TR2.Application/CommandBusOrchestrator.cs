@@ -1,4 +1,5 @@
 using TR2.Domain;
+using TR2.Protocol;
 
 namespace TR2.Application;
 
@@ -6,20 +7,30 @@ public sealed class CommandBusOrchestrator
 {
     private readonly BusWorkScheduler _scheduler;
     private readonly B5ReconciliationService? _reconciliationService;
+    private readonly B5CommandExecutionService? _commandExecutionService;
     private readonly Dictionary<long, CommandCoordinator> _coordinatorsByWorkId = [];
 
     public CommandBusOrchestrator(BusWorkScheduler scheduler)
-        : this(scheduler, null)
+        : this(scheduler, null, null)
     {
     }
 
     public CommandBusOrchestrator(
         BusWorkScheduler scheduler,
         B5ReconciliationService? reconciliationService)
+        : this(scheduler, reconciliationService, null)
+    {
+    }
+
+    public CommandBusOrchestrator(
+        BusWorkScheduler scheduler,
+        B5ReconciliationService? reconciliationService,
+        B5CommandExecutionService? commandExecutionService)
     {
         ArgumentNullException.ThrowIfNull(scheduler);
         _scheduler = scheduler;
         _reconciliationService = reconciliationService;
+        _commandExecutionService = commandExecutionService;
     }
 
     public async ValueTask<ScheduledBusWork> PrepareAndQueueAsync(
@@ -69,42 +80,55 @@ public sealed class CommandBusOrchestrator
     public ScheduledBusWork? BeginNext(SerialBus bus, DateTimeOffset observedAt)
     {
         ArgumentNullException.ThrowIfNull(bus);
-
-        var work = _scheduler.BeginNext(bus, observedAt);
-        if (work is null)
-        {
-            return null;
-        }
-
-        if (work.Kind == BusWorkKind.CommandTransaction
-            && _coordinatorsByWorkId.TryGetValue(work.WorkId, out var coordinator))
-        {
-            coordinator.MarkSubmitted();
-        }
-
-        return work;
+        return _scheduler.BeginNext(bus, observedAt);
     }
 
-    public async ValueTask<ScheduledBusWork?> BeginNextAsync(
+    public ValueTask<ScheduledBusWork?> BeginNextAsync(
         SerialBus bus,
         DateTimeOffset observedAt,
         CancellationToken cancellationToken = default)
     {
         ArgumentNullException.ThrowIfNull(bus);
+        return ValueTask.FromResult(_scheduler.BeginNext(bus, observedAt));
+    }
 
-        var work = _scheduler.BeginNext(bus, observedAt);
-        if (work is null)
+    public async ValueTask ExecuteCommandAsync(
+        ScheduledBusWork work,
+        B5CommandRequest request,
+        DateTimeOffset observedAt,
+        CancellationToken cancellationToken = default)
+    {
+        ArgumentNullException.ThrowIfNull(work);
+        ArgumentNullException.ThrowIfNull(request);
+
+        if (work.Kind != BusWorkKind.CommandTransaction)
         {
-            return null;
+            throw new InvalidOperationException("The active work item is not a command transaction.");
         }
 
-        if (work.Kind == BusWorkKind.CommandTransaction
-            && _coordinatorsByWorkId.TryGetValue(work.WorkId, out var coordinator))
+        if (_commandExecutionService is null)
         {
-            await coordinator.MarkSubmittedAsync(observedAt, cancellationToken);
+            throw new InvalidOperationException("A B5 command execution service is required to execute command work.");
         }
 
-        return work;
+        if (!_coordinatorsByWorkId.TryGetValue(work.WorkId, out var coordinator))
+        {
+            throw new InvalidOperationException("No command coordinator is associated with this command work item.");
+        }
+
+        try
+        {
+            await _commandExecutionService.ExecuteAsync(
+                work.Endpoint,
+                coordinator,
+                request,
+                observedAt,
+                cancellationToken);
+        }
+        finally
+        {
+            Complete(work.Endpoint.Bus, work.WorkId);
+        }
     }
 
     public async ValueTask<B5ReconciliationResult> ExecuteReconciliationAsync(

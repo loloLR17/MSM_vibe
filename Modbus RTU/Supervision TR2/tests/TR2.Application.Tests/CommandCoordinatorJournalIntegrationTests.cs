@@ -72,7 +72,7 @@ public sealed class CommandCoordinatorJournalIntegrationTests
     }
 
     [Fact]
-    public async Task Orchestrator_async_start_journals_submitted_transition()
+    public async Task Orchestrator_async_start_does_not_journal_submitted_before_protocol_submit()
     {
         var scheduler = new BusWorkScheduler();
         var orchestrator = new CommandBusOrchestrator(scheduler);
@@ -87,13 +87,9 @@ public sealed class CommandCoordinatorJournalIntegrationTests
         var started = await orchestrator.BeginNextAsync(endpoint.Bus, T0.AddSeconds(1));
 
         Assert.Equal(work, started);
-        Assert.Equal(CommandTransactionState.Submitted, coordinator.ActiveTransaction?.State);
+        Assert.Equal(CommandTransactionState.Prepared, coordinator.ActiveTransaction?.State);
         Assert.Equal(
-            new[]
-            {
-                CommandTransactionJournalEventKind.Prepared,
-                CommandTransactionJournalEventKind.Submitted
-            },
+            new[] { CommandTransactionJournalEventKind.Prepared },
             journal.Events.Select(entry => entry.Kind));
     }
 

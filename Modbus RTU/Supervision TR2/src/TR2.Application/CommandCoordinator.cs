@@ -79,6 +79,25 @@ public sealed class CommandCoordinator
         return ambiguous;
     }
 
+    public CommandTransaction MarkAmbiguousAfterSubmitAttempt()
+    {
+        EnsureJournalTimestampNotRequired();
+        var active = RequireActive();
+        ActiveTransaction = active.MarkAmbiguousAfterSubmitAttempt();
+        return ActiveTransaction;
+    }
+
+    public async ValueTask<CommandTransaction> MarkAmbiguousAfterSubmitAttemptAsync(
+        DateTimeOffset observedAt,
+        CancellationToken cancellationToken = default)
+    {
+        var active = RequireActive();
+        var ambiguous = active.MarkAmbiguousAfterSubmitAttempt();
+        await AppendJournalAsync(ambiguous, CommandTransactionJournalEventKind.Ambiguous, observedAt, cancellationToken);
+        ActiveTransaction = ambiguous;
+        return ambiguous;
+    }
+
     public void ResolveTerminal(TransactionId transactionId)
     {
         EnsureJournalTimestampNotRequired();

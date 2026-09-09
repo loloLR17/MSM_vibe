@@ -49,8 +49,14 @@ public sealed class CommandCoordinatorRecoveryService
                     break;
 
                 case CommandTransactionJournalEventKind.Ambiguous:
-                    active = RequireMatching(active, entry, CommandTransactionState.Submitted)
-                        .MarkAmbiguous();
+                    active = RequireMatching(active, entry);
+                    if (active.State is not (CommandTransactionState.Prepared or CommandTransactionState.Submitted))
+                    {
+                        throw new InvalidDataException(
+                            $"Command journal transition {entry.Kind} is invalid from state {active.State}.");
+                    }
+
+                    active = active.MarkAmbiguousAfterSubmitAttempt();
                     break;
 
                 case CommandTransactionJournalEventKind.TerminalEvidenceObserved:

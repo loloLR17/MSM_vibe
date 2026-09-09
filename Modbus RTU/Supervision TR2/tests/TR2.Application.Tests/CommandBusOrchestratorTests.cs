@@ -22,7 +22,7 @@ public sealed class CommandBusOrchestratorTests
     }
 
     [Fact]
-    public async Task Command_becomes_submitted_only_when_bus_work_starts()
+    public async Task Command_stays_prepared_when_bus_work_starts_before_protocol_submit()
     {
         var scheduler = new BusWorkScheduler();
         var orchestrator = new CommandBusOrchestrator(scheduler);
@@ -37,7 +37,7 @@ public sealed class CommandBusOrchestratorTests
         var started = orchestrator.BeginNext(endpoint.Bus, Now);
 
         Assert.Equal(commandWork, started);
-        Assert.Equal(CommandTransactionState.Submitted, coordinator.ActiveTransaction?.State);
+        Assert.Equal(CommandTransactionState.Prepared, coordinator.ActiveTransaction?.State);
     }
 
     [Fact]
@@ -71,6 +71,7 @@ public sealed class CommandBusOrchestratorTests
             Now);
 
         orchestrator.BeginNext(endpoint.Bus, Now);
+        coordinator.MarkSubmitted();
         orchestrator.Complete(endpoint.Bus, commandWork.WorkId);
         coordinator.MarkAmbiguous();
 
@@ -116,6 +117,7 @@ public sealed class CommandBusOrchestratorTests
             Now);
 
         orchestrator.BeginNext(endpoint.Bus, Now);
+        coordinator.MarkSubmitted();
         orchestrator.Complete(endpoint.Bus, commandWork.WorkId);
         var ambiguous = coordinator.MarkAmbiguous();
         var reconciliation = orchestrator.QueueReconciliation(
