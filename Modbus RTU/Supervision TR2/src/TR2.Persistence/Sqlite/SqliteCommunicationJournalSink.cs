@@ -29,6 +29,7 @@ public sealed class SqliteCommunicationJournalSink : ICommunicationJournalSink
                 modbus_address,
                 device_id,
                 operation,
+                category,
                 observed_utc,
                 exception_type,
                 message)
@@ -37,6 +38,7 @@ public sealed class SqliteCommunicationJournalSink : ICommunicationJournalSink
                 $modbus_address,
                 $device_id,
                 $operation,
+                $category,
                 $observed_utc,
                 $exception_type,
                 $message);
@@ -48,6 +50,7 @@ public sealed class SqliteCommunicationJournalSink : ICommunicationJournalSink
             "$device_id",
             failure.DeviceId is null ? DBNull.Value : (long)failure.DeviceId.Value.Value);
         command.Parameters.AddWithValue("$operation", failure.Operation.ToString());
+        command.Parameters.AddWithValue("$category", failure.Category.ToString());
         command.Parameters.AddWithValue(
             "$observed_utc",
             failure.ObservedAt.ToUniversalTime().ToString("O", CultureInfo.InvariantCulture));
