@@ -86,7 +86,7 @@ public sealed class ReconciliationDeduplicationTests
         Assert.NotEqual(first.WorkId, second.WorkId);
     }
 
-    private static async Task<CommandCoordinator> CreateAmbiguousCoordinatorAsync(ulong deviceId)
+    private static async Task<CommandCoordinator> CreateAmbiguousCoordinatorAsync(uint deviceId)
     {
         var coordinator = new CommandCoordinator(
             new DeviceId(deviceId),
