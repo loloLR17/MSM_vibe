@@ -1,5 +1,6 @@
 using TR2.Application;
 using TR2.Domain;
+using TR2.Protocol;
 using TR2.Transport;
 
 namespace TR2.Supervision.Service;
@@ -27,12 +28,27 @@ public sealed class PhysicalPriorityWorkRunner : IPriorityWorkRunner
         ArgumentNullException.ThrowIfNull(work);
         cancellationToken.ThrowIfCancellationRequested();
 
-        if (work.Kind != BusWorkKind.ExplicitRefresh)
+        switch (work.Kind)
         {
-            throw new InvalidOperationException(
-                "Physical priority runner currently supports explicit refresh work only.");
-        }
+            case BusWorkKind.ExplicitRefresh:
+                await ExecuteRefreshAsync(work, observedAt, cancellationToken).ConfigureAwait(false);
+                return;
 
+            case BusWorkKind.CommandTransaction:
+                await ExecuteCommandAsync(work, observedAt, cancellationToken).ConfigureAwait(false);
+                return;
+
+            default:
+                throw new InvalidOperationException(
+                    "Physical priority runner supports explicit refresh and B5 command transaction work only.");
+        }
+    }
+
+    private async ValueTask ExecuteRefreshAsync(
+        ScheduledBusWork work,
+        DateTimeOffset observedAt,
+        CancellationToken cancellationToken)
+    {
         if (!_composition.BusConnectionManager.TryGet(work.Endpoint.Bus.Id, out var connection)
             || connection is null)
         {
@@ -65,6 +81,59 @@ public sealed class PhysicalPriorityWorkRunner : IPriorityWorkRunner
             await _recovery
                 .MarkDisconnectedAsync(work.Endpoint.Bus, cancellationToken)
                 .ConfigureAwait(false);
+        }
+    }
+
+    private async ValueTask ExecuteCommandAsync(
+        ScheduledBusWork work,
+        DateTimeOffset observedAt,
+        CancellationToken cancellationToken)
+    {
+        try
+        {
+            if (!_composition.BusConnectionManager.TryGet(work.Endpoint.Bus.Id, out var connection)
+                || connection is null)
+            {
+                return;
+            }
+
+            var session = _composition.FleetRegistry.GetSession(work.Endpoint);
+            if (session.State != TR2SessionState.Compatible || session.Device is null)
+            {
+                throw new InvalidOperationException(
+                    "Physical B5 execution requires a compatible identified TR2 session.");
+            }
+
+            var request = _operations.GetCommandRequest(work);
+            var coordinator = _composition.CommandCoordinatorRegistry.Get(session.Device.DeviceId);
+            var writer = new B5CommandWriter(connection.RegisterWriteTransport);
+            var service = new B5CommandExecutionService(writer);
+
+            try
+            {
+                await service
+                    .ExecuteAsync(work.Endpoint, coordinator, request, observedAt, cancellationToken)
+                    .ConfigureAwait(false);
+            }
+            catch (ModbusTransportFailureException exception)
+                when (exception.Kind == ModbusTransportFailureKind.Timeout)
+            {
+                // If the timeout occurred during submit, B5CommandExecutionService has already
+                // transitioned the durable supervision transaction to Ambiguous. Never replay here.
+            }
+            catch (ModbusTransportFailureException exception)
+                when (exception.Kind == ModbusTransportFailureKind.Io)
+            {
+                // If the I/O failure occurred during submit, the transaction is already Ambiguous.
+                // Closing the physical bus forces reconnect + fresh B0 before further operations.
+                await _recovery
+                    .MarkDisconnectedAsync(work.Endpoint.Bus, cancellationToken)
+                    .ConfigureAwait(false);
+            }
+        }
+        finally
+        {
+            _composition.BusWorkScheduler.Complete(work.Endpoint.Bus, work.WorkId);
         }
     }
 
