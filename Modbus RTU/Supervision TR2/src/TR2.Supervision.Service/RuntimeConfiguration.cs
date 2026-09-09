@@ -17,7 +17,29 @@ public sealed record RuntimeBusConfiguration(
     public RuntimeSerialPortConfiguration? Serial { get; init; }
 }
 
-public sealed record RuntimeSerialPortConfiguration(string PortName);
+public enum RuntimeSerialParity
+{
+    None,
+    Odd,
+    Even,
+    Mark,
+    Space
+}
+
+public enum RuntimeSerialStopBits
+{
+    One,
+    Two,
+    OnePointFive
+}
+
+public sealed record RuntimeSerialPortConfiguration(
+    string PortName,
+    int BaudRate,
+    int DataBits,
+    RuntimeSerialParity Parity,
+    RuntimeSerialStopBits StopBits,
+    TimeSpan ResponseTimeout);
 
 public static class RuntimeConfigurationLoader
 {
@@ -84,13 +106,7 @@ public static class RuntimeConfigurationLoader
             RuntimeSerialPortConfiguration? serial = null;
             if (configuredBus.Serial is not null)
             {
-                if (string.IsNullOrWhiteSpace(configuredBus.Serial.PortName))
-                {
-                    throw new InvalidDataException(
-                        $"serial.portName must be provided for bus '{configuredBus.Id}'.");
-                }
-
-                serial = new RuntimeSerialPortConfiguration(configuredBus.Serial.PortName);
+                serial = CreateSerialConfiguration(configuredBus.Id, configuredBus.Serial);
             }
 
             var bus = new SerialBus(configuredBus.Id);
@@ -124,6 +140,53 @@ public static class RuntimeConfigurationLoader
 
         var polling = CreatePollingPolicy(document.Polling);
         return new RuntimeConfiguration(persistence, buses, polling);
+    }
+
+    private static RuntimeSerialPortConfiguration CreateSerialConfiguration(string busId, SerialDocument document)
+    {
+        if (string.IsNullOrWhiteSpace(document.PortName))
+        {
+            throw new InvalidDataException($"serial.portName must be provided for bus '{busId}'.");
+        }
+
+        var baudRate = RequiredPositive(document.BaudRate, $"serial.baudRate for bus '{busId}'");
+        var dataBits = RequiredPositive(document.DataBits, $"serial.dataBits for bus '{busId}'");
+        var timeoutMilliseconds = RequiredPositive(
+            document.ResponseTimeoutMilliseconds,
+            $"serial.responseTimeoutMilliseconds for bus '{busId}'");
+
+        var parity = ParseEnum<RuntimeSerialParity>(document.Parity, $"serial.parity for bus '{busId}'");
+        var stopBits = ParseEnum<RuntimeSerialStopBits>(document.StopBits, $"serial.stopBits for bus '{busId}'");
+
+        return new RuntimeSerialPortConfiguration(
+            document.PortName,
+            baudRate,
+            dataBits,
+            parity,
+            stopBits,
+            TimeSpan.FromMilliseconds(timeoutMilliseconds));
+    }
+
+    private static int RequiredPositive(int? value, string name)
+    {
+        if (value is null || value <= 0)
+        {
+            throw new InvalidDataException($"{name} must be provided and greater than zero.");
+        }
+
+        return value.Value;
+    }
+
+    private static TEnum ParseEnum<TEnum>(string? value, string name)
+        where TEnum : struct, Enum
+    {
+        if (string.IsNullOrWhiteSpace(value) || !Enum.TryParse<TEnum>(value, true, out var parsed))
+        {
+            throw new InvalidDataException(
+                $"{name} must be one of: {string.Join(", ", Enum.GetNames<TEnum>())}.");
+        }
+
+        return parsed;
     }
 
     private static RuntimePollingPolicy CreatePollingPolicy(PollingDocument? document)
@@ -190,6 +253,11 @@ public static class RuntimeConfigurationLoader
         }
 
         public string? PortName { get; init; }
+        public int? BaudRate { get; init; }
+        public int? DataBits { get; init; }
+        public string? Parity { get; init; }
+        public string? StopBits { get; init; }
+        public int? ResponseTimeoutMilliseconds { get; init; }
     }
 
     private sealed class PollingDocument
