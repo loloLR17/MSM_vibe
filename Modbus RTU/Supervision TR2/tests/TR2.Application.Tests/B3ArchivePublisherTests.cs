@@ -28,7 +28,56 @@ public sealed class B3ArchivePublisherTests
         Assert.Equal(deviceId, archived!.DeviceId);
         Assert.Equal(b3, archived.Value);
         Assert.Equal(ReceivedAt, archived.ReceivedAt);
+        Assert.Null(archived.TimeContext);
         Assert.Equal(archived, sink.Observations.Single());
+    }
+
+    [Fact]
+    public async Task B3_archive_includes_last_known_B2_time_context_with_its_own_receive_time()
+    {
+        var endpoint = Endpoint();
+        var deviceId = new DeviceId(1001);
+        var fleet = CompatibleFleet(endpoint, deviceId);
+        var telemetry = new DeviceTelemetrySnapshotRegistry();
+        var b2ReceivedAt = ReceivedAt.AddSeconds(-3);
+        var b2 = B2();
+        telemetry.ReceiveTimeState(deviceId, b2, b2ReceivedAt);
+        var sink = new RecordingSink();
+        var publisher = new B3ArchivePublisher(fleet, sink, telemetry);
+
+        var archived = await publisher.ArchiveAsync(
+            endpoint,
+            ReadSet(B3()),
+            ReceivedAt);
+
+        Assert.NotNull(archived);
+        Assert.NotNull(archived!.TimeContext);
+        Assert.Equal(b2, archived.TimeContext!.Value);
+        Assert.Equal(b2ReceivedAt, archived.TimeContext.ReceivedAt);
+        Assert.NotEqual(archived.ReceivedAt, archived.TimeContext.ReceivedAt);
+    }
+
+    [Fact]
+    public async Task Last_known_B2_context_is_preserved_even_if_live_snapshot_is_unavailable()
+    {
+        var endpoint = Endpoint();
+        var deviceId = new DeviceId(1001);
+        var fleet = CompatibleFleet(endpoint, deviceId);
+        var telemetry = new DeviceTelemetrySnapshotRegistry();
+        var b2ReceivedAt = ReceivedAt.AddMinutes(-1);
+        var b2 = B2();
+        telemetry.ReceiveTimeState(deviceId, b2, b2ReceivedAt);
+        telemetry.MarkUnavailable(deviceId);
+        var publisher = new B3ArchivePublisher(fleet, new RecordingSink(), telemetry);
+
+        var archived = await publisher.ArchiveAsync(
+            endpoint,
+            ReadSet(B3()),
+            ReceivedAt);
+
+        Assert.NotNull(archived!.TimeContext);
+        Assert.Equal(b2, archived.TimeContext!.Value);
+        Assert.Equal(b2ReceivedAt, archived.TimeContext.ReceivedAt);
     }
 
     [Fact]
@@ -77,6 +126,9 @@ public sealed class B3ArchivePublisherTests
 
     private static PollingReadSet ReadSet(B3VibrationSupervision b3) =>
         new(PollingGroup.Fast, null, null, null, b3, null, null, null, null);
+
+    private static B2TimeState B2() =>
+        new(1, 3, 1000, 900, 100, 0, 0, 25, -2, 1);
 
     private static B3VibrationSupervision B3() =>
         new(3, 1, 2, 1, 1000, 50, 7, 1000, 100, 10, 20, 1, 2, 3, 4, 5, 6, 1, 0, 0, 0, 0, 0, 8, 9);
