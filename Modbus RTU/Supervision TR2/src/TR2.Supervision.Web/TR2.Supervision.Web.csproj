@@ -5,4 +5,7 @@
   <ItemGroup>
     <ProjectReference Include="..\TR2.Application\TR2.Application.csproj" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="wwwroot\**\*" CopyToOutputDirectory="PreserveNewest" CopyToPublishDirectory="PreserveNewest" />
+  </ItemGroup>
 </Project>
