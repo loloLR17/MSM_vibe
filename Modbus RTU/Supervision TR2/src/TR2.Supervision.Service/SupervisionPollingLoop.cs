@@ -13,6 +13,14 @@ public interface IPollingWorkRunner
         CancellationToken cancellationToken = default);
 }
 
+public interface IPriorityWorkRunner
+{
+    ValueTask ExecuteAsync(
+        ScheduledBusWork work,
+        DateTimeOffset observedAt,
+        CancellationToken cancellationToken = default);
+}
+
 public interface ISupervisionRuntimeLoop
 {
     Task RunAsync(CancellationToken cancellationToken = default);
@@ -30,10 +38,27 @@ internal sealed class IdleSupervisionRuntimeLoop : ISupervisionRuntimeLoop
         Task.Delay(Timeout.InfiniteTimeSpan, cancellationToken);
 }
 
+internal sealed class RejectingPriorityWorkRunner : IPriorityWorkRunner
+{
+    public static RejectingPriorityWorkRunner Instance { get; } = new();
+
+    private RejectingPriorityWorkRunner()
+    {
+    }
+
+    public ValueTask ExecuteAsync(
+        ScheduledBusWork work,
+        DateTimeOffset observedAt,
+        CancellationToken cancellationToken = default) =>
+        throw new InvalidOperationException(
+            "Priority work is pending but no S3-F priority work runner is configured.");
+}
+
 public sealed class SupervisionPollingLoop : ISupervisionRuntimeLoop
 {
     private readonly SupervisionRuntimeComposition _composition;
-    private readonly IPollingWorkRunner _runner;
+    private readonly IPollingWorkRunner _pollingRunner;
+    private readonly IPriorityWorkRunner _priorityRunner;
     private readonly TimeProvider _timeProvider;
     private readonly Dictionary<TR2Endpoint, EndpointPollingState> _states = [];
     private bool _runInvoked;
@@ -42,9 +67,19 @@ public sealed class SupervisionPollingLoop : ISupervisionRuntimeLoop
         SupervisionRuntimeComposition composition,
         IPollingWorkRunner runner,
         TimeProvider? timeProvider = null)
+        : this(composition, runner, RejectingPriorityWorkRunner.Instance, timeProvider)
+    {
+    }
+
+    public SupervisionPollingLoop(
+        SupervisionRuntimeComposition composition,
+        IPollingWorkRunner pollingRunner,
+        IPriorityWorkRunner priorityRunner,
+        TimeProvider? timeProvider = null)
     {
         _composition = composition ?? throw new ArgumentNullException(nameof(composition));
-        _runner = runner ?? throw new ArgumentNullException(nameof(runner));
+        _pollingRunner = pollingRunner ?? throw new ArgumentNullException(nameof(pollingRunner));
+        _priorityRunner = priorityRunner ?? throw new ArgumentNullException(nameof(priorityRunner));
         _timeProvider = timeProvider ?? TimeProvider.System;
 
         foreach (var bus in composition.Configuration.Buses)
@@ -90,24 +125,14 @@ public sealed class SupervisionPollingLoop : ISupervisionRuntimeLoop
                     continue;
                 }
 
-                if (work.Kind != BusWorkKind.Polling || work.PollingGroup is null)
+                if (work.Kind == BusWorkKind.Polling)
                 {
-                    throw new InvalidOperationException(
-                        "S3-E polling loop cannot dispatch non-polling bus work; unified priority dispatch is reserved for S3-F.");
+                    await ExecutePollingAsync(work, now, cancellationToken);
                 }
-
-                var state = _states[work.Endpoint];
-                PollingWorkExecutionResult result;
-                try
+                else
                 {
-                    result = await _runner.ExecuteAsync(work, now, cancellationToken);
+                    await _priorityRunner.ExecuteAsync(work, now, cancellationToken);
                 }
-                finally
-                {
-                    state.IsQueued = false;
-                }
-
-                UpdateScheduleAfterExecution(state, work.PollingGroup.Value, result, _timeProvider.GetUtcNow());
             }
 
             await Task.Delay(
@@ -115,6 +140,34 @@ public sealed class SupervisionPollingLoop : ISupervisionRuntimeLoop
                 _timeProvider,
                 cancellationToken);
         }
+    }
+
+    private async ValueTask ExecutePollingAsync(
+        ScheduledBusWork work,
+        DateTimeOffset observedAt,
+        CancellationToken cancellationToken)
+    {
+        if (work.PollingGroup is null)
+        {
+            throw new InvalidOperationException("Polling work has no polling group.");
+        }
+
+        var state = _states[work.Endpoint];
+        PollingWorkExecutionResult result;
+        try
+        {
+            result = await _pollingRunner.ExecuteAsync(work, observedAt, cancellationToken);
+        }
+        finally
+        {
+            state.IsQueued = false;
+        }
+
+        UpdateScheduleAfterExecution(
+            state,
+            work.PollingGroup.Value,
+            result,
+            _timeProvider.GetUtcNow());
     }
 
     private void QueueDuePolling(DateTimeOffset now)
