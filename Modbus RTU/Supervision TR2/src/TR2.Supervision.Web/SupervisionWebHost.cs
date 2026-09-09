@@ -56,16 +56,19 @@ public sealed record DeviceReadResponse(
 
 public sealed class SupervisionWebHost
 {
+    private const int MaxRequestIdentityLength = 128;
     private readonly SupervisionWebOptions _options;
     private readonly SupervisionReadProjection _projection;
     private readonly TimeProvider _timeProvider;
     private readonly ISupervisionSystemReadSource? _systemReadSource;
+    private readonly ISupervisionCommandSink? _commandSink;
 
     public SupervisionWebHost(
         SupervisionWebOptions options,
         SupervisionReadProjection projection,
         TimeProvider? timeProvider = null,
-        ISupervisionSystemReadSource? systemReadSource = null)
+        ISupervisionSystemReadSource? systemReadSource = null,
+        ISupervisionCommandSink? commandSink = null)
     {
         ArgumentNullException.ThrowIfNull(options);
         ArgumentNullException.ThrowIfNull(projection);
@@ -74,6 +77,7 @@ public sealed class SupervisionWebHost
         _projection = projection;
         _timeProvider = timeProvider ?? TimeProvider.System;
         _systemReadSource = systemReadSource;
+        _commandSink = commandSink;
     }
 
     public WebApplication CreateApplication()
@@ -81,7 +85,7 @@ public sealed class SupervisionWebHost
         var builder = WebApplication.CreateSlimBuilder(Array.Empty<string>());
         builder.WebHost.UseUrls(_options.ListenUri.ToString());
         builder.Services.ConfigureHttpJsonOptions(options =>
-            options.SerializerOptions.Converters.Add(new JsonStringEnumConverter()));
+            options.SerializerOptions.Converters.Add(new JsonStringEnumConverter(allowIntegerValues: false)));
 
         var application = builder.Build();
         application.UseDefaultFiles();
@@ -116,6 +120,65 @@ public sealed class SupervisionWebHost
             return Results.Ok(new SystemReadResponse(
                 _timeProvider.GetUtcNow(),
                 _systemReadSource.Read()));
+        });
+        application.MapPost("/api/v1/devices/{deviceId:long}/commands", async (
+            long deviceId,
+            QueueB5CommandRequest request,
+            CancellationToken cancellationToken) =>
+        {
+            if (_commandSink is null)
+            {
+                return Results.NotFound();
+            }
+
+            if (deviceId < 0 || deviceId > uint.MaxValue)
+            {
+                return Results.NotFound();
+            }
+
+            if (string.IsNullOrWhiteSpace(request.RequestIdentity) ||
+                request.RequestIdentity.Length > MaxRequestIdentityLength ||
+                request.Command is null ||
+                !Enum.IsDefined(request.Command.Value))
+            {
+                return Results.BadRequest(new QueueB5CommandRejectedResponse(
+                    "InvalidRequest",
+                    "requestIdentity must contain 1..128 non-whitespace characters and command must be a supported S7-G1 command."));
+            }
+
+            var acceptedAt = _timeProvider.GetUtcNow();
+            var result = await _commandSink.QueueAsync(
+                (uint)deviceId,
+                request.RequestIdentity,
+                request.Command.Value,
+                acceptedAt,
+                cancellationToken);
+
+            return result.Status switch
+            {
+                IhmCommandQueueStatus.Accepted => Results.Accepted(
+                    $"/api/v1/devices/{deviceId}",
+                    new QueueB5CommandAcceptedResponse(
+                        acceptedAt,
+                        result.WorkId!.Value,
+                        result.DeviceId!.Value,
+                        result.TransactionId!.Value,
+                        request.Command.Value,
+                        request.RequestIdentity)),
+                IhmCommandQueueStatus.DeviceNotFound => Results.NotFound(),
+                IhmCommandQueueStatus.DuplicateRequestIdentity => Results.Conflict(
+                    new QueueB5CommandRejectedResponse(
+                        "DuplicateRequestIdentity",
+                        result.Detail ?? "requestIdentity was already used for this device.")),
+                IhmCommandQueueStatus.NotReady => Results.Json(
+                    new QueueB5CommandRejectedResponse(
+                        "RuntimeNotReady",
+                        result.Detail ?? "The supervision runtime is not ready."),
+                    statusCode: StatusCodes.Status503ServiceUnavailable),
+                _ => Results.Conflict(new QueueB5CommandRejectedResponse(
+                    "CommandConflict",
+                    result.Detail ?? "The command cannot be queued in the current runtime state."))
+            };
         });
 
         return application;

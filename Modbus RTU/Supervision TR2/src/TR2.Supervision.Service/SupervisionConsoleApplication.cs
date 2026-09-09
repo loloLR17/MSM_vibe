@@ -96,7 +96,8 @@ public static class SupervisionConsoleApplication
         var webHost = new SupervisionWebHost(
             new SupervisionWebOptions(configuration.Web.ListenUri, configuration.Web.AllowRemote),
             projection,
-            systemReadSource: new RuntimeSystemReadSource(runtime));
+            systemReadSource: new RuntimeSystemReadSource(runtime),
+            commandSink: new RuntimeCommandSink(runtime));
 
         await output.WriteLineAsync(
             $"Web: enabled; listen={configuration.Web.ListenUri}; " +
