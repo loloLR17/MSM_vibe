@@ -1,10 +1,11 @@
+using TR2.Domain;
 using TR2.Protocol;
 
 namespace TR2.Application;
 
 public sealed record PollingReadSet(
     PollingGroup Group,
-    B0Identification? B0,
+    TR2Session? B0Session,
     B1SystemState? B1,
     B2TimeState? B2,
     B3VibrationSupervision? B3,
