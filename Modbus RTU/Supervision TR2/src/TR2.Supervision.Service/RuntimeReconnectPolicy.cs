@@ -1,12 +1,16 @@
 namespace TR2.Supervision.Service;
 
-public sealed record RuntimeReconnectPolicy(TimeSpan Interval)
+public sealed record RuntimeReconnectPolicy
 {
-    public RuntimeReconnectPolicy
+    public RuntimeReconnectPolicy(TimeSpan interval)
     {
-        if (Interval <= TimeSpan.Zero)
+        if (interval <= TimeSpan.Zero)
         {
-            throw new ArgumentOutOfRangeException(nameof(Interval));
+            throw new ArgumentOutOfRangeException(nameof(interval));
         }
+
+        Interval = interval;
     }
+
+    public TimeSpan Interval { get; }
 }
