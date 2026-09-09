@@ -29,7 +29,7 @@ public sealed class CommandCoordinator
         }
 
         var lastAllocated = await _store.GetLastAllocatedAsync(DeviceId, cancellationToken);
-        if (lastAllocated is { Value.Value: ushort.MaxValue })
+        if (lastAllocated is { Value: ushort.MaxValue })
         {
             throw new InvalidOperationException("The lifetime-strict transaction_id space is exhausted for this device.");
         }
