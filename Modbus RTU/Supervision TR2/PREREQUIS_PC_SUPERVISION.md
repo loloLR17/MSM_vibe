@@ -26,7 +26,7 @@ Les entrées sont volontairement classées par statut afin de ne pas transformer
 | Élément | Statut | Exigence actuelle | Source / remarque |
 |---|---|---|---|
 | Système d'exploitation 64 bits | À FIGER | La supervision est destinée à un PC de supervision 64 bits. | La version minimale de Windows n'est pas encore gelée. |
-| Windows | À FIGER | Cible d'exploitation envisagée pour MSM. | Ne pas inscrire Windows 10/11 comme minimum tant que la composition et le packaging du service ne sont pas gelés. |
+| Windows | À FIGER | Cible d'exploitation envisagée pour MSM. | Ne pas inscrire Windows 10/11 comme minimum tant que le packaging du service n'est pas gelé. |
 | Linux | NON REQUIS | Aucun besoin de Linux/WSL pour exploiter la supervision. | WSL peut rester un outil de développement local, pas un prérequis de production. |
 
 ---
@@ -47,16 +47,15 @@ Les entrées sont volontairement classées par statut afin de ne pas transformer
 | Élément | Statut | Exigence actuelle | Source / remarque |
 |---|---|---|---|
 | SQLite | REQUIS à partir de S2 | Moteur local retenu pour la persistance structurée. | `ARBITRAGE_SUPERVISION_S2A_PERSISTENCE_POLICY.md`. |
-| `Microsoft.Data.Sqlite` | REQUIS à partir de S2-B | Fournisseur ADO.NET retenu. | Installé comme dépendance NuGet de l'application, pas comme logiciel PC séparé. |
-| SQL Server | NON REQUIS | Aucun serveur SQL externe local. | Architecture offline-first avec SQLite local. |
-| SQL Server Express | NON REQUIS | Aucun besoin. | Idem. |
+| `Microsoft.Data.Sqlite` | REQUIS à partir de S2-B | Fournisseur ADO.NET retenu. | Dépendance NuGet de l'application, pas logiciel PC séparé. |
+| SQL Server / SQL Server Express | NON REQUIS | Aucun serveur SQL externe local. | Architecture offline-first avec SQLite local. |
 | Service de base de données Windows séparé | NON REQUIS | SQLite est embarqué/in-process. | Aucun daemon/service DB à administrer. |
-| Outil CLI `sqlite3` | NON REQUIS | Pas nécessaire à l'exécution normale. | Peut être utilisé ponctuellement en diagnostic, sans devenir un prérequis. |
-| Entity Framework Core | NON REQUIS | S2 utilise SQL explicite via `Microsoft.Data.Sqlite`. | Décision S2-A. |
+| Outil CLI `sqlite3` | NON REQUIS | Pas nécessaire à l'exécution normale. | Diagnostic ponctuel seulement. |
+| Entity Framework Core | NON REQUIS | SQL explicite via `Microsoft.Data.Sqlite`. | Décision S2-A. |
 
-La base SQLite doit résider sur un **filesystem local du PC de supervision**. L'exploitation directe de la base active depuis un partage réseau n'est pas supportée par la politique S2.
+La base SQLite doit résider sur un **filesystem local du PC de supervision**. L'exploitation directe de la base active depuis un partage réseau n'est pas supportée.
 
-À la clôture S2, le schéma structuré courant est `PRAGMA user_version = 5`. Le schéma est documenté dans `SUPERVISION_S2_PERSISTENCE_SCHEMA.md`.
+À la clôture S4, le schéma structuré courant est `PRAGMA user_version = 6`. La migration S4 ajoute la catégorie stable du journal de défaillances de communication et étend les opérations journalisables à `Polling`, `ExplicitRefresh`, `CommandTransaction` et `CampaignSelection`.
 
 ---
 
@@ -77,10 +76,17 @@ En mode WAL, les fichiers `*.db`, `*.db-wal` et `*.db-shm` peuvent faire partie 
 
 | Élément | Statut | Exigence actuelle | Source / remarque |
 |---|---|---|---|
-| Interface série RS-485 | FUTUR | Nécessaire lorsque le transport Modbus RTU physique sera raccordé. | S1 n'a pas encore gelé l'adaptateur physique. |
-| Adaptateur USB/RS-485 précis | À FIGER | Modèle, chipset et driver non sélectionnés. | À qualifier lors de la phase transport matériel. |
-| Driver Windows de l'adaptateur | FUTUR | Dépendra de l'adaptateur retenu. | Non requis pour les tranches host actuelles. |
-| Port COM disponible | FUTUR | Nécessaire au runtime physique. | Pas encore consommé par S2. |
+| Interface série RS-485 | REQUIS pour exploitation Modbus RTU physique | S4 raccorde effectivement le transport série physique derrière les contrats neutres `IRegisterTransport` / `IRegisterWriteTransport`. | Validation électrique et matérielle encore à réaliser sur banc réel. |
+| Adaptateur USB/RS-485 précis | À FIGER | Modèle, chipset et driver non sélectionnés/qualifiés. | Le logiciel S4 ne donne aucune autorité d'identité au port COM. |
+| Driver OS de l'adaptateur | À FIGER | Dépendra de l'adaptateur retenu. | À qualifier avec le matériel réel. |
+| Port série disponible | REQUIS pour un bus configuré en série | Le nom du port est fourni explicitement par la configuration runtime. | Aucun nom de COM n'est normatif ni fourni par défaut. |
+| Paramètres série | REQUIS par bus série | `PortName`, `BaudRate`, `DataBits`, `Parity`, `StopBits`, `ResponseTimeout` doivent être fournis. | Les valeurs réelles restent à déterminer/qualifier ; aucune valeur de test n'est normative. |
+| `System.IO.Ports` | REQUIS à partir de S4 | Accès série .NET utilisé par l'adaptateur physique. | Dépendance applicative, pas logiciel opérateur séparé. |
+| NModbus | REQUIS à partir de S4 | Bibliothèque Modbus utilisée pour le framing/CRC et les transactions RTU. | Version NuGet retenue : `3.0.83`. |
+| NModbus.Serial | REQUIS à partir de S4 | Adaptation NModbus au port série. | Version NuGet retenue : `3.0.83`. |
+| Retry automatique NModbus | INTERDIT PAR POLITIQUE S4 | `Retries = 0`, `WaitToRetryMilliseconds = 0`; aucun replay caché. | Invariant particulièrement critique pour B5. |
+
+S4 qualifie le **comportement logiciel** du transport : ouverture/fermeture, polling réel derrière l'adaptateur, refresh prioritaire, B5, sélection B6, déconnexion/reconnexion et classification stable des erreurs. S4 **ne qualifie pas** encore un adaptateur USB/RS-485 réel, le câblage, les niveaux électriques, la terminaison/polarisation, les paramètres série réels du TR2 ou les comportements de hot-unplug propres à un driver donné.
 
 ---
 
@@ -107,10 +113,11 @@ En mode WAL, les fichiers `*.db`, `*.db-wal` et `*.db-shm` peuvent faire partie 
 
 | Élément | Statut | Exigence actuelle | Source / remarque |
 |---|---|---|---|
-| Exécution en service Windows | À FIGER | Le projet `TR2.Supervision.Service` existe, mais la composition/installation du service n'est pas gelée. | Phase de composition runtime ultérieure. |
+| Exécution en service Windows | À FIGER | Le runtime long-running et sa composition physique existent, mais installation/packaging Windows Service restent hors S4. | À traiter dans une phase dédiée. |
 | Compte de service dédié | FUTUR | Politique de compte et droits non définie. | À figer avec le packaging/service. |
 | Droits d'écriture sur le dossier de données | REQUIS conceptuellement | Le processus doit pouvoir créer/modifier sa base et ses fichiers associés. | Chemin et ACL précis à figer avec le packaging. |
-| Droits administrateur permanents | NON REQUIS à ce stade | Aucun invariant courant ne justifie un runtime administrateur. | L'installation initiale pourra éventuellement demander une élévation selon le packaging futur. |
+| Droits d'accès au port série | REQUIS conceptuellement | Le processus doit pouvoir ouvrir le port série configuré. | ACL/driver exacts à qualifier sur l'OS et l'adaptateur retenus. |
+| Droits administrateur permanents | NON REQUIS à ce stade | Aucun invariant courant ne justifie un runtime administrateur. | Installation/driver pourront éventuellement demander une élévation. |
 
 ---
 
@@ -120,7 +127,7 @@ En mode WAL, les fichiers `*.db`, `*.db-wal` et `*.db-shm` peuvent faire partie 
 |---|---|---|---|
 | Horloge système PC fonctionnelle | REQUIS | Les timestamps PC sont utilisés par la supervision et l'archivage. | S1/S2. |
 | Synchronisation NTP/heure Windows | À FIGER | Recommandée mais politique opérationnelle non encore décidée. | Ne pas la considérer comme autorité Modbus implicite. |
-| Fuseau horaire | À FIGER | Politique d'affichage à confirmer lors de la composition/UI. | Les timestamps S2 persistés depuis `DateTimeOffset` sont sérialisés en UTC et restent distincts du temps TR2 B2. |
+| Fuseau horaire | À FIGER | Politique d'affichage à confirmer lors de la composition/UI. | Les timestamps persistés sont sérialisés en UTC et restent distincts du temps TR2 B2. |
 
 ---
 
@@ -141,22 +148,24 @@ Ils appartiennent au poste de développement ou au banc firmware, pas à la supe
 
 ---
 
-## 12. État à la clôture de S2
+## 12. État à la clôture de S4
 
-À l'issue de S2, les points certains pour le futur PC sont :
+À l'issue de S4, les points certains pour le futur PC sont :
 
 1. application de supervision basée sur **.NET 10** ;
-2. persistance locale structurée via **SQLite** ;
+2. persistance locale structurée via **SQLite**, schéma courant **6** ;
 3. accès SQLite via **`Microsoft.Data.Sqlite`**, sans SQL Server ni EF Core ;
-4. base active sur disque **local**, en WAL, `synchronous=FULL`, `foreign_keys=ON` ;
-5. schéma SQLite versionné, version courante S2 = **5** ;
-6. stockage durable actuellement implémenté pour B5, B3, journal communication et modèle Installation/Equipment/MeasurementPoint/affectations ;
-7. reprise après fermeture/réouverture host testée sur ces stores ;
-8. fonctionnement **offline-first** ;
-9. aucun transport série physique encore requis pour S2 ;
-10. version minimale exacte de Windows, capacité disque, adaptateur RS-485, packaging .NET, politique de service, sauvegarde et rétention restent à figer.
-
-Aucun nouveau logiciel PC externe n'a été introduit par S2-C à S2-H au-delà des dépendances déjà enregistrées en S2-A/S2-B.
+4. base active sur disque local, en WAL, `synchronous=FULL`, `foreign_keys=ON` ;
+5. transport Modbus RTU physique implémenté derrière des interfaces neutres ;
+6. accès série via `System.IO.Ports`, NModbus `3.0.83` et NModbus.Serial `3.0.83` ;
+7. aucune répétition automatique NModbus autorisée ;
+8. bus série configuré explicitement avec port, baud, bits de données, parité, stop bits et timeout ;
+9. déconnexion I/O, reconnexion cadencée, nouvelle identification B0 et reprise opérationnelle testées côté logiciel ;
+10. polling, refresh, B5 et sélection B6 disposent d'un chemin physique logiciel ;
+11. les défaillances de communication sont classées de façon stable (`Unclassified`, `Timeout`, `Io`, `ModbusExceptionResponse`) et journalisées durablement ;
+12. fonctionnement **offline-first** maintenu ;
+13. aucune validation électrique RS-485 ni qualification d'adaptateur/driver réel n'est revendiquée ;
+14. version minimale exacte de Windows, capacité disque, modèle d'adaptateur RS-485, paramètres série réels, packaging .NET, Windows Service, sauvegarde et rétention restent à figer.
 
 ---
 
