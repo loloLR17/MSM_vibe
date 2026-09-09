@@ -97,10 +97,11 @@ public sealed class SupervisionPollingLoopTests
 
     private static SupervisionRuntimeComposition Compose(string databasePath)
     {
+        var escapedDatabasePath = databasePath.Replace("\\", "\\\\");
         var configuration = RuntimeConfigurationLoader.Parse(
             $$"""
             {
-              "persistence": { "databasePath": "{{databasePath.Replace("\", "\\")}}" },
+              "persistence": { "databasePath": "{{escapedDatabasePath}}" },
               "polling": {
                 "staticRetryMilliseconds": 10,
                 "fastMilliseconds": 20,
