@@ -24,9 +24,15 @@ public sealed class DeviceDetailStaticPageTests
             Assert.Contains("Synthèse", html, StringComparison.Ordinal);
             Assert.Contains("Vibrations", html, StringComparison.Ordinal);
             Assert.Contains("État système", html, StringComparison.Ordinal);
+            Assert.Contains("Configuration", html, StringComparison.Ordinal);
+            Assert.Contains("Campagnes", html, StringComparison.Ordinal);
             Assert.Contains("Diagnostic", html, StringComparison.Ordinal);
             Assert.Contains("Aucune commande B5", html, StringComparison.Ordinal);
+            Assert.Contains("Le Bloc 6 n'expose qu'une entrée à la fois", html, StringComparison.Ordinal);
             Assert.Contains("/api/v1/devices/${deviceId}", script, StringComparison.Ordinal);
+            Assert.Contains("campaignInventoryState", script, StringComparison.Ordinal);
+            Assert.Contains("selectedCampaignValid===1", script, StringComparison.Ordinal);
+            Assert.DoesNotContain("selected_campaign_index", script, StringComparison.Ordinal);
             Assert.DoesNotContain("fetch('/api/v1/commands", script, StringComparison.Ordinal);
             Assert.DoesNotContain("method:'POST'", script, StringComparison.OrdinalIgnoreCase);
         }

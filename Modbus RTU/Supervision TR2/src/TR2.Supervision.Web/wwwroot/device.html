@@ -16,9 +16,10 @@
         <button class="nav-item" data-view="vibration">Vibrations</button>
         <button class="nav-item" data-view="system">État système</button>
         <button class="nav-item" data-view="configuration">Configuration</button>
+        <button class="nav-item" data-view="campaigns">Campagnes</button>
         <button class="nav-item" data-view="diagnostic">Diagnostic</button>
       </nav>
-      <div class="scope">S7-E3 · lecture seule<br>Aucune commande B5</div>
+      <div class="scope">S7-F2 · lecture seule<br>Aucune commande B5</div>
     </aside>
     <main>
       <header class="status-band">
@@ -36,6 +37,7 @@
         <div id="vibrationView" class="device-view hidden"><div class="detail-grid"><article class="detail-card"><h2>Grandeurs globales B3</h2><dl id="vibrationGlobal"></dl></article><article class="detail-card"><h2>Axes B3</h2><dl id="vibrationAxes"></dl></article><article class="detail-card"><h2>Qualification B3</h2><dl id="vibrationQuality"></dl></article><article class="detail-card"><h2>Compteurs B3</h2><dl id="vibrationCounters"></dl></article></div><p class="scope-note">Toutes les valeurs vibratoires affichées proviennent du Bloc 3 et sont exprimées en accélération mg. Aucun calcul mm/s, FFT ou seuil ISO n'est effectué.</p></div>
         <div id="systemView" class="device-view hidden"><div class="detail-grid"><article class="detail-card"><h2>Bloc 1 — État système</h2><dl id="systemState"></dl></article><article class="detail-card"><h2>Bloc 2 — Temps</h2><dl id="timeState"></dl></article></div></div>
         <div id="configurationView" class="device-view hidden"><div class="detail-grid"><article class="detail-card"><h2>B4 — Métadonnées</h2><dl id="configMeta"></dl></article><article class="detail-card"><h2>Configuration préparée</h2><dl id="configPrepared"></dl></article><article class="detail-card"><h2>Configuration active</h2><dl id="configActive"></dl></article><article class="detail-card"><h2>Contexte B4</h2><dl id="configContext"></dl></article></div><p class="scope-note">Lecture seule. Les valeurs préparées et actives sont affichées séparément ; aucun APPLY_CONFIG n'est émis depuis cette vue.</p></div>
+        <div id="campaignsView" class="device-view hidden"><div class="detail-grid"><article class="detail-card"><h2>B6 — Inventaire & stockage</h2><dl id="campaignInventory"></dl></article><article class="detail-card"><h2>Sélection courante</h2><dl id="campaignSelection"></dl></article><article class="detail-card"><h2>Campagne exposée</h2><dl id="campaignEntry"></dl></article><article class="detail-card"><h2>Contexte B6</h2><dl id="campaignContext"></dl></article></div><p class="scope-note">Lecture seule. Le Bloc 6 n'expose qu'une entrée à la fois. Cette vue n'écrit pas selected_campaign_index et ne construit pas de liste artificielle côté Web.</p></div>
         <div id="diagnosticView" class="device-view hidden"><div class="detail-grid"><article class="detail-card"><h2>Bloc 7 — Diagnostic</h2><dl id="diagnosticState"></dl></article><article class="detail-card"><h2>Contexte de réception</h2><dl id="diagnosticContext"></dl></article></div></div>
       </section>
     </main>
