@@ -55,7 +55,7 @@ Les entrées sont volontairement classées par statut afin de ne pas transformer
 
 La base SQLite doit résider sur un **filesystem local du PC de supervision**. L'exploitation directe de la base active depuis un partage réseau n'est pas supportée.
 
-À la clôture S4, le schéma structuré courant est `PRAGMA user_version = 6`. La migration S4 ajoute la catégorie stable du journal de défaillances de communication et étend les opérations journalisables à `Polling`, `ExplicitRefresh`, `CommandTransaction` et `CampaignSelection`.
+À la clôture S5, le schéma structuré courant reste `PRAGMA user_version = 6`. S5 n'ajoute aucune migration. La robustesse du journal de communication a été exercée par charge répétée, réouverture, accès concurrents writer/reader et `PRAGMA integrity_check`, sans modifier le modèle de persistance gelé.
 
 ---
 
@@ -86,7 +86,7 @@ En mode WAL, les fichiers `*.db`, `*.db-wal` et `*.db-shm` peuvent faire partie 
 | NModbus.Serial | REQUIS à partir de S4 | Adaptation NModbus au port série. | Version NuGet retenue : `3.0.83`. |
 | Retry automatique NModbus | INTERDIT PAR POLITIQUE S4 | `Retries = 0`, `WaitToRetryMilliseconds = 0`; aucun replay caché. | Invariant particulièrement critique pour B5. |
 
-S4 qualifie le **comportement logiciel** du transport : ouverture/fermeture, polling réel derrière l'adaptateur, refresh prioritaire, B5, sélection B6, déconnexion/reconnexion et classification stable des erreurs. S4 **ne qualifie pas** encore un adaptateur USB/RS-485 réel, le câblage, les niveaux électriques, la terminaison/polarisation, les paramètres série réels du TR2 ou les comportements de hot-unplug propres à un driver donné.
+S4 qualifie le **comportement logiciel** du transport : ouverture/fermeture, polling réel derrière l'adaptateur, refresh prioritaire, B5, sélection B6, déconnexion/reconnexion et classification stable des erreurs. S5 conserve ces invariants et améliore leur exploitabilité côté PC, mais **ne qualifie toujours pas** un adaptateur USB/RS-485 réel, le câblage, les niveaux électriques, la terminaison/polarisation, les paramètres série réels du TR2 ou les comportements de hot-unplug propres à un driver donné.
 
 ---
 
@@ -113,11 +113,15 @@ S4 qualifie le **comportement logiciel** du transport : ouverture/fermeture, pol
 
 | Élément | Statut | Exigence actuelle | Source / remarque |
 |---|---|---|---|
-| Exécution en service Windows | À FIGER | Le runtime long-running et sa composition physique existent, mais installation/packaging Windows Service restent hors S4. | À traiter dans une phase dédiée. |
+| Host console `TR2.Supervision.Service --config <path>` | REQUIS avec l'état S5 | Point d'entrée exécutable actuel de la supervision. | S5-B ; aucun chemin de configuration implicite. |
+| Fichier de configuration opératoire | REQUIS avec l'état S5 | Fournit persistance, bus, endpoints et paramètres série éventuels. | S5-C ; les valeurs série d'exemple ne sont pas normatives. |
+| Exécution en service Windows | À FIGER | Le runtime long-running et le host console existent, mais installation/packaging Windows Service restent hors S5. | À traiter dans une phase dédiée. |
 | Compte de service dédié | FUTUR | Politique de compte et droits non définie. | À figer avec le packaging/service. |
 | Droits d'écriture sur le dossier de données | REQUIS conceptuellement | Le processus doit pouvoir créer/modifier sa base et ses fichiers associés. | Chemin et ACL précis à figer avec le packaging. |
 | Droits d'accès au port série | REQUIS conceptuellement | Le processus doit pouvoir ouvrir le port série configuré. | ACL/driver exacts à qualifier sur l'OS et l'adaptateur retenus. |
 | Droits administrateur permanents | NON REQUIS à ce stade | Aucun invariant courant ne justifie un runtime administrateur. | Installation/driver pourront éventuellement demander une élévation. |
+
+Le host console S5 utilise les codes de sortie de **SUPERVISION_POLICY** suivants : `0` pour arrêt normal/cancellation demandée, `1` pour défaillance runtime, `2` pour erreur d'usage ou de configuration.
 
 ---
 
@@ -148,9 +152,9 @@ Ils appartiennent au poste de développement ou au banc firmware, pas à la supe
 
 ---
 
-## 12. État à la clôture de S4
+## 12. État à la clôture de S5
 
-À l'issue de S4, les points certains pour le futur PC sont :
+À l'issue de S5, les points certains pour le futur PC sont :
 
 1. application de supervision basée sur **.NET 10** ;
 2. persistance locale structurée via **SQLite**, schéma courant **6** ;
@@ -163,9 +167,15 @@ Ils appartiennent au poste de développement ou au banc firmware, pas à la supe
 9. déconnexion I/O, reconnexion cadencée, nouvelle identification B0 et reprise opérationnelle testées côté logiciel ;
 10. polling, refresh, B5 et sélection B6 disposent d'un chemin physique logiciel ;
 11. les défaillances de communication sont classées de façon stable (`Unclassified`, `Timeout`, `Io`, `ModbusExceptionResponse`) et journalisées durablement ;
-12. fonctionnement **offline-first** maintenu ;
-13. aucune validation électrique RS-485 ni qualification d'adaptateur/driver réel n'est revendiquée ;
-14. version minimale exacte de Windows, capacité disque, modèle d'adaptateur RS-485, paramètres série réels, packaging .NET, Windows Service, sauvegarde et rétention restent à figer.
+12. le host console exécutable est `TR2.Supervision.Service --config <path>` ;
+13. les erreurs de configuration et les erreurs runtime sont distinguées par diagnostics et codes de sortie ;
+14. le démarrage série multi-bus est atomique : un échec partiel ne conserve pas les connexions déjà ouvertes ;
+15. la reprise B5 au redémarrage restaure tout état non terminal en `Ambiguous`, sans replay ; un journal incohérent fait échouer le startup avant readiness ;
+16. les diagnostics locaux exposent état runtime/readiness, bus connectés, états d'identification endpoint et dernières défaillances de communication persistées ;
+17. les campagnes de robustesse pré-matériel couvrent scheduler soutenu, runtime multi-bus/multi-endpoints, journalisation répétée et accès SQLite concurrents ;
+18. fonctionnement **offline-first** maintenu ;
+19. aucune validation électrique RS-485 ni qualification d'adaptateur/driver réel n'est revendiquée ;
+20. version minimale exacte de Windows, capacité disque, modèle d'adaptateur RS-485, paramètres série réels, packaging .NET, Windows Service, sauvegarde et rétention restent à figer.
 
 ---
 
