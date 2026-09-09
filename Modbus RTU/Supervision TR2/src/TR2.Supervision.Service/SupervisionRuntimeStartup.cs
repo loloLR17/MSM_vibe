@@ -41,6 +41,19 @@ public sealed class SupervisionRuntimeStartup
             await recoveryService.RestoreAsync(coordinator, cancellationToken);
         }
 
+        foreach (var bus in _composition.Configuration.Buses)
+        {
+            if (bus.Serial is null)
+            {
+                continue;
+            }
+
+            await _composition.BusConnectionManager.OpenAsync(
+                bus.Bus.Id,
+                RuntimeSerialTransportMapper.Map(bus.Serial),
+                cancellationToken);
+        }
+
         _composition.ReadinessGate.MarkReady();
     }
 }
