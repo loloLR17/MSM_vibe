@@ -15,6 +15,7 @@ public static class CommunicationFailureClassifier
             {
                 ModbusTransportFailureKind.Timeout => CommunicationFailureCategory.Timeout,
                 ModbusTransportFailureKind.Io => CommunicationFailureCategory.Io,
+                ModbusTransportFailureKind.ModbusExceptionResponse => CommunicationFailureCategory.ModbusExceptionResponse,
                 _ => CommunicationFailureCategory.Unclassified
             },
             _ => CommunicationFailureCategory.Unclassified
