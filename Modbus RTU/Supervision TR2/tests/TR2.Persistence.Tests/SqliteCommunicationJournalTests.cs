@@ -130,14 +130,14 @@ public sealed class SqliteCommunicationJournalTests : IDisposable
             var endpoint = new TR2Endpoint(
                 new SerialBus(index % 2 == 0 ? "rs485-stress-a" : "rs485-stress-b"),
                 new ModbusAddress((byte)((index % 8) + 1)));
-            var operation = index % 4 switch
+            var operation = (index % 4) switch
             {
                 0 => CommunicationOperation.Polling,
                 1 => CommunicationOperation.ExplicitRefresh,
                 2 => CommunicationOperation.CommandTransaction,
                 _ => CommunicationOperation.CampaignSelection
             };
-            var category = index % 4 switch
+            var category = (index % 4) switch
             {
                 0 => CommunicationFailureCategory.Timeout,
                 1 => CommunicationFailureCategory.Io,
