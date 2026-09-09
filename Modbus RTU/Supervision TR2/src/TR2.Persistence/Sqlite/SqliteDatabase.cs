@@ -5,7 +5,7 @@ namespace TR2.Persistence.Sqlite;
 
 public sealed class SqliteDatabase
 {
-    public const int CurrentSchemaVersion = 4;
+    public const int CurrentSchemaVersion = 5;
 
     private readonly SqlitePersistenceOptions _options;
 
@@ -85,6 +85,7 @@ public sealed class SqliteDatabase
                 1 => ApplyMigration2(connection),
                 2 => ApplyMigration3(connection),
                 3 => ApplyMigration4(connection),
+                4 => ApplyMigration5(connection),
                 _ => throw new InvalidOperationException($"No migration path is defined from schema version {version}.")
             };
         }
@@ -227,6 +228,63 @@ public sealed class SqliteDatabase
         SetUserVersion(connection, transaction, 4);
         transaction.Commit();
         return 4;
+    }
+
+    private static int ApplyMigration5(SqliteConnection connection)
+    {
+        using var transaction = connection.BeginTransaction();
+        using (var command = connection.CreateCommand())
+        {
+            command.Transaction = transaction;
+            command.CommandText = """
+                CREATE TABLE installation (
+                    installation_id TEXT NOT NULL PRIMARY KEY CHECK (length(trim(installation_id)) > 0),
+                    name TEXT NOT NULL CHECK (length(trim(name)) > 0)
+                );
+
+                CREATE TABLE equipment (
+                    equipment_id TEXT NOT NULL PRIMARY KEY CHECK (length(trim(equipment_id)) > 0),
+                    installation_id TEXT NOT NULL,
+                    name TEXT NOT NULL CHECK (length(trim(name)) > 0),
+                    FOREIGN KEY (installation_id) REFERENCES installation(installation_id)
+                );
+
+                CREATE TABLE measurement_point (
+                    measurement_point_id TEXT NOT NULL PRIMARY KEY CHECK (length(trim(measurement_point_id)) > 0),
+                    equipment_id TEXT NOT NULL,
+                    name TEXT NOT NULL CHECK (length(trim(name)) > 0),
+                    FOREIGN KEY (equipment_id) REFERENCES equipment(equipment_id)
+                );
+
+                CREATE TABLE equipment_assignment (
+                    assignment_id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+                    device_id INTEGER NOT NULL CHECK (device_id BETWEEN 0 AND 4294967295),
+                    measurement_point_id TEXT NOT NULL,
+                    valid_from_utc TEXT NOT NULL,
+                    valid_to_utc TEXT NULL,
+                    CHECK (valid_to_utc IS NULL OR valid_to_utc > valid_from_utc),
+                    FOREIGN KEY (measurement_point_id) REFERENCES measurement_point(measurement_point_id)
+                );
+
+                CREATE UNIQUE INDEX ux_equipment_assignment_active_device
+                ON equipment_assignment(device_id)
+                WHERE valid_to_utc IS NULL;
+
+                CREATE UNIQUE INDEX ux_equipment_assignment_active_point
+                ON equipment_assignment(measurement_point_id)
+                WHERE valid_to_utc IS NULL;
+
+                CREATE INDEX ix_equipment_assignment_device_history
+                ON equipment_assignment(device_id, assignment_id);
+
+                CREATE INDEX ix_equipment_assignment_point_history
+                ON equipment_assignment(measurement_point_id, assignment_id);
+                """;
+            command.ExecuteNonQuery();
+        }
+        SetUserVersion(connection, transaction, 5);
+        transaction.Commit();
+        return 5;
     }
 
     private static void SetUserVersion(SqliteConnection connection, SqliteTransaction transaction, int version)
