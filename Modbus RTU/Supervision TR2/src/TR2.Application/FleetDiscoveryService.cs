@@ -8,11 +8,13 @@ public sealed class FleetDiscoveryService
     private readonly FleetRegistry _fleetRegistry;
     private readonly IB0SessionReader _b0SessionReader;
     private readonly ushort _supportedProtocolVersion;
+    private readonly FleetRefreshPlanner? _refreshPlanner;
 
     public FleetDiscoveryService(
         FleetRegistry fleetRegistry,
         IB0SessionReader b0SessionReader,
-        ushort supportedProtocolVersion)
+        ushort supportedProtocolVersion,
+        FleetRefreshPlanner? refreshPlanner = null)
     {
         ArgumentNullException.ThrowIfNull(fleetRegistry);
         ArgumentNullException.ThrowIfNull(b0SessionReader);
@@ -20,6 +22,7 @@ public sealed class FleetDiscoveryService
         _fleetRegistry = fleetRegistry;
         _b0SessionReader = b0SessionReader;
         _supportedProtocolVersion = supportedProtocolVersion;
+        _refreshPlanner = refreshPlanner;
     }
 
     public async ValueTask<TR2Session> RefreshAsync(
@@ -49,5 +52,23 @@ public sealed class FleetDiscoveryService
             _fleetRegistry.SetSession(current.MarkDisconnected());
             throw;
         }
+    }
+
+    public async ValueTask<(TR2Session Session, IReadOnlyList<ScheduledBlockRefresh> Refreshes)> ReconnectAsync(
+        TR2Endpoint endpoint,
+        DateTimeOffset dueAt,
+        CancellationToken cancellationToken = default)
+    {
+        if (_refreshPlanner is null)
+        {
+            throw new InvalidOperationException("A refresh planner is required for reconnect orchestration.");
+        }
+
+        var session = await RefreshAsync(endpoint, cancellationToken);
+        var refreshes = session.State == TR2SessionState.Compatible
+            ? _refreshPlanner.QueuePostReconnectRefresh(session, dueAt)
+            : Array.Empty<ScheduledBlockRefresh>();
+
+        return (session, refreshes);
     }
 }
