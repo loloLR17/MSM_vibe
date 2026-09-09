@@ -50,6 +50,69 @@ public sealed class ExplicitRefreshTelemetryCycleTests
     }
 
     [Fact]
+    public async Task B3_refresh_is_archived_with_device_identity_and_receive_time()
+    {
+        var endpoint = Endpoint();
+        var deviceId = new DeviceId(1001);
+        var fleet = CompatibleFleet(endpoint, deviceId);
+        var telemetry = new DeviceTelemetrySnapshotRegistry();
+        var archiveSink = new RecordingArchiveSink();
+        var scheduler = new BusWorkScheduler();
+        var cycle = Cycle(scheduler, new ZeroTransport(), fleet, telemetry, archiveSink);
+        var refresh = ActiveRefresh(scheduler, endpoint, TR2RegisterBlock.B3);
+
+        await cycle.ExecuteAndPublishAsync(refresh, ReceivedAt);
+
+        var observation = Assert.Single(archiveSink.Observations);
+        Assert.Equal(deviceId, observation.DeviceId);
+        Assert.Equal(ReceivedAt, observation.ReceivedAt);
+        Assert.Equal(telemetry.Get(deviceId).VibrationState.LastValue, observation.Value);
+    }
+
+    [Fact]
+    public async Task Non_B3_refresh_does_not_archive_observation()
+    {
+        var endpoint = Endpoint();
+        var deviceId = new DeviceId(1001);
+        var fleet = CompatibleFleet(endpoint, deviceId);
+        var telemetry = new DeviceTelemetrySnapshotRegistry();
+        var archiveSink = new RecordingArchiveSink();
+        var scheduler = new BusWorkScheduler();
+        var cycle = Cycle(scheduler, new ZeroTransport(), fleet, telemetry, archiveSink);
+        var refresh = ActiveRefresh(scheduler, endpoint, TR2RegisterBlock.B1);
+
+        await cycle.ExecuteAndPublishAsync(refresh, ReceivedAt);
+
+        Assert.Empty(archiveSink.Observations);
+    }
+
+    [Fact]
+    public async Task Archive_failure_does_not_disconnect_successfully_refreshed_device()
+    {
+        var endpoint = Endpoint();
+        var deviceId = new DeviceId(1001);
+        var fleet = CompatibleFleet(endpoint, deviceId);
+        var telemetry = new DeviceTelemetrySnapshotRegistry();
+        var scheduler = new BusWorkScheduler();
+        var cycle = Cycle(
+            scheduler,
+            new ZeroTransport(),
+            fleet,
+            telemetry,
+            new ThrowingArchiveSink(new IOException("Injected archive failure.")));
+        var refresh = ActiveRefresh(scheduler, endpoint, TR2RegisterBlock.B3);
+
+        var error = await Assert.ThrowsAsync<IOException>(async () =>
+            await cycle.ExecuteAndPublishAsync(refresh, ReceivedAt));
+
+        Assert.Equal("Injected archive failure.", error.Message);
+        Assert.Equal(TR2SessionState.Compatible, fleet.GetSession(endpoint).State);
+        Assert.True(telemetry.Get(deviceId).VibrationState.IsAvailable);
+        Assert.Equal(ReceivedAt, telemetry.Get(deviceId).VibrationState.ReceivedAt);
+        Assert.Null(scheduler.BeginNext(endpoint.Bus, ReceivedAt));
+    }
+
+    [Fact]
     public async Task Successful_refresh_restores_availability_for_refreshed_telemetry_block()
     {
         var endpoint = Endpoint();
@@ -161,12 +224,18 @@ public sealed class ExplicitRefreshTelemetryCycleTests
         BusWorkScheduler scheduler,
         IRegisterTransport transport,
         FleetRegistry fleet,
-        DeviceTelemetrySnapshotRegistry telemetry) =>
-        new(
+        DeviceTelemetrySnapshotRegistry telemetry,
+        IB3ArchiveSink? archiveSink = null)
+    {
+        archiveSink ??= new RecordingArchiveSink();
+
+        return new ExplicitRefreshTelemetryCycle(
             new ExplicitRefreshExecutor(scheduler, transport),
             new PollingTelemetryPublisher(fleet, telemetry),
+            new B3ArchivePublisher(fleet, archiveSink),
             new IOExceptionFailureClassifier(),
             fleet);
+    }
 
     private static ScheduledBlockRefresh ActiveRefresh(
         BusWorkScheduler scheduler,
@@ -192,6 +261,27 @@ public sealed class ExplicitRefreshTelemetryCycleTests
     private sealed class IOExceptionFailureClassifier : IPollingFailureClassifier
     {
         public bool IsCommunicationFailure(Exception exception) => exception is IOException;
+    }
+
+    private sealed class RecordingArchiveSink : IB3ArchiveSink
+    {
+        public List<B3ArchiveObservation> Observations { get; } = [];
+
+        public ValueTask AppendAsync(
+            B3ArchiveObservation observation,
+            CancellationToken cancellationToken = default)
+        {
+            Observations.Add(observation);
+            return ValueTask.CompletedTask;
+        }
+    }
+
+    private sealed class ThrowingArchiveSink(Exception exception) : IB3ArchiveSink
+    {
+        public ValueTask AppendAsync(
+            B3ArchiveObservation observation,
+            CancellationToken cancellationToken = default) =>
+            ValueTask.FromException(exception);
     }
 
     private sealed class ZeroTransport : IRegisterTransport
