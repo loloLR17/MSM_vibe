@@ -8,6 +8,8 @@ public static class SupervisionConsoleApplication
     public const int RuntimeFailureExitCode = 1;
     public const int UsageOrConfigurationExitCode = 2;
 
+    private const int LatestCommunicationFailureDiagnosticLimit = 10;
+
     public static async Task<int> RunAsync(
         IReadOnlyList<string> args,
         ushort supportedProtocolVersion,
@@ -99,6 +101,35 @@ public static class SupervisionConsoleApplication
             await output.WriteLineAsync(
                 $"Endpoint {endpoint.BusId}/{endpoint.Address}: " +
                 $"session={endpoint.SessionState}; deviceId={deviceId}");
+        }
+
+        await WriteCommunicationFailureDiagnosticsAsync(runtime, output);
+    }
+
+    private static async Task WriteCommunicationFailureDiagnosticsAsync(
+        PhysicalSupervisionRuntime runtime,
+        TextWriter output)
+    {
+        var failures = runtime.Composition.CommunicationJournalSink
+            .ReadLatest(LatestCommunicationFailureDiagnosticLimit);
+
+        if (failures.Count == 0)
+        {
+            await output.WriteLineAsync("Communication failures: none");
+            return;
+        }
+
+        await output.WriteLineAsync(
+            $"Communication failures: latest={failures.Count}; limit={LatestCommunicationFailureDiagnosticLimit}");
+
+        foreach (var failure in failures)
+        {
+            var deviceId = failure.DeviceId?.ToString() ?? "none";
+            await output.WriteLineAsync(
+                $"Communication failure {failure.FailureId}: " +
+                $"endpoint={failure.BusId}/{failure.ModbusAddress}; deviceId={deviceId}; " +
+                $"operation={failure.Operation}; category={failure.Category}; " +
+                $"observedUtc={failure.ObservedAt:O}; exception={failure.ExceptionType}; message={failure.Message}");
         }
     }
 
