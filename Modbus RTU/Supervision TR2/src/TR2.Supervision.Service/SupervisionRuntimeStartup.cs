@@ -41,17 +41,28 @@ public sealed class SupervisionRuntimeStartup
             await recoveryService.RestoreAsync(coordinator, cancellationToken);
         }
 
-        foreach (var bus in _composition.Configuration.Buses)
+        try
         {
-            if (bus.Serial is null)
+            foreach (var bus in _composition.Configuration.Buses)
             {
-                continue;
-            }
+                if (bus.Serial is null)
+                {
+                    continue;
+                }
 
-            await _composition.BusConnectionManager.OpenAsync(
-                bus.Bus.Id,
-                RuntimeSerialTransportMapper.Map(bus.Serial),
-                cancellationToken);
+                await _composition.BusConnectionManager.OpenAsync(
+                    bus.Bus.Id,
+                    RuntimeSerialTransportMapper.Map(bus.Serial),
+                    cancellationToken);
+            }
+        }
+        catch
+        {
+            // Startup is atomic from the host point of view: if one configured
+            // serial bus cannot be opened, no previously opened bus may remain
+            // owned by a failed one-shot runtime composition.
+            await _composition.BusConnectionManager.DisposeAsync();
+            throw;
         }
 
         _composition.ReadinessGate.MarkReady();
