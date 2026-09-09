@@ -1,3 +1,4 @@
+using System.IO;
 using TR2.Transport;
 using Xunit;
 
@@ -35,6 +36,38 @@ public sealed class ModbusRegisterTransportTests
         Assert.Equal((ushort)200, client.LastWriteStartAddress);
         Assert.Equal(new ushort[] { 1, 2, 3 }, client.LastWriteValues);
         Assert.Equal(1, client.WriteCallCount);
+    }
+
+    [Fact]
+    public async Task TimeoutIsWrappedAsNeutralTransportFailure()
+    {
+        var client = new FakeModbusRegisterClient
+        {
+            ReadException = new TimeoutException("no response")
+        };
+        var transport = new ModbusRegisterTransport("bus-1", client);
+
+        var exception = await Assert.ThrowsAsync<ModbusTransportFailureException>(async () =>
+            await transport.ReadRegistersAsync("bus-1", 1, 0, 1));
+
+        Assert.Equal(ModbusTransportFailureKind.Timeout, exception.Kind);
+        Assert.IsType<TimeoutException>(exception.InnerException);
+    }
+
+    [Fact]
+    public async Task IoFailureIsWrappedAsNeutralTransportFailure()
+    {
+        var client = new FakeModbusRegisterClient
+        {
+            ReadException = new IOException("port removed")
+        };
+        var transport = new ModbusRegisterTransport("bus-1", client);
+
+        var exception = await Assert.ThrowsAsync<ModbusTransportFailureException>(async () =>
+            await transport.ReadRegistersAsync("bus-1", 1, 0, 1));
+
+        Assert.Equal(ModbusTransportFailureKind.Io, exception.Kind);
+        Assert.IsType<IOException>(exception.InnerException);
     }
 
     [Fact]
@@ -92,6 +125,8 @@ public sealed class ModbusRegisterTransportTests
     private sealed class FakeModbusRegisterClient : IModbusRegisterClient
     {
         public ushort[] ReadResult { get; init; } = [0];
+        public Exception? ReadException { get; init; }
+        public Exception? WriteException { get; init; }
         public int ReadCallCount { get; private set; }
         public int WriteCallCount { get; private set; }
         public byte LastReadUnitAddress { get; private set; }
@@ -110,6 +145,12 @@ public sealed class ModbusRegisterTransportTests
             LastReadUnitAddress = unitAddress;
             LastReadStartAddress = startAddress;
             LastReadRegisterCount = registerCount;
+
+            if (ReadException is not null)
+            {
+                return Task.FromException<ushort[]>(ReadException);
+            }
+
             return Task.FromResult(ReadResult);
         }
 
@@ -122,7 +163,10 @@ public sealed class ModbusRegisterTransportTests
             LastWriteUnitAddress = unitAddress;
             LastWriteStartAddress = startAddress;
             LastWriteValues = values;
-            return Task.CompletedTask;
+
+            return WriteException is null
+                ? Task.CompletedTask
+                : Task.FromException(WriteException);
         }
     }
 }
