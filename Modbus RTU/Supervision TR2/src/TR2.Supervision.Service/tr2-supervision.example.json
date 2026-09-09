@@ -1,0 +1,11 @@
+{
+  "persistence": {
+    "databasePath": "data/tr2-supervision.db"
+  },
+  "buses": [
+    {
+      "id": "bus-1",
+      "endpoints": [1, 2, 3]
+    }
+  ]
+}
