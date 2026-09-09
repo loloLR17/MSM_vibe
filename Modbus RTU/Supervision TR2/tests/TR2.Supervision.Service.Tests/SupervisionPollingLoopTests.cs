@@ -123,6 +123,40 @@ public sealed class SupervisionPollingLoopTests
     }
 
     [Fact]
+    public async Task RuntimeSustainsMultipleEndpointsAcrossBusesAndCancelsCleanly()
+    {
+        var databasePath = NewDatabasePath();
+        try
+        {
+            var composition = ComposeMultiEndpoint(databasePath);
+            var runner = new MultiEndpointRecordingPollingRunner(composition);
+            var loop = new SupervisionPollingLoop(composition, runner);
+            var host = new SupervisionRuntimeHost(composition, loop);
+            using var cancellation = new CancellationTokenSource();
+
+            var runTask = host.RunAsync(cancellation.Token);
+            await WaitForAsync(() => runner.TotalExecutions >= 80);
+
+            var counts = runner.ExecutionCounts;
+            Assert.Equal(4, counts.Count);
+            Assert.All(counts.Values, count => Assert.True(count >= 10));
+            Assert.Equal(SupervisionRuntimeState.Running, host.State);
+            Assert.True(composition.ReadinessGate.IsReady);
+
+            cancellation.Cancel();
+            await runTask;
+
+            Assert.Equal(SupervisionRuntimeState.Stopped, host.State);
+            Assert.False(composition.ReadinessGate.IsReady);
+            Assert.Throws<InvalidOperationException>(() => composition.ReadinessGate.EnsureReady());
+        }
+        finally
+        {
+            DeleteDatabaseFiles(databasePath);
+        }
+    }
+
+    [Fact]
     public async Task RuntimeLoopUsesConfiguredReconnectCadenceForDisconnectedSerialBus()
     {
         var databasePath = NewDatabasePath();
@@ -173,6 +207,31 @@ public sealed class SupervisionPollingLoopTests
               },
               "buses": [
                 { "id": "bus-1", "endpoints": [1] }
+              ]
+            }
+            """,
+            Path.GetDirectoryName(databasePath)!);
+
+        return SupervisionRuntimeCompositionRoot.Compose(configuration);
+    }
+
+    private static SupervisionRuntimeComposition ComposeMultiEndpoint(string databasePath)
+    {
+        var escapedDatabasePath = databasePath.Replace("\\", "\\\\");
+        var configuration = RuntimeConfigurationLoader.Parse(
+            $$"""
+            {
+              "persistence": { "databasePath": "{{escapedDatabasePath}}" },
+              "polling": {
+                "staticRetryMilliseconds": 2,
+                "fastMilliseconds": 2,
+                "mediumMilliseconds": 3,
+                "slowMilliseconds": 5,
+                "scanMilliseconds": 1
+              },
+              "buses": [
+                { "id": "bus-a", "endpoints": [1, 2] },
+                { "id": "bus-b", "endpoints": [3, 4] }
               ]
             }
             """,
@@ -270,6 +329,47 @@ public sealed class SupervisionPollingLoopTests
                 {
                     _composition.FleetRegistry.SetSession(
                         TR2Session.CreateCompatible(work.Endpoint, new TR2Device(new DeviceId(1001))));
+                }
+
+                return ValueTask.FromResult(new PollingWorkExecutionResult(true));
+            }
+            finally
+            {
+                _composition.BusWorkScheduler.Complete(work.Endpoint.Bus, work.WorkId);
+            }
+        }
+    }
+
+    private sealed class MultiEndpointRecordingPollingRunner : IPollingWorkRunner
+    {
+        private readonly SupervisionRuntimeComposition _composition;
+        private readonly ConcurrentDictionary<TR2Endpoint, int> _executionCounts = new();
+
+        public MultiEndpointRecordingPollingRunner(SupervisionRuntimeComposition composition)
+        {
+            _composition = composition;
+        }
+
+        public int TotalExecutions => _executionCounts.Values.Sum();
+
+        public IReadOnlyDictionary<TR2Endpoint, int> ExecutionCounts =>
+            new Dictionary<TR2Endpoint, int>(_executionCounts);
+
+        public ValueTask<PollingWorkExecutionResult> ExecuteAsync(
+            ScheduledBusWork work,
+            DateTimeOffset observedAt,
+            CancellationToken cancellationToken = default)
+        {
+            cancellationToken.ThrowIfCancellationRequested();
+            _executionCounts.AddOrUpdate(work.Endpoint, 1, static (_, count) => count + 1);
+
+            try
+            {
+                if (work.PollingGroup == PollingGroup.Static)
+                {
+                    var deviceId = checked((uint)(1000 + work.Endpoint.Address.Value));
+                    _composition.FleetRegistry.SetSession(
+                        TR2Session.CreateCompatible(work.Endpoint, new TR2Device(new DeviceId(deviceId))));
                 }
 
                 return ValueTask.FromResult(new PollingWorkExecutionResult(true));
