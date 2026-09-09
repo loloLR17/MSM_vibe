@@ -1,4 +1,5 @@
 using System.IO;
+using NModbus;
 
 namespace TR2.Transport;
 
@@ -46,6 +47,10 @@ public sealed class ModbusRegisterTransport : IRegisterTransport, IRegisterWrite
                 $"Modbus I/O failure on bus '{_busId}'.",
                 exception);
         }
+        catch (SlaveException exception)
+        {
+            throw CreateExceptionResponseFailure("read", exception);
+        }
     }
 
     public async ValueTask WriteRegistersAsync(
@@ -84,7 +89,21 @@ public sealed class ModbusRegisterTransport : IRegisterTransport, IRegisterWrite
                 $"Modbus I/O failure on bus '{_busId}'.",
                 exception);
         }
+        catch (SlaveException exception)
+        {
+            throw CreateExceptionResponseFailure("write", exception);
+        }
     }
+
+    private ModbusTransportFailureException CreateExceptionResponseFailure(
+        string operation,
+        SlaveException exception) =>
+        new(
+            ModbusTransportFailureKind.ModbusExceptionResponse,
+            $"Modbus {operation} received an exception response on bus '{_busId}'.",
+            exception,
+            exception.FunctionCode,
+            exception.SlaveExceptionCode);
 
     private void ValidateBus(string busId)
     {
