@@ -33,6 +33,7 @@ public static class SupervisionConsoleApplication
         }
         catch (Exception exception) when (
             exception is ArgumentException
+            or InvalidDataException
             or IOException
             or UnauthorizedAccessException)
         {
