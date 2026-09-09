@@ -1,5 +1,6 @@
 using TR2.Domain;
 using TR2.Protocol;
+using Xunit;
 
 namespace TR2.Application.Tests;
 
