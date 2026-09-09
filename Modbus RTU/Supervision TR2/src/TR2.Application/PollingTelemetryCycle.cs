@@ -5,18 +5,22 @@ public sealed class PollingTelemetryCycle
     private readonly PollingBusOrchestrator _polling;
     private readonly PollingTelemetryPublisher _publisher;
     private readonly IPollingFailureClassifier _failureClassifier;
+    private readonly FleetRegistry _fleet;
 
     public PollingTelemetryCycle(
         PollingBusOrchestrator polling,
         PollingTelemetryPublisher publisher,
-        IPollingFailureClassifier failureClassifier)
+        IPollingFailureClassifier failureClassifier,
+        FleetRegistry fleet)
     {
         ArgumentNullException.ThrowIfNull(polling);
         ArgumentNullException.ThrowIfNull(publisher);
         ArgumentNullException.ThrowIfNull(failureClassifier);
+        ArgumentNullException.ThrowIfNull(fleet);
         _polling = polling;
         _publisher = publisher;
         _failureClassifier = failureClassifier;
+        _fleet = fleet;
     }
 
     public async ValueTask<DeviceTelemetrySnapshots?> ExecuteAsync(
@@ -34,6 +38,10 @@ public sealed class PollingTelemetryCycle
         catch (Exception exception) when (_failureClassifier.IsCommunicationFailure(exception))
         {
             _publisher.MarkUnavailable(work.Endpoint);
+
+            var current = _fleet.GetSession(work.Endpoint);
+            _fleet.SetSession(current.MarkDisconnected());
+
             throw;
         }
     }
