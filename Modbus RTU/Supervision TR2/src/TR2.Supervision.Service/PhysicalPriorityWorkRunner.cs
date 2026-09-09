@@ -38,9 +38,13 @@ public sealed class PhysicalPriorityWorkRunner : IPriorityWorkRunner
                 await ExecuteCommandAsync(work, observedAt, cancellationToken).ConfigureAwait(false);
                 return;
 
+            case BusWorkKind.CampaignSelection:
+                await ExecuteCampaignSelectionAsync(work, cancellationToken).ConfigureAwait(false);
+                return;
+
             default:
                 throw new InvalidOperationException(
-                    "Physical priority runner supports explicit refresh and B5 command transaction work only.");
+                    "Physical priority runner supports explicit refresh, B5 command transaction and B6 campaign selection work only.");
         }
     }
 
@@ -126,6 +130,54 @@ public sealed class PhysicalPriorityWorkRunner : IPriorityWorkRunner
             {
                 // If the I/O failure occurred during submit, the transaction is already Ambiguous.
                 // Closing the physical bus forces reconnect + fresh B0 before further operations.
+                await _recovery
+                    .MarkDisconnectedAsync(work.Endpoint.Bus, cancellationToken)
+                    .ConfigureAwait(false);
+            }
+        }
+        finally
+        {
+            _composition.BusWorkScheduler.Complete(work.Endpoint.Bus, work.WorkId);
+        }
+    }
+
+    private async ValueTask ExecuteCampaignSelectionAsync(
+        ScheduledBusWork work,
+        CancellationToken cancellationToken)
+    {
+        try
+        {
+            if (!_composition.BusConnectionManager.TryGet(work.Endpoint.Bus.Id, out var connection)
+                || connection is null)
+            {
+                return;
+            }
+
+            var session = _composition.FleetRegistry.GetSession(work.Endpoint);
+            if (session.State != TR2SessionState.Compatible || session.Device is null)
+            {
+                throw new InvalidOperationException(
+                    "Physical B6 campaign selection requires a compatible identified TR2 session.");
+            }
+
+            var campaignIndex = _operations.GetCampaignSelection(work);
+            var selector = new B6CampaignSelector(connection.RegisterWriteTransport);
+
+            try
+            {
+                await selector
+                    .SelectAsync(work.Endpoint, campaignIndex, cancellationToken)
+                    .ConfigureAwait(false);
+            }
+            catch (ModbusTransportFailureException exception)
+                when (exception.Kind == ModbusTransportFailureKind.Timeout)
+            {
+                // B6 selection is a single register write. V1 defines no B5-like transaction
+                // or automatic retry semantics for it, so do not invent either here.
+            }
+            catch (ModbusTransportFailureException exception)
+                when (exception.Kind == ModbusTransportFailureKind.Io)
+            {
                 await _recovery
                     .MarkDisconnectedAsync(work.Endpoint.Bus, cancellationToken)
                     .ConfigureAwait(false);
