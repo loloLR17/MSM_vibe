@@ -1,11 +1,13 @@
 using TR2.Application;
 using TR2.Domain;
+using TR2.Transport;
 
 namespace TR2.Supervision.Service;
 
 public sealed class PhysicalPollingWorkRunner : IPollingWorkRunner
 {
     private readonly SupervisionRuntimeComposition _composition;
+    private readonly SerialBusRecoveryCoordinator _recovery;
     private readonly ushort _supportedProtocolVersion;
 
     public PhysicalPollingWorkRunner(
@@ -13,6 +15,7 @@ public sealed class PhysicalPollingWorkRunner : IPollingWorkRunner
         ushort supportedProtocolVersion)
     {
         _composition = composition ?? throw new ArgumentNullException(nameof(composition));
+        _recovery = new SerialBusRecoveryCoordinator(composition);
         _supportedProtocolVersion = supportedProtocolVersion;
     }
 
@@ -41,14 +44,32 @@ public sealed class PhysicalPollingWorkRunner : IPollingWorkRunner
                 connection.RegisterTransport,
                 _supportedProtocolVersion);
 
-            var readSet = await executor
-                .ExecuteAsync(work, cancellationToken)
-                .ConfigureAwait(false);
+            try
+            {
+                var readSet = await executor
+                    .ExecuteAsync(work, cancellationToken)
+                    .ConfigureAwait(false);
 
-            ApplyReadSet(work.Endpoint, readSet, observedAt);
+                ApplyReadSet(work.Endpoint, readSet, observedAt);
 
-            var session = _composition.FleetRegistry.GetSession(work.Endpoint);
-            return new PollingWorkExecutionResult(session.State == TR2SessionState.Compatible);
+                var session = _composition.FleetRegistry.GetSession(work.Endpoint);
+                return new PollingWorkExecutionResult(session.State == TR2SessionState.Compatible);
+            }
+            catch (ModbusTransportFailureException exception)
+                when (exception.Kind == ModbusTransportFailureKind.Timeout)
+            {
+                MarkTelemetryUnavailable(work.Endpoint);
+                return new PollingWorkExecutionResult(false);
+            }
+            catch (ModbusTransportFailureException exception)
+                when (exception.Kind == ModbusTransportFailureKind.Io)
+            {
+                MarkTelemetryUnavailable(work.Endpoint);
+                await _recovery
+                    .MarkDisconnectedAsync(work.Endpoint.Bus, cancellationToken)
+                    .ConfigureAwait(false);
+                return new PollingWorkExecutionResult(false);
+            }
         }
         finally
         {
@@ -96,6 +117,15 @@ public sealed class PhysicalPollingWorkRunner : IPollingWorkRunner
                 deviceId,
                 readSet.B3,
                 observedAt);
+        }
+    }
+
+    private void MarkTelemetryUnavailable(TR2Endpoint endpoint)
+    {
+        var session = _composition.FleetRegistry.GetSession(endpoint);
+        if (session.State == TR2SessionState.Compatible && session.Device is not null)
+        {
+            _composition.TelemetrySnapshotRegistry.MarkUnavailable(session.Device.DeviceId);
         }
     }
 }
