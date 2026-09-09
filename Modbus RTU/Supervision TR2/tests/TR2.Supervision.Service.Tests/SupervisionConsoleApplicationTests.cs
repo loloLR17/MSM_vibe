@@ -94,6 +94,48 @@ public sealed class SupervisionConsoleApplicationTests
     }
 
     [Fact]
+    public async Task RunningRuntimeDiagnosticReportsAuthoritativeState()
+    {
+        var databasePath = NewDatabasePath();
+        var configPath = NewConfigPath();
+        await File.WriteAllTextAsync(
+            configPath,
+            $$"""
+            {
+              "persistence": { "databasePath": "{{databasePath.Replace("\\", "\\\\")}}" },
+              "buses": []
+            }
+            """);
+
+        try
+        {
+            using var cancellation = new CancellationTokenSource();
+            using var output = new CancellingStringWriter(cancellation, "Runtime: state=Running");
+            using var error = new StringWriter();
+
+            var exitCode = await SupervisionConsoleApplication.RunAsync(
+                ["--config", configPath],
+                supportedProtocolVersion: 1,
+                cancellation.Token,
+                output,
+                error);
+
+            Assert.Equal(SupervisionConsoleApplication.SuccessExitCode, exitCode);
+            Assert.Contains(
+                "Runtime: state=Running; ready=true; connectedBuses=none",
+                output.ToString(),
+                StringComparison.Ordinal);
+            Assert.Contains("TR2 supervision stopped.", output.ToString(), StringComparison.Ordinal);
+            Assert.Equal(string.Empty, error.ToString());
+        }
+        finally
+        {
+            DeleteDatabaseFiles(databasePath);
+            File.Delete(configPath);
+        }
+    }
+
+    [Fact]
     public async Task SerialStartupFailureReturnsRuntimeFailureExitCode()
     {
         var databasePath = NewDatabasePath();
@@ -163,6 +205,27 @@ public sealed class SupervisionConsoleApplicationTests
             if (File.Exists(path))
             {
                 File.Delete(path);
+            }
+        }
+    }
+
+    private sealed class CancellingStringWriter : StringWriter
+    {
+        private readonly CancellationTokenSource _cancellation;
+        private readonly string _trigger;
+
+        public CancellingStringWriter(CancellationTokenSource cancellation, string trigger)
+        {
+            _cancellation = cancellation;
+            _trigger = trigger;
+        }
+
+        public override async Task WriteLineAsync(string? value)
+        {
+            await base.WriteLineAsync(value);
+            if (value?.Contains(_trigger, StringComparison.Ordinal) == true)
+            {
+                _cancellation.Cancel();
             }
         }
     }
