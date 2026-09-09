@@ -67,5 +67,9 @@ public sealed class SupervisionRuntimeHost
             State = SupervisionRuntimeState.Faulted;
             throw;
         }
+        finally
+        {
+            await _composition.BusConnectionManager.DisposeAsync();
+        }
     }
 }
