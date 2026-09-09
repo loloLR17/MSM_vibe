@@ -39,7 +39,7 @@ public sealed class PhysicalPriorityWorkRunner : IPriorityWorkRunner
                 return;
 
             case BusWorkKind.CampaignSelection:
-                await ExecuteCampaignSelectionAsync(work, cancellationToken).ConfigureAwait(false);
+                await ExecuteCampaignSelectionAsync(work, observedAt, cancellationToken).ConfigureAwait(false);
                 return;
 
             default:
@@ -74,17 +74,31 @@ public sealed class PhysicalPriorityWorkRunner : IPriorityWorkRunner
             ApplyReadSet(work.Endpoint, readSet, observedAt);
         }
         catch (ModbusTransportFailureException exception)
-            when (exception.Kind == ModbusTransportFailureKind.Timeout)
         {
-            MarkTelemetryUnavailable(work.Endpoint);
-        }
-        catch (ModbusTransportFailureException exception)
-            when (exception.Kind == ModbusTransportFailureKind.Io)
-        {
-            MarkTelemetryUnavailable(work.Endpoint);
-            await _recovery
-                .MarkDisconnectedAsync(work.Endpoint.Bus, cancellationToken)
-                .ConfigureAwait(false);
+            await RecordFailureAsync(
+                work.Endpoint,
+                CommunicationOperation.ExplicitRefresh,
+                observedAt,
+                exception,
+                cancellationToken).ConfigureAwait(false);
+
+            switch (exception.Kind)
+            {
+                case ModbusTransportFailureKind.Timeout:
+                    MarkTelemetryUnavailable(work.Endpoint);
+                    return;
+
+                case ModbusTransportFailureKind.Io:
+                    MarkTelemetryUnavailable(work.Endpoint);
+                    await _recovery
+                        .MarkDisconnectedAsync(work.Endpoint.Bus, cancellationToken)
+                        .ConfigureAwait(false);
+                    return;
+
+                case ModbusTransportFailureKind.ModbusExceptionResponse:
+                default:
+                    throw;
+            }
         }
     }
 
@@ -120,19 +134,33 @@ public sealed class PhysicalPriorityWorkRunner : IPriorityWorkRunner
                     .ConfigureAwait(false);
             }
             catch (ModbusTransportFailureException exception)
-                when (exception.Kind == ModbusTransportFailureKind.Timeout)
             {
-                // If the timeout occurred during submit, B5CommandExecutionService has already
-                // transitioned the durable supervision transaction to Ambiguous. Never replay here.
-            }
-            catch (ModbusTransportFailureException exception)
-                when (exception.Kind == ModbusTransportFailureKind.Io)
-            {
-                // If the I/O failure occurred during submit, the transaction is already Ambiguous.
-                // Closing the physical bus forces reconnect + fresh B0 before further operations.
-                await _recovery
-                    .MarkDisconnectedAsync(work.Endpoint.Bus, cancellationToken)
-                    .ConfigureAwait(false);
+                await RecordFailureAsync(
+                    work.Endpoint,
+                    CommunicationOperation.CommandTransaction,
+                    observedAt,
+                    exception,
+                    cancellationToken).ConfigureAwait(false);
+
+                switch (exception.Kind)
+                {
+                    case ModbusTransportFailureKind.Timeout:
+                        // If the timeout occurred during submit, B5CommandExecutionService has already
+                        // transitioned the durable supervision transaction to Ambiguous. Never replay here.
+                        return;
+
+                    case ModbusTransportFailureKind.Io:
+                        // If the I/O failure occurred during submit, the transaction is already Ambiguous.
+                        // Closing the physical bus forces reconnect + fresh B0 before further operations.
+                        await _recovery
+                            .MarkDisconnectedAsync(work.Endpoint.Bus, cancellationToken)
+                            .ConfigureAwait(false);
+                        return;
+
+                    case ModbusTransportFailureKind.ModbusExceptionResponse:
+                    default:
+                        throw;
+                }
             }
         }
         finally
@@ -143,6 +171,7 @@ public sealed class PhysicalPriorityWorkRunner : IPriorityWorkRunner
 
     private async ValueTask ExecuteCampaignSelectionAsync(
         ScheduledBusWork work,
+        DateTimeOffset observedAt,
         CancellationToken cancellationToken)
     {
         try
@@ -170,17 +199,31 @@ public sealed class PhysicalPriorityWorkRunner : IPriorityWorkRunner
                     .ConfigureAwait(false);
             }
             catch (ModbusTransportFailureException exception)
-                when (exception.Kind == ModbusTransportFailureKind.Timeout)
             {
-                // B6 selection is a single register write. V1 defines no B5-like transaction
-                // or automatic retry semantics for it, so do not invent either here.
-            }
-            catch (ModbusTransportFailureException exception)
-                when (exception.Kind == ModbusTransportFailureKind.Io)
-            {
-                await _recovery
-                    .MarkDisconnectedAsync(work.Endpoint.Bus, cancellationToken)
-                    .ConfigureAwait(false);
+                await RecordFailureAsync(
+                    work.Endpoint,
+                    CommunicationOperation.CampaignSelection,
+                    observedAt,
+                    exception,
+                    cancellationToken).ConfigureAwait(false);
+
+                switch (exception.Kind)
+                {
+                    case ModbusTransportFailureKind.Timeout:
+                        // B6 selection is a single register write. V1 defines no B5-like transaction
+                        // or automatic retry semantics for it, so do not invent either here.
+                        return;
+
+                    case ModbusTransportFailureKind.Io:
+                        await _recovery
+                            .MarkDisconnectedAsync(work.Endpoint.Bus, cancellationToken)
+                            .ConfigureAwait(false);
+                        return;
+
+                    case ModbusTransportFailureKind.ModbusExceptionResponse:
+                    default:
+                        throw;
+                }
             }
         }
         finally
@@ -188,6 +231,20 @@ public sealed class PhysicalPriorityWorkRunner : IPriorityWorkRunner
             _composition.BusWorkScheduler.Complete(work.Endpoint.Bus, work.WorkId);
         }
     }
+
+    private ValueTask RecordFailureAsync(
+        TR2Endpoint endpoint,
+        CommunicationOperation operation,
+        DateTimeOffset observedAt,
+        ModbusTransportFailureException exception,
+        CancellationToken cancellationToken) =>
+        _composition.CommunicationJournal.RecordFailureAsync(
+            endpoint,
+            operation,
+            CommunicationFailureClassifier.Classify(exception),
+            observedAt,
+            exception,
+            cancellationToken);
 
     private void ApplyReadSet(
         TR2Endpoint endpoint,
