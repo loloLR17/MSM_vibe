@@ -4,6 +4,6 @@ public interface IModbusBusConnectionFactory
 {
     ValueTask<IModbusBusConnection> OpenAsync(
         string busId,
-        string portName,
+        ModbusSerialConnectionSettings settings,
         CancellationToken cancellationToken = default);
 }
