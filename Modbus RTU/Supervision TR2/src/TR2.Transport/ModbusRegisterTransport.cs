@@ -1,3 +1,5 @@
+using System.IO;
+
 namespace TR2.Transport;
 
 public sealed class ModbusRegisterTransport : IRegisterTransport, IRegisterWriteTransport
@@ -24,9 +26,26 @@ public sealed class ModbusRegisterTransport : IRegisterTransport, IRegisterWrite
         ValidateBus(busId);
         cancellationToken.ThrowIfCancellationRequested();
 
-        return await _client
-            .ReadHoldingRegistersAsync(unitAddress, startAddress, registerCount)
-            .ConfigureAwait(false);
+        try
+        {
+            return await _client
+                .ReadHoldingRegistersAsync(unitAddress, startAddress, registerCount)
+                .ConfigureAwait(false);
+        }
+        catch (TimeoutException exception)
+        {
+            throw new ModbusTransportFailureException(
+                ModbusTransportFailureKind.Timeout,
+                $"Modbus read timed out on bus '{_busId}'.",
+                exception);
+        }
+        catch (IOException exception)
+        {
+            throw new ModbusTransportFailureException(
+                ModbusTransportFailureKind.Io,
+                $"Modbus I/O failure on bus '{_busId}'.",
+                exception);
+        }
     }
 
     public async ValueTask WriteRegistersAsync(
@@ -45,9 +64,26 @@ public sealed class ModbusRegisterTransport : IRegisterTransport, IRegisterWrite
             throw new ArgumentException("At least one register value must be provided.", nameof(values));
         }
 
-        await _client
-            .WriteMultipleRegistersAsync(unitAddress, startAddress, values.ToArray())
-            .ConfigureAwait(false);
+        try
+        {
+            await _client
+                .WriteMultipleRegistersAsync(unitAddress, startAddress, values.ToArray())
+                .ConfigureAwait(false);
+        }
+        catch (TimeoutException exception)
+        {
+            throw new ModbusTransportFailureException(
+                ModbusTransportFailureKind.Timeout,
+                $"Modbus write timed out on bus '{_busId}'.",
+                exception);
+        }
+        catch (IOException exception)
+        {
+            throw new ModbusTransportFailureException(
+                ModbusTransportFailureKind.Io,
+                $"Modbus I/O failure on bus '{_busId}'.",
+                exception);
+        }
     }
 
     private void ValidateBus(string busId)
