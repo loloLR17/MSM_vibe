@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>MSM — Supervision vibrations — Maquette S6-H</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="fixture-banner" role="note">MAQUETTE S6-H — données de démonstration non normatives — aucune commande réelle n’est envoyée</div>
+  <div class="app-shell">
+    <aside class="sidebar" aria-label="Navigation principale">
+      <div class="brand">MSM<br><span>Supervision vibrations</span></div>
+      <nav>
+        <button class="nav-item active" data-view="fleet">Vue générale</button>
+        <button class="nav-item" data-view="vibrations">Vibrations</button>
+        <button class="nav-item" data-view="attention">Attention & diagnostic</button>
+        <button class="nav-item" data-view="campaigns">Campagnes</button>
+        <button class="nav-item" data-view="system">Système</button>
+      </nav>
+    </aside>
+
+    <main>
+      <header class="status-band">
+        <div><span>Supervision</span><strong class="ok">✓ Opérationnelle</strong></div>
+        <div><span>Communications</span><strong>5 / 6 joignables</strong></div>
+        <div><span>Attention</span><strong class="warn">⚠ 2 points</strong></div>
+        <div><span>Données</span><strong>5 / 6 à jour</strong></div>
+        <div><span>Heure PC</span><strong id="pcClock">--:--:--</strong></div>
+      </header>
+
+      <section id="view-fleet" class="view active">
+        <div class="page-head"><div><h1>Vue générale</h1><p>Parc TR2 — vue opérationnelle</p></div><div class="filter-row"><button class="chip active" data-fleet-filter="all">Tous</button><button class="chip" data-fleet-filter="attention">Attention</button></div></div>
+        <div class="kpis"><article><span>TR2 surveillés</span><strong>6</strong></article><article><span>Joignables</span><strong>5</strong></article><article><span>Attention</span><strong>2</strong></article><article><span>Données à jour</span><strong>5 / 6</strong></article></div>
+        <div class="table-card">
+          <table><thead><tr><th>Point / équipement</th><th>TR2</th><th>Communication</th><th>Données</th><th>Vibration</th><th>État TR2</th><th>Attention</th><th>Dernière réception</th></tr></thead>
+          <tbody>
+            <tr class="device-row" data-device="0042" data-attention="no"><td><strong>Ventilation garage</strong><small>Palier moteur AV</small></td><td>TR2-004<small>device_id 0042</small></td><td><span class="status ok">✓ Joignable</span></td><td>À jour</td><td>186 mg RMS</td><td>NOMINAL</td><td>—</td><td>il y a 1 s</td></tr>
+            <tr class="device-row" data-device="0043" data-attention="yes"><td><strong>Chiller n°1</strong><small>Palier compresseur</small></td><td>TR2-005<small>device_id 0043</small></td><td><span class="status bad">✕ Non joignable</span></td><td>Périmées</td><td>212 mg RMS<small>dernière valeur connue</small></td><td>État précédent</td><td><span class="status warn">⚠ Communication perdue</span></td><td>il y a 4 min</td></tr>
+            <tr class="device-row" data-device="0048" data-attention="yes"><td><strong>Pompe eau douce n°2</strong><small>Palier moteur</small></td><td>TR2-006<small>device_id 0048</small></td><td><span class="status ok">✓ Joignable</span></td><td>À jour</td><td>171 mg RMS</td><td>NOMINAL</td><td><span class="status warn">⚠ B5 résultat incertain</span></td><td>il y a 2 s</td></tr>
+            <tr class="device-row" data-device="unidentified" data-attention="yes"><td><strong>Point non affecté</strong><small>Endpoint configuré</small></td><td>—<small>non identifié</small></td><td><span class="status warn">? Non identifié</span></td><td>Jamais reçues</td><td>—</td><td>—</td><td><span class="status warn">⚠ Identification</span></td><td>—</td></tr>
+          </tbody></table>
+        </div>
+      </section>
+
+      <section id="view-vibrations" class="view">
+        <div class="page-head"><div><h1>Vibrations</h1><p>Comparaison courante du parc — accélération en mg</p></div></div>
+        <div class="table-card"><table><thead><tr><th>Point</th><th>RMS global</th><th>Crête globale</th><th>Sévérité B3</th><th>Axe dominant</th><th>Fraîcheur</th></tr></thead><tbody><tr><td>Ventilation garage — Palier AV</td><td>186 mg</td><td>421 mg</td><td>Normal</td><td>Y</td><td>Fraîche</td></tr><tr><td>Chiller n°1 — Compresseur</td><td>212 mg</td><td>498 mg</td><td>Avertissement</td><td>Y</td><td><span class="warn">Dernière valeur conservée</span></td></tr><tr><td>Pompe eau douce n°2</td><td>171 mg</td><td>355 mg</td><td>Normal</td><td>X</td><td>Fraîche</td></tr></tbody></table></div>
+        <p class="scope-note">Aucune vitesse en mm/s, FFT, spectre, fréquence dominante ou score santé n’est calculé dans cette maquette.</p>
+      </section>
+
+      <section id="view-attention" class="view">
+        <div class="page-head"><div><h1>Attention & diagnostic</h1><p>Les sources restent séparées : vibration, TR2, communication PC, opérations B5.</p></div></div>
+        <div class="filter-row"><button class="chip active">Actifs</button><button class="chip">Tous</button><button class="chip">Vibration</button><button class="chip">TR2</button><button class="chip">Communication</button><button class="chip">Opérations</button></div>
+        <div class="attention-list"><article><span class="source">Communication PC</span><h3>✕ Chiller n°1 — non joignable</h3><p>Timeout de réponse. Dernière réception il y a 4 min.</p></article><article><span class="source">Opération B5</span><h3>⚠ Pompe eau douce n°2 — résultat incertain</h3><p>SOFTWARE_RESET — transaction #175. Les nouvelles commandes restent bloquées.</p><button class="link-button" data-open-device="0048" data-tab="commands">Voir la transaction</button></article><article><span class="source">Vibration B3</span><h3>⚠ Chiller n°1 — avertissement vibration</h3><p>Dépassement axe Y observé dans la dernière valeur connue. Donnée désormais périmée côté PC.</p></article></div>
+      </section>
+
+      <section id="view-campaigns" class="view">
+        <div class="page-head"><div><h1>Campagnes</h1><p>Inventaire B6 — métadonnées uniquement</p></div></div>
+        <div class="kpis"><article><span>Campagnes connues</span><strong>18</strong></article><article><span>TR2 avec campagnes</span><strong>5</strong></article><article><span>En cours</span><strong>1</strong></article><article><span>À vérifier</span><strong>2</strong></article></div>
+        <div class="table-card"><table><thead><tr><th>Point</th><th>TR2</th><th>Campagne</th><th>État</th><th>Intégrité</th><th>Début</th><th>Durée B6</th><th>Taille</th></tr></thead><tbody><tr><td>Ventilation garage</td><td>TR2-004</td><td>#127</td><td>En cours</td><td>OK</td><td>21:14</td><td>00:51:10</td><td>248 MB</td></tr><tr><td>Chiller n°1</td><td>TR2-005</td><td>#91</td><td>Terminée</td><td>OK</td><td>18:03</td><td>02:08:34</td><td>817 MB</td></tr><tr><td>Pompe eau douce n°2</td><td>TR2-006</td><td>#42</td><td>Erreur</td><td>Partielle</td><td>17:22</td><td>00:14:08</td><td>16 MB</td></tr></tbody></table></div>
+        <p class="scope-note">Pas de téléchargement Modbus, import SD, FFT ou analyse de campagne dans S6-H.</p>
+      </section>
+
+      <section id="view-system" class="view">
+        <div class="page-head"><div><h1>Système</h1><p>Supervision PC, communications et configuration effective</p></div></div>
+        <div class="tabs system-tabs"><button class="tab active" data-system-tab="runtime">Supervision</button><button class="tab" data-system-tab="communications">Communications</button><button class="tab" data-system-tab="config">Configuration PC</button></div>
+        <div id="system-runtime" class="system-panel active"><div class="detail-grid"><article><h3>Runtime</h3><dl><dt>État du host</dt><dd>Running</dd><dt>Readiness</dt><dd>Oui</dd><dt>Base locale</dt><dd>SQLite disponible</dd></dl></article><article><h3>Topologie</h3><dl><dt>Bus configurés</dt><dd>2</dd><dt>Bus ouverts</dt><dd>2</dd><dt>Endpoints configurés</dt><dd>6</dd><dt>TR2 identifiés</dt><dd>5</dd></dl></article></div></div>
+        <div id="system-communications" class="system-panel"><article class="bus-card"><h3>RS485-1 <small>port physique COM7</small></h3><p>✓ Connecté — 4 endpoints</p><table><tbody><tr><td>Adresse 1</td><td>TR2-004</td><td>Identifié</td><td>1 s</td></tr><tr><td>Adresse 2</td><td>TR2-005</td><td class="bad">Non joignable</td><td>4 min</td></tr><tr><td>Adresse 3</td><td>—</td><td class="warn">Non identifié</td><td>—</td></tr><tr><td>Adresse 4</td><td>TR2-006</td><td>Identifié</td><td>2 s</td></tr></tbody></table></article><article class="bus-card"><h3>Incidents récents</h3><dl><dt>22:31:14 — adresse 2</dt><dd>Timeout</dd><dt>21:14:07 — adresse 4</dt><dd>ModbusExceptionResponse</dd></dl></article></div>
+        <div id="system-config" class="system-panel"><div class="readonly">Lecture seule</div><div class="detail-grid"><article><h3>Bus RS485-1</h3><dl><dt>Port</dt><dd>COM7</dd><dt>Baud</dt><dd>115200</dd><dt>Bits données</dt><dd>8</dd><dt>Parité</dt><dd>None</dd><dt>Stop bits</dt><dd>One</dd><dt>Timeout</dt><dd>750 ms</dd></dl></article><article><h3>Stockage local</h3><dl><dt>SQLite</dt><dd>data/tr2-supervision.db</dd><dt>Configuration</dt><dd>tr2-supervision.json</dd></dl></article></div><p class="scope-note">Valeurs illustratives uniquement. Aucun éditeur de configuration Web n’est fourni.</p></div>
+      </section>
+
+      <section id="view-device" class="view">
+        <button class="back-button" id="backToFleet">← Vue générale</button>
+        <div class="device-head"><div><h1 id="deviceTitle">Ventilation garage</h1><p id="devicePoint">Palier moteur AV</p><small id="deviceIdentity">TR2-004 · device_id 0042</small></div><div class="device-state"><span id="deviceComm" class="status ok">✓ Joignable</span><span id="deviceFresh">Données PC à jour</span><span id="deviceTr2">TR2 NOMINAL</span></div></div>
+        <div id="maintenanceBanner" class="maintenance-banner hidden">🔧 MODE MAINTENANCE ACTIF</div>
+        <div class="tabs device-tabs"><button class="tab active" data-device-tab="summary">Synthèse</button><button class="tab" data-device-tab="vibration">Vibrations</button><button class="tab" data-device-tab="state">État & configuration</button><button class="tab" data-device-tab="commands">Commandes</button><button class="tab" data-device-tab="campaigns">Campagnes</button><button class="tab" data-device-tab="diagnostic">Diagnostic</button></div>
+
+        <div id="device-summary" class="device-panel active">
+          <div class="measure-grid"><article><span>RMS global</span><strong>186 mg</strong></article><article><span>Crête globale</span><strong>421 mg</strong></article><article><span>Sévérité B3</span><strong>Normal</strong></article><article><span>Axe dominant</span><strong>Y</strong></article></div>
+          <div class="detail-grid"><article><h3>Axes</h3><table><thead><tr><th>Axe</th><th>RMS</th><th>Crête</th><th>Dépassement</th></tr></thead><tbody><tr><td>X</td><td>102 mg</td><td>280 mg</td><td>Non</td></tr><tr><td>Y</td><td>151 mg</td><td>421 mg</td><td>Non</td></tr><tr><td>Z</td><td>58 mg</td><td>144 mg</td><td>Non</td></tr></tbody></table></article><article><h3>Qualité mesure</h3><ul class="check-list"><li>✓ Valeurs valides</li><li>✓ Valeurs fraîches</li><li>✓ Fenêtre complète</li><li>✓ Échantillons suffisants</li><li>✓ Temps valide</li></ul></article></div>
+        </div>
+
+        <div id="device-vibration" class="device-panel"><div class="measure-grid"><article><span>RMS global</span><strong>186 mg</strong></article><article><span>Crête globale</span><strong>421 mg</strong></article></div><article class="chart-card"><h3>Évolution globale — fixture</h3><div class="fake-chart"><span>421</span><svg viewBox="0 0 600 180" role="img" aria-label="Courbes de démonstration RMS et crête"><polyline points="0,130 70,125 140,110 210,115 280,95 350,100 420,80 490,88 600,70"/><polyline points="0,80 70,75 140,60 210,72 280,45 350,55 420,28 490,42 600,25"/></svg><span>0 mg</span></div></article><article class="chart-card"><div class="page-head"><h3>Évolution par axe — fixture</h3><div class="filter-row"><button class="chip active">RMS</button><button class="chip">Crête</button></div></div><div class="axis-bars"><div><span>X</span><i style="width:54%"></i><b>102 mg</b></div><div><span>Y</span><i style="width:80%"></i><b>151 mg</b></div><div><span>Z</span><i style="width:31%"></i><b>58 mg</b></div></div></article><div class="detail-grid"><article><h3>Qualité du calcul</h3><dl><dt>Fenêtre</dt><dd>1 000 ms</dd><dt>Échantillons valides</dt><dd>3 196</dd><dt>Âge TR2</dt><dd>340 ms</dd><dt>Réception PC</dt><dd>il y a 2 s</dd></dl></article><article><h3>Horloge TR2</h3><dl><dt>État</dt><dd>Synchronisée</dd><dt>Source</dt><dd>Centrale</dd></dl></article></div></div>
+
+        <div id="device-state" class="device-panel"><div class="detail-grid"><article><h3>État système B1</h3><dl><dt>État</dt><dd>NOMINAL</dd><dt>Acquisition</dt><dd>En cours</dd><dt>Configuration</dt><dd>Valide</dd><dt>Temps</dt><dd>Valide</dd><dt>Stockage</dt><dd>Disponible</dd></dl></article><article><h3>Configuration</h3><p>Présentation en lecture seule dans cette maquette. L’édition B4 Web n’est pas arbitrée.</p></article></div></div>
+
+        <div id="device-commands" class="device-panel"><div id="commandNormal"><h2>Commandes</h2><p>Aucune opération en cours.</p><div class="command-groups"><article><h3>Acquisition</h3><button class="action-button">Démarrer l’acquisition</button><button class="action-button">Arrêter l’acquisition</button></article><article><h3>Configuration & temps</h3><button class="action-button">Appliquer la configuration préparée</button><button class="action-button">Synchroniser l’heure</button></article><article><h3>Diagnostic</h3><button class="action-button">Lancer un autotest</button><button class="action-button">Acquitter le défaut</button><button class="action-button">Rafraîchir les indicateurs TR2</button></article><article><h3>Maintenance</h3><button class="action-button">Entrer en maintenance</button></article><article><h3>Système</h3><button class="action-button danger-action" data-confirm="reset">Redémarrer le TR2</button></article></div></div><div id="commandAmbiguous" class="ambiguous-card hidden"><span class="status warn">⚠ RÉSULTAT INCERTAIN</span><h2>Redémarrer le TR2</h2><p>Transaction #175 — SOFTWARE_RESET</p><p>La supervision ne peut pas déterminer avec certitude si la commande a été exécutée.</p><p><strong>Nouvelles commandes : BLOQUÉES</strong></p><hr><h3>Réconciliation</h3><p>Dernière observation : preuve insuffisante. La reconnexion seule ne résout pas l’ambiguïté.</p><button class="link-button" data-device-tab-target="diagnostic">Voir le diagnostic</button></div><h3>Dernières opérations</h3><table><thead><tr><th>Heure</th><th>Commande</th><th>Transaction</th><th>Résultat</th></tr></thead><tbody><tr><td>22:14</td><td>Démarrer acquisition</td><td>#174</td><td>✓ Succès</td></tr><tr><td>21:48</td><td>Synchroniser heure</td><td>#173</td><td>✓ Succès</td></tr></tbody></table></div>
+
+        <div id="device-campaigns" class="device-panel"><h2>Campagnes du TR2</h2><div class="detail-grid"><article><h3>Stockage</h3><dl><dt>Utilisé</dt><dd>12 480 MB</dd><dt>Libre</dt><dd>18 240 MB</dd><dt>État</dt><dd>OK</dd></dl></article><article><h3>Inventaire</h3><p>#127 — Essai traversée — En cours — 248 MB</p><p>#126 — Départ Portsmouth — Terminée — 642 MB</p></article></div></div>
+
+        <div id="device-diagnostic" class="device-panel"><div class="detail-grid"><article><h3>État système B1</h3><dl><dt>État</dt><dd>NOMINAL</dd><dt>Défauts actifs</dt><dd>Aucun</dd><dt>Avertissements</dt><dd>Aucun</dd></dl></article><article><h3>Santé interne B7</h3><dl><dt>Santé</dt><dd>OK</dd><dt>Autotest</dt><dd>OK</dd><dt>Température</dt><dd>42,3 °C</dd><dt>Alimentation</dt><dd>3,30 V</dd></dl></article><article><h3>Communication supervision</h3><dl><dt>Bus</dt><dd>RS485-1</dd><dt>Adresse</dt><dd>1</dd><dt>Session</dt><dd>Identifiée</dd><dt>Dernière réception</dt><dd>il y a 1 s</dd></dl></article><article><h3>Dernier défaut B7</h3><dl><dt>Code</dt><dd>0</dd><dt>Timestamp</dt><dd>—</dd></dl></article></div></div>
+      </section>
+    </main>
+  </div>
+
+  <dialog id="confirmDialog"><form method="dialog"><h2>Redémarrer le TR2 ?</h2><p>Ventilation garage — Palier moteur AV<br>TR2-004 · device_id 0042</p><p>Le capteur va effectuer un redémarrage logiciel contrôlé. La communication sera temporairement interrompue.</p><div class="dialog-actions"><button value="cancel">Annuler</button><button value="confirm" class="danger-action">Redémarrer le TR2</button></div></form></dialog>
+  <script src="app.js"></script>
+</body>
+</html>
