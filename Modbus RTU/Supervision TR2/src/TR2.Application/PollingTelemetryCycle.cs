@@ -6,12 +6,14 @@ public sealed class PollingTelemetryCycle
     private readonly PollingTelemetryPublisher _publisher;
     private readonly IPollingFailureClassifier _failureClassifier;
     private readonly FleetRegistry _fleet;
+    private readonly B3ArchivePublisher? _archivePublisher;
 
     public PollingTelemetryCycle(
         PollingBusOrchestrator polling,
         PollingTelemetryPublisher publisher,
         IPollingFailureClassifier failureClassifier,
-        FleetRegistry fleet)
+        FleetRegistry fleet,
+        B3ArchivePublisher? archivePublisher = null)
     {
         ArgumentNullException.ThrowIfNull(polling);
         ArgumentNullException.ThrowIfNull(publisher);
@@ -21,6 +23,7 @@ public sealed class PollingTelemetryCycle
         _publisher = publisher;
         _failureClassifier = failureClassifier;
         _fleet = fleet;
+        _archivePublisher = archivePublisher;
     }
 
     public async ValueTask<DeviceTelemetrySnapshots?> ExecuteAsync(
@@ -30,10 +33,10 @@ public sealed class PollingTelemetryCycle
     {
         ArgumentNullException.ThrowIfNull(work);
 
+        PollingReadSet readSet;
         try
         {
-            var readSet = await _polling.ExecuteAsync(work, cancellationToken);
-            return _publisher.Publish(work.Endpoint, readSet, receivedAt);
+            readSet = await _polling.ExecuteAsync(work, cancellationToken);
         }
         catch (Exception exception) when (_failureClassifier.IsCommunicationFailure(exception))
         {
@@ -44,5 +47,18 @@ public sealed class PollingTelemetryCycle
 
             throw;
         }
+
+        var published = _publisher.Publish(work.Endpoint, readSet, receivedAt);
+
+        if (_archivePublisher is not null)
+        {
+            await _archivePublisher.ArchiveAsync(
+                work.Endpoint,
+                readSet,
+                receivedAt,
+                cancellationToken);
+        }
+
+        return published;
     }
 }
