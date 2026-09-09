@@ -18,6 +18,9 @@ public sealed class RuntimeConfigurationLoaderTests
               "buses": [
                 {
                   "id": "bus-1",
+                  "serial": {
+                    "portName": "COM7"
+                  },
                   "endpoints": [1, 2, 3]
                 },
                 {
@@ -34,8 +37,31 @@ public sealed class RuntimeConfigurationLoaderTests
             configuration.Persistence.DatabasePath);
         Assert.Equal(2, configuration.Buses.Count);
         Assert.Equal("bus-1", configuration.Buses[0].Bus.Id);
+        Assert.Equal("COM7", configuration.Buses[0].Serial?.PortName);
         Assert.Equal(new byte[] { 1, 2, 3 }, configuration.Buses[0].Endpoints.Select(endpoint => endpoint.Address.Value));
+        Assert.Null(configuration.Buses[1].Serial);
         Assert.Empty(configuration.Buses[1].Endpoints);
+    }
+
+    [Fact]
+    public void ParseRejectsSerialConfigurationWithoutPortName()
+    {
+        var exception = Assert.Throws<InvalidDataException>(() => RuntimeConfigurationLoader.Parse(
+            """
+            {
+              "persistence": { "databasePath": "tr2.db" },
+              "buses": [
+                {
+                  "id": "bus-1",
+                  "serial": { "portName": "  " },
+                  "endpoints": []
+                }
+              ]
+            }
+            """,
+            Path.GetTempPath()));
+
+        Assert.Contains("serial.portName must be provided", exception.Message);
     }
 
     [Fact]
