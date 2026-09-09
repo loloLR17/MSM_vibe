@@ -56,19 +56,31 @@ public sealed class PhysicalPollingWorkRunner : IPollingWorkRunner
                 return new PollingWorkExecutionResult(session.State == TR2SessionState.Compatible);
             }
             catch (ModbusTransportFailureException exception)
-                when (exception.Kind == ModbusTransportFailureKind.Timeout)
             {
-                MarkTelemetryUnavailable(work.Endpoint);
-                return new PollingWorkExecutionResult(false);
-            }
-            catch (ModbusTransportFailureException exception)
-                when (exception.Kind == ModbusTransportFailureKind.Io)
-            {
-                MarkTelemetryUnavailable(work.Endpoint);
-                await _recovery
-                    .MarkDisconnectedAsync(work.Endpoint.Bus, cancellationToken)
-                    .ConfigureAwait(false);
-                return new PollingWorkExecutionResult(false);
+                await RecordFailureAsync(
+                    work.Endpoint,
+                    CommunicationOperation.Polling,
+                    observedAt,
+                    exception,
+                    cancellationToken).ConfigureAwait(false);
+
+                switch (exception.Kind)
+                {
+                    case ModbusTransportFailureKind.Timeout:
+                        MarkTelemetryUnavailable(work.Endpoint);
+                        return new PollingWorkExecutionResult(false);
+
+                    case ModbusTransportFailureKind.Io:
+                        MarkTelemetryUnavailable(work.Endpoint);
+                        await _recovery
+                            .MarkDisconnectedAsync(work.Endpoint.Bus, cancellationToken)
+                            .ConfigureAwait(false);
+                        return new PollingWorkExecutionResult(false);
+
+                    case ModbusTransportFailureKind.ModbusExceptionResponse:
+                    default:
+                        throw;
+                }
             }
         }
         finally
@@ -76,6 +88,20 @@ public sealed class PhysicalPollingWorkRunner : IPollingWorkRunner
             _composition.BusWorkScheduler.Complete(work.Endpoint.Bus, work.WorkId);
         }
     }
+
+    private ValueTask RecordFailureAsync(
+        TR2Endpoint endpoint,
+        CommunicationOperation operation,
+        DateTimeOffset observedAt,
+        ModbusTransportFailureException exception,
+        CancellationToken cancellationToken) =>
+        _composition.CommunicationJournal.RecordFailureAsync(
+            endpoint,
+            operation,
+            CommunicationFailureClassifier.Classify(exception),
+            observedAt,
+            exception,
+            cancellationToken);
 
     private void ApplyReadSet(
         TR2Endpoint endpoint,
