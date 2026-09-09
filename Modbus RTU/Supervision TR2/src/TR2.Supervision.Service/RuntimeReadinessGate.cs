@@ -8,7 +8,7 @@ public sealed class RuntimeReadinessGate
     {
         if (!IsReady)
         {
-            throw new InvalidOperationException("The supervision runtime has not completed startup recovery.");
+            throw new InvalidOperationException("The supervision runtime is not ready for operational work.");
         }
     }
 
@@ -20,5 +20,10 @@ public sealed class RuntimeReadinessGate
         }
 
         IsReady = true;
+    }
+
+    internal void MarkNotReady()
+    {
+        IsReady = false;
     }
 }
