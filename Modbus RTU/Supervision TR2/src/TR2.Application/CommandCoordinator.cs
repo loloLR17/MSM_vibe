@@ -82,7 +82,7 @@ public sealed class CommandCoordinator
     public void ResolveTerminal(TransactionId transactionId)
     {
         EnsureJournalTimestampNotRequired();
-        var active = RequireMatchingActive(transactionId);
+        RequireMatchingActive(transactionId);
         ActiveTransaction = null;
     }
 
@@ -94,6 +94,28 @@ public sealed class CommandCoordinator
         var active = RequireMatchingActive(transactionId);
         await AppendJournalAsync(active, CommandTransactionJournalEventKind.TerminalEvidenceObserved, observedAt, cancellationToken);
         ActiveTransaction = null;
+    }
+
+    public void RestoreRecoveredAmbiguous(CommandTransaction transaction)
+    {
+        ArgumentNullException.ThrowIfNull(transaction);
+
+        if (transaction.DeviceId != DeviceId)
+        {
+            throw new InvalidOperationException("Recovered transaction belongs to another device.");
+        }
+
+        if (transaction.State != CommandTransactionState.Ambiguous)
+        {
+            throw new InvalidOperationException("Only an ambiguous transaction may be restored after supervision recovery.");
+        }
+
+        if (ActiveTransaction is not null)
+        {
+            throw new InvalidOperationException("A nonterminal transaction is already active for this device.");
+        }
+
+        ActiveTransaction = transaction;
     }
 
     private async ValueTask<CommandTransaction> PrepareCoreAsync(
