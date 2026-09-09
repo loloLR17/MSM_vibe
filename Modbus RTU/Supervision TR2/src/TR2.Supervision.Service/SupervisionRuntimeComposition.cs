@@ -13,6 +13,7 @@ public sealed class SupervisionRuntimeComposition
         SqliteCommandTransactionJournal commandJournal,
         SqliteB3ArchiveSink b3ArchiveSink,
         SqliteCommunicationJournalSink communicationJournalSink,
+        CommunicationJournal communicationJournal,
         SqliteEquipmentModelStore equipmentModelStore,
         FleetRegistry fleetRegistry,
         CommandCoordinatorRegistry commandCoordinatorRegistry,
@@ -27,6 +28,7 @@ public sealed class SupervisionRuntimeComposition
         CommandJournal = commandJournal;
         B3ArchiveSink = b3ArchiveSink;
         CommunicationJournalSink = communicationJournalSink;
+        CommunicationJournal = communicationJournal;
         EquipmentModelStore = equipmentModelStore;
         FleetRegistry = fleetRegistry;
         CommandCoordinatorRegistry = commandCoordinatorRegistry;
@@ -42,6 +44,7 @@ public sealed class SupervisionRuntimeComposition
     public SqliteCommandTransactionJournal CommandJournal { get; }
     public SqliteB3ArchiveSink B3ArchiveSink { get; }
     public SqliteCommunicationJournalSink CommunicationJournalSink { get; }
+    public CommunicationJournal CommunicationJournal { get; }
     public SqliteEquipmentModelStore EquipmentModelStore { get; }
     public FleetRegistry FleetRegistry { get; }
     public CommandCoordinatorRegistry CommandCoordinatorRegistry { get; }
@@ -75,6 +78,7 @@ public static class SupervisionRuntimeCompositionRoot
             }
         }
 
+        var communicationJournal = new CommunicationJournal(fleetRegistry, communicationJournalSink);
         var connectionManager = new ModbusBusConnectionManager(
             busConnectionFactory ?? new NModbusSerialBusConnectionFactory());
 
@@ -85,6 +89,7 @@ public static class SupervisionRuntimeCompositionRoot
             commandJournal,
             b3ArchiveSink,
             communicationJournalSink,
+            communicationJournal,
             equipmentModelStore,
             fleetRegistry,
             new CommandCoordinatorRegistry(),
