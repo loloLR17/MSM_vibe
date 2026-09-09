@@ -79,6 +79,9 @@ public sealed class SupervisionConsoleApplicationTests
                 error);
 
             Assert.Equal(SupervisionConsoleApplication.SuccessExitCode, exitCode);
+            Assert.Contains($"Configuration: {Path.GetFullPath(configPath)}", output.ToString(), StringComparison.Ordinal);
+            Assert.Contains($"Database: {databasePath}", output.ToString(), StringComparison.Ordinal);
+            Assert.Contains("Buses: 0", output.ToString(), StringComparison.Ordinal);
             Assert.Contains("TR2 supervision starting.", output.ToString(), StringComparison.Ordinal);
             Assert.Contains("TR2 supervision stopped.", output.ToString(), StringComparison.Ordinal);
             Assert.Equal(string.Empty, error.ToString());
@@ -131,6 +134,11 @@ public sealed class SupervisionConsoleApplicationTests
                 new FailingConnectionFactory());
 
             Assert.Equal(SupervisionConsoleApplication.RuntimeFailureExitCode, exitCode);
+            Assert.Contains("Buses: 1", output.ToString(), StringComparison.Ordinal);
+            Assert.Contains(
+                "Bus bus-1: port=COM7; serial=115200/8/None/One; timeoutMs=750; endpoints=1",
+                output.ToString(),
+                StringComparison.Ordinal);
             Assert.Contains("TR2 supervision starting.", output.ToString(), StringComparison.Ordinal);
             Assert.Contains("Runtime failure: port unavailable", error.ToString(), StringComparison.Ordinal);
         }
