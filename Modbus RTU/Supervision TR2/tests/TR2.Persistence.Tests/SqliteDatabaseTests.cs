@@ -1,5 +1,6 @@
 using Microsoft.Data.Sqlite;
 using TR2.Persistence.Sqlite;
+using Xunit;
 
 namespace TR2.Persistence.Tests;
 
