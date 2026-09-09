@@ -7,13 +7,15 @@ public sealed class ExplicitRefreshTelemetryCycle
     private readonly B3ArchivePublisher _archive;
     private readonly IPollingFailureClassifier _failureClassifier;
     private readonly FleetRegistry _fleet;
+    private readonly CommunicationJournal? _communicationJournal;
 
     public ExplicitRefreshTelemetryCycle(
         ExplicitRefreshExecutor executor,
         PollingTelemetryPublisher publisher,
         B3ArchivePublisher archive,
         IPollingFailureClassifier failureClassifier,
-        FleetRegistry fleet)
+        FleetRegistry fleet,
+        CommunicationJournal? communicationJournal = null)
     {
         ArgumentNullException.ThrowIfNull(executor);
         ArgumentNullException.ThrowIfNull(publisher);
@@ -26,6 +28,7 @@ public sealed class ExplicitRefreshTelemetryCycle
         _archive = archive;
         _failureClassifier = failureClassifier;
         _fleet = fleet;
+        _communicationJournal = communicationJournal;
     }
 
     public async ValueTask<DeviceTelemetrySnapshots?> ExecuteAndPublishAsync(
@@ -46,6 +49,23 @@ public sealed class ExplicitRefreshTelemetryCycle
 
             var current = _fleet.GetSession(refresh.Work.Endpoint);
             _fleet.SetSession(current.MarkDisconnected());
+
+            if (_communicationJournal is not null)
+            {
+                try
+                {
+                    await _communicationJournal.RecordFailureAsync(
+                        refresh.Work.Endpoint,
+                        CommunicationOperation.ExplicitRefresh,
+                        receivedAt,
+                        exception,
+                        cancellationToken);
+                }
+                catch
+                {
+                    // Communication state and the original transport failure remain authoritative.
+                }
+            }
 
             throw;
         }
