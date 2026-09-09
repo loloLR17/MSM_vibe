@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
 using TR2.Application;
 
 namespace TR2.Supervision.Web;
@@ -90,6 +91,7 @@ public sealed class SupervisionWebHost
     public async Task RunAsync(CancellationToken cancellationToken)
     {
         await using var application = CreateApplication();
-        await application.RunAsync(cancellationToken);
+        await application.StartAsync(cancellationToken);
+        await application.WaitForShutdownAsync(cancellationToken);
     }
 }
