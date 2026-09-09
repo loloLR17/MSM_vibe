@@ -71,7 +71,7 @@ responseTimeoutMilliseconds
 
 Les valeurs de `parity` reconnues sont celles exposées par la configuration runtime (`None`, `Odd`, `Even`, `Mark`, `Space`).
 
-Les valeurs de `stopBits` reconnues sont celles exposées par la configuration runtime (`None`, `One`, `Two`, `OnePointFive`).
+Les valeurs de `stopBits` reconnues sont celles exposées par la configuration runtime (`One`, `Two`, `OnePointFive`).
 
 `responseTimeoutMilliseconds` doit être strictement positif.
 
