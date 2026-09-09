@@ -5,7 +5,7 @@ namespace TR2.Persistence.Sqlite;
 
 public sealed class SqliteDatabase
 {
-    public const int CurrentSchemaVersion = 3;
+    public const int CurrentSchemaVersion = 4;
 
     private readonly SqlitePersistenceOptions _options;
 
@@ -46,9 +46,7 @@ public sealed class SqliteDatabase
     {
         var directory = Path.GetDirectoryName(_options.DatabasePath);
         if (!string.IsNullOrEmpty(directory))
-        {
             Directory.CreateDirectory(directory);
-        }
     }
 
     private void ConfigureConnection(SqliteConnection connection)
@@ -58,9 +56,7 @@ public sealed class SqliteDatabase
             command.CommandText = "PRAGMA journal_mode = WAL;";
             var journalMode = Convert.ToString(command.ExecuteScalar(), CultureInfo.InvariantCulture);
             if (!string.Equals(journalMode, "wal", StringComparison.OrdinalIgnoreCase))
-            {
                 throw new InvalidOperationException($"SQLite WAL mode could not be enabled. Returned mode: '{journalMode ?? "<null>"}'.");
-            }
         }
 
         ExecuteNonQuery(connection, "PRAGMA synchronous = FULL;");
@@ -88,6 +84,7 @@ public sealed class SqliteDatabase
                 0 => ApplyMigration1(connection),
                 1 => ApplyMigration2(connection),
                 2 => ApplyMigration3(connection),
+                3 => ApplyMigration4(connection),
                 _ => throw new InvalidOperationException($"No migration path is defined from schema version {version}.")
             };
         }
@@ -200,6 +197,36 @@ public sealed class SqliteDatabase
         SetUserVersion(connection, transaction, 3);
         transaction.Commit();
         return 3;
+    }
+
+    private static int ApplyMigration4(SqliteConnection connection)
+    {
+        using var transaction = connection.BeginTransaction();
+        using (var command = connection.CreateCommand())
+        {
+            command.Transaction = transaction;
+            command.CommandText = """
+                CREATE TABLE communication_failure_journal (
+                    failure_id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+                    bus_id TEXT NOT NULL CHECK (length(trim(bus_id)) > 0),
+                    modbus_address INTEGER NOT NULL CHECK (modbus_address BETWEEN 0 AND 255),
+                    device_id INTEGER NULL CHECK (device_id IS NULL OR device_id BETWEEN 0 AND 4294967295),
+                    operation TEXT NOT NULL CHECK (operation IN ('Polling', 'ExplicitRefresh')),
+                    observed_utc TEXT NOT NULL,
+                    exception_type TEXT NOT NULL CHECK (length(trim(exception_type)) > 0),
+                    message TEXT NOT NULL
+                );
+                CREATE INDEX ix_communication_failure_journal_endpoint_failure
+                ON communication_failure_journal(bus_id, modbus_address, failure_id);
+                CREATE INDEX ix_communication_failure_journal_device_failure
+                ON communication_failure_journal(device_id, failure_id)
+                WHERE device_id IS NOT NULL;
+                """;
+            command.ExecuteNonQuery();
+        }
+        SetUserVersion(connection, transaction, 4);
+        transaction.Commit();
+        return 4;
     }
 
     private static void SetUserVersion(SqliteConnection connection, SqliteTransaction transaction, int version)
