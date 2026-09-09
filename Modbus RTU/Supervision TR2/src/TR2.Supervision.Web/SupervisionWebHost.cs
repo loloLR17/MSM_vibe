@@ -59,11 +59,13 @@ public sealed class SupervisionWebHost
     private readonly SupervisionWebOptions _options;
     private readonly SupervisionReadProjection _projection;
     private readonly TimeProvider _timeProvider;
+    private readonly ISupervisionSystemReadSource? _systemReadSource;
 
     public SupervisionWebHost(
         SupervisionWebOptions options,
         SupervisionReadProjection projection,
-        TimeProvider? timeProvider = null)
+        TimeProvider? timeProvider = null,
+        ISupervisionSystemReadSource? systemReadSource = null)
     {
         ArgumentNullException.ThrowIfNull(options);
         ArgumentNullException.ThrowIfNull(projection);
@@ -71,6 +73,7 @@ public sealed class SupervisionWebHost
         _options = options;
         _projection = projection;
         _timeProvider = timeProvider ?? TimeProvider.System;
+        _systemReadSource = systemReadSource;
     }
 
     public WebApplication CreateApplication()
@@ -102,6 +105,17 @@ public sealed class SupervisionWebHost
             return device is null
                 ? Results.NotFound()
                 : Results.Ok(new DeviceReadResponse(observedAt, device));
+        });
+        application.MapGet("/api/v1/system", () =>
+        {
+            if (_systemReadSource is null)
+            {
+                return Results.NotFound();
+            }
+
+            return Results.Ok(new SystemReadResponse(
+                _timeProvider.GetUtcNow(),
+                _systemReadSource.Read()));
         });
 
         return application;

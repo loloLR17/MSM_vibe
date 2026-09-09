@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>MSM — Système</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div class="brand">MSM<span>Supervision vibrations</span></div>
+      <nav>
+        <a class="nav-link" href="/">Vue générale</a>
+        <a class="nav-link active" href="/system.html">Système</a>
+      </nav>
+      <div class="scope">S7-F3 · lecture seule<br>Aucune action runtime</div>
+    </aside>
+    <main>
+      <header class="status-band">
+        <div><span>API Web</span><strong id="apiState">Connexion…</strong></div>
+        <div><span>Dernière observation</span><strong id="observedAt">—</strong></div>
+        <div><span>Heure PC</span><strong id="pcClock">—</strong></div>
+      </header>
+      <section>
+        <div class="page-head"><div><h1>Système & communications</h1><p>Runtime PC, bus Modbus et derniers échecs de communication persistés</p></div></div>
+        <div id="webError" class="error-banner hidden" role="status"></div>
+        <div class="kpis">
+          <article><span>Runtime</span><strong id="hostState">—</strong></article>
+          <article><span>Readiness</span><strong id="readiness">—</strong></article>
+          <article><span>Bus connectés</span><strong id="connectedBusCount">—</strong></article>
+          <article><span>Échecs affichés</span><strong id="failureCount">—</strong></article>
+        </div>
+        <div class="detail-grid">
+          <article class="detail-card"><h2>Bus connectés</h2><dl id="connectedBuses"></dl></article>
+          <article class="detail-card"><h2>Endpoints runtime</h2><div class="table-card"><table><thead><tr><th>Bus</th><th>Adresse</th><th>Session</th><th>device_id</th></tr></thead><tbody id="endpointRows"></tbody></table></div></article>
+        </div>
+        <div class="table-card">
+          <table>
+            <thead><tr><th>ID</th><th>Point</th><th>device_id</th><th>Opération</th><th>Catégorie</th><th>Observation</th><th>Exception</th><th>Message</th></tr></thead>
+            <tbody id="failureRows"></tbody>
+          </table>
+        </div>
+        <p class="scope-note">Les événements ci-dessus sont des échecs de communication côté supervision PC. Ils ne sont pas assimilés aux défauts ou warnings internes du TR2. La vue est limitée aux 20 derniers enregistrements retournés par le journal.</p>
+      </section>
+    </main>
+  </div>
+  <script src="/system.js"></script>
+</body>
+</html>
