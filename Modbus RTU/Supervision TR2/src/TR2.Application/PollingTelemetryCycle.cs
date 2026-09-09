@@ -68,6 +68,11 @@ public sealed class PollingTelemetryCycle
             throw;
         }
 
+        if (readSet.B0Session is not null)
+        {
+            _fleet.SetSession(readSet.B0Session);
+        }
+
         var published = _publisher.Publish(work.Endpoint, readSet, receivedAt);
 
         if (_archivePublisher is not null)
