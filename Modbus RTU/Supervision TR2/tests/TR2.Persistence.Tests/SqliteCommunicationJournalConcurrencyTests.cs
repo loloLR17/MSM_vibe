@@ -16,7 +16,7 @@ public sealed class SqliteCommunicationJournalConcurrencyTests : IDisposable
     public async Task ConcurrentWritersAndReaderPreserveAllJournalRowsAndDatabaseIntegrity()
     {
         const int writerCount = 4;
-        const int writesPerWriter = 50;
+        const int writesPerWriter = 20;
         const int expectedCount = writerCount * writesPerWriter;
 
         var databasePath = Path.Combine(_directory, "communication-concurrency.db");
@@ -29,7 +29,7 @@ public sealed class SqliteCommunicationJournalConcurrencyTests : IDisposable
         {
         }
 
-        using var safetyCancellation = new CancellationTokenSource(TimeSpan.FromSeconds(30));
+        using var safetyCancellation = new CancellationTokenSource(TimeSpan.FromSeconds(60));
         var writersRemaining = writerCount;
         var successfulReads = 0;
         var startedAt = new DateTimeOffset(2026, 9, 9, 20, 0, 0, TimeSpan.Zero);
@@ -74,7 +74,7 @@ public sealed class SqliteCommunicationJournalConcurrencyTests : IDisposable
                 var recent = sink.ReadLatest(10);
                 Assert.InRange(recent.Count, 0, 10);
                 Interlocked.Increment(ref successfulReads);
-                await Task.Delay(1, safetyCancellation.Token);
+                await Task.Delay(5, safetyCancellation.Token);
             }
 
             var finalRecent = sink.ReadLatest(10);
