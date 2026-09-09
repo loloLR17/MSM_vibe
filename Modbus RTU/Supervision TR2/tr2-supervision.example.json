@@ -1,0 +1,19 @@
+{
+  "persistence": {
+    "databasePath": "data/tr2-supervision.db"
+  },
+  "buses": [
+    {
+      "id": "bus-1",
+      "serial": {
+        "portName": "COM7",
+        "baudRate": 115200,
+        "dataBits": 8,
+        "parity": "None",
+        "stopBits": "One",
+        "responseTimeoutMilliseconds": 750
+      },
+      "endpoints": [1]
+    }
+  ]
+}
