@@ -7,7 +7,8 @@ namespace TR2.Supervision.Service;
 
 public sealed record RuntimeConfiguration(
     SqlitePersistenceOptions Persistence,
-    IReadOnlyList<RuntimeBusConfiguration> Buses);
+    IReadOnlyList<RuntimeBusConfiguration> Buses,
+    RuntimePollingPolicy Polling);
 
 public sealed record RuntimeBusConfiguration(
     SerialBus Bus,
@@ -101,7 +102,34 @@ public static class RuntimeConfigurationLoader
             buses.Add(new RuntimeBusConfiguration(bus, endpoints));
         }
 
-        return new RuntimeConfiguration(persistence, buses);
+        var polling = CreatePollingPolicy(document.Polling);
+        return new RuntimeConfiguration(persistence, buses, polling);
+    }
+
+    private static RuntimePollingPolicy CreatePollingPolicy(PollingDocument? document)
+    {
+        var defaults = RuntimePollingPolicy.Default;
+        return new RuntimePollingPolicy(
+            PositiveMilliseconds(document?.StaticRetryMilliseconds, defaults.StaticRetryInterval, "polling.staticRetryMilliseconds"),
+            PositiveMilliseconds(document?.FastMilliseconds, defaults.FastInterval, "polling.fastMilliseconds"),
+            PositiveMilliseconds(document?.MediumMilliseconds, defaults.MediumInterval, "polling.mediumMilliseconds"),
+            PositiveMilliseconds(document?.SlowMilliseconds, defaults.SlowInterval, "polling.slowMilliseconds"),
+            PositiveMilliseconds(document?.ScanMilliseconds, defaults.ScanInterval, "polling.scanMilliseconds"));
+    }
+
+    private static TimeSpan PositiveMilliseconds(int? configured, TimeSpan fallback, string name)
+    {
+        if (configured is null)
+        {
+            return fallback;
+        }
+
+        if (configured <= 0)
+        {
+            throw new InvalidDataException($"{name} must be greater than zero.");
+        }
+
+        return TimeSpan.FromMilliseconds(configured.Value);
     }
 
     private sealed class RuntimeConfigurationDocument
@@ -111,8 +139,8 @@ public static class RuntimeConfigurationLoader
         }
 
         public PersistenceDocument? Persistence { get; init; }
-
         public List<BusDocument?>? Buses { get; init; }
+        public PollingDocument? Polling { get; init; }
     }
 
     private sealed class PersistenceDocument
@@ -131,7 +159,19 @@ public static class RuntimeConfigurationLoader
         }
 
         public string? Id { get; init; }
-
         public List<int>? Endpoints { get; init; }
+    }
+
+    private sealed class PollingDocument
+    {
+        public PollingDocument()
+        {
+        }
+
+        public int? StaticRetryMilliseconds { get; init; }
+        public int? FastMilliseconds { get; init; }
+        public int? MediumMilliseconds { get; init; }
+        public int? SlowMilliseconds { get; init; }
+        public int? ScanMilliseconds { get; init; }
     }
 }

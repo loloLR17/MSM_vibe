@@ -14,12 +14,16 @@ public sealed class SupervisionRuntimeHost
 {
     private readonly SupervisionRuntimeComposition _composition;
     private readonly SupervisionRuntimeStartup _startup;
+    private readonly ISupervisionRuntimeLoop _runtimeLoop;
     private bool _runInvoked;
 
-    public SupervisionRuntimeHost(SupervisionRuntimeComposition composition)
+    public SupervisionRuntimeHost(
+        SupervisionRuntimeComposition composition,
+        ISupervisionRuntimeLoop? runtimeLoop = null)
     {
         _composition = composition ?? throw new ArgumentNullException(nameof(composition));
         _startup = new SupervisionRuntimeStartup(composition);
+        _runtimeLoop = runtimeLoop ?? IdleSupervisionRuntimeLoop.Instance;
     }
 
     public SupervisionRuntimeState State { get; private set; } = SupervisionRuntimeState.Created;
@@ -41,7 +45,7 @@ public sealed class SupervisionRuntimeHost
 
             try
             {
-                await Task.Delay(Timeout.InfiniteTimeSpan, cancellationToken);
+                await _runtimeLoop.RunAsync(cancellationToken);
             }
             catch (OperationCanceledException) when (cancellationToken.IsCancellationRequested)
             {

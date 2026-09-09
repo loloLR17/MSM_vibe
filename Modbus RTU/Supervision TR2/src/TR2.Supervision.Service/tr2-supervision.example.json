@@ -2,6 +2,13 @@
   "persistence": {
     "databasePath": "data/tr2-supervision.db"
   },
+  "polling": {
+    "staticRetryMilliseconds": 5000,
+    "fastMilliseconds": 1000,
+    "mediumMilliseconds": 5000,
+    "slowMilliseconds": 30000,
+    "scanMilliseconds": 100
+  },
   "buses": [
     {
       "id": "bus-1",
