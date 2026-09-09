@@ -20,6 +20,10 @@ public sealed record QueuedB5Command(
     DeviceId DeviceId,
     B5CommandRequest Request);
 
+public sealed record QueuedB6CampaignSelection(
+    ScheduledBusWork Work,
+    ushort CampaignIndex);
+
 public sealed class SupervisionOperationalFacade
 {
     private readonly SupervisionRuntimeComposition _composition;
@@ -27,6 +31,7 @@ public sealed class SupervisionOperationalFacade
     private readonly FleetRefreshPlanner _refreshPlanner;
     private readonly Dictionary<long, B5CommandRequest> _commandRequests = [];
     private readonly Dictionary<long, ScheduledBlockRefresh> _refreshes = [];
+    private readonly Dictionary<long, ushort> _campaignSelections = [];
 
     public SupervisionOperationalFacade(SupervisionRuntimeComposition composition)
     {
@@ -66,6 +71,25 @@ public sealed class SupervisionOperationalFacade
         return new QueuedB5Command(work, deviceId, request);
     }
 
+    public QueuedB6CampaignSelection QueueCampaignSelection(
+        TR2Endpoint endpoint,
+        ushort campaignIndex,
+        DateTimeOffset dueAt)
+    {
+        ArgumentNullException.ThrowIfNull(endpoint);
+
+        _composition.ReadinessGate.EnsureReady();
+        RequireCompatibleSession(endpoint);
+
+        var work = _composition.BusWorkScheduler.QueuePriority(
+            endpoint,
+            BusWorkKind.CampaignSelection,
+            dueAt);
+
+        _campaignSelections.Add(work.WorkId, campaignIndex);
+        return new QueuedB6CampaignSelection(work, campaignIndex);
+    }
+
     public IReadOnlyList<ScheduledBlockRefresh> QueuePostReconnectRefresh(
         TR2Endpoint endpoint,
         DateTimeOffset dueAt)
@@ -97,6 +121,19 @@ public sealed class SupervisionOperationalFacade
             : throw new KeyNotFoundException("No B5 command request is registered for this work item.");
     }
 
+    public ushort GetCampaignSelection(ScheduledBusWork work)
+    {
+        ArgumentNullException.ThrowIfNull(work);
+        if (work.Kind != BusWorkKind.CampaignSelection)
+        {
+            throw new InvalidOperationException("The work item is not a B6 campaign selection.");
+        }
+
+        return _campaignSelections.TryGetValue(work.WorkId, out var campaignIndex)
+            ? campaignIndex
+            : throw new KeyNotFoundException("No B6 campaign selection is registered for this work item.");
+    }
+
     public ScheduledBlockRefresh GetRefresh(ScheduledBusWork work)
     {
         ArgumentNullException.ThrowIfNull(work);
@@ -116,7 +153,7 @@ public sealed class SupervisionOperationalFacade
         if (session.State != TR2SessionState.Compatible || session.Device is null)
         {
             throw new InvalidOperationException(
-                "Operational B5 and explicit refresh work requires a compatible identified TR2 session.");
+                "Operational B5, B6 and explicit refresh work requires a compatible identified TR2 session.");
         }
 
         return session;
