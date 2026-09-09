@@ -13,7 +13,7 @@ public sealed class CommunicationFailureClassifierTests
         ModbusTransportFailureKind kind,
         CommunicationFailureCategory expected)
     {
-        var inner = kind == ModbusTransportFailureKind.Timeout
+        Exception inner = kind == ModbusTransportFailureKind.Timeout
             ? new TimeoutException("timeout")
             : new IOException("io");
         var exception = new ModbusTransportFailureException(kind, "transport failure", inner);
