@@ -16,12 +16,12 @@ public sealed class ModbusBusConnectionManager : IAsyncDisposable
 
     public async ValueTask<IModbusBusConnection> OpenAsync(
         string busId,
-        string portName,
+        ModbusSerialConnectionSettings settings,
         CancellationToken cancellationToken = default)
     {
         ThrowIfDisposed();
         ArgumentException.ThrowIfNullOrWhiteSpace(busId);
-        ArgumentException.ThrowIfNullOrWhiteSpace(portName);
+        ArgumentNullException.ThrowIfNull(settings);
         cancellationToken.ThrowIfCancellationRequested();
 
         if (_connections.ContainsKey(busId))
@@ -30,7 +30,7 @@ public sealed class ModbusBusConnectionManager : IAsyncDisposable
         }
 
         var connection = await _factory
-            .OpenAsync(busId, portName, cancellationToken)
+            .OpenAsync(busId, settings, cancellationToken)
             .ConfigureAwait(false);
 
         if (!string.Equals(connection.BusId, busId, StringComparison.Ordinal))
