@@ -3,7 +3,7 @@ using TR2.Transport;
 
 namespace TR2.Protocol;
 
-public sealed class B5Reader
+public sealed class B5Reader : IB5CommandStateReader
 {
     private readonly IRegisterTransport _transport;
 
