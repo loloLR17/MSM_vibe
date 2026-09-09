@@ -5,7 +5,7 @@ namespace TR2.Persistence.Sqlite;
 
 public sealed class SqliteDatabase
 {
-    public const int CurrentSchemaVersion = 5;
+    public const int CurrentSchemaVersion = 6;
 
     private readonly SqlitePersistenceOptions _options;
 
@@ -86,6 +86,7 @@ public sealed class SqliteDatabase
                 2 => ApplyMigration3(connection),
                 3 => ApplyMigration4(connection),
                 4 => ApplyMigration5(connection),
+                5 => ApplyMigration6(connection),
                 _ => throw new InvalidOperationException($"No migration path is defined from schema version {version}.")
             };
         }
@@ -285,6 +286,66 @@ public sealed class SqliteDatabase
         SetUserVersion(connection, transaction, 5);
         transaction.Commit();
         return 5;
+    }
+
+    private static int ApplyMigration6(SqliteConnection connection)
+    {
+        using var transaction = connection.BeginTransaction();
+        using (var command = connection.CreateCommand())
+        {
+            command.Transaction = transaction;
+            command.CommandText = """
+                ALTER TABLE communication_failure_journal RENAME TO communication_failure_journal_v5;
+
+                CREATE TABLE communication_failure_journal (
+                    failure_id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+                    bus_id TEXT NOT NULL CHECK (length(trim(bus_id)) > 0),
+                    modbus_address INTEGER NOT NULL CHECK (modbus_address BETWEEN 0 AND 255),
+                    device_id INTEGER NULL CHECK (device_id IS NULL OR device_id BETWEEN 0 AND 4294967295),
+                    operation TEXT NOT NULL CHECK (operation IN ('Polling', 'ExplicitRefresh', 'CommandTransaction', 'CampaignSelection')),
+                    category TEXT NOT NULL CHECK (category IN ('Unclassified', 'Timeout', 'Io', 'ModbusExceptionResponse')),
+                    observed_utc TEXT NOT NULL,
+                    exception_type TEXT NOT NULL CHECK (length(trim(exception_type)) > 0),
+                    message TEXT NOT NULL
+                );
+
+                INSERT INTO communication_failure_journal(
+                    failure_id,
+                    bus_id,
+                    modbus_address,
+                    device_id,
+                    operation,
+                    category,
+                    observed_utc,
+                    exception_type,
+                    message)
+                SELECT
+                    failure_id,
+                    bus_id,
+                    modbus_address,
+                    device_id,
+                    operation,
+                    'Unclassified',
+                    observed_utc,
+                    exception_type,
+                    message
+                FROM communication_failure_journal_v5;
+
+                DROP TABLE communication_failure_journal_v5;
+
+                CREATE INDEX ix_communication_failure_journal_endpoint_failure
+                ON communication_failure_journal(bus_id, modbus_address, failure_id);
+                CREATE INDEX ix_communication_failure_journal_device_failure
+                ON communication_failure_journal(device_id, failure_id)
+                WHERE device_id IS NOT NULL;
+                CREATE INDEX ix_communication_failure_journal_category_failure
+                ON communication_failure_journal(category, failure_id);
+                """;
+            command.ExecuteNonQuery();
+        }
+        SetUserVersion(connection, transaction, 6);
+        transaction.Commit();
+        return 6;
     }
 
     private static void SetUserVersion(SqliteConnection connection, SqliteTransaction transaction, int version)
