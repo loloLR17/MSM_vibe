@@ -11,7 +11,7 @@ public sealed class PollingTelemetryCycleTests
         new(2026, 9, 9, 14, 0, 0, TimeSpan.Zero);
 
     [Fact]
-    public async Task Classified_communication_failure_preserves_last_values_and_marks_unavailable()
+    public async Task Classified_communication_failure_preserves_last_values_marks_unavailable_and_disconnects_session()
     {
         var endpoint = Endpoint();
         var fleet = CompatibleFleet(endpoint, new DeviceId(1001));
@@ -28,7 +28,8 @@ public sealed class PollingTelemetryCycleTests
         var cycle = new PollingTelemetryCycle(
             polling,
             new PollingTelemetryPublisher(fleet, telemetry),
-            new IOExceptionFailureClassifier());
+            new IOExceptionFailureClassifier(),
+            fleet);
 
         polling.Queue(endpoint, PollingGroup.Fast, Now);
         var active = polling.BeginNext(endpoint.Bus, Now)!;
@@ -39,11 +40,15 @@ public sealed class PollingTelemetryCycleTests
         var snapshots = telemetry.Get(new DeviceId(1001));
         Assert.Equal(previous, snapshots.SystemState.LastValue);
         Assert.False(snapshots.SystemState.IsAvailable);
+
+        var session = fleet.GetSession(endpoint);
+        Assert.Equal(TR2SessionState.Disconnected, session.State);
+        Assert.Equal(new DeviceId(1001), session.Device!.DeviceId);
         Assert.Null(scheduler.BeginNext(endpoint.Bus, Now));
     }
 
     [Fact]
-    public async Task Unclassified_failure_does_not_change_snapshot_availability()
+    public async Task Unclassified_failure_does_not_change_snapshot_availability_or_session_state()
     {
         var endpoint = Endpoint();
         var fleet = CompatibleFleet(endpoint, new DeviceId(1001));
@@ -59,7 +64,8 @@ public sealed class PollingTelemetryCycleTests
         var cycle = new PollingTelemetryCycle(
             polling,
             new PollingTelemetryPublisher(fleet, telemetry),
-            new IOExceptionFailureClassifier());
+            new IOExceptionFailureClassifier(),
+            fleet);
 
         polling.Queue(endpoint, PollingGroup.Fast, Now);
         var active = polling.BeginNext(endpoint.Bus, Now)!;
@@ -68,11 +74,12 @@ public sealed class PollingTelemetryCycleTests
             await cycle.ExecuteAsync(active, Now));
 
         Assert.True(telemetry.Get(new DeviceId(1001)).SystemState.IsAvailable);
+        Assert.Equal(TR2SessionState.Compatible, fleet.GetSession(endpoint).State);
         Assert.Null(scheduler.BeginNext(endpoint.Bus, Now));
     }
 
     [Fact]
-    public async Task Successful_polling_cycle_publishes_telemetry_normally()
+    public async Task Successful_polling_cycle_publishes_telemetry_normally_and_keeps_session_compatible()
     {
         var endpoint = Endpoint();
         var fleet = CompatibleFleet(endpoint, new DeviceId(1001));
@@ -84,7 +91,8 @@ public sealed class PollingTelemetryCycleTests
         var cycle = new PollingTelemetryCycle(
             polling,
             new PollingTelemetryPublisher(fleet, telemetry),
-            new IOExceptionFailureClassifier());
+            new IOExceptionFailureClassifier(),
+            fleet);
 
         polling.Queue(endpoint, PollingGroup.Fast, Now);
         var active = polling.BeginNext(endpoint.Bus, Now)!;
@@ -95,6 +103,7 @@ public sealed class PollingTelemetryCycleTests
         Assert.True(published.VibrationState.HasValue);
         Assert.Equal(Now, published.SystemState.ReceivedAt);
         Assert.Equal(Now, published.VibrationState.ReceivedAt);
+        Assert.Equal(TR2SessionState.Compatible, fleet.GetSession(endpoint).State);
         Assert.Null(scheduler.BeginNext(endpoint.Bus, Now));
     }
 
