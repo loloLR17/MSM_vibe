@@ -168,6 +168,53 @@ public sealed class CommandBusOrchestrator
         }
     }
 
+    public async ValueTask<ScheduledBusWork> ExecuteCommandAndQueueMonitoringAsync(
+        ScheduledBusWork work,
+        B5CommandRequest request,
+        DateTimeOffset observedAt,
+        DateTimeOffset monitoringDueAt,
+        DateTimeOffset timeoutAt,
+        CancellationToken cancellationToken = default)
+    {
+        ArgumentNullException.ThrowIfNull(work);
+        ArgumentNullException.ThrowIfNull(request);
+
+        if (work.Kind != BusWorkKind.CommandTransaction)
+        {
+            throw new InvalidOperationException("The active work item is not a command transaction.");
+        }
+
+        if (_commandExecutionService is null)
+        {
+            throw new InvalidOperationException("A B5 command execution service is required to execute command work.");
+        }
+
+        if (!_coordinatorsByWorkId.TryGetValue(work.WorkId, out var coordinator))
+        {
+            throw new InvalidOperationException("No command coordinator is associated with this command work item.");
+        }
+
+        try
+        {
+            await _commandExecutionService.ExecuteAsync(
+                work.Endpoint,
+                coordinator,
+                request,
+                observedAt,
+                cancellationToken);
+        }
+        finally
+        {
+            Complete(work.Endpoint.Bus, work.WorkId);
+        }
+
+        return QueuePostSubmitMonitoring(
+            work.Endpoint,
+            coordinator,
+            monitoringDueAt,
+            timeoutAt);
+    }
+
     public async ValueTask<B5PostSubmitResult> ExecutePostSubmitMonitoringAsync(
         ScheduledBusWork work,
         DateTimeOffset observedAt,
