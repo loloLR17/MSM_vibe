@@ -107,6 +107,33 @@ public sealed class PollingTelemetryCycleTests
         Assert.Null(scheduler.BeginNext(endpoint.Bus, Now));
     }
 
+    [Fact]
+    public async Task Static_B0_polling_publishes_new_device_identity_to_fleet_registry()
+    {
+        var endpoint = Endpoint();
+        var fleet = CompatibleFleet(endpoint, new DeviceId(1001));
+        var telemetry = new DeviceTelemetrySnapshotRegistry();
+        var scheduler = new BusWorkScheduler();
+        var polling = new PollingBusOrchestrator(
+            scheduler,
+            new PollingExecutor(new B0Transport(new DeviceId(2002), protocolVersion: 1), supportedProtocolVersion: 1));
+        var cycle = new PollingTelemetryCycle(
+            polling,
+            new PollingTelemetryPublisher(fleet, telemetry),
+            new IOExceptionFailureClassifier(),
+            fleet);
+
+        polling.Queue(endpoint, PollingGroup.Static, Now);
+        var active = polling.BeginNext(endpoint.Bus, Now)!;
+        var published = await cycle.ExecuteAsync(active, Now);
+
+        Assert.Null(published);
+        var session = fleet.GetSession(endpoint);
+        Assert.Equal(TR2SessionState.Compatible, session.State);
+        Assert.Equal(new DeviceId(2002), session.Device!.DeviceId);
+        Assert.Null(scheduler.BeginNext(endpoint.Bus, Now));
+    }
+
     private static FleetRegistry CompatibleFleet(TR2Endpoint endpoint, DeviceId deviceId)
     {
         var fleet = new FleetRegistry();
@@ -146,5 +173,26 @@ public sealed class PollingTelemetryCycleTests
             ushort registerCount,
             CancellationToken cancellationToken = default) =>
             ValueTask.FromResult(new ushort[registerCount]);
+    }
+
+    private sealed class B0Transport(DeviceId deviceId, ushort protocolVersion) : IRegisterTransport
+    {
+        public ValueTask<ushort[]> ReadRegistersAsync(
+            string busId,
+            byte unitAddress,
+            ushort startAddress,
+            ushort registerCount,
+            CancellationToken cancellationToken = default)
+        {
+            var registers = new ushort[registerCount];
+            if (startAddress == B0Reader.StartAddress)
+            {
+                registers[B0Identification.DeviceIdMswOffset] = (ushort)(deviceId.Value >> 16);
+                registers[B0Identification.DeviceIdLswOffset] = (ushort)deviceId.Value;
+                registers[B0Identification.ProtocolVersionOffset] = protocolVersion;
+            }
+
+            return ValueTask.FromResult(registers);
+        }
     }
 }
