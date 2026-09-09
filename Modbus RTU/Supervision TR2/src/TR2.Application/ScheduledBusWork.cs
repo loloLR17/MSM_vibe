@@ -8,7 +8,8 @@ public enum BusWorkKind
     ExplicitRefresh,
     CommandTransaction,
     CommandPostSubmitMonitoring,
-    TransactionReconciliation
+    TransactionReconciliation,
+    CampaignSelection
 }
 
 public sealed record ScheduledBusWork(
