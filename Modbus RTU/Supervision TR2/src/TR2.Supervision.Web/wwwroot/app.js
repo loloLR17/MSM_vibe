@@ -29,7 +29,7 @@ function communication(d){
 }
 function latestReceived(d){
  if(!d.telemetry)return null;
- const values=[d.telemetry.systemState,d.telemetry.timeState,d.telemetry.vibrationState].map(x=>x?.receivedAt).filter(Boolean).map(Date.parse).filter(Number.isFinite);
+ const values=[d.telemetry.systemState,d.telemetry.timeState,d.telemetry.vibrationState,d.telemetry.diagnosticState].map(x=>x?.receivedAt).filter(Boolean).map(Date.parse).filter(Number.isFinite);
  return values.length?new Date(Math.max(...values)):null;
 }
 function relative(date){
@@ -58,12 +58,18 @@ function attentionText(d){
  if(hasB3Attention(b3))items.push('Alarme B3');
  return items.length?items.join(' · '):'—';
 }
+function pointCell(d){
+ const label=`${esc(d.busId)} / adresse ${d.modbusAddress}`;
+ return d.deviceId==null
+  ? `<span class="endpoint">${label}</span><small>endpoint configuré</small>`
+  : `<a class="endpoint endpoint-link" href="/device.html?deviceId=${encodeURIComponent(d.deviceId)}">${label}</a><small>ouvrir le détail TR2</small>`;
+}
 function render(devices){
  const shown=activeFilter==='attention'?devices.filter(needsAttention):devices;
  if(!shown.length){rows.innerHTML='<tr><td colspan="8" class="empty">Aucun point dans ce filtre.</td></tr>';return;}
  rows.innerHTML=shown.map(d=>{
    const comm=communication(d),vib=vibration(d),state=tr2State(d),fresh=d.telemetry?.vibrationState??d.telemetry?.systemState;
-   return `<tr data-attention="${needsAttention(d)}"><td><span class="endpoint">${esc(d.busId)} / adresse ${d.modbusAddress}</span><small>endpoint configuré</small></td><td>${d.deviceId==null?'—':esc(d.deviceId)}</td><td><span class="status ${comm[1]}">${esc(comm[0])}</span></td><td><span class="status ${freshnessClass(fresh)}">${esc(freshnessLabel(fresh))}</span></td><td>${esc(vib[0])}${vib[1]?`<small class="muted">${esc(vib[1])}</small>`:''}</td><td>${esc(state[0])}${state[1]?`<small class="muted">${esc(state[1])}</small>`:''}</td><td><span class="${needsAttention(d)?'attention warn':'neutral'}">${esc(attentionText(d))}</span></td><td>${esc(relative(latestReceived(d)))}</td></tr>`;
+   return `<tr data-attention="${needsAttention(d)}"><td>${pointCell(d)}</td><td>${d.deviceId==null?'—':esc(d.deviceId)}</td><td><span class="status ${comm[1]}">${esc(comm[0])}</span></td><td><span class="status ${freshnessClass(fresh)}">${esc(freshnessLabel(fresh))}</span></td><td>${esc(vib[0])}${vib[1]?`<small class="muted">${esc(vib[1])}</small>`:''}</td><td>${esc(state[0])}${state[1]?`<small class="muted">${esc(state[1])}</small>`:''}</td><td><span class="${needsAttention(d)?'attention warn':'neutral'}">${esc(attentionText(d))}</span></td><td>${esc(relative(latestReceived(d)))}</td></tr>`;
  }).join('');
 }
 function updateKpis(devices){
