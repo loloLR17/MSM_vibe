@@ -1,4 +1,5 @@
 using System.IO;
+using NModbus;
 using TR2.Transport;
 using Xunit;
 
@@ -68,6 +69,24 @@ public sealed class ModbusRegisterTransportTests
 
         Assert.Equal(ModbusTransportFailureKind.Io, exception.Kind);
         Assert.IsType<IOException>(exception.InnerException);
+    }
+
+    [Fact]
+    public async Task SlaveExceptionIsWrappedAsNeutralModbusExceptionResponse()
+    {
+        var client = new FakeModbusRegisterClient
+        {
+            ReadException = new SlaveException("illegal data address")
+        };
+        var transport = new ModbusRegisterTransport("bus-1", client);
+
+        var exception = await Assert.ThrowsAsync<ModbusTransportFailureException>(async () =>
+            await transport.ReadRegistersAsync("bus-1", 1, 0, 1));
+
+        Assert.Equal(ModbusTransportFailureKind.ModbusExceptionResponse, exception.Kind);
+        Assert.IsType<SlaveException>(exception.InnerException);
+        Assert.Equal((byte)0, exception.FunctionCode);
+        Assert.Equal((byte)0, exception.ExceptionCode);
     }
 
     [Fact]
