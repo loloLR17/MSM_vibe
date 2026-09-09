@@ -23,7 +23,7 @@ public sealed class CommandBusOrchestrator
         ArgumentNullException.ThrowIfNull(endpoint);
         ArgumentNullException.ThrowIfNull(coordinator);
 
-        await coordinator.PrepareAsync(requestIdentity, cancellationToken);
+        await coordinator.PrepareAsync(requestIdentity, dueAt, cancellationToken);
 
         var work = _scheduler.QueuePriority(
             endpoint,
@@ -71,6 +71,28 @@ public sealed class CommandBusOrchestrator
             && _coordinatorsByWorkId.TryGetValue(work.WorkId, out var coordinator))
         {
             coordinator.MarkSubmitted();
+        }
+
+        return work;
+    }
+
+    public async ValueTask<ScheduledBusWork?> BeginNextAsync(
+        SerialBus bus,
+        DateTimeOffset observedAt,
+        CancellationToken cancellationToken = default)
+    {
+        ArgumentNullException.ThrowIfNull(bus);
+
+        var work = _scheduler.BeginNext(bus, observedAt);
+        if (work is null)
+        {
+            return null;
+        }
+
+        if (work.Kind == BusWorkKind.CommandTransaction
+            && _coordinatorsByWorkId.TryGetValue(work.WorkId, out var coordinator))
+        {
+            await coordinator.MarkSubmittedAsync(observedAt, cancellationToken);
         }
 
         return work;

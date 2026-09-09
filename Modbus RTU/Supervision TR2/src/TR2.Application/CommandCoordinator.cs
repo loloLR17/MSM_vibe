@@ -5,23 +5,108 @@ namespace TR2.Application;
 public sealed class CommandCoordinator
 {
     private readonly ICommandTransactionReservationStore _store;
+    private readonly ICommandTransactionJournal? _journal;
 
     public CommandCoordinator(DeviceId deviceId, ICommandTransactionReservationStore store)
+        : this(deviceId, store, null)
+    {
+    }
+
+    public CommandCoordinator(
+        DeviceId deviceId,
+        ICommandTransactionReservationStore store,
+        ICommandTransactionJournal? journal)
     {
         ArgumentNullException.ThrowIfNull(store);
         DeviceId = deviceId;
         _store = store;
+        _journal = journal;
     }
 
     public DeviceId DeviceId { get; }
 
     public CommandTransaction? ActiveTransaction { get; private set; }
 
-    public async ValueTask<CommandTransaction> PrepareAsync(
+    public ValueTask<CommandTransaction> PrepareAsync(
         string requestIdentity,
         CancellationToken cancellationToken = default)
     {
+        EnsureJournalTimestampNotRequired();
+        return PrepareCoreAsync(requestIdentity, null, cancellationToken);
+    }
+
+    public ValueTask<CommandTransaction> PrepareAsync(
+        string requestIdentity,
+        DateTimeOffset observedAt,
+        CancellationToken cancellationToken = default) =>
+        PrepareCoreAsync(requestIdentity, observedAt, cancellationToken);
+
+    public CommandTransaction MarkSubmitted()
+    {
+        EnsureJournalTimestampNotRequired();
+        var active = RequireActive();
+        ActiveTransaction = active.MarkSubmitted();
+        return ActiveTransaction;
+    }
+
+    public async ValueTask<CommandTransaction> MarkSubmittedAsync(
+        DateTimeOffset observedAt,
+        CancellationToken cancellationToken = default)
+    {
+        var active = RequireActive();
+        var submitted = active.MarkSubmitted();
+        await AppendJournalAsync(submitted, CommandTransactionJournalEventKind.Submitted, observedAt, cancellationToken);
+        ActiveTransaction = submitted;
+        return submitted;
+    }
+
+    public CommandTransaction MarkAmbiguous()
+    {
+        EnsureJournalTimestampNotRequired();
+        var active = RequireActive();
+        ActiveTransaction = active.MarkAmbiguous();
+        return ActiveTransaction;
+    }
+
+    public async ValueTask<CommandTransaction> MarkAmbiguousAsync(
+        DateTimeOffset observedAt,
+        CancellationToken cancellationToken = default)
+    {
+        var active = RequireActive();
+        var ambiguous = active.MarkAmbiguous();
+        await AppendJournalAsync(ambiguous, CommandTransactionJournalEventKind.Ambiguous, observedAt, cancellationToken);
+        ActiveTransaction = ambiguous;
+        return ambiguous;
+    }
+
+    public void ResolveTerminal(TransactionId transactionId)
+    {
+        EnsureJournalTimestampNotRequired();
+        var active = RequireMatchingActive(transactionId);
+        ActiveTransaction = null;
+    }
+
+    public async ValueTask ResolveTerminalAsync(
+        TransactionId transactionId,
+        DateTimeOffset observedAt,
+        CancellationToken cancellationToken = default)
+    {
+        var active = RequireMatchingActive(transactionId);
+        await AppendJournalAsync(active, CommandTransactionJournalEventKind.TerminalEvidenceObserved, observedAt, cancellationToken);
+        ActiveTransaction = null;
+    }
+
+    private async ValueTask<CommandTransaction> PrepareCoreAsync(
+        string requestIdentity,
+        DateTimeOffset? observedAt,
+        CancellationToken cancellationToken)
+    {
         ArgumentException.ThrowIfNullOrWhiteSpace(requestIdentity);
+
+        if (_journal is not null && observedAt is null)
+        {
+            throw new InvalidOperationException("A supervision timestamp is required when command journaling is enabled.");
+        }
 
         if (ActiveTransaction is not null)
         {
@@ -47,25 +132,45 @@ public sealed class CommandCoordinator
             requestIdentity,
             CommandTransactionState.Prepared);
 
+        if (observedAt is not null)
+        {
+            await AppendJournalAsync(prepared, CommandTransactionJournalEventKind.Prepared, observedAt.Value, cancellationToken);
+        }
+
         ActiveTransaction = prepared;
         return prepared;
     }
 
-    public CommandTransaction MarkSubmitted()
+    private async ValueTask AppendJournalAsync(
+        CommandTransaction transaction,
+        CommandTransactionJournalEventKind kind,
+        DateTimeOffset observedAt,
+        CancellationToken cancellationToken)
     {
-        var active = RequireActive();
-        ActiveTransaction = active.MarkSubmitted();
-        return ActiveTransaction;
+        if (_journal is null)
+        {
+            return;
+        }
+
+        await _journal.AppendAsync(
+            new CommandTransactionJournalEvent(
+                transaction.DeviceId,
+                transaction.TransactionId,
+                transaction.RequestIdentity,
+                kind,
+                observedAt),
+            cancellationToken);
     }
 
-    public CommandTransaction MarkAmbiguous()
+    private void EnsureJournalTimestampNotRequired()
     {
-        var active = RequireActive();
-        ActiveTransaction = active.MarkAmbiguous();
-        return ActiveTransaction;
+        if (_journal is not null)
+        {
+            throw new InvalidOperationException("Use the timestamped asynchronous transition when command journaling is enabled.");
+        }
     }
 
-    public void ResolveTerminal(TransactionId transactionId)
+    private CommandTransaction RequireMatchingActive(TransactionId transactionId)
     {
         var active = RequireActive();
         if (active.TransactionId != transactionId)
@@ -73,7 +178,7 @@ public sealed class CommandCoordinator
             throw new InvalidOperationException("Terminal evidence does not match the active transaction.");
         }
 
-        ActiveTransaction = null;
+        return active;
     }
 
     private CommandTransaction RequireActive() =>
