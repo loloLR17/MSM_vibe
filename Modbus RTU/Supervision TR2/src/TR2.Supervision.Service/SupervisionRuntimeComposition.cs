@@ -1,5 +1,6 @@
 using TR2.Application;
 using TR2.Persistence.Sqlite;
+using TR2.Transport;
 
 namespace TR2.Supervision.Service;
 
@@ -17,7 +18,8 @@ public sealed class SupervisionRuntimeComposition
         CommandCoordinatorRegistry commandCoordinatorRegistry,
         DeviceTelemetrySnapshotRegistry telemetrySnapshotRegistry,
         BusWorkScheduler busWorkScheduler,
-        RuntimeReadinessGate readinessGate)
+        RuntimeReadinessGate readinessGate,
+        ModbusBusConnectionManager busConnectionManager)
     {
         Configuration = configuration;
         Database = database;
@@ -31,6 +33,7 @@ public sealed class SupervisionRuntimeComposition
         TelemetrySnapshotRegistry = telemetrySnapshotRegistry;
         BusWorkScheduler = busWorkScheduler;
         ReadinessGate = readinessGate;
+        BusConnectionManager = busConnectionManager;
     }
 
     public RuntimeConfiguration Configuration { get; }
@@ -45,11 +48,14 @@ public sealed class SupervisionRuntimeComposition
     public DeviceTelemetrySnapshotRegistry TelemetrySnapshotRegistry { get; }
     public BusWorkScheduler BusWorkScheduler { get; }
     public RuntimeReadinessGate ReadinessGate { get; }
+    public ModbusBusConnectionManager BusConnectionManager { get; }
 }
 
 public static class SupervisionRuntimeCompositionRoot
 {
-    public static SupervisionRuntimeComposition Compose(RuntimeConfiguration configuration)
+    public static SupervisionRuntimeComposition Compose(
+        RuntimeConfiguration configuration,
+        IModbusBusConnectionFactory? busConnectionFactory = null)
     {
         ArgumentNullException.ThrowIfNull(configuration);
 
@@ -69,6 +75,9 @@ public static class SupervisionRuntimeCompositionRoot
             }
         }
 
+        var connectionManager = new ModbusBusConnectionManager(
+            busConnectionFactory ?? new NModbusSerialBusConnectionFactory());
+
         return new SupervisionRuntimeComposition(
             configuration,
             database,
@@ -81,6 +90,7 @@ public static class SupervisionRuntimeCompositionRoot
             new CommandCoordinatorRegistry(),
             new DeviceTelemetrySnapshotRegistry(),
             new BusWorkScheduler(),
-            new RuntimeReadinessGate());
+            new RuntimeReadinessGate(),
+            connectionManager);
     }
 }
