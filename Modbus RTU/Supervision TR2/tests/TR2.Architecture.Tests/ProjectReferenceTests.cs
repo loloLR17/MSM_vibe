@@ -43,7 +43,8 @@ public sealed class ProjectReferenceTests
                 .Descendants("ProjectReference")
                 .Select(reference => reference.Attribute("Include")?.Value)
                 .Where(value => !string.IsNullOrWhiteSpace(value))
-                .Select(value => Path.GetFileNameWithoutExtension(value!))
+                .Select(value => value!.Replace('\\', '/'))
+                .Select(Path.GetFileNameWithoutExtension)
                 .OrderBy(value => value, StringComparer.Ordinal)
                 .ToArray();
 
