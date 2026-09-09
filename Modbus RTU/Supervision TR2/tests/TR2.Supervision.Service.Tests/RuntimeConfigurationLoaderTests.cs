@@ -1,3 +1,4 @@
+using Xunit;
 using TR2.Supervision.Service;
 
 namespace TR2.Supervision.Service.Tests;
