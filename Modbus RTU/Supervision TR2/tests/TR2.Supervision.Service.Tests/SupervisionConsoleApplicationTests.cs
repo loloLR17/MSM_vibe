@@ -1,3 +1,6 @@
+using TR2.Application;
+using TR2.Domain;
+using TR2.Persistence.Sqlite;
 using TR2.Transport;
 using Xunit;
 
@@ -110,7 +113,7 @@ public sealed class SupervisionConsoleApplicationTests
         try
         {
             using var cancellation = new CancellationTokenSource();
-            using var output = new CancellingStringWriter(cancellation, "Runtime: state=Running");
+            using var output = new CancellingStringWriter(cancellation, "Communication failures: none");
             using var error = new StringWriter();
 
             var exitCode = await SupervisionConsoleApplication.RunAsync(
@@ -125,7 +128,64 @@ public sealed class SupervisionConsoleApplicationTests
                 "Runtime: state=Running; ready=true; connectedBuses=none",
                 output.ToString(),
                 StringComparison.Ordinal);
+            Assert.Contains("Communication failures: none", output.ToString(), StringComparison.Ordinal);
             Assert.Contains("TR2 supervision stopped.", output.ToString(), StringComparison.Ordinal);
+            Assert.Equal(string.Empty, error.ToString());
+        }
+        finally
+        {
+            DeleteDatabaseFiles(databasePath);
+            File.Delete(configPath);
+        }
+    }
+
+    [Fact]
+    public async Task RunningRuntimeDiagnosticReportsPersistedCommunicationFailure()
+    {
+        var databasePath = NewDatabasePath();
+        var configPath = NewConfigPath();
+        await File.WriteAllTextAsync(
+            configPath,
+            $$"""
+            {
+              "persistence": { "databasePath": "{{databasePath.Replace("\\", "\\\\")}}" },
+              "buses": []
+            }
+            """);
+
+        try
+        {
+            var database = new SqliteDatabase(new SqlitePersistenceOptions(databasePath));
+            var sink = new SqliteCommunicationJournalSink(database);
+            var observedAt = new DateTimeOffset(2026, 9, 9, 18, 30, 0, TimeSpan.Zero);
+            await sink.AppendAsync(new CommunicationFailureEvent(
+                new TR2Endpoint(new SerialBus("bus-a"), new ModbusAddress(5)),
+                new DeviceId(42),
+                CommunicationOperation.CommandTransaction,
+                CommunicationFailureCategory.Io,
+                observedAt,
+                "System.IO.IOException",
+                "simulated cable loss"));
+
+            using var cancellation = new CancellationTokenSource();
+            using var output = new CancellingStringWriter(cancellation, "message=simulated cable loss");
+            using var error = new StringWriter();
+
+            var exitCode = await SupervisionConsoleApplication.RunAsync(
+                ["--config", configPath],
+                supportedProtocolVersion: 1,
+                cancellation.Token,
+                output,
+                error);
+
+            Assert.Equal(SupervisionConsoleApplication.SuccessExitCode, exitCode);
+            Assert.Contains("Communication failures: latest=1; limit=10", output.ToString(), StringComparison.Ordinal);
+            Assert.Contains(
+                "endpoint=bus-a/5; deviceId=42; operation=CommandTransaction; category=Io",
+                output.ToString(),
+                StringComparison.Ordinal);
+            Assert.Contains("observedUtc=2026-09-09T18:30:00.0000000+00:00", output.ToString(), StringComparison.Ordinal);
+            Assert.Contains("exception=System.IO.IOException; message=simulated cable loss", output.ToString(), StringComparison.Ordinal);
             Assert.Equal(string.Empty, error.ToString());
         }
         finally
@@ -199,6 +259,7 @@ public sealed class SupervisionConsoleApplicationTests
 
     private static void DeleteDatabaseFiles(string databasePath)
     {
+        Microsoft.Data.Sqlite.SqliteConnection.ClearAllPools();
         foreach (var suffix in new[] { string.Empty, "-wal", "-shm" })
         {
             var path = databasePath + suffix;
