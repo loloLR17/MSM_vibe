@@ -9,13 +9,18 @@ public sealed class CommunicationFailureClassifierTests
     [Theory]
     [InlineData(ModbusTransportFailureKind.Timeout, CommunicationFailureCategory.Timeout)]
     [InlineData(ModbusTransportFailureKind.Io, CommunicationFailureCategory.Io)]
+    [InlineData(ModbusTransportFailureKind.ModbusExceptionResponse, CommunicationFailureCategory.ModbusExceptionResponse)]
     public void Neutral_transport_failures_map_to_stable_supervision_categories(
         ModbusTransportFailureKind kind,
         CommunicationFailureCategory expected)
     {
-        Exception inner = kind == ModbusTransportFailureKind.Timeout
-            ? new TimeoutException("timeout")
-            : new IOException("io");
+        Exception inner = kind switch
+        {
+            ModbusTransportFailureKind.Timeout => new TimeoutException("timeout"),
+            ModbusTransportFailureKind.Io => new IOException("io"),
+            ModbusTransportFailureKind.ModbusExceptionResponse => new InvalidOperationException("modbus exception response"),
+            _ => new InvalidOperationException("unexpected")
+        };
         var exception = new ModbusTransportFailureException(kind, "transport failure", inner);
 
         var category = CommunicationFailureClassifier.Classify(exception);
