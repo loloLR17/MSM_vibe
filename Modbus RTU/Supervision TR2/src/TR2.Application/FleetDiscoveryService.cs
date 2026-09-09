@@ -9,12 +9,14 @@ public sealed class FleetDiscoveryService
     private readonly IB0SessionReader _b0SessionReader;
     private readonly ushort _supportedProtocolVersion;
     private readonly FleetRefreshPlanner? _refreshPlanner;
+    private readonly RecoveredCommandReconciliationPlanner? _reconciliationPlanner;
 
     public FleetDiscoveryService(
         FleetRegistry fleetRegistry,
         IB0SessionReader b0SessionReader,
         ushort supportedProtocolVersion,
-        FleetRefreshPlanner? refreshPlanner = null)
+        FleetRefreshPlanner? refreshPlanner = null,
+        RecoveredCommandReconciliationPlanner? reconciliationPlanner = null)
     {
         ArgumentNullException.ThrowIfNull(fleetRegistry);
         ArgumentNullException.ThrowIfNull(b0SessionReader);
@@ -23,6 +25,7 @@ public sealed class FleetDiscoveryService
         _b0SessionReader = b0SessionReader;
         _supportedProtocolVersion = supportedProtocolVersion;
         _refreshPlanner = refreshPlanner;
+        _reconciliationPlanner = reconciliationPlanner;
     }
 
     public async ValueTask<TR2Session> RefreshAsync(
@@ -65,6 +68,12 @@ public sealed class FleetDiscoveryService
         }
 
         var session = await RefreshAsync(endpoint, cancellationToken);
+
+        if (session.State == TR2SessionState.Compatible)
+        {
+            _reconciliationPlanner?.QueueForSession(session, dueAt);
+        }
+
         var refreshes = session.State == TR2SessionState.Compatible
             ? _refreshPlanner.QueuePostReconnectRefresh(session, dueAt)
             : Array.Empty<ScheduledBlockRefresh>();
