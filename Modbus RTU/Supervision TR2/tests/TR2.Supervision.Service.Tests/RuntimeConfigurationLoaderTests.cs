@@ -19,7 +19,12 @@ public sealed class RuntimeConfigurationLoaderTests
                 {
                   "id": "bus-1",
                   "serial": {
-                    "portName": "COM7"
+                    "portName": "COM7",
+                    "baudRate": 115200,
+                    "dataBits": 8,
+                    "parity": "None",
+                    "stopBits": "One",
+                    "responseTimeoutMilliseconds": 750
                   },
                   "endpoints": [1, 2, 3]
                 },
@@ -37,14 +42,22 @@ public sealed class RuntimeConfigurationLoaderTests
             configuration.Persistence.DatabasePath);
         Assert.Equal(2, configuration.Buses.Count);
         Assert.Equal("bus-1", configuration.Buses[0].Bus.Id);
-        Assert.Equal("COM7", configuration.Buses[0].Serial?.PortName);
+
+        var serial = Assert.IsType<RuntimeSerialPortConfiguration>(configuration.Buses[0].Serial);
+        Assert.Equal("COM7", serial.PortName);
+        Assert.Equal(115200, serial.BaudRate);
+        Assert.Equal(8, serial.DataBits);
+        Assert.Equal(RuntimeSerialParity.None, serial.Parity);
+        Assert.Equal(RuntimeSerialStopBits.One, serial.StopBits);
+        Assert.Equal(TimeSpan.FromMilliseconds(750), serial.ResponseTimeout);
+
         Assert.Equal(new byte[] { 1, 2, 3 }, configuration.Buses[0].Endpoints.Select(endpoint => endpoint.Address.Value));
         Assert.Null(configuration.Buses[1].Serial);
         Assert.Empty(configuration.Buses[1].Endpoints);
     }
 
     [Fact]
-    public void ParseRejectsSerialConfigurationWithoutPortName()
+    public void ParseRejectsIncompleteSerialConfiguration()
     {
         var exception = Assert.Throws<InvalidDataException>(() => RuntimeConfigurationLoader.Parse(
             """
@@ -53,7 +66,7 @@ public sealed class RuntimeConfigurationLoaderTests
               "buses": [
                 {
                   "id": "bus-1",
-                  "serial": { "portName": "  " },
+                  "serial": { "portName": "COM7" },
                   "endpoints": []
                 }
               ]
@@ -61,7 +74,65 @@ public sealed class RuntimeConfigurationLoaderTests
             """,
             Path.GetTempPath()));
 
-        Assert.Contains("serial.portName must be provided", exception.Message);
+        Assert.Contains("serial.baudRate", exception.Message);
+    }
+
+    [Theory]
+    [InlineData("invalid", "One", "serial.parity")]
+    [InlineData("None", "invalid", "serial.stopBits")]
+    public void ParseRejectsUnsupportedSerialEnumValue(string parity, string stopBits, string expectedMessage)
+    {
+        var json = $$"""
+            {
+              "persistence": { "databasePath": "tr2.db" },
+              "buses": [
+                {
+                  "id": "bus-1",
+                  "serial": {
+                    "portName": "COM7",
+                    "baudRate": 115200,
+                    "dataBits": 8,
+                    "parity": "{{parity}}",
+                    "stopBits": "{{stopBits}}",
+                    "responseTimeoutMilliseconds": 750
+                  },
+                  "endpoints": []
+                }
+              ]
+            }
+            """;
+
+        var exception = Assert.Throws<InvalidDataException>(() => RuntimeConfigurationLoader.Parse(json, Path.GetTempPath()));
+        Assert.Contains(expectedMessage, exception.Message);
+    }
+
+    [Theory]
+    [InlineData(-1)]
+    [InlineData(0)]
+    public void ParseRejectsNonPositiveSerialTimeout(int timeoutMilliseconds)
+    {
+        var json = $$"""
+            {
+              "persistence": { "databasePath": "tr2.db" },
+              "buses": [
+                {
+                  "id": "bus-1",
+                  "serial": {
+                    "portName": "COM7",
+                    "baudRate": 115200,
+                    "dataBits": 8,
+                    "parity": "None",
+                    "stopBits": "One",
+                    "responseTimeoutMilliseconds": {{timeoutMilliseconds}}
+                  },
+                  "endpoints": []
+                }
+              ]
+            }
+            """;
+
+        var exception = Assert.Throws<InvalidDataException>(() => RuntimeConfigurationLoader.Parse(json, Path.GetTempPath()));
+        Assert.Contains("serial.responseTimeoutMilliseconds", exception.Message);
     }
 
     [Fact]
