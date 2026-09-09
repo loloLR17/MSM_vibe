@@ -7,6 +7,7 @@ public enum BusWorkKind
     Polling,
     ExplicitRefresh,
     CommandTransaction,
+    CommandPostSubmitMonitoring,
     TransactionReconciliation
 }
 
