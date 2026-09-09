@@ -117,6 +117,97 @@ public sealed class SqliteCommunicationJournalTests : IDisposable
     }
 
     [Fact]
+    public async Task SustainedRepeatedFailuresPersistExactlyAcrossReopen()
+    {
+        const int failureCount = 500;
+        var databasePath = Path.Combine(_directory, "communication-stress.db");
+        var database = new SqliteDatabase(new SqlitePersistenceOptions(databasePath));
+        var sink = new SqliteCommunicationJournalSink(database);
+        var startedAt = new DateTimeOffset(2026, 9, 9, 19, 0, 0, TimeSpan.Zero);
+
+        for (var index = 0; index < failureCount; index++)
+        {
+            var endpoint = new TR2Endpoint(
+                new SerialBus(index % 2 == 0 ? "rs485-stress-a" : "rs485-stress-b"),
+                new ModbusAddress((byte)((index % 8) + 1)));
+            var operation = index % 4 switch
+            {
+                0 => CommunicationOperation.Polling,
+                1 => CommunicationOperation.ExplicitRefresh,
+                2 => CommunicationOperation.CommandTransaction,
+                _ => CommunicationOperation.CampaignSelection
+            };
+            var category = index % 4 switch
+            {
+                0 => CommunicationFailureCategory.Timeout,
+                1 => CommunicationFailureCategory.Io,
+                2 => CommunicationFailureCategory.ModbusExceptionResponse,
+                _ => CommunicationFailureCategory.Unclassified
+            };
+
+            await sink.AppendAsync(new CommunicationFailureEvent(
+                endpoint,
+                index % 3 == 0 ? null : new DeviceId((uint)(1000 + index)),
+                operation,
+                category,
+                startedAt.AddMilliseconds(index),
+                $"StressException{index}",
+                $"stress-message-{index}"));
+        }
+
+        SqliteConnection.ClearAllPools();
+
+        var reopened = new SqliteDatabase(new SqlitePersistenceOptions(databasePath));
+        using var connection = reopened.OpenConnection();
+
+        Assert.Equal(
+            failureCount,
+            ReadInt32(connection, "SELECT COUNT(*) FROM communication_failure_journal;"));
+
+        using (var firstCommand = connection.CreateCommand())
+        {
+            firstCommand.CommandText = """
+                SELECT failure_id, bus_id, modbus_address, operation, category, exception_type, message
+                FROM communication_failure_journal
+                ORDER BY failure_id ASC
+                LIMIT 1;
+                """;
+            using var reader = firstCommand.ExecuteReader();
+            Assert.True(reader.Read());
+            Assert.Equal(1L, reader.GetInt64(0));
+            Assert.Equal("rs485-stress-a", reader.GetString(1));
+            Assert.Equal(1, reader.GetInt32(2));
+            Assert.Equal("Polling", reader.GetString(3));
+            Assert.Equal("Timeout", reader.GetString(4));
+            Assert.Equal("StressException0", reader.GetString(5));
+            Assert.Equal("stress-message-0", reader.GetString(6));
+        }
+
+        using (var lastCommand = connection.CreateCommand())
+        {
+            lastCommand.CommandText = """
+                SELECT failure_id, bus_id, modbus_address, operation, category, exception_type, message
+                FROM communication_failure_journal
+                ORDER BY failure_id DESC
+                LIMIT 1;
+                """;
+            using var reader = lastCommand.ExecuteReader();
+            Assert.True(reader.Read());
+            Assert.Equal((long)failureCount, reader.GetInt64(0));
+            Assert.Equal("rs485-stress-b", reader.GetString(1));
+            Assert.Equal(4, reader.GetInt32(2));
+            Assert.Equal("CampaignSelection", reader.GetString(3));
+            Assert.Equal("Unclassified", reader.GetString(4));
+            Assert.Equal("StressException499", reader.GetString(5));
+            Assert.Equal("stress-message-499", reader.GetString(6));
+        }
+
+        using var integrityCommand = connection.CreateCommand();
+        integrityCommand.CommandText = "PRAGMA integrity_check;";
+        Assert.Equal("ok", Convert.ToString(integrityCommand.ExecuteScalar(), System.Globalization.CultureInfo.InvariantCulture));
+    }
+
+    [Fact]
     public void Database_MigratesExistingVersion3ToCommunicationJournalSchema()
     {
         var databasePath = Path.Combine(_directory, "migration-v3.db");
