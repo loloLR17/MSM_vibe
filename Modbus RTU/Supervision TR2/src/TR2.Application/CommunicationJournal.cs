@@ -5,13 +5,24 @@ namespace TR2.Application;
 public enum CommunicationOperation
 {
     Polling,
-    ExplicitRefresh
+    ExplicitRefresh,
+    CommandTransaction,
+    CampaignSelection
+}
+
+public enum CommunicationFailureCategory
+{
+    Unclassified,
+    Timeout,
+    Io,
+    ModbusExceptionResponse
 }
 
 public sealed record CommunicationFailureEvent(
     TR2Endpoint Endpoint,
     DeviceId? DeviceId,
     CommunicationOperation Operation,
+    CommunicationFailureCategory Category,
     DateTimeOffset ObservedAt,
     string ExceptionType,
     string Message);
@@ -41,6 +52,21 @@ public sealed class CommunicationJournal
         CommunicationOperation operation,
         DateTimeOffset observedAt,
         Exception exception,
+        CancellationToken cancellationToken = default) =>
+        RecordFailureAsync(
+            endpoint,
+            operation,
+            CommunicationFailureCategory.Unclassified,
+            observedAt,
+            exception,
+            cancellationToken);
+
+    public ValueTask RecordFailureAsync(
+        TR2Endpoint endpoint,
+        CommunicationOperation operation,
+        CommunicationFailureCategory category,
+        DateTimeOffset observedAt,
+        Exception exception,
         CancellationToken cancellationToken = default)
     {
         ArgumentNullException.ThrowIfNull(endpoint);
@@ -51,6 +77,7 @@ public sealed class CommunicationJournal
             endpoint,
             session.Device?.DeviceId,
             operation,
+            category,
             observedAt,
             exception.GetType().FullName ?? exception.GetType().Name,
             exception.Message);
