@@ -2,6 +2,13 @@
   "persistence": {
     "databasePath": "data/tr2-supervision.db"
   },
+  "web": {
+    "enabled": true,
+    "listenUri": "http://127.0.0.1:5080",
+    "allowRemote": false,
+    "freshnessAgingAfterMilliseconds": 5000,
+    "freshnessStaleAfterMilliseconds": 30000
+  },
   "buses": [
     {
       "id": "bus-1",

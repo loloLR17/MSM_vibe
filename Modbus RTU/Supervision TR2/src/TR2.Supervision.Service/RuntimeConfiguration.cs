@@ -2,6 +2,7 @@ using System.Text.Json;
 using System.Text.Json.Serialization;
 using TR2.Domain;
 using TR2.Persistence.Sqlite;
+using TR2.Supervision.Web;
 
 namespace TR2.Supervision.Service;
 
@@ -9,7 +10,23 @@ public sealed record RuntimeConfiguration(
     SqlitePersistenceOptions Persistence,
     IReadOnlyList<RuntimeBusConfiguration> Buses,
     RuntimePollingPolicy Polling,
-    RuntimeReconnectPolicy? Reconnect);
+    RuntimeReconnectPolicy? Reconnect,
+    RuntimeWebConfiguration Web);
+
+public sealed record RuntimeWebConfiguration(
+    bool Enabled,
+    Uri ListenUri,
+    bool AllowRemote,
+    TimeSpan FreshnessAgingAfter,
+    TimeSpan FreshnessStaleAfter)
+{
+    public static RuntimeWebConfiguration Default { get; } = new(
+        Enabled: false,
+        new Uri("http://127.0.0.1:5080"),
+        AllowRemote: false,
+        TimeSpan.FromSeconds(5),
+        TimeSpan.FromSeconds(30));
+}
 
 public sealed record RuntimeBusConfiguration(
     SerialBus Bus,
@@ -141,7 +158,8 @@ public static class RuntimeConfigurationLoader
 
         var polling = CreatePollingPolicy(document.Polling);
         var reconnect = CreateReconnectPolicy(document.Reconnect);
-        return new RuntimeConfiguration(persistence, buses, polling, reconnect);
+        var web = CreateWebConfiguration(document.Web);
+        return new RuntimeConfiguration(persistence, buses, polling, reconnect, web);
     }
 
     private static RuntimeSerialPortConfiguration CreateSerialConfiguration(string busId, SerialDocument document)
@@ -181,6 +199,59 @@ public static class RuntimeConfigurationLoader
             "reconnect.intervalMilliseconds");
 
         return new RuntimeReconnectPolicy(TimeSpan.FromMilliseconds(intervalMilliseconds));
+    }
+
+    private static RuntimeWebConfiguration CreateWebConfiguration(WebDocument? document)
+    {
+        var defaults = RuntimeWebConfiguration.Default;
+        if (document is null)
+        {
+            return defaults;
+        }
+
+        Uri listenUri;
+        try
+        {
+            listenUri = string.IsNullOrWhiteSpace(document.ListenUri)
+                ? defaults.ListenUri
+                : new Uri(document.ListenUri, UriKind.Absolute);
+        }
+        catch (UriFormatException exception)
+        {
+            throw new InvalidDataException("web.listenUri must be a valid absolute HTTP URI.", exception);
+        }
+
+        var allowRemote = document.AllowRemote ?? defaults.AllowRemote;
+        try
+        {
+            _ = new SupervisionWebOptions(listenUri, allowRemote);
+        }
+        catch (ArgumentException exception)
+        {
+            throw new InvalidDataException($"Invalid web configuration: {exception.Message}", exception);
+        }
+
+        var agingAfter = PositiveMilliseconds(
+            document.FreshnessAgingAfterMilliseconds,
+            defaults.FreshnessAgingAfter,
+            "web.freshnessAgingAfterMilliseconds");
+        var staleAfter = PositiveMilliseconds(
+            document.FreshnessStaleAfterMilliseconds,
+            defaults.FreshnessStaleAfter,
+            "web.freshnessStaleAfterMilliseconds");
+
+        if (staleAfter <= agingAfter)
+        {
+            throw new InvalidDataException(
+                "web.freshnessStaleAfterMilliseconds must be greater than web.freshnessAgingAfterMilliseconds.");
+        }
+
+        return new RuntimeWebConfiguration(
+            document.Enabled ?? defaults.Enabled,
+            listenUri,
+            allowRemote,
+            agingAfter,
+            staleAfter);
     }
 
     private static int RequiredPositive(int? value, string name)
@@ -233,31 +304,23 @@ public static class RuntimeConfigurationLoader
 
     private sealed class RuntimeConfigurationDocument
     {
-        public RuntimeConfigurationDocument()
-        {
-        }
-
+        public RuntimeConfigurationDocument() { }
         public PersistenceDocument? Persistence { get; init; }
         public List<BusDocument?>? Buses { get; init; }
         public PollingDocument? Polling { get; init; }
         public ReconnectDocument? Reconnect { get; init; }
+        public WebDocument? Web { get; init; }
     }
 
     private sealed class PersistenceDocument
     {
-        public PersistenceDocument()
-        {
-        }
-
+        public PersistenceDocument() { }
         public string? DatabasePath { get; init; }
     }
 
     private sealed class BusDocument
     {
-        public BusDocument()
-        {
-        }
-
+        public BusDocument() { }
         public string? Id { get; init; }
         public SerialDocument? Serial { get; init; }
         public List<int>? Endpoints { get; init; }
@@ -265,10 +328,7 @@ public static class RuntimeConfigurationLoader
 
     private sealed class SerialDocument
     {
-        public SerialDocument()
-        {
-        }
-
+        public SerialDocument() { }
         public string? PortName { get; init; }
         public int? BaudRate { get; init; }
         public int? DataBits { get; init; }
@@ -279,10 +339,7 @@ public static class RuntimeConfigurationLoader
 
     private sealed class PollingDocument
     {
-        public PollingDocument()
-        {
-        }
-
+        public PollingDocument() { }
         public int? StaticRetryMilliseconds { get; init; }
         public int? FastMilliseconds { get; init; }
         public int? MediumMilliseconds { get; init; }
@@ -292,10 +349,17 @@ public static class RuntimeConfigurationLoader
 
     private sealed class ReconnectDocument
     {
-        public ReconnectDocument()
-        {
-        }
-
+        public ReconnectDocument() { }
         public int? IntervalMilliseconds { get; init; }
+    }
+
+    private sealed class WebDocument
+    {
+        public WebDocument() { }
+        public bool? Enabled { get; init; }
+        public string? ListenUri { get; init; }
+        public bool? AllowRemote { get; init; }
+        public int? FreshnessAgingAfterMilliseconds { get; init; }
+        public int? FreshnessStaleAfterMilliseconds { get; init; }
     }
 }

@@ -5,21 +5,28 @@ namespace TR2.Application;
 
 public sealed class DeviceTelemetrySnapshotRegistry
 {
+    private readonly object _sync = new();
     private readonly Dictionary<DeviceId, DeviceTelemetrySnapshots> _snapshots = [];
 
-    public DeviceTelemetrySnapshots Get(DeviceId deviceId) =>
-        _snapshots.TryGetValue(deviceId, out var snapshots)
-            ? snapshots
-            : DeviceTelemetrySnapshots.Empty(deviceId);
+    public DeviceTelemetrySnapshots Get(DeviceId deviceId)
+    {
+        lock (_sync)
+        {
+            return GetUnsafe(deviceId);
+        }
+    }
 
     public DeviceTelemetrySnapshots ReceiveSystemState(
         DeviceId deviceId,
         B1SystemState value,
         DateTimeOffset receivedAt)
     {
-        var updated = Get(deviceId).ReceiveSystemState(value, receivedAt);
-        _snapshots[deviceId] = updated;
-        return updated;
+        lock (_sync)
+        {
+            var updated = GetUnsafe(deviceId).ReceiveSystemState(value, receivedAt);
+            _snapshots[deviceId] = updated;
+            return updated;
+        }
     }
 
     public DeviceTelemetrySnapshots ReceiveTimeState(
@@ -27,9 +34,12 @@ public sealed class DeviceTelemetrySnapshotRegistry
         B2TimeState value,
         DateTimeOffset receivedAt)
     {
-        var updated = Get(deviceId).ReceiveTimeState(value, receivedAt);
-        _snapshots[deviceId] = updated;
-        return updated;
+        lock (_sync)
+        {
+            var updated = GetUnsafe(deviceId).ReceiveTimeState(value, receivedAt);
+            _snapshots[deviceId] = updated;
+            return updated;
+        }
     }
 
     public DeviceTelemetrySnapshots ReceiveVibrationState(
@@ -37,15 +47,26 @@ public sealed class DeviceTelemetrySnapshotRegistry
         B3VibrationSupervision value,
         DateTimeOffset receivedAt)
     {
-        var updated = Get(deviceId).ReceiveVibrationState(value, receivedAt);
-        _snapshots[deviceId] = updated;
-        return updated;
+        lock (_sync)
+        {
+            var updated = GetUnsafe(deviceId).ReceiveVibrationState(value, receivedAt);
+            _snapshots[deviceId] = updated;
+            return updated;
+        }
     }
 
     public DeviceTelemetrySnapshots MarkUnavailable(DeviceId deviceId)
     {
-        var updated = Get(deviceId).MarkUnavailable();
-        _snapshots[deviceId] = updated;
-        return updated;
+        lock (_sync)
+        {
+            var updated = GetUnsafe(deviceId).MarkUnavailable();
+            _snapshots[deviceId] = updated;
+            return updated;
+        }
     }
+
+    private DeviceTelemetrySnapshots GetUnsafe(DeviceId deviceId) =>
+        _snapshots.TryGetValue(deviceId, out var snapshots)
+            ? snapshots
+            : DeviceTelemetrySnapshots.Empty(deviceId);
 }

@@ -9,5 +9,6 @@
     <ProjectReference Include="..\TR2.Application\TR2.Application.csproj" />
     <ProjectReference Include="..\TR2.Persistence\TR2.Persistence.csproj" />
     <ProjectReference Include="..\TR2.Campaigns\TR2.Campaigns.csproj" />
+    <ProjectReference Include="..\TR2.Supervision.Web\TR2.Supervision.Web.csproj" />
   </ItemGroup>
 </Project>

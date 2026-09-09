@@ -22,6 +22,7 @@ public sealed class ProjectReferenceTests
                 "TR2.Domain",
                 "TR2.Persistence",
                 "TR2.Protocol",
+                "TR2.Supervision.Web",
                 "TR2.Transport"
             ]
         };

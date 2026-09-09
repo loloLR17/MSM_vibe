@@ -1,3 +1,5 @@
+using TR2.Application;
+using TR2.Supervision.Web;
 using TR2.Transport;
 
 namespace TR2.Supervision.Service;
@@ -53,9 +55,7 @@ public static class SupervisionConsoleApplication
                 busConnectionFactory);
 
             await output.WriteLineAsync("TR2 supervision starting.");
-            var runTask = runtime.Host.RunAsync(cancellationToken);
-            await WriteRunningDiagnosticWhenAvailableAsync(runtime, runTask, output);
-            await runTask;
+            await RunRuntimeWithOptionalWebAsync(runtime, configuration, cancellationToken, output);
             await output.WriteLineAsync("TR2 supervision stopped.");
             return SuccessExitCode;
         }
@@ -68,6 +68,70 @@ public static class SupervisionConsoleApplication
         {
             await error.WriteLineAsync($"Runtime failure: {exception.Message}");
             return RuntimeFailureExitCode;
+        }
+    }
+
+    private static async Task RunRuntimeWithOptionalWebAsync(
+        PhysicalSupervisionRuntime runtime,
+        RuntimeConfiguration configuration,
+        CancellationToken cancellationToken,
+        TextWriter output)
+    {
+        using var coordinatedShutdown = CancellationTokenSource.CreateLinkedTokenSource(cancellationToken);
+        var runtimeTask = runtime.Host.RunAsync(coordinatedShutdown.Token);
+        await WriteRunningDiagnosticWhenAvailableAsync(runtime, runtimeTask, output);
+
+        if (!configuration.Web.Enabled)
+        {
+            await runtimeTask;
+            return;
+        }
+
+        var projection = new SupervisionReadProjection(
+            runtime.Composition.FleetRegistry,
+            runtime.Composition.TelemetrySnapshotRegistry,
+            new SnapshotFreshnessPolicy(
+                configuration.Web.FreshnessAgingAfter,
+                configuration.Web.FreshnessStaleAfter));
+        var webHost = new SupervisionWebHost(
+            new SupervisionWebOptions(configuration.Web.ListenUri, configuration.Web.AllowRemote),
+            projection);
+
+        await output.WriteLineAsync(
+            $"Web: enabled; listen={configuration.Web.ListenUri}; " +
+            $"allowRemote={configuration.Web.AllowRemote.ToString().ToLowerInvariant()}");
+
+        var webTask = webHost.RunAsync(coordinatedShutdown.Token);
+        var completed = await Task.WhenAny(runtimeTask, webTask);
+
+        if (cancellationToken.IsCancellationRequested)
+        {
+            coordinatedShutdown.Cancel();
+            await AwaitShutdownAsync(runtimeTask);
+            await AwaitShutdownAsync(webTask);
+            return;
+        }
+
+        coordinatedShutdown.Cancel();
+        var sibling = ReferenceEquals(completed, runtimeTask) ? webTask : runtimeTask;
+        await AwaitShutdownAsync(sibling);
+
+        if (completed.IsFaulted)
+        {
+            await completed;
+        }
+
+        throw new InvalidOperationException("A supervision component stopped unexpectedly.");
+    }
+
+    private static async Task AwaitShutdownAsync(Task task)
+    {
+        try
+        {
+            await task;
+        }
+        catch (OperationCanceledException)
+        {
         }
     }
 
@@ -141,6 +205,12 @@ public static class SupervisionConsoleApplication
         await output.WriteLineAsync($"Configuration: {Path.GetFullPath(configurationPath)}");
         await output.WriteLineAsync($"Database: {configuration.Persistence.DatabasePath}");
         await output.WriteLineAsync($"Buses: {configuration.Buses.Count}");
+        await output.WriteLineAsync(
+            $"Web configured: enabled={configuration.Web.Enabled.ToString().ToLowerInvariant()}; " +
+            $"listen={configuration.Web.ListenUri}; " +
+            $"allowRemote={configuration.Web.AllowRemote.ToString().ToLowerInvariant()}; " +
+            $"freshnessMs={configuration.Web.FreshnessAgingAfter.TotalMilliseconds:0}/" +
+            $"{configuration.Web.FreshnessStaleAfter.TotalMilliseconds:0}");
 
         foreach (var bus in configuration.Buses)
         {
