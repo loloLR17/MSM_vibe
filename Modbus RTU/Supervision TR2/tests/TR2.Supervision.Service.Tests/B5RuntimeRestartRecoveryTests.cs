@@ -153,6 +153,90 @@ public sealed class B5RuntimeRestartRecoveryTests
         }
     }
 
+    [Fact]
+    public async Task RestartRecoversMultipleDevicesIndependentlyWithoutCrossContaminationOrReplay()
+    {
+        var databasePath = NewDatabasePath();
+        try
+        {
+            var configuration = CreateConfiguration(databasePath);
+            var firstComposition = SupervisionRuntimeCompositionRoot.Compose(configuration);
+            var terminalDevice = new DeviceId(101);
+            var preparedDevice = new DeviceId(102);
+            var ambiguousDevice = new DeviceId(103);
+            var startedAt = new DateTimeOffset(2026, 9, 9, 22, 0, 0, TimeSpan.Zero);
+
+            var terminalCoordinator = new CommandCoordinator(
+                terminalDevice,
+                firstComposition.CommandReservationStore,
+                firstComposition.CommandJournal);
+            var terminal = await terminalCoordinator.PrepareAsync("terminal-request", startedAt);
+            await terminalCoordinator.MarkSubmittedAsync(startedAt.AddSeconds(1));
+            await terminalCoordinator.ResolveTerminalAsync(terminal.TransactionId, startedAt.AddSeconds(2));
+
+            var preparedCoordinator = new CommandCoordinator(
+                preparedDevice,
+                firstComposition.CommandReservationStore,
+                firstComposition.CommandJournal);
+            var prepared = await preparedCoordinator.PrepareAsync(
+                "prepared-request",
+                startedAt.AddMinutes(1));
+
+            var ambiguousCoordinator = new CommandCoordinator(
+                ambiguousDevice,
+                firstComposition.CommandReservationStore,
+                firstComposition.CommandJournal);
+            var ambiguousPrepared = await ambiguousCoordinator.PrepareAsync(
+                "ambiguous-request",
+                startedAt.AddMinutes(2));
+            await ambiguousCoordinator.MarkSubmittedAsync(startedAt.AddMinutes(2).AddSeconds(1));
+            await ambiguousCoordinator.MarkAmbiguousAfterSubmitAttemptAsync(
+                startedAt.AddMinutes(2).AddSeconds(2));
+
+            var terminalBefore = await firstComposition.CommandJournal.ReadAsync(terminalDevice);
+            var preparedBefore = await firstComposition.CommandJournal.ReadAsync(preparedDevice);
+            var ambiguousBefore = await firstComposition.CommandJournal.ReadAsync(ambiguousDevice);
+
+            var restartedComposition = SupervisionRuntimeCompositionRoot.Compose(configuration);
+            await new SupervisionRuntimeStartup(restartedComposition).StartAsync();
+
+            Assert.Equal(3, restartedComposition.CommandCoordinatorRegistry.Coordinators.Count);
+
+            var recoveredTerminal = restartedComposition.CommandCoordinatorRegistry.Get(terminalDevice);
+            Assert.Null(recoveredTerminal.ActiveTransaction);
+
+            var recoveredPrepared = Assert.IsType<CommandTransaction>(
+                restartedComposition.CommandCoordinatorRegistry.Get(preparedDevice).ActiveTransaction);
+            Assert.Equal(prepared.TransactionId, recoveredPrepared.TransactionId);
+            Assert.Equal("prepared-request", recoveredPrepared.RequestIdentity);
+            Assert.Equal(CommandTransactionState.Ambiguous, recoveredPrepared.State);
+
+            var recoveredAmbiguous = Assert.IsType<CommandTransaction>(
+                restartedComposition.CommandCoordinatorRegistry.Get(ambiguousDevice).ActiveTransaction);
+            Assert.Equal(ambiguousPrepared.TransactionId, recoveredAmbiguous.TransactionId);
+            Assert.Equal("ambiguous-request", recoveredAmbiguous.RequestIdentity);
+            Assert.Equal(CommandTransactionState.Ambiguous, recoveredAmbiguous.State);
+
+            Assert.Equal(terminalBefore, await restartedComposition.CommandJournal.ReadAsync(terminalDevice));
+            Assert.Equal(preparedBefore, await restartedComposition.CommandJournal.ReadAsync(preparedDevice));
+            Assert.Equal(ambiguousBefore, await restartedComposition.CommandJournal.ReadAsync(ambiguousDevice));
+
+            await Assert.ThrowsAsync<InvalidOperationException>(async () =>
+                await restartedComposition.CommandCoordinatorRegistry.Get(preparedDevice).PrepareAsync(
+                    "blocked-after-restart",
+                    startedAt.AddMinutes(3)));
+
+            var nextTerminal = await recoveredTerminal.PrepareAsync(
+                "terminal-next",
+                startedAt.AddMinutes(4));
+            Assert.Equal((ushort)(terminal.TransactionId.Value + 1), nextTerminal.TransactionId.Value);
+        }
+        finally
+        {
+            DeleteDatabaseFiles(databasePath);
+        }
+    }
+
     private static RuntimeConfiguration CreateConfiguration(string databasePath) =>
         RuntimeConfigurationLoader.Parse(
             $$"""
