@@ -51,7 +51,9 @@ public static class SupervisionConsoleApplication
                 busConnectionFactory);
 
             await output.WriteLineAsync("TR2 supervision starting.");
-            await runtime.Host.RunAsync(cancellationToken);
+            var runTask = runtime.Host.RunAsync(cancellationToken);
+            await WriteRunningDiagnosticWhenAvailableAsync(runtime, runTask, output);
+            await runTask;
             await output.WriteLineAsync("TR2 supervision stopped.");
             return SuccessExitCode;
         }
@@ -64,6 +66,39 @@ public static class SupervisionConsoleApplication
         {
             await error.WriteLineAsync($"Runtime failure: {exception.Message}");
             return RuntimeFailureExitCode;
+        }
+    }
+
+    private static async Task WriteRunningDiagnosticWhenAvailableAsync(
+        PhysicalSupervisionRuntime runtime,
+        Task runTask,
+        TextWriter output)
+    {
+        while (!runTask.IsCompleted && runtime.Host.State != SupervisionRuntimeState.Running)
+        {
+            await Task.Delay(10);
+        }
+
+        if (runtime.Host.State != SupervisionRuntimeState.Running)
+        {
+            return;
+        }
+
+        var snapshot = RuntimeDiagnosticSnapshot.Capture(runtime);
+        var connectedBuses = snapshot.ConnectedBusIds.Count == 0
+            ? "none"
+            : string.Join(",", snapshot.ConnectedBusIds);
+
+        await output.WriteLineAsync(
+            $"Runtime: state={snapshot.HostState}; ready={snapshot.IsReady.ToString().ToLowerInvariant()}; " +
+            $"connectedBuses={connectedBuses}");
+
+        foreach (var endpoint in snapshot.Endpoints)
+        {
+            var deviceId = endpoint.DeviceId?.ToString() ?? "none";
+            await output.WriteLineAsync(
+                $"Endpoint {endpoint.BusId}/{endpoint.Address}: " +
+                $"session={endpoint.SessionState}; deviceId={deviceId}");
         }
     }
 
