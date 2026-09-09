@@ -5,6 +5,7 @@ namespace TR2.Application;
 
 public sealed class PollingExecutor
 {
+    private readonly ushort _supportedProtocolVersion;
     private readonly B0Reader _b0;
     private readonly B1Reader _b1;
     private readonly B2Reader _b2;
@@ -14,9 +15,10 @@ public sealed class PollingExecutor
     private readonly B6Reader _b6;
     private readonly B7Reader _b7;
 
-    public PollingExecutor(IRegisterTransport transport)
+    public PollingExecutor(IRegisterTransport transport, ushort supportedProtocolVersion)
     {
         ArgumentNullException.ThrowIfNull(transport);
+        _supportedProtocolVersion = supportedProtocolVersion;
         _b0 = new B0Reader(transport);
         _b1 = new B1Reader(transport);
         _b2 = new B2Reader(transport);
@@ -76,7 +78,7 @@ public sealed class PollingExecutor
 
             PollingGroup.Static => new PollingReadSet(
                 PollingGroup.Static,
-                await _b0.ReadAsync(endpoint, cancellationToken),
+                await _b0.ReadSessionAsync(endpoint, _supportedProtocolVersion, cancellationToken),
                 null,
                 null,
                 null,
