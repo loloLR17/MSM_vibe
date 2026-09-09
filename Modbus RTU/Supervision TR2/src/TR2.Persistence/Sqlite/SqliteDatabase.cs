@@ -5,7 +5,7 @@ namespace TR2.Persistence.Sqlite;
 
 public sealed class SqliteDatabase
 {
-    public const int CurrentSchemaVersion = 1;
+    public const int CurrentSchemaVersion = 2;
 
     private readonly SqlitePersistenceOptions _options;
 
@@ -98,6 +98,7 @@ public sealed class SqliteDatabase
             version = version switch
             {
                 0 => ApplyMigration1(connection),
+                1 => ApplyMigration2(connection),
                 _ => throw new InvalidOperationException($"No migration path is defined from schema version {version}.")
             };
         }
@@ -122,15 +123,51 @@ public sealed class SqliteDatabase
             command.ExecuteNonQuery();
         }
 
+        SetUserVersion(connection, transaction, 1);
+        transaction.Commit();
+        return 1;
+    }
+
+    private static int ApplyMigration2(SqliteConnection connection)
+    {
+        using var transaction = connection.BeginTransaction();
+
         using (var command = connection.CreateCommand())
         {
             command.Transaction = transaction;
-            command.CommandText = "PRAGMA user_version = 1;";
+            command.CommandText = """
+                CREATE TABLE b5_transaction_reservation (
+                    device_id INTEGER NOT NULL PRIMARY KEY CHECK (device_id BETWEEN 0 AND 4294967295),
+                    transaction_id INTEGER NOT NULL CHECK (transaction_id BETWEEN 1 AND 65535),
+                    persisted_utc TEXT NOT NULL
+                );
+
+                CREATE TABLE b5_transaction_journal (
+                    journal_id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+                    device_id INTEGER NOT NULL CHECK (device_id BETWEEN 0 AND 4294967295),
+                    transaction_id INTEGER NOT NULL CHECK (transaction_id BETWEEN 1 AND 65535),
+                    request_identity TEXT NOT NULL CHECK (length(trim(request_identity)) > 0),
+                    event_kind TEXT NOT NULL CHECK (event_kind IN ('Prepared', 'Submitted', 'Ambiguous', 'TerminalEvidenceObserved')),
+                    observed_utc TEXT NOT NULL
+                );
+
+                CREATE INDEX ix_b5_transaction_journal_device_journal
+                ON b5_transaction_journal(device_id, journal_id);
+                """;
             command.ExecuteNonQuery();
         }
 
+        SetUserVersion(connection, transaction, 2);
         transaction.Commit();
-        return 1;
+        return 2;
+    }
+
+    private static void SetUserVersion(SqliteConnection connection, SqliteTransaction transaction, int version)
+    {
+        using var command = connection.CreateCommand();
+        command.Transaction = transaction;
+        command.CommandText = $"PRAGMA user_version = {version.ToString(CultureInfo.InvariantCulture)};";
+        command.ExecuteNonQuery();
     }
 
     private static void ExecuteNonQuery(SqliteConnection connection, string sql)
