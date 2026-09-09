@@ -3,7 +3,7 @@ using TR2.Transport;
 
 namespace TR2.Protocol;
 
-public sealed class B0Reader
+public sealed class B0Reader : IB0SessionReader
 {
     public const ushort StartAddress = 0;
 
