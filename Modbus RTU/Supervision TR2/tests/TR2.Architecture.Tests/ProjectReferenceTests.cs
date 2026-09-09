@@ -14,6 +14,7 @@ public sealed class ProjectReferenceTests
             ["TR2.Application"] = ["TR2.Domain", "TR2.Protocol"],
             ["TR2.Persistence"] = ["TR2.Application", "TR2.Domain"],
             ["TR2.Campaigns"] = ["TR2.Application", "TR2.Domain"],
+            ["TR2.Supervision.Web"] = ["TR2.Application"],
             ["TR2.Supervision.Service"] =
             [
                 "TR2.Application",
