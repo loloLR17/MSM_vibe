@@ -60,7 +60,7 @@ public sealed class B1SystemStateTests
         Assert.Equal("RS485-A", transport.BusId);
         Assert.Equal((byte)10, transport.UnitAddress);
         Assert.Equal(B1SystemState.StartAddress, transport.StartAddress);
-        Assert.Equal(B1SystemState.RegisterCount, transport.RegisterCount);
+        Assert.Equal((ushort)B1SystemState.RegisterCount, transport.RegisterCount);
     }
 
     [Fact]
