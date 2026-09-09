@@ -11,5 +11,5 @@ public sealed record PollingReadSet(
     B3VibrationSupervision? B3,
     B4ConfigurationState? B4,
     B5CommandState? B5,
-    B6CampaignInventory? B6,
+    B6CampaignInventoryState? B6,
     B7DiagnosticState? B7);
