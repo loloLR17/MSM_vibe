@@ -34,7 +34,7 @@ public sealed class SqliteCommunicationJournalTests : IDisposable
         using var connection = reopened.OpenConnection();
         using var command = connection.CreateCommand();
         command.CommandText = """
-            SELECT bus_id, modbus_address, device_id, operation, observed_utc, exception_type, message
+            SELECT bus_id, modbus_address, device_id, operation, category, observed_utc, exception_type, message
             FROM communication_failure_journal
             ORDER BY failure_id;
             """;
@@ -45,9 +45,10 @@ public sealed class SqliteCommunicationJournalTests : IDisposable
         Assert.Equal(17, reader.GetInt32(1));
         Assert.Equal(0x12345678L, reader.GetInt64(2));
         Assert.Equal("Polling", reader.GetString(3));
-        Assert.Equal(observedAt.UtcDateTime, DateTimeOffset.Parse(reader.GetString(4)).UtcDateTime);
-        Assert.Equal("System.TimeoutException", reader.GetString(5));
-        Assert.Equal("No response from TR2", reader.GetString(6));
+        Assert.Equal("Timeout", reader.GetString(4));
+        Assert.Equal(observedAt.UtcDateTime, DateTimeOffset.Parse(reader.GetString(5)).UtcDateTime);
+        Assert.Equal("System.TimeoutException", reader.GetString(6));
+        Assert.Equal("No response from TR2", reader.GetString(7));
         Assert.False(reader.Read());
     }
 
@@ -69,13 +70,14 @@ public sealed class SqliteCommunicationJournalTests : IDisposable
 
         using var connection = database.OpenConnection();
         using var command = connection.CreateCommand();
-        command.CommandText = "SELECT device_id, operation, message FROM communication_failure_journal;";
+        command.CommandText = "SELECT device_id, operation, category, message FROM communication_failure_journal;";
         using var reader = command.ExecuteReader();
 
         Assert.True(reader.Read());
         Assert.True(reader.IsDBNull(0));
         Assert.Equal("ExplicitRefresh", reader.GetString(1));
-        Assert.Equal(string.Empty, reader.GetString(2));
+        Assert.Equal("Io", reader.GetString(2));
+        Assert.Equal(string.Empty, reader.GetString(3));
     }
 
     [Fact]
@@ -137,6 +139,88 @@ public sealed class SqliteCommunicationJournalTests : IDisposable
             ReadInt32(
                 migrated,
                 "SELECT COUNT(*) FROM sqlite_master WHERE type = 'table' AND name = 'communication_failure_journal';"));
+    }
+
+    [Fact]
+    public void Database_MigratesVersion5JournalRowsWithoutGuessingHistoricalCategory()
+    {
+        var databasePath = Path.Combine(_directory, "migration-v5-journal.db");
+        Directory.CreateDirectory(_directory);
+
+        using (var connection = new SqliteConnection($"Data Source={databasePath}"))
+        {
+            connection.Open();
+            using var command = connection.CreateCommand();
+            command.CommandText = """
+                CREATE TABLE communication_failure_journal (
+                    failure_id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+                    bus_id TEXT NOT NULL CHECK (length(trim(bus_id)) > 0),
+                    modbus_address INTEGER NOT NULL CHECK (modbus_address BETWEEN 0 AND 255),
+                    device_id INTEGER NULL CHECK (device_id IS NULL OR device_id BETWEEN 0 AND 4294967295),
+                    operation TEXT NOT NULL CHECK (operation IN ('Polling', 'ExplicitRefresh')),
+                    observed_utc TEXT NOT NULL,
+                    exception_type TEXT NOT NULL CHECK (length(trim(exception_type)) > 0),
+                    message TEXT NOT NULL
+                );
+                CREATE INDEX ix_communication_failure_journal_endpoint_failure
+                ON communication_failure_journal(bus_id, modbus_address, failure_id);
+                CREATE INDEX ix_communication_failure_journal_device_failure
+                ON communication_failure_journal(device_id, failure_id)
+                WHERE device_id IS NOT NULL;
+
+                CREATE TABLE installation (
+                    installation_id TEXT NOT NULL PRIMARY KEY CHECK (length(trim(installation_id)) > 0),
+                    name TEXT NOT NULL CHECK (length(trim(name)) > 0)
+                );
+                CREATE TABLE equipment (
+                    equipment_id TEXT NOT NULL PRIMARY KEY CHECK (length(trim(equipment_id)) > 0),
+                    installation_id TEXT NOT NULL,
+                    name TEXT NOT NULL CHECK (length(trim(name)) > 0),
+                    FOREIGN KEY (installation_id) REFERENCES installation(installation_id)
+                );
+                CREATE TABLE measurement_point (
+                    measurement_point_id TEXT NOT NULL PRIMARY KEY CHECK (length(trim(measurement_point_id)) > 0),
+                    equipment_id TEXT NOT NULL,
+                    name TEXT NOT NULL CHECK (length(trim(name)) > 0),
+                    FOREIGN KEY (equipment_id) REFERENCES equipment(equipment_id)
+                );
+                CREATE TABLE equipment_assignment (
+                    assignment_id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+                    device_id INTEGER NOT NULL CHECK (device_id BETWEEN 0 AND 4294967295),
+                    measurement_point_id TEXT NOT NULL,
+                    valid_from_utc TEXT NOT NULL,
+                    valid_to_utc TEXT NULL,
+                    CHECK (valid_to_utc IS NULL OR valid_to_utc > valid_from_utc),
+                    FOREIGN KEY (measurement_point_id) REFERENCES measurement_point(measurement_point_id)
+                );
+
+                INSERT INTO communication_failure_journal(
+                    bus_id, modbus_address, device_id, operation, observed_utc, exception_type, message)
+                VALUES (
+                    'rs485-old', 9, 123, 'Polling', '2026-09-09T12:00:00.0000000+00:00',
+                    'System.TimeoutException', 'historical timeout');
+
+                PRAGMA user_version = 5;
+                """;
+            command.ExecuteNonQuery();
+        }
+
+        var database = new SqliteDatabase(new SqlitePersistenceOptions(databasePath));
+        using var migrated = database.OpenConnection();
+        using var query = migrated.CreateCommand();
+        query.CommandText = """
+            SELECT operation, category, exception_type, message
+            FROM communication_failure_journal
+            WHERE bus_id = 'rs485-old' AND modbus_address = 9;
+            """;
+        using var reader = query.ExecuteReader();
+
+        Assert.True(reader.Read());
+        Assert.Equal("Polling", reader.GetString(0));
+        Assert.Equal("Unclassified", reader.GetString(1));
+        Assert.Equal("System.TimeoutException", reader.GetString(2));
+        Assert.Equal("historical timeout", reader.GetString(3));
+        Assert.False(reader.Read());
     }
 
     public void Dispose()
