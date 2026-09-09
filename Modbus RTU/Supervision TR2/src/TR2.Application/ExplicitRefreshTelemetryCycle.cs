@@ -4,22 +4,26 @@ public sealed class ExplicitRefreshTelemetryCycle
 {
     private readonly ExplicitRefreshExecutor _executor;
     private readonly PollingTelemetryPublisher _publisher;
+    private readonly B3ArchivePublisher _archive;
     private readonly IPollingFailureClassifier _failureClassifier;
     private readonly FleetRegistry _fleet;
 
     public ExplicitRefreshTelemetryCycle(
         ExplicitRefreshExecutor executor,
         PollingTelemetryPublisher publisher,
+        B3ArchivePublisher archive,
         IPollingFailureClassifier failureClassifier,
         FleetRegistry fleet)
     {
         ArgumentNullException.ThrowIfNull(executor);
         ArgumentNullException.ThrowIfNull(publisher);
+        ArgumentNullException.ThrowIfNull(archive);
         ArgumentNullException.ThrowIfNull(failureClassifier);
         ArgumentNullException.ThrowIfNull(fleet);
 
         _executor = executor;
         _publisher = publisher;
+        _archive = archive;
         _failureClassifier = failureClassifier;
         _fleet = fleet;
     }
@@ -31,10 +35,10 @@ public sealed class ExplicitRefreshTelemetryCycle
     {
         ArgumentNullException.ThrowIfNull(refresh);
 
+        PollingReadSet readSet;
         try
         {
-            var readSet = await _executor.ExecuteAsync(refresh, cancellationToken);
-            return _publisher.Publish(refresh.Work.Endpoint, readSet, receivedAt);
+            readSet = await _executor.ExecuteAsync(refresh, cancellationToken);
         }
         catch (Exception exception) when (_failureClassifier.IsCommunicationFailure(exception))
         {
@@ -45,5 +49,14 @@ public sealed class ExplicitRefreshTelemetryCycle
 
             throw;
         }
+
+        var published = _publisher.Publish(refresh.Work.Endpoint, readSet, receivedAt);
+        await _archive.ArchiveAsync(
+            refresh.Work.Endpoint,
+            readSet,
+            receivedAt,
+            cancellationToken);
+
+        return published;
     }
 }
