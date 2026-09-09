@@ -8,7 +8,8 @@ namespace TR2.Supervision.Service;
 public sealed record RuntimeConfiguration(
     SqlitePersistenceOptions Persistence,
     IReadOnlyList<RuntimeBusConfiguration> Buses,
-    RuntimePollingPolicy Polling);
+    RuntimePollingPolicy Polling,
+    RuntimeReconnectPolicy? Reconnect);
 
 public sealed record RuntimeBusConfiguration(
     SerialBus Bus,
@@ -139,7 +140,8 @@ public static class RuntimeConfigurationLoader
         }
 
         var polling = CreatePollingPolicy(document.Polling);
-        return new RuntimeConfiguration(persistence, buses, polling);
+        var reconnect = CreateReconnectPolicy(document.Reconnect);
+        return new RuntimeConfiguration(persistence, buses, polling, reconnect);
     }
 
     private static RuntimeSerialPortConfiguration CreateSerialConfiguration(string busId, SerialDocument document)
@@ -165,6 +167,20 @@ public static class RuntimeConfigurationLoader
             parity,
             stopBits,
             TimeSpan.FromMilliseconds(timeoutMilliseconds));
+    }
+
+    private static RuntimeReconnectPolicy? CreateReconnectPolicy(ReconnectDocument? document)
+    {
+        if (document is null)
+        {
+            return null;
+        }
+
+        var intervalMilliseconds = RequiredPositive(
+            document.IntervalMilliseconds,
+            "reconnect.intervalMilliseconds");
+
+        return new RuntimeReconnectPolicy(TimeSpan.FromMilliseconds(intervalMilliseconds));
     }
 
     private static int RequiredPositive(int? value, string name)
@@ -224,6 +240,7 @@ public static class RuntimeConfigurationLoader
         public PersistenceDocument? Persistence { get; init; }
         public List<BusDocument?>? Buses { get; init; }
         public PollingDocument? Polling { get; init; }
+        public ReconnectDocument? Reconnect { get; init; }
     }
 
     private sealed class PersistenceDocument
@@ -271,5 +288,14 @@ public static class RuntimeConfigurationLoader
         public int? MediumMilliseconds { get; init; }
         public int? SlowMilliseconds { get; init; }
         public int? ScanMilliseconds { get; init; }
+    }
+
+    private sealed class ReconnectDocument
+    {
+        public ReconnectDocument()
+        {
+        }
+
+        public int? IntervalMilliseconds { get; init; }
     }
 }
