@@ -77,6 +77,7 @@ public sealed class PhysicalPollingWorkRunner : IPollingWorkRunner
         if (readSet.B2 is not null) _composition.TelemetrySnapshotRegistry.ReceiveTimeState(deviceId, readSet.B2, observedAt);
         if (readSet.B3 is not null) _composition.TelemetrySnapshotRegistry.ReceiveVibrationState(deviceId, readSet.B3, observedAt);
         if (readSet.B4 is not null) _composition.TelemetrySnapshotRegistry.ReceiveConfigurationState(deviceId, readSet.B4, observedAt);
+        if (readSet.B6 is not null) _composition.TelemetrySnapshotRegistry.ReceiveCampaignInventoryState(deviceId, readSet.B6, observedAt);
         if (readSet.B7 is not null) _composition.TelemetrySnapshotRegistry.ReceiveDiagnosticState(deviceId, readSet.B7, observedAt);
     }
 

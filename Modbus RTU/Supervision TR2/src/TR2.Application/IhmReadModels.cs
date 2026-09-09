@@ -15,6 +15,7 @@ public sealed record IhmDeviceTelemetryReadModel(
     IhmObservedValue<IhmTimeStateReadModel> TimeState,
     IhmObservedValue<IhmVibrationStateReadModel> VibrationState,
     IhmObservedValue<IhmConfigurationStateReadModel> ConfigurationState,
+    IhmObservedValue<IhmCampaignInventoryReadModel> CampaignInventoryState,
     IhmObservedValue<IhmDiagnosticStateReadModel> DiagnosticState);
 
 public sealed record IhmDeviceReadModel(string BusId, byte ModbusAddress, uint? DeviceId, IhmSessionState SessionState, IhmDeviceTelemetryReadModel? Telemetry);

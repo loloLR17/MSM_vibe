@@ -9,6 +9,7 @@ public sealed record DeviceTelemetrySnapshots(
     ObservedSnapshot<B2TimeState> TimeState,
     ObservedSnapshot<B3VibrationSupervision> VibrationState,
     ObservedSnapshot<B4ConfigurationState> ConfigurationState,
+    ObservedSnapshot<B6CampaignInventoryState> CampaignInventoryState,
     ObservedSnapshot<B7DiagnosticState> DiagnosticState)
 {
     public static DeviceTelemetrySnapshots Empty(DeviceId deviceId) =>
@@ -18,6 +19,7 @@ public sealed record DeviceTelemetrySnapshots(
             ObservedSnapshot<B2TimeState>.NeverReceived(),
             ObservedSnapshot<B3VibrationSupervision>.NeverReceived(),
             ObservedSnapshot<B4ConfigurationState>.NeverReceived(),
+            ObservedSnapshot<B6CampaignInventoryState>.NeverReceived(),
             ObservedSnapshot<B7DiagnosticState>.NeverReceived());
 
     public DeviceTelemetrySnapshots ReceiveSystemState(B1SystemState value, DateTimeOffset receivedAt) =>
@@ -32,6 +34,9 @@ public sealed record DeviceTelemetrySnapshots(
     public DeviceTelemetrySnapshots ReceiveConfigurationState(B4ConfigurationState value, DateTimeOffset receivedAt) =>
         this with { ConfigurationState = ConfigurationState.Receive(value, receivedAt) };
 
+    public DeviceTelemetrySnapshots ReceiveCampaignInventoryState(B6CampaignInventoryState value, DateTimeOffset receivedAt) =>
+        this with { CampaignInventoryState = CampaignInventoryState.Receive(value, receivedAt) };
+
     public DeviceTelemetrySnapshots ReceiveDiagnosticState(B7DiagnosticState value, DateTimeOffset receivedAt) =>
         this with { DiagnosticState = DiagnosticState.Receive(value, receivedAt) };
 
@@ -42,6 +47,7 @@ public sealed record DeviceTelemetrySnapshots(
             TimeState = TimeState.MarkUnavailable(),
             VibrationState = VibrationState.MarkUnavailable(),
             ConfigurationState = ConfigurationState.MarkUnavailable(),
+            CampaignInventoryState = CampaignInventoryState.MarkUnavailable(),
             DiagnosticState = DiagnosticState.MarkUnavailable()
         };
 }

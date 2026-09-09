@@ -56,6 +56,16 @@ public sealed class DeviceTelemetrySnapshotRegistry
         }
     }
 
+    public DeviceTelemetrySnapshots ReceiveCampaignInventoryState(DeviceId deviceId, B6CampaignInventoryState value, DateTimeOffset receivedAt)
+    {
+        lock (_sync)
+        {
+            var updated = GetUnsafe(deviceId).ReceiveCampaignInventoryState(value, receivedAt);
+            _snapshots[deviceId] = updated;
+            return updated;
+        }
+    }
+
     public DeviceTelemetrySnapshots ReceiveDiagnosticState(DeviceId deviceId, B7DiagnosticState value, DateTimeOffset receivedAt)
     {
         lock (_sync)
