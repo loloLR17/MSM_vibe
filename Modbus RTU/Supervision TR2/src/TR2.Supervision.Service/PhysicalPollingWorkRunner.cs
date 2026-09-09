@@ -144,6 +144,14 @@ public sealed class PhysicalPollingWorkRunner : IPollingWorkRunner
                 readSet.B3,
                 observedAt);
         }
+
+        if (readSet.B7 is not null)
+        {
+            _composition.TelemetrySnapshotRegistry.ReceiveDiagnosticState(
+                deviceId,
+                readSet.B7,
+                observedAt);
+        }
     }
 
     private void MarkTelemetryUnavailable(TR2Endpoint endpoint)

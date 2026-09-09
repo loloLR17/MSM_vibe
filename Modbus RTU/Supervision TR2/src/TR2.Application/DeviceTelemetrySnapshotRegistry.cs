@@ -55,6 +55,19 @@ public sealed class DeviceTelemetrySnapshotRegistry
         }
     }
 
+    public DeviceTelemetrySnapshots ReceiveDiagnosticState(
+        DeviceId deviceId,
+        B7DiagnosticState value,
+        DateTimeOffset receivedAt)
+    {
+        lock (_sync)
+        {
+            var updated = GetUnsafe(deviceId).ReceiveDiagnosticState(value, receivedAt);
+            _snapshots[deviceId] = updated;
+            return updated;
+        }
+    }
+
     public DeviceTelemetrySnapshots MarkUnavailable(DeviceId deviceId)
     {
         lock (_sync)

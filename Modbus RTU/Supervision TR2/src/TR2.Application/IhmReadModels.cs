@@ -80,10 +80,25 @@ public sealed record IhmVibrationStateReadModel(
     uint ExceedCount,
     uint AlarmCount);
 
+public sealed record IhmDiagnosticStateReadModel(
+    ushort DiagnosticStructureVersion,
+    ushort SystemHealthStatus,
+    ushort SystemFaultFlags,
+    ushort LastFaultCode,
+    uint LastFaultTimestampSeconds,
+    ushort SelftestStatus,
+    ushort SelftestResultCode,
+    ushort SelftestDetail,
+    uint UptimeSeconds,
+    ushort ResetCause,
+    short InternalTemperatureDeciCelsius,
+    ushort SupplyVoltageMillivolts);
+
 public sealed record IhmDeviceTelemetryReadModel(
     IhmObservedValue<IhmSystemStateReadModel> SystemState,
     IhmObservedValue<IhmTimeStateReadModel> TimeState,
-    IhmObservedValue<IhmVibrationStateReadModel> VibrationState);
+    IhmObservedValue<IhmVibrationStateReadModel> VibrationState,
+    IhmObservedValue<IhmDiagnosticStateReadModel> DiagnosticState);
 
 public sealed record IhmDeviceReadModel(
     string BusId,

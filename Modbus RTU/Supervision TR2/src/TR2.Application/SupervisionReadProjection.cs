@@ -30,6 +30,9 @@ public sealed class SupervisionReadProjection
             .Select(session => ProjectSession(session, observedAt))
             .ToArray();
 
+    public IhmDeviceReadModel? GetDevice(uint deviceId, DateTimeOffset observedAt) =>
+        GetFleet(observedAt).SingleOrDefault(device => device.DeviceId == deviceId);
+
     private IhmDeviceReadModel ProjectSession(TR2Session session, DateTimeOffset observedAt)
     {
         var deviceId = session.Device?.DeviceId;
@@ -110,7 +113,23 @@ public sealed class SupervisionReadProjection
                     value.ExceedZ,
                     value.AlarmLatched,
                     value.ExceedCount,
-                    value.AlarmCount)));
+                    value.AlarmCount)),
+            ProjectObserved(
+                snapshots.DiagnosticState,
+                observedAt,
+                value => new IhmDiagnosticStateReadModel(
+                    value.DiagnosticStructureVersion,
+                    value.SystemHealthStatus,
+                    value.SystemFaultFlags,
+                    value.LastFaultCode,
+                    value.LastFaultTimestampSeconds,
+                    value.SelftestStatus,
+                    value.SelftestResultCode,
+                    value.SelftestDetail,
+                    value.UptimeSeconds,
+                    value.ResetCause,
+                    value.InternalTemperatureDeciCelsius,
+                    value.SupplyVoltageMillivolts)));
 
     private IhmObservedValue<TTarget> ProjectObserved<TSource, TTarget>(
         ObservedSnapshot<TSource> source,

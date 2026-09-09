@@ -50,6 +50,10 @@ public sealed record FleetReadResponse(
     DateTimeOffset ObservedAt,
     IReadOnlyList<IhmDeviceReadModel> Devices);
 
+public sealed record DeviceReadResponse(
+    DateTimeOffset ObservedAt,
+    IhmDeviceReadModel Device);
+
 public sealed class SupervisionWebHost
 {
     private readonly SupervisionWebOptions _options;
@@ -85,6 +89,19 @@ public sealed class SupervisionWebHost
             return Results.Ok(new FleetReadResponse(
                 observedAt,
                 _projection.GetFleet(observedAt)));
+        });
+        application.MapGet("/api/v1/devices/{deviceId:long}", (long deviceId) =>
+        {
+            if (deviceId < 0 || deviceId > uint.MaxValue)
+            {
+                return Results.NotFound();
+            }
+
+            var observedAt = _timeProvider.GetUtcNow();
+            var device = _projection.GetDevice((uint)deviceId, observedAt);
+            return device is null
+                ? Results.NotFound()
+                : Results.Ok(new DeviceReadResponse(observedAt, device));
         });
 
         return application;
