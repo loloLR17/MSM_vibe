@@ -23,9 +23,7 @@ public sealed class ExplicitRefreshTelemetryCycleTests
         var fleet = CompatibleFleet(endpoint, deviceId);
         var telemetry = new DeviceTelemetrySnapshotRegistry();
         var scheduler = new BusWorkScheduler();
-        var cycle = new ExplicitRefreshTelemetryCycle(
-            new ExplicitRefreshExecutor(scheduler, new ZeroTransport()),
-            new PollingTelemetryPublisher(fleet, telemetry));
+        var cycle = Cycle(scheduler, new ZeroTransport(), fleet, telemetry);
         var refresh = ActiveRefresh(scheduler, endpoint, block);
 
         var published = await cycle.ExecuteAndPublishAsync(refresh, ReceivedAt);
@@ -65,9 +63,7 @@ public sealed class ExplicitRefreshTelemetryCycleTests
         telemetry.MarkUnavailable(deviceId);
 
         var scheduler = new BusWorkScheduler();
-        var cycle = new ExplicitRefreshTelemetryCycle(
-            new ExplicitRefreshExecutor(scheduler, new ZeroTransport()),
-            new PollingTelemetryPublisher(fleet, telemetry));
+        var cycle = Cycle(scheduler, new ZeroTransport(), fleet, telemetry);
         var refresh = ActiveRefresh(scheduler, endpoint, TR2RegisterBlock.B1);
 
         await cycle.ExecuteAndPublishAsync(refresh, ReceivedAt);
@@ -90,9 +86,7 @@ public sealed class ExplicitRefreshTelemetryCycleTests
         var fleet = CompatibleFleet(endpoint, deviceId);
         var telemetry = new DeviceTelemetrySnapshotRegistry();
         var scheduler = new BusWorkScheduler();
-        var cycle = new ExplicitRefreshTelemetryCycle(
-            new ExplicitRefreshExecutor(scheduler, new ZeroTransport()),
-            new PollingTelemetryPublisher(fleet, telemetry));
+        var cycle = Cycle(scheduler, new ZeroTransport(), fleet, telemetry);
         var refresh = ActiveRefresh(scheduler, endpoint, block);
 
         var published = await cycle.ExecuteAndPublishAsync(refresh, ReceivedAt);
@@ -103,6 +97,76 @@ public sealed class ExplicitRefreshTelemetryCycleTests
         Assert.False(snapshots.TimeState.HasValue);
         Assert.False(snapshots.VibrationState.HasValue);
     }
+
+    [Fact]
+    public async Task Classified_communication_failure_marks_unavailable_and_disconnects_session()
+    {
+        var endpoint = Endpoint();
+        var deviceId = new DeviceId(1001);
+        var fleet = CompatibleFleet(endpoint, deviceId);
+        var telemetry = new DeviceTelemetrySnapshotRegistry();
+        var previous = new TR2.Protocol.B1SystemState(1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+        telemetry.ReceiveSystemState(deviceId, previous, DueAt.AddMinutes(-1));
+
+        var scheduler = new BusWorkScheduler();
+        var cycle = Cycle(
+            scheduler,
+            new FailingTransport(new IOException("Injected communication failure.")),
+            fleet,
+            telemetry);
+        var refresh = ActiveRefresh(scheduler, endpoint, TR2RegisterBlock.B1);
+
+        await Assert.ThrowsAsync<IOException>(async () =>
+            await cycle.ExecuteAndPublishAsync(refresh, ReceivedAt));
+
+        var snapshots = telemetry.Get(deviceId);
+        Assert.Equal(previous, snapshots.SystemState.LastValue);
+        Assert.False(snapshots.SystemState.IsAvailable);
+
+        var session = fleet.GetSession(endpoint);
+        Assert.Equal(TR2SessionState.Disconnected, session.State);
+        Assert.Equal(deviceId, session.Device!.DeviceId);
+        Assert.Null(scheduler.BeginNext(endpoint.Bus, ReceivedAt));
+    }
+
+    [Fact]
+    public async Task Unclassified_failure_does_not_change_availability_or_session_state()
+    {
+        var endpoint = Endpoint();
+        var deviceId = new DeviceId(1001);
+        var fleet = CompatibleFleet(endpoint, deviceId);
+        var telemetry = new DeviceTelemetrySnapshotRegistry();
+        telemetry.ReceiveSystemState(
+            deviceId,
+            new TR2.Protocol.B1SystemState(1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+            DueAt.AddMinutes(-1));
+
+        var scheduler = new BusWorkScheduler();
+        var cycle = Cycle(
+            scheduler,
+            new FailingTransport(new InvalidOperationException("Injected non-communication failure.")),
+            fleet,
+            telemetry);
+        var refresh = ActiveRefresh(scheduler, endpoint, TR2RegisterBlock.B1);
+
+        await Assert.ThrowsAsync<InvalidOperationException>(async () =>
+            await cycle.ExecuteAndPublishAsync(refresh, ReceivedAt));
+
+        Assert.True(telemetry.Get(deviceId).SystemState.IsAvailable);
+        Assert.Equal(TR2SessionState.Compatible, fleet.GetSession(endpoint).State);
+        Assert.Null(scheduler.BeginNext(endpoint.Bus, ReceivedAt));
+    }
+
+    private static ExplicitRefreshTelemetryCycle Cycle(
+        BusWorkScheduler scheduler,
+        IRegisterTransport transport,
+        FleetRegistry fleet,
+        DeviceTelemetrySnapshotRegistry telemetry) =>
+        new(
+            new ExplicitRefreshExecutor(scheduler, transport),
+            new PollingTelemetryPublisher(fleet, telemetry),
+            new IOExceptionFailureClassifier(),
+            fleet);
 
     private static ScheduledBlockRefresh ActiveRefresh(
         BusWorkScheduler scheduler,
@@ -125,6 +189,11 @@ public sealed class ExplicitRefreshTelemetryCycleTests
     private static TR2Endpoint Endpoint() =>
         new(new SerialBus("RS485-A"), new ModbusAddress(10));
 
+    private sealed class IOExceptionFailureClassifier : IPollingFailureClassifier
+    {
+        public bool IsCommunicationFailure(Exception exception) => exception is IOException;
+    }
+
     private sealed class ZeroTransport : IRegisterTransport
     {
         public ValueTask<ushort[]> ReadRegistersAsync(
@@ -134,5 +203,16 @@ public sealed class ExplicitRefreshTelemetryCycleTests
             ushort registerCount,
             CancellationToken cancellationToken = default) =>
             ValueTask.FromResult(new ushort[registerCount]);
+    }
+
+    private sealed class FailingTransport(Exception exception) : IRegisterTransport
+    {
+        public ValueTask<ushort[]> ReadRegistersAsync(
+            string busId,
+            byte unitAddress,
+            ushort startAddress,
+            ushort registerCount,
+            CancellationToken cancellationToken = default) =>
+            ValueTask.FromException<ushort[]>(exception);
     }
 }
