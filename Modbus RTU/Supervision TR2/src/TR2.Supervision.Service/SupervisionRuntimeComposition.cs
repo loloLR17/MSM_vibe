@@ -16,7 +16,8 @@ public sealed class SupervisionRuntimeComposition
         FleetRegistry fleetRegistry,
         CommandCoordinatorRegistry commandCoordinatorRegistry,
         DeviceTelemetrySnapshotRegistry telemetrySnapshotRegistry,
-        BusWorkScheduler busWorkScheduler)
+        BusWorkScheduler busWorkScheduler,
+        RuntimeReadinessGate readinessGate)
     {
         Configuration = configuration;
         Database = database;
@@ -29,6 +30,7 @@ public sealed class SupervisionRuntimeComposition
         CommandCoordinatorRegistry = commandCoordinatorRegistry;
         TelemetrySnapshotRegistry = telemetrySnapshotRegistry;
         BusWorkScheduler = busWorkScheduler;
+        ReadinessGate = readinessGate;
     }
 
     public RuntimeConfiguration Configuration { get; }
@@ -42,6 +44,7 @@ public sealed class SupervisionRuntimeComposition
     public CommandCoordinatorRegistry CommandCoordinatorRegistry { get; }
     public DeviceTelemetrySnapshotRegistry TelemetrySnapshotRegistry { get; }
     public BusWorkScheduler BusWorkScheduler { get; }
+    public RuntimeReadinessGate ReadinessGate { get; }
 }
 
 public static class SupervisionRuntimeCompositionRoot
@@ -77,6 +80,7 @@ public static class SupervisionRuntimeCompositionRoot
             fleetRegistry,
             new CommandCoordinatorRegistry(),
             new DeviceTelemetrySnapshotRegistry(),
-            new BusWorkScheduler());
+            new BusWorkScheduler(),
+            new RuntimeReadinessGate());
     }
 }

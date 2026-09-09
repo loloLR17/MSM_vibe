@@ -102,4 +102,27 @@ public sealed class SqliteCommandTransactionJournal : ICommandTransactionJournal
 
         return ValueTask.FromResult<IReadOnlyList<CommandTransactionJournalEvent>>(entries);
     }
+
+    public ValueTask<IReadOnlyList<DeviceId>> ReadDeviceIdsAsync(
+        CancellationToken cancellationToken = default)
+    {
+        cancellationToken.ThrowIfCancellationRequested();
+
+        using var connection = _database.OpenConnection();
+        using var command = connection.CreateCommand();
+        command.CommandText = """
+            SELECT DISTINCT device_id
+            FROM b5_transaction_journal
+            ORDER BY device_id ASC;
+            """;
+
+        using var reader = command.ExecuteReader();
+        var deviceIds = new List<DeviceId>();
+        while (reader.Read())
+        {
+            deviceIds.Add(new DeviceId(checked((uint)reader.GetInt64(0))));
+        }
+
+        return ValueTask.FromResult<IReadOnlyList<DeviceId>>(deviceIds);
+    }
 }
