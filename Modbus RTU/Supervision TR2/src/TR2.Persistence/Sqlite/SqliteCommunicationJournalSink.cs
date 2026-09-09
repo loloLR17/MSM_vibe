@@ -3,6 +3,17 @@ using TR2.Application;
 
 namespace TR2.Persistence.Sqlite;
 
+public sealed record PersistedCommunicationFailure(
+    long FailureId,
+    string BusId,
+    byte ModbusAddress,
+    uint? DeviceId,
+    CommunicationOperation Operation,
+    CommunicationFailureCategory Category,
+    DateTimeOffset ObservedAt,
+    string ExceptionType,
+    string Message);
+
 public sealed class SqliteCommunicationJournalSink : ICommunicationJournalSink
 {
     private readonly SqliteDatabase _database;
@@ -60,5 +71,53 @@ public sealed class SqliteCommunicationJournalSink : ICommunicationJournalSink
         command.ExecuteNonQuery();
         transaction.Commit();
         return ValueTask.CompletedTask;
+    }
+
+    public IReadOnlyList<PersistedCommunicationFailure> ReadLatest(int limit)
+    {
+        if (limit <= 0)
+        {
+            throw new ArgumentOutOfRangeException(nameof(limit));
+        }
+
+        using var connection = _database.OpenConnection();
+        using var command = connection.CreateCommand();
+        command.CommandText = """
+            SELECT
+                failure_id,
+                bus_id,
+                modbus_address,
+                device_id,
+                operation,
+                category,
+                observed_utc,
+                exception_type,
+                message
+            FROM communication_failure_journal
+            ORDER BY failure_id DESC
+            LIMIT $limit;
+            """;
+        command.Parameters.AddWithValue("$limit", limit);
+
+        using var reader = command.ExecuteReader();
+        var failures = new List<PersistedCommunicationFailure>();
+        while (reader.Read())
+        {
+            failures.Add(new PersistedCommunicationFailure(
+                reader.GetInt64(0),
+                reader.GetString(1),
+                checked((byte)reader.GetInt32(2)),
+                reader.IsDBNull(3) ? null : checked((uint)reader.GetInt64(3)),
+                Enum.Parse<CommunicationOperation>(reader.GetString(4), ignoreCase: false),
+                Enum.Parse<CommunicationFailureCategory>(reader.GetString(5), ignoreCase: false),
+                DateTimeOffset.Parse(
+                    reader.GetString(6),
+                    CultureInfo.InvariantCulture,
+                    DateTimeStyles.RoundtripKind),
+                reader.GetString(7),
+                reader.GetString(8)));
+        }
+
+        return failures;
     }
 }
