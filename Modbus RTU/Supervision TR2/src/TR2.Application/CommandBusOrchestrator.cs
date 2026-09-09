@@ -11,6 +11,8 @@ public sealed class CommandBusOrchestrator
     private readonly B5PostSubmitMonitor? _postSubmitMonitor;
     private readonly Dictionary<long, CommandCoordinator> _coordinatorsByWorkId = [];
     private readonly Dictionary<long, DateTimeOffset> _postSubmitTimeoutByWorkId = [];
+    private readonly Dictionary<ReconciliationKey, ScheduledBusWork> _reconciliationWorkByKey = [];
+    private readonly Dictionary<long, ReconciliationKey> _reconciliationKeyByWorkId = [];
 
     public CommandBusOrchestrator(BusWorkScheduler scheduler)
         : this(scheduler, null, null, null)
@@ -99,10 +101,20 @@ public sealed class CommandBusOrchestrator
         ArgumentNullException.ThrowIfNull(endpoint);
         ArgumentNullException.ThrowIfNull(coordinator);
 
-        if (coordinator.ActiveTransaction?.State != CommandTransactionState.Ambiguous)
+        var transaction = coordinator.ActiveTransaction;
+        if (transaction?.State != CommandTransactionState.Ambiguous)
         {
             throw new InvalidOperationException(
                 "Reconciliation can only be queued for an ambiguous active transaction.");
+        }
+
+        var key = new ReconciliationKey(
+            coordinator.DeviceId,
+            transaction.TransactionId);
+
+        if (_reconciliationWorkByKey.TryGetValue(key, out var existing))
+        {
+            return existing;
         }
 
         var work = _scheduler.QueuePriority(
@@ -111,6 +123,8 @@ public sealed class CommandBusOrchestrator
             dueAt);
 
         _coordinatorsByWorkId.Add(work.WorkId, coordinator);
+        _reconciliationWorkByKey.Add(key, work);
+        _reconciliationKeyByWorkId.Add(work.WorkId, key);
         return work;
     }
 
@@ -403,5 +417,14 @@ public sealed class CommandBusOrchestrator
         _scheduler.Complete(bus, workId);
         _coordinatorsByWorkId.Remove(workId);
         _postSubmitTimeoutByWorkId.Remove(workId);
+
+        if (_reconciliationKeyByWorkId.Remove(workId, out var key))
+        {
+            _reconciliationWorkByKey.Remove(key);
+        }
     }
+
+    private readonly record struct ReconciliationKey(
+        DeviceId DeviceId,
+        TransactionId TransactionId);
 }
