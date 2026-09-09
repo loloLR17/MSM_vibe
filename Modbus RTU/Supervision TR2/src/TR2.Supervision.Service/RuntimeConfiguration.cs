@@ -12,7 +12,12 @@ public sealed record RuntimeConfiguration(
 
 public sealed record RuntimeBusConfiguration(
     SerialBus Bus,
-    IReadOnlyList<TR2Endpoint> Endpoints);
+    IReadOnlyList<TR2Endpoint> Endpoints)
+{
+    public RuntimeSerialPortConfiguration? Serial { get; init; }
+}
+
+public sealed record RuntimeSerialPortConfiguration(string PortName);
 
 public static class RuntimeConfigurationLoader
 {
@@ -76,6 +81,18 @@ public static class RuntimeConfigurationLoader
                 throw new InvalidDataException($"Duplicate bus id '{configuredBus.Id}'.");
             }
 
+            RuntimeSerialPortConfiguration? serial = null;
+            if (configuredBus.Serial is not null)
+            {
+                if (string.IsNullOrWhiteSpace(configuredBus.Serial.PortName))
+                {
+                    throw new InvalidDataException(
+                        $"serial.portName must be provided for bus '{configuredBus.Id}'.");
+                }
+
+                serial = new RuntimeSerialPortConfiguration(configuredBus.Serial.PortName);
+            }
+
             var bus = new SerialBus(configuredBus.Id);
             var addresses = new HashSet<byte>();
             var configuredEndpoints = configuredBus.Endpoints ?? [];
@@ -99,7 +116,10 @@ public static class RuntimeConfigurationLoader
                 endpoints.Add(new TR2Endpoint(bus, new ModbusAddress(address)));
             }
 
-            buses.Add(new RuntimeBusConfiguration(bus, endpoints));
+            buses.Add(new RuntimeBusConfiguration(bus, endpoints)
+            {
+                Serial = serial
+            });
         }
 
         var polling = CreatePollingPolicy(document.Polling);
@@ -159,7 +179,17 @@ public static class RuntimeConfigurationLoader
         }
 
         public string? Id { get; init; }
+        public SerialDocument? Serial { get; init; }
         public List<int>? Endpoints { get; init; }
+    }
+
+    private sealed class SerialDocument
+    {
+        public SerialDocument()
+        {
+        }
+
+        public string? PortName { get; init; }
     }
 
     private sealed class PollingDocument
