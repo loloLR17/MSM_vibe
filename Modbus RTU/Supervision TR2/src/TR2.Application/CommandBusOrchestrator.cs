@@ -253,6 +253,58 @@ public sealed class CommandBusOrchestrator
         }
     }
 
+    public async ValueTask<PostSubmitMonitoringCycleResult> ExecutePostSubmitMonitoringAndRequeueAsync(
+        ScheduledBusWork work,
+        DateTimeOffset observedAt,
+        DateTimeOffset nextMonitoringDueAt,
+        CancellationToken cancellationToken = default)
+    {
+        ArgumentNullException.ThrowIfNull(work);
+
+        if (work.Kind != BusWorkKind.CommandPostSubmitMonitoring)
+        {
+            throw new InvalidOperationException("The active work item is not post-submit monitoring.");
+        }
+
+        if (_postSubmitMonitor is null)
+        {
+            throw new InvalidOperationException("A B5 post-submit monitor is required to execute monitoring work.");
+        }
+
+        if (!_coordinatorsByWorkId.TryGetValue(work.WorkId, out var coordinator)
+            || !_postSubmitTimeoutByWorkId.TryGetValue(work.WorkId, out var timeoutAt))
+        {
+            throw new InvalidOperationException("No command monitoring context is associated with this work item.");
+        }
+
+        B5PostSubmitResult result;
+        try
+        {
+            result = await _postSubmitMonitor.ObserveAsync(
+                work.Endpoint,
+                coordinator,
+                timeoutAt,
+                observedAt,
+                cancellationToken);
+        }
+        finally
+        {
+            Complete(work.Endpoint.Bus, work.WorkId);
+        }
+
+        ScheduledBusWork? next = null;
+        if (result.Outcome == B5PostSubmitOutcome.Pending)
+        {
+            next = QueuePostSubmitMonitoring(
+                work.Endpoint,
+                coordinator,
+                nextMonitoringDueAt,
+                timeoutAt);
+        }
+
+        return new PostSubmitMonitoringCycleResult(result, next);
+    }
+
     public async ValueTask<B5ReconciliationResult> ExecuteReconciliationAsync(
         ScheduledBusWork work,
         DateTimeOffset observedAt,
