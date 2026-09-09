@@ -237,6 +237,61 @@ public sealed class B5RuntimeRestartRecoveryTests
         }
     }
 
+    [Fact]
+    public async Task RestartFailsAndNeverBecomesReadyWhenB5JournalHistoryIsIncoherent()
+    {
+        var databasePath = NewDatabasePath();
+        try
+        {
+            var configuration = CreateConfiguration(databasePath);
+            var firstComposition = SupervisionRuntimeCompositionRoot.Compose(configuration);
+            var deviceId = new DeviceId(404);
+
+            // Force schema creation through the production persistence path, then inject a
+            // structurally valid but transactionally incoherent journal: Submitted without Prepared.
+            Assert.Empty(await firstComposition.CommandJournal.ReadAsync(deviceId));
+            SqliteConnection.ClearAllPools();
+
+            using (var connection = new SqliteConnection($"Data Source={databasePath}"))
+            {
+                connection.Open();
+                using var command = connection.CreateCommand();
+                command.CommandText = """
+                    INSERT INTO b5_transaction_journal(
+                        device_id,
+                        transaction_id,
+                        request_identity,
+                        event_kind,
+                        observed_utc)
+                    VALUES (
+                        404,
+                        1,
+                        'incoherent-request',
+                        'Submitted',
+                        '2026-09-09T23:00:00.0000000+00:00');
+                    """;
+                Assert.Equal(1, command.ExecuteNonQuery());
+            }
+
+            var restartedComposition = SupervisionRuntimeCompositionRoot.Compose(configuration);
+            var startup = new SupervisionRuntimeStartup(restartedComposition);
+
+            await Assert.ThrowsAsync<InvalidDataException>(async () => await startup.StartAsync());
+
+            Assert.False(restartedComposition.ReadinessGate.IsReady);
+            Assert.Throws<InvalidOperationException>(() => restartedComposition.ReadinessGate.EnsureReady());
+            var persisted = await restartedComposition.CommandJournal.ReadAsync(deviceId);
+            var entry = Assert.Single(persisted);
+            Assert.Equal(CommandTransactionJournalEventKind.Submitted, entry.Kind);
+            Assert.Equal(new TransactionId(1), entry.TransactionId);
+            Assert.Equal("incoherent-request", entry.RequestIdentity);
+        }
+        finally
+        {
+            DeleteDatabaseFiles(databasePath);
+        }
+    }
+
     private static RuntimeConfiguration CreateConfiguration(string databasePath) =>
         RuntimeConfigurationLoader.Parse(
             $$"""
