@@ -100,6 +100,59 @@ public sealed class B5RuntimeRestartRecoveryTests
         }
     }
 
+    [Fact]
+    public async Task RestartAfterTerminalHistoryAllowsNextTransactionIdWithoutReuseOrReplay()
+    {
+        var databasePath = NewDatabasePath();
+        try
+        {
+            var configuration = CreateConfiguration(databasePath);
+            var firstComposition = SupervisionRuntimeCompositionRoot.Compose(configuration);
+            var deviceId = new DeviceId(91);
+            var firstCoordinator = new CommandCoordinator(
+                deviceId,
+                firstComposition.CommandReservationStore,
+                firstComposition.CommandJournal);
+            var startedAt = new DateTimeOffset(2026, 9, 9, 21, 0, 0, TimeSpan.Zero);
+
+            var first = await firstCoordinator.PrepareAsync("request-terminal", startedAt);
+            await firstCoordinator.MarkSubmittedAsync(startedAt.AddSeconds(1));
+            await firstCoordinator.ResolveTerminalAsync(first.TransactionId, startedAt.AddSeconds(2));
+
+            Assert.Null(firstCoordinator.ActiveTransaction);
+            var beforeRestart = await firstComposition.CommandJournal.ReadAsync(deviceId);
+            Assert.Equal(3, beforeRestart.Count);
+            Assert.Equal(CommandTransactionJournalEventKind.TerminalEvidenceObserved, beforeRestart[^1].Kind);
+
+            var restartedComposition = SupervisionRuntimeCompositionRoot.Compose(configuration);
+            await new SupervisionRuntimeStartup(restartedComposition).StartAsync();
+
+            var recoveredCoordinator = restartedComposition.CommandCoordinatorRegistry.Get(deviceId);
+            Assert.Null(recoveredCoordinator.ActiveTransaction);
+
+            var afterRestart = await restartedComposition.CommandJournal.ReadAsync(deviceId);
+            Assert.Equal(beforeRestart, afterRestart);
+
+            var next = await recoveredCoordinator.PrepareAsync(
+                "request-after-restart",
+                startedAt.AddMinutes(1));
+
+            Assert.Equal((ushort)(first.TransactionId.Value + 1), next.TransactionId.Value);
+            Assert.NotEqual(first.TransactionId, next.TransactionId);
+            Assert.Equal(CommandTransactionState.Prepared, next.State);
+
+            var afterNewPrepare = await restartedComposition.CommandJournal.ReadAsync(deviceId);
+            Assert.Equal(beforeRestart.Count + 1, afterNewPrepare.Count);
+            Assert.Equal(CommandTransactionJournalEventKind.Prepared, afterNewPrepare[^1].Kind);
+            Assert.Equal(next.TransactionId, afterNewPrepare[^1].TransactionId);
+            Assert.Equal("request-after-restart", afterNewPrepare[^1].RequestIdentity);
+        }
+        finally
+        {
+            DeleteDatabaseFiles(databasePath);
+        }
+    }
+
     private static RuntimeConfiguration CreateConfiguration(string databasePath) =>
         RuntimeConfigurationLoader.Parse(
             $$"""
