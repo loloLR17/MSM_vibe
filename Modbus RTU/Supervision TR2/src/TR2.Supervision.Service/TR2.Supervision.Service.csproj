@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\TR2.Domain\TR2.Domain.csproj" />
+    <ProjectReference Include="..\TR2.Protocol\TR2.Protocol.csproj" />
+    <ProjectReference Include="..\TR2.Transport\TR2.Transport.csproj" />
+    <ProjectReference Include="..\TR2.Application\TR2.Application.csproj" />
+    <ProjectReference Include="..\TR2.Persistence\TR2.Persistence.csproj" />
+    <ProjectReference Include="..\TR2.Campaigns\TR2.Campaigns.csproj" />
+  </ItemGroup>
+</Project>

@@ -1,0 +1,6 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <ItemGroup>
+    <ProjectReference Include="..\TR2.Domain\TR2.Domain.csproj" />
+    <ProjectReference Include="..\TR2.Protocol\TR2.Protocol.csproj" />
+  </ItemGroup>
+</Project>

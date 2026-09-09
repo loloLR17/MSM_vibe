@@ -13,5 +13,10 @@ Desktop.ini
 __pycache__/
 *.pyc
 
+# .NET
+bin/
+obj/
+.vs/
+
 # Archives generated for transport/export
 *.zip
