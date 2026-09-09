@@ -56,6 +56,8 @@ Les entrées sont volontairement classées par statut afin de ne pas transformer
 
 La base SQLite doit résider sur un **filesystem local du PC de supervision**. L'exploitation directe de la base active depuis un partage réseau n'est pas supportée par la politique S2.
 
+À la clôture S2, le schéma structuré courant est `PRAGMA user_version = 5`. Le schéma est documenté dans `SUPERVISION_S2_PERSISTENCE_SCHEMA.md`.
+
 ---
 
 ## 5. Stockage disque
@@ -116,9 +118,9 @@ En mode WAL, les fichiers `*.db`, `*.db-wal` et `*.db-shm` peuvent faire partie 
 
 | Élément | Statut | Exigence actuelle | Source / remarque |
 |---|---|---|---|
-| Horloge système PC fonctionnelle | REQUIS | Les timestamps PC sont utilisés par la supervision et l'archivage. | S1. |
+| Horloge système PC fonctionnelle | REQUIS | Les timestamps PC sont utilisés par la supervision et l'archivage. | S1/S2. |
 | Synchronisation NTP/heure Windows | À FIGER | Recommandée mais politique opérationnelle non encore décidée. | Ne pas la considérer comme autorité Modbus implicite. |
-| Fuseau horaire | À FIGER | Politique de stockage/affichage à confirmer lors de la composition/UI. | Les données persistées devront rester non ambiguës. |
+| Fuseau horaire | À FIGER | Politique d'affichage à confirmer lors de la composition/UI. | Les timestamps S2 persistés depuis `DateTimeOffset` sont sérialisés en UTC et restent distincts du temps TR2 B2. |
 
 ---
 
@@ -139,17 +141,22 @@ Ils appartiennent au poste de développement ou au banc firmware, pas à la supe
 
 ---
 
-## 12. État à l'issue de S2-A
+## 12. État à la clôture de S2
 
-À ce stade, les points certains pour le futur PC sont donc :
+À l'issue de S2, les points certains pour le futur PC sont :
 
 1. application de supervision basée sur **.NET 10** ;
 2. persistance locale structurée via **SQLite** ;
 3. accès SQLite via **`Microsoft.Data.Sqlite`**, sans SQL Server ni EF Core ;
-4. stockage de base sur disque **local** ;
-5. fonctionnement **offline-first** ;
-6. aucun transport série physique encore requis pour les tests S2 host ;
-7. version minimale exacte de Windows, capacité disque, adaptateur RS-485, packaging .NET et politique de service encore à figer.
+4. base active sur disque **local**, en WAL, `synchronous=FULL`, `foreign_keys=ON` ;
+5. schéma SQLite versionné, version courante S2 = **5** ;
+6. stockage durable actuellement implémenté pour B5, B3, journal communication et modèle Installation/Equipment/MeasurementPoint/affectations ;
+7. reprise après fermeture/réouverture host testée sur ces stores ;
+8. fonctionnement **offline-first** ;
+9. aucun transport série physique encore requis pour S2 ;
+10. version minimale exacte de Windows, capacité disque, adaptateur RS-485, packaging .NET, politique de service, sauvegarde et rétention restent à figer.
+
+Aucun nouveau logiciel PC externe n'a été introduit par S2-C à S2-H au-delà des dépendances déjà enregistrées en S2-A/S2-B.
 
 ---
 
