@@ -1,3 +1,4 @@
+using System.Collections.Concurrent;
 using TR2.Application;
 using TR2.Domain;
 using Xunit;
@@ -76,8 +77,9 @@ public sealed class SupervisionPollingLoopTests
             var runTask = host.RunAsync(cancellation.Token);
             await WaitForAsync(() => runner.Groups.Count >= 2);
 
-            Assert.Equal(PollingGroup.Static, runner.Groups[0]);
-            Assert.Contains(PollingGroup.Fast, runner.Groups);
+            var groups = runner.Groups.ToArray();
+            Assert.Equal(PollingGroup.Static, groups[0]);
+            Assert.Contains(PollingGroup.Fast, groups);
             Assert.Equal(SupervisionRuntimeState.Running, host.State);
             Assert.True(composition.ReadinessGate.IsReady);
 
@@ -98,7 +100,7 @@ public sealed class SupervisionPollingLoopTests
         var configuration = RuntimeConfigurationLoader.Parse(
             $$"""
             {
-              "persistence": { "databasePath": "{{databasePath.Replace("\\", "\\\\")}}" },
+              "persistence": { "databasePath": "{{databasePath.Replace("\", "\\")}}" },
               "polling": {
                 "staticRetryMilliseconds": 10,
                 "fastMilliseconds": 20,
@@ -149,7 +151,7 @@ public sealed class SupervisionPollingLoopTests
             _composition = composition;
         }
 
-        public List<PollingGroup> Groups { get; } = [];
+        public ConcurrentQueue<PollingGroup> Groups { get; } = new();
 
         public ValueTask<PollingWorkExecutionResult> ExecuteAsync(
             ScheduledBusWork work,
@@ -157,7 +159,7 @@ public sealed class SupervisionPollingLoopTests
             CancellationToken cancellationToken = default)
         {
             cancellationToken.ThrowIfCancellationRequested();
-            Groups.Add(work.PollingGroup!.Value);
+            Groups.Enqueue(work.PollingGroup!.Value);
 
             try
             {
