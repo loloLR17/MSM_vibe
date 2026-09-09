@@ -78,9 +78,9 @@ public sealed class B1SystemStateTests
 
     private sealed class RecordingTransport : IRegisterTransport
     {
-        private readonly IReadOnlyList<ushort> _registers;
+        private readonly ushort[] _registers;
 
-        public RecordingTransport(IReadOnlyList<ushort> registers)
+        public RecordingTransport(ushort[] registers)
         {
             _registers = registers;
         }
@@ -88,13 +88,13 @@ public sealed class B1SystemStateTests
         public string? BusId { get; private set; }
         public byte? UnitAddress { get; private set; }
         public ushort? StartAddress { get; private set; }
-        public int? RegisterCount { get; private set; }
+        public ushort? RegisterCount { get; private set; }
 
-        public ValueTask<IReadOnlyList<ushort>> ReadRegistersAsync(
+        public ValueTask<ushort[]> ReadRegistersAsync(
             string busId,
             byte unitAddress,
             ushort startAddress,
-            int registerCount,
+            ushort registerCount,
             CancellationToken cancellationToken = default)
         {
             BusId = busId;
@@ -114,12 +114,12 @@ public sealed class B1SystemStateTests
             _exception = exception;
         }
 
-        public ValueTask<IReadOnlyList<ushort>> ReadRegistersAsync(
+        public ValueTask<ushort[]> ReadRegistersAsync(
             string busId,
             byte unitAddress,
             ushort startAddress,
-            int registerCount,
+            ushort registerCount,
             CancellationToken cancellationToken = default) =>
-            ValueTask.FromException<IReadOnlyList<ushort>>(_exception);
+            ValueTask.FromException<ushort[]>(_exception);
     }
 }
