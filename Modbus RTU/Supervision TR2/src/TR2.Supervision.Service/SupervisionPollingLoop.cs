@@ -60,6 +60,7 @@ public sealed class SupervisionPollingLoop : ISupervisionRuntimeLoop
     private readonly IPollingWorkRunner _pollingRunner;
     private readonly IPriorityWorkRunner _priorityRunner;
     private readonly TimeProvider _timeProvider;
+    private readonly SerialBusReconnectScheduler? _reconnectScheduler;
     private readonly Dictionary<TR2Endpoint, EndpointPollingState> _states = [];
     private bool _runInvoked;
 
@@ -81,6 +82,13 @@ public sealed class SupervisionPollingLoop : ISupervisionRuntimeLoop
         _pollingRunner = pollingRunner ?? throw new ArgumentNullException(nameof(pollingRunner));
         _priorityRunner = priorityRunner ?? throw new ArgumentNullException(nameof(priorityRunner));
         _timeProvider = timeProvider ?? TimeProvider.System;
+
+        if (composition.Configuration.Reconnect is not null)
+        {
+            _reconnectScheduler = new SerialBusReconnectScheduler(
+                composition,
+                composition.Configuration.Reconnect.Interval);
+        }
 
         foreach (var bus in composition.Configuration.Buses)
         {
@@ -112,6 +120,11 @@ public sealed class SupervisionPollingLoop : ISupervisionRuntimeLoop
         {
             cancellationToken.ThrowIfCancellationRequested();
             var now = _timeProvider.GetUtcNow();
+
+            if (_reconnectScheduler is not null)
+            {
+                await _reconnectScheduler.RunDueAsync(now, cancellationToken);
+            }
 
             QueueDuePolling(now);
 
