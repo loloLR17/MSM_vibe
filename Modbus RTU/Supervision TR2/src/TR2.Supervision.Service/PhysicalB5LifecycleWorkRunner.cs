@@ -12,11 +12,17 @@ public sealed class PhysicalB5LifecycleWorkRunner : IPriorityWorkRunner
         CommandCoordinator Coordinator,
         DateTimeOffset TimeoutAt);
 
+    private sealed record ReconciliationContext(
+        DeviceId DeviceId,
+        TransactionId TransactionId,
+        CommandCoordinator Coordinator);
+
     private readonly SupervisionRuntimeComposition _composition;
     private readonly PhysicalPriorityWorkRunner _inner;
     private readonly RuntimeB5LifecyclePolicy? _policy;
     private readonly SerialBusRecoveryCoordinator _recovery;
     private readonly Dictionary<long, MonitoringContext> _monitoringByWorkId = [];
+    private readonly Dictionary<long, ReconciliationContext> _reconciliationByWorkId = [];
 
     public PhysicalB5LifecycleWorkRunner(
         SupervisionRuntimeComposition composition,
@@ -37,19 +43,26 @@ public sealed class PhysicalB5LifecycleWorkRunner : IPriorityWorkRunner
         ArgumentNullException.ThrowIfNull(work);
         cancellationToken.ThrowIfCancellationRequested();
 
-        if (work.Kind != BusWorkKind.CommandPostSubmitMonitoring)
+        switch (work.Kind)
         {
-            await _inner.ExecuteAsync(work, observedAt, cancellationToken).ConfigureAwait(false);
+            case BusWorkKind.CommandPostSubmitMonitoring:
+                await ExecuteMonitoringAsync(work, observedAt, cancellationToken).ConfigureAwait(false);
+                return;
 
-            if (work.Kind == BusWorkKind.CommandTransaction && _policy is not null)
-            {
-                QueueInitialMonitoringIfSubmitted(work.Endpoint, observedAt);
-            }
+            case BusWorkKind.TransactionReconciliation:
+                await ExecuteReconciliationAsync(work, observedAt, cancellationToken).ConfigureAwait(false);
+                return;
 
-            return;
+            default:
+                await _inner.ExecuteAsync(work, observedAt, cancellationToken).ConfigureAwait(false);
+
+                if (work.Kind == BusWorkKind.CommandTransaction && _policy is not null)
+                {
+                    QueueInitialMonitoringIfSubmitted(work.Endpoint, observedAt);
+                }
+
+                return;
         }
-
-        await ExecuteMonitoringAsync(work, observedAt, cancellationToken).ConfigureAwait(false);
     }
 
     private void QueueInitialMonitoringIfSubmitted(TR2Endpoint endpoint, DateTimeOffset observedAt)
@@ -157,6 +170,106 @@ public sealed class PhysicalB5LifecycleWorkRunner : IPriorityWorkRunner
                 observedAt + _policy.PostSubmitPollInterval,
                 context.TimeoutAt);
         }
+        else if (result.Outcome == B5PostSubmitOutcome.TimedOutAmbiguous)
+        {
+            QueueReconciliation(
+                work.Endpoint,
+                context.DeviceId,
+                context.Coordinator,
+                observedAt + _policy.ReconciliationInterval);
+        }
+    }
+
+    private async ValueTask ExecuteReconciliationAsync(
+        ScheduledBusWork work,
+        DateTimeOffset observedAt,
+        CancellationToken cancellationToken)
+    {
+        if (_policy is null)
+        {
+            _composition.BusWorkScheduler.Complete(work.Endpoint.Bus, work.WorkId);
+            throw new InvalidOperationException(
+                "B5 reconciliation work cannot execute when runtime B5 lifecycle policy is disabled.");
+        }
+
+        if (!_reconciliationByWorkId.Remove(work.WorkId, out var context))
+        {
+            _composition.BusWorkScheduler.Complete(work.Endpoint.Bus, work.WorkId);
+            throw new InvalidOperationException("No B5 reconciliation context is registered for this work item.");
+        }
+
+        if (context.Coordinator.ActiveTransaction is not { State: CommandTransactionState.Ambiguous } active
+            || active.TransactionId != context.TransactionId)
+        {
+            _composition.BusWorkScheduler.Complete(work.Endpoint.Bus, work.WorkId);
+            return;
+        }
+
+        var session = _composition.FleetRegistry.GetSession(work.Endpoint);
+        if (session.State != TR2SessionState.Compatible
+            || session.Device is null
+            || session.Device.DeviceId != context.DeviceId
+            || !_composition.BusConnectionManager.TryGet(work.Endpoint.Bus.Id, out var connection)
+            || connection is null)
+        {
+            _composition.BusWorkScheduler.Complete(work.Endpoint.Bus, work.WorkId);
+            QueueReconciliation(
+                work.Endpoint,
+                context.DeviceId,
+                context.Coordinator,
+                observedAt + _policy.ReconciliationInterval);
+            return;
+        }
+
+        var service = new B5ReconciliationService(new B5Reader(connection.RegisterTransport));
+        B5ReconciliationResult result;
+
+        try
+        {
+            result = await service.ReconcileAsync(
+                work.Endpoint,
+                context.Coordinator,
+                observedAt,
+                cancellationToken).ConfigureAwait(false);
+        }
+        catch (ModbusTransportFailureException exception)
+        {
+            _composition.BusWorkScheduler.Complete(work.Endpoint.Bus, work.WorkId);
+
+            if (exception.Kind == ModbusTransportFailureKind.Io)
+            {
+                await _recovery.MarkDisconnectedAsync(work.Endpoint.Bus, cancellationToken)
+                    .ConfigureAwait(false);
+            }
+
+            if (exception.Kind is ModbusTransportFailureKind.Timeout or ModbusTransportFailureKind.Io)
+            {
+                if (context.Coordinator.ActiveTransaction?.State == CommandTransactionState.Ambiguous)
+                {
+                    QueueReconciliation(
+                        work.Endpoint,
+                        context.DeviceId,
+                        context.Coordinator,
+                        observedAt + _policy.ReconciliationInterval);
+                }
+
+                return;
+            }
+
+            throw;
+        }
+
+        _composition.BusWorkScheduler.Complete(work.Endpoint.Bus, work.WorkId);
+
+        if (result.Decision.Outcome != B5ReconciliationOutcome.TerminalEvidence
+            && context.Coordinator.ActiveTransaction?.State == CommandTransactionState.Ambiguous)
+        {
+            QueueReconciliation(
+                work.Endpoint,
+                context.DeviceId,
+                context.Coordinator,
+                observedAt + _policy.ReconciliationInterval);
+        }
     }
 
     private async ValueTask RequeueOrMarkAmbiguousAsync(
@@ -200,6 +313,30 @@ public sealed class PhysicalB5LifecycleWorkRunner : IPriorityWorkRunner
         _monitoringByWorkId.Add(
             work.WorkId,
             new MonitoringContext(deviceId, coordinator, timeoutAt));
+        return work;
+    }
+
+    private ScheduledBusWork QueueReconciliation(
+        TR2Endpoint endpoint,
+        DeviceId deviceId,
+        CommandCoordinator coordinator,
+        DateTimeOffset dueAt)
+    {
+        var transaction = coordinator.ActiveTransaction;
+        if (transaction?.State != CommandTransactionState.Ambiguous)
+        {
+            throw new InvalidOperationException(
+                "B5 reconciliation can only be queued for an ambiguous active transaction.");
+        }
+
+        var work = _composition.BusWorkScheduler.QueuePriority(
+            endpoint,
+            BusWorkKind.TransactionReconciliation,
+            dueAt);
+
+        _reconciliationByWorkId.Add(
+            work.WorkId,
+            new ReconciliationContext(deviceId, transaction.TransactionId, coordinator));
         return work;
     }
 }
