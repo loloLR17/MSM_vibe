@@ -16,10 +16,11 @@
         <button class="nav-item" data-view="vibration">Vibrations</button>
         <button class="nav-item" data-view="system">État système</button>
         <button class="nav-item" data-view="configuration">Configuration</button>
+        <button class="nav-item" data-view="commands">Commandes</button>
         <button class="nav-item" data-view="campaigns">Campagnes</button>
         <button class="nav-item" data-view="diagnostic">Diagnostic</button>
       </nav>
-      <div class="scope">S7-F2 · lecture seule<br>Aucune commande B5</div>
+      <div class="scope">S7-G3 · commandes B5 supervisées<br>HTTP 202 = mise en file, pas succès TR2</div>
     </aside>
     <main>
       <header class="status-band">
@@ -36,12 +37,22 @@
         </div>
         <div id="vibrationView" class="device-view hidden"><div class="detail-grid"><article class="detail-card"><h2>Grandeurs globales B3</h2><dl id="vibrationGlobal"></dl></article><article class="detail-card"><h2>Axes B3</h2><dl id="vibrationAxes"></dl></article><article class="detail-card"><h2>Qualification B3</h2><dl id="vibrationQuality"></dl></article><article class="detail-card"><h2>Compteurs B3</h2><dl id="vibrationCounters"></dl></article></div><p class="scope-note">Toutes les valeurs vibratoires affichées proviennent du Bloc 3 et sont exprimées en accélération mg. Aucun calcul mm/s, FFT ou seuil ISO n'est effectué.</p></div>
         <div id="systemView" class="device-view hidden"><div class="detail-grid"><article class="detail-card"><h2>Bloc 1 — État système</h2><dl id="systemState"></dl></article><article class="detail-card"><h2>Bloc 2 — Temps</h2><dl id="timeState"></dl></article></div></div>
-        <div id="configurationView" class="device-view hidden"><div class="detail-grid"><article class="detail-card"><h2>B4 — Métadonnées</h2><dl id="configMeta"></dl></article><article class="detail-card"><h2>Configuration préparée</h2><dl id="configPrepared"></dl></article><article class="detail-card"><h2>Configuration active</h2><dl id="configActive"></dl></article><article class="detail-card"><h2>Contexte B4</h2><dl id="configContext"></dl></article></div><p class="scope-note">Lecture seule. Les valeurs préparées et actives sont affichées séparément ; aucun APPLY_CONFIG n'est émis depuis cette vue.</p></div>
+        <div id="configurationView" class="device-view hidden"><div class="detail-grid"><article class="detail-card"><h2>B4 — Métadonnées</h2><dl id="configMeta"></dl></article><article class="detail-card"><h2>Configuration préparée</h2><dl id="configPrepared"></dl></article><article class="detail-card"><h2>Configuration active</h2><dl id="configActive"></dl></article><article class="detail-card"><h2>Contexte B4</h2><dl id="configContext"></dl></article></div><p class="scope-note">Les valeurs préparées et actives sont affichées séparément. L'action APPLY_CONFIG est disponible dans la vue Commandes et passe exclusivement par le moteur B5 existant.</p></div>
+        <div id="commandsView" class="device-view hidden">
+          <div class="detail-grid">
+            <article class="detail-card"><h2>Commandes courantes</h2><div class="command-actions"><button data-b5-command="ApplyConfig">Appliquer configuration préparée</button><button data-b5-command="SyncTime">Synchroniser heure préparée</button><button data-b5-command="StartAcquisition">Démarrer acquisition</button><button data-b5-command="StopAcquisition">Arrêter acquisition</button><button data-b5-command="Selftest">Lancer autotest standard</button><button data-b5-command="RefreshIndicators">Rafraîchir indicateurs</button><button data-b5-command="EnterMaintenance">Entrer en maintenance</button><button data-b5-command="ExitMaintenance">Sortir maintenance</button></div></article>
+            <article class="detail-card"><h2>Acquittement défaut</h2><label class="command-field">Code défaut <input id="faultCode" type="number" min="0" max="65535" step="1" inputmode="numeric"></label><div class="command-actions"><button id="ackFaultButton">Acquitter ce défaut</button><button id="ackAllButton">Acquitter tous les défauts acquittables</button></div><p class="scope-note">L'acquittement ne supprime pas la cause d'un défaut encore présent.</p></article>
+            <article class="detail-card"><h2>Commande protégée</h2><p>Le reset logiciel contrôlé nécessite une confirmation explicite. La clé B5 0xA55A n'est jamais fournie par le navigateur.</p><div class="command-actions"><button id="softwareResetButton" class="danger-command">Reset logiciel contrôlé</button></div></article>
+            <article class="detail-card"><h2>Dernière demande Web</h2><div id="commandFeedback" class="command-feedback" role="status">Aucune commande envoyée depuis cette page.</div><p class="scope-note">Une réponse HTTP 202 signifie uniquement « préparée et mise en file ». Elle ne prouve pas l'exécution ni le succès côté TR2.</p></article>
+          </div>
+          <p class="scope-note">Aucun retry automatique. En cas de perte réseau après émission, le résultat est considéré inconnu jusqu'à observation transactionnelle ultérieure.</p>
+        </div>
         <div id="campaignsView" class="device-view hidden"><div class="detail-grid"><article class="detail-card"><h2>B6 — Inventaire & stockage</h2><dl id="campaignInventory"></dl></article><article class="detail-card"><h2>Sélection courante</h2><dl id="campaignSelection"></dl></article><article class="detail-card"><h2>Campagne exposée</h2><dl id="campaignEntry"></dl></article><article class="detail-card"><h2>Contexte B6</h2><dl id="campaignContext"></dl></article></div><p class="scope-note">Lecture seule. Le Bloc 6 n'expose qu'une entrée à la fois. Cette vue n'écrit pas selected_campaign_index et ne construit pas de liste artificielle côté Web.</p></div>
         <div id="diagnosticView" class="device-view hidden"><div class="detail-grid"><article class="detail-card"><h2>Bloc 7 — Diagnostic</h2><dl id="diagnosticState"></dl></article><article class="detail-card"><h2>Contexte de réception</h2><dl id="diagnosticContext"></dl></article></div></div>
       </section>
     </main>
   </div>
   <script src="/device.js"></script>
+  <script src="/commands.js"></script>
 </body>
 </html>
