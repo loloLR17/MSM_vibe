@@ -62,13 +62,15 @@ public sealed class SupervisionWebHost
     private readonly TimeProvider _timeProvider;
     private readonly ISupervisionSystemReadSource? _systemReadSource;
     private readonly ISupervisionCommandSink? _commandSink;
+    private readonly ISupervisionCampaignSelectionSink? _campaignSelectionSink;
 
     public SupervisionWebHost(
         SupervisionWebOptions options,
         SupervisionReadProjection projection,
         TimeProvider? timeProvider = null,
         ISupervisionSystemReadSource? systemReadSource = null,
-        ISupervisionCommandSink? commandSink = null)
+        ISupervisionCommandSink? commandSink = null,
+        ISupervisionCampaignSelectionSink? campaignSelectionSink = null)
     {
         ArgumentNullException.ThrowIfNull(options);
         ArgumentNullException.ThrowIfNull(projection);
@@ -78,6 +80,7 @@ public sealed class SupervisionWebHost
         _timeProvider = timeProvider ?? TimeProvider.System;
         _systemReadSource = systemReadSource;
         _commandSink = commandSink;
+        _campaignSelectionSink = campaignSelectionSink ?? commandSink as ISupervisionCampaignSelectionSink;
     }
 
     public WebApplication CreateApplication()
@@ -175,6 +178,48 @@ public sealed class SupervisionWebHost
                 _ => Results.Conflict(new QueueB5CommandRejectedResponse(
                     "CommandConflict",
                     result.Detail ?? "The command cannot be queued in the current runtime state."))
+            };
+        });
+        application.MapPost("/api/v1/devices/{deviceId:long}/campaign-selection", async (
+            long deviceId,
+            QueueCampaignSelectionRequest request,
+            CancellationToken cancellationToken) =>
+        {
+            if (_campaignSelectionSink is null)
+            {
+                return Results.NotFound();
+            }
+
+            if (deviceId < 0 || deviceId > uint.MaxValue)
+            {
+                return Results.NotFound();
+            }
+
+            var acceptedAt = _timeProvider.GetUtcNow();
+            var result = await _campaignSelectionSink.QueueCampaignSelectionAsync(
+                (uint)deviceId,
+                request.CampaignIndex,
+                acceptedAt,
+                cancellationToken);
+
+            return result.Status switch
+            {
+                IhmCampaignSelectionQueueStatus.Accepted => Results.Accepted(
+                    $"/api/v1/devices/{deviceId}",
+                    new QueueCampaignSelectionAcceptedResponse(
+                        acceptedAt,
+                        result.WorkId!.Value,
+                        result.DeviceId!.Value,
+                        result.CampaignIndex!.Value)),
+                IhmCampaignSelectionQueueStatus.DeviceNotFound => Results.NotFound(),
+                IhmCampaignSelectionQueueStatus.NotReady => Results.Json(
+                    new QueueCampaignSelectionRejectedResponse(
+                        "RuntimeNotReady",
+                        result.Detail ?? "The supervision runtime is not ready."),
+                    statusCode: StatusCodes.Status503ServiceUnavailable),
+                _ => Results.Conflict(new QueueCampaignSelectionRejectedResponse(
+                    "CampaignSelectionConflict",
+                    result.Detail ?? "The campaign selection cannot be queued in the current runtime state."))
             };
         });
 

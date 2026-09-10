@@ -3,7 +3,7 @@ using TR2.Supervision.Web;
 
 namespace TR2.Supervision.Service;
 
-public sealed class RuntimeCommandSink : ISupervisionCommandSink
+public sealed class RuntimeCommandSink : ISupervisionCommandSink, ISupervisionCampaignSelectionSink
 {
     private const ushort ProtectedCommandConfirmKey = 0xA55A;
     private readonly PhysicalSupervisionRuntime _runtime;
@@ -29,32 +29,21 @@ public sealed class RuntimeCommandSink : ISupervisionCommandSink
         {
             var id = new DeviceId(deviceId);
             var existingEntries = await _runtime.Composition.CommandJournal.ReadAsync(id, cancellationToken);
-            if (existingEntries.Any(entry => string.Equals(
-                    entry.RequestIdentity,
-                    requestIdentity,
-                    StringComparison.Ordinal)))
+            if (existingEntries.Any(entry => string.Equals(entry.RequestIdentity, requestIdentity, StringComparison.Ordinal)))
             {
                 return new IhmCommandQueueResult(
                     IhmCommandQueueStatus.DuplicateRequestIdentity,
                     Detail: "requestIdentity was already used for this device.");
             }
 
-            var sessions = _runtime.Composition.FleetRegistry.Sessions
-                .Where(session => session.Device?.DeviceId.Value == deviceId)
-                .ToArray();
-
-            if (sessions.Length == 0)
+            var sessionResult = ResolveSession(deviceId);
+            if (sessionResult.Session is null)
             {
-                return new IhmCommandQueueResult(IhmCommandQueueStatus.DeviceNotFound);
-            }
-
-            if (sessions.Length != 1 ||
-                sessions[0].State != TR2SessionState.Compatible ||
-                sessions[0].Device is null)
-            {
-                return new IhmCommandQueueResult(
-                    IhmCommandQueueStatus.Conflict,
-                    Detail: "The device does not currently have one compatible identified session.");
+                return new IhmCommandQueueResult(sessionResult.Status switch
+                {
+                    SessionResolutionStatus.NotFound => IhmCommandQueueStatus.DeviceNotFound,
+                    _ => IhmCommandQueueStatus.Conflict
+                }, Detail: sessionResult.Detail);
             }
 
             if (!_runtime.Composition.ReadinessGate.IsReady)
@@ -67,7 +56,7 @@ public sealed class RuntimeCommandSink : ISupervisionCommandSink
             try
             {
                 var queued = await _runtime.Operations.QueueCommandAsync(
-                    sessions[0].Endpoint,
+                    sessionResult.Session.Endpoint,
                     requestIdentity,
                     MapIntent(submission),
                     requestedAt,
@@ -93,6 +82,81 @@ public sealed class RuntimeCommandSink : ISupervisionCommandSink
         }
     }
 
+    public async ValueTask<IhmCampaignSelectionQueueResult> QueueCampaignSelectionAsync(
+        uint deviceId,
+        ushort campaignIndex,
+        DateTimeOffset requestedAt,
+        CancellationToken cancellationToken = default)
+    {
+        await _queueGate.WaitAsync(cancellationToken);
+        try
+        {
+            var sessionResult = ResolveSession(deviceId);
+            if (sessionResult.Session is null)
+            {
+                return new IhmCampaignSelectionQueueResult(sessionResult.Status switch
+                {
+                    SessionResolutionStatus.NotFound => IhmCampaignSelectionQueueStatus.DeviceNotFound,
+                    _ => IhmCampaignSelectionQueueStatus.Conflict
+                }, Detail: sessionResult.Detail);
+            }
+
+            if (!_runtime.Composition.ReadinessGate.IsReady)
+            {
+                return new IhmCampaignSelectionQueueResult(
+                    IhmCampaignSelectionQueueStatus.NotReady,
+                    Detail: "The supervision runtime is not ready.");
+            }
+
+            try
+            {
+                var queued = _runtime.Operations.QueueCampaignSelection(
+                    sessionResult.Session.Endpoint,
+                    campaignIndex,
+                    requestedAt);
+
+                return new IhmCampaignSelectionQueueResult(
+                    IhmCampaignSelectionQueueStatus.Accepted,
+                    queued.Work.WorkId,
+                    deviceId,
+                    queued.CampaignIndex,
+                    null);
+            }
+            catch (InvalidOperationException)
+            {
+                return new IhmCampaignSelectionQueueResult(
+                    IhmCampaignSelectionQueueStatus.Conflict,
+                    Detail: "The B6 campaign selection cannot be queued in the current runtime state.");
+            }
+        }
+        finally
+        {
+            _queueGate.Release();
+        }
+    }
+
+    private SessionResolution ResolveSession(uint deviceId)
+    {
+        var sessions = _runtime.Composition.FleetRegistry.Sessions
+            .Where(session => session.Device?.DeviceId.Value == deviceId)
+            .ToArray();
+
+        if (sessions.Length == 0)
+        {
+            return new SessionResolution(SessionResolutionStatus.NotFound, null, null);
+        }
+
+        if (sessions.Length != 1 || sessions[0].State != TR2SessionState.Compatible || sessions[0].Device is null)
+        {
+            return new SessionResolution(
+                SessionResolutionStatus.Conflict,
+                null,
+                "The device does not currently have one compatible identified session.");
+        }
+
+        return new SessionResolution(SessionResolutionStatus.Resolved, sessions[0], null);
+    }
+
     private static B5CommandIntent MapIntent(IhmB5CommandSubmission submission) => submission.Command switch
     {
         IhmB5Command.ApplyConfig => new B5CommandIntent(1, 0, 0, 0, 0),
@@ -111,4 +175,16 @@ public sealed class RuntimeCommandSink : ISupervisionCommandSink
             new B5CommandIntent(10, 0, 0, 0, ProtectedCommandConfirmKey),
         _ => throw new InvalidOperationException("The B5 command submission is not valid for its command contract.")
     };
+
+    private enum SessionResolutionStatus
+    {
+        Resolved,
+        NotFound,
+        Conflict
+    }
+
+    private sealed record SessionResolution(
+        SessionResolutionStatus Status,
+        TR2Session? Session,
+        string? Detail);
 }

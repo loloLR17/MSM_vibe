@@ -10,7 +10,7 @@ namespace TR2.Supervision.Service.Tests;
 public sealed class DeviceDetailStaticPageTests
 {
     [Fact]
-    public async Task DeviceDetailPageServesReadViewsAndSupervisedCommandView()
+    public async Task DeviceDetailPageServesReadViewsAndSupervisedActions()
     {
         var host = CreateHost();
         await using var application = host.CreateApplication();
@@ -21,6 +21,7 @@ public sealed class DeviceDetailStaticPageTests
             var html = await client.GetStringAsync("/device.html?deviceId=42");
             var readScript = await client.GetStringAsync("/device.js");
             var commandScript = await client.GetStringAsync("/commands.js");
+            var campaignScript = await client.GetStringAsync("/campaigns.js");
 
             Assert.Contains("Synthèse", html, StringComparison.Ordinal);
             Assert.Contains("Vibrations", html, StringComparison.Ordinal);
@@ -30,7 +31,7 @@ public sealed class DeviceDetailStaticPageTests
             Assert.Contains("Campagnes", html, StringComparison.Ordinal);
             Assert.Contains("Diagnostic", html, StringComparison.Ordinal);
             Assert.Contains("HTTP 202 = mise en file, pas succès TR2", html, StringComparison.Ordinal);
-            Assert.Contains("Le Bloc 6 n'expose qu'une entrée à la fois", html, StringComparison.Ordinal);
+            Assert.Contains("La sélection B6 n'est pas une commande B5", html, StringComparison.Ordinal);
             Assert.Contains("/api/v1/devices/${deviceId}", readScript, StringComparison.Ordinal);
             Assert.Contains("campaignInventoryState", readScript, StringComparison.Ordinal);
             Assert.Contains("selectedCampaignValid===1", readScript, StringComparison.Ordinal);
@@ -39,14 +40,18 @@ public sealed class DeviceDetailStaticPageTests
             Assert.Contains("method:'POST'", commandScript, StringComparison.Ordinal);
             Assert.Contains("/api/v1/devices/${commandDeviceId}/commands", commandScript, StringComparison.Ordinal);
             Assert.Contains("AcknowledgeFault", commandScript, StringComparison.Ordinal);
-            Assert.Contains("acknowledgeAll:false", commandScript, StringComparison.Ordinal);
-            Assert.Contains("acknowledgeAll:true", commandScript, StringComparison.Ordinal);
             Assert.Contains("SoftwareReset", commandScript, StringComparison.Ordinal);
-            Assert.Contains("confirmProtectedCommand:true", commandScript, StringComparison.Ordinal);
             Assert.Contains("Aucun retry automatique", commandScript, StringComparison.Ordinal);
             Assert.DoesNotContain("ResetStatistics", commandScript, StringComparison.Ordinal);
             Assert.DoesNotContain("0xA55A", commandScript, StringComparison.Ordinal);
             Assert.DoesNotContain("cmd_request_", commandScript, StringComparison.Ordinal);
+
+            Assert.Contains("/api/v1/devices/${campaignDeviceId}/campaign-selection", campaignScript, StringComparison.Ordinal);
+            Assert.Contains("campaignIndex", campaignScript, StringComparison.Ordinal);
+            Assert.Contains("65535", campaignScript, StringComparison.Ordinal);
+            Assert.Contains("Aucun retry automatique", campaignScript, StringComparison.Ordinal);
+            Assert.DoesNotContain("6003", campaignScript, StringComparison.Ordinal);
+            Assert.DoesNotContain("/commands", campaignScript, StringComparison.Ordinal);
         }
         finally
         {
