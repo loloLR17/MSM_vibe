@@ -1,3 +1,4 @@
+using System.Collections.Concurrent;
 using TR2.Application;
 using TR2.Domain;
 using TR2.Protocol;
@@ -27,8 +28,9 @@ public sealed record QueuedB6CampaignSelection(
 public sealed class SupervisionOperationalFacade
 {
     private readonly SupervisionRuntimeComposition _composition;
-    private readonly CommandBusOrchestrator _commands;
     private readonly FleetRefreshPlanner _refreshPlanner;
+    private readonly object _contextSync = new();
+    private readonly ConcurrentDictionary<DeviceId, SemaphoreSlim> _commandSubmissionGates = new();
     private readonly Dictionary<long, B5CommandRequest> _commandRequests = [];
     private readonly Dictionary<long, ScheduledBlockRefresh> _refreshes = [];
     private readonly Dictionary<long, ushort> _campaignSelections = [];
@@ -36,7 +38,6 @@ public sealed class SupervisionOperationalFacade
     public SupervisionOperationalFacade(SupervisionRuntimeComposition composition)
     {
         _composition = composition ?? throw new ArgumentNullException(nameof(composition));
-        _commands = new CommandBusOrchestrator(composition.BusWorkScheduler);
         _refreshPlanner = new FleetRefreshPlanner(composition.BusWorkScheduler);
     }
 
@@ -52,23 +53,46 @@ public sealed class SupervisionOperationalFacade
         ArgumentException.ThrowIfNullOrWhiteSpace(requestIdentity);
 
         _composition.ReadinessGate.EnsureReady();
-        var session = RequireCompatibleSession(endpoint);
-        var deviceId = session.Device!.DeviceId;
-        var coordinator = GetOrCreateCoordinator(deviceId);
+        var initialSession = RequireCompatibleSession(endpoint);
+        var deviceId = initialSession.Device!.DeviceId;
+        var gate = _commandSubmissionGates.GetOrAdd(deviceId, static _ => new SemaphoreSlim(1, 1));
 
-        var work = await _commands.PrepareAndQueueAsync(
-            endpoint,
-            coordinator,
-            requestIdentity,
-            dueAt,
-            cancellationToken);
+        await gate.WaitAsync(cancellationToken).ConfigureAwait(false);
+        try
+        {
+            _composition.ReadinessGate.EnsureReady();
+            var currentSession = RequireCompatibleSession(endpoint);
+            if (currentSession.Device!.DeviceId != deviceId)
+            {
+                throw new InvalidOperationException(
+                    "The endpoint device_id changed while the B5 command request was waiting for submission serialization.");
+            }
 
-        var transaction = coordinator.ActiveTransaction
-            ?? throw new InvalidOperationException("B5 command preparation did not create an active transaction.");
+            var coordinator = GetOrCreateCoordinator(deviceId);
+            await coordinator.PrepareAsync(requestIdentity, dueAt, cancellationToken).ConfigureAwait(false);
 
-        var request = intent.Bind(transaction.TransactionId);
-        _commandRequests.Add(work.WorkId, request);
-        return new QueuedB5Command(work, deviceId, request);
+            var transaction = coordinator.ActiveTransaction
+                ?? throw new InvalidOperationException("B5 command preparation did not create an active transaction.");
+            var request = intent.Bind(transaction.TransactionId);
+
+            var work = _composition.BusWorkScheduler.QueuePriority(
+                endpoint,
+                BusWorkKind.CommandTransaction,
+                dueAt,
+                queuedWork =>
+                {
+                    lock (_contextSync)
+                    {
+                        _commandRequests.Add(queuedWork.WorkId, request);
+                    }
+                });
+
+            return new QueuedB5Command(work, deviceId, request);
+        }
+        finally
+        {
+            gate.Release();
+        }
     }
 
     public QueuedB6CampaignSelection QueueCampaignSelection(
@@ -84,9 +108,15 @@ public sealed class SupervisionOperationalFacade
         var work = _composition.BusWorkScheduler.QueuePriority(
             endpoint,
             BusWorkKind.CampaignSelection,
-            dueAt);
+            dueAt,
+            queuedWork =>
+            {
+                lock (_contextSync)
+                {
+                    _campaignSelections.Add(queuedWork.WorkId, campaignIndex);
+                }
+            });
 
-        _campaignSelections.Add(work.WorkId, campaignIndex);
         return new QueuedB6CampaignSelection(work, campaignIndex);
     }
 
@@ -100,9 +130,12 @@ public sealed class SupervisionOperationalFacade
         var session = RequireCompatibleSession(endpoint);
         var refreshes = _refreshPlanner.QueuePostReconnectRefresh(session, dueAt);
 
-        foreach (var refresh in refreshes)
+        lock (_contextSync)
         {
-            _refreshes.Add(refresh.Work.WorkId, refresh);
+            foreach (var refresh in refreshes)
+            {
+                _refreshes.Add(refresh.Work.WorkId, refresh);
+            }
         }
 
         return refreshes;
@@ -116,9 +149,12 @@ public sealed class SupervisionOperationalFacade
             throw new InvalidOperationException("The work item is not a B5 command transaction.");
         }
 
-        return _commandRequests.TryGetValue(work.WorkId, out var request)
-            ? request
-            : throw new KeyNotFoundException("No B5 command request is registered for this work item.");
+        lock (_contextSync)
+        {
+            return _commandRequests.TryGetValue(work.WorkId, out var request)
+                ? request
+                : throw new KeyNotFoundException("No B5 command request is registered for this work item.");
+        }
     }
 
     public ushort GetCampaignSelection(ScheduledBusWork work)
@@ -129,9 +165,12 @@ public sealed class SupervisionOperationalFacade
             throw new InvalidOperationException("The work item is not a B6 campaign selection.");
         }
 
-        return _campaignSelections.TryGetValue(work.WorkId, out var campaignIndex)
-            ? campaignIndex
-            : throw new KeyNotFoundException("No B6 campaign selection is registered for this work item.");
+        lock (_contextSync)
+        {
+            return _campaignSelections.TryGetValue(work.WorkId, out var campaignIndex)
+                ? campaignIndex
+                : throw new KeyNotFoundException("No B6 campaign selection is registered for this work item.");
+        }
     }
 
     public ScheduledBlockRefresh GetRefresh(ScheduledBusWork work)
@@ -142,9 +181,12 @@ public sealed class SupervisionOperationalFacade
             throw new InvalidOperationException("The work item is not an explicit refresh.");
         }
 
-        return _refreshes.TryGetValue(work.WorkId, out var refresh)
-            ? refresh
-            : throw new KeyNotFoundException("No explicit refresh context is registered for this work item.");
+        lock (_contextSync)
+        {
+            return _refreshes.TryGetValue(work.WorkId, out var refresh)
+                ? refresh
+                : throw new KeyNotFoundException("No explicit refresh context is registered for this work item.");
+        }
     }
 
     private TR2Session RequireCompatibleSession(TR2Endpoint endpoint)
@@ -159,19 +201,11 @@ public sealed class SupervisionOperationalFacade
         return session;
     }
 
-    private CommandCoordinator GetOrCreateCoordinator(DeviceId deviceId)
-    {
-        if (_composition.CommandCoordinatorRegistry.TryGet(deviceId, out var existing))
-        {
-            return existing!;
-        }
-
-        var coordinator = new CommandCoordinator(
+    private CommandCoordinator GetOrCreateCoordinator(DeviceId deviceId) =>
+        _composition.CommandCoordinatorRegistry.GetOrAdd(
             deviceId,
-            _composition.CommandReservationStore,
-            _composition.CommandJournal);
-
-        _composition.CommandCoordinatorRegistry.Register(coordinator);
-        return coordinator;
-    }
+            id => new CommandCoordinator(
+                id,
+                _composition.CommandReservationStore,
+                _composition.CommandJournal));
 }
