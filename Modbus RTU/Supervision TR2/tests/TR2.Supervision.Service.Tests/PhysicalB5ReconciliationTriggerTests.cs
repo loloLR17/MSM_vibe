@@ -24,6 +24,11 @@ public sealed class PhysicalB5ReconciliationTriggerTests
             var operations = new SupervisionOperationalFacade(composition);
             var now = new DateTimeOffset(2026, 9, 10, 10, 0, 0, TimeSpan.Zero);
             await operations.QueueCommandAsync(endpoint, "recovered-ambiguous", new B5CommandIntent(5, 0, 0, 0, 0), now);
+
+            var preparedWork = composition.BusWorkScheduler.BeginNext(endpoint.Bus, now)!;
+            Assert.Equal(BusWorkKind.CommandTransaction, preparedWork.Kind);
+            composition.BusWorkScheduler.Complete(endpoint.Bus, preparedWork.WorkId);
+
             var coordinator = composition.CommandCoordinatorRegistry.Get(deviceId);
             await coordinator.MarkSubmittedAsync(now.AddMilliseconds(1));
             await coordinator.MarkAmbiguousAsync(now.AddMilliseconds(2));
