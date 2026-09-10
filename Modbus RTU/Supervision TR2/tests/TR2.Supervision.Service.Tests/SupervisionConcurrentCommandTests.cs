@@ -63,7 +63,7 @@ public sealed class SupervisionConcurrentCommandTests
             start.SetResult();
             var results = await Task.WhenAll(attempts);
 
-            var accepted = Assert.Single(results.Where(result => result is not null));
+            var accepted = Assert.Single(results, result => result is not null);
             Assert.Single(composition.CommandCoordinatorRegistry.Coordinators);
             var coordinator = composition.CommandCoordinatorRegistry.Get(deviceId);
             Assert.NotNull(coordinator.ActiveTransaction);
