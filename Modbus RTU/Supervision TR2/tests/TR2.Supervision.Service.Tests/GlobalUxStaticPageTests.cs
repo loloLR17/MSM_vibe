@@ -55,6 +55,9 @@ public sealed class GlobalUxStaticPageTests
             Assert.Contains("fetch('/api/v1/fleet'", script, StringComparison.Ordinal);
             Assert.Contains("/commands`,{headers", script, StringComparison.Ordinal);
             Assert.Contains("['Prepared','Submitted','Ambiguous']", script, StringComparison.Ordinal);
+            Assert.Contains("État transactionnel B5 indisponible", script, StringComparison.Ordinal);
+            Assert.Contains("Supervision PC", script, StringComparison.Ordinal);
+            Assert.DoesNotContain("catch{}", script, StringComparison.Ordinal);
             Assert.Contains("durationSeconds", script, StringComparison.Ordinal);
             Assert.DoesNotContain("selectedCampaignIndex", script, StringComparison.Ordinal);
             Assert.DoesNotContain("WriteRegisters", script, StringComparison.OrdinalIgnoreCase);

@@ -37,11 +37,13 @@
     await Promise.all(identified.map(async d=>{
       try{
         const response=await fetch(`/api/v1/devices/${d.deviceId}/commands`,{headers:{Accept:'application/json'},cache:'no-store'});
-        if(!response.ok)return;
+        if(!response.ok)throw new Error(`HTTP ${response.status}`);
         const payload=await response.json();
         const latest=Array.isArray(payload.transactions)?payload.transactions[0]:null;
         if(latest&&['Prepared','Submitted','Ambiguous'].includes(latest.state))items.push(['Opération B5',point(d),d.deviceId,`Transaction ${latest.state}`,`transaction ${latest.transactionId} · ${latest.requestIdentity}`]);
-      }catch{}
+      }catch(error){
+        items.push(['Supervision PC',point(d),d.deviceId,'État transactionnel B5 indisponible',error instanceof Error?error.message:'Lecture impossible']);
+      }
     }));
     rows.innerHTML=items.length?items.map(item=>`<tr><td>${esc(item[0])}</td><td>${esc(item[1])}</td><td>${item[2]==null?'—':`<a class="endpoint endpoint-link" href="/device.html?deviceId=${encodeURIComponent(item[2])}">${esc(item[2])}</a>`}</td><td>${esc(item[3])}</td><td>${esc(item[4])}</td></tr>`).join(''):'<tr><td colspan="5" class="empty">Aucune situation nécessitant une attention selon les sources actuellement disponibles.</td></tr>';
   }
