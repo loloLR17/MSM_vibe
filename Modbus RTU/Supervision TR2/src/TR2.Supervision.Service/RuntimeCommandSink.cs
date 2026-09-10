@@ -1,11 +1,13 @@
+using TR2.Application;
 using TR2.Domain;
 using TR2.Supervision.Web;
 
 namespace TR2.Supervision.Service;
 
-public sealed class RuntimeCommandSink : ISupervisionCommandSink, ISupervisionCampaignSelectionSink
+public sealed class RuntimeCommandSink : ISupervisionCommandSink, ISupervisionCampaignSelectionSink, ISupervisionCommandHistoryReadSource
 {
     private const ushort ProtectedCommandConfirmKey = 0xA55A;
+    private const int CommandHistoryLimit = 20;
     private readonly PhysicalSupervisionRuntime _runtime;
     private readonly SemaphoreSlim _queueGate = new(1, 1);
 
@@ -133,6 +135,33 @@ public sealed class RuntimeCommandSink : ISupervisionCommandSink, ISupervisionCa
         {
             _queueGate.Release();
         }
+    }
+
+    public async ValueTask<IReadOnlyList<IhmB5TransactionReadModel>> ReadAsync(
+        uint deviceId,
+        CancellationToken cancellationToken = default)
+    {
+        var entries = await _runtime.Composition.CommandJournal.ReadAsync(new DeviceId(deviceId), cancellationToken);
+
+        return entries
+            .GroupBy(entry => new { TransactionId = entry.TransactionId.Value, entry.RequestIdentity })
+            .Select(group => group.OrderBy(entry => entry.ObservedAt).Last())
+            .OrderByDescending(entry => entry.ObservedAt)
+            .Take(CommandHistoryLimit)
+            .Select(entry => new IhmB5TransactionReadModel(
+                entry.DeviceId.Value,
+                entry.TransactionId.Value,
+                entry.RequestIdentity,
+                entry.Kind switch
+                {
+                    CommandTransactionJournalEventKind.Prepared => IhmB5TransactionState.Prepared,
+                    CommandTransactionJournalEventKind.Submitted => IhmB5TransactionState.Submitted,
+                    CommandTransactionJournalEventKind.Ambiguous => IhmB5TransactionState.Ambiguous,
+                    CommandTransactionJournalEventKind.TerminalEvidenceObserved => IhmB5TransactionState.TerminalEvidenceObserved,
+                    _ => throw new InvalidDataException($"Unsupported B5 journal event kind '{entry.Kind}'.")
+                },
+                entry.ObservedAt))
+            .ToArray();
     }
 
     private SessionResolution ResolveSession(uint deviceId)
