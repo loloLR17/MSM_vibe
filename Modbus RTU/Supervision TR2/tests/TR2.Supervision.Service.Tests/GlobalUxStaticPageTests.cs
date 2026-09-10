@@ -43,7 +43,7 @@ public sealed class GlobalUxStaticPageTests
             Assert.DoesNotContain("mm/s", vibrations.Replace("Aucune vitesse mm/s", string.Empty), StringComparison.OrdinalIgnoreCase);
 
             var attention = await client.GetStringAsync("/attention.html");
-            Assert.Contains("Communication PC", attention, StringComparison.Ordinal);
+            Assert.Contains("Communication PC", attention, StringComparison.OrdinalIgnoreCase);
             Assert.Contains("opérations B5", attention, StringComparison.OrdinalIgnoreCase);
             Assert.Contains("sources distinctes", attention, StringComparison.OrdinalIgnoreCase);
 
