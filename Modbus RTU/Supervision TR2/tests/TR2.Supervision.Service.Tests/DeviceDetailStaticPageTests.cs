@@ -30,7 +30,9 @@ public sealed class DeviceDetailStaticPageTests
             Assert.Contains("Commandes", html, StringComparison.Ordinal);
             Assert.Contains("Campagnes", html, StringComparison.Ordinal);
             Assert.Contains("Diagnostic", html, StringComparison.Ordinal);
-            Assert.Contains("HTTP 202 = mise en file, pas succès TR2", html, StringComparison.Ordinal);
+            Assert.Contains("Ambiguous = blocage opérateur", html, StringComparison.Ordinal);
+            Assert.Contains("État transactionnel B5", html, StringComparison.Ordinal);
+            Assert.Contains("Historique transactionnel", html, StringComparison.Ordinal);
             Assert.Contains("La sélection B6 n'est pas une commande B5", html, StringComparison.Ordinal);
             Assert.Contains("/api/v1/devices/${deviceId}", readScript, StringComparison.Ordinal);
             Assert.Contains("campaignInventoryState", readScript, StringComparison.Ordinal);
@@ -38,7 +40,13 @@ public sealed class DeviceDetailStaticPageTests
             Assert.DoesNotContain("selected_campaign_index", readScript, StringComparison.Ordinal);
 
             Assert.Contains("method:'POST'", commandScript, StringComparison.Ordinal);
-            Assert.Contains("/api/v1/devices/${commandDeviceId}/commands", commandScript, StringComparison.Ordinal);
+            Assert.Contains("fetch(`/api/v1/devices/${commandDeviceId}/commands`", commandScript, StringComparison.Ordinal);
+            Assert.Contains("['Prepared','Submitted','Ambiguous']", commandScript, StringComparison.Ordinal);
+            Assert.Contains("transactionBlocked=true", commandScript, StringComparison.Ordinal);
+            Assert.Contains("commandButtons.forEach(button=>button.disabled=busy||transactionBlocked)", commandScript, StringComparison.Ordinal);
+            Assert.Contains("TerminalEvidenceObserved", commandScript, StringComparison.Ordinal);
+            Assert.Contains("Aucun Retry / Ignore / Force", commandScript, StringComparison.Ordinal);
+            Assert.Contains("setInterval(()=>void refreshTransactionState(),2000)", commandScript, StringComparison.Ordinal);
             Assert.Contains("AcknowledgeFault", commandScript, StringComparison.Ordinal);
             Assert.Contains("SoftwareReset", commandScript, StringComparison.Ordinal);
             Assert.Contains("Aucun retry automatique", commandScript, StringComparison.Ordinal);
