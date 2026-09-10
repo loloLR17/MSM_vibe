@@ -50,6 +50,7 @@ public sealed class PhysicalB5LifecycleConcurrencyTests
                     composition.CommandJournal));
             var observedAt = DateTimeOffset.UtcNow;
             await coordinator.PrepareAsync("j2-ambiguous", observedAt);
+            await coordinator.MarkSubmittedAsync(observedAt);
             await coordinator.MarkAmbiguousAsync(observedAt);
 
             var runner = new PhysicalB5LifecycleWorkRunner(
