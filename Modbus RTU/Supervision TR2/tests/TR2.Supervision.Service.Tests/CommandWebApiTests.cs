@@ -14,11 +14,7 @@ public sealed class CommandWebApiTests
     [Fact]
     public async Task Supported_command_is_forwarded_to_command_sink_and_returns_202()
     {
-        var sink = new StubCommandSink(new IhmCommandQueueResult(
-            IhmCommandQueueStatus.Accepted,
-            WorkId: 123,
-            DeviceId: 42,
-            TransactionId: 7));
+        var sink = new StubCommandSink(Accepted());
         var host = CreateHost(sink);
         await using var application = host.CreateApplication();
         await application.StartAsync();
@@ -33,7 +29,8 @@ public sealed class CommandWebApiTests
             Assert.Contains("\"transactionId\":7", body, StringComparison.Ordinal);
             Assert.Equal((uint)42, sink.DeviceId);
             Assert.Equal("ui-1", sink.RequestIdentity);
-            Assert.Equal(IhmB5Command.StartAcquisition, sink.Command);
+            Assert.Equal(IhmB5Command.StartAcquisition, sink.Submission?.Command);
+            Assert.Null(sink.Submission?.FaultCode);
         }
         finally
         {
@@ -42,9 +39,67 @@ public sealed class CommandWebApiTests
     }
 
     [Fact]
-    public async Task Missing_or_unsupported_command_is_rejected_before_command_sink()
+    public async Task Acknowledge_fault_requires_explicit_unit_or_global_contract()
     {
-        var sink = new StubCommandSink(new IhmCommandQueueResult(IhmCommandQueueStatus.Accepted));
+        var sink = new StubCommandSink(Accepted());
+        var host = CreateHost(sink);
+        await using var application = host.CreateApplication();
+        await application.StartAsync();
+        try
+        {
+            using var client = new HttpClient { BaseAddress = GetBaseAddress(application) };
+
+            using var invalid = Json("{\"requestIdentity\":\"ack-invalid\",\"command\":\"AcknowledgeFault\"}");
+            Assert.Equal(HttpStatusCode.BadRequest, (await client.PostAsync("/api/v1/devices/42/commands", invalid)).StatusCode);
+            Assert.Equal(0, sink.CallCount);
+
+            using var unit = Json("{\"requestIdentity\":\"ack-unit\",\"command\":\"AcknowledgeFault\",\"faultCode\":16,\"acknowledgeAll\":false}");
+            Assert.Equal(HttpStatusCode.Accepted, (await client.PostAsync("/api/v1/devices/42/commands", unit)).StatusCode);
+            Assert.Equal(IhmB5Command.AcknowledgeFault, sink.Submission?.Command);
+            Assert.Equal((ushort)16, sink.Submission?.FaultCode);
+            Assert.False(sink.Submission?.AcknowledgeAll);
+
+            using var global = Json("{\"requestIdentity\":\"ack-all\",\"command\":\"AcknowledgeFault\",\"acknowledgeAll\":true}");
+            Assert.Equal(HttpStatusCode.Accepted, (await client.PostAsync("/api/v1/devices/42/commands", global)).StatusCode);
+            Assert.Null(sink.Submission?.FaultCode);
+            Assert.True(sink.Submission?.AcknowledgeAll);
+        }
+        finally
+        {
+            await application.StopAsync();
+        }
+    }
+
+    [Fact]
+    public async Task Software_reset_requires_explicit_confirmation()
+    {
+        var sink = new StubCommandSink(Accepted());
+        var host = CreateHost(sink);
+        await using var application = host.CreateApplication();
+        await application.StartAsync();
+        try
+        {
+            using var client = new HttpClient { BaseAddress = GetBaseAddress(application) };
+
+            using var missingConfirmation = Json("{\"requestIdentity\":\"reset-no\",\"command\":\"SoftwareReset\"}");
+            Assert.Equal(HttpStatusCode.BadRequest, (await client.PostAsync("/api/v1/devices/42/commands", missingConfirmation)).StatusCode);
+            Assert.Equal(0, sink.CallCount);
+
+            using var confirmed = Json("{\"requestIdentity\":\"reset-yes\",\"command\":\"SoftwareReset\",\"confirmProtectedCommand\":true}");
+            Assert.Equal(HttpStatusCode.Accepted, (await client.PostAsync("/api/v1/devices/42/commands", confirmed)).StatusCode);
+            Assert.Equal(IhmB5Command.SoftwareReset, sink.Submission?.Command);
+            Assert.True(sink.Submission?.ConfirmProtectedCommand);
+        }
+        finally
+        {
+            await application.StopAsync();
+        }
+    }
+
+    [Fact]
+    public async Task Missing_unsupported_or_extraneous_command_fields_are_rejected_before_command_sink()
+    {
+        var sink = new StubCommandSink(Accepted());
         var host = CreateHost(sink);
         await using var application = host.CreateApplication();
         await application.StartAsync();
@@ -53,12 +108,13 @@ public sealed class CommandWebApiTests
             using var client = new HttpClient { BaseAddress = GetBaseAddress(application) };
 
             using var missing = Json("{\"requestIdentity\":\"ui-2\"}");
-            var missingResponse = await client.PostAsync("/api/v1/devices/42/commands", missing);
-            Assert.Equal(HttpStatusCode.BadRequest, missingResponse.StatusCode);
+            Assert.Equal(HttpStatusCode.BadRequest, (await client.PostAsync("/api/v1/devices/42/commands", missing)).StatusCode);
 
             using var unsupported = Json("{\"requestIdentity\":\"ui-3\",\"command\":\"ResetStatistics\"}");
-            var unsupportedResponse = await client.PostAsync("/api/v1/devices/42/commands", unsupported);
-            Assert.Equal(HttpStatusCode.BadRequest, unsupportedResponse.StatusCode);
+            Assert.Equal(HttpStatusCode.BadRequest, (await client.PostAsync("/api/v1/devices/42/commands", unsupported)).StatusCode);
+
+            using var extraneous = Json("{\"requestIdentity\":\"ui-4\",\"command\":\"StopAcquisition\",\"confirmProtectedCommand\":true}");
+            Assert.Equal(HttpStatusCode.BadRequest, (await client.PostAsync("/api/v1/devices/42/commands", extraneous)).StatusCode);
 
             Assert.Equal(0, sink.CallCount);
         }
@@ -93,6 +149,12 @@ public sealed class CommandWebApiTests
         }
     }
 
+    private static IhmCommandQueueResult Accepted() => new(
+        IhmCommandQueueStatus.Accepted,
+        WorkId: 123,
+        DeviceId: 42,
+        TransactionId: 7);
+
     private static SupervisionWebHost CreateHost(ISupervisionCommandSink sink)
     {
         var projection = new SupervisionReadProjection(
@@ -121,19 +183,19 @@ public sealed class CommandWebApiTests
         public int CallCount { get; private set; }
         public uint DeviceId { get; private set; }
         public string? RequestIdentity { get; private set; }
-        public IhmB5Command? Command { get; private set; }
+        public IhmB5CommandSubmission? Submission { get; private set; }
 
         public ValueTask<IhmCommandQueueResult> QueueAsync(
             uint deviceId,
             string requestIdentity,
-            IhmB5Command command,
+            IhmB5CommandSubmission submission,
             DateTimeOffset requestedAt,
             CancellationToken cancellationToken = default)
         {
             CallCount++;
             DeviceId = deviceId;
             RequestIdentity = requestIdentity;
-            Command = command;
+            Submission = submission;
             return ValueTask.FromResult(result);
         }
     }

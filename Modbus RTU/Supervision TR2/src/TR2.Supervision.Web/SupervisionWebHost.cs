@@ -136,21 +136,18 @@ public sealed class SupervisionWebHost
                 return Results.NotFound();
             }
 
-            if (string.IsNullOrWhiteSpace(request.RequestIdentity) ||
-                request.RequestIdentity.Length > MaxRequestIdentityLength ||
-                request.Command is null ||
-                !Enum.IsDefined(request.Command.Value))
+            if (!TryCreateSubmission(request, out var submission, out var validationMessage))
             {
                 return Results.BadRequest(new QueueB5CommandRejectedResponse(
                     "InvalidRequest",
-                    "requestIdentity must contain 1..128 non-whitespace characters and command must be a supported S7-G1 command."));
+                    validationMessage));
             }
 
             var acceptedAt = _timeProvider.GetUtcNow();
             var result = await _commandSink.QueueAsync(
                 (uint)deviceId,
-                request.RequestIdentity,
-                request.Command.Value,
+                request.RequestIdentity!,
+                submission!,
                 acceptedAt,
                 cancellationToken);
 
@@ -163,8 +160,8 @@ public sealed class SupervisionWebHost
                         result.WorkId!.Value,
                         result.DeviceId!.Value,
                         result.TransactionId!.Value,
-                        request.Command.Value,
-                        request.RequestIdentity)),
+                        submission!.Command,
+                        request.RequestIdentity!)),
                 IhmCommandQueueStatus.DeviceNotFound => Results.NotFound(),
                 IhmCommandQueueStatus.DuplicateRequestIdentity => Results.Conflict(
                     new QueueB5CommandRejectedResponse(
@@ -189,5 +186,75 @@ public sealed class SupervisionWebHost
         await using var application = CreateApplication();
         await application.StartAsync(cancellationToken);
         await application.WaitForShutdownAsync(cancellationToken);
+    }
+
+    private static bool TryCreateSubmission(
+        QueueB5CommandRequest request,
+        out IhmB5CommandSubmission? submission,
+        out string validationMessage)
+    {
+        submission = null;
+        validationMessage = string.Empty;
+
+        if (string.IsNullOrWhiteSpace(request.RequestIdentity) ||
+            request.RequestIdentity.Length > MaxRequestIdentityLength ||
+            request.Command is null ||
+            !Enum.IsDefined(request.Command.Value))
+        {
+            validationMessage = "requestIdentity must contain 1..128 non-whitespace characters and command must be a supported S7-G command.";
+            return false;
+        }
+
+        if (request.Command == IhmB5Command.AcknowledgeFault)
+        {
+            if (request.ConfirmProtectedCommand is not null)
+            {
+                validationMessage = "AcknowledgeFault does not accept confirmProtectedCommand.";
+                return false;
+            }
+
+            if (request.AcknowledgeAll == false && request.FaultCode.HasValue)
+            {
+                submission = new IhmB5CommandSubmission(
+                    request.Command.Value,
+                    request.FaultCode.Value,
+                    AcknowledgeAll: false);
+                return true;
+            }
+
+            if (request.AcknowledgeAll == true && !request.FaultCode.HasValue)
+            {
+                submission = new IhmB5CommandSubmission(
+                    request.Command.Value,
+                    AcknowledgeAll: true);
+                return true;
+            }
+
+            validationMessage = "AcknowledgeFault requires either acknowledgeAll=false with faultCode, or acknowledgeAll=true without faultCode.";
+            return false;
+        }
+
+        if (request.Command == IhmB5Command.SoftwareReset)
+        {
+            if (request.FaultCode.HasValue || request.AcknowledgeAll.HasValue || request.ConfirmProtectedCommand != true)
+            {
+                validationMessage = "SoftwareReset requires confirmProtectedCommand=true and accepts no fault acknowledgement fields.";
+                return false;
+            }
+
+            submission = new IhmB5CommandSubmission(
+                request.Command.Value,
+                ConfirmProtectedCommand: true);
+            return true;
+        }
+
+        if (request.FaultCode.HasValue || request.AcknowledgeAll.HasValue || request.ConfirmProtectedCommand.HasValue)
+        {
+            validationMessage = "This command does not accept fault acknowledgement or protected-command confirmation fields.";
+            return false;
+        }
+
+        submission = new IhmB5CommandSubmission(request.Command.Value);
+        return true;
     }
 }

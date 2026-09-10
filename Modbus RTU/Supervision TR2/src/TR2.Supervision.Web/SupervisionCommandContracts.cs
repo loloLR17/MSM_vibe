@@ -7,14 +7,25 @@ public enum IhmB5Command
     StartAcquisition,
     StopAcquisition,
     Selftest,
+    AcknowledgeFault,
     RefreshIndicators,
     EnterMaintenance,
-    ExitMaintenance
+    ExitMaintenance,
+    SoftwareReset
 }
 
 public sealed record QueueB5CommandRequest(
     string? RequestIdentity,
-    IhmB5Command? Command);
+    IhmB5Command? Command,
+    ushort? FaultCode = null,
+    bool? AcknowledgeAll = null,
+    bool? ConfirmProtectedCommand = null);
+
+public sealed record IhmB5CommandSubmission(
+    IhmB5Command Command,
+    ushort? FaultCode = null,
+    bool? AcknowledgeAll = null,
+    bool ConfirmProtectedCommand = false);
 
 public enum IhmCommandQueueStatus
 {
@@ -37,7 +48,7 @@ public interface ISupervisionCommandSink
     ValueTask<IhmCommandQueueResult> QueueAsync(
         uint deviceId,
         string requestIdentity,
-        IhmB5Command command,
+        IhmB5CommandSubmission submission,
         DateTimeOffset requestedAt,
         CancellationToken cancellationToken = default);
 }

@@ -5,6 +5,7 @@ namespace TR2.Supervision.Service;
 
 public sealed class RuntimeCommandSink : ISupervisionCommandSink
 {
+    private const ushort ProtectedCommandConfirmKey = 0xA55A;
     private readonly PhysicalSupervisionRuntime _runtime;
     private readonly SemaphoreSlim _queueGate = new(1, 1);
 
@@ -16,11 +17,12 @@ public sealed class RuntimeCommandSink : ISupervisionCommandSink
     public async ValueTask<IhmCommandQueueResult> QueueAsync(
         uint deviceId,
         string requestIdentity,
-        IhmB5Command command,
+        IhmB5CommandSubmission submission,
         DateTimeOffset requestedAt,
         CancellationToken cancellationToken = default)
     {
         ArgumentException.ThrowIfNullOrWhiteSpace(requestIdentity);
+        ArgumentNullException.ThrowIfNull(submission);
 
         await _queueGate.WaitAsync(cancellationToken);
         try
@@ -67,7 +69,7 @@ public sealed class RuntimeCommandSink : ISupervisionCommandSink
                 var queued = await _runtime.Operations.QueueCommandAsync(
                     sessions[0].Endpoint,
                     requestIdentity,
-                    MapIntent(command),
+                    MapIntent(submission),
                     requestedAt,
                     cancellationToken);
 
@@ -91,16 +93,22 @@ public sealed class RuntimeCommandSink : ISupervisionCommandSink
         }
     }
 
-    private static B5CommandIntent MapIntent(IhmB5Command command) => command switch
+    private static B5CommandIntent MapIntent(IhmB5CommandSubmission submission) => submission.Command switch
     {
         IhmB5Command.ApplyConfig => new B5CommandIntent(1, 0, 0, 0, 0),
         IhmB5Command.SyncTime => new B5CommandIntent(2, 0, 0, 0, 0),
         IhmB5Command.StartAcquisition => new B5CommandIntent(3, 0, 0, 0, 0),
         IhmB5Command.StopAcquisition => new B5CommandIntent(4, 0, 0, 0, 0),
         IhmB5Command.Selftest => new B5CommandIntent(5, 0, 0, 0, 0),
+        IhmB5Command.AcknowledgeFault when submission.AcknowledgeAll == false && submission.FaultCode.HasValue =>
+            new B5CommandIntent(6, submission.FaultCode.Value, 0, 0, 0),
+        IhmB5Command.AcknowledgeFault when submission.AcknowledgeAll == true && !submission.FaultCode.HasValue =>
+            new B5CommandIntent(6, 0, 1, 0, 0),
         IhmB5Command.RefreshIndicators => new B5CommandIntent(7, 0, 0, 0, 0),
         IhmB5Command.EnterMaintenance => new B5CommandIntent(8, 0, 0, 0, 0),
         IhmB5Command.ExitMaintenance => new B5CommandIntent(9, 0, 0, 0, 0),
-        _ => throw new ArgumentOutOfRangeException(nameof(command))
+        IhmB5Command.SoftwareReset when submission.ConfirmProtectedCommand =>
+            new B5CommandIntent(10, 0, 0, 0, ProtectedCommandConfirmKey),
+        _ => throw new InvalidOperationException("The B5 command submission is not valid for its command contract.")
     };
 }
