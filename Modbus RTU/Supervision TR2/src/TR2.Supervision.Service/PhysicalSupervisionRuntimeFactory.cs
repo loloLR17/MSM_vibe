@@ -22,7 +22,7 @@ public static class PhysicalSupervisionRuntimeFactory
         var pollingRunner = new PhysicalPollingWorkRunner(
             composition,
             supportedProtocolVersion);
-        var priorityRunner = new PhysicalPriorityWorkRunner(
+        var priorityRunner = new PhysicalB5LifecycleWorkRunner(
             composition,
             operations);
         var pollingLoop = new SupervisionPollingLoop(
