@@ -19,12 +19,13 @@ public static class PhysicalSupervisionRuntimeFactory
             configuration,
             busConnectionFactory);
         var operations = new SupervisionOperationalFacade(composition);
-        var pollingRunner = new PhysicalPollingWorkRunner(
-            composition,
-            supportedProtocolVersion);
         var priorityRunner = new PhysicalB5LifecycleWorkRunner(
             composition,
             operations);
+        var pollingRunner = new PhysicalPollingWorkRunner(
+            composition,
+            supportedProtocolVersion,
+            priorityRunner.ObserveCompatibleSession);
         var pollingLoop = new SupervisionPollingLoop(
             composition,
             pollingRunner,

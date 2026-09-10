@@ -9,12 +9,17 @@ public sealed class PhysicalPollingWorkRunner : IPollingWorkRunner
     private readonly SupervisionRuntimeComposition _composition;
     private readonly SerialBusRecoveryCoordinator _recovery;
     private readonly ushort _supportedProtocolVersion;
+    private readonly Action<TR2Endpoint, DateTimeOffset>? _compatibleSessionObserved;
 
-    public PhysicalPollingWorkRunner(SupervisionRuntimeComposition composition, ushort supportedProtocolVersion)
+    public PhysicalPollingWorkRunner(
+        SupervisionRuntimeComposition composition,
+        ushort supportedProtocolVersion,
+        Action<TR2Endpoint, DateTimeOffset>? compatibleSessionObserved = null)
     {
         _composition = composition ?? throw new ArgumentNullException(nameof(composition));
         _recovery = new SerialBusRecoveryCoordinator(composition);
         _supportedProtocolVersion = supportedProtocolVersion;
+        _compatibleSessionObserved = compatibleSessionObserved;
     }
 
     public async ValueTask<PollingWorkExecutionResult> ExecuteAsync(ScheduledBusWork work, DateTimeOffset observedAt, CancellationToken cancellationToken = default)
@@ -66,7 +71,10 @@ public sealed class PhysicalPollingWorkRunner : IPollingWorkRunner
     private void ApplyReadSet(TR2Endpoint endpoint, PollingReadSet readSet, DateTimeOffset observedAt)
     {
         if (readSet.B0Session is not null)
+        {
             _composition.FleetRegistry.SetSession(readSet.B0Session);
+            _compatibleSessionObserved?.Invoke(endpoint, observedAt);
+        }
 
         var session = _composition.FleetRegistry.GetSession(endpoint);
         if (session.State != TR2SessionState.Compatible || session.Device is null)
