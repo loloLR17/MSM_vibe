@@ -1,3 +1,4 @@
+using System.Collections.Concurrent;
 using TR2.Application;
 using TR2.Domain;
 using TR2.Supervision.Web;
@@ -9,7 +10,7 @@ public sealed class RuntimeCommandSink : ISupervisionCommandSink, ISupervisionCa
     private const ushort ProtectedCommandConfirmKey = 0xA55A;
     private const int CommandHistoryLimit = 20;
     private readonly PhysicalSupervisionRuntime _runtime;
-    private readonly SemaphoreSlim _queueGate = new(1, 1);
+    private readonly ConcurrentDictionary<uint, SemaphoreSlim> _queueGatesByDevice = new();
 
     public RuntimeCommandSink(PhysicalSupervisionRuntime runtime)
     {
@@ -26,7 +27,8 @@ public sealed class RuntimeCommandSink : ISupervisionCommandSink, ISupervisionCa
         ArgumentException.ThrowIfNullOrWhiteSpace(requestIdentity);
         ArgumentNullException.ThrowIfNull(submission);
 
-        await _queueGate.WaitAsync(cancellationToken);
+        var queueGate = GetQueueGate(deviceId);
+        await queueGate.WaitAsync(cancellationToken);
         try
         {
             var id = new DeviceId(deviceId);
@@ -80,7 +82,7 @@ public sealed class RuntimeCommandSink : ISupervisionCommandSink, ISupervisionCa
         }
         finally
         {
-            _queueGate.Release();
+            queueGate.Release();
         }
     }
 
@@ -90,7 +92,8 @@ public sealed class RuntimeCommandSink : ISupervisionCommandSink, ISupervisionCa
         DateTimeOffset requestedAt,
         CancellationToken cancellationToken = default)
     {
-        await _queueGate.WaitAsync(cancellationToken);
+        var queueGate = GetQueueGate(deviceId);
+        await queueGate.WaitAsync(cancellationToken);
         try
         {
             var sessionResult = ResolveSession(deviceId);
@@ -133,7 +136,7 @@ public sealed class RuntimeCommandSink : ISupervisionCommandSink, ISupervisionCa
         }
         finally
         {
-            _queueGate.Release();
+            queueGate.Release();
         }
     }
 
@@ -159,6 +162,9 @@ public sealed class RuntimeCommandSink : ISupervisionCommandSink, ISupervisionCa
                 entry.ObservedAt))
             .ToArray();
     }
+
+    private SemaphoreSlim GetQueueGate(uint deviceId) =>
+        _queueGatesByDevice.GetOrAdd(deviceId, static _ => new SemaphoreSlim(1, 1));
 
     private static IhmB5TransactionState ProjectState(
         CommandTransactionJournalEvent entry,
