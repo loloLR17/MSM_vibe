@@ -141,7 +141,10 @@ public sealed class RuntimeCommandSink : ISupervisionCommandSink, ISupervisionCa
         uint deviceId,
         CancellationToken cancellationToken = default)
     {
-        var entries = await _runtime.Composition.CommandJournal.ReadAsync(new DeviceId(deviceId), cancellationToken);
+        var id = new DeviceId(deviceId);
+        var entries = await _runtime.Composition.CommandJournal.ReadAsync(id, cancellationToken);
+        _runtime.Composition.CommandCoordinatorRegistry.TryGet(id, out var coordinator);
+        var active = coordinator?.ActiveTransaction;
 
         return entries
             .GroupBy(entry => new { TransactionId = entry.TransactionId.Value, entry.RequestIdentity })
@@ -152,16 +155,32 @@ public sealed class RuntimeCommandSink : ISupervisionCommandSink, ISupervisionCa
                 entry.DeviceId.Value,
                 entry.TransactionId.Value,
                 entry.RequestIdentity,
-                entry.Kind switch
-                {
-                    CommandTransactionJournalEventKind.Prepared => IhmB5TransactionState.Prepared,
-                    CommandTransactionJournalEventKind.Submitted => IhmB5TransactionState.Submitted,
-                    CommandTransactionJournalEventKind.Ambiguous => IhmB5TransactionState.Ambiguous,
-                    CommandTransactionJournalEventKind.TerminalEvidenceObserved => IhmB5TransactionState.TerminalEvidenceObserved,
-                    _ => throw new InvalidDataException($"Unsupported B5 journal event kind '{entry.Kind}'.")
-                },
+                ProjectState(entry, active),
                 entry.ObservedAt))
             .ToArray();
+    }
+
+    private static IhmB5TransactionState ProjectState(
+        CommandTransactionJournalEvent entry,
+        CommandTransaction? active)
+    {
+        if (active is { State: CommandTransactionState.Ambiguous }
+            && active.TransactionId == entry.TransactionId
+            && string.Equals(active.RequestIdentity, entry.RequestIdentity, StringComparison.Ordinal))
+        {
+            // Recovery deliberately does not append a synthetic journal event. The IHM must
+            // nevertheless expose the current blocking runtime state reconstructed by S5.
+            return IhmB5TransactionState.Ambiguous;
+        }
+
+        return entry.Kind switch
+        {
+            CommandTransactionJournalEventKind.Prepared => IhmB5TransactionState.Prepared,
+            CommandTransactionJournalEventKind.Submitted => IhmB5TransactionState.Submitted,
+            CommandTransactionJournalEventKind.Ambiguous => IhmB5TransactionState.Ambiguous,
+            CommandTransactionJournalEventKind.TerminalEvidenceObserved => IhmB5TransactionState.TerminalEvidenceObserved,
+            _ => throw new InvalidDataException($"Unsupported B5 journal event kind '{entry.Kind}'.")
+        };
     }
 
     private SessionResolution ResolveSession(uint deviceId)
