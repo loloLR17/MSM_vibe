@@ -11,7 +11,13 @@ public sealed record RuntimeConfiguration(
     IReadOnlyList<RuntimeBusConfiguration> Buses,
     RuntimePollingPolicy Polling,
     RuntimeReconnectPolicy? Reconnect,
-    RuntimeWebConfiguration Web);
+    RuntimeWebConfiguration Web,
+    RuntimeB5LifecyclePolicy? B5 = null);
+
+public sealed record RuntimeB5LifecyclePolicy(
+    TimeSpan PostSubmitPollInterval,
+    TimeSpan PostSubmitTimeout,
+    TimeSpan ReconciliationInterval);
 
 public sealed record RuntimeWebConfiguration(
     bool Enabled,
@@ -159,7 +165,8 @@ public static class RuntimeConfigurationLoader
         var polling = CreatePollingPolicy(document.Polling);
         var reconnect = CreateReconnectPolicy(document.Reconnect);
         var web = CreateWebConfiguration(document.Web);
-        return new RuntimeConfiguration(persistence, buses, polling, reconnect, web);
+        var b5 = CreateB5LifecyclePolicy(document.B5);
+        return new RuntimeConfiguration(persistence, buses, polling, reconnect, web, b5);
     }
 
     private static RuntimeSerialPortConfiguration CreateSerialConfiguration(string busId, SerialDocument document)
@@ -199,6 +206,35 @@ public static class RuntimeConfigurationLoader
             "reconnect.intervalMilliseconds");
 
         return new RuntimeReconnectPolicy(TimeSpan.FromMilliseconds(intervalMilliseconds));
+    }
+
+    private static RuntimeB5LifecyclePolicy? CreateB5LifecyclePolicy(B5Document? document)
+    {
+        if (document is null)
+        {
+            return null;
+        }
+
+        var pollMilliseconds = RequiredPositive(
+            document.PostSubmitPollIntervalMilliseconds,
+            "b5.postSubmitPollIntervalMilliseconds");
+        var timeoutMilliseconds = RequiredPositive(
+            document.PostSubmitTimeoutMilliseconds,
+            "b5.postSubmitTimeoutMilliseconds");
+        var reconciliationMilliseconds = RequiredPositive(
+            document.ReconciliationIntervalMilliseconds,
+            "b5.reconciliationIntervalMilliseconds");
+
+        if (timeoutMilliseconds < pollMilliseconds)
+        {
+            throw new InvalidDataException(
+                "b5.postSubmitTimeoutMilliseconds must be greater than or equal to b5.postSubmitPollIntervalMilliseconds.");
+        }
+
+        return new RuntimeB5LifecyclePolicy(
+            TimeSpan.FromMilliseconds(pollMilliseconds),
+            TimeSpan.FromMilliseconds(timeoutMilliseconds),
+            TimeSpan.FromMilliseconds(reconciliationMilliseconds));
     }
 
     private static RuntimeWebConfiguration CreateWebConfiguration(WebDocument? document)
@@ -310,6 +346,7 @@ public static class RuntimeConfigurationLoader
         public PollingDocument? Polling { get; init; }
         public ReconnectDocument? Reconnect { get; init; }
         public WebDocument? Web { get; init; }
+        public B5Document? B5 { get; init; }
     }
 
     private sealed class PersistenceDocument
@@ -361,5 +398,13 @@ public static class RuntimeConfigurationLoader
         public bool? AllowRemote { get; init; }
         public int? FreshnessAgingAfterMilliseconds { get; init; }
         public int? FreshnessStaleAfterMilliseconds { get; init; }
+    }
+
+    private sealed class B5Document
+    {
+        public B5Document() { }
+        public int? PostSubmitPollIntervalMilliseconds { get; init; }
+        public int? PostSubmitTimeoutMilliseconds { get; init; }
+        public int? ReconciliationIntervalMilliseconds { get; init; }
     }
 }

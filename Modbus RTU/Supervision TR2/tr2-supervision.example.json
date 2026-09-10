@@ -9,6 +9,11 @@
     "freshnessAgingAfterMilliseconds": 5000,
     "freshnessStaleAfterMilliseconds": 30000
   },
+  "b5": {
+    "postSubmitPollIntervalMilliseconds": 500,
+    "postSubmitTimeoutMilliseconds": 30000,
+    "reconciliationIntervalMilliseconds": 2000
+  },
   "buses": [
     {
       "id": "bus-1",
