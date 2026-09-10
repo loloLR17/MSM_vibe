@@ -160,12 +160,7 @@ public sealed class SupervisionWebHost
                 submission = new IhmB5CommandSubmission(request.Command.Value, request.FaultCode.Value, AcknowledgeAll: false);
                 return true;
             }
-            if (request.AcknowledgeAll == true && !request.FaultCode.HasValue)
-            {
-                submission = new IhmB5CommandSubmission(request.Command.Value, AcknowledgeAll: true);
-                return true;
-            }
-            validationMessage = "AcknowledgeFault requires either acknowledgeAll=false with faultCode, or acknowledgeAll=true without faultCode.";
+            validationMessage = "AcknowledgeFault requires acknowledgeAll=false with a targeted faultCode; global acknowledgement is not exposed by the S7 Web API.";
             return false;
         }
 

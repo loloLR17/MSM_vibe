@@ -39,7 +39,7 @@ public sealed class CommandWebApiTests
     }
 
     [Fact]
-    public async Task Acknowledge_fault_requires_explicit_unit_or_global_contract()
+    public async Task Acknowledge_fault_requires_targeted_fault_code_and_rejects_global_contract()
     {
         var sink = new StubCommandSink(Accepted());
         var host = CreateHost(sink);
@@ -59,10 +59,10 @@ public sealed class CommandWebApiTests
             Assert.Equal((ushort)16, sink.Submission?.FaultCode);
             Assert.False(sink.Submission?.AcknowledgeAll);
 
+            var acceptedCallCount = sink.CallCount;
             using var global = Json("{\"requestIdentity\":\"ack-all\",\"command\":\"AcknowledgeFault\",\"acknowledgeAll\":true}");
-            Assert.Equal(HttpStatusCode.Accepted, (await client.PostAsync("/api/v1/devices/42/commands", global)).StatusCode);
-            Assert.Null(sink.Submission?.FaultCode);
-            Assert.True(sink.Submission?.AcknowledgeAll);
+            Assert.Equal(HttpStatusCode.BadRequest, (await client.PostAsync("/api/v1/devices/42/commands", global)).StatusCode);
+            Assert.Equal(acceptedCallCount, sink.CallCount);
         }
         finally
         {
