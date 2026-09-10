@@ -1,3 +1,4 @@
+using System.Collections.Concurrent;
 using TR2.Application;
 using TR2.Domain;
 using TR2.Protocol;
@@ -15,9 +16,9 @@ public sealed class PhysicalB5LifecycleWorkRunner : IPriorityWorkRunner
     private readonly PhysicalPriorityWorkRunner _inner;
     private readonly RuntimeB5LifecyclePolicy? _policy;
     private readonly SerialBusRecoveryCoordinator _recovery;
-    private readonly Dictionary<long, MonitoringContext> _monitoringByWorkId = [];
-    private readonly Dictionary<long, ReconciliationContext> _reconciliationByWorkId = [];
-    private readonly HashSet<ReconciliationKey> _activeReconciliations = [];
+    private readonly ConcurrentDictionary<long, MonitoringContext> _monitoringByWorkId = new();
+    private readonly ConcurrentDictionary<long, ReconciliationContext> _reconciliationByWorkId = new();
+    private readonly ConcurrentDictionary<ReconciliationKey, byte> _activeReconciliations = new();
 
     public PhysicalB5LifecycleWorkRunner(SupervisionRuntimeComposition composition, SupervisionOperationalFacade operations)
     {
@@ -75,7 +76,7 @@ public sealed class PhysicalB5LifecycleWorkRunner : IPriorityWorkRunner
             _composition.BusWorkScheduler.Complete(work.Endpoint.Bus, work.WorkId);
             throw new InvalidOperationException("B5 post-submit monitoring work cannot execute when runtime B5 lifecycle policy is disabled.");
         }
-        if (!_monitoringByWorkId.Remove(work.WorkId, out var context))
+        if (!_monitoringByWorkId.TryRemove(work.WorkId, out var context))
         {
             _composition.BusWorkScheduler.Complete(work.Endpoint.Bus, work.WorkId);
             throw new InvalidOperationException("No B5 post-submit monitoring context is registered for this work item.");
@@ -124,7 +125,7 @@ public sealed class PhysicalB5LifecycleWorkRunner : IPriorityWorkRunner
             _composition.BusWorkScheduler.Complete(work.Endpoint.Bus, work.WorkId);
             throw new InvalidOperationException("B5 reconciliation work cannot execute when runtime B5 lifecycle policy is disabled.");
         }
-        if (!_reconciliationByWorkId.Remove(work.WorkId, out var context))
+        if (!_reconciliationByWorkId.TryRemove(work.WorkId, out var context))
         {
             _composition.BusWorkScheduler.Complete(work.Endpoint.Bus, work.WorkId);
             throw new InvalidOperationException("No B5 reconciliation context is registered for this work item.");
@@ -133,7 +134,7 @@ public sealed class PhysicalB5LifecycleWorkRunner : IPriorityWorkRunner
         if (context.Coordinator.ActiveTransaction is not { State: CommandTransactionState.Ambiguous } active || active.TransactionId != context.TransactionId)
         {
             _composition.BusWorkScheduler.Complete(work.Endpoint.Bus, work.WorkId);
-            _activeReconciliations.Remove(key);
+            _activeReconciliations.TryRemove(key, out _);
             return;
         }
         var session = _composition.FleetRegistry.GetSession(work.Endpoint);
@@ -141,7 +142,7 @@ public sealed class PhysicalB5LifecycleWorkRunner : IPriorityWorkRunner
             || !_composition.BusConnectionManager.TryGet(work.Endpoint.Bus.Id, out var connection) || connection is null)
         {
             _composition.BusWorkScheduler.Complete(work.Endpoint.Bus, work.WorkId);
-            _activeReconciliations.Remove(key);
+            _activeReconciliations.TryRemove(key, out _);
             return;
         }
         var service = new B5ReconciliationService(new B5Reader(connection.RegisterTransport));
@@ -156,23 +157,23 @@ public sealed class PhysicalB5LifecycleWorkRunner : IPriorityWorkRunner
             if (exception.Kind == ModbusTransportFailureKind.Io)
             {
                 await _recovery.MarkDisconnectedAsync(work.Endpoint.Bus, cancellationToken).ConfigureAwait(false);
-                _activeReconciliations.Remove(key);
+                _activeReconciliations.TryRemove(key, out _);
                 return;
             }
             if (exception.Kind == ModbusTransportFailureKind.Timeout)
             {
                 if (context.Coordinator.ActiveTransaction?.State == CommandTransactionState.Ambiguous)
                     QueueReconciliationWork(work.Endpoint, context.DeviceId, context.Coordinator, context.TransactionId, observedAt + _policy.ReconciliationInterval);
-                else _activeReconciliations.Remove(key);
+                else _activeReconciliations.TryRemove(key, out _);
                 return;
             }
-            _activeReconciliations.Remove(key);
+            _activeReconciliations.TryRemove(key, out _);
             throw;
         }
         _composition.BusWorkScheduler.Complete(work.Endpoint.Bus, work.WorkId);
         if (result.Decision.Outcome == B5ReconciliationOutcome.TerminalEvidence || context.Coordinator.ActiveTransaction?.State != CommandTransactionState.Ambiguous)
         {
-            _activeReconciliations.Remove(key);
+            _activeReconciliations.TryRemove(key, out _);
             return;
         }
         QueueReconciliationWork(work.Endpoint, context.DeviceId, context.Coordinator, context.TransactionId, observedAt + _policy.ReconciliationInterval);
@@ -192,22 +193,44 @@ public sealed class PhysicalB5LifecycleWorkRunner : IPriorityWorkRunner
 
     private ScheduledBusWork QueueMonitoring(TR2Endpoint endpoint, DeviceId deviceId, CommandCoordinator coordinator, DateTimeOffset dueAt, DateTimeOffset timeoutAt)
     {
-        var work = _composition.BusWorkScheduler.QueuePriority(endpoint, BusWorkKind.CommandPostSubmitMonitoring, dueAt);
-        _monitoringByWorkId.Add(work.WorkId, new MonitoringContext(deviceId, coordinator, timeoutAt));
-        return work;
+        return _composition.BusWorkScheduler.QueuePriority(
+            endpoint,
+            BusWorkKind.CommandPostSubmitMonitoring,
+            dueAt,
+            work =>
+            {
+                if (!_monitoringByWorkId.TryAdd(work.WorkId, new MonitoringContext(deviceId, coordinator, timeoutAt)))
+                    throw new InvalidOperationException("A B5 post-submit monitoring context is already registered for this work item.");
+            });
     }
 
     private void QueueReconciliationIfNeeded(TR2Endpoint endpoint, DeviceId deviceId, CommandCoordinator coordinator, TransactionId transactionId, DateTimeOffset dueAt)
     {
         if (coordinator.ActiveTransaction is not { State: CommandTransactionState.Ambiguous } active || active.TransactionId != transactionId) return;
         var key = new ReconciliationKey(deviceId, transactionId);
-        if (!_activeReconciliations.Add(key)) return;
-        QueueReconciliationWork(endpoint, deviceId, coordinator, transactionId, dueAt);
+        if (!_activeReconciliations.TryAdd(key, 0)) return;
+
+        try
+        {
+            QueueReconciliationWork(endpoint, deviceId, coordinator, transactionId, dueAt);
+        }
+        catch
+        {
+            _activeReconciliations.TryRemove(key, out _);
+            throw;
+        }
     }
 
     private void QueueReconciliationWork(TR2Endpoint endpoint, DeviceId deviceId, CommandCoordinator coordinator, TransactionId transactionId, DateTimeOffset dueAt)
     {
-        var work = _composition.BusWorkScheduler.QueuePriority(endpoint, BusWorkKind.TransactionReconciliation, dueAt);
-        _reconciliationByWorkId.Add(work.WorkId, new ReconciliationContext(deviceId, transactionId, coordinator));
+        _composition.BusWorkScheduler.QueuePriority(
+            endpoint,
+            BusWorkKind.TransactionReconciliation,
+            dueAt,
+            work =>
+            {
+                if (!_reconciliationByWorkId.TryAdd(work.WorkId, new ReconciliationContext(deviceId, transactionId, coordinator)))
+                    throw new InvalidOperationException("A B5 reconciliation context is already registered for this work item.");
+            });
     }
 }
