@@ -5,7 +5,7 @@
   const feedback=document.getElementById('commandFeedback');
   const transactionState=document.getElementById('commandTransactionState');
   const historyList=document.getElementById('commandHistoryList');
-  const commandButtons=[...document.querySelectorAll('[data-b5-command],#ackFaultButton,#ackAllButton,#softwareResetButton')];
+  const commandButtons=[...document.querySelectorAll('[data-b5-command],#ackFaultButton,#softwareResetButton')];
   const labels={ApplyConfig:'appliquer la configuration préparée',SyncTime:"synchroniser l'heure préparée",StartAcquisition:"démarrer l'acquisition",StopAcquisition:"arrêter l'acquisition",Selftest:"lancer l'autotest standard",RefreshIndicators:'rafraîchir les indicateurs',EnterMaintenance:'entrer en maintenance',ExitMaintenance:'sortir de maintenance'};
   const stateLabels={Prepared:'Préparée',Submitted:'Soumise',Ambiguous:'Ambiguë',TerminalEvidenceObserved:'Preuve terminale observée'};
   let busy=false;
@@ -113,11 +113,6 @@
     if(!Number.isInteger(value)||value<0||value>65535){setFeedback('Saisir un code défaut entier compris entre 0 et 65535.','bad');return;}
     if(!confirm(`Confirmer l'acquittement du défaut ${value} ?`))return;
     void submit({command:'AcknowledgeFault',faultCode:value,acknowledgeAll:false},`acquitter le défaut ${value}`);
-  });
-
-  document.getElementById('ackAllButton')?.addEventListener('click',()=>{
-    if(!confirm('Confirmer l’acquittement GLOBAL de tous les défauts acquittables ?'))return;
-    void submit({command:'AcknowledgeFault',acknowledgeAll:true},'acquitter globalement les défauts acquittables');
   });
 
   document.getElementById('softwareResetButton')?.addEventListener('click',()=>{

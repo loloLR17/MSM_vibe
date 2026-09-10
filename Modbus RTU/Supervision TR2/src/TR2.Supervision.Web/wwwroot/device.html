@@ -14,13 +14,12 @@
         <a class="nav-link" href="/">Vue générale</a>
         <button class="nav-item active" data-view="summary">Synthèse</button>
         <button class="nav-item" data-view="vibration">Vibrations</button>
-        <button class="nav-item" data-view="system">État système</button>
-        <button class="nav-item" data-view="configuration">Configuration</button>
+        <button class="nav-item" data-view="stateConfiguration">État & configuration</button>
         <button class="nav-item" data-view="commands">Commandes</button>
         <button class="nav-item" data-view="campaigns">Campagnes</button>
         <button class="nav-item" data-view="diagnostic">Diagnostic</button>
       </nav>
-      <div class="scope">S7-H2 · états transactionnels B5 visibles<br>Ambiguous = blocage opérateur</div>
+      <div class="scope">S7-I2 · navigation contextuelle S6<br>Ambiguous = blocage opérateur</div>
     </aside>
     <main>
       <header class="status-band">
@@ -31,24 +30,41 @@
       <section>
         <div class="page-head"><div><a class="back-link" href="/">← Vue générale</a><h1 id="deviceTitle">TR2</h1><p id="deviceSubtitle">Chargement du détail…</p></div></div>
         <div id="webError" class="error-banner hidden" role="status"></div>
+
         <div id="summaryView" class="device-view">
           <div class="kpis detail-kpis"><article><span>Session</span><strong id="summarySession">—</strong></article><article><span>RMS global</span><strong id="summaryRms">—</strong></article><article><span>Crête globale</span><strong id="summaryPeak">—</strong></article><article><span>Santé B7</span><strong id="summaryHealth">—</strong></article></div>
           <div class="detail-grid"><article class="detail-card"><h2>Fraîcheur PC</h2><dl id="summaryFreshness"></dl></article><article class="detail-card"><h2>État courant</h2><dl id="summaryState"></dl></article></div>
         </div>
-        <div id="vibrationView" class="device-view hidden"><div class="detail-grid"><article class="detail-card"><h2>Grandeurs globales B3</h2><dl id="vibrationGlobal"></dl></article><article class="detail-card"><h2>Axes B3</h2><dl id="vibrationAxes"></dl></article><article class="detail-card"><h2>Qualification B3</h2><dl id="vibrationQuality"></dl></article><article class="detail-card"><h2>Compteurs B3</h2><dl id="vibrationCounters"></dl></article></div><p class="scope-note">Toutes les valeurs vibratoires affichées proviennent du Bloc 3 et sont exprimées en accélération mg. Aucun calcul mm/s, FFT ou seuil ISO n'est effectué.</p></div>
-        <div id="systemView" class="device-view hidden"><div class="detail-grid"><article class="detail-card"><h2>Bloc 1 — État système</h2><dl id="systemState"></dl></article><article class="detail-card"><h2>Bloc 2 — Temps</h2><dl id="timeState"></dl></article></div></div>
-        <div id="configurationView" class="device-view hidden"><div class="detail-grid"><article class="detail-card"><h2>B4 — Métadonnées</h2><dl id="configMeta"></dl></article><article class="detail-card"><h2>Configuration préparée</h2><dl id="configPrepared"></dl></article><article class="detail-card"><h2>Configuration active</h2><dl id="configActive"></dl></article><article class="detail-card"><h2>Contexte B4</h2><dl id="configContext"></dl></article></div><p class="scope-note">Les valeurs préparées et actives sont affichées séparément. L'action APPLY_CONFIG est disponible dans la vue Commandes et passe exclusivement par le moteur B5 existant.</p></div>
+
+        <div id="vibrationView" class="device-view hidden">
+          <div class="detail-grid"><article class="detail-card"><h2>Grandeurs globales B3</h2><dl id="vibrationGlobal"></dl></article><article class="detail-card"><h2>Axes B3</h2><dl id="vibrationAxes"></dl></article><article class="detail-card"><h2>Qualification B3</h2><dl id="vibrationQuality"></dl></article><article class="detail-card"><h2>Compteurs B3</h2><dl id="vibrationCounters"></dl></article></div>
+          <p class="scope-note">Toutes les valeurs vibratoires affichées proviennent du Bloc 3 et sont exprimées en accélération mg. Aucun calcul mm/s, FFT ou seuil ISO n'est effectué.</p>
+        </div>
+
+        <div id="stateConfigurationView" class="device-view hidden">
+          <div class="detail-grid">
+            <article class="detail-card"><h2>Bloc 1 — État système</h2><dl id="systemState"></dl></article>
+            <article class="detail-card"><h2>Bloc 2 — Temps</h2><dl id="timeState"></dl></article>
+            <article class="detail-card"><h2>B4 — Métadonnées</h2><dl id="configMeta"></dl></article>
+            <article class="detail-card"><h2>Configuration préparée</h2><dl id="configPrepared"></dl></article>
+            <article class="detail-card"><h2>Configuration active</h2><dl id="configActive"></dl></article>
+            <article class="detail-card"><h2>Contexte B4</h2><dl id="configContext"></dl></article>
+          </div>
+          <p class="scope-note">B1/B2 et B4 restent des autorités distinctes. Les valeurs préparées et actives sont affichées séparément. APPLY_CONFIG reste disponible uniquement dans Commandes via le moteur B5 existant.</p>
+        </div>
+
         <div id="commandsView" class="device-view hidden">
           <div class="detail-grid">
             <article class="detail-card"><h2>État transactionnel B5</h2><div id="commandTransactionState" class="command-feedback warn" role="status">Lecture de l'état transactionnel…</div><p class="scope-note">Prepared, Submitted et Ambiguous bloquent les nouvelles commandes. TerminalEvidenceObserved signifie seulement qu'une preuve terminale a été observée.</p></article>
             <article class="detail-card"><h2>Historique transactionnel</h2><dl id="commandHistoryList"><dt>Historique</dt><dd>Chargement…</dd></dl><p class="scope-note">Historique durable issu du journal B5, limité côté serveur.</p></article>
             <article class="detail-card"><h2>Commandes courantes</h2><div class="command-actions"><button data-b5-command="ApplyConfig">Appliquer configuration préparée</button><button data-b5-command="SyncTime">Synchroniser heure préparée</button><button data-b5-command="StartAcquisition">Démarrer acquisition</button><button data-b5-command="StopAcquisition">Arrêter acquisition</button><button data-b5-command="Selftest">Lancer autotest standard</button><button data-b5-command="RefreshIndicators">Rafraîchir indicateurs</button><button data-b5-command="EnterMaintenance">Entrer en maintenance</button><button data-b5-command="ExitMaintenance">Sortir maintenance</button></div></article>
-            <article class="detail-card"><h2>Acquittement défaut</h2><label class="command-field">Code défaut <input id="faultCode" type="number" min="0" max="65535" step="1" inputmode="numeric"></label><div class="command-actions"><button id="ackFaultButton">Acquitter ce défaut</button><button id="ackAllButton">Acquitter tous les défauts acquittables</button></div><p class="scope-note">L'acquittement ne supprime pas la cause d'un défaut encore présent.</p></article>
-            <article class="detail-card"><h2>Commande protégée</h2><p>Le reset logiciel contrôlé nécessite une confirmation explicite. La clé B5 0xA55A n'est jamais fournie par le navigateur.</p><div class="command-actions"><button id="softwareResetButton" class="danger-command">Reset logiciel contrôlé</button></div></article>
+            <article class="detail-card"><h2>Acquittement défaut ciblé</h2><label class="command-field">Code défaut <input id="faultCode" type="number" min="0" max="65535" step="1" inputmode="numeric"></label><div class="command-actions"><button id="ackFaultButton">Acquitter ce défaut</button></div><p class="scope-note">Aucun acquittement global n'est exposé. L'acquittement ciblé ne supprime pas la cause d'un défaut encore présent.</p></article>
+            <article class="detail-card"><h2>Commande protégée</h2><p>Le reset logiciel contrôlé nécessite une confirmation explicite. La clé B5 reste interne à la supervision et n'est jamais fournie par le navigateur.</p><div class="command-actions"><button id="softwareResetButton" class="danger-command">Reset logiciel contrôlé</button></div></article>
             <article class="detail-card"><h2>Dernière demande Web</h2><div id="commandFeedback" class="command-feedback" role="status">Aucune commande envoyée depuis cette page.</div><p class="scope-note">Une réponse HTTP 202 signifie uniquement « préparée et mise en file ». Elle ne prouve pas l'exécution ni le succès côté TR2.</p></article>
           </div>
           <p class="scope-note">Aucun retry automatique. `Ambiguous` ne propose ni Retry, ni Ignore, ni Force. Une reconnexion seule n'est pas une résolution.</p>
         </div>
+
         <div id="campaignsView" class="device-view hidden">
           <div class="detail-grid">
             <article class="detail-card"><h2>B6 — Inventaire & stockage</h2><dl id="campaignInventory"></dl></article>
@@ -58,6 +74,7 @@
           </div>
           <p class="scope-note">La sélection B6 n'est pas une commande B5. Les indices 0..65535 sont transmis tels quels ; un index hors inventaire peut être accepté par Modbus puis signalé par selected_campaign_valid = 0. Aucun retry automatique.</p>
         </div>
+
         <div id="diagnosticView" class="device-view hidden"><div class="detail-grid"><article class="detail-card"><h2>Bloc 7 — Diagnostic</h2><dl id="diagnosticState"></dl></article><article class="detail-card"><h2>Contexte de réception</h2><dl id="diagnosticContext"></dl></article></div></div>
       </section>
     </main>

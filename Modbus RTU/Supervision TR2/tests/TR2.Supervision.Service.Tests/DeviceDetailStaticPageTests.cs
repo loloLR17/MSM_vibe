@@ -25,15 +25,22 @@ public sealed class DeviceDetailStaticPageTests
 
             Assert.Contains("Synthèse", html, StringComparison.Ordinal);
             Assert.Contains("Vibrations", html, StringComparison.Ordinal);
-            Assert.Contains("État système", html, StringComparison.Ordinal);
-            Assert.Contains("Configuration", html, StringComparison.Ordinal);
+            Assert.Contains("État & configuration", html, StringComparison.Ordinal);
             Assert.Contains("Commandes", html, StringComparison.Ordinal);
             Assert.Contains("Campagnes", html, StringComparison.Ordinal);
             Assert.Contains("Diagnostic", html, StringComparison.Ordinal);
+            Assert.DoesNotContain("data-view=\"system\"", html, StringComparison.Ordinal);
+            Assert.DoesNotContain("data-view=\"configuration\"", html, StringComparison.Ordinal);
+            Assert.Contains("Bloc 1 — État système", html, StringComparison.Ordinal);
+            Assert.Contains("Bloc 2 — Temps", html, StringComparison.Ordinal);
+            Assert.Contains("B4 — Métadonnées", html, StringComparison.Ordinal);
             Assert.Contains("Ambiguous = blocage opérateur", html, StringComparison.Ordinal);
             Assert.Contains("État transactionnel B5", html, StringComparison.Ordinal);
             Assert.Contains("Historique transactionnel", html, StringComparison.Ordinal);
             Assert.Contains("La sélection B6 n'est pas une commande B5", html, StringComparison.Ordinal);
+            Assert.Contains("Acquitter ce défaut", html, StringComparison.Ordinal);
+            Assert.DoesNotContain("ackAllButton", html, StringComparison.Ordinal);
+            Assert.DoesNotContain("Acquitter tous", html, StringComparison.OrdinalIgnoreCase);
             Assert.Contains("/api/v1/devices/${deviceId}", readScript, StringComparison.Ordinal);
             Assert.Contains("campaignInventoryState", readScript, StringComparison.Ordinal);
             Assert.Contains("selectedCampaignValid===1", readScript, StringComparison.Ordinal);
@@ -48,6 +55,9 @@ public sealed class DeviceDetailStaticPageTests
             Assert.Contains("Aucun Retry / Ignore / Force", commandScript, StringComparison.Ordinal);
             Assert.Contains("setInterval(()=>void refreshTransactionState(),2000)", commandScript, StringComparison.Ordinal);
             Assert.Contains("AcknowledgeFault", commandScript, StringComparison.Ordinal);
+            Assert.Contains("acknowledgeAll:false", commandScript, StringComparison.Ordinal);
+            Assert.DoesNotContain("acknowledgeAll:true", commandScript, StringComparison.Ordinal);
+            Assert.DoesNotContain("ackAllButton", commandScript, StringComparison.Ordinal);
             Assert.Contains("SoftwareReset", commandScript, StringComparison.Ordinal);
             Assert.Contains("Aucun retry automatique", commandScript, StringComparison.Ordinal);
             Assert.DoesNotContain("ResetStatistics", commandScript, StringComparison.Ordinal);
