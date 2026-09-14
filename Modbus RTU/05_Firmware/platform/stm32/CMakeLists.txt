@@ -1,19 +1,20 @@
 cmake_minimum_required(VERSION 3.20)
-project(tr2_stm32_p11c LANGUAGES C ASM)
+project(tr2_stm32_p12a LANGUAGES C ASM)
 
 if(NOT CMAKE_CROSSCOMPILING)
-    message(FATAL_ERROR "P11-C STM32 build requires the ARM cross-toolchain. Configure with -DCMAKE_TOOLCHAIN_FILE=cmake/arm-none-eabi-gcc.cmake")
+    message(FATAL_ERROR "P12-A STM32 build requires the ARM cross-toolchain. Configure with -DCMAKE_TOOLCHAIN_FILE=cmake/arm-none-eabi-gcc.cmake")
 endif()
 
 set(CMAKE_C_STANDARD 11)
 set(CMAKE_C_STANDARD_REQUIRED ON)
 set(CMAKE_C_EXTENSIONS OFF)
 
-set(STM32CUBE_U5_ROOT "" CACHE PATH "Path to a recursive STM32CubeU5 checkout (P11-C validated against v1.9.0)")
+set(STM32CUBE_U5_ROOT "" CACHE PATH "Path to a recursive STM32CubeU5 checkout (validated against v1.9.0)")
 if(NOT STM32CUBE_U5_ROOT)
     message(FATAL_ERROR "Set -DSTM32CUBE_U5_ROOT=/path/to/STM32CubeU5 (recursive checkout, v1.9.0)")
 endif()
 
+set(TR2_FIRMWARE_ROOT "${CMAKE_CURRENT_SOURCE_DIR}/../..")
 set(CMSIS_CORE_DIR ${STM32CUBE_U5_ROOT}/Drivers/CMSIS/Include)
 set(CMSIS_DEVICE_DIR ${STM32CUBE_U5_ROOT}/Drivers/CMSIS/Device/ST/STM32U5xx)
 set(HAL_DIR ${STM32CUBE_U5_ROOT}/Drivers/STM32U5xx_HAL_Driver)
@@ -30,6 +31,34 @@ foreach(required_path
         message(FATAL_ERROR "STM32CubeU5 dependency missing: ${required_path}. Clone STM32CubeU5 recursively and select v1.9.0.")
     endif()
 endforeach()
+
+file(GLOB_RECURSE TR2_CORE_SOURCES CONFIGURE_DEPENDS
+    "${TR2_FIRMWARE_ROOT}/src/*.c"
+)
+
+if(NOT TR2_CORE_SOURCES)
+    message(FATAL_ERROR "P12-A found no portable TR2 core sources under ${TR2_FIRMWARE_ROOT}/src")
+endif()
+
+add_library(tr2_core STATIC
+    ${TR2_CORE_SOURCES}
+)
+
+target_include_directories(tr2_core
+    PUBLIC
+        ${TR2_FIRMWARE_ROOT}/include
+)
+
+target_compile_options(tr2_core PRIVATE
+    -mcpu=cortex-m33
+    -mthumb
+    -ffunction-sections
+    -fdata-sections
+    -Wall
+    -Wextra
+    -Wpedantic
+    -Werror
+)
 
 add_executable(tr2_stm32_p11c
     main.c
@@ -66,6 +95,10 @@ target_compile_options(tr2_stm32_p11c PRIVATE
     -Wextra
     -Wpedantic
     -Werror
+)
+
+target_link_libraries(tr2_stm32_p11c PRIVATE
+    tr2_core
 )
 
 target_link_options(tr2_stm32_p11c PRIVATE
