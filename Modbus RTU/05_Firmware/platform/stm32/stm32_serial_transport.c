@@ -58,31 +58,26 @@ static bool event_push_from_isr(SerialTransportEvent event)
 
 static void rtu_timer_stop(void)
 {
-    (void)HAL_TIM_Base_Stop_IT(&g_serial.rtu_timer);
+    __HAL_TIM_DISABLE_IT(&g_serial.rtu_timer, TIM_IT_UPDATE);
+    __HAL_TIM_DISABLE(&g_serial.rtu_timer);
     __HAL_TIM_SET_COUNTER(&g_serial.rtu_timer, 0u);
+    __HAL_TIM_CLEAR_FLAG(&g_serial.rtu_timer, TIM_FLAG_UPDATE);
 }
 
-static bool rtu_timer_start_period(uint32_t period_us)
+static void rtu_timer_start_period(uint32_t period_us)
 {
     rtu_timer_stop();
     __HAL_TIM_SET_AUTORELOAD(&g_serial.rtu_timer, period_us - 1u);
     __HAL_TIM_SET_COUNTER(&g_serial.rtu_timer, 0u);
     __HAL_TIM_CLEAR_FLAG(&g_serial.rtu_timer, TIM_FLAG_UPDATE);
-    return HAL_TIM_Base_Start_IT(&g_serial.rtu_timer) == HAL_OK;
+    __HAL_TIM_ENABLE_IT(&g_serial.rtu_timer, TIM_IT_UPDATE);
+    __HAL_TIM_ENABLE(&g_serial.rtu_timer);
 }
 
 static void rtu_timer_restart_from_byte(void)
 {
     g_serial.rtu_timer_phase = TR2_RTU_TIMER_WAIT_T1_5;
-    if (!rtu_timer_start_period(TR2_RTU_T1_5_US)) {
-        SerialTransportEvent error = {
-            SERIAL_TRANSPORT_EVENT_ERROR,
-            0u,
-            SERIAL_TRANSPORT_ERROR_UNSPECIFIED
-        };
-        g_serial.rtu_timer_phase = TR2_RTU_TIMER_IDLE;
-        (void)event_push_from_isr(error);
-    }
+    rtu_timer_start_period(TR2_RTU_T1_5_US);
 }
 
 static Tr2Result stm32_start_receive(void *context)
@@ -132,18 +127,28 @@ static bool stm32_poll_event(void *context, SerialTransportEvent *event)
         return false;
     }
 
+    if (serial->event_overflow_pending) {
+        uint32_t primask = __get_PRIMASK();
+
+        __disable_irq();
+        if (serial->event_overflow_pending) {
+            serial->event_tail = serial->event_head;
+            serial->event_overflow_pending = false;
+        }
+        if (primask == 0u) {
+            __enable_irq();
+        }
+
+        event->type = SERIAL_TRANSPORT_EVENT_ERROR;
+        event->byte = 0u;
+        event->error = SERIAL_TRANSPORT_ERROR_OVERRUN;
+        return true;
+    }
+
     tail = serial->event_tail;
     if (tail != serial->event_head) {
         *event = serial->events[tail];
         serial->event_tail = (tail + 1u) % TR2_SERIAL_EVENT_CAPACITY;
-        return true;
-    }
-
-    if (serial->event_overflow_pending) {
-        serial->event_overflow_pending = false;
-        event->type = SERIAL_TRANSPORT_EVENT_ERROR;
-        event->byte = 0u;
-        event->error = SERIAL_TRANSPORT_ERROR_OVERRUN;
         return true;
     }
 
@@ -332,12 +337,7 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
         (void)event_push_from_isr(event);
 
         g_serial.rtu_timer_phase = TR2_RTU_TIMER_WAIT_T3_5;
-        if (!rtu_timer_start_period(TR2_RTU_T3_5_REMAINDER_US)) {
-            event.type = SERIAL_TRANSPORT_EVENT_ERROR;
-            event.error = SERIAL_TRANSPORT_ERROR_UNSPECIFIED;
-            g_serial.rtu_timer_phase = TR2_RTU_TIMER_IDLE;
-            (void)event_push_from_isr(event);
-        }
+        rtu_timer_start_period(TR2_RTU_T3_5_REMAINDER_US);
         return;
     }
 
