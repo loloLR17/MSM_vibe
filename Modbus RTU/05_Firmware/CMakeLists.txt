@@ -51,6 +51,7 @@ add_library(tr2_core STATIC
     src/modbus/register_model.c
     src/modbus/projection.c
     src/modbus/read_adapter.c
+    src/modbus/rtu_receiver.c
     src/modbus/write_adapter.c
     src/persistence/campaign_data_store_persistent.c
     src/persistence/campaign_record.c
@@ -145,6 +146,7 @@ tr2_add_core_test(test_time_fault_injection tests/integration/test_time_fault_in
 tr2_add_core_test(test_configuration_b4_flow tests/integration/test_configuration_b4_flow.c configuration_b4_flow)
 tr2_add_core_test(test_configuration_activation_adapter tests/integration/test_configuration_activation_adapter.c configuration_activation_adapter)
 tr2_add_core_test(test_p12c_pdu_server tests/unit/test_p12c_pdu_server.c p12c_pdu_server)
+tr2_add_core_test(test_p12d_rtu_receiver tests/unit/test_p12d_rtu_receiver.c p12d_rtu_receiver)
 
 function(tr2_add_host_test target source test_name)
     add_executable(${target} ${source})
