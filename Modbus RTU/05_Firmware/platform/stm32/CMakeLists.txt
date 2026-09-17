@@ -26,9 +26,11 @@ foreach(required_path
     ${CMSIS_DEVICE_DIR}/Source/Templates/system_stm32u5xx.c
     ${HAL_DIR}/Inc/stm32u5xx_hal.h
     ${HAL_DIR}/Src/stm32u5xx_hal.c
+    ${HAL_DIR}/Src/stm32u5xx_hal_dma.c
     ${HAL_DIR}/Src/stm32u5xx_hal_uart.c
     ${HAL_DIR}/Src/stm32u5xx_hal_uart_ex.c
     ${HAL_DIR}/Src/stm32u5xx_hal_tim.c
+    ${HAL_DIR}/Src/stm32u5xx_hal_tim_ex.c
 )
     if(NOT EXISTS ${required_path})
         message(FATAL_ERROR "STM32CubeU5 dependency missing: ${required_path}. Clone STM32CubeU5 recursively and select v1.9.0.")
@@ -71,6 +73,7 @@ add_executable(tr2_stm32_p11c
     ${CMSIS_DEVICE_DIR}/Source/Templates/system_stm32u5xx.c
     ${HAL_DIR}/Src/stm32u5xx_hal.c
     ${HAL_DIR}/Src/stm32u5xx_hal_cortex.c
+    ${HAL_DIR}/Src/stm32u5xx_hal_dma.c
     ${HAL_DIR}/Src/stm32u5xx_hal_gpio.c
     ${HAL_DIR}/Src/stm32u5xx_hal_pwr.c
     ${HAL_DIR}/Src/stm32u5xx_hal_pwr_ex.c
@@ -79,6 +82,7 @@ add_executable(tr2_stm32_p11c
     ${HAL_DIR}/Src/stm32u5xx_hal_uart.c
     ${HAL_DIR}/Src/stm32u5xx_hal_uart_ex.c
     ${HAL_DIR}/Src/stm32u5xx_hal_tim.c
+    ${HAL_DIR}/Src/stm32u5xx_hal_tim_ex.c
 )
 
 target_include_directories(tr2_stm32_p11c PRIVATE
