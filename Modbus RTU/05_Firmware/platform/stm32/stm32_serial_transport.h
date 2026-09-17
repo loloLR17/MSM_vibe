@@ -5,5 +5,6 @@
 
 Tr2Result stm32_serial_transport_init(SerialTransport *transport);
 void stm32_serial_transport_irq_handler(void);
+void stm32_serial_transport_tim6_irq_handler(void);
 
 #endif
