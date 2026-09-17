@@ -171,6 +171,27 @@ static CommandReconciliationOutcome reconcile_started(
     }
 }
 
+
+static Tr2Result collect_incomplete_transaction(void *context,
+                                                const CommandJournalEntry *entry)
+{
+    CommandBootRecoveryResult *result = (CommandBootRecoveryResult *)context;
+
+    if (result == NULL || entry == NULL) {
+        return TR2_ERROR_INVALID_ARGUMENT;
+    }
+    if (entry->lifecycle == COMMAND_LIFECYCLE_COMPLETED) {
+        return TR2_OK;
+    }
+    if (result->has_incomplete_transaction) {
+        return TR2_ERROR_CORRUPTED;
+    }
+
+    result->has_incomplete_transaction = true;
+    result->incomplete_transaction = *entry;
+    return TR2_OK;
+}
+
 Tr2Result command_boot_recovery_scan(
     CommandJournalStore *journal_store,
     const CommandBootRecoveryAuthorities *authorities,
@@ -179,7 +200,6 @@ Tr2Result command_boot_recovery_scan(
     CommandJournal *journal;
     CommandJournalEntry entry;
     CommandReconciliationOutcome reconciliation;
-    uint32_t transaction_id;
     Tr2Result lookup_result;
 
     if (journal_store == NULL || authorities == NULL || result == NULL ||
@@ -204,26 +224,14 @@ Tr2Result command_boot_recovery_scan(
         return lookup_result;
     }
 
-    for (transaction_id = 1u;
-         transaction_id <= (uint32_t)journal_store->max_transaction_id;
-         ++transaction_id) {
-        lookup_result = journal->find(journal->context,
-                                      (uint16_t)transaction_id,
-                                      &entry);
-        if (lookup_result == TR2_ERROR_NOT_FOUND) {
-            continue;
-        }
-        if (lookup_result != TR2_OK) {
-            return lookup_result;
-        }
-        if (entry.lifecycle == COMMAND_LIFECYCLE_COMPLETED) {
-            continue;
-        }
-        if (result->has_incomplete_transaction) {
-            return TR2_ERROR_CORRUPTED;
-        }
-        result->has_incomplete_transaction = true;
-        result->incomplete_transaction = entry;
+    if (journal->visit == NULL) {
+        return TR2_ERROR_INVALID_STATE;
+    }
+    lookup_result = journal->visit(journal->context,
+                                   collect_incomplete_transaction,
+                                   result);
+    if (lookup_result != TR2_OK) {
+        return lookup_result;
     }
 
     if (!result->has_incomplete_transaction) {
