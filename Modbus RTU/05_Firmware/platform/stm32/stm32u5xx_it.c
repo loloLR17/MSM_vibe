@@ -10,3 +10,8 @@ void LPUART1_IRQHandler(void)
 {
     stm32_serial_transport_irq_handler();
 }
+
+void TIM6_IRQHandler(void)
+{
+    stm32_serial_transport_tim6_irq_handler();
+}
