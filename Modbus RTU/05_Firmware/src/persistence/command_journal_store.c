@@ -353,6 +353,38 @@ static Tr2Result journal_latest_completed(void *context, CommandJournalEntry *en
     return TR2_OK;
 }
 
+
+static Tr2Result journal_visit(void *context,
+                               CommandJournalVisitor visitor,
+                               void *visitor_context)
+{
+    CommandJournalStore *store = (CommandJournalStore *)context;
+    uint32_t transaction_id;
+
+    if (!command_journal_store_is_initialized(store) || visitor == NULL) {
+        return TR2_ERROR_INVALID_ARGUMENT;
+    }
+
+    for (transaction_id = 1u; transaction_id <= store->max_transaction_id; ++transaction_id) {
+        CommandJournalEntry entry;
+        Tr2Result result = journal_find(store, (uint16_t)transaction_id, &entry);
+
+        if (result == TR2_ERROR_NOT_FOUND) {
+            continue;
+        }
+        if (result != TR2_OK) {
+            return result;
+        }
+
+        result = visitor(visitor_context, &entry);
+        if (result != TR2_OK) {
+            return result;
+        }
+    }
+
+    return TR2_OK;
+}
+
 Tr2Result command_journal_store_init(CommandJournalStore *store,
                                      PersistentStorageCore *storage,
                                      uint16_t max_transaction_id)
@@ -375,6 +407,7 @@ Tr2Result command_journal_store_init(CommandJournalStore *store,
     store->journal.mark_started = journal_mark_started;
     store->journal.complete = journal_complete;
     store->journal.latest_completed = journal_latest_completed;
+    store->journal.visit = journal_visit;
     return TR2_OK;
 }
 
