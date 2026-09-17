@@ -58,6 +58,7 @@ add_library(tr2_core STATIC
     src/persistence/campaign_record.c
     src/persistence/campaign_repository_store.c
     src/persistence/command_journal.c
+    src/persistence/command_journal_bounded_record.c
     src/persistence/command_journal_context_store.c
     src/persistence/command_journal_record.c
     src/persistence/command_journal_store.c
