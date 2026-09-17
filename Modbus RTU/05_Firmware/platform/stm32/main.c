@@ -1,5 +1,7 @@
 #include "stm32u5xx_hal.h"
 
+#include "stm32_serial_transport.h"
+
 #define TR2_BRINGUP_LED_PORT GPIOC
 #define TR2_BRINGUP_LED_PIN  GPIO_PIN_7
 
@@ -10,10 +12,20 @@ static void Error_Handler(void);
 
 int main(void)
 {
+    SerialTransport serial_transport;
+
     HAL_Init();
     SystemClock_Config();
     SystemPower_Config();
     BringupLed_Init();
+
+    if (stm32_serial_transport_init(&serial_transport) != TR2_OK) {
+        Error_Handler();
+    }
+
+    if (serial_transport_start_receive(&serial_transport) != TR2_OK) {
+        Error_Handler();
+    }
 
     for (;;) {
         HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
