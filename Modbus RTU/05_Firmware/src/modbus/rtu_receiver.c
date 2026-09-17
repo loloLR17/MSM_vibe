@@ -28,6 +28,11 @@ ModbusRtuReceiverEvent modbus_rtu_receiver_push_byte(ModbusRtuReceiver *receiver
         return no_frame();
     }
 
+    if (receiver->state == MODBUS_RTU_RECEIVER_WAITING_T3_5) {
+        receiver->state = MODBUS_RTU_RECEIVER_INVALID;
+        return no_frame();
+    }
+
     if (receiver->state == MODBUS_RTU_RECEIVER_IDLE) {
         receiver->state = MODBUS_RTU_RECEIVER_RECEIVING;
         receiver->length = 0u;
@@ -50,7 +55,7 @@ ModbusRtuReceiverEvent modbus_rtu_receiver_on_silence_t1_5(ModbusRtuReceiver *re
     }
 
     if (receiver->state == MODBUS_RTU_RECEIVER_RECEIVING) {
-        receiver->state = MODBUS_RTU_RECEIVER_INVALID;
+        receiver->state = MODBUS_RTU_RECEIVER_WAITING_T3_5;
     }
     return no_frame();
 }
@@ -63,7 +68,8 @@ ModbusRtuReceiverEvent modbus_rtu_receiver_on_silence_t3_5(ModbusRtuReceiver *re
         return event;
     }
 
-    if (receiver->state == MODBUS_RTU_RECEIVER_RECEIVING) {
+    if (receiver->state == MODBUS_RTU_RECEIVER_RECEIVING ||
+        receiver->state == MODBUS_RTU_RECEIVER_WAITING_T3_5) {
         event.frame_available = true;
         event.frame = receiver->buffer;
         event.frame_length = receiver->length;
