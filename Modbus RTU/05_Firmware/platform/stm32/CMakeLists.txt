@@ -26,6 +26,7 @@ foreach(required_path
     ${CMSIS_DEVICE_DIR}/Source/Templates/system_stm32u5xx.c
     ${HAL_DIR}/Inc/stm32u5xx_hal.h
     ${HAL_DIR}/Src/stm32u5xx_hal.c
+    ${HAL_DIR}/Src/stm32u5xx_hal_uart.c
 )
     if(NOT EXISTS ${required_path})
         message(FATAL_ERROR "STM32CubeU5 dependency missing: ${required_path}. Clone STM32CubeU5 recursively and select v1.9.0.")
@@ -62,6 +63,7 @@ target_compile_options(tr2_core PRIVATE
 
 add_executable(tr2_stm32_p11c
     main.c
+    stm32_serial_transport.c
     stm32u5xx_it.c
     ${CMSIS_DEVICE_DIR}/Source/Templates/gcc/startup_stm32u575xx.s
     ${CMSIS_DEVICE_DIR}/Source/Templates/system_stm32u5xx.c
@@ -72,10 +74,12 @@ add_executable(tr2_stm32_p11c
     ${HAL_DIR}/Src/stm32u5xx_hal_pwr_ex.c
     ${HAL_DIR}/Src/stm32u5xx_hal_rcc.c
     ${HAL_DIR}/Src/stm32u5xx_hal_rcc_ex.c
+    ${HAL_DIR}/Src/stm32u5xx_hal_uart.c
 )
 
 target_include_directories(tr2_stm32_p11c PRIVATE
     ${CMAKE_CURRENT_SOURCE_DIR}
+    ${TR2_FIRMWARE_ROOT}/include
     ${CMSIS_CORE_DIR}
     ${CMSIS_DEVICE_DIR}/Include
     ${HAL_DIR}/Inc
