@@ -67,6 +67,7 @@ add_library(tr2_core STATIC
     src/persistence/persistent_storage_core.c
     src/persistence/time_history_record.c
     src/persistence/time_history_store.c
+    src/platform/serial_transport.c
 )
 
 target_include_directories(tr2_core PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include)
@@ -147,6 +148,7 @@ tr2_add_core_test(test_configuration_b4_flow tests/integration/test_configuratio
 tr2_add_core_test(test_configuration_activation_adapter tests/integration/test_configuration_activation_adapter.c configuration_activation_adapter)
 tr2_add_core_test(test_p12c_pdu_server tests/unit/test_p12c_pdu_server.c p12c_pdu_server)
 tr2_add_core_test(test_p12d_rtu_receiver tests/unit/test_p12d_rtu_receiver.c p12d_rtu_receiver)
+tr2_add_core_test(test_p12e_serial_transport tests/unit/test_p12e_serial_transport.c p12e_serial_transport)
 
 function(tr2_add_host_test target source test_name)
     add_executable(${target} ${source})
