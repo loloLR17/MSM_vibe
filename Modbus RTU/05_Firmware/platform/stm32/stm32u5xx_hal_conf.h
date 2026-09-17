@@ -8,6 +8,7 @@
 #define HAL_PWR_MODULE_ENABLED
 #define HAL_RCC_MODULE_ENABLED
 #define HAL_UART_MODULE_ENABLED
+#define HAL_TIM_MODULE_ENABLED
 
 #define HSE_VALUE             16000000U
 #define HSE_STARTUP_TIMEOUT   100U
@@ -31,6 +32,7 @@
 #include "stm32u5xx_hal_cortex.h"
 #include "stm32u5xx_hal_pwr.h"
 #include "stm32u5xx_hal_uart.h"
+#include "stm32u5xx_hal_tim.h"
 
 #ifdef USE_FULL_ASSERT
 #define assert_param(expr) ((expr) ? (void)0U : assert_failed((uint8_t *)__FILE__, __LINE__))
