@@ -37,6 +37,9 @@ typedef struct {
 
 typedef struct CommandJournal CommandJournal;
 
+typedef Tr2Result (*CommandJournalVisitor)(void *context,
+                                          const CommandJournalEntry *entry);
+
 struct CommandJournal {
     void *context;
     Tr2Result (*find)(void *context,
@@ -59,6 +62,9 @@ struct CommandJournal {
                           CommandJournalEntry *entry);
     Tr2Result (*latest_completed)(void *context,
                                   CommandJournalEntry *entry);
+    Tr2Result (*visit)(void *context,
+                       CommandJournalVisitor visitor,
+                       void *visitor_context);
 };
 
 bool command_recovery_context_is_valid(const CommandRecoveryContext *context);
