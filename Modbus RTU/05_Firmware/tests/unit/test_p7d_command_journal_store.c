@@ -289,6 +289,104 @@ static void test_completion_order_recovered_independently_of_transaction_id(void
     assert(entry.completion_order == 2u);
 }
 
+
+typedef struct {
+    uint16_t seen_mask;
+    size_t count;
+    size_t fail_after;
+} VisitContext;
+
+static Tr2Result collect_visit(void *context, const CommandJournalEntry *entry)
+{
+    VisitContext *visit = (VisitContext *)context;
+    uint16_t bit;
+
+    assert(visit != NULL);
+    assert(entry != NULL);
+    assert(entry->transaction_id >= 1u);
+    assert(entry->transaction_id <= TEST_MAX_TRANSACTION_ID);
+
+    if (visit->fail_after != 0u && visit->count == visit->fail_after) {
+        return TR2_ERROR_INVALID_STATE;
+    }
+
+    bit = (uint16_t)(UINT16_C(1) << (entry->transaction_id - 1u));
+    assert((visit->seen_mask & bit) == 0u);
+    visit->seen_mask = (uint16_t)(visit->seen_mask | bit);
+    visit->count += 1u;
+    return TR2_OK;
+}
+
+static void test_visit_empty_store(void)
+{
+    TestMediaContext media;
+    PersistentMedia persistent_media;
+    PersistentStorageCore core;
+    CommandJournalStore store;
+    CommandJournal *journal;
+    VisitContext visit;
+
+    media_init(&media);
+    init_store(&media, &persistent_media, &core, &store);
+    recover_store(&store, COMMAND_JOURNAL_RECOVERY_EMPTY);
+    journal = command_journal_store_journal(&store);
+    memset(&visit, 0, sizeof(visit));
+
+    assert(journal->visit(journal->context, collect_visit, &visit) == TR2_OK);
+    assert(visit.count == 0u);
+    assert(visit.seen_mask == 0u);
+}
+
+static void test_visit_known_transactions_once(void)
+{
+    TestMediaContext media;
+    PersistentMedia persistent_media;
+    PersistentStorageCore core;
+    CommandJournalStore store;
+    CommandJournal *journal;
+    CommandJournalEntry entry;
+    VisitContext visit;
+    CommandRequest first = make_request(1u, COMMAND_CODE_APPLY_CONFIGURATION);
+    CommandRequest second = make_request(3u, COMMAND_CODE_SYNCHRONIZE_TIME);
+
+    media_init(&media);
+    init_store(&media, &persistent_media, &core, &store);
+    recover_store(&store, COMMAND_JOURNAL_RECOVERY_EMPTY);
+    journal = command_journal_store_journal(&store);
+    assert(journal->reserve(journal->context, &first, &entry) == TR2_OK);
+    assert(journal->reserve(journal->context, &second, &entry) == TR2_OK);
+
+    memset(&visit, 0, sizeof(visit));
+    assert(journal->visit(journal->context, collect_visit, &visit) == TR2_OK);
+    assert(visit.count == 2u);
+    assert(visit.seen_mask == (uint16_t)((UINT16_C(1) << 0u) | (UINT16_C(1) << 2u)));
+}
+
+static void test_visit_propagates_visitor_error(void)
+{
+    TestMediaContext media;
+    PersistentMedia persistent_media;
+    PersistentStorageCore core;
+    CommandJournalStore store;
+    CommandJournal *journal;
+    CommandJournalEntry entry;
+    VisitContext visit;
+    CommandRequest first = make_request(1u, COMMAND_CODE_APPLY_CONFIGURATION);
+    CommandRequest second = make_request(2u, COMMAND_CODE_SYNCHRONIZE_TIME);
+
+    media_init(&media);
+    init_store(&media, &persistent_media, &core, &store);
+    recover_store(&store, COMMAND_JOURNAL_RECOVERY_EMPTY);
+    journal = command_journal_store_journal(&store);
+    assert(journal->reserve(journal->context, &first, &entry) == TR2_OK);
+    assert(journal->reserve(journal->context, &second, &entry) == TR2_OK);
+
+    memset(&visit, 0, sizeof(visit));
+    visit.fail_after = 1u;
+    assert(journal->visit(journal->context, collect_visit, &visit) == TR2_ERROR_INVALID_STATE);
+    assert(visit.count == 1u);
+}
+
 int main(void)
 {
     test_lifecycle_survives_reboots();
@@ -296,5 +394,8 @@ int main(void)
     test_failed_commit_recovers_previous_barrier();
     test_lifetime_strict_prevents_transaction_id_reuse();
     test_completion_order_recovered_independently_of_transaction_id();
+    test_visit_empty_store();
+    test_visit_known_transactions_once();
+    test_visit_propagates_visitor_error();
     return 0;
 }
