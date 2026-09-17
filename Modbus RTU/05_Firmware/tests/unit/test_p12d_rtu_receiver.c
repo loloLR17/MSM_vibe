@@ -35,6 +35,11 @@ int main(void)
     assert(receiver.state == MODBUS_RTU_RECEIVER_RECEIVING);
     assert(receiver.length == sizeof(frame1));
 
+    event = modbus_rtu_receiver_on_silence_t1_5(&receiver);
+    assert(!event.frame_available);
+    assert(receiver.state == MODBUS_RTU_RECEIVER_WAITING_T3_5);
+    assert(receiver.length == sizeof(frame1));
+
     event = modbus_rtu_receiver_on_silence_t3_5(&receiver);
     assert(event.frame_available);
     assert(event.frame == receiver.buffer);
@@ -48,7 +53,7 @@ int main(void)
     push_bytes(&receiver, frame2, sizeof(frame2));
     event = modbus_rtu_receiver_on_silence_t1_5(&receiver);
     assert(!event.frame_available);
-    assert(receiver.state == MODBUS_RTU_RECEIVER_INVALID);
+    assert(receiver.state == MODBUS_RTU_RECEIVER_WAITING_T3_5);
     assert(receiver.length == sizeof(frame2));
 
     event = modbus_rtu_receiver_push_byte(&receiver, 0xAAu);
