@@ -27,6 +27,7 @@ foreach(required_path
     ${HAL_DIR}/Inc/stm32u5xx_hal.h
     ${HAL_DIR}/Src/stm32u5xx_hal.c
     ${HAL_DIR}/Src/stm32u5xx_hal_uart.c
+    ${HAL_DIR}/Src/stm32u5xx_hal_uart_ex.c
 )
     if(NOT EXISTS ${required_path})
         message(FATAL_ERROR "STM32CubeU5 dependency missing: ${required_path}. Clone STM32CubeU5 recursively and select v1.9.0.")
@@ -75,6 +76,7 @@ add_executable(tr2_stm32_p11c
     ${HAL_DIR}/Src/stm32u5xx_hal_rcc.c
     ${HAL_DIR}/Src/stm32u5xx_hal_rcc_ex.c
     ${HAL_DIR}/Src/stm32u5xx_hal_uart.c
+    ${HAL_DIR}/Src/stm32u5xx_hal_uart_ex.c
 )
 
 target_include_directories(tr2_stm32_p11c PRIVATE
