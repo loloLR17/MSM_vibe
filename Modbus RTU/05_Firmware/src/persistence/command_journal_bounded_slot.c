@@ -73,14 +73,6 @@ static Tr2Result read_copy(const PersistentStorageCore *storage,
     return TR2_OK;
 }
 
-static bool records_equal(const CommandJournalBoundedRecord *left,
-                          const CommandJournalBoundedRecord *right)
-{
-    return left->generation == right->generation &&
-           left->admission_order == right->admission_order &&
-           left->record.entry.transaction_id == right->record.entry.transaction_id;
-}
-
 Tr2Result command_journal_bounded_slot_select(
     const PersistentStorageCore *storage,
     size_t logical_slot,
