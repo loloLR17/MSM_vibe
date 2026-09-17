@@ -133,7 +133,7 @@ static ModbusWriteOutcome dispatch_write(const ModbusPduServerContext *context,
             return outcome;
         }
         {
-            CommandMailboxSubmitResult submit_result = COMMAND_MAILBOX_SUBMIT_REJECTED_INVALID_STATE;
+            CommandMailboxSubmitResult submit_result = COMMAND_MAILBOX_NO_SUBMISSION;
             CommandRequest captured_request = {0};
             return modbus_write_adapter_write_b5(context->command_mailbox,
                                                  start_address, values, quantity,
