@@ -174,6 +174,96 @@ static void test_equal_generation_different_content_is_corrupted(void)
     assert(selection.status == COMMAND_JOURNAL_BOUNDED_SLOT_CORRUPTED);
 }
 
+
+static void test_equal_generation_identical_content_is_valid(void)
+{
+    TestMedia media;
+    PersistentMedia persistent_media;
+    PersistentStorageCore core;
+    CommandJournalBoundedSlotSelection selection;
+    CommandJournalBoundedRecord record = make_record(11u, 41u, 50u);
+
+    init_core(&media, &persistent_media, &core);
+    write_record(&media, 6u, 0u, &record);
+    write_record(&media, 6u, 1u, &record);
+    assert(command_journal_bounded_slot_select(&core, 6u, &selection) == TR2_OK);
+    assert(selection.status == COMMAND_JOURNAL_BOUNDED_SLOT_VALID);
+    assert(selection.has_record);
+    assert(selection.current_copy == 0u);
+}
+
+static void test_valid_copy_masks_unsupported_peer(void)
+{
+    TestMedia media;
+    PersistentMedia persistent_media;
+    PersistentStorageCore core;
+    CommandJournalBoundedSlotSelection selection;
+    CommandJournalBoundedRecord record = make_record(12u, 51u, 60u);
+    uint32_t offset;
+
+    init_core(&media, &persistent_media, &core);
+    write_record(&media, 7u, 0u, &record);
+    write_record(&media, 7u, 1u, &record);
+    assert(command_journal_bounded_slot_offset(7u, 1u, &offset) == TR2_OK);
+    media.bytes[offset + 4u] = 0u;
+    media.bytes[offset + 5u] = 2u;
+    {
+        uint32_t crc = UINT32_C(0xFFFFFFFF);
+        size_t i;
+        size_t bit;
+        for (i = 0u; i < 66u; ++i) {
+            crc ^= media.bytes[offset + i];
+            for (bit = 0u; bit < 8u; ++bit) {
+                crc = (crc >> 1u) ^ ((crc & 1u) ? UINT32_C(0xEDB88320) : 0u);
+            }
+        }
+        crc = ~crc;
+        media.bytes[offset + 66u] = (uint8_t)(crc >> 24u);
+        media.bytes[offset + 67u] = (uint8_t)(crc >> 16u);
+        media.bytes[offset + 68u] = (uint8_t)(crc >> 8u);
+        media.bytes[offset + 69u] = (uint8_t)crc;
+    }
+
+    assert(command_journal_bounded_slot_select(&core, 7u, &selection) == TR2_OK);
+    assert(selection.status == COMMAND_JOURNAL_BOUNDED_SLOT_VALID);
+    assert(selection.current_copy == 0u);
+}
+
+static void test_unsupported_without_valid_copy_is_unsupported(void)
+{
+    TestMedia media;
+    PersistentMedia persistent_media;
+    PersistentStorageCore core;
+    CommandJournalBoundedSlotSelection selection;
+    CommandJournalBoundedRecord record = make_record(13u, 61u, 70u);
+    uint32_t offset;
+
+    init_core(&media, &persistent_media, &core);
+    write_record(&media, 8u, 0u, &record);
+    assert(command_journal_bounded_slot_offset(8u, 0u, &offset) == TR2_OK);
+    media.bytes[offset + 4u] = 0u;
+    media.bytes[offset + 5u] = 2u;
+    {
+        uint32_t crc = UINT32_C(0xFFFFFFFF);
+        size_t i;
+        size_t bit;
+        for (i = 0u; i < 66u; ++i) {
+            crc ^= media.bytes[offset + i];
+            for (bit = 0u; bit < 8u; ++bit) {
+                crc = (crc >> 1u) ^ ((crc & 1u) ? UINT32_C(0xEDB88320) : 0u);
+            }
+        }
+        crc = ~crc;
+        media.bytes[offset + 66u] = (uint8_t)(crc >> 24u);
+        media.bytes[offset + 67u] = (uint8_t)(crc >> 16u);
+        media.bytes[offset + 68u] = (uint8_t)(crc >> 8u);
+        media.bytes[offset + 69u] = (uint8_t)crc;
+    }
+
+    assert(command_journal_bounded_slot_select(&core, 8u, &selection) == TR2_OK);
+    assert(selection.status == COMMAND_JOURNAL_BOUNDED_SLOT_UNSUPPORTED);
+}
+
 static void test_read_failure_is_unavailable(void)
 {
     TestMedia media;
@@ -194,6 +284,9 @@ int main(void)
     test_newer_generation_wins();
     test_corrupted_new_copy_falls_back_to_valid_old_copy();
     test_equal_generation_different_content_is_corrupted();
+    test_equal_generation_identical_content_is_valid();
+    test_valid_copy_masks_unsupported_peer();
+    test_unsupported_without_valid_copy_is_unsupported();
     test_read_failure_is_unavailable();
     return 0;
 }
