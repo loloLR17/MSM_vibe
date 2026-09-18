@@ -124,10 +124,6 @@ Tr2Result command_journal_bounded_slot_select(
     }
 
     if (found) {
-        if (saw_corrupted) {
-            selection->status = COMMAND_JOURNAL_BOUNDED_SLOT_CORRUPTED;
-            return TR2_OK;
-        }
         selection->status = COMMAND_JOURNAL_BOUNDED_SLOT_VALID;
         selection->has_record = true;
         selection->current_copy = current_copy;
