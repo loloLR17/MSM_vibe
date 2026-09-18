@@ -83,6 +83,7 @@ Tr2Result command_journal_bounded_slot_select(
     bool found = false;
     bool saw_corrupted = false;
     bool saw_unsupported = false;
+    bool conflicting_valid = false;
     size_t current_copy = 0u;
     CommandJournalBoundedRecord current;
 
@@ -114,7 +115,7 @@ Tr2Result command_journal_bounded_slot_select(
                        memcmp(&copies[index].record,
                               &current,
                               sizeof(CommandJournalBoundedRecord)) != 0) {
-                saw_corrupted = true;
+                conflicting_valid = true;
             }
         } else if (copies[index].decode_status == TR2_ERROR_UNSUPPORTED) {
             saw_unsupported = true;
@@ -124,6 +125,10 @@ Tr2Result command_journal_bounded_slot_select(
     }
 
     if (found) {
+        if (conflicting_valid) {
+            selection->status = COMMAND_JOURNAL_BOUNDED_SLOT_CORRUPTED;
+            return TR2_OK;
+        }
         selection->status = COMMAND_JOURNAL_BOUNDED_SLOT_VALID;
         selection->has_record = true;
         selection->current_copy = current_copy;
