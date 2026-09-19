@@ -156,6 +156,7 @@ tr2_add_core_test(test_p12e_serial_transport tests/unit/test_p12e_serial_transpo
 tr2_add_core_test(test_p12h_rtu_server_runtime tests/unit/test_p12h_rtu_server_runtime.c p12h_rtu_server_runtime)
 tr2_add_core_test(test_p12h3c3b_command_journal_bounded_record tests/unit/test_p12h3c3b_command_journal_bounded_record.c p12h3c3b_command_journal_bounded_record)
 tr2_add_core_test(test_p12h3c3c1_bounded_slot tests/unit/test_p12h3c3c1_bounded_slot.c p12h3c3c1_bounded_slot)
+tr2_add_core_test(test_p12h3c3c2_bounded_recovery tests/unit/test_p12h3c3c2_bounded_recovery.c p12h3c3c2_bounded_recovery)
 
 function(tr2_add_host_test target source test_name)
     add_executable(${target} ${source})
