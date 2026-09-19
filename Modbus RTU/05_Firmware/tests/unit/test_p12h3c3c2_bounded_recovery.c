@@ -9,12 +9,16 @@
 
 typedef struct {
     uint8_t bytes[TR2_COMMAND_JOURNAL_BOUNDED_STORAGE_SIZE];
+    bool fail_read;
 } TestMedia;
 
 static Tr2Result media_read(void *context, uint32_t offset, void *buffer, size_t size)
 {
     TestMedia *media = (TestMedia *)context;
 
+    if (media->fail_read) {
+        return TR2_ERROR_STORAGE;
+    }
     if ((size_t)offset + size > sizeof(media->bytes)) {
         return TR2_ERROR_STORAGE;
     }
@@ -85,6 +89,45 @@ static void write_record(TestMedia *media,
     assert(command_journal_bounded_slot_offset(logical_slot, copy_index, &offset) == TR2_OK);
     assert(tr2_command_journal_bounded_record_encode(record, bytes, sizeof(bytes)) == TR2_OK);
     memcpy(&media->bytes[offset], bytes, sizeof(bytes));
+}
+
+
+static uint32_t test_crc32(const uint8_t *bytes, size_t size)
+{
+    uint32_t crc = UINT32_C(0xFFFFFFFF);
+    size_t index;
+    size_t bit;
+
+    for (index = 0u; index < size; ++index) {
+        crc ^= bytes[index];
+        for (bit = 0u; bit < 8u; ++bit) {
+            crc = (crc >> 1u) ^ ((crc & 1u) ? UINT32_C(0xEDB88320) : 0u);
+        }
+    }
+    return ~crc;
+}
+
+static void make_copy_unsupported(TestMedia *media, size_t logical_slot, size_t copy_index)
+{
+    uint32_t offset;
+    uint32_t crc;
+
+    assert(command_journal_bounded_slot_offset(logical_slot, copy_index, &offset) == TR2_OK);
+    media->bytes[offset + 4u] = 0u;
+    media->bytes[offset + 5u] = 2u;
+    crc = test_crc32(&media->bytes[offset], 66u);
+    media->bytes[offset + 66u] = (uint8_t)(crc >> 24u);
+    media->bytes[offset + 67u] = (uint8_t)(crc >> 16u);
+    media->bytes[offset + 68u] = (uint8_t)(crc >> 8u);
+    media->bytes[offset + 69u] = (uint8_t)crc;
+}
+
+static void corrupt_copy(TestMedia *media, size_t logical_slot, size_t copy_index)
+{
+    uint32_t offset;
+
+    assert(command_journal_bounded_slot_offset(logical_slot, copy_index, &offset) == TR2_OK);
+    media->bytes[offset + 20u] ^= UINT8_C(1);
 }
 
 static void test_empty_store(void)
@@ -288,6 +331,76 @@ static void test_max_generation_remains_recoverable(void)
     assert(result.next_completion_order == 2u);
 }
 
+
+static void test_corrupted_slot_is_corrupted(void)
+{
+    TestMedia media;
+    PersistentMedia persistent_media;
+    PersistentStorageCore core;
+    CommandJournalBoundedRecoveryResult result;
+    CommandJournalBoundedRecord record =
+        make_record(70u, 1u, 1u, COMMAND_LIFECYCLE_COMPLETED, 1u);
+
+    init_core(&media, &persistent_media, &core);
+    write_record(&media, 20u, 0u, &record);
+    corrupt_copy(&media, 20u, 0u);
+
+    assert(command_journal_bounded_recovery_scan(&core, &result) == TR2_OK);
+    assert(result.status == COMMAND_JOURNAL_BOUNDED_RECOVERY_CORRUPTED);
+}
+
+static void test_unsupported_slot_is_unsupported(void)
+{
+    TestMedia media;
+    PersistentMedia persistent_media;
+    PersistentStorageCore core;
+    CommandJournalBoundedRecoveryResult result;
+    CommandJournalBoundedRecord record =
+        make_record(71u, 1u, 1u, COMMAND_LIFECYCLE_COMPLETED, 1u);
+
+    init_core(&media, &persistent_media, &core);
+    write_record(&media, 21u, 0u, &record);
+    make_copy_unsupported(&media, 21u, 0u);
+
+    assert(command_journal_bounded_recovery_scan(&core, &result) == TR2_OK);
+    assert(result.status == COMMAND_JOURNAL_BOUNDED_RECOVERY_UNSUPPORTED);
+}
+
+static void test_unavailable_store_is_unavailable(void)
+{
+    TestMedia media;
+    PersistentMedia persistent_media;
+    PersistentStorageCore core;
+    CommandJournalBoundedRecoveryResult result;
+
+    init_core(&media, &persistent_media, &core);
+    media.fail_read = true;
+
+    assert(command_journal_bounded_recovery_scan(&core, &result) == TR2_OK);
+    assert(result.status == COMMAND_JOURNAL_BOUNDED_RECOVERY_UNAVAILABLE);
+}
+
+static void test_unsupported_has_priority_over_corrupted(void)
+{
+    TestMedia media;
+    PersistentMedia persistent_media;
+    PersistentStorageCore core;
+    CommandJournalBoundedRecoveryResult result;
+    CommandJournalBoundedRecord first =
+        make_record(72u, 1u, 1u, COMMAND_LIFECYCLE_COMPLETED, 1u);
+    CommandJournalBoundedRecord second =
+        make_record(73u, 1u, 2u, COMMAND_LIFECYCLE_COMPLETED, 2u);
+
+    init_core(&media, &persistent_media, &core);
+    write_record(&media, 22u, 0u, &first);
+    corrupt_copy(&media, 22u, 0u);
+    write_record(&media, 23u, 0u, &second);
+    make_copy_unsupported(&media, 23u, 0u);
+
+    assert(command_journal_bounded_recovery_scan(&core, &result) == TR2_OK);
+    assert(result.status == COMMAND_JOURNAL_BOUNDED_RECOVERY_UNSUPPORTED);
+}
+
 int main(void)
 {
     test_empty_store();
@@ -301,5 +414,9 @@ int main(void)
     test_max_admission_order_is_unsupported();
     test_max_completion_order_is_unsupported();
     test_max_generation_remains_recoverable();
+    test_corrupted_slot_is_corrupted();
+    test_unsupported_slot_is_unsupported();
+    test_unavailable_store_is_unavailable();
+    test_unsupported_has_priority_over_corrupted();
     return 0;
 }
