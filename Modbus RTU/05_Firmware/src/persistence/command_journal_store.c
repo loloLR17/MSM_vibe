@@ -3,8 +3,6 @@
 #include <stddef.h>
 #include <string.h>
 
-#include "tr2/persistence/command_journal_bounded_reader.h"
-
 typedef struct {
     bool empty;
     Tr2Result decode_status;
@@ -143,41 +141,29 @@ static Tr2Result persist_record(CommandJournalStore *store,
     return TR2_OK;
 }
 
-static bool bounded_read_failure_requires_recovery(Tr2Result result)
-{
-    return result == TR2_ERROR_CORRUPTED ||
-           result == TR2_ERROR_UNAVAILABLE ||
-           result == TR2_ERROR_UNSUPPORTED ||
-           result == TR2_ERROR_STORAGE;
-}
-
 static Tr2Result journal_find(void *context,
                               uint16_t transaction_id,
                               CommandJournalEntry *entry)
 {
     CommandJournalStore *store = (CommandJournalStore *)context;
-    CommandJournalBoundedRecord record;
-    size_t logical_slot;
+    JournalSlotInfo slots[TR2_COMMAND_JOURNAL_STORE_REDUNDANT_SLOTS];
+    CommandJournalRecord record;
+    bool found;
+    size_t current_slot;
     Tr2Result result;
 
     if (!command_journal_store_is_initialized(store) || entry == NULL ||
-        transaction_id == 0u) {
+        transaction_id == 0u || transaction_id > store->max_transaction_id) {
         return TR2_ERROR_INVALID_ARGUMENT;
     }
-    if (store->recovery_required) {
-        return TR2_ERROR_INVALID_STATE;
-    }
 
-    result = command_journal_bounded_reader_find(store->storage,
-                                                 transaction_id,
-                                                 &logical_slot,
-                                                 &record);
-    (void)logical_slot;
-    if (bounded_read_failure_requires_recovery(result)) {
-        store->recovery_required = true;
-    }
+    result = select_current_record(store, transaction_id, slots, &found, &current_slot, &record);
+    (void)current_slot;
     if (result != TR2_OK) {
         return result;
+    }
+    if (!found) {
+        return TR2_ERROR_NOT_FOUND;
     }
 
     *entry = record.entry;
@@ -335,72 +321,68 @@ static Tr2Result journal_complete(void *context,
 static Tr2Result journal_latest_completed(void *context, CommandJournalEntry *entry)
 {
     CommandJournalStore *store = (CommandJournalStore *)context;
-    CommandJournalBoundedRecord record;
-    size_t logical_slot;
-    Tr2Result result;
+    uint32_t transaction_id;
+    bool found_latest = false;
+    CommandJournalEntry latest;
 
     if (!command_journal_store_is_initialized(store) || entry == NULL) {
         return TR2_ERROR_INVALID_ARGUMENT;
     }
-    if (store->recovery_required) {
-        return TR2_ERROR_INVALID_STATE;
+
+    memset(&latest, 0, sizeof(latest));
+    for (transaction_id = 1u; transaction_id <= store->max_transaction_id; ++transaction_id) {
+        CommandJournalEntry candidate;
+        Tr2Result result = journal_find(store, (uint16_t)transaction_id, &candidate);
+        if (result == TR2_ERROR_NOT_FOUND) {
+            continue;
+        }
+        if (result != TR2_OK) {
+            return result;
+        }
+        if (candidate.lifecycle == COMMAND_LIFECYCLE_COMPLETED &&
+            (!found_latest || candidate.completion_order > latest.completion_order)) {
+            latest = candidate;
+            found_latest = true;
+        }
     }
 
-    result = command_journal_bounded_reader_latest_completed(store->storage,
-                                                             &logical_slot,
-                                                             &record);
-    (void)logical_slot;
-    if (bounded_read_failure_requires_recovery(result)) {
-        store->recovery_required = true;
+    if (!found_latest) {
+        return TR2_ERROR_NOT_FOUND;
     }
-    if (result != TR2_OK) {
-        return result;
-    }
-
-    *entry = record.entry;
+    *entry = latest;
     return TR2_OK;
 }
 
-typedef struct {
-    CommandJournalVisitor visitor;
-    void *visitor_context;
-} BoundedJournalVisitAdapter;
-
-static Tr2Result bounded_journal_visit_adapter(
-    void *context,
-    size_t logical_slot,
-    const CommandJournalBoundedRecord *record)
-{
-    BoundedJournalVisitAdapter *adapter = (BoundedJournalVisitAdapter *)context;
-
-    (void)logical_slot;
-    return adapter->visitor(adapter->visitor_context, &record->entry);
-}
 
 static Tr2Result journal_visit(void *context,
                                CommandJournalVisitor visitor,
                                void *visitor_context)
 {
     CommandJournalStore *store = (CommandJournalStore *)context;
-    BoundedJournalVisitAdapter adapter;
-    Tr2Result result;
+    uint32_t transaction_id;
 
     if (!command_journal_store_is_initialized(store) || visitor == NULL) {
         return TR2_ERROR_INVALID_ARGUMENT;
     }
-    if (store->recovery_required) {
-        return TR2_ERROR_INVALID_STATE;
+
+    for (transaction_id = 1u; transaction_id <= store->max_transaction_id; ++transaction_id) {
+        CommandJournalEntry entry;
+        Tr2Result result = journal_find(store, (uint16_t)transaction_id, &entry);
+
+        if (result == TR2_ERROR_NOT_FOUND) {
+            continue;
+        }
+        if (result != TR2_OK) {
+            return result;
+        }
+
+        result = visitor(visitor_context, &entry);
+        if (result != TR2_OK) {
+            return result;
+        }
     }
 
-    adapter.visitor = visitor;
-    adapter.visitor_context = visitor_context;
-    result = command_journal_bounded_reader_visit(store->storage,
-                                                   bounded_journal_visit_adapter,
-                                                   &adapter);
-    if (bounded_read_failure_requires_recovery(result)) {
-        store->recovery_required = true;
-    }
-    return result;
+    return TR2_OK;
 }
 
 Tr2Result command_journal_store_init(CommandJournalStore *store,
