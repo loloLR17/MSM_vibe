@@ -48,6 +48,7 @@ static void init_core(TestMedia *media,
                       PersistentStorageCore *core)
 {
     memset(media, 0xFF, sizeof(*media));
+    media->fail_read = false;
     persistent_media->context = media;
     persistent_media->read = media_read;
     persistent_media->write = media_write;
