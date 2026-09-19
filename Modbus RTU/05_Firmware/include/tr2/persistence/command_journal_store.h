@@ -27,6 +27,7 @@ typedef enum {
 typedef struct {
     CommandJournalRecoveryStatus status;
     uint32_t known_transaction_count;
+    uint32_t next_admission_order;
     uint32_t next_completion_order;
 } CommandJournalRecoveryResult;
 
@@ -35,6 +36,7 @@ typedef struct {
     uint16_t max_transaction_id;
     bool initialized;
     bool recovery_required;
+    uint32_t next_admission_order;
     uint32_t next_completion_order;
     CommandJournal journal;
 } CommandJournalStore;
