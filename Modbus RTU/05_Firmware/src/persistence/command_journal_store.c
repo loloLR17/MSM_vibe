@@ -399,6 +399,7 @@ Tr2Result command_journal_store_init(CommandJournalStore *store,
     store->max_transaction_id = max_transaction_id;
     store->initialized = true;
     store->recovery_required = true;
+    store->next_admission_order = 1u;
     store->next_completion_order = 1u;
     store->journal.context = store;
     store->journal.find = journal_find;
@@ -487,6 +488,7 @@ Tr2Result command_journal_store_recover(CommandJournalStore *store,
     store->next_completion_order = max_completion_order + 1u;
     store->recovery_required = false;
     result->known_transaction_count = known_count;
+    result->next_admission_order = store->next_admission_order;
     result->next_completion_order = store->next_completion_order;
     result->status = saw_any ? COMMAND_JOURNAL_RECOVERY_VALID : COMMAND_JOURNAL_RECOVERY_EMPTY;
     return TR2_OK;
