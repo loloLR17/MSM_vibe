@@ -8,6 +8,8 @@
 
 typedef struct {
     uint8_t bytes[TR2_COMMAND_JOURNAL_BOUNDED_STORAGE_SIZE];
+    bool fail_read;
+    uint32_t fail_read_from_offset;
 } TestMedia;
 
 typedef struct {
@@ -22,6 +24,9 @@ static Tr2Result media_read(void *context, uint32_t offset, void *buffer, size_t
 {
     TestMedia *media = (TestMedia *)context;
 
+    if (media->fail_read && offset >= media->fail_read_from_offset) {
+        return TR2_ERROR_STORAGE;
+    }
     if ((size_t)offset + size > sizeof(media->bytes)) {
         return TR2_ERROR_STORAGE;
     }
@@ -51,6 +56,8 @@ static void init_core(TestMedia *media,
                       PersistentStorageCore *core)
 {
     memset(media, 0xFF, sizeof(*media));
+    media->fail_read = false;
+    media->fail_read_from_offset = 0u;
     persistent_media->context = media;
     persistent_media->read = media_read;
     persistent_media->write = media_write;
@@ -91,6 +98,45 @@ static void write_record(TestMedia *media,
     assert(command_journal_bounded_slot_offset(logical_slot, copy_index, &offset) == TR2_OK);
     assert(tr2_command_journal_bounded_record_encode(record, bytes, sizeof(bytes)) == TR2_OK);
     memcpy(&media->bytes[offset], bytes, sizeof(bytes));
+}
+
+
+static uint32_t test_crc32(const uint8_t *bytes, size_t size)
+{
+    uint32_t crc = UINT32_C(0xFFFFFFFF);
+    size_t index;
+    size_t bit;
+
+    for (index = 0u; index < size; ++index) {
+        crc ^= bytes[index];
+        for (bit = 0u; bit < 8u; ++bit) {
+            crc = (crc >> 1u) ^ ((crc & 1u) ? UINT32_C(0xEDB88320) : 0u);
+        }
+    }
+    return ~crc;
+}
+
+static void corrupt_copy(TestMedia *media, size_t logical_slot, size_t copy_index)
+{
+    uint32_t offset;
+
+    assert(command_journal_bounded_slot_offset(logical_slot, copy_index, &offset) == TR2_OK);
+    media->bytes[offset + 20u] ^= UINT8_C(1);
+}
+
+static void make_copy_unsupported(TestMedia *media, size_t logical_slot, size_t copy_index)
+{
+    uint32_t offset;
+    uint32_t crc;
+
+    assert(command_journal_bounded_slot_offset(logical_slot, copy_index, &offset) == TR2_OK);
+    media->bytes[offset + 4u] = 0u;
+    media->bytes[offset + 5u] = 2u;
+    crc = test_crc32(&media->bytes[offset], 66u);
+    media->bytes[offset + 66u] = (uint8_t)(crc >> 24u);
+    media->bytes[offset + 67u] = (uint8_t)(crc >> 16u);
+    media->bytes[offset + 68u] = (uint8_t)(crc >> 8u);
+    media->bytes[offset + 69u] = (uint8_t)crc;
 }
 
 static Tr2Result visit_entry(void *context,
@@ -269,6 +315,61 @@ static void test_latest_completed_rejects_equal_order(void)
            TR2_ERROR_CORRUPTED);
 }
 
+
+static void test_find_propagates_corrupted_slot(void)
+{
+    TestMedia media;
+    PersistentMedia persistent_media;
+    PersistentStorageCore core;
+    CommandJournalBoundedRecord source =
+        make_record(40u, 1u, 1u, COMMAND_LIFECYCLE_COMPLETED, 1u);
+    CommandJournalBoundedRecord found;
+    size_t slot;
+
+    init_core(&media, &persistent_media, &core);
+    write_record(&media, 0u, 0u, &source);
+    corrupt_copy(&media, 0u, 0u);
+
+    assert(command_journal_bounded_reader_find(&core, 40u, &slot, &found) ==
+           TR2_ERROR_CORRUPTED);
+}
+
+static void test_visit_propagates_unsupported_slot(void)
+{
+    TestMedia media;
+    PersistentMedia persistent_media;
+    PersistentStorageCore core;
+    VisitContext visit;
+    CommandJournalBoundedRecord source =
+        make_record(41u, 1u, 1u, COMMAND_LIFECYCLE_COMPLETED, 1u);
+
+    init_core(&media, &persistent_media, &core);
+    write_record(&media, 0u, 0u, &source);
+    make_copy_unsupported(&media, 0u, 0u);
+    memset(&visit, 0, sizeof(visit));
+    visit.result = TR2_OK;
+
+    assert(command_journal_bounded_reader_visit(&core, visit_entry, &visit) ==
+           TR2_ERROR_UNSUPPORTED);
+    assert(visit.count == 0u);
+}
+
+static void test_latest_completed_propagates_unavailable_media(void)
+{
+    TestMedia media;
+    PersistentMedia persistent_media;
+    PersistentStorageCore core;
+    CommandJournalBoundedRecord found;
+    size_t slot;
+
+    init_core(&media, &persistent_media, &core);
+    media.fail_read = true;
+    media.fail_read_from_offset = 0u;
+
+    assert(command_journal_bounded_reader_latest_completed(&core, &slot, &found) ==
+           TR2_ERROR_UNAVAILABLE);
+}
+
 int main(void)
 {
     test_find_empty_and_invalid_id();
@@ -278,5 +379,8 @@ int main(void)
     test_latest_completed_not_found();
     test_latest_completed_selects_highest_order();
     test_latest_completed_rejects_equal_order();
+    test_find_propagates_corrupted_slot();
+    test_visit_propagates_unsupported_slot();
+    test_latest_completed_propagates_unavailable_media();
     return 0;
 }
