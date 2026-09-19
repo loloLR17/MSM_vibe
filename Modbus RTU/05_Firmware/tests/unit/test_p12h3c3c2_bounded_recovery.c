@@ -10,13 +10,14 @@
 typedef struct {
     uint8_t bytes[TR2_COMMAND_JOURNAL_BOUNDED_STORAGE_SIZE];
     bool fail_read;
+    uint32_t fail_read_from_offset;
 } TestMedia;
 
 static Tr2Result media_read(void *context, uint32_t offset, void *buffer, size_t size)
 {
     TestMedia *media = (TestMedia *)context;
 
-    if (media->fail_read) {
+    if (media->fail_read && offset >= media->fail_read_from_offset) {
         return TR2_ERROR_STORAGE;
     }
     if ((size_t)offset + size > sizeof(media->bytes)) {
@@ -49,6 +50,7 @@ static void init_core(TestMedia *media,
 {
     memset(media, 0xFF, sizeof(*media));
     media->fail_read = false;
+    media->fail_read_from_offset = 0u;
     persistent_media->context = media;
     persistent_media->read = media_read;
     persistent_media->write = media_write;
@@ -376,6 +378,7 @@ static void test_unavailable_store_is_unavailable(void)
 
     init_core(&media, &persistent_media, &core);
     media.fail_read = true;
+    media.fail_read_from_offset = 0u;
 
     assert(command_journal_bounded_recovery_scan(&core, &result) == TR2_OK);
     assert(result.status == COMMAND_JOURNAL_BOUNDED_RECOVERY_UNAVAILABLE);
@@ -402,6 +405,32 @@ static void test_unsupported_has_priority_over_corrupted(void)
     assert(result.status == COMMAND_JOURNAL_BOUNDED_RECOVERY_UNSUPPORTED);
 }
 
+
+static void test_unavailable_has_priority_over_unsupported_and_corrupted(void)
+{
+    TestMedia media;
+    PersistentMedia persistent_media;
+    PersistentStorageCore core;
+    CommandJournalBoundedRecoveryResult result;
+    CommandJournalBoundedRecord first =
+        make_record(74u, 1u, 1u, COMMAND_LIFECYCLE_COMPLETED, 1u);
+    CommandJournalBoundedRecord second =
+        make_record(75u, 1u, 2u, COMMAND_LIFECYCLE_COMPLETED, 2u);
+    uint32_t fail_offset;
+
+    init_core(&media, &persistent_media, &core);
+    write_record(&media, 0u, 0u, &first);
+    corrupt_copy(&media, 0u, 0u);
+    write_record(&media, 1u, 0u, &second);
+    make_copy_unsupported(&media, 1u, 0u);
+    assert(command_journal_bounded_slot_offset(2u, 0u, &fail_offset) == TR2_OK);
+    media.fail_read = true;
+    media.fail_read_from_offset = fail_offset;
+
+    assert(command_journal_bounded_recovery_scan(&core, &result) == TR2_OK);
+    assert(result.status == COMMAND_JOURNAL_BOUNDED_RECOVERY_UNAVAILABLE);
+}
+
 int main(void)
 {
     test_empty_store();
@@ -419,5 +448,6 @@ int main(void)
     test_unsupported_slot_is_unsupported();
     test_unavailable_store_is_unavailable();
     test_unsupported_has_priority_over_corrupted();
+    test_unavailable_has_priority_over_unsupported_and_corrupted();
     return 0;
 }
