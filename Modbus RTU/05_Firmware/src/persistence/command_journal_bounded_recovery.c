@@ -17,7 +17,7 @@ Tr2Result command_journal_bounded_recovery_scan(
     const PersistentStorageCore *storage,
     CommandJournalBoundedRecoveryResult *result)
 {
-    bool transaction_ids[UINT16_MAX + 1u] = { false };
+    uint16_t transaction_ids[TR2_COMMAND_JOURNAL_BOUNDED_SLOT_COUNT];
     uint32_t admission_orders[TR2_COMMAND_JOURNAL_BOUNDED_SLOT_COUNT];
     uint32_t completion_orders[TR2_COMMAND_JOURNAL_BOUNDED_SLOT_COUNT];
     size_t admission_count = 0u;
@@ -37,6 +37,7 @@ Tr2Result command_journal_bounded_recovery_scan(
     }
 
     memset(result, 0, sizeof(*result));
+    memset(transaction_ids, 0, sizeof(transaction_ids));
     memset(admission_orders, 0, sizeof(admission_orders));
     memset(completion_orders, 0, sizeof(completion_orders));
 
@@ -75,11 +76,13 @@ Tr2Result command_journal_bounded_recovery_scan(
 
         known_count++;
 
-        if (transaction_ids[selection.record.entry.transaction_id]) {
-            saw_corrupted = true;
-        } else {
-            transaction_ids[selection.record.entry.transaction_id] = true;
+        for (index = 0u; index + 1u < known_count; ++index) {
+            if (transaction_ids[index] == selection.record.entry.transaction_id) {
+                saw_corrupted = true;
+                break;
+            }
         }
+        transaction_ids[known_count - 1u] = selection.record.entry.transaction_id;
 
         for (index = 0u; index < admission_count; ++index) {
             if (admission_orders[index] == selection.record.admission_order) {
