@@ -75,6 +75,7 @@ add_library(tr2_core STATIC
     src/persistence/persistent_storage_core.c
     src/persistence/time_history_record.c
     src/persistence/time_history_store.c
+    src/persistence/transactional_image_media.c
     src/platform/serial_transport.c
 )
 
@@ -171,6 +172,7 @@ tr2_add_core_test(test_p12h3c3c4d3_mutation_power_loss tests/unit/test_p12h3c3c4
 tr2_add_core_test(test_p12h3c3c4d4_completion_power_loss tests/unit/test_p12h3c3c4d4_completion_power_loss.c p12h3c3c4d4_completion_power_loss)
 tr2_add_core_test(test_p12h3c3c4d5_readmission_power_loss tests/unit/test_p12h3c3c4d5_readmission_power_loss.c p12h3c3c4d5_readmission_power_loss)
 tr2_add_core_test(test_p12h3c3c4d6_d8_consolidation tests/unit/test_p12h3c3c4d6_d8_consolidation.c p12h3c3c4d6_d8_consolidation)
+tr2_add_core_test(test_p12h3d2_transactional_image_media tests/unit/test_p12h3d2_transactional_image_media.c p12h3d2_transactional_image_media)
 
 function(tr2_add_host_test target source test_name)
     add_executable(${target} ${source})
