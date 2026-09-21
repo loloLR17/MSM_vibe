@@ -170,6 +170,7 @@ tr2_add_core_test(test_p12h3c3c4d2_admission_power_loss tests/unit/test_p12h3c3c
 tr2_add_core_test(test_p12h3c3c4d3_mutation_power_loss tests/unit/test_p12h3c3c4d3_mutation_power_loss.c p12h3c3c4d3_mutation_power_loss)
 tr2_add_core_test(test_p12h3c3c4d4_completion_power_loss tests/unit/test_p12h3c3c4d4_completion_power_loss.c p12h3c3c4d4_completion_power_loss)
 tr2_add_core_test(test_p12h3c3c4d5_readmission_power_loss tests/unit/test_p12h3c3c4d5_readmission_power_loss.c p12h3c3c4d5_readmission_power_loss)
+tr2_add_core_test(test_p12h3c3c4d6_d8_consolidation tests/unit/test_p12h3c3c4d6_d8_consolidation.c p12h3c3c4d6_d8_consolidation)
 
 function(tr2_add_host_test target source test_name)
     add_executable(${target} ${source})
