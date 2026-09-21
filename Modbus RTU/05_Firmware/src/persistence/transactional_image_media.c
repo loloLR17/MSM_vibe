@@ -122,8 +122,13 @@ static Tr2Result media_commit_cb(void *context)
     if(m->generation>=UINT64_MAX-1u){ m->recovery_required=true; return TR2_ERROR_UNSUPPORTED; }
     next=m->generation+1u; inactive=(uint8_t)(1u-m->active_image); base=image_base(inactive);
     encode_image_header(header,next,m->candidate);
-    if(physical_write(m,base,header,sizeof(header))!=TR2_OK||
-       physical_write(m,base+64u,m->candidate,TR2_TRANSACTIONAL_MEDIA_LOGICAL_SIZE)!=TR2_OK){
+    /*
+     * Finalize an image only after its payload is fully written.  The header
+     * carries generation and payload CRC and therefore acts as the image
+     * finalization record; the superblock remains the publication record.
+     */
+    if(physical_write(m,base+64u,m->candidate,TR2_TRANSACTIONAL_MEDIA_LOGICAL_SIZE)!=TR2_OK||
+       physical_write(m,base,header,sizeof(header))!=TR2_OK){
         m->recovery_required=true; return TR2_ERROR_STORAGE;
     }
     st=validate_image(m,inactive,&verified);
@@ -149,8 +154,8 @@ Tr2Result transactional_image_media_format_empty(TransactionalImageMedia *m)
     uint8_t h[64],s[64]; uint64_t verified; uint8_t img;
     if(m==NULL||!m->initialized) return TR2_ERROR_INVALID_STATE;
     memset(m->candidate,0,TR2_TRANSACTIONAL_MEDIA_LOGICAL_SIZE); encode_image_header(h,1u,m->candidate);
-    if(physical_write(m,TR2_TRANSACTIONAL_MEDIA_IMAGE_A_BASE,h,64)!=TR2_OK||
-       physical_write(m,TR2_TRANSACTIONAL_MEDIA_IMAGE_A_BASE+64u,m->candidate,TR2_TRANSACTIONAL_MEDIA_LOGICAL_SIZE)!=TR2_OK||
+    if(physical_write(m,TR2_TRANSACTIONAL_MEDIA_IMAGE_A_BASE+64u,m->candidate,TR2_TRANSACTIONAL_MEDIA_LOGICAL_SIZE)!=TR2_OK||
+       physical_write(m,TR2_TRANSACTIONAL_MEDIA_IMAGE_A_BASE,h,64)!=TR2_OK||
        validate_image(m,0u,&verified)!=REC_VALID||verified!=1u){ m->recovery_required=true; return TR2_ERROR_STORAGE; }
     encode_superblock(s,1u,0u);
     if(physical_write(m,TR2_TRANSACTIONAL_MEDIA_SUPERBLOCK_A_BASE,s,64)!=TR2_OK||
