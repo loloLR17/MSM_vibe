@@ -3,6 +3,7 @@
 #include <stdint.h>
 #include <stdlib.h>
 #include <string.h>
+#include <stdio.h>
 
 #include "tr2/persistence/transactional_image_media.h"
 
@@ -129,6 +130,9 @@ static void run_torn_commit_case(uint32_t relative_write_call,
                                  size_t cut,
                                  uint8_t new_value)
 {
+    fprintf(stderr, "H3d2B case write=%u cut=%zu value=0x%02X\n",
+            (unsigned)relative_write_call, cut, (unsigned)new_value);
+    fflush(stderr);
     FaultPhysical physical;
     TransactionalImageMedia media;
     uint8_t *candidate = malloc(TR2_TRANSACTIONAL_MEDIA_LOGICAL_SIZE);
