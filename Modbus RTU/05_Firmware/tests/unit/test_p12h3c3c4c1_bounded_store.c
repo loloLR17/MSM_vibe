@@ -204,6 +204,35 @@ static void test_visitor_business_error_does_not_rearm(void)
     assert(!command_journal_bounded_store_recovery_required(&store));
 }
 
+
+static void test_visitor_persistent_named_business_errors_do_not_rearm(void)
+{
+    const Tr2Result business_errors[] = {
+        TR2_ERROR_STORAGE,
+        TR2_ERROR_UNAVAILABLE,
+        TR2_ERROR_CORRUPTED,
+        TR2_ERROR_UNSUPPORTED
+    };
+    size_t index;
+
+    for (index = 0u; index < sizeof(business_errors) / sizeof(business_errors[0]); ++index) {
+        TestMedia media; PersistentMedia pm; PersistentStorageCore core;
+        CommandJournalBoundedStore store;
+        CommandJournalBoundedRecoveryResult recovery;
+        CommandJournalBoundedRecord record = make_completed(8u, 1u, 1u);
+        VisitContext visit = {0u, business_errors[index]};
+
+        init_core(&media, &pm, &core);
+        write_record(&media, 2u, &record);
+        assert(command_journal_bounded_store_init(&store, &core) == TR2_OK);
+        assert(command_journal_bounded_store_recover(&store, &recovery) == TR2_OK);
+        assert(store.journal.visit(store.journal.context, visitor, &visit) ==
+               business_errors[index]);
+        assert(visit.count == 1u);
+        assert(!store.recovery_required);
+    }
+}
+
 static void test_failed_recovery_stays_closed_then_can_recover(void)
 {
     TestMedia media; PersistentMedia pm; PersistentStorageCore core;
@@ -563,6 +592,7 @@ int main(void)
     test_valid_recovery_reconstructs_counters_and_reads();
     test_reader_degradation_rearms_recovery();
     test_visitor_business_error_does_not_rearm();
+    test_visitor_persistent_named_business_errors_do_not_rearm();
     test_failed_recovery_stays_closed_then_can_recover();
     test_reserve_empty_persists_and_advances_order();
     test_reserve_existing_retry_and_collision_do_not_write();
