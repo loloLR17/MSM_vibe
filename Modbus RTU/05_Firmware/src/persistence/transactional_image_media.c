@@ -174,7 +174,8 @@ static RecordState validate_superblock(TransactionalImageMedia *m,uint8_t copy,u
 static Tr2Result media_read_cb(void *context,uint32_t offset,void *buffer,size_t size)
 {
     TransactionalImageMedia *m=context;
-    if(m==NULL||!m->recovered||m->recovery_required||buffer==NULL||!range_ok(offset,size)) return TR2_ERROR_INVALID_STATE;
+    if(m==NULL||!m->recovered||m->recovery_required||(buffer==NULL&&size!=0u)||!range_ok(offset,size)) return TR2_ERROR_INVALID_STATE;
+    if(size==0u) return TR2_OK;
     return physical_read(m,image_base(m,m->active_image)+64u+offset,buffer,size);
 }
 
