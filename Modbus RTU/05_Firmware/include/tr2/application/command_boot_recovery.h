@@ -9,6 +9,7 @@
 #include "tr2/application/command_start_acquisition.h"
 #include "tr2/application/command_stop_acquisition.h"
 #include "tr2/application/command_synchronize_time.h"
+#include "tr2/persistence/command_journal.h"
 
 typedef enum {
     COMMAND_BOOT_RECOVERY_CLEAN = 0,
@@ -35,7 +36,7 @@ typedef struct {
 } CommandBootRecoveryResult;
 
 Tr2Result command_boot_recovery_scan(
-    CommandJournalStore *journal_store,
+    CommandJournal *journal,
     const CommandBootRecoveryAuthorities *authorities,
     CommandBootRecoveryResult *result);
 
