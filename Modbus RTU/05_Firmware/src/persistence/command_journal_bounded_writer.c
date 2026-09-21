@@ -92,3 +92,41 @@ Tr2Result command_journal_bounded_writer_mutate(
                         1u - current->current_copy,
                         &persisted);
 }
+
+Tr2Result command_journal_bounded_writer_readmit_completed(
+    PersistentStorageCore *storage,
+    size_t logical_slot,
+    const CommandJournalBoundedSlotSelection *current,
+    const CommandJournalBoundedRecord *replacement)
+{
+    CommandJournalBoundedRecord persisted;
+
+    if (storage == NULL || current == NULL || replacement == NULL ||
+        !persistent_storage_core_is_initialized(storage) ||
+        logical_slot >= TR2_COMMAND_JOURNAL_BOUNDED_SLOT_COUNT ||
+        current->status != COMMAND_JOURNAL_BOUNDED_SLOT_VALID ||
+        !current->has_record ||
+        current->current_copy >= TR2_COMMAND_JOURNAL_BOUNDED_SLOT_COPY_COUNT) {
+        return TR2_ERROR_INVALID_ARGUMENT;
+    }
+    if (current->record.entry.lifecycle != COMMAND_LIFECYCLE_COMPLETED) {
+        return TR2_ERROR_INVALID_STATE;
+    }
+    if (current->record.generation == UINT32_MAX) {
+        return TR2_ERROR_UNSUPPORTED;
+    }
+    if (replacement->admission_order == 0u ||
+        replacement->admission_order == current->record.admission_order ||
+        replacement->entry.lifecycle != COMMAND_LIFECYCLE_RESERVED ||
+        !command_transaction_id_is_valid(replacement->entry.transaction_id)) {
+        return TR2_ERROR_INVALID_ARGUMENT;
+    }
+
+    persisted = *replacement;
+    persisted.generation = current->record.generation + 1u;
+
+    return write_record(storage,
+                        logical_slot,
+                        1u - current->current_copy,
+                        &persisted);
+}
