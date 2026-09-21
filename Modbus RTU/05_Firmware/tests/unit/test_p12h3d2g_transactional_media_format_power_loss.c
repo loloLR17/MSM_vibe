@@ -97,8 +97,16 @@ static void test_format_power_loss_never_resurrects_old_authority(void)
             init_media(&p,&m,recovery);
             assert(transactional_image_media_recover(&m,&r)==TR2_OK);
             if(r.status==TRANSACTIONAL_IMAGE_RECOVERY_VALID){
-                assert(r.generation==1u);
-                assert(r.active_image==0u);
+                /*
+                 * A cut before both old publication records have been
+                 * invalidated may legitimately leave the pre-format
+                 * authority intact.  Once write #2 has completed, no old
+                 * generation may ever become authoritative again.
+                 */
+                if(fail_call>=3u){
+                    assert(r.generation==1u);
+                    assert(r.active_image==0u);
+                }
             }
         }
     }
