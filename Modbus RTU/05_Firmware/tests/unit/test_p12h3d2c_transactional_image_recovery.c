@@ -132,6 +132,35 @@ static void test_read_unavailable_is_not_masked_by_valid_peer(void)
     assert(recover(&p, NULL) == TRANSACTIONAL_IMAGE_RECOVERY_UNAVAILABLE);
 }
 
+static void test_referenced_image_unavailable_is_not_collapsed_to_corrupted(void)
+{
+    TestPhysical p;
+    init_physical(&p);
+    format(&p);
+    p.fail_read = true;
+    p.fail_read_base = TR2_TRANSACTIONAL_MEDIA_IMAGE_A_BASE;
+    p.fail_read_end = TR2_TRANSACTIONAL_MEDIA_IMAGE_A_BASE +
+                      TR2_TRANSACTIONAL_MEDIA_IMAGE_HEADER_SIZE;
+    assert(recover(&p, NULL) == TRANSACTIONAL_IMAGE_RECOVERY_UNAVAILABLE);
+}
+
+static void test_referenced_image_unsupported_is_reported_unsupported(void)
+{
+    TestPhysical p;
+    init_physical(&p);
+    format(&p);
+
+    /*
+     * Preserve a structurally recognizable image header while making its
+     * physical-format version unsupported.  The superblock still references
+     * this image; recovery must preserve UNSUPPORTED rather than collapse it
+     * into generic corruption.
+     */
+    p.bytes[TR2_TRANSACTIONAL_MEDIA_IMAGE_A_BASE + 4u] = 0xFFu;
+    p.bytes[TR2_TRANSACTIONAL_MEDIA_IMAGE_A_BASE + 5u] = 0xFFu;
+    assert(recover(&p, NULL) == TRANSACTIONAL_IMAGE_RECOVERY_UNSUPPORTED);
+}
+
 static void test_corrupt_only_authority_is_corrupted(void)
 {
     TestPhysical p;
@@ -149,6 +178,8 @@ int main(void)
     test_valid_authority_masks_unsupported_peer();
     test_no_valid_authority_with_unsupported_record_is_unsupported();
     test_read_unavailable_is_not_masked_by_valid_peer();
+    test_referenced_image_unavailable_is_not_collapsed_to_corrupted();
+    test_referenced_image_unsupported_is_reported_unsupported();
     test_corrupt_only_authority_is_corrupted();
     return 0;
 }
