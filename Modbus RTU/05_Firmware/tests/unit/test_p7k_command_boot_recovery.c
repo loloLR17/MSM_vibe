@@ -4,6 +4,7 @@
 #include <string.h>
 
 #include "tr2/application/command_boot_recovery.h"
+#include "tr2/persistence/command_journal_store.h"
 
 #define TEST_MAX_TRANSACTION_ID 4u
 #define TEST_STORAGE_SIZE \
@@ -141,7 +142,9 @@ static void test_completed_history_is_recovered_without_active_transaction(void)
     memset(&timestamp, 0, sizeof(timestamp));
     assert(journal->complete(journal->context, 1u, &final_result, &timestamp, &entry) == TR2_OK);
 
-    assert(command_boot_recovery_scan(&store, &authorities, &result) == TR2_OK);
+    assert(command_boot_recovery_scan(command_journal_store_journal(&store),
+                                      &authorities,
+                                      &result) == TR2_OK);
     assert(result.status == COMMAND_BOOT_RECOVERY_CLEAN);
     assert(!result.has_incomplete_transaction);
     assert(result.has_latest_completed);
@@ -162,7 +165,9 @@ static void test_reserved_transaction_is_consumed_without_replay(void)
     init_store(&media, &persistent_media, &storage, &store);
     reserve_entry(&store, 2u, COMMAND_CODE_START_ACQUISITION, &entry);
 
-    assert(command_boot_recovery_scan(&store, &authorities, &result) == TR2_OK);
+    assert(command_boot_recovery_scan(command_journal_store_journal(&store),
+                                      &authorities,
+                                      &result) == TR2_OK);
     assert(result.status == COMMAND_BOOT_RECOVERY_RESERVED_NO_EFFECT);
     assert(result.has_incomplete_transaction);
     assert(result.incomplete_transaction.transaction_id == 2u);
@@ -194,11 +199,15 @@ static void test_started_start_command_reconciles_presence_and_absence(void)
     repository.get_campaign_by_id = repository_get_by_id;
     authorities.campaign_repository = &repository;
 
-    assert(command_boot_recovery_scan(&store, &authorities, &result) == TR2_OK);
+    assert(command_boot_recovery_scan(command_journal_store_journal(&store),
+                                      &authorities,
+                                      &result) == TR2_OK);
     assert(result.status == COMMAND_BOOT_RECOVERY_STARTED_EFFECT_PROVEN);
 
     repository_context.present = false;
-    assert(command_boot_recovery_scan(&store, &authorities, &result) == TR2_OK);
+    assert(command_boot_recovery_scan(command_journal_store_journal(&store),
+                                      &authorities,
+                                      &result) == TR2_OK);
     assert(result.status == COMMAND_BOOT_RECOVERY_STARTED_ABSENCE_PROVEN);
 }
 
@@ -227,11 +236,15 @@ static void test_started_stop_requires_durable_closed_proof(void)
     repository.get_campaign_by_id = repository_get_by_id;
     authorities.campaign_repository = &repository;
 
-    assert(command_boot_recovery_scan(&store, &authorities, &result) == TR2_OK);
+    assert(command_boot_recovery_scan(command_journal_store_journal(&store),
+                                      &authorities,
+                                      &result) == TR2_OK);
     assert(result.status == COMMAND_BOOT_RECOVERY_STARTED_INDETERMINATE);
 
     repository_context.metadata.lifecycle_state = CAMPAIGN_LIFECYCLE_CLOSED;
-    assert(command_boot_recovery_scan(&store, &authorities, &result) == TR2_OK);
+    assert(command_boot_recovery_scan(command_journal_store_journal(&store),
+                                      &authorities,
+                                      &result) == TR2_OK);
     assert(result.status == COMMAND_BOOT_RECOVERY_STARTED_EFFECT_PROVEN);
 }
 
@@ -249,7 +262,9 @@ static void test_multiple_incomplete_transactions_are_corrupted_state(void)
     reserve_entry(&store, 1u, COMMAND_CODE_APPLY_CONFIGURATION, &entry);
     reserve_entry(&store, 2u, COMMAND_CODE_START_ACQUISITION, &entry);
 
-    assert(command_boot_recovery_scan(&store, &authorities, &result) == TR2_ERROR_CORRUPTED);
+    assert(command_boot_recovery_scan(command_journal_store_journal(&store),
+                                      &authorities,
+                                      &result) == TR2_ERROR_CORRUPTED);
 }
 
 int main(void)
