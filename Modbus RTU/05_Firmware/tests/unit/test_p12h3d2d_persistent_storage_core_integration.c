@@ -149,10 +149,57 @@ static void test_core_zero_length_operations_remain_noops(void)
     free(physical.bytes);
 }
 
+
+static void test_zero_filled_logical_image_survives_reboot(void)
+{
+    RamPhysical physical;
+    TransactionalImageMedia media;
+    TransactionalImageMedia reboot;
+    TransactionalImageRecoveryResult recovery;
+    PersistentStorageCore reboot_core;
+    uint8_t *candidate;
+    uint8_t *reboot_candidate;
+    uint8_t observed[32];
+    size_t index;
+
+    physical.bytes=malloc(TR2_TRANSACTIONAL_MEDIA_PHYSICAL_SIZE);
+    candidate=malloc(TR2_TRANSACTIONAL_MEDIA_LOGICAL_SIZE);
+    reboot_candidate=malloc(TR2_TRANSACTIONAL_MEDIA_LOGICAL_SIZE);
+    assert(physical.bytes!=NULL&&candidate!=NULL&&reboot_candidate!=NULL);
+    memset(physical.bytes,0xFF,TR2_TRANSACTIONAL_MEDIA_PHYSICAL_SIZE);
+
+    init_backend(&physical,&media,candidate);
+    assert(transactional_image_media_format_empty(&media)==TR2_OK);
+
+    init_backend(&physical,&reboot,reboot_candidate);
+    assert(transactional_image_media_recover(&reboot,&recovery)==TR2_OK);
+    assert(recovery.status==TRANSACTIONAL_IMAGE_RECOVERY_VALID);
+    assert(recovery.generation==1u);
+    assert(persistent_storage_core_init(
+               &reboot_core,transactional_image_media_interface(&reboot))==TR2_OK);
+
+    memset(observed,0xA5,sizeof(observed));
+    assert(persistent_storage_core_read(
+               &reboot_core,0u,observed,sizeof(observed))==TR2_OK);
+    for(index=0u;index<sizeof(observed);++index) assert(observed[index]==0u);
+
+    memset(observed,0xA5,sizeof(observed));
+    assert(persistent_storage_core_read(
+               &reboot_core,
+               TR2_TRANSACTIONAL_MEDIA_LOGICAL_SIZE-(uint32_t)sizeof(observed),
+               observed,sizeof(observed))==TR2_OK);
+    for(index=0u;index<sizeof(observed);++index) assert(observed[index]==0u);
+
+    free(reboot_candidate);
+    free(candidate);
+    free(physical.bytes);
+}
+
 int main(void)
 {
     test_core_preserves_candidate_commit_boundary();
     test_core_reboot_discards_uncommitted_candidate();
     test_core_zero_length_operations_remain_noops();
+    test_zero_filled_logical_image_survives_reboot();
     return 0;
 }
