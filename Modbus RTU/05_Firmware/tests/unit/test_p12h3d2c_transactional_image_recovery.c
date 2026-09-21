@@ -82,6 +82,15 @@ static void test_factory_erased_media_is_empty(void)
     assert(recover(&p, NULL) == TRANSACTIONAL_IMAGE_RECOVERY_EMPTY);
 }
 
+
+static void test_all_zero_unformatted_media_is_empty(void)
+{
+    TestPhysical p;
+    init_physical(&p);
+    memset(p.bytes,0,sizeof(p.bytes));
+    assert(recover(&p,NULL)==TRANSACTIONAL_IMAGE_RECOVERY_EMPTY);
+}
+
 static void test_random_unformatted_media_is_corrupted_not_empty(void)
 {
     TestPhysical p;
@@ -234,6 +243,7 @@ static void test_same_generation_conflicting_publications_are_corrupted(void)
 int main(void)
 {
     test_factory_erased_media_is_empty();
+    test_all_zero_unformatted_media_is_empty();
     test_random_unformatted_media_is_corrupted_not_empty();
     test_valid_authority_masks_corrupt_peer();
     test_valid_authority_masks_unsupported_peer();
