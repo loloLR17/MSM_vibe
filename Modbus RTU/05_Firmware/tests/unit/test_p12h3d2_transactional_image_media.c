@@ -173,4 +173,29 @@ static void test_recovered_b_authority_publishes_to_superblock_a(void)
     free(c2);
 }
 
-int main(void){test_format_write_commit_recover();test_uncommitted_candidate_is_lost_on_reboot();test_torn_inactive_image_keeps_old_authority();test_recovered_authority_publishes_to_opposite_superblock();test_direct_zero_length_media_operations_are_noops();test_recovered_b_authority_publishes_to_superblock_a();return 0;}
+
+static void test_generation_exhaustion_fails_closed_before_wrap(void)
+{
+    RamPhysical r;
+    TransactionalImageMedia m;
+    uint8_t *candidate=malloc(TR2_TRANSACTIONAL_MEDIA_LOGICAL_SIZE);
+    PersistentMedia *pm;
+    uint8_t value=0x33u;
+
+    assert(candidate);
+    init(&r,&m,candidate);
+    assert(transactional_image_media_format_empty(&m)==TR2_OK);
+    pm=transactional_image_media_interface(&m);
+
+    m.generation=UINT64_MAX-1u;
+    assert(pm->write(pm->context,7u,&value,1u)==TR2_OK);
+    assert(pm->commit(pm->context)==TR2_ERROR_UNSUPPORTED);
+    assert(m.recovery_required);
+    assert(m.generation==UINT64_MAX-1u);
+    assert(pm->write(pm->context,8u,&value,1u)==TR2_ERROR_INVALID_STATE);
+    assert(pm->commit(pm->context)==TR2_ERROR_INVALID_STATE);
+
+    free(candidate);
+}
+
+int main(void){test_format_write_commit_recover();test_uncommitted_candidate_is_lost_on_reboot();test_torn_inactive_image_keeps_old_authority();test_recovered_authority_publishes_to_opposite_superblock();test_direct_zero_length_media_operations_are_noops();test_recovered_b_authority_publishes_to_superblock_a();test_generation_exhaustion_fails_closed_before_wrap();return 0;}
