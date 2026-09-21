@@ -151,8 +151,19 @@ Tr2Result transactional_image_media_init(TransactionalImageMedia *m,const Transa
 
 Tr2Result transactional_image_media_format_empty(TransactionalImageMedia *m)
 {
-    uint8_t h[64],s[64]; uint64_t verified; uint8_t img;
+    uint8_t h[64],s[64],invalid[64]={0}; uint64_t verified; uint8_t img;
     if(m==NULL||!m->initialized) return TR2_ERROR_INVALID_STATE;
+
+    /*
+     * Formatting is explicitly destructive.  Invalidate both publication
+     * records first so that no stale higher-generation authority can survive
+     * a successful format and later win recovery.
+     */
+    if(physical_write(m,TR2_TRANSACTIONAL_MEDIA_SUPERBLOCK_A_BASE,invalid,sizeof(invalid))!=TR2_OK||
+       physical_write(m,TR2_TRANSACTIONAL_MEDIA_SUPERBLOCK_B_BASE,invalid,sizeof(invalid))!=TR2_OK){
+        m->recovery_required=true; return TR2_ERROR_STORAGE;
+    }
+
     memset(m->candidate,0,TR2_TRANSACTIONAL_MEDIA_LOGICAL_SIZE); encode_image_header(h,1u,m->candidate);
     if(physical_write(m,TR2_TRANSACTIONAL_MEDIA_IMAGE_A_BASE+64u,m->candidate,TR2_TRANSACTIONAL_MEDIA_LOGICAL_SIZE)!=TR2_OK||
        physical_write(m,TR2_TRANSACTIONAL_MEDIA_IMAGE_A_BASE,h,64)!=TR2_OK||
