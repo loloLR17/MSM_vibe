@@ -38,8 +38,10 @@ static void init_backend(RamPhysical *physical,
     TransactionalImagePhysicalStorage storage = {
         physical, physical_read, physical_write
     };
+    TransactionalImageGeometry geometry =
+        transactional_image_geometry_qualification_profile();
     assert(transactional_image_media_init(
-               media, &storage, candidate,
+               media, &storage, &geometry, candidate,
                TR2_TRANSACTIONAL_MEDIA_LOGICAL_SIZE) == TR2_OK);
 }
 
