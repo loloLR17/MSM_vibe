@@ -68,6 +68,7 @@ typedef struct {
 Tr2Result transactional_image_media_init(
     TransactionalImageMedia *media,
     const TransactionalImagePhysicalStorage *physical,
+    const TransactionalImageGeometry *geometry,
     uint8_t *candidate,
     size_t candidate_size);
 
