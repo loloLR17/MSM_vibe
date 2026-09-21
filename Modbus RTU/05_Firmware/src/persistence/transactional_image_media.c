@@ -69,15 +69,33 @@ Tr2Result transactional_image_geometry_validate(
     return TR2_OK;
 }
 
+TransactionalImageGeometry transactional_image_geometry_qualification_profile(void)
+{
+    TransactionalImageGeometry g={
+        TR2_TRANSACTIONAL_MEDIA_PHYSICAL_SIZE,
+        TR2_TRANSACTIONAL_MEDIA_SUPERBLOCK_A_BASE,
+        TR2_TRANSACTIONAL_MEDIA_SUPERBLOCK_B_BASE,
+        TR2_TRANSACTIONAL_MEDIA_IMAGE_A_BASE,
+        TR2_TRANSACTIONAL_MEDIA_IMAGE_B_BASE,
+        TR2_TRANSACTIONAL_MEDIA_IMAGE_AREA_SIZE
+    };
+    return g;
+}
+
 static bool range_ok(uint32_t offset, size_t size)
 {
     return offset <= TR2_TRANSACTIONAL_MEDIA_LOGICAL_SIZE &&
            size <= TR2_TRANSACTIONAL_MEDIA_LOGICAL_SIZE - offset;
 }
 
-static uint32_t image_base(uint8_t image)
+static uint32_t image_base(const TransactionalImageMedia *m,uint8_t image)
 {
-    return image == 0u ? TR2_TRANSACTIONAL_MEDIA_IMAGE_A_BASE : TR2_TRANSACTIONAL_MEDIA_IMAGE_B_BASE;
+    return image == 0u ? m->geometry.image_a_base : m->geometry.image_b_base;
+}
+
+static uint32_t superblock_base(const TransactionalImageMedia *m,uint8_t copy)
+{
+    return copy == 0u ? m->geometry.superblock_a_base : m->geometry.superblock_b_base;
 }
 
 static bool uniform(const uint8_t *p, size_t n, uint8_t value)
@@ -111,7 +129,7 @@ typedef enum { REC_EMPTY=0, REC_VALID, REC_UNSUPPORTED, REC_BAD, REC_IO } Record
 
 static RecordState validate_image(TransactionalImageMedia *m,uint8_t image,uint64_t *generation)
 {
-    uint8_t h[64]; uint8_t block[256]; uint32_t crc=UINT32_C(0xFFFFFFFF); size_t done=0; uint32_t base=image_base(image);
+    uint8_t h[64]; uint8_t block[256]; uint32_t crc=UINT32_C(0xFFFFFFFF); size_t done=0; uint32_t base=image_base(m,image);
     if(physical_read(m,base,h,sizeof(h))!=TR2_OK) return REC_IO;
     if(uniform(h,sizeof(h),0x00)||uniform(h,sizeof(h),0xFF)) return REC_EMPTY;
     if(get_u32(h)!=IMAGE_MAGIC) return REC_BAD;
@@ -135,7 +153,7 @@ static RecordState validate_image(TransactionalImageMedia *m,uint8_t image,uint6
 
 static RecordState validate_superblock(TransactionalImageMedia *m,uint8_t copy,uint64_t *generation,uint8_t *image)
 {
-    uint8_t s[64]; uint64_t image_generation; uint32_t base=copy==0u?TR2_TRANSACTIONAL_MEDIA_SUPERBLOCK_A_BASE:TR2_TRANSACTIONAL_MEDIA_SUPERBLOCK_B_BASE;
+    uint8_t s[64]; uint64_t image_generation; uint32_t base=superblock_base(m,copy);
     if(physical_read(m,base,s,sizeof(s))!=TR2_OK) return REC_IO;
     if(uniform(s,sizeof(s),0x00)||uniform(s,sizeof(s),0xFF)) return REC_EMPTY;
     if(get_u32(s)!=MEDIA_MAGIC) return REC_BAD;
@@ -157,7 +175,7 @@ static Tr2Result media_read_cb(void *context,uint32_t offset,void *buffer,size_t
 {
     TransactionalImageMedia *m=context;
     if(m==NULL||!m->recovered||m->recovery_required||buffer==NULL||!range_ok(offset,size)) return TR2_ERROR_INVALID_STATE;
-    return physical_read(m,image_base(m->active_image)+64u+offset,buffer,size);
+    return physical_read(m,image_base(m,m->active_image)+64u+offset,buffer,size);
 }
 
 static Tr2Result media_write_cb(void *context,uint32_t offset,const void *buffer,size_t size)
@@ -173,7 +191,7 @@ static Tr2Result media_commit_cb(void *context)
     TransactionalImageMedia *m=context; uint8_t header[64],super[64],inactive,target; uint64_t next,verified; RecordState st; uint32_t base;
     if(m==NULL||!m->recovered||m->recovery_required) return TR2_ERROR_INVALID_STATE;
     if(m->generation>=UINT64_MAX-1u){ m->recovery_required=true; return TR2_ERROR_UNSUPPORTED; }
-    next=m->generation+1u; inactive=(uint8_t)(1u-m->active_image); base=image_base(inactive);
+    next=m->generation+1u; inactive=(uint8_t)(1u-m->active_image); base=image_base(m,inactive);
     encode_image_header(header,next,m->candidate);
     /*
      * Finalize an image only after its payload is fully written.  The header
@@ -188,7 +206,7 @@ static Tr2Result media_commit_cb(void *context)
     if(st!=REC_VALID||verified!=next){ m->recovery_required=true; return TR2_ERROR_STORAGE; }
     target=(uint8_t)((m->generation&1u)==0u?0u:1u);
     encode_superblock(super,next,inactive);
-    if(physical_write(m,target==0u?TR2_TRANSACTIONAL_MEDIA_SUPERBLOCK_A_BASE:TR2_TRANSACTIONAL_MEDIA_SUPERBLOCK_B_BASE,super,sizeof(super))!=TR2_OK){
+    if(physical_write(m,superblock_base(m,target),super,sizeof(super))!=TR2_OK){
         m->recovery_required=true; return TR2_ERROR_STORAGE;
     }
     { uint8_t img; st=validate_superblock(m,target,&verified,&img); if(st!=REC_VALID||verified!=next||img!=inactive){ m->recovery_required=true; return TR2_ERROR_STORAGE; } }
@@ -198,7 +216,9 @@ static Tr2Result media_commit_cb(void *context)
 Tr2Result transactional_image_media_init(TransactionalImageMedia *m,const TransactionalImagePhysicalStorage *p,uint8_t *candidate,size_t candidate_size)
 {
     if(m==NULL||p==NULL||p->read==NULL||p->write==NULL||candidate==NULL||candidate_size<TR2_TRANSACTIONAL_MEDIA_LOGICAL_SIZE) return TR2_ERROR_INVALID_ARGUMENT;
-    memset(m,0,sizeof(*m)); m->physical=*p; m->candidate=candidate; m->initialized=true;
+    memset(m,0,sizeof(*m)); m->physical=*p; m->geometry=transactional_image_geometry_qualification_profile();
+    if(transactional_image_geometry_validate(&m->geometry)!=TR2_OK) return TR2_ERROR_INVALID_ARGUMENT;
+    m->candidate=candidate; m->initialized=true;
     m->interface.context=m; m->interface.read=media_read_cb; m->interface.write=media_write_cb; m->interface.commit=media_commit_cb; return TR2_OK;
 }
 
@@ -212,17 +232,17 @@ Tr2Result transactional_image_media_format_empty(TransactionalImageMedia *m)
      * records first so that no stale higher-generation authority can survive
      * a successful format and later win recovery.
      */
-    if(physical_write(m,TR2_TRANSACTIONAL_MEDIA_SUPERBLOCK_A_BASE,invalid,sizeof(invalid))!=TR2_OK||
-       physical_write(m,TR2_TRANSACTIONAL_MEDIA_SUPERBLOCK_B_BASE,invalid,sizeof(invalid))!=TR2_OK){
+    if(physical_write(m,superblock_base(m,0u),invalid,sizeof(invalid))!=TR2_OK||
+       physical_write(m,superblock_base(m,1u),invalid,sizeof(invalid))!=TR2_OK){
         m->recovery_required=true; return TR2_ERROR_STORAGE;
     }
 
     memset(m->candidate,0,TR2_TRANSACTIONAL_MEDIA_LOGICAL_SIZE); encode_image_header(h,1u,m->candidate);
-    if(physical_write(m,TR2_TRANSACTIONAL_MEDIA_IMAGE_A_BASE+64u,m->candidate,TR2_TRANSACTIONAL_MEDIA_LOGICAL_SIZE)!=TR2_OK||
-       physical_write(m,TR2_TRANSACTIONAL_MEDIA_IMAGE_A_BASE,h,64)!=TR2_OK||
+    if(physical_write(m,image_base(m,0u)+64u,m->candidate,TR2_TRANSACTIONAL_MEDIA_LOGICAL_SIZE)!=TR2_OK||
+       physical_write(m,image_base(m,0u),h,64)!=TR2_OK||
        validate_image(m,0u,&verified)!=REC_VALID||verified!=1u){ m->recovery_required=true; return TR2_ERROR_STORAGE; }
     encode_superblock(s,1u,0u);
-    if(physical_write(m,TR2_TRANSACTIONAL_MEDIA_SUPERBLOCK_A_BASE,s,64)!=TR2_OK||
+    if(physical_write(m,superblock_base(m,0u),s,64)!=TR2_OK||
        validate_superblock(m,0u,&verified,&img)!=REC_VALID||verified!=1u||img!=0u){ m->recovery_required=true; return TR2_ERROR_STORAGE; }
     m->generation=1u; m->active_image=0u; m->recovered=true; m->recovery_required=false; return TR2_OK;
 }
@@ -242,15 +262,15 @@ Tr2Result transactional_image_media_recover(TransactionalImageMedia *m,Transacti
     if(a!=REC_VALID&&b!=REC_VALID){
         if(a==REC_UNSUPPORTED||b==REC_UNSUPPORTED){out->status=TRANSACTIONAL_IMAGE_RECOVERY_UNSUPPORTED;return TR2_OK;}
         uint8_t sa[64],sb[64],ha[64],hb[64];
-        if(physical_read(m,TR2_TRANSACTIONAL_MEDIA_SUPERBLOCK_A_BASE,sa,64)!=TR2_OK||physical_read(m,TR2_TRANSACTIONAL_MEDIA_SUPERBLOCK_B_BASE,sb,64)!=TR2_OK||
-           physical_read(m,TR2_TRANSACTIONAL_MEDIA_IMAGE_A_BASE,ha,64)!=TR2_OK||physical_read(m,TR2_TRANSACTIONAL_MEDIA_IMAGE_B_BASE,hb,64)!=TR2_OK){out->status=TRANSACTIONAL_IMAGE_RECOVERY_UNAVAILABLE;return TR2_OK;}
+        if(physical_read(m,superblock_base(m,0u),sa,64)!=TR2_OK||physical_read(m,superblock_base(m,1u),sb,64)!=TR2_OK||
+           physical_read(m,image_base(m,0u),ha,64)!=TR2_OK||physical_read(m,image_base(m,1u),hb,64)!=TR2_OK){out->status=TRANSACTIONAL_IMAGE_RECOVERY_UNAVAILABLE;return TR2_OK;}
         if((uniform(sa,64,0)||uniform(sa,64,0xFF))&&(uniform(sb,64,0)||uniform(sb,64,0xFF))&&(uniform(ha,64,0)||uniform(ha,64,0xFF))&&(uniform(hb,64,0)||uniform(hb,64,0xFF))) out->status=TRANSACTIONAL_IMAGE_RECOVERY_EMPTY;
         else out->status=TRANSACTIONAL_IMAGE_RECOVERY_CORRUPTED;
         return TR2_OK;
     }
     if(a==REC_VALID&&b==REC_VALID&&ga==gb&&(ia!=ib)){out->status=TRANSACTIONAL_IMAGE_RECOVERY_CORRUPTED;return TR2_OK;}
     if(b==REC_VALID&&(a!=REC_VALID||gb>ga)){chosen=ib;generation=gb;}else{chosen=ia;generation=ga;}
-    if(physical_read(m,image_base(chosen)+64u,m->candidate,TR2_TRANSACTIONAL_MEDIA_LOGICAL_SIZE)!=TR2_OK){out->status=TRANSACTIONAL_IMAGE_RECOVERY_UNAVAILABLE;return TR2_OK;}
+    if(physical_read(m,image_base(m,chosen)+64u,m->candidate,TR2_TRANSACTIONAL_MEDIA_LOGICAL_SIZE)!=TR2_OK){out->status=TRANSACTIONAL_IMAGE_RECOVERY_UNAVAILABLE;return TR2_OK;}
     m->generation=generation;m->active_image=chosen;m->recovered=true;m->recovery_required=false;
     out->status=TRANSACTIONAL_IMAGE_RECOVERY_VALID;out->generation=generation;out->active_image=chosen;return TR2_OK;
 }
