@@ -21,6 +21,54 @@ static uint32_t crc32_bytes(const uint8_t *p, size_t n)
     return crc^UINT32_C(0xFFFFFFFF);
 }
 
+static bool physical_region_end(uint32_t base, size_t size, size_t *end)
+{
+    size_t b=(size_t)base;
+    if(end==NULL||size>SIZE_MAX-b) return false;
+    *end=b+size;
+    return true;
+}
+
+static bool regions_overlap(uint32_t a_base,size_t a_size,
+                            uint32_t b_base,size_t b_size)
+{
+    size_t a_end,b_end;
+    if(!physical_region_end(a_base,a_size,&a_end)||
+       !physical_region_end(b_base,b_size,&b_end)) return true;
+    return (size_t)a_base<b_end && (size_t)b_base<a_end;
+}
+
+Tr2Result transactional_image_geometry_validate(
+    const TransactionalImageGeometry *g)
+{
+    uint32_t bases[4];
+    size_t sizes[4];
+    size_t i,j,end;
+    const size_t image_min=TR2_TRANSACTIONAL_MEDIA_IMAGE_HEADER_SIZE+
+                           TR2_TRANSACTIONAL_MEDIA_LOGICAL_SIZE;
+
+    if(g==NULL||g->physical_size==0u||
+       g->physical_size>(size_t)UINT32_MAX+1u||
+       (size_t)g->image_area_size<image_min) return TR2_ERROR_INVALID_ARGUMENT;
+
+    bases[0]=g->superblock_a_base; sizes[0]=TR2_TRANSACTIONAL_MEDIA_SUPERBLOCK_SIZE;
+    bases[1]=g->superblock_b_base; sizes[1]=TR2_TRANSACTIONAL_MEDIA_SUPERBLOCK_SIZE;
+    bases[2]=g->image_a_base; sizes[2]=(size_t)g->image_area_size;
+    bases[3]=g->image_b_base; sizes[3]=(size_t)g->image_area_size;
+
+    for(i=0u;i<4u;++i){
+        if(!physical_region_end(bases[i],sizes[i],&end)||
+           end>g->physical_size) return TR2_ERROR_INVALID_ARGUMENT;
+    }
+    for(i=0u;i<4u;++i){
+        for(j=i+1u;j<4u;++j){
+            if(regions_overlap(bases[i],sizes[i],bases[j],sizes[j]))
+                return TR2_ERROR_INVALID_ARGUMENT;
+        }
+    }
+    return TR2_OK;
+}
+
 static bool range_ok(uint32_t offset, size_t size)
 {
     return offset <= TR2_TRANSACTIONAL_MEDIA_LOGICAL_SIZE &&
