@@ -56,6 +56,7 @@ static Tr2Result journal_find(void *context,
 typedef struct {
     CommandJournalVisitor visitor;
     void *visitor_context;
+    bool visitor_failed;
 } VisitAdapter;
 
 static Tr2Result visit_adapter(void *context,
@@ -63,8 +64,14 @@ static Tr2Result visit_adapter(void *context,
                                const CommandJournalBoundedRecord *record)
 {
     VisitAdapter *adapter = (VisitAdapter *)context;
+    Tr2Result result;
     (void)logical_slot;
-    return adapter->visitor(adapter->visitor_context, &record->entry);
+
+    result = adapter->visitor(adapter->visitor_context, &record->entry);
+    if (result != TR2_OK) {
+        adapter->visitor_failed = true;
+    }
+    return result;
 }
 
 static Tr2Result journal_visit(void *context,
@@ -85,9 +92,13 @@ static Tr2Result journal_visit(void *context,
 
     adapter.visitor = visitor;
     adapter.visitor_context = visitor_context;
+    adapter.visitor_failed = false;
     result = command_journal_bounded_reader_visit(store->storage,
                                                    visit_adapter,
                                                    &adapter);
+    if (adapter.visitor_failed) {
+        return result;
+    }
     return guard_read_result(store, result);
 }
 
