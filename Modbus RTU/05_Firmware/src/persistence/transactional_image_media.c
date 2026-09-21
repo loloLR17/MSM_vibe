@@ -204,13 +204,13 @@ static Tr2Result media_commit_cb(void *context)
     }
     st=validate_image(m,inactive,&verified);
     if(st!=REC_VALID||verified!=next){ m->recovery_required=true; return TR2_ERROR_STORAGE; }
-    target=(uint8_t)((m->generation&1u)==0u?0u:1u);
+    target=(uint8_t)(1u-m->active_superblock);
     encode_superblock(super,next,inactive);
     if(physical_write(m,superblock_base(m,target),super,sizeof(super))!=TR2_OK){
         m->recovery_required=true; return TR2_ERROR_STORAGE;
     }
     { uint8_t img; st=validate_superblock(m,target,&verified,&img); if(st!=REC_VALID||verified!=next||img!=inactive){ m->recovery_required=true; return TR2_ERROR_STORAGE; } }
-    m->generation=next; m->active_image=inactive; return TR2_OK;
+    m->generation=next; m->active_image=inactive; m->active_superblock=target; return TR2_OK;
 }
 
 Tr2Result transactional_image_media_init(TransactionalImageMedia *m,const TransactionalImagePhysicalStorage *p,const TransactionalImageGeometry *g,uint8_t *candidate,size_t candidate_size)
@@ -244,7 +244,7 @@ Tr2Result transactional_image_media_format_empty(TransactionalImageMedia *m)
     encode_superblock(s,1u,0u);
     if(physical_write(m,superblock_base(m,0u),s,64)!=TR2_OK||
        validate_superblock(m,0u,&verified,&img)!=REC_VALID||verified!=1u||img!=0u){ m->recovery_required=true; return TR2_ERROR_STORAGE; }
-    m->generation=1u; m->active_image=0u; m->recovered=true; m->recovery_required=false; return TR2_OK;
+    m->generation=1u; m->active_image=0u; m->active_superblock=0u; m->recovered=true; m->recovery_required=false; return TR2_OK;
 }
 
 Tr2Result transactional_image_media_recover(TransactionalImageMedia *m,TransactionalImageRecoveryResult *out)
@@ -269,7 +269,7 @@ Tr2Result transactional_image_media_recover(TransactionalImageMedia *m,Transacti
         return TR2_OK;
     }
     if(a==REC_VALID&&b==REC_VALID&&ga==gb&&(ia!=ib)){out->status=TRANSACTIONAL_IMAGE_RECOVERY_CORRUPTED;return TR2_OK;}
-    if(b==REC_VALID&&(a!=REC_VALID||gb>ga)){chosen=ib;generation=gb;}else{chosen=ia;generation=ga;}
+    if(b==REC_VALID&&(a!=REC_VALID||gb>ga)){chosen=ib;generation=gb;m->active_superblock=1u;}else{chosen=ia;generation=ga;m->active_superblock=0u;}
     if(physical_read(m,image_base(m,chosen)+64u,m->candidate,TR2_TRANSACTIONAL_MEDIA_LOGICAL_SIZE)!=TR2_OK){out->status=TRANSACTIONAL_IMAGE_RECOVERY_UNAVAILABLE;return TR2_OK;}
     m->generation=generation;m->active_image=chosen;m->recovered=true;m->recovery_required=false;
     out->status=TRANSACTIONAL_IMAGE_RECOVERY_VALID;out->generation=generation;out->active_image=chosen;return TR2_OK;
