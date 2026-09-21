@@ -19,6 +19,18 @@
 #define TR2_TRANSACTIONAL_MEDIA_IMAGE_B_BASE UINT32_C(0x10000)
 #define TR2_TRANSACTIONAL_MEDIA_IMAGE_AREA_SIZE UINT32_C(0x0E000)
 
+typedef struct {
+    size_t physical_size;
+    uint32_t superblock_a_base;
+    uint32_t superblock_b_base;
+    uint32_t image_a_base;
+    uint32_t image_b_base;
+    uint32_t image_area_size;
+} TransactionalImageGeometry;
+
+Tr2Result transactional_image_geometry_validate(
+    const TransactionalImageGeometry *geometry);
+
 typedef enum {
     TRANSACTIONAL_IMAGE_RECOVERY_EMPTY = 0,
     TRANSACTIONAL_IMAGE_RECOVERY_VALID,
