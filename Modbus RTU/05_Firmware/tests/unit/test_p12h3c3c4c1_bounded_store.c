@@ -421,6 +421,141 @@ static void test_context_and_start_storage_failure_rearms_recovery(void)
     assert(store.recovery_required);
 }
 
+
+static void test_complete_persists_terminal_result_and_advances_order(void)
+{
+    TestMedia media; PersistentMedia pm; PersistentStorageCore core;
+    CommandJournalBoundedStore store; CommandJournalBoundedRecoveryResult recovery;
+    CommandRequest request = make_request(80u, COMMAND_CODE_APPLY_CONFIGURATION);
+    CommandFinalResult final_result;
+    CommandTerminalTimestamp timestamp;
+    CommandJournalEntry entry;
+    CommandJournalBoundedSlotSelection selection;
+
+    init_core(&media, &pm, &core);
+    assert(command_journal_bounded_store_init(&store, &core) == TR2_OK);
+    assert(command_journal_bounded_store_recover(&store, &recovery) == TR2_OK);
+    assert(store.journal.reserve(store.journal.context, &request, &entry) == TR2_OK);
+    assert(store.journal.mark_started(store.journal.context, 80u, &entry) == TR2_OK);
+
+    memset(&final_result, 0, sizeof(final_result));
+    final_result.status = COMMAND_STATUS_SUCCESS;
+    final_result.result_code = COMMAND_RESULT_SUCCESS;
+    memset(&timestamp, 0, sizeof(timestamp));
+    timestamp.available = true;
+    timestamp.value = 123456u;
+
+    assert(store.journal.complete(store.journal.context, 80u,
+                                  &final_result, &timestamp, &entry) == TR2_OK);
+    assert(entry.lifecycle == COMMAND_LIFECYCLE_COMPLETED);
+    assert(entry.has_final_result);
+    assert(entry.final_result.status == COMMAND_STATUS_SUCCESS);
+    assert(entry.terminal_timestamp.available);
+    assert(entry.terminal_timestamp.value == 123456u);
+    assert(entry.completion_order == 1u);
+    assert(store.next_completion_order == 2u);
+
+    assert(command_journal_bounded_slot_select(&core, 0u, &selection) == TR2_OK);
+    assert(selection.record.entry.lifecycle == COMMAND_LIFECYCLE_COMPLETED);
+    assert(selection.record.entry.completion_order == 1u);
+    assert(selection.record.admission_order == 1u);
+}
+
+static void test_complete_refusals_do_not_advance_order(void)
+{
+    TestMedia media; PersistentMedia pm; PersistentStorageCore core;
+    CommandJournalBoundedStore store; CommandJournalBoundedRecoveryResult recovery;
+    CommandRequest request = make_request(81u, COMMAND_CODE_APPLY_CONFIGURATION);
+    CommandFinalResult final_result;
+    CommandTerminalTimestamp timestamp;
+    CommandJournalEntry entry;
+
+    init_core(&media, &pm, &core);
+    assert(command_journal_bounded_store_init(&store, &core) == TR2_OK);
+    assert(command_journal_bounded_store_recover(&store, &recovery) == TR2_OK);
+    assert(store.journal.reserve(store.journal.context, &request, &entry) == TR2_OK);
+
+    memset(&final_result, 0, sizeof(final_result));
+    final_result.status = COMMAND_STATUS_RUNNING;
+    memset(&timestamp, 0, sizeof(timestamp));
+    assert(store.journal.complete(store.journal.context, 81u,
+                                  &final_result, &timestamp, &entry) ==
+           TR2_ERROR_INVALID_ARGUMENT);
+    assert(store.next_completion_order == 1u);
+
+    final_result.status = COMMAND_STATUS_FAILED;
+    final_result.result_code = COMMAND_RESULT_INTERNAL_TIMEOUT;
+    assert(store.journal.complete(store.journal.context, 999u,
+                                  &final_result, &timestamp, &entry) ==
+           TR2_ERROR_NOT_FOUND);
+    assert(store.next_completion_order == 1u);
+
+    assert(store.journal.complete(store.journal.context, 81u,
+                                  &final_result, &timestamp, &entry) == TR2_OK);
+    assert(store.next_completion_order == 2u);
+    assert(store.journal.complete(store.journal.context, 81u,
+                                  &final_result, &timestamp, &entry) ==
+           TR2_ERROR_INVALID_STATE);
+    assert(store.next_completion_order == 2u);
+    assert(!store.recovery_required);
+}
+
+static void test_complete_storage_failure_rearms_without_advancing_counter(void)
+{
+    TestMedia media; PersistentMedia pm; PersistentStorageCore core;
+    CommandJournalBoundedStore store; CommandJournalBoundedRecoveryResult recovery;
+    CommandRequest request = make_request(82u, COMMAND_CODE_APPLY_CONFIGURATION);
+    CommandFinalResult final_result;
+    CommandTerminalTimestamp timestamp;
+    CommandJournalEntry entry;
+
+    init_core(&media, &pm, &core);
+    assert(command_journal_bounded_store_init(&store, &core) == TR2_OK);
+    assert(command_journal_bounded_store_recover(&store, &recovery) == TR2_OK);
+    assert(store.journal.reserve(store.journal.context, &request, &entry) == TR2_OK);
+    memset(&final_result, 0, sizeof(final_result));
+    final_result.status = COMMAND_STATUS_SUCCESS;
+    memset(&timestamp, 0, sizeof(timestamp));
+
+    media.fail_commit = true;
+    assert(store.journal.complete(store.journal.context, 82u,
+                                  &final_result, &timestamp, &entry) ==
+           TR2_ERROR_STORAGE);
+    assert(store.recovery_required);
+    assert(store.next_completion_order == 1u);
+}
+
+static void test_recovery_reconstructs_completion_order_after_reboot(void)
+{
+    TestMedia media; PersistentMedia pm; PersistentStorageCore core;
+    CommandJournalBoundedStore store; CommandJournalBoundedStore rebooted;
+    CommandJournalBoundedRecoveryResult recovery;
+    CommandRequest request = make_request(83u, COMMAND_CODE_APPLY_CONFIGURATION);
+    CommandFinalResult final_result;
+    CommandTerminalTimestamp timestamp;
+    CommandJournalEntry entry;
+
+    init_core(&media, &pm, &core);
+    assert(command_journal_bounded_store_init(&store, &core) == TR2_OK);
+    assert(command_journal_bounded_store_recover(&store, &recovery) == TR2_OK);
+    assert(store.journal.reserve(store.journal.context, &request, &entry) == TR2_OK);
+    memset(&final_result, 0, sizeof(final_result));
+    final_result.status = COMMAND_STATUS_SUCCESS;
+    memset(&timestamp, 0, sizeof(timestamp));
+    assert(store.journal.complete(store.journal.context, 83u,
+                                  &final_result, &timestamp, &entry) == TR2_OK);
+    assert(store.next_completion_order == 2u);
+
+    assert(command_journal_bounded_store_init(&rebooted, &core) == TR2_OK);
+    assert(command_journal_bounded_store_recover(&rebooted, &recovery) == TR2_OK);
+    assert(recovery.status == COMMAND_JOURNAL_BOUNDED_RECOVERY_VALID);
+    assert(rebooted.next_admission_order == 2u);
+    assert(rebooted.next_completion_order == 2u);
+    assert(rebooted.journal.find(rebooted.journal.context, 83u, &entry) == TR2_OK);
+    assert(entry.lifecycle == COMMAND_LIFECYCLE_COMPLETED);
+    assert(entry.completion_order == 1u);
+}
+
 int main(void)
 {
     test_init_blocks_all_operations_until_recovery();
@@ -436,5 +571,9 @@ int main(void)
     test_set_recovery_context_then_mark_started();
     test_context_and_start_transition_refusals();
     test_context_and_start_storage_failure_rearms_recovery();
+    test_complete_persists_terminal_result_and_advances_order();
+    test_complete_refusals_do_not_advance_order();
+    test_complete_storage_failure_rearms_without_advancing_counter();
+    test_recovery_reconstructs_completion_order_after_reboot();
     return 0;
 }
