@@ -172,6 +172,99 @@ static void test_commit_failure_is_propagated(void)
     assert(media.commit_count == 1u);
 }
 
+static void test_readmit_completed_changes_admission_and_preserves_ab_continuity(void)
+{
+    TestMedia media; PersistentMedia pm; PersistentStorageCore core;
+    CommandJournalBoundedRecord old = make_record(20u, 20u);
+    CommandJournalBoundedRecord completed;
+    CommandJournalBoundedRecord replacement = make_record(21u, 21u);
+    CommandJournalBoundedSlotSelection current;
+    CommandJournalBoundedSlotSelection after;
+
+    init_core(&media, &pm, &core);
+    assert(command_journal_bounded_writer_admit_empty(&core, 12u, &old) == TR2_OK);
+    assert(command_journal_bounded_slot_select(&core, 12u, &current) == TR2_OK);
+
+    completed = current.record;
+    completed.entry.lifecycle = COMMAND_LIFECYCLE_COMPLETED;
+    completed.entry.has_final_result = true;
+    completed.entry.final_result.status = COMMAND_STATUS_SUCCESS;
+    completed.entry.completion_order = 1u;
+    assert(command_journal_bounded_writer_mutate(&core, 12u, &current, &completed) == TR2_OK);
+    assert(command_journal_bounded_slot_select(&core, 12u, &current) == TR2_OK);
+    assert(current.current_copy == 1u && current.record.generation == 2u);
+
+    assert(command_journal_bounded_writer_readmit_completed(
+               &core, 12u, &current, &replacement) == TR2_OK);
+    assert(command_journal_bounded_slot_select(&core, 12u, &after) == TR2_OK);
+    assert(after.current_copy == 0u);
+    assert(after.record.generation == 3u);
+    assert(after.record.admission_order == 21u);
+    assert(after.record.entry.transaction_id == 21u);
+    assert(after.record.entry.lifecycle == COMMAND_LIFECYCLE_RESERVED);
+}
+
+static void test_readmit_completed_rejects_nonterminal_same_order_and_generation_wrap(void)
+{
+    TestMedia media; PersistentMedia pm; PersistentStorageCore core;
+    CommandJournalBoundedRecord replacement = make_record(31u, 31u);
+    CommandJournalBoundedSlotSelection current;
+
+    init_core(&media, &pm, &core);
+    memset(&current, 0, sizeof(current));
+    current.status = COMMAND_JOURNAL_BOUNDED_SLOT_VALID;
+    current.has_record = true;
+    current.current_copy = 0u;
+    current.record = make_record(30u, 30u);
+    current.record.generation = 5u;
+
+    assert(command_journal_bounded_writer_readmit_completed(
+               &core, 3u, &current, &replacement) == TR2_ERROR_INVALID_STATE);
+
+    current.record.entry.lifecycle = COMMAND_LIFECYCLE_COMPLETED;
+    current.record.entry.has_final_result = true;
+    current.record.entry.final_result.status = COMMAND_STATUS_SUCCESS;
+    current.record.entry.completion_order = 1u;
+    replacement.admission_order = 30u;
+    assert(command_journal_bounded_writer_readmit_completed(
+               &core, 3u, &current, &replacement) == TR2_ERROR_INVALID_ARGUMENT);
+
+    replacement.admission_order = 31u;
+    current.record.generation = UINT32_MAX;
+    assert(command_journal_bounded_writer_readmit_completed(
+               &core, 3u, &current, &replacement) == TR2_ERROR_UNSUPPORTED);
+}
+
+static void test_readmit_completed_propagates_write_and_commit_failures(void)
+{
+    TestMedia media; PersistentMedia pm; PersistentStorageCore core;
+    CommandJournalBoundedRecord replacement = make_record(41u, 41u);
+    CommandJournalBoundedSlotSelection current;
+
+    init_core(&media, &pm, &core);
+    memset(&current, 0, sizeof(current));
+    current.status = COMMAND_JOURNAL_BOUNDED_SLOT_VALID;
+    current.has_record = true;
+    current.current_copy = 0u;
+    current.record = make_record(40u, 40u);
+    current.record.generation = 2u;
+    current.record.entry.lifecycle = COMMAND_LIFECYCLE_COMPLETED;
+    current.record.entry.has_final_result = true;
+    current.record.entry.final_result.status = COMMAND_STATUS_SUCCESS;
+    current.record.entry.completion_order = 1u;
+
+    media.fail_write = true;
+    assert(command_journal_bounded_writer_readmit_completed(
+               &core, 5u, &current, &replacement) == TR2_ERROR_STORAGE);
+    assert(media.write_count == 1u && media.commit_count == 0u);
+
+    media.fail_write = false;
+    media.fail_commit = true;
+    assert(command_journal_bounded_writer_readmit_completed(
+               &core, 5u, &current, &replacement) == TR2_ERROR_STORAGE);
+    assert(media.write_count == 2u && media.commit_count == 1u);
+}
+
 int main(void)
 {
     test_admit_empty_uses_copy0_generation1();
@@ -180,5 +273,8 @@ int main(void)
     test_mutate_rejects_admission_change_and_generation_wrap();
     test_write_failure_skips_commit();
     test_commit_failure_is_propagated();
+    test_readmit_completed_changes_admission_and_preserves_ab_continuity();
+    test_readmit_completed_rejects_nonterminal_same_order_and_generation_wrap();
+    test_readmit_completed_propagates_write_and_commit_failures();
     return 0;
 }
