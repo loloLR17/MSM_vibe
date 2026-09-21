@@ -36,7 +36,9 @@ static Tr2Result wr(void *ctx,uint32_t off,const void *buf,size_t n)
 static void init_media(FaultPhysical *p,TransactionalImageMedia *m,uint8_t *candidate)
 {
     TransactionalImagePhysicalStorage s={p,rd,wr};
-    assert(transactional_image_media_init(m,&s,candidate,
+    TransactionalImageGeometry geometry =
+        transactional_image_geometry_qualification_profile();
+    assert(transactional_image_media_init(m,&s,&geometry,candidate,
         TR2_TRANSACTIONAL_MEDIA_LOGICAL_SIZE)==TR2_OK);
 }
 
