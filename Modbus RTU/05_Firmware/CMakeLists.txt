@@ -64,6 +64,7 @@ add_library(tr2_core STATIC
     src/persistence/command_journal_bounded_slot.c
     src/persistence/command_journal_bounded_writer.c
     src/persistence/command_journal_bounded_admission.c
+    src/persistence/command_journal_bounded_store.c
     src/persistence/command_journal_context_store.c
     src/persistence/command_journal_record.c
     src/persistence/command_journal_store.c
