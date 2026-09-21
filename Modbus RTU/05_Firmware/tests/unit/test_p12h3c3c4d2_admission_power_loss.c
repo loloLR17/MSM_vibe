@@ -10,7 +10,8 @@
 
 typedef enum {
     COMMIT_FAILURE_KEEP_WORKING = 0,
-    COMMIT_FAILURE_ROLLBACK_WORKING
+    COMMIT_FAILURE_ROLLBACK_WORKING,
+    COMMIT_FAILURE_DURABLE
 } CommitFailureMode;
 
 typedef struct {
@@ -66,6 +67,8 @@ static Tr2Result media_commit(void *context)
     if (media->fail_commit) {
         if (media->commit_failure_mode == COMMIT_FAILURE_ROLLBACK_WORKING) {
             memcpy(media->working, media->durable, sizeof(media->working));
+        } else if (media->commit_failure_mode == COMMIT_FAILURE_DURABLE) {
+            memcpy(media->durable, media->working, sizeof(media->durable));
         }
         return TR2_ERROR_STORAGE;
     }
@@ -219,11 +222,36 @@ static void test_failed_commit_readable_but_not_durable_leaves_empty_after_reboo
     assert_empty_after_reboot(&media);
 }
 
+static void test_failed_commit_may_still_be_durable_and_recovery_is_authority(void)
+{
+    FaultMedia media; PersistentMedia pm; PersistentStorageCore core;
+    CommandJournalBoundedStore store; CommandJournalBoundedRecoveryResult recovery;
+    CommandRequest request = make_request(100u);
+    CommandJournalEntry entry;
+
+    media_init(&media);
+    boot_store(&media, &pm, &core, &store, &recovery);
+    media.fail_commit = true;
+    media.commit_failure_mode = COMMIT_FAILURE_DURABLE;
+
+    assert(store.journal.reserve(store.journal.context, &request, &entry) ==
+           TR2_ERROR_STORAGE);
+    assert(store.recovery_required);
+    /* The live counter cannot assume that the failed commit became durable. */
+    assert(store.next_admission_order == 1u);
+    assert(store.journal.find(store.journal.context, 100u, &entry) ==
+           TR2_ERROR_INVALID_STATE);
+
+    /* After reboot, durable media is authoritative and reconstructs the counter. */
+    assert_reserved_after_reboot(&media);
+}
+
 int main(void)
 {
     test_torn_initial_admission_is_not_durable();
     test_successful_initial_admission_survives_reboot();
     test_failed_commit_rollback_leaves_empty_after_reboot();
     test_failed_commit_readable_but_not_durable_leaves_empty_after_reboot();
+    test_failed_commit_may_still_be_durable_and_recovery_is_authority();
     return 0;
 }
