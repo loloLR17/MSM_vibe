@@ -14,8 +14,10 @@ All multi-byte integers in this physical format are big-endian, consistent with 
 
 ## 1. Physical address space
 
-Reference capacity:
+Qualification-profile capacity:
     262,144 bytes = 0x40000
+
+This address map is one concrete qualification geometry. Format v1 is not intrinsically tied to 256 KiB or to these offsets; the portable engine receives and validates its geometry explicitly. The generic minimum raw geometry is derived from two 64-byte publication records and two image areas large enough for a 64-byte header plus the 51,818-byte logical payload.
 
 The layout deliberately uses round 4-KiB boundaries even though F-RAM has no erase-page requirement. This provides simple inspection, future metadata growth and clean separation.
 
@@ -140,12 +142,13 @@ commit():
 
 1. reject if current generation cannot be incremented safely;
 2. choose inactive image B;
-3. encode/write complete B header+payload for generation G+1;
-4. read back and validate B completely;
-5. choose the older/invalid superblock copy as publication target;
-6. encode/write one complete superblock referencing B/G+1;
-7. read back and validate that superblock against B;
-8. only then report commit success and switch runtime authority to B/G+1.
+3. write the complete candidate payload to B;
+4. encode/write B's final header for generation G+1, including payload CRC;
+5. read back and validate B completely;
+6. choose the publication copy opposite the recovered/current authoritative superblock;
+7. encode/write one complete superblock referencing B/G+1;
+8. read back and validate that superblock against B;
+9. only then report commit success and switch runtime authority to B/G+1.
 
 The old authoritative image and at least one old valid publication record are never modified before the new image has been completely validated.
 
@@ -162,9 +165,9 @@ Cases:
 - two valid, same generation and same canonical content: use either;
 - two valid, same generation but different canonical content: CORRUPTED.
 
-For publication, overwrite the invalid copy if one exists; otherwise overwrite the copy with the lower generation.
+For publication, write the copy opposite the recovered/current authoritative superblock. Recovery selects the highest valid generation; when both valid copies carry the same generation and same canonical publication, v1 selects A deterministically. Consequently the opposite-copy rule overwrites the invalid/older peer in accepted asymmetric states and selects B after the canonical equal-copy recovery case.
 
-If both valid copies have equal generation/content, either physical copy may be selected deterministically; v1 selects B when A is current publication source and A otherwise.
+The target is derived from recovered publication authority, never from generation parity.
 
 No superblock is erased.
 
@@ -239,6 +242,8 @@ Mandatory invariant:
     recovery returns old complete image or new complete image, never mixed candidate state.
 
 ## 12. Capacity
+
+For the 256-KiB qualification profile only:
 
 Image A area: 57,344 B
 Image B area: 57,344 B
