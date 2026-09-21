@@ -36,6 +36,8 @@ static Tr2Result physical_write(void *context, uint32_t offset,
     }
 
     if (media->fault_write_call == media->write_count) {
+        /* One-shot fault: model a single interrupted physical write. */
+        media->fault_write_call = 0u;
         if (media->fault_after < count) {
             count = media->fault_after;
         }
