@@ -118,11 +118,6 @@ static Tr2Result journal_latest_completed(void *context,
     return result;
 }
 
-static Tr2Result operation_not_implemented(void)
-{
-    return TR2_ERROR_UNSUPPORTED;
-}
-
 static Tr2Result journal_reserve(void *context,
                                  const CommandRequest *request,
                                  CommandJournalEntry *entry)
@@ -316,15 +311,66 @@ static Tr2Result journal_complete(void *context,
                                   CommandJournalEntry *entry)
 {
     CommandJournalBoundedStore *store = (CommandJournalBoundedStore *)context;
+    CommandJournalBoundedRecord current;
+    CommandJournalBoundedRecord replacement;
+    CommandJournalBoundedSlotSelection selection;
+    size_t logical_slot;
+    Tr2Result result;
+
     if (!command_journal_bounded_store_is_initialized(store) ||
         store->recovery_required) {
         return TR2_ERROR_INVALID_STATE;
     }
     if (!command_transaction_id_is_valid(transaction_id) ||
-        final_result == NULL || terminal_timestamp == NULL || entry == NULL) {
+        final_result == NULL || terminal_timestamp == NULL || entry == NULL ||
+        !command_status_is_final(final_result->status)) {
         return TR2_ERROR_INVALID_ARGUMENT;
     }
-    return operation_not_implemented();
+    if (store->next_completion_order == 0u ||
+        store->next_completion_order == UINT32_MAX) {
+        return TR2_ERROR_UNSUPPORTED;
+    }
+
+    result = command_journal_bounded_reader_find(
+        store->storage, transaction_id, &logical_slot, &current);
+    result = guard_read_result(store, result);
+    if (result != TR2_OK) {
+        return result;
+    }
+    if (current.entry.lifecycle == COMMAND_LIFECYCLE_COMPLETED) {
+        return TR2_ERROR_INVALID_STATE;
+    }
+
+    result = command_journal_bounded_slot_select(
+        store->storage, logical_slot, &selection);
+    if (result != TR2_OK) {
+        return guard_read_result(store, result);
+    }
+    if (selection.status != COMMAND_JOURNAL_BOUNDED_SLOT_VALID ||
+        !selection.has_record) {
+        store->recovery_required = true;
+        return TR2_ERROR_CORRUPTED;
+    }
+
+    replacement = current;
+    replacement.entry.lifecycle = COMMAND_LIFECYCLE_COMPLETED;
+    replacement.entry.has_final_result = true;
+    replacement.entry.final_result = *final_result;
+    replacement.entry.terminal_timestamp = *terminal_timestamp;
+    replacement.entry.completion_order = store->next_completion_order;
+
+    result = command_journal_bounded_writer_mutate(
+        store->storage, logical_slot, &selection, &replacement);
+    if (result != TR2_OK) {
+        if (result_requires_recovery(result)) {
+            store->recovery_required = true;
+        }
+        return result;
+    }
+
+    store->next_completion_order++;
+    *entry = replacement.entry;
+    return TR2_OK;
 }
 
 Tr2Result command_journal_bounded_store_init(
