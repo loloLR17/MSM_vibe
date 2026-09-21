@@ -166,6 +166,7 @@ tr2_add_core_test(test_p12h3c3c4_bounded_writer tests/unit/test_p12h3c3c4_bounde
 tr2_add_core_test(test_p12h3c3c4b_bounded_admission tests/unit/test_p12h3c3c4b_bounded_admission.c p12h3c3c4b_bounded_admission)
 tr2_add_core_test(test_p12h3c3c4c1_bounded_store tests/unit/test_p12h3c3c4c1_bounded_store.c p12h3c3c4c1_bounded_store)
 tr2_add_core_test(test_p12h3c3c4d1_fault_media tests/unit/test_p12h3c3c4d1_fault_media.c p12h3c3c4d1_fault_media)
+tr2_add_core_test(test_p12h3c3c4d2_admission_power_loss tests/unit/test_p12h3c3c4d2_admission_power_loss.c p12h3c3c4d2_admission_power_loss)
 
 function(tr2_add_host_test target source test_name)
     add_executable(${target} ${source})
