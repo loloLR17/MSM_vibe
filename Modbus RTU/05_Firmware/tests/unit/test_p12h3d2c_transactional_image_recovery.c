@@ -1,0 +1,154 @@
+#include <assert.h>
+#include <stdbool.h>
+#include <stdint.h>
+#include <stdlib.h>
+#include <string.h>
+
+#include "tr2/persistence/transactional_image_media.h"
+
+typedef struct {
+    uint8_t bytes[TR2_TRANSACTIONAL_MEDIA_PHYSICAL_SIZE];
+    bool fail_read;
+    uint32_t fail_read_base;
+    uint32_t fail_read_end;
+} TestPhysical;
+
+static Tr2Result rd(void *context, uint32_t offset, void *buffer, size_t size)
+{
+    TestPhysical *m = (TestPhysical *)context;
+    uint32_t end = offset + (uint32_t)size;
+    if ((size_t)offset + size > sizeof(m->bytes)) return TR2_ERROR_STORAGE;
+    if (m->fail_read && offset < m->fail_read_end && end > m->fail_read_base) {
+        return TR2_ERROR_STORAGE;
+    }
+    memcpy(buffer, &m->bytes[offset], size);
+    return TR2_OK;
+}
+
+static Tr2Result wr(void *context, uint32_t offset, const void *buffer, size_t size)
+{
+    TestPhysical *m = (TestPhysical *)context;
+    if ((size_t)offset + size > sizeof(m->bytes)) return TR2_ERROR_STORAGE;
+    memcpy(&m->bytes[offset], buffer, size);
+    return TR2_OK;
+}
+
+static void init_physical(TestPhysical *m)
+{
+    memset(m->bytes, 0xFF, sizeof(m->bytes));
+    m->fail_read = false;
+    m->fail_read_base = 0u;
+    m->fail_read_end = 0u;
+}
+
+static void init_media(TestPhysical *p, TransactionalImageMedia *m, uint8_t *candidate)
+{
+    TransactionalImagePhysicalStorage storage = { p, rd, wr };
+    assert(transactional_image_media_init(
+               m, &storage, candidate,
+               TR2_TRANSACTIONAL_MEDIA_LOGICAL_SIZE) == TR2_OK);
+}
+
+static void format(TestPhysical *p)
+{
+    TransactionalImageMedia m;
+    uint8_t *candidate = malloc(TR2_TRANSACTIONAL_MEDIA_LOGICAL_SIZE);
+    assert(candidate != NULL);
+    init_media(p, &m, candidate);
+    assert(transactional_image_media_format_empty(&m) == TR2_OK);
+    free(candidate);
+}
+
+static TransactionalImageRecoveryStatus recover(TestPhysical *p,
+                                                uint64_t *generation)
+{
+    TransactionalImageMedia m;
+    TransactionalImageRecoveryResult result;
+    uint8_t *candidate = malloc(TR2_TRANSACTIONAL_MEDIA_LOGICAL_SIZE);
+    assert(candidate != NULL);
+    init_media(p, &m, candidate);
+    assert(transactional_image_media_recover(&m, &result) == TR2_OK);
+    if (generation != NULL) *generation = result.generation;
+    free(candidate);
+    return result.status;
+}
+
+static void test_factory_erased_media_is_empty(void)
+{
+    TestPhysical p;
+    init_physical(&p);
+    assert(recover(&p, NULL) == TRANSACTIONAL_IMAGE_RECOVERY_EMPTY);
+}
+
+static void test_random_unformatted_media_is_corrupted_not_empty(void)
+{
+    TestPhysical p;
+    init_physical(&p);
+    p.bytes[TR2_TRANSACTIONAL_MEDIA_SUPERBLOCK_A_BASE] = 0x12u;
+    assert(recover(&p, NULL) == TRANSACTIONAL_IMAGE_RECOVERY_CORRUPTED);
+}
+
+static void test_valid_authority_masks_corrupt_peer(void)
+{
+    TestPhysical p;
+    uint64_t generation = 0u;
+    init_physical(&p);
+    format(&p);
+    p.bytes[TR2_TRANSACTIONAL_MEDIA_SUPERBLOCK_B_BASE] = 0x12u;
+    assert(recover(&p, &generation) == TRANSACTIONAL_IMAGE_RECOVERY_VALID);
+    assert(generation == 1u);
+}
+
+static void test_valid_authority_masks_unsupported_peer(void)
+{
+    TestPhysical p;
+    uint64_t generation = 0u;
+    init_physical(&p);
+    format(&p);
+    memcpy(&p.bytes[TR2_TRANSACTIONAL_MEDIA_SUPERBLOCK_B_BASE], "TR2M", 4u);
+    p.bytes[TR2_TRANSACTIONAL_MEDIA_SUPERBLOCK_B_BASE + 4u] = 0xFFu;
+    p.bytes[TR2_TRANSACTIONAL_MEDIA_SUPERBLOCK_B_BASE + 5u] = 0xFFu;
+    assert(recover(&p, &generation) == TRANSACTIONAL_IMAGE_RECOVERY_VALID);
+    assert(generation == 1u);
+}
+
+static void test_no_valid_authority_with_unsupported_record_is_unsupported(void)
+{
+    TestPhysical p;
+    init_physical(&p);
+    memcpy(&p.bytes[TR2_TRANSACTIONAL_MEDIA_SUPERBLOCK_A_BASE], "TR2M", 4u);
+    assert(recover(&p, NULL) == TRANSACTIONAL_IMAGE_RECOVERY_UNSUPPORTED);
+}
+
+static void test_read_unavailable_is_not_masked_by_valid_peer(void)
+{
+    TestPhysical p;
+    init_physical(&p);
+    format(&p);
+    p.fail_read = true;
+    p.fail_read_base = TR2_TRANSACTIONAL_MEDIA_SUPERBLOCK_B_BASE;
+    p.fail_read_end = TR2_TRANSACTIONAL_MEDIA_SUPERBLOCK_B_BASE +
+                      TR2_TRANSACTIONAL_MEDIA_SUPERBLOCK_SIZE;
+    assert(recover(&p, NULL) == TRANSACTIONAL_IMAGE_RECOVERY_UNAVAILABLE);
+}
+
+static void test_corrupt_only_authority_is_corrupted(void)
+{
+    TestPhysical p;
+    init_physical(&p);
+    format(&p);
+    p.bytes[TR2_TRANSACTIONAL_MEDIA_SUPERBLOCK_A_BASE + 60u] ^= 0x01u;
+    assert(recover(&p, NULL) == TRANSACTIONAL_IMAGE_RECOVERY_CORRUPTED);
+}
+
+int main(void)
+{
+    test_factory_erased_media_is_empty();
+    test_random_unformatted_media_is_corrupted_not_empty();
+    test_valid_authority_masks_corrupt_peer();
+    test_valid_authority_masks_unsupported_peer();
+    test_no_valid_authority_with_unsupported_record_is_unsupported();
+    test_read_unavailable_is_not_masked_by_valid_peer();
+    test_corrupt_only_authority_is_corrupted();
+    return 0;
+}
