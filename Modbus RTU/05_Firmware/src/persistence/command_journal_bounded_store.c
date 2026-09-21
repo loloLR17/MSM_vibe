@@ -4,6 +4,8 @@
 #include <string.h>
 
 #include "tr2/persistence/command_journal_bounded_reader.h"
+#include "tr2/persistence/command_journal_bounded_admission.h"
+#include "tr2/persistence/command_journal_bounded_writer.h"
 
 static bool result_requires_recovery(Tr2Result result)
 {
@@ -126,14 +128,69 @@ static Tr2Result journal_reserve(void *context,
                                  CommandJournalEntry *entry)
 {
     CommandJournalBoundedStore *store = (CommandJournalBoundedStore *)context;
+    CommandJournalBoundedAdmissionPlan plan;
+    CommandJournalBoundedRecord record;
+    Tr2Result result;
+
     if (!command_journal_bounded_store_is_initialized(store) ||
         store->recovery_required) {
         return TR2_ERROR_INVALID_STATE;
     }
-    if (request == NULL || entry == NULL) {
+    if (request == NULL || entry == NULL ||
+        !command_transaction_id_is_valid(request->transaction_id)) {
         return TR2_ERROR_INVALID_ARGUMENT;
     }
-    return operation_not_implemented();
+    if (store->next_admission_order == 0u ||
+        store->next_admission_order == UINT32_MAX) {
+        return TR2_ERROR_UNSUPPORTED;
+    }
+
+    result = command_journal_bounded_admission_plan(
+        store->storage, request->transaction_id, &request->identity, &plan);
+    if (result != TR2_OK) {
+        return guard_read_result(store, result);
+    }
+
+    if (plan.kind == COMMAND_JOURNAL_BOUNDED_ADMISSION_RETRY_EXISTING ||
+        plan.kind == COMMAND_JOURNAL_BOUNDED_ADMISSION_COLLISION_EXISTING) {
+        return TR2_ERROR_INVALID_STATE;
+    }
+    if (plan.kind == COMMAND_JOURNAL_BOUNDED_ADMISSION_NO_CAPACITY) {
+        return TR2_ERROR_UNAVAILABLE;
+    }
+    if (!plan.has_logical_slot) {
+        store->recovery_required = true;
+        return TR2_ERROR_CORRUPTED;
+    }
+
+    memset(&record, 0, sizeof(record));
+    record.admission_order = store->next_admission_order;
+    record.entry.transaction_id = request->transaction_id;
+    record.entry.request_identity = request->identity;
+    record.entry.lifecycle = COMMAND_LIFECYCLE_RESERVED;
+
+    if (plan.kind == COMMAND_JOURNAL_BOUNDED_ADMISSION_ADMIT_EMPTY) {
+        result = command_journal_bounded_writer_admit_empty(
+            store->storage, plan.logical_slot, &record);
+    } else if (plan.kind == COMMAND_JOURNAL_BOUNDED_ADMISSION_EVICT_COMPLETED &&
+               plan.has_current) {
+        result = command_journal_bounded_writer_readmit_completed(
+            store->storage, plan.logical_slot, &plan.current, &record);
+    } else {
+        store->recovery_required = true;
+        return TR2_ERROR_CORRUPTED;
+    }
+
+    if (result != TR2_OK) {
+        if (result_requires_recovery(result)) {
+            store->recovery_required = true;
+        }
+        return result;
+    }
+
+    store->next_admission_order++;
+    *entry = record.entry;
+    return TR2_OK;
 }
 
 static Tr2Result journal_set_recovery_context(
