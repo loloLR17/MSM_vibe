@@ -7,6 +7,11 @@
 
 #include "tr2/persistence/transactional_image_media.h"
 
+static TransactionalImageGeometry qualification_geometry(void)
+{
+    return transactional_image_geometry_qualification_profile();
+}
+
 typedef struct {
     uint8_t bytes[TR2_TRANSACTIONAL_MEDIA_PHYSICAL_SIZE];
     uint32_t write_count;
@@ -81,9 +86,10 @@ static void init_media(FaultPhysical *physical,
         physical_write
     };
 
-    assert(transactional_image_media_init(
-               media, &storage, candidate,
-               TR2_TRANSACTIONAL_MEDIA_LOGICAL_SIZE) == TR2_OK);
+    { TransactionalImageGeometry geometry=qualification_geometry();
+      assert(transactional_image_media_init(
+               media, &storage, &geometry, candidate,
+               TR2_TRANSACTIONAL_MEDIA_LOGICAL_SIZE) == TR2_OK); }
 }
 
 static void recover_and_expect(FaultPhysical *physical,
@@ -103,9 +109,10 @@ static void recover_and_expect(FaultPhysical *physical,
 
     assert(candidate != NULL);
     clear_fault(physical);
-    assert(transactional_image_media_init(
-               &reboot, &storage, candidate,
-               TR2_TRANSACTIONAL_MEDIA_LOGICAL_SIZE) == TR2_OK);
+    { TransactionalImageGeometry geometry=qualification_geometry();
+      assert(transactional_image_media_init(
+               &reboot, &storage, &geometry, candidate,
+               TR2_TRANSACTIONAL_MEDIA_LOGICAL_SIZE) == TR2_OK); }
     assert(transactional_image_media_recover(&reboot, &recovery) == TR2_OK);
     assert(recovery.status == TRANSACTIONAL_IMAGE_RECOVERY_VALID);
     assert(recovery.generation == generation);
@@ -250,9 +257,10 @@ static void test_successive_commits_alternate_and_recover_latest(void)
     assert(media.generation == 3u);
     assert(media.active_image == 0u);
 
-    assert(transactional_image_media_init(
-               &media, &storage, reboot_candidate,
-               TR2_TRANSACTIONAL_MEDIA_LOGICAL_SIZE) == TR2_OK);
+    { TransactionalImageGeometry geometry=qualification_geometry();
+      assert(transactional_image_media_init(
+               &media, &storage, &geometry, reboot_candidate,
+               TR2_TRANSACTIONAL_MEDIA_LOGICAL_SIZE) == TR2_OK); }
     assert(transactional_image_media_recover(&media, &recovery) == TR2_OK);
     assert(recovery.status == TRANSACTIONAL_IMAGE_RECOVERY_VALID);
     assert(recovery.generation == 3u);
