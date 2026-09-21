@@ -122,4 +122,55 @@ static void test_direct_zero_length_media_operations_are_noops(void)
     free(candidate);
 }
 
-int main(void){test_format_write_commit_recover();test_uncommitted_candidate_is_lost_on_reboot();test_torn_inactive_image_keeps_old_authority();test_recovered_authority_publishes_to_opposite_superblock();test_direct_zero_length_media_operations_are_noops();return 0;}
+
+static void test_recovered_b_authority_publishes_to_superblock_a(void)
+{
+    RamPhysical r;
+    TransactionalImageMedia first,reboot;
+    uint8_t *c=malloc(TR2_TRANSACTIONAL_MEDIA_LOGICAL_SIZE);
+    uint8_t *c2=malloc(TR2_TRANSACTIONAL_MEDIA_LOGICAL_SIZE);
+    TransactionalImagePhysicalStorage p={&r,rd,wr};
+    TransactionalImageGeometry g=transactional_image_geometry_qualification_profile();
+    TransactionalImageRecoveryResult rr;
+    PersistentMedia *pm;
+    uint8_t v=0x5Au;
+    uint8_t super_b_before[TR2_TRANSACTIONAL_MEDIA_SUPERBLOCK_SIZE];
+    uint8_t invalid[TR2_TRANSACTIONAL_MEDIA_SUPERBLOCK_SIZE]={0};
+
+    assert(c&&c2);
+    init(&r,&first,c);
+    assert(transactional_image_media_format_empty(&first)==TR2_OK);
+
+    memcpy(r.bytes+TR2_TRANSACTIONAL_MEDIA_SUPERBLOCK_B_BASE,
+           r.bytes+TR2_TRANSACTIONAL_MEDIA_SUPERBLOCK_A_BASE,
+           TR2_TRANSACTIONAL_MEDIA_SUPERBLOCK_SIZE);
+    memcpy(super_b_before,
+           r.bytes+TR2_TRANSACTIONAL_MEDIA_SUPERBLOCK_B_BASE,
+           sizeof(super_b_before));
+    memcpy(r.bytes+TR2_TRANSACTIONAL_MEDIA_SUPERBLOCK_A_BASE,
+           invalid,sizeof(invalid));
+
+    assert(transactional_image_media_init(
+        &reboot,&p,&g,c2,TR2_TRANSACTIONAL_MEDIA_LOGICAL_SIZE)==TR2_OK);
+    assert(transactional_image_media_recover(&reboot,&rr)==TR2_OK);
+    assert(rr.status==TRANSACTIONAL_IMAGE_RECOVERY_VALID);
+    assert(rr.generation==1u);
+    assert(reboot.active_superblock==1u);
+
+    pm=transactional_image_media_interface(&reboot);
+    assert(pm->write(pm->context,84u,&v,1u)==TR2_OK);
+    assert(pm->commit(pm->context)==TR2_OK);
+
+    assert(reboot.generation==2u);
+    assert(reboot.active_superblock==0u);
+    assert(memcmp(super_b_before,
+                  r.bytes+TR2_TRANSACTIONAL_MEDIA_SUPERBLOCK_B_BASE,
+                  sizeof(super_b_before))==0);
+    assert(memcmp(r.bytes+TR2_TRANSACTIONAL_MEDIA_SUPERBLOCK_A_BASE,
+                  invalid,sizeof(invalid))!=0);
+
+    free(c);
+    free(c2);
+}
+
+int main(void){test_format_write_commit_recover();test_uncommitted_candidate_is_lost_on_reboot();test_torn_inactive_image_keeps_old_authority();test_recovered_authority_publishes_to_opposite_superblock();test_direct_zero_length_media_operations_are_noops();test_recovered_b_authority_publishes_to_superblock_a();return 0;}
