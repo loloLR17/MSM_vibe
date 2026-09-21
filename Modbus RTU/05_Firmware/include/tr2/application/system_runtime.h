@@ -23,7 +23,7 @@
 #include "tr2/persistence/boot_intent_store.h"
 #include "tr2/persistence/campaign_data_store_persistent.h"
 #include "tr2/persistence/campaign_repository_store.h"
-#include "tr2/persistence/command_journal_store.h"
+#include "tr2/persistence/command_journal_bounded_store.h"
 #include "tr2/persistence/configuration_store.h"
 #include "tr2/persistence/diagnostic_history_store.h"
 #include "tr2/persistence/persistent_media_region.h"
@@ -112,8 +112,8 @@ typedef struct {
     bool p9_authorities_available;
     PersistentMediaRegion command_journal_media_region;
     PersistentStorageCore command_journal_storage_core;
-    CommandJournalStore command_journal_store;
-    CommandJournalRecoveryResult command_journal_recovery;
+    CommandJournalBoundedStore command_journal_store;
+    CommandJournalBoundedRecoveryResult command_journal_recovery;
     CommandBootRecoveryResult command_boot_recovery;
     CommandEngine command_engine;
     CommandRequestMailbox command_mailbox;
