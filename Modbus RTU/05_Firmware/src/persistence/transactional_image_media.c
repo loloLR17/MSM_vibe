@@ -213,11 +213,11 @@ static Tr2Result media_commit_cb(void *context)
     m->generation=next; m->active_image=inactive; return TR2_OK;
 }
 
-Tr2Result transactional_image_media_init(TransactionalImageMedia *m,const TransactionalImagePhysicalStorage *p,uint8_t *candidate,size_t candidate_size)
+Tr2Result transactional_image_media_init(TransactionalImageMedia *m,const TransactionalImagePhysicalStorage *p,const TransactionalImageGeometry *g,uint8_t *candidate,size_t candidate_size)
 {
-    if(m==NULL||p==NULL||p->read==NULL||p->write==NULL||candidate==NULL||candidate_size<TR2_TRANSACTIONAL_MEDIA_LOGICAL_SIZE) return TR2_ERROR_INVALID_ARGUMENT;
-    memset(m,0,sizeof(*m)); m->physical=*p; m->geometry=transactional_image_geometry_qualification_profile();
-    if(transactional_image_geometry_validate(&m->geometry)!=TR2_OK) return TR2_ERROR_INVALID_ARGUMENT;
+    if(m==NULL||p==NULL||p->read==NULL||p->write==NULL||g==NULL||candidate==NULL||candidate_size<TR2_TRANSACTIONAL_MEDIA_LOGICAL_SIZE) return TR2_ERROR_INVALID_ARGUMENT;
+    if(transactional_image_geometry_validate(g)!=TR2_OK) return TR2_ERROR_INVALID_ARGUMENT;
+    memset(m,0,sizeof(*m)); m->physical=*p; m->geometry=*g;
     m->candidate=candidate; m->initialized=true;
     m->interface.context=m; m->interface.read=media_read_cb; m->interface.write=media_write_cb; m->interface.commit=media_commit_cb; return TR2_OK;
 }
