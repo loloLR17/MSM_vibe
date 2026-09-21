@@ -59,6 +59,7 @@ typedef struct {
     uint8_t *candidate;
     uint64_t generation;
     uint8_t active_image;
+    uint8_t active_superblock;
     bool initialized;
     bool recovered;
     bool recovery_required;
