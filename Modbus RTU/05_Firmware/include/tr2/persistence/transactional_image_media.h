@@ -31,6 +31,8 @@ typedef struct {
 Tr2Result transactional_image_geometry_validate(
     const TransactionalImageGeometry *geometry);
 
+TransactionalImageGeometry transactional_image_geometry_qualification_profile(void);
+
 typedef enum {
     TRANSACTIONAL_IMAGE_RECOVERY_EMPTY = 0,
     TRANSACTIONAL_IMAGE_RECOVERY_VALID,
@@ -53,6 +55,7 @@ typedef struct {
 
 typedef struct {
     TransactionalImagePhysicalStorage physical;
+    TransactionalImageGeometry geometry;
     uint8_t *candidate;
     uint64_t generation;
     uint8_t active_image;
