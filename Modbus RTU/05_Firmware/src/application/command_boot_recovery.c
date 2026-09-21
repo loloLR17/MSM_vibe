@@ -193,24 +193,17 @@ static Tr2Result collect_incomplete_transaction(void *context,
 }
 
 Tr2Result command_boot_recovery_scan(
-    CommandJournalStore *journal_store,
+    CommandJournal *journal,
     const CommandBootRecoveryAuthorities *authorities,
     CommandBootRecoveryResult *result)
 {
-    CommandJournal *journal;
     CommandJournalEntry entry;
     CommandReconciliationOutcome reconciliation;
     Tr2Result lookup_result;
 
-    if (journal_store == NULL || authorities == NULL || result == NULL ||
-        !command_journal_store_is_initialized(journal_store) ||
-        command_journal_store_recovery_required(journal_store)) {
+    if (journal == NULL || authorities == NULL || result == NULL ||
+        journal->latest_completed == NULL || journal->visit == NULL) {
         return TR2_ERROR_INVALID_ARGUMENT;
-    }
-
-    journal = command_journal_store_journal(journal_store);
-    if (journal == NULL) {
-        return TR2_ERROR_INVALID_STATE;
     }
 
     memset(result, 0, sizeof(*result));
@@ -224,9 +217,6 @@ Tr2Result command_boot_recovery_scan(
         return lookup_result;
     }
 
-    if (journal->visit == NULL) {
-        return TR2_ERROR_INVALID_STATE;
-    }
     lookup_result = journal->visit(journal->context,
                                    collect_incomplete_transaction,
                                    result);
