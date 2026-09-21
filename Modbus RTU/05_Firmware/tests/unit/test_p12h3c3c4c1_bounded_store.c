@@ -10,6 +10,8 @@
 typedef struct {
     uint8_t bytes[TR2_COMMAND_JOURNAL_BOUNDED_STORAGE_SIZE];
     bool fail_read;
+    bool fail_write;
+    bool fail_commit;
 } TestMedia;
 
 typedef struct {
@@ -29,6 +31,7 @@ static Tr2Result media_read(void *context, uint32_t offset, void *buffer, size_t
 static Tr2Result media_write(void *context, uint32_t offset, const void *buffer, size_t size)
 {
     TestMedia *media = (TestMedia *)context;
+    if (media->fail_write) return TR2_ERROR_STORAGE;
     if ((size_t)offset + size > sizeof(media->bytes)) return TR2_ERROR_STORAGE;
     memcpy(&media->bytes[offset], buffer, size);
     return TR2_OK;
@@ -36,14 +39,16 @@ static Tr2Result media_write(void *context, uint32_t offset, const void *buffer,
 
 static Tr2Result media_commit(void *context)
 {
-    (void)context;
-    return TR2_OK;
+    TestMedia *media = (TestMedia *)context;
+    return media->fail_commit ? TR2_ERROR_STORAGE : TR2_OK;
 }
 
 static void init_core(TestMedia *media, PersistentMedia *pm, PersistentStorageCore *core)
 {
     memset(media, 0xFF, sizeof(*media));
     media->fail_read = false;
+    media->fail_write = false;
+    media->fail_commit = false;
     pm->context = media;
     pm->read = media_read;
     pm->write = media_write;
@@ -220,6 +225,105 @@ static void test_failed_recovery_stays_closed_then_can_recover(void)
     assert(store.journal.find(store.journal.context, 1u, &entry) == TR2_ERROR_NOT_FOUND);
 }
 
+
+static CommandRequest make_request(uint16_t id, uint16_t command_code)
+{
+    CommandRequest request;
+    memset(&request, 0, sizeof(request));
+    request.transaction_id = id;
+    request.identity.command_code = command_code;
+    return request;
+}
+
+static void test_reserve_empty_persists_and_advances_order(void)
+{
+    TestMedia media; PersistentMedia pm; PersistentStorageCore core;
+    CommandJournalBoundedStore store; CommandJournalBoundedRecoveryResult recovery;
+    CommandRequest request = make_request(42u, COMMAND_CODE_APPLY_CONFIGURATION);
+    CommandJournalEntry entry; CommandJournalBoundedSlotSelection selection;
+
+    init_core(&media, &pm, &core);
+    assert(command_journal_bounded_store_init(&store, &core) == TR2_OK);
+    assert(command_journal_bounded_store_recover(&store, &recovery) == TR2_OK);
+    assert(store.journal.reserve(store.journal.context, &request, &entry) == TR2_OK);
+    assert(entry.transaction_id == 42u);
+    assert(entry.lifecycle == COMMAND_LIFECYCLE_RESERVED);
+    assert(store.next_admission_order == 2u);
+    assert(command_journal_bounded_slot_select(&core, 0u, &selection) == TR2_OK);
+    assert(selection.record.entry.transaction_id == 42u);
+    assert(selection.record.admission_order == 1u);
+}
+
+static void test_reserve_existing_retry_and_collision_do_not_write(void)
+{
+    TestMedia media; PersistentMedia pm; PersistentStorageCore core;
+    CommandJournalBoundedStore store; CommandJournalBoundedRecoveryResult recovery;
+    CommandRequest first = make_request(50u, COMMAND_CODE_APPLY_CONFIGURATION);
+    CommandRequest collision = make_request(50u, COMMAND_CODE_STOP_ACQUISITION);
+    CommandJournalEntry entry;
+
+    init_core(&media, &pm, &core);
+    assert(command_journal_bounded_store_init(&store, &core) == TR2_OK);
+    assert(command_journal_bounded_store_recover(&store, &recovery) == TR2_OK);
+    assert(store.journal.reserve(store.journal.context, &first, &entry) == TR2_OK);
+    assert(store.journal.reserve(store.journal.context, &first, &entry) == TR2_ERROR_INVALID_STATE);
+    assert(store.journal.reserve(store.journal.context, &collision, &entry) == TR2_ERROR_INVALID_STATE);
+    assert(store.next_admission_order == 2u);
+    assert(!store.recovery_required);
+}
+
+static void test_reserve_write_and_commit_failure_rearm_recovery(void)
+{
+    TestMedia media; PersistentMedia pm; PersistentStorageCore core;
+    CommandJournalBoundedStore store; CommandJournalBoundedRecoveryResult recovery;
+    CommandRequest request = make_request(60u, COMMAND_CODE_APPLY_CONFIGURATION);
+    CommandJournalEntry entry;
+
+    init_core(&media, &pm, &core);
+    assert(command_journal_bounded_store_init(&store, &core) == TR2_OK);
+    assert(command_journal_bounded_store_recover(&store, &recovery) == TR2_OK);
+    media.fail_write = true;
+    assert(store.journal.reserve(store.journal.context, &request, &entry) == TR2_ERROR_STORAGE);
+    assert(store.recovery_required);
+    assert(store.next_admission_order == 1u);
+
+    init_core(&media, &pm, &core);
+    assert(command_journal_bounded_store_init(&store, &core) == TR2_OK);
+    assert(command_journal_bounded_store_recover(&store, &recovery) == TR2_OK);
+    media.fail_commit = true;
+    assert(store.journal.reserve(store.journal.context, &request, &entry) == TR2_ERROR_STORAGE);
+    assert(store.recovery_required);
+    assert(store.next_admission_order == 1u);
+}
+
+static void test_reserve_evicts_oldest_completed_when_full(void)
+{
+    TestMedia media; PersistentMedia pm; PersistentStorageCore core;
+    CommandJournalBoundedStore store; CommandJournalBoundedRecoveryResult recovery;
+    CommandJournalBoundedRecord record; CommandRequest request;
+    CommandJournalEntry entry; size_t slot;
+
+    init_core(&media, &pm, &core);
+    for (slot = 0u; slot < TR2_COMMAND_JOURNAL_BOUNDED_SLOT_COUNT; ++slot) {
+        record = make_completed((uint16_t)(slot + 1u),
+                                (uint32_t)(slot + 2u),
+                                (uint32_t)(slot + 1u));
+        write_record(&media, slot, &record);
+    }
+    record = make_completed(201u, 1u, 201u);
+    write_record(&media, 200u, &record);
+
+    assert(command_journal_bounded_store_init(&store, &core) == TR2_OK);
+    assert(command_journal_bounded_store_recover(&store, &recovery) == TR2_OK);
+    assert(store.next_admission_order == 258u);
+    request = make_request(60000u, COMMAND_CODE_APPLY_CONFIGURATION);
+    assert(store.journal.reserve(store.journal.context, &request, &entry) == TR2_OK);
+    assert(entry.transaction_id == 60000u);
+    assert(store.next_admission_order == 259u);
+    assert(store.journal.find(store.journal.context, 201u, &entry) == TR2_ERROR_NOT_FOUND);
+    assert(store.journal.find(store.journal.context, 60000u, &entry) == TR2_OK);
+}
+
 int main(void)
 {
     test_init_blocks_all_operations_until_recovery();
@@ -228,5 +332,9 @@ int main(void)
     test_reader_degradation_rearms_recovery();
     test_visitor_business_error_does_not_rearm();
     test_failed_recovery_stays_closed_then_can_recover();
+    test_reserve_empty_persists_and_advances_order();
+    test_reserve_existing_retry_and_collision_do_not_write();
+    test_reserve_write_and_commit_failure_rearm_recovery();
+    test_reserve_evicts_oldest_completed_when_full();
     return 0;
 }
