@@ -5,6 +5,7 @@
 #include <string.h>
 
 #include "tr2/persistence/command_journal_bounded_record.h"
+#include "tr2/persistence/command_journal_bounded_slot.h"
 #include "tr2/persistence/command_journal_bounded_store.h"
 
 typedef enum {
