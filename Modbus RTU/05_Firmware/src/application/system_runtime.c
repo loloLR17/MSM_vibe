@@ -16,7 +16,7 @@
     (TR2_CAMPAIGN_DATA_STORAGE_OFFSET + (uint32_t)TR2_CAMPAIGN_DATA_STORAGE_SIZE)
 #define TR2_DIAGNOSTIC_HISTORY_STORAGE_OFFSET \
     (TR2_COMMAND_JOURNAL_STORAGE_OFFSET + \
-     (uint32_t)TR2_COMMAND_JOURNAL_STORE_STORAGE_SIZE)
+     (uint32_t)TR2_COMMAND_JOURNAL_BOUNDED_STORAGE_SIZE)
 #define TR2_BOOT_INTENT_STORAGE_OFFSET \
     (TR2_DIAGNOSTIC_HISTORY_STORAGE_OFFSET + \
      (uint32_t)TR2_DIAGNOSTIC_HISTORY_RECORD_SIZE + \
@@ -380,7 +380,7 @@ static Tr2Result recover_commands(SystemRuntime *runtime)
         &runtime->command_journal_media_region,
         runtime->deps.persistent_media,
         TR2_COMMAND_JOURNAL_STORAGE_OFFSET,
-        (uint32_t)TR2_COMMAND_JOURNAL_STORE_STORAGE_SIZE);
+        (uint32_t)TR2_COMMAND_JOURNAL_BOUNDED_STORAGE_SIZE);
     if (result != TR2_OK) {
         return result;
     }
@@ -392,29 +392,28 @@ static Tr2Result recover_commands(SystemRuntime *runtime)
         return result;
     }
 
-    result = command_journal_store_init(&runtime->command_journal_store,
-                                        &runtime->command_journal_storage_core,
-                                        TR2_COMMAND_JOURNAL_STORE_MAX_TRANSACTION_ID);
+    result = command_journal_bounded_store_init(&runtime->command_journal_store,
+                                                &runtime->command_journal_storage_core);
     if (result != TR2_OK) {
         return result;
     }
 
-    result = command_journal_store_recover(&runtime->command_journal_store,
-                                           &runtime->command_journal_recovery);
+    result = command_journal_bounded_store_recover(&runtime->command_journal_store,
+                                                   &runtime->command_journal_recovery);
     if (result != TR2_OK) {
         return result;
     }
-    if (runtime->command_journal_recovery.status == COMMAND_JOURNAL_RECOVERY_CORRUPTED) {
+    if (runtime->command_journal_recovery.status == COMMAND_JOURNAL_BOUNDED_RECOVERY_CORRUPTED) {
         return TR2_ERROR_CORRUPTED;
     }
-    if (runtime->command_journal_recovery.status == COMMAND_JOURNAL_RECOVERY_UNSUPPORTED) {
+    if (runtime->command_journal_recovery.status == COMMAND_JOURNAL_BOUNDED_RECOVERY_UNSUPPORTED) {
         return TR2_ERROR_UNSUPPORTED;
     }
-    if (runtime->command_journal_recovery.status == COMMAND_JOURNAL_RECOVERY_UNAVAILABLE) {
+    if (runtime->command_journal_recovery.status == COMMAND_JOURNAL_BOUNDED_RECOVERY_UNAVAILABLE) {
         return TR2_ERROR_UNAVAILABLE;
     }
 
-    journal = command_journal_store_journal(&runtime->command_journal_store);
+    journal = command_journal_bounded_store_journal(&runtime->command_journal_store);
     repository = campaign_repository_store_interface(&runtime->campaign_repository_store);
     if (journal == NULL || repository == NULL) {
         return TR2_ERROR_INTERNAL;
@@ -564,7 +563,7 @@ Tr2Result system_runtime_init(SystemRuntime *runtime, const SystemRuntimeDepende
     runtime->selftest_history_recovery_status = DIAGNOSTIC_HISTORY_RECOVERY_EMPTY;
     runtime->boot_intent_recovery.status = BOOT_INTENT_RECOVERY_EMPTY;
     runtime->boot_intent_recovery.intent = boot_intent_none();
-    runtime->command_journal_recovery.status = COMMAND_JOURNAL_RECOVERY_EMPTY;
+    runtime->command_journal_recovery.status = COMMAND_JOURNAL_BOUNDED_RECOVERY_EMPTY;
     runtime->command_boot_recovery.status = COMMAND_BOOT_RECOVERY_CLEAN;
     runtime->initialized = true;
     return TR2_OK;
