@@ -7,6 +7,7 @@
 #include "tr2/common/result.h"
 #include "tr2/persistence/command_journal.h"
 #include "tr2/persistence/command_journal_bounded_recovery.h"
+#include "tr2/persistence/command_journal_bounded_slot.h"
 #include "tr2/persistence/persistent_storage_core.h"
 
 typedef struct {
