@@ -88,7 +88,7 @@ static void fill_completed(TestMedia *media)
     size_t slot;
     for (slot = 0u; slot < TR2_COMMAND_JOURNAL_BOUNDED_SLOT_COUNT; ++slot) {
         CommandJournalBoundedRecord value =
-            record((uint16_t)(slot + 1u), (uint32_t)(slot + 1u),
+            record((uint16_t)(slot + 1u), (uint32_t)(slot + 2u),
                    COMMAND_LIFECYCLE_COMPLETED, 1u);
         put_record(media, slot, &value);
     }
