@@ -164,8 +164,14 @@ Tr2Result transactional_image_media_recover(TransactionalImageMedia *m,Transacti
     if(m==NULL||!m->initialized||out==NULL) return TR2_ERROR_INVALID_ARGUMENT;
     memset(out,0,sizeof(*out)); a=validate_superblock(m,0u,&ga,&ia); b=validate_superblock(m,1u,&gb,&ib);
     if(a==REC_IO||b==REC_IO){out->status=TRANSACTIONAL_IMAGE_RECOVERY_UNAVAILABLE;return TR2_OK;}
-    if(a==REC_UNSUPPORTED||b==REC_UNSUPPORTED){out->status=TRANSACTIONAL_IMAGE_RECOVERY_UNSUPPORTED;return TR2_OK;}
+    /*
+     * A valid publication remains authoritative even if the peer copy is a
+     * torn record that happens to contain recognizable magic plus incomplete
+     * version bytes.  UNSUPPORTED is authoritative only when no valid
+     * superblock-image pair survives.
+     */
     if(a!=REC_VALID&&b!=REC_VALID){
+        if(a==REC_UNSUPPORTED||b==REC_UNSUPPORTED){out->status=TRANSACTIONAL_IMAGE_RECOVERY_UNSUPPORTED;return TR2_OK;}
         uint8_t sa[64],sb[64],ha[64],hb[64];
         if(physical_read(m,TR2_TRANSACTIONAL_MEDIA_SUPERBLOCK_A_BASE,sa,64)!=TR2_OK||physical_read(m,TR2_TRANSACTIONAL_MEDIA_SUPERBLOCK_B_BASE,sb,64)!=TR2_OK||
            physical_read(m,TR2_TRANSACTIONAL_MEDIA_IMAGE_A_BASE,ha,64)!=TR2_OK||physical_read(m,TR2_TRANSACTIONAL_MEDIA_IMAGE_B_BASE,hb,64)!=TR2_OK){out->status=TRANSACTIONAL_IMAGE_RECOVERY_UNAVAILABLE;return TR2_OK;}
