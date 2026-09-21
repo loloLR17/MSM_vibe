@@ -54,17 +54,6 @@ static void build_old_generation(FaultPhysical *p,uint8_t *candidate)
     assert(api->commit(api->context)==TR2_OK);
 }
 
-static TransactionalImageRecoveryStatus recover_status(
-    FaultPhysical *p,uint8_t *candidate)
-{
-    TransactionalImageMedia m;
-    TransactionalImageRecoveryResult r;
-    p->fail_call=0u; p->write_call=0u;
-    init_media(p,&m,candidate);
-    assert(transactional_image_media_recover(&m,&r)==TR2_OK);
-    return r.status;
-}
-
 static void test_format_power_loss_never_resurrects_old_authority(void)
 {
     FaultPhysical p;
