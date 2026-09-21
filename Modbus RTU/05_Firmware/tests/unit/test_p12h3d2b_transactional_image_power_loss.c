@@ -159,7 +159,7 @@ static void test_every_image_header_cut_keeps_old_generation(void)
 {
     size_t cut;
     for (cut = 0u; cut < TR2_TRANSACTIONAL_MEDIA_IMAGE_HEADER_SIZE; ++cut) {
-        run_torn_commit_case(1u, cut, 0x31u);
+        run_torn_commit_case(2u, cut, 0x31u);
     }
 }
 
@@ -179,7 +179,7 @@ static void test_representative_payload_cuts_keep_old_generation(void)
     size_t index;
 
     for (index = 0u; index < sizeof(cuts) / sizeof(cuts[0]); ++index) {
-        run_torn_commit_case(2u, cuts[index], 0x42u);
+        run_torn_commit_case(1u, cuts[index], 0x42u);
     }
 }
 
