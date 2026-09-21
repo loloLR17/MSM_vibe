@@ -96,7 +96,12 @@ static RecordState validate_superblock(TransactionalImageMedia *m,uint8_t copy,u
     if(s[17]!=0u||s[18]!=0u||s[19]!=0u||get_u32(s+20)!=(uint32_t)TR2_TRANSACTIONAL_MEDIA_LOGICAL_SIZE||get_u32(s+24)!=64u||get_u32(s+28)!=0u) return REC_BAD;
     { size_t i; for(i=32;i<60;++i) if(s[i]!=0u) return REC_BAD; }
     if(get_u32(s+60)!=crc32_bytes(s,60)) return REC_BAD;
-    if(validate_image(m,s[16],&image_generation)!=REC_VALID||image_generation!=get_u64(s+8)) return REC_BAD;
+    {
+        RecordState image_state=validate_image(m,s[16],&image_generation);
+        if(image_state==REC_IO) return REC_IO;
+        if(image_state==REC_UNSUPPORTED) return REC_UNSUPPORTED;
+        if(image_state!=REC_VALID||image_generation!=get_u64(s+8)) return REC_BAD;
+    }
     *generation=get_u64(s+8); *image=s[16]; return REC_VALID;
 }
 
