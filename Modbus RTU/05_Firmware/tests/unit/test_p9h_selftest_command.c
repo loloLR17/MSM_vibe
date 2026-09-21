@@ -470,7 +470,9 @@ static void test_started_selftest_boot_scan_is_indeterminate(void)
     assert(journal->reserve(journal->context, &command, &entry) == TR2_OK);
     assert(journal->mark_started(journal->context, 4u, &entry) == TR2_OK);
 
-    assert(command_boot_recovery_scan(&store, &authorities, &boot_result) == TR2_OK);
+    assert(command_boot_recovery_scan(command_journal_store_journal(&store),
+                                      &authorities,
+                                      &boot_result) == TR2_OK);
     assert(boot_result.has_incomplete_transaction);
     assert(boot_result.incomplete_transaction.transaction_id == 4u);
     assert(boot_result.status == COMMAND_BOOT_RECOVERY_STARTED_INDETERMINATE);
