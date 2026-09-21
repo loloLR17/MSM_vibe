@@ -162,6 +162,7 @@ tr2_add_core_test(test_p12h3c3c1_bounded_slot tests/unit/test_p12h3c3c1_bounded_
 tr2_add_core_test(test_p12h3c3c2_bounded_recovery tests/unit/test_p12h3c3c2_bounded_recovery.c p12h3c3c2_bounded_recovery)
 tr2_add_core_test(test_p12h3c3c3_bounded_reader tests/unit/test_p12h3c3c3_bounded_reader.c p12h3c3c3_bounded_reader)
 tr2_add_core_test(test_p12h3c3c4_bounded_writer tests/unit/test_p12h3c3c4_bounded_writer.c p12h3c3c4_bounded_writer)
+tr2_add_core_test(test_p12h3c3c4b_bounded_admission tests/unit/test_p12h3c3c4b_bounded_admission.c p12h3c3c4b_bounded_admission)
 
 function(tr2_add_host_test target source test_name)
     add_executable(${target} ${source})
