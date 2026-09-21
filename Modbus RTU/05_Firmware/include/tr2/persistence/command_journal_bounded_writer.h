@@ -33,4 +33,17 @@ Tr2Result command_journal_bounded_writer_mutate(
     const CommandJournalBoundedSlotSelection *current,
     const CommandJournalBoundedRecord *replacement);
 
+/*
+ * Re-admit a new logical transaction into a currently VALID COMPLETED slot.
+ *
+ * Unlike mutate(), this operation intentionally permits a new admission_order
+ * because the previous terminal transaction is being evicted. Physical A/B
+ * continuity is preserved: opposite copy, generation + 1, then commit.
+ */
+Tr2Result command_journal_bounded_writer_readmit_completed(
+    PersistentStorageCore *storage,
+    size_t logical_slot,
+    const CommandJournalBoundedSlotSelection *current,
+    const CommandJournalBoundedRecord *replacement);
+
 #endif
