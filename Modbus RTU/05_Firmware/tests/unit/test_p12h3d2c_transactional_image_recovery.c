@@ -172,6 +172,65 @@ static void test_corrupt_only_authority_is_corrupted(void)
     assert(recover(&p, NULL) == TRANSACTIONAL_IMAGE_RECOVERY_CORRUPTED);
 }
 
+
+static uint32_t test_crc32(const uint8_t *data, size_t size)
+{
+    uint32_t crc=UINT32_C(0xFFFFFFFF);
+    size_t i;
+    for(i=0u;i<size;++i){
+        uint8_t bit;
+        crc^=data[i];
+        for(bit=0u;bit<8u;++bit)
+            crc=(crc&1u)?(crc>>1)^UINT32_C(0xEDB88320):crc>>1;
+    }
+    return crc^UINT32_C(0xFFFFFFFF);
+}
+
+static void put_test_u32(uint8_t *p, uint32_t v)
+{
+    p[0]=(uint8_t)(v>>24);
+    p[1]=(uint8_t)(v>>16);
+    p[2]=(uint8_t)(v>>8);
+    p[3]=(uint8_t)v;
+}
+
+static void test_same_generation_identical_publications_are_accepted(void)
+{
+    TestPhysical p;
+    uint64_t generation=0u;
+    init_physical(&p);
+    format(&p);
+
+    memcpy(&p.bytes[TR2_TRANSACTIONAL_MEDIA_SUPERBLOCK_B_BASE],
+           &p.bytes[TR2_TRANSACTIONAL_MEDIA_SUPERBLOCK_A_BASE],
+           TR2_TRANSACTIONAL_MEDIA_SUPERBLOCK_SIZE);
+
+    assert(recover(&p,&generation)==TRANSACTIONAL_IMAGE_RECOVERY_VALID);
+    assert(generation==1u);
+}
+
+static void test_same_generation_conflicting_publications_are_corrupted(void)
+{
+    TestPhysical p;
+    uint8_t *super_b;
+    init_physical(&p);
+    format(&p);
+
+    memcpy(&p.bytes[TR2_TRANSACTIONAL_MEDIA_IMAGE_B_BASE],
+           &p.bytes[TR2_TRANSACTIONAL_MEDIA_IMAGE_A_BASE],
+           TR2_TRANSACTIONAL_MEDIA_IMAGE_HEADER_SIZE+
+           TR2_TRANSACTIONAL_MEDIA_LOGICAL_SIZE);
+
+    super_b=&p.bytes[TR2_TRANSACTIONAL_MEDIA_SUPERBLOCK_B_BASE];
+    memcpy(super_b,
+           &p.bytes[TR2_TRANSACTIONAL_MEDIA_SUPERBLOCK_A_BASE],
+           TR2_TRANSACTIONAL_MEDIA_SUPERBLOCK_SIZE);
+    super_b[16]=1u;
+    put_test_u32(super_b+60u,test_crc32(super_b,60u));
+
+    assert(recover(&p,NULL)==TRANSACTIONAL_IMAGE_RECOVERY_CORRUPTED);
+}
+
 int main(void)
 {
     test_factory_erased_media_is_empty();
@@ -183,5 +242,7 @@ int main(void)
     test_referenced_image_unavailable_is_not_collapsed_to_corrupted();
     test_referenced_image_unsupported_is_reported_unsupported();
     test_corrupt_only_authority_is_corrupted();
+    test_same_generation_identical_publications_are_accepted();
+    test_same_generation_conflicting_publications_are_corrupted();
     return 0;
 }
