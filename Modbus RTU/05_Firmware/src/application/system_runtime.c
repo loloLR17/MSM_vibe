@@ -426,7 +426,7 @@ static Tr2Result recover_commands(SystemRuntime *runtime)
     authorities.campaign_repository = repository;
     authorities.boot_intent = &runtime->boot_intent_recovery;
     authorities.reset_cause = runtime->boot_context.reset_cause;
-    result = command_boot_recovery_scan(&runtime->command_journal_store,
+    result = command_boot_recovery_scan(journal,
                                         &authorities,
                                         &runtime->command_boot_recovery);
     if (result != TR2_OK) {
