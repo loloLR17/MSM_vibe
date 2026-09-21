@@ -44,8 +44,10 @@ static void init_physical(TestPhysical *m)
 static void init_media(TestPhysical *p, TransactionalImageMedia *m, uint8_t *candidate)
 {
     TransactionalImagePhysicalStorage storage = { p, rd, wr };
+    TransactionalImageGeometry geometry =
+        transactional_image_geometry_qualification_profile();
     assert(transactional_image_media_init(
-               m, &storage, candidate,
+               m, &storage, &geometry, candidate,
                TR2_TRANSACTIONAL_MEDIA_LOGICAL_SIZE) == TR2_OK);
 }
 
