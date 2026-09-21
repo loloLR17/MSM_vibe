@@ -73,7 +73,7 @@ F-RAM endurance and byte addressing solve physical wear/erase problems, but not 
 
 ## 4. Candidate physical protocol: dual full-image generations
 
-Given the prototype hardware already procured has 256 KiB F-RAM, the simplest protocol worth qualifying is deliberately conservative: two complete logical images plus redundant superblocks.
+The simplest protocol worth qualifying is deliberately conservative: two complete logical images plus redundant superblocks. Physical capacity is a geometry constraint derived from this protocol; a concrete 256-KiB device is only a qualification profile, not an architectural requirement.
 
 Logical payload:
     L = 51,818 bytes
@@ -119,14 +119,15 @@ A later optimization may replace the full candidate RAM image with dirty ranges 
 ### commit()
 Proposed publication sequence:
 
-1. choose inactive physical image;
-2. write a new image header in non-published state with next generation/layout version;
-3. write the complete candidate payload to the inactive image;
-4. compute/write payload integrity metadata;
-5. verify/read-back as required by the qualification policy;
-6. write a valid image-finalization marker/integrity record;
-7. publish the new generation through redundant superblock metadata;
-8. only after publication succeeds, switch runtime committed image/generation.
+1. choose the inactive physical image;
+2. write the complete candidate payload to the inactive image;
+3. encode and write the final image header containing next generation, format/layout versions and payload CRC;
+4. read back and validate the complete image;
+5. publish the new generation through the publication superblock opposite the recovered/current authoritative superblock;
+6. read back and validate the publication record against the image;
+7. only after publication succeeds, switch runtime committed image/generation and authoritative superblock.
+
+The image header is the image finalization record. Writing payload first prevents a stale or partially updated payload from being paired with a newly valid header.
 
 The previously committed physical image is never modified during this transaction.
 
@@ -217,7 +218,7 @@ It is preferred for first qualification because:
 - no erase/wear-leveling layer is needed on F-RAM;
 - recovery has one clear authority;
 - fault injection is finite and auditable;
-- 256 KiB prototype capacity makes the space cost irrelevant;
+- the qualification geometry has ample capacity for the two-image protocol;
 - it avoids introducing a second complex journal beneath the already journaled portable stores.
 
 The cost is write amplification: every commit can write roughly 51.8 KiB even for a 16-byte logical change.
@@ -228,7 +229,7 @@ Therefore this protocol is a qualification baseline, not yet the final optimized
 
 ## 11. Capacity conclusion
 
-For the procured 256-KiB F-RAM class:
+For the 256-KiB qualification profile:
 
     physical capacity        262,144 B
     two logical payloads    103,636 B
