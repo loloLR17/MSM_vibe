@@ -26,6 +26,22 @@ static bool record_bytes_empty(const uint8_t *bytes)
            bytes_uniform(bytes, TR2_COMMAND_JOURNAL_BOUNDED_RECORD_SIZE, UINT8_C(0xFF));
 }
 
+static bool records_canonically_equal(const CommandJournalBoundedRecord *left,
+                                      const CommandJournalBoundedRecord *right)
+{
+    uint8_t left_bytes[TR2_COMMAND_JOURNAL_BOUNDED_RECORD_SIZE];
+    uint8_t right_bytes[TR2_COMMAND_JOURNAL_BOUNDED_RECORD_SIZE];
+
+    if (tr2_command_journal_bounded_record_encode(
+            left, left_bytes, sizeof(left_bytes)) != TR2_OK ||
+        tr2_command_journal_bounded_record_encode(
+            right, right_bytes, sizeof(right_bytes)) != TR2_OK) {
+        return false;
+    }
+
+    return memcmp(left_bytes, right_bytes, sizeof(left_bytes)) == 0;
+}
+
 Tr2Result command_journal_bounded_slot_offset(size_t logical_slot,
                                               size_t copy_index,
                                               uint32_t *offset)
@@ -112,9 +128,7 @@ Tr2Result command_journal_bounded_slot_select(
                 current_copy = index;
                 found = true;
             } else if (copies[index].record.generation == current.generation &&
-                       memcmp(&copies[index].record,
-                              &current,
-                              sizeof(CommandJournalBoundedRecord)) != 0) {
+                       !records_canonically_equal(&copies[index].record, &current)) {
                 conflicting_valid = true;
             }
         } else if (copies[index].decode_status == TR2_ERROR_UNSUPPORTED) {
