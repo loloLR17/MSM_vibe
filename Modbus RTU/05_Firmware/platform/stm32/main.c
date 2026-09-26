@@ -701,7 +701,9 @@ int main(void)
                                         TR2_FRAM_D2C_TEST_OFFSET];
                                 tr2_fram_d3b_completed = 1U;
                                 HAL_GPIO_WritePin(
-                                    LD1_GPIO_Port, LD1_Pin, GPIO_PIN_SET);
+                                    TR2_BRINGUP_LED_PORT,
+                                    TR2_BRINGUP_LED_PIN,
+                                    GPIO_PIN_SET);
                                 __disable_irq();
                                 for (;;) {
                                 }
