@@ -155,6 +155,32 @@ Après désarmement, reprogrammation sous reset et reboot, les sondes ont donné
 
 Conclusion limitée à D2-D2 : un payload candidat entièrement écrit dans l'image inactive A, sans son nouveau header final ni publication, n'a pas remplacé l'autorité publiée génération 2 / image B.
 
+### D2-D3 — première tentative invalide, état persistant observé
+
+La première tentative D2-D3 n'est **pas une qualification D2-D3**. L'adaptateur de qualification avait été configuré par erreur pour intercepter le superbloc B alors que, depuis la baseline génération 2 publiée par B, H3d2 publie la génération suivante par le superbloc opposé A.
+
+Observations avant diagnostic :
+
+- recovery initial : `TR2_OK / VALID / gen2 / B` ;
+- candidate offset 0 : `0x5A` après mutation RAM ;
+- écriture candidate : `TR2_OK` ;
+- commit tenté : oui ;
+- payload image A complet : oui ;
+- header final image A : oui ;
+- point d'interception D2-D3 : non atteint.
+
+La carte est donc revenue au fonctionnement normal (LD1 clignotant). Aucune coupure d'alimentation D2-D3 n'a été effectuée.
+
+Après désarmement et correction de l'adaptateur vers le superbloc A, un firmware non destructif a été reprogrammé. Le recovery suivant a observé :
+
+- stockage / géométrie / média / recovery : `TR2_OK` ;
+- statut : `VALID` ;
+- génération : 3 ;
+- image active : A ;
+- payload logique offset 0 : `0x5A`.
+
+Conclusion : la tentative invalide avait entièrement publié le commit génération 3 / image A. Ce résultat est conservé comme diagnostic de campagne, pas comme preuve D2-D3. La prochaine tentative D2-D3 doit repartir de cette nouvelle baseline explicitement observée et adapter dynamiquement ou explicitement l'image inactive et le superbloc de publication attendus.
+
 ## 8. Ce qui n'est pas encore qualifié
 
 Ne sont pas encore qualifiés :
