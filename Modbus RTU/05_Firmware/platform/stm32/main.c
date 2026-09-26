@@ -368,7 +368,7 @@ volatile uint8_t tr2_fram_d3b_post_active_image = 0xFFU;
 volatile uint8_t tr2_fram_d3b_post_value = 0U;
 
 /* D3-C bounded normal-commit alternation qualification. */
-#define TR2_FRAM_D3C_ALLOW_ALTERNATION 1U
+#define TR2_FRAM_D3C_ALLOW_ALTERNATION 0U
 #define TR2_FRAM_D3C_COMMIT_COUNT 3U
 
 volatile uint32_t tr2_fram_d3c_attempted = 0U;
