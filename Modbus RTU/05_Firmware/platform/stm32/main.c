@@ -78,6 +78,62 @@ volatile uint32_t tr2_fram_d2d1_write_result = (uint32_t)TR2_ERROR_INTERNAL;
 volatile uint32_t tr2_fram_d2d1_commit_attempted = 0U;
 volatile uint32_t tr2_fram_d2d1_cut_point_reached = 0U;
 
+/*
+ * D2-D2 physical power-loss qualification.
+ *
+ * When armed, the adapter lets the complete generation-3 image-A payload
+ * reach the real FRAM, then latches the cut-power point before H3d2 can issue
+ * the final image-header write.  D2-D1 remains independently disarmed.
+ */
+#define TR2_FRAM_D2D2_ALLOW_COMPLETE_PAYLOAD 0U
+
+volatile uint32_t tr2_fram_d2d2_write_attempted = 0U;
+volatile uint32_t tr2_fram_d2d2_write_result = (uint32_t)TR2_ERROR_INTERNAL;
+volatile uint32_t tr2_fram_d2d2_commit_attempted = 0U;
+volatile uint32_t tr2_fram_d2d2_cut_point_reached = 0U;
+
+#if TR2_FRAM_D2D2_ALLOW_COMPLETE_PAYLOAD
+typedef struct {
+    TransactionalImagePhysicalStorage underlying;
+    uint32_t target_payload_offset;
+} Tr2D2d2PhysicalStorage;
+
+static Tr2Result D2d2PhysicalRead(
+    void *context, uint32_t offset, void *buffer, size_t size)
+{
+    Tr2D2d2PhysicalStorage *adapter = (Tr2D2d2PhysicalStorage *)context;
+    return adapter->underlying.read(
+        adapter->underlying.context, offset, buffer, size);
+}
+
+static Tr2Result D2d2PhysicalWrite(
+    void *context, uint32_t offset, const void *buffer, size_t size)
+{
+    Tr2D2d2PhysicalStorage *adapter = (Tr2D2d2PhysicalStorage *)context;
+
+    if ((offset == adapter->target_payload_offset) &&
+        (size == TR2_TRANSACTIONAL_MEDIA_LOGICAL_SIZE)) {
+        Tr2Result result = adapter->underlying.write(
+            adapter->underlying.context, offset, buffer, size);
+
+        if (result != TR2_OK) {
+            return result;
+        }
+
+        tr2_fram_d2d2_cut_point_reached = 1U;
+        HAL_GPIO_WritePin(
+            TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN, GPIO_PIN_SET);
+        __disable_irq();
+        for (;;) {
+            /* Operator now removes board power for the physical test. */
+        }
+    }
+
+    return adapter->underlying.write(
+        adapter->underlying.context, offset, buffer, size);
+}
+#endif
+
 #if TR2_FRAM_D2D1_ALLOW_PARTIAL_PAYLOAD
 typedef struct {
     TransactionalImagePhysicalStorage underlying;
@@ -209,6 +265,24 @@ int main(void)
             qualified_physical.context = &d2d1_storage;
             qualified_physical.read = D2d1PhysicalRead;
             qualified_physical.write = D2d1PhysicalWrite;
+            physical = qualified_physical;
+        }
+#endif
+
+
+#if TR2_FRAM_D2D2_ALLOW_COMPLETE_PAYLOAD
+        {
+            static Tr2D2d2PhysicalStorage d2d2_storage;
+            TransactionalImagePhysicalStorage qualified_physical;
+
+            d2d2_storage.underlying = physical;
+            d2d2_storage.target_payload_offset =
+                geometry.image_a_base +
+                TR2_TRANSACTIONAL_MEDIA_IMAGE_HEADER_SIZE;
+
+            qualified_physical.context = &d2d2_storage;
+            qualified_physical.read = D2d2PhysicalRead;
+            qualified_physical.write = D2d2PhysicalWrite;
             physical = qualified_physical;
         }
 #endif
@@ -391,6 +465,38 @@ int main(void)
 
                 if (tr2_fram_d2d1_write_result == (uint32_t)TR2_OK) {
                     tr2_fram_d2d1_commit_attempted = 1U;
+                    (void)persistent->commit(persistent->context);
+                }
+            }
+        }
+#endif
+
+#if TR2_FRAM_D2D2_ALLOW_COMPLETE_PAYLOAD
+        /*
+         * D2-D2 starts only from the explicitly observed generation-2/B
+         * baseline recovered after D2-D1.  The adapter lets the complete
+         * payload write finish, then stops before the final image header.
+         */
+        if ((tr2_fram_d2_recover_result == (uint32_t)TR2_OK) &&
+            (recovery.status == TRANSACTIONAL_IMAGE_RECOVERY_VALID) &&
+            (recovery.generation == UINT64_C(2)) &&
+            (recovery.active_image == 1U) &&
+            (tr2_fram_d2_candidate[TR2_FRAM_D2C_TEST_OFFSET] ==
+             TR2_FRAM_D2C_TEST_VALUE)) {
+            PersistentMedia *persistent =
+                transactional_image_media_interface(&media);
+            uint8_t value = TR2_FRAM_D2D1_TEST_VALUE;
+
+            if (persistent != NULL) {
+                tr2_fram_d2d2_write_attempted = 1U;
+                tr2_fram_d2d2_write_result = (uint32_t)persistent->write(
+                    persistent->context,
+                    TR2_FRAM_D2C_TEST_OFFSET,
+                    &value,
+                    sizeof(value));
+
+                if (tr2_fram_d2d2_write_result == (uint32_t)TR2_OK) {
+                    tr2_fram_d2d2_commit_attempted = 1U;
                     (void)persistent->commit(persistent->context);
                 }
             }
