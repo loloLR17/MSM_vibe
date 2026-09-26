@@ -39,7 +39,7 @@ volatile uint8_t tr2_fram_d2_active_image = 0xFFU;
  * explicitly destructive D2-B qualification build.  Formatting is attempted
  * only when recovery has positively classified the physical medium EMPTY.
  */
-#define TR2_FRAM_D2B_ALLOW_FORMAT_EMPTY 1U
+#define TR2_FRAM_D2B_ALLOW_FORMAT_EMPTY 0U
 #define TR2_FRAM_D2B_RESET_METADATA_FOR_QUALIFICATION 0U
 
 volatile uint32_t tr2_fram_d2b_reset_attempted = 0U;
