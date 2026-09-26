@@ -446,80 +446,6 @@ int main(void)
         tr2_fram_d2_geometry_result =
             (uint32_t)transactional_image_geometry_validate(&geometry);
 
-#if TR2_FRAM_D3C_ALLOW_ALTERNATION
-        /*
-         * D3-C executes exactly three normal commits from the explicitly
-         * observed D3-B baseline gen7/A/0xA9. Each commit is followed by a
-         * normal recovery and records generation, image, publication copy and
-         * readback value. No format, repair or retry is performed.
-         */
-        if ((tr2_fram_d2_recover_result == (uint32_t)TR2_OK) &&
-            (recovery.status == TRANSACTIONAL_IMAGE_RECOVERY_VALID) &&
-            (recovery.generation == UINT64_C(7)) &&
-            (recovery.active_image == 0U) &&
-            (tr2_fram_d2_candidate[TR2_FRAM_D2C_TEST_OFFSET] == UINT8_C(0xA9))) {
-            static const uint8_t values[TR2_FRAM_D3C_COMMIT_COUNT] = {
-                UINT8_C(0xAA), UINT8_C(0xAB), UINT8_C(0xAC)};
-            PersistentMedia *persistent = transactional_image_media_interface(&media);
-
-            if (persistent != NULL) {
-                tr2_fram_d3c_attempted = 1U;
-                for (uint32_t i = 0U; i < TR2_FRAM_D3C_COMMIT_COUNT; ++i) {
-                    TransactionalImageRecoveryResult post = {
-                        .status = TRANSACTIONAL_IMAGE_RECOVERY_UNAVAILABLE,
-                        .generation = UINT64_C(0),
-                        .active_image = 0xFFU
-                    };
-                    Tr2Result write_result = persistent->write(
-                        persistent->context, TR2_FRAM_D2C_TEST_OFFSET,
-                        &values[i], sizeof(values[i]));
-                    if (write_result != TR2_OK) {
-                        tr2_fram_d3c_commit_result[i] = (uint32_t)write_result;
-                        break;
-                    }
-
-                    tr2_fram_d3c_commit_result[i] =
-                        (uint32_t)persistent->commit(persistent->context);
-                    if (tr2_fram_d3c_commit_result[i] != (uint32_t)TR2_OK) {
-                        break;
-                    }
-
-                    tr2_fram_d3c_recover_result[i] =
-                        (uint32_t)transactional_image_media_recover(&media, &post);
-                    if ((tr2_fram_d3c_recover_result[i] != (uint32_t)TR2_OK) ||
-                        (post.status != TRANSACTIONAL_IMAGE_RECOVERY_VALID)) {
-                        break;
-                    }
-
-                    tr2_fram_d3c_generation[i] = post.generation;
-                    tr2_fram_d3c_active_image[i] = post.active_image;
-                    tr2_fram_d3c_active_superblock[i] = media.active_superblock;
-                    tr2_fram_d3c_value[i] =
-                        tr2_fram_d2_candidate[TR2_FRAM_D2C_TEST_OFFSET];
-                }
-
-                if ((tr2_fram_d3c_generation[0] == UINT64_C(8)) &&
-                    (tr2_fram_d3c_generation[1] == UINT64_C(9)) &&
-                    (tr2_fram_d3c_generation[2] == UINT64_C(10)) &&
-                    (tr2_fram_d3c_active_image[0] == 1U) &&
-                    (tr2_fram_d3c_active_image[1] == 0U) &&
-                    (tr2_fram_d3c_active_image[2] == 1U) &&
-                    (tr2_fram_d3c_active_superblock[0] == 1U) &&
-                    (tr2_fram_d3c_active_superblock[1] == 0U) &&
-                    (tr2_fram_d3c_active_superblock[2] == 1U) &&
-                    (tr2_fram_d3c_value[0] == UINT8_C(0xAA)) &&
-                    (tr2_fram_d3c_value[1] == UINT8_C(0xAB)) &&
-                    (tr2_fram_d3c_value[2] == UINT8_C(0xAC))) {
-                    tr2_fram_d3c_completed = 1U;
-                    HAL_GPIO_WritePin(TR2_BRINGUP_LED_PORT,
-                                      TR2_BRINGUP_LED_PIN, GPIO_PIN_SET);
-                    __disable_irq();
-                    for (;;) {
-                    }
-                }
-            }
-        }
-#endif
 
 #if TR2_FRAM_D2D1_ALLOW_PARTIAL_PAYLOAD
         {
@@ -803,6 +729,81 @@ int main(void)
                                 }
                             }
                         }
+                    }
+                }
+            }
+        }
+#endif
+
+#if TR2_FRAM_D3C_ALLOW_ALTERNATION
+        /*
+         * D3-C executes exactly three normal commits from the explicitly
+         * observed D3-B baseline gen7/A/0xA9. Each commit is followed by a
+         * normal recovery and records generation, image, publication copy and
+         * readback value. No format, repair or retry is performed.
+         */
+        if ((tr2_fram_d2_recover_result == (uint32_t)TR2_OK) &&
+            (recovery.status == TRANSACTIONAL_IMAGE_RECOVERY_VALID) &&
+            (recovery.generation == UINT64_C(7)) &&
+            (recovery.active_image == 0U) &&
+            (tr2_fram_d2_candidate[TR2_FRAM_D2C_TEST_OFFSET] == UINT8_C(0xA9))) {
+            static const uint8_t values[TR2_FRAM_D3C_COMMIT_COUNT] = {
+                UINT8_C(0xAA), UINT8_C(0xAB), UINT8_C(0xAC)};
+            PersistentMedia *persistent = transactional_image_media_interface(&media);
+
+            if (persistent != NULL) {
+                tr2_fram_d3c_attempted = 1U;
+                for (uint32_t i = 0U; i < TR2_FRAM_D3C_COMMIT_COUNT; ++i) {
+                    TransactionalImageRecoveryResult post = {
+                        .status = TRANSACTIONAL_IMAGE_RECOVERY_UNAVAILABLE,
+                        .generation = UINT64_C(0),
+                        .active_image = 0xFFU
+                    };
+                    Tr2Result write_result = persistent->write(
+                        persistent->context, TR2_FRAM_D2C_TEST_OFFSET,
+                        &values[i], sizeof(values[i]));
+                    if (write_result != TR2_OK) {
+                        tr2_fram_d3c_commit_result[i] = (uint32_t)write_result;
+                        break;
+                    }
+
+                    tr2_fram_d3c_commit_result[i] =
+                        (uint32_t)persistent->commit(persistent->context);
+                    if (tr2_fram_d3c_commit_result[i] != (uint32_t)TR2_OK) {
+                        break;
+                    }
+
+                    tr2_fram_d3c_recover_result[i] =
+                        (uint32_t)transactional_image_media_recover(&media, &post);
+                    if ((tr2_fram_d3c_recover_result[i] != (uint32_t)TR2_OK) ||
+                        (post.status != TRANSACTIONAL_IMAGE_RECOVERY_VALID)) {
+                        break;
+                    }
+
+                    tr2_fram_d3c_generation[i] = post.generation;
+                    tr2_fram_d3c_active_image[i] = post.active_image;
+                    tr2_fram_d3c_active_superblock[i] = media.active_superblock;
+                    tr2_fram_d3c_value[i] =
+                        tr2_fram_d2_candidate[TR2_FRAM_D2C_TEST_OFFSET];
+                }
+
+                if ((tr2_fram_d3c_generation[0] == UINT64_C(8)) &&
+                    (tr2_fram_d3c_generation[1] == UINT64_C(9)) &&
+                    (tr2_fram_d3c_generation[2] == UINT64_C(10)) &&
+                    (tr2_fram_d3c_active_image[0] == 1U) &&
+                    (tr2_fram_d3c_active_image[1] == 0U) &&
+                    (tr2_fram_d3c_active_image[2] == 1U) &&
+                    (tr2_fram_d3c_active_superblock[0] == 1U) &&
+                    (tr2_fram_d3c_active_superblock[1] == 0U) &&
+                    (tr2_fram_d3c_active_superblock[2] == 1U) &&
+                    (tr2_fram_d3c_value[0] == UINT8_C(0xAA)) &&
+                    (tr2_fram_d3c_value[1] == UINT8_C(0xAB)) &&
+                    (tr2_fram_d3c_value[2] == UINT8_C(0xAC))) {
+                    tr2_fram_d3c_completed = 1U;
+                    HAL_GPIO_WritePin(TR2_BRINGUP_LED_PORT,
+                                      TR2_BRINGUP_LED_PIN, GPIO_PIN_SET);
+                    __disable_irq();
+                    for (;;) {
                     }
                 }
             }
