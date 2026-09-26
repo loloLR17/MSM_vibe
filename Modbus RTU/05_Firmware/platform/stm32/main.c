@@ -10,6 +10,11 @@ static void SystemPower_Config(void);
 static void BringupLed_Init(void);
 static void Error_Handler(void);
 
+void HAL_MspInit(void)
+{
+    __HAL_RCC_PWR_CLK_ENABLE();
+}
+
 int main(void)
 {
     SerialTransport serial_transport;
