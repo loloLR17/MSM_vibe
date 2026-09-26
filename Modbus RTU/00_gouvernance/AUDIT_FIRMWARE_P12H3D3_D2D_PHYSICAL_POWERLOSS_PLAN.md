@@ -2,13 +2,15 @@
 
 ## Statut
 
-**PLAN DE QUALIFICATION — EN COURS**
+**CAMPAGNE PHYSIQUE D2-D1 À D2-D4 — ACQUISE, EN ATTENTE DE GEL**
 
 Cette tranche part du gel D2-C et ne modifie pas les invariants H3d2.
 
 ## 1. Objectif
 
 Qualifier sur STM32U575 + FRAM réelle le comportement de recovery après une coupure d'alimentation réelle à des points contrôlés du protocole de commit H3d2.
+
+> **Note de clôture de campagne.** Les sections 1 à 6 conservent le plan initial et sa baseline de départ. Au cours de D2-D3, une première tentative invalide a publié génération 3 / image A ; la campagne a donc poursuivi depuis cette nouvelle autorité observée, sans restauration artificielle. Les résultats physiques réellement acquis et leurs baselines font foi en section 7.
 
 La baseline physique de départ est :
 
