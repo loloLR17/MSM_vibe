@@ -344,7 +344,7 @@ volatile uint32_t tr2_fram_d2c_readback_result = (uint32_t)TR2_ERROR_INTERNAL;
  * HAL_GetTick() provides millisecond elapsed times.  These are descriptive
  * qualification measurements, not production performance requirements.
  */
-#define TR2_FRAM_D3B_ALLOW_TIMING 1U
+#define TR2_FRAM_D3B_ALLOW_TIMING 0U
 #define TR2_FRAM_D3B_TEST_VALUE UINT8_C(0xA9)
 
 volatile uint32_t tr2_fram_d3b_attempted = 0U;
