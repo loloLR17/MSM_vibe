@@ -69,7 +69,7 @@ volatile uint8_t tr2_fram_d2b_post_format_active_image = 0xFFU;
  * limited to a prefix, then the CPU latches a visible cut-power point and
  * stops.  H3d2 itself remains unchanged.
  */
-#define TR2_FRAM_D2D1_ALLOW_PARTIAL_PAYLOAD 0U
+#define TR2_FRAM_D2D1_ALLOW_PARTIAL_PAYLOAD 1U
 #define TR2_FRAM_D2D1_TEST_VALUE UINT8_C(0x5A)
 #define TR2_FRAM_D2D1_PARTIAL_SIZE ((size_t)4096U)
 
