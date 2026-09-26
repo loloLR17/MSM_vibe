@@ -345,7 +345,7 @@ volatile uint32_t tr2_fram_d2c_readback_result = (uint32_t)TR2_ERROR_INTERNAL;
  * qualification measurements, not production performance requirements.
  */
 #define TR2_FRAM_D3B_ALLOW_TIMING 1U
-#define TR2_FRAM_D3B_TEST_VALUE UINT8_C(0xA8)
+#define TR2_FRAM_D3B_TEST_VALUE UINT8_C(0xA9)
 
 volatile uint32_t tr2_fram_d3b_attempted = 0U;
 volatile uint32_t tr2_fram_d3b_completed = 0U;
@@ -567,7 +567,7 @@ int main(void)
         if ((tr2_fram_d2_recover_result == (uint32_t)TR2_OK) &&
             (recovery.status == TRANSACTIONAL_IMAGE_RECOVERY_VALID) &&
             (recovery.generation == UINT64_C(1)) &&
-            (recovery.active_image == 0U)) {
+            (recovery.active_image == 1U)) {
             PersistentMedia *persistent = transactional_image_media_interface(&media);
             uint8_t value = TR2_FRAM_D2C_TEST_VALUE;
 
@@ -624,10 +624,10 @@ int main(void)
          */
         if ((tr2_fram_d2_recover_result == (uint32_t)TR2_OK) &&
             (recovery.status == TRANSACTIONAL_IMAGE_RECOVERY_VALID) &&
-            (recovery.generation == UINT64_C(5)) &&
+            (recovery.generation == UINT64_C(6)) &&
             (recovery.active_image == 0U) &&
             (tr2_fram_d2_candidate[TR2_FRAM_D2C_TEST_OFFSET] ==
-             UINT8_C(0xA7))) {
+             UINT8_C(0xA8))) {
             PersistentMedia *persistent =
                 transactional_image_media_interface(&media);
             uint32_t scratch_offset =
