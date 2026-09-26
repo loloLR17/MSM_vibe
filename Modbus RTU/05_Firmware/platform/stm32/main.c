@@ -617,20 +617,22 @@ int main(void)
 
 #if TR2_FRAM_D2D3_ALLOW_FINALIZED_IMAGE
         /*
-         * D2-D3 starts only from the observed generation-2/B authority.
-         * Reaching the adapter cut point proves that payload and final image
-         * header writes returned TR2_OK and that H3d2 then attempted
-         * publication.  The publication write itself is not delegated.
+         * D2-D3 starts only from the physically observed generation-3/A
+         * authority with payload[0] == 0x5A. Reaching the adapter cut point
+         * proves that the generation-4 inactive-image payload and final header
+         * writes returned TR2_OK, image validation succeeded, and H3d2 then
+         * attempted publication through the opposite superblock. The
+         * publication write itself is not delegated.
          */
         if ((tr2_fram_d2_recover_result == (uint32_t)TR2_OK) &&
             (recovery.status == TRANSACTIONAL_IMAGE_RECOVERY_VALID) &&
-            (recovery.generation == UINT64_C(2)) &&
-            (recovery.active_image == 1U) &&
+            (recovery.generation == UINT64_C(3)) &&
+            (recovery.active_image == 0U) &&
             (tr2_fram_d2_candidate[TR2_FRAM_D2C_TEST_OFFSET] ==
-             TR2_FRAM_D2C_TEST_VALUE)) {
+             TR2_FRAM_D2D1_TEST_VALUE)) {
             PersistentMedia *persistent =
                 transactional_image_media_interface(&media);
-            uint8_t value = TR2_FRAM_D2D1_TEST_VALUE;
+            uint8_t value = TR2_FRAM_D2D3_TEST_VALUE;
 
             if (persistent != NULL) {
                 tr2_fram_d2d3_write_attempted = 1U;
