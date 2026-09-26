@@ -206,6 +206,34 @@ Une coupure physique réelle de l'alimentation a alors été effectuée. Après 
 
 Conclusion D2-D3 : **qualifié physiquement**. Une image candidate génération 4 physiquement complète et finalisée mais non publiée ne devient pas l'autorité après coupure ; le recovery conserve l'autorité publiée génération 3 / image A.
 
+
+### D2-D4 — publication physiquement écrite : qualifié physiquement
+
+Baseline physique observée avant scénario : `VALID / gen3 / image A / payload[0] 0x5A`.
+
+Candidate : génération 4, image B, payload logique offset 0 muté à `0xA6`. L'adaptateur de qualification, dérivé de l'autorité récupérée, a laissé s'effectuer le payload complet, le header final et la validation de l'image inactive, puis a délégué l'écriture complète du superbloc de publication opposé au backend FRAM réel. Le CPU a été immobilisé immédiatement après le retour `TR2_OK` de cette écriture physique, avant retour au moteur H3d2.
+
+Preuve pré-coupure :
+
+- recovery initial : `TR2_OK / VALID / gen3 / image A` ;
+- écriture logique tentée : oui ;
+- résultat écriture logique : `TR2_OK` ;
+- commit tenté : oui ;
+- payload image B complet : oui ;
+- header final image B complet : oui ;
+- publication physique du superbloc opposé : complète, `TR2_OK` ;
+- point de coupure après publication : atteint.
+
+Une coupure physique réelle de l'alimentation a alors été effectuée. Après désarmement, validation complète du firmware, reprogrammation sous RESET et redémarrage, le recovery a observé :
+
+- stockage / géométrie / média / recovery : `TR2_OK` ;
+- statut : `VALID` ;
+- génération : 4 ;
+- image active : B ;
+- payload logique offset 0 : `0xA6`.
+
+Conclusion D2-D4 : **qualifié physiquement**. Lorsque la nouvelle image est complète et que son superbloc de publication a été physiquement écrit avec succès avant la perte réelle d'alimentation, le recovery sélectionne la nouvelle autorité publiée génération 4 / image B, même si le commit n'a pas pu retourner normalement à son appelant avant la coupure.
+
 ## 8. Ce qui n'est pas encore qualifié
 
 Ne sont pas encore qualifiés :
@@ -220,6 +248,8 @@ Ne sont pas encore qualifiés :
 
 ## 9. Règle de progression
 
-D2-D1 et D2-D2 sont acquis. D2-D3 ne doit être armé qu'après préparation désarmée et validation complète.
+D2-D1, D2-D2, D2-D3 et D2-D4 sont désormais acquis physiquement.
 
-Une anomalie de recovery arrête la campagne : pas de formatage, réparation, retry ou passage au scénario suivant avant analyse de l'état physique.
+La campagne D2-D couvre donc les quatre frontières transactionnelles prévues dans ce document. Cette acquisition ne qualifie pas les limites explicitement maintenues en section 8 et ne constitue pas, à elle seule, un gel documentaire D2-D.
+
+Une anomalie de recovery arrête toute campagne complémentaire : pas de formatage, réparation ou retry avant analyse de l'état physique.
