@@ -48,8 +48,16 @@ Tr2Result transactional_image_geometry_validate(
                            TR2_TRANSACTIONAL_MEDIA_LOGICAL_SIZE;
 
     if(g==NULL||g->physical_size==0u||
-       g->physical_size>(size_t)UINT32_MAX+1u||
        (size_t)g->image_area_size<image_min) return TR2_ERROR_INVALID_ARGUMENT;
+#if SIZE_MAX > UINT32_MAX
+    /*
+     * A 32-bit physical offset can address at most 2^32 bytes.  On 32-bit
+     * targets size_t cannot represent 2^32, so applying this upper-bound
+     * expression there would wrap to zero and reject every non-empty medium.
+     */
+    if(g->physical_size>(size_t)UINT32_MAX+1u)
+        return TR2_ERROR_INVALID_ARGUMENT;
+#endif
 
     bases[0]=g->superblock_a_base; sizes[0]=TR2_TRANSACTIONAL_MEDIA_SUPERBLOCK_SIZE;
     bases[1]=g->superblock_b_base; sizes[1]=TR2_TRANSACTIONAL_MEDIA_SUPERBLOCK_SIZE;
