@@ -7,13 +7,25 @@
 
 #define TR2_FRAM_CS_PORT GPIOA
 #define TR2_FRAM_CS_PIN  GPIO_PIN_4
+#define TR2_FRAM_RDID_COMMAND 0x9FU
+#define TR2_FRAM_RDID_SIZE 4U
+#define TR2_FRAM_SPI_TIMEOUT_MS 10U
+
+static const uint8_t tr2_fram_expected_device_id[TR2_FRAM_RDID_SIZE] = {
+    0x04U, 0x7FU, 0x48U, 0x03U
+};
 
 static SPI_HandleTypeDef hspi1;
+
+volatile HAL_StatusTypeDef tr2_fram_rdid_status = HAL_ERROR;
+volatile uint8_t tr2_fram_device_id[TR2_FRAM_RDID_SIZE] = {0U};
+volatile uint8_t tr2_fram_device_id_matches = 0U;
 
 static void SystemClock_Config(void);
 static void SystemPower_Config(void);
 static void BringupLed_Init(void);
 static void FramSpi_Init(void);
+static HAL_StatusTypeDef Fram_ReadDeviceId(uint8_t device_id[TR2_FRAM_RDID_SIZE]);
 static void Error_Handler(void);
 
 void HAL_MspInit(void)
@@ -30,6 +42,23 @@ int main(void)
     SystemPower_Config();
     BringupLed_Init();
     FramSpi_Init();
+
+    {
+        uint8_t device_id[TR2_FRAM_RDID_SIZE] = {0U};
+        uint8_t matches = 1U;
+
+        tr2_fram_rdid_status = Fram_ReadDeviceId(device_id);
+
+        for (uint32_t i = 0U; i < TR2_FRAM_RDID_SIZE; ++i) {
+            tr2_fram_device_id[i] = device_id[i];
+            if (device_id[i] != tr2_fram_expected_device_id[i]) {
+                matches = 0U;
+            }
+        }
+
+        tr2_fram_device_id_matches =
+            (tr2_fram_rdid_status == HAL_OK) ? matches : 0U;
+    }
 
     if (stm32_serial_transport_init(&serial_transport) != TR2_OK) {
         Error_Handler();
@@ -169,6 +198,26 @@ static void FramSpi_Init(void)
     if (HAL_SPI_Init(&hspi1) != HAL_OK) {
         Error_Handler();
     }
+}
+
+static HAL_StatusTypeDef Fram_ReadDeviceId(uint8_t device_id[TR2_FRAM_RDID_SIZE])
+{
+    uint8_t command = TR2_FRAM_RDID_COMMAND;
+    HAL_StatusTypeDef status;
+
+    HAL_GPIO_WritePin(TR2_FRAM_CS_PORT, TR2_FRAM_CS_PIN, GPIO_PIN_RESET);
+
+    status = HAL_SPI_Transmit(&hspi1, &command, 1U, TR2_FRAM_SPI_TIMEOUT_MS);
+    if (status == HAL_OK) {
+        status = HAL_SPI_Receive(&hspi1,
+                                 device_id,
+                                 TR2_FRAM_RDID_SIZE,
+                                 TR2_FRAM_SPI_TIMEOUT_MS);
+    }
+
+    HAL_GPIO_WritePin(TR2_FRAM_CS_PORT, TR2_FRAM_CS_PIN, GPIO_PIN_SET);
+
+    return status;
 }
 
 static void Error_Handler(void)
