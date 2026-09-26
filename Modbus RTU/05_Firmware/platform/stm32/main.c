@@ -99,7 +99,7 @@ volatile uint32_t tr2_fram_d2d2_cut_point_reached = 0U;
  * final generation-3 image-A header.  The adapter then stops on the first
  * publication-superblock write, before any publication byte reaches FRAM.
  */
-#define TR2_FRAM_D2D3_ALLOW_FINALIZED_IMAGE 0U
+#define TR2_FRAM_D2D3_ALLOW_FINALIZED_IMAGE 1U
 
 volatile uint32_t tr2_fram_d2d3_write_attempted = 0U;
 volatile uint32_t tr2_fram_d2d3_write_result = (uint32_t)TR2_ERROR_INTERNAL;
