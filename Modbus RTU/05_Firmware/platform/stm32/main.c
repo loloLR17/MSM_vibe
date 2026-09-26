@@ -32,6 +32,22 @@ volatile uint32_t tr2_fram_d2_recovery_status = (uint32_t)TRANSACTIONAL_IMAGE_RE
 volatile uint64_t tr2_fram_d2_generation = UINT64_C(0);
 volatile uint8_t tr2_fram_d2_active_image = 0xFFU;
 
+/*
+ * D2-B qualification gate.
+ *
+ * Keep this at 0 for normal/read-only boots.  Set it to 1 only for the
+ * explicitly destructive D2-B qualification build.  Formatting is attempted
+ * only when recovery has positively classified the physical medium EMPTY.
+ */
+#define TR2_FRAM_D2B_ALLOW_FORMAT_EMPTY 1U
+
+volatile uint32_t tr2_fram_d2b_format_attempted = 0U;
+volatile uint32_t tr2_fram_d2b_format_result = (uint32_t)TR2_ERROR_INTERNAL;
+volatile uint32_t tr2_fram_d2b_post_format_recover_result = (uint32_t)TR2_ERROR_INTERNAL;
+volatile uint32_t tr2_fram_d2b_post_format_status = (uint32_t)TRANSACTIONAL_IMAGE_RECOVERY_UNAVAILABLE;
+volatile uint64_t tr2_fram_d2b_post_format_generation = UINT64_C(0);
+volatile uint8_t tr2_fram_d2b_post_format_active_image = 0xFFU;
+
 static void SystemClock_Config(void);
 static void SystemPower_Config(void);
 static void BringupLed_Init(void);
@@ -114,6 +130,37 @@ int main(void)
             tr2_fram_d2_generation = recovery.generation;
             tr2_fram_d2_active_image = recovery.active_image;
         }
+
+#if TR2_FRAM_D2B_ALLOW_FORMAT_EMPTY
+        /*
+         * Destructive qualification is deliberately gated by the observed
+         * EMPTY state.  Never format VALID, CORRUPTED, UNSUPPORTED or
+         * UNAVAILABLE media automatically.
+         */
+        if ((tr2_fram_d2_recover_result == (uint32_t)TR2_OK) &&
+            (recovery.status == TRANSACTIONAL_IMAGE_RECOVERY_EMPTY)) {
+            TransactionalImageRecoveryResult post_format = {
+                .status = TRANSACTIONAL_IMAGE_RECOVERY_UNAVAILABLE,
+                .generation = UINT64_C(0),
+                .active_image = 0xFFU
+            };
+
+            tr2_fram_d2b_format_attempted = 1U;
+            tr2_fram_d2b_format_result =
+                (uint32_t)transactional_image_media_format_empty(&media);
+
+            if (tr2_fram_d2b_format_result == (uint32_t)TR2_OK) {
+                tr2_fram_d2b_post_format_recover_result =
+                    (uint32_t)transactional_image_media_recover(&media, &post_format);
+
+                if (tr2_fram_d2b_post_format_recover_result == (uint32_t)TR2_OK) {
+                    tr2_fram_d2b_post_format_status = (uint32_t)post_format.status;
+                    tr2_fram_d2b_post_format_generation = post_format.generation;
+                    tr2_fram_d2b_post_format_active_image = post_format.active_image;
+                }
+            }
+        }
+#endif
     }
 
     if (stm32_serial_transport_init(&serial_transport) != TR2_OK) {
