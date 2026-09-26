@@ -1,5 +1,6 @@
 #include "stm32u5xx_hal.h"
 
+#include "stm32_fram_storage.h"
 #include "stm32_serial_transport.h"
 
 #define TR2_BRINGUP_LED_PORT GPIOC
@@ -10,6 +11,8 @@
 #define TR2_FRAM_RDID_COMMAND 0x9FU
 #define TR2_FRAM_RDID_SIZE 4U
 #define TR2_FRAM_SPI_TIMEOUT_MS 10U
+#define TR2_FRAM_D1_TEST_OFFSET UINT32_C(0x1F000)
+#define TR2_FRAM_D1_TEST_SIZE 8U
 
 static const uint8_t tr2_fram_expected_device_id[TR2_FRAM_RDID_SIZE] = {
     0x04U, 0x7FU, 0x48U, 0x03U
@@ -20,6 +23,18 @@ static SPI_HandleTypeDef hspi1;
 volatile HAL_StatusTypeDef tr2_fram_rdid_status = HAL_ERROR;
 volatile uint8_t tr2_fram_device_id[TR2_FRAM_RDID_SIZE] = {0U};
 volatile uint8_t tr2_fram_device_id_matches = 0U;
+
+volatile Tr2Result tr2_fram_d1_init_result = TR2_ERROR_INTERNAL;
+volatile Tr2Result tr2_fram_d1_backup_read_result = TR2_ERROR_INTERNAL;
+volatile Tr2Result tr2_fram_d1_write_result = TR2_ERROR_INTERNAL;
+volatile Tr2Result tr2_fram_d1_verify_read_result = TR2_ERROR_INTERNAL;
+volatile uint8_t tr2_fram_d1_pattern_matches = 0U;
+volatile Tr2Result tr2_fram_d1_restore_result = TR2_ERROR_INTERNAL;
+volatile Tr2Result tr2_fram_d1_restore_verify_result = TR2_ERROR_INTERNAL;
+volatile uint8_t tr2_fram_d1_restore_matches = 0U;
+volatile uint8_t tr2_fram_d1_original[TR2_FRAM_D1_TEST_SIZE] = {0U};
+volatile uint8_t tr2_fram_d1_readback[TR2_FRAM_D1_TEST_SIZE] = {0U};
+volatile uint8_t tr2_fram_d1_restored[TR2_FRAM_D1_TEST_SIZE] = {0U};
 
 static void SystemClock_Config(void);
 static void SystemPower_Config(void);
@@ -58,6 +73,89 @@ int main(void)
 
         tr2_fram_device_id_matches =
             (tr2_fram_rdid_status == HAL_OK) ? matches : 0U;
+    }
+
+    {
+        static const uint8_t test_pattern[TR2_FRAM_D1_TEST_SIZE] = {
+            0x54U, 0x52U, 0x32U, 0xD1U, 0xA5U, 0x5AU, 0x3CU, 0xC3U
+        };
+        Stm32FramStorage fram_storage;
+        uint8_t original[TR2_FRAM_D1_TEST_SIZE] = {0U};
+        uint8_t readback[TR2_FRAM_D1_TEST_SIZE] = {0U};
+        uint8_t restored[TR2_FRAM_D1_TEST_SIZE] = {0U};
+        uint8_t pattern_matches = 1U;
+        uint8_t restore_matches = 1U;
+
+        tr2_fram_d1_init_result = stm32_fram_storage_init(
+            &fram_storage,
+            &hspi1,
+            TR2_FRAM_CS_PORT,
+            TR2_FRAM_CS_PIN,
+            TR2_FRAM_SPI_TIMEOUT_MS);
+
+        if (tr2_fram_d1_init_result == TR2_OK) {
+            tr2_fram_d1_backup_read_result = stm32_fram_storage_read(
+                &fram_storage,
+                TR2_FRAM_D1_TEST_OFFSET,
+                original,
+                sizeof(original));
+        }
+
+        for (uint32_t i = 0U; i < TR2_FRAM_D1_TEST_SIZE; ++i) {
+            tr2_fram_d1_original[i] = original[i];
+        }
+
+        if (tr2_fram_d1_backup_read_result == TR2_OK) {
+            tr2_fram_d1_write_result = stm32_fram_storage_write(
+                &fram_storage,
+                TR2_FRAM_D1_TEST_OFFSET,
+                test_pattern,
+                sizeof(test_pattern));
+        }
+
+        if (tr2_fram_d1_write_result == TR2_OK) {
+            tr2_fram_d1_verify_read_result = stm32_fram_storage_read(
+                &fram_storage,
+                TR2_FRAM_D1_TEST_OFFSET,
+                readback,
+                sizeof(readback));
+        }
+
+        for (uint32_t i = 0U; i < TR2_FRAM_D1_TEST_SIZE; ++i) {
+            tr2_fram_d1_readback[i] = readback[i];
+            if (readback[i] != test_pattern[i]) {
+                pattern_matches = 0U;
+            }
+        }
+
+        tr2_fram_d1_pattern_matches =
+            (tr2_fram_d1_verify_read_result == TR2_OK) ? pattern_matches : 0U;
+
+        if (tr2_fram_d1_verify_read_result == TR2_OK) {
+            tr2_fram_d1_restore_result = stm32_fram_storage_write(
+                &fram_storage,
+                TR2_FRAM_D1_TEST_OFFSET,
+                original,
+                sizeof(original));
+        }
+
+        if (tr2_fram_d1_restore_result == TR2_OK) {
+            tr2_fram_d1_restore_verify_result = stm32_fram_storage_read(
+                &fram_storage,
+                TR2_FRAM_D1_TEST_OFFSET,
+                restored,
+                sizeof(restored));
+        }
+
+        for (uint32_t i = 0U; i < TR2_FRAM_D1_TEST_SIZE; ++i) {
+            tr2_fram_d1_restored[i] = restored[i];
+            if (restored[i] != original[i]) {
+                restore_matches = 0U;
+            }
+        }
+
+        tr2_fram_d1_restore_matches =
+            (tr2_fram_d1_restore_verify_result == TR2_OK) ? restore_matches : 0U;
     }
 
     if (stm32_serial_transport_init(&serial_transport) != TR2_OK) {
