@@ -57,7 +57,7 @@ volatile uint8_t tr2_fram_d2b_post_format_active_image = 0xFFU;
  * the frozen PersistentMedia interface and commit once.  The gate is kept at
  * 0 until the pre-commit physical state has been observed.
  */
-#define TR2_FRAM_D2C_ALLOW_COMMIT 0U
+#define TR2_FRAM_D2C_ALLOW_COMMIT 1U
 #define TR2_FRAM_D2C_TEST_OFFSET UINT32_C(0)
 #define TR2_FRAM_D2C_TEST_VALUE UINT8_C(0xA5)
 
