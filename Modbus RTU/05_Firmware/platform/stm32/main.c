@@ -332,6 +332,39 @@ volatile uint8_t tr2_fram_d2c_post_commit_active_image = 0xFFU;
 volatile uint8_t tr2_fram_d2c_readback = 0U;
 volatile uint32_t tr2_fram_d2c_readback_result = (uint32_t)TR2_ERROR_INTERNAL;
 
+/*
+ * D3-B bounded physical timing qualification.
+ *
+ * Armed only for the explicitly observed D2-D final authority gen4/B/0xA6.
+ * Raw write timings target the inactive image-A payload, which is not
+ * authoritative.  The full-size raw write is performed before the commit;
+ * the subsequent normal H3d2 commit overwrites that same inactive image and
+ * publishes generation 5 atomically.  No format, retry or repair is used.
+ *
+ * HAL_GetTick() provides millisecond elapsed times.  These are descriptive
+ * qualification measurements, not production performance requirements.
+ */
+#define TR2_FRAM_D3B_ALLOW_TIMING 1U
+#define TR2_FRAM_D3B_TEST_VALUE UINT8_C(0xA7)
+
+volatile uint32_t tr2_fram_d3b_attempted = 0U;
+volatile uint32_t tr2_fram_d3b_completed = 0U;
+volatile uint32_t tr2_fram_d3b_read64_result = (uint32_t)TR2_ERROR_INTERNAL;
+volatile uint32_t tr2_fram_d3b_read64_ms = 0U;
+volatile uint32_t tr2_fram_d3b_write64_result = (uint32_t)TR2_ERROR_INTERNAL;
+volatile uint32_t tr2_fram_d3b_write64_ms = 0U;
+volatile uint32_t tr2_fram_d3b_read_full_result = (uint32_t)TR2_ERROR_INTERNAL;
+volatile uint32_t tr2_fram_d3b_read_full_ms = 0U;
+volatile uint32_t tr2_fram_d3b_write_full_result = (uint32_t)TR2_ERROR_INTERNAL;
+volatile uint32_t tr2_fram_d3b_write_full_ms = 0U;
+volatile uint32_t tr2_fram_d3b_commit_result = (uint32_t)TR2_ERROR_INTERNAL;
+volatile uint32_t tr2_fram_d3b_commit_ms = 0U;
+volatile uint32_t tr2_fram_d3b_post_recover_result = (uint32_t)TR2_ERROR_INTERNAL;
+volatile uint32_t tr2_fram_d3b_post_status = (uint32_t)TRANSACTIONAL_IMAGE_RECOVERY_UNAVAILABLE;
+volatile uint64_t tr2_fram_d3b_post_generation = UINT64_C(0);
+volatile uint8_t tr2_fram_d3b_post_active_image = 0xFFU;
+volatile uint8_t tr2_fram_d3b_post_value = 0U;
+
 static void SystemClock_Config(void);
 static void SystemPower_Config(void);
 static void BringupLed_Init(void);
@@ -576,6 +609,98 @@ int main(void)
                                     TR2_FRAM_D2C_TEST_OFFSET,
                                     (void *)&tr2_fram_d2c_readback,
                                     sizeof(tr2_fram_d2c_readback));
+                        }
+                    }
+                }
+            }
+        }
+#endif
+
+#if TR2_FRAM_D3B_ALLOW_TIMING
+        /*
+         * One-shot D3-B timing campaign from the frozen D2-D final baseline.
+         * The inactive image-A payload is safe scratch until publication:
+         * recovery continues to use gen4/B if power is lost before commit.
+         */
+        if ((tr2_fram_d2_recover_result == (uint32_t)TR2_OK) &&
+            (recovery.status == TRANSACTIONAL_IMAGE_RECOVERY_VALID) &&
+            (recovery.generation == UINT64_C(4)) &&
+            (recovery.active_image == 1U) &&
+            (tr2_fram_d2_candidate[TR2_FRAM_D2C_TEST_OFFSET] ==
+             TR2_FRAM_D2D4_TEST_VALUE)) {
+            PersistentMedia *persistent =
+                transactional_image_media_interface(&media);
+            uint32_t scratch_offset =
+                geometry.image_a_base +
+                TR2_TRANSACTIONAL_MEDIA_IMAGE_HEADER_SIZE;
+            uint32_t started;
+
+            tr2_fram_d3b_attempted = 1U;
+
+            started = HAL_GetTick();
+            tr2_fram_d3b_read64_result = (uint32_t)physical.read(
+                physical.context, scratch_offset,
+                tr2_fram_d2_candidate, 64U);
+            tr2_fram_d3b_read64_ms = HAL_GetTick() - started;
+
+            started = HAL_GetTick();
+            tr2_fram_d3b_write64_result = (uint32_t)physical.write(
+                physical.context, scratch_offset,
+                tr2_fram_d2_candidate, 64U);
+            tr2_fram_d3b_write64_ms = HAL_GetTick() - started;
+
+            started = HAL_GetTick();
+            tr2_fram_d3b_read_full_result = (uint32_t)physical.read(
+                physical.context, scratch_offset,
+                tr2_fram_d2_candidate,
+                TR2_TRANSACTIONAL_MEDIA_LOGICAL_SIZE);
+            tr2_fram_d3b_read_full_ms = HAL_GetTick() - started;
+
+            started = HAL_GetTick();
+            tr2_fram_d3b_write_full_result = (uint32_t)physical.write(
+                physical.context, scratch_offset,
+                tr2_fram_d2_candidate,
+                TR2_TRANSACTIONAL_MEDIA_LOGICAL_SIZE);
+            tr2_fram_d3b_write_full_ms = HAL_GetTick() - started;
+
+            if ((persistent != NULL) &&
+                (tr2_fram_d3b_read64_result == (uint32_t)TR2_OK) &&
+                (tr2_fram_d3b_write64_result == (uint32_t)TR2_OK) &&
+                (tr2_fram_d3b_read_full_result == (uint32_t)TR2_OK) &&
+                (tr2_fram_d3b_write_full_result == (uint32_t)TR2_OK)) {
+                uint8_t value = TR2_FRAM_D3B_TEST_VALUE;
+                TransactionalImageRecoveryResult post = {
+                    .status = TRANSACTIONAL_IMAGE_RECOVERY_UNAVAILABLE,
+                    .generation = UINT64_C(0),
+                    .active_image = 0xFFU
+                };
+
+                if (persistent->write(
+                        persistent->context,
+                        TR2_FRAM_D2C_TEST_OFFSET,
+                        &value,
+                        sizeof(value)) == TR2_OK) {
+                    started = HAL_GetTick();
+                    tr2_fram_d3b_commit_result =
+                        (uint32_t)persistent->commit(persistent->context);
+                    tr2_fram_d3b_commit_ms = HAL_GetTick() - started;
+
+                    if (tr2_fram_d3b_commit_result == (uint32_t)TR2_OK) {
+                        tr2_fram_d3b_post_recover_result =
+                            (uint32_t)transactional_image_media_recover(
+                                &media, &post);
+                        if (tr2_fram_d3b_post_recover_result ==
+                            (uint32_t)TR2_OK) {
+                            tr2_fram_d3b_post_status = (uint32_t)post.status;
+                            tr2_fram_d3b_post_generation = post.generation;
+                            tr2_fram_d3b_post_active_image = post.active_image;
+                            if (post.status ==
+                                TRANSACTIONAL_IMAGE_RECOVERY_VALID) {
+                                tr2_fram_d3b_post_value =
+                                    tr2_fram_d2_candidate[
+                                        TR2_FRAM_D2C_TEST_OFFSET];
+                                tr2_fram_d3b_completed = 1U;
+                            }
                         }
                     }
                 }
