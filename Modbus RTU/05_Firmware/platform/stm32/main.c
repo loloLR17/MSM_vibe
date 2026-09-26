@@ -40,6 +40,10 @@ volatile uint8_t tr2_fram_d2_active_image = 0xFFU;
  * only when recovery has positively classified the physical medium EMPTY.
  */
 #define TR2_FRAM_D2B_ALLOW_FORMAT_EMPTY 1U
+#define TR2_FRAM_D2B_RESET_METADATA_FOR_QUALIFICATION 1U
+
+volatile uint32_t tr2_fram_d2b_reset_attempted = 0U;
+volatile uint32_t tr2_fram_d2b_reset_result = (uint32_t)TR2_ERROR_INTERNAL;
 
 volatile uint32_t tr2_fram_d2b_format_attempted = 0U;
 volatile uint32_t tr2_fram_d2b_format_result = (uint32_t)TR2_ERROR_INTERNAL;
@@ -120,7 +124,49 @@ int main(void)
                 sizeof(tr2_fram_d2_candidate));
         }
 
+#if TR2_FRAM_D2B_RESET_METADATA_FOR_QUALIFICATION
+        /*
+         * D2-B destructive qualification only: clear exactly the four
+         * H3d2 publication/header records so the subsequent recovery must
+         * classify the medium EMPTY.  Payload areas are deliberately left
+         * untouched because EMPTY classification is defined by these records.
+         *
+         * This gate MUST be returned to 0 immediately after the qualification
+         * boot; while it is 1, every reset deliberately destroys publication
+         * metadata.
+         */
         if (tr2_fram_d2_media_init_result == (uint32_t)TR2_OK) {
+            static const uint8_t empty_record[TR2_TRANSACTIONAL_MEDIA_SUPERBLOCK_SIZE] = {0U};
+            Tr2Result reset_result = TR2_OK;
+
+            tr2_fram_d2b_reset_attempted = 1U;
+
+            reset_result = physical.write(
+                physical.context, geometry.superblock_a_base,
+                empty_record, sizeof(empty_record));
+            if (reset_result == TR2_OK) {
+                reset_result = physical.write(
+                    physical.context, geometry.superblock_b_base,
+                    empty_record, sizeof(empty_record));
+            }
+            if (reset_result == TR2_OK) {
+                reset_result = physical.write(
+                    physical.context, geometry.image_a_base,
+                    empty_record, TR2_TRANSACTIONAL_MEDIA_IMAGE_HEADER_SIZE);
+            }
+            if (reset_result == TR2_OK) {
+                reset_result = physical.write(
+                    physical.context, geometry.image_b_base,
+                    empty_record, TR2_TRANSACTIONAL_MEDIA_IMAGE_HEADER_SIZE);
+            }
+
+            tr2_fram_d2b_reset_result = (uint32_t)reset_result;
+        }
+#endif
+
+        if ((tr2_fram_d2_media_init_result == (uint32_t)TR2_OK) &&
+            (tr2_fram_d2b_reset_attempted == 0U ||
+             tr2_fram_d2b_reset_result == (uint32_t)TR2_OK)) {
             tr2_fram_d2_recover_result =
                 (uint32_t)transactional_image_media_recover(&media, &recovery);
         }
