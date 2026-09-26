@@ -2,6 +2,7 @@
 
 #include "stm32_fram_storage.h"
 #include "stm32_serial_transport.h"
+#include "stm32_runtime_platform.h"
 
 #define TR2_BRINGUP_LED_PORT GPIOC
 #define TR2_BRINGUP_LED_PIN  GPIO_PIN_7
@@ -21,6 +22,22 @@ static SPI_HandleTypeDef hspi1;
 volatile HAL_StatusTypeDef tr2_fram_rdid_status = HAL_ERROR;
 volatile uint8_t tr2_fram_device_id[TR2_FRAM_RDID_SIZE] = {0U};
 volatile uint8_t tr2_fram_device_id_matches = 0U;
+
+/* H3e-C physical RTC / continuity qualification probes. */
+#define TR2_RTC_H3EC_ALLOW_SET 1U
+#define TR2_RTC_H3EC_TEST_TIMESTAMP UINT32_C(1780000000)
+
+volatile uint32_t tr2_rtc_h3ec_platform_init_result = (uint32_t)TR2_ERROR_INTERNAL;
+volatile uint32_t tr2_rtc_h3ec_initial_read_result = (uint32_t)WALL_CLOCK_UNAVAILABLE;
+volatile uint32_t tr2_rtc_h3ec_initial_continuity =
+    (uint32_t)TIME_CONTINUITY_EVIDENCE_INDETERMINATE;
+volatile uint32_t tr2_rtc_h3ec_set_attempted = 0U;
+volatile uint32_t tr2_rtc_h3ec_set_result = (uint32_t)TR2_ERROR_INTERNAL;
+volatile uint32_t tr2_rtc_h3ec_post_read_result = (uint32_t)WALL_CLOCK_UNAVAILABLE;
+volatile uint32_t tr2_rtc_h3ec_post_timestamp = 0U;
+volatile uint32_t tr2_rtc_h3ec_post_continuity =
+    (uint32_t)TIME_CONTINUITY_EVIDENCE_INDETERMINATE;
+volatile uint32_t tr2_rtc_h3ec_completed = 0U;
 
 static uint8_t tr2_fram_d2_candidate[TR2_TRANSACTIONAL_MEDIA_LOGICAL_SIZE];
 
@@ -405,6 +422,47 @@ int main(void)
     SystemPower_Config();
     BringupLed_Init();
     FramSpi_Init();
+
+    {
+        WallClock wall_clock;
+        TimeContinuityEvidenceProvider continuity;
+        Tr2CivilTimestamp timestamp = 0U;
+
+        tr2_rtc_h3ec_platform_init_result =
+            (uint32_t)stm32_runtime_platform_init();
+        wall_clock = stm32_runtime_wall_clock();
+        continuity = stm32_runtime_time_continuity_evidence_provider();
+
+        tr2_rtc_h3ec_initial_read_result =
+            (uint32_t)wall_clock.read(wall_clock.context, &timestamp);
+        tr2_rtc_h3ec_initial_continuity =
+            (uint32_t)continuity.get(continuity.context);
+
+#if TR2_RTC_H3EC_ALLOW_SET
+        if ((tr2_rtc_h3ec_platform_init_result == (uint32_t)TR2_OK) &&
+            (tr2_rtc_h3ec_initial_continuity !=
+             (uint32_t)TIME_CONTINUITY_EVIDENCE_PROVEN)) {
+            tr2_rtc_h3ec_set_attempted = 1U;
+            tr2_rtc_h3ec_set_result =
+                (uint32_t)wall_clock.set(
+                    wall_clock.context, TR2_RTC_H3EC_TEST_TIMESTAMP);
+        }
+#endif
+
+        timestamp = 0U;
+        tr2_rtc_h3ec_post_read_result =
+            (uint32_t)wall_clock.read(wall_clock.context, &timestamp);
+        tr2_rtc_h3ec_post_timestamp = timestamp;
+        tr2_rtc_h3ec_post_continuity =
+            (uint32_t)continuity.get(continuity.context);
+
+        if ((tr2_rtc_h3ec_platform_init_result == (uint32_t)TR2_OK) &&
+            (tr2_rtc_h3ec_post_read_result == (uint32_t)WALL_CLOCK_OK) &&
+            (tr2_rtc_h3ec_post_continuity ==
+             (uint32_t)TIME_CONTINUITY_EVIDENCE_PROVEN)) {
+            tr2_rtc_h3ec_completed = 1U;
+        }
+    }
 
     {
         uint8_t device_id[TR2_FRAM_RDID_SIZE] = {0U};
