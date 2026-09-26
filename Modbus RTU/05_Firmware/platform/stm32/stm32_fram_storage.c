@@ -8,6 +8,8 @@
 
 #define FRAM_STATUS_WEL UINT8_C(0x02)
 
+#define FRAM_TRANSFER_CHUNK_SIZE ((size_t)256U)
+
 static bool range_is_valid(uint32_t offset, size_t size)
 {
     if (size > TR2_STM32_FRAM_CAPACITY) {
@@ -57,6 +59,56 @@ static HAL_StatusTypeDef receive(
         data,
         (uint16_t)size,
         storage->timeout_ms);
+}
+
+static HAL_StatusTypeDef transmit_chunked(
+    Stm32FramStorage *storage,
+    const uint8_t *data,
+    size_t size)
+{
+    while (size != 0U) {
+        size_t chunk = size;
+        HAL_StatusTypeDef status;
+
+        if (chunk > FRAM_TRANSFER_CHUNK_SIZE) {
+            chunk = FRAM_TRANSFER_CHUNK_SIZE;
+        }
+
+        status = transmit(storage, data, chunk);
+        if (status != HAL_OK) {
+            return status;
+        }
+
+        data += chunk;
+        size -= chunk;
+    }
+
+    return HAL_OK;
+}
+
+static HAL_StatusTypeDef receive_chunked(
+    Stm32FramStorage *storage,
+    uint8_t *data,
+    size_t size)
+{
+    while (size != 0U) {
+        size_t chunk = size;
+        HAL_StatusTypeDef status;
+
+        if (chunk > FRAM_TRANSFER_CHUNK_SIZE) {
+            chunk = FRAM_TRANSFER_CHUNK_SIZE;
+        }
+
+        status = receive(storage, data, chunk);
+        if (status != HAL_OK) {
+            return status;
+        }
+
+        data += chunk;
+        size -= chunk;
+    }
+
+    return HAL_OK;
 }
 
 static void build_command_address(
@@ -157,16 +209,12 @@ Tr2Result stm32_fram_storage_read(
     if (buffer == NULL) {
         return TR2_ERROR_INVALID_ARGUMENT;
     }
-    if (size > UINT16_MAX) {
-        return TR2_ERROR_INVALID_ARGUMENT;
-    }
-
     build_command_address(frame, FRAM_COMMAND_READ, offset);
 
     cs_low(storage);
     HAL_StatusTypeDef status = transmit(storage, frame, sizeof(frame));
     if (status == HAL_OK) {
-        status = receive(storage, (uint8_t *)buffer, size);
+        status = receive_chunked(storage, (uint8_t *)buffer, size);
     }
     cs_high(storage);
 
@@ -197,10 +245,6 @@ Tr2Result stm32_fram_storage_write(
     if (buffer == NULL) {
         return TR2_ERROR_INVALID_ARGUMENT;
     }
-    if (size > UINT16_MAX) {
-        return TR2_ERROR_INVALID_ARGUMENT;
-    }
-
     status = send_simple_command(storage, FRAM_COMMAND_WREN);
     if (status == HAL_OK) {
         status = read_status_register(storage, &status_register);
@@ -215,7 +259,7 @@ Tr2Result stm32_fram_storage_write(
         cs_low(storage);
         status = transmit(storage, frame, sizeof(frame));
         if (status == HAL_OK) {
-            status = transmit(storage, (const uint8_t *)buffer, size);
+            status = transmit_chunked(storage, (const uint8_t *)buffer, size);
         }
         cs_high(storage);
     }
