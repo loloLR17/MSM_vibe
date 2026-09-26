@@ -93,6 +93,78 @@ volatile uint32_t tr2_fram_d2d2_commit_attempted = 0U;
 volatile uint32_t tr2_fram_d2d2_cut_point_reached = 0U;
 
 /*
+ * D2-D4 physical power-loss qualification.
+ *
+ * Starting from the physically observed gen3/A/0x5A authority, allow H3d2
+ * to build and validate candidate gen4 in inactive image B, then delegate
+ * the complete opposite-superblock publication write to the real FRAM.
+ * Stop immediately after that physical write returns TR2_OK and before
+ * returning control to H3d2.  No retry or repair is performed.
+ */
+#define TR2_FRAM_D2D4_ALLOW_PUBLISHED_CANDIDATE 1U
+#define TR2_FRAM_D2D4_TEST_VALUE UINT8_C(0xA6)
+
+volatile uint32_t tr2_fram_d2d4_write_attempted = 0U;
+volatile uint32_t tr2_fram_d2d4_write_result = (uint32_t)TR2_ERROR_INTERNAL;
+volatile uint32_t tr2_fram_d2d4_commit_attempted = 0U;
+volatile uint32_t tr2_fram_d2d4_payload_completed = 0U;
+volatile uint32_t tr2_fram_d2d4_header_completed = 0U;
+volatile uint32_t tr2_fram_d2d4_publication_completed = 0U;
+volatile uint32_t tr2_fram_d2d4_cut_point_reached = 0U;
+
+#if TR2_FRAM_D2D4_ALLOW_PUBLISHED_CANDIDATE
+typedef struct {
+    TransactionalImagePhysicalStorage underlying;
+    uint32_t target_payload_offset;
+    uint32_t target_header_offset;
+    uint32_t target_superblock_offset;
+} Tr2D2d4PhysicalStorage;
+
+static Tr2Result D2d4PhysicalRead(
+    void *context, uint32_t offset, void *buffer, size_t size)
+{
+    Tr2D2d4PhysicalStorage *adapter = (Tr2D2d4PhysicalStorage *)context;
+    return adapter->underlying.read(
+        adapter->underlying.context, offset, buffer, size);
+}
+
+static Tr2Result D2d4PhysicalWrite(
+    void *context, uint32_t offset, const void *buffer, size_t size)
+{
+    Tr2D2d4PhysicalStorage *adapter = (Tr2D2d4PhysicalStorage *)context;
+    Tr2Result result = adapter->underlying.write(
+        adapter->underlying.context, offset, buffer, size);
+
+    if (result != TR2_OK) {
+        return result;
+    }
+
+    if ((offset == adapter->target_payload_offset) &&
+        (size == TR2_TRANSACTIONAL_MEDIA_LOGICAL_SIZE)) {
+        tr2_fram_d2d4_payload_completed = 1U;
+    } else if ((offset == adapter->target_header_offset) &&
+               (size == TR2_TRANSACTIONAL_MEDIA_IMAGE_HEADER_SIZE) &&
+               (tr2_fram_d2d4_payload_completed == 1U)) {
+        tr2_fram_d2d4_header_completed = 1U;
+    } else if ((offset == adapter->target_superblock_offset) &&
+               (size == TR2_TRANSACTIONAL_MEDIA_SUPERBLOCK_SIZE) &&
+               (tr2_fram_d2d4_payload_completed == 1U) &&
+               (tr2_fram_d2d4_header_completed == 1U)) {
+        tr2_fram_d2d4_publication_completed = 1U;
+        tr2_fram_d2d4_cut_point_reached = 1U;
+        HAL_GPIO_WritePin(
+            TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN, GPIO_PIN_SET);
+        __disable_irq();
+        for (;;) {
+            /* Real publication is complete; operator removes board power. */
+        }
+    }
+
+    return TR2_OK;
+}
+#endif
+
+/*
  * D2-D3 physical power-loss qualification.
  *
  * The adapter is configured only after recovery, from the authority actually
@@ -575,6 +647,45 @@ int main(void)
         }
 #endif
 
+#if TR2_FRAM_D2D4_ALLOW_PUBLISHED_CANDIDATE
+        /*
+         * Derive inactive image and publication copy from the authority
+         * actually recovered from FRAM, then recover once more through the
+         * transparent adapter before starting the destructive scenario.
+         */
+        if ((tr2_fram_d2_recover_result == (uint32_t)TR2_OK) &&
+            (recovery.status == TRANSACTIONAL_IMAGE_RECOVERY_VALID)) {
+            static Tr2D2d4PhysicalStorage d2d4_storage;
+            TransactionalImagePhysicalStorage qualified_physical;
+            TransactionalImageRecoveryResult qualified_recovery = {
+                .status = TRANSACTIONAL_IMAGE_RECOVERY_UNAVAILABLE,
+                .generation = UINT64_C(0),
+                .active_image = 0xFFU
+            };
+            uint8_t inactive_image = (uint8_t)(1U - recovery.active_image);
+            uint8_t publication_copy = (uint8_t)(1U - media.active_superblock);
+
+            d2d4_storage.underlying = physical;
+            d2d4_storage.target_payload_offset =
+                (inactive_image == 0U ? geometry.image_a_base : geometry.image_b_base) +
+                TR2_TRANSACTIONAL_MEDIA_IMAGE_HEADER_SIZE;
+            d2d4_storage.target_header_offset =
+                inactive_image == 0U ? geometry.image_a_base : geometry.image_b_base;
+            d2d4_storage.target_superblock_offset =
+                publication_copy == 0U ? geometry.superblock_a_base : geometry.superblock_b_base;
+
+            qualified_physical.context = &d2d4_storage;
+            qualified_physical.read = D2d4PhysicalRead;
+            qualified_physical.write = D2d4PhysicalWrite;
+
+            if (transactional_image_media_init(
+                    &media, &qualified_physical, &geometry,
+                    tr2_fram_d2_candidate, sizeof(tr2_fram_d2_candidate)) == TR2_OK) {
+                (void)transactional_image_media_recover(&media, &qualified_recovery);
+            }
+        }
+#endif
+
 #if TR2_FRAM_D2D3_ALLOW_FINALIZED_IMAGE
         /*
          * Bind the qualification adapter only after recovery so both inactive
@@ -611,6 +722,38 @@ int main(void)
                     &media, &qualified_physical, &geometry,
                     tr2_fram_d2_candidate, sizeof(tr2_fram_d2_candidate)) == TR2_OK) {
                 (void)transactional_image_media_recover(&media, &qualified_recovery);
+            }
+        }
+#endif
+
+#if TR2_FRAM_D2D4_ALLOW_PUBLISHED_CANDIDATE
+        /*
+         * D2-D4 starts only from the observed gen3/A/0x5A authority.
+         * The adapter stops only after the complete publication write has
+         * physically returned TR2_OK.
+         */
+        if ((tr2_fram_d2_recover_result == (uint32_t)TR2_OK) &&
+            (recovery.status == TRANSACTIONAL_IMAGE_RECOVERY_VALID) &&
+            (recovery.generation == UINT64_C(3)) &&
+            (recovery.active_image == 0U) &&
+            (tr2_fram_d2_candidate[TR2_FRAM_D2C_TEST_OFFSET] ==
+             TR2_FRAM_D2D1_TEST_VALUE)) {
+            PersistentMedia *persistent =
+                transactional_image_media_interface(&media);
+            uint8_t value = TR2_FRAM_D2D4_TEST_VALUE;
+
+            if (persistent != NULL) {
+                tr2_fram_d2d4_write_attempted = 1U;
+                tr2_fram_d2d4_write_result = (uint32_t)persistent->write(
+                    persistent->context,
+                    TR2_FRAM_D2C_TEST_OFFSET,
+                    &value,
+                    sizeof(value));
+
+                if (tr2_fram_d2d4_write_result == (uint32_t)TR2_OK) {
+                    tr2_fram_d2d4_commit_attempted = 1U;
+                    (void)persistent->commit(persistent->context);
+                }
             }
         }
 #endif
