@@ -99,7 +99,7 @@ volatile uint32_t tr2_fram_d2d2_cut_point_reached = 0U;
  * final generation-3 image-A header.  The adapter then stops on the first
  * publication-superblock write, before any publication byte reaches FRAM.
  */
-#define TR2_FRAM_D2D3_ALLOW_FINALIZED_IMAGE 1U
+#define TR2_FRAM_D2D3_ALLOW_FINALIZED_IMAGE 0U
 
 volatile uint32_t tr2_fram_d2d3_write_attempted = 0U;
 volatile uint32_t tr2_fram_d2d3_write_result = (uint32_t)TR2_ERROR_INTERNAL;
@@ -366,7 +366,11 @@ int main(void)
                 geometry.image_a_base +
                 TR2_TRANSACTIONAL_MEDIA_IMAGE_HEADER_SIZE;
             d2d3_storage.target_header_offset = geometry.image_a_base;
-            d2d3_storage.target_superblock_offset = geometry.superblock_b_base;
+            /*
+             * Baseline gen2 is published by superblock B, so H3d2 publishes
+             * candidate gen3 through the opposite publication record A.
+             */
+            d2d3_storage.target_superblock_offset = geometry.superblock_a_base;
 
             qualified_physical.context = &d2d3_storage;
             qualified_physical.read = D2d3PhysicalRead;
