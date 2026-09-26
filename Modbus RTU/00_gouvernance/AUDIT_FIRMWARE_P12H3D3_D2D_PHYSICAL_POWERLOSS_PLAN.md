@@ -181,11 +181,36 @@ Après désarmement et correction de l'adaptateur vers le superbloc A, un firmwa
 
 Conclusion : la tentative invalide avait entièrement publié le commit génération 3 / image A. Ce résultat est conservé comme diagnostic de campagne, pas comme preuve D2-D3. La prochaine tentative D2-D3 doit repartir de cette nouvelle baseline explicitement observée et adapter dynamiquement ou explicitement l'image inactive et le superbloc de publication attendus.
 
+### D2-D3 — image candidate finalisée avant publication : qualifié physiquement
+
+Baseline physique observée avant scénario : `VALID / gen3 / image A / payload[0] 0x5A`.
+
+Candidate : génération 4, image B, payload logique offset 0 muté à `0xA6`. L'adaptateur de qualification, dérivé de l'autorité récupérée, a laissé s'effectuer le payload complet et le header final de l'image inactive puis a intercepté l'écriture du superbloc de publication opposé avant de déléguer le moindre octet à la FRAM.
+
+Preuve pré-coupure :
+
+- écriture logique tentée : oui ;
+- résultat écriture logique : `TR2_OK` ;
+- commit tenté : oui ;
+- payload image B complet : oui ;
+- header final image B complet : oui ;
+- point de coupure avant publication : atteint.
+
+Une coupure physique réelle de l'alimentation a alors été effectuée. Après désarmement, validation complète du firmware, reprogrammation sous RESET et redémarrage, le recovery a observé :
+
+- stockage / géométrie / média / recovery : `TR2_OK` ;
+- statut : `VALID` ;
+- génération : 3 ;
+- image active : A ;
+- payload logique offset 0 : `0x5A`.
+
+Conclusion D2-D3 : **qualifié physiquement**. Une image candidate génération 4 physiquement complète et finalisée mais non publiée ne devient pas l'autorité après coupure ; le recovery conserve l'autorité publiée génération 3 / image A.
+
 ## 8. Ce qui n'est pas encore qualifié
 
 Ne sont pas encore qualifiés :
 
-- D2-D3 et D2-D4 ;
+- D2-D4 ;
 - timing exact de la coupure ;
 - brown-out ou rampes d'alimentation ;
 - comportement électrique du bus pendant la chute de tension ;
