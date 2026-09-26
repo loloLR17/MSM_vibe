@@ -122,13 +122,44 @@ Première tranche à implémenter :
 10. reboot/recovery ;
 11. exiger `VALID / gen2 / B / 0xA5`.
 
-## 7. Ce qui n'est pas encore qualifié
+## 7. Résultats physiques acquis
 
-Le présent document ne constitue aucune preuve matérielle.
+### D2-D1 — payload partiel
+
+D2-D1 est **qualifié physiquement**. Depuis la baseline `VALID / gen2 / B / 0xA5`, le backend FRAM a écrit avec succès un préfixe contrôlé de 4096 octets du payload de l'image inactive A. Le point de coupure a été confirmé par GDB, puis une perte réelle d'alimentation a été effectuée.
+
+Après désarmement, reprogrammation sous reset et reboot, le recovery a donné `TR2_OK / VALID / gen2 / B / 0xA5`. L'écriture partielle de l'image inactive n'a donc pas remplacé l'autorité publiée.
+
+### D2-D2 — payload complet, avant header final
+
+D2-D2 est **qualifié physiquement**. Depuis la baseline explicitement observée `VALID / gen2 / B / 0xA5`, les sondes avant coupure ont confirmé :
+
+- recovery initial : `TR2_OK / VALID / gen2 / B` ;
+- écriture D2-D2 tentée : oui ;
+- écriture physique des 51 818 octets du payload : `TR2_OK` ;
+- commit tenté : oui ;
+- point de coupure atteint : oui.
+
+L'adaptateur a immobilisé le CPU après le retour `TR2_OK` de l'écriture du payload complet et avant retour au moteur H3d2, donc avant l'écriture du header final génération 3. Une perte réelle d'alimentation a alors été effectuée.
+
+Après désarmement, reprogrammation sous reset et reboot, les sondes ont donné :
+
+- stockage : `TR2_OK` ;
+- géométrie : `TR2_OK` ;
+- média : `TR2_OK` ;
+- recovery : `TR2_OK` ;
+- statut : `VALID` ;
+- génération : 2 ;
+- image active : B ;
+- payload logique offset 0 : `0xA5`.
+
+Conclusion limitée à D2-D2 : un payload candidat entièrement écrit dans l'image inactive A, sans son nouveau header final ni publication, n'a pas remplacé l'autorité publiée génération 2 / image B.
+
+## 8. Ce qui n'est pas encore qualifié
 
 Ne sont pas encore qualifiés :
 
-- D2-D1 à D2-D4 ;
+- D2-D3 et D2-D4 ;
 - timing exact de la coupure ;
 - brown-out ou rampes d'alimentation ;
 - comportement électrique du bus pendant la chute de tension ;
@@ -138,6 +169,6 @@ Ne sont pas encore qualifiés :
 
 ## 9. Règle de progression
 
-D2-D1 doit être observée et documentée avant d'armer D2-D2.
+D2-D1 et D2-D2 sont acquis. D2-D3 ne doit être armé qu'après préparation désarmée et validation complète.
 
 Une anomalie de recovery arrête la campagne : pas de formatage, réparation, retry ou passage au scénario suivant avant analyse de l'état physique.
