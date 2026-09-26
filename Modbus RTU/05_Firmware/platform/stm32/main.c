@@ -92,6 +92,75 @@ volatile uint32_t tr2_fram_d2d2_write_result = (uint32_t)TR2_ERROR_INTERNAL;
 volatile uint32_t tr2_fram_d2d2_commit_attempted = 0U;
 volatile uint32_t tr2_fram_d2d2_cut_point_reached = 0U;
 
+/*
+ * D2-D3 physical power-loss qualification.
+ *
+ * The real backend is allowed to write the complete candidate payload and
+ * final generation-3 image-A header.  The adapter then stops on the first
+ * publication-superblock write, before any publication byte reaches FRAM.
+ */
+#define TR2_FRAM_D2D3_ALLOW_FINALIZED_IMAGE 0U
+
+volatile uint32_t tr2_fram_d2d3_write_attempted = 0U;
+volatile uint32_t tr2_fram_d2d3_write_result = (uint32_t)TR2_ERROR_INTERNAL;
+volatile uint32_t tr2_fram_d2d3_commit_attempted = 0U;
+volatile uint32_t tr2_fram_d2d3_payload_completed = 0U;
+volatile uint32_t tr2_fram_d2d3_header_completed = 0U;
+volatile uint32_t tr2_fram_d2d3_cut_point_reached = 0U;
+
+#if TR2_FRAM_D2D3_ALLOW_FINALIZED_IMAGE
+typedef struct {
+    TransactionalImagePhysicalStorage underlying;
+    uint32_t target_payload_offset;
+    uint32_t target_header_offset;
+    uint32_t target_superblock_offset;
+} Tr2D2d3PhysicalStorage;
+
+static Tr2Result D2d3PhysicalRead(
+    void *context, uint32_t offset, void *buffer, size_t size)
+{
+    Tr2D2d3PhysicalStorage *adapter = (Tr2D2d3PhysicalStorage *)context;
+    return adapter->underlying.read(
+        adapter->underlying.context, offset, buffer, size);
+}
+
+static Tr2Result D2d3PhysicalWrite(
+    void *context, uint32_t offset, const void *buffer, size_t size)
+{
+    Tr2D2d3PhysicalStorage *adapter = (Tr2D2d3PhysicalStorage *)context;
+    Tr2Result result;
+
+    if ((offset == adapter->target_superblock_offset) &&
+        (size == TR2_TRANSACTIONAL_MEDIA_SUPERBLOCK_SIZE) &&
+        (tr2_fram_d2d3_payload_completed == 1U) &&
+        (tr2_fram_d2d3_header_completed == 1U)) {
+        tr2_fram_d2d3_cut_point_reached = 1U;
+        HAL_GPIO_WritePin(
+            TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN, GPIO_PIN_SET);
+        __disable_irq();
+        for (;;) {
+            /* Publication write intentionally not delegated. */
+        }
+    }
+
+    result = adapter->underlying.write(
+        adapter->underlying.context, offset, buffer, size);
+
+    if (result == TR2_OK) {
+        if ((offset == adapter->target_payload_offset) &&
+            (size == TR2_TRANSACTIONAL_MEDIA_LOGICAL_SIZE)) {
+            tr2_fram_d2d3_payload_completed = 1U;
+        } else if ((offset == adapter->target_header_offset) &&
+                   (size == TR2_TRANSACTIONAL_MEDIA_IMAGE_HEADER_SIZE) &&
+                   (tr2_fram_d2d3_payload_completed == 1U)) {
+            tr2_fram_d2d3_header_completed = 1U;
+        }
+    }
+
+    return result;
+}
+#endif
+
 #if TR2_FRAM_D2D2_ALLOW_COMPLETE_PAYLOAD
 typedef struct {
     TransactionalImagePhysicalStorage underlying;
@@ -283,6 +352,25 @@ int main(void)
             qualified_physical.context = &d2d2_storage;
             qualified_physical.read = D2d2PhysicalRead;
             qualified_physical.write = D2d2PhysicalWrite;
+            physical = qualified_physical;
+        }
+#endif
+
+#if TR2_FRAM_D2D3_ALLOW_FINALIZED_IMAGE
+        {
+            static Tr2D2d3PhysicalStorage d2d3_storage;
+            TransactionalImagePhysicalStorage qualified_physical;
+
+            d2d3_storage.underlying = physical;
+            d2d3_storage.target_payload_offset =
+                geometry.image_a_base +
+                TR2_TRANSACTIONAL_MEDIA_IMAGE_HEADER_SIZE;
+            d2d3_storage.target_header_offset = geometry.image_a_base;
+            d2d3_storage.target_superblock_offset = geometry.superblock_b_base;
+
+            qualified_physical.context = &d2d3_storage;
+            qualified_physical.read = D2d3PhysicalRead;
+            qualified_physical.write = D2d3PhysicalWrite;
             physical = qualified_physical;
         }
 #endif
@@ -497,6 +585,39 @@ int main(void)
 
                 if (tr2_fram_d2d2_write_result == (uint32_t)TR2_OK) {
                     tr2_fram_d2d2_commit_attempted = 1U;
+                    (void)persistent->commit(persistent->context);
+                }
+            }
+        }
+#endif
+
+#if TR2_FRAM_D2D3_ALLOW_FINALIZED_IMAGE
+        /*
+         * D2-D3 starts only from the observed generation-2/B authority.
+         * Reaching the adapter cut point proves that payload and final image
+         * header writes returned TR2_OK and that H3d2 then attempted
+         * publication.  The publication write itself is not delegated.
+         */
+        if ((tr2_fram_d2_recover_result == (uint32_t)TR2_OK) &&
+            (recovery.status == TRANSACTIONAL_IMAGE_RECOVERY_VALID) &&
+            (recovery.generation == UINT64_C(2)) &&
+            (recovery.active_image == 1U) &&
+            (tr2_fram_d2_candidate[TR2_FRAM_D2C_TEST_OFFSET] ==
+             TR2_FRAM_D2C_TEST_VALUE)) {
+            PersistentMedia *persistent =
+                transactional_image_media_interface(&media);
+            uint8_t value = TR2_FRAM_D2D1_TEST_VALUE;
+
+            if (persistent != NULL) {
+                tr2_fram_d2d3_write_attempted = 1U;
+                tr2_fram_d2d3_write_result = (uint32_t)persistent->write(
+                    persistent->context,
+                    TR2_FRAM_D2C_TEST_OFFSET,
+                    &value,
+                    sizeof(value));
+
+                if (tr2_fram_d2d3_write_result == (uint32_t)TR2_OK) {
+                    tr2_fram_d2d3_commit_attempted = 1U;
                     (void)persistent->commit(persistent->context);
                 }
             }
