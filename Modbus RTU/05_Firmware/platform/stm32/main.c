@@ -85,7 +85,7 @@ volatile uint32_t tr2_fram_d2d1_cut_point_reached = 0U;
  * reach the real FRAM, then latches the cut-power point before H3d2 can issue
  * the final image-header write.  D2-D1 remains independently disarmed.
  */
-#define TR2_FRAM_D2D2_ALLOW_COMPLETE_PAYLOAD 1U
+#define TR2_FRAM_D2D2_ALLOW_COMPLETE_PAYLOAD 0U
 
 volatile uint32_t tr2_fram_d2d2_write_attempted = 0U;
 volatile uint32_t tr2_fram_d2d2_write_result = (uint32_t)TR2_ERROR_INTERNAL;
