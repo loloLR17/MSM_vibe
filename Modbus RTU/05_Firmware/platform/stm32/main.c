@@ -101,7 +101,7 @@ volatile uint32_t tr2_fram_d2d2_cut_point_reached = 0U;
  * Stop immediately after that physical write returns TR2_OK and before
  * returning control to H3d2.  No retry or repair is performed.
  */
-#define TR2_FRAM_D2D4_ALLOW_PUBLISHED_CANDIDATE 1U
+#define TR2_FRAM_D2D4_ALLOW_PUBLISHED_CANDIDATE 0U
 #define TR2_FRAM_D2D4_TEST_VALUE UINT8_C(0xA6)
 
 volatile uint32_t tr2_fram_d2d4_write_attempted = 0U;
