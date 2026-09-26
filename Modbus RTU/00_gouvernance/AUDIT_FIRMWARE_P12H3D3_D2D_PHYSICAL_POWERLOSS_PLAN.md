@@ -2,7 +2,7 @@
 
 ## Statut
 
-**PLAN DE QUALIFICATION — NON GELÉ**
+**PLAN DE QUALIFICATION — EN COURS**
 
 Cette tranche part du gel D2-C et ne modifie pas les invariants H3d2.
 
@@ -136,7 +136,7 @@ Ne sont pas encore qualifiés :
 - endurance FRAM ;
 - fault injection SPI.
 
-## 8. Règle de progression
+## 9. Règle de progression
 
 D2-D1 doit être observée et documentée avant d'armer D2-D2.
 
