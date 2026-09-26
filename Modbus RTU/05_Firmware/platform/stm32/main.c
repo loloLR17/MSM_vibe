@@ -99,7 +99,7 @@ volatile uint32_t tr2_fram_d2d2_cut_point_reached = 0U;
  * observed on FRAM.  It therefore follows the H3d2 rule "publish through the
  * opposite superblock" instead of assuming a particular generation/copy.
  */
-#define TR2_FRAM_D2D3_ALLOW_FINALIZED_IMAGE 0U
+#define TR2_FRAM_D2D3_ALLOW_FINALIZED_IMAGE 1U
 #define TR2_FRAM_D2D3_TEST_VALUE UINT8_C(0xA6)
 
 volatile uint32_t tr2_fram_d2d3_write_attempted = 0U;
