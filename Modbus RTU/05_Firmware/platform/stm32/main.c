@@ -625,7 +625,7 @@ int main(void)
         if ((tr2_fram_d2_recover_result == (uint32_t)TR2_OK) &&
             (recovery.status == TRANSACTIONAL_IMAGE_RECOVERY_VALID) &&
             (recovery.generation == UINT64_C(6)) &&
-            (recovery.active_image == 0U) &&
+            (recovery.active_image == 1U) &&
             (tr2_fram_d2_candidate[TR2_FRAM_D2C_TEST_OFFSET] ==
              UINT8_C(0xA8))) {
             PersistentMedia *persistent =
