@@ -52,6 +52,26 @@ volatile uint32_t tr2_fram_d2b_post_format_status = (uint32_t)TRANSACTIONAL_IMAG
 volatile uint64_t tr2_fram_d2b_post_format_generation = UINT64_C(0);
 volatile uint8_t tr2_fram_d2b_post_format_active_image = 0xFFU;
 
+/*
+ * D2-C qualification: after a normal VALID recovery, modify one byte through
+ * the frozen PersistentMedia interface and commit once.  The gate is kept at
+ * 0 until the pre-commit physical state has been observed.
+ */
+#define TR2_FRAM_D2C_ALLOW_COMMIT 0U
+#define TR2_FRAM_D2C_TEST_OFFSET UINT32_C(0)
+#define TR2_FRAM_D2C_TEST_VALUE UINT8_C(0xA5)
+
+volatile uint32_t tr2_fram_d2c_write_attempted = 0U;
+volatile uint32_t tr2_fram_d2c_write_result = (uint32_t)TR2_ERROR_INTERNAL;
+volatile uint32_t tr2_fram_d2c_commit_attempted = 0U;
+volatile uint32_t tr2_fram_d2c_commit_result = (uint32_t)TR2_ERROR_INTERNAL;
+volatile uint32_t tr2_fram_d2c_post_commit_recover_result = (uint32_t)TR2_ERROR_INTERNAL;
+volatile uint32_t tr2_fram_d2c_post_commit_status = (uint32_t)TRANSACTIONAL_IMAGE_RECOVERY_UNAVAILABLE;
+volatile uint64_t tr2_fram_d2c_post_commit_generation = UINT64_C(0);
+volatile uint8_t tr2_fram_d2c_post_commit_active_image = 0xFFU;
+volatile uint8_t tr2_fram_d2c_readback = 0U;
+volatile uint32_t tr2_fram_d2c_readback_result = (uint32_t)TR2_ERROR_INTERNAL;
+
 static void SystemClock_Config(void);
 static void SystemPower_Config(void);
 static void BringupLed_Init(void);
@@ -203,6 +223,64 @@ int main(void)
                     tr2_fram_d2b_post_format_status = (uint32_t)post_format.status;
                     tr2_fram_d2b_post_format_generation = post_format.generation;
                     tr2_fram_d2b_post_format_active_image = post_format.active_image;
+                }
+            }
+        }
+#endif
+
+#if TR2_FRAM_D2C_ALLOW_COMMIT
+        /*
+         * Execute exactly one transactional mutation only from the known
+         * D2-B baseline.  Requiring generation 1 / image A makes subsequent
+         * boots inert after a successful commit to generation 2 / image B.
+         */
+        if ((tr2_fram_d2_recover_result == (uint32_t)TR2_OK) &&
+            (recovery.status == TRANSACTIONAL_IMAGE_RECOVERY_VALID) &&
+            (recovery.generation == UINT64_C(1)) &&
+            (recovery.active_image == 0U)) {
+            PersistentMedia *persistent = transactional_image_media_interface(&media);
+            uint8_t value = TR2_FRAM_D2C_TEST_VALUE;
+
+            if (persistent != NULL) {
+                tr2_fram_d2c_write_attempted = 1U;
+                tr2_fram_d2c_write_result = (uint32_t)persistent->write(
+                    persistent->context,
+                    TR2_FRAM_D2C_TEST_OFFSET,
+                    &value,
+                    sizeof(value));
+
+                if (tr2_fram_d2c_write_result == (uint32_t)TR2_OK) {
+                    TransactionalImageRecoveryResult post_commit = {
+                        .status = TRANSACTIONAL_IMAGE_RECOVERY_UNAVAILABLE,
+                        .generation = UINT64_C(0),
+                        .active_image = 0xFFU
+                    };
+
+                    tr2_fram_d2c_commit_attempted = 1U;
+                    tr2_fram_d2c_commit_result =
+                        (uint32_t)persistent->commit(persistent->context);
+
+                    if (tr2_fram_d2c_commit_result == (uint32_t)TR2_OK) {
+                        tr2_fram_d2c_post_commit_recover_result =
+                            (uint32_t)transactional_image_media_recover(
+                                &media, &post_commit);
+
+                        if (tr2_fram_d2c_post_commit_recover_result == (uint32_t)TR2_OK) {
+                            tr2_fram_d2c_post_commit_status =
+                                (uint32_t)post_commit.status;
+                            tr2_fram_d2c_post_commit_generation =
+                                post_commit.generation;
+                            tr2_fram_d2c_post_commit_active_image =
+                                post_commit.active_image;
+
+                            tr2_fram_d2c_readback_result =
+                                (uint32_t)persistent->read(
+                                    persistent->context,
+                                    TR2_FRAM_D2C_TEST_OFFSET,
+                                    (void *)&tr2_fram_d2c_readback,
+                                    sizeof(tr2_fram_d2c_readback));
+                        }
+                    }
                 }
             }
         }
