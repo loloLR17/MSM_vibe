@@ -27,6 +27,7 @@ foreach(required_path
     ${HAL_DIR}/Inc/stm32u5xx_hal.h
     ${HAL_DIR}/Src/stm32u5xx_hal.c
     ${HAL_DIR}/Src/stm32u5xx_hal_dma.c
+    ${HAL_DIR}/Src/stm32u5xx_hal_spi.c
     ${HAL_DIR}/Src/stm32u5xx_hal_uart.c
     ${HAL_DIR}/Src/stm32u5xx_hal_uart_ex.c
     ${HAL_DIR}/Src/stm32u5xx_hal_tim.c
@@ -80,6 +81,7 @@ add_executable(tr2_stm32_p11c
     ${HAL_DIR}/Src/stm32u5xx_hal_pwr_ex.c
     ${HAL_DIR}/Src/stm32u5xx_hal_rcc.c
     ${HAL_DIR}/Src/stm32u5xx_hal_rcc_ex.c
+    ${HAL_DIR}/Src/stm32u5xx_hal_spi.c
     ${HAL_DIR}/Src/stm32u5xx_hal_uart.c
     ${HAL_DIR}/Src/stm32u5xx_hal_uart_ex.c
     ${HAL_DIR}/Src/stm32u5xx_hal_tim.c
