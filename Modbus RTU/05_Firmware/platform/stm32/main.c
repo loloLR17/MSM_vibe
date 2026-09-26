@@ -5,9 +5,15 @@
 #define TR2_BRINGUP_LED_PORT GPIOC
 #define TR2_BRINGUP_LED_PIN  GPIO_PIN_7
 
+#define TR2_FRAM_CS_PORT GPIOA
+#define TR2_FRAM_CS_PIN  GPIO_PIN_4
+
+static SPI_HandleTypeDef hspi1;
+
 static void SystemClock_Config(void);
 static void SystemPower_Config(void);
 static void BringupLed_Init(void);
+static void FramSpi_Init(void);
 static void Error_Handler(void);
 
 void HAL_MspInit(void)
@@ -23,6 +29,7 @@ int main(void)
     SystemClock_Config();
     SystemPower_Config();
     BringupLed_Init();
+    FramSpi_Init();
 
     if (stm32_serial_transport_init(&serial_transport) != TR2_OK) {
         Error_Handler();
@@ -104,6 +111,64 @@ static void BringupLed_Init(void)
     gpio.Pull = GPIO_NOPULL;
     gpio.Speed = GPIO_SPEED_FREQ_LOW;
     HAL_GPIO_Init(TR2_BRINGUP_LED_PORT, &gpio);
+}
+
+static void FramSpi_Init(void)
+{
+    GPIO_InitTypeDef gpio = {0};
+    RCC_PeriphCLKInitTypeDef periph_clk = {0};
+
+    __HAL_RCC_GPIOA_CLK_ENABLE();
+
+    HAL_GPIO_WritePin(TR2_FRAM_CS_PORT, TR2_FRAM_CS_PIN, GPIO_PIN_SET);
+
+    gpio.Pin = TR2_FRAM_CS_PIN;
+    gpio.Mode = GPIO_MODE_OUTPUT_PP;
+    gpio.Pull = GPIO_NOPULL;
+    gpio.Speed = GPIO_SPEED_FREQ_LOW;
+    HAL_GPIO_Init(TR2_FRAM_CS_PORT, &gpio);
+
+    periph_clk.PeriphClockSelection = RCC_PERIPHCLK_SPI1;
+    periph_clk.Spi1ClockSelection = RCC_SPI1CLKSOURCE_SYSCLK;
+    if (HAL_RCCEx_PeriphCLKConfig(&periph_clk) != HAL_OK) {
+        Error_Handler();
+    }
+
+    __HAL_RCC_SPI1_CLK_ENABLE();
+
+    gpio.Pin = GPIO_PIN_5 | GPIO_PIN_6 | GPIO_PIN_7;
+    gpio.Mode = GPIO_MODE_AF_PP;
+    gpio.Pull = GPIO_NOPULL;
+    gpio.Speed = GPIO_SPEED_FREQ_LOW;
+    gpio.Alternate = GPIO_AF5_SPI1;
+    HAL_GPIO_Init(GPIOA, &gpio);
+
+    hspi1.Instance = SPI1;
+    hspi1.Init.Mode = SPI_MODE_MASTER;
+    hspi1.Init.Direction = SPI_DIRECTION_2LINES;
+    hspi1.Init.DataSize = SPI_DATASIZE_8BIT;
+    hspi1.Init.CLKPolarity = SPI_POLARITY_LOW;
+    hspi1.Init.CLKPhase = SPI_PHASE_1EDGE;
+    hspi1.Init.NSS = SPI_NSS_SOFT;
+    hspi1.Init.BaudRatePrescaler = SPI_BAUDRATEPRESCALER_64;
+    hspi1.Init.FirstBit = SPI_FIRSTBIT_MSB;
+    hspi1.Init.TIMode = SPI_TIMODE_DISABLE;
+    hspi1.Init.CRCCalculation = SPI_CRCCALCULATION_DISABLE;
+    hspi1.Init.CRCPolynomial = 0x7U;
+    hspi1.Init.NSSPMode = SPI_NSS_PULSE_DISABLE;
+    hspi1.Init.NSSPolarity = SPI_NSS_POLARITY_LOW;
+    hspi1.Init.FifoThreshold = SPI_FIFO_THRESHOLD_08DATA;
+    hspi1.Init.MasterSSIdleness = SPI_MASTER_SS_IDLENESS_00CYCLE;
+    hspi1.Init.MasterInterDataIdleness = SPI_MASTER_INTERDATA_IDLENESS_00CYCLE;
+    hspi1.Init.MasterReceiverAutoSusp = SPI_MASTER_RX_AUTOSUSP_DISABLE;
+    hspi1.Init.MasterKeepIOState = SPI_MASTER_KEEP_IO_STATE_ENABLE;
+    hspi1.Init.IOSwap = SPI_IO_SWAP_DISABLE;
+    hspi1.Init.ReadyMasterManagement = SPI_RDY_MASTER_MANAGEMENT_INTERNALLY;
+    hspi1.Init.ReadyPolarity = SPI_RDY_POLARITY_HIGH;
+
+    if (HAL_SPI_Init(&hspi1) != HAL_OK) {
+        Error_Handler();
+    }
 }
 
 static void Error_Handler(void)
