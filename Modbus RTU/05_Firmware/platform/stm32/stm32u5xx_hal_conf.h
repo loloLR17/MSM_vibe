@@ -9,6 +9,7 @@
 #define HAL_PWR_MODULE_ENABLED
 #define HAL_RCC_MODULE_ENABLED
 #define HAL_RTC_MODULE_ENABLED
+#define HAL_SD_MODULE_ENABLED
 #define HAL_SPI_MODULE_ENABLED
 #define HAL_UART_MODULE_ENABLED
 #define HAL_TIM_MODULE_ENABLED
@@ -36,6 +37,7 @@
 #include "stm32u5xx_hal_cortex.h"
 #include "stm32u5xx_hal_pwr.h"
 #include "stm32u5xx_hal_rtc.h"
+#include "stm32u5xx_hal_sd.h"
 #include "stm32u5xx_hal_spi.h"
 #include "stm32u5xx_hal_uart.h"
 #include "stm32u5xx_hal_tim.h"
