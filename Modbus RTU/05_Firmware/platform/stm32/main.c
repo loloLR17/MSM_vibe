@@ -512,10 +512,12 @@ static void Sdmmc2_ReadOnlyBringup(void)
     /*
      * H3h-C frequency characterization: 10 MHz (ClockDiv=8) and
      * 20 MHz (ClockDiv=4) are physically proven through HAL_SD_Init(),
-     * 4-bit bus configuration and HAL_SD_GetCardInfo().  Probe 40 MHz next
-     * (160 MHz / (2 * 2)) without changing wiring, protocol or media contents.
+     * 4-bit bus configuration and HAL_SD_GetCardInfo(); 40 MHz (ClockDiv=2)
+     * fails in HAL_SD_Init() with SDMMC_ERROR_CMD_RSP_TIMEOUT.  Probe the
+     * midpoint at approximately 26.7 MHz (160 MHz / (2 * 3)) to bound the
+     * reliable rate without changing wiring, protocol or media contents.
      */
-    hsd2.Init.ClockDiv = 2U;
+    hsd2.Init.ClockDiv = 3U;
 
     tr2_sdmmc2_stage = 4U;
     tr2_sdmmc2_init_status = (uint32_t)HAL_SD_Init(&hsd2);
