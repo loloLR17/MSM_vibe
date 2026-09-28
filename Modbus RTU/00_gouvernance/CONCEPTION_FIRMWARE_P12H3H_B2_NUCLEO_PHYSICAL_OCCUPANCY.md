@@ -1,6 +1,6 @@
 # P12-H3h-B2 — Plan d'occupation physique NUCLEO et stratégie de soudure prototype
 
-Statut : **CONCEPTION / PREPARATION MATERIELLE — PAS DE GEL**
+Statut : **PROTOTYPE A SOUDE ET CONTROLE — PROTOTYPE B A REPRODUIRE**
 
 ## 1. Objet et contrainte réelle
 
@@ -85,6 +85,15 @@ la microSD. CN12-29 est une position de réserve non attribuée.
 4. Souder A seulement après cette vérification.
 5. Contrôle visuel et ohmique d'absence de pont.
 6. Reproduire exactement sur le prototype B.
+
+### Validation physique prototype A — 2026-09-28
+
+Les six segments A à F ont été présentés puis soudés sur le prototype A.
+Contrôle visuel des deux faces : implantation conforme au plan, pas de pont de
+soudure visible. Les contrôles de continuité entre contacts adjacents demandés
+ont été réalisés et déclarés conformes. Le prototype B reste à réaliser à
+l'identique ; cette validation ne vaut donc pas encore qualification de la
+paire de prototypes.
 
 ## 9. Garde-fous
 
