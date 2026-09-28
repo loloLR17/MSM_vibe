@@ -17,37 +17,6 @@ typedef struct {
 
 static Stm32RuntimePlatformContext g_runtime_platform;
 
-volatile uint32_t tr2_rtc_h3ec_init_stage = 0U;
-volatile uint32_t tr2_rtc_h3ec_lse_hal_status = (uint32_t)HAL_ERROR;
-volatile uint32_t tr2_rtc_h3ec_clock_hal_status = (uint32_t)HAL_ERROR;
-volatile uint32_t tr2_rtc_h3ec_rtc_hal_status = (uint32_t)HAL_ERROR;
-volatile uint32_t tr2_rtc_h3ec_reg_tr = 0U;
-volatile uint32_t tr2_rtc_h3ec_reg_dr = 0U;
-volatile uint32_t tr2_rtc_h3ec_reg_icsr = 0U;
-volatile uint32_t tr2_rtc_h3ec_reg_bkp0r = 0U;
-
-/*
- * H3e-C retention diagnostics.  These probes are observation-only: the APB
- * interface clocks are enabled before the first snapshot, but no RTC/LSE
- * configuration or backup-domain reset is performed by the probe itself.
- */
-volatile uint32_t tr2_rtc_h3ec_pre_bdcr = 0U;
-volatile uint32_t tr2_rtc_h3ec_pre_tr = 0U;
-volatile uint32_t tr2_rtc_h3ec_pre_dr = 0U;
-volatile uint32_t tr2_rtc_h3ec_pre_icsr = 0U;
-volatile uint32_t tr2_rtc_h3ec_pre_bkp0r = 0U;
-volatile uint32_t tr2_rtc_h3ec_pre_bkp1r = 0U;
-volatile uint32_t tr2_rtc_h3ec_post_osc_bdcr = 0U;
-volatile uint32_t tr2_rtc_h3ec_post_osc_tr = 0U;
-volatile uint32_t tr2_rtc_h3ec_post_osc_dr = 0U;
-volatile uint32_t tr2_rtc_h3ec_post_osc_icsr = 0U;
-volatile uint32_t tr2_rtc_h3ec_post_clock_bdcr = 0U;
-volatile uint32_t tr2_rtc_h3ec_post_clock_tr = 0U;
-volatile uint32_t tr2_rtc_h3ec_post_clock_dr = 0U;
-volatile uint32_t tr2_rtc_h3ec_post_clock_icsr = 0U;
-volatile uint32_t tr2_rtc_h3ec_post_bkp1r = 0U;
-
-
 static bool is_leap_year(uint32_t year)
 {
     return ((year % 4U) == 0U) &&
@@ -273,48 +242,19 @@ static Tr2Result initialize_rtc(Stm32RuntimePlatformContext *platform)
     RCC_OscInitTypeDef osc = {0};
     RCC_PeriphCLKInitTypeDef periph = {0};
 
-    tr2_rtc_h3ec_init_stage = 1U;
     __HAL_RCC_PWR_CLK_ENABLE();
     HAL_PWR_EnableBkUpAccess();
 
-    /*
-     * Open only the RTC register interface for the pre-init snapshot.  This
-     * does not select a new RTC source and does not reset the backup domain.
-     */
-    __HAL_RCC_RTCAPB_CLK_ENABLE();
-    __HAL_RCC_RTCAPB_CLKAM_ENABLE();
-    tr2_rtc_h3ec_pre_bdcr = RCC->BDCR;
-    tr2_rtc_h3ec_pre_tr = RTC->TR;
-    tr2_rtc_h3ec_pre_dr = RTC->DR;
-    tr2_rtc_h3ec_pre_icsr = RTC->ICSR;
-    tr2_rtc_h3ec_pre_bkp0r = TAMP->BKP0R;
-    tr2_rtc_h3ec_pre_bkp1r = TAMP->BKP1R;
-
     osc.OscillatorType = RCC_OSCILLATORTYPE_LSE;
     osc.LSEState = RCC_LSE_ON;
-    tr2_rtc_h3ec_lse_hal_status = (uint32_t)HAL_RCC_OscConfig(&osc);
-    if (tr2_rtc_h3ec_lse_hal_status != (uint32_t)HAL_OK) {
+    if (HAL_RCC_OscConfig(&osc) != HAL_OK) {
         return TR2_ERROR_UNAVAILABLE;
     }
-    tr2_rtc_h3ec_post_osc_bdcr = RCC->BDCR;
-    tr2_rtc_h3ec_post_osc_tr = RTC->TR;
-    tr2_rtc_h3ec_post_osc_dr = RTC->DR;
-    tr2_rtc_h3ec_post_osc_icsr = RTC->ICSR;
-
-    tr2_rtc_h3ec_init_stage = 2U;
     periph.PeriphClockSelection = RCC_PERIPHCLK_RTC;
     periph.RTCClockSelection = RCC_RTCCLKSOURCE_LSE;
-    tr2_rtc_h3ec_clock_hal_status =
-        (uint32_t)HAL_RCCEx_PeriphCLKConfig(&periph);
-    if (tr2_rtc_h3ec_clock_hal_status != (uint32_t)HAL_OK) {
+    if (HAL_RCCEx_PeriphCLKConfig(&periph) != HAL_OK) {
         return TR2_ERROR_UNAVAILABLE;
     }
-    tr2_rtc_h3ec_post_clock_bdcr = RCC->BDCR;
-    tr2_rtc_h3ec_post_clock_tr = RTC->TR;
-    tr2_rtc_h3ec_post_clock_dr = RTC->DR;
-    tr2_rtc_h3ec_post_clock_icsr = RTC->ICSR;
-
-    tr2_rtc_h3ec_init_stage = 3U;
     __HAL_RCC_RTC_ENABLE();
     __HAL_RCC_RTCAPB_CLK_ENABLE();
     __HAL_RCC_RTCAPB_CLKAM_ENABLE();
@@ -329,22 +269,11 @@ static Tr2Result initialize_rtc(Stm32RuntimePlatformContext *platform)
     platform->rtc.Init.OutPutType = RTC_OUTPUT_TYPE_OPENDRAIN;
     platform->rtc.Init.OutPutPullUp = RTC_OUTPUT_PULLUP_NONE;
 
-    tr2_rtc_h3ec_rtc_hal_status = (uint32_t)HAL_RTC_Init(&platform->rtc);
-    if (tr2_rtc_h3ec_rtc_hal_status != (uint32_t)HAL_OK) {
+    if (HAL_RTC_Init(&platform->rtc) != HAL_OK) {
         return TR2_ERROR_UNAVAILABLE;
     }
 
-    tr2_rtc_h3ec_init_stage = 4U;
     platform->rtc_available = true;
-
-    /* H3e-C diagnostic snapshot after successful RTC initialization. */
-    tr2_rtc_h3ec_reg_tr = RTC->TR;
-    tr2_rtc_h3ec_reg_dr = RTC->DR;
-    tr2_rtc_h3ec_reg_icsr = RTC->ICSR;
-    tr2_rtc_h3ec_reg_bkp0r =
-        HAL_RTCEx_BKUPRead(&platform->rtc, TR2_RTC_CONTINUITY_BACKUP_REGISTER);
-    tr2_rtc_h3ec_post_bkp1r =
-        HAL_RTCEx_BKUPRead(&platform->rtc, TR2_RTC_CONTINUITY_ANCHOR_REGISTER);
     return TR2_OK;
 }
 
