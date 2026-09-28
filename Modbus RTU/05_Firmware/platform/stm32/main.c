@@ -20,6 +20,24 @@ static const uint8_t tr2_fram_expected_device_id[TR2_FRAM_RDID_SIZE] = {
 
 static SPI_HandleTypeDef hspi1;
 static SPI_HandleTypeDef hspi3;
+static SD_HandleTypeDef hsd2;
+
+/*
+ * H3h-C microSD bring-up is deliberately read-only:
+ * HAL_SD_Init performs card protocol initialization and reads card metadata.
+ * No block write, erase, format or filesystem operation is issued here.
+ */
+volatile uint32_t tr2_sdmmc2_init_attempted = 0U;
+volatile uint32_t tr2_sdmmc2_init_status = (uint32_t)HAL_ERROR;
+volatile uint32_t tr2_sdmmc2_card_info_status = (uint32_t)HAL_ERROR;
+volatile uint32_t tr2_sdmmc2_card_type = 0U;
+volatile uint32_t tr2_sdmmc2_card_version = 0U;
+volatile uint32_t tr2_sdmmc2_card_class = 0U;
+volatile uint32_t tr2_sdmmc2_relative_card_address = 0U;
+volatile uint32_t tr2_sdmmc2_log_block_nbr = 0U;
+volatile uint32_t tr2_sdmmc2_log_block_size = 0U;
+volatile uint32_t tr2_sdmmc2_block_nbr = 0U;
+volatile uint32_t tr2_sdmmc2_block_size = 0U;
 
 #define TR2_IIS3DWB_CS_PORT GPIOC
 #define TR2_IIS3DWB_CS_PIN GPIO_PIN_9
@@ -416,7 +434,83 @@ static void SystemPower_Config(void);
 static void BringupLed_Init(void);
 static void FramSpi_Init(void);
 static void Iis3dwbSpi_Init(void);
+static void Sdmmc2_ReadOnlyBringup(void);
 static HAL_StatusTypeDef Fram_ReadDeviceId(uint8_t device_id[TR2_FRAM_RDID_SIZE]);
+static void Sdmmc2_ReadOnlyBringup(void)
+{
+    HAL_SD_CardInfoTypeDef card_info = {0};
+    GPIO_InitTypeDef gpio = {0};
+    RCC_PeriphCLKInitTypeDef periph = {0};
+
+    tr2_sdmmc2_init_attempted = 1U;
+
+    __HAL_RCC_GPIOB_CLK_ENABLE();
+    __HAL_RCC_GPIOD_CLK_ENABLE();
+
+    /*
+     * SDMMC2 4-bit wiring frozen by H3h-B:
+     * PD6 CK AF11, PD7 CMD AF11,
+     * PB14 D0 / PB15 D1 / PB3 D2 / PB4 D3 AF12.
+     *
+     * The Adafruit 4682 provides pull-ups on the SDIO lines.  Keep MCU
+     * internal pulls disabled for this first physical qualification.
+     */
+    gpio.Mode = GPIO_MODE_AF_PP;
+    gpio.Pull = GPIO_NOPULL;
+    gpio.Speed = GPIO_SPEED_FREQ_VERY_HIGH;
+
+    gpio.Pin = GPIO_PIN_6 | GPIO_PIN_7;
+    gpio.Alternate = GPIO_AF11_SDMMC2;
+    HAL_GPIO_Init(GPIOD, &gpio);
+
+    gpio.Pin = GPIO_PIN_3 | GPIO_PIN_4 | GPIO_PIN_14 | GPIO_PIN_15;
+    gpio.Alternate = GPIO_AF12_SDMMC2;
+    HAL_GPIO_Init(GPIOB, &gpio);
+
+    periph.PeriphClockSelection = RCC_PERIPHCLK_SDMMC;
+    periph.SdmmcClockSelection = RCC_SDMMCCLKSOURCE_CLK48;
+    if (HAL_RCCEx_PeriphCLKConfig(&periph) != HAL_OK) {
+        tr2_sdmmc2_init_status = (uint32_t)HAL_ERROR;
+        return;
+    }
+
+    __HAL_RCC_SDMMC2_CLK_ENABLE();
+
+    hsd2.Instance = SDMMC2;
+    hsd2.Init.ClockEdge = SDMMC_CLOCK_EDGE_RISING;
+    hsd2.Init.ClockPowerSave = SDMMC_CLOCK_POWER_SAVE_DISABLE;
+    hsd2.Init.BusWide = SDMMC_BUS_WIDE_1B;
+    hsd2.Init.HardwareFlowControl = SDMMC_HARDWARE_FLOW_CONTROL_DISABLE;
+    hsd2.Init.ClockDiv = 0U;
+
+    tr2_sdmmc2_init_status = (uint32_t)HAL_SD_Init(&hsd2);
+    if (tr2_sdmmc2_init_status != (uint32_t)HAL_OK) {
+        return;
+    }
+
+    /*
+     * Widen only after the mandatory 1-bit card initialization sequence.
+     * This is a protocol/configuration operation, not a media write.
+     */
+    if (HAL_SD_ConfigWideBusOperation(&hsd2, SDMMC_BUS_WIDE_4B) != HAL_OK) {
+        tr2_sdmmc2_card_info_status = (uint32_t)HAL_ERROR;
+        return;
+    }
+
+    tr2_sdmmc2_card_info_status =
+        (uint32_t)HAL_SD_GetCardInfo(&hsd2, &card_info);
+    if (tr2_sdmmc2_card_info_status == (uint32_t)HAL_OK) {
+        tr2_sdmmc2_card_type = card_info.CardType;
+        tr2_sdmmc2_card_version = card_info.CardVersion;
+        tr2_sdmmc2_card_class = card_info.Class;
+        tr2_sdmmc2_relative_card_address = card_info.RelCardAdd;
+        tr2_sdmmc2_log_block_nbr = card_info.LogBlockNbr;
+        tr2_sdmmc2_log_block_size = card_info.LogBlockSize;
+        tr2_sdmmc2_block_nbr = card_info.BlockNbr;
+        tr2_sdmmc2_block_size = card_info.BlockSize;
+    }
+}
+
 static void Error_Handler(void);
 
 void HAL_MspInit(void)
@@ -434,6 +528,7 @@ int main(void)
     BringupLed_Init();
     FramSpi_Init();
     Iis3dwbSpi_Init();
+    Sdmmc2_ReadOnlyBringup();
 
     {
         static Stm32Iis3dwbVibrationSource iis3dwb_source;
