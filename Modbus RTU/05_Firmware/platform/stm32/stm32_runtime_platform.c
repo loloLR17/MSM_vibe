@@ -33,24 +33,37 @@ static bool is_leap_year(uint32_t year)
            (((year % 100U) != 0U) || ((year % 400U) == 0U));
 }
 
-static uint32_t days_before_year(uint32_t year)
+static uint32_t days_in_month(uint32_t year, uint32_t month)
 {
-    uint32_t y = year - 1U;
-    return (365U * (year - 1970U)) +
-           ((y / 4U) - (1969U / 4U)) -
-           ((y / 100U) - (1969U / 100U)) +
-           ((y / 400U) - (1969U / 400U));
+    static const uint8_t month_days[12] = {
+        31U, 28U, 31U, 30U, 31U, 30U, 31U, 31U, 30U, 31U, 30U, 31U
+    };
+    uint32_t days = month_days[month - 1U];
+
+    if (month == 2U && is_leap_year(year)) {
+        days++;
+    }
+    return days;
+}
+
+static uint32_t days_before_year_from_tr2_epoch(uint32_t year)
+{
+    uint32_t days = 0U;
+    uint32_t current_year;
+
+    for (current_year = 2020U; current_year < year; current_year++) {
+        days += is_leap_year(current_year) ? 366U : 365U;
+    }
+    return days;
 }
 
 static uint32_t days_before_month(uint32_t year, uint32_t month)
 {
-    static const uint16_t cumulative[12] = {
-        0U, 31U, 59U, 90U, 120U, 151U, 181U, 212U, 243U, 273U, 304U, 334U
-    };
-    uint32_t days = cumulative[month - 1U];
+    uint32_t days = 0U;
+    uint32_t current_month;
 
-    if (month > 2U && is_leap_year(year)) {
-        days++;
+    for (current_month = 1U; current_month < month; current_month++) {
+        days += days_in_month(year, current_month);
     }
     return days;
 }
@@ -64,13 +77,18 @@ static bool rtc_to_timestamp(const RTC_DateTypeDef *date,
 
     if (date == NULL || time == NULL || timestamp == NULL ||
         date->Year > 99U || date->Month < 1U || date->Month > 12U ||
-        date->Date < 1U || date->Date > 31U ||
         time->Hours > 23U || time->Minutes > 59U || time->Seconds > 59U) {
         return false;
     }
 
     year = 2000U + date->Year;
-    seconds = ((uint64_t)days_before_year(year) +
+    if (year < 2020U ||
+        date->Date < 1U ||
+        date->Date > days_in_month(year, date->Month)) {
+        return false;
+    }
+
+    seconds = ((uint64_t)days_before_year_from_tr2_epoch(year) +
                days_before_month(year, date->Month) +
                (uint32_t)date->Date - 1U) * UINT64_C(86400);
     seconds += ((uint64_t)time->Hours * UINT64_C(3600)) +
@@ -90,25 +108,15 @@ static bool timestamp_to_rtc(Tr2CivilTimestamp timestamp,
                              RTC_TimeTypeDef *time)
 {
     uint32_t days = timestamp / UINT32_C(86400);
+    const uint32_t days_since_epoch = days;
     uint32_t seconds = timestamp % UINT32_C(86400);
-    uint32_t year = 1970U;
+    uint32_t year = 2020U;
     uint32_t month = 1U;
-    static const uint8_t month_days[12] = {
-        31U, 28U, 31U, 30U, 31U, 30U, 31U, 31U, 30U, 31U, 30U, 31U
-    };
 
     if (date == NULL || time == NULL) {
         return false;
     }
 
-    while (year < 2000U) {
-        uint32_t year_days = is_leap_year(year) ? 366U : 365U;
-        if (days < year_days) {
-            return false;
-        }
-        days -= year_days;
-        year++;
-    }
     while (year <= 2099U) {
         uint32_t year_days = is_leap_year(year) ? 366U : 365U;
         if (days < year_days) {
@@ -122,10 +130,7 @@ static bool timestamp_to_rtc(Tr2CivilTimestamp timestamp,
     }
 
     while (month <= 12U) {
-        uint32_t mdays = month_days[month - 1U];
-        if (month == 2U && is_leap_year(year)) {
-            mdays++;
-        }
+        uint32_t mdays = days_in_month(year, month);
         if (days < mdays) {
             break;
         }
@@ -140,7 +145,9 @@ static bool timestamp_to_rtc(Tr2CivilTimestamp timestamp,
     date->Year = (uint8_t)(year - 2000U);
     date->Month = (uint8_t)month;
     date->Date = (uint8_t)(days + 1U);
-    date->WeekDay = RTC_WEEKDAY_MONDAY;
+    /* Epoch TR2 2020-01-01 was a Wednesday; STM32 uses Monday=1..Sunday=7. */
+    date->WeekDay = (uint8_t)(((days_since_epoch +
+                                (uint32_t)RTC_WEEKDAY_WEDNESDAY - 1U) % 7U) + 1U);
 
     *time = (RTC_TimeTypeDef){0};
     time->Hours = (uint8_t)(seconds / UINT32_C(3600));
@@ -232,8 +239,7 @@ static TimeContinuityEvidence stm32_time_continuity_get(void *context)
 
     anchor = HAL_RTCEx_BKUPRead(&platform->rtc,
                                 TR2_RTC_CONTINUITY_ANCHOR_REGISTER);
-    if (anchor == 0U ||
-        stm32_wall_clock_read(platform, &current_timestamp) != WALL_CLOCK_OK ||
+    if (stm32_wall_clock_read(platform, &current_timestamp) != WALL_CLOCK_OK ||
         current_timestamp < (Tr2CivilTimestamp)anchor) {
         return TIME_CONTINUITY_EVIDENCE_INDETERMINATE;
     }
