@@ -472,7 +472,14 @@ static void Sdmmc2_ReadOnlyBringup(void)
     HAL_GPIO_Init(GPIOB, &gpio);
 
     periph.PeriphClockSelection = RCC_PERIPHCLK_SDMMC;
-    periph.SdmmcClockSelection = RCC_SDMMCCLKSOURCE_CLK48;
+    /*
+     * H3h-C: use PLL1 Q as the SDMMC kernel clock.  The existing system
+     * clock configuration already enables PLL1 with PLLQ = 2, yielding
+     * 160 MHz from the 4 MHz MSI / N=80 VCO.  HAL_SD_InitCard() will
+     * derive the <=400 kHz identification clock from this kernel clock.
+     * This avoids selecting CK48 without configuring a CK48 source.
+     */
+    periph.SdmmcClockSelection = RCC_SDMMCCLKSOURCE_PLL1;
     if (HAL_RCCEx_PeriphCLKConfig(&periph) != HAL_OK) {
         tr2_sdmmc2_stage = 2U;
         tr2_sdmmc2_init_status = (uint32_t)HAL_ERROR;
