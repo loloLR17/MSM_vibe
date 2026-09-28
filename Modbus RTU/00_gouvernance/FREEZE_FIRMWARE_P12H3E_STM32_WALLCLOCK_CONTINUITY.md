@@ -2,9 +2,9 @@
 
 ## Statut
 
-**CANDIDAT AU GEL — QUALIFICATION PHYSIQUE NIVEAU A ACQUISE**
+**GELÉ — VALIDATION LOGICIELLE ET QUALIFICATION PHYSIQUE NIVEAU A ACQUISES**
 
-Le gel définitif est conditionné à la validation complète locale du candidat nettoyé par `tr2_validate.sh`.
+Le candidat nettoyé a passé la validation complète locale `tr2_validate.sh` avec succès.
 
 ## Périmètre
 
@@ -116,13 +116,12 @@ La baseline FRAM physique demeure :
 
 `VALID / génération 10 / image B / payload[0] = 0xAC`.
 
-## Condition de gel définitif
+## Validation finale et baseline de gel
 
-Après nettoyage du harnais et de l'instrumentation temporaire, le candidat doit passer une validation complète :
+Après retrait du harnais et de l'instrumentation temporaire, la validation complète locale a été exécutée avec succès : host et cross-build STM32 entièrement verts.
 
-```bash
-STM32CUBE_U5_ROOT=/mnt/c/Users/Lolo/Desktop/STM32/STM32CubeU5 \
-./tr2_validate.sh
-```
+HEAD du candidat effectivement validé :
 
-Si cette validation est entièrement verte, le présent document peut être promu en **GELÉ — VALIDATION LOGICIELLE ET QUALIFICATION PHYSIQUE NIVEAU A ACQUISES**, avec le HEAD correspondant comme baseline de gel.
+`6236a653a2299c54f7722d2b59111526761d3ed9`
+
+Ce HEAD constitue la **baseline logicielle qualifiée P12-H3e**. Le commit documentaire portant le présent statut GELÉ ne modifie aucun code firmware.
