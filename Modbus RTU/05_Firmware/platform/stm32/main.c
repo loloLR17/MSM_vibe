@@ -30,7 +30,7 @@ static SPI_HandleTypeDef hspi3;
 #define TR2_IIS3DWB_STATUS_REG 0x1EU
 #define TR2_IIS3DWB_OUTX_L_A_REG 0x28U
 #define TR2_IIS3DWB_CTRL1_XL_2G_26K7HZ 0xA0U
-#define TR2_IIS3DWB_CTRL3_C_BDU 0x40U
+#define TR2_IIS3DWB_CTRL3_C_BDU_IF_INC 0x44U
 #define TR2_IIS3DWB_STATUS_XLDA 0x01U
 
 volatile uint32_t tr2_iis3dwb_spi_init_ok = 0U;
@@ -1320,7 +1320,7 @@ static HAL_StatusTypeDef Iis3dwb_ConfigureForRawSampling(void)
 {
     HAL_StatusTypeDef status;
 
-    status = Iis3dwb_WriteRegister(TR2_IIS3DWB_CTRL3_C_REG, TR2_IIS3DWB_CTRL3_C_BDU);
+    status = Iis3dwb_WriteRegister(TR2_IIS3DWB_CTRL3_C_REG, TR2_IIS3DWB_CTRL3_C_BDU_IF_INC);
     if (status == HAL_OK) {
         status = Iis3dwb_WriteRegister(TR2_IIS3DWB_CTRL1_XL_REG,
                                        TR2_IIS3DWB_CTRL1_XL_2G_26K7HZ);
