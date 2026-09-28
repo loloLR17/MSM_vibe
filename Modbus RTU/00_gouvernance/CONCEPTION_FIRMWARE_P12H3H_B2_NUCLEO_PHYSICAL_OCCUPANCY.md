@@ -2,142 +2,103 @@
 
 Statut : **CONCEPTION / PREPARATION MATERIELLE — PAS DE GEL**
 
-## 1. Objet
+## 1. Objet et contrainte réelle
 
-Préparer une seule passe de soudure des connecteurs ST Morpho CN11/CN12 de la
-NUCLEO-U575ZI-Q MB1549-U575ZIQ-C05 en tenant compte des périphériques connus du
-prototype TR2, sans figer prématurément les rôles fonctionnels non décidés.
+Préparer une seule passe de soudure des ST Morpho CN11/CN12 de la
+NUCLEO-U575ZI-Q MB1549-U575ZIQ-C05 pour **deux prototypes identiques**.
 
-## 2. Référence carte
+Stock disponible : 4 barrettes mâles 1x40 au pas 2.54 mm, soit 160 contacts.
 
-Carte observée physiquement : NUCLEO-U575ZI-Q, MB1549-U575ZIQ-C05.
+## 2. Référence
 
-Le tableau ST Morpho de l'UM2861 Rev 10 constitue la référence de numérotation
-CN11/CN12. Les connecteurs noirs Zio/Arduino internes ne doivent pas être
-confondus avec les empreintes Morpho externes CN11/CN12.
+La numérotation CN11/CN12 est celle du tableau Morpho de l'UM2861 Rev 10.
+Les connecteurs noirs Zio/Arduino internes ne sont pas les empreintes Morpho.
 
-## 3. Ressources déjà attribuées
+## 3. Ressources existantes à préserver
 
-### FRAM MB85RS2 — qualifiée
+FRAM qualifiée :
+- SPI1 SCK/MISO/MOSI : PA5/PA6/PA7 = CN12-11/13/15 ;
+- CS : PD14 = CN12-46.
+Le câblage Zio qualifié reste en place.
 
-- SPI1_SCK PA5 = CN12-11
-- SPI1_MISO PA6 = CN12-13
-- SPI1_MOSI PA7 = CN12-15
-- CS PD14 = CN12-46
+IIS3DWB qualifié :
+- CS PC9 = CN12-1 ;
+- SPI3 SCK/MISO/MOSI : PC10/PC11/PC12 = CN11-1/2/3.
+Le câblage Zio qualifié reste en place.
 
-Le câblage physique actuellement qualifié peut utiliser les connecteurs Zio
-existants ; ces fonctions restent néanmoins réservées au niveau MCU.
-
-### IIS3DWB — qualifié
-
-- CS PC9 = CN12-1
-- SPI3_SCK PC10 = CN11-1
-- SPI3_MISO PC11 = CN11-2
-- SPI3_MOSI PC12 = CN11-3
-
-Le câblage physique actuel via D44..D47 reste en place ; les fonctions MCU sont
-réservées.
-
-### RS-485 — architecture réservée
-
-- LPUART1_TX PG7 = CN12-67
-- LPUART1_RX PG8 = CN12-66
-
-Le transceiver ADM2867E nécessite en plus des signaux de contrôle DE et /RE si
-le mode de contrôle indépendant du Click est conservé. Leurs GPIO ne sont pas
-encore figés ici. Les fonctions TX/RX restent réservées.
-
-### microSD — choix H3h-B
-
-SDMMC2 4 bits :
+## 4. microSD SDMMC2 retenue H3h-B
 
 - CK PD6 = CN11-43
 - CMD PD7 = CN11-45
-- D0 PB14 = CN12-28
-- D1 PB15 = CN12-26
-- D2 PB3 = CN12-31
-- D3 PB4 = CN12-27
 - 3V3 = CN11-16
-- GND = CN11-19 ou CN11-20
+- GND = CN11-20
+- D1 PB15 = CN12-26
+- D3 PB4 = CN12-27
+- D0 PB14 = CN12-28
+- D2 PB3 = CN12-31
 
-## 4. W25Q64 Adafruit 5636
+CN11-18 est 5V : il peut être physiquement présent dans un segment mais ne doit
+pas alimenter la microSD.
 
-Le produit 5636 est le breakout **SPI simple canal** W25Q64 de 8 MiB, avec
-level shifting et régulateur. Ce n'est pas le breakout QSPI DIP.
+## 5. RS-485
 
-Aucun bus/CS ne lui est attribué dans cette tranche. Son rôle fonctionnel V1
-n'est pas défini par H3h-A et il ne doit pas créer de conflit avant décision.
+LPUART1 est réservé :
+- RX PG8 = CN12-66
+- TX PG7 = CN12-67
 
-Conséquence : la stratégie de soudure doit conserver un accès général aux
-Morpho plutôt que de ne souder que les huit points microSD.
+Le Click ADM2867E expose aussi DE et /RE. Pour former un bloc physique compact,
+CN12-68 (PG5) et CN12-69 (PG4) sont **réservés comme candidats** de contrôle,
+sans gel fonctionnel à ce stade. PG4..PG8 appartiennent au domaine VDDIO2 :
+sa configuration devra être vérifiée avant connexion.
 
-## 5. Stratégie de soudure recommandée
+## 6. W25Q64 Adafruit 5636
 
-Pour le banc de développement, équiper **les quatre colonnes complètes** des
-empreintes ST Morpho :
+Aucun GPIO Morpho n'est consommé maintenant. Le partage du SPI1 déjà utilisé
+par la FRAM, avec CS distinct, sera évalué séparément. Aucun rôle V1 ni aucun
+câblage n'est gelé ici.
 
-- CN11 : deux barrettes mâles 1x35 au pas 2.54 mm ;
-- CN12 : deux barrettes mâles 1x35 au pas 2.54 mm.
+## 7. Plan de soudure optimisé — identique sur A et B
 
-Des barrettes 1xN sécables conviennent : deux rangées parallèles par connecteur.
+Broches mâles vers le dessus de la carte, plastique sous la carte, soudures
+dessous.
 
-Cette stratégie donne accès aux 70 positions de chaque Morpho et évite de
-ressouder à chaque nouvelle affectation GPIO. Elle n'impose aucune fonction
-électrique aux broches non utilisées.
+| Segment | Empreinte | Positions | Longueur |
+|---|---|---|---:|
+| A | CN11 impairs | 43,45 | 2 |
+| B | CN11 pairs | 16,18,20 | 3 |
+| C | CN12 impairs | 27,29,31 | 3 |
+| D | CN12 pairs | 26,28 | 2 |
+| E | CN12 impairs | 67,69 | 2 |
+| F | CN12 pairs | 66,68 | 2 |
 
-### Précautions mécaniques
+Total : **14 contacts par prototype**, **28 contacts pour deux prototypes**.
+Stock restant théorique : 132 contacts.
 
-- carte totalement hors tension ;
-- vérifier le pas 2.54 mm avant insertion ;
-- utiliser une breadboard ou un support droit comme gabarit pendant la soudure
-  si disponible ;
-- souder d'abord une broche à chaque extrémité, contrôler l'alignement, puis
-  terminer la rangée ;
-- ne jamais relier électriquement les deux colonnes entre elles ;
-- conserver l'accès mécanique aux connecteurs Zio, boutons, USB et jumpers.
+Le segment B contient physiquement CN11-18 = 5V, volontairement inutilisé pour
+la microSD. CN12-29 est une position de réserve non attribuée.
 
-## 6. Carte d'occupation consolidée
+## 8. Procédure
 
-| Fonction | Bus / GPIO | Morpho | État |
-|---|---|---|---|
-| FRAM SCK | PA5 | CN12-11 | réservé/qualifié |
-| FRAM MISO | PA6 | CN12-13 | réservé/qualifié |
-| FRAM MOSI | PA7 | CN12-15 | réservé/qualifié |
-| FRAM CS | PD14 | CN12-46 | réservé/qualifié |
-| IIS3DWB CS | PC9 | CN12-1 | réservé/qualifié |
-| IIS3DWB SCK | PC10 | CN11-1 | réservé/qualifié |
-| IIS3DWB MISO | PC11 | CN11-2 | réservé/qualifié |
-| IIS3DWB MOSI | PC12 | CN11-3 | réservé/qualifié |
-| microSD CK | PD6 | CN11-43 | retenu H3h-B |
-| microSD CMD | PD7 | CN11-45 | retenu H3h-B |
-| microSD D0 | PB14 | CN12-28 | retenu H3h-B |
-| microSD D1 | PB15 | CN12-26 | retenu H3h-B |
-| microSD D2 | PB3 | CN12-31 | retenu H3h-B |
-| microSD D3 | PB4 | CN12-27 | retenu H3h-B |
-| RS-485 TX | PG7 | CN12-67 | réservé |
-| RS-485 RX | PG8 | CN12-66 | réservé |
-| W25Q64 | à attribuer | à attribuer | non figé |
-| RS-485 DE,/RE | à attribuer | à attribuer | non figé |
+1. Carte hors tension et débranchée.
+2. Présenter à blanc les six segments du prototype A avant soudure.
+3. Confirmer le sens de numérotation et les colonnes paire/impaire sur la C05.
+4. Souder A seulement après cette vérification.
+5. Contrôle visuel et ohmique d'absence de pont.
+6. Reproduire exactement sur le prototype B.
 
-## 7. Broches spéciales à ne pas détourner sans étude
+## 9. Garde-fous
 
 - PA13/PA14 : SWD/ST-LINK ;
-- PC14/PC15 : LSE/RTC dans l'architecture TR2 ;
-- PH0/PH1 : fonctions oscillateur selon configuration ;
-- NRST et BOOT0 : fonctions système ;
-- PG2..PG15 : domaine VDDIO2 configurable sur la Nucleo ; vérifier le réglage
-  carte avant tout périphérique utilisant ces broches ;
-- alimentations 3V3/5V/VIN/VBAT/VREFP : ne pas traiter comme GPIO.
+- PC14/PC15 : LSE/RTC ;
+- NRST/BOOT0 : système ;
+- PG2..PG15 : domaine VDDIO2 à vérifier ;
+- alimentations : ne jamais traiter comme GPIO.
 
-## 8. Conclusion
+## 10. Conclusion
 
-Pour minimiser les opérations de soudure, la bonne frontière matérielle n'est
-pas « souder seulement les broches microSD », mais **équiper complètement les
-empreintes Morpho CN11 et CN12 avec des barrettes mâles 2.54 mm**.
+L'équipement intégral des Morpho était surdimensionné avec le stock réel.
+Le plan optimisé couvre microSD et réserve un bloc RS-485 avec seulement
+14 contacts par carte, tout en conservant les deux prototypes identiques.
 
-Cela ne modifie aucune baseline firmware et ne nécessite donc aucune compilation
-ni exécution de `tr2_validate.sh`.
-
-Après soudure et contrôle visuel/ohmique, H3h-C pourra commencer par le câblage
-microSD SDMMC2 non destructif. Le W25Q64 et les GPIO de contrôle RS-485 seront
-arbitrés séparément avant câblage.
+Aucune modification firmware : aucune compilation ni `tr2_validate.sh`
+n'est requise pour cette tranche mécanique.
