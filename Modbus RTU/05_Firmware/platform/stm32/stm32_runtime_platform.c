@@ -234,6 +234,8 @@ static Tr2Result initialize_rtc(Stm32RuntimePlatformContext *platform)
 
     tr2_rtc_h3ec_init_stage = 3U;
     __HAL_RCC_RTC_ENABLE();
+    __HAL_RCC_RTCAPB_CLK_ENABLE();
+    __HAL_RCC_RTCAPB_CLKAM_ENABLE();
 
     platform->rtc.Instance = RTC;
     platform->rtc.Init.HourFormat = RTC_HOURFORMAT_24;
