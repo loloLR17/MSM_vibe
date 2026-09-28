@@ -44,9 +44,23 @@ Le STM32U575 offre un jeu SDMMC2 4-bit sans collision avec les ressources TR2 :
 - PB3 = SDMMC2_D2, AF12 ;
 - PB4 = SDMMC2_D3, AF12.
 
-Le schéma MB1549-U575ZIQ-C05 confirme que ces GPIO du STM32 sont routés vers les
-connecteurs d'extension de la carte. Le repérage physique exact connecteur/pin
-sera fixé avant câblage.
+Le manuel UM2861 Rev 10 et le schéma MB1549-U575ZIQ-C05 donnent le repérage
+physique exact sur les connecteurs ST Morpho :
+
+| Signal microSD | STM32 | Connecteur |
+|---|---|---|
+| CLK | PD6 | CN11 pin 43 |
+| CMD | PD7 | CN11 pin 45 |
+| D0 | PB14 | CN12 pin 28 |
+| D1 | PB15 | CN12 pin 26 |
+| DAT2 | PB3 | CN12 pin 31 |
+| D3 | PB4 | CN12 pin 27 |
+| 3V | 3V3 | CN11 pin 16 |
+| GND | GND | CN11 pin 19 ou 20 |
+
+Les solder bridges SB19/SB22 documentés pour la qualité des signaux SDMMC
+concernent PC8/PC9 et donc le chemin SDMMC1/Zio CN8 ; ils ne font pas partie du
+jeu SDMMC2 retenu ici.
 
 ## Raccordement logique breakout
 
@@ -73,10 +87,10 @@ Elle ne constitue pas encore une preuve électrique ni fonctionnelle microSD.
 
 Avant tout câblage :
 
-1. établir le numéro exact des broches CN de PD6, PD7, PB14, PB15, PB3, PB4 sur
-   la révision C05 ;
-2. vérifier les éventuels straps/solder bridges et charges déjà présentes ;
-3. donner un tableau de câblage physique univoque à l'opérateur ;
+1. vérifier les exigences électriques du breakout Adafruit 4682 en mode SDIO,
+   notamment alimentation et pull-ups ;
+2. confirmer qu'aucun strap supplémentaire n'est requis côté breakout ;
+3. câbler selon le tableau Morpho ci-dessus ;
 4. seulement ensuite implémenter un bring-up SDMMC2 minimal.
 
 Aucun filesystem n'est introduit dans H3h-B.
