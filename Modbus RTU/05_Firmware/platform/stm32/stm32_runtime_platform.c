@@ -287,8 +287,8 @@ static Tr2Result initialize_rtc(Stm32RuntimePlatformContext *platform)
     tr2_rtc_h3ec_pre_tr = RTC->TR;
     tr2_rtc_h3ec_pre_dr = RTC->DR;
     tr2_rtc_h3ec_pre_icsr = RTC->ICSR;
-    tr2_rtc_h3ec_pre_bkp0r = RTC->BKP0R;
-    tr2_rtc_h3ec_pre_bkp1r = RTC->BKP1R;
+    tr2_rtc_h3ec_pre_bkp0r = TAMP->BKP0R;
+    tr2_rtc_h3ec_pre_bkp1r = TAMP->BKP1R;
 
     osc.OscillatorType = RCC_OSCILLATORTYPE_LSE;
     osc.LSEState = RCC_LSE_ON;
