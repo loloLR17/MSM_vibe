@@ -55,6 +55,17 @@ volatile uint32_t tr2_sdmmc2_log_block_size = 0U;
 volatile uint32_t tr2_sdmmc2_block_nbr = 0U;
 volatile uint32_t tr2_sdmmc2_block_size = 0U;
 
+/* H3h-C read-only data-path qualification: two reads of logical block 0. */
+#define TR2_SDMMC2_READ_TEST_BLOCK UINT32_C(0)
+#define TR2_SDMMC2_READ_TEST_SIZE  512U
+#define TR2_SDMMC2_READ_TIMEOUT_MS 1000U
+static uint8_t tr2_sdmmc2_read_a[TR2_SDMMC2_READ_TEST_SIZE];
+static uint8_t tr2_sdmmc2_read_b[TR2_SDMMC2_READ_TEST_SIZE];
+volatile uint32_t tr2_sdmmc2_read1_status = (uint32_t)HAL_ERROR;
+volatile uint32_t tr2_sdmmc2_read2_status = (uint32_t)HAL_ERROR;
+volatile uint32_t tr2_sdmmc2_read_match = 0U;
+volatile uint32_t tr2_sdmmc2_read_nonzero = 0U;
+
 #define TR2_IIS3DWB_CS_PORT GPIOC
 #define TR2_IIS3DWB_CS_PIN GPIO_PIN_9
 #define TR2_IIS3DWB_WHO_AM_I_REG 0x0FU
@@ -575,6 +586,42 @@ static void Sdmmc2_ReadOnlyBringup(void)
         tr2_sdmmc2_log_block_size = card_info.LogBlockSize;
         tr2_sdmmc2_block_nbr = card_info.BlockNbr;
         tr2_sdmmc2_block_size = card_info.BlockSize;
+
+        /*
+         * Qualify the real 4-bit data path without modifying the card:
+         * read logical block 0 twice and require byte-for-byte stability.
+         * No write, erase, format or filesystem operation is issued.
+         */
+        tr2_sdmmc2_read1_status = (uint32_t)HAL_SD_ReadBlocks(
+            &hsd2, tr2_sdmmc2_read_a, TR2_SDMMC2_READ_TEST_BLOCK,
+            1U, TR2_SDMMC2_READ_TIMEOUT_MS);
+        if (tr2_sdmmc2_read1_status != (uint32_t)HAL_OK) {
+            tr2_sdmmc2_error_code = hsd2.ErrorCode;
+            tr2_sdmmc2_stage = 10U;
+            return;
+        }
+
+        tr2_sdmmc2_read2_status = (uint32_t)HAL_SD_ReadBlocks(
+            &hsd2, tr2_sdmmc2_read_b, TR2_SDMMC2_READ_TEST_BLOCK,
+            1U, TR2_SDMMC2_READ_TIMEOUT_MS);
+        if (tr2_sdmmc2_read2_status != (uint32_t)HAL_OK) {
+            tr2_sdmmc2_error_code = hsd2.ErrorCode;
+            tr2_sdmmc2_stage = 11U;
+            return;
+        }
+
+        tr2_sdmmc2_read_match = 1U;
+        for (uint32_t i = 0U; i < TR2_SDMMC2_READ_TEST_SIZE; ++i) {
+            if (tr2_sdmmc2_read_a[i] != tr2_sdmmc2_read_b[i]) {
+                tr2_sdmmc2_read_match = 0U;
+            }
+            if (tr2_sdmmc2_read_a[i] != 0U) {
+                tr2_sdmmc2_read_nonzero = 1U;
+            }
+        }
+
+        tr2_sdmmc2_error_code = hsd2.ErrorCode;
+        tr2_sdmmc2_stage = (tr2_sdmmc2_read_match == 1U) ? 12U : 13U;
     }
 }
 
