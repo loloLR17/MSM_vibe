@@ -52,9 +52,28 @@ Capteur immobile :
 
 Le vecteur mesuré est donc cohérent avec un capteur immobile soumis principalement à la gravité sur +Z.
 
+## Vérification indépendante par changement d'orientation
+
+Après rotation physique d'environ 90 degrés et reset sans recompilation ni reflash :
+
+- X = +16958 LSB ;
+- Y = -2766 LSB ;
+- Z = +2698 LSB.
+
+À 0,061 mg/LSB, valeurs indicatives :
+
+- X ≈ +1034,4 mg ;
+- Y ≈ -168,7 mg ;
+- Z ≈ +164,6 mg ;
+- norme ≈ 1061 mg.
+
+Le vecteur gravité, initialement porté principalement par +Z (+16483 LSB), est donc transféré principalement sur +X (+16958 LSB) après la rotation physique, tandis que Z retombe à +2698 LSB.
+
+Cette seconde observation constitue une preuve indépendante du caractère tridimensionnel et physiquement cohérent de l'acquisition. La norme n'est utilisée ici que comme contrôle de cohérence ; aucune qualification métrologique ou calibration n'est revendiquée.
+
 ## Statut
 
-Première acquisition brute X/Y/Z physiquement démontrée.
+**H3g-C validé physiquement — acquisition brute X/Y/Z et réponse à l'orientation démontrées.**
 
 Avant gel H3g-C, une vérification d'orientation indépendante doit encore démontrer que le vecteur gravité change d'axe ou de signe conformément au déplacement physique.
 
