@@ -1,6 +1,7 @@
 #include "stm32u5xx_hal.h"
 
 #include "stm32_fram_storage.h"
+#include "stm32_iis3dwb_vibration_source.h"
 #include "stm32_serial_transport.h"
 #include "stm32_runtime_platform.h"
 
@@ -440,23 +441,47 @@ int main(void)
     Iis3dwbSpi_Init();
 
     {
+        static Stm32Iis3dwbVibrationSource iis3dwb_source;
+        VibrationSource vibration_source;
+        VibrationSourceConfiguration configuration = {
+            .sampling_frequency_hz = 26667U,
+            .axes_enable_mask = 0x0007U,
+            .full_scale_code = 0U
+        };
+        VibrationSample sample = {0};
         uint8_t who_am_i = 0U;
-        HAL_StatusTypeDef status = Iis3dwb_ReadWhoAmI(&who_am_i);
+        Tr2Result result = stm32_iis3dwb_vibration_source_init(
+            &iis3dwb_source, &hspi3, TR2_IIS3DWB_CS_PORT, TR2_IIS3DWB_CS_PIN);
 
-        tr2_iis3dwb_whoami_status = (uint32_t)status;
+        tr2_iis3dwb_spi_init_ok = (result == TR2_OK) ? 1U : 0U;
+        if (result == TR2_OK) {
+            result = stm32_iis3dwb_vibration_source_read_who_am_i(
+                &iis3dwb_source, &who_am_i);
+        }
+        tr2_iis3dwb_whoami_status = (uint32_t)result;
         tr2_iis3dwb_whoami = who_am_i;
         tr2_iis3dwb_whoami_matches =
-            (status == HAL_OK && who_am_i == TR2_IIS3DWB_WHO_AM_I_EXPECTED) ? 1U : 0U;
-    }
+            (result == TR2_OK && who_am_i == TR2_IIS3DWB_WHO_AM_I_EXPECTED) ? 1U : 0U;
 
-    if (tr2_iis3dwb_whoami_matches != 0U) {
-        tr2_iis3dwb_config_status = (uint32_t)Iis3dwb_ConfigureForRawSampling();
-        if (tr2_iis3dwb_config_status == (uint32_t)HAL_OK) {
-            HAL_Delay(10U);
-            tr2_iis3dwb_sample_status = (uint32_t)Iis3dwb_ReadRawSample(
-                (int16_t *)&tr2_iis3dwb_raw_x,
-                (int16_t *)&tr2_iis3dwb_raw_y,
-                (int16_t *)&tr2_iis3dwb_raw_z);
+        vibration_source = stm32_iis3dwb_vibration_source_interface(&iis3dwb_source);
+        if (tr2_iis3dwb_whoami_matches != 0U) {
+            result = vibration_source.configure(vibration_source.context, &configuration);
+            tr2_iis3dwb_config_status = (uint32_t)result;
+            if (result == TR2_OK) {
+                result = vibration_source.start(vibration_source.context);
+            }
+            if (result == TR2_OK) {
+                HAL_Delay(10U);
+                result = vibration_source.read_sample(vibration_source.context, &sample);
+            }
+            tr2_iis3dwb_sample_status = (uint32_t)result;
+            if (result == TR2_OK) {
+                tr2_iis3dwb_data_ready = sample.valid ? 1U : 0U;
+                tr2_iis3dwb_raw_x = (int16_t)sample.x_mg;
+                tr2_iis3dwb_raw_y = (int16_t)sample.y_mg;
+                tr2_iis3dwb_raw_z = (int16_t)sample.z_mg;
+                (void)vibration_source.stop(vibration_source.context);
+            }
         }
     }
 
