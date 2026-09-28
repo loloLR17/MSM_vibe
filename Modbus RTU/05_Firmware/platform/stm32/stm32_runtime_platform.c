@@ -5,7 +5,8 @@
 #include "stm32_runtime_platform.h"
 
 #define TR2_RTC_CONTINUITY_BACKUP_REGISTER RTC_BKP_DR0
-#define TR2_RTC_CONTINUITY_MARKER UINT32_C(0x54523201)
+#define TR2_RTC_CONTINUITY_ANCHOR_REGISTER RTC_BKP_DR1
+#define TR2_RTC_CONTINUITY_MARKER UINT32_C(0x54523202)
 
 typedef struct {
     ResetCause boot_reset_cause;
@@ -191,24 +192,53 @@ static Tr2Result stm32_wall_clock_set(void *context, Tr2CivilTimestamp timestamp
         return TR2_ERROR_UNAVAILABLE;
     }
 
+    /*
+     * Publish the synchronization evidence last.  The timestamp anchor binds
+     * the marker to a calendar value so a retained marker cannot prove
+     * continuity after the calendar has fallen back behind the last set time.
+     */
+    HAL_RTCEx_BKUPWrite(&platform->rtc,
+                        TR2_RTC_CONTINUITY_ANCHOR_REGISTER,
+                        (uint32_t)timestamp);
     HAL_RTCEx_BKUPWrite(&platform->rtc,
                         TR2_RTC_CONTINUITY_BACKUP_REGISTER,
                         TR2_RTC_CONTINUITY_MARKER);
+
+    if (HAL_RTCEx_BKUPRead(&platform->rtc,
+                           TR2_RTC_CONTINUITY_ANCHOR_REGISTER) !=
+            (uint32_t)timestamp ||
+        HAL_RTCEx_BKUPRead(&platform->rtc,
+                           TR2_RTC_CONTINUITY_BACKUP_REGISTER) !=
+            TR2_RTC_CONTINUITY_MARKER) {
+        return TR2_ERROR_UNAVAILABLE;
+    }
     return TR2_OK;
 }
 
 static TimeContinuityEvidence stm32_time_continuity_get(void *context)
 {
     Stm32RuntimePlatformContext *platform = (Stm32RuntimePlatformContext *)context;
+    Tr2CivilTimestamp current_timestamp = 0U;
+    uint32_t anchor;
 
     if (platform == NULL || !platform->initialized || !platform->rtc_available) {
         return TIME_CONTINUITY_EVIDENCE_INDETERMINATE;
     }
+    if (HAL_RTCEx_BKUPRead(&platform->rtc,
+                           TR2_RTC_CONTINUITY_BACKUP_REGISTER) !=
+        TR2_RTC_CONTINUITY_MARKER) {
+        return TIME_CONTINUITY_EVIDENCE_INDETERMINATE;
+    }
 
-    return HAL_RTCEx_BKUPRead(&platform->rtc, TR2_RTC_CONTINUITY_BACKUP_REGISTER) ==
-        TR2_RTC_CONTINUITY_MARKER ?
-        TIME_CONTINUITY_EVIDENCE_PROVEN :
-        TIME_CONTINUITY_EVIDENCE_INDETERMINATE;
+    anchor = HAL_RTCEx_BKUPRead(&platform->rtc,
+                                TR2_RTC_CONTINUITY_ANCHOR_REGISTER);
+    if (anchor == 0U ||
+        stm32_wall_clock_read(platform, &current_timestamp) != WALL_CLOCK_OK ||
+        current_timestamp < (Tr2CivilTimestamp)anchor) {
+        return TIME_CONTINUITY_EVIDENCE_INDETERMINATE;
+    }
+
+    return TIME_CONTINUITY_EVIDENCE_PROVEN;
 }
 
 static Tr2Result initialize_rtc(Stm32RuntimePlatformContext *platform)
