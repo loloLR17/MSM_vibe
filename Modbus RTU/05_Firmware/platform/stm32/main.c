@@ -31,6 +31,11 @@ volatile uint32_t tr2_sdmmc2_init_attempted = 0U;
 volatile uint32_t tr2_sdmmc2_init_status = (uint32_t)HAL_ERROR;
 volatile uint32_t tr2_sdmmc2_error_code = 0U;
 volatile uint32_t tr2_sdmmc2_kernel_clock_hz = 0U;
+volatile uint32_t tr2_sdmmc2_last_cmd = 0U;
+volatile uint32_t tr2_sdmmc2_sta = 0U;
+volatile uint32_t tr2_sdmmc2_resp1 = 0U;
+volatile uint32_t tr2_sdmmc2_clkcr = 0U;
+volatile uint32_t tr2_sdmmc2_power = 0U;
 volatile uint32_t tr2_sdmmc2_stage = 0U;
 volatile uint32_t tr2_sdmmc2_card_info_status = (uint32_t)HAL_ERROR;
 volatile uint32_t tr2_sdmmc2_card_type = 0U;
@@ -502,6 +507,17 @@ static void Sdmmc2_ReadOnlyBringup(void)
     tr2_sdmmc2_init_status = (uint32_t)HAL_SD_Init(&hsd2);
     tr2_sdmmc2_error_code = hsd2.ErrorCode;
     if (tr2_sdmmc2_init_status != (uint32_t)HAL_OK) {
+        /*
+         * Snapshot the controller at the failing HAL_SD_Init() boundary.
+         * CMD.CMDINDEX identifies the last command loaded by the LL driver;
+         * STA/RESP1/CLKCR/POWER preserve the peripheral evidence without
+         * issuing any additional SD command or media access.
+         */
+        tr2_sdmmc2_last_cmd = SDMMC2->CMD & SDMMC_CMD_CMDINDEX;
+        tr2_sdmmc2_sta = SDMMC2->STA;
+        tr2_sdmmc2_resp1 = SDMMC2->RESP1;
+        tr2_sdmmc2_clkcr = SDMMC2->CLKCR;
+        tr2_sdmmc2_power = SDMMC2->POWER;
         tr2_sdmmc2_stage = 5U;
         return;
     }
