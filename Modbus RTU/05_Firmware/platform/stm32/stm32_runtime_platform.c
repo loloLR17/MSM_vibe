@@ -16,6 +16,11 @@ typedef struct {
 
 static Stm32RuntimePlatformContext g_runtime_platform;
 
+volatile uint32_t tr2_rtc_h3ec_init_stage = 0U;
+volatile uint32_t tr2_rtc_h3ec_lse_hal_status = (uint32_t)HAL_ERROR;
+volatile uint32_t tr2_rtc_h3ec_clock_hal_status = (uint32_t)HAL_ERROR;
+volatile uint32_t tr2_rtc_h3ec_rtc_hal_status = (uint32_t)HAL_ERROR;
+
 
 static bool is_leap_year(uint32_t year)
 {
@@ -207,21 +212,27 @@ static Tr2Result initialize_rtc(Stm32RuntimePlatformContext *platform)
     RCC_OscInitTypeDef osc = {0};
     RCC_PeriphCLKInitTypeDef periph = {0};
 
+    tr2_rtc_h3ec_init_stage = 1U;
     __HAL_RCC_PWR_CLK_ENABLE();
     HAL_PWR_EnableBkUpAccess();
 
     osc.OscillatorType = RCC_OSCILLATORTYPE_LSE;
     osc.LSEState = RCC_LSE_ON;
-    if (HAL_RCC_OscConfig(&osc) != HAL_OK) {
+    tr2_rtc_h3ec_lse_hal_status = (uint32_t)HAL_RCC_OscConfig(&osc);
+    if (tr2_rtc_h3ec_lse_hal_status != (uint32_t)HAL_OK) {
         return TR2_ERROR_UNAVAILABLE;
     }
 
+    tr2_rtc_h3ec_init_stage = 2U;
     periph.PeriphClockSelection = RCC_PERIPHCLK_RTC;
     periph.RTCClockSelection = RCC_RTCCLKSOURCE_LSE;
-    if (HAL_RCCEx_PeriphCLKConfig(&periph) != HAL_OK) {
+    tr2_rtc_h3ec_clock_hal_status =
+        (uint32_t)HAL_RCCEx_PeriphCLKConfig(&periph);
+    if (tr2_rtc_h3ec_clock_hal_status != (uint32_t)HAL_OK) {
         return TR2_ERROR_UNAVAILABLE;
     }
 
+    tr2_rtc_h3ec_init_stage = 3U;
     __HAL_RCC_RTC_ENABLE();
 
     platform->rtc.Instance = RTC;
@@ -234,10 +245,12 @@ static Tr2Result initialize_rtc(Stm32RuntimePlatformContext *platform)
     platform->rtc.Init.OutPutType = RTC_OUTPUT_TYPE_OPENDRAIN;
     platform->rtc.Init.OutPutPullUp = RTC_OUTPUT_PULLUP_NONE;
 
-    if (HAL_RTC_Init(&platform->rtc) != HAL_OK) {
+    tr2_rtc_h3ec_rtc_hal_status = (uint32_t)HAL_RTC_Init(&platform->rtc);
+    if (tr2_rtc_h3ec_rtc_hal_status != (uint32_t)HAL_OK) {
         return TR2_ERROR_UNAVAILABLE;
     }
 
+    tr2_rtc_h3ec_init_stage = 4U;
     platform->rtc_available = true;
     return TR2_OK;
 }
