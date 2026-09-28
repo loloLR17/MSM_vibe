@@ -36,6 +36,14 @@ volatile uint32_t tr2_sdmmc2_sta = 0U;
 volatile uint32_t tr2_sdmmc2_resp1 = 0U;
 volatile uint32_t tr2_sdmmc2_clkcr = 0U;
 volatile uint32_t tr2_sdmmc2_power = 0U;
+volatile uint32_t tr2_sdmmc2_pre_cmd16_card_type = 0U;
+volatile uint32_t tr2_sdmmc2_pre_cmd16_card_version = 0U;
+volatile uint32_t tr2_sdmmc2_pre_cmd16_card_class = 0U;
+volatile uint32_t tr2_sdmmc2_pre_cmd16_rca = 0U;
+volatile uint32_t tr2_sdmmc2_pre_cmd16_block_nbr = 0U;
+volatile uint32_t tr2_sdmmc2_pre_cmd16_block_size = 0U;
+volatile uint32_t tr2_sdmmc2_pre_cmd16_log_block_nbr = 0U;
+volatile uint32_t tr2_sdmmc2_pre_cmd16_log_block_size = 0U;
 volatile uint32_t tr2_sdmmc2_stage = 0U;
 volatile uint32_t tr2_sdmmc2_card_info_status = (uint32_t)HAL_ERROR;
 volatile uint32_t tr2_sdmmc2_card_type = 0U;
@@ -514,6 +522,15 @@ static void Sdmmc2_ReadOnlyBringup(void)
          * issuing any additional SD command or media access.
          */
         tr2_sdmmc2_last_cmd = SDMMC2->CMD & SDMMC_CMD_CMDINDEX;
+        /* SD_PowerON() and SD_InitCard() completed before HAL's CMD16. */
+        tr2_sdmmc2_pre_cmd16_card_type = hsd2.SdCard.CardType;
+        tr2_sdmmc2_pre_cmd16_card_version = hsd2.SdCard.CardVersion;
+        tr2_sdmmc2_pre_cmd16_card_class = hsd2.SdCard.Class;
+        tr2_sdmmc2_pre_cmd16_rca = hsd2.SdCard.RelCardAdd;
+        tr2_sdmmc2_pre_cmd16_block_nbr = hsd2.SdCard.BlockNbr;
+        tr2_sdmmc2_pre_cmd16_block_size = hsd2.SdCard.BlockSize;
+        tr2_sdmmc2_pre_cmd16_log_block_nbr = hsd2.SdCard.LogBlockNbr;
+        tr2_sdmmc2_pre_cmd16_log_block_size = hsd2.SdCard.LogBlockSize;
         tr2_sdmmc2_sta = SDMMC2->STA;
         tr2_sdmmc2_resp1 = SDMMC2->RESP1;
         tr2_sdmmc2_clkcr = SDMMC2->CLKCR;
