@@ -510,14 +510,14 @@ static void Sdmmc2_ReadOnlyBringup(void)
     hsd2.Init.BusWide = SDMMC_BUS_WIDE_1B;
     hsd2.Init.HardwareFlowControl = SDMMC_HARDWARE_FLOW_CONTROL_DISABLE;
     /*
-     * H3h-C frequency characterization: 10 MHz (ClockDiv=8) and
-     * 20 MHz (ClockDiv=4) are physically proven through HAL_SD_Init(),
-     * 4-bit bus configuration and HAL_SD_GetCardInfo(); 40 MHz (ClockDiv=2)
-     * fails in HAL_SD_Init() with SDMMC_ERROR_CMD_RSP_TIMEOUT.  Probe the
-     * midpoint at approximately 26.7 MHz (160 MHz / (2 * 3)) to bound the
-     * reliable rate without changing wiring, protocol or media contents.
+     * H3h-C frequency characterization: 10 MHz (ClockDiv=8), 20 MHz
+     * (ClockDiv=4) and approximately 26.7 MHz (ClockDiv=3) are physically
+     * proven through HAL_SD_Init(), 4-bit bus configuration and
+     * HAL_SD_GetCardInfo(); 40 MHz (ClockDiv=2) fails in HAL_SD_Init() with
+     * SDMMC_ERROR_CMD_RSP_TIMEOUT.  Retain 20 MHz as the conservative
+     * qualification rate, leaving margin below the observed failure region.
      */
-    hsd2.Init.ClockDiv = 3U;
+    hsd2.Init.ClockDiv = 4U;
 
     tr2_sdmmc2_stage = 4U;
     tr2_sdmmc2_init_status = (uint32_t)HAL_SD_Init(&hsd2);
