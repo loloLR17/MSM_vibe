@@ -18,6 +18,18 @@ static const uint8_t tr2_fram_expected_device_id[TR2_FRAM_RDID_SIZE] = {
 };
 
 static SPI_HandleTypeDef hspi1;
+static SPI_HandleTypeDef hspi3;
+
+#define TR2_IIS3DWB_CS_PORT GPIOC
+#define TR2_IIS3DWB_CS_PIN GPIO_PIN_9
+#define TR2_IIS3DWB_WHO_AM_I_REG 0x0FU
+#define TR2_IIS3DWB_WHO_AM_I_EXPECTED 0x7BU
+#define TR2_IIS3DWB_SPI_TIMEOUT_MS 10U
+
+volatile uint32_t tr2_iis3dwb_spi_init_ok = 0U;
+volatile uint32_t tr2_iis3dwb_whoami_status = (uint32_t)HAL_ERROR;
+volatile uint8_t tr2_iis3dwb_whoami = 0U;
+volatile uint8_t tr2_iis3dwb_whoami_matches = 0U;
 
 volatile HAL_StatusTypeDef tr2_fram_rdid_status = HAL_ERROR;
 volatile uint8_t tr2_fram_device_id[TR2_FRAM_RDID_SIZE] = {0U};
@@ -389,6 +401,8 @@ static void SystemClock_Config(void);
 static void SystemPower_Config(void);
 static void BringupLed_Init(void);
 static void FramSpi_Init(void);
+static void Iis3dwbSpi_Init(void);
+static HAL_StatusTypeDef Iis3dwb_ReadWhoAmI(uint8_t *who_am_i);
 static HAL_StatusTypeDef Fram_ReadDeviceId(uint8_t device_id[TR2_FRAM_RDID_SIZE]);
 static void Error_Handler(void);
 
@@ -406,6 +420,17 @@ int main(void)
     SystemPower_Config();
     BringupLed_Init();
     FramSpi_Init();
+    Iis3dwbSpi_Init();
+
+    {
+        uint8_t who_am_i = 0U;
+        HAL_StatusTypeDef status = Iis3dwb_ReadWhoAmI(&who_am_i);
+
+        tr2_iis3dwb_whoami_status = (uint32_t)status;
+        tr2_iis3dwb_whoami = who_am_i;
+        tr2_iis3dwb_whoami_matches =
+            (status == HAL_OK && who_am_i == TR2_IIS3DWB_WHO_AM_I_EXPECTED) ? 1U : 0U;
+    }
 
     {
         uint8_t device_id[TR2_FRAM_RDID_SIZE] = {0U};
@@ -1161,6 +1186,77 @@ static void FramSpi_Init(void)
     if (HAL_SPI_Init(&hspi1) != HAL_OK) {
         Error_Handler();
     }
+}
+
+static void Iis3dwbSpi_Init(void)
+{
+    GPIO_InitTypeDef gpio = {0};
+
+    __HAL_RCC_GPIOC_CLK_ENABLE();
+    __HAL_RCC_SPI3_CLK_ENABLE();
+
+    HAL_GPIO_WritePin(TR2_IIS3DWB_CS_PORT, TR2_IIS3DWB_CS_PIN, GPIO_PIN_SET);
+
+    gpio.Pin = TR2_IIS3DWB_CS_PIN;
+    gpio.Mode = GPIO_MODE_OUTPUT_PP;
+    gpio.Pull = GPIO_NOPULL;
+    gpio.Speed = GPIO_SPEED_FREQ_LOW;
+    HAL_GPIO_Init(TR2_IIS3DWB_CS_PORT, &gpio);
+
+    gpio.Pin = GPIO_PIN_10 | GPIO_PIN_11 | GPIO_PIN_12;
+    gpio.Mode = GPIO_MODE_AF_PP;
+    gpio.Pull = GPIO_NOPULL;
+    gpio.Speed = GPIO_SPEED_FREQ_LOW;
+    gpio.Alternate = GPIO_AF6_SPI3;
+    HAL_GPIO_Init(GPIOC, &gpio);
+
+    hspi3.Instance = SPI3;
+    hspi3.Init.Mode = SPI_MODE_MASTER;
+    hspi3.Init.Direction = SPI_DIRECTION_2LINES;
+    hspi3.Init.DataSize = SPI_DATASIZE_8BIT;
+    hspi3.Init.CLKPolarity = SPI_POLARITY_LOW;
+    hspi3.Init.CLKPhase = SPI_PHASE_1EDGE;
+    hspi3.Init.NSS = SPI_NSS_SOFT;
+    hspi3.Init.BaudRatePrescaler = SPI_BAUDRATEPRESCALER_64;
+    hspi3.Init.FirstBit = SPI_FIRSTBIT_MSB;
+    hspi3.Init.TIMode = SPI_TIMODE_DISABLE;
+    hspi3.Init.CRCCalculation = SPI_CRCCALCULATION_DISABLE;
+    hspi3.Init.CRCPolynomial = 0x7U;
+    hspi3.Init.NSSPMode = SPI_NSS_PULSE_DISABLE;
+    hspi3.Init.NSSPolarity = SPI_NSS_POLARITY_LOW;
+    hspi3.Init.FifoThreshold = SPI_FIFO_THRESHOLD_08DATA;
+    hspi3.Init.MasterSSIdleness = SPI_MASTER_SS_IDLENESS_00CYCLE;
+    hspi3.Init.MasterInterDataIdleness = SPI_MASTER_INTERDATA_IDLENESS_00CYCLE;
+    hspi3.Init.MasterReceiverAutoSusp = SPI_MASTER_RX_AUTOSUSP_DISABLE;
+    hspi3.Init.MasterKeepIOState = SPI_MASTER_KEEP_IO_STATE_ENABLE;
+    hspi3.Init.IOSwap = SPI_IO_SWAP_DISABLE;
+    hspi3.Init.ReadyMasterManagement = SPI_RDY_MASTER_MANAGEMENT_INTERNALLY;
+    hspi3.Init.ReadyPolarity = SPI_RDY_POLARITY_HIGH;
+
+    if (HAL_SPI_Init(&hspi3) != HAL_OK) {
+        Error_Handler();
+    }
+
+    tr2_iis3dwb_spi_init_ok = 1U;
+}
+
+static HAL_StatusTypeDef Iis3dwb_ReadWhoAmI(uint8_t *who_am_i)
+{
+    uint8_t command = (uint8_t)(TR2_IIS3DWB_WHO_AM_I_REG | 0x80U);
+    HAL_StatusTypeDef status;
+
+    if (who_am_i == NULL) {
+        return HAL_ERROR;
+    }
+
+    HAL_GPIO_WritePin(TR2_IIS3DWB_CS_PORT, TR2_IIS3DWB_CS_PIN, GPIO_PIN_RESET);
+    status = HAL_SPI_Transmit(&hspi3, &command, 1U, TR2_IIS3DWB_SPI_TIMEOUT_MS);
+    if (status == HAL_OK) {
+        status = HAL_SPI_Receive(&hspi3, who_am_i, 1U, TR2_IIS3DWB_SPI_TIMEOUT_MS);
+    }
+    HAL_GPIO_WritePin(TR2_IIS3DWB_CS_PORT, TR2_IIS3DWB_CS_PIN, GPIO_PIN_SET);
+
+    return status;
 }
 
 static HAL_StatusTypeDef Fram_ReadDeviceId(uint8_t device_id[TR2_FRAM_RDID_SIZE])
