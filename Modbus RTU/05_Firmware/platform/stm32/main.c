@@ -510,14 +510,12 @@ static void Sdmmc2_ReadOnlyBringup(void)
     hsd2.Init.BusWide = SDMMC_BUS_WIDE_1B;
     hsd2.Init.HardwareFlowControl = SDMMC_HARDWARE_FLOW_CONTROL_DISABLE;
     /*
-     * H3h-C diagnostic qualification: deliberately cap the post-
-     * identification SDMMC clock at 10 MHz (160 MHz / (2 * 8)).
-     * The previous automatic high-speed reconfiguration timed out on the
-     * first CMD16(512) issued after the clock change.  Keep the card
-     * protocol, bus wiring and read-only scope unchanged so this test
-     * isolates clock/signal-rate sensitivity.
+     * H3h-C frequency characterization: 10 MHz (ClockDiv=8) has been
+     * physically proven through HAL_SD_Init(), 4-bit bus configuration and
+     * HAL_SD_GetCardInfo().  Probe 20 MHz next (160 MHz / (2 * 4)) to bound
+     * the reliable rate without changing wiring, protocol or media contents.
      */
-    hsd2.Init.ClockDiv = 8U;
+    hsd2.Init.ClockDiv = 4U;
 
     tr2_sdmmc2_stage = 4U;
     tr2_sdmmc2_init_status = (uint32_t)HAL_SD_Init(&hsd2);
