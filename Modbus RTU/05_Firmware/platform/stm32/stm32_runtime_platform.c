@@ -20,6 +20,10 @@ volatile uint32_t tr2_rtc_h3ec_init_stage = 0U;
 volatile uint32_t tr2_rtc_h3ec_lse_hal_status = (uint32_t)HAL_ERROR;
 volatile uint32_t tr2_rtc_h3ec_clock_hal_status = (uint32_t)HAL_ERROR;
 volatile uint32_t tr2_rtc_h3ec_rtc_hal_status = (uint32_t)HAL_ERROR;
+volatile uint32_t tr2_rtc_h3ec_reg_tr = 0U;
+volatile uint32_t tr2_rtc_h3ec_reg_dr = 0U;
+volatile uint32_t tr2_rtc_h3ec_reg_icsr = 0U;
+volatile uint32_t tr2_rtc_h3ec_reg_bkp0r = 0U;
 
 
 static bool is_leap_year(uint32_t year)
@@ -254,6 +258,13 @@ static Tr2Result initialize_rtc(Stm32RuntimePlatformContext *platform)
 
     tr2_rtc_h3ec_init_stage = 4U;
     platform->rtc_available = true;
+
+    /* H3e-C diagnostic snapshot after successful RTC initialization. */
+    tr2_rtc_h3ec_reg_tr = RTC->TR;
+    tr2_rtc_h3ec_reg_dr = RTC->DR;
+    tr2_rtc_h3ec_reg_icsr = RTC->ICSR;
+    tr2_rtc_h3ec_reg_bkp0r =
+        HAL_RTCEx_BKUPRead(&platform->rtc, TR2_RTC_CONTINUITY_BACKUP_REGISTER);
     return TR2_OK;
 }
 
