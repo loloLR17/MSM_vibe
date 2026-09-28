@@ -30,6 +30,7 @@ static SD_HandleTypeDef hsd2;
 volatile uint32_t tr2_sdmmc2_init_attempted = 0U;
 volatile uint32_t tr2_sdmmc2_init_status = (uint32_t)HAL_ERROR;
 volatile uint32_t tr2_sdmmc2_error_code = 0U;
+volatile uint32_t tr2_sdmmc2_kernel_clock_hz = 0U;
 volatile uint32_t tr2_sdmmc2_stage = 0U;
 volatile uint32_t tr2_sdmmc2_card_info_status = (uint32_t)HAL_ERROR;
 volatile uint32_t tr2_sdmmc2_card_type = 0U;
@@ -480,6 +481,8 @@ static void Sdmmc2_ReadOnlyBringup(void)
 
     tr2_sdmmc2_stage = 3U;
     __HAL_RCC_SDMMC2_CLK_ENABLE();
+    tr2_sdmmc2_kernel_clock_hz =
+        HAL_RCCEx_GetPeriphCLKFreq(RCC_PERIPHCLK_SDMMC);
 
     hsd2.Instance = SDMMC2;
     hsd2.Init.ClockEdge = SDMMC_CLOCK_EDGE_RISING;
