@@ -416,11 +416,6 @@ static void SystemPower_Config(void);
 static void BringupLed_Init(void);
 static void FramSpi_Init(void);
 static void Iis3dwbSpi_Init(void);
-static HAL_StatusTypeDef Iis3dwb_ReadWhoAmI(uint8_t *who_am_i);
-static HAL_StatusTypeDef Iis3dwb_ReadRegisters(uint8_t reg, uint8_t *data, uint16_t length);
-static HAL_StatusTypeDef Iis3dwb_WriteRegister(uint8_t reg, uint8_t value);
-static HAL_StatusTypeDef Iis3dwb_ConfigureForRawSampling(void);
-static HAL_StatusTypeDef Iis3dwb_ReadRawSample(int16_t *x, int16_t *y, int16_t *z);
 static HAL_StatusTypeDef Fram_ReadDeviceId(uint8_t device_id[TR2_FRAM_RDID_SIZE]);
 static void Error_Handler(void);
 
@@ -1291,92 +1286,6 @@ static void Iis3dwbSpi_Init(void)
     }
 
     tr2_iis3dwb_spi_init_ok = 1U;
-}
-
-static HAL_StatusTypeDef Iis3dwb_ReadWhoAmI(uint8_t *who_am_i)
-{
-    uint8_t command = (uint8_t)(TR2_IIS3DWB_WHO_AM_I_REG | 0x80U);
-    HAL_StatusTypeDef status;
-
-    if (who_am_i == NULL) {
-        return HAL_ERROR;
-    }
-
-    HAL_GPIO_WritePin(TR2_IIS3DWB_CS_PORT, TR2_IIS3DWB_CS_PIN, GPIO_PIN_RESET);
-    status = HAL_SPI_Transmit(&hspi3, &command, 1U, TR2_IIS3DWB_SPI_TIMEOUT_MS);
-    if (status == HAL_OK) {
-        status = HAL_SPI_Receive(&hspi3, who_am_i, 1U, TR2_IIS3DWB_SPI_TIMEOUT_MS);
-    }
-    HAL_GPIO_WritePin(TR2_IIS3DWB_CS_PORT, TR2_IIS3DWB_CS_PIN, GPIO_PIN_SET);
-
-    return status;
-}
-
-static HAL_StatusTypeDef Iis3dwb_ReadRegisters(uint8_t reg, uint8_t *data, uint16_t length)
-{
-    uint8_t command = (uint8_t)(reg | 0x80U);
-    HAL_StatusTypeDef status;
-
-    if (data == NULL || length == 0U) {
-        return HAL_ERROR;
-    }
-
-    HAL_GPIO_WritePin(TR2_IIS3DWB_CS_PORT, TR2_IIS3DWB_CS_PIN, GPIO_PIN_RESET);
-    status = HAL_SPI_Transmit(&hspi3, &command, 1U, TR2_IIS3DWB_SPI_TIMEOUT_MS);
-    if (status == HAL_OK) {
-        status = HAL_SPI_Receive(&hspi3, data, length, TR2_IIS3DWB_SPI_TIMEOUT_MS);
-    }
-    HAL_GPIO_WritePin(TR2_IIS3DWB_CS_PORT, TR2_IIS3DWB_CS_PIN, GPIO_PIN_SET);
-    return status;
-}
-
-static HAL_StatusTypeDef Iis3dwb_WriteRegister(uint8_t reg, uint8_t value)
-{
-    uint8_t frame[2] = {(uint8_t)(reg & 0x7FU), value};
-    HAL_StatusTypeDef status;
-
-    HAL_GPIO_WritePin(TR2_IIS3DWB_CS_PORT, TR2_IIS3DWB_CS_PIN, GPIO_PIN_RESET);
-    status = HAL_SPI_Transmit(&hspi3, frame, sizeof(frame), TR2_IIS3DWB_SPI_TIMEOUT_MS);
-    HAL_GPIO_WritePin(TR2_IIS3DWB_CS_PORT, TR2_IIS3DWB_CS_PIN, GPIO_PIN_SET);
-    return status;
-}
-
-static HAL_StatusTypeDef Iis3dwb_ConfigureForRawSampling(void)
-{
-    HAL_StatusTypeDef status;
-
-    status = Iis3dwb_WriteRegister(TR2_IIS3DWB_CTRL3_C_REG, TR2_IIS3DWB_CTRL3_C_BDU_IF_INC);
-    if (status == HAL_OK) {
-        status = Iis3dwb_WriteRegister(TR2_IIS3DWB_CTRL1_XL_REG,
-                                       TR2_IIS3DWB_CTRL1_XL_2G_26K7HZ);
-    }
-    return status;
-}
-
-static HAL_StatusTypeDef Iis3dwb_ReadRawSample(int16_t *x, int16_t *y, int16_t *z)
-{
-    uint8_t status_reg = 0U;
-    uint8_t raw[6] = {0U};
-    HAL_StatusTypeDef status;
-
-    if (x == NULL || y == NULL || z == NULL) {
-        return HAL_ERROR;
-    }
-
-    status = Iis3dwb_ReadRegisters(TR2_IIS3DWB_STATUS_REG, &status_reg, 1U);
-    tr2_iis3dwb_data_ready = (status == HAL_OK &&
-                              (status_reg & TR2_IIS3DWB_STATUS_XLDA) != 0U) ? 1U : 0U;
-    if (status != HAL_OK) {
-        return status;
-    }
-
-    status = Iis3dwb_ReadRegisters(TR2_IIS3DWB_OUTX_L_A_REG, raw, sizeof(raw));
-    if (status == HAL_OK) {
-        *x = (int16_t)((uint16_t)raw[0] | ((uint16_t)raw[1] << 8));
-        *y = (int16_t)((uint16_t)raw[2] | ((uint16_t)raw[3] << 8));
-        *z = (int16_t)((uint16_t)raw[4] | ((uint16_t)raw[5] << 8));
-    }
-    return status;
 }
 
 static HAL_StatusTypeDef Fram_ReadDeviceId(uint8_t device_id[TR2_FRAM_RDID_SIZE])
