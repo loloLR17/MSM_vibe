@@ -29,6 +29,8 @@ static SD_HandleTypeDef hsd2;
  */
 volatile uint32_t tr2_sdmmc2_init_attempted = 0U;
 volatile uint32_t tr2_sdmmc2_init_status = (uint32_t)HAL_ERROR;
+volatile uint32_t tr2_sdmmc2_error_code = 0U;
+volatile uint32_t tr2_sdmmc2_stage = 0U;
 volatile uint32_t tr2_sdmmc2_card_info_status = (uint32_t)HAL_ERROR;
 volatile uint32_t tr2_sdmmc2_card_type = 0U;
 volatile uint32_t tr2_sdmmc2_card_version = 0U;
@@ -443,6 +445,7 @@ static void Sdmmc2_ReadOnlyBringup(void)
     RCC_PeriphCLKInitTypeDef periph = {0};
 
     tr2_sdmmc2_init_attempted = 1U;
+    tr2_sdmmc2_stage = 1U;
 
     __HAL_RCC_GPIOB_CLK_ENABLE();
     __HAL_RCC_GPIOD_CLK_ENABLE();
@@ -470,10 +473,12 @@ static void Sdmmc2_ReadOnlyBringup(void)
     periph.PeriphClockSelection = RCC_PERIPHCLK_SDMMC;
     periph.SdmmcClockSelection = RCC_SDMMCCLKSOURCE_CLK48;
     if (HAL_RCCEx_PeriphCLKConfig(&periph) != HAL_OK) {
+        tr2_sdmmc2_stage = 2U;
         tr2_sdmmc2_init_status = (uint32_t)HAL_ERROR;
         return;
     }
 
+    tr2_sdmmc2_stage = 3U;
     __HAL_RCC_SDMMC2_CLK_ENABLE();
 
     hsd2.Instance = SDMMC2;
@@ -483,23 +488,34 @@ static void Sdmmc2_ReadOnlyBringup(void)
     hsd2.Init.HardwareFlowControl = SDMMC_HARDWARE_FLOW_CONTROL_DISABLE;
     hsd2.Init.ClockDiv = 0U;
 
+    tr2_sdmmc2_stage = 4U;
     tr2_sdmmc2_init_status = (uint32_t)HAL_SD_Init(&hsd2);
+    tr2_sdmmc2_error_code = hsd2.ErrorCode;
     if (tr2_sdmmc2_init_status != (uint32_t)HAL_OK) {
+        tr2_sdmmc2_stage = 5U;
         return;
     }
+
+    tr2_sdmmc2_stage = 6U;
 
     /*
      * Widen only after the mandatory 1-bit card initialization sequence.
      * This is a protocol/configuration operation, not a media write.
      */
     if (HAL_SD_ConfigWideBusOperation(&hsd2, SDMMC_BUS_WIDE_4B) != HAL_OK) {
+        tr2_sdmmc2_error_code = hsd2.ErrorCode;
+        tr2_sdmmc2_stage = 7U;
         tr2_sdmmc2_card_info_status = (uint32_t)HAL_ERROR;
         return;
     }
 
+    tr2_sdmmc2_stage = 8U;
+    tr2_sdmmc2_error_code = hsd2.ErrorCode;
     tr2_sdmmc2_card_info_status =
         (uint32_t)HAL_SD_GetCardInfo(&hsd2, &card_info);
+    tr2_sdmmc2_error_code = hsd2.ErrorCode;
     if (tr2_sdmmc2_card_info_status == (uint32_t)HAL_OK) {
+        tr2_sdmmc2_stage = 9U;
         tr2_sdmmc2_card_type = card_info.CardType;
         tr2_sdmmc2_card_version = card_info.CardVersion;
         tr2_sdmmc2_card_class = card_info.Class;
