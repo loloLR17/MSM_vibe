@@ -527,8 +527,11 @@ static void Sdmmc2_ReadOnlyBringup(void)
      * HAL_SD_GetCardInfo(); 40 MHz (ClockDiv=2) fails in HAL_SD_Init() with
      * SDMMC_ERROR_CMD_RSP_TIMEOUT.  Retain 20 MHz as the conservative
      * qualification rate, leaving margin below the observed failure region.
+     * H3h-C read-path diagnosis: temporarily use 10 MHz (ClockDiv=8) to
+     * determine whether the polling-mode RX overrun observed at 20 MHz is
+     * transfer-rate dependent.  No other SD configuration is changed.
      */
-    hsd2.Init.ClockDiv = 4U;
+    hsd2.Init.ClockDiv = 8U;
 
     tr2_sdmmc2_stage = 4U;
     tr2_sdmmc2_init_status = (uint32_t)HAL_SD_Init(&hsd2);
