@@ -564,15 +564,11 @@ static void Sdmmc2_ReadOnlyBringup(void)
     tr2_sdmmc2_stage = 6U;
 
     /*
-     * Widen only after the mandatory 1-bit card initialization sequence.
-     * This is a protocol/configuration operation, not a media write.
+     * H3h-C read-path diagnosis: keep the card in the already initialized
+     * 1-bit bus mode for the block-read test.  This deliberately bypasses
+     * D1/D2/D3 so a successful read would isolate the prior 4-bit data path.
+     * No media write, erase, format or filesystem operation is issued.
      */
-    if (HAL_SD_ConfigWideBusOperation(&hsd2, SDMMC_BUS_WIDE_4B) != HAL_OK) {
-        tr2_sdmmc2_error_code = hsd2.ErrorCode;
-        tr2_sdmmc2_stage = 7U;
-        tr2_sdmmc2_card_info_status = (uint32_t)HAL_ERROR;
-        return;
-    }
 
     tr2_sdmmc2_stage = 8U;
     tr2_sdmmc2_error_code = hsd2.ErrorCode;
