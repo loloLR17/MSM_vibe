@@ -251,8 +251,54 @@ static void test_finished_state_survives_recovery(void)
     assert(result.descriptor.state == CAMPAIGN_BULK_METADATA_STATE_FINISHED);
 }
 
+
+static void test_metadata_geometry_rejects_unaligned_and_overlapping_copies(void)
+{
+    FakeMedia fake = { 0 };
+    CampaignBulkMedia media = make_media(&fake);
+    CampaignBulkMetadata metadata;
+
+    assert(campaign_bulk_metadata_init(&metadata, &media, 1u, 512u) ==
+           TR2_ERROR_INVALID_ARGUMENT);
+    assert(campaign_bulk_metadata_init(&metadata, &media, 0u, 513u) ==
+           TR2_ERROR_INVALID_ARGUMENT);
+    assert(campaign_bulk_metadata_init(&metadata, &media, 0u, 0u) ==
+           TR2_ERROR_INVALID_ARGUMENT);
+    assert(campaign_bulk_metadata_init(&metadata, &media, 1536u, 2048u) ==
+           TR2_ERROR_NOT_AVAILABLE);
+}
+
+static void test_same_generation_identical_copies_are_valid(void)
+{
+    FakeMedia fake = { 0 };
+    CampaignBulkMedia media;
+    CampaignBulkMetadata metadata;
+    CampaignBulkMetadata recovered;
+    CampaignBulkMetadataRecoveryResult result;
+    CampaignBulkDescriptor d = descriptor(1u, 16u,
+                                          CAMPAIGN_BULK_METADATA_STATE_OPEN);
+    uint8_t record[TR2_CAMPAIGN_BULK_DESCRIPTOR_SIZE];
+
+    init_metadata(&fake, &media, &metadata);
+    assert(campaign_bulk_descriptor_encode(&d, record) == TR2_OK);
+    memcpy(&fake.durable[0], record, sizeof(record));
+    memcpy(&fake.durable[512], record, sizeof(record));
+    reboot(&fake);
+
+    init_metadata(&fake, &media, &recovered);
+    assert(campaign_bulk_metadata_recover(&recovered, &result) == TR2_OK);
+    assert(result.status == CAMPAIGN_BULK_METADATA_RECOVERY_VALID);
+    assert(result.descriptor.generation == d.generation);
+    assert(result.descriptor.campaign_id == d.campaign_id);
+    assert(result.descriptor.state == d.state);
+    assert(result.descriptor.data_base == d.data_base);
+    assert(result.descriptor.durable_prefix_bytes == d.durable_prefix_bytes);
+}
+
 int main(void)
 {
+    test_metadata_geometry_rejects_unaligned_and_overlapping_copies();
+    test_same_generation_identical_copies_are_valid();
     test_publish_alternates_and_recovery_selects_latest();
     test_failed_sync_keeps_previous_authority_after_reboot();
     test_torn_candidate_keeps_previous_valid_copy();
