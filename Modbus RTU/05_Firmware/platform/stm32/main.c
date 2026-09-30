@@ -23,9 +23,10 @@ static SPI_HandleTypeDef hspi3;
 static SD_HandleTypeDef hsd2;
 
 /*
- * H3h-C microSD bring-up is deliberately read-only:
- * HAL_SD_Init performs card protocol initialization and reads card metadata.
- * No block write, erase, format or filesystem operation is issued here.
+ * H3h-C microSD physical qualification instrumentation.
+ * H3h-C2b is explicitly destructive on the sacrificial test card: it performs
+ * one bounded raw multi-block write followed by read-back verification.
+ * No filesystem, format or erase operation is issued here.
  */
 volatile uint32_t tr2_sdmmc2_init_attempted = 0U;
 volatile uint32_t tr2_sdmmc2_init_status = (uint32_t)HAL_ERROR;
@@ -56,22 +57,30 @@ volatile uint32_t tr2_sdmmc2_block_nbr = 0U;
 volatile uint32_t tr2_sdmmc2_block_size = 0U;
 
 /*
- * H3h-C2a read-only throughput probe on the already proven 1-bit / 10 MHz
- * path.  Read 128 contiguous logical blocks (64 KiB) in one raw transaction.
- * No block write, erase, format or filesystem operation is issued.
+ * H3h-C2b destructive raw-write qualification on the physically proven
+ * SDMMC2 1-bit / 10 MHz path.  The test card is explicitly sacrificial.
+ * Write 128 contiguous logical blocks (64 KiB) starting at block 2048
+ * (1 MiB offset), wait until the card returns to TRANSFER state, then read
+ * the same range back and compare every byte with the deterministic pattern.
+ * No filesystem, format or erase operation is used.
  */
-#define TR2_SDMMC2_READ_TEST_BLOCK UINT32_C(0)
-#define TR2_SDMMC2_READ_TEST_BLOCK_COUNT UINT32_C(128)
-#define TR2_SDMMC2_READ_TEST_BLOCK_SIZE 512U
-#define TR2_SDMMC2_READ_TEST_SIZE \
-    (TR2_SDMMC2_READ_TEST_BLOCK_COUNT * TR2_SDMMC2_READ_TEST_BLOCK_SIZE)
-#define TR2_SDMMC2_READ_TIMEOUT_MS 1000U
-static uint8_t tr2_sdmmc2_read_buffer[TR2_SDMMC2_READ_TEST_SIZE];
-volatile uint32_t tr2_sdmmc2_read_status = (uint32_t)HAL_ERROR;
-volatile uint32_t tr2_sdmmc2_read_nonzero = 0U;
-volatile uint32_t tr2_sdmmc2_read_elapsed_ms = 0U;
-volatile uint32_t tr2_sdmmc2_read_bytes = 0U;
-volatile uint32_t tr2_sdmmc2_read_throughput_bps = 0U;
+#define TR2_SDMMC2_WRITE_TEST_BLOCK UINT32_C(2048)
+#define TR2_SDMMC2_WRITE_TEST_BLOCK_COUNT UINT32_C(128)
+#define TR2_SDMMC2_WRITE_TEST_BLOCK_SIZE 512U
+#define TR2_SDMMC2_WRITE_TEST_SIZE \
+    (TR2_SDMMC2_WRITE_TEST_BLOCK_COUNT * TR2_SDMMC2_WRITE_TEST_BLOCK_SIZE)
+#define TR2_SDMMC2_WRITE_TIMEOUT_MS 2000U
+#define TR2_SDMMC2_READY_TIMEOUT_MS 2000U
+static uint8_t tr2_sdmmc2_write_buffer[TR2_SDMMC2_WRITE_TEST_SIZE];
+static uint8_t tr2_sdmmc2_verify_buffer[TR2_SDMMC2_WRITE_TEST_SIZE];
+volatile uint32_t tr2_sdmmc2_write_status = (uint32_t)HAL_ERROR;
+volatile uint32_t tr2_sdmmc2_write_elapsed_ms = 0U;
+volatile uint32_t tr2_sdmmc2_write_bytes = 0U;
+volatile uint32_t tr2_sdmmc2_write_throughput_bps = 0U;
+volatile uint32_t tr2_sdmmc2_ready_state = 0U;
+volatile uint32_t tr2_sdmmc2_verify_read_status = (uint32_t)HAL_ERROR;
+volatile uint32_t tr2_sdmmc2_verify_mismatch_count = 0U;
+volatile uint32_t tr2_sdmmc2_verify_first_mismatch = UINT32_MAX;
 
 #define TR2_IIS3DWB_CS_PORT GPIOC
 #define TR2_IIS3DWB_CS_PIN GPIO_PIN_9
@@ -468,9 +477,9 @@ static void SystemPower_Config(void);
 static void BringupLed_Init(void);
 static void FramSpi_Init(void);
 static void Iis3dwbSpi_Init(void);
-static void Sdmmc2_ReadOnlyBringup(void);
+static void Sdmmc2_Bringup(void);
 static HAL_StatusTypeDef Fram_ReadDeviceId(uint8_t device_id[TR2_FRAM_RDID_SIZE]);
-static void Sdmmc2_ReadOnlyBringup(void)
+static void Sdmmc2_Bringup(void)
 {
     HAL_SD_CardInfoTypeDef card_info = {0};
     GPIO_InitTypeDef gpio = {0};
@@ -528,10 +537,10 @@ static void Sdmmc2_ReadOnlyBringup(void)
     hsd2.Init.BusWide = SDMMC_BUS_WIDE_1B;
     hsd2.Init.HardwareFlowControl = SDMMC_HARDWARE_FLOW_CONTROL_DISABLE;
     /*
-     * H3h-C2a: return to the physically proven 1-bit / 10 MHz path
-     * (ClockDiv=8).  The purpose of this tranche is only to measure raw
-     * sustained read throughput against the frozen 426672 B/s payload rate.
-     * The unresolved 4-bit path is deliberately kept out of this probe.
+     * H3h-C2b: keep the physically proven 1-bit / 10 MHz path (ClockDiv=8).
+     * This tranche measures a bounded destructive raw write plus read-back
+     * verification against the frozen 426672 B/s payload rate.  The unresolved
+     * 4-bit path remains deliberately outside the critical path.
      */
     hsd2.Init.ClockDiv = 8U;
 
@@ -589,41 +598,87 @@ static void Sdmmc2_ReadOnlyBringup(void)
         tr2_sdmmc2_block_nbr = card_info.BlockNbr;
         tr2_sdmmc2_block_size = card_info.BlockSize;
 
-        if ((card_info.LogBlockSize != TR2_SDMMC2_READ_TEST_BLOCK_SIZE) ||
-            (card_info.LogBlockNbr < TR2_SDMMC2_READ_TEST_BLOCK_COUNT)) {
+        if ((card_info.LogBlockSize != TR2_SDMMC2_WRITE_TEST_BLOCK_SIZE) ||
+            (card_info.LogBlockNbr <
+             (TR2_SDMMC2_WRITE_TEST_BLOCK + TR2_SDMMC2_WRITE_TEST_BLOCK_COUNT))) {
             tr2_sdmmc2_stage = 10U;
             return;
         }
 
-        start_tick = HAL_GetTick();
-        tr2_sdmmc2_read_status = (uint32_t)HAL_SD_ReadBlocks(
-            &hsd2, tr2_sdmmc2_read_buffer, TR2_SDMMC2_READ_TEST_BLOCK,
-            TR2_SDMMC2_READ_TEST_BLOCK_COUNT, TR2_SDMMC2_READ_TIMEOUT_MS);
-        end_tick = HAL_GetTick();
-        tr2_sdmmc2_read_elapsed_ms = end_tick - start_tick;
+        for (uint32_t i = 0U; i < TR2_SDMMC2_WRITE_TEST_SIZE; ++i) {
+            tr2_sdmmc2_write_buffer[i] =
+                (uint8_t)(((i * UINT32_C(37)) + UINT32_C(0x5A)) & UINT32_C(0xFF));
+            tr2_sdmmc2_verify_buffer[i] = 0U;
+        }
 
-        if (tr2_sdmmc2_read_status != (uint32_t)HAL_OK) {
+        /*
+         * The measured interval includes HAL_SD_WriteBlocks() and the card's
+         * post-write busy/programming time up to the first observed TRANSFER
+         * state.  This is the relevant bounded physical completion time, not
+         * merely host-side command submission time.
+         */
+        start_tick = HAL_GetTick();
+        tr2_sdmmc2_write_status = (uint32_t)HAL_SD_WriteBlocks(
+            &hsd2, tr2_sdmmc2_write_buffer, TR2_SDMMC2_WRITE_TEST_BLOCK,
+            TR2_SDMMC2_WRITE_TEST_BLOCK_COUNT, TR2_SDMMC2_WRITE_TIMEOUT_MS);
+
+        if (tr2_sdmmc2_write_status != (uint32_t)HAL_OK) {
+            tr2_sdmmc2_write_elapsed_ms = HAL_GetTick() - start_tick;
             tr2_sdmmc2_error_code = hsd2.ErrorCode;
             tr2_sdmmc2_stage = 11U;
             return;
         }
 
-        tr2_sdmmc2_read_bytes = TR2_SDMMC2_READ_TEST_SIZE;
-        if (tr2_sdmmc2_read_elapsed_ms != 0U) {
-            tr2_sdmmc2_read_throughput_bps =
-                (uint32_t)(((uint64_t)tr2_sdmmc2_read_bytes * UINT64_C(1000)) /
-                           tr2_sdmmc2_read_elapsed_ms);
+        {
+            uint32_t ready_deadline = HAL_GetTick() + TR2_SDMMC2_READY_TIMEOUT_MS;
+            HAL_SD_CardStateTypeDef card_state;
+
+            do {
+                card_state = HAL_SD_GetCardState(&hsd2);
+                tr2_sdmmc2_ready_state = (uint32_t)card_state;
+                if (card_state == HAL_SD_CARD_TRANSFER) {
+                    break;
+                }
+            } while ((int32_t)(HAL_GetTick() - ready_deadline) < 0);
+
+            end_tick = HAL_GetTick();
+            tr2_sdmmc2_write_elapsed_ms = end_tick - start_tick;
+
+            if (tr2_sdmmc2_ready_state != (uint32_t)HAL_SD_CARD_TRANSFER) {
+                tr2_sdmmc2_error_code = hsd2.ErrorCode;
+                tr2_sdmmc2_stage = 12U;
+                return;
+            }
         }
 
-        for (uint32_t i = 0U; i < TR2_SDMMC2_READ_TEST_SIZE; ++i) {
-            if (tr2_sdmmc2_read_buffer[i] != 0U) {
-                tr2_sdmmc2_read_nonzero = 1U;
-                break;
+        tr2_sdmmc2_write_bytes = TR2_SDMMC2_WRITE_TEST_SIZE;
+        if (tr2_sdmmc2_write_elapsed_ms != 0U) {
+            tr2_sdmmc2_write_throughput_bps =
+                (uint32_t)(((uint64_t)tr2_sdmmc2_write_bytes * UINT64_C(1000)) /
+                           tr2_sdmmc2_write_elapsed_ms);
+        }
+
+        tr2_sdmmc2_verify_read_status = (uint32_t)HAL_SD_ReadBlocks(
+            &hsd2, tr2_sdmmc2_verify_buffer, TR2_SDMMC2_WRITE_TEST_BLOCK,
+            TR2_SDMMC2_WRITE_TEST_BLOCK_COUNT, TR2_SDMMC2_WRITE_TIMEOUT_MS);
+        if (tr2_sdmmc2_verify_read_status != (uint32_t)HAL_OK) {
+            tr2_sdmmc2_error_code = hsd2.ErrorCode;
+            tr2_sdmmc2_stage = 13U;
+            return;
+        }
+
+        for (uint32_t i = 0U; i < TR2_SDMMC2_WRITE_TEST_SIZE; ++i) {
+            if (tr2_sdmmc2_verify_buffer[i] != tr2_sdmmc2_write_buffer[i]) {
+                if (tr2_sdmmc2_verify_mismatch_count == 0U) {
+                    tr2_sdmmc2_verify_first_mismatch = i;
+                }
+                ++tr2_sdmmc2_verify_mismatch_count;
             }
         }
 
         tr2_sdmmc2_error_code = hsd2.ErrorCode;
-        tr2_sdmmc2_stage = (tr2_sdmmc2_read_nonzero == 1U) ? 12U : 13U;
+        tr2_sdmmc2_stage =
+            (tr2_sdmmc2_verify_mismatch_count == 0U) ? 14U : 15U;
     }
 }
 
@@ -644,7 +699,7 @@ int main(void)
     BringupLed_Init();
     FramSpi_Init();
     Iis3dwbSpi_Init();
-    Sdmmc2_ReadOnlyBringup();
+    Sdmmc2_Bringup();
 
     {
         static Stm32Iis3dwbVibrationSource iis3dwb_source;
