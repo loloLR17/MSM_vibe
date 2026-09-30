@@ -5,7 +5,47 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 FIRMWARE_DIR="${SCRIPT_DIR}/Modbus RTU/05_Firmware"
 HOST_BUILD_DIR="${FIRMWARE_DIR}/build-host-validation"
 STM32_BUILD_SCRIPT="${FIRMWARE_DIR}/platform/stm32/tr2_build_stm32.sh"
-CUBE_ROOT="${STM32CUBE_U5_ROOT:-${1:-}}"
+
+CROSS_BUILD_ONLY=false
+CUBE_ROOT="${STM32CUBE_U5_ROOT:-}"
+POSITIONAL_CUBE_ROOT=""
+
+while [[ $# -gt 0 ]]; do
+    case "$1" in
+        --cross-build-only)
+            CROSS_BUILD_ONLY=true
+            ;;
+        --help|-h)
+            cat <<'EOF'
+Usage:
+  bash ./tr2_validate.sh [STM32CubeU5-root]
+  bash ./tr2_validate.sh --cross-build-only [STM32CubeU5-root]
+
+Options:
+  --cross-build-only   Skip the host build/tests and run only the STM32
+                       Cortex-M33 cross-build.
+  -h, --help           Show this help.
+
+The STM32CubeU5 root may also be supplied through STM32CUBE_U5_ROOT.
+EOF
+            exit 0
+            ;;
+        -*)
+            fail "unknown option: $1"
+            ;;
+        *)
+            if [[ -n "${POSITIONAL_CUBE_ROOT}" ]]; then
+                fail "unexpected extra argument: $1"
+            fi
+            POSITIONAL_CUBE_ROOT="$1"
+            ;;
+    esac
+    shift
+done
+
+if [[ -z "${CUBE_ROOT}" ]]; then
+    CUBE_ROOT="${POSITIONAL_CUBE_ROOT}"
+fi
 
 log_section() {
     printf '\n============================================================\n'
@@ -42,20 +82,22 @@ EOF
     exit 2
 fi
 
-log_section "TR2 VALIDATION — HOST"
-rm -rf "${HOST_BUILD_DIR}"
+if [[ "${CROSS_BUILD_ONLY}" == false ]]; then
+    log_section "TR2 VALIDATION — HOST"
+    rm -rf "${HOST_BUILD_DIR}"
 
-cmake \
-    -S "${FIRMWARE_DIR}" \
-    -B "${HOST_BUILD_DIR}"
+    cmake \
+        -S "${FIRMWARE_DIR}" \
+        -B "${HOST_BUILD_DIR}"
 
-cmake --build "${HOST_BUILD_DIR}"
+    cmake --build "${HOST_BUILD_DIR}"
 
-ctest \
-    --test-dir "${HOST_BUILD_DIR}" \
-    --output-on-failure
+    ctest \
+        --test-dir "${HOST_BUILD_DIR}" \
+        --output-on-failure
 
-echo "HOST VALIDATED: firmware host build and tests passed."
+    echo "HOST VALIDATED: firmware host build and tests passed."
+fi
 
 log_section "TR2 VALIDATION — STM32 CROSS-BUILD P12-A"
 STM32CUBE_U5_ROOT="${CUBE_ROOT}" \
@@ -64,6 +106,11 @@ STM32CUBE_U5_ROOT="${CUBE_ROOT}" \
 echo "CROSS-BUILD VALIDATED: portable tr2_core compiled and linked for STM32U575 Cortex-M33."
 
 log_section "TR2 VALIDATION RESULT"
-echo "HOST VALIDATED"
+if [[ "${CROSS_BUILD_ONLY}" == false ]]; then
+    echo "HOST VALIDATED"
+fi
 echo "CROSS-BUILD VALIDATED"
+if [[ "${CROSS_BUILD_ONLY}" == true ]]; then
+    echo "MODE: CROSS-BUILD ONLY"
+fi
 echo "HARDWARE PENDING: no NUCLEO-U575ZI-Q runtime or RS-485 hardware claim is made."
