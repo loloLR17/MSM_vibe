@@ -254,7 +254,6 @@ typedef struct {
 static uint8_t tr2_sdmmc2_e4_payload_buffer[TR2_SDMMC2_E3_PAYLOAD_BUFFER_SIZE];
 static uint8_t tr2_sdmmc2_e4_block_scratch[TR2_SDMMC2_E3_BLOCK_SCRATCH_SIZE];
 static uint8_t tr2_sdmmc2_e4_record[TR2_SDMMC2_E4_RECORD_BYTES];
-static uint8_t tr2_sdmmc2_e4_marker[512U];
 
 typedef struct {
     uint32_t magic;
