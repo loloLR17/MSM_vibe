@@ -165,7 +165,24 @@ static void test_finish_and_second_campaign_survive_reboot(void)
     assert(iface->append(iface->context, 31u, first, sizeof(first)) == TR2_OK);
     assert(iface->finish_campaign(iface->context, 31u) == TR2_OK);
 
+    /*
+     * 16 logical bytes occupy one physical block:
+     * 32-byte header + 16-byte payload + 4-byte CRC.
+     * The next campaign must start after that physical extent, not after the
+     * logical durable prefix.
+     */
+    assert(campaign_bulk_block_writer_next_offset(&store1.writer) ==
+           TR2_CAMPAIGN_BULK_METADATA_BYTES +
+               TR2_CAMPAIGN_BULK_BLOCK_HEADER_SIZE +
+               sizeof(first) +
+               TR2_CAMPAIGN_BULK_BLOCK_TRAILER_SIZE);
+
     assert(iface->begin_campaign(iface->context, 32u) == TR2_OK);
+    assert(store1.active_data_base ==
+           TR2_CAMPAIGN_BULK_METADATA_BYTES +
+               TR2_CAMPAIGN_BULK_BLOCK_HEADER_SIZE +
+               sizeof(first) +
+               TR2_CAMPAIGN_BULK_BLOCK_TRAILER_SIZE);
     assert(iface->append(iface->context, 32u, second, sizeof(second)) == TR2_OK);
     assert(iface->finish_campaign(iface->context, 32u) == TR2_OK);
 
