@@ -76,6 +76,9 @@ static Tr2Result scan_layout(CampaignDataStoreBulk *store,
         }
 
         if (recovery.descriptor.data_base < TR2_CAMPAIGN_BULK_METADATA_BYTES ||
+            recovery.descriptor.data_base %
+                    (uint64_t)TR2_CAMPAIGN_BULK_PHYSICAL_ALIGNMENT !=
+                0u ||
             recovery.descriptor.durable_prefix_bytes >
                 UINT64_MAX - recovery.descriptor.data_base) {
             return TR2_ERROR_CORRUPTED;
