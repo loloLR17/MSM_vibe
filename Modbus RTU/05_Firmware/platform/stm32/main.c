@@ -827,8 +827,159 @@ static void Sdmmc2_Bringup(void)
     }
 
     tr2_sdmmc2_error_code = hsd2.ErrorCode;
-    tr2_sdmmc2_stage =
-        (tr2_sdmmc2_e1_mismatch_count == 0U) ? 16U : 17U;
+    if (tr2_sdmmc2_e1_mismatch_count != 0U) {
+        tr2_sdmmc2_stage = 17U;
+        return;
+    }
+
+    /*
+     * E3: compose the real D5-C CampaignDataStore with the real E1 adapter,
+     * but only through the bounded sacrificial window.
+     */
+    {
+        Tr2BulkMediaWindow window = {
+            &media,
+            (uint64_t)TR2_SDMMC2_E3_WINDOW_BLOCK * UINT64_C(512),
+            TR2_SDMMC2_E3_WINDOW_SIZE
+        };
+        CampaignBulkMedia test_media = BulkWindowInterface(&window);
+        CampaignDataStoreBulk store_a;
+        CampaignDataStoreBulk store_b;
+        CampaignDataStore *iface;
+        CampaignDataRecoveryResult recovery;
+        Tr2Result result;
+
+        memset(tr2_sdmmc2_e3_metadata_clear,
+               0,
+               sizeof(tr2_sdmmc2_e3_metadata_clear));
+        tr2_sdmmc2_e3_window_clear_result =
+            (uint32_t)campaign_bulk_media_write(
+                &test_media,
+                0U,
+                tr2_sdmmc2_e3_metadata_clear,
+                sizeof(tr2_sdmmc2_e3_metadata_clear));
+        if (tr2_sdmmc2_e3_window_clear_result != (uint32_t)TR2_OK) {
+            tr2_sdmmc2_stage = 18U;
+            return;
+        }
+        tr2_sdmmc2_e3_window_clear_sync_result =
+            (uint32_t)campaign_bulk_media_sync(&test_media);
+        if (tr2_sdmmc2_e3_window_clear_sync_result != (uint32_t)TR2_OK) {
+            tr2_sdmmc2_stage = 19U;
+            return;
+        }
+
+        for (size_t i = 0U; i < sizeof(tr2_sdmmc2_e3_checkpoint_data); ++i) {
+            tr2_sdmmc2_e3_checkpoint_data[i] =
+                (uint8_t)(((i * (size_t)13U) + (size_t)0x21U) & (size_t)0xFFU);
+        }
+        for (size_t i = 0U; i < sizeof(tr2_sdmmc2_e3_tail_data); ++i) {
+            tr2_sdmmc2_e3_tail_data[i] =
+                (uint8_t)(((i * (size_t)19U) + (size_t)0x71U) & (size_t)0xFFU);
+        }
+
+        result = campaign_data_store_bulk_init(
+            &store_a,
+            &test_media,
+            tr2_sdmmc2_e3_payload_buffer_a,
+            sizeof(tr2_sdmmc2_e3_payload_buffer_a),
+            tr2_sdmmc2_e3_block_scratch_a,
+            sizeof(tr2_sdmmc2_e3_block_scratch_a));
+        tr2_sdmmc2_e3_store_init_result = (uint32_t)result;
+        if (result != TR2_OK) {
+            tr2_sdmmc2_stage = 20U;
+            return;
+        }
+
+        iface = campaign_data_store_bulk_interface(&store_a);
+        result = iface->begin_campaign(iface->context,
+                                       TR2_SDMMC2_E3_CAMPAIGN_ID);
+        tr2_sdmmc2_e3_begin_result = (uint32_t)result;
+        if (result != TR2_OK) {
+            tr2_sdmmc2_stage = 21U;
+            return;
+        }
+
+        result = iface->append(iface->context,
+                               TR2_SDMMC2_E3_CAMPAIGN_ID,
+                               tr2_sdmmc2_e3_checkpoint_data,
+                               sizeof(tr2_sdmmc2_e3_checkpoint_data));
+        tr2_sdmmc2_e3_append_checkpoint_result = (uint32_t)result;
+        if (result != TR2_OK) {
+            tr2_sdmmc2_stage = 22U;
+            return;
+        }
+
+        result = iface->checkpoint(iface->context,
+                                   TR2_SDMMC2_E3_CAMPAIGN_ID);
+        tr2_sdmmc2_e3_checkpoint_result = (uint32_t)result;
+        if (result != TR2_OK) {
+            tr2_sdmmc2_stage = 23U;
+            return;
+        }
+        tr2_sdmmc2_e3_post_checkpoint_offset =
+            campaign_bulk_block_writer_next_offset(&store_a.writer);
+
+        result = iface->append(iface->context,
+                               TR2_SDMMC2_E3_CAMPAIGN_ID,
+                               tr2_sdmmc2_e3_tail_data,
+                               sizeof(tr2_sdmmc2_e3_tail_data));
+        tr2_sdmmc2_e3_append_tail_result = (uint32_t)result;
+        if (result != TR2_OK) {
+            tr2_sdmmc2_stage = 24U;
+            return;
+        }
+        tr2_sdmmc2_e3_post_tail_offset =
+            campaign_bulk_block_writer_next_offset(&store_a.writer);
+
+        /*
+         * Recreate the DataStore from the same physical medium without
+         * publishing the tail. This models a reboot after the durable
+         * checkpoint and proves that only its logical prefix is authority.
+         */
+        result = campaign_data_store_bulk_init(
+            &store_b,
+            &test_media,
+            tr2_sdmmc2_e3_payload_buffer_b,
+            sizeof(tr2_sdmmc2_e3_payload_buffer_b),
+            tr2_sdmmc2_e3_block_scratch_b,
+            sizeof(tr2_sdmmc2_e3_block_scratch_b));
+        tr2_sdmmc2_e3_reboot_store_init_result = (uint32_t)result;
+        if (result != TR2_OK) {
+            tr2_sdmmc2_stage = 25U;
+            return;
+        }
+
+        iface = campaign_data_store_bulk_interface(&store_b);
+        result = iface->recover_campaign(iface->context,
+                                         TR2_SDMMC2_E3_CAMPAIGN_ID,
+                                         &recovery);
+        tr2_sdmmc2_e3_recover_result = (uint32_t)result;
+        tr2_sdmmc2_e3_recovery_status = (uint32_t)recovery.status;
+        tr2_sdmmc2_e3_recovered_prefix_bytes =
+            recovery.durable_prefix_bytes;
+        if (result != TR2_OK ||
+            recovery.status != CAMPAIGN_DATA_RECOVERY_VALID ||
+            recovery.durable_prefix_bytes !=
+                (uint64_t)TR2_SDMMC2_E3_CHECKPOINT_BYTES) {
+            tr2_sdmmc2_stage = 26U;
+            return;
+        }
+
+        if (tr2_sdmmc2_e3_post_checkpoint_offset !=
+                TR2_CAMPAIGN_BULK_METADATA_BYTES +
+                    UINT64_C(2) *
+                        (uint64_t)TR2_CAMPAIGN_BULK_PHYSICAL_ALIGNMENT ||
+            tr2_sdmmc2_e3_post_tail_offset !=
+                tr2_sdmmc2_e3_post_checkpoint_offset +
+                    (uint64_t)TR2_CAMPAIGN_BULK_PHYSICAL_ALIGNMENT) {
+            tr2_sdmmc2_stage = 27U;
+            return;
+        }
+    }
+
+    tr2_sdmmc2_error_code = hsd2.ErrorCode;
+    tr2_sdmmc2_stage = 28U;
 }
 
 static void Error_Handler(void);
