@@ -117,7 +117,7 @@ static void test_writer_capacity_failure_does_not_advance(void)
     uint8_t scratch[128];
     uint64_t offset;
 
-    assert(campaign_bulk_block_writer_init(&writer, &media, 3u, 1536u, 5u) == TR2_OK);
+    assert(campaign_bulk_block_writer_init(&writer, &media, 3u, 2048u, 5u) == TR2_OK);
     offset = campaign_bulk_block_writer_next_offset(&writer);
     assert(campaign_bulk_block_writer_append(&writer, payload, sizeof(payload),
                                              scratch, sizeof(scratch)) ==
