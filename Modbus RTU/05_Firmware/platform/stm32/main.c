@@ -57,28 +57,34 @@ volatile uint32_t tr2_sdmmc2_block_nbr = 0U;
 volatile uint32_t tr2_sdmmc2_block_size = 0U;
 
 /*
- * H3h-C2b destructive raw-write qualification on the physically proven
+ * H3h-C2c sustained raw-write characterization on the same physically proven
  * SDMMC2 1-bit / 10 MHz path.  The test card is explicitly sacrificial.
- * Write 128 contiguous logical blocks (64 KiB) starting at block 2048
- * (1 MiB offset), wait until the card returns to TRANSFER state, then read
- * the same range back and compare every byte with the deterministic pattern.
- * No filesystem, format or erase operation is used.
+ * Eight consecutive 64 KiB chunks cover 512 KiB starting at block 2048.
+ * Each chunk is timed through return to TRANSFER state; the complete sequence
+ * is also timed.  Every chunk is then read back and compared byte-for-byte.
  */
 #define TR2_SDMMC2_WRITE_TEST_BLOCK UINT32_C(2048)
-#define TR2_SDMMC2_WRITE_TEST_BLOCK_COUNT UINT32_C(128)
-#define TR2_SDMMC2_WRITE_TEST_BLOCK_SIZE 512U
-#define TR2_SDMMC2_WRITE_TEST_SIZE \
-    (TR2_SDMMC2_WRITE_TEST_BLOCK_COUNT * TR2_SDMMC2_WRITE_TEST_BLOCK_SIZE)
+#define TR2_SDMMC2_WRITE_CHUNK_BLOCK_COUNT UINT32_C(128)
+#define TR2_SDMMC2_WRITE_CHUNK_SIZE (TR2_SDMMC2_WRITE_CHUNK_BLOCK_COUNT * 512U)
+#define TR2_SDMMC2_WRITE_CHUNK_COUNT UINT32_C(8)
+#define TR2_SDMMC2_WRITE_TOTAL_BLOCK_COUNT \
+    (TR2_SDMMC2_WRITE_CHUNK_BLOCK_COUNT * TR2_SDMMC2_WRITE_CHUNK_COUNT)
+#define TR2_SDMMC2_WRITE_TOTAL_SIZE \
+    (TR2_SDMMC2_WRITE_CHUNK_SIZE * TR2_SDMMC2_WRITE_CHUNK_COUNT)
 #define TR2_SDMMC2_WRITE_TIMEOUT_MS 2000U
 #define TR2_SDMMC2_READY_TIMEOUT_MS 2000U
-static uint8_t tr2_sdmmc2_write_buffer[TR2_SDMMC2_WRITE_TEST_SIZE];
-static uint8_t tr2_sdmmc2_verify_buffer[TR2_SDMMC2_WRITE_TEST_SIZE];
+static uint8_t tr2_sdmmc2_write_buffer[TR2_SDMMC2_WRITE_CHUNK_SIZE];
+static uint8_t tr2_sdmmc2_verify_buffer[TR2_SDMMC2_WRITE_CHUNK_SIZE];
 volatile uint32_t tr2_sdmmc2_write_status = (uint32_t)HAL_ERROR;
+volatile uint32_t tr2_sdmmc2_write_chunk_elapsed_ms[TR2_SDMMC2_WRITE_CHUNK_COUNT] = {0U};
+volatile uint32_t tr2_sdmmc2_write_chunk_throughput_bps[TR2_SDMMC2_WRITE_CHUNK_COUNT] = {0U};
+volatile uint32_t tr2_sdmmc2_write_completed_chunks = 0U;
 volatile uint32_t tr2_sdmmc2_write_elapsed_ms = 0U;
 volatile uint32_t tr2_sdmmc2_write_bytes = 0U;
 volatile uint32_t tr2_sdmmc2_write_throughput_bps = 0U;
 volatile uint32_t tr2_sdmmc2_ready_state = 0U;
 volatile uint32_t tr2_sdmmc2_verify_read_status = (uint32_t)HAL_ERROR;
+volatile uint32_t tr2_sdmmc2_verify_completed_chunks = 0U;
 volatile uint32_t tr2_sdmmc2_verify_mismatch_count = 0U;
 volatile uint32_t tr2_sdmmc2_verify_first_mismatch = UINT32_MAX;
 
@@ -537,7 +543,7 @@ static void Sdmmc2_Bringup(void)
     hsd2.Init.BusWide = SDMMC_BUS_WIDE_1B;
     hsd2.Init.HardwareFlowControl = SDMMC_HARDWARE_FLOW_CONTROL_DISABLE;
     /*
-     * H3h-C2b: keep the physically proven 1-bit / 10 MHz path (ClockDiv=8).
+     * H3h-C2c: keep the physically proven 1-bit / 10 MHz path (ClockDiv=8).
      * This tranche measures a bounded destructive raw write plus read-back
      * verification against the frozen 426672 B/s payload rate.  The unresolved
      * 4-bit path remains deliberately outside the critical path.
@@ -598,82 +604,103 @@ static void Sdmmc2_Bringup(void)
         tr2_sdmmc2_block_nbr = card_info.BlockNbr;
         tr2_sdmmc2_block_size = card_info.BlockSize;
 
-        if ((card_info.LogBlockSize != TR2_SDMMC2_WRITE_TEST_BLOCK_SIZE) ||
+        if ((card_info.LogBlockSize != 512U) ||
             (card_info.LogBlockNbr <
-             (TR2_SDMMC2_WRITE_TEST_BLOCK + TR2_SDMMC2_WRITE_TEST_BLOCK_COUNT))) {
+             (TR2_SDMMC2_WRITE_TEST_BLOCK + TR2_SDMMC2_WRITE_TOTAL_BLOCK_COUNT))) {
             tr2_sdmmc2_stage = 10U;
             return;
         }
 
-        for (uint32_t i = 0U; i < TR2_SDMMC2_WRITE_TEST_SIZE; ++i) {
+        for (uint32_t i = 0U; i < TR2_SDMMC2_WRITE_CHUNK_SIZE; ++i) {
             tr2_sdmmc2_write_buffer[i] =
                 (uint8_t)(((i * UINT32_C(37)) + UINT32_C(0x5A)) & UINT32_C(0xFF));
-            tr2_sdmmc2_verify_buffer[i] = 0U;
         }
 
-        /*
-         * The measured interval includes HAL_SD_WriteBlocks() and the card's
-         * post-write busy/programming time up to the first observed TRANSFER
-         * state.  This is the relevant bounded physical completion time, not
-         * merely host-side command submission time.
-         */
         start_tick = HAL_GetTick();
-        tr2_sdmmc2_write_status = (uint32_t)HAL_SD_WriteBlocks(
-            &hsd2, tr2_sdmmc2_write_buffer, TR2_SDMMC2_WRITE_TEST_BLOCK,
-            TR2_SDMMC2_WRITE_TEST_BLOCK_COUNT, TR2_SDMMC2_WRITE_TIMEOUT_MS);
+        for (uint32_t chunk = 0U; chunk < TR2_SDMMC2_WRITE_CHUNK_COUNT; ++chunk) {
+            uint32_t chunk_start = HAL_GetTick();
+            uint32_t block =
+                TR2_SDMMC2_WRITE_TEST_BLOCK +
+                (chunk * TR2_SDMMC2_WRITE_CHUNK_BLOCK_COUNT);
 
-        if (tr2_sdmmc2_write_status != (uint32_t)HAL_OK) {
-            tr2_sdmmc2_write_elapsed_ms = HAL_GetTick() - start_tick;
-            tr2_sdmmc2_error_code = hsd2.ErrorCode;
-            tr2_sdmmc2_stage = 11U;
-            return;
-        }
-
-        {
-            uint32_t ready_deadline = HAL_GetTick() + TR2_SDMMC2_READY_TIMEOUT_MS;
-            HAL_SD_CardStateTypeDef card_state;
-
-            do {
-                card_state = HAL_SD_GetCardState(&hsd2);
-                tr2_sdmmc2_ready_state = (uint32_t)card_state;
-                if (card_state == HAL_SD_CARD_TRANSFER) {
-                    break;
-                }
-            } while ((int32_t)(HAL_GetTick() - ready_deadline) < 0);
-
-            end_tick = HAL_GetTick();
-            tr2_sdmmc2_write_elapsed_ms = end_tick - start_tick;
-
-            if (tr2_sdmmc2_ready_state != (uint32_t)HAL_SD_CARD_TRANSFER) {
+            tr2_sdmmc2_write_status = (uint32_t)HAL_SD_WriteBlocks(
+                &hsd2, tr2_sdmmc2_write_buffer, block,
+                TR2_SDMMC2_WRITE_CHUNK_BLOCK_COUNT, TR2_SDMMC2_WRITE_TIMEOUT_MS);
+            if (tr2_sdmmc2_write_status != (uint32_t)HAL_OK) {
+                tr2_sdmmc2_write_elapsed_ms = HAL_GetTick() - start_tick;
                 tr2_sdmmc2_error_code = hsd2.ErrorCode;
-                tr2_sdmmc2_stage = 12U;
+                tr2_sdmmc2_stage = 11U;
                 return;
             }
+
+            {
+                uint32_t ready_deadline = HAL_GetTick() + TR2_SDMMC2_READY_TIMEOUT_MS;
+                HAL_SD_CardStateTypeDef card_state;
+
+                do {
+                    card_state = HAL_SD_GetCardState(&hsd2);
+                    tr2_sdmmc2_ready_state = (uint32_t)card_state;
+                    if (card_state == HAL_SD_CARD_TRANSFER) {
+                        break;
+                    }
+                } while ((int32_t)(HAL_GetTick() - ready_deadline) < 0);
+
+                if (tr2_sdmmc2_ready_state != (uint32_t)HAL_SD_CARD_TRANSFER) {
+                    tr2_sdmmc2_write_elapsed_ms = HAL_GetTick() - start_tick;
+                    tr2_sdmmc2_error_code = hsd2.ErrorCode;
+                    tr2_sdmmc2_stage = 12U;
+                    return;
+                }
+            }
+
+            tr2_sdmmc2_write_chunk_elapsed_ms[chunk] =
+                HAL_GetTick() - chunk_start;
+            if (tr2_sdmmc2_write_chunk_elapsed_ms[chunk] != 0U) {
+                tr2_sdmmc2_write_chunk_throughput_bps[chunk] =
+                    (uint32_t)(((uint64_t)TR2_SDMMC2_WRITE_CHUNK_SIZE *
+                                UINT64_C(1000)) /
+                               tr2_sdmmc2_write_chunk_elapsed_ms[chunk]);
+            }
+            tr2_sdmmc2_write_completed_chunks = chunk + 1U;
         }
 
-        tr2_sdmmc2_write_bytes = TR2_SDMMC2_WRITE_TEST_SIZE;
+        end_tick = HAL_GetTick();
+        tr2_sdmmc2_write_elapsed_ms = end_tick - start_tick;
+        tr2_sdmmc2_write_bytes = TR2_SDMMC2_WRITE_TOTAL_SIZE;
         if (tr2_sdmmc2_write_elapsed_ms != 0U) {
             tr2_sdmmc2_write_throughput_bps =
                 (uint32_t)(((uint64_t)tr2_sdmmc2_write_bytes * UINT64_C(1000)) /
                            tr2_sdmmc2_write_elapsed_ms);
         }
 
-        tr2_sdmmc2_verify_read_status = (uint32_t)HAL_SD_ReadBlocks(
-            &hsd2, tr2_sdmmc2_verify_buffer, TR2_SDMMC2_WRITE_TEST_BLOCK,
-            TR2_SDMMC2_WRITE_TEST_BLOCK_COUNT, TR2_SDMMC2_WRITE_TIMEOUT_MS);
-        if (tr2_sdmmc2_verify_read_status != (uint32_t)HAL_OK) {
-            tr2_sdmmc2_error_code = hsd2.ErrorCode;
-            tr2_sdmmc2_stage = 13U;
-            return;
-        }
+        for (uint32_t chunk = 0U; chunk < TR2_SDMMC2_WRITE_CHUNK_COUNT; ++chunk) {
+            uint32_t block =
+                TR2_SDMMC2_WRITE_TEST_BLOCK +
+                (chunk * TR2_SDMMC2_WRITE_CHUNK_BLOCK_COUNT);
 
-        for (uint32_t i = 0U; i < TR2_SDMMC2_WRITE_TEST_SIZE; ++i) {
-            if (tr2_sdmmc2_verify_buffer[i] != tr2_sdmmc2_write_buffer[i]) {
-                if (tr2_sdmmc2_verify_mismatch_count == 0U) {
-                    tr2_sdmmc2_verify_first_mismatch = i;
-                }
-                ++tr2_sdmmc2_verify_mismatch_count;
+            for (uint32_t i = 0U; i < TR2_SDMMC2_WRITE_CHUNK_SIZE; ++i) {
+                tr2_sdmmc2_verify_buffer[i] = 0U;
             }
+
+            tr2_sdmmc2_verify_read_status = (uint32_t)HAL_SD_ReadBlocks(
+                &hsd2, tr2_sdmmc2_verify_buffer, block,
+                TR2_SDMMC2_WRITE_CHUNK_BLOCK_COUNT, TR2_SDMMC2_WRITE_TIMEOUT_MS);
+            if (tr2_sdmmc2_verify_read_status != (uint32_t)HAL_OK) {
+                tr2_sdmmc2_error_code = hsd2.ErrorCode;
+                tr2_sdmmc2_stage = 13U;
+                return;
+            }
+
+            for (uint32_t i = 0U; i < TR2_SDMMC2_WRITE_CHUNK_SIZE; ++i) {
+                if (tr2_sdmmc2_verify_buffer[i] != tr2_sdmmc2_write_buffer[i]) {
+                    if (tr2_sdmmc2_verify_mismatch_count == 0U) {
+                        tr2_sdmmc2_verify_first_mismatch =
+                            (chunk * TR2_SDMMC2_WRITE_CHUNK_SIZE) + i;
+                    }
+                    ++tr2_sdmmc2_verify_mismatch_count;
+                }
+            }
+            tr2_sdmmc2_verify_completed_chunks = chunk + 1U;
         }
 
         tr2_sdmmc2_error_code = hsd2.ErrorCode;
