@@ -86,6 +86,23 @@ static bool uniform(const uint8_t *p, uint8_t value)
     return true;
 }
 
+static bool descriptors_equal(const CampaignBulkDescriptor *a,
+                              const CampaignBulkDescriptor *b)
+{
+    return a->generation == b->generation &&
+           a->campaign_id == b->campaign_id &&
+           a->state == b->state &&
+           a->data_base == b->data_base &&
+           a->durable_prefix_bytes == b->durable_prefix_bytes;
+}
+
+static bool descriptor_regions_overlap(uint64_t a, uint64_t b)
+{
+    uint64_t size = (uint64_t)TR2_CAMPAIGN_BULK_DESCRIPTOR_SIZE;
+
+    return a < b ? b - a < size : a - b < size;
+}
+
 static bool descriptor_fields_valid(const CampaignBulkDescriptor *d)
 {
     return d->generation != 0u &&
@@ -182,7 +199,9 @@ Tr2Result campaign_bulk_metadata_init(CampaignBulkMetadata *metadata,
     Tr2Result result;
 
     if (metadata == NULL || media == NULL ||
-        descriptor_a_offset == descriptor_b_offset) {
+        descriptor_a_offset % (uint64_t)TR2_CAMPAIGN_BULK_DESCRIPTOR_SIZE != 0u ||
+        descriptor_b_offset % (uint64_t)TR2_CAMPAIGN_BULK_DESCRIPTOR_SIZE != 0u ||
+        descriptor_regions_overlap(descriptor_a_offset, descriptor_b_offset)) {
         return TR2_ERROR_INVALID_ARGUMENT;
     }
     result = campaign_bulk_media_capacity(media, &capacity);
@@ -250,7 +269,7 @@ Tr2Result campaign_bulk_metadata_publish(
     }
     state = read_record(metadata, target, &verified);
     if (state != RECORD_VALID ||
-        memcmp(&verified, descriptor, sizeof(verified)) != 0) {
+        !descriptors_equal(&verified, descriptor)) {
         metadata->recovery_required = true;
         return TR2_ERROR_STORAGE;
     }
@@ -280,9 +299,8 @@ Tr2Result campaign_bulk_metadata_recover(
         records[1].state == RECORD_VALID) {
         if (records[0].descriptor.generation ==
             records[1].descriptor.generation) {
-            if (memcmp(&records[0].descriptor,
-                       &records[1].descriptor,
-                       sizeof(CampaignBulkDescriptor)) != 0) {
+            if (!descriptors_equal(&records[0].descriptor,
+                                   &records[1].descriptor)) {
                 result->status = CAMPAIGN_BULK_METADATA_RECOVERY_CORRUPTED;
                 return TR2_OK;
             }
