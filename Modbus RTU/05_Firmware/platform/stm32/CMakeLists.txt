@@ -76,6 +76,7 @@ add_executable(tr2_stm32_p11c
     stm32_iis3dwb_vibration_source.c
     stm32_serial_transport.c
     stm32_runtime_platform.c
+    stm32_sdmmc_bulk_media.c
     stm32u5xx_it.c
     ${CMSIS_DEVICE_DIR}/Source/Templates/gcc/startup_stm32u575xx.s
     ${CMSIS_DEVICE_DIR}/Source/Templates/system_stm32u5xx.c
