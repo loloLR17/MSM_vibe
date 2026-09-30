@@ -700,7 +700,8 @@ static void Sdmmc2_Bringup(void)
 
     if ((card_info.LogBlockSize != 512U) ||
         (card_info.LogBlockNbr <
-         (TR2_SDMMC2_E1_TEST_BLOCK + TR2_SDMMC2_E1_TEST_BLOCK_COUNT))) {
+         (TR2_SDMMC2_E3_WINDOW_BLOCK +
+          TR2_SDMMC2_E3_WINDOW_BLOCK_COUNT))) {
         tr2_sdmmc2_stage = 8U;
         return;
     }
