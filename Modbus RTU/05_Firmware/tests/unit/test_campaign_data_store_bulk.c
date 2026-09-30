@@ -166,23 +166,17 @@ static void test_finish_and_second_campaign_survive_reboot(void)
     assert(iface->finish_campaign(iface->context, 31u) == TR2_OK);
 
     /*
-     * 16 logical bytes occupy one physical block:
-     * 32-byte header + 16-byte payload + 4-byte CRC.
-     * The next campaign must start after that physical extent, not after the
-     * logical durable prefix.
+     * E2 reserves a complete 512-byte physical extent for this 52-byte
+     * encoded block, so the next campaign starts on a fresh SD sector.
      */
     assert(campaign_bulk_block_writer_next_offset(&store1.writer) ==
            TR2_CAMPAIGN_BULK_METADATA_BYTES +
-               TR2_CAMPAIGN_BULK_BLOCK_HEADER_SIZE +
-               sizeof(first) +
-               TR2_CAMPAIGN_BULK_BLOCK_TRAILER_SIZE);
+               TR2_CAMPAIGN_BULK_PHYSICAL_ALIGNMENT);
 
     assert(iface->begin_campaign(iface->context, 32u) == TR2_OK);
     assert(store1.active_data_base ==
            TR2_CAMPAIGN_BULK_METADATA_BYTES +
-               TR2_CAMPAIGN_BULK_BLOCK_HEADER_SIZE +
-               sizeof(first) +
-               TR2_CAMPAIGN_BULK_BLOCK_TRAILER_SIZE);
+               TR2_CAMPAIGN_BULK_PHYSICAL_ALIGNMENT);
     assert(iface->append(iface->context, 32u, second, sizeof(second)) == TR2_OK);
     assert(iface->finish_campaign(iface->context, 32u) == TR2_OK);
 
@@ -260,10 +254,39 @@ static void test_empty_campaign_recovery(void)
     assert(recovery.status == CAMPAIGN_DATA_RECOVERY_EMPTY);
 }
 
+
+static void test_post_checkpoint_tail_starts_in_fresh_sector(void)
+{
+    FakeMedia fake = { 0 };
+    CampaignBulkMedia media;
+    CampaignDataStoreBulk store;
+    uint8_t buffer[PAYLOAD_BUFFER_SIZE];
+    uint8_t scratch[BLOCK_SCRATCH_SIZE];
+    uint8_t first[16], tail[64];
+    CampaignDataStore *iface;
+    uint64_t durable_end;
+
+    fill(first, sizeof(first), 0x11u);
+    fill(tail, sizeof(tail), 0x55u);
+    init_store(&fake, &media, &store, buffer, scratch);
+    iface = campaign_data_store_bulk_interface(&store);
+
+    assert(iface->begin_campaign(iface->context, 66u) == TR2_OK);
+    assert(iface->append(iface->context, 66u, first, sizeof(first)) == TR2_OK);
+    assert(iface->checkpoint(iface->context, 66u) == TR2_OK);
+    durable_end = campaign_bulk_block_writer_next_offset(&store.writer);
+    assert(durable_end % TR2_CAMPAIGN_BULK_PHYSICAL_ALIGNMENT == 0u);
+
+    assert(iface->append(iface->context, 66u, tail, sizeof(tail)) == TR2_OK);
+    assert(campaign_bulk_block_writer_next_offset(&store.writer) ==
+           durable_end + TR2_CAMPAIGN_BULK_PHYSICAL_ALIGNMENT);
+}
+
 int main(void)
 {
     test_checkpoint_recovers_exact_prefix();
     test_uncheckpointed_tail_is_not_authority();
+    test_post_checkpoint_tail_starts_in_fresh_sector();
     test_finish_and_second_campaign_survive_reboot();
     test_durable_block_corruption_is_detected();
     test_incomplete_record_tail_blocks_checkpoint();
