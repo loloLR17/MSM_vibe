@@ -944,6 +944,194 @@ static void Sdmmc2_Bringup(void)
     }
 
     /*
+     * E4 runs before the historical E3 probe.  Every non-final E4 path
+     * latches or returns, so E3 cannot clear/modify the qualification state.
+     */
+    {
+        Tr2BulkMediaWindow window = {
+            &media,
+            (uint64_t)TR2_SDMMC2_E3_WINDOW_BLOCK * UINT64_C(512),
+            TR2_SDMMC2_E3_WINDOW_SIZE
+        };
+        CampaignBulkMedia bounded = BulkWindowInterface(&window);
+        CampaignDataStoreBulk recovery_store;
+        CampaignDataStore *iface;
+        CampaignDataRecoveryResult r401;
+        CampaignDataRecoveryResult r402;
+        Tr2Result result;
+
+        result = campaign_data_store_bulk_init(
+            &recovery_store,
+            &bounded,
+            tr2_sdmmc2_e4_payload_buffer,
+            sizeof(tr2_sdmmc2_e4_payload_buffer),
+            tr2_sdmmc2_e4_block_scratch,
+            sizeof(tr2_sdmmc2_e4_block_scratch));
+        tr2_sdmmc2_e4_last_result = (uint32_t)result;
+        if (result != TR2_OK) {
+            tr2_sdmmc2_stage = 29U;
+            return;
+        }
+        iface = campaign_data_store_bulk_interface(&recovery_store);
+
+        result = iface->recover_campaign(iface->context,
+                                         TR2_SDMMC2_E4_CAMPAIGN_PAYLOAD_CUT,
+                                         &r401);
+        tr2_sdmmc2_e4_last_result = (uint32_t)result;
+        if (result != TR2_OK) {
+            tr2_sdmmc2_stage = 30U;
+            return;
+        }
+        result = iface->recover_campaign(iface->context,
+                                         TR2_SDMMC2_E4_CAMPAIGN_METADATA_CUT,
+                                         &r402);
+        tr2_sdmmc2_e4_last_result = (uint32_t)result;
+        if (result != TR2_OK) {
+            tr2_sdmmc2_stage = 31U;
+            return;
+        }
+
+        for (size_t i = 0U; i < sizeof(tr2_sdmmc2_e4_record); ++i) {
+            tr2_sdmmc2_e4_record[i] =
+                (uint8_t)(((i * (size_t)23U) + (size_t)0x41U) &
+                          (size_t)0xFFU);
+        }
+
+        if (r401.status == CAMPAIGN_DATA_RECOVERY_EMPTY) {
+            CampaignDataStoreBulk active_store;
+            Tr2E4Media injector = {
+                bounded, TR2_E4_INJECT_NONE,
+                TR2_CAMPAIGN_BULK_METADATA_BYTES, 0U
+            };
+            CampaignBulkMedia injected = E4Interface(&injector);
+
+            tr2_sdmmc2_e4_phase = 1U;
+            result = campaign_data_store_bulk_init(
+                &active_store,
+                &injected,
+                tr2_sdmmc2_e4_payload_buffer,
+                sizeof(tr2_sdmmc2_e4_payload_buffer),
+                tr2_sdmmc2_e4_block_scratch,
+                sizeof(tr2_sdmmc2_e4_block_scratch));
+            if (result == TR2_OK) {
+                iface = campaign_data_store_bulk_interface(&active_store);
+                result = iface->begin_campaign(
+                    iface->context, TR2_SDMMC2_E4_CAMPAIGN_PAYLOAD_CUT);
+            }
+            if (result == TR2_OK) {
+                result = iface->append(
+                    iface->context,
+                    TR2_SDMMC2_E4_CAMPAIGN_PAYLOAD_CUT,
+                    tr2_sdmmc2_e4_record,
+                    sizeof(tr2_sdmmc2_e4_record));
+            }
+            if (result == TR2_OK) {
+                result = iface->checkpoint(
+                    iface->context, TR2_SDMMC2_E4_CAMPAIGN_PAYLOAD_CUT);
+            }
+            if (result == TR2_OK) {
+                result = iface->append(
+                    iface->context,
+                    TR2_SDMMC2_E4_CAMPAIGN_PAYLOAD_CUT,
+                    tr2_sdmmc2_e4_record,
+                    sizeof(tr2_sdmmc2_e4_record));
+            }
+            tr2_sdmmc2_e4_last_result = (uint32_t)result;
+            if (result != TR2_OK) {
+                tr2_sdmmc2_stage = 32U;
+                return;
+            }
+
+            injector.mode = TR2_E4_INJECT_AFTER_PAYLOAD_SYNC;
+            injector.sync_count = 0U;
+            (void)iface->checkpoint(
+                iface->context, TR2_SDMMC2_E4_CAMPAIGN_PAYLOAD_CUT);
+            tr2_sdmmc2_stage = 33U;
+            return;
+        }
+
+        if (r401.status != CAMPAIGN_DATA_RECOVERY_VALID ||
+            r401.durable_prefix_bytes != UINT64_C(16)) {
+            tr2_sdmmc2_e4_recovery_status = (uint32_t)r401.status;
+            tr2_sdmmc2_e4_recovered_prefix_bytes =
+                r401.durable_prefix_bytes;
+            tr2_sdmmc2_stage = 34U;
+            return;
+        }
+
+        if (r402.status == CAMPAIGN_DATA_RECOVERY_EMPTY) {
+            CampaignDataStoreBulk active_store;
+            Tr2E4Media injector = {
+                bounded, TR2_E4_INJECT_NONE,
+                TR2_CAMPAIGN_BULK_METADATA_BYTES, 0U
+            };
+            CampaignBulkMedia injected = E4Interface(&injector);
+
+            tr2_sdmmc2_e4_phase = 3U;
+            tr2_sdmmc2_e4_recovery_status = (uint32_t)r401.status;
+            tr2_sdmmc2_e4_recovered_prefix_bytes =
+                r401.durable_prefix_bytes;
+            result = campaign_data_store_bulk_init(
+                &active_store,
+                &injected,
+                tr2_sdmmc2_e4_payload_buffer,
+                sizeof(tr2_sdmmc2_e4_payload_buffer),
+                tr2_sdmmc2_e4_block_scratch,
+                sizeof(tr2_sdmmc2_e4_block_scratch));
+            if (result == TR2_OK) {
+                iface = campaign_data_store_bulk_interface(&active_store);
+                result = iface->begin_campaign(
+                    iface->context, TR2_SDMMC2_E4_CAMPAIGN_METADATA_CUT);
+            }
+            if (result == TR2_OK) {
+                result = iface->append(
+                    iface->context,
+                    TR2_SDMMC2_E4_CAMPAIGN_METADATA_CUT,
+                    tr2_sdmmc2_e4_record,
+                    sizeof(tr2_sdmmc2_e4_record));
+            }
+            if (result == TR2_OK) {
+                result = iface->checkpoint(
+                    iface->context, TR2_SDMMC2_E4_CAMPAIGN_METADATA_CUT);
+            }
+            if (result == TR2_OK) {
+                result = iface->append(
+                    iface->context,
+                    TR2_SDMMC2_E4_CAMPAIGN_METADATA_CUT,
+                    tr2_sdmmc2_e4_record,
+                    sizeof(tr2_sdmmc2_e4_record));
+            }
+            tr2_sdmmc2_e4_last_result = (uint32_t)result;
+            if (result != TR2_OK) {
+                tr2_sdmmc2_stage = 35U;
+                return;
+            }
+
+            injector.mode = TR2_E4_INJECT_AFTER_METADATA_WRITE;
+            injector.sync_count = 0U;
+            (void)iface->checkpoint(
+                iface->context, TR2_SDMMC2_E4_CAMPAIGN_METADATA_CUT);
+            tr2_sdmmc2_stage = 36U;
+            return;
+        }
+
+        tr2_sdmmc2_e4_phase = 5U;
+        tr2_sdmmc2_e4_recovery_status = (uint32_t)r402.status;
+        tr2_sdmmc2_e4_recovered_prefix_bytes =
+            r402.durable_prefix_bytes;
+        if (r402.status != CAMPAIGN_DATA_RECOVERY_VALID ||
+            (r402.durable_prefix_bytes != UINT64_C(16) &&
+             r402.durable_prefix_bytes != UINT64_C(32))) {
+            tr2_sdmmc2_stage = 37U;
+            return;
+        }
+
+        tr2_sdmmc2_e4_phase = 6U;
+        tr2_sdmmc2_stage = 38U;
+        return;
+    }
+
+    /*
      * E3: compose the real D5-C CampaignDataStore with the real E1 adapter,
      * but only through the bounded sacrificial window.
      */
