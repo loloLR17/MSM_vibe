@@ -1003,7 +1003,7 @@ static void Sdmmc2_Bringup(void)
             CampaignDataStoreBulk active_store;
             Tr2E4Media injector = {
                 bounded, TR2_E4_INJECT_NONE,
-                TR2_CAMPAIGN_BULK_METADATA_BYTES, 0U
+                TR2_CAMPAIGN_BULK_METADATA_BYTES
             };
             CampaignBulkMedia injected = E4Interface(&injector);
 
@@ -1064,7 +1064,7 @@ static void Sdmmc2_Bringup(void)
             CampaignDataStoreBulk active_store;
             Tr2E4Media injector = {
                 bounded, TR2_E4_INJECT_NONE,
-                TR2_CAMPAIGN_BULK_METADATA_BYTES, 0U
+                TR2_CAMPAIGN_BULK_METADATA_BYTES
             };
             CampaignBulkMedia injected = E4Interface(&injector);
 
