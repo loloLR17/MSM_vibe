@@ -8,6 +8,8 @@
 #include "stm32_runtime_platform.h"
 #include "stm32_sdmmc_bulk_media.h"
 
+#include "tr2/persistence/campaign_data_store_bulk.h"
+
 #define TR2_BRINGUP_LED_PORT GPIOC
 #define TR2_BRINGUP_LED_PIN  GPIO_PIN_7
 
@@ -90,6 +92,127 @@ volatile uint32_t tr2_sdmmc2_e1_sync_result = UINT32_MAX;
 volatile uint32_t tr2_sdmmc2_e1_read_result = UINT32_MAX;
 volatile uint32_t tr2_sdmmc2_e1_mismatch_count = 0U;
 volatile uint32_t tr2_sdmmc2_e1_first_mismatch = UINT32_MAX;
+
+
+/*
+ * H3h-E3 physical end-to-end qualification of D5-C over E1.
+ *
+ * D5-C expects metadata at logical offset 0.  Never expose the whole card to
+ * this destructive test: this bounded view maps logical offset 0 to physical
+ * block 2048 and limits every operation to the already-authorized H3h-C2c
+ * sacrificial range 2048..3071 inclusive.
+ */
+#define TR2_SDMMC2_E3_WINDOW_BLOCK UINT32_C(2048)
+#define TR2_SDMMC2_E3_WINDOW_BLOCK_COUNT UINT32_C(1024)
+#define TR2_SDMMC2_E3_WINDOW_SIZE \
+    ((uint64_t)TR2_SDMMC2_E3_WINDOW_BLOCK_COUNT * UINT64_C(512))
+#define TR2_SDMMC2_E3_CAMPAIGN_ID UINT32_C(0xE301)
+#define TR2_SDMMC2_E3_CHECKPOINT_BYTES ((size_t)80U)
+#define TR2_SDMMC2_E3_TAIL_BYTES ((size_t)64U)
+#define TR2_SDMMC2_E3_PAYLOAD_BUFFER_SIZE ((size_t)64U)
+#define TR2_SDMMC2_E3_BLOCK_SCRATCH_SIZE ((size_t)128U)
+
+typedef struct {
+    CampaignBulkMedia *underlying;
+    uint64_t base;
+    uint64_t size;
+} Tr2BulkMediaWindow;
+
+static uint8_t tr2_sdmmc2_e3_payload_buffer_a[TR2_SDMMC2_E3_PAYLOAD_BUFFER_SIZE];
+static uint8_t tr2_sdmmc2_e3_payload_buffer_b[TR2_SDMMC2_E3_PAYLOAD_BUFFER_SIZE];
+static uint8_t tr2_sdmmc2_e3_block_scratch_a[TR2_SDMMC2_E3_BLOCK_SCRATCH_SIZE];
+static uint8_t tr2_sdmmc2_e3_block_scratch_b[TR2_SDMMC2_E3_BLOCK_SCRATCH_SIZE];
+static uint8_t tr2_sdmmc2_e3_checkpoint_data[TR2_SDMMC2_E3_CHECKPOINT_BYTES];
+static uint8_t tr2_sdmmc2_e3_tail_data[TR2_SDMMC2_E3_TAIL_BYTES];
+static uint8_t tr2_sdmmc2_e3_metadata_clear[TR2_CAMPAIGN_BULK_METADATA_BYTES];
+
+volatile uint32_t tr2_sdmmc2_e3_window_clear_result = UINT32_MAX;
+volatile uint32_t tr2_sdmmc2_e3_window_clear_sync_result = UINT32_MAX;
+volatile uint32_t tr2_sdmmc2_e3_store_init_result = UINT32_MAX;
+volatile uint32_t tr2_sdmmc2_e3_begin_result = UINT32_MAX;
+volatile uint32_t tr2_sdmmc2_e3_append_checkpoint_result = UINT32_MAX;
+volatile uint32_t tr2_sdmmc2_e3_checkpoint_result = UINT32_MAX;
+volatile uint64_t tr2_sdmmc2_e3_post_checkpoint_offset = 0U;
+volatile uint32_t tr2_sdmmc2_e3_append_tail_result = UINT32_MAX;
+volatile uint64_t tr2_sdmmc2_e3_post_tail_offset = 0U;
+volatile uint32_t tr2_sdmmc2_e3_reboot_store_init_result = UINT32_MAX;
+volatile uint32_t tr2_sdmmc2_e3_recover_result = UINT32_MAX;
+volatile uint32_t tr2_sdmmc2_e3_recovery_status = UINT32_MAX;
+volatile uint64_t tr2_sdmmc2_e3_recovered_prefix_bytes = 0U;
+
+static bool BulkWindowRangeFits(const Tr2BulkMediaWindow *window,
+                                uint64_t offset,
+                                size_t size)
+{
+    return window != NULL && offset <= window->size &&
+           (uint64_t)size <= window->size - offset;
+}
+
+static Tr2Result BulkWindowCapacity(void *context, uint64_t *capacity)
+{
+    Tr2BulkMediaWindow *window = (Tr2BulkMediaWindow *)context;
+
+    if (window == NULL || capacity == NULL) {
+        return TR2_ERROR_INVALID_ARGUMENT;
+    }
+    *capacity = window->size;
+    return TR2_OK;
+}
+
+static Tr2Result BulkWindowRead(void *context,
+                                uint64_t offset,
+                                void *buffer,
+                                size_t size)
+{
+    Tr2BulkMediaWindow *window = (Tr2BulkMediaWindow *)context;
+
+    if (window == NULL || window->underlying == NULL ||
+        !BulkWindowRangeFits(window, offset, size) ||
+        offset > UINT64_MAX - window->base) {
+        return TR2_ERROR_INVALID_ARGUMENT;
+    }
+    return campaign_bulk_media_read(window->underlying,
+                                    window->base + offset,
+                                    buffer,
+                                    size);
+}
+
+static Tr2Result BulkWindowWrite(void *context,
+                                 uint64_t offset,
+                                 const void *buffer,
+                                 size_t size)
+{
+    Tr2BulkMediaWindow *window = (Tr2BulkMediaWindow *)context;
+
+    if (window == NULL || window->underlying == NULL ||
+        !BulkWindowRangeFits(window, offset, size) ||
+        offset > UINT64_MAX - window->base) {
+        return TR2_ERROR_INVALID_ARGUMENT;
+    }
+    return campaign_bulk_media_write(window->underlying,
+                                     window->base + offset,
+                                     buffer,
+                                     size);
+}
+
+static Tr2Result BulkWindowSync(void *context)
+{
+    Tr2BulkMediaWindow *window = (Tr2BulkMediaWindow *)context;
+
+    if (window == NULL || window->underlying == NULL) {
+        return TR2_ERROR_INVALID_ARGUMENT;
+    }
+    return campaign_bulk_media_sync(window->underlying);
+}
+
+static CampaignBulkMedia BulkWindowInterface(Tr2BulkMediaWindow *window)
+{
+    CampaignBulkMedia media = {
+        window, BulkWindowCapacity, BulkWindowRead, BulkWindowWrite,
+        BulkWindowSync
+    };
+    return media;
+}
 
 #define TR2_IIS3DWB_CS_PORT GPIOC
 #define TR2_IIS3DWB_CS_PIN GPIO_PIN_9
