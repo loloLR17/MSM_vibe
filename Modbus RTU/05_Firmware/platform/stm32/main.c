@@ -233,7 +233,8 @@ static CampaignBulkMedia BulkWindowInterface(Tr2BulkMediaWindow *window)
 #define TR2_SDMMC2_E4_MARKER_MAGIC UINT32_C(0x45344631)
 #define TR2_SDMMC2_E4_MARKER_STATE_FRESH UINT32_C(1)
 #define TR2_SDMMC2_E4_MARKER_STATE_PAYLOAD_CUT UINT32_C(2)
-#define TR2_SDMMC2_E4_MARKER_STATE_DONE UINT32_C(3)
+#define TR2_SDMMC2_E4_MARKER_STATE_METADATA_CUT UINT32_C(3)
+#define TR2_SDMMC2_E4_MARKER_STATE_DONE UINT32_C(4)
 #define TR2_SDMMC2_E4_CAMPAIGN_PAYLOAD_CUT UINT32_C(0xE411)
 #define TR2_SDMMC2_E4_CAMPAIGN_METADATA_CUT UINT32_C(0xE412)
 #define TR2_SDMMC2_E4_RECORD_BYTES ((size_t)16U)
@@ -280,6 +281,7 @@ static Tr2Result E4MarkerRead(CampaignBulkMedia *media, Tr2E4Marker *marker)
         raw.state_inverse != ~raw.state ||
         (raw.state != TR2_SDMMC2_E4_MARKER_STATE_FRESH &&
          raw.state != TR2_SDMMC2_E4_MARKER_STATE_PAYLOAD_CUT &&
+         raw.state != TR2_SDMMC2_E4_MARKER_STATE_METADATA_CUT &&
          raw.state != TR2_SDMMC2_E4_MARKER_STATE_DONE)) {
         marker->magic = 0U;
         marker->state = 0U;
