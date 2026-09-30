@@ -347,9 +347,9 @@ static void test_overlapping_campaign_extents_corrupt_global_layout(void)
                        sizeof(payload));
 
     /*
-     * Slot 1 claims a distinct campaign at the same physical base. Its
-     * zero-length prefix is sufficient to make the recovered layout overlap
-     * the first campaign's durable physical extent at the base boundary.
+     * Slot 1 has no payload yet, but its published OPEN descriptor already
+     * reserves data_base. Placing that reservation inside campaign 81's
+     * durable physical extent is an inconsistent recovered layout.
      */
     install_descriptor(&fake, 1u, 82u, TR2_CAMPAIGN_BULK_METADATA_BYTES, 0u);
 
