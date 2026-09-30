@@ -45,6 +45,10 @@ static Tr2Result scan_layout(CampaignDataStoreBulk *store,
     bool found = false;
     bool free_found = false;
     uint64_t data_end = TR2_CAMPAIGN_BULK_METADATA_BYTES;
+    CampaignId seen_ids[TR2_CAMPAIGN_BULK_SLOT_COUNT];
+    uint64_t seen_bases[TR2_CAMPAIGN_BULK_SLOT_COUNT];
+    uint64_t seen_ends[TR2_CAMPAIGN_BULK_SLOT_COUNT];
+    size_t seen_count = 0u;
     size_t slot;
 
     for (slot = 0u; slot < TR2_CAMPAIGN_BULK_SLOT_COUNT; ++slot) {
@@ -86,12 +90,30 @@ static Tr2Result scan_layout(CampaignDataStoreBulk *store,
 
         {
             uint64_t physical_end = 0u;
+            size_t seen;
+
             result = validate_prefix(store,
                                      &recovery.descriptor,
                                      &physical_end);
             if (result != TR2_OK) {
                 return result;
             }
+
+            for (seen = 0u; seen < seen_count; ++seen) {
+                if (seen_ids[seen] == recovery.descriptor.campaign_id) {
+                    return TR2_ERROR_CORRUPTED;
+                }
+                if (recovery.descriptor.data_base < seen_ends[seen] &&
+                    seen_bases[seen] < physical_end) {
+                    return TR2_ERROR_CORRUPTED;
+                }
+            }
+
+            seen_ids[seen_count] = recovery.descriptor.campaign_id;
+            seen_bases[seen_count] = recovery.descriptor.data_base;
+            seen_ends[seen_count] = physical_end;
+            seen_count += 1u;
+
             if (physical_end > data_end) {
                 data_end = physical_end;
             }
