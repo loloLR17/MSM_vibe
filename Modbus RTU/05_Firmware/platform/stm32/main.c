@@ -594,9 +594,13 @@ static void Sdmmc2_Bringup(void)
     }
 
     media = stm32_sdmmc_bulk_media_interface(&adapter);
-    tr2_sdmmc2_e1_capacity_result =
-        (uint32_t)campaign_bulk_media_capacity(
-            &media, (uint64_t *)&tr2_sdmmc2_e1_capacity_bytes);
+    {
+        uint64_t capacity_bytes = 0U;
+
+        tr2_sdmmc2_e1_capacity_result =
+            (uint32_t)campaign_bulk_media_capacity(&media, &capacity_bytes);
+        tr2_sdmmc2_e1_capacity_bytes = capacity_bytes;
+    }
     if (tr2_sdmmc2_e1_capacity_result != (uint32_t)TR2_OK) {
         tr2_sdmmc2_stage = 10U;
         return;
