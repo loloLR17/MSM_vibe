@@ -1153,13 +1153,6 @@ static void Sdmmc2_Bringup(void)
 
         if (marker.state == TR2_SDMMC2_E4_MARKER_STATE_PAYLOAD_CUT &&
             r401.status != CAMPAIGN_DATA_RECOVERY_VALID) {
-            tr2_sdmmc2_e4_recovery_status = (uint32_t)r401.status;
-            tr2_sdmmc2_e4_recovered_prefix_bytes =
-                r401.durable_prefix_bytes;
-            tr2_sdmmc2_stage = 34U;
-            return;
-        }
-
         if (marker.state == TR2_SDMMC2_E4_MARKER_STATE_PAYLOAD_CUT &&
             r401.durable_prefix_bytes != UINT64_C(16)) {
             tr2_sdmmc2_e4_recovery_status = (uint32_t)r401.status;
