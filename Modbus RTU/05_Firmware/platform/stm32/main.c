@@ -223,6 +223,10 @@ static CampaignBulkMedia BulkWindowInterface(Tr2BulkMediaWindow *window)
  * transaction boundaries.  The operator removes board power only after the
  * cut flag/stage is visible.
  */
+#define TR2_SDMMC2_E4_WINDOW_BLOCK UINT32_C(4096)
+#define TR2_SDMMC2_E4_WINDOW_BLOCK_COUNT UINT32_C(1024)
+#define TR2_SDMMC2_E4_WINDOW_SIZE \
+    ((uint64_t)TR2_SDMMC2_E4_WINDOW_BLOCK_COUNT * UINT64_C(512))
 #define TR2_SDMMC2_E4_CAMPAIGN_PAYLOAD_CUT UINT32_C(0xE401)
 #define TR2_SDMMC2_E4_CAMPAIGN_METADATA_CUT UINT32_C(0xE402)
 #define TR2_SDMMC2_E4_RECORD_BYTES ((size_t)16U)
@@ -810,8 +814,8 @@ static void Sdmmc2_Bringup(void)
 
     if ((card_info.LogBlockSize != 512U) ||
         (card_info.LogBlockNbr <
-         (TR2_SDMMC2_E3_WINDOW_BLOCK +
-          TR2_SDMMC2_E3_WINDOW_BLOCK_COUNT))) {
+         (TR2_SDMMC2_E4_WINDOW_BLOCK +
+          TR2_SDMMC2_E4_WINDOW_BLOCK_COUNT))) {
         tr2_sdmmc2_stage = 8U;
         return;
     }
@@ -950,8 +954,8 @@ static void Sdmmc2_Bringup(void)
     {
         Tr2BulkMediaWindow window = {
             &media,
-            (uint64_t)TR2_SDMMC2_E3_WINDOW_BLOCK * UINT64_C(512),
-            TR2_SDMMC2_E3_WINDOW_SIZE
+            (uint64_t)TR2_SDMMC2_E4_WINDOW_BLOCK * UINT64_C(512),
+            TR2_SDMMC2_E4_WINDOW_SIZE
         };
         CampaignBulkMedia bounded = BulkWindowInterface(&window);
         CampaignDataStoreBulk recovery_store;
