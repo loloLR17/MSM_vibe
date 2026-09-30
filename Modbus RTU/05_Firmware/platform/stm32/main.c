@@ -227,6 +227,13 @@ static CampaignBulkMedia BulkWindowInterface(Tr2BulkMediaWindow *window)
 #define TR2_SDMMC2_E4_WINDOW_BLOCK_COUNT UINT32_C(1024)
 #define TR2_SDMMC2_E4_WINDOW_SIZE \
     ((uint64_t)TR2_SDMMC2_E4_WINDOW_BLOCK_COUNT * UINT64_C(512))
+#define TR2_SDMMC2_E4_MARKER_BLOCK UINT32_C(5120)
+#define TR2_SDMMC2_E4_MARKER_OFFSET \
+    ((uint64_t)TR2_SDMMC2_E4_MARKER_BLOCK * UINT64_C(512))
+#define TR2_SDMMC2_E4_MARKER_MAGIC UINT32_C(0x45344631)
+#define TR2_SDMMC2_E4_MARKER_STATE_FRESH UINT32_C(1)
+#define TR2_SDMMC2_E4_MARKER_STATE_PAYLOAD_CUT UINT32_C(2)
+#define TR2_SDMMC2_E4_MARKER_STATE_DONE UINT32_C(3)
 #define TR2_SDMMC2_E4_CAMPAIGN_PAYLOAD_CUT UINT32_C(0xE411)
 #define TR2_SDMMC2_E4_CAMPAIGN_METADATA_CUT UINT32_C(0xE412)
 #define TR2_SDMMC2_E4_RECORD_BYTES ((size_t)16U)
@@ -246,6 +253,79 @@ typedef struct {
 static uint8_t tr2_sdmmc2_e4_payload_buffer[TR2_SDMMC2_E3_PAYLOAD_BUFFER_SIZE];
 static uint8_t tr2_sdmmc2_e4_block_scratch[TR2_SDMMC2_E3_BLOCK_SCRATCH_SIZE];
 static uint8_t tr2_sdmmc2_e4_record[TR2_SDMMC2_E4_RECORD_BYTES];
+static uint8_t tr2_sdmmc2_e4_marker[512U];
+
+typedef struct {
+    uint32_t magic;
+    uint32_t state;
+    uint32_t state_inverse;
+} Tr2E4Marker;
+
+static Tr2Result E4MarkerRead(CampaignBulkMedia *media, Tr2E4Marker *marker)
+{
+    Tr2E4Marker raw;
+    Tr2Result result;
+
+    if (media == NULL || marker == NULL) {
+        return TR2_ERROR_INVALID_ARGUMENT;
+    }
+    result = campaign_bulk_media_read(media,
+                                      TR2_SDMMC2_E4_MARKER_OFFSET,
+                                      &raw,
+                                      sizeof(raw));
+    if (result != TR2_OK) {
+        return result;
+    }
+    if (raw.magic != TR2_SDMMC2_E4_MARKER_MAGIC ||
+        raw.state_inverse != ~raw.state ||
+        (raw.state != TR2_SDMMC2_E4_MARKER_STATE_FRESH &&
+         raw.state != TR2_SDMMC2_E4_MARKER_STATE_PAYLOAD_CUT &&
+         raw.state != TR2_SDMMC2_E4_MARKER_STATE_DONE)) {
+        marker->magic = 0U;
+        marker->state = 0U;
+        marker->state_inverse = 0U;
+        return TR2_OK;
+    }
+    *marker = raw;
+    return TR2_OK;
+}
+
+static Tr2Result E4MarkerWrite(CampaignBulkMedia *media, uint32_t state)
+{
+    Tr2E4Marker raw = {
+        TR2_SDMMC2_E4_MARKER_MAGIC,
+        state,
+        ~state
+    };
+    Tr2Result result = campaign_bulk_media_write(media,
+                                                 TR2_SDMMC2_E4_MARKER_OFFSET,
+                                                 &raw,
+                                                 sizeof(raw));
+    if (result != TR2_OK) {
+        return result;
+    }
+    return campaign_bulk_media_sync(media);
+}
+
+static Tr2Result E4PrepareFresh(CampaignBulkMedia *media)
+{
+    Tr2Result result;
+
+    memset(tr2_sdmmc2_e4_marker, 0, sizeof(tr2_sdmmc2_e4_marker));
+    result = campaign_bulk_media_write(media,
+                                       (uint64_t)TR2_SDMMC2_E4_WINDOW_BLOCK *
+                                           UINT64_C(512),
+                                       tr2_sdmmc2_e4_marker,
+                                       sizeof(tr2_sdmmc2_e4_marker));
+    if (result != TR2_OK) {
+        return result;
+    }
+    result = campaign_bulk_media_sync(media);
+    if (result != TR2_OK) {
+        return result;
+    }
+    return E4MarkerWrite(media, TR2_SDMMC2_E4_MARKER_STATE_FRESH);
+}
 
 volatile uint32_t tr2_sdmmc2_e4_phase = 0U;
 volatile uint32_t tr2_sdmmc2_e4_cut_point_reached = 0U;
@@ -958,9 +1038,26 @@ static void Sdmmc2_Bringup(void)
         CampaignBulkMedia bounded = BulkWindowInterface(&window);
         CampaignDataStoreBulk recovery_store;
         CampaignDataStore *iface;
+        Tr2E4Marker marker;
         CampaignDataRecoveryResult r401;
         CampaignDataRecoveryResult r402;
         Tr2Result result;
+
+        result = E4MarkerRead(&media, &marker);
+        if (result != TR2_OK) {
+            tr2_sdmmc2_e4_last_result = (uint32_t)result;
+            tr2_sdmmc2_stage = 29U;
+            return;
+        }
+        if (marker.state == 0U) {
+            result = E4PrepareFresh(&media);
+            if (result != TR2_OK) {
+                tr2_sdmmc2_e4_last_result = (uint32_t)result;
+                tr2_sdmmc2_stage = 29U;
+                return;
+            }
+            marker.state = TR2_SDMMC2_E4_MARKER_STATE_FRESH;
+        }
 
         result = campaign_data_store_bulk_init(
             &recovery_store,
@@ -999,7 +1096,8 @@ static void Sdmmc2_Bringup(void)
                           (size_t)0xFFU);
         }
 
-        if (r401.status == CAMPAIGN_DATA_RECOVERY_EMPTY) {
+        if (marker.state == TR2_SDMMC2_E4_MARKER_STATE_FRESH &&
+            r401.status == CAMPAIGN_DATA_RECOVERY_EMPTY) {
             CampaignDataStoreBulk active_store;
             Tr2E4Media injector = {
                 bounded, TR2_E4_INJECT_NONE,
@@ -1051,7 +1149,16 @@ static void Sdmmc2_Bringup(void)
             return;
         }
 
-        if (r401.status != CAMPAIGN_DATA_RECOVERY_VALID ||
+        if (marker.state == TR2_SDMMC2_E4_MARKER_STATE_PAYLOAD_CUT &&
+            r401.status != CAMPAIGN_DATA_RECOVERY_VALID) {
+            tr2_sdmmc2_e4_recovery_status = (uint32_t)r401.status;
+            tr2_sdmmc2_e4_recovered_prefix_bytes =
+                r401.durable_prefix_bytes;
+            tr2_sdmmc2_stage = 34U;
+            return;
+        }
+
+        if (marker.state == TR2_SDMMC2_E4_MARKER_STATE_PAYLOAD_CUT &&
             r401.durable_prefix_bytes != UINT64_C(16)) {
             tr2_sdmmc2_e4_recovery_status = (uint32_t)r401.status;
             tr2_sdmmc2_e4_recovered_prefix_bytes =
@@ -1060,7 +1167,35 @@ static void Sdmmc2_Bringup(void)
             return;
         }
 
-        if (r402.status == CAMPAIGN_DATA_RECOVERY_EMPTY) {
+        if (marker.state == TR2_SDMMC2_E4_MARKER_STATE_FRESH) {
+            tr2_sdmmc2_stage = 34U;
+            return;
+        }
+
+        if (marker.state == TR2_SDMMC2_E4_MARKER_STATE_DONE) {
+            tr2_sdmmc2_e4_phase = 6U;
+            tr2_sdmmc2_e4_recovery_status = (uint32_t)r402.status;
+            tr2_sdmmc2_e4_recovered_prefix_bytes =
+                r402.durable_prefix_bytes;
+            tr2_sdmmc2_stage = 38U;
+            return;
+        }
+            tr2_sdmmc2_e4_recovery_status = (uint32_t)r401.status;
+            tr2_sdmmc2_e4_recovered_prefix_bytes =
+                r401.durable_prefix_bytes;
+            tr2_sdmmc2_stage = 34U;
+            return;
+        }
+
+        if (marker.state == TR2_SDMMC2_E4_MARKER_STATE_PAYLOAD_CUT &&
+            r402.status == CAMPAIGN_DATA_RECOVERY_EMPTY) {
+            result = E4MarkerWrite(&media,
+                                    TR2_SDMMC2_E4_MARKER_STATE_PAYLOAD_CUT);
+            if (result != TR2_OK) {
+                tr2_sdmmc2_e4_last_result = (uint32_t)result;
+                tr2_sdmmc2_stage = 35U;
+                return;
+            }
             CampaignDataStoreBulk active_store;
             Tr2E4Media injector = {
                 bounded, TR2_E4_INJECT_NONE,
@@ -1126,6 +1261,18 @@ static void Sdmmc2_Bringup(void)
             return;
         }
 
+        if (r402.status != CAMPAIGN_DATA_RECOVERY_VALID ||
+            (r402.durable_prefix_bytes != UINT64_C(16) &&
+             r402.durable_prefix_bytes != UINT64_C(32))) {
+            tr2_sdmmc2_stage = 37U;
+            return;
+        }
+        result = E4MarkerWrite(&media, TR2_SDMMC2_E4_MARKER_STATE_DONE);
+        tr2_sdmmc2_e4_last_result = (uint32_t)result;
+        if (result != TR2_OK) {
+            tr2_sdmmc2_stage = 37U;
+            return;
+        }
         tr2_sdmmc2_e4_phase = 6U;
         tr2_sdmmc2_stage = 38U;
         return;
