@@ -6,7 +6,7 @@
 #include "tr2/persistence/campaign_bulk_block_stream.h"
 
 typedef struct {
-    uint8_t bytes[512];
+    uint8_t bytes[2048];
     Tr2Result capacity_result;
     Tr2Result read_result;
     Tr2Result write_result;
@@ -80,7 +80,7 @@ static void test_writer_reader_round_trip_and_continuity(void)
     fill(p0, sizeof(p0), 1u);
     fill(p1, sizeof(p1), 33u);
 
-    assert(campaign_bulk_block_writer_init(&writer, &media, 7u, 64u, 0u) == TR2_OK);
+    assert(campaign_bulk_block_writer_init(&writer, &media, 7u, 0u, 0u) == TR2_OK);
     assert(campaign_bulk_block_writer_append(&writer, p0, sizeof(p0),
                                              scratch, sizeof(scratch)) == TR2_OK);
     after_first = campaign_bulk_block_writer_next_offset(&writer);
@@ -90,7 +90,7 @@ static void test_writer_reader_round_trip_and_continuity(void)
     assert(campaign_bulk_block_writer_next_index(&writer) == 2u);
     assert(fake.write_calls == 2u);
 
-    assert(campaign_bulk_block_reader_init(&reader, &media, 7u, 64u, 0u) == TR2_OK);
+    assert(campaign_bulk_block_reader_init(&reader, &media, 7u, 0u, 0u) == TR2_OK);
     assert(campaign_bulk_block_reader_next(&reader, scratch, sizeof(scratch),
                                            &info, &payload) == TR2_OK);
     assert(info.block_index == 0u);
@@ -117,7 +117,7 @@ static void test_writer_capacity_failure_does_not_advance(void)
     uint8_t scratch[128];
     uint64_t offset;
 
-    assert(campaign_bulk_block_writer_init(&writer, &media, 3u, 480u, 5u) == TR2_OK);
+    assert(campaign_bulk_block_writer_init(&writer, &media, 3u, 1536u, 5u) == TR2_OK);
     offset = campaign_bulk_block_writer_next_offset(&writer);
     assert(campaign_bulk_block_writer_append(&writer, payload, sizeof(payload),
                                              scratch, sizeof(scratch)) ==
@@ -136,12 +136,12 @@ static void test_writer_io_failure_faults_without_advancing(void)
     uint8_t payload[16] = { 0 };
     uint8_t scratch[128];
 
-    assert(campaign_bulk_block_writer_init(&writer, &media, 3u, 32u, 0u) == TR2_OK);
+    assert(campaign_bulk_block_writer_init(&writer, &media, 3u, 512u, 0u) == TR2_OK);
     fake.write_result = TR2_ERROR_STORAGE;
     assert(campaign_bulk_block_writer_append(&writer, payload, sizeof(payload),
                                              scratch, sizeof(scratch)) ==
            TR2_ERROR_STORAGE);
-    assert(campaign_bulk_block_writer_next_offset(&writer) == 32u);
+    assert(campaign_bulk_block_writer_next_offset(&writer) == 512u);
     assert(campaign_bulk_block_writer_next_index(&writer) == 0u);
     assert(campaign_bulk_block_writer_is_faulted(&writer));
 }
@@ -220,8 +220,37 @@ static void test_reader_io_failure_faults_without_advancing(void)
     assert(campaign_bulk_block_reader_is_faulted(&reader));
 }
 
+
+static void test_sector_alignment_contract(void)
+{
+    FakeMedia fake = { 0 };
+    CampaignBulkMedia media = make_media(&fake);
+    CampaignBulkBlockWriter writer;
+    CampaignBulkBlockReader reader;
+    uint8_t payload[16] = { 0 };
+    uint8_t scratch[128];
+    size_t encoded_size;
+    size_t physical_extent;
+
+    assert(campaign_bulk_block_encoded_size(sizeof(payload), &encoded_size) == TR2_OK);
+    assert(encoded_size == 52u);
+    assert(campaign_bulk_block_physical_extent(encoded_size, &physical_extent) == TR2_OK);
+    assert(physical_extent == 512u);
+
+    assert(campaign_bulk_block_writer_init(&writer, &media, 1u, 1u, 0u) ==
+           TR2_ERROR_INVALID_ARGUMENT);
+    assert(campaign_bulk_block_reader_init(&reader, &media, 1u, 1u, 0u) ==
+           TR2_ERROR_INVALID_ARGUMENT);
+
+    assert(campaign_bulk_block_writer_init(&writer, &media, 1u, 0u, 0u) == TR2_OK);
+    assert(campaign_bulk_block_writer_append(&writer, payload, sizeof(payload),
+                                             scratch, sizeof(scratch)) == TR2_OK);
+    assert(campaign_bulk_block_writer_next_offset(&writer) == 512u);
+}
+
 int main(void)
 {
+    test_sector_alignment_contract();
     test_writer_reader_round_trip_and_continuity();
     test_writer_capacity_failure_does_not_advance();
     test_writer_io_failure_faults_without_advancing();
