@@ -1,5 +1,7 @@
 #include "stm32u5xx_hal.h"
 
+#include <string.h>
+
 #include "stm32_fram_storage.h"
 #include "stm32_iis3dwb_vibration_source.h"
 #include "stm32_serial_transport.h"
