@@ -20,6 +20,36 @@ static bool extent_fits(uint64_t capacity, uint64_t offset, size_t size)
     return offset <= capacity && (uint64_t)size <= capacity - offset;
 }
 
+static bool offset_is_aligned(uint64_t offset)
+{
+    return offset % (uint64_t)TR2_CAMPAIGN_BULK_PHYSICAL_ALIGNMENT == 0u;
+}
+
+Tr2Result campaign_bulk_block_physical_extent(size_t encoded_size,
+                                               size_t *physical_extent)
+{
+    size_t remainder;
+    size_t padding;
+
+    if (physical_extent == NULL || encoded_size == 0u) {
+        return TR2_ERROR_INVALID_ARGUMENT;
+    }
+
+    remainder = encoded_size % TR2_CAMPAIGN_BULK_PHYSICAL_ALIGNMENT;
+    if (remainder == 0u) {
+        *physical_extent = encoded_size;
+        return TR2_OK;
+    }
+
+    padding = TR2_CAMPAIGN_BULK_PHYSICAL_ALIGNMENT - remainder;
+    if (encoded_size > SIZE_MAX - padding) {
+        return TR2_ERROR_INVALID_ARGUMENT;
+    }
+
+    *physical_extent = encoded_size + padding;
+    return TR2_OK;
+}
+
 Tr2Result campaign_bulk_block_writer_init(
     CampaignBulkBlockWriter *writer,
     CampaignBulkMedia *media,
@@ -32,7 +62,8 @@ Tr2Result campaign_bulk_block_writer_init(
 
     if (writer == NULL || media == NULL ||
         campaign_id == TR2_CAMPAIGN_ID_INVALID ||
-        initial_block_index == UINT64_MAX) {
+        initial_block_index == UINT64_MAX ||
+        !offset_is_aligned(initial_offset)) {
         return TR2_ERROR_INVALID_ARGUMENT;
     }
 
@@ -62,6 +93,7 @@ Tr2Result campaign_bulk_block_writer_append(
 {
     uint64_t capacity;
     size_t encoded_size;
+    size_t physical_extent;
     Tr2Result result;
 
     if (writer == NULL || !writer->initialized || writer->faulted) {
@@ -82,12 +114,17 @@ Tr2Result campaign_bulk_block_writer_append(
         return result;
     }
 
+    result = campaign_bulk_block_physical_extent(encoded_size, &physical_extent);
+    if (result != TR2_OK) {
+        return result;
+    }
+
     result = campaign_bulk_media_capacity(writer->media, &capacity);
     if (result != TR2_OK) {
         writer->faulted = true;
         return result;
     }
-    if (!extent_fits(capacity, writer->next_offset, encoded_size)) {
+    if (!extent_fits(capacity, writer->next_offset, physical_extent)) {
         return TR2_ERROR_NOT_AVAILABLE;
     }
 
@@ -100,7 +137,7 @@ Tr2Result campaign_bulk_block_writer_append(
         return result;
     }
 
-    writer->next_offset += (uint64_t)encoded_size;
+    writer->next_offset += (uint64_t)physical_extent;
     writer->next_block_index += 1u;
     return TR2_OK;
 }
@@ -135,7 +172,8 @@ Tr2Result campaign_bulk_block_reader_init(
 
     if (reader == NULL || media == NULL ||
         campaign_id == TR2_CAMPAIGN_ID_INVALID ||
-        initial_block_index == UINT64_MAX) {
+        initial_block_index == UINT64_MAX ||
+        !offset_is_aligned(initial_offset)) {
         return TR2_ERROR_INVALID_ARGUMENT;
     }
 
@@ -167,6 +205,7 @@ Tr2Result campaign_bulk_block_reader_next(
     uint64_t capacity;
     uint32_t payload_size;
     size_t encoded_size;
+    size_t physical_extent;
     CampaignBulkBlockInfo decoded;
     const uint8_t *decoded_payload;
     Tr2Result result;
@@ -214,10 +253,14 @@ Tr2Result campaign_bulk_block_reader_next(
     if (result != TR2_OK) {
         return TR2_ERROR_CORRUPTED;
     }
+    result = campaign_bulk_block_physical_extent(encoded_size, &physical_extent);
+    if (result != TR2_OK) {
+        return TR2_ERROR_CORRUPTED;
+    }
     if (scratch_capacity < encoded_size) {
         return TR2_ERROR_NOT_AVAILABLE;
     }
-    if (!extent_fits(capacity, reader->next_offset, encoded_size)) {
+    if (!extent_fits(capacity, reader->next_offset, physical_extent)) {
         return TR2_ERROR_CORRUPTED;
     }
 
@@ -244,7 +287,7 @@ Tr2Result campaign_bulk_block_reader_next(
 
     *info = decoded;
     *payload = decoded_payload;
-    reader->next_offset += (uint64_t)encoded_size;
+    reader->next_offset += (uint64_t)physical_extent;
     reader->next_block_index += 1u;
     return TR2_OK;
 }
