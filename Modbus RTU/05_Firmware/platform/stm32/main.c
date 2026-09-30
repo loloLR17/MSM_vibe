@@ -313,12 +313,12 @@ static Tr2Result E4PrepareFresh(CampaignBulkMedia *media)
 {
     Tr2Result result;
 
-    memset(tr2_sdmmc2_e4_marker, 0, sizeof(tr2_sdmmc2_e3_metadata_clear));
+    memset(tr2_sdmmc2_e3_metadata_clear, 0, sizeof(tr2_sdmmc2_e3_metadata_clear));
     result = campaign_bulk_media_write(media,
                                        (uint64_t)TR2_SDMMC2_E4_WINDOW_BLOCK *
                                            UINT64_C(512),
-                                       tr2_sdmmc2_e4_marker,
-                                       sizeof(tr2_sdmmc2_e4_marker));
+                                       tr2_sdmmc2_e3_metadata_clear,
+                                       sizeof(tr2_sdmmc2_e3_metadata_clear));
     if (result != TR2_OK) {
         return result;
     }
