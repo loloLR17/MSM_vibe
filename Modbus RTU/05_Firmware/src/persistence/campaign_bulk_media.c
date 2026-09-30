@@ -1,5 +1,6 @@
 #include "tr2/persistence/campaign_bulk_media.h"
 
+#include <stdbool.h>
 #include <stdint.h>
 
 static bool range_is_valid(uint64_t offset, size_t size)
