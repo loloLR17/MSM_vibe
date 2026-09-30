@@ -2,6 +2,10 @@
 
 #include <string.h>
 
+static Tr2Result validate_prefix(CampaignDataStoreBulk *store,
+                                 const CampaignBulkDescriptor *descriptor,
+                                 uint64_t *physical_end);
+
 static uint64_t descriptor_offset(size_t slot, size_t copy)
 {
     return ((uint64_t)slot * UINT64_C(2) + (uint64_t)copy) *
@@ -77,10 +81,17 @@ static Tr2Result scan_layout(CampaignDataStoreBulk *store,
             return TR2_ERROR_CORRUPTED;
         }
 
-        if (recovery.descriptor.data_base +
-                recovery.descriptor.durable_prefix_bytes > data_end) {
-            data_end = recovery.descriptor.data_base +
-                       recovery.descriptor.durable_prefix_bytes;
+        {
+            uint64_t physical_end = 0u;
+            result = validate_prefix(store,
+                                     &recovery.descriptor,
+                                     &physical_end);
+            if (result != TR2_OK) {
+                return result;
+            }
+            if (physical_end > data_end) {
+                data_end = physical_end;
+            }
         }
 
         if (recovery.descriptor.campaign_id == wanted_id) {
@@ -363,11 +374,16 @@ static Tr2Result finish_campaign(void *context, CampaignId campaign_id)
 }
 
 static Tr2Result validate_prefix(CampaignDataStoreBulk *store,
-                                 const CampaignBulkDescriptor *descriptor)
+                                 const CampaignBulkDescriptor *descriptor,
+                                 uint64_t *physical_end)
 {
     CampaignBulkBlockReader reader;
     uint64_t recovered = 0u;
     Tr2Result result;
+
+    if (physical_end != NULL) {
+        *physical_end = descriptor->data_base;
+    }
 
     result = campaign_bulk_block_reader_init(&reader,
                                              store->media,
@@ -398,9 +414,13 @@ static Tr2Result validate_prefix(CampaignDataStoreBulk *store,
         recovered += (uint64_t)info.payload_size;
     }
 
-    return recovered == descriptor->durable_prefix_bytes
-               ? TR2_OK
-               : TR2_ERROR_CORRUPTED;
+    if (recovered != descriptor->durable_prefix_bytes) {
+        return TR2_ERROR_CORRUPTED;
+    }
+    if (physical_end != NULL) {
+        *physical_end = campaign_bulk_block_reader_next_offset(&reader);
+    }
+    return TR2_OK;
 }
 
 static Tr2Result recover_campaign(void *context,
@@ -446,7 +466,7 @@ static Tr2Result recover_campaign(void *context,
         return TR2_OK;
     }
 
-    result = validate_prefix(store, &recovery.descriptor);
+    result = validate_prefix(store, &recovery.descriptor, NULL);
     if (result == TR2_ERROR_UNSUPPORTED) {
         out->status = CAMPAIGN_DATA_RECOVERY_UNSUPPORTED;
         return TR2_OK;
