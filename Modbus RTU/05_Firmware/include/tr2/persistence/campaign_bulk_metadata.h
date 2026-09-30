@@ -6,7 +6,7 @@
 #include <stdint.h>
 
 #include "tr2/common/result.h"
-#include "tr2/domain/campaign/campaign_types.h"
+#include "tr2/domain/campaign/campaign.h"
 #include "tr2/persistence/campaign_bulk_media.h"
 
 #define TR2_CAMPAIGN_BULK_DESCRIPTOR_SIZE ((size_t)512u)
