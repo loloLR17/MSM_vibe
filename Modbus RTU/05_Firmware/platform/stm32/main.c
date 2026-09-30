@@ -4,6 +4,7 @@
 #include "stm32_iis3dwb_vibration_source.h"
 #include "stm32_serial_transport.h"
 #include "stm32_runtime_platform.h"
+#include "stm32_sdmmc_bulk_media.h"
 
 #define TR2_BRINGUP_LED_PORT GPIOC
 #define TR2_BRINGUP_LED_PIN  GPIO_PIN_7
@@ -57,36 +58,36 @@ volatile uint32_t tr2_sdmmc2_block_nbr = 0U;
 volatile uint32_t tr2_sdmmc2_block_size = 0U;
 
 /*
- * H3h-C2c sustained raw-write characterization on the same physically proven
- * SDMMC2 1-bit / 10 MHz path.  The test card is explicitly sacrificial.
- * Eight consecutive 64 KiB chunks cover 512 KiB starting at block 2048.
- * Each chunk is timed through return to TRANSFER state; the complete sequence
- * is also timed.  Every chunk is then read back and compared byte-for-byte.
+ * H3h-E1-P physical qualification of the CampaignBulkMedia SDMMC adapter.
+ * The bounded destructive area stays inside the already-authorized H3h-C2c
+ * sacrificial range, starting at logical block 2048.
  */
-#define TR2_SDMMC2_WRITE_TEST_BLOCK UINT32_C(2048)
-#define TR2_SDMMC2_WRITE_CHUNK_BLOCK_COUNT UINT32_C(128)
-#define TR2_SDMMC2_WRITE_CHUNK_SIZE (TR2_SDMMC2_WRITE_CHUNK_BLOCK_COUNT * 512U)
-#define TR2_SDMMC2_WRITE_CHUNK_COUNT UINT32_C(8)
-#define TR2_SDMMC2_WRITE_TOTAL_BLOCK_COUNT \
-    (TR2_SDMMC2_WRITE_CHUNK_BLOCK_COUNT * TR2_SDMMC2_WRITE_CHUNK_COUNT)
-#define TR2_SDMMC2_WRITE_TOTAL_SIZE \
-    (TR2_SDMMC2_WRITE_CHUNK_SIZE * TR2_SDMMC2_WRITE_CHUNK_COUNT)
+#define TR2_SDMMC2_E1_TEST_BLOCK UINT32_C(2048)
+#define TR2_SDMMC2_E1_TEST_BLOCK_COUNT UINT32_C(4)
+#define TR2_SDMMC2_E1_TEST_SIZE (TR2_SDMMC2_E1_TEST_BLOCK_COUNT * 512U)
+#define TR2_SDMMC2_E1_PARTIAL_OFFSET UINT32_C(500)
+#define TR2_SDMMC2_E1_PARTIAL_SIZE UINT32_C(37)
+#define TR2_SDMMC2_E1_ALIGNED_OFFSET UINT32_C(1024)
+#define TR2_SDMMC2_E1_ALIGNED_SIZE UINT32_C(1024)
 #define TR2_SDMMC2_WRITE_TIMEOUT_MS 2000U
 #define TR2_SDMMC2_READY_TIMEOUT_MS 2000U
-static uint8_t tr2_sdmmc2_write_buffer[TR2_SDMMC2_WRITE_CHUNK_SIZE];
-static uint8_t tr2_sdmmc2_verify_buffer[TR2_SDMMC2_WRITE_CHUNK_SIZE];
-volatile uint32_t tr2_sdmmc2_write_status = (uint32_t)HAL_ERROR;
-volatile uint32_t tr2_sdmmc2_write_chunk_elapsed_ms[TR2_SDMMC2_WRITE_CHUNK_COUNT] = {0U};
-volatile uint32_t tr2_sdmmc2_write_chunk_throughput_bps[TR2_SDMMC2_WRITE_CHUNK_COUNT] = {0U};
-volatile uint32_t tr2_sdmmc2_write_completed_chunks = 0U;
-volatile uint32_t tr2_sdmmc2_write_elapsed_ms = 0U;
-volatile uint32_t tr2_sdmmc2_write_bytes = 0U;
-volatile uint32_t tr2_sdmmc2_write_throughput_bps = 0U;
-volatile uint32_t tr2_sdmmc2_ready_state = 0U;
-volatile uint32_t tr2_sdmmc2_verify_read_status = (uint32_t)HAL_ERROR;
-volatile uint32_t tr2_sdmmc2_verify_completed_chunks = 0U;
-volatile uint32_t tr2_sdmmc2_verify_mismatch_count = 0U;
-volatile uint32_t tr2_sdmmc2_verify_first_mismatch = UINT32_MAX;
+
+static uint8_t tr2_sdmmc2_e1_sector_scratch[512U];
+static uint8_t tr2_sdmmc2_e1_expected[TR2_SDMMC2_E1_TEST_SIZE];
+static uint8_t tr2_sdmmc2_e1_verify[TR2_SDMMC2_E1_TEST_SIZE];
+static uint8_t tr2_sdmmc2_e1_partial[TR2_SDMMC2_E1_PARTIAL_SIZE];
+static uint8_t tr2_sdmmc2_e1_aligned[TR2_SDMMC2_E1_ALIGNED_SIZE];
+
+volatile uint32_t tr2_sdmmc2_e1_init_result = UINT32_MAX;
+volatile uint32_t tr2_sdmmc2_e1_capacity_result = UINT32_MAX;
+volatile uint64_t tr2_sdmmc2_e1_capacity_bytes = 0U;
+volatile uint32_t tr2_sdmmc2_e1_seed_write_result = UINT32_MAX;
+volatile uint32_t tr2_sdmmc2_e1_partial_write_result = UINT32_MAX;
+volatile uint32_t tr2_sdmmc2_e1_aligned_write_result = UINT32_MAX;
+volatile uint32_t tr2_sdmmc2_e1_sync_result = UINT32_MAX;
+volatile uint32_t tr2_sdmmc2_e1_read_result = UINT32_MAX;
+volatile uint32_t tr2_sdmmc2_e1_mismatch_count = 0U;
+volatile uint32_t tr2_sdmmc2_e1_first_mismatch = UINT32_MAX;
 
 #define TR2_IIS3DWB_CS_PORT GPIOC
 #define TR2_IIS3DWB_CS_PIN GPIO_PIN_9
@@ -490,6 +491,10 @@ static void Sdmmc2_Bringup(void)
     HAL_SD_CardInfoTypeDef card_info = {0};
     GPIO_InitTypeDef gpio = {0};
     RCC_PeriphCLKInitTypeDef periph = {0};
+    Stm32SdmmcBulkMedia adapter;
+    CampaignBulkMedia media;
+    const uint64_t test_offset =
+        (uint64_t)TR2_SDMMC2_E1_TEST_BLOCK * UINT64_C(512);
 
     tr2_sdmmc2_init_attempted = 1U;
     tr2_sdmmc2_stage = 1U;
@@ -497,14 +502,6 @@ static void Sdmmc2_Bringup(void)
     __HAL_RCC_GPIOB_CLK_ENABLE();
     __HAL_RCC_GPIOD_CLK_ENABLE();
 
-    /*
-     * SDMMC2 4-bit wiring frozen by H3h-B:
-     * PD6 CK AF11, PD7 CMD AF11,
-     * PB14 D0 / PB15 D1 / PB3 D2 / PB4 D3 AF12.
-     *
-     * The Adafruit 4682 provides pull-ups on the SDIO lines.  Keep MCU
-     * internal pulls disabled for this first physical qualification.
-     */
     gpio.Mode = GPIO_MODE_AF_PP;
     gpio.Pull = GPIO_NOPULL;
     gpio.Speed = GPIO_SPEED_FREQ_VERY_HIGH;
@@ -518,13 +515,6 @@ static void Sdmmc2_Bringup(void)
     HAL_GPIO_Init(GPIOB, &gpio);
 
     periph.PeriphClockSelection = RCC_PERIPHCLK_SDMMC;
-    /*
-     * H3h-C: use PLL1 Q as the SDMMC kernel clock.  The existing system
-     * clock configuration already enables PLL1 with PLLQ = 2, yielding
-     * 160 MHz from the 4 MHz MSI / N=80 VCO.  HAL_SD_InitCard() will
-     * derive the <=400 kHz identification clock from this kernel clock.
-     * This avoids selecting CK48 without configuring a CK48 source.
-     */
     periph.SdmmcClockSelection = RCC_SDMMCCLKSOURCE_PLL1;
     if (HAL_RCCEx_PeriphCLKConfig(&periph) != HAL_OK) {
         tr2_sdmmc2_stage = 2U;
@@ -542,26 +532,13 @@ static void Sdmmc2_Bringup(void)
     hsd2.Init.ClockPowerSave = SDMMC_CLOCK_POWER_SAVE_DISABLE;
     hsd2.Init.BusWide = SDMMC_BUS_WIDE_1B;
     hsd2.Init.HardwareFlowControl = SDMMC_HARDWARE_FLOW_CONTROL_DISABLE;
-    /*
-     * H3h-C2c: keep the physically proven 1-bit / 10 MHz path (ClockDiv=8).
-     * This tranche measures a bounded destructive raw write plus read-back
-     * verification against the frozen 426672 B/s payload rate.  The unresolved
-     * 4-bit path remains deliberately outside the critical path.
-     */
     hsd2.Init.ClockDiv = 8U;
 
     tr2_sdmmc2_stage = 4U;
     tr2_sdmmc2_init_status = (uint32_t)HAL_SD_Init(&hsd2);
     tr2_sdmmc2_error_code = hsd2.ErrorCode;
     if (tr2_sdmmc2_init_status != (uint32_t)HAL_OK) {
-        /*
-         * Snapshot the controller at the failing HAL_SD_Init() boundary.
-         * CMD.CMDINDEX identifies the last command loaded by the LL driver;
-         * STA/RESP1/CLKCR/POWER preserve the peripheral evidence without
-         * issuing any additional SD command or media access.
-         */
         tr2_sdmmc2_last_cmd = SDMMC2->CMD & SDMMC_CMD_CMDINDEX;
-        /* SD_PowerON() and SD_InitCard() completed before HAL's CMD16. */
         tr2_sdmmc2_pre_cmd16_card_type = hsd2.SdCard.CardType;
         tr2_sdmmc2_pre_cmd16_card_version = hsd2.SdCard.CardVersion;
         tr2_sdmmc2_pre_cmd16_card_class = hsd2.SdCard.Class;
@@ -579,134 +556,150 @@ static void Sdmmc2_Bringup(void)
     }
 
     tr2_sdmmc2_stage = 6U;
-
-    /*
-     * H3h-C2a deliberately stays in the initialized 1-bit bus mode.
-     * HAL_SD_GetCardInfo() is non-destructive and establishes the logical
-     * geometry before the bounded raw read below.
-     */
-    tr2_sdmmc2_stage = 8U;
-    tr2_sdmmc2_error_code = hsd2.ErrorCode;
     tr2_sdmmc2_card_info_status =
         (uint32_t)HAL_SD_GetCardInfo(&hsd2, &card_info);
     tr2_sdmmc2_error_code = hsd2.ErrorCode;
-    if (tr2_sdmmc2_card_info_status == (uint32_t)HAL_OK) {
-        uint32_t start_tick;
-        uint32_t end_tick;
-
-        tr2_sdmmc2_stage = 9U;
-        tr2_sdmmc2_card_type = card_info.CardType;
-        tr2_sdmmc2_card_version = card_info.CardVersion;
-        tr2_sdmmc2_card_class = card_info.Class;
-        tr2_sdmmc2_relative_card_address = card_info.RelCardAdd;
-        tr2_sdmmc2_log_block_nbr = card_info.LogBlockNbr;
-        tr2_sdmmc2_log_block_size = card_info.LogBlockSize;
-        tr2_sdmmc2_block_nbr = card_info.BlockNbr;
-        tr2_sdmmc2_block_size = card_info.BlockSize;
-
-        if ((card_info.LogBlockSize != 512U) ||
-            (card_info.LogBlockNbr <
-             (TR2_SDMMC2_WRITE_TEST_BLOCK + TR2_SDMMC2_WRITE_TOTAL_BLOCK_COUNT))) {
-            tr2_sdmmc2_stage = 10U;
-            return;
-        }
-
-        for (uint32_t i = 0U; i < TR2_SDMMC2_WRITE_CHUNK_SIZE; ++i) {
-            tr2_sdmmc2_write_buffer[i] =
-                (uint8_t)(((i * UINT32_C(37)) + UINT32_C(0x5A)) & UINT32_C(0xFF));
-        }
-
-        start_tick = HAL_GetTick();
-        for (uint32_t chunk = 0U; chunk < TR2_SDMMC2_WRITE_CHUNK_COUNT; ++chunk) {
-            uint32_t chunk_start = HAL_GetTick();
-            uint32_t block =
-                TR2_SDMMC2_WRITE_TEST_BLOCK +
-                (chunk * TR2_SDMMC2_WRITE_CHUNK_BLOCK_COUNT);
-
-            tr2_sdmmc2_write_status = (uint32_t)HAL_SD_WriteBlocks(
-                &hsd2, tr2_sdmmc2_write_buffer, block,
-                TR2_SDMMC2_WRITE_CHUNK_BLOCK_COUNT, TR2_SDMMC2_WRITE_TIMEOUT_MS);
-            if (tr2_sdmmc2_write_status != (uint32_t)HAL_OK) {
-                tr2_sdmmc2_write_elapsed_ms = HAL_GetTick() - start_tick;
-                tr2_sdmmc2_error_code = hsd2.ErrorCode;
-                tr2_sdmmc2_stage = 11U;
-                return;
-            }
-
-            {
-                uint32_t ready_deadline = HAL_GetTick() + TR2_SDMMC2_READY_TIMEOUT_MS;
-                HAL_SD_CardStateTypeDef card_state;
-
-                do {
-                    card_state = HAL_SD_GetCardState(&hsd2);
-                    tr2_sdmmc2_ready_state = (uint32_t)card_state;
-                    if (card_state == HAL_SD_CARD_TRANSFER) {
-                        break;
-                    }
-                } while ((int32_t)(HAL_GetTick() - ready_deadline) < 0);
-
-                if (tr2_sdmmc2_ready_state != (uint32_t)HAL_SD_CARD_TRANSFER) {
-                    tr2_sdmmc2_write_elapsed_ms = HAL_GetTick() - start_tick;
-                    tr2_sdmmc2_error_code = hsd2.ErrorCode;
-                    tr2_sdmmc2_stage = 12U;
-                    return;
-                }
-            }
-
-            tr2_sdmmc2_write_chunk_elapsed_ms[chunk] =
-                HAL_GetTick() - chunk_start;
-            if (tr2_sdmmc2_write_chunk_elapsed_ms[chunk] != 0U) {
-                tr2_sdmmc2_write_chunk_throughput_bps[chunk] =
-                    (uint32_t)(((uint64_t)TR2_SDMMC2_WRITE_CHUNK_SIZE *
-                                UINT64_C(1000)) /
-                               tr2_sdmmc2_write_chunk_elapsed_ms[chunk]);
-            }
-            tr2_sdmmc2_write_completed_chunks = chunk + 1U;
-        }
-
-        end_tick = HAL_GetTick();
-        tr2_sdmmc2_write_elapsed_ms = end_tick - start_tick;
-        tr2_sdmmc2_write_bytes = TR2_SDMMC2_WRITE_TOTAL_SIZE;
-        if (tr2_sdmmc2_write_elapsed_ms != 0U) {
-            tr2_sdmmc2_write_throughput_bps =
-                (uint32_t)(((uint64_t)tr2_sdmmc2_write_bytes * UINT64_C(1000)) /
-                           tr2_sdmmc2_write_elapsed_ms);
-        }
-
-        for (uint32_t chunk = 0U; chunk < TR2_SDMMC2_WRITE_CHUNK_COUNT; ++chunk) {
-            uint32_t block =
-                TR2_SDMMC2_WRITE_TEST_BLOCK +
-                (chunk * TR2_SDMMC2_WRITE_CHUNK_BLOCK_COUNT);
-
-            for (uint32_t i = 0U; i < TR2_SDMMC2_WRITE_CHUNK_SIZE; ++i) {
-                tr2_sdmmc2_verify_buffer[i] = 0U;
-            }
-
-            tr2_sdmmc2_verify_read_status = (uint32_t)HAL_SD_ReadBlocks(
-                &hsd2, tr2_sdmmc2_verify_buffer, block,
-                TR2_SDMMC2_WRITE_CHUNK_BLOCK_COUNT, TR2_SDMMC2_WRITE_TIMEOUT_MS);
-            if (tr2_sdmmc2_verify_read_status != (uint32_t)HAL_OK) {
-                tr2_sdmmc2_error_code = hsd2.ErrorCode;
-                tr2_sdmmc2_stage = 13U;
-                return;
-            }
-
-            for (uint32_t i = 0U; i < TR2_SDMMC2_WRITE_CHUNK_SIZE; ++i) {
-                if (tr2_sdmmc2_verify_buffer[i] != tr2_sdmmc2_write_buffer[i]) {
-                    if (tr2_sdmmc2_verify_mismatch_count == 0U) {
-                        tr2_sdmmc2_verify_first_mismatch =
-                            (chunk * TR2_SDMMC2_WRITE_CHUNK_SIZE) + i;
-                    }
-                    ++tr2_sdmmc2_verify_mismatch_count;
-                }
-            }
-            tr2_sdmmc2_verify_completed_chunks = chunk + 1U;
-        }
-
-        tr2_sdmmc2_error_code = hsd2.ErrorCode;
-        tr2_sdmmc2_stage =
-            (tr2_sdmmc2_verify_mismatch_count == 0U) ? 14U : 15U;
+    if (tr2_sdmmc2_card_info_status != (uint32_t)HAL_OK) {
+        tr2_sdmmc2_stage = 7U;
+        return;
     }
+
+    tr2_sdmmc2_card_type = card_info.CardType;
+    tr2_sdmmc2_card_version = card_info.CardVersion;
+    tr2_sdmmc2_card_class = card_info.Class;
+    tr2_sdmmc2_relative_card_address = card_info.RelCardAdd;
+    tr2_sdmmc2_log_block_nbr = card_info.LogBlockNbr;
+    tr2_sdmmc2_log_block_size = card_info.LogBlockSize;
+    tr2_sdmmc2_block_nbr = card_info.BlockNbr;
+    tr2_sdmmc2_block_size = card_info.BlockSize;
+
+    if ((card_info.LogBlockSize != 512U) ||
+        (card_info.LogBlockNbr <
+         (TR2_SDMMC2_E1_TEST_BLOCK + TR2_SDMMC2_E1_TEST_BLOCK_COUNT))) {
+        tr2_sdmmc2_stage = 8U;
+        return;
+    }
+
+    tr2_sdmmc2_e1_init_result =
+        (uint32_t)stm32_sdmmc_bulk_media_init(
+            &adapter,
+            &hsd2,
+            tr2_sdmmc2_e1_sector_scratch,
+            sizeof(tr2_sdmmc2_e1_sector_scratch),
+            TR2_SDMMC2_WRITE_TIMEOUT_MS,
+            TR2_SDMMC2_READY_TIMEOUT_MS);
+    if (tr2_sdmmc2_e1_init_result != (uint32_t)TR2_OK) {
+        tr2_sdmmc2_stage = 9U;
+        return;
+    }
+
+    media = stm32_sdmmc_bulk_media_interface(&adapter);
+    tr2_sdmmc2_e1_capacity_result =
+        (uint32_t)campaign_bulk_media_capacity(
+            &media, (uint64_t *)&tr2_sdmmc2_e1_capacity_bytes);
+    if (tr2_sdmmc2_e1_capacity_result != (uint32_t)TR2_OK) {
+        tr2_sdmmc2_stage = 10U;
+        return;
+    }
+
+    for (uint32_t i = 0U; i < TR2_SDMMC2_E1_TEST_SIZE; ++i) {
+        tr2_sdmmc2_e1_expected[i] =
+            (uint8_t)(((i * UINT32_C(29)) + UINT32_C(0x31)) & UINT32_C(0xFF));
+    }
+    for (uint32_t i = 0U; i < TR2_SDMMC2_E1_PARTIAL_SIZE; ++i) {
+        tr2_sdmmc2_e1_partial[i] =
+            (uint8_t)(((i * UINT32_C(17)) + UINT32_C(0xA3)) & UINT32_C(0xFF));
+        tr2_sdmmc2_e1_expected[TR2_SDMMC2_E1_PARTIAL_OFFSET + i] =
+            tr2_sdmmc2_e1_partial[i];
+    }
+    for (uint32_t i = 0U; i < TR2_SDMMC2_E1_ALIGNED_SIZE; ++i) {
+        tr2_sdmmc2_e1_aligned[i] =
+            (uint8_t)(((i * UINT32_C(43)) + UINT32_C(0x5C)) & UINT32_C(0xFF));
+        tr2_sdmmc2_e1_expected[TR2_SDMMC2_E1_ALIGNED_OFFSET + i] =
+            tr2_sdmmc2_e1_aligned[i];
+    }
+
+    tr2_sdmmc2_e1_seed_write_result =
+        (uint32_t)campaign_bulk_media_write(
+            &media,
+            test_offset,
+            tr2_sdmmc2_e1_expected,
+            TR2_SDMMC2_E1_TEST_SIZE);
+    if (tr2_sdmmc2_e1_seed_write_result != (uint32_t)TR2_OK) {
+        tr2_sdmmc2_stage = 11U;
+        return;
+    }
+
+    /*
+     * Restore the seed bytes in RAM before applying the two modifications:
+     * the first write above intentionally established the baseline media image.
+     */
+    for (uint32_t i = 0U; i < TR2_SDMMC2_E1_TEST_SIZE; ++i) {
+        tr2_sdmmc2_e1_expected[i] =
+            (uint8_t)(((i * UINT32_C(29)) + UINT32_C(0x31)) & UINT32_C(0xFF));
+    }
+
+    tr2_sdmmc2_e1_partial_write_result =
+        (uint32_t)campaign_bulk_media_write(
+            &media,
+            test_offset + TR2_SDMMC2_E1_PARTIAL_OFFSET,
+            tr2_sdmmc2_e1_partial,
+            TR2_SDMMC2_E1_PARTIAL_SIZE);
+    if (tr2_sdmmc2_e1_partial_write_result != (uint32_t)TR2_OK) {
+        tr2_sdmmc2_stage = 12U;
+        return;
+    }
+    for (uint32_t i = 0U; i < TR2_SDMMC2_E1_PARTIAL_SIZE; ++i) {
+        tr2_sdmmc2_e1_expected[TR2_SDMMC2_E1_PARTIAL_OFFSET + i] =
+            tr2_sdmmc2_e1_partial[i];
+    }
+
+    tr2_sdmmc2_e1_aligned_write_result =
+        (uint32_t)campaign_bulk_media_write(
+            &media,
+            test_offset + TR2_SDMMC2_E1_ALIGNED_OFFSET,
+            tr2_sdmmc2_e1_aligned,
+            TR2_SDMMC2_E1_ALIGNED_SIZE);
+    if (tr2_sdmmc2_e1_aligned_write_result != (uint32_t)TR2_OK) {
+        tr2_sdmmc2_stage = 13U;
+        return;
+    }
+    for (uint32_t i = 0U; i < TR2_SDMMC2_E1_ALIGNED_SIZE; ++i) {
+        tr2_sdmmc2_e1_expected[TR2_SDMMC2_E1_ALIGNED_OFFSET + i] =
+            tr2_sdmmc2_e1_aligned[i];
+    }
+
+    tr2_sdmmc2_e1_sync_result =
+        (uint32_t)campaign_bulk_media_sync(&media);
+    if (tr2_sdmmc2_e1_sync_result != (uint32_t)TR2_OK) {
+        tr2_sdmmc2_stage = 14U;
+        return;
+    }
+
+    memset(tr2_sdmmc2_e1_verify, 0, sizeof(tr2_sdmmc2_e1_verify));
+    tr2_sdmmc2_e1_read_result =
+        (uint32_t)campaign_bulk_media_read(
+            &media,
+            test_offset,
+            tr2_sdmmc2_e1_verify,
+            TR2_SDMMC2_E1_TEST_SIZE);
+    if (tr2_sdmmc2_e1_read_result != (uint32_t)TR2_OK) {
+        tr2_sdmmc2_stage = 15U;
+        return;
+    }
+
+    for (uint32_t i = 0U; i < TR2_SDMMC2_E1_TEST_SIZE; ++i) {
+        if (tr2_sdmmc2_e1_verify[i] != tr2_sdmmc2_e1_expected[i]) {
+            if (tr2_sdmmc2_e1_mismatch_count == 0U) {
+                tr2_sdmmc2_e1_first_mismatch = i;
+            }
+            ++tr2_sdmmc2_e1_mismatch_count;
+        }
+    }
+
+    tr2_sdmmc2_error_code = hsd2.ErrorCode;
+    tr2_sdmmc2_stage =
+        (tr2_sdmmc2_e1_mismatch_count == 0U) ? 16U : 17U;
 }
 
 static void Error_Handler(void);
