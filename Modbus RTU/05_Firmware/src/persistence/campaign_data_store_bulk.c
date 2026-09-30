@@ -103,8 +103,16 @@ static Tr2Result scan_layout(CampaignDataStoreBulk *store,
                 if (seen_ids[seen] == recovery.descriptor.campaign_id) {
                     return TR2_ERROR_CORRUPTED;
                 }
-                if (recovery.descriptor.data_base < seen_ends[seen] &&
-                    seen_bases[seen] < physical_end) {
+                /*
+                 * A zero-prefix campaign still durably reserves its
+                 * data_base. A reservation strictly inside another durable
+                 * extent is therefore a corrupted layout. Equality with an
+                 * extent end remains valid for append-only allocation.
+                 */
+                if ((recovery.descriptor.data_base < seen_ends[seen] &&
+                     seen_bases[seen] <= recovery.descriptor.data_base) ||
+                    (seen_bases[seen] < physical_end &&
+                     recovery.descriptor.data_base <= seen_bases[seen])) {
                     return TR2_ERROR_CORRUPTED;
                 }
             }
