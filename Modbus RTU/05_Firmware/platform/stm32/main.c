@@ -214,6 +214,116 @@ static CampaignBulkMedia BulkWindowInterface(Tr2BulkMediaWindow *window)
     return media;
 }
 
+
+/*
+ * H3h-E4 physical power-loss qualification.
+ *
+ * One binary drives both cut scenarios from durable on-card state.  The
+ * fault-injection media delegates real I/O, then latches at deterministic
+ * transaction boundaries.  The operator removes board power only after the
+ * cut flag/stage is visible.
+ */
+#define TR2_SDMMC2_E4_CAMPAIGN_PAYLOAD_CUT UINT32_C(0xE401)
+#define TR2_SDMMC2_E4_CAMPAIGN_METADATA_CUT UINT32_C(0xE402)
+#define TR2_SDMMC2_E4_RECORD_BYTES ((size_t)16U)
+
+typedef enum {
+    TR2_E4_INJECT_NONE = 0,
+    TR2_E4_INJECT_AFTER_PAYLOAD_SYNC,
+    TR2_E4_INJECT_AFTER_METADATA_WRITE
+} Tr2E4InjectMode;
+
+typedef struct {
+    CampaignBulkMedia underlying;
+    Tr2E4InjectMode mode;
+    uint64_t metadata_limit;
+    uint32_t sync_count;
+} Tr2E4Media;
+
+static uint8_t tr2_sdmmc2_e4_payload_buffer[TR2_SDMMC2_E3_PAYLOAD_BUFFER_SIZE];
+static uint8_t tr2_sdmmc2_e4_block_scratch[TR2_SDMMC2_E3_BLOCK_SCRATCH_SIZE];
+static uint8_t tr2_sdmmc2_e4_record[TR2_SDMMC2_E4_RECORD_BYTES];
+
+volatile uint32_t tr2_sdmmc2_e4_phase = 0U;
+volatile uint32_t tr2_sdmmc2_e4_cut_point_reached = 0U;
+volatile uint32_t tr2_sdmmc2_e4_last_result = UINT32_MAX;
+volatile uint32_t tr2_sdmmc2_e4_recovery_status = UINT32_MAX;
+volatile uint64_t tr2_sdmmc2_e4_recovered_prefix_bytes = 0U;
+
+static void E4CutPowerPoint(uint32_t phase)
+{
+    tr2_sdmmc2_e4_phase = phase;
+    tr2_sdmmc2_e4_cut_point_reached = 1U;
+    HAL_GPIO_WritePin(TR2_BRINGUP_LED_PORT,
+                      TR2_BRINGUP_LED_PIN,
+                      GPIO_PIN_SET);
+    __disable_irq();
+    for (;;) {
+        /* Deterministic physical cut point: operator removes board power. */
+    }
+}
+
+static Tr2Result E4Capacity(void *context, uint64_t *capacity)
+{
+    Tr2E4Media *adapter = (Tr2E4Media *)context;
+    return campaign_bulk_media_capacity(&adapter->underlying, capacity);
+}
+
+static Tr2Result E4Read(void *context,
+                        uint64_t offset,
+                        void *buffer,
+                        size_t size)
+{
+    Tr2E4Media *adapter = (Tr2E4Media *)context;
+    return campaign_bulk_media_read(&adapter->underlying, offset, buffer, size);
+}
+
+static Tr2Result E4Write(void *context,
+                         uint64_t offset,
+                         const void *buffer,
+                         size_t size)
+{
+    Tr2E4Media *adapter = (Tr2E4Media *)context;
+    Tr2Result result =
+        campaign_bulk_media_write(&adapter->underlying, offset, buffer, size);
+
+    if (result == TR2_OK &&
+        adapter->mode == TR2_E4_INJECT_AFTER_METADATA_WRITE &&
+        offset < adapter->metadata_limit &&
+        size == TR2_CAMPAIGN_BULK_DESCRIPTOR_SIZE) {
+        E4CutPowerPoint(4U);
+    }
+    return result;
+}
+
+static Tr2Result E4Sync(void *context)
+{
+    Tr2E4Media *adapter = (Tr2E4Media *)context;
+    Tr2Result result = campaign_bulk_media_sync(&adapter->underlying);
+
+    if (result != TR2_OK) {
+        return result;
+    }
+    adapter->sync_count += 1U;
+    /*
+     * During checkpoint(), the first sync is the payload durability barrier;
+     * the descriptor publication sync would be the second.
+     */
+    if (adapter->mode == TR2_E4_INJECT_AFTER_PAYLOAD_SYNC &&
+        adapter->sync_count == 1U) {
+        E4CutPowerPoint(2U);
+    }
+    return TR2_OK;
+}
+
+static CampaignBulkMedia E4Interface(Tr2E4Media *adapter)
+{
+    CampaignBulkMedia media = {
+        adapter, E4Capacity, E4Read, E4Write, E4Sync
+    };
+    return media;
+}
+
 #define TR2_IIS3DWB_CS_PORT GPIOC
 #define TR2_IIS3DWB_CS_PIN GPIO_PIN_9
 #define TR2_IIS3DWB_WHO_AM_I_REG 0x0FU
