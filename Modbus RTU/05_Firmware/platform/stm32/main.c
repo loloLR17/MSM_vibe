@@ -230,7 +230,7 @@ static CampaignBulkMedia BulkWindowInterface(Tr2BulkMediaWindow *window)
 #define TR2_SDMMC2_E4_MARKER_BLOCK UINT32_C(5120)
 #define TR2_SDMMC2_E4_MARKER_OFFSET \
     ((uint64_t)TR2_SDMMC2_E4_MARKER_BLOCK * UINT64_C(512))
-#define TR2_SDMMC2_E4_MARKER_MAGIC UINT32_C(0x45344631)
+#define TR2_SDMMC2_E4_MARKER_MAGIC UINT32_C(0x45344632)
 #define TR2_SDMMC2_E4_MARKER_STATE_FRESH UINT32_C(1)
 #define TR2_SDMMC2_E4_MARKER_STATE_PAYLOAD_CUT UINT32_C(2)
 #define TR2_SDMMC2_E4_MARKER_STATE_METADATA_CUT UINT32_C(3)
@@ -1248,6 +1248,11 @@ static void Sdmmc2_Bringup(void)
             (void)iface->checkpoint(
                 iface->context, TR2_SDMMC2_E4_CAMPAIGN_METADATA_CUT);
             tr2_sdmmc2_stage = 36U;
+            return;
+        }
+
+        if (marker.state != TR2_SDMMC2_E4_MARKER_STATE_METADATA_CUT) {
+            tr2_sdmmc2_stage = 37U;
             return;
         }
 
