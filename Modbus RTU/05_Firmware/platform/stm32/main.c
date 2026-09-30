@@ -55,16 +55,23 @@ volatile uint32_t tr2_sdmmc2_log_block_size = 0U;
 volatile uint32_t tr2_sdmmc2_block_nbr = 0U;
 volatile uint32_t tr2_sdmmc2_block_size = 0U;
 
-/* H3h-C read-only data-path qualification: two reads of logical block 0. */
+/*
+ * H3h-C2a read-only throughput probe on the already proven 1-bit / 10 MHz
+ * path.  Read 128 contiguous logical blocks (64 KiB) in one raw transaction.
+ * No block write, erase, format or filesystem operation is issued.
+ */
 #define TR2_SDMMC2_READ_TEST_BLOCK UINT32_C(0)
-#define TR2_SDMMC2_READ_TEST_SIZE  512U
+#define TR2_SDMMC2_READ_TEST_BLOCK_COUNT UINT32_C(128)
+#define TR2_SDMMC2_READ_TEST_BLOCK_SIZE 512U
+#define TR2_SDMMC2_READ_TEST_SIZE \
+    (TR2_SDMMC2_READ_TEST_BLOCK_COUNT * TR2_SDMMC2_READ_TEST_BLOCK_SIZE)
 #define TR2_SDMMC2_READ_TIMEOUT_MS 1000U
-static uint8_t tr2_sdmmc2_read_a[TR2_SDMMC2_READ_TEST_SIZE];
-static uint8_t tr2_sdmmc2_read_b[TR2_SDMMC2_READ_TEST_SIZE];
-volatile uint32_t tr2_sdmmc2_read1_status = (uint32_t)HAL_ERROR;
-volatile uint32_t tr2_sdmmc2_read2_status = (uint32_t)HAL_ERROR;
-volatile uint32_t tr2_sdmmc2_read_match = 0U;
+static uint8_t tr2_sdmmc2_read_buffer[TR2_SDMMC2_READ_TEST_SIZE];
+volatile uint32_t tr2_sdmmc2_read_status = (uint32_t)HAL_ERROR;
 volatile uint32_t tr2_sdmmc2_read_nonzero = 0U;
+volatile uint32_t tr2_sdmmc2_read_elapsed_ms = 0U;
+volatile uint32_t tr2_sdmmc2_read_bytes = 0U;
+volatile uint32_t tr2_sdmmc2_read_throughput_bps = 0U;
 
 #define TR2_IIS3DWB_CS_PORT GPIOC
 #define TR2_IIS3DWB_CS_PIN GPIO_PIN_9
@@ -521,19 +528,12 @@ static void Sdmmc2_ReadOnlyBringup(void)
     hsd2.Init.BusWide = SDMMC_BUS_WIDE_1B;
     hsd2.Init.HardwareFlowControl = SDMMC_HARDWARE_FLOW_CONTROL_DISABLE;
     /*
-     * H3h-C frequency characterization: 10 MHz (ClockDiv=8), 20 MHz
-     * (ClockDiv=4) and approximately 26.7 MHz (ClockDiv=3) are physically
-     * proven through HAL_SD_Init(), 4-bit bus configuration and
-     * HAL_SD_GetCardInfo(); 40 MHz (ClockDiv=2) fails in HAL_SD_Init() with
-     * SDMMC_ERROR_CMD_RSP_TIMEOUT.  Retain 20 MHz as the conservative
-     * qualification rate, leaving margin below the observed failure region.
-     * H3h-C 4-bit fault isolation: temporarily use 1 MHz (ClockDiv=80).
-     * The preceding 1-bit / 10 MHz probe proved CLK, CMD and D0 through two
-     * stable block-0 reads.  This deliberately low rate discriminates a
-     * frequency/signal-integrity margin issue on D1..D3 from a persistent
-     * 4-bit path/topology fault.  No media write is issued.
+     * H3h-C2a: return to the physically proven 1-bit / 10 MHz path
+     * (ClockDiv=8).  The purpose of this tranche is only to measure raw
+     * sustained read throughput against the frozen 426672 B/s payload rate.
+     * The unresolved 4-bit path is deliberately kept out of this probe.
      */
-    hsd2.Init.ClockDiv = 80U;
+    hsd2.Init.ClockDiv = 8U;
 
     tr2_sdmmc2_stage = 4U;
     tr2_sdmmc2_init_status = (uint32_t)HAL_SD_Init(&hsd2);
@@ -566,22 +566,19 @@ static void Sdmmc2_ReadOnlyBringup(void)
     tr2_sdmmc2_stage = 6U;
 
     /*
-     * Widen only after the mandatory 1-bit card initialization sequence.
-     * This is a protocol/configuration operation, not a media write.
+     * H3h-C2a deliberately stays in the initialized 1-bit bus mode.
+     * HAL_SD_GetCardInfo() is non-destructive and establishes the logical
+     * geometry before the bounded raw read below.
      */
-    if (HAL_SD_ConfigWideBusOperation(&hsd2, SDMMC_BUS_WIDE_4B) != HAL_OK) {
-        tr2_sdmmc2_error_code = hsd2.ErrorCode;
-        tr2_sdmmc2_stage = 7U;
-        tr2_sdmmc2_card_info_status = (uint32_t)HAL_ERROR;
-        return;
-    }
-
     tr2_sdmmc2_stage = 8U;
     tr2_sdmmc2_error_code = hsd2.ErrorCode;
     tr2_sdmmc2_card_info_status =
         (uint32_t)HAL_SD_GetCardInfo(&hsd2, &card_info);
     tr2_sdmmc2_error_code = hsd2.ErrorCode;
     if (tr2_sdmmc2_card_info_status == (uint32_t)HAL_OK) {
+        uint32_t start_tick;
+        uint32_t end_tick;
+
         tr2_sdmmc2_stage = 9U;
         tr2_sdmmc2_card_type = card_info.CardType;
         tr2_sdmmc2_card_version = card_info.CardVersion;
@@ -592,41 +589,41 @@ static void Sdmmc2_ReadOnlyBringup(void)
         tr2_sdmmc2_block_nbr = card_info.BlockNbr;
         tr2_sdmmc2_block_size = card_info.BlockSize;
 
-        /*
-         * Qualify the real 4-bit data path without modifying the card:
-         * read logical block 0 twice and require byte-for-byte stability.
-         * No write, erase, format or filesystem operation is issued.
-         */
-        tr2_sdmmc2_read1_status = (uint32_t)HAL_SD_ReadBlocks(
-            &hsd2, tr2_sdmmc2_read_a, TR2_SDMMC2_READ_TEST_BLOCK,
-            1U, TR2_SDMMC2_READ_TIMEOUT_MS);
-        if (tr2_sdmmc2_read1_status != (uint32_t)HAL_OK) {
-            tr2_sdmmc2_error_code = hsd2.ErrorCode;
+        if ((card_info.LogBlockSize != TR2_SDMMC2_READ_TEST_BLOCK_SIZE) ||
+            (card_info.LogBlockNbr < TR2_SDMMC2_READ_TEST_BLOCK_COUNT)) {
             tr2_sdmmc2_stage = 10U;
             return;
         }
 
-        tr2_sdmmc2_read2_status = (uint32_t)HAL_SD_ReadBlocks(
-            &hsd2, tr2_sdmmc2_read_b, TR2_SDMMC2_READ_TEST_BLOCK,
-            1U, TR2_SDMMC2_READ_TIMEOUT_MS);
-        if (tr2_sdmmc2_read2_status != (uint32_t)HAL_OK) {
+        start_tick = HAL_GetTick();
+        tr2_sdmmc2_read_status = (uint32_t)HAL_SD_ReadBlocks(
+            &hsd2, tr2_sdmmc2_read_buffer, TR2_SDMMC2_READ_TEST_BLOCK,
+            TR2_SDMMC2_READ_TEST_BLOCK_COUNT, TR2_SDMMC2_READ_TIMEOUT_MS);
+        end_tick = HAL_GetTick();
+        tr2_sdmmc2_read_elapsed_ms = end_tick - start_tick;
+
+        if (tr2_sdmmc2_read_status != (uint32_t)HAL_OK) {
             tr2_sdmmc2_error_code = hsd2.ErrorCode;
             tr2_sdmmc2_stage = 11U;
             return;
         }
 
-        tr2_sdmmc2_read_match = 1U;
+        tr2_sdmmc2_read_bytes = TR2_SDMMC2_READ_TEST_SIZE;
+        if (tr2_sdmmc2_read_elapsed_ms != 0U) {
+            tr2_sdmmc2_read_throughput_bps =
+                (uint32_t)(((uint64_t)tr2_sdmmc2_read_bytes * UINT64_C(1000)) /
+                           tr2_sdmmc2_read_elapsed_ms);
+        }
+
         for (uint32_t i = 0U; i < TR2_SDMMC2_READ_TEST_SIZE; ++i) {
-            if (tr2_sdmmc2_read_a[i] != tr2_sdmmc2_read_b[i]) {
-                tr2_sdmmc2_read_match = 0U;
-            }
-            if (tr2_sdmmc2_read_a[i] != 0U) {
+            if (tr2_sdmmc2_read_buffer[i] != 0U) {
                 tr2_sdmmc2_read_nonzero = 1U;
+                break;
             }
         }
 
         tr2_sdmmc2_error_code = hsd2.ErrorCode;
-        tr2_sdmmc2_stage = (tr2_sdmmc2_read_match == 1U) ? 12U : 13U;
+        tr2_sdmmc2_stage = (tr2_sdmmc2_read_nonzero == 1U) ? 12U : 13U;
     }
 }
 
