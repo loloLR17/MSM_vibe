@@ -55,6 +55,7 @@ add_library(tr2_core STATIC
     src/modbus/rtu_server_runtime.c
     src/modbus/write_adapter.c
     src/persistence/campaign_bulk_aggregator.c
+    src/persistence/campaign_bulk_block.c
     src/persistence/campaign_bulk_checkpoint.c
     src/persistence/campaign_bulk_media.c
     src/persistence/campaign_bulk_metadata.c
@@ -125,6 +126,7 @@ tr2_add_core_test(test_configuration_record tests/unit/test_configuration_record
 tr2_add_core_test(test_campaign_record tests/unit/test_campaign_record.c campaign_record)
 tr2_add_core_test(test_campaign_repository_store tests/unit/test_campaign_repository_store.c campaign_repository_store)
 tr2_add_core_test(test_campaign_bulk_aggregator tests/unit/test_campaign_bulk_aggregator.c campaign_bulk_aggregator)
+tr2_add_core_test(test_campaign_bulk_block tests/unit/test_campaign_bulk_block.c campaign_bulk_block)
 tr2_add_core_test(test_campaign_bulk_checkpoint tests/unit/test_campaign_bulk_checkpoint.c campaign_bulk_checkpoint)
 tr2_add_core_test(test_campaign_bulk_media tests/unit/test_campaign_bulk_media.c campaign_bulk_media)
 tr2_add_core_test(test_campaign_bulk_metadata tests/unit/test_campaign_bulk_metadata.c campaign_bulk_metadata)
