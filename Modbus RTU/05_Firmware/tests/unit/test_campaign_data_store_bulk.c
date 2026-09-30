@@ -85,6 +85,27 @@ static void init_store(FakeMedia *fake,
                                          BLOCK_SCRATCH_SIZE) == TR2_OK);
 }
 
+
+static void install_descriptor(FakeMedia *fake,
+                               size_t slot,
+                               CampaignId campaign_id,
+                               uint64_t data_base,
+                               uint64_t durable_prefix_bytes)
+{
+    CampaignBulkDescriptor descriptor;
+    uint8_t record[TR2_CAMPAIGN_BULK_DESCRIPTOR_SIZE];
+    size_t offset = slot * 2u * TR2_CAMPAIGN_BULK_DESCRIPTOR_SIZE;
+
+    descriptor.generation = 1u;
+    descriptor.campaign_id = campaign_id;
+    descriptor.state = CAMPAIGN_BULK_METADATA_STATE_OPEN;
+    descriptor.data_base = data_base;
+    descriptor.durable_prefix_bytes = durable_prefix_bytes;
+    assert(campaign_bulk_descriptor_encode(&descriptor, record) == TR2_OK);
+    memcpy(&fake->working[offset], record, sizeof(record));
+    memcpy(&fake->durable[offset], record, sizeof(record));
+}
+
 static void fill(uint8_t *data, size_t size, uint8_t seed)
 {
     size_t i;
@@ -282,8 +303,65 @@ static void test_post_checkpoint_tail_starts_in_fresh_sector(void)
            durable_end + TR2_CAMPAIGN_BULK_PHYSICAL_ALIGNMENT);
 }
 
+
+static void test_duplicate_campaign_ids_corrupt_global_layout(void)
+{
+    FakeMedia fake = { 0 };
+    CampaignBulkMedia media;
+    CampaignDataStoreBulk store;
+    uint8_t buffer[PAYLOAD_BUFFER_SIZE];
+    uint8_t scratch[BLOCK_SCRATCH_SIZE];
+    CampaignDataStore *iface;
+
+    install_descriptor(&fake, 0u, 71u, TR2_CAMPAIGN_BULK_METADATA_BYTES, 0u);
+    install_descriptor(&fake, 1u, 71u,
+                       TR2_CAMPAIGN_BULK_METADATA_BYTES +
+                           TR2_CAMPAIGN_BULK_PHYSICAL_ALIGNMENT,
+                       0u);
+    init_store(&fake, &media, &store, buffer, scratch);
+    iface = campaign_data_store_bulk_interface(&store);
+
+    assert(iface->begin_campaign(iface->context, 72u) == TR2_ERROR_CORRUPTED);
+}
+
+static void test_overlapping_campaign_extents_corrupt_global_layout(void)
+{
+    FakeMedia fake = { 0 };
+    CampaignBulkMedia media;
+    CampaignDataStoreBulk store;
+    uint8_t buffer[PAYLOAD_BUFFER_SIZE];
+    uint8_t scratch[BLOCK_SCRATCH_SIZE];
+    uint8_t payload[16] = { 0 };
+    uint8_t encoded[BLOCK_SCRATCH_SIZE];
+    size_t encoded_size;
+    CampaignDataStore *iface;
+
+    assert(campaign_bulk_block_encode(81u, 0u, payload, sizeof(payload),
+                                      encoded, sizeof(encoded),
+                                      &encoded_size) == TR2_OK);
+    memcpy(&fake.working[TR2_CAMPAIGN_BULK_METADATA_BYTES],
+           encoded, encoded_size);
+    memcpy(&fake.durable[TR2_CAMPAIGN_BULK_METADATA_BYTES],
+           encoded, encoded_size);
+    install_descriptor(&fake, 0u, 81u, TR2_CAMPAIGN_BULK_METADATA_BYTES,
+                       sizeof(payload));
+
+    /*
+     * Slot 1 claims a distinct campaign at the same physical base. Its
+     * zero-length prefix is sufficient to make the recovered layout overlap
+     * the first campaign's durable physical extent at the base boundary.
+     */
+    install_descriptor(&fake, 1u, 82u, TR2_CAMPAIGN_BULK_METADATA_BYTES, 0u);
+
+    init_store(&fake, &media, &store, buffer, scratch);
+    iface = campaign_data_store_bulk_interface(&store);
+    assert(iface->begin_campaign(iface->context, 83u) == TR2_ERROR_CORRUPTED);
+}
+
 int main(void)
 {
+    test_duplicate_campaign_ids_corrupt_global_layout();
+    test_overlapping_campaign_extents_corrupt_global_layout();
     test_checkpoint_recovers_exact_prefix();
     test_uncheckpointed_tail_is_not_authority();
     test_post_checkpoint_tail_starts_in_fresh_sector();
