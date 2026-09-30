@@ -10,6 +10,8 @@
 #include "tr2/persistence/campaign_bulk_block.h"
 #include "tr2/persistence/campaign_bulk_media.h"
 
+#define TR2_CAMPAIGN_BULK_PHYSICAL_ALIGNMENT ((size_t)512u)
+
 typedef struct {
     CampaignBulkMedia *media;
     CampaignId campaign_id;
@@ -27,6 +29,9 @@ typedef struct {
     bool initialized;
     bool faulted;
 } CampaignBulkBlockReader;
+
+Tr2Result campaign_bulk_block_physical_extent(size_t encoded_size,
+                                               size_t *physical_extent);
 
 Tr2Result campaign_bulk_block_writer_init(
     CampaignBulkBlockWriter *writer,
