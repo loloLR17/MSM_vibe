@@ -241,7 +241,6 @@ typedef struct {
     CampaignBulkMedia underlying;
     Tr2E4InjectMode mode;
     uint64_t metadata_limit;
-    uint32_t sync_count;
 } Tr2E4Media;
 
 static uint8_t tr2_sdmmc2_e4_payload_buffer[TR2_SDMMC2_E3_PAYLOAD_BUFFER_SIZE];
@@ -308,13 +307,12 @@ static Tr2Result E4Sync(void *context)
     if (result != TR2_OK) {
         return result;
     }
-    adapter->sync_count += 1U;
     /*
-     * During checkpoint(), the first sync is the payload durability barrier;
-     * the descriptor publication sync would be the second.
+     * The injection mode is armed immediately before the transaction under
+     * test. Do not infer the transaction from a global sync counter: earlier
+     * begin/checkpoint operations may already have synchronized the medium.
      */
-    if (adapter->mode == TR2_E4_INJECT_AFTER_PAYLOAD_SYNC &&
-        adapter->sync_count == 1U) {
+    if (adapter->mode == TR2_E4_INJECT_AFTER_PAYLOAD_SYNC) {
         E4CutPowerPoint(2U);
     }
     return TR2_OK;
@@ -1047,7 +1045,6 @@ static void Sdmmc2_Bringup(void)
             }
 
             injector.mode = TR2_E4_INJECT_AFTER_PAYLOAD_SYNC;
-            injector.sync_count = 0U;
             (void)iface->checkpoint(
                 iface->context, TR2_SDMMC2_E4_CAMPAIGN_PAYLOAD_CUT);
             tr2_sdmmc2_stage = 33U;
@@ -1112,7 +1109,6 @@ static void Sdmmc2_Bringup(void)
             }
 
             injector.mode = TR2_E4_INJECT_AFTER_METADATA_WRITE;
-            injector.sync_count = 0U;
             (void)iface->checkpoint(
                 iface->context, TR2_SDMMC2_E4_CAMPAIGN_METADATA_CUT);
             tr2_sdmmc2_stage = 36U;
