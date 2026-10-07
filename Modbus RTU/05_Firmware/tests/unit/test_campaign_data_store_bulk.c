@@ -16,6 +16,8 @@ typedef struct {
     Tr2Result write_result;
     Tr2Result sync_result;
     uint32_t sync_calls;
+    uint64_t fail_read_offset;
+    uint32_t failed_read_calls;
 } FakeMedia;
 
 static Tr2Result fake_capacity(void *context, uint64_t *capacity)
@@ -31,6 +33,10 @@ static Tr2Result fake_read(void *context,uint64_t offset,void *buffer,size_t siz
     if (fake->read_result != TR2_OK) return fake->read_result;
     if (offset > MEDIA_SIZE || size > MEDIA_SIZE - (size_t)offset)
         return TR2_ERROR_STORAGE;
+    if (fake->fail_read_offset != 0u && offset == fake->fail_read_offset) {
+        fake->failed_read_calls += 1u;
+        return TR2_ERROR_STORAGE;
+    }
     memcpy(buffer, &fake->working[(size_t)offset], size);
     return TR2_OK;
 }
@@ -65,6 +71,8 @@ static CampaignBulkMedia make_media(FakeMedia *fake)
 static void reboot(FakeMedia *fake)
 {
     memcpy(fake->working, fake->durable, sizeof(fake->working));
+    fake->fail_read_offset = 0u;
+    fake->failed_read_calls = 0u;
     fake->read_result = TR2_OK;
     fake->write_result = TR2_OK;
     fake->sync_result = TR2_OK;
@@ -136,6 +144,38 @@ static void test_checkpoint_recovers_exact_prefix(void)
     assert(iface->recover_campaign(iface->context, 11u, &recovery) == TR2_OK);
     assert(recovery.status == CAMPAIGN_DATA_RECOVERY_VALID);
     assert(recovery.durable_prefix_bytes == sizeof(data));
+}
+
+static void test_durable_payload_read_failure_is_unavailable(void)
+{
+    FakeMedia fake = { 0 };
+    CampaignBulkMedia media1, media2;
+    CampaignDataStoreBulk store1, store2;
+    uint8_t buffer1[PAYLOAD_BUFFER_SIZE], buffer2[PAYLOAD_BUFFER_SIZE];
+    uint8_t scratch1[BLOCK_SCRATCH_SIZE], scratch2[BLOCK_SCRATCH_SIZE];
+    uint8_t data[16];
+    CampaignDataRecoveryResult recovery;
+    CampaignDataStore *iface;
+
+    fill(data, sizeof(data), 7u);
+    init_store(&fake, &media1, &store1, buffer1, scratch1);
+    iface = campaign_data_store_bulk_interface(&store1);
+    assert(iface->begin_campaign(iface->context, 77u) == TR2_OK);
+    assert(iface->append(iface->context, 77u, data, sizeof(data)) == TR2_OK);
+    assert(iface->checkpoint(iface->context, 77u) == TR2_OK);
+
+    reboot(&fake);
+    init_store(&fake, &media2, &store2, buffer2, scratch2);
+    iface = campaign_data_store_bulk_interface(&store2);
+    assert(iface->recover_campaign(iface->context, 77u, &recovery) == TR2_OK);
+    assert(recovery.status == CAMPAIGN_DATA_RECOVERY_VALID);
+    assert(recovery.durable_prefix_bytes == sizeof(data));
+
+    /* Leave metadata readable; fail only at the first durable data block. */
+    fake.fail_read_offset = TR2_CAMPAIGN_BULK_METADATA_BYTES;
+    assert(iface->recover_campaign(iface->context, 77u, &recovery) == TR2_OK);
+    assert(fake.failed_read_calls == 1u);
+    assert(recovery.status == CAMPAIGN_DATA_RECOVERY_UNAVAILABLE);
 }
 
 static void test_uncheckpointed_tail_is_not_authority(void)
@@ -363,6 +403,7 @@ int main(void)
     test_duplicate_campaign_ids_corrupt_global_layout();
     test_overlapping_campaign_extents_corrupt_global_layout();
     test_checkpoint_recovers_exact_prefix();
+    test_durable_payload_read_failure_is_unavailable();
     test_uncheckpointed_tail_is_not_authority();
     test_post_checkpoint_tail_starts_in_fresh_sector();
     test_finish_and_second_campaign_survive_reboot();

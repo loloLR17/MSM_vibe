@@ -486,7 +486,7 @@ static Tr2Result recover_campaign(void *context,
         store->recovery_required = false;
         return TR2_OK;
     }
-    if (result == TR2_ERROR_UNAVAILABLE) {
+    if (result == TR2_ERROR_UNAVAILABLE || result == TR2_ERROR_STORAGE) {
         out->status = CAMPAIGN_DATA_RECOVERY_UNAVAILABLE;
         return TR2_OK;
     }
