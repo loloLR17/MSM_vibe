@@ -1097,6 +1097,19 @@ static void Sdmmc2_Bringup(void)
                           (size_t)0xFFU);
         }
 
+        /* A partially prepared campaign is not proof of corruption or a cut. */
+        if (marker.state == TR2_SDMMC2_E4_MARKER_STATE_FRESH &&
+            (r401.status != CAMPAIGN_DATA_RECOVERY_EMPTY ||
+             r402.status != CAMPAIGN_DATA_RECOVERY_EMPTY)) {
+            const CampaignDataRecoveryResult *interrupted =
+                r401.status != CAMPAIGN_DATA_RECOVERY_EMPTY ? &r401 : &r402;
+            tr2_sdmmc2_e4_recovery_status = (uint32_t)interrupted->status;
+            tr2_sdmmc2_e4_recovered_prefix_bytes =
+                interrupted->durable_prefix_bytes;
+            tr2_sdmmc2_stage = 34U;
+            return;
+        }
+
         if (marker.state == TR2_SDMMC2_E4_MARKER_STATE_FRESH &&
             r401.status == CAMPAIGN_DATA_RECOVERY_EMPTY) {
             CampaignDataStoreBulk active_store;
@@ -1151,40 +1164,32 @@ static void Sdmmc2_Bringup(void)
                 return;
             }
             injector.mode = TR2_E4_INJECT_AFTER_PAYLOAD_SYNC;
-            (void)iface->checkpoint(
+            result = iface->checkpoint(
                 iface->context, TR2_SDMMC2_E4_CAMPAIGN_PAYLOAD_CUT);
+            tr2_sdmmc2_e4_last_result = (uint32_t)result;
             tr2_sdmmc2_stage = 33U;
             return;
         }
 
-        if (marker.state == TR2_SDMMC2_E4_MARKER_STATE_PAYLOAD_CUT &&
-            r401.status != CAMPAIGN_DATA_RECOVERY_VALID) {
-        if (marker.state == TR2_SDMMC2_E4_MARKER_STATE_PAYLOAD_CUT &&
+        /* Every later state must preserve the payload-cut authority. */
+        if (r401.status != CAMPAIGN_DATA_RECOVERY_VALID ||
             r401.durable_prefix_bytes != UINT64_C(16)) {
             tr2_sdmmc2_e4_recovery_status = (uint32_t)r401.status;
             tr2_sdmmc2_e4_recovered_prefix_bytes =
                 r401.durable_prefix_bytes;
-            tr2_sdmmc2_stage = 34U;
+            tr2_sdmmc2_stage =
+                marker.state == TR2_SDMMC2_E4_MARKER_STATE_PAYLOAD_CUT
+                    ? 34U : 37U;
             return;
         }
 
-        if (marker.state == TR2_SDMMC2_E4_MARKER_STATE_FRESH) {
-            tr2_sdmmc2_stage = 34U;
-            return;
-        }
-
-        if (marker.state == TR2_SDMMC2_E4_MARKER_STATE_DONE) {
-            tr2_sdmmc2_e4_phase = 6U;
+        if (marker.state == TR2_SDMMC2_E4_MARKER_STATE_PAYLOAD_CUT &&
+            r402.status != CAMPAIGN_DATA_RECOVERY_EMPTY) {
+            /* Metadata preparation may have been interrupted before its marker. */
             tr2_sdmmc2_e4_recovery_status = (uint32_t)r402.status;
             tr2_sdmmc2_e4_recovered_prefix_bytes =
                 r402.durable_prefix_bytes;
-            tr2_sdmmc2_stage = 38U;
-            return;
-        }
-            tr2_sdmmc2_e4_recovery_status = (uint32_t)r401.status;
-            tr2_sdmmc2_e4_recovered_prefix_bytes =
-                r401.durable_prefix_bytes;
-            tr2_sdmmc2_stage = 34U;
+            tr2_sdmmc2_stage = 37U;
             return;
         }
 
@@ -1245,13 +1250,15 @@ static void Sdmmc2_Bringup(void)
                 return;
             }
             injector.mode = TR2_E4_INJECT_AFTER_METADATA_WRITE;
-            (void)iface->checkpoint(
+            result = iface->checkpoint(
                 iface->context, TR2_SDMMC2_E4_CAMPAIGN_METADATA_CUT);
+            tr2_sdmmc2_e4_last_result = (uint32_t)result;
             tr2_sdmmc2_stage = 36U;
             return;
         }
 
-        if (marker.state != TR2_SDMMC2_E4_MARKER_STATE_METADATA_CUT) {
+        if (marker.state != TR2_SDMMC2_E4_MARKER_STATE_METADATA_CUT &&
+            marker.state != TR2_SDMMC2_E4_MARKER_STATE_DONE) {
             tr2_sdmmc2_stage = 37U;
             return;
         }
@@ -1260,11 +1267,16 @@ static void Sdmmc2_Bringup(void)
         tr2_sdmmc2_e4_recovery_status = (uint32_t)r402.status;
         tr2_sdmmc2_e4_recovered_prefix_bytes =
             r402.durable_prefix_bytes;
-        if (marker.state != TR2_SDMMC2_E4_MARKER_STATE_METADATA_CUT ||
-            r402.status != CAMPAIGN_DATA_RECOVERY_VALID ||
+        if (r402.status != CAMPAIGN_DATA_RECOVERY_VALID ||
             (r402.durable_prefix_bytes != UINT64_C(16) &&
              r402.durable_prefix_bytes != UINT64_C(32))) {
             tr2_sdmmc2_stage = 37U;
+            return;
+        }
+        /* DONE is idempotent; neither marker proves a physical cut occurred. */
+        if (marker.state == TR2_SDMMC2_E4_MARKER_STATE_DONE) {
+            tr2_sdmmc2_e4_phase = 6U;
+            tr2_sdmmc2_stage = 38U;
             return;
         }
         result = E4MarkerWrite(&media, TR2_SDMMC2_E4_MARKER_STATE_DONE);
