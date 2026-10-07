@@ -3,6 +3,7 @@
 #include <string.h>
 
 #include "tr2/application/system_runtime.h"
+#include "tr2/persistence/campaign_data_store_persistent_composition.h"
 #include "tr2/platform_host/host_platform.h"
 
 static ConfigurationPayload valid_payload(void)
@@ -34,9 +35,10 @@ static SystemRuntimeDependencies make_dependencies(
     TimeContinuityEvidenceProvider *time_continuity,
     PersistentMedia *media,
     const ConfigurationValidationEnvironment *environment,
-    VibrationSource *vibration_source)
+    VibrationSource *vibration_source,
+    CampaignDataStorePersistentComposition *historical_data)
 {
-    SystemRuntimeDependencies deps;
+    SystemRuntimeDependencies deps = {0};
 
     deps.monotonic_clock = monotonic;
     deps.wall_clock = wall;
@@ -45,6 +47,8 @@ static SystemRuntimeDependencies make_dependencies(
     deps.persistent_media = media;
     deps.configuration_validation_environment = environment;
     deps.vibration_source = vibration_source;
+    assert(campaign_data_store_persistent_composition_init(historical_data, media) == TR2_OK);
+    deps.campaign_data_store = campaign_data_store_persistent_interface(&historical_data->store);
     return deps;
 }
 
@@ -58,6 +62,7 @@ int main(void)
     TimeContinuityEvidenceProvider time_continuity;
     PersistentMedia media;
     VibrationSource vibration;
+    CampaignDataStorePersistentComposition historical_data;
     SystemRuntimeDependencies deps;
     SystemRuntime runtime_a;
     SystemRuntime runtime_b;
@@ -83,7 +88,7 @@ int main(void)
                              &time_continuity,
                              &media,
                              &environment,
-                             &vibration);
+                             &vibration, &historical_data);
 
     assert(system_runtime_init(&runtime_a, &deps) == TR2_OK);
     assert(system_runtime_boot(&runtime_a) == TR2_OK);
@@ -143,6 +148,7 @@ int main(void)
     /* A reboot may recover the OPEN campaign and durable data prefix, but
        it must never restore a live SupervisionSnapshot/B3 authority. */
     host_platform_set_reset_cause(&platform, RESET_CAUSE_SOFTWARE);
+    assert(campaign_data_store_persistent_composition_init(&historical_data, deps.persistent_media) == TR2_OK);
     assert(system_runtime_init(&runtime_b, &deps) == TR2_OK);
     assert(system_runtime_boot(&runtime_b) == TR2_OK);
     assert(system_runtime_is_ready_for_modbus(&runtime_b));

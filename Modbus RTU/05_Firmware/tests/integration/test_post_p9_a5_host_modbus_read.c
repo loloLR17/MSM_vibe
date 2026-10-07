@@ -3,6 +3,7 @@
 #include <string.h>
 
 #include "tr2/application/system_runtime.h"
+#include "tr2/persistence/campaign_data_store_persistent_composition.h"
 #include "tr2/modbus/read_adapter.h"
 #include "tr2/platform_host/host_platform.h"
 
@@ -24,6 +25,7 @@ int main(void)
     TimeContinuityEvidenceProvider time_continuity;
     PersistentMedia media;
     VibrationSource vibration;
+    CampaignDataStorePersistentComposition historical_data;
     SystemRuntimeDependencies deps = {0};
     SystemRuntime runtime;
     IdentitySnapshot identity = {0};
@@ -54,6 +56,8 @@ int main(void)
     deps.persistent_media = &media;
     deps.configuration_validation_environment = &configuration_environment;
     deps.vibration_source = &vibration;
+    assert(campaign_data_store_persistent_composition_init(&historical_data, &media) == TR2_OK);
+    deps.campaign_data_store = campaign_data_store_persistent_interface(&historical_data.store);
 
     assert(system_runtime_init(&runtime, &deps) == TR2_OK);
     assert(system_runtime_boot(&runtime) == TR2_OK);

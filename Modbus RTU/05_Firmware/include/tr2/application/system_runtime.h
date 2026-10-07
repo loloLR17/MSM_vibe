@@ -21,7 +21,7 @@
 #include "tr2/domain/time/time_service.h"
 #include "tr2/modbus/projection.h"
 #include "tr2/persistence/boot_intent_store.h"
-#include "tr2/persistence/campaign_data_store_persistent.h"
+#include "tr2/persistence/campaign_data_store.h"
 #include "tr2/persistence/campaign_repository_store.h"
 #include "tr2/persistence/command_journal_bounded_store.h"
 #include "tr2/persistence/configuration_store.h"
@@ -63,6 +63,8 @@ typedef struct {
     VibrationSource *vibration_source;
     const SelfTestExecutor *selftest_executor;
     const PlatformResetTrigger *reset_trigger;
+    /* Borrowed interface: caller owns backend/media/buffers for runtime lifetime. */
+    CampaignDataStore *campaign_data_store;
 } SystemRuntimeDependencies;
 
 typedef struct {
@@ -77,11 +79,8 @@ typedef struct {
     TimeSnapshot time_snapshot;
     bool time_snapshot_available;
     PersistentMediaRegion campaign_repository_media_region;
-    PersistentMediaRegion campaign_data_media_region;
     PersistentStorageCore campaign_repository_storage_core;
-    PersistentStorageCore campaign_data_storage_core;
     CampaignRepositoryStore campaign_repository_store;
-    CampaignDataStorePersistent campaign_data_store;
     CampaignBootRecoverySnapshot campaign_recovery_snapshot;
     bool campaign_recovery_available;
     CampaignInventoryService campaign_inventory_service;

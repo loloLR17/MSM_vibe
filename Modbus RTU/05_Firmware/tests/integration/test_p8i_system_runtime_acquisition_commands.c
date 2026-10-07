@@ -5,6 +5,7 @@
 
 #include "tr2/application/command_policy.h"
 #include "tr2/application/system_runtime.h"
+#include "tr2/persistence/campaign_data_store_persistent_composition.h"
 #include "tr2/platform_host/host_platform.h"
 
 typedef struct {
@@ -111,7 +112,8 @@ static SystemRuntimeDependencies make_dependencies(
     MonotonicClock *monotonic, WallClock *wall, ResetCauseProvider *reset,
     TimeContinuityEvidenceProvider *time_continuity, PersistentMedia *media,
     const ConfigurationValidationEnvironment *environment, VibrationSource *vibration_source,
-    const SelfTestExecutor *selftest_executor, const PlatformResetTrigger *reset_trigger)
+    const SelfTestExecutor *selftest_executor, const PlatformResetTrigger *reset_trigger,
+    CampaignDataStorePersistentComposition *historical_data)
 {
     SystemRuntimeDependencies deps;
     memset(&deps, 0, sizeof(deps));
@@ -124,6 +126,8 @@ static SystemRuntimeDependencies make_dependencies(
     deps.vibration_source = vibration_source;
     deps.selftest_executor = selftest_executor;
     deps.reset_trigger = reset_trigger;
+    assert(campaign_data_store_persistent_composition_init(historical_data, media) == TR2_OK);
+    deps.campaign_data_store = campaign_data_store_persistent_interface(&historical_data->store);
     return deps;
 }
 
@@ -147,6 +151,7 @@ int main(void)
     SelfTestExecutor selftest_executor = { &selftest_double, selftest_run_standard };
     ResetTriggerTestDouble reset_double = { 0u, TR2_OK };
     PlatformResetTrigger reset_trigger = { &reset_double, reset_trigger_software_reset };
+    CampaignDataStorePersistentComposition historical_data;
     SystemRuntimeDependencies deps;
     SystemRuntime runtime;
     SystemRuntime runtime_clear_failure;
@@ -190,7 +195,7 @@ int main(void)
     vibration = host_platform_vibration_source(&platform);
     deps = make_dependencies(&monotonic, &wall, &reset, &time_continuity,
                              &media, &environment, &vibration,
-                             &selftest_executor, &reset_trigger);
+                             &selftest_executor, &reset_trigger, &historical_data);
 
     assert(system_runtime_init(&runtime, &deps) == TR2_OK);
     assert(system_runtime_boot(&runtime) == TR2_OK);
@@ -459,6 +464,7 @@ int main(void)
        closed, must not expose Modbus readiness, and the durable intent must
        remain available for a later boot. */
     failing_media.fail_commit_call = failing_media.commit_calls + 1u;
+    assert(campaign_data_store_persistent_composition_init(&historical_data, deps.persistent_media) == TR2_OK);
     assert(system_runtime_init(&runtime_clear_failure, &deps) == TR2_OK);
     assert(system_runtime_boot(&runtime_clear_failure) == TR2_ERROR_STORAGE);
     assert(!system_runtime_is_ready_for_modbus(&runtime_clear_failure));
@@ -470,6 +476,7 @@ int main(void)
 
     /* The next clean boot may use the still-durable evidence once, then must
        consume it successfully. */
+    assert(campaign_data_store_persistent_composition_init(&historical_data, deps.persistent_media) == TR2_OK);
     assert(system_runtime_init(&runtime_after_reset, &deps) == TR2_OK);
     assert(system_runtime_boot(&runtime_after_reset) == TR2_OK);
     assert(system_runtime_is_ready_for_modbus(&runtime_after_reset));
@@ -485,6 +492,7 @@ int main(void)
     assert(boot_intent_store_recover(&runtime_after_reset.boot_intent_store,
                                      &boot_intent_recovery) == TR2_OK);
     assert(boot_intent_recovery.status == BOOT_INTENT_RECOVERY_EMPTY);
+    assert(campaign_data_store_persistent_composition_init(&historical_data, deps.persistent_media) == TR2_OK);
     assert(system_runtime_init(&runtime_second_boot, &deps) == TR2_OK);
     assert(system_runtime_boot(&runtime_second_boot) == TR2_OK);
     assert(system_runtime_is_ready_for_modbus(&runtime_second_boot));

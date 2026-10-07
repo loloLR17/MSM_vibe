@@ -6,6 +6,7 @@
 
 #include "tr2/application/configuration_service.h"
 #include "tr2/application/system_runtime.h"
+#include "tr2/persistence/campaign_data_store_persistent_composition.h"
 #include "tr2/modbus/projection.h"
 #include "tr2/platform_host/host_platform.h"
 
@@ -188,9 +189,10 @@ static SystemRuntimeDependencies make_dependencies(
     TimeContinuityEvidenceProvider *time_continuity,
     PersistentMedia *media,
     const ConfigurationValidationEnvironment *environment,
-    VibrationSource *vibration_source)
+    VibrationSource *vibration_source,
+    CampaignDataStorePersistentComposition *historical_data)
 {
-    SystemRuntimeDependencies deps;
+    SystemRuntimeDependencies deps = {0};
 
     memset(&deps, 0, sizeof(deps));
     deps.monotonic_clock = monotonic;
@@ -200,6 +202,8 @@ static SystemRuntimeDependencies make_dependencies(
     deps.persistent_media = media;
     deps.configuration_validation_environment = environment;
     deps.vibration_source = vibration_source;
+    assert(campaign_data_store_persistent_composition_init(historical_data, media) == TR2_OK);
+    deps.campaign_data_store = campaign_data_store_persistent_interface(&historical_data->store);
     return deps;
 }
 
@@ -327,6 +331,7 @@ static void test_commit_failure_recovers_a(void)
     TimeContinuityEvidenceProvider time_continuity;
     VibrationSource vibration;
     ConfigurationValidationEnvironment environment = { true, UINT32_C(4096) };
+    CampaignDataStorePersistentComposition historical_data;
     SystemRuntimeDependencies deps;
     SystemRuntime runtime_before;
     SystemRuntime runtime_after;
@@ -343,7 +348,7 @@ static void test_commit_failure_recovers_a(void)
     time_continuity = host_platform_time_continuity_evidence_provider(&platform);
     vibration = host_platform_vibration_source(&platform);
     deps = make_dependencies(&monotonic, &wall, &reset, &time_continuity, &media, &environment,
-                             &vibration);
+                             &vibration, &historical_data);
 
     establish_active_a(&runtime_before, &deps, &validated_a, UINT32_C(100), &active_a);
     fault_media.fail_commit = true;
@@ -368,6 +373,7 @@ static void test_power_loss_after_durable_commit_recovers_b(void)
     TimeContinuityEvidenceProvider time_continuity;
     VibrationSource vibration;
     ConfigurationValidationEnvironment environment = { true, UINT32_C(4096) };
+    CampaignDataStorePersistentComposition historical_data;
     SystemRuntimeDependencies deps;
     SystemRuntime runtime_before;
     SystemRuntime runtime_after;
@@ -386,7 +392,7 @@ static void test_power_loss_after_durable_commit_recovers_b(void)
     time_continuity = host_platform_time_continuity_evidence_provider(&platform);
     vibration = host_platform_vibration_source(&platform);
     deps = make_dependencies(&monotonic, &wall, &reset, &time_continuity, &media, &environment,
-                             &vibration);
+                             &vibration, &historical_data);
 
     establish_active_a(&runtime_before, &deps, &validated_a, UINT32_C(100), &active_a);
     (void)active_a;
@@ -411,6 +417,7 @@ static void test_power_loss_after_runtime_publication_recovers_b(void)
     TimeContinuityEvidenceProvider time_continuity;
     VibrationSource vibration;
     ConfigurationValidationEnvironment environment = { true, UINT32_C(4096) };
+    CampaignDataStorePersistentComposition historical_data;
     SystemRuntimeDependencies deps;
     SystemRuntime runtime_before;
     SystemRuntime runtime_after;
@@ -428,7 +435,7 @@ static void test_power_loss_after_runtime_publication_recovers_b(void)
     time_continuity = host_platform_time_continuity_evidence_provider(&platform);
     vibration = host_platform_vibration_source(&platform);
     deps = make_dependencies(&monotonic, &wall, &reset, &time_continuity, &media, &environment,
-                             &vibration);
+                             &vibration, &historical_data);
 
     establish_active_a(&runtime_before, &deps, &validated_a, UINT32_C(100), &active_a);
     (void)active_a;

@@ -6,21 +6,8 @@
 #include "tr2/persistence/diagnostic_history_record.h"
 #include "tr2/persistence/time_history_record.h"
 
-#define TR2_TIME_HISTORY_STORAGE_OFFSET ((uint32_t)TR2_CONFIGURATION_STORE_STORAGE_SIZE)
-#define TR2_CAMPAIGN_REPOSITORY_STORAGE_OFFSET \
-    (TR2_TIME_HISTORY_STORAGE_OFFSET + (uint32_t)TR2_TIME_HISTORY_RECORD_SIZE)
-#define TR2_CAMPAIGN_DATA_STORAGE_OFFSET \
-    (TR2_CAMPAIGN_REPOSITORY_STORAGE_OFFSET + \
-     (uint32_t)TR2_CAMPAIGN_REPOSITORY_STORAGE_SIZE)
-#define TR2_COMMAND_JOURNAL_STORAGE_OFFSET \
-    (TR2_CAMPAIGN_DATA_STORAGE_OFFSET + (uint32_t)TR2_CAMPAIGN_DATA_STORAGE_SIZE)
-#define TR2_DIAGNOSTIC_HISTORY_STORAGE_OFFSET \
-    (TR2_COMMAND_JOURNAL_STORAGE_OFFSET + \
-     (uint32_t)TR2_COMMAND_JOURNAL_BOUNDED_STORAGE_SIZE)
-#define TR2_BOOT_INTENT_STORAGE_OFFSET \
-    (TR2_DIAGNOSTIC_HISTORY_STORAGE_OFFSET + \
-     (uint32_t)TR2_DIAGNOSTIC_HISTORY_RECORD_SIZE + \
-     (uint32_t)TR2_DIAGNOSTIC_SELFTEST_RECORD_SIZE)
+#include "tr2/persistence/system_persistent_layout.h"
+
 #define TR2_B6_INVENTORY_STRUCTURE_VERSION UINT16_C(1)
 
 static bool dependencies_are_valid(const SystemRuntimeDependencies *deps)
@@ -40,6 +27,12 @@ static bool dependencies_are_valid(const SystemRuntimeDependencies *deps)
            deps->persistent_media->write != NULL &&
            deps->persistent_media->commit != NULL &&
            deps->configuration_validation_environment != NULL &&
+           deps->campaign_data_store != NULL &&
+           deps->campaign_data_store->begin_campaign != NULL &&
+           deps->campaign_data_store->append != NULL &&
+           deps->campaign_data_store->checkpoint != NULL &&
+           deps->campaign_data_store->finish_campaign != NULL &&
+           deps->campaign_data_store->recover_campaign != NULL &&
            deps->vibration_source != NULL &&
            deps->vibration_source->configure != NULL &&
            deps->vibration_source->start != NULL &&
@@ -175,31 +168,8 @@ static Tr2Result recover_campaigns(SystemRuntime *runtime)
         return result;
     }
 
-    result = persistent_media_region_init(
-        &runtime->campaign_data_media_region,
-        runtime->deps.persistent_media,
-        TR2_CAMPAIGN_DATA_STORAGE_OFFSET,
-        (uint32_t)TR2_CAMPAIGN_DATA_STORAGE_SIZE);
-    if (result != TR2_OK) {
-        return result;
-    }
-
-    result = persistent_storage_core_init(
-        &runtime->campaign_data_storage_core,
-        persistent_media_region_interface(&runtime->campaign_data_media_region));
-    if (result != TR2_OK) {
-        return result;
-    }
-
-    result = campaign_data_store_persistent_init(
-        &runtime->campaign_data_store,
-        &runtime->campaign_data_storage_core);
-    if (result != TR2_OK) {
-        return result;
-    }
-
     repository = campaign_repository_store_interface(&runtime->campaign_repository_store);
-    data_store = campaign_data_store_persistent_interface(&runtime->campaign_data_store);
+    data_store = runtime->deps.campaign_data_store;
     if (repository == NULL || data_store == NULL) {
         return TR2_ERROR_INTERNAL;
     }
@@ -261,7 +231,7 @@ static Tr2Result compose_fg_runtime(SystemRuntime *runtime)
     Tr2Result result;
 
     repository = campaign_repository_store_interface(&runtime->campaign_repository_store);
-    data_store = campaign_data_store_persistent_interface(&runtime->campaign_data_store);
+    data_store = runtime->deps.campaign_data_store;
     if (repository == NULL || data_store == NULL) {
         return TR2_ERROR_INTERNAL;
     }
@@ -576,6 +546,10 @@ Tr2Result system_runtime_boot(SystemRuntime *runtime)
     if (runtime == NULL || !runtime->initialized) {
         return TR2_ERROR_INVALID_STATE;
     }
+    if (!dependencies_are_valid(&runtime->deps)) {
+        runtime->system_ready_for_modbus = false;
+        return TR2_ERROR_INVALID_ARGUMENT;
+    }
 
     runtime->system_ready_for_modbus = false;
     runtime->time_snapshot_available = false;
@@ -793,9 +767,3 @@ bool system_runtime_b6_image(const SystemRuntime *runtime, ModbusBlock6Image *ou
 }
 
 #undef TR2_B6_INVENTORY_STRUCTURE_VERSION
-#undef TR2_BOOT_INTENT_STORAGE_OFFSET
-#undef TR2_DIAGNOSTIC_HISTORY_STORAGE_OFFSET
-#undef TR2_COMMAND_JOURNAL_STORAGE_OFFSET
-#undef TR2_CAMPAIGN_DATA_STORAGE_OFFSET
-#undef TR2_CAMPAIGN_REPOSITORY_STORAGE_OFFSET
-#undef TR2_TIME_HISTORY_STORAGE_OFFSET

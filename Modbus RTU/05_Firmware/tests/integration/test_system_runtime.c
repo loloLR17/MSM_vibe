@@ -4,6 +4,7 @@
 
 #include "tr2/application/configuration_service.h"
 #include "tr2/application/system_runtime.h"
+#include "tr2/persistence/campaign_data_store_persistent_composition.h"
 #include "tr2/modbus/b4_configuration_codec.h"
 #include "tr2/persistence/time_history_record.h"
 #include "tr2/platform_host/host_platform.h"
@@ -16,6 +17,46 @@
     (TEST_CAMPAIGN_DATA_STORAGE_OFFSET + \
      (uint32_t)(TR2_CAMPAIGN_DATA_DESCRIPTOR_COPY_COUNT * \
                 TR2_CAMPAIGN_DATA_DESCRIPTOR_SIZE))
+
+/* Fixed historical offsets: changing a reservation must not silently migrate FRAM. */
+_Static_assert(TR2_TIME_HISTORY_STORAGE_OFFSET == 280u, "time offset");
+_Static_assert(TR2_CAMPAIGN_REPOSITORY_STORAGE_OFFSET == 298u, "repository offset");
+_Static_assert(TR2_CAMPAIGN_DATA_STORAGE_OFFSET == 4370u, "data offset");
+_Static_assert(TR2_CAMPAIGN_DATA_STORAGE_SIZE == 11552u, "data reservation");
+_Static_assert(TR2_COMMAND_JOURNAL_STORAGE_OFFSET == 15922u, "journal offset");
+
+typedef struct {
+    CampaignDataStore interface;
+    CampaignDataStore *underlying;
+    unsigned recovery_calls;
+} InjectionSpy;
+
+static Tr2Result spy_begin(void *context, CampaignId id)
+{
+    InjectionSpy *spy = context;
+    return spy->underlying->begin_campaign(spy->underlying->context, id);
+}
+static Tr2Result spy_append(void *context, CampaignId id, const uint8_t *data, size_t size)
+{
+    InjectionSpy *spy = context;
+    return spy->underlying->append(spy->underlying->context, id, data, size);
+}
+static Tr2Result spy_checkpoint(void *context, CampaignId id)
+{
+    InjectionSpy *spy = context;
+    return spy->underlying->checkpoint(spy->underlying->context, id);
+}
+static Tr2Result spy_finish(void *context, CampaignId id)
+{
+    InjectionSpy *spy = context;
+    return spy->underlying->finish_campaign(spy->underlying->context, id);
+}
+static Tr2Result spy_recover(void *context, CampaignId id, CampaignDataRecoveryResult *out)
+{
+    InjectionSpy *spy = context;
+    spy->recovery_calls++;
+    return spy->underlying->recover_campaign(spy->underlying->context, id, out);
+}
 
 static ConfigurationPayload valid_payload(void)
 {
@@ -44,9 +85,10 @@ static SystemRuntimeDependencies make_dependencies(
     TimeContinuityEvidenceProvider *time_continuity,
     PersistentMedia *media,
     const ConfigurationValidationEnvironment *environment,
-    VibrationSource *vibration_source)
+    VibrationSource *vibration_source,
+    CampaignDataStorePersistentComposition *historical_data)
 {
-    SystemRuntimeDependencies deps;
+    SystemRuntimeDependencies deps = {0};
 
     deps.monotonic_clock = monotonic;
     deps.wall_clock = wall;
@@ -55,6 +97,8 @@ static SystemRuntimeDependencies make_dependencies(
     deps.persistent_media = media;
     deps.configuration_validation_environment = environment;
     deps.vibration_source = vibration_source;
+    assert(campaign_data_store_persistent_composition_init(historical_data, media) == TR2_OK);
+    deps.campaign_data_store = campaign_data_store_persistent_interface(&historical_data->store);
     return deps;
 }
 
@@ -114,6 +158,7 @@ static void test_campaign_boot_recovery(void)
     TimeContinuityEvidenceProvider time_continuity;
     PersistentMedia media;
     VibrationSource vibration;
+    CampaignDataStorePersistentComposition historical_data;
     SystemRuntimeDependencies deps;
     SystemRuntime runtime_a;
     SystemRuntime runtime_b;
@@ -127,6 +172,8 @@ static void test_campaign_boot_recovery(void)
     CampaignBootRecoverySnapshot recovery;
     CampaignInventoryViewSnapshot inventory;
     ModbusBlock6Image b6;
+    InjectionSpy spy = {0};
+    uint8_t historical_before[TR2_CAMPAIGN_DATA_STORAGE_SIZE];
     const uint8_t durable[] = { 1u, 2u, 3u, 4u, 5u };
     const uint8_t uncheckpointed[] = { 6u, 7u, 8u };
 
@@ -143,7 +190,7 @@ static void test_campaign_boot_recovery(void)
                              &time_continuity,
                              &media,
                              &environment,
-                             &vibration);
+                             &vibration, &historical_data);
 
     assert(system_runtime_init(&runtime_a, &deps) == TR2_OK);
     assert(system_runtime_boot(&runtime_a) == TR2_OK);
@@ -151,8 +198,7 @@ static void test_campaign_boot_recovery(void)
 
     repository = campaign_repository_store_interface(
         &runtime_a.campaign_repository_store);
-    data_store = campaign_data_store_persistent_interface(
-        &runtime_a.campaign_data_store);
+    data_store = deps.campaign_data_store;
     assert(repository != NULL);
     assert(data_store != NULL);
 
@@ -176,10 +222,23 @@ static void test_campaign_boot_recovery(void)
     assert(repository->open_campaign(repository->context, &second_open) == TR2_OK);
 
     host_platform_set_reset_cause(&platform, RESET_CAUSE_SOFTWARE);
+    spy.underlying = deps.campaign_data_store;
+    spy.interface = (CampaignDataStore){&spy, spy_begin, spy_append,
+        spy_checkpoint, spy_finish, spy_recover};
+    deps.campaign_data_store = &spy.interface;
+    memcpy(historical_before, &platform.persistent_committed[TR2_CAMPAIGN_DATA_STORAGE_OFFSET],
+           sizeof(historical_before));
+    assert(campaign_data_store_persistent_composition_init(&historical_data, deps.persistent_media) == TR2_OK);
     assert(system_runtime_init(&runtime_b, &deps) == TR2_OK);
     assert(system_runtime_boot(&runtime_b) == TR2_OK);
     assert(system_runtime_is_ready_for_modbus(&runtime_b));
-    assert(!runtime_b.campaign_data_store.campaign_active);
+    assert(!historical_data.store.campaign_active);
+    assert(spy.recovery_calls == 2u);
+    assert(runtime_b.deps.campaign_data_store == &spy.interface);
+    assert(runtime_b.campaign_service.data_store == &spy.interface);
+    assert(memcmp(historical_before,
+        &platform.persistent_committed[TR2_CAMPAIGN_DATA_STORAGE_OFFSET],
+        sizeof(historical_before)) == 0);
     assert_fg_composed_and_idle(&runtime_b, &platform);
 
     assert(system_runtime_campaign_recovery_snapshot(&runtime_b, &recovery));
@@ -222,10 +281,11 @@ static void test_campaign_boot_recovery(void)
     platform.persistent_committed[TEST_FIRST_DATA_CHUNK_OFFSET] ^= UINT8_C(0x01);
     platform.persistent_candidate[TEST_FIRST_DATA_CHUNK_OFFSET] =
         platform.persistent_committed[TEST_FIRST_DATA_CHUNK_OFFSET];
+    assert(campaign_data_store_persistent_composition_init(&historical_data, deps.persistent_media) == TR2_OK);
     assert(system_runtime_init(&runtime_c, &deps) == TR2_OK);
     assert(system_runtime_boot(&runtime_c) == TR2_OK);
     assert(system_runtime_is_ready_for_modbus(&runtime_c));
-    assert(!runtime_c.campaign_data_store.campaign_active);
+    assert(!historical_data.store.campaign_active);
     assert_fg_composed_and_idle(&runtime_c, &platform);
     assert(system_runtime_campaign_recovery_snapshot(&runtime_c, &recovery));
     assert(recovery.repository_status == CAMPAIGN_REPOSITORY_RECOVERY_VALID);
@@ -246,6 +306,7 @@ int main(void)
     TimeContinuityEvidenceProvider time_continuity;
     PersistentMedia media;
     VibrationSource vibration;
+    CampaignDataStorePersistentComposition historical_data;
     SystemRuntimeDependencies deps;
     SystemRuntimeDependencies invalid_deps;
     SystemRuntime runtime_a;
@@ -275,7 +336,27 @@ int main(void)
                              &time_continuity,
                              &media,
                              &environment,
-                             &vibration);
+                             &vibration, &historical_data);
+
+    invalid_deps = deps;
+    invalid_deps.campaign_data_store = NULL;
+    assert(system_runtime_init(&runtime_a, &invalid_deps) == TR2_ERROR_INVALID_ARGUMENT);
+    CampaignDataStore invalid_store;
+#define ASSERT_MISSING_CALLBACK(member) \
+    invalid_store = *deps.campaign_data_store; \
+    invalid_store.member = NULL; \
+    invalid_deps = deps; \
+    invalid_deps.campaign_data_store = &invalid_store; \
+    assert(system_runtime_init(&runtime_a, &invalid_deps) == TR2_ERROR_INVALID_ARGUMENT)
+    ASSERT_MISSING_CALLBACK(begin_campaign);
+    ASSERT_MISSING_CALLBACK(append);
+    ASSERT_MISSING_CALLBACK(checkpoint);
+    ASSERT_MISSING_CALLBACK(finish_campaign);
+    ASSERT_MISSING_CALLBACK(recover_campaign);
+#undef ASSERT_MISSING_CALLBACK
+    assert(system_runtime_init(&runtime_a, &deps) == TR2_OK);
+    runtime_a.deps.campaign_data_store = NULL;
+    assert(system_runtime_boot(&runtime_a) == TR2_ERROR_INVALID_ARGUMENT);
 
     invalid_deps = deps;
     invalid_deps.vibration_source = NULL;
@@ -327,6 +408,7 @@ int main(void)
 
     /* Reboot: a new runtime instance must rebuild B4 only from durable authority. */
     host_platform_set_reset_cause(&platform, RESET_CAUSE_SOFTWARE);
+    assert(campaign_data_store_persistent_composition_init(&historical_data, deps.persistent_media) == TR2_OK);
     assert(system_runtime_init(&runtime_b, &deps) == TR2_OK);
     assert(system_runtime_boot(&runtime_b) == TR2_OK);
     assert(system_runtime_is_ready_for_modbus(&runtime_b));
@@ -351,6 +433,7 @@ int main(void)
     /* A non-recoverable active never becomes runtime authority: B4 returns neutral. */
     platform.persistent_committed[0] ^= UINT8_C(0x01);
     platform.persistent_candidate[0] = platform.persistent_committed[0];
+    assert(campaign_data_store_persistent_composition_init(&historical_data, deps.persistent_media) == TR2_OK);
     assert(system_runtime_init(&runtime_c, &deps) == TR2_OK);
     assert(system_runtime_boot(&runtime_c) == TR2_OK);
     assert(system_runtime_is_ready_for_modbus(&runtime_c));

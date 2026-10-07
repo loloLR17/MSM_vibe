@@ -1,6 +1,7 @@
 #include <stdio.h>
 
 #include "tr2/application/system_runtime.h"
+#include "tr2/persistence/campaign_data_store_persistent_composition.h"
 #include "tr2/platform_host/host_platform.h"
 
 int main(void)
@@ -17,6 +18,11 @@ int main(void)
     PersistentMedia media = host_platform_persistent_media(&platform);
     VibrationSource vibration = host_platform_vibration_source(&platform);
 
+    CampaignDataStorePersistentComposition historical_data;
+    if (campaign_data_store_persistent_composition_init(&historical_data, &media) != TR2_OK) {
+        return 1;
+    }
+
     SystemRuntimeDependencies deps = {
         &monotonic,
         &wall,
@@ -26,7 +32,8 @@ int main(void)
         &configuration_environment,
         &vibration,
         NULL,
-        NULL
+        NULL,
+        campaign_data_store_persistent_interface(&historical_data.store)
     };
     SystemRuntime runtime;
 
