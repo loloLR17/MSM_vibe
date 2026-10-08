@@ -4,6 +4,8 @@
 #include "tr2/platform/serial_transport.h"
 
 Tr2Result stm32_serial_transport_init(SerialTransport *transport);
+/* PG4 drives Click CS / DE and /RE coupled by J2; PG5 remains unused. */
+Tr2Result stm32_serial_transport_init_rs485(SerialTransport *transport);
 void stm32_serial_transport_irq_handler(void);
 void stm32_serial_transport_tim6_irq_handler(void);
 

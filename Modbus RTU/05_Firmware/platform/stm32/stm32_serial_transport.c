@@ -15,6 +15,9 @@
 #define TR2_LPUART_RX_PIN  GPIO_PIN_8
 #define TR2_LPUART_AF      GPIO_AF8_LPUART1
 
+/* F3-A: Click J2 couples DE and /RE. One GPIO avoids output contention. */
+#define TR2_RS485_DIRECTION_PIN GPIO_PIN_4
+
 #define TR2_RTU_TIMER_HZ        1000000u
 #define TR2_RTU_T1_5_US             750u
 #define TR2_RTU_T3_5_US            1750u
@@ -33,6 +36,7 @@ typedef struct {
     uint8_t rx_byte;
     uint8_t tx_buffer[TR2_SERIAL_TX_CAPACITY];
     volatile bool tx_busy;
+    bool rs485;
     SerialTransportEvent events[TR2_SERIAL_EVENT_CAPACITY];
     volatile uint32_t event_head;
     volatile uint32_t event_tail;
@@ -40,6 +44,24 @@ typedef struct {
 } Stm32SerialContext;
 
 static Stm32SerialContext g_serial;
+
+/* STM32-only observations. HAL status values, not portable Tr2Result codes. */
+volatile uint32_t tr2_serial_uart_init_result = UINT32_MAX;
+volatile uint32_t tr2_serial_rx_start_result = UINT32_MAX;
+volatile uint32_t tr2_serial_tx_launch_result = UINT32_MAX;
+volatile uint32_t tr2_serial_tx_length = 0u;
+volatile uint32_t tr2_serial_tx_launch_count = 0u;
+volatile uint32_t tr2_serial_tx_complete_count = 0u;
+volatile uint32_t tr2_serial_rx_complete_count = 0u;
+volatile uint32_t tr2_serial_uart_error_count = 0u;
+volatile uint32_t tr2_serial_uart_error_code = 0u;
+volatile uint32_t tr2_serial_gpio_base = 0u;
+volatile uint32_t tr2_serial_uart_base = 0u;
+
+__attribute__((noinline)) void Stm32Rs485DeAsserted(void) { __NOP(); }
+__attribute__((noinline)) void Stm32Rs485TxLaunched(void) { __NOP(); }
+__attribute__((noinline)) void Stm32Rs485TxCompleted(void) { __NOP(); }
+
 
 static bool event_push_from_isr(SerialTransportEvent event)
 {
@@ -88,7 +110,9 @@ static Tr2Result stm32_start_receive(void *context)
         return TR2_ERROR_INVALID_ARGUMENT;
     }
 
-    if (HAL_UART_Receive_IT(&serial->uart, &serial->rx_byte, 1u) != HAL_OK) {
+    HAL_StatusTypeDef status = HAL_UART_Receive_IT(&serial->uart, &serial->rx_byte, 1u);
+    tr2_serial_rx_start_result = (uint32_t)status;
+    if (status != HAL_OK) {
         return TR2_ERROR_UNAVAILABLE;
     }
 
@@ -107,14 +131,30 @@ static Tr2Result stm32_transmit(void *context, const uint8_t *data, size_t lengt
         return TR2_ERROR_UNAVAILABLE;
     }
 
+    tr2_serial_tx_length = (uint32_t)length;
     memcpy(serial->tx_buffer, data, length);
     serial->tx_busy = true;
+    if (serial->rs485) {
+        /* Disable receiver and enable driver before the first UART start bit.
+           Conservative bring-up guard; no throughput/latency guarantee. */
+        HAL_GPIO_WritePin(GPIOG, TR2_RS485_DIRECTION_PIN, GPIO_PIN_SET);
+        Stm32Rs485DeAsserted();
+        HAL_Delay(1u);
+    }
 
-    if (HAL_UART_Transmit_IT(&serial->uart, serial->tx_buffer, (uint16_t)length) != HAL_OK) {
+    HAL_StatusTypeDef status = HAL_UART_Transmit_IT(&serial->uart, serial->tx_buffer,
+                                                  (uint16_t)length);
+    tr2_serial_tx_launch_result = (uint32_t)status;
+    if (status != HAL_OK) {
+        if (serial->rs485) {
+            HAL_GPIO_WritePin(GPIOG, TR2_RS485_DIRECTION_PIN, GPIO_PIN_RESET);
+        }
         serial->tx_busy = false;
         return TR2_ERROR_UNAVAILABLE;
     }
 
+    if (tr2_serial_tx_launch_count != UINT32_MAX) ++tr2_serial_tx_launch_count;
+    if (serial->rs485) Stm32Rs485TxLaunched();
     return TR2_OK;
 }
 
@@ -214,7 +254,7 @@ static Tr2Result rtu_timer_init(void)
     return TR2_OK;
 }
 
-Tr2Result stm32_serial_transport_init(SerialTransport *transport)
+static Tr2Result serial_init(SerialTransport *transport, bool rs485)
 {
     GPIO_InitTypeDef gpio = {0};
 
@@ -223,8 +263,30 @@ Tr2Result stm32_serial_transport_init(SerialTransport *transport)
     }
 
     memset(&g_serial, 0, sizeof(g_serial));
+    tr2_serial_uart_init_result = UINT32_MAX;
+    tr2_serial_rx_start_result = UINT32_MAX;
+    tr2_serial_tx_launch_result = UINT32_MAX;
+    tr2_serial_tx_length = 0u;
+    tr2_serial_tx_launch_count = 0u;
+    tr2_serial_tx_complete_count = 0u;
+    tr2_serial_rx_complete_count = 0u;
+    tr2_serial_uart_error_count = 0u;
+    tr2_serial_uart_error_code = 0u;
+    tr2_serial_gpio_base = (uint32_t)(uintptr_t)GPIOG;
+    tr2_serial_uart_base = (uint32_t)(uintptr_t)LPUART1;
 
+    g_serial.rs485 = rs485;
+    __HAL_RCC_PWR_CLK_ENABLE();
+    HAL_PWREx_EnableVddIO2();
     __HAL_RCC_GPIOG_CLK_ENABLE();
+    if (rs485) {
+        HAL_GPIO_WritePin(GPIOG, TR2_RS485_DIRECTION_PIN, GPIO_PIN_RESET);
+        gpio.Pin = TR2_RS485_DIRECTION_PIN;
+        gpio.Mode = GPIO_MODE_OUTPUT_PP;
+        gpio.Pull = GPIO_NOPULL;
+        gpio.Speed = GPIO_SPEED_FREQ_LOW;
+        HAL_GPIO_Init(GPIOG, &gpio);
+    }
     __HAL_RCC_LPUART1_CLK_ENABLE();
 
     gpio.Pin = TR2_LPUART_TX_PIN | TR2_LPUART_RX_PIN;
@@ -245,7 +307,9 @@ Tr2Result stm32_serial_transport_init(SerialTransport *transport)
     g_serial.uart.Init.ClockPrescaler = UART_PRESCALER_DIV1;
     g_serial.uart.AdvancedInit.AdvFeatureInit = UART_ADVFEATURE_NO_INIT;
 
-    if (HAL_UART_Init(&g_serial.uart) != HAL_OK) {
+    HAL_StatusTypeDef status = HAL_UART_Init(&g_serial.uart);
+    tr2_serial_uart_init_result = (uint32_t)status;
+    if (status != HAL_OK) {
         return TR2_ERROR_UNAVAILABLE;
     }
 
@@ -270,6 +334,16 @@ Tr2Result stm32_serial_transport_init(SerialTransport *transport)
     return TR2_OK;
 }
 
+Tr2Result stm32_serial_transport_init(SerialTransport *transport)
+{
+    return serial_init(transport, false);
+}
+
+Tr2Result stm32_serial_transport_init_rs485(SerialTransport *transport)
+{
+    return serial_init(transport, true);
+}
+
 void stm32_serial_transport_irq_handler(void)
 {
     HAL_UART_IRQHandler(&g_serial.uart);
@@ -292,6 +366,7 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
         return;
     }
 
+    if (tr2_serial_rx_complete_count != UINT32_MAX) ++tr2_serial_rx_complete_count;
     (void)event_push_from_isr(event);
     rtu_timer_restart_from_byte();
     (void)HAL_UART_Receive_IT(&g_serial.uart, &g_serial.rx_byte, 1u);
@@ -300,7 +375,13 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
 void HAL_UART_TxCpltCallback(UART_HandleTypeDef *huart)
 {
     if (huart == &g_serial.uart) {
+        /* HAL calls this only on TC, after the final stop bit (not TXE). */
+        if (g_serial.rs485) {
+            HAL_GPIO_WritePin(GPIOG, TR2_RS485_DIRECTION_PIN, GPIO_PIN_RESET);
+        }
         g_serial.tx_busy = false;
+        if (tr2_serial_tx_complete_count != UINT32_MAX) ++tr2_serial_tx_complete_count;
+        if (g_serial.rs485) Stm32Rs485TxCompleted();
     }
 }
 
@@ -312,9 +393,11 @@ void HAL_UART_ErrorCallback(UART_HandleTypeDef *huart)
         return;
     }
 
+    tr2_serial_uart_error_code = HAL_UART_GetError(huart);
+    if (tr2_serial_uart_error_count != UINT32_MAX) ++tr2_serial_uart_error_count;
     event.type = SERIAL_TRANSPORT_EVENT_ERROR;
     event.byte = 0u;
-    event.error = map_uart_error(HAL_UART_GetError(huart));
+    event.error = map_uart_error(tr2_serial_uart_error_code);
     (void)event_push_from_isr(event);
 
     rtu_timer_stop();

@@ -4,7 +4,9 @@
 
 #include "stm32_fram_storage.h"
 #include "stm32_iis3dwb_vibration_source.h"
+#include "iis3dwb_diag_window.h"
 #include "stm32_serial_transport.h"
+#include "iis3dwb_diag_modbus.h"
 #include "stm32_runtime_platform.h"
 #include "stm32_sdmmc_bulk_media.h"
 
@@ -1445,6 +1447,193 @@ void HAL_MspInit(void)
     __HAL_RCC_PWR_CLK_ENABLE();
 }
 
+/* Physical IIS3DWB diagnostic harness, isolated from persistent storage. */
+volatile uint32_t tr2_iis3dwb_f1_init_result = UINT32_MAX;
+volatile uint32_t tr2_iis3dwb_f1_start_result = UINT32_MAX;
+volatile uint32_t tr2_iis3dwb_f1_sample_count = 0U;
+volatile int32_t tr2_iis3dwb_f1_x_mg = 0;
+volatile int32_t tr2_iis3dwb_f1_y_mg = 0;
+volatile int32_t tr2_iis3dwb_f1_z_mg = 0;
+volatile uint32_t tr2_iis3dwb_f1_saturated = 0U;
+
+/* Hardware breakpoint here observes a complete XYZ snapshot. */
+__attribute__((noinline)) void Iis3dwbF1SamplePublished(void)
+{
+    __NOP();
+}
+
+/* Diagnostic image only: never exposed as a production campaign publication. */
+Iis3dwbDiagWindow tr2_iis3dwb_f2_diag;
+volatile uint32_t tr2_iis3dwb_f2_result = UINT32_MAX;
+volatile uint32_t tr2_iis3dwb_f2_ready = 0U;
+volatile uint16_t tr2_iis3dwb_f2_b3_registers[TR2_B3_REGISTER_COUNT];
+
+__attribute__((noinline)) void Iis3dwbF2DiagPublished(void)
+{
+    __NOP();
+}
+
+/* Explicit, immutable identity reserved by the operator for development bench 1.
+   This is not the production FRAM identity/provisioning mechanism. */
+static const IdentitySnapshot f3_bench_identity = {
+    .generation = 1U,
+    .device_id = UINT32_C(0x54520001),
+    .hardware_version = 1U,
+    .firmware_version_major = 0U,
+    .firmware_version_minor = 3U,
+    .firmware_version_patch = 0U,
+    .protocol_version = 1U,
+    .device_capabilities = UINT16_C(0x000D),
+    .serial_number = "TR2-DEV-0001",
+    .manufacturer = "MSM"
+};
+
+volatile uint32_t tr2_iis3dwb_f3_ready = 0U;
+volatile uint32_t tr2_iis3dwb_f3_result = UINT32_MAX;
+volatile uint32_t tr2_iis3dwb_f3_poll_errors = 0U;
+/* GDB opt-in only. Never emitted automatically at boot or retried. */
+volatile uint32_t tr2_iis3dwb_f3_probe_request = 0U;
+volatile uint32_t tr2_iis3dwb_f3_probe_result = UINT32_MAX;
+volatile uint32_t tr2_iis3dwb_f3_probe_count = 0U;
+
+__attribute__((noinline)) void Iis3dwbF3ServerReady(void)
+{
+    __NOP();
+}
+
+static void Iis3dwbF3_Run(void)
+{
+    static SerialTransport transport;
+    static Iis3dwbDiagModbus modbus;
+    Tr2Result result = stm32_serial_transport_init_rs485(&transport);
+    if (result == TR2_OK) {
+        result = iis3dwb_diag_modbus_init(&modbus, &transport, 1U,
+                                         &f3_bench_identity,
+                                         &tr2_iis3dwb_f2_diag);
+    }
+    if (result == TR2_OK) {
+        result = modbus_rtu_server_runtime_start(&modbus.server);
+    }
+    tr2_iis3dwb_f3_result = (uint32_t)result;
+    if (result != TR2_OK) {
+        for (;;) { HAL_Delay(100U); }
+    }
+    tr2_iis3dwb_f3_ready = 1U;
+    Iis3dwbF3ServerReady();
+    /* No acquisition during service: immutable diagnostic image, no P8 state.
+       Drain IRQ events continuously; no delay that could overflow the RX queue. */
+    for (;;) {
+        if (tr2_iis3dwb_f3_probe_request != 0U) {
+            uint32_t request = tr2_iis3dwb_f3_probe_request;
+            tr2_iis3dwb_f3_probe_request = 0U;
+            result = request == 1U ? iis3dwb_diag_modbus_transmit_probe(&modbus)
+                                   : TR2_ERROR_INVALID_ARGUMENT;
+            tr2_iis3dwb_f3_probe_result = (uint32_t)result;
+            if (tr2_iis3dwb_f3_probe_count != UINT32_MAX) {
+                ++tr2_iis3dwb_f3_probe_count;
+            }
+        }
+        result = modbus_rtu_server_runtime_poll_once(&modbus.server);
+        tr2_iis3dwb_f3_result = (uint32_t)result;
+        if (result != TR2_OK && tr2_iis3dwb_f3_poll_errors != UINT32_MAX) {
+            ++tr2_iis3dwb_f3_poll_errors;
+        }
+    }
+}
+
+static void Iis3dwbDiag_Run(void)
+{
+    static Stm32Iis3dwbVibrationSource source;
+    VibrationSourceConfiguration configuration = {26667U, 0x0007U, 0U};
+    VibrationSource interface;
+    uint8_t who_am_i = 0U;
+    Tr2Result result = stm32_iis3dwb_vibration_source_init(
+        &source, &hspi3, TR2_IIS3DWB_CS_PORT, TR2_IIS3DWB_CS_PIN);
+
+    tr2_iis3dwb_f1_init_result = (uint32_t)result;
+    if (result == TR2_OK) {
+        result = stm32_iis3dwb_vibration_source_read_who_am_i(&source, &who_am_i);
+    }
+    tr2_iis3dwb_whoami_status = (uint32_t)result;
+    tr2_iis3dwb_whoami = who_am_i;
+    tr2_iis3dwb_whoami_matches =
+        (result == TR2_OK && who_am_i == TR2_IIS3DWB_WHO_AM_I_EXPECTED) ? 1U : 0U;
+    interface = stm32_iis3dwb_vibration_source_interface(&source);
+    if (tr2_iis3dwb_whoami_matches != 0U) {
+        result = interface.configure(interface.context, &configuration);
+        tr2_iis3dwb_config_status = (uint32_t)result;
+        if (result == TR2_OK) {
+            result = interface.start(interface.context);
+            tr2_iis3dwb_f1_start_result = (uint32_t)result;
+        }
+    }
+    /* Preserve initialization failure; no fallback or storage access. */
+    while (result != TR2_OK || tr2_iis3dwb_whoami_matches == 0U) {
+        HAL_Delay(100U);
+    }
+    HAL_Delay(10U);
+    result = iis3dwb_diag_window_begin(&tr2_iis3dwb_f2_diag, HAL_GetTick());
+    tr2_iis3dwb_f2_result = (uint32_t)result;
+    if (result != TR2_OK) {
+        for (;;) { HAL_Delay(100U); }
+    }
+    uint32_t last_sample_tick = HAL_GetTick();
+    for (;;) {
+        VibrationSample sample = {0};
+        result = interface.read_sample(interface.context, &sample);
+        tr2_iis3dwb_sample_status = (uint32_t)result;
+        tr2_iis3dwb_data_ready = (result == TR2_OK && sample.valid) ? 1U : 0U;
+        if (result == TR2_ERROR_NOT_AVAILABLE) {
+            if ((uint32_t)(HAL_GetTick() - last_sample_tick) < 1000U) {
+                continue;
+            }
+            result = TR2_ERROR_UNAVAILABLE;
+        }
+        tr2_iis3dwb_f2_result = (uint32_t)result;
+        if (result != TR2_OK || !sample.valid) {
+            if (result == TR2_OK) {
+                tr2_iis3dwb_f2_result = (uint32_t)TR2_ERROR_NOT_AVAILABLE;
+            }
+            for (;;) {
+                HAL_Delay(100U);
+            }
+        }
+        tr2_iis3dwb_f1_x_mg = sample.x_mg;
+        tr2_iis3dwb_f1_y_mg = sample.y_mg;
+        tr2_iis3dwb_f1_z_mg = sample.z_mg;
+        tr2_iis3dwb_f1_saturated = sample.saturated ? 1U : 0U;
+        ++tr2_iis3dwb_f1_sample_count;
+        last_sample_tick = HAL_GetTick();
+        result = iis3dwb_diag_window_append(&tr2_iis3dwb_f2_diag, &sample);
+        tr2_iis3dwb_f2_result = (uint32_t)result;
+        if (result != TR2_OK) {
+            for (;;) { HAL_Delay(100U); }
+        }
+        if (tr2_iis3dwb_f2_diag.window.valid_sample_count ==
+            TR2_IIS3DWB_DIAG_WINDOW_SAMPLES) {
+            result = interface.stop(interface.context);
+            if (result == TR2_OK) {
+                result = iis3dwb_diag_window_publish(&tr2_iis3dwb_f2_diag,
+                                                    HAL_GetTick());
+            }
+            tr2_iis3dwb_f2_result = (uint32_t)result;
+            if (result == TR2_OK) {
+                for (size_t i = 0U; i < TR2_B3_REGISTER_COUNT; ++i) {
+                    tr2_iis3dwb_f2_b3_registers[i] =
+                        tr2_iis3dwb_f2_diag.image.registers[i];
+                }
+            }
+            tr2_iis3dwb_f2_ready = result == TR2_OK ? 1U : 0U;
+            Iis3dwbF2DiagPublished();
+            if (result == TR2_OK) {
+                Iis3dwbF3_Run();
+            }
+            /* Failed publication never becomes a favorable Modbus image. */
+            for (;;) { HAL_Delay(100U); }
+        }
+    }
+}
+
 int main(void)
 {
     SerialTransport serial_transport;
@@ -1453,8 +1642,10 @@ int main(void)
     SystemClock_Config();
     SystemPower_Config();
     BringupLed_Init();
-    FramSpi_Init();
     Iis3dwbSpi_Init();
+    Iis3dwbDiag_Run();
+
+    FramSpi_Init();
     Sdmmc2_Bringup();
 
     {

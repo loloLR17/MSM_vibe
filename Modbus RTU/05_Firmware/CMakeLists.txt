@@ -212,3 +212,12 @@ tr2_add_host_test(test_time_boot_recovery tests/integration/test_time_boot_recov
 tr2_add_host_test(test_configuration_fault_injection tests/integration/test_configuration_fault_injection.c configuration_fault_injection)
 tr2_add_host_test(test_p5h_acquisition_supervision_b3 tests/integration/test_p5h_acquisition_supervision_b3.c p5h_acquisition_supervision_b3)
 tr2_add_host_test(test_post_p9_a5_host_modbus_read tests/integration/test_post_p9_a5_host_modbus_read.c post_p9_a5_host_modbus_read)
+
+# Isolated diagnostic helper: not part of the production core/runtime.
+tr2_add_core_test(test_iis3dwb_diag_window tests/unit/test_iis3dwb_diag_window.c iis3dwb_diag_window)
+target_sources(test_iis3dwb_diag_window PRIVATE platform/stm32/iis3dwb_diag_window.c)
+target_include_directories(test_iis3dwb_diag_window PRIVATE platform/stm32)
+
+tr2_add_core_test(test_iis3dwb_diag_modbus tests/unit/test_iis3dwb_diag_modbus.c iis3dwb_diag_modbus)
+target_sources(test_iis3dwb_diag_modbus PRIVATE platform/stm32/iis3dwb_diag_window.c platform/stm32/iis3dwb_diag_modbus.c)
+target_include_directories(test_iis3dwb_diag_modbus PRIVATE platform/stm32)
