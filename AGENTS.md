@@ -8,7 +8,7 @@ Codex intervient comme agent opérateur local pour les tâches logicielles et d'
 
 Le travail est effectué en **mode rigueur stricte**.
 
-AGENTS.md définit les règles permanentes de gouvernance V1. Le contrat de mission définit le travail particulier à effectuer et peut préciser :
+AGENTS.md définit les règles de gouvernance **V2-B3**, adoptées sur `main` à l'issue de la revue humaine V2-C. Elles s'appliquent au repository ; chaque intervention reste encadrée par un contrat de mission spécifique. Le contrat de mission définit le travail particulier à effectuer et peut préciser :
 
 - OBJECTIF ;
 - PÉRIMÈTRE ;
@@ -16,11 +16,17 @@ AGENTS.md définit les règles permanentes de gouvernance V1. Le contrat de miss
 - VALIDATION REQUISE ;
 - AUTONOMIE ACCORDÉE ;
 - CONDITIONS D'ARRÊT / ESCALADE ;
-- SORTIE ATTENDUE.
+- SORTIE ATTENDUE ;
+- `target_branch` : branche autorisée ;
+- `allow_commit`, `allow_push`, `allow_flash`, `allow_debug` : permissions explicites, toutes à `false` par défaut.
 
 Lorsque l'objectif, le périmètre et les critères d'acceptation sont clairement définis, Codex agit de façon autonome dans ce cadre. Les restrictions explicites de la mission prévalent sur les permissions générales de ce fichier. L'utilisateur reste responsable des interventions physiques.
 
-Les règles de ce fichier s'appliquent à l'ensemble du repository sauf instruction plus locale et explicitement documentée.
+Les règles de ce fichier s'appliquent à l'ensemble du repository. Une instruction locale documentée peut préciser le périmètre ou renforcer les restrictions ; elle ne peut pas étendre les permissions du contrat ni supprimer les garde-fous.
+
+Les restrictions de la plateforme, de sécurité, du sandbox et d'approbation priment sur les autorisations du dépôt. Dans ce cadre, les restrictions explicites du contrat priment sur les permissions générales ; un champ absent ou `false` reste un refus, même si la modification du repository est autorisée. Ni le contrat, ni une instruction locale, ni le protocole ne dispensent des exigences matérielles des sections 9 à 12. Toute évolution de ces règles exige une décision humaine explicite et documentée, sans pouvoir lever une restriction de plateforme.
+
+La gouvernance V2-B3 est applicable aux missions futures après intégration contrôlée sur `main`. Cette adoption documentaire ne qualifie ni une configuration permanente de Codex, ni les opérations de flash/debug STM32. Chaque mission conserve ses autorisations explicites et les garde-fous des sections 9 à 12.
 
 ---
 
@@ -36,15 +42,9 @@ Ne jamais travailler à partir :
 - d'une ancienne conversation ;
 - d'une hypothèse sur l'état du code.
 
-Avant toute modification, vérifier au minimum :
+Avant toute modification, vérifier au minimum `git status`, `git rev-parse HEAD`, la branche courante et les références distantes pertinentes. Sur `main`, effectuer `git pull --ff-only origin main` **uniquement si l'état local permet cette opération sans risque pour les travaux préexistants**. Sur une branche de mission, récupérer et vérifier la référence de cette branche sans fusionner automatiquement `main` ; privilégier un clone ou worktree isolé si le dépôt principal est sale.
 
-    git pull --ff-only origin main
-    git status
-    git rev-parse HEAD
-
-Si `git pull --ff-only` échoue, ne pas tenter de résoudre automatiquement la divergence par merge, rebase, reset ou autre opération modifiant l'historique.
-
-Signaler la situation à l'utilisateur.
+Ne pas résoudre automatiquement une divergence par merge, rebase, reset ou autre opération modifiant l'historique. Si l'accès réseau échoue, distinguer l'état local de l'état distant non vérifié ; ne pas supposer le dépôt à jour. Signaler tout blocage non résoluble dans le périmètre.
 
 L'état réel du repository prévaut toujours sur toute description antérieure du projet.
 
@@ -186,7 +186,7 @@ Ne pas effectuer automatiquement de merge ou de rebase pour résoudre une diverg
 
 ### Commit
 
-Dans une mission autorisant explicitement la modification du repository, Codex peut créer de façon autonome un commit local, sauf restriction du contrat, lorsque :
+Codex peut créer de façon autonome un commit local uniquement si une mission explicitement validée par l’utilisateur contient `allow_commit: true`. Ce champ vaut `false` par défaut : absent ou `false`, il interdit le commit ; une autorisation de modification seule ne suffit pas. Dans la branche et le périmètre autorisés, les conditions suivantes doivent aussi être satisfaites :
 
 - l'objectif et les critères d'acceptation sont satisfaits ;
 - la validation appropriée a réussi, lorsqu'elle est nécessaire ;
@@ -200,9 +200,11 @@ Si les critères ne sont pas satisfaits, ne pas créer un commit présenté comm
 
 ### Push
 
-Ne jamais effectuer de `git push` sans autorisation explicite de l'utilisateur.
+Par défaut, aucun `git push` n'est autorisé. Une **mission explicitement validée par l'utilisateur** peut accorder `allow_push: true` et `target_branch: <branche>` : Codex peut alors effectuer des push normaux répétés de **ses propres commits dans le périmètre de la mission**, sans redemander une confirmation pour chaque push. `allow_commit: true` ne vaut jamais `allow_push: true`.
 
-Une autorisation de commit n'implique pas une autorisation de push.
+L’autorisation couvre uniquement la durée de la mission, jusqu’à sa clôture après relecture distante ; elle ne se transmet pas à la mission suivante.
+
+Avant chaque push : vérifier branche et destination, absence de fichiers hors périmètre ou de secrets, validations applicables, diff indexé et état distant ; utiliser une référence de destination explicite. Après push : contrôler le SHA distant et relire le livrable lorsque la mission le prévoit. Si la branche distante a divergé, arrêter et escalader ; pas de force push, de merge ou de rebase automatique. Un push sur `main` exige une autorisation de mission **mentionnant explicitement `target_branch: main`**, distincte d'une autorisation générique de push. Les restrictions de la plateforme ou du sandbox restent applicables.
 
 ---
 
@@ -217,7 +219,8 @@ Dans une mission clairement définie, Codex peut, sans confirmation à chaque é
 - effectuer le cross-build STM32 ;
 - analyser les erreurs et effectuer les corrections nécessaires dans le périmètre ;
 - répéter les cycles modification/build/test jusqu'à satisfaction des critères ;
-- examiner les artefacts, `git diff` et `git status`.
+- examiner les artefacts, `git diff` et `git status` ;
+- réaliser les commits, push et publications de rapports **uniquement** lorsque les permissions du contrat les autorisent, avec contrôle distant après publication.
 
 Ne pas solliciter l'utilisateur pour une incertitude qui peut raisonnablement être levée par inspection du repository, de la documentation, de Git, des sorties d'outils ou par un test non destructif.
 
@@ -263,7 +266,7 @@ Codex peut préparer la commande, expliquer l'opération et analyser son résult
 
 Une autorisation ponctuelle d'opération physique ou potentiellement destructive ne constitue pas une autorisation permanente et ne couvre pas automatiquement l'opération suivante.
 
-Une mission peut toutefois autoriser des cycles répétés de flash standard et de debug lorsque les chaînes correspondantes ont été explicitement qualifiées dans le projet et que les conditions des sections 11 et 12 sont satisfaites. Cette autorisation reste limitée au périmètre et à la durée de la mission ; elle ne couvre pas les opérations sensibles de la section 9.
+Une mission peut toutefois accorder séparément `allow_flash: true` et `allow_debug: true` pour des cycles répétés de flash standard et de debug lorsque les chaînes correspondantes ont été explicitement qualifiées et documentées dans le projet et que les conditions des sections 11 et 12 sont satisfaites. Ces champs sont `false` par défaut. Cette autorisation reste limitée au périmètre et à la durée de la mission ; elle ne couvre pas les opérations sensibles de la section 9.
 
 Une autorisation de debug n'autorise pas à elle seule un flash. En cas d'ambiguïté non résoluble par inspection, demander confirmation.
 
@@ -273,7 +276,7 @@ Une autorisation de debug n'autorise pas à elle seule un flash. En cas d'ambigu
 
 Tant que la chaîne de flash du projet n'a pas été explicitement qualifiée et documentée dans le projet, chaque flash reste soumis à confirmation humaine. Ne pas déduire une qualification d'une commande disponible ou d'un flash réussi.
 
-Après qualification explicite de la chaîne, une mission peut autoriser le flash standard autonome. Avant chaque exécution, Codex doit vérifier :
+Après qualification explicite et documentée de la chaîne (cible et ST-LINK identifiés, commande et adresse de programmation approuvées, artefact et critères de contrôle consignés), une mission avec `allow_flash: true` peut autoriser le flash standard autonome. Avant chaque exécution, Codex doit vérifier :
 
 1. que la cible attendue est identifiée ;
 2. que le programmateur/ST-LINK attendu est identifié ;
@@ -294,7 +297,7 @@ Une réussite de STM32CubeProgrammer prouve uniquement ce que sa sortie permet d
 
 Codex peut préparer une session GDB, lire les symboles et proposer des breakpoints ou watchpoints.
 
-Après qualification explicite et documentée de la chaîne de debug, une mission peut autoriser de façon autonome :
+Après qualification explicite et documentée de la chaîne de debug, une mission avec `allow_debug: true` peut autoriser une session GDB interactive persistante et les opérations suivantes de façon autonome :
 
 - halt ;
 - reset logiciel ;
@@ -364,7 +367,9 @@ Si les informations disponibles sont insuffisantes, le dire explicitement et app
 - les hypothèses restantes ;
 - les preuves obtenues et les éléments restant à démontrer ;
 - l'état Git final ;
-- le hash et le message du commit créé, le cas échéant.
+- le hash et le message du commit créé, le cas échéant ;
+- l'identifiant de mission, la branche cible, le SHA du code réellement évalué et les permissions exercées ;
+- le résultat du push et sa preuve de relecture distante, le cas échéant ; distinguer rapport publié et qualification technique.
 
 ---
 
@@ -388,7 +393,15 @@ Les déterminer à chaque mission à partir :
 
 ---
 
-## 16. Priorité générale
+## 16. Protocole d'échange et configuration d'exécution
+
+Pour les missions ChatGPT ↔ Codex, suivre `Modbus RTU/00_gouvernance/Echanges_Codex/PROTOCOLE_ECHANGE_V2.md` pour l'identité de mission, la propriété des fichiers, les archives et la relecture distante. Ce protocole ne peut étendre les permissions définies par le présent fichier et le contrat de mission.
+
+Les paramètres `sandbox_mode` et `approval_policy` sont distincts des autorisations de mission. Aucun changement permanent de `~/.codex/config.toml`, des règles d'approbation ou du niveau de sandbox n'est permis sans décision explicite de l'utilisateur. Un échec de permission ne doit jamais être contourné en élargissant silencieusement les accès. Les essais V2-B1 ne qualifient ni une configuration permanente ni les opérations matérielles.
+
+---
+
+## 17. Priorité générale
 
 En cas de conflit entre vitesse et traçabilité, privilégier la traçabilité.
 
@@ -399,3 +412,23 @@ En cas de doute sur une opération potentiellement destructive ou physique, vér
 En cas d'échec, analyser les faits avant de modifier le code.
 
 Le but n'est pas seulement d'obtenir un résultat fonctionnel, mais de pouvoir démontrer pourquoi ce résultat est considéré comme valide.
+
+---
+
+## 18. Journal de bord technique partagé ChatGPT / Codex
+
+Au début de chaque mission technique TR2, après vérification de l'état réel du dépôt, Codex doit consulter intégralement `Modbus RTU/00_gouvernance/ETAT_COURANT_TR2.md`.
+
+Ce journal est un support durable d'échange entre ChatGPT et Codex. Il décrit l'état opérationnel et ne remplace pas les spécifications V1 gelées.
+
+Codex doit l'actualiser lorsqu'une intervention modifie significativement l'avancement, les décisions techniques, la configuration matérielle, les résultats de validation, les blocages ou la prochaine étape. Une actualisation n'est pas obligatoire pour une modification mineure sans incidence sur l'état du projet. Les mises à jour du journal font partie du périmètre normal des missions techniques TR2, sauf interdiction explicite du contrat de mission.
+
+Les informations doivent être factuelles, datées et traçables. Distinguer systématiquement VALIDÉ / PRÉPARÉ / NON VÉRIFIÉ et identifier les observations rapportées par l'utilisateur. Ne jamais transformer une hypothèse en fait établi, ni présenter une compilation ou un test hôte comme une validation matérielle.
+
+Ne jamais modifier silencieusement une décision d'architecture ou une spécification gelée. En cas de contradiction entre le journal et le code, la documentation normative ou les observations matérielles, signaler explicitement l'écart. Le journal doit rester suffisamment concis pour être relu intégralement au début d'une mission.
+
+Le rapport final Codex doit indiquer si le journal a été actualisé, quelles informations ont changé et les décisions ou questions à transmettre à ChatGPT.
+
+Les modifications du journal ne donnent aucune autorisation supplémentaire de commit, push, flash ou intervention matérielle. Les autres règles de ce fichier restent applicables.
+
+Si le journal est absent de la référence Git utilisée, signaler cette absence et appliquer les conditions d’escalade ; ne pas fabriquer son contenu ni importer silencieusement une copie locale. Une lecture locale en lecture seule doit être identifiée comme telle et ne constitue pas un journal versionné de cette référence.
