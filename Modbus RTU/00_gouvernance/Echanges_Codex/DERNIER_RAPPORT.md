@@ -1,6 +1,6 @@
 ---
 mission_id: TR2-20261008-CODEX-GIT-PREP-001
-status: BLOCKED
+status: DONE
 base_ref: test/echange-chatgpt-codex-20261008
 base_sha: 43e72c0c87c1f5b38e8565fd3f3cb876eef40135
 initial_head: 836746ff9168e6abc08d5cfdd120a67ea0d48b84
@@ -16,7 +16,7 @@ allow_debug: false
 
 # P1 — Sauvegarde privée vérifiée et préparation isolée
 
-Sauvegarde intégrale vérifiée et clone diagnostique préparé. Statut provisoire BLOCKED uniquement dans l’attente de publication et relecture distante du rapport. Aucun commit firmware, aucune publication de la branche de préparation, aucune synchronisation du dépôt principal. DONE ne signifiera que la réalisation de P1.
+Sauvegarde intégrale vérifiée et clone diagnostique préparé. Première publication du rapport et relecture distante vérifiées. DONE signifie uniquement la réalisation de P1. Aucun commit firmware, aucune publication de la branche de préparation, aucune synchronisation du dépôt principal.
 
 ## Références et périmètre
 
@@ -132,4 +132,6 @@ Avant publication éventuelle : mission distincte autorisant branche, fichiers e
 
 ## Publication du rapport
 
-Seul DERNIER_RAPPORT.md sera committé/poussé normalement sur la branche expérimentale. Première publication et relecture restent à effectuer ; la clôture consigne la preuve distante avant DONE. Le commit final de rapport sera indiqué dans la réponse finale sans autoréférence.
+Première publication du seul DERNIER_RAPPORT.md : commit `b89f0528463f91f1af989013493aa27be80f3ea9`, message `docs: report verified TR2 P1 backup and isolated preparation`. Push normal sur la branche expérimentale : code 0. Fetch distant : code 0 ; FETCH_HEAD égal au commit publié. Rapport distant relu intégralement et contenu comparé octet pour octet au rapport local : identique.
+
+Cette clôture ne modifie que le rapport et consigne ces preuves. Son push et sa relecture finale sont contrôlés après commit ; le hash final est communiqué dans la réponse finale sans autoréférence. Aucun commit/push firmware.
