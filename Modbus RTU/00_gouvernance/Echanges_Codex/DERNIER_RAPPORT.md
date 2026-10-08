@@ -1,6 +1,6 @@
 ---
 mission_id: TR2-20261008-CODEX-GIT-AUDIT-001
-status: BLOCKED
+status: DONE
 base_ref: test/echange-chatgpt-codex-20261008
 base_sha: f23ec3edcdfc4ec2ffd06693493433cbbda7b724
 initial_head: 89c6f41168125ba41f789c3c0295e3bce3428d9c
@@ -16,7 +16,7 @@ allow_debug: false
 
 # Audit Git après intégration V2-C
 
-Audit de lecture achevé ; statut provisoire BLOCKED uniquement dans l’attente de publication et relecture distante. La synchronisation, la sauvegarde et la publication du firmware ne sont pas exécutées. Le seul livrable modifié est ce rapport, dans un clone isolé.
+Audit documentaire DONE après publication et relecture distante effective. La synchronisation, la sauvegarde et la publication du firmware ne sont pas exécutées. Le seul livrable modifié est ce rapport, dans un clone isolé.
 
 ## 1. Références observées le 08/10/2026
 
@@ -125,4 +125,8 @@ Les contenus des six suivis modifiés et des 12 non suivis hors builds ont égal
 
 Aucune commande de mutation du dépôt principal : pas de pull/fetch, add, commit, stash, changement de branche, reset, clean, merge/rebase/restore ni push. Les lectures Git programmatiques utilisent --no-optional-locks. Journal lu, NON actualisé conformément à l’interdiction du contrat. Aucune archive, mission, gouvernance, configuration Codex ou matériel modifié. Aucun build/test exécuté : la validation pertinente est documentaire et Git en lecture seule. Seul ce rapport est écrit/indexé/committé dans le clone isolé et poussé sur la branche contractuelle.
 
-Publication et relecture restent à réaliser ; la clôture ajoutera leur preuve effective avant DONE. Le SHA du commit final de rapport sera fourni dans la réponse finale sans autoréférence.
+Première publication vérifiée : commit `9b790e2c2b33d9cd5c61865272391632e1f1243b`, message `docs: audit TR2 local Git state after V2-C integration`. Diff documentaire et contenu relus, diff indexé --check code 0 ; seul DERNIER_RAPPORT.md indexé. Destination expérimentale inchangée avant push ; push normal code 0. Fetch de la branche code 0 ; HEAD=FETCH_HEAD et ls-remote identiques. Rapport distant relu intégralement avec le bon mission_id, comparaison octet pour octet identique. Clone propre après première publication.
+
+Contrôles finaux du dépôt principal : HEAD, empreintes de status complet, refs, inventaire index et diff HEAD binaire inchangés ; empreintes des 18 fichiers suivis modifiés/non suivis hors builds inchangées. Les limites de couverture ci-dessus restent applicables. Main distant toujours à `19c39d6a7a9c3d8fef4330a64be427563ed108cb`.
+
+Cette seconde publication modifie seulement le rapport pour consigner DONE et la preuve obtenue. Son push et sa relecture seront également vérifiés avant clôture finale ; son SHA sera fourni dans la réponse finale sans autoréférence. DONE désigne cet audit et la proposition de procédure, aucune sauvegarde, synchronisation ou publication firmware exécutée.
