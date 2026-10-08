@@ -1,6 +1,6 @@
-# Protocole d'échange ChatGPT ↔ Codex — V2-B3 candidate
+# Protocole d'échange ChatGPT ↔ Codex — V2-B3
 
-Statut : **candidat à qualification**, branche `test/echange-chatgpt-codex-20261008`. Aucune modification de `main` ou des permissions permanentes.
+Statut : **gouvernance documentaire V2-B3** intégrée sur `main` après revue V2-C. Aucune configuration permanente de Codex ni qualification STM32 n'est impliquée.
 
 ## 1. Objet et responsabilités
 
@@ -98,4 +98,4 @@ Cycle de clôture : publier d’abord un rapport provisoire `BLOCKED` si la preu
 
 Deuxième mission pilote : ChatGPT publie une nouvelle mission, Codex récupère la bonne version, produit un rapport distinct du premier, publie et relit la référence distante ; ChatGPT constate indépendamment la correspondance de `mission_id` et la traçabilité. Aucune modification firmware, de `main` ou de configuration Codex.
 
-**État documentaire au 08/10/2026** : les rapports des pilotes `TR2-20261008-EXCHANGE-001` et `TR2-20261008-EXCHANGE-002` sont archivés. Leur publication et relecture Codex sont rapportées dans ces documents ; cela ne suffit pas à affirmer un contrôle indépendant ChatGPT du second pilote. Les critères historiques V2-A ci-dessus restent la référence de cette qualification. La candidate V2-B3 consolide le protocole, sans adoption dans `main`. V2-B1 reste **BLOCKED** pour la qualification comparative des configurations ; aucune qualification STM32 n’en découle.
+**État documentaire au 08/10/2026** : les rapports des pilotes `TR2-20261008-EXCHANGE-001` et `TR2-20261008-EXCHANGE-002` sont archivés. Leur publication et relecture Codex sont rapportées dans ces documents ; cela ne suffit pas à affirmer un contrôle indépendant ChatGPT du second pilote. Les critères historiques V2-A ci-dessus restent la référence de cette qualification. La V2-B3 consolide le protocole et fait l'objet d'une intégration documentaire V2-C sur `main`. V2-B1 reste **BLOCKED** pour la qualification comparative des configurations ; aucune qualification STM32 n’en découle.
