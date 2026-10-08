@@ -1,8 +1,8 @@
 ---
-mission_id: TR2-20261008-CODEX-V2B3-001
+mission_id: TR2-20261008-CODEX-GIT-AUDIT-001
 status: READY
 base_ref: test/echange-chatgpt-codex-20261008
-base_sha: 20287f06fe94cd92859624e917fc26b516244d98
+base_sha: f23ec3edcdfc4ec2ffd06693493433cbbda7b724
 created_at_utc: 2026-10-08
 author: ChatGPT
 target_branch: test/echange-chatgpt-codex-20261008
@@ -12,26 +12,18 @@ allow_flash: false
 allow_debug: false
 ---
 
-# Mission V2-B3 : consolidation documentaire
+# Audit de synchronisation Git après intégration V2-C
 
-L'utilisateur valide la préparation de V2-B3, sans autoriser son intégration dans main. Il précise que les modifications locales existantes proviennent des assistants et non de ses éditions manuelles ; leur provenance exacte reste à vérifier. Ne pas écraser ces travaux.
+## Objectif
+Examiner, sans aucune modification du dépôt principal local, les travaux non publiés et proposer une stratégie de sauvegarde, synchronisation avec origin/main et publication ultérieure. La PR #34 a été fusionnée sur main au commit 19c39d6a7a9c3d8fef4330a64be427563ed108cb. Ne pas supposer que le dépôt local a été synchronisé.
 
-Lire la mission, AGENTS.md de main, de la branche expérimentale et du dépôt local (lecture seule), le protocole V2, la proposition V2-B et les rapports V2-B1/V2-B2 archivés. Contrôler les références Git et travailler dans un clone isolé.
+## Périmètre
+Lire intégralement AGENTS.md sur main distant et local, le journal technique local si disponible, et la présente mission. Vérifier git status --porcelain=v1 -uall, branche, HEAD, remote, origin/main après git fetch si possible, fichiers suivis modifiés, non suivis, index, écarts locaux/distants, conflits potentiels, notamment AGENTS.md, CMake, STM32 et UART/RS-485. Identifier les fichiers générés ou sensibles sans afficher leurs secrets. Comparer le contenu local et distant de AGENTS.md. Distinguer les observations des hypothèses. Ne pas attribuer la provenance des modifications locales sans preuve.
 
-Objectifs :
-- E1 : imposer allow_commit: true pour les commits, false par défaut.
-- E2 : préciser la priorité des restrictions, notamment celles liées au matériel, à la sécurité et au sandbox.
-- E3 : étudier la section de journal technique présente dans AGENTS.md local ; l'intégrer à la candidate en conservant ses garanties et sans modifier le dépôt local. Si inaccessible, signaler le blocage.
-- E4/E6 : mettre à jour le protocole et la proposition pour éliminer les statuts obsolètes et aligner les champs de mission.
-- E5 : conserver V2-B1 au statut BLOCKED ; distinguer adoption documentaire, configuration Codex et qualification STM32.
-- Rapporter les points E1 à E7, avec preuves, limites et décision attendue.
+## Restrictions
+Dans le dépôt principal local : **lecture seule stricte**. Ne pas y exécuter git pull, push, add, commit, stash, reset, clean, checkout, switch, merge, rebase, restore ou toute commande qui modifie les fichiers, l'index ou les refs locales. Pour consulter l'état distant, préférer git ls-remote et un clone isolé ; pas de fetch dans le dépôt principal. Aucune modification firmware, aucun flash/debug, aucune configuration permanente Codex, aucune écriture sur main distant.
 
-Fichiers modifiables sur la branche expérimentale exclusivement :
-- AGENTS.md
-- Modbus RTU/00_gouvernance/Echanges_Codex/PROTOCOLE_ECHANGE_V2.md
-- Modbus RTU/00_gouvernance/Echanges_Codex/PROPOSITION_GOUVERNANCE_V2_B.md
-- Modbus RTU/00_gouvernance/Echanges_Codex/DERNIER_RAPPORT.md
+Seule écriture autorisée : publier le rapport de cette mission dans Modbus RTU/00_gouvernance/Echanges_Codex/DERNIER_RAPPORT.md sur la branche expérimentale depuis un clone isolé. Les commits et push normaux sur cette branche sont autorisés exclusivement pour ce rapport, après contrôle de la destination, de l'index et de l'état distant. Ne pas modifier les archives ni MISSION_EN_COURS.md. Aucune autre écriture. Aucun push sur main.
 
-Commits et push normaux autorisés uniquement sur la branche indiquée, pour ces fichiers, après vérification des diffs et de l'état distant. Relire les résultats publiés sur GitHub. Ne pas modifier main, le firmware, le dépôt local, les archives, le journal local, la configuration Codex ni le matériel. Pas de merge, rebase automatique, reset destructif ou force push. Arrêter et rapporter les blocages.
-
-Critères : ambiguïtés levées, règle du journal local correctement reprise, documents cohérents, V2-B1 toujours BLOCKED, validations documentaires et relecture distante prouvées. DONE seulement si ces critères sont atteints ; sinon BLOCKED. Le rapport final doit indiquer les SHA, les fichiers modifiés, les validations réelles et les limites. Aucune fusion dans main sans nouvelle décision humaine.
+## Livrable
+Rapport avec mission_id, statut DONE ou BLOCKED, SHA main distant, HEAD local, HEAD expérimental, inventaire des modifications, risques de conflit, validation réelle des commandes de lecture, et procédure de synchronisation proposée en étapes avec critères d'arrêt. Ne pas effectuer la synchronisation ni publier le firmware à cette étape. Relire le rapport distant après publication et indiquer les limites des preuves. DONE signifie uniquement audit documentaire terminé, pas synchronisation exécutée.
