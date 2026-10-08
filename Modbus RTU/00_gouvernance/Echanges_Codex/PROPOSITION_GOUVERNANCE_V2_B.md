@@ -1,10 +1,10 @@
 # V2-B — Proposition de gouvernance et d'autonomie Codex
 
-**Statut : V2-B3 candidate pour revue — aucune adoption dans main.** Branche : `test/echange-chatgpt-codex-20261008`. Ce document décrit la candidate `AGENTS.md` de la branche expérimentale ; il ne confère aucune permission et ne modifie ni `main` ni la configuration Codex.
+**Statut : historique de proposition V2-B et décisions documentaires V2-C.** La version V2-B3 de `AGENTS.md` est intégrée sur `main` après revue humaine. Ce document ne confère aucune permission autonome et ne qualifie ni la configuration Codex ni le matériel.
 
 ## 1. Références contrôlées
 
-- Référence historique main V1 : blob AGENTS `864c9f062f1b0636e5c92c29e4b0d83bc68ff341`. La branche expérimentale porte désormais la candidate V2-B3, sections 1 à 18 ; son contenu et ses SHA doivent être relevés à chaque mission.
+- Référence historique main V1 : blob AGENTS `864c9f062f1b0636e5c92c29e4b0d83bc68ff341`. La V2-B3 consolidée comprend les sections 1 à 18 ; son contenu et ses SHA doivent être relevés à chaque mission.
 - Pilotes d’échange 001 et 002 : rapports archivés, publication/relecture Codex rapportées ; aucune nouvelle preuve de contrôle indépendant ChatGPT du second pilote n’est produite ici.
 - Observations d'audit antérieures à confirmer avant toute généralisation : `workspace-write` + `approval_policy=never` a bloqué une écriture par connecteur nécessitant une approbation ; un clone isolé et un push ont ensuite réussi lors d'une session plus permissive. Ce résultat ne qualifie pas une politique permanente de sandbox.
 
@@ -20,7 +20,7 @@
 | §14 Rapport | Rapport final technique | Ajouter `mission_id`, SHA du code évalué, branche, commit de rapport et preuve de relecture distante ; distinguer opérations tentées, réussies et prévues | Rapport DONE seulement après publication vérifiée |
 | Nouvelle annexe | Aucune procédure d'échange | Référencer `PROTOCOLE_ECHANGE_V2.md` sans copier ses règles dans `AGENTS.md` | Une seule source par règle |
 
-## 3. Politique de permissions de la candidate (à revoir avant adoption)
+## 3. Politique de permissions V2-B3 (adoption documentaire)
 
 - **Git** : tout commit exige `allow_commit: true`, absent ou false interdit le commit. Une mission autorisant explicitement `allow_push: true` peut permettre à Codex de pousser ses propres commits sur `target_branch` après contrôle des tests et du diff ; interdiction d'inclure des fichiers préexistants hors mission. `main` reste protégé par validation de mission et garde-fous Git.
 - **STM32** : `allow_flash: true` ne vaut que pour la procédure standard **documentée et qualifiée** et pour la cible identifiée ; l'autorisation de flash ne couvre ni erase étendu ni Option Bytes.
@@ -41,14 +41,14 @@
 
 ## 5. Décisions distinctes et conditions d'adoption
 
-1. **Adoption documentaire** : revoir AGENTS V2-B3, le protocole et cette proposition. Une mission d’intégration distincte doit autoriser explicitement `target_branch: main` et préciser la version et sa portée. Aucune fusion n’est autorisée par V2-B3.
+1. **Adoption documentaire** : revue V2-B3 effectuée et intégration V2-C autorisée explicitement par l'utilisateur le 08/10/2026. Cette décision porte exclusivement sur les documents de gouvernance ; elle ne donne aucune autorisation générale de push sur `main` aux missions futures.
 2. **Configuration Codex** : V2-B1 reste **BLOCKED**. C1/C2/C3 ne démontrent pas les sessions indépendantes opérationnelles et leur attribution complète ; C4 reste limitée à sa portée rapportée. Compléter les preuves sous mission dédiée, ou décider explicitement de différer cette qualification pour une adoption documentaire séparée. Aucune configuration permanente n’est qualifiée ou modifiée ici.
 3. **Qualification STM32** : qualifier et documenter séparément les chaînes flash/debug, puis obtenir les permissions matérielles explicites par mission. Les aides d’outils et les échanges Git ne qualifient aucune chaîne matérielle.
 4. **Journal technique** : la section locale est reprise dans AGENTS §18 avec ses garanties. Le journal lui-même reste local et non versionné dans cette branche ; son éventuelle publication relève d’une autre mission, sans importer les travaux firmware locaux.
 
 ## 6. Décisions attendues
 
-- Revue humaine de la candidate et décision séparée sur une éventuelle intégration dans main.
+- Revue humaine et autorisation d'intégration documentaire V2-C accordées le 08/10/2026 ; les autres qualifications restent séparées.
 - Compléter ou différer explicitement la qualification comparative V2-B1, sans convertir son statut BLOCKED en succès.
 - Décider séparément de la configuration permanente, de la publication du journal et de la qualification matérielle.
 
