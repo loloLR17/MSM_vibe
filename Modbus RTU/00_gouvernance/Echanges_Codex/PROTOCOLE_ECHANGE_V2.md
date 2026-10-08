@@ -1,39 +1,87 @@
-# Protocole d'échange ChatGPT ↔ Codex — V2 (pilote)
+# Protocole d'échange ChatGPT ↔ Codex — V2-A
 
-Statut : **pilote sur branche de test**, non intégré à `main`.
+Statut : **candidat à qualification**, branche `test/echange-chatgpt-codex-20261008`. Aucune modification de `main` ou des permissions permanentes.
 
-## Objectif
+## 1. Objet et responsabilités
 
-Transmettre des missions et des résultats via GitHub sans copier-coller de longues sorties de terminal. Le dépôt réel fait foi ; chaque transmission est identifiée et vérifiable.
+Le dépôt GitHub est le support asynchrone des missions et rapports. ChatGPT rédige et publie les missions ; Codex exécute les missions autorisées et publie les rapports ; ChatGPT contrôle indépendamment le résultat distant. L'utilisateur déclenche Codex puis demande à ChatGPT de consulter le rapport : **aucune notification automatique n'est démontrée**.
 
-## Fichiers
+Le code et les règles de `AGENTS.md` en vigueur priment sur ce protocole. Ce document ne donne **aucune autorisation implicite** de push sur `main`, flash, GDB, effacement ou intervention physique.
 
-- `MISSION_EN_COURS.md` : mission rédigée par ChatGPT, destinée à Codex.
-- `DERNIER_RAPPORT.md` : compte rendu de Codex, destiné à ChatGPT.
-- `archives/` : archives utiles uniquement, sans journaux volumineux systématiques.
+## 2. Arborescence et propriété des fichiers
 
-## Contrat minimal
+Dossier : `Modbus RTU/00_gouvernance/Echanges_Codex/`.
 
-Chaque transmission contient : `mission_id` (identifiant unique), `status`, `base_ref`, `base_sha`, `created_at_utc`, `author` et le périmètre. Le rapport mentionne `result_sha` (commit de code évalué) et, si différent, `report_commit_sha` dans le message de retour Codex ; le SHA du commit qui contient le rapport ne peut pas être inscrit dans le rapport avant création de ce commit.
+- `PROTOCOLE_ECHANGE_V2.md` : convention commune ; modifications sur mission dédiée.
+- `MISSION_EN_COURS.md` : **ChatGPT seul rédacteur**, mission active et son identifiant.
+- `DERNIER_RAPPORT.md` : **Codex seul rédacteur**, dernier résultat publié.
+- `archives/<mission_id>/MISSION.md` et `archives/<mission_id>/RAPPORT.md` : copie immuable des échanges clôturés, si archivage nécessaire ; jamais écraser une archive existante.
 
-Statuts de mission : `READY`, `IN_PROGRESS`, `BLOCKED`, `DONE`, `FAILED`. Statuts de rapport : `DONE`, `BLOCKED`, `FAILED`. Ne jamais confondre rapport publié et validation technique acquise.
+Un seul pilote actif à la fois sur la branche partagée. La mission suivante n'est publiée qu'après vérification et clôture de la précédente. Les fichiers actifs ne constituent pas une archive historique.
 
-## Déroulement
+## 3. Contrat de mission
 
-1. ChatGPT vérifie la branche et le HEAD réels, puis publie une mission avec identifiant unique et critères d'acceptation. Il ne modifie pas le code de développement sans mission explicite.
-2. L'utilisateur signale à Codex qu'une mission est disponible ; Codex fait `git fetch origin`, vérifie branche, SHA, statut Git et lit la mission. Sur une branche de test, ne pas faire de `git pull origin main` sans raison ; respecter la gouvernance Git existante.
-3. Codex exécute uniquement le périmètre autorisé, conserve les modifications locales préexistantes, documente commandes, codes de retour, preuves, anomalies, décision attendue et HEAD réellement testé.
-4. Codex publie son rapport et communique brièvement `mission_id`, statut, branche et commit du rapport. Il ne pousse pas de code sur `main` tant que les autorisations d'AGENTS.md en vigueur ne sont pas satisfaites.
-5. L'utilisateur indique à ChatGPT : « Consulte le rapport <mission_id> ». ChatGPT lit directement le rapport et vérifie les commits et fichiers nécessaires.
+En tête YAML, au minimum :
 
-## Gestion des conflits
+```yaml
+---
+mission_id: TR2-YYYYMMDD-NNN
+status: READY
+base_ref: <branche cible>
+base_sha: <sha observé avant publication de la mission>
+created_at_utc: <horodatage ISO 8601 UTC>
+author: ChatGPT
+---
+```
 
-- Un seul rédacteur par fichier de transmission à un instant donné ; ChatGPT rédige la mission, Codex rédige le rapport.
-- Refuser une mission si `mission_id` ne correspond pas ou si `base_sha` n'est pas cohérent ; ne jamais interpréter un ancien rapport comme un nouveau.
-- Si le dépôt local est sale, ne jamais écraser le travail préexistant.
-- Aucun `reset --hard`, `push --force` ou résolution automatique de divergence.
-- Les logs complets sont exclus du dépôt par défaut ; ne publier ni secrets, ni identifiants, ni données sensibles.
+Corps : objectif, périmètre autorisé/interdit, critères d'acceptation, validation attendue, permissions explicites (commit, push, matériel), conditions d'arrêt et livrable. `base_sha` est un **point de référence**, pas nécessairement le parent immédiat du commit qui publie la mission : le comparer à l'historique, sans supposer une relation parent directe.
 
-## Limites
+La mission `READY` reste figée pendant son exécution. Une correction significative impose un nouvel identifiant de mission ou une révision explicitement identifiée.
 
-GitHub n'envoie pas automatiquement les messages dans la conversation ChatGPT. Le déclenchement reste manuel (« consulte le rapport »). Le protocole pilote ne modifie pas les règles de flash, de debug, de push ou de validation d'AGENTS.md.
+## 4. Contrat de rapport
+
+En tête YAML, au minimum :
+
+```yaml
+---
+mission_id: TR2-YYYYMMDD-NNN
+status: DONE # ou BLOCKED / FAILED
+base_ref: <branche de mission>
+base_sha: <référence du contrat>
+initial_head: <HEAD observé au démarrage>
+result_sha: <SHA du code effectivement évalué, ou null si sans objet>
+created_at_utc: <horodatage ISO 8601 UTC>
+author: Codex
+---
+```
+
+Corps : modifications et chemins, commandes réellement exécutées avec succès/échecs, validations **réellement observées**, état Git initial/final, preuves et limites, problèmes, décision éventuelle attendue. Ne jamais présenter une opération prévue comme exécutée. Un `status: DONE` signifie mission exécutée et rapport publié, **pas** qualification physique.
+
+Le SHA du commit contenant le rapport est fourni dans la réponse finale Codex après commit ; ne pas tenter d'inscrire dans le même commit son propre SHA. ChatGPT doit relever et vérifier ce commit indépendamment sur GitHub.
+
+## 5. Procédure opératoire
+
+1. **ChatGPT** lit la référence distante, contrôle la mission précédente, puis publie `MISSION_EN_COURS.md` avec nouvel identifiant et SHA de référence.
+2. **Utilisateur** déclenche Codex par une courte instruction (« exécute la mission en cours »).
+3. **Codex** lit `AGENTS.md`, la mission et le protocole à partir de la référence Git réelle ; vérifie `mission_id`, branche, historique, `git status` et les permissions.
+4. Si le dépôt local contient des travaux préexistants, Codex les préserve ; utiliser un clone/worktree isolé lorsque cela est possible. Si Git/DNS/approbations empêchent la publication, rendre `BLOCKED` et décrire le blocage ; **ne pas contourner une restriction de sécurité**.
+5. **Codex** exécute les seules actions autorisées, publie le rapport sur la branche explicitement prévue, puis vérifie sa présence sur la référence **distante** et son identifiant.
+6. **Utilisateur** écrit « consulte le rapport » dans ChatGPT.
+7. **ChatGPT** lit `DERNIER_RAPPORT.md` sur la branche correcte, vérifie `mission_id`, contenu et référence Git. En cas d'absence, de divergence ou de rapport périmé : statut non reçu ; ne pas conclure au succès.
+8. Après clôture, archiver au besoin avant de remplacer les fichiers actifs.
+
+## 6. Règles de sûreté et de traçabilité
+
+- Pas de `reset --hard`, `clean`, `push --force`, écrasement de travail local ou résolution automatique d'une divergence.
+- Ne jamais inclure de secrets, tokens, données personnelles ou logs volumineux dans ce dépôt public.
+- Les écritures sur `main` nécessitent les autorisations actuellement applicables ; un pilote de transmission ne les remplace pas.
+- Les accès matériels suivent intégralement `AGENTS.md` ; aucune opération matérielle dans les missions de qualification V2-A.
+- Distinguer toujours lecture distante, écriture locale, commit local, push et **relecture distante**.
+- Les codes de retour des commandes regroupées ne prouvent pas le succès de chacune des sous-commandes.
+- Une erreur de réseau ou de permission doit être rapportée comme telle ; ne pas annoncer un push réussi sans preuve distante.
+
+## 7. Critères de qualification V2-A
+
+Deuxième mission pilote : ChatGPT publie une nouvelle mission, Codex récupère la bonne version, produit un rapport distinct du premier, publie et relit la référence distante ; ChatGPT constate indépendamment la correspondance de `mission_id` et la traçabilité. Aucune modification firmware, de `main` ou de configuration Codex.
+
+**État actuel** : le premier pilote `TR2-20261008-EXCHANGE-001` a démontré la publication et la lecture distante du rapport. Le protocole V2-A reste candidat tant que le deuxième pilote n'est pas contrôlé.
