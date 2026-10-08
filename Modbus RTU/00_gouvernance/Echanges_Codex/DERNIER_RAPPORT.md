@@ -1,6 +1,6 @@
 ---
 mission_id: TR2-20261008-EXCHANGE-002
-status: BLOCKED
+status: DONE
 base_ref: test/echange-chatgpt-codex-20261008
 base_sha: 20e695e75181b6738d16f9d10bcd2b73f91a724a
 initial_head: 5e1027d9bc520be05ea81d56764efbe5ea33c2f0
@@ -11,7 +11,7 @@ author: Codex
 
 # Rapport V2-A — deuxième transmission
 
-Rapport distinct du pilote 001. Le statut provisoire BLOCKED indique uniquement que la publication distante de ce nouveau rapport reste à vérifier ; aucune qualification matérielle n'est revendiquée. DONE sera publié après une première relecture distante réussie.
+Rapport distinct du pilote 001. VALIDÉ : publication et relecture distante du rapport 002 au commit `61900f5731220878163f68346e67c987f67cd1f5`. Le statut DONE est établi après cette observation ; aucune qualification matérielle n'est revendiquée.
 
 ## Observations et commandes exécutées
 
@@ -26,7 +26,7 @@ Rapport distinct du pilote 001. Le statut provisoire BLOCKED indique uniquement 
 
 ## Publication et validation
 
-Seul DERNIER_RAPPORT.md est remplacé. Méthode : revue du diff, indexation explicite du seul rapport, commit local et push normal `git push origin HEAD:refs/heads/test/echange-chatgpt-codex-20261008`, puis `git ls-remote`, récupération distante et relecture du rapport. Ces opérations sont encore à exécuter à ce stade de rédaction ; leur résultat effectif sera ajouté après observation. Le SHA du commit final sera communiqué dans la réponse Codex, sans auto-référence dans le commit.
+Seul DERNIER_RAPPORT.md est remplacé. Méthode : revue du diff, indexation explicite du seul rapport, commit local et push normal `git push origin HEAD:refs/heads/test/echange-chatgpt-codex-20261008`, puis `git ls-remote`, récupération distante et relecture du rapport. Ces opérations ont réussi pour la première publication, codes 0 : commit `61900f5731220878163f68346e67c987f67cd1f5`, push normal confirmé, `git ls-remote` confirmant le même SHA distant, `git fetch origin test/echange-chatgpt-codex-20261008` puis `git show FETCH_HEAD:<chemin du rapport>` relisant effectivement le nouvel identifiant 002. `git diff --exit-code 5e1027d9bc520be05ea81d56764efbe5ea33c2f0 FETCH_HEAD -- <archives> <firmware>` a réussi sans différence. Main distant reste à `18c9871481e714e05c93ee60d982c7293f488ba3`. La première publication portait un statut provisoire BLOCKED pour ne pas annoncer DONE avant preuve ; ce second commit consigne les résultats observés. Sa publication et sa relecture finale seront confirmées dans la réponse Codex. Le SHA du commit final sera communiqué dans la réponse Codex, sans auto-référence dans le commit.
 
 Validation documentaire et Git uniquement : aucun build, test firmware, flash, GDB ou intervention physique, conformément à la mission. Aucun changement du firmware, des archives, de la mission, du protocole ou des paramètres Codex. Journal consulté mais non actualisé : le contrat n'autorise que le rapport et aucune évolution technique TR2 n'a lieu.
 
