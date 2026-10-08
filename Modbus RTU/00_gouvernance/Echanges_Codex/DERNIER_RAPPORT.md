@@ -1,6 +1,6 @@
 ---
 mission_id: TR2-20261008-CODEX-GIT-PUSH-001
-status: BLOCKED
+status: DONE
 base_ref: test/echange-chatgpt-codex-20261008
 base_sha: null
 initial_head: f18f7494efe3d45884440447eea4f78cb624ceb7
@@ -24,4 +24,4 @@ Conformément à la mission : aucun nouveau test, build, backup, audit étendu o
 
 Dépôt principal et sauvegarde non modifiés ; journal local lu en lecture seule, absent de la référence versionnée et exclu de la publication. AGENTS, journal, builds, PDF/XLSX, logs et sauvegarde exclus. Aucun flash/debug ni fusion dans main. ChatGPT prend en charge la suite.
 
-Statut provisoire BLOCKED uniquement en attente de publication et relecture distante de ce rapport. Seul DERNIER_RAPPORT.md est modifié sur la branche expérimentale.
+Première publication du rapport `40b17e70297d180582f0778505ee868a86e15a4b` : push/fetch code 0, relecture intégrale et comparaison octet pour octet réussies. DONE pour la publication autorisée. Seul DERNIER_RAPPORT.md est modifié sur la branche expérimentale.
