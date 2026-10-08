@@ -8,7 +8,7 @@ Codex intervient comme agent opérateur local pour les tâches logicielles et d'
 
 Le travail est effectué en **mode rigueur stricte**.
 
-AGENTS.md définit les règles de gouvernance **V2-B2 candidate**, applicables uniquement dans la branche expérimentale tant que cette version n'est pas intégrée à `main` après revue humaine. Le contrat de mission définit le travail particulier à effectuer et peut préciser :
+AGENTS.md définit les règles de gouvernance **V2-B3 candidate**, applicables uniquement dans la branche expérimentale tant que cette version n'est pas intégrée à `main` après revue humaine. Le contrat de mission définit le travail particulier à effectuer et peut préciser :
 
 - OBJECTIF ;
 - PÉRIMÈTRE ;
@@ -22,7 +22,11 @@ AGENTS.md définit les règles de gouvernance **V2-B2 candidate**, applicables u
 
 Lorsque l'objectif, le périmètre et les critères d'acceptation sont clairement définis, Codex agit de façon autonome dans ce cadre. Les restrictions explicites de la mission prévalent sur les permissions générales de ce fichier. L'utilisateur reste responsable des interventions physiques.
 
-Les règles de ce fichier s'appliquent à l'ensemble du repository sauf instruction plus locale et explicitement documentée.
+Les règles de ce fichier s'appliquent à l'ensemble du repository. Une instruction locale documentée peut préciser le périmètre ou renforcer les restrictions ; elle ne peut pas étendre les permissions du contrat ni supprimer les garde-fous.
+
+Les restrictions de la plateforme, de sécurité, du sandbox et d'approbation priment sur les autorisations du dépôt. Dans ce cadre, les restrictions explicites du contrat priment sur les permissions générales ; un champ absent ou `false` reste un refus, même si la modification du repository est autorisée. Ni le contrat, ni une instruction locale, ni le protocole ne dispensent des exigences matérielles des sections 9 à 12. Toute évolution de ces règles exige une décision humaine explicite et documentée, sans pouvoir lever une restriction de plateforme.
+
+Cette candidate reste limitée à la branche expérimentale. Une adoption dans `main` exige une nouvelle mission d'intégration autorisée et une revue humaine ; cette mission devra préciser la version adoptée et sa portée d'application, sans adoption automatique par la seule préparation documentaire.
 
 ---
 
@@ -182,7 +186,7 @@ Ne pas effectuer automatiquement de merge ou de rebase pour résoudre une diverg
 
 ### Commit
 
-Dans une mission autorisant explicitement la modification du repository, Codex peut créer de façon autonome un commit local, sauf restriction du contrat, lorsque :
+Codex peut créer de façon autonome un commit local uniquement si une mission explicitement validée par l’utilisateur contient `allow_commit: true`. Ce champ vaut `false` par défaut : absent ou `false`, il interdit le commit ; une autorisation de modification seule ne suffit pas. Dans la branche et le périmètre autorisés, les conditions suivantes doivent aussi être satisfaites :
 
 - l'objectif et les critères d'acceptation sont satisfaits ;
 - la validation appropriée a réussi, lorsqu'elle est nécessaire ;
@@ -197,6 +201,8 @@ Si les critères ne sont pas satisfaits, ne pas créer un commit présenté comm
 ### Push
 
 Par défaut, aucun `git push` n'est autorisé. Une **mission explicitement validée par l'utilisateur** peut accorder `allow_push: true` et `target_branch: <branche>` : Codex peut alors effectuer des push normaux répétés de **ses propres commits dans le périmètre de la mission**, sans redemander une confirmation pour chaque push. `allow_commit: true` ne vaut jamais `allow_push: true`.
+
+L’autorisation couvre uniquement la durée de la mission, jusqu’à sa clôture après relecture distante ; elle ne se transmet pas à la mission suivante.
 
 Avant chaque push : vérifier branche et destination, absence de fichiers hors périmètre ou de secrets, validations applicables, diff indexé et état distant ; utiliser une référence de destination explicite. Après push : contrôler le SHA distant et relire le livrable lorsque la mission le prévoit. Si la branche distante a divergé, arrêter et escalader ; pas de force push, de merge ou de rebase automatique. Un push sur `main` exige une autorisation de mission **mentionnant explicitement `target_branch: main`**, distincte d'une autorisation générique de push. Les restrictions de la plateforme ou du sandbox restent applicables.
 
@@ -406,3 +412,23 @@ En cas de doute sur une opération potentiellement destructive ou physique, vér
 En cas d'échec, analyser les faits avant de modifier le code.
 
 Le but n'est pas seulement d'obtenir un résultat fonctionnel, mais de pouvoir démontrer pourquoi ce résultat est considéré comme valide.
+
+---
+
+## 18. Journal de bord technique partagé ChatGPT / Codex
+
+Au début de chaque mission technique TR2, après vérification de l'état réel du dépôt, Codex doit consulter intégralement `Modbus RTU/00_gouvernance/ETAT_COURANT_TR2.md`.
+
+Ce journal est un support durable d'échange entre ChatGPT et Codex. Il décrit l'état opérationnel et ne remplace pas les spécifications V1 gelées.
+
+Codex doit l'actualiser lorsqu'une intervention modifie significativement l'avancement, les décisions techniques, la configuration matérielle, les résultats de validation, les blocages ou la prochaine étape. Une actualisation n'est pas obligatoire pour une modification mineure sans incidence sur l'état du projet. Les mises à jour du journal font partie du périmètre normal des missions techniques TR2, sauf interdiction explicite du contrat de mission.
+
+Les informations doivent être factuelles, datées et traçables. Distinguer systématiquement VALIDÉ / PRÉPARÉ / NON VÉRIFIÉ et identifier les observations rapportées par l'utilisateur. Ne jamais transformer une hypothèse en fait établi, ni présenter une compilation ou un test hôte comme une validation matérielle.
+
+Ne jamais modifier silencieusement une décision d'architecture ou une spécification gelée. En cas de contradiction entre le journal et le code, la documentation normative ou les observations matérielles, signaler explicitement l'écart. Le journal doit rester suffisamment concis pour être relu intégralement au début d'une mission.
+
+Le rapport final Codex doit indiquer si le journal a été actualisé, quelles informations ont changé et les décisions ou questions à transmettre à ChatGPT.
+
+Les modifications du journal ne donnent aucune autorisation supplémentaire de commit, push, flash ou intervention matérielle. Les autres règles de ce fichier restent applicables.
+
+Si le journal est absent de la référence Git utilisée, signaler cette absence et appliquer les conditions d’escalade ; ne pas fabriquer son contenu ni importer silencieusement une copie locale. Une lecture locale en lecture seule doit être identifiée comme telle et ne constitue pas un journal versionné de cette référence.

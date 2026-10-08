@@ -1,4 +1,4 @@
-# Protocole d'échange ChatGPT ↔ Codex — V2-A
+# Protocole d'échange ChatGPT ↔ Codex — V2-B3 candidate
 
 Statut : **candidat à qualification**, branche `test/echange-chatgpt-codex-20261008`. Aucune modification de `main` ou des permissions permanentes.
 
@@ -31,10 +31,17 @@ base_ref: <branche cible>
 base_sha: <sha observé avant publication de la mission>
 created_at_utc: <horodatage ISO 8601 UTC>
 author: ChatGPT
+target_branch: <branche explicitement autorisée>
+allow_commit: false
+allow_push: false
+allow_flash: false
+allow_debug: false
 ---
 ```
 
 Corps : objectif, périmètre autorisé/interdit, critères d'acceptation, validation attendue, permissions explicites (commit, push, matériel), conditions d'arrêt et livrable. `base_sha` est un **point de référence**, pas nécessairement le parent immédiat du commit qui publie la mission : le comparer à l'historique, sans supposer une relation parent directe.
+
+Les quatre permissions valent `false` si absentes ; seule une valeur `true` dans une mission validée par l’utilisateur autorise l’opération correspondante. `allow_push: true` ne dispense pas de `allow_commit: true` pour créer un commit. Les restrictions de plateforme, de sécurité, du sandbox et les exigences matérielles d’AGENTS.md restent prioritaires. L’autorisation expire à la clôture de la mission.
 
 La mission `READY` reste figée pendant son exécution. Une correction significative impose un nouvel identifiant de mission ou une révision explicitement identifiée.
 
@@ -52,12 +59,19 @@ initial_head: <HEAD observé au démarrage>
 result_sha: <SHA du code effectivement évalué, ou null si sans objet>
 created_at_utc: <horodatage ISO 8601 UTC>
 author: Codex
+target_branch: <branche autorisée>
+allow_commit: false
+allow_push: false
+allow_flash: false
+allow_debug: false
 ---
 ```
 
-Corps : modifications et chemins, commandes réellement exécutées avec succès/échecs, validations **réellement observées**, état Git initial/final, preuves et limites, problèmes, décision éventuelle attendue. Ne jamais présenter une opération prévue comme exécutée. Un `status: DONE` signifie mission exécutée et rapport publié, **pas** qualification physique.
+Corps : modifications et chemins, commandes réellement exécutées avec succès/échecs, validations **réellement observées**, état Git initial/final, preuves et limites, problèmes, décision éventuelle attendue. Ne jamais présenter une opération prévue comme exécutée. Un `status: DONE` signifie critères de mission satisfaits, rapport publié et relecture distante effectuée, **pas** qualification physique ni adoption de gouvernance. Les champs de permissions du rapport recopient ceux du contrat ; le corps précise les opérations effectivement exercées.
 
 Le SHA du commit contenant le rapport est fourni dans la réponse finale Codex après commit ; ne pas tenter d'inscrire dans le même commit son propre SHA. ChatGPT doit relever et vérifier ce commit indépendamment sur GitHub.
+
+Cycle de clôture : publier d’abord un rapport provisoire `BLOCKED` si la preuve distante reste à obtenir, en précisant que ce statut porte sur cette attente. Après push, relire intégralement les livrables depuis la référence récupérée de GitHub et comparer leurs contenus aux fichiers publiés. Si tous les critères sont satisfaits, publier une mise à jour `DONE` consignant le SHA relu ; vérifier aussi cette dernière publication et fournir son SHA dans la réponse finale. Si un critère reste bloqué, conserver `BLOCKED`. Une présence distante seule ne démontre pas une relecture historique ; ne pas réécrire les archives pour compléter une preuve absente.
 
 ## 5. Procédure opératoire
 
@@ -84,4 +98,4 @@ Le SHA du commit contenant le rapport est fourni dans la réponse finale Codex a
 
 Deuxième mission pilote : ChatGPT publie une nouvelle mission, Codex récupère la bonne version, produit un rapport distinct du premier, publie et relit la référence distante ; ChatGPT constate indépendamment la correspondance de `mission_id` et la traçabilité. Aucune modification firmware, de `main` ou de configuration Codex.
 
-**État actuel** : le premier pilote `TR2-20261008-EXCHANGE-001` a démontré la publication et la lecture distante du rapport. Le protocole V2-A reste candidat tant que le deuxième pilote n'est pas contrôlé.
+**État documentaire au 08/10/2026** : les rapports des pilotes `TR2-20261008-EXCHANGE-001` et `TR2-20261008-EXCHANGE-002` sont archivés. Leur publication et relecture Codex sont rapportées dans ces documents ; cela ne suffit pas à affirmer un contrôle indépendant ChatGPT du second pilote. Les critères historiques V2-A ci-dessus restent la référence de cette qualification. La candidate V2-B3 consolide le protocole, sans adoption dans `main`. V2-B1 reste **BLOCKED** pour la qualification comparative des configurations ; aucune qualification STM32 n’en découle.
