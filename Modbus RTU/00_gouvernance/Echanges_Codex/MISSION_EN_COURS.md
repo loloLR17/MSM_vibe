@@ -1,48 +1,39 @@
 ---
-mission_id: TR2-20261008-CODEX-V2B1-001
+mission_id: TR2-20261008-CODEX-V2B2-AUDIT-001
 status: READY
 base_ref: test/echange-chatgpt-codex-20261008
-base_sha: 3245abec29b1a3aa3a307c681a7aa029348f4567
+base_sha: cd88a56455a38d1d7c89d7241866212464685667
 created_at_utc: 2026-10-08
 author: ChatGPT
+allow_commit: true
+allow_push: true
+allow_flash: false
+allow_debug: false
+target_branch: test/echange-chatgpt-codex-20261008
 ---
 
-# V2-B1 — Qualification comparative des sessions Codex
+# V2-B2 — Audit final documentaire de gouvernance avant intégration
 
 ## Objectif
-Comparer le comportement réel de Codex sous quatre couples sandbox / approbations, **sans changer la configuration permanente**, sans intervention matérielle et sans modifier le firmware. Cette mission est une campagne d'observation, **pas** une autorisation d'adopter `danger-full-access`.
+Auditer, **sans appliquer de correction**, la version candidate de `AGENTS.md` sur la branche expérimentale (commit de préparation `47254771cbe1d5856b0a3f82f9afdfea3b2b15c0`) face à `main`, au protocole V2-A, à la proposition V2-B et au rapport V2-B1. Fournir un avis motivé sur la compatibilité et les conditions préalables à une intégration éventuelle. **Aucune fusion dans main n'est autorisée.**
 
-## Préalables et périmètre
-Lire `AGENTS.md`, `PROTOCOLE_ECHANGE_V2.md` et `PROPOSITION_GOUVERNANCE_V2_B.md`. Vérifier la référence distante et l'état Git local ; préserver intégralement les travaux préexistants. Ne jamais tenter de corriger le dépôt sale par `reset`, `clean`, `restore`, `checkout --`, merge ou rebase.
+## Lecture et preuves
+1. Dans un **clone isolé**, contrôler le HEAD réel de la branche expérimentale et de `origin/main`, leurs SHA, ancêtre commun, état Git, puis lire intégralement `AGENTS.md`, `PROTOCOLE_ECHANGE_V2.md`, `PROPOSITION_GOUVERNANCE_V2_B.md`, `DERNIER_RAPPORT.md` (V2-B1), et la mission. Ne pas considérer un SHA mémorisé comme courant.
+2. Produire un diff documenté `main:AGENTS.md` versus `branche-test:AGENTS.md` et rechercher contradictions, régressions de sécurité, ambiguïtés des champs de permission et incohérences de priorité des règles.
+3. Vérifier particulièrement : `allow_commit` / `allow_push` / `target_branch`, autorisation de l'utilisateur, limites des push répétés, protection de `main`, protection du dépôt sale, absence de merge/rebase/reset/force push automatique ; `allow_flash` / `allow_debug`, qualification préalable, garde-fous STM32/GDB, opérations destructives, interventions physiques humaines.
+4. Vérifier le protocole : ownership des fichiers, identifiant de mission, archivage, statut `DONE/BLOCKED`, relecture distante, absence de notification automatique. Relever les éventuelles formulations devenues obsolètes après V2-A.
+5. **Travaux locaux préexistants** : le rapport V2-B1 signale un `AGENTS.md` local modifié et d'autres fichiers sales. Les modifications locales ne sont pas visibles depuis GitHub : ne pas prétendre les avoir comparées si elles ne sont pas accessibles. Une comparaison locale de `AGENTS.md` est autorisée **en lecture seule**, avec `git diff -- AGENTS.md`, sans afficher de secrets ni modifier les fichiers. Signaler les limites d'accès.
+6. Identifier les problèmes par gravité (**BLOQUANT / MAJEUR / MINEUR / INFORMATION**), avec références exactes de sections et recommandations de correction ; distinguer preuves et hypothèses.
+7. Vérifier les modifications de gouvernance déjà réalisées sur la branche et l'absence de changement volontaire de firmware par cette mission ; ne pas attribuer à l'audit les travaux antérieurs.
 
-Autorisé : commandes de lecture Git, consultation distante, création/lecture de fichiers temporaires sous `/tmp/tr2-v2b1/`, lancement de processus interactifs **non matériels**, diagnostic `--help` d'outils si sans effet de bord, et production du rapport. Aucun build requis.
+## Périmètre strict
+Autorisé : lecture Git/FS, diff, analyses statiques, rapport documentaire. **Seule écriture dans le dépôt :** `Modbus RTU/00_gouvernance/Echanges_Codex/DERNIER_RAPPORT.md`, sur `test/echange-chatgpt-codex-20261008`, dans un clone isolé ; commit et push normaux expressément autorisés **pour ce rapport seulement**. Vérifier l'état distant et relire le rapport après push. Aucune autre écriture dans le dépôt, y compris `AGENTS.md`, protocole, archives, journal, firmware ou `main`.
 
-Interdit : flash, programmation, effacement, reset de cible, GDB connecté au ST-LINK, modification du firmware, de `AGENTS.md`, des règles ou de `~/.codex/config.toml`, accès aux secrets/jetons, `push` sur `main`, changement permanent de sandbox. **Ne pas contourner une demande d'approbation refusée**.
+Interdit : flash, GDB connecté, manipulation STM32, matériel, modification de `~/.codex/config.toml` ou règles, `git reset --hard`, `git clean`, `git push --force`, merge, rebase, écrasement de travail utilisateur, changement de branche dans le dépôt principal, ou correction de problèmes identifiés. Ne pas augmenter les permissions pour contourner un blocage.
 
-## Matrice — sessions indépendantes
-Une session Codex doit être lancée séparément pour chaque configuration :
-
-- C1 : `--sandbox workspace-write --ask-for-approval on-request`
-- C2 : `--sandbox workspace-write --ask-for-approval never`
-- C3 : `--sandbox danger-full-access --ask-for-approval on-request`
-- C4 : `--sandbox danger-full-access --ask-for-approval never`
-
-Pour chaque session : relever version Codex, paramètres effectivement demandés, statut Git, succès/échec et codes des opérations non destructives ci-dessous, nombre et motif des demandes d'approbation. **Ne pas inférer la configuration effective à partir de la seule ligne de commande si une preuve supplémentaire est nécessaire.**
-
-### Batterie d'essais par session
-1. `git status --short --branch`, `git rev-parse HEAD`, `git ls-remote origin refs/heads/main refs/heads/test/echange-chatgpt-codex-20261008` ; noter distinctement erreurs Git, réseau et approbation.
-2. Dans un répertoire temporaire isolé propre à la configuration : tenter un `git clone --single-branch --branch test/echange-chatgpt-codex-20261008` ; lire la mission ; **ne pas pousser** pendant les essais C1/C2/C4.
-3. Démarrer un processus Python interactif temporaire qui imprime READY puis répond PONG à une entrée ; vérifier la capacité à lui transmettre une deuxième commande dans la même session. Ne pas lancer de processus persistant sans fin.
-4. Si disponibles, vérifier seulement `STM32_Programmer_CLI.exe --help`, `gdb-multiarch --version` et `ST-LINK_gdbserver.exe --help` ; pas de connexion au MCU, aucun argument de programmation. Ne pas répéter un diagnostic qui déclenche une opération matérielle ou une demande d'approbation non autorisée.
-5. Documenter les blocages de sandbox, DNS, WSL/vsock et approbation, sans généraliser un échec intermittent.
-
-### Publication unique, après comparaison
-Le **seul fichier du dépôt que Codex peut modifier** est `Modbus RTU/00_gouvernance/Echanges_Codex/DERNIER_RAPPORT.md`, et **uniquement dans la session C3**, après exécution de C1, C2, C3, C4 et récupération de leurs observations temporaires. Autorisation explicite de commit et push normaux **sur la branche expérimentale seulement**, après contrôle du diff et relecture distante. Si C3 ne permet pas de publier, déclarer `BLOCKED` ; demander une décision humaine, sans élargir les permissions ni publier depuis C4.
-
-Le rapport inclut : `mission_id: TR2-20261008-CODEX-V2B1-001`, statut `DONE` seulement après vérification distante, `base_ref`, `base_sha`, `initial_head`, `result_sha: null`, auteur, date, matrice des quatre configurations, résultats détaillés et codes, demandes d'approbation, incidents, comparaison des risques et **recommandation argumentée non appliquée**. Ne jamais écrire de secrets ou journaux bruts sensibles dans GitHub public.
+## Rapport attendu
+Front matter : `mission_id: TR2-20261008-CODEX-V2B2-AUDIT-001`, `status: DONE` uniquement si l'audit est achevé **et** le rapport relu à distance (sinon `BLOCKED` ou `FAILED`), `base_ref`, `base_sha`, `initial_head`, `result_sha: null`, `created_at_utc`, `author: Codex`.
+Corps : références vérifiées, matrice de conformité, liste hiérarchisée des écarts, risques, état des travaux locaux, contrôles effectués, conclusion `GO / GO SOUS CONDITIONS / NO-GO` **pour une future revue humaine**, recommandations non appliquées et décisions attendues. Ne pas déclarer V2-B1 qualifiée : son rapport demeure `BLOCKED`.
 
 ## Conditions d'arrêt
-Si une opération peut modifier le matériel, le firmware, la configuration permanente ou des travaux locaux préexistants : arrêter cette opération. Si les sessions ne peuvent pas échanger leurs observations par fichiers temporaires, rapporter la limitation ; ne pas inventer de résultats. Toute modification de configuration permanente requiert une décision ultérieure de l'utilisateur.
-
-## Critères de réussite
-Les quatre sessions sont lancées indépendamment ; chaque résultat est attribué à la bonne configuration ; un rapport unique est publié et relu à distance sur la branche de test ; `main`, firmware, archives, configuration et matériel sont inchangés.
+En cas de divergence Git, impossibilité de publier sur la branche cible, besoin d'une correction hors périmètre ou d'une autorisation supplémentaire : arrêter, documenter le blocage, ne pas contourner. Aucun changement permanent ni intégration à `main` sans nouvelle décision de l'utilisateur.
