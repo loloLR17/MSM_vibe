@@ -1,31 +1,55 @@
 ---
-mission_id: TR2-20261008-CODEX-GIT-PREP-001
+mission_id: TR2-20261008-CODEX-GIT-PUBLISH-001
 status: READY
 base_ref: test/echange-chatgpt-codex-20261008
-base_sha: 43e72c0c87c1f5b38e8565fd3f3cb876eef40135
+base_sha: adb412d503f5afa9e02f00de9218f27656a83dad
 created_at_utc: 2026-10-08
 author: ChatGPT
-target_branch: test/echange-chatgpt-codex-20261008
+target_branch: publish/tr2-firmware-diagnostics-20261008
 allow_commit: true
 allow_push: true
 allow_flash: false
 allow_debug: false
 ---
 
-# P1 — Sauvegarde sécurisée et préparation isolée du firmware local
+# P2 — Publication contrôlée du firmware diagnostique et proposition de PR
 
-## Contexte et objectif
-Après la fusion V2-C sur main (19c39d6a7a9c3d8fef4330a64be427563ed108cb), l'audit TR2-20261008-CODEX-GIT-AUDIT-001 a constaté un dépôt principal local sur 18c9871481e714e05c93ee60d982c7293f488ba3, avec 6 fichiers suivis modifiés et 2621 non suivis, dont 2609 fichiers de build. Objectif : protéger intégralement cet état par une sauvegarde privée vérifiée, puis préparer une tranche firmware diagnostique dans un clone de travail isolé à partir de main distant, sans publication du firmware ni modification du dépôt principal.
+## Objectif
+Terminer la passe Git engagée, sans refaire inutilement les audits ni les sauvegardes P0/P1. P1 a vérifié la sauvegarde privée intégrale, préparé le clone firmware et réussi 104/104 tests hôte et cross-build STM32 (BIN/ELF identiques aux précédents). Publier uniquement les 14 fichiers diagnostiques autorisés sur une nouvelle branche distante dédiée, vérifier le push, puis créer une Pull Request vers main pour revue. Ne pas fusionner automatiquement la PR. Ne pas modifier le dépôt principal local.
 
-## Autorisations et restrictions
-L'utilisateur autorise cette mission P1. Dans le dépôt principal local : lecture seule stricte ; ne jamais exécuter pull, fetch, add, commit, push, stash, reset, clean, checkout, switch, restore, merge, rebase, ni modification de fichier. Pas de modification de main distant. Pas de flash/debug ni configuration permanente. Pas de suppression de fichiers. Ne jamais inclure les répertoires de build ou des secrets dans des commits.
+## Entrées vérifiées P1
+- main distant de référence à P1 : 19c39d6a7a9c3d8fef4330a64be427563ed108cb.
+- clone préparé : /home/lolo/tr2-private-work/TR2-20261008-CODEX-GIT-PREP-001/firmware
+- branche locale préparée : prep/TR2-20261008-CODEX-GIT-PREP-001
+- sauvegarde privée vérifiée : /home/lolo/tr2-private-backups/TR2-20261008-CODEX-GIT-PREP-001
+- 5 fichiers firmware suivis modifiés, 6 fichiers diagnostics/tests nouveaux, 3 procédures documentaires nouvelles = 14 chemins.
 
-**Sauvegarde privée** : autorisée uniquement dans un chemin local privé distinct, hors du dépôt principal, hors d'un répertoire synchronisé/public et hors des dépôts GitHub. Choisir un chemin sûr et consigner le chemin exact dans le rapport ; si la confidentialité ou l'espace disponible ne peuvent être vérifiés, arrêter avant la copie et rapporter BLOCKED. Sauvegarder la totalité du dépôt principal (y compris .git, fichiers suivis, non suivis et ignorés, BIN/ELF et documents), en préservant les données et sans écraser une sauvegarde existante. Vérifier la copie par inventaire et empreintes de fichiers, y compris les fichiers générés ; contrôler quelques récupérations. Une sauvegarde non vérifiée ne suffit pas. Ne jamais pousser cette sauvegarde sur GitHub.
+## Périmètre strict des 14 fichiers
+- Modbus RTU/00_gouvernance/PROCEDURE_FIRMWARE_F2_DIAG_IIS3DWB_B3.md
+- Modbus RTU/00_gouvernance/PROCEDURE_FIRMWARE_F3A_DIAG_MODBUS_RS485.md
+- Modbus RTU/00_gouvernance/PROCEDURE_FIRMWARE_F3B_UART_ADM2867E_GDB.md
+- Modbus RTU/05_Firmware/CMakeLists.txt
+- Modbus RTU/05_Firmware/platform/stm32/CMakeLists.txt
+- Modbus RTU/05_Firmware/platform/stm32/iis3dwb_diag_modbus.c
+- Modbus RTU/05_Firmware/platform/stm32/iis3dwb_diag_modbus.h
+- Modbus RTU/05_Firmware/platform/stm32/iis3dwb_diag_window.c
+- Modbus RTU/05_Firmware/platform/stm32/iis3dwb_diag_window.h
+- Modbus RTU/05_Firmware/platform/stm32/main.c
+- Modbus RTU/05_Firmware/platform/stm32/stm32_serial_transport.c
+- Modbus RTU/05_Firmware/platform/stm32/stm32_serial_transport.h
+- Modbus RTU/05_Firmware/tests/unit/test_iis3dwb_diag_modbus.c
+- Modbus RTU/05_Firmware/tests/unit/test_iis3dwb_diag_window.c
 
-**Clone isolé** : après sauvegarde vérifiée seulement, créer un clone distinct sur le SHA main distant revérifié. Importer dans une branche locale de préparation dédiée uniquement les changements firmware identifiés lors de l'audit : les 5 fichiers firmware suivis modifiés, 4 fichiers diagnostics STM32 (.c/.h), 2 tests unitaires et 3 procédures de gouvernance. Examiner les dépendances et contrôler les contenus/sensibilités avant intégration. Ne pas importer AGENTS.md local V1, ni les répertoires de build, ni le PDF/XLSX, ni le journal local ETAT_COURANT_TR2.md sans décision séparée. Les originaux restent intacts. Documenter le statut strictement diagnostique du harness, qui court-circuite le runtime normal, sans promotion en production.
+## Exécution
+1. Relire AGENTS.md adopté sur main, le protocole et le rapport P1 ; vérifier HEAD/état du clone préparé et ls-remote origin/main. Arrêter si la branche distante a changé, si l'état local ou les 14 empreintes diffèrent du manifeste P1, ou si la branche cible distante existe déjà de manière inattendue.
+2. Relire les 14 fichiers pour secrets et données opérationnelles : les procédures mentionnent des identifiants de banc/ST-LINK et chemins locaux. Si une publication de ces informations pose un risque, stopper et rendre BLOCKED sans publier ; ne pas modifier silencieusement les sources historiques. Vérifier que les diagnostics ne sont pas présentés comme firmware de production.
+3. Sur le clone isolé, créer la branche locale publish/tr2-firmware-diagnostics-20261008 depuis le main distant vérifié, en préservant les 14 fichiers préparés. Ne pas modifier le dépôt principal ni la sauvegarde. Ne pas indexer de builds, binaires, logs, BOM/PDF, journal ETAT_COURANT_TR2.md ou AGENTS V1 local. Utiliser uniquement git add -- avec les 14 chemins explicites. Examiner diff --cached --check, --stat et noms avant commit.
+4. Créer un commit explicite de diagnostic, puis pousser normalement **uniquement** vers origin/publish/tr2-firmware-diagnostics-20261008. Vérifier SHA distant via ls-remote/fetch et contenu publié (14 chemins exacts, empreintes). Aucun force push.
+5. Créer une PR vers main, avec description claire : diagnostic uniquement, harness exécuté avant runtime normal, 104/104 tests et cross-build observés dans P1, aucune qualification physique RS-485 bout-en-bout ou H3h-E4, revue humaine requise. Laisser la PR ouverte **non fusionnée**. Si l'outil local de création PR n'est pas disponible, publier le lien de comparaison/branche dans le rapport, sans faire d'actions risquées.
+6. Publier le rapport final via le canal Echanges_Codex : DERNIER_RAPPORT.md sur la branche test/echange-chatgpt-codex-20261008, depuis un clone isolé, en respectant les champs du protocole. La branche cible du firmware est celle déclarée dans target_branch ; exception explicite pour le seul rapport sur la branche d'échange, avec commit/push autorisés. Relire le rapport distant après publication.
 
-## Validations
-Inspecter diff, fichiers ajoutés, état Git, cohérence CMake et références de la version STM32CubeU5 ; vérifier les prérequis avant tout build. Si faisable sans toucher au dépôt principal ni au matériel, lancer dans le clone la validation pertinente (tr2_validate.sh, toolchain STM32) et consigner exactement commandes, résultats et limitations. Ne pas prétendre à une validation physique. Si le clone ne peut pas accéder aux prérequis, le signaler sans contourner les restrictions. Ne pas utiliser git add global. Aucune publication de firmware, aucun commit ou push de la branche de préparation vers GitHub dans cette mission.
+## Conditions d'arrêt
+Divergence main ou fichiers P1, secret/donnée sensible non résolue, conflit inattendu, validation invalidée, absence de permission, besoin de flash/debug ou autre fichier non autorisé : status BLOCKED, aucun push firmware. Ne jamais supprimer/réinitialiser les travaux locaux pour contourner un blocage. Pas de modification de configuration permanente, aucun flash/debug, aucune mutation du dépôt principal, aucune fusion PR, aucun push direct sur main.
 
-## Rapport et clôture
-Seule écriture GitHub autorisée : DERNIER_RAPPORT.md sur la branche expérimentale depuis un clone de publication isolé, avec commit/push normal après contrôles. Les permissions allow_commit/allow_push valent **exclusivement pour ce rapport**, pas pour le firmware ni main. Rapport : mission_id, status DONE/BLOCKED, références exactes, inventaire et sauvegarde (destination privée, taille, manifestes, hash et vérification), préparation locale (chemin et branche), fichiers importés, validations réellement exécutées, écarts, risques, critères d'arrêt et étapes proposées avant publication. Ne pas inclure de données secrètes. DONE seulement si sauvegarde intégrale vérifiée ET clone isolé préparé ; sinon BLOCKED avec état réel des travaux. Relire le rapport publié sur GitHub, vérifier le SHA distant, préserver toutes les archives et ne pas modifier la mission active.
+## Critères DONE
+Branche distante firmware créée et vérifiée, commit limité aux 14 fichiers, PR ouverte ou impossibilité d'ouverture documentée avec lien de comparaison, rapport publié et relu. DONE n'implique ni fusion dans main, ni firmware de production, ni qualification physique.
