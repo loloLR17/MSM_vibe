@@ -1,6 +1,6 @@
 ---
 mission_id: TR2-20261008-CODEX-V2B3-001
-status: BLOCKED
+status: DONE
 base_ref: test/echange-chatgpt-codex-20261008
 base_sha: 20287f06fe94cd92859624e917fc26b516244d98
 initial_head: 75e65a73f7475a0f8faf676932c098b5fd9345b9
@@ -16,7 +16,7 @@ allow_debug: false
 
 # Consolidation documentaire V2-B3
 
-Statut provisoire BLOCKED uniquement dans l’attente de publication et relecture distante. La consolidation documentaire est préparée ; aucune adoption dans main, configuration permanente ou qualification STM32 n’est revendiquée. V2-B1 reste BLOCKED.
+Consolidation documentaire DONE après première publication et relecture distante effective ; aucune adoption dans main, configuration permanente ou qualification STM32 n’est revendiquée. V2-B1 reste BLOCKED.
 
 ## Références et périmètre
 
@@ -55,6 +55,10 @@ Dépôt principal conservé en lecture seule : six fichiers suivis déjà modifi
 
 Journal NON actualisé : le contrat l’interdit. Aucune configuration Codex, mission active, archive, firmware ou matériel modifié. Aucun flash, debug, effacement, merge, rebase, reset destructif ou force push. Les permissions exercées concernent uniquement les commits documentaires et push normaux sur target_branch.
 
-Publication et relecture restent à effectuer à ce stade. Le SHA du commit contenant ce rapport sera fourni après commit, sans autoréférence. La clôture consigne une preuve distante effective avant DONE.
+Première publication : commit `2d755ad486f6da32c41da091cbaeeadaf0a96ca6`, message `docs: consolidate TR2 V2-B3 candidate governance`. Diff et index vérifiés, quatre chemins autorisés seulement, diff --check et diff indexé --check code 0. État distant inchangé avant push. Push normal sur la destination explicite code 0, fetch code 0 ; HEAD et FETCH_HEAD identiques. Les quatre documents ont été relus intégralement depuis FETCH_HEAD récupéré de GitHub et comparés octet pour octet aux livrables locaux : identiques. Bon identifiant de mission et rapport provisoire contrôlés. Clone propre après première publication.
+
+Contrôle de préservation final : HEAD, status détaillé (incluant les fichiers non suivis) et empreinte SHA256 du diff HEAD du dépôt principal identiques au relevé préalable ; aucune écriture locale effectuée. Cela ne prouve pas les octets de chaque fichier non suivi. Main reste à sa référence initiale.
+
+Cette mise à jour du seul rapport consigne DONE et la preuve de première publication ; son commit et sa publication finale seront également contrôlés et relus avant réponse finale. Son propre SHA sera fourni dans cette réponse, sans autoréférence. Aucun changement des trois documents consolidés dans cette seconde publication.
 
 Décisions à transmettre à ChatGPT : revoir la candidate avant toute intégration ; décider séparément de la suite V2-B1, de la configuration permanente, du devenir du journal et de la qualification STM32. Aucun de ces choix n’est pris par cette consolidation.
