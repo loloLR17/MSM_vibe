@@ -8,7 +8,7 @@ Codex intervient comme agent opérateur local pour les tâches logicielles et d'
 
 Le travail est effectué en **mode rigueur stricte**.
 
-AGENTS.md définit les règles de gouvernance **V2-B3 candidate**, applicables uniquement dans la branche expérimentale tant que cette version n'est pas intégrée à `main` après revue humaine. Le contrat de mission définit le travail particulier à effectuer et peut préciser :
+AGENTS.md définit les règles de gouvernance **V2-B3**, adoptées sur `main` à l'issue de la revue humaine V2-C. Elles s'appliquent au repository ; chaque intervention reste encadrée par un contrat de mission spécifique. Le contrat de mission définit le travail particulier à effectuer et peut préciser :
 
 - OBJECTIF ;
 - PÉRIMÈTRE ;
@@ -26,7 +26,7 @@ Les règles de ce fichier s'appliquent à l'ensemble du repository. Une instruct
 
 Les restrictions de la plateforme, de sécurité, du sandbox et d'approbation priment sur les autorisations du dépôt. Dans ce cadre, les restrictions explicites du contrat priment sur les permissions générales ; un champ absent ou `false` reste un refus, même si la modification du repository est autorisée. Ni le contrat, ni une instruction locale, ni le protocole ne dispensent des exigences matérielles des sections 9 à 12. Toute évolution de ces règles exige une décision humaine explicite et documentée, sans pouvoir lever une restriction de plateforme.
 
-Cette candidate reste limitée à la branche expérimentale. Une adoption dans `main` exige une nouvelle mission d'intégration autorisée et une revue humaine ; cette mission devra préciser la version adoptée et sa portée d'application, sans adoption automatique par la seule préparation documentaire.
+La gouvernance V2-B3 est applicable aux missions futures après intégration contrôlée sur `main`. Cette adoption documentaire ne qualifie ni une configuration permanente de Codex, ni les opérations de flash/debug STM32. Chaque mission conserve ses autorisations explicites et les garde-fous des sections 9 à 12.
 
 ---
 
