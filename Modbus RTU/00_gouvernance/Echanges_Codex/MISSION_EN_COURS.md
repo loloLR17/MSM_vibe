@@ -1,6 +1,6 @@
 ---
 mission_id: TR2-20261008-CODEX-GIT-PUBLISH-001
-status: READY
+status: CANCELLED
 base_ref: test/echange-chatgpt-codex-20261008
 base_sha: adb412d503f5afa9e02f00de9218f27656a83dad
 created_at_utc: 2026-10-08
@@ -12,7 +12,14 @@ allow_flash: false
 allow_debug: false
 ---
 
-# P2 — Publication contrôlée du firmware diagnostique et proposition de PR
+# P2 — ANNULÉE : sauvegarde P1 suffisante
+
+**MISSION ANNULÉE AVANT EXÉCUTION. NE RIEN FAIRE.** L'objectif utilisateur était uniquement de ne pas perdre les travaux locaux. La sauvegarde P1 complète et vérifiée satisfait déjà cet objectif. Aucun commit, push, PR, test ou rapport supplémentaire n'est demandé. Le dépôt principal et le clone préparé restent intacts.
+
+---
+
+## Ancienne mission (historique, non exécutable)
+
 
 ## Objectif
 Terminer la passe Git engagée, sans refaire inutilement les audits ni les sauvegardes P0/P1. P1 a vérifié la sauvegarde privée intégrale, préparé le clone firmware et réussi 104/104 tests hôte et cross-build STM32 (BIN/ELF identiques aux précédents). Publier uniquement les 14 fichiers diagnostiques autorisés sur une nouvelle branche distante dédiée, vérifier le push, puis créer une Pull Request vers main pour revue. Ne pas fusionner automatiquement la PR. Ne pas modifier le dépôt principal local.
