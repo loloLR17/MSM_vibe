@@ -1,6 +1,6 @@
 ---
 mission_id: TR2-20261008-CODEX-V2B2-AUDIT-001
-status: BLOCKED
+status: DONE
 base_ref: test/echange-chatgpt-codex-20261008
 base_sha: cd88a56455a38d1d7c89d7241866212464685667
 initial_head: 7ccf1417ed3fa60ba659ad34a9d793f0dfeb2442
@@ -15,7 +15,7 @@ author: Codex
 
 **GO SOUS CONDITIONS** pour une future intégration revue par l'utilisateur : lever les ambiguïtés de permissions et de priorité ci-dessous, décider du devenir de la règle locale de journal, actualiser les états documentaires et traiter explicitement la réserve V2-B1. Ce rapport n'autorise aucune fusion ni adoption de configuration. Aucune correction appliquée. V2-B1 demeure **BLOCKED** ; ses essais historiques ne qualifient aucune chaîne matérielle ni configuration permanente.
 
-Audit statique achevé ; statut provisoire BLOCKED uniquement parce que la publication et la relecture distante de ce rapport ne sont pas encore effectuées. Un second commit limité au rapport pourra consigner la première relecture et passer à DONE ; sa publication sera également relue avant clôture. DONE désignera l'achèvement de cet audit documentaire, jamais l'adoption de V2-B2.
+Audit documentaire achevé et première publication relue à distance : commit `076bcfd44b960175e84b0d8c1126a9d124f414ee`, push normal code 0, fetch et ls-remote code 0, lecture intégrale du rapport via FETCH_HEAD avec le bon mission_id. Ce second commit consigne cette preuve et le statut DONE ; sa publication sera également relue avant clôture. DONE désigne l'achèvement de cet audit documentaire, jamais l'adoption de V2-B2. Le premier statut BLOCKED était provisoire dans l'attente de cette preuve.
 
 ## Références et preuves observées le 08/10/2026
 
@@ -91,3 +91,5 @@ Validation choisie : lecture intégrale, analyse statique, diff documentaire, co
 Seule écriture de travail autorisée : ce DERNIER_RAPPORT.md dans le clone isolé. Avant publication, vérifier le diff complet, le seul chemin indexé, l'état distant et la destination explicite. Le SHA de chaque commit de rapport et les résultats effectifs de publication seront communiqués dans la réponse finale ; aucun SHA autoréférent inscrit ici.
 
 Décisions à transmettre à ChatGPT/utilisateur : corriger E1/E2 sous nouveau contrat, décider E3, actualiser E4/E6, et traiter la réserve E5 avant toute intégration éventuelle. Aucune de ces recommandations n'est appliquée et aucune fusion main n'est autorisée par cette mission.
+
+Contrôles de première publication : diff --check et diff indexé --check sans erreur ; seul DERNIER_RAPPORT.md indexé et committé. Destination distante inchangée avant push, puis SHA distant identique au commit publié. Clone propre après publication. La seconde publication et son SHA final seront vérifiés et fournis dans la réponse finale, sans affirmation anticipée de leur succès.
