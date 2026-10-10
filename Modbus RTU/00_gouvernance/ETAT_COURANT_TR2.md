@@ -65,9 +65,12 @@ Contrat actif `TR2-20261010-DEV-RTU-INTEGRATION-004`, sur main ; commit/push aut
 Prochaine étape à transmettre à ChatGPT : contrôler le rapport distant, puis traiter le raccordement runtime durable/autorités B5 et la décision matérielle DE//RE/VDDIO2/adresse/transceiver ; qualifier la réception/réponse sous une mission physique explicitement autorisée. Le périmètre portable utile est livré, pas un firmware industriel intégralement qualifié.
 
 
-## Inventaire matériel RS-485 confirmé par l'utilisateur — 10 octobre 2026
+## Inventaire matériel RS-485 — correction confirmée par l'utilisateur, 10 octobre 2026
 
-- **TR2 de test actuel :** transceiver isolé **ADM2587E** installé sur une carte d'évaluation **MIKROE-3863**. Cette combinaison est la référence matérielle effective des prochains essais, à distinguer des hypothèses documentaires antérieures.
-- **Stock pour deux TR2 :** un seul exemplaire du montage ADM2587E / MIKROE-3863 ; **deux exemplaires du second modèle, désigné ADM2867E dans le projet**, destinés à permettre deux TR2 et à valider la supervision simultanée de deux capteurs. Vérifier la référence commerciale exacte et la carte correspondante avant toute décision de brochage.
-- **Adaptateur USB–RS485 :** câble reçu, **jamais branché au PC ni au TR2** au moment de cette déclaration. Modèle, pilote, polarité des bornes et fonctionnement non encore identifiés ni qualifiés.
-- **Statut des preuves :** inventaire déclaré par l'utilisateur, pas une qualification électrique. Ne pas déduire DE, /RE, VDDIO2, alimentation, masses, isolation, terminaison ou raccordement de la seule référence ; contrôler la documentation du montage réel avant connexion. Ne pas considérer le second TR2 comme déjà assemblé ou qualifié.
+**RECTIFICATIF :** l'inventaire initial de ce jour inversait les références du composant installé sur MIKROE-3863. L'utilisateur confirme, après signalement de l'incohérence par Codex pendant la mission 005, que **le composant réellement monté sur MIKROE-3863 et installé sur le TR2 de test est ADM2867E, et NON ADM2587E**. Cette correction remplace l'affirmation erronée du précédent inventaire ; ne pas la traiter comme une nouvelle variante.
+
+- **TR2 de test actuel :** ADM2867E sur carte MIKROE-3863, déclaré par l'utilisateur ; câblage et caractéristiques électriques encore à vérifier sur le montage réel.
+- **Stock déclaré :** deux exemplaires ADM2867E au total (dont celui du TR2 actuel) et un exemplaire ADM2587E ; le second TR2 n'est pas encore qualifié. **Aucune carte support n'est attribuée ici à l'ADM2587E.**
+- **Adaptateur USB–RS485 :** reçu mais jamais branché au PC ni au TR2 à la date de déclaration ; modèle, pilote et bornage non qualifiés.
+- **Conséquence pour mission 005 déjà lancée :** privilégier les preuves constructeur et l'identification physique du couple ADM2867E / MIKROE-3863 ; l'ancienne mention ADM2587E / MIKROE-3863 dans la mission publiée est erronée. La mission READY n'est pas modifiée pendant son exécution ; Codex ayant identifié l'incohérence, le présent rectificatif fait foi pour les travaux suivants.
+- **Limites :** inventaire déclaré, pas validation électrique. Ne rien déduire sans documentation sur DE, /RE, VDDIO2, niveaux, alimentation, isolement, terminaison, polarisation et bornes A/B. Aucune connexion ni flash implicite.
