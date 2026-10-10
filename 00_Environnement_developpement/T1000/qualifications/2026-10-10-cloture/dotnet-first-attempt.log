@@ -1,0 +1,6 @@
+MSBUILD : error MSB1008: Only one project can be specified.
+    Full command line: '/usr/share/dotnet/sdk/10.0.401/MSBuild -maxcpucount --verbosity:m -tlp:default=auto --property:NuGetInteractive=false --target:Restore --verbosity:minimal --nologo ArtifactsPath=$HOME/dev/msm/cache/dotnet TR2.Supervision.sln -distributedlogger:Microsoft.DotNet.Cli.Commands.MSBuild.MSBuildLogger,/usr/share/dotnet/sdk/10.0.401/dotnet.dll*Microsoft.DotNet.Cli.Commands.MSBuild.MSBuildForwardingLogger,/usr/share/dotnet/sdk/10.0.401/dotnet.dll'
+  Switches appended by response files:
+Switch: TR2.Supervision.sln
+
+For switch syntax, type "MSBuild -help"

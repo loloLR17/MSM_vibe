@@ -1,0 +1,25 @@
+{
+  "flash_bytes_before": 2097152,
+  "flash_bytes_after": 2097152,
+  "firmware_bytes": 74412,
+  "erased_pages": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+  ],
+  "page_bytes": 8192,
+  "programmed_bytes_match": true,
+  "remaining_erased_page_padding_ff": true,
+  "flash_outside_first_10_pages_unchanged": true,
+  "sha256_before": "75e1cfd4cde6d11cecb34700d19dc94ac0de9fc5c7156558b5019a7288d893fb",
+  "sha256_after": "4e49d49ac35d0e2db184ae8dc66dac5ac62b25a89d197a3749beaff12a8e6153",
+  "sha256_firmware": "5bb8d47bf370c99596b8e782611375f1ef086b121e11652618274925f376c0f1",
+  "passed": true
+}

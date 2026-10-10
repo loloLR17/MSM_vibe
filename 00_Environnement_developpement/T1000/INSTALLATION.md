@@ -138,3 +138,8 @@ Sous PowerShell, employer `npm.cmd` et `codex.cmd` selon le relevé Windows, san
 - **ABSENT** dans les emplacements inspectés : GDB ARM/gdb-multiarch et compléments STM32Cube. Examiner CubeProgrammer, CubeCLT, CubeIDE et CubeU5 selon le workflow HP, versions et procédure d'installation officielle ; aucune installation automatique décidée ici.
 
 Statut final de qualification source : **PARTIEL** pour l'audit complet, critères logiciels **VALIDÉS**. La publication de cette documentation ne qualifie ni flash, ni debug, ni fonctionnement physique.
+
+
+## Clôture T1000 du 10 octobre 2026
+
+Les instantanés précédents restent historiques. La référence opérationnelle actuelle est [ARCHITECTURE_FINALE.md](ARCHITECTURE_FINALE.md), avec [procédure quotidienne](REPRISE_QUOTIDIENNE.md), [audit/corrections](AUDIT_CLOTURE.md), [validation](VALIDATION_CLOTURE.md) et [maintenance](MAINTENANCE.md). Clone actif sous `dev/msm/projects/MSM_vibe`, SDK Linux sous `dev/msm/tools`. Firmware 102/102 et supervision 466/466, cross-build et reprise après redémarrage réellement validés depuis ces chemins. La preuve physique précédente reste applicable au BIN/ELF identiques ; aucun nouveau flash/debug dans la clôture. Contrôles administrateur complémentaires non bloquants selon décision utilisateur. Voir DERNIER_RAPPORT pour les commits et la relecture distante de cette mission.

@@ -20,3 +20,7 @@ obj/
 
 # Archives generated for transport/export
 *.zip
+
+# Regenerable outputs of the canonical TR2 firmware validation scripts
+/Modbus RTU/05_Firmware/build-host-validation/
+/Modbus RTU/05_Firmware/build-stm32-p11c/

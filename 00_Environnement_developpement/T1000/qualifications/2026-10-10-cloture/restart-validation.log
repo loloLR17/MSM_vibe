@@ -1,0 +1,337 @@
+Fresh WSL boot: 97e13964-582d-4659-a548-ce86ae59ef6f
+running
+active
+  UNIT LOAD ACTIVE SUB DESCRIPTION
+
+0 loaded units listed.
+enabled
+interpreter /init
+flags: PF
+offset 0
+magic 4d5a
+enabled
+interpreter /usr/bin/python3.13
+flags:
+offset 0
+magic f30d0d0a
+Definitive root: $HOME/dev/msm/projects/MSM_vibe
+ M "Modbus RTU/05_Firmware/tests/unit/test_time_history_store.c"
+?? 00_Environnement_developpement/T1000/scripts/
+?? "Modbus RTU/00_gouvernance/ETAT_COURANT_TR2.md"
+?? "Modbus RTU/05_Firmware/build-host-validation/"
+?? "Modbus RTU/05_Firmware/build-stm32-p11c/"
+75eba6b431725b858db3ac5380884934026a1475	refs/heads/main
+github.com
+  ✓ Logged in to github.com account loloLR17 (GH_TOKEN)
+  - Active account: true
+  - Git operations protocol: https
+  - Token scopes: 'gist', 'read:org', 'repo'
+codex-cli 0.162.1
+Logged in using ChatGPT
+Codex Doctor v0.162.1 · linux-x86_64
+
+Environment
+  ✓ system       en-US
+  ✓ disk         sufficient free disk space (950.1 GiB)
+  ✓ security     endpoint protection is not inspected on this platform
+  ✓ runtime      npm (package $HOME/.local/opt/codex/node_modules/@openai/codex-linux-x64/vendor/x86_64-unknown-linux-musl, bin $HOME/.local/opt/codex/node_modules/@openai/codex-linux-x64/vendor/x86_64-unknown-linux-musl/bin, resources $HOME/.local/opt/codex/node_modules/@openai/codex-linux-x64/vendor/x86_64-unknown-linux-musl/codex-resources, path $HOME/.local/opt/codex/node_modules/@openai/codex-linux-x64/vendor/x86_64-unknown-linux-musl/codex-path)
+  ✓ install      consistent
+  ✓ search       file exists (bundled, `$HOME/.local/opt/codex/node_modules/@openai/codex-linux-x64/vendor/x86_64-unknown-linux-musl/codex-path/rg`)
+  ✓ git          git executable found; execution not verified
+  ✓ terminal     unknown · TERM=xterm-256color
+  ✓ title        default · project MSM_vibe
+  ✓ state        databases healthy
+  ✓ threads      rollout files and state DB thread inventory agree
+
+Configuration
+  ✓ config       loaded
+  ✓ auth         auth is configured
+  ✓ mcp          no MCP servers configured
+  ✓ sandbox      restricted fs + restricted network · approval OnRequest
+  ✓ sandbox      no explicit filesystem paths to probe
+
+Updates
+  ✓ updates      update configuration is locally consistent
+
+Connectivity
+  ✓ network      no proxy env vars
+  ✓ websocket    connected (HTTP 101 Switching Protocols) · 15s timeout
+  ✓ reachability active provider endpoints are reachable over HTTP
+
+Background Server
+  ○ app-server   not running (ephemeral mode)
+
+─────────────────────────────────────────────────────────────
+20 ok · 1 idle · 0 warn · 0 fail ok
+
+Run codex doctor without --summary for detailed diagnostics.
+--all expand truncated lists       --json redacted report
+cmake version 3.31.6
+
+CMake suite maintained and supported by Kitware (kitware.com/cmake).
+1.12.1
+arm-none-eabi-gcc (15:14.2.rel1-1) 14.2.1 20241119
+Copyright (C) 2024 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+GNU gdb (Debian 16.3-1) 16.3
+Copyright (C) 2024 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+Open On-Chip Debugger 0.12.0
+Licensed under GNU GPL v2
+For bug reports, read
+	http://openocd.org/doc/doxygen/bugs.html
+10.0.401
+v20.19.2
+9.2.0
+d88042df24f16799957c24f00c2b234c9e306188
+Symbol "main" is at 0x80020cc in a file compiled without debugging.
+Internal ctest changing into directory: $HOME/dev/msm/projects/MSM_vibe/Modbus RTU/05_Firmware/build-host-validation
+Test project $HOME/dev/msm/projects/MSM_vibe/Modbus RTU/05_Firmware/build-host-validation
+        Start   1: codec
+  1/102 Test   #1: codec ..............................................   Passed    0.00 sec
+        Start   2: b4_configuration_codec
+  2/102 Test   #2: b4_configuration_codec .............................   Passed    0.00 sec
+        Start   3: register_model
+  3/102 Test   #3: register_model .....................................   Passed    0.00 sec
+        Start   4: projection_b0
+  4/102 Test   #4: projection_b0 ......................................   Passed    0.00 sec
+        Start   5: projection_b1
+  5/102 Test   #5: projection_b1 ......................................   Passed    0.00 sec
+        Start   6: projection_b2
+  6/102 Test   #6: projection_b2 ......................................   Passed    0.00 sec
+        Start   7: projection_b3
+  7/102 Test   #7: projection_b3 ......................................   Passed    0.00 sec
+        Start   8: projection_b4
+  8/102 Test   #8: projection_b4 ......................................   Passed    0.00 sec
+        Start   9: campaign_inventory_b6
+  9/102 Test   #9: campaign_inventory_b6 ..............................   Passed    0.00 sec
+        Start  10: b6_adapters
+ 10/102 Test  #10: b6_adapters ........................................   Passed    0.00 sec
+        Start  11: time_service
+ 11/102 Test  #11: time_service .......................................   Passed    0.00 sec
+        Start  12: time_recovery_types
+ 12/102 Test  #12: time_recovery_types ................................   Passed    0.00 sec
+        Start  13: time_history_record
+ 13/102 Test  #13: time_history_record ................................   Passed    0.00 sec
+        Start  14: time_history_store
+ 14/102 Test  #14: time_history_store .................................   Passed    0.00 sec
+        Start  15: time_synchronization
+ 15/102 Test  #15: time_synchronization ...............................   Passed    0.00 sec
+        Start  16: configuration_types
+ 16/102 Test  #16: configuration_types ................................   Passed    0.00 sec
+        Start  17: configuration_staging
+ 17/102 Test  #17: configuration_staging ..............................   Passed    0.00 sec
+        Start  18: configuration_validator
+ 18/102 Test  #18: configuration_validator ............................   Passed    0.00 sec
+        Start  19: configuration_workflow
+ 19/102 Test  #19: configuration_workflow .............................   Passed    0.00 sec
+        Start  20: configuration_service
+ 20/102 Test  #20: configuration_service ..............................   Passed    0.00 sec
+        Start  21: persistent_storage_core
+ 21/102 Test  #21: persistent_storage_core ............................   Passed    0.00 sec
+        Start  22: configuration_record
+ 22/102 Test  #22: configuration_record ...............................   Passed    0.00 sec
+        Start  23: campaign_record
+ 23/102 Test  #23: campaign_record ....................................   Passed    0.00 sec
+        Start  24: campaign_repository_store
+ 24/102 Test  #24: campaign_repository_store ..........................   Passed    0.00 sec
+        Start  25: campaign_bulk_aggregator
+ 25/102 Test  #25: campaign_bulk_aggregator ...........................   Passed    0.00 sec
+        Start  26: campaign_bulk_block
+ 26/102 Test  #26: campaign_bulk_block ................................   Passed    0.00 sec
+        Start  27: campaign_bulk_block_stream
+ 27/102 Test  #27: campaign_bulk_block_stream .........................   Passed    0.00 sec
+        Start  28: campaign_bulk_checkpoint
+ 28/102 Test  #28: campaign_bulk_checkpoint ...........................   Passed    0.00 sec
+        Start  29: campaign_bulk_media
+ 29/102 Test  #29: campaign_bulk_media ................................   Passed    0.00 sec
+        Start  30: campaign_bulk_metadata
+ 30/102 Test  #30: campaign_bulk_metadata .............................   Passed    0.00 sec
+        Start  31: campaign_data_store_bulk
+ 31/102 Test  #31: campaign_data_store_bulk ...........................   Passed    0.00 sec
+        Start  32: campaign_data_store_persistent
+ 32/102 Test  #32: campaign_data_store_persistent .....................   Passed    0.00 sec
+        Start  33: campaign_service
+ 33/102 Test  #33: campaign_service ...................................   Passed    0.00 sec
+        Start  34: configuration_store
+ 34/102 Test  #34: configuration_store ................................   Passed    0.00 sec
+        Start  35: configuration_store_recovery
+ 35/102 Test  #35: configuration_store_recovery .......................   Passed    0.00 sec
+        Start  36: configuration_store_recovery_unavailable
+ 36/102 Test  #36: configuration_store_recovery_unavailable ...........   Passed    0.00 sec
+        Start  37: read_adapter
+ 37/102 Test  #37: read_adapter .......................................   Passed    0.00 sec
+        Start  38: read_adapter_b3
+ 38/102 Test  #38: read_adapter_b3 ....................................   Passed    0.00 sec
+        Start  39: write_adapter
+ 39/102 Test  #39: write_adapter ......................................   Passed    0.00 sec
+        Start  40: p5a_contracts
+ 40/102 Test  #40: p5a_contracts ......................................   Passed    0.00 sec
+        Start  41: p6a_contracts
+ 41/102 Test  #41: p6a_contracts ......................................   Passed    0.00 sec
+        Start  42: p7a_command_types
+ 42/102 Test  #42: p7a_command_types ..................................   Passed    0.00 sec
+        Start  43: p7b_command_request_mailbox
+ 43/102 Test  #43: p7b_command_request_mailbox ........................   Passed    0.00 sec
+        Start  44: p7c_command_journal
+ 44/102 Test  #44: p7c_command_journal ................................   Passed    0.00 sec
+        Start  45: p7d_command_journal_store
+ 45/102 Test  #45: p7d_command_journal_store ..........................   Passed    0.00 sec
+        Start  46: p7e_command_engine_admission
+ 46/102 Test  #46: p7e_command_engine_admission .......................   Passed    0.00 sec
+        Start  47: p7f_command_engine_lifecycle
+ 47/102 Test  #47: p7f_command_engine_lifecycle .......................   Passed    0.00 sec
+        Start  48: p7g_apply_configuration
+ 48/102 Test  #48: p7g_apply_configuration ............................   Passed    0.00 sec
+        Start  49: p7h_synchronize_time
+ 49/102 Test  #49: p7h_synchronize_time ...............................   Passed    0.00 sec
+        Start  50: p7i_start_acquisition
+ 50/102 Test  #50: p7i_start_acquisition ..............................   Passed    0.00 sec
+        Start  51: p7j_stop_acquisition
+ 51/102 Test  #51: p7j_stop_acquisition ...............................   Passed    0.00 sec
+        Start  52: p7k_command_boot_recovery
+ 52/102 Test  #52: p7k_command_boot_recovery ..........................   Passed    0.00 sec
+        Start  53: p7l_b5_adapters
+ 53/102 Test  #53: p7l_b5_adapters ....................................   Passed    0.00 sec
+        Start  54: p7m_command_policy
+ 54/102 Test  #54: p7m_command_policy .................................   Passed    0.00 sec
+        Start  55: p7n_transaction_fault_injection
+ 55/102 Test  #55: p7n_transaction_fault_injection ....................   Passed    0.00 sec
+        Start  56: p9b_diagnostic_service
+ 56/102 Test  #56: p9b_diagnostic_service .............................   Passed    0.00 sec
+        Start  57: p9c_diagnostic_recovery
+ 57/102 Test  #57: p9c_diagnostic_recovery ............................   Passed    0.00 sec
+        Start  58: p9h_selftest_command
+ 58/102 Test  #58: p9h_selftest_command ...............................   Passed    0.00 sec
+        Start  59: acquisition_service
+ 59/102 Test  #59: acquisition_service ................................   Passed    0.00 sec
+        Start  60: indicator_calculator
+ 60/102 Test  #60: indicator_calculator ...............................   Passed    0.00 sec
+        Start  61: threshold_evaluator
+ 61/102 Test  #61: threshold_evaluator ................................   Passed    0.00 sec
+        Start  62: supervision_service
+ 62/102 Test  #62: supervision_service ................................   Passed    0.00 sec
+        Start  63: supervision_temporal_envelope
+ 63/102 Test  #63: supervision_temporal_envelope ......................   Passed    0.00 sec
+        Start  64: time_fault_injection
+ 64/102 Test  #64: time_fault_injection ...............................   Passed    0.00 sec
+        Start  65: configuration_b4_flow
+ 65/102 Test  #65: configuration_b4_flow ..............................   Passed    0.00 sec
+        Start  66: configuration_activation_adapter
+ 66/102 Test  #66: configuration_activation_adapter ...................   Passed    0.00 sec
+        Start  67: p12c_pdu_server
+ 67/102 Test  #67: p12c_pdu_server ....................................   Passed    0.00 sec
+        Start  68: p12d_rtu_receiver
+ 68/102 Test  #68: p12d_rtu_receiver ..................................   Passed    0.00 sec
+        Start  69: p12e_serial_transport
+ 69/102 Test  #69: p12e_serial_transport ..............................   Passed    0.00 sec
+        Start  70: p12h_rtu_server_runtime
+ 70/102 Test  #70: p12h_rtu_server_runtime ............................   Passed    0.00 sec
+        Start  71: p12h3c3b_command_journal_bounded_record
+ 71/102 Test  #71: p12h3c3b_command_journal_bounded_record ............   Passed    0.00 sec
+        Start  72: p12h3c3c1_bounded_slot
+ 72/102 Test  #72: p12h3c3c1_bounded_slot .............................   Passed    0.00 sec
+        Start  73: p12h3c3c2_bounded_recovery
+ 73/102 Test  #73: p12h3c3c2_bounded_recovery .........................   Passed    0.00 sec
+        Start  74: p12h3c3c3_bounded_reader
+ 74/102 Test  #74: p12h3c3c3_bounded_reader ...........................   Passed    0.00 sec
+        Start  75: p12h3c3c4_bounded_writer
+ 75/102 Test  #75: p12h3c3c4_bounded_writer ...........................   Passed    0.00 sec
+        Start  76: p12h3c3c4b_bounded_admission
+ 76/102 Test  #76: p12h3c3c4b_bounded_admission .......................   Passed    0.01 sec
+        Start  77: p12h3c3c4c1_bounded_store
+ 77/102 Test  #77: p12h3c3c4c1_bounded_store ..........................   Passed    0.01 sec
+        Start  78: p12h3c3c4d1_fault_media
+ 78/102 Test  #78: p12h3c3c4d1_fault_media ............................   Passed    0.00 sec
+        Start  79: p12h3c3c4d2_admission_power_loss
+ 79/102 Test  #79: p12h3c3c4d2_admission_power_loss ...................   Passed    0.01 sec
+        Start  80: p12h3c3c4d3_mutation_power_loss
+ 80/102 Test  #80: p12h3c3c4d3_mutation_power_loss ....................   Passed    0.01 sec
+        Start  81: p12h3c3c4d4_completion_power_loss
+ 81/102 Test  #81: p12h3c3c4d4_completion_power_loss ..................   Passed    0.01 sec
+        Start  82: p12h3c3c4d5_readmission_power_loss
+ 82/102 Test  #82: p12h3c3c4d5_readmission_power_loss .................   Passed    0.04 sec
+        Start  83: p12h3c3c4d6_d8_consolidation
+ 83/102 Test  #83: p12h3c3c4d6_d8_consolidation .......................   Passed    0.00 sec
+        Start  84: p12h3d2_transactional_image_media
+ 84/102 Test  #84: p12h3d2_transactional_image_media ..................   Passed    0.04 sec
+        Start  85: p12h3d2b_transactional_image_power_loss
+ 85/102 Test  #85: p12h3d2b_transactional_image_power_loss ............   Passed    0.86 sec
+        Start  86: p12h3d2c_transactional_image_recovery
+ 86/102 Test  #86: p12h3d2c_transactional_image_recovery ..............   Passed    0.05 sec
+        Start  87: p12h3d2d_persistent_storage_core_integration
+ 87/102 Test  #87: p12h3d2d_persistent_storage_core_integration .......   Passed    0.03 sec
+        Start  88: p12h3d2e_campaign_transactional_media
+ 88/102 Test  #88: p12h3d2e_campaign_transactional_media ..............   Passed    0.04 sec
+        Start  89: p12h3d2f_transactional_media_format_policy
+ 89/102 Test  #89: p12h3d2f_transactional_media_format_policy .........   Passed    0.02 sec
+        Start  90: p12h3d2g_transactional_media_format_power_loss
+ 90/102 Test  #90: p12h3d2g_transactional_media_format_power_loss .....   Passed    0.04 sec
+        Start  91: p12h3d2h1_transactional_media_geometry
+ 91/102 Test  #91: p12h3d2h1_transactional_media_geometry .............   Passed    0.00 sec
+        Start  92: p12h3d2h3_transactional_media_alternate_geometry
+ 92/102 Test  #92: p12h3d2h3_transactional_media_alternate_geometry ...   Passed    0.01 sec
+        Start  93: system_runtime
+ 93/102 Test  #93: system_runtime .....................................   Passed    0.02 sec
+        Start  94: system_runtime_bulk
+ 94/102 Test  #94: system_runtime_bulk ................................   Passed    0.08 sec
+        Start  95: p8i_system_runtime_acquisition_commands
+ 95/102 Test  #95: p8i_system_runtime_acquisition_commands ............   Passed    0.02 sec
+        Start  96: p8j_system_runtime_b3_projection
+ 96/102 Test  #96: p8j_system_runtime_b3_projection ...................   Passed    0.01 sec
+        Start  97: p8k_power_loss_boot_recovery
+ 97/102 Test  #97: p8k_power_loss_boot_recovery .......................   Passed    0.01 sec
+        Start  98: p12h3c3c4e3_runtime_bounded_journal
+ 98/102 Test  #98: p12h3c3c4e3_runtime_bounded_journal ................   Passed    0.01 sec
+        Start  99: time_boot_recovery
+ 99/102 Test  #99: time_boot_recovery .................................   Passed    0.02 sec
+        Start 100: configuration_fault_injection
+100/102 Test #100: configuration_fault_injection ......................   Passed    2.28 sec
+        Start 101: p5h_acquisition_supervision_b3
+101/102 Test #101: p5h_acquisition_supervision_b3 .....................   Passed    0.02 sec
+        Start 102: post_p9_a5_host_modbus_read
+102/102 Test #102: post_p9_a5_host_modbus_read ........................   Passed    0.00 sec
+
+100% tests passed, 0 tests failed out of 102
+
+Total Test time (real) =   3.83 sec
+Test run for $HOME/dev/msm/projects/MSM_vibe/Modbus RTU/Supervision TR2/tests/TR2.Protocol.Tests/bin/Debug/net10.0/TR2.Protocol.Tests.dll (.NETCoreApp,Version=v10.0)
+Test run for $HOME/dev/msm/projects/MSM_vibe/Modbus RTU/Supervision TR2/tests/TR2.Application.Tests/bin/Debug/net10.0/TR2.Application.Tests.dll (.NETCoreApp,Version=v10.0)
+Test run for $HOME/dev/msm/projects/MSM_vibe/Modbus RTU/Supervision TR2/tests/TR2.Architecture.Tests/bin/Debug/net10.0/TR2.Architecture.Tests.dll (.NETCoreApp,Version=v10.0)
+Test run for $HOME/dev/msm/projects/MSM_vibe/Modbus RTU/Supervision TR2/tests/TR2.Domain.Tests/bin/Debug/net10.0/TR2.Domain.Tests.dll (.NETCoreApp,Version=v10.0)
+Test run for $HOME/dev/msm/projects/MSM_vibe/Modbus RTU/Supervision TR2/tests/TR2.Persistence.Tests/bin/Debug/net10.0/TR2.Persistence.Tests.dll (.NETCoreApp,Version=v10.0)
+Test run for $HOME/dev/msm/projects/MSM_vibe/Modbus RTU/Supervision TR2/tests/TR2.Supervision.Service.Tests/bin/Debug/net10.0/TR2.Supervision.Service.Tests.dll (.NETCoreApp,Version=v10.0)
+Test run for $HOME/dev/msm/projects/MSM_vibe/Modbus RTU/Supervision TR2/tests/TR2.Transport.Tests/bin/Debug/net10.0/TR2.Transport.Tests.dll (.NETCoreApp,Version=v10.0)
+A total of 1 test files matched the specified pattern.
+A total of 1 test files matched the specified pattern.
+A total of 1 test files matched the specified pattern.
+A total of 1 test files matched the specified pattern.
+A total of 1 test files matched the specified pattern.
+A total of 1 test files matched the specified pattern.
+A total of 1 test files matched the specified pattern.
+Results File: $HOME/dev/msm/reports/2026-10-10-cloture/dotnet-restart-test-results/_<HOST>_2026-10-10_15_35_42_net10.0.trx
+
+Passed!  - Failed:     0, Passed:     1, Skipped:     0, Total:     1, Duration: 46 ms - TR2.Architecture.Tests.dll (net10.0)
+Results File: $HOME/dev/msm/reports/2026-10-10-cloture/dotnet-restart-test-results/_<HOST>_2026-10-10_15_35_42_net10.0[1].trx
+
+Passed!  - Failed:     0, Passed:    17, Skipped:     0, Total:    17, Duration: 123 ms - TR2.Domain.Tests.dll (net10.0)
+Results File: $HOME/dev/msm/reports/2026-10-10-cloture/dotnet-restart-test-results/_<HOST>_2026-10-10_15_35_42_net10.0[2].trx
+
+Passed!  - Failed:     0, Passed:    45, Skipped:     0, Total:    45, Duration: 227 ms - TR2.Protocol.Tests.dll (net10.0)
+Results File: $HOME/dev/msm/reports/2026-10-10-cloture/dotnet-restart-test-results/_<HOST>_2026-10-10_15_35_42_net10.0[3].trx
+
+Passed!  - Failed:     0, Passed:    24, Skipped:     0, Total:    24, Duration: 257 ms - TR2.Transport.Tests.dll (net10.0)
+Results File: $HOME/dev/msm/reports/2026-10-10-cloture/dotnet-restart-test-results/_<HOST>_2026-10-10_15_35_42_net10.0[4].trx
+
+Passed!  - Failed:     0, Passed:    31, Skipped:     0, Total:    31, Duration: 695 ms - TR2.Persistence.Tests.dll (net10.0)
+Results File: $HOME/dev/msm/reports/2026-10-10-cloture/dotnet-restart-test-results/_<HOST>_2026-10-10_15_35_42_net10.0[5].trx
+
+Passed!  - Failed:     0, Passed:   221, Skipped:     0, Total:   221, Duration: 512 ms - TR2.Application.Tests.dll (net10.0)
+Results File: $HOME/dev/msm/reports/2026-10-10-cloture/dotnet-restart-test-results/_<HOST>_2026-10-10_15_35_42_net10.0[6].trx
+
+Passed!  - Failed:     0, Passed:   127, Skipped:     0, Total:   127, Duration: 1 s - TR2.Supervision.Service.Tests.dll (net10.0)
+RESTART VALIDATION PASS

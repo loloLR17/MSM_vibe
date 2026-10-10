@@ -1,0 +1,34 @@
+{
+  "firmware-validation.log": {
+    "source_sha256": "d4a0b315251ddecdbe8a21ecd595323435f79ab8f8501772f6a8f6bfe96babe9",
+    "published_sha256": "f38e6bf9f409b99cd7fb282551c7db1f9d4413f05c9ee8415c55669c3b9ae0a4"
+  },
+  "dotnet-validation.log": {
+    "source_sha256": "9692ceb55963befb832efc1af8a33502919b86e173a8269fe420ca8d2acedfb6",
+    "published_sha256": "11fe3063eaa3651b39f8c57997646a2c42e69ff2f0b682b1118662e2b3d999d2"
+  },
+  "restart-validation.log": {
+    "source_sha256": "660374de96d566e86bad6399403fef89981e6400b8794587e119daf9a0be693b",
+    "published_sha256": "9170d8db8e3a00d39c30a068abdb393c5f8dffb8ebb47f61cdb32d2dc49adab0"
+  },
+  "dotnet-first-attempt.log": {
+    "source_sha256": "ce556b9cc557eefb63bb8068a3a3a20a55a09ca7a80196e93458f463a6cb0a37",
+    "published_sha256": "930bc535c8d20902786952a53d021b7410a529442474feccca95b2e530b68f4f"
+  },
+  "dotnet-external-artifacts-failure.log": {
+    "source_sha256": "8e35de8c7a63f86895c146fb421ccca8bc2e108fc23a18fe89711d3cf5b82235",
+    "published_sha256": "d7181445ff56df338e3a9b819ca45c57b070711bfda3007b2862da48aab12f63"
+  },
+  "codex-instructions-probe.json": {
+    "source_sha256": "071caa7ac22ba7d718805f2aeb977f05941bd6bc806c55a4629d39eccfd56029",
+    "published_sha256": "c6148ddf299242d7cc5f46a8c9b27c78cc079a337ad8e8f054aefb787a315bf3"
+  },
+  "gdb-reset-reproducibility.log": {
+    "source_sha256": "5e7db0bb4fd91e2cdef3eb7085928c6a59a6abfd1964c196fb77bf27551e6dd8",
+    "published_sha256": "21dc79a33c3726da658be9380315b1b0f7df54a718a571098ee1e835cdef5af6"
+  },
+  "flash-comparison.json": {
+    "source_sha256": "e21796a62b32cba0e3ef94df44ad4529f9e86cbcbcd7bbe4dd42d0cdf988d00d",
+    "published_sha256": "e21796a62b32cba0e3ef94df44ad4529f9e86cbcbcd7bbe4dd42d0cdf988d00d"
+  }
+}

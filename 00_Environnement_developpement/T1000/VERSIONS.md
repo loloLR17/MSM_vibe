@@ -78,3 +78,8 @@ Mission d'archivage : `T1000-20261010-ARCHIVE-001`. Source : [rapport détaillé
 SSD physique : 256052966400 octets (environ 256 Go). Espace libre mesuré après tests : 194681454592 octets ; relevé Windows légèrement ultérieur : 194678382592 octets, soit environ **194,68 Go** dans les deux cas. Capacité virtuelle WSL distincte.
 
 BitLocker actuel : **BLOQUÉ**, non vérifié faute de privilèges administrateur. ST-LINK, flash et debug physique non qualifiés. Aucun workload .NET additionnel requis pour la console. Node/Codex natifs Linux absents du PATH opérationnel ; usage Windows pilotant WSL validé. La qualification reste **PARTIELLE** pour l'audit complet et valide les capacités logicielles indiquées, sans validation matérielle STM32.
+
+
+## Clôture T1000 du 10 octobre 2026
+
+Les instantanés précédents restent historiques. La référence opérationnelle actuelle est [ARCHITECTURE_FINALE.md](ARCHITECTURE_FINALE.md), avec [procédure quotidienne](REPRISE_QUOTIDIENNE.md), [audit/corrections](AUDIT_CLOTURE.md), [validation](VALIDATION_CLOTURE.md) et [maintenance](MAINTENANCE.md). Clone actif sous `dev/msm/projects/MSM_vibe`, SDK Linux sous `dev/msm/tools`. Firmware 102/102 et supervision 466/466, cross-build et reprise après redémarrage réellement validés depuis ces chemins. La preuve physique précédente reste applicable au BIN/ELF identiques ; aucun nouveau flash/debug dans la clôture. Contrôles administrateur complémentaires non bloquants selon décision utilisateur. Voir DERNIER_RAPPORT pour les commits et la relecture distante de cette mission.

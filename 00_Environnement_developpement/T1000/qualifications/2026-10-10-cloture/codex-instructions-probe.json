@@ -1,0 +1,13 @@
+{
+  "cwd": "$HOME/dev/msm/projects/MSM_vibe",
+  "approvalPolicy": "on-request",
+  "sandbox": {
+    "type": "readOnly",
+    "networkAccess": false
+  },
+  "instructionSources": [
+    "$HOME/dev/msm/projects/MSM_vibe/AGENTS.md"
+  ],
+  "account_type": "chatgpt",
+  "inference_turn_started": false
+}

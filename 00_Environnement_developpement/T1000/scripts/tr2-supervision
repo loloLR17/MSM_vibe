@@ -1,0 +1,20 @@
+#!/bin/bash
+set -euo pipefail
+source "$(dirname "$(readlink -f "$0")")/environment.sh"
+cd "$TR2_REPO/Modbus RTU/Supervision TR2"
+action="${1:-help}"
+if [[ $# -gt 0 ]]; then shift; fi
+case "$action" in
+  validate)
+    # Architecture tests locate sources relative to the standard bin directory.
+    dotnet restore TR2.Supervision.sln
+    dotnet build TR2.Supervision.sln --no-restore
+    dotnet test TR2.Supervision.sln --no-build --logger trx --results-directory "${TR2_TEST_RESULTS:-$MSM_DEV_ROOT/reports/dotnet-test-results}"
+    ;;
+  run)
+    # Caller supplies the approved operating configuration; no sample port selected.
+    exec dotnet run --project src/TR2.Supervision.Service --no-build -- "$@"
+    ;;
+  help) echo 'Usage: tr2-supervision validate | run <service arguments>'; ;;
+  *) echo "Unknown action: $action" >&2; exit 2; ;;
+esac
