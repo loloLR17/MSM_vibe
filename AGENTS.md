@@ -30,6 +30,16 @@ La gouvernance V2-B3 est applicable aux missions futures après intégration con
 
 ---
 
+## Autorisation permanente de travail logiciel — décision utilisateur du 10/10/2026
+
+**Décision explicite de l'utilisateur : ChatGPT et Codex disposent d'une autorisation générale et permanente d'intervenir de façon autonome sur l'intégralité du dépôt Git actif `/home/lolo/dev/msm/projects/MSM_vibe/`, tous ses sous-répertoires et fichiers, pour les opérations de développement logiciel, documentation, tests, maintenance et gouvernance.** Cette autorisation comprend la lecture, la création, la modification, la compilation, les tests, les commits et les push normaux sur `main`, ainsi que la publication et la relecture des missions et rapports d'échange. Ne pas solliciter de validation répétitive pour ces opérations courantes. Le but est l'autonomie effective ChatGPT ↔ Codex.
+
+**Application aux missions :** les futurs contrats doivent déclarer explicitement `target_branch: main`, `allow_commit: true` et `allow_push: true` lorsqu'ils portent sur ces opérations. Ne plus générer par inadvertance de missions logicielles bloquées en `allow_commit: false` / `allow_push: false`. Cette décision constitue l'autorisation humaine de référence pour la rédaction de ces contrats ; les restrictions particulières explicitement indiquées dans une mission restent applicables. Les missions déjà publiées avec des interdictions explicites ne sont pas modifiées rétroactivement.
+
+**Limites conservées :** ce texte ne change pas la configuration effective du sandbox Codex et ne contourne aucune restriction de plateforme. Il n'autorise pas automatiquement le flash/debug, les manipulations physiques, l'effacement massif, les changements d'Option Bytes, les opérations destructives, le force push ou l'écrasement de travaux existants. Les procédures de sécurité matérielle et de préservation Git restent applicables. L'utilisateur n'est sollicité que pour une décision réellement structurante, un risque exceptionnel ou une intervention physique.
+
+---
+
 ## 1 bis. Architecture de développement T1000 — référence validée
 
 Le poste T1000 utilise Debian WSL2 et le système de fichiers natif Linux pour les sources et les compilations. **Ne pas confondre la racine de développement avec la racine du dépôt Git.**
