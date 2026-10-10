@@ -1,6 +1,6 @@
 # État courant TR2 — référence reconstruite
 
-Mise à jour : 10 octobre 2026. Mission `TR2-20261010-DEV-RS485-003`.
+Mise à jour : 10 octobre 2026. Mission `TR2-20261010-DEV-RTU-INTEGRATION-004`.
 
 **Ce document est un nouvel état de référence reconstruit à partir de preuves vérifiables. Il n'est pas une restitution du journal historique HP.** Sa création a été explicitement autorisée par l'utilisateur pour la mission `T1000-20261010-CLOTURE-001`, après escalade AGENTS.md §18. Aucun original n'a été retrouvé dans l'historique Git, les répertoires Linux locaux ou les documents Windows accessibles. Les archives d'échanges du 8 octobre mentionnent un journal local HP, sans en fournir le contenu. Aucun état historique inconnu n'est inventé.
 
@@ -46,8 +46,20 @@ Mission précédente : `TR2-20261010-DEV-RS485-002`, sur `main`. HEAD évalué :
 
 ## Finalisation et publication — mission 003
 
-Contrat actif : `TR2-20261010-DEV-RS485-003`, `target_branch: main`, commit/push autorisés, flash/debug interdits. HEAD initial `4591e13a37e99724c35e88fc03105e5e082c90b8`, mission distante récupérée au SHA `23e6de29ad4baa229987a9c972ef522b088a6791`. Les deux modifications locales de 002 ont été sauvegardées dans un stash conservé, puis réappliquées après fast-forward sur arbre propre ; comparaison au stash sans différence. Aucun code refait ou changement de spécification.
+Contrat de 003 (clôturé) : `TR2-20261010-DEV-RS485-003`, `target_branch: main`, commit/push autorisés, flash/debug interdits. HEAD initial `4591e13a37e99724c35e88fc03105e5e082c90b8`, mission distante récupérée au SHA `23e6de29ad4baa229987a9c972ef522b088a6791`. Les deux modifications locales de 002 ont été sauvegardées dans un stash conservé, puis réappliquées après fast-forward sur arbre propre ; comparaison au stash sans différence. Aucun code refait ou changement de spécification.
 
 **VALIDÉ cross-build** : même commande `bash ./tr2_validate.sh --cross-build-only` avec le SDK Linux, relancée le 10 octobre 2026 en mission 003, code retour 0. Quatre avertissements newlib `_close`, `_lseek`, `_read`, `_write`, sans erreur de compilation/linkage. Diff inspecté et contrôle whitespace réussi. BIN SHA256 `dfc08e8c1e0bcd0da1cae0921215215e02289f17c2e0af5149656af70173ed60`. Pas de tests hôte relancés : seul le harness est modifié, sans modification du cœur ni des interfaces.
 
 Publication et relecture distante consignées dans `Echanges_Codex/DERNIER_RAPPORT.md`, seul rapport de clôture de 003. **NON VÉRIFIÉ matériel** : réception, timing, bus RS-485 et réponses Modbus ; aucun flash/debug effectué. E4 reste ouverte. Prochaine action : contrôle indépendant du rapport publié par ChatGPT, puis mission autorisée pour la qualification de réception et la suite de l'intégration de production.
+
+## Intégration applicative RTU — mission 004, 10 octobre 2026
+
+Contrat actif `TR2-20261010-DEV-RTU-INTEGRATION-004`, sur main ; commit/push autorisés, flash/debug interdits. HEAD initial propre `3f5706780b76707a3be339ac4fb424997d7e794b` ; mission récupérée par fast-forward au SHA `d04e580f8113b3a76f9122a64eb0106a4b1112c6`. Le stash historique 002 est conservé. Aucun changement de freeze, matériel ou travaux E4.
+
+- **VALIDÉ logiciel hôte** : composition portable `ModbusSystemServer` reliant les autorités d'un SystemRuntime déjà booté au serveur RTU/PDU existant ; actualisation après acceptation CRC/adresse, B0 optionnel provisionné, projections runtime et staging B2/B4, inventaire B6, port explicite de soumission B5. Sans autorité d'écriture, exception 04 ; une anomalie préexistante renvoyant 02 à tort pour une autorité absente a été corrigée et couverte pour B2/B4/B5/B6.
+- **Résultats réellement observés** : validation complète firmware finale via `STM32CUBE_U5_ROOT=/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0 bash ./tr2_validate.sh` : 103/103 tests hôte et cross-build réussis. Test d'intégration nouveau : lectures, staging, invalidation workflow, soumission jusqu'à REFRESH_INDICATORS réel, CRC/adresse/broadcast, exception, défauts RX/TX sans replay automatique, readiness. Pas de tests supervision relancés. Quatre avertissements newlib de linkage conservés.
+- **PRÉPARÉ STM32** : raccordement `main.c` → hook `stm32_modbus_application_bind` → init/start/poll du serveur applicatif. Le hook par défaut renvoie NOT_AVAILABLE, observable ; le firmware livré reste en diagnostic RX et n'émet pas de réponse applicative. Le runtime STM32 durable et le transport DE//RE qualifié doivent être fournis avant activation. Les instances temporaires du harness de qualification ne sont pas réutilisées comme runtime production. Dispatcher universel B5 non livré : port de soumission explicite, écritures indisponibles sans gestionnaire ; refus fonctionnel ID 0/code 14 et annulation relèvent de ce gestionnaire, pas d'une réussite simulée.
+- **PRÉPARÉ essais** : `PLAN_ESSAI_RTU_INTEGRATION_004.md` précise les prérequis et commandes. Outil host offline `tr2_rtu_request` construit, génération/décodage et rejets contrôlés sans ouverture série. PG7/PG8 documentés ; PG5/PG4 seulement candidats DE//RE, domaine VDDIO2 à qualifier, transceiver réel à identifier (références historiques ADM2587E vs plan Click ADM2867E).
+- **NON VÉRIFIÉ physique** : toute exécution de cette nouvelle composition sur STM32, réponse RS-485, timing, turnaround, débit. BIN SHA256 `4479d4e257273308b9dbe0a82da912e93a7d91918b5ec165d06f2a57541c3c77`. E4 microSD/power-loss reste ouverte. Publication et SHA du code relu : rapport Codex 004.
+
+Prochaine étape à transmettre à ChatGPT : contrôler le rapport distant, puis traiter le raccordement runtime durable/autorités B5 et la décision matérielle DE//RE/VDDIO2/adresse/transceiver ; qualifier la réception/réponse sous une mission physique explicitement autorisée. Le périmètre portable utile est livré, pas un firmware industriel intégralement qualifié.

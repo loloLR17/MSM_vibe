@@ -5,13 +5,19 @@
 #include "stm32_fram_storage.h"
 #include "stm32_iis3dwb_vibration_source.h"
 #include "stm32_serial_transport.h"
+#include "stm32_modbus_application.h"
 #include "stm32_runtime_platform.h"
 #include "stm32_sdmmc_bulk_media.h"
 
 #include "tr2/persistence/campaign_data_store_bulk.h"
 #include "tr2/modbus/rtu_receiver.h"
 
-/* Receive-only bring-up diagnostics; no PDU execution or response is issued. */
+/* Application binding status is distinct from receive-only diagnostics. */
+volatile uint32_t tr2_modbus_application_binding_result = UINT32_MAX;
+volatile uint32_t tr2_modbus_application_last_poll_result = UINT32_MAX;
+volatile uint32_t tr2_modbus_application_poll_error_count = 0U;
+
+/* Receive-only path: no PDU execution or response. */
 volatile uint32_t tr2_rtu_rx_byte_count = 0U;
 volatile uint32_t tr2_rtu_rx_error_count = 0U;
 volatile uint32_t tr2_rtu_rx_last_error = 0U;
@@ -1513,6 +1519,9 @@ void HAL_MspInit(void)
 int main(void)
 {
     SerialTransport serial_transport;
+    static ModbusSystemServer application_server;
+    ModbusSystemServerBinding application_binding = {0};
+    bool application_enabled = false;
     ModbusRtuReceiver rtu_receiver;
     uint32_t led_tick;
 
@@ -2188,8 +2197,20 @@ int main(void)
         Error_Handler();
     }
 
-    modbus_rtu_receiver_init(&rtu_receiver);
-    if (serial_transport_start_receive(&serial_transport) != TR2_OK) {
+    tr2_modbus_application_binding_result = (uint32_t)stm32_modbus_application_bind(
+        &serial_transport, &application_binding);
+    if (tr2_modbus_application_binding_result == (uint32_t)TR2_OK) {
+        if (modbus_system_server_init(&application_server, &application_binding) != TR2_OK ||
+            modbus_system_server_start(&application_server) != TR2_OK) {
+            Error_Handler();
+        }
+        application_enabled = true;
+    } else if (tr2_modbus_application_binding_result == (uint32_t)TR2_ERROR_NOT_AVAILABLE) {
+        modbus_rtu_receiver_init(&rtu_receiver);
+        if (serial_transport_start_receive(&serial_transport) != TR2_OK) {
+            Error_Handler();
+        }
+    } else {
         Error_Handler();
     }
 
@@ -2197,7 +2218,17 @@ int main(void)
     for (;;) {
         const uint32_t now = HAL_GetTick();
 
-        RtuReceive_Poll(&serial_transport, &rtu_receiver);
+        if (application_enabled) {
+            if (application_server.started) {
+                Tr2Result result = modbus_system_server_poll_once(&application_server);
+                tr2_modbus_application_last_poll_result = (uint32_t)result;
+                if (result != TR2_OK) {
+                    tr2_modbus_application_poll_error_count++;
+                }
+            }
+        } else {
+            RtuReceive_Poll(&serial_transport, &rtu_receiver);
+        }
         if ((uint32_t)(now - led_tick) >= 250U) {
             HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
             led_tick = now;

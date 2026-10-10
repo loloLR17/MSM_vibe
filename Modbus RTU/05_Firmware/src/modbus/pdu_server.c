@@ -112,6 +112,11 @@ static ModbusWriteOutcome dispatch_write(const ModbusPduServerContext *context,
         return outcome;
     }
 
+    outcome.access_result = modbus_register_model_validate_write(start_address, quantity);
+    if (outcome.access_result != MODBUS_ACCESS_OK) {
+        return outcome;
+    }
+
     switch (descriptor->block) {
     case MODBUS_BLOCK_2:
         if (context->time_service == NULL) {
@@ -125,8 +130,13 @@ static ModbusWriteOutcome dispatch_write(const ModbusPduServerContext *context,
             outcome.operation_result = TR2_ERROR_NOT_AVAILABLE;
             return outcome;
         }
-        return modbus_write_adapter_write_b4(context->configuration_staging,
-                                             start_address, values, quantity);
+        outcome = modbus_write_adapter_write_b4(context->configuration_staging,
+                                                 start_address, values, quantity);
+        if (outcome.access_result == MODBUS_ACCESS_OK &&
+            outcome.operation_result == TR2_OK && context->configuration_workflow != NULL) {
+            configuration_workflow_note_prepared_payload_modified(context->configuration_workflow);
+        }
+        return outcome;
     case MODBUS_BLOCK_5:
         if (context->command_mailbox == NULL) {
             outcome.operation_result = TR2_ERROR_NOT_AVAILABLE;
@@ -135,9 +145,28 @@ static ModbusWriteOutcome dispatch_write(const ModbusPduServerContext *context,
         {
             CommandMailboxSubmitResult submit_result = COMMAND_MAILBOX_NO_SUBMISSION;
             CommandRequest captured_request = {0};
-            return modbus_write_adapter_write_b5(context->command_mailbox,
+            outcome = modbus_write_adapter_write_b5(context->command_mailbox,
                                                  start_address, values, quantity,
                                                  &submit_result, &captured_request);
+            if (outcome.access_result == MODBUS_ACCESS_OK &&
+                outcome.operation_result == TR2_OK &&
+                submit_result != COMMAND_MAILBOX_NO_SUBMISSION &&
+                context->command_submit != NULL) {
+                /* Invalid submissions are not captured by the mailbox adapter.
+                 * Preserve their identity for the handler's functional refusal.
+                 */
+                if (submit_result != COMMAND_MAILBOX_SUBMISSION_CAPTURED) {
+                    captured_request.transaction_id = context->command_mailbox->transaction_id;
+                    captured_request.identity.command_code = context->command_mailbox->command_code;
+                    captured_request.identity.param1 = context->command_mailbox->param1;
+                    captured_request.identity.param2 = context->command_mailbox->param2;
+                    captured_request.identity.param3 = context->command_mailbox->param3;
+                    captured_request.identity.confirm_key = context->command_mailbox->confirm_key;
+                }
+                outcome.operation_result = context->command_submit(
+                    context->command_submit_context, submit_result, &captured_request);
+            }
+            return outcome;
         }
     case MODBUS_BLOCK_6:
         if (context->campaign_inventory == NULL || context->b6_image == NULL) {
@@ -148,6 +177,7 @@ static ModbusWriteOutcome dispatch_write(const ModbusPduServerContext *context,
                                              context->b6_image,
                                              start_address, values, quantity);
     default:
+        outcome.access_result = MODBUS_ACCESS_ILLEGAL_ADDRESS;
         return outcome;
     }
 }

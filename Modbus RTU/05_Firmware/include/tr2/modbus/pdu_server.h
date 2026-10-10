@@ -6,6 +6,7 @@
 
 #include "tr2/application/campaign_inventory_service.h"
 #include "tr2/application/command_request_mailbox.h"
+#include "tr2/application/configuration_workflow.h"
 #include "tr2/domain/configuration/configuration_staging.h"
 #include "tr2/domain/time/time_service.h"
 #include "tr2/modbus/read_adapter.h"
@@ -18,6 +19,11 @@
 #define MODBUS_PDU_EXCEPTION_SLAVE_DEVICE_FAILURE UINT8_C(0x04)
 #define MODBUS_PDU_MAX_SIZE ((size_t)253u)
 
+/* Borrowed request, synchronous submit callback, including invalid submissions. */
+typedef Tr2Result (*ModbusCommandSubmit)(void *context,
+                                        CommandMailboxSubmitResult submit_result,
+                                        const CommandRequest *request);
+
 typedef struct {
     ModbusReadSources read_sources;
     TimeService *time_service;
@@ -25,6 +31,9 @@ typedef struct {
     CommandRequestMailbox *command_mailbox;
     CampaignInventoryService *campaign_inventory;
     ModbusBlock6Image *b6_image;
+    void *command_submit_context;
+    ModbusCommandSubmit command_submit;
+    ConfigurationWorkflow *configuration_workflow;
 } ModbusPduServerContext;
 
 typedef struct {

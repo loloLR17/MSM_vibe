@@ -17,6 +17,9 @@
 
 typedef struct {
     SerialTransport *transport;
+    /* Optional application refresh, only after CRC/address acceptance. */
+    void *prepare_context;
+    Tr2Result (*prepare)(void *context);
     ModbusPduServerContext pdu_context;
     uint8_t local_unit_id;
     ModbusRtuReceiver receiver;

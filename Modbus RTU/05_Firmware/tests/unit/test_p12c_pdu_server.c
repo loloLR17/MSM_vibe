@@ -135,6 +135,30 @@ int main(void)
                      MODBUS_PDU_FC_WRITE_MULTIPLE_REGISTERS,
                      MODBUS_PDU_EXCEPTION_ILLEGAL_DATA_ADDRESS);
 
+    /* An absent authority differs from an illegal address, even on writes. */
+    {
+        ModbusPduServerContext absent = {0};
+        const uint16_t writable[] = {2008u, 4002u, 5000u, 6003u};
+        const uint16_t read_only[] = {2000u, 4000u, 5008u, 6000u};
+        uint8_t request[] = {0x10u, 0u, 0u, 0u, 1u, 2u, 0u, 1u};
+        for (size_t i = 0u; i < sizeof(writable) / sizeof(writable[0]); i++) {
+            request[1] = (uint8_t)(writable[i] >> 8u);
+            request[2] = (uint8_t)writable[i];
+            outcome = modbus_pdu_server_process(&absent, request, sizeof(request),
+                                                 response, sizeof(response));
+            assert(outcome.operation_result == TR2_OK);
+            assert_exception(response, outcome.response_length, 0x10u,
+                             MODBUS_PDU_EXCEPTION_SLAVE_DEVICE_FAILURE);
+            request[1] = (uint8_t)(read_only[i] >> 8u);
+            request[2] = (uint8_t)read_only[i];
+            outcome = modbus_pdu_server_process(&absent, request, sizeof(request),
+                                                 response, sizeof(response));
+            assert(outcome.operation_result == TR2_OK);
+            assert_exception(response, outcome.response_length, 0x10u,
+                             MODBUS_PDU_EXCEPTION_ILLEGAL_DATA_ADDRESS);
+        }
+    }
+
     outcome = modbus_pdu_server_process(NULL,
                                         fc03_ok, sizeof(fc03_ok),
                                         response, sizeof(response));

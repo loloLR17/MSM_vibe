@@ -29,6 +29,7 @@ add_library(tr2_core STATIC
     src/application/configuration_workflow.c
     src/application/diagnostic_service.c
     src/application/supervision_service.c
+    src/application/modbus_system_server.c
     src/application/system_runtime.c
     src/application/system_runtime_acquisition_command.c
     src/application/system_state_aggregator.c
@@ -94,6 +95,9 @@ target_link_libraries(tr2_platform_host PUBLIC tr2_core)
 
 add_executable(tr2_host platform/host/main.c)
 target_link_libraries(tr2_host PRIVATE tr2_platform_host)
+
+add_executable(tr2_rtu_request platform/host/rtu_request.c)
+target_link_libraries(tr2_rtu_request PRIVATE tr2_core)
 
 enable_testing()
 
@@ -212,3 +216,5 @@ tr2_add_host_test(test_time_boot_recovery tests/integration/test_time_boot_recov
 tr2_add_host_test(test_configuration_fault_injection tests/integration/test_configuration_fault_injection.c configuration_fault_injection)
 tr2_add_host_test(test_p5h_acquisition_supervision_b3 tests/integration/test_p5h_acquisition_supervision_b3.c p5h_acquisition_supervision_b3)
 tr2_add_host_test(test_post_p9_a5_host_modbus_read tests/integration/test_post_p9_a5_host_modbus_read.c post_p9_a5_host_modbus_read)
+
+tr2_add_host_test(test_modbus_system_server tests/integration/test_modbus_system_server.c modbus_system_server)
