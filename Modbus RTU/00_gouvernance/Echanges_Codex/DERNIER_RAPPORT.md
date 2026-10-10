@@ -1,11 +1,11 @@
 ---
-mission_id: T1000-20261010-CLOTURE-001
-status: DONE
+mission_id: TR2-20261010-DEV-RS485-003
+status: BLOCKED
 base_ref: main
-base_sha: 75eba6b431725b858db3ac5380884934026a1475
-initial_head: 75eba6b431725b858db3ac5380884934026a1475
-result_sha: dc6dac73bbbdd19ecf921f84808065f816a5bc9c
-created_at_utc: 2026-10-10T13:48:06.899582+00:00
+base_sha: 4591e13a37e99724c35e88fc03105e5e082c90b8
+initial_head: 4591e13a37e99724c35e88fc03105e5e082c90b8
+result_sha: b9be87c396a17ad99273be2d34e05cefd72b4f67
+created_at_utc: 2026-10-10T14:44:56Z
 author: Codex
 target_branch: main
 allow_commit: true
@@ -14,48 +14,54 @@ allow_flash: false
 allow_debug: false
 ---
 
-# Clôture T1000 — audit, migration, corrections et validation
+# Mission 003 — finalisation de la réception RTU STM32
 
-**Bilan technique : VALIDÉ AVEC RÉSERVES complémentaires non bloquantes.** Première publication et relecture distante effective réussies au SHA `61b1217fd8d0a337fdbc07445c056061a7e93c1c` ; 39 fichiers intégralement relus et comparés octet par octet, rapport et journal également relus via API GitHub. Le contrat utilisateur et ses confirmations sont consignés dans [CLOTURE_CONTRAT](../../../00_Environnement_developpement/T1000/CLOTURE_CONTRAT.md). Aucun développement fonctionnel commencé.
+Tranche logicielle finalisée et cross-build réussi. Statut provisoire **BLOCKED uniquement en attente de publication et relecture distante**, conformément au protocole V2-B3 ; aucun blocage technique observé.
 
-## Livrables
+## Reprise et modifications
 
-- A : [architecture finale](../../../00_Environnement_developpement/T1000/ARCHITECTURE_FINALE.md), clone actif `/home/lolo/dev/msm/projects/MSM_vibe`, SDK Linux `dev/msm/tools/STM32CubeU5-v1.9.0`, scripts/backups/reports/cache séparés.
-- B : [audit et corrections](../../../00_Environnement_developpement/T1000/AUDIT_CLOTURE.md).
-- C : [validation](../../../00_Environnement_developpement/T1000/VALIDATION_CLOTURE.md), [preuves publiques expurgées](../../../00_Environnement_developpement/T1000/qualifications/2026-10-10-cloture/MANIFESTE.md).
-- D : [reprise quotidienne](../../../00_Environnement_developpement/T1000/REPRISE_QUOTIDIENNE.md), lanceurs Linux et Windows `.cmd`, raccourcis TR2 Debian / Codex WSL.
-- E : [maintenance](../../../00_Environnement_developpement/T1000/MAINTENANCE.md) ; inventaire Windows détaillé privé sous Documents/T1000-CLOTURE-20261010 et copie Linux reports.
+Session native Linux Debian 13, clone canonique `/home/lolo/dev/msm/projects/MSM_vibe`, SDK `/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0`. Aucun audit ou migration de l'environnement.
 
-## Réalisations et preuves
+État initial : `main` au HEAD `4591e13a37e99724c35e88fc03105e5e082c90b8`, deux fichiers modifiés issus de 002. Fetch de la mission 003 au SHA `23e6de29ad4baa229987a9c972ef522b088a6791` ; seul le contrat avait changé à distance, sans divergence. Sauvegarde ciblée par `git stash push`, pull fast-forward sur arbre devenu propre, puis `git stash apply`. Comparaison intégrale des deux fichiers avec le stash : aucune différence. Le stash de préservation reste conservé localement. Aucun travail refait, écrasé ou supprimé.
 
-État initial : main75eba6b, une ligne de test autorisée non commitée, aucun autre fichier utilisateur. Référence distante contrôlée identique avant intervention ; pas de pull sur le clone sale, fetch/ls-remote utilisés. Clone et correctif sauvegardés puis déplacés, 3 408 empreintes de fichiers identiques et git fsck réussi. SDK officiel déplacé sans reclonage. Anciens espaces : 7 779 fichiers archivés et comparés avant retrait. Aucun déplacement de documents personnels.
+- `Modbus RTU/05_Firmware/platform/stm32/main.c` : reprise exacte du code de 002. Consommation des événements série dans la boucle principale, alimentation du récepteur RTU portable, décodage ADU/CRC à fin de trame, compteurs `tr2_rtu_rx_*` et remise à zéro du récepteur sur erreur. Clignotement LED par différence de ticks non signée, sans `HAL_Delay(250U)` dans cette boucle.
+- `Modbus RTU/00_gouvernance/ETAT_COURANT_TR2.md` : reprise du journal de 002 et ajout de la finalisation 003, autorisations, validation et prochaine étape ; reconstruction historique clairement identifiée.
+- `Modbus RTU/00_gouvernance/Echanges_Codex/DERNIER_RAPPORT.md` : présent rapport Codex, remplaçant le rapport actif T1000 sans modifier la mission ChatGPT.
 
-Journal obligatoire **reconstruit avec autorisation explicite** : [ETAT_COURANT_TR2](../ETAT_COURANT_TR2.md). Original HP introuvable dans l'historique Git et les répertoires accessibles ; les références historiques ne prouvent pas son contenu. Nouveau journal étiqueté comme reconstruction, uniquement faits prouvés, états VALIDÉ/PRÉPARÉ/NON VÉRIFIÉ et limites. AGENTS.md, spécifications gelées et ancienne mission ChatGPT inchangés. Ancien échange V2-B3 copié à l'identique dans son archive avant remplacement du rapport Codex actif.
+Commit du code et journal : `b9be87c396a17ad99273be2d34e05cefd72b4f67` — `Firmware: consume STM32 RTU receive events without blocking heartbeat`.
 
-Correctif de test conservé et commité seul : `dc6dac73bbbdd19ecf921f84808065f816a5bc9c`, `test: initialize persistent storage in time history test`. Aucune assertion ou source de production modifiée. Scripts d'environnement/lancement/GitHub ajoutés, deux exclusions de sorties firmware dans .gitignore. Documents historiques T1000 complétés par liens vers la référence actuelle, sans réécriture de leurs observations.
+## Validation réellement exécutée
 
-Commandes réellement exécutées depuis la nouvelle architecture : `tr2-validate` → **102/102 tests et cross-build ARM réussis** ; `tr2-supervision validate` → restore/build sans erreur/avertissement, **466/466 tests**, zéro ignoré. Après `wsl --terminate Debian`, mêmes tests hôte **102/102** et .NET **466/466** ; outils, SDK, authentifications et lanceurs opérationnels. Nouveau BIN/ELF identiques à la mission physique, MAP différente avec les chemins. BIN SHA256 `5bb8d47bf370c99596b8e782611375f1ef086b121e11652618274925f376c0f1`, ELF `1d401f483ab523033cc60de5935346b4c37723e52b00c270b67b74ad314ac484`, MAP `4d0b149f8ecdc978d40b823796b102082298ca3f7c56158f982664c21ac03590`. Aucun nouvel essai physique requis.
+Lecture ciblée du harness, du récepteur et codec existants, des contrats transport et des freezes P12-F/G et V1 ; inspections de la mission 002 conservées. Aucun changement du cœur, d'interface partagée, de pinout ou de spécification gelée.
 
-Codex natif0.162.1 authentifié ChatGPT ; doctor20OK/1idle/0fail. Le contrôle local thread/start confirme le répertoire final et le chargement AGENTS.md, sans tour d'inférence. Politique effective read-only/on-request ; aucune configuration permanente modifiée. C3 opérateur ne devient pas un défaut Linux. PowerShell et Debian atteignent les mêmes lanceurs. GDB Windows15.2.90/serveur ST7.14.0/CubeProgrammer2.23.0 disponibles. Versions complètes dans le rapport de validation.
+Commande relancée en mission 003 :
 
-GitHub CLI2.46.0, compte loloLR17, droits pull/push/admin vérifiés par API. Jeton transféré au coffre Windows via GCM3.0.1 officiel, récupéré et identité vérifiée avant retrait de oauth_token du fichier en clair ; MinGit officiel2.56.0.2 requis par GCM. Pas d'export global de secret, helper uniquement local au clone, aucun paramètre Git global. Les scripts échouent sans coffre et ne créent pas de fallback en clair. Archives, état de sécurité privé et authentifications restent hors du dépôt public.
+```bash
+STM32CUBE_U5_ROOT=/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0 \
+  bash ./tr2_validate.sh --cross-build-only
+```
 
-systemd-binfmt : flush global incompatible WSL3.0.1, enregistrement Python ciblé testé puis drop-in réversible sans ignorer les erreurs. Après redémarrage : service actif, système running, aucun service failed, WSLInterop préservé. Stable WSL déjà à jour ; préversion3.0.2 non installée. Surveiller le drop-in lors des mises à jour et nouveaux formats.
+**Résultat : code retour 0, CROSS-BUILD VALIDATED.** Compilation et linkage ARM réussis avec GCC 14.2.1. Quatre avertissements newlib : `_close`, `_lseek`, `_read`, `_write` non implémentés. Ils ne sont pas masqués. Aucun échec de build ni correction supplémentaire nécessaire. Invocation `bash` conforme à l'aide du script non exécutable ; pas de changement de droits.
 
-Erreurs conservées et résolues : première syntaxe MSBuild invalide ; sorties .NET externes provoquant un échec du test d'architecture, retour aux bin/obj standards sans modification de test ; lecteur RPC Codex tamponné corrigé. Les logs échoués restent accessibles. Aucun échec masqué.
+Validation proportionnée selon AGENTS.md §6 : modification limitée au harness STM32 ; cœur et interfaces inchangés. Pas de nouvelle campagne de tests hôte ni supervision ; le cross-build ne constitue pas un test comportemental de cette boucle. Diff/index relus, `git diff --check` et `git diff --cached --check` réussis.
 
-## Réserves et exclusions
+Artefacts produits, non publiés dans Git :
 
-Instruction utilisateur : contrôles administrateur complémentaires non bloquants, aucune nouvelle UAC ni action BitLocker. Les observations déjà obtenues sont consignées dans SECURITE_LOCALE hors Git ; pare-feu/antivirus maintenus, aucune clé/protection modifiée. L'extraction CubeCLT de967Mo reste verrouillée par l'ancien installateur élevé : conservée sans arrêt forcé ; ZIP officiel archivé, contenu identique vérifié. Aucun besoin de réinstallation générale.
+- BIN SHA256 `dfc08e8c1e0bcd0da1cae0921215215e02289f17c2e0af5149656af70173ed60`.
+- ELF SHA256 `c9ba0e1b2c3f8d7b0839d67d66f27f793efb0840db34668661150cae769db4f2`.
+- ELF : text 75 652, data 116, bss 69 800 octets.
+- Log local : `/tmp/TR2-20261010-DEV-RS485-003-cross-build.log` (preuve temporaire, non versionnée).
 
-Non vérifiés : exploitation série réelle de supervision, qualifications applicatives TR2/microSD/E4 power-loss, GDB source ligne par ligne et transport GDB WSL. La qualification physique précédente prouve le cycle du poste avec SD absente ; pas toutes les fonctions du TR2. Ces limites restent hors de la mission et ne sont pas transformées en succès.
+## Preuves, limites et prochaine étape
 
-## Publication et clôture
+**VALIDÉ** : compilation/linkage et inspection de la tranche logicielle. **PRÉPARÉ** : diagnostic de réception sur cible. **NON VÉRIFIÉ** : exécution de la nouvelle boucle, UART réel, précision T1.5/T3.5, bus RS-485 et qualification physique. Aucune observation matérielle nouvelle. Les compteurs ADU valides portent sur longueur/CRC, pas sur validité PDU ou traitement de commande. Les trames invalidées par la machine temporelle avant livraison ne sont pas comptées parmi les ADU rejetées par le codec.
 
-Permissions exercées : commit local du test, puis publication normale main des changements de mission autorisés après contrôle. Aucune opération flash/debug, mass erase/Option Bytes, force push, merge/rebase, formatage, nettoyage personnel ou changement sécurité. Diff, index, secrets, destination et SHA distant doivent être contrôlés avant chaque push. Première publication normale `75eba6b → 61b1217fd8d0a337fdbc07445c056061a7e93c1c`, puis fetch et relecture intégrale ; mêmes contenus. État Git propre à cette étape. Cette mise à jour clôture le rapport après cette preuve ; son propre SHA sera fourni dans la réponse finale après son push et sa relecture. La lecture indépendante ChatGPT reste à effectuer par ChatGPT, elle n'est pas présumée par la relecture Codex.
+Pas de serveur PDU de production composé, de réponse, filtre d'adresse ou pilotage DE//RE ajouté. E4 microSD/power-loss reste ouverte et inchangée. Les séquences de stockage déjà présentes au boot restent hors de cette modification. Aucun flash/debug, intervention physique, effacement ou changement de configuration permanente.
 
-Prochaine étape : examen du dossier de clôture par l'utilisateur/ChatGPT, puis nouvelle discussion de reprise MSM/TR2 avec contrat explicite. Ne pas démarrer le développement fonctionnel à la fin de cette mission.
+Prochaine action : ChatGPT contrôle indépendamment le rapport distant et la tranche publiée ; mission distincte autorisée pour qualification de réception puis suite de l'intégration de production. Aucun résultat physique n'est présumé.
 
-Correction GitHub GH007 : le premier push a été refusé pour adresse email privée, sans publication. Les deux commits propres à cette mission, non publiés, sont conservés dans une référence locale de sauvegarde et un bundle privé. Ils ont été recréés avec l'adresse noreply basée sur l'ID du compte, sans modifier l'arbre du correctif, sans rebase/reset ni force push. Le second arbre ajoute uniquement cette correction de traçabilité et d'identité. Identité modifiée seulement dans ce clone ; protection GitHub conservée.
+## Publication
 
-La publication réelle sur main qualifie aussi le transport Git en écriture, au-delà des seuls droits API. L'autorisation expire à la clôture. Aucun nouveau flash/debug ou développement fonctionnel. Les contrôles Windows facultatifs ne deviennent pas des blocages, conformément à la décision utilisateur.
+Permissions exercées : commit local du code/journal ; commits de rapport et push normaux sur `main` autorisés pour ce cycle. Destination prévue : `HEAD:refs/heads/main` sur `origin`. Diff limité aux trois fichiers ci-dessus, sans secret ni artefact ; état distant vérifié avant push, aucune divergence ni merge/rebase/force push.
+
+La preuve de publication et de relecture sera ajoutée après récupération effective de la référence GitHub. État Git propre après commit du code ; seul le rapport provisoire est ensuite modifié avant son commit. Le statut DONE sera publié seulement après comparaison intégrale des livrables distants.
