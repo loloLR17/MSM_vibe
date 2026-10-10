@@ -1,6 +1,6 @@
 ---
 mission_id: TR2-20261010-DEV-RS485-003
-status: BLOCKED
+status: DONE
 base_ref: main
 base_sha: 4591e13a37e99724c35e88fc03105e5e082c90b8
 initial_head: 4591e13a37e99724c35e88fc03105e5e082c90b8
@@ -16,7 +16,7 @@ allow_debug: false
 
 # Mission 003 — finalisation de la réception RTU STM32
 
-Tranche logicielle finalisée et cross-build réussi. Statut provisoire **BLOCKED uniquement en attente de publication et relecture distante**, conformément au protocole V2-B3 ; aucun blocage technique observé.
+Tranche logicielle finalisée, cross-build réussi, code/journal/rapport publiés puis intégralement relus au SHA `2a2bf5c6811caa3e88139d1cce3756a2c08b8c59`. **DONE au titre de la mission logicielle et de sa publication**, sans qualification matérielle.
 
 ## Reprise et modifications
 
@@ -62,6 +62,8 @@ Prochaine action : ChatGPT contrôle indépendamment le rapport distant et la tr
 
 ## Publication
 
-Permissions exercées : commit local du code/journal ; commits de rapport et push normaux sur `main` autorisés pour ce cycle. Destination prévue : `HEAD:refs/heads/main` sur `origin`. Diff limité aux trois fichiers ci-dessus, sans secret ni artefact ; état distant vérifié avant push, aucune divergence ni merge/rebase/force push.
+Permissions exercées : commit local du code/journal ; commits de rapport et push normaux sur `main` autorisés pour ce cycle. Destination utilisée : `HEAD:refs/heads/main` sur `origin`. Diff limité aux trois fichiers ci-dessus, sans secret ni artefact ; état distant vérifié avant push, aucune divergence ni merge/rebase/force push.
 
-La preuve de publication et de relecture sera ajoutée après récupération effective de la référence GitHub. État Git propre après commit du code ; seul le rapport provisoire est ensuite modifié avant son commit. Le statut DONE sera publié seulement après comparaison intégrale des livrables distants.
+Publication normale réussie : `23e6de29ad4baa229987a9c972ef522b088a6791` → `2a2bf5c6811caa3e88139d1cce3756a2c08b8c59`, avec code/journal `b9be87c396a17ad99273be2d34e05cefd72b4f67` et rapport provisoire `2a2bf5c6811caa3e88139d1cce3756a2c08b8c59` — `Report: publish provisional results for RS485 mission 003`.
+
+Après push, `git fetch origin main`, contrôle `origin/main == HEAD`, puis lecture intégrale par `git show <SHA distant>:<chemin>` et comparaison octet par octet avec les fichiers locaux : `main.c` (94 002 octets), journal (8 935 octets), rapport provisoire (5 637 octets), tous identiques. Les critères de publication/relecture sont donc satisfaits. Arbre propre à cette étape ; stash de préservation 002 conservé hors publication. Cette mise à jour clôt le rapport en DONE et sera elle-même publiée puis vérifiée ; son propre SHA sera communiqué dans la réponse finale, sans auto-référence circulaire. Le contrôle indépendant de ChatGPT reste à effectuer par ChatGPT.
