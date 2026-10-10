@@ -64,3 +64,19 @@ HEAD distant initial contrôlé : `19c39d6a7a9c3d8fef4330a64be427563ed108cb`. L'
 Validation retenue : relecture documentaire, contrôle des trois ajouts et comparaison des contenus après publication. Aucune compilation n'est nécessaire pour ces seuls documents. La preuve de publication, le SHA final et la relecture distante sont à fournir dans le compte rendu final Codex ; ce journal ne prétend pas connaître le SHA du commit qui le contient.
 
 Aucun mot de passe, token, clé de récupération BitLocker ou secret n'est conservé. La prochaine étape opérationnelle reste l'installation des outils dans une mission distincte, avec relevé de leurs versions réellement installées.
+
+## 10 octobre 2026 — Complément W2-A à W2-E (observations transmises)
+
+W2-A : Debian passée de 13.5 à 13.7 ; `apt update` et `apt list --upgradable` ont indiqué `All packages are up to date`.
+
+W2-B : compte rendu de l'agent local : `git` 1:2.47.3-0+deb13u1, `cmake` 3.31.6-2, `ninja-build` 1.12.1-1, `build-essential` 12.12, `pkg-config` 1.8.1-4, tous `install ok installed`. Vérification exécutables Git 2.47.3, CMake 3.31.6, Ninja 1.12.1, GCC hôte 14.2.0, pkg-config 1.8.1. Réserve : erreur systemd lors de la configuration OpenSSH, ssh-agent non testé.
+
+W2-C : sorties utilisateur confirmant `gcc-arm-none-eabi` 15:14.2.rel1-1 (GCC 14.2.1), `binutils-arm-none-eabi` 2.44-3+23+b1, `libnewlib-arm-none-eabi` et `libnewlib-dev` 4.5.0.20241231-1, tous installés. Compilation d'un objet C avec `-mcpu=cortex-m33 -mthumb -ffreestanding -Wall -Wextra -Werror` réussie ; `readelf` : ELF32, REL, ARM, EABI5. **VALIDÉ : compilation objet ARM minimale** ; édition de liens, flash et exécution sur cible non testés.
+
+W2-D : `openocd` 0.12.0-3+b2 (exécutable 0.12.0) et `usbutils` 1:018-2 (lsusb 018), tous deux `install ok installed`. **VALIDÉ : installation des utilitaires** ; communication ST-Link non testée.
+
+W2-E : Windows `usbipd-win` 5.3.0 installé via winget. Exécutable présent dans `C:\Program Files\usbipd-win\`, `usbipd list` fonctionnel, PATH système déjà correct ; après nouvelle session PowerShell, `usbipd --version` fonctionne sans modification. **VALIDÉ : outil Windows**, aucun périphérique partagé et aucun ST-Link branché lors du relevé.
+
+W2-F : SDK .NET non installé ou vérifié. Ni VS Code ni Codex CLI ne sont attestés installés sur le T1000 : `Get-StartApps` ne trouve pas Codex, `Get-Command codex,code` ne renvoie rien. Ne pas confondre des sessions Codex/Work distantes avec une installation locale.
+
+Source de ce complément : sorties utilisateur de la conversation ChatGPT et rapport d'agent expressément identifié. Ce complément ne remplace pas les observations historiques précédentes.
