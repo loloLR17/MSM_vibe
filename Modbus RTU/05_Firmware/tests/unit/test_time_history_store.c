@@ -88,7 +88,7 @@ int main(void)
 {
     TestMedia media;
     PersistentMedia persistent_media;
-    PersistentStorageCore storage;
+    PersistentStorageCore storage = {0};
     TimeHistoryStore store = {0};
     TimeHistoryStore invalid_store = {0};
     TimeHistoryRecoveryResult recovery;
