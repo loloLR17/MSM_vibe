@@ -30,6 +30,24 @@ La gouvernance V2-B3 est applicable aux missions futures après intégration con
 
 ---
 
+## 1 bis. Architecture de développement T1000 — référence validée
+
+Le poste T1000 utilise Debian WSL2 et le système de fichiers natif Linux pour les sources et les compilations. **Ne pas confondre la racine de développement avec la racine du dépôt Git.**
+
+- Racine de développement MSM : `/home/lolo/dev/msm/`.
+- **Racine du dépôt Git actif** : `/home/lolo/dev/msm/projects/MSM_vibe/`.
+- SDK STM32CubeU5 v1.9.0 : `/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/`.
+- Scripts et environnement : `/home/lolo/dev/msm/scripts/`.
+- Rapports : `/home/lolo/dev/msm/reports/`.
+- Sauvegardes : `/home/lolo/dev/msm/backups/`.
+- Cache régénérable : `/home/lolo/dev/msm/cache/`.
+
+Les emplacements Windows sous `/mnt/c` ne constituent pas la racine des projets actifs. Les anciens chemins rencontrés dans les archives sont historiques, **pas des instructions opérationnelles**. Aucune migration ou réorganisation de cette architecture n'est implicite : elle nécessite une décision humaine explicite et une mission dédiée.
+
+Documents de référence : `00_Environnement_developpement/T1000/ARCHITECTURE_FINALE.md` et `00_Environnement_developpement/T1000/REPRISE_QUOTIDIENNE.md`. Vérifier les chemins réellement présents au début de chaque mission ; une différence doit être signalée, et non corrigée silencieusement.
+
+---
+
 ## 2. Source de vérité
 
 La seule référence documentaire et logicielle est l'état réel courant du repository Git.
@@ -130,11 +148,13 @@ Le script principal de validation est :
 
 `tr2_validate.sh`
 
+Sur le T1000, charger de préférence `source "$HOME/dev/msm/scripts/environment.sh"` puis utiliser les lanceurs documentés `tr2-validate` et `tr2-supervision`. Les commandes ci-dessous sont des exemples de validation directe depuis la racine du dépôt actif, avec le SDK Linux qualifié ; elles ne doivent pas être remplacées par un ancien chemin Windows.
+
 ### Modification limitée au harness STM32
 
 Lorsque la modification est strictement limitée au harness matériel STM32 et qu'aucune régression du cœur fonctionnel n'est raisonnablement plausible, utiliser :
 
-    STM32CUBE_U5_ROOT=/mnt/c/Users/Lolo/Desktop/STM32/STM32CubeU5 \
+    STM32CUBE_U5_ROOT=/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0 \
     ./tr2_validate.sh --cross-build-only
 
 Ne pas lancer systématiquement l'ensemble des tests hôte lorsqu'ils ne sont pas concernés.
@@ -143,7 +163,7 @@ Ne pas lancer systématiquement l'ensemble des tests hôte lorsqu'ils ne sont pa
 
 Si le cœur fonctionnel est modifié, si une interface partagée est touchée ou si une régression est raisonnablement plausible, utiliser la validation complète :
 
-    STM32CUBE_U5_ROOT=/mnt/c/Users/Lolo/Desktop/STM32/STM32CubeU5 \
+    STM32CUBE_U5_ROOT=/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0 \
     ./tr2_validate.sh
 
 En cas de doute entre les deux niveaux de validation, privilégier la validation complète ; demander à l'utilisateur si une condition d'escalade est rencontrée.
