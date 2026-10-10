@@ -1,8 +1,8 @@
 ---
-mission_id: TR2-20261010-DEV-RS485-001
+mission_id: TR2-20261010-DEV-RS485-002
 status: READY
 base_ref: main
-base_sha: 5a1b1a89070f73feebbe513bde1ec0d18ca2a52c
+base_sha: 36c33b7981c61376dae45586509327b899e5f3b8
 created_at_utc: 2026-10-10T14:15:00Z
 author: ChatGPT
 target_branch: main
@@ -12,23 +12,22 @@ allow_flash: false
 allow_debug: false
 ---
 
-# TR2 — Reprise effective du développement : liaison RS-485 / Modbus RTU
+# TR2 — Reprise développement RS-485 dans l'architecture T1000 qualifiée (révision 002)
 
-## Objectif
-**Développer, pas auditer.** Sur le T1000, reprendre l'intégration du firmware STM32 et de la liaison RS-485/Modbus RTU au niveau réellement atteint, en produisant une avancée logicielle concrète et testable. Délégation de l'inspection ciblée, du choix technique conforme à l'architecture gelée, de l'implémentation et des corrections à Codex.
+**Cette mission remplace TR2-20261010-DEV-RS485-001. Ne pas exécuter simultanément les deux missions. Si 001 a déjà modifié des fichiers, conserver et reprendre ces travaux sans écrasement ni doublon.**
 
-## Contexte
-Dépôt local : `/home/lolo/dev/msm/projects/MSM_vibe`. Référence : `main` et son HEAD réel (le SHA ci-dessus est un repère, pas une présomption). Lire `AGENTS.md`, `Modbus RTU/00_gouvernance/ETAT_COURANT_TR2.md`, les spécifications gelées et les sources/tests directement concernés. La qualification T1000 est acquise, **pas** la qualification fonctionnelle TR2. Dette E4 microSD/power-loss ouverte, à conserver et non traiter par opportunisme dans cette mission.
+## Architecture imposée (déjà qualifiée ; ne pas auditer à nouveau)
 
-## Exécution
-1. Contrôler brièvement branche, HEAD et état Git ; préserver toute modification préexistante. Lire le code STM32/UART/RS-485/Modbus et ses tests ainsi que les décisions documentées correspondantes. **Pas d'audit général, pas de campagne de requalification du poste.**
-2. Déterminer la **prochaine lacune d'implémentation concrète** de la chaîne RS-485/Modbus RTU en tenant compte des diagnostics/harness déjà présents. Ne pas réécrire ce qui fonctionne, ne pas inventer de pinout ni de comportement matériel.
-3. Implémenter la tranche logicielle utile la plus proche de l'exécution réelle (transport, orchestration, réception/émission, tests associés, selon ce que le code démontre). Corriger de façon autonome les problèmes de build/test dans ce périmètre. Respecter strictement le mapping et les spécifications V1 gelées.
-4. Valider de façon **proportionnée** par les builds/tests ciblés appropriés. Les validations T1000 antérieures restent acquises ; ne pas les répéter sans raison liée aux modifications.
-5. Mettre à jour `ETAT_COURANT_TR2.md` uniquement si un progrès technique significatif le justifie. Distinguer implémenté, testé logiciellement et non validé physiquement. Conserver explicitement la dette E4.
+Lire `00_Environnement_developpement/T1000/ARCHITECTURE_FINALE.md` et `00_Environnement_developpement/T1000/REPRISE_QUOTIDIENNE.md`. Le **seul clone actif** est `/home/lolo/dev/msm/projects/MSM_vibe` dans **Debian WSL**, SDK `/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0`. L'ancien `/home/lolo/projects/MSM_vibe` est archivé, non actif. L'exécution attendue est **Codex natif dans Debian** via le lanceur `tr2-codex` (depuis Debian, ou raccourci/lanceur T1000 prévu). Ne pas lancer Codex Windows comme opérateur de développement ni orchestrer chaque commande avec `wsl -d Debian --cd ...` depuis une session Windows. Ne pas déplacer/recloner/réinstaller le dépôt ni modifier les configurations permanentes.
 
-## Limites
-Aucune opération physique, flash, debug, changement de câblage, microSD ou paramètre permanent du T1000. Pas de refonte architecturale, modification de spécification gelée ni refactoring annexe. **Pas de commit ni push** dans cette mission : les permissions correspondantes n'ont pas été accordées explicitement ; préparer les changements dans le dépôt local sans écraser les travaux préexistants. Ne pas bloquer sur une vérification déjà qualifiée ; signaler uniquement une vraie décision ou une dépendance matérielle indispensable.
+**Contrôle unique et court de contexte** : avant toute modification, confirmer le système d'exécution effectif (Linux Debian), `pwd` dans le clone canonique, branche et `git status --short`. Si la session Codex tourne côté Windows, **STOP : signaler qu'il faut rouvrir Codex natif via `tr2-codex`** ; ne pas tenter de corriger en utilisant un pont WSL pour chaque commande. Ne pas relancer un audit de migration.
 
-## Livrable
-Répondre directement dans la session Codex avec : fichiers modifiés, fonctionnalité effectivement développée, résultats de tests exécutés, état Git, limite éventuelle nécessitant l'adaptateur USB-RS485 ou une décision utilisateur, et prochaine action précise. Si le périmètre matériel empêche toute implémentation utile, l'expliquer avec les éléments du code, sans lancer un audit de substitution.
+## Développement à réaliser
+
+Lire `AGENTS.md`, `Modbus RTU/00_gouvernance/ETAT_COURANT_TR2.md`, les spécifications gelées et les seuls sources/tests utiles. Identifier la prochaine lacune concrète de l'intégration firmware STM32/UART/RS-485/Modbus RTU à partir du code actuel, diagnostics déjà présents compris. Implémenter **une tranche logicielle réelle et ciblée**, sans refaire l'existant ni inventer pinout/API/comportement physique. Corriger les erreurs dans le périmètre et exécuter les tests/builds proportionnés. Mettre à jour le journal seulement si progrès significatif. Conserver la dette E4 (microSD/power-loss) comme ouverte, sans audit ou travaux E4 opportunistes.
+
+## Préservation, autorisations et résultat
+
+Préserver absolument les modifications locales déjà présentes, y compris celles éventuellement issues de la mission 001. Ne pas faire de pull sur un arbre sale ni de reset/clean/restore destructif. Si la mise à jour Git est déjà réalisée et sans divergence, ne pas la répéter inutilement. Aucun flash/debug, manipulation physique, changement de câblage ou microSD. Pas de commit/push dans cette mission ; ne pas créer de nouvelle branche sans nécessité. Si l'exécution est bloquée par le contexte Windows, arrêter **avant de modifier du code**.
+
+Rapport concis dans la session Codex : environnement effectif, fichiers développés, résultat des validations ciblées, état Git et prochaine action. **Pas d'audit général, pas de campagne de requalification T1000.**
