@@ -63,3 +63,11 @@ Contrat actif `TR2-20261010-DEV-RTU-INTEGRATION-004`, sur main ; commit/push aut
 - **NON VÉRIFIÉ physique** : toute exécution de cette nouvelle composition sur STM32, réponse RS-485, timing, turnaround, débit. BIN SHA256 `4479d4e257273308b9dbe0a82da912e93a7d91918b5ec165d06f2a57541c3c77`. E4 microSD/power-loss reste ouverte. Publication et SHA du code relu : rapport Codex 004.
 
 Prochaine étape à transmettre à ChatGPT : contrôler le rapport distant, puis traiter le raccordement runtime durable/autorités B5 et la décision matérielle DE//RE/VDDIO2/adresse/transceiver ; qualifier la réception/réponse sous une mission physique explicitement autorisée. Le périmètre portable utile est livré, pas un firmware industriel intégralement qualifié.
+
+
+## Inventaire matériel RS-485 confirmé par l'utilisateur — 10 octobre 2026
+
+- **TR2 de test actuel :** transceiver isolé **ADM2587E** installé sur une carte d'évaluation **MIKROE-3863**. Cette combinaison est la référence matérielle effective des prochains essais, à distinguer des hypothèses documentaires antérieures.
+- **Stock pour deux TR2 :** un seul exemplaire du montage ADM2587E / MIKROE-3863 ; **deux exemplaires du second modèle, désigné ADM2867E dans le projet**, destinés à permettre deux TR2 et à valider la supervision simultanée de deux capteurs. Vérifier la référence commerciale exacte et la carte correspondante avant toute décision de brochage.
+- **Adaptateur USB–RS485 :** câble reçu, **jamais branché au PC ni au TR2** au moment de cette déclaration. Modèle, pilote, polarité des bornes et fonctionnement non encore identifiés ni qualifiés.
+- **Statut des preuves :** inventaire déclaré par l'utilisateur, pas une qualification électrique. Ne pas déduire DE, /RE, VDDIO2, alimentation, masses, isolation, terminaison ou raccordement de la seule référence ; contrôler la documentation du montage réel avant connexion. Ne pas considérer le second TR2 comme déjà assemblé ou qualifié.
