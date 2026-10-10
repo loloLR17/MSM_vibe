@@ -1,10 +1,10 @@
 # État courant TR2 — référence reconstruite
 
-Mise à jour : 10 octobre 2026. Mission `T1000-20261010-CLOTURE-001`.
+Mise à jour : 10 octobre 2026. Mission `TR2-20261010-DEV-RS485-003`.
 
-**Ce document est un nouvel état de référence reconstruit à partir de preuves vérifiables. Il n'est pas une restitution du journal historique HP.** Sa création est explicitement autorisée par l'utilisateur pour cette mission, après escalade AGENTS.md §18. Aucun original n'a été retrouvé dans l'historique Git, les répertoires Linux locaux ou les documents Windows accessibles. Les archives d'échanges du 8 octobre mentionnent un journal local HP, sans en fournir le contenu. Aucun état historique inconnu n'est inventé.
+**Ce document est un nouvel état de référence reconstruit à partir de preuves vérifiables. Il n'est pas une restitution du journal historique HP.** Sa création a été explicitement autorisée par l'utilisateur pour la mission `T1000-20261010-CLOTURE-001`, après escalade AGENTS.md §18. Aucun original n'a été retrouvé dans l'historique Git, les répertoires Linux locaux ou les documents Windows accessibles. Les archives d'échanges du 8 octobre mentionnent un journal local HP, sans en fournir le contenu. Aucun état historique inconnu n'est inventé.
 
-## Référence et gouvernance
+## Référence et gouvernance de la reconstruction T1000 (historique)
 
 - Référence des sources au début de mission : `main`, `75eba6b431725b858db3ac5380884934026a1475`.
 - AGENTS.md V2-B3 et `Echanges_Codex/PROTOCOLE_ECHANGE_V2.md` applicables ; les spécifications V1 et freezes restent inchangés.
@@ -32,4 +32,22 @@ BIN et ELF identiques à la qualification physique précédente ; seule la MAP c
 
 ## Prochaine étape
 
-Clôture technique T1000 : VALIDÉ AVEC RÉSERVES complémentaires non bloquantes. Faire examiner le dossier de clôture et contrôler indépendamment le rapport distant par ChatGPT avant une nouvelle mission de développement fonctionnel MSM/TR2. Si l'original HP est retrouvé ultérieurement : relever sa provenance et son empreinte, comparer les faits et décisions à ce nouvel état, puis intégrer uniquement les éléments vérifiés sous mission autorisée ; ne pas remplacer silencieusement ce journal.
+Clôture technique T1000 : VALIDÉ AVEC RÉSERVES complémentaires non bloquantes. Le contrôle indépendant du rapport distant par ChatGPT n'est pas établi par la présente mission. Si l'original HP est retrouvé ultérieurement : relever sa provenance et son empreinte, comparer les faits et décisions à ce nouvel état, puis intégrer uniquement les éléments vérifiés sous mission autorisée ; ne pas remplacer silencieusement ce journal.
+
+## Développement réception RTU — 10 octobre 2026
+
+Mission précédente : `TR2-20261010-DEV-RS485-002`, sur `main`. HEAD évalué : `4591e13a37e99724c35e88fc03105e5e082c90b8` avec modifications locales non commitées. Contrat versionné `Echanges_Codex/MISSION_EN_COURS.md` ; commit/push/flash/debug interdits. Session Linux Debian dans le clone canonique, arbre initial propre ; mise à jour fast-forward depuis `36c33b7981c61376dae45586509327b899e5f3b8`.
+
+- **Fait observé par lecture du code** : après démarrage UART, le harness ne consommait aucun événement série et ne faisait que clignoter avec `HAL_Delay(250U)`.
+- **PRÉPARÉ** : `platform/stm32/main.c` consomme maintenant les événements dans la boucle principale, alimente le récepteur RTU portable existant, décode les ADU terminées et expose les compteurs `tr2_rtu_rx_*`. Les erreurs réinitialisent le récepteur. Le clignotement utilise `HAL_GetTick()` sans attente bloquante. Aucun traitement PDU, réponse, filtre d'adresse ou pilotage DE//RE n'est ajouté.
+- **VALIDÉ cross-build uniquement** : `STM32CUBE_U5_ROOT=/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0 bash ./tr2_validate.sh --cross-build-only`, sortie réussie. Choix proportionné : modification limitée au harness, cœur et interfaces inchangés. Invocation directe refusée car script non exécutable ; usage `bash` documenté dans le script. Avertissements newlib au linkage concernant `_close`, `_lseek`, `_read`, `_write`. Pas de nouvelle campagne hôte.
+- **NON VÉRIFIÉ** : exécution de cette nouvelle boucle sur cible, réception UART réelle, précision temporelle et liaison RS-485. Les compteurs de trames valides prouvent seulement le décodage ADU/CRC lorsqu'ils seront observés ; ils ne qualifient pas une requête PDU. Aucune opération matérielle effectuée.
+- **Dette ouverte** : E4 microSD/power-loss inchangée. Prochaine action : revue de cette tranche locale par ChatGPT puis mission autorisée de qualification de réception ; la composition du serveur PDU de production et le pilotage du transceiver restent à traiter avec les prérequis documentés.
+
+## Finalisation et publication — mission 003
+
+Contrat actif : `TR2-20261010-DEV-RS485-003`, `target_branch: main`, commit/push autorisés, flash/debug interdits. HEAD initial `4591e13a37e99724c35e88fc03105e5e082c90b8`, mission distante récupérée au SHA `23e6de29ad4baa229987a9c972ef522b088a6791`. Les deux modifications locales de 002 ont été sauvegardées dans un stash conservé, puis réappliquées après fast-forward sur arbre propre ; comparaison au stash sans différence. Aucun code refait ou changement de spécification.
+
+**VALIDÉ cross-build** : même commande `bash ./tr2_validate.sh --cross-build-only` avec le SDK Linux, relancée le 10 octobre 2026 en mission 003, code retour 0. Quatre avertissements newlib `_close`, `_lseek`, `_read`, `_write`, sans erreur de compilation/linkage. Diff inspecté et contrôle whitespace réussi. BIN SHA256 `dfc08e8c1e0bcd0da1cae0921215215e02289f17c2e0af5149656af70173ed60`. Pas de tests hôte relancés : seul le harness est modifié, sans modification du cœur ni des interfaces.
+
+Publication et relecture distante consignées dans `Echanges_Codex/DERNIER_RAPPORT.md`, seul rapport de clôture de 003. **NON VÉRIFIÉ matériel** : réception, timing, bus RS-485 et réponses Modbus ; aucun flash/debug effectué. E4 reste ouverte. Prochaine action : contrôle indépendant du rapport publié par ChatGPT, puis mission autorisée pour la qualification de réception et la suite de l'intégration de production.

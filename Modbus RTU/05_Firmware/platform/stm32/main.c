@@ -9,6 +9,71 @@
 #include "stm32_sdmmc_bulk_media.h"
 
 #include "tr2/persistence/campaign_data_store_bulk.h"
+#include "tr2/modbus/rtu_receiver.h"
+
+/* Receive-only bring-up diagnostics; no PDU execution or response is issued. */
+volatile uint32_t tr2_rtu_rx_byte_count = 0U;
+volatile uint32_t tr2_rtu_rx_error_count = 0U;
+volatile uint32_t tr2_rtu_rx_last_error = 0U;
+volatile uint32_t tr2_rtu_rx_frame_count = 0U;
+volatile uint32_t tr2_rtu_rx_valid_adu_count = 0U;
+volatile uint32_t tr2_rtu_rx_invalid_adu_count = 0U;
+volatile uint32_t tr2_rtu_rx_last_frame_length = 0U;
+volatile uint32_t tr2_rtu_rx_last_decode_result = UINT32_MAX;
+
+static void RtuReceive_Poll(const SerialTransport *transport,
+                            ModbusRtuReceiver *receiver)
+{
+    SerialTransportEvent event;
+    ModbusRtuReceiverEvent received = {false, NULL, 0U};
+
+    if (!serial_transport_poll_event(transport, &event)) {
+        modbus_rtu_receiver_init(receiver);
+        tr2_rtu_rx_error_count++;
+        tr2_rtu_rx_last_error = SERIAL_TRANSPORT_ERROR_UNSPECIFIED;
+        return;
+    }
+
+    switch (event.type) {
+    case SERIAL_TRANSPORT_EVENT_NONE:
+        return;
+    case SERIAL_TRANSPORT_EVENT_BYTE:
+        tr2_rtu_rx_byte_count++;
+        received = modbus_rtu_receiver_push_byte(receiver, event.byte);
+        break;
+    case SERIAL_TRANSPORT_EVENT_SILENCE_T1_5:
+        received = modbus_rtu_receiver_on_silence_t1_5(receiver);
+        break;
+    case SERIAL_TRANSPORT_EVENT_SILENCE_T3_5:
+        received = modbus_rtu_receiver_on_silence_t3_5(receiver);
+        break;
+    case SERIAL_TRANSPORT_EVENT_ERROR:
+        tr2_rtu_rx_error_count++;
+        tr2_rtu_rx_last_error = (uint32_t)event.error;
+        modbus_rtu_receiver_init(receiver);
+        return;
+    default:
+        modbus_rtu_receiver_init(receiver);
+        tr2_rtu_rx_error_count++;
+        tr2_rtu_rx_last_error = SERIAL_TRANSPORT_ERROR_UNSPECIFIED;
+        return;
+    }
+
+    if (received.frame_available) {
+        ModbusRtuAduView view;
+        ModbusRtuCodecResult result = modbus_rtu_adu_decode(
+            received.frame, received.frame_length, &view);
+
+        tr2_rtu_rx_frame_count++;
+        tr2_rtu_rx_last_frame_length = (uint32_t)received.frame_length;
+        tr2_rtu_rx_last_decode_result = (uint32_t)result;
+        if (result == MODBUS_RTU_CODEC_OK) {
+            tr2_rtu_rx_valid_adu_count++;
+        } else {
+            tr2_rtu_rx_invalid_adu_count++;
+        }
+    }
+}
 
 #define TR2_BRINGUP_LED_PORT GPIOC
 #define TR2_BRINGUP_LED_PIN  GPIO_PIN_7
@@ -1448,6 +1513,8 @@ void HAL_MspInit(void)
 int main(void)
 {
     SerialTransport serial_transport;
+    ModbusRtuReceiver rtu_receiver;
+    uint32_t led_tick;
 
     HAL_Init();
     SystemClock_Config();
@@ -2121,13 +2188,20 @@ int main(void)
         Error_Handler();
     }
 
+    modbus_rtu_receiver_init(&rtu_receiver);
     if (serial_transport_start_receive(&serial_transport) != TR2_OK) {
         Error_Handler();
     }
 
+    led_tick = HAL_GetTick();
     for (;;) {
-        HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
-        HAL_Delay(250U);
+        const uint32_t now = HAL_GetTick();
+
+        RtuReceive_Poll(&serial_transport, &rtu_receiver);
+        if ((uint32_t)(now - led_tick) >= 250U) {
+            HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
+            led_tick = now;
+        }
     }
 }
 
