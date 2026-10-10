@@ -1,37 +1,34 @@
 ---
-mission_id: TR2-20261008-CODEX-V2B3-001
+mission_id: TR2-20261010-DEV-RS485-001
 status: READY
-base_ref: test/echange-chatgpt-codex-20261008
-base_sha: 20287f06fe94cd92859624e917fc26b516244d98
-created_at_utc: 2026-10-08
+base_ref: main
+base_sha: 5a1b1a89070f73feebbe513bde1ec0d18ca2a52c
+created_at_utc: 2026-10-10T14:15:00Z
 author: ChatGPT
-target_branch: test/echange-chatgpt-codex-20261008
-allow_commit: true
-allow_push: true
+target_branch: main
+allow_commit: false
+allow_push: false
 allow_flash: false
 allow_debug: false
 ---
 
-# Mission V2-B3 : consolidation documentaire
+# TR2 — Reprise effective du développement : liaison RS-485 / Modbus RTU
 
-L'utilisateur valide la préparation de V2-B3, sans autoriser son intégration dans main. Il précise que les modifications locales existantes proviennent des assistants et non de ses éditions manuelles ; leur provenance exacte reste à vérifier. Ne pas écraser ces travaux.
+## Objectif
+**Développer, pas auditer.** Sur le T1000, reprendre l'intégration du firmware STM32 et de la liaison RS-485/Modbus RTU au niveau réellement atteint, en produisant une avancée logicielle concrète et testable. Délégation de l'inspection ciblée, du choix technique conforme à l'architecture gelée, de l'implémentation et des corrections à Codex.
 
-Lire la mission, AGENTS.md de main, de la branche expérimentale et du dépôt local (lecture seule), le protocole V2, la proposition V2-B et les rapports V2-B1/V2-B2 archivés. Contrôler les références Git et travailler dans un clone isolé.
+## Contexte
+Dépôt local : `/home/lolo/dev/msm/projects/MSM_vibe`. Référence : `main` et son HEAD réel (le SHA ci-dessus est un repère, pas une présomption). Lire `AGENTS.md`, `Modbus RTU/00_gouvernance/ETAT_COURANT_TR2.md`, les spécifications gelées et les sources/tests directement concernés. La qualification T1000 est acquise, **pas** la qualification fonctionnelle TR2. Dette E4 microSD/power-loss ouverte, à conserver et non traiter par opportunisme dans cette mission.
 
-Objectifs :
-- E1 : imposer allow_commit: true pour les commits, false par défaut.
-- E2 : préciser la priorité des restrictions, notamment celles liées au matériel, à la sécurité et au sandbox.
-- E3 : étudier la section de journal technique présente dans AGENTS.md local ; l'intégrer à la candidate en conservant ses garanties et sans modifier le dépôt local. Si inaccessible, signaler le blocage.
-- E4/E6 : mettre à jour le protocole et la proposition pour éliminer les statuts obsolètes et aligner les champs de mission.
-- E5 : conserver V2-B1 au statut BLOCKED ; distinguer adoption documentaire, configuration Codex et qualification STM32.
-- Rapporter les points E1 à E7, avec preuves, limites et décision attendue.
+## Exécution
+1. Contrôler brièvement branche, HEAD et état Git ; préserver toute modification préexistante. Lire le code STM32/UART/RS-485/Modbus et ses tests ainsi que les décisions documentées correspondantes. **Pas d'audit général, pas de campagne de requalification du poste.**
+2. Déterminer la **prochaine lacune d'implémentation concrète** de la chaîne RS-485/Modbus RTU en tenant compte des diagnostics/harness déjà présents. Ne pas réécrire ce qui fonctionne, ne pas inventer de pinout ni de comportement matériel.
+3. Implémenter la tranche logicielle utile la plus proche de l'exécution réelle (transport, orchestration, réception/émission, tests associés, selon ce que le code démontre). Corriger de façon autonome les problèmes de build/test dans ce périmètre. Respecter strictement le mapping et les spécifications V1 gelées.
+4. Valider de façon **proportionnée** par les builds/tests ciblés appropriés. Les validations T1000 antérieures restent acquises ; ne pas les répéter sans raison liée aux modifications.
+5. Mettre à jour `ETAT_COURANT_TR2.md` uniquement si un progrès technique significatif le justifie. Distinguer implémenté, testé logiciellement et non validé physiquement. Conserver explicitement la dette E4.
 
-Fichiers modifiables sur la branche expérimentale exclusivement :
-- AGENTS.md
-- Modbus RTU/00_gouvernance/Echanges_Codex/PROTOCOLE_ECHANGE_V2.md
-- Modbus RTU/00_gouvernance/Echanges_Codex/PROPOSITION_GOUVERNANCE_V2_B.md
-- Modbus RTU/00_gouvernance/Echanges_Codex/DERNIER_RAPPORT.md
+## Limites
+Aucune opération physique, flash, debug, changement de câblage, microSD ou paramètre permanent du T1000. Pas de refonte architecturale, modification de spécification gelée ni refactoring annexe. **Pas de commit ni push** dans cette mission : les permissions correspondantes n'ont pas été accordées explicitement ; préparer les changements dans le dépôt local sans écraser les travaux préexistants. Ne pas bloquer sur une vérification déjà qualifiée ; signaler uniquement une vraie décision ou une dépendance matérielle indispensable.
 
-Commits et push normaux autorisés uniquement sur la branche indiquée, pour ces fichiers, après vérification des diffs et de l'état distant. Relire les résultats publiés sur GitHub. Ne pas modifier main, le firmware, le dépôt local, les archives, le journal local, la configuration Codex ni le matériel. Pas de merge, rebase automatique, reset destructif ou force push. Arrêter et rapporter les blocages.
-
-Critères : ambiguïtés levées, règle du journal local correctement reprise, documents cohérents, V2-B1 toujours BLOCKED, validations documentaires et relecture distante prouvées. DONE seulement si ces critères sont atteints ; sinon BLOCKED. Le rapport final doit indiquer les SHA, les fichiers modifiés, les validations réelles et les limites. Aucune fusion dans main sans nouvelle décision humaine.
+## Livrable
+Répondre directement dans la session Codex avec : fichiers modifiés, fonctionnalité effectivement développée, résultats de tests exécutés, état Git, limite éventuelle nécessitant l'adaptateur USB-RS485 ou une décision utilisateur, et prochaine action précise. Si le périmètre matériel empêche toute implémentation utile, l'expliquer avec les éléments du code, sans lancer un audit de substitution.
