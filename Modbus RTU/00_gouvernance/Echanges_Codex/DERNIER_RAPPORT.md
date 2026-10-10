@@ -1,6 +1,6 @@
 ---
 mission_id: T1000-20261010-CLOTURE-001
-status: BLOCKED
+status: DONE
 base_ref: main
 base_sha: 75eba6b431725b858db3ac5380884934026a1475
 initial_head: 75eba6b431725b858db3ac5380884934026a1475
@@ -16,7 +16,7 @@ allow_debug: false
 
 # Clôture T1000 — audit, migration, corrections et validation
 
-**Bilan technique : VALIDÉ AVEC RÉSERVES complémentaires non bloquantes.** Le statut provisoire BLOCKED porte uniquement sur l'attente de publication et de relecture distante ; les validations locales ont réussi. Le contrat utilisateur et ses confirmations sont consignés dans [CLOTURE_CONTRAT](../../../00_Environnement_developpement/T1000/CLOTURE_CONTRAT.md). Aucun développement fonctionnel commencé.
+**Bilan technique : VALIDÉ AVEC RÉSERVES complémentaires non bloquantes.** Première publication et relecture distante effective réussies au SHA `61b1217fd8d0a337fdbc07445c056061a7e93c1c` ; 39 fichiers intégralement relus et comparés octet par octet, rapport et journal également relus via API GitHub. Le contrat utilisateur et ses confirmations sont consignés dans [CLOTURE_CONTRAT](../../../00_Environnement_developpement/T1000/CLOTURE_CONTRAT.md). Aucun développement fonctionnel commencé.
 
 ## Livrables
 
@@ -52,8 +52,10 @@ Non vérifiés : exploitation série réelle de supervision, qualifications appl
 
 ## Publication et clôture
 
-Permissions exercées : commit local du test, puis publication normale main des changements de mission autorisés après contrôle. Aucune opération flash/debug, mass erase/Option Bytes, force push, merge/rebase, formatage, nettoyage personnel ou changement sécurité. Diff, index, secrets, destination et SHA distant doivent être contrôlés avant chaque push. Rapport provisoire en attente de preuve distante ; la mise à jour de clôture consignera les SHA effectivement relus.
+Permissions exercées : commit local du test, puis publication normale main des changements de mission autorisés après contrôle. Aucune opération flash/debug, mass erase/Option Bytes, force push, merge/rebase, formatage, nettoyage personnel ou changement sécurité. Diff, index, secrets, destination et SHA distant doivent être contrôlés avant chaque push. Première publication normale `75eba6b → 61b1217fd8d0a337fdbc07445c056061a7e93c1c`, puis fetch et relecture intégrale ; mêmes contenus. État Git propre à cette étape. Cette mise à jour clôture le rapport après cette preuve ; son propre SHA sera fourni dans la réponse finale après son push et sa relecture. La lecture indépendante ChatGPT reste à effectuer par ChatGPT, elle n'est pas présumée par la relecture Codex.
 
 Prochaine étape : examen du dossier de clôture par l'utilisateur/ChatGPT, puis nouvelle discussion de reprise MSM/TR2 avec contrat explicite. Ne pas démarrer le développement fonctionnel à la fin de cette mission.
 
 Correction GitHub GH007 : le premier push a été refusé pour adresse email privée, sans publication. Les deux commits propres à cette mission, non publiés, sont conservés dans une référence locale de sauvegarde et un bundle privé. Ils ont été recréés avec l'adresse noreply basée sur l'ID du compte, sans modifier l'arbre du correctif, sans rebase/reset ni force push. Le second arbre ajoute uniquement cette correction de traçabilité et d'identité. Identité modifiée seulement dans ce clone ; protection GitHub conservée.
+
+La publication réelle sur main qualifie aussi le transport Git en écriture, au-delà des seuls droits API. L'autorisation expire à la clôture. Aucun nouveau flash/debug ou développement fonctionnel. Les contrôles Windows facultatifs ne deviennent pas des blocages, conformément à la décision utilisateur.
