@@ -14,6 +14,14 @@ Tr2Result command_apply_configuration_execute(
     const CommandTerminalTimestamp *terminal_timestamp,
     CommandJournalEntry *entry);
 
+/* Uses the engine journal authority, including the bounded production store. */
+Tr2Result command_apply_configuration_execute_bound(
+    CommandEngine *engine,
+    ConfigurationWorkflow *workflow,
+    uint16_t transaction_id,
+    const CommandTerminalTimestamp *terminal_timestamp,
+    CommandJournalEntry *entry);
+
 CommandReconciliationOutcome command_apply_configuration_reconcile(
     const CommandJournalEntry *entry,
     const ConfigurationService *configuration_service);

@@ -75,6 +75,7 @@ add_executable(tr2_stm32_p11c
     stm32_fram_storage.c
     stm32_iis3dwb_vibration_source.c
     stm32_modbus_application.c
+    stm32_production_runtime.c
     stm32_serial_transport.c
     stm32_runtime_platform.c
     stm32_sdmmc_bulk_media.c

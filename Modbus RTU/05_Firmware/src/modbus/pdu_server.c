@@ -150,7 +150,8 @@ static ModbusWriteOutcome dispatch_write(const ModbusPduServerContext *context,
                                                  &submit_result, &captured_request);
             if (outcome.access_result == MODBUS_ACCESS_OK &&
                 outcome.operation_result == TR2_OK &&
-                submit_result != COMMAND_MAILBOX_NO_SUBMISSION &&
+                (submit_result != COMMAND_MAILBOX_NO_SUBMISSION ||
+                 command_request_mailbox_cancel_requested(context->command_mailbox)) &&
                 context->command_submit != NULL) {
                 /* Invalid submissions are not captured by the mailbox adapter.
                  * Preserve their identity for the handler's functional refusal.

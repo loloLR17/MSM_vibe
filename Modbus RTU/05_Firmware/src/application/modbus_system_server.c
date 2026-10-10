@@ -56,7 +56,10 @@ static Tr2Result refresh_context(void *context)
         CommandSnapshot snapshot;
         ModbusBlock5ProjectionSource projection = {&runtime->command_mailbox, &snapshot};
 
-        if (command_engine_snapshot(&runtime->command_engine, &snapshot) != TR2_OK ||
+        Tr2Result snapshot_result = server->binding.command_snapshot != NULL
+            ? server->binding.command_snapshot(server->binding.command_submit_context, &snapshot)
+            : command_engine_snapshot(&runtime->command_engine, &snapshot);
+        if (snapshot_result != TR2_OK ||
             modbus_project_b5(&projection, &server->b5) != TR2_OK) {
             return TR2_ERROR_INTERNAL;
         }

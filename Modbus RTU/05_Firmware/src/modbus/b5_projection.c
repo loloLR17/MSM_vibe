@@ -25,7 +25,8 @@ Tr2Result modbus_project_b5(const ModbusBlock5ProjectionSource *source,
     candidate.registers[6] = source->mailbox->confirm_key;
     candidate.registers[7] = source->mailbox->control & COMMAND_REQUEST_CONTROL_ALLOWED_MASK;
 
-    if (source->snapshot->active_transaction_id != TR2_COMMAND_TRANSACTION_ID_INVALID) {
+    if (source->snapshot->active_transaction_id != TR2_COMMAND_TRANSACTION_ID_INVALID ||
+        source->snapshot->status != COMMAND_STATUS_NONE) {
         candidate.registers[8] = source->snapshot->active_command_code;
         candidate.registers[9] = source->snapshot->active_transaction_id;
         candidate.registers[10] = source->snapshot->status;

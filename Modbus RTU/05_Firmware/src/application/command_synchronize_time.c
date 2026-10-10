@@ -21,6 +21,18 @@ Tr2Result command_synchronize_time_execute(
     const CommandTerminalTimestamp *terminal_timestamp,
     CommandJournalEntry *entry)
 {
+    if (journal_store == NULL) return TR2_ERROR_INVALID_ARGUMENT;
+    return command_synchronize_time_execute_bound(engine, time_service, transaction_id, sync_source, terminal_timestamp, entry);
+}
+
+Tr2Result command_synchronize_time_execute_bound(
+    CommandEngine *engine,
+    TimeService *time_service,
+    uint16_t transaction_id,
+    uint16_t sync_source,
+    const CommandTerminalTimestamp *terminal_timestamp,
+    CommandJournalEntry *entry)
+{
     bool prepared_available = false;
     Tr2CivilTimestamp prepared_time = 0u;
     CommandRecoveryContext context;
@@ -28,14 +40,13 @@ Tr2Result command_synchronize_time_execute(
     CommandJournalEntry current;
     Tr2Result operation_result;
 
-    if (engine == NULL || journal_store == NULL || time_service == NULL ||
+    if (engine == NULL || time_service == NULL ||
         terminal_timestamp == NULL || entry == NULL ||
         !command_transaction_id_is_valid(transaction_id) ||
         !command_engine_has_active_transaction(engine) ||
         command_engine_active_transaction_id(engine) != transaction_id) {
         return TR2_ERROR_INVALID_ARGUMENT;
     }
-    (void)journal_store;
 
     operation_result = engine->journal->find(engine->journal->context,
                                              transaction_id,

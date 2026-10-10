@@ -16,6 +16,15 @@ Tr2Result command_synchronize_time_execute(
     const CommandTerminalTimestamp *terminal_timestamp,
     CommandJournalEntry *entry);
 
+/* Uses the engine journal authority, including the bounded production store. */
+Tr2Result command_synchronize_time_execute_bound(
+    CommandEngine *engine,
+    TimeService *time_service,
+    uint16_t transaction_id,
+    uint16_t sync_source,
+    const CommandTerminalTimestamp *terminal_timestamp,
+    CommandJournalEntry *entry);
+
 CommandReconciliationOutcome command_synchronize_time_reconcile(
     const CommandJournalEntry *entry,
     const TimeService *time_service);

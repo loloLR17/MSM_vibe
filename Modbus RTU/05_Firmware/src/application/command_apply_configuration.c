@@ -20,20 +20,30 @@ Tr2Result command_apply_configuration_execute(
     const CommandTerminalTimestamp *terminal_timestamp,
     CommandJournalEntry *entry)
 {
+    if (journal_store == NULL) return TR2_ERROR_INVALID_ARGUMENT;
+    return command_apply_configuration_execute_bound(engine, workflow, transaction_id, terminal_timestamp, entry);
+}
+
+Tr2Result command_apply_configuration_execute_bound(
+    CommandEngine *engine,
+    ConfigurationWorkflow *workflow,
+    uint16_t transaction_id,
+    const CommandTerminalTimestamp *terminal_timestamp,
+    CommandJournalEntry *entry)
+{
     ValidatedConfiguration validated;
     CommandRecoveryContext context;
     CommandFinalResult result;
     CommandJournalEntry current;
     Tr2Result operation_result;
 
-    if (engine == NULL || journal_store == NULL || workflow == NULL ||
+    if (engine == NULL || workflow == NULL ||
         terminal_timestamp == NULL || entry == NULL ||
         !command_transaction_id_is_valid(transaction_id) ||
         !command_engine_has_active_transaction(engine) ||
         command_engine_active_transaction_id(engine) != transaction_id) {
         return TR2_ERROR_INVALID_ARGUMENT;
     }
-    (void)journal_store;
 
     operation_result = engine->journal->find(engine->journal->context,
                                              transaction_id,

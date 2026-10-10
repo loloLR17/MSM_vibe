@@ -16,6 +16,7 @@ typedef struct {
     ConfigurationWorkflow *configuration_workflow;
     void *command_submit_context;
     ModbusCommandSubmit command_submit;
+    Tr2Result (*command_snapshot)(void *context, CommandSnapshot *snapshot);
 } ModbusSystemServerBinding;
 
 typedef struct {

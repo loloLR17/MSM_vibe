@@ -3,11 +3,9 @@
 
 #include "tr2/application/modbus_system_server.h"
 
-/* Board integration hook. TR2_ERROR_NOT_AVAILABLE is the default and keeps
- * receive-only diagnostics. An override must supply an already booted runtime,
- * explicitly provisioned unit ID, long-lived application authorities, and a
- * SerialTransport implementing the qualified DE//RE and TX/RX policy. The raw
- * UART argument is not by itself a qualified RS-485 transport.
+/* Composes the owned production runtime after stm32_production_binding_acquire
+ * supplies explicit qualified board dependencies. Default NOT_AVAILABLE keeps
+ * receive-only diagnostics, without preparing media or programming DE//RE.
  */
 Tr2Result stm32_modbus_application_bind(SerialTransport *uart,
                                        ModbusSystemServerBinding *binding);
