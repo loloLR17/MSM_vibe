@@ -1,11 +1,12 @@
 ---
 mission_id: TR2-20261010-DEV-RTU-PRODUCTION-005
-status: BLOCKED
+status: DONE
 base_ref: main
 base_sha: ff19cf40a017233b967b95fea3365bad0f631e11
 initial_head: 966737ee122fb4fb04489496691667f659607a23
 result_sha: 66edf2d17c5183003b3e5fcd7b5fe29a0bde4784
-created_at_utc: 2026-10-10T15:57:00Z
+created_at_utc: 2026-10-10T15:56:14Z
+updated_at_utc: 2026-10-10T15:57:04Z
 author: Codex
 target_branch: main
 allow_commit: true
@@ -16,7 +17,7 @@ allow_debug: false
 
 # Mission 005 — runtime durable, B5 et préparation RS-485
 
-**Rapport provisoire : BLOCKED porte uniquement sur la publication/relecture distante encore à obtenir. Développement et validations logiciels terminés.** `VALIDÉ hôte` / `COMPILÉ STM32` / `PRÉPARÉ matériel` / `NON QUALIFIÉ physique`. Le firmware conserve son diagnostic RX par défaut, sans émission applicative ou boot de production activé implicitement.
+**DONE pour les livrables logiciels et de préparation : code publié et relecture distante complète établie au SHA `d72f2e407258a6d6929de4846a445950ac8ed495`.** `VALIDÉ hôte` / `COMPILÉ STM32` / `PRÉPARÉ matériel` / `NON QUALIFIÉ physique`. Le firmware conserve son diagnostic RX par défaut, sans émission applicative ou boot de production activé implicitement.
 
 ## Références et préservation
 
@@ -82,4 +83,8 @@ Journal actualisé : progrès logiciel, résultats 104/104 + ARM, composition du
 
 ## Publication et preuve distante
 
-Commit/push autorisés uniquement pour cette mission sur main ; commit code créé et vérifié. Push et relecture distante restent à effectuer. L'état local après commit code était propre, main en avance d'un commit ; rapport provisoire est la seule modification suivante. Ce paragraphe sera remplacé par les faits de publication/relecture avant DONE.
+Permissions exercées : commits et push normaux sur main uniquement ; aucun flash/debug/matériel. Avant push : branche/destination main vérifiées, référence distante `463d69a`, diff/index/périmètre/absence de secrets examinés, validations applicables réussies et arbre propre.
+
+Premier push réellement réussi : `git push origin HEAD:refs/heads/main`, `463d69a → d72f2e407258a6d6929de4846a445950ac8ed495` (commit de rapport provisoire `Report: publish production runtime mission 005 pending remote verification`). Puis `git fetch origin main` ; origin/main = HEAD `d72f2e407258a6d6929de4846a445950ac8ed495`. Relecture des **24 livrables complets, 158 591 octets**, à partir de `git show <SHA distant>:<chemin>`, décodage complet et comparaison octet pour octet aux fichiers locaux, aucune différence. Cette relecture inclut code, headers, CMake, nouveau test, préparation matérielle, journal, deux archives et rapport. Mission ID et result_sha vérifiés sur la référence distante. Manifest des empreintes conservé hors Git dans `/tmp/tr2-mission005-remote-reread.json`.
+
+Après première publication/relecture : arbre propre, main synchronisé ; seuls le statut et les preuves de ce rapport sont actualisés pour clôture. Cette mise à jour DONE est publiée séparément puis contrôlée à nouveau ; le SHA final du rapport est communiqué après cette dernière vérification, sans inscrire un SHA autoréférentiel dans son propre commit. Les deux stashes 005 et 002 sont conservés. La relecture Codex ne constitue pas le contrôle indépendant de ChatGPT, ni une qualification matérielle.
