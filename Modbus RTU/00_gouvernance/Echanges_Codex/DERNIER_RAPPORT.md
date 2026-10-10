@@ -1,6 +1,6 @@
 ---
 mission_id: TR2-20261010-DEV-RTU-INTEGRATION-004
-status: BLOCKED
+status: DONE
 base_ref: main
 base_sha: 142452b6171bc13f078eace64ae57e9e25565e3c
 initial_head: 3f5706780b76707a3be339ac4fb424997d7e794b
@@ -16,7 +16,7 @@ allow_debug: false
 
 # Mission 004 — chaîne RTU applicative et raccordement STM32 explicite
 
-**Périmètre portable utile livré et testé. BLOCKED provisoire uniquement pour la publication/relecture distante encore à obtenir.** La chaîne applicative est intégrée au build STM32 et raccordable depuis sa boucle principale ; le firmware livré reste en diagnostic RX par défaut, sans réponse applicative physique, car le binding de production/RS-485 n'est pas établi. Aucun résultat matériel n'est revendiqué.
+**DONE pour le périmètre portable utile : code intégré, tests réussis, publication et relecture distante établies au SHA `789cd50c12fc60bd0a26bd6d920c259eea60272b`.** La chaîne applicative est intégrée au build STM32 et raccordable depuis sa boucle principale ; le firmware livré reste en diagnostic RX par défaut, sans réponse applicative physique, car le binding de production/RS-485 n'est pas établi. Aucun résultat matériel n'est revendiqué.
 
 ## Références et préservation
 
@@ -77,4 +77,6 @@ Prochaine étape : contrôle indépendant du rapport par ChatGPT, raccordement d
 
 ## Publication selon V2-B3
 
-Permissions : commit/push exercés sur main pour cette tranche et son rapport, aucune permission matérielle exercée. Destination `origin HEAD:refs/heads/main`, push normal uniquement. Le rapport provisoire sera publié puis les 17 livrables relus intégralement depuis la référence récupérée de GitHub et comparés octet par octet. DONE sera publié après cette preuve ; son propre SHA sera communiqué après contrôle final. Le contrôle indépendant ChatGPT n'est pas présumé.
+Permissions : commit/push exercés sur main pour cette tranche et son rapport, aucune permission matérielle exercée. Destination `origin HEAD:refs/heads/main`, push normal uniquement. Publication normale réussie de `d04e580f8113b3a76f9122a64eb0106a4b1112c6` à `789cd50c12fc60bd0a26bd6d920c259eea60272b` (code `92c75f6a387ae4b266cfb7a372d51987a4683f12` et rapport provisoire `789cd50c12fc60bd0a26bd6d920c259eea60272b` — `Report: publish RTU integration 004 results pending remote verification`).
+
+Après `git fetch origin main`, SHA distant égal au HEAD local ; les 17 livrables ont été lus intégralement par `git show <SHA distant>:<chemin>` puis comparés octet par octet aux fichiers de travail, tous identiques. Arbre propre à cette étape, stash historique 002 conservé. Cette clôture DONE documente la preuve obtenue ; elle sera publiée puis contrôlée de la même manière, et son propre SHA fourni dans la réponse finale. Aucun statut DONE ne qualifie la réponse physique ou le raccordement production encore indisponible. Le contrôle indépendant ChatGPT reste à effectuer par ChatGPT.
