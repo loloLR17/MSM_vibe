@@ -1,0 +1,52 @@
+﻿COMMAND: wsl.exe --version
+Version WSL : 3.0.1.0
+
+Version du noyau : 6.18.40.1-1
+
+Version WSLg : 1.0.79
+
+Version MSRDC : 1.2.7214
+
+Version direct3D : 1.611.1-81528511
+
+Version de DXCore : 10.0.26100.1-240331-1435.ge-release
+
+Version de Windows : 10.0.26200.9457
+
+
+EXIT_CODE=0
+COMMAND: wsl.exe --list --verbose
+  NAME      STATE           VERSION
+
+* Debian    Running         2
+
+
+EXIT_CODE=0
+COMMAND: usbipd.exe --version
+5.3.0-54+Branch.master.Sha.aa3db8b82c4cb5071fd31bc54211606c70886912.aa3db8b82c4cb5071fd31bc54211606c70886912
+EXIT_CODE=0
+COMMAND: usbipd.exe list
+Connected:
+BUSID  VID:PID    DEVICE                                                        STATE
+2-3    03f0:6a41  Périphérique d’entrée USB                                     Not shared
+2-6    1bcf:2ba0  Integrated Webcam                                             Not shared
+2-10   8087:0026  Intel(R) Wireless Bluetooth(R)                                Not shared
+
+Persisted:
+GUID                                  DEVICE
+
+EXIT_CODE=0
+COMMAND: node.exe --version
+v24.20.0
+EXIT_CODE=0
+COMMAND: npm.cmd --version
+11.19.0
+EXIT_CODE=0
+COMMAND: codex.cmd --version
+codex-cli 0.162.1
+EXIT_CODE=0
+{
+    "DriveLetter":  "C",
+    "Size":  254886801408,
+    "SizeRemaining":  194678382592
+}

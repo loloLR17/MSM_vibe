@@ -1,0 +1,119 @@
+COMMAND: command -v git
+/usr/bin/git
+EXIT_CODE=0
+COMMAND: git --version
+git version 2.47.3
+EXIT_CODE=0
+COMMAND: command -v cmake
+/usr/bin/cmake
+EXIT_CODE=0
+COMMAND: cmake --version
+cmake version 3.31.6
+
+CMake suite maintained and supported by Kitware (kitware.com/cmake).
+EXIT_CODE=0
+COMMAND: command -v ninja
+/usr/bin/ninja
+EXIT_CODE=0
+COMMAND: ninja --version
+1.12.1
+EXIT_CODE=0
+COMMAND: command -v gcc
+/usr/bin/gcc
+EXIT_CODE=0
+COMMAND: gcc --version
+gcc (Debian 14.2.0-19) 14.2.0
+Copyright (C) 2024 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+EXIT_CODE=0
+COMMAND: command -v g++
+/usr/bin/g++
+EXIT_CODE=0
+COMMAND: g++ --version
+g++ (Debian 14.2.0-19) 14.2.0
+Copyright (C) 2024 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+EXIT_CODE=0
+COMMAND: command -v arm-none-eabi-gcc
+/usr/bin/arm-none-eabi-gcc
+EXIT_CODE=0
+COMMAND: arm-none-eabi-gcc --version
+arm-none-eabi-gcc (15:14.2.rel1-1) 14.2.1 20241119
+Copyright (C) 2024 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+EXIT_CODE=0
+COMMAND: command -v arm-none-eabi-g++
+/usr/bin/arm-none-eabi-g++
+EXIT_CODE=0
+COMMAND: arm-none-eabi-g++ --version
+arm-none-eabi-g++ (15:14.2.rel1-1) 14.2.1 20241119
+Copyright (C) 2024 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+EXIT_CODE=0
+COMMAND: command -v arm-none-eabi-ld
+/usr/bin/arm-none-eabi-ld
+EXIT_CODE=0
+COMMAND: arm-none-eabi-ld --version
+GNU ld (2.44-3+23+b1) 2.44
+Copyright (C) 2025 Free Software Foundation, Inc.
+This program is free software; you may redistribute it under the terms of
+the GNU General Public License version 3 or (at your option) a later version.
+This program has absolutely no warranty.
+EXIT_CODE=0
+COMMAND: command -v arm-none-eabi-readelf
+/usr/bin/arm-none-eabi-readelf
+EXIT_CODE=0
+COMMAND: arm-none-eabi-readelf --version
+GNU readelf (2.44-3+23+b1) 2.44
+Copyright (C) 2025 Free Software Foundation, Inc.
+This program is free software; you may redistribute it under the terms of
+the GNU General Public License version 3 or (at your option) any later version.
+This program has absolutely no warranty.
+EXIT_CODE=0
+COMMAND: command -v openocd
+/usr/bin/openocd
+EXIT_CODE=0
+COMMAND: openocd --version
+Open On-Chip Debugger 0.12.0
+Licensed under GNU GPL v2
+For bug reports, read
+	http://openocd.org/doc/doxygen/bugs.html
+EXIT_CODE=0
+COMMAND: command -v lsusb
+/usr/bin/lsusb
+EXIT_CODE=0
+COMMAND: lsusb --version
+lsusb (usbutils) 018
+EXIT_CODE=0
+COMMAND: git ls-remote https://github.com/loloLR17/MSM_vibe.git refs/heads/main
+8c03929184581a915c06fa488b9983c306dfc910	refs/heads/main
+EXIT_CODE=0
+COMMAND: lsusb
+EXIT_CODE=1
+COMMAND: lsusb -t
+/sys/bus/usb/devices: No such file or directory
+EXIT_CODE=1
+COMMAND: arm-none-eabi-objdump -f arm/minimal.o arm/minimal.elf
+
+arm/minimal.o:     file format elf32-littlearm
+architecture: armv8-m.main, flags 0x00000011:
+HAS_RELOC, HAS_SYMS
+start address 0x00000000
+
+
+arm/minimal.elf:     file format elf32-littlearm
+architecture: armv8-m.main, flags 0x00000112:
+EXEC_P, HAS_SYMS, D_PAGED
+start address 0x08000001
+
+EXIT_CODE=0
+COMMAND: dpkg --audit
+EXIT_CODE=0

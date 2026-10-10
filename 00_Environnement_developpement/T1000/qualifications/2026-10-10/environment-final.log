@@ -1,0 +1,107 @@
+COMMAND: cat /etc/os-release
+PRETTY_NAME="Debian GNU/Linux 13 (trixie)"
+NAME="Debian GNU/Linux"
+VERSION_ID="13"
+VERSION="13 (trixie)"
+VERSION_CODENAME=trixie
+DEBIAN_VERSION_FULL=13.7
+ID=debian
+HOME_URL="https://www.debian.org/"
+SUPPORT_URL="https://www.debian.org/support"
+BUG_REPORT_URL="https://bugs.debian.org/"
+EXIT_CODE=0
+COMMAND: uname -a
+Linux <HOTE_WSL> 6.18.40.1-microsoft-standard-WSL2 #1 SMP PREEMPT_DYNAMIC Fri Jul 31 22:12:15 UTC 2026 x86_64 GNU/Linux
+EXIT_CODE=0
+COMMAND: id
+uid=1000(<UTILISATEUR>) gid=1000(<UTILISATEUR>) groups=1000(<UTILISATEUR>),4(adm),24(cdrom),27(sudo),30(dip),46(plugdev),100(users)
+EXIT_CODE=0
+COMMAND: df -B1 /
+Filesystem         1B-blocks       Used     Available Use% Mounted on
+/dev/sdd       1081101176832 3211141120 1022897680384   1% /
+EXIT_CODE=0
+COMMAND: ls -l /usr/share/openocd/scripts/target/stm32u5x.cfg /usr/share/openocd/scripts/interface/stlink.cfg
+-rw-r--r-- 1 root root  686 Dec 30  2024 /usr/share/openocd/scripts/interface/stlink.cfg
+-rw-r--r-- 1 root root 1942 Dec 30  2024 /usr/share/openocd/scripts/target/stm32u5x.cfg
+EXIT_CODE=0
+COMMAND: apt-cache policy dotnet-sdk-10.0
+dotnet-sdk-10.0:
+  Installed: 10.0.401-1
+  Candidate: 10.0.401-1
+  Version table:
+ *** 10.0.401-1 500
+        500 https://packages.microsoft.com/debian/13/prod trixie/main amd64 Packages
+        100 /var/lib/dpkg/status
+     10.0.400-1 500
+        500 https://packages.microsoft.com/debian/13/prod trixie/main amd64 Packages
+     10.0.303-1 500
+        500 https://packages.microsoft.com/debian/13/prod trixie/main amd64 Packages
+     10.0.302-1 500
+        500 https://packages.microsoft.com/debian/13/prod trixie/main amd64 Packages
+     10.0.301 500
+        500 https://packages.microsoft.com/debian/13/prod trixie/main amd64 Packages
+     10.0.300 500
+        500 https://packages.microsoft.com/debian/13/prod trixie/main amd64 Packages
+     10.0.204 500
+        500 https://packages.microsoft.com/debian/13/prod trixie/main amd64 Packages
+     10.0.203 500
+        500 https://packages.microsoft.com/debian/13/prod trixie/main amd64 Packages
+     10.0.202 500
+        500 https://packages.microsoft.com/debian/13/prod trixie/main amd64 Packages
+     10.0.201 500
+        500 https://packages.microsoft.com/debian/13/prod trixie/main amd64 Packages
+     10.0.200 500
+        500 https://packages.microsoft.com/debian/13/prod trixie/main amd64 Packages
+     10.0.112-1 500
+        500 https://packages.microsoft.com/debian/13/prod trixie/main amd64 Packages
+     10.0.111-1 500
+        500 https://packages.microsoft.com/debian/13/prod trixie/main amd64 Packages
+     10.0.110-1 500
+        500 https://packages.microsoft.com/debian/13/prod trixie/main amd64 Packages
+     10.0.109 500
+        500 https://packages.microsoft.com/debian/13/prod trixie/main amd64 Packages
+     10.0.108 500
+        500 https://packages.microsoft.com/debian/13/prod trixie/main amd64 Packages
+     10.0.107 500
+        500 https://packages.microsoft.com/debian/13/prod trixie/main amd64 Packages
+     10.0.106 500
+        500 https://packages.microsoft.com/debian/13/prod trixie/main amd64 Packages
+     10.0.105 500
+        500 https://packages.microsoft.com/debian/13/prod trixie/main amd64 Packages
+     10.0.104 500
+        500 https://packages.microsoft.com/debian/13/prod trixie/main amd64 Packages
+     10.0.103 500
+        500 https://packages.microsoft.com/debian/13/prod trixie/main amd64 Packages
+     10.0.102 500
+        500 https://packages.microsoft.com/debian/13/prod trixie/main amd64 Packages
+     10.0.101 500
+        500 https://packages.microsoft.com/debian/13/prod trixie/main amd64 Packages
+     10.0.100 500
+        500 https://packages.microsoft.com/debian/13/prod trixie/main amd64 Packages
+EXIT_CODE=0
+COMMAND: dpkg-query -W -f=${Package} ${Version} ${Status}\\n
+aspnetcore-runtime-10.0 10.0.12-1 install ok installed
+aspnetcore-targeting-pack-10.0 10.0.12-1 install ok installed
+binutils-arm-none-eabi 2.44-3+23+b1 install ok installed
+build-essential 12.12 install ok installed
+cmake 3.31.6-2 install ok installed
+dotnet-apphost-pack-10.0 10.0.12-1 install ok installed
+dotnet-host 10.0.12-1 install ok installed
+dotnet-hostfxr-10.0 10.0.12-1 install ok installed
+dotnet-runtime-10.0 10.0.12-1 install ok installed
+dotnet-runtime-deps-10.0 10.0.12-1 install ok installed
+dotnet-sdk-10.0 10.0.401-1 install ok installed
+dotnet-targeting-pack-10.0 10.0.12-1 install ok installed
+g++ 4:14.2.0-1 install ok installed
+gcc 4:14.2.0-1 install ok installed
+gcc-arm-none-eabi 15:14.2.rel1-1 install ok installed
+git 1:2.47.3-0+deb13u1 install ok installed
+libicu76 76.1-4 install ok installed
+libnewlib-arm-none-eabi 4.5.0.20241231-1 install ok installed
+libnewlib-dev 4.5.0.20241231-1 install ok installed
+ninja-build 1.12.1-1 install ok installed
+openocd 0.12.0-3+b2 install ok installed
+packages-microsoft-prod 1.1-debian13 install ok installed
+usbutils 1:018-2 install ok installed
+wget 1.25.0-2 install ok installed
+EXIT_CODE=0

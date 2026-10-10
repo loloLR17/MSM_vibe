@@ -1,0 +1,31 @@
+COMMAND: cmd.exe /c codex.cmd --version
+'\\wsl.localhost\Debian\home\<UTILISATEUR>\t1000-qualification-20261010-YRJQ2U'
+CMD.EXE a �t� d�marr� avec le chemin d'acc�s comme r�pertoire en
+cours. Les chemins d'acc�s UNC ne sont pas prise en charge. Utilisation
+du r�pertoire Windows par d�faut.
+codex-cli 0.162.1
+EXIT_CODE=0
+COMMAND: node.exe --version
+v24.20.0
+EXIT_CODE=0
+COMMAND: dotnet workload list
+
+Workload version: 10.0.400-manifests.63b36e85
+
+Installed Workload Id      Manifest Version      Installation Source
+--------------------------------------------------------------------
+
+Use `dotnet workload search` to find additional workloads to install.
+
+EXIT_CODE=0
+COMMAND: dpkg-query -W wget packages-microsoft-prod dotnet-sdk-10.0 dotnet-runtime-10.0 aspnetcore-runtime-10.0 libicu76
+aspnetcore-runtime-10.0	10.0.12-1
+dotnet-runtime-10.0	10.0.12-1
+dotnet-sdk-10.0	10.0.401-1
+libicu76:amd64	76.1-4
+packages-microsoft-prod	1.1-debian13
+wget	1.25.0-2
+EXIT_CODE=0
+COMMAND: readlink -f /usr/bin/dotnet
+/usr/share/dotnet/dotnet
+EXIT_CODE=0

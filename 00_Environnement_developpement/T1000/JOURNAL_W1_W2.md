@@ -80,3 +80,24 @@ W2-E : Windows `usbipd-win` 5.3.0 installé via winget. Exécutable présent dan
 W2-F : SDK .NET non installé ou vérifié. Ni VS Code ni Codex CLI ne sont attestés installés sur le T1000 : `Get-StartApps` ne trouve pas Codex, `Get-Command codex,code` ne renvoie rien. Ne pas confondre des sessions Codex/Work distantes avec une installation locale.
 
 Source de ce complément : sorties utilisateur de la conversation ChatGPT et rapport d'agent expressément identifié. Ce complément ne remplace pas les observations historiques précédentes.
+
+
+---
+
+## 10 octobre 2026 — Qualification locale exécutée et archivage
+
+Mission de qualification : `T1000-20261010-QUAL-LOCAL` ; mission documentaire : `T1000-20261010-ARCHIVE-001`. Les résultats ci-dessous proviennent de commandes exécutées directement par l'agent local, puis confrontées aux scripts et journaux conservés. Référence détaillée : [rapport détaillé archivé](qualifications/2026-10-10/RAPPORT_T1000.md) et [manifeste des preuves](qualifications/2026-10-10/MANIFESTE.md). Les observations historiques ci-dessus restent intactes ; elles décrivent des étapes antérieures.
+
+- **VALIDÉ** : Dell Latitude 7320, Windows 11 Pro 25H2 build 26200.9457, WSL 3.0.1 et Debian 13.7 sous WSL2 (x86_64).
+- **VALIDÉ** : Git 2.47.3 et accès GitHub public en lecture seule par `git ls-remote` ; CMake 3.31.6, Ninja 1.12.1, GCC/G++ hôte 14.2.0. Build C/C++ et 2/2 tests CTest réussis, exécutions attendues avec retour 0.
+- **VALIDÉ** pour compilation et liaison minimales : GCC ARM 14.2.1, Binutils 2.44, Newlib 4.5.0.20241231-1 ; objets C/C++ Cortex-M33 et ELF32 ARM EABI5/v8-M.mainline avec `memcpy` lié. Aucune qualification d'un firmware STM32 complet ni d'une bibliothèque standard C++ embarquée.
+- **VALIDÉ** : SDK .NET 10.0.401 installé dans Debian via le dépôt APT Microsoft officiel pour Debian 13 ; runtime .NET 10.0.12. Console C# restaurée, compilée sans erreur/avertissement et exécutée avec résultat attendu. Les outils déjà opérationnels n'ont pas été réinstallés.
+- **VALIDÉ** pour lancement/inventaire : OpenOCD 0.12.0, usbutils 018, usbipd-win 5.3.0, Node.js Windows 24.20.0, npm 11.19.0 et Codex CLI Windows 0.162.1. Commandes Windows et WSL réellement exécutées par Codex dans la session C3 autorisée ; configuration permanente inchangée. Le lanceur Codex Windows hérité dans WSL échoue faute de Node Linux ; l'interop explicite Windows fonctionne.
+- **VALIDÉ** pour mesure : SSD physique Samsung 256 Go, environ 194,68 Go libres après installation/tests. La capacité virtuelle WSL d'environ 1 To n'est pas celle du SSD.
+- **BLOQUÉ** : état BitLocker actuel non vérifié, lectures refusées faute de privilèges administrateur Windows. L'ancien instantané à 93,3 % ne constitue pas son état actuel.
+- **INSTALLÉ MAIS NON TESTÉ** : communication ST-LINK avec les utilitaires disponibles ; aucun ST-LINK visible et aucun bus USB WSL disponible lors du contrôle. Flash et debug physique non qualifiés ; **NON APPLICABLES** au contrat de cette qualification.
+- **ABSENT** dans les emplacements inspectés : GDB ARM/gdb-multiarch et compléments STM32Cube ; recherche non exhaustive. CubeProgrammer, CubeCLT, CubeIDE et CubeU5 restent à examiner selon le workflow HP et les versions requises, sans installation automatique.
+
+Statut de qualification : **PARTIEL** pour l'audit complet ; critères logiciels **VALIDÉS**, qualification physique STM32 non démontrée. Les erreurs facultatives et limites sont conservées dans l'archive : `file` absent après les builds réussis, contrôle complémentaire par `objdump`, avertissement workloads .NET sans échec de la console, absence de bus USB WSL.
+
+Archivage : rapport original local retrouvé ; copie publique expurgée des noms de compte/hôte, six journaux et deux scripts inspectés, empreintes originales/publiques dans le manifeste. Aucun binaire ou cache conservé dans Git. Aucune nouvelle installation ou qualification matérielle pendant cette mission documentaire. Autorisations : `target_branch: main`, `allow_commit: true`, `allow_push: true`, `allow_flash: false`, `allow_debug: false`, limitées au périmètre T1000. Aucun firmware, fichier de gouvernance ni journal TR2 modifié.

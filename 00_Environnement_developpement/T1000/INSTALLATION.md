@@ -88,3 +88,53 @@ L'état BitLocker rapporté est un instantané : chiffrement à 93.3 % en cours,
 - Journal distinguant observations, procédure prévue et étapes restant à faire.
 
 Ces contrôles portent sur la préparation du poste. Ils ne prouvent ni compilation, ni flash, ni debug, ni validation physique.
+
+
+---
+
+## 6. Complément du 10 octobre 2026 — Installation et qualification réellement exécutées
+
+Mission d'archivage : `T1000-20261010-ARCHIVE-001`. La mission locale précédente `T1000-20261010-QUAL-LOCAL` a réalisé l'installation de .NET et les tests. Cette section complète la procédure historique ; aucune nouvelle installation n'est effectuée pendant l'archivage. Le [rapport détaillé archivé](qualifications/2026-10-10/RAPPORT_T1000.md) est la référence des commandes réellement exécutées, codes de retour, corrections et limites ; le [manifeste](qualifications/2026-10-10/MANIFESTE.md) décrit les preuves conservées et leurs transformations.
+
+### État atteint
+
+Windows 11 Pro 25H2 build 26200.9457, WSL 3.0.1 et Debian 13.7 sous WSL2. Chaîne hôte **VALIDÉE** : GCC/G++ 14.2.0, CMake 3.31.6, Ninja 1.12.1, avec compilation/exécution C/C++ et 2/2 tests CTest. Chaîne Cortex-M33 minimale **VALIDÉE** : GCC ARM 14.2.1, Binutils 2.44, liaison Newlib et inspection ELF. SDK .NET 10.0.401/runtime 10.0.12 **VALIDÉS** par console C# restaurée, compilée et exécutée.
+
+Git 2.47.3 et GitHub public en lecture seule **VALIDÉS**. OpenOCD 0.12.0 et usbipd-win 5.3.0 vérifiés pour leur lancement/inventaire ; Codex CLI Windows 0.162.1 et l'exécution de commandes Windows/Debian par l'agent sont démontrés. SSD physique 256 Go, environ 194,68 Go libres lors des contrôles après tests.
+
+### Méthode .NET employée
+
+[Instructions officielles Microsoft pour Debian 13](https://learn.microsoft.com/en-us/dotnet/core/install/linux-debian). Après audit, le SDK était absent et les autres outils de build opérationnels. `wget` a été ajouté via APT Debian ; le paquet officiel `packages-microsoft-prod.deb` pour Debian 13 a ajouté le dépôt Microsoft, puis `dotnet-sdk-10.0` a été installé avec ses dépendances. Les sources Debian préexistantes ont été conservées ; pas de script dotnet-install ni de mise à niveau générale. Les paquets .NET proviennent du dépôt Microsoft, `libicu76` du dépôt Debian.
+
+Séquence exécutée pendant la qualification source, depuis un répertoire temporaire dédié :
+
+```sh
+apt-get install -y --no-remove wget
+wget -O packages-microsoft-prod.deb https://packages.microsoft.com/config/debian/13/packages-microsoft-prod.deb
+dpkg-deb --info packages-microsoft-prod.deb
+sha256sum packages-microsoft-prod.deb
+dpkg -i packages-microsoft-prod.deb
+apt-get update
+apt-cache policy dotnet-sdk-10.0
+apt-get -s install dotnet-sdk-10.0
+apt-get install -y --no-remove dotnet-sdk-10.0
+```
+
+Les opérations APT/dpkg ont utilisé l'accès root WSL déjà disponible via `wsl.exe -d Debian -u root`, après l'échec de `sudo -n true`. Aucun changement sudoers ou compte par défaut. Les tests ont utilisé le compte Linux ordinaire. Pour une reproduction, vérifier d'abord l'état installé et les sources : ne pas réinstaller un outil déjà fonctionnel. L'empreinte du paquet de dépôt téléchargé est dans le rapport ; elle a été relevée, sans comparaison à une empreinte indépendante publiée.
+
+### Reproduction des validations minimales
+
+Les [scripts et journaux archivés](qualifications/2026-10-10/MANIFESTE.md) conservent les programmes et résultats. Copier `run-tests.sh` et `run-dotnet.sh` dans un nouveau répertoire vide hors dépôt/projet, puis les exécuter avec bash dans Debian, avec les dépendances déjà présentes. Les scripts créent leurs propres fichiers de test ; ils ne doivent pas être lancés au milieu de travaux existants.
+
+Le script hôte/ARM historique termine par `file`, absent lors du contrôle : cet échec facultatif 127 est conservé. Les compilations et liens précédents ont chacun réussi ; la vérification complémentaire par `arm-none-eabi-objdump -f` a confirmé ELF32 ARMv8-M et est consignée dans `audit-final.log`. Ne pas assimiler le retour global de ce script à l'échec des builds déjà consignés. Le script C# confine son cache et DOTNET_CLI_HOME au répertoire de test ; aucun workload additionnel n'est requis pour la console.
+
+Sous PowerShell, employer `npm.cmd` et `codex.cmd` selon le relevé Windows, sans assouplir la politique d'exécution. Les outils Linux de build s'utilisent via `wsl.exe -d Debian`. Le lanceur Codex hérité du montage Windows dans le PATH Linux échoue faute de Node Linux ; ce n'est pas une installation native Linux opérationnelle. L'interop explicite `cmd.exe /c codex.cmd --version` fonctionne depuis un répertoire Windows monté dans WSL. Aucune configuration permanente Codex modifiée.
+
+### Suite et limites
+
+- **BLOQUÉ** : lecture BitLocker actuelle, nécessitant des privilèges administrateur Windows. L'ancien état rapporté ne permet pas de conclure sur le chiffrement/protection actuels.
+- **INSTALLÉ MAIS NON TESTÉ** : communication ST-LINK. Aucun ST-LINK visible ; aucun bus USB WSL disponible lors des relevés. Ne pas partager/connecter automatiquement de périphérique.
+- **NON APPLICABLE** au contrat source : flash et debug physique ; aucune qualification matérielle STM32 réalisée.
+- **ABSENT** dans les emplacements inspectés : GDB ARM/gdb-multiarch et compléments STM32Cube. Examiner CubeProgrammer, CubeCLT, CubeIDE et CubeU5 selon le workflow HP, versions et procédure d'installation officielle ; aucune installation automatique décidée ici.
+
+Statut final de qualification source : **PARTIEL** pour l'audit complet, critères logiciels **VALIDÉS**. La publication de cette documentation ne qualifie ni flash, ni debug, ni fonctionnement physique.
