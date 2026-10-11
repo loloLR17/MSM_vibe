@@ -1,187 +1,157 @@
 ---
-mission_id: TR2-20261011-M014-D-SUPERVISION-INTEGRATION
+mission_id: TR2-20261011-SSH-HP-001
 status: BLOCKED
 base_ref: main
-base_sha: null
-initial_head: 6b5df7050cbf63e6c1daf0ec793455a63f8ec81a
-mission_sha: 364ce73ddcb3f961a08568fa02ffbb4ba43104a5
-result_sha: ccc20526f478ab47c097528a0af33d760f33f22b
-created_at_utc: 2026-10-11T18:36:51Z
+base_sha: 78093692f2a2b0b6680d657ce1eb6a87ad2d472e
+initial_head: f1e830136bf50abafbaad5ae8bdbc53765839017
+mission_sha: a1b24bc4632e0d33bbbec2b26913c321c21fe4b3
+result_sha: 52f6ab83911536f10f089c1a654862248189c860
+created_at_utc: 2026-10-11T21:09:33Z
 author: Codex
 target_branch: main
 allow_commit: true
 allow_push: true
-allow_flash: true
-allow_debug: true
+allow_flash: false
+allow_debug: false
 ---
 
-# M014-D — tranches PC validées, production physique bloquée
+# SSH-HP-001 — SSH et diagnostic OFFLINE HP effectivement exécutés
 
-**Logiciel PC livré et testé : contrôle borné B0/B1 et gestion correcte de perte/
-reprise de bus ; 524/524 tests.NET,110/110 tests firmware et cross-build réussis.**
-BLOCKED pour la composition de production réelle et les lectures périodiques/
-reprise physiques. **M014 n'est pas DONE.** Aucun quota épuisé annoncé : arrêt sur
-véritable dépendance structurante après progression des travaux indépendants,
-pas par économie de validation. Aucun nouvel essai HP/COM7/RS485, flash/reset/debug.
-Diagnostic qualifié E conservé, commandes C et I consommées, ne pas relancer.
+Critères logiciels remplis ; statut provisoire BLOCKED uniquement en attente du
+push et de la relecture distante V2. **Aucune ouverture COM7 ni émission Modbus**.
+M014-D demeure BLOCKED pour production ; cette mission ne résout pas ses autorités
+carte, ne qualifie pas la communication physique et ne rejoue aucun jeton C/I.
 
-## Référence, périmètre et provenance
+## Références et gouvernance
 
-Main initial6b5df70 propre, stashes historiques005/002 conservés. Fetch/pull
---ff-only sûr vers364ce73, seul contrat changé ; AGENTS/protocole inchangés.
-Mission/version/permissions réelles lues, journal intégral consulté, roadmap,
-rapport C DONE, gels pertinents S4/S5, sources/tests production/binding/runtime/
-blocs/NModbus/polling/recovery inspectés. Base_sha absent : null, aucune valeur
-inventée. Archive C MISSION/RAPPORT exacte depuis HEAD initial, immuable ; mission
-active ChatGPT inchangée. Tranches cohérentes, pas de refactoring opportuniste.
+Dépôt initial main propre à f1e8301, deux stashes005/002 conservés. Fetch puis
+pull --ff-only sûr vers a1b24bc, sans merge/rebase/reset. Base7809369 présente et
+ancêtre de la mission vérifiée. AGENTS, contrat actif, protocoleV2, journal entier
+et rapportD archivé lus ; fichiers concernés/outils existants inspectés avant
+création. Pas d'orchestrationSSH équivalente trouvée. ArchivesD déjà créées par
+ChatGPT vérifiées octet pour octet contre mission/rapport du HEADinitialf1e8301 ;
+pas de réécriture. Mission active inchangée, freezes/V1/firmware/.NET inchangés.
 
-Code logiciel évalué et paquet D : ccc20526f478ab47c097528a0af33d760f33f22b,
-commit `Add bounded B0 B1 system check and preserve unavailable telemetry across bus recovery`.
-Dernière extension d'assertions de reprise fraîche validée séparément3/3 sera
-committée avec ce rapport ; code applicatif/paquet reste celui deccc2052.
+Code réellement évalué : `52f6ab83911536f10f089c1a654862248189c860`, commit
+`Add bounded Windows SSH orchestration and verified HP offline diagnostics`.
+Le programme autonome A utilisé sur HP conserve sa provenance sourcebcc69c9d,
+ce SHA d'orchestration n'est pas présenté comme celui d'un nouveau binaire .NET.
 
-M014-C acquis : utilisateur UNKNOWN0/code0/passedtrue le11/10/2026 à18:15:29UTC,
-deltasMCU +8octets/+1trameCRC/+1acceptation/+1TXTC sans erreur. Journal HP intégral
-non fourni : son SHA annoncéAFDAB5517A13ABED1E9735A4240F0E6B53C5DC110F9CB717BB50410F698A2272
-ne prouve pas contenu/chronologie/hash recalculé. Réserve maintenue, aucune nouvelle
-observation MCU en D ; santé C reste historique explicitement identifiée.
+## Observations directes depuis Codex
 
-## Audit et matrice livrée
+- ClientSSH Linux : aliastr2-hp non configuré. ClientWindows existant sous
+  `/mnt/c/Windows/System32/OpenSSH/ssh.exe` : alias versHP/user configurés,
+  BatchMode/clé dédiée, commande `ssh ... tr2-hp hostname` retour0 :
+  **LAPTOP-3F6J7STJ**. Aucun fichier clé privée lu/affiché/copiedansGit.
+- Probe distant : cwd `C:\Users\Lolo`, PowerShell5.1.19041.6456, compte
+  **administrateur**. Connexion SSH non interactive réellement démontrée,
+  aucun nouveau droit/service/pare-feu/profil/politique ajouté.
+- Inventaire HP en lecture seule : COM4/COM5/COM7, PnP **USB Serial Port(COM7)**,
+  StatusOK/FTSER2K. Aucun processus candidat TR2/dotnet/python/putty/terminal/modbus
+  détecté au relevé. **Pas preuve COM7 libre/exclusif**, pas inventaire des handles.
+- `dotnet` absent du PATH observé, pas preuve absence globale. Paquet autonome
+  retrouvé à `C:\Users\Lolo\AppData\Local\TR2\M014-B-20261011-195242` :
+  EXE162816octets +manifesteA62485octets. Pas de solution/projet trouvé dans la
+  recherche bornée Desktop/Documents/Downloads/LocalAppDataTR2 profondeur4 ;
+  aucune absence globale revendiquée, erreurs d'accès de recherche non conclusives.
+- EXEA SHA256 `13228dfe3d30cf01829c16be1be22f30b061cc0cb0916b2e6a499b8fd1f96872`,
+  manifesteA SHA256 `eeaf70a35f81a9d9a5102cef011dc54bb4e9eae2b774e75af75689b1dc6db7a3`.
+  **370fichiers tailles/SHA réellement vérifiés sur HP**, manifeste fixé/haché.
+  Aucun transfert nécessaire/effectué, paquetA et ses données conservés.
+- OFFLINE lancé automatiquement surHP viaSSH, retour0, stderrvide :
+  `OFFLINE: no port opened, no transmission, no log created.` Paramètres affichés
+  COM7/115200/8/Even/One/unité1/FC03/1000/1/retry0, aucun `--read-once`.
+  Cette ligne et le code/hash vérifiés établissent le scénario logiciel sans
+  ouverture ; pas une capture du bus ni une validation du driver physique.
+- ServiceSSH présent/running/startmanual au relevé. Config explicitement lue :
+  AuthorizedKeysFile et MatchGroupadministrators. `sshd -T` global indique
+  PubkeyAuthenticationyes/PasswordAuthenticationyes et AuthorizedKeysFile utilisateur.
+  ClausesMatch/pare-feu/rangesréseaux effectifs non audités exhaustivement.
+  Risque admin/motdepasse signalé ; réduction ultérieure proposée, rien imposé.
 
-[INTEGRATION_SUPERVISION_M014_D.md](../INTEGRATION_SUPERVISION_M014_D.md) contient
-matrice développé/simulé/compilé/physique, dépendances, critères et reprise détaillée.
-Fait de lecture du code : image diagnostic E publie normalement FC03/1000/1 seulement,
-B0/B1complet indisponibles→04. ModbusSystemServer sait lire21/20 registres depuis
-vrai runtime, ProductionApplication possède services/dispatcher, mais binding faible
-STM32 refuse NOT_AVAILABLE avant préparation. FRAM transactionnelle exige recoveryVALID,
-EMPTY refusé ; CampaignDataStoreBulk/SDMMC existent mais composition carte durable/
-allocation/provisioning/identité ne sont pas fournis par le port faible.
+## Livraison et garde-fous
 
-S0–S7 et polling sont développés avec tests host ; FAST litB1/B3/B5, MEDIUM B2/B7,
-SLOW B4/B6, découverte B0. Deux blocs ne suffisent pas à lancer toute cette boucle.
-Le fichier roadmap reste une référence initiale, pas une preuve opérationnelle
-courante ni un gel silencieusement modifié.
+`00_Environnement_developpement/T1000/ssh-hp/` contient `run_hp.py`,
+`hp-task.ps1`, `test_run_hp.py`, README avec usage/retrait/limites.
 
-## Modifications logicielles
+- Bibliothèque standard Python seulement ; tâches fixes Probe/Inventory/Offline/
+  FailureProbe. ClientWindows/alias fixes, BatchMode/StrictHostKeyCheckingyes,
+  pas de saisie motdepasse/acceptation aveugle cléhôte. IdentitéHP vérifiée avant
+  inventaire/exécution. ArgumentsPowerShell échappés, aucun argv arbitraire.
+- BootstrapEncodedCommand court +script transmisstdin : évite limite Windows,
+  pas changement de politique. Logsstdout/stderr binaires +resultJSON dans un
+  dossierlocal neuf exclusif. Aucun script/service/agent installé surHP.
+- OFFLINE seulement : EXE/manifesteAouD approuvés puis370fichiers vérifiés,
+  chemin du manifeste contenu dans dossier ; processus candidat→refus ; mutex
+  global nonbloquant libéré après traitement. Pas mode émission/bouclepolling.
+- Timeoutconnexion10s/keepalive5s×2/commande45s/processOFFLINE15s. Code distant
+  préservé ;255SSH/124timeoutlocal/127clientabsent/2usage. Aucun retryautomatique.
+  DéconnexionSSH ne garantit pas annulation distante ; stateunknown explicite.
+  KillWindows surtimeout prévu, branche panneprocess testée par mocklocal seulement,
+  pas driverphysique qualifié. Course/modification concurrente de fichiers et
+  maîtres externes non coopérants restent limites du banc provisoire.
 
-- `SerialBusRecoveryCoordinator` : avant oublier sessions et fermer driver, marque
-  indisponibles tous les appareils identifiés du bus. Valeurs/timestamps conservés,
-  même si fermeture échoue. Reconnexion ne rafraîchit pas les données.
-- `PhysicalPollingWorkRunner` : notification compatible seulement pour B0 réellement
-  Compatible ; une version incompatible n'émet plus ce signal.
-- `SystemBlockConsoleApplication` ajouté et dispatch `--system-check` avant runtime.
-  OFFLINE défaut sans ouverture/journal ; paramètres validés via parseur diagnostic
-  réutilisé (visibilité internal seulement, comportement C préservé). Version supportée
-  explicitement fournie ; FC03/0/21 puis1000/20 seulement après B0 compatible.
-  Taille exacte, identité réelle lue, UNKNOWN/autre état décodé sans READY fabriqué.
-  Une connexion, maximum2requêtes, retry0, aucun polling/écriture/B5/reconnexion.
-  Journal CreateNew/exclusif/intention durable avant I/O, UTC/registers/result/failure,
-  code0 seulement après fermeture. Deadline d'attente4×timeout par lecture ; driver
-  open/dispose non garanti temps réel, cancellation n'annule pas une émission passée.
-- Tests service ajoutés/renforcés : activation/OFFLINE/exclusivité journal/cancellation,
-  compatibilité/taille/timeout/exception/I/O/fermeture, perte bus2appareils, fermeture
-  échouée, reprise même/autre identité/version incompatible et nouvelle valeur fraîche.
-  Tests Transport vrai NModbus flux mémoire : requêtes exactes0/21 et1000/20,
-  CRC B1 erroné refusé sans retry. Ce sont des écritures mémoire, pas RS485.
-- Test firmware `test_modbus_system_server.c` renforcé : serveurRTU/runtimehôte réel,
-  B0/B1 complets répétés, CRC/données/actualisation, sourceB1retirée→04 puis retour.
-  Identité12345678/services sont fixtures hôte explicites, jamais provisioning carte.
-- README et document intégration/HP/reprise ajoutés, journal actualisé, archives C.
-  Aucun source firmware production, mappingV1, gel, configuration permanente changé.
+## Tests et corrections réelles
 
-## Validations réellement exécutées et justification
+Preuves horsGit dans `/home/lolo/dev/msm/reports/TR2-SSH-HP-001-*`.
 
-Preuves horsGit `/home/lolo/dev/msm/reports/TR2-mission014-D-20261011T182756Z`.
+| Vérification réellement effectuée | Résultat / preuve |
+|---|---|
+| hostnameSSH Windows |0, HP attendu ; commande initiale sortieoutil |
+| Probe final |0, `probe-2/stdout.log`/result.json |
+| Inventaire final +politique globaleSSH |0, `inventory-final/stdout.log`/result.json |
+| FailureProbe distant volontaire |**17**, `failure/`, code propagé sansmasquage |
+| HashEXE incorrect distant |**1**, `rejected-hash/`, refusavantlancement |
+| OFFLINE HP +370hashes |**0**, `offline-2/`, sortiehorsport réelle |
+| Mutex détenu par autre sessionSSH |holder0, tentative**1** avantlancement, `lock-test/` |
+| TestsPython orchestration |**6/6**, `unit-tests.log` |
 
-- Ciblage initial recovery/workrunner : `dotnet test ...Service.Tests.csproj --filter
-  'FullyQualifiedName~PhysicalPollingFailureRecoveryTests|FullyQualifiedName~PhysicalPollingWorkRunnerTests'`
-  +loggerTRX :7/7 réussis, mocks/runtimePC/SQLite, zéro matériel.
-- `dotnet build 'Modbus RTU/Supervision TR2/TR2.Supervision.sln' --no-restore` :
-  réussi,0warning/0erreur.
-- Ciblage SystemBlockConsoleApplicationTests :16/16 réussis, dont attente bloquée
-  bornée400ms sur timeout100, pas simulation déclarée physique.
-- `dotnet test 'Modbus RTU/Supervision TR2/TR2.Supervision.sln' --logger trx
-  --results-directory <preuves>/full-tests` : **524/524,0échec/ignoré**. Suites :
-  Architecture1,Domain17,Protocol45,Transport35,Application221,Persistence31,Service174.
-  TotalTRX recalculé ;22cas supplémentaires par rapport A502, tests non affaiblis.
-- Après extension des seules assertions reprise (B0 seul indisponible puis vraie
-  lecture fraîche, autre identité ne récupère pas ancienne donnée), ciblage
-  PhysicalPollingReconnectRecoveryTests : **3/3 réussis**. Suite complète pas
-  répétée inutilement : code production inchangé depuis la suite524, cas concernés
-  revalidés sur dernière version de test. Aucune donnée attendue artificiellement changée.
-- `STM32CUBE_U5_ROOT=/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0 bash ./tr2_validate.sh` :
-  **110/110 hôte et cross-build réussis**, firmware par défaut compilé seulement.
-  Validation complète choisie pour preuve integrationserveur partagée B0/B1 ;
-  avertissements newlib `_close/_lseek/_read/_write` préexistants conservés.
-  Pas compilation assimilée à exécution cible, BIN défaut non flashé.
-- CLI Linux réel `dotnet run --project ...Service --no-build -- --system-check
-  --protocol-version 1 --port COM7 --baud 115200 --parity Even --timeout-ms 1000` :
-  retour0/OFFLINE, plan2lectures, zéro ouverture/transmission/journal. COM7 est du texte,
-  pas un accès Dell au port HP.
-- `dotnet publish ...Service.csproj -c Release -r win-x64 --self-contained true
-  -p:PublishSingleFile=false -p:PublishTrimmed=false -o <preuves>/hp-win-x64` : réussi.
-  ZIP/manifeste créé, CRCarchive et370hashes/octets ZIP/disque vérifiés ; sources commitccc2052.
-  Snippet PowerShell OFFLINE préparé analysé Parser::ParseFile sur Dell : syntaxeOK,
-  snippet non exécuté.
-- Diff/whitespace/index/périmètre contrôlés ; pas secret ni logs volumineux dansGit.
-  Recherches candidates de chemins absents résolues par rg, aucun fichier inventé ;
-  aucun échec build/test observé/masqué, aucun test supprimé/désactivé/affaibli.
+Commande tests : `python3 -m unittest discover -s
+00_Environnement_developpement/T1000/ssh-hp -v`. Cas : SSHfixe/strict/bootstrapcourt,
+quoting/tâchesrefusées, code17/logsbruts/dossierdéjàexistant, timeoutpartiel sansretry,
+clientabsent/panneSSH avec étatdistantinconnu, restrictionsOFFLINE/verrou/deadline.
+TestsréelsPS/HP complémentaires aux mocks : branchesProbe/Inventory/Offline,
+refushash et contentionmutex effectivement exécutées. Aucun test supprimé/affaibli.
 
-## Paquet et essais HP : prêts logiciel, NO-GO physique
+Erreurs conservées : première versionEncodedCommand contenanttoutscript refusée
+parWindows («ligne de commande trop longue», code1, inventory/etprobe/).
+Corrigéeparstdin/bootstrapcourt. Inventaire2 sérialisait excessivement métadonnées
+PowerShell de Get-Content : conversionstrings explicite ajoutée ; inventairefinal
+compact vérifié. PremierOFFLINE refusait les sous-dossiers légitimes wwwroot du
+manifeste : code1/`offline/`, aucunlancement ; contrôle corrigéparchemincanonique
+contenudanspackage, prochain essai **OFFLINE seulement** réussi. Ces erreurs ne
+sont pas dissimulées, aucune transmissionModbus n'a été répétée.
 
-ZIP `TR2-M014-D-win-x64.zip`50094222octets,
-SHA256 `ecd7fa606a16258afcb087b388fd7a35382a5bccad8e0b34c9f87aff25a35fc2`.
-EXE SHA256 `9b5d247be3f86ef606352f3f8a9faa74cacd5cae9a39cb314f6e93edf62bf6d6` ;
-manifesteD SHA256 `a3d60750443517ab3238de3c759ef3f04c6dee322ee2d96bb9e21c20dc72577c`.
-Publish autonome .NET/ASP.NET, pas nouveau SDK système requis. Artefact local horsGit,
-non transféré/exécuté HP ni hébergé comme binaire GitHub. Paquet A intact.
+Validation proportionnée : testsPython + exécutionsPowerShell réelles et inspection
+Gitdiff/index ; pas de buildfirmware/.NET nécessaire pour des scripts d'orchestration.
+RésultatsD524/524 et110/110 conservés, **non relancés** ni assimilés aux sixnouveauxtests.
+Diffwhitespace/périmètre vérifiés ; logsvolumineux/credentials horsGit.
 
-Document D prépare OFFLINE nouveau paquet après revue ChatGPT et contrôles hashes/
-PnP/exclusivité ; contrôle physique futur maximum2lectures seulement après vraie
-cibleB0/B1. Pas de commande émission prête à coller avant GO, pas marqueur C réutilisé.
-Plan périodique/perte/reprise doit fixer durée/nombre/groupes/seuils/arrêt avant
-intervention HP ; loop --config existant est continu, pas campagne bornée prétendue.
-Aucun GDB pendant trafic, utilisateur seul exécutant physique, pas accès distant HP.
+## Limites, retrait et prochaine étape
 
-## Véritable blocage, limites et reprise
+AccèsSSH validé ne vaut pas qualificationphysique. COM7/exclusivité universelle,
+performance/timing/driver souspanne et transfertSCP d'un nouveau paquet non qualifiés.
+Pas campagne COM7 autorisée spécifiquement ici, aucune commande physique exécutée.
+PasGDB/flash/reset/CLIcible/OptionBytes/masserase/écritureModbus/gestephysique.
+Le verrou protège coopérants ; campagnefuture requiert contratspécifique/revue,
+borne/timeouts/journalnouveau et assurancemaîtreexclusif/cible, aucun GDBpendanttrafic.
+Aucun replayM014-C/M013-I, aucun fauxREADY/DeviceId/B0/provisioning ajouté.
 
-L'activation de production exige source/politique d'identité stable/unique/persistante,
-adresse/version, géométrieFRAM/imageVALID/provisioning, backendSD/allocation durable,
-metadata configuration et séparation des écritures du harness. Ces décisions ne
-sont pas documentées/provisionnées pour cette carte. AGENTS §8 : décision structurante
-non prévue à escalader ; §9 : allow_flash n'autorise pas format/écriture arbitraire
-non volatile. Ne pas combler avec DeviceId42, UID réduit, READY ou backendFRAM historique.
-Les autres travaux indépendants ci-dessus ont été réalisés malgré ce blocage.
+README propose retrait par arrêtusage uniquement (outilnoninstalléHP) ; conservation
+preuves. Modifieralias/clé/serviceexistant reste décisionséparée, pas suppression
+silencieuse. Réductionfuture : comptestandard limité, authentificationclé et portée
+réseauprivé contrôlée, aprèsdécision. AucunsecondCodexHP installé/exécuté.
 
-Aucun nouveau flash : pas image production sûre à déployer ; préserver le diagnostic
-qualifié plutôt que flasher le harness par défaut. BIN E49200/hashdc6ac75f… et
-ELF4c496149… rehashés sur disque, readback C identique conservé, sauvegardes antérieures
-intactes (`preserved-diagnostic.json`). Aucune nécessité de nouveau GDB/reset pour
-cet audit logiciel ; l'état cible récent C est une observation historique, pas D.
-
-Point de reprise concret dans document D : code/paquet/testspreuves conservés,
-autorités carte à décider/fournir puis tests négatifs EMPTY/médias/identité,
-composition exclusive, sauvegarde/restauration contrôlée et flash standard qualifié ;
-après seulement, revueChatGPT et essaiHPB0/B1borné, puis polling/perte/reprise cadrés.
-Aucun code inachevé volontairement laissé ; pas de travail utilisateur incorporé.
-Les prochains commits de composition doivent rester sous contrat réel/AGENTS,
-pas une autorisation matérielle héritée de C.
-
-M014/J2 opérationnel, production, qualificationtimingDE/TC/stopbit/t1.5/t3.5/retourRX,
-robustesse/endurance/reset/watchdog/J1global/E4 demeurent ouverts. Le blocage n'infirme
-pas l'acquis diagnosticC, ne qualifie pas un défaut électrique nouveau. Aucun acquis
-physique redemandé. Rapport/journal prêts pour revue indépendante ChatGPT et décisions.
+Journal actualisé pour accèsHP direct désormaisobservé, OFFLINE réel, limites et
+suite ; historiques disantHPinaccessible restent datés. À transmettre àChatGPT :
+revoirrapportSSH, décider éventuelle réductionprivilèges/campagnefuture souscontrat,
+poursuivre décisionsproductionM014-D (toujoursBLOCKED). JournalHPoriginalC noncollecté :
+réserve sur soncontenu/hashintégral maintenue, pas conclusiondepuisSHAseul.
 
 ## Git et publication
 
-Permissions exercées : développement/tests/build/publish/commits/push normalmain.
-Flash/debugtrue non exercés ; zéro nouveau COM7/RS485/flash/reset/GDB/HOTPLUG/
-OptionBytes/masserase/USB/média/câblage/service distant/configuration Codex/Windows.
-Deux stashes, backups et preuves historiques préservés. Sources ccc2052 et complément validé publiés normalement au SHA `5f5f59e4f8fa96df26c7d678c204af823b78bb39`,
-commit `Publish M014-D dependency matrix, validation and complete production resume point`.
-Push explicite HEAD:refs/heads/main réussi, fetch puis relecture intégrale UTF8 et
-comparaison byte-à-byte des20fichiers livrés/gouvernance depuis GitHub : toutes
-conformes (`remote-reread-1.json`). HEAD=origin/main, arbre propre et deuxstashes
-conservés. Cette consignation de publication sera également poussée et relue ;
-SHA final fourni dans réponse Codex. BLOCKED maintenu après publication : M014
-opérationnel attend toujours décisions carte et preuves périodiques/perte/reprise HP.
+Commitcode52f6ab8 ci-dessus, commit/pushmain autorisés ; flash/debugfalse respectés.
+Git initialpropre, travauxhorspérimètre noninclus, deuxstashes/backupspréservés.
+Rapportprovisoire prêtpourpushnormal expliciteHEAD:refs/heads/main puisfetch/relecture
+UTF8 intégrale/égalitédeslivrables depuisréférencedistante. SHApublication et clôture
+serontconsignés aprèsobtentiondepreuve, sansautoréférenceSHA.

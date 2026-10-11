@@ -1,6 +1,6 @@
 # État courant TR2 — référence reconstruite
 
-Mise à jour : 11 octobre 2026. Mission `TR2-20261011-M014-D-SUPERVISION-INTEGRATION`.
+Mise à jour : 11 octobre 2026. Mission `TR2-20261011-SSH-HP-001`.
 
 **Ce document est un nouvel état de référence reconstruit à partir de preuves vérifiables. Il n'est pas une restitution du journal historique HP.** Sa création a été explicitement autorisée par l'utilisateur pour la mission `T1000-20261010-CLOTURE-001`, après escalade AGENTS.md §18. Aucun original n'a été retrouvé dans l'historique Git, les répertoires Linux locaux ou les documents Windows accessibles. Les archives d'échanges du 8 octobre mentionnent un journal local HP, sans en fournir le contenu. Aucun état historique inconnu n'est inventé.
 
@@ -312,3 +312,25 @@ physiques temporelles/robustesse/production/J1global/E4 inchangées.
   carte/testsnégatifs/sauvegarde-restauration/flashqualifié avant essaiHPborné
   B0/B1etpollingperte/reprisecadrés. Aucunessaiàlanceractuellement, pasreplayC/I.
   M014pasDONE ; limitesCjournalHPnonlocal/timing/robustesse/production/J1global/E4inchangées.
+
+
+## SSH-HP-001 — 11 octobre 2026 : accès direct HP et OFFLINE observés
+
+- **VALIDÉ infrastructure/logiciel** : SSH Windows depuis Codex WSL via alias
+  tr2-hp, identitéHP LAPTOP-3F6J7STJ, PowerShell5.1, codes0/échecdistant17 observés.
+  PaquetA existant retrouvé LocalAppData/TR2/M014-B-20261011-195242 ; manifeste
+  et370tailles/hashes vérifiés puis --diagnostic OFFLINE réelHP retour0 sansport/
+  transmission. Pas transfert/rebuild/installation. AccèsHP auparavantinaccessible
+  désormaisdirectobservé, historiques conservés. Scripts temporaires documentés
+  dans00_Environnement_developpement/T1000/ssh-hp, six testsPython réussis et
+  refushash/concurrencemutex réels. Preuves /home/lolo/dev/msm/reports/TR2-SSH-HP-001-*.
+- **OBSERVÉ / LIMITES** : COM7FTSER2K PnPOK, pasprocesscandidat identifié ; pas
+  preuveportlibre/exclusif et aucuneouverture. CompteSSH administrateur, politique
+  globalePasswordAuthenticationyes ; réductionfuture compte/droits/réseau proposée,
+  configuration/service/parefeuinchangés. Mutexcoopérants seulement, coupureSSH
+  ne garantit pas arrêt distant. Pas nouvelle observationMCU.
+- **NON QUALIFIÉ / SUITE** : aucunCOM7/RS485/flash/debug/reset/écriture physique.
+  M014-Dproduction/B0B1 demeureBLOCKED ; commandesC/Iconsommées nonrejouées.
+  JournalHPoriginalC toujoursnoncollecté, réservesphysiques/timing/E4 inchangées.
+  RevueChatGPT du rapportSSH puis contratspécifique pour tout nouvelessaiborné ;
+  accèsSSH seul n'autorise pascampagne ni qualificationModbus globale.
