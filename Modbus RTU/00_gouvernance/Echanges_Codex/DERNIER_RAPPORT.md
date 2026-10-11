@@ -1,12 +1,13 @@
 ---
 mission_id: TR2-20261011-M013-D-UART-IRQ-ROOT-CAUSE
-status: BLOCKED
+status: DONE
 base_ref: main
 base_sha: null
 initial_head: c6d5d2a552b6de2a70789dc7e5f2d1b30f77cc87
 mission_sha: 443e6d3eebe18a094ffd09c95c6b087db758784e
 result_sha: 09792c8dba98cd3959458f3148d4fae63a9584c9
 created_at_utc: 2026-10-11T14:51:02.710944+00:00
+updated_at_utc: 2026-10-11T15:58:29.271453+00:00
 author: Codex
 target_branch: main
 allow_commit: true
@@ -17,7 +18,7 @@ allow_debug: true
 
 # M013-D — cause opérationnelle NVIC isolée, instrumentation passive vérifiée
 
-**Critères techniques D satisfaits ; BLOCKED provisoire pour publication/relecture distante uniquement. Modbus bidirectionnel et TX physique NON VALIDÉS.** Aucun nouveau probe HP, aucune requête synthétique sur cible, aucune émission RS485 provoquée, aucune intervention physique. L'essai C unique COM7/1152008E1 sans réponse reste une observation utilisateur ; il n'a pas été répété.
+**DONE : critères de diagnostic D satisfaits, code et rapport publiés puis relus depuis GitHub. Modbus bidirectionnel et TX physique NON VALIDÉS.** Aucun nouveau probe HP, aucune requête synthétique sur cible, aucune émission RS485 provoquée, aucune intervention physique. L'essai C unique COM7/1152008E1 sans réponse reste une observation utilisateur ; il n'a pas été répété.
 
 ## Référence et préservation
 
@@ -75,4 +76,4 @@ Pour une **mission future explicitement autorisée**, préparer candidat TXON/ob
 
 ## Publication
 
-Journal actualisé avec cause reproduite, procédure corrigée, TXOFF courant, limites et prochaine mission ; preflight historique précédé du verdict D pour ne pas relancer l'ancien probe. Archives C immuables. Permissions exercées : commit/push main, flash standard et debug qualifié/lectures/reset ; aucun élargissement d'accès. Rapport provisoire, push/relecture et état Git final encore à consigner. Contrôle indépendant ChatGPT non établi par Codex.
+Journal actualisé avec cause reproduite, procédure corrigée, TXOFF courant, limites et prochaine mission ; preflight historique précédé du verdict D pour ne pas relancer l'ancien probe. Archives C immuables. Permissions exercées : commit/push main, flash standard et debug qualifié/lectures/reset ; aucun élargissement d'accès. Commit documentaire `1b4b7fd01ee2d206b96428e5ef5ff78c26cc6a73`, message `Document M013-D reproduced HOTPLUG NVIC failure and corrected access procedure`, publié par push normal explicite `HEAD:refs/heads/main`. Fetch : HEAD=origin/main. Relecture intégrale UTF8 et comparaison byte-à-byte de 15 fichiers (six livrables documentaires, huit sources, contrat D) depuis cette référence distante réussies ; manifeste remote-reread.json hors Git. État Git propre après publication, deux stashes historiques conservés. La présente clôture DONE sera publiée puis relue à son tour ; son SHA final est communiqué dans la réponse Codex, sans autoréférence dans le commit. Contrôle indépendant ChatGPT non établi par Codex.
