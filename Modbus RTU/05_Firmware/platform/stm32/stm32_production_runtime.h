@@ -4,6 +4,7 @@
 #include "stm32_fram_storage.h"
 #include "stm32_iis3dwb_vibration_source.h"
 #include "tr2/application/production_application.h"
+#include "tr2/application/persistent_identity.h"
 
 /* Independent of the qualification harness. GPIO/SPI setup is the caller's
  * responsibility; no default pinout/geometry, no destructive formatting. */
@@ -11,7 +12,9 @@ typedef struct {
     Stm32FramStorage fram;
     TransactionalImageMedia transactional_media;
     TransactionalImageRecoveryResult recovery;
-    uint8_t candidate[TR2_TRANSACTIONAL_MEDIA_LOGICAL_SIZE];
+    uint8_t candidate[TR2_TRANSACTIONAL_MEDIA_V2_LOGICAL_SIZE];
+    PersistentIdentityRecord persistent_identity;
+    ModbusBlock0Image identity_b0;
     Stm32Iis3dwbVibrationSource vibration;
     ProductionApplication application;
     bool prepare_attempted;
@@ -25,6 +28,9 @@ typedef struct {
     GPIO_TypeDef *vibration_cs_port;
     uint16_t vibration_cs_pin;
     TransactionalImageGeometry geometry;
+    bool exclusive_media_ownership;
+    bool protocol_authority_available;
+    uint16_t supported_protocol_version;
     CampaignDataStore *campaign_data_store;
     ConfigurationValidationEnvironment environment;
     void *configuration_metadata_context;
@@ -39,7 +45,6 @@ Tr2Result stm32_production_runtime_prepare(Stm32ProductionRuntime *runtime,
 /* Must return only explicitly provisioned, qualified, long-lived authorities.
  * Default NOT_AVAILABLE prevents all preparation and keeps RX diagnostics. */
 Tr2Result stm32_production_binding_acquire(SerialTransport *uart,
-    Stm32ProductionDependencies *dependencies, SerialTransport **qualified_transport,
-    uint8_t *unit_id, const ModbusBlock0Image **identity);
+    Stm32ProductionDependencies *dependencies, SerialTransport **qualified_transport);
 
 #endif

@@ -13,8 +13,11 @@ Tr2Result stm32_production_runtime_prepare(Stm32ProductionRuntime *runtime,
     VibrationSource vibration;
     TransactionalImagePhysicalStorage physical;
     Tr2Result result;
+    uint32_t uid[3];
     if (runtime == NULL || dependencies == NULL ||
         dependencies->campaign_data_store == NULL ||
+        !dependencies->exclusive_media_ownership ||
+        !dependencies->protocol_authority_available ||
         dependencies->geometry.physical_size != TR2_STM32_FRAM_CAPACITY) return TR2_ERROR_INVALID_ARGUMENT;
     if (runtime->prepare_attempted) return TR2_ERROR_INVALID_STATE;
     result = transactional_image_geometry_validate(&dependencies->geometry);
@@ -24,10 +27,16 @@ Tr2Result stm32_production_runtime_prepare(Stm32ProductionRuntime *runtime,
         dependencies->fram_cs_port, dependencies->fram_cs_pin, 100u);
     if (result != TR2_OK) return result;
     physical = stm32_fram_storage_physical(&runtime->fram);
-    result = transactional_image_media_init(&runtime->transactional_media, &physical,
+    result = transactional_image_media_init_v2(&runtime->transactional_media, &physical,
         &dependencies->geometry, runtime->candidate, sizeof(runtime->candidate));
     if (result != TR2_OK) return result;
     result = production_provisioning_probe(&runtime->transactional_media, &runtime->recovery);
+    if (result != TR2_OK) return result;
+    if (runtime->transactional_media.logical_version != 2u) return TR2_ERROR_NOT_AVAILABLE;
+    uid[0] = HAL_GetUIDw0(); uid[1] = HAL_GetUIDw1(); uid[2] = HAL_GetUIDw2();
+    result = persistent_identity_from_image(runtime->candidate, sizeof(runtime->candidate),
+        uid, dependencies->supported_protocol_version, &runtime->persistent_identity,
+        &runtime->identity_b0);
     if (result != TR2_OK) return result;
     /* The read-only probe denies EMPTY and every unavailable/invalid state.
      * It never provisions, formats, or manufactures production identity. */

@@ -10,6 +10,7 @@
 
 #define TR2_TRANSACTIONAL_MEDIA_PHYSICAL_SIZE ((size_t)262144u)
 #define TR2_TRANSACTIONAL_MEDIA_LOGICAL_SIZE ((size_t)51818u)
+#define TR2_TRANSACTIONAL_MEDIA_V2_LOGICAL_SIZE ((size_t)51914u)
 #define TR2_TRANSACTIONAL_MEDIA_SUPERBLOCK_SIZE ((size_t)64u)
 #define TR2_TRANSACTIONAL_MEDIA_IMAGE_HEADER_SIZE ((size_t)64u)
 
@@ -58,6 +59,10 @@ typedef struct {
     TransactionalImageGeometry geometry;
     uint8_t *candidate;
     uint64_t generation;
+    size_t candidate_size;
+    size_t logical_size;
+    uint16_t logical_version;
+    bool accepts_v2;
     uint8_t active_image;
     uint8_t active_superblock;
     bool initialized;
@@ -72,6 +77,16 @@ Tr2Result transactional_image_media_init(
     const TransactionalImageGeometry *geometry,
     uint8_t *candidate,
     size_t candidate_size);
+
+/* V2 reader accepts historical V1; init/recovery never writes or migrates. */
+Tr2Result transactional_image_media_init_v2(TransactionalImageMedia *media,
+    const TransactionalImagePhysicalStorage *physical,
+    const TransactionalImageGeometry *geometry, uint8_t *candidate, size_t candidate_size);
+
+/* Explicit publication only. Caller validates ownership, identity and prefix.
+ * Existing V1 prefix must be byte-identical. EMPTY is creation, never autoformat. */
+Tr2Result transactional_image_media_publish_v2(TransactionalImageMedia *media,
+    const uint8_t *image, size_t size, uint64_t expected_generation);
 
 Tr2Result transactional_image_media_format_empty(TransactionalImageMedia *media);
 
