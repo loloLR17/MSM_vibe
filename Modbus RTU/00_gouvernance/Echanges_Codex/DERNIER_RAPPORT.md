@@ -1,6 +1,6 @@
 ---
 mission_id: TR2-20261011-M013-J-POST-CAMPAIGN-AUDIT
-status: BLOCKED
+status: DONE
 base_ref: main
 base_sha: null
 initial_head: cfc8e271db5fe65c887834749f6447f621db2dae
@@ -8,6 +8,7 @@ mission_sha: bc20ef26d7d31aaa883cc537f0ab8dbc50f0996e
 result_sha: 0bfaa0e0daf3d37f723497b74984cabe1b11ec47
 tool_sha: ef9e4e64a4a93a5bffdb81daeee2049fc651dbde
 created_at_utc: 2026-10-11T17:08:53.706743+00:00
+updated_at_utc: 2026-10-11T17:10:02.383538+00:00
 author: Codex
 target_branch: main
 allow_commit: true
@@ -18,7 +19,7 @@ allow_debug: true
 
 # M013-J — campagne HP corroborée par les deltas STM32
 
-**Concordance complète avec les deltas attendus ; clôture fonctionnelle limitée de M013 proposée, avec réserves documentaires et temporelles.** Audit réalisé ; statut provisoire BLOCKED uniquement en attente de publication/relecture distante. Aucun nouvel essai HP, accès COM7, émission RS485, reset, flash ou CubeProgrammer HOTPLUG. La commande I est consommée, ne pas la relancer.
+**Concordance complète avec les deltas attendus ; clôture fonctionnelle limitée de M013 proposée, avec réserves documentaires et temporelles.** **DONE : audit J réalisé, rapport et livrables publiés puis relus depuis GitHub.** Aucun nouvel essai HP, accès COM7, émission RS485, reset, flash ou CubeProgrammer HOTPLUG. La commande I est consommée, ne pas la relancer.
 
 ## Référence et provenance
 
@@ -80,4 +81,4 @@ Validation J réellement effectuée : hashes source/ELF/BIN et identité Flash, 
 
 Preuves horsGit : `/home/lolo/dev/msm/reports/TR2-mission013-J-20261011T170518Z` : after-before/final.bin/.json/.gdb/.log, image-ram.gdb/.log, logsserver, flash-current.bin/ram-current.bin, comparison.json/decoded-transport.json/symbols.txt, hp-report-provenance.json, preserved-E/I.json et evidence-manifest.json. E181fichiers/I32fichiers conservés ; backups originaux/stashes préservés. Modifications uniquement rapport/journal/clôtureM013-propositionM014, marquage commandesI consommées et archivesI exactes. Mission/AGENTS/V1/code/configuration inchangés.
 
-Journal actualisé : campagne rapportée utilisateur, deltasconcordants/santéMCU observés, clôturelimitée/réservehashHP/limites temporelles et suiteM014. Permissions exercées : debuglecture/haltattach/detach, commit/push normalmain ; flashtrue nonexercé et reset explicitement interdit respecté, zéroCOM7/RS485/OptionBytes/masserase/média/USB/gestephysique/configuration. Diff/index/branche/destination et distant seront contrôlés avant push explicite HEAD:refs/heads/main. Statut provisoire en attentepublication/relecturedistante, sansforce/merge/rebase ; deuxstashes conservés. ClôtureDONE qualifie auditJ, pas revue indépendanteChatGPT ou qualificationtemporelle supposée.
+Journal actualisé : campagne rapportée utilisateur, deltasconcordants/santéMCU observés, clôturelimitée/réservehashHP/limites temporelles et suiteM014. Permissions exercées : debuglecture/haltattach/detach, commit/push normalmain ; flashtrue nonexercé et reset explicitement interdit respecté, zéroCOM7/RS485/OptionBytes/masserase/média/USB/gestephysique/configuration. Diff/index, périmètre sans secrets, branche main/destination origin et distant contrôlés. Commit `979cd12975f0812335edc67d8177b82039ce0b28`, message `Record M013-J matching campaign deltas and limited closure with M014 PC proposal`, push normal explicite HEAD:refs/heads/main réussi ; fetch HEAD=origin/main. Relecture intégrale UTF8 et comparaison byte-à-byte des **16 fichiers** (sept livrables dont archivesI, contratJ et huit sources firmware E) depuis cette référence distante réussies, remote-reread.json horsGit. Arbre propre après première publication, deuxstashes conservés. La présente clôture DONE sera publiée normalement puis relue ; SHA final dans réponse Codex. DONE qualifie auditJ, pas revue indépendante ChatGPT ou qualification temporelle supposée ; réserve journalHP/hash nonrecalculé maintenue.
