@@ -17,7 +17,7 @@ allow_debug: true
 
 # M013-B — mesures statiques acquises ; route externe RE/RST à confirmer
 
-**BUILD RÉUSSI / TESTS CIBLÉS 3/3 / FLASH NON EFFECTUÉ / EXÉCUTION CANDIDAT NON VÉRIFIÉE / TX PHYSIQUE NON VÉRIFIÉ. Verdict : NO-GO activation**, en attente de la seule clarification de topologie externe prescrite au contrat§2. Rapport provisoire également en attente de publication/relecture distante ; cette publication ne lèvera pas le blocage matériel.
+**BUILD RÉUSSI / TESTS CIBLÉS 3/3 / FLASH NON EFFECTUÉ / EXÉCUTION CANDIDAT NON VÉRIFIÉE / TX PHYSIQUE NON VÉRIFIÉ. Verdict : NO-GO activation**, en attente de la seule clarification de topologie externe prescrite au contrat§2. Rapport publié et relu depuis la référence distante ; cette publication ne lève pas le blocage matériel.
 
 ## État réel, inspection et preuves
 
@@ -57,4 +57,6 @@ Essai unique préparé, **ne pas lancer actuellement** : HP COM7 1152008E1, requ
 
 Journal actualisé : nouvelles mesures utilisateur, nommage RE/RST, unique lacune de topologie, candidat/test réussis et opérations matérielles non effectuées. Preflight M013-A enrichi d'une section M013-B, ancienne matrice explicitement historique ; archives M013-A exactes. À ChatGPT : vérifier publication, distinguer preuve statique et dynamique, résoudre cette seule route externe puis cadrer la suite physique.
 
-État initial propre, modifications limitées à journal/preflight/archives/rapport. Diff et index à contrôler avant commit ; push normal sur main et relecture distante encore à réaliser. BLOCKED reste matériel même après publication. SHA final du rapport communiqué séparément après vérification, sans auto-référence circulaire.
+État initial propre, modifications limitées à journal/preflight/archives/rapport. Cinq fichiers indexés relus intégralement, whitespace/secrets et copies exactes des archives contrôlés. Commit `56d3e820308c2e2e497bc39a52f30804d84298df`, message `Document M013-B static preflight evidence and remaining RE topology gate`. Push normal explicite `HEAD:refs/heads/main` ; fetch observe HEAD=origin/main à ce SHA. Relecture intégrale des cinq livrables et du contrat M013-B inchangé depuis la référence distante récupérée, UTF-8 et comparaison byte-à-byte locale réussis. Manifeste hors Git `remote-reread.json` dans dossier de preuves013-B ; arbre propre, deux stashes préservés. Permissions exercées : documentation, reconstruction/tests, commit/push ; flash/debug autorisés mais non exercés.
+
+BLOCKED reste matériel, sans qualification fictive. Cette mise à jour de preuve sera publiée et relue ; SHA final du rapport communiqué séparément après vérification, sans auto-référence circulaire.
