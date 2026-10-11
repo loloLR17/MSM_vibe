@@ -1,6 +1,6 @@
 # État courant TR2 — référence reconstruite
 
-Mise à jour : 11 octobre 2026. Mission `TR2-20261011-M013-E-INSTRUMENTED-RTU-RETRY`.
+Mise à jour : 11 octobre 2026. Mission `TR2-20261011-M013-F-PHYSICAL-RESPONSE-FORENSICS`.
 
 **Ce document est un nouvel état de référence reconstruit à partir de preuves vérifiables. Il n'est pas une restitution du journal historique HP.** Sa création a été explicitement autorisée par l'utilisateur pour la mission `T1000-20261010-CLOTURE-001`, après escalade AGENTS.md §18. Aucun original n'a été retrouvé dans l'historique Git, les répertoires Linux locaux ou les documents Windows accessibles. Les archives d'échanges du 8 octobre mentionnent un journal local HP, sans en fournir le contenu. Aucun état historique inconnu n'est inventé.
 
@@ -192,3 +192,11 @@ Prochaine étape à transmettre à ChatGPT : contrôler le rapport distant, puis
 - **GO ÉTAT CIBLE** : dernier CLI suivi de dumpRAM/resetGDB/detach ; ensuite GDB seul. CPU/SWD ISER1=20000/ISER2=4, ISPR0, RXBUSY_RX/count1 sans RXNE/ORE/error, ready1/poll0/erreurs0, tick4389→31167 et poll1496571→10627242 ; PG4bas/TXidle/fault0. Compteurs trafic0. Cible laissée en exécution, sessions terminées. Aucun accès CLI MCU à refaire avant essai.
 - **PRÉPARÉ, PAS EFFECTUÉ** : après lecture GO du rapport E par ChatGPT, utilisateur lance une seule fois Send-Tr2RxProbe.ps1 -Transmit sur HP COM7/1152008E1, transmet sortie complète sans retry ; requête010303E80001047A, réponseattendue0103020000B844. Nouvelle tranche E, essai C consommé non répété. Aucun halt pendant échange et aucune émission Codex.
 - **NON VALIDÉ** : réponse physique/Modbus bidirectionnel, DE/TC/retourRX, J1global/production/E4/reset/watchdogIRQ. Mission séparée après retour utilisateur pour analyser capture/CRC et compteurs. AcquisRE-RST/VIO/SB28/câblage inchangés, aucun contrôle physique répété.
+
+## M013-F — 11 octobre 2026 : première réponse corroborée, essai E consommé
+
+- **OBSERVATION UTILISATEUR** : unique probe E HP COM7/1152008E1, requête010303E80001047A ; sortie PC0103020000B844 (may be echo). CRC vérifié indépendamment : corps0x44B8/résidu0, FC03/unité1/UNKNOWN0 ; séquence7octets différente de la requête8octets, écho brut exclu pour cette sortie.
+- **OBSERVÉ STM32** : image E TXON/observerON exact49200octets relus via GDB seul SHAdc6ac75f… ; RXcallback/octet8, IRQ UART17/TIM6=3, frame/CRCvalid/accepted1, erreur/CRCbad/drop0 ; ADU exacte requête et réponseRAM exacte7octets. TXattempt/started/callbackTC1, failsafe0. RetourRX armé, PG4bas/TXidle, NVIC CPU/SWD sain ; polling187193205→202036798/tick548991→592523 entre les deux sessions détachées.
+- **DÉDUCTION FORTE POUR CET ESSAI** : aller-retour diagnostic MCU→HP corroboré par chaîne instrumentée, origine STM32 raisonnablement établie. Script dépôt ne transforme pas l'écho ; copie HP non hachée, source concurrente/proxy théoriquement non exclue sans capture bus. Pas de qualification définitive générale TX/bidirectionnelle.
+- **PRÉSERVÉ / SANS NOUVELLE ACTION** : 181 fichiers E rehashés inchangés, RAM768KiB et relevés F dans /home/lolo/dev/msm/reports/TR2-mission013-F-20261011T161246Z, archives E exactes. Deux lectures GDB avec detach, zéro CLI HOTPLUG/reset/flash/nouveauprobe/émission/geste physique, stashes005/002 conservés. Cible running.
+- **NON QUALIFIÉ / SUITE ChatGPT** : DE/dernierstopbit/TC/retourRX temporels, latence/robustesse/endurance/watchdogIRQ/reset/J1global/production/E4. Préparer mission séparée capture temporelle puis robustesse cadrée ; aucun essai demandé F, instruction E -Transmit consommée et non à répéter.

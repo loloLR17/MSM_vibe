@@ -2,7 +2,11 @@
 
 11 octobre 2026. État historique M013-A, référence inspectée `6a35aefdef34b91ed82d217c37cabc4a04bf2e8f`, main : VIO Click et absence de commande concurrente RST non établis à cette date d'intervention. Tranche de diagnostic préparée et validée sur hôte ; aucun flash/debug/reset/émission en M013-A. Le dernier firmware identifié sur carte reste BIN008 (lecture011), sans nouvelle lecture013. Acquis RX011 conservé, pas de nouvel essai RX.
 
-## État courant M013-E — GO préparation, 11 octobre 2026
+## État courant M013-F — essai E consommé, 11 octobre 2026
+
+**Ne plus lancer l'instruction E -Transmit ci-dessous.** Utilisateur rapporte réponseHP0103020000B844, CRC valide ; GDB seul confirme RX8/ADUexacte/CRCaccepté1/réponseRAMexacte7/TXstarted1/callbackTC1, sans défaut, RX réarmé/PG4bas/NVICsain. Premier aller-retour fortement corroboré pour cet essai, pas qualification temporelle ou générale TX/bidirectionnelle. Aucun nouveau probe/reset/flash/CLI HOTPLUG en F. Suite sous mission distincte, sans manipulation demandée maintenant. Rapport F et journal contiennent preuves/limites ; sections suivantes historiques.
+
+## État historique M013-E — GO préparation, 11 octobre 2026
 
 Candidat diagnosticON/observerON/**TXON**/unité1 flashé/vérifié, BIN49200 SHA256 dc6ac75f667e10f0a4d04a7e92f82099f450de3a759677bc81c166f93c82d540. Dernier CLI suivi de resetGDB et contrôles CPU/SWD IRQ49/66 sains, RX armé sans RXNE/ORE, PG4bas/TXidle, polling progressant ; cible en exécution. Build/tests5/5 réussis. Après lecture GO du rapport E par ChatGPT, **unique nouvel essai E** par utilisateur HP avec script existant Send-Tr2RxProbe.ps1 -Transmit, COM7/1152008E1 ; sortie complète sans retry. Aucun accès CubeProgrammer MCU ni halt pendant échange. Modbus/TXphysique NON VALIDÉS ; analyse ultérieure sous mission séparée. Sections D/C/A/B suivantes historiques : interdiction D et ancien GO C ne sont pas instructions actives.
 
