@@ -1,6 +1,6 @@
 ---
 mission_id: TR2-20261011-RS485-RX-BRINGUP-008
-status: BLOCKED
+status: DONE
 base_ref: main
 base_sha: null
 initial_head: 7ce6f894a21180d0420c7f0d2754bacdc05211ea
@@ -17,7 +17,7 @@ allow_debug: false
 
 # Mission008 — correction minimale du bring-up RX
 
-**BLOCKED provisoire uniquement pour preuve de publication/relecture distante encore à obtenir.** Critères logiciels satisfaits : **COMPILÉ STM32 / NON FLASHÉ / NON QUALIFIÉ RX**. Aucune réception physique annoncée.
+**DONE : critères logiciels satisfaits, publication et relecture distante intégrale au SHA `b8e7f36bfcca696d19848e3b1d353827c3fffbec`.** **COMPILÉ STM32 / NON FLASHÉ / NON QUALIFIÉ RX**. Aucune réception physique annoncée.
 
 ## Références et modifications
 
@@ -57,7 +57,7 @@ Artefacts locaux non suivis Git : `05_Firmware/build-stm32-p11c/tr2_stm32_p11c.b
 
 Lecture PDF : pip absent, roue PyMuPDF1.28.2 téléchargée/vérifiée contre empreinte PyPI puis extraite uniquement sous /tmp pour rendre le schéma officiel ; aucune installation globale ni dépendance du firmware ajoutée. Vérification d'inventaire des fichiers : première assertion attendait12 au lieu de11, arrêt avant indexation, recompte11 puis contrôle réussi ; aucun changement de code requis.
 
-`git diff --check`, inspection diff/index, recherche de secrets et destination HTTPS main réalisées. Aucun effacement/reset Git, aucune modification de configuration Codex ; stashes conservés. Permissions exercées : modification, compilation/tests, commit ; push normal prévu par le contrat. **Aucun flash, debug cible, OpenOCD/GDB, émission COM7, reset, écriture registre ou action physique.**
+`git diff --check`, inspection diff/index, recherche de secrets et destination HTTPS main réalisées. Aucun effacement/reset Git, aucune modification de configuration Codex ; stashes conservés. Permissions exercées : modification, compilation/tests, commit ; push normal exécuté sur main conformément au contrat. **Aucun flash, debug cible, OpenOCD/GDB, émission COM7, reset, écriture registre ou action physique.**
 
 ## Procédure future et transmission à ChatGPT
 
@@ -67,4 +67,4 @@ Journal actualisé : observations de banc rapportées, rôle documentaire J2/VIO
 
 ## Publication
 
-Rapport provisoire ; preuve distante à compléter selon protocole V2-B3.
+Push normal `616030b..b8e7f36` vers `refs/heads/main` réussi. Fetch après publication : HEAD=origin/main=`b8e7f36bfcca696d19848e3b1d353827c3fffbec`. Relecture intégrale UTF-8 des 12 fichiers modifiés et de la mission inchangée depuis cette référence récupérée, comparaison byte-à-byte avec les fichiers locaux : concordance complète. Identifiant008 et result_sha vérifiés ; manifeste SHA256 hors Git `/tmp/tr2-mission008-remote-reread.json`. Arbre propre après publication ; deux stashes préservés. Cette mise à jour DONE fera l'objet d'un nouveau push et d'une dernière relecture ; SHA final fourni dans la réponse Codex, sans SHA auto-référent dans le rapport. Publication du rapport ne qualifie pas le matériel.
