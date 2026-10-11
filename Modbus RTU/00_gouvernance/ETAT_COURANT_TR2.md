@@ -363,3 +363,35 @@ physiques temporelles/robustesse/production/J1global/E4 inchangées.
   Souscontrat futur : déciderallocations/codec, testercréation/migrations/coupures
   multidomaines puis autoritéscarte durables avant qualificationphysique autorisée.
   C/Iconsommés, journalHPoriginalC/timing/robustesse/E4 restent réserves ouvertes.
+
+
+## M014-F — 11 octobre 2026 : identité V2 et migration logicielles, production bloquée
+
+- **VALIDÉ logiciel / COMPILÉ ARM** : code2ce3a54ae5f5aff9492f8e68465d00921661762e, layoutV2
+  51914octets = préfixehistorique51818 inchangé + identité96. Deuxzones physiques
+  existantes inchangées, fin122880 < FRAM262144. Codec big-endian/TR2D/version1/
+  longueur/génération64/CRC32, UID96 entier, DeviceId32 explicitement attribué,
+  B0complet et adresse1..247 persistés, pas nouveauxregistres ModbusV1.
+- **VALIDÉ HÔTE** : créationEMPTY explicite et migrationV1→V2 horsboot avec
+  ownership/attribution/validationpréfixe/autorisation/génération exigés. Payload,
+  header puis publication dans le mécanisme existant ;42scénarios de coupure
+  partielle/complète et2succès, préfixe/BootIntent conservés, idempotence sanswrite,
+  UID/protocole/doublonsregistry/stalegen/CRC/reserved refusés.112/112tests hôte
+  +cross-buildSTM32 réussis sura5e49de, puis1/1test renforcé sur2ce3a54,4warningsnewlib conservés ; pasvalidationphysique.
+- **PRÉPARÉ COMPOSITION** : candidate/identité/B0 durables, gateFRAMV2+UIDréel
+  HAL3mots+protocole+ownership avantboot ; hooknepeutplusinjecterB0/adresse.
+  Weakbinding resteNOT_AVAILABLE, bulkSD réel etautoritéscartedurables nonfournis.
+  Probe/recovery lectureseule, aucunecréation/migrationautomatique ; bootcomplet
+  existant peutécrirejournaux/BootIntent, nepasleconfondreavecprobe.
+- **BLOCKED / M014 IN PROGRESS** : registreautoritatif UID96→DeviceId/B0réel,
+  configuration etmanifestegéométrie/ownership/backup FRAM/SD manquants. Mécanismes
+  livrés sansinventeridentité ; plan/reprise [M014-F](IDENTITE_PERSISTANTE_M014_F.md).
+  API V1 deF refusepublicationV2 plusrécente intègre ; anciensbinairesavantF
+  peuventreprendreV1, downgradeproduction interdit sansrestaurationdédiéeautorisée.
+- **PRÉSERVÉ / SUITE** : preuves/home/lolo/dev/msm/reports/TR2-mission014-F-20261011T213911Z, archivesEexactes,
+  deuxstashesintacts, diagnosticE BIN/ELF rehashés surdisque. AucunSSHHP/COM7/RS485/
+  FRAMSDphysiques/GDB/reset/flash. .NETinchangé :524testsD historiques conservés.
+  Fournirregistre/manifeste puisraccorderautoritésréelles, sauvegarder/provisionner
+  sousprocédureexplicite, flasherimageidentifiée sousgarde-fous avantnouveauxessaisHP
+  bornés/polling/perte-reprise. C/Iconsommés, journalHPoriginalC/timing/robustesse/E4
+  restentouverts ; rien dephysique déduit des tests ni du seulhashHP annoncé.
