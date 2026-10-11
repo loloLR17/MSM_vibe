@@ -1,6 +1,6 @@
 # M013-D — procédure d'accès STM32 corrigée
 
-11 octobre 2026 ; code évalué 09792c8dba98cd3959458f3148d4fae63a9584c9. Preuves et limites détaillées dans Echanges_Codex/DERNIER_RAPPORT.md, mission D.
+11 octobre 2026 ; code évalué 09792c8dba98cd3959458f3148d4fae63a9584c9. Preuves et limites détaillées dans Echanges_Codex/archives/TR2-20261011-M013-D-UART-IRQ-ROOT-CAUSE/RAPPORT.md.
 
 Sur STM32U575/ST-LINK003500463235510B37333439 et CubeProgrammer Windows2.23.0, une lecture HOTPLUG reproduit ISER=0/ISPR=FFFFFFFF, confirmé par le cœur. GDB seul préserve les IRQ49/66 activées. TrustZone est désactivé ; pas de correction firmware NVIC justifiée. Le mécanisme interne du logiciel ST reste non isolé.
 

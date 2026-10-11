@@ -1,6 +1,6 @@
 # État courant TR2 — référence reconstruite
 
-Mise à jour : 11 octobre 2026. Mission `TR2-20261011-M013-D-UART-IRQ-ROOT-CAUSE`.
+Mise à jour : 11 octobre 2026. Mission `TR2-20261011-M013-E-INSTRUMENTED-RTU-RETRY`.
 
 **Ce document est un nouvel état de référence reconstruit à partir de preuves vérifiables. Il n'est pas une restitution du journal historique HP.** Sa création a été explicitement autorisée par l'utilisateur pour la mission `T1000-20261010-CLOTURE-001`, après escalade AGENTS.md §18. Aucun original n'a été retrouvé dans l'historique Git, les répertoires Linux locaux ou les documents Windows accessibles. Les archives d'échanges du 8 octobre mentionnent un journal local HP, sans en fournir le contenu. Aucun état historique inconnu n'est inventé.
 
@@ -184,3 +184,11 @@ Prochaine étape à transmettre à ChatGPT : contrôler le rapport distant, puis
 - **DÉCISION procédure** : finir tous accès CLI avant reset GDB et contrôle NVIC CPU/SWD ; ensuite accès GDB seul. Readback GDB exact conserve NVIC. Ne pas reconnecter CubeProgrammer avant futur probe autorisé. Pas de réactivation IRQ artificielle en firmware.
 - **NON VALIDÉ** : dialogue Modbus/TX physique, réception réelle sous D, chronologieDE/TC/retourRX, J1 global/production/E4. Essai C sans réponse rapporté par utilisateur reste unique et non répété ; sa requête exacte reçue n'est pas démontrée.
 - **PROCHAINE MISSION ChatGPT** : autoriser séparément candidat TXON/observerON et essai HP unique instrumenté après image/NVIC/RX/polling sains. Aucun essai demandé ici, aucun contrôle physique acquis à répéter. D satisfait ses critères de diagnostic, pas la qualification bidirectionnelle.
+
+## M013-E — 11 octobre 2026 : GO préparation, observerON/TXON
+
+- **VALIDÉ logiciel** : code inchangé depuis09792c8, HEAD réel évalué0bfaa0e0daf3d37f723497b74984cabe1b11ec47. Candidat diagnosticON/observerON/TXON/unité1 compilé, tests ciblés5/5 réussis. BIN49200 SHA256 dc6ac75f667e10f0a4d04a7e92f82099f450de3a759677bc81c166f93c82d540 ; ELF4c496149b7b3af593269dbff7c92368d575cebe824f62ffa67ed57e522d3adc2. Pas de boot production/médias, FC03/1000/1 UNKNOWN0 seul diagnostic disponible.
+- **BACKUP/FLASH/READBACK OBSERVÉS** : backup courant2MiB double lecture identique image D ; RAM768KiB conservée avant flash puis reset final. Flash0x08000000/verify, secteurs0..6 standard seulement ; readback exact, reste après0x0800E000 inchangé. Preuves /home/lolo/dev/msm/reports/TR2-mission013-E-20261011T160141Z ; D et stashes préservés.
+- **GO ÉTAT CIBLE** : dernier CLI suivi de dumpRAM/resetGDB/detach ; ensuite GDB seul. CPU/SWD ISER1=20000/ISER2=4, ISPR0, RXBUSY_RX/count1 sans RXNE/ORE/error, ready1/poll0/erreurs0, tick4389→31167 et poll1496571→10627242 ; PG4bas/TXidle/fault0. Compteurs trafic0. Cible laissée en exécution, sessions terminées. Aucun accès CLI MCU à refaire avant essai.
+- **PRÉPARÉ, PAS EFFECTUÉ** : après lecture GO du rapport E par ChatGPT, utilisateur lance une seule fois Send-Tr2RxProbe.ps1 -Transmit sur HP COM7/1152008E1, transmet sortie complète sans retry ; requête010303E80001047A, réponseattendue0103020000B844. Nouvelle tranche E, essai C consommé non répété. Aucun halt pendant échange et aucune émission Codex.
+- **NON VALIDÉ** : réponse physique/Modbus bidirectionnel, DE/TC/retourRX, J1global/production/E4/reset/watchdogIRQ. Mission séparée après retour utilisateur pour analyser capture/CRC et compteurs. AcquisRE-RST/VIO/SB28/câblage inchangés, aucun contrôle physique répété.
