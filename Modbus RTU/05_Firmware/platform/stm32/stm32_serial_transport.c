@@ -19,11 +19,15 @@
 #define TR2_RTU_T1_5_US             750u
 #define TR2_RTU_T3_5_US            1750u
 #define TR2_RTU_T3_5_REMAINDER_US  1000u
+/* 256 bytes at 115200/8E1 take <25 ms; bound stuck DE with TIM6. */
+#define TR2_RTU_TX_TIMEOUT_US    50000u
 
 typedef enum {
     TR2_RTU_TIMER_IDLE = 0,
     TR2_RTU_TIMER_WAIT_T1_5,
-    TR2_RTU_TIMER_WAIT_T3_5
+    TR2_RTU_TIMER_WAIT_T3_5,
+    TR2_RTU_TIMER_TX_WATCHDOG,
+    TR2_RTU_TIMER_TX_GUARD
 } Tr2RtuTimerPhase;
 
 typedef struct {
@@ -33,6 +37,8 @@ typedef struct {
     uint8_t rx_byte;
     uint8_t tx_buffer[TR2_SERIAL_TX_CAPACITY];
     volatile bool tx_busy;
+    volatile bool tx_fault;
+    volatile bool bus_silent;
     SerialTransportEvent events[TR2_SERIAL_EVENT_CAPACITY];
     volatile uint32_t event_head;
     volatile uint32_t event_tail;
@@ -95,6 +101,28 @@ static Tr2Result stm32_start_receive(void *context)
     return TR2_OK;
 }
 
+/* HAL aborts are synchronous, bounded register operations here: no DMA. */
+static bool restore_receive(void)
+{
+    if (HAL_UART_AbortReceive(&g_serial.uart) != HAL_OK) return false;
+    return HAL_UART_Receive_IT(&g_serial.uart, &g_serial.rx_byte, 1u) == HAL_OK;
+}
+
+static void tx_fail_safe(void)
+{
+    SerialTransportEvent event = { SERIAL_TRANSPORT_EVENT_ERROR, 0u,
+                                   SERIAL_TRANSPORT_ERROR_UNSPECIFIED };
+    HAL_GPIO_WritePin(GPIOG, GPIO_PIN_4, GPIO_PIN_RESET); /* Release FIRST. */
+    (void)HAL_UART_AbortTransmit(&g_serial.uart);
+    g_serial.tx_busy = false;
+    g_serial.tx_fault = true; /* No automatic retry/re-enable after a fault. */
+    g_serial.bus_silent = false;
+    rtu_timer_stop();
+    g_serial.rtu_timer_phase = TR2_RTU_TIMER_IDLE;
+    (void)restore_receive();
+    (void)event_push_from_isr(event);
+}
+
 static Tr2Result stm32_transmit(void *context, const uint8_t *data, size_t length)
 {
     Stm32SerialContext *serial = (Stm32SerialContext *)context;
@@ -103,19 +131,37 @@ static Tr2Result stm32_transmit(void *context, const uint8_t *data, size_t lengt
         return TR2_ERROR_INVALID_ARGUMENT;
     }
 
-    if (serial->tx_busy) {
-        return TR2_ERROR_UNAVAILABLE;
+    const uint32_t primask = __get_PRIMASK();
+    Tr2Result result = TR2_ERROR_UNAVAILABLE;
+    __disable_irq();
+    /* A response is allowed only after the consumed T3.5, with no newer RX.
+     * The build gate remains OFF until the physical board is qualified.
+     */
+    if (TR2_STM32_RS485_TX_QUALIFIED && !serial->tx_busy && !serial->tx_fault &&
+        serial->bus_silent && serial->event_head == serial->event_tail &&
+        serial->rtu_timer_phase == TR2_RTU_TIMER_IDLE &&
+        !__HAL_UART_GET_FLAG(&serial->uart, UART_FLAG_RXNE) &&
+        !__HAL_UART_GET_FLAG(&serial->uart, UART_FLAG_BUSY)) {
+        memcpy(serial->tx_buffer, data, length);
+        serial->tx_busy = true;
+        serial->bus_silent = false;
+        if (HAL_UART_AbortReceive(&serial->uart) == HAL_OK) {
+            /* J2 common DE-/RE: DE high disables receiver, no PG5 control. */
+            HAL_GPIO_WritePin(GPIOG, GPIO_PIN_4, GPIO_PIN_SET);
+            serial->rtu_timer_phase = TR2_RTU_TIMER_TX_WATCHDOG;
+            rtu_timer_start_period(TR2_RTU_TX_TIMEOUT_US);
+            if (HAL_UART_Transmit_IT(&serial->uart, serial->tx_buffer,
+                                     (uint16_t)length) == HAL_OK) {
+                result = TR2_OK;
+            } else {
+                tx_fail_safe();
+            }
+        } else {
+            tx_fail_safe();
+        }
     }
-
-    memcpy(serial->tx_buffer, data, length);
-    serial->tx_busy = true;
-
-    if (HAL_UART_Transmit_IT(&serial->uart, serial->tx_buffer, (uint16_t)length) != HAL_OK) {
-        serial->tx_busy = false;
-        return TR2_ERROR_UNAVAILABLE;
-    }
-
-    return TR2_OK;
+    if (primask == 0u) __enable_irq();
+    return result;
 }
 
 static bool stm32_poll_event(void *context, SerialTransportEvent *event)
@@ -132,6 +178,8 @@ static bool stm32_poll_event(void *context, SerialTransportEvent *event)
 
         __disable_irq();
         if (serial->event_overflow_pending) {
+            if (serial->tx_busy) tx_fail_safe();
+            serial->bus_silent = false;
             serial->event_tail = serial->event_head;
             serial->event_overflow_pending = false;
         }
@@ -149,6 +197,14 @@ static bool stm32_poll_event(void *context, SerialTransportEvent *event)
     if (tail != serial->event_head) {
         *event = serial->events[tail];
         serial->event_tail = (tail + 1u) % TR2_SERIAL_EVENT_CAPACITY;
+        /* Guard checked again atomically by transmit against ISR activity. */
+        if (event->type == SERIAL_TRANSPORT_EVENT_SILENCE_T3_5) {
+            uint32_t primask = __get_PRIMASK();
+            __disable_irq();
+            serial->bus_silent = serial->event_head == serial->event_tail &&
+                serial->rtu_timer_phase == TR2_RTU_TIMER_IDLE && !serial->tx_busy;
+            if (primask == 0u) __enable_irq();
+        }
         return true;
     }
 
@@ -223,6 +279,8 @@ Tr2Result stm32_serial_transport_init(SerialTransport *transport)
     }
 
     memset(&g_serial, 0, sizeof(g_serial));
+    /* HAL_MspInit already configured PG4 before releasing VDDIO2. */
+    HAL_GPIO_WritePin(GPIOG, GPIO_PIN_4, GPIO_PIN_RESET);
 
     __HAL_RCC_GPIOG_CLK_ENABLE();
     __HAL_RCC_LPUART1_CLK_ENABLE();
@@ -292,15 +350,29 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
         return;
     }
 
+    if (g_serial.tx_busy) return; /* Suppress late callback/echo during TX. */
+    g_serial.bus_silent = false;
     (void)event_push_from_isr(event);
     rtu_timer_restart_from_byte();
-    (void)HAL_UART_Receive_IT(&g_serial.uart, &g_serial.rx_byte, 1u);
+    if (HAL_UART_Receive_IT(&g_serial.uart, &g_serial.rx_byte, 1u) != HAL_OK) {
+        tx_fail_safe();
+    }
 }
 
 void HAL_UART_TxCpltCallback(UART_HandleTypeDef *huart)
 {
     if (huart == &g_serial.uart) {
+        if (!g_serial.tx_busy) return;
+        /* Official HAL invokes this on TC, not TXE/buffer exhaustion. */
+        HAL_GPIO_WritePin(GPIOG, GPIO_PIN_4, GPIO_PIN_RESET);
         g_serial.tx_busy = false;
+        rtu_timer_stop();
+        if (!restore_receive()) {
+            tx_fail_safe();
+            return;
+        }
+        g_serial.rtu_timer_phase = TR2_RTU_TIMER_TX_GUARD;
+        rtu_timer_start_period(TR2_RTU_T3_5_US);
     }
 }
 
@@ -312,6 +384,12 @@ void HAL_UART_ErrorCallback(UART_HandleTypeDef *huart)
         return;
     }
 
+    if (g_serial.tx_busy) {
+        tx_fail_safe();
+        return;
+    }
+    HAL_GPIO_WritePin(GPIOG, GPIO_PIN_4, GPIO_PIN_RESET);
+    g_serial.bus_silent = false;
     event.type = SERIAL_TRANSPORT_EVENT_ERROR;
     event.byte = 0u;
     event.error = map_uart_error(HAL_UART_GetError(huart));
@@ -319,7 +397,7 @@ void HAL_UART_ErrorCallback(UART_HandleTypeDef *huart)
 
     rtu_timer_stop();
     g_serial.rtu_timer_phase = TR2_RTU_TIMER_IDLE;
-    (void)HAL_UART_Receive_IT(&g_serial.uart, &g_serial.rx_byte, 1u);
+    if (!restore_receive()) g_serial.tx_fault = true;
 }
 
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
@@ -328,6 +406,16 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 
     if (htim != &g_serial.rtu_timer) {
         return;
+    }
+
+    if (g_serial.rtu_timer_phase == TR2_RTU_TIMER_TX_WATCHDOG) {
+        tx_fail_safe();
+        return;
+    }
+    if (g_serial.rtu_timer_phase == TR2_RTU_TIMER_TX_GUARD) {
+        rtu_timer_stop();
+        g_serial.rtu_timer_phase = TR2_RTU_TIMER_IDLE;
+        return; /* No synthetic request or new transmit grant. */
     }
 
     if (g_serial.rtu_timer_phase == TR2_RTU_TIMER_WAIT_T1_5) {

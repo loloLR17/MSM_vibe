@@ -14,6 +14,8 @@ if(NOT STM32CUBE_U5_ROOT)
     message(FATAL_ERROR "Set -DSTM32CUBE_U5_ROOT=/path/to/STM32CubeU5 (recursive checkout, v1.9.0)")
 endif()
 
+option(TR2_STM32_RS485_TX_QUALIFIED "Enable DE/TX only for an explicitly qualified RS485 board" OFF)
+
 set(TR2_FIRMWARE_ROOT "${CMAKE_CURRENT_SOURCE_DIR}/../..")
 set(CMSIS_CORE_DIR ${STM32CUBE_U5_ROOT}/Drivers/CMSIS/Include)
 set(CMSIS_DEVICE_DIR ${STM32CUBE_U5_ROOT}/Drivers/CMSIS/Device/ST/STM32U5xx)
@@ -101,6 +103,9 @@ add_executable(tr2_stm32_p11c
     ${HAL_DIR}/Src/stm32u5xx_hal_tim.c
     ${HAL_DIR}/Src/stm32u5xx_hal_tim_ex.c
 )
+
+target_compile_definitions(tr2_stm32_p11c PRIVATE
+    TR2_STM32_RS485_TX_QUALIFIED=$<BOOL:${TR2_STM32_RS485_TX_QUALIFIED}>)
 
 target_include_directories(tr2_stm32_p11c PRIVATE
     ${CMAKE_CURRENT_SOURCE_DIR}

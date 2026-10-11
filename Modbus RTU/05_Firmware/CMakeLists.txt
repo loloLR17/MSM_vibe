@@ -113,6 +113,20 @@ target_include_directories(test_stm32_rs485_rx_gpio PRIVATE
 )
 add_test(NAME stm32_rs485_rx_gpio COMMAND test_stm32_rs485_rx_gpio)
 
+# Compile the real STM32 adapter against a host HAL, both qualification states.
+foreach(tx_qualified 0 1)
+    add_executable(test_stm32_rtu_tx_${tx_qualified}
+        tests/platform/test_stm32_rtu_tx.c
+        platform/stm32/stm32_serial_transport.c
+    )
+    target_include_directories(test_stm32_rtu_tx_${tx_qualified} PRIVATE
+        tests/platform/stm32_hal_tx_mock platform/stm32)
+    target_compile_definitions(test_stm32_rtu_tx_${tx_qualified} PRIVATE
+        TR2_STM32_RS485_TX_QUALIFIED=${tx_qualified})
+    target_link_libraries(test_stm32_rtu_tx_${tx_qualified} PRIVATE tr2_core)
+    add_test(NAME stm32_rtu_tx_${tx_qualified} COMMAND test_stm32_rtu_tx_${tx_qualified})
+endforeach()
+
 function(tr2_add_core_test target source test_name)
     add_executable(${target} ${source})
     target_link_libraries(${target} PRIVATE tr2_core)
