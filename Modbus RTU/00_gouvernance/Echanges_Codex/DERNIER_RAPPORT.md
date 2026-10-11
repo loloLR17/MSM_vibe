@@ -154,3 +154,5 @@ normaux main ; allow_flashfalse respecté, zéro reset/COM7/RS485/HOTPLUG/USB/m�
 OptionBytes/effacement ou changement configuration. Préparation sera publiée puis
 relue depuis référence GitHub ; SHA final fourni après publication. BLOCKED reste
 approprié jusqu'aux preuves physiques HP et analyse MCU, même après relecture.
+
+Première publication normale réussie : `3b8815b5606646c62334f1c05786da67c179875e`, commit `Prepare M014-C single HP .NET read with verified STM32 baseline`. Fetch puis relecture intégrale UTF8/comparaison byte-à-byte des9fichiers livrés et gouvernance : toutes conformes (`remote-reread-1.json`). HEAD=origin/main/arbre propre après publication, deuxstashes conservés. Cette consignation sera également publiée et relue ; SHA final fourni dans réponse Codex. Statut BLOCKED maintenu pour essai HP/analyse après, publication seule ne clôture pas C.
