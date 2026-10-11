@@ -178,7 +178,16 @@ JournalETAT_COURANT actualisé avecpreuves/progrès/blocage/options/repriseE.
 
 Commit/pushmain autorisés ; flash/debugfalse respectés, aucune opérationphysique.
 Commitcode 00230c3 validé ci-dessus. ArchiveSSH exactes/gels/stashes 005/002préservés.
-RapportBLOCKED etdocumentation prêtsàpublicationnormale HEAD:refs/heads/main puis
-fetch/relectureUTF8intégrale/égalité deslivrables. Statut BLOCKED restera sur la
-décisionallocation/format réelle, indépendamment de la réussite du push.
-SHAfinaldistant et étatGit seront fournis après publication/relecture V2.
+Rapport et documentation publiés par push normal explicite
+`HEAD:refs/heads/main` au SHA `e4d7c23ad58c79fd9a3190e002d777b0a801596e`, commit
+`Publish M014-E provisioning audit, SSH governance and complete blocked resume point`.
+Fetch puis relecture UTF8 intégrale des 22 fichiers livrés et références de
+gouvernance depuis cette référence GitHub : tous égaux octet pour octet aux
+fichiers locaux (`remote-reread-1.json` hors Git). HEAD=origin/main, arbre propre,
+stashes historiques conservés. Cette consignation sera également publiée et
+relue ; son SHA final est fourni dans la réponse Codex, sans autoréférence.
+
+**BLOCKED reste lié au choix d'allocation/format et aux autorités de carte
+manquantes, malgré la publication réussie.** La tranche logicielle est validée ;
+ni le provisioning initial, ni la composition finale, ni M014 physique ne sont
+déclarés terminés.
