@@ -88,6 +88,18 @@ public sealed class PhysicalPollingReconnectRecoveryTests
             Assert.Equal(t0, oldSnapshot.ReceivedAt);
             if (secondDeviceId != 42)
                 Assert.False(composition.TelemetrySnapshotRegistry.Get(new DeviceId(secondDeviceId)).SystemState.HasValue);
+            if (compatible)
+            {
+                var refreshedAt = t0.AddSeconds(7);
+                var recoveredFast = BeginPolling(composition, endpoint, PollingGroup.Fast, refreshedAt);
+                Assert.True((await runner.ExecuteAsync(recoveredFast, refreshedAt)).EndpointCompatible);
+                var refreshed = composition.TelemetrySnapshotRegistry.Get(new DeviceId(secondDeviceId)).SystemState;
+                Assert.True(refreshed.IsAvailable);
+                Assert.Equal(refreshedAt, refreshed.ReceivedAt);
+                Assert.Equal(678u, refreshed.LastValue!.UptimeSeconds);
+                if (secondDeviceId != 42)
+                    Assert.False(composition.TelemetrySnapshotRegistry.Get(new DeviceId(42)).SystemState.IsAvailable);
+            }
         }
         finally
         {
@@ -250,7 +262,10 @@ public sealed class PhysicalPollingReconnectRecoveryTests
             CancellationToken cancellationToken = default)
         {
             cancellationToken.ThrowIfCancellationRequested();
-            return ValueTask.FromResult(CreateB0(_protocolVersion, _deviceId));
+            if (startAddress == 0) return ValueTask.FromResult(CreateB0(_protocolVersion, _deviceId));
+            var registers = new ushort[registerCount];
+            if (startAddress == 1000) registers[5] = 678; // explicit recovery fixture, not physical uptime
+            return ValueTask.FromResult(registers);
         }
     }
 

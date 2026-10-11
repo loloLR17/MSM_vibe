@@ -32,3 +32,14 @@ runtime de production. `--read-once` est réservé à une future mission autoris
 une lecture FC03/1000/1, avec paramètres explicites et journal exclusif.
 UNKNOWN(0) ne constitue ni READY ni identification production.
 Voir [audit, garanties et procédure HP préparée](../00_gouvernance/DIAGNOSTIC_SUPERVISION_M014_A.md).
+
+## Contrôle des blocs système M014-D
+
+`--system-check --protocol-version <version>` reste OFFLINE sans `--read-once`.
+Avec activation explicite, paramètres série et journal neuf, il lit B0/21 puis
+B1/20 seulement après compatibilité B0 ; maximum deux requêtes, aucun retry,
+écriture ou polling opérationnel. Identité et état sont ceux réellement lus.
+La cible diagnostic M014-C ne fournit pas ces blocs : **NO-GO physique actuel**.
+Voir [matrice, contrôles HP et reprise D](../00_gouvernance/INTEGRATION_SUPERVISION_M014_D.md).
+
+L'essai nominal M014-C est consommé : ne pas relancer sa commande ou son marqueur.

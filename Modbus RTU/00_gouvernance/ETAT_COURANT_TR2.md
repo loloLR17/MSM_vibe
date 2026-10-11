@@ -1,6 +1,6 @@
 # État courant TR2 — référence reconstruite
 
-Mise à jour : 11 octobre 2026. Mission `TR2-20261011-M014-C-END-TO-END`.
+Mise à jour : 11 octobre 2026. Mission `TR2-20261011-M014-D-SUPERVISION-INTEGRATION`.
 
 **Ce document est un nouvel état de référence reconstruit à partir de preuves vérifiables. Il n'est pas une restitution du journal historique HP.** Sa création a été explicitement autorisée par l'utilisateur pour la mission `T1000-20261010-CLOTURE-001`, après escalade AGENTS.md §18. Aucun original n'a été retrouvé dans l'historique Git, les répertoires Linux locaux ou les documents Windows accessibles. Les archives d'échanges du 8 octobre mentionnent un journal local HP, sans en fournir le contenu. Aucun état historique inconnu n'est inventé.
 
@@ -285,3 +285,30 @@ physiques temporelles/robustesse/production/J1global/E4 inchangées.
   t1.5/t3.5/retourRX, robustesse/endurance/reset/watchdogIRQ/J1global/E4 inchangées.
   SuiteChatGPT : contrôler rapportdistant, conserverjournalexactHP pouraudit
   sansnouveau trafic, choisirprochainjalonsouscontrat ; accèsdistantHPdifféré.
+
+## M014-D — 11 octobre 2026 : logiciel PC validé, production bloquée
+
+- **VALIDÉ LOGICIEL** : codeccc20526f478ab47c097528a0af33d760f33f22b,
+  --system-check OFFLINE défaut/B021→B120aprèscompatibilité, maximum2lectures,
+  journalCreateNew/retry0/pasécriture/polling/identitéinventée. Pertebus invalide
+  tousappareils mêmefermetureéchouée ; valeurs/timestampspréservés, notification
+  compatibleseulement. Reprise même/autreDeviceId/version incompatible testée,
+  B0neuf puisnouvellelecture requispourréactiverdonnées, pasrecyclageancienID.
+- **RÉSULTATS RÉELS** : build.NET0warning/erreur,524/524suite complète,3/3reprise
+  renforcéeensuite sanschangementproduction ; testsfirmwareRTU B0/B1complets/
+  actualisation/disponibilité→04/retoursource,110/110hôte +cross-buildARM réussis.
+  Mocks/fluxmémoire/serviceshôte, pas physique. CLI OFFLINEréelLinuxretour0.
+  PaquetDautonome370fichiers préparé/localnontransféréHP, ZIPecd7fa606a16258afcb087b388fd7a35382a5bccad8e0b34c9f87aff25a35fc2.
+- **BLOCKED / M014 EN COURS** : firmwarequalifiéE conserveFC03/1000/1seul ;
+  bindingproductionfaibleNOT_AVAILABLE fauteautoritéscarte explicites. Identité
+  persistante/adresse/version, géométrie/provisioningFRAMVALID, backendSD/allocation
+  durable etséparationharness nécessitentdécisionstructurante. Aucunformat/fixture
+  READY/DeviceIdinventé, aucune substitutionbackendhistorique. Allowflashn'autorise
+  pasécriturenonvolatilearbitraire. Aucunflash/debug/reset/COM7/RS485nouveau.
+- **REPRISE PUBLIÉE** : [matrice et instructionsD](INTEGRATION_SUPERVISION_M014_D.md),
+  rapportBLOCKED, archivesCexactes/stashes005/002/preuves/diagnosticEpréservés.
+  PreuvesD `/home/lolo/dev/msm/reports/TR2-mission014-D-20261011T182756Z`.
+  SuiteChatGPT : contrôlerpublications/déciderautoritésréelles, puiscomposition
+  carte/testsnégatifs/sauvegarde-restauration/flashqualifié avant essaiHPborné
+  B0/B1etpollingperte/reprisecadrés. Aucunessaiàlanceractuellement, pasreplayC/I.
+  M014pasDONE ; limitesCjournalHPnonlocal/timing/robustesse/production/J1global/E4inchangées.
