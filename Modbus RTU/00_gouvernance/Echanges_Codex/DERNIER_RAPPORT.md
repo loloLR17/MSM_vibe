@@ -1,6 +1,6 @@
 ---
 mission_id: TR2-20261011-M013-I-HP-CAMPAIGN-GO
-status: BLOCKED
+status: DONE
 base_ref: main
 base_sha: null
 initial_head: 31fd364c56ddb8cd3591198059c3df6e4e9aa3e9
@@ -8,6 +8,7 @@ mission_sha: 826bf93f9c4acf68ed7ef5404ea66f542f8e99fb
 result_sha: ef9e4e64a4a93a5bffdb81daeee2049fc651dbde
 firmware_source_sha: 0bfaa0e0daf3d37f723497b74984cabe1b11ec47
 created_at_utc: 2026-10-11T16:55:19.237960+00:00
+updated_at_utc: 2026-10-11T16:56:11.452675+00:00
 author: Codex
 target_branch: main
 allow_commit: true
@@ -18,7 +19,7 @@ allow_debug: true
 
 # M013-I — GO technique conditionnel, campagne préparée et non exécutée
 
-Préparation I satisfaite ; statut provisoire BLOCKED uniquement en attente de publication et relecture distante. **Zéro accès COM7, zéro émission RS485, aucun flash/reset/CubeProgrammer HOTPLUG en I.** Aucun GO inconditionnel sur une topologie non observée, aucune qualification physique générale.
+**DONE : préparation I satisfaite, rapport et livrables publiés puis relus depuis GitHub.** **Zéro accès COM7, zéro émission RS485, aucun flash/reset/CubeProgrammer HOTPLUG en I.** Aucun GO inconditionnel sur une topologie non observée, aucune qualification physique générale.
 
 ## Verdict et commande future exacte
 
@@ -90,4 +91,4 @@ Production/J1global/E4/DEdernierstopbitTCretourRX temporels/robustesseendurancew
 
 ## Journal, autorisations et publication
 
-Journal actualisé : préflightHP réussi rapporté utilisateur levant blocageH logiciel, COM7disponible rapporté, nouveaux états/baselineI et GOconditionnel/commandeunique/limites. AutorisationsI : commit/push normalmain et debuglecture/haltattach/detach exercés ; flashtrue nonexercé, zéroreset/masserase/OptionBytes/protection/USB/configuration/média/physique/COM7/RS485. Diff/index/étatdistant/destination seront contrôlés avant pushnormal HEAD:refs/heads/main ; pasforce/merge/rebase. Rapport provisoire enattentepublication/relecturedistante ; deuxstashes préservés. DONE qualifiera préparationGOconditionnelI, jamais campagneeffectuée ou revueChatGPT présumée.
+Journal actualisé : préflightHP réussi rapporté utilisateur levant blocageH logiciel, COM7disponible rapporté, nouveaux états/baselineI et GOconditionnel/commandeunique/limites. AutorisationsI : commit/push normalmain et debuglecture/haltattach/detach exercés ; flashtrue nonexercé, zéroreset/masserase/OptionBytes/protection/USB/configuration/média/physique/COM7/RS485. Diff/index, périmètre sans secrets, branche main/destination origin et état distant contrôlés ; commit `c7074e7d04b399968633951f8a68335a6d13261c`, message `Prepare M013-I conditional GO with healthy MCU baseline and single HP campaign command`, push normal explicite HEAD:refs/heads/main réussi. Fetch HEAD=origin/main ; relecture intégrale UTF8 et comparaison byte-à-byte des **9 fichiers** (six livrables dont archivesH, contratI, planG et scriptcampagne) depuis cette référence distante réussies, remote-reread.json horsGit. Arbre propre après première publication, deux stashes conservés. La présente clôture DONE sera publiée normalement puis relue ; SHA final dans réponse Codex. DONE qualifie préparationGOconditionnelI, jamais campagne effectuée ou revue indépendante ChatGPT présumée.
