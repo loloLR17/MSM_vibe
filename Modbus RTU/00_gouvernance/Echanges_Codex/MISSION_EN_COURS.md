@@ -1,29 +1,34 @@
 ---
-mission_id: TR2-20261011-M013-E-INSTRUMENTED-RTU-RETRY
+mission_id: TR2-20261011-M013-F-PHYSICAL-RESPONSE-FORENSICS
 status: READY
 base_ref: main
 author: ChatGPT
 target_branch: main
 allow_commit: true
 allow_push: true
-allow_flash: true
+allow_flash: false
 allow_debug: true
 ---
 
-# M013-E — Préparer le premier échange RTU instrumenté avec NVIC sain
+# M013-F — Analyser la première réponse RTU physique observée sur HP
 
-## Source et conclusion M013-D
-Relire sur main AGENTS.md, ETAT_COURANT_TR2.md, DERNIER_RAPPORT.md (M013-D DONE), diagnostic M013-D, sources et preuves hors Git. M013-D a reproduit une perturbation réelle du NVIC par CubeProgrammer Windows2.23.0 HOTPLUG : IRQ49/66 désactivées, ISPR=FFFFFFFF. Reset GDB rétablit l'état sain. L'image D courante est diagnosticON/observerON/**TXOFF**, et ne peut répondre. Tests 5/5 et cross-build passés, code instrumenté commité. Aucun nouveau probe HP depuis l'essai C unique sans réponse. Ne pas remettre en question sans preuve les contrôles acquis de RE/RST broche2 libre, VIO/J1/J2/J3/SB28 et câblage.
+## Fait utilisateur nouveau et non reproductible sans mission ultérieure
+Après GO M013-E, l'utilisateur a lancé **une seule fois** sur HP `& "$HOME\\Send-Tr2RxProbe.ps1" -Transmit`, COM7 115200 8E1. Sortie exacte :
+```
+Request: 01 03 03 E8 00 01 04 7A; COM7 115200 8E1; CRC/self-check OK
+Observed PC RX (may be echo): 01-03-02-00-00-B8-44
+```
+Cette séquence de 7 octets est exactement la réponse FC03/1000/1 UNKNOWN0 attendue, avec CRC Modbus valide, **mais le script avertit may be echo**. Ne pas déclarer TX physique ou bidirectionnel définitivement qualifiés sans discrimination par preuves. Aucun nouvel essai HP, aucune nouvelle émission RS485, aucun reset/flash autorisés dans F.
 
 ## Objectif
-Préparer et qualifier sur la cible un candidat diagnostic isolé **observerON/TXON** pour un **unique futur essai COM7 115200 8E1**. L'essai physique HP reste à faire par l'utilisateur après GO documenté, et n'est pas à simuler ni déclencher depuis Codex. Le premier probe M013-C est clos ; celui-ci est une nouvelle tranche explicitement autorisée, un seul essai, sans retry.
+Contrôle indépendant de la réponse et des compteurs STM32 instrumentés M013-E, identification raisonnable de l'origine des 7 octets, sans perturber l'état cible ni altérer les preuves. Relire AGENTS.md, rapport E, diagnostic D, sources, script HP si disponible dans dépôt, documentation gouvernance. Vérifier HEAD distant et état local/stashes. Vérifier CRC réponse et distinguer explicitement réponse attendue, écho brut de requête, écho transformé, autres maîtres et limites de preuve.
 
 ## Exécution
-1. Vérifier main réel, Git/stashes, image et preuves M013-D. Relire les risques, conditions de qualification et procédures. Sauvegarder et vérifier l'état Flash/RAM requis avant flash ; préserver les preuves. Vérifier identité NUCLEO-U575ZI-Q STM32U575 ID0x482, ST-LINK SN003500463235510B37333439.
-2. Construire à partir du HEAD réel image diagnosticON/observerON/TXON/unité1, et vérifier gardes-fous FC03/1000/1 UNKNOWN0 seulement, absence d'autorités production/médias, gate TX explicite. Effectuer tests/build proportionnés ; empreintes BIN/ELF. Pas de modifications opportunistes.
-3. Si GO technique, flash standard qualifié 0x08000000, verify/readback exact. **Ne pas laisser CubeProgrammer HOTPLUG en dernier accès** : après toute opération CLI sur cible, reset logiciel qualifié par GDB, detach, vérifier depuis le cœur via GDB ready1, polling, ISER IRQ49/66 actifs, ISPR cohérents, UART RX armé sans ORE/RXNE résiduels, PG4 bas, TX idle. Ne plus accéder à la cible via CubeProgrammer avant le probe. Ne pas déclencher d'émission ni d'injection synthétique sur RS485.
-4. Publier GO/NO-GO et preuve d'état sain, image exacte et limites dans DERNIER_RAPPORT.md et ETAT_COURANT_TR2.md, commit/push main et relecture distante. Si GO, laisser cible prête et donner instruction minimale pour **une seule** requête HP COM7 avec script existant `Send-Tr2RxProbe.ps1 -Transmit`, requête `01 03 03 E8 00 01 04 7A`, réponse attendue `01 03 02 00 00 B8 44`. Le lancement physique appartient à l'utilisateur, après lecture par ChatGPT du rapport GO ; ne pas attendre en bloquant la publication du rapport de préparation.
-5. Après retour ultérieur utilisateur, une mission séparée analysera réponse/CRC, compteurs IRQ→RTU→TX/TC et éventuelle capture DE ; aucun succès physique ne peut être affirmé avant preuve.
+1. Préserver état et preuves E, vérifier images/ELF/symboles exacts et dossier `/home/lolo/dev/msm/reports/TR2-mission013-E-20261011T160141Z`. Préférer les preuves déjà présentes et l'analyse statique.
+2. Si nécessaire et sûr, effectuer **uniquement GDB/ST-LINK sans CubeProgrammer HOTPLUG**, lecture passive RAM/observateur IRQ→HAL→RTU→TX/TC, UART, NVIC, PG4, erreurs et compteurs. Ne pas reset/halt prolongé, ne pas flasher, ne pas ouvrir COM7, ne pas transmettre ; GDB detach et laisser cible running. Préserver snapshots bruts et limites d'observabilité. Si l'accès debug altère l'état, interrompre et documenter.
+3. Comparer deltas observateur avant probe (compteurs 0) et après probe, notamment réception 8 octets, CRC, unité1, FC03, préparation réponse 7 octets, démarrage TX, TC callback, retour RX, erreur/timeout. Vérifier éventuelles limites de capture temporelle DE/dernier stopbit et distinguer observation indirecte d'une capture physique.
+4. Produire verdict nuancé : ce qui est démontré côté HP et MCU, ce qui demeure non qualifié. Si réponse et compteurs concordent, proposer prochaine tranche de qualification temporelle / robustesse, sans la lancer.
+5. Mettre à jour DERNIER_RAPPORT.md et ETAT_COURANT_TR2.md ; commit/push normal main, relecture distante. Ne modifier ni V1 ni firmware pour ce diagnostic sauf justification expresse et sans changer l'image cible. Respecter AGENTS.md, conserver stashes et backups. Aucune nouvelle manipulation utilisateur demandée.
 
-## Sécurité et critères
-Pas de mass erase, Option Bytes, déprotection, média, câblage ou force push. Pas de répétition des vérifications physiques acquises. Si les conditions d'accès sûr, d'activation IRQ et de réception armée ne sont pas remplies, NO-GO sans requête HP. Ne pas confondre GO préparation et validation physique. Respecter les autorisations permanentes AGENTS.md ; ne pas demander de validations intermédiaires logicielles.
+## Critères
+Preuves traçables de la réponse observée, CRC vérifié, instrumentation STM32 interprétée sans extrapolation, zéro nouveau trafic HP, zéro flash/reset, zéro CubeProgrammer HOTPLUG ; rapport vérifié sur main. Les autorisations `allow_flash:false` et `allow_debug:true` n'autorisent que les lectures passives nécessaires.
