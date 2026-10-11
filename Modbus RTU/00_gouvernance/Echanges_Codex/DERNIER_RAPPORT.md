@@ -1,12 +1,13 @@
 ---
 mission_id: TR2-20261011-M013-H-HP-CAMPAIGN-PREFLIGHT
-status: BLOCKED
+status: DONE
 base_ref: main
 base_sha: null
 initial_head: fe96dcac9e8610aa5e444da859d1c24d0622e8bc
 mission_sha: 562972fa2c735470747975eb56dd58f6747dd57f
 result_sha: ef9e4e64a4a93a5bffdb81daeee2049fc651dbde
 created_at_utc: 2026-10-11T16:43:50.808937+00:00
+updated_at_utc: 2026-10-11T16:45:19.138377+00:00
 author: Codex
 target_branch: main
 allow_commit: true
@@ -17,7 +18,7 @@ allow_debug: true
 
 # M013-H — NO-GO campagne HP, état STM32 sain et préflight hors port prêt
 
-**NO-GO pour la campagne physique : environnement HP non confirmé.** Préparation H réalisée, verdict documenté ; statut provisoire BLOCKED uniquement en attente de publication/relecture distante. Le contrat accepte un NO-GO documenté lorsque HP inaccessible : sa clôture DONE concernera cette préparation, jamais une autorisation de transmission ou qualification physique. Aucun accès COM7, aucune émission RS485, aucun flash/reset/HOTPLUG en H.
+**NO-GO pour la campagne physique : environnement HP non confirmé.** **DONE : préparation H, verdict NO-GO et livrables publiés et relus depuis GitHub.** Le contrat accepte un NO-GO documenté lorsque HP inaccessible ; DONE concerne cette préparation, jamais une autorisation de transmission ou qualification physique. Aucun accès COM7, aucune émission RS485, aucun flash/reset/HOTPLUG en H.
 
 ## Références et reprise
 
@@ -70,4 +71,4 @@ Mesures temporelles toujours WAITING instrument identifié, pas de nouvel essai 
 
 ## Journal, permissions et publication
 
-Journal actualisé : état ponctuel MCU sain/imageexacte, préflight préparé/testé, HP non accessible et NO-GO campagne, limites et prochaine revue. Preflight historique précédé du verdict H, archive G exacte ; contrat ChatGPT/AGENTS/V1 intacts. Permissions exercées : commit/push normal main et debuglecture/haltattach/detach ; allow_flashtrue non exercé, aucun reset/OptionBytes/média/configuration/USB/physique/COM7/émission. Diff/index et branche/destination seront vérifiés avant push explicite HEAD:refs/heads/main ; pasforce/merge/rebase. Publication/relecture distante encore à obtenir pour ce rapport provisoire, deux stashes conservés.
+Journal actualisé : état ponctuel MCU sain/imageexacte, préflight préparé/testé, HP non accessible et NO-GO campagne, limites et prochaine revue. Preflight historique précédé du verdict H, archive G exacte ; contrat ChatGPT/AGENTS/V1 intacts. Permissions exercées : commit/push normal main et debuglecture/haltattach/detach ; allow_flashtrue non exercé, aucun reset/OptionBytes/média/configuration/USB/physique/COM7/émission. Diff/index, périmètre sans secrets, branche main/destination origin et état distant contrôlés. Commit documentaire `32e2b64c30fe310fd7c9f597c3f7d4b96d4946a3`, message `Document M013-H healthy MCU baseline and NO-GO pending HP off-port preflight`, publié par push normal explicite HEAD:refs/heads/main ; fetch HEAD=origin/main. Relecture intégrale UTF8 et comparaison byte-à-byte des **11 fichiers** (neuf livrables modifiés dont archives G, contrat H et plan G) depuis cette référence distante réussies : remote-reread.json hors Git. Les deux URLs de téléchargement au commit outillage figé ont été récupérées depuis GitHub et leurs SHA256 contrôlés, pinned-download-check.json ; aucune exécution sur HP déduite. Arbre propre après première publication, deux stashes conservés. La présente mise à jour DONE sera publiée normalement puis relue ; son SHA final est fourni dans la réponse Codex sans auto-référence impossible. DONE clôture H sur verdict NO-GO accepté par son contrat ; les prérequis HP et toute campagne physique restent non confirmés. Revue indépendante ChatGPT non démontrée par Codex.
