@@ -1,5 +1,5 @@
 ---
-mission_id: TR2-20261011-M013-C-FIRST-RTU-RESPONSE
+mission_id: TR2-20261011-M013-D-UART-IRQ-ROOT-CAUSE
 status: READY
 base_ref: main
 author: ChatGPT
@@ -10,22 +10,20 @@ allow_flash: true
 allow_debug: true
 ---
 
-# M013-C — Premier flash diagnostic et reponse Modbus physique
+# M013-D — Isoler la cause RX UART / IRQ sans nouveau probe HP
 
-## Fait nouveau determinent, confirmation utilisateur
+## Contexte vérifié
+M013-C terminé BLOCKED, rapport distant relu : firmware diagnostic exact flashé/vérifié, unique requête HP COM7 115200 8E1 sans réponse ; après essai UART RXNE+ORE, HAL BUSY_RX, buffers et file RTU/TX vides, NVIC via SWD ISER=0 et ISPR=FFFFFFFF anormaux. Code contient EnableIRQ et vecteurs LPUART1/TIM6 attendus. Ce sont des observations, non une preuve de cause racine. Le premier essai est consommé. Aucun nouveau probe HP, aucune modification physique demandée. RE/RST broche2 du Click est libre de toute connexion externe, point définitivement acquis sauf preuve contradictoire nouvelle.
 
-L'utilisateur confirme explicitement apres verification repetee : **broche 2 RE/RST du Click MIKROE-3863 rev1.02 libre de toute connexion externe, y compris via breakout/support ; aucune liaison vers NUCLEO ni autre sortie**. Ne pas redemander ce controle ni une nouvelle mesure statique sans nouvel indice contradictoire. J1 3,3V, VIO 3,27V, J2/J3 fermes, DE=0V, /RE=0V au repos ; PG4 seul pilote de direction. Ces observations sont des declarations/mesures utilisateur, non une mesure instrumentee Codex. Le NO-GO specifique contention RST de M013-B est donc leve sur la base de la topologie confirmee, sous reserve des autres verifications de securite.
+## Objectif et autonomie
+Diagnostiquer et, si cause démontrée, corriger le défaut de traitement des interruptions RX LPUART1/TIM6 du diagnostic isolé ; instrumenter de manière passive la chaîne IRQ→HAL→callbacks→file→RTU→TX, sans émission RS485 ni requête synthétique sur bus. Préserver le contrat V1 gelé et les garde-fous diagnostic (FC03 registre1000 valeur UNKNOWN0 seulement, aucune fausse autorité production). Travailler sur main courant, relire AGENTS.md, DERNIER_RAPPORT.md, ETAT_COURANT_TR2.md, code/HAL et preuves M013-C. Permissions permanentes applicables ; ne pas solliciter de validations logicielles répétitives.
 
-## Etat source
+## Exécution attendue
+1. Préflight : vérifier HEAD distant/local, état Git/stashes et identité cible ; préserver l'intégralité des dumps RAM, logs, backup Flash2MiB et preuves M013-C avant toute action qui réinitialise la RAM. Aucun reset/reflash avant analyse et archivage.
+2. Établir l'explication des valeurs NVIC anormales : comparer lecture SWD aux lectures exécutées par le cœur (instrumentation passive si nécessaire), distinguer banques secure/nonsecure, état des interruptions, mapping IRQ et limitations de debug ; inspecter startup, VTOR, TrustZone/attribution et init HAL sans déductions non prouvées. Analyser pourquoi RXNE/ORE restent non traités alors que HAL RX est armé.
+3. Priorité au diagnostic non intrusif ; ajouter instrumentation minimale et tests ciblés, compteurs monotones IRQ UART/TIM6, callbacks RX/ERROR, états ISR/erreurs, réception octets, progression RTU et éventuelle préparation TX, sans log émetteur sur UART RS485. Si une cause logicielle est établie, apporter la correction minimale, tests et cross-build proportionnés ; ne pas masquer les symptômes ni affaiblir tests.
+4. Flash/debug standard autorisés si nécessaires et si les préconditions qualifiées restent satisfaites : cible STM32U575 et STLINK SN 003500463235510B37333439, sauvegarde vérifiée, image exacte et readback ; pas de mass erase, Option Bytes, déprotection, effacement média, changement câblage. Tout reflash effaçant l'état RAM doit être précédé de sa conservation. Après flash, aucune émission active sur bus, aucun faux résultat physique. Ne pas relancer le script HP ni demander de transmission dans cette mission.
+5. Documenter observations brutes, hypothèses éliminées, cause racine prouvée ou non, modifications, preuves tests/build/flash éventuel, limitations et critères objectifs d'un futur essai HP instrumenté. Mettre à jour DERNIER_RAPPORT.md et ETAT_COURANT_TR2.md ; commits/push normaux main, vérifier relecture distante. En cas de blocage réel, statut BLOCKED argumenté, sans extrapoler une validation TX physique.
 
-Rapport M013-B status BLOCKED uniquement pour RE/RST : build diagnosticON TXON unit1 reussi, 3/3 tests cibles ; aucun flash/debug/TX. Candidat reconstruit BIN 48240 octets SHA256 47d69cc286b0f12771de56eb80f2648cc3c2a7a57b2ce1a8038b34de792b97e8 ; ELF SHA256 762dcf0ba6c3663d9737dd334118a9f7d52a22175dda6d2674e9cb0d7b8e1c4a. Carte dernierement observee BIN008, RX011 un ADU valide. Preflight et rapport M013-B, AGENTS.md, protocole V2-B3, ETAT_COURANT_TR2.md sont references obligatoires. Ne pas supposer les artefacts inchanges sans verification.
-
-## Travail attendu
-
-1. Verifier HEAD reel main, etat Git/stashes, gouvernance et documents ci-dessus ; confirmer la route electrique PG4-DE-J2-/RE-J3-RE/RST libre et l'absence d'autre source active d'apres les observations utilisateur et schema rev1.02. Enregistrer formellement la levee du blocage RST, sans faire repeter l'inspection.
-2. Verifier le candidat diagnostic isole et ses garde-fous : adresse1 explicite, FC03/1000/1 seul disponible UNKNOWN0, aucun acces aux medias, aucune autorite production fictive ; verifier build/test proportionnes et empreintes exactes.
-3. Si tous prealables restent satisfaits, proceder de facon autonome au flash STM32 : cible STM32U575 NUCLEO-U575ZI-Q, ST-LINK SN 003500463235510B37333439, image diagnosticON/TXON unit1 issue du HEAD reel, methode ST qualifiee. Avant flash sauvegarder et verifier image Flash courante 2MiB, verifier identite et empreintes ; flash normal 0x08000000, verify/readback exact, ELF correspondant pour debug. Aucune mass erase, Option Bytes, force push, reconfiguration de bus ni formatage FRAM/SD. Si prealable nouveau echoue, NO-GO motive.
-4. Confirmer boot du diagnostic et absence de TX spontanee. COM7 du HP est inaccessible depuis T1000 : ne pas simuler un envoi HP. Preparer pour l'utilisateur **une seule** requete COM7 115200 8E1 sans retry : 01 03 03 E8 00 01 04 7A ; reponse attendue 01 03 02 00 00 B8 44. Produire instructions minimales pour lancement et capture reponse, avec methode de preuve CRC et etat DE/TC/retour RX lorsque accessible. Si aucune observation physique de la reponse n'est possible, marquer TX PHYSIQUE NON VERIFIE et attendre retour utilisateur, sans qualifier J1.
-5. Publier dans DERNIER_RAPPORT.md et ETAT_COURANT_TR2.md : GO/NO-GO, identite cible, image exacte, sauvegarde et readback, tests, boot, TX physique, limites, action utilisateur minimale. Documenter la levee du blocage RE/RST ; commit/push normaux main et verification distante. Preserver archives et stashes.
-
-Interdictions : operations destructives, repetition de controles physiques acquis, affirmation d'une reponse sans trame reellement capturee, confusion diagnostic avec runtime production, changements de specification V1.
+## Critères d'acceptation
+Diagnostic discriminant IRQ/NVIC/TrustZone fondé sur preuves ; instrumentation passive et/ou correction vérifiée ; aucune nouvelle requête HP ni TX provoquée ; état Git et sauvegardes préservés ; rapport vérifiable et publiable. La qualification Modbus bidirectionnelle reste NON VALIDÉE jusqu'à capture réelle d'une réponse lors d'une mission ultérieure.
