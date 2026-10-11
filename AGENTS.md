@@ -40,6 +40,15 @@ La gouvernance V2-B3 est applicable aux missions futures après intégration con
 
 ---
 
+
+## Autorisation permanente de flash et debug TR2 — décision utilisateur du 11/10/2026
+
+L'utilisateur autorise expressément Codex à réaliser de manière autonome le flash et le debug du STM32 TR2 lorsque ces opérations sont utiles aux missions de développement et de qualification, sans demandes répétitives de validation. Pour chaque mission concernée, ChatGPT doit indiquer explicitement `allow_flash: true` et/ou `allow_debug: true` dans le contrat, avec la cible, l'image, la méthode et les garde-fous appropriés. Les missions antérieures restent régies par leurs permissions explicites.
+
+Avant tout flash : vérifier l'identité de la cible, l'origine et l'empreinte de l'image, sauvegarder le firmware/données préexistants lorsque nécessaire et vérifier la sauvegarde ; appliquer la voie de programmation qualifiée. Les opérations de flash normales peuvent inclure l'effacement des pages nécessaires à l'image, mais jamais un effacement massif, une modification d'Option Bytes/RDP, une déprotection, un changement de câblage ou une opération destructive inhabituelle sans décision humaine spécifique. Suspendre l'opération en cas d'incertitude matérielle ou de risque non maîtrisé. Le debug doit rester circonscrit à la mission et respecter la sécurité du banc. Les restrictions de plateforme/sandbox demeurent prioritaires. Les manipulations physiques restent à l'utilisateur.
+
+---
+
 ## 1 bis. Architecture de développement T1000 — référence validée
 
 Le poste T1000 utilise Debian WSL2 et le système de fichiers natif Linux pour les sources et les compilations. **Ne pas confondre la racine de développement avec la racine du dépôt Git.**
