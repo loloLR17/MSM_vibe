@@ -1,6 +1,6 @@
 # État courant TR2 — référence reconstruite
 
-Mise à jour : 11 octobre 2026. Mission `TR2-20261011-M014-B-HP-PREFLIGHT`.
+Mise à jour : 11 octobre 2026. Mission `TR2-20261011-M014-C-END-TO-END`.
 
 **Ce document est un nouvel état de référence reconstruit à partir de preuves vérifiables. Il n'est pas une restitution du journal historique HP.** Sa création a été explicitement autorisée par l'utilisateur pour la mission `T1000-20261010-CLOTURE-001`, après escalade AGENTS.md §18. Aucun original n'a été retrouvé dans l'historique Git, les répertoires Linux locaux ou les documents Windows accessibles. Les archives d'échanges du 8 octobre mentionnent un journal local HP, sans en fournir le contenu. Aucun état historique inconnu n'est inventé.
 
@@ -264,3 +264,24 @@ requise avant exécution utilisateur ; aucun essai réalisé ici. Ensuite journa
 exact/hash et deltas MCU à analyser dans **la même mission C** ; rapport BLOCKED
 jusqu'alors. Aucun replay Python I. UNKNOWN0/diagnostic seulement ; réserves
 physiques temporelles/robustesse/production/J1global/E4 inchangées.
+
+## M014-C — clôture après l'unique lecture HP, 11 octobre 2026
+
+- **RAPPORTÉ UTILISATEUR** : essai.NET unique réussi18:15:29UTC, UNKNOWN0/code0/
+  passedtrue, aucune répétition ; SHAjournal annoncéAFDAB5517A13ABED1E9735A4240F0E6B53C5DC110F9CB717BB50410F698A2272.
+  FichierHP nonfourni àCodex : contenu/hash/chronologie NONVÉRIFIÉS indépendamment,
+  pas validationHP intégrale déduite duhash. Sorties détailléespréflightHP absentes.
+- **OBSERVÉ MCU / CONCORDANT** : GDBseul sansreset/flash/CLI/émission ; baselineC→après
+  RX104→112(+8),frames13→14/CRCvalid12→13(+1),accepted/available/TXattempt/started/TC11→12,
+  CRCbad/foreign1inchangés, erreurs/drop/failsafe0.17comparaisons conformes,
+  ADU010303E80001047A/TX0103020000B844 réellesRAM ; EFlash49200octets identiques.
+  IRQ49/66actives/ISPRmasks0,RXBUSYcount1/PG4bas/TXidle/filevide/faults0 ;
+  tick8062742→8071595/poll2749207528→2752226463, ciblelaisséeenexécution.
+  Preuves `/home/lolo/dev/msm/reports/TR2-mission014-C-after-20261011T181712Z`.
+- **VALIDÉ DANS LA PORTÉE BORNEE AVEC RÉSERVES** : lecturediagnostic.NET
+  HP→STM32→HP corroborée par résultatutilisateur et compteursindépendants.
+  CommandeC consommée, nepasrelancer, même missionclôturée aprèspublication/relecture.
+  UNKNOWN0 pasREADY/DeviceId/B0/B1complet/production ; temporisationDE/TC/stopbit/
+  t1.5/t3.5/retourRX, robustesse/endurance/reset/watchdogIRQ/J1global/E4 inchangées.
+  SuiteChatGPT : contrôler rapportdistant, conserverjournalexactHP pouraudit
+  sansnouveau trafic, choisirprochainjalonsouscontrat ; accèsdistantHPdifféré.

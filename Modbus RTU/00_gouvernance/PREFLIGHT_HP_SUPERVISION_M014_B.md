@@ -193,3 +193,7 @@ HP après revue ChatGPT, puis analyse indépendante HP/MCU dans la même mission
 ZIP conforme et OFFLINE/code0 sont désormais rapportés par l'utilisateur ;
 les autres contrôles HP restent à établir. Suivre [la procédure C](ESSAI_HP_DOTNET_M014_C.md),
 sans rejouer B ni la campagne Python I. Les états B ci-dessus sont historiques.
+
+L'essai C est désormais consommé : succès rapporté18:15:29UTC et deltasMCU
+conformes. Ne pas réexécuter le blocC ; voir le rapport final C avec réserve
+journalHP nonlocal et limites de qualification.

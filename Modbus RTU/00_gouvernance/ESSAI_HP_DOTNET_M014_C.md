@@ -1,12 +1,14 @@
 # M014-C-END-TO-END — une lecture .NET sur HP
 
-11 octobre 2026. **PRÉPARÉ ; essai physique NON EFFECTUÉ.** Cette procédure
+11 octobre 2026. **ESSAI CONSOMMÉ : succès unique rapporté le11/10/2026 à18:15:29UTC,
+corroboré par deltas STM32. NE PAS EXÉCUTER OU RELANCER LE BLOC CI-DESSOUS.** Cette procédure
 remplace pour C les conditions futures de B. Le contrat étendu conserve la même
 mission jusqu'à réception du résultat HP et analyse MCU. La campagne Python I
 est consommée : ne pas la relancer. Aucun nouveau contrôle électrique demandé.
 
 ## Conditions et commande unique
 
+Instructions historiques de préparation (consommées, aucun nouveau GO).
 Après **revue explicite de ce bloc par ChatGPT**, ouvrir Windows PowerShell5.1
 64bits sur le HP Laptop15-db1xxx et coller le bloc entier, une seule fois.
 Indiquer le dossier du paquet M014-A déjà extrait (celui dont l'OFFLINE a réussi),
@@ -143,3 +145,13 @@ Sans résultat HP/lecture après, statut BLOCKED ; pas DONE anticipé.
 UNKNOWN0 qualifie seulement ce diagnostic borné, pas READY/DeviceId/B0/B1complet,
 production, temporisation DE/TC/stopbit/t1.5/t3.5/retourRX, robustesse/watchdog,
 endurance/J1global/E4 ni communication bidirectionnelle générale.
+
+## Résultat final C — 11 octobre 2026
+
+Utilisateur : UNKNOWN0/code0/passedtrue, un essai, aucune répétition,18:15:29UTC.
+SHA journal annoncé AFDAB5517A13ABED1E9735A4240F0E6B53C5DC110F9CB717BB50410F698A2272 ;
+fichier non fourni à Codex, contenu/hash/chronologie non vérifiés indépendamment.
+GDB seul après : RX112/frames14/CRCvalid13/acceptedavailableTXTC12, erreurs0 ;
+17deltas attendus conformes, image E exacte, IRQ/RX/polling sains. Voir le
+[rapport final](Echanges_Codex/DERNIER_RAPPORT.md). Réserve documentaire HP
+et limites temporelles/robustesse/production maintenues. Aucune nouvelle émission.
