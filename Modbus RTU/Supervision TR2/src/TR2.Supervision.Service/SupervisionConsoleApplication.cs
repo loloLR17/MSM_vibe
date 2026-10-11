@@ -30,6 +30,12 @@ public static class SupervisionConsoleApplication
                 args, cancellationToken, output, error, busConnectionFactory);
         }
 
+        if (args.Count > 0 && args[0] == "--commissioning-check")
+        {
+            return await CommissioningConsoleApplication.RunAsync(
+                args, cancellationToken, output, error, busConnectionFactory);
+        }
+
         if (args.Count > 0 && args[0] == "--system-check")
         {
             return await SystemBlockConsoleApplication.RunAsync(
