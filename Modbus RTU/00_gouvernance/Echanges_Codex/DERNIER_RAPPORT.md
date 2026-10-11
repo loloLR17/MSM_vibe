@@ -1,6 +1,6 @@
 ---
 mission_id: TR2-20261011-RTU-TX-012
-status: BLOCKED
+status: DONE
 base_ref: main
 base_sha: null
 initial_head: 30275fe6fb6df7fdc05bb87166407080358d67a5
@@ -17,7 +17,7 @@ allow_debug: true
 
 # Mission012 — chemin de réponse testé, activation physique différée
 
-**IMPLEMENTATION VALIDÉE / HOST TESTS 107/107 / STM32 BUILD RÉUSSI (OFF et ON) / FLASH NON EFFECTUÉ / TX PHYSIQUE BLOQUÉ.** Statut provisoire BLOCKED pour preuve distante à obtenir. Le travail de cadrage/intégration logicielle prévu au contrat est achevé ; arrêt matériel appliqué conformément aux clauses4/5. Aucun TX physique ni nouveau RX déclaré validé.
+**IMPLEMENTATION VALIDÉE / HOST TESTS 107/107 / STM32 BUILD RÉUSSI (OFF et ON) / FLASH NON EFFECTUÉ / TX PHYSIQUE BLOQUÉ.** DONE pour cadrage/intégration logicielle et préparation après publication/relecture distante. Le travail de cadrage/intégration logicielle prévu au contrat est achevé ; arrêt matériel appliqué conformément aux clauses4/5. Aucun TX physique ni nouveau RX déclaré validé.
 
 ## Références et portée
 
@@ -77,4 +77,4 @@ Journal actualisé : tranche transport, tests/builds, garde OFF et runtime indis
 
 ## Publication
 
-Diff/index, whitespace, chemins et secrets inspectés, aucun fichier hors périmètre. Permissions effectivement exercées : développement, documentation, tests/compilations, commit et push normaux main ; flash/debug permis mais non exercés. Aucune opération destructive ou physique. Preuve de publication/relecture distante à compléter selon protocole avant DONE de cette tranche logicielle/préparation.
+Diff/index, whitespace, chemins et secrets inspectés, aucun fichier hors périmètre. Permissions effectivement exercées : développement, documentation, tests/compilations, commit et push normaux main ; flash/debug permis mais non exercés. Aucune opération destructive ou physique. Push normal main réussi, HEAD=origin/main=`d9b5c8d183a998784cc73bdb6619952875485f90` après fetch. Relecture intégrale des onze livrables modifiés et du contrat012 inchangé depuis cette référence distante ; égalité byte-à-byte locale, identifiant et result_sha contrôlés. Manifeste hors Git `remote-reread.json` dans dossier de preuves012. Arbre propre, deux stashes conservés. Cette mise à jour DONE sera publiée puis relue ; SHA final dans la réponse Codex. DONE concerne la tranche logicielle/préparation explicitement prévue, pas TX physique ni J1.
