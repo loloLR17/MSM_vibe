@@ -106,5 +106,21 @@
     "strong_binding_complete": false
   },
   "evidence_directory": "/home/lolo/dev/msm/reports/TR2-mission014-G-20261011T220027Z",
-  "proof_index": "proof-index-intermediate.json"
+  "proof_index": "proof-index-intermediate.json",
+  "firmware_on_target": {
+    "kind": "ISOLATED_READ_ONLY_PROBE",
+    "source_sha": "69d523bf81baf92b0849d63d750c3aca75ee17ba",
+    "bin_bytes": 45348,
+    "bin_sha256": "12bd87d731acd1c3d335ca7e965672f34a10293d37aa48a9eca210a6bfc1291c",
+    "elf_sha256": "ae459e0df07e7ba9df6ac49e610ef82d72b881f65bb4f997e312e721bcc91064",
+    "not_production_server": true
+  },
+  "verified_backup": {
+    "fram_bytes": 262144,
+    "fram_sha256": "59d32d12ebe26db36d8552ae522b2704632c6ccfde9e1a57200c3d25c77b4737",
+    "flash_bytes": 2097152,
+    "flash_sha256": "0ebb31d951a24bd0b609d38f8180ebe1e2976072a7f853a3d116799a48916a7b",
+    "fram_second_read_identical": true,
+    "sd_complete_backup": false
+  }
 }
