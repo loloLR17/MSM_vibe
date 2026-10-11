@@ -1,12 +1,13 @@
 ---
 mission_id: TR2-20261011-M014-B-HP-PREFLIGHT
-status: BLOCKED
+status: DONE
 base_ref: main
 base_sha: null
 initial_head: 913589424c323845fe7d797578fd5df60c8dbcc3
 mission_sha: e6faf7286bc0bcbf6e99e5d398fee69cd5f9da34
 result_sha: bcc69c9d07aa02f756f9e2db0d67f62613d1951e
 created_at_utc: 2026-10-11T17:39:34.074076+00:00
+updated_at_utc: 2026-10-11T17:41:22.960541+00:00
 author: Codex
 target_branch: main
 allow_commit: true
@@ -17,7 +18,7 @@ allow_debug: false
 
 # M014-B — paquet intact, transfert et préflight HP OFFLINE prêts
 
-**Préparation terminée ; BLOCKED provisoire uniquement pour attente de publication/relecture distante.** ZIP existant vérifié, procédure HP concrète prête ; aucun transfert ou lancement HP prétendu, aucune transmission Modbus. Un préflight OFFLINE réussi ne donnera pas GO pour M014-C.
+**DONE : préparation terminée, procédure/rapport/journal/archives publiés puis relus depuis GitHub.** ZIP existant vérifié, procédure HP concrète prête ; aucun transfert ou lancement HP prétendu, aucune transmission Modbus. Un préflight OFFLINE réussi ne donnera pas GO pour M014-C.
 
 ## État initial et contrat
 
@@ -57,4 +58,4 @@ Journal diagnostic .NET = registres décodés/attentes hex, pas capture brute ; 
 
 Dossier B horsGit : `/home/lolo/dev/msm/reports/TR2-mission014-B-20261011T173305Z` (`<preuves>` ci-dessus) : package-verification.json, bloc préparé hp-prepared.ps1 non exécuté, syntax-check.json, erreur de contrôleur, tests/log/TRX, stashes-initial.txt ; manifestes et relectures de publication ajoutés après contrôle. Dossier/ZIP/preuves A et historiques conservés, sans nouvelle programmation ou diagnostic.
 
-Permissions exercées : lecture/vérification/documentation/tests hors matériel puis commit/push normal main autorisés. Zéro COM7/RS485/flash/debug/reset/HOTPLUG/USB/geste physique/changement configuration permanente, aucune nouvelle installation. Rapport, journal, procédure et archives seulement. Publication/relecture distante à consigner ; le statut provisoire porte sur cette attente, pas sur une obligation d'exécuter HP avant de clôturer la préparation. SHA final et état Git donnés après publication. L'action restante pour utilisateur est le transfert du ZIP et le préflight OFFLINE, sans aucun essai Modbus.
+Permissions exercées : lecture/vérification/documentation/tests hors matériel puis commit/push normal main autorisés. Zéro COM7/RS485/flash/debug/reset/HOTPLUG/USB/geste physique/changement configuration permanente, aucune nouvelle installation. Rapport, journal, procédure et archives seulement. Commit `5a84b841de7ac7ef4b1d40b16922b0b71e7d06c6`, message `Prepare M014-B verified HP offline deployment and preflight procedure`, push normal explicite `HEAD:refs/heads/main` réussi. Fetch puis relecture intégrale UTF8/comparaison byte-à-byte des8fichiers (cinq livrables dont archivesA, contratB, AGENTS et protocole) depuis cette référence distante : tous conformes ; preuve `remote-reread-1.json`. HEAD=origin/main, arbre propre, deuxstashes identiques au début. Cette clôture DONE sera poussée normalement puis relue ; SHA final dans réponse Codex, pas inscription autoréférente. DONE couvre préparation B, pas exécutionHP ni revue indépendanteChatGPT ni qualification physique. Aucun GO transmission actuel. L'action restante pour utilisateur est le transfert du ZIP et le préflight OFFLINE, sans aucun essai Modbus.
