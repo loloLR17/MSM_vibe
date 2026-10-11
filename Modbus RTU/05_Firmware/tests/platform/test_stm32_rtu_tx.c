@@ -4,6 +4,7 @@
 #include <string.h>
 #include "stm32u5xx_hal.h"
 #include "stm32_serial_transport.h"
+#include "stm32_modbus_diagnostic.h"
 #include "tr2/application/modbus_system_server.h"
 
 GPIO_TypeDef mock_gpio;
@@ -58,13 +59,17 @@ uint32_t HAL_RCC_GetPCLK1Freq(void) { return 16000000; }
 void HAL_NVIC_SetPriority(int i,uint32_t a,uint32_t b) { (void)i; (void)a; (void)b; }
 void HAL_NVIC_EnableIRQ(int i) { (void)i; }
 
-static void init(void)
+static void init_transport(void)
 {
-    ModbusSystemServerBinding binding={0};
     de=false; receive_active=false; sends=releases=aborts=0;
     mock_primask=0; mock_rx_pending=false; mock_uart_busy=false; mock_timer_on=false;
     tx_result=rx_result=abort_rx_result=HAL_OK;
     assert(stm32_serial_transport_init(&transport)==TR2_OK && !de);
+}
+static void init(void)
+{
+    ModbusSystemServerBinding binding={0};
+    init_transport();
     memset(&identity,0,sizeof(identity)); identity.registers[0]=0x1234;
     /* Simulated ready runtime/B0, only in host tests, never board provisioning. */
     memset(&runtime_fixture,0,sizeof(runtime_fixture));
@@ -191,5 +196,35 @@ int main(void)
     assert(!de && sends==0 && !server.started);
 #endif
     assert(mock_primask==0 && !de);
+    /* M013: actual diagnostic + RTU/PDU + STM32 transport, no ready runtime. */
+    {
+        Stm32ModbusDiagnostic diagnostic;
+        const uint8_t adu[]={1,3,3,0xE8,0,1,4,0x7A};
+        init_transport();
+        assert(stm32_modbus_diagnostic_init(&diagnostic,&transport,1)==TR2_OK);
+        assert(modbus_rtu_server_runtime_start(&diagnostic.rtu)==TR2_OK);
+        for (size_t i=0;i<sizeof(adu);++i) {
+            *rx=adu[i]; HAL_UART_RxCpltCallback(uart);
+            assert(modbus_rtu_server_runtime_poll_once(&diagnostic.rtu)==TR2_OK);
+            assert(!de && sends==0);
+        }
+        stm32_serial_transport_tim6_irq_handler();
+        assert(modbus_rtu_server_runtime_poll_once(&diagnostic.rtu)==TR2_OK);
+        assert(!de && sends==0);
+        stm32_serial_transport_tim6_irq_handler();
+#if TR2_STM32_RS485_TX_QUALIFIED
+        const uint8_t expected[]={1,3,2,0,0,0xB8,0x44};
+        assert(modbus_rtu_server_runtime_poll_once(&diagnostic.rtu)==TR2_OK);
+        assert(de && sends==1 && sent_size==sizeof(expected));
+        assert(memcmp(sent,expected,sizeof(expected))==0);
+        stm32_serial_transport_irq_handler(); assert(de);
+        HAL_UART_TxCpltCallback(uart);
+        assert(!de && receive_active && mock_period==1750);
+#else
+        assert(modbus_rtu_server_runtime_poll_once(&diagnostic.rtu)==TR2_ERROR_UNAVAILABLE);
+        assert(!de && sends==0 && receive_active);
+#endif
+        assert(diagnostic.rtu.pdu_context.command_mailbox==NULL);
+    }
     return 0;
 }

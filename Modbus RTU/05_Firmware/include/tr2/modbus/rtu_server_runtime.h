@@ -20,6 +20,9 @@ typedef struct {
     /* Optional application refresh, only after CRC/address acceptance. */
     void *prepare_context;
     Tr2Result (*prepare)(void *context);
+    /* Optional request-specific availability, after CRC/address acceptance.
+     * The borrowed ADU view is valid only for this synchronous callback. */
+    Tr2Result (*prepare_request)(void *context, const ModbusRtuAduView *request);
     ModbusPduServerContext pdu_context;
     uint8_t local_unit_id;
     ModbusRtuReceiver receiver;

@@ -15,6 +15,14 @@ if(NOT STM32CUBE_U5_ROOT)
 endif()
 
 option(TR2_STM32_RS485_TX_QUALIFIED "Enable DE/TX only for an explicitly qualified RS485 board" OFF)
+option(TR2_STM32_MODBUS_DIAGNOSTIC "Isolated B1/1000 diagnostic, bypassing media and production boot" OFF)
+set(TR2_STM32_DIAGNOSTIC_UNIT_ID "0" CACHE STRING "Explicit bench-only diagnostic address (1..247); not production provisioning")
+if(TR2_STM32_MODBUS_DIAGNOSTIC)
+    if(NOT TR2_STM32_DIAGNOSTIC_UNIT_ID MATCHES "^[1-9][0-9]*$" OR
+       TR2_STM32_DIAGNOSTIC_UNIT_ID GREATER 247)
+        message(FATAL_ERROR "Diagnostic mode requires an explicit unit ID in 1..247")
+    endif()
+endif()
 
 set(TR2_FIRMWARE_ROOT "${CMAKE_CURRENT_SOURCE_DIR}/../..")
 set(CMSIS_CORE_DIR ${STM32CUBE_U5_ROOT}/Drivers/CMSIS/Include)
@@ -77,6 +85,7 @@ add_executable(tr2_stm32_p11c
     stm32_fram_storage.c
     stm32_iis3dwb_vibration_source.c
     stm32_modbus_application.c
+    stm32_modbus_diagnostic.c
     stm32_production_runtime.c
     stm32_rs485_rx_gpio.c
     stm32_serial_transport.c
@@ -105,7 +114,9 @@ add_executable(tr2_stm32_p11c
 )
 
 target_compile_definitions(tr2_stm32_p11c PRIVATE
-    TR2_STM32_RS485_TX_QUALIFIED=$<BOOL:${TR2_STM32_RS485_TX_QUALIFIED}>)
+    TR2_STM32_RS485_TX_QUALIFIED=$<BOOL:${TR2_STM32_RS485_TX_QUALIFIED}>
+    TR2_STM32_MODBUS_DIAGNOSTIC=$<BOOL:${TR2_STM32_MODBUS_DIAGNOSTIC}>
+    TR2_STM32_DIAGNOSTIC_UNIT_ID=${TR2_STM32_DIAGNOSTIC_UNIT_ID})
 
 target_include_directories(tr2_stm32_p11c PRIVATE
     ${CMAKE_CURRENT_SOURCE_DIR}

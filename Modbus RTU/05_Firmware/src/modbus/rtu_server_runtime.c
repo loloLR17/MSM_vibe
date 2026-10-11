@@ -40,6 +40,11 @@ static Tr2Result process_frame(ModbusRtuServerRuntime *runtime,
         }
     }
 
+    if (runtime->prepare_request != NULL) {
+        Tr2Result result = runtime->prepare_request(runtime->prepare_context, &request);
+        if (result != TR2_OK) return result;
+    }
+
     pdu_outcome = modbus_pdu_server_process(&runtime->pdu_context,
                                             request.pdu,
                                             request.pdu_length,
@@ -87,6 +92,7 @@ Tr2Result modbus_rtu_server_runtime_init(ModbusRtuServerRuntime *runtime,
     runtime->transport = transport;
     runtime->prepare_context = NULL;
     runtime->prepare = NULL;
+    runtime->prepare_request = NULL;
     runtime->pdu_context = *pdu_context;
     runtime->local_unit_id = local_unit_id;
     modbus_rtu_receiver_init(&runtime->receiver);

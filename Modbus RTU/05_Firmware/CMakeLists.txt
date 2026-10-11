@@ -118,6 +118,7 @@ foreach(tx_qualified 0 1)
     add_executable(test_stm32_rtu_tx_${tx_qualified}
         tests/platform/test_stm32_rtu_tx.c
         platform/stm32/stm32_serial_transport.c
+        platform/stm32/stm32_modbus_diagnostic.c
     )
     target_include_directories(test_stm32_rtu_tx_${tx_qualified} PRIVATE
         tests/platform/stm32_hal_tx_mock platform/stm32)
@@ -132,6 +133,13 @@ function(tr2_add_core_test target source test_name)
     target_link_libraries(${target} PRIVATE tr2_core)
     add_test(NAME ${test_name} COMMAND ${target})
 endfunction()
+
+add_executable(test_stm32_modbus_diagnostic
+    tests/platform/test_stm32_modbus_diagnostic.c
+    platform/stm32/stm32_modbus_diagnostic.c)
+target_include_directories(test_stm32_modbus_diagnostic PRIVATE platform/stm32)
+target_link_libraries(test_stm32_modbus_diagnostic PRIVATE tr2_core)
+add_test(NAME stm32_modbus_diagnostic COMMAND test_stm32_modbus_diagnostic)
 
 tr2_add_core_test(test_codec tests/unit/test_codec.c codec)
 tr2_add_core_test(test_b4_configuration_codec tests/unit/test_b4_configuration_codec.c b4_configuration_codec)

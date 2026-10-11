@@ -7,6 +7,7 @@
 #include "stm32_serial_transport.h"
 #include "stm32_rs485_rx_gpio.h"
 #include "stm32_modbus_application.h"
+#include "stm32_modbus_diagnostic.h"
 #include "stm32_runtime_platform.h"
 #include "stm32_sdmmc_bulk_media.h"
 
@@ -17,6 +18,10 @@
 volatile uint32_t tr2_modbus_application_binding_result = UINT32_MAX;
 volatile uint32_t tr2_modbus_application_last_poll_result = UINT32_MAX;
 volatile uint32_t tr2_modbus_application_poll_error_count = 0U;
+/* Separate diagnostic readiness: never production readiness. */
+volatile uint32_t tr2_modbus_diagnostic_ready = 0U;
+volatile uint32_t tr2_modbus_diagnostic_last_poll_result = UINT32_MAX;
+volatile uint32_t tr2_modbus_diagnostic_poll_error_count = 0U;
 
 /* Receive-only path: no PDU execution or response. */
 volatile uint32_t tr2_rtu_rx_ready = 0U;
@@ -1545,6 +1550,31 @@ int main(void)
     SystemClock_Config();
     SystemPower_Config();
     BringupLed_Init();
+#if TR2_STM32_MODBUS_DIAGNOSTIC
+    /* Deliberately before SPI, sensor, FRAM and SD qualification harness.
+     * A bench diagnostic must not boot or provision those authorities. */
+    {
+        static Stm32ModbusDiagnostic diagnostic;
+        if (stm32_serial_transport_init(&serial_transport) != TR2_OK ||
+            stm32_modbus_diagnostic_init(&diagnostic, &serial_transport,
+                TR2_STM32_DIAGNOSTIC_UNIT_ID) != TR2_OK ||
+            modbus_rtu_server_runtime_start(&diagnostic.rtu) != TR2_OK) {
+            Error_Handler();
+        }
+        tr2_modbus_diagnostic_ready = 1U;
+        led_tick = HAL_GetTick();
+        for (;;) {
+            const uint32_t now = HAL_GetTick();
+            const Tr2Result result = modbus_rtu_server_runtime_poll_once(&diagnostic.rtu);
+            tr2_modbus_diagnostic_last_poll_result = (uint32_t)result;
+            if (result != TR2_OK) tr2_modbus_diagnostic_poll_error_count++;
+            if ((uint32_t)(now - led_tick) >= 250U) {
+                HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
+                led_tick = now;
+            }
+        }
+    }
+#endif
     FramSpi_Init();
     Iis3dwbSpi_Init();
     Sdmmc2_Bringup();
