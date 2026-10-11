@@ -119,6 +119,21 @@ static SPI_HandleTypeDef hspi1;
 static SPI_HandleTypeDef hspi3;
 static SD_HandleTypeDef hsd2;
 
+#if TR2_STM32_COMMISSIONING_READONLY
+/* Read-only commissioning authority. Full FRAM snapshot remains in RAM for
+ * GDB extraction. Neither WREN/WRITE nor any SD data write is called here. */
+uint8_t tr2_commission_fram_backup[TR2_STM32_FRAM_CAPACITY];
+volatile uint32_t tr2_commission_stage;
+volatile uint32_t tr2_commission_fram_result = UINT32_MAX;
+volatile uint32_t tr2_commission_verify_result = UINT32_MAX;
+volatile uint32_t tr2_commission_fram_identity_matches;
+volatile uint32_t tr2_commission_sd_result = UINT32_MAX;
+volatile uint32_t tr2_commission_sd_error;
+volatile uint32_t tr2_commission_sd_blocks;
+uint8_t tr2_commission_fram_rdid[4];
+#endif
+
+
 /*
  * H3h-C microSD physical qualification instrumentation.
  * H3h-C2b is explicitly destructive on the sacrificial test card: it performs
@@ -1538,6 +1553,138 @@ void HAL_MspInit(void)
     stm32_rs485_rx_gpio_init();
 }
 
+#if TR2_STM32_COMMISSIONING_READONLY
+static void CommissioningSdProbe(void)
+{
+    HAL_SD_CardInfoTypeDef card_info = {0};
+    GPIO_InitTypeDef gpio = {0};
+    RCC_PeriphCLKInitTypeDef periph = {0};
+    tr2_sdmmc2_init_attempted = 1U;
+    tr2_sdmmc2_stage = 1U;
+
+    __HAL_RCC_GPIOB_CLK_ENABLE();
+    __HAL_RCC_GPIOD_CLK_ENABLE();
+
+    gpio.Mode = GPIO_MODE_AF_PP;
+    gpio.Pull = GPIO_NOPULL;
+    gpio.Speed = GPIO_SPEED_FREQ_VERY_HIGH;
+
+    gpio.Pin = GPIO_PIN_6 | GPIO_PIN_7;
+    gpio.Alternate = GPIO_AF11_SDMMC2;
+    HAL_GPIO_Init(GPIOD, &gpio);
+
+    gpio.Pin = GPIO_PIN_3 | GPIO_PIN_4 | GPIO_PIN_14 | GPIO_PIN_15;
+    gpio.Alternate = GPIO_AF12_SDMMC2;
+    HAL_GPIO_Init(GPIOB, &gpio);
+
+    periph.PeriphClockSelection = RCC_PERIPHCLK_SDMMC;
+    periph.SdmmcClockSelection = RCC_SDMMCCLKSOURCE_PLL1;
+    if (HAL_RCCEx_PeriphCLKConfig(&periph) != HAL_OK) {
+        tr2_sdmmc2_stage = 2U;
+        tr2_sdmmc2_init_status = (uint32_t)HAL_ERROR;
+        tr2_commission_sd_result = (uint32_t)TR2_ERROR_UNAVAILABLE;
+        tr2_commission_sd_error = hsd2.ErrorCode;
+        return;
+    }
+
+    tr2_sdmmc2_stage = 3U;
+    __HAL_RCC_SDMMC2_CLK_ENABLE();
+    tr2_sdmmc2_kernel_clock_hz =
+        HAL_RCCEx_GetPeriphCLKFreq(RCC_PERIPHCLK_SDMMC);
+
+    hsd2.Instance = SDMMC2;
+    hsd2.Init.ClockEdge = SDMMC_CLOCK_EDGE_RISING;
+    hsd2.Init.ClockPowerSave = SDMMC_CLOCK_POWER_SAVE_DISABLE;
+    hsd2.Init.BusWide = SDMMC_BUS_WIDE_1B;
+    hsd2.Init.HardwareFlowControl = SDMMC_HARDWARE_FLOW_CONTROL_DISABLE;
+    hsd2.Init.ClockDiv = 8U;
+
+    tr2_sdmmc2_stage = 4U;
+    tr2_sdmmc2_init_status = (uint32_t)HAL_SD_Init(&hsd2);
+    tr2_sdmmc2_error_code = hsd2.ErrorCode;
+    if (tr2_sdmmc2_init_status != (uint32_t)HAL_OK) {
+        tr2_sdmmc2_last_cmd = SDMMC2->CMD & SDMMC_CMD_CMDINDEX;
+        tr2_sdmmc2_pre_cmd16_card_type = hsd2.SdCard.CardType;
+        tr2_sdmmc2_pre_cmd16_card_version = hsd2.SdCard.CardVersion;
+        tr2_sdmmc2_pre_cmd16_card_class = hsd2.SdCard.Class;
+        tr2_sdmmc2_pre_cmd16_rca = hsd2.SdCard.RelCardAdd;
+        tr2_sdmmc2_pre_cmd16_block_nbr = hsd2.SdCard.BlockNbr;
+        tr2_sdmmc2_pre_cmd16_block_size = hsd2.SdCard.BlockSize;
+        tr2_sdmmc2_pre_cmd16_log_block_nbr = hsd2.SdCard.LogBlockNbr;
+        tr2_sdmmc2_pre_cmd16_log_block_size = hsd2.SdCard.LogBlockSize;
+        tr2_sdmmc2_sta = SDMMC2->STA;
+        tr2_sdmmc2_resp1 = SDMMC2->RESP1;
+        tr2_sdmmc2_clkcr = SDMMC2->CLKCR;
+        tr2_sdmmc2_power = SDMMC2->POWER;
+        tr2_sdmmc2_stage = 5U;
+        tr2_commission_sd_result = (uint32_t)TR2_ERROR_UNAVAILABLE;
+        tr2_commission_sd_error = hsd2.ErrorCode;
+        return;
+    }
+
+    tr2_sdmmc2_stage = 6U;
+    tr2_sdmmc2_card_info_status =
+        (uint32_t)HAL_SD_GetCardInfo(&hsd2, &card_info);
+    tr2_sdmmc2_error_code = hsd2.ErrorCode;
+    if (tr2_sdmmc2_card_info_status != (uint32_t)HAL_OK) {
+        tr2_sdmmc2_stage = 7U;
+        tr2_commission_sd_result = (uint32_t)TR2_ERROR_UNAVAILABLE;
+        tr2_commission_sd_error = hsd2.ErrorCode;
+        return;
+    }
+
+    tr2_sdmmc2_card_type = card_info.CardType;
+    tr2_sdmmc2_card_version = card_info.CardVersion;
+    tr2_sdmmc2_card_class = card_info.Class;
+    tr2_sdmmc2_relative_card_address = card_info.RelCardAdd;
+    tr2_sdmmc2_log_block_nbr = card_info.LogBlockNbr;
+    tr2_sdmmc2_log_block_size = card_info.LogBlockSize;
+    tr2_sdmmc2_block_nbr = card_info.BlockNbr;
+    tr2_sdmmc2_block_size = card_info.BlockSize;
+
+    tr2_commission_sd_result = (uint32_t)TR2_OK;
+    tr2_commission_sd_blocks = card_info.LogBlockNbr;
+}
+
+__attribute__((noreturn)) static void CommissioningReadOnly(void)
+{
+    Stm32FramStorage storage;
+    uint8_t verify[512];
+    Tr2Result result;
+    size_t offset;
+    tr2_commission_stage = 1U;
+    FramSpi_Init();
+    result = (Fram_ReadDeviceId(tr2_commission_fram_rdid) == HAL_OK)
+        ? TR2_OK : TR2_ERROR_STORAGE;
+    tr2_commission_fram_identity_matches = (result == TR2_OK &&
+        memcmp(tr2_commission_fram_rdid, tr2_fram_expected_device_id, 4u) == 0) ? 1U : 0U;
+    if (tr2_commission_fram_identity_matches != 0U) {
+        result = stm32_fram_storage_init(&storage, &hspi1,
+            TR2_FRAM_CS_PORT, TR2_FRAM_CS_PIN, 100U);
+        tr2_commission_stage = 2U;
+        if (result == TR2_OK) result = stm32_fram_storage_read(&storage, 0U,
+            tr2_commission_fram_backup, sizeof(tr2_commission_fram_backup));
+        tr2_commission_fram_result = (uint32_t)result;
+        if (result == TR2_OK) {
+            tr2_commission_stage = 3U;
+            for (offset = 0U; offset < sizeof(tr2_commission_fram_backup); offset += sizeof(verify)) {
+                result = stm32_fram_storage_read(&storage, (uint32_t)offset, verify, sizeof(verify));
+                if (result != TR2_OK || memcmp(verify, tr2_commission_fram_backup + offset, sizeof(verify)) != 0) {
+                    result = TR2_ERROR_STORAGE;
+                    break;
+                }
+            }
+            tr2_commission_verify_result = (uint32_t)result;
+        }
+    } else tr2_commission_fram_result = (uint32_t)TR2_ERROR_NOT_AVAILABLE;
+    tr2_commission_stage = 4U;
+    CommissioningSdProbe();
+    tr2_commission_stage = 5U;
+    /* No transport start and no harness fall-through. */
+    for (;;) { HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN); HAL_Delay(250U); }
+}
+#endif
+
 int main(void)
 {
     SerialTransport serial_transport;
@@ -1551,6 +1698,9 @@ int main(void)
     SystemClock_Config();
     SystemPower_Config();
     BringupLed_Init();
+#if TR2_STM32_COMMISSIONING_READONLY
+    CommissioningReadOnly();
+#endif
 #if TR2_STM32_MODBUS_DIAGNOSTIC
     /* Deliberately before SPI, sensor, FRAM and SD qualification harness.
      * A bench diagnostic must not boot or provision those authorities. */

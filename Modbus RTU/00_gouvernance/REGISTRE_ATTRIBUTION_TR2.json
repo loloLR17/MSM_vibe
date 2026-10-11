@@ -7,11 +7,18 @@
       "unit_id": 1,
       "serial": "TR2-000001",
       "manufacturer": "MSM",
-      "status": "RESERVED",
-      "hardware_uid_words_hex": null,
+      "status": "ASSIGNED",
+      "hardware_uid_words_hex": [
+        "004A003D",
+        "38425018",
+        "20333157"
+      ],
       "decision": "TR2-20261011-M014-G-COMMISSIONING",
       "reserved_at_utc": "2026-10-11T22:03:03.229286+00:00",
-      "collision_audit": "No production attribution registry found; FleetRegistry/session and host fixture IDs are not production assignments."
+      "collision_audit": "No production attribution registry found; FleetRegistry/session and host fixture IDs are not production assignments.",
+      "assigned_at_utc": "2026-10-11T22:03:03.253303+00:00",
+      "uid_evidence": "GDB read UID_BASE 0x0BFA0700; identity-and-backup.log, M014-G proof directory",
+      "provisioning_status": "NOT_PROVISIONED"
     }
   ]
 }

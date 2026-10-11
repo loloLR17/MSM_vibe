@@ -14,6 +14,10 @@ if(NOT STM32CUBE_U5_ROOT)
     message(FATAL_ERROR "Set -DSTM32CUBE_U5_ROOT=/path/to/STM32CubeU5 (recursive checkout, v1.9.0)")
 endif()
 
+option(TR2_STM32_COMMISSIONING_READONLY "Isolated media inspection and backup, no data writes or Modbus" OFF)
+if(TR2_STM32_COMMISSIONING_READONLY AND TR2_STM32_MODBUS_DIAGNOSTIC)
+    message(FATAL_ERROR "Commissioning probe and diagnostic modes are exclusive")
+endif()
 option(TR2_STM32_RS485_TX_QUALIFIED "Enable DE/TX only for an explicitly qualified RS485 board" OFF)
 option(TR2_STM32_IRQ_DIAGNOSTICS "Passive RAM IRQ/core observer for isolated diagnostics" OFF)
 option(TR2_STM32_MODBUS_DIAGNOSTIC "Isolated B1/1000 diagnostic, bypassing media and production boot" OFF)
@@ -118,6 +122,7 @@ add_executable(tr2_stm32_p11c
 )
 
 target_compile_definitions(tr2_stm32_p11c PRIVATE
+    TR2_STM32_COMMISSIONING_READONLY=$<BOOL:${TR2_STM32_COMMISSIONING_READONLY}>
     TR2_STM32_IRQ_DIAGNOSTICS=$<BOOL:${TR2_STM32_IRQ_DIAGNOSTICS}>
     TR2_STM32_RS485_TX_QUALIFIED=$<BOOL:${TR2_STM32_RS485_TX_QUALIFIED}>
     TR2_STM32_MODBUS_DIAGNOSTIC=$<BOOL:${TR2_STM32_MODBUS_DIAGNOSTIC}>
