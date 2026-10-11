@@ -1,5 +1,5 @@
 ---
-mission_id: TR2-20261011-M013-G-RTU-TIMING-ROBUSTNESS-PLAN
+mission_id: TR2-20261011-M013-H-HP-CAMPAIGN-PREFLIGHT
 status: READY
 base_ref: main
 author: ChatGPT
@@ -10,20 +10,20 @@ allow_flash: true
 allow_debug: true
 ---
 
-# M013-G — Qualification temporelle et robustesse RS-485 : préparation instrumentée
+# M013-H — Préflight HP et GO conditionnel campagne RTU bornée
 
-## Référence et acquis
-Relire sur main AGENTS.md, protocole V2, ETAT_COURANT_TR2.md, DERNIER_RAPPORT.md M013-F DONE et archives M013-D/E/F, code, procédures et preuves hors Git. Le probe HP E unique a renvoyé `01 03 02 00 00 B8 44` ; F a établi par lecture GDB seule 8 octets reçus, CRC correct, requête acceptée, réponse exacte préparée, TX started1/TC callback1, RX réarmé, sans erreur. Aller-retour fortement corroboré, mais pas de preuve temporelle physique ni répétabilité. L'essai E est consommé : ne pas le relancer. Éviter CubeProgrammer HOTPLUG en dernier accès MCU : cause NVIC reproduite en D. Aucun besoin de recontrôler le câblage/VIO/RE-RST déjà acquis.
+## Référence
+Relire AGENTS.md, protocole, ETAT_COURANT_TR2.md, DERNIER_RAPPORT.md M013-G DONE, plan QUALIFICATION_TEMPORELLE_RTU_M013_G.md, script rtu_campaign.py et tests, rapports E/F, images et preuves conservées. Le premier échange HP unique E est corroboré F, sans qualification temporelle ni répétabilité. M013-G a publié outil Python OFFLINE/mock testé 10/10 sur Linux, non encore testé sur HP réel ; campagne maximum12 écritures (10 nominales, CRC invalide, unité étrangère), sans GO physique. Aucun instrument de chronogramme identifié ; qualification temporelle reste WAITING.
 
 ## Objectif
-Préparer une qualification **physique temporelle** de DE, UART TX/RX, trame différentielle A/B et retour RX, suivie d'une robustesse Modbus ciblée et mesurable. Livrer procédure et outillage reproductibles, sans affirmer que des mesures non faites sont acquises. Privilégier l'image diagnostic actuelle et les observateurs existants ; modifier firmware uniquement si une lacune instrumentale est prouvée, avec tests et garde-fous V1.
+Préparer en autonomie la campagne HP, vérifier la compatibilité de l'environnement Windows et l'état sain du STM32, puis publier un **GO ou NO-GO documenté pour une seule future campagne**. Ne pas exécuter la campagne physique ni ouvrir COM7 dans cette mission. Éviter toute sollicitation utilisateur pour des opérations réalisables par Codex ; ne demander que la future commande HP indispensable et seulement après contrôle indépendant ChatGPT du GO.
 
-## Exécution autonome
-1. Préflight HEAD Git, état/stashes, sauvegardes/identité de l'image et état courant. Analyser timing DE/TX/TC/T3.5, callback HAL et règles Modbus RTU 115200 8E1. Définir critères de réussite mesurables, tolérances et incertitudes de mesure. Distinguer temporisations internes de chronogramme physique.
-2. Inventorier uniquement le matériel de mesure **effectivement connu/disponible** (oscilloscope, analyseur logique, sonde différentielle, canaux) ; ne pas présumer sa présence. Préparer un protocole sûr, connexions de mesure non intrusives et ordre des captures DE/TXD/RXD/A/B, précisant risques de masse et mesures différentielles. Si instrument manquant, séparer les essais réalisables sur HP des captures physiques reportées ; aucune improvisation de branchement.
-3. Préparer et tester hors bus un script HP dédié à une campagne limitée, journalisation brute horodatée des réponses/CRC/timeout, aucune boucle illimitée, délais inter-requêtes sûrs, cas FC03 nominal répété, CRC invalide et unité étrangère, sans modifier le script historique E. Définir nombre maximal d'essais, conditions d'arrêt, protection contre échos et critères de qualification. Tester uniquement en mock/loopback logiciel isolé sans ouvrir COM7 ni injecter RS485.
-4. Si instrumentation firmware indispensable, tests/build/cross-build et flash/debug standard autorisés après backups vérifiés ; respecter diagnostic isolé et gates, aucune production simulée. Tout accès CubeProgrammer doit être suivi de reset final GDB et contrôle NVIC sain. Ne pas modifier Option Bytes, mass erase, média ou câblage. Ne pas lancer de transmission HP, aucune requête synthétique sur le bus et aucune manipulation physique utilisateur dans cette mission.
-5. Publier rapport avec distinction **READY pour essai logiciel HP** versus **WAITING instrumentation physique** selon les moyens réellement établis, scripts/protocole exacts, critères et garde-fous, et prochaines actions minimales. Mettre à jour DERNIER_RAPPORT.md et ETAT_COURANT_TR2.md ; commit/push normal main, relecture distante.
+## Exécution
+1. Vérifier HEAD main, git propre/stashes, permissions et preuves G/F/E ; contrôler que l'outil et son plan sont bien ceux de main. Revoir les 12 cas et les critères d'arrêt, notamment gestion des silences attendus, absence d'écho confondu, délai inter-requête, réponse tardive, et conditions de récupération. Corriger seulement les lacunes avérées avec tests, commit/push.
+2. Déterminer si Codex peut vérifier directement le HP Windows et Python/pySerial sans perturber COM7, en utilisant les accès réellement disponibles. Ne pas inventer la disponibilité du HP, ne pas installer ou modifier des logiciels système sans nécessité. Tester --offline et --mock sur l'environnement effectif si accessible, et vérifier l'absence d'ouverture série dans ces modes. Si le HP est inaccessible, préparer une commande de préflight non intrusive que l'utilisateur pourra exécuter ultérieurement ; publier NO-GO tant que prérequis essentiels non confirmés.
+3. Avant tout éventuel futur GO, vérifier image exacte et santé MCU via GDB seulement, sans CubeProgrammer HOTPLUG : NVIC IRQ49/66, UART/RX armé, PG4 bas, observateur baseline avant campagne, sans reset/flash si inutile. Conserver snapshot brut et hashes. Aucun halt pendant trafic ; aucune émission sur RS485. Ne pas répéter contrôles matériels J1/J2/J3/RE-RST/VIO/SB28 déjà acquis.
+4. Si environnement et état MCU sont confirmés, fournir commande physique Windows exacte, maximum 12 écritures, journal exclusif et condition d'arrêt ; préciser que l'utilisateur lancera cette commande **une seule fois** seulement après revue GO par ChatGPT. Si environnement non confirmé, publier NO-GO ou GO partiel limité aux préflights, avec une seule action minimale concrète. Aucune transmission HP/COM7, aucun test physique ni mesure temporelle dans H.
+5. Publier DERNIER_RAPPORT.md, ETAT_COURANT_TR2.md, livrables/scripts utiles, commit/push normal main, relecture distante et verdict explicite. Conserver backups et stashes, ne pas modifier V1 ni prétendre qualification physique générale.
 
-## Acceptation
-Aucune nouvelle émission physique pendant G. Critères objectifs pour la qualification temporelle et robustesse, outil HP hors bus testé, limites documentées, absence de revendication de validation générale. L'utilisateur reste responsable du branchement d'instruments et du lancement d'essais physiques futurs, après revue ChatGPT d'un rapport GO.
+## Critères
+Autonomie logicielle maximale, aucun accès COM7 ni trame émise en H, campagne strictement bornée, vérifications traçables, distinction GO/NO-GO. Autorisations commit/push/flash/debug accordées pour éviter les validations intermédiaires, mais flash/reset uniquement si besoin démontré et après précautions AGENTS ; pas d'Option Bytes, mass erase ou manipulations physiques.
