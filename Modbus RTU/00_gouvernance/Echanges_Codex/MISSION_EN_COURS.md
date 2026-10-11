@@ -1,26 +1,38 @@
 ---
-mission_id: TR2-20261011-M014-D-SUPERVISION-INTEGRATION
+mission_id: TR2-20261011-SSH-HP-001
 status: READY
 base_ref: main
+base_sha: 78093692f2a2b0b6680d657ce1eb6a87ad2d472e
+created_at_utc: 2026-10-11T19:54:00Z
 author: ChatGPT
 target_branch: main
 allow_commit: true
 allow_push: true
-allow_flash: true
-allow_debug: true
+allow_flash: false
+allow_debug: false
 ---
 
-# M014-D — Integrer la supervision operationnelle jusqu'a la limite du quota Codex
+# SSH-HP-001 — Automatiser les essais distants sur la Brouette
 
-Consulter AGENTS.md, gouvernance V2, roadmap M014, rapport M014-C DONE et etat courant reel de main. Verifier HEAD, arbre Git, stashes et preuves avant action. Ne pas rejouer l'essai unique M014-C ni la campagne M013-I.
+## Contexte et référence
+Lire AGENTS.md, PROTOCOLE_ECHANGE_V2.md, le HEAD réel de main, l'état Git local, ETAT_COURANT_TR2.md et le rapport M014-D archivé. M014-D demeure BLOCKED quant à la qualification physique de production : cette mission autonome n'en déclare pas la résolution. Le contrat précédent et son rapport ont été archivés avant remplacement.
 
-Objectif : faire progresser en autonomie la connexion de la supervision .NET au TR2 physique, au-dela du diagnostic FC03/1000/1, jusqu'aux lectures de blocs systeme V1, polling maitrise, detection des pertes et reprise, sans modifier les gels V1. Regrouper les travaux coherents pour limiter les aller-retours.
+Topologie confirmée par l'utilisateur : T1000 Dell Windows 11 (Codex CLI lancé depuis PowerShell, sources/compilations en WSL Debian, ST-LINK vers TR2) ; Brouette HP Windows 10 (supervision .NET, adaptateur USB-RS485 sur COM7 vers TR2). Les deux machines sont sur le même Wi-Fi privé. SSH Windows sur T1000 via alias `tr2-hp` vers `192.168.83.158`, utilisateur `Lolo`, clé dédiée déjà configurée ; `ssh tr2-hp hostname` et PowerShell distant sans mot de passe ont été testés manuellement avec succès. Le nom distant observé est `LAPTOP-3F6J7STJ`. Ces preuves utilisateur ne démontrent pas encore l'exécution SSH par Codex.
 
-1. Auditer les ecarts reels entre le firmware STM32 diagnostic actuellement flashe, le serveur Modbus RTU applicatif de production, les autorites runtime, le mapping V1 B0/B1 et le service .NET S0-S7. Distinguer fonctions developpees, simulees et effectivement qualifiees physiquement. Publier une matrice de dependances et des criteres de validation.
-2. Implementer et tester les raccordements firmware/runtime et supervision necessaires dans le depot, par tranches internes autonomes. Privilegier les tests unitaires, integration, cross-build ARM et tests .NET existants ; ajouter des tests sur lecture de blocs, identification, validite, timeout, deconnexion/reprise, sans masquer les erreurs ni inventer READY ou DeviceId.
-3. Autorisations : developpement, commits et push main autonomes ; flash et debug STM32 autorises dans le cadre AGENTS.md apres verification cible, image et sauvegardes pertinentes. Interdire mass erase, Option Bytes, deprotection, changement de cablage ou modification des gels. Ne pas flasher si le diagnostic qualifie risque d'etre perdu sans restauration controlee.
-4. Le HP reste seul maitre physique sur COM7 et n'est pas accessible a Codex a ce stade. Ne jamais pretendre avoir execute un essai HP. Preparer les procedures d'essais HP minimales, non destructives et sans boucle de tentatives. Attendre la revue ChatGPT et l'intervention utilisateur pour les essais physiques HP ; ne pas reutiliser le marqueur ou la commande consommee M014-C. Ne pas faire de GDB pendant un essai HP.
-5. Si un blocage materiel ou une decision structurante apparait, documenter clairement et poursuivre les autres travaux logiciels independants possibles. Eviter les micro-missions et les validations repetitives. La limite de quota Codex n'est pas un motif pour perdre des travaux : committer/pusher les tranches valides, conserver les preuves, noter les travaux incomplets et les risques.
-6. Avant arret ou epuisement du quota, publier DERNIER_RAPPORT.md et mettre a jour ETAT_COURANT_TR2.md avec HEAD exact, tests reellement executes, fichiers modifies, statut M014 (ne pas declarer M014 DONE avant lectures periodiques physiques et reprise qualifiees), blocages et instructions de reprise. Verifier la publication distante. Si quota interrompt avant publication, ne pas affirmer la cloture et conserver un point de reprise local explicite.
+## Objectif
+Permettre à Codex CLI sur T1000 de déclencher et analyser automatiquement, via SSH, des tests .NET/Modbus sur le HP sans copier-coller manuel. Infrastructure temporaire, minimale, sûre, réversible à l'arrivée du dock USB.
 
-La validation du diagnostic M014-C est acquise uniquement pour une lecture nominale. Les qualifications timing RS485, DE/TC, robustesse et industrielle demeurent ouvertes. Pas d'acces distant HP configure dans cette mission ; son etude est differee apres validation de la supervision.
+## Travail autorisé
+1. Qualifier depuis l'environnement réel de Codex `ssh tr2-hp hostname`, l'exécution de PowerShell distant et les codes de retour, sans divulguer clé privée ou secrets. Vérifier identité distante, répertoire de travail, droits effectifs et accès réseau ; si le sandbox bloque SSH, rapporter précisément sans contournement.
+2. Inventorier en lecture seule .NET, projet/artefacts de supervision et port COM7 sur HP, sans supposer que COM7 est disponible ou que les chemins historiques sont actifs. Vérifier les processus utilisant le port avant toute ouverture.
+3. Concevoir, implémenter et tester dans le dépôt des scripts minimalistes d'orchestration T1000→HP (exécution PowerShell, transfert contrôlé d'artefacts si nécessaire, collecte logs, timeout, code retour, gestion d'erreur, exclusivité COM7). Privilégier les scripts déjà présents et les commandes non interactives ; documenter l'usage et le retrait. Ne pas installer un second Codex sur HP.
+4. Commencer par tests de connectivité, de lecture et scénarios OFFLINE sans émission série. Toute campagne physique COM7 doit être explicitement bornée (nombre de requêtes, timeout, journal exclusif), non destructive, conforme aux procédures M014 et sans rejouer les commandes/jetons consommés M014-C. Ne pas déclencher une campagne Modbus physique si les prérequis et son autorisation spécifique ne sont pas établis ; préparer les commandes pour revue si nécessaire.
+5. Vérifier sécurité du serveur SSH : ne pas élargir les droits Windows, ne pas modifier le pare-feu ou les services sans nécessité démontrée, ne pas enregistrer de secret. Signaler le risque du compte distant administrateur et proposer une réduction ultérieure sans imposer une refonte pour cette installation provisoire.
+6. Exécuter les tests logiciels proportionnés, produire preuves réelles, conserver les données/logs volumineux hors Git. Préserver les gels V1, les stashes et tout travail existant ; aucune migration du dépôt ou changement de topologie.
+7. Publier DERNIER_RAPPORT.md avec statut exact, preuves SSH/HP effectivement observées, commits et SHA, validations, limites et reprise ; vérifier la publication distante. Actualiser ETAT_COURANT_TR2.md seulement si nécessaire et sans présenter l'accès distant comme qualification physique Modbus.
+
+## Autorisations et limites
+Développement, documentation, tests logiciels, commits et push normaux sur `main` autorisés (`allow_commit: true`, `allow_push: true`). Flash/debug interdits dans cette mission. Aucun mass erase, Option Bytes, changement de câblage, reset cible, écriture Modbus, modification de firmware ou intervention physique. Respecter les restrictions de plateforme/sandbox et les conditions d'arrêt AGENTS.md. Ne pas demander de validations répétitives pour les opérations logicielles autorisées.
+
+## Critères d'acceptation
+SSH non interactif exécuté par Codex et preuves de retour ; inventaire distant vérifié ; scripts robustes et réversibles avec tests et documentation ; distinction explicite entre test OFFLINE, accès COM7 et qualification physique ; rapport publié et relu depuis GitHub. En cas d'impossibilité d'accès réseau ou de quota, statut BLOCKED honnête avec point de reprise exploitable.
