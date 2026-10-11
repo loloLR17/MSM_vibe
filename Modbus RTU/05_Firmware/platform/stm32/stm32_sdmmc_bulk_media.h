@@ -33,6 +33,9 @@ Tr2Result stm32_sdmmc_bulk_media_init(
 CampaignBulkMedia stm32_sdmmc_bulk_media_interface(
     Stm32SdmmcBulkMedia *adapter);
 
+/* Real reads/capacity/sync; all data writes fail before touching the card. */
+CampaignBulkMedia stm32_sdmmc_bulk_media_readonly_interface(Stm32SdmmcBulkMedia *adapter);
+
 bool stm32_sdmmc_bulk_media_is_initialized(
     const Stm32SdmmcBulkMedia *adapter);
 

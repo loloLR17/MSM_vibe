@@ -52,7 +52,9 @@ static Tr2Result collect_runtime_system_state(
     }
 
     memset(aggregation_input, 0, sizeof(*aggregation_input));
-    aggregation_input->ready = true;
+    const bool storage_available = runtime->deps.storage_is_available == NULL
+        ? true : runtime->deps.storage_is_available(runtime->deps.storage_availability_context);
+    aggregation_input->ready = storage_available;
     aggregation_input->acquisition_active = acquisition_active;
     aggregation_input->active_configuration_valid =
         configuration_service_active_snapshot(&runtime->configuration_service,
@@ -64,13 +66,13 @@ static Tr2Result collect_runtime_system_state(
         aggregation_input->time_valid = time_snapshot.civil_time_usable;
     }
 
-    aggregation_input->storage_available = true;
+    aggregation_input->storage_available = storage_available;
     aggregation_input->uptime_s = (uint32_t)(
         runtime->deps.monotonic_clock->now_ms(runtime->deps.monotonic_clock->context) /
         UINT64_C(1000));
     aggregation_input->last_reset_cause =
         b1_reset_cause_from_platform(runtime->boot_context.reset_cause);
-    aggregation_input->storage_status = TR2_B1_STORAGE_AVAILABLE;
+    aggregation_input->storage_status = storage_available ? TR2_B1_STORAGE_AVAILABLE : 0u;
     aggregation_input->acquisition_state = acquisition_active
                                                ? TR2_B1_ACQUISITION_RUNNING
                                                : TR2_B1_ACQUISITION_STOPPED;

@@ -33,7 +33,9 @@ int main(void)
         &vibration,
         NULL,
         NULL,
-        campaign_data_store_persistent_interface(&historical_data.store)
+        campaign_data_store_persistent_interface(&historical_data.store),
+        NULL,
+        NULL
     };
     SystemRuntime runtime;
 

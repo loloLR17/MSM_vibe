@@ -202,7 +202,7 @@ int main(void)
     VibrationSource vibration = host_platform_vibration_source(&platform);
     assert(campaign_data_store_persistent_composition_init(&historical, &media) == TR2_OK);
     deps = (SystemRuntimeDependencies){&monotonic, &wall, &reset, &continuity, &media,
-        &environment, &vibration, NULL, NULL, campaign_data_store_persistent_interface(&historical.store)};
+        &environment, &vibration, NULL, NULL, campaign_data_store_persistent_interface(&historical.store), NULL, NULL};
     assert(production_application_binding(&application, &transport, 17u, NULL, &binding)
            == TR2_ERROR_NOT_AVAILABLE);
     assert(production_application_boot(&application, &deps, NULL) == TR2_OK);

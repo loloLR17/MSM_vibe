@@ -28,6 +28,9 @@ typedef struct {
 Tr2Result campaign_repository_store_init(CampaignRepositoryStore *store,
                                          PersistentStorageCore *storage);
 
+/* Read-only commissioning audit: allocator and every metadata slot. */
+Tr2Result campaign_repository_store_inspect(const CampaignRepositoryStore *store);
+
 bool campaign_repository_store_is_initialized(const CampaignRepositoryStore *store);
 
 bool campaign_repository_store_recovery_required(const CampaignRepositoryStore *store);

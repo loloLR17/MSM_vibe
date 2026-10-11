@@ -655,3 +655,47 @@ CampaignRepository *campaign_repository_store_interface(
                ? &store->interface
                : NULL;
 }
+
+Tr2Result campaign_repository_store_inspect(const CampaignRepositoryStore *store)
+{
+    AllocatorState allocator[2];
+    bool any_allocator = false;
+    bool valid_allocator = false;
+    CampaignId ids[TR2_CAMPAIGN_REPOSITORY_CAPACITY];
+    size_t count = 0u, slot, copy;
+    if (!campaign_repository_store_is_initialized(store)) return TR2_ERROR_INVALID_STATE;
+    for (copy = 0u; copy < 2u; ++copy) {
+        uint8_t raw[TR2_CAMPAIGN_ALLOCATOR_RECORD_SIZE];
+        if (persistent_storage_core_read(store->storage, allocator_offset(copy), raw, sizeof(raw)) != TR2_OK ||
+            read_allocator(store, copy, &allocator[copy]) != TR2_OK) return TR2_ERROR_UNAVAILABLE;
+        any_allocator = any_allocator || !empty_bytes(raw, sizeof(raw));
+        if (allocator[copy].unsupported) return TR2_ERROR_UNSUPPORTED;
+        valid_allocator = valid_allocator || allocator[copy].valid;
+    }
+    if (any_allocator && !valid_allocator) return TR2_ERROR_CORRUPTED;
+    if (allocator[0].valid && allocator[1].valid &&
+        allocator[0].generation == allocator[1].generation &&
+        allocator[0].next_id != allocator[1].next_id) return TR2_ERROR_CORRUPTED;
+    for (slot = 0u; slot < TR2_CAMPAIGN_REPOSITORY_CAPACITY; ++slot) {
+        CampaignCopy copies[2]; CampaignMetadata selected;
+        bool present = false, unsupported;
+        size_t other;
+        for (copy = 0u; copy < 2u; ++copy) {
+            uint8_t raw[TR2_CAMPAIGN_RECORD_SIZE];
+            if (persistent_storage_core_read(store->storage, copy_offset(slot, copy), raw, sizeof(raw)) != TR2_OK ||
+                read_copy(store, slot, copy, &copies[copy]) != TR2_OK) return TR2_ERROR_UNAVAILABLE;
+            present = present || !empty_bytes(raw, sizeof(raw));
+        }
+        if (!select_copy(copies, &selected, &unsupported)) {
+            if (unsupported) return TR2_ERROR_UNSUPPORTED;
+            if (present) return TR2_ERROR_CORRUPTED;
+            continue;
+        }
+        if (unsupported) return TR2_ERROR_UNSUPPORTED;
+        if (!valid_allocator) return TR2_ERROR_INVALID_STATE;
+        for (other = 0u; other < count; ++other)
+            if (ids[other] == selected.campaign_id) return TR2_ERROR_CORRUPTED;
+        ids[count++] = selected.campaign_id;
+    }
+    return TR2_OK;
+}

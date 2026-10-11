@@ -131,6 +131,10 @@ volatile uint32_t tr2_commission_sd_result = UINT32_MAX;
 volatile uint32_t tr2_commission_sd_error;
 volatile uint32_t tr2_commission_sd_blocks;
 uint8_t tr2_commission_fram_rdid[4];
+uint8_t tr2_commission_sd_prefix[8192];
+volatile uint32_t tr2_commission_sd_prefix_result = UINT32_MAX;
+volatile uint32_t tr2_commission_sensor_result = UINT32_MAX;
+volatile uint32_t tr2_commission_sensor_whoami;
 #endif
 
 
@@ -1644,6 +1648,8 @@ static void CommissioningSdProbe(void)
 
     tr2_commission_sd_result = (uint32_t)TR2_OK;
     tr2_commission_sd_blocks = card_info.LogBlockNbr;
+    tr2_commission_sd_prefix_result = (uint32_t)HAL_SD_ReadBlocks(&hsd2,
+        tr2_commission_sd_prefix, 0U, sizeof(tr2_commission_sd_prefix)/512U, 2000U);
 }
 
 __attribute__((noreturn)) static void CommissioningReadOnly(void)
@@ -1678,6 +1684,14 @@ __attribute__((noreturn)) static void CommissioningReadOnly(void)
         }
     } else tr2_commission_fram_result = (uint32_t)TR2_ERROR_NOT_AVAILABLE;
     tr2_commission_stage = 4U;
+    { Stm32Iis3dwbVibrationSource source; uint8_t whoami = 0u;
+      Iis3dwbSpi_Init();
+      result = stm32_iis3dwb_vibration_source_init(&source, &hspi3,
+          TR2_IIS3DWB_CS_PORT, TR2_IIS3DWB_CS_PIN);
+      if (result == TR2_OK) result = stm32_iis3dwb_vibration_source_read_who_am_i(&source, &whoami);
+      tr2_commission_sensor_result = (uint32_t)result;
+      tr2_commission_sensor_whoami = whoami;
+    }
     CommissioningSdProbe();
     tr2_commission_stage = 5U;
     /* No transport start and no harness fall-through. */

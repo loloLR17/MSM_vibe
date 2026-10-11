@@ -16,6 +16,7 @@ Tr2Result stm32_production_runtime_prepare(Stm32ProductionRuntime *runtime,
     uint32_t uid[3];
     if (runtime == NULL || dependencies == NULL ||
         dependencies->campaign_data_store == NULL ||
+        dependencies->storage_is_available == NULL ||
         !dependencies->exclusive_media_ownership ||
         !dependencies->protocol_authority_available ||
         dependencies->geometry.physical_size != TR2_STM32_FRAM_CAPACITY) return TR2_ERROR_INVALID_ARGUMENT;
@@ -58,6 +59,8 @@ Tr2Result stm32_production_runtime_prepare(Stm32ProductionRuntime *runtime,
     deps.configuration_validation_environment = &dependencies->environment;
     deps.vibration_source = &vibration;
     deps.campaign_data_store = dependencies->campaign_data_store;
+    deps.storage_availability_context = dependencies->storage_availability_context;
+    deps.storage_is_available = dependencies->storage_is_available;
     deps.selftest_executor = dependencies->selftest_executor;
     deps.reset_trigger = dependencies->reset_trigger;
     result = production_application_boot(&runtime->application, &deps, NULL);

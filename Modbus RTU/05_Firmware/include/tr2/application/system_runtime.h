@@ -65,6 +65,9 @@ typedef struct {
     const PlatformResetTrigger *reset_trigger;
     /* Borrowed interface: caller owns backend/media/buffers for runtime lifetime. */
     CampaignDataStore *campaign_data_store;
+    /* Optional real availability authority; production board must supply it. */
+    void *storage_availability_context;
+    bool (*storage_is_available)(void *context);
 } SystemRuntimeDependencies;
 
 typedef struct {

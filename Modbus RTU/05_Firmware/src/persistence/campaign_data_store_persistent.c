@@ -657,3 +657,35 @@ CampaignDataStore *campaign_data_store_persistent_interface(
                ? &store->interface
                : NULL;
 }
+
+Tr2Result campaign_data_store_persistent_inspect(const CampaignDataStorePersistent *store)
+{
+    CampaignId seen[TR2_CAMPAIGN_DATA_SLOT_COUNT];
+    size_t slot, count = 0u;
+    if (!campaign_data_store_persistent_is_initialized(store)) return TR2_ERROR_INVALID_STATE;
+    for (slot = 0u; slot < TR2_CAMPAIGN_DATA_SLOT_COUNT; ++slot) {
+        DescriptorInfo descriptor;
+        bool present, unsupported;
+        uint32_t chunk;
+        uint64_t bytes = 0u;
+        size_t other;
+        Tr2Result result = load_slot_descriptor(store, slot, &descriptor, &present, &unsupported);
+        if (result != TR2_OK) return TR2_ERROR_UNAVAILABLE;
+        if (unsupported) return TR2_ERROR_UNSUPPORTED;
+        if (!descriptor.valid) {
+            if (present) return TR2_ERROR_CORRUPTED;
+            continue;
+        }
+        for (other = 0u; other < count; ++other)
+            if (seen[other] == descriptor.campaign_id) return TR2_ERROR_CORRUPTED;
+        seen[count++] = descriptor.campaign_id;
+        for (chunk = 0u; chunk < descriptor.chunk_count; ++chunk) {
+            size_t payload;
+            result = validate_chunk(store, slot, descriptor.campaign_id, chunk, &payload);
+            if (result != TR2_OK) return result;
+            bytes += payload;
+        }
+        if (bytes != descriptor.durable_prefix_bytes) return TR2_ERROR_CORRUPTED;
+    }
+    return TR2_OK;
+}

@@ -37,6 +37,9 @@ Tr2Result campaign_data_store_persistent_init(
     CampaignDataStorePersistent *store,
     PersistentStorageCore *storage);
 
+/* Read-only audit of every historical slot, including orphan descriptors. */
+Tr2Result campaign_data_store_persistent_inspect(const CampaignDataStorePersistent *store);
+
 bool campaign_data_store_persistent_is_initialized(
     const CampaignDataStorePersistent *store);
 

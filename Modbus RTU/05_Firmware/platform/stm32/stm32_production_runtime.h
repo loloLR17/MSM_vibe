@@ -32,6 +32,8 @@ typedef struct {
     bool protocol_authority_available;
     uint16_t supported_protocol_version;
     CampaignDataStore *campaign_data_store;
+    void *storage_availability_context;
+    bool (*storage_is_available)(void *context);
     ConfigurationValidationEnvironment environment;
     void *configuration_metadata_context;
     ConfigurationActivationMetadataAcquire configuration_metadata_acquire;

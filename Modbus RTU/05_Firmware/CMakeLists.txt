@@ -32,6 +32,7 @@ add_library(tr2_core STATIC
     src/application/system_command_dispatcher.c
     src/application/production_provisioning.c
     src/application/persistent_identity.c
+    src/application/production_commissioning.c
     src/application/production_application.c
     src/application/modbus_system_server.c
     src/application/system_runtime.c
@@ -268,3 +269,5 @@ tr2_add_host_test(test_production_commands tests/integration/test_production_com
 tr2_add_core_test(test_production_provisioning tests/unit/test_production_provisioning.c production_provisioning)
 
 tr2_add_core_test(test_persistent_identity tests/unit/test_persistent_identity.c persistent_identity)
+
+tr2_add_core_test(test_production_commissioning tests/unit/test_production_commissioning.c production_commissioning)

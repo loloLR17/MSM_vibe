@@ -399,8 +399,30 @@ static void test_bulk_error(bool append_error)
     free_composition(&composition);
 }
 
+static bool storage_authority(void *context) { return *(bool *)context; }
+static void test_explicit_storage_availability(void)
+{
+    FakeMedia fake={0}; RuntimeComposition composition; BulkComposition bulk;
+    SystemRuntime runtime; ModbusBlock1Image image; bool available=false;
+    init_composition(&composition); init_bulk(&bulk,&fake);
+    composition.deps.storage_is_available=storage_authority;
+    composition.deps.storage_availability_context=&available;
+    boot_runtime(&composition,&bulk,&runtime);
+    assert(system_runtime_b1_image(&runtime,&image));
+    assert((image.registers[1]&0x11u)==0u && image.registers[10]==0u);
+    available=true;
+    assert(system_runtime_build_boot_status_images(&runtime)==TR2_OK);
+    assert(system_runtime_b1_image(&runtime,&image));
+    assert((image.registers[1]&0x11u)==0x11u && image.registers[10]==1u);
+    available=false;
+    assert(system_runtime_build_boot_status_images(&runtime)==TR2_OK);
+    assert(system_runtime_b1_image(&runtime,&image));
+    assert((image.registers[1]&0x11u)==0u && image.registers[10]==0u);
+    assert_no_historical_write(&composition); free_composition(&composition);
+}
 int main(void)
 {
+    test_explicit_storage_availability();
     test_reboot(true, true);
     test_reboot(true, false);
     test_reboot(false, false);

@@ -277,3 +277,14 @@ bool stm32_sdmmc_bulk_media_is_initialized(
            adapter->sector_scratch_size >=
                TR2_STM32_SDMMC_LOGICAL_BLOCK_SIZE;
 }
+
+static Tr2Result readonly_write(void *context, uint64_t offset, const void *buffer, size_t size)
+{
+    (void)context; (void)offset; (void)buffer; (void)size;
+    return TR2_ERROR_NOT_AVAILABLE;
+}
+CampaignBulkMedia stm32_sdmmc_bulk_media_readonly_interface(Stm32SdmmcBulkMedia *adapter)
+{
+    CampaignBulkMedia media = {adapter, media_capacity, media_read, readonly_write, media_sync};
+    return media;
+}
