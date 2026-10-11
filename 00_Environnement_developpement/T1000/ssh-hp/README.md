@@ -1,6 +1,6 @@
 # SSH HP temporaire — SSH-HP-001
 
-Outil T1000 WSL Debian → client OpenSSH **Windows** → HP Windows PowerShell5.1.
+Outil T1000 WSL Debian → client OpenSSH **Windows** → HP Windows PowerShell 5.1.
 Il utilise l'alias Windows existant `tr2-hp`, une clé dédiée et la clé hôte déjà
 connue. Aucun secret/configuration SSH n'est copié ou ajouté au dépôt. Le client
 Linux n'a pas cet alias. Identité distante exigée : `LAPTOP-3F6J7STJ`.
@@ -55,7 +55,7 @@ suivante. Les tests unitaires injectent panne réseau/client/timeout ; le kill
 Windows sous driver défaillant n'est pas qualifié (driver jamais ouvert).
 Codes : retour distant préservé,255 erreur SSH/état inconnu,124 timeout local,
 127 client absent,2 arguments/dossier existant. Logs stdout/stderr binaires et
-result.json hors Git ; le code0 global n'exonère pas de lire les sorties réelles.
+result.json hors Git ; le code 0 global n'exonère pas de lire les sorties réelles.
 Le script est envoyé via stdin et un bootstrap EncodedCommand court ; cela évite
 la limite de longueur Windows sans modifier de politique PowerShell ou SSH.
 
@@ -86,3 +86,23 @@ agent/service/tâche planifiée ou fichier script n'a été installé sur HP. Ar
 les preuves locales. Le retrait de l'alias/clé dédiée ou du service SSH existants
 relève d'une décision utilisateur séparée ; ne pas supprimer des clés partagées
 ou arrêter des services automatiquement.
+
+## Gouvernance opérationnelle (M014-E)
+
+T1000 Windows héberge le clientSSH et son alias/clé ; WSL Debian conserve le dépôt
+canonique et les builds, Codex pilote ces scripts versionnés depuis WSL. HP Windows
+PowerShell héberge seulement la supervision/USB-RS485. Ne pas installer un second
+Codex ou migrer le dépôt vers HP. Le dock futur n'est pas requis pour OFFLINE.
+
+Les autorisations viennent du contrat actif GitHub/AGENTS, jamais de l'existence
+technique de SSH. La boucle reste ChatGPT→GitHub→Codex→GitHub→ChatGPT : mission
+READY figée, inspecter HEAD/status/permissions, journaux/preuves horsGit, commit/push
+normal autorisés puis relecture distante du rapport. Aucun envoi HP automatique
+ou extension des privilèges par une commande générique. Un seul pilote sur main.
+
+Preuves SSH-HP-001 désormais immuables dans
+[le rapport archivé](../../../Modbus%20RTU/00_gouvernance/Echanges_Codex/archives/TR2-20261011-SSH-HP-001/RAPPORT.md).
+La mission M014-E autorise seulement des tests SSH OFFLINE utiles, interdit COM7/
+transmission/flash/debug/reset/médias physiques. Les succès OFFLINE/hash/retours
+observés ne qualifient aucune transmission physique. Les décisions de production
+sont suivies dans [le document M014-E](../../../Modbus%20RTU/00_gouvernance/PROVISIONING_PRODUCTION_M014_E.md).

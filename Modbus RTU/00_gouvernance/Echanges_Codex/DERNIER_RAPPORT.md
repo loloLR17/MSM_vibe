@@ -1,12 +1,12 @@
 ---
-mission_id: TR2-20261011-SSH-HP-001
-status: DONE
+mission_id: TR2-20261011-M014-E-PRODUCTION-BOOT
+status: BLOCKED
 base_ref: main
-base_sha: 78093692f2a2b0b6680d657ce1eb6a87ad2d472e
-initial_head: f1e830136bf50abafbaad5ae8bdbc53765839017
-mission_sha: a1b24bc4632e0d33bbbec2b26913c321c21fe4b3
-result_sha: 52f6ab83911536f10f089c1a654862248189c860
-created_at_utc: 2026-10-11T21:09:33Z
+base_sha: a3bd116511f985a92a9abf8b64479b186f34625e
+initial_head: 5a8ba6ff918a6d872bd9137df0d66a8465304b4b
+mission_sha: 065e445a9ba85138b3d4e4ce5fda25ddb7d9990f
+result_sha: 00230c3334a3a9c83b4d89edf758c84a6b3fc1c3
+created_at_utc: 2026-10-11T21:28:51Z
 author: Codex
 target_branch: main
 allow_commit: true
@@ -15,149 +15,170 @@ allow_flash: false
 allow_debug: false
 ---
 
-# SSH-HP-001 — SSH et diagnostic OFFLINE HP effectivement exécutés
+# M014-E — socle logiciel validé, composition de production bloquée
 
-Critères SSH-HP-001 remplis ; publication normale et relecture distante V2
-effectuées. Statut DONE limité à cette infrastructure et aux tests OFFLINE. **Aucune ouverture COM7 ni émission Modbus**.
-M014-D demeure BLOCKED pour production ; cette mission ne résout pas ses autorités
-carte, ne qualifie pas la communication physique et ne rejoue aucun jeton C/I.
+**111/111 tests firmware et cross-build STM32 réussis ; six tests SSH réussis.**
+Livrés : gouvernance SSH, audit V1/autorités, moteur de transaction de provisioning
+avec gardes explicites, probe de boot en lecture seule et correction d'une ancienne
+autorité conservée après recovery en échec. **BLOCKED** pour le choix d'allocation/
+format d'identité et la composition de carte ; **M014 reste IN PROGRESS**.
+Aucun flash/debug/reset, FRAM/SD physique, COM7/RS485 ou commande distante HP.
 
-## Références et gouvernance
+## Références et périmètre
 
-Dépôt initial main propre à f1e8301, deux stashes005/002 conservés. Fetch puis
-pull --ff-only sûr vers a1b24bc, sans merge/rebase/reset. Base7809369 présente et
-ancêtre de la mission vérifiée. AGENTS, contrat actif, protocoleV2, journal entier
-et rapportD archivé lus ; fichiers concernés/outils existants inspectés avant
-création. Pas d'orchestrationSSH équivalente trouvée. ArchivesD déjà créées par
-ChatGPT vérifiées octet pour octet contre mission/rapport du HEADinitialf1e8301 ;
-pas de réécriture. Mission active inchangée, freezes/V1/firmware/.NET inchangés.
+Main initial 5a8ba6f propre, HEAD=origin/main, stashes 005/002 conservés. Fetch puis
+pull --ff-only sûr vers065e445, seulement mission/architecture changées. Base a3bd116
+vérifiée dans l'historique ; pas supposition de parent immédiat. AGENTS et protocole
+inchangés/repris, mission lue, journal entier consulté, roadmap/rapport SSH DONE/
+rapport D archivé/décisions approuvées/document D et sources/tests pertinents inspectés.
+SSH précédent effectivement terminé/publication des 11 fichiers relus auSHA 5a8ba6f avantE.
+Archive SSH créée octet pour octet depuis5a8ba6f (MISSION/RAPPORT immuables) ;
+archivesD précédentes conservées, contratactifChatGPT inchangé. Aucun gelV1 modifié.
 
-Code réellement évalué : `52f6ab83911536f10f089c1a654862248189c860`, commit
-`Add bounded Windows SSH orchestration and verified HP offline diagnostics`.
-Le programme autonome A utilisé sur HP conserve sa provenance sourcebcc69c9d,
-ce SHA d'orchestration n'est pas présenté comme celui d'un nouveau binaire .NET.
+Code évalué : `00230c3334a3a9c83b4d89edf758c84a6b3fc1c3`, commit
+`Add guarded production provisioning transactions and revoke stale recovery authority`.
+Développement limité aux garde-fous/provisioning/média et au préparateurSTM32.
+Les tranches logicielles indépendantes sont terminées ; arrêt sur décision
+structurante explicitement prévue au contrat, pas sur quota ou économie de tests.
 
-## Observations directes depuis Codex
+## Lot1 — gouvernance SSH publiée
 
-- ClientSSH Linux : aliastr2-hp non configuré. ClientWindows existant sous
-  `/mnt/c/Windows/System32/OpenSSH/ssh.exe` : alias versHP/user configurés,
-  BatchMode/clé dédiée, commande `ssh ... tr2-hp hostname` retour0 :
-  **LAPTOP-3F6J7STJ**. Aucun fichier clé privée lu/affiché/copiedansGit.
-- Probe distant : cwd `C:\Users\Lolo`, PowerShell5.1.19041.6456, compte
-  **administrateur**. Connexion SSH non interactive réellement démontrée,
-  aucun nouveau droit/service/pare-feu/profil/politique ajouté.
-- Inventaire HP en lecture seule : COM4/COM5/COM7, PnP **USB Serial Port(COM7)**,
-  StatusOK/FTSER2K. Aucun processus candidat TR2/dotnet/python/putty/terminal/modbus
-  détecté au relevé. **Pas preuve COM7 libre/exclusif**, pas inventaire des handles.
-- `dotnet` absent du PATH observé, pas preuve absence globale. Paquet autonome
-  retrouvé à `C:\Users\Lolo\AppData\Local\TR2\M014-B-20261011-195242` :
-  EXE162816octets +manifesteA62485octets. Pas de solution/projet trouvé dans la
-  recherche bornée Desktop/Documents/Downloads/LocalAppDataTR2 profondeur4 ;
-  aucune absence globale revendiquée, erreurs d'accès de recherche non conclusives.
-- EXEA SHA256 `13228dfe3d30cf01829c16be1be22f30b061cc0cb0916b2e6a499b8fd1f96872`,
-  manifesteA SHA256 `eeaf70a35f81a9d9a5102cef011dc54bb4e9eae2b774e75af75689b1dc6db7a3`.
-  **370fichiers tailles/SHA réellement vérifiés sur HP**, manifeste fixé/haché.
-  Aucun transfert nécessaire/effectué, paquetA et ses données conservés.
-- OFFLINE lancé automatiquement surHP viaSSH, retour0, stderrvide :
-  `OFFLINE: no port opened, no transmission, no log created.` Paramètres affichés
-  COM7/115200/8/Even/One/unité1/FC03/1000/1/retry0, aucun `--read-once`.
-  Cette ligne et le code/hash vérifiés établissent le scénario logiciel sans
-  ouverture ; pas une capture du bus ni une validation du driver physique.
-- ServiceSSH présent/running/startmanual au relevé. Config explicitement lue :
-  AuthorizedKeysFile et MatchGroupadministrators. `sshd -T` global indique
-  PubkeyAuthenticationyes/PasswordAuthenticationyes et AuthorizedKeysFile utilisateur.
-  ClausesMatch/pare-feu/rangesréseaux effectifs non audités exhaustivement.
-  Risque admin/motdepasse signalé ; réduction ultérieure proposée, rien imposé.
+README existant enrichi, sans duplication d'outil : topologieT1000 Windows/WSL Debian,
+clientSSHWindows/alias/clé hôte/clé dédiée, HP Windows / PowerShell, permissions de
+mission/rapportsGitHub/piloteunique, OFFLINE/logs/timeout/étatdistantinconnu,
+mutex coopératif/COM7limites, sécuritéadmin/retrait. Architecture pointe désormais
+sur rapport SSHarchivé stable plutôt que DERNIER_RAPPORT changeant.
+Aucun secret/IP privée/clé/logvolumineux publié, aucune modificationSSH/service/
+pare-feu/droits/configurationCodex/Windows. PassecondCodexHP.
 
-## Livraison et garde-fous
+PreuvesSSH-HP-001 conservées : HPnom attendu etPowerShell 5.1, retours 0/17,
+paquetA370hashes et OFFLINEretour 0 sansport. **Historiques, non répétés enE**.
+ExclusivitéCOM7 pas prouvée par PnP/listeprocessus/mutex ; compte administrateur et
+PasswordAuthenticationglobalyes restent réserves. Aucun trafic physique qualifié
+par SSH-HP-001. Six tests Python relancés enE, aucune exécutionHP supplémentaire.
 
-`00_Environnement_developpement/T1000/ssh-hp/` contient `run_hp.py`,
-`hp-task.ps1`, `test_run_hp.py`, README avec usage/retrait/limites.
+## Lots2/3 — audit indépendant des sources et résultatsD
 
-- Bibliothèque standard Python seulement ; tâches fixes Probe/Inventory/Offline/
-  FailureProbe. ClientWindows/alias fixes, BatchMode/StrictHostKeyCheckingyes,
-  pas de saisie motdepasse/acceptation aveugle cléhôte. IdentitéHP vérifiée avant
-  inventaire/exécution. ArgumentsPowerShell échappés, aucun argv arbitraire.
-- BootstrapEncodedCommand court +script transmisstdin : évite limite Windows,
-  pas changement de politique. Logsstdout/stderr binaires +resultJSON dans un
-  dossierlocal neuf exclusif. Aucun script/service/agent installé surHP.
-- OFFLINE seulement : EXE/manifesteAouD approuvés puis370fichiers vérifiés,
-  chemin du manifeste contenu dans dossier ; processus candidat→refus ; mutex
-  global nonbloquant libéré après traitement. Pas mode émission/bouclepolling.
-- Timeoutconnexion10s/keepalive5s×2/commande45s/processOFFLINE15s. Code distant
-  préservé ;255SSH/124timeoutlocal/127clientabsent/2usage. Aucun retryautomatique.
-  DéconnexionSSH ne garantit pas annulation distante ; stateunknown explicite.
-  KillWindows surtimeout prévu, branche panneprocess testée par mocklocal seulement,
-  pas driverphysique qualifié. Course/modification concurrente de fichiers et
-  maîtres externes non coopérants restent limites du banc provisoire.
+[PROVISIONING_PRODUCTION_M014_E.md](../PROVISIONING_PRODUCTION_M014_E.md) livre
+matrice desautorités/états, sources normatives, options et reprise détaillée.
+RevueCodex technique deD confrontée au code, distincte du contrôlehumainChatGPT :
 
-## Tests et corrections réelles
+- B0gelé0..20 contient DeviceId 32 bits MSW/LSW unique/persistant ; adresse n'est pas
+  un registre B0 normatif, UID 96 bits ne peut être tronqué versDeviceId. B1statusUNKNOWN=0/
+  NOMINAL=1/DEGRADED=2/FAULT=3, READY bit 0 des flags et snapshots réels, pas valeurs inventées.
+  HALlocaleCubeU5 fournit trois motsUID ; aucun UID matériel lu enE.
+- Image logiqueFRAM de 51 818 octets entièrement allouée : BootIntent offset 51 802 + taille 16.
+  Identitéfonctionnelle/UID/adresse ne disposent d'aucune réserve approuvée.
+  IdentityService est enRAM, pas source persistante de carte. Le profiltransactionnel
+  qualification262144 physique n'est pas une allocation production implicitementGO.
+- TransactionalMedia récupère EMPTY/VALID/UNSUPPORTED/CORRUPTED/UNAVAILABLE.
+  Pas enumRECOVERABLE ; publication survivanteCRCvalide → VALID, sans réparation
+  automatique. Absence d'interface ne démontre pas absence physique du composant.
+- ProductionApplication/SystemRuntime/ModbusSystemServer et bulkSD sont développés,
+  mais contexts/allocation/configmetadata/identité/adresse réelles ne sont pas fournis.
+  Bootcomplet peut écrire journaux/BootIntent ; probe livré est seulementlecture.
+  AbsenceSD ne donne pas automatiquement un runtime dégradé entièrement disponible.
+  Le binding faible NOT_AVAILABLE reste intact, diagnosticErestaurable conservé.
 
-Preuves horsGit dans `/home/lolo/dev/msm/reports/TR2-SSH-HP-001-*`.
+Choix proposés, non imposés : domaineidentitéFRAM séparé avec lienatomique,
+évolutionlayoutversion avec migration, ou réaffectation historiqueCampaignData
+après migration/ownership. Risques des coupures entre domaines/donnéesharness et
+allocationsSD explicités. SchémaUID 96 bits/DeviceId 32 bits/ASCII/versions/capacités/address
+interne et manifeste de provisioning proposés ; pas nouveau registre ni format
+persistant de carte créé. Attributionunique/version/adresse ne sont pas inventées.
 
-| Vérification réellement effectuée | Résultat / preuve |
-|---|---|
-| hostnameSSH Windows |0, HP attendu ; commande initiale sortieoutil |
-| Probe final |0, `probe-2/stdout.log`/result.json |
-| Inventaire final +politique globaleSSH |0, `inventory-final/stdout.log`/result.json |
-| FailureProbe distant volontaire |**17**, `failure/`, code propagé sansmasquage |
-| HashEXE incorrect distant |**1**, `rejected-hash/`, refusavantlancement |
-| OFFLINE HP +370hashes |**0**, `offline-2/`, sortiehorsport réelle |
-| Mutex détenu par autre sessionSSH |holder0, tentative**1** avantlancement, `lock-test/` |
-| TestsPython orchestration |**6/6**, `unit-tests.log` |
+## Code livré et limites exactes
 
-Commande tests : `python3 -m unittest discover -s
-00_Environnement_developpement/T1000/ssh-hp -v`. Cas : SSHfixe/strict/bootstrapcourt,
-quoting/tâchesrefusées, code17/logsbruts/dossierdéjàexistant, timeoutpartiel sansretry,
-clientabsent/panneSSH avec étatdistantinconnu, restrictionsOFFLINE/verrou/deadline.
-TestsréelsPS/HP complémentaires aux mocks : branchesProbe/Inventory/Offline,
-refushash et contentionmutex effectivement exécutées. Aucun test supprimé/affaibli.
+- `production_provisioning.h/.c` : probe enlecture sanswrite ; plan avec génération/
+  ownership/image51818 indépendante/immutable et **callback autoritatif inspectant
+  tout le layout et l'identité persistée**. Sans callbackréel/ownership→refus.
+  UID 96 bits exact/version/capacités/adresse1..247 puis projectionB0existante vérifiés.
+  Identité/B0/générationfonctionnelle/adresse doivent rester identiques à l'image
+  actuelle ; migration/changementadresse non implicitement autorisés.
+- Applyexplicitement autorisé seulement, jamaisappeléparboot : replan, transaction
+  uniqueviaPersistentStorageCore/TransactionalImageMedia, recovery+relecture51818,
+  aucun retry. Identique et générationcouranteconforme→zérowrite/commit ; ancienne
+  générationpérimée refusée. Flagsoftwarewrite_authorized n'est pas autorisation
+  humaine/matérielle ni une protection d'accès système.
+- **EMPTY toujoursrefusé** : pas créationinitiale, pasformat, pas codecstockageidentité
+  ni parseurproduction fourni fauteallocation. Le moteur n'est pas prétendu
+  résoudre le provisioning initial ou raccorder déjà B0/B1 de la carte.
+- `stm32_production_runtime_prepare` utilise probe ; conserveVALIDrequis, transmet
+  erreurs plus précises avant capteur/runtime. Fonctionfaible de carte inchangée.
+- `transactional_image_media_recover` révoque recovered/recovery_required avant
+  chaque tentative, puis seuleVALID restaureautorité. Anciencode laissaitinterface
+  utilisable après une nouvellepanne/corruption : défaut reproduit et corrigé.
+- Nouveau test survrai média transactionnel avec FRAMsimuléeRAM ; fixtureidentité
+  native au début de l'image et identitéHostunit23/protocol7/DeviceId76543210,
+  UIDtroismots explicites. **Pas codec durable/allocation carte**, jamaisoverride
+  du binding STM32. Aucun backend fictif ajouté dans production, pasSDcommeFRAM.
+  identity_available indique sourceB0 duplan, pas serveuractivé/B1/READY.
 
-Erreurs conservées : première versionEncodedCommand contenanttoutscript refusée
-parWindows («ligne de commande trop longue», code1, inventory/etprobe/).
-Corrigéeparstdin/bootstrapcourt. Inventaire2 sérialisait excessivement métadonnées
-PowerShell de Get-Content : conversionstrings explicite ajoutée ; inventairefinal
-compact vérifié. PremierOFFLINE refusait les sous-dossiers légitimes wwwroot du
-manifeste : code1/`offline/`, aucunlancement ; contrôle corrigéparchemincanonique
-contenudanspackage, prochain essai **OFFLINE seulement** réussi. Ces erreurs ne
-sont pas dissimulées, aucune transmissionModbus n'a été répétée.
+## Validations réellement observées
 
-Validation proportionnée : testsPython + exécutionsPowerShell réelles et inspection
-Gitdiff/index ; pas de buildfirmware/.NET nécessaire pour des scripts d'orchestration.
-RésultatsD524/524 et110/110 conservés, **non relancés** ni assimilés aux sixnouveauxtests.
-Diffwhitespace/périmètre vérifiés ; logsvolumineux/credentials horsGit.
+Preuves `/home/lolo/dev/msm/reports/TR2-mission014-E-20261011T212010Z` horsGit.
 
-## Limites, retrait et prochaine étape
+- CMake/buildciblé+CTestproduction_provisioning :1/1 réussi initialement, puis
+  cas renforcés inclus dans suite complète. Log ciblé initial visible sortieoutil ;
+  validationfinale et LastTest.log archivés, pas déclarés simples testspréparés.
+- Contrôle négatif : nouveau test lié à transactional_image_media.c duHEADmission
+  préfix → abortattendu(-6), assertionrecovered/récupérationpanne en échec.
+  `negative-control.log` et sourcepréfix conservés ; ce défaut est logiciel/hôte,
+  pas une nouvelle observationFRAMphysique. Mêmecontrôle dans suite corrigée passe.
+- `STM32CUBE_U5_ROOT=/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0 bash ./tr2_validate.sh`
+  retour 0 : **111/111 CTest (110anciens +1nouvelexécutable)** et cross-build ARM
+  réussis. Nouveaucore/preparateurSTM32 effectivement compilés (sortiebuild).
+  Tests : absenceinterface/médiaEMPTY, VALID, paircorrompusurvivant, I/Oinaccessible,
+  corruption/unsupported, révocationread/write/commit, UIDtroisièmemot/mismatch,
+  version/adresse0et248/capacitésréservées/DeviceIdchangé, ownership/parserabsents,
+  générationpérimée/imagealias, writeauthorizationfalse, planzérowrite, idempotence,
+  commit/relecture/rebootRAM et coupurespartielles aux3phasespayload/header/superblock.
+  Suite inclut tests existants runtime/bulk/configfault/RTUB0B1/disponibilité ;
+  aucun test supprimé/affaibli, aucune attente artificielle changée.
+- Quatrewarningsnewlibpréexistants `_close/_lseek/_read/_write`, paserreur/Werrorhôte.
+  Text157876/data124/bss129080 ; BIN/ELF/MAP ethashes dansbuild-artifacts.json,
+  code 00230c3 évalué. Compilation n'est pas flash/exécutioncible.
+- `python3 -m unittest discover -s 00_Environnement_developpement/T1000/ssh-hp -v` :
+  **6/6**, ssh-unit-tests.log. Documentation/codeSSH inchangéhorsREADME.
+- Validationcomplètefirmware justifiée : changement du média partagé et gardesboot.
+  .NETsources/protocole inchangés → pasrelance524 tests D/publishpaquet inutile ;
+  résultatsD conservés commehistoriques, non assimilés aux111 tests E.
+- BIN/ELFdiagnosticE sur disque rehashés exacts dc6ac75f…/4c496149…,
+  preserved-diagnostic.json. Pas nouvellelectureMCU, sauvegardes etpreuves intacts.
+  Diff/index/whitespace/périmètre inspectés ; logs/artefacts/secrets horsGit.
 
-AccèsSSH validé ne vaut pas qualificationphysique. COM7/exclusivité universelle,
-performance/timing/driver souspanne et transfertSCP d'un nouveau paquet non qualifiés.
-Pas campagne COM7 autorisée spécifiquement ici, aucune commande physique exécutée.
-PasGDB/flash/reset/CLIcible/OptionBytes/masserase/écritureModbus/gestephysique.
-Le verrou protège coopérants ; campagnefuture requiert contratspécifique/revue,
-borne/timeouts/journalnouveau et assurancemaîtreexclusif/cible, aucun GDBpendanttrafic.
-Aucun replayM014-C/M013-I, aucun fauxREADY/DeviceId/B0/provisioning ajouté.
+## Blocage réel et point de reprise
 
-README propose retrait par arrêtusage uniquement (outilnoninstalléHP) ; conservation
-preuves. Modifieralias/clé/serviceexistant reste décisionséparée, pas suppression
-silencieuse. Réductionfuture : comptestandard limité, authentificationclé et portée
-réseauprivé contrôlée, aprèsdécision. AucunsecondCodexHP installé/exécuté.
+AGENTS§8/contratE : décision structurante non couverte à documenter, poursuivre
+travaux indépendants (réalisés ci-dessus). Pour finircomposition/provisioning :
 
-Journal actualisé pour accèsHP direct désormaisobservé, OFFLINE réel, limites et
-suite ; historiques disantHPinaccessible restent datés. À transmettre àChatGPT :
-revoirrapportSSH, décider éventuelle réductionprivilèges/campagnefuture souscontrat,
-poursuivre décisionsproductionM014-D (toujoursBLOCKED). JournalHPoriginalC noncollecté :
-réserve sur soncontenu/hashintégral maintenue, pas conclusiondepuisSHAseul.
+1. Approuver domainepersistantidentité/format/version et liaisonatomique au layout
+   existant, ownership desrégionsFRAM/SD et stratégieharness/migration/sauvegarde.
+2. Fournir registre d'attributionDeviceId unique, identitéB0/authenticitéUID 96 bits,
+   protocol/firmware/hardware/capacités/address réels, configuration/métadonnées.
+3. Implémenter codec/inspecteur complet autoritatif, créationinitialeEMPTY et
+   migrations approuvées séparées du boot ; tests des coupures entre domaines,
+   idempotence et mismatch ; aucune fixture native copiée en production.
+4. Composer contextsFRAM/SD/config/capteur/transportdurables exclusifs puis
+   testsdépendancesabsentes avant imageproduction ; préserverdiagrestaurable.
+5. Sousmissionmatérielle distincte seulement : sauvegardes/rélecture/procedure
+   provisioning/flash/reset/persistance ; ensuite B0/B1HPbornés et polling/reprise
+   avec journalexclusif/revueChatGPT/maîtreunique, aucun GDB pendanttrafic.
+
+Pas de question intermédiaire surlogicielautorisé. Aucun quota épuisé, aucuncodeinachevé
+volontairementabandonné ; parser/allocation/créationinitiale sont explicitement
+bloqués parchoixstructurants, pas cachés derrière un fauxVALID/READY.
+CommandesC/Iconsommées nonrejouées ; aucun accès COM7/SWDetécrituremédia physique.
+JournalHPoriginalC toujoursnoncollecté (réservecontenu/hashintégral maintenue),
+réserves DE/TC/stopbit/t1.5/t3.5/retourRX/robustesse/reset/watchdog/J1global/E4 ouvertes.
+JournalETAT_COURANT actualisé avecpreuves/progrès/blocage/options/repriseE.
+ÀChatGPT : revoirleslivrables/déciderallocationformat etautoritésréelles souscontrat.
 
 ## Git et publication
 
-Commitcode52f6ab8 ci-dessus, commit/pushmain autorisés ; flash/debugfalse respectés.
-Git initialpropre, travauxhorspérimètre noninclus, deuxstashes/backupspréservés.
-Publication normale explicite HEAD:refs/heads/main réussie au SHA
-`666254208c5760c53b0ee5c3fed06e7156c289a9`, commit
-`Publish SSH HP qualification evidence and retained Modbus limits`. Fetch puis
-relecture UTF8 intégrale des11 fichiers livrés/gouvernance/archivesD depuis cette
-référence GitHub et comparaison octet pour octet avec les fichiers locaux :
-tous conformes (`TR2-SSH-HP-001-remote-reread-1.json` horsGit). Main propre,
-HEAD=origin/main, deux stashes conservés. Cette mise à jour DONE sera également
-poussée et relue ; son SHA final est fourni dans la réponse Codex sansautoréférence.
-La mission SSH est DONE ; M014-D demeure BLOCKED, aucun acquis physique nouveau.
+Commit/pushmain autorisés ; flash/debugfalse respectés, aucune opérationphysique.
+Commitcode 00230c3 validé ci-dessus. ArchiveSSH exactes/gels/stashes 005/002préservés.
+RapportBLOCKED etdocumentation prêtsàpublicationnormale HEAD:refs/heads/main puis
+fetch/relectureUTF8intégrale/égalité deslivrables. Statut BLOCKED restera sur la
+décisionallocation/format réelle, indépendamment de la réussite du push.
+SHAfinaldistant et étatGit seront fournis après publication/relecture V2.

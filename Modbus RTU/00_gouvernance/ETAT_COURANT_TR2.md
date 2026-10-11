@@ -1,6 +1,6 @@
 # État courant TR2 — référence reconstruite
 
-Mise à jour : 11 octobre 2026. Mission `TR2-20261011-SSH-HP-001`.
+Mise à jour : 11 octobre 2026. Mission `TR2-20261011-M014-E-PRODUCTION-BOOT`.
 
 **Ce document est un nouvel état de référence reconstruit à partir de preuves vérifiables. Il n'est pas une restitution du journal historique HP.** Sa création a été explicitement autorisée par l'utilisateur pour la mission `T1000-20261010-CLOTURE-001`, après escalade AGENTS.md §18. Aucun original n'a été retrouvé dans l'historique Git, les répertoires Linux locaux ou les documents Windows accessibles. Les archives d'échanges du 8 octobre mentionnent un journal local HP, sans en fournir le contenu. Aucun état historique inconnu n'est inventé.
 
@@ -334,3 +334,32 @@ physiques temporelles/robustesse/production/J1global/E4 inchangées.
   JournalHPoriginalC toujoursnoncollecté, réservesphysiques/timing/E4 inchangées.
   RevueChatGPT du rapportSSH puis contratspécifique pour tout nouvelessaiborné ;
   accèsSSH seul n'autorise pascampagne ni qualificationModbus globale.
+
+
+## M014-E — 11 octobre 2026 : gate média et moteur validés, allocation bloquée
+
+- **VALIDÉ logiciel / COMPILÉ ARM** : code00230c3334a3a9c83b4d89edf758c84a6b3fc1c3,
+  probeFRAM lectureseule avec états explicites et révocation de toute ancienne
+  autorité avant nouvelle recovery. Défaut ancien reproduit par contrôle négatif
+  hôte puis corrigé. PréparationSTM32 utilise ce gate ; aucun format/provisioning
+  au boot. Moteur explicite plan/apply sur TransactionalImageMedia existant,
+  ownership/génération/UID96 entier/version/adresse/B0 réels exigés via inspecteur
+  de layout fourni ; absent→refus. Aucun inspecteur/allocation carte inventé.
+- **RÉSULTATS RÉELS** :111/111CTest, cross-buildSTM32 réussi (4warningsnewlib),
+  six testsSSH réussis. Fixtures/RAM seulement pour transactions/idempotence/
+  coupures3phases/absence/EMPTY/corruption/recovery/mismatch/refus sansécriture.
+  Pas .NET modifié,524testsD conservés nonrelancés. Preuves
+  /home/lolo/dev/msm/reports/TR2-mission014-E-20261011T212010Z.
+- **BLOCKED COMPOSITION / M014 IN PROGRESS** : imagehistorique51818 entièrement
+  occupée (BootIntent51802+16), pas réserveidentité/UID/adresse approuvée.
+  Décider domaineformatpersistant/lienatomique/migration, géométrieownershipFRAM/SD,
+  attributionDeviceId unique et versions/adresse réelles avant parser/composition.
+  Moteur refusecréationEMPTY et changementidentité/adresse ; aucune prise en charge
+  prétendue du provisioning initial. BindingfaibleNOT_AVAILABLE préservé.
+- **PRÉSERVÉ / SUITE** : [audit/options/repriseE](PROVISIONING_PRODUCTION_M014_E.md),
+  gouvernanceSSHcomplétée sansdoublon, rapportSSHarchivé exact et lienarchitecture
+  stabilisé. DiagnosticE BIN/ELF rehashés exacts horscible ; deuxstashes intacts.
+  Aucun SSHHP exécuté enE, aucun COM7/RS485/FRAMSDphysiques/GDB/flash/reset.
+  Souscontrat futur : déciderallocations/codec, testercréation/migrations/coupures
+  multidomaines puis autoritéscarte durables avant qualificationphysique autorisée.
+  C/Iconsommés, journalHPoriginalC/timing/robustesse/E4 restent réserves ouvertes.
