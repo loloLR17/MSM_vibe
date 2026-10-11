@@ -1,5 +1,5 @@
 ---
-mission_id: TR2-20261011-M014-C-READINESS
+mission_id: TR2-20261011-M014-C-END-TO-END
 status: READY
 base_ref: main
 author: ChatGPT
@@ -10,7 +10,7 @@ allow_flash: false
 allow_debug: true
 ---
 
-# M014-C — Préparer et qualifier le GO pour une lecture .NET réelle sur HP
+# M014-C — Qualification complète d'une lecture .NET réelle sur HP
 
 Lire AGENTS.md, protocole V2, rapports M013-J/M014-A/M014-B, procédure HP, code diagnostic actuel et état courant sur main. Vérifier HEAD et préserver stashes/preuves.
 
@@ -27,3 +27,7 @@ Objectif de cette mission : établir les prérequis et les instructions exactes 
 5. Publier un verdict de préparation GO/NO-GO motivé, les prérequis restant à vérifier sur HP, une commande d'essai réservée à une autorisation explicite ChatGPT après vérification de ces prérequis ; actualiser DERNIER_RAPPORT.md, ETAT_COURANT_TR2.md et procédure, commit/push main et relecture distante.
 
 Aucun changement V1, gels ou firmware. Aucun flash ni reset ; GDB seulement en lecture hors trafic. Développement et Git autonomes selon AGENTS.md. L'utilisateur reste responsable de l'exécution sur HP. Ne pas demander de refaire les contrôles électriques acquis.
+
+## Extension de périmètre validée par l'utilisateur
+
+Cette mission regroupe la préparation, les contrôles HP restants, une seule lecture physique FC03/1000/1 via l'application .NET, l'analyse indépendante des résultats HP et MCU, puis le rapport final. Codex prépare une commande PowerShell HP unique vérifiant les prérequis et réalisant un seul essai sans relance automatique ; l'utilisateur exécute sur HP après revue de la commande par ChatGPT. Pas d'accès distant HP supposé. En cas d'anomalie, arrêter sans nouvelle transmission et conserver les preuves. Ne pas rejouer la campagne Python M013-I. Après réception des résultats HP, compléter le même rapport et ne pas créer de nouvelle mission administrative. L'étude éventuelle d'un accès Codex au HP est différée après validation de cette qualification.
