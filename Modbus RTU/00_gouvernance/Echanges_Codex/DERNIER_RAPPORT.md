@@ -1,11 +1,12 @@
 ---
 mission_id: TR2-20261011-DIAG-VDDIO2-RS485-007
-status: BLOCKED
+status: DONE
 base_ref: main
 base_sha: 4a0858725e6e562167ee585622f6e5e7687d2ab1
 initial_head: 4a0858725e6e562167ee585622f6e5e7687d2ab1
 result_sha: b35e236bfd88bbb4d7d2e5289add66c4505f0b0b
 created_at_utc: 2026-10-11T12:00:36Z
+updated_at_utc: 2026-10-11T12:01:07Z
 author: Codex
 target_branch: main
 allow_commit: true
@@ -16,12 +17,12 @@ allow_debug: false
 
 # Mission 007 — diagnostic VDDIO2 et sécurisation de l'essai RX
 
-**BLOCKED provisoire : uniquement en attente de publication/relecture distante.**
+**DONE pour analyse/préparation : publication et relecture distante intégrale au SHA `7e9a73929f93a19da69dac27d7da2400671d89d0`.**
 Analyse et procédure de décision livrées suivant l'alternative explicitement
 prévue au §4 du contrat. **VALIDÉ logiciel ciblé / COMPILÉ STM32 / NON QUALIFIÉ
 électrique / NON QUALIFIÉ RX. Essai physique NON PRÊT.** Aucun patch d'activation
 appliqué à une alimentation ou direction non vérifiée. La mission d'analyse
-peut être clôturée sans prétendre avoir réparé/qualifié le banc.
+est clôturée sans prétendre avoir réparé/qualifié le banc.
 
 ## Références et livrables
 
@@ -143,7 +144,14 @@ Commits et push normaux main autorisés et exercés ; **aucun flash, cible
 OpenOCD/GDB, reset, écriture, émission physique ou manipulation**. Avant push :
 main/destination, distant `19aff5e...` sans divergence, périmètre/secrets/index et
 validations vérifiés. Stashes et mission ChatGPT inchangés.
-Rapport BLOCKED provisoire : seule la preuve distante attendue pour clôturer
-l'analyse préparatoire. Cycle V2-B3 prévu : publication, relecture intégrale des
-livrables depuis origin/main, comparaison aux locaux, mise à jour DONE séparée
-puis nouveau contrôle de publication et arbre propre.
+Premier push normal `git push origin HEAD:refs/heads/main` réussi :
+`19aff5e → 7e9a73929f93a19da69dac27d7da2400671d89d0` (commit de rapport provisoire).
+Puis fetch : origin/main=HEAD ; relecture complète des **5 livrables, 62993 octets**
+via `git show <SHA distant>:<chemin>`, décodage intégral et comparaison octet pour
+octet aux locaux, sans différence. Identifiant de mission/result_sha vérifiés ;
+arbre propre. Manifest hors Git `/tmp/tr2-mission007-remote-reread.json`.
+
+Mise à jour DONE publiée séparément puis contrôlée à nouveau ; SHA final fourni
+après vérification dans la réponse, sans référence autoréférentielle. Les deux
+stashes sont conservés. Relecture Codex, contrôle indépendant ChatGPT et preuve
+physique restent trois niveaux distincts.
