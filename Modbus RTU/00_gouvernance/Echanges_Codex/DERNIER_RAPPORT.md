@@ -1,61 +1,156 @@
 ---
-mission_id: TR2-20261011-M014-B-HP-PREFLIGHT
-status: DONE
+mission_id: TR2-20261011-M014-C-END-TO-END
+status: BLOCKED
 base_ref: main
 base_sha: null
-initial_head: 913589424c323845fe7d797578fd5df60c8dbcc3
-mission_sha: e6faf7286bc0bcbf6e99e5d398fee69cd5f9da34
+initial_head: 7521ad0390fc323ea53a3aa6fa1497e40a2d4471
+mission_sha: 2dfaa45e3ef8f3ba286b61ff484989973b897cac
 result_sha: bcc69c9d07aa02f756f9e2db0d67f62613d1951e
-created_at_utc: 2026-10-11T17:39:34.074076+00:00
-updated_at_utc: 2026-10-11T17:41:22.960541+00:00
+created_at_utc: 2026-10-11T18:03:41Z
 author: Codex
 target_branch: main
 allow_commit: true
 allow_push: true
 allow_flash: false
-allow_debug: false
+allow_debug: true
 ---
 
-# M014-B — paquet intact, transfert et préflight HP OFFLINE prêts
+# M014-C-END-TO-END — préparation publiée, attente du seul essai HP
 
-**DONE : préparation terminée, procédure/rapport/journal/archives publiés puis relus depuis GitHub.** ZIP existant vérifié, procédure HP concrète prête ; aucun transfert ou lancement HP prétendu, aucune transmission Modbus. Un préflight OFFLINE réussi ne donnera pas GO pour M014-C.
+**Préparation logicielle et baseline STM32 réalisées ; NO-GO inconditionnel tant
+que revue ChatGPT et prérequis HP ne sont pas établis. GO conditionnel pour une
+seule lecture par l'utilisateur selon la procédure C. BLOCKED pour l'exécution
+HP et l'analyse après essai, pas un échec logiciel.** La mission étendue reste
+ouverte ; compléter ce même rapport après réception du résultat, sans nouvelle
+mission administrative ni répétition de la campagne Python M013-I.
 
-## État initial et contrat
+## Contrat et état réel
 
-Main initial propre `913589424c323845fe7d797578fd5df60c8dbcc3`, fetch et pull --ff-only jusqu'à `e6faf7286bc0bcbf6e99e5d398fee69cd5f9da34` ; seul contrat ChatGPT changé. Deux stashes historiques005/002 préservés. AGENTS.md et protocole inchangés depuis A, règles relues/consultées ; état courant intégral, rapport A et procédure A consultés, code CLI et fichiers réels inspectés. Base_sha et date de création absents du contrat : base_sha=null, aucune date inventée. Commit/push normaux main autorisés ; flash/debugfalse. Mission active ChatGPT non modifiée.
+Main initial propre7521ad0 ; fetch puis pull --ff-only sûr vers2dfaa45, seul
+contrat changé. Deux stashes historiques005/002 identiques et conservés, preuves
+A/B/E/J/backups préservées. AGENTS.md, protocole, journal intégral, rapports
+J/A/B, procédure B et code diagnostic réel consultés. Base_sha/date contractuelle
+absents : null, pas de valeur inventée. Mission active ChatGPT inchangée.
+L'extension utilisateur prévaut sur l'ancien objectif readiness : préparation,
+contrôles HP, unique lecture puis analyse indépendante dans cette même C.
+Elle impose expressément « l'utilisateur exécute sur HP après revue de la commande
+par ChatGPT ». Aucun accès distant HP supposé ; pas d'essai exécuté par Codex.
 
-## Vérification réelle du paquet, sans rebuild
+**Faits utilisateur consignés au contrat** : ZIP SHA256 conforme et diagnostic
+OFFLINE COM7/115200/8E1 avec message aucune ouverture/transmission/journal, code0.
+EXE extrait,370 fichiers et identité PnP ne sont pas encore confirmés sur HP.
+Les résultats A/B sur T1000 ne remplacent pas ces contrôles HP.
 
-Source `/home/lolo/dev/msm/reports/TR2-mission014-A-20261011T171855Z/TR2-M014-A-win-x64.zip`, code `bcc69c9d07aa02f756f9e2db0d67f62613d1951e` inchangé. ZIP **50086986 octets**, SHA256 **51e2e36e106b76243096ccb3daaf25d8a9579020e1397e2087aed07cd6ca43a0**, même empreinte que A. Contrôle CRC d'archive réussi, liste sans doublon/ajout inattendu :370 fichiers applicatifs plus manifeste. Pour chacun : tailles/hashes SHA256 et octets identiques ZIP/dossier publié ; total113708544 octets applicatifs.
+## Audit .NET conservé
 
-Manifeste embarqué SHA256 `eeaf70a35f81a9d9a5102cef011dc54bb4e9eae2b774e75af75689b1dc6db7a3` identique au disque. EXE162816octets SHA256 `13228dfe3d30cf01829c16be1be22f30b061cc0cb0916b2e6a499b8fd1f96872`, signatures MZ/PE et machine0x8664 x64 vérifiées. runtimeconfig inclut Microsoft.NETCore.App/Microsoft.AspNetCore.App10.0.12 ; coreclr.dll/hostfxr.dll présents. Paquet autonome confirmé par ces fichiers, pas par une exécution Windows. **Rebuild inutile, non effectué** ; pas installation SDK/runtime système requise pour ce paquet temporaire.
+Code évalué bcc69c9, sources diagnostic/dispatch/politique retry comparées
+byte-à-byte à ce commit : inchangées. Pas de modification firmware/V1/gels,
+transport partagé, production ni configuration permanente. Dispatch diagnostic
+avant composition runtime/config ; sans --read-once, retour OFFLINE avant factory,
+port et journal. Activation exige paramètres explicites/log ; unité1/8bits/One,
+FC03/1000/1 fixes, retries0/WaitToRetry0/SlaveBusyUsesRetryCounttrue.
+Une connexion, un ReadRegistersAsync, disposal ; pas polling/découverte/B0/B5,
+écriture ou reconnexion. Journal CreateNew/exclusif, intention persistée avant
+ouverture/lecture, UTC et decoded_response/result ou failure/stage/kind/code.
+Succès seulement un registre0, UNKNOWN0 ; DeviceId indisponible/production non évaluée.
 
-## Livrables et transfert préparé
+Profil HP timeout série1000ms/deadline attente4000ms, absence retry. Driver
+open/dispose n'a pas de garantie temps réel dure ; cancellation ne retire pas
+une émission déjà possible. CRC NModbus réel testé en A, journal CLI contient
+registres décodés et attentes hex, aucune capture brute du fil supposée.
+Résultats conservés vérifiables : build/publish A et TRX502/502, tests framing
+mémoire exact/badCRC/silence/exceptions etc ; B2/2 absence ouverture sans activation.
+Pas de rerun/build/cross-build inutile : code intact, tranche documentaire/outillage.
 
-`Modbus RTU/00_gouvernance/PREFLIGHT_HP_SUPERVISION_M014_B.md` ajouté : chemin WSL local visible depuis Windows Dell, transfert manuel du ZIP entier par support compatible disponible ou canal de fichiers choisi par utilisateur, vérification destination. Aucun support/lettre de lecteur, partage réseau, service cloud, compte/dock ni accès distant supposé/configuré. Ne pas confondre procédure GitHub publiée et ZIP local : **binaire non hébergé GitHub, non transféré HP**. Original A conservé, aucune copie écrasant une installation.
+## Observations fraîches STM32, sans reset ni flash
 
-Bloc interactif Windows PowerShell5.1x64 préparé : modèle HP15-db1/Windows64, taille/hash ZIP avant extraction, nouveau dossier local suffixé UTC/GUID, transcript sans écrasement, hash manifeste fixé et vérification des370 fichiers. Inventaire.NET facultatif car runtime embarqué ; inventaire COM7/PnP sans ouverture, refus absence/ambiguïté/erreur. Une invocation EXE avec `--diagnostic --port COM7 --baud 115200 --parity Even --timeout-ms 1000`, **sans activation de lecture**. Contrôle code0 et marqueur OFFLINE ; résultats à conserver. Aucun fichier.ps1 à lancer, ExecutionPolicy/registre/services/configurationWindows inchangés. Les messages d'échec arrêtent cette préparation et ne déclenchent jamais un essai de bus.
+Preuves `/home/lolo/dev/msm/reports/TR2-mission014-C-20261011T180341Z`.
+Inventaire processus Windows corrigé : aucun GDB/server/CubeProgrammer/maître
+TR2 actif avant collecte, aucun après. Chaîne Windows qualifiée et procédure
+GDB seule D/J réutilisées ; ST-LINK SN003500463235510B37333439, cible connue
+NUCLEO-U575ZI-Q. Helpers J copiés dans nouveau dossier C, pas anciennes preuves
+écrasées. Trois sessions before/image-ram/baseline-final, retours GDB/server0 :
+`ST-LINK_gdbserver.exe -d -g -i <SN> --frequency 8000 -p 61234 -cp <bin qualifié>`
+et `arm-none-eabi-gdb.exe -nx -q -batch -x <script> <ELF E>`.
+Lecture/dumps puis detach/quit ; attach suspend brièvement hors trafic. Aucun
+monitor reset/load, écriture mémoire/NVIC/GPIO/RDR/ICR, CLI HOTPLUG ni transmission.
+Le répertoire -cp n'est pas un appel CubeProgrammer CLI.
 
-Archives A `MISSION.md`/`RAPPORT.md` exactes depuis HEAD initial, sans écrasement ni réécriture historique. ETAT_COURANT_TR2 actualisé : paquet vérifié sans rebuild, transfert/préflight préparés mais non effectués, tests utiles/limites réelles, suite M014-C séparément autorisée. V1, gels, code.NET, firmware et config permanente inchangés.
+Flash49200octets0x08000000..0x0800C030 identique byte-à-byte au BIN E, SHA256
+`dc6ac75f667e10f0a4d04a7e92f82099f450de3a759677bc81c166f93c82d540`.
+ELF E168512octets SHA256 `4c496149b7b3af593269dbff7c92368d575cebe824f62ffa67ed57e522d3adc2`,
+source firmware0bfaa0e/code09792c8 ; diagnostic/observer/TXON unité1 inchangés.
+CPUID410fd214/VTOR08000000 cohérents. Pas nouveau relevé identité silicium
+DBGMCU/UID : identité cible par sonde connue/image exacte/contexte qualifié.
+Observer992octets et transport692octets décodés avec nm/layout E conservés.
+RAM768KiB conservée. Baseline finale SHA256
+`28d7bff75da0eb1ed7c7fc108c69da3a17d50b744712a5b21341a909d07d0cfb`.
 
-## Validation proportionnée et erreurs
+17 comparaisons trafic J→C toutes delta0, compteurs stables entre relevés C :
+RX/bytes104,frames13,CRCvalid12,bad1,foreign1,accepted/available/TXattempt/started/TC11,
+erreurs/drop/failsafe0. UARTIRQ203/TIM637. Dernière TX RAM0103020000B844 historique,
+pas résultat .NET nouveau. Ready1/poll_result0/pollerrors0 ; tick7285499→7294644,
+poll2484185902→2487304112 : exécution progresse après detach. NVIC ISER0=0,
+ISER1=20000/ISER2=4, ISPR0..2=0, masques CPU0 ; UARTISR6200D0/CR1152D/CR31,
+RxState22/count1/ErrorCode0, PG4ODR0, TXbusy/fault/bus_silent0, phaseIDLE,
+head/tail2/2,overflow0,CFSR/HFSR0. État ponctuel sain, aucun défaut HOTPLUG D observé.
+Aucun reset depuis J par Codex ; pas compteur boot persistant excluant un reset
+externe inconnu. La baseline n'est pas une surveillance continue.
 
-- Vérification Python du ZIP/manifeste/370 fichiers/hash/PE/runtimeconfig : réussie, preuve `package-verification.json`.
-- Extraction du seul bloc PowerShell vers les preuves puis **Parser::ParseFile Windows**, retour0/sans erreur ; métadonnées `Start-Transcript` (LiteralPath/NoClobber) et type SerialPort confirmées. Aucune exécution du bloc, pas inventaire ou ouverture de COM7 sur Dell/HP. Contrôle statique : une invocation diagnostic OFFLINE fixe, absence --read-once/--config/.Open/.Write. Preuve `syntax-check.json`.
-- `dotnet test tests/TR2.Supervision.Service.Tests/TR2.Supervision.Service.Tests.csproj --no-build --filter FullyQualifiedName~OfflineNeverOpensPortOrStartsProduction --logger trx --results-directory <preuves>/tests`, depuis dossier supervision : **2/2 réussis,0échec/ignoré**. Factory simulée, zéro ouverture sans activation, runtime non démarré. Résultats CLI historiques A non modifiés. Logs/TRX conservés.
-- Première invocation du contrôleur syntaxique : chemin relatif résolu à tort depuis sous-dossier supervision, FileNotFoundError avant toute analyse/exécution ; corrigé en chemin absolu, contrôle relancé et réussi. Erreur conservée dans `validation-attempt-errors.txt`, aucun échec masqué/test affaibli.
-- Diff/index/archives/périmètre/whitespace contrôlés avant commit ; source inchangée. Les502/502 et build/publish A restent des preuves conservées, pas relancées B. Aucune compilation/validation firmware ou suite complète .NET nécessaire : tranche documentaire/de préparation, hashes et contrôle syntaxique apportent les preuves pertinentes. Pas nouveau test artificiel ajouté.
+## Commande HP et critères
 
-## GO/NO-GO et limites
+[Procédure complète](../ESSAI_HP_DOTNET_M014_C.md) : un seul bloc interactif
+PowerShell5.1x64, utilisant le dossier M014-A déjà extrait. Vérifie modèle HP,
+SHA manifeste/370 fichiers/EXE, présence/PnP FTDI COM7, absence processus candidats,
+et déclaration opérateur convertisseur/exclusivité/horsGDB/revue ChatGPT.
+PnP ne prouve pas port libre ni convertisseur physique ; inventaire processus
+non exhaustif, aucun Open de disponibilité. Pas besoin de rejouer l'OFFLINE acquis.
 
-**NO-GO transmission dans M014-B.** Préflight HP/code0/modèle/hash/COM7 conformes = seulement environnement hors port prêt. Il ne prouve ni port libre/exclusivité, ni fonctionnement driver.NET, ni état actuel STM32. Aucun accès HP établi ; T1000 n'est pas le HP, dock non requis. Compatibilité OS, extraction/lancement HP et résultat préflight restent NON VÉRIFIÉS tant que l'utilisateur n'a pas effectué transfert et bloc OFFLINE.
+Dossier fixe LOCALAPPDATA/TR2/M014-C-END-TO-END neuf et marqueur CreateNew/Flush(true)
+avant invocation, arrêt si dossier existant : protection contre relance accidentelle,
+pas contre suppression volontaire ; ne jamais le supprimer pour retenter.
+Une invocation --read-once, COM7/115200/Even/1000ms/logCreateNew. Capture sortie,
+code,JSONL/hash et transcript sans écraser. Toute anomalie : conserver et arrêter,
+zéro relance. Requête attendue010303E80001047A/réponse0103020000B844 ; PCsuccess
+code0+un resultpassedtrue/register0/connexionfermée. Qualification end-to-end
+attend ensuite journal exact/hash recalculé et compteurs MCU indépendants.
+Deltas nominaux attendus RX+8/frame+1/CRCvalid+1/accepted/available/TX/TC+1,
+aucune erreur ; documentés dans procédure, pas présentés comme observés.
 
-M014-C futur : revue ChatGPT, contrat distinct limitant à une FC03/1000/1 unité1 sur COM7/1152008E1, journal exclusif fixé, arrêt sans retry, HP seul maître confirmé, état cible/baseline récente et relevé après séparément autorisés. Pas GDB pendant échange, pas HOTPLUG/reset/flash perturbateur. J reste observation historique, aucun nouveau relevé MCU B. Mauvais hash/absence COM7/échec OFFLINE/maître concurrent/état cible incertain = NO-GO. Pas besoin de refaire les acquis électriques J1/J2/J3/RE-RST/VIO/SB28/câblage. Campagne I consommée, aucun nouveau lancement.
+## Validation de préparation et limites
 
-Journal diagnostic .NET = registres décodés/attentes hex, pas capture brute ; prochain critère de preuve doit l'expliciter. UNKNOWN0 reste diagnostic, aucun DeviceId/READY production fabriqué. Réserves temporelles DE/TC/stopbit/retourRX, robustesse/endurance/reset/watchdogIRQ/production/J1global/E4 inchangées. Aucune qualification bidirectionnelle générale revendiquée.
+Parser::ParseFile du bloc HP sur Windows Dell : SYNTAX_OK, retour0 ; **bloc non
+exécuté**. Inspection statique : exactement une invocation EXE, pas boucle autour,
+retry/config/Python/Open de disponibilité ; marqueur durable avant invocation,
+contrôles avant émission, refus machine Dell. Aucune installation/politique Windows.
+Hashes source/Flash/ELF,17deltas et progression contrôlés réellement. Diff/index,
+archives exactes B depuis initial7521ad0 et périmètre examinés ; diff --check réussi.
+Erreurs d'outillage : première commande inventaire PowerShell avait $_ développé
+par Bash ; corrigée avec quoting littéral, inventaire réussi, aucun accès cible
+lors de cet échec. Recherches de chemins candidats absents résolues par rg,
+sans fabriquer de fichiers. Assertion de contrôleur statique initiale cherchait
+.Open au lieu de ::Open pour le marqueur fichier ; corrigée, contrôle réussi,
+script HP inchangé. Aucun échec test/build masqué.
 
-## Preuves et publication
+NON VÉRIFIÉ : prérequis complémentaires HP, port réellement disponible, branche
+SerialPort/driverFT232R/CRC/fermeture physiques, essai .NET et analyse après.
+La transmission demeure conditionnelle à la revue/confirmation, sans nouveau
+flash/reset. UNKNOWN0 ne signifie ni READY ni DeviceId/B0/B1complet/production.
+Limites M013 inchangées : DE/TC/dernierstopbit/t1.5/t3.5/retourRX réel,
+robustesse/endurance/reset/watchdog IRQbloquées/J1global/E4 ; aucune qualification
+bidirectionnelle générale. Après tout échec, analyser les preuves disponibles
+sans nouveau trafic et compléter C. Aucun acquis électrique à répéter.
 
-Dossier B horsGit : `/home/lolo/dev/msm/reports/TR2-mission014-B-20261011T173305Z` (`<preuves>` ci-dessus) : package-verification.json, bloc préparé hp-prepared.ps1 non exécuté, syntax-check.json, erreur de contrôleur, tests/log/TRX, stashes-initial.txt ; manifestes et relectures de publication ajoutés après contrôle. Dossier/ZIP/preuves A et historiques conservés, sans nouvelle programmation ou diagnostic.
+## Livrables, permissions et publication
 
-Permissions exercées : lecture/vérification/documentation/tests hors matériel puis commit/push normal main autorisés. Zéro COM7/RS485/flash/debug/reset/HOTPLUG/USB/geste physique/changement configuration permanente, aucune nouvelle installation. Rapport, journal, procédure et archives seulement. Commit `5a84b841de7ac7ef4b1d40b16922b0b71e7d06c6`, message `Prepare M014-B verified HP offline deployment and preflight procedure`, push normal explicite `HEAD:refs/heads/main` réussi. Fetch puis relecture intégrale UTF8/comparaison byte-à-byte des8fichiers (cinq livrables dont archivesA, contratB, AGENTS et protocole) depuis cette référence distante : tous conformes ; preuve `remote-reread-1.json`. HEAD=origin/main, arbre propre, deuxstashes identiques au début. Cette clôture DONE sera poussée normalement puis relue ; SHA final dans réponse Codex, pas inscription autoréférente. DONE couvre préparation B, pas exécutionHP ni revue indépendanteChatGPT ni qualification physique. Aucun GO transmission actuel. L'action restante pour utilisateur est le transfert du ZIP et le préflight OFFLINE, sans aucun essai Modbus.
+Procédure C ajoutée, B reliée à C en conservant ses états historiques, journal
+actualisé (OFFLINE utilisateur/santéMCU observée/préparation/attentes), archives B
+immuables. Mission active/AGENTS/protocole/code/.NET/firmware/V1/gels inchangés.
+Preuves horsGit : scripts/logs GDB/server, before/final.bin/json, Flash/RAM,
+comparison-J-C.json, decoded-transport.json, audit.json, hp-command.ps1,
+syntax-check.log, stashes-initial.txt, manifeste et relectures publication.
+Permissions exercées : debug lecture/attach/detach, documentation, commits/push
+normaux main ; allow_flashfalse respecté, zéro reset/COM7/RS485/HOTPLUG/USB/média,
+OptionBytes/effacement ou changement configuration. Préparation sera publiée puis
+relue depuis référence GitHub ; SHA final fourni après publication. BLOCKED reste
+approprié jusqu'aux preuves physiques HP et analyse MCU, même après relecture.

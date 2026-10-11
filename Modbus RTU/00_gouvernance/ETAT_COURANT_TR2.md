@@ -246,3 +246,21 @@ Prochaine étape à transmettre à ChatGPT : contrôler le rapport distant, puis
 - **PRÉPARÉ / NON EXÉCUTÉ HP** : PREFLIGHT_HP_SUPERVISION_M014_B.md décrit transfert manuel du ZIP (support compatible s'il existe ou canal fichier disponible, sans supposer partage/dock/accès distant), contrôle HP15-db1/Windowsx64/hash ZIP/manifeste370fichiers, extraction nouveau dossier local et transcript, inventaireCOM7 sans ouverture puis un lancement OFFLINE. Aucun SDK/runtime système/politique Windows à installer/modifier. ZIP toujours local T1000, pas hébergé comme binaire GitHub ni transféré auHP ; support/canal/transfert/OS et résultatHP NON VÉRIFIÉS.
 - **NO-GO transmission** : succès OFFLINE futur ne donne pas GO physique. Suite ChatGPT : recueillir retour préflight utilisateur, revoir B puis contrat séparé M014-C pour une seuleFC03/1000/1 unité1 COM7/1152008E1, maîtrise exclusive, étatcible/baseline récente et preuvesaprès autorisés ; aucun debugger pendant trafic, pas HOTPLUG/reset/flash perturbateur. PrésencePnP n'est pas port libre/driver.NET qualifié. UNKNOWN pas READY, DeviceId inconnu, capture brute absente de la frontière registres ; réserves temporelles/endurance/reset/watchdogIRQ/production/J1global/E4 inchangées.
 - **PRÉSERVÉ** : code.NET/firmware/V1/gels/configuration inchangés ; aucune ouverture COM7/émission/debug/flash/reset/USB/geste physique, aucune répétition électrique/campagneI. ArchivesA exactes depuis9135894, preuves antérieures et deuxstashes conservés. Preuves B /home/lolo/dev/msm/reports/TR2-mission014-B-20261011T173305Z. Journal actualisé pour préparation seulement ; exécutionHP requiert l'action utilisateur, pas de santéMCU nouvelle observée.
+
+## 11 octobre 2026 — M014-C-END-TO-END, préparation et baseline
+
+**VALIDÉ logiciel conservé** : paquet/code M014-A inchangés, résultats502/502 A
+et2/2 B conservés ; bloc HP unique analysé syntaxiquement, non exécuté.
+**Rapporté utilisateur** : ZIP conforme et OFFLINE HP/code0 sans ouverture.
+**OBSERVÉ MCU** : trois GDB seules sans reset/flash/HOTPLUG ; Flash exacte E,
+IRQ49/66 actives, RX104/frames13/CRCvalid12/TX11 identiques J, erreurs0,
+RXBUSY/count1/PG4bas/filevide, tick et poll progressent, MCU laissé en exécution.
+Baseline C finale992octets/hash28d7bff75da0eb1ed7c7fc108c69da3a17d50b744712a5b21341a909d07d0cfb,
+preuves `/home/lolo/dev/msm/reports/TR2-mission014-C-20261011T180341Z`.
+**PRÉPARÉ / NON VÉRIFIÉ HP** : [bloc C](ESSAI_HP_DOTNET_M014_C.md) contrôle
+EXE/manifeste370/PnP/exclusivité puis une lecture .NET FC03/1000/1, retry0,
+journal exclusif et dossier fixe empêchant relance accidentelle. Revue ChatGPT
+requise avant exécution utilisateur ; aucun essai réalisé ici. Ensuite journal
+exact/hash et deltas MCU à analyser dans **la même mission C** ; rapport BLOCKED
+jusqu'alors. Aucun replay Python I. UNKNOWN0/diagnostic seulement ; réserves
+physiques temporelles/robustesse/production/J1global/E4 inchangées.

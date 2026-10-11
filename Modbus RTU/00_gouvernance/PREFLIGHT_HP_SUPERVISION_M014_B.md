@@ -185,3 +185,11 @@ confirmés par métadonnées, sans exécuter le bloc ni inventorier/ouvrir COM7.
 Deux tests .NET existants d'absence d'ouverture sans activation ont réussi sous
 Linux (2/2, sans build). Les502 tests de M014-A sont des résultats conservés,
 pas une suite complète relancée ni une qualification HP. Preuves B : `/home/lolo/dev/msm/reports/TR2-mission014-B-20261011T173305Z`.
+
+## Suite publiée M014-C
+
+Le contrat M014-C-END-TO-END étend maintenant la préparation à un seul essai
+HP après revue ChatGPT, puis analyse indépendante HP/MCU dans la même mission.
+ZIP conforme et OFFLINE/code0 sont désormais rapportés par l'utilisateur ;
+les autres contrôles HP restent à établir. Suivre [la procédure C](ESSAI_HP_DOTNET_M014_C.md),
+sans rejouer B ni la campagne Python I. Les états B ci-dessus sont historiques.
