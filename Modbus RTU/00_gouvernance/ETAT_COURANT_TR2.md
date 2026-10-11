@@ -1,6 +1,6 @@
 # État courant TR2 — référence reconstruite
 
-Mise à jour : 11 octobre 2026. Mission `TR2-20261011-M013-F-PHYSICAL-RESPONSE-FORENSICS`.
+Mise à jour : 11 octobre 2026. Mission `TR2-20261011-M013-G-RTU-TIMING-ROBUSTNESS-PLAN`.
 
 **Ce document est un nouvel état de référence reconstruit à partir de preuves vérifiables. Il n'est pas une restitution du journal historique HP.** Sa création a été explicitement autorisée par l'utilisateur pour la mission `T1000-20261010-CLOTURE-001`, après escalade AGENTS.md §18. Aucun original n'a été retrouvé dans l'historique Git, les répertoires Linux locaux ou les documents Windows accessibles. Les archives d'échanges du 8 octobre mentionnent un journal local HP, sans en fournir le contenu. Aucun état historique inconnu n'est inventé.
 
@@ -200,3 +200,10 @@ Prochaine étape à transmettre à ChatGPT : contrôler le rapport distant, puis
 - **DÉDUCTION FORTE POUR CET ESSAI** : aller-retour diagnostic MCU→HP corroboré par chaîne instrumentée, origine STM32 raisonnablement établie. Script dépôt ne transforme pas l'écho ; copie HP non hachée, source concurrente/proxy théoriquement non exclue sans capture bus. Pas de qualification définitive générale TX/bidirectionnelle.
 - **PRÉSERVÉ / SANS NOUVELLE ACTION** : 181 fichiers E rehashés inchangés, RAM768KiB et relevés F dans /home/lolo/dev/msm/reports/TR2-mission013-F-20261011T161246Z, archives E exactes. Deux lectures GDB avec detach, zéro CLI HOTPLUG/reset/flash/nouveauprobe/émission/geste physique, stashes005/002 conservés. Cible running.
 - **NON QUALIFIÉ / SUITE ChatGPT** : DE/dernierstopbit/TC/retourRX temporels, latence/robustesse/endurance/watchdogIRQ/reset/J1global/production/E4. Préparer mission séparée capture temporelle puis robustesse cadrée ; aucun essai demandé F, instruction E -Transmit consommée et non à répéter.
+
+## M013-G — 11 octobre 2026 : préparation temporelle/robustesse hors bus
+
+- **READY outillage HP hors bus** : rtu_campaign.py OFFLINE défaut, mock isolé et JSONLbrut, campagne fixe12max/10nominales/CRCincorrect1/unitéétrangère2 unefois, observation1s+100ms, arrêt anomalies/échos sansretry/purge. Tests10/10 et mock78événements réussis ; commitcode 158feddfa99dd5fff71aec4902cd59e3095124f0. Python/pySerialHP et branchephysique NON TESTÉS, pas GOtransmission actuel. Script E historique inchangé.
+- **WAITING instrumentation physique identifiée** : aucun oscilloscope/analyseurlogique/sondedifférentielle/canaux disponible documenté ; absence physique non déduite. QUALIFICATION_TEMPORELLE_RTU_M013_G.md définit acquisitionsDE/TXD/RXD/A–B, isolement/masses sûres, incertitude, t1.5/t3.5 et critèresdebanc proposés, retourRX/limitesWindowsUSB. Aucun branchement demandé.
+- **PRÉSERVÉ / NON MODIFIÉ** : imageE/observers existants suffisants pour prochaine tranche, preuvesE/F/backup/stashes préservés et archivageF exact. Aucun accèsMCU/COM7/émission/reset/flash/debug/CLI/physique en G ; état sain F reste historique, pas nouveau relevé G. V1/firmware/production/médias inchangés.
+- **NON VALIDÉ / SUITE ChatGPT** : aucune mesureDE/TC/retourRX ni robustesse physique nouvelle, qualificationgénérale/J1global/production/E4 inchangées. Revue plan/outil puis mission limitée HP après environnementhorsport confirmé et/ou captures après identificationinstrument. EssaiE consommé ; ne pas relancer son instruction, aucune campagne physique autorisée G.

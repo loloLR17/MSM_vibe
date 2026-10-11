@@ -1,84 +1,70 @@
 ---
-mission_id: TR2-20261011-M013-F-PHYSICAL-RESPONSE-FORENSICS
-status: DONE
+mission_id: TR2-20261011-M013-G-RTU-TIMING-ROBUSTNESS-PLAN
+status: BLOCKED
 base_ref: main
 base_sha: null
-initial_head: c0e2e4c4c75cb71ef20e03446b59abed90e89847
-mission_sha: 36b12d4702f446ff6fe027557da65e3d6220172f
-result_sha: 0bfaa0e0daf3d37f723497b74984cabe1b11ec47
-created_at_utc: 2026-10-11T16:16:06.403265+00:00
-updated_at_utc: 2026-10-11T16:17:09.938785+00:00
+initial_head: 0cccb89c19c9060e185c2d369dfe55ec78ddb4b9
+mission_sha: 15dcb82f492c121746da4ca3cd34f83b93ed89c1
+result_sha: 158feddfa99dd5fff71aec4902cd59e3095124f0
+created_at_utc: 2026-10-11T16:30:53.691497+00:00
 author: Codex
 target_branch: main
 allow_commit: true
 allow_push: true
-allow_flash: false
+allow_flash: true
 allow_debug: true
 ---
 
-# M013-F — première réponse HP corroborée par la chaîne STM32
+# M013-G — préparation de qualification temporelle et robustesse limitée
 
-**DONE : analyse F satisfaite, rapport publié et relu depuis GitHub. Premier aller-retour diagnostic fortement corroboré pour cet essai unique ; qualification physique définitive et générale NON ACQUISE.** Zéro nouvelle émission HP/RS485, zéro flash/reset, zéro accès CubeProgrammer HOTPLUG. Aucun geste physique demandé. Essai E consommé, ne pas le répéter.
+**READY outillage logiciel HP hors bus ; WAITING instrumentation physique identifiée. Aucun GO de transmission en G.** Critères de préparation G satisfaits ; BLOCKED provisoire uniquement pour publication/relecture distante. Aucune mesure temporelle ou campagne physique réalisée, aucune qualification générale revendiquée.
 
-## Référence et faits utilisateur
+## Référence, reprise et état conservé
 
-Main initial propre c0e2e4c, fetch/pull --ff-only vers36b12d4, seul contrat changé. AGENTS.md/protocole/journal intégral/rapport E DONE/procédure D/sources HAL/transport/observateur/script dépôt inspectés. Contrat ChatGPT inchangé, base_sha absent donc null. Code firmware inchangé depuis09792c8 ; result_sha0bfaa0e est la référence du candidat E réellement sur cible, pas le HEAD documentaire F. Deux stashes005/002 préservés. Archives mission/rapport E byte-à-byte depuis HEAD initial, sans réécriture historique.
+Main initial propre0cccb89, deux stashes005/002 conservés. Fetch puis pull --ff-only vers15dcb82, seul contrat changé. AGENTS.md/protocole/journal/rapport F DONE/archives D-E/procédure D et sources main/diagnostic/transport/HAL/script historique inspectés. Archives F créées depuis HEAD initial, exactes et immuables ; F était le rapport actif, pas une archive déjà existante. Contrat ChatGPT inchangé, base_sha absent donc null.
 
-**Observation utilisateur transcrite dans le contrat F, pas capture directe Codex du port HP** : après GO E, un seul lancement `& "$HOME\\Send-Tr2RxProbe.ps1" -Transmit`, COM7/1152008E1 ; sortie exacte :
+F a corroboré l'essai unique E : réponseHP0103020000B844, ADUrequête exacte8octets, CRCvalid/accepted1, réponseRAM7octets/TXstarted/callbackTC1, sans erreur. Ces preuves restent historiques ; aucun rejeu ni nouvelle mesure G. Manifeste des fichiers E et F réalisé et rehashé, fichiers/backups originaux inchangés ; SHA des artefacts et observations dans les rapports E/F archivés. Preuves G hors Git : `/home/lolo/dev/msm/reports/TR2-mission013-G-20261011T162139Z`, preserved-E.json/preserved-F.json et tool-manifest.json, logs de tests et JSONLmock.
+
+Image existante E diagnosticON/observerON/TXON/unité1, référence source0bfaa0e0daf3d37f723497b74984cabe1b11ec47/code09792c8. BIN49200 SHA256 dc6ac75f667e10f0a4d04a7e92f82099f450de3a759677bc81c166f93c82d540 ; ELF4c496149b7b3af593269dbff7c92368d575cebe824f62ffa67ed57e522d3adc2. Identité Flash/MCU/SN établie F via GDB seul, pas nouvelle lecture en G. Dernier état F : RXarmé/TXidle/PG4bas/NVICsain/MCUrunning ; état instantané G NON RÉOBSERVÉ, à vérifier sous futur contrat avant campagne. Aucun motif de reset/reflash/debug pour un plan et outil hors bus.
+
+## Livrables et choix technique
+
+Plan `00_gouvernance/QUALIFICATION_TEMPORELLE_RTU_M013_G.md` : inventaire factuel, voies et masses/isolement, ordre des acquisitions, définition d'incertitude, critères temporels mesurables, outillage/commandes exacts, maximum d'essais et arrêts, deltas attendus et limites. La recherche documentaire ne trouve aucun instrument de mesure identifié : **disponibilité NON ÉTABLIE**, pas preuve d'absence. Capture DE/TXD/RXD/A–B reste WAITING modèle/sondes/canaux/isolement ; aucun branchement proposé comme immédiatement exécutable ni manipulation demandée G.
+
+Lecture du transport : T1.5=750µs +1000µs pour T3.5, TX après consommationT3.5/filevide/conditionsRX, PG4haut puis HALTransmit_IT, watchdog50ms ; HALcallbackTC libèreDE/réarmeRX et lance garde1750µs. Délais de code et compteurs ne sont pas chronogrammes physiques. Observateur existant suffit à corréler la future campagne ; ses absences de timestamps/frontTC haute résolution sont documentées. Instrumentationfirmware supplémentaire non indispensable aux captures physiques proposées, donc **aucune modification firmware**. FC03/1000/1 UNKNOWN0 et V1 inchangés, aucune production simulée.
+
+Les seuils normatifs haut débit sont distingués des critères de banc proposés : [spécification Modbus Organization V1.02 §2.5.1.1, copie ANL](https://millenia.cars.aps.anl.gov/software/epics/Modbus_over_serial_line_V1_02.pdf), section lue. Calcul 1152008E1 : bit8,6806µs/caractère95,4861µs ; aucune valeur mesurée. Plan : intertrame>=1750µs, continuité sans silence>=750µs, margeDEavantTX proposée1µs, maintien jusqu'à dernierstopbit, libérationproposée[0,100µs], retourRX et tolérancebaudbanc±2%, budgetincertitude<=0,5µs pour marges courtes. Critères de banc à confirmer par mission/instrumentréel, pas modificationV1 ou qualification actuelle. HorodatageHP via USB/OS ne valide aucun de ces fronts.
+
+Outil dédié `05_Firmware/platform/host/rs485_rx_probe/rtu_campaign.py` et `test_rtu_campaign.py`, Python>=3.9 : OFFLINE par défaut, mock entièrement mémoire et horloge simulée, pySerial importé seulement pour mode physique explicite Windows. Script E Send-Tr2RxProbe.ps1 byte-à-byte inchangé. Dépendance proposée pySerial3.5, API vérifiée depuis [documentation officielle](https://pyserial.readthedocs.io/en/latest/pyserial_api.html) ; Python/pySerial sur HP et voie physique de cet outil NON TESTÉS. READY signifie outil hors bus testé, pas environnementHP confirmé ou autorisation d'envoi.
+
+Campagne fixe12écritures maximum/10nominales/1CRCincorrect/1unitéétrangère2, suivies de nominales pour récupération. Observation1s +pause100ms par cas, garde100ms initiale, refus nouvelle écriture si20s dépassées, RXmax256octets, écrituretimeout1s. Aucun retry, fonctionV1d'écriture/broadcast ou boucle infinie. PortCOM7 fixé1152008E1, handshake/DTR/RTS désactivés avant ouverture ; l'éventuel transitoire de driver à l'ouverture reste limite non qualifiée. Condition future : seul maîtreHP et seule cibleunité1, aucun autre répondantunité2.
+
+JSONL brut UTC+tempsmonotone, chunksRX/réponses/CRC/timeout, intentécriture et nombre réellement écrit, premierRXhôte, marqueurmission/simulated. Créationexclusive sans écraser logs, flush avant écriture. Écho brut/écho+réponse jamais retiré ; bruit, réponsepartielle/inattendue, timeoutnominal, RXtardif/préexistant, overflow, écriturepartielle, I/O/logdéfaillant→arrêt/fermeture, sans retry ni purge silencieuse. Silence attendu négatif ne prouve que la fenêtre1s ; captureanalogique/retourRXminimal/watchdogpanne/endurance restent séparés.
+
+## Validation réellement exécutée et justification
+
+Depuis dossier rs485_rx_probe :
 
 ```text
-Request: 01 03 03 E8 00 01 04 7A; COM7 115200 8E1; CRC/self-check OK
-Observed PC RX (may be echo): 01-03-02-00-00-B8-44
+python3 -m unittest -v test_rtu_campaign.py
+python3 rtu_campaign.py
+python3 rtu_campaign.py --mock --log <dossier-preuves>/mock-campaign.jsonl
 ```
 
-## Contrôle indépendant hors ligne et discrimination d'origine
+Retours0 ; **10/10 tests réussis** (0,007s) sur Python3.13 Linux. Tests : CRCgolden/planborné, accumulationchunks/récupération aprèsrejets, timeout/écho/écho+réponse/CRCpartiel/exception/overflow→stop, réponseauxnégatifs→stop, RXpréexistant/tardif, écriturepartielle, écheclogfermeture, defaultOFFLINE/mockavecopenréelinterdit, refus d'écraserjournal, paramètres du serialadapter via bibliothèque simulée. Aucun pySerial installé/importé réellement ni port ouvert. Exécutionmockintégrale : **78 événements JSONL**, simulatedtrue/MOCK_ONLY,12écritures virtuelles, dixnominales exactes et deuxsilences attendus, fermetureportmock ; contenu journal contrôlé. validation-0/1/2.log conservés hors Git.
 
-Calcul CRC Modbus indépendant sur les octets rapportés, sans ouvrir de port ni exécuter script HP : CRC du corps réponse `01 03 02 00 00` =0x44B8, ordre sur fil B8 44, résidu de trame complète0. Requête complète résidu0 également. Réponse7octets : unité1, FC03, byte_count2, mot big-endian0=UNKNOWN. Correspond exactement à FC03/1000/quantité1 attendu du diagnostic isolé, sans prétendre READY/production.
+Choix proportionné : nouveau outillage hôte autonome et plan documentaire seulement, ni cœurportable ni harnessSTM32 ni interfaces partagées changés. Aucune compilation/testfirmware/cross-build/flash répété ne pourrait établir les mesures recherchées ; pas de campagne .NET. Les résultats E/F sont conservés, sans les présenter comme nouveaux tests G. Erreur documentaire/outillage : URLmodbus.org/docs renvoie404, sourceprimaireauteur conservée via miroirANL et sectionweb lue ; pdftotext absent, aucun logiciel/politique installé pour contourner, lectureweb utilisée. Aucun échec de test masqué ou affaibli.
 
-- **Écho brut exclu pour la séquence affichée** : la requête a8octets `01 03 03 E8 00 01 04 7A`, la sortie a7octets différents et format réponse correct. Le préfixe unité/FC commun n'en fait pas un écho de requête.
-- **Script dépôt** : un seul Write binaire de la requête, puis ReadByte et affichage hex brut, aucune fabrication/transformation de réponse. « may be echo » est un avertissement générique, pas une détection d'écho. La copie exécutée dans HOME sur HP n'a pas été récupérée/hachée ; son identité byte-à-byte avec le dépôt n'est pas démontrée.
-- **Origine STM32 fortement corroborée** par réception exacte, requête acceptée, réponse exacte en RAM, TX commencé et callbackTC sur ce MCU entre baseline E et relevés F. Un simple écho local ne suffit pas à expliquer cette chaîne.
-- **Écho transformé / autre maître** : un équipement/proxy capable de traiter Modbus ou un autre répondant pourrait théoriquement produire les mêmes octets ; aucun élément observé ne l'indique. Pas de capture bus ni identité authentifiée par ces trames, donc exclusion absolue de toute source concurrente impossible. Aucun nouvel essai pour lever cette limite.
+Commit tranche outillage/plan `158feddfa99dd5fff71aec4902cd59e3095124f0`, message `Prepare bounded offline-tested HP RTU campaign and physical timing qualification plan`. Sources testées correspondant à ce SHA, manifeste hors Git. Firmware sur carte inchangé.
 
-## Préservation et identité de l'image
+## Actions futures minimales et limites
 
-Preuves F hors Git : `/home/lolo/dev/msm/reports/TR2-mission013-F-20261011T161246Z`. Manifeste preservation-E.json recense **181 fichiers E**, rehashés avant et après lecture, tous inchangés ; originaux E/D et backups conservés. ELF/BIN E et hashes des huit sources comparés, pas de rebuild. Baseline E `healthy-final.json`/`.bin` : tous compteurs trafic0, poll10627242 et tick31167.
+Après revue de ce rapport par ChatGPT : contrôler hors port environnementPython/pySerialHP ; identifier seulement les moyens réellement disponibles et leurs masses/isolement, décider mission future limitée logicielHP et/ou chronogrammes. Pas de répétitionRE-RST/VIO/SB28/câblage, pas de branchement ni lancement maintenant. Commandes OFFLINE/mock et commandephysique réservée à contratfutur sont dans le plan ; flag authorized-mission ne constitue aucune autorisation autonome.
 
-ELF exact168512octets SHA256 `4c496149b7b3af593269dbff7c92368d575cebe824f62ffa67ed57e522d3adc2` ; Flash courante lue via **GDB seul** sur49200octets à0x08000000, byte-à-byte identique BIN E SHA256 `dc6ac75f667e10f0a4d04a7e92f82099f450de3a759677bc81c166f93c82d540`. Aucune nouvelle sauvegardeFlash2MiB prétendue : celles E restent conservées et vérifiées par manifeste. DiagnosticON/observerON/TXON/unité1, aucune autorité média/production bootée. RAM liée complète768KiB conservée (ram-after.bin), SHA256 `541c1a8aba716cfcbca6b9b1c16d5333f5596a49c437e4bc24534d285ceffd7e` ; observateur brut final992octets conservé. Symboles/adresses issus du même ELF ; layout transport/HAL E -g3 conservé et sources inchangées, g_serial692octets/observateur992octets recoupés par nm actuel. Manifestes offline-response-check.json, decoded-after.json, evidence-manifest.json, symbols.txt.
+Prérequisfutur : étatNVIC/ready/RX/PG4 sain et imageexacte, baselineRAM avant campagne, GDB seul avant/après sans haltpendantéchange. Dernier accèsCubeProgrammer éventuel devra être suivi de préservationRAM/resetGDB/contrôle comme D, sous autorisationsdistinctes ; aucune utilisation actuelle. Campagnecomplète attenddelta96octets/12trames/11CRCvalides/1CRCincorrect/1foreign/10accepted/TXstarted/TCcallbacks, sanserreur/drop/failsafe, puisRXarmé/TXidle. Campagne interrompue se juge surpréfixe réellement envoyé, pas sur12théoriques. Compteursmodulo32bits/reboot et dernièrestrames seuls ont des limites.
 
-## Lectures STM32 réellement effectuées
+**NON VALIDÉ** : timingsphysiques/robustesse réelle/répétabilité générale/endurance/IRQbloquées/reset/J1global/production/E4. Ce plan et ses mocks ne qualifient pas RS485. Aucun nouvel essaiHP, requête synthétique surbus, reset/flash/debug/CLI MCU, média/OptionBytes/configuration/USB/interventionphysique effectués en G. allow_flash/allow_debugtrue accordés mais **non exercés**.
 
-Deux sessions qualifiées ST-LINK/GDB, sonde SN003500463235510B37333439/NUCLEO-U575ZI-Q, mêmes exécutables Windows ST-LINK_gdbserver et arm-none-eabi-gdb sous C:\ST\STM32CubeCLT_1.22.0. Serveur `-d -g -i <SN> --frequency 8000 -p 61234 -cp <CubeProgrammer/bin>` ; GDB `-nx -q -batch -x <script> <ELF exact>`, target extended-remote localhost:61234. Première session : dump RAM/Flash, globals, NVIC/UARTISR/PG4/IO2SV/faultregs. Seconde : observer992octets et mêmes états passifs pour vérifier reprise/progression. Aucune commande monitor reset/load, breakpoint/watchpoint, RDR/ICR ou écriture NVIC/UART/GPIO ; aucun CubeProgrammer CLI lancé. Répertoire -cp est celui requis du serveur qualifié, pas un accès CLI HOTPLUG.
+## Publication
 
-Attach suspend brièvement le cœur pour les lectures, puis detach/quit immédiat après collecte ; pas de halt d'attente ou pendant échange HP, déjà terminé. Cette observation après coup n'est pas une capture continue non intrusive. Toutes commandes GDB réussies, serveurs sortis normalement0, inventaire Windows final sans GDB/OpenOCD, cible laissée running. Poll187193205→202036798, tick548991→592523 ; compteurs trafic stables, NVIC reste sain après lectures. Aucun effet perturbant NVIC/RX/TX détecté par ces relevés, sans garantie d'absence de tout effet temporel du halt.
-
-## Deltas AVANT E → APRÈS F et portée
-
-Baseline compteurs0 ; valeurs ci-dessous = deltas observés sur ce boot. Aucun reset effectué par Codex depuis clôture E ; progression tick/poll et buffers/counters cohérents. Pas de compteur de boot persistant pour exclure indépendamment tout reset externe inconnu ; aucun indice de celui-ci dans les preuves.
-
-| Chaîne | Delta / contenu observé | Conclusion limitée à l'essai |
-|---|---|---|
-| IRQ | UART17 ; TIM6 IRQ/callback3 | Les handlers exécutent réellement ; pas partition chronologique de chaque IRQ |
-| RX/HAL | RXcallback8, bytes_polled8, ERRORcallback/errors0 | Huit octets remis au transport ; pas de défaut UART tracé |
-| File/timers | poussés10/pollés10, dropped0 ; T1.5=1/T3.5=1 ; head=tail10/overflow0 | Octets et fins de trame consommés, file vide ; pas de mesure des durées physiques |
-| RTU | frame1, CRCvalid1, CRCbad/invalid0, foreign/broadcast0, accepted1/available_status1 | Requête locale acceptée, sourceUNKNOWN diagnostic rendue disponible |
-| Dernière ADU | length8, codec0 ; `01 03 03 E8 00 01 04 7A` | Exactement requête rapportée HP, CRC/unité/FC/PDU concordants |
-| Réponse | last_tx_length7, observateur et bufferTX : `01 03 02 00 00 B8 44` | Exactement sortieHP et réponse prévue, pas simple copie de requête |
-| TX | attempt1/started1, callbackTX1, failsafe0 ; TxXferSize7/Count0 | HAL TX IT lancé, traitement fin de transmission effectué ; pas capture analogique bus |
-| Retour final | gState0x20READY, RxState0x22BUSY_RX/count1, phaseIDLE, tx_busy/fault0 ; PG4ODR0 | RX réarmé, direction libérée et timer revenu IDLE ; aptitude à une seconde requête non testée |
-
-HAL CubeU5v1.9.0 UART_IRQHandler n'appelle UART_EndTransmit_IT que sur ISR_TC et CR1_TCIE ; ce dernier appelle HAL_UART_TxCpltCallback. Le callback transport compte l'appel, met PG4bas, réarmeRX et démarre gardeT3.5. Le compteur callback1 est donc **preuve logicielle indirecte de traitement TC sur cible**, pas une capture du dernier stopbit ou de l'instant DEbas. Watchdog non déclenché observable (failsafe0), sa robustesse sous IRQ bloquées non qualifiée.
-
-Derniers états CPU/SWD concordants : ISER1=0x00020000/ISER2=4, ISPR0..2=0, PRIMASK/BASEPRI/FAULTMASK0 ; UART CR1=0x152D/CR2=0/CR3=1/BRR=0x56CE4, ISR0x006200D0 (RXNE/ORE/PE/FE/NE0), HAL ErrorCode0 ; IO2SV0x20000000, CFSR/HFSR0. Aucun signe du défaut HOTPLUG D. Zéro nouvelle requête/émission Codex, aucune répétition de contrôle physique acquis.
-
-## Verdict, limites et suite proposée
-
-**Faits établis** : la sortie utilisateur a format/CRC/valeur attendus ; le MCU a reçu la requête exacte, traité son CRC/adresse, préparé la réponse exacte, démarré TX et achevé son traitementTC avec RX réarmé. **Déduction fortement étayée** : les sept octets HP proviennent de la réponse du STM32 pour cet essai unique. **Non démontré directement** : provenance bus exclusive, chronologieDE/dernierstopbit/TC/retourRX, timings/latence/marge électrique, absence de tout transitoire, répétabilité/endurance/erreurs/timeout/IRQbloquées/reset. Pas de qualification définitive TX/bidirectionnelle générale, J1global/production/E4 inchangés et NON QUALIFIÉS.
-
-À ChatGPT : proposer une **mission distincte** de qualification temporelle avec capture DE/TXD/bus et retourRX, suivie de robustesse ciblée (requêtes successives espacées, CRC/adresse erronés, panneTX/timeout) sous permissions et instrumentation adaptées. Ne pas lancer ces essais maintenant ni demander une nouvelle manipulation utilisateur dans F. Conserver chaîne d'accès GDB seule ; tout futur accès CLI nécessite procédure D sous contrat approprié. L'instruction E -Transmit est consommée.
-
-## Validation et publication
-
-Validation F proportionnée : vérificationCRC indépendante hors ligne, identityFlash/ELF et sources, dumpRAM/relecturecodeHAL, cohérence des deltas et état après detach ; aucune source firmware modifiée, donc aucune recompilation/campagnetests qui n'apporterait pas de preuve de cet essai. Tests5/5/build/flash E sont historiques explicitement, pas résultats F. Aucun échec de diagnostic à masquer ou corriger.
-
-Journal actualisé avec réponse utilisateur, chaîne MCU/deltas, verdict nuancé et prochaine tranche ; preflight marqué essai E consommé. Modifications limitées à ces trois documents et deux archives E. Permissions exercées : lecturedebug/halt d'attach/detach, commit/push main autorisés ; allow_flashfalse respecté, zéro reset/flash/OptionBytes/média/USB/configuration/émission. Diff et contenu indexé vérifiés. Commit `393ed0d19eb48f0e1dbf8b1f3e42df2f2e6d053a`, message `Record M013-F matching HP response and passive STM32 RX RTU TX TC evidence`, push normal explicite HEAD:refs/heads/main réussi. Fetch HEAD=origin/main ; relecture intégrale UTF8 et comparaison byte-à-byte des 14 fichiers (cinq livrables documentaires, huit sources, contrat F) depuis cette référence distante réussies, remote-reread.json hors Git. Arbre propre, deux stashes historiques conservés. La présente clôture DONE sera publiée et relue à son tour ; son SHA final est communiqué dans la réponse Codex. DONE concerne le diagnostic de cet essai, pas une qualification physique générale. Contrôle indépendant ChatGPT à effectuer après publication.
+Journal mis à jour avec outil READY horsbus, instrumentationWAITING, absence de nouvelle qualification et prochaines décisions ; preflight marque Gpréparation sansnouvelleémission. ArchivesF exactes. Commit/pushmain autorisés et utilisés seulement dans périmètre G ; diff/index/publication/relecture finale en attente. Deux stashes et tous backups préservés. BLOCKED provisoire porte uniquement sur preuve distante ; attente instruments n'empêche pas clôture de cette mission de préparation. RevueindépendanteChatGPT non démontrée par Codex.

@@ -2,7 +2,11 @@
 
 11 octobre 2026. État historique M013-A, référence inspectée `6a35aefdef34b91ed82d217c37cabc4a04bf2e8f`, main : VIO Click et absence de commande concurrente RST non établis à cette date d'intervention. Tranche de diagnostic préparée et validée sur hôte ; aucun flash/debug/reset/émission en M013-A. Le dernier firmware identifié sur carte reste BIN008 (lecture011), sans nouvelle lecture013. Acquis RX011 conservé, pas de nouvel essai RX.
 
-## État courant M013-F — essai E consommé, 11 octobre 2026
+## État courant M013-G — préparation sans émission, 11 octobre 2026
+
+Outil HP dédié rtu_campaign.py testé uniquement horsbus (10tests/mock), OFFLINE défaut ; READY outil, environnementHP NONVÉRIFIÉ. Protocole QUALIFICATION_TEMPORELLE_RTU_M013_G.md, WAITING instrumentphysique identifié. Aucun GO de nouvelletransmission, branchement, reset ou flash G ; imageE et preuvesF conservées. EssaiE consommé ; ne pas relancer ancienprobe. Campagnephysique bornée et captures nécessitent missionfuture après revueChatGPT. Sections suivantes historiques.
+
+## État historique M013-F — essai E consommé, 11 octobre 2026
 
 **Ne plus lancer l'instruction E -Transmit ci-dessous.** Utilisateur rapporte réponseHP0103020000B844, CRC valide ; GDB seul confirme RX8/ADUexacte/CRCaccepté1/réponseRAMexacte7/TXstarted1/callbackTC1, sans défaut, RX réarmé/PG4bas/NVICsain. Premier aller-retour fortement corroboré pour cet essai, pas qualification temporelle ou générale TX/bidirectionnelle. Aucun nouveau probe/reset/flash/CLI HOTPLUG en F. Suite sous mission distincte, sans manipulation demandée maintenant. Rapport F et journal contiennent preuves/limites ; sections suivantes historiques.
 
