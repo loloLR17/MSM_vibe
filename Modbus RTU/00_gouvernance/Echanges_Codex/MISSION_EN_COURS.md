@@ -1,21 +1,37 @@
 ---
-mission_id: TR2-20261011-RX-011
+mission_id: TR2-20261011-RTU-TX-012
 status: READY
 base_ref: main
 author: ChatGPT
 target_branch: main
 allow_commit: true
 allow_push: true
-allow_flash: false
+allow_flash: true
 allow_debug: true
 ---
 
-# Mission 011 - Analyse des compteurs de reception RS485
+# Mission 012 — Cadrage et integration progressive de la reponse Modbus RTU physique
 
-L'utilisateur a lance une seule fois sur le PC HP le script Send-Tr2RxProbe.ps1 -Transmit. Sortie obtenue : Request: 01 03 03 E8 00 01 04 7A; COM7 115200 8E1; CRC/self-check OK. Puis : No response in ~1 s: expected possibility for RX-only firmware; inspect MCU counters. Ne pas renouveler cet essai.
+## Base et resultat acquis
 
-Codex doit lire AGENTS.md, le rapport de mission010 et les procedures RX existantes, puis relever par debug en lecture seule les compteurs RX du STM32 avec le firmware et les symboles de la mission010. Comparer au dernier snapshot de mission010 (ready 1, octets 0, trames 0, ADU valides 0, erreurs 0). Chercher une progression de 8 octets et une ADU valide, avec zero erreur et les octets exacts. Le firmware est deja flashe et verifie : aucun nouveau flash requis.
+Lire AGENTS.md, gouvernance V2-B3, dernier rapport011 et preuves historiques, specification Modbus RTU V1 gelee, architecture firmware et tests. Travailler sur HEAD reel de main. La mission011 a demontre une reception unique HP COM7 vers STM32 sous BIN008 : 8 octets, 1 trame et 1 ADU valide, zero erreur, octets exacts 01 03 03 E8 00 01 04 7A. RX est valide pour ce cas seulement. Aucun TX physique ni serveur PDU n'est encore qualifie. Ne pas refaire le test RX simplement pour revalider cet acquis.
 
-Conserver les preuves et relever les limites. Si aucun octet n'est observe, documenter les observations et un diagnostic cible sans nouvelle emission ni repetition des mesures utilisateur. Terminer la session debug et laisser le firmware fonctionner.
+## Objectif
 
-Publier DERNIER_RAPPORT.md mission011 avec le verdict, les mesures et les preuves. Commit et push normaux sur main, puis verification distante. Aucune modification physique, effacement massif, Option Bytes ou force push.
+Identifier la tranche minimale sure pour raccorder le serveur Modbus RTU de production deja implemente au transport STM32 LPUART1 et a la commande DE RS485. Preserver strictement mapping V1, comportement du serveur, absence de float et freezes existants. Ne pas inventer de nouveaux registres ou fonctions. Verifier les connexions, la topologie Click ADM2867E, J2 et les conditions de direction avant tout essai TX. Les anciennes mesures de l'utilisateur et les observations firmware011 sont des acquis documentaires ; ne pas redemander des controles deja faits sans raison technique nouvelle.
+
+## Travail Codex
+
+1. Faire un audit cible des couches serveur Modbus, transport STM32, IRQ, timers, file RX, generation reponse, controle DE et temporisations RTU. Identifier precisement le plus petit raccordement necessaire et ses risques, notamment collision bus, activation prematuree DE, latence turnaround, TX complete versus buffer empty, et retour RX.
+2. Implementer une tranche incrementale testable sur hote : parsing ADU -> dispatch serveur V1 existant -> construction reponse -> transport TX avec controle explicite de DE et retour reception. Prevoir un garde-fou fail-safe qui laisse DE bas au boot, reset, erreur et quand aucun TX n'est autorise. Pas de TX non sollicite. Ne pas modifier le mapping gele.
+3. Ajouter tests unitaires/integration couvrant CRC, trame valide/invalide, unit id, silence, exception, pas de reponse si adresse non concernee, ordre DE/TX complete/DE bas, erreurs et timeout. Compiler et executer tests hote et STM32, enregistrer preuves.
+4. Ne flasher et ne debugger la carte que si le nouveau firmware est suffisamment qualifie et si les preconditions physiques de direction et d'alimentation sont etablies. Autorisation permanente utilisateur : allow_flash true, allow_debug true. Avant programmation sauvegarder/verifier image et identite de cible, conserver preuve precedente et flash ciblé uniquement. Si la surete TX n'est pas suffisamment etablie, ne pas emettre sur le bus : documenter le blocage et preparer une etape physique minimale, sans modifier les ponts/cablage.
+5. Ne pas acceder au HP COM7 ni emettre une nouvelle trame sans possibilite d'execution controlee et preuves. Les essais RX precedents ne qualifient pas automatiquement TX. Ne pas pretendre avoir valide une reponse physique sans mesures.
+
+## Autorisations et limites
+
+allow_commit true, allow_push true, allow_flash true, allow_debug true sur main, conformement a AGENTS.md et a la decision permanente du 11 octobre. Flash et debug autonomes autorises quand necessaires, sans sollicitation repetitive. Aucune modification physique, mass erase, Option Bytes/RDP, deprotection, operation Git destructive ou force push. Suspendre toute emission TX physique si la configuration DE et /RE ou les tensions restent incertaines. Preserver stashes, freezes et sources existantes.
+
+## Livrables
+
+Publier DERNIER_RAPPORT.md mission012 avec audit, modifications, tests, etats distincts IMPLEMENTATION / HOST TESTS / STM32 BUILD / FLASH / TX PHYSIQUE, preuves, limites et prochaine action. Commit/push normaux main et verification distante.
