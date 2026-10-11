@@ -1,6 +1,6 @@
 # État courant TR2 — référence reconstruite
 
-Mise à jour : 11 octobre 2026. Mission `TR2-20261011-RS485-FLASH-RX-010`.
+Mise à jour : 11 octobre 2026. Mission `TR2-20261011-RX-011`.
 
 **Ce document est un nouvel état de référence reconstruit à partir de preuves vérifiables. Il n'est pas une restitution du journal historique HP.** Sa création a été explicitement autorisée par l'utilisateur pour la mission `T1000-20261010-CLOTURE-001`, après escalade AGENTS.md §18. Aucun original n'a été retrouvé dans l'historique Git, les répertoires Linux locaux ou les documents Windows accessibles. Les archives d'échanges du 8 octobre mentionnent un journal local HP, sans en fournir le contenu. Aucun état historique inconnu n'est inventé.
 
@@ -132,3 +132,9 @@ Prochaine étape à transmettre à ChatGPT : contrôler le rapport distant, puis
 - **BACKUP / FLASH / VERIFY RÉUSSIS** : cible SN003500463235510B37333439 STM32U575 ID0x482 RevU,3,29V. Backup2Mio `/home/lolo/dev/msm/backups/TR2-mission010-20261011T125638Z/flash-before.bin`,SHA256 `4e49d49ac35d0e2db184ae8dc66dac5ac62b25a89d197a3749beaff12a8e6153`. BIN008157944 octets programmé0x08000000, effacement standard secteurs0..19, verifyCLI réussi puis relecture byte-à-byte identique SHA256 `02ed2cf64d4d78225a4781b823c9d27e96a8ea693679d8a834d230568383593b`. Reset/démarrage contrôlé. ELF008 exact vérifié ; identité firmware courant désormais008 établie.
 - **OBSERVÉ DEBUG** : IO2SVactif0x20000000 ; PG4modeoutput/latchbas/IDRbas/pulldown ; PG7/8AF ; RXready1, polling2545194→15458093 après reprise ; compteursRX/CRC/UART0 sans émission. Binding3NOT_AVAILABLE, SDstage5 sans carte, faultregs0. Sessions STWindows détachées, serveurs terminés ; cible laissée en exécution. Niveaux physiques U1DE//RE/VIO et pont réel non mesurés.
 - **BLOCKED RX** : seul COM3STLINK accessible T1000, COM7FT232R sur HP inaccessible ; aucun envoi effectué. Action HP unique après niveaux/J2 contrôlés et script offline réussi : `Send-Tr2RxProbe.ps1 -Transmit`, communiquer résultat pour snapshotAPRÈS par Codex. Aucun retry automatique. RXphysique/E4 NON QUALIFIÉS ; rapport010 publié pour revue indépendante ChatGPT.
+
+## Mission011 — premier essai RX observé, 11 octobre2026
+
+- **Utilisateur, contrat011** : envoi HP unique `01 03 03 E8 00 01 04 7A` COM7 1152008E1, CRC/self-checkOK, aucune réponse~1s (attendu RX-only). Aucun nouvel envoi demandé/effectué.
+- **VALIDÉ PHYSIQUE POUR CET ESSAI RX UNIQUE** : relevé debug APRÈS, ready1, octets8/trames1/ADUvalides1 contre0/0/0 en010 ; erreursUART/CRC/invalides0, lastlength8/decode0/ADUexacte. Poll15458093→386978316 ; Flash008 relue157944octets identiqueBIN, ELF008 exact. IO2SVactif, PG4latch/entrée digitale bas, PG7/8AF8. Sessions détachées, serveur terminé, firmware laissé fonctionner. Preuves `/home/lolo/dev/msm/reports/TR2-mission011-20261011T131102Z`.
+- **NON QUALIFIÉ** : électrique globale/reset, TX/PDU/production, endurance et E4. Blocage RX010 levé par cette observation, rapport historique010 conservé inchangé ; réception réussie n'est pas validation des niveaux physiques U1/J2. Prochaine étape : revue indépendante ChatGPT et mission cadrée du jalon suivant.
