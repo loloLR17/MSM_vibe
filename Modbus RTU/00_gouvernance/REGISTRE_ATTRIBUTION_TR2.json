@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "entries": [
+    {
+      "internal_name": "MSM-TR2-000001",
+      "device_id": 1,
+      "unit_id": 1,
+      "serial": "TR2-000001",
+      "manufacturer": "MSM",
+      "status": "RESERVED",
+      "hardware_uid_words_hex": null,
+      "decision": "TR2-20261011-M014-G-COMMISSIONING",
+      "reserved_at_utc": "2026-10-11T22:03:03.229286+00:00",
+      "collision_audit": "No production attribution registry found; FleetRegistry/session and host fixture IDs are not production assignments."
+    }
+  ]
+}
