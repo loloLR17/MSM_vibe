@@ -177,8 +177,11 @@ physique redemandé. Rapport/journal prêts pour revue indépendante ChatGPT et 
 Permissions exercées : développement/tests/build/publish/commits/push normalmain.
 Flash/debugtrue non exercés ; zéro nouveau COM7/RS485/flash/reset/GDB/HOTPLUG/
 OptionBytes/masserase/USB/média/câblage/service distant/configuration Codex/Windows.
-Deux stashes, backups et preuves historiques préservés. Sources ccc2052 et complément
-validé seront poussés normalement avec ce rapport BLOCKED et journal/reprise,
-puis relus intégralement depuis référenceGitHub. SHA final après contrôle distant
-fourni dans réponse Codex ; BLOCKED ne deviendra pas DONE sans preuve opérationnelle
-physique et décisions de composition levées.
+Deux stashes, backups et preuves historiques préservés. Sources ccc2052 et complément validé publiés normalement au SHA `5f5f59e4f8fa96df26c7d678c204af823b78bb39`,
+commit `Publish M014-D dependency matrix, validation and complete production resume point`.
+Push explicite HEAD:refs/heads/main réussi, fetch puis relecture intégrale UTF8 et
+comparaison byte-à-byte des20fichiers livrés/gouvernance depuis GitHub : toutes
+conformes (`remote-reread-1.json`). HEAD=origin/main, arbre propre et deuxstashes
+conservés. Cette consignation de publication sera également poussée et relue ;
+SHA final fourni dans réponse Codex. BLOCKED maintenu après publication : M014
+opérationnel attend toujours décisions carte et preuves périodiques/perte/reprise HP.
