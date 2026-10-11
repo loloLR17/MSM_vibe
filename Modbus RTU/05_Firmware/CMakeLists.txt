@@ -30,6 +30,7 @@ add_library(tr2_core STATIC
     src/application/diagnostic_service.c
     src/application/supervision_service.c
     src/application/system_command_dispatcher.c
+    src/application/production_provisioning.c
     src/application/production_application.c
     src/application/modbus_system_server.c
     src/application/system_runtime.c
@@ -262,3 +263,5 @@ tr2_add_host_test(test_post_p9_a5_host_modbus_read tests/integration/test_post_p
 tr2_add_host_test(test_modbus_system_server tests/integration/test_modbus_system_server.c modbus_system_server)
 
 tr2_add_host_test(test_production_commands tests/integration/test_production_commands.c production_commands)
+
+tr2_add_core_test(test_production_provisioning tests/unit/test_production_provisioning.c production_provisioning)

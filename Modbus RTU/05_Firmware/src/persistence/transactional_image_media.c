@@ -260,6 +260,8 @@ Tr2Result transactional_image_media_recover(TransactionalImageMedia *m,Transacti
 {
     RecordState a,b; uint64_t ga=0,gb=0; uint8_t ia=0,ib=0; uint8_t chosen; uint64_t generation;
     if(m==NULL||!m->initialized||out==NULL) return TR2_ERROR_INVALID_ARGUMENT;
+    /* Revoke previous authority before every recovery attempt, including failures. */
+    m->recovered=false; m->recovery_required=true;
     memset(out,0,sizeof(*out)); a=validate_superblock(m,0u,&ga,&ia); b=validate_superblock(m,1u,&gb,&ib);
     if(a==REC_IO||b==REC_IO){out->status=TRANSACTIONAL_IMAGE_RECOVERY_UNAVAILABLE;return TR2_OK;}
     /*

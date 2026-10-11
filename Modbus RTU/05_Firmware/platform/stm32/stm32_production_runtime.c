@@ -1,5 +1,6 @@
 #include "stm32_production_runtime.h"
 #include "stm32_runtime_platform.h"
+#include "tr2/application/production_provisioning.h"
 
 Tr2Result stm32_production_runtime_prepare(Stm32ProductionRuntime *runtime,
     const Stm32ProductionDependencies *dependencies)
@@ -26,11 +27,10 @@ Tr2Result stm32_production_runtime_prepare(Stm32ProductionRuntime *runtime,
     result = transactional_image_media_init(&runtime->transactional_media, &physical,
         &dependencies->geometry, runtime->candidate, sizeof(runtime->candidate));
     if (result != TR2_OK) return result;
-    result = transactional_image_media_recover(&runtime->transactional_media, &runtime->recovery);
+    result = production_provisioning_probe(&runtime->transactional_media, &runtime->recovery);
     if (result != TR2_OK) return result;
-    /* EMPTY requires a separately authorized provisioning operation. */
-    if (runtime->recovery.status != TRANSACTIONAL_IMAGE_RECOVERY_VALID)
-        return TR2_ERROR_NOT_AVAILABLE;
+    /* The read-only probe denies EMPTY and every unavailable/invalid state.
+     * It never provisions, formats, or manufactures production identity. */
     result = stm32_iis3dwb_vibration_source_init(&runtime->vibration,
         dependencies->vibration_spi, dependencies->vibration_cs_port, dependencies->vibration_cs_pin);
     if (result != TR2_OK) return result;
