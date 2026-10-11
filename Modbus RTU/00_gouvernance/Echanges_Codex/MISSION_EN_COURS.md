@@ -1,5 +1,5 @@
 ---
-mission_id: TR2-20261011-M013-B-PHYSICAL-TX
+mission_id: TR2-20261011-M013-C-FIRST-RTU-RESPONSE
 status: READY
 base_ref: main
 author: ChatGPT
@@ -10,22 +10,22 @@ allow_flash: true
 allow_debug: true
 ---
 
-# M013-B — Validation preflight et premier dialogue Modbus physique
+# M013-C — Premier flash diagnostic et reponse Modbus physique
 
-## Acquis utilisateur du 11 octobre 2026
+## Fait nouveau determinent, confirmation utilisateur
 
-Inspection physique de la carte MIKROE-3863 rev1.02 ADM2867E, communiquee directement par l'utilisateur : J1 position 3,3V ; J2 ferme ; J3 ferme ; VIO mesure 3,27V contre masse logique ; DE 0V ; /RE 0V au repos. RST non identifie sur breakout ; utilisateur rappelle qu'aucune liaison RST vers la NUCLEO n'a ete realisee. Ce sont des mesures statiques et observations utilisateur, pas une preuve de comportement dynamique. Ne pas redemander ces controles sans raison nouvelle. J3 ferme relie /RE au net RST mikroBUS sur le schema v1.02 : s'assurer par inspection de topologie qu'aucune sortie active ne le pilote sur le breakout, y compris une connexion implicite non visible.
+L'utilisateur confirme explicitement apres verification repetee : **broche 2 RE/RST du Click MIKROE-3863 rev1.02 libre de toute connexion externe, y compris via breakout/support ; aucune liaison vers NUCLEO ni autre sortie**. Ne pas redemander ce controle ni une nouvelle mesure statique sans nouvel indice contradictoire. J1 3,3V, VIO 3,27V, J2/J3 fermes, DE=0V, /RE=0V au repos ; PG4 seul pilote de direction. Ces observations sont des declarations/mesures utilisateur, non une mesure instrumentee Codex. Le NO-GO specifique contention RST de M013-B est donc leve sur la base de la topologie confirmee, sous reserve des autres verifications de securite.
 
-## Contexte
+## Etat source
 
-M013-A rapport status BLOCKED preflight avant mesures : tranche diagnostic FC03 isolee implemente et testee, 108/108 tests hote, cross-build STM32 diagnostic TXOFF/TXON reussis ; aucun flash/TX. Rapport et PREFLIGHT_RTU_TX_M013_A.md font foi. BIN008 reste sur cible selon derniere preuve, RX011 valide un seul echange entrant. Diagnostic candidate unit ID1 FC03 register1000 qty1 request 01 03 03 E8 00 01 04 7A ; reponse attendue 01 03 02 00 00 B8 44 (UNKNOWN=0), jamais statut production.
+Rapport M013-B status BLOCKED uniquement pour RE/RST : build diagnosticON TXON unit1 reussi, 3/3 tests cibles ; aucun flash/debug/TX. Candidat reconstruit BIN 48240 octets SHA256 47d69cc286b0f12771de56eb80f2648cc3c2a7a57b2ce1a8038b34de792b97e8 ; ELF SHA256 762dcf0ba6c3663d9737dd334118a9f7d52a22175dda6d2674e9cb0d7b8e1c4a. Carte dernierement observee BIN008, RX011 un ADU valide. Preflight et rapport M013-B, AGENTS.md, protocole V2-B3, ETAT_COURANT_TR2.md sont references obligatoires. Ne pas supposer les artefacts inchanges sans verification.
 
-## Objectif et methode
+## Travail attendu
 
-1. Lire AGENTS.md, protocole V2-B3, ETAT_COURANT_TR2.md, dernier rapport M013-A, preflight M013-A, schema Click rev1.02, code diagnostic/transport et tests. Verifier main reel et etat Git, preuves et candidat exact.
-2. Actualiser matrice preflight avec observations utilisateur ci-dessus, evaluer RST/J3 et topologie breakout reellement connue. Ne pas transformer absence de fil NUCLEO en preuve absolue de net libre. Si une incertitude de contention reste non resolue sans inspection physique, consigner une seule question ou action minimale et maintenir NO-GO TX.
-3. Si GO justifie : preparer build diagnosticON, TXON, unit1 a partir du code main reel, executer validation proportionnee, verifier ST-LINK/STM32, sauvegarder et verifier flash 2MiB courant, identifier BIN/ELF/SHA, programmer a 0x08000000 par procedure standard qualifiee, verifier/readback, garder trace et ne pas confondre ELF ancien/nouveau. Autorisations flash et debug explicites et autonomes, sans mass erase/Option Bytes/force push.
-4. Avant TX : assurer que seul le maitre HP prevu est connecte et que le bus/direction ne presente pas de contention. Le COM7 HP n'est pas accessible depuis T1000 : ne pas pretendre lancer une requete depuis Codex. Si toutes les conditions sont reunies, preparer un unique essai HP sans retry, avec instructions minimales pour l'utilisateur, et verifier les preuves reelles de la reponse, CRC, timing DE haut puis bas sur TC et retour RX ; si l'essai n'est pas executable dans cette mission, distinguer firmware flashe et TX non verifie. Ne pas lancer de TX non sollicite.
-5. Publier compte rendu avec verdict GO/NO-GO, etats distincts BUILD, TEST, FLASH, EXECUTION, TX PHYSIQUE, preuves, questions restantes et suite M013. Mettre a jour journal et documentation de preflight. Commit/push normaux main, rapport DERNIER_RAPPORT.md, verification distante.
+1. Verifier HEAD reel main, etat Git/stashes, gouvernance et documents ci-dessus ; confirmer la route electrique PG4-DE-J2-/RE-J3-RE/RST libre et l'absence d'autre source active d'apres les observations utilisateur et schema rev1.02. Enregistrer formellement la levee du blocage RST, sans faire repeter l'inspection.
+2. Verifier le candidat diagnostic isole et ses garde-fous : adresse1 explicite, FC03/1000/1 seul disponible UNKNOWN0, aucun acces aux medias, aucune autorite production fictive ; verifier build/test proportionnes et empreintes exactes.
+3. Si tous prealables restent satisfaits, proceder de facon autonome au flash STM32 : cible STM32U575 NUCLEO-U575ZI-Q, ST-LINK SN 003500463235510B37333439, image diagnosticON/TXON unit1 issue du HEAD reel, methode ST qualifiee. Avant flash sauvegarder et verifier image Flash courante 2MiB, verifier identite et empreintes ; flash normal 0x08000000, verify/readback exact, ELF correspondant pour debug. Aucune mass erase, Option Bytes, force push, reconfiguration de bus ni formatage FRAM/SD. Si prealable nouveau echoue, NO-GO motive.
+4. Confirmer boot du diagnostic et absence de TX spontanee. COM7 du HP est inaccessible depuis T1000 : ne pas simuler un envoi HP. Preparer pour l'utilisateur **une seule** requete COM7 115200 8E1 sans retry : 01 03 03 E8 00 01 04 7A ; reponse attendue 01 03 02 00 00 B8 44. Produire instructions minimales pour lancement et capture reponse, avec methode de preuve CRC et etat DE/TC/retour RX lorsque accessible. Si aucune observation physique de la reponse n'est possible, marquer TX PHYSIQUE NON VERIFIE et attendre retour utilisateur, sans qualifier J1.
+5. Publier dans DERNIER_RAPPORT.md et ETAT_COURANT_TR2.md : GO/NO-GO, identite cible, image exacte, sauvegarde et readback, tests, boot, TX physique, limites, action utilisateur minimale. Documenter la levee du blocage RE/RST ; commit/push normaux main et verification distante. Preserver archives et stashes.
 
-Limites : aucune modification physique autonome, aucun changement de mapping V1 ou de configuration production fictive, pas de formatage FRAM/SD, pas d'operation destructive, stashes preserves. Toute condition de securite non etablie interdit activation TX.
+Interdictions : operations destructives, repetition de controles physiques acquis, affirmation d'une reponse sans trame reellement capturee, confusion diagnostic avec runtime production, changements de specification V1.
