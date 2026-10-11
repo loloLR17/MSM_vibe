@@ -1,5 +1,5 @@
 ---
-mission_id: TR2-20261011-M013-A-TX-PREFLIGHT
+mission_id: TR2-20261011-M013-B-PHYSICAL-TX
 status: READY
 base_ref: main
 author: ChatGPT
@@ -10,22 +10,22 @@ allow_flash: true
 allow_debug: true
 ---
 
-# M013-A — Qualification preflight physique TX RS-485
+# M013-B — Validation preflight et premier dialogue Modbus physique
 
-## Etat acquis et objectif
+## Acquis utilisateur du 11 octobre 2026
 
-Mission012 DONE pour le logiciel : 107/107 tests, cross-build STM32 TX OFF et ON, mais carte conserve BIN008, aucun flash ni TX physique. RX011 est prouve sur un seul essai HP. Le candidat TX ON de M012 est garde OFF par defaut et le binding STM32 production reste NOT_AVAILABLE. Ne pas confondre code hote valide et serveur Modbus operationnel sur la carte.
+Inspection physique de la carte MIKROE-3863 rev1.02 ADM2867E, communiquee directement par l'utilisateur : J1 position 3,3V ; J2 ferme ; J3 ferme ; VIO mesure 3,27V contre masse logique ; DE 0V ; /RE 0V au repos. RST non identifie sur breakout ; utilisateur rappelle qu'aucune liaison RST vers la NUCLEO n'a ete realisee. Ce sont des mesures statiques et observations utilisateur, pas une preuve de comportement dynamique. Ne pas redemander ces controles sans raison nouvelle. J3 ferme relie /RE au net RST mikroBUS sur le schema v1.02 : s'assurer par inspection de topologie qu'aucune sortie active ne le pilote sur le breakout, y compris une connexion implicite non visible.
 
-Objectif : lever, par preuves existantes et diagnostics non destructifs, les preconditions de securite TX (PG4 DE, /RE, RST, J2/J3, rail VIO, carte Click et configuration half-duplex), et qualifier ou preparer le plus petit essai de reponse physique Modbus V1. Ne pas faire un flash TX simplement parce que allow_flash est true.
+## Contexte
 
-## Execution
+M013-A rapport status BLOCKED preflight avant mesures : tranche diagnostic FC03 isolee implemente et testee, 108/108 tests hote, cross-build STM32 diagnostic TXOFF/TXON reussis ; aucun flash/TX. Rapport et PREFLIGHT_RTU_TX_M013_A.md font foi. BIN008 reste sur cible selon derniere preuve, RX011 valide un seul echange entrant. Diagnostic candidate unit ID1 FC03 register1000 qty1 request 01 03 03 E8 00 01 04 7A ; reponse attendue 01 03 02 00 00 B8 44 (UNKNOWN=0), jamais statut production.
 
-1. Lire integralement AGENTS.md, ETAT_COURANT_TR2.md, protocole V2, DERNIER_RAPPORT mission012, INTEGRATION_RTU_TX_012.md, documents de cablage et schemas de reference, documentation constructeur pertinente. Verifier HEAD reel main et sauvegarder les preuves.
-2. Construire une matrice factuelle des conditions TX : etat prouve, source exacte, lacune, risque et moyen minimal de lever. Ne pas redemander les mesures 3,31V, pont J2 soude, SB28/SB29 et RX011 deja etablis ; ces preuves ne suffisent toutefois pas a affirmer la tension VIO Click ou l'absence de conflit /RE-RST.
-3. Verifier le runtime STM32 de production, binding NOT_AVAILABLE, identite et adresse Modbus, configuration et readiness ; identifier les raccordements indispensables pour repondre sur la carte sans inventer de configuration de production ni effacer FRAM. Implementer si possible une tranche de diagnostic explicitement isolee et sure, avec tests de non-regression, permettant une reponse FC03 systeme sans activer les commandes/stockages non provisionnes. Toute deviation de la specification V1 doit etre exclue. Le choix architectural doit etre justifie et rester minimal.
-4. Compiler et tester les modifications necessaires. Autorisation de flash et debug autonome selon AGENTS.md si toutes les conditions de surete et la procedure qualifiee sont reunies. Avant flash : sauvegarde image existante, verification cible, empreintes et lecture apres flash. Ne pas effectuer d'emission TX sur un bus dont les conditions electriques et de direction restent incertaines. Ne pas utiliser un ELF different du BIN effectivement flashe pour interpreter les compteurs.
-5. Si les preuves documentaires ne suffisent pas, arreter l'activation TX et produire une demande d'intervention physique unique, precise, courte et motivee (point, methode, valeur attendue, consequence). Ne pas effectuer de manipulation physique ni exiger un nouvel essai RX. Aucun essai HP automatique ; preparer la procedure unique de requete/reponse pour la sous-mission suivante si le preflight est valide.
+## Objectif et methode
 
-## Livrables
+1. Lire AGENTS.md, protocole V2-B3, ETAT_COURANT_TR2.md, dernier rapport M013-A, preflight M013-A, schema Click rev1.02, code diagnostic/transport et tests. Verifier main reel et etat Git, preuves et candidat exact.
+2. Actualiser matrice preflight avec observations utilisateur ci-dessus, evaluer RST/J3 et topologie breakout reellement connue. Ne pas transformer absence de fil NUCLEO en preuve absolue de net libre. Si une incertitude de contention reste non resolue sans inspection physique, consigner une seule question ou action minimale et maintenir NO-GO TX.
+3. Si GO justifie : preparer build diagnosticON, TXON, unit1 a partir du code main reel, executer validation proportionnee, verifier ST-LINK/STM32, sauvegarder et verifier flash 2MiB courant, identifier BIN/ELF/SHA, programmer a 0x08000000 par procedure standard qualifiee, verifier/readback, garder trace et ne pas confondre ELF ancien/nouveau. Autorisations flash et debug explicites et autonomes, sans mass erase/Option Bytes/force push.
+4. Avant TX : assurer que seul le maitre HP prevu est connecte et que le bus/direction ne presente pas de contention. Le COM7 HP n'est pas accessible depuis T1000 : ne pas pretendre lancer une requete depuis Codex. Si toutes les conditions sont reunies, preparer un unique essai HP sans retry, avec instructions minimales pour l'utilisateur, et verifier les preuves reelles de la reponse, CRC, timing DE haut puis bas sur TC et retour RX ; si l'essai n'est pas executable dans cette mission, distinguer firmware flashe et TX non verifie. Ne pas lancer de TX non sollicite.
+5. Publier compte rendu avec verdict GO/NO-GO, etats distincts BUILD, TEST, FLASH, EXECUTION, TX PHYSIQUE, preuves, questions restantes et suite M013. Mettre a jour journal et documentation de preflight. Commit/push normaux main, rapport DERNIER_RAPPORT.md, verification distante.
 
-Publier un document M013-A avec matrice preflight, analyse binding, modifications et validations, conditions resolues/non resolues, verdict GO/NO-GO TX et prochain essai minimal. Mettre a jour ETAT_COURANT_TR2.md. Publier DERNIER_RAPPORT.md avec mission_id, HEAD, SHA, tests, etat flash/debug/TX reel et preuves. Commit/push normaux sur main et verification distante. Preserver freezes V1, travaux utilisateur et stashes. Interdits : mass erase, Option Bytes, force push, activation TX sans preuve de surete.
+Limites : aucune modification physique autonome, aucun changement de mapping V1 ou de configuration production fictive, pas de formatage FRAM/SD, pas d'operation destructive, stashes preserves. Toute condition de securite non etablie interdit activation TX.
