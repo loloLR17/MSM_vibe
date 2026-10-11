@@ -1,11 +1,12 @@
 ---
 mission_id: TR2-20261011-QUALIF-RS485-RX-006
-status: BLOCKED
+status: DONE
 base_ref: main
 base_sha: 9753b3d6b46243f0472a0d33c5fa82b509dcea71
 initial_head: 9753b3d6b46243f0472a0d33c5fa82b509dcea71
 result_sha: 330a6393572b4478c079d23829cda1b952672103
 created_at_utc: 2026-10-11T11:41:59Z
+updated_at_utc: 2026-10-11T11:42:28Z
 author: Codex
 target_branch: main
 allow_commit: true
@@ -16,10 +17,10 @@ allow_debug: false
 
 # Mission 006 — préparation instrumentée du premier essai RS-485 RX
 
-**BLOCKED provisoire uniquement en attente de publication et relecture distante.**
+**DONE pour la préparation logicielle : publication et relecture distante intégrale établies au SHA `41ed8c02fee26989d2e2a67cd52dff53b4afe795`.**
 Livrables logiciels réalisés ; **VALIDÉ hôte ciblé / COMPILÉ STM32 / PRÉPARÉ essai / NON QUALIFIÉ physique**.
 Décision : **NON PRÊT pour essai physique immédiat**, conditions explicites ci-dessous.
-La mission préparatoire peut être clôturée après publication ; elle ne qualifie pas la liaison.
+La mission préparatoire est clôturée ; elle ne qualifie pas la liaison.
 
 ## État réel et modifications
 
@@ -93,4 +94,6 @@ Autorisation/intervention attendue après contrôle ChatGPT : mission physique d
 
 Permissions exercées : commit et push normal sur main, **aucun flash/debug cible/émission série/geste matériel**.
 Avant publication : main et destination explicite vérifiés, origin/main `c8e2b5c...` sans divergence ; index/périmètre/secrets et validations contrôlés.
-Rapport provisoire BLOCKED : seule la preuve distante manque à ce stade. Après push, relecture intégrale de chaque livrable depuis le SHA origin/main récupéré, comparaison octet pour octet, puis mise à jour DONE séparée et nouveau contrôle.
+Premier push normal réussi `git push origin HEAD:refs/heads/main`, `c8e2b5c → 41ed8c02fee26989d2e2a67cd52dff53b4afe795` (commit du rapport provisoire). Puis fetch : origin/main = HEAD. Relecture des **8 livrables complets, 158474 octets**, via `git show <SHA distant>:<chemin>`, décodage intégral et comparaison octet pour octet aux fichiers locaux : aucune différence. ID de mission et result_sha vérifiés. Manifest des empreintes hors Git : `/tmp/tr2-mission006-remote-reread.json`.
+
+Arbre propre après première publication ; aucune divergence, stashes conservés. Cette mise à jour DONE est publiée dans un commit séparé, puis contrôlée à nouveau ; son SHA est fourni dans la réponse finale sans référence autoréférentielle. Le contrôle indépendant ChatGPT reste distinct de cette relecture Codex et de la qualification physique.
