@@ -1,9 +1,9 @@
 ---
-mission_id: TR2-20261010-DEV-RTU-PRODUCTION-005
+mission_id: TR2-20261011-QUALIF-RS485-RX-006
 status: READY
 base_ref: main
-base_sha: ff19cf40a017233b967b95fea3365bad0f631e11
-created_at_utc: 2026-10-10T15:30:00Z
+base_sha: 9753b3d6b46243f0472a0d33c5fa82b509dcea71
+created_at_utc: 2026-10-11T10:56:00Z
 author: ChatGPT
 target_branch: main
 allow_commit: true
@@ -12,30 +12,37 @@ allow_flash: false
 allow_debug: false
 ---
 
-# TR2 — Raccordement runtime de production et préparation qualification RS-485
+# TR2 — Préparation autonome du premier essai physique de réception RS-485 (mission 006)
 
-## Mission large, autonome, orientée résultat
+## Objectif et contexte confirmé
 
-Poursuivre la mission 004 (rapport DONE, code `92c75f6a`, 103/103 tests et cross-build) en livrant une tranche fonctionnelle substantielle du firmware TR2, sans demander de micro-validations. Codex choisit les sous-étapes et leur ordre, code, teste, corrige, commit et push sur `main` de façon autonome. L'utilisateur ne doit intervenir que pour lancer cette mission, puis pour les gestes physiques ultérieurs. Appliquer `AGENTS.md` et le protocole d'échange V2-B3.
+Préparer une procédure courte, reproductible et instrumentée permettant à l'utilisateur de démontrer ou d'infirmer la réception d'une trame RTU sur le STM32U575 réel, sans confondre détection du ST-LINK, présence de COM, réception d'octets, CRC valide et réponse Modbus applicative. Cette mission est **logicielle et préparatoire** : aucun flash, debug sur cible ou transmission physique n'est autorisé à Codex dans ce contrat. L'utilisateur fera les manipulations matérielles après relecture de la préparation.
 
-## Environnement et faits matériels vérifiés
+Banc réellement disponible et observé le 11 octobre :
+- T1000 Windows/WSL Debian, clone canonique `/home/lolo/dev/msm/projects/MSM_vibe`, SDK STM32CubeU5 v1.9.0 ; ST-LINK V3 USB 0483:374e attaché à WSL via usbipd ; OpenOCD 0.12.0 détecte `STLINK V3J15M7`, cible `stm32u5x.cpu` Cortex-M33 r0p4, tension 3,288 V, avec `openocd -f interface/stlink.cfg -f target/stm32u5x.cfg -c "init; targets; shutdown"`. Ceci valide l'accès SWD, **pas** le firmware actuellement programmé ni la liaison RS-485.
+- Ancien HP Windows : adaptateur FT232R USB–RS485 identifié **COM7**, réglages visés **115200, 8E1**. Ancien test d'ouverture du port effectué sur un autre PC, sans émission ; aucune réception physique encore observée.
+- TR2 actuel : STM32U575 NUCLEO-U575ZI-Q et carte MIKROE-3863 **ADM2867E** (ne pas réintroduire l'erreur ADM2587E). Câble blanc A+ → borne A, vert B− → B, noir GND → GND, rouge +5 V non raccordé et isolé. Montage alimenté depuis USB ST-LINK raccordé au T1000 pour essais ; auparavant powerbank. Mesures TR2 hors tension : continuité A↔Y et B↔Z, résistance A↔B ≈110 Ω. Les niveaux, VDDIO2, DE//RE, polarités, autorité du firmware et réception ne sont pas qualifiés par ces seules observations.
+- L'utilisateur a dû retailler un tournevis pour le bornier ; câblage actuellement réalisé. Ne pas lui redemander de recâbler sans raison étayée.
+- Mission 005 clôturée DONE : code `66edf2d17c5183003b3e5fcd7b5fe29a0bde4784`, rapport final `9753b3d6b46243f0472a0d33c5fa82b509dcea71`, 104/104 tests hôte et cross-build ARM. Production binding désactivé par défaut ; diagnostic RX prévu, aucune réponse Modbus de production garantie. E4 microSD/power-loss reste ouverte.
 
-Codex natif Debian, clone canonique `/home/lolo/dev/msm/projects/MSM_vibe`, SDK STM32CubeU5 déjà qualifié. Vérifier HEAD distant et état local sans audit T1000, préserver tout travail préexistant.
+## Travail autonome demandé à Codex
 
-**Inventaire utilisateur désormais consigné dans `Modbus RTU/00_gouvernance/ETAT_COURANT_TR2.md` :** TR2 de test équipé d'un **ADM2587E sur carte MIKROE-3863** ; un seul exemplaire de cette carte, plus deux exemplaires du second modèle nommé **ADM2867E** dans le projet pour les futurs deux TR2/supervision multi-TR2. **Câble USB–RS485 reçu, jamais connecté au PC ni au TR2.** Vérifier les désignations exactes et les documentations constructeur avant de fixer une interface ; ne jamais supposer que les deux modèles ont le même pinout, tension ou commande DE//RE.
+1. **État réel et pinout.** Vérifier HEAD distant, état Git local, `AGENTS.md`, protocole V2-B3, mission 005 et documents de pinout en gouvernance ; inspecter le code STM32 actuel, l'UART LPUART1, PG7/PG8, les éventuels GPIO DE//RE PG4/PG5, les alimentations et la révision MIKROE-3863. Séparer preuves documentaires, mesures rapportées et hypothèses ; ne pas déduire un câblage d'une photographie seule.
+2. **Diagnostic réellement observable.** Déterminer comment identifier de façon non destructive le firmware actuellement chargé et comment observer sur cible les compteurs `tr2_rtu_rx_*` ou autre preuve fiable. Si nécessaire, implémenter une instrumentation minimale compilable, à état sûr par défaut, permettant une observation via ST-LINK/OpenOCD/GDB ou une autre voie déjà existante. Ne pas supposer que le binaire actuel possède cette instrumentation ni que des symboles sont disponibles ; établir la méthode et ses limites. Préparer une procédure de flash/debug pour une **future autorisation humaine distincte**, sans l'exécuter dans cette mission.
+3. **Émission côté HP.** Fournir un outil/script ou une procédure Windows concrète, avec dépendances explicites, pour ouvrir COM7 en 115200 8E1 et transmettre une trame RTU **déterministe et CRC correct**, dérivée des spécifications/adresses réelles du dépôt. Fournir hex attendu et méthode de vérification hors ligne. Prévoir les délais RTU et un timeout interprété correctement : firmware RX diagnostique ne répond pas nécessairement. Ne pas émettre pendant cette mission.
+4. **Critères de preuve.** Définir observations avant/après côté STM32 (compteurs octets/trames/CRC/erreurs et limites), contrôle éventuel de l'état DE//RE, conditions de sécurité et diagnostic différentiel (aucun octet, CRC KO, trame valide, réponse absente). Distinguer validation SWD, RX UART, ADU RTU, serveur Modbus et TX RS-485. Donner à l'utilisateur **une séquence très courte de gestes/commandes** une fois la mission relue, sans demander des séries de tests exploratoires.
+5. **Livraison autonome.** Implémenter seulement les changements nécessaires ; tests hôte proportionnés et cross-build ARM selon `AGENTS.md`, corriger les régressions, documenter la préparation et mettre à jour l'état courant avec les preuves réelles. Préserver toutes spécifications gelées, configuration de production et dette E4. Ne pas activer par défaut le TX ni un runtime de production non provisionné.
 
-## Livrables de développement attendus
+## Permissions, limites et arrêt
 
-1. **Runtime STM32 durable :** faire progresser concrètement le boot et la composition applicative de production vers un `SystemRuntime` persistant en mémoire, avec autorités et services réellement disponibles, sans recycler comme objets durables les fixtures temporaires du harness. Réutiliser les services, contrats et architectures gelés ; choisir un incrément réellement compilable et testable, plutôt qu'une architecture théorique.
-2. **Commandes B5 :** intégrer les mécanismes existants de validation, admission, rejet, persistance et dispatch conformément aux spécifications V1 ; combler les raccordements manquants de façon ciblée, notamment soumission invalide/ID 0/code 14 et annulation, sans simuler une acceptation. Ne pas inventer de comportement ni modifier les freezes. Si une dépendance de production empêche l'activation, isoler explicitement cette limite et continuer le travail logiciel utile.
-3. **RS-485 sur montage réel :** examiner les documents et fichiers de conception pertinents au montage **ADM2587E / MIKROE-3863**, ainsi que le transport STM32 existant (PG7/PG8, candidats PG4/PG5, VDDIO2). Établir une matrice « prouvé / à mesurer / inconnu » pour alimentation, niveau logique, pinout, DE//RE, isolation, terminaison, polarisation, masses et sens A/B. Ne pas confondre ADM2587E avec ADM2867E. Développer des abstractions et tests de pilotage direction/TX/RX uniquement si les prérequis sont établis ; sinon ne pas activer de sortie dangereuse ni inventer de câblage.
-4. **Préparation des essais :** fournir une procédure courte, progressive et exécutable pour identifier et tester d'abord le câble USB–RS485 **sur le PC seul** (identification USB, driver, port, paramètres), puis préparer un second jalon de raccordement électrique au TR2 après vérification du montage réel. Aucune connexion, émission, flash ou manipulation physique pendant cette mission. Préparer également la future validation avec deux TR2, sans présumer qu'ils existent déjà.
-5. **Tests et livraison :** tests hôte ciblés, tests d'intégration pertinents et cross-build ARM, correction autonome des régressions, journal `ETAT_COURANT_TR2.md` mis à jour selon preuves. Ne pas relancer sans motif la supervision .NET. Maintenir la dette **E4 microSD/power-loss** ouverte.
+`target_branch: main`, `allow_commit: true`, `allow_push: true` : Codex est autorisé à développer, tester, documenter, committer et pousser normalement ses propres livrables sur main, sans validation répétitive ; contrôler branche, périmètre, secrets, divergence et relire les livrables distants conformément à V2-B3. Préserver tous les travaux/stashes préexistants. Pas de force push, reset destructif, réécriture des freezes, effacement, Option Bytes ou action matérielle.
 
-## Critères de sortie et publication
+`allow_flash: false`, `allow_debug: false` : **aucun flash STM32, aucune session OpenOCD/GDB avec la cible, aucune émission série physique, aucun geste matériel dans cette mission**. Si la preuve finale nécessite ces opérations, livrer la préparation et indiquer précisément l'autorisation/l'intervention attendue ; ne pas marquer la liaison physique qualifiée.
 
-La mission doit livrer du code réel, tests et résultats, plus le document de qualification matérielle/préparation. Distinguer `VALIDÉ hôte`, `COMPILÉ STM32`, `PRÉPARÉ matériel` et `NON QUALIFIÉ physique`. Si un composant ne peut pas être intégré sans mesure ou décision matérielle, livrer les autres éléments autonomes et signaler précisément le prérequis.
+Si une ambiguïté électrique réelle rendrait un essai dangereux, documenter la condition bloquante et sa mesure minimale plutôt que d'improviser. Ne pas interrompre la mission pour une question que le dépôt, les docs officielles ou les tests logiciels permettent de résoudre.
 
-Permissions : `target_branch: main`, `allow_commit: true`, `allow_push: true` pour développement, tests, docs et rapport. Commits/push normaux, sans force push ni opération destructrice ; préserver stash et travaux locaux. `allow_flash: false`, `allow_debug: false` ; pas de câblage, effacement, Option Bytes, manipulations matérielles ou changement des spécifications gelées.
+## Acceptation et rapport
 
-Codex publie `Modbus RTU/00_gouvernance/Echanges_Codex/DERNIER_RAPPORT.md` avec `mission_id: TR2-20261010-DEV-RTU-PRODUCTION-005`, résultats, tests, SHA, limites et preuve de relecture distante selon V2-B3. ChatGPT récupérera le rapport directement sur GitHub. Ne pas demander à l'utilisateur de le recopier.
+Livrables attendus : instrumentation/outil ou justification vérifiée de leur existence, procédure courte et exacte de l'essai HP COM7 ↔ STM32, validation logicielle réellement observée, tableau des preuves restantes et décision claire « prêt / non prêt pour essai physique ». Rapporter `VALIDÉ hôte`, `COMPILÉ STM32`, `PRÉPARÉ essai` et `NON QUALIFIÉ physique` séparément.
+
+Publier `Modbus RTU/00_gouvernance/Echanges_Codex/DERNIER_RAPPORT.md` sous `mission_id: TR2-20261011-QUALIF-RS485-RX-006` conformément au protocole V2-B3 ; relire le résultat distant, fournir le SHA final et laisser l'utilisateur demander à ChatGPT « consulte le rapport ».
