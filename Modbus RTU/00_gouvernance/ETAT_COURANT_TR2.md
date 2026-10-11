@@ -1,6 +1,6 @@
 # État courant TR2 — référence reconstruite
 
-Mise à jour : 11 octobre 2026. Mission `TR2-20261011-M013-A-TX-PREFLIGHT`.
+Mise à jour : 11 octobre 2026. Mission `TR2-20261011-M013-B-PHYSICAL-TX`.
 
 **Ce document est un nouvel état de référence reconstruit à partir de preuves vérifiables. Il n'est pas une restitution du journal historique HP.** Sa création a été explicitement autorisée par l'utilisateur pour la mission `T1000-20261010-CLOTURE-001`, après escalade AGENTS.md §18. Aucun original n'a été retrouvé dans l'historique Git, les répertoires Linux locaux ou les documents Windows accessibles. Les archives d'échanges du 8 octobre mentionnent un journal local HP, sans en fournir le contenu. Aucun état historique inconnu n'est inventé.
 
@@ -151,3 +151,10 @@ Prochaine étape à transmettre à ChatGPT : contrôler le rapport distant, puis
 - **NO-GO TX PHYSIQUE / NON VÉRIFIÉ** : matrice `PREFLIGHT_RTU_TX_M013_A.md` ; VIO Click non mesurée, route /RE–J3–RST concurrente/inconnue. Acquis3,31V MCU/SB28/SB29/J2 soudé/RX011 conservés sans demande de répétition. Un seul relevé physique ciblé demandé : VIO/DE//RE au repos contreGND1 et inspection RST/J3/révision. La continuité réelle et les transitions restent à établir si ambiguës ; reset pré-init et watchdogIRQ ne sont pas garanties matérielles.
 - **PRÉPARÉ / NON EXÉCUTÉ** : future requête unique unité1 `01 03 03 E8 00 01 04 7A`, réponse diagnostic attendue `01 03 02 00 00 B8 44`. Ce marqueur de banc ne provisionne pas l'adresse production. Aucun flash/debug/reset/USB/émission013 ; dernière identité sur carte BIN008 établie011, ELF008 préservé/re-hashé. Production reste NOT_AVAILABLE, FRAM non formatée ; E4 et freezes inchangés. Archives012 exactes préservées.
 - À ChatGPT : contrôler publication/code, recueillir le relevé unique puis cadrer l'essai physique si préflight sûr ; ne pas déclarer TX/production qualifiés sur ces tests hôte.
+
+## Mission M013-B — nouveaux acquis statiques, 11 octobre2026
+
+- **OBSERVATIONS UTILISATEUR dans le contrat** : Click MIKROE-3863 rev1.02/ADM2867E ; J1 position3,3V, J2/J3 fermés ; VIO3,27V contre masse logique ; DE0V, /RE0V. Aucune liaison RST vers NUCLEO réalisée selon utilisateur ; point RST non identifié. Acquis enregistrés sans répétition des mesures ni nouvel essai RX.
+- **TOPOLOGIE DOCUMENTAIRE ÉTABLIE / EXTERNE NON VÉRIFIÉE** : le contact RST mikroBUS2 est la broche RE du Click, voisine de DE/CS3 ; J3 fermé le relie à /RE, commun à DE par J2. Aucun second étage de sortie sur ce net dans schéma v102 ; une rangée/support externe n'est pas inspectable depuis T1000. **NO-GO TX en attente d'une seule clarification sur cette route externe**, question précise dans actualisation `PREFLIGHT_RTU_TX_M013_A.md` et rapport M013-B. Pas de dessoudage ou recâblage demandé.
+- **BUILD/TEST RÉUSSIS / FLASH NON EFFECTUÉ / TX NON VÉRIFIÉ** : code M013-A inchangé, candidat diagnosticON/TXON/unité1 reconstruit sur main, BIN/ELF identiques à M013-A ; trois tests ciblés réussis. Aucun accès cible, backup nouveau, flash/debug/reset/émission ; dernière image carte identifiée011 reste008. Production, E4, freezes et stashes conservés ; archives M013-A exactes.
+- À ChatGPT : VIO et niveaux statiques acquis, blocage réduit à route externe RE/RST ; ne pas assimiler réponse attendue/tests hôte à validation TX. Après preuve GO, sauvegarde/flash/readback/ELF puis essai HP unique et observation dynamique restent à réaliser.

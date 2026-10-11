@@ -1,8 +1,27 @@
 # M013-A — preflight TX et diagnostic FC03 isolé
 
-11 octobre 2026. Mission `TR2-20261011-M013-A-TX-PREFLIGHT`, référence inspectée `6a35aefdef34b91ed82d217c37cabc4a04bf2e8f`, main. **NO-GO TX PHYSIQUE : VIO Click et absence de commande concurrente RST non établis.** Tranche de diagnostic préparée et validée sur hôte ; aucun flash/debug/reset/émission en M013-A. Le dernier firmware identifié sur carte reste BIN008 (lecture011), sans nouvelle lecture013. Acquis RX011 conservé, pas de nouvel essai RX.
+11 octobre 2026. État historique M013-A, référence inspectée `6a35aefdef34b91ed82d217c37cabc4a04bf2e8f`, main : VIO Click et absence de commande concurrente RST non établis à cette date d'intervention. Tranche de diagnostic préparée et validée sur hôte ; aucun flash/debug/reset/émission en M013-A. Le dernier firmware identifié sur carte reste BIN008 (lecture011), sans nouvelle lecture013. Acquis RX011 conservé, pas de nouvel essai RX.
 
-## Matrice factuelle
+## Actualisation M013-B — 11 octobre2026
+
+Contrat `TR2-20261011-M013-B-PHYSICAL-TX`, référence `70843b31a1fb1db631d1852a9384aa76136063cf`. Les lignes ci-dessous remplacent les lacunes statiques correspondantes de la matrice historique, sans réécrire les preuves M013-A archivées.
+
+| Condition | Nouvelle preuve utilisateur, transmise dans le contrat M013-B | Conclusion permise |
+|---|---|---|
+| Révision / composant | MIKROE-3863 rev1.02, ADM2867E | Schéma v102 pertinent pour la topologie interne |
+| VIO / J1 | J1 position3,3V ; VIO3,27V contre masse logique | Lacune VIO statique levée ; aucune nouvelle mesure demandée |
+| Direction au repos | DE0V et /RE0V ; J2 et J3 fermés | Niveaux bas observés au repos ; pas preuve de transitions/turnaround |
+| RST externe | Aucune liaison RST vers NUCLEO réalisée selon utilisateur ; point RST non identifié sur breakout | Absence de fil NUCLEO acquise ; liaison implicite par rangée/support encore à identifier |
+
+**Topologie vérifiée sur le schéma :** PG4 → DE(U1-10) → J2 fermé → /RE(U1-9) → J3 fermé → contact RST mikroBUS. Ce contact est la **broche RE du Click, position mikroBUS2, voisine de DE/CS(position3)**, d'après la [table de pinout constructeur](https://www.mikroe.com/rs485-isolator-2-click). Il ne faut pas chercher un second reset du composant : RST est ici le nom du contact standard employé pour /RE. Aucun autre étage de sortie active n'est représenté sur ce net dans le Click v102 ; cela n'inspecte pas les rangées du montage externe. Une autre sortie maintenue basse pourrait entrer en conflit lorsque PG4 passe haut, même si les deux mesures au repos sont0V.
+
+**NO-GO d'activation maintenu en attente de cette seule clarification :** « La broche RE du Click, position RST mikroBUS2 voisine de DE/CS, est-elle libre de toute liaison externe, y compris via une rangée de breadboard ou un support ? » Attendu : aucune autre liaison externe/sortie. Aucune coupure, mesure, dessoudage ou modification de J3 demandée. Si la route ne peut être identifiée, maintenir NO-GO. Question posée au cours de M013-B conformément au contrat§2 et AGENTS.md§9 ; les acquis VIO/DE//RE/J1/J2/J3/RX ne sont pas redemandés.
+
+**BUILD/TEST M013-B réussis, FLASH/EXÉCUTION candidat/TX physique non effectués.** Reconstruction du code courant inchangé avec diagnosticON/TXON/unité1, CMake/Ninja et SDK Linux qualifié : BIN48240 octets SHA256 `47d69cc286b0f12771de56eb80f2648cc3c2a7a57b2ce1a8038b34de792b97e8`, ELF `762dcf0ba6c3663d9737dd334118a9f7d52a22175dda6d2674e9cb0d7b8e1c4a`, identiques M013-A ; trois tests ciblés diagnostic/transport gate0/gate1 réussis. Aucun nouveau code ni test modifié ; validation complète108/108 de M013-A reste une preuve antérieure. Absence de fonctions boot production/médias dans ELF recontrôlée. Preuves hors Git `/home/lolo/dev/msm/reports/TR2-mission013-B-20261011T135539Z`.
+
+Si la topologie est confirmée sûre : appliquer la porte GO avant sauvegarde2MiB vérifiée, identificationSN/cible, flashstandard à0x08000000, verify/readback et debug avec ELF exact. Vérifier l'unicité du maître HP et absence de contention avant l'essai ; aucune émission spontanée. Un seul probe HP COM7 1152008E1 et réponse dorée indiqués à la fin de ce document, sans retry. Tant que NO-GO demeure, **ne pas lancer `-Transmit`**. CRC/réponse/timing réel/TC/retourRX devront être observés ; une future réponse seule ne prouvera pas la forme d'onde DE ni le comportement reset. Les portes et limites matérielles M013-A restent applicables.
+
+## Matrice factuelle historique M013-A
 
 VALIDÉ distingue ici une preuve logicielle d'une observation matérielle ; une déclaration utilisateur est identifiée comme telle. Les constats historiques restent datés, pas transformés en mesures013.
 
@@ -59,7 +78,7 @@ Artefacts hors Git dans `/home/lolo/dev/msm/reports/TR2-mission013-A-20261011T13
 | DiagnosticON/TXOFF, unité1 | 46868 / `456d1c6146927c94a36438dc38b1b0231e5e83ca7057a3a77ca29efc7fcb379e` | `999ee3bf80ec06d0c522dac1b8be0aff2170ba3c31daa9b6b95413e80df340cd` |
 | DiagnosticON/TXON, unité1, candidat non qualifié | 48240 / `47d69cc286b0f12771de56eb80f2648cc3c2a7a57b2ce1a8038b34de792b97e8` | `762dcf0ba6c3663d9737dd334118a9f7d52a22175dda6d2674e9cb0d7b8e1c4a` |
 
-## Intervention physique unique demandée — pas encore effectuée
+## Intervention physique historique M013-A — mesures désormais rapportées dans M013-B
 
 **Sans émission, reset, déplacement de pont ou recâblage, sur le montage au repos sous BIN008 :** relever au voltmètre continu **VIO (U1-7), DE (U1-10) et /RE (U1-9), référence GND1 logique du Click** ; préférer des pads accessibles dont la liaison est identifiée, ne pas sonder des pattes fines si risque de court-circuit. Attendus : VIO voisin3,31V, DE et /RE franchement voisins0V et sous0,3VIO. Dans la même inspection, relever la révision lisible et **si RST du Click rejoint un fil, socket ou une autre sortie, avec l'état visible de J3**. Ne pas mesurer de continuité sous tension. Si point inaccessible ou route impossible à identifier, rapporter ce manque sans improviser.
 
