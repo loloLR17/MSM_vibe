@@ -1,63 +1,80 @@
 ---
-mission_id: TR2-20261011-RX-011
-status: DONE
+mission_id: TR2-20261011-RTU-TX-012
+status: BLOCKED
 base_ref: main
 base_sha: null
-initial_head: ee5cf92c9c6891bd9c36fa7cd138eb7fcb4636ed
-mission_sha: f8d42ed32aa11d8d028532ccc05eefab869d6d12
-result_sha: 0d4dde6cf31508ab54911f976f51f45c2f819152
-created_at_utc: 2026-10-11T13:12:30.754358+00:00
+initial_head: 30275fe6fb6df7fdc05bb87166407080358d67a5
+mission_sha: 548ad3fc8dc45221308878b52256f94daac36cf4
+result_sha: 9c62c54c50ff92f5b7f53a6f938b5110c7612085
+created_at_utc: 2026-10-11T13:27:41.688521+00:00
 author: Codex
 target_branch: main
 allow_commit: true
 allow_push: true
-allow_flash: false
+allow_flash: true
 allow_debug: true
 ---
 
-# Mission011 — réception du premier essai HP établie
+# Mission012 — chemin de réponse testé, activation physique différée
 
-**Critères RX satisfaits : +8 octets, +1 trame/+1 ADU valide, zéro erreur, octets exacts. DONE après publication et relecture distante intégrale.** Validation physique limitée à cet essai RX unique, pas qualification industrielle, TX/PDU ou sûreté électrique complète.
+**IMPLEMENTATION VALIDÉE / HOST TESTS 107/107 / STM32 BUILD RÉUSSI (OFF et ON) / FLASH NON EFFECTUÉ / TX PHYSIQUE BLOQUÉ.** Statut provisoire BLOCKED pour preuve distante à obtenir. Le travail de cadrage/intégration logicielle prévu au contrat est achevé ; arrêt matériel appliqué conformément aux clauses4/5. Aucun TX physique ni nouveau RX déclaré validé.
 
-## Références, état initial et permissions
+## Références et portée
 
-HEAD initial propre main `ee5cf92c9c6891bd9c36fa7cd138eb7fcb4636ed`, fetch et pull fast-forward vers contrat `f8d42ed32aa11d8d028532ccc05eefab869d6d12`. AGENTS.md inchangé depuis010 (dont décision flash/debug11octobre), protocoleV2-B3, journal intégral, rapport010 et procédures008/009/006 inspectés. Contrat011 READY inchangé ; base_sha/date absents, signalés sans invention ; référence réelle consignée. Deux stashes005/002 préservés. Archives010 exactes à partir du HEAD initial, **rapport BLOCKED010 conservé historiquement**, pas réécrit comme réussi.
+HEAD initial main propre `30275fe6fb6df7fdc05bb87166407080358d67a5`, fetch/pull fast-forward vers contrat `548ad3fc8dc45221308878b52256f94daac36cf4`. AGENTS.md, protocole V2-B3, rapport011, journal intégral, charte V1 et références B0, freezes P12F/G/H, architecture, sources et tests concernés inspectés. Mapping, types sans float, interfaces portables et sémantique transactionnelle inchangés. Les champs base_sha/date manquent au contrat : base_sha null, références observées consignées sans invention ; permissions et objectif explicites.
 
-Source évaluée et programmée008 `0d4dde6cf31508ab54911f976f51f45c2f819152`, sans changement de code011. ELF local SHA256 `6546629b85dba6ba5ead029d208d9a95e67a13e0e244d477d01828b07ab4c23e` recontrôlé ; BIN `02ed2cf64d4d78225a4781b823c9d27e96a8ea693679d8a834d230568383593b`,157944 octets. Flash à nouveau lue en debug, fichier `/home/lolo/dev/msm/reports/TR2-mission011-20261011T131102Z/flash-current.bin`, égalité byte-à-byte BIN008 avant exploitation des observations : appariement firmware/symboles établi. Aucune programmation ni reset ni émission011.
+Pendant le travail, origin/main a avancé à `c035a7fc226852de9a5041342884f2cca13b4722` par ajout de la seule roadmap. Mission et sources inchangées ; absence de collision vérifiée, dix fichiers locaux hashés avant/après pull fast-forward : préservés à l'identique, sans merge/rebase/reset/stash supplémentaire. Roadmap laissée inchangée, rôle M012 respecté. Deux stashes005/002 conservés.
 
-## Essai utilisateur et mesures Codex
+Commit code **`9c62c54c50ff92f5b7f53a6f938b5110c7612085`**, message **`STM32: gate RS485 response TX with DE, TC recovery and watchdog`**. Archives011 mission/rapport copiées exactement depuis HEAD initial ; preuves physiques011 conservées et pas d'essai RX répété.
 
-**Observation utilisateur rapportée par contrat011** : une seule exécution HP `Send-Tr2RxProbe.ps1 -Transmit`, sortie `Request: 01 03 03 E8 00 01 04 7A; COM7 115200 8E1; CRC/self-check OK`, puis absence de réponse en~1s. Codex n'a pas observé directement l'exécution HP ; aucune répétition demandée ou effectuée. Absence de réponse attendue pour firmware RX diagnostic, sans serveur de production actif.
+## Audit et modifications
 
-**Observations Codex** : USBIPD Shared, aucun OpenOCD/GDB/serveurST concurrent détecté. Serveur Windows ST7.14.0 sur SN003500463235510B37333439, `-d -g --frequency 8000 -cp <CubeProgrammer/bin>`, client GDB ARM Windows du CLT qualifié, attach localhost61234. Batch lecture seule mémoire/Flash, macro `rx_snapshot.gdb`, detach/quit. Aucun load, écriture registre/RAM, breakpoint ou reset. Adresses PWR/GPIOG/LPUART1 contrôlées dans CMSIS officiel déjà utilisé010 ; pas de lecture RDR susceptible de consommer un octet.
+[Audit et prochain jalon](../INTEGRATION_RTU_TX_012.md) : la chaîne `main → ModbusSystemServer → ModbusRtuServerRuntime → PDU V1 → ADU → SerialTransport` existe déjà. Le manque traité est le pilotage half-duplex STM32. Aucune réécriture du serveur, aucune adresse/B0 ou dépendance de production inventée.
 
-| Compteur | AVANT : dernier010 | APRÈS011 | Delta |
-|---|---:|---:|---:|
-| Ready | 1 | 1 | 0 |
-| Poll count | 15458093 | 386978316 | 371520223 |
-| Octets | 0 | 8 | **+8** |
-| Trames | 0 | 1 | **+1** |
-| ADU valides | 0 | 1 | **+1** |
-| ADU invalides | 0 | 0 | 0 |
-| Erreurs CRC | 0 | 0 | 0 |
-| Erreurs UART/transport | 0 | 0 | 0 |
+- `platform/stm32/stm32_serial_transport.{c,h}` : gate TX OFF par défaut ; réponse seulement après T3.5 consommé, queue vide, timer idle et aucun RXNE/BUSY, TX ou défaut. Vérification/armement sous section critique PRIMASK restaurée. Abort RX, PG4 DE haut, watchdog TIM6 50ms, Transmit_IT ; fin **TC** entraîne DE bas puis réarmement RX et garde1750µs. TXE/buffer vide ne relâche pas DE. PG5 jamais piloté.
+- Échec de lancement/abort RX, erreur TX, timeout ou réarmement RX défaillant : DE bas avant abort TX, erreur visible et défaut latched jusqu'à nouvelle initialisation, aucun retry automatique. Overflow empêche une réponse sur trame incohérente ; activité plus récente invalide le silence. Callback tardif/écho RX supprimé pendant TX. Erreur RX ordinaire réarme proprement HAL ; réarmement par octet en échec déclenche fail-safe visible.
+- CMake STM32 : option `TR2_STM32_RS485_TX_QUALIFIED=OFF`. CMake hôte : deux cibles test du vrai source STM32, macro0 et1, avec HAL simulée isolée. `tests/platform/test_stm32_rtu_tx.c` relie le **vrai serveur applicatif ModbusSystemServer**, son RTU/PDU/codec V1, au **vrai transport STM32** ; fixtures runtime/B0/unit17 seulement dans le test, jamais provisioning carte.
+- `INTEGRATION_RTU_TX_012.md`, journal et archives011 : audit, preuves, risques et étapes restantes. Aucun changement freezes, registres B0..B7, services, persistance ou E4.
 
-Dernière longueur8, decode_result0, last_error0 ; dernière ADU RAM **`01 03 03 E8 00 01 04 7A`** exactement. Assertions hors cible sur sortie effective confirment ces valeurs et octets. Progression polling observée depuis010 ; PC `0x08003d72` dans stm32_poll_event, binding3NOT_AVAILABLE. PWR_SVMCR `0x20000000` : IO2SV actif. GPIOG MODER `0xfffebdff`, PUPDR `0x200`, IDR `0x180`, ODR0 : PG4output/pull-down/latchbas/entrée digitale basse ; PG7/8AF8 observée via AFRL `0x80000000`, AFRH8. LPUART CR1 `0x152d`, CR2=0,CR3=1,BRR=`0x56ce4`,ISR=`0x006200d0` : pas d'erreur bits0..3, REACK/TEACK présents. CFSR/HFSR0. GPIO/UART lecture digitale, pas mesure de tension U1.
+Le hook faible `stm32_production_binding_acquire` reste NOT_AVAILABLE : carte en diagnostic RX, sans boot artificiel du runtime. Géométrie FRAM, récupération transactionnelle valide (EMPTY non formaté), CampaignDataStore réel, adresse et identité/configuration restent requis. Gate ON ne les fournit pas. Le raccordement logiciel de réponse est démontré sur hôte, pas une activation fictive de production sur STM32.
 
-GDB retour0, detach réussi ; serveur non persistant terminé naturellement (`Shutting down... Exit.`), inventaire processus Windows après session sans serveur/debugger/OpenOCD. Cible détachée suivant procédure qualifiée, firmware laissé fonctionner ; aucune reconnexion/reset après essai. Serveur annonce une mise à jour ST-LINK disponible, **aucune mise à jour exécutée**, hors périmètre.
+## Tests et compilations effectifs
 
-## Verdict et limites
+Validation complète retenue selon AGENTS.md : changement du comportement transport partagé avec le serveur, risque de régression plausible ; pas de simple cross-only. Commande finale :
 
-**PASS pour le critère RX du contrat011** : une ADU exacte et valide est effectivement reçue/décodée par le STM32 sous BIN008 après l'envoi unique rapporté. Zéro erreur observée sur cette fenêtre ; pas de généralisation à charge/endurance/timing/température. Absence de réponse HP n'est pas un échec de cette tranche RX.
+```sh
+STM32CUBE_U5_ROOT=/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0 bash ./tr2_validate.sh
+```
 
-Ce résultat ne qualifie pas TXTR2, turnaround, serveur PDU/runtime de production, secondTR2 ni stockage/E4 ; aucune tension U1VIO/DE//RE ou continuitéJ2 nouvelle mesurée. Réception réussie ne remplace pas la qualification électrique/reset. Pas de demande de nouvelle émission ou de répétition des mesures utilisateur. Prochaine étape à ChatGPT : revue indépendante de ces preuves puis cadrage du jalon suivant, sans présumer TX ou E4 validés.
+Retour0, **107/107 tests hôte** et cross-build ARM OFF réussis. Après les dernières extensions des tests uniquement, rebuild des deux cibles et tests ciblés2/2, puis CTest complet final **107/107** réussi. Pas de test affaibli/désactivé. Pas de validation .NET, aucune source PC modifiée.
 
-## Livrables et validation
+Nouveaux scénarios : réponse FC03 valide et CRC, exception FC06, CRC erroné, adresse étrangère, broadcast FC03/FC16 sans réponse, silence T1.5/T3.5 et interruption, aucune émission initiale, TX busy, activité plus récente et RXNE/BUSY, overflow, ordre DE→HAL TX→TC→DE bas→RX, garde intertrame, watchdog50ms sans dépendance au polling, erreurs TX/RX/abort et reprise RX en échec, défaut latched, écho, readiness applicative perdue, PRIMASK préservé, gate OFF. Tests de mapping/production existants également passés.
 
-Journal actualisé avec envoi HP rapporté, relevé APRÈS/deltas/octetsexacts, appariementFlash008, clôture de la preuve RX manquante010 et limites. Archives010 exactes, pas de code modifié. Validation proportionnée : observations physiques debug, comparaisonFlash, assertions des valeurs, contenu/diff/index ; pas de build ou tests hôte/.NET qui n'apporteraient pas de preuve à cette mission de mesure.
+Build ARM ON séparé sous `/home/lolo/dev/msm/reports/TR2-mission012-20261011T132002Z/build-tx-enabled`, configuré avec toolchain vérifiée `platform/stm32/cmake/arm-none-eabi-gcc.cmake`, SDK CubeU5v1.9.0 et `-DTR2_STM32_RS485_TX_QUALIFIED=ON` : build initial et rebuild final retour0. Désassemblage du candidat confirme branche stm32_transmit vers HAL_GPIO_WritePin et HAL_UART_Transmit_IT. Les mocks vérifient le contrat du code plateforme ; la HAL interne et les délais électriques ne sont pas simulés comme une preuve matérielle.
 
-Preuves complètes hors Git `/home/lolo/dev/msm/reports/TR2-mission011-20261011T131102Z` : after.gdb, after.log, server.log, flash-current.bin, manifest.json (tailles/SHA256). Aucun binaire Flash, token ou donnée personnelle ajouté au dépôt public. Permissions exercées : debug lecture/halt/detach/reprise, documentation/commit/push main ; allow_flashfalse respecté. Aucun flash, émission, reset, opération physique, OptionBytes, mass erase, Git destructif ou force push.
+HAL officielle auditée : UART_IRQHandler traite TC/TCIE via UART_EndTransmit_IT et TxCpltCallback ; TXE reste distinct. AbortReceive/Transmit sont opérations bornées sans DMA applicatif. Profil115200/8E1, buffer256 : temps théorique maximal~24,45ms, watchdog50ms. Timer1MHz, IRQUART/TIM6 priorité5, queue64 (63 utilisables), T1.5=750µs/T3.5=1750µs conservés. Quatre avertissements newlib existants `_close/_lseek/_read/_write`, aucune erreur ni masquage.
+
+## Artefacts évalués, non flashés
+
+| Build | BIN octets / SHA256 | ELF SHA256 | text/data/bss |
+|---|---|---|---|
+| OFF, défaut | 157784 / `8f9e0cea42cbf02b2b312fb0f1cfc6f07df2af20b054a801c6f3379314949ff1` | `9e6d0c4986fbaf636fcdf8f6254078980be16be4fb4ed882e72e3bfafd1cd731` | 157660 / 124 / 129072 |
+| ON, candidat seulement | 159152 / `ce3c8b2e850da332cf43858e9b633abb217cd700f8d09218a44b27049f08ae53` | `2f534de2ad8fc4af5415b453f7eda1c2b5645b59a9d9855b2cc0dfaccb8b02cd` | 159028 / 124 / 129072 |
+
+BIN/ELF/MAP008 préservés et empreinte BIN contrôlée **avant** reconstruire les builds locaux : `/home/lolo/dev/msm/reports/TR2-mission012-20261011T132002Z/preserved-BIN008`. Carte laissée sous BIN008, **aucun flash/debug/USB/reset/émission en012**. Ne pas utiliser nouvel ELF012 sur cette carte. Copie des artefacts OFF, builds ON, logs finaux, désassemblages et `artifacts.json` (tailles/SHA256) hors Git sous `/home/lolo/dev/msm/reports/TR2-mission012-20261011T132002Z`. Logs `/tmp/tr2-mission012-validation-final.log`, `...-ctest-final.log`, `...-targeted-final.log` copiés dans ce dossier. Aucun binaire public nouveau.
+
+## Sûreté et jalon physique restant
+
+Acquis : PG4 DE câblé, PG5 et /RE sans fil, pont J2 soudé rapporté ; schéma v102 J2=DE–/RE, J3=/RE–RST ; RX011 exact et PG4 entrée digitale basse. Ces observations sont conservées, pas redemandées. Faits absents pour TX : révision/continuité commune et absence commande RST concurrente, VIO Click réellement compatible3V3, /RE conforme lors de DE haut, direction/turnaround dynamiques. VIO=VCC dans schéma, rail SB28 ne mesure pas VIO Click.
+
+[ADM2867E RevD table2](https://www.analog.com/media/en/technical-documentation/data-sheets/adm2867e_adm2865e_adm2863e_adm2861e.pdf) consultée : enable/disable DE max40ns sous conditions constructeur. La séquence prévoit des opérations HAL/TIM avant démarrage UART ; aucun délai physique mesuré revendiqué. Vérification RXNE/BUSY/silence limite réponse obsolète, sans garantir contention/multimaître ou timing sur bus. La garde n'est pas une qualification de réception d'un maître violant le silence.
+
+**Limites fail-safe explicites** : DE bas au boot après initialiseur008, pas de garantie matérielle pendant reset avant prise en charge GPIO. Watchdog dépend de TIM6/IRQ fonctionnels ; ne garantit pas libération sur panne CPU/IRQ masquées. Pas de nouveau pont/pull-down physique inventé. Une garantie permanente requiert décision matérielle et preuve spécifique.
+
+Conformément aux clauses4/5, pas de flash ni essai TX quand ces conditions restent incertaines. Étape préparée : rassembler seulement les faits TX manquants, fournir binding carte réel, puis build ON identifié/validé, sauvegarde2Mio/SN/hash, flash standard vérifié/relu et ELF correspondant sous contrat physique, un essai requête/réponse contrôlé avec instrumentation direction/TC/turnaround. COM7 HP inaccessible ici ; aucune nouvelle émission ou répétition RX demandée. Le contrat permet cette clôture de préparation avec jalon physique différé ; pas d'autorisation supplémentaire sollicitée pour du logiciel déjà autorisé.
+
+Journal actualisé : tranche transport, tests/builds, garde OFF et runtime indisponible, BIN008 conservé, prérequis TX/reset. À ChatGPT : revue indépendante du code et des preuves, puis cadrage M013 suivant roadmap ; J1/TX et E4 toujours à qualifier.
 
 ## Publication
 
-Push normal main réussi, HEAD=origin/main=`1449b81fe8e81bedc63c98072d70ce6ba17eed2e` après fetch. Relecture intégrale des quatre livrables modifiés et du contrat011 inchangé depuis cette référence distante, égalité byte-à-byte locale, identifiant et result_sha contrôlés. Commit `Record mission 011 successful single-frame physical RX observation`. Cette mise à jour DONE est publiée ensuite et contrôlée une dernière fois ; SHA final dans la réponse Codex. État initial propre, stashes préservés ; SHA final rapport fourni après contrôle distant.
+Diff/index, whitespace, chemins et secrets inspectés, aucun fichier hors périmètre. Permissions effectivement exercées : développement, documentation, tests/compilations, commit et push normaux main ; flash/debug permis mais non exercés. Aucune opération destructive ou physique. Preuve de publication/relecture distante à compléter selon protocole avant DONE de cette tranche logicielle/préparation.
