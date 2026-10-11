@@ -1,6 +1,6 @@
 ---
 mission_id: TR2-20261011-STLINK-009
-status: BLOCKED
+status: DONE
 base_ref: main
 base_sha: null
 initial_head: 000b51545c5ebdd7625cab0234dfa4e569fd9b63
@@ -17,7 +17,7 @@ allow_debug: false
 
 # Mission009 — diagnostic ST-LINK autonome
 
-**BLOCKED provisoire uniquement dans l'attente de publication/relecture distante. Diagnostic hôte résolu ; aucune qualification MCU/RX.**
+**DONE : diagnostic hôte résolu, publication et relecture distante effectuées ; aucune qualification MCU/RX.**
 
 HEAD initial main propre `000b51545c5ebdd7625cab0234dfa4e569fd9b63`, fetch/pull fast-forward vers `7f46035283c33625c383cfedb04a7288555045a9`. Contrat READY inchangé. Champs base_sha et created_at_utc absents du contrat : absence signalée, base_sha null sans invention ; références observées consignées, permissions/périmètre sans ambiguïté. result_sha null : aucun changement logiciel cible ni évaluation nouvelle de code firmware.
 
@@ -44,4 +44,4 @@ Permissions exercées : diagnostic hôte non destructif, détachement USB réver
 
 ## Publication
 
-Preuve distante à compléter ; diff/index et secrets contrôlés avant commit, destination main explicite, pas de force/merge/rebase/reset. Arbre initial propre, deux stashes préservés. SHA des commits fourni après publication ; pas de SHA auto-référent.
+Push normal réussi sur main, HEAD=origin/main=`658dee47ec1dc558dd9a8b02da1c060819c65d7a` après fetch. Relecture intégrale des cinq livrables modifiés et de la mission inchangée depuis cette référence distante, comparaison byte-à-byte locale : concordance complète ; identifiant009 vérifié. Commit `Diagnose ST-LINK ownership and prepare future BIN008 qualification`. Mise à jour DONE publiée ensuite et contrôlée une dernière fois ; SHA final dans la réponse Codex.  diff/index et secrets contrôlés avant commit, destination main explicite, pas de force/merge/rebase/reset. Arbre initial propre, deux stashes préservés. SHA des commits fourni après publication ; pas de SHA auto-référent.
