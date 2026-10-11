@@ -5,6 +5,7 @@
 #include "stm32u5xx_hal.h"
 #include "stm32_serial_transport.h"
 #include "stm32_modbus_diagnostic.h"
+#include "stm32_irq_observer.h"
 #include "tr2/application/modbus_system_server.h"
 
 GPIO_TypeDef mock_gpio;
@@ -203,28 +204,79 @@ int main(void)
         init_transport();
         assert(stm32_modbus_diagnostic_init(&diagnostic,&transport,1)==TR2_OK);
         assert(modbus_rtu_server_runtime_start(&diagnostic.rtu)==TR2_OK);
+#if TR2_STM32_IRQ_DIAGNOSTICS
+        assert(tr2_irq_observer.uart_irq==0 && tr2_irq_observer.timer_irq==0);
+        assert(tr2_irq_observer.rx_callback==0 && tr2_irq_observer.tx_attempt==0);
+        stm32_irq_observer_sample();
+        assert(tr2_irq_observer.live.valid==0); /* Host is not a core sample. */
+#endif
         for (size_t i=0;i<sizeof(adu);++i) {
             *rx=adu[i]; HAL_UART_RxCpltCallback(uart);
-            assert(modbus_rtu_server_runtime_poll_once(&diagnostic.rtu)==TR2_OK);
+            assert(stm32_modbus_diagnostic_poll_once(&diagnostic)==TR2_OK);
             assert(!de && sends==0);
         }
         stm32_serial_transport_tim6_irq_handler();
-        assert(modbus_rtu_server_runtime_poll_once(&diagnostic.rtu)==TR2_OK);
+        assert(stm32_modbus_diagnostic_poll_once(&diagnostic)==TR2_OK);
         assert(!de && sends==0);
         stm32_serial_transport_tim6_irq_handler();
 #if TR2_STM32_RS485_TX_QUALIFIED
         const uint8_t expected[]={1,3,2,0,0,0xB8,0x44};
-        assert(modbus_rtu_server_runtime_poll_once(&diagnostic.rtu)==TR2_OK);
+        assert(stm32_modbus_diagnostic_poll_once(&diagnostic)==TR2_OK);
         assert(de && sends==1 && sent_size==sizeof(expected));
         assert(memcmp(sent,expected,sizeof(expected))==0);
         stm32_serial_transport_irq_handler(); assert(de);
         HAL_UART_TxCpltCallback(uart);
         assert(!de && receive_active && mock_period==1750);
 #else
-        assert(modbus_rtu_server_runtime_poll_once(&diagnostic.rtu)==TR2_ERROR_UNAVAILABLE);
+        assert(stm32_modbus_diagnostic_poll_once(&diagnostic)==TR2_ERROR_UNAVAILABLE);
         assert(!de && sends==0 && receive_active);
 #endif
         assert(diagnostic.rtu.pdu_context.command_mailbox==NULL);
+#if TR2_STM32_IRQ_DIAGNOSTICS
+        assert(tr2_irq_observer.rx_callback==8 && tr2_irq_observer.bytes_polled==8);
+        assert(tr2_irq_observer.frame_count==1 && tr2_irq_observer.crc_valid==1);
+        assert(tr2_irq_observer.crc_bad==0 && tr2_irq_observer.accepted_request==1);
+        assert(tr2_irq_observer.available_status==1 && tr2_irq_observer.tx_attempt==1);
+        assert(tr2_irq_observer.last_frame_length==sizeof(adu));
+        for (size_t i=0;i<sizeof(adu);++i) assert(tr2_irq_observer.last_frame[i]==adu[i]);
+        assert(tr2_irq_observer.timer_irq==2 && tr2_irq_observer.t3_5_polled==1);
+#if TR2_STM32_RS485_TX_QUALIFIED
+        assert(tr2_irq_observer.tx_started==1 && tr2_irq_observer.tx_callback==1);
+#else
+        assert(tr2_irq_observer.tx_started==0 && tr2_irq_observer.tx_callback==0);
+#endif
+        /* Corrupt and foreign frames are observed but must not prepare TX.
+         * This is HAL simulation only; no byte is sent to a physical bus. */
+        uint8_t bad[sizeof(adu)]; memcpy(bad,adu,sizeof(adu)); bad[7]^=1;
+        for (size_t i=0;i<sizeof(bad);++i) {
+            *rx=bad[i]; HAL_UART_RxCpltCallback(uart);
+            assert(stm32_modbus_diagnostic_poll_once(&diagnostic)==TR2_OK);
+        }
+        stm32_serial_transport_tim6_irq_handler();
+        assert(stm32_modbus_diagnostic_poll_once(&diagnostic)==TR2_OK);
+        stm32_serial_transport_tim6_irq_handler();
+        assert(stm32_modbus_diagnostic_poll_once(&diagnostic)==TR2_OK);
+        assert(tr2_irq_observer.frame_count==2 && tr2_irq_observer.crc_bad==1);
+        assert(tr2_irq_observer.accepted_request==1 && tr2_irq_observer.tx_attempt==1);
+        uint8_t foreign[256]; size_t foreign_length;
+        assert(modbus_rtu_adu_encode(2,adu+1,5,foreign,sizeof(foreign),&foreign_length)==MODBUS_RTU_CODEC_OK);
+        for (size_t i=0;i<foreign_length;++i) {
+            *rx=foreign[i]; HAL_UART_RxCpltCallback(uart);
+            assert(stm32_modbus_diagnostic_poll_once(&diagnostic)==TR2_OK);
+        }
+        stm32_serial_transport_tim6_irq_handler();
+        assert(stm32_modbus_diagnostic_poll_once(&diagnostic)==TR2_OK);
+        stm32_serial_transport_tim6_irq_handler();
+        assert(stm32_modbus_diagnostic_poll_once(&diagnostic)==TR2_OK);
+        assert(tr2_irq_observer.frame_count==3 && tr2_irq_observer.foreign_unit==1);
+        assert(tr2_irq_observer.crc_valid==2 && tr2_irq_observer.accepted_request==1);
+        assert(tr2_irq_observer.tx_attempt==1 && !de);
+        HAL_UART_ErrorCallback(uart);
+        assert(stm32_modbus_diagnostic_poll_once(&diagnostic)==TR2_OK);
+        assert(tr2_irq_observer.error_callback==1 && tr2_irq_observer.errors_polled==1);
+        assert(tr2_irq_observer.last_hal_error==HAL_UART_ERROR_FE);
+        assert(stm32_modbus_diagnostic_poll_once(NULL)==TR2_ERROR_INVALID_ARGUMENT);
+#endif
     }
     return 0;
 }

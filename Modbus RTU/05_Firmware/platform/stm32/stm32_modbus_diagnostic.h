@@ -13,4 +13,7 @@ typedef struct {
 Tr2Result stm32_modbus_diagnostic_init(Stm32ModbusDiagnostic *diagnostic,
     SerialTransport *transport, uint8_t diagnostic_unit_id);
 
+/* Observer wrapper uses the existing runtime, without changing outcomes. */
+Tr2Result stm32_modbus_diagnostic_poll_once(Stm32ModbusDiagnostic *diagnostic);
+
 #endif

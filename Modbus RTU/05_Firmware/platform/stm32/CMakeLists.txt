@@ -15,7 +15,11 @@ if(NOT STM32CUBE_U5_ROOT)
 endif()
 
 option(TR2_STM32_RS485_TX_QUALIFIED "Enable DE/TX only for an explicitly qualified RS485 board" OFF)
+option(TR2_STM32_IRQ_DIAGNOSTICS "Passive RAM IRQ/core observer for isolated diagnostics" OFF)
 option(TR2_STM32_MODBUS_DIAGNOSTIC "Isolated B1/1000 diagnostic, bypassing media and production boot" OFF)
+if(TR2_STM32_IRQ_DIAGNOSTICS AND NOT TR2_STM32_MODBUS_DIAGNOSTIC)
+    message(FATAL_ERROR "IRQ observer requires isolated diagnostic mode")
+endif()
 set(TR2_STM32_DIAGNOSTIC_UNIT_ID "0" CACHE STRING "Explicit bench-only diagnostic address (1..247); not production provisioning")
 if(TR2_STM32_MODBUS_DIAGNOSTIC)
     if(NOT TR2_STM32_DIAGNOSTIC_UNIT_ID MATCHES "^[1-9][0-9]*$" OR
@@ -114,6 +118,7 @@ add_executable(tr2_stm32_p11c
 )
 
 target_compile_definitions(tr2_stm32_p11c PRIVATE
+    TR2_STM32_IRQ_DIAGNOSTICS=$<BOOL:${TR2_STM32_IRQ_DIAGNOSTICS}>
     TR2_STM32_RS485_TX_QUALIFIED=$<BOOL:${TR2_STM32_RS485_TX_QUALIFIED}>
     TR2_STM32_MODBUS_DIAGNOSTIC=$<BOOL:${TR2_STM32_MODBUS_DIAGNOSTIC}>
     TR2_STM32_DIAGNOSTIC_UNIT_ID=${TR2_STM32_DIAGNOSTIC_UNIT_ID})

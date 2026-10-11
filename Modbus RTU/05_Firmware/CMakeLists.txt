@@ -115,17 +115,25 @@ add_test(NAME stm32_rs485_rx_gpio COMMAND test_stm32_rs485_rx_gpio)
 
 # Compile the real STM32 adapter against a host HAL, both qualification states.
 foreach(tx_qualified 0 1)
-    add_executable(test_stm32_rtu_tx_${tx_qualified}
-        tests/platform/test_stm32_rtu_tx.c
-        platform/stm32/stm32_serial_transport.c
-        platform/stm32/stm32_modbus_diagnostic.c
-    )
-    target_include_directories(test_stm32_rtu_tx_${tx_qualified} PRIVATE
-        tests/platform/stm32_hal_tx_mock platform/stm32)
-    target_compile_definitions(test_stm32_rtu_tx_${tx_qualified} PRIVATE
-        TR2_STM32_RS485_TX_QUALIFIED=${tx_qualified})
-    target_link_libraries(test_stm32_rtu_tx_${tx_qualified} PRIVATE tr2_core)
-    add_test(NAME stm32_rtu_tx_${tx_qualified} COMMAND test_stm32_rtu_tx_${tx_qualified})
+    foreach(irq_observer 0 1)
+        if(irq_observer)
+            set(test_name stm32_irq_observer_${tx_qualified})
+        else()
+            set(test_name stm32_rtu_tx_${tx_qualified})
+        endif()
+        add_executable(test_${test_name}
+            tests/platform/test_stm32_rtu_tx.c
+            platform/stm32/stm32_serial_transport.c
+            platform/stm32/stm32_modbus_diagnostic.c
+        )
+        target_include_directories(test_${test_name} PRIVATE
+            tests/platform/stm32_hal_tx_mock platform/stm32)
+        target_compile_definitions(test_${test_name} PRIVATE
+            TR2_STM32_RS485_TX_QUALIFIED=${tx_qualified}
+            TR2_STM32_IRQ_DIAGNOSTICS=${irq_observer})
+        target_link_libraries(test_${test_name} PRIVATE tr2_core)
+        add_test(NAME ${test_name} COMMAND test_${test_name})
+    endforeach()
 endforeach()
 
 function(tr2_add_core_test target source test_name)

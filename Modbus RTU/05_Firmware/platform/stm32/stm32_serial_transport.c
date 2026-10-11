@@ -5,6 +5,7 @@
 
 #include "stm32u5xx_hal.h"
 #include "stm32_serial_transport.h"
+#include "stm32_irq_observer.h"
 
 #define TR2_SERIAL_EVENT_CAPACITY 64u
 #define TR2_SERIAL_TX_CAPACITY    256u
@@ -47,16 +48,59 @@ typedef struct {
 
 static Stm32SerialContext g_serial;
 
+#if TR2_STM32_IRQ_DIAGNOSTICS
+volatile Stm32IrqObserver tr2_irq_observer;
+
+static void sample_core(volatile Stm32IrqCoreSample *sample)
+{
+#if defined(STM32U575xx)
+    /* NVIC is the bank addressed by this build/execution context. ITNS
+     * describes attribution only where TrustZone is actually enabled. */
+    sample->cpuid = SCB->CPUID;
+    sample->vtor = SCB->VTOR;
+    sample->aircr = SCB->AIRCR;
+    sample->primask = __get_PRIMASK();
+    sample->basepri = __get_BASEPRI();
+    sample->faultmask = __get_FAULTMASK();
+    sample->control = __get_CONTROL();
+    for (unsigned i = 0u; i < 3u; ++i) {
+        sample->iser[i] = NVIC->ISER[i];
+        sample->ispr[i] = NVIC->ISPR[i];
+        sample->itns[i] = NVIC->ITNS[i];
+    }
+    if (g_serial.uart.Instance != NULL) {
+        sample->uart_isr = g_serial.uart.Instance->ISR;
+        sample->uart_cr1 = g_serial.uart.Instance->CR1;
+        sample->uart_cr3 = g_serial.uart.Instance->CR3;
+        sample->hal_rx_state = g_serial.uart.RxState;
+        sample->hal_error = g_serial.uart.ErrorCode;
+    }
+    sample->valid = 1u;
+#else
+    /* Host HAL counters are useful, but never pretend to sample a core. */
+    sample->valid = 0u;
+#endif
+}
+
+void stm32_irq_observer_sample(void)
+{
+    sample_core(&tr2_irq_observer.live);
+}
+#endif
+
+
 static bool event_push_from_isr(SerialTransportEvent event)
 {
     const uint32_t head = g_serial.event_head;
     const uint32_t next = (head + 1u) % TR2_SERIAL_EVENT_CAPACITY;
 
     if (next == g_serial.event_tail) {
+        TR2_OBSERVE_INC(events_dropped);
         g_serial.event_overflow_pending = true;
         return false;
     }
 
+    TR2_OBSERVE_INC(events_pushed);
     g_serial.events[head] = event;
     g_serial.event_head = next;
     return true;
@@ -110,6 +154,7 @@ static bool restore_receive(void)
 
 static void tx_fail_safe(void)
 {
+    TR2_OBSERVE_INC(tx_fail_safe);
     SerialTransportEvent event = { SERIAL_TRANSPORT_EVENT_ERROR, 0u,
                                    SERIAL_TRANSPORT_ERROR_UNSPECIFIED };
     HAL_GPIO_WritePin(GPIOG, GPIO_PIN_4, GPIO_PIN_RESET); /* Release FIRST. */
@@ -131,6 +176,11 @@ static Tr2Result stm32_transmit(void *context, const uint8_t *data, size_t lengt
         return TR2_ERROR_INVALID_ARGUMENT;
     }
 
+#if TR2_STM32_IRQ_DIAGNOSTICS
+    TR2_OBSERVE_INC(tx_attempt);
+    tr2_irq_observer.last_tx_length = (uint32_t)length;
+    for (size_t i = 0u; i < length; ++i) tr2_irq_observer.last_tx[i] = data[i];
+#endif
     const uint32_t primask = __get_PRIMASK();
     Tr2Result result = TR2_ERROR_UNAVAILABLE;
     __disable_irq();
@@ -152,6 +202,7 @@ static Tr2Result stm32_transmit(void *context, const uint8_t *data, size_t lengt
             rtu_timer_start_period(TR2_RTU_TX_TIMEOUT_US);
             if (HAL_UART_Transmit_IT(&serial->uart, serial->tx_buffer,
                                      (uint16_t)length) == HAL_OK) {
+                TR2_OBSERVE_INC(tx_started);
                 result = TR2_OK;
             } else {
                 tx_fail_safe();
@@ -196,6 +247,14 @@ static bool stm32_poll_event(void *context, SerialTransportEvent *event)
     tail = serial->event_tail;
     if (tail != serial->event_head) {
         *event = serial->events[tail];
+#if TR2_STM32_IRQ_DIAGNOSTICS
+        TR2_OBSERVE_INC(events_polled);
+        tr2_irq_observer.last_event = (uint32_t)event->type;
+        if (event->type == SERIAL_TRANSPORT_EVENT_BYTE) TR2_OBSERVE_INC(bytes_polled);
+        if (event->type == SERIAL_TRANSPORT_EVENT_ERROR) TR2_OBSERVE_INC(errors_polled);
+        if (event->type == SERIAL_TRANSPORT_EVENT_SILENCE_T1_5) TR2_OBSERVE_INC(t1_5_polled);
+        if (event->type == SERIAL_TRANSPORT_EVENT_SILENCE_T3_5) TR2_OBSERVE_INC(t3_5_polled);
+#endif
         serial->event_tail = (tail + 1u) % TR2_SERIAL_EVENT_CAPACITY;
         /* Guard checked again atomically by transmit against ISR activity. */
         if (event->type == SERIAL_TRANSPORT_EVENT_SILENCE_T3_5) {
@@ -267,6 +326,9 @@ static Tr2Result rtu_timer_init(void)
     g_serial.rtu_timer_phase = TR2_RTU_TIMER_IDLE;
     HAL_NVIC_SetPriority(TIM6_IRQn, 5u, 0u);
     HAL_NVIC_EnableIRQ(TIM6_IRQn);
+#if TR2_STM32_IRQ_DIAGNOSTICS
+    sample_core(&tr2_irq_observer.after_timer_enable);
+#endif
     return TR2_OK;
 }
 
@@ -279,6 +341,10 @@ Tr2Result stm32_serial_transport_init(SerialTransport *transport)
     }
 
     memset(&g_serial, 0, sizeof(g_serial));
+#if TR2_STM32_IRQ_DIAGNOSTICS
+    memset((void *)&tr2_irq_observer, 0, sizeof(tr2_irq_observer));
+    sample_core(&tr2_irq_observer.before_enable);
+#endif
     /* HAL_MspInit already configured PG4 before releasing VDDIO2. */
     HAL_GPIO_WritePin(GPIOG, GPIO_PIN_4, GPIO_PIN_RESET);
 
@@ -319,6 +385,9 @@ Tr2Result stm32_serial_transport_init(SerialTransport *transport)
 
     HAL_NVIC_SetPriority(LPUART1_IRQn, 5u, 0u);
     HAL_NVIC_EnableIRQ(LPUART1_IRQn);
+#if TR2_STM32_IRQ_DIAGNOSTICS
+    sample_core(&tr2_irq_observer.after_uart_enable);
+#endif
 
     transport->context = &g_serial;
     transport->start_receive = stm32_start_receive;
@@ -330,11 +399,16 @@ Tr2Result stm32_serial_transport_init(SerialTransport *transport)
 
 void stm32_serial_transport_irq_handler(void)
 {
+    TR2_OBSERVE_INC(uart_irq);
+#if TR2_STM32_IRQ_DIAGNOSTICS && defined(STM32U575xx)
+    tr2_irq_observer.last_irq_isr = g_serial.uart.Instance->ISR;
+#endif
     HAL_UART_IRQHandler(&g_serial.uart);
 }
 
 void stm32_serial_transport_tim6_irq_handler(void)
 {
+    TR2_OBSERVE_INC(timer_irq);
     HAL_TIM_IRQHandler(&g_serial.rtu_timer);
 }
 
@@ -350,6 +424,10 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
         return;
     }
 
+    TR2_OBSERVE_INC(rx_callback);
+#if TR2_STM32_IRQ_DIAGNOSTICS
+    tr2_irq_observer.last_rx_byte = g_serial.rx_byte;
+#endif
     if (g_serial.tx_busy) return; /* Suppress late callback/echo during TX. */
     g_serial.bus_silent = false;
     (void)event_push_from_isr(event);
@@ -362,6 +440,7 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
 void HAL_UART_TxCpltCallback(UART_HandleTypeDef *huart)
 {
     if (huart == &g_serial.uart) {
+        TR2_OBSERVE_INC(tx_callback);
         if (!g_serial.tx_busy) return;
         /* Official HAL invokes this on TC, not TXE/buffer exhaustion. */
         HAL_GPIO_WritePin(GPIOG, GPIO_PIN_4, GPIO_PIN_RESET);
@@ -384,6 +463,10 @@ void HAL_UART_ErrorCallback(UART_HandleTypeDef *huart)
         return;
     }
 
+    TR2_OBSERVE_INC(error_callback);
+#if TR2_STM32_IRQ_DIAGNOSTICS
+    tr2_irq_observer.last_hal_error = HAL_UART_GetError(huart);
+#endif
     if (g_serial.tx_busy) {
         tx_fail_safe();
         return;
@@ -408,6 +491,7 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
         return;
     }
 
+    TR2_OBSERVE_INC(timer_callback);
     if (g_serial.rtu_timer_phase == TR2_RTU_TIMER_TX_WATCHDOG) {
         tx_fail_safe();
         return;

@@ -8,6 +8,7 @@
 #include "stm32_rs485_rx_gpio.h"
 #include "stm32_modbus_application.h"
 #include "stm32_modbus_diagnostic.h"
+#include "stm32_irq_observer.h"
 #include "stm32_runtime_platform.h"
 #include "stm32_sdmmc_bulk_media.h"
 
@@ -1565,10 +1566,11 @@ int main(void)
         led_tick = HAL_GetTick();
         for (;;) {
             const uint32_t now = HAL_GetTick();
-            const Tr2Result result = modbus_rtu_server_runtime_poll_once(&diagnostic.rtu);
+            const Tr2Result result = stm32_modbus_diagnostic_poll_once(&diagnostic);
             tr2_modbus_diagnostic_last_poll_result = (uint32_t)result;
             if (result != TR2_OK) tr2_modbus_diagnostic_poll_error_count++;
             if ((uint32_t)(now - led_tick) >= 250U) {
+                stm32_irq_observer_sample();
                 HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
                 led_tick = now;
             }
