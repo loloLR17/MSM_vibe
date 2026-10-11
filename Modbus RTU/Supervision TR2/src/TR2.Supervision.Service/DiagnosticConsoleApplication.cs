@@ -134,9 +134,9 @@ public static class DiagnosticConsoleApplication
         log.Flush(flushToDisk: true);
     }
 
-    private sealed record Options(bool ReadOnce, ModbusSerialConnectionSettings? Settings, string? LogPath);
+    internal sealed record Options(bool ReadOnce, ModbusSerialConnectionSettings? Settings, string? LogPath);
 
-    private static Options Parse(IReadOnlyList<string> args)
+    internal static Options Parse(IReadOnlyList<string> args)
     {
         if (args.Count == 0 || args[0] != "--diagnostic")
         {

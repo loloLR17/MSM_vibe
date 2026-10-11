@@ -27,10 +27,13 @@ public sealed class PhysicalPollingWorkRunnerTests
             composition.BusWorkScheduler.QueuePolling(endpoint, PollingGroup.Static, now);
             var work = composition.BusWorkScheduler.BeginNext(endpoint.Bus, now)!;
 
-            var runner = new PhysicalPollingWorkRunner(composition, supportedProtocolVersion);
+            var notifications = new List<TR2Endpoint>();
+            var runner = new PhysicalPollingWorkRunner(composition, supportedProtocolVersion,
+                (observedEndpoint, _) => notifications.Add(observedEndpoint));
             var result = await runner.ExecuteAsync(work, now);
 
             Assert.True(result.EndpointCompatible);
+            Assert.Equal(endpoint, Assert.Single(notifications));
             var session = composition.FleetRegistry.GetSession(endpoint);
             Assert.Equal(TR2SessionState.Compatible, session.State);
             Assert.Equal(new DeviceId(42), session.Device!.DeviceId);
@@ -60,10 +63,13 @@ public sealed class PhysicalPollingWorkRunnerTests
             composition.BusWorkScheduler.QueuePolling(endpoint, PollingGroup.Static, now);
             var work = composition.BusWorkScheduler.BeginNext(endpoint.Bus, now)!;
 
-            var runner = new PhysicalPollingWorkRunner(composition, supportedProtocolVersion: 7);
+            var notifications = new List<TR2Endpoint>();
+            var runner = new PhysicalPollingWorkRunner(composition, supportedProtocolVersion: 7,
+                (observedEndpoint, _) => notifications.Add(observedEndpoint));
             var result = await runner.ExecuteAsync(work, now);
 
             Assert.False(result.EndpointCompatible);
+            Assert.Empty(notifications);
             Assert.Equal(TR2SessionState.Incompatible, composition.FleetRegistry.GetSession(endpoint).State);
         }
         finally

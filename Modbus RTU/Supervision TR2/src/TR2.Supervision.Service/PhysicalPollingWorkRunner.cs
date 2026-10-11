@@ -73,7 +73,8 @@ public sealed class PhysicalPollingWorkRunner : IPollingWorkRunner
         if (readSet.B0Session is not null)
         {
             _composition.FleetRegistry.SetSession(readSet.B0Session);
-            _compatibleSessionObserved?.Invoke(endpoint, observedAt);
+            if (readSet.B0Session.State == TR2SessionState.Compatible)
+                _compatibleSessionObserved?.Invoke(endpoint, observedAt);
         }
 
         var session = _composition.FleetRegistry.GetSession(endpoint);

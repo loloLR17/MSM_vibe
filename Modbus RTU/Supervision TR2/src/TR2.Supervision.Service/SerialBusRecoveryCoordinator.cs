@@ -18,12 +18,18 @@ public sealed class SerialBusRecoveryCoordinator
         ArgumentNullException.ThrowIfNull(bus);
         cancellationToken.ThrowIfCancellationRequested();
 
-        await _composition.BusConnectionManager.CloseAsync(bus.Id).ConfigureAwait(false);
-
+        // A serial connection is shared by the entire bus. Preserve last values,
+        // but invalidate every identified device before forgetting its identity,
+        // including when closing a failing driver itself throws.
         foreach (var endpoint in GetConfiguredBus(bus).Endpoints)
         {
+            var session = _composition.FleetRegistry.GetSession(endpoint);
+            if (session.Device is not null)
+                _composition.TelemetrySnapshotRegistry.MarkUnavailable(session.Device.DeviceId);
             _composition.FleetRegistry.SetSession(TR2Session.CreateUnidentified(endpoint));
         }
+
+        await _composition.BusConnectionManager.CloseAsync(bus.Id).ConfigureAwait(false);
     }
 
     public async ValueTask<bool> TryReconnectAsync(

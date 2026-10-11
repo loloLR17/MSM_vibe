@@ -1,6 +1,7 @@
 using TR2.Application;
 using TR2.Domain;
 using TR2.Transport;
+using TR2.Protocol;
 using Xunit;
 
 namespace TR2.Supervision.Service.Tests;
@@ -73,9 +74,54 @@ public sealed class PhysicalPollingFailureRecoveryTests
         }
     }
 
+    [Theory]
+    [InlineData(false)]
+    [InlineData(true)]
+    public async Task BusLossInvalidatesEveryDevicePreservesValuesEvenIfCloseFails(bool closeFails)
+    {
+        var databasePath = NewDatabasePath();
+        try
+        {
+            var factory = new FakeFactory(new FailingRegisterTransport(ModbusTransportFailureKind.Io));
+            var composition = Compose(databasePath, factory, endpoints: "[1,2]");
+            await new SupervisionRuntimeStartup(composition).StartAsync();
+            factory.Connection!.CloseFails = closeFails;
+            var endpoints = composition.Configuration.Buses.Single().Endpoints;
+            var now = DateTimeOffset.UtcNow;
+            var registers = new ushort[B1SystemState.RegisterCount];
+            registers[0] = 2;
+            var value = B1SystemState.Parse(registers);
+            foreach (var endpoint in endpoints)
+            {
+                var id = new DeviceId(endpoint.Address.Value);
+                composition.FleetRegistry.SetSession(TR2Session.CreateCompatible(endpoint, new TR2Device(id)));
+                composition.TelemetrySnapshotRegistry.ReceiveSystemState(id, value, now);
+            }
+
+            var coordinator = new SerialBusRecoveryCoordinator(composition);
+            if (closeFails)
+                await Assert.ThrowsAsync<IOException>(() => coordinator.MarkDisconnectedAsync(endpoints[0].Bus).AsTask());
+            else
+                await coordinator.MarkDisconnectedAsync(endpoints[0].Bus);
+
+            foreach (var endpoint in endpoints)
+            {
+                Assert.Equal(TR2SessionState.Unidentified, composition.FleetRegistry.GetSession(endpoint).State);
+                var snapshot = composition.TelemetrySnapshotRegistry.Get(new DeviceId(endpoint.Address.Value)).SystemState;
+                Assert.False(snapshot.IsAvailable);
+                Assert.True(snapshot.HasValue);
+                Assert.Equal(value, snapshot.LastValue);
+                Assert.Equal(now, snapshot.ReceivedAt);
+            }
+            Assert.True(factory.Connection.Disposed);
+        }
+        finally { DeleteDatabaseFiles(databasePath); }
+    }
+
     private static SupervisionRuntimeComposition Compose(
         string databasePath,
-        IModbusBusConnectionFactory factory)
+        IModbusBusConnectionFactory factory,
+        string endpoints = "[1]")
     {
         var escapedDatabasePath = databasePath.Replace("\\", "\\\\");
         var configuration = RuntimeConfigurationLoader.Parse(
@@ -93,7 +139,7 @@ public sealed class PhysicalPollingFailureRecoveryTests
                     "stopBits": "One",
                     "responseTimeoutMilliseconds": 750
                   },
-                  "endpoints": [1]
+                  "endpoints": {{endpoints}}
                 }
               ]
             }
@@ -153,10 +199,12 @@ public sealed class PhysicalPollingFailureRecoveryTests
         public IRegisterTransport RegisterTransport { get; }
         public IRegisterWriteTransport RegisterWriteTransport { get; }
         public bool Disposed { get; private set; }
+        public bool CloseFails { get; set; }
 
         public ValueTask DisposeAsync()
         {
             Disposed = true;
+            if (CloseFails) throw new IOException("Simulated driver close failure");
             return ValueTask.CompletedTask;
         }
     }

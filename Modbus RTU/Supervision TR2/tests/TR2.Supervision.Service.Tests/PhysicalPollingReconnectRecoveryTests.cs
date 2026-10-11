@@ -7,15 +7,19 @@ namespace TR2.Supervision.Service.Tests;
 
 public sealed class PhysicalPollingReconnectRecoveryTests
 {
-    [Fact]
-    public async Task IoFailureDisconnectsThenReconnectRequiresFreshB0BeforeCompatible()
+    [Theory]
+    [InlineData(42u, (ushort)7, true)]
+    [InlineData(43u, (ushort)7, true)]
+    [InlineData(43u, (ushort)8, false)]
+    public async Task IoFailureDisconnectsThenReconnectRequiresFreshB0BeforeCompatible(
+        uint secondDeviceId, ushort secondProtocolVersion, bool compatible)
     {
         var databasePath = NewDatabasePath();
         try
         {
             const ushort supportedProtocolVersion = 7;
             var firstTransport = new IoAfterB0Transport(supportedProtocolVersion, deviceId: 42);
-            var secondTransport = new B0OnlyTransport(supportedProtocolVersion, deviceId: 42);
+            var secondTransport = new B0OnlyTransport(secondProtocolVersion, secondDeviceId);
             var factory = new SequencedFactory(firstTransport, secondTransport);
             var composition = Compose(databasePath, factory);
             await new SupervisionRuntimeStartup(composition).StartAsync();
@@ -38,6 +42,9 @@ public sealed class PhysicalPollingReconnectRecoveryTests
             Assert.Equal(TR2SessionState.Compatible, composition.FleetRegistry.GetSession(endpoint).State);
             Assert.True(composition.BusConnectionManager.TryGet(endpoint.Bus.Id, out _));
 
+            var oldValue = TR2.Protocol.B1SystemState.Parse(new ushort[20]);
+            composition.TelemetrySnapshotRegistry.ReceiveSystemState(new DeviceId(42), oldValue, t0);
+
             var failedFastPolling = BeginPolling(
                 composition,
                 endpoint,
@@ -49,6 +56,7 @@ public sealed class PhysicalPollingReconnectRecoveryTests
             Assert.Equal(TR2SessionState.Unidentified, composition.FleetRegistry.GetSession(endpoint).State);
             Assert.False(composition.BusConnectionManager.TryGet(endpoint.Bus.Id, out _));
             Assert.Single(factory.OpenedTransports);
+            Assert.False(composition.TelemetrySnapshotRegistry.Get(new DeviceId(42)).SystemState.IsAvailable);
 
             await recoveryScheduler.RunDueAsync(t0.AddSeconds(1));
             await recoveryScheduler.RunDueAsync(t0.AddSeconds(5));
@@ -69,10 +77,17 @@ public sealed class PhysicalPollingReconnectRecoveryTests
                 t0.AddSeconds(6));
             var rediscoveryResult = await runner.ExecuteAsync(secondDiscovery, t0.AddSeconds(6));
 
-            Assert.True(rediscoveryResult.EndpointCompatible);
+            Assert.Equal(compatible, rediscoveryResult.EndpointCompatible);
             var recoveredSession = composition.FleetRegistry.GetSession(endpoint);
-            Assert.Equal(TR2SessionState.Compatible, recoveredSession.State);
-            Assert.Equal(new DeviceId(42), recoveredSession.Device!.DeviceId);
+            Assert.Equal(compatible ? TR2SessionState.Compatible : TR2SessionState.Incompatible, recoveredSession.State);
+            if (compatible) Assert.Equal(new DeviceId(secondDeviceId), recoveredSession.Device!.DeviceId);
+            else Assert.Null(recoveredSession.Device);
+            var oldSnapshot = composition.TelemetrySnapshotRegistry.Get(new DeviceId(42)).SystemState;
+            Assert.False(oldSnapshot.IsAvailable); // B0 alone never refreshes telemetry.
+            Assert.Equal(oldValue, oldSnapshot.LastValue);
+            Assert.Equal(t0, oldSnapshot.ReceivedAt);
+            if (secondDeviceId != 42)
+                Assert.False(composition.TelemetrySnapshotRegistry.Get(new DeviceId(secondDeviceId)).SystemState.HasValue);
         }
         finally
         {

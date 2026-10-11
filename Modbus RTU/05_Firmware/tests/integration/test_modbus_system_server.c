@@ -278,6 +278,43 @@ int main(void)
     assert(run(&server, &serial) == TR2_OK);
     view = response(&serial);
     assert(view.pdu_length == 6u && view.pdu[2] == 0x12u && view.pdu[5] == 0x78u);
+    /* M014-D: the supervision reads complete B0/B1, not only status1000.
+     * Identity below is an explicit host fixture, never board provisioning. */
+    const uint8_t read_full_b0[] = {3u, 0u, 0u, 0u, TR2_B0_REGISTER_COUNT};
+    const uint8_t read_full_b1[] = {3u, 0x03u, 0xE8u, 0u, TR2_B1_REGISTER_COUNT};
+    identity.registers[6] = 1u;
+    for (size_t repeat = 0u; repeat < 2u; ++repeat) {
+        before = serial.tx_calls;
+        load(&serial, 17u, read_full_b0, sizeof(read_full_b0), false);
+        assert(run(&server, &serial) == TR2_OK && serial.tx_calls == before + 1u);
+        view = response(&serial); /* Decoder verifies actual response CRC. */
+        assert(view.pdu_length == 2u + 2u * TR2_B0_REGISTER_COUNT);
+        assert(view.pdu[0] == 3u && view.pdu[1] == 2u * TR2_B0_REGISTER_COUNT);
+        for (size_t index = 0u; index < TR2_B0_REGISTER_COUNT; ++index)
+            assert(((uint16_t)view.pdu[2u + 2u * index] << 8u |
+                view.pdu[3u + 2u * index]) == identity.registers[index]);
+        runtime.b1_image.registers[0] = (uint16_t)(4u + repeat);
+        before = serial.tx_calls;
+        load(&serial, 17u, read_full_b1, sizeof(read_full_b1), false);
+        assert(run(&server, &serial) == TR2_OK && serial.tx_calls == before + 1u);
+        view = response(&serial);
+        assert(view.pdu_length == 2u + 2u * TR2_B1_REGISTER_COUNT);
+        assert(view.pdu[0] == 3u && view.pdu[1] == 2u * TR2_B1_REGISTER_COUNT);
+        for (size_t index = 0u; index < TR2_B1_REGISTER_COUNT; ++index)
+            assert(((uint16_t)view.pdu[2u + 2u * index] << 8u |
+                view.pdu[3u + 2u * index]) == runtime.b1_image.registers[index]);
+    }
+    /* Availability is authoritative: no stale last image after withdrawal. */
+    runtime.b1_image_available = false;
+    load(&serial, 17u, read_full_b1, sizeof(read_full_b1), false);
+    assert(run(&server, &serial) == TR2_OK);
+    exception(&serial, 3u, MODBUS_PDU_EXCEPTION_SLAVE_DEVICE_FAILURE);
+    runtime.b1_image_available = true;
+    load(&serial, 17u, read_full_b1, sizeof(read_full_b1), false);
+    assert(run(&server, &serial) == TR2_OK);
+    view = response(&serial);
+    assert(view.pdu_length == 2u + 2u * TR2_B1_REGISTER_COUNT);
+
     load(&serial, 17u, command, sizeof(command), false);
     assert(run(&server, &serial) == TR2_OK);
     assert(handler.calls == 1u && handler.last_submit == COMMAND_MAILBOX_SUBMISSION_CAPTURED);
