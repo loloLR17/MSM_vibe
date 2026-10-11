@@ -5,6 +5,7 @@
 #include "stm32_fram_storage.h"
 #include "stm32_iis3dwb_vibration_source.h"
 #include "stm32_serial_transport.h"
+#include "stm32_rs485_rx_gpio.h"
 #include "stm32_modbus_application.h"
 #include "stm32_runtime_platform.h"
 #include "stm32_sdmmc_bulk_media.h"
@@ -1527,7 +1528,8 @@ static void Error_Handler(void);
 
 void HAL_MspInit(void)
 {
-    __HAL_RCC_PWR_CLK_ENABLE();
+    /* Establish DE low before releasing VDDIO2, early in HAL_Init. */
+    stm32_rs485_rx_gpio_init();
 }
 
 int main(void)

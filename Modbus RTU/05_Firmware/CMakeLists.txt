@@ -103,6 +103,16 @@ target_link_libraries(tr2_rtu_request PRIVATE tr2_core)
 
 enable_testing()
 
+# Host mock exercises the actual STM32 board GPIO source, without target access.
+add_executable(test_stm32_rs485_rx_gpio
+    tests/platform/test_stm32_rs485_rx_gpio.c
+    platform/stm32/stm32_rs485_rx_gpio.c
+)
+target_include_directories(test_stm32_rs485_rx_gpio PRIVATE
+    tests/platform/stm32_hal_rx_mock platform/stm32
+)
+add_test(NAME stm32_rs485_rx_gpio COMMAND test_stm32_rs485_rx_gpio)
+
 function(tr2_add_core_test target source test_name)
     add_executable(${target} ${source})
     target_link_libraries(${target} PRIVATE tr2_core)

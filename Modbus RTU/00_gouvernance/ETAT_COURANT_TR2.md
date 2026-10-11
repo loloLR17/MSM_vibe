@@ -1,6 +1,6 @@
 # État courant TR2 — référence reconstruite
 
-Mise à jour : 11 octobre 2026. Mission `TR2-20261011-DIAG-VDDIO2-RS485-007`.
+Mise à jour : 11 octobre 2026. Mission `TR2-20261011-RS485-RX-BRINGUP-008`.
 
 **Ce document est un nouvel état de référence reconstruit à partir de preuves vérifiables. Il n'est pas une restitution du journal historique HP.** Sa création a été explicitement autorisée par l'utilisateur pour la mission `T1000-20261010-CLOTURE-001`, après escalade AGENTS.md §18. Aucun original n'a été retrouvé dans l'historique Git, les répertoires Linux locaux ou les documents Windows accessibles. Les archives d'échanges du 8 octobre mentionnent un journal local HP, sans en fournir le contenu. Aucun état historique inconnu n'est inventé.
 
@@ -113,3 +113,10 @@ Prochaine étape à transmettre à ChatGPT : contrôler le rapport distant, puis
 - **NON QUALIFIÉ électrique / RX, essai NON PRÊT** : prochaine séance d'abord état session confirmé, puis relevé électrique unique ; décision sur correctif, nouvelle validation et éventuel flash sous permission distincte/chaîne ST qualifiée ; identification exacte et IO2SV/RXready/polling avant une seule émissionCOM7. La voie WSL observée n'est pas qualifiée pour flash/reprise/reset ; propriété ST-LINK Windows/WSL à gérer explicitement. Absence microSD actuelle acquise, pas de demande de retrait inutile. Production/TX non activés et E4 ouverte.
 
 À transmettre à ChatGPT : contrôler le rapport007 ; cadrer la séance humaine minimale et autoriser la correction d'init seulement après preuves électriques/direction/boot, puis flash/debug explicitement. Mission007 conclut l'analyse/préparation, pas la qualification du banc.
+
+## Mission008 — bring-up logiciel RX, 11 octobre 2026
+
+- **Observations utilisateur** : SB28 fermé et 3,31 V aux deux extrémités ; SB29 ouvert. DE câblé PG4, /RE et PG5 sans fil ; pont J2 soudé rapporté, révision/continuité non vérifiées. PG4 0,88 V au repos ; flottement hypothétique. GDB désormais fermé selon utilisateur, OpenOCD potentiellement actif ; microSD absente. Flash courant toujours non identifié, différent du BIN006.
+- **Lecture documentaire vérifiée** : schéma officiel Click v102, J2 = DE–/RE, J3 = /RE–RST ; table fabricant nomme JP2 le contrôle commun. VIO reliée à VCC sélectionnée dans v102 (nouvelle preuve graphique, sans réécriture des conclusions historiques007). Carte réelle non identifiée ; tension VIO Click non mesurée.
+- **VALIDÉ logiciel ciblé / COMPILÉ STM32** : PG4 latch bas puis output dès HAL_MspInit, ensuite IO2SV, puis plus tard PG7/PG8 AF8 UART. Aucun PG5, DE haut ou TX fonctionnel ajouté. Tests ciblés 3/3 (GPIO réel sur HAL simulée, codec, récepteur), cross-build-only réussi ; ordre ARM vérifié par objdump. Text157820/data124/bss129072. BIN157944 octets SHA256 `02ed2cf64d4d78225a4781b823c9d27e96a8ea693679d8a834d230568383593b` ; ELF `6546629b85dba6ba5ead029d208d9a95e67a13e0e244d477d01828b07ab4c23e`.
+- **PRÉPARÉ / NON FLASHÉ / NON QUALIFIÉ RX** : procédure courte dans `BRINGUP_RS485_RX_008.md`. Avant essai unique HP : identifier pont/révision et /RE bas, vérifier VIO~3,31 V, propriété ST-LINK, autorisations distinctes flash/debug et identité Flash008. IO2SV concerne PG2..15 ; transitoire reset avant prise en charge PG4 non garanti par le pull-down logiciel. Aucune opération matérielle008. Freezes/interfaces et E4 inchangés.
