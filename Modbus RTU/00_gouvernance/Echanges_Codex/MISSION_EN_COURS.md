@@ -1,5 +1,5 @@
 ---
-mission_id: TR2-20261011-M013-H-HP-CAMPAIGN-PREFLIGHT
+mission_id: TR2-20261011-M013-I-HP-CAMPAIGN-GO
 status: READY
 base_ref: main
 author: ChatGPT
@@ -10,20 +10,16 @@ allow_flash: true
 allow_debug: true
 ---
 
-# M013-H — Préflight HP et GO conditionnel campagne RTU bornée
+# M013-I — Préparer GO campagne HP bornée
 
-## Référence
-Relire AGENTS.md, protocole, ETAT_COURANT_TR2.md, DERNIER_RAPPORT.md M013-G DONE, plan QUALIFICATION_TEMPORELLE_RTU_M013_G.md, script rtu_campaign.py et tests, rapports E/F, images et preuves conservées. Le premier échange HP unique E est corroboré F, sans qualification temporelle ni répétabilité. M013-G a publié outil Python OFFLINE/mock testé 10/10 sur Linux, non encore testé sur HP réel ; campagne maximum12 écritures (10 nominales, CRC invalide, unité étrangère), sans GO physique. Aucun instrument de chronogramme identifié ; qualification temporelle reste WAITING.
+Relire AGENTS.md, rapport H, plan G, scripts campagne et état courant sur main. L'utilisateur confirme que COM7 est disponible sur le HP Laptop 15-db1xxx. Préflight HP H réussi : Python 3.13.3, pySerial 3.5, environment_ready true, offline et mock OK, fichiers hachés conformes, aucune transmission. Ne pas refaire le préflight inutilement. Un premier échange RTU a été corroboré en F. La qualification temporelle physique reste non faite.
 
-## Objectif
-Préparer en autonomie la campagne HP, vérifier la compatibilité de l'environnement Windows et l'état sain du STM32, puis publier un **GO ou NO-GO documenté pour une seule future campagne**. Ne pas exécuter la campagne physique ni ouvrir COM7 dans cette mission. Éviter toute sollicitation utilisateur pour des opérations réalisables par Codex ; ne demander que la future commande HP indispensable et seulement après contrôle indépendant ChatGPT du GO.
+Objectif : préparer le GO ou NO-GO d'une seule campagne de 12 requêtes maximum, sans lancer de trafic pendant cette mission.
 
-## Exécution
-1. Vérifier HEAD main, git propre/stashes, permissions et preuves G/F/E ; contrôler que l'outil et son plan sont bien ceux de main. Revoir les 12 cas et les critères d'arrêt, notamment gestion des silences attendus, absence d'écho confondu, délai inter-requête, réponse tardive, et conditions de récupération. Corriger seulement les lacunes avérées avec tests, commit/push.
-2. Déterminer si Codex peut vérifier directement le HP Windows et Python/pySerial sans perturber COM7, en utilisant les accès réellement disponibles. Ne pas inventer la disponibilité du HP, ne pas installer ou modifier des logiciels système sans nécessité. Tester --offline et --mock sur l'environnement effectif si accessible, et vérifier l'absence d'ouverture série dans ces modes. Si le HP est inaccessible, préparer une commande de préflight non intrusive que l'utilisateur pourra exécuter ultérieurement ; publier NO-GO tant que prérequis essentiels non confirmés.
-3. Avant tout éventuel futur GO, vérifier image exacte et santé MCU via GDB seulement, sans CubeProgrammer HOTPLUG : NVIC IRQ49/66, UART/RX armé, PG4 bas, observateur baseline avant campagne, sans reset/flash si inutile. Conserver snapshot brut et hashes. Aucun halt pendant trafic ; aucune émission sur RS485. Ne pas répéter contrôles matériels J1/J2/J3/RE-RST/VIO/SB28 déjà acquis.
-4. Si environnement et état MCU sont confirmés, fournir commande physique Windows exacte, maximum 12 écritures, journal exclusif et condition d'arrêt ; préciser que l'utilisateur lancera cette commande **une seule fois** seulement après revue GO par ChatGPT. Si environnement non confirmé, publier NO-GO ou GO partiel limité aux préflights, avec une seule action minimale concrète. Aucune transmission HP/COM7, aucun test physique ni mesure temporelle dans H.
-5. Publier DERNIER_RAPPORT.md, ETAT_COURANT_TR2.md, livrables/scripts utiles, commit/push normal main, relecture distante et verdict explicite. Conserver backups et stashes, ne pas modifier V1 ni prétendre qualification physique générale.
+1. Vérifier HEAD main, état Git, rapports, sources et conditions de sûreté du script ; préserver stashes et preuves.
+2. Contrôler avec GDB seulement l'image STM32 exacte, NVIC sain, UART RX armé, PG4 bas et baseline des compteurs ; ne pas utiliser CubeProgrammer HOTPLUG. Ne pas flasher ni reset sans besoin établi.
+3. Revoir les cas nominaux, CRC incorrect et adresse étrangère, délais, gestion écho, journaux et arrêts. Confirmer la commande PowerShell HP exacte utilisant le dossier préflight existant : C:\Users\Lolo\AppData\Local\Temp\TR2-M013-H-696f8b55f09242cfaa38ff397de54256. Ne pas supposer d'autres équipements sur le bus. La disponibilité COM7 est confirmée par l'utilisateur ; la topologie maître unique reste une condition explicite.
+4. Publier un GO ou NO-GO justifié, avec commande exacte prête à copier si GO. L'utilisateur exécutera la campagne une seule fois après contrôle indépendant ChatGPT du rapport. Aucun accès COM7 ni émission RS485 dans I.
+5. Mettre à jour DERNIER_RAPPORT.md et ETAT_COURANT_TR2.md, commit et push main puis vérifier publication distante. Aucune modification V1 ni revendication de qualification temporelle.
 
-## Critères
-Autonomie logicielle maximale, aucun accès COM7 ni trame émise en H, campagne strictement bornée, vérifications traçables, distinction GO/NO-GO. Autorisations commit/push/flash/debug accordées pour éviter les validations intermédiaires, mais flash/reset uniquement si besoin démontré et après précautions AGENTS ; pas d'Option Bytes, mass erase ou manipulations physiques.
+Autonomie autorisée pour développement, tests, commit/push, flash/debug selon AGENTS.md ; aucun essai physique ni écriture Option Bytes/mass erase. Limiter les demandes utilisateur aux gestes réellement nécessaires.
