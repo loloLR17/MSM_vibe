@@ -2,7 +2,11 @@
 
 11 octobre 2026. État historique M013-A, référence inspectée `6a35aefdef34b91ed82d217c37cabc4a04bf2e8f`, main : VIO Click et absence de commande concurrente RST non établis à cette date d'intervention. Tranche de diagnostic préparée et validée sur hôte ; aucun flash/debug/reset/émission en M013-A. Le dernier firmware identifié sur carte reste BIN008 (lecture011), sans nouvelle lecture013. Acquis RX011 conservé, pas de nouvel essai RX.
 
-## État courant M013-G — préparation sans émission, 11 octobre 2026
+## État courant M013-H — NO-GO campagne HP, 11 octobre 2026
+
+Image E exacte et état STM32 sain réobservés via GDB seul, baseline RAM conservée ; aucun reset/flash/CLI HOTPLUG/COM7/émission. Environnement HP Python/pySerial inaccessible et non confirmé : **NO-GO campagne physique**. Préflight hors port prêt, commande unique dans PREFLIGHT_CAMPAGNE_HP_M013_H.md, à exécuter ultérieurement sur HP après revue ChatGPT. 13 tests logiciels réussis ; aucune qualification temporelle ou campagne réelle nouvelle. Essai E consommé. Sections suivantes historiques.
+
+## État historique M013-G — préparation sans émission, 11 octobre 2026
 
 Outil HP dédié rtu_campaign.py testé uniquement horsbus (10tests/mock), OFFLINE défaut ; READY outil, environnementHP NONVÉRIFIÉ. Protocole QUALIFICATION_TEMPORELLE_RTU_M013_G.md, WAITING instrumentphysique identifié. Aucun GO de nouvelletransmission, branchement, reset ou flash G ; imageE et preuvesF conservées. EssaiE consommé ; ne pas relancer ancienprobe. Campagnephysique bornée et captures nécessitent missionfuture après revueChatGPT. Sections suivantes historiques.
 
