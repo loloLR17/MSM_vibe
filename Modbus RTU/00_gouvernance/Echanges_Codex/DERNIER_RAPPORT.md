@@ -1,12 +1,13 @@
 ---
 mission_id: TR2-20261011-M013-G-RTU-TIMING-ROBUSTNESS-PLAN
-status: BLOCKED
+status: DONE
 base_ref: main
 base_sha: null
 initial_head: 0cccb89c19c9060e185c2d369dfe55ec78ddb4b9
 mission_sha: 15dcb82f492c121746da4ca3cd34f83b93ed89c1
 result_sha: 158feddfa99dd5fff71aec4902cd59e3095124f0
 created_at_utc: 2026-10-11T16:30:53.691497+00:00
+updated_at_utc: 2026-10-11T16:32:21.679351+00:00
 author: Codex
 target_branch: main
 allow_commit: true
@@ -17,7 +18,7 @@ allow_debug: true
 
 # M013-G — préparation de qualification temporelle et robustesse limitée
 
-**READY outillage logiciel HP hors bus ; WAITING instrumentation physique identifiée. Aucun GO de transmission en G.** Critères de préparation G satisfaits ; BLOCKED provisoire uniquement pour publication/relecture distante. Aucune mesure temporelle ou campagne physique réalisée, aucune qualification générale revendiquée.
+**READY outillage logiciel HP hors bus ; WAITING instrumentation physique identifiée. Aucun GO de transmission en G.** DONE : critères de préparation G satisfaits, rapport et livrables publiés puis relus depuis GitHub. Aucune mesure temporelle ou campagne physique réalisée, aucune qualification générale revendiquée.
 
 ## Référence, reprise et état conservé
 
@@ -67,4 +68,4 @@ Prérequisfutur : étatNVIC/ready/RX/PG4 sain et imageexacte, baselineRAM avant 
 
 ## Publication
 
-Journal mis à jour avec outil READY horsbus, instrumentationWAITING, absence de nouvelle qualification et prochaines décisions ; preflight marque Gpréparation sansnouvelleémission. ArchivesF exactes. Commit/pushmain autorisés et utilisés seulement dans périmètre G ; diff/index/publication/relecture finale en attente. Deux stashes et tous backups préservés. BLOCKED provisoire porte uniquement sur preuve distante ; attente instruments n'empêche pas clôture de cette mission de préparation. RevueindépendanteChatGPT non démontrée par Codex.
+Journal mis à jour avec outil READY horsbus, instrumentationWAITING, absence de nouvelle qualification et prochaines décisions ; preflight marque Gpréparation sansnouvelleémission. ArchivesF exactes. Commit/pushmain autorisés et utilisés seulement dans périmètre G ; diff et index contrôlés. Commit documentaire `7ff3e54b2a0c5b42489ca6cf18d9aab44ae4654e`, message `Document M013-G software readiness and pending physical timing instrumentation`, push normal explicite HEAD:refs/heads/main réussi. Fetch HEAD=origin/main ; relecture intégrale UTF8 et comparaison byte-à-byte de neuf fichiers (trois livrables outillage/plan, cinq documents/archives, contrat G) depuis la référence distante réussies, remote-reread.json hors Git. Arbre propre après publication. La présente clôture DONE sera publiée puis relue ; son SHA final est communiqué dans la réponse Codex. Deux stashes et tous backups préservés. DONE qualifie uniquement cette préparation ; attente instruments et environnement HP non vérifié restent explicitement documentés. RevueindépendanteChatGPT non démontrée par Codex.
