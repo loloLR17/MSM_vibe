@@ -1,41 +1,36 @@
 ---
-mission_id: TR2-20261011-M014-E-PRODUCTION-BOOT
+mission_id: TR2-20261011-M014-F-PERSISTENT-IDENTITY
 status: READY
 base_ref: main
-base_sha: a3bd116511f985a92a9abf8b64479b186f34625e
-created_at_utc: 2026-10-11T21:14:00Z
+base_sha: 24bb47bf17c8e36d1799227900de61d517e92597
+created_at_utc: 2026-10-11T21:35:00Z
 author: ChatGPT
 target_branch: main
 allow_commit: true
 allow_push: true
-allow_flash: false
-allow_debug: false
+allow_flash: true
+allow_debug: true
 ---
 
-# M014-E — Gouvernance SSH-HP et socle de production STM32
+# M014-F — Identité persistante V1, migration transactionnelle et composition production
 
-## Références et préalable
-Partir de l'état distant réel de main ; vérifier HEAD, branche, git status, stashes, AGENTS.md, protocole V2-B3, roadmap, état courant, rapport SSH-HP-001 DONE, rapport M014-D archivé et INTEGRATION_SUPERVISION_M014_D.md (dont décisions d'architecture approuvées). Ne jamais utiliser d'ancien ZIP comme référence source. Préserver les acquis et les gels V1. Un seul pilote sur main ; vérifier que SSH-HP-001 est terminé et publié avant toute modification.
+## Référence et autonomie
+Appliquer AGENTS.md, protocole V2-B3, roadmap et état courant de main ; vérifier HEAD distant/local, état Git, stashes, rapport M014-E BLOCKED, PROVISIONING_PRODUCTION_M014_E.md, gels V1 et code réel avant toute action. Autorisation permanente de développement/commit/push/flash/debug confirmée et explicite. Travailler en autonomie sans validations répétitives, poursuivre les lots indépendants en cas de blocage. Un seul pilote sur main. Archiver M014-E mission/rapport sans écraser d'archive existante si nécessaire selon protocole.
 
-## Objectif
-Livrer en une tranche autonome la gouvernance opérationnelle T1000→SSH→HP et faire avancer au maximum le vrai firmware STM32 de production par le provisioning explicite, la composition de ses autorités durables et les tests fail-safe, sans prétendre qualifier physiquement M014.
+## Décision d'architecture approuvée
+Retenir une **évolution versionnée du layout transactionnel logique existant**, et non un second domaine FRAM physique indépendant. Conserver un seul mécanisme de publication/recovery et l'atomicité identité + configuration. Les 51 818 octets du layout historique sont intégralement occupés : ne réutiliser aucun octet, ne pas écraser BootIntent ni CampaignData. Proposer et justifier une extension logique avec offsets, tailles, géométrie et version de format explicites, dans les limites physiques vérifiées ; prévoir lecture ancien format et migration explicite contrôlée, sans formatage/écriture au boot. Ne pas altérer les gels Modbus V1.
 
-## Lot 1 — Documentation SSH-HP
-Inspecter les scripts réels dans 00_Environnement_developpement/T1000/ssh-hp/ et les rapports. Créer ou compléter la documentation de gouvernance appropriée sur main (éviter doublons) : topologie Windows T1000/WSL Debian, Codex CLI, client SSH Windows et alias tr2-hp, HP Windows/PowerShell, contrôle hôte et clé, privilèges observés et risques, artefacts/hashes, logs, modes OFFLINE, verrou coopératif et limites d'exclusivité COM7, absence de retry, timeout/état distant inconnu, sécurité, retrait/réversibilité. Énoncer explicitement qu'aucune transmission physique n'a été qualifiée par SSH-HP-001. Ne pas publier secrets, IP privée si non nécessaire, clés ou données sensibles. Revue documentaire et vérification distante.
+Identité matérielle STM32 UID96 intégral, immuable, liée à l'identité fonctionnelle ; DeviceId uint32 unique attribué explicitement par registre d'attribution projet (pas hash/troncature UID, pas constante) ; identité B0 complète réelle et versionnée ; adresse esclave 1..247 indépendante et persistante ; distinguer version layout interne/version protocole V1. Définir codec portable sans padding/endianness native, magic/version/longueur/génération/intégrité et contrôles d'identité. Ne pas inventer un DeviceId de production ni déclarer une unicité de parc sans registre autoritatif.
 
-## Lot 2 — Audit normatif et conception de production
-Inspecter les spécifications gelées B0/B1, mappings, politiques d'adressage et de version, code SystemRuntime/ProductionApplication, stm32_production_binding_acquire, FRAM geometry_validate/recover, stockage bulk microSD et leurs tests. Déterminer précisément les interfaces/contraintes réelles avant d'écrire. Documenter une matrice de dépendances et une proposition de provisioning compatible V1 :
-- identité matérielle STM32 entière, immuable et interne ; identité fonctionnelle unique attribuée explicitement et persistante ; adresse Modbus configurable et distincte ; compatibilité exacte DeviceId/B0 à démontrer sans troncature UID ni nouveau registre ;
-- états FRAM ABSENT/INACCESSIBLE, EMPTY, VALID, RECOVERABLE, CORRUPT/UNRECOVERABLE, sans autoformatage ni faux READY ;
-- provisioning séparé du boot, transactionnel, idempotent, contrôle identité/version, relecture et recovery ;
-- propriété exclusive des allocations FRAM/SD et des écritures harness vs production ; pas de backend fictif ni d'utilisation de microSD comme FRAM ;
-- démarrage dégradé sûr, diagnostic lecture seule uniquement si réellement possible et conforme au gel.
+## Travail attendu
+1. Audit exhaustif des allocations physiques/logiques FRAM, schéma transactionnel (2 slots + superblocks), métadonnées, anciennes images et chemins CampaignData/BootIntent. Définir et publier spécification technique du layout V2 interne, migration V1→V2, ownership exclusif et plan de sauvegarde/restauration. Démontrer calcul des bornes et compatibilité avant codage.
+2. Implémenter codec/inspecteur autoritatif et moteur de provisioning initial EMPTY et migration, explicitement déclenchés hors boot. Réutiliser les transactions existantes ; protéger les données anciennes et assurer rollback/recovery lors des coupures, mismatch UID, versions incompatibles, génération périmée, double provisioning, corruption et idempotence. Ne jamais transformer EMPTY en VALID par défaut.
+3. Composer les services STM32 de production réels progressivement : FRAM/config/identité/transport/Modbus B0/B1 et bulkSD si média/autorités disponibles. Ne pas contourner weak binding NOT_AVAILABLE par des fixtures, faux READY, faux DeviceId ou UID tronqué. Diagnostiquer précisément les dépendances non disponibles et poursuivre le code/test indépendant. Ne pas assimiler B0/B1 à qualification de tous blocs opérationnels.
+4. Tests unitaires/fault-injection hôte, cross-build ARM, tests .NET proportionnés ; vérifier non-régression et comportement sans média. Préparer et si les préconditions réelles sont remplies, exécuter en autonomie flash/debug qualifiés : identifier STM32, image exacte/hash, sauvegardes/restauration du diagnostic E, voie de programmation validée ; aucun HOTPLUG CubeProgrammer (risque NVIC connu). Préserver le firmware diagnostique si l'image production n'est pas restaurable.
+5. Si la cible de production est réellement opérationnelle et les données/identités/provisioning sont autoritatifs, préparer puis exécuter des essais HP via SSH bornés sur COM7 avec maître exclusif, logs et hashes nouveaux, sans rejouer M014-C/M013-I, sans GDB pendant trafic. Ne pas ouvrir COM7 tant que le firmware ne fournit pas réellement les blocs requis ; ne pas inventer de succès physique. Aucun effacement massif, Option Bytes, déprotection, écriture destructive inhabituelle ou changement de câblage. Interventions physiques nécessitant l'utilisateur seulement si nécessaires.
 
-## Lot 3 — Développement logiciel autonome
-Implémenter les éléments de provisioning/boot et de composition carte qui sont justifiés par les autorités réelles disponibles et les spécifications ; privilégier le moteur et les tests hôte/émulation pour ce qui ne peut être qualifié sur média réel. Couvrir par tests absence de média, EMPTY, VALID, corruption, recovery, panne en cours de transaction, idempotence, mismatch d'identité, version incompatible, adresse invalide, aucune écriture implicite, disponibilité des blocs B0/B1 conditionnée à la vraie source. Conserver le chemin diagnostic existant restaurable ; ne jamais contourner stm32_production_binding_acquire avec fixtures, DeviceId arbitraire ou READY artificiel. Réutiliser les services existants. Faire les compilations ARM et validations firmware/.NET proportionnées et rapporter les sorties réelles. Poursuivre les sous-tâches indépendantes même en cas de blocage matériel.
+## Escalades réelles
+Arrêter seulement pour incompatibilité normative, choix structurant non couvert par l'architecture approuvée, allocation impossible démontrée, destruction de données préexistantes, risque matériel non maîtrisé ou geste physique indispensable. Les validations logicielles courantes et flash/debug standard sous garde-fous ne demandent aucune nouvelle approbation. Si une valeur de production ou registre d'attribution manque, développer les mécanismes sans inventer l'identité et signaler précisément ce seul blocage ; ne pas immobiliser le reste.
 
-## Interdictions et escalade
-Aucun flash, GDB, reset cible, écriture sur FRAM ou SD physiques, aucune ouverture COM7, émission Modbus ni commande distante HP susceptible de transmettre ; tests SSH OFFLINE non destructifs autorisés si utiles. Pas de mass erase, Option Bytes, changement câblage, formatage, provisionnement implicite, altération des gels V1, force push, reset hard, effacement de données, ou perte des stashes. La permission générale flash/debug d'AGENTS ne s'applique pas : allow_flash/debug false pour cette mission. Si la géométrie physique, l'ownership, la spécification ou le provisioning imposent une décision structurante non couverte par la gouvernance approuvée, documenter les options et le risque sans inventer de valeur ; implémenter le reste. Ne pas demander validations répétitives sur opérations logicielles autorisées.
-
-## Critères et livrables
-Documentation SSH-HP publiée et vérifiée ; revue indépendante de M014-D et matrice des autorités/dépendances ; code et tests logiciels réels publiés sur main, validations sans affaiblissement ; rapport honnête distinguant logiciel, simulation, OFFLINE, et qualification physique. M014 reste IN PROGRESS tant que B0/B1 et polling/perte-reprise physiques non démontrés. Actualiser ETAT_COURANT_TR2.md et DERNIER_RAPPORT.md (Codex seul auteur) avec SHAs, résultats, preuves, risques et plan concret de qualification suivant. Vérifier push et relecture distante ; préserver les preuves hors Git. En cas de quota/blocage, publier un point de reprise BLOCKED précis.
+## Critères et rapport
+Publier les spécifications de format, allocation/migration et code/test validés ; consigner commandes réelles, résultats, preuves, SHAs, statut logiciel et physique distincts. Mettre à jour ETAT_COURANT_TR2.md et DERNIER_RAPPORT.md en respectant la propriété Codex ; relecture distante des livrables. M014 demeure IN PROGRESS tant que lectures périodiques et perte/reprise physiques ne sont pas démontrées. En cas de blocage/quota, livrer un point de reprise exploitable et préserver tous travaux.
