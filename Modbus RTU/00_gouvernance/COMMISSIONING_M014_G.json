@@ -1,0 +1,110 @@
+{
+  "schema_version": 1,
+  "mission_id": "TR2-20261011-M014-G-COMMISSIONING",
+  "status": "AUDIT_ONLY_NOT_PROVISIONING_AUTHORITY",
+  "source_sha": "1507dcbe3b68dd1b6a4579d78a53b5072eb9cf6e",
+  "registry": "REGISTRE_ATTRIBUTION_TR2.json",
+  "observations": {
+    "fram": {
+      "fram_rdid_hex": "047F4803",
+      "fram_read_result": 0,
+      "fram_second_read_equal_result": 0,
+      "fram_size": 262144,
+      "fram_sha256": "59d32d12ebe26db36d8552ae522b2704632c6ccfde9e1a57200c3d25c77b4737",
+      "sd_result": 6,
+      "sd_hal_error": 4,
+      "sd_last_command": 55,
+      "sd_response_timeout": true,
+      "sd_capacity_not_available": true,
+      "probe_flash_exact": true,
+      "flash_after_0x0800C000_unchanged": true,
+      "records": [
+        {
+          "name": "superA",
+          "base": 0,
+          "magic": "TR2M",
+          "physical_version": 1,
+          "logical_version": 1,
+          "generation": 9,
+          "header_hex": "5452324d000100010000000000000009000000000000ca6a0000004000000000000000000000000000000000000000000000000000000000000000007a3ab91a",
+          "crc_ok": true
+        },
+        {
+          "name": "superB",
+          "base": 4096,
+          "magic": "TR2M",
+          "physical_version": 1,
+          "logical_version": 1,
+          "generation": 10,
+          "header_hex": "5452324d00010001000000000000000a010000000000ca6a0000004000000000000000000000000000000000000000000000000000000000000000006fd9ffed",
+          "crc_ok": true
+        },
+        {
+          "name": "imageA",
+          "base": 8192,
+          "magic": "TR2I",
+          "physical_version": 1,
+          "logical_version": 1,
+          "generation": 9,
+          "header_hex": "545232490001000100000000000000090000ca6a00000040b7f93c220000000000000000000000000000000000000000000000000000000000000000ea78724d",
+          "crc_ok": true
+        },
+        {
+          "name": "imageB",
+          "base": 65536,
+          "magic": "TR2I",
+          "physical_version": 1,
+          "logical_version": 1,
+          "generation": 10,
+          "header_hex": "5452324900010001000000000000000a0000ca6a000000402f4d64a70000000000000000000000000000000000000000000000000000000000000000b090429e",
+          "crc_ok": true
+        }
+      ]
+    },
+    "sensor_and_sd": {
+      "who_am_i": "0x7B",
+      "sensor_read_result": 0,
+      "sd_logical_blocks": 999743488,
+      "sd_logical_block_size": 512,
+      "sd_physical_capacity_bytes": 511868665856,
+      "sd_cid_words_hex": [
+        "03534453",
+        "44353132",
+        "8562E43C",
+        "F80195EA"
+      ],
+      "sd_csd_words_hex": [
+        "400E0032",
+        "5B59000E",
+        "E5B77F80",
+        "0A4040B4"
+      ],
+      "sd_read_prefix_result": 0,
+      "sd_prefix_read_size": 8192,
+      "sd_prefix_sha256": "22e2c58d886232b8c4d858b03d9575b574b27ec2eabfc1b4e89e22882316e3f3",
+      "sd_data_writes": 0,
+      "fram_full_backup_reconfirmed": true,
+      "source_sha": "69d523bf81baf92b0849d63d750c3aca75ee17ba"
+    }
+  },
+  "sd_partition": {
+    "type_hex": "07",
+    "start_lba": 65536,
+    "blocks": 999677952,
+    "preserve": true
+  },
+  "candidate_window": {
+    "start_bytes": 8388608,
+    "size_bytes": 16777216,
+    "status": "PROPOSED_NOT_ALLOCATED_NOT_BACKED_UP",
+    "writes_allowed": false
+  },
+  "provisioning": {
+    "executed": false,
+    "b0_versions_defined": false,
+    "configuration_defined": false,
+    "strong_binding_complete": false
+  },
+  "evidence_directory": "/home/lolo/dev/msm/reports/TR2-mission014-G-20261011T220027Z",
+  "proof_index": "proof-index-intermediate.json"
+}

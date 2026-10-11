@@ -1,6 +1,6 @@
 # État courant TR2 — référence reconstruite
 
-Mise à jour : 11 octobre 2026. Mission `TR2-20261011-M014-E-PRODUCTION-BOOT`.
+Mise à jour : 12 octobre 2026. Mission `TR2-20261011-M014-G-COMMISSIONING`.
 
 **Ce document est un nouvel état de référence reconstruit à partir de preuves vérifiables. Il n'est pas une restitution du journal historique HP.** Sa création a été explicitement autorisée par l'utilisateur pour la mission `T1000-20261010-CLOTURE-001`, après escalade AGENTS.md §18. Aucun original n'a été retrouvé dans l'historique Git, les répertoires Linux locaux ou les documents Windows accessibles. Les archives d'échanges du 8 octobre mentionnent un journal local HP, sans en fournir le contenu. Aucun état historique inconnu n'est inventé.
 
@@ -395,3 +395,11 @@ physiques temporelles/robustesse/production/J1global/E4 inchangées.
   sousprocédureexplicite, flasherimageidentifiée sousgarde-fous avantnouveauxessaisHP
   bornés/polling/perte-reprise. C/Iconsommés, journalHPoriginalC/timing/robustesse/E4
   restentouverts ; rien dephysique déduit des tests ni du seulhashHP annoncé.
+
+## M014-G — Point intermédiaire du 12 octobre 2026
+
+- **VALIDÉ logiciel** : registre DeviceId1/unit1/serial TR2-000001 ASSIGNED au UID96 réel `004A003D 38425018 20333157` ; inspecteur métier strict et disponibilité stockage réelle, 113 tests firmware + cross-build ; outil PC borné OFFLINE par défaut, 539 tests .NET réussis. Aucun essai réussi relancé sans nouveau changement justifiant la validation.
+- **OBSERVÉ cible** : FRAM RDID 047F4803, sauvegarde complète double identique, image V1 génération10 non EMPTY et sans config valide ; IIS3DWB WHO_AM_I 0x7B. Utilisateur a signalé insertion microSD ; SD ensuite détectée 511868665856 octets. Partition type07 à 32Mio jusqu'en fin de carte, strictement préservée. Seuls 8192 premiers octets lus ; aucune écriture de données FRAM/SD.
+- **ÉTAT COURANT** : probe isolé lecture seule, source69d523b, BIN45348 octets. Diagnostic E sauvegardé et restaurable selon procédure qualifiée. Aucun serveur production actif, aucune nouvelle transmission COM7.
+- **PRÉPARÉ / NON VÉRIFIÉ** : fenêtre SD readonly [8,24Mio) envisagée mais non sauvegardée/attribuée ; manifeste, strong binding et provisioning restent à terminer. Pas de config/identité persistante installée. Polling B0/B1 et perte/reprise physiques non réalisés ; M014 IN PROGRESS, M015 non engagée.
+- Priorité utilisateur : publier les acquis avant poursuite, sans risque sur partition. Aucun blocage matériel courant ; prochaines actions détaillées dans DERNIER_RAPPORT.md, preuves `/home/lolo/dev/msm/reports/TR2-mission014-G-20261011T220027Z`. Réserves M013/qualification industrielle inchangées.

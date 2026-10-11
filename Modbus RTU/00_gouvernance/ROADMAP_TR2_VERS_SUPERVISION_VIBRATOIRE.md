@@ -24,7 +24,7 @@ Capteur de vibrations → acquisition et traitement STM32U575 → registres Modb
 |---|---|---|---|---|
 | **M012** | Intégrer le serveur Modbus RTU et le TX RS-485 avec commande DE sûre | EN COURS | Selon résultats Codex | Chemin de réponse implémenté et testé ; qualification physique explicitement distinguée |
 | **M013** | Qualifier le dialogue Modbus physique complet | À FAIRE | 2–3 sous-missions | Lecture répétable de registres STM32 par maître PC ; CRC, exceptions, turnaround et absence de contention vérifiés |
-| **M014** | Connecter la supervision au TR2 physique | À FAIRE | 2–3 | Lecture périodique des blocs système, déconnexion et reprise correctement traitées |
+| **M014** | Connecter la supervision au TR2 physique | IN PROGRESS | 2–3 | Lecture périodique des blocs système, déconnexion et reprise correctement traitées |
 | **M015** | Qualifier la chaîne d'acquisition vibratoire | À FAIRE | 3–5 | Acquisition physique démontrée ou blocages matériels précisément identifiés |
 | **M016** | Traiter et publier les mesures vibratoires dans les registres V1 | À FAIRE | 2–4 | Valeurs réelles cohérentes, unités, échelles et validité vérifiées dans le mapping gelé |
 | **M017** | Lire les vibrations de bout en bout via Modbus | À FAIRE | 2 | Variation physique retrouvée correctement dans les valeurs lues par le PC |
@@ -103,3 +103,7 @@ Une roadmap distincte **« TR2 — Qualification industrielle et mise en service
 ## 8. Entretien de la roadmap
 
 Mettre à jour les statuts uniquement après preuves et contrôle indépendant. Ne pas renuméroter les jalons principaux pour masquer une difficulté ; détailler plutôt les sous-missions. La branche `main` et la gouvernance courante du dépôt restent les seules références de travail.
+
+## Actualisation factuelle M014-G — 12 octobre 2026
+
+M014 **IN PROGRESS** : attribution UID96/DeviceId1 acquise, backups FRAM/Flash et audit sensor/SD réalisés, inspecteur/provisioning préparatoire et outil PC borné testés (113 firmware/cross-build, 539 .NET). Cible actuellement en probe lecture seule, identité non provisionnée, aucun nouveau trafic Modbus. Partition microSD préservée ; aucun format ni écriture. Restent manifeste/binding/provisioning puis B0/B1 polling et perte/reprise physiques. J2 n'est pas déclaré validé, M015 reste À FAIRE. M013 conserve ses preuves historiques RX/TX et diagnostic mais la qualification complète (timings, DE/TC, contention, robustesse) n'est pas close. Le rapport intermédiaire G porte les preuves et le point de reprise ; contrôle indépendant ChatGPT non présumé.
