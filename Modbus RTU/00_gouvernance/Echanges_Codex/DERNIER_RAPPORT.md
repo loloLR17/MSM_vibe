@@ -1,12 +1,13 @@
 ---
 mission_id: TR2-20261011-M013-E-INSTRUMENTED-RTU-RETRY
-status: BLOCKED
+status: DONE
 base_ref: main
 base_sha: null
 initial_head: d2f4bb5862ac64292c882e3a73d85b5e499fa98a
 mission_sha: 0bfaa0e0daf3d37f723497b74984cabe1b11ec47
 result_sha: 0bfaa0e0daf3d37f723497b74984cabe1b11ec47
 created_at_utc: 2026-10-11T16:06:34.631427+00:00
+updated_at_utc: 2026-10-11T16:07:59.772719+00:00
 author: Codex
 target_branch: main
 allow_commit: true
@@ -17,7 +18,7 @@ allow_debug: true
 
 # M013-E — GO préparation du probe RTU unique, NVIC sain et TXON
 
-**GO technique de préparation. BLOCKED provisoire uniquement pour publication/relecture distante. Aucun essai HP effectué en E ; Modbus bidirectionnel et TX physique NON VALIDÉS.** Le firmware actuel est diagnosticON/observerON/**TXON**/unité1. Le probe C consommé n'a pas été relancé. Un nouvel essai unique E appartient à l'utilisateur, après lecture de ce rapport GO par ChatGPT.
+**DONE : GO technique de préparation publié et relu depuis GitHub. Aucun essai HP effectué en E ; Modbus bidirectionnel et TX physique NON VALIDÉS.** Le firmware actuel est diagnosticON/observerON/**TXON**/unité1. Le probe C consommé n'a pas été relancé. Un nouvel essai unique E appartient à l'utilisateur, après lecture de ce rapport GO par ChatGPT.
 
 ## Référence et périmètre
 
@@ -73,4 +74,4 @@ Une mission séparée analysera ensuite réponse/CRC/écho éventuel, deltas IRQ
 
 ## Publication
 
-Modifications documentaires seulement : rapport E, journal actualisé TXON/GO et prochaine action, preflight précédé du verdict E ; archives D immuables et référence au rapport D corrigée dans sa procédure historique. Contrat/AGENTS/code/V1/configuration inchangés, deux stashes conservés. Permissions E exercées : backupFlash/RAM, build/tests, flashstandard/reset, debuglecture/halt/detach et reset logiciel de clôture après RAM, commit/push main autorisés. Diff documentaire à vérifier, publication/relecture distante en attente ; BLOCKED porte uniquement sur cette preuve. Aucun succès physique anticipé.
+Modifications documentaires seulement : rapport E, journal actualisé TXON/GO et prochaine action, preflight précédé du verdict E ; archives D immuables et référence au rapport D corrigée dans sa procédure historique. Contrat/AGENTS/code/V1/configuration inchangés, deux stashes conservés. Permissions E exercées : backupFlash/RAM, build/tests, flashstandard/reset, debuglecture/halt/detach et reset logiciel de clôture après RAM, commit/push main autorisés. Diff documentaire et contenu indexé contrôlés. Commit `fc6aaaa037f8a439d83350b3b84d70e001aef4d7`, message `Record M013-E verified TX-enabled diagnostic and healthy NVIC ready for one HP probe`, push normal explicite HEAD:refs/heads/main réussi. Fetch : HEAD=origin/main. Relecture intégrale UTF8 et comparaison byte-à-byte des 15 fichiers (six livrables, huit sources, contrat) depuis cette référence distante réussies ; remote-reread.json hors Git. Arbre propre et deux stashes conservés après publication. La présente clôture DONE sera publiée puis relue ; son SHA final est communiqué dans la réponse Codex. DONE qualifie cette préparation E, pas le dialogue physique ni la lecture indépendante ChatGPT. Aucun succès physique anticipé.
