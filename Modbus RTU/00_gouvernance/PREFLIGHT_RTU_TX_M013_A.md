@@ -2,7 +2,11 @@
 
 11 octobre 2026. État historique M013-A, référence inspectée `6a35aefdef34b91ed82d217c37cabc4a04bf2e8f`, main : VIO Click et absence de commande concurrente RST non établis à cette date d'intervention. Tranche de diagnostic préparée et validée sur hôte ; aucun flash/debug/reset/émission en M013-A. Le dernier firmware identifié sur carte reste BIN008 (lecture011), sans nouvelle lecture013. Acquis RX011 conservé, pas de nouvel essai RX.
 
-## État courant M013-I — GO technique conditionnel, 11 octobre 2026
+## État courant M013-J — campagne I consommée, audit concordant, 11 octobre 2026
+
+Utilisateur rapporte12requêtes/10réponsesexactes/deuxsilences, HPseulmaître. GDBseul constate deltaRX96/frame12/CRCvalid11/CRCbad1/foreign1/acceptedTXTC10, aucun défaut ; imageEexacte/NVIC49-66/RXarmé/PG4bas. ClôturefonctionnellelimitéeM013 proposée avec réservejournalHPnonaccessible/hashannoncé et temporisationnonqualifiée. **Ne plus lancer commandeI ouancienprobeE.** Aucun nouveauCOM7/RS485/reset/flash/HOTPLUG enJ ; suiteM014 propositionlogiciellehorsport, voir CLOTURE_M013_ET_PROPOSITION_M014.md. Sections suivantes historiques.
+
+## État historique M013-I — GO technique conditionnel, 11 octobre 2026
 
 PréflightHP Python3.13.3/pySerial3.5/OFFLINE/mock/hashconformes et COM7disponible rapportés utilisateur dans contratI ; imageE/IRQ49-66/RX/PG4/baseline sains réobservésGDBseul. **GO technique pour une seule future campagne12max après revueGOChatGPT et maîtreHPexclusif/topologieunité1 sansrépondantunité2 assurées** ; sinon NO-GOd'exécution. Commandeexacte GO_CAMPAGNE_HP_M013_I.md et rapportI, journalfixeexclusif, sansretry. Aucun accèsCOM7/RS485/reset/flash/HOTPLUG enI. AncienprobeEconsommé, aucunequalificationtemporelle/générale ; sections suivantes historiques.
 

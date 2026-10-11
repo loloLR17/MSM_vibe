@@ -1,14 +1,13 @@
 ---
-mission_id: TR2-20261011-M013-I-HP-CAMPAIGN-GO
-status: DONE
+mission_id: TR2-20261011-M013-J-POST-CAMPAIGN-AUDIT
+status: BLOCKED
 base_ref: main
 base_sha: null
-initial_head: 31fd364c56ddb8cd3591198059c3df6e4e9aa3e9
-mission_sha: 826bf93f9c4acf68ed7ef5404ea66f542f8e99fb
-result_sha: ef9e4e64a4a93a5bffdb81daeee2049fc651dbde
-firmware_source_sha: 0bfaa0e0daf3d37f723497b74984cabe1b11ec47
-created_at_utc: 2026-10-11T16:55:19.237960+00:00
-updated_at_utc: 2026-10-11T16:56:11.452675+00:00
+initial_head: cfc8e271db5fe65c887834749f6447f621db2dae
+mission_sha: bc20ef26d7d31aaa883cc537f0ab8dbc50f0996e
+result_sha: 0bfaa0e0daf3d37f723497b74984cabe1b11ec47
+tool_sha: ef9e4e64a4a93a5bffdb81daeee2049fc651dbde
+created_at_utc: 2026-10-11T17:08:53.706743+00:00
 author: Codex
 target_branch: main
 allow_commit: true
@@ -17,78 +16,68 @@ allow_flash: true
 allow_debug: true
 ---
 
-# M013-I — GO technique conditionnel, campagne préparée et non exécutée
+# M013-J — campagne HP corroborée par les deltas STM32
 
-**DONE : préparation I satisfaite, rapport et livrables publiés puis relus depuis GitHub.** **Zéro accès COM7, zéro émission RS485, aucun flash/reset/CubeProgrammer HOTPLUG en I.** Aucun GO inconditionnel sur une topologie non observée, aucune qualification physique générale.
+**Concordance complète avec les deltas attendus ; clôture fonctionnelle limitée de M013 proposée, avec réserves documentaires et temporelles.** Audit réalisé ; statut provisoire BLOCKED uniquement en attente de publication/relecture distante. Aucun nouvel essai HP, accès COM7, émission RS485, reset, flash ou CubeProgrammer HOTPLUG. La commande I est consommée, ne pas la relancer.
 
-## Verdict et commande future exacte
+## Référence et provenance
 
-**GO technique conditionnel pour une seule campagne HP, 12 écritures maximum.** Aucun lancement avant contrôle indépendant du présent rapport par ChatGPT et exclusivité du maître HP assurée. Si plusieurs maîtres/répondants sont présents, si l'exclusivité est incertaine ou si l'état cible a été perturbé depuis la baseline : **NO-GO d'exécution**, ne pas lancer. La topologie exclusive n'est pas déduite des accès Codex et aucun autre équipement n'est supposé présent ou absent.
+Main initial propre `cfc8e271db5fe65c887834749f6447f621db2dae`, deux stashes005/002 conservés. Fetch puis pull --ff-only vers `bc20ef26d7d31aaa883cc537f0ab8dbc50f0996e`, seul contrat changé. AGENTS.md, protocole, journal intégral, rapport I DONE, baseline I, scripts de lecture et firmware réel consultés. Mission ChatGPT inchangée ; base_sha absent donc null. Archives I exactes depuis HEAD initial, sans réécriture historique. Image E évaluée, source `0bfaa0e0daf3d37f723497b74984cabe1b11ec47`, code firmware inchangé depuis09792c8 ; huit sources comparées au manifeste E. Outil HP figéef9e4e6 inchangé.
 
-Observation rapportée par l'utilisateur dans le contrat I, pas mesure Codex directe : HP Laptop15-db1xxx, COM7 disponible, Python3.13.3/pySerial3.5, préflightH environment_ready=true, OFFLINE/mock réussis, fichiers hachés conformes, zéro transmission. Le bloc ci-dessous réutilise exactement le dossier fourni ; pas de préflight, téléchargement ou installation répété. SHA256 du script figé `ef9e4e64a4a93a5bffdb81daeee2049fc651dbde` contrôlé avant toute ouverture ; journal `M013-I-physical.jsonl` créé exclusivement par Python, jamais écrasé.
+**Observation utilisateur transcrite dans le contrat J** : HP seul maître, une campagne physique COM7, 12 écritures de8octets, dix réponses exactes `01 03 02 00 00 B8 44`, mauvaisCRC et unité2 sans réponse, complete/passedtrue, durée13,3657s. SHA256 annoncé `23f463fb241c7378c46a79af0a43bce122511799cd1066836a787687c629bed4`. Le journal est joint à la conversation ChatGPT, **non accessible directement à Codex ici** : ni recalcul du hash ni analyse indépendante des chunks/horodatages/chronologie exacte du JSONL ne sont prétendus. Recherche ciblée dans rapports locaux et TempT1000 sans fichier correspondant ; un ancien dossier temporaire Windows sans rapport est inaccessible (permission), recherche non exhaustive sur ce dossier, aucun contournement. Ne pas recréer un faux journal à partir du résumé et ne pas demander un nouvel essai.
 
-Avant le lancement futur : aucune autre application/maître actif sur COM7/bus ; seule cible diagnostic unité1 et aucun répondant unité2 pour le cas négatif. Aucun recâblage/contrôle J1/J2/J3/RE-RST/VIO/SB28 redemandé. Aucun CubeProgrammer HOTPLUG, reset/flash/coupure ou halt GDB entre baseline saine et campagne ; si intervention connue, état à actualiser par Codex sous autorisation avant lancement. Aucun debugger/halt pendant les échanges. Exécuter ce bloc **une seule fois sur HP après revue GO ChatGPT**, puis communiquer toute sortie et fichierJSONL même en cas d'échec. Ne pas relancer, renommer ou supprimer le journal pour contourner l'arrêt ; ne pas répéter l'ancien probeE.
+## Identité et collecte GDB seule
 
-```powershell
-& {
-  $ErrorActionPreference = 'Stop'
-  $tr2Dir = 'C:\Users\Lolo\AppData\Local\Temp\TR2-M013-H-696f8b55f09242cfaa38ff397de54256'
-  $tr2Script = Join-Path $tr2Dir 'rtu_campaign.py'
-  $tr2Log = Join-Path $tr2Dir 'M013-I-physical.jsonl'
-  if (-not (Test-Path -LiteralPath $tr2Script -PathType Leaf)) { throw 'Script absent : arret sans ouvrir COM7.' }
-  if ((Get-FileHash -Algorithm SHA256 -LiteralPath $tr2Script).Hash -ne '5efd7e37769f84adfe1a439225814e7ead481a0fdb48614331d8ffe4b649d957') { throw 'Script modifie : NO-GO.' }
-  if (Test-Path -LiteralPath $tr2Log) { throw 'Journal deja present : ne pas relancer, renommer ou supprimer.' }
-  $tr2Python = Get-Command py.exe,python.exe -ErrorAction SilentlyContinue | Where-Object { $_.Source -notlike '*\WindowsApps\*' } | Select-Object -First 1
-  if (-not $tr2Python) { throw 'Python indisponible : arret sans ouvrir COM7.' }
-  $tr2Args = @()
-  if ($tr2Python.Name -eq 'py.exe') { $tr2Args += '-3' }
-  $tr2Args += @($tr2Script, '--transmit', '--authorized-mission', 'TR2-20261011-M013-I-HP-CAMPAIGN-GO', '--log', $tr2Log)
-  & $tr2Python.Source @tr2Args
-  $tr2Exit = $LASTEXITCODE
-  Write-Output ('Exit=' + $tr2Exit + '; journal=' + $tr2Log + '; ne pas relancer')
-  if (Test-Path -LiteralPath $tr2Log) { Get-Content -LiteralPath $tr2Log }
-}
-```
+Chaîne Windows qualifiée, ST-LINK SN003500463235510B37333439/NUCLEO-U575ZI-Q. Trois sessions : observateur/état APRÈS, RAM+Flash exactes, dernier observateur/état après detach pour progression. Serveur `ST-LINK_gdbserver.exe -d -g -i <SN> --frequency 8000 -p 61234 -cp <répertoire CubeProgrammer/bin qualifié>` ; `arm-none-eabi-gdb.exe -nx -q -batch -x <script> <ELF E exact>`, target extended-remote localhost:61234, lectures/dumps puis detach/quit. Le répertoire -cp n'est pas un appel CLI HOTPLUG. Tous GDB et serveurs retours0 ; MCU laissé en exécution. Attach suspend brièvement pendant collecte après campagne terminée, sans attente halt ni trafic ; aucun monitorreset/load, écriture NVIC/GPIO/RDR/ICR ou changement permanent.
 
-Bloc analysé syntaxiquement sur Windows T1000, retour0 ; **non exécuté** par Codex. Il résout le même launcher py.exe/python.exe existant que le préflight H, évite l'aliasStore ; un autre environnement/PATH que celui validé laisserait le lancement non couvert. Le marqueur --authorized-mission identifie I, ne remplace pas la revue humaine. L'ouverture exclusive du journal précède l'ouverture série ; erreur de fichier, hash, script, launcher ou journalpréexistant empêche tout envoi. Journal créé puis échec d'ouverture = essai arrêté sans retry.
+Flash0x08000000..0x0800C030, **49200 octets byte-à-byte identiques BIN E**, SHA256 `dc6ac75f667e10f0a4d04a7e92f82099f450de3a759677bc81c166f93c82d540`. ELF168512 SHA256 `4c496149b7b3af593269dbff7c92368d575cebe824f62ffa67ed57e522d3adc2`. DiagnosticON/observerON/TXON/unité1, FC03/1000/1 UNKNOWN0 ; pas production/médias bootés. Adresses/tailles observer992octets et g_serial692octets recoupées par nm ; layouts E conservés et sources inchangées pour décoder RAM, pas de rebuild.
 
-Campagne fixe : cas1..4 nominaux, cas5 CRCincorrect `010303E80001047B`, cas6..7 nominaux, cas8 unité2/CRCcorrect `020303E800010449`, cas9..12 nominaux. Nominal : requête `010303E80001047A`, réponse exacte7octets `0103020000B844` (UNKNOWN0/CRC0) ; négatifs : silence1s puis nominalsuivant réussi. COM7/1152008E1, timeoutlecture0/écriture1s, handshake/DTRRTSdésactivés. Fenêtre1s+pause100ms parcas,100msinitiaux ; barrière20s avant nouvelle écriture, RXmax256. Tout écho/écho+réponse/bruit/CRCpartiel/extra/exception/timeoutnominal/RXtardif/overflow/écriturepartielle/I/O/logdéfaillant→arrêt/fermeture sans retry ni purge ; aucun écho supprimé. Journaux UTC/tempsmonotone/chunksbruts/intent/nbécrits/verdict, simulated=false pour branchephysique. Retour0 seulement campagne complète ; retournon0/traceback toujours arrêter et préserver preuves.
+Baseline I finale992octets SHA256 `fadf0042a2a6946586815a6b9c01c192499cf8ed764bf4349784d0fc7a034feb` préservée. Observer J initial SHA256 `e760ed13916d58c9647c0dc9108d4c9b3fce4f444fbf789c3170c28a3cebc059`, final SHA256 `1c7644405cf9c0e10d016881bb2916b84c72a39e845036946fcfe4c0fdfba146`. RAM768KiB SHA256 `b848fe920e4fe5501c53a3fa5e12e93d6d4969c0a6c627b6dc515ef84d30ac24`. Ces snapshots contiennent des preuves STM32 réelles, distinctes du journal PC annoncé.
 
-Limites : première branche COM7 physique de cet outil encore non testée ; le préflight et les doubles de Serial ne qualifient pas le pilote ni un transitoireDTRRTS/écho à l'ouverture. 20s est une barrière logicielle avant écriture, pas garantieOS. Course RXcheck→write et octets après fermeture restent nonexclus ; aucun succès temporel général déduit. Acquisition DE/TC/dernierstopbit/retourRX WAITING instrument identifié. La campagne ne constitue pas qualification temporelle, endurance, production, J1global ou E4.
+## Comparaison baseline I → APRÈS J
 
-## Références, préservation et modifications
+Calcul des deltas modulo2^32, même image et progression cohérente. Aucun reset depuis I effectué par Codex ; pas de compteur de boot persistant pour exclure tout reset externe inconnu, aucun indice de celui-ci. Toutes valeurs de trafic stables entre les deux observations J.
 
-Main initial propre31fd364, fetch/pull --ff-only sûr vers826bf93, seul contrat changé. AGENTS.md réel relu intégralement (incluant décisions permanentes et architectureT1000), protocole/journal intégral/rapportH DONE/planG/script/tests/procédureGDB qualifiée inspectés. Contrat ChatGPT inchangé ; base_sha absent donc null. Deux stashes historiques005/002 conservés ; archive H mission/rapport depuis HEAD initial byte-à-byte et immuable. Preuves E181/F22/G12/H34 fichiers manifestées et conservées horsGit. Aucune source firmware/outil/test modifiée : mêmes SHA de script et huit sources firmwareE, mêmes tests historiques. Ne pas refaire préflightHP réussi.
+| Compteur | I avant | J après | Delta observé | Attendu | Verdict |
+|---|---:|---:|---:|---:|---|
+| rx_callback | 8 | 104 | 96 | 96 | OK |
+| bytes_polled | 8 | 104 | 96 | 96 | OK |
+| frame_count | 1 | 13 | 12 | 12 | OK |
+| crc_valid | 1 | 12 | 11 | 11 | OK |
+| crc_bad | 0 | 1 | 1 | 1 | OK |
+| foreign_unit | 0 | 1 | 1 | 1 | OK |
+| accepted_request | 1 | 11 | 10 | 10 | OK |
+| available_status | 1 | 11 | 10 | 10 | OK |
+| tx_attempt | 1 | 11 | 10 | 10 | OK |
+| tx_started | 1 | 11 | 10 | 10 | OK |
+| tx_callback | 1 | 11 | 10 | 10 | OK |
+| error_callback | 0 | 0 | 0 | 0 | OK |
+| events_dropped | 0 | 0 | 0 | 0 | OK |
+| errors_polled | 0 | 0 | 0 | 0 | OK |
+| frame_invalid | 0 | 0 | 0 | 0 | OK |
+| broadcast | 0 | 0 | 0 | 0 | OK |
+| tx_fail_safe | 0 | 0 | 0 | 0 | OK |
 
-Livrables documentaires : GO_CAMPAGNE_HP_M013_I.md (commande/cas/arrêts/deltas), DERNIER_RAPPORT.md, journal actualisé et verdictI précédant sections historiques du preflightTX, deux archivesH. PlanG/préflightH restent documents historiques de leurs dates, leurs anciens NO-GO ne remplacent pas la décisionI fondée sur le retour utilisateur nouveau. Firmware sur cible E, référence0bfaa0e/code09792c8 ; script ef9e4e6 avec --offline explicite ajoutéH, SHA2565efd7e37769f84adfe1a439225814e7ead481a0fdb48614331d8ffe4b649d957. Aucun refactor/correctif horspérimètre/V1/configuration/média.
+Compléments cohérents : events_pushed/polled10→130 (+120 =96octets+24événementsT1.5/T3.5), T1.5/T3.5 chacun1→13 (+12), UARTIRQ17→203 (+186), TIM6IRQ/callback3→37 (+34). Aucun nombre IRQ imposé avant campagne ; ces valeurs ne sont pas des durées. File64slots head/tail2/2 =130modulo64, overflow0 : la valeur2 n'est pas une réinitialisation supposée. DernièreADU8octets exacte `010303E80001047A`, dernièreTX7octets exacte `0103020000B844` ; elles ne remplacent pas l'historique des12cas.
 
-## Observations GDB I, image exacte et baseline
+**Déduction étayée** : les 96 octets/12trames, un rejet CRC et une unité étrangère, dix acceptations et dix TX/callbacks concordent exactement avec la campagne HP rapportée, sans anomalie tracée. Répétabilité limitée à dix nominales et récupération après deux rejets corroborées par résumé HP et compteurs ; l'ordre cas5/cas8 et chaque délai/silence ne peuvent être reconstitués depuis compteurs agrégés seuls. Le callbackTX appartient au traitementTC réel du HAL selon code transport/HAL déjà inspecté ; preuve logicielle de finTX, pas mesure du dernierstopbit ni frontDE sur fil.
 
-Trois sessions qualifiées : ST-LINK SN003500463235510B37333439 / NUCLEO-U575ZI-Q, serveurST Windows -d -g -iSN --frequency8000 -p61234 -cpC:\ST\STM32CubeCLT_1.22.0\STM32CubeProgrammer\bin ; GDB -nx -q -batch -x script avec ELF E exact. target extended-remote localhost:61234, lectures/dumps, detach/quit ; GDB/serveurs retours0. -cp ne lance pas CLI HOTPLUG. Attach suspend brièvement pour lecture puis detach, pas d'attentehalt/traffic ; aucune écriture NVIC/GPIO/RDR/ICR, breakpoint/load/monitorreset. Cible laissée running, mêmes IRQ après sessions. Flash lue0x08000000..0x0800C03049200octets exactement BIN E, SHA256 `dc6ac75f667e10f0a4d04a7e92f82099f450de3a759677bc81c166f93c82d540`. ELF168512 SHA256 `4c496149b7b3af593269dbff7c92368d575cebe824f62ffa67ed57e522d3adc2`. Huit sources E inchangées, nm/taillesobserver992/g_serial692 confirmés ; layoutsE inchangés repris sans rebuild.
+## État final observé
 
-| Contrôle | Observation I |
-|---|---|
-| Ready et progression | ready1/poll_result0/pollerrors0 ; tick2901075→2910233 ; poll989199439→992322297 |
-| NVIC CPU/SWD | ISER1=0x20000 (TIM6IRQ49), ISER2=4 (LPUART1IRQ66), ISER0/ISPR0..2/masks0 |
-| UART et RX | ISR0x006200D0, RXNE/ORE/PE/FE/NE0 ; CR1=152D/CR2=0/CR3=1/BRR56CE4 ; RxState0x22BUSY_RX/sizecount1/ErrorCode0 |
-| Transport | PG4ODR0, phaseIDLE/tx_busy/fault/bus_silent0 ; head=tail10/overflow0, CFSR/HFSR0 |
-| Baseline stableF/H | UARTIRQ17/TIM6IRQcallback3 ; RXcallback/octet8 ; eventspushedpolled10/T1.5-T3.5=1 ; frameCRCvalidacceptedavailable1 ; TXattemptstartedTC1 |
-| Défauts | CRCbad/invalid/foreign/broadcast/errors/drop/failsafe0 ; dernièresADU8/TX7 exactes requête/réponseE |
+Ready1, poll_result0/pollerrors0 ; tick3704607→3713609, poll1263184426→1266253855. IRQ49/66 actives CPU/SWD : ISER0=0/ISER1=0x20000/ISER2=4, ISPR0..2=0, masquesPRIMASK/BASEPRI/FAULTMASK0. UARTISR0x006200D0 (RXNE/ORE/PE/FE/NE0), CR1=152D/CR2=0/CR3=1/BRR56CE4 ; RxState0x22BUSY_RX/sizecount1, ErrorCode0. PG4ODR0, TXbusy/fault/bus_silent0, phaseIDLE, filevide ; CFSR/HFSR0. Aucun signe du défautHOTPLUG D. État ponctuel sain, pas observation continue des fronts ou garantie sous toutes pannes.
 
-RAM768KiB SHA256 `aa8fdc4d4e266675772f6f4d3fff697224108ae1b03699466987d2b57dc934ce`, baseline-before992octets SHA256 `c307e763066d6ce63246faf457d3e3534809a837dc38ca0c08e453c04da942b9`, baseline-final992octets SHA256 `fadf0042a2a6946586815a6b9c01c192499cf8ed764bf4349784d0fc7a034feb`. Compteurs non remis à zéro, aucune nouvelle requête démontrée : état ponctuel sain, pas capturecontinue. Aucun besoin de reset/reflash, permissions non exercées.
+## Verdict M013 et proposition M014
 
-## Validation réellement faite et proportion
+**M013 peut être clôturée pour le diagnostic fonctionnel borné FC03/1000/1, avec réserves explicites.** Les preuves directes STM32 concordent, le dialogue PC rapporté est corroboré pour cette campagne. Aucune qualification générale de communication bidirectionnelle/électrique/temporisation/production n'est annoncée. Journal HP intégral/hash à conserver côté utilisateur/ChatGPT, son authenticité et chronologie ne sont pas recalculées ici ; cette réserve ne masque aucune divergence dans les17comparaisons MCU.
 
-LecturesGDB/snapshots/imagebyte-à-byte/ELF et sourcehashes/structlayout/cohérencecompteurs effectuésI, logs bruts conservés. Bloc PowerShell futur analysé `[System.Management.Automation.Language.Parser]::ParseInput` sous WindowsT1000 → retour0/syntaxOK, nonexécuté. Comparaison du bloc publié à l'entrée analysée et hash outil. TestsH13/13 et mockG/horsportHP réussi rapporté danscontrat sont **preuves conservées**, pas nouvelles campagnesI. Documentation seule/sourceinchangée : pas de testsfirmware/cross-build/.NET ni testsPython/préflight répétés sans nécessité. Aucun échec de test masqué/affaibli, aucun logiciel ou politique installé.
+Limites non levées : DE/TC/dernierstopbit, t1.5/t3.5 réels, retourRX minimal, latence physique (13,3657s n'est que durée hôte rapportée), watchdog sous panne/IRQ bloquées/reset, endurance/J1global/production/E4. Aucun instrument temporel identifié, aucune mesure ou intervention physique nouvelle. Aucun acquis J1/J2/J3/RE-RST/VIO/SB28/câblage redemandé.
 
-PreuvesI : `/home/lolo/dev/msm/reports/TR2-mission013-I-20261011T165146Z` ; scripts/logs GDB et serveurs, Flash/RAM, baseline-before/final.bin/.json, decoded-transport.json/symbols.txt, preserved-E/F/G/H.json/tool-manifest.json, hp-reported-preflight.json (provenancecontrat/observationutilisateur, pas captureHP), hp-campaign-command.txt/powershell-syntax.log. Aucun log de campagnephysiqueI fabriqué, preuvesvolumineuses/backups horsGit.
+Proposition `00_gouvernance/CLOTURE_M013_ET_PROPOSITION_M014.md` : M014-A supervisionPC horsport, réutiliser transport .NET/NModbus/factory/paramètres existants, retry0 et accès diagnostic unitaire borné, avant éventuel essai unique explicitement autorisé. Inspection réelle de factory/settings/safety/client/B0SessionFactory/B1Reader/B1SystemState/gelS4. **Obstacle établi** : B1Reader demande20registres ; la cible diagnostic ne fournit normalement que1000/1. B0/DeviceId/READY production ne sont pas disponibles et ne doivent pas être inventés pour faire démarrer la supervision complète. Prévoir mode diagnostic explicite isolé de découverte/polling/B5, sans modifierV1/gels ; la transition firmwareproduction requiert un contrat distinct. Proposition seulement, aucune implémentation M014 ni autorisation de trafic hérité.
 
-## Suite unique et portée
+## Validation, preuves et publication
 
-Après revueGO indépendante ChatGPT et conditions exclusives réunies, l'utilisateur exécutera une seule fois la commande ci-dessus, renverra sortie etJSONL, sansretry. Cette instruction futureI ne signifie pas que Codex a ouvertCOM7 enI. Aucun autrelancement/ancienprobeE. RelevéAPRÈS sous mission appropriée parGDBseul avanttoutreset/flash ; comparer préfixe réel si arrêt. Douze cas complets : deltaRX96/frame12/CRCvalid11/CRCbad1/foreign1/acceptedavailable10/TXattemptstartedTC10, erreurs/drop/failsafe0/RXarmé/TXidle ; absolus sur bootcourant104/13/12/1/1/11/11 respectivement. Deltasmodulo32bits/rebootincertain/dernièretrame seule limites documentées ; IRQsansnombreimposé.
+Validation J réellement effectuée : hashes source/ELF/BIN et identité Flash, troislectures GDB/dumps, décodageobserver/transport sur layouts exacts, comparaison automatique17deltas tousconformes et cohérence des états. Aucun test/cross-build/.NET relancé : code inchangé, mission d'observation/documentation, ces builds ne prouveraient pas la campagne. Résultats tests antérieurs conservés sans être présentés comme nouveaux. Aucun échec de test masqué/affaibli. Problème de recherche TempWindows limité ci-dessus, sans impact sur lectureMCU ; journalHP nonlocal déjà prévu aucontrat.
 
-Production/J1global/E4/DEdernierstopbitTCretourRX temporels/robustesseendurancewatchdogIRQ/resetpréinit **NON QUALIFIÉS**. Seul aller-retourE historique corroboréF, ne pas déclarer communicationbidirectionnellegénérale validée. Aucun instrumentphysique nouveau identifié ; aucun contrôlephysiqueacquis redemandé.
+Preuves horsGit : `/home/lolo/dev/msm/reports/TR2-mission013-J-20261011T170518Z` : after-before/final.bin/.json/.gdb/.log, image-ram.gdb/.log, logsserver, flash-current.bin/ram-current.bin, comparison.json/decoded-transport.json/symbols.txt, hp-report-provenance.json, preserved-E/I.json et evidence-manifest.json. E181fichiers/I32fichiers conservés ; backups originaux/stashes préservés. Modifications uniquement rapport/journal/clôtureM013-propositionM014, marquage commandesI consommées et archivesI exactes. Mission/AGENTS/V1/code/configuration inchangés.
 
-## Journal, autorisations et publication
-
-Journal actualisé : préflightHP réussi rapporté utilisateur levant blocageH logiciel, COM7disponible rapporté, nouveaux états/baselineI et GOconditionnel/commandeunique/limites. AutorisationsI : commit/push normalmain et debuglecture/haltattach/detach exercés ; flashtrue nonexercé, zéroreset/masserase/OptionBytes/protection/USB/configuration/média/physique/COM7/RS485. Diff/index, périmètre sans secrets, branche main/destination origin et état distant contrôlés ; commit `c7074e7d04b399968633951f8a68335a6d13261c`, message `Prepare M013-I conditional GO with healthy MCU baseline and single HP campaign command`, push normal explicite HEAD:refs/heads/main réussi. Fetch HEAD=origin/main ; relecture intégrale UTF8 et comparaison byte-à-byte des **9 fichiers** (six livrables dont archivesH, contratI, planG et scriptcampagne) depuis cette référence distante réussies, remote-reread.json horsGit. Arbre propre après première publication, deux stashes conservés. La présente clôture DONE sera publiée normalement puis relue ; SHA final dans réponse Codex. DONE qualifie préparationGOconditionnelI, jamais campagne effectuée ou revue indépendante ChatGPT présumée.
+Journal actualisé : campagne rapportée utilisateur, deltasconcordants/santéMCU observés, clôturelimitée/réservehashHP/limites temporelles et suiteM014. Permissions exercées : debuglecture/haltattach/detach, commit/push normalmain ; flashtrue nonexercé et reset explicitement interdit respecté, zéroCOM7/RS485/OptionBytes/masserase/média/USB/gestephysique/configuration. Diff/index/branche/destination et distant seront contrôlés avant push explicite HEAD:refs/heads/main. Statut provisoire en attentepublication/relecturedistante, sansforce/merge/rebase ; deuxstashes conservés. ClôtureDONE qualifie auditJ, pas revue indépendanteChatGPT ou qualificationtemporelle supposée.

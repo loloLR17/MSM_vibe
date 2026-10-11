@@ -2,6 +2,8 @@
 
 11 octobre 2026.
 
+**État historique après M013-J : commande I consommée par l’unique campagne rapportée dans J. Ne plus exécuter le bloc ci-dessous, ni renommer/supprimer le journal pour le relancer. Audit MCU concordant ; clôture et limites dans DERNIER_RAPPORT.md et CLOTURE_M013_ET_PROPOSITION_M014.md.**
+
 **GO technique conditionnel pour une seule campagne HP, 12 écritures maximum.** Aucun lancement avant contrôle indépendant du présent rapport par ChatGPT et exclusivité du maître HP assurée. Si plusieurs maîtres/répondants sont présents, si l'exclusivité est incertaine ou si l'état cible a été perturbé depuis la baseline : **NO-GO d'exécution**, ne pas lancer. La topologie exclusive n'est pas déduite des accès Codex et aucun autre équipement n'est supposé présent ou absent.
 
 Observation rapportée par l'utilisateur dans le contrat I, pas mesure Codex directe : HP Laptop15-db1xxx, COM7 disponible, Python3.13.3/pySerial3.5, préflightH environment_ready=true, OFFLINE/mock réussis, fichiers hachés conformes, zéro transmission. Le bloc ci-dessous réutilise exactement le dossier fourni ; pas de préflight, téléchargement ou installation répété. SHA256 du script figé `ef9e4e64a4a93a5bffdb81daeee2049fc651dbde` contrôlé avant toute ouverture ; journal `M013-I-physical.jsonl` créé exclusivement par Python, jamais écrasé.
