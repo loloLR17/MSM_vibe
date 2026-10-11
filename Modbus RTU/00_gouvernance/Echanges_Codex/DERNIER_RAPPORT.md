@@ -1,12 +1,13 @@
 ---
 mission_id: TR2-20261011-M014-A-SUPERVISION-DIAGNOSTIC
-status: BLOCKED
+status: DONE
 base_ref: main
 base_sha: null
 initial_head: 36e0055cf481e29529c546564143705b8abc58d9
 mission_sha: 65d7f6f11d1a8d10a4b1d182616a25865eda65d5
 result_sha: bcc69c9d07aa02f756f9e2db0d67f62613d1951e
 created_at_utc: 2026-10-11T17:28:17.072526+00:00
+updated_at_utc: 2026-10-11T17:29:49.745750+00:00
 author: Codex
 target_branch: main
 allow_commit: true
@@ -17,7 +18,7 @@ allow_debug: false
 
 # M014-A — voie diagnostic .NET isolée, logiciel validé hors port
 
-**Critères logiciels satisfaits : build réussi,502/502 tests, paquet Windows préparé. BLOCKED provisoire uniquement pour attente de publication/relecture distante.** Aucune ouverture COM7, émission RS485, installation/exécution HP, flash/debug/reset ou répétition de campagne M013-I. UNKNOWN0 ne signifie ni READY ni production/bidirectionnel général qualifiés.
+**DONE : critères logiciels satisfaits, build réussi,502/502 tests, paquet Windows préparé ; code/rapport/livrables publiés puis relus depuis GitHub.** Aucune ouverture COM7, émission RS485, installation/exécution HP, flash/debug/reset ou répétition de campagne M013-I. UNKNOWN0 ne signifie ni READY ni production/bidirectionnel général qualifiés.
 
 ## Références et inspection
 
@@ -66,4 +67,4 @@ Preuves horsGit : `/home/lolo/dev/msm/reports/TR2-mission014-A-20261011T171855Z`
 
 Journal ETAT_COURANT_TR2 actualisé : voie diagnostique préparée, validationPC réelle, paquet/préflightHPnonexécutés, responsabilitésCRC et réservesdriver/capturebrute/deadline ; prochaine décisionChatGPT = revue indépendante puis contrat séparé HP horsport et éventuelle lecture unique avec état cible/baseline et collecteaprès séparément autorisés. Acquis et campagneI/J restent historiques ; aucun nouvel état santé MCU observé M014-A. RéservesM013-J inchangées : frontsDE/TC/stopbit/t1.5/t3.5/retourRX, robustesse/endurance/reset/watchdogIRQ/J1global/production/E4. Aucun acquis physique redemandé.
 
-Permissions exercées : développement/doc/build/tests horsmatériel, commitlocal et publication normale main prévue ; flash/debugfalse, aucune émission/COM7/MCU/USB/OptionBytes/effacement/configurationpermanente. Commit code/audit `bcc69c9d07aa02f756f9e2db0d67f62613d1951e`, message `Add isolated offline-first M014-A .NET diagnostic probe and HP preparation`. Rapport/journal/archives complètent cette tranche validée. Vérification distante à consigner après push ; statut provisoire n'indique pas un blocage logiciel/HP à résoudre avant publication. SHA final et étatGit après publication seront donnés dans la réponse Codex.
+Permissions exercées : développement/doc/build/tests horsmatériel, commitlocal et publication normale main réalisée ; flash/debugfalse, aucune émission/COM7/MCU/USB/OptionBytes/effacement/configurationpermanente. Commit code/audit `bcc69c9d07aa02f756f9e2db0d67f62613d1951e`, message `Add isolated offline-first M014-A .NET diagnostic probe and HP preparation`. Rapport/journal/archives complètent cette tranche validée. Première publication normale `HEAD:refs/heads/main` réussie au SHA `7b2100c63ba122d233976e64c404e3af657635f5` (commit `Record M014-A software validation, HP limits and preserved M013-J exchange`). Fetch puis relecture intégrale UTF8 et comparaison byte-à-byte des14fichiers livrés/degouvernance depuis cette référence distante : toutes conformes, preuve `remote-reread-1.json` horsGit. HEAD=origin/main et arbre propre, deux stashes préservés. Cette mise à jour documentaire DONE sera poussée normalement et relue à son tour ; SHA final dans réponse Codex, pas inscription autoréférente. DONE couvre M014-A logiciel/préparation, pas exécutionHP, revue indépendanteChatGPT ou qualification physique. Aucun GO transmission n'est publié.
