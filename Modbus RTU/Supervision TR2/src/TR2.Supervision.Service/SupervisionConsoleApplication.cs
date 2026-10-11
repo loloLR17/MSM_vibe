@@ -24,6 +24,12 @@ public static class SupervisionConsoleApplication
         ArgumentNullException.ThrowIfNull(output);
         ArgumentNullException.ThrowIfNull(error);
 
+        if (args.Count > 0 && args[0] == "--diagnostic")
+        {
+            return await DiagnosticConsoleApplication.RunAsync(
+                args, cancellationToken, output, error, busConnectionFactory);
+        }
+
         if (!TryParseConfigurationPath(args, out var configurationPath))
         {
             await error.WriteLineAsync("Usage: TR2.Supervision.Service --config <path>");

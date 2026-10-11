@@ -14,6 +14,16 @@ Les entrées sont volontairement classées par statut afin de ne pas transformer
 
 ## 1. Statuts
 
+Actualisation M014-A,11 octobre2026 : chemin console DIAGNOSTIC isolé ajouté,
+OFFLINE par défaut, sans base/runtime production. Paquet temporaire autonome
+win-x64 construit sur T1000 avec .NET10/ASP.NET embarqués : pas de SDK ni runtime
+système requis pour ce paquet. Installation/exécution Windows HP et driver .NET
+réels NON VÉRIFIÉS ; aucune version Windows minimale produit ou installation
+permanente décidée. HP Laptop15-db1xxx/FT232R COM7/1152008E1 = banc confirmé par
+utilisateur, pas identité de production. Voir
+[M014-A et préflight HP préparé](../00_gouvernance/DIAGNOSTIC_SUPERVISION_M014_A.md).
+La voie physique reste interdite dans M014-A ; aucune campagne M013-I à relancer.
+
 - **REQUIS** : nécessaire avec l'état logiciel courant ou une décision déjà gelée.
 - **À FIGER** : besoin identifié mais valeur/version minimale pas encore arbitrée.
 - **FUTUR** : dépendance probable d'une tranche ultérieure, non requise aujourd'hui.

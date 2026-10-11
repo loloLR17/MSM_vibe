@@ -24,3 +24,11 @@ dotnet restore TR2.Supervision.sln
 dotnet build TR2.Supervision.sln --no-restore
 dotnet test TR2.Supervision.sln --no-build
 ```
+
+## Diagnostic de banc M014-A
+
+Le service accepte `--diagnostic` : OFFLINE par défaut, sans ouverture série ni
+runtime de production. `--read-once` est réservé à une future mission autorisant
+une lecture FC03/1000/1, avec paramètres explicites et journal exclusif.
+UNKNOWN(0) ne constitue ni READY ni identification production.
+Voir [audit, garanties et procédure HP préparée](../00_gouvernance/DIAGNOSTIC_SUPERVISION_M014_A.md).
