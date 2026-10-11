@@ -1,6 +1,6 @@
 # État courant TR2 — référence reconstruite
 
-Mise à jour : 10 octobre 2026. Mission `TR2-20261010-DEV-RTU-PRODUCTION-005`.
+Mise à jour : 11 octobre 2026. Mission `TR2-20261011-QUALIF-RS485-RX-006`.
 
 **Ce document est un nouvel état de référence reconstruit à partir de preuves vérifiables. Il n'est pas une restitution du journal historique HP.** Sa création a été explicitement autorisée par l'utilisateur pour la mission `T1000-20261010-CLOTURE-001`, après escalade AGENTS.md §18. Aucun original n'a été retrouvé dans l'historique Git, les répertoires Linux locaux ou les documents Windows accessibles. Les archives d'échanges du 8 octobre mentionnent un journal local HP, sans en fournir le contenu. Aucun état historique inconnu n'est inventé.
 
@@ -87,3 +87,16 @@ Prochaine étape à transmettre à ChatGPT : contrôler le rapport distant, puis
 - **PRÉPARÉ essais** : `PREPARATION_RTU_PRODUCTION_005.md` fournit matrice de preuves, identification/ouverture sans émission du câble sur PC seul sous mission future, jalon électrique séparé puis futur essai deux TR2. Câble et second TR2 non qualifiés ; aucun geste physique en 005. E4 microSD/power-loss reste ouverte.
 
 À transmettre à ChatGPT : contrôler le rapport distant 005 ; contrôler révision et câblage après le rectificatif d’identité ; qualifier câble sur PC seul, puis montage électrique/transport et autorités de production sous missions adaptées. Rapport publié et qualification physique restent distincts.
+
+
+## Préparation du premier essai RX — mission 006, 11 octobre 2026
+
+`TR2-20261011-QUALIF-RS485-RX-006`, main, base `9753b3d6b46243f0472a0d33c5fa82b509dcea71`, contrat récupéré au SHA `c8e2b5c3f112a272912cf260c6c8a94d148ab418`, HEAD initial propre `9753b3d6b46243f0472a0d33c5fa82b509dcea71`. Commit/push autorisés ; flash/debug/émission interdits. Stashes 005 et 002 préservés.
+
+- **Observations rapportées par l'utilisateur dans le contrat**, non réalisées par Codex : ST-LINK attaché WSL, OpenOCD détecte STLINK V3J15M7 / STM32U5 / 3,288 V ; HP FT232R COM7 ; câblage blanc A+→A, vert B−→B, noir GND→GND, rouge +5 V isolé ; alimentation USB ST-LINK ; hors tension A↔Y et B↔Z en continuité, A/B ≈110 Ω. Ces mesures n'établissent ni niveaux, ni direction, ni RX ; aucune demande de recâblage.
+- **PRÉPARÉ** : instrumentation du harness RX uniquement : ready, progression polling, compteur CRC distinct, dernière ADU complète en RAM ; compteurs précédents conservés. Macro GDB à casts explicites, chargée hors cible avec succès. Aucun changement du cœur, UART, binding production ou DE//RE.
+- **COMPILÉ STM32** : `STM32CUBE_U5_ROOT=/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0 bash ./tr2_validate.sh --cross-build-only`, retour 0. text157692 / data124 / bss129072. BIN SHA256 `f9356f279d45cb411bc5b98107e0fd291e2d1ab903c216ff052083b7abfd103d`, 157816 octets ; ELF `5ac5f0c66645692ff78579d792227ceb834f331baef9b8ed3a64d0ea55c293c3`. Symboles et tailles confirmés par nm ; aucune preuve du firmware chargé.
+- **VALIDÉ hôte ciblé** : 2/2 tests existants codec et p12d_rtu_receiver réussis ; générateur/codec de production, CRC indépendant et décodage confirment `01 03 03 E8 00 01 04 7A` (FC03, B1 registre1000, quantité1, unité1 marqueur). Script Windows hors ligne par défaut, un seul envoi binaire avec switch explicite. Analyse syntaxique PowerShell réussie ; exécution complète refusée par politique Windows locale, **NON VÉRIFIÉE**, aucune modification/contournement de politique. Test hors ligne sur HP requis avant émission.
+- **PRÉPARÉ essai / NON QUALIFIÉ physique** : `PREPARATION_RS485_RX_006.md` donne identification Flash par lecture/comparaison au BIN, séquence AVANT→un envoi HP→APRÈS, deltas et ADU exacte, diagnostic différentiel. **Non prêt pour essai immédiat** : autorisation hardware distincte, firmware identifié, niveaux VIO/VDDIO2 et DE=0 /RE=0 établis, contexte microSD contrôlé avant tout boot et exécution hors ligne HP restent nécessaires. L'absence d'EnableVddIO2 explicite est documentée, aucun registre ni GPIO écrit. GDB/OpenOCD WSL cible non qualifié par le seul test de détection SWD utilisateur.
+
+À transmettre à ChatGPT : relire le rapport 006 puis cadrer une mission physique avec prérequis/permissions explicites ; si VDDIO2 ou direction doivent être corrigés, autoriser la tranche correspondante. Aucun serveur/TX RS-485 ou runtime de production activé, freezes inchangés, dette E4 microSD/power-loss ouverte.

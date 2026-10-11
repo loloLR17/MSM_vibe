@@ -18,6 +18,10 @@ volatile uint32_t tr2_modbus_application_last_poll_result = UINT32_MAX;
 volatile uint32_t tr2_modbus_application_poll_error_count = 0U;
 
 /* Receive-only path: no PDU execution or response. */
+volatile uint32_t tr2_rtu_rx_ready = 0U;
+volatile uint32_t tr2_rtu_rx_poll_count = 0U;
+volatile uint32_t tr2_rtu_rx_crc_error_count = 0U;
+volatile uint8_t tr2_rtu_rx_last_adu[MODBUS_RTU_ADU_MAX_SIZE];
 volatile uint32_t tr2_rtu_rx_byte_count = 0U;
 volatile uint32_t tr2_rtu_rx_error_count = 0U;
 volatile uint32_t tr2_rtu_rx_last_error = 0U;
@@ -33,6 +37,7 @@ static void RtuReceive_Poll(const SerialTransport *transport,
     SerialTransportEvent event;
     ModbusRtuReceiverEvent received = {false, NULL, 0U};
 
+    tr2_rtu_rx_poll_count++;
     if (!serial_transport_poll_event(transport, &event)) {
         modbus_rtu_receiver_init(receiver);
         tr2_rtu_rx_error_count++;
@@ -69,6 +74,12 @@ static void RtuReceive_Poll(const SerialTransport *transport,
         ModbusRtuAduView view;
         ModbusRtuCodecResult result = modbus_rtu_adu_decode(
             received.frame, received.frame_length, &view);
+        size_t i;
+
+        /* Read while halted between trials; bytes beyond length are stale. */
+        for (i = 0U; i < received.frame_length; ++i) {
+            tr2_rtu_rx_last_adu[i] = received.frame[i];
+        }
 
         tr2_rtu_rx_frame_count++;
         tr2_rtu_rx_last_frame_length = (uint32_t)received.frame_length;
@@ -77,6 +88,9 @@ static void RtuReceive_Poll(const SerialTransport *transport,
             tr2_rtu_rx_valid_adu_count++;
         } else {
             tr2_rtu_rx_invalid_adu_count++;
+            if (result == MODBUS_RTU_CODEC_CRC_MISMATCH) {
+                tr2_rtu_rx_crc_error_count++;
+            }
         }
     }
 }
@@ -2210,6 +2224,7 @@ int main(void)
         if (serial_transport_start_receive(&serial_transport) != TR2_OK) {
             Error_Handler();
         }
+        tr2_rtu_rx_ready = 1U;
     } else {
         Error_Handler();
     }
