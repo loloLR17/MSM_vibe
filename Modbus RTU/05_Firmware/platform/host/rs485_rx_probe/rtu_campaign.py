@@ -167,6 +167,7 @@ def open_hp_port():
 def main(argv=None):
     parser = argparse.ArgumentParser(description=__doc__)
     mode = parser.add_mutually_exclusive_group()
+    mode.add_argument("--offline", action="store_true")
     mode.add_argument("--mock", action="store_true")
     mode.add_argument("--transmit", action="store_true")
     parser.add_argument("--authorized-mission", default="")
