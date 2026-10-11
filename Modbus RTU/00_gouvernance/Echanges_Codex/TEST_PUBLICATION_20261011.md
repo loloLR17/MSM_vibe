@@ -1,3 +1,3 @@
 # Test de publication
 
-Test technique de l'écriture GitHub par ChatGPT, 11 octobre 2026.
+Lecture et mise à jour GitHub vérifiées le 11 octobre 2026.
