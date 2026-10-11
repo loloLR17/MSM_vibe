@@ -189,5 +189,13 @@ Journal actualisé : format, mécanismes, résultats, risque de downgrade, dépe
 blocage et suite. À transmettre à ChatGPT : vérifier publication et fournir les
 autorités/manifeste, sans redécider l’architecture F. Permissions exercées :
 logiciel/tests/cross/commit/push normal sur main. Stashes005/002 conservés.
-Publication et relecture distante en attente dans ce premier état ; statut restera
-BLOCKED après publication puisque les préconditions réelles manquent toujours.
+Publication normale `git push origin HEAD:refs/heads/main` réussie au SHA
+`0abbad9e33c438943c6660584a65768feae7e792`. Fetch puis relecture intégrale UTF-8 de **15 fichiers**
+(14 livrables et contrat actif), comparaison octet pour octet aux fichiers locaux
+réussie ; preuve remote-reread-1.json hors Git. HEAD=origin/main, arbre propre
+après cette première publication, stashes005/002 conservés. Aucun fichier hors
+périmètre, secret ou artefact de build inclus, diff/index contrôlés avant commit.
+La présente consignation est publiée dans un commit documentaire final, puis
+relue à son tour ; son SHA distant final est fourni dans la réponse Codex sans
+référence circulaire dans ce fichier. **BLOCKED maintenu**, autorités et preuves
+physiques toujours manquantes ; publication vérifiée ne vaut pas qualification.
