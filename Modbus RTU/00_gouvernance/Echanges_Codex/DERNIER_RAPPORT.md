@@ -1,6 +1,6 @@
 ---
 mission_id: TR2-20261011-RX-011
-status: BLOCKED
+status: DONE
 base_ref: main
 base_sha: null
 initial_head: ee5cf92c9c6891bd9c36fa7cd138eb7fcb4636ed
@@ -17,7 +17,7 @@ allow_debug: true
 
 # Mission011 — réception du premier essai HP établie
 
-**Critères RX satisfaits : +8 octets, +1 trame/+1 ADU valide, zéro erreur, octets exacts. BLOCKED provisoire uniquement pour publication/relecture distante.** Validation physique limitée à cet essai RX unique, pas qualification industrielle, TX/PDU ou sûreté électrique complète.
+**Critères RX satisfaits : +8 octets, +1 trame/+1 ADU valide, zéro erreur, octets exacts. DONE après publication et relecture distante intégrale.** Validation physique limitée à cet essai RX unique, pas qualification industrielle, TX/PDU ou sûreté électrique complète.
 
 ## Références, état initial et permissions
 
@@ -60,4 +60,4 @@ Preuves complètes hors Git `/home/lolo/dev/msm/reports/TR2-mission011-20261011T
 
 ## Publication
 
-Preuve distante à compléter selon protocole. Statut sera DONE seulement après publication et relecture intégrale. État initial propre, stashes préservés ; SHA final rapport fourni après contrôle distant.
+Push normal main réussi, HEAD=origin/main=`1449b81fe8e81bedc63c98072d70ce6ba17eed2e` après fetch. Relecture intégrale des quatre livrables modifiés et du contrat011 inchangé depuis cette référence distante, égalité byte-à-byte locale, identifiant et result_sha contrôlés. Commit `Record mission 011 successful single-frame physical RX observation`. Cette mise à jour DONE est publiée ensuite et contrôlée une dernière fois ; SHA final dans la réponse Codex. État initial propre, stashes préservés ; SHA final rapport fourni après contrôle distant.
