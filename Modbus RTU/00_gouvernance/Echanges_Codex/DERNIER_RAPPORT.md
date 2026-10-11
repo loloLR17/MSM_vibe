@@ -17,7 +17,7 @@ allow_debug: true
 
 # M013-A — diagnostic FC03 livré ; preflight physique NO-GO
 
-**TRANCHE LOGICIELLE VALIDÉE / 108 TESTS HÔTE / ARM DÉFAUT ET DIAGNOSTIC OFF-ON COMPILÉS / AUCUN FLASH OU TX PHYSIQUE.** BLOCKED concerne la qualification preflight physique : VIO Click et absence de commande concurrente via /RE–J3–RST restent non établis. Première publication/relecture distante également à obtenir pour ce rapport provisoire. Le statut ne sera pas passé DONE sur la seule réussite de cette publication.
+**TRANCHE LOGICIELLE VALIDÉE / 108 TESTS HÔTE / ARM DÉFAUT ET DIAGNOSTIC OFF-ON COMPILÉS / AUCUN FLASH OU TX PHYSIQUE.** BLOCKED concerne la qualification preflight physique : VIO Click et absence de commande concurrente via /RE–J3–RST restent non établis. Publication et relecture distante effectuées ; BLOCKED reste le statut physique. La présence distante ne qualifie pas le TX.
 
 ## Références, inspection et préservation
 
@@ -65,4 +65,8 @@ Aucune connexion MCU/flash/debug/reset/USB/écriture de registre/émission013. P
 
 ## Git et publication
 
-Arbre initial propre, `main`, remote GitHub vérifié ; origin/main restait `6a35aef…` au contrôle avant commit. Treize fichiers de la tranche indexés/relus, contrôle whitespace/secrets et archives exactes réussi ; aucun fichier hors périmètre. Permissions exercées : modification, tests/builds, documentation, commit ; push et relecture du présent rapport encore en cours. Aucun matériel ni opération destructive. État au commit code : arbre propre, ahead1 ; deux stashes préservés. Ce rapport sera publié normalement `HEAD:refs/heads/main`, puis tous les livrables seront relus depuis la référence distante récupérée. Le SHA final du rapport sera fourni séparément après vérification, sans auto-référence circulaire.
+Arbre initial propre, `main`, remote GitHub vérifié ; origin/main restait `6a35aef…` au contrôle avant commit. Treize fichiers de la tranche indexés/relus, contrôle whitespace/secrets et archives exactes réussi ; aucun fichier hors périmètre. Permissions exercées : modification, tests/builds, documentation, commits et push normaux main. Aucun matériel ni opération destructive. Deux stashes005/002 préservés.
+
+Push explicite `git push origin HEAD:refs/heads/main` réussi ; fetch puis HEAD=origin/main=`9c22eebc6fd3de9e75af43d105d5922e93048610`. Relecture intégrale depuis cette référence récupérée de GitHub des quatorze livrables et du contrat M013-A inchangé, décodage UTF-8 et comparaison byte-à-byte locale réussis ; identifiant/statut/result_sha contrôlés. Manifeste `remote-reread.json` hors Git dans dossier de preuves013. Arbre alors propre. Le blocage électrique demeure, sans passage DONE artificiel.
+
+Cette mise à jour de preuve sera publiée puis relue ; son SHA final sera fourni dans la réponse Codex. Le journal a été actualisé pour transmettre à ChatGPT le diagnostic préparé, les validations effectives, les lacunes VIO/RST et l'intervention humaine unique ; qualification matérielle et publication restent distinctes.
