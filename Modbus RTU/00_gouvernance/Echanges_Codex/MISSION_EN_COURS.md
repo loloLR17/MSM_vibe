@@ -1,9 +1,9 @@
 ---
-mission_id: TR2-20261011-M014-F-PERSISTENT-IDENTITY
+mission_id: TR2-20261011-M014-G-COMMISSIONING
 status: READY
 base_ref: main
-base_sha: 24bb47bf17c8e36d1799227900de61d517e92597
-created_at_utc: 2026-10-11T21:35:00Z
+base_sha: 7f9e57b87527a0864a6e4b0eae468b6c940a95c7
+created_at_utc: 2026-10-11T22:00:00Z
 author: ChatGPT
 target_branch: main
 allow_commit: true
@@ -12,25 +12,21 @@ allow_flash: true
 allow_debug: true
 ---
 
-# M014-F — Identité persistante V1, migration transactionnelle et composition production
+# M014-G — Mise en service du TR2 n°1 et qualification M014
 
-## Référence et autonomie
-Appliquer AGENTS.md, protocole V2-B3, roadmap et état courant de main ; vérifier HEAD distant/local, état Git, stashes, rapport M014-E BLOCKED, PROVISIONING_PRODUCTION_M014_E.md, gels V1 et code réel avant toute action. Autorisation permanente de développement/commit/push/flash/debug confirmée et explicite. Travailler en autonomie sans validations répétitives, poursuivre les lots indépendants en cas de blocage. Un seul pilote sur main. Archiver M014-E mission/rapport sans écraser d'archive existante si nécessaire selon protocole.
+## Références et autonomie
+Appliquer AGENTS.md, protocole V2-B3, roadmap, ETAT_COURANT, rapport M014-F et spécification IDENTITE_PERSISTANTE_M014_F.md sur HEAD réel main. Vérifier branche, HEAD, stashes, état Git et archives ; archiver mission et rapport F conformément au protocole sans écrasement. Travailler en autonomie maximale, commit/push/flash/debug permis, sans demandes de validations répétitives. Objectif prioritaire : clôturer M014 dès que les critères réels sont démontrés ; sinon documenter uniquement les blocages concrets et poursuivre tous travaux indépendants.
 
-## Décision d'architecture approuvée
-Retenir une **évolution versionnée du layout transactionnel logique existant**, et non un second domaine FRAM physique indépendant. Conserver un seul mécanisme de publication/recovery et l'atomicité identité + configuration. Les 51 818 octets du layout historique sont intégralement occupés : ne réutiliser aucun octet, ne pas écraser BootIntent ni CampaignData. Proposer et justifier une extension logique avec offsets, tailles, géométrie et version de format explicites, dans les limites physiques vérifiées ; prévoir lecture ancien format et migration explicite contrôlée, sans formatage/écriture au boot. Ne pas altérer les gels Modbus V1.
+## Attribution décidée
+Premier appareil : DeviceId uint32 **1**, adresse Modbus RTU **1**, serial ASCII **TR2-000001**, fabricant ASCII **MSM**, nom interne **MSM-TR2-000001**. Ce sont des valeurs attribuées par décision projet, pas des mesures de carte. Vérifier les spécifications B0 gelées et collisions avec tout registre existant avant attribution ; si collision avérée, choisir prochain DeviceId positif libre et documenter. Créer un registre d'attribution versionné, statut RESERVED puis ASSIGNED après lecture et association UID96 réel. UID96 doit être lu sur la carte via ST-LINK/GDB sûr, jamais inventé, tronqué ou dérivé en DeviceId. Versions firmware/hardware/protocole/capacités conformes aux sources et capacités effectivement qualifiées ; ne pas fabriquer d'identité ou de READY.
 
-Identité matérielle STM32 UID96 intégral, immuable, liée à l'identité fonctionnelle ; DeviceId uint32 unique attribué explicitement par registre d'attribution projet (pas hash/troncature UID, pas constante) ; identité B0 complète réelle et versionnée ; adresse esclave 1..247 indépendante et persistante ; distinguer version layout interne/version protocole V1. Définir codec portable sans padding/endianness native, magic/version/longueur/génération/intégrité et contrôles d'identité. Ne pas inventer un DeviceId de production ni déclarer une unicité de parc sans registre autoritatif.
+## Lots enchaînés
+1. Identifier ST-LINK et STM32U575 réel, lire UID96 trois mots et état firmware par méthode GDB validée, sans CubeProgrammer HOTPLUG (incident NVIC). Préserver BIN/ELF diagnostic E et procédure de restauration. Produire preuves et registre d'attribution.
+2. Auditer composants, branchements et vrais handles FRAM SPI/CS, capteur, SDMMC/microSD, géométrie et ownership. Distinguer absence physique, interface absente et média EMPTY/inaccessible. Ne jamais inventer présence SD. Avant toute écriture FRAM/SD, lecture et sauvegarde intégrale vérifiée avec hash, plan des plages et restauration ; si impossibles, ne pas écrire et continuer le reste.
+3. Construire manifeste de commissioning traçable : UID, DeviceId, B0, adresse, versions, configuration métier valide, géométrie FRAM et SD, allocations, provenance, sauvegardes, images/SHAs, générations et rollback. Déterminer les paramètres manquants à partir des sources et du banc réel ; décider les valeurs ordinaires permises par les normes sans microvalidation. Implémenter inspecteur métier validate_prefix, autorité registre et strong binding STM32 avec contexts durables/exclusifs et vraies dépendances transport, FRAM, capteur, SD ; aucune fixture harness, aucun faux READY.
+4. Tester/fault-inject, compiler ARM et .NET selon impact, produire image production identifiée et restaurable. Flash et debug STM32 autonomes autorisés si cible, sauvegardes et procédure sûre établies. Aucun mass erase, Option Bytes, RDP, HOTPLUG, reformat implicite ou destruction de données. Provisioning EMPTY/migration explicite seulement après contrôle d'ownership, sauvegardes/restauration, UID réel, préfixe métier valide et plan de transaction. Pas de downgrade risquant une ancienne V1.
+5. Dès que B0/B1 réels sont opérationnels, exécuter via SSH-HP des essais Modbus COM7 bornés, 115200 8E1 slave1, exclusivité maître, logs/hash, aucun retry, sans rejouer M013-I/M014-C. Aucun GDB pendant trafic. Qualifier B0/B1, polling et perte/reprise physiques ; ne pas déduire disponibilité des seuls tests hôte.
+6. Actualiser ETAT_COURANT et la roadmap ROADMAP_TR2_VERS_SUPERVISION_VIBRATOIRE.md : état M013 historique exact, M014 DONE uniquement après qualification physique complète, sinon IN PROGRESS avec preuves, réserves et prochaine action. Documenter la suite M015 uniquement si M014 réellement close.
 
-## Travail attendu
-1. Audit exhaustif des allocations physiques/logiques FRAM, schéma transactionnel (2 slots + superblocks), métadonnées, anciennes images et chemins CampaignData/BootIntent. Définir et publier spécification technique du layout V2 interne, migration V1→V2, ownership exclusif et plan de sauvegarde/restauration. Démontrer calcul des bornes et compatibilité avant codage.
-2. Implémenter codec/inspecteur autoritatif et moteur de provisioning initial EMPTY et migration, explicitement déclenchés hors boot. Réutiliser les transactions existantes ; protéger les données anciennes et assurer rollback/recovery lors des coupures, mismatch UID, versions incompatibles, génération périmée, double provisioning, corruption et idempotence. Ne jamais transformer EMPTY en VALID par défaut.
-3. Composer les services STM32 de production réels progressivement : FRAM/config/identité/transport/Modbus B0/B1 et bulkSD si média/autorités disponibles. Ne pas contourner weak binding NOT_AVAILABLE par des fixtures, faux READY, faux DeviceId ou UID tronqué. Diagnostiquer précisément les dépendances non disponibles et poursuivre le code/test indépendant. Ne pas assimiler B0/B1 à qualification de tous blocs opérationnels.
-4. Tests unitaires/fault-injection hôte, cross-build ARM, tests .NET proportionnés ; vérifier non-régression et comportement sans média. Préparer et si les préconditions réelles sont remplies, exécuter en autonomie flash/debug qualifiés : identifier STM32, image exacte/hash, sauvegardes/restauration du diagnostic E, voie de programmation validée ; aucun HOTPLUG CubeProgrammer (risque NVIC connu). Préserver le firmware diagnostique si l'image production n'est pas restaurable.
-5. Si la cible de production est réellement opérationnelle et les données/identités/provisioning sont autoritatifs, préparer puis exécuter des essais HP via SSH bornés sur COM7 avec maître exclusif, logs et hashes nouveaux, sans rejouer M014-C/M013-I, sans GDB pendant trafic. Ne pas ouvrir COM7 tant que le firmware ne fournit pas réellement les blocs requis ; ne pas inventer de succès physique. Aucun effacement massif, Option Bytes, déprotection, écriture destructive inhabituelle ou changement de câblage. Interventions physiques nécessitant l'utilisateur seulement si nécessaires.
-
-## Escalades réelles
-Arrêter seulement pour incompatibilité normative, choix structurant non couvert par l'architecture approuvée, allocation impossible démontrée, destruction de données préexistantes, risque matériel non maîtrisé ou geste physique indispensable. Les validations logicielles courantes et flash/debug standard sous garde-fous ne demandent aucune nouvelle approbation. Si une valeur de production ou registre d'attribution manque, développer les mécanismes sans inventer l'identité et signaler précisément ce seul blocage ; ne pas immobiliser le reste.
-
-## Critères et rapport
-Publier les spécifications de format, allocation/migration et code/test validés ; consigner commandes réelles, résultats, preuves, SHAs, statut logiciel et physique distincts. Mettre à jour ETAT_COURANT_TR2.md et DERNIER_RAPPORT.md en respectant la propriété Codex ; relecture distante des livrables. M014 demeure IN PROGRESS tant que lectures périodiques et perte/reprise physiques ne sont pas démontrées. En cas de blocage/quota, livrer un point de reprise exploitable et préserver tous travaux.
+## Garde-fous et livrables
+Les permissions allow_commit/push/flash/debug sont explicites et permanentes pour cette mission. Escalader seulement décision structurante non couverte, opération destructive inhabituelle, risque matériel non maîtrisé ou geste physique utilisateur. Ne pas demander de validation pour l'attribution déjà décidée, logiciel, flash/debug standards qualifiés. Publier code, registre, manifeste, validations, commits et DERNIER_RAPPORT.md avec résultats observés, SHA, état physique vs logiciel et reprise exploitable. Vérifier relecture distante des livrables. Ne pas annoncer DONE sans preuve des critères M014 ; viser la clôture dès ce soir sans sacrifier la rigueur industrielle.
