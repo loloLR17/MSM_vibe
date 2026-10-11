@@ -1,33 +1,26 @@
 ---
-mission_id: TR2-20261011-M014-C-END-TO-END
+mission_id: TR2-20261011-M014-D-SUPERVISION-INTEGRATION
 status: READY
 base_ref: main
 author: ChatGPT
 target_branch: main
 allow_commit: true
 allow_push: true
-allow_flash: false
+allow_flash: true
 allow_debug: true
 ---
 
-# M014-C — Qualification complète d'une lecture .NET réelle sur HP
+# M014-D — Integrer la supervision operationnelle jusqu'a la limite du quota Codex
 
-Lire AGENTS.md, protocole V2, rapports M013-J/M014-A/M014-B, procédure HP, code diagnostic actuel et état courant sur main. Vérifier HEAD et préserver stashes/preuves.
+Consulter AGENTS.md, gouvernance V2, roadmap M014, rapport M014-C DONE et etat courant reel de main. Verifier HEAD, arbre Git, stashes et preuves avant action. Ne pas rejouer l'essai unique M014-C ni la campagne M013-I.
 
-Faits confirmés par l'utilisateur sur HP : ZIP M014-A SHA256 conforme 51e2e36e106b76243096ccb3daaf25d8a9579020e1397e2087aed07cd6ca43a0 ; exécution diagnostic OFFLINE avec COM7/115200/8E1, réponse OFFLINE no port opened/no transmission/no log created et code retour0. L'empreinte de l'EXE extrait, l'inventaire PnP COM7 et les 370 fichiers du manifeste ne sont pas encore confirmés par un préflight intégral. Ne pas prétendre le contraire.
+Objectif : faire progresser en autonomie la connexion de la supervision .NET au TR2 physique, au-dela du diagnostic FC03/1000/1, jusqu'aux lectures de blocs systeme V1, polling maitrise, detection des pertes et reprise, sans modifier les gels V1. Regrouper les travaux coherents pour limiter les aller-retours.
 
-Architecture : HP Laptop 15-db1xxx seul maître Modbus sur COM7 via FT232R ; T1000 développement/GDB STM32. Cible STM32U575 firmware diagnostic connu, unité1 FC03 registre1000 quantité1, réponse attendue UNKNOWN0. M013-I et J ont établi une campagne antérieure conforme ; ne pas la rejouer. Aucun accès distant HP supposé.
+1. Auditer les ecarts reels entre le firmware STM32 diagnostic actuellement flashe, le serveur Modbus RTU applicatif de production, les autorites runtime, le mapping V1 B0/B1 et le service .NET S0-S7. Distinguer fonctions developpees, simulees et effectivement qualifiees physiquement. Publier une matrice de dependances et des criteres de validation.
+2. Implementer et tester les raccordements firmware/runtime et supervision necessaires dans le depot, par tranches internes autonomes. Privilegier les tests unitaires, integration, cross-build ARM et tests .NET existants ; ajouter des tests sur lecture de blocs, identification, validite, timeout, deconnexion/reprise, sans masquer les erreurs ni inventer READY ou DeviceId.
+3. Autorisations : developpement, commits et push main autonomes ; flash et debug STM32 autorises dans le cadre AGENTS.md apres verification cible, image et sauvegardes pertinentes. Interdire mass erase, Option Bytes, deprotection, changement de cablage ou modification des gels. Ne pas flasher si le diagnostic qualifie risque d'etre perdu sans restauration controlee.
+4. Le HP reste seul maitre physique sur COM7 et n'est pas accessible a Codex a ce stade. Ne jamais pretendre avoir execute un essai HP. Preparer les procedures d'essais HP minimales, non destructives et sans boucle de tentatives. Attendre la revue ChatGPT et l'intervention utilisateur pour les essais physiques HP ; ne pas reutiliser le marqueur ou la commande consommee M014-C. Ne pas faire de GDB pendant un essai HP.
+5. Si un blocage materiel ou une decision structurante apparait, documenter clairement et poursuivre les autres travaux logiciels independants possibles. Eviter les micro-missions et les validations repetitives. La limite de quota Codex n'est pas un motif pour perdre des travaux : committer/pusher les tranches valides, conserver les preuves, noter les travaux incomplets et les risques.
+6. Avant arret ou epuisement du quota, publier DERNIER_RAPPORT.md et mettre a jour ETAT_COURANT_TR2.md avec HEAD exact, tests reellement executes, fichiers modifies, statut M014 (ne pas declarer M014 DONE avant lectures periodiques physiques et reprise qualifiees), blocages et instructions de reprise. Verifier la publication distante. Si quota interrompt avant publication, ne pas affirmer la cloture et conserver un point de reprise local explicite.
 
-Objectif de cette mission : établir les prérequis et les instructions exactes d'une seule lecture physique future .NET, sans transmettre de requête Modbus dans cette mission.
-
-1. Auditer le code diagnostic .NET M014-A, les paramètres, le journal exclusif, les cas d'erreur, timeout/retry0, les commandes PowerShell et le préflight HP M014-B. Vérifier l'absence d'accès port sans --read-once.
-2. Préparer un contrôle HP complémentaire, simple, sans ouverture COM7, portant sur SHA256 EXE, manifeste des 370 fichiers, identité PnP du convertisseur COM7, état du processus maître et dossier journal neuf. Distinguer port présent de port libre ; aucune méthode intrusive de vérification de disponibilité.
-3. Sur T1000, si l'accès GDB à la cible est disponible, vérifier par lecture seule l'identité et l'état récent du STM32/observer et les IRQ sans CubeProgrammer HOTPLUG, reset, flash ou transmission COM7 ; comparer au dernier état connu, sans perturber un essai HP. Si indisponible, signaler clairement le manque de preuve.
-4. Préparer la procédure d'une seule lecture FC03/1000/1, 115200 8E1, timeout borné, retry0, --read-once, journal CreateNew exclusif ; critères de succès et arrêt immédiat en cas de timeout, erreur ou réponse ambiguë. Ne pas exécuter cette lecture dans M014-C-READINESS. Ne pas relancer Python ni M013-I.
-5. Publier un verdict de préparation GO/NO-GO motivé, les prérequis restant à vérifier sur HP, une commande d'essai réservée à une autorisation explicite ChatGPT après vérification de ces prérequis ; actualiser DERNIER_RAPPORT.md, ETAT_COURANT_TR2.md et procédure, commit/push main et relecture distante.
-
-Aucun changement V1, gels ou firmware. Aucun flash ni reset ; GDB seulement en lecture hors trafic. Développement et Git autonomes selon AGENTS.md. L'utilisateur reste responsable de l'exécution sur HP. Ne pas demander de refaire les contrôles électriques acquis.
-
-## Extension de périmètre validée par l'utilisateur
-
-Cette mission regroupe la préparation, les contrôles HP restants, une seule lecture physique FC03/1000/1 via l'application .NET, l'analyse indépendante des résultats HP et MCU, puis le rapport final. Codex prépare une commande PowerShell HP unique vérifiant les prérequis et réalisant un seul essai sans relance automatique ; l'utilisateur exécute sur HP après revue de la commande par ChatGPT. Pas d'accès distant HP supposé. En cas d'anomalie, arrêter sans nouvelle transmission et conserver les preuves. Ne pas rejouer la campagne Python M013-I. Après réception des résultats HP, compléter le même rapport et ne pas créer de nouvelle mission administrative. L'étude éventuelle d'un accès Codex au HP est différée après validation de cette qualification.
+La validation du diagnostic M014-C est acquise uniquement pour une lecture nominale. Les qualifications timing RS485, DE/TC, robustesse et industrielle demeurent ouvertes. Pas d'acces distant HP configure dans cette mission ; son etude est differee apres validation de la supervision.
