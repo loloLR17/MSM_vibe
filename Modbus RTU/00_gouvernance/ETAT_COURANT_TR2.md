@@ -1,6 +1,6 @@
 # État courant TR2 — référence reconstruite
 
-Mise à jour : 11 octobre 2026. Mission `TR2-20261011-STLINK-009`.
+Mise à jour : 11 octobre 2026. Mission `TR2-20261011-RS485-FLASH-RX-010`.
 
 **Ce document est un nouvel état de référence reconstruit à partir de preuves vérifiables. Il n'est pas une restitution du journal historique HP.** Sa création a été explicitement autorisée par l'utilisateur pour la mission `T1000-20261010-CLOTURE-001`, après escalade AGENTS.md §18. Aucun original n'a été retrouvé dans l'historique Git, les répertoires Linux locaux ou les documents Windows accessibles. Les archives d'échanges du 8 octobre mentionnent un journal local HP, sans en fournir le contenu. Aucun état historique inconnu n'est inventé.
 
@@ -126,3 +126,9 @@ Prochaine étape à transmettre à ChatGPT : contrôler le rapport distant, puis
 - **VALIDÉ hôte** : sonde SN003500463235510B37333439 présente sur USB0483:374e bus2-3, attachée WSL via usbipd5.3.0 ; aucun OpenOCD/GDB actif détecté. CubeProgrammer Windows2.23.0 inventaire `-l st-link-only` : aucune sonde avant détachement. Détachement ciblé réussi sans administrateur ni geste physique ; état Shared, disparition lsusb, inventaire Windows détecte SN attendu/V3J15M7/NUCLEO-U575ZI-Q. Sonde laissée à Windows, liaison partagée persistante conservée.
 - **PRÉPARÉ** : `PREPARATION_STLINK_009.md`, sauvegarde2Mio HOTPLUG et flash/vérification BIN008 sous mission cible ultérieure. Empreinte BIN008 recontrôlée identique. Aucune connexion MCU, sauvegarde nouvelle, flash/debug/reset/émission effectuée. Firmware actuellement en Flash reste non identifié ; RX/E4 restent NON QUALIFIÉS.
 - À ChatGPT : revue distante009 puis contrat séparé pour accès cible, flash et essai unique avec prérequis008. Aucun copier-coller ou intervention utilisateur nécessaire au diagnostic résolu.
+
+## Mission010 — flash008 et diagnostic, 11 octobre2026
+
+- **BACKUP / FLASH / VERIFY RÉUSSIS** : cible SN003500463235510B37333439 STM32U575 ID0x482 RevU,3,29V. Backup2Mio `/home/lolo/dev/msm/backups/TR2-mission010-20261011T125638Z/flash-before.bin`,SHA256 `4e49d49ac35d0e2db184ae8dc66dac5ac62b25a89d197a3749beaff12a8e6153`. BIN008157944 octets programmé0x08000000, effacement standard secteurs0..19, verifyCLI réussi puis relecture byte-à-byte identique SHA256 `02ed2cf64d4d78225a4781b823c9d27e96a8ea693679d8a834d230568383593b`. Reset/démarrage contrôlé. ELF008 exact vérifié ; identité firmware courant désormais008 établie.
+- **OBSERVÉ DEBUG** : IO2SVactif0x20000000 ; PG4modeoutput/latchbas/IDRbas/pulldown ; PG7/8AF ; RXready1, polling2545194→15458093 après reprise ; compteursRX/CRC/UART0 sans émission. Binding3NOT_AVAILABLE, SDstage5 sans carte, faultregs0. Sessions STWindows détachées, serveurs terminés ; cible laissée en exécution. Niveaux physiques U1DE//RE/VIO et pont réel non mesurés.
+- **BLOCKED RX** : seul COM3STLINK accessible T1000, COM7FT232R sur HP inaccessible ; aucun envoi effectué. Action HP unique après niveaux/J2 contrôlés et script offline réussi : `Send-Tr2RxProbe.ps1 -Transmit`, communiquer résultat pour snapshotAPRÈS par Codex. Aucun retry automatique. RXphysique/E4 NON QUALIFIÉS ; rapport010 publié pour revue indépendante ChatGPT.
