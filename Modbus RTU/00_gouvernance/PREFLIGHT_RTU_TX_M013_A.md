@@ -16,6 +16,10 @@ Sonde Windows SN003500463235510B37333439, NUCLEO-U575ZI-Q/STM32U575 ID0x482 RevU
 
 **TX PHYSIQUE NON VÉRIFIÉ** tant que la réponse réelle n'est pas capturée. Si instrumentation déjà disponible sans modifier le montage : conserver DE/TXD/bus, DE haut jusqu'au dernier stopbit/TC puis bas et retourRX ; ne pas stopper le MCU durant l'échange. Un snapshot après échange contrôlera état final/erreurs/buffer, pas la chronologie physique des fronts. Aucun nouvel essai RX préalable, aucune mesure statique répétée. Jalon J1 global, reset pré-init, watchdogIRQ, production et E4 restent non qualifiés.
 
+## Reprise M013-C après probe unique — état courant
+
+L'utilisateur rapporte un seul probeHP effectué, CRC/self-checkOK, aucune réponse~1s. **Ne plus lancer l'instruction `-Transmit` ci-dessus** : essai consommé, aucune nouvelle émission autorisée dans cette reprise. Flashdiagnostic exacte reconfirmée ; UARTISR0x006000F8 avec RXNE/ORE, aucun buffer/fileRX/RTU/TX rempli, ready1 sanspollerror. LectureNVIC anormale ISER0/ISPRFFFFFFFF confirmée viaSTGDB et CubeProgrammer ; activation/visibilité à établir, pas une cause électrique prouvée. Diagnostic complet et prochaines actions passives dans `Echanges_Codex/DERNIER_RAPPORT.md`. BlocageRE/RST reste levé ; premierdialogue nonréussi, TXPHYSIQUE NONVÉRIFIÉ. Aucun nouveau contrôle statique demandé.
+
 ## Actualisation historique M013-B — 11 octobre2026
 
 Contrat `TR2-20261011-M013-B-PHYSICAL-TX`, référence `70843b31a1fb1db631d1852a9384aa76136063cf`. Les lignes ci-dessous remplacent les lacunes statiques correspondantes de la matrice historique, sans réécrire les preuves M013-A archivées.

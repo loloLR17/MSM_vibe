@@ -7,6 +7,7 @@ initial_head: 61e9617ce67f35c9553c6255c82db6388bbb90b2
 mission_sha: fe1b9cf274d2fd51b82081e0a20c5e99dc55728c
 result_sha: fe1b9cf274d2fd51b82081e0a20c5e99dc55728c
 created_at_utc: 2026-10-11T14:13:27.579300+00:00
+updated_at_utc: 2026-10-11T14:28:30.408594+00:00
 author: Codex
 target_branch: main
 allow_commit: true
@@ -15,9 +16,9 @@ allow_flash: true
 allow_debug: true
 ---
 
-# M013-C — diagnostic flashé, boot observé ; réponse HP en attente
+# M013-C — essai HP sans réponse ; réception UART non traitée observée
 
-**GO statique / BUILD RÉUSSI / TESTS3/3 / BACKUP vérifié / FLASH et READBACK exacts / BOOT observé / TX PHYSIQUE NON VÉRIFIÉ.** BLOCKED porte sur l'attente de la capture réelle HP, pas sur RE/RST désormais résolu. Aucune qualification J1 globale ni production.
+**GO statique / BUILD RÉUSSI / TESTS3/3 / BACKUP vérifié / FLASH et READBACK exacts / BOOT observé / TX PHYSIQUE NON VÉRIFIÉ.** BLOCKED porte désormais sur l'absence de réponse au probe unique et l'anomalie de réception constatée, pas sur RE/RST désormais résolu. Aucune qualification J1 globale ni production.
 
 ## Référence, périmètre et preflight
 
@@ -48,18 +49,44 @@ Chaîne STWindows qualifiée : serveur `-d -g -i <SN> --frequency 8000 -p 61234 
 
 Deux erreurs d'outillage corrigées dans le périmètre : décodage UTF8 de sortie CLI Windows refusé (progression contient octets nonUTF8), conservation binaire/décodagecp1252 puis sauvegardes vérifiées ; première macro GDB faisait une arithmétique sur symbole sans typeDWARF, correction vers adresses/offsets vérifiés puis deux relevés avec detach. Première session sortie non0, serveur terminé normalement ; relevés réussis prouvent reprise/progression ultérieure. Aucun échec masqué ou test affaibli.
 
-## Action HP unique et limites
+## Essai unique rapporté par l'utilisateur et diagnostic APRÈS, 11 octobre2026
 
-COM7 FT232R sur HP inaccessible T1000 ; aucun envoi HP simulé ni ouverture COM3. Une instruction utilisateur transmise : seul maître HP prévu actif, autres applications série fermées ; dans dossier du script existant, une seule fois :
+**Observation utilisateur, pas capture instrumentée Codex** : un seul essai HP, COM7 1152008E1, requête `01 03 03 E8 00 01 04 7A`, CRC/self-checkOK, résultat « No response in ~1 s ». Aucun nouvel essai effectué. La requête n'est plus à lancer : instruction précédente consommée. L'utilisateur demande expressément le diagnostic STM32 sans nouvelle transmission HP ; aucun envoi Modbus, rejeu logiciel, commande TX, reset ou reflash n'a été effectué pendant cette reprise. Aucun geste physique/contrôle statique acquis redemandé.
 
-```powershell
-.\Send-Tr2RxProbe.ps1 -Transmit
-```
+HEAD de reprise propre `fbfc70de70532afc5e1d2bc07d37ed5344081039`, fetch confirme origin/main identique et contrat C toujours actif. Permissions debug/commit/push C applicables à cette continuation ; deux stashes conservés. Cible/SN/3,29V identiques aux constats précédents. Flash relue **48240 octets courants**, retourCLI0, comparaison exacte BIN diagnostic et SHA256 `47d69cc286b0f12771de56eb80f2648cc3c2a7a57b2ce1a8038b34de792b97e8`. ELF exact rehashé `762dcf0ba6c3663d9737dd334118a9f7d52a22175dda6d2674e9cb0d7b8e1c4a`. Pas de nouvelle lecture2MiB prétendue ici ; sauvegarde2MiB et readback initial restent preuves historiques de cette même mission.
 
-COM7 1152008E1, requête `01 03 03 E8 00 01 04 7A`, réponse attendue `01 03 02 00 00 B8 44`. Copier toute sortie, **sans retry**. CRC calculé indépendamment hors ligne : résidu0 pour chaque trame complète, réponse0x44B8 little-endian B8 44. Une capture reçue sera comparée octet par octet, unité1/FC03/bytecount2/UNKNOWN0/CRC ; éventuel écho ne compte pas comme réponse. L'ancien texte RX-only du script n'est plus pertinent pour l'imageC. Si instrumentation déjà accessible sans modifier le montage, conserver DE/TXD/bus ; DE haut jusqu'au dernier stopbit/TC puis bas, retourRX/garde à observer. Un snapshot final pourra montrer buffer/erreurs/état, pas chronologie des fronts.
+Relevé GDB APRÈS avec ELF exact, dump RAM `0x20000000..0x20000674`, trois sessions lecture/halt/detach réussies (serveurs sortis0). Deux objets de diagnostic DWARF construits **hors Git**, avec commandes ARM exactes du build initial et ajout `-g3`, pour obtenir offsets/types de transport et runtime ; jamais liés dans firmware ou flashés. Layouts recoupés avec désassemblage ELF et symboles existants, aucune adresse de champ supposée. `layout.log`, `diagnostic-layout.log`, `ram.bin`, `decoded-ram.json`, scripts/logs/Flash dans `/home/lolo/dev/msm/reports/TR2-mission013-C-after-20261011T142134Z`.
 
-**TX PHYSIQUE NON VÉRIFIÉ : aucune réponse réellement capturée à ce stade.** Attente utilisateur prévue au contrat§4. J1 global, timing/reset pré-init/watchdogIRQ/endurance/production/E4 restent non qualifiés ; le premier dialogue diagnostic ne les qualifiera pas automatiquement. Aucun contrôle statique/RX déjà acquis redemandé. Journal actualisé avec levéeRST, flash/readback/boot et actionHP ; transmettre ces faits et limites à ChatGPT.
+| Point | Observation APRÈS | Portée |
+|---|---|---|
+| Exécution | ready1, dernierpoll0, compteurpollerrors0 ; PC boucle main/RTU ; uwTick737253→851024→913436 | MCU en fonctionnement, pas un échec de boot ; poll_result0 ne prouve pas réception valide |
+| UART matériel | CR1=0x152D, CR2=0, CR3=1, BRR=0x56CE4 ; ISR=**0x006000F8**, au lieu de0x006000D0 avant essai | **RXNE=1 et ORE=1**, IDLE/TC/TXE présents, PE/FE/NE=0 ; données en attente et overrun, requête exacte non lisible sans consommer RDR |
+| HAL UART | RxXferSize1/RxXferCount1, RxState0x22(BUSY_RX), RxISR0x080071C9(UART_RxISR_8BIT) ; ErrorCode0 ; TxXferSize/Count0, gState0x20(READY) | Réception IT armée selon HAL mais non complétée ; ErrorCode0 n'exclut pas l'erreur matérielle ORE non traitée |
+| File transport | head=tail=0, overflow0 ; tous64 slots encore0, rx_byte0 | Aucune trace de callbackRX/ERROR dans la file conservée ; zéro n'est pas un compteur monotone |
+| RTU | unitélocale1, étatIDLE/longueur0, **tout bufferRX256 octets0**, réponsePDU253 et ADU256 octets0 ; sourceB1 non activée | Aucun traitement réussi de la requête ni réponse préparée observable ; pas d'ADU exacte/CRC/adresse acceptés prouvés |
+| Direction/TX/timer | PG4ODR/entrée bas, tx_busy/fault/bus_silent0, toutbufferTX256 octets0 ; timerphaseIDLE, TIM6CR1/DIER/SR0, PSC159/ARR749 | Pas de tentativeTX tracée ; timer de fin de trame non déclenché observable ; état final sûr au niveau digitalMCU, pas chronologieDE/TC |
+| Initialisation/fautes | IO2SV0x20000000, PG7/8AF8 ; CFSR/HFSR0 ; PRIMASK/BASEPRI/FAULTMASK0 | Absence de ces défauts/masks au relevé, pas qualification électrique globale |
+| Vecteurs | VTOR0x08000000 ; vecteurIRQ66=0x08001A81(LPUART1_IRQHandler), IRQ49=0x08001A8D(TIM6_IRQHandler) | Bons handlers présents dans image exacte ; pas preuve qu'ils ont été exécutés |
+| NVIC via SWD | ISER0..2 à0xE000E100 : tous0 ; ISPR et ICPR0..2 : tousFFFFFFFF ; IABR et ITNS tous0, priorités lues0 | **Lecture anormale**, incompatible avec activation attendue. CubeProgrammer HOTPLUG `-r32 <adresse> 12` confirme ISER0 et ISPRFFFFFFFF indépendamment du clientGDB ; les deux utilisent toutefois ST-LINK/SWD |
+
+Alias nonsecureSCS0xE002E100/200/300 et SCB0xE002ED00 lus0 ; SCB principalCPUID0x410FD214, ICTR3. DHCSR0x00030003 au halt. Ces valeurs ne prouvent ni la configuration de sécurité ni une cause unique : aucune OptionByte lue/modifiée, aucune protection changée. Le motif ISPR=FFFFFFFF pour tous les mots impose de distinguer état réel et visibilité/accès debug avant de conclure « toutes interruptions pendantes ». Ne pas transformer ISER0 en diagnostic définitif d'une désactivation volontaire du firmware.
+
+### Lecture du code, déduction et limites
+
+Sources et HAL CubeU5v1.9.0 locales inspectées : initialisation appelle SetPriority/EnableIRQ(TIM6_IRQn49 et LPUART1_IRQn66). Désassemblage `__NVIC_EnableIRQ` écrit bien ISER0xE000E100 aux banques/bits attendus ; vecteurs corrects. HAL_UART_IRQHandler doit lireRDR et traiterORE lorsque RXNEIE/PEIE/EIE sont actifs (CR1/CR3 l'indiquent). CallbackRX pousseBYTE et démarreTIM6 ; callbackERROR pousseERROR et réarmeRX. Aucun appel initialisation répété ou effacement de tous ces buffers dans la boucle normale. Ces faits logiciels contrastent avec l'absence de traces et l'ORE/RXNE persistant.
+
+**Déduction prioritaire : le problème observé se situe avant le décodage RTU/PDU et avant le TX, dans la prise en charge de RX par interruptions**, ou sa visibilité/configuration effective. L'UARThardware a reçu de l'activité, mais aucune ADU exacte n'a été constatée. La concordance temporelle avec l'unique probe et l'état avant rendent le probe source probable ; **les huit octets exacts ne sont pas démontrés**, et ORE peut aussi provenir d'activité non caractérisée. Aucune trame CRCincorrecte ou mauvaise adresse identifiée, aucun rejetTX ou défautDE démontré. Ce résultat ne remet pas à lui seul en cause VIO/J2/J3/RE-RST confirmés ni acquisRX011 sous autreimage.
+
+Lectures RDR/ICR et écrituresNVIC/UART volontairement absentes pour préserver l'état ; pas de correction invasive basée sur lectureNVIC ambiguë. Aucun reset après probe, aucun breakpoint/watchpoint pendant échange. Absence de compteurs dédiés diagnosticRX/IRQ/CRC/TX et capture temporelle dans imageC limite la reconstitution. ORE/RXNE confirmé encore lors des deux relevés ultérieurs et viaCLI. Sessions détachées, aucun serveurGDB/OpenOCD restant, cible laissée en exécution ; cette reprise a préservé l'anomalie, sans réarmer artificiellement ni relancer TX.
+
+### Prochaines actions, sans nouvelle transmission HP
+
+1. Revue ChatGPT des preuves et de l'écart **EnableIRQ attendu / tracesRX absentes / lecturesNVIC anormales**. Établir l'état effectif d'activation/attribution et la visibilitéSCS/SWD avant d'imputer une panne électrique ou modifier la direction.
+2. Sous tranche explicitement cadrée, préparer instrumentation **passive** du diagnostic (compteurs entréeIRQ UART/TIM6, callbacksRX/ERROR, derniersISR/HALerrors, progressionRX/RTU/CRC/adresse/TX), lecture NVIC depuis le cœur et historique d'activation, sans requête synthétique/émission ni faux runtime. Un éventuel reflash/reset effacerait ces preuves RAM : conserver dump actuel et backup avant cette étape.
+3. Aucun nouvel essai Modbus HP demandé ni autorisé dans cette reprise. Après isolation et correction démontrée par tests/build et diagnosticlocal non émetteur, une **mission suivante** décidera d'un futur essai instrumenté si nécessaire ; ne pas recycler automatiquement le probe unique.
+
+**Premier dialogue diagnostic non réussi : absence de réponse rapportée, TX PHYSIQUE NON VÉRIFIÉ**, réceptionADU complète non démontrée sous imageC. J1 global, timingsDE/TC/retourRX/reset/watchdogIRQ, production et E4 restent non qualifiés. Aucun code de production/test/configuration/matériel modifié. Validation de cette reprise : identitéFlash/ELF, sortiesdebug/CLI réelles, lecturecode et diffdocumentaire ; aucune recompilation firmware/campagneCTests répétée, car changement documentaire et lecture de l'état physique, les objetsDWARF sont uniquement outillage horscible.
 
 ## Publication
 
-Modifications limitées au preflight, journal, rapport et deux archives B ; code/spécifications V1/configuration inchangés. Permissions exercées : build/tests, backupFlash, flashstandard/reset, debuglecture/halt/detach, commit/push main selon protocole. Premier commit `bd891105440a645f298461417b9fe5f4ab7f4b67`, message `Record M013-C verified diagnostic flash and boot pending HP response`. Push normal explicite `HEAD:refs/heads/main` réussi, fetch : HEAD=origin/main à ce SHA. Relecture intégrale des cinq livrables et contrat C depuis cette référence distante, UTF8 et comparaison byte-à-byte locale réussis ; manifeste `remote-reread.json` hors Git. Arbre propre après première publication, deux stashes inchangés. Cette mise à jour de preuve sera publiée puis relue ; SHA final communiqué séparément. Statut BLOCKED conservé pour preuveHP manquante.
+Modifications limitées au preflight, journal, rapport et deux archives B ; code/spécifications V1/configuration inchangés. Permissions exercées : build/tests, backupFlash, flashstandard/reset, debuglecture/halt/detach, commit/push main selon protocole. Premier commit `bd891105440a645f298461417b9fe5f4ab7f4b67`, message `Record M013-C verified diagnostic flash and boot pending HP response`. Push normal explicite `HEAD:refs/heads/main` réussi, fetch : HEAD=origin/main à ce SHA. Relecture intégrale des cinq livrables et contrat C depuis cette référence distante, UTF8 et comparaison byte-à-byte locale réussis ; manifeste `remote-reread.json` hors Git. Arbre propre après première publication, deux stashes inchangés. Cette mise à jour de preuve sera publiée puis relue ; SHA final communiqué séparément. Première publication historique préparatoire ; statut BLOCKED désormais conservé pour probe sans réponse et anomalieRX. Reprise diagnostic : publication de ces nouveaux constats en cours.
