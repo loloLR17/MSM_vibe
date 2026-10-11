@@ -2,7 +2,21 @@
 
 11 octobre 2026. État historique M013-A, référence inspectée `6a35aefdef34b91ed82d217c37cabc4a04bf2e8f`, main : VIO Click et absence de commande concurrente RST non établis à cette date d'intervention. Tranche de diagnostic préparée et validée sur hôte ; aucun flash/debug/reset/émission en M013-A. Le dernier firmware identifié sur carte reste BIN008 (lecture011), sans nouvelle lecture013. Acquis RX011 conservé, pas de nouvel essai RX.
 
-## Actualisation M013-B — 11 octobre2026
+## Actualisation M013-C — 11 octobre2026 : GO statique, diagnostic flashé
+
+**Le NO-GO RE/RST de M013-B est levé.** Confirmation utilisateur dans contrat C : broche2 RE/RST libre de toute connexion externe, y compris breakout/support, aucune liaison NUCLEO/autre sortie. Avec J2/J3 fermés, PG4 est le seul pilote du net DE–/RE–RE/RST ; schéma v102 relu. J1 position3,3V, VIO3,27V, DE=/RE=0V au repos sont des observations utilisateur acquises. Aucune répétition demandée. Les sections A/B ci-dessous décrivent leur état historique ; leurs interdictions temporaires ne constituent pas le verdict C.
+
+**GO pour le flash standard effectué**, sous contrat `TR2-20261011-M013-C-FIRST-RTU-RESPONSE`. Candidat reconstruit depuis `fe1b9cf274d2fd51b82081e0a20c5e99dc55728c`, code inchangé depuis M013-A, diagnosticON/TXON/unité1 explicite. Build réussi, 3/3 tests ciblés réussis ; BIN48240 octets SHA256 `47d69cc286b0f12771de56eb80f2648cc3c2a7a57b2ce1a8038b34de792b97e8`, ELF `762dcf0ba6c3663d9737dd334118a9f7d52a22175dda6d2674e9cb0d7b8e1c4a`. Pas de boot/accès médias, aucune autorité production inventée.
+
+Sonde Windows SN003500463235510B37333439, NUCLEO-U575ZI-Q/STM32U575 ID0x482 RevU,3,29V identifiés. Sauvegarde courante2MiB par deux lectures HOTPLUG identiques, SHA256 `67d505e6f03d52a868d2f87b8e0a6f3a9b209cd858f06dec8ee3087b8de31740`, image008 initiale reconnue. Flash0x08000000/verify/reset réussis, effacement normal secteurs0..5 ; readback2MiB SHA256 `be56e0699ea196329c7c3a1bca98743fbdeeb7ce8e7a7a5d370fb0c37c7a83de`, BIN exact, fin de page effacée et toute Flash à partir de0x0800C000 inchangée. Preuves hors Git `/home/lolo/dev/msm/reports/TR2-mission013-C-20261011T140835Z`.
+
+**Boot observé via ELF exact** : ready1, poll_result0/error_count0 ; uwTick71285→75800 ; IO2SVactif, PG4latch/entrée bas, UART1152008E1/errorbits0. TimerIDLE, tx_busy/fault/bus_silent0, bufferTX et indicesfile0 lors des deux relevés. Aucun TX spontané observé par ces relevés et chemin logiciel sans émission non sollicitée ; absence de capture continue DE/bus, donc pas preuve instrumentée de tous les transitoires au boot. Sessions détachées, serveurs arrêtés normalement, cible en exécution.
+
+**GO pour préparer l'unique probe HP**, sous réserve de fermer les autres applications série et de ne laisser actif que le maître HP prévu. COM7 inaccessible T1000 : aucun envoi automatique/COM3. Dans le dossier du script existant sur HP, une seule fois `./Send-Tr2RxProbe.ps1 -Transmit` (PowerShell accepte aussi `.\Send-Tr2RxProbe.ps1 -Transmit`), puis transmettre toute la sortie, sans retry. Requête `01 03 03 E8 00 01 04 7A`, réponse attendue `01 03 02 00 00 B8 44`. CRC indépendant calculé hors ligne : résidu0 pour chaque trame complète ; réception exacte permettra de contrôler CRC/unité/FC/valeurUNKNOWN0, en distinguant écho éventuel. Le message ancien du script « RX-only » ne décrit plus le firmware C.
+
+**TX PHYSIQUE NON VÉRIFIÉ** tant que la réponse réelle n'est pas capturée. Si instrumentation déjà disponible sans modifier le montage : conserver DE/TXD/bus, DE haut jusqu'au dernier stopbit/TC puis bas et retourRX ; ne pas stopper le MCU durant l'échange. Un snapshot après échange contrôlera état final/erreurs/buffer, pas la chronologie physique des fronts. Aucun nouvel essai RX préalable, aucune mesure statique répétée. Jalon J1 global, reset pré-init, watchdogIRQ, production et E4 restent non qualifiés.
+
+## Actualisation historique M013-B — 11 octobre2026
 
 Contrat `TR2-20261011-M013-B-PHYSICAL-TX`, référence `70843b31a1fb1db631d1852a9384aa76136063cf`. Les lignes ci-dessous remplacent les lacunes statiques correspondantes de la matrice historique, sans réécrire les preuves M013-A archivées.
 
@@ -84,7 +98,7 @@ Artefacts hors Git dans `/home/lolo/dev/msm/reports/TR2-mission013-A-20261011T13
 
 Motif : AGENTS.md§9 réserve ces observations physiques à l'utilisateur ; contrat M013-A§5 impose une seule intervention ciblée. Le schéma ne mesure pas VIO et l'absence de fil /RE ne prouve pas que RST est libre. **NO-GO maintenu** si tension incompatible, niveaux non sûrs ou commande RST concurrente/inconnue. Des valeurs statiques conformes permettront de réévaluer le préflight, sans qualifier à elles seules les transitions/reset/turnaround ; si révision/continuité demeure ambiguë, consigner précisément avant activation. Aucune mesure SB28/SB29, affirmation « J2 soudé » ou nouvelle réception RX demandée.
 
-## Prochain essai unique PRÉPARÉ, NON AUTORISÉ à lancer maintenant
+## Préparation historique M013-A — essai alors non autorisé
 
 Après préflight sûr et sous-mission suivante : recontrôler contrat/SN/microSD et absence d'autre maître, sauvegarde2Mio vérifiée avant flash standard du candidat revu, verify puis lecture binaire exacte, ELF correspondant. Les permissions013 ne dispensent d'aucune de ces portes. Ne pas réutiliser une ancienne sauvegarde comme preuve de l'état courant. Instrumentation DE/TXD/bus pour départ et dernier stopbit, retour RX/garde ; pas de halt pendant échange et aucune liaison GND1/GND2 créée pour la mesure.
 
