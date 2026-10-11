@@ -1,12 +1,13 @@
 ---
 mission_id: TR2-20261011-M013-F-PHYSICAL-RESPONSE-FORENSICS
-status: BLOCKED
+status: DONE
 base_ref: main
 base_sha: null
 initial_head: c0e2e4c4c75cb71ef20e03446b59abed90e89847
 mission_sha: 36b12d4702f446ff6fe027557da65e3d6220172f
 result_sha: 0bfaa0e0daf3d37f723497b74984cabe1b11ec47
 created_at_utc: 2026-10-11T16:16:06.403265+00:00
+updated_at_utc: 2026-10-11T16:17:09.938785+00:00
 author: Codex
 target_branch: main
 allow_commit: true
@@ -17,7 +18,7 @@ allow_debug: true
 
 # M013-F — première réponse HP corroborée par la chaîne STM32
 
-**Analyse F satisfaite ; BLOCKED provisoire pour publication/relecture distante uniquement. Premier aller-retour diagnostic fortement corroboré pour cet essai unique ; qualification physique définitive et générale NON ACQUISE.** Zéro nouvelle émission HP/RS485, zéro flash/reset, zéro accès CubeProgrammer HOTPLUG. Aucun geste physique demandé. Essai E consommé, ne pas le répéter.
+**DONE : analyse F satisfaite, rapport publié et relu depuis GitHub. Premier aller-retour diagnostic fortement corroboré pour cet essai unique ; qualification physique définitive et générale NON ACQUISE.** Zéro nouvelle émission HP/RS485, zéro flash/reset, zéro accès CubeProgrammer HOTPLUG. Aucun geste physique demandé. Essai E consommé, ne pas le répéter.
 
 ## Référence et faits utilisateur
 
@@ -80,4 +81,4 @@ Derniers états CPU/SWD concordants : ISER1=0x00020000/ISER2=4, ISPR0..2=0, PRIM
 
 Validation F proportionnée : vérificationCRC indépendante hors ligne, identityFlash/ELF et sources, dumpRAM/relecturecodeHAL, cohérence des deltas et état après detach ; aucune source firmware modifiée, donc aucune recompilation/campagnetests qui n'apporterait pas de preuve de cet essai. Tests5/5/build/flash E sont historiques explicitement, pas résultats F. Aucun échec de diagnostic à masquer ou corriger.
 
-Journal actualisé avec réponse utilisateur, chaîne MCU/deltas, verdict nuancé et prochaine tranche ; preflight marqué essai E consommé. Modifications limitées à ces trois documents et deux archives E. Permissions exercées : lecturedebug/halt d'attach/detach, commit/push main autorisés ; allow_flashfalse respecté, zéro reset/flash/OptionBytes/média/USB/configuration/émission. Diff/commit/push/relecture distante en attente ; BLOCKED provisoire uniquement pour cette preuve. Contrôle indépendant ChatGPT à effectuer après publication.
+Journal actualisé avec réponse utilisateur, chaîne MCU/deltas, verdict nuancé et prochaine tranche ; preflight marqué essai E consommé. Modifications limitées à ces trois documents et deux archives E. Permissions exercées : lecturedebug/halt d'attach/detach, commit/push main autorisés ; allow_flashfalse respecté, zéro reset/flash/OptionBytes/média/USB/configuration/émission. Diff et contenu indexé vérifiés. Commit `393ed0d19eb48f0e1dbf8b1f3e42df2f2e6d053a`, message `Record M013-F matching HP response and passive STM32 RX RTU TX TC evidence`, push normal explicite HEAD:refs/heads/main réussi. Fetch HEAD=origin/main ; relecture intégrale UTF8 et comparaison byte-à-byte des 14 fichiers (cinq livrables documentaires, huit sources, contrat F) depuis cette référence distante réussies, remote-reread.json hors Git. Arbre propre, deux stashes historiques conservés. La présente clôture DONE sera publiée et relue à son tour ; son SHA final est communiqué dans la réponse Codex. DONE concerne le diagnostic de cet essai, pas une qualification physique générale. Contrôle indépendant ChatGPT à effectuer après publication.
