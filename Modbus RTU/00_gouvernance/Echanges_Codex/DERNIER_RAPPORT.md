@@ -1,6 +1,6 @@
 ---
 mission_id: TR2-20261011-SSH-HP-001
-status: BLOCKED
+status: DONE
 base_ref: main
 base_sha: 78093692f2a2b0b6680d657ce1eb6a87ad2d472e
 initial_head: f1e830136bf50abafbaad5ae8bdbc53765839017
@@ -17,8 +17,8 @@ allow_debug: false
 
 # SSH-HP-001 — SSH et diagnostic OFFLINE HP effectivement exécutés
 
-Critères logiciels remplis ; statut provisoire BLOCKED uniquement en attente du
-push et de la relecture distante V2. **Aucune ouverture COM7 ni émission Modbus**.
+Critères SSH-HP-001 remplis ; publication normale et relecture distante V2
+effectuées. Statut DONE limité à cette infrastructure et aux tests OFFLINE. **Aucune ouverture COM7 ni émission Modbus**.
 M014-D demeure BLOCKED pour production ; cette mission ne résout pas ses autorités
 carte, ne qualifie pas la communication physique et ne rejoue aucun jeton C/I.
 
@@ -152,6 +152,12 @@ réserve sur soncontenu/hashintégral maintenue, pas conclusiondepuisSHAseul.
 
 Commitcode52f6ab8 ci-dessus, commit/pushmain autorisés ; flash/debugfalse respectés.
 Git initialpropre, travauxhorspérimètre noninclus, deuxstashes/backupspréservés.
-Rapportprovisoire prêtpourpushnormal expliciteHEAD:refs/heads/main puisfetch/relecture
-UTF8 intégrale/égalitédeslivrables depuisréférencedistante. SHApublication et clôture
-serontconsignés aprèsobtentiondepreuve, sansautoréférenceSHA.
+Publication normale explicite HEAD:refs/heads/main réussie au SHA
+`666254208c5760c53b0ee5c3fed06e7156c289a9`, commit
+`Publish SSH HP qualification evidence and retained Modbus limits`. Fetch puis
+relecture UTF8 intégrale des11 fichiers livrés/gouvernance/archivesD depuis cette
+référence GitHub et comparaison octet pour octet avec les fichiers locaux :
+tous conformes (`TR2-SSH-HP-001-remote-reread-1.json` horsGit). Main propre,
+HEAD=origin/main, deux stashes conservés. Cette mise à jour DONE sera également
+poussée et relue ; son SHA final est fourni dans la réponse Codex sansautoréférence.
+La mission SSH est DONE ; M014-D demeure BLOCKED, aucun acquis physique nouveau.
