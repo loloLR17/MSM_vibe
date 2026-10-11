@@ -1,6 +1,6 @@
 # État courant TR2 — référence reconstruite
 
-Mise à jour : 11 octobre 2026. Mission `TR2-20261011-RS485-RX-BRINGUP-008`.
+Mise à jour : 11 octobre 2026. Mission `TR2-20261011-STLINK-009`.
 
 **Ce document est un nouvel état de référence reconstruit à partir de preuves vérifiables. Il n'est pas une restitution du journal historique HP.** Sa création a été explicitement autorisée par l'utilisateur pour la mission `T1000-20261010-CLOTURE-001`, après escalade AGENTS.md §18. Aucun original n'a été retrouvé dans l'historique Git, les répertoires Linux locaux ou les documents Windows accessibles. Les archives d'échanges du 8 octobre mentionnent un journal local HP, sans en fournir le contenu. Aucun état historique inconnu n'est inventé.
 
@@ -120,3 +120,9 @@ Prochaine étape à transmettre à ChatGPT : contrôler le rapport distant, puis
 - **Lecture documentaire vérifiée** : schéma officiel Click v102, J2 = DE–/RE, J3 = /RE–RST ; table fabricant nomme JP2 le contrôle commun. VIO reliée à VCC sélectionnée dans v102 (nouvelle preuve graphique, sans réécriture des conclusions historiques007). Carte réelle non identifiée ; tension VIO Click non mesurée.
 - **VALIDÉ logiciel ciblé / COMPILÉ STM32** : PG4 latch bas puis output dès HAL_MspInit, ensuite IO2SV, puis plus tard PG7/PG8 AF8 UART. Aucun PG5, DE haut ou TX fonctionnel ajouté. Tests ciblés 3/3 (GPIO réel sur HAL simulée, codec, récepteur), cross-build-only réussi ; ordre ARM vérifié par objdump. Text157820/data124/bss129072. BIN157944 octets SHA256 `02ed2cf64d4d78225a4781b823c9d27e96a8ea693679d8a834d230568383593b` ; ELF `6546629b85dba6ba5ead029d208d9a95e67a13e0e244d477d01828b07ab4c23e`.
 - **PRÉPARÉ / NON FLASHÉ / NON QUALIFIÉ RX** : procédure courte dans `BRINGUP_RS485_RX_008.md`. Avant essai unique HP : identifier pont/révision et /RE bas, vérifier VIO~3,31 V, propriété ST-LINK, autorisations distinctes flash/debug et identité Flash008. IO2SV concerne PG2..15 ; transitoire reset avant prise en charge PG4 non garanti par le pull-down logiciel. Aucune opération matérielle008. Freezes/interfaces et E4 inchangés.
+
+## Mission009 — visibilité ST-LINK, 11 octobre2026
+
+- **VALIDÉ hôte** : sonde SN003500463235510B37333439 présente sur USB0483:374e bus2-3, attachée WSL via usbipd5.3.0 ; aucun OpenOCD/GDB actif détecté. CubeProgrammer Windows2.23.0 inventaire `-l st-link-only` : aucune sonde avant détachement. Détachement ciblé réussi sans administrateur ni geste physique ; état Shared, disparition lsusb, inventaire Windows détecte SN attendu/V3J15M7/NUCLEO-U575ZI-Q. Sonde laissée à Windows, liaison partagée persistante conservée.
+- **PRÉPARÉ** : `PREPARATION_STLINK_009.md`, sauvegarde2Mio HOTPLUG et flash/vérification BIN008 sous mission cible ultérieure. Empreinte BIN008 recontrôlée identique. Aucune connexion MCU, sauvegarde nouvelle, flash/debug/reset/émission effectuée. Firmware actuellement en Flash reste non identifié ; RX/E4 restent NON QUALIFIÉS.
+- À ChatGPT : revue distante009 puis contrat séparé pour accès cible, flash et essai unique avec prérequis008. Aucun copier-coller ou intervention utilisateur nécessaire au diagnostic résolu.
