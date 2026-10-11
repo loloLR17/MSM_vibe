@@ -2,6 +2,10 @@
 
 11 octobre 2026. État historique M013-A, référence inspectée `6a35aefdef34b91ed82d217c37cabc4a04bf2e8f`, main : VIO Click et absence de commande concurrente RST non établis à cette date d'intervention. Tranche de diagnostic préparée et validée sur hôte ; aucun flash/debug/reset/émission en M013-A. Le dernier firmware identifié sur carte reste BIN008 (lecture011), sans nouvelle lecture013. Acquis RX011 conservé, pas de nouvel essai RX.
 
+## État courant M013-D — 11 octobre 2026
+
+**Aucun nouveau probe HP autorisé ; l'instruction historique C est consommée.** Diagnostic D : lecture HOTPLUG CubeProgrammer désactive réellement IRQ49/66 (CPU/SWD), reproduit sans trafic ; reset GDB et lectures GDB seules rétablissent/conservent l'état sain. Procédure corrigée dans DIAGNOSTIC_UART_IRQ_M013_D.md. Image actuelle observerON/unité1/**TXOFF**, BIN47812 SHA256 f9efbdd7dce624616402f4c957878651aa971df0d87f797df4689f9f3e7f1f1e, code09792c8dba98cd3959458f3148d4fae63a9584c9. Build/tests5/5/flash/readback réussis, NVIC correct au dernier contrôle, aucune émission. Modbus bidirectionnel et TX physique NON VALIDÉS ; futur candidat TXON/probe nécessitent mission distincte. RE/RST/VIO/câblage acquis inchangés. Sections suivantes historiques uniquement.
+
 ## Actualisation M013-C — 11 octobre2026 : GO statique, diagnostic flashé
 
 **Le NO-GO RE/RST de M013-B est levé.** Confirmation utilisateur dans contrat C : broche2 RE/RST libre de toute connexion externe, y compris breakout/support, aucune liaison NUCLEO/autre sortie. Avec J2/J3 fermés, PG4 est le seul pilote du net DE–/RE–RE/RST ; schéma v102 relu. J1 position3,3V, VIO3,27V, DE=/RE=0V au repos sont des observations utilisateur acquises. Aucune répétition demandée. Les sections A/B ci-dessous décrivent leur état historique ; leurs interdictions temporaires ne constituent pas le verdict C.
