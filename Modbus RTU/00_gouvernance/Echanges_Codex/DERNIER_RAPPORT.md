@@ -1,12 +1,11 @@
 ---
-mission_id: TR2-20261010-DEV-RTU-PRODUCTION-005
-status: DONE
+mission_id: TR2-20261011-QUALIF-RS485-RX-006
+status: BLOCKED
 base_ref: main
-base_sha: ff19cf40a017233b967b95fea3365bad0f631e11
-initial_head: 966737ee122fb4fb04489496691667f659607a23
-result_sha: 66edf2d17c5183003b3e5fcd7b5fe29a0bde4784
-created_at_utc: 2026-10-10T15:56:14Z
-updated_at_utc: 2026-10-10T15:57:04Z
+base_sha: 9753b3d6b46243f0472a0d33c5fa82b509dcea71
+initial_head: 9753b3d6b46243f0472a0d33c5fa82b509dcea71
+result_sha: 330a6393572b4478c079d23829cda1b952672103
+created_at_utc: 2026-10-11T11:41:59Z
 author: Codex
 target_branch: main
 allow_commit: true
@@ -15,76 +14,83 @@ allow_flash: false
 allow_debug: false
 ---
 
-# Mission 005 — runtime durable, B5 et préparation RS-485
+# Mission 006 — préparation instrumentée du premier essai RS-485 RX
 
-**DONE pour les livrables logiciels et de préparation : code publié et relecture distante complète établie au SHA `d72f2e407258a6d6929de4846a445950ac8ed495`.** `VALIDÉ hôte` / `COMPILÉ STM32` / `PRÉPARÉ matériel` / `NON QUALIFIÉ physique`. Le firmware conserve son diagnostic RX par défaut, sans émission applicative ou boot de production activé implicitement.
+**BLOCKED provisoire uniquement en attente de publication et relecture distante.**
+Livrables logiciels réalisés ; **VALIDÉ hôte ciblé / COMPILÉ STM32 / PRÉPARÉ essai / NON QUALIFIÉ physique**.
+Décision : **NON PRÊT pour essai physique immédiat**, conditions explicites ci-dessous.
+La mission préparatoire peut être clôturée après publication ; elle ne qualifie pas la liaison.
 
-## Références et préservation
+## État réel et modifications
 
-Clone canonique Debian `/home/lolo/dev/msm/projects/MSM_vibe`, SDK CubeU5 v1.9.0 Linux. HEAD initial propre main `966737ee122fb4fb04489496691667f659607a23`. Fetch/pull fast-forward de la mission `ee95b8e3c0359f79cd6d208aa2ce0e9fae3d5b2b`, base du contrat ancêtre vérifiée.
+HEAD initial main propre `9753b3d6b46243f0472a0d33c5fa82b509dcea71`, origin HTTPS vérifiée.
+Fetch puis pull fast-forward sans risque vers `c8e2b5c3f112a272912cf260c6c8a94d148ab418` ; base du contrat présente dans l'historique.
+AGENTS.md, protocole V2-B3, mission 006, journal intégral, mission/rapport 005, pinout, préparation 005 et sources réellement inspectés.
+Aucun merge/rebase/reset ; stashes 005 et 002 conservés. Mission ChatGPT READY inchangée.
 
-Pendant le contrôle avant commit, GitHub a reçu le rectificatif d'inventaire `463d69a8a6a2a36fe8a88f2905c6cad3ff5c3fac`. Après inspection de son diff (journal uniquement), sauvegarde 005 dans un stash conservé, fast-forward sur arbre propre puis restauration délibérée des livrables et intégration du journal corrigé. Chaque fichier logiciel restauré a été comparé octet pour octet à la sauvegarde du code évalué. Aucun merge/rebase/reset, aucune divergence résolue artificiellement. Stash historique 002 conservé, désormais derrière la sauvegarde 005. Mission READY inchangée.
+Commit évalué `330a6393572b4478c079d23829cda1b952672103` — `STM32: instrument receive-only RS485 probe and prepare mission 006`.
+Sept fichiers :
 
-Commit code/tests/documentation/journal : `66edf2d17c5183003b3e5fcd7b5fe29a0bde4784` — `Firmware: compose owned production runtime and durable B5 dispatch`, parent `463d69a8a6a2a36fe8a88f2905c6cad3ff5c3fac`. 23 fichiers dans le périmètre. Archive 004 créée sans écraser d'archive : mission copiée depuis son SHA publié, rapport précédent copié intégralement sans réécriture.
+- `05_Firmware/platform/stm32/main.c` : quatre diagnostics supplémentaires uniquement dans le harness RX : ready après start réussi, polling, erreurs CRC distinctes, copie de la dernière ADU (256 octets). Compteurs existants conservés, aucun changement du cœur ou des interfaces. Snapshot à prendre hors réception ; les octets au-delà de la longueur courante restent anciens.
+- `05_Firmware/platform/host/rs485_rx_probe/Send-Tr2RxProbe.ps1` : hors ligne par défaut, CRC calculé et contrôles intégrés avant tout port ; COM7 115200 8E1, écriture binaire unique sous switch `-Transmit`, attente ~1 s, aucune retransmission. FC03 B1 registre1000 quantité1, unité1 marqueur uniquement, hex `01 03 03 E8 00 01 04 7A`. Une réponse absente est compatible avec le diagnostic RX.
+- `05_Firmware/platform/host/rs485_rx_probe/rx_snapshot.gdb` : définition de macro de lecture à casts explicites pour ELF sans types DWARF ; aucun attach, flash, reset ou écriture lors du chargement.
+- `00_gouvernance/PREPARATION_RS485_RX_006.md` : matrice de faits/documentation/hypothèses, prérequis électriques, firmware identifié par comparaison Flash/BIN, future voie de diagnostic à autoriser, trois étapes AVANT→un envoi HP→APRÈS, deltas et ADU exacte, diagnostic différentiel et limites.
+- `00_gouvernance/ETAT_COURANT_TR2.md` actualisé : observations utilisateur du 11 octobre, préparation/validations réelles, politique Windows bloquant l'exécution du script, conditions physiques et prochaine mission.
+- Deux archives 005 : copies immuables exactes de mission et rapport depuis `9753b3d...`, sans archive écrasée.
 
-## Code réellement livré
+Production binding reste désactivé, UART et GPIO DE//RE inchangés, aucun TX ajouté.
+Freezes et dette E4 microSD/power-loss inchangés.
 
-- `include/tr2/application/production_application.h` et `src/application/production_application.c` : propriétaire durable en RAM du SystemRuntime, des descripteurs d'interface/environnement et du dispatcher. Les contextes matériels/backends et capacités optionnelles restent explicitement empruntés. Boot unique, recovery réel et readiness avant binding, sans format ni retry automatique. B4 optionnel possède staging/workflow/adapter contre le ConfigurationStore de ce runtime, avec callback explicite d'allocation des métadonnées ; aucun compteur persistent inventé.
-- `platform/stm32/stm32_production_runtime.{h,c}` et `stm32_modbus_application.{h,c}` : runtime statique distinct des fixtures de qualification ; vraie composition des adapters FRAM, média transactionnel/candidat, IIS3DWB, horloges/reset/continuité et application. Géométrie/SPI/CS/backend de campagnes/provisionnement fournis explicitement ; FRAM EMPTY/non-VALID refuse, aucun format implicite. Le port faible `stm32_production_binding_acquire` renvoie NOT_AVAILABLE **avant** préparation ; aucune sortie DE//RE ajoutée et aucune dépendance absente simulée.
-- `system_command_dispatcher.{h,c}` : lookup/retry/collision avant redispatch, validation métier après réservation durable des nouvelles identités valides, dispatch vers les services/exécuteurs existants, publication de résultats réellement journalisés. Refus fonctionnel ID0 → 14 sans identité persistante, annulation V1 consommée → 15 sans annuler/terminaliser la transaction métier, concurrence → 13 sans admission supplémentaire. Last durable préservé, y compris lors du rejeu d'une ancienne transaction. La collision produit une erreur d'infrastructure/exception 04 dans ce binding ; ce choix ne définit pas une nouvelle règle normative de collision V1.
-- `command_apply_configuration` / `command_synchronize_time` : nouvelles entrées `*_execute_bound` utilisent l'autorité journal du moteur, dont le backend borné réel ; wrappers historiques conservés avec leur contrat. APPLY : recalcul CRC, refus 4 si configuration invalide, 20 si absente, 5 si acquisition active ; activation réelle via workflow et ConfigurationStore. SYNC : staging B2 réel, journal/time history et source centrale Modbus 1, paramètres B5 non réinterprétés comme source. Politique de paramètres existante préservée.
-- Codes 3/4 et 5..10 : raccordement des chemins SystemRuntime existants. Sans autorité SELFTEST/RESET, exception 04 avant réservation ; code11 sans service de statistiques → 04 avant réservation. Les commandes indisponibles ne fabriquent pas un succès ou une exécution.
-- `modbus_system_server`, `b5_projection`, `pdu_server` : port de snapshot du dispatcher et consommation des annulations même sans submit ; vue courante ID0 visible sans fausse terminaison historique. FC16 fonctionnellement refusé reste acquitté si le refus a réellement été traité. Les erreurs de persistance restent des échecs ; lecture de B5 refuse après recovery_required au lieu de publier un succès non durable.
-- CMake hôte/ARM et `tests/integration/test_production_commands.c` : raccordements compilés et scénario utilisant SystemRuntime, journal borné, vrai PDU/RTU et adapters existants.
-
-## Validations effectivement exécutées
-
-Validation complète finale, code retour **0** :
+## Validation réellement observée
 
 ```bash
 STM32CUBE_U5_ROOT=/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0 \
-  bash ./tr2_validate.sh
+  bash ./tr2_validate.sh --cross-build-only
+ctest --test-dir 'Modbus RTU/05_Firmware/build-host-validation' \
+  -R '^(codec|p12d_rtu_receiver)$' --output-on-failure
 ```
 
-**104/104 tests hôte réussis**, compilation et link Cortex-M33 STM32U575 réussis. Validation complète justifiée par les changements du cœur et des interfaces partagées. Quatre avertissements newlib `_close`, `_lseek`, `_read`, `_write` non implémentés, déjà présents ; aucune erreur finale. Taille ARM : text 157 604, data 124, bss 128 808 octets. Pas de mesure de charge ou de marge dynamique sur MCU.
+Cross-build retour **0**, compilation/link STM32U575 Cortex-M33 réussis.
+**2/2 tests hôte ciblés réussis**, binaires existants de 005 : leurs sources et celles du cœur n'ont pas changé.
+Validation proportionnée : changements C strictement dans le harness, aucun cœur/interface partagé modifié ; pas de nouvelle campagne hôte complète ni .NET.
+Quatre avertissements newlib habituels `_close`, `_lseek`, `_read`, `_write`, aucune erreur de compilation/link finale.
+ARM text157692 / data124 / bss129072 : bss +264 octets vs005 ; pas de mesure de marge dynamique MCU.
 
-Preuves supplémentaires ciblées réellement obtenues via `cmake --build ... --target test_production_commands` puis `ctest --test-dir ... -R production_commands --output-on-failure` : requêtes RTU/PDU et lecture B5, invalid ID0 y compris code nul, refus de paramètres persisté, inconnu, retries/collision sans double effet, synchronisation réelle, capacités absentes, configuration activée/CRC invalide, maintenance, refus start sans configuration et stop sans acquisition, annulation seule et concurrence sur transaction réservée, reboot/configuration/refus restitués et historique préservé. Injection de panne RESERVED : aucun dispatch ; panne COMPLETED après REFRESH : transaction non finalisée, recovery_required, pas de vue succès et snapshot refusé jusqu'à récupération explicite.
+Autres contrôles effectivement réalisés, sans matériel :
 
-SHA256 des artefacts construits, conservés dans les répertoires de build ignorés :
+- Générateur de production `tr2_rtu_request 1 b1` → `010303e80001047a` ; CRC indépendant Python résidu0, decode → `unit=1 pdu=0303e80001` ; CRC corrompu rejeté, retour1.
+- Analyse syntaxique réelle via parseur AST Windows PowerShell : aucune erreur. **Exécution complète du script NON VÉRIFIÉE** : Windows T1000 refuse `-File` par politique d'exécution. Aucun `Bypass`, changement de politique ou exécution détournée. Test hors ligne sur HP requis avant émission ; si même refus, décision humaine nécessaire sur l'exécution du script.
+- Chargement de la macro via `gdb-multiarch --batch -nx <ELF> -ex 'source .../rx_snapshot.gdb' -ex 'show user tr2-rx-snapshot'` réussi, **sans target**.
+- `arm-none-eabi-nm -S` : diagnostics32 bits, tableau256 octets présents en RAM ; aucune hypothèse sur les symboles du firmware effectivement chargé.
+- Diff/index examinés, `git diff --check` et `git diff --cached --check` réussis, contenus indexés comparés aux fichiers locaux, archives exactes et recherche de secrets sans occurrence. Aucun artefact build ou fichier hors périmètre indexé.
 
-- BIN : `115b8fedd062af4a465893514bb331f9c323a14d1d9ab48f23466be0e42ba8b4`.
-- ELF : `e95be47518151d9b42545a3427b0b40e54b5dc48f105bcfcd721f5607c61b3b2`.
+BIN157816 octets SHA256 `f9356f279d45cb411bc5b98107e0fd291e2d1ab903c216ff052083b7abfd103d`.
+ELF SHA256 `5ac5f0c66645692ff78579d792227ceb834f331baef9b8ed3a64d0ea55c293c3`.
+Artefacts/logs conservés hors Git dans build ignoré et `/tmp/tr2-mission006-*` ; ces fichiers temporaires ne constituent pas une archive durable publiée.
 
-`git diff` et contenu indexé examinés ; `git diff --check` et `git diff --cached --check` réussis. Aucun fichier hors périmètre/secrets ou artefact build indexé. Tests supervision .NET non relancés : aucun code .NET modifié ni risque d'interface supervision nouveau démontré.
+## Preuves et limites avant essai physique
 
-## Erreurs rencontrées et corrections
+| Niveau | État / preuve |
+|---|---|
+| Documentation et code | LPUART1 PG7/PG8, IRQ LPUART1/TIM6, 1152008E1, T1.5/T3.5 750/1750µs ; PG4/PG5 candidats seulement |
+| SWD | Détection OpenOCD rapportée par utilisateur dans le contrat, aucune nouvelle session Codex |
+| Instrumentation | Compilée et symboles inspectés, firmware actuellement chargé **non identifié** |
+| Outil HP | Trame/CRC vérifiés hors ligne ; syntaxe PS vérifiée ; exécution complète et COM7 émission **non vérifiées** |
+| RX UART/ADU | Aucun octet physique observé ; futurs deltas +8/+1/+1 et copie ADU exacte requis |
+| Serveur/PDU/TX | Binding désactivé ; aucune réponse garantie, aucun serveur/TX qualifié |
+| Électricité | Niveaux VIO/VDDIO2, RXD et DE//RE non observés ; état IO2SV à lire après autorisation |
+| E4 | Dette ouverte ; présence microSD actuelle à confirmer avant tout boot/reset/flash |
 
-Premier cycle : une restriction ajoutée aux paramètres SYNC contredisait le test existant de politique. Retrait de cette restriction dans la source ; aucun test existant ni assertion modifié/affaibli. SYNC utilise une source Modbus explicite, sans nouvelle interprétation des paramètres capturés.
+Les données de banc du contrat sont **rapportées par l'utilisateur**, pas mesurées par Codex : FT232R COM7, montage ADM2867E/MIKROE3863, câblage déjà fait, rouge5V isolé, continuité A/Y et B/Z hors tension, A/B≈110Ω, alimentation USB ST-LINK. Aucun recâblage demandé.
+[Fiche MIKROE](https://www.mikroe.com/rs485-isolator-2-click) consultée ; préparation005 et schéma v102 distinguent la documentation de la révision réelle.
+[Microsoft SerialPort.Write](https://learn.microsoft.com/en-us/dotnet/api/system.io.ports.serialport.write?view=netframework-4.8.1) et [OpenOCD](https://openocd.org/doc/html/General-Commands.html) consultés pour préparer les opérations.
 
-Le nouveau test d'injection supposait initialement une réutilisation du runtime et un snapshot après défaut de commit. Lecture du backend borné : recovery_required interdit ces opérations. Fixture corrigée avec boot explicite après la première panne et assertion de refus de snapshot après la seconde ; preuves d'absence de dispatch/succès renforcées. La validation finale complète passe après ces corrections. Inspection finale : CRC invalide APPLY raccordé au code4, distinct du préparé absent code20, avec assertion et absence d'activation vérifiées.
+L'absence d'EnableVddIO2 explicite et de pilotage DE//RE est un fait de lecture du code, pas une mesure du banc. Ne pas activer des GPIO ou IO2SV avec une alimentation supposée. Contrôles minimaux décrits : alimentations compatibles, RXD, DE bas /RE bas à U1, sans court-circuiter l'isolation. Si défaut constaté : traiter sous mission adaptée, sans modifier silencieusement l'architecture.
 
-Les outils locaux curl/pdftoppm n'étaient pas disponibles pour une inspection auxiliaire du PDF ; documentation constructeur consultée via outil web. Aucune installation/changement du poste effectué et aucune liaison VIO supposée à partir d'un simple libellé.
+Autorisation/intervention attendue après contrôle ChatGPT : mission physique distincte pour identification/lecture et éventuel flash conforme à la chaîne qualifiée, prérequis électriques et boot vérifiés ; exécution hors ligne HP préalable puis une seule émission. La voie GDB/OpenOCD WSL proposée nécessite qualification/autorisation ponctuelle ; la détection SWD ne la qualifie pas. Le présent rapport ne sollicite aucune opération matérielle en006.
 
-## Matériel, rectificatif et préparation des essais
+## Publication
 
-`PREPARATION_RTU_PRODUCTION_005.md` fournit une matrice prouvé documentaire / à mesurer / inconnu, les références constructeur, procédure Windows PowerShell d'identification USB/pilote/COM et ouverture 115200/8E1 sans émission sur PC seul, puis jalons électrique/un TR2 et deux TR2/supervision. Toutes ces commandes série et manipulations sont **préparées, non exécutées** sous cette mission.
-
-La [fiche MIKROE-3863](https://www.mikroe.com/rs485-isolator-2-click), son schéma v102 et Analog Devices désignent ADM2867E. Incohérence signalée puis levée par la correction utilisateur distante `463d69a` : **ADM2867E / MIKROE-3863 sur le TR2 actuel, deux ADM2867E au total et un ADM2587E sans carte support identifiée**. Inventaire rapporté, pas identification électrique observée par Codex. ADM2587E et ADM2867E distingués explicitement.
-
-PG7/PG8 : UART existant ; PG4/PG5 : candidats seulement. VDDIO2, niveaux, DE//RE, duplex, jumpers, isolation/masses, terminaison/bias et sens A/B encore à qualifier sur le montage réel. Aucun adapter de direction activé : ses prérequis électriques ne sont pas établis malgré le rectificatif d'identité. Câble reçu jamais branché au moment de la déclaration ; second TR2 non présumé qualifié.
-
-## Limites et prochaine étape
-
-**Aucun flash, debug MCU, connexion, émission ou test physique.** Pas de qualification RS-485, exécution sur cible, précision temporelle/turnaround/écho ou validation multi-TR2. E4 microSD/power-loss reste ouverte.
-
-L'activation de production nécessite un transport qualifié, backend de campagnes SD durable et allocation réelle, FRAM/géométrie provisionnées, adresse/B0 et métadonnées de configuration. Les fenêtres sacrificielles E3/E4 ne sont pas recyclées ; la cohabitation harness/production doit être arbitrée avant activation. SELFTEST/RESET et statistiques restent tributaires de leurs vraies autorités. Le raccordement livré est un incrément compilable/testable et documenté, pas une qualification industrielle complète.
-
-Journal actualisé : progrès logiciel, résultats 104/104 + ARM, composition durable et capacités encore absentes, rectificatif d'inventaire, prérequis électriques, essais futurs et dette E4. À transmettre à ChatGPT : contrôle indépendant du rapport, puis mission PC câble seul, contrôle électrique/révision et qualification des autorités de production avant essais sur cible.
-
-## Publication et preuve distante
-
-Permissions exercées : commits et push normaux sur main uniquement ; aucun flash/debug/matériel. Avant push : branche/destination main vérifiées, référence distante `463d69a`, diff/index/périmètre/absence de secrets examinés, validations applicables réussies et arbre propre.
-
-Premier push réellement réussi : `git push origin HEAD:refs/heads/main`, `463d69a → d72f2e407258a6d6929de4846a445950ac8ed495` (commit de rapport provisoire `Report: publish production runtime mission 005 pending remote verification`). Puis `git fetch origin main` ; origin/main = HEAD `d72f2e407258a6d6929de4846a445950ac8ed495`. Relecture des **24 livrables complets, 158 591 octets**, à partir de `git show <SHA distant>:<chemin>`, décodage complet et comparaison octet pour octet aux fichiers locaux, aucune différence. Cette relecture inclut code, headers, CMake, nouveau test, préparation matérielle, journal, deux archives et rapport. Mission ID et result_sha vérifiés sur la référence distante. Manifest des empreintes conservé hors Git dans `/tmp/tr2-mission005-remote-reread.json`.
-
-Après première publication/relecture : arbre propre, main synchronisé ; seuls le statut et les preuves de ce rapport sont actualisés pour clôture. Cette mise à jour DONE est publiée séparément puis contrôlée à nouveau ; le SHA final du rapport est communiqué après cette dernière vérification, sans inscrire un SHA autoréférentiel dans son propre commit. Les deux stashes 005 et 002 sont conservés. La relecture Codex ne constitue pas le contrôle indépendant de ChatGPT, ni une qualification matérielle.
+Permissions exercées : commit et push normal sur main, **aucun flash/debug cible/émission série/geste matériel**.
+Avant publication : main et destination explicite vérifiés, origin/main `c8e2b5c...` sans divergence ; index/périmètre/secrets et validations contrôlés.
+Rapport provisoire BLOCKED : seule la preuve distante manque à ce stade. Après push, relecture intégrale de chaque livrable depuis le SHA origin/main récupéré, comparaison octet pour octet, puis mise à jour DONE séparée et nouveau contrôle.
