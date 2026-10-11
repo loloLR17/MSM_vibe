@@ -1,6 +1,6 @@
 ---
 mission_id: TR2-20261011-M014-C-END-TO-END
-status: BLOCKED
+status: DONE
 base_ref: main
 base_sha: null
 initial_head: 7521ad0390fc323ea53a3aa6fa1497e40a2d4471
@@ -21,8 +21,8 @@ allow_debug: true
 # M014-C-END-TO-END — lecture .NET unique corroborée par le STM32
 
 **Concordance des17deltas MCU avec une seule lecture FC03/1000/1 ; clôture
-fonctionnelle limitée avec réserves documentaires proposée. BLOCKED provisoire
-uniquement pour publication/relecture distante de cette mise à jour finale.**
+fonctionnelle limitée avec réserves documentaires. DONE : analyse C terminée,
+rapport et livrables publiés puis relus depuis GitHub.**
 Aucun nouvel essai Modbus, accès COM7, reset, flash ou CubeProgrammer HOTPLUG.
 L'essai HP et sa commande sont consommés : ne pas relancer. Même mission C,
 pas de nouvelle mission administrative.
@@ -188,6 +188,12 @@ Mission ChatGPT/AGENTS/protocole/V1/gels/code/firmware/config inchangés, archiv
 immuables. Permissions exercées : debuglecture/attach/detach et commits/push
 normaux main ; allow_flashfalse, zéro nouveau COM7/RS485/reset/flash/HOTPLUG/
 OptionBytes/effacement/USB/média/gestephysique/configurationpermanente.
-Diff/index/périmètre seront contrôlés avant publication normale explicite
-HEAD:refs/heads/main, puis relecture intégrale distante. Statut provisoire pour
-cette seule attente de publication, SHA final fourni après vérification.
+Diff/index/périmètre contrôlés, diff --check réussi. Commit `8725f243f3fbd77a2227a03146629467aa44ca16`,
+message `Corroborate unique M014-C .NET HP read with STM32 counter deltas`,
+push normal explicite HEAD:refs/heads/main réussi ; fetch et relecture intégrale
+UTF8/comparaison byte-à-byte des10fichiers livrés/gouvernance/sources inchangées
+depuis GitHub réussies (`remote-reread-1.json`). HEAD=origin/main, arbre propre,
+deuxstashes conservés. Cette clôture DONE sera également publiée et relue,
+SHA final dans réponse Codex. DONE qualifie la mission C et la corroboration
+fonctionnelle bornée avec réserves ; ne valide pas journalHP intégral, revue
+indépendante ChatGPT ni communication bidirectionnelle générale.
