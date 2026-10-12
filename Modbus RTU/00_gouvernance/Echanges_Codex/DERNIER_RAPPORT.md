@@ -29,3 +29,7 @@ Preuves locales : /home/lolo/dev/msm/reports/TR2-mission015-Q-20261012T224111Z ;
 ## Checkpoint fenêtres préparées
 
 [Critères et différences](../../../experiments/iis3dwb_st_reference/QUALIFICATION_M015_Q.md) fixés avant augmentation. Nouveau service segmenté borné, initialisation ST/transport inchangés, mots FIFO et XYZ distincts, budgets/overflow/config/tags/cleanup stricts. CTest ciblé et14scénarios intégration passent ;3ARM passent, contrôle byte-identiqueP. Images512/4096 préparées, pas encore flashées. Premier test synthétique refusé pour compte attendu incluant un TS non reçu corrigé selon séquence brute ; logs initiaux conservés. Répétabilité publiée06038823d0e80963d8d6f85a85a774a9fe4ff141/126fichiers byte-identiques relus.
+
+## Checkpoint physique 512 XYZ
+
+Essai unique image f9dab29cd348efa7d2bc70a1bf3d86a2624f59ac7429f3d3defa82c779874e1a/code76b4a17577171c0009ada7e0c67e387286d282dc :512XYZ+64TS=576mots,509tripletsdistincts,parité/counters/saturation0, reconstruction exacte.6segments/19statuts/niveau max et final252/flags_OR0 ;38ms incluantattente initiale et contrôles, pas ODR indépendante. Pas TS24 ou27ticks, tousmonotones et8XYZ entreTS : préservervariation, aucune garantiepertezéro.79traces/4220octets/158snapshots, result0/cleanup0/0C8000/faults0/detach. SPI896octets≈3,631ms. Qualificationphysiquebornée512 acquise,4096NONTESTÉ. Codecheckpoint76b4a17 relu45fichiers byte-identiques avantflash. Uniqueflash standard/verify/readbackexact/MCUreset/trigger sur secondeidentifiée ; pas manipulation/accèsprimaire.

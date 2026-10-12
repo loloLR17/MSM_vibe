@@ -6,7 +6,7 @@ Mise à jour : 13 octobre 2026. Mission `TR2-20261013-M015-Q-FIFO-REPEATABILITY-
 
 ## État opérationnel actuel — M015-Q, répétabilité
 
-**VALIDÉ PHYSIQUE BORNÉ** : trois captures même BIN P, chacune263XYZ distincts+33TS ; parité/counters/saturation/transport/journal zéro, cleanup0/XLoff/bypass/TSoff. Trois resets MCU GDB et resets capteur internes ST, aucune coupure/manipulation ni flash. Reconstruction indépendante byte-identique ; DWT payload≈247ko/s, pas ODR indépendante/perte globale zéro. **PRÉPARÉ** : fenêtres512/4096 restent à développer/tester avant cible. Erreur offline comparaison18 réservé corrigée et conservée, aucun garde-fou matériel contourné. Primaire/M014/médias/Modbus/worktrees/stashes préservés, archivesP exactes ; cause O/P non établie.
+**VALIDÉ PHYSIQUE BORNÉ** : trois captures même BIN P, chacune263XYZ distincts+33TS ; parité/counters/saturation/transport/journal zéro, cleanup0/XLoff/bypass/TSoff. Trois resets MCU GDB et resets capteur internes ST, aucune coupure/manipulation ni flash. Reconstruction indépendante byte-identique ; DWT payload≈247ko/s, pas ODR indépendante/perte globale zéro. **VALIDÉ PHYSIQUE BORNÉ512** :512XYZ+64TS/576mots,509tripletsdistincts,6segments/maxniveau252,parité/counters/saturation/overflow/transport0,cleanup0. TSmonotones pas24/27ticks et8XYZentreTS ;perteglobalezéro nonprouvée. **PRÉPARÉ4096** :même service/cible seule changée, tests ciblés/14intégrations/3ARM passent ;contrôleBINidentiqueP,code76b4a17 publié/45fichiersrelus. Erreur offline comparaison18 réservé corrigée et conservée, aucun garde-fou matériel contourné. Primaire/M014/médias/Modbus/worktrees/stashes préservés, archivesP exactes ; cause O/P non établie.
 
 ## État opérationnel antérieur — M015-P, 13 octobre 2026
 

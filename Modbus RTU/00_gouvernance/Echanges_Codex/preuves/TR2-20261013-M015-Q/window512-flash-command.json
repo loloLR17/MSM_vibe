@@ -1,0 +1,31 @@
+{
+  "command": [
+    "/mnt/c/ST/STM32CubeCLT_1.22.0/STM32CubeProgrammer/bin/STM32_Programmer_CLI.exe",
+    "-c",
+    "port=SWD",
+    "sn=0032001F3235510C37333439",
+    "freq=8000",
+    "-w",
+    "\\\\wsl.localhost\\Debian\\home\\lolo\\dev\\msm\\reports\\TR2-mission015-Q-20261012T224111Z\\window512\\iis3dwb_reference.bin",
+    "0x08000000",
+    "-v",
+    "-rst"
+  ],
+  "source_sha": "76b4a17577171c0009ada7e0c67e387286d282dc\n",
+  "artifacts": {
+    "iis3dwb_reference.bin": {
+      "bytes": 55636,
+      "sha256": "f9dab29cd348efa7d2bc70a1bf3d86a2624f59ac7429f3d3defa82c779874e1a"
+    },
+    "iis3dwb_reference.map": {
+      "bytes": 326906,
+      "sha256": "ebd90a5cf01145da843f162f2590d71710fa963baa8ff5d36987aa5c69df2ce6"
+    },
+    "iis3dwb_reference.elf": {
+      "bytes": 604812,
+      "sha256": "2d889b8f6aacc8c477fe091f363932330c52a09dd82884094d38f5d30e67fd66"
+    }
+  },
+  "sn": "0032001F3235510C37333439",
+  "uid": "001B00463842501820333157"
+}
