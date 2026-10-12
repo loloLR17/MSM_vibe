@@ -41,7 +41,7 @@
   },
   "second-cli-preflight.log": {
     "original_local_sha256": "9721b2e408deb0570bfc023f7ded4563129bde771c6aff7b83f230166251418a",
-    "published_sha256": "1a4c09e031ef6a228950ebbb536c179965eb55daa4cd6af15b6a02a9ed19d623",
+    "published_sha256": "93cb6f2fe13a6fb4df3ba9d951f4f81968febcd751146e5b8d51d0e58f62a7ac",
     "normalized_utf8_lf": true
   },
   "second-identity-backup-first.log": {
@@ -272,6 +272,11 @@
   "README.md": {
     "published_sha256": "d791c87bbf4a199bb6396fcdea0879df52a4d0c869faeed4ecbf00cff0d43ffd",
     "original_local_sha256": "d791c87bbf4a199bb6396fcdea0879df52a4d0c869faeed4ecbf00cff0d43ffd",
+    "normalized_utf8_lf": false
+  },
+  "publication-readback.json": {
+    "published_sha256": "dae8deaabaa28f141c6aa362ece914115a287872006f410bedd41962bc5e6584",
+    "original_local_sha256": "dae8deaabaa28f141c6aa362ece914115a287872006f410bedd41962bc5e6584",
     "normalized_utf8_lf": false
   }
 }

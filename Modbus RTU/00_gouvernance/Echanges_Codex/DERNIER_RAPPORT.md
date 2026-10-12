@@ -122,6 +122,14 @@ Journal/roadmap actualisés pour échecWHO, arrêtB/C etrestaurationsecondecible
 Permissions commit/pushmain, flash/debug exercées danslecontrat etchaîne
 explicitement identifiée ; restrictionssurTR2principal respectées. Rapport
 BLOCKED porte sur résultatmatériel, pas surseuleincertitudepréflight de câblage.
-Diff/source unchanged/archives/stashes àvérifier avantpushnormal. SHA publication,
-relecture intégrale et étatGit final serontconsignés aprèspublication. Statut
-technique restera BLOCKED aprèsla publication, qualification nonacquise.
+Résultats publiés au commit **f36425707e97e233f079a9d37381567d92ea761b**, `M015-L: record single WHO refusal and exact second-board firmware restoration`.
+Push normal sur main réussi, fetch puis **62 livrables relus intégralement et
+byte-identiques** ; code TR2/projetST inchangé, archivesK exactes, mission active
+inchangée, quatorze autres worktrees/HEAD propres et deux stashes préservés.
+Preuve `publication-readback.json`. Le worktree L était propre après ce push.
+Un log public a ensuite été normalisé pour retirer une ligne vide finale,
+avec mise à jour du hash publié ; l'original reste conservé, aucun résultat
+modifié. Le présent accusé documentaire sera publié et relu à son tour.
+SHA final distant et état Git dans la réponse finale. **BLOCKED technique
+maintenu** : aucune qualification WHO/polling/FIFO acquise. Revue indépendante
+ChatGPT à effectuer.
