@@ -1,6 +1,6 @@
 ---
 mission_id: TR2-20261012-M015-H-CTRL1-DIFFERENTIAL
-status: BLOCKED
+status: DONE
 base_ref: main
 base_sha: 6357b667a45b0979e5edaf394cb273595295414d
 initial_head: 168ddbd444d0d8d6aa3ceabe115cc315d2ad5452
@@ -16,7 +16,7 @@ allow_debug: true
 
 # M015-H — Divergence associée à la séquence de lecture active
 
-**Critère technique H satisfait : diagnostic différentiel exploitable. BLOCKED provisoire uniquement pour la relecture distante finale.** Une seule campagne courte, aucune acquisition FIFO/XYZ ; M014-H restauré et reprise minimale HP réussie. M015 globale IN PROGRESS.
+**M015-H DONE : diagnostic différentiel exploitable, résultats publiés et relus intégralement.** Une seule campagne courte, aucune acquisition FIFO/XYZ ; M014-H restauré et reprise minimale HP réussie. M015 globale IN PROGRESS.
 
 ## Faits observés
 
@@ -73,4 +73,4 @@ V1ODR26667 Hz/fenêtres4096..32768/continuité/store-and-forward inchangés. Ni 
 
 Preuves publiques `preuves/TR2-20261012-M015-H/` :43traces brutes enJSON/CSV lossless, divergence, quartet/NVIC/timing, logsCLI/GDB, HPintégral, validations/restauration/hashes. Bruts BIN/ELF/Flash/RAM conservés dans **/home/lolo/dev/msm/reports/TR2-mission015-H-20261012T155415Z** ; logs publics UTF8/LF normalisés, deuxJSONHP sansBOM/LF ; journal physique byte-identique original. Manifest lie hashespubliques/originaux.
 
-Journal actualisé avec observations H, limitecause/timing/NVIC, restauration et prochaineétape ; roadmap M015INPROGRESS. Archives G exactes depuis6357b66, missionactive inchangée, worktree H isolé codex/m015-h. Original et huitworktrees antérieurs/stashes 6251b988/f3b829e6 préservés. Permissions commit/push main/flash/debug qualifiés exercées ; aucune résolutiondivergence/merge/rebase/reset Git/forcepush/configurationpermanente. Publication/relecture finale à consigner après push ; SHAfinal etétat Git communiqués dansréponse Codex. Contrôle indépendant ChatGPT attendu.
+Journal actualisé avec observations H, limitecause/timing/NVIC, restauration et prochaineétape ; roadmap M015INPROGRESS. Archives G exactes depuis6357b66, missionactive inchangée, worktree H isolé codex/m015-h. Original et huitworktrees antérieurs/stashes 6251b988/f3b829e6 préservés. Permissions commit/push main/flash/debug qualifiés exercées ; aucune résolutiondivergence/merge/rebase/reset Git/forcepush/configurationpermanente. Résultats publiés au **1ccec7f7d7916564322ddfb6437e20afa7f4b269**, push normal vers main et relecture intégrale de56livrables byte-identiques depuis la référence récupérée de GitHub (`preuves/TR2-20261012-M015-H/publication-readback-1ccec7f.json`). Worktree H propre ; original et huit worktrees antérieurs propres et HEAD inchangés, deux stashes intacts, archives G exactes et mission active immuable. Cette clôture DONE est vérifiée après son push ; son SHA final et l’état Git sont communiqués dans la réponse Codex. Contrôle indépendant ChatGPT attendu.

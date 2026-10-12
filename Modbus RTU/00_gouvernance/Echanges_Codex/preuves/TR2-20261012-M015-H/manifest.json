@@ -198,5 +198,10 @@
     "published_sha256": "e5a458dc722445fed61340796dc56c6d5c28bc9f85f42f7e93fe1ae0605504d5",
     "original_local_sha256": "e5a458dc722445fed61340796dc56c6d5c28bc9f85f42f7e93fe1ae0605504d5",
     "text_normalized_utf8_lf": false
+  },
+  "publication-readback-1ccec7f.json": {
+    "published_sha256": "490235869e49fa5d8434eacdbdbf3d59e10fa8d20403a43d6a79eb82c4c3a797",
+    "original_local_sha256": "490235869e49fa5d8434eacdbdbf3d59e10fa8d20403a43d6a79eb82c4c3a797",
+    "text_normalized_utf8_lf": false
   }
 }
