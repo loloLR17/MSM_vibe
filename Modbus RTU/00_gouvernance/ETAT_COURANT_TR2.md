@@ -8,7 +8,7 @@ Mise à jour : 13 octobre 2026. Mission `TR2-20261013-M015-R-FIFO-DEBIT`.
 
 - **VALIDÉ ANALYSE HORS LIGNE** : débit nominal requis210ko/s avecTS/8 ; limite SPI2MHz≈249,7ko/s avec commandes. Cycle Q exact DWT4,988ms :payload3,632 +commande0,020 +statuts0,099 +config0,182 +résidu1,056. Budget4,267ms, excès0,722ms ; service179,6ko/s, déficit confirmé par FIFO148→507 puisoverflow. Parsing/copie/fermeture non isolés, pas de causeCPU présumée.
 - **DÉCISION / NON EXÉCUTÉ** : A suffit, zéro acquisition/flash/debug/reset R. CPU etSPI couplésPCLK3/div8 ; prochaincontrat éventuellementSPI÷4 àCPU16, ouprofilage distinct du résidu, guardsinchangés. Scénario4MHz NONQUALIFIÉ. EstimationsODR timestamps/bilanFIFO noncalibrées, INTERNAL_FREQ_FINE absent.
-- **PRÉSERVÉ** :512XYZ/répétabilitéQ acquis,4096BLOCKED/M015INPROGRESS etcauseO/Pnonétablie. ÉtatsecondQcleanup0/XLoff/bypass/TSoff/faults0/detach contrôlé surpreuveshistoriques seulement, aucune nouvellelecturecible. Primaire/M014/médias/Modbus/HP intouchés, archivesQexactes/worktrees/stashespréservés. Rapport R enattentepublication/relecture pourclôture documentaire.
+- **PRÉSERVÉ** :512XYZ/répétabilitéQ acquis,4096BLOCKED/M015INPROGRESS etcauseO/Pnonétablie. ÉtatsecondQcleanup0/XLoff/bypass/TSoff/faults0/detach contrôlé surpreuveshistoriques seulement, aucune nouvellelecturecible. Primaire/M014/médias/Modbus/HP intouchés, archivesQexactes/worktrees/stashespréservés. R DONE documentaire : publication `cf99999aae123162307869ecb66533a7765ec50b`, 13 livrables intégralementrelus byte-identiques ;4096 resteBLOCKED.
 
 ## État opérationnel antérieur — M015-Q, 13 octobre 2026
 

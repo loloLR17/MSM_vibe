@@ -1,6 +1,6 @@
 ---
 mission_id: TR2-20261013-M015-R-FIFO-DEBIT
-status: BLOCKED
+status: DONE
 base_ref: main
 base_sha: 7f30bc548938d197f52202454392a4f90c6602ec
 initial_head: fbcab9c8e99e43be5c5ebb3f008f1270a52c7d26
@@ -20,7 +20,7 @@ allow_debug: true
 
 L'analyse A suffit : **le SPI2MHz possède une marge théorique, mais la cadence du service complet Q est insuffisante**. Un segment128mots/896octets doit être traité en environ4,27ms au débit nominal ; les19intervalles DWT observés demandent4,99ms. Le coût supplémentaire au payload est1,357ms, contre0,635ms de budget disponible. Il manque environ0,722ms par segment. La limitation opérationnelle est établie ; elle n'est pas attribuée exclusivement au CPU ou au parsing.
 
-**Aucun essai conditionnel B**, flash, reset, debug ou acquisition dans R. Cette décision suit la consigne d'arrêt dès qu'une décision technique est possible. Répétabilité et512XYZ Q conservées ;4096 reste BLOCKED, cause O/P non établie. Statut provisoire BLOCKED uniquement en attente de publication/relecture de ce diagnostic ; passage DONE documentaire après preuve distante, sans transformer4096 en succès.
+**Aucun essai conditionnel B**, flash, reset, debug ou acquisition dans R. Cette décision suit la consigne d'arrêt dès qu'une décision technique est possible. Répétabilité et512XYZ Q conservées ;4096 reste BLOCKED, cause O/P non établie. Statut **DONE pour le diagnostic court**, après publication et relecture distante au commit `cf99999aae123162307869ecb66533a7765ec50b`. Cela ne transforme pas4096 en succès.
 
 ## Débit requis et disponible
 
@@ -69,4 +69,4 @@ AGENTS/protocole/journal inchangés depuisQ contrôlés sur Git ; contexte norma
 
 XLoff/FIFObypass/TSoff, UIDsecond, faults0/detach sont vérifiés **dans les preuves finales Q conservées**, pas comme une nouvelle observation matérielle R. Aucun accès primaire/M014-H/FRAM/SD/Modbus/HP, aucune manipulation. État matériel actuel depuisQ NON REVÉRIFIÉ ; aucune affirmation nouvelle de santé cible.
 
-Journal/roadmap actualisés pour ce budget et le choix conditionnel non exécuté ; M015 IN PROGRESS/4096BLOCKED, acquis512 conservé. [Preuves R](preuves/TR2-20261013-M015-R/README.md), originaux `/home/lolo/dev/msm/reports/TR2-mission015-R-20261012T230522Z`, [corpus Q](preuves/TR2-20261013-M015-Q/). Rapport et calculs prêts à publication normale puis relecture distante. SHA final fourni après contrôle ; pas de réussite4096 ni de perte zéro annoncée.
+Journal/roadmap actualisés pour ce budget et le choix conditionnel non exécuté ; M015 IN PROGRESS/4096BLOCKED, acquis512 conservé. [Preuves R](preuves/TR2-20261013-M015-R/README.md), originaux `/home/lolo/dev/msm/reports/TR2-mission015-R-20261012T230522Z`, [corpus Q](preuves/TR2-20261013-M015-Q/). Rapport et calculs publiés par push normal au commit `cf99999aae123162307869ecb66533a7765ec50b` (« M015-R: establish FIFO throughput budget from existing DWT evidence ») ; 13 livrables intégralement relus depuis origin/main et byte-identiques. Preuve publication-readback.json. Worktree propre après publication ; dépôt principal et stashes préservés. Le présent complément clôt la mission et sera lui-même relu après push. SHA final fourni après contrôle ; pas de réussite4096 ni de perte zéro annoncée.

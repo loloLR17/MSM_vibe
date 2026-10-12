@@ -1,0 +1,22 @@
+{
+  "sha": "cf99999aae123162307869ecb66533a7765ec50b",
+  "remote": "origin/main",
+  "files": [
+    "Modbus RTU/00_gouvernance/ETAT_COURANT_TR2.md",
+    "Modbus RTU/00_gouvernance/Echanges_Codex/DERNIER_RAPPORT.md",
+    "Modbus RTU/00_gouvernance/Echanges_Codex/archives/TR2-20261013-M015-Q-FIFO-REPEATABILITY-WINDOWS/MISSION.md",
+    "Modbus RTU/00_gouvernance/Echanges_Codex/archives/TR2-20261013-M015-Q-FIFO-REPEATABILITY-WINDOWS/RAPPORT.md",
+    "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261013-M015-R/MANIFEST.sha256",
+    "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261013-M015-R/README.md",
+    "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261013-M015-R/analysis.py",
+    "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261013-M015-R/initial-preservation.json",
+    "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261013-M015-R/offline-checks.json",
+    "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261013-M015-R/service-intervals.csv",
+    "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261013-M015-R/status-timeline.json",
+    "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261013-M015-R/summary.json",
+    "Modbus RTU/00_gouvernance/ROADMAP_TR2_VERS_SUPERVISION_VIBRATOIRE.md"
+  ],
+  "file_count": 13,
+  "byte_equal": true,
+  "verified_at_utc": "2026-10-12T23:08:34.299021+00:00"
+}
