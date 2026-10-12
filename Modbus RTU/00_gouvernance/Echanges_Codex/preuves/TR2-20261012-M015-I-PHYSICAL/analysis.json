@@ -1,0 +1,61 @@
+{
+  "source_sha": "6c504a9d4035c2922d186a03350963bdac33379b",
+  "accepted": true,
+  "word_count": 256,
+  "raw_rx_bytes": 1794,
+  "xyz_reconstruction_byte_equal": true,
+  "trace_reconstruction_byte_equal": true,
+  "trace_count": 40,
+  "populated_trace_bytes": 3680,
+  "trace_populated_sha256": "9498a660d9e313739693d1a09c0886c6785a344c3c4dbc93be3d27a297a7df96",
+  "rx_sha256": "9255e1e109d149379115a20913d2a96392b955c37372e2ed55f27aa8112adaa3",
+  "statistics_raw_lsb_only": {
+    "x": {
+      "min_lsb": 597,
+      "max_lsb": 1154,
+      "mean_lsb": 874.1328125,
+      "std_lsb": 87.07323346379094
+    },
+    "y": {
+      "min_lsb": 4961,
+      "max_lsb": 5428,
+      "mean_lsb": 5204.19921875,
+      "std_lsb": 82.83244665069147
+    },
+    "z": {
+      "min_lsb": -6050,
+      "max_lsb": -5460,
+      "mean_lsb": -5737.27734375,
+      "std_lsb": 99.6882113727312
+    }
+  },
+  "poll_levels": [
+    0,
+    53,
+    106,
+    158,
+    212,
+    256
+  ],
+  "poll_status_hex": [
+    "0000",
+    "0035",
+    "006A",
+    "009E",
+    "00D4",
+    "A100"
+  ],
+  "burst_times_us": [
+    2885.8125,
+    2885.8
+  ],
+  "two_burst_transfer_total_ms": 5.7716125,
+  "fifo_enable_to_final_ms": 20.62093125,
+  "configured_256_word_duration_ms": 9.599880001499981,
+  "odr_independently_measured": false,
+  "loss_flags": 0,
+  "counter_discontinuities_observed": 0,
+  "counter_modulo4_cannot_exclude_all_losses": true,
+  "continuous_v1_validated": false,
+  "second_campaign": false
+}

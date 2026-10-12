@@ -1,0 +1,4 @@
+0x080026a4 in HAL_GetTick () at /home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal.c:344
+344	}
+STM32 Successfully completed reset operation (System reset)
+[Inferior 1 (Remote target) detached]

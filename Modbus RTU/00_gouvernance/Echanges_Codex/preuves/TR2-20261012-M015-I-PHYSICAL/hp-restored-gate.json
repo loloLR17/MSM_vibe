@@ -1,0 +1,9 @@
+{
+    "task":  "Steady",
+    "utc":  "2026-10-12T18:21:39.0789746+00:00",
+    "baselineUtc":  "2026-10-12T18:21:32.077894+00:00",
+    "maximumRequests":  2,
+    "retries":  0,
+    "manifest":  "37ad4597af22b75d09f9e1ba89bacc6c3a3cefb2c8a53e344085b0f689ac2068",
+    "expectedB0":  "10fcc3a207bbc546752c442ce708995b3183f0e36a27a24a7801f515861bb54c"
+}

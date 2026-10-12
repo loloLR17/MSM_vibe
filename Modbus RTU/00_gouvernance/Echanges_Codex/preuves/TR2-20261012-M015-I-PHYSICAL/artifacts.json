@@ -1,0 +1,61 @@
+{
+  "source_sha": "6c504a9d4035c2922d186a03350963bdac33379b",
+  "artifact_directory": "/home/lolo/dev/msm/reports/TR2-mission015-I-20261012T162708Z/build-burst",
+  "local_proof_directory": "/home/lolo/dev/msm/reports/TR2-mission015-I-physical-20261012T181644Z",
+  "artifacts": {
+    "flash-before.bin": {
+      "size": 2097152,
+      "sha256": "556fedf58a88f7de0ad63826af6b4941de8bb72dcd6e97a886c1017da5ba93f0"
+    },
+    "flash-restored-full.bin": {
+      "size": 2097152,
+      "sha256": "556fedf58a88f7de0ad63826af6b4941de8bb72dcd6e97a886c1017da5ba93f0"
+    },
+    "ram-before.bin": {
+      "size": 786432,
+      "sha256": "21411222adba4e47cd0b943acb2c2fd665d25f8c2f453a4df18346920200ac78"
+    },
+    "ram-burst-final.bin": {
+      "size": 786432,
+      "sha256": "82dbdb005d72f5a4eb52dbdd9708b3f21ab3a2bad6ebc036e21980b22bf0a312"
+    },
+    "ram-final-after-physical.bin": {
+      "size": 786432,
+      "sha256": "f278cc1c963d3b21474de5d1900767073b25ea27568d24bc926564bb8cebccba"
+    },
+    "burst-info.bin": {
+      "size": 164,
+      "sha256": "cd47233319b8615deb8a1395dbc224c4b3c2db1f863de329208d690ebb56b9de"
+    },
+    "burst-meta.bin": {
+      "size": 104,
+      "sha256": "d933b4cffb282405d77cdd8516ecdcb2f686728df4aa3e806bf750d52eb0f7fa"
+    },
+    "burst-polls.bin": {
+      "size": 512,
+      "sha256": "04350ceed14c131aae2e46f896f18d81a8286b5d904b7f21955a751c5cb4aabd"
+    },
+    "burst-rx.bin": {
+      "size": 1794,
+      "sha256": "9255e1e109d149379115a20913d2a96392b955c37372e2ed55f27aa8112adaa3"
+    },
+    "config-trace-count.bin": {
+      "size": 4,
+      "sha256": "1a00f51f3029fa4b7e61b9bf7aa9de5a64798857872981f7e056e4f437171955"
+    },
+    "config-traces.bin": {
+      "size": 8832,
+      "sha256": "929090321b694bf5da952b16770eec5bd7410d907d95576a141accaf0fe2d622"
+    },
+    "config-first-refusal.bin": {
+      "size": 128,
+      "sha256": "38723a2e5e8a17aa7950dc008209944e898f69a7bd10a23c839d341e935fd5ca"
+    },
+    "hp-restored-physical.jsonl": {
+      "size": 1391,
+      "sha256": "2ab64625b2c6ce4ff3852756494014abf9f63b22cf457639d61a721750d00d85"
+    }
+  },
+  "bin_sha256": "760aab56cf32aa458c861bf5f22e2801dd595f3bd73ad6a98602c1cff0cdd258",
+  "elf_sha256": "7893fda8b3e43e215cbab0a1bcc515d51b0a6986cdf9ff742974e53b8cbb076e"
+}

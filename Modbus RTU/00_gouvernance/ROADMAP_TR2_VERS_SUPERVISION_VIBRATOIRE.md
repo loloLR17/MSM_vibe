@@ -157,3 +157,7 @@ M014 restauréeexactement (Flash2Mio identique), FRAMgen12/configUNAVAILABLE, SD
 ## Actualisation M015-I — 12 octobre 2026
 
 **IN_PROGRESS, logiciel validé seulement.** Harness FIFO réutilisé avec contrôles/audit groupés et gardes HAL/compteurs/CS renforcés ;26cas ciblés et cross-build défaut/profil réussis. Campagne physique reportée après renouvellement, quota annoncé12% ; M014-H reste installé, aucun accès cible/média/HP enI. Checkpoints etpointde reprise publiés ; aucune fiabilitéFIFO/continuitéV1 annoncée.
+
+## Actualisation M015-I reprise physique — 12 octobre 2026
+
+**FIFO RAM bornée physiquement validée, M015 globale IN PROGRESS.** Unecampagne source6c504a9 :groupés conformes,256XYZ/tags en2bursts128,0erreur/perte signalée/saturation ; niveaux256→128→0,≈2,886ms/burst. M014-H restauré/Flash2Mio exacte/FRAMgen12/SDOFF/partitionpréservée/B0B1reprise réussie. 256motsnevalentpas4096..32768 ni fluxcontinu/store-and-forward ; prochainesressources/serviceFIFO/continuité/stockage souscontratdistinct. Publication/relecturefinale enattente ; aucune répétitionouinterventionphysique additionnelle.

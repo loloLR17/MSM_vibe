@@ -1,0 +1,16 @@
+{
+  "sha": "0faf39519f91954aa2ab2860de0403a069a88734",
+  "full_byte_equal": [
+    "00_Environnement_developpement/T1000/ssh-hp/commissioning-h.ps1",
+    "00_Environnement_developpement/T1000/ssh-hp/run_commissioning_h.py",
+    "Modbus RTU/00_gouvernance/ETAT_COURANT_TR2.md",
+    "Modbus RTU/00_gouvernance/Echanges_Codex/DERNIER_RAPPORT.md",
+    "Modbus RTU/00_gouvernance/Echanges_Codex/archives/TR2-20261012-M015-I-GROUPED-FIFO-SOLUTION/MISSION.md",
+    "Modbus RTU/00_gouvernance/Echanges_Codex/archives/TR2-20261012-M015-I-GROUPED-FIFO-SOLUTION/RAPPORT.md",
+    "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261012-M015-I-PHYSICAL/backup-verified.json",
+    "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261012-M015-I-PHYSICAL/hp-wrapper-validation.log",
+    "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261012-M015-I-PHYSICAL/initial-preserve.log",
+    "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261012-M015-I-PHYSICAL/preparation.json",
+    "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261012-M015-I-PHYSICAL/stlink-list.log"
+  ]
+}

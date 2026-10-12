@@ -6,8 +6,9 @@ Mise à jour : 12 octobre 2026. Mission `TR2-20261012-M015-I-PHYSICAL-RESUME`.
 
 ## État opérationnel actuel — M015-I reprise physique, 12 octobre 2026
 
-- **PRÉFLIGHT SATISFAIT / CAMPAGNE EN ATTENTE** : artefacts source6c504a9 rehashés et code inchangé ; validations I conservées sans rejeu. Sauvegarde fraîche Flash2Mio/RAM768K, UID/STLINK/M014-H reconnus, stage2/result0/FRAMgen12/configUNAVAILABLE/IRQ49-66/faults0. Aucun flash/reset ou FIFO à ce checkpoint.
-- **PRÉSERVÉ** : archives I exactes, onze worktrees antérieurs/deux stashes ; procédure unique avec restauration finally et deux lecturesHP de reprise préparée. M015 IN PROGRESS, V1 et partition microSD inchangés.
+- **VALIDÉ PHYSIQUE borné** : campagneunique source6c504a9, contrôlesgroupés passés/CTRL1A8,2bursts128/256XYZ réels acceptés,6niveaux0/53/106/158/212/256 puis256→128→0 ; erreurs/tags/parité/gaps/flagsperte/saturation0, result0/restore0. Brutsreconstruitsbyte-identiques ;40traces. Bursts2,8858ms chacun, FIFOenable→final20,6209ms ; ODRconfigurée nonmesurée, compteurmodulo4 n’exclut pas toutespertes. Aucunrejeu/secondessai, testsI26/crossréutilisés sansrebuild.
+- **M014 PRÉSERVÉ** : sauvegardefraîche puisFlash2Mio restaurée exacte/SHA556fedf5/BINb462c29a, contrôles0/0/0/0/0/4/0 ; repriseHP B0/B1réussie/journalentier hash2ab64625…/uptime125s. FRAMgen12/configUNAVAILABLE/SDOFF/IRQ49-66/faults0/MCUrunning, aucuneécrituremédia niaccèspartition.
+- **STATUT/SUITE** : critèresphysiquesbornés satisfaits, publication/relecturefinale enattente ; M015 INPROGRESS, fluxcontinu/fenêtresV1/FFT/stockage nonqualifiés. Basegroupée àqualifier sousnouveaucontrat pourserviceFIFO/continuité/ressourcesowned ; pas substitutioncapteur ouinstrumentation nécessaireici. Preuves /home/lolo/dev/msm/reports/TR2-mission015-I-physical-20261012T181644Z ; archivesI/worktrees/stashespréservés.
 
 ## État opérationnel antérieur — M015-I, 12 octobre 2026
 

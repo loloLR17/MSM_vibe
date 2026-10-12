@@ -1,0 +1,4 @@
+0x08012f82 in modbus_rtu_server_runtime_poll_once (runtime=0x2000e5ec <server+36>) at /home/lolo/dev/msm/projects/MSM_vibe-M014-H/Modbus RTU/05_Firmware/src/modbus/rtu_server_runtime.c:114
+114	    ModbusRtuReceiverEvent receiver_event = { false, NULL, 0u };
+STM32 Successfully completed reset operation (System reset)
+[Inferior 1 (Remote target) detached]
