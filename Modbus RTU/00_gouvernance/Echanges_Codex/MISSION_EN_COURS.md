@@ -1,8 +1,8 @@
 ---
-mission_id: TR2-20261012-M015-G-CONFIG-READBACK
+mission_id: TR2-20261012-M015-H-CTRL1-DIFFERENTIAL
 status: READY
 base_ref: main
-base_sha: e11088772987a50ce729eb4ca1148d657b2cc673
+base_sha: 6357b667a45b0979e5edaf394cb273595295414d
 author: ChatGPT
 target_branch: main
 allow_commit: true
@@ -11,20 +11,19 @@ allow_flash: true
 allow_debug: true
 ---
 
-# M015-G — Localiser le refus de configuration puis qualifier la voie FIFO bornée
+# M015-H — Diagnostic différentiel SPI CTRL1_XL, sans oscilloscope
 
-Respecter AGENTS.md, gouvernance V2-B3, gels V1, état courant et roadmap sur main. Vérifier HEAD réel et rapport M015-F BLOCKED. Archiver la mission F et son rapport sans écrasement, préserver worktrees, stashes, sauvegardes, FRAM génération12, microSD OFF et image permanente M014-H. L'utilisateur dispose d'un multimètre, pas d'oscilloscope. Ne pas exiger d'instrument externe. Développement/commit/push/flash/debug autorisés avec garde-fous matériels, sans validations répétitives.
+Appliquer AGENTS.md et gouvernance V2-B3 ; vérifier HEAD réel main, rapport M015-G DONE, archives, état courant et gels V1. Archiver exactement mission et rapport G. Préserver les worktrees/stashes, image M014-H, Flash/FRAM V2 génération12, microSD OFF et partition LBA65536. L'utilisateur NE souhaite PAS acheter d'oscilloscope. Il dispose d'un Brymen BM869s et d'un second breakout IIS3DWB identique, mais aucune manipulation physique ni remplacement n'est demandé dans H. Ne pas présumer les caractéristiques ou modes de mesure du multimètre sans documentation constructeur.
 
-## Objectif
-Identifier sans ambiguïté le premier écart de configuration qui a empêché M015-F de démarrer (stage10/result9/loss_flags4, zéro poll/burst/XYZ), puis, seulement si les préconditions sont satisfaites, effectuer une unique acquisition FIFO RAM bornée et mesurable. Ne pas rechercher exhaustivement la cause des anomalies M015-B/C/D et ne pas affaiblir les gardes. Aucune réduction implicite des exigences V1.
+## Objet et critères
+Caractériser de façon discriminante, avec une campagne physique courte maximum, la divergence G sur CTRL1_XL 0x10 : write 0xA8/HAL_OK puis read simple 0x50 ; lecture groupée FIFO 07..0A conforme. Déterminer si le résultat dépend de la méthode de lecture, du délai ou de la transition en mode actif, sans attribuer une cause non démontrée. Vérifier le précédent M013-C/D (CubeProgrammer HOTPLUG altérait NVIC ; reset GDB qualifié) et distinguer ce risque du SPI bloquant. Ne pas masquer une configuration incorrecte ni traiter HAL_OK comme preuve d'intégrité des octets.
 
-## Étapes
-1. Audit ciblé du code F et de ses traces : trouver exactement le chemin de contrôle et la perte de télémétrie. Instrumenter la vérification de configuration pour conserver AVANT restauration, même en échec, registre/adresse, valeur attendue, valeur lue, méthode de lecture, TX/RX bruts, HAL status/error, état SPI/CS et horodatage. Marquer explicitement les champs non renseignés, sans confondre zéro mémoire et zéro mesuré. Capturer également les valeurs groupées 07..0A et la vitesse effective. Conserver le comportement fail-closed, aucun bypass ni substitution de valeurs.
-2. Tests hôte ciblés de l'instrumentation, cas nominal et erreur sur chaque étape critique, plus cross-build ARM défaut/profil. Préparer un diagnostic exclusif, réversible, borné, une activation unique. Un seul essai physique court si preflight satisfaisant. Sur refus de configuration, arrêter immédiatement et publier la cause observable, sans deuxième tentative ni variante. Si le contrôle passe, autoriser dans ce même essai la FIFO figée et deux bursts de128 mots au plus, avec contrôle des tags, niveaux, intégrité, timing, overflow, données XYZ et refus de tout lot ambigu. Ne pas déclarer débit continu V1 à partir d'une capture finie.
-3. Avant flash : UID/cible/image et hashes, sauvegarde Flash2Mio et données pertinentes, méthode NORMAL qualifiée, jamais HOTPLUG CubeProgrammer, mass erase, Option Bytes ni RDP. Restaurer intégralement M014-H byte-identique et contrôler la reprise minimale B0/B1 sur HP, sans GDB pendant trafic. Aucune écriture FRAM ou microSD ni accès partition LBA65536. Arrêt immédiat en cas de risque non maîtrisé.
-4. Publier traces et analyse du premier écart, statut des bursts et pertes, temps et calculs de faisabilité, ETAT_COURANT, roadmap, DERNIER_RAPPORT.md et preuves ; commits/push normaux avec vérification distante. M015-G DONE si le refus F est caractérisé de façon exploitable ou si une capture bornée fiable est prouvée ; sinon BLOCKED documenté. M015 globale IN PROGRESS.
+## Travail autonome
+1. Auditer code exact G, séquences SPI, CS, HAL, configuration IIS3DWB et notes constructeur présentes au dépôt ; concevoir un protocole A/B à variables contrôlées et ordre explicite : baseline lecture seule, écriture A8 et relectures CTRL1 simple et en burst contenant 0x10, délai borné documenté, états avant/après activation si sûrs. Capturer TX/RX bruts, HAL status/errors, CS GPIO, clocks, DWT, valeurs, marqueurs de validité, première divergence et état NVIC. Distinguer état capteur et artefact de lecture ; ne pas accepter une valeur non conforme par vote ou fallback. Ne pas inventer d'exigence de signal mesuré au fil.
+2. Modifier au minimum le harness diagnostic OFF par défaut, sans toucher cœur, mapping, validator, spécifications gelées. Tests hôte ciblés et cross-build ARM défaut/profil. Une seule campagne matérielle courte si préflight et protection sûrs ; sinon BLOCKED documenté. Arrêt au premier risque, ne pas multiplier variantes ou répétitions pour obtenir un succès. La mission H porte sur la configuration, PAS sur la FIFO/XYZ/production ; si l'anomalie est caractérisée, clôturer H et proposer l'étape suivante.
+3. Préparer, uniquement si les résultats le justifient, une fiche de mesures physiques BM869s non intrusive pour l'utilisateur : points exacts à confirmer sur montage réel, référence GND, mesures DC au repos (alimentation, CS, éventuellement lignes accessibles), critères et limites ; aucune mesure ohm/continuité sous tension, aucune sonde sur broches fragiles, aucun changement de câblage autonome. Ne pas mesurer/qualifier le SPI2,5MHz au multimètre ni supposer que MIN/MAX/Hz décodent des bits. Préparer un éventuel protocole A/B de substitution du breakout pour une mission ultérieure, uniquement si discriminant ; aucune intervention physique maintenant.
+4. Flash/debug permis : identifier UID/STM32/image/hashes, sauvegarde Flash2Mio et données utiles ; voie flash NORMAL, jamais CubeProgrammer HOTPLUG, mass erase, Option Bytes/RDP. Dernier CLI puis reset/contrôle GDB qualifié, debugger détaché pendant test, restaurer M014-H intégralement byte-identique et vérifier reprise HP B0/B1 sans GDB pendant trafic. Aucune écriture FRAM/SD, aucune partition touchée.
+5. Publier preuves brutes, tableau des observations et incertitudes, mesures de timing, conclusion sur hypothèses, ETAT_COURANT/roadmap et DERNIER_RAPPORT.md. Commits/push normaux et vérification distante. H DONE seulement si le diagnostic différentiel apporte une conclusion exploitable ; sinon BLOCKED avec raison exacte. M015 globale IN PROGRESS.
 
-## Arbitrage V1
-Préserver ODR26667Hz, fenêtres4096..32768, continuité et stockage store-and-forward, mapping et configuration validator gelés. Si une adaptation semble nécessaire, chiffrer conséquences sur bande fréquentielle, résolution spectrale, pertes, latence, mémoire et fonctionnalités TR2, et soumettre la décision à l'utilisateur sans la mettre en oeuvre.
-
-Exclusions : DMA, acquisition continue, production, FFT, calibration, B5, Modbus vibrations, Web, écriture FRAM/SD, répétition des campagnes A-F, instrumentation électrique externe présumée. Préserver les acquis et limiter les dépenses de quota.
+## Invariants
+ODR26667Hz, fenêtres4096..32768, continuité, store-and-forward et exigences V1 inchangés ; pas de réduction silencieuse. Pas de DMA, acquisition FIFO, FFT, B5, Modbus vibration, Web, calibration ou nouvelle campagne A-G. Minimiser dépense de quota et préserver acquis.
