@@ -105,6 +105,14 @@ add_executable(tr2_rtu_request platform/host/rtu_request.c)
 target_link_libraries(tr2_rtu_request PRIVATE tr2_core)
 
 enable_testing()
+add_executable(test_stm32_ctrl1_differential tests/platform/test_stm32_ctrl1_differential.c
+    platform/stm32/stm32_iis3dwb_ctrl1_differential.c)
+target_include_directories(test_stm32_ctrl1_differential PRIVATE
+    tests/platform/stm32_hal_ctrl1_mock platform/stm32)
+target_compile_definitions(test_stm32_ctrl1_differential PRIVATE TR2_STM32_CTRL1_DIFFERENTIAL=1)
+target_link_libraries(test_stm32_ctrl1_differential PRIVATE tr2_core)
+add_test(NAME stm32_ctrl1_differential COMMAND test_stm32_ctrl1_differential)
+
 add_executable(test_stm32_burst_capture tests/platform/test_stm32_burst_capture.c
     platform/stm32/stm32_iis3dwb_burst_capture.c)
 target_include_directories(test_stm32_burst_capture PRIVATE

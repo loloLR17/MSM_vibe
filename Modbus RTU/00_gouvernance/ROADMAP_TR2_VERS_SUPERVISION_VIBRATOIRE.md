@@ -149,3 +149,7 @@ M014 restauréeexactement (Flash2Mio identique), FRAMgen12/configUNAVAILABLE, SD
 ## Actualisation M015-G — 12 octobre 2026
 
 **M015-G DONE pour refus caractérisé ; M015 globale IN PROGRESS.** Une seule tentative : CTRL1_XL/10 attenduA8/reçu50 en lecture simple, HAL_OK, groupé07..0A conforme ; arrêt avant FIFO/0XYZ. Gardes préservés et traces immuables publiées, aucune variante/rejeu A-F. M014-H restauré/Flash2Mio exacte, deux lectures B0/B1 réussies, FRAMgen12/SDOFF/partition préservées. Cause électrique et acquisition FIFO restent ouvertes ; prochain contrat limité pour distinguer write/readback CTRL1, sans affaiblissement V1. Résultats publiés au b3a3c428a9f2d35801f5601db1a38d58a120246a ; 50 livrables intégralement relus et identiques. Clôture documentaire contrôlée après son push.
+
+## Actualisation M015-H — 12 octobre 2026
+
+Diagnostic différentiel CTRL1 simple/groupé/délai/activation préparé et logiciel validé ; une campagne courte maximum, aucun FIFO/XYZ ou intervention physique. M014-H et V1 préservés, M015 IN PROGRESS ; résultat matériel et publication finale en attente.

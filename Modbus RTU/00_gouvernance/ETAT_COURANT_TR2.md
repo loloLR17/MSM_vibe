@@ -1,10 +1,15 @@
 # État courant TR2 — référence reconstruite
 
-Mise à jour : 12 octobre 2026. Mission `TR2-20261012-M015-G-CONFIG-READBACK`.
+Mise à jour : 12 octobre 2026. Mission `TR2-20261012-M015-H-CTRL1-DIFFERENTIAL`.
 
 **Ce document est un nouvel état de référence reconstruit à partir de preuves vérifiables. Il n'est pas une restitution du journal historique HP.** Sa création a été explicitement autorisée par l'utilisateur pour la mission `T1000-20261010-CLOTURE-001`, après escalade AGENTS.md §18. Aucun original n'a été retrouvé dans l'historique Git, les répertoires Linux locaux ou les documents Windows accessibles. Les archives d'échanges du 8 octobre mentionnent un journal local HP, sans en fournir le contenu. Aucun état historique inconnu n'est inventé.
 
-## État opérationnel actuel — M015-G, 12 octobre 2026
+## État opérationnel actuel — M015-H, 12 octobre 2026
+
+- **VALIDÉ logiciel / PRÉPARÉ physique** : protocole CTRL1 simple/groupé S G G S avant/après activation et délai20ms, aucune acquisition/FIFO.53scénarios ciblés et cross-build défaut/profil réussis ; gardes et V1 conservés, acquis A-G non rejoués. Essai unique en attente.
+- **PRÉSERVÉ / OBSERVÉ** : M014-H reconnu, UID/STLINK attendus, Flash2Mio/RAM768K sauvegardées ; stage2/result0/FRAMgen12/configUNAVAILABLE/IRQ49-66/faults0. Aucun flash/reset H à ce point. Worktrees/stashes/archives G intacts ; M015 IN PROGRESS.
+
+## État opérationnel antérieur — M015-G, 12 octobre 2026
 
 - **OBSERVÉ, refus localisé** : tentative unique code5f85dbe, premier écart CTRL1_XL/10 attenduA8/reçu50, lecture simple TX90 00/RX00 50, HAL_OK. Groupé07..0A conforme00/81/0A/00 ; stage10/result9/loss4/restore0, zéro poll/burst/XYZ.38traces sauvegardées avant reflash ; aucun deuxième essai. Valeur historique F non récupérable, même chemin de refus reproduit ; cause électrique/HAL/capteur non démontrée.
 - **VALIDÉ logiciel / M014 PRÉSERVÉ** :21scénarios ciblés et cross-build défaut/profil réussis, gardes inchangés, acquis A-F non rejoués. Sept contrôles restaurés0/0/0/0/0/4/0 ; Flash2Mio byte-identique/M014BINb462c29a. Deux FC03 B0/B1 de reprise réussies, journal complet hash47546b38… ; FRAMgen12/configUNAVAILABLE/SDOFF/IRQ49-66/faults0, MCU running. Aucun accès partition/écriture média.
