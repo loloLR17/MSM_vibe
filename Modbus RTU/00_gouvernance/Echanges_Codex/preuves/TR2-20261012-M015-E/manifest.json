@@ -17,6 +17,11 @@
       "path": "inputs.json",
       "bytes": 1278,
       "sha256": "d480a9395d7412287498aedc0264721b3e9a8d640830a0d427ff3bd78478ea68"
+    },
+    {
+      "path": "publication-readback-10bcdea.json",
+      "bytes": 3291,
+      "sha256": "ce5f6a2334ba43d9afa39bb34427b909454640aa4bb9a87f4cafd1e2b39fe8eb"
     }
   ]
 }

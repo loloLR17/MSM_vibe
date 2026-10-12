@@ -1,0 +1,88 @@
+{
+  "sha": "10bcdeaf5e492dd5b87535ca8d536b42218dfc5f",
+  "full_utf8_byte_equal": [
+    {
+      "path": "Modbus RTU/00_gouvernance/DECISION_ACQUISITION_M015_E.md",
+      "sha256": "9b4899646afc75c35db524811fa179cfca30d978b35c31fd742def8720747949"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/ETAT_COURANT_TR2.md",
+      "sha256": "2e5f4a936d07eb1cd4b1c3242af299fc28344a678db6092b46fa47fb97106d85"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/DERNIER_RAPPORT.md",
+      "sha256": "ece65e2d6c1a4ec9cb8c9660e50fd74719ecbcc5ad08dc44ee8f55508aa5c080"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/archives/TR2-20261012-M015-D-FIFO-ACTIVE-READBACK/MISSION.md",
+      "sha256": "6ee828b71318e6c3fdccb18f07d2d267294917cea3e1ab19a0f1788998c661af"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/archives/TR2-20261012-M015-D-FIFO-ACTIVE-READBACK/RAPPORT.md",
+      "sha256": "d7163bba8de704e2d62ec8a495918b9c2fdb76795d873c2d31749cc4b25d08f6"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261012-M015-E/bandwidth-memory.json",
+      "sha256": "9726e4fc0ed59ab3d114ebc5b60b3c12cc115e927ab0e83606644535c1af6b48"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261012-M015-E/diagnostic-analysis.json",
+      "sha256": "3c23aed21e80576024b6508712bb1358a0bbab509b91fdb3abdaa1f79cc0ac00"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261012-M015-E/inputs.json",
+      "sha256": "d480a9395d7412287498aedc0264721b3e9a8d640830a0d427ff3bd78478ea68"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261012-M015-E/manifest.json",
+      "sha256": "829e24162a89914185c45fb0d9105509b9ffeebee7f3a10879c0135e32134a29"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/MESURE_LOGIQUE_M015_E.md",
+      "sha256": "f6caa331f9cd837dfbdcbbe4873027b578822fc14d747c7df1d322dfb00246b3"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/ROADMAP_TR2_VERS_SUPERVISION_VIBRATOIRE.md",
+      "sha256": "26dd90597420d97b3dc16d8ee278c3f5ae5a680bc817b2599380f59d18b39f90"
+    }
+  ],
+  "clean": true,
+  "active_mission_unchanged": true,
+  "archives_exact": true,
+  "preserved_worktrees": [
+    {
+      "path": "/home/lolo/dev/msm/projects/MSM_vibe",
+      "sha": "82169af7e76797731358852bec83bfb0ceb54ccf",
+      "clean": true
+    },
+    {
+      "path": "/home/lolo/dev/msm/projects/MSM_vibe-M014-H",
+      "sha": "762c459839439f7d27b42c11d12e309e65622a7f",
+      "clean": true
+    },
+    {
+      "path": "/home/lolo/dev/msm/projects/MSM_vibe-M015-A",
+      "sha": "eab07d49a5f3b86506a97877d0fccf2188fb0a7a",
+      "clean": true
+    },
+    {
+      "path": "/home/lolo/dev/msm/projects/MSM_vibe-M015-B",
+      "sha": "cfb9918dfe8e5ac3148d6ceaa79e50acda6ac53f",
+      "clean": true
+    },
+    {
+      "path": "/home/lolo/dev/msm/projects/MSM_vibe-M015-C",
+      "sha": "37b97f7fd8ea70c4ae8e377a3042bb3e2b8c5328",
+      "clean": true
+    },
+    {
+      "path": "/home/lolo/dev/msm/projects/MSM_vibe-M015-D",
+      "sha": "dbfcec4027200c5d5c989da52000166311fa6954",
+      "clean": true
+    }
+  ],
+  "stashes": [
+    "6251b988e8b20f97997a8f98fd26d4d35a45a1b2",
+    "f3b829e6188f491920edf74a5f9ed0f559d08b87"
+  ]
+}

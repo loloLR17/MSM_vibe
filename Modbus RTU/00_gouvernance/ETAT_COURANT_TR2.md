@@ -8,7 +8,7 @@ Mise à jour : 12 octobre 2026. Mission `TR2-20261012-M015-E-ACQUISITION-DECISIO
 
 - **PRÉPARÉ, décision documentaire** : garder direct A pour démonstrateurRAM borné ;viserFIFO128bursts puisDMA/serviceV1 aprèsqualification. Prochainepreuve :wire↔RAM88/87/BA à625kHz siinstrument3,3V/4canaux identifié ;fiche avecpoints àconfirmer/masse/timing/profondeur/critères, aucun câblage demandé.
 - **VÉRIFIÉ horsligne** :468recordsD reconstruits37440octets identiques auCSV ;CTRL2seulement2writes,26/28divergencesactives et0/32figées conservées. CalculsFIFO128+status≥1,500019Mbit/s ;625kHzinsuffisant,burst128897octets reste souslimiteSPI3documentée1024. Vitessesplushautes/DMA/flux/stockageNONQUALIFIÉS ;V1inchangée.
-- **PRÉSERVÉ** :aucunhardware/test/build/flash/debug/HP/FRAM/SD ;M014étathistoriqueD inchangé, pasnouveaurelevé. Epublication/relectureenattente,M015INPROGRESS etB/C/DBLOCKED conservés ;archivesD exactes etworktrees/stashespréservés.
+- **PRÉSERVÉ** :aucunhardware/test/build/flash/debug/HP/FRAM/SD ;M014étathistoriqueD inchangé, pasnouveaurelevé. E DONE documentaire :publication10bcdeaf5e492dd5b87535ca8d536b42218dfc5f,11livrables intégralement relus et byte-identiques ;M015INPROGRESS etB/C/DBLOCKED conservés ;archivesD exactes etworktrees/stashespréservés.
 
 ## État opérationnel antérieur — M015-D, 12 octobre 2026
 
