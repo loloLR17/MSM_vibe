@@ -1,0 +1,22 @@
+{
+  "mission_id": "TR2-20261012-M015-E-ACQUISITION-DECISION",
+  "hardware_operations": 0,
+  "tests_repeated": 0,
+  "files": [
+    {
+      "path": "bandwidth-memory.json",
+      "bytes": 4724,
+      "sha256": "9726e4fc0ed59ab3d114ebc5b60b3c12cc115e927ab0e83606644535c1af6b48"
+    },
+    {
+      "path": "diagnostic-analysis.json",
+      "bytes": 4113,
+      "sha256": "3c23aed21e80576024b6508712bb1358a0bbab509b91fdb3abdaa1f79cc0ac00"
+    },
+    {
+      "path": "inputs.json",
+      "bytes": 1278,
+      "sha256": "d480a9395d7412287498aedc0264721b3e9a8d640830a0d427ff3bd78478ea68"
+    }
+  ]
+}

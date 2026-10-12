@@ -1,0 +1,34 @@
+{
+  "base_sha": "dbfcec4027200c5d5c989da52000166311fa6954",
+  "inputs": [
+    {
+      "path": "TR2-20261012-M015-A/mode3-samples.csv",
+      "sha256": "62519c467ffbaaac8e0028dd1d45206633f4cfca8ef4abd773e1187b416b3702",
+      "csv_rows": 2048
+    },
+    {
+      "path": "TR2-20261012-M015-B/fifo-status.csv",
+      "sha256": "3d1e3f7b7fd03d2692f366614d397d68df1e547db561760a233aa2481dc9078f",
+      "csv_rows": 171
+    },
+    {
+      "path": "TR2-20261012-M015-C/register-transactions.csv",
+      "sha256": "7faa2804b72892239b961a17a454adeb0f4c3f0a81fa420c3928749ed76eece1",
+      "csv_rows": 512
+    },
+    {
+      "path": "TR2-20261012-M015-D/active-transactions.csv",
+      "sha256": "2609c1373933b65d963fa68ea2fe3a9e6d9ef513d2295a57c9484ce4fd5f2227",
+      "csv_rows": 468
+    }
+  ],
+  "source_static": [
+    "Modbus RTU/01_Specification_source/bloc4.md \u00a78",
+    "Modbus RTU/05_Firmware/src/domain/configuration/configuration_validator.c",
+    "Modbus RTU/05_Firmware/platform/stm32/stm32_iis3dwb_vibration_source.c",
+    "Modbus RTU/05_Firmware/platform/stm32/main.c Iis3dwbSpi_Init",
+    "Modbus RTU/05_Firmware/platform/stm32/linker/STM32U575ZITXQ_FLASH.ld",
+    "Modbus RTU/05_Firmware/platform/stm32/stm32u5xx_it.c"
+  ],
+  "runtime_observation": "none in M015-E"
+}

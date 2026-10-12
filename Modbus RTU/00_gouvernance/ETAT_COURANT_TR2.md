@@ -1,10 +1,16 @@
 # État courant TR2 — référence reconstruite
 
-Mise à jour : 12 octobre 2026. Mission `TR2-20261012-M015-D-FIFO-ACTIVE-READBACK`.
+Mise à jour : 12 octobre 2026. Mission `TR2-20261012-M015-E-ACQUISITION-DECISION`.
 
 **Ce document est un nouvel état de référence reconstruit à partir de preuves vérifiables. Il n'est pas une restitution du journal historique HP.** Sa création a été explicitement autorisée par l'utilisateur pour la mission `T1000-20261010-CLOTURE-001`, après escalade AGENTS.md §18. Aucun original n'a été retrouvé dans l'historique Git, les répertoires Linux locaux ou les documents Windows accessibles. Les archives d'échanges du 8 octobre mentionnent un journal local HP, sans en fournir le contenu. Aucun état historique inconnu n'est inventé.
 
-## État opérationnel actuel — M015-D, 12 octobre 2026
+## État opérationnel actuel — M015-E, 12 octobre 2026
+
+- **PRÉPARÉ, décision documentaire** : garder direct A pour démonstrateurRAM borné ;viserFIFO128bursts puisDMA/serviceV1 aprèsqualification. Prochainepreuve :wire↔RAM88/87/BA à625kHz siinstrument3,3V/4canaux identifié ;fiche avecpoints àconfirmer/masse/timing/profondeur/critères, aucun câblage demandé.
+- **VÉRIFIÉ horsligne** :468recordsD reconstruits37440octets identiques auCSV ;CTRL2seulement2writes,26/28divergencesactives et0/32figées conservées. CalculsFIFO128+status≥1,500019Mbit/s ;625kHzinsuffisant,burst128897octets reste souslimiteSPI3documentée1024. Vitessesplushautes/DMA/flux/stockageNONQUALIFIÉS ;V1inchangée.
+- **PRÉSERVÉ** :aucunhardware/test/build/flash/debug/HP/FRAM/SD ;M014étathistoriqueD inchangé, pasnouveaurelevé. Epublication/relectureenattente,M015INPROGRESS etB/C/DBLOCKED conservés ;archivesD exactes etworktrees/stashespréservés.
+
+## État opérationnel antérieur — M015-D, 12 octobre 2026
 
 - **OBSERVÉ, défaut discriminé / BLOCKED cause précise** : campagneunique468transactions/28groupes actifs puis32figés. CTRL2single81 attendu :80×23/81×2/02×2/00×1, burst07..0A toujours81 ;26/28divergences. AprèscoupureCTRL1 sansvidange,32/32comparaisonsconcordantes. WHO7B/CTRL3=44stables, HALerrors0 ;28statutsgroupésmonotones1→256. Pas proofwire ni causefastpollB ; aucunecorrection/XYZ/DATA_OUT.
 - **VALIDÉ logiciel / M014 PRÉSERVÉ** : test ciblé neuf1/1 etcrossdéfaut/profilréussis ;A/B/Cnonrejouées. Contrôlescapteurrestaurés0/0/0/0/0/4/0 ; imageM014restaurée/Flash2Mio byte-identique, FRAMgen12/configUNAVAILABLE/SDOFF/IRQ49-66/faults0 ;2FC03derepriseB0/B1réussies,MCUrunning. AucuneFRAM/SDdansprobe,partitionpréservée. M015-D BLOCKED,M015 IN PROGRESS ; prochainepreuvewire↔RAM àpréparer avecinstrumentidentifié/contratdistinct.

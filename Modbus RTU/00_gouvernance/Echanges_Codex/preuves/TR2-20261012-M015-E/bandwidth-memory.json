@@ -1,0 +1,149 @@
+{
+  "assumptions": {
+    "odr_hz": 26667,
+    "axes": 3,
+    "spi_full_duplex_one_clock_per_bit": true,
+    "command_bytes_per_transaction": 1,
+    "FIFO_word_bytes": 7,
+    "status_transaction_bytes": 3,
+    "burst_words": 128,
+    "SPI3_documented_transfer_limit": 1024,
+    "GPIO_HAL_DMA_CPU_overhead_excluded": true,
+    "clock_hz_nominal": 160000000
+  },
+  "sensor_period_us": 37.4995312558593,
+  "cpu_cycles_per_xyz": 5999.925000937488,
+  "raw_xyz_bytes_per_second": 160002,
+  "FIFO_bytes_per_second": 186669,
+  "FIFO_512word_fill_ms": 19.199760002999962,
+  "burst128_fill_ms": 4.799940000749991,
+  "remaining384words_ms": 14.399820002249971,
+  "burst_transfer_bytes": 897,
+  "double_TX_RX_pingpong_bytes": 3588,
+  "alternatives": {
+    "direct_STATUS_plus_XYZ": {
+      "wire_bytes_per_xyz": 9,
+      "minimum_wire_bit_rate": 1920024,
+      "rates": [
+        {
+          "spi_hz": 625000,
+          "ideal_max_xyz_per_second": 8680.555555555555,
+          "wire_utilization_at_ODR_percent": 307.20383999999996,
+          "wire_time_us_per_xyz": 115.19999999999999
+        },
+        {
+          "spi_hz": 2500000,
+          "ideal_max_xyz_per_second": 34722.22222222222,
+          "wire_utilization_at_ODR_percent": 76.80095999999999,
+          "wire_time_us_per_xyz": 28.799999999999997
+        },
+        {
+          "spi_hz": 5000000,
+          "ideal_max_xyz_per_second": 69444.44444444444,
+          "wire_utilization_at_ODR_percent": 38.400479999999995,
+          "wire_time_us_per_xyz": 14.399999999999999
+        },
+        {
+          "spi_hz": 10000000,
+          "ideal_max_xyz_per_second": 138888.88888888888,
+          "wire_utilization_at_ODR_percent": 19.200239999999997,
+          "wire_time_us_per_xyz": 7.199999999999999
+        }
+      ]
+    },
+    "FIFO_one_word_plus_STATUS": {
+      "wire_bytes_per_xyz": 11,
+      "minimum_wire_bit_rate": 2346696,
+      "rates": [
+        {
+          "spi_hz": 625000,
+          "ideal_max_xyz_per_second": 7102.272727272727,
+          "wire_utilization_at_ODR_percent": 375.47136,
+          "wire_time_us_per_xyz": 140.8
+        },
+        {
+          "spi_hz": 2500000,
+          "ideal_max_xyz_per_second": 28409.090909090908,
+          "wire_utilization_at_ODR_percent": 93.86784,
+          "wire_time_us_per_xyz": 35.2
+        },
+        {
+          "spi_hz": 5000000,
+          "ideal_max_xyz_per_second": 56818.181818181816,
+          "wire_utilization_at_ODR_percent": 46.93392,
+          "wire_time_us_per_xyz": 17.6
+        },
+        {
+          "spi_hz": 10000000,
+          "ideal_max_xyz_per_second": 113636.36363636363,
+          "wire_utilization_at_ODR_percent": 23.46696,
+          "wire_time_us_per_xyz": 8.8
+        }
+      ]
+    },
+    "FIFO_burst128_plus_STATUS": {
+      "wire_bytes_per_xyz": 7.03125,
+      "minimum_wire_bit_rate": 1500018.75,
+      "rates": [
+        {
+          "spi_hz": 625000,
+          "ideal_max_xyz_per_second": 11111.111111111111,
+          "wire_utilization_at_ODR_percent": 240.00300000000001,
+          "wire_time_us_per_xyz": 90.0
+        },
+        {
+          "spi_hz": 2500000,
+          "ideal_max_xyz_per_second": 44444.444444444445,
+          "wire_utilization_at_ODR_percent": 60.000750000000004,
+          "wire_time_us_per_xyz": 22.5
+        },
+        {
+          "spi_hz": 5000000,
+          "ideal_max_xyz_per_second": 88888.88888888889,
+          "wire_utilization_at_ODR_percent": 30.000375000000002,
+          "wire_time_us_per_xyz": 11.25
+        },
+        {
+          "spi_hz": 10000000,
+          "ideal_max_xyz_per_second": 177777.77777777778,
+          "wire_utilization_at_ODR_percent": 15.000187500000001,
+          "wire_time_us_per_xyz": 5.625
+        }
+      ]
+    }
+  },
+  "windows": [
+    {
+      "samples": 4096,
+      "duration_ms_at_ODR": 153.5980800239997,
+      "raw_3int16_bytes": 24576,
+      "three_int32_bytes": 49152,
+      "VibrationSample_if_ABI_size16_bytes": 65536
+    },
+    {
+      "samples": 8192,
+      "duration_ms_at_ODR": 307.1961600479994,
+      "raw_3int16_bytes": 49152,
+      "three_int32_bytes": 98304,
+      "VibrationSample_if_ABI_size16_bytes": 131072
+    },
+    {
+      "samples": 16384,
+      "duration_ms_at_ODR": 614.3923200959988,
+      "raw_3int16_bytes": 98304,
+      "three_int32_bytes": 196608,
+      "VibrationSample_if_ABI_size16_bytes": 262144
+    },
+    {
+      "samples": 32768,
+      "duration_ms_at_ODR": 1228.7846401919976,
+      "raw_3int16_bytes": 196608,
+      "three_int32_bytes": 393216,
+      "VibrationSample_if_ABI_size16_bytes": 524288
+    }
+  ],
+  "RAM_linker_bytes": 786432,
+  "permanent_M014_data_bss_bytes": 62936,
+  "minimum_stack_heap_bytes": 2560,
+  "RAM_residual_before_new_buffers_and_worst_case_stack": 720936
+}

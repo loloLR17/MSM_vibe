@@ -137,3 +137,7 @@ M014 restauréeexactement (Flash2Mio identique), FRAMgen12/configUNAVAILABLE, SD
 ## Actualisation M015-D — 12 octobre 2026
 
 **M015-D BLOCKED pour cause précise / fiabilité FIFO active complète ; M015 IN PROGRESS.** Diagnosticunique :26/28divergences CTRL2single↔burst pendantremplissage,0/32aprèsentrée coupée/FIFOconservée ;WHO/CTRL3stables,28statutsgroupésmonotones1→256. Défautdelecturelocalisé parcontexte, causeSPI/MCU/capteur etfastpollB nonisolés, aucunecorrectionheuristiqueouqualificationXYZ/cadence. M014restauréexactement,Flash2Mioidentique,contrôleminimalB0/B1passé ;FRAMgen12/SDOFF/partitionpréservée. Suite :preuvewire↔RAM88/87/BA avecinstrumentlogiqueidentifié etcontratdistinct, sansrejouer acquisA/B/C/D.
+
+## Actualisation M015-E — 12 octobre 2026
+
+Décision documentaire PRÉPARÉE : directA commeRAMdemo borné ;FIFO128bursts commevoieV1 àqualifier, DMA/service ensuite si nécessaire. Débit625kHz insuffisant (FIFO128+status≥1,500019Mbit/s), SPI3limité imposebatchs sous1024octets ;128mots=897octets. Prochaineactionproposée :mesurewire↔RAM ciblée88/87/BA à625kHz avecinstrumentidentifié etcontratdistinct, aucunbranchementsupposé. Enattente,analyses/contrats horsligne surdonnéesA, pas nouvellescaptures. M015 IN PROGRESS,B/C/DBLOCKED conservés,stockageV1/READYtoujoursindisponibles ;aucuntestouhardware exécuté enE.
