@@ -1,10 +1,15 @@
 # État courant TR2 — référence reconstruite
 
-Mise à jour : 12 octobre 2026. Mission `TR2-20261012-M015-H-CTRL1-DIFFERENTIAL`.
+Mise à jour : 12 octobre 2026. Mission `TR2-20261012-M015-I-GROUPED-FIFO-SOLUTION`.
 
 **Ce document est un nouvel état de référence reconstruit à partir de preuves vérifiables. Il n'est pas une restitution du journal historique HP.** Sa création a été explicitement autorisée par l'utilisateur pour la mission `T1000-20261010-CLOTURE-001`, après escalade AGENTS.md §18. Aucun original n'a été retrouvé dans l'historique Git, les répertoires Linux locaux ou les documents Windows accessibles. Les archives d'échanges du 8 octobre mentionnent un journal local HP, sans en fournir le contenu. Aucun état historique inconnu n'est inventé.
 
-## État opérationnel actuel — M015-H, 12 octobre 2026
+## État opérationnel actuel — M015-I, 12 octobre 2026
+
+- **IN_PROGRESS, checkpoint conservation** : mission/rapport H archivés exacts, artefacts H rehashés, worktrees/stashes préservés. Adaptation du harness vers contrôles groupés à préparer et tester ; aucun acquis A-H rejoué.
+- **PHYSIQUE REPORTÉ** : budget annoncé12%, aucun accès cible/flash/reset/HP/média en I. Dernier état H : M014-H restauré/Flash identique/gen12/SDOFF/MCUrunning ; état historique, pas nouvelle observation. Campagne unique et restauration à assurer après renouvellement. M015 IN PROGRESS, V1 inchangée.
+
+## État opérationnel antérieur — M015-H, 12 octobre 2026
 
 - **OBSERVÉ, diagnostic exploitable** : campagne unique code54e8deb,43transactions/21,392ms. S G G S actif = A8/A8/A8/50 immédiatement et après20,276ms ; arrêté/baseline=00 partout. Deux simples actifs corrects/deux incorrects/quatre groupés corrects ; première divergence trace27/CTRL1_XL10 attenduA8/reçu50/HAL_OK, result9/restoration0. Association à position/historique et actif, pas cause électrique/HAL attribuée ; aucun fallback/FIFO/XYZ/rejeu.
 - **VALIDÉ logiciel / M014 PRÉSERVÉ** :53scénarios ciblés et cross-build défaut/profil réussis, gardes/V1 inchangés. NVIC sixsnapshots conforme au profil sansIRQexternes, ISPRFFFFFFFF absent ; pas HOTPLUG. Septcontrôles restaurés0/0/0/0/0/4/0 et Flash2Mio byte-identique ; reprise HP B0/B1 réussie, journal complet hash7bb9a159… ; FRAMgen12/configUNAVAILABLE/SDOFF/IRQ49-66/faults0/MCUrunning, aucun accès partition/écriture média.
