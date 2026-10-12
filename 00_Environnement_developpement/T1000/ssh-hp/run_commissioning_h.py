@@ -12,6 +12,9 @@ def command(task,metadata,gate=None):
     body='& {\n'+Path(__file__).with_name('commissioning-h.ps1').read_text()+'\n} -Task '+quote(task)
     for param,key in [('PackageName','package_name'),('ExpectedZipHash','zip_sha256'),('ExpectedManifestHash','manifest_sha256'),('ExpectedB0Hash','b0_sha256')]:body+=' -'+param+' '+quote(metadata[key])
     if gate:body+=' -GateUtc '+quote(gate)
+    if 'run_name' in metadata:
+        if metadata['run_name'] not in ('physical-once','physical-after-b1-fix'):raise ValueError('Unreviewed run name')
+        body+=' -RunName '+quote(metadata['run_name'])
     bootstrap="[Console]::InputEncoding=New-Object System.Text.UTF8Encoding($false); & ([ScriptBlock]::Create([Console]::In.ReadToEnd()))"
     encoded=base64.b64encode(bootstrap.encode('utf-16le')).decode()
     return [SSH,'-T','-o','BatchMode=yes','-o','StrictHostKeyChecking=yes','-o','ConnectTimeout=10','-o','ServerAliveInterval=5','-o','ServerAliveCountMax=2','tr2-hp','powershell.exe -NoProfile -NonInteractive -EncodedCommand '+encoded],body.encode()

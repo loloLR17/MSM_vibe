@@ -1,7 +1,8 @@
 param(
  [ValidateSet('Prepare','Offline','Physical')][string]$Task,
  [string]$PackageName,[string]$ExpectedZipHash,[string]$ExpectedManifestHash,
- [string]$ExpectedB0Hash,[string]$GateUtc
+ [string]$ExpectedB0Hash,[string]$GateUtc,
+ [ValidateSet('physical-once','physical-after-b1-fix')][string]$RunName='physical-once'
 )
 $ErrorActionPreference='Stop'; $ProgressPreference='SilentlyContinue'
 [Console]::OutputEncoding=New-Object System.Text.UTF8Encoding($false)
@@ -51,7 +52,7 @@ try {
   if($age -lt 0 -or $age -gt 30){throw 'Stale target baseline; no port opened'}
   $ports=@(Get-CimInstance Win32_PnPEntity|Where-Object{$_.Name -match '\(COM7\)' -and $_.Status -eq 'OK' -and $_.Service -eq 'FTSER2K'})
   if($ports.Count -ne 1){throw 'Expected FT232 COM7 not present'}
-  $run=Join-Path $package 'physical-once'
+  $run=Join-Path $package $RunName
   if(Test-Path -LiteralPath $run){throw 'Physical procedure already attempted; no automatic retry'}
   New-Item -ItemType Directory -Path $run|Out-Null
   $gate=[ordered]@{task=$Task;utc=[DateTimeOffset]::UtcNow.ToString('o');baselineUtc=$GateUtc;maximumRequests=9;retries=0;manifest=$ExpectedManifestHash;expectedB0=$ExpectedB0Hash}
