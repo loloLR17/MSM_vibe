@@ -199,6 +199,11 @@ ABIresult4040/Trace40/Preclose76,little-endian ;official_words count×7seulement
 | mode0 | 54764 | `ef39869a03b7a79e3a71ee88bede887eea3b40e3a81b49c54a3b2ee11e8b5921` | FLASH_VERIFY_READBACK_EXACT |
 | confirm | 54780 | `7ce311a82a5c2fc70ea7cd143590de1216906b385aead41f4f7f9f86ce85fd9f` | BUILD_SEUL |
 
-Pushnormal HEAD:refs/heads/main prévu pources résultats ;relecture distante à
-consigner aprèspublication. Aucunmerge/rebase/force/reset,worktreepropre attendu.
+Résultats publiés au `d46a3d24e310b506313be71fb3a3eb01446e7c69`, message
+«M015-O: preserve real ST demo runs and separate FIFO getter and SPI-mode findings».
+Push normal `HEAD:refs/heads/main` réussi ; fetch puis **128 fichiers intégralement
+relus et byte-identiques**. Cette dernière publication documentaire consigne la
+preuve ; son SHA sera communiqué après contrôle, sans autoréférence. Worktree O
+propre après publication, original main historique82169af conservé propre,
+stashes et anciens worktrees préservés. Aucun merge/rebase/force/reset.
 BLOCKED technique maintenu :publication du rapport ne qualifie pas le FIFO XYZ.

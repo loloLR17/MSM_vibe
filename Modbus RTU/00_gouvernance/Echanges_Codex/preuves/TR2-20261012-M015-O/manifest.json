@@ -727,6 +727,10 @@
     "bytes": 9,
     "sha256": "22dbe6b7b70a64966e31813e597db3e863492d341bee2fb05c0e8864773387af"
   },
+  "publication-readback.json": {
+    "bytes": 13032,
+    "sha256": "4a4f8f64b7d7a1f1614bfc53bca76afc21097e2e76e2e9a2c1ae3fd7f09e8d90"
+  },
   "level10-readback-reset-server.log": {
     "bytes": 623,
     "sha256": "b3d9d492f3dbe5c52d35c5d36eeb522d025c66f64051f52dfc439434c79382f3"
