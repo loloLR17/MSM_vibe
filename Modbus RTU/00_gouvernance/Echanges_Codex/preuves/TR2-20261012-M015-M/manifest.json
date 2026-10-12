@@ -511,6 +511,10 @@
     "bytes": 530,
     "sha256": "3203c2a65c9742529c7069fcb892ab869b87e9ec39fa69fc49fa48f33346ff2b"
   },
+  "physical-publication-readback.json": {
+    "bytes": 12891,
+    "sha256": "55daf3014ebaddf4a7ba5d35ecc4f2f94c2fd3be736549c2fb32e18c550fef48"
+  },
   "fifo-O0-spi-compile.txt": {
     "bytes": 954,
     "sha256": "2eab8465d9a3e63f3e14e4982b7d654fdf1c0dd2d9750ac82dcb98caeb427c93"

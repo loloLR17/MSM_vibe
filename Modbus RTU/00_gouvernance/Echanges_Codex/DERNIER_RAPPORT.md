@@ -145,6 +145,13 @@ avec sauvegarde/restaurationM014 propres au principal sousmission dédiée.
 
 Git : worktree`codex/m015-m` basé surmain réel3e14710 ; commits propres vers
 `HEAD:refs/heads/main`, aucune fusion/rebase/reset/force. Rapport final et
-preuves préparés pour push normal ; leur relecture distante reste à consigner.
+preuves publiés au commit `281eadaa166c8723305c9db774973255f413c37b`, message
+«M015-M: preserve physical SPI comparison and safely stop secondary sensor» ;
+push normal réussi, fetch puis **127fichiers relus intégralement byte-identiques**.
+Le SHA exact du firmware cleanup est celui de ce commit (sources identiques à
+son build), tandis que les deux acquisitions évaluent a7a2ebc. WorktreeM propre
+après publication ; dépôt principal main historique82169af propre et préservé.
+Une dernière publication documentaire consigne cette relecture ; son SHA distant
+sera fourni après contrôle dans la réponse finale, sans autoréférence.
 BLOCKED est **technique**, fenêtreFIFO512/XYZ non qualifiée ; aucune validation
 intermédiaire utilisateur attendue pour terminer la publication.
