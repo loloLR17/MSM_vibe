@@ -32,6 +32,7 @@ if(TR2_STM32_MODBUS_DIAGNOSTIC)
     endif()
 endif()
 
+option(TR2_STM32_BURST_CAPTURE "Bounded FIFO bursts128 RAM capture, no continuous stream" OFF)
 option(TR2_STM32_ACTIVE_READBACK "Bounded active FIFO status diagnostic, no data drain" OFF)
 option(TR2_STM32_REGISTER_PROBE "Read-only bounded SPI register reliability diagnostic" OFF)
 option(TR2_STM32_FIFO_CAPTURE "Bounded RAM-only FIFO diagnostic" OFF)
@@ -90,6 +91,14 @@ if(TR2_STM32_ACTIVE_READBACK AND (TR2_STM32_REGISTER_PROBE OR
     TR2_STM32_COMMISSIONING_READONLY OR TR2_STM32_MODBUS_DIAGNOSTIC OR
     TR2_STM32_RS485_TX_QUALIFIED OR TR2_STM32_IRQ_DIAGNOSTICS))
     message(FATAL_ERROR "Active FIFO readback is isolated from other profiles and TX")
+endif()
+
+if(TR2_STM32_BURST_CAPTURE AND (TR2_STM32_ACTIVE_READBACK OR
+    TR2_STM32_REGISTER_PROBE OR TR2_STM32_FIFO_CAPTURE OR
+    TR2_STM32_ACQUISITION_CAPTURE OR TR2_STM32_PRODUCTION OR
+    TR2_STM32_MANUFACTURING OR TR2_STM32_COMMISSIONING_READONLY OR
+    TR2_STM32_MODBUS_DIAGNOSTIC OR TR2_STM32_RS485_TX_QUALIFIED OR TR2_STM32_IRQ_DIAGNOSTICS))
+    message(FATAL_ERROR "FIFO burst capture is isolated from all other profiles and TX")
 endif()
 
 set(TR2_FIRMWARE_ROOT "${CMAKE_CURRENT_SOURCE_DIR}/../..")
@@ -156,6 +165,7 @@ add_executable(tr2_stm32_p11c
     stm32_iis3dwb_fifo_capture.c
     stm32_iis3dwb_register_probe.c
     stm32_iis3dwb_active_readback.c
+    stm32_iis3dwb_burst_capture.c
     stm32_modbus_application.c
     stm32_modbus_diagnostic.c
     stm32_production_runtime.c
@@ -190,6 +200,7 @@ if(TR2_STM32_PRODUCTION OR TR2_STM32_MANUFACTURING)
     target_include_directories(tr2_stm32_p11c PRIVATE ${CMAKE_CURRENT_BINARY_DIR}/generated)
 endif()
 target_compile_definitions(tr2_stm32_p11c PRIVATE
+    TR2_STM32_BURST_CAPTURE=$<BOOL:${TR2_STM32_BURST_CAPTURE}>
     TR2_STM32_ACTIVE_READBACK=$<BOOL:${TR2_STM32_ACTIVE_READBACK}>
     TR2_STM32_REGISTER_PROBE=$<BOOL:${TR2_STM32_REGISTER_PROBE}>
     TR2_STM32_FIFO_CAPTURE=$<BOOL:${TR2_STM32_FIFO_CAPTURE}>

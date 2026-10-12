@@ -1,10 +1,15 @@
 # État courant TR2 — référence reconstruite
 
-Mise à jour : 12 octobre 2026. Mission `TR2-20261012-M015-E-ACQUISITION-DECISION`.
+Mise à jour : 12 octobre 2026. Mission `TR2-20261012-M015-F-FIFO-BURST-FEASIBILITY`.
 
 **Ce document est un nouvel état de référence reconstruit à partir de preuves vérifiables. Il n'est pas une restitution du journal historique HP.** Sa création a été explicitement autorisée par l'utilisateur pour la mission `T1000-20261010-CLOTURE-001`, après escalade AGENTS.md §18. Aucun original n'a été retrouvé dans l'historique Git, les répertoires Linux locaux ou les documents Windows accessibles. Les archives d'échanges du 8 octobre mentionnent un journal local HP, sans en fournir le contenu. Aucun état historique inconnu n'est inventé.
 
-## État opérationnel actuel — M015-E, 12 octobre 2026
+## État opérationnel actuel — M015-F, 12 octobre 2026
+
+- **VALIDÉ logiciel / PRÉPARÉ physique** :harnessRAM deuxbursts128,mode3/2,5MHz,FIFOfigée256→128→0,configFIFOenburst,pasCTRL2singlecommevérité ;critèresintégrité/restauration7registres. Test neuf1/1 etcrossdéfaut/profilréussis,aucuneproduction/média/DMA modifiés. Préflightenpréparation,unecampagnepermise nonencoreexécutée ;BLOCKEDprovisoire,M015INPROGRESS.
+- V1inchangée :256mots9,6msnevalentpas4096..32768/continuité/store-and-forward ;aucunequalificationFFT/ODR/SD. ArchivesEexactes,worktreeFisolé etanciensworktrees/stashespréservés. Preuveslocales /home/lolo/dev/msm/reports/TR2-mission015-F-20261012T145521Z.
+
+## État opérationnel antérieur — M015-E, 12 octobre 2026
 
 - **PRÉPARÉ, décision documentaire** : garder direct A pour démonstrateurRAM borné ;viserFIFO128bursts puisDMA/serviceV1 aprèsqualification. Prochainepreuve :wire↔RAM88/87/BA à625kHz siinstrument3,3V/4canaux identifié ;fiche avecpoints àconfirmer/masse/timing/profondeur/critères, aucun câblage demandé.
 - **VÉRIFIÉ horsligne** :468recordsD reconstruits37440octets identiques auCSV ;CTRL2seulement2writes,26/28divergencesactives et0/32figées conservées. CalculsFIFO128+status≥1,500019Mbit/s ;625kHzinsuffisant,burst128897octets reste souslimiteSPI3documentée1024. Vitessesplushautes/DMA/flux/stockageNONQUALIFIÉS ;V1inchangée.
