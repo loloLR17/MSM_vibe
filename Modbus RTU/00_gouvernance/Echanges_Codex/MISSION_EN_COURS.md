@@ -1,8 +1,8 @@
 ---
-mission_id: TR2-20261013-M015-P-COMPARATIVE-FIFO-ROOT-CAUSE
+mission_id: TR2-20261013-M015-Q-FIFO-REPEATABILITY-WINDOWS
 status: READY
 base_ref: main
-base_sha: c3e85afbd32f38f07687d2f12cf07a96fc2ed6ee
+base_sha: 6ea0468b43aa966a98a4037db5b741a0ec98178f
 author: ChatGPT
 target_branch: main
 allow_commit: true
@@ -11,37 +11,27 @@ allow_flash: true
 allow_debug: true
 ---
 
-# M015-P — Comparaison forensique du FIFO XYZ réussi (M015-I) et du banc ST en échec (M015-O)
+# M015-Q — Qualifier la répétabilité du FIFO XYZ et augmenter progressivement la fenêtre sur le second banc
 
-## Objectif et décision
-L'utilisateur demande de poursuivre sans attendre. **La priorité n'est plus de multiplier les variantes du portage ST**, mais d'expliquer par des preuves la divergence entre :
-- M015-I : sur le TR2 principal, **256 échantillons XYZ FIFO réellement obtenus**, deux bursts de 128, rapport et traces disponibles ;
-- M015-O : sur la seconde NUCLEO + STEVAL-MKI208V1K, fonction officielle ST exécutée, 258 timestamps, 0 XYZ, modes SPI 0 et 3 identiques.
+## Constat de départ / décision
+Le rapport M015-P est publié : sur la seconde NUCLEO, le BIN de contrôle ST strictement identique au M015-O qui ne recevait que 258 timestamps a produit **263 XYZ + 33 timestamps**. Relecture flash et empreinte exactes, zéro erreur de parité/discontinuité/saturation dans cette capture. L'utilisateur a vérifié, débranché et rebranché la nappe entre les essais O/P. **Cause précise non établie** (contact, état initial, alimentation non distingués). La seconde carte et le capteur sont actuellement fonctionnels ; les conserver intacts. Ne pas confondre qualification bornée et garantie de zéro perte ou résolution RCA.
 
-La contre-expertise externe propose de vérifier les octets bruts, le décodage des tags, les écritures/rerelectures de registres et la croissance FIFO. Ne pas adopter ses hypothèses sans confrontation aux preuves : M015-N/O ont déjà fourni les tags bruts/parités, valeurs 07..0A = 00/01/0A/86, CTRL1_XL=AC, et les lectures SPI complètes. **Ne pas refaire inutilement ces tests.**
+## Préparation impérative
+Lire intégralement AGENTS.md, la gouvernance/protocole courant, ETAT_COURANT_TR2.md, DERNIER_RAPPORT M015-P, le comparatif I/J/O/P, les preuves brutes et les sources réellement publiées sur main. Vérifier HEAD réel origin/main, git status, worktrees et stashes avant action. Archiver **sans altération** le contrat M015-P et son rapport conformément au protocole. Ne jamais écraser de travaux locaux ou anciens rapports.
 
-## Préparation gouvernance
-Lire intégralement AGENTS.md, protocole V2, ETAT_COURANT_TR2.md, état réel de main/remote, git status, worktrees et stashes ; préserver tous travaux. Archiver exactement mission M015-O et DERNIER_RAPPORT M015-O selon protocole. Identifier SHA exact de chaque artefact et code testé. Aucune supposition fondée sur une ancienne conversation.
+## Objectif et protocole expérimental
+1. **Répétabilité sans manipulation physique** : réexécuter la même image de contrôle M015-P et la même configuration, après des resets logiciels contrôlés et documentés, avec plusieurs captures bornées (3 au plus), pour établir si les XYZ reviennent de façon stable. Distinguer reset MCU, reset capteur et coupure d'alimentation : ne pas assimiler un reset GDB à un power cycle mesuré. Aucune intervention manuelle sur nappe/module/alimentation n'est demandée.
+2. Avant toute augmentation de fenêtre, établir critères quantifiés : tags bruts/parité, cohérence XYZ distincts, séquence de TAG_CNT, timestamps, registres lus après configuration et cleanup, statut FIFO/overflow, erreurs HAL/SPI, intégrité des buffers, temps et débits réellement mesurés, vérification indépendante de reconstruction des octets. Les métriques ne doivent pas promettre une absence globale de pertes si le protocole ne le démontre pas.
+3. **Fenêtres progressives** : si répétabilité confirmée, préparer et qualifier 512 mots XYZ puis, uniquement si tous les garde-fous restent satisfaits, une acquisition bornée de 4096 XYZ sur la seconde NUCLEO. Distinguer mots FIFO totaux et échantillons XYZ, et documenter l'intercalage timestamp. Prévoir lecture segmentée compatible profondeur FIFO et débit SPI/CPU16MHz, contrôle overflow et budget mémoire/temps, sans troncature silencieuse. Respecter les limites réelles du FIFO IIS3DWB et de la capture GDB ; ne pas supposer qu'une fenêtre 4096 tient simultanément dans le FIFO. Privilégier une acquisition continue drainée par morceaux avec traces exploitables.
+4. Construire d'abord les tests hôte et ARM ciblés pour chaque changement nécessaire ; garder le binaire de contrôle positif M015-P comme témoin immuable et comparer les empreintes. Ne pas modifier driver ST vendor, firmware TR2 principal M014-H ni interfaces V1 gelées. Réutiliser le code existant, aucun refactoring opportuniste. Éviter les essais combinant plusieurs changements.
+5. Si répétabilité échoue ou un garde-fou déclenche, **arrêter immédiatement l'augmentation de fenêtre** ; préserver les captures et décrire exactement l'écart. Ne pas tenter de reproduire un faux contact, de bouger/rebrancher la nappe, d'échanger les capteurs ou de provoquer un état matériel instable. Un éventuel diagnostic d'alimentation/contact nécessitera une mission distincte et des mesures indépendantes, pas une conclusion par association.
+6. Le résultat attendu est une **qualification physique bornée reproductible**, pas la résolution définitive de la cause racine O/P. Si 4096 échoue mais 512 est qualifié, conserver explicitement cet acquis et déclarer l'étape 4096 bloquée, sans masquer le résultat positif.
 
-## Phase A — Audit documentaire et binaire, sans matériel
-1. Retrouver dans le dépôt et preuves archivées **la source exacte M015-I (commit 6c504a9d4035c2922d186a03350963bdac33379b et rapport de qualification physique M015-I)**, ses écritures SPI, initialisation du capteur, séquences FIFO, commandes de lecture, tags bruts, registres pré/post et éventuelles particularités matérielles. Distinguer la réussite physique documentée des hypothèses.
-2. Retrouver la source M015-O (code évalué 906de1ad85f6b3d7d6737bc699f29a482590614d, rapport d46a3d24..., provenance ST, driver f83e74... distinct du gitlink d995...) et ses captures brutes. Conserver les références officielles et différences de versions.
-3. Comparer **registre par registre et transaction par transaction** : reset, BOOT, BDU, IF_INC, CTRL1_XL, CTRL3_C, CTRL10_C, FIFO_CTRL1..4, ordre et délais d'écriture, read-modify-write, FIFO_STATUS1/2, FIFO_DATA_OUT_TAG 0x78 et lecture 7 octets, SPI CS/auto-increment/burst, décodage tag ((raw>>3)&0x1f), échantillons XYZ vs timestamps et éventuelles reconfigurations pendant les bursts. Vérifier les registres à partir de la doc officielle ST, pas d'hypothèses externes.
-4. Examiner en priorité l'écart observé M015-J (FIFO_CTRL3 relu 0x14 contre 0x0A et CTRL4 0x0C contre 0x06 après vidange) sans présumer sa causalité. Examiner aussi **le fait que M015-I réussit sur une autre carte et un autre module** : ne pas confondre différence logicielle et différence matérielle. Si un dump M015-I est inaccessible, consigner précisément la lacune.
-5. Produire un tableau d'équivalence/différences **avec chemins, lignes, commits, extraits de transactions et force de preuve**, et une matrice hypothèse ↔ observation discriminante. Vérifier si le prétendu problème de tag shift >>2 est déjà réfuté par raw bytes (ne pas répéter une assertion non contrôlée). Ne pas conclure « capteur défectueux » ni « SPI mauvais » sans preuve.
-6. Vérifier les sources TR2 déjà fonctionnelles : distinguer lecture directe XYZ de la qualification FIFO XYZ M015-I. Aucun flash du TR2 principal, aucune lecture intrusive du principal, aucun échange de capteur, FRAM/SD/Modbus inchangés.
+## Autorisations matérielles et garde-fous
+`allow_flash: true` et `allow_debug: true` uniquement sur la seconde NUCLEO STLINK SN `0032001F3235510C37333439`, UID `001B00463842501820333157`. **Ne jamais flasher ni debugger la NUCLEO principale** STLINK SN `003500463235510B37333439`, UID `004A003D3842501820333157` dans cette mission. Image/sha/source et identité cible vérifiées avant chaque flash, programmation standard SWD + verify/readback, pas de mass erase, RDP/Option Bytes, restauration/backup 2MiB injustifiés. Les manipulations physiques relèvent de l'utilisateur. Si l'identité cible, la provenance de l'image ou l'état du banc sont incertains, suspendre les opérations physiques. Cleanup sûr et vérifié à chaque essai. Aucun changement matériel implicite.
 
-## Phase B — Diagnostic causal minimal
-Sur la base du comparatif A, choisir **une seule** hypothèse principale justifiée, avec prédiction mesurable et un test de contrôle permettant de la réfuter. Préférer l'exploitation de traces existantes, puis des tests hôte/mock. Si une différence logicielle précise est identifiée, préparer sur le **second banc seulement** un portage minimal de la séquence FIFO qui avait réussi M015-I, en conservant le témoin et en documentant chaque différence par rapport à ST ; ne pas toucher au firmware TR2 principal.
-
-**Autorisation matérielle explicite :** `allow_flash: true` et `allow_debug: true` pour la seconde NUCLEO exclusivement, uniquement si l'audit A révèle une hypothèse discriminante testable et si la chaîne qualifiée est respectée. Ne pas lancer de campagne physique par simple épuisement des hypothèses. Avant chaque flash : SN STLINK `0032001F3235510C37333439`, UID `001B00463842501820333157` ; refuser la première NUCLEO SN `003500463235510B37333439` et UID `004A003D3842501820333157`. Image et empreinte vérifiées, flash normal SWD/verify/readback, sans backup/restauration 2 MiB sur la carte jetable, sans mass erase/Option Bytes/RDP. Préserver trace et cleanup même si le test échoue. Au plus **un essai physique causal et son témoin de contrôle**, sans réglages heuristiques successifs. Pas de manipulation physique sans utilisateur.
-
-Si le comparatif ne révèle aucune hypothèse réellement discriminante, **s'arrêter après phase A** et publier BLOCKED avec les pièces manquantes ou la mesure indépendante réellement nécessaire (analyseur logique, tension au module, etc.), sans fabriquer de faux succès.
-
-## Livrables et critères
-- Rapport de comparaison M015-I vs M015-O exploitable par ChatGPT et par un expert tiers (Claude), avec tableau détaillé, preuves brutes, SHAs, sources ST, explication du diagnostic de tag, registres et causalité.
-- Code/patch/tests ciblés uniquement si utiles, builds proportionnés ; pas de modification du driver vendor ni du firmware gelé.
-- Statut DONE uniquement si la cause est **établie** par preuves discriminantes et, pour une prétention de résolution physique, FIFO XYZ effectivement observé sur seconde carte ; sinon BLOCKED / diagnostic partiel clairement identifié.
-- Mettre à jour ETAT_COURANT_TR2.md, roadmap pertinente, archives et `DERNIER_RAPPORT.md`, commits/push sur main, vérifier relecture distante des livrables et état Git. Les validations ne doivent jamais être déclarées sans logs effectifs.
-
-Autonomie permanente développement, commit, push, flash et debug appliquée sans solliciter d'approbations répétitives ; interventions physiques et décisions structurantes seulement à l'utilisateur.
+## Livrables et validation
+- Matrice des captures et des resets réellement réalisés, identifiants matériels, binaires/SHAs, traces brutes, analyses indépendantes, mesures de débit, flags FIFO, résultats tests/builds et cleanup.
+- Distinguer **VALIDÉ PHYSIQUE BORNÉ**, **NON TESTÉ**, **BLOCKED** et **CAUSE NON ÉTABLIE** ; aucun « zéro perte » sans démonstration de bout en bout.
+- Préserver les échecs historiques O et la réussite P sans réinterprétation rétroactive. Actualiser état courant/roadmap et archives. Publier `DERNIER_RAPPORT.md` et preuves versionnées sur main, puis vérifier le HEAD distant et relire les artefacts publiés. Signaler toute erreur de publication.
+- Autonomie logicielle/commit/push/flash/debug dans le périmètre sans validations répétées. Ne solliciter l'utilisateur que pour manipulation physique, décision structurante ou risque non maîtrisé.
