@@ -1,10 +1,15 @@
 # État courant TR2 — référence reconstruite
 
-Mise à jour : 12 octobre 2026. Mission `TR2-20261012-M015-C-FIFO-REGISTER-RELIABILITY`.
+Mise à jour : 12 octobre 2026. Mission `TR2-20261012-M015-D-FIFO-ACTIVE-READBACK`.
 
 **Ce document est un nouvel état de référence reconstruit à partir de preuves vérifiables. Il n'est pas une restitution du journal historique HP.** Sa création a été explicitement autorisée par l'utilisateur pour la mission `T1000-20261010-CLOTURE-001`, après escalade AGENTS.md §18. Aucun original n'a été retrouvé dans l'historique Git, les répertoires Linux locaux ou les documents Windows accessibles. Les archives d'échanges du 8 octobre mentionnent un journal local HP, sans en fournir le contenu. Aucun état historique inconnu n'est inventé.
 
-## État opérationnel actuel — M015-C, 12 octobre 2026
+## État opérationnel actuel — M015-D, 12 octobre 2026
+
+- **VALIDÉ logiciel / PRÉPARÉ cible** : diagnostic FIFO active dédié, bruts simples/bursts puis FIFO figée sans DATA_OUT/XYZ ;7registres volatils sauvegardés/restaurés, aucune FRAM/SD/UART. Test ciblé neuf1/1 et cross-build défaut/profil réussis. Campagnes A/B/C nonrejouées ; état permanent M014 à sauvegarder/vérifier avant l’unique campagne D. BLOCKED provisoire ; M015 IN PROGRESS.
+- Archives C exactes depuis37b97f7 ; worktree D isolé, autres worktrees/stashes préservés. Preuves locales /home/lolo/dev/msm/reports/TR2-mission015-D-20261012T135359Z.
+
+## État opérationnel antérieur — M015-C, 12 octobre 2026
 
 - **VALIDÉ logiciel seulement** : audit statique A/B/ST/HAL ; profil isolé de lectures SPI,512transactions maximum, sans écriture capteur ou média ni FIFO/XYZ/UART. Nouveau test ciblé1/1, cross-build défaut/profil réussis ; validations A/B inchangées nonrejouées.
 - **OBSERVÉ** : GDB seul identifie image permanente M014 et UID attendu, sauvegardeFlash2Mio/RAM768K ; FRAMgen12/IRQ49-66/faults0/configUNAVAILABLE, cible détachée running. Diagnostic unique exécuté :512lectures/128ms, WHO7B/CTRL3=04/FIFOvide0, singles etbursts concordants, HALerrors0 ; causeB etfiabilitéFIFOactive nonisolées. ImageM014 restaurée/Flash2Mio byte-identique,2lecturesderepriseB0/B1réussies, gen12/configUNAVAILABLE/SDOFF, MCUrunning. M015-C BLOCKED, M015 globale IN PROGRESS.

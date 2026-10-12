@@ -105,6 +105,13 @@ add_executable(tr2_rtu_request platform/host/rtu_request.c)
 target_link_libraries(tr2_rtu_request PRIVATE tr2_core)
 
 enable_testing()
+add_executable(test_stm32_active_readback tests/platform/test_stm32_active_readback.c
+    platform/stm32/stm32_iis3dwb_active_readback.c)
+target_include_directories(test_stm32_active_readback PRIVATE
+    tests/platform/stm32_hal_register_mock platform/stm32)
+target_compile_definitions(test_stm32_active_readback PRIVATE TR2_STM32_ACTIVE_READBACK=1)
+add_test(NAME stm32_active_readback COMMAND test_stm32_active_readback)
+
 add_executable(test_stm32_register_probe tests/platform/test_stm32_register_probe.c
     platform/stm32/stm32_iis3dwb_register_probe.c)
 target_include_directories(test_stm32_register_probe PRIVATE
