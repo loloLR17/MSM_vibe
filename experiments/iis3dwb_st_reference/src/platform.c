@@ -99,19 +99,51 @@ int platform_init(stmdev_ctx_t *ctx,BenchClock *clock)
   GPIO_InitTypeDef g={0};RCC_OscInitTypeDef osc={0};RCC_ClkInitTypeDef clk={0};
   __HAL_RCC_PWR_CLK_ENABLE();
   if(HAL_PWREx_ConfigSupply(PWR_SMPS_SUPPLY)!=HAL_OK)return -1;
-  osc.OscillatorType=RCC_OSCILLATORTYPE_MSI;osc.MSIState=RCC_MSI_ON;
-  osc.MSIClockRange=RCC_MSIRANGE_2;osc.MSICalibrationValue=RCC_MSICALIBRATION_DEFAULT;
+#if BENCH_CORE_MHZ == 160
+  if(HAL_PWREx_ControlVoltageScaling(PWR_REGULATOR_VOLTAGE_SCALE1)!=HAL_OK)return -1;
+  osc.OscillatorType=RCC_OSCILLATORTYPE_MSI|RCC_OSCILLATORTYPE_HSI;
+  osc.HSIState=RCC_HSI_ON;osc.HSICalibrationValue=RCC_HSICALIBRATION_DEFAULT;
+#else
+  osc.OscillatorType=RCC_OSCILLATORTYPE_MSI;
+#endif
+  osc.MSIState=RCC_MSI_ON;
+#if BENCH_CORE_MHZ == 160
+  osc.MSIClockRange=RCC_MSIRANGE_4;
+#else
+  osc.MSIClockRange=RCC_MSIRANGE_2;
+#endif
+  osc.MSICalibrationValue=RCC_MSICALIBRATION_DEFAULT;
+#if BENCH_CORE_MHZ == 160
+  osc.PLL.PLLState=RCC_PLL_ON;osc.PLL.PLLSource=RCC_PLLSOURCE_MSI;
+  osc.PLL.PLLMBOOST=RCC_PLLMBOOST_DIV1;osc.PLL.PLLM=1;
+  osc.PLL.PLLN=80;osc.PLL.PLLP=2;osc.PLL.PLLQ=2;osc.PLL.PLLR=2;
+  osc.PLL.PLLRGE=RCC_PLLVCIRANGE_0;osc.PLL.PLLFRACN=0;
+#else
   osc.PLL.PLLState=RCC_PLL_NONE;
+#endif
   if(HAL_RCC_OscConfig(&osc)!=HAL_OK)return -1;
   clk.ClockType=RCC_CLOCKTYPE_SYSCLK|RCC_CLOCKTYPE_HCLK|RCC_CLOCKTYPE_PCLK1|
     RCC_CLOCKTYPE_PCLK2|RCC_CLOCKTYPE_PCLK3;
-  clk.SYSCLKSource=RCC_SYSCLKSOURCE_MSI;clk.AHBCLKDivider=RCC_SYSCLK_DIV1;
+#if BENCH_CORE_MHZ == 160
+  clk.SYSCLKSource=RCC_SYSCLKSOURCE_PLLCLK;
+#else
+  clk.SYSCLKSource=RCC_SYSCLKSOURCE_MSI;
+#endif
+  clk.AHBCLKDivider=RCC_SYSCLK_DIV1;
   clk.APB1CLKDivider=RCC_HCLK_DIV1;clk.APB2CLKDivider=RCC_HCLK_DIV1;
   clk.APB3CLKDivider=RCC_HCLK_DIV1;
+#if BENCH_CORE_MHZ == 160
+  if(HAL_RCC_ClockConfig(&clk,FLASH_LATENCY_4)!=HAL_OK)return -1;
+#else
   if(HAL_RCC_ClockConfig(&clk,FLASH_LATENCY_0)!=HAL_OK)return -1;
+#endif
   RCC_PeriphCLKInitTypeDef peripheral={0};
   peripheral.PeriphClockSelection=RCC_PERIPHCLK_SPI3;
+#if BENCH_CORE_MHZ == 160
+  peripheral.Spi3ClockSelection=RCC_SPI3CLKSOURCE_HSI;
+#else
   peripheral.Spi3ClockSelection=RCC_SPI3CLKSOURCE_PCLK3;
+#endif
   if(HAL_RCCEx_PeriphCLKConfig(&peripheral)!=HAL_OK ||
      HAL_RCCEx_GetPeriphCLKFreq(RCC_PERIPHCLK_SPI3)!=16000000U)return -1;
   __HAL_RCC_GPIOC_CLK_ENABLE();__HAL_RCC_SPI3_CLK_ENABLE();
@@ -127,7 +159,7 @@ int platform_init(stmdev_ctx_t *ctx,BenchClock *clock)
   spi.Init.CLKPolarity=SPI_POLARITY_HIGH;spi.Init.CLKPhase=SPI_PHASE_2EDGE;
 #endif
   spi.Init.NSS=SPI_NSS_SOFT;
-  #if BENCH_SPI_DIVIDER == 2
+#if BENCH_SPI_DIVIDER == 2
   spi.Init.BaudRatePrescaler=SPI_BAUDRATEPRESCALER_2;
 #elif BENCH_SPI_DIVIDER == 4
   spi.Init.BaudRatePrescaler=SPI_BAUDRATEPRESCALER_4;
