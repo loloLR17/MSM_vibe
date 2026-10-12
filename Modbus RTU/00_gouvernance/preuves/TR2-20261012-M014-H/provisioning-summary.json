@@ -1,0 +1,12 @@
+{
+  "fram_sha256": "d732acc557152180fc394097d6a5269ea2f45c1da387c8643f512318adf92fce",
+  "full_fram_byte_equal_offline_plan": true,
+  "logical_byte_equal": true,
+  "active_image": "B",
+  "generation": 12,
+  "logical_version": 2,
+  "config_activation": "UNAVAILABLE_storage_unowned",
+  "single_trigger": true,
+  "reset_no_retry": "stale baseline rejected INVALID_STATE; trigger0; no writes",
+  "host_check_correction": "initial comparison incorrectly used imageA offset; actual header is activeB and both full snapshots already identical"
+}

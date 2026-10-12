@@ -1,0 +1,12 @@
+{
+  "COMMISSIONING_M014_H.json": {
+    "sha256": "4475931529bdc5bc98964ac095f440f77f9b631ce0f6560a93aad41adf793927",
+    "source_sha": "0b2a901e185c9cbf8c02410bf2a29a0a3a75491e",
+    "note": "Snapshot used to generate/build evaluated artifacts; registry provisioning metadata updated afterwards"
+  },
+  "REGISTRE_ATTRIBUTION_TR2.json": {
+    "sha256": "8373b4f352b2a954baee55bf41792814c776a1edd753047ceaa80aacbe52659d",
+    "source_sha": "0b2a901e185c9cbf8c02410bf2a29a0a3a75491e",
+    "note": "Snapshot used to generate/build evaluated artifacts; registry provisioning metadata updated afterwards"
+  }
+}

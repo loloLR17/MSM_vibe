@@ -23,8 +23,8 @@ Capteur de vibrations → acquisition et traitement STM32U575 → registres Modb
 | Mission | Objectif | Statut initial | Découpage indicatif | Critère de sortie |
 |---|---|---|---|---|
 | **M012** | Intégrer le serveur Modbus RTU et le TX RS-485 avec commande DE sûre | EN COURS | Selon résultats Codex | Chemin de réponse implémenté et testé ; qualification physique explicitement distinguée |
-| **M013** | Qualifier le dialogue Modbus physique complet | À FAIRE | 2–3 sous-missions | Lecture répétable de registres STM32 par maître PC ; CRC, exceptions, turnaround et absence de contention vérifiés |
-| **M014** | Connecter la supervision au TR2 physique | IN PROGRESS | 2–3 | Lecture périodique des blocs système, déconnexion et reprise correctement traitées |
+| **M013** | Qualifier le dialogue Modbus physique complet | ACQUIS BORNÉS / RÉSERVES | 2–3 sous-missions | Lecture répétable de registres STM32 par maître PC ; CRC, exceptions, turnaround et absence de contention vérifiés |
+| **M014** | Connecter la supervision au TR2 physique | VALIDÉ PHYSIQUE — CLÔTURE EN COURS | 2–3 | Lecture périodique des blocs système, déconnexion et reprise correctement traitées |
 | **M015** | Qualifier la chaîne d'acquisition vibratoire | À FAIRE | 3–5 | Acquisition physique démontrée ou blocages matériels précisément identifiés |
 | **M016** | Traiter et publier les mesures vibratoires dans les registres V1 | À FAIRE | 2–4 | Valeurs réelles cohérentes, unités, échelles et validité vérifiées dans le mapping gelé |
 | **M017** | Lire les vibrations de bout en bout via Modbus | À FAIRE | 2 | Variation physique retrouvée correctement dans les valeurs lues par le PC |
@@ -71,8 +71,8 @@ Campagne physique reproductible : repos, vibration contrôlée, variation du sig
 | Jalon | Définition | Missions | État initial |
 |---|---|---|---|
 | **J0** | STM32 reçoit une requête Modbus physique | M011 | **VALIDÉ** pour l'essai unique |
-| **J1** | STM32 répond correctement à un maître | M012–M013 | À QUALIFIER |
-| **J2** | Supervision communique avec le TR2 réel | M014 | À FAIRE |
+| **J1** | STM32 répond correctement à un maître | M012–M013 | ACQUIS BORNÉS ; qualification générale ouverte |
+| **J2** | Supervision communique avec le TR2 réel | M014 | VALIDÉ PHYSIQUE B0/B1/perte-reprise ; revue ChatGPT attendue |
 | **J3** | TR2 produit des mesures vibratoires physiques | M015–M016 | À FAIRE |
 | **J4** | Supervision reçoit et conserve les vibrations | M017–M018 | À FAIRE |
 | **J5** | Vibrations réelles visibles dans le Web | M019–M020 | À FAIRE |
@@ -107,3 +107,11 @@ Mettre à jour les statuts uniquement après preuves et contrôle indépendant. 
 ## Actualisation factuelle M014-G — 12 octobre 2026
 
 M014 **IN PROGRESS** : attribution UID96/DeviceId1 acquise, backups FRAM/Flash et audit sensor/SD réalisés, inspecteur/provisioning préparatoire et outil PC borné testés (113 firmware/cross-build, 539 .NET). Cible actuellement en probe lecture seule, identité non provisionnée, aucun nouveau trafic Modbus. Partition microSD préservée ; aucun format ni écriture. Restent manifeste/binding/provisioning puis B0/B1 polling et perte/reprise physiques. J2 n'est pas déclaré validé, M015 reste À FAIRE. M013 conserve ses preuves historiques RX/TX et diagnostic mais la qualification complète (timings, DE/TC, contention, robustesse) n'est pas close. Le rapport intermédiaire G porte les preuves et le point de reprise ; contrôle indépendant ChatGPT non présumé.
+
+## Actualisation M014-H — 12 octobre 2026
+
+**M014 : critères physiques satisfaits, clôture en publication.** Firmwareproduction réel etidentitéFRAM V2/gen12 provisionnée/readbackexact ; B0/B1complets surHP COM7/1152008E1/unit1, polling3+3, timeoutperte de disponibilité du répondant, fermeture/réouverture série, invalidationanciennevaleur/date puisidentiténeuve/B1frais. Uptimebootfigé détecté lors premièrecampagne, corrigé et requalifié physiquement9/11/14→217/219/221s ; RX72/TC8/erreurs0. Deux lecturesfinales réussies surimageproductionpermanente sansfenêtresilence/observer. Journauxcomplets publiés ethashes vérifiés, pas déduction d'un SHAseul.
+
+READY/stockage restent0, configuration UNAVAILABLE sansressourceowned. MicroSDtotalementOFF, aucuneallocation ni écriture des32premiersMio oupartitionLBA65536 ; acquisition/bulkSD/industrie nonqualifiés. Perte de disponibilité survrai bus nequalifie pasretraitdecâble ni coupurealim ; timingDE/TC/dernierstopbit/robustesse/CEM/E4 restentouverts. M013 conserve sa qualificationfonctionnellehistorique bornée, passtatutDONE général. RevueindépendanteChatGPT du rapportH encoreattendue.
+
+**Suite proposée M015, àcontractualiser** : qualification physique capteur/acquisition à partir du WHO_AM_I0x7B acquis, sans répéter les acquis ; activationopérationnelle etressourcesstockage traitées avecautorités/allocations/sauvegardesexplicites. Aucun essaiM015 lancé enH.

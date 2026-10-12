@@ -1,0 +1,40 @@
+{
+  "journal_sha256": "DBCD4482F7CB2CF3CA089BE23D6D2362D4D025BB7B339C6526DF4ECF3136A996",
+  "bytes": 1386,
+  "events": 7,
+  "requests": 2,
+  "responses": 2,
+  "passed": true,
+  "actual_b0_exact": true,
+  "b1": [
+    1,
+    0,
+    0,
+    0,
+    0,
+    9,
+    5,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "finished": "2026-10-12T08:30:40.9939893+00:00",
+  "firmware": {
+    "source_sha": "0b2a901e185c9cbf8c02410bf2a29a0a3a75491e",
+    "profile": "production, observerOFF, silenceOFF, TXqualifiedON",
+    "bin_bytes": 143108,
+    "bin_sha256": "b462c29a775fec17fccf8036b5612742b1366210359bcd3f192c95435740d611",
+    "elf_sha256": "c37ad8370fbfe3da35c0e5c16d7239d18e7d0ad102f33db79a67a029ecfca8de",
+    "no_sd_no_manufacturing_no_observer_symbols": true
+  }
+}

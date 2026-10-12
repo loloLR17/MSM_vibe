@@ -4,6 +4,15 @@ Mise à jour : 12 octobre 2026. Mission `TR2-20261012-M014-H-PRODUCTION-RESUME`.
 
 **Ce document est un nouvel état de référence reconstruit à partir de preuves vérifiables. Il n'est pas une restitution du journal historique HP.** Sa création a été explicitement autorisée par l'utilisateur pour la mission `T1000-20261010-CLOTURE-001`, après escalade AGENTS.md §18. Aucun original n'a été retrouvé dans l'historique Git, les répertoires Linux locaux ou les documents Windows accessibles. Les archives d'échanges du 8 octobre mentionnent un journal local HP, sans en fournir le contenu. Aucun état historique inconnu n'est inventé.
 
+## État opérationnel actuel — M014-H, 2026-10-12T08:37:50.450052+00:00
+
+- **VALIDÉ physiquement dans la portée M014** : identitéFRAMV2/gen12, B0/B1réels, polling3+3/perte de disponibilité/fermeture-réouverture driver/repriseidentité et données fraîches ; uptimeB1corrigé9/11/14→217/219/221s. Deux campagnes9requêtes (première uptimefigé, corrigéevalidante), puis2lectures surimagepermanente ;20requêtes/18réponses/2timeouts planifiés, retry0.
+- **CIBLE EN EXÉCUTION** : production permanente sansobserver ni silence, BIN143108 SHAb462c29a775fec17fccf8036b5612742b1366210359bcd3f192c95435740d611, source0b2a901. STLINK003500463235510B37333439/UID004A003D3842501820333157/DeviceId1/unit1/TR2-000001/MSM. BootrecoveryV2/gen12, IRQ49/66actives, UART/pollerrors0/filevide ;debuggersfermés.
+- **NON QUALIFIÉ opérationnel/industriel** : configuration seulement structurellement valide mais UNAVAILABLE sans ressourcesowned ; READY etstockage0. SDtotalementdésactivée/zéroaccèsH, aucuneallocation/écriture ni risque surpartitionLBA65536. Acquisition, bulkSD/E4, timingDE/TC/CEM/endurance restentouverts ; M013acquis bornés/réserves, pasqualificationgénérale.
+- **VALIDÉ logiciel** :6tests générateur + répétitionoffline backup réel ; nouvelle régressionB1 et113tests/cross-buildsurcorrectif, PC539Gconservés nonrelancés. JournauxHP complets récupérés/hachés/versionnés danspreuves/TR2-20261012-M014-H.
+- **PUBLICATION EN CLÔTURE** : livrables etpreuves physiques prêts ; reportBLOCKED uniquement attente relecturedistantefinale. M014clôturetechnique, revueindépendanteChatGPT attendue ; M015prochaine mission proposée, pasengagée.
+- **GIT / REPRISE** : worktreeactif depublication `/home/lolo/dev/msm/projects/MSM_vibe-M014-H`, branchelocale codex/m014-h-integration, pushnormal versmain ; dépôtoriginalmain82169af et2stashespréservés après divergenceautorisée intégréeisolément, nepasrebase/pullautomatique suroriginal. Preuvescomplètes `/home/lolo/dev/msm/reports/TR2-mission014-H-20261012T073729Z`. HPespacefaible, paquetexistant conservé/réutilisé ; dossierpartiel de secondpackage conservé, seulecopieZIPtemporairedeCodex retirée aprèshashégal àoriginal.
+
 ## Référence et gouvernance de la reconstruction T1000 (historique)
 
 - Référence des sources au début de mission : `main`, `75eba6b431725b858db3ac5380884934026a1475`.
@@ -413,3 +422,7 @@ physiques temporelles/robustesse/production/J1global/E4 inchangées.
 - **OBSERVÉ M014-H après commissioning** : FRAM réellement V2/génération12 activeB, unique trigger réussi, reset et readback262144 identiques à la simulation ; SHAd732acc557152180fc394097d6a5269ea2f45c1da387c8643f512318adf92fce. Plan10 périmé refusé sans réécriture. Cible encore manufacturing en attente, pas serveur actif. HP paquet nouveau371fichiers vérifiés/OFFLINE retour0. Aucune SD accédée, aucun COM7 transmis.
 
 - **OBSERVÉ première campagneH** :9requêtes/8réponses et timeout/reconnexion réels, journal complet vérifié, RX72/TC8/erreurs0. AnomalieuptimeB1figé1s → M014nonclose. Callback producteurstatus opt-in corrigé/113tests+cross réussis sur nouveaucode ; PC539inchangés nonrelancés. Nouvellequalification corrigée nécessaire, pas retryautomatique.
+
+## Clôture physique M014-H — 12 octobre 2026
+
+CritèresB0/B1/polling/perte-reprise effectivement observés surimagecorrigée, confirmé parMCURX72/TC8/erreurs0. Profilpermanent sanssilence flashé/relu/booté puisB0/B1réels lus (2FC03/réponses), journalcomplet1386octets hashDBCD4482F7CB2CF3CA089BE23D6D2362D4D025BB7B339C6526DF4ECF3136A996. Ciblelaisséeenexécution ; aucuneSDaccédée. DernierRapportHporteSHAs/limites/relecturedistante ; suiteM015àcontractualiser.

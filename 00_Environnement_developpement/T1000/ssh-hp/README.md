@@ -132,3 +132,9 @@ Seulement ensuite ouvrir GDB pour observations après. Un log décodé n'est pas
 une capture filaire ni une qualification électrique/temps réel. Fenêtre de
 silence MCU = perte de disponibilité du répondant, pas retrait du câble ;
 reconnexion driver exige B0 neuf et B1 frais. Ne pas rejouer M013-I/M014-C.
+
+Le contrôle final de l'artefact permanent utilise la tâche explicite Steady et
+le dossier neuf physical-steady-final : --system-check, deux FC03 B0/21 puis
+B1/20, retry0, deadline30s et mêmes gardes. La campagne9n'est pas répétée sur
+le profil sanssilence. Les noms permis sont bornés aux trois lots documentésH ;
+un nouveau lot ne constitue pas un retry automatique d'une ancienne tentative.
