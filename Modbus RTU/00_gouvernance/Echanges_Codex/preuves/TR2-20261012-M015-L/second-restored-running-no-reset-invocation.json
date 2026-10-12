@@ -1,0 +1,13 @@
+{
+  "command": [
+    "/mnt/c/ST/STM32CubeCLT_1.22.0/GNU-tools-for-STM32/bin/arm-none-eabi-gdb.exe",
+    "-nx",
+    "-q",
+    "-batch",
+    "-x",
+    "\\\\wsl.localhost\\Debian\\home\\lolo\\dev\\msm\\reports\\TR2-mission015-L-20261012T195811Z\\second-restored-running-no-reset.gdb"
+  ],
+  "sn": "0032001F3235510C37333439",
+  "gdb_exit": 0,
+  "server_exit": 0
+}

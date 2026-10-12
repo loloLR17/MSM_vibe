@@ -1,0 +1,54 @@
+{
+  "stage-A-trace-count.bin": {
+    "bytes": 4,
+    "sha256": "67abdd721024f0ff4e0b3f4c2fc13bc5bad42d0b7851d456d88d203d15aaa450"
+  },
+  "restore-initial-sectors0-3.bin": {
+    "bytes": 32768,
+    "sha256": "793502c0c5feb83e97a4beb8fe953bf6ab50c168426f95ae68555ec71b2ad5cc"
+  },
+  "stage-A-result.bin": {
+    "bytes": 4032,
+    "sha256": "b671759324ac5a90e23ddc227c1eaf13a3a2bcfe3f57b3f26bb04f6d22429ab7"
+  },
+  "stage-A-payload.bin": {
+    "bytes": 1,
+    "sha256": "6e340b9cffb37a989ca544e6bb780a2c78901d3fb33738768511a30617afa01d"
+  },
+  "stage-A-traces.bin": {
+    "bytes": 40,
+    "sha256": "826336d921d59e8c03f60fef7255d3f55b00c99e408100b4a437ec2b5a3e8041"
+  },
+  "flash-before-second.bin": {
+    "bytes": 2097152,
+    "sha256": "fcea004eb0c91af44f8e36ca61206b5f6bf25fd4c5db4dfdab42d1a19dcea9d9"
+  },
+  "flash-after-WHO-full.bin": {
+    "bytes": 2097152,
+    "sha256": "c1bad1491e7fee67bbd29faf3ff08541d6b5b50f9402bda2715b379838997be2"
+  },
+  "stage-A-flash.bin": {
+    "bytes": 31632,
+    "sha256": "375fd90243d34eedb9948aff2ba43daabf24c0d0f0a326be2bbee49c1d8f9c21"
+  },
+  "flash-restored-full.bin": {
+    "bytes": 2097152,
+    "sha256": "fcea004eb0c91af44f8e36ca61206b5f6bf25fd4c5db4dfdab42d1a19dcea9d9"
+  },
+  "flash-before-first.bin": {
+    "bytes": 2097152,
+    "sha256": "fcea004eb0c91af44f8e36ca61206b5f6bf25fd4c5db4dfdab42d1a19dcea9d9"
+  },
+  "ram-before.bin": {
+    "bytes": 786432,
+    "sha256": "a7f0d277fdb0a8a8389b7ed39f76c2e9120463d196718fab29cadd076cb68b62"
+  },
+  "stage-A-ram.bin": {
+    "bytes": 786432,
+    "sha256": "a3d575913d976165dfe4d631f0465737e5ffb4a302ecd725a2950d8a0c9e8adf"
+  },
+  "uid.bin": {
+    "bytes": 12,
+    "sha256": "b3ceb0901bec9f4712319f70be69121bf7c79e87a332af3f70379f7d99896ed6"
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "command": [
+    "STM32_Programmer_CLI.exe",
+    "-l",
+    "st-link-only"
+  ],
+  "return_code": 0,
+  "observed_probes": [
+    {
+      "index": 0,
+      "sn": "0032001F3235510C37333439",
+      "firmware": "V3J15M7",
+      "board": "NUCLEO-U575ZI-Q"
+    }
+  ],
+  "primary_sn_visible": false,
+  "connection_to_mcu": false,
+  "source": "fields transcribed from actual tool output; original byte stream not saved"
+}

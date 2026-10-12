@@ -1,10 +1,16 @@
 # État courant TR2 — référence reconstruite
 
-Mise à jour : 12 octobre 2026. Mission `TR2-20261012-M015-K-ST-OFFICIAL-REFERENCE`.
+Mise à jour : 12 octobre 2026. Mission `TR2-20261012-M015-L-ST-BENCH-PHYSICAL`.
 
 **Ce document est un nouvel état de référence reconstruit à partir de preuves vérifiables. Il n'est pas une restitution du journal historique HP.** Sa création a été explicitement autorisée par l'utilisateur pour la mission `T1000-20261010-CLOTURE-001`, après escalade AGENTS.md §18. Aucun original n'a été retrouvé dans l'historique Git, les répertoires Linux locaux ou les documents Windows accessibles. Les archives d'échanges du 8 octobre mentionnent un journal local HP, sans en fournir le contenu. Aucun état historique inconnu n'est inventé.
 
-## État opérationnel actuel — M015-K, 12 octobre 2026
+## État opérationnel actuel — M015-L, 12 octobre 2026
+
+- **OBSERVÉ / BLOCKED physique WHO** : seconde NUCLEO SN0032001F3235510C37333439/UID001B00463842501820333157/RevU3,28V ; câblage/GNDmarqué/VDD/VDDIO3,3V confirmés utilisateur. Artefacts ST K rehashés sansrebuild/retests. WHO_ST_STRICT sourcee222dc8 flashé/verify/readback ; unique trigger reçoit00 au lieu7B, HAL_OK/error0/counts0/traceunique, aucunwritecapteur/XYZ. STOPpremierécart : polling/FIFO/STATUS10 nonexécutés. GPIOCShaut/MISOdigitalbas en snapshot, paspreuvewire ni causeattribuée.
+- **RESTAURÉ SECONDE CIBLE / TR2 PRÉSERVÉ** : backupFlash2MiB doublelecture exacte, aprèsWHOtailhors32KiBinchangé, seulssecteurs0..3restaurés depuisbackup ; Flash2MiB entièreidentique SHA fcea004eb0c91af44f8e36ca61206b5f6bf25fd4c5db4dfdab42d1a19dcea9d9. PC08000c80/UIDexact/faults0/detach/serveursexit0, firmwareinitial nonqualifiéfonctionnellement. AucuneconnexionauTR2principal/COM7/média, M014-H resteinchangé sansnouveauconstat.
+- **SUITE** : publier/relire preuves ; avantrepriseexplicitementcadrée, vérificationphysique ciblée MISO/SDO→PC11, orientationnappe/GND/VDDIOjusqu'àMKI208. PasrejouerWHOconsommé/mode3/fallback ici. I256/J4096BLOCKED/M015INPROGRESS inchangés ; erreurmacroGDB corrigée parcapturemémoire seulement, sansautretransactioncapteur. Preuves `/home/lolo/dev/msm/reports/TR2-mission015-L-20261012T195811Z`, archivesK/worktrees/stashes préservés.
+
+## État opérationnel antérieur — M015-K, 12 octobre 2026
 
 - **VALIDÉ LOGICIEL / READY_FOR_PHYSICAL** : projet autonome ST dans `experiments/iis3dwb_st_reference`, pilote/exemples figés et byte-identiques ; WHO readonly, polling et FIFO strict/STATUS10 compilés. CTest2/2 :41scénarios C et5tests Python, quatre images ARM ; mocks seulement. Deux erreurs getter ST reproduites (niveau03F, batching case10 au lieu0A), aucun patch vendeur ni attribution à l'anomalie J.
 - **PRÉPARÉ / NON VÉRIFIÉ PHYSIQUE** : pinout constructeur CN8/PC9..12 ↔ MKIGIBV2 documenté, point GND et référence/révisions/orientation/câblage réel à confirmer. Seconde carte SN/UID non identifiés ; protocole progressif WHO/polling/FIFO et backup/verify/readback préparé. Aucun accès MCU/STLINK/COM7/flash/debug/reset/média, aucun essai pendant montage. M014-H permanent première carte intact, dernier état observé reste celui de J.

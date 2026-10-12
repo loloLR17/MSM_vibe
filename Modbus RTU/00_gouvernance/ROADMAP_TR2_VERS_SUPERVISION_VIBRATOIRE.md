@@ -170,3 +170,8 @@ M014 restauréeexactement (Flash2Mio identique), FRAMgen12/configUNAVAILABLE, SD
 ## Actualisation M015-K — 12 octobre 2026
 
 **READY_FOR_PHYSICAL logiciel, M015 globale IN PROGRESS.** Projet indépendant NUCLEO/U575 + ST IIS3DWB préparé, sources officielles figées et licences/SHA conservés ;41scénarios C/5tests Python/4images ARM réussis. Audit I/J↔ST et pinout constructeur avec point GND/révisions/montage réel encore à confirmer. Défauts getter ST reproduits hors matériel, sans explication causale du refus J. Aucun accès cible/flash/debug/reset/essai pendant montage ; M014-H préservé, I256figé acquis/J4096BLOCKED inchangés. Prochaine étape : confirmation banc et identité certaine seconde carte, sauvegarde et chaîne qualifiée, puis WHO/polling/FIFO bornés suivant protocole. Projet publié au commit e222dc8ddb7cfd0829c655533ac8e646220721f2, 51 livrables relus intégralement et identiques ; statut READY_FOR_PHYSICAL conservé sans qualification physique.
+
+
+## Actualisation M015-L — 12 octobre 2026
+
+**BLOCKED matériel à WHO ; M015 IN PROGRESS.** Bancisolé confirméutilisateur/SN0032001F…/UID001B0046…, artefactsSTK réutilisés. UneseulelectureWHO reçoit00/attendu7B avecHAL_OK ;aucunwritecapteur, polling/FIFOstrict/STATUS10 nonexécutés auSTOP. Sourcee222dc8 intacte, aucunevalidationlogicielleK/I/J/M014rejouée. Secondecible restaurée Flash2MiB entièreexacte au backupfrais/SHAfcea004e…, debugdétaché/faults0 ;TR2principal jamaisaccédé/M014-H préservé. Cause nonattribuée, gettersSTnonatteints, aucunecomparaisoncausaleI/J. Suitecibléephysique MISO/orientationnappe/GND/VDDIO surMKI208 avantrepriseexplicitementcadrée ;pasnouvellevariantepourréussir. Publication/relectureàconsigner.

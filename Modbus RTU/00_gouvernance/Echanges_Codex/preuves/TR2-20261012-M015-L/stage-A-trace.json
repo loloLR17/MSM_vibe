@@ -1,0 +1,12 @@
+{
+  "tick": 4594,
+  "reg": 15,
+  "len": 1,
+  "write": 0,
+  "hal_status": 0,
+  "hal_error": 0,
+  "rx_remaining": 0,
+  "tx_remaining": 0,
+  "payload_offset": 0,
+  "valid": 1
+}

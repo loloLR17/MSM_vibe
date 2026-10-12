@@ -1,0 +1,18 @@
+{
+  "command": [
+    "/mnt/c/ST/STM32CubeCLT_1.22.0/STM32CubeProgrammer/bin/STM32_Programmer_CLI.exe",
+    "-c",
+    "port=SWD",
+    "sn=0032001F3235510C37333439",
+    "freq=8000",
+    "-w",
+    "\\\\wsl.localhost\\Debian\\home\\lolo\\dev\\msm\\reports\\TR2-mission015-L-20261012T195811Z\\restore-initial-sectors0-3.bin",
+    "0x08000000",
+    "-v",
+    "-rst"
+  ],
+  "mode": "NORMAL",
+  "bytes": 32768,
+  "source": "fresh double-verified backup, sectors0..3 only",
+  "sha256": "793502c0c5feb83e97a4beb8fe953bf6ab50c168426f95ae68555ec71b2ad5cc"
+}

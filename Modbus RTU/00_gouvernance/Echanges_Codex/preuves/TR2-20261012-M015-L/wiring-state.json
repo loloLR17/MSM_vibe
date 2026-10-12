@@ -1,0 +1,12 @@
+{
+  "status": "WAITING_FOR_WIRING_CONFIRMATION",
+  "user_reply": "c\u2019est tout bon normalement",
+  "unverified": [
+    "MKIGIBV2 GND contact",
+    "measured VDD",
+    "measured VDDIO",
+    "explicit SPI net correspondence"
+  ],
+  "hardware_tests_executed": 0,
+  "confirmation_requested": true
+}

@@ -1,0 +1,20 @@
+      -------------------------------------------------------------------
+                       STM32CubeProgrammer v2.23.0
+      -------------------------------------------------------------------
+
+ST-LINK SN  : 0032001F3235510C37333439
+ST-LINK FW  : V3J15M7
+Board       : NUCLEO-U575ZI-Q
+Voltage     : 3.28V
+SWD freq    : 8000 KHz
+Connect mode: Normal
+Reset mode  : Software reset
+Device ID   : 0x482
+Revision ID : Rev U
+Device name : STM32U575/STM32U585
+NVM size    : 2 MBytes
+Device type : MCU
+Device CPU  : Cortex-M33
+BL Version  : 0x93
+Debug in Low Power mode enabled
+

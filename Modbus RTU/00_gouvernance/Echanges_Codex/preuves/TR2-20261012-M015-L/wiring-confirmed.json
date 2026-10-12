@@ -1,0 +1,12 @@
+{
+  "status": "CONFIRMED",
+  "source": "user",
+  "user_statement": "3,3V sur les deux VDD, ground sur la broche GND, et cablage correct MKIGIBV2 conform\u00e9ment \u00e0 ta demande",
+  "spi_nets_exact": true,
+  "gnd_contact": "point marqu\u00e9 GND sur MKIGIBV2, confirm\u00e9 utilisateur, num\u00e9ro non d\u00e9clar\u00e9",
+  "vdd_volts": 3.3,
+  "vddio_volts": 3.3,
+  "ribbon_orientation_confirmed": true,
+  "no_other_modules": true,
+  "scope": "conformit\u00e9 \u00e0 la demande de c\u00e2blage ; observation utilisateur, non mesure Codex"
+}
