@@ -1,0 +1,76 @@
+{
+  "source_sha": "24ccec00698cd2e7f55297acc2bad0d22746e744",
+  "local_proof_directory": "/home/lolo/dev/msm/reports/TR2-mission015-J-20261012T184145Z",
+  "artifacts": {
+    "build-continuous/tr2_stm32_p11c.bin": {
+      "bytes": 37268,
+      "sha256": "39534853cf49c1212f9a82510cd559f16cd19334b67fee94a50296e5827094f4"
+    },
+    "build-continuous/tr2_stm32_p11c.elf": {
+      "bytes": 468100,
+      "sha256": "e2e33f06916fe1fca5754e009d2a38093de76e874396af888375cd1fc362d742"
+    },
+    "flash-before.bin": {
+      "bytes": 2097152,
+      "sha256": "556fedf58a88f7de0ad63826af6b4941de8bb72dcd6e97a886c1017da5ba93f0"
+    },
+    "flash-restored-full.bin": {
+      "bytes": 2097152,
+      "sha256": "556fedf58a88f7de0ad63826af6b4941de8bb72dcd6e97a886c1017da5ba93f0"
+    },
+    "ram-before.bin": {
+      "bytes": 786432,
+      "sha256": "02f63678ffa53a0e065032f78c1dc52bdaa6c653c92ad03bddb7aff38acd9e9b"
+    },
+    "ram-continuous-final.bin": {
+      "bytes": 786432,
+      "sha256": "8cc398f67baf7399daf17c05c85feef5fd7906d6d627f2774e891a2b21d9f7b2"
+    },
+    "ram-final-after-physical.bin": {
+      "bytes": 786432,
+      "sha256": "003afd66a9cb3b0e867935c177451d3c0ef0232a0346942ce27d42049e43d466"
+    },
+    "continuous-info.bin": {
+      "bytes": 248,
+      "sha256": "0c1301c1e57465773c6629d05021b2d12cc6108d1d26c627256db4801d934cb1"
+    },
+    "continuous-meta.bin": {
+      "bytes": 2688,
+      "sha256": "748be94f1790f1bef683daf07b00454b5dea57a0c8461d086bfd4098d98e79c0"
+    },
+    "continuous-rx.bin": {
+      "bytes": 28704,
+      "sha256": "fc3a45f6ee81fda2b4f8264b317e437cc5e2ab266585c8bd6b79fff114c80fd8"
+    },
+    "continuous-xyz.bin": {
+      "bytes": 24576,
+      "sha256": "de676bae28a480011d3d012db14bef539324e62a841a9627863c689bea168af3"
+    },
+    "continuous-tags.bin": {
+      "bytes": 4096,
+      "sha256": "ad7facb2586fc6e966c004d7d1d16b024f5805ff7cb47c7a85dabd8b48892ca7"
+    },
+    "continuous-polls.bin": {
+      "bytes": 3072,
+      "sha256": "032a46fc23822ca8f7b9fab6b23339d156a7e4bfd6f80e3f9d8033896015f185"
+    },
+    "continuous-traces.bin": {
+      "bytes": 35328,
+      "sha256": "0f9bf384ae56fb67ebb8988a0e7c2ecc6589651ee3f52b71b3ee2dbb569e7320"
+    },
+    "continuous-trace-count.bin": {
+      "bytes": 4,
+      "sha256": "de6d696c194fb883fd153e435f68d0283ebcf1a28c46cba524df6a8c0807084a"
+    },
+    "continuous-first-refusal.bin": {
+      "bytes": 128,
+      "sha256": "e696a554c12c832ec0b971e31880828758e9f22dde5b4a6b04ec0254cb4e0e4a"
+    },
+    "hp-restored-physical.jsonl": {
+      "bytes": 1390,
+      "sha256": "77ce465d5c84dd69a75519192857cefd0eb39123731e52e322b00f40b2cac94d"
+    }
+  },
+  "firmware_after_physical_unchanged": true,
+  "test_only_regression_added_after_physical": true
+}

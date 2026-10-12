@@ -1,0 +1,38 @@
+[
+  {
+    "begin_cycles": 525179,
+    "end_cycles": 530781,
+    "status": 0,
+    "level": 0
+  },
+  {
+    "begin_cycles": 16661589,
+    "end_cycles": 16667191,
+    "status": 4,
+    "level": 4
+  },
+  {
+    "begin_cycles": 16959719,
+    "end_cycles": 16965321,
+    "status": 53,
+    "level": 53
+  },
+  {
+    "begin_cycles": 17279699,
+    "end_cycles": 17285301,
+    "status": 106,
+    "level": 106
+  },
+  {
+    "begin_cycles": 17599722,
+    "end_cycles": 17605324,
+    "status": 161,
+    "level": 161
+  },
+  {
+    "begin_cycles": 18118431,
+    "end_cycles": 18124033,
+    "status": 118,
+    "level": 118
+  }
+]

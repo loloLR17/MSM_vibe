@@ -47,6 +47,7 @@ HAL_StatusTypeDef HAL_SPI_TransmitReceive(SPI_HandleTypeDef *s,const uint8_t *tx
  }else{
   for(unsigned i=1;i<n;i++)rx[i]=regs[reg+i-1U];
   if(fault==13U&&stage==3U&&reg==15U)rx[2]^=1U;
+  if(fault==18U&&stage==3U&&reg==7U&&popped>=128U){rx[3]=0x14U;rx[4]=0x0CU;}
   if(fault==14U&&reg==15U)rx[1]^=1U;
  }
  return HAL_OK;
@@ -57,7 +58,7 @@ uint32_t HAL_RCC_GetHCLKFreq(void){return 160000000U;}
 uint32_t HAL_RCCEx_GetPeriphCLKFreq(uint32_t id){assert(id==RCC_PERIPHCLK_SPI3);return 160000000U;}
 int main(void)
 {
- for(fault=0;fault<18U;fault++){
+ for(fault=0;fault<19U;fault++){
   SPI_TypeDef peripheral={0,0x50070067,0x87400000};SPI_HandleTypeDef spi={&peripheral,0,0,0};
   memset(regs,0,sizeof(regs));regs[15]=0x7B;regs[18]=4;memset(&test_dwt,0,sizeof(test_dwt));memset(&test_nvic,0,sizeof(test_nvic));
   memset((void*)&tr2_cont_info,0,sizeof(tr2_cont_info));memset((void*)&tr2_cont_first_refusal,0,sizeof(tr2_cont_first_refusal));memset((void*)tr2_cont_meta,0,sizeof(tr2_cont_meta));memset((void*)tr2_cont_xyz,0,sizeof(tr2_cont_xyz));
@@ -83,6 +84,8 @@ int main(void)
    if(fault==12U)assert(tr2_cont_info.loss_flags&32U&&tr2_cont_info.burst_count==0U);
    if(fault==13U)assert(tr2_cont_first_refusal.reg==16U&&tr2_cont_info.burst_count==0U);
    if(fault==14U||fault==15U||fault==16U)assert(writes==0U);
+   if(fault==18U){assert(tr2_cont_first_refusal.reg==9U&&tr2_cont_first_refusal.expected==0x0AU&&tr2_cont_first_refusal.observed==0x14U);assert(tr2_cont_info.burst_count==1U&&tr2_cont_info.word_count==0U&&tr2_cont_meta[0].valid_mask==23U);}
+
   }
   if(fault!=14U&&fault!=15U&&fault!=16U){assert(tr2_cont_info.restore_result==TR2_OK);assert(regs[7]==0U&&regs[8]==0U&&regs[9]==0U&&regs[10]==0U&&regs[16]==0U&&regs[18]==4U&&regs[20]==0U);}
  }

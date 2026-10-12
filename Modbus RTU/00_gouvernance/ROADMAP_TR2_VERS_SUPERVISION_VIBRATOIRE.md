@@ -164,4 +164,4 @@ M014 restauréeexactement (Flash2Mio identique), FRAMgen12/configUNAVAILABLE, SD
 
 ## Actualisation M015-J — 12 octobre 2026
 
-Diagnosticcontinu4096RAM préparé,18cas ciblés etcrossdéfaut/profilréussis ;FIFOmode6/A8actifdurant32bursts128,guardsstricts/250ms/ownershipborné. PréflightfreshM014 etbackup prêts, campagneunique enattente ;M015INPROGRESS, fenêtresV1/stockage/autres tailles inchangésnonqualifiés.
+**M015-J BLOCKED pour fenêtre continue4096 ; M015 IN PROGRESS.** Diagnosticlogiciel/18cas/crossréussis puisunique campagne :unburst128reçu, groupé07..0Apostburstrefusé09=14vs0A et0A=0Cvs06, fenêtreINVALID/0XYZaccepté.19ecasderégressionhôtepostrefuspassé sansciblemodifiée/ARMrebuild/rejeuphysique. RAM/guards/timeboundspréparés, pasqualificationcontinu ;M014-Hrestauréexactement/Flash2Mio/FRAMgen12/SDOFF/B0B1reprise réussie. I256figé restevalidé. Suite :prochaincontratborné postreadbackactif/éventuellementABmodule, aucunbypassouinstrumentabsent requis. Publication/relecturefinale àconsigner.

@@ -6,8 +6,9 @@ Mise à jour : 12 octobre 2026. Mission `TR2-20261012-M015-J-CONTINUOUS-FIFO`.
 
 ## État opérationnel actuel — M015-J, 12 octobre 2026
 
-- **VALIDÉ logiciel / PRÉPARÉ physique** :nouveauprofilRAM4096/FIFOcontinu6/A8pendantlecture,32bursts128/192statuts/250ms, guardsgroupés/conservation/tags/validité stricts.18scénarios neufs/crossdéfaut-profil réussis,104100BSS/768KiB RAM ;pasrejeudesacquis. Campagneunique enattente, checkpointlogiciel àpublier.
-- **PRÉSERVÉ / PRÉFLIGHT FRAIS** :M014-H reconnu/UIDSTLINKattendus, Flash2Mio/RAM768K sauvegardées, stage2/result0/gen12/configUNAVAILABLE/IRQ49-66/faults0. AucunflashJ encore, aucunmédia/partition. M015INPROGRESS/V1 inchangée, continu4096 nonencorephysiquementqualifié.
+- **BLOCKED physique continu4096** :unecampagne code24ccec0, premierburst128reçu puisgroupé07..0Apostvidange=80/00/14/0C contre80/00/0A/06 attendu, firstref09=14/attendu0A. HAL_OK/error0 ;stage10/result9/restore0/loss4/windowINVALID/wordcount0, parserXYZfirmware nonatteint. Bruts128reçus décodésoffline/rejetés, globalsXYZBSSnonmesurés ;configured[] partiellementréécrit, dernierCTRL4réel0C dansraw. Pasdeuxièmeessai/correctifheuristique, causeprécise nonattribuée.
+- **VALIDÉ logiciel / M014 PRÉSERVÉ** :18casneufs/crossdéfaut-profil réussis,19ecaspostrefusajouté→19/1CTestpassé sansmodifiercible/rebuildARM. RAM101536BSS+réserves/margevalides, serviceborné32bursts/250ms/guardsstricts. Flash2Mio restauréeexacte/BINb462c29a,septregistres0/0/0/0/0/4/0 ;HPB0/B1passé/journalentier hash77ce465d…/uptime140s, gen12/configUNAVAILABLE/SDOFF/IRQ49-66/faults0/MCUrunning,aucunmédia/partition.
+- **SUITE** :publication/relecturefinale enattente, JBLOCKED/M015INPROGRESS, I256figéacquisinchangé, continu/fenêtresV1/FFT/stockage nonqualifiés. Prochaincontratlimité readbackgroupé aprèsFIFO_OUTactif, éventuellementABmodule sousinterventionutilisateur siutile ;aucunactephysiqueadditionnelniinstrument demandéici. Preuves /home/lolo/dev/msm/reports/TR2-mission015-J-20261012T184145Z, archives/stashes/worktrees préservés.
 
 ## État opérationnel antérieur — M015-I reprise physique, 12 octobre 2026
 

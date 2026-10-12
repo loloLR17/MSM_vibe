@@ -1,0 +1,4 @@
+0x08002f18 in HAL_Delay (Delay=10) at /home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal.c:419
+419	  while ((HAL_GetTick() - tickstart) < wait)
+STM32 Successfully completed reset operation (System reset)
+[Inferior 1 (Remote target) detached]

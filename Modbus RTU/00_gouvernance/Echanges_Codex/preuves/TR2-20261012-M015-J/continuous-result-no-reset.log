@@ -1,0 +1,10 @@
+HAL_GetTick () at /home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal.c:343
+343	  return uwTick;
+$1 = {stage = 10, result = 9, restore_result = 0, core_hz = 160000000, spi_hz = 2500000, poll_count = 6, burst_count = 1, word_count = 0, accepted = 0, errors = 0, loss_flags = 4, tag_errors = 0, parity_errors = 0, gap_events = 0, saturations = 0, start_cycles = 16639601, end_cycles = 18196028, capture_end_cycles = 0, window_state = 4, max_level = 161, budget_violations = 0, first_failure_word = 4294967295, saved = {0, 0, 0, 0, 0, 4, 0}, configured = {128, 0, 20, 6, 168, 68, 0}, restored = {0, 0, 0, 0, 0, 4, 0}, nvic_before = {0, 0, 0, 0, 0, 0, 0, 0, 0}, nvic_after = {0, 0, 0, 0, 0, 0, 0, 0, 0}, nvic_valid_mask = 3}
+$2 = 36
+$3 = {valid = 1, reason = 2, phase = 3, reg = 9, expected_valid = 1, expected = 10, observed_valid = 1, observed = 20, trace_index = 25, io = {valid_mask = 15, phase = 3, method = 2, reg = 7, nbytes = 5, raw_length = 5, begin_cycles = 18127213, end_cycles = 18131460, hal_status = 0, error = 0, sr_before = 40967, sr_after = 57345, cfg1 = 1342636135, cfg2 = 2269118464, cs_before = 1, cs_during = 0, cs_after = 1, rx_left = 0, tx_left = 0, tx = "‡\000\000\000\000\000\000", rx = "\000\200\000\024\f\000\000"}}
+$4 = 248
+$5 = 84
+$6 = 92
+0xe000ed28:	0x00000000	0x00000000
+[Inferior 1 (Remote target) detached]

@@ -1,0 +1,18 @@
+{
+  "command": [
+    "/mnt/c/ST/STM32CubeCLT_1.22.0/STM32CubeProgrammer/bin/STM32_Programmer_CLI.exe",
+    "-c",
+    "port=SWD",
+    "sn=003500463235510B37333439",
+    "freq=8000",
+    "-w",
+    "\\\\wsl.localhost\\Debian\\home\\lolo\\dev\\msm\\reports\\TR2-mission015-J-20261012T184145Z\\build-continuous\\tr2_stm32_p11c.bin",
+    "0x08000000",
+    "-v",
+    "-rst"
+  ],
+  "source_sha": "24ccec00698cd2e7f55297acc2bad0d22746e744",
+  "mode": "NORMAL",
+  "bin_sha256": "39534853cf49c1212f9a82510cd559f16cd19334b67fee94a50296e5827094f4",
+  "elf_sha256": "e2e33f06916fe1fca5754e009d2a38093de76e874396af888375cd1fc362d742"
+}

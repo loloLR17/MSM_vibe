@@ -1,0 +1,8 @@
+Internal ctest changing into directory: /home/lolo/dev/msm/reports/TR2-mission015-J-20261012T184145Z/build-host
+Test project /home/lolo/dev/msm/reports/TR2-mission015-J-20261012T184145Z/build-host
+    Start 1: stm32_continuous
+1/1 Test #1: stm32_continuous .................   Passed    0.00 sec
+
+100% tests passed, 0 tests failed out of 1
+
+Total Test time (real) =   0.00 sec
