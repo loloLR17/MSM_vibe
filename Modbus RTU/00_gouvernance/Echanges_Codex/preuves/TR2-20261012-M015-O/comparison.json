@@ -1,0 +1,12 @@
+{
+  "mode3_vs_mode0_payloads": "BYTE_IDENTICAL",
+  "entries": 258,
+  "xyz": 0,
+  "timestamps": 258,
+  "shared_config": "00/01/0A/86,CTRL1=AC,CTRL3=44,CTRL10=20",
+  "cfg2_rx_mode3": "87440000",
+  "cfg2_rx_mode0": "84440000",
+  "source_sha": "906de1ad85f6b3d7d6737bc699f29a482590614d",
+  "confirmation_image": "BUILT_NOT_FLASHED",
+  "reason": "No valid FIFO XYZ"
+}

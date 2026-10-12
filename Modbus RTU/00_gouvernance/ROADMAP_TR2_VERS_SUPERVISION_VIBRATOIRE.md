@@ -202,3 +202,13 @@ aprèsXLtoujours512TS,lecture7octetshuitTS ;zéroXYZ,touscleanupconformes.
 FIFOXYZ resteBLOCKED,causeprécise nonattribuée malgréreadbacksBDR0A/XLAC.
 Extensions512XYZ/4096nonengagées fautepréconditions ;préparerpreuveindépendante
 wire/étatcapteur sousnouveaucontrat,aucunTR2principal/M014/média touché.
+
+## Point M015-O — 12 octobre 2026
+
+FonctionST originale portée et réellement exécutée,provenance/patchesplateforme
+explicités,drivergitlink inaccessible etversionSTcompatible déclarés. Témoin
+2timestamps/gettertronqué258→2 ;aliasniveau10donne258TS,zéroXYZ,enmode3comme0
+(payloads identiques). Touscleanupconformes,deuxvariantesconsommées,pas512XYZ.
+M015FIFOXYZresteBLOCKED ;comprendre version/initialisation/plateforme parpreuve
+indépendante sousnouveaucontrat,aucunemprunt ducapteurprimaire. M014/principal
+etmédias préservés ;publicationST ne signifiepas preuvephysiqueSTindépendante.

@@ -1,3 +1,13 @@
+## État courant M015-O — portage réel de l'exemple ST
+
+`BENCH_OFFICIAL=ON` compile/appelle iis3dwb_fifo depuis le vendor pinné avec
+les adapters sousofficial/. bench_run n'est pas utilisé. Voirofficial/AUDIT.md
+pour chaque divergence (drivergitlink inaccessible,formatlog,buffer,sécurité).
+Mode3 comme .iocSTV3 ;témoingetter03F :deuxTS. Aliaslocal10bits :258TS enmode3
+etmode0,byte-identiques,zéroXYZ. FIFOXYZ BLOCKED,touscleanupconformes.
+Trois campagnesconsommées ;imageconfirmbuildseul,pasflash/512XYZ/4096.
+SecondeFlashjetable,firmwaremode0inactiflaissérunning,capteurau repos.
+
 ## État courant M015-N
 
 Harness sûr : réservecleanup12traces/24snapshots/32octets,400polls/500ms,

@@ -61,3 +61,10 @@ cleanup12/24/32 conserve3readbacksinitiaux et9actionsfinales. Les guardsHAL
 etprecloseO2 restentceuxqualifiésM/N, erreursjamaismasquées.
 14scénariosmockfonttourner lafonctionST réelle, témoin/alias,motsXYZ/TS,
 IO/WHO/overflow/capacité/cleanup etniveau300 (>ancienbuffer256). QuatreARMbuilds.
+
+## Résultat physique
+
+Témoinmode3 :raw258/API2,deuxTS ;aliasniveau10mode3 :258TS ;mêmealiasmode0 :
+258TSbyte-identiques. Paritébonne,pas24ticks,counters0,zéroXYZ ;touscleanup0.
+ModeSPI etsimplegettertronqué ne résolventpasl'absenceXYZ. SourceST réelle
+exécutée,limitedrivergitlink inaccessiblemaintenue ;aucuneconfirmation512XYZ.

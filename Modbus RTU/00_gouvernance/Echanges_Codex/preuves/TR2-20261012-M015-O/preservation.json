@@ -1,0 +1,11 @@
+{
+  "worktrees_stashes": "UNCHANGED",
+  "vendor": "EXACT",
+  "three_image_readbacks": "EXACT",
+  "all_GDB_server_exits": 0,
+  "primary_access": "NONE",
+  "secondary_full_flash_backup_restore": "NONE",
+  "final_firmware": "mode0/inactive",
+  "final_sensor": "CTRL1=0C/FIFO_CTRL4=80/CTRL10=00",
+  "confirm": "NOT_FLASHED"
+}
