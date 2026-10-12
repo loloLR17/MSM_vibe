@@ -1,0 +1,6 @@
+{
+  "entire_2MiB_flash_byte_equal_to_before": true,
+  "sha256": "556fedf58a88f7de0ad63826af6b4941de8bb72dcd6e97a886c1017da5ba93f0",
+  "permanent_bin_sha256": "b462c29a775fec17fccf8036b5612742b1366210359bcd3f192c95435740d611",
+  "no_fram_sd_access_capture": true
+}

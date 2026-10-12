@@ -104,7 +104,7 @@ __attribute__((noreturn)) void stm32_iis3dwb_capture_run(
     tr2_iis3dwb_capture_info.clock_verified = 1U;
     tr2_iis3dwb_capture_info.core_hz = HAL_RCC_GetHCLKFreq();
     tr2_iis3dwb_capture_info.spi_kernel_hz = HAL_RCCEx_GetPeriphCLKFreq(RCC_PERIPHCLK_SPI3);
-    tr2_iis3dwb_capture_info.spi_hz = tr2_iis3dwb_capture_info.spi_kernel_hz / 64U;
+    tr2_iis3dwb_capture_info.spi_hz = tr2_iis3dwb_capture_info.spi_kernel_hz / 256U;
     changed = true;
     result = interface.configure(interface.context,&configuration);
     if (result != TR2_OK) goto finish;

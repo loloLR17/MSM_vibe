@@ -2,7 +2,7 @@ param(
  [ValidateSet('Prepare','Offline','Physical','Steady')][string]$Task,
  [string]$PackageName,[string]$ExpectedZipHash,[string]$ExpectedManifestHash,
  [string]$ExpectedB0Hash,[string]$GateUtc,
- [ValidateSet('physical-once','physical-after-b1-fix','physical-steady-final')][string]$RunName='physical-once'
+ [ValidateSet('physical-once','physical-after-b1-fix','physical-steady-final','physical-m015-a-restored')][string]$RunName='physical-once'
 )
 $ErrorActionPreference='Stop'; $ProgressPreference='SilentlyContinue'
 [Console]::OutputEncoding=New-Object System.Text.UTF8Encoding($false)
@@ -10,6 +10,7 @@ $locked=$false; $mutex=$null; $process=$null
 $physical=$Task -in @('Physical','Steady')
 $maximum=if($Task -eq 'Steady'){2}else{9}
 try {
+ if($RunName -eq 'physical-m015-a-restored' -and $Task -ne 'Steady'){throw 'M015-A restoration permits only Steady'}
  if($env:COMPUTERNAME -ne 'LAPTOP-3F6J7STJ'){throw 'Unexpected HP identity'}
  if($PackageName -notmatch '^M014-H-[0-9TZ]+$'){throw 'Invalid unique package name'}
  foreach($hash in @($ExpectedZipHash,$ExpectedManifestHash,$ExpectedB0Hash)){

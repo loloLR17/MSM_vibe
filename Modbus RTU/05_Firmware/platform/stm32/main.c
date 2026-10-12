@@ -2623,7 +2623,12 @@ static void Iis3dwbSpi_Init(void)
     hspi3.Init.CLKPolarity = SPI_POLARITY_LOW;
     hspi3.Init.CLKPhase = SPI_PHASE_1EDGE;
     hspi3.Init.NSS = SPI_NSS_SOFT;
+#if TR2_STM32_ACQUISITION_CAPTURE
+    /* Conservative bench capture clock; production profile is preserved. */
+    hspi3.Init.BaudRatePrescaler = SPI_BAUDRATEPRESCALER_256;
+#else
     hspi3.Init.BaudRatePrescaler = SPI_BAUDRATEPRESCALER_64;
+#endif
     hspi3.Init.FirstBit = SPI_FIRSTBIT_MSB;
     hspi3.Init.TIMode = SPI_TIMODE_DISABLE;
     hspi3.Init.CRCCalculation = SPI_CRCCALCULATION_DISABLE;
