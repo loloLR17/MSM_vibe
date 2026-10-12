@@ -2620,8 +2620,14 @@ static void Iis3dwbSpi_Init(void)
     hspi3.Init.Mode = SPI_MODE_MASTER;
     hspi3.Init.Direction = SPI_DIRECTION_2LINES;
     hspi3.Init.DataSize = SPI_DATASIZE_8BIT;
+#if TR2_STM32_ACQUISITION_CAPTURE
+    /* Both mode0 and mode3 are supported by IIS3DWB DS12569. */
+    hspi3.Init.CLKPolarity = SPI_POLARITY_HIGH;
+    hspi3.Init.CLKPhase = SPI_PHASE_2EDGE;
+#else
     hspi3.Init.CLKPolarity = SPI_POLARITY_LOW;
     hspi3.Init.CLKPhase = SPI_PHASE_1EDGE;
+#endif
     hspi3.Init.NSS = SPI_NSS_SOFT;
 #if TR2_STM32_ACQUISITION_CAPTURE
     /* Conservative bench capture clock; production profile is preserved. */

@@ -35,3 +35,7 @@ ImagepermanenteM014 restaurée dès aprèscapture : Flash2Mio entièrementbyte-e
 Capturecode9d47f1f en transactionduplexunique à2.5MHz :2048samples,3350polls/1298NOT_AVAILABLE/0erreurSPI/3saturations, normerepos≈1.53g encorebimodale. Le changement detransaction ne résoutpas l'anomalie ; nepasprésenterSPI_CloseTransfer comme cause démontrée. Captureintégrale publiée. Productionpermanente restaurée secondefois : Flash2Mioexacte/bootgen12/santéMCUconfirmés.
 
 Profilcapture seulement abaissé prescaler256→625kHz ; productionconserveprescaler64 etBINpermanentexact. Cross-builddéfautetcapturelente réussis ; cœur/driverinchangésdepuisvalidation114, nonrelancés. Essailentjustifié par anomalie persistante etvitessemodifiée ; aucun format/FRAMwrite. ContrôlefinalB0/B1préparé sousnouveaunomunique physical-m015-a-restored, exactement2FC03/retry0 ; paquetHpréexistant réutilisé, garde fraîcheuretidentité inchangées.
+
+## Diagnostic625kHz et alternative constructeur
+
+Capturecode08e5ba3 :2048samples/2052polls/0NOT_AVAILABLE/0erreurSPI/6saturations,6.586klectures/s ;distributionfacteur2encoreprésente/normerepos≈1.53g. Vitesse seule noncausesuffisante, hypothèseTX/RXnonconfirmée. Troisième restaurationpermanente :Flash2Mio byte-equal/bootgen12/IRQ49et66/faults0. Capturesbrutesconservées. Prochainessai limité au modeSPI3 (CPOLhaut/CPHA2), égalementautorisé ST,625kHzinchangé ; seuleconfigurationharnesschange, cross-buildproportionné. AucuncomportementproductionM014 modifié.

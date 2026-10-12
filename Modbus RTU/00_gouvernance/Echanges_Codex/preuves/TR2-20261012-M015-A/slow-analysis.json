@@ -1,0 +1,244 @@
+{
+  "capture": "slow-",
+  "timestamp_semantics": "DWT CPU cycles bounding STATUS+XYZ SPI reads, not sensor conversion timestamp or UTC; no debugger during run",
+  "configured_odr_hz": 26667,
+  "sampling_limit": "direct polling, intermediate sensor samples may be lost; observed read rate is not independent measurement of internal ODR",
+  "metadata": {
+    "stage": 10,
+    "result": 0,
+    "count": 2048,
+    "polls": 2052,
+    "not_ready": 0,
+    "errors": 0,
+    "saturation": 6,
+    "restore_result": 0,
+    "core_hz": 160000000,
+    "spi_kernel_hz": 160000000,
+    "spi_hz": 625000,
+    "who_am_i": 123,
+    "clock_verified": 1,
+    "ctrl1_readback": 168,
+    "ctrl3_readback": 68,
+    "phase_ctrl5": [
+      0,
+      1,
+      2,
+      0
+    ],
+    "original_controls": [
+      0,
+      4,
+      0
+    ],
+    "final_controls": [
+      0,
+      4,
+      0
+    ],
+    "audit_registers": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  "phases": [
+    {
+      "phase": 0,
+      "name": "baseline",
+      "count": 512,
+      "distinct_raw_xyz": 512,
+      "mean_mg_nominal": [
+        -252.8607265625,
+        81.6280078125,
+        -1501.864796875
+      ],
+      "stddev_mg_nominal": [
+        89.6181410815333,
+        34.94155503502333,
+        491.8892913194073
+      ],
+      "raw_minmax": [
+        [
+          -3097,
+          -1153
+        ],
+        [
+          148,
+          1508
+        ],
+        [
+          -16381,
+          -7716
+        ]
+      ],
+      "norm_mean_mg": 1525.4450667943163,
+      "saturated": 0,
+      "observed_read_rate_hz": 6586.630300561733,
+      "read_end_interval_us": {
+        "min": 151.25625,
+        "median": 151.8,
+        "max": 152.325
+      },
+      "transaction_duration_us_mean": 149.75292968750003
+    },
+    {
+      "phase": 1,
+      "name": "positive_internal_self_test",
+      "count": 512,
+      "distinct_raw_xyz": 512,
+      "mean_mg_nominal": [
+        2184.17672265625,
+        2730.70812890625,
+        914.6506796875
+      ],
+      "stddev_mg_nominal": [
+        753.2801713480669,
+        946.9984111844218,
+        312.8350017705378
+      ],
+      "raw_minmax": [
+        [
+          12350,
+          25582
+        ],
+        [
+          15534,
+          32086
+        ],
+        [
+          5036,
+          11004
+        ]
+      ],
+      "norm_mean_mg": 3614.513306276316,
+      "saturated": 0,
+      "observed_read_rate_hz": 6582.862914134219,
+      "read_end_interval_us": {
+        "min": 151.33124999999998,
+        "median": 151.875,
+        "max": 152.40625
+      },
+      "transaction_duration_us_mean": 149.83983154296877
+    },
+    {
+      "phase": 2,
+      "name": "negative_internal_self_test",
+      "count": 512,
+      "distinct_raw_xyz": 512,
+      "mean_mg_nominal": [
+        1126.0947890625,
+        -2674.3317382812497,
+        188.29866015625
+      ],
+      "stddev_mg_nominal": [
+        3042.3843650926033,
+        855.0444202519276,
+        2610.9608865045548
+      ],
+      "raw_minmax": [
+        [
+          -32755,
+          32767
+        ],
+        [
+          -28673,
+          -13844
+        ],
+        [
+          -22617,
+          21245
+        ]
+      ],
+      "norm_mean_mg": 4922.801789633776,
+      "saturated": 6,
+      "observed_read_rate_hz": 6586.210604878517,
+      "read_end_interval_us": {
+        "min": 151.23125,
+        "median": 151.8375,
+        "max": 152.36249999999998
+      },
+      "transaction_duration_us_mean": 149.76156005859374
+    },
+    {
+      "phase": 3,
+      "name": "recovery",
+      "count": 512,
+      "distinct_raw_xyz": 512,
+      "mean_mg_nominal": [
+        -258.92975,
+        83.46015234375,
+        -1523.7814296875
+      ],
+      "stddev_mg_nominal": [
+        89.87475941553335,
+        33.746422913680476,
+        490.1077851808337
+      ],
+      "raw_minmax": [
+        [
+          -3067,
+          -1153
+        ],
+        [
+          200,
+          1508
+        ],
+        [
+          -16381,
+          -7681
+        ]
+      ],
+      "norm_mean_mg": 1548.1295565892312,
+      "saturated": 0,
+      "observed_read_rate_hz": 6585.929953286296,
+      "read_end_interval_us": {
+        "min": 151.25625,
+        "median": 151.8,
+        "max": 152.33124999999998
+      },
+      "transaction_duration_us_mean": 149.76907958984376
+    }
+  ],
+  "internal_self_test_delta_mg": {
+    "positive": [
+      2437.03744921875,
+      2649.0801210937498,
+      2416.5154765624998
+    ],
+    "negative": [
+      1378.955515625,
+      2755.95974609375,
+      1690.16345703125
+    ],
+    "reference_range": [
+      800,
+      3200
+    ]
+  },
+  "checks": {
+    "count_2048": true,
+    "who_7b": true,
+    "capture_and_restore_ok": true,
+    "all_valid_drdy": true,
+    "strictly_increasing_read_times": true,
+    "conversions_exact": true,
+    "all_phases_distinct": true,
+    "zero_saturation": false,
+    "internal_positive_limits_all_axes": true,
+    "internal_negative_limits_all_axes": true,
+    "baseline_norm_800_1200mg": false,
+    "recovery_norm_800_1200mg": false
+  },
+  "raw_bin_sha256": "894689b48d1261bc87d464aa407d6e33f95100c334daa01c3be3250a3d614d0e",
+  "scope": "on-chip mechanical self-test, not external controlled vibration or calibration"
+}
