@@ -1,8 +1,8 @@
 ---
-mission_id: TR2-20261012-M015-K-ST-OFFICIAL-REFERENCE
+mission_id: TR2-20261012-M015-L-ST-BENCH-PHYSICAL
 status: READY
 base_ref: main
-base_sha: 0b76875c1a0257362280780f835991395b10fcbe
+base_sha: fccb40cf799c753b9897e74ae6cc6e737a07383c
 author: ChatGPT
 target_branch: main
 allow_commit: true
@@ -11,20 +11,23 @@ allow_flash: true
 allow_debug: true
 ---
 
-# M015-K — Banc IIS3DWB indépendant, drivers et démos officiels ST
+# M015-L — Qualification physique du banc de référence officiel ST
+
+L'utilisateur annonce la seconde NUCLEO-U575ZI-Q raccordée au STEVAL-MKIGIBV2 + nappe + STEVAL-MKI208V1 et prête pour flash/tests. Lire AGENTS.md V2-B3, mission/rapport M015-K READY_FOR_PHYSICAL, PINOUT.md, PHYSICAL_PROTOCOL.md, AUDIT.md et HEAD main réel. Archiver K mission et rapport, préserver worktrees/stashes/preuves. Autorisations permanentes flash/debug applicables avec garde-fous.
 
 ## Objectif
-Préparer un projet STM32U575ZI-Q indépendant pour le second NUCLEO et un breakout IIS3DWB seul, en utilisant les sources officielles STMicroelectronics, sans reproduire les choix du harness TR2. L'utilisateur monte actuellement le banc ; **ne pas flasher ni lancer de campagne matérielle tant que le câblage réel et l'identité de la seconde carte n'ont pas été confirmés**. Préparation logicielle autonome immédiate.
+Exécuter la qualification physique progressive du projet autonome experiments/iis3dwb_st_reference avec le **pilote et les séquences officiels ST** comme référence, sans changer les valeurs constructeur pour obtenir un succès et sans toucher au TR2 principal. Capturer les preuves et qualifier ou réfuter le fonctionnement de la chaîne IIS3DWB sur le banc isolé. Le firmware compilé M015-K est SPI3 PC9 CS / PC10 SCK / PC11 MISO / PC12 MOSI, mode0. Ne jamais supposer que le câblage de l'utilisateur correspond à cette table.
 
-## Références et audit
-Lire AGENTS.md V2-B3, rapport M015-J BLOCKED, M015-I DONE, état courant et roadmap sur main réel. Archiver mission/rapport précédents sans écrasement des preuves. Récupérer depuis sources officielles ST le pilote IIS3DWB (STMems_Standard_C_drivers/iis3dwb_STdC et exemples iis3dwb_read_data_polling.c / iis3dwb_fifo.c ou équivalents réels), figer URL, commit/tag, licence et SHA des sources, et consigner précisément les adaptations. Vérifier datasheet IIS3DWB, schéma NUCLEO-U575ZI-Q et pinout matériel réel du breakout. Ne pas inventer de broches : fournir une table pin-à-pin NUCLEO connecteur/broche STM32 ↔ breakout avec justification schéma, GPIO CS, SPI MOSI/MISO/SCK, 3V3, GND, tensions, polarité CS, mode SPI et absence de conflit. Séparer les broches proposées des broches effectivement câblées par l'utilisateur.
+## Préflight obligatoire avant flash
+1. Vérifier avec l'utilisateur si nécessaire la correspondance réelle des six nets et deux alimentations avec PINOUT.md, notamment **GND MKIGIBV2 identifié** et VDD/VDDIO=3,3V ; orientation de la nappe, absence d'autres modules. Si cette correspondance ne peut être établie à distance, état WAITING_FOR_WIRING_CONFIRMATION, aucun flash. Ne pas assimiler « branchée » à une vérification de pinout. L'utilisateur seul réalise les manipulations physiques.
+2. Identifier par interrogation des outils matériels le SN STLINK et UID de la seconde NUCLEO ; refuser strictement les identités TR2 SN 003500463235510B37333439 et UID 004A003D3842501820333157. Ne jamais choisir automatiquement le premier STLINK. Contrôler tension, révision MCU et absence de risque de cible ambiguë. Si seule la carte TR2 est visible, arrêter.
+3. Préserver la seconde carte : sauvegarde Flash 2MiB fraîche, double lecture et hashes, captures utiles. Vérifier artefacts binaires ST et identité avant flash. Aucun mass erase, HOTPLUG, Option Bytes/RDP, média ni modification permanente du TR2. Respecter la procédure CLI/GDB et restauration propre à cette seconde carte.
 
-## Réalisation
-1. Créer un projet CMake/STM32CubeU5 autonome et isolé du firmware TR2, avec drivers ST officiels conservés au maximum, portage read_reg/write_reg/delay/memoriaux, contrôles timeout et erreurs HAL, traces lisibles, instructions de build/flash et configuration du STLINK de la seconde carte à identifier. Éviter d'intégrer les services FRAM, SD, Modbus, persistance et autres composants du TR2.
-2. Préparer deux exemples officiels reproductibles : polling WHO_AM_I/reset/BDU/XYZ, puis FIFO stream continu avec lectures/tags/statuts. Respecter séquences ST, distinguer valeurs et modes d'origine des adaptations de plateforme. Conserver un profil « ST strict » et un profil « comparaison TR2 » seulement si nécessaire, sans masquer les différences. Comparer ligne à ligne notre code I/J aux APIs et séquences ST ; matrice conforme/différent/non établi, notamment reset, IF_INC, BDU, CTRL1, FIFO_CTRL3/4, SPI 4 fils, commande R/W et auto-increment, CS et burst.
-3. Compiler et tester hors matériel, produire manifestes sources/hashes, scripts de diagnostic et capture brute. Préparer un protocole d'essais progressif avec critères WHO, XYZ non figés, FIFO, erreur et arrêt, comparaison banc isolé vs bus TR2. Ne pas prétendre qualifier le breakout sans exécution physique.
-4. Ne flasher la seconde NUCLEO qu'après confirmation du câblage et identification certaine du STLINK/UID de la **seconde** carte, sans toucher à la carte TR2 principale. En cas d'incertitude, terminer en READY_FOR_PHYSICAL avec consignes précises, pas BLOCKED logiciel. Si carte et câblage confirmés dans une étape ultérieure, flash/debug autorisés selon AGENTS.md avec garde-fous, sauvegarde initiale de la carte cible, verify/readback et aucune opération destructive inhabituelle. Ne jamais utiliser l'identité STLINK historique du TR2 comme identité du banc.
-5. Publier code, instructions de câblage vérifiées, audit, tests, statut honnête et prochain protocole dans DERNIER_RAPPORT.md et état courant. Commit/push main et vérification distante. Préserver le firmware permanent M014-H sur la première NUCLEO ; ne modifier ni mapping V1, ni autres médias ou câblage TR2.
+## Essais séquentiels
+A. Flash NORMAL/verify/readback image WHO ST_STRICT, déclenchement unique, WHO_AM_I attendu 0x7B, aucun write capteur. Capturer HAL/CS/registre. Au premier écart STOP sans essai opportuniste.
+B. Seulement si A conforme : polling officiel ST, 64 XYZ réels, états/reset/BDU, données brutes, erreurs et variations. STOP au premier écart.
+C. Seulement si B conforme : FIFO ST_STRICT, niveaux, tags, horodatages et bruts. Conserver l'anomalie getter ST identifiée en K et ne pas la masquer. Le profil STATUS10 est une variante séparée, à n'utiliser que selon protocole documenté, en indiquant explicitement la différence avec le code officiel ; ne jamais présenter STATUS10 comme démo strictement identique. Respecter limites temporelles, une campagne bornée par étape, pas de répétition pour obtenir un résultat favorable.
+D. Comparer résultats aux observations M015-I/J, sans attribuer prématurément un défaut au breakout, au SPI3 ou au logiciel. Aucun essai sur TR2 principal dans cette mission.
 
-## Critères d'acceptation
-Projet officiel ST portable compilé, sources tracées et comparées, pinout sourcé, procédure de test claire. Les essais physiques et la preuve du fonctionnement du breakout sont distincts et ne peuvent être déclarés DONE avant montage/confirmation et acquisition réelle. Développement logiciel autonome sans demander validations répétitives ; seule la connexion physique et les décisions matérielles reviennent à l'utilisateur.
+## Sortie
+Publier traces brutes, snapshots, SHA, observations et limites dans preuves, DERNIER_RAPPORT.md, ETAT_COURANT et roadmap. DONE seulement pour étapes effectivement démontrées ; sinon WAITING_FOR_WIRING_CONFIRMATION / IN_PROGRESS / BLOCKED selon fait. Commit/push main, vérifier relecture distante. Respecter autonomie développement/flash/debug et ne demander à l'utilisateur que confirmation indispensable de câblage ou intervention physique.
