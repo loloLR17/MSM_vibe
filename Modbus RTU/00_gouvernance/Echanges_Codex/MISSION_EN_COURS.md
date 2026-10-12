@@ -18,6 +18,21 @@ L'utilisateur rappelle que sa demande depuis le début est de **prendre un exemp
 
 Lire AGENTS.md courant, vérifier main HEAD et état Git/worktrees/stashes, relire M015-K à N et leurs preuves, archiver mission/rapport M015-N. Respecter gouvernance, preuves, autonomie, commits/push normaux sur main. Périmètre isolé experiments/iis3dwb_st_reference et documentation/tests/preuves associés ; firmware TR2 permanent M014-H, FRAM, SD, Modbus et spécifications gelées hors périmètre.
 
+## Référence constructeur imposée par ChatGPT après vérification externe
+
+**Référence primaire obligatoire** : STMicroelectronics/STMems_Standard_C_drivers, fichier exact :
+https://github.com/STMicroelectronics/STMems_Standard_C_drivers/blob/master/iis3dwb_STdC/examples/iis3dwb_fifo.c
+
+Dépôt : https://github.com/STMicroelectronics/STMems_Standard_C_drivers
+
+Le fichier est officiellement signé ST Sensors Software Solution Team ; il annonce les plateformes d'évaluation STEVAL_MKI109D ou STEVAL_MKI109V3 + STEVAL-MKI208V1K, SPI par défaut, et fournit `iis3dwb_fifo()` ainsi que les adaptateurs `platform_write/read/init/delay`. La séquence comprend reset, BDU, FS8g, watermark, `iis3dwb_fifo_xl_batch_set(..., IIS3DWB_XL_BATCHED_AT_26k7Hz)`, Stream, `iis3dwb_xl_data_rate_set(..., IIS3DWB_XL_ODR_26k7Hz)`, timestamp DEC8/enable, lecture `iis3dwb_fifo_out_multi_raw_get`, décodage `IIS3DWB_XL_TAG` et `IIS3DWB_TIMESTAMP_TAG`. Le commentaire «12.5Hz» contredit la constante 26k7 réellement utilisée : **la source exécutée fait foi, pas le commentaire**.
+
+Ne **pas** considérer ce lien `master` comme une version gelée : récupérer le SHA commit précis et le hash du fichier et du sous-module driver, conserver le source original byte-identique et comparer avec la version déjà intégrée à notre banc. Vérifier aussi les projets STM32CubeMX `_prj_*` pertinents et les conditions de plateforme d'origine. Aucun rapport de test matériel ST indépendant n'a été identifié par ChatGPT : dire «exemple constructeur officiel publié», et non «exemple physiquement prouvé». L'objectif central de cette mission est de **faire tourner cette implémentation** sur notre NUCLEO avec la plus petite couche d'adaptation plateforme possible, et de rendre chaque divergence traçable.
+
+**Priorité méthodologique :** avant de chercher une autre démo, auditer la différence entre cette source officielle exacte et la source M015-K..N (notamment le driver et ses fonctions FIFO, versions et valeurs des registres). Une recherche alternative n'est utile que si cette référence est inapplicable avec justification vérifiable. Aucun bricolage de réglages pour obtenir un succès.
+
+---
+
 ## Phase 1 — Trouver un exemple constructeur réellement traçable
 1. Rechercher prioritairement dans **les dépôts officiels STMicroelectronics**, packages ST, exemples de carte d'évaluation IIS3DWB/STEVAL-MKI208V1/STEVAL-MKIGIBV2, X-CUBE-MEMS1, STMems_Standard_C_drivers, notes d'application, et projets officiellement pris en charge. Identifier **un exemple FIFO XYZ** complet, sa version/commit/hash, licence, README, carte cible, bus, prérequis et source exacte ; distinguer exemple officiel ST, code dérivé et preuve de fonctionnement physique sur plateforme supportée. Ne pas affirmer qu'un exemple a été exécuté matériellement par ST si seule sa publication est attestée.
 2. Examiner datasheet IIS3DWB et notes d'application officielles pertinentes, errata et révisions. Reconstituer la séquence complète reset/boot/BDU/ODR/FS/batching/mode FIFO/timestamp et les contraintes temporelles. Auditer notamment le sens des champs FIFO_CTRL3/BDR, CTRL1_XL, FIFO_CTRL4, les tags timestamp vs XYZ, conditions de batching et la possibilité d'une erreur d'API, d'enum ou d'ordre. Comparer **ligne à ligne** l'exemple ST original avec les adaptations M015-K..N et les valeurs réellement relues. Distinguer différences de version et bugs de getters de la cause de l'absence XYZ.
