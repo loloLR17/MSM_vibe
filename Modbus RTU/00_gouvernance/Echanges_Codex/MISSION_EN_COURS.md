@@ -1,8 +1,8 @@
 ---
-mission_id: TR2-20261012-M015-L-ST-BENCH-PHYSICAL
+mission_id: TR2-20261012-M015-M-SPI-LONG-TRANSFER
 status: READY
 base_ref: main
-base_sha: fccb40cf799c753b9897e74ae6cc6e737a07383c
+base_sha: f8e782a41e2cca94ab12ff3f180a2dc6461611aa
 author: ChatGPT
 target_branch: main
 allow_commit: true
@@ -11,26 +11,19 @@ allow_flash: true
 allow_debug: true
 ---
 
-# M015-L — Qualification physique du banc de référence officiel ST
+# M015-M — Diagnostic et correction du transfert SPI long sur banc ST
 
-L'utilisateur annonce la seconde NUCLEO-U575ZI-Q raccordée au STEVAL-MKIGIBV2 + nappe + STEVAL-MKI208V1 et prête pour flash/tests. Lire AGENTS.md V2-B3, mission/rapport M015-K READY_FOR_PHYSICAL, PINOUT.md, PHYSICAL_PROTOCOL.md, AUDIT.md et HEAD main réel. Archiver K mission et rapport, préserver worktrees/stashes/preuves. Autorisations permanentes flash/debug applicables avec garde-fous.
+## Contexte et objectif
+L'utilisateur valide la poursuite de l'investigation M015-L. Lire AGENTS.md et la gouvernance courante, vérifier le HEAD main réel et l'état Git, archiver mission et rapport M015-L sans altérer les preuves. M015-L démontre WHO=0x7B, polling ST 64 XYZ valides, FIFO ST_STRICT getter niveau0 vs statut brut257, puis premier burst STATUS10 896 octets refusé avec HAL_TIMEOUT et HAL_SPI_ERROR_OVR (0x104), zéro donnée FIFO acceptée. Cause racine inconnue. Ne pas conclure que le capteur ou le driver ST sont défectueux sur cette seule base.
 
-## Objectif
-Exécuter la qualification physique progressive du projet autonome experiments/iis3dwb_st_reference avec le **pilote et les séquences officiels ST** comme référence, sans changer les valeurs constructeur pour obtenir un succès et sans toucher au TR2 principal. Capturer les preuves et qualifier ou réfuter le fonctionnement de la chaîne IIS3DWB sur le banc isolé. Le firmware compilé M015-K est SPI3 PC9 CS / PC10 SCK / PC11 MISO / PC12 MOSI, mode0. Ne jamais supposer que le câblage de l'utilisateur correspond à cette table.
+Identifier la cause précise du timeout/overrun SPI côté STM32U575 et qualifier une correction minimale **de la couche plateforme/transport**, en conservant les sources officielles ST inchangées, les réglages du capteur, la séparation ST_STRICT / STATUS10 et les critères stricts de données acceptées. Ne pas modifier le TR2 principal.
 
-## Préflight obligatoire avant flash
-1. Vérifier avec l'utilisateur si nécessaire la correspondance réelle des six nets et deux alimentations avec PINOUT.md, notamment **GND MKIGIBV2 identifié** et VDD/VDDIO=3,3V ; orientation de la nappe, absence d'autres modules. Si cette correspondance ne peut être établie à distance, état WAITING_FOR_WIRING_CONFIRMATION, aucun flash. Ne pas assimiler « branchée » à une vérification de pinout. L'utilisateur seul réalise les manipulations physiques.
-2. Identifier par interrogation des outils matériels le SN STLINK et UID de la seconde NUCLEO ; refuser strictement les identités TR2 SN 003500463235510B37333439 et UID 004A003D3842501820333157. Ne jamais choisir automatiquement le premier STLINK. Contrôler tension, révision MCU et absence de risque de cible ambiguë. Si seule la carte TR2 est visible, arrêter.
-3. Préserver la seconde carte : sauvegarde Flash 2MiB fraîche, double lecture et hashes, captures utiles. Vérifier artefacts binaires ST et identité avant flash. Aucun mass erase, HOTPLUG, Option Bytes/RDP, média ni modification permanente du TR2. Respecter la procédure CLI/GDB et restauration propre à cette seconde carte.
+## Plan technique
+1. Analyser le code HAL STM32CubeU5 v1.9.0 réellement utilisé, SPI mode0/2MHz calculés, CPU MSI16MHz, polling bloquant TX/RX 896 octets, FIFO/packing/seuils et SPI_SR, comportement SPI_CloseTransfer, erreurs OVR/TIMEOUT. Confronter budget de service RX (4µs/octet théoriques) à la capacité CPU/HAL, au build Debug -O0 et aux traces réelles. Distinguer hypothèses, reproduction et cause démontrée.
+2. Instrumenter de façon bornée et non intrusive SPI_SR, registres/compteurs/offsets et chronologie **avant nettoyage HAL**, sans masquer les erreurs. Établir des tests host/mocks et cross-build avec captures explicites. Préférer une correction ciblée et justifiée (horloge CPU, stratégie transfert, configuration SPI, optimisation, etc.) plutôt qu'un simple allongement de timeout ; choisir sur preuves. Ne pas modifier le pilote ST ni changer simultanément plusieurs paramètres expérimentaux. Documenter toute différence au code ST.
+3. Qualifier sur **seconde NUCLEO de test seulement**, STLINK SN `0032001F3235510C37333439`, UID `001B00463842501820333157`; refuser absolument SN `003500463235510B37333439` et UID `004A003D3842501820333157` du TR2 principal. Vérifier identité et image/hashes avant chaque flash. Exécuter une campagne physique bornée à étapes, avec conservation de toutes traces, STOP sur anomalie nouvelle ; aucune relance opportuniste. WHO/polling déjà acquis : ne les refaire que si nécessaires à la correction, en les distinguant. Tester FIFO, exporter payloads bruts, niveaux, tags, timestamps et démontrer intégrité et comptage ; ne jamais assimiler données partielles/rejetées à des mesures valides. Aucune qualification V1 4096..32768 sans preuves dédiées.
+4. Le banc secondaire est explicitement **jetable au niveau du firmware Flash** : décision utilisateur permanente pour ce banc, aucune nécessité de sauvegarde Flash 2MiB ni restauration du firmware initial à chaque campagne. Ne pas faire ces opérations chronophages ; garder vérification identité, intégrité image, programmation/verify/readback, traces et état final. Cette dérogation ne s'applique **jamais** au TR2 principal ni à ses données, et n'autorise ni mass erase, ni modification Option Bytes/RDP, ni manipulation destructive inhabituelle. Les gestes physiques restent à l'utilisateur ; si un doute câblage/mesure apparaît, demander un contrôle précis et reprendre ensuite sans abandonner le processus.
+5. En cas de succès FIFO sur ST, caractériser précisément les limites du résultat et proposer la comparaison ultérieure avec TR2 (un facteur à la fois). En cas d'échec, publier les faits, cause démontrée ou hypothèses hiérarchisées et prochaine expérience discriminante.
 
-## Essais séquentiels
-A. Flash NORMAL/verify/readback image WHO ST_STRICT, déclenchement unique, WHO_AM_I attendu 0x7B, aucun write capteur. Capturer HAL/CS/registre. Au premier écart STOP sans essai opportuniste.
-B. Seulement si A conforme : polling officiel ST, 64 XYZ réels, états/reset/BDU, données brutes, erreurs et variations. STOP au premier écart.
-C. Seulement si B conforme : FIFO ST_STRICT, niveaux, tags, horodatages et bruts. Conserver l'anomalie getter ST identifiée en K et ne pas la masquer. Le profil STATUS10 est une variante séparée, à n'utiliser que selon protocole documenté, en indiquant explicitement la différence avec le code officiel ; ne jamais présenter STATUS10 comme démo strictement identique. Respecter limites temporelles, une campagne bornée par étape, pas de répétition pour obtenir un résultat favorable.
-D. Comparer résultats aux observations M015-I/J, sans attribuer prématurément un défaut au breakout, au SPI3 ou au logiciel. Aucun essai sur TR2 principal dans cette mission.
-
-## Sortie
-Publier traces brutes, snapshots, SHA, observations et limites dans preuves, DERNIER_RAPPORT.md, ETAT_COURANT et roadmap. DONE seulement pour étapes effectivement démontrées ; sinon WAITING_FOR_WIRING_CONFIRMATION / IN_PROGRESS / BLOCKED selon fait. Commit/push main, vérifier relecture distante. Respecter autonomie développement/flash/debug et ne demander à l'utilisateur que confirmation indispensable de câblage ou intervention physique.
-
-## Clarification opérationnelle — doute sur le câblage
-Si une incertitude de câblage, d'orientation, de masse, d'alimentation ou de correspondance des broches empêche le préflight, **ne pas abandonner la mission ni clôturer BLOCKED pour ce seul motif**. Suspendre uniquement toute mise sous tension supplémentaire, flash ou essai susceptible de présenter un risque ; demander directement à l'utilisateur une vérification physique ciblée et concrète (broche, photo, continuité hors tension ou tension mesurée selon le cas), avec la table attendue. Attendre sa réponse, puis reprendre au point de contrôle interrompu sans recommencer les travaux logiciels ni les essais déjà qualifiés. Documenter l'attente comme WAITING_FOR_WIRING_CONFIRMATION / IN_PROGRESS avec consigne de reprise. Ne jamais supposer qu'une connexion est correcte sans confirmation ; ne pas transférer à l'utilisateur les opérations Git ou logicielles réalisables par Codex.
+## Gouvernance et livraison
+Autorisation permanente commit/push/flash/debug confirmée par AGENTS.md et ce contrat, sous garde-fous de cible et sécurité. Développement et tests autonomes sans validations répétitives. Travail Git isolé si nécessaire ; ne pas écraser les worktrees/stashes. Publier code, tests, preuves brutes, documentation, roadmap/journal et DERNIER_RAPPORT.md ; pousser main puis relire à distance les fichiers et SHAs. Statut honnête (DONE seulement si critères réellement qualifiés). Aucun travail sur M014-H, FRAM, SD, Modbus ou firmware permanent TR2.
