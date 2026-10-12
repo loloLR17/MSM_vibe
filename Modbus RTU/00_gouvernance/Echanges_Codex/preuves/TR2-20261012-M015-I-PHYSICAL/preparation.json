@@ -1,0 +1,62 @@
+{
+  "initial_head": "c33303b78f29e4a11289f3c3dd0ff4b36d0974ac",
+  "source_sha": "6c504a9d4035c2922d186a03350963bdac33379b",
+  "firmware_byte_unchanged": true,
+  "artifact_checks": {
+    "tr2_stm32_p11c.bin": "760aab56cf32aa458c861bf5f22e2801dd595f3bd73ad6a98602c1cff0cdd258",
+    "tr2_stm32_p11c.elf": "7893fda8b3e43e215cbab0a1bcc515d51b0a6986cdf9ff742974e53b8cbb076e"
+  },
+  "artifact_directory": "/home/lolo/dev/msm/reports/TR2-mission015-I-20261012T162708Z/build-burst",
+  "kept_worktrees": [
+    {
+      "path": "/home/lolo/dev/msm/projects/MSM_vibe",
+      "sha": "82169af7e76797731358852bec83bfb0ceb54ccf"
+    },
+    {
+      "path": "/home/lolo/dev/msm/projects/MSM_vibe-M014-H",
+      "sha": "762c459839439f7d27b42c11d12e309e65622a7f"
+    },
+    {
+      "path": "/home/lolo/dev/msm/projects/MSM_vibe-M015-A",
+      "sha": "eab07d49a5f3b86506a97877d0fccf2188fb0a7a"
+    },
+    {
+      "path": "/home/lolo/dev/msm/projects/MSM_vibe-M015-B",
+      "sha": "cfb9918dfe8e5ac3148d6ceaa79e50acda6ac53f"
+    },
+    {
+      "path": "/home/lolo/dev/msm/projects/MSM_vibe-M015-C",
+      "sha": "37b97f7fd8ea70c4ae8e377a3042bb3e2b8c5328"
+    },
+    {
+      "path": "/home/lolo/dev/msm/projects/MSM_vibe-M015-D",
+      "sha": "dbfcec4027200c5d5c989da52000166311fa6954"
+    },
+    {
+      "path": "/home/lolo/dev/msm/projects/MSM_vibe-M015-E",
+      "sha": "1c062af564e3d4d45093b1c369128cb4cf6d0575"
+    },
+    {
+      "path": "/home/lolo/dev/msm/projects/MSM_vibe-M015-F",
+      "sha": "e11088772987a50ce729eb4ca1148d657b2cc673"
+    },
+    {
+      "path": "/home/lolo/dev/msm/projects/MSM_vibe-M015-G",
+      "sha": "6357b667a45b0979e5edaf394cb273595295414d"
+    },
+    {
+      "path": "/home/lolo/dev/msm/projects/MSM_vibe-M015-H",
+      "sha": "c0d4f7b9786921db64f9e031f5458a662ba90332"
+    },
+    {
+      "path": "/home/lolo/dev/msm/projects/MSM_vibe-M015-I",
+      "sha": "7a2aca1901162144142f3e13964a4abcc7dbed9d"
+    }
+  ],
+  "stashes": [
+    "6251b988e8b20f97997a8f98fd26d4d35a45a1b2",
+    "f3b829e6188f491920edf74a5f9ed0f559d08b87"
+  ],
+  "tests_builds_reused_no_repetition": true,
+  "journal_unchanged_from_previous_session_full_body_reused": true
+}
