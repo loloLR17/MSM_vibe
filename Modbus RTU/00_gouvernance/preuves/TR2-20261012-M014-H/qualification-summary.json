@@ -1,0 +1,35 @@
+{
+  "journal_sha256": "26213780794828107C67CCEF76180A60C81BD0EA45A5D008164C68AA0FD1B6E7",
+  "bytes": 8487,
+  "events": 31,
+  "requests": 9,
+  "responses": 8,
+  "timeout": 1,
+  "uptimes_seconds": [
+    9,
+    11,
+    14,
+    217,
+    219,
+    221
+  ],
+  "old_value_and_timestamp_preserved_unavailable": true,
+  "fresh_value_available_after_identity_and_reconnect": true,
+  "no_ready_or_storage_claim": true,
+  "exit_code": 0,
+  "started": "2026-10-12T08:18:53.0913241+00:00",
+  "finished": "2026-10-12T08:22:24.1763732+00:00",
+  "stm32_after": {
+    "rx_bytes": 72,
+    "tx_started": 8,
+    "tc": 8,
+    "errors": 0,
+    "drops": 0,
+    "failsafe": 0,
+    "silence_events": 10,
+    "uart_irq_enabled": true,
+    "timer_irq_enabled": true,
+    "no_reset_before_observation": true
+  },
+  "firmware_source_sha": "0b2a901e185c9cbf8c02410bf2a29a0a3a75491e"
+}

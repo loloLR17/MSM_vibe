@@ -1,12 +1,14 @@
 param(
- [ValidateSet('Prepare','Offline','Physical')][string]$Task,
+ [ValidateSet('Prepare','Offline','Physical','Steady')][string]$Task,
  [string]$PackageName,[string]$ExpectedZipHash,[string]$ExpectedManifestHash,
  [string]$ExpectedB0Hash,[string]$GateUtc,
- [ValidateSet('physical-once','physical-after-b1-fix')][string]$RunName='physical-once'
+ [ValidateSet('physical-once','physical-after-b1-fix','physical-steady-final')][string]$RunName='physical-once'
 )
 $ErrorActionPreference='Stop'; $ProgressPreference='SilentlyContinue'
 [Console]::OutputEncoding=New-Object System.Text.UTF8Encoding($false)
 $locked=$false; $mutex=$null; $process=$null
+$physical=$Task -in @('Physical','Steady')
+$maximum=if($Task -eq 'Steady'){2}else{9}
 try {
  if($env:COMPUTERNAME -ne 'LAPTOP-3F6J7STJ'){throw 'Unexpected HP identity'}
  if($PackageName -notmatch '^M014-H-[0-9TZ]+$'){throw 'Invalid unique package name'}
@@ -43,7 +45,7 @@ try {
  if($candidates.Count){throw 'Potential serial master already active'}
  $args='--commissioning-check --protocol-version 1 --expected-b0 "'+$b0+'" --port COM7 --baud 115200 --parity Even --timeout-ms 1000'
  $deadline=30000
- if($Task -eq 'Physical'){
+ if($physical){
   $offline=Join-Path $package 'offline-success.json'
   if(-not(Test-Path -LiteralPath $offline)){throw 'No successful OFFLINE preflight'}
   $previous=Get-Content -LiteralPath $offline -Raw|ConvertFrom-Json
@@ -55,9 +57,11 @@ try {
   $run=Join-Path $package $RunName
   if(Test-Path -LiteralPath $run){throw 'Physical procedure already attempted; no automatic retry'}
   New-Item -ItemType Directory -Path $run|Out-Null
-  $gate=[ordered]@{task=$Task;utc=[DateTimeOffset]::UtcNow.ToString('o');baselineUtc=$GateUtc;maximumRequests=9;retries=0;manifest=$ExpectedManifestHash;expectedB0=$ExpectedB0Hash}
+  $gate=[ordered]@{task=$Task;utc=[DateTimeOffset]::UtcNow.ToString('o');baselineUtc=$GateUtc;maximumRequests=$maximum;retries=0;manifest=$ExpectedManifestHash;expectedB0=$ExpectedB0Hash}
   $gate|ConvertTo-Json|Set-Content -LiteralPath (Join-Path $run 'gate.json') -Encoding UTF8
-  $args+=' --execute --log "'+(Join-Path $run 'physical.jsonl')+'"';$deadline=280000
+  if($Task -eq 'Steady'){
+   $args='--system-check --protocol-version 1 --port COM7 --baud 115200 --parity Even --timeout-ms 1000 --read-once --log "'+(Join-Path $run 'physical.jsonl')+'"'
+  }else{$args+=' --execute --log "'+(Join-Path $run 'physical.jsonl')+'"';$deadline=280000}
  }
  $info=New-Object System.Diagnostics.ProcessStartInfo
  $info.FileName=Join-Path $package 'TR2.Supervision.Service.exe';$info.WorkingDirectory=$package
@@ -67,12 +71,12 @@ try {
  $stdout=$process.StandardOutput.ReadToEndAsync();$stderr=$process.StandardError.ReadToEndAsync()
  if(-not $process.WaitForExit($deadline)){$process.Kill();$process.WaitForExit();throw 'Bounded worker deadline; killed; no retry'}
  $code=$process.ExitCode
- $result=[ordered]@{task=$Task;utc=[DateTimeOffset]::UtcNow.ToString('o');package=$package;filesVerified=$files.Count;exitCode=$code;stdout=$stdout.Result;stderr=$stderr.Result;serialAuthorized=($Task -eq 'Physical')}
+ $result=[ordered]@{task=$Task;utc=[DateTimeOffset]::UtcNow.ToString('o');package=$package;filesVerified=$files.Count;exitCode=$code;stdout=$stdout.Result;stderr=$stderr.Result;serialAuthorized=$physical}
  if($Task -eq 'Offline' -and $code -eq 0){
   if($stdout.Result -notmatch 'OFFLINE: no port opened'){throw 'No OFFLINE guarantee in result'}
   @{manifest=$ExpectedManifestHash;utc=[DateTimeOffset]::UtcNow.ToString('o')}|ConvertTo-Json|Set-Content -LiteralPath (Join-Path $package 'offline-success.json') -Encoding UTF8
  }
- if($Task -eq 'Physical'){
+ if($physical){
   $result|ConvertTo-Json -Depth 4|Set-Content -LiteralPath (Join-Path $run 'result.json') -Encoding UTF8
   if(Test-Path -LiteralPath (Join-Path $run 'physical.jsonl')){$result['journalHash']=(Get-FileHash -LiteralPath (Join-Path $run 'physical.jsonl') -Algorithm SHA256).Hash}
  }
