@@ -1,8 +1,8 @@
 ---
-mission_id: TR2-20261012-M015-F-FIFO-BURST-FEASIBILITY
+mission_id: TR2-20261012-M015-G-CONFIG-READBACK
 status: READY
 base_ref: main
-base_sha: 1c062af564e3d4d45093b1c369128cb4cf6d0575
+base_sha: e11088772987a50ce729eb4ca1148d657b2cc673
 author: ChatGPT
 target_branch: main
 allow_commit: true
@@ -11,15 +11,20 @@ allow_flash: true
 allow_debug: true
 ---
 
-# M015-F — Faisabilité acquisition FIFO par bursts
+# M015-G — Localiser le refus de configuration puis qualifier la voie FIFO bornée
 
-Respecter AGENTS.md, gouvernance V2-B3, V1 gelée, état courant et roadmap. Vérifier main et rapport M015-E DONE ; archiver mission et rapport E. Préserver worktrees, stashes, firmware permanent M014-H, FRAM génération12 et microSD OFF. L'utilisateur dispose d'un multimètre, mais pas d'oscilloscope ; ne pas exiger d'instrument absent. Objectif : trouver une méthode fiable sans chercher à expliquer exhaustivement les échecs précédents. Aucune réduction silencieuse des exigences V1.
+Respecter AGENTS.md, gouvernance V2-B3, gels V1, état courant et roadmap sur main. Vérifier HEAD réel et rapport M015-F BLOCKED. Archiver la mission F et son rapport sans écrasement, préserver worktrees, stashes, sauvegardes, FRAM génération12, microSD OFF et image permanente M014-H. L'utilisateur dispose d'un multimètre, pas d'oscilloscope. Ne pas exiger d'instrument externe. Développement/commit/push/flash/debug autorisés avec garde-fous matériels, sans validations répétitives.
 
-1. Auditer brièvement le code et les documents ST pour définir un profil RAM borné : IIS3DWB FIFO, bursts de128 mots (897octets, limite SPI3 1024), SPI mode3 à2,5MHz candidat, débit et latence, tags, flags, CS, STOP_ON_WTM et risques. Préparer critères d'intégrité et conditions d'arrêt. Si les préconditions de sûreté ne sont pas réunies, ne pas tenter le matériel.
-2. Développer harness RAM réversible, test hôte ciblé et cross-build. Si preflight OK, UNE campagne physique courte maximum : lire FIFO_DATA_OUT en bursts, conserver octets et tags bruts, horodatages, niveaux et flags, mesurer débit et rejeter toute capture ambiguë. Ne pas traiter les lectures single CTRL2 fautives comme vérité ; vérifier configuration en burst, signaler cette limite. Ne pas prétendre qualifier un flux continu par un burst réussi.
-3. Flash/debug autorisés : UID/image vérifiés, sauvegarde et hashes Flash2Mio, flash NORMAL qualifié, jamais HOTPLUG CubeProgrammer, mass erase, Option Bytes ou RDP. Restaurer octet-identique M014-H et vérifier la reprise minimale HP B0/B1, GDB détaché pendant trafic. Aucune écriture FRAM ni SD, partition LBA65536 protégée. Arrêt sur risque ou incohérence.
-4. Publier traces, mesures, limites, état courant, roadmap et DERNIER_RAPPORT.md ; commit/push normaux et relecture distante. M015-F DONE seulement si la faisabilité RAM bornée est démontrée, sinon BLOCKED motivé. M015 globale IN PROGRESS.
+## Objectif
+Identifier sans ambiguïté le premier écart de configuration qui a empêché M015-F de démarrer (stage10/result9/loss_flags4, zéro poll/burst/XYZ), puis, seulement si les préconditions sont satisfaites, effectuer une unique acquisition FIFO RAM bornée et mesurable. Ne pas rechercher exhaustivement la cause des anomalies M015-B/C/D et ne pas affaiblir les gardes. Aucune réduction implicite des exigences V1.
 
-Présenter les conséquences chiffrées de toute réduction éventuelle : ODR26667Hz, fenêtres4096..32768, continuité et stockage store-and-forward, bande fréquentielle, spectre, pertes, latence, mémoire et compatibilité V1. Ne modifier ni mapping, ni validator, ni spécifications gelées sans décision utilisateur.
+## Étapes
+1. Audit ciblé du code F et de ses traces : trouver exactement le chemin de contrôle et la perte de télémétrie. Instrumenter la vérification de configuration pour conserver AVANT restauration, même en échec, registre/adresse, valeur attendue, valeur lue, méthode de lecture, TX/RX bruts, HAL status/error, état SPI/CS et horodatage. Marquer explicitement les champs non renseignés, sans confondre zéro mémoire et zéro mesuré. Capturer également les valeurs groupées 07..0A et la vitesse effective. Conserver le comportement fail-closed, aucun bypass ni substitution de valeurs.
+2. Tests hôte ciblés de l'instrumentation, cas nominal et erreur sur chaque étape critique, plus cross-build ARM défaut/profil. Préparer un diagnostic exclusif, réversible, borné, une activation unique. Un seul essai physique court si preflight satisfaisant. Sur refus de configuration, arrêter immédiatement et publier la cause observable, sans deuxième tentative ni variante. Si le contrôle passe, autoriser dans ce même essai la FIFO figée et deux bursts de128 mots au plus, avec contrôle des tags, niveaux, intégrité, timing, overflow, données XYZ et refus de tout lot ambigu. Ne pas déclarer débit continu V1 à partir d'une capture finie.
+3. Avant flash : UID/cible/image et hashes, sauvegarde Flash2Mio et données pertinentes, méthode NORMAL qualifiée, jamais HOTPLUG CubeProgrammer, mass erase, Option Bytes ni RDP. Restaurer intégralement M014-H byte-identique et contrôler la reprise minimale B0/B1 sur HP, sans GDB pendant trafic. Aucune écriture FRAM ou microSD ni accès partition LBA65536. Arrêt immédiat en cas de risque non maîtrisé.
+4. Publier traces et analyse du premier écart, statut des bursts et pertes, temps et calculs de faisabilité, ETAT_COURANT, roadmap, DERNIER_RAPPORT.md et preuves ; commits/push normaux avec vérification distante. M015-G DONE si le refus F est caractérisé de façon exploitable ou si une capture bornée fiable est prouvée ; sinon BLOCKED documenté. M015 globale IN PROGRESS.
 
-Exclusions : recherche exhaustive de cause CTRL2, instrument externe supposé, DMA/production/flux continu, FFT, calibration, microSD, B5, Modbus vibration, Web, requalification des campagnes A-E. Limiter la dépense de quota et publier les acquis rapidement.
+## Arbitrage V1
+Préserver ODR26667Hz, fenêtres4096..32768, continuité et stockage store-and-forward, mapping et configuration validator gelés. Si une adaptation semble nécessaire, chiffrer conséquences sur bande fréquentielle, résolution spectrale, pertes, latence, mémoire et fonctionnalités TR2, et soumettre la décision à l'utilisateur sans la mettre en oeuvre.
+
+Exclusions : DMA, acquisition continue, production, FFT, calibration, B5, Modbus vibrations, Web, écriture FRAM/SD, répétition des campagnes A-F, instrumentation électrique externe présumée. Préserver les acquis et limiter les dépenses de quota.
