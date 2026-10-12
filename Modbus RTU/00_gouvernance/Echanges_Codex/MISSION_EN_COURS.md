@@ -1,8 +1,8 @@
 ---
-mission_id: TR2-20261012-M015-J-CONTINUOUS-FIFO
+mission_id: TR2-20261012-M015-K-ST-OFFICIAL-REFERENCE
 status: READY
 base_ref: main
-base_sha: d25aa42a3d2c4850f4cedeeaca545da63aad0c29
+base_sha: 0b76875c1a0257362280780f835991395b10fcbe
 author: ChatGPT
 target_branch: main
 allow_commit: true
@@ -11,20 +11,20 @@ allow_flash: true
 allow_debug: true
 ---
 
-# M015-J — Acquisition FIFO continue, fenêtre 4096 XYZ en RAM
-
-Lire AGENTS.md V2-B3, gouvernance courante, rapport M015-I DONE, preuves, état courant et roadmap sur main réel. Archiver mission et rapport précédents ; préserver worktrees, stashes et preuves. M015-I a validé physiquement deux bursts de 128 mots, 256 XYZ réels, contrôles SPI groupés, zéro erreur détectée et restauration M014-H. Cette preuve bornée ne valide pas le continu V1.
+# M015-K — Banc IIS3DWB indépendant, drivers et démos officiels ST
 
 ## Objectif
-Construire et qualifier une acquisition FIFO réellement continue à ODR configurée 26667 Hz, pendant la vidange FIFO, et produire au moins une fenêtre complète de 4096 XYZ en RAM, sans changer le mapping ni les fenêtres V1 gelées 4096/8192/16384/32768. Les autres tailles, endurance et absence absolue de perte restent à qualifier séparément.
+Préparer un projet STM32U575ZI-Q indépendant pour le second NUCLEO et un breakout IIS3DWB seul, en utilisant les sources officielles STMicroelectronics, sans reproduire les choix du harness TR2. L'utilisateur monte actuellement le banc ; **ne pas flasher ni lancer de campagne matérielle tant que le câblage réel et l'identité de la seconde carte n'ont pas été confirmés**. Préparation logicielle autonome immédiate.
 
-## Travaux
-1. Vérifier le code courant, les ressources RAM, pile, BSS, les interfaces, tests et ownership des buffers. Dimensionner XYZ int16 x3, tags, métadonnées, marges, état de validité, timestamps et backpressure. Si 32768 ne tient pas en RAM, proposer une architecture segmentée pour stockage futur sans modifier V1 ni écrire sur média.
-2. Réutiliser les contrôles groupés M015-I, WHO 7B, CTRL1 A8, IF_INC, FIFO controls, HAL_OK, ErrorCode, compteurs de transfert et CS. Aucune lecture simple sur admission, aucun vote, fallback ou assouplissement. Maintenir fail-closed au premier écart. Vérifier tags, parité, niveaux, overflow, comptage et budget temporel ; le compteur modulo4 ne suffit pas à prouver aucune perte.
-3. Implémenter la plus petite tranche de service FIFO continu : bursts maximum128 mots sous limite SPI3 1024 octets, FIFO restant active pendant lecture, buffer borné pour 4096 XYZ, transitions fenêtre, télémétrie cadence, temps de transfert, erreurs et pertes. Tests hôte nominal et défauts (SPI incomplet, niveau incohérent, overrun, timeout, wrap, limites RAM, arrêt). Cross-build ARM défaut et diagnostic. Checkpoint commit/push et relecture GitHub avant campagne.
-4. Si préflights et restauration garantis, réaliser une seule campagne physique courte et bornée visant 4096 XYZ réels pendant acquisition active, avec plafond explicite temps et bursts. Publier données brutes, niveaux FIFO, timings et critères de continuité. Arrêter au premier refus ; pas de répétition opportuniste. Une fenêtre 4096 n'est pas une qualification endurance ni stockage V1.
-5. Avant flash : UID 004A003D3842501820333157, STLINK 003500463235510B37333439, sauvegarde fraîche Flash2Mio et RAM utile avec hashes, image M014-H BIN SHA256 b462c29a775fec17fccf8036b5612742b1366210359bcd3f192c95435740d611. Flash NORMAL verify/reset uniquement, jamais HOTPLUG, mass erase, Option Bytes/RDP. Traces sauvegardées avant reflash ; restaurer M014-H en finally, Flash2Mio byte-identique à la sauvegarde fraîche, reprise HP deux FC03 B0/B1, FRAM gen12, SD OFF, IRQ49/66, fault0, MCU running. Aucune manipulation physique ni écriture FRAM/SD.
-6. Si ressources, quota ou sécurité insuffisants, publier état IN_PROGRESS et point de reprise plutôt que flasher. Si échec matériel, BLOCKED documenté, avec restauration contrôlée. Ne pas solliciter de validations répétitives pour développement, commit, push, flash ou debug autorisés.
+## Références et audit
+Lire AGENTS.md V2-B3, rapport M015-J BLOCKED, M015-I DONE, état courant et roadmap sur main réel. Archiver mission/rapport précédents sans écrasement des preuves. Récupérer depuis sources officielles ST le pilote IIS3DWB (STMems_Standard_C_drivers/iis3dwb_STdC et exemples iis3dwb_read_data_polling.c / iis3dwb_fifo.c ou équivalents réels), figer URL, commit/tag, licence et SHA des sources, et consigner précisément les adaptations. Vérifier datasheet IIS3DWB, schéma NUCLEO-U575ZI-Q et pinout matériel réel du breakout. Ne pas inventer de broches : fournir une table pin-à-pin NUCLEO connecteur/broche STM32 ↔ breakout avec justification schéma, GPIO CS, SPI MOSI/MISO/SCK, 3V3, GND, tensions, polarité CS, mode SPI et absence de conflit. Séparer les broches proposées des broches effectivement câblées par l'utilisateur.
 
-## Critères de sortie
-DONE seulement si 4096 XYZ réels en une fenêtre continue sont acceptés selon contrôles documentés, sans erreur ni perte détectée, et si restauration et Modbus HP sont vérifiés. Publier code, tests, cross-build, preuves et hashes, métriques, limites et statut exact dans DERNIER_RAPPORT.md, ETAT_COURANT et roadmap ; push main et relecture distante. Hors périmètre : FFT, DMA non nécessaire, stockage persistant, Modbus vibrations, supervision Web, calibration, changements V1 et endurance prolongée.
+## Réalisation
+1. Créer un projet CMake/STM32CubeU5 autonome et isolé du firmware TR2, avec drivers ST officiels conservés au maximum, portage read_reg/write_reg/delay/memoriaux, contrôles timeout et erreurs HAL, traces lisibles, instructions de build/flash et configuration du STLINK de la seconde carte à identifier. Éviter d'intégrer les services FRAM, SD, Modbus, persistance et autres composants du TR2.
+2. Préparer deux exemples officiels reproductibles : polling WHO_AM_I/reset/BDU/XYZ, puis FIFO stream continu avec lectures/tags/statuts. Respecter séquences ST, distinguer valeurs et modes d'origine des adaptations de plateforme. Conserver un profil « ST strict » et un profil « comparaison TR2 » seulement si nécessaire, sans masquer les différences. Comparer ligne à ligne notre code I/J aux APIs et séquences ST ; matrice conforme/différent/non établi, notamment reset, IF_INC, BDU, CTRL1, FIFO_CTRL3/4, SPI 4 fils, commande R/W et auto-increment, CS et burst.
+3. Compiler et tester hors matériel, produire manifestes sources/hashes, scripts de diagnostic et capture brute. Préparer un protocole d'essais progressif avec critères WHO, XYZ non figés, FIFO, erreur et arrêt, comparaison banc isolé vs bus TR2. Ne pas prétendre qualifier le breakout sans exécution physique.
+4. Ne flasher la seconde NUCLEO qu'après confirmation du câblage et identification certaine du STLINK/UID de la **seconde** carte, sans toucher à la carte TR2 principale. En cas d'incertitude, terminer en READY_FOR_PHYSICAL avec consignes précises, pas BLOCKED logiciel. Si carte et câblage confirmés dans une étape ultérieure, flash/debug autorisés selon AGENTS.md avec garde-fous, sauvegarde initiale de la carte cible, verify/readback et aucune opération destructive inhabituelle. Ne jamais utiliser l'identité STLINK historique du TR2 comme identité du banc.
+5. Publier code, instructions de câblage vérifiées, audit, tests, statut honnête et prochain protocole dans DERNIER_RAPPORT.md et état courant. Commit/push main et vérification distante. Préserver le firmware permanent M014-H sur la première NUCLEO ; ne modifier ni mapping V1, ni autres médias ou câblage TR2.
+
+## Critères d'acceptation
+Projet officiel ST portable compilé, sources tracées et comparées, pinout sourcé, procédure de test claire. Les essais physiques et la preuve du fonctionnement du breakout sont distincts et ne peuvent être déclarés DONE avant montage/confirmation et acquisition réelle. Développement logiciel autonome sans demander validations répétitives ; seule la connexion physique et les décisions matérielles reviennent à l'utilisateur.
