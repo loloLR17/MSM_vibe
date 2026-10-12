@@ -1,8 +1,9 @@
 ---
-mission_id: TR2-20261012-M015-D-FIFO-ACTIVE-READBACK
+mission_id: TR2-20261012-M015-E-ACQUISITION-DECISION
 status: READY
 base_ref: main
-base_sha: 37b97f7fd8ea70c4ae8e377a3042bb3e2b8c5328
+base_sha: dbfcec4027200c5d5c989da52000166311fa6954
+created_at_utc: 2026-10-12T14:26:00Z
 author: ChatGPT
 target_branch: main
 allow_commit: true
@@ -11,15 +12,18 @@ allow_flash: true
 allow_debug: true
 ---
 
-# M015-D — Diagnostic FIFO active, tranche courte
+# M015-E — Décision technique FIFO / acquisition, tranche courte sans essai physique
 
-Respecter AGENTS.md, le protocole V2, les gels V1, la roadmap et le rapport M015-C BLOCKED. Vérifier main courant, archiver la mission précédente, préserver les worktrees, stashes, sauvegardes et preuves. Publier les résultats rapidement et communiquer les tranches en cours sans demander de validations répétitives.
+## Gouvernance et reprise
+Appliquer AGENTS.md, protocole V2-B3, gels V1, roadmap et état courant de main. Vérifier HEAD réel et rapport M015-D BLOCKED, lire les audits et traces M015-A à D, archiver mission et rapport D sans écrasement. Préserver worktrees, stashes, backups, firmware permanent M014-H, FRAM génération12 et microSD désactivée. Autorisations permanentes de commit, push, flash et debug confirmées (true) ; **cette tranche n'a pas besoin de flasher ni de debugger**. Ne pas demander de validations répétitives. Informer brièvement des tranches et résultats, sans interrompre le travail.
 
-Objectif unique : déterminer pourquoi les lectures des registres FIFO deviennent incohérentes pendant son remplissage, alors que 512 lectures avec FIFO vide étaient cohérentes en M015-C. M015-B a observé 171 statuts et 11 reculs de niveau sans lecture de données ; ne pas attribuer ces anomalies au mouvement du voilier sans preuve.
+## Objectif unique
+Fournir un arbitrage technique documenté, exploitable et peu coûteux en tokens sur la voie d'acquisition à retenir pour avancer vers M016, en séparant la recherche de cause du défaut SPI/FIFO de la faisabilité d'une acquisition réelle fiable. Aucune nouvelle campagne matérielle M015-A/B/C/D, aucun faux READY, aucune qualification physique présumée.
 
-1. Analyser hors ligne les traces M015-B/C et la documentation ST : FIFO_CTRL2, STOP_ON_WTM, FIFO_STATUS, niveaux et bits 7/8/9, transactions SPI single/burst, CS, timing et auto-incrément. Identifier un test discriminant précis.
-2. Si nécessaire, effectuer une unique campagne courte sur cible avec FIFO active, sans lecture de FIFO_DATA_OUT ni capture XYZ : journaliser les octets TX/RX bruts, les statuts, CTRL2, les marqueurs CS et les horodatages autour du niveau 127/128. Ne pas multiplier les variantes. Si une mesure avec analyseur logique est indispensable, documenter le geste physique et demander seulement celui-ci.
-3. Tests hôte ciblés et cross-build ARM proportionnés. Flash/debug autorisés sous sauvegarde, identification cible, hashes, procédure NORMAL et restauration exacte du firmware permanent M014-H, sans HOTPLUG CubeProgrammer, mass erase, Option Bytes ou RDP. Aucune écriture FRAM ni microSD. Après diagnostic, contrôler si nécessaire B0/B1 sur HP, sans GDB pendant trafic.
-4. Publier traces et conclusions distinguant faits et hypothèses, ETAT_COURANT, roadmap et DERNIER_RAPPORT.md. M015-D DONE uniquement si le défaut est identifié ou la fiabilité FIFO active démontrée ; sinon BLOCKED documenté. M015 globale IN PROGRESS.
+## Trois lots bornés
+1. **Diagnostic et instrumentation** : à partir des 468 transactions D, comparer commandes et réponses des lectures simples CTRL2 et burst pendant remplissage puis arrêt. Identifier les hypothèses encore compatibles avec les observations, le test wire-vers-RAM discriminant le plus court et ses critères de décision. Rédiger une fiche de mesure logique CS/SCK/MOSI/MISO : instrument nécessaire, niveaux 3,3V, points de raccordement à confirmer, masse de référence, fréquence/cadence et traces attendues. Ne pas présumer qu'un analyseur logique est disponible ni demander de câblage tant que la nécessité et la faisabilité ne sont pas établies.
+2. **Voie alternative** : auditer, sans développement matériel, les options de capture avec IIS3DWB et SPI3 réel : lecture directe non-FIFO prouvée en A, FIFO en bursts, fréquence SPI admissible d'après documentation et caractéristiques réelles, DMA/interruptions, contraintes de débit ODR26,667kHz, horodatage, pertes, mémoire et traitement. Faire les calculs chiffrés de bande passante et distinguer un démonstrateur vibratoire à cadence bornée d'une acquisition V1 complète. Ne pas modifier la spécification V1 ni déclarer un flux continu qualifié. Proposer une stratégie minimale qui ne masque pas le défaut.
+3. **Décision et publication** : livrer une note de décision concise avec tableau comparatif des options, risques, dépendances et critère d'arrêt ; proposer la prochaine tranche la plus efficace (mesure instrumentée, correctif démontré ou acquisition alternative) sans exécuter d'essai physique. Mettre à jour ETAT_COURANT et roadmap seulement avec des statuts factuels ; M015 reste IN PROGRESS. Publier DERNIER_RAPPORT.md et preuves d'analyse, commits/push normaux et relecture distante. Statut DONE pour M015-E si la décision et le protocole sont vérifiables, sans prétendre résoudre M015.
 
-Exclusions : DMA, acquisition continue, FFT, stockage, calibration, campagnes B5, Modbus vibration, répétition des campagnes M015-A/B/C et requalification M014 sans justification. Aucun force push ni opération destructive. En cas de quota faible, publier les acquis et un point de reprise avant de poursuivre.
+## Limites strictes
+Mission documentaire et analyse de code uniquement : pas de flash, debug cible, capture FIFO, modification firmware de production, test HP, écriture FRAM/SD, DMA implémenté, refactoring, FFT ou calibration. Ne pas répéter les tests inchangés. Aucun force push/reset destructif. Publier tôt pour limiter quota. Toute intervention physique future reste soumise à un protocole distinct ; les décisions techniques ordinaires sont déléguées à ChatGPT/Codex.
