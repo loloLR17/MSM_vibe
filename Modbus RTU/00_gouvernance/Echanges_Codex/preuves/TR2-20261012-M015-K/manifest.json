@@ -1,0 +1,92 @@
+{
+  "size-and-isolation.json": {
+    "published_sha256": "aa106f3f3b2cf701c1f81fdb78f264ae3f78e5d7d34a4109d60d00e96e8aea80",
+    "original_local_sha256": "aa106f3f3b2cf701c1f81fdb78f264ae3f78e5d7d34a4109d60d00e96e8aea80",
+    "normalized": false
+  },
+  "host-build.log": {
+    "published_sha256": "1d69c190a1804326e69f753c30c1e230a7886a5c553967becef9e24ea82eaa0e",
+    "original_local_sha256": "1d69c190a1804326e69f753c30c1e230a7886a5c553967becef9e24ea82eaa0e",
+    "normalized": true
+  },
+  "who-ST_STRICT-build.log": {
+    "published_sha256": "588be85ac452a4078a8b9849ca06cd4a6af866dca5477dca6ee78969c6ad26c8",
+    "original_local_sha256": "588be85ac452a4078a8b9849ca06cd4a6af866dca5477dca6ee78969c6ad26c8",
+    "normalized": true
+  },
+  "fifo-STATUS10-configure.log": {
+    "published_sha256": "c9c66e7d67a11943b156f517dfec6b65ce0440d855939e36016dd54e2a30de74",
+    "original_local_sha256": "c9c66e7d67a11943b156f517dfec6b65ce0440d855939e36016dd54e2a30de74",
+    "normalized": true
+  },
+  "source-hashes.json": {
+    "published_sha256": "a765cb1bb3e45d0d96ecdd2d5b9d013805711175acf3d229b5d3094cdfcc3ac1",
+    "original_local_sha256": "a765cb1bb3e45d0d96ecdd2d5b9d013805711175acf3d229b5d3094cdfcc3ac1",
+    "normalized": false
+  },
+  "polling-ST_STRICT-build.log": {
+    "published_sha256": "11a3b380ebc00f2b3d01cf215149288f503efc78d3dd3659378b236bf02b9c39",
+    "original_local_sha256": "11a3b380ebc00f2b3d01cf215149288f503efc78d3dd3659378b236bf02b9c39",
+    "normalized": true
+  },
+  "polling-ST_STRICT-configure.log": {
+    "published_sha256": "2021501c41e79b29865779078ca7429417aacb62f500350177f93d5cbee5b50c",
+    "original_local_sha256": "2021501c41e79b29865779078ca7429417aacb62f500350177f93d5cbee5b50c",
+    "normalized": true
+  },
+  "numbered-audit-sources.txt": {
+    "published_sha256": "2888ff5a51e6f071ead4d6b8c918d0f97ecc943b1b4959fd08a3d668a8d80572",
+    "original_local_sha256": "7d062b09f36296c0a3804f1bde8d9a46bb775008260493ff88f684c9a791fb40",
+    "normalized": true
+  },
+  "host-configure.log": {
+    "published_sha256": "1df324daad7990f226c2752a0d74a6025c99e18bebb957115dffbf3181ec5305",
+    "original_local_sha256": "1df324daad7990f226c2752a0d74a6025c99e18bebb957115dffbf3181ec5305",
+    "normalized": true
+  },
+  "initial.json": {
+    "published_sha256": "0629c231cc4eb86bca0aaed082a881b6dbe8276d3242ab9655e7dcc24e4742a7",
+    "original_local_sha256": "0629c231cc4eb86bca0aaed082a881b6dbe8276d3242ab9655e7dcc24e4742a7",
+    "normalized": false
+  },
+  "diagnostic-notes.md": {
+    "published_sha256": "9c3901b86cbc0512a3668db80f2e4a136fa2f4f7826547c8dd0bf241595f04eb",
+    "original_local_sha256": "9c3901b86cbc0512a3668db80f2e4a136fa2f4f7826547c8dd0bf241595f04eb",
+    "normalized": false
+  },
+  "fifo-STATUS10-build.log": {
+    "published_sha256": "fe2ec898ea8589c0535677e65f7b3ff78ac722de4b932687e6effb40a331b573",
+    "original_local_sha256": "fe2ec898ea8589c0535677e65f7b3ff78ac722de4b932687e6effb40a331b573",
+    "normalized": true
+  },
+  "artifacts.json": {
+    "published_sha256": "3d8e6caddc0f0e85c82fab58d6b03f2dd2908508f43a7bcd90023b2043808e23",
+    "original_local_sha256": "3d8e6caddc0f0e85c82fab58d6b03f2dd2908508f43a7bcd90023b2043808e23",
+    "normalized": false
+  },
+  "who-ST_STRICT-configure.log": {
+    "published_sha256": "4134184b1b6cf7829abb856b9af57565a2a202d590dd34f0b944e914390bff26",
+    "original_local_sha256": "4134184b1b6cf7829abb856b9af57565a2a202d590dd34f0b944e914390bff26",
+    "normalized": true
+  },
+  "fifo-ST_STRICT-configure.log": {
+    "published_sha256": "f7e962d418f5797da2b8013037eb5b0d67183cb8e7472257a55bb050da698ac5",
+    "original_local_sha256": "f7e962d418f5797da2b8013037eb5b0d67183cb8e7472257a55bb050da698ac5",
+    "normalized": true
+  },
+  "fifo-ST_STRICT-build.log": {
+    "published_sha256": "7c6604a390f0e65581232bb808ef5d9e915f7c5104a18efee2a0c3736440c1c3",
+    "original_local_sha256": "7c6604a390f0e65581232bb808ef5d9e915f7c5104a18efee2a0c3736440c1c3",
+    "normalized": true
+  },
+  "commands.json": {
+    "published_sha256": "19ebbe5ef7df13044d11dfe128d5679e8d5bd240d8c5418e311768f397b80cad",
+    "original_local_sha256": "19ebbe5ef7df13044d11dfe128d5679e8d5bd240d8c5418e311768f397b80cad",
+    "normalized": false
+  },
+  "host-test.log": {
+    "published_sha256": "7b4518c1d2a34ada7b2940d53298d78e3ed17b738fd2110274743f032e81532e",
+    "original_local_sha256": "2f660ac03a25d2be7fbd008e95ea33879df3061a19c391aa310a35edc59c0c75",
+    "normalized": true
+  }
+}

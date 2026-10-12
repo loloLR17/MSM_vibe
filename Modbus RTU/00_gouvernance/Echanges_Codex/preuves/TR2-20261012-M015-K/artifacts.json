@@ -1,0 +1,62 @@
+[
+  {
+    "path": "/home/lolo/dev/msm/reports/TR2-mission015-K-20261012T192739Z/validation-final/who-ST_STRICT/iis3dwb_reference.elf",
+    "sha256": "fa3e77bd658806afb602277868c01c4be4d540fff5ec431496d9ec5b683248ea",
+    "bytes": 300136
+  },
+  {
+    "path": "/home/lolo/dev/msm/reports/TR2-mission015-K-20261012T192739Z/validation-final/who-ST_STRICT/iis3dwb_reference.bin",
+    "sha256": "375fd90243d34eedb9948aff2ba43daabf24c0d0f0a326be2bbee49c1d8f9c21",
+    "bytes": 31632
+  },
+  {
+    "path": "/home/lolo/dev/msm/reports/TR2-mission015-K-20261012T192739Z/validation-final/who-ST_STRICT/iis3dwb_reference.map",
+    "sha256": "3acdee27395a3981354d2cb41f9173b7767d76768582ecd671471f8348e5d148",
+    "bytes": 209323
+  },
+  {
+    "path": "/home/lolo/dev/msm/reports/TR2-mission015-K-20261012T192739Z/validation-final/polling-ST_STRICT/iis3dwb_reference.elf",
+    "sha256": "b48b57fb4ad197f2dd6f7a9757abecb9c6b54173ff3b4b2b450a8b04e7a03b44",
+    "bytes": 300144
+  },
+  {
+    "path": "/home/lolo/dev/msm/reports/TR2-mission015-K-20261012T192739Z/validation-final/polling-ST_STRICT/iis3dwb_reference.bin",
+    "sha256": "0eea150b47a56d00e0ce9eac53d48fe5c42188e7797b422008f8d4038d162fcb",
+    "bytes": 31632
+  },
+  {
+    "path": "/home/lolo/dev/msm/reports/TR2-mission015-K-20261012T192739Z/validation-final/polling-ST_STRICT/iis3dwb_reference.map",
+    "sha256": "4c7c74ad48aca0321f1bc48860d95f9fd722c4ee2d0abd9f3077931e53ec6169",
+    "bytes": 209323
+  },
+  {
+    "path": "/home/lolo/dev/msm/reports/TR2-mission015-K-20261012T192739Z/validation-final/fifo-ST_STRICT/iis3dwb_reference.elf",
+    "sha256": "9d210df591213ef2a6e03cdc7b6c3bfad2bd85358815227e4ba332de4e7cd510",
+    "bytes": 300140
+  },
+  {
+    "path": "/home/lolo/dev/msm/reports/TR2-mission015-K-20261012T192739Z/validation-final/fifo-ST_STRICT/iis3dwb_reference.bin",
+    "sha256": "7ae06204ce280c0907799b2b5631cb2c7045583d7ba77f36eab7e1623b778898",
+    "bytes": 31632
+  },
+  {
+    "path": "/home/lolo/dev/msm/reports/TR2-mission015-K-20261012T192739Z/validation-final/fifo-ST_STRICT/iis3dwb_reference.map",
+    "sha256": "773565d4392ac074aaf99986ebdd6b21ea0d694dcd216c83525c894ef2931f32",
+    "bytes": 209323
+  },
+  {
+    "path": "/home/lolo/dev/msm/reports/TR2-mission015-K-20261012T192739Z/validation-final/fifo-STATUS10/iis3dwb_reference.elf",
+    "sha256": "d56d9f0c10343c0ad45a6945e60584d2e3a1b52e9fd7a74cb940da98ece739e0",
+    "bytes": 300136
+  },
+  {
+    "path": "/home/lolo/dev/msm/reports/TR2-mission015-K-20261012T192739Z/validation-final/fifo-STATUS10/iis3dwb_reference.bin",
+    "sha256": "033f0c425203c5e874aebeff47202d390d2435d0df6aa1da0177a44c8ca3c1be",
+    "bytes": 31632
+  },
+  {
+    "path": "/home/lolo/dev/msm/reports/TR2-mission015-K-20261012T192739Z/validation-final/fifo-STATUS10/iis3dwb_reference.map",
+    "sha256": "3acdee27395a3981354d2cb41f9173b7767d76768582ecd671471f8348e5d148",
+    "bytes": 209323
+  }
+]

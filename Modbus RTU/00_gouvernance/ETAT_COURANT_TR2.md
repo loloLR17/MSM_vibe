@@ -1,10 +1,16 @@
 # État courant TR2 — référence reconstruite
 
-Mise à jour : 12 octobre 2026. Mission `TR2-20261012-M015-J-CONTINUOUS-FIFO`.
+Mise à jour : 12 octobre 2026. Mission `TR2-20261012-M015-K-ST-OFFICIAL-REFERENCE`.
 
 **Ce document est un nouvel état de référence reconstruit à partir de preuves vérifiables. Il n'est pas une restitution du journal historique HP.** Sa création a été explicitement autorisée par l'utilisateur pour la mission `T1000-20261010-CLOTURE-001`, après escalade AGENTS.md §18. Aucun original n'a été retrouvé dans l'historique Git, les répertoires Linux locaux ou les documents Windows accessibles. Les archives d'échanges du 8 octobre mentionnent un journal local HP, sans en fournir le contenu. Aucun état historique inconnu n'est inventé.
 
-## État opérationnel actuel — M015-J, 12 octobre 2026
+## État opérationnel actuel — M015-K, 12 octobre 2026
+
+- **VALIDÉ LOGICIEL / READY_FOR_PHYSICAL** : projet autonome ST dans `experiments/iis3dwb_st_reference`, pilote/exemples figés et byte-identiques ; WHO readonly, polling et FIFO strict/STATUS10 compilés. CTest2/2 :41scénarios C et5tests Python, quatre images ARM ; mocks seulement. Deux erreurs getter ST reproduites (niveau03F, batching case10 au lieu0A), aucun patch vendeur ni attribution à l'anomalie J.
+- **PRÉPARÉ / NON VÉRIFIÉ PHYSIQUE** : pinout constructeur CN8/PC9..12 ↔ MKIGIBV2 documenté, point GND et référence/révisions/orientation/câblage réel à confirmer. Seconde carte SN/UID non identifiés ; protocole progressif WHO/polling/FIFO et backup/verify/readback préparé. Aucun accès MCU/STLINK/COM7/flash/debug/reset/média, aucun essai pendant montage. M014-H permanent première carte intact, dernier état observé reste celui de J.
+- **SUITE** : publier/relire ces livrables ; après montage utilisateur et identité seconde cible, qualifier sa chaîne puis exécuter le protocole borné. Aucune identité du TR2 recyclée. I256 figé reste acquis, J4096 BLOCKED, M015 IN PROGRESS ; aucune qualification continue/V1/stockage/FFT. Archives J et worktrees/stashes préservés. Preuves `/home/lolo/dev/msm/reports/TR2-mission015-K-20261012T192739Z`.
+
+## État opérationnel antérieur — M015-J, 12 octobre 2026
 
 - **BLOCKED physique continu4096** :unecampagne code24ccec0, premierburst128reçu puisgroupé07..0Apostvidange=80/00/14/0C contre80/00/0A/06 attendu, firstref09=14/attendu0A. HAL_OK/error0 ;stage10/result9/restore0/loss4/windowINVALID/wordcount0, parserXYZfirmware nonatteint. Bruts128reçus décodésoffline/rejetés, globalsXYZBSSnonmesurés ;configured[] partiellementréécrit, dernierCTRL4réel0C dansraw. Pasdeuxièmeessai/correctifheuristique, causeprécise nonattribuée.
 - **VALIDÉ logiciel / M014 PRÉSERVÉ** :18casneufs/crossdéfaut-profil réussis,19ecaspostrefusajouté→19/1CTestpassé sansmodifiercible/rebuildARM. RAM101536BSS+réserves/margevalides, serviceborné32bursts/250ms/guardsstricts. Flash2Mio restauréeexacte/BINb462c29a,septregistres0/0/0/0/0/4/0 ;HPB0/B1passé/journalentier hash77ce465d…/uptime140s, gen12/configUNAVAILABLE/SDOFF/IRQ49-66/faults0/MCUrunning,aucunmédia/partition.

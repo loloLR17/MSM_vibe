@@ -1,0 +1,70 @@
+cmake_minimum_required(VERSION 3.20)
+project(iis3dwb_st_reference LANGUAGES C ASM)
+set(CMAKE_C_STANDARD 11)
+set(CMAKE_C_STANDARD_REQUIRED ON)
+set(CMAKE_C_EXTENSIONS OFF)
+option(BENCH_HOST_TESTS "Build only offline mock tests" OFF)
+set(BENCH_EXAMPLE "polling" CACHE STRING "who, polling or fifo")
+set(BENCH_PROFILE "ST_STRICT" CACHE STRING "ST_STRICT or STATUS10")
+if(NOT BENCH_EXAMPLE MATCHES "^(who|polling|fifo)$" OR
+   NOT BENCH_PROFILE MATCHES "^(ST_STRICT|STATUS10)$")
+  message(FATAL_ERROR "Unknown example/profile")
+endif()
+add_library(st_driver vendor/st/iis3dwb_reg.c)
+target_include_directories(st_driver PUBLIC vendor/st)
+add_library(bench src/bench.c)
+target_include_directories(bench PUBLIC src)
+target_link_libraries(bench PUBLIC st_driver)
+target_compile_options(bench PRIVATE -Wall -Wextra -Wpedantic -Werror)
+if(BENCH_HOST_TESTS)
+  if(CMAKE_CROSSCOMPILING)
+    message(FATAL_ERROR "Host tests require a native compiler")
+  endif()
+  enable_testing()
+  add_executable(test_reference tests/test_reference.c)
+  target_link_libraries(test_reference PRIVATE bench)
+  target_compile_options(test_reference PRIVATE -Wall -Wextra -Werror -UNDEBUG)
+  add_test(NAME official_driver_and_bounded_examples COMMAND test_reference)
+  find_package(Python3 REQUIRED COMPONENTS Interpreter)
+  add_test(NAME offline_capture_and_target_guards COMMAND ${Python3_EXECUTABLE}
+    -B ${CMAKE_CURRENT_SOURCE_DIR}/tests/test_tools.py)
+  return()
+endif()
+if(NOT CMAKE_CROSSCOMPILING)
+  message(FATAL_ERROR "Use cmake/arm-none-eabi-gcc.cmake or BENCH_HOST_TESTS")
+endif()
+set(STM32CUBE_U5_ROOT "" CACHE PATH "Recursive STM32CubeU5 v1.9.0 checkout")
+set(HAL ${STM32CUBE_U5_ROOT}/Drivers/STM32U5xx_HAL_Driver)
+set(DEV ${STM32CUBE_U5_ROOT}/Drivers/CMSIS/Device/ST/STM32U5xx)
+set(HAL_SOURCES)
+foreach(module hal hal_cortex hal_dma hal_flash hal_flash_ex hal_gpio hal_pwr hal_pwr_ex hal_rcc hal_rcc_ex hal_spi)
+  set(source ${HAL}/Src/stm32u5xx_${module}.c)
+  if(NOT EXISTS ${source})
+    message(FATAL_ERROR "Missing CubeU5 source: ${source}")
+  endif()
+  list(APPEND HAL_SOURCES ${source})
+endforeach()
+add_executable(iis3dwb_reference src/main.c src/platform.c ${HAL_SOURCES}
+  ${DEV}/Source/Templates/gcc/startup_stm32u575xx.s
+  ${DEV}/Source/Templates/system_stm32u5xx.c)
+target_include_directories(iis3dwb_reference PRIVATE src ${HAL}/Inc ${DEV}/Include
+  ${STM32CUBE_U5_ROOT}/Drivers/CMSIS/Include)
+target_compile_definitions(iis3dwb_reference PRIVATE STM32U575xx USE_HAL_DRIVER
+  BENCH_FIFO=$<IF:$<STREQUAL:${BENCH_EXAMPLE},who>,2,$<STREQUAL:${BENCH_EXAMPLE},fifo>>
+  BENCH_STATUS10=$<STREQUAL:${BENCH_PROFILE},STATUS10>)
+foreach(target st_driver bench iis3dwb_reference)
+  target_compile_options(${target} PRIVATE -mcpu=cortex-m33 -mthumb
+    -ffunction-sections -fdata-sections)
+endforeach()
+target_compile_options(iis3dwb_reference PRIVATE -Wall -Wextra -Werror)
+target_link_libraries(iis3dwb_reference PRIVATE bench)
+target_link_options(iis3dwb_reference PRIVATE -mcpu=cortex-m33 -mthumb
+  --specs=nano.specs --specs=nosys.specs -Wl,--gc-sections -Wl,--build-id=none
+  -Wl,-Map=${CMAKE_CURRENT_BINARY_DIR}/iis3dwb_reference.map
+  -T${CMAKE_CURRENT_SOURCE_DIR}/STM32U575ZITXQ_FLASH.ld)
+set_target_properties(iis3dwb_reference PROPERTIES SUFFIX ".elf")
+find_program(OBJCOPY arm-none-eabi-objcopy REQUIRED)
+find_program(SIZE arm-none-eabi-size REQUIRED)
+add_custom_command(TARGET iis3dwb_reference POST_BUILD
+  COMMAND ${OBJCOPY} -O binary $<TARGET_FILE:iis3dwb_reference> ${CMAKE_CURRENT_BINARY_DIR}/iis3dwb_reference.bin
+  COMMAND ${SIZE} $<TARGET_FILE:iis3dwb_reference>)

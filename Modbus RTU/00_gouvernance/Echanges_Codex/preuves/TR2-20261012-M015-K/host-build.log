@@ -1,0 +1,6 @@
+[1/6] Building C object CMakeFiles/test_reference.dir/tests/test_reference.c.o
+[2/6] Building C object CMakeFiles/bench.dir/src/bench.c.o
+[3/6] Building C object CMakeFiles/st_driver.dir/vendor/st/iis3dwb_reg.c.o
+[4/6] Linking C static library libst_driver.a
+[5/6] Linking C static library libbench.a
+[6/6] Linking C executable test_reference

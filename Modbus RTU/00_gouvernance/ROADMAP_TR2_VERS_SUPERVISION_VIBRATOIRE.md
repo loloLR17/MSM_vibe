@@ -165,3 +165,8 @@ M014 restauréeexactement (Flash2Mio identique), FRAMgen12/configUNAVAILABLE, SD
 ## Actualisation M015-J — 12 octobre 2026
 
 **M015-J BLOCKED pour fenêtre continue4096 ; M015 IN PROGRESS.** Diagnosticlogiciel/18cas/crossréussis puisunique campagne :unburst128reçu, groupé07..0Apostburstrefusé09=14vs0A et0A=0Cvs06, fenêtreINVALID/0XYZaccepté.19ecasderégressionhôtepostrefuspassé sansciblemodifiée/ARMrebuild/rejeuphysique. RAM/guards/timeboundspréparés, pasqualificationcontinu ;M014-Hrestauréexactement/Flash2Mio/FRAMgen12/SDOFF/B0B1reprise réussie. I256figé restevalidé. Suite :prochaincontratborné postreadbackactif/éventuellementABmodule, aucunbypassouinstrumentabsent requis. Résultats publiés au commit 2b96d8215a93c5012b813499abd61aea408f534d, 60 livrables relus intégralement et identiques ; BLOCKED technique maintenu, archives/worktrees/stashes préservés.
+
+
+## Actualisation M015-K — 12 octobre 2026
+
+**READY_FOR_PHYSICAL logiciel, M015 globale IN PROGRESS.** Projet indépendant NUCLEO/U575 + ST IIS3DWB préparé, sources officielles figées et licences/SHA conservés ;41scénarios C/5tests Python/4images ARM réussis. Audit I/J↔ST et pinout constructeur avec point GND/révisions/montage réel encore à confirmer. Défauts getter ST reproduits hors matériel, sans explication causale du refus J. Aucun accès cible/flash/debug/reset/essai pendant montage ; M014-H préservé, I256figé acquis/J4096BLOCKED inchangés. Prochaine étape : confirmation banc et identité certaine seconde carte, sauvegarde et chaîne qualifiée, puis WHO/polling/FIFO bornés suivant protocole. Publication/relecture à consigner.

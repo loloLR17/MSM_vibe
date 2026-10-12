@@ -1,0 +1,1343 @@
+
+FILE experiments/iis3dwb_st_reference/vendor/st/examples/iis3dwb_read_data_polling.c
+0001 /*
+0002  ******************************************************************************
+0003  * @file    read_data_polling.c
+0004  * @author  Sensors Software Solution Team
+0005  * @brief   This file show the simplest way to get data from sensor.
+0006  *
+0007  ******************************************************************************
+0008  * @attention
+0009  *
+0010  * <h2><center>&copy; Copyright (c) 2020 STMicroelectronics.
+0011  * All rights reserved.</center></h2>
+0012  *
+0013  * This software component is licensed by ST under BSD 3-Clause license,
+0014  * the "License"; You may not use this file except in compliance with the
+0015  * License. You may obtain a copy of the License at:
+0016  *                        opensource.org/licenses/BSD-3-Clause
+0017  *
+0018  ******************************************************************************
+0019  */
+0020
+0021 /*
+0022  * This example was developed using the following STMicroelectronics
+0023  * evaluation boards:
+0024  *
+0025  * - STEVAL_MKI109D  +
+0026  * - STEVAL_MKI109V3 + STEVAL-MKI208V1K
+0027  * - DISCOVERY_SPC584B + STEVAL-MKI208V1K
+0028  *
+0029  * and STM32CubeMX tool with STM32CubeF4 MCU Package
+0030  *
+0031  * Used interfaces:
+0032  *
+0033  * STEVAL_MKI109D     - Host side:   USB (Virtual COM)
+0034  *                    - Sensor side: SPI(Default) / I2C(supported)
+0035  *
+0036  * STEVAL_MKI109V3    - Host side:   USB (Virtual COM)
+0037  *                    - Sensor side: SPI(Default) / I2C(supported)
+0038  *
+0039  * DISCOVERY_SPC584B  - Host side: UART(COM) to USB bridge
+0040  *                    - Sensor side: I2C(Default) / SPI(supported)
+0041  *
+0042  *
+0043  * If you need to run this example on a different hardware platform a
+0044  * modification of the functions: `platform_write`, `platform_read`,
+0045  * `tx_com` and 'platform_init' is required.
+0046  *
+0047  */
+0048
+0049 /* STMicroelectronics evaluation boards definition
+0050  *
+0051  * Please uncomment ONLY the evaluation boards in use.
+0052  * If a different hardware is used please comment all
+0053  * following target board and redefine yours.
+0054  */
+0055
+0056 //#define STEVAL_MKI109V3  /* little endian */
+0057 //#define SPC584B_DIS      /* big endian */
+0058
+0059 /* ATTENTION: By default the driver is little endian. If you need switch
+0060  *            to big endian please see "Endianness definitions" in the
+0061  *            header file of the driver (_reg.h).
+0062  */
+0063
+0064 #if defined(STEVAL_MKI109D)
+0065 /* MKI109D: Define communication interface */
+0066 #define SENSOR_BUS hspi1
+0067
+0068 /* MKI109D: Vdd and Vddio power supply values */
+0069 #define LSM6DSV16X_VDD 1.8f
+0070 #define LSM6DSV16X_VDDIO 1.8f
+0071
+0072 #elif defined(STEVAL_MKI109V3)
+0073 /* MKI109V3: Define communication interface */
+0074 #define SENSOR_BUS hspi2
+0075 /* MKI109V3: Vdd and Vddio power supply values */
+0076 #define PWM_3V3 915
+0077
+0078 #elif defined(SPC584B_DIS)
+0079 /* DISCOVERY_SPC584B: Define communication interface */
+0080 #define SENSOR_BUS NULL
+0081 #endif
+0082
+0083 /* Includes ------------------------------------------------------------------*/
+0084 #include <string.h>
+0085 #include <stdio.h>
+0086 #include "iis3dwb_reg.h"
+0087
+0088 #if defined(STEVAL_MKI109D)
+0089 #include "board.h"
+0090 #include "usbd_cdc_if.h"
+0091
+0092 #elif defined(STEVAL_MKI109V3)
+0093 #include "stm32f4xx_hal.h"
+0094 #include "usbd_cdc_if.h"
+0095 #include "gpio.h"
+0096 #include "spi.h"
+0097 #include "tim.h"
+0098
+0099 #elif defined(SPC584B_DIS)
+0100 #include "components.h"
+0101 #endif
+0102
+0103 /* Private macro -------------------------------------------------------------*/
+0104 #define    BOOT_TIME        10 //ms
+0105
+0106 /* Private variables ---------------------------------------------------------*/
+0107 static int16_t data_raw_acceleration[3];
+0108 static int16_t data_raw_temperature;
+0109 static float_t acceleration_mg[3];
+0110 static float_t temperature_degC;
+0111 static uint8_t whoamI, rst;
+0112 static uint8_t tx_buffer[1000];
+0113
+0114 /* Extern variables ----------------------------------------------------------*/
+0115
+0116 /* Private functions ---------------------------------------------------------*/
+0117
+0118 /*
+0119  *   WARNING:
+0120  *   Functions declare in this section are defined at the end of this file
+0121  *   and are strictly related to the hardware platform used.
+0122  *
+0123  */
+0124 static int32_t platform_write(void *handle, uint8_t reg, const uint8_t *bufp,
+0125                               uint16_t len);
+0126 static int32_t platform_read(void *handle, uint8_t reg, uint8_t *bufp,
+0127                              uint16_t len);
+0128 static void tx_com( uint8_t *tx_buffer, uint16_t len );
+0129 static void platform_delay(uint32_t ms);
+0130 static void platform_init(void);
+0131
+0132 /* Main Example --------------------------------------------------------------*/
+0133 void iis3dwb_read_data_polling(void)
+0134 {
+0135   stmdev_ctx_t dev_ctx;
+0136
+0137   /* Initialize mems driver interface */
+0138   dev_ctx.write_reg = platform_write;
+0139   dev_ctx.read_reg = platform_read;
+0140   dev_ctx.mdelay = platform_delay;
+0141   dev_ctx.handle = &SENSOR_BUS;
+0142
+0143   /* Init test platform */
+0144   platform_init();
+0145
+0146   /* Wait sensor boot time */
+0147   platform_delay(BOOT_TIME);
+0148
+0149   /* Check device ID */
+0150   iis3dwb_device_id_get(&dev_ctx, &whoamI);
+0151
+0152   if (whoamI != IIS3DWB_ID)
+0153     while (1);
+0154
+0155   /* Restore default configuration */
+0156   iis3dwb_reset_set(&dev_ctx, PROPERTY_ENABLE);
+0157
+0158   do {
+0159     iis3dwb_reset_get(&dev_ctx, &rst);
+0160   } while (rst);
+0161
+0162   /* Enable Block Data Update */
+0163   iis3dwb_block_data_update_set(&dev_ctx, PROPERTY_ENABLE);
+0164
+0165   /* Set Output Data Rate */
+0166   iis3dwb_xl_data_rate_set(&dev_ctx, IIS3DWB_XL_ODR_26k7Hz);
+0167
+0168   /* Set full scale */
+0169   iis3dwb_xl_full_scale_set(&dev_ctx, IIS3DWB_2g);
+0170
+0171   /* Configure filtering chain(No aux interface)
+0172    * Accelerometer low pass filter path
+0173    */
+0174   iis3dwb_xl_filt_path_on_out_set(&dev_ctx, IIS3DWB_LP_ODR_DIV_100);
+0175
+0176   /* Read samples in polling mode (no int) */
+0177   while (1) {
+0178     uint8_t reg;
+0179
+0180     /* Read output only if new xl value is available */
+0181     iis3dwb_xl_flag_data_ready_get(&dev_ctx, &reg);
+0182
+0183     if (reg) {
+0184       /* Read acceleration field data */
+0185       memset(data_raw_acceleration, 0x00, 3 * sizeof(int16_t));
+0186       iis3dwb_acceleration_raw_get(&dev_ctx, data_raw_acceleration);
+0187       acceleration_mg[0] =
+0188         iis3dwb_from_fs2g_to_mg(data_raw_acceleration[0]);
+0189       acceleration_mg[1] =
+0190         iis3dwb_from_fs2g_to_mg(data_raw_acceleration[1]);
+0191       acceleration_mg[2] =
+0192         iis3dwb_from_fs2g_to_mg(data_raw_acceleration[2]);
+0193       snprintf((char *)tx_buffer, sizeof(tx_buffer),
+0194               "Acceleration [mg]:%4.2f\t%4.2f\t%4.2f\r\n",
+0195               acceleration_mg[0], acceleration_mg[1], acceleration_mg[2]);
+0196       tx_com(tx_buffer, strlen((char const *)tx_buffer));
+0197     }
+0198
+0199     iis3dwb_temp_flag_data_ready_get(&dev_ctx, &reg);
+0200
+0201     if (reg) {
+0202       /* Read temperature data */
+0203       memset(&data_raw_temperature, 0x00, sizeof(int16_t));
+0204       iis3dwb_temperature_raw_get(&dev_ctx, &data_raw_temperature);
+0205       temperature_degC = iis3dwb_from_lsb_to_celsius(data_raw_temperature);
+0206       snprintf((char *)tx_buffer, sizeof(tx_buffer),
+0207               "Temperature [degC]:%6.2f\r\n", temperature_degC);
+0208       tx_com(tx_buffer, strlen((char const *)tx_buffer));
+0209     }
+0210   }
+0211 }
+0212
+0213 /*
+0214  * @brief  Write generic device register (platform dependent)
+0215  *
+0216  * @param  handle    customizable argument. In this examples is used in
+0217  *                   order to select the correct sensor bus handler.
+0218  * @param  reg       register to write
+0219  * @param  bufp      pointer to data to write in register reg
+0220  * @param  len       number of consecutive register to write
+0221  *
+0222  */
+0223 static int32_t platform_write(void *handle, uint8_t reg, const uint8_t *bufp,
+0224                               uint16_t len)
+0225 {
+0226 #if defined(STEVAL_MKI109D)
+0227   HAL_GPIO_WritePin(SPI1_NSS_GPIO_Port, SPI1_NSS_Pin, GPIO_PIN_RESET);
+0228   HAL_SPI_Transmit(handle, &reg, 1, HAL_MAX_DELAY);
+0229   HAL_SPI_Transmit(handle, (uint8_t*) bufp, len, HAL_MAX_DELAY);
+0230   HAL_GPIO_WritePin(SPI1_NSS_GPIO_Port, SPI1_NSS_Pin, GPIO_PIN_SET);
+0231 #elif defined(STEVAL_MKI109V3)
+0232   if (handle == &hspi2) {
+0233     HAL_GPIO_WritePin(CS_up_GPIO_Port, CS_up_Pin, GPIO_PIN_RESET);
+0234     HAL_SPI_Transmit(handle, &reg, 1, 1000);
+0235     HAL_SPI_Transmit(handle, (uint8_t*) bufp, len, 1000);
+0236     HAL_GPIO_WritePin(CS_up_GPIO_Port, CS_up_Pin, GPIO_PIN_SET);
+0237   }
+0238
+0239 #elif defined(SPC584B_DIS)
+0240   /* Add here the SPC5 write SPI interface */
+0241 #endif
+0242   return 0;
+0243 }
+0244
+0245 /*
+0246  * @brief  Read generic device register (platform dependent)
+0247  *
+0248  * @param  handle    customizable argument. In this examples is used in
+0249  *                   order to select the correct sensor bus handler.
+0250  * @param  reg       register to read
+0251  * @param  bufp      pointer to buffer that store the data read
+0252  * @param  len       number of consecutive register to read
+0253  *
+0254  */
+0255 static int32_t platform_read(void *handle, uint8_t reg, uint8_t *bufp,
+0256                              uint16_t len)
+0257 {
+0258 #if defined(STEVAL_MKI109D)
+0259   reg |= 0x80;
+0260   HAL_GPIO_WritePin(SPI1_NSS_GPIO_Port, SPI1_NSS_Pin, GPIO_PIN_RESET);
+0261   HAL_SPI_Transmit(handle, &reg, 1, HAL_MAX_DELAY);
+0262   HAL_SPI_Receive(handle, bufp, len, HAL_MAX_DELAY);
+0263   HAL_GPIO_WritePin(SPI1_NSS_GPIO_Port, SPI1_NSS_Pin, GPIO_PIN_SET);
+0264 #elif defined(STEVAL_MKI109V3)
+0265   if (handle == &hspi2) {
+0266     /* Read command */
+0267     reg |= 0x80;
+0268     HAL_GPIO_WritePin(CS_up_GPIO_Port, CS_up_Pin, GPIO_PIN_RESET);
+0269     HAL_SPI_Transmit(handle, &reg, 1, 1000);
+0270     HAL_SPI_Receive(handle, bufp, len, 1000);
+0271     HAL_GPIO_WritePin(CS_up_GPIO_Port, CS_up_Pin, GPIO_PIN_SET);
+0272   }
+0273
+0274 #elif defined(SPC584B_DIS)
+0275   /* Add here the SPC5 read SPI interface */
+0276 #endif
+0277   return 0;
+0278 }
+0279
+0280 /*
+0281  * @brief  Send buffer to console (platform dependent)
+0282  *
+0283  * @param  tx_buffer     buffer to transmit
+0284  * @param  len           number of byte to send
+0285  *
+0286  */
+0287 static void tx_com(uint8_t *tx_buffer, uint16_t len)
+0288 {
+0289 #if defined(STEVAL_MKI109D)
+0290   CDC_Transmit_FS(tx_buffer, len);
+0291 #elif defined(STEVAL_MKI109V3)
+0292   CDC_Transmit_FS(tx_buffer, len);
+0293 #elif defined(SPC584B_DIS)
+0294   sd_lld_write(&SD2, tx_buffer, len);
+0295 #endif
+0296 }
+0297
+0298 /*
+0299  * @brief  platform specific delay (platform dependent)
+0300  *
+0301  * @param  ms        delay in ms
+0302  *
+0303  */
+0304 static void platform_delay(uint32_t ms)
+0305 {
+0306 #if defined(STEVAL_MKI109V3)
+0307   HAL_Delay(ms);
+0308 #elif defined(STEVAL_MKI109D)
+0309   delay(ms);
+0310 #elif defined(SPC584B_DIS)
+0311   osalThreadDelayMilliseconds(ms);
+0312 #endif
+0313 }
+0314
+0315 /*
+0316  * @brief  platform specific initialization (platform dependent)
+0317  */
+0318 static void platform_init(void)
+0319 {
+0320 #if defined(STEVAL_MKI109D)
+0321   struct spi_conf spi_conf;
+0322
+0323   /* init SPI bus communication */
+0324   spi_conf.wire = WIRE_4;
+0325   spi_init(&spi_conf);
+0326
+0327   /* set VDD/VDDIO on DIL24 */
+0328   set_vdd(LSM6DSV16X_VDD);
+0329   set_vddio(LSM6DSV16X_VDDIO);
+0330   delay(100);
+0331
+0332 #elif defined(STEVAL_MKI109V3)
+0333   TIM3->CCR1 = PWM_3V3;
+0334   TIM3->CCR2 = PWM_3V3;
+0335   HAL_TIM_PWM_Start(&htim3, TIM_CHANNEL_1);
+0336   HAL_TIM_PWM_Start(&htim3, TIM_CHANNEL_2);
+0337   HAL_Delay(1000);
+0338 #endif
+0339 }
+
+FILE experiments/iis3dwb_st_reference/vendor/st/examples/iis3dwb_fifo.c
+0001 /*
+0002  ******************************************************************************
+0003  * @file    fifo.c
+0004  * @author  Sensors Software Solution Team
+0005  * @brief   This file how to configure compressed FIFO and to retrieve acc
+0006  *          data. This sample use a fifo utility library tool
+0007  *          for FIFO decompression.
+0008  *
+0009  ******************************************************************************
+0010  * @attention
+0011  *
+0012  * <h2><center>&copy; Copyright (c) 2020 STMicroelectronics.
+0013  * All rights reserved.</center></h2>
+0014  *
+0015  * This software component is licensed by ST under BSD 3-Clause license,
+0016  * the "License"; You may not use this file except in compliance with the
+0017  * License. You may obtain a copy of the License at:
+0018  *                        opensource.org/licenses/BSD-3-Clause
+0019  *
+0020  ******************************************************************************
+0021  */
+0022
+0023 /*
+0024  * This example was developed using the following STMicroelectronics
+0025  * evaluation boards:
+0026  *
+0027  * - STEVAL_MKI109D  +
+0028  * - STEVAL_MKI109V3 + STEVAL-MKI208V1K
+0029  *
+0030  * Used interfaces:
+0031  *
+0032  * STEVAL_MKI109D     - Host side:   USB (Virtual COM)
+0033  *                    - Sensor side: SPI(Default) / I2C(supported)
+0034  *
+0035  * STEVAL_MKI109V3    - Host side:   USB (Virtual COM)
+0036  *                    - Sensor side: SPI(Default) / I2C(supported)
+0037  *
+0038  * If you need to run this example on a different hardware platform a
+0039  * modification of the functions: `platform_write`, `platform_read`,
+0040  * `tx_com` and 'platform_init' is required.
+0041  *
+0042  */
+0043
+0044 /* STMicroelectronics evaluation boards definition
+0045  *
+0046  * Please uncomment ONLY the evaluation boards in use.
+0047  * If a different hardware is used please comment all
+0048  * following target board and redefine yours.
+0049  */
+0050
+0051 //#define STEVAL_MKI109V3  /* little endian */
+0052
+0053 /* ATTENTION: By default the driver is little endian. If you need switch
+0054  *            to big endian please see "Endianness definitions" in the
+0055  *            header file of the driver (_reg.h).
+0056  */
+0057
+0058 #if defined(STEVAL_MKI109D)
+0059 /* MKI109D: Define communication interface */
+0060 #define SENSOR_BUS hspi1
+0061
+0062 /* MKI109D: Vdd and Vddio power supply values */
+0063 #define LSM6DSV16X_VDD 1.8f
+0064 #define LSM6DSV16X_VDDIO 1.8f
+0065
+0066 #elif defined(STEVAL_MKI109V3)
+0067 /* MKI109V3: Define communication interface */
+0068 #define SENSOR_BUS hspi2
+0069 /* MKI109V3: Vdd and Vddio power supply values */
+0070 #define PWM_3V3 915
+0071 #endif
+0072
+0073 /* Includes ------------------------------------------------------------------*/
+0074 #include <string.h>
+0075 #include <stdio.h>
+0076 #include "iis3dwb_reg.h"
+0077
+0078 #if defined(STEVAL_MKI109D)
+0079 #include "board.h"
+0080 #include "usbd_cdc_if.h"
+0081
+0082 #elif defined(STEVAL_MKI109V3)
+0083 #include "stm32f4xx_hal.h"
+0084 #include "usbd_cdc_if.h"
+0085 #include "gpio.h"
+0086 #include "spi.h"
+0087 #include "tim.h"
+0088 #endif
+0089
+0090 /* Private macro -------------------------------------------------------------*/
+0091 /*
+0092  * Select FIFO samples watermark, max value is 511
+0093  * in FIFO are stored acc and timestamp samples
+0094  */
+0095 #define BOOT_TIME         10
+0096 #define FIFO_WATERMARK    256
+0097
+0098 /* Private variables ---------------------------------------------------------*/
+0099 static uint8_t whoamI;
+0100 static uint8_t tx_buffer[1000];
+0101 static iis3dwb_fifo_out_raw_t fifo_data[FIFO_WATERMARK];
+0102
+0103 /* Private variables ---------------------------------------------------------*/
+0104 static int16_t *datax;
+0105 static int16_t *datay;
+0106 static int16_t *dataz;
+0107 static int32_t *ts;
+0108
+0109 /* Extern variables ----------------------------------------------------------*/
+0110
+0111 /* Private functions ---------------------------------------------------------*/
+0112
+0113 /*
+0114  *   WARNING:
+0115  *   Functions declare in this section are defined at the end of this file
+0116  *   and are strictly related to the hardware platform used.
+0117  *
+0118  */
+0119 static int32_t platform_write(void *handle, uint8_t reg, const uint8_t *bufp,
+0120                               uint16_t len);
+0121 static int32_t platform_read(void *handle, uint8_t reg, uint8_t *bufp,
+0122                              uint16_t len);
+0123 static void tx_com( uint8_t *tx_buffer, uint16_t len );
+0124 static void platform_delay(uint32_t ms);
+0125 static void platform_init(void);
+0126
+0127
+0128 /* Main Example --------------------------------------------------------------*/
+0129 void iis3dwb_fifo(void)
+0130 {
+0131   iis3dwb_fifo_status_t fifo_status;
+0132   stmdev_ctx_t dev_ctx;
+0133   uint8_t rst;
+0134
+0135   /* Uncomment to configure INT 1 */
+0136   //iis3dwb_pin_int1_route_t int1_route;
+0137   /* Uncomment to configure INT 2 */
+0138   //iis3dwb_pin_int2_route_t int2_route;
+0139   /* Initialize mems driver interface */
+0140   dev_ctx.write_reg = platform_write;
+0141   dev_ctx.read_reg = platform_read;
+0142   dev_ctx.mdelay = platform_delay;
+0143   dev_ctx.handle = &SENSOR_BUS;
+0144
+0145   /* Init test platform */
+0146   platform_init();
+0147
+0148   /* Wait sensor boot time */
+0149   platform_delay(BOOT_TIME);
+0150
+0151   /* Check device ID */
+0152   iis3dwb_device_id_get(&dev_ctx, &whoamI);
+0153
+0154   if (whoamI != IIS3DWB_ID)
+0155     while (1);
+0156
+0157   /* Restore default configuration */
+0158   iis3dwb_reset_set(&dev_ctx, PROPERTY_ENABLE);
+0159
+0160   do {
+0161     iis3dwb_reset_get(&dev_ctx, &rst);
+0162   } while (rst);
+0163
+0164   /* Enable Block Data Update */
+0165   iis3dwb_block_data_update_set(&dev_ctx, PROPERTY_ENABLE);
+0166
+0167   /* Set full scale */
+0168   iis3dwb_xl_full_scale_set(&dev_ctx, IIS3DWB_8g);
+0169
+0170   /*
+0171    * Set FIFO watermark (number of unread sensor data TAG + 6 bytes
+0172    * stored in FIFO) to FIFO_WATERMARK samples
+0173    */
+0174   iis3dwb_fifo_watermark_set(&dev_ctx, FIFO_WATERMARK);
+0175
+0176   /* Set FIFO batch XL ODR to 12.5Hz */
+0177   iis3dwb_fifo_xl_batch_set(&dev_ctx, IIS3DWB_XL_BATCHED_AT_26k7Hz);
+0178
+0179   /* Set FIFO mode to Stream mode (aka Continuous Mode) */
+0180   iis3dwb_fifo_mode_set(&dev_ctx, IIS3DWB_STREAM_MODE);
+0181
+0182   /* Set Output Data Rate */
+0183   iis3dwb_xl_data_rate_set(&dev_ctx, IIS3DWB_XL_ODR_26k7Hz);
+0184   iis3dwb_fifo_timestamp_batch_set(&dev_ctx, IIS3DWB_DEC_8);
+0185   iis3dwb_timestamp_set(&dev_ctx, PROPERTY_ENABLE);
+0186
+0187   /* Wait samples */
+0188   while (1) {
+0189     uint16_t num = 0, k;
+0190
+0191     /* Read watermark flag */
+0192     iis3dwb_fifo_status_get(&dev_ctx, &fifo_status);
+0193
+0194     if (fifo_status.fifo_th == 1) {
+0195       num = fifo_status.fifo_level;
+0196       snprintf((char *)tx_buffer, sizeof(tx_buffer), "-- FIFO num %d \r\n", num);
+0197       tx_com(tx_buffer, strlen((char const *)tx_buffer));
+0198
+0199       /* read out all FIFO entries in a single read */
+0200       iis3dwb_fifo_out_multi_raw_get(&dev_ctx, fifo_data, num);
+0201
+0202       for (k = 0; k < num; k++) {
+0203         iis3dwb_fifo_out_raw_t *f_data;
+0204
+0205         /* print out first two and last two FIFO entries only */
+0206         if (k > 1 && k < num - 2)
+0207           continue;
+0208
+0209         f_data = &fifo_data[k];
+0210
+0211         /* Read FIFO sensor value */
+0212         datax = (int16_t *)&f_data->data[0];
+0213         datay = (int16_t *)&f_data->data[2];
+0214         dataz = (int16_t *)&f_data->data[4];
+0215         ts = (int32_t *)&f_data->data[0];
+0216
+0217         switch (f_data->tag >> 3) {
+0218         case IIS3DWB_XL_TAG:
+0219           snprintf((char *)tx_buffer, sizeof(tx_buffer), "%d: ACC [mg]:\t%4.2f\t%4.2f\t%4.2f\r\n",
+0220                   k,
+0221                   iis3dwb_from_fs8g_to_mg(*datax),
+0222                   iis3dwb_from_fs8g_to_mg(*datay),
+0223                   iis3dwb_from_fs8g_to_mg(*dataz));
+0224           tx_com(tx_buffer, strlen((char const *)tx_buffer));
+0225           break;
+0226         case IIS3DWB_TIMESTAMP_TAG:
+0227           snprintf((char *)tx_buffer, sizeof(tx_buffer), "%d TIMESTAMP [ms] %d\r\n", k, *ts);
+0228           tx_com(tx_buffer, strlen((char const *)tx_buffer));
+0229           break;
+0230         default:
+0231           break;
+0232         }
+0233       }
+0234
+0235       snprintf((char *)tx_buffer, sizeof(tx_buffer), "------ \r\n\r\n");
+0236       tx_com(tx_buffer, strlen((char const *)tx_buffer));
+0237     }
+0238   }
+0239 }
+0240
+0241 /*
+0242  * @brief  Write generic device register (platform dependent)
+0243  *
+0244  * @param  handle    customizable argument. In this examples is used in
+0245  *                   order to select the correct sensor bus handler.
+0246  * @param  reg       register to write
+0247  * @param  bufp      pointer to data to write in register reg
+0248  * @param  len       number of consecutive register to write
+0249  *
+0250  */
+0251 static int32_t platform_write(void *handle, uint8_t reg, const uint8_t *bufp,
+0252                               uint16_t len)
+0253 {
+0254 #if defined(STEVAL_MKI109D)
+0255   HAL_GPIO_WritePin(SPI1_NSS_GPIO_Port, SPI1_NSS_Pin, GPIO_PIN_RESET);
+0256   HAL_SPI_Transmit(handle, &reg, 1, HAL_MAX_DELAY);
+0257   HAL_SPI_Transmit(handle, (uint8_t*) bufp, len, HAL_MAX_DELAY);
+0258   HAL_GPIO_WritePin(SPI1_NSS_GPIO_Port, SPI1_NSS_Pin, GPIO_PIN_SET);
+0259 #elif defined(STEVAL_MKI109V3)
+0260   HAL_GPIO_WritePin(CS_up_GPIO_Port, CS_up_Pin, GPIO_PIN_RESET);
+0261   HAL_SPI_Transmit(handle, &reg, 1, 1000);
+0262   HAL_SPI_Transmit(handle, (uint8_t*) bufp, len, 1000);
+0263   HAL_GPIO_WritePin(CS_up_GPIO_Port, CS_up_Pin, GPIO_PIN_SET);
+0264 #elif defined(SPC584B_DIS)
+0265   i2c_lld_write(handle,  IIS3DWB_I2C_ADD_H & 0xFE, reg, (uint8_t*) bufp, len);
+0266 #endif
+0267   return 0;
+0268 }
+0269
+0270 /*
+0271  * @brief  Read generic device register (platform dependent)
+0272  *
+0273  * @param  handle    customizable argument. In this examples is used in
+0274  *                   order to select the correct sensor bus handler.
+0275  * @param  reg       register to read
+0276  * @param  bufp      pointer to buffer that store the data read
+0277  * @param  len       number of consecutive register to read
+0278  *
+0279  */
+0280 static int32_t platform_read(void *handle, uint8_t reg, uint8_t *bufp,
+0281                              uint16_t len)
+0282 {
+0283 #if defined(STEVAL_MKI109D)
+0284   reg |= 0x80;
+0285   HAL_GPIO_WritePin(SPI1_NSS_GPIO_Port, SPI1_NSS_Pin, GPIO_PIN_RESET);
+0286   HAL_SPI_Transmit(handle, &reg, 1, HAL_MAX_DELAY);
+0287   HAL_SPI_Receive(handle, bufp, len, HAL_MAX_DELAY);
+0288   HAL_GPIO_WritePin(SPI1_NSS_GPIO_Port, SPI1_NSS_Pin, GPIO_PIN_SET);
+0289 #elif defined(STEVAL_MKI109V3)
+0290   reg |= 0x80;
+0291   HAL_GPIO_WritePin(CS_up_GPIO_Port, CS_up_Pin, GPIO_PIN_RESET);
+0292   HAL_SPI_Transmit(handle, &reg, 1, 1000);
+0293   HAL_SPI_Receive(handle, bufp, len, 1000);
+0294   HAL_GPIO_WritePin(CS_up_GPIO_Port, CS_up_Pin, GPIO_PIN_SET);
+0295 #elif defined(SPC584B_DIS)
+0296   i2c_lld_read(handle, IIS3DWB_I2C_ADD_H & 0xFE, reg, bufp, len);
+0297 #endif
+0298   return 0;
+0299 }
+0300
+0301 /*
+0302  * @brief  Send buffer to console (platform dependent)
+0303  *
+0304  * @param  tx_buffer     buffer to transmit
+0305  * @param  len           number of byte to send
+0306  *
+0307  */
+0308 static void tx_com(uint8_t *tx_buffer, uint16_t len)
+0309 {
+0310 #if defined(STEVAL_MKI109D)
+0311   CDC_Transmit_FS(tx_buffer, len);
+0312 #elif defined(STEVAL_MKI109V3)
+0313   CDC_Transmit_FS(tx_buffer, len);
+0314 #elif defined(SPC584B_DIS)
+0315   sd_lld_write(&SD2, tx_buffer, len);
+0316 #endif
+0317 }
+0318
+0319 /*
+0320  * @brief  platform specific delay (platform dependent)
+0321  *
+0322  * @param  ms        delay in ms
+0323  *
+0324  */
+0325 static void platform_delay(uint32_t ms)
+0326 {
+0327 #if defined(STEVAL_MKI109V3)
+0328   HAL_Delay(ms);
+0329 #elif defined(STEVAL_MKI109D)
+0330   delay(ms);
+0331 #elif defined(SPC584B_DIS)
+0332   osalThreadDelayMilliseconds(ms);
+0333 #endif
+0334 }
+0335
+0336 /*
+0337  * @brief  platform specific initialization (platform dependent)
+0338  */
+0339 static void platform_init(void)
+0340 {
+0341 #if defined(STEVAL_MKI109D)
+0342   struct spi_conf spi_conf;
+0343
+0344   /* init SPI bus communication */
+0345   spi_conf.wire = WIRE_4;
+0346   spi_init(&spi_conf);
+0347
+0348   /* set VDD/VDDIO on DIL24 */
+0349   set_vdd(LSM6DSV16X_VDD);
+0350   set_vddio(LSM6DSV16X_VDDIO);
+0351   delay(100);
+0352
+0353 #elif defined(STEVAL_MKI109V3)
+0354   TIM3->CCR1 = PWM_3V3;
+0355   TIM3->CCR2 = PWM_3V3;
+0356   HAL_TIM_PWM_Start(&htim3, TIM_CHANNEL_1);
+0357   HAL_TIM_PWM_Start(&htim3, TIM_CHANNEL_2);
+0358   HAL_Delay(1000);
+0359 #endif
+0360 }
+
+FILE experiments/iis3dwb_st_reference/src/bench.c
+0001 /* Copyright (c) 2020 STMicroelectronics. All rights reserved.
+0002  * SPDX-License-Identifier: BSD-3-Clause (vendor/st/LICENSE.examples)
+0003  * Modified for M015-K: bounded platform adaptation. See AUDIT.md. */
+0004 #include "bench.h"
+0005 #include <string.h>
+0006 #define TRY(call) do { if ((call) != 0) { result=BENCH_IO; goto done; } } while (0)
+0007 static int controls(stmdev_ctx_t *c, unsigned fifo, BenchResult *o)
+0008 {
+0009   uint8_t bdu, inc, ts;
+0010   iis3dwb_fs_xl_t fs; iis3dwb_odr_xl_t odr; iis3dwb_sim_t wire;
+0011   if (iis3dwb_read_reg(c,7,o->controls,4) ||
+0012       iis3dwb_read_reg(c,15,o->controls+4,10) ||
+0013       iis3dwb_block_data_update_get(c,&bdu) ||
+0014       iis3dwb_auto_increment_get(c,&inc) ||
+0015       iis3dwb_xl_full_scale_get(c,&fs) ||
+0016       iis3dwb_xl_data_rate_get(c,&odr) ||
+0017       iis3dwb_spi_mode_get(c,&wire)) return BENCH_IO;
+0018   if (o->controls[4]!=IIS3DWB_ID || !bdu || !inc ||
+0019       wire!=IIS3DWB_SPI_4_WIRE || odr!=IIS3DWB_XL_ODR_26k7Hz ||
+0020       fs!=(fifo?IIS3DWB_8g:IIS3DWB_2g)) return BENCH_CONFIG;
+0021   if (fifo) {
+0022     uint16_t wm; iis3dwb_bdr_xl_t rate; iis3dwb_fifo_mode_t mode;
+0023     iis3dwb_fifo_timestamp_batch_t dec;
+0024     if (iis3dwb_fifo_watermark_get(c,&wm) || iis3dwb_fifo_xl_batch_get(c,&rate) ||
+0025         iis3dwb_fifo_mode_get(c,&mode) || iis3dwb_timestamp_get(c,&ts) ||
+0026         iis3dwb_fifo_timestamp_batch_get(c,&dec)) return BENCH_IO;
+0027     o->st_batch=(uint32_t)rate;
+0028     /* Upstream getter switches on 0x10 instead of the setter's 0x0A.
+0029      * Preserve it as telemetry; enforce actual BDR bits without changing ST. */
+0030     if (wm!=256 || (o->controls[2]&0x0F)!=IIS3DWB_XL_BATCHED_AT_26k7Hz ||
+0031         mode!=IIS3DWB_STREAM_MODE || ts!=1 || dec!=IIS3DWB_DEC_8)
+0032       return BENCH_CONFIG;
+0033   } else {
+0034     iis3dwb_filt_xl_en_t filter;
+0035     if (iis3dwb_xl_filt_path_on_out_get(c,&filter)) return BENCH_IO;
+0036     if (filter!=IIS3DWB_LP_ODR_DIV_100) return BENCH_CONFIG;
+0037   }
+0038   return BENCH_OK;
+0039 }
+0040 int bench_run(stmdev_ctx_t *c, const BenchClock *clock,
+0041               unsigned fifo, unsigned status10, BenchResult *o)
+0042 {
+0043   uint8_t who=0,rst=1,ready=0; uint32_t start; int result=BENCH_OK, changed=0;
+0044   memset(o,0,sizeof(*o));o->status10=status10;o->stage=1;
+0045   clock->delay(10); /* BOOT_TIME in both official examples */
+0046   TRY(iis3dwb_device_id_get(c,&who));o->who=who;
+0047   if(who!=IIS3DWB_ID){result=BENCH_WHO;goto done;}
+0048   if(fifo==2U)goto done; /* Separate read-only WHO image for first bring-up. */
+0049   o->stage=2;changed=1;TRY(iis3dwb_reset_set(c,PROPERTY_ENABLE));start=clock->tick();
+0050   do {
+0051     TRY(iis3dwb_reset_get(c,&rst));
+0052     if(clock->stop()){result=BENCH_STOP;goto done;}
+0053     if(clock->tick()-start>=100){result=BENCH_RESET_TIMEOUT;goto done;}
+0054     if(rst)clock->delay(1);
+0055   } while(rst);
+0056   o->stage=3;TRY(iis3dwb_block_data_update_set(c,PROPERTY_ENABLE));
+0057   /* Reset default IF_INC=1/SIM=0 checked, no extra configuration fallback. */
+0058   if(!fifo) {
+0059     TRY(iis3dwb_xl_data_rate_set(c,IIS3DWB_XL_ODR_26k7Hz));
+0060     TRY(iis3dwb_xl_full_scale_set(c,IIS3DWB_2g));
+0061     TRY(iis3dwb_xl_filt_path_on_out_set(c,IIS3DWB_LP_ODR_DIV_100));
+0062   } else {
+0063     TRY(iis3dwb_xl_full_scale_set(c,IIS3DWB_8g));
+0064     TRY(iis3dwb_fifo_watermark_set(c,256));
+0065     TRY(iis3dwb_fifo_xl_batch_set(c,IIS3DWB_XL_BATCHED_AT_26k7Hz));
+0066     TRY(iis3dwb_fifo_mode_set(c,IIS3DWB_STREAM_MODE));
+0067     TRY(iis3dwb_xl_data_rate_set(c,IIS3DWB_XL_ODR_26k7Hz));
+0068     TRY(iis3dwb_fifo_timestamp_batch_set(c,IIS3DWB_DEC_8));
+0069     TRY(iis3dwb_timestamp_set(c,PROPERTY_ENABLE));
+0070   }
+0071   result=controls(c,fifo,o);if(result)goto done;
+0072   o->stage=4;start=clock->tick();
+0073   while(o->count<(fifo?BENCH_WORDS:64U)) {
+0074     if(clock->stop()){result=BENCH_STOP;goto done;}
+0075     if(clock->tick()-start>=500){result=BENCH_TIMEOUT;goto done;}
+0076     if(!fifo) {
+0077       TRY(iis3dwb_xl_flag_data_ready_get(c,&ready));
+0078       if(ready){TRY(iis3dwb_acceleration_raw_get(c,o->xyz[o->count]));o->count++;o->xyz_count++;}
+0079       TRY(iis3dwb_temp_flag_data_ready_get(c,&ready));
+0080       if(ready)TRY(iis3dwb_temperature_raw_get(c,&o->temperature));
+0081     } else {
+0082       uint8_t raw[2]={0}; iis3dwb_fifo_status_t st={0}; uint16_t n;
+0083       /* Official grouped status getter, preserved without modifying its mask. */
+0084       TRY(iis3dwb_fifo_status_get(c,&st));
+0085       /* A second raw observation is explicit, not substituted into the first. */
+0086       TRY(iis3dwb_read_reg(c,IIS3DWB_FIFO_STATUS1,raw,2));
+0087       o->st_level=st.fifo_level;o->raw_level=(raw[0]|((uint16_t)raw[1]<<8))&0x3FF;
+0088       o->flags=raw[1];
+0089       if(st.fifo_ovr || st.fifo_full || (raw[1]&0x68)){result=BENCH_OVERFLOW;goto done;}
+0090       if(o->raw_level>512){result=BENCH_CAPACITY;goto done;}
+0091       if(!status10 && st.fifo_th && st.fifo_level<256){result=BENCH_ST_LEVEL;goto done;}
+0092       n=status10?(uint16_t)o->raw_level:st.fifo_level;
+0093       if((status10?(raw[1]&0x80):st.fifo_th) && n>=256) {
+0094         /* Official API; segmentation avoids SPI3 TSIZE and FIFO array overflow. */
+0095         n=n>128?128:n;
+0096         if(n>BENCH_WORDS-o->count)n=(uint16_t)(BENCH_WORDS-o->count);
+0097         TRY(iis3dwb_fifo_out_multi_raw_get(c,&o->words[o->count],n));
+0098         /* Retain rejected payload as received; count includes all received words. */
+0099         unsigned first=o->count;o->count+=n;
+0100         result=controls(c,1,o);if(result)goto done;
+0101         for(unsigned i=first;i<o->count;i++) {
+0102           unsigned tag=o->words[i].tag>>3;
+0103           if(tag==IIS3DWB_XL_TAG)o->xyz_count++;
+0104           else if(tag==IIS3DWB_TIMESTAMP_TAG)o->timestamp_count++;
+0105           else {result=BENCH_TAG;goto done;}
+0106         }
+0107       }
+0108     }
+0109   }
+0110 done:
+0111   o->result=(uint32_t)result;o->stage=5;
+0112   /* Dedicated bench only: fail closed, best-effort stop, preserve first error. */
+0113   int cleanup=0;
+0114   if(changed) {
+0115     cleanup=iis3dwb_xl_data_rate_set(c,IIS3DWB_XL_ODR_OFF);
+0116     if(iis3dwb_fifo_mode_set(c,IIS3DWB_BYPASS_MODE))cleanup=-1;
+0117     if(iis3dwb_timestamp_set(c,PROPERTY_DISABLE))cleanup=-1;
+0118   }
+0119   o->cleanup_result=cleanup?BENCH_IO:BENCH_OK;o->stage=6;
+0120   return result;
+0121 }
+
+FILE experiments/iis3dwb_st_reference/src/platform.c
+0001 #include "platform.h"
+0002 #include <string.h>
+0003 static SPI_HandleTypeDef spi;
+0004 BenchTrace bench_trace[TRACE_RECORDS];
+0005 uint8_t bench_payload[TRACE_BYTES];
+0006 volatile uint32_t bench_trace_count,bench_payload_count,bench_stop;
+0007 volatile uint32_t bench_command,bench_ready,bench_uid[3],bench_core_hz;
+0008 static uint32_t stop(void){return bench_stop;}
+0009 static int32_t transfer(void *handle,uint8_t reg,uint8_t *data,uint16_t len,unsigned write)
+0010 {
+0011   if(handle!=&spi || !data || !len || len>896 || reg>0x7F ||
+0012      bench_trace_count>=TRACE_RECORDS || bench_payload_count+len>TRACE_BYTES)
+0013     return -1;
+0014   BenchTrace *t=&bench_trace[bench_trace_count++];
+0015   t->tick=HAL_GetTick();t->reg=reg;t->len=len;t->write=write;
+0016   t->offset=bench_payload_count;bench_payload_count+=len;
+0017   uint8_t command=write?reg:(uint8_t)(reg|0x80);
+0018   /* ST callbacks: command TX then payload TX/RX, CS low across both calls. */
+0019   HAL_GPIO_WritePin(GPIOC,GPIO_PIN_9,GPIO_PIN_RESET);
+0020   HAL_StatusTypeDef s=HAL_SPI_Transmit(&spi,&command,1,20);
+0021   if(s==HAL_OK) {
+0022     if(write)s=HAL_SPI_Transmit(&spi,data,len,20);
+0023     else {memset(data,0,len);s=HAL_SPI_Receive(&spi,data,len,20);}
+0024   }
+0025   HAL_GPIO_WritePin(GPIOC,GPIO_PIN_9,GPIO_PIN_SET);
+0026   t->status=s;t->error=HAL_SPI_GetError(&spi);
+0027   t->rx_left=spi.RxXferCount;t->tx_left=spi.TxXferCount;
+0028   memcpy(bench_payload+t->offset,data,len);
+0029   t->valid=s==HAL_OK && !t->error && !t->rx_left && !t->tx_left;
+0030   return t->valid?0:-1;
+0031 }
+0032 int32_t platform_read(void *h,uint8_t r,uint8_t *d,uint16_t n){return transfer(h,r,d,n,0);}
+0033 int32_t platform_write(void *h,uint8_t r,const uint8_t *d,uint16_t n){return transfer(h,r,(uint8_t *)d,n,1);}
+0034 int platform_init(stmdev_ctx_t *ctx,BenchClock *clock)
+0035 {
+0036   GPIO_InitTypeDef g={0};RCC_OscInitTypeDef osc={0};RCC_ClkInitTypeDef clk={0};
+0037   __HAL_RCC_PWR_CLK_ENABLE();
+0038   if(HAL_PWREx_ConfigSupply(PWR_SMPS_SUPPLY)!=HAL_OK)return -1;
+0039   osc.OscillatorType=RCC_OSCILLATORTYPE_MSI;osc.MSIState=RCC_MSI_ON;
+0040   osc.MSIClockRange=RCC_MSIRANGE_2;osc.MSICalibrationValue=RCC_MSICALIBRATION_DEFAULT;
+0041   osc.PLL.PLLState=RCC_PLL_NONE;
+0042   if(HAL_RCC_OscConfig(&osc)!=HAL_OK)return -1;
+0043   clk.ClockType=RCC_CLOCKTYPE_SYSCLK|RCC_CLOCKTYPE_HCLK|RCC_CLOCKTYPE_PCLK1|
+0044     RCC_CLOCKTYPE_PCLK2|RCC_CLOCKTYPE_PCLK3;
+0045   clk.SYSCLKSource=RCC_SYSCLKSOURCE_MSI;clk.AHBCLKDivider=RCC_SYSCLK_DIV1;
+0046   clk.APB1CLKDivider=RCC_HCLK_DIV1;clk.APB2CLKDivider=RCC_HCLK_DIV1;
+0047   clk.APB3CLKDivider=RCC_HCLK_DIV1;
+0048   if(HAL_RCC_ClockConfig(&clk,FLASH_LATENCY_0)!=HAL_OK)return -1;
+0049   RCC_PeriphCLKInitTypeDef peripheral={0};
+0050   peripheral.PeriphClockSelection=RCC_PERIPHCLK_SPI3;
+0051   peripheral.Spi3ClockSelection=RCC_SPI3CLKSOURCE_PCLK3;
+0052   if(HAL_RCCEx_PeriphCLKConfig(&peripheral)!=HAL_OK ||
+0053      HAL_RCCEx_GetPeriphCLKFreq(RCC_PERIPHCLK_SPI3)!=16000000U)return -1;
+0054   __HAL_RCC_GPIOC_CLK_ENABLE();__HAL_RCC_SPI3_CLK_ENABLE();
+0055   HAL_GPIO_WritePin(GPIOC,GPIO_PIN_9,GPIO_PIN_SET);
+0056   g.Pin=GPIO_PIN_9;g.Mode=GPIO_MODE_OUTPUT_PP;g.Pull=GPIO_NOPULL;
+0057   g.Speed=GPIO_SPEED_FREQ_LOW;HAL_GPIO_Init(GPIOC,&g);
+0058   g.Pin=GPIO_PIN_10|GPIO_PIN_11|GPIO_PIN_12;g.Mode=GPIO_MODE_AF_PP;
+0059   g.Speed=GPIO_SPEED_FREQ_HIGH;g.Alternate=GPIO_AF6_SPI3;HAL_GPIO_Init(GPIOC,&g);
+0060   spi.Instance=SPI3;spi.Init.Mode=SPI_MODE_MASTER;spi.Init.Direction=SPI_DIRECTION_2LINES;
+0061   spi.Init.DataSize=SPI_DATASIZE_8BIT;spi.Init.CLKPolarity=SPI_POLARITY_LOW;
+0062   spi.Init.CLKPhase=SPI_PHASE_1EDGE;spi.Init.NSS=SPI_NSS_SOFT;
+0063   spi.Init.BaudRatePrescaler=SPI_BAUDRATEPRESCALER_8;
+0064   spi.Init.FirstBit=SPI_FIRSTBIT_MSB;spi.Init.TIMode=SPI_TIMODE_DISABLE;
+0065   spi.Init.CRCCalculation=SPI_CRCCALCULATION_DISABLE;spi.Init.CRCPolynomial=7;
+0066   spi.Init.NSSPMode=SPI_NSS_PULSE_DISABLE;spi.Init.NSSPolarity=SPI_NSS_POLARITY_LOW;
+0067   spi.Init.FifoThreshold=SPI_FIFO_THRESHOLD_01DATA;
+0068   spi.Init.MasterSSIdleness=SPI_MASTER_SS_IDLENESS_00CYCLE;
+0069   spi.Init.MasterInterDataIdleness=SPI_MASTER_INTERDATA_IDLENESS_00CYCLE;
+0070   spi.Init.MasterReceiverAutoSusp=SPI_MASTER_RX_AUTOSUSP_DISABLE;
+0071   spi.Init.MasterKeepIOState=SPI_MASTER_KEEP_IO_STATE_ENABLE;spi.Init.IOSwap=SPI_IO_SWAP_DISABLE;
+0072   spi.Init.ReadyMasterManagement=SPI_RDY_MASTER_MANAGEMENT_INTERNALLY;
+0073   spi.Init.ReadyPolarity=SPI_RDY_POLARITY_HIGH;
+0074   if(HAL_SPI_Init(&spi)!=HAL_OK)return -1;
+0075   *ctx=(stmdev_ctx_t){.write_reg=platform_write,.read_reg=platform_read,
+0076     .mdelay=HAL_Delay,.handle=&spi};
+0077   *clock=(BenchClock){HAL_GetTick,HAL_Delay,stop};
+0078   bench_uid[0]=HAL_GetUIDw0();bench_uid[1]=HAL_GetUIDw1();bench_uid[2]=HAL_GetUIDw2();
+0079   bench_core_hz=HAL_RCC_GetHCLKFreq();return 0;
+0080 }
+
+FILE Modbus RTU/05_Firmware/platform/stm32/stm32_iis3dwb_burst_capture.c
+0001 #include "stm32_iis3dwb_burst_capture.h"
+0002 #if TR2_STM32_BURST_CAPTURE
+0003 #include <string.h>
+0004 #include <limits.h>
+0005 volatile uint32_t tr2_burst_trigger;
+0006 volatile Stm32BurstInfo tr2_burst_info;
+0007 volatile Stm32BurstPoll tr2_burst_polls[TR2_BURST_POLLS];
+0008 volatile Stm32BurstMeta tr2_burst_meta[2];
+0009 volatile uint8_t tr2_burst_rx[2][TR2_BURST_BYTES];
+0010 volatile uint32_t tr2_config_trace_count;
+0011 volatile Stm32ConfigTrace tr2_config_traces[TR2_CONFIG_TRACE_COUNT];
+0012 volatile Stm32ConfigRefusal tr2_config_first_refusal;
+0013 /* Immutable first observable failure: later restoration cannot overwrite it.
+0014  * reason1 HAL I/O,2 readback mismatch,3 telemetry bound. */
+0015 static void refuse(uint32_t reason,uint32_t reg,uint32_t ev,uint32_t expected,
+0016  uint32_t ov,uint32_t observed,uint32_t trace_index)
+0017 {
+0018  if(tr2_config_first_refusal.valid)return;
+0019  tr2_config_first_refusal.reason=reason;tr2_config_first_refusal.phase=tr2_burst_info.stage;
+0020  tr2_config_first_refusal.reg=reg;tr2_config_first_refusal.expected_valid=ev;
+0021  tr2_config_first_refusal.expected=expected;tr2_config_first_refusal.observed_valid=ov;
+0022  tr2_config_first_refusal.observed=observed;tr2_config_first_refusal.trace_index=trace_index;
+0023  if(trace_index<tr2_config_trace_count)tr2_config_first_refusal.io=tr2_config_traces[trace_index];
+0024  tr2_config_first_refusal.valid=1U;
+0025 }
+0026 static void mismatch(uint32_t reg,uint32_t expected,uint32_t observed)
+0027 {
+0028  uint32_t index=UINT32_MAX;
+0029  for(uint32_t i=tr2_config_trace_count;i>0U;i--){
+0030   volatile Stm32ConfigTrace *v=&tr2_config_traces[i-1U];
+0031   if(v->method!=4U&&reg>=v->reg&&reg<v->reg+v->nbytes-1U){index=i-1U;break;}
+0032  }
+0033  refuse(2U,reg,1U,expected,1U,observed,index);
+0034 }
+0035 static const uint8_t regs[7]={7U,8U,9U,10U,16U,18U,20U};
+0036 static SPI_HandleTypeDef *bus;
+0037 static GPIO_TypeDef *port;
+0038 static uint16_t pin;
+0039 static uint8_t tx[TR2_BURST_BYTES],rx[TR2_BURST_BYTES];
+0040 static Tr2Result io(uint8_t reg,uint8_t *data,uint16_t n,int write,Stm32BurstMeta *meta)
+0041 {
+0042  HAL_StatusTypeDef status;
+0043  Stm32ConfigTrace trace={0};
+0044  uint32_t index=tr2_config_trace_count;
+0045  if(index>=TR2_CONFIG_TRACE_COUNT){refuse(3U,reg,0U,UINT32_MAX,0U,UINT32_MAX,UINT32_MAX);return TR2_ERROR_INTERNAL;}
+0046  if(n==0U||n+1U>TR2_BURST_BYTES||(write&&n!=1U))return TR2_ERROR_INVALID_ARGUMENT;
+0047  memset(tx,0,sizeof(tx));memset(rx,0,sizeof(rx));tx[0]=write?reg:(uint8_t)(reg|128U);
+0048  if(write)tx[1]=data[0];
+0049  trace.phase=tr2_burst_info.stage;trace.method=write?4U:(reg==0x78U?3U:(n==1U?1U:2U));
+0050  trace.reg=reg;trace.nbytes=n+1U;trace.raw_length=n+1U<8U?n+1U:8U;
+0051  trace.cs_before=(port->ODR&pin)!=0U;trace.sr_before=bus->Instance->SR;
+0052  trace.cfg1=bus->Instance->CFG1;trace.cfg2=bus->Instance->CFG2;
+0053  trace.begin_cycles=DWT->CYCCNT;trace.valid_mask=1U;
+0054  if(meta){meta->cs_before=(port->ODR&pin)!=0U;meta->cfg1=bus->Instance->CFG1;meta->cfg2=bus->Instance->CFG2;meta->begin_cycles=DWT->CYCCNT;}
+0055  HAL_GPIO_WritePin(port,pin,GPIO_PIN_RESET);
+0056  trace.cs_during=(port->ODR&pin)!=0U;
+0057  if(meta)meta->cs_during=(port->ODR&pin)!=0U;
+0058  status=HAL_SPI_TransmitReceive(bus,tx,rx,(uint16_t)(n+1U),10U);
+0059  trace.sr_after=bus->Instance->SR;
+0060  HAL_GPIO_WritePin(port,pin,GPIO_PIN_SET);
+0061  trace.end_cycles=DWT->CYCCNT;trace.cs_after=(port->ODR&pin)!=0U;
+0062  trace.hal_status=(uint32_t)status;trace.error=bus->ErrorCode;
+0063  trace.rx_left=bus->RxXferCount;trace.tx_left=bus->TxXferCount;
+0064  for(uint32_t j=0;j<trace.raw_length;j++){trace.tx[j]=tx[j];trace.rx[j]=rx[j];}
+0065  trace.valid_mask|=2U|4U;
+0066  int transfer_ok=status==HAL_OK&&trace.error==0U&&trace.rx_left==0U&&trace.tx_left==0U&&trace.cs_before==1U&&trace.cs_during==0U&&trace.cs_after==1U;
+0067  if(transfer_ok&&!write)trace.valid_mask|=8U;
+0068  tr2_config_traces[index]=trace;tr2_config_trace_count=index+1U;
+0069  if(meta){meta->cs_after=(port->ODR&pin)!=0U;meta->end_cycles=DWT->CYCCNT;meta->hal_status=(uint32_t)status;meta->error=bus->ErrorCode;meta->rx_left=bus->RxXferCount;meta->tx_left=bus->TxXferCount;}
+0070  if(!transfer_ok){refuse(1U,reg,write?1U:0U,write?tx[1]:UINT32_MAX,0U,UINT32_MAX,index);tr2_burst_info.errors++;return status==HAL_TIMEOUT?TR2_ERROR_UNAVAILABLE:TR2_ERROR_INTERNAL;}
+0071  if(!write&&data!=NULL)memcpy(data,rx+1U,n);
+0072  return TR2_OK;
+0073 }
+0074 static Tr2Result write_reg(uint8_t reg,uint8_t value)
+0075 {
+0076  int allowed=0;for(unsigned i=0;i<7U;i++)if(reg==regs[i])allowed=1;
+0077  return allowed?io(reg,&value,1U,1,NULL):TR2_ERROR_UNSUPPORTED;
+0078 }
+0079 /* Two grouped readbacks; no single control read on admission or restoration.
+0080  * WHO/IF_INC/CTRL4 anchor coherence; reserved0x11 is captured, not interpreted. */
+0081 static Tr2Result controls(uint32_t *values)
+0082 {
+0083  uint8_t data[6];Tr2Result r=io(7U,data,4U,0,NULL);
+0084  if(r!=TR2_OK)return r;
+0085  for(unsigned i=0;i<4U;i++)values[i]=data[i];
+0086  r=io(15U,data,6U,0,NULL);if(r!=TR2_OK)return r;
+0087  if(data[0]!=0x7BU){mismatch(15U,0x7BU,data[0]);tr2_burst_info.loss_flags|=4U;return TR2_ERROR_INTERNAL;}
+0088  if((data[3]&4U)==0U){mismatch(18U,tr2_burst_info.stage==1U||tr2_burst_info.stage==5U?4U:0x44U,data[3]);tr2_burst_info.loss_flags|=4U;return TR2_ERROR_INTERNAL;}
+0089  if(data[4]!=0U){mismatch(19U,0U,data[4]);tr2_burst_info.loss_flags|=4U;return TR2_ERROR_INTERNAL;}
+0090  values[4]=data[1];values[5]=data[3];values[6]=data[5];
+0091  return TR2_OK;
+0092 }
+0093 static Tr2Result audit_grouped(void)
+0094 {
+0095  static const uint8_t starts[4]={0x0D,0x15,0x18,0x73};
+0096  static const uint8_t lengths[4]={3U,3U,2U,3U};
+0097  for(unsigned i=0;i<4U;i++){
+0098   uint8_t data[3];Tr2Result r=io(starts[i],data,lengths[i],0,NULL);if(r!=TR2_OK)return r;
+0099   for(unsigned j=0;j<lengths[i];j++){
+0100    if(i==2U&&j==0U)continue; /* Reserved0x18, no invented expected value. */
+0101    uint8_t expected=i==0U&&j==2U?0x7BU:0U;
+0102    if(data[j]!=expected){mismatch((uint8_t)(starts[i]+j),expected,data[j]);return TR2_ERROR_UNSUPPORTED;}
+0103   }
+0104  }
+0105  return TR2_OK;
+0106 }
+0107 static Tr2Result status_read(uint32_t *status)
+0108 {
+0109  uint8_t bytes[2];Tr2Result r=io(0x3AU,bytes,2U,0,NULL);
+0110  if(r==TR2_OK){*status=bytes[0]|((uint32_t)bytes[1]<<8U);if(*status&0x4800U)tr2_burst_info.loss_flags|=1U;}
+0111  return r;
+0112 }
+0113 static unsigned parity(uint8_t tag){unsigned p=0;for(unsigned i=0;i<8;i++)p^=(tag>>i)&1U;return p;}
+0114 __attribute__((noreturn)) void stm32_iis3dwb_burst_capture_run(SPI_HandleTypeDef *spi,GPIO_TypeDef *gpio,uint16_t cs)
+0115 {
+0116  uint32_t saved[7]={0},actual[7]={0},status=0U,previous_level=0U,last_counter=0U;
+0117  int have_saved=0,changed=0;
+0118  Tr2Result result=TR2_OK,restored=TR2_ERROR_NOT_AVAILABLE;
+0119  bus=spi;port=gpio;pin=cs;tr2_burst_info.stage=1U;
+0120  while(tr2_burst_trigger!=0x4D313546U)HAL_Delay(10U);
+0121  tr2_burst_trigger=0U;
+0122  CoreDebug->DEMCR|=CoreDebug_DEMCR_TRCENA_Msk;
+0123  if(DWT->CTRL&(1UL<<25)){result=TR2_ERROR_UNSUPPORTED;goto finish;}
+0124  DWT->CYCCNT=0U;DWT->CTRL|=DWT_CTRL_CYCCNTENA_Msk;
+0125  {uint32_t before=DWT->CYCCNT;HAL_Delay(2U);if(before==DWT->CYCCNT){result=TR2_ERROR_UNAVAILABLE;goto finish;}}
+0126  tr2_burst_info.core_hz=HAL_RCC_GetHCLKFreq();tr2_burst_info.spi_hz=HAL_RCCEx_GetPeriphCLKFreq(RCC_PERIPHCLK_SPI3)/64U;
+0127  if(tr2_burst_info.core_hz!=160000000U||tr2_burst_info.spi_hz!=2500000U){result=TR2_ERROR_UNSUPPORTED;goto finish;}
+0128  result=controls(saved);if(result!=TR2_OK)goto finish;
+0129  for(unsigned i=0;i<7;i++){tr2_burst_info.saved[i]=saved[i];if(saved[i]!=(i==5U?4U:0U)){mismatch(regs[i],i==5U?4U:0U,saved[i]);result=TR2_ERROR_UNSUPPORTED;goto finish;}}
+0130  have_saved=1;
+0131  result=audit_grouped();if(result!=TR2_OK)goto finish;
+0132  result=status_read(&status);if(result!=TR2_OK||status!=0U){result=TR2_ERROR_INVALID_STATE;goto finish;}
+0133  changed=1;tr2_burst_info.stage=2U;
+0134  {const uint8_t values[7]={0U,0x81U,0x0AU,0U,0xA8U,0x44U,0U};const uint8_t order[7]={5U,4U,0U,1U,2U,3U,6U};
+0135   for(unsigned j=0;j<7;j++){unsigned i=order[j];result=write_reg(regs[i],values[i]);if(result!=TR2_OK)goto finish;}
+0136   result=controls(actual);if(result!=TR2_OK)goto finish;
+0137   for(unsigned i=0;i<7;i++)if(actual[i]!=values[i]){mismatch(regs[i],values[i],actual[i]);tr2_burst_info.loss_flags|=4U;result=TR2_ERROR_INTERNAL;goto finish;}
+0138  }
+0139  HAL_Delay(100U);
+0140  tr2_burst_info.start_cycles=DWT->CYCCNT;result=write_reg(10U,1U);if(result!=TR2_OK)goto finish;
+0141  tr2_burst_info.stage=3U;
+0142  {uint32_t start=HAL_GetTick();do{
+0143    Stm32BurstPoll record={DWT->CYCCNT,0U,0U,0U};result=status_read(&status);record.end_cycles=DWT->CYCCNT;record.status=status;record.level=status&0x03FFU;
+0144    unsigned i=tr2_burst_info.poll_count;tr2_burst_polls[i]=record;tr2_burst_info.poll_count=i+1U;
+0145    if(result!=TR2_OK)goto finish;
+0146    if(record.level<previous_level)tr2_burst_info.loss_flags|=2U;
+0147    previous_level=record.level;
+0148    if(tr2_burst_info.loss_flags){result=TR2_ERROR_INVALID_STATE;goto finish;}
+0149    if(status&0x8000U)break;
+0150    if(i+1U>=TR2_BURST_POLLS||(uint32_t)(HAL_GetTick()-start)>=20U){result=TR2_ERROR_UNAVAILABLE;goto finish;}
+0151    HAL_Delay(1U);
+0152   }while(1);
+0153  }
+0154  tr2_burst_info.filled_status=status;
+0155  if((status&0x03FFU)!=256U){tr2_burst_info.loss_flags|=32U;result=TR2_ERROR_INVALID_STATE;goto finish;}
+0156  /* Freeze input before draining; no continuous acquisition claim. */
+0157  result=write_reg(16U,0U);if(result!=TR2_OK)goto finish;HAL_Delay(2U);
+0158  result=controls(actual);if(result!=TR2_OK)goto finish;
+0159  {const uint32_t expected[7]={0U,0x81U,0x0AU,1U,0U,0x44U,0U};
+0160   for(unsigned i=0;i<7;i++){tr2_burst_info.configured[i]=actual[i];if(actual[i]!=expected[i]){mismatch(regs[i],expected[i],actual[i]);tr2_burst_info.loss_flags|=4U;result=TR2_ERROR_INTERNAL;goto finish;}}
+0161  }
+0162  result=status_read(&status);tr2_burst_info.stopped_status=status;
+0163  if(result!=TR2_OK||(status&0x03FFU)!=256U||tr2_burst_info.loss_flags){result=TR2_ERROR_INVALID_STATE;goto finish;}
+0164  tr2_burst_info.stage=4U;
+0165  for(unsigned burst=0U;burst<2U;burst++){
+0166   Stm32BurstMeta meta={0};meta.status_before=status;
+0167   result=io(0x78U,NULL,896U,0,&meta);
+0168   /* io's internal rx also contains command byte and partial data on HAL error. */
+0169   for(unsigned j=0;j<TR2_BURST_BYTES;j++)tr2_burst_rx[burst][j]=rx[j];
+0170   tr2_burst_meta[burst]=meta;tr2_burst_info.burst_count=burst+1U;
+0171   if(result!=TR2_OK)goto finish;
+0172   if(meta.error||meta.rx_left||meta.tx_left||meta.cs_before!=1U||meta.cs_during!=0U||meta.cs_after!=1U){tr2_burst_info.loss_flags|=128U;result=TR2_ERROR_INTERNAL;goto finish;}
+0173   for(unsigned word=0U;word<128U;word++){
+0174    unsigned pos=1U+word*7U;uint8_t tag=rx[pos];uint32_t counter=(tag>>1U)&3U;
+0175    if((tag>>3U)!=2U){tr2_burst_info.tag_errors++;tr2_burst_info.loss_flags|=8U;}
+0176    if(parity(tag)){tr2_burst_info.parity_errors++;tr2_burst_info.loss_flags|=16U;}
+0177    if(tr2_burst_info.word_count>0U&&counter!=((last_counter+1U)&3U)){tr2_burst_info.gap_events++;tr2_burst_info.loss_flags|=64U;}
+0178    last_counter=counter;
+0179    for(unsigned axis=0;axis<3;axis++){int16_t v=(int16_t)(rx[pos+1U+2U*axis]|((uint16_t)rx[pos+2U+2U*axis]<<8U));if(v==INT16_MIN||v==INT16_MAX)tr2_burst_info.saturations++;}
+0180    tr2_burst_info.word_count++;
+0181   }
+0182   result=status_read(&status);meta.status_after=status;tr2_burst_meta[burst]=meta;
+0183   if(result!=TR2_OK||(status&0x03FFU)!=(burst==0U?128U:0U)){tr2_burst_info.loss_flags|=32U;result=TR2_ERROR_INVALID_STATE;goto finish;}
+0184   if(tr2_burst_info.loss_flags){result=TR2_ERROR_INVALID_STATE;goto finish;}
+0185  }
+0186  tr2_burst_info.final_status=status;tr2_burst_info.end_cycles=DWT->CYCCNT;
+0187  if(tr2_burst_info.word_count==256U&&tr2_burst_info.loss_flags==0U)tr2_burst_info.accepted=1U;
+0188 finish:
+0189  tr2_burst_info.result=(uint32_t)result;tr2_burst_info.stage=5U;
+0190  if(have_saved){restored=TR2_OK;
+0191   if(changed){const uint8_t order[7]={4U,3U,2U,1U,0U,6U,5U};for(unsigned j=0;j<7;j++){unsigned i=order[j];if(write_reg(regs[i],(uint8_t)saved[i])!=TR2_OK)restored=TR2_ERROR_INTERNAL;}}
+0192   if(controls(actual)!=TR2_OK)restored=TR2_ERROR_INTERNAL;
+0193   for(unsigned i=0;i<7;i++){tr2_burst_info.restored[i]=actual[i];if(actual[i]!=saved[i])restored=TR2_ERROR_INTERNAL;}
+0194  }
+0195  tr2_burst_info.restore_result=(uint32_t)restored;if(restored!=TR2_OK)tr2_burst_info.accepted=0U;
+0196  tr2_burst_info.stage=10U;for(;;)HAL_Delay(100U);
+0197 }
+0198 #else
+0199 typedef int Tr2BurstCaptureDisabled;
+0200 #endif
+
+FILE Modbus RTU/05_Firmware/platform/stm32/stm32_iis3dwb_continuous.c
+0001 #include "stm32_iis3dwb_continuous.h"
+0002 #if TR2_STM32_CONTINUOUS_FIFO
+0003 #include <string.h>
+0004 #include <limits.h>
+0005 volatile uint32_t tr2_cont_trigger,tr2_cont_stop,tr2_cont_trace_count;
+0006 volatile Stm32ContinuousInfo tr2_cont_info;
+0007 volatile Stm32ConfigTrace tr2_cont_traces[TR2_CONT_TRACES];
+0008 volatile Stm32ConfigRefusal tr2_cont_first_refusal;
+0009 volatile Stm32BurstPoll tr2_cont_polls[TR2_CONT_POLLS];
+0010 volatile Stm32ContinuousMeta tr2_cont_meta[TR2_CONT_BURSTS];
+0011 volatile uint8_t tr2_cont_rx[TR2_CONT_BURSTS][TR2_BURST_BYTES];
+0012 volatile int16_t tr2_cont_xyz[TR2_CONT_WORDS][3];
+0013 volatile uint8_t tr2_cont_tags[TR2_CONT_WORDS];
+0014 _Static_assert(TR2_CONT_WORDS%TR2_CONT_BATCH_WORDS==0U,"Whole batches only");
+0015 _Static_assert(TR2_BURST_BYTES<=1024U,"SPI3 transaction bound");
+0016 /* Immutable first observable failure: later restoration cannot overwrite it.
+0017  * reason1 HAL I/O,2 readback mismatch,3 telemetry bound. */
+0018 static void refuse(uint32_t reason,uint32_t reg,uint32_t ev,uint32_t expected,
+0019  uint32_t ov,uint32_t observed,uint32_t trace_index)
+0020 {
+0021  if(tr2_cont_first_refusal.valid)return;
+0022  tr2_cont_first_refusal.reason=reason;tr2_cont_first_refusal.phase=tr2_cont_info.stage;
+0023  tr2_cont_first_refusal.reg=reg;tr2_cont_first_refusal.expected_valid=ev;
+0024  tr2_cont_first_refusal.expected=expected;tr2_cont_first_refusal.observed_valid=ov;
+0025  tr2_cont_first_refusal.observed=observed;tr2_cont_first_refusal.trace_index=trace_index;
+0026  if(trace_index<tr2_cont_trace_count)tr2_cont_first_refusal.io=tr2_cont_traces[trace_index];
+0027  tr2_cont_first_refusal.valid=1U;
+0028 }
+0029 static void mismatch(uint32_t reg,uint32_t expected,uint32_t observed)
+0030 {
+0031  uint32_t index=UINT32_MAX;
+0032  for(uint32_t i=tr2_cont_trace_count;i>0U;i--){
+0033   volatile Stm32ConfigTrace *v=&tr2_cont_traces[i-1U];
+0034   if(v->method!=4U&&reg>=v->reg&&reg<v->reg+v->nbytes-1U){index=i-1U;break;}
+0035  }
+0036  refuse(2U,reg,1U,expected,1U,observed,index);
+0037 }
+0038 static const uint8_t regs[7]={7U,8U,9U,10U,16U,18U,20U};
+0039 static SPI_HandleTypeDef *bus;
+0040 static GPIO_TypeDef *port;
+0041 static uint16_t pin;
+0042 static uint8_t tx[TR2_BURST_BYTES],rx[TR2_BURST_BYTES];
+0043 static Tr2Result io(uint8_t reg,uint8_t *data,uint16_t n,int write,Stm32BurstMeta *meta)
+0044 {
+0045  HAL_StatusTypeDef status;
+0046  Stm32ConfigTrace trace={0};
+0047  uint32_t index=tr2_cont_trace_count;
+0048  if(index>=TR2_CONT_TRACES){refuse(3U,reg,0U,UINT32_MAX,0U,UINT32_MAX,UINT32_MAX);return TR2_ERROR_INTERNAL;}
+0049  if(n==0U||n+1U>TR2_BURST_BYTES||(write&&n!=1U))return TR2_ERROR_INVALID_ARGUMENT;
+0050  memset(tx,0,sizeof(tx));memset(rx,0,sizeof(rx));tx[0]=write?reg:(uint8_t)(reg|128U);
+0051  if(write)tx[1]=data[0];
+0052  trace.phase=tr2_cont_info.stage;trace.method=write?4U:(reg==0x78U?3U:(n==1U?1U:2U));
+0053  trace.reg=reg;trace.nbytes=n+1U;trace.raw_length=n+1U<8U?n+1U:8U;
+0054  trace.cs_before=(port->ODR&pin)!=0U;trace.sr_before=bus->Instance->SR;
+0055  trace.cfg1=bus->Instance->CFG1;trace.cfg2=bus->Instance->CFG2;
+0056  trace.begin_cycles=DWT->CYCCNT;trace.valid_mask=1U;
+0057  if(meta){meta->cs_before=(port->ODR&pin)!=0U;meta->cfg1=bus->Instance->CFG1;meta->cfg2=bus->Instance->CFG2;meta->begin_cycles=DWT->CYCCNT;}
+0058  HAL_GPIO_WritePin(port,pin,GPIO_PIN_RESET);
+0059  trace.cs_during=(port->ODR&pin)!=0U;
+0060  if(meta)meta->cs_during=(port->ODR&pin)!=0U;
+0061  status=HAL_SPI_TransmitReceive(bus,tx,rx,(uint16_t)(n+1U),10U);
+0062  trace.sr_after=bus->Instance->SR;
+0063  HAL_GPIO_WritePin(port,pin,GPIO_PIN_SET);
+0064  trace.end_cycles=DWT->CYCCNT;trace.cs_after=(port->ODR&pin)!=0U;
+0065  trace.hal_status=(uint32_t)status;trace.error=bus->ErrorCode;
+0066  trace.rx_left=bus->RxXferCount;trace.tx_left=bus->TxXferCount;
+0067  for(uint32_t j=0;j<trace.raw_length;j++){trace.tx[j]=tx[j];trace.rx[j]=rx[j];}
+0068  trace.valid_mask|=2U|4U;
+0069  int transfer_ok=status==HAL_OK&&trace.error==0U&&trace.rx_left==0U&&trace.tx_left==0U&&trace.cs_before==1U&&trace.cs_during==0U&&trace.cs_after==1U;
+0070  if(transfer_ok&&!write)trace.valid_mask|=8U;
+0071  tr2_cont_traces[index]=trace;tr2_cont_trace_count=index+1U;
+0072  if(meta){meta->cs_after=(port->ODR&pin)!=0U;meta->end_cycles=DWT->CYCCNT;meta->hal_status=(uint32_t)status;meta->error=bus->ErrorCode;meta->rx_left=bus->RxXferCount;meta->tx_left=bus->TxXferCount;}
+0073  if(!transfer_ok){refuse(1U,reg,write?1U:0U,write?tx[1]:UINT32_MAX,0U,UINT32_MAX,index);tr2_cont_info.errors++;return status==HAL_TIMEOUT?TR2_ERROR_UNAVAILABLE:TR2_ERROR_INTERNAL;}
+0074  if(!write&&data!=NULL)memcpy(data,rx+1U,n);
+0075  return TR2_OK;
+0076 }
+0077 static Tr2Result write_reg(uint8_t reg,uint8_t value)
+0078 {
+0079  int allowed=0;for(unsigned i=0;i<7U;i++)if(reg==regs[i])allowed=1;
+0080  return allowed?io(reg,&value,1U,1,NULL):TR2_ERROR_UNSUPPORTED;
+0081 }
+0082 /* Two grouped readbacks; no single control read on admission or restoration.
+0083  * WHO/IF_INC/CTRL4 anchor coherence; reserved0x11 is captured, not interpreted. */
+0084 static Tr2Result controls(uint32_t *values)
+0085 {
+0086  uint8_t data[6];Tr2Result r=io(7U,data,4U,0,NULL);
+0087  if(r!=TR2_OK)return r;
+0088  for(unsigned i=0;i<4U;i++)values[i]=data[i];
+0089  r=io(15U,data,6U,0,NULL);if(r!=TR2_OK)return r;
+0090  if(data[0]!=0x7BU){mismatch(15U,0x7BU,data[0]);tr2_cont_info.loss_flags|=4U;return TR2_ERROR_INTERNAL;}
+0091  if((data[3]&4U)==0U){mismatch(18U,tr2_cont_info.stage==1U||tr2_cont_info.stage==5U?4U:0x44U,data[3]);tr2_cont_info.loss_flags|=4U;return TR2_ERROR_INTERNAL;}
+0092  if(data[4]!=0U){mismatch(19U,0U,data[4]);tr2_cont_info.loss_flags|=4U;return TR2_ERROR_INTERNAL;}
+0093  values[4]=data[1];values[5]=data[3];values[6]=data[5];
+0094  return TR2_OK;
+0095 }
+0096 static Tr2Result audit_grouped(void)
+0097 {
+0098  static const uint8_t starts[4]={0x0D,0x15,0x18,0x73};
+0099  static const uint8_t lengths[4]={3U,3U,2U,3U};
+0100  for(unsigned i=0;i<4U;i++){
+0101   uint8_t data[3];Tr2Result r=io(starts[i],data,lengths[i],0,NULL);if(r!=TR2_OK)return r;
+0102   for(unsigned j=0;j<lengths[i];j++){
+0103    if(i==2U&&j==0U)continue; /* Reserved0x18, no invented expected value. */
+0104    uint8_t expected=i==0U&&j==2U?0x7BU:0U;
+0105    if(data[j]!=expected){mismatch((uint8_t)(starts[i]+j),expected,data[j]);return TR2_ERROR_UNSUPPORTED;}
+0106   }
+0107  }
+0108  return TR2_OK;
+0109 }
+0110 static int nvic_snapshot(volatile uint32_t *values)
+0111 {
+0112  int safe=1;
+0113  for(unsigned i=0;i<3U;i++){values[i]=NVIC->ISER[i];values[i+3U]=NVIC->ISPR[i];if(values[i]||values[i+3U])safe=0;}
+0114  values[6]=__get_PRIMASK();values[7]=__get_BASEPRI();values[8]=__get_FAULTMASK();
+0115  if(values[6]||values[7]||values[8])safe=0;
+0116  return safe; /* No external IRQ expected; SysTick is a system exception. */
+0117 }
+0118 static Tr2Result budget(void)
+0119 {
+0120  if(tr2_cont_stop){tr2_cont_info.loss_flags|=256U;return TR2_ERROR_INVALID_STATE;}
+0121  if((uint32_t)(DWT->CYCCNT-tr2_cont_info.start_cycles)>TR2_CONT_BUDGET_MS*160000U){tr2_cont_info.loss_flags|=128U;tr2_cont_info.budget_violations++;return TR2_ERROR_UNAVAILABLE;}
+0122  return TR2_OK;
+0123 }
+0124 static Tr2Result status_read(Stm32BurstPoll *record)
+0125 {
+0126  uint8_t bytes[2];uint32_t i=tr2_cont_info.poll_count;
+0127  if(i>=TR2_CONT_POLLS){tr2_cont_info.loss_flags|=128U;return TR2_ERROR_UNAVAILABLE;}
+0128  record->begin_cycles=DWT->CYCCNT;Tr2Result r=io(0x3AU,bytes,2U,0,NULL);record->end_cycles=DWT->CYCCNT;
+0129  if(r==TR2_OK){record->status=bytes[0]|((uint32_t)bytes[1]<<8U);record->level=record->status&0x03FFU;
+0130   if(record->status&0x6800U){tr2_cont_info.loss_flags|=1U;r=TR2_ERROR_INVALID_STATE;}
+0131   if(record->level>=TR2_CONT_LEVEL_CEILING){tr2_cont_info.loss_flags|=2U;r=TR2_ERROR_INVALID_STATE;}
+0132   if(record->level>tr2_cont_info.max_level)tr2_cont_info.max_level=record->level;
+0133  }
+0134  tr2_cont_polls[i]=*record;tr2_cont_info.poll_count=i+1U;return r;
+0135 }
+0136 static Tr2Result checked_controls(const uint32_t expected[7])
+0137 {
+0138  uint32_t actual[7];Tr2Result r=controls(actual);if(r!=TR2_OK)return r;
+0139  for(unsigned i=0;i<7U;i++){tr2_cont_info.configured[i]=actual[i];if(actual[i]!=expected[i]){mismatch(regs[i],expected[i],actual[i]);tr2_cont_info.loss_flags|=4U;return TR2_ERROR_INTERNAL;}}
+0140  return TR2_OK;
+0141 }
+0142 static unsigned parity(uint8_t tag){unsigned p=0;for(unsigned i=0;i<8;i++)p^=(tag>>i)&1U;return p;}
+0143 __attribute__((noreturn)) void stm32_iis3dwb_continuous_run(SPI_HandleTypeDef *spi,GPIO_TypeDef *gpio,uint16_t cs)
+0144 {
+0145  uint32_t saved[7]={0},actual[7]={0},previous_level=0U,last_counter=0U;
+0146  const uint32_t prepared[7]={128U,0U,0x0AU,0U,0xA8U,0x44U,0U};
+0147  const uint32_t active[7]={128U,0U,0x0AU,6U,0xA8U,0x44U,0U};
+0148  Tr2Result result=TR2_OK,restored=TR2_ERROR_NOT_AVAILABLE;int have_saved=0,changed=0;
+0149  bus=spi;port=gpio;pin=cs;tr2_cont_info.stage=1U;tr2_cont_info.first_failure_word=UINT32_MAX;
+0150  while(tr2_cont_trigger!=TR2_CONT_TRIGGER)HAL_Delay(10U);
+0151  tr2_cont_trigger=0U;
+0152  tr2_cont_info.nvic_valid_mask=1U;if(!nvic_snapshot(tr2_cont_info.nvic_before)){result=TR2_ERROR_INVALID_STATE;goto finish;}
+0153  CoreDebug->DEMCR|=CoreDebug_DEMCR_TRCENA_Msk;
+0154  if(DWT->CTRL&(1UL<<25)){result=TR2_ERROR_UNSUPPORTED;goto finish;}
+0155  DWT->CYCCNT=0U;DWT->CTRL|=DWT_CTRL_CYCCNTENA_Msk;
+0156  {uint32_t before=DWT->CYCCNT;HAL_Delay(2U);if(before==DWT->CYCCNT){result=TR2_ERROR_UNAVAILABLE;goto finish;}}
+0157  tr2_cont_info.core_hz=HAL_RCC_GetHCLKFreq();tr2_cont_info.spi_hz=HAL_RCCEx_GetPeriphCLKFreq(RCC_PERIPHCLK_SPI3)/64U;
+0158  if(tr2_cont_info.core_hz!=160000000U||tr2_cont_info.spi_hz!=2500000U){result=TR2_ERROR_UNSUPPORTED;goto finish;}
+0159  result=controls(saved);if(result!=TR2_OK)goto finish;
+0160  for(unsigned i=0;i<7U;i++){tr2_cont_info.saved[i]=saved[i];if(saved[i]!=(i==5U?4U:0U)){mismatch(regs[i],i==5U?4U:0U,saved[i]);result=TR2_ERROR_UNSUPPORTED;goto finish;}}
+0161  have_saved=1;result=audit_grouped();if(result!=TR2_OK)goto finish;
+0162  {Stm32BurstPoll empty={0};result=status_read(&empty);if(result!=TR2_OK||empty.status!=0U){result=TR2_ERROR_INVALID_STATE;goto finish;}}
+0163  tr2_cont_info.stage=2U;tr2_cont_info.window_state=1U;changed=1;
+0164  {const uint8_t order[7]={5U,4U,0U,1U,2U,3U,6U};for(unsigned j=0;j<7U;j++){unsigned i=order[j];result=write_reg(regs[i],(uint8_t)prepared[i]);if(result!=TR2_OK)goto finish;}}
+0165  result=checked_controls(prepared);if(result!=TR2_OK)goto finish;HAL_Delay(100U);
+0166  tr2_cont_info.stage=3U;tr2_cont_info.start_cycles=DWT->CYCCNT;
+0167  result=write_reg(10U,6U);if(result!=TR2_OK)goto finish;tr2_cont_info.window_state=2U;
+0168  for(unsigned burst=0;burst<TR2_CONT_BURSTS;burst++){
+0169   Stm32BurstPoll before={0},after={0};Stm32ContinuousMeta meta={0};
+0170   result=budget();if(result!=TR2_OK)goto finish;
+0171   result=checked_controls(active);if(result!=TR2_OK)goto finish;
+0172   do{
+0173    result=budget();if(result!=TR2_OK)goto finish;
+0174    result=status_read(&before);if(result!=TR2_OK)goto finish;
+0175    if(before.level<previous_level){tr2_cont_info.loss_flags|=2U;result=TR2_ERROR_INVALID_STATE;goto finish;}
+0176    previous_level=before.level;if(before.level>=TR2_CONT_BATCH_WORDS)break;HAL_Delay(1U);
+0177   }while(1);
+0178   if(tr2_cont_info.word_count!=burst*TR2_CONT_BATCH_WORDS||tr2_cont_info.word_count+TR2_CONT_BATCH_WORDS>TR2_CONT_WORDS){tr2_cont_info.loss_flags|=32U;result=TR2_ERROR_INTERNAL;goto finish;}
+0179   meta.before_begin=before.begin_cycles;meta.before_end=before.end_cycles;meta.io.status_before=before.status;meta.valid_mask=1U;
+0180   uint32_t trace_index=tr2_cont_trace_count;
+0181   result=io(0x78U,NULL,896U,0,&meta.io);
+0182   for(unsigned j=0;j<TR2_BURST_BYTES;j++)tr2_cont_rx[burst][j]=rx[j];
+0183   tr2_cont_info.burst_count=burst+1U;tr2_cont_meta[burst]=meta;if(result!=TR2_OK)goto finish;
+0184   meta.valid_mask|=2U;
+0185   result=status_read(&after);meta.io.status_after=after.status;meta.after_begin=after.begin_cycles;meta.after_end=after.end_cycles;tr2_cont_meta[burst]=meta;if(result!=TR2_OK)goto finish;
+0186   meta.valid_mask|=4U;
+0187   /* Conservation: production continues while128 words are removed. Allow a
+0188    * declared +/-5% guard around configured ODR plus2 words for latch/phase.
+0189    * These bounds test coherence; they do not independently measure ODR. */
+0190   uint32_t dt_min=(uint32_t)(after.begin_cycles-before.end_cycles),dt_max=(uint32_t)(after.end_cycles-before.begin_cycles);
+0191   uint32_t low=(uint32_t)(((uint64_t)dt_min*26667U*95U)/(160000000ULL*100U));
+0192   uint32_t high=(uint32_t)((((uint64_t)dt_max*26667U*105U)+(160000000ULL*100U-1U))/(160000000ULL*100U));
+0193   meta.produced_lower=low>2U?low-2U:0U;meta.produced_upper=high+2U;
+0194   int32_t produced=(int32_t)after.level-(int32_t)before.level+(int32_t)TR2_CONT_BATCH_WORDS;
+0195   meta.produced_observed=produced>=0?(uint32_t)produced:UINT32_MAX;
+0196   if(produced<=0||(uint32_t)produced<meta.produced_lower||(uint32_t)produced>meta.produced_upper){tr2_cont_info.loss_flags|=2U;tr2_cont_meta[burst]=meta;result=TR2_ERROR_INVALID_STATE;goto finish;}
+0197   meta.valid_mask|=16U;previous_level=after.level;
+0198   result=checked_controls(active);tr2_cont_meta[burst]=meta;if(result!=TR2_OK)goto finish;
+0199   meta.valid_mask|=8U;
+0200   for(unsigned word=0;word<TR2_CONT_BATCH_WORDS;word++){
+0201    unsigned pos=1U+word*7U;uint8_t tag=tr2_cont_rx[burst][pos];uint32_t counter=(tag>>1U)&3U;
+0202    if((tag>>3U)!=2U){tr2_cont_info.tag_errors++;tr2_cont_info.loss_flags|=8U;}
+0203    if(parity(tag)){tr2_cont_info.parity_errors++;tr2_cont_info.loss_flags|=16U;}
+0204    if(tr2_cont_info.word_count>0U&&counter!=((last_counter+1U)&3U)){tr2_cont_info.gap_events++;tr2_cont_info.loss_flags|=64U;}
+0205    if(tr2_cont_info.loss_flags){tr2_cont_info.first_failure_word=tr2_cont_info.word_count;refuse(4U,0x78U,0U,UINT32_MAX,1U,tag,trace_index);tr2_cont_meta[burst]=meta;result=TR2_ERROR_INVALID_STATE;goto finish;}
+0206    unsigned index=tr2_cont_info.word_count;tr2_cont_tags[index]=tag;
+0207    for(unsigned axis=0;axis<3;axis++){int16_t v=(int16_t)(tr2_cont_rx[burst][pos+1U+axis*2U]|((uint16_t)tr2_cont_rx[burst][pos+2U+axis*2U]<<8U));tr2_cont_xyz[index][axis]=v;if(v==INT16_MIN||v==INT16_MAX)tr2_cont_info.saturations++;}
+0208    last_counter=counter;tr2_cont_info.word_count=index+1U;
+0209   }
+0210   meta.valid_mask|=32U;tr2_cont_meta[burst]=meta;
+0211   result=budget();if(result!=TR2_OK)goto finish;
+0212  }
+0213  tr2_cont_info.capture_end_cycles=DWT->CYCCNT;
+0214  if(tr2_cont_info.word_count==TR2_CONT_WORDS&&tr2_cont_info.loss_flags==0U){tr2_cont_info.accepted=1U;tr2_cont_info.window_state=3U;}
+0215  /* First disable occurs only after the complete continuous window. */
+0216  result=write_reg(16U,0U);
+0217 finish:
+0218  tr2_cont_info.result=(uint32_t)result;tr2_cont_info.stage=5U;
+0219  if(have_saved){restored=TR2_OK;
+0220   if(changed){const uint8_t order[7]={4U,3U,2U,1U,0U,6U,5U};for(unsigned j=0;j<7U;j++){unsigned i=order[j];if(write_reg(regs[i],(uint8_t)saved[i])!=TR2_OK)restored=TR2_ERROR_INTERNAL;}}
+0221   if(controls(actual)!=TR2_OK)restored=TR2_ERROR_INTERNAL;
+0222   for(unsigned i=0;i<7U;i++){tr2_cont_info.restored[i]=actual[i];if(actual[i]!=saved[i])restored=TR2_ERROR_INTERNAL;}
+0223  }
+0224  tr2_cont_info.nvic_valid_mask|=2U;if(!nvic_snapshot(tr2_cont_info.nvic_after))restored=TR2_ERROR_INTERNAL;
+0225  tr2_cont_info.restore_result=(uint32_t)restored;
+0226  if(result!=TR2_OK||restored!=TR2_OK||tr2_cont_info.accepted!=1U){tr2_cont_info.accepted=0U;tr2_cont_info.window_state=4U;}
+0227  tr2_cont_info.end_cycles=DWT->CYCCNT;tr2_cont_info.stage=10U;for(;;)HAL_Delay(100U);
+0228 }
+0229 #else
+0230 typedef int Tr2ContinuousDisabled;
+0231 #endif

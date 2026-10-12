@@ -1,0 +1,144 @@
+[
+  {
+    "name": "host-configure",
+    "command": [
+      "cmake",
+      "-S",
+      "/home/lolo/dev/msm/projects/MSM_vibe-M015-K/experiments/iis3dwb_st_reference",
+      "-B",
+      "/home/lolo/dev/msm/reports/TR2-mission015-K-20261012T192739Z/validation-final/host",
+      "-G",
+      "Ninja",
+      "-DBENCH_HOST_TESTS=ON",
+      "-DCMAKE_BUILD_TYPE=Debug"
+    ],
+    "exit_code": 0
+  },
+  {
+    "name": "host-build",
+    "command": [
+      "cmake",
+      "--build",
+      "/home/lolo/dev/msm/reports/TR2-mission015-K-20261012T192739Z/validation-final/host"
+    ],
+    "exit_code": 0
+  },
+  {
+    "name": "host-test",
+    "command": [
+      "ctest",
+      "--test-dir",
+      "/home/lolo/dev/msm/reports/TR2-mission015-K-20261012T192739Z/validation-final/host",
+      "-V"
+    ],
+    "exit_code": 0
+  },
+  {
+    "name": "who-ST_STRICT-configure",
+    "command": [
+      "cmake",
+      "-S",
+      "/home/lolo/dev/msm/projects/MSM_vibe-M015-K/experiments/iis3dwb_st_reference",
+      "-B",
+      "/home/lolo/dev/msm/reports/TR2-mission015-K-20261012T192739Z/validation-final/who-ST_STRICT",
+      "-G",
+      "Ninja",
+      "-DCMAKE_TOOLCHAIN_FILE=cmake/arm-none-eabi-gcc.cmake",
+      "-DCMAKE_BUILD_TYPE=Debug",
+      "-DSTM32CUBE_U5_ROOT=/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0",
+      "-DBENCH_EXAMPLE=who",
+      "-DBENCH_PROFILE=ST_STRICT"
+    ],
+    "exit_code": 0
+  },
+  {
+    "name": "who-ST_STRICT-build",
+    "command": [
+      "cmake",
+      "--build",
+      "/home/lolo/dev/msm/reports/TR2-mission015-K-20261012T192739Z/validation-final/who-ST_STRICT"
+    ],
+    "exit_code": 0
+  },
+  {
+    "name": "polling-ST_STRICT-configure",
+    "command": [
+      "cmake",
+      "-S",
+      "/home/lolo/dev/msm/projects/MSM_vibe-M015-K/experiments/iis3dwb_st_reference",
+      "-B",
+      "/home/lolo/dev/msm/reports/TR2-mission015-K-20261012T192739Z/validation-final/polling-ST_STRICT",
+      "-G",
+      "Ninja",
+      "-DCMAKE_TOOLCHAIN_FILE=cmake/arm-none-eabi-gcc.cmake",
+      "-DCMAKE_BUILD_TYPE=Debug",
+      "-DSTM32CUBE_U5_ROOT=/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0",
+      "-DBENCH_EXAMPLE=polling",
+      "-DBENCH_PROFILE=ST_STRICT"
+    ],
+    "exit_code": 0
+  },
+  {
+    "name": "polling-ST_STRICT-build",
+    "command": [
+      "cmake",
+      "--build",
+      "/home/lolo/dev/msm/reports/TR2-mission015-K-20261012T192739Z/validation-final/polling-ST_STRICT"
+    ],
+    "exit_code": 0
+  },
+  {
+    "name": "fifo-ST_STRICT-configure",
+    "command": [
+      "cmake",
+      "-S",
+      "/home/lolo/dev/msm/projects/MSM_vibe-M015-K/experiments/iis3dwb_st_reference",
+      "-B",
+      "/home/lolo/dev/msm/reports/TR2-mission015-K-20261012T192739Z/validation-final/fifo-ST_STRICT",
+      "-G",
+      "Ninja",
+      "-DCMAKE_TOOLCHAIN_FILE=cmake/arm-none-eabi-gcc.cmake",
+      "-DCMAKE_BUILD_TYPE=Debug",
+      "-DSTM32CUBE_U5_ROOT=/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0",
+      "-DBENCH_EXAMPLE=fifo",
+      "-DBENCH_PROFILE=ST_STRICT"
+    ],
+    "exit_code": 0
+  },
+  {
+    "name": "fifo-ST_STRICT-build",
+    "command": [
+      "cmake",
+      "--build",
+      "/home/lolo/dev/msm/reports/TR2-mission015-K-20261012T192739Z/validation-final/fifo-ST_STRICT"
+    ],
+    "exit_code": 0
+  },
+  {
+    "name": "fifo-STATUS10-configure",
+    "command": [
+      "cmake",
+      "-S",
+      "/home/lolo/dev/msm/projects/MSM_vibe-M015-K/experiments/iis3dwb_st_reference",
+      "-B",
+      "/home/lolo/dev/msm/reports/TR2-mission015-K-20261012T192739Z/validation-final/fifo-STATUS10",
+      "-G",
+      "Ninja",
+      "-DCMAKE_TOOLCHAIN_FILE=cmake/arm-none-eabi-gcc.cmake",
+      "-DCMAKE_BUILD_TYPE=Debug",
+      "-DSTM32CUBE_U5_ROOT=/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0",
+      "-DBENCH_EXAMPLE=fifo",
+      "-DBENCH_PROFILE=STATUS10"
+    ],
+    "exit_code": 0
+  },
+  {
+    "name": "fifo-STATUS10-build",
+    "command": [
+      "cmake",
+      "--build",
+      "/home/lolo/dev/msm/reports/TR2-mission015-K-20261012T192739Z/validation-final/fifo-STATUS10"
+    ],
+    "exit_code": 0
+  }
+]

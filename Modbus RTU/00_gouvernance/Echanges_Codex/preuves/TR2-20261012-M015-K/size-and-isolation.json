@@ -1,0 +1,17 @@
+{
+  "size": {
+    "who-ST_STRICT": "   text\t   data\t    bss\t    dec\t    hex\tfilename\n  31612\t     20\t 113300\t 144932\t  23624\t/home/lolo/dev/msm/reports/TR2-mission015-K-20261012T192739Z/validation-final/who-ST_STRICT/iis3dwb_reference.elf\n",
+    "polling-ST_STRICT": "   text\t   data\t    bss\t    dec\t    hex\tfilename\n  31612\t     20\t 113300\t 144932\t  23624\t/home/lolo/dev/msm/reports/TR2-mission015-K-20261012T192739Z/validation-final/polling-ST_STRICT/iis3dwb_reference.elf\n",
+    "fifo-ST_STRICT": "   text\t   data\t    bss\t    dec\t    hex\tfilename\n  31612\t     20\t 113300\t 144932\t  23624\t/home/lolo/dev/msm/reports/TR2-mission015-K-20261012T192739Z/validation-final/fifo-ST_STRICT/iis3dwb_reference.elf\n",
+    "fifo-STATUS10": "   text\t   data\t    bss\t    dec\t    hex\tfilename\n  31612\t     20\t 113300\t 144932\t  23624\t/home/lolo/dev/msm/reports/TR2-mission015-K-20261012T192739Z/validation-final/fifo-STATUS10/iis3dwb_reference.elf\n"
+  },
+  "absent_symbols_checked": [
+    "tr2_",
+    "Fram",
+    "Modbus",
+    "sdmmc",
+    "HAL_SD_Init",
+    "HAL_UART_Init"
+  ],
+  "cube_commit": "d88042df24f16799957c24f00c2b234c9e306188"
+}
