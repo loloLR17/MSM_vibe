@@ -4,11 +4,11 @@ Mise à jour : 12 octobre 2026. Mission `TR2-20261012-M015-M-SPI-LONG-TRANSFER`.
 
 **Ce document est un nouvel état de référence reconstruit à partir de preuves vérifiables. Il n'est pas une restitution du journal historique HP.** Sa création a été explicitement autorisée par l'utilisateur pour la mission `T1000-20261010-CLOTURE-001`, après escalade AGENTS.md §18. Aucun original n'a été retrouvé dans l'historique Git, les répertoires Linux locaux ou les documents Windows accessibles. Les archives d'échanges du 8 octobre mentionnent un journal local HP, sans en fournir le contenu. Aucun état historique inconnu n'est inventé.
 
-## État opérationnel actuel — M015-M, checkpoint logiciel
+## État opérationnel actuel — M015-M, 12 octobre 2026
 
-- **VALIDÉ LOGICIEL** : snapshots SPI avant cleanup HAL et refus des lectures incomplètes ; seul HAL SPI compilé O0/O2 pour comparaison. 14 scénarios C/2 Python, deux builds ARM FIFO STATUS10 réussis. Pilote/exemples ST et réglages/CPU/SPI/délais inchangés ; aucun acquis ancien rejoué.
-- **PRÉPARÉ / NON VÉRIFIÉ** : campagne différentielle bornée O0 puis O2 sur seconde SN0032001F…/UID001B0046… ; saturation service CPU Debug hypothèse. Aucun accès cible M015-M encore. Origine des preuves `/home/lolo/dev/msm/reports/TR2-mission015-M-20261012T204419Z`.
-- **DÉCISION UTILISATEUR M015-M** : firmware Flash secondaire jetable, sans backup2MiB/restauration initiaux répétitifs ; identité, image/verify/readback et état final exigés. TR2 principal/M014/FRAM/SD/Modbus exclus ; historiques L préservés.
+- **VALIDÉ LOGICIEL / SPI LONG BORNÉ** :14scénariosC/2Python/deuxbuildsFIFOARM, checkpointa7a2ebc publié/23fichiersrelus. SnapshotavantCloseTransfer reproduit O0HAL_TIMEOUT/OVR :211/896consommés,685restants,SR104A. SeulHALSPI O2 reçoit deuxbursts896complets/SR100A/erreurs0 en3,632ms ;CPU16MHz/SPI2MHz/mode0/réglagesST/délaisinchangés. Saturation serviceHALDebug causeopérationnelle étayée, pas mesurewire ni qualificationgénérale.
+- **BLOCKED NOUVEAU / STOP** :O2 atteint1024traces/2048snapshots après256entrées,cleanupinitial empêché ;256timestamps/paritécorrecte/pas24ticks,0XYZ. Fenêtre512 nonqualifiée et donnéesaccepted=false ; pas troisièmeacquisition. Préparer réservecleanup/pollsbornés puisdiagnosticabsenceXYZ sousnouveaucontrat ;I/J/M015V1 restentouverts.
+- **MISE AU REPOS / SECONDE FLASH JETABLE** :imagecleanup dédiée crossbuildée/flashée/reluetriggerunique,9transactionsvalides,CTRL1=0C(XLoff)/FIFO_CTRL4=80(bypass)/CTRL10=00(TSoff),result0. AucunbackupFlash2MiB ni restaurationinitiale conformémentnouvelle règle ;secondeSN0032001F…/UID001B0046… vérifiés avantchaqueflash,firmwarecleanupinactiflaissérunning. TR2principal/M014-H/FRAM/SD/Modbus jamaisaccédés,worktrees/stashes/archivesLpréservés. Preuves `/home/lolo/dev/msm/reports/TR2-mission015-M-20261012T204419Z` ;rapport/preuves enpublicationfinale.
 
 ## État opérationnel antérieur — M015-L reprise essai n°2, 12 octobre 2026
 

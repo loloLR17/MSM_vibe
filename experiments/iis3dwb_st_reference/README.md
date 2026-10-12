@@ -1,3 +1,12 @@
+## Résultat physique M015-M
+
+Deux bursts896 complets en O2, correction limitée du transport démontrée.
+FIFO512 encore BLOCKED : 1024traces atteintes après256timestamps, aucunXYZ ;
+aucun retry. Image `-DBENCH_CLEANUP_ONLY=ON` ajoutée pour sortie de sécurité
+sans acquisition : settersST XLoff/bypass/timestampoff puis trois readbacks ;
+9transactions conformes observées, firmware final inactif sur seconde cible.
+Voir DERNIER_RAPPORT et preuves M015-M. Ne pas relancer les scripts consommés.
+
 ## Mise à jour M015-M — seconde NUCLEO seulement
 
 La chaîne seconde cible est qualifiée dans M015-L : SN `0032001F3235510C37333439`,

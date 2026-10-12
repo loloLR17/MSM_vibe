@@ -180,3 +180,16 @@ M014 restauréeexactement (Flash2Mio identique), FRAMgen12/configUNAVAILABLE, SD
 ## Actualisation M015-L — reprise essai n°2 après correctionSPI
 
 **WHO etpollingST physiquementvalidés dansportéebornée ; FIFOlong BLOCKED, M015INPROGRESS.** WHOautonome n°2=7B,64XYZdistincts/0saturation/309transfertsvalides, sourcesKinchangées/testsconservés. FIFOstrict reproduitgetter03F/API0/raw257 ;varianteSTATUS10séparée premierburst896→HAL_TIMEOUT/error104OVRSPISTM32,0motsacceptés. Bufferpartielpréinitialisé rejeté, tailleRXréellenonenregistrée/compteursHAL remis0 àfermeture ;pasqualification512 ou4096. Flashseconde2MiB restauréeexacte/SHAfcea004e…, TR2principal/M014-Hjamaisaccédé, preuveessai1conservée. Suitecibléelogicielle performance/diagnosticRXavantHALCloseTransfer sansmodifiervaleursST oumasquerOVR, pasnouvelleconfirmationphysiquemanquante invoquée. Résultats publiés au commit 0eda53843e64becf8dfa5ae4ec02dfb23a04c77d, 115 livrables relus intégralement et identiques ; WHO/pollingconformes etFIFOlongBLOCKED conservés.
+
+## Point M015-M — 12 octobre 2026
+
+Transfert SPI long du banc secondaire : O0 reproduit OVR/timeout et réception
+partielle211/896 ; optimisation du seul HALSPI O2 permet deux bursts complets
+896octets sans erreur, paramètres ST inchangés. FIFO512 reste BLOCKED :
+capacité1024traces atteinte après256timestamps et aucunXYZ, cleanupinitial
+empêché. STOP acquisition, image de sécurité met le capteur au repos.
+Prochain contrat : réservecleanup/pollsbornés, puis qualificationabsenceXYZ ;
+pas qualificationV1/4096/production ni résolution présumée des anomaliesTR2.
+La Flash secondaire est jetable sans backup/restaurationinitiale répétés ;
+identité/image/verify/readback maintenus, règle jamais applicable au principal.
+M014-H et preuves historiques préservés ; DERNIER_RAPPORT porte les détails.

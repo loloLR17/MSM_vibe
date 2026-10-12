@@ -1,0 +1,21 @@
+{
+  "received_entries": 256,
+  "types": {
+    "4": 256
+  },
+  "xyz": 0,
+  "timestamp": 256,
+  "parity_failures": 0,
+  "counters": {
+    "0": 256
+  },
+  "timestamp_first": 753,
+  "timestamp_last": 6873,
+  "timestamp_deltas": {
+    "24": 255
+  },
+  "strictly_increasing_timestamp": true,
+  "payload_vs_words_byte_identical": true,
+  "accepted": false,
+  "qualification": "REJECTED: trace capacity and cleanup failure; zero XYZ"
+}

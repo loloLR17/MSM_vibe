@@ -3,6 +3,7 @@ project(iis3dwb_st_reference LANGUAGES C ASM)
 set(CMAKE_C_STANDARD 11)
 set(CMAKE_C_STANDARD_REQUIRED ON)
 set(CMAKE_C_EXTENSIONS OFF)
+option(BENCH_CLEANUP_ONLY "Safety image: stop sensor only, no acquisition" OFF)
 option(BENCH_HOST_TESTS "Build only offline mock tests" OFF)
 set(BENCH_SPI_OPT "2" CACHE STRING "HAL SPI only: 0 diagnostic baseline or 2 corrected service")
 if(NOT BENCH_SPI_OPT MATCHES "^(0|2)$")
@@ -65,7 +66,11 @@ if(NOT instrumentation_result EQUAL 0)
 endif()
 list(REMOVE_ITEM HAL_SOURCES ${SPI_ORIGINAL})
 set_source_files_properties(${SPI_OBSERVED} PROPERTIES COMPILE_OPTIONS "-O${BENCH_SPI_OPT}")
-add_executable(iis3dwb_reference src/main.c src/platform.c src/spi_diagnostic.c ${SPI_OBSERVED} ${HAL_SOURCES}
+set(BENCH_MAIN src/main.c)
+if(BENCH_CLEANUP_ONLY)
+  set(BENCH_MAIN src/cleanup_main.c)
+endif()
+add_executable(iis3dwb_reference ${BENCH_MAIN} src/platform.c src/spi_diagnostic.c ${SPI_OBSERVED} ${HAL_SOURCES}
   ${DEV}/Source/Templates/gcc/startup_stm32u575xx.s
   ${DEV}/Source/Templates/system_stm32u5xx.c)
 target_include_directories(iis3dwb_reference PRIVATE src ${HAL}/Inc ${DEV}/Include

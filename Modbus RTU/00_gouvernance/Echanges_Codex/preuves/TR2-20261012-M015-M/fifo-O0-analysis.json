@@ -1,0 +1,75 @@
+{
+  "stage": 6,
+  "result": 1,
+  "cleanup_result": 0,
+  "count": 0,
+  "xyz_count": 0,
+  "timestamp_count": 0,
+  "who": 123,
+  "raw_level": 256,
+  "st_level": 0,
+  "flags": 129,
+  "status10": 1,
+  "st_batch": 0,
+  "controls_hex": "00010a867bac00440000000000e2",
+  "trace_count": 597,
+  "preclose_count": 1194,
+  "overflow": 0,
+  "failed": [
+    {
+      "trace_index": 590,
+      "tick": 4654,
+      "reg": 120,
+      "len": 896,
+      "write": 0,
+      "status": 3,
+      "error": 260,
+      "rx_left": 0,
+      "tx_left": 0,
+      "offset": 1158,
+      "valid": 0
+    }
+  ],
+  "bursts": [
+    {
+      "trace_index": 590,
+      "tick": 4654,
+      "reg": 120,
+      "len": 896,
+      "write": 0,
+      "status": 3,
+      "error": 260,
+      "rx_left": 0,
+      "tx_left": 0,
+      "offset": 1158,
+      "valid": 0
+    }
+  ],
+  "burst_preclose": [
+    {
+      "trace_index": 590,
+      "phase": 2,
+      "begin_cycles": 74474777,
+      "end_cycles": 74780915,
+      "tick": 4674,
+      "requested": 896,
+      "state": 4,
+      "sr": 4170,
+      "cr1": 4097,
+      "cr2": 896,
+      "cfg1": 537329671,
+      "cfg2": 2219048960,
+      "error_before_close": 0,
+      "rx_size": 896,
+      "rx_remaining": 685,
+      "tx_remaining": 0,
+      "rx_offset": 211,
+      "cs": 0,
+      "offset_valid": 1,
+      "duration_cycles": 306138,
+      "duration_us": 19133.625
+    }
+  ],
+  "known_ovr_only": true,
+  "transport_success": false
+}

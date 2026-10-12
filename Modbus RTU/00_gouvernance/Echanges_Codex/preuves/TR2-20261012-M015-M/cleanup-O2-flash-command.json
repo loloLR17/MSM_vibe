@@ -1,0 +1,22 @@
+{
+  "command": [
+    "/mnt/c/ST/STM32CubeCLT_1.22.0/STM32CubeProgrammer/bin/STM32_Programmer_CLI.exe",
+    "-c",
+    "port=SWD",
+    "sn=0032001F3235510C37333439",
+    "freq=8000",
+    "-w",
+    "\\\\wsl.localhost\\Debian\\home\\lolo\\dev\\msm\\reports\\TR2-mission015-M-20261012T204419Z\\cleanup-O2\\iis3dwb_reference.bin",
+    "0x08000000",
+    "-v",
+    "-rst"
+  ],
+  "source_sha": null,
+  "source_note": "a7a2ebc plus safety-only cleanup_main.c/CMake uncommitted",
+  "cleanup_source_sha256": "e53efc68c2bcc2275cf3809a2ed869b2ac69f083fc5cd2359419f1e875d4acf7",
+  "bin_sha256": "0f40f3b2ecac8b8131a86677e0b0d23f911d1d3515d2c884844e0d8966c9c004",
+  "elf_sha256": "2f31fe376e3bcda1b4e6a7dfb4664d22b60b2cbb094ff6205c04fcca0b105829",
+  "sn": "0032001F3235510C37333439",
+  "uid": "001B00463842501820333157",
+  "no_full_flash_backup_or_restore": true
+}

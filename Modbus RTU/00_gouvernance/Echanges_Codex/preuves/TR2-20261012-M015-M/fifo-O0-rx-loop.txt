@@ -1,0 +1,135 @@
+ 8001bd0:	e193      	b.n	8001efa <HAL_SPI_Receive+0x596>
+ 8001bd8:	f240 8188 	bls.w	8001eec <HAL_SPI_Receive+0x588>
+ 8001bdc:	e0b0      	b.n	8001d40 <HAL_SPI_Receive+0x3dc>
+ 8001c32:	e085      	b.n	8001d40 <HAL_SPI_Receive+0x3dc>
+ 8001c8a:	e059      	b.n	8001d40 <HAL_SPI_Receive+0x3dc>
+ 8001cca:	e039      	b.n	8001d40 <HAL_SPI_Receive+0x3dc>
+ 8001ce4:	d12c      	bne.n	8001d40 <HAL_SPI_Receive+0x3dc>
+ 8001cf6:	e023      	b.n	8001d40 <HAL_SPI_Receive+0x3dc>
+ 8001d00:	1ad3      	subs	r3, r2, r3
+ 8001d02:	683a      	ldr	r2, [r7, #0]
+ 8001d04:	429a      	cmp	r2, r3
+ 8001d06:	d803      	bhi.n	8001d10 <HAL_SPI_Receive+0x3ac>
+ 8001d08:	683b      	ldr	r3, [r7, #0]
+ 8001d0a:	f1b3 3fff 	cmp.w	r3, #4294967295	@ 0xffffffff
+ 8001d0e:	d102      	bne.n	8001d16 <HAL_SPI_Receive+0x3b2>
+ 8001d10:	683b      	ldr	r3, [r7, #0]
+ 8001d12:	2b00      	cmp	r3, #0
+ 8001d14:	d114      	bne.n	8001d40 <HAL_SPI_Receive+0x3dc>
+ 8001d16:	68f8      	ldr	r0, [r7, #12]
+ 8001d18:	f000 f912 	bl	8001f40 <SPI_CloseTransfer>
+ 8001d1c:	68fb      	ldr	r3, [r7, #12]
+ 8001d1e:	f8d3 308c 	ldr.w	r3, [r3, #140]	@ 0x8c
+ 8001d22:	f443 7280 	orr.w	r2, r3, #256	@ 0x100
+ 8001d26:	68fb      	ldr	r3, [r7, #12]
+ 8001d28:	f8c3 208c 	str.w	r2, [r3, #140]	@ 0x8c
+ 8001d2c:	68fb      	ldr	r3, [r7, #12]
+ 8001d2e:	2201      	movs	r2, #1
+ 8001d30:	f883 2089 	strb.w	r2, [r3, #137]	@ 0x89
+ 8001d34:	68fb      	ldr	r3, [r7, #12]
+ 8001d36:	2200      	movs	r2, #0
+ 8001d38:	f883 2088 	strb.w	r2, [r3, #136]	@ 0x88
+ 8001d3c:	2303      	movs	r3, #3
+ 8001d3e:	e0ef      	b.n	8001f20 <HAL_SPI_Receive+0x5bc>
+ 8001d40:	68fb      	ldr	r3, [r7, #12]
+ 8001d42:	f8b3 3072 	ldrh.w	r3, [r3, #114]	@ 0x72
+ 8001d46:	b29b      	uxth	r3, r3
+ 8001d48:	2b00      	cmp	r3, #0
+ 8001d4a:	f47f af53 	bne.w	8001bf4 <HAL_SPI_Receive+0x290>
+ 8001d4e:	e0d4      	b.n	8001efa <HAL_SPI_Receive+0x596>
+ 8001d50:	68fb      	ldr	r3, [r7, #12]
+ 8001d52:	681b      	ldr	r3, [r3, #0]
+ 8001d54:	695b      	ldr	r3, [r3, #20]
+ 8001d56:	613b      	str	r3, [r7, #16]
+ 8001d58:	68fb      	ldr	r3, [r7, #12]
+ 8001d5a:	681b      	ldr	r3, [r3, #0]
+ 8001d5c:	695b      	ldr	r3, [r3, #20]
+ 8001d5e:	f003 0301 	and.w	r3, r3, #1
+ 8001d62:	2b01      	cmp	r3, #1
+ 8001d64:	d117      	bne.n	8001d96 <HAL_SPI_Receive+0x432>
+ 8001d66:	68fb      	ldr	r3, [r7, #12]
+ 8001d68:	681b      	ldr	r3, [r3, #0]
+ 8001d6a:	f103 0230 	add.w	r2, r3, #48	@ 0x30
+ 8001d6e:	68fb      	ldr	r3, [r7, #12]
+ 8001d70:	6edb      	ldr	r3, [r3, #108]	@ 0x6c
+ 8001d72:	7812      	ldrb	r2, [r2, #0]
+ 8001d74:	b2d2      	uxtb	r2, r2
+ 8001d76:	701a      	strb	r2, [r3, #0]
+ 8001d78:	68fb      	ldr	r3, [r7, #12]
+ 8001d7a:	6edb      	ldr	r3, [r3, #108]	@ 0x6c
+ 8001d7c:	1c5a      	adds	r2, r3, #1
+ 8001d7e:	68fb      	ldr	r3, [r7, #12]
+ 8001d80:	66da      	str	r2, [r3, #108]	@ 0x6c
+ 8001d82:	68fb      	ldr	r3, [r7, #12]
+ 8001d84:	f8b3 3072 	ldrh.w	r3, [r3, #114]	@ 0x72
+ 8001d88:	b29b      	uxth	r3, r3
+ 8001d8a:	3b01      	subs	r3, #1
+ 8001d8c:	b29a      	uxth	r2, r3
+ 8001d8e:	68fb      	ldr	r3, [r7, #12]
+ 8001d90:	f8a3 2072 	strh.w	r2, [r3, #114]	@ 0x72
+ 8001d94:	e0aa      	b.n	8001eec <HAL_SPI_Receive+0x588>
+ 8001d96:	68fb      	ldr	r3, [r7, #12]
+ 8001d98:	f8b3 3072 	ldrh.w	r3, [r3, #114]	@ 0x72
+ 8001d9c:	b29b      	uxth	r3, r3
+ 8001d9e:	8bfa      	ldrh	r2, [r7, #30]
+ 8001da0:	429a      	cmp	r2, r3
+ 8001da2:	d946      	bls.n	8001e32 <HAL_SPI_Receive+0x4ce>
+ 8001da4:	693b      	ldr	r3, [r7, #16]
+ 8001da6:	f403 4300 	and.w	r3, r3, #32768	@ 0x8000
+ 8001daa:	2b00      	cmp	r3, #0
+ 8001dac:	d041      	beq.n	8001e32 <HAL_SPI_Receive+0x4ce>
+ 8001dae:	68fb      	ldr	r3, [r7, #12]
+ 8001db0:	681b      	ldr	r3, [r3, #0]
+ 8001db2:	f103 0230 	add.w	r2, r3, #48	@ 0x30
+ 8001db6:	68fb      	ldr	r3, [r7, #12]
+ 8001db8:	6edb      	ldr	r3, [r3, #108]	@ 0x6c
+ 8001dba:	7812      	ldrb	r2, [r2, #0]
+ 8001dbc:	b2d2      	uxtb	r2, r2
+ 8001dbe:	701a      	strb	r2, [r3, #0]
+ 8001dc0:	68fb      	ldr	r3, [r7, #12]
+ 8001dc2:	6edb      	ldr	r3, [r3, #108]	@ 0x6c
+ 8001dc4:	1c5a      	adds	r2, r3, #1
+ 8001dc6:	68fb      	ldr	r3, [r7, #12]
+ 8001dc8:	66da      	str	r2, [r3, #108]	@ 0x6c
+ 8001dca:	68fb      	ldr	r3, [r7, #12]
+ 8001dcc:	681b      	ldr	r3, [r3, #0]
+ 8001dce:	f103 0230 	add.w	r2, r3, #48	@ 0x30
+ 8001dd2:	68fb      	ldr	r3, [r7, #12]
+ 8001dd4:	6edb      	ldr	r3, [r3, #108]	@ 0x6c
+ 8001dd6:	7812      	ldrb	r2, [r2, #0]
+ 8001dd8:	b2d2      	uxtb	r2, r2
+ 8001dda:	701a      	strb	r2, [r3, #0]
+ 8001ddc:	68fb      	ldr	r3, [r7, #12]
+ 8001dde:	6edb      	ldr	r3, [r3, #108]	@ 0x6c
+ 8001de0:	1c5a      	adds	r2, r3, #1
+ 8001de2:	68fb      	ldr	r3, [r7, #12]
+ 8001de4:	66da      	str	r2, [r3, #108]	@ 0x6c
+ 8001de6:	68fb      	ldr	r3, [r7, #12]
+ 8001de8:	681b      	ldr	r3, [r3, #0]
+ 8001dea:	f103 0230 	add.w	r2, r3, #48	@ 0x30
+ 8001dee:	68fb      	ldr	r3, [r7, #12]
+ 8001df0:	6edb      	ldr	r3, [r3, #108]	@ 0x6c
+ 8001df2:	7812      	ldrb	r2, [r2, #0]
+ 8001df4:	b2d2      	uxtb	r2, r2
+ 8001df6:	701a      	strb	r2, [r3, #0]
+ 8001df8:	68fb      	ldr	r3, [r7, #12]
+ 8001dfa:	6edb      	ldr	r3, [r3, #108]	@ 0x6c
+ 8001dfc:	1c5a      	adds	r2, r3, #1
+ 8001dfe:	68fb      	ldr	r3, [r7, #12]
+ 8001e30:	e05c      	b.n	8001eec <HAL_SPI_Receive+0x588>
+ 8001e76:	e039      	b.n	8001eec <HAL_SPI_Receive+0x588>
+ 8001e90:	d12c      	bne.n	8001eec <HAL_SPI_Receive+0x588>
+ 8001ea2:	e023      	b.n	8001eec <HAL_SPI_Receive+0x588>
+ 8001ec0:	d114      	bne.n	8001eec <HAL_SPI_Receive+0x588>
+ 8001ee0:	68fb      	ldr	r3, [r7, #12]
+ 8001ee2:	2200      	movs	r2, #0
+ 8001ee4:	f883 2088 	strb.w	r2, [r3, #136]	@ 0x88
+ 8001ee8:	2303      	movs	r3, #3
+ 8001eea:	e019      	b.n	8001f20 <HAL_SPI_Receive+0x5bc>
+ 8001eec:	68fb      	ldr	r3, [r7, #12]
+ 8001eee:	f8b3 3072 	ldrh.w	r3, [r3, #114]	@ 0x72
+ 8001ef2:	b29b      	uxth	r3, r3
+ 8001ef4:	2b00      	cmp	r3, #0
+ 8001ef6:	f47f af2b 	bne.w	8001d50 <HAL_SPI_Receive+0x3ec>
+ 8001efa:	68f8      	ldr	r0, [r7, #12]
+ 8001efc:	f000 f820 	bl	8001f40 <SPI_CloseTransfer>

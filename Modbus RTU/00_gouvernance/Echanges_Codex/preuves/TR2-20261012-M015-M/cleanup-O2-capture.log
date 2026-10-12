@@ -1,0 +1,16 @@
+0x08000b10 in main () at /home/lolo/dev/msm/projects/MSM_vibe-M015-M/experiments/iis3dwb_st_reference/src/cleanup_main.c:25
+25	  for(;;)__WFI();
+$1 = {stage = 6, result = 0, cleanup_result = 0, count = 0, xyz_count = 0, timestamp_count = 0, who = 0, raw_level = 0, st_level = 0, flags = 0, status10 = 0, st_batch = 0, controls = "\f\200", '\000' <repeats 11 times>, words = {{tag = 0 '\000', data = "\000\000\000\000\000"} <repeats 512 times>}, xyz = {{0, 0, 0} <repeats 64 times>}, temperature = 0}
+$2 = 9
+$3 = 9
+$4 = 18
+$5 = 0
+$6 = 4032
+$7 = 40
+$8 = 76
+$9 = {1769542, 943869976, 540225879}
+$10 = 16000000
+0xe000ed28:	0x00000000	0x00000000
+0x42020800:	0xfea7ffff	0x00000000	0x02a00000	0x00000000
+0x42020810:	0x00000200	0x00000200
+[Inferior 1 (Remote target) detached]

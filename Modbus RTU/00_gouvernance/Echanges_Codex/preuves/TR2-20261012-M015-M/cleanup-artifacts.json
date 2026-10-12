@@ -1,0 +1,14 @@
+{
+  "iis3dwb_reference.bin": {
+    "bytes": 26616,
+    "sha256": "0f40f3b2ecac8b8131a86677e0b0d23f911d1d3515d2c884844e0d8966c9c004"
+  },
+  "iis3dwb_reference.map": {
+    "bytes": 205692,
+    "sha256": "ee7f5ff99a5e0bdb43f35c0156d37e2935fa36da156f99eda1bb9da2e4997f5f"
+  },
+  "iis3dwb_reference.elf": {
+    "bytes": 308668,
+    "sha256": "2f31fe376e3bcda1b4e6a7dfb4664d22b60b2cbb094ff6205c04fcca0b105829"
+  }
+}

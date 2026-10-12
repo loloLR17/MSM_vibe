@@ -1,0 +1,13 @@
+{
+  "historical_worktrees_heads_and_clean_status": "UNCHANGED",
+  "stashes": "UNCHANGED",
+  "vendor_hashes": "EXACT",
+  "primary_access": "NONE",
+  "flash2MiB_backup_restore": "NONE",
+  "final_sensor_readbacks": "CTRL1_XL=0C (XL off), FIFO_CTRL4=80 (bypass), CTRL10_C=00 (timestamp off)",
+  "image_readback": [
+    "a88be10a08bad22230487648d6737e53baf9269a65bd2c324c8361e52db24bd7",
+    "98ec786c70a8fe104eb4dc6a8f5773ae525554f5a7d4b61f408beac7d90ef40a",
+    "0f40f3b2ecac8b8131a86677e0b0d23f911d1d3515d2c884844e0d8966c9c004"
+  ]
+}

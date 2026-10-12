@@ -1,0 +1,23 @@
+{
+  "stage": 6,
+  "result": 0,
+  "cleanup_result": 0,
+  "count": 0,
+  "xyz_count": 0,
+  "timestamp_count": 0,
+  "who": 0,
+  "raw_level": 0,
+  "st_level": 0,
+  "flags": 0,
+  "status10": 0,
+  "st_batch": 0,
+  "controls_hex": "0c80000000000000000000000000",
+  "trace_count": 9,
+  "preclose_count": 18,
+  "overflow": 0,
+  "failed": [],
+  "bursts": [],
+  "burst_preclose": [],
+  "known_ovr_only": false,
+  "transport_success": false
+}

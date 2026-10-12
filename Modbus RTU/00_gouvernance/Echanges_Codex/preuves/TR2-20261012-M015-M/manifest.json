@@ -1,0 +1,518 @@
+{
+  "fifo-O0-identity-before-flash-invocation.json": {
+    "bytes": 357,
+    "sha256": "5162f2d314c9611a8c4c9d8d8b45dad8e3611b6c6f77d8dc214c93e935024281"
+  },
+  "fifo-O0-capture.gdb": {
+    "bytes": 1241,
+    "sha256": "d3385cc26cbe81529ebe954e2400102975f8756be7a9b4736266e7e5ecb5a28d"
+  },
+  "fifo-O2-single-trigger-server.log": {
+    "bytes": 654,
+    "sha256": "2030d4639f4bb4e14940b902a331287de6db96508c3f5d977098897899a430cb"
+  },
+  "fifo-O0-flash.bin.hex": {
+    "bytes": 64889,
+    "sha256": "62a37c1716cbed14969bf41c94c1e49221c9bbbbdd74ccbfe28385b02aa377bd"
+  },
+  "publish_evidence.py": {
+    "bytes": 3392,
+    "sha256": "1b9a52c87c57e19f1d46ecfd8de38772e947ea909b486a9efa09da6d1c69cd2e"
+  },
+  "fifo-O0-trace.csv": {
+    "bytes": 15595,
+    "sha256": "4fd8dc9968555c381124a7aa984f8e320fd3995e5530ac528f9a2bcaa0409b42"
+  },
+  "fifo-O0-preclose.csv": {
+    "bytes": 109604,
+    "sha256": "1fc9116858a97f119959088b5206137a0c273f0da6b83bbe785033256868c91e"
+  },
+  "fifo-O0-flash.log.original.hex": {
+    "bytes": 3365,
+    "sha256": "c5c814ab84c9e976561131ad84244c6303377dbd11ea714db315942ce89068ed"
+  },
+  "fifo-O2-single-trigger.gdb": {
+    "bytes": 450,
+    "sha256": "7384f9605b778952447b0065e74551f21f855f608f0b6e7e0a33c543c5decb45"
+  },
+  "fifo-O0-single-trigger-server.log": {
+    "bytes": 654,
+    "sha256": "2030d4639f4bb4e14940b902a331287de6db96508c3f5d977098897899a430cb"
+  },
+  "cleanup-O2-identity-before-flash.gdb": {
+    "bytes": 288,
+    "sha256": "3d5109f77f9cde0edbc79ac9e6b31403aaef633908cff6aeecd27ba60b682d9a"
+  },
+  "fifo-O0-readback-reset.log": {
+    "bytes": 328,
+    "sha256": "f194d2c97ec8dccb4ae752803af6e513cab736c47ab671847c99a83acb143ad2"
+  },
+  "fifo-integrity.json": {
+    "bytes": 428,
+    "sha256": "16cbe9fd40b4ce1d462743692dfc04c0771e8c0e5d0f7fd406bcc1f922576640"
+  },
+  "host-diagnostic-build.log": {
+    "bytes": 218,
+    "sha256": "38d7de54826e5a9f4bc6c9cb55db70761f1fd842ca1ff47803020efa20664a2b"
+  },
+  "O2-configure.log": {
+    "bytes": 599,
+    "sha256": "32eaa313fd5b2629d5bc0b0efc0803dab0db3320c4bfc15ed761ebfff848d891"
+  },
+  "fifo-O0-identity-before-flash-server.log": {
+    "bytes": 623,
+    "sha256": "b3d9d492f3dbe5c52d35c5d36eeb522d025c66f64051f52dfc439434c79382f3"
+  },
+  "fifo-O0-readback-reset.gdb": {
+    "bytes": 443,
+    "sha256": "22482f44eda13ae3b577e0cc41c03c59039a10626c02f2a566f798fb461e6926"
+  },
+  "fifo-O2-capture-server.log": {
+    "bytes": 654,
+    "sha256": "2030d4639f4bb4e14940b902a331287de6db96508c3f5d977098897899a430cb"
+  },
+  "fifo-O2-flash.bin.hex": {
+    "bytes": 61705,
+    "sha256": "f54b387c7f3830a065e999d44437d2b6de3b715b3e7f1d8d4ed4f1c5f770f7c9"
+  },
+  "fifo-O0-capture.log.original.hex": {
+    "bytes": 4479,
+    "sha256": "a4a189a67e5a1adf355c969c8f91b921600275fb11ccfcfb339b9380bd79cc9d"
+  },
+  "fifo-O0-capture-invocation.json": {
+    "bytes": 474,
+    "sha256": "9d8c273a718362fd055b845374923cdd0668d33e28ccac6c96aec731f20ec6fa"
+  },
+  "fifo-O2-identity-before-flash.gdb": {
+    "bytes": 288,
+    "sha256": "3d5109f77f9cde0edbc79ac9e6b31403aaef633908cff6aeecd27ba60b682d9a"
+  },
+  "preservation.json": {
+    "bytes": 532,
+    "sha256": "54ee427f3abe66322b0bb1ee30f5d94f79a56acd514b974a9f39b587ffb24509"
+  },
+  "fifo-O2-single-trigger-invocation.json": {
+    "bytes": 481,
+    "sha256": "93b0be2b22212a52380c3e21f356c54c686ab8e80d0f98c7de3f0a752da7975c"
+  },
+  "fifo-O0-rx-loop.txt": {
+    "bytes": 5869,
+    "sha256": "b9517c13de74e065796df5c0472bc0256dbc6954e0e30c4d2b0d3cb3239922e9"
+  },
+  "cleanup-O2-traces.bin.hex": {
+    "bytes": 721,
+    "sha256": "98cee1b25318fa0f43b2e0f67568653c218ff682ad719490231db1e22595d892"
+  },
+  "cleanup-O2-flash-command.json": {
+    "bytes": 849,
+    "sha256": "20a85be274e268c41f90bee966fff3127a9be880dcff37df82fd79a9b1678401"
+  },
+  "fifo-O2-payload.bin.hex": {
+    "bytes": 7625,
+    "sha256": "c32e88cdf4aeb7de2392e8a9fd81fb50239c9b5bcc216e5171f7b06619e6a556"
+  },
+  "run_spi_stage.py": {
+    "bytes": 4923,
+    "sha256": "ff1d16c3c8b1bc7140a1afbee69c94d8a5405dc056865f71b50410a2f09d2d80"
+  },
+  "fifo-O0-overflow.bin.hex": {
+    "bytes": 9,
+    "sha256": "22dbe6b7b70a64966e31813e597db3e863492d341bee2fb05c0e8864773387af"
+  },
+  "cleanup-O2-preclose.csv": {
+    "bytes": 1809,
+    "sha256": "db25598c34a65a9e293e84c8e47d80a4c7b8c04fdcb250ab63c9d939bc4b1148"
+  },
+  "cleanup-O2-analysis.json": {
+    "bytes": 430,
+    "sha256": "40726915e1dede520cdb9352276cc4dffd8b20898df6a7f9ed99eecff6a295da"
+  },
+  "cleanup-O2-readback-reset-server.log": {
+    "bytes": 623,
+    "sha256": "b3d9d492f3dbe5c52d35c5d36eeb522d025c66f64051f52dfc439434c79382f3"
+  },
+  "host-new-diagnostics.log": {
+    "bytes": 1716,
+    "sha256": "0118d12248df890dbe5a4f27d52364454f433dab9dd3684063ca9c0dd9d77ddf"
+  },
+  "fifo-O0-readback-reset-server.log": {
+    "bytes": 623,
+    "sha256": "b3d9d492f3dbe5c52d35c5d36eeb522d025c66f64051f52dfc439434c79382f3"
+  },
+  "cleanup-O2-single-trigger.log": {
+    "bytes": 646,
+    "sha256": "9a1199ca3bf15e9775e29744f40a1a628f941867f29e953ed741894981754bb0"
+  },
+  "initial-identity.gdb": {
+    "bytes": 174,
+    "sha256": "0863f0709fb6fefafa3e4f57e0a77e2f7ff34a5527d7c2eb4c768a027d0df3a5"
+  },
+  "fifo-O2-readback-reset.log": {
+    "bytes": 328,
+    "sha256": "f194d2c97ec8dccb4ae752803af6e513cab736c47ab671847c99a83acb143ad2"
+  },
+  "fifo-O2-words.bin.hex": {
+    "bytes": 3585,
+    "sha256": "2239b144b20d317a07ac1b93c28e2cfe43f2fd7663705551de108d2dac445235"
+  },
+  "fifo-O0-capture.log": {
+    "bytes": 2241,
+    "sha256": "738cdd49896211aed821b3eece5ad6f2fb9eccc5194c984bbcfb518785b47e1d"
+  },
+  "fifo-O0-single-trigger-invocation.json": {
+    "bytes": 481,
+    "sha256": "4ea55dd96c81beb47af469fa42b1ff2070b96017fb8db3940425d31426ab4e58"
+  },
+  "fifo-O0-image.bin.hex": {
+    "bytes": 64889,
+    "sha256": "62a37c1716cbed14969bf41c94c1e49221c9bbbbdd74ccbfe28385b02aa377bd"
+  },
+  "fifo-O2-trace.csv": {
+    "bytes": 27119,
+    "sha256": "41eb28ad4e2ff899d304faee36fbc6d07ed59b804d24a511db1895e264700786"
+  },
+  "cleanup-build-0.log": {
+    "bytes": 602,
+    "sha256": "8aed602897f496fbbe5330a3d0e650e6f17d2ec035fa3e398907436d304ea5db"
+  },
+  "fifo-O2-readback-reset-server.log": {
+    "bytes": 623,
+    "sha256": "b3d9d492f3dbe5c52d35c5d36eeb522d025c66f64051f52dfc439434c79382f3"
+  },
+  "guard-validation-2.log": {
+    "bytes": 3145,
+    "sha256": "84832e31209d0c44cb6cf3cd2e483342a89dcf958ed1e2d4ed168200a58835b4"
+  },
+  "cleanup-O2-readback-reset-invocation.json": {
+    "bytes": 487,
+    "sha256": "4f021031f427ab6c5ab3a7a88459893fe978f4cbd4c4ce5d2b5a754c8e1019b6"
+  },
+  "fifo-O0-result.bin.hex": {
+    "bytes": 8065,
+    "sha256": "97fa78c42b0bdce339d1a3fdd39eea52559ede741a2952649823cbd5725c80c1"
+  },
+  "guard-validation-0.log": {
+    "bytes": 218,
+    "sha256": "38d7de54826e5a9f4bc6c9cb55db70761f1fd842ca1ff47803020efa20664a2b"
+  },
+  "O0-configure.log": {
+    "bytes": 599,
+    "sha256": "0421e2eb51a59f6c5b1c030bfe88dd7a217c10f3fb621b2836a3f4afde8ae652"
+  },
+  "fifo-O2-flash.log.original.hex": {
+    "bytes": 3365,
+    "sha256": "6c68e86311a6472e4dff735b3300e5e1c308e9433dc19732aecde776607f5fa8"
+  },
+  "host-configure.log": {
+    "bytes": 566,
+    "sha256": "bdf9689d4eb17d18ecb388c91863cbdaa55241b6ae1ec29c00e9981d1f6c1495"
+  },
+  "fifo-O2-words.csv": {
+    "bytes": 11480,
+    "sha256": "afc509f7b42d0ec5747172237473d6982b9b6d4fdc9ba0725aa5b957f5101308"
+  },
+  "fifo-O2-spi-compile.txt": {
+    "bytes": 954,
+    "sha256": "4c66cdf277679256937808059e41bfef692f3b3b71668b4294e1c38c9b713f9c"
+  },
+  "cleanup-O2-capture.log": {
+    "bytes": 769,
+    "sha256": "65848b8387e4f3fc2fee85f037108d4c8c7f4a2b6647b2a508635f2046d8de66"
+  },
+  "initial-identity-server.log": {
+    "bytes": 623,
+    "sha256": "b3d9d492f3dbe5c52d35c5d36eeb522d025c66f64051f52dfc439434c79382f3"
+  },
+  "fifo-O0-payload.bin.hex": {
+    "bytes": 4121,
+    "sha256": "b467b788018c953792caae1dff2bae6bc49ea3719cc62e194875f0c15cfac6d8"
+  },
+  "fifo-O2-traces.bin.hex": {
+    "bytes": 81921,
+    "sha256": "1b3363f33a23ea0af916cfe46847bca9d309696710b1ed3bf502150fbee9e6a4"
+  },
+  "probe-list.log": {
+    "bytes": 472,
+    "sha256": "d339b2669c81d48df1036bcd90cccef17581fbebc14ee1c8a40779c99034e189"
+  },
+  "cleanup-O2-single-trigger-invocation.json": {
+    "bytes": 487,
+    "sha256": "8107697c2724867c5f3bee78f9e41919747f05daa326bc151e9e462aa54ebe92"
+  },
+  "cleanup-O2-flash.bin.hex": {
+    "bytes": 53233,
+    "sha256": "460b5cd175a4bc926f0cffcac6b1bbc7a482b71006eb789183342b737625d733"
+  },
+  "fifo-O2-readback-reset.gdb": {
+    "bytes": 443,
+    "sha256": "b737d1c2f488efe06a2a09393875212bd246a01bb7315a7af03d5541271776eb"
+  },
+  "cleanup-O2-capture-server.log": {
+    "bytes": 654,
+    "sha256": "2030d4639f4bb4e14940b902a331287de6db96508c3f5d977098897899a430cb"
+  },
+  "initial.json": {
+    "bytes": 2406,
+    "sha256": "c146a37dd9764c485d033b294eaefd77aee626f84fb5750d369b57a890ae7a49"
+  },
+  "cleanup-O2-identity-before-flash-server.log": {
+    "bytes": 654,
+    "sha256": "2030d4639f4bb4e14940b902a331287de6db96508c3f5d977098897899a430cb"
+  },
+  "cleanup-O2-readback-reset.gdb": {
+    "bytes": 446,
+    "sha256": "3947777a4ec158e58b279476194c1e46617ab69e60080919c8705d1eecfb3fdd"
+  },
+  "cleanup-O2-flash.log.original.hex": {
+    "bytes": 3365,
+    "sha256": "10a0908afa76f8a50aaec2f7b3a04ccb61db185b3f109851fcc736f56896dea9"
+  },
+  "O2-stm32u5xx_hal_spi_observed.json": {
+    "bytes": 530,
+    "sha256": "cdeb97b9a2190ba6bb043a9581bd9834ce3728132303a6b9a7967ca78f7060e0"
+  },
+  "fifo-O2-rx-loop.txt": {
+    "bytes": 1732,
+    "sha256": "cc5a645ea6e45a709ab87321978c45cbe3a86ac17f31da3266a7b5dbb97c0f1b"
+  },
+  "fifo-O0-flash-command.json": {
+    "bytes": 711,
+    "sha256": "1e87abf4b8250fdfd8cf0343088ded3b738e3271c09cbb9dc52d8a05af7a1e2e"
+  },
+  "O2-build.log": {
+    "bytes": 5444,
+    "sha256": "478b0a5a2baf69880ecaff8c7ea8a68bbd0b10a2facf3d99e9c254bcfc4caf50"
+  },
+  "cleanup-O2-single-trigger.gdb": {
+    "bytes": 450,
+    "sha256": "7384f9605b778952447b0065e74551f21f855f608f0b6e7e0a33c543c5decb45"
+  },
+  "fifo-O2-capture-invocation.json": {
+    "bytes": 474,
+    "sha256": "8f3fa6e7854ec64fca90a1eaae63cb1de91b1678df385e72eebcf0316e800ab5"
+  },
+  "fifo-O2-result.bin.hex": {
+    "bytes": 8065,
+    "sha256": "105bf076f96dfc745e4fd9793e968bbe807e56bfd800a6a90fbb58a517ffc399"
+  },
+  "artifacts.json": {
+    "bytes": 891,
+    "sha256": "761e190a492f187115976db9e47cd21fe5ed22d901764a62904a250a0f1c006c"
+  },
+  "cleanup-O2-flash.log": {
+    "bytes": 1783,
+    "sha256": "6a701f836b21e77131cdcbae52212e41b262a8de6bff1268cb12f06d767c2b20"
+  },
+  "cleanup-O2-result.bin.hex": {
+    "bytes": 8065,
+    "sha256": "83e8b75cce9dd7db0223be412030a0987ba5040231f983290b795eaa57691cb2"
+  },
+  "fifo-O0-flash.log": {
+    "bytes": 1783,
+    "sha256": "f24410b669a51edb82bd1327c1a87ce53faa60c1c56b54c9959dcac49016a9af"
+  },
+  "cleanup-O2-preclose.bin.hex": {
+    "bytes": 2737,
+    "sha256": "bbf76d49d5461cdd6ad0d14c2e3172a640378396282202c7975b9d4a9c12c646"
+  },
+  "fifo-O0-capture-server.log": {
+    "bytes": 654,
+    "sha256": "2030d4639f4bb4e14940b902a331287de6db96508c3f5d977098897899a430cb"
+  },
+  "cleanup-artifacts.json": {
+    "bytes": 410,
+    "sha256": "05994312cc9c1ce721f87deeeafea0599405fbb80f7dfe21dd939bfb9f90889f"
+  },
+  "initial-identity-invocation.json": {
+    "bytes": 344,
+    "sha256": "0ae20ae1441b2e2e085237ac914dc25773a56bb19f556ba8d5969133c5440a4d"
+  },
+  "cleanup-O2-single-trigger-server.log": {
+    "bytes": 654,
+    "sha256": "2030d4639f4bb4e14940b902a331287de6db96508c3f5d977098897899a430cb"
+  },
+  "fifo-O0-identity-before-flash.gdb": {
+    "bytes": 288,
+    "sha256": "3d5109f77f9cde0edbc79ac9e6b31403aaef633908cff6aeecd27ba60b682d9a"
+  },
+  "fifo-O0-single-trigger.gdb": {
+    "bytes": 450,
+    "sha256": "7384f9605b778952447b0065e74551f21f855f608f0b6e7e0a33c543c5decb45"
+  },
+  "cleanup-O2-identity-before-flash.log": {
+    "bytes": 264,
+    "sha256": "281f2c36563c1f354abfcdcaf0e9243732f6083936f2aa52f248dfd1d27ac7ad"
+  },
+  "fifo-O2-analysis.json": {
+    "bytes": 1940,
+    "sha256": "2d3f3acd821db862619a4bec71002d5ee40cc7c3fb1b7aa8eacd25de6f532841"
+  },
+  "guard-validation-3.log": {
+    "bytes": 3145,
+    "sha256": "df1d5c0d7847a8b1997c15220e9f7387b05458c62e74e28a5e55a904530a5ad0"
+  },
+  "cleanup-build-final.log": {
+    "bytes": 2998,
+    "sha256": "61c5d3958dd1d56def1baadd57d00739968c9b178538451a26abf628877966e1"
+  },
+  "fifo-O2-flash-command.json": {
+    "bytes": 711,
+    "sha256": "9c75b2511e0b2117445b81d3b4069be7ad851351cfd536b5da5a6d52cb71092a"
+  },
+  "cleanup-O2-trace.csv": {
+    "bytes": 277,
+    "sha256": "53328289b9bd2a9e8ac9fea23b70c0d854bac97b5c10ce8aba55980f9eba1237"
+  },
+  "cleanup-O2-capture-invocation.json": {
+    "bytes": 480,
+    "sha256": "6151ab044405537674dd8a245db9a9bce457e9c8a5a5dfff8330308e103e221e"
+  },
+  "fifo-O2-flash.log": {
+    "bytes": 1783,
+    "sha256": "00932799146c629b2e7d16d75849c2241ff302d3760ca52b5104d171264e95b0"
+  },
+  "fifo-O2-image.bin.hex": {
+    "bytes": 61705,
+    "sha256": "f54b387c7f3830a065e999d44437d2b6de3b715b3e7f1d8d4ed4f1c5f770f7c9"
+  },
+  "cleanup-O2-overflow.bin.hex": {
+    "bytes": 9,
+    "sha256": "22dbe6b7b70a64966e31813e597db3e863492d341bee2fb05c0e8864773387af"
+  },
+  "fifo-O2-overflow.bin.hex": {
+    "bytes": 9,
+    "sha256": "22dbe6b7b70a64966e31813e597db3e863492d341bee2fb05c0e8864773387af"
+  },
+  "fifo-O2-preclose.csv": {
+    "bytes": 186476,
+    "sha256": "95cf218e4c05c13e2f824fee77a5b57df08af446d5bfa3713ffc48ab194f53b3"
+  },
+  "fifo-O2-identity-before-flash.log": {
+    "bytes": 264,
+    "sha256": "281f2c36563c1f354abfcdcaf0e9243732f6083936f2aa52f248dfd1d27ac7ad"
+  },
+  "O0-build.log": {
+    "bytes": 5444,
+    "sha256": "1091b86fee944a765af5a2fba8b94a66d7147181f0b5e34e41e6545062a5bd33"
+  },
+  "run_cleanup.py": {
+    "bytes": 5027,
+    "sha256": "2f962e7a299927f261560fa63a55b6963907c549192530084637aa19b61e0168"
+  },
+  "fifo-O2-capture.log.original.hex": {
+    "bytes": 19779,
+    "sha256": "55f28ea9b1c5ed5f3a78f3ff495e701b23357946219fa82129461fb831f9a30a"
+  },
+  "guard-validation-1.log": {
+    "bytes": 1717,
+    "sha256": "ba1386bd6a9eeb41e4440478c25313bc5c4d8cf18bbea732820cab72ce85fa6a"
+  },
+  "fifo-O0-readback-reset-invocation.json": {
+    "bytes": 481,
+    "sha256": "2ebdc9cb7d0bf148c9d7819f82a2d8c06539da1965730bd5223f311e865b27dd"
+  },
+  "hardware_second.py": {
+    "bytes": 1883,
+    "sha256": "0991a4008b4e4695de29cbb6783670b722f92bd2bf2c59d594774e3cad804e35"
+  },
+  "wiring-confirmed.json": {
+    "bytes": 813,
+    "sha256": "0b18324d63e9f856c01ea52cf60eaa80628b3bf6b508c92e489cf080a9f98bcc"
+  },
+  "fifo-O2-capture.gdb": {
+    "bytes": 1241,
+    "sha256": "31059a2aa0debd02f0e6589eb5f095effaefc21ba0405d45ca46e6b4fa87392e"
+  },
+  "fifo-O0-preclose.bin.hex": {
+    "bytes": 181489,
+    "sha256": "5d4902205da60178eed99d9abcb54df1d541f934db9f84bd434a4bf4b6aa952d"
+  },
+  "fifo-O0-single-trigger.log": {
+    "bytes": 638,
+    "sha256": "cd37462ba6563ba058e889906e5994735ae7fccf09a9051800f2c1ca15c2c7f3"
+  },
+  "commands.json": {
+    "bytes": 2369,
+    "sha256": "e3c3d5073a757dc7ca1129623d56a4ad1f3ad2d4081850750879b034f4d15eb8"
+  },
+  "fifo-O0-identity-before-flash.log": {
+    "bytes": 264,
+    "sha256": "edf5fe7fcff69041f311ee648c960e8bcf1a37dd1f17637590159e47cef49591"
+  },
+  "fifo-O0-traces.bin.hex": {
+    "bytes": 47761,
+    "sha256": "b2fa40ad3aaf8ca5a0700689eb4356e37542bd2f98211b5acbb5a341f4d26981"
+  },
+  "cleanup-O2-readback-reset.log": {
+    "bytes": 336,
+    "sha256": "a24f8e242e84818264a8f8abe1904d2e57a80f3b483db8cb9a85f028a5b8f812"
+  },
+  "fifo-O0-analysis.json": {
+    "bytes": 1427,
+    "sha256": "17617e316b8e0377e2e24eebd5af68eea14bb81f7d80051cb127fdbc8f6004dd"
+  },
+  "README.md": {
+    "bytes": 1250,
+    "sha256": "e68cf9e71f14035709ed1d7f84960d6d942e6d8b66551eb2748de9855840c286"
+  },
+  "fifo-O2-capture.log": {
+    "bytes": 9974,
+    "sha256": "de44e4f2ca5fcffb2235e973ab921895c4347ebaf9d6c670ba3cc290599d628a"
+  },
+  "fifo-O2-identity-before-flash-server.log": {
+    "bytes": 654,
+    "sha256": "2030d4639f4bb4e14940b902a331287de6db96508c3f5d977098897899a430cb"
+  },
+  "fifo-O2-single-trigger.log": {
+    "bytes": 638,
+    "sha256": "cd37462ba6563ba058e889906e5994735ae7fccf09a9051800f2c1ca15c2c7f3"
+  },
+  "fifo-O2-preclose.bin.hex": {
+    "bytes": 311297,
+    "sha256": "7e28e817f19cfff94dfc40a8584d66d8a857a2c487f82091c02de582417e2692"
+  },
+  "fifo-O2-identity-before-flash-invocation.json": {
+    "bytes": 357,
+    "sha256": "c956a04dba0796c2a5780cbe99097afbff9a51d3f9d720bca3593270e5ba156c"
+  },
+  "cleanup-O2-identity-before-flash-invocation.json": {
+    "bytes": 360,
+    "sha256": "09cd3e23e13278fa80055ae70156395a471bbe0e1c3865afaa73b291d49d89de"
+  },
+  "cleanup-O2-image.bin.hex": {
+    "bytes": 53233,
+    "sha256": "460b5cd175a4bc926f0cffcac6b1bbc7a482b71006eb789183342b737625d733"
+  },
+  "cleanup-O2-capture.gdb": {
+    "bytes": 1256,
+    "sha256": "ea9da27383f346ec2b1e7bb2c86677608a4d1d0d79dc8c236e7094a498865642"
+  },
+  "cleanup-build-1.log": {
+    "bytes": 5455,
+    "sha256": "cf84315aeb740b798472384b40112956806ed8d08d33832ec6779459dfa9bbf6"
+  },
+  "fifo-O2-readback-reset-invocation.json": {
+    "bytes": 481,
+    "sha256": "139bf63e7c1e283f25df51a47f62b7af162ffda0c0e4f26edf16a1aaa62b01a2"
+  },
+  "cleanup-O2-payload.bin.hex": {
+    "bytes": 19,
+    "sha256": "44e32b1d8c32231e7de57f949f201d75fa85026f69d6b42cafe2f4d3d5ca705c"
+  },
+  "cleanup-O2-spi-compile.txt": {
+    "bytes": 957,
+    "sha256": "c65164919032cbbad898064c610b9bff978cbcd17888e8b153ae640b52e76da6"
+  },
+  "initial-identity.log": {
+    "bytes": 408,
+    "sha256": "98231c52963b7e0a68a37232630719803486891cb1e703bb8adc9aad9b1ab8bc"
+  },
+  "O0-stm32u5xx_hal_spi_observed.json": {
+    "bytes": 530,
+    "sha256": "3203c2a65c9742529c7069fcb892ab869b87e9ec39fa69fc49fa48f33346ff2b"
+  },
+  "fifo-O0-spi-compile.txt": {
+    "bytes": 954,
+    "sha256": "2eab8465d9a3e63f3e14e4982b7d654fdf1c0dd2d9750ac82dcb98caeb427c93"
+  }
+}
