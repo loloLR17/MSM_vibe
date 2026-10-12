@@ -82,6 +82,11 @@
       "sha256": "62519c467ffbaaac8e0028dd1d45206633f4cfca8ef4abd773e1187b416b3702"
     },
     {
+      "path": "remote-readback-results.json",
+      "bytes": 10492,
+      "sha256": "41359c88a443e180c07ac8c4d6a25cf243ade3240ddeb631e17982b7af36225a"
+    },
+    {
       "path": "restoration-verified.json",
       "bytes": 263,
       "sha256": "43590249ae5b0b23ac10b552e9a869c28efdde7d5b27bf48dbcd5592cced01c5"

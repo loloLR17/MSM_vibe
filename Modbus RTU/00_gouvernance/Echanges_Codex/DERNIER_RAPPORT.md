@@ -1,11 +1,11 @@
 ---
 mission_id: TR2-20261012-M015-A-ACQUISITION-BRINGUP
-status: BLOCKED
+status: DONE
 base_ref: main
 base_sha: 762c459839439f7d27b42c11d12e309e65622a7f
 initial_head: b147a918df1a699c428b6304f455ba76571798d3
 result_sha: 3317535897931589cd2d26e44ce1c9900032b9bf
-created_at_utc: 2026-10-12T09:32:34.704527+00:00
+created_at_utc: 2026-10-12T09:43:21.652420+00:00
 author: Codex
 target_branch: main
 allow_commit: true
@@ -16,7 +16,7 @@ allow_debug: true
 
 # M015-A — Acquisition physique IIS3DWB bornée
 
-**Les critères techniques de M015-A sont satisfaits. Le statut BLOCKED porte uniquement sur la publication et la relecture distante finales exigées par le protocole V2-B3.** Aucun blocage matériel ni validation intermédiaire n'est attendu. M015 globale reste **IN PROGRESS** : les preuves concernent un diagnostic en RAM et une excitation mécanique interne au capteur, pas une acquisition continue de production ni une vibration externe contrôlée.
+**M015-A DONE : critères techniques satisfaits, résultats publiés et 47 livrables intégralement relus depuis GitHub au SHA 6d10287e85fc499c9f474e3d656253b00b071106.** Aucun blocage matériel ni validation intermédiaire n'est attendu. M015 globale reste **IN PROGRESS** : les preuves concernent un diagnostic en RAM et une excitation mécanique interne au capteur, pas une acquisition continue de production ni une vibration externe contrôlée.
 
 Le firmware permanent M014 est restauré exactement. Un contrôle physique B0/B1 confirme sa reprise. La FRAM et la partition microSD sont préservées.
 
@@ -151,4 +151,8 @@ Le journal est actualisé pour l'acquisition bornée, l'anomalie du mode 0, la c
 
 Suite proposée : contrat M015-B pour le raccordement production en mode 3, le débit FIFO/DMA, les timestamps de conversion, la détection de pertes et une excitation externe contrôlée. L'allocation du stockage V1 avant campagne demeure un lot distinct, avec sauvegardes et protection de la partition existante. Aucun travail M016/Modbus vibrations/Web/SQLite n'est déclaré terminé. Les réserves M013/M014 sur timing DE/TC, endurance, CEM et qualification industrielle restent ouvertes.
 
-La publication finale est suivie d'une relecture distante intégrale, puis d'une mise à jour DONE enregistrant le SHA relu. Le SHA de cette dernière publication sera communiqué séparément, sans référence circulaire.
+## 9. Publication distante vérifiée
+
+Le push normal des résultats au SHA **6d10287e85fc499c9f474e3d656253b00b071106** réussit. Après fetch, les 47 fichiers modifiés depuis b147a918 sont lus intégralement en UTF-8 depuis `origin/main` et comparés octet par octet aux livrables locaux : tous sont identiques. Code, archives, quatre captures, journal HP, audit, rapport, journal technique et roadmap sont compris. La preuve détaillée est `preuves/TR2-20261012-M015-A/remote-readback-results.json` ; elle décrit cette référence historique, sans référence circulaire.
+
+Au SHA des résultats, le worktree de publication est propre et HEAD=origin/main. Les dépôts initial/H sont propres à leurs SHAs conservés et les OIDs des deux stashes sont identiques au relevé initial. Cette mise à jour documentaire passe le rapport à DONE ; sa dernière publication sera aussi contrôlée et son SHA communiqué dans la réponse Codex. Aucun nouveau test, flash, reset, GDB ou trafic Modbus depuis le contrôle final publié. La revue indépendante ChatGPT de M015-A reste à effectuer.
