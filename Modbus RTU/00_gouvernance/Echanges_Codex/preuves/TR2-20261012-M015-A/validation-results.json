@@ -1,0 +1,58 @@
+[
+  {
+    "log": "firmware-validation.log",
+    "sha256": "c8678271de414f3b7cc504153b8d9d4acbd194304a1458980386721052f582ce",
+    "host_tests": 114,
+    "arm_build_passed": true,
+    "warnings": "Newlib nosys stub warnings retained; no compilation errors"
+  },
+  {
+    "log": "firmware-validation-single-transfer.log",
+    "sha256": "873fdc91c2267943331007ea6bbdb7874e84be809c53f7e264c77a3d9e83c278",
+    "host_tests": 114,
+    "arm_build_passed": true,
+    "warnings": "Newlib nosys stub warnings retained; no compilation errors"
+  },
+  {
+    "log": "default-cross-slow.log",
+    "sha256": "b67f4319ec0f9bb0ff64e98e9af444655ec62e0754a75db35f8eefb1830f9a78",
+    "host_tests": null,
+    "arm_build_passed": true,
+    "warnings": "Newlib nosys stub warnings retained; no compilation errors"
+  },
+  {
+    "log": "capture-build.log",
+    "sha256": "a3c4b6708cad96482631233ea0c714f2540ca57dbb7c08d71ee84369b269a9e3",
+    "host_tests": null,
+    "arm_build_passed": true,
+    "warnings": "Newlib nosys stub warnings retained; no compilation errors"
+  },
+  {
+    "log": "capture-single-build.log",
+    "sha256": "7221ee79c90ef30cd2882cc527a9a4f53bef318f18f92e94cbe966450e2d3a7e",
+    "host_tests": null,
+    "arm_build_passed": true,
+    "warnings": "Newlib nosys stub warnings retained; no compilation errors"
+  },
+  {
+    "log": "capture-slow-build.log",
+    "sha256": "1447cb9817864aeec0bfd549a0faa8b5e867a02ed41110a1fea86fc13f896d49",
+    "host_tests": null,
+    "arm_build_passed": true,
+    "warnings": "Newlib nosys stub warnings retained; no compilation errors"
+  },
+  {
+    "log": "capture-mode3-build.log",
+    "sha256": "d358e3e8d3bb37fe6d973967be9170e667f730d87b4e77ad53a678db4c7648cc",
+    "host_tests": null,
+    "arm_build_passed": true,
+    "warnings": "Newlib nosys stub warnings retained; no compilation errors"
+  },
+  {
+    "log": "default-cross-mode3.log",
+    "sha256": "30236d79f62fada60bd6ad78a5af689da5f3fba2a6715e7259abdd3ceb429b9a",
+    "host_tests": null,
+    "arm_build_passed": true,
+    "warnings": "Newlib nosys stub warnings retained; no compilation errors"
+  }
+]

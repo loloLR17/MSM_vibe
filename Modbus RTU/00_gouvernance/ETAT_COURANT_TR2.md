@@ -1,10 +1,20 @@
 # État courant TR2 — référence reconstruite
 
-Mise à jour : 12 octobre 2026. Mission `TR2-20261012-M014-H-PRODUCTION-RESUME`.
+Mise à jour : 12 octobre 2026. Mission `TR2-20261012-M015-A-ACQUISITION-BRINGUP`.
 
 **Ce document est un nouvel état de référence reconstruit à partir de preuves vérifiables. Il n'est pas une restitution du journal historique HP.** Sa création a été explicitement autorisée par l'utilisateur pour la mission `T1000-20261010-CLOTURE-001`, après escalade AGENTS.md §18. Aucun original n'a été retrouvé dans l'historique Git, les répertoires Linux locaux ou les documents Windows accessibles. Les archives d'échanges du 8 octobre mentionnent un journal local HP, sans en fournir le contenu. Aucun état historique inconnu n'est inventé.
 
-## État opérationnel actuel — M014-H, 2026-10-12T08:37:50.450052+00:00
+## État opérationnel actuel — M015-A, 12 octobre 2026
+
+- **VALIDÉ PHYSIQUE dans la portée M015-A** : IIS3DWB réel WHO=0x7B, SPI3/CS PC9, mode 3/625 kHz/±4 g, registres A8/44. Capture de 2 048 XYZ, zéro erreur/saturation ; norme au repos 984,75 puis 984,65 mg. Auto-test mécanique interne positif/négatif : écarts par axe de 1,6 à 1,9 g, puis retour au repos. Pas d'excitation externe ni calibration ; **M015 globale IN PROGRESS**.
+- **OBSERVÉ, limites temporelles** : DWT 160 MHz ; timestamps encadrant les lectures, cadence ≈6 538 lectures/s. ODR 26,667 kHz configuré, non mesuré indépendamment. Polling sans FIFO/DMA, pertes intermédiaires possibles ; pas de simultanéité XYZ ni de flux continu qualifiés.
+- **ANOMALIE CONSERVÉE** : trois captures mode 0 (TX/RX séparés à 2,5 MHz, duplex à 2,5 MHz, duplex à 625 kHz) restent bimodales, avec 1/3/6 saturations. Le mode 3 à même vitesse donne une capture cohérente. Cause électrique précise non mesurée ; aucun filtrage correctif. Les 8 192 données brutes et analyses sont publiées dans `Echanges_Codex/preuves/TR2-20261012-M015-A/`.
+- **M014 PRÉSERVÉ, CIBLE EN EXÉCUTION** : BIN permanent SHA b462c29a775fec17fccf8036b5612742b1366210359bcd3f192c95435740d611, source 0b2a901. Après chaque diagnostic, Flash 2 Mio entièrement identique à la sauvegarde. Capteur restauré CTRL1/3/5=0/4/0 ; FRAM V2/génération 12, identité 1, configuration UNAVAILABLE, READY/stockage=0. IRQ49/66 actives, erreurs UART/faults=0, file vide. Aucun accès SD ni provisioning FRAM ; partition LBA65536 préservée.
+- **VALIDÉ, reprise production** : le 12/10 à 09:22:43 UTC, deux FC03 B0/21+B1/20 sur HP, deux réponses/retour 0/sans retry ; B0 complet conforme et B1 uptime=73 s. Journal complet récupéré, SHA CFBF72C1716288EAA2F845B82D662BA62C4520C8647EC40BF7502EE3A1208E78 ; GDB après sans reset. Pas de répétition du polling/perte M014. Sa revue indépendante est indiquée par le contrat M015-A.
+- **VALIDÉ LOGICIEL, publication finale en cours** : driver réel réutilisé, transaction duplex, invalidité effacée, profil RAM borné avec restauration et sans médias/UART. 114 tests et cross-build après changement du driver ; cross-only pour les derniers changements du harness. Les 539 tests .NET inchangés ne sont pas rejoués. Code capture évalué : 3317535897931589cd2d26e44ce1c9900032b9bf.
+- **SUITE / GIT** : préparer M015-B pour le raccordement production en mode 3, le débit/FIFO/DMA, les timestamps de conversion et l'excitation externe. Stockage V1 nécessaire avant campagne. Le firmware permanent M014 conserve le mode 0, sans acquisition ; la nouvelle voie reste un diagnostic temporaire. Worktree M015 isolé, dépôts initial/H et deux stashes préservés, archives H exactes. Preuves complètes : `/home/lolo/dev/msm/reports/TR2-mission015-A-20261012T085627Z`.
+
+## État opérationnel antérieur — M014-H, 2026-10-12T08:37:50.450052+00:00
 
 - **VALIDÉ physiquement dans la portée M014** : identitéFRAMV2/gen12, B0/B1réels, polling3+3/perte de disponibilité/fermeture-réouverture driver/repriseidentité et données fraîches ; uptimeB1corrigé9/11/14→217/219/221s. Deux campagnes9requêtes (première uptimefigé, corrigéevalidante), puis2lectures surimagepermanente ;20requêtes/18réponses/2timeouts planifiés, retry0.
 - **CIBLE EN EXÉCUTION** : production permanente sansobserver ni silence, BIN143108 SHAb462c29a775fec17fccf8036b5612742b1366210359bcd3f192c95435740d611, source0b2a901. STLINK003500463235510B37333439/UID004A003D3842501820333157/DeviceId1/unit1/TR2-000001/MSM. BootrecoveryV2/gen12, IRQ49/66actives, UART/pollerrors0/filevide ;debuggersfermés.

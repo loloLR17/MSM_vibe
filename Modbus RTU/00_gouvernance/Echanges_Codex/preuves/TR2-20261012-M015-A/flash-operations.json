@@ -1,0 +1,98 @@
+[
+  {
+    "operation": "flash-capture",
+    "mode": "NORMAL",
+    "address": "0x08000000",
+    "stlink": "003500463235510B37333439",
+    "device": "STM32U575/STM32U585",
+    "voltage_v": 3.29,
+    "bin_sha256": "641736098d90465d0d5886e9b254fbb11212e518c6dcef3872656888a99fb129",
+    "source_sha": "610f6c2f44caa7fa1f67176a78b724877ec19df8",
+    "verified_by_cli": true,
+    "cli_raw_log_sha256": "3609aa00f73ff411a4c8a476f42ed82ce8cdb998d5c0da7da318d1d54df1aeb1"
+  },
+  {
+    "operation": "flash-restore",
+    "mode": "NORMAL",
+    "address": "0x08000000",
+    "stlink": "003500463235510B37333439",
+    "device": "STM32U575/STM32U585",
+    "voltage_v": 3.29,
+    "bin_sha256": "b462c29a775fec17fccf8036b5612742b1366210359bcd3f192c95435740d611",
+    "source_sha": "0b2a901e185c9cbf8c02410bf2a29a0a3a75491e",
+    "verified_by_cli": true,
+    "cli_raw_log_sha256": "ca031e05c134aa9680bb90c3546b02afede897255bcf36fc784d886911d0b50d"
+  },
+  {
+    "operation": "single-flash-capture",
+    "mode": "NORMAL",
+    "address": "0x08000000",
+    "stlink": "003500463235510B37333439",
+    "device": "STM32U575/STM32U585",
+    "voltage_v": 3.29,
+    "bin_sha256": "d82b453d4344a0f21ed2e4a9f15c1386fe9fd763bc12477cf22360e8420f65a8",
+    "source_sha": "9d47f1f5a7adee058512c76b30ac8c9bb9927500",
+    "verified_by_cli": true,
+    "cli_raw_log_sha256": "7c64e38732262bbd8f24676f57ae7477fb14e2996a8c4f793136b6be9cc444b0"
+  },
+  {
+    "operation": "single-flash-restore",
+    "mode": "NORMAL",
+    "address": "0x08000000",
+    "stlink": "003500463235510B37333439",
+    "device": "STM32U575/STM32U585",
+    "voltage_v": 3.29,
+    "bin_sha256": "b462c29a775fec17fccf8036b5612742b1366210359bcd3f192c95435740d611",
+    "source_sha": "0b2a901e185c9cbf8c02410bf2a29a0a3a75491e",
+    "verified_by_cli": true,
+    "cli_raw_log_sha256": "8e766b1a4400e8a610e21efe939bf85e1218505d2051b8a8af008891c15f84ed"
+  },
+  {
+    "operation": "slow-flash-capture",
+    "mode": "NORMAL",
+    "address": "0x08000000",
+    "stlink": "003500463235510B37333439",
+    "device": "STM32U575/STM32U585",
+    "voltage_v": 3.29,
+    "bin_sha256": "3889c778586c130fc216ce20bd45c89786d742339dd83ef2d133ea00dc6fe78e",
+    "source_sha": "08e5ba35deba8c231113c3dc511dff1143d43bdc",
+    "verified_by_cli": true,
+    "cli_raw_log_sha256": "41e528e7fa9cb5dc1283fab380b2b3d5bc09f6dfcc107f3cfed9dd450741a9dc"
+  },
+  {
+    "operation": "slow-flash-restore",
+    "mode": "NORMAL",
+    "address": "0x08000000",
+    "stlink": "003500463235510B37333439",
+    "device": "STM32U575/STM32U585",
+    "voltage_v": 3.29,
+    "bin_sha256": "b462c29a775fec17fccf8036b5612742b1366210359bcd3f192c95435740d611",
+    "source_sha": "0b2a901e185c9cbf8c02410bf2a29a0a3a75491e",
+    "verified_by_cli": true,
+    "cli_raw_log_sha256": "3a8e36fae6307c9eb648209a311f3c4df2f95012130c09177505fb5ec8076ade"
+  },
+  {
+    "operation": "mode3-flash-capture",
+    "mode": "NORMAL",
+    "address": "0x08000000",
+    "stlink": "003500463235510B37333439",
+    "device": "STM32U575/STM32U585",
+    "voltage_v": 3.29,
+    "bin_sha256": "ae342a66a52407ae557531a2194288335a5055dda0eca3cacb61e31aa9cafbaf",
+    "source_sha": "3317535897931589cd2d26e44ce1c9900032b9bf",
+    "verified_by_cli": true,
+    "cli_raw_log_sha256": "905d0cfa14aad995c1ad7dda1e51e4bbdc71035a8fe0b58d2927d837c767f129"
+  },
+  {
+    "operation": "mode3-flash-restore",
+    "mode": "NORMAL",
+    "address": "0x08000000",
+    "stlink": "003500463235510B37333439",
+    "device": "STM32U575/STM32U585",
+    "voltage_v": 3.29,
+    "bin_sha256": "b462c29a775fec17fccf8036b5612742b1366210359bcd3f192c95435740d611",
+    "source_sha": "0b2a901e185c9cbf8c02410bf2a29a0a3a75491e",
+    "verified_by_cli": true,
+    "cli_raw_log_sha256": "073e425b37c5d3c0bcd9c7ada594710c080718d17c1a4a130b7b39509f1f4fa1"
+  }
+]

@@ -25,7 +25,7 @@ Capteur de vibrations → acquisition et traitement STM32U575 → registres Modb
 | **M012** | Intégrer le serveur Modbus RTU et le TX RS-485 avec commande DE sûre | EN COURS | Selon résultats Codex | Chemin de réponse implémenté et testé ; qualification physique explicitement distinguée |
 | **M013** | Qualifier le dialogue Modbus physique complet | ACQUIS BORNÉS / RÉSERVES | 2–3 sous-missions | Lecture répétable de registres STM32 par maître PC ; CRC, exceptions, turnaround et absence de contention vérifiés |
 | **M014** | Connecter la supervision au TR2 physique | DONE — PORTÉE B0/B1/PERTE-REPRISE | 2–3 | Lecture périodique des blocs système, déconnexion et reprise correctement traitées |
-| **M015** | Qualifier la chaîne d'acquisition vibratoire | À FAIRE | 3–5 | Acquisition physique démontrée ou blocages matériels précisément identifiés |
+| **M015** | Qualifier la chaîne d'acquisition vibratoire | IN PROGRESS — M015-A ACQUISITION BORNÉE | 3–5 | Acquisition physique démontrée ou blocages matériels précisément identifiés |
 | **M016** | Traiter et publier les mesures vibratoires dans les registres V1 | À FAIRE | 2–4 | Valeurs réelles cohérentes, unités, échelles et validité vérifiées dans le mapping gelé |
 | **M017** | Lire les vibrations de bout en bout via Modbus | À FAIRE | 2 | Variation physique retrouvée correctement dans les valeurs lues par le PC |
 | **M018** | Intégrer les mesures dans le service PC et SQLite | À FAIRE | 2–3 | Décodage, horodatage, persistance et gestion des données invalides opérationnels |
@@ -72,8 +72,8 @@ Campagne physique reproductible : repos, vibration contrôlée, variation du sig
 |---|---|---|---|
 | **J0** | STM32 reçoit une requête Modbus physique | M011 | **VALIDÉ** pour l'essai unique |
 | **J1** | STM32 répond correctement à un maître | M012–M013 | ACQUIS BORNÉS ; qualification générale ouverte |
-| **J2** | Supervision communique avec le TR2 réel | M014 | VALIDÉ PHYSIQUE B0/B1/perte-reprise ; revue ChatGPT attendue |
-| **J3** | TR2 produit des mesures vibratoires physiques | M015–M016 | À FAIRE |
+| **J2** | Supervision communique avec le TR2 réel | M014 | VALIDÉ PORTÉE B0/B1/perte-reprise ; revue indépendante indiquée par contrat M015-A |
+| **J3** | TR2 produit des mesures vibratoires physiques | M015–M016 | EN COURS — diagnostic acquisition M015-A prouvé |
 | **J4** | Supervision reçoit et conserve les vibrations | M017–M018 | À FAIRE |
 | **J5** | Vibrations réelles visibles dans le Web | M019–M020 | À FAIRE |
 
@@ -115,3 +115,11 @@ M014 **IN PROGRESS** : attribution UID96/DeviceId1 acquise, backups FRAM/Flash e
 READY/stockage restent0, configuration UNAVAILABLE sansressourceowned. MicroSDtotalementOFF, aucuneallocation ni écriture des32premiersMio oupartitionLBA65536 ; acquisition/bulkSD/industrie nonqualifiés. Perte de disponibilité survrai bus nequalifie pasretraitdecâble ni coupurealim ; timingDE/TC/dernierstopbit/robustesse/CEM/E4 restentouverts. M013 conserve sa qualificationfonctionnellehistorique bornée, passtatutDONE général. RevueindépendanteChatGPT du rapportH encoreattendue.
 
 **Suite proposée M015, àcontractualiser** : qualification physique capteur/acquisition à partir du WHO_AM_I0x7B acquis, sans répéter les acquis ; activationopérationnelle etressourcesstockage traitées avecautorités/allocations/sauvegardesexplicites. Aucun essaiM015 lancé enH.
+
+## Actualisation M015-A — 12 octobre 2026
+
+**Critères techniques M015-A satisfaits, publication finale en cours ; M015 globale IN PROGRESS.** Le diagnostic fournit 2 048 échantillons IIS3DWB cohérents en SPI mode 3 à 625 kHz/±4 g, avec WHO=0x7B, registres A8/44, timestamps MCU et cadence ≈6 538 lectures/s. L'auto-test mécanique interne positif/négatif produit des écarts de 1,6 à 1,9 g par axe, suivis du retour au repos. Les trois captures mode 0 anormales restent publiées. La cause électrique précise n'est pas mesurée ; ni calibration, ni excitation externe, ni acquisition continue de production ne sont qualifiées. J3 reste en cours.
+
+M014 conserve sa clôture bornée B0/B1/polling/perte-reprise ; sa revue indépendante est indiquée par le contrat M015-A. Son image permanente est restaurée exactement, Flash 2 Mio identique, FRAM génération 12/configuration UNAVAILABLE et READY/stockage=0. Deux lectures physiques B0/B1 confirment la reprise, sans rejouer la campagne. SD entièrement désactivée et partition LBA65536 préservée. L'acquisition mode 3 reste un profil RAM temporaire ; le firmware permanent M014 conserve le mode 0, sans acquisition.
+
+Suite proposée M015-B : raccordement production en mode 3, FIFO/DMA et débit, timestamps de conversion, détection des pertes, excitation externe contrôlée. Le stockage V1 avant campagne reste un lot distinct avec allocations et sauvegardes explicites. Aucune extension silencieuse vers M016/M017/Web ni qualification industrielle. Revue indépendante M015-A à faire après publication du rapport.

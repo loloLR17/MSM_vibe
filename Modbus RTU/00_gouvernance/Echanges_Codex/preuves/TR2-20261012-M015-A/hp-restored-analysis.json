@@ -1,0 +1,39 @@
+{
+  "journal_sha256": "cfbf72c1716288eaa2f845b82d662ba62c4520c8647ec40bf7502ee3a1208e78",
+  "full_journal_retrieved_and_parsed": true,
+  "events": 7,
+  "request_count": 2,
+  "response_count": 2,
+  "reads": [
+    [
+      0,
+      21
+    ],
+    [
+      1000,
+      20
+    ]
+  ],
+  "b0_full_matches_reviewed_identity": true,
+  "system_state": {
+    "SystemStatus": 1,
+    "SystemFlags": 0,
+    "FaultFlags": 0,
+    "WarningFlags": 0,
+    "UptimeSeconds": 73,
+    "LastResetCause": 5,
+    "InternalTemperatureDeciCelsius": 0,
+    "CpuLoadPercent": 0,
+    "MemoryUsagePercent": 0,
+    "StorageStatus": 0,
+    "StorageUsagePercent": 0,
+    "AcquisitionState": 0,
+    "ActiveCampaignId": 0,
+    "ErrorCode": 0,
+    "WarningCode": 0
+  },
+  "passed": true,
+  "retries": 0,
+  "purpose": "Only verify production recovery after temporary capture; no repeat of M014 polling/loss campaign",
+  "firmware_bin_sha256": "b462c29a775fec17fccf8036b5612742b1366210359bcd3f192c95435740d611"
+}
