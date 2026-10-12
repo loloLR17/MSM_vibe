@@ -1,0 +1,4 @@
+stm32_poll_event (context=0x2000e278 <g_serial>, event=0x200bfd8c) at /home/lolo/dev/msm/projects/MSM_vibe-M014-H/Modbus RTU/05_Firmware/platform/stm32/stm32_serial_transport.c:219
+219	{
+STM32 Successfully completed reset operation (System reset)
+[Inferior 1 (Remote target) detached]

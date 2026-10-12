@@ -1,0 +1,10 @@
+0x08002620 in HAL_Delay (Delay=100) at /home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal.c:419
+419	  while ((HAL_GetTick() - tickstart) < wait)
+$1 = {stage = 10, result = 9, restore_result = 0, core_hz = 160000000, spi_hz = 2500000, poll_count = 0, burst_count = 0, word_count = 0, accepted = 0, errors = 0, loss_flags = 4, tag_errors = 0, parity_errors = 0, gap_events = 0, saturations = 0, start_cycles = 0, end_cycles = 0, filled_status = 0, stopped_status = 0, final_status = 0, saved = {0, 0, 0, 0, 0, 4, 0}, configured = {0, 0, 0, 0, 0, 0, 0}, restored = {0, 0, 0, 0, 0, 4, 0}}
+$2 = 38
+$3 = {valid = 1, reason = 2, phase = 2, reg = 16, expected_valid = 1, expected = 168, observed_valid = 1, observed = 80, trace_index = 24, io = {valid_mask = 15, phase = 2, method = 1, reg = 16, nbytes = 2, raw_length = 2, begin_cycles = 613759, end_cycles = 616104, hal_status = 0, error = 0, sr_before = 57345, sr_after = 49159, cfg1 = 1342636135, cfg2 = 2269118464, cs_before = 1, cs_during = 0, cs_after = 1, rx_left = 0, tx_left = 0, tx = "\220\000\000\000\000\000\000", rx = "\000P\000\000\000\000\000"}}
+$4 = 92
+$5 = 128
+$6 = 52
+0xe000ed28:	0x00000000	0x00000000
+[Inferior 1 (Remote target) detached]
