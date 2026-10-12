@@ -31,6 +31,11 @@
       "sha256": "32791c7e5c2356527bb8518cdeaa9acacd67057eb5d9a8a338accace0d640fcd"
     },
     {
+      "path": "fifo-offline-patterns.json",
+      "bytes": 4644,
+      "sha256": "4ec6f6316de613fe21746fb523308177efb87480f3afbc23af5361fe7397cf67"
+    },
+    {
       "path": "fifo-result-no-reset.log",
       "bytes": 1320,
       "sha256": "143d478cf179c24293abc7b22c0e4b84558d412ebc86be4d25c17573bd40222d"
@@ -54,6 +59,11 @@
       "path": "hp-restored-physical.jsonl",
       "bytes": 1390,
       "sha256": "8b31e409b02580b5d109d281c506d69b9f470c56a7c9b5812a4bdbf14831278f"
+    },
+    {
+      "path": "publication-readback-8c39ff1.json",
+      "bytes": 6466,
+      "sha256": "1c7adeef38d4eac08682fcd437b740f15df7f3646c77ef268945256527ca148b"
     },
     {
       "path": "restoration-verified.json",

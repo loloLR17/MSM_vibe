@@ -1,0 +1,184 @@
+{
+  "source_sha256": "3d1e3f7b7fd03d2692f366614d397d68df1e547db561760a233aa2481dc9078f",
+  "method": "Exploratory median pairwise slope on indices 0..81, separation >=20; median intercept; end_cycles/160 MHz nominal. Residual threshold >3 counts; integer candidates within 2 of rounded model. No data correction.",
+  "fit_hz": 26619.51706454574,
+  "fit_intercept": -2748.4283540265214,
+  "qualified_cadence": false,
+  "large_residuals": [
+    {
+      "index": 82,
+      "observed": 0,
+      "predicted": 128.49691559394796,
+      "residual": -128.49691559394796,
+      "left_shift_candidates": [
+        128
+      ],
+      "high_bit_loss_candidates": [
+        128
+      ]
+    },
+    {
+      "index": 83,
+      "observed": 4,
+      "predicted": 129.95366866530503,
+      "residual": -125.95366866530503,
+      "left_shift_candidates": [
+        130
+      ],
+      "high_bit_loss_candidates": [
+        132
+      ]
+    },
+    {
+      "index": 86,
+      "observed": 6,
+      "predicted": 134.31011900489966,
+      "residual": -128.31011900489966,
+      "left_shift_candidates": [],
+      "high_bit_loss_candidates": [
+        134
+      ]
+    },
+    {
+      "index": 91,
+      "observed": 28,
+      "predicted": 141.59388436168592,
+      "residual": -113.59388436168592,
+      "left_shift_candidates": [
+        142
+      ],
+      "high_bit_loss_candidates": []
+    },
+    {
+      "index": 93,
+      "observed": 32,
+      "predicted": 144.50739050440052,
+      "residual": -112.50739050440052,
+      "left_shift_candidates": [
+        144
+      ],
+      "high_bit_loss_candidates": []
+    },
+    {
+      "index": 94,
+      "observed": 52,
+      "predicted": 145.96414357575804,
+      "residual": -93.96414357575804,
+      "left_shift_candidates": [],
+      "high_bit_loss_candidates": []
+    },
+    {
+      "index": 102,
+      "observed": 30,
+      "predicted": 157.61816814661597,
+      "residual": -127.61816814661597,
+      "left_shift_candidates": [],
+      "high_bit_loss_candidates": [
+        158
+      ]
+    },
+    {
+      "index": 103,
+      "observed": 62,
+      "predicted": 159.08873009245008,
+      "residual": -97.08873009245008,
+      "left_shift_candidates": [
+        159
+      ],
+      "high_bit_loss_candidates": []
+    },
+    {
+      "index": 114,
+      "observed": 94,
+      "predicted": 175.11301387738013,
+      "residual": -81.11301387738013,
+      "left_shift_candidates": [
+        175
+      ],
+      "high_bit_loss_candidates": []
+    },
+    {
+      "index": 115,
+      "observed": 98,
+      "predicted": 176.56976694873765,
+      "residual": -78.56976694873765,
+      "left_shift_candidates": [
+        177
+      ],
+      "high_bit_loss_candidates": []
+    },
+    {
+      "index": 116,
+      "observed": 100,
+      "predicted": 178.02652002009472,
+      "residual": -78.02652002009472,
+      "left_shift_candidates": [
+        178
+      ],
+      "high_bit_loss_candidates": []
+    },
+    {
+      "index": 117,
+      "observed": 118,
+      "predicted": 179.48327309145225,
+      "residual": -61.48327309145225,
+      "left_shift_candidates": [],
+      "high_bit_loss_candidates": []
+    },
+    {
+      "index": 125,
+      "observed": 126,
+      "predicted": 191.12348878783268,
+      "residual": -65.12348878783268,
+      "left_shift_candidates": [
+        191
+      ],
+      "high_bit_loss_candidates": []
+    },
+    {
+      "index": 126,
+      "observed": 130,
+      "predicted": 192.5802418591902,
+      "residual": -62.58024185919021,
+      "left_shift_candidates": [
+        193
+      ],
+      "high_bit_loss_candidates": []
+    },
+    {
+      "index": 128,
+      "observed": 134,
+      "predicted": 195.4937480019048,
+      "residual": -61.493748001904805,
+      "left_shift_candidates": [
+        195
+      ],
+      "high_bit_loss_candidates": []
+    },
+    {
+      "index": 140,
+      "observed": 186,
+      "predicted": 212.9616414716411,
+      "residual": -26.961641471641087,
+      "left_shift_candidates": [],
+      "high_bit_loss_candidates": []
+    },
+    {
+      "index": 156,
+      "observed": 220,
+      "predicted": 236.2696906133574,
+      "residual": -16.269690613357398,
+      "left_shift_candidates": [
+        238
+      ],
+      "high_bit_loss_candidates": []
+    }
+  ],
+  "limits": [
+    "Initial 82 readings are not independently validated. Thresholds are exploratory, not acceptance criteria.",
+    "11 decreases and large residual count are different measures.",
+    "Some anomalies fit left shift or high-bit loss; others do not. No root cause established.",
+    "Observed overrun flag at index169 is not independent proof of physical overwrite."
+  ],
+  "hardware_or_tests_repeated": false
+}
