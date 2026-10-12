@@ -1,9 +1,8 @@
 ---
-mission_id: TR2-20261012-M015-E-ACQUISITION-DECISION
+mission_id: TR2-20261012-M015-F-FIFO-BURST-FEASIBILITY
 status: READY
 base_ref: main
-base_sha: dbfcec4027200c5d5c989da52000166311fa6954
-created_at_utc: 2026-10-12T14:26:00Z
+base_sha: 1c062af564e3d4d45093b1c369128cb4cf6d0575
 author: ChatGPT
 target_branch: main
 allow_commit: true
@@ -12,18 +11,15 @@ allow_flash: true
 allow_debug: true
 ---
 
-# M015-E — Décision technique FIFO / acquisition, tranche courte sans essai physique
+# M015-F — Faisabilité acquisition FIFO par bursts
 
-## Gouvernance et reprise
-Appliquer AGENTS.md, protocole V2-B3, gels V1, roadmap et état courant de main. Vérifier HEAD réel et rapport M015-D BLOCKED, lire les audits et traces M015-A à D, archiver mission et rapport D sans écrasement. Préserver worktrees, stashes, backups, firmware permanent M014-H, FRAM génération12 et microSD désactivée. Autorisations permanentes de commit, push, flash et debug confirmées (true) ; **cette tranche n'a pas besoin de flasher ni de debugger**. Ne pas demander de validations répétitives. Informer brièvement des tranches et résultats, sans interrompre le travail.
+Respecter AGENTS.md, gouvernance V2-B3, V1 gelée, état courant et roadmap. Vérifier main et rapport M015-E DONE ; archiver mission et rapport E. Préserver worktrees, stashes, firmware permanent M014-H, FRAM génération12 et microSD OFF. L'utilisateur dispose d'un multimètre, mais pas d'oscilloscope ; ne pas exiger d'instrument absent. Objectif : trouver une méthode fiable sans chercher à expliquer exhaustivement les échecs précédents. Aucune réduction silencieuse des exigences V1.
 
-## Objectif unique
-Fournir un arbitrage technique documenté, exploitable et peu coûteux en tokens sur la voie d'acquisition à retenir pour avancer vers M016, en séparant la recherche de cause du défaut SPI/FIFO de la faisabilité d'une acquisition réelle fiable. Aucune nouvelle campagne matérielle M015-A/B/C/D, aucun faux READY, aucune qualification physique présumée.
+1. Auditer brièvement le code et les documents ST pour définir un profil RAM borné : IIS3DWB FIFO, bursts de128 mots (897octets, limite SPI3 1024), SPI mode3 à2,5MHz candidat, débit et latence, tags, flags, CS, STOP_ON_WTM et risques. Préparer critères d'intégrité et conditions d'arrêt. Si les préconditions de sûreté ne sont pas réunies, ne pas tenter le matériel.
+2. Développer harness RAM réversible, test hôte ciblé et cross-build. Si preflight OK, UNE campagne physique courte maximum : lire FIFO_DATA_OUT en bursts, conserver octets et tags bruts, horodatages, niveaux et flags, mesurer débit et rejeter toute capture ambiguë. Ne pas traiter les lectures single CTRL2 fautives comme vérité ; vérifier configuration en burst, signaler cette limite. Ne pas prétendre qualifier un flux continu par un burst réussi.
+3. Flash/debug autorisés : UID/image vérifiés, sauvegarde et hashes Flash2Mio, flash NORMAL qualifié, jamais HOTPLUG CubeProgrammer, mass erase, Option Bytes ou RDP. Restaurer octet-identique M014-H et vérifier la reprise minimale HP B0/B1, GDB détaché pendant trafic. Aucune écriture FRAM ni SD, partition LBA65536 protégée. Arrêt sur risque ou incohérence.
+4. Publier traces, mesures, limites, état courant, roadmap et DERNIER_RAPPORT.md ; commit/push normaux et relecture distante. M015-F DONE seulement si la faisabilité RAM bornée est démontrée, sinon BLOCKED motivé. M015 globale IN PROGRESS.
 
-## Trois lots bornés
-1. **Diagnostic et instrumentation** : à partir des 468 transactions D, comparer commandes et réponses des lectures simples CTRL2 et burst pendant remplissage puis arrêt. Identifier les hypothèses encore compatibles avec les observations, le test wire-vers-RAM discriminant le plus court et ses critères de décision. Rédiger une fiche de mesure logique CS/SCK/MOSI/MISO : instrument nécessaire, niveaux 3,3V, points de raccordement à confirmer, masse de référence, fréquence/cadence et traces attendues. Ne pas présumer qu'un analyseur logique est disponible ni demander de câblage tant que la nécessité et la faisabilité ne sont pas établies.
-2. **Voie alternative** : auditer, sans développement matériel, les options de capture avec IIS3DWB et SPI3 réel : lecture directe non-FIFO prouvée en A, FIFO en bursts, fréquence SPI admissible d'après documentation et caractéristiques réelles, DMA/interruptions, contraintes de débit ODR26,667kHz, horodatage, pertes, mémoire et traitement. Faire les calculs chiffrés de bande passante et distinguer un démonstrateur vibratoire à cadence bornée d'une acquisition V1 complète. Ne pas modifier la spécification V1 ni déclarer un flux continu qualifié. Proposer une stratégie minimale qui ne masque pas le défaut.
-3. **Décision et publication** : livrer une note de décision concise avec tableau comparatif des options, risques, dépendances et critère d'arrêt ; proposer la prochaine tranche la plus efficace (mesure instrumentée, correctif démontré ou acquisition alternative) sans exécuter d'essai physique. Mettre à jour ETAT_COURANT et roadmap seulement avec des statuts factuels ; M015 reste IN PROGRESS. Publier DERNIER_RAPPORT.md et preuves d'analyse, commits/push normaux et relecture distante. Statut DONE pour M015-E si la décision et le protocole sont vérifiables, sans prétendre résoudre M015.
+Présenter les conséquences chiffrées de toute réduction éventuelle : ODR26667Hz, fenêtres4096..32768, continuité et stockage store-and-forward, bande fréquentielle, spectre, pertes, latence, mémoire et compatibilité V1. Ne modifier ni mapping, ni validator, ni spécifications gelées sans décision utilisateur.
 
-## Limites strictes
-Mission documentaire et analyse de code uniquement : pas de flash, debug cible, capture FIFO, modification firmware de production, test HP, écriture FRAM/SD, DMA implémenté, refactoring, FFT ou calibration. Ne pas répéter les tests inchangés. Aucun force push/reset destructif. Publier tôt pour limiter quota. Toute intervention physique future reste soumise à un protocole distinct ; les décisions techniques ordinaires sont déléguées à ChatGPT/Codex.
+Exclusions : recherche exhaustive de cause CTRL2, instrument externe supposé, DMA/production/flux continu, FFT, calibration, microSD, B5, Modbus vibration, Web, requalification des campagnes A-E. Limiter la dépense de quota et publier les acquis rapidement.
