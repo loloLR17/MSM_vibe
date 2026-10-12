@@ -1,6 +1,6 @@
 ---
 mission_id: TR2-20261012-M015-G-CONFIG-READBACK
-status: BLOCKED
+status: DONE
 base_ref: main
 base_sha: e11088772987a50ce729eb4ca1148d657b2cc673
 initial_head: fc60d98dd2d1dc64f377f613dbf6ce0ec65ff11a
@@ -16,7 +16,7 @@ allow_debug: true
 
 # M015-G — Premier refus localisé, M014-H restauré
 
-**Critère technique M015-G satisfait : refus reproduit et caractérisé. Statut provisoire BLOCKED uniquement jusqu’à relecture distante des résultats.** Le premier écart est **CTRL1_XL, adresse 0x10 : attendu 0xA8, reçu 0x50** en lecture simple. L’acquisition FIFO reste NON VALIDÉE ; M015 globale IN PROGRESS.
+**M015-G DONE : refus reproduit et caractérisé, résultats publiés et relus intégralement.** Le premier écart est **CTRL1_XL, adresse 0x10 : attendu 0xA8, reçu 0x50** en lecture simple. L’acquisition FIFO reste NON VALIDÉE ; M015 globale IN PROGRESS.
 
 ## Cause observable et limites
 
@@ -66,4 +66,4 @@ Prochain contrat conseillé : distinguer un échec de write d’un readback inco
 
 Preuves publiques : `preuves/TR2-20261012-M015-G/` (38 traces complètes de configuration, premier refus, analyses, logs CLI/GDB, journal HP entier, hashes, restaurations et validations). Bruts BIN/ELF/Flash/RAM originaux conservés dans **/home/lolo/dev/msm/reports/TR2-mission015-G-20261012T152038Z** ; logs/CSV/JSON publics normalisés seulement pour encodage/fins de ligne, manifest compare les hashes. Les buffers non acquis ne sont pas des mesures.
 
-Journal actualisé avec refus exact, restauration et limites ; roadmap M015 IN PROGRESS. Archives F exactes depuis e110887, mission active immuable. Worktree G isolé codex/m015-g ; original et sept worktrees antérieurs, deux stashes 6251b988/f3b829e6 préservés. Permissions commit/push main/flash standard/debug qualifiés exercées ; aucun merge/rebase/reset Git/forcepush ni configuration permanente. Push et relecture finale à consigner après publication ; SHA final et état Git seront fournis dans la réponse Codex. Contrôle indépendant ChatGPT attendu.
+Journal actualisé avec refus exact, restauration et limites ; roadmap M015 IN PROGRESS. Archives F exactes depuis e110887, mission active immuable. Worktree G isolé codex/m015-g ; original et sept worktrees antérieurs, deux stashes 6251b988/f3b829e6 préservés. Permissions commit/push main/flash standard/debug qualifiés exercées ; aucun merge/rebase/reset Git/forcepush ni configuration permanente. Push normal réussi au b3a3c428a9f2d35801f5601db1a38d58a120246a ; 50 livrables relus intégralement depuis la référence récupérée de GitHub et identiques octet par octet (`preuves/TR2-20261012-M015-G/publication-readback-b3a3c42.json`). Worktree G propre, huit worktrees antérieurs propres et HEAD inchangés, deux stashes intacts, archives F exactes et mission active inchangée. La présente clôture DONE sera contrôlée après son push ; son SHA final et l’état Git seront fournis dans la réponse Codex. Contrôle indépendant ChatGPT attendu.
