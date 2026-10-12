@@ -1,6 +1,6 @@
 # État courant TR2 — référence reconstruite
 
-Mise à jour : 12 octobre 2026. Mission `TR2-20261013-M015-P-COMPARATIVE-FIFO-ROOT-CAUSE`.
+Mise à jour : 13 octobre 2026. Mission `TR2-20261013-M015-P-COMPARATIVE-FIFO-ROOT-CAUSE`.
 
 **Ce document est un nouvel état de référence reconstruit à partir de preuves vérifiables. Il n'est pas une restitution du journal historique HP.** Sa création a été explicitement autorisée par l'utilisateur pour la mission `T1000-20261010-CLOTURE-001`, après escalade AGENTS.md §18. Aucun original n'a été retrouvé dans l'historique Git, les répertoires Linux locaux ou les documents Windows accessibles. Les archives d'échanges du 8 octobre mentionnent un journal local HP, sans en fournir le contenu. Aucun état historique inconnu n'est inventé.
 
@@ -10,6 +10,8 @@ Mise à jour : 12 octobre 2026. Mission `TR2-20261013-M015-P-COMPARATIVE-FIFO-RO
 - **VALIDÉ PHYSIQUE BORNÉ** : contrôle unique seconde NUCLEO, BIN byte-identique O niveau10/mode3, reçoit 263 XYZ distincts +33TS ; parité/discontinuités/saturation zéro sur cette capture, huit XYZ entre TS et pas24ticks. Pas preuve globale perte zéro, répétabilité ou fenêtres512/4096. Cleanup0, XLoff/bypass/TSoff, UID confirmé/faults0/detach ; seconde Flash laissée sur contrôle inactif.
 - **RAPPORTÉ UTILISATEUR / BLOCKED CAUSE** : nappe vérifiée, débranchée et rebranchée entre O/P. Association récupération/contexte établie, contact vs état initial/alimentation non discriminés. Variante duplex construite mais jamais flashée/exécutée : témoin positif, essai causal devenu non discriminant. Aucun nouvel essai. Erreur GDB sur symbole éliminé conservée ; données déjà sauvegardées, récupération finale lecture seule.
 - **PRÉSERVÉ / SUITE** : primaire/M014-H/FRAM/SD/Modbus non accédés ; archives O, worktrees et stashes conservés. Maintenir montage fonctionnel, prochaine mission répétabilité bornée/fenêtres avec gardes ; mesure indépendante si cause précise requise. M015 IN PROGRESS, V1/continu/FFT/stockage non qualifiés. Preuves `/home/lolo/dev/msm/reports/TR2-mission015-P-20261012T221333Z`.
+
+- **PUBLIÉ** : résultats `6546a1bf11ffd35fc2c06079f7da9769867d1973`, 59 fichiers intégralement relus depuis origin/main, byte-identiques ; statut BLOCKED pour cause précise maintenu.
 
 ## État opérationnel antérieur — M015-O, 12 octobre 2026
 

@@ -4,7 +4,7 @@ status: BLOCKED
 base_ref: main
 base_sha: c3e85afbd32f38f07687d2f12cf07a96fc2ed6ee
 initial_head: c14d3c60f4c42dc7eba2a1712633c656b18965a8
-result_sha: b79fe8d5ba495b14ec15379b111ccb4a948faabf
+result_sha: 6546a1bf11ffd35fc2c06079f7da9769867d1973
 author: Codex
 target_branch: main
 allow_commit: true
@@ -53,4 +53,4 @@ Journal et roadmap actualisés : acquis secondaires 263 XYZ, contexte utilisateu
 
 ## Publication
 
-Checkpoint logiciel `b79fe8d5ba495b14ec15379b111ccb4a948faabf` publié sur main et 26 fichiers relus intégralement, byte-identiques, avant matériel. Résultats finaux prêts à publier par push normal ; la preuve de relecture distante sera ajoutée après publication. Permissions commit/push/flash/debug exercées uniquement dans le périmètre du contrat.
+Checkpoint logiciel `b79fe8d5ba495b14ec15379b111ccb4a948faabf` publié sur main et 26 fichiers relus intégralement, byte-identiques, avant matériel. Résultats publiés par push normal au commit `6546a1bf11ffd35fc2c06079f7da9769867d1973` (« M015-P: preserve positive FIFO control and bounded root-cause findings ») ; les 59 fichiers modifiés ont été intégralement relus depuis origin/main et sont byte-identiques. Voir publication-readback.json. Worktree de mission propre après ce commit ; dépôt principal et stashes préservés. Le présent complément documentaire consigne cette vérification ; son SHA final est communiqué après sa propre relecture distante. Permissions commit/push/flash/debug exercées uniquement dans le périmètre du contrat.
