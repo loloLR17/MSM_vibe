@@ -619,6 +619,10 @@
     "bytes": 483,
     "sha256": "d1b3d8780e42efd5a3094088fbc800e9efb814dab8c7ededdedece4c2bb844e7"
   },
+  "publication-readback.json": {
+    "bytes": 16596,
+    "sha256": "09b839a462b185e70e968566a37ca34ba5faccdfa61865b68a9c680bf2a290b6"
+  },
   "word7-words.csv": {
     "bytes": 283,
     "sha256": "c8f93f9ec66f9c655a4fb991dc007f6727cb650ae4d39ee92db81406e9378d02"

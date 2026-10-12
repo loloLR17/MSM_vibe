@@ -14,168 +14,185 @@ allow_flash: true
 allow_debug: true
 ---
 
-# M015-N — harness corrigé, absence de batching XYZ discriminée mais non résolue
+# M015-N — harness corrigé, qualification FIFO XYZ bloquée
 
-**Référence complète512 et cleanup sûr désormais observés. Les trois expériences
-prévues n'obtiennent aucunXYZ :512timestamps en référence, FIFOvide sansbatching
-TS,512timestamps avecBDRprogramméaprèsXL,8timestamps en lectures7octets.**
-La cause précise de l'absenceXYZ reste inconnue :statut **BLOCKED** technique,
-aucune qualificationFIFOXYZ/continuité/V1. Campagne terminée aux critèresd'arrêt,
-aucun quatrième diagnostic ni extension512XYZ/4096XYZ fautepréconditionsvertes.
+**La référence atteint maintenant 512 entrées avec un cleanup conforme. Aucun
+XYZ n'est obtenu dans la référence ni dans les trois expériences diagnostiques
+autorisées.** La correction du journal et du cleanup est acquise ; la cause
+précise de l'absence de batching XYZ reste inconnue. Statut **BLOCKED** technique.
+Les conditions nécessaires aux extensions 512 XYZ et 4096 XYZ ne sont pas vertes :
+ces extensions n'ont pas été engagées. Aucun quatrième diagnostic, aucun replay.
 
-## A — Audit causal indépendant
+## Référence Git, autorisations et préservation
 
-AGENTS/contrat/protocole/journal lus depuisGit réel ;main distantddd292fb06aed40e06fe39dfc7ab6230344cdabe,
-baseM83f9cb8 conservée. WorktreeN isolé,originalmain82169af et anciensworktrees
-préservés. Archivesmission/rapportM exactes au83f9cb8,preuvesM nonaltérées.
-Reconstructionoctet paroctet de1024transactionsM :commande reconstruite depuis
-registre/sens,payload/offset/count ;deuxbursts896 identiques aux256wordsRAM.
-Analyseurindépendant confirme256tags4/timestamps,paritébonne,counter0,aucunXYZ.
-Pas erreurendian/classification/découpage7 identifiée ;les commandes reconstruites
-et observationsRAM ne sont pas une capturewire.
+HEAD initial : `ddd292f`, main réellement récupéré ; base du contrat :
+`83f9cb80bc292bd24dda878a8e99b85085f1d664`. Worktree isolé `codex/m015-n`,
+permissions commit/push vers main, flash/debug exercées dans le contrat M015-N.
+AGENTS.md, protocole V2 et journal consultés. Les mission/rapport M015-M sont
+archivés exactement depuis 83f9cb8 ; leurs preuves restent intactes.
 
-[Audit/matrice/budgets](../../../experiments/iis3dwb_st_reference/AUDIT_M015_N.md).
-SourcesvendorSTpinnéesetdatasheetofficiel[DS12569Rev8](https://www.st.com/resource/en/datasheet/iis3dwb.pdf)
-consultés :champsBDR_XL0A/XL_EN5 conformes,mode6/DEC8/TSON vérifiés parles
-readbacks requis. Gettersversionpinnée défectueux :niveau03F contrechamp10bits,
-BDRcase10 impossible danschamp4bits etpas0A. Aucunpatchvendor. Le commentaire
-exemple12.5Hz n'est pas l'argument26k7 réellement exécuté. AN5444 n'a pas pu
-être lue(timeoutoutil etdownload),aucune information de cette note inventée.
+Le dépôt principal main historique `82169af` et les worktrees précédents restent
+propres, avec leurs HEAD inchangés. Les deux stashes sont conservés et vérifiés.
+Aucun accès au TR2 principal, à M014-H, FRAM, microSD, HP, COM7 ou Modbus.
+Aucune modification de spécification gelée ni de source de production TR2.
 
-Hypothèsesavantflash :mauvaiseconfiguration,interactionbatchingTS/XL,ordreBDR,
-lecturemultiwords,captureaprèsFIFOplein,parser. Matriceprévoit la référence et
-exactementtroisdiag,no-ts→bdr-last→word7,sansmodificationsCPU/SPI/FS/ODR/BDR/mode
-simultanées. Tous lesréglages constructeur restentinchangésdansréférence ;
-no-ts etbdr-last sontdesvariantes déclarées, pasune démoSTstrictementidentique.
+## Audit causal avant matériel
 
-## B — Correction durable du harness et validations
+Les 1024 transactions M015-M ont été reconstruites depuis les traces et payloads.
+Les deux lectures de 896 octets reproduisent exactement les 256 mots RAM.
+Un analyseur indépendant confirme les tags timestamp, la parité et le découpage
+par sept octets ; aucune erreur d'offset, d'endianness ou de classification
+n'explique les 256 timestamps et zéro XYZ. Une commande reconstruite depuis
+registre/sens constitue une lecture des traces, pas une capture wire.
 
-- **Réserve cleanup démontrée** :acquisitionlimitée1012traces/65504octets/
-  2024snapshots ;cleanupdispose12traces/32octets/24snapshots,besoin9/9/18.
-  Refusdistincts1trace/2payload/4preclose,débordementobservateur séparé ;
-  aucun effacement ou recyclage depreuve pour fairepasser la suite.
-  Clock.cleanup_begin ouvrelebudgetréservéuniquementàl'entrée ducleanup.
-  SettersST XLoff/bypass/TSoff, puis3readbacks,échec explicite etpremièreerreur
-  acquisition conservés. Une pannephysiqueHAL peutencore empêcher lecleanup :
-  la garantie porte sur la saturationdujournal,pas surtoutdéfautmatériel.
-- **Polls bornés** :400max/500ms/delay1ms ;agrégatcompact6mots,count/ticks/min/max/
-  flagsOR,enplusdestracesbrutes. Calculréférence<=901traces,word7/8<=953,
-  <6KiBpayload et<=1906snapshots ;marge vérifiée, paslimite augmentéeauhasard.
-- **Transport** :O2HALSPI seul,CPU16MHz/SPI3mode0/PCLK3div8=2MHzcalculés,
-  timeouts20ms inchangés ;hookCloseTransfer etgardescomplets896 conservés.
-  SDKHALoriginal/vendorST byte-identiques, copieinstrumentée debuild explicitéeM.
-- **Tests réellement exécutés** :5/5CTest,diagnostic14scénarios+8budgets,
-  intégrationinitiale41scénarios puis43aprèsajoutdescascleanup/capacité ;
- 14testsPythonqualificateurindépendant,2instrumentationHAL,5outilsanciens.
-  Positifs/négatifs couvrenttagsmixtes,TSseuls,parité,SPI,compteurwrap/gap,
-  FIFOoverflow,tempswrap/recul,ratioTS/XYZ,partiel,troncature,cleanupimpossible.
-  WHO/pollingnonrégressésdanslesmocks ;pasrépétitionphysiquedeleursacquisL.
-- **Builds/statiques** :4cross-buildsARM réussis,référence/no-ts/bdr-last/word7 ;
-  GCC-fanalyzerciblébench.c sanswarning/erreur. AvertissementsNewlibusuelsde
-  linkageconservés. Validationproportionnéeauprojetautonome modifié,aucuncœurTR2
-  touché :pastr2_validate.sh/testrégressionproduction/.NET inutiles.
+[Audit, matrice d'hypothèses et budgets](../../../experiments/iis3dwb_st_reference/AUDIT_M015_N.md).
+Le [datasheet ST DS12569 Rev 8](https://www.st.com/resource/en/datasheet/iis3dwb.pdf)
+a été consulté : les champs BDR=0A, XL_EN=5, stream=6 et décimation timestamp=8
+correspondent aux réglages employés. Les deux getters de la version ST pinnée
+restent défectueux : masque de niveau 03F, et case 10 au lieu de 0A pour BDR.
+Le commentaire exemple «12.5Hz» diffère de son argument 26k7 effectivement utilisé.
+Aucun patch vendor : sources ST et SDK original vérifiés byte-identiques.
+AN5444 était inaccessible par timeout ; aucun contenu de cette note n'est cité.
 
-Checkpointlogiciel `64f55db78dfb5cfc1392939fd688691a6977b578`,message
-«M015-N: reserve cleanup budgets and qualify FIFO independently before hardware»,
-pushnormalmain puisfetch/relectureintégralede38fichiers identiques **avant**
-campagne. AucuneacquisitionMrejouéeàl'identique :nouveauharness sûr etnouveaucontrat.
+La matrice prévoyait une référence puis trois diagnostics : désactivation du
+batching timestamp, programmation tardive du BDR, lecture par mots de sept octets.
+Chaque diagnostic change un paramètre causal annoncé ; aucun changement de
+CPU/SPI/FS/ODR/BDR/mode simultané. Les variantes sont clairement distinguées
+de la référence ST. Le profil word7 limite aussi l'observation à huit entrées,
+sans changer la configuration du capteur ; il ne qualifie pas 512 lectures courtes.
 
-## C — Qualification physique progressive effectivement réalisée
+## Correction et validation logicielle
 
-SecondeNUCLEO-U575ZI-Qseulement,SN`0032001F3235510C37333439`,
-UID`001B00463842501820333157`,ID482/RevU,tensionCLI3,28V.
-Chaqueimage/SHA/ELF etUID relusavantflash,NORMALSWD/SNexplicit/freq8000,
-08000000/verify/readbackexact ;dernierCLI suiviresetGDB puisGDBseul.
-Bootready1/UIDexact/core16MHz/faults0,untriggerparprofil,détachépendantexécution.
-Lesquatresessionsdecapture et tousserveursGDB se terminentavecretour0.
-Câblage/VDD/GNDconfirmés antérieurementparutilisateur, pasnouvellemesureCodex
-ni manipulationhumaine requisedanscettecampagne. IdentitéprincipaleSN00350046…/
-UID004A003D…refusée ;aucunaccèsMCUprincipal.
+Le journal réserve **12 traces, 24 snapshots et 32 octets** au cleanup
+(besoin : 9 transactions, 18 snapshots et 9 octets). Acquisition limitée à
+1012 traces/2024 snapshots/65504 octets. Les refus de trace, payload et snapshot
+sont distincts du débordement de l'observateur ; aucune preuve n'est effacée.
+La garantie porte sur la saturation du journal, pas sur une panne matérielle HAL.
 
-| Profil unique | Paramètre causal | Résultat réel | Traces / polls | Cleanup |
+Les polls sont bornés à 400 et 500 ms, espacés de 1 ms. Un agrégat compact conserve
+nombre, chronologie, niveaux min/max et flags cumulés, en plus des bruts.
+Le calcul majorant donne 901 traces pour la référence et 953 pour word7/8,
+moins de 6 KiB de payload et au plus 1906 snapshots. Les buffers restent à
+1024 traces, 64 KiB et 2048 snapshots ; aucune augmentation arbitraire.
+
+Le cleanup conserve la première erreur, appelle les setters ST XL off/bypass/
+timestamp off puis exige trois readbacks. HAL SPI seul reste optimisé O2,
+CPU 16 MHz, SPI mode 0/2 MHz calculés et timeouts de 20 ms inchangés.
+L'observateur avant CloseTransfer et les critères de réception complète sont maintenus.
+
+Validations réellement exécutées :
+
+- 5/5 CTest : 14 scénarios diagnostic plus 8 cas de budgets ; intégration initiale
+  41 cas puis 43 après ajout des refus de capacité et d'échec de cleanup ;
+  14 tests Python d'analyse indépendante, 2 d'instrumentation et 5 d'outillage.
+- Positifs/négatifs : tags mixtes ou timestamp seul, parité, SPI, wrap/gap compteur,
+  overflow FIFO, wrap/recul temporel, ratio timestamp/XYZ, fenêtre partielle,
+  troncature et cleanup impossible. WHO/polling passent les mocks de régression.
+- Quatre cross-builds ARM et GCC `-fanalyzer` ciblé réussis. Avertissements Newlib
+  usuels conservés. Aucun test/build de production TR2 ou .NET inchangé rejoué.
+
+Cette validation est proportionnée au projet autonome modifié. Les tests hôte
+ne valent pas preuve physique. Les anciens WHO/polling physiques n'ont pas été répétés.
+Checkpoint logiciel `64f55db78dfb5cfc1392939fd688691a6977b578`, message
+«M015-N: reserve cleanup budgets and qualify FIFO independently before hardware» :
+push normal et relecture intégrale de 38 fichiers identiques **avant** les essais.
+Les quatre images physiques proviennent exactement de ce code.
+
+## Campagne physique consommée
+
+Seconde NUCLEO-U575ZI-Q uniquement : SN `0032001F3235510C37333439`,
+UID `001B00463842501820333157`, MCU482/RevU, tension CLI 3,28 V.
+Identité relue avant chaque flash ; SHA BIN/ELF vérifiés ; NORMAL/SWD/SN explicite,
+adresse 08000000, verify et readback byte-identique. Après le dernier CLI,
+reset GDB puis GDB seul. Boot ready=1/core16MHz/UID exact/faults=0 ;
+un trigger par image, detach pendant exécution. Tous GDB/serveurs se terminent à 0.
+Les contrôles WHO internes appartiennent à l'initialisation ST, pas à un essai WHO autonome.
+Le câblage et les tensions VDD/VDDIO restent des confirmations utilisateur antérieures.
+
+| Profil unique | Paramètre | Observation | Traces / polls | Cleanup |
 |---|---|---|---:|---|
-| Référence ST + STATUS10 |Réglagescapteur STidentiques |512TS/0XYZ,4×896complets ;firmwareresult0 |285/93 |0 ;0C/80/00 |
-| Diag1 no-ts |DEC_TS_BATCH2→0 uniquement,TSONreste1 |FIFO0 sur500lecturesstatut/500ms ;0entrée,result4TIMEOUTduharness |543/250 |0 ;0C/00/00 |
-| Diag2 bdr-last |SetterBDR déplacé aprèsXL/TSon, valeursfinalesidentiques |512TS/0XYZ,4×896complets,result0 |285/93 |0 ;0C/80/00 |
-| Diag3 word7 |Burst128→1 ;borneobservation8déclarée |8TS/0XYZ,8×7complets,result0 |257/51 |0 ;0C/80/00 |
+| Référence ST/STATUS10 | Configuration ST inchangée | 512 timestamps, 0 XYZ ; result0 | 285/93 | 0 ; 0C/80/00 |
+| no-ts | DEC_TS_BATCH 2→0 ; TSON reste 1 | FIFO vide pendant 500 ms ; result4 | 543/250 | 0 ; 0C/00/00 |
+| bdr-last | BDR programmé après XL/TSon ; mêmes valeurs finales | 512 timestamps, 0 XYZ ; result0 | 285/93 | 0 ; 0C/80/00 |
+| word7 | Burst128→1 ; borne d'observation8 | 8 timestamps, 0 XYZ ; result0 | 257/51 | 0 ; 0C/80/00 |
 
-AucunHALtimeout/OVR/error :toutestransactionsenregistréesvalides ;tousRXphase2
-ontRxRemaining0/offset=taille/CSbas/absenceOVR avantcleanup. Aucune saturation
-trace/payload/preclose,drapeauxrefus0. no-ts n'aaucunburstFIFO :sonTIMEOUT est
-celui del'attentefenêtre500ms, **pas** HAL_SPI_TIMEOUT. Cette issue étaitprévue,
-préservée puisanalysée avantpassage àl'expériencesuivanteautorisée.
-Config07..0A/CTRL1 :réf/bdr-last/word7 `00/01/0A/86/AC`,no-ts `00/01/0A/06/AC` ;
-CTRL10avantcleanup20 pourtous. Contrôlesavantdrain etaprèschaqueburst passent,
-STBDRgetter0télémétrie conservée,jamaisutiliséàlaplace duBDRbrut0A.
-word7changeaussi la borneobservation512→8pourlimiterle diagnostic ;ceparamètre
-nechange pas lesréglagescapteur et nepermetpas conclure sur512motslecturecourte.
+Toutes les transactions enregistrées sont valides, sans erreur HAL/SPI. Tous
+les snapshots RX ont restant=0, offset=taille et absence d'OVR avant nettoyage.
+Aucun refus de journal ni overflow. Le timeout no-ts est celui de l'attente de
+fenêtre de 500 ms, **pas un HAL_SPI_TIMEOUT** ; cette issue prévue a été conservée
+et analysée avant l'expérience suivante. La référence et bdr-last ont chacune
+quatre lectures896 complètes ; word7 a huit lectures7 complètes ; no-ts aucun drain.
 
-## Intégrité réellement démontrée et limites
+Readbacks requis avant et après chaque burst conformes : 07..0A/CTRL1 =
+00/01/0A/86/AC, sauf no-ts = 00/01/0A/06/AC ; CTRL10=20 avant cleanup.
+Getter BDR=0 conservé comme télémétrie, jamais substitué au registre brut 0A.
 
-Chaqueprofil :count×7populédeRAM reconstruitbyte-identiqueauxpayloadsSPI ;
-aucuneclassificationdeBSS. Référenceetbdr-last :512tags21h/type4,parité512/512,
-counters0,timestamps751→13015,511pasde24ticks. word7 :8tags21h/type4,
-parité8/8,counters0,timestamps751→919,7pas24ticks. Registrestemporels/datasheet
-permettentinterprétationnominale12,5µs/tick ;pas mesureindépendanteODR ouSCK.
-256TSM etnouveauxTS restent séparés ;aucunedonnéeXYZ fabriquéeenconvertissantTS.
+## Intégrité et limites
 
-Niveauxobservésmin/max :référence0..260,bdr-last0..261,word70..344,no-ts0..0.
-AucunflagFULL/OVR/latch danslesstatutscapturés ;lesvaleursSTLEVELtronquées
-restentvisibles,STATUS10identifié. Readbacksconfigaprèschaqueburstconformes,
-mais pasnouveaustatutFIFOaprèsledernierburstavantcleanup :nepas transformer
-leslecturesdiscrètes enpreuvecontinue d'absencepertes/overflow. Misebypass
-confirméeparreadback,inférenceFIFOvide selonmode ;pasmesureultérieure duniveau.
-Bursts896 :3,6324..3,6328ms ;7octets :48,125..48,375µs,paspreuveswire.
+Les `count×7` octets renseignés de RAM sont byte-identiques aux payloads capturés.
+Référence et bdr-last : 512 tags21h/type4, parité correcte, compteur0,
+timestamps751→13015 avec 511 pas de24 ticks. Word7 : huit tags21h/type4,
+timestamps751→919 avec sept pas24 ticks. Les zéros BSS ne sont pas des XYZ.
+L'interprétation nominale de 12,5 µs/tick n'est pas une mesure indépendante de l'ODR.
 
-L'analyseurindépendant rejettechaquefenêtrepour`no_XYZ` (no-tsaussiautresrefus).
-ZérodiscontinuitéXYZ est **vacuement** comptéavec0XYZ ;compteursTSconstants ne
-qualifientaucunecontinuité. `global_loss_zero_proven=false` etaucune fenêtreXYZ
-acceptée,quelquesoitlefirmwareresult0ouuneparitébonne. Extension512XYZ/4096
-**nonengagée**,préconditionXYZverteabsente ;pasvalidation32768/V1/FFT/production.
+Niveaux observés : référence0..260, bdr-last0..261, word7 0..344, no-ts toujours0.
+Aucun FULL/OVR/latch dans les statuts lus ; les lectures discrètes ne prouvent
+pas une absence globale de pertes. Aucun nouveau statut après le dernier burst
+avant cleanup : bypass est confirmé par readback, pas par une mesure ultérieure du niveau.
+Lectures896 : 3,6324..3,6328 ms ; lectures7 : 48,125..48,375 µs, observées via DWT.
 
-## Diagnostic final et prochaine expérience
+L'analyseur rejette toutes les fenêtres pour `no_XYZ`. Zéro discontinuité XYZ
+avec zéro XYZ est un compte vide, pas une preuve de continuité. Les compteurs
+constants timestamp ne démontrent pas zéro perte : `global_loss_zero_proven=false`.
+Aucune fenêtre XYZ acceptée, aucune qualification4096/32768/V1/FFT/production.
 
-**Établi** :le défautdecapacité/cleanupM estcorrigé ;letransport reçoitles
-longueurs complètes sansOVR ;le contenuTSne provientpasd'unerreur deparsing ;
-désactiverseulement leurbatching rendleFIFOvide. ProgrammerBDRaprèsactivationXL
-neproduitpasXYZ ;lecture7octetsn'enmontreaucun dansles8premièresentrées.
-**Déduction** :pisteprioritaire restante,cheminbatchingXL effectif ou étatcapteur/
-chaîned'écriture,malgréregistre09relu0A ;pascauseracinesilicon/HAL/câblageattribuée.
-Gettersdéfectueux sontconnus maisn'expliquentpas cecontenu reçu/parsé indépendamment.
+## Diagnostic et prochaine action
 
-Les troisexpériencesautorisées sontconsommées ;aucunflashsupplémentaireaveugle.
-Prochainepreuveàcontractualiser :observerindépendamment SCK/CS/MOSI/MISO et les
-écritures09/10/0A/19 puis lecturesFIFO,avec analyseurlogique3,3V identifié,
-ou prévoirunautretémoin matériel/transport àunseulfacteurexplicitementautorisé.
-Vérifier identité/révisionduMKI208 réel etjustifier toutpowercycle si étatcapteur
-résiduelhypothétisé ;gestesphysiquesrestentutilisateur. Aucun contrôlephysique
-redemandéiciau titre d'une hypothèse. ComparaisonTR2n'estpasexécutée tantque
-FIFOXYZsurce bancn'estpasqualifié ;M014-Hprincipalresteintouché.
+Le défaut de capacité/cleanup M015-M est corrigé et le transport long reçoit
+les tailles complètes. Le parsing n'explique pas les timestamps ; supprimer
+leur batching laisse le FIFO vide. Déplacer le setter BDR ne produit pas de XYZ ;
+la lecture courte n'en montre aucun dans les huit premières entrées.
 
-## État final, preuves et publication
+La piste restante prioritaire est le batching XL effectif ou l'état capteur/
+chaîne d'écriture, malgré BDR relu0A. **Aucune cause silicon, HAL, câblage ou
+module défectueux n'est attribuée sans preuve.** Les getters erronés ne suffisent
+pas à expliquer les payloads décodés indépendamment.
 
-La secondecarte restesurl'imageword7 endormieaprèstriggerconsommé,XLoff/FIFObypass/
-TSoff,CFSR/HFSR0,détachée ;aucunfirmwareinitial restauré ni backupFlash2MiB répété.
-Aucun masserase/OptionBytes/RDP/bootpersistent,aucunTR2principal/HP/COM7/RS485,
-aucunFRAM/microSD/Modbus. Worktrees/HEADshistoriquespropres etdeuxstashes
-vérifiésidentiques. ArchivesM immuables,preuve64f55db maintenue. Journal/roadmap
-actualisés avecfaits/réserves/prochaineétape,aucunespécificationgeléemodifiée.
+Les trois diagnostics autorisés sont consommés. Préparer un nouveau contrat
+pour une observation indépendante SCK/CS/MOSI/MISO des écritures09/10/0A/19 et
+lecturesFIFO avec un instrument3,3V identifié, ou un autre témoin contrôlé à un
+seul facteur. Vérifier la référence/révision matérielle et justifier un éventuel
+powercycle si cette hypothèse est retenue ; les gestes physiques restent à
+l'utilisateur. Aucun geste supplémentaire demandé ici. La comparaison vers
+le TR2 principal reste différée jusqu'à une voie FIFO XYZ qualifiée sur ce banc.
 
-[Preuvesbrutes/index](preuves/TR2-20261012-M015-N/README.md),
-originaux `/home/lolo/dev/msm/reports/TR2-mission015-N-20261012T210706Z` :commandes/SN/UID/ELF/BINhash,readbacks,logsGDB,
-result4040/Trace40/Preclose76octets little-endian,CSV,payload/words/imagehex,
-manifestes etanalyseurs. Les petiteserreursoutillage (curlabsent,timeoutdoc,
-quotagehelperPython corrigéavantconnexionMCU) n'ontdéclenchéaucuneacquisition
-supplémentaire ;aucuneerreurtest/build cachée. Sourcescodeévalué64f55db exactes.
+## État final et publication
 
-| Image | TailleBIN | SHA256BIN |
+La seconde NUCLEO reste sur word7, inactive après trigger consommé : XL off,
+FIFO bypass, timestamp off, CFSR/HFSR0, debugger détaché. Aucun backup Flash2MiB
+ni restauration initiale répétés, conformément à la règle du banc jetable.
+Aucun mass erase, Option Bytes, RDP ou changement de boot persistant.
+Journal et roadmap actualisés : résultats, blocage et prochaine preuve.
+
+[Preuves et index](preuves/TR2-20261012-M015-N/README.md), originaux
+`/home/lolo/dev/msm/reports/TR2-mission015-N-20261012T210706Z` : commandes,
+identités, hashes, images/readbacks hex, logs GDB, result4040/Trace40/Preclose76
+little-endian, bruts, CSV, analyseurs et manifestes. Petites erreurs d'outillage
+corrigées : curl absent, timeout documentaire, quotage du helper Python avant
+connexion MCU ; aucune acquisition supplémentaire ni erreur test/build cachée.
+
+| Image | Taille BIN | SHA256 BIN |
 |---|---:|---|
 | reference | 31392 | `df6e49076ea57d22e8c305e11fa7645900a1153fdecbf47d4f28df80003911ce` |
 | no-ts | 31392 | `62ef50677fb049461784c25d30a48e3d3514c525e9f2237e132a1a9ab9ddabb5` |
 | bdr-last | 31392 | `425090e8299102aa9b4c64b4e122a2f28eb463fa2191e04a0833c8b8b6d1a4fa` |
 | word7 | 31392 | `8ece594a3102d2c79be27fe3c06e5a20daf67ecce252fd613dc3c9e25d48a545` |
 
-Git :branchlocalecodex/m015-n,parentmainréelddd292f,pushnormauxHEAD:refs/heads/main,
-aucunmerge/rebase/reset/force. Preuvesetrapportfinalpréparés pourpublication ;
-relecturedistante àconsigner ensuite. BLOCKEDporte surFIFOXYZnonqualifié et
-causepréciseencoreindéterminée,pas surunevalidationintermédiaireattendue.
+Résultats publiés au `5f965411b5628f60669a529d2100b41df1b15598`, message
+«M015-N: publish bounded FIFO diagnosis and safe cleanup evidence» ; push normal
+vers `HEAD:refs/heads/main`, fetch puis **162 fichiers intégralement relus,
+byte-identiques**. La présente mise à jour consigne cette preuve distante et
+améliore la lisibilité du rapport ; son SHA final sera fourni après vérification.
+Worktree N propre après publication, original/main historique conservé.
+Aucun merge/rebase/reset/force. BLOCKED reste technique, pas attente de validation
+intermédiaire utilisateur ; la publication n'est pas une qualification FIFO XYZ.
