@@ -1,0 +1,22 @@
+{
+  "stage": 6,
+  "result": 1,
+  "cleanup_result": 0,
+  "count": 0,
+  "xyz_count": 0,
+  "timestamp_count": 0,
+  "who": 123,
+  "raw_level": 149,
+  "st_level": 0,
+  "flags": 0,
+  "status10": 0,
+  "st_batch": 0,
+  "controls_hex": "00010a867bac00440000000000e0",
+  "cleanup_controls_hex": "0c8000",
+  "trace_count": 45,
+  "payload_bytes": 972,
+  "preclose_count": 90,
+  "overflow": 0,
+  "reset_type": "GDB monitor reset MCU; ST example sensor software reset after trigger; no manual power cycle",
+  "bin_sha256": "d836824452672f61819c900330408ba8aab9122c241cde1e1bf2eacd6d1253b1"
+}

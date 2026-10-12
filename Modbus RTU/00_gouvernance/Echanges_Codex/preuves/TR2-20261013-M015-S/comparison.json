@@ -1,0 +1,65 @@
+{
+  "2MHz_historical": {
+    "status": "BLOCKED4096; qualified512Q",
+    "service_cycle_ms": 4.988434210526316,
+    "service_bytes_per_second": 179615.47896318062,
+    "nominal_required": 210000,
+    "payload_ms": 3.631625,
+    "source": "M015-Q physical + M015-R independent DWT, no repeat"
+  },
+  "4MHz": {
+    "status": "BLOCKED_SPI_IO",
+    "configured_CPU_Hz": 16000000,
+    "configured_SPI_divisor": 4,
+    "CFG1_values": [
+      "0x10070007"
+    ],
+    "payload_attempt_ms": 19.82025,
+    "first_refusal_trace": 32,
+    "snapshot": {
+      "trace_index": 32,
+      "phase": 2,
+      "begin_cycles": 91263981,
+      "end_cycles": 91581105,
+      "tick": 5724,
+      "requested": 896,
+      "state": 4,
+      "sr": 4170,
+      "cr1": 4097,
+      "cr2": 896,
+      "cfg1": 268894215,
+      "cfg2": 2269380608,
+      "error_before_close": 0,
+      "rx_size": 896,
+      "rx_remaining": 833,
+      "tx_remaining": 0,
+      "rx_offset": 63,
+      "cs": 0,
+      "offset_valid": 1,
+      "duration_us": 19820.25
+    },
+    "accepted_XYZ": 0,
+    "received_partial_RX_bytes": 63,
+    "remaining_bytes": 833,
+    "parity_and_TAG_CNT_validation": "NOT_VERIFIED; no admitted samples",
+    "completed_segment_cycle_and_margin": null,
+    "preburst_FIFO_level": 149,
+    "preburst_FIFO_flags": 0,
+    "postfailure_FIFO_status": "NOT_OBSERVED; no no-overflow claim",
+    "trace_count": 45,
+    "preclose_count": 90,
+    "payload_log_bytes": 972,
+    "logging_overflow": 0,
+    "cleanup_controls": "0c8000",
+    "faults": 0,
+    "trial_count": 1
+  },
+  "8MHz": {
+    "status": "NON_TESTE",
+    "image_built": true,
+    "flash": false,
+    "trigger": false,
+    "reason": "STOP after critical SPI overrun4MHz"
+  },
+  "recommendation": "No qualifying frequency in2/4/8 with this harness. Preserve512Q; improve RX service under separate contract before future4096, keep all guards."
+}

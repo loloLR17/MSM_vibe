@@ -1,0 +1,6 @@
+{
+  "operation": "Offline Q analyzer adaptation after spi4MHz capture",
+  "initial_exit": 1,
+  "cause": "Original concatenation included rejected incomplete FIFO trace but admitted RAM count was zero. Assertion retained failure; adaptation separates valid reconstruction and rejected raw buffer. No additional hardware operation.",
+  "preserved_error": "AssertionError: reconstructed FIFO bytes != official_words; initial raw requested896 versus admitted0"
+}

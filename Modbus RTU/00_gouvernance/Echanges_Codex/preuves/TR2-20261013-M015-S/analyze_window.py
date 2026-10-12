@@ -9,7 +9,9 @@ tkeys=['tick','reg','len','write','status','error','rx_left','tx_left','offset',
 tr=(P/(name+'-traces.bin')).read_bytes();ps=(P/(name+'-preclose.bin')).read_bytes();payload=(P/(name+'-payload.bin')).read_bytes();assert len(tr)%40==0 and len(ps)%76==0
 traces=[dict(zip(tkeys,struct.unpack('<10I',tr[x:x+40]))) for x in range(0,len(tr),40)];pre=[dict(zip(pkeys,struct.unpack('<19I',ps[x:x+76]))) for x in range(0,len(ps),76)]
 for x in pre:x['duration_us']=((x['end_cycles']-x['begin_cycles'])&0xFFFFFFFF)/16
-words=b''.join(payload[t['offset']:t['offset']+t['len']] for t in traces if t['reg']==120 and not t['write'])
+words=b''.join(payload[t['offset']:t['offset']+t['len']] for t in traces if t['reg']==120 and not t['write'] and t['valid'])
+rejected=b''.join(payload[t['offset']:t['offset']+t['len']] for t in traces if t['reg']==120 and not t['write'] and not t['valid'])
+if rejected:(P/(name+'-rejected-fifo-payload.bin')).write_bytes(rejected)
 assert words==(P/(name+'-official-words.bin')).read_bytes()
 statuses=[payload[t['offset']+1] for t in traces if t['reg']==58 and t['len']==2 and not t['write']]
 config_ok=all(raw[48+x]==v for x,v in enumerate(bytes.fromhex('00010a867bac0044000000000000')) if x not in (6,13)) and int.from_bytes((P/(name+'-ctrl10.bin')).read_bytes(),'little')==32 and a['cleanup_controls_hex']=='0c8000'

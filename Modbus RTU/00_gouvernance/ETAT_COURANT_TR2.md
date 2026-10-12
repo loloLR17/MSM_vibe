@@ -1,10 +1,17 @@
 # État courant TR2 — référence reconstruite
 
-Mise à jour : 13 octobre 2026. Mission `TR2-20261013-M015-R-FIFO-DEBIT`.
+Mise à jour : 13 octobre 2026. Mission `TR2-20261013-M015-S-SPI-FREQUENCY-SWEEP`.
 
 **Ce document est un nouvel état de référence reconstruit à partir de preuves vérifiables. Il n'est pas une restitution du journal historique HP.** Sa création a été explicitement autorisée par l'utilisateur pour la mission `T1000-20261010-CLOTURE-001`, après escalade AGENTS.md §18. Aucun original n'a été retrouvé dans l'historique Git, les répertoires Linux locaux ou les documents Windows accessibles. Les archives d'échanges du 8 octobre mentionnent un journal local HP, sans en fournir le contenu. Aucun état historique inconnu n'est inventé.
 
-## État opérationnel actuel — M015-R, 13 octobre 2026
+## État opérationnel actuel — M015-S, 13 octobre 2026
+
+- **VALIDÉ LOGICIEL / LIMITES** : diviseurSPI3seulparamètre8/4/2,CPU16/mode3/ODR/vendor/parser/guards/instrumentationQinchangés.3ARM passent et div16 refusé ;BIN2identiqueQ,aucunretest2/512. Capteurmax10MHzdocumenté,signalintégriténonmesurée ;codef7abff2publié/32fichiersrelusavantcible.
+- **BLOCKED4 / STOP8** : uniqueessai4096 à4MHz,trace32HAL_TIMEOUT/error104OVR+timeout ;snapshotSR104A,63/896octetsconsommés,833restants,0XYZadmis. BufferdemandéconservéREJETÉ,aucunsegmentcomplet/margevalide ;niveau149/flags0seulementavantburst.8MHzconstruitjamaisflashé/exécuté,arrêtcritique conformecontrat. Premièreassertionoffline896rejetécontre0admis corrigée/sauvegardée,sansnouveaumateriel.
+- **CLEANUP / PRÉSERVÉ** :cleanup0/0C8000/faults0/UIDsecond/detach ;secondeimage4inactive,pasrestauration2MiB. Primaire/M014-H/FRAM/SD/Modbus/HPintouchésmatériellement,archivesRexactes/worktrees/stashespréservés.512Q/répétabilitéconservés,M015INPROGRESS/4096BLOCKED ;prochaincontratserviceRXSPI3 à4MHz, pas8avantcorrection/guards.
+- **AUDIT FRAM SOURCES** :SPI1/PA5-7/CS PD14,2,5MHzhistoriquementqualifiés ;IIS3DWBSPI3/PC9-12 distinct. AucunbesoinFRAMimposépardiviseurSPI3seul,maisintégrationprimaireàqualifierséparément. MaxMB85RS2MTA33/40MHzselonVDDdocumenté nequalifiepasassemblageTR2. Rapport/matricefinauxàpublier/relire, BLOCKEDmaintenu.
+
+## État opérationnel antérieur — M015-R, 13 octobre 2026
 
 - **VALIDÉ ANALYSE HORS LIGNE** : débit nominal requis210ko/s avecTS/8 ; limite SPI2MHz≈249,7ko/s avec commandes. Cycle Q exact DWT4,988ms :payload3,632 +commande0,020 +statuts0,099 +config0,182 +résidu1,056. Budget4,267ms, excès0,722ms ; service179,6ko/s, déficit confirmé par FIFO148→507 puisoverflow. Parsing/copie/fermeture non isolés, pas de causeCPU présumée.
 - **DÉCISION / NON EXÉCUTÉ** : A suffit, zéro acquisition/flash/debug/reset R. CPU etSPI couplésPCLK3/div8 ; prochaincontrat éventuellementSPI÷4 àCPU16, ouprofilage distinct du résidu, guardsinchangés. Scénario4MHz NONQUALIFIÉ. EstimationsODR timestamps/bilanFIFO noncalibrées, INTERNAL_FREQ_FINE absent.

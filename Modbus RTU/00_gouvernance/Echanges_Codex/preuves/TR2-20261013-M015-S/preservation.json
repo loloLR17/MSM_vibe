@@ -1,0 +1,10 @@
+{
+  "historical_worktrees_HEADs_and_clean_status_preserved": true,
+  "stashes_unchanged": true,
+  "primary_hardware_access": "NONE",
+  "FRAM_inspection": "source/docs read only, no hardware",
+  "SD_Modbus_HP_access": "NONE",
+  "secondary_final": "spi4MHz inactive after verified cleanup, UID correct/faults0/detach",
+  "eight_MHz_not_programmed": true,
+  "physical_manipulations": 0
+}

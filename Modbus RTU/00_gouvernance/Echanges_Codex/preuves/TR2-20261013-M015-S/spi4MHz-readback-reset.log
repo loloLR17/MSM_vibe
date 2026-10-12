@@ -1,0 +1,6 @@
+0x08006488 in main () at /home/lolo/dev/msm/projects/MSM_vibe-M015-S/experiments/iis3dwb_st_reference/official/main.c:10
+10	  while(bench_command!=0x4D31354BU)__WFI();
+0xbfa0700:	0x001b0046	0x38425018	0x20333157
+0xe0044000:	0x30076482
+STM32 Successfully completed reset operation (System reset)
+[Inferior 1 (Remote target) detached]

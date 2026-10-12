@@ -6,6 +6,10 @@
 
 > Cette roadmap pilote les jalons, sans modifier les spécifications Modbus RTU V1 gelées. Les statuts sont ceux du 11 octobre 2026, à actualiser après contrôle indépendant des rapports Codex. Une implémentation logicielle ne vaut pas qualification physique.
 
+## Actualisation M015-S — 13 octobre 2026
+
+SPI4MHz/CPU16 : unique capture4096 refusée au premier burst, HAL_OVR/TIMEOUT,63octets RXconsommés/896demandés ;0XYZadmis etcleanup réussi.8MHzNONTESTÉ aprèsarrêtcritique ;2MHzhistorique/512Qpréservés. M015INPROGRESS/4096BLOCKED,aucunefréquencevalidée4096. ProchaincontratserviceRXSPI3 plutôtquehaussefréquence ;guardsconservés. AuditFRAMsource :SPI1 distinctcapteurSPI3,aucunemodificationFRAMouprimaire. Rapport etpreuvesS portentleslimites etmatrice.
+
 ## Actualisation M015-R — 13 octobre 2026
 
 Diagnostic documentaire du débit achevé sans nouvelle acquisition : budget nominal210ko/s et4,267ms/segment ; SPI2MHz a une marge théorique, mais cycle complet Q4,988ms/service179,6ko/s. Résidu copie/parsing/fermetures non isolé, pas causeCPU établie. Prochain choix : un facteurSPI indépendant (diviseur à CPU inchangé) ou profilage du résidu, avec guards conservés sous contrat.512XYZ et répétabilité conservés,4096 resteBLOCKED ; M015 IN PROGRESS. Aucun firmware/flash/debug/média/Modbus modifié.

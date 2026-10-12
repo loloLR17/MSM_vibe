@@ -1,0 +1,15 @@
+{
+  "first_frequency_MHz": 4,
+  "first_refusal_trace": 32,
+  "HAL_status": 3,
+  "HAL_error_hex": "0x104",
+  "SPI_SR_at_preclose": "0x104A",
+  "requested_RX_bytes": 896,
+  "received_by_offset": 63,
+  "remaining": 833,
+  "new_acquisitions": 1,
+  "eight_MHz": "NOT_FLASHED_NOT_EXECUTED",
+  "reason": "Critical STM32 SPI receive overrun/timeout, not clean sensor FIFO lack of throughput. Mission requires immediate STOP.",
+  "cleanup": "verified 0C8000",
+  "additional_hardware_operations_after_refusal": 0
+}
