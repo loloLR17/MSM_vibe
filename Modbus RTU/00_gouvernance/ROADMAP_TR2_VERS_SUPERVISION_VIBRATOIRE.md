@@ -193,3 +193,12 @@ pas qualificationV1/4096/production ni résolution présumée des anomaliesTR2.
 La Flash secondaire est jetable sans backup/restaurationinitiale répétés ;
 identité/image/verify/readback maintenus, règle jamais applicable au principal.
 M014-H et preuves historiques préservés ; DERNIER_RAPPORT porte les détails.
+
+## Point M015-N — 12 octobre 2026
+
+Réservecleanup etpolls bornés corrigés,testés etobservés :référence512 complète
+maisuniquementtimestamps. Troisdiagnosticsautorisés :sansbatchTSFIFOvide,BDR
+aprèsXLtoujours512TS,lecture7octetshuitTS ;zéroXYZ,touscleanupconformes.
+FIFOXYZ resteBLOCKED,causeprécise nonattribuée malgréreadbacksBDR0A/XLAC.
+Extensions512XYZ/4096nonengagées fautepréconditions ;préparerpreuveindépendante
+wire/étatcapteur sousnouveaucontrat,aucunTR2principal/M014/média touché.

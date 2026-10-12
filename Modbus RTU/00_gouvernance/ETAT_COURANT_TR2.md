@@ -4,10 +4,11 @@ Mise à jour : 12 octobre 2026. Mission `TR2-20261012-M015-N-ST-FIFO-XYZ-QUALIFI
 
 **Ce document est un nouvel état de référence reconstruit à partir de preuves vérifiables. Il n'est pas une restitution du journal historique HP.** Sa création a été explicitement autorisée par l'utilisateur pour la mission `T1000-20261010-CLOTURE-001`, après escalade AGENTS.md §18. Aucun original n'a été retrouvé dans l'historique Git, les répertoires Linux locaux ou les documents Windows accessibles. Les archives d'échanges du 8 octobre mentionnent un journal local HP, sans en fournir le contenu. Aucun état historique inconnu n'est inventé.
 
-## État opérationnel actuel — M015-N, checkpoint logiciel
+## État opérationnel actuel — M015-N, 12 octobre 2026
 
-- **VALIDÉ logiciel/audit** : reconstructionM byte-identique et parseurindépendant confirment256TS/0XYZ,configdatasheetconforme ;vendorinchangé. Réservecleanup12traces/24snapshots/32octets,400polls/500ms/1ms,agrégat etrefusdistincts.5CTest,43scénariosintégration renforcés,14Pythonqualification,4buildsARM,GCCfanalyzer réussis.
-- **PRÉPARÉ / NON VÉRIFIÉ** : référenceST512 puisno-ts/bdr-last/word7 si seuleabsenceXYZ connue etcleanupvert ;STOPanomalienouvelle. AucunaccèscibleN encore,aucunacquisMrejoué. ArchivesMexactes,primaire/M014/médias/stashes/worktrees préservés. Preuves `/home/lolo/dev/msm/reports/TR2-mission015-N-20261012T210706Z`.
+- **VALIDÉ harness/transport borné** :réservecleanup12traces/24snapshots/32octets,400polls/500ms/1ms,agrégat etrefusdistincts ;5CTest/43scénariosintégration/14Pythonqualification/4ARM/GCCfanalyzer réussis. Checkpoint64f55db publié/38fichiersrelusavantmatériel ;vendorSDKinchangés,WHOpollingmocknonrégressés/acquisphysiquesLnonrejoués.
+- **OBSERVÉ / BLOCKED XYZ** :référenceST512TS/0XYZ(285traces),no-tsFIFOvide500ms(543traces),bdr-last512TS/0XYZ(285),word7huitTS/0XYZ(257). ToutesHALcomplètes/erreurs0,cleanup0/readbacksXLoff/bypass/TSoff,aucunsaturationjournal. Brutsreconstruits,paritébonne/pasTS24ticks,aucunXYZ ;compteursconstants nequalifientpasperteszéro. Troisdiagnosticsconsommés,512XYZ/4096NONENGAGÉS ;causebatchingXL/étatcapteur/écrituresàdiscriminer indépendamment,mêmesvaleursBDR0A/XLACreluesconformes.
+- **PRÉSERVÉ / SUITE** :secondeSN0032001F…/UID001B0046…vérifiésavant4flashs/verify/readbacks exacts,word7inactiflaissérunning/capteurau repos,faults0 ;aucunbackupFlash2MiB/restaurationsecondaire. TR2principal/M014-H/FRAM/SD/Modbus jamaisaccédés ;stashes/worktrees/archivesMpréservés. Prochainepreuvewireouautretémoin sousnouveaucontrat,aucunessairépété. Preuves `/home/lolo/dev/msm/reports/TR2-mission015-N-20261012T210706Z`,rapport/preuves enpublicationfinale.
 
 ## État opérationnel antérieur — M015-M, 12 octobre 2026
 

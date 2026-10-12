@@ -1,0 +1,10 @@
+{
+  "historical_worktrees_and_stashes": "UNCHANGED",
+  "vendor": "BYTE_IDENTICAL",
+  "primary_access": "NONE",
+  "full_secondary_flash_backup_restore": "NONE",
+  "four_image_readbacks": "EXACT",
+  "all_GDB_server_exit_codes": 0,
+  "final_sensor": "XLoff/FIFObypass/TSoff",
+  "final_image": "word7/inactive"
+}

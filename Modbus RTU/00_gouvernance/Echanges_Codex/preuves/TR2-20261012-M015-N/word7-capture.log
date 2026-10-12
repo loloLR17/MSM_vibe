@@ -1,0 +1,16 @@
+0x08000a34 in main () at /home/lolo/dev/msm/projects/MSM_vibe-M015-N/experiments/iis3dwb_st_reference/src/main.c:14
+14	  for(;;)__WFI();
+$1 = {stage = 6, result = 0, cleanup_result = 0, count = 8, xyz_count = 0, timestamp_count = 8, who = 123, raw_level = 344, st_level = 24, flags = 129, status10 = 1, st_batch = 0, controls = "\000\001\n†{¬\000D\000\000\000\000\000â", words = {{tag = 33 '!', data = "ï\002\000\000\000\n"}, {tag = 33 '!', data = "\a\003\000\000\000\n"}, {tag = 33 '!', data = "\037\003\000\000\000\n"}, {tag = 33 '!', data = "7\003\000\000\000\n"}, {tag = 33 '!', data = "O\003\000\000\000\n"}, {tag = 33 '!', data = "g\003\000\000\000\n"}, {tag = 33 '!', data = "\177\003\000\000\000\n"}, {tag = 33 '!', data = "—\003\000\000\000\n"}, {tag = 0 '\000', data = "\000\000\000\000\000"} <repeats 504 times>}, xyz = {{0, 0, 0} <repeats 64 times>}, temperature = 0, polls = 51, cleanup_controls = "\f\200"}
+$2 = 257
+$3 = 515
+$4 = 514
+$5 = 0
+$6 = 4040
+$7 = 40
+$8 = 76
+$9 = {1769542, 943869976, 540225879}
+$10 = 16000000
+0xe000ed28:	0x00000000	0x00000000
+0x42020800:	0xfea7ffff	0x00000000	0x02a00000	0x00000000
+0x42020810:	0x00000200	0x00000200
+[Inferior 1 (Remote target) detached]

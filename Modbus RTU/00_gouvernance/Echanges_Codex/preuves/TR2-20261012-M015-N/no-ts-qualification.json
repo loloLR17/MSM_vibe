@@ -1,0 +1,26 @@
+{
+  "entries": 0,
+  "xyz_count": 0,
+  "timestamp_count": 0,
+  "parity_errors": 0,
+  "counter_discontinuities": 0,
+  "timestamp_deltas": [],
+  "XYZ_between_timestamps": [],
+  "xyz_distinct": 0,
+  "saturated_components": 0,
+  "reasons": [
+    "partial_window",
+    "firmware_refusal",
+    "no_XYZ"
+  ],
+  "bounded_acceptance": false,
+  "global_loss_zero_proven": false,
+  "level_count": 500,
+  "level_min": 0,
+  "level_max": 0,
+  "payload_words_identical": true,
+  "source_sha": "64f55db78dfb5cfc1392939fd688691a6977b578",
+  "timestamp_first": null,
+  "timestamp_last": null,
+  "timestamp_delta_values": []
+}

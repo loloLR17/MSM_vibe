@@ -60,3 +60,11 @@ XLoff/bypass/TSoff ;readbacks exigés. Une panneHAL réelle resteunrefuscleanup,
 jamaisune réussiteinventée. ImagecleanupM qualifiée resteprocéduredesecours.
 Agrégat6mots des polls (count/ticks/min/max/flagsOR) conservé en plus desbruts ;
 aucune troncature silencieuse. Capacité ne prouve pas budgetCPU/absenceperte.
+
+## Résultats de la matrice
+
+Référence512TS, no-tsFIFOvide500ms, bdr-last512TS, word7huitTS ;touscleanup0
+etHALsans erreur. RefusXYZ indépendant maintenu. Hypothèsesparser et simple
+longueur896/ordresetterBDR n'expliquentpas lesobservations ;batchingXL effectif
+ouétatcapteur/écritures resteàdiscriminer indépendamment, sansattribuerundéfaut
+aupilote/silicon sanspreuve. Toutesexpériencesconsommées ;aucuneextension4096.

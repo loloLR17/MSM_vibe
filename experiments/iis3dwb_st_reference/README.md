@@ -1,3 +1,13 @@
+## État courant M015-N
+
+Harness sûr : réservecleanup12traces/24snapshots/32octets,400polls/500ms,
+agrégatcompact et indicateursrefusdistincts ;analyseurindépendantqualify_fifo.py.
+Référence512timestamps/0XYZ ;no-tsFIFOvide ;bdr-last512timestamps ;word7huitTS.
+Touscleanupconformes,HALLecturescomplètes ;FIFOXYZ BLOCKED,pasvalidationV1.
+Quatreimagesphysiques aucode64f55db,pasderejeu ;secondeFlashjetable,firmwareword7
+inactiflaissérunning,capteurXLoff/bypass/TSoff. VoirAUDIT_M015_N etrapportfinal.
+AncienstextesK/L/M ci-dessous historiques,sourcesvendorST inchangées.
+
 ## Résultat physique M015-M
 
 Deux bursts896 complets en O2, correction limitée du transport démontrée.

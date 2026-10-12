@@ -1,0 +1,129 @@
+[
+  {
+    "profile": "reference",
+    "firmware_result": 0,
+    "cleanup": 0,
+    "entries": 512,
+    "xyz": 0,
+    "timestamps": 512,
+    "parity_errors": 0,
+    "counter_errors": 0,
+    "traces": 285,
+    "polls": 93,
+    "refused": 0,
+    "overflow": 0,
+    "level_min": 0,
+    "level_max": 260,
+    "timestamp_first": 751,
+    "timestamp_last": 13015,
+    "timestamp_steps": [
+      24
+    ],
+    "fifo_read_us": [
+      3632.375,
+      3632.375,
+      3632.8125,
+      3632.5
+    ],
+    "config_hex": "00010a867bac00440000000000e2",
+    "cleanup_controls": "0c8000",
+    "qualification": [
+      "no_XYZ"
+    ]
+  },
+  {
+    "profile": "no-ts",
+    "firmware_result": 4,
+    "cleanup": 0,
+    "entries": 0,
+    "xyz": 0,
+    "timestamps": 0,
+    "parity_errors": 0,
+    "counter_errors": 0,
+    "traces": 543,
+    "polls": 250,
+    "refused": 0,
+    "overflow": 0,
+    "level_min": 0,
+    "level_max": 0,
+    "timestamp_first": null,
+    "timestamp_last": null,
+    "timestamp_steps": [],
+    "fifo_read_us": [],
+    "config_hex": "00010a067bac00440000000000e2",
+    "cleanup_controls": "0c0000",
+    "qualification": [
+      "partial_window",
+      "firmware_refusal",
+      "no_XYZ"
+    ]
+  },
+  {
+    "profile": "bdr-last",
+    "firmware_result": 0,
+    "cleanup": 0,
+    "entries": 512,
+    "xyz": 0,
+    "timestamps": 512,
+    "parity_errors": 0,
+    "counter_errors": 0,
+    "traces": 285,
+    "polls": 93,
+    "refused": 0,
+    "overflow": 0,
+    "level_min": 0,
+    "level_max": 261,
+    "timestamp_first": 751,
+    "timestamp_last": 13015,
+    "timestamp_steps": [
+      24
+    ],
+    "fifo_read_us": [
+      3632.4375,
+      3632.5,
+      3632.5,
+      3632.5
+    ],
+    "config_hex": "00010a867bac00440000000000e2",
+    "cleanup_controls": "0c8000",
+    "qualification": [
+      "no_XYZ"
+    ]
+  },
+  {
+    "profile": "word7",
+    "firmware_result": 0,
+    "cleanup": 0,
+    "entries": 8,
+    "xyz": 0,
+    "timestamps": 8,
+    "parity_errors": 0,
+    "counter_errors": 0,
+    "traces": 257,
+    "polls": 51,
+    "refused": 0,
+    "overflow": 0,
+    "level_min": 0,
+    "level_max": 344,
+    "timestamp_first": 751,
+    "timestamp_last": 919,
+    "timestamp_steps": [
+      24
+    ],
+    "fifo_read_us": [
+      48.1875,
+      48.375,
+      48.3125,
+      48.125,
+      48.1875,
+      48.375,
+      48.3125,
+      48.125
+    ],
+    "config_hex": "00010a867bac00440000000000e2",
+    "cleanup_controls": "0c8000",
+    "qualification": [
+      "no_XYZ"
+    ]
+  }
+]
