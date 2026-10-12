@@ -1,0 +1,25 @@
+Internal ctest changing into directory: /home/lolo/dev/msm/reports/TR2-mission015-N-20261012T210706Z/host
+UpdateCTestConfiguration  from :/home/lolo/dev/msm/reports/TR2-mission015-N-20261012T210706Z/host/DartConfiguration.tcl
+UpdateCTestConfiguration  from :/home/lolo/dev/msm/reports/TR2-mission015-N-20261012T210706Z/host/DartConfiguration.tcl
+Test project /home/lolo/dev/msm/reports/TR2-mission015-N-20261012T210706Z/host
+Constructing a list of tests
+Done constructing a list of tests
+Updating test list for fixtures
+Added 0 tests to meet fixture requirements
+Checking test dependency graph...
+Checking test dependency graph end
+test 2
+    Start 2: official_driver_and_bounded_examples
+
+2: Test command: /home/lolo/dev/msm/reports/TR2-mission015-N-20261012T210706Z/host/test_reference
+2: Working Directory: /home/lolo/dev/msm/reports/TR2-mission015-N-20261012T210706Z/host
+2: Test timeout computed to be: 10000000
+2: 43 scenarios passed: WHO, official driver, polling/FIFO, two upstream defects, failures and bounds
+1/1 Test #2: official_driver_and_bounded_examples ...   Passed    0.00 sec
+
+The following tests passed:
+	official_driver_and_bounded_examples
+
+100% tests passed, 0 tests failed out of 1
+
+Total Test time (real) =   0.00 sec

@@ -11,3 +11,13 @@ int bench_rx_complete(const BenchPreclose *r, uint32_t trace_index, uint32_t req
     r->requested==requested && r->rx_size==requested && !r->rx_remaining &&
     r->offset_valid && r->rx_offset==requested && !r->cs && !r->error_before_close;
 }
+uint32_t bench_log_refusal(uint32_t traces, uint32_t bytes, uint32_t snapshots,
+                          uint32_t requested, uint32_t cleanup)
+{
+  uint32_t limit_t=cleanup?1024U:1012U;
+  uint32_t limit_b=cleanup?65536U:65504U;
+  uint32_t limit_s=cleanup?2048U:2024U;
+  return (traces>=limit_t?1U:0U) |
+    (bytes>limit_b || requested>limit_b-bytes?2U:0U) |
+    (snapshots>limit_s || limit_s-snapshots<2U?4U:0U);
+}

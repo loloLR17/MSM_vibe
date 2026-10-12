@@ -1,5 +1,6 @@
 #include "platform.h"
 #include <string.h>
+_Static_assert(TRACE_RECORDS==1024U && TRACE_BYTES==65536U && PRECLOSE_RECORDS==2048U,"Budget policy mismatch");
 static SPI_HandleTypeDef spi;
 BenchTrace bench_trace[TRACE_RECORDS];
 uint8_t bench_payload[TRACE_BYTES];
@@ -26,12 +27,18 @@ void bench_spi_preclose(SPI_HandleTypeDef *handle)
                               active_length,&r->offset_valid);
   r->cs=(GPIOC->ODR&GPIO_PIN_9)?1:0;
 }
+volatile uint32_t bench_cleanup_mode,bench_log_refused;
+/* Aggregate for repetitive level reads; raw observations remain reconstructible. */
+volatile uint32_t bench_poll_aggregate[6]; /* count,first_tick,last_tick,min,max,flags_OR */
+static void cleanup_begin(void){bench_cleanup_mode=1;}
 static uint32_t stop(void){return bench_stop;}
 static int32_t transfer(void *handle,uint8_t reg,uint8_t *data,uint16_t len,unsigned write)
 {
-  if(handle!=&spi || !data || !len || len>896 || reg>0x7F ||
-     bench_trace_count>=TRACE_RECORDS || bench_payload_count+len>TRACE_BYTES)
+  if(handle!=&spi || !data || !len || len>896 || reg>0x7F)
     return -1;
+  uint32_t refusal=bench_log_refusal(bench_trace_count,bench_payload_count,
+                                    bench_preclose_count,len,bench_cleanup_mode);
+  if(refusal){bench_log_refused|=refusal;return -1;}
   if(bench_preclose_overflow)return -1;
   BenchTrace *t=&bench_trace[bench_trace_count++];
   t->tick=HAL_GetTick();t->reg=reg;t->len=len;t->write=write;
@@ -56,6 +63,14 @@ static int32_t transfer(void *handle,uint8_t reg,uint8_t *data,uint16_t len,unsi
   if(!write) {
     const BenchPreclose *r=bench_preclose_count?&bench_preclose[bench_preclose_count-1]:0;
     t->valid=t->valid && bench_rx_complete(r,active_trace,len) && !(r->sr&SPI_SR_OVR);
+  }
+  if(t->valid && !write && reg==IIS3DWB_FIFO_STATUS1 && len==2) {
+    uint32_t level=(data[0]|((uint32_t)data[1]<<8))&0x3FFU;
+    if(!bench_poll_aggregate[0]){bench_poll_aggregate[1]=t->tick;bench_poll_aggregate[3]=level;}
+    bench_poll_aggregate[0]++;bench_poll_aggregate[2]=t->tick;
+    if(level<bench_poll_aggregate[3])bench_poll_aggregate[3]=level;
+    if(level>bench_poll_aggregate[4])bench_poll_aggregate[4]=level;
+    bench_poll_aggregate[5]|=data[1];
   }
   return t->valid?0:-1;
 }
@@ -107,7 +122,7 @@ int platform_init(stmdev_ctx_t *ctx,BenchClock *clock)
   DWT->CYCCNT=0;DWT->CTRL|=DWT_CTRL_CYCCNTENA_Msk;
   *ctx=(stmdev_ctx_t){.write_reg=platform_write,.read_reg=platform_read,
     .mdelay=HAL_Delay,.handle=&spi};
-  *clock=(BenchClock){HAL_GetTick,HAL_Delay,stop};
+  *clock=(BenchClock){HAL_GetTick,HAL_Delay,stop,cleanup_begin};
   bench_uid[0]=HAL_GetUIDw0();bench_uid[1]=HAL_GetUIDw1();bench_uid[2]=HAL_GetUIDw2();
   bench_core_hz=HAL_RCC_GetHCLKFreq();return 0;
 }

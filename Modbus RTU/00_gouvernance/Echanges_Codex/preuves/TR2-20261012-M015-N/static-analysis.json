@@ -1,0 +1,17 @@
+{
+  "command": [
+    "gcc",
+    "-std=c11",
+    "-Wall",
+    "-Wextra",
+    "-Werror",
+    "-fanalyzer",
+    "-Iexperiments/iis3dwb_st_reference/src",
+    "-Iexperiments/iis3dwb_st_reference/vendor/st",
+    "-c",
+    "experiments/iis3dwb_st_reference/src/bench.c",
+    "-o",
+    "/home/lolo/dev/msm/reports/TR2-mission015-N-20261012T210706Z/bench-analyzer.o"
+  ],
+  "exit": 0
+}

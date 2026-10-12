@@ -1,10 +1,15 @@
 # État courant TR2 — référence reconstruite
 
-Mise à jour : 12 octobre 2026. Mission `TR2-20261012-M015-M-SPI-LONG-TRANSFER`.
+Mise à jour : 12 octobre 2026. Mission `TR2-20261012-M015-N-ST-FIFO-XYZ-QUALIFICATION`.
 
 **Ce document est un nouvel état de référence reconstruit à partir de preuves vérifiables. Il n'est pas une restitution du journal historique HP.** Sa création a été explicitement autorisée par l'utilisateur pour la mission `T1000-20261010-CLOTURE-001`, après escalade AGENTS.md §18. Aucun original n'a été retrouvé dans l'historique Git, les répertoires Linux locaux ou les documents Windows accessibles. Les archives d'échanges du 8 octobre mentionnent un journal local HP, sans en fournir le contenu. Aucun état historique inconnu n'est inventé.
 
-## État opérationnel actuel — M015-M, 12 octobre 2026
+## État opérationnel actuel — M015-N, checkpoint logiciel
+
+- **VALIDÉ logiciel/audit** : reconstructionM byte-identique et parseurindépendant confirment256TS/0XYZ,configdatasheetconforme ;vendorinchangé. Réservecleanup12traces/24snapshots/32octets,400polls/500ms/1ms,agrégat etrefusdistincts.5CTest,43scénariosintégration renforcés,14Pythonqualification,4buildsARM,GCCfanalyzer réussis.
+- **PRÉPARÉ / NON VÉRIFIÉ** : référenceST512 puisno-ts/bdr-last/word7 si seuleabsenceXYZ connue etcleanupvert ;STOPanomalienouvelle. AucunaccèscibleN encore,aucunacquisMrejoué. ArchivesMexactes,primaire/M014/médias/stashes/worktrees préservés. Preuves `/home/lolo/dev/msm/reports/TR2-mission015-N-20261012T210706Z`.
+
+## État opérationnel antérieur — M015-M, 12 octobre 2026
 
 - **VALIDÉ LOGICIEL / SPI LONG BORNÉ** :14scénariosC/2Python/deuxbuildsFIFOARM, checkpointa7a2ebc publié/23fichiersrelus. SnapshotavantCloseTransfer reproduit O0HAL_TIMEOUT/OVR :211/896consommés,685restants,SR104A. SeulHALSPI O2 reçoit deuxbursts896complets/SR100A/erreurs0 en3,632ms ;CPU16MHz/SPI2MHz/mode0/réglagesST/délaisinchangés. Saturation serviceHALDebug causeopérationnelle étayée, pas mesurewire ni qualificationgénérale.
 - **BLOCKED NOUVEAU / STOP** :O2 atteint1024traces/2048snapshots après256entrées,cleanupinitial empêché ;256timestamps/paritécorrecte/pas24ticks,0XYZ. Fenêtre512 nonqualifiée et donnéesaccepted=false ; pas troisièmeacquisition. Préparer réservecleanup/pollsbornés puisdiagnosticabsenceXYZ sousnouveaucontrat ;I/J/M015V1 restentouverts.

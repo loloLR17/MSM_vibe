@@ -13,4 +13,7 @@ extern volatile uint32_t bench_preclose_count, bench_preclose_overflow;
 uint32_t bench_rx_offset(uintptr_t base, uintptr_t current, uint32_t requested,
                          uint32_t *valid);
 int bench_rx_complete(const BenchPreclose *r, uint32_t trace_index, uint32_t requested);
+/* Separate acquisition/cleanup budgets. Return refusal bits: trace1/payload2/preclose4. */
+uint32_t bench_log_refusal(uint32_t traces, uint32_t bytes, uint32_t snapshots,
+                          uint32_t requested, uint32_t cleanup);
 #endif

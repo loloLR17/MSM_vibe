@@ -1,3 +1,13 @@
+## Contrat actif M015-N
+
+Lire AUDIT_M015_N.md : référence ST512, puis trois variantes au maximum sous
+préconditions explicites. O2HALSPI seulement, CPU16MHz/SPI2MHz/mode0 identiques.
+Aucun WHO/polling autonome répété ; WHO interne requis par initialisationST.
+Réservecleanup12traces/24snapshots/32octets,400pollsmax/500ms,1ms entrepolls.
+Imagehash/ELF/SN/UID/verify/readback contrôlés avantchaquetrigger unique.
+Aucune sauvegarde/restaurationFlash2MiB secondecarte ;TR2principal exclu.
+Voir rapport pour résultats réels ;les textesK/L/M ci-dessous sont historiques.
+
 ## Mise à jour M015-M — seconde NUCLEO seulement
 
 La chaîne seconde cible est qualifiée dans M015-L : SN `0032001F3235510C37333439`,

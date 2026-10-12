@@ -1,0 +1,9 @@
+[1/9] Building C object CMakeFiles/test_spi_diagnostic.dir/src/spi_diagnostic.c.o
+[2/9] Building C object CMakeFiles/test_spi_diagnostic.dir/tests/test_spi_diagnostic.c.o
+[3/9] Building C object CMakeFiles/bench.dir/src/bench.c.o
+[4/9] Building C object CMakeFiles/test_reference.dir/tests/test_reference.c.o
+[5/9] Linking C executable test_spi_diagnostic
+[6/9] Building C object CMakeFiles/st_driver.dir/vendor/st/iis3dwb_reg.c.o
+[7/9] Linking C static library libst_driver.a
+[8/9] Linking C static library libbench.a
+[9/9] Linking C executable test_reference

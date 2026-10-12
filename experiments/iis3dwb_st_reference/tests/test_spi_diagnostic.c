@@ -23,6 +23,14 @@ int main(void)
   r.cs=0;r.error_before_close=256;assert(!bench_rx_complete(&r,3,896));
   r.error_before_close=0;assert(!bench_rx_complete(&r,4,896));
   assert(!bench_rx_complete(0,3,896));
+  assert(bench_log_refusal(1012,0,0,1,0)==1);
+  assert(bench_log_refusal(1012,0,0,1,1)==0);
+  assert(bench_log_refusal(0,65504,0,1,0)==2);
+  assert(bench_log_refusal(0,65504,0,1,1)==0);
+  assert(bench_log_refusal(0,0,2024,1,0)==4);
+  assert(bench_log_refusal(0,0,2024,1,1)==0);
+  assert(bench_log_refusal(1024,65536,2048,1,1)==7);
+  assert(bench_log_refusal(0,0,0,0xFFFFFFFFU,0)==2);
   puts("14 diagnostic bounds and pre-cleanup preservation scenarios passed");
   return 0;
 }

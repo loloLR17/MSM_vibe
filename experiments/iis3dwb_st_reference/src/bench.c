@@ -28,7 +28,7 @@ static int controls(stmdev_ctx_t *c, unsigned fifo, BenchResult *o)
     /* Upstream getter switches on 0x10 instead of the setter's 0x0A.
      * Preserve it as telemetry; enforce actual BDR bits without changing ST. */
     if (wm!=256 || (o->controls[2]&0x0F)!=IIS3DWB_XL_BATCHED_AT_26k7Hz ||
-        mode!=IIS3DWB_STREAM_MODE || ts!=1 || dec!=IIS3DWB_DEC_8)
+        mode!=IIS3DWB_STREAM_MODE || ts!=1 || dec!=(BENCH_FIFO_DECIMATION?IIS3DWB_DEC_8:IIS3DWB_NO_DECIMATION))
       return BENCH_CONFIG;
   } else {
     iis3dwb_filt_xl_en_t filter;
@@ -62,15 +62,16 @@ int bench_run(stmdev_ctx_t *c, const BenchClock *clock,
   } else {
     TRY(iis3dwb_xl_full_scale_set(c,IIS3DWB_8g));
     TRY(iis3dwb_fifo_watermark_set(c,256));
-    TRY(iis3dwb_fifo_xl_batch_set(c,IIS3DWB_XL_BATCHED_AT_26k7Hz));
+    if(!BENCH_FIFO_BDR_LAST)TRY(iis3dwb_fifo_xl_batch_set(c,IIS3DWB_XL_BATCHED_AT_26k7Hz));
     TRY(iis3dwb_fifo_mode_set(c,IIS3DWB_STREAM_MODE));
     TRY(iis3dwb_xl_data_rate_set(c,IIS3DWB_XL_ODR_26k7Hz));
-    TRY(iis3dwb_fifo_timestamp_batch_set(c,IIS3DWB_DEC_8));
+    TRY(iis3dwb_fifo_timestamp_batch_set(c,BENCH_FIFO_DECIMATION?IIS3DWB_DEC_8:IIS3DWB_NO_DECIMATION));
     TRY(iis3dwb_timestamp_set(c,PROPERTY_ENABLE));
+    if(BENCH_FIFO_BDR_LAST)TRY(iis3dwb_fifo_xl_batch_set(c,IIS3DWB_XL_BATCHED_AT_26k7Hz));
   }
   result=controls(c,fifo,o);if(result)goto done;
   o->stage=4;start=clock->tick();
-  while(o->count<(fifo?BENCH_WORDS:64U)) {
+  while(o->count<(fifo?BENCH_CAPTURE_ENTRIES:64U)) {
     if(clock->stop()){result=BENCH_STOP;goto done;}
     if(clock->tick()-start>=500){result=BENCH_TIMEOUT;goto done;}
     if(!fifo) {
@@ -80,6 +81,7 @@ int bench_run(stmdev_ctx_t *c, const BenchClock *clock,
       if(ready)TRY(iis3dwb_temperature_raw_get(c,&o->temperature));
     } else {
       uint8_t raw[2]={0}; iis3dwb_fifo_status_t st={0}; uint16_t n;
+      if(o->polls++>=400U){result=BENCH_CAPACITY;goto done;}
       /* Official grouped status getter, preserved without modifying its mask. */
       TRY(iis3dwb_fifo_status_get(c,&st));
       /* A second raw observation is explicit, not substituted into the first. */
@@ -92,8 +94,8 @@ int bench_run(stmdev_ctx_t *c, const BenchClock *clock,
       n=status10?(uint16_t)o->raw_level:st.fifo_level;
       if((status10?(raw[1]&0x80):st.fifo_th) && n>=256) {
         /* Official API; segmentation avoids SPI3 TSIZE and FIFO array overflow. */
-        n=n>128?128:n;
-        if(n>BENCH_WORDS-o->count)n=(uint16_t)(BENCH_WORDS-o->count);
+        n=n>BENCH_FIFO_BURST?BENCH_FIFO_BURST:n;
+        if(n>BENCH_CAPTURE_ENTRIES-o->count)n=(uint16_t)(BENCH_CAPTURE_ENTRIES-o->count);
         TRY(iis3dwb_fifo_out_multi_raw_get(c,&o->words[o->count],n));
         /* Retain rejected payload as received; count includes all received words. */
         unsigned first=o->count;o->count+=n;
@@ -105,6 +107,8 @@ int bench_run(stmdev_ctx_t *c, const BenchClock *clock,
           else {result=BENCH_TAG;goto done;}
         }
       }
+      /* Bound repetitive level polls without changing sensor configuration. */
+      clock->delay(1);
     }
   }
 done:
@@ -112,9 +116,15 @@ done:
   /* Dedicated bench only: fail closed, best-effort stop, preserve first error. */
   int cleanup=0;
   if(changed) {
+    if(clock->cleanup_begin)clock->cleanup_begin();
     cleanup=iis3dwb_xl_data_rate_set(c,IIS3DWB_XL_ODR_OFF);
     if(iis3dwb_fifo_mode_set(c,IIS3DWB_BYPASS_MODE))cleanup=-1;
     if(iis3dwb_timestamp_set(c,PROPERTY_DISABLE))cleanup=-1;
+    if(iis3dwb_read_reg(c,IIS3DWB_CTRL1_XL,o->cleanup_controls,1) ||
+       iis3dwb_read_reg(c,IIS3DWB_FIFO_CTRL4,o->cleanup_controls+1,1) ||
+       iis3dwb_read_reg(c,IIS3DWB_CTRL10_C,o->cleanup_controls+2,1))cleanup=-1;
+    if((o->cleanup_controls[0]&0xE0U) || (o->cleanup_controls[1]&7U) ||
+       (o->cleanup_controls[2]&0x20U))cleanup=-1;
   }
   o->cleanup_result=cleanup?BENCH_IO:BENCH_OK;o->stage=6;
   return result;

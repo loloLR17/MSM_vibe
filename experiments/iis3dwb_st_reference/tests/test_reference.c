@@ -4,6 +4,7 @@
 #include <string.h>
 static uint8_t regs[128];
 static unsigned time_ms, io_count, fail_at, stuck_reset, stopped, overflow;
+static unsigned budget_exhausted,cleanup_active,cleanup_failed;
 static unsigned frozen, bad_tag, corrupt, no_ifinc, received, writes;
 static BenchResult out;
 static uint32_t tick(void){return time_ms++;}
@@ -12,6 +13,7 @@ static uint32_t stop(void){return stopped;}
 static int32_t read_reg(void *h,uint8_t r,uint8_t *d,uint16_t n)
 {
   (void)h;if(++io_count==fail_at)return -1;
+  if(budget_exhausted && !cleanup_active && r==IIS3DWB_FIFO_STATUS1)return -1;
   if(r==IIS3DWB_CTRL3_C && (regs[r]&1) && !stuck_reset)regs[r]=no_ifinc?0:4;
   if(r==IIS3DWB_FIFO_STATUS1){assert(n==2);d[0]=0;d[1]=(uint8_t)(0x81|(overflow?0x60:0));return 0;}
   if(r==IIS3DWB_STATUS_REG){d[0]=frozen?0:3;return 0;}
@@ -25,15 +27,17 @@ static int32_t read_reg(void *h,uint8_t r,uint8_t *d,uint16_t n)
   assert((unsigned)r+n<=128);memcpy(d,regs+r,n);return 0;
 }
 static int32_t write_reg(void *h,uint8_t r,const uint8_t *d,uint16_t n)
-{(void)h;writes++;if(++io_count==fail_at)return -1;assert((unsigned)r+n<=128);memcpy(regs+r,d,n);return 0;}
+{(void)h;writes++;if(++io_count==fail_at || (cleanup_failed && cleanup_active))return -1;assert((unsigned)r+n<=128);memcpy(regs+r,d,n);return 0;}
 static void reset(void)
 {
   memset(regs,0,sizeof(regs));regs[IIS3DWB_WHO_AM_I]=IIS3DWB_ID;regs[IIS3DWB_CTRL3_C]=4;
   time_ms=io_count=fail_at=stuck_reset=stopped=overflow=0;
+  budget_exhausted=cleanup_active=cleanup_failed=0;
   frozen=bad_tag=corrupt=no_ifinc=received=writes=0;
 }
 static stmdev_ctx_t ctx={.read_reg=read_reg,.write_reg=write_reg};
-static BenchClock clock_ops={tick,delay,stop};
+static void begin_cleanup(void){cleanup_active=1;}
+static BenchClock clock_ops={.tick=tick,.delay=delay,.stop=stop,.cleanup_begin=begin_cleanup};
 int main(void)
 {
   reset();assert(bench_run(&ctx,&clock_ops,2,0,&out)==BENCH_OK);
@@ -56,6 +60,13 @@ int main(void)
   reset();no_ifinc=1;assert(bench_run(&ctx,&clock_ops,0,0,&out)==BENCH_CONFIG);
   /* Inject a transport error at every position of the nominal initialization. */
   for(unsigned pos=2;pos<30;pos++){reset();fail_at=pos;assert(bench_run(&ctx,&clock_ops,1,1,&out)==BENCH_IO);}
-  puts("41 scenarios passed: WHO, official driver, polling/FIFO, two upstream defects, failures and bounds");
+  reset();budget_exhausted=1;
+  assert(bench_run(&ctx,&clock_ops,1,1,&out)==BENCH_IO);
+  assert(out.count==0 && out.cleanup_result==0 && cleanup_active);
+  assert(!(regs[16]&0xE0) && !(regs[10]&7) && !(regs[25]&0x20));
+  reset();cleanup_failed=1;
+  assert(bench_run(&ctx,&clock_ops,1,1,&out)==BENCH_OK);
+  assert(out.count==512 && out.cleanup_result==BENCH_IO);
+  puts("43 scenarios passed: WHO, official driver, polling/FIFO, two upstream defects, failures and bounds");
   return 0;
 }

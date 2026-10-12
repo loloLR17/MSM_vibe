@@ -17,7 +17,21 @@ if(NOT BENCH_EXAMPLE MATCHES "^(who|polling|fifo)$" OR
 endif()
 add_library(st_driver vendor/st/iis3dwb_reg.c)
 target_include_directories(st_driver PUBLIC vendor/st)
+set(BENCH_FIFO_BURST 128 CACHE STRING "Diagnostic FIFO payload words: 128 or 1")
+set(BENCH_CAPTURE_ENTRIES 512 CACHE STRING "Bounded observation: 512 or 8 entries")
+set(BENCH_FIFO_DECIMATION 8 CACHE STRING "Timestamp batching: 8 or 0 (disabled)")
+set(BENCH_FIFO_BDR_LAST 0 CACHE STRING "Diagnostic ordering: set BDR after XL enable")
+if(NOT BENCH_FIFO_BURST MATCHES "^(128|1)$" OR
+   NOT BENCH_CAPTURE_ENTRIES MATCHES "^(512|8)$" OR
+   NOT BENCH_FIFO_DECIMATION MATCHES "^(8|0)$" OR
+   NOT BENCH_FIFO_BDR_LAST MATCHES "^(0|1)$")
+  message(FATAL_ERROR "Refused unplanned FIFO diagnostic parameter")
+endif()
 add_library(bench src/bench.c)
+target_compile_definitions(bench PUBLIC BENCH_FIFO_BURST=${BENCH_FIFO_BURST}
+  BENCH_CAPTURE_ENTRIES=${BENCH_CAPTURE_ENTRIES}
+  BENCH_FIFO_DECIMATION=${BENCH_FIFO_DECIMATION}
+  BENCH_FIFO_BDR_LAST=${BENCH_FIFO_BDR_LAST})
 target_include_directories(bench PUBLIC src)
 target_link_libraries(bench PUBLIC st_driver)
 target_compile_options(bench PRIVATE -Wall -Wextra -Wpedantic -Werror)
@@ -35,6 +49,8 @@ if(BENCH_HOST_TESTS)
   target_compile_options(test_reference PRIVATE -Wall -Wextra -Werror -UNDEBUG)
   add_test(NAME official_driver_and_bounded_examples COMMAND test_reference)
   find_package(Python3 REQUIRED COMPONENTS Interpreter)
+  add_test(NAME fifo_independent_qualification COMMAND ${Python3_EXECUTABLE}
+    -B ${CMAKE_CURRENT_SOURCE_DIR}/tests/test_fifo_qualification.py)
   add_test(NAME spi_hal_instrumentation COMMAND ${Python3_EXECUTABLE}
     -B ${CMAKE_CURRENT_SOURCE_DIR}/tests/test_hal_instrumentation.py)
   add_test(NAME offline_capture_and_target_guards COMMAND ${Python3_EXECUTABLE}

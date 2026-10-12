@@ -1,0 +1,58 @@
+{
+  "reference": {
+    "iis3dwb_reference.bin": {
+      "bytes": 31392,
+      "sha256": "df6e49076ea57d22e8c305e11fa7645900a1153fdecbf47d4f28df80003911ce"
+    },
+    "iis3dwb_reference.map": {
+      "bytes": 209238,
+      "sha256": "6d94b3105fa233e53554b6f958484fcc29526342c2f1b4a65edb503d6f7692ec"
+    },
+    "iis3dwb_reference.elf": {
+      "bytes": 316980,
+      "sha256": "61d6334fd84491a7607def9c339b53df517288a7d06cbdb0b4a681da8335b0d9"
+    }
+  },
+  "no-ts": {
+    "iis3dwb_reference.bin": {
+      "bytes": 31392,
+      "sha256": "62ef50677fb049461784c25d30a48e3d3514c525e9f2237e132a1a9ab9ddabb5"
+    },
+    "iis3dwb_reference.map": {
+      "bytes": 209238,
+      "sha256": "1a1d2335794f3655c7a6cd89a1cfb3e2ef2d50010e5302fe74a2bd2dab45a0e4"
+    },
+    "iis3dwb_reference.elf": {
+      "bytes": 316964,
+      "sha256": "6d0be1e6eea634e234cd6e2b5a6829acfbb00bb0bcec60571f0ecc02255ca55e"
+    }
+  },
+  "bdr-last": {
+    "iis3dwb_reference.bin": {
+      "bytes": 31392,
+      "sha256": "425090e8299102aa9b4c64b4e122a2f28eb463fa2191e04a0833c8b8b6d1a4fa"
+    },
+    "iis3dwb_reference.map": {
+      "bytes": 209238,
+      "sha256": "e661a89f15ef92bdbb75bcd6b37b3f1ae620d5be3d0773e54ec7c26a66795d6b"
+    },
+    "iis3dwb_reference.elf": {
+      "bytes": 316976,
+      "sha256": "5ad5e63481ec94f5ee4504851b940c5d381ade6923deeb8b1cadefa4d10ca49a"
+    }
+  },
+  "word7": {
+    "iis3dwb_reference.bin": {
+      "bytes": 31392,
+      "sha256": "8ece594a3102d2c79be27fe3c06e5a20daf67ecce252fd613dc3c9e25d48a545"
+    },
+    "iis3dwb_reference.map": {
+      "bytes": 209277,
+      "sha256": "51789391897d7816085333f78e2ea55682593953e12be2b17cd7b9b888ca5160"
+    },
+    "iis3dwb_reference.elf": {
+      "bytes": 316964,
+      "sha256": "58674d1db24796377d87e997c3064d34c3ba072e6fd8d7f51fdbb309388e66a8"
+    }
+  }
+}
