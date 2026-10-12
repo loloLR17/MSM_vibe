@@ -54,6 +54,11 @@
       "sha256": "8a1aab00264668fdbca38061edf7901e135a0f845cbad2962453a54e2882f507"
     },
     {
+      "path": "publication-readback-73cbdee.json",
+      "bytes": 6874,
+      "sha256": "92a47e17e8a95ccfb836602b3b88c31aa0770c3474b3238d3e1ebc9c364aa90e"
+    },
+    {
       "path": "restoration-verified.json",
       "bytes": 271,
       "sha256": "d028963faff0211f585e575c1f724f8c9101f456ab883f93b778d47774b53626"
