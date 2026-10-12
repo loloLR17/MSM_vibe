@@ -152,17 +152,20 @@ static Tr2Result adapter_start(void *context)
     return TR2_OK;
 }
 
-static Tr2Result adapter_read(void *context, VibrationSample *sample)
+Tr2Result stm32_iis3dwb_read_raw(Stm32Iis3dwbVibrationSource *source,
+    Stm32Iis3dwbRawSample *capture)
 {
-    Stm32Iis3dwbVibrationSource *source = (Stm32Iis3dwbVibrationSource *)context;
+    VibrationSample *sample;
     uint8_t status_reg = 0U;
     uint8_t raw_bytes[6] = {0U};
     int16_t raw[3];
     HAL_StatusTypeDef status;
 
-    if (source == NULL || sample == NULL) {
+    if (source == NULL || capture == NULL) {
         return TR2_ERROR_INVALID_ARGUMENT;
     }
+    memset(capture, 0, sizeof(*capture));
+    sample = &capture->sample;
     if (!source->started) {
         return TR2_ERROR_INVALID_STATE;
     }
@@ -171,6 +174,7 @@ static Tr2Result adapter_read(void *context, VibrationSample *sample)
     if (status != HAL_OK) {
         return hal_to_tr2(status);
     }
+    capture->status = status_reg;
     if ((status_reg & IIS3DWB_STATUS_XLDA) == 0U) {
         return TR2_ERROR_NOT_AVAILABLE;
     }
@@ -184,7 +188,7 @@ static Tr2Result adapter_read(void *context, VibrationSample *sample)
     raw[1] = (int16_t)((uint16_t)raw_bytes[2] | ((uint16_t)raw_bytes[3] << 8));
     raw[2] = (int16_t)((uint16_t)raw_bytes[4] | ((uint16_t)raw_bytes[5] << 8));
 
-    memset(sample, 0, sizeof(*sample));
+    memcpy(capture->xyz, raw, sizeof(raw));
     if ((source->axes_enable_mask & 0x0001U) != 0U) {
         sample->x_mg = raw_to_mg(raw[0], source->full_scale_code);
     }
@@ -201,6 +205,37 @@ static Tr2Result adapter_read(void *context, VibrationSample *sample)
         raw[1] == INT16_MIN || raw[1] == INT16_MAX ||
         raw[2] == INT16_MIN || raw[2] == INT16_MAX;
     return TR2_OK;
+}
+
+static Tr2Result adapter_read(void *context, VibrationSample *sample)
+{
+    Stm32Iis3dwbRawSample raw = {0};
+    Tr2Result result;
+    if (sample == NULL) return TR2_ERROR_INVALID_ARGUMENT;
+    memset(sample, 0, sizeof(*sample));
+    result = stm32_iis3dwb_read_raw(context, &raw);
+    if (result == TR2_OK) *sample = raw.sample;
+    return result;
+}
+
+Tr2Result stm32_iis3dwb_read_register(Stm32Iis3dwbVibrationSource *source,
+    uint8_t reg, uint8_t *value)
+{
+    if (source == NULL || value == NULL || reg > 0x7fU)
+        return TR2_ERROR_INVALID_ARGUMENT;
+    *value = 0U;
+    return hal_to_tr2(read_registers(source, reg, value, 1U));
+}
+
+Tr2Result stm32_iis3dwb_write_control(Stm32Iis3dwbVibrationSource *source,
+    uint8_t reg, uint8_t value)
+{
+    if (reg != IIS3DWB_CTRL1_XL_REG && reg != IIS3DWB_CTRL3_C_REG && reg != 0x14U)
+        return TR2_ERROR_UNSUPPORTED;
+    /* Reject reset/reboot and invalid self-test settings. */
+    if ((reg == IIS3DWB_CTRL3_C_REG && (value & 0x81U) != 0U) ||
+        (reg == 0x14U && (value & 3U) == 3U)) return TR2_ERROR_UNSUPPORTED;
+    return hal_to_tr2(write_register(source, reg, value));
 }
 
 static Tr2Result adapter_stop(void *context)

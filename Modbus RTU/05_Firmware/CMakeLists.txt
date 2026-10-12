@@ -106,6 +106,17 @@ target_link_libraries(tr2_rtu_request PRIVATE tr2_core)
 
 enable_testing()
 
+# Execute the real sensor driver and bounded diagnostic against a host SPI HAL.
+add_executable(test_stm32_iis3dwb
+    tests/platform/test_stm32_iis3dwb.c
+    platform/stm32/stm32_iis3dwb_vibration_source.c
+    platform/stm32/stm32_iis3dwb_capture.c)
+target_include_directories(test_stm32_iis3dwb PRIVATE
+    tests/platform/stm32_hal_iis3dwb_mock platform/stm32)
+target_compile_definitions(test_stm32_iis3dwb PRIVATE TR2_STM32_ACQUISITION_CAPTURE=1)
+target_link_libraries(test_stm32_iis3dwb PRIVATE tr2_core)
+add_test(NAME stm32_iis3dwb COMMAND test_stm32_iis3dwb)
+
 # Host mock exercises the actual STM32 board GPIO source, without target access.
 add_executable(test_stm32_rs485_rx_gpio
     tests/platform/test_stm32_rs485_rx_gpio.c

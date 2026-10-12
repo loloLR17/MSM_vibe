@@ -1,0 +1,4 @@
+114/114 CTest passed, including stm32_iis3dwb; default ARM cross-build passed.
+Dedicated capture Debug ARM cross-build passed.
+Production/shared driver modified: full regression justified. .NET unchanged, 539 previous tests not repeated.
+First compile failed due to duplicated adapter_read declaration; corrected declaration, no test weakened.

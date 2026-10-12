@@ -4,6 +4,7 @@
 
 #include "stm32_fram_storage.h"
 #include "stm32_iis3dwb_vibration_source.h"
+#include "stm32_iis3dwb_capture.h"
 #include "stm32_serial_transport.h"
 #include "stm32_rs485_rx_gpio.h"
 #include "stm32_modbus_application.h"
@@ -1715,6 +1716,10 @@ int main(void)
     SystemClock_Config();
     SystemPower_Config();
     BringupLed_Init();
+#if TR2_STM32_ACQUISITION_CAPTURE
+    Iis3dwbSpi_Init();
+    stm32_iis3dwb_capture_run(&hspi3, TR2_IIS3DWB_CS_PORT, TR2_IIS3DWB_CS_PIN);
+#endif
 #if TR2_STM32_PRODUCTION || TR2_STM32_MANUFACTURING
     FramSpi_Init();
     Iis3dwbSpi_Init();
