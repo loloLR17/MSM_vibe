@@ -145,5 +145,13 @@ Journal/roadmapactualisés : WHOetpollingconformes, getterSTreproduit, FIFOlong
 BLOCKED surOVRSTM32, restaurationsecondecible exacte, acquisI/J/M014 inchangés.
 Preuvespubliques essai02 :108fichiers plusmanifest, originauxdansdossierci-dessus,
 logsUTF8/LF normalisés ethashespublé/original, scriptsanalyseoffline.
-Résultats etpublicationdistante serontconsignés aprèspushnormal ; statutglobal
-BLOCKED qualifieFIFOlong, **pas WHO/polling désormaisvalidés danscetteportée**.
+Résultats publiés au commit **0eda53843e64becf8dfa5ae4ec02dfb23a04c77d**, `M015-L: qualify corrected-bank WHO and polling, record SPI overrun on FIFO`.
+Push normal main réussi, fetch puis **115 livrables relus intégralement et
+byte-identiques** ; premier dossier de preuves intact, archivesK et rapportL
+n°1 exacts, mission inchangée, code/projetST inchangé, quatorze autres worktrees
+et deux stashes préservés. Preuve `essai02/publication-readback.json`. WorktreeL
+propre après ce push ; normalisation documentaire des espaces terminaux d'une
+extraction HAL ensuite, original et hashes conservés sans modification des faits.
+Le présent accusé sera publié et relu normalement ; SHA final et état Git dans
+la réponse. **BLOCKED qualifie le FIFO long, pas WHO/polling désormais validés
+dans cette portée.** Contrôle indépendant ChatGPT attendu.

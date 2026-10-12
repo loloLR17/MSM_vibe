@@ -33,33 +33,33 @@
 1323:         {
 1324:           /* Call standard close procedure with error check */
 1325:           SPI_CloseTransfer(hspi);
-1326: 
+1326:
 1327:           SET_BIT(hspi->ErrorCode, HAL_SPI_ERROR_TIMEOUT);
 1328:           hspi->State = HAL_SPI_STATE_READY;
-1329: 
+1329:
 1330:           /* Unlock the process */
 1331:           __HAL_UNLOCK(hspi);
-1332: 
+1332:
 1333:           return HAL_TIMEOUT;
 1334:         }
 /home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_spi.c
 3933: static void SPI_CloseTransfer(SPI_HandleTypeDef *hspi)
 3934: {
 3935:   uint32_t itflag = hspi->Instance->SR;
-3936: 
+3936:
 3937:   __HAL_SPI_CLEAR_EOTFLAG(hspi);
 3938:   __HAL_SPI_CLEAR_TXTFFLAG(hspi);
-3939: 
+3939:
 3940:   /* Disable SPI peripheral */
 3941:   __HAL_SPI_DISABLE(hspi);
-3942: 
+3942:
 3943:   /* Disable ITs */
 3944:   __HAL_SPI_DISABLE_IT(hspi, (SPI_IT_EOT | SPI_IT_TXP | SPI_IT_RXP | SPI_IT_DXP | SPI_IT_UDR | SPI_IT_OVR | \
 3945:                               SPI_IT_FRE | SPI_IT_MODF));
-3946: 
+3946:
 3947:   /* Disable Tx DMA Request */
 3948:   CLEAR_BIT(hspi->Instance->CFG1, SPI_CFG1_TXDMAEN | SPI_CFG1_RXDMAEN);
-3949: 
+3949:
 3950:   /* Report UnderRun error for non RX Only communication */
 3951:   if (hspi->State != HAL_SPI_STATE_BUSY_RX)
 3952:   {
@@ -69,7 +69,7 @@
 3956:       __HAL_SPI_CLEAR_UDRFLAG(hspi);
 3957:     }
 3958:   }
-3959: 
+3959:
 3960:   /* Report OverRun error for non TX Only communication */
 3961:   if (hspi->State != HAL_SPI_STATE_BUSY_TX)
 3962:   {
@@ -78,7 +78,7 @@
 3965:       SET_BIT(hspi->ErrorCode, HAL_SPI_ERROR_OVR);
 3966:       __HAL_SPI_CLEAR_OVRFLAG(hspi);
 3967:     }
-3968: 
+3968:
 3969: #if (USE_SPI_CRC != 0UL)
 3970:     /* Check if CRC error occurred */
 3971:     if (hspi->Init.CRCCalculation == SPI_CRCCALCULATION_ENABLE)
@@ -91,21 +91,21 @@
 3978:     }
 3979: #endif /* USE_SPI_CRC */
 3980:   }
-3981: 
+3981:
 3982:   /* SPI Mode Fault error interrupt occurred -------------------------------*/
 3983:   if ((itflag & SPI_FLAG_MODF) != 0UL)
 3984:   {
 3985:     SET_BIT(hspi->ErrorCode, HAL_SPI_ERROR_MODF);
 3986:     __HAL_SPI_CLEAR_MODFFLAG(hspi);
 3987:   }
-3988: 
+3988:
 3989:   /* SPI Frame error interrupt occurred ------------------------------------*/
 3990:   if ((itflag & SPI_FLAG_FRE) != 0UL)
 3991:   {
 3992:     SET_BIT(hspi->ErrorCode, HAL_SPI_ERROR_FRE);
 3993:     __HAL_SPI_CLEAR_FREFLAG(hspi);
 3994:   }
-3995: 
+3995:
 3996:   hspi->TxXferCount = (uint16_t)0UL;
 3997:   hspi->RxXferCount = (uint16_t)0UL;
 3998: }

@@ -530,13 +530,18 @@
     "normalized": false
   },
   "HAL-error-excerpts.txt": {
-    "published_sha256": "9cc113fc2f106c9a04619a332e37462f4e8aa279bdfa0fb3e384dc7e40bd71ba",
+    "published_sha256": "2f4de2c77c312d486e7226504e93cc266b61635482f6eada63071ad87c8b0d4f",
     "original_local_sha256": "9cc113fc2f106c9a04619a332e37462f4e8aa279bdfa0fb3e384dc7e40bd71ba",
-    "normalized": false
+    "normalized": true
   },
   "README.md": {
     "published_sha256": "fd6562737612678a74af58024f4cf0caedb69bbdda87cdb5df8633287013eee7",
     "original_local_sha256": "fd6562737612678a74af58024f4cf0caedb69bbdda87cdb5df8633287013eee7",
+    "normalized": false
+  },
+  "publication-readback.json": {
+    "published_sha256": "0393481df762dcf06e47d59c1f34afc0a5c7b851c63b5a16b75280fe9f7c43be",
+    "original_local_sha256": "0393481df762dcf06e47d59c1f34afc0a5c7b851c63b5a16b75280fe9f7c43be",
     "normalized": false
   }
 }
