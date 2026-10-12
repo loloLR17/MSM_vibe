@@ -2,11 +2,22 @@
 #include "port.h"
 #include <setjmp.h>
 #include <string.h>
+#ifndef BENCH_WINDOW_XYZ
+#define BENCH_WINDOW_XYZ 0
+#endif
+#if BENCH_WINDOW_XYZ
+#include "fifo_window.h"
+FifoWindow fifo_window;
+#endif
 #ifndef OFFICIAL_PACKETS
 #define OFFICIAL_PACKETS 1U
 #endif
 BenchResult bench_result;
+#if BENCH_WINDOW_XYZ
+uint8_t official_bus,official_words[WINDOW_MAX_WORDS*7],official_text[2048];
+#else
 uint8_t official_bus,official_words[1024*7],official_text[2048];
+#endif
 volatile uint32_t official_packets,official_text_count,official_raw_level,official_raw_flags,official_ctrl10;
 static stmdev_ctx_t transport;
 static BenchClock clock_ops;
@@ -37,6 +48,20 @@ int32_t official_write(void *h,uint8_t reg,const uint8_t *data,uint16_t n)
 int32_t official_read(void *h,uint8_t reg,uint8_t *data,uint16_t n)
 {
   (void)h;deadline();
+#if BENCH_WINDOW_XYZ
+  /* The original ST setup has completed before its first FIFO status request.
+   * Replace only the drain/console loop, never its initialization or driver. */
+  if(!in_cleanup && reg==IIS3DWB_FIFO_STATUS1 && n==2){
+    uint32_t code=(uint32_t)fifo_window_run(&transport,&clock_ops,BENCH_WINDOW_XYZ,
+                          official_words,WINDOW_MAX_WORDS,&fifo_window);
+    bench_result.count=fifo_window.received;
+    bench_result.xyz_count=fifo_window.xyz;
+    bench_result.timestamp_count=fifo_window.timestamps;
+    bench_result.raw_level=fifo_window.last_level;bench_result.flags=fifo_window.flags_or;
+    bench_result.polls=fifo_window.polls;
+    finish(code);
+  }
+#endif
   if(reg==IIS3DWB_FIFO_DATA_OUT_TAG && !n)finish(11);
   if(!n || n>3584 || (reg==IIS3DWB_FIFO_DATA_OUT_TAG && (n%7 || bench_result.count+n/7>1024)))finish(BENCH_CAPACITY);
   /* SPI3 TSIZE limit: split at whole-word boundaries; explicit CS reassertion. */

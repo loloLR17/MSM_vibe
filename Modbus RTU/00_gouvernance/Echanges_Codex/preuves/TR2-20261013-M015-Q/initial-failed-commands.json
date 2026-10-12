@@ -1,0 +1,37 @@
+[
+  {
+    "command": [
+      "cmake",
+      "-S",
+      "/home/lolo/dev/msm/projects/MSM_vibe-M015-Q/experiments/iis3dwb_st_reference",
+      "-B",
+      "/home/lolo/dev/msm/reports/TR2-mission015-Q-20261012T224111Z/host",
+      "-G",
+      "Ninja",
+      "-DBENCH_HOST_TESTS=ON",
+      "-DCMAKE_BUILD_TYPE=Debug"
+    ],
+    "exit": 0
+  },
+  {
+    "command": [
+      "cmake",
+      "--build",
+      "/home/lolo/dev/msm/reports/TR2-mission015-Q-20261012T224111Z/host",
+      "--target",
+      "test_fifo_window"
+    ],
+    "exit": 0
+  },
+  {
+    "command": [
+      "ctest",
+      "--test-dir",
+      "/home/lolo/dev/msm/reports/TR2-mission015-Q-20261012T224111Z/host",
+      "-R",
+      "bounded_fifo_xyz_window",
+      "-V"
+    ],
+    "exit": 8
+  }
+]

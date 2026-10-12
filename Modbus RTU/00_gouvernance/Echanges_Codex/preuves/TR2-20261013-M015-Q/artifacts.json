@@ -1,0 +1,44 @@
+{
+  "control": {
+    "iis3dwb_reference.bin": {
+      "bytes": 54780,
+      "sha256": "ed19310485d51af22b18420ea8af3ff3acba36531b3e9741bc78e91792f282f5"
+    },
+    "iis3dwb_reference.map": {
+      "bytes": 324831,
+      "sha256": "8ebc4a0026006585586015baf1349c0b5a030f7953ec931a50f60b17d87257f8"
+    },
+    "iis3dwb_reference.elf": {
+      "bytes": 596384,
+      "sha256": "fcecbbc70c841277483ee54b4c244239b0e5e9c5e78c2b72218eebe6b68299bd"
+    }
+  },
+  "window512": {
+    "iis3dwb_reference.bin": {
+      "bytes": 55636,
+      "sha256": "f9dab29cd348efa7d2bc70a1bf3d86a2624f59ac7429f3d3defa82c779874e1a"
+    },
+    "iis3dwb_reference.map": {
+      "bytes": 326906,
+      "sha256": "ebd90a5cf01145da843f162f2590d71710fa963baa8ff5d36987aa5c69df2ce6"
+    },
+    "iis3dwb_reference.elf": {
+      "bytes": 604812,
+      "sha256": "2d889b8f6aacc8c477fe091f363932330c52a09dd82884094d38f5d30e67fd66"
+    }
+  },
+  "window4096": {
+    "iis3dwb_reference.bin": {
+      "bytes": 55636,
+      "sha256": "d76a6104a2adc19f77e3b9849e32b9d52312dfd2840eb01f76eb4749cf687b09"
+    },
+    "iis3dwb_reference.map": {
+      "bytes": 326906,
+      "sha256": "e6d1315ccc22744e5e04577a14838724f27cc12e8212cf5cbb66c8cbc005956f"
+    },
+    "iis3dwb_reference.elf": {
+      "bytes": 604820,
+      "sha256": "ac60234c6223a199fc0095477c2599029aaebe131c173b7fa35dfe3b75459a09"
+    }
+  }
+}

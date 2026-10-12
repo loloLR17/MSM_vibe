@@ -25,3 +25,7 @@ Erreur du nouvel évaluateur hors ligne conservée : il comparait tout le dump, 
 Archives P exactes depuis6ea0468 ; worktree Q isolé, ancien dépôt82169af et stashes préservés. Les tests/builds P inchangés ne sont pas rejoués. Statut BLOCKED provisoire : fenêtres512/4096 non encore préparées/testées. Suite : définir capacité, débit, timeout, overflow, tags et réserves, puis nouveaux tests ciblés/ARM avant extension progressive. M014-H/FRAM/SD/Modbus/HP non accédés ; cause O/P toujours non établie.
 
 Preuves locales : /home/lolo/dev/msm/reports/TR2-mission015-Q-20261012T224111Z ; [preuves versionnées](preuves/TR2-20261013-M015-Q/). Publication/relecture distante de cette tranche à consigner après push.
+
+## Checkpoint fenêtres préparées
+
+[Critères et différences](../../../experiments/iis3dwb_st_reference/QUALIFICATION_M015_Q.md) fixés avant augmentation. Nouveau service segmenté borné, initialisation ST/transport inchangés, mots FIFO et XYZ distincts, budgets/overflow/config/tags/cleanup stricts. CTest ciblé et14scénarios intégration passent ;3ARM passent, contrôle byte-identiqueP. Images512/4096 préparées, pas encore flashées. Premier test synthétique refusé pour compte attendu incluant un TS non reçu corrigé selon séquence brute ; logs initiaux conservés. Répétabilité publiée06038823d0e80963d8d6f85a85a774a9fe4ff141/126fichiers byte-identiques relus.

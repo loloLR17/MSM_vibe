@@ -1,0 +1,1 @@
+{"cause":"Synthetic sequence begins with 8 XYZ then TS; capture ends exactly at last XYZ before its following TS. Initial expected totals incorrectly included unreceived final TS. Corrected exact expected values to 512+63=575 and 4096+511=4607; no data or guards changed."}
