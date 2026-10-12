@@ -59,3 +59,13 @@ annoncer DONE sur compilation ou provisioning seul.
 ## Intégration concurrente contrôlée
 
 Push82169af refusé après mise à jour ChatGPT43f37db (arbitrage SD/communication). Autorisation utilisateur explicite de réappliquer la tranche dans un worktree isolé puis commit/push normal. Toutes les sources réappliquées sont byte-identical au commit évalué ; aucune validation répétée pour ce déplacement. Dépôt initial et commit82169af préservés ; worktree de publication MSM_vibe-M014-H sur branche locale codex/m014-h-integration, destination explicite main. Contrat clarifié43f37db respecté.
+
+## Provisioning physique réellement obtenu et paquet HP
+
+Source logicielle publiée/relecture intégrale15livrables byte-equal au SHA fa7b464998484b634f4cdc46d9c33e7f2be71a4a (tranche évaluée82169af, mêmes sources). Flash manufacturing NORMAL0x08000000/verify réussi, secteurs0..8 seulement. BIN67028 SHA92df5bd857156cec58d0c375d3fd02a51f9d6b5f7f000a7c65750b0d493e1823, ELF e0491ec95b5ed1d479ce6254cb2ed53773fefc6d2f7a2360b6cf5c085c5b6fb8. Reset GDB seul aprèsCLI ; preflight stage2/result0/génération10/trigger0 ; backup262144 extrait de cible byte-equal à G.
+
+Unique trigger RAM0x4D313448 effectué. Observation résultat stage5/result0/génération12. RAM/51914logique préservées puis reset logiciel pour prouver persistance et obtenir le readback complet : preflight refuse désormais le plan10 périmé (INVALID_STATE/trigger0), aucun retry/écriture. Backup après262144 identique intégralement à simulation offline, V2/génération12 activeB, SHA d732acc557152180fc394097d6a5269ea2f45c1da387c8643f512318adf92fce. Premier contrôle host utilisait à tort offsetimageA pour comparer la logique ; corrigé à activeB lu dans header, comparaison intégrale physique déjà identique. Config seulement structurellement valide, activation stockage encore UNAVAILABLE ; aucune SD accédée.
+
+Paquet autonome HP nouveau transféré/extrait sans overwrite,371fichiers hashes/tailles vérifiés puis commissioning-check OFFLINE exécuté retour0/no port/no transmission. Source PC G inchangée,539tests historiques conservés, pas relancés ; publish Release win-x64 nouveau réussi. ZIP62e5bb63a085366ecfe2671f335f99cd61b022a145d26c5eaf3ca4ec167ca77d, manifeste37ad4597af22b75d09f9e1ba89bacc6c3a3cefb2c8a53e344085b0f689ac2068. OutillageH distinct des tâchesSSH historiques nonphysiques ; mutex, manifests/B0/âgegate, répertoireunique physical-once,280sdeadline,9FC03/retry0.
+
+Profil production qualification avec observer passif et fenêtre silence unique90..180s compilé. Pas encore flashé à ce point, aucune transmissionCOM7. Étape suivante : flash/bootpreflight récent puis une campagne HP, aucun GDB pendant trafic.
