@@ -173,5 +173,10 @@
     "published_sha256": "1360935b2ae0a9658e3df3d6c0d509a9fd5af14118c90e76bc5a527947d84805",
     "original_local_sha256": "1360935b2ae0a9658e3df3d6c0d509a9fd5af14118c90e76bc5a527947d84805",
     "text_normalized_utf8_lf": false
+  },
+  "publication-readback-2cebe60.json": {
+    "published_sha256": "1442b3ae1abad574d9266d98a4ac822834f363a62755c8bf9e150d483c80600d",
+    "original_local_sha256": "1442b3ae1abad574d9266d98a4ac822834f363a62755c8bf9e150d483c80600d",
+    "text_normalized_utf8_lf": false
   }
 }

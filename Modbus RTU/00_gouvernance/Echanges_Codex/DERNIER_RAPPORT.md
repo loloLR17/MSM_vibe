@@ -1,6 +1,6 @@
 ---
 mission_id: TR2-20261012-M015-I-PHYSICAL-RESUME
-status: BLOCKED
+status: DONE
 base_ref: main
 base_sha: 7a2aca1901162144142f3e13964a4abcc7dbed9d
 initial_head: c33303b78f29e4a11289f3c3dd0ff4b36d0974ac
@@ -16,7 +16,7 @@ allow_debug: true
 
 # M015-I reprise physique — 256 XYZ FIFO acceptés, M014-H restauré
 
-**Critères techniques satisfaits dans la portée bornée : configuration groupée franchie et deux bursts128/256 mots réels acceptés. BLOCKED provisoire uniquement jusqu’à relecture distante des résultats.** Une seule campagne, aucun fallback ni garde affaibli. M015 globale IN PROGRESS ; capture finie ne qualifie pas le flux continu V1.
+**M015-I-PHYSICAL-RESUME DONE : configuration groupée franchie et deux bursts128/256 mots réels acceptés, résultats publiés et relus intégralement.** Une seule campagne, aucun fallback ni garde affaibli. M015 globale IN PROGRESS ; capture finie ne qualifie pas le flux continu V1.
 
 ## Résultat et preuves physiques
 
@@ -66,6 +66,6 @@ GDBaprès sansreset :stage 2/result 0/pollerrors0/FRAMV2gen12/identité1/configU
 
 Preuves `preuves/TR2-20261012-M015-I-PHYSICAL/` :RXhex/CSVXYZ réels,40traces/polls/meta/analyse/timing/CLI/GDB/HPintégral/hashes/restauration. BrutsBIN/ELF/Flash/RAM conservés **/home/lolo/dev/msm/reports/TR2-mission015-I-physical-20261012T181644Z** ; artefactscompilésréutilisés dans /home/lolo/dev/msm/reports/TR2-mission015-I-20261012T162708Z/build-burst. Logs publics UTF8/LF normalisés seulement, deuxJSONHP sansBOM/LF, originaux locauxintacts ; journalHP/RXoctets exacts. Manifest etscriptanalysereproductible publiés.
 
-Journal actualisé avecpreuveFIFO bornée/limites/restauration, roadmap M015 INPROGRESS. Archives I exactesdepuis7a2aca1, missionactiveimmutable, worktree codex/m015-i-physical isolé ; onzeautresworktrees/HEAD etstashes6251b988/f3b829e6 préservés. Permissionscommit/push main/flash standard/debug qualifié etdeuxlectures dereprise exercées ; aucunmerge/rebase/resetGit/forcepush/configpermanente. Publication etrelecturedistante finale à consigneraprès push ; SHAfinal/étatGit fournisdans réponse. ContrôleindépendantChatGPT attendu.
+Journal actualisé avecpreuveFIFO bornée/limites/restauration, roadmap M015 INPROGRESS. Archives I exactesdepuis7a2aca1, missionactiveimmutable, worktree codex/m015-i-physical isolé ; onzeautresworktrees/HEAD etstashes6251b988/f3b829e6 préservés. Permissionscommit/push main/flash standard/debug qualifié etdeuxlectures dereprise exercées ; aucunmerge/rebase/resetGit/forcepush/configpermanente. Résultats publiés au **2cebe602ee5946de3adadb84a6361ab502c2ccdd**, push normal surmain puis43livrables intégralement relus depuis la référence récupérée de GitHub et byte-identiques (`preuves/TR2-20261012-M015-I-PHYSICAL/publication-readback-2cebe60.json`). Worktree propre, onze autres worktrees/HEAD et deux stashes intacts, archives I exactes/mission active inchangée. Cette clôture DONE est vérifiée après son push ; son SHA final et l’état Git sont fournis dans la réponse. ContrôleindépendantChatGPT attendu.
 
 Suite proposée sousnouveaucontrat : utiliser cettevoiegroupée commebase à qualifier pour serviceFIFO deproduction, buffers/fenêtres4096..32768, tempsdeconversion/continuité/pertes etstockage owned V1, avantFFT/supervisionvibratoire. Pasacceptation automatique enproduction niqualificationcontinue àpartirdecettecapture. L’échecgroupé prévuparlecontrat ne s’est pasproduit : comparaisonbreakoutA/B nonnécessaire ici, aucuneintervention/achatd’instrument demandé. Arrêt aprèsl’unique campagne etpublication desrésultatsacquis.
