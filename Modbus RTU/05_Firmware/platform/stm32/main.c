@@ -5,6 +5,7 @@
 #include "stm32_fram_storage.h"
 #include "stm32_iis3dwb_vibration_source.h"
 #include "stm32_iis3dwb_capture.h"
+#include "stm32_iis3dwb_fifo_capture.h"
 #include "stm32_serial_transport.h"
 #include "stm32_rs485_rx_gpio.h"
 #include "stm32_modbus_application.h"
@@ -1716,6 +1717,10 @@ int main(void)
     SystemClock_Config();
     SystemPower_Config();
     BringupLed_Init();
+#if TR2_STM32_FIFO_CAPTURE
+    Iis3dwbSpi_Init();
+    stm32_iis3dwb_fifo_capture_run(&hspi3, TR2_IIS3DWB_CS_PORT, TR2_IIS3DWB_CS_PIN);
+#endif
 #if TR2_STM32_ACQUISITION_CAPTURE
     Iis3dwbSpi_Init();
     stm32_iis3dwb_capture_run(&hspi3, TR2_IIS3DWB_CS_PORT, TR2_IIS3DWB_CS_PIN);
@@ -2620,7 +2625,7 @@ static void Iis3dwbSpi_Init(void)
     hspi3.Init.Mode = SPI_MODE_MASTER;
     hspi3.Init.Direction = SPI_DIRECTION_2LINES;
     hspi3.Init.DataSize = SPI_DATASIZE_8BIT;
-#if TR2_STM32_ACQUISITION_CAPTURE
+#if TR2_STM32_ACQUISITION_CAPTURE || TR2_STM32_FIFO_CAPTURE
     /* Both mode0 and mode3 are supported by IIS3DWB DS12569. */
     hspi3.Init.CLKPolarity = SPI_POLARITY_HIGH;
     hspi3.Init.CLKPhase = SPI_PHASE_2EDGE;
@@ -2629,7 +2634,7 @@ static void Iis3dwbSpi_Init(void)
     hspi3.Init.CLKPhase = SPI_PHASE_1EDGE;
 #endif
     hspi3.Init.NSS = SPI_NSS_SOFT;
-#if TR2_STM32_ACQUISITION_CAPTURE
+#if TR2_STM32_ACQUISITION_CAPTURE || TR2_STM32_FIFO_CAPTURE
     /* Conservative bench capture clock; production profile is preserved. */
     hspi3.Init.BaudRatePrescaler = SPI_BAUDRATEPRESCALER_256;
 #else

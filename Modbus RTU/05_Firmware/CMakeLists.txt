@@ -106,6 +106,17 @@ target_link_libraries(tr2_rtu_request PRIVATE tr2_core)
 
 enable_testing()
 
+# Test only the new isolated FIFO harness; portable core is unchanged.
+add_executable(test_stm32_iis3dwb_fifo
+    tests/platform/test_stm32_iis3dwb_fifo.c
+    platform/stm32/stm32_iis3dwb_vibration_source.c
+    platform/stm32/stm32_iis3dwb_fifo_capture.c)
+target_include_directories(test_stm32_iis3dwb_fifo PRIVATE
+    tests/platform/stm32_hal_iis3dwb_mock platform/stm32)
+target_compile_definitions(test_stm32_iis3dwb_fifo PRIVATE TR2_STM32_FIFO_CAPTURE=1)
+target_link_libraries(test_stm32_iis3dwb_fifo PRIVATE tr2_core)
+add_test(NAME stm32_iis3dwb_fifo COMMAND test_stm32_iis3dwb_fifo)
+
 # Execute the real sensor driver and bounded diagnostic against a host SPI HAL.
 add_executable(test_stm32_iis3dwb
     tests/platform/test_stm32_iis3dwb.c

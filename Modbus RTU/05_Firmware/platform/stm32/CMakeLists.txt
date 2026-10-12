@@ -32,6 +32,7 @@ if(TR2_STM32_MODBUS_DIAGNOSTIC)
     endif()
 endif()
 
+option(TR2_STM32_FIFO_CAPTURE "Bounded RAM-only FIFO diagnostic" OFF)
 option(TR2_STM32_ACQUISITION_CAPTURE "Bounded RAM-only IIS3DWB capture, no media or transport" OFF)
 option(TR2_STM32_PRODUCTION "Dedicated production board composition, no harness" OFF)
 option(TR2_STM32_MANUFACTURING "Explicit one-shot off-boot FRAM provisioning" OFF)
@@ -64,6 +65,13 @@ if(TR2_STM32_ACQUISITION_CAPTURE AND (TR2_STM32_PRODUCTION OR
     TR2_STM32_MODBUS_DIAGNOSTIC OR TR2_STM32_RS485_TX_QUALIFIED OR
     TR2_STM32_IRQ_DIAGNOSTICS))
     message(FATAL_ERROR "Acquisition capture is isolated: no other profile or TX")
+endif()
+
+if(TR2_STM32_FIFO_CAPTURE AND (TR2_STM32_ACQUISITION_CAPTURE OR
+    TR2_STM32_PRODUCTION OR TR2_STM32_MANUFACTURING OR
+    TR2_STM32_COMMISSIONING_READONLY OR TR2_STM32_MODBUS_DIAGNOSTIC OR
+    TR2_STM32_RS485_TX_QUALIFIED OR TR2_STM32_IRQ_DIAGNOSTICS))
+    message(FATAL_ERROR "FIFO capture is isolated from all other profiles and TX")
 endif()
 
 set(TR2_FIRMWARE_ROOT "${CMAKE_CURRENT_SOURCE_DIR}/../..")
@@ -127,6 +135,7 @@ add_executable(tr2_stm32_p11c
     stm32_fram_storage.c
     stm32_iis3dwb_vibration_source.c
     stm32_iis3dwb_capture.c
+    stm32_iis3dwb_fifo_capture.c
     stm32_modbus_application.c
     stm32_modbus_diagnostic.c
     stm32_production_runtime.c
@@ -161,6 +170,7 @@ if(TR2_STM32_PRODUCTION OR TR2_STM32_MANUFACTURING)
     target_include_directories(tr2_stm32_p11c PRIVATE ${CMAKE_CURRENT_BINARY_DIR}/generated)
 endif()
 target_compile_definitions(tr2_stm32_p11c PRIVATE
+    TR2_STM32_FIFO_CAPTURE=$<BOOL:${TR2_STM32_FIFO_CAPTURE}>
     TR2_STM32_ACQUISITION_CAPTURE=$<BOOL:${TR2_STM32_ACQUISITION_CAPTURE}>
     TR2_STM32_PRODUCTION=$<BOOL:${TR2_STM32_PRODUCTION}>
     TR2_STM32_MANUFACTURING=$<BOOL:${TR2_STM32_MANUFACTURING}>

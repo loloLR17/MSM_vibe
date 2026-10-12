@@ -1,0 +1,1 @@
+New stm32_iis3dwb_fifo host test: 1/1 passed. Default ARM cross-build passed. Dedicated FIFO Debug ARM build passed. Production/core driver unchanged; old 114 firmware and 539 .NET tests not repeated.
