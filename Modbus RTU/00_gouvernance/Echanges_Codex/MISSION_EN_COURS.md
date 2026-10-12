@@ -1,9 +1,9 @@
 ---
-mission_id: TR2-20261012-M015-B-FIFO-CADENCE
+mission_id: TR2-20261012-M015-C-FIFO-REGISTER-RELIABILITY
 status: READY
 base_ref: main
-base_sha: eab07d49a5f3b86506a97877d0fccf2188fb0a7a
-created_at_utc: 2026-10-12T10:00:00Z
+base_sha: cfb9918dfe8e5ac3148d6ceaa79e50acda6ac53f
+created_at_utc: 2026-10-12T13:00:00Z
 author: ChatGPT
 target_branch: main
 allow_commit: true
@@ -12,19 +12,18 @@ allow_flash: true
 allow_debug: true
 ---
 
-# M015-B — Qualification bornée FIFO/cadence IIS3DWB
+# M015-C — Fiabilité des lectures SPI des registres FIFO (mission courte)
 
-## Périmètre volontairement modeste
-Mission courte, **un seul objectif** : déterminer et démontrer sur STM32 si l'utilisation de la FIFO du IIS3DWB, en SPI mode 3 qualifié sur ce banc, permet de capturer une séquence bornée d'échantillons XYZ consécutifs avec détection explicite des pertes et cadence vérifiable. Ne pas implémenter ici DMA, pipeline continu de production, stockage microSD, campagnes B5, publication Modbus vibration, FFT ni calibration métrologique. Si FIFO impossible dans le budget, produire un audit borné documentant le verrou exact et un prototype hôte sans laisser de flash diagnostic permanent.
+## Contexte et gouvernance
+Appliquer AGENTS.md, PROTOCOLE_ECHANGE_V2.md, rapport M015-B BLOCKED, audit, CSV171statuts et analyse hors ligne, roadmap et ETAT_COURANT sur main. Vérifier HEAD distant réel, Git, worktrees et deux stashes historiques. Archiver M015-B mission/rapport sans écrasement, préserver tous les livrables et preuves hors Git. Le firmware permanent M014-H est restauré (BIN SHA b462c29a775fec17fccf8036b5612742b1366210359bcd3f192c95435740d611), FRAM V2 génération12, microSD OFF. Ne pas répéter les campagnes M015-A/B ni les tests acquis sur code inchangé.
 
-## Reprise et autonomie
-Lire AGENTS.md, protocole V2-B3, rapport M015-A DONE, preuves M015-A, roadmap et sources réelles. Vérifier HEAD distant et local, worktrees/stashes historiques ; préserver le dépôt d'origine, le firmware permanent M014-H, identité FRAM V2 génération12 et microSD entièrement désactivée. Archiver mission/rapport M015-A suivant protocole sans écrasement. Worktree isolé sur HEAD réel de main ; aucune fusion/rebase/reset destructif ni force push. Commits/push normaux autorisés, flash/debug standard qualifiés autorisés. Aucun HOTPLUG CubeProgrammer, mass erase, Option Bytes, RDP, écriture FRAM/SD, câblage modifié ni intervention physique non automatisée.
+## Objectif unique, budget serré
+**Distinguer la cause des readbacks incohérents des registres FIFO du IIS3DWB** avant toute nouvelle capture XYZ. M015-B a observé 171statuts, 11 reculs du niveau sans consommateur (premier127→0), FIFO_CTRL2 relu0x80 après configuration0x81, et bitoverrun ambigu. Aucune cause démontrée ; ne pas attribuer au mouvement du voilier ni déclarer une défaillance du capteur. Préserver les traces brutes et hypothèses contradictoires.
 
-## Tranches et critères
-1. **Audit ciblé** : relire driver IIS3DWB, datasheet ST et configuration mode 3/625 kHz qualifiée, registres FIFO, format et watermark, ODR effectif, overrun et règles de lecture ; vérifier limites du bus SPI et des buffers STM32. Établir des critères quantitatifs et ne pas confondre horodatages MCU avec instants de conversion capteur. Les mouvements du voilier sont possibles : ne pas supposer l'immobilité du banc ni rejeter des valeurs physiques variables pour ce seul motif.
-2. **Prototype minimal** : ajouter uniquement la capture FIFO bornée nécessaire, sans activation en production et sans dépendance au stockage. Préserver les données brutes, paramètres et statuts FIFO/overrun ; comptabiliser acquisitions, débordements, trous observables et temps de lecture. Ne pas prétendre que FIFO garantit à elle seule l'absence de perte ou l'ODR réel. Éviter les gros refactorings et l'ajout de DMA.
-3. **Validation proportionnée et essai physique** : tests hôte ciblés et cross-build, capture réelle si préconditions établies ; sauvegarde/hashes, flash standard sûr, logs et preuves reproductibles, restauration octet-à-octet du firmware M014-H et contrôle B0/B1 de reprise si flash temporaire. Si les capacités ne permettent pas une preuve physique fiable, livrer la cause et les acquis sans faux succès.
-4. **Publication** : publier code, tests, CSV/manifest/mesures et DERNIER_RAPPORT.md ; mettre à jour ETAT_COURANT et roadmap avec M015 IN PROGRESS et M015-B DONE seulement si critères bornés démontrés. Vérifier SHA distant et relecture des livrables.
+## Trois tranches
+1. **Analyse statique courte** : vérifier selon AN5444, datasheet et driver officiel ST l'adresse/auto-incrément, R/W, dummy cycles, longueur, framing et maintien CS, ordre BDU/lecture des octets de statut, registres FIFO_CTRL2/FIFO_STATUS, flags RX HAL STM32U5 et SPI mode3/625kHz. Comparer octet à octet les transactions du harness FIFO avec celles du driver M015-A (lecture XYZ stable) ; examiner les 171statuts et les motifs bit7/décalage comme hypothèses, pas corrections de données. Publier tableau hypothèses/test discriminant minimal.
+2. **Un diagnostic borné, si nécessaire** : réaliser un profil read-only de contrôle de fiabilité SPI : lectures répétées de registres constants/WHO_AM_I, lectures contrôlées FIFO_CTRL2/STATUS et octets RX bruts avec marqueurs de transaction/CS et flags matériels. Aucun démarrage de campagne FIFO/XYZ, aucun watermark, aucun overrun volontaire, aucune écriture FRAM/SD ; ne pas reconfigurer le capteur au-delà du strict nécessaire. Si flash temporaire indispensable, autorisé sous preflight, backup/hash, restauration byte-identique de Flash2Mio et contrôle minimal B0/B1. Jamais HOTPLUG CubeProgrammer, mass erase, Option Bytes, RDP ni changement de câblage. Si la seule observation concluante requiert analyseur logique sur SCK/MOSI/MISO ou intervention physique, préparer un protocole et signaler uniquement ce geste, sans prétendre l'avoir exécuté.
+3. **Validation et publication** : tests hôte ciblés/cross-build proportionnés, au maximum **une campagne physique courte** si préconditions établies. Corriger seulement un défaut démontré de framing/readback ; aucune correction heuristique des statuts. Publier mesures brutes, comparaison attendue/observée, conclusions certaines vs hypothèses, ETAT_COURANT, roadmap et DERNIER_RAPPORT.md. M015-C DONE uniquement si fiabilité des readbacks prouvée ou cause précise isolée avec test discriminant ; sinon BLOCKED documenté. M015 globale IN PROGRESS.
 
-## Communication et budget
-Annoncer brièvement les tranches et l'avancement aux transitions importantes ; information non bloquante sans microvalidations. **Limiter strictement la portée** : après un audit ciblé, un prototype et une campagne de validation, ne pas multiplier les variantes SPI ni les requalifications déjà acquises. Préserver par commit/push incrémental dès qu'une tranche est validée ; si quota faible, publier immédiatement un rapport de reprise exploitable. Les permissions allow_commit/push/flash/debug sont toutes true. Escalader uniquement risque matériel non maîtrisé, opération destructive inhabituelle, contradiction normative ou geste physique indispensable. L'utilisateur délègue les choix techniques ordinaires.
+## Exclusions et communication
+Pas de FIFO capture256XYZ, pas de DMA, flux continu, calibration, FFT, microSD, B5 ni extension Modbus. Pas de répétition de la qualification M014. Annoncer tranches et résultats synthétiques, poursuivre sans microvalidations. Commit/push incrémental et relecture distante avant quota ; autorisations allow_commit/push/flash/debug toutes true. Escalader uniquement geste physique indispensable, risque matériel non maîtrisé, opération destructive inhabituelle ou décision structurante non couverte. L'utilisateur délègue les décisions techniques ordinaires. Ne pas modifier la mission active pendant son exécution.
