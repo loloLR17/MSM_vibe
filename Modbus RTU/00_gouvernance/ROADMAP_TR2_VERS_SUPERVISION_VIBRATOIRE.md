@@ -175,3 +175,8 @@ M014 restauréeexactement (Flash2Mio identique), FRAMgen12/configUNAVAILABLE, SD
 ## Actualisation M015-L — 12 octobre 2026
 
 **BLOCKED matériel à WHO ; M015 IN PROGRESS.** Bancisolé confirméutilisateur/SN0032001F…/UID001B0046…, artefactsSTK réutilisés. UneseulelectureWHO reçoit00/attendu7B avecHAL_OK ;aucunwritecapteur, polling/FIFOstrict/STATUS10 nonexécutés auSTOP. Sourcee222dc8 intacte, aucunevalidationlogicielleK/I/J/M014rejouée. Secondecible restaurée Flash2MiB entièreexacte au backupfrais/SHAfcea004e…, debugdétaché/faults0 ;TR2principal jamaisaccédé/M014-H préservé. Cause nonattribuée, gettersSTnonatteints, aucunecomparaisoncausaleI/J. Suitecibléephysique MISO/orientationnappe/GND/VDDIO surMKI208 avantrepriseexplicitementcadrée ;pasnouvellevariantepourréussir. Résultats publiés au commit f36425707e97e233f079a9d37381567d92ea761b, 62 livrables relus intégralement et identiques ; BLOCKED technique maintenu, archives/worktrees/stashes préservés.
+
+
+## Actualisation M015-L — reprise essai n°2 après correctionSPI
+
+**WHO etpollingST physiquementvalidés dansportéebornée ; FIFOlong BLOCKED, M015INPROGRESS.** WHOautonome n°2=7B,64XYZdistincts/0saturation/309transfertsvalides, sourcesKinchangées/testsconservés. FIFOstrict reproduitgetter03F/API0/raw257 ;varianteSTATUS10séparée premierburst896→HAL_TIMEOUT/error104OVRSPISTM32,0motsacceptés. Bufferpartielpréinitialisé rejeté, tailleRXréellenonenregistrée/compteursHAL remis0 àfermeture ;pasqualification512 ou4096. Flashseconde2MiB restauréeexacte/SHAfcea004e…, TR2principal/M014-Hjamaisaccédé, preuveessai1conservée. Suitecibléelogicielle performance/diagnosticRXavantHALCloseTransfer sansmodifiervaleursST oumasquerOVR, pasnouvelleconfirmationphysiquemanquante invoquée. Publication/relecture àconsigner.

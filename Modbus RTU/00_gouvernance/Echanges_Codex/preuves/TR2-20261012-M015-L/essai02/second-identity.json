@@ -1,0 +1,11 @@
+{
+  "sn": "0032001F3235510C37333439",
+  "uid": "001B00463842501820333157",
+  "uid_words": [
+    "001B0046",
+    "38425018",
+    "20333157"
+  ],
+  "primary_refused": true,
+  "source": "actual GDB memory read"
+}

@@ -1,0 +1,11 @@
+{
+  "sn": "0032001F3235510C37333439",
+  "uid": "001B00463842501820333157",
+  "full_flash_bytes": 2097152,
+  "full_flash_sha256": "fcea004eb0c91af44f8e36ca61206b5f6bf25fd4c5db4dfdab42d1a19dcea9d9",
+  "fresh_backup_byte_equal": true,
+  "outside_sectors0_3_unchanged_before_restore": true,
+  "primary_TR2_accessed": false,
+  "original_firmware_functional_qualification": false,
+  "debugger_detached": true
+}

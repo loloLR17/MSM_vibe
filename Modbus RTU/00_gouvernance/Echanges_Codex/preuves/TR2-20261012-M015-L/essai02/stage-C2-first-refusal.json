@@ -1,0 +1,21 @@
+{
+  "failed_transfers": [
+    [
+      834,
+      {
+        "tick": 4739,
+        "reg": 120,
+        "len": 896,
+        "write": 0,
+        "status": 3,
+        "error": 260,
+        "rxleft": 0,
+        "txleft": 0,
+        "offset": 1646,
+        "valid": 0
+      }
+    ]
+  ],
+  "all_read_words_unaccepted": true,
+  "received_payload_bytes": 2548
+}

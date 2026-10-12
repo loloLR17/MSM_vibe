@@ -1,0 +1,9 @@
+{
+  "sn": "0032001F3235510C37333439",
+  "uid": "001B00463842501820333157",
+  "bytes": 2097152,
+  "sha256": "fcea004eb0c91af44f8e36ca61206b5f6bf25fd4c5db4dfdab42d1a19dcea9d9",
+  "double_read_byte_equal": true,
+  "matches_first_attempt_restoration": true,
+  "ram_sha256": "aa2e322e45fabb610bb86855d0ccda53cdbf96512727f14c729db7982831f3a3"
+}

@@ -1,0 +1,111 @@
+/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/STM32U5xx_HAL_Driver/Inc/stm32u5xx_hal_spi.h
+254: /** @defgroup SPI_Error_Code SPI Error Codes
+255:   * @{
+256:   */
+257: #define HAL_SPI_ERROR_NONE                            (0x00000000UL)   /*!< No error                               */
+258: #define HAL_SPI_ERROR_MODF                            (0x00000001UL)   /*!< MODF error                             */
+259: #define HAL_SPI_ERROR_CRC                             (0x00000002UL)   /*!< CRC error                              */
+260: #define HAL_SPI_ERROR_OVR                             (0x00000004UL)   /*!< OVR error                              */
+261: #define HAL_SPI_ERROR_FRE                             (0x00000008UL)   /*!< FRE error                              */
+262: #define HAL_SPI_ERROR_DMA                             (0x00000010UL)   /*!< DMA transfer error                     */
+263: #define HAL_SPI_ERROR_FLAG                            (0x00000020UL)   /*!< Error on RXP/TXP/DXP/FTLVL/FRLVL Flag  */
+264: #define HAL_SPI_ERROR_ABORT                           (0x00000040UL)   /*!< Error during SPI Abort procedure       */
+265: #define HAL_SPI_ERROR_UDR                             (0x00000080UL)   /*!< Underrun error                         */
+266: #define HAL_SPI_ERROR_TIMEOUT                         (0x00000100UL)   /*!< Timeout error                          */
+267: #define HAL_SPI_ERROR_UNKNOW                          (0x00000200UL)   /*!< Unknown error                          */
+268: #define HAL_SPI_ERROR_NOT_SUPPORTED                   (0x00000400UL)   /*!< Requested operation not supported      */
+269: #if (USE_HAL_SPI_REGISTER_CALLBACKS == 1UL)
+270: #define HAL_SPI_ERROR_INVALID_CALLBACK                (0x00001000UL)   /*!< Invalid Callback error                 */
+/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_spi.c
+1310:       /* Check if transfer is locked because of a suspend */
+1311:       else if (HAL_IS_BIT_SET(temp_sr_reg, SPI_SR_SUSP))
+1312:       {
+1313:         /* Verify suspend is triggered by hardware and not software */
+1314:         if (HAL_IS_BIT_SET(hspi->Instance->CR1, SPI_CR1_CSTART))
+1315:         {
+1316:           __HAL_SPI_CLEAR_SUSPFLAG(hspi);
+1317:         }
+1318:       }
+1319:       else
+1320:       {
+1321:         /* Timeout management */
+1322:         if ((((HAL_GetTick() - tickstart) >=  Timeout) && (Timeout != HAL_MAX_DELAY)) || (Timeout == 0U))
+1323:         {
+1324:           /* Call standard close procedure with error check */
+1325:           SPI_CloseTransfer(hspi);
+1326: 
+1327:           SET_BIT(hspi->ErrorCode, HAL_SPI_ERROR_TIMEOUT);
+1328:           hspi->State = HAL_SPI_STATE_READY;
+1329: 
+1330:           /* Unlock the process */
+1331:           __HAL_UNLOCK(hspi);
+1332: 
+1333:           return HAL_TIMEOUT;
+1334:         }
+/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_spi.c
+3933: static void SPI_CloseTransfer(SPI_HandleTypeDef *hspi)
+3934: {
+3935:   uint32_t itflag = hspi->Instance->SR;
+3936: 
+3937:   __HAL_SPI_CLEAR_EOTFLAG(hspi);
+3938:   __HAL_SPI_CLEAR_TXTFFLAG(hspi);
+3939: 
+3940:   /* Disable SPI peripheral */
+3941:   __HAL_SPI_DISABLE(hspi);
+3942: 
+3943:   /* Disable ITs */
+3944:   __HAL_SPI_DISABLE_IT(hspi, (SPI_IT_EOT | SPI_IT_TXP | SPI_IT_RXP | SPI_IT_DXP | SPI_IT_UDR | SPI_IT_OVR | \
+3945:                               SPI_IT_FRE | SPI_IT_MODF));
+3946: 
+3947:   /* Disable Tx DMA Request */
+3948:   CLEAR_BIT(hspi->Instance->CFG1, SPI_CFG1_TXDMAEN | SPI_CFG1_RXDMAEN);
+3949: 
+3950:   /* Report UnderRun error for non RX Only communication */
+3951:   if (hspi->State != HAL_SPI_STATE_BUSY_RX)
+3952:   {
+3953:     if ((itflag & SPI_FLAG_UDR) != 0UL)
+3954:     {
+3955:       SET_BIT(hspi->ErrorCode, HAL_SPI_ERROR_UDR);
+3956:       __HAL_SPI_CLEAR_UDRFLAG(hspi);
+3957:     }
+3958:   }
+3959: 
+3960:   /* Report OverRun error for non TX Only communication */
+3961:   if (hspi->State != HAL_SPI_STATE_BUSY_TX)
+3962:   {
+3963:     if ((itflag & SPI_FLAG_OVR) != 0UL)
+3964:     {
+3965:       SET_BIT(hspi->ErrorCode, HAL_SPI_ERROR_OVR);
+3966:       __HAL_SPI_CLEAR_OVRFLAG(hspi);
+3967:     }
+3968: 
+3969: #if (USE_SPI_CRC != 0UL)
+3970:     /* Check if CRC error occurred */
+3971:     if (hspi->Init.CRCCalculation == SPI_CRCCALCULATION_ENABLE)
+3972:     {
+3973:       if ((itflag & SPI_FLAG_CRCERR) != 0UL)
+3974:       {
+3975:         SET_BIT(hspi->ErrorCode, HAL_SPI_ERROR_CRC);
+3976:         __HAL_SPI_CLEAR_CRCERRFLAG(hspi);
+3977:       }
+3978:     }
+3979: #endif /* USE_SPI_CRC */
+3980:   }
+3981: 
+3982:   /* SPI Mode Fault error interrupt occurred -------------------------------*/
+3983:   if ((itflag & SPI_FLAG_MODF) != 0UL)
+3984:   {
+3985:     SET_BIT(hspi->ErrorCode, HAL_SPI_ERROR_MODF);
+3986:     __HAL_SPI_CLEAR_MODFFLAG(hspi);
+3987:   }
+3988: 
+3989:   /* SPI Frame error interrupt occurred ------------------------------------*/
+3990:   if ((itflag & SPI_FLAG_FRE) != 0UL)
+3991:   {
+3992:     SET_BIT(hspi->ErrorCode, HAL_SPI_ERROR_FRE);
+3993:     __HAL_SPI_CLEAR_FREFLAG(hspi);
+3994:   }
+3995: 
+3996:   hspi->TxXferCount = (uint16_t)0UL;
+3997:   hspi->RxXferCount = (uint16_t)0UL;
+3998: }

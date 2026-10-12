@@ -1,0 +1,22 @@
+{
+  "stage": 6,
+  "result": 1,
+  "cleanup_result": 0,
+  "count": 0,
+  "xyz_count": 0,
+  "timestamp_count": 0,
+  "who": 123,
+  "raw_level": 256,
+  "st_level": 0,
+  "flags": 129,
+  "status10": 1,
+  "st_batch": 0,
+  "controls_hex": "00010a867bac00440000000000e2",
+  "sn": "0032001F3235510C37333439",
+  "uid": "001B00463842501820333157",
+  "example": "fifo",
+  "profile": "STATUS10",
+  "trace_count": 841,
+  "all_transfers_valid": false,
+  "allow_next_stage": false
+}

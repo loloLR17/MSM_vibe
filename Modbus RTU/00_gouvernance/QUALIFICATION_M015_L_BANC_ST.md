@@ -1,4 +1,7 @@
-# M015-L — chaîne seconde NUCLEO et résultat WHO
+# M015-L — chaîne seconde NUCLEO, essai WHO n°1 puis reprise n°2
+
+Les sections initiales ci-dessous décrivent **l’essai n°1 avant correction** ;
+leur statut historique est conservé. La reprise n°2 est consignée à la fin.
 
 ## Identification et procédure effectivement exercée
 
@@ -60,3 +63,33 @@ la voieisolée n'a pas franchiWHO, aucune comparaisoncausale acquise.
 Preuves Echanges_Codex/preuves/TR2-20261012-M015-L ; originaux
 /home/lolo/dev/msm/reports/TR2-mission015-L-20261012T195811Z. CodeK etvalidations
 41C/5Python/4ARM inchangés etréutilisés sansrejeu.
+
+
+## Reprise explicitement autorisée — essai n°2 après correctionSPI
+
+MêmeSN/UID reconfirmés/3,28V, Flashfraîche2MiB doubleidentique au backuprestauré
+n°1. MêmeimageWHO sourcee222dc8/BIN375fd902… : uniqueWHO=7B/result0/cleanup0,
+aucunwritecapteur. PollingST=64XYZréelsdistincts/0saturation/309tracesvalides,
+contrôlesWHO/reset/BDU/FS2g/filtreconformes. PasrejeuvalidationslogiciellesK.
+
+FIFOstrict mode6/FS8g/batching0A/watermark256/timestampDEC8 conservegetter03F :
+API0/rawsuivant257/flags81,840tracesvalides,0drain. VarianteSTATUS10autorisée
+séparément selonprotocole, mêmesréglagesST ;premierburst896 demandétrace834
+HAL_TIMEOUT3/error104=OVRSPISTM32+TIMEOUT,0motsacceptés/cleanup0. Capacitétrace
+841/1024 etpayload2548/65536 nonépuisée. Buffer896 préinitialisézéro partiellement
+rempli ;compteursHALfinaux0 remisà0 parSPI_CloseTransfer, tailleRXréellenonenregistrée.
+Pas128XYZréels niqualificationtimestamp/continuité ;lesdeuxstatuts ne sontpas
+simultanés, absenceOVRcapteuravantlecture nequalifiepasabsencedepartout.
+
+Premier refusC2→STOP, pasnouvelessai/variantedeplateforme. CleanupXLoff/bypass/
+timestampoff commandéHAL_OK, aucunreadbackpostburstgaranti. Flashseconde2MiB
+entièreexacte restaurée/SHAfcea004e… ;debugdétaché/faults0/UIDexact. TR2principal
+jamaisaccédé, M014-Hintact. SourcesHALreadéeshorscible : OVRflagSR etcompteurs
+fermés0 ;CPU16MHz/Debugsans-O/SPI2MHzcalculés peuventlimiter serviceRX, hypothèse
+àtester avecSPI_SR etcompteursavantfermeture/performance/packing, sanschanger
+FS/ODR/watermark ouallongertimeout pourmasquererror. Pas de vérificationphysique
+manquante identifiée àcestade. WHO/pollingvalidés dansportéebornée, FIFOlongBLOCKED.
+
+Preuvesessai1parentinchangées ;rapportessai1archivéexact depuisb64e8a6. Preuvesessai2
+Echanges_Codex/preuves/TR2-20261012-M015-L/essai02 ;originaux
+/home/lolo/dev/msm/reports/TR2-mission015-L-attempt02-20261012T201926Z.

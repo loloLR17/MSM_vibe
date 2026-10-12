@@ -1,0 +1,2 @@
+tick,reg,len,write,hal_status,hal_error,rx_left_after_HAL,tx_left_after_HAL,offset,valid,index,command_from_code,buffer_hex
+4610,15,1,0,0,0,0,0,0,1,0,8F,7b

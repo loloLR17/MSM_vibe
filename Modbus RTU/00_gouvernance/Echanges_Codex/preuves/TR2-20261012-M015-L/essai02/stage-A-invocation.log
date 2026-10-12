@@ -1,0 +1,22 @@
+{
+  "stage": 6,
+  "result": 0,
+  "cleanup_result": 0,
+  "count": 0,
+  "xyz_count": 0,
+  "timestamp_count": 0,
+  "who": 123,
+  "raw_level": 0,
+  "st_level": 0,
+  "flags": 0,
+  "status10": 0,
+  "st_batch": 0,
+  "controls_hex": "0000000000000000000000000000",
+  "sn": "0032001F3235510C37333439",
+  "uid": "001B00463842501820333157",
+  "example": "who",
+  "profile": "ST_STRICT",
+  "trace_count": 1,
+  "all_transfers_valid": true,
+  "allow_next_stage": true
+}

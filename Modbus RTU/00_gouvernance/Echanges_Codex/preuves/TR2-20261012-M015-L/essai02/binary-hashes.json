@@ -1,0 +1,134 @@
+{
+  "stage-C-ram.bin": {
+    "bytes": 786432,
+    "sha256": "cf2eee38df098c4e624a0d087bbfbef8da77321afb1c343dd220f85511734f8b"
+  },
+  "stage-A-trace-count.bin": {
+    "bytes": 4,
+    "sha256": "67abdd721024f0ff4e0b3f4c2fc13bc5bad42d0b7851d456d88d203d15aaa450"
+  },
+  "restore-initial-sectors0-3.bin": {
+    "bytes": 32768,
+    "sha256": "793502c0c5feb83e97a4beb8fe953bf6ab50c168426f95ae68555ec71b2ad5cc"
+  },
+  "stage-A-result.bin": {
+    "bytes": 4032,
+    "sha256": "390e52669033db133f4a481dc51ab5c8ac0c8c2b23719869747244d1606a8dae"
+  },
+  "stage-A-payload.bin": {
+    "bytes": 1,
+    "sha256": "021fb596db81e6d02bf3d2586ee3981fe519f275c0ac9ca76bbcf2ebb4097d96"
+  },
+  "stage-C2-trace-count.bin": {
+    "bytes": 4,
+    "sha256": "f7e05a6837061cf3dcac92af672c9a517df6070014cb52e1643bc79c07d9aef9"
+  },
+  "stage-C-result.bin": {
+    "bytes": 4032,
+    "sha256": "d64acab5acefb29dc275d2600a77bac4de1f6098b89430110e2c5351bc8d461d"
+  },
+  "stage-C-flash.bin": {
+    "bytes": 31632,
+    "sha256": "7ae06204ce280c0907799b2b5631cb2c7045583d7ba77f36eab7e1623b778898"
+  },
+  "stage-A-traces.bin": {
+    "bytes": 40,
+    "sha256": "0ac30e49ffbec42c192682f9b51d247b5fe2eb402b508406d9236b06312d5228"
+  },
+  "flash-before-second.bin": {
+    "bytes": 2097152,
+    "sha256": "fcea004eb0c91af44f8e36ca61206b5f6bf25fd4c5db4dfdab42d1a19dcea9d9"
+  },
+  "stage-B-result.bin": {
+    "bytes": 4032,
+    "sha256": "75203bfc621eacc9d73d4f1d845dafa6379abf2192b032fdde6478a28f8c6248"
+  },
+  "stage-B-payload.bin": {
+    "bytes": 645,
+    "sha256": "8e3f76fa0c35a431d0663db2b748528ceb089b886ad2b64ee7590d45e36b3a71"
+  },
+  "stage-C2-ram.bin": {
+    "bytes": 786432,
+    "sha256": "83617c9379a8984878beb074b5f31aa940d727c121cbdb971ce9c1f8cf4e4c8b"
+  },
+  "stage-B-ram.bin": {
+    "bytes": 786432,
+    "sha256": "c000f37af253a2095c26d7a53349f9a4caa8f3ce24d81049e10fed2b8419f2cf"
+  },
+  "stage-B-flash.bin": {
+    "bytes": 31632,
+    "sha256": "0eea150b47a56d00e0ce9eac53d48fe5c42188e7797b422008f8d4038d162fcb"
+  },
+  "stage-C2-flash.bin": {
+    "bytes": 31632,
+    "sha256": "033f0c425203c5e874aebeff47202d390d2435d0df6aa1da0177a44c8ca3c1be"
+  },
+  "stage-C2-traces.bin": {
+    "bytes": 33640,
+    "sha256": "308875abe97715748157b1bec799b16bc204688a1b93ea8bf3aae26e93d4f95d"
+  },
+  "stage-A-flash.bin": {
+    "bytes": 31632,
+    "sha256": "375fd90243d34eedb9948aff2ba43daabf24c0d0f0a326be2bbee49c1d8f9c21"
+  },
+  "stage-C-traces.bin": {
+    "bytes": 33600,
+    "sha256": "c015f1ec6d83f8f5958a63948cfd4b99dcaf3fc92294f165535ba0ebd48d8ca0"
+  },
+  "fifo-failed-buffer.bin": {
+    "bytes": 896,
+    "sha256": "4f890a630b409c061f69b13919b5fbcd5c99137419fb150b34aba6227e8a0e17"
+  },
+  "stage-B-trace-count.bin": {
+    "bytes": 4,
+    "sha256": "3a7869b257bf1ee21edcdaa77fe6c8a5d1790c9bb684750e38a422bfc8042108"
+  },
+  "flash-restored-full.bin": {
+    "bytes": 2097152,
+    "sha256": "fcea004eb0c91af44f8e36ca61206b5f6bf25fd4c5db4dfdab42d1a19dcea9d9"
+  },
+  "stage-C2-result.bin": {
+    "bytes": 4032,
+    "sha256": "2f56444080ceaf5b8c9dc10e7a449f1be1ec1b2b24e81263fa62c7c6e2393f0a"
+  },
+  "stage-C2-payload.bin": {
+    "bytes": 2548,
+    "sha256": "6b31adaf7476258c2dad698b63fa493b6befeb959f9427c8d275a8767864a0bd"
+  },
+  "flash-before-first.bin": {
+    "bytes": 2097152,
+    "sha256": "fcea004eb0c91af44f8e36ca61206b5f6bf25fd4c5db4dfdab42d1a19dcea9d9"
+  },
+  "stage-C-trace-count.bin": {
+    "bytes": 4,
+    "sha256": "b2b8ad3bd64b9a2e831cfea2f67a5e91203783282fbf77490f123876162cf89c"
+  },
+  "stage-B-traces.bin": {
+    "bytes": 12360,
+    "sha256": "86f8c0d7a628567d84ca6dc29754eccc113d318b39a95beea85514e8206ccd19"
+  },
+  "ram-before.bin": {
+    "bytes": 786432,
+    "sha256": "aa2e322e45fabb610bb86855d0ccda53cdbf96512727f14c729db7982831f3a3"
+  },
+  "flash-after-attempt02-full.bin": {
+    "bytes": 2097152,
+    "sha256": "1fede028ff22e1039122d0383720f6991f189da8a6ef4fc2876955b403d596cd"
+  },
+  "stage-A-ram.bin": {
+    "bytes": 786432,
+    "sha256": "a48623b3527411daf82459161b5469046bb6f4db8df2d9ca598656867ef2b189"
+  },
+  "stage-C-payload.bin": {
+    "bytes": 1652,
+    "sha256": "6a3389f287b3ae3586d7f7fe3446f2fac5b03ff67145e85c1618d5c30bdb4f8d"
+  },
+  "uid.bin": {
+    "bytes": 12,
+    "sha256": "b3ceb0901bec9f4712319f70be69121bf7c79e87a332af3f70379f7d99896ed6"
+  },
+  "polling-xyz.bin": {
+    "bytes": 384,
+    "sha256": "1ff9da3d6d80a5afe6623506b07c25d51b5b67aec119790285ee6598327dbfd3"
+  }
+}
