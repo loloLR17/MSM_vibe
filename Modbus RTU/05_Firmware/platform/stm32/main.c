@@ -11,6 +11,9 @@
 #include "stm32_irq_observer.h"
 #include "stm32_runtime_platform.h"
 #include "stm32_sdmmc_bulk_media.h"
+#if TR2_STM32_PRODUCTION || TR2_STM32_MANUFACTURING
+#include "stm32_production_board.h"
+#endif
 
 #include "tr2/persistence/campaign_data_store_bulk.h"
 #include "tr2/modbus/rtu_receiver.h"
@@ -1712,6 +1715,16 @@ int main(void)
     SystemClock_Config();
     SystemPower_Config();
     BringupLed_Init();
+#if TR2_STM32_PRODUCTION || TR2_STM32_MANUFACTURING
+    FramSpi_Init();
+    Iis3dwbSpi_Init();
+    stm32_production_board_initialize(&hspi1,&hspi3);
+#if TR2_STM32_MANUFACTURING
+    stm32_production_manufacturing_run();
+#else
+    stm32_production_server_run();
+#endif
+#endif
 #if TR2_STM32_COMMISSIONING_READONLY
     CommissioningReadOnly();
 #endif

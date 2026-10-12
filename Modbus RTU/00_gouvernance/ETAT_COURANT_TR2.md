@@ -1,6 +1,6 @@
 # État courant TR2 — référence reconstruite
 
-Mise à jour : 12 octobre 2026. Mission `TR2-20261011-M014-G-COMMISSIONING`.
+Mise à jour : 12 octobre 2026. Mission `TR2-20261012-M014-H-PRODUCTION-RESUME`.
 
 **Ce document est un nouvel état de référence reconstruit à partir de preuves vérifiables. Il n'est pas une restitution du journal historique HP.** Sa création a été explicitement autorisée par l'utilisateur pour la mission `T1000-20261010-CLOTURE-001`, après escalade AGENTS.md §18. Aucun original n'a été retrouvé dans l'historique Git, les répertoires Linux locaux ou les documents Windows accessibles. Les archives d'échanges du 8 octobre mentionnent un journal local HP, sans en fournir le contenu. Aucun état historique inconnu n'est inventé.
 
@@ -403,3 +403,9 @@ physiques temporelles/robustesse/production/J1global/E4 inchangées.
 - **ÉTAT COURANT** : probe isolé lecture seule, source69d523b, BIN45348 octets. Diagnostic E sauvegardé et restaurable selon procédure qualifiée. Aucun serveur production actif, aucune nouvelle transmission COM7.
 - **PRÉPARÉ / NON VÉRIFIÉ** : fenêtre SD readonly [8,24Mio) envisagée mais non sauvegardée/attribuée ; manifeste, strong binding et provisioning restent à terminer. Pas de config/identité persistante installée. Polling B0/B1 et perte/reprise physiques non réalisés ; M014 IN PROGRESS, M015 non engagée.
 - Priorité utilisateur : publier les acquis avant poursuite, sans risque sur partition. Aucun blocage matériel courant ; prochaines actions détaillées dans DERNIER_RAPPORT.md, preuves `/home/lolo/dev/msm/reports/TR2-mission014-G-20261011T220027Z`. Réserves M013/qualification industrielle inchangées.
+
+## M014-H — Tranche production préparée, 12 octobre 2026
+
+- **VALIDÉ logiciel** : strong binding STM32 et profils production/manufacturing compilés, génération authoritative B0 depuis registre, six tests nouveaux et répétition offline du provisioning sur copie backup réelle (10→11→12, conservation préfixe, config UNAVAILABLE sans stockage). Cross-build défaut réussi ; 113 firmware/539 .NET G conservés sans répétition.
+- **PRÉPARÉ** : manifeste H et procédure offboot/trigger explicite/CRC backup/générations/UID/readback ; identité hw1/fw0.14.8/proto1/caps0xC attribuée projet, pas capacités acquisition/SD. Configuration seulement structurellement valide ; activation opérationnelle différée jusqu'à ressource owned/caractérisée. Boot env=false/capacité0, READY/stockagefalse.
+- **OBSERVÉ / ÉTAT** : GDB seul confirme probe G/UID, Flash/RAM sauvegardées. Aucun flash H/provisioning/COM7 encore exécuté. Aucun accès SD en profiles dédiés ; partition strictement intouchable. Prochaine tranche : manufacturing puis readback et production, essais bornés HP ; M014 toujours IN PROGRESS.

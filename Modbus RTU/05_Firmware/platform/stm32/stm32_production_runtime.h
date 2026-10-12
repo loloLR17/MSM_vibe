@@ -39,6 +39,10 @@ typedef struct {
     ConfigurationActivationMetadataAcquire configuration_metadata_acquire;
     const SelfTestExecutor *selftest_executor;
     const PlatformResetTrigger *reset_trigger;
+    /* Optional board authority runs before any runtime boot/recovery writes. */
+    void *preboot_authority_context;
+    Tr2Result (*preboot_authority)(void *context, const uint8_t *image, size_t size,
+        const PersistentIdentityRecord *identity, const ModbusBlock0Image *b0);
 } Stm32ProductionDependencies;
 
 Tr2Result stm32_production_runtime_prepare(Stm32ProductionRuntime *runtime,

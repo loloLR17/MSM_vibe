@@ -32,6 +32,32 @@ if(TR2_STM32_MODBUS_DIAGNOSTIC)
     endif()
 endif()
 
+option(TR2_STM32_PRODUCTION "Dedicated production board composition, no harness" OFF)
+option(TR2_STM32_MANUFACTURING "Explicit one-shot off-boot FRAM provisioning" OFF)
+option(TR2_STM32_PRODUCTION_SILENCE_TEST "Single bounded qualification silence window" OFF)
+set(TR2_COMMISSIONING_MANIFEST "" CACHE FILEPATH "Reviewed commissioning manifest")
+set(TR2_COMMISSIONING_REGISTRY "" CACHE FILEPATH "Authoritative project registry")
+if(TR2_STM32_PRODUCTION OR TR2_STM32_MANUFACTURING)
+    if(TR2_STM32_COMMISSIONING_READONLY OR TR2_STM32_MODBUS_DIAGNOSTIC OR
+       (TR2_STM32_PRODUCTION AND TR2_STM32_MANUFACTURING))
+        message(FATAL_ERROR "Production, manufacturing, probe and diagnostic are exclusive")
+    endif()
+    if(TR2_STM32_PRODUCTION AND NOT TR2_STM32_RS485_TX_QUALIFIED)
+        message(FATAL_ERROR "Production requires qualified RS485 transport")
+    endif()
+    find_package(Python3 REQUIRED COMPONENTS Interpreter)
+    execute_process(COMMAND ${Python3_EXECUTABLE}
+        ${CMAKE_CURRENT_SOURCE_DIR}/generate_commissioning_identity.py
+        ${TR2_COMMISSIONING_MANIFEST} ${TR2_COMMISSIONING_REGISTRY}
+        ${CMAKE_CURRENT_BINARY_DIR}/generated RESULT_VARIABLE generated_result)
+    if(NOT generated_result EQUAL 0)
+        message(FATAL_ERROR "Commissioning authority generation failed")
+    endif()
+endif()
+if(TR2_STM32_PRODUCTION_SILENCE_TEST AND NOT TR2_STM32_PRODUCTION)
+    message(FATAL_ERROR "Silence window requires dedicated production mode")
+endif()
+
 set(TR2_FIRMWARE_ROOT "${CMAKE_CURRENT_SOURCE_DIR}/../..")
 set(CMSIS_CORE_DIR ${STM32CUBE_U5_ROOT}/Drivers/CMSIS/Include)
 set(CMSIS_DEVICE_DIR ${STM32CUBE_U5_ROOT}/Drivers/CMSIS/Device/ST/STM32U5xx)
@@ -121,7 +147,14 @@ add_executable(tr2_stm32_p11c
     ${HAL_DIR}/Src/stm32u5xx_hal_tim_ex.c
 )
 
+if(TR2_STM32_PRODUCTION OR TR2_STM32_MANUFACTURING)
+    target_sources(tr2_stm32_p11c PRIVATE stm32_production_board.c)
+    target_include_directories(tr2_stm32_p11c PRIVATE ${CMAKE_CURRENT_BINARY_DIR}/generated)
+endif()
 target_compile_definitions(tr2_stm32_p11c PRIVATE
+    TR2_STM32_PRODUCTION=$<BOOL:${TR2_STM32_PRODUCTION}>
+    TR2_STM32_MANUFACTURING=$<BOOL:${TR2_STM32_MANUFACTURING}>
+    TR2_STM32_PRODUCTION_SILENCE_TEST=$<BOOL:${TR2_STM32_PRODUCTION_SILENCE_TEST}>
     TR2_STM32_COMMISSIONING_READONLY=$<BOOL:${TR2_STM32_COMMISSIONING_READONLY}>
     TR2_STM32_IRQ_DIAGNOSTICS=$<BOOL:${TR2_STM32_IRQ_DIAGNOSTICS}>
     TR2_STM32_RS485_TX_QUALIFIED=$<BOOL:${TR2_STM32_RS485_TX_QUALIFIED}>

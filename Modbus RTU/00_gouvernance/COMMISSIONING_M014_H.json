@@ -1,0 +1,172 @@
+{
+  "schema_version": 1,
+  "mission_id": "TR2-20261012-M014-H-PRODUCTION-RESUME",
+  "status": "SUPERVISION_ONLY_DEFERRED_STORAGE_PLAN",
+  "source_sha": "1507dcbe3b68dd1b6a4579d78a53b5072eb9cf6e",
+  "registry": "REGISTRE_ATTRIBUTION_TR2.json",
+  "observations": {
+    "fram": {
+      "fram_rdid_hex": "047F4803",
+      "fram_read_result": 0,
+      "fram_second_read_equal_result": 0,
+      "fram_size": 262144,
+      "fram_sha256": "59d32d12ebe26db36d8552ae522b2704632c6ccfde9e1a57200c3d25c77b4737",
+      "sd_result": 6,
+      "sd_hal_error": 4,
+      "sd_last_command": 55,
+      "sd_response_timeout": true,
+      "sd_capacity_not_available": true,
+      "probe_flash_exact": true,
+      "flash_after_0x0800C000_unchanged": true,
+      "records": [
+        {
+          "name": "superA",
+          "base": 0,
+          "magic": "TR2M",
+          "physical_version": 1,
+          "logical_version": 1,
+          "generation": 9,
+          "header_hex": "5452324d000100010000000000000009000000000000ca6a0000004000000000000000000000000000000000000000000000000000000000000000007a3ab91a",
+          "crc_ok": true
+        },
+        {
+          "name": "superB",
+          "base": 4096,
+          "magic": "TR2M",
+          "physical_version": 1,
+          "logical_version": 1,
+          "generation": 10,
+          "header_hex": "5452324d00010001000000000000000a010000000000ca6a0000004000000000000000000000000000000000000000000000000000000000000000006fd9ffed",
+          "crc_ok": true
+        },
+        {
+          "name": "imageA",
+          "base": 8192,
+          "magic": "TR2I",
+          "physical_version": 1,
+          "logical_version": 1,
+          "generation": 9,
+          "header_hex": "545232490001000100000000000000090000ca6a00000040b7f93c220000000000000000000000000000000000000000000000000000000000000000ea78724d",
+          "crc_ok": true
+        },
+        {
+          "name": "imageB",
+          "base": 65536,
+          "magic": "TR2I",
+          "physical_version": 1,
+          "logical_version": 1,
+          "generation": 10,
+          "header_hex": "5452324900010001000000000000000a0000ca6a000000402f4d64a70000000000000000000000000000000000000000000000000000000000000000b090429e",
+          "crc_ok": true
+        }
+      ]
+    },
+    "sensor_and_sd": {
+      "who_am_i": "0x7B",
+      "sensor_read_result": 0,
+      "sd_logical_blocks": 999743488,
+      "sd_logical_block_size": 512,
+      "sd_physical_capacity_bytes": 511868665856,
+      "sd_cid_words_hex": [
+        "03534453",
+        "44353132",
+        "8562E43C",
+        "F80195EA"
+      ],
+      "sd_csd_words_hex": [
+        "400E0032",
+        "5B59000E",
+        "E5B77F80",
+        "0A4040B4"
+      ],
+      "sd_read_prefix_result": 0,
+      "sd_prefix_read_size": 8192,
+      "sd_prefix_sha256": "22e2c58d886232b8c4d858b03d9575b574b27ec2eabfc1b4e89e22882316e3f3",
+      "sd_data_writes": 0,
+      "fram_full_backup_reconfirmed": true,
+      "source_sha": "69d523bf81baf92b0849d63d750c3aca75ee17ba"
+    }
+  },
+  "sd_partition": {
+    "type_hex": "07",
+    "start_lba": 65536,
+    "blocks": 999677952,
+    "preserve": true
+  },
+  "candidate_window": {
+    "start_bytes": 8388608,
+    "size_bytes": 16777216,
+    "status": "PROPOSED_NOT_ALLOCATED_NOT_BACKED_UP",
+    "writes_allowed": false
+  },
+  "provisioning": {
+    "executed": false,
+    "expected_generation": 10,
+    "configuration_generation_after": 11,
+    "identity_generation_after": 12,
+    "fram_backup_sha256": "59d32d12ebe26db36d8552ae522b2704632c6ccfde9e1a57200c3d25c77b4737",
+    "fram_backup_crc32": 3201154568,
+    "logical_prefix_sha256": "5afc9117265eadae5a595a0d4d72385466368cadcc7321f07e70a9e3c0be5753",
+    "mode": "explicit_ram_trigger_off_normal_boot",
+    "writes": "existing transactional image pages only; slot1 config then V2 identity; no format; stop on divergence",
+    "exclusive_owner": "Single TR2 operator; independent manufacturing mode; no UART or concurrent harness",
+    "rollback": "Before FRAM writes diagnostic E standard flash; after V2 only V2-aware firmware, no legacy V1 production downgrade"
+  },
+  "evidence_directory": "/home/lolo/dev/msm/reports/TR2-mission014-G-20261011T220027Z",
+  "proof_index": "proof-index-intermediate.json",
+  "firmware_on_target": {
+    "kind": "ISOLATED_READ_ONLY_PROBE",
+    "source_sha": "69d523bf81baf92b0849d63d750c3aca75ee17ba",
+    "bin_bytes": 45348,
+    "bin_sha256": "12bd87d731acd1c3d335ca7e965672f34a10293d37aa48a9eca210a6bfc1291c",
+    "elf_sha256": "ae459e0df07e7ba9df6ac49e610ef82d72b881f65bb4f997e312e721bcc91064",
+    "not_production_server": true
+  },
+  "verified_backup": {
+    "fram_bytes": 262144,
+    "fram_sha256": "59d32d12ebe26db36d8552ae522b2704632c6ccfde9e1a57200c3d25c77b4737",
+    "flash_bytes": 2097152,
+    "flash_sha256": "0ebb31d951a24bd0b609d38f8180ebe1e2976072a7f853a3d116799a48916a7b",
+    "fram_second_read_identical": true,
+    "sd_complete_backup": false
+  },
+  "b0": {
+    "identity_generation": 1,
+    "hardware_version": 1,
+    "firmware_version": [
+      0,
+      14,
+      8
+    ],
+    "protocol_version": 1,
+    "capabilities": 12,
+    "version_provenance": "Project board profile 1 and release 0.14.8; protocol V1; supervision/diagnostic only; acquisition and SD not qualified"
+  },
+  "configuration": {
+    "generation": 1,
+    "config_id": 1,
+    "revision_counter": 1,
+    "sampling_frequency_hz": 26667,
+    "axes_enable_mask": 7,
+    "full_scale_code": 0,
+    "acquisition_mode": 1,
+    "window_size_samples": 4096,
+    "indicator_period_ms": 2000,
+    "campaign_duration_s": 60,
+    "storage_mode": 1,
+    "storage_limit_mb": 1,
+    "campaign_context_id": 1,
+    "mission_id": 14,
+    "campaign_label": "MSM-TR2-000001",
+    "mission_label": "M014-H",
+    "status": "STRUCTURAL_VALIDATION_ONLY_STORAGE_ACTIVATION_DEFERRED"
+  },
+  "storage_policy": {
+    "availability": false,
+    "configuration_environment_known": false,
+    "usable_capacity_mb": 0,
+    "allocated_ranges": [],
+    "sd_access": "NONE",
+    "scope": "Configuration syntax/domain constraints checked separately from resource validation; normal boot keeps configuration unavailable and READY false until storage owned and characterized"
+  }
+}

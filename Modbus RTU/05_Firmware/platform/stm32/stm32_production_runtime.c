@@ -39,6 +39,12 @@ Tr2Result stm32_production_runtime_prepare(Stm32ProductionRuntime *runtime,
         uid, dependencies->supported_protocol_version, &runtime->persistent_identity,
         &runtime->identity_b0);
     if (result != TR2_OK) return result;
+    if (dependencies->preboot_authority != NULL) {
+        result = dependencies->preboot_authority(dependencies->preboot_authority_context,
+            runtime->candidate, sizeof(runtime->candidate), &runtime->persistent_identity,
+            &runtime->identity_b0);
+        if (result != TR2_OK) return result;
+    }
     /* The read-only probe denies EMPTY and every unavailable/invalid state.
      * It never provisions, formats, or manufactures production identity. */
     result = stm32_iis3dwb_vibration_source_init(&runtime->vibration,
