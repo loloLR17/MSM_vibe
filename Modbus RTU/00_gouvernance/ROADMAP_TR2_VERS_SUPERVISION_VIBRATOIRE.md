@@ -6,6 +6,10 @@
 
 > Cette roadmap pilote les jalons, sans modifier les spécifications Modbus RTU V1 gelées. Les statuts sont ceux du 11 octobre 2026, à actualiser après contrôle indépendant des rapports Codex. Une implémentation logicielle ne vaut pas qualification physique.
 
+## Actualisation M015-Q — 13 octobre 2026
+
+Répétabilité acquise sur second banc : trois captures mêmes image/configuration après resets MCU, chacune263XYZ+33TS. Fenêtre512XYZ unique qualifiée (64TS intercalés,576mots). Fenêtre4096 bloquée :2275XYZ+285TS reçus puis niveau512/FULL-overrun-latch,cleanup réussi et arrêt sans nouvel essai. Débit du service complet insuffisant sur cette exécution, malgré SPIpayload≈247ko/s ; coût exact à isoler sous prochaine mission. M015 reste IN PROGRESS ; 4096 continu/V1/FFT/stockage nonqualifiés. Firmware primaire M014-H/médias inchangés, montage fonctionnel préservé. Voir DERNIER_RAPPORT et QUALIFICATION_M015_Q.md.
+
 ## Actualisation M015-P — 13 octobre 2026
 
 Acquis physique borné supplémentaire sur le second banc : 263 XYZ distincts et 33 timestamps, contrôle unique byte-identique au binaire O auparavant limité aux timestamps. Reconnexion de nappe rapportée par l'utilisateur ; contact et état initial/alimentation non discriminés. M015-P BLOCKED pour cause précise, variante duplex non exécutée, M015 reste IN PROGRESS. Montage fonctionnel à préserver ; répétabilité et fenêtres512/4096 puis chaîne V1 restent à qualifier. M014-H et médias préservés. Voir DERNIER_RAPPORT et comparaison M015-P ; les échecs historiques ne sont pas annulés.

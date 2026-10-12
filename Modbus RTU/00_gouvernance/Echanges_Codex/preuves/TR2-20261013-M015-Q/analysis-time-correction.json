@@ -1,0 +1,3 @@
+{
+  "note": "On refused window last_tick remains zero in firmware. Original derived wraparound duration was invalid and is preserved; corrected offline evaluator reports duration null and matrix provides first_tick to actual refusal trace elapsed time. No firmware change or target operation."
+}

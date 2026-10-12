@@ -27,7 +27,7 @@ for ti,t in enumerate(traces):
  x=snapshots[0]
  if x['requested']!=t['len'] or x['rx_size']!=t['len'] or x['rx_remaining'] or not x['offset_valid'] or x['rx_offset']!=t['len'] or x['cs'] or x['error_before_close'] or x['sr']&0x40:q['reasons'].append('incomplete_preclose')
 if q['xyz_count']!=int(name[6:]) or w['received']!=q['entries'] or w['xyz']!=q['xyz_count'] or w['timestamps']!=q['timestamp_count'] or w['reason']:q['reasons'].append('window_mismatch')
-q['window']=w;q['duration_ms']=(w['last_tick']-w['first_tick'])&0xFFFFFFFF
+q['window']=w;q['duration_ms']=((w['last_tick']-w['first_tick'])&0xFFFFFFFF) if a['result']==0 else None
 q['captured_XYZ_per_second']=q['xyz_count']*1000/q['duration_ms'] if q['duration_ms'] else None
 q['bounded_acceptance']=not q['reasons'];q['payload_words_identical']=True
 q['transfer_us']=[x['duration_us'] for x in pre if x['phase']==2 and traces[x['trace_index']]['reg']==120]
