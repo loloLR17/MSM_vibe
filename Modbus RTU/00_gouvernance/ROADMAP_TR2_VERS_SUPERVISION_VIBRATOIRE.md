@@ -123,3 +123,9 @@ READY/stockage restent0, configuration UNAVAILABLE sansressourceowned. MicroSDto
 M014 conserve sa clôture bornée B0/B1/polling/perte-reprise ; sa revue indépendante est indiquée par le contrat M015-A. Son image permanente est restaurée exactement, Flash 2 Mio identique, FRAM génération 12/configuration UNAVAILABLE et READY/stockage=0. Deux lectures physiques B0/B1 confirment la reprise, sans rejouer la campagne. SD entièrement désactivée et partition LBA65536 préservée. L'acquisition mode 3 reste un profil RAM temporaire ; le firmware permanent M014 conserve le mode 0, sans acquisition.
 
 Suite proposée M015-B : raccordement production en mode 3, FIFO/DMA et débit, timestamps de conversion, détection des pertes, excitation externe contrôlée. Le stockage V1 avant campagne reste un lot distinct avec allocations et sauvegardes explicites. Aucune extension silencieuse vers M016/M017/Web ni qualification industrielle. Revue indépendante M015-A à faire après publication du rapport.
+
+## Actualisation M015-B — 12 octobre2026
+
+**M015-B BLOCKED ; M015 globale IN PROGRESS.** Le prototype FIFO borné256XYZ et son testhôte sont livrés, mais l'unique campagne fournit des statuts incohérents :171polls/11reculs du niveau/flagoverrun brut/readbackdivergent. Refus avantvidange,0XYZ accepté ; consécutivité/cadence/pertes nonqualifiées. Causeinconnue ; pas nouveauxessais/variantes danscette missionréduite, pasDMA/production/stockage/B5/FFT.
+
+M014 restauréeexactement (Flash2Mio identique), FRAMgen12/configUNAVAILABLE, SDtotalementOFF/partitionLBA65536préservée,2lecturesB0/B1dereprise réussies. AcquisM015-A nonrejoués ; J3resteen cours. Prochaincontrat : établirla fiabilité desregistresFIFO avant nouvellequalification, sanscritèreimmobilitéduvoilier. Rapport etpreuvesB portentle verrou etleslimites.

@@ -1,10 +1,18 @@
 # État courant TR2 — référence reconstruite
 
-Mise à jour : 12 octobre 2026. Mission `TR2-20261012-M015-A-ACQUISITION-BRINGUP`.
+Mise à jour : 12 octobre 2026. Mission `TR2-20261012-M015-B-FIFO-CADENCE`.
 
 **Ce document est un nouvel état de référence reconstruit à partir de preuves vérifiables. Il n'est pas une restitution du journal historique HP.** Sa création a été explicitement autorisée par l'utilisateur pour la mission `T1000-20261010-CLOTURE-001`, après escalade AGENTS.md §18. Aucun original n'a été retrouvé dans l'historique Git, les répertoires Linux locaux ou les documents Windows accessibles. Les archives d'échanges du 8 octobre mentionnent un journal local HP, sans en fournir le contenu. Aucun état historique inconnu n'est inventé.
 
-## État opérationnel actuel — M015-A, 12 octobre 2026
+## État opérationnel actuel — M015-B, 12 octobre2026
+
+- **BLOCKED FIFO/cadence** : une seule campagne mode3/625kHz, code15c3369446a568ff2dd2d7a13453d6cfaa1cdbf0 ;171statuts/11reculs du niveau avant toute vidange,0x40FE au niveau254 puis0xA100/256, FIFO_CTRL2 relu0x80 après0x81 vérifié. Cause inconnue, HALerrors0 ne prouve pas intégrité. Garde refuse avant vidange :0XYZ accepté ; contrôle négatif non atteint. Pas nouvelle variante/essai, ni supposition d'immobilité du voilier.
+- **VALIDÉ logiciel seulement** : prototypeFIFO256/stopwatermark, tags/parité/niveaux/overrun/temps/restauration ; testhôte1/1 et cross-build défaut/profil réussis. Cœur/driver inchangés,114firmware/539.NET nonrejoués. PasDMA/production/stockage/B5/FFT ; portée réduite du contratB prévaut sur propositionhistoriqueA.
+- **M014 PRÉSERVÉ** : firmwarepermanent SHAb462c29a restauré ; Flash2Mio byte-identique initiale, SHA556fedf58a88f7de0ad63826af6b4941de8bb72dcd6e97a886c1017da5ba93f0. BootFRAMV2/gen12/configUNAVAILABLE/READY0/stockage0, IRQ49/66/faults0/UART0/filevide ; MCU détaché enexécution. AucuneFRAMwrite/provisioning/SDlecture-write-allocation, partitionLBA65536 préservée.
+- **VALIDÉ reprise** : HP10:06:21..22UTC,2FC03 B0/B1/2réponses/sansretry/retour0, B0completconforme/B1uptime215s. Journalintégralpublié/SHA8B31E409B02580B5D109D281C506D69B9F470C56A7C9B5812A4BDBF14831278F ; GDBaprès sansreset. Pas rerunpolling/perteM014.
+- **PUBLICATION/SUITE** : code déjàpublié15c3369/relecture11fichiers ; résultats/rapportfinal enpublication. CSV171statuts/replay/audit/publicpreuvesB ; locaux `/home/lolo/dev/msm/reports/TR2-mission015-B-20261012T095010Z`. M015globale IN PROGRESS, acquisAconservés ; futurcontrat de fiabilitéregistresFIFO avant nouvellecapture. Worktreesinitial/H/A et2stashes préservés, archivesAexactes.
+
+## État opérationnel antérieur — M015-A, 12 octobre 2026
 
 - **VALIDÉ PHYSIQUE dans la portée M015-A** : IIS3DWB réel WHO=0x7B, SPI3/CS PC9, mode 3/625 kHz/±4 g, registres A8/44. Capture de 2 048 XYZ, zéro erreur/saturation ; norme au repos 984,75 puis 984,65 mg. Auto-test mécanique interne positif/négatif : écarts par axe de 1,6 à 1,9 g, puis retour au repos. Pas d'excitation externe ni calibration ; **M015 globale IN PROGRESS**.
 - **OBSERVÉ, limites temporelles** : DWT 160 MHz ; timestamps encadrant les lectures, cadence ≈6 538 lectures/s. ODR 26,667 kHz configuré, non mesuré indépendamment. Polling sans FIFO/DMA, pertes intermédiaires possibles ; pas de simultanéité XYZ ni de flux continu qualifiés.

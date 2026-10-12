@@ -1,0 +1,84 @@
+{
+  "mission_id": "TR2-20261012-M015-B-FIFO-CADENCE",
+  "physical_result": "BLOCKED",
+  "firmware_source_sha": "15c3369446a568ff2dd2d7a13453d6cfaa1cdbf0",
+  "accepted_xyz": 0,
+  "text_normalization": "CRLF to LF; original raw logs preserved locally",
+  "files": [
+    {
+      "path": "artifacts.json",
+      "bytes": 746,
+      "sha256": "52bd4350d3d515a7414003d3005c05844ac99d12f249a1937096d97801db63ef"
+    },
+    {
+      "path": "backup-verified.json",
+      "bytes": 472,
+      "sha256": "77a2aaad9fd92481d929bcaef0bab875c6327057a6a1880657419eccad804d9f"
+    },
+    {
+      "path": "clock-offset-restored.json",
+      "bytes": 197,
+      "sha256": "117a807b3defa988e749e5b229ffdbdecace3fd91eb460757123c7631b9df7db"
+    },
+    {
+      "path": "fifo-analysis.json",
+      "bytes": 2239,
+      "sha256": "7f572e93b743945e3e4ae757b73d8b78dd497250500799f8eee8562412c8ee8a"
+    },
+    {
+      "path": "fifo-info.json",
+      "bytes": 766,
+      "sha256": "32791c7e5c2356527bb8518cdeaa9acacd67057eb5d9a8a338accace0d640fcd"
+    },
+    {
+      "path": "fifo-result-no-reset.log",
+      "bytes": 1320,
+      "sha256": "143d478cf179c24293abc7b22c0e4b84558d412ebc86be4d25c17573bd40222d"
+    },
+    {
+      "path": "fifo-status.csv",
+      "bytes": 9113,
+      "sha256": "3d1e3f7b7fd03d2692f366614d397d68df1e547db561760a233aa2481dc9078f"
+    },
+    {
+      "path": "final-production-after-physical-no-reset.log",
+      "bytes": 1076,
+      "sha256": "1905cb64fba243c1c15b45c8e78d83ba19c7e70b8e7a4a540a56addb835120fc"
+    },
+    {
+      "path": "hp-restored-analysis.json",
+      "bytes": 646,
+      "sha256": "3a4dd0ac2573928ab0e58cf04ba492b4e536138247c8eaa9675a1f22b5c9bdbd"
+    },
+    {
+      "path": "hp-restored-physical.jsonl",
+      "bytes": 1390,
+      "sha256": "8b31e409b02580b5d109d281c506d69b9f470c56a7c9b5812a4bdbf14831278f"
+    },
+    {
+      "path": "restoration-verified.json",
+      "bytes": 263,
+      "sha256": "43590249ae5b0b23ac10b552e9a869c28efdde7d5b27bf48dbcd5592cced01c5"
+    },
+    {
+      "path": "restored-physical-gate.json",
+      "bytes": 196,
+      "sha256": "a95b2d0b0fa92deb810ce7ef645771c499e7fed07d9605aa9bf76bff2d4e1758"
+    },
+    {
+      "path": "software-validation.txt",
+      "bytes": 201,
+      "sha256": "eb7675d4d23f2c933271b76f3c48373ff503e92b978e2e46871f05c46851a79f"
+    },
+    {
+      "path": "validation-results.json",
+      "bytes": 490,
+      "sha256": "0461f7fb5e01e9fd5f5869a2847d07a5a05f8ec047dd4efea485bc303822f7c2"
+    },
+    {
+      "path": "verify_fifo.py",
+      "bytes": 1531,
+      "sha256": "db29ac871bad07e10c91a95ae4fe02fc5e61d12a833bb700c1de68c7b702b646"
+    }
+  ]
+}

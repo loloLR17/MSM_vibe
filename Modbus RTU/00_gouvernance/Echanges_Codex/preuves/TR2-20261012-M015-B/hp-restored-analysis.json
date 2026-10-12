@@ -1,0 +1,26 @@
+{
+  "journal_sha256": "8b31e409b02580b5d109d281c506d69b9f470c56a7c9b5812a4bdbf14831278f",
+  "full_journal_retrieved_parsed": true,
+  "b0_full_matches_expected": true,
+  "requests": 2,
+  "responses": 2,
+  "retries": 0,
+  "passed": true,
+  "system_state": {
+    "SystemStatus": 1,
+    "SystemFlags": 0,
+    "FaultFlags": 0,
+    "WarningFlags": 0,
+    "UptimeSeconds": 215,
+    "LastResetCause": 5,
+    "InternalTemperatureDeciCelsius": 0,
+    "CpuLoadPercent": 0,
+    "MemoryUsagePercent": 0,
+    "StorageStatus": 0,
+    "StorageUsagePercent": 0,
+    "AcquisitionState": 0,
+    "ActiveCampaignId": 0,
+    "ErrorCode": 0,
+    "WarningCode": 0
+  }
+}

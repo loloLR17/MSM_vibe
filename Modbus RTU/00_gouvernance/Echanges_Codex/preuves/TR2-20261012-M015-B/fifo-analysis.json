@@ -1,0 +1,98 @@
+{
+  "capture_rejected": true,
+  "accepted_xyz": 0,
+  "status_polls": 171,
+  "level_decreases": [
+    {
+      "index": 82,
+      "previous_level": 127,
+      "level": 0,
+      "raw_status": 0
+    },
+    {
+      "index": 86,
+      "previous_level": 132,
+      "level": 6,
+      "raw_status": 6
+    },
+    {
+      "index": 91,
+      "previous_level": 140,
+      "level": 28,
+      "raw_status": 28
+    },
+    {
+      "index": 93,
+      "previous_level": 142,
+      "level": 32,
+      "raw_status": 32
+    },
+    {
+      "index": 102,
+      "previous_level": 156,
+      "level": 30,
+      "raw_status": 30
+    },
+    {
+      "index": 114,
+      "previous_level": 174,
+      "level": 94,
+      "raw_status": 94
+    },
+    {
+      "index": 125,
+      "previous_level": 190,
+      "level": 126,
+      "raw_status": 126
+    },
+    {
+      "index": 128,
+      "previous_level": 194,
+      "level": 134,
+      "raw_status": 134
+    },
+    {
+      "index": 140,
+      "previous_level": 210,
+      "level": 186,
+      "raw_status": 186
+    },
+    {
+      "index": 151,
+      "previous_level": 230,
+      "level": 228,
+      "raw_status": 228
+    },
+    {
+      "index": 156,
+      "previous_level": 234,
+      "level": 220,
+      "raw_status": 220
+    }
+  ],
+  "observed_overrun_flags": [
+    {
+      "index": 169,
+      "raw_status": 16638,
+      "level": 254
+    }
+  ],
+  "configuration_mismatch": {
+    "register": "FIFO_CTRL2/0x08",
+    "requested_and_first_readback": 129,
+    "later_readback": 128
+  },
+  "loss_flags_explanation": "0x01 is observed overrun; 0x20 is additionally set by the filled-guard when any loss exists, not proof that final level differs from256",
+  "cadence_estimate_hz": {
+    "lower": 26243.663409579323,
+    "upper": 26863.508324342758,
+    "qualified": false,
+    "reason": "Depends on incoherent status readings; not a validated cadence or consecutive XYZ series"
+  },
+  "nominal_drain_executed": false,
+  "negative_control_executed": false,
+  "original_registers_restored_by_readback": true,
+  "polls_prefix_sha256": "674dba27c1c75fa1e42c0ccb30f5f6500fa3c63b0b9ef6949630f20444f7268b",
+  "info_binary_sha256": "1cb79d5560df1ff94096a0315e8fd873404680b0754c2a375ebd42536ef43e2b",
+  "no_synthetic_xyz_published": true
+}

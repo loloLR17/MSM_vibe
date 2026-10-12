@@ -1,0 +1,12 @@
+{
+  "uid": [
+    "004A003D",
+    "38425018",
+    "20333157"
+  ],
+  "permanent_bin_sha256": "b462c29a775fec17fccf8036b5612742b1366210359bcd3f192c95435740d611",
+  "permanent_elf_sha256": "c37ad8370fbfe3da35c0e5c16d7239d18e7d0ad102f33db79a67a029ecfca8de",
+  "full_flash_sha256": "556fedf58a88f7de0ad63826af6b4941de8bb72dcd6e97a886c1017da5ba93f0",
+  "full_ram_sha256": "45efa5d030f1de6dc27608936ae0d018531417be62bff8418789ffa27d795524",
+  "permanent_prefix_byte_equal": true
+}

@@ -1,0 +1,7 @@
+{"event":"start","utc":"2026-10-12T10:06:21.385042+00:00","mode":"SYSTEM_CHECK","Settings":{"PortName":"COM7","BaudRate":115200,"DataBits":8,"Parity":2,"StopBits":0,"ResponseTimeoutMilliseconds":1000},"supportedProtocolVersion":1,"unit":1,"maximumRequests":2,"retries":0,"evidence":"decoded registers; not a captured wire frame; physical readiness is external"}
+{"event":"read_intent","utc":"2026-10-12T10:06:21.5836659+00:00","function":3,"start":0,"count":21}
+{"event":"decoded_response","utc":"2026-10-12T10:06:21.7936158+00:00","start":0,"registers":[0,1,1,0,14,8,1,12,21586,12845,12336,12336,12337,0,0,0,19795,19712,0,0,0]}
+{"event":"identification","utc":"2026-10-12T10:06:21.8421414+00:00","deviceId":1,"protocolVersion":1}
+{"event":"read_intent","utc":"2026-10-12T10:06:21.8546466+00:00","function":3,"start":1000,"count":20}
+{"event":"decoded_response","utc":"2026-10-12T10:06:22.0110894+00:00","start":1000,"registers":[1,0,0,0,0,215,5,0,0,0,0,0,0,0,0,0,0,0,0,0]}
+{"event":"result","utc":"2026-10-12T10:06:22.1323021+00:00","passed":true,"deviceId":1,"systemState":{"SystemStatus":1,"SystemFlags":0,"FaultFlags":0,"WarningFlags":0,"UptimeSeconds":215,"LastResetCause":5,"InternalTemperatureDeciCelsius":0,"CpuLoadPercent":0,"MemoryUsagePercent":0,"StorageStatus":0,"StorageUsagePercent":0,"AcquisitionState":0,"ActiveCampaignId":0,"ErrorCode":0,"WarningCode":0},"readsStarted":2}

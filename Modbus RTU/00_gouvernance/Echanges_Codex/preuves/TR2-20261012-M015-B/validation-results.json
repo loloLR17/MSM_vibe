@@ -1,0 +1,18 @@
+[
+  {
+    "log": "targeted-tests.log",
+    "sha256": "8a5e8e62d8fbddf8ef9845e292851318116f30f92d801835b0112912222d9e65"
+  },
+  {
+    "log": "default-cross.log",
+    "sha256": "20bdab0b45ed5f96406ce360aa239808837c2a07270e7dffe9a81e55fd804e4c"
+  },
+  {
+    "log": "fifo-build.log",
+    "sha256": "9e7e4cc3d1cb4169039d12331fe4cf3ee9e20163f32bfb32517bb19350f6693b"
+  },
+  {
+    "log": "wrapper-parser.log",
+    "sha256": "ad5f26f0560ece363104470c829633b16be046093e3f4ca42efa02473cf4a92c"
+  }
+]

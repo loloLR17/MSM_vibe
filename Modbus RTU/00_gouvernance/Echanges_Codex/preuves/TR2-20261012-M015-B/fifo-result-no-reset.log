@@ -1,0 +1,8 @@
+HAL_GetTick () at /home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal.c:342
+342	{
+$1 = {stage = 10, result = 2, restore_result = 0, who_am_i = 123, core_hz = 160000000, spi_hz = 625000, count = 0, poll_count = 171, loss_flags = 33, bus_errors = 0, tag_errors = 0, parity_errors = 0, gap_events = 0, holes_mod4 = 0, saturations = 0, start_low = 16507769, start_high = 16520316, last_not_wm_low = 18045061, wm_high = 18062430, drain_low = 0, drain_high = 0, initial_status = 0, filled_status = 41216, empty_status = 0, negative_status = 0, negative_rejected = 0, saved = {0, 0, 0, 0, 0, 4, 0}, configured = {0, 128, 10, 1, 168, 68, 0}, restored = {0, 0, 0, 0, 0, 4, 0}}
+$2 = {Mode = 4194304, Direction = 0, DataSize = 7, CLKPolarity = 33554432, CLKPhase = 16777216, NSS = 67108864, BaudRatePrescaler = 1879048192, FirstBit = 0, TIMode = 0, CRCCalculation = 0, CRCPolynomial = 7, CRCLength = 0, NSSPMode = 0, NSSPolarity = 0, FifoThreshold = 224, TxCRCInitializationPattern = 0, RxCRCInitializationPattern = 0, MasterSSIdleness = 0, MasterInterDataIdleness = 0, MasterReceiverAutoSusp = 0, MasterKeepIOState = 2147483648, IOSwap = 0, ReadyMasterManagement = 0, ReadyPolarity = 0}
+$3 = 0x70070067
+$4 = 0x87400000
+0xe000ed28:	0x00000000	0x00000000
+[Inferior 1 (Remote target) detached]

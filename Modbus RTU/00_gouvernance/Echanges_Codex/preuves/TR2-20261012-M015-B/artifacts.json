@@ -1,0 +1,20 @@
+[
+  {
+    "operation": "flash-fifo",
+    "source_sha": "15c3369446a568ff2dd2d7a13453d6cfaa1cdbf0",
+    "bin_sha256": "09a6ded74b4a254792c7ab9f1c5a38352166bfafb09537e710760e4cb19ad4fb",
+    "elf_sha256": "8d0f06e24147414e970dcef30dd3f24a6350e01bc1f557b6596bb639476217b8",
+    "normal": true,
+    "verified": true,
+    "log_sha256": "a1000a91fe57b1a8716d2cad4dc05157cfae050cb4cdc0c1b611da0ad1ab6ab0"
+  },
+  {
+    "operation": "flash-restore",
+    "source_sha": "0b2a901e185c9cbf8c02410bf2a29a0a3a75491e",
+    "bin_sha256": "b462c29a775fec17fccf8036b5612742b1366210359bcd3f192c95435740d611",
+    "elf_sha256": null,
+    "normal": true,
+    "verified": true,
+    "log_sha256": "ee7e3f1d58fdcdbbcd4809594cccc69c823c12a2718457d93a150b739802c68d"
+  }
+]
