@@ -1,6 +1,6 @@
 ---
 mission_id: TR2-20261012-M014-H-PRODUCTION-RESUME
-status: BLOCKED
+status: DONE
 base_ref: main
 base_sha: 30f4663c7eece9ffb66740da1466c0ae88432f5a
 initial_head: b3a4ac7125b59f57979abd0a1458c11e52515504
@@ -14,9 +14,9 @@ allow_flash: true
 allow_debug: true
 ---
 
-# M014-H — Résultat final technique, publication en cours
+# M014-H — Clôture de la supervision physique M014
 
-**Les critères physiques M014 B0/B1, polling et perte/reprise sont satisfaits dans la portée ci-dessous.** BLOCKED porte uniquement sur la publication/relecture finale encore à obtenir au moment de ce commit. Aucune approbation intermédiaire ni intervention physique attendue. Ce résultat ne qualifie ni l'acquisition ni le stockage ni le produit industriel.
+**M014-H DONE ; M014 clôturée pour B0/B1, polling et perte/reprise dans la portée ci-dessous.** Les résultats ont été publiés et relus intégralement depuis GitHub au SHA ae14c4c8e6081086ded87c5d505e83fa74c7a496. Aucune approbation intermédiaire ni intervention physique attendue. Ce résultat ne qualifie ni l'acquisition ni le stockage ni le produit industriel.
 
 ## Lots terminés et preuves
 
@@ -58,7 +58,7 @@ Les trois journaux bruts, analysescompactes, SHAartefacts et provenance des entr
 
 **Profil permanent final**, HP08:30:40UTC :2FC03 exactes0/21 et1000/20, retour0/connexionfermée/retry0, B0full byte-for-register identique attendu, B1statut1/flags0/uptime9/storage0. Journal1386octets/7événements SHA`DBCD4482F7CB2CF3CA089BE23D6D2362D4D025BB7B339C6526DF4ECF3136A996`. RelevéGDBAPRÈS sansreset : stage2/result0/pollerrors0, V2/gen12, configurationUNAVAILABLE, UARTerror0/TXidle/fileheadtail20/IRQactives/faultregs0. Les compteursobserver sont absents du profil permanent, pas fabriqués.
 
-Total H :20requêtes physiques (9initiale +9corrigée +2profilfinal),18réponses et2timeouts planifiés, aucune écriture Modbus ni retry. Deux préflights refusés avant ouverture de port ne sont pas comptés comme trafic.
+Total H :20requêtes physiques (9initiale +9corrigée +2profilfinal),18réponses et2timeouts planifiés, aucune écriture Modbus ni retry. Les refus de préflight fraîcheur et de préparation du second paquet n’ont ouvert aucun port et ne sont pas comptés comme trafic.
 
 ## Incidents d'environnement et Git
 
@@ -70,7 +70,7 @@ SecondpaquetHP identique : extraction échouée disqueplein, aucunport. Réutili
 
 ## Limites et suite
 
-M014 clôturable uniquement pour supervision réelle B0/B1 et perte/reprise de disponibilité du répondant. La perte est une fenêtre firmware90..180s sur le vrai bus, **pas retrait de câble ni coupure d'alimentation** ; reconnexionphysique = fermeture/réouverture réelle du driversérie. Pas de capture brute filaire, mesureDE/TC/dernierstopbit/t1.5/t3.5/contension, endurance/CEM/resetindustriel. M013 garde ses preuveshistoriques bornées et réserves ; sa qualificationgénérale n'est pas affirmée.
+M014 clôturable uniquement pour supervision réelle B0/B1 et perte/reprise de disponibilité du répondant. La perte est une fenêtre firmware90..180s sur le vrai bus, **pas retrait de câble ni coupure d'alimentation** ; reconnexionphysique = fermeture/réouverture réelle du driversérie. Pas de capture brute filaire, mesureDE/TC/dernierstopbit/t1.5/t3.5/contention, endurance/CEM/resetindustriel. M013 garde ses preuveshistoriques bornées et réserves ; sa qualificationgénérale n'est pas affirmée.
 
 MicroSD totalement désactivée, zéroallocation/zérolecture/zéroécritureH ; partitiontype07/LBA65536 inchangée par construction des profils sansaccèsSD, pas relecture inutile de tous ses secteurs. Acquisition/vibrations/bulkSD/activationopérationnelledeconfiguration/E4 nonqualifiés. Certains champs B1CPU/mémoire/température/usage restent neutres fauteproducteurs, pas mesures physiques. Pas qualificationWeb/SQLite intégrée par cette CLI ; suite roadmapM015 à contractualiser pour acquisition réelle, stockage traité séparément avant activation. AncienjournalHP C reste nonvérifié à partir de son SHAannoncé.
 
@@ -81,3 +81,7 @@ Journalactualisé (étatFRAM/production/essais/réserves) et roadmapmiseàjour (
 Preuves complètes locales : `/home/lolo/dev/msm/reports/TR2-mission014-H-20261012T073729Z` ; BIN/ELF/backups/scripts/stdoutGDB/CLI/HP/logsvalidation conservés horsGit, petitsjournaux et analyses publiés danspreuves. Manifesteplan `COMMISSIONING_M014_H.json` conservé comme entrée de build ; résultatcourant distinct `COMMISSIONING_M014_H_RESULT.json`. Hash des entrées avant actualisation du registre dansevaluated-inputs.json. RegistreASSIGNED désormais PROVISIONED_V2/gen12.
 
 Worktreepublication `/home/lolo/dev/msm/projects/MSM_vibe-M014-H` sur branchelocale codex/m014-h-integration, destinationautorisée explicitemain. Dépôtoriginal `/home/lolo/dev/msm/projects/MSM_vibe` surmainlocal82169af préservé et volontairement nonréécrit ; ne pas y faire de pull/rebase automatique. Deuxstashes005/002 inchangés. État propre à confirmer après commit/publication dans lesdeuxdépôts. Aucunbloquagematérielactuel ; qualificationindustrielle et nouvellemission hors de cette clôture. SHAfinaldu rapport communiqué après push/relecture, sans référence circulaire.
+
+## Publication distante complète vérifiée
+
+Push normal des résultats au SHA `ae14c4c8e6081086ded87c5d505e83fa74c7a496` réussi ; fetchorigin/main puis lectureintégraleUTF8 et comparaisonbyte-à-byte des 32 livrables modifiés depuis43f37db : tousidentiques. Preuve locale `remote-readback-complete-results.json`. Rapport/registre/manifeste-resultat/journal/roadmap/journauxbruts/code etarchives compris. Worktreepublicationpropre aprèscommit/push ; dépôtoriginalpropre au82169af et deuxstashes005/002 conservés. Cecommitdocumentaire passe le rapport àDONE et la roadmapM014àDONE ; vérificationdistante de cette dernièrepublication etSHAfinal communiqué séparément. RevueindépendanteChatGPT reste àfaire.

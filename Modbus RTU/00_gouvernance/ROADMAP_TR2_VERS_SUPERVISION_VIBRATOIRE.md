@@ -24,7 +24,7 @@ Capteur de vibrations → acquisition et traitement STM32U575 → registres Modb
 |---|---|---|---|---|
 | **M012** | Intégrer le serveur Modbus RTU et le TX RS-485 avec commande DE sûre | EN COURS | Selon résultats Codex | Chemin de réponse implémenté et testé ; qualification physique explicitement distinguée |
 | **M013** | Qualifier le dialogue Modbus physique complet | ACQUIS BORNÉS / RÉSERVES | 2–3 sous-missions | Lecture répétable de registres STM32 par maître PC ; CRC, exceptions, turnaround et absence de contention vérifiés |
-| **M014** | Connecter la supervision au TR2 physique | VALIDÉ PHYSIQUE — CLÔTURE EN COURS | 2–3 | Lecture périodique des blocs système, déconnexion et reprise correctement traitées |
+| **M014** | Connecter la supervision au TR2 physique | DONE — PORTÉE B0/B1/PERTE-REPRISE | 2–3 | Lecture périodique des blocs système, déconnexion et reprise correctement traitées |
 | **M015** | Qualifier la chaîne d'acquisition vibratoire | À FAIRE | 3–5 | Acquisition physique démontrée ou blocages matériels précisément identifiés |
 | **M016** | Traiter et publier les mesures vibratoires dans les registres V1 | À FAIRE | 2–4 | Valeurs réelles cohérentes, unités, échelles et validité vérifiées dans le mapping gelé |
 | **M017** | Lire les vibrations de bout en bout via Modbus | À FAIRE | 2 | Variation physique retrouvée correctement dans les valeurs lues par le PC |
@@ -110,7 +110,7 @@ M014 **IN PROGRESS** : attribution UID96/DeviceId1 acquise, backups FRAM/Flash e
 
 ## Actualisation M014-H — 12 octobre 2026
 
-**M014 : critères physiques satisfaits, clôture en publication.** Firmwareproduction réel etidentitéFRAM V2/gen12 provisionnée/readbackexact ; B0/B1complets surHP COM7/1152008E1/unit1, polling3+3, timeoutperte de disponibilité du répondant, fermeture/réouverture série, invalidationanciennevaleur/date puisidentiténeuve/B1frais. Uptimebootfigé détecté lors premièrecampagne, corrigé et requalifié physiquement9/11/14→217/219/221s ; RX72/TC8/erreurs0. Deux lecturesfinales réussies surimageproductionpermanente sansfenêtresilence/observer. Journauxcomplets publiés ethashes vérifiés, pas déduction d'un SHAseul.
+**M014 DONE dans la portée B0/B1/polling/perte-reprise : résultats physiques publiés et intégralement relus au SHA ae14c4c8e6081086ded87c5d505e83fa74c7a496.** Firmwareproduction réel etidentitéFRAM V2/gen12 provisionnée/readbackexact ; B0/B1complets surHP COM7/1152008E1/unit1, polling3+3, timeoutperte de disponibilité du répondant, fermeture/réouverture série, invalidationanciennevaleur/date puisidentiténeuve/B1frais. Uptimebootfigé détecté lors premièrecampagne, corrigé et requalifié physiquement9/11/14→217/219/221s ; RX72/TC8/erreurs0. Deux lecturesfinales réussies surimageproductionpermanente sansfenêtresilence/observer. Journauxcomplets publiés ethashes vérifiés, pas déduction d'un SHAseul.
 
 READY/stockage restent0, configuration UNAVAILABLE sansressourceowned. MicroSDtotalementOFF, aucuneallocation ni écriture des32premiersMio oupartitionLBA65536 ; acquisition/bulkSD/industrie nonqualifiés. Perte de disponibilité survrai bus nequalifie pasretraitdecâble ni coupurealim ; timingDE/TC/dernierstopbit/robustesse/CEM/E4 restentouverts. M013 conserve sa qualificationfonctionnellehistorique bornée, passtatutDONE général. RevueindépendanteChatGPT du rapportH encoreattendue.
 

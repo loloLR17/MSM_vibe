@@ -10,7 +10,7 @@ Mise à jour : 12 octobre 2026. Mission `TR2-20261012-M014-H-PRODUCTION-RESUME`.
 - **CIBLE EN EXÉCUTION** : production permanente sansobserver ni silence, BIN143108 SHAb462c29a775fec17fccf8036b5612742b1366210359bcd3f192c95435740d611, source0b2a901. STLINK003500463235510B37333439/UID004A003D3842501820333157/DeviceId1/unit1/TR2-000001/MSM. BootrecoveryV2/gen12, IRQ49/66actives, UART/pollerrors0/filevide ;debuggersfermés.
 - **NON QUALIFIÉ opérationnel/industriel** : configuration seulement structurellement valide mais UNAVAILABLE sans ressourcesowned ; READY etstockage0. SDtotalementdésactivée/zéroaccèsH, aucuneallocation/écriture ni risque surpartitionLBA65536. Acquisition, bulkSD/E4, timingDE/TC/CEM/endurance restentouverts ; M013acquis bornés/réserves, pasqualificationgénérale.
 - **VALIDÉ logiciel** :6tests générateur + répétitionoffline backup réel ; nouvelle régressionB1 et113tests/cross-buildsurcorrectif, PC539Gconservés nonrelancés. JournauxHP complets récupérés/hachés/versionnés danspreuves/TR2-20261012-M014-H.
-- **PUBLICATION EN CLÔTURE** : livrables etpreuves physiques prêts ; reportBLOCKED uniquement attente relecturedistantefinale. M014clôturetechnique, revueindépendanteChatGPT attendue ; M015prochaine mission proposée, pasengagée.
+- **PUBLICATION VÉRIFIÉE** : résultats publiés au SHAae14c4c8e6081086ded87c5d505e83fa74c7a496, relectureintégrale 32livrables byte-equal ; rapportH DONE etM014DONE pourB0/B1/polling/perte-reprise. revueindépendanteChatGPT attendue ; M015prochaine mission proposée, pasengagée.
 - **GIT / REPRISE** : worktreeactif depublication `/home/lolo/dev/msm/projects/MSM_vibe-M014-H`, branchelocale codex/m014-h-integration, pushnormal versmain ; dépôtoriginalmain82169af et2stashespréservés après divergenceautorisée intégréeisolément, nepasrebase/pullautomatique suroriginal. Preuvescomplètes `/home/lolo/dev/msm/reports/TR2-mission014-H-20261012T073729Z`. HPespacefaible, paquetexistant conservé/réutilisé ; dossierpartiel de secondpackage conservé, seulecopieZIPtemporairedeCodex retirée aprèshashégal àoriginal.
 
 ## Référence et gouvernance de la reconstruction T1000 (historique)
@@ -426,3 +426,5 @@ physiques temporelles/robustesse/production/J1global/E4 inchangées.
 ## Clôture physique M014-H — 12 octobre 2026
 
 CritèresB0/B1/polling/perte-reprise effectivement observés surimagecorrigée, confirmé parMCURX72/TC8/erreurs0. Profilpermanent sanssilence flashé/relu/booté puisB0/B1réels lus (2FC03/réponses), journalcomplet1386octets hashDBCD4482F7CB2CF3CA089BE23D6D2362D4D025BB7B339C6526DF4ECF3136A996. Ciblelaisséeenexécution ; aucuneSDaccédée. DernierRapportHporteSHAs/limites/relecturedistante ; suiteM015àcontractualiser.
+
+Publication complèteH vérifiée auSHAae14c4c8e6081086ded87c5d505e83fa74c7a496 ; marqueursDONE documentaires finalisés aprèscettepreuve. SHAdu derniercommit fourni aprèscontrôlefinal, revuedistanteChatGPT nonprésumée.

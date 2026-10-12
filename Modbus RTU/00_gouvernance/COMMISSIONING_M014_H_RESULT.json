@@ -1,6 +1,6 @@
 {
   "mission_id": "TR2-20261012-M014-H-PRODUCTION-RESUME",
-  "technical_status": "PHYSICAL_CRITERIA_MET_PUBLICATION_PENDING",
+  "technical_status": "DONE_SUPERVISION_B0_B1_POLLING_LOSS_RECOVERY",
   "code_sha": "0b2a901e185c9cbf8c02410bf2a29a0a3a75491e",
   "provisioning": {
     "fram_sha256": "d732acc557152180fc394097d6a5269ea2f45c1da387c8643f512318adf92fce",
@@ -96,5 +96,7 @@
   "industrial_qualification": false,
   "evidence_directory": "/home/lolo/dev/msm/reports/TR2-mission014-H-20261012T073729Z",
   "project_plan": "COMMISSIONING_M014_H.json",
-  "evaluated_inputs": "preuves/TR2-20261012-M014-H/evaluated-inputs.json"
+  "evaluated_inputs": "preuves/TR2-20261012-M014-H/evaluated-inputs.json",
+  "verified_publication_sha": "ae14c4c8e6081086ded87c5d505e83fa74c7a496",
+  "independent_chatgpt_review": "PENDING"
 }
