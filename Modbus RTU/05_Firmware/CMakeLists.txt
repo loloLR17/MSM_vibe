@@ -105,6 +105,14 @@ add_executable(tr2_rtu_request platform/host/rtu_request.c)
 target_link_libraries(tr2_rtu_request PRIVATE tr2_core)
 
 enable_testing()
+add_executable(test_stm32_continuous tests/platform/test_stm32_continuous.c
+    platform/stm32/stm32_iis3dwb_continuous.c)
+target_include_directories(test_stm32_continuous PRIVATE
+    tests/platform/stm32_hal_ctrl1_mock platform/stm32)
+target_compile_definitions(test_stm32_continuous PRIVATE TR2_STM32_CONTINUOUS_FIFO=1)
+target_link_libraries(test_stm32_continuous PRIVATE tr2_core)
+add_test(NAME stm32_continuous COMMAND test_stm32_continuous)
+
 add_executable(test_stm32_ctrl1_differential tests/platform/test_stm32_ctrl1_differential.c
     platform/stm32/stm32_iis3dwb_ctrl1_differential.c)
 target_include_directories(test_stm32_ctrl1_differential PRIVATE

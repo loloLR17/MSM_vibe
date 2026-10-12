@@ -1,0 +1,132 @@
+[0/2] Re-checking globbed directories...
+[1/118] Building C object CMakeFiles/tr2_core.dir/home/lolo/dev/msm/projects/MSM_vibe-M015-J/Modbus_RTU/05_Firmware/src/application/command_policy.c.obj
+[2/118] Building C object CMakeFiles/tr2_core.dir/home/lolo/dev/msm/projects/MSM_vibe-M015-J/Modbus_RTU/05_Firmware/src/application/command_selftest.c.obj
+[3/118] Building C object CMakeFiles/tr2_core.dir/home/lolo/dev/msm/projects/MSM_vibe-M015-J/Modbus_RTU/05_Firmware/src/application/command_apply_configuration.c.obj
+[4/118] Building C object CMakeFiles/tr2_core.dir/home/lolo/dev/msm/projects/MSM_vibe-M015-J/Modbus_RTU/05_Firmware/src/application/command_start_acquisition.c.obj
+[5/118] Building C object CMakeFiles/tr2_core.dir/home/lolo/dev/msm/projects/MSM_vibe-M015-J/Modbus_RTU/05_Firmware/src/application/command_request_mailbox.c.obj
+[6/118] Building C object CMakeFiles/tr2_core.dir/home/lolo/dev/msm/projects/MSM_vibe-M015-J/Modbus_RTU/05_Firmware/src/application/campaign_inventory_service.c.obj
+[7/118] Building C object CMakeFiles/tr2_core.dir/home/lolo/dev/msm/projects/MSM_vibe-M015-J/Modbus_RTU/05_Firmware/src/application/command_boot_recovery.c.obj
+[8/118] Building C object CMakeFiles/tr2_core.dir/home/lolo/dev/msm/projects/MSM_vibe-M015-J/Modbus_RTU/05_Firmware/src/application/campaign_service.c.obj
+[9/118] Building C object CMakeFiles/tr2_core.dir/home/lolo/dev/msm/projects/MSM_vibe-M015-J/Modbus_RTU/05_Firmware/src/application/command_stop_acquisition.c.obj
+[10/118] Building C object CMakeFiles/tr2_core.dir/home/lolo/dev/msm/projects/MSM_vibe-M015-J/Modbus_RTU/05_Firmware/src/application/acquisition_service.c.obj
+[11/118] Building C object CMakeFiles/tr2_core.dir/home/lolo/dev/msm/projects/MSM_vibe-M015-J/Modbus_RTU/05_Firmware/src/application/configuration_workflow.c.obj
+[12/118] Building C object CMakeFiles/tr2_core.dir/home/lolo/dev/msm/projects/MSM_vibe-M015-J/Modbus_RTU/05_Firmware/src/application/configuration_activation_adapter.c.obj
+[13/118] Building C object CMakeFiles/tr2_core.dir/home/lolo/dev/msm/projects/MSM_vibe-M015-J/Modbus_RTU/05_Firmware/src/application/command_synchronize_time.c.obj
+[14/118] Building C object CMakeFiles/tr2_core.dir/home/lolo/dev/msm/projects/MSM_vibe-M015-J/Modbus_RTU/05_Firmware/src/application/command_engine.c.obj
+[15/118] Building C object CMakeFiles/tr2_core.dir/home/lolo/dev/msm/projects/MSM_vibe-M015-J/Modbus_RTU/05_Firmware/src/application/configuration_service.c.obj
+[16/118] Building C object CMakeFiles/tr2_core.dir/home/lolo/dev/msm/projects/MSM_vibe-M015-J/Modbus_RTU/05_Firmware/src/application/diagnostic_service.c.obj
+[17/118] Building C object CMakeFiles/tr2_core.dir/home/lolo/dev/msm/projects/MSM_vibe-M015-J/Modbus_RTU/05_Firmware/src/application/production_application.c.obj
+[18/118] Building C object CMakeFiles/tr2_core.dir/home/lolo/dev/msm/projects/MSM_vibe-M015-J/Modbus_RTU/05_Firmware/src/application/modbus_system_server.c.obj
+[19/118] Building C object CMakeFiles/tr2_core.dir/home/lolo/dev/msm/projects/MSM_vibe-M015-J/Modbus_RTU/05_Firmware/src/application/persistent_identity.c.obj
+[20/118] Building C object CMakeFiles/tr2_core.dir/home/lolo/dev/msm/projects/MSM_vibe-M015-J/Modbus_RTU/05_Firmware/src/application/supervision_service.c.obj
+[21/118] Building C object CMakeFiles/tr2_core.dir/home/lolo/dev/msm/projects/MSM_vibe-M015-J/Modbus_RTU/05_Firmware/src/application/production_provisioning.c.obj
+[22/118] Building C object CMakeFiles/tr2_core.dir/home/lolo/dev/msm/projects/MSM_vibe-M015-J/Modbus_RTU/05_Firmware/src/domain/command/command.c.obj
+[23/118] Building C object CMakeFiles/tr2_core.dir/home/lolo/dev/msm/projects/MSM_vibe-M015-J/Modbus_RTU/05_Firmware/src/application/system_state_aggregator.c.obj
+[24/118] Building C object CMakeFiles/tr2_core.dir/home/lolo/dev/msm/projects/MSM_vibe-M015-J/Modbus_RTU/05_Firmware/src/domain/identity/identity.c.obj
+[25/118] Building C object CMakeFiles/tr2_core.dir/home/lolo/dev/msm/projects/MSM_vibe-M015-J/Modbus_RTU/05_Firmware/src/application/production_commissioning.c.obj
+[26/118] Building C object CMakeFiles/tr2_core.dir/home/lolo/dev/msm/projects/MSM_vibe-M015-J/Modbus_RTU/05_Firmware/src/application/system_command_dispatcher.c.obj
+[27/118] Building C object CMakeFiles/tr2_core.dir/home/lolo/dev/msm/projects/MSM_vibe-M015-J/Modbus_RTU/05_Firmware/src/domain/configuration/configuration_staging.c.obj
+[28/118] Building C object CMakeFiles/tr2_core.dir/home/lolo/dev/msm/projects/MSM_vibe-M015-J/Modbus_RTU/05_Firmware/src/domain/configuration/configuration_validator.c.obj
+[29/118] Building C object CMakeFiles/tr2_core.dir/home/lolo/dev/msm/projects/MSM_vibe-M015-J/Modbus_RTU/05_Firmware/src/domain/system_state/system_state.c.obj
+[30/118] Building C object CMakeFiles/tr2_core.dir/home/lolo/dev/msm/projects/MSM_vibe-M015-J/Modbus_RTU/05_Firmware/src/domain/supervision/indicator_calculator.c.obj
+[31/118] Building C object CMakeFiles/tr2_core.dir/home/lolo/dev/msm/projects/MSM_vibe-M015-J/Modbus_RTU/05_Firmware/src/domain/time/time_recovery.c.obj
+[32/118] Building C object CMakeFiles/tr2_core.dir/home/lolo/dev/msm/projects/MSM_vibe-M015-J/Modbus_RTU/05_Firmware/src/domain/supervision/threshold_evaluator.c.obj
+[33/118] Building C object CMakeFiles/tr2_core.dir/home/lolo/dev/msm/projects/MSM_vibe-M015-J/Modbus_RTU/05_Firmware/src/application/system_runtime_acquisition_command.c.obj
+[34/118] Building C object CMakeFiles/tr2_core.dir/home/lolo/dev/msm/projects/MSM_vibe-M015-J/Modbus_RTU/05_Firmware/src/modbus/b5_projection.c.obj
+[35/118] Building C object CMakeFiles/tr2_core.dir/home/lolo/dev/msm/projects/MSM_vibe-M015-J/Modbus_RTU/05_Firmware/src/domain/time/time_service.c.obj
+[36/118] Building C object CMakeFiles/tr2_core.dir/home/lolo/dev/msm/projects/MSM_vibe-M015-J/Modbus_RTU/05_Firmware/src/modbus/b6_projection.c.obj
+[37/118] Building C object CMakeFiles/tr2_core.dir/home/lolo/dev/msm/projects/MSM_vibe-M015-J/Modbus_RTU/05_Firmware/src/modbus/b4_configuration_codec.c.obj
+[38/118] Building C object CMakeFiles/tr2_core.dir/home/lolo/dev/msm/projects/MSM_vibe-M015-J/Modbus_RTU/05_Firmware/src/modbus/b6_write_adapter.c.obj
+[39/118] Building C object CMakeFiles/tr2_core.dir/home/lolo/dev/msm/projects/MSM_vibe-M015-J/Modbus_RTU/05_Firmware/src/modbus/rtu_receiver.c.obj
+[40/118] Building C object CMakeFiles/tr2_core.dir/home/lolo/dev/msm/projects/MSM_vibe-M015-J/Modbus_RTU/05_Firmware/src/modbus/codec.c.obj
+[41/118] Building C object CMakeFiles/tr2_core.dir/home/lolo/dev/msm/projects/MSM_vibe-M015-J/Modbus_RTU/05_Firmware/src/modbus/register_model.c.obj
+[42/118] Building C object CMakeFiles/tr2_core.dir/home/lolo/dev/msm/projects/MSM_vibe-M015-J/Modbus_RTU/05_Firmware/src/modbus/pdu_server.c.obj
+[43/118] Building C object CMakeFiles/tr2_core.dir/home/lolo/dev/msm/projects/MSM_vibe-M015-J/Modbus_RTU/05_Firmware/src/modbus/b5_write_adapter.c.obj
+[44/118] Building C object CMakeFiles/tr2_core.dir/home/lolo/dev/msm/projects/MSM_vibe-M015-J/Modbus_RTU/05_Firmware/src/modbus/rtu_server_runtime.c.obj
+[45/118] Building C object CMakeFiles/tr2_core.dir/home/lolo/dev/msm/projects/MSM_vibe-M015-J/Modbus_RTU/05_Firmware/src/application/system_runtime.c.obj
+[46/118] Building C object CMakeFiles/tr2_core.dir/home/lolo/dev/msm/projects/MSM_vibe-M015-J/Modbus_RTU/05_Firmware/src/modbus/read_adapter.c.obj
+[47/118] Building C object CMakeFiles/tr2_core.dir/home/lolo/dev/msm/projects/MSM_vibe-M015-J/Modbus_RTU/05_Firmware/src/modbus/projection.c.obj
+[48/118] Building C object CMakeFiles/tr2_core.dir/home/lolo/dev/msm/projects/MSM_vibe-M015-J/Modbus_RTU/05_Firmware/src/persistence/campaign_bulk_media.c.obj
+[49/118] Building C object CMakeFiles/tr2_core.dir/home/lolo/dev/msm/projects/MSM_vibe-M015-J/Modbus_RTU/05_Firmware/src/persistence/campaign_bulk_aggregator.c.obj
+[50/118] Building C object CMakeFiles/tr2_core.dir/home/lolo/dev/msm/projects/MSM_vibe-M015-J/Modbus_RTU/05_Firmware/src/modbus/write_adapter.c.obj
+[51/118] Building C object CMakeFiles/tr2_core.dir/home/lolo/dev/msm/projects/MSM_vibe-M015-J/Modbus_RTU/05_Firmware/src/persistence/campaign_bulk_block.c.obj
+[52/118] Building C object CMakeFiles/tr2_core.dir/home/lolo/dev/msm/projects/MSM_vibe-M015-J/Modbus_RTU/05_Firmware/src/persistence/campaign_bulk_checkpoint.c.obj
+[53/118] Building C object CMakeFiles/tr2_core.dir/home/lolo/dev/msm/projects/MSM_vibe-M015-J/Modbus_RTU/05_Firmware/src/persistence/campaign_bulk_block_stream.c.obj
+[54/118] Building C object CMakeFiles/tr2_core.dir/home/lolo/dev/msm/projects/MSM_vibe-M015-J/Modbus_RTU/05_Firmware/src/persistence/command_journal_bounded_admission.c.obj
+[55/118] Building C object CMakeFiles/tr2_core.dir/home/lolo/dev/msm/projects/MSM_vibe-M015-J/Modbus_RTU/05_Firmware/src/persistence/campaign_record.c.obj
+[56/118] Building C object CMakeFiles/tr2_core.dir/home/lolo/dev/msm/projects/MSM_vibe-M015-J/Modbus_RTU/05_Firmware/src/persistence/command_journal.c.obj
+[57/118] Building C object CMakeFiles/tr2_core.dir/home/lolo/dev/msm/projects/MSM_vibe-M015-J/Modbus_RTU/05_Firmware/src/persistence/campaign_bulk_metadata.c.obj
+[58/118] Building C object CMakeFiles/tr2_core.dir/home/lolo/dev/msm/projects/MSM_vibe-M015-J/Modbus_RTU/05_Firmware/src/persistence/campaign_data_store_bulk.c.obj
+[59/118] Building C object CMakeFiles/tr2_core.dir/home/lolo/dev/msm/projects/MSM_vibe-M015-J/Modbus_RTU/05_Firmware/src/persistence/command_journal_bounded_reader.c.obj
+[60/118] Building C object CMakeFiles/tr2_core.dir/home/lolo/dev/msm/projects/MSM_vibe-M015-J/Modbus_RTU/05_Firmware/src/persistence/command_journal_bounded_record.c.obj
+[61/118] Building C object CMakeFiles/tr2_core.dir/home/lolo/dev/msm/projects/MSM_vibe-M015-J/Modbus_RTU/05_Firmware/src/persistence/command_journal_bounded_slot.c.obj
+[62/118] Building C object CMakeFiles/tr2_core.dir/home/lolo/dev/msm/projects/MSM_vibe-M015-J/Modbus_RTU/05_Firmware/src/persistence/command_journal_bounded_writer.c.obj
+[63/118] Building C object CMakeFiles/tr2_core.dir/home/lolo/dev/msm/projects/MSM_vibe-M015-J/Modbus_RTU/05_Firmware/src/persistence/command_journal_context_store.c.obj
+[64/118] Building C object CMakeFiles/tr2_core.dir/home/lolo/dev/msm/projects/MSM_vibe-M015-J/Modbus_RTU/05_Firmware/src/persistence/command_journal_bounded_recovery.c.obj
+[65/118] Building C object CMakeFiles/tr2_core.dir/home/lolo/dev/msm/projects/MSM_vibe-M015-J/Modbus_RTU/05_Firmware/src/persistence/command_journal_record.c.obj
+[66/118] Building C object CMakeFiles/tr2_core.dir/home/lolo/dev/msm/projects/MSM_vibe-M015-J/Modbus_RTU/05_Firmware/src/persistence/command_journal_bounded_store.c.obj
+[67/118] Building C object CMakeFiles/tr2_core.dir/home/lolo/dev/msm/projects/MSM_vibe-M015-J/Modbus_RTU/05_Firmware/src/persistence/campaign_repository_store.c.obj
+[68/118] Building C object CMakeFiles/tr2_core.dir/home/lolo/dev/msm/projects/MSM_vibe-M015-J/Modbus_RTU/05_Firmware/src/persistence/diagnostic_history_record.c.obj
+[69/118] Building C object CMakeFiles/tr2_core.dir/home/lolo/dev/msm/projects/MSM_vibe-M015-J/Modbus_RTU/05_Firmware/src/persistence/campaign_data_store_persistent.c.obj
+[70/118] Building C object CMakeFiles/tr2_core.dir/home/lolo/dev/msm/projects/MSM_vibe-M015-J/Modbus_RTU/05_Firmware/src/persistence/configuration_record.c.obj
+[71/118] Building C object CMakeFiles/tr2_core.dir/home/lolo/dev/msm/projects/MSM_vibe-M015-J/Modbus_RTU/05_Firmware/src/persistence/time_history_record.c.obj
+[72/118] Building C object CMakeFiles/tr2_core.dir/home/lolo/dev/msm/projects/MSM_vibe-M015-J/Modbus_RTU/05_Firmware/src/persistence/time_history_store.c.obj
+[73/118] Building C object CMakeFiles/tr2_core.dir/home/lolo/dev/msm/projects/MSM_vibe-M015-J/Modbus_RTU/05_Firmware/src/persistence/configuration_store.c.obj
+[74/118] Building C object CMakeFiles/tr2_core.dir/home/lolo/dev/msm/projects/MSM_vibe-M015-J/Modbus_RTU/05_Firmware/src/persistence/command_journal_store.c.obj
+[75/118] Building C object CMakeFiles/tr2_core.dir/home/lolo/dev/msm/projects/MSM_vibe-M015-J/Modbus_RTU/05_Firmware/src/persistence/diagnostic_history_store.c.obj
+[76/118] Building C object CMakeFiles/tr2_core.dir/home/lolo/dev/msm/projects/MSM_vibe-M015-J/Modbus_RTU/05_Firmware/src/platform/serial_transport.c.obj
+[77/118] Building C object CMakeFiles/tr2_core.dir/home/lolo/dev/msm/projects/MSM_vibe-M015-J/Modbus_RTU/05_Firmware/src/persistence/persistent_storage_core.c.obj
+[78/118] Building C object CMakeFiles/tr2_core.dir/home/lolo/dev/msm/projects/MSM_vibe-M015-J/Modbus_RTU/05_Firmware/src/persistence/transactional_image_media.c.obj
+[79/118] Building C object CMakeFiles/tr2_stm32_p11c.dir/stm32_iis3dwb_capture.c.obj
+[80/118] Building C object CMakeFiles/tr2_stm32_p11c.dir/stm32_iis3dwb_active_readback.c.obj
+[81/118] Building C object CMakeFiles/tr2_stm32_p11c.dir/stm32_iis3dwb_ctrl1_differential.c.obj
+[82/118] Building C object CMakeFiles/tr2_stm32_p11c.dir/stm32_iis3dwb_register_probe.c.obj
+[83/118] Building C object CMakeFiles/tr2_stm32_p11c.dir/stm32_iis3dwb_fifo_capture.c.obj
+[84/118] Linking C static library libtr2_core.a
+[85/118] Building C object CMakeFiles/tr2_stm32_p11c.dir/stm32_modbus_diagnostic.c.obj
+[86/118] Building C object CMakeFiles/tr2_stm32_p11c.dir/stm32_fram_storage.c.obj
+[87/118] Building C object CMakeFiles/tr2_stm32_p11c.dir/stm32_iis3dwb_continuous.c.obj
+[88/118] Building C object CMakeFiles/tr2_stm32_p11c.dir/stm32_iis3dwb_vibration_source.c.obj
+[89/118] Building C object CMakeFiles/tr2_stm32_p11c.dir/stm32_iis3dwb_burst_capture.c.obj
+[90/118] Building ASM object CMakeFiles/tr2_stm32_p11c.dir/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/CMSIS/Device/ST/STM32U5xx/Source/Templates/gcc/startup_stm32u575xx.s.obj
+[91/118] Building C object CMakeFiles/tr2_stm32_p11c.dir/main.c.obj
+[92/118] Building C object CMakeFiles/tr2_stm32_p11c.dir/stm32_rs485_rx_gpio.c.obj
+[93/118] Building C object CMakeFiles/tr2_stm32_p11c.dir/stm32_modbus_application.c.obj
+[94/118] Building C object CMakeFiles/tr2_stm32_p11c.dir/stm32_production_runtime.c.obj
+[95/118] Building C object CMakeFiles/tr2_stm32_p11c.dir/stm32_serial_transport.c.obj
+[96/118] Building C object CMakeFiles/tr2_stm32_p11c.dir/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/CMSIS/Device/ST/STM32U5xx/Source/Templates/system_stm32u5xx.c.obj
+[97/118] Building C object CMakeFiles/tr2_stm32_p11c.dir/stm32_runtime_platform.c.obj
+[98/118] Building C object CMakeFiles/tr2_stm32_p11c.dir/stm32_sdmmc_bulk_media.c.obj
+[99/118] Building C object CMakeFiles/tr2_stm32_p11c.dir/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_cortex.c.obj
+[100/118] Building C object CMakeFiles/tr2_stm32_p11c.dir/stm32u5xx_it.c.obj
+[101/118] Building C object CMakeFiles/tr2_stm32_p11c.dir/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal.c.obj
+[102/118] Building C object CMakeFiles/tr2_stm32_p11c.dir/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_gpio.c.obj
+[103/118] Building C object CMakeFiles/tr2_stm32_p11c.dir/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_pwr.c.obj
+[104/118] Building C object CMakeFiles/tr2_stm32_p11c.dir/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_dma.c.obj
+[105/118] Building C object CMakeFiles/tr2_stm32_p11c.dir/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_pwr_ex.c.obj
+[106/118] Building C object CMakeFiles/tr2_stm32_p11c.dir/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc.c.obj
+[107/118] Building C object CMakeFiles/tr2_stm32_p11c.dir/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rcc.c.obj
+[108/118] Building C object CMakeFiles/tr2_stm32_p11c.dir/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_ll_sdmmc.c.obj
+[109/118] Building C object CMakeFiles/tr2_stm32_p11c.dir/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_sd.c.obj
+[110/118] Building C object CMakeFiles/tr2_stm32_p11c.dir/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc_ex.c.obj
+[111/118] Building C object CMakeFiles/tr2_stm32_p11c.dir/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_uart_ex.c.obj
+[112/118] Building C object CMakeFiles/tr2_stm32_p11c.dir/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rcc_ex.c.obj
+[113/118] Building C object CMakeFiles/tr2_stm32_p11c.dir/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_spi.c.obj
+[114/118] Building C object CMakeFiles/tr2_stm32_p11c.dir/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_tim_ex.c.obj
+[115/118] Building C object CMakeFiles/tr2_stm32_p11c.dir/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_uart.c.obj
+[116/118] Building C object CMakeFiles/tr2_stm32_p11c.dir/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_tim.c.obj
+[117/118] Linking C executable tr2_stm32_p11c.elf
+/usr/lib/gcc/arm-none-eabi/14.2.1/../../../arm-none-eabi/bin/ld: /usr/lib/gcc/arm-none-eabi/14.2.1/../../../arm-none-eabi/lib/thumb/v8-m.main/nofp/libg_nano.a(libc_a-closer.o): in function `_close_r':
+/build/reproducible-path/newlib-4.5.0.20241231/build_nano/arm-none-eabi/thumb/v8-m.main/nofp/newlib/../../../../../../newlib/libc/reent/closer.c:47:(.text+0xc): warning: _close is not implemented and will always fail
+/usr/lib/gcc/arm-none-eabi/14.2.1/../../../arm-none-eabi/bin/ld: /usr/lib/gcc/arm-none-eabi/14.2.1/../../../arm-none-eabi/lib/thumb/v8-m.main/nofp/libg_nano.a(libc_a-closer.o): note: the message above does not take linker garbage collection into account
+/usr/lib/gcc/arm-none-eabi/14.2.1/../../../arm-none-eabi/bin/ld: /usr/lib/gcc/arm-none-eabi/14.2.1/../../../arm-none-eabi/lib/thumb/v8-m.main/nofp/libg_nano.a(libc_a-lseekr.o): in function `_lseek_r':
+/build/reproducible-path/newlib-4.5.0.20241231/build_nano/arm-none-eabi/thumb/v8-m.main/nofp/newlib/../../../../../../newlib/libc/reent/lseekr.c:49:(.text+0x14): warning: _lseek is not implemented and will always fail
+/usr/lib/gcc/arm-none-eabi/14.2.1/../../../arm-none-eabi/bin/ld: /usr/lib/gcc/arm-none-eabi/14.2.1/../../../arm-none-eabi/lib/thumb/v8-m.main/nofp/libg_nano.a(libc_a-lseekr.o): note: the message above does not take linker garbage collection into account
+/usr/lib/gcc/arm-none-eabi/14.2.1/../../../arm-none-eabi/bin/ld: /usr/lib/gcc/arm-none-eabi/14.2.1/../../../arm-none-eabi/lib/thumb/v8-m.main/nofp/libg_nano.a(libc_a-readr.o): in function `_read_r':
+/build/reproducible-path/newlib-4.5.0.20241231/build_nano/arm-none-eabi/thumb/v8-m.main/nofp/newlib/../../../../../../newlib/libc/reent/readr.c:49:(.text+0x14): warning: _read is not implemented and will always fail
+/usr/lib/gcc/arm-none-eabi/14.2.1/../../../arm-none-eabi/bin/ld: /usr/lib/gcc/arm-none-eabi/14.2.1/../../../arm-none-eabi/lib/thumb/v8-m.main/nofp/libg_nano.a(libc_a-readr.o): note: the message above does not take linker garbage collection into account
+/usr/lib/gcc/arm-none-eabi/14.2.1/../../../arm-none-eabi/bin/ld: /usr/lib/gcc/arm-none-eabi/14.2.1/../../../arm-none-eabi/lib/thumb/v8-m.main/nofp/libg_nano.a(libc_a-writer.o): in function `_write_r':
+/build/reproducible-path/newlib-4.5.0.20241231/build_nano/arm-none-eabi/thumb/v8-m.main/nofp/newlib/../../../../../../newlib/libc/reent/writer.c:49:(.text+0x14): warning: _write is not implemented and will always fail
+/usr/lib/gcc/arm-none-eabi/14.2.1/../../../arm-none-eabi/bin/ld: /usr/lib/gcc/arm-none-eabi/14.2.1/../../../arm-none-eabi/lib/thumb/v8-m.main/nofp/libg_nano.a(libc_a-writer.o): note: the message above does not take linker garbage collection into account
+   text	   data	    bss	    dec	    hex	filename
+  37248	     20	 104100	 141368	  22838	/home/lolo/dev/msm/reports/TR2-mission015-J-20261012T184145Z/build-continuous/tr2_stm32_p11c.elf

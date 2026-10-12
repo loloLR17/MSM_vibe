@@ -1,0 +1,27 @@
+{
+  "ram_bytes": 786432,
+  "symbols": {
+    "_Min_Heap_Size": 512,
+    "_Min_Stack_Size": 2048,
+    "_ebss": 536972460,
+    "_edata": 536870924,
+    "_estack": 537657344,
+    "_sbss": 536870924,
+    "_sdata": 536870912
+  },
+  "bss_bytes": 101536,
+  "data_bytes": 12,
+  "headroom_to_stack_top": 684884,
+  "stack_minimum": 2048,
+  "heap_minimum": 512,
+  "xyz_bytes": 24576,
+  "tags_bytes": 4096,
+  "raw_rx_bytes": 28704,
+  "trace_bytes": 35328,
+  "poll_bytes": 3072,
+  "meta_bytes": 2688,
+  "no_heap_allocation": true,
+  "own_buffers_exclusive": true,
+  "all_telemetry_scaled8_would_exceed_ram": true,
+  "future32768_xyz_tags_only_bytes": 229376
+}

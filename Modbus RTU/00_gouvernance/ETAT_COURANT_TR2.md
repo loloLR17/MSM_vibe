@@ -1,10 +1,15 @@
 # État courant TR2 — référence reconstruite
 
-Mise à jour : 12 octobre 2026. Mission `TR2-20261012-M015-I-PHYSICAL-RESUME`.
+Mise à jour : 12 octobre 2026. Mission `TR2-20261012-M015-J-CONTINUOUS-FIFO`.
 
 **Ce document est un nouvel état de référence reconstruit à partir de preuves vérifiables. Il n'est pas une restitution du journal historique HP.** Sa création a été explicitement autorisée par l'utilisateur pour la mission `T1000-20261010-CLOTURE-001`, après escalade AGENTS.md §18. Aucun original n'a été retrouvé dans l'historique Git, les répertoires Linux locaux ou les documents Windows accessibles. Les archives d'échanges du 8 octobre mentionnent un journal local HP, sans en fournir le contenu. Aucun état historique inconnu n'est inventé.
 
-## État opérationnel actuel — M015-I reprise physique, 12 octobre 2026
+## État opérationnel actuel — M015-J, 12 octobre 2026
+
+- **VALIDÉ logiciel / PRÉPARÉ physique** :nouveauprofilRAM4096/FIFOcontinu6/A8pendantlecture,32bursts128/192statuts/250ms, guardsgroupés/conservation/tags/validité stricts.18scénarios neufs/crossdéfaut-profil réussis,104100BSS/768KiB RAM ;pasrejeudesacquis. Campagneunique enattente, checkpointlogiciel àpublier.
+- **PRÉSERVÉ / PRÉFLIGHT FRAIS** :M014-H reconnu/UIDSTLINKattendus, Flash2Mio/RAM768K sauvegardées, stage2/result0/gen12/configUNAVAILABLE/IRQ49-66/faults0. AucunflashJ encore, aucunmédia/partition. M015INPROGRESS/V1 inchangée, continu4096 nonencorephysiquementqualifié.
+
+## État opérationnel antérieur — M015-I reprise physique, 12 octobre 2026
 
 - **VALIDÉ PHYSIQUE borné** : campagneunique source6c504a9, contrôlesgroupés passés/CTRL1A8,2bursts128/256XYZ réels acceptés,6niveaux0/53/106/158/212/256 puis256→128→0 ; erreurs/tags/parité/gaps/flagsperte/saturation0, result0/restore0. Brutsreconstruitsbyte-identiques ;40traces. Bursts2,8858ms chacun, FIFOenable→final20,6209ms ; ODRconfigurée nonmesurée, compteurmodulo4 n’exclut pas toutespertes. Aucunrejeu/secondessai, testsI26/crossréutilisés sansrebuild.
 - **M014 PRÉSERVÉ** : sauvegardefraîche puisFlash2Mio restaurée exacte/SHA556fedf5/BINb462c29a, contrôles0/0/0/0/0/4/0 ; repriseHP B0/B1réussie/journalentier hash2ab64625…/uptime125s. FRAMgen12/configUNAVAILABLE/SDOFF/IRQ49-66/faults0/MCUrunning, aucuneécrituremédia niaccèspartition.
