@@ -1,10 +1,14 @@
 # État courant TR2 — référence reconstruite
 
-Mise à jour : 13 octobre 2026. Mission `TR2-20261013-M015-P-COMPARATIVE-FIFO-ROOT-CAUSE`.
+Mise à jour : 13 octobre 2026. Mission `TR2-20261013-M015-Q-FIFO-REPEATABILITY-WINDOWS`.
 
 **Ce document est un nouvel état de référence reconstruit à partir de preuves vérifiables. Il n'est pas une restitution du journal historique HP.** Sa création a été explicitement autorisée par l'utilisateur pour la mission `T1000-20261010-CLOTURE-001`, après escalade AGENTS.md §18. Aucun original n'a été retrouvé dans l'historique Git, les répertoires Linux locaux ou les documents Windows accessibles. Les archives d'échanges du 8 octobre mentionnent un journal local HP, sans en fournir le contenu. Aucun état historique inconnu n'est inventé.
 
-## État opérationnel actuel — M015-P, 13 octobre 2026
+## État opérationnel actuel — M015-Q, répétabilité
+
+**VALIDÉ PHYSIQUE BORNÉ** : trois captures même BIN P, chacune263XYZ distincts+33TS ; parité/counters/saturation/transport/journal zéro, cleanup0/XLoff/bypass/TSoff. Trois resets MCU GDB et resets capteur internes ST, aucune coupure/manipulation ni flash. Reconstruction indépendante byte-identique ; DWT payload≈247ko/s, pas ODR indépendante/perte globale zéro. **PRÉPARÉ** : fenêtres512/4096 restent à développer/tester avant cible. Erreur offline comparaison18 réservé corrigée et conservée, aucun garde-fou matériel contourné. Primaire/M014/médias/Modbus/worktrees/stashes préservés, archivesP exactes ; cause O/P non établie.
+
+## État opérationnel antérieur — M015-P, 13 octobre 2026
 
 - **VALIDÉ audit/logiciel** : I256XYZ reconstruits et BIN/ELF exacts ; O258TS/0XYZ ; J128XYZ reçus puis rejetés après registres09=14/0A=0C. >>2 réfuté ; comparaison détaillée publiée. Test ciblé et deux ARM réussis, acquis non répétés. Checkpoint b79fe8d publié et 26 fichiers relus avant matériel.
 - **VALIDÉ PHYSIQUE BORNÉ** : contrôle unique seconde NUCLEO, BIN byte-identique O niveau10/mode3, reçoit 263 XYZ distincts +33TS ; parité/discontinuités/saturation zéro sur cette capture, huit XYZ entre TS et pas24ticks. Pas preuve globale perte zéro, répétabilité ou fenêtres512/4096. Cleanup0, XLoff/bypass/TSoff, UID confirmé/faults0/detach ; seconde Flash laissée sur contrôle inactif.

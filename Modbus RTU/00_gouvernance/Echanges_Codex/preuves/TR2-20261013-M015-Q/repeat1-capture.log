@@ -1,0 +1,11 @@
+0x080064a4 in main () at /home/lolo/dev/msm/projects/MSM_vibe-M015-P/experiments/iis3dwb_st_reference/official/main.c:12
+12	  for(;;)__WFI();
+$1 = {stage = 6, result = 0, cleanup_result = 0, count = 296, xyz_count = 263, timestamp_count = 33, who = 123, raw_level = 296, st_level = 40, flags = 129, status10 = 0, st_batch = 0, controls = "\000\001\n�{�\000D\000\000\000\000\000�", words = {{tag = 0 '\000', data = "\000\000\000\000\000"} <repeats 512 times>}, xyz = {{0, 0, 0} <repeats 64 times>}, temperature = 0, polls = 0, cleanup_controls = "\f\200"}
+$2 = 47
+$3 = 2139
+$4 = 94
+$5 = {1769542, 943869976, 540225879}
+$6 = 16000000
+$7 = 32
+0xe000ed28:	0x00000000	0x00000000
+[Inferior 1 (Remote target) detached]

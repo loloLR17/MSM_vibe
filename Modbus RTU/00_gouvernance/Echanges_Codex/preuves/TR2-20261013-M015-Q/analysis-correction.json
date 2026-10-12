@@ -1,0 +1,6 @@
+{
+  "initial_exit": 7,
+  "hardware_guard_triggered": false,
+  "cause": "Initial offline evaluator compared reserved address 0x18 E0 against P E2. No documented configuration field at this address. All defined controls unchanged. Original rejection preserved. Corrected checks retain all defined controls 07..0A and 0F..17, CTRL10 and cleanup; reserved 18 remains in raw evidence.",
+  "reference": "ST DS12569 Rev8 register map; vendor header CTRL8_XL=17 and CTRL10_C=19"
+}
