@@ -1,0 +1,33 @@
+{
+  "journal_sha256": "17c2a7205bf87eba0a91e823992c0c92273253192f9f986cc8b557788e2a314d",
+  "events": 7,
+  "b0_all_21_registers_match": true,
+  "b1_all_20_registers": [
+    1,
+    0,
+    0,
+    0,
+    0,
+    80,
+    5,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "passed": true,
+  "requests": 2,
+  "retry": 0,
+  "start_utc": "2026-10-12T13:23:17.9051947+00:00",
+  "end_utc": "2026-10-12T13:23:19.1522393+00:00",
+  "full_journal_retrieved_and_read": true
+}

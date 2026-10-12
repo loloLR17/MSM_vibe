@@ -1,0 +1,83 @@
+{
+  "mission_id": "TR2-20261012-M015-C-FIFO-REGISTER-RELIABILITY",
+  "result": "BLOCKED",
+  "source_sha": "89218abff289c8319e03ca3c4525dd9914e7084c",
+  "files": [
+    {
+      "path": "artifacts.json",
+      "bytes": 598,
+      "sha256": "600b16292740aeb348d26bea43383e89ec1a7421da1730d08fc5a9c3109f247b"
+    },
+    {
+      "path": "backup-verified.json",
+      "bytes": 472,
+      "sha256": "0729e99ca8595bf9225c452b793189deb122f6dd9a65099047d55cceed8ae4c5"
+    },
+    {
+      "path": "clock-offset-restored.json",
+      "bytes": 198,
+      "sha256": "9b9e832bdd3f620173ea5871e9d60cf05c1ea7ff559b380550acafeaa2c75224"
+    },
+    {
+      "path": "final-production-after-physical-no-reset.log",
+      "bytes": 992,
+      "sha256": "2aeecc01bc85369cdf05fe01a51545c1261c5a4e06b26267fb99fdcfc0e20a28"
+    },
+    {
+      "path": "hp-restored-analysis.json",
+      "bytes": 509,
+      "sha256": "6f2d26971bdc7b11bcd593859e94545af82db8d3f71a099362bae681eeba4dc4"
+    },
+    {
+      "path": "hp-restored-physical.jsonl",
+      "bytes": 1388,
+      "sha256": "17c2a7205bf87eba0a91e823992c0c92273253192f9f986cc8b557788e2a314d"
+    },
+    {
+      "path": "register-analysis.json",
+      "bytes": 2551,
+      "sha256": "57516e12b5bfc35b37f74d458cd7319f7613ab44e416263c1b81ba958ee53aae"
+    },
+    {
+      "path": "register-result-no-reset.log",
+      "bytes": 314,
+      "sha256": "ced9b8ae146b6487ff0ad89abca9197b18b30a9adff9f59addf7d1438996afff"
+    },
+    {
+      "path": "register-single-trigger.log",
+      "bytes": 812,
+      "sha256": "6e4339a2043fde63976fe4a204d7faea4a534c68ecb6af9d7bb5c4362c71f1e4"
+    },
+    {
+      "path": "register-transactions.csv",
+      "bytes": 46539,
+      "sha256": "7faa2804b72892239b961a17a454adeb0f4c3f0a81fa420c3928749ed76eece1"
+    },
+    {
+      "path": "restoration-verified.json",
+      "bytes": 270,
+      "sha256": "f63af87c287e1d88e8c98a233e6c7317c4c957e47e97e870faba012dfccbf418"
+    },
+    {
+      "path": "restore-production-boot.log",
+      "bytes": 1014,
+      "sha256": "203b28f01c5a669a0c712664cd479f730ce04e796a98dd6d5f13f7f720339eaf"
+    },
+    {
+      "path": "restored-physical-gate.json",
+      "bytes": 196,
+      "sha256": "ac490b8149e9b37664d93b614b1897dcc2d66435f82d7482d98d5f007a246539"
+    },
+    {
+      "path": "software-readback.json",
+      "bytes": 929,
+      "sha256": "73a2504535af68370141519fb01a82660b40b7103be0be9ab7d129f60508cecc"
+    },
+    {
+      "path": "validation-results.json",
+      "bytes": 853,
+      "sha256": "5a6d13f6c6664175a3bb47e9119c179919d009578c4183cf852e7009bee7691f"
+    }
+  ],
+  "csv_normalization": "CRLF to LF only; original CSV and raw RAM binary preserved locally"
+}

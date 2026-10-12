@@ -1,0 +1,17 @@
+{
+  "sha": "89218abff289c8319e03ca3c4525dd9914e7084c",
+  "full_byte_equal": [
+    "Modbus RTU/00_gouvernance/AUDIT_M015_C_SPI_FIFO.md",
+    "Modbus RTU/00_gouvernance/ETAT_COURANT_TR2.md",
+    "Modbus RTU/00_gouvernance/Echanges_Codex/DERNIER_RAPPORT.md",
+    "Modbus RTU/00_gouvernance/Echanges_Codex/archives/TR2-20261012-M015-B-FIFO-CADENCE/MISSION.md",
+    "Modbus RTU/00_gouvernance/Echanges_Codex/archives/TR2-20261012-M015-B-FIFO-CADENCE/RAPPORT.md",
+    "Modbus RTU/05_Firmware/CMakeLists.txt",
+    "Modbus RTU/05_Firmware/platform/stm32/CMakeLists.txt",
+    "Modbus RTU/05_Firmware/platform/stm32/main.c",
+    "Modbus RTU/05_Firmware/platform/stm32/stm32_iis3dwb_register_probe.c",
+    "Modbus RTU/05_Firmware/platform/stm32/stm32_iis3dwb_register_probe.h",
+    "Modbus RTU/05_Firmware/tests/platform/stm32_hal_register_mock/stm32u5xx_hal.h",
+    "Modbus RTU/05_Firmware/tests/platform/test_stm32_register_probe.c"
+  ]
+}

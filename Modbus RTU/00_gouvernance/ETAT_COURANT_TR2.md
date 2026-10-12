@@ -7,7 +7,7 @@ Mise à jour : 12 octobre 2026. Mission `TR2-20261012-M015-C-FIFO-REGISTER-RELIA
 ## État opérationnel actuel — M015-C, 12 octobre 2026
 
 - **VALIDÉ logiciel seulement** : audit statique A/B/ST/HAL ; profil isolé de lectures SPI,512transactions maximum, sans écriture capteur ou média ni FIFO/XYZ/UART. Nouveau test ciblé1/1, cross-build défaut/profil réussis ; validations A/B inchangées nonrejouées.
-- **OBSERVÉ / PRÉPARÉ** : GDB seul identifie image permanente M014 et UID attendu, sauvegardeFlash2Mio/RAM768K ; FRAMgen12/IRQ49-66/faults0/configUNAVAILABLE, cible détachée running. Flash temporaire/diagnostic encore non exécutés. M015-C BLOCKED provisoire, M015 globale IN PROGRESS.
+- **OBSERVÉ** : GDB seul identifie image permanente M014 et UID attendu, sauvegardeFlash2Mio/RAM768K ; FRAMgen12/IRQ49-66/faults0/configUNAVAILABLE, cible détachée running. Diagnostic unique exécuté :512lectures/128ms, WHO7B/CTRL3=04/FIFOvide0, singles etbursts concordants, HALerrors0 ; causeB etfiabilitéFIFOactive nonisolées. ImageM014 restaurée/Flash2Mio byte-identique,2lecturesderepriseB0/B1réussies, gen12/configUNAVAILABLE/SDOFF, MCUrunning. M015-C BLOCKED, M015 globale IN PROGRESS.
 - Archives B exactes depuis cfb9918 ; worktree C isolé, tous worktrees/stashes antérieurs préservés. Preuves `/home/lolo/dev/msm/reports/TR2-mission015-C-20261012T131552Z`.
 
 ## État opérationnel antérieur — M015-B, 12 octobre2026

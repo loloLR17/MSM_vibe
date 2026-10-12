@@ -1,0 +1,126 @@
+{
+  "source_sha": "89218abff289c8319e03ca3c4525dd9914e7084c",
+  "info": {
+    "stage": 10,
+    "count": 512,
+    "errors": 0,
+    "core_hz": 160000000,
+    "spi_hz": 625000,
+    "elapsed_ms": 128
+  },
+  "comparisons": [
+    {
+      "mode": 0,
+      "reg": 15,
+      "length": 1,
+      "reads": 64,
+      "expected_hex": "7b",
+      "mismatches": [],
+      "observed": {
+        "00 7B": 64
+      }
+    },
+    {
+      "mode": 1,
+      "reg": 15,
+      "length": 2,
+      "reads": 64,
+      "expected_hex": "7b00",
+      "mismatches": [],
+      "observed": {
+        "FF 7B 00": 64
+      }
+    },
+    {
+      "mode": 2,
+      "reg": 18,
+      "length": 1,
+      "reads": 64,
+      "expected_hex": "04",
+      "mismatches": [],
+      "observed": {
+        "00 04": 64
+      }
+    },
+    {
+      "mode": 3,
+      "reg": 8,
+      "length": 1,
+      "reads": 64,
+      "expected_hex": "00",
+      "mismatches": [],
+      "observed": {
+        "00 00": 64
+      }
+    },
+    {
+      "mode": 4,
+      "reg": 7,
+      "length": 6,
+      "reads": 64,
+      "expected_hex": "000000000000",
+      "mismatches": [],
+      "observed": {
+        "00 00 00 00 00 00 00": 64
+      }
+    },
+    {
+      "mode": 5,
+      "reg": 58,
+      "length": 2,
+      "reads": 64,
+      "expected_hex": "0000",
+      "mismatches": [],
+      "observed": {
+        "00 00 00": 64
+      }
+    },
+    {
+      "mode": 6,
+      "reg": 58,
+      "length": 1,
+      "reads": 64,
+      "expected_hex": "00",
+      "mismatches": [],
+      "observed": {
+        "00 00": 64
+      }
+    },
+    {
+      "mode": 7,
+      "reg": 59,
+      "length": 1,
+      "reads": 64,
+      "expected_hex": "00",
+      "mismatches": [],
+      "observed": {
+        "00 00": 64
+      }
+    }
+  ],
+  "hal_error_records": [],
+  "cs_marker_errors": [],
+  "sr_before_counts": {
+    "0x1002": 1,
+    "0xc007": 319,
+    "0xa007": 128,
+    "0xa001": 64
+  },
+  "sr_after_counts": {
+    "0xc007": 320,
+    "0xa007": 128,
+    "0xa001": 64
+  },
+  "cfg1": [
+    "0x70070067"
+  ],
+  "cfg2": [
+    "0x87400000"
+  ],
+  "raw_records_sha256": "23e99e52fcbeee4af88f0291d647b44399489819d991be8693d1487920da08ca",
+  "raw_info_sha256": "12353f697f46e792f64330c0214260fed1c51d3b8c1e58d43e15cc17f54e3745",
+  "active_fifo_reliability_proved": false,
+  "root_cause_isolated": false,
+  "physical_status": "BLOCKED",
+  "reason": "Read-only constant/empty FIFO reliability observed only. High-bit FIFO_CTRL2 configuration and dynamic level crossing127 were not reproduced by design. No physical CS/SCK/MISO or internal HAL flags trace."
+}

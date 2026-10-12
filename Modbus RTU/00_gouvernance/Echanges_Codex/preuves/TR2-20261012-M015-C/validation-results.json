@@ -1,0 +1,16 @@
+{
+  "new_targeted_test": "1/1 passed",
+  "dedicated_cross": "passed",
+  "default_cross": "passed",
+  "wrapper_guards_parser": "passed",
+  "previous_tests_repeated": false,
+  "local_logs_sha256": {
+    "validation-0.log": "5afd725bb52a2aa1db475a16a1c127cb95dbb62452b2872b8717fead3f7c782b",
+    "validation-1.log": "86b96f22084ee15974b2a0ac6cc0d3b559ce30c9eacf4ed384e7007c6257cea0",
+    "validation-2.log": "48fe5e7fb0948b692c9f05b9925a2ef7948b71ce4fbe6e8d609bc56423612ca5",
+    "validation-3.log": "b8e57411d1eead8fc0ae99aa55e60ec24b5d69dcb0234203721b18d7d261cb6e",
+    "validation-4.log": "d4657b82f51b7f3631ef578a791ae594f44a5621a51cc5852179996d8251cf03",
+    "default-cross.log": "836875025e21c220112b8938ffe83078637bf7d31c1ae77c81904897b7bb1676",
+    "wrapper-validation.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+}

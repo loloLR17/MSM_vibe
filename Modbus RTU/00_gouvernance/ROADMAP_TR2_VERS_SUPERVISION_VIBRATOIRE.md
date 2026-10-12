@@ -129,3 +129,7 @@ Suite proposée M015-B : raccordement production en mode 3, FIFO/DMA et débit, 
 **M015-B BLOCKED ; M015 globale IN PROGRESS.** Le prototype FIFO borné256XYZ et son testhôte sont livrés, mais l'unique campagne fournit des statuts incohérents :171polls/11reculs du niveau/flagoverrun brut/readbackdivergent. Refus avantvidange,0XYZ accepté ; consécutivité/cadence/pertes nonqualifiées. Causeinconnue ; pas nouveauxessais/variantes danscette missionréduite, pasDMA/production/stockage/B5/FFT.
 
 M014 restauréeexactement (Flash2Mio identique), FRAMgen12/configUNAVAILABLE, SDtotalementOFF/partitionLBA65536préservée,2lecturesB0/B1dereprise réussies. AcquisM015-A nonrejoués ; J3resteen cours. Prochaincontrat : établirla fiabilité desregistresFIFO avant nouvellequalification, sanscritèreimmobilitéduvoilier. Rapport etpreuvesB portentle verrou etleslimites.
+
+## Actualisation M015-C — 12 octobre 2026
+
+**M015-C BLOCKED pour cause/fiabilité FIFO active ; M015 globale IN PROGRESS.** Une seule campagne read-only512transactions/128ms : WHO7B/CTRL3=04/FIFOvide0 cohérents, simples etbursts concordants, HALerrors0. Aucun remplissage ouXYZ, aucunecorrection ; anomaliesBnonrejouées etcauseinconnue. Tests ciblésneufs/profilARM seulement, validations A/B préservées. M014 restauréeexactement/Flash2Mio identique, contrôleminimal2FC03B0/B1réussi, FRAMgen12/SDOFF/partitionpréservée. Prochainepreuve envisagée : comparaisonwire↔RAM ettimingCS/SCK avecinstrumentidentifié etcontratdistinct ; protocolepréparé nonexécuté.
