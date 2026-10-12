@@ -6,7 +6,7 @@ Mise à jour : 12 octobre 2026. Mission `TR2-20261012-M015-I-GROUPED-FIFO-SOLUTI
 
 ## État opérationnel actuel — M015-I, 12 octobre 2026
 
-- **IN_PROGRESS, logiciel validé/checkpoints** : mission/rapport H archivés exacts, artefacts H rehashés, worktrees/stashes préservés. Harness adapté aux readbacks groupés avec WHO/IF_INC/voisins et gardes transfert ;26scénarios ciblés et cross-build défaut/profil réussis ; aucun acquis A-H rejoué.
+- **IN_PROGRESS, logiciel validé/checkpoints** : mission/rapport H archivés exacts, artefacts H rehashés, worktrees/stashes préservés. Harness adapté aux readbacks groupés avec WHO/IF_INC/voisins et gardes transfert ;26scénarios ciblés et cross-build défaut/profil réussis ; aucun acquis A-H rejoué. Checkpoint logiciel 6c504a9d4035c2922d186a03350963bdac33379b publié et intégralement relu, point de reprise complet disponible ; session arrêtée sans accès cible.
 - **PHYSIQUE REPORTÉ** : budget annoncé12%, aucun accès cible/flash/reset/HP/média en I. Dernier état H : M014-H restauré/Flash identique/gen12/SDOFF/MCUrunning ; état historique, pas nouvelle observation. Campagne unique et restauration à assurer après renouvellement. M015 IN PROGRESS, V1 inchangée.
 
 ## État opérationnel antérieur — M015-H, 12 octobre 2026

@@ -4,7 +4,7 @@ status: IN_PROGRESS
 base_ref: main
 base_sha: c0d4f7b9786921db64f9e031f5458a662ba90332
 initial_head: 1c1f9ae6a241d65efbc04e1c5f44ef19fc7e0d9f
-result_sha: null
+result_sha: 6c504a9d4035c2922d186a03350963bdac33379b
 created_at_utc: 2026-10-12T16:27:24.655352+00:00
 author: Codex
 target_branch: main
@@ -28,4 +28,4 @@ BIN SHA **760aab56cf32aa458c861bf5f22e2801dd595f3bd73ad6a98602c1cff0cdd258**, EL
 
 [Point de reprise complet](../REPRISE_M015_I_FIFO_GROUPEE.md) : à la reprise vérifiermain/mission/SHA, réutiliserbuilds/tests siinchangés ; préparerhelpercampagneG adaptéI etnomHPguardéI, preflightUID/image +nouvelle sauvegardeFlash2Mio/RAM. Une activationmaximum trigger4D313546, tracessauvegardées avantrestaurationfinally, NORMAL sansHOTPLUG ; permanentM014-H BINb462c29a restauré byte-identique,2lectures derepriseB0/B1sansGDB puisjournalcomplet etrapport. **Ne pas lancer l’ancien helper G ni flasher avant marge de restauration garantie.** Pas de demandevalidation supplémentaire des opérations autorisées ; intervention humaine seulement si physique indispensable/risque/décisionstructurante.
 
-Journal actualisé etroadmap M015 INPROGRESS ; mission I active immuable, worktree isolé codex/m015-i. Permissionscommit/push exercées uniquement ; flash/debug autorisés NONexercés. Archives/brutsH/FRAM/SD/partition/stashespréservés. Diff/check/index inspectés ; pasmerge/rebase/reset/forcepush/configuration permanente. Checkpointlogiciel/relecture finale etSHA à consigner après publication, aucunstatusDONEprematuré.
+Journal actualisé etroadmap M015 INPROGRESS ; mission I active immuable, worktree isolé codex/m015-i. Permissionscommit/push exercées uniquement ; flash/debug autorisés NONexercés. Archives/brutsH/FRAM/SD/partition/stashespréservés. Diff/check/index inspectés ; pasmerge/rebase/reset/forcepush/configuration permanente. Checkpoint logiciel **6c504a9d4035c2922d186a03350963bdac33379b** (`M015-I: validate grouped FIFO configuration and publish safe resume point`) poussé normalement sur main ; 18 livrables relus intégralement depuis la référence récupérée de GitHub et byte-identiques (`software-readback.json`). Worktree propre, dix autres worktrees/HEAD et stashes vérifiés préservés. Session arrêtée proprement après préparation/publication conformément au contrat ; mission IN_PROGRESS, campagne physique à reprendre après renouvellement. La dernière publication documentaire est vérifiée après push et son SHA communiqué dans la réponse.

@@ -1,0 +1,46 @@
+{
+  "preservation.json": {
+    "sha256": "5e9ea732e022332712a322da7ff53c6047599da655d0757ff34a0d1a162d9784",
+    "bytes": 3996
+  },
+  "software-readback.json": {
+    "sha256": "bbe90cf27bf5b66e4caea35697d86c16fe082225a5a0594ef287a9f78eb8111d",
+    "bytes": 3557
+  },
+  "validation-1.log": {
+    "sha256": "2fd46988aff158ff56359b18638f8ec3f199c4cb92e02bad9fb0bc17a3c7f143",
+    "bytes": 7423
+  },
+  "checkpoint-readback.json": {
+    "sha256": "d663db14fcbefeddac08e217190ebc6898be486c822d523368d6b289bbe59d33",
+    "bytes": 92
+  },
+  "validation-2.log": {
+    "sha256": "4c23e0eb163b610ef8955837ba3adf1be8239d94fb854e2e89e74bcbd5a3253b",
+    "bytes": 380
+  },
+  "artifacts.json": {
+    "sha256": "b58ad7fff283ebcf5ef182069a52d3a4ac95252241d3a853aa75348a069c696f",
+    "bytes": 444
+  },
+  "validation-3.log": {
+    "sha256": "219043772fcb851950a93b1006b2fdfb7ab7f266432f0c05fa0a1cfa1ce81a5a",
+    "bytes": 513
+  },
+  "validation-0.log": {
+    "sha256": "d9d71ba3a44fd5559238ae851306a4ebbc8f71ae944a5621f8ec7e4a311686e3",
+    "bytes": 408
+  },
+  "validation-commands.json": {
+    "sha256": "a1931e06df75ec1801a894b91e258249a066002affab3e7ffafbfbf2a65415fc",
+    "bytes": 1245
+  },
+  "validation-5.log": {
+    "sha256": "fa13c802930c92bdb4a3a4ed697764c9707350ae1766eeb1ca9287119d5938f5",
+    "bytes": 21187
+  },
+  "validation-4.log": {
+    "sha256": "d4c2410192367a5e8b94734726e508cca9987f16d74e6a3e9097a6b8c835bb85",
+    "bytes": 20016
+  }
+}

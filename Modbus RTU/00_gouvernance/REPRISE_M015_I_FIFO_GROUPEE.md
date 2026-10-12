@@ -21,6 +21,6 @@ Toute transaction exige HAL_OK, ErrorCode0, Rx/TxXferCount0 et GPIOCS1→0→1 a
 
 ## Artefacts déjà disponibles, ne pas rebâtir sans changement
 
-Dossier complet : **/home/lolo/dev/msm/reports/TR2-mission015-I-20261012T162708Z**. BIN35132 SHA760aab56cf32aa458c861bf5f22e2801dd595f3bd73ad6a98602c1cff0cdd258 ; ELF SHA7893fda8b3e43e215cbab0a1bcc515d51b0a6986cdf9ff742974e53b8cbb076e. Commandes exactes `validation-commands.json`, sorties0..5 conservées. SourceSHA consigné après publication du checkpointlogiciel dans rapport/artifacts ; pas autosHA dans son proprecommit.
+Dossier complet : **/home/lolo/dev/msm/reports/TR2-mission015-I-20261012T162708Z**. BIN35132 SHA760aab56cf32aa458c861bf5f22e2801dd595f3bd73ad6a98602c1cff0cdd258 ; ELF SHA7893fda8b3e43e215cbab0a1bcc515d51b0a6986cdf9ff742974e53b8cbb076e. Commandes exactes `validation-commands.json`, sorties0..5 conservées. Source logiciel évalué/poussé : **6c504a9d4035c2922d186a03350963bdac33379b**. Réutiliser ces artefacts après vérification des hashes et du code inchangé.
 
 Permanent M014-H/source0b2a901e185c9cbf8c02410bf2a29a0a3a75491e : BIN143108 SHA b462c29a775fec17fccf8036b5612742b1366210359bcd3f192c95435740d611 ; ELF c37ad8370fbfe3da35c0e5c16d7239d18e7d0ad102f33db79a67a029ecfca8de, dossier `/home/lolo/dev/msm/reports/TR2-mission014-H-20261012T073729Z/build-production-live`. Dernière restauration H Flash2Mio SHA556fedf58a88f7de0ad63826af6b4941de8bb72dcd6e97a886c1017da5ba93f0 ; historique, à vérifier fraîchement à la reprise.

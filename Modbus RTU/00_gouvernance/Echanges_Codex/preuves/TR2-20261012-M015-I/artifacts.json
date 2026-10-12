@@ -1,5 +1,4 @@
 {
-  "code_sha_pending_software_commit": true,
   "artifacts": {
     "build-burst/tr2_stm32_p11c.bin": {
       "size": 35132,
@@ -11,5 +10,6 @@
     }
   },
   "profile_isolated": true,
-  "physical_deferred": true
+  "physical_deferred": true,
+  "source_sha": "6c504a9d4035c2922d186a03350963bdac33379b"
 }
