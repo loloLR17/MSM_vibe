@@ -1,0 +1,1 @@
+host-official-0: /home/lolo/dev/msm/projects/MSM_vibe-M015-O/experiments/iis3dwb_st_reference/official/mocks/test.c:45: main: Assertion `bench_result.result==1 && !bench_result.count' failed.

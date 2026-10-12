@@ -1,0 +1,114 @@
+[
+  {
+    "command": [
+      "cmake",
+      "-S",
+      "/home/lolo/dev/msm/projects/MSM_vibe-M015-O/experiments/iis3dwb_st_reference",
+      "-B",
+      "/home/lolo/dev/msm/reports/TR2-mission015-O-20261012T214009Z/official",
+      "-G",
+      "Ninja",
+      "-DCMAKE_TOOLCHAIN_FILE=cmake/arm-none-eabi-gcc.cmake",
+      "-DSTM32CUBE_U5_ROOT=/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0",
+      "-DCMAKE_BUILD_TYPE=Debug",
+      "-DBENCH_OFFICIAL=ON",
+      "-DBENCH_SPI_OPT=2",
+      "-DBENCH_SPI_MODE3=1",
+      "-DOFFICIAL_STATUS10=0",
+      "-DOFFICIAL_PACKETS=1"
+    ],
+    "exit": 0
+  },
+  {
+    "command": [
+      "cmake",
+      "--build",
+      "/home/lolo/dev/msm/reports/TR2-mission015-O-20261012T214009Z/official"
+    ],
+    "exit": 0
+  },
+  {
+    "command": [
+      "cmake",
+      "-S",
+      "/home/lolo/dev/msm/projects/MSM_vibe-M015-O/experiments/iis3dwb_st_reference",
+      "-B",
+      "/home/lolo/dev/msm/reports/TR2-mission015-O-20261012T214009Z/level10",
+      "-G",
+      "Ninja",
+      "-DCMAKE_TOOLCHAIN_FILE=cmake/arm-none-eabi-gcc.cmake",
+      "-DSTM32CUBE_U5_ROOT=/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0",
+      "-DCMAKE_BUILD_TYPE=Debug",
+      "-DBENCH_OFFICIAL=ON",
+      "-DBENCH_SPI_OPT=2",
+      "-DBENCH_SPI_MODE3=1",
+      "-DOFFICIAL_STATUS10=1",
+      "-DOFFICIAL_PACKETS=1"
+    ],
+    "exit": 0
+  },
+  {
+    "command": [
+      "cmake",
+      "--build",
+      "/home/lolo/dev/msm/reports/TR2-mission015-O-20261012T214009Z/level10"
+    ],
+    "exit": 0
+  },
+  {
+    "command": [
+      "cmake",
+      "-S",
+      "/home/lolo/dev/msm/projects/MSM_vibe-M015-O/experiments/iis3dwb_st_reference",
+      "-B",
+      "/home/lolo/dev/msm/reports/TR2-mission015-O-20261012T214009Z/mode0",
+      "-G",
+      "Ninja",
+      "-DCMAKE_TOOLCHAIN_FILE=cmake/arm-none-eabi-gcc.cmake",
+      "-DSTM32CUBE_U5_ROOT=/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0",
+      "-DCMAKE_BUILD_TYPE=Debug",
+      "-DBENCH_OFFICIAL=ON",
+      "-DBENCH_SPI_OPT=2",
+      "-DBENCH_SPI_MODE3=0",
+      "-DOFFICIAL_STATUS10=1",
+      "-DOFFICIAL_PACKETS=1"
+    ],
+    "exit": 0
+  },
+  {
+    "command": [
+      "cmake",
+      "--build",
+      "/home/lolo/dev/msm/reports/TR2-mission015-O-20261012T214009Z/mode0"
+    ],
+    "exit": 0
+  },
+  {
+    "command": [
+      "cmake",
+      "-S",
+      "/home/lolo/dev/msm/projects/MSM_vibe-M015-O/experiments/iis3dwb_st_reference",
+      "-B",
+      "/home/lolo/dev/msm/reports/TR2-mission015-O-20261012T214009Z/confirm",
+      "-G",
+      "Ninja",
+      "-DCMAKE_TOOLCHAIN_FILE=cmake/arm-none-eabi-gcc.cmake",
+      "-DSTM32CUBE_U5_ROOT=/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0",
+      "-DCMAKE_BUILD_TYPE=Debug",
+      "-DBENCH_OFFICIAL=ON",
+      "-DBENCH_SPI_OPT=2",
+      "-DBENCH_SPI_MODE3=1",
+      "-DOFFICIAL_STATUS10=1",
+      "-DOFFICIAL_PACKETS=3"
+    ],
+    "exit": 0
+  },
+  {
+    "command": [
+      "cmake",
+      "--build",
+      "/home/lolo/dev/msm/reports/TR2-mission015-O-20261012T214009Z/confirm"
+    ],
+    "exit": 0
+  }
+]

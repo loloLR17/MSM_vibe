@@ -104,7 +104,11 @@ int platform_init(stmdev_ctx_t *ctx,BenchClock *clock)
   g.Speed=GPIO_SPEED_FREQ_HIGH;g.Alternate=GPIO_AF6_SPI3;HAL_GPIO_Init(GPIOC,&g);
   spi.Instance=SPI3;spi.Init.Mode=SPI_MODE_MASTER;spi.Init.Direction=SPI_DIRECTION_2LINES;
   spi.Init.DataSize=SPI_DATASIZE_8BIT;spi.Init.CLKPolarity=SPI_POLARITY_LOW;
-  spi.Init.CLKPhase=SPI_PHASE_1EDGE;spi.Init.NSS=SPI_NSS_SOFT;
+  spi.Init.CLKPhase=SPI_PHASE_1EDGE;
+#if BENCH_SPI_MODE3
+  spi.Init.CLKPolarity=SPI_POLARITY_HIGH;spi.Init.CLKPhase=SPI_PHASE_2EDGE;
+#endif
+  spi.Init.NSS=SPI_NSS_SOFT;
   spi.Init.BaudRatePrescaler=SPI_BAUDRATEPRESCALER_8;
   spi.Init.FirstBit=SPI_FIRSTBIT_MSB;spi.Init.TIMode=SPI_TIMODE_DISABLE;
   spi.Init.CRCCalculation=SPI_CRCCALCULATION_DISABLE;spi.Init.CRCPolynomial=7;

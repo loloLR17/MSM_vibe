@@ -1,0 +1,58 @@
+{
+  "official": {
+    "iis3dwb_reference.bin": {
+      "bytes": 54716,
+      "sha256": "8712d55c6e74ff3af98326650e7f1324fbad4803d58279ff1f495def44b250d9"
+    },
+    "iis3dwb_reference.map": {
+      "bytes": 324380,
+      "sha256": "fc2eb94c5b9f1336e4b305eec0079a0c18c45a67876ff775a4aa08b561d7ba93"
+    },
+    "iis3dwb_reference.elf": {
+      "bytes": 595684,
+      "sha256": "a2234cfefebfab0050181181c51b9bc5faef9255c7a262bf84d9cf81ce685a76"
+    }
+  },
+  "level10": {
+    "iis3dwb_reference.bin": {
+      "bytes": 54780,
+      "sha256": "ed19310485d51af22b18420ea8af3ff3acba36531b3e9741bc78e91792f282f5"
+    },
+    "iis3dwb_reference.map": {
+      "bytes": 324479,
+      "sha256": "a9b254b6e56e3f2a461e515cec2f5f5f56313910b0086cdc3d567d4f2298dfa1"
+    },
+    "iis3dwb_reference.elf": {
+      "bytes": 595744,
+      "sha256": "7b47eabea7d0fb5214da982a6d9e229dadc10bd1d1f337b22e1484a366275f4e"
+    }
+  },
+  "mode0": {
+    "iis3dwb_reference.bin": {
+      "bytes": 54764,
+      "sha256": "ef39869a03b7a79e3a71ee88bede887eea3b40e3a81b49c54a3b2ee11e8b5921"
+    },
+    "iis3dwb_reference.map": {
+      "bytes": 324479,
+      "sha256": "6e3fef8f5d729341625171fa8eb7cc038781b039d6a0c2665da51517a73f9d89"
+    },
+    "iis3dwb_reference.elf": {
+      "bytes": 595724,
+      "sha256": "f6f134233e5a1d89e327556c581979d4880421aeb3589890b7bfb8340b125c3e"
+    }
+  },
+  "confirm": {
+    "iis3dwb_reference.bin": {
+      "bytes": 54780,
+      "sha256": "7ce311a82a5c2fc70ea7cd143590de1216906b385aead41f4f7f9f86ce85fd9f"
+    },
+    "iis3dwb_reference.map": {
+      "bytes": 324479,
+      "sha256": "a9b254b6e56e3f2a461e515cec2f5f5f56313910b0086cdc3d567d4f2298dfa1"
+    },
+    "iis3dwb_reference.elf": {
+      "bytes": 595744,
+      "sha256": "802d73c521b6755d21880649b9b214dc0763275b9fcf12f366631485a9942d5e"
+    }
+  }
+}

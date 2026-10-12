@@ -1,0 +1,7 @@
+-- Configuring done (0.1s)
+-- Generating done (0.0s)
+-- Build files have been written to: /home/lolo/dev/msm/reports/TR2-mission015-O-20261012T214009Z/official
+CMake Warning:
+  Manually-specified variables were not used by the project:
+
+    CMAKE_TOOLCHAIN_FILE

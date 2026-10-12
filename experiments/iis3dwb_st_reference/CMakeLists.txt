@@ -3,6 +3,13 @@ project(iis3dwb_st_reference LANGUAGES C ASM)
 set(CMAKE_C_STANDARD 11)
 set(CMAKE_C_STANDARD_REQUIRED ON)
 set(CMAKE_C_EXTENSIONS OFF)
+option(BENCH_OFFICIAL "Execute the official ST sensor function" OFF)
+set(BENCH_SPI_MODE3 0 CACHE STRING "SPI mode3 platform profile")
+set(OFFICIAL_STATUS10 0 CACHE STRING "Explicit local FIFO level getter correction")
+set(OFFICIAL_PACKETS 1 CACHE STRING "Bounded original example packets: 1 or 3")
+if(NOT OFFICIAL_PACKETS MATCHES "^(1|3)$" OR NOT OFFICIAL_STATUS10 MATCHES "^(0|1)$" OR NOT BENCH_SPI_MODE3 MATCHES "^(0|1)$")
+ message(FATAL_ERROR "Unplanned official profile")
+endif()
 option(BENCH_CLEANUP_ONLY "Safety image: stop sensor only, no acquisition" OFF)
 option(BENCH_HOST_TESTS "Build only offline mock tests" OFF)
 set(BENCH_SPI_OPT "2" CACHE STRING "HAL SPI only: 0 diagnostic baseline or 2 corrected service")
@@ -86,12 +93,25 @@ set(BENCH_MAIN src/main.c)
 if(BENCH_CLEANUP_ONLY)
   set(BENCH_MAIN src/cleanup_main.c)
 endif()
-add_executable(iis3dwb_reference ${BENCH_MAIN} src/platform.c src/spi_diagnostic.c ${SPI_OBSERVED} ${HAL_SOURCES}
+set(OFFICIAL_SOURCES)
+if(BENCH_OFFICIAL)
+  set(BENCH_MAIN official/main.c)
+  set(OFFICIAL_GENERATED ${CMAKE_CURRENT_BINARY_DIR}/generated/iis3dwb_fifo_ported.c)
+  execute_process(COMMAND ${Python3_EXECUTABLE} -B ${CMAKE_CURRENT_SOURCE_DIR}/official/generate.py
+    ${CMAKE_CURRENT_SOURCE_DIR}/vendor/st/examples/iis3dwb_fifo.c ${OFFICIAL_GENERATED}
+    RESULT_VARIABLE official_generation)
+  if(NOT official_generation EQUAL 0)
+    message(FATAL_ERROR "Official provenance refused")
+  endif()
+  set(OFFICIAL_SOURCES official/port.c ${OFFICIAL_GENERATED})
+endif()
+add_executable(iis3dwb_reference ${BENCH_MAIN} ${OFFICIAL_SOURCES} src/platform.c src/spi_diagnostic.c ${SPI_OBSERVED} ${HAL_SOURCES}
   ${DEV}/Source/Templates/gcc/startup_stm32u575xx.s
   ${DEV}/Source/Templates/system_stm32u5xx.c)
-target_include_directories(iis3dwb_reference PRIVATE src ${HAL}/Inc ${DEV}/Include
+target_include_directories(iis3dwb_reference PRIVATE src official ${HAL}/Inc ${DEV}/Include
   ${STM32CUBE_U5_ROOT}/Drivers/CMSIS/Include)
 target_compile_definitions(iis3dwb_reference PRIVATE STM32U575xx USE_HAL_DRIVER
+  BENCH_SPI_MODE3=${BENCH_SPI_MODE3} OFFICIAL_STATUS10=${OFFICIAL_STATUS10} OFFICIAL_PACKETS=${OFFICIAL_PACKETS}
   BENCH_FIFO=$<IF:$<STREQUAL:${BENCH_EXAMPLE},who>,2,$<STREQUAL:${BENCH_EXAMPLE},fifo>>
   BENCH_STATUS10=$<STREQUAL:${BENCH_PROFILE},STATUS10>)
 foreach(target st_driver bench iis3dwb_reference)
@@ -99,11 +119,18 @@ foreach(target st_driver bench iis3dwb_reference)
     -ffunction-sections -fdata-sections)
 endforeach()
 target_compile_options(iis3dwb_reference PRIVATE -Wall -Wextra -Werror)
-target_link_libraries(iis3dwb_reference PRIVATE bench)
+if(BENCH_OFFICIAL)
+ target_link_libraries(iis3dwb_reference PRIVATE st_driver)
+else()
+ target_link_libraries(iis3dwb_reference PRIVATE bench)
+endif()
 target_link_options(iis3dwb_reference PRIVATE -mcpu=cortex-m33 -mthumb
   --specs=nano.specs --specs=nosys.specs -Wl,--gc-sections -Wl,--build-id=none
   -Wl,-Map=${CMAKE_CURRENT_BINARY_DIR}/iis3dwb_reference.map
   -T${CMAKE_CURRENT_SOURCE_DIR}/STM32U575ZITXQ_FLASH.ld)
+if(BENCH_OFFICIAL)
+ target_link_options(iis3dwb_reference PRIVATE -Wl,-u,_printf_float)
+endif()
 set_target_properties(iis3dwb_reference PROPERTIES SUFFIX ".elf")
 find_program(OBJCOPY arm-none-eabi-objcopy REQUIRED)
 find_program(SIZE arm-none-eabi-size REQUIRED)

@@ -1,0 +1,72 @@
+[
+  {
+    "level10": 0,
+    "scenario": "nominal",
+    "exit": 0
+  },
+  {
+    "level10": 0,
+    "scenario": "timestamp",
+    "exit": 0
+  },
+  {
+    "level10": 0,
+    "scenario": "io",
+    "exit": 0
+  },
+  {
+    "level10": 0,
+    "scenario": "overflow",
+    "exit": 0
+  },
+  {
+    "level10": 0,
+    "scenario": "capacity",
+    "exit": 0
+  },
+  {
+    "level10": 0,
+    "scenario": "who",
+    "exit": 0
+  },
+  {
+    "level10": 0,
+    "scenario": "depth300",
+    "exit": 0
+  },
+  {
+    "level10": 1,
+    "scenario": "nominal",
+    "exit": 0
+  },
+  {
+    "level10": 1,
+    "scenario": "timestamp",
+    "exit": 0
+  },
+  {
+    "level10": 1,
+    "scenario": "io",
+    "exit": 0
+  },
+  {
+    "level10": 1,
+    "scenario": "overflow",
+    "exit": 0
+  },
+  {
+    "level10": 1,
+    "scenario": "capacity",
+    "exit": 0
+  },
+  {
+    "level10": 1,
+    "scenario": "who",
+    "exit": 0
+  },
+  {
+    "level10": 1,
+    "scenario": "depth300",
+    "exit": 0
+  }
+]

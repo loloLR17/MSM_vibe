@@ -1,10 +1,15 @@
 # État courant TR2 — référence reconstruite
 
-Mise à jour : 12 octobre 2026. Mission `TR2-20261012-M015-N-ST-FIFO-XYZ-QUALIFICATION`.
+Mise à jour : 12 octobre 2026. Mission `TR2-20261012-M015-O-ST-OFFICIAL-DEMO-PORT`.
 
 **Ce document est un nouvel état de référence reconstruit à partir de preuves vérifiables. Il n'est pas une restitution du journal historique HP.** Sa création a été explicitement autorisée par l'utilisateur pour la mission `T1000-20261010-CLOTURE-001`, après escalade AGENTS.md §18. Aucun original n'a été retrouvé dans l'historique Git, les répertoires Linux locaux ou les documents Windows accessibles. Les archives d'échanges du 8 octobre mentionnent un journal local HP, sans en fournir le contenu. Aucun état historique inconnu n'est inventé.
 
-## État opérationnel actuel — M015-N, 12 octobre 2026
+## État opérationnel actuel — M015-O, checkpoint logiciel
+
+- **VALIDÉ logiciel/provenance** : fonction ST iis3dwb_fifo réellement compilée, sans bench_run ; source1f848c38 originale exacte, gitlinkdriverd995 inaccessible, driverSTf83 compatible déclaré. Mode3 dansprojetSTV3 vsmode0 K/N identifié.14mocks et4ARM passent ;formatsconsole/buffer512/plateforme/guards/cleanup explicités dansofficial/AUDIT.
+- **PRÉPARÉ / NON VÉRIFIÉ** :témoinmode3/getterinchangé,puisaliasniveau10 etmode0 sousconditions,confirmation512XYZ si vert. AucuncibleO encore ;pas capteurprimaire ni média. ArchivesN/stashes/worktrees préservés ;preuves `/home/lolo/dev/msm/reports/TR2-mission015-O-20261012T214009Z`.
+
+## État opérationnel antérieur — M015-N, 12 octobre 2026
 
 - **VALIDÉ harness/transport borné** :réservecleanup12traces/24snapshots/32octets,400polls/500ms/1ms,agrégat etrefusdistincts ;5CTest/43scénariosintégration/14Pythonqualification/4ARM/GCCfanalyzer réussis. Checkpoint64f55db publié/38fichiersrelusavantmatériel ;vendorSDKinchangés,WHOpollingmocknonrégressés/acquisphysiquesLnonrejoués.
 - **OBSERVÉ / BLOCKED XYZ** :référenceST512TS/0XYZ(285traces),no-tsFIFOvide500ms(543traces),bdr-last512TS/0XYZ(285),word7huitTS/0XYZ(257). ToutesHALcomplètes/erreurs0,cleanup0/readbacksXLoff/bypass/TSoff,aucunsaturationjournal. Brutsreconstruits,paritébonne/pasTS24ticks,aucunXYZ ;compteursconstants nequalifientpasperteszéro. Troisdiagnosticsconsommés,512XYZ/4096NONENGAGÉS ;causebatchingXL/étatcapteur/écrituresàdiscriminer indépendamment,mêmesvaleursBDR0A/XLACreluesconformes.

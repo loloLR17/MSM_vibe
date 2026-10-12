@@ -1,0 +1,10 @@
+{
+  "upstream_commit": "1f848c38e84b4144d55c66fb5411e78bdb9f96f1",
+  "example_sha256": "f8650edb8a1364624214ff0a3bc8132ec8f2d93a81c19b6a967769696acb34ec",
+  "same_as_existing_vendor": true,
+  "driver_gitlink": "d995549f0e5a17e57c81b0eafc367fbdc0043e1b",
+  "driver_gitlink_fetch": "NOT OUR REF",
+  "selected_driver": "f83e74fb9945fc4dde4e058e7fcd2bdbded357b5",
+  "original_platform_mode": 3,
+  "nucleo_mode_before": 0
+}

@@ -1,0 +1,17 @@
+-- The C compiler identification is GNU 14.2.1
+-- The ASM compiler identification is GNU
+-- Found assembler: /usr/bin/arm-none-eabi-gcc
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /usr/bin/arm-none-eabi-gcc - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Found Python3: /usr/bin/python3 (found version "3.13.5") found components: Interpreter
+-- Configuring incomplete, errors occurred!
+Traceback (most recent call last):
+  File "/home/lolo/dev/msm/projects/MSM_vibe-M015-O/experiments/iis3dwb_st_reference/official/generate.py", line 19, in <module>
+    assert ported[ported.index('void iis3dwb_fifo(void)'):ported.index('static int32_t platform_read(void *h')]==core
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError
+CMake Error at CMakeLists.txt:104 (message):
+  Official provenance refused
