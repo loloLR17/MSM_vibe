@@ -223,5 +223,10 @@
     "published_sha256": "2353c7a1dda390cdc25b9e987ad20f802aff9b6a3cdd42e60eabf4d89f7065ee",
     "original_local_sha256": "2353c7a1dda390cdc25b9e987ad20f802aff9b6a3cdd42e60eabf4d89f7065ee",
     "text_normalized_utf8_lf": false
+  },
+  "results-publication-readback.json": {
+    "published_sha256": "1acec92872b402968b0bb3e17c1c96c6863bfac0b4938d3e3df53f2fdf5179b5",
+    "original_local_sha256": "1acec92872b402968b0bb3e17c1c96c6863bfac0b4938d3e3df53f2fdf5179b5",
+    "text_normalized_utf8_lf": false
   }
 }
