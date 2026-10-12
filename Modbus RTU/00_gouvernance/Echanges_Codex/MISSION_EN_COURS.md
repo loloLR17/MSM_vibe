@@ -33,6 +33,19 @@ Ne **pas** considérer ce lien `master` comme une version gelée : récupérer l
 
 ---
 
+## Clarification matérielle officielle vérifiée par ChatGPT
+
+Le data brief ST **DB4012 Rev 4 (octobre 2024)** et la page produit prouvent que le **kit STEVAL-MKI208V1K est constitué de la carte capteur STEVAL-MKI208V1 (IIS3DWB), d'une nappe 12 conducteurs et de l'adaptateur STEVAL-MKIGIBV2**. Le banc utilisateur emploie donc bien le **même ensemble capteur/adaptateur** que le kit désigné par l'exemple ST, mais avec une **carte hôte différente** : NUCLEO-U575ZI-Q au lieu de STEVAL-MKI109V3/MKI109D. Ne plus présenter MKI109V3/D comme des breakouts ou comme du matériel possédé par l'utilisateur.
+
+Sources constructeur :
+- https://www.st.com/resource/en/data_brief/steval-mki208v1k.pdf
+- https://www.st.com/en/evaluation-tools/steval-mki208v1k.html
+- https://www.st.com/resource/en/schematic_pack/steval-mki208v1k_schematic.pdf
+
+Implication pour M015-O : l'exemple FIFO officiel reste **pertinent et prioritaire** ; porter uniquement la plateforme hôte, vérifier VDD **et VDDIO**, GND, nappe, CS/SCK/MISO/MOSI, timings et registres. Vérifier l'équivalence de la chaîne SPI et de l'alimentation, pas une supposée incompatibilité du breakout. Ne pas affirmer que l'ensemble NUCLEO + kit a été validé officiellement par ST.
+
+---
+
 ## Phase 1 — Trouver un exemple constructeur réellement traçable
 1. Rechercher prioritairement dans **les dépôts officiels STMicroelectronics**, packages ST, exemples de carte d'évaluation IIS3DWB/STEVAL-MKI208V1/STEVAL-MKIGIBV2, X-CUBE-MEMS1, STMems_Standard_C_drivers, notes d'application, et projets officiellement pris en charge. Identifier **un exemple FIFO XYZ** complet, sa version/commit/hash, licence, README, carte cible, bus, prérequis et source exacte ; distinguer exemple officiel ST, code dérivé et preuve de fonctionnement physique sur plateforme supportée. Ne pas affirmer qu'un exemple a été exécuté matériellement par ST si seule sa publication est attestée.
 2. Examiner datasheet IIS3DWB et notes d'application officielles pertinentes, errata et révisions. Reconstituer la séquence complète reset/boot/BDU/ODR/FS/batching/mode FIFO/timestamp et les contraintes temporelles. Auditer notamment le sens des champs FIFO_CTRL3/BDR, CTRL1_XL, FIFO_CTRL4, les tags timestamp vs XYZ, conditions de batching et la possibilité d'une erreur d'API, d'enum ou d'ordre. Comparer **ligne à ligne** l'exemple ST original avec les adaptations M015-K..N et les valeurs réellement relues. Distinguer différences de version et bugs de getters de la cause de l'absence XYZ.
