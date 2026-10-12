@@ -6,6 +6,10 @@
 
 > Cette roadmap pilote les jalons, sans modifier les spécifications Modbus RTU V1 gelées. Les statuts sont ceux du 11 octobre 2026, à actualiser après contrôle indépendant des rapports Codex. Une implémentation logicielle ne vaut pas qualification physique.
 
+## Actualisation M015-R — 13 octobre 2026
+
+Diagnostic documentaire du débit achevé sans nouvelle acquisition : budget nominal210ko/s et4,267ms/segment ; SPI2MHz a une marge théorique, mais cycle complet Q4,988ms/service179,6ko/s. Résidu copie/parsing/fermetures non isolé, pas causeCPU établie. Prochain choix : un facteurSPI indépendant (diviseur à CPU inchangé) ou profilage du résidu, avec guards conservés sous contrat.512XYZ et répétabilité conservés,4096 resteBLOCKED ; M015 IN PROGRESS. Aucun firmware/flash/debug/média/Modbus modifié.
+
 ## Actualisation M015-Q — 13 octobre 2026
 
 Répétabilité acquise sur second banc : trois captures mêmes image/configuration après resets MCU, chacune263XYZ+33TS. Fenêtre512XYZ unique qualifiée (64TS intercalés,576mots). Fenêtre4096 bloquée :2275XYZ+285TS reçus puis niveau512/FULL-overrun-latch,cleanup réussi et arrêt sans nouvel essai. Débit du service complet insuffisant sur cette exécution, malgré SPIpayload≈247ko/s ; coût exact à isoler sous prochaine mission. M015 reste IN PROGRESS ; 4096 continu/V1/FFT/stockage nonqualifiés. Firmware primaire M014-H/médias inchangés, montage fonctionnel préservé. Voir DERNIER_RAPPORT et QUALIFICATION_M015_Q.md.

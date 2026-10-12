@@ -1,0 +1,386 @@
+[
+  {
+    "trace_index": 24,
+    "begin_cycles": 88223915,
+    "tick": 5514,
+    "level": 0,
+    "flags": 0,
+    "raw_hex": "0000"
+  },
+  {
+    "trace_index": 25,
+    "begin_cycles": 88254034,
+    "tick": 5516,
+    "level": 0,
+    "flags": 0,
+    "raw_hex": "0000"
+  },
+  {
+    "trace_index": 26,
+    "begin_cycles": 88286030,
+    "tick": 5518,
+    "level": 0,
+    "flags": 0,
+    "raw_hex": "0000"
+  },
+  {
+    "trace_index": 27,
+    "begin_cycles": 88318027,
+    "tick": 5520,
+    "level": 0,
+    "flags": 0,
+    "raw_hex": "0000"
+  },
+  {
+    "trace_index": 28,
+    "begin_cycles": 88350024,
+    "tick": 5522,
+    "level": 0,
+    "flags": 0,
+    "raw_hex": "0000"
+  },
+  {
+    "trace_index": 29,
+    "begin_cycles": 88382021,
+    "tick": 5524,
+    "level": 29,
+    "flags": 0,
+    "raw_hex": "1d00"
+  },
+  {
+    "trace_index": 30,
+    "begin_cycles": 88414021,
+    "tick": 5526,
+    "level": 88,
+    "flags": 0,
+    "raw_hex": "5800"
+  },
+  {
+    "trace_index": 31,
+    "begin_cycles": 88446021,
+    "tick": 5528,
+    "level": 148,
+    "flags": 0,
+    "raw_hex": "9400"
+  },
+  {
+    "trace_index": 33,
+    "begin_cycles": 88516559,
+    "tick": 5532,
+    "level": 149,
+    "flags": 0,
+    "raw_hex": "9500"
+  },
+  {
+    "trace_index": 37,
+    "begin_cycles": 88525528,
+    "tick": 5532,
+    "level": 166,
+    "flags": 0,
+    "raw_hex": "a600"
+  },
+  {
+    "trace_index": 39,
+    "begin_cycles": 88596565,
+    "tick": 5537,
+    "level": 169,
+    "flags": 0,
+    "raw_hex": "a900"
+  },
+  {
+    "trace_index": 43,
+    "begin_cycles": 88605537,
+    "tick": 5537,
+    "level": 185,
+    "flags": 0,
+    "raw_hex": "b900"
+  },
+  {
+    "trace_index": 45,
+    "begin_cycles": 88676348,
+    "tick": 5542,
+    "level": 188,
+    "flags": 0,
+    "raw_hex": "bc00"
+  },
+  {
+    "trace_index": 49,
+    "begin_cycles": 88685308,
+    "tick": 5542,
+    "level": 204,
+    "flags": 0,
+    "raw_hex": "cc00"
+  },
+  {
+    "trace_index": 51,
+    "begin_cycles": 88756344,
+    "tick": 5547,
+    "level": 206,
+    "flags": 0,
+    "raw_hex": "ce00"
+  },
+  {
+    "trace_index": 55,
+    "begin_cycles": 88765316,
+    "tick": 5547,
+    "level": 223,
+    "flags": 0,
+    "raw_hex": "df00"
+  },
+  {
+    "trace_index": 57,
+    "begin_cycles": 88835868,
+    "tick": 5552,
+    "level": 226,
+    "flags": 0,
+    "raw_hex": "e200"
+  },
+  {
+    "trace_index": 61,
+    "begin_cycles": 88844792,
+    "tick": 5552,
+    "level": 241,
+    "flags": 0,
+    "raw_hex": "f100"
+  },
+  {
+    "trace_index": 63,
+    "begin_cycles": 88915874,
+    "tick": 5557,
+    "level": 245,
+    "flags": 0,
+    "raw_hex": "f500"
+  },
+  {
+    "trace_index": 67,
+    "begin_cycles": 88924800,
+    "tick": 5557,
+    "level": 261,
+    "flags": 129,
+    "raw_hex": "0581"
+  },
+  {
+    "trace_index": 69,
+    "begin_cycles": 88995659,
+    "tick": 5562,
+    "level": 263,
+    "flags": 129,
+    "raw_hex": "0781"
+  },
+  {
+    "trace_index": 73,
+    "begin_cycles": 89004573,
+    "tick": 5562,
+    "level": 280,
+    "flags": 129,
+    "raw_hex": "1881"
+  },
+  {
+    "trace_index": 75,
+    "begin_cycles": 89075653,
+    "tick": 5567,
+    "level": 281,
+    "flags": 129,
+    "raw_hex": "1981"
+  },
+  {
+    "trace_index": 79,
+    "begin_cycles": 89084579,
+    "tick": 5567,
+    "level": 298,
+    "flags": 129,
+    "raw_hex": "2a81"
+  },
+  {
+    "trace_index": 81,
+    "begin_cycles": 89155210,
+    "tick": 5572,
+    "level": 300,
+    "flags": 129,
+    "raw_hex": "2c81"
+  },
+  {
+    "trace_index": 85,
+    "begin_cycles": 89164134,
+    "tick": 5572,
+    "level": 317,
+    "flags": 129,
+    "raw_hex": "3d81"
+  },
+  {
+    "trace_index": 87,
+    "begin_cycles": 89235182,
+    "tick": 5577,
+    "level": 319,
+    "flags": 129,
+    "raw_hex": "3f81"
+  },
+  {
+    "trace_index": 91,
+    "begin_cycles": 89244108,
+    "tick": 5577,
+    "level": 336,
+    "flags": 129,
+    "raw_hex": "5081"
+  },
+  {
+    "trace_index": 93,
+    "begin_cycles": 89314967,
+    "tick": 5582,
+    "level": 338,
+    "flags": 129,
+    "raw_hex": "5281"
+  },
+  {
+    "trace_index": 97,
+    "begin_cycles": 89323881,
+    "tick": 5582,
+    "level": 355,
+    "flags": 129,
+    "raw_hex": "6381"
+  },
+  {
+    "trace_index": 99,
+    "begin_cycles": 89394963,
+    "tick": 5587,
+    "level": 358,
+    "flags": 129,
+    "raw_hex": "6681"
+  },
+  {
+    "trace_index": 103,
+    "begin_cycles": 89403889,
+    "tick": 5587,
+    "level": 375,
+    "flags": 129,
+    "raw_hex": "7781"
+  },
+  {
+    "trace_index": 105,
+    "begin_cycles": 89474520,
+    "tick": 5592,
+    "level": 376,
+    "flags": 129,
+    "raw_hex": "7881"
+  },
+  {
+    "trace_index": 109,
+    "begin_cycles": 89483444,
+    "tick": 5592,
+    "level": 393,
+    "flags": 129,
+    "raw_hex": "8981"
+  },
+  {
+    "trace_index": 111,
+    "begin_cycles": 89554499,
+    "tick": 5597,
+    "level": 395,
+    "flags": 129,
+    "raw_hex": "8b81"
+  },
+  {
+    "trace_index": 115,
+    "begin_cycles": 89563425,
+    "tick": 5597,
+    "level": 412,
+    "flags": 129,
+    "raw_hex": "9c81"
+  },
+  {
+    "trace_index": 117,
+    "begin_cycles": 89634284,
+    "tick": 5602,
+    "level": 415,
+    "flags": 129,
+    "raw_hex": "9f81"
+  },
+  {
+    "trace_index": 121,
+    "begin_cycles": 89643198,
+    "tick": 5602,
+    "level": 431,
+    "flags": 129,
+    "raw_hex": "af81"
+  },
+  {
+    "trace_index": 123,
+    "begin_cycles": 89714279,
+    "tick": 5607,
+    "level": 434,
+    "flags": 129,
+    "raw_hex": "b281"
+  },
+  {
+    "trace_index": 127,
+    "begin_cycles": 89723205,
+    "tick": 5607,
+    "level": 450,
+    "flags": 129,
+    "raw_hex": "c281"
+  },
+  {
+    "trace_index": 129,
+    "begin_cycles": 89793834,
+    "tick": 5612,
+    "level": 452,
+    "flags": 129,
+    "raw_hex": "c481"
+  },
+  {
+    "trace_index": 133,
+    "begin_cycles": 89802758,
+    "tick": 5612,
+    "level": 468,
+    "flags": 129,
+    "raw_hex": "d481"
+  },
+  {
+    "trace_index": 135,
+    "begin_cycles": 89873838,
+    "tick": 5617,
+    "level": 472,
+    "flags": 129,
+    "raw_hex": "d881"
+  },
+  {
+    "trace_index": 139,
+    "begin_cycles": 89882764,
+    "tick": 5617,
+    "level": 488,
+    "flags": 129,
+    "raw_hex": "e881"
+  },
+  {
+    "trace_index": 141,
+    "begin_cycles": 89953590,
+    "tick": 5622,
+    "level": 490,
+    "flags": 129,
+    "raw_hex": "ea81"
+  },
+  {
+    "trace_index": 145,
+    "begin_cycles": 89962504,
+    "tick": 5622,
+    "level": 507,
+    "flags": 129,
+    "raw_hex": "fb81"
+  },
+  {
+    "trace_index": 147,
+    "begin_cycles": 90033586,
+    "tick": 5627,
+    "level": 508,
+    "flags": 129,
+    "raw_hex": "fc81"
+  },
+  {
+    "trace_index": 151,
+    "begin_cycles": 90042512,
+    "tick": 5627,
+    "level": 512,
+    "flags": 234,
+    "raw_hex": "00ea"
+  }
+]

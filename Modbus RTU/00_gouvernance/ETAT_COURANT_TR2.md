@@ -1,10 +1,16 @@
 # État courant TR2 — référence reconstruite
 
-Mise à jour : 13 octobre 2026. Mission `TR2-20261013-M015-Q-FIFO-REPEATABILITY-WINDOWS`.
+Mise à jour : 13 octobre 2026. Mission `TR2-20261013-M015-R-FIFO-DEBIT`.
 
 **Ce document est un nouvel état de référence reconstruit à partir de preuves vérifiables. Il n'est pas une restitution du journal historique HP.** Sa création a été explicitement autorisée par l'utilisateur pour la mission `T1000-20261010-CLOTURE-001`, après escalade AGENTS.md §18. Aucun original n'a été retrouvé dans l'historique Git, les répertoires Linux locaux ou les documents Windows accessibles. Les archives d'échanges du 8 octobre mentionnent un journal local HP, sans en fournir le contenu. Aucun état historique inconnu n'est inventé.
 
-## État opérationnel actuel — M015-Q, 13 octobre 2026
+## État opérationnel actuel — M015-R, 13 octobre 2026
+
+- **VALIDÉ ANALYSE HORS LIGNE** : débit nominal requis210ko/s avecTS/8 ; limite SPI2MHz≈249,7ko/s avec commandes. Cycle Q exact DWT4,988ms :payload3,632 +commande0,020 +statuts0,099 +config0,182 +résidu1,056. Budget4,267ms, excès0,722ms ; service179,6ko/s, déficit confirmé par FIFO148→507 puisoverflow. Parsing/copie/fermeture non isolés, pas de causeCPU présumée.
+- **DÉCISION / NON EXÉCUTÉ** : A suffit, zéro acquisition/flash/debug/reset R. CPU etSPI couplésPCLK3/div8 ; prochaincontrat éventuellementSPI÷4 àCPU16, ouprofilage distinct du résidu, guardsinchangés. Scénario4MHz NONQUALIFIÉ. EstimationsODR timestamps/bilanFIFO noncalibrées, INTERNAL_FREQ_FINE absent.
+- **PRÉSERVÉ** :512XYZ/répétabilitéQ acquis,4096BLOCKED/M015INPROGRESS etcauseO/Pnonétablie. ÉtatsecondQcleanup0/XLoff/bypass/TSoff/faults0/detach contrôlé surpreuveshistoriques seulement, aucune nouvellelecturecible. Primaire/M014/médias/Modbus/HP intouchés, archivesQexactes/worktrees/stashespréservés. Rapport R enattentepublication/relecture pourclôture documentaire.
+
+## État opérationnel antérieur — M015-Q, 13 octobre 2026
 
 - **VALIDÉ PHYSIQUE BORNÉ** : trois captures même BIN P après reset MCU GDB, chacune263XYZ+33TS/263tripletsdistincts. Fenêtre512 unique :512XYZ+64TS/576mots,509tripletsdistincts,6segments/19statuts/maxniveau252,cleanup0. Tous bruts reconstruits indépendamment byte-identiques, parité/counters/saturation0. TS témoins pas24ticks, fenêtres pas24/27 et huitXYZentreTS ; pas perte globale zéro/ODR indépendante.
 - **BLOCKED4096 / STOP** : image même service/cible seule changée,20segments/2560mots reçus(2275XYZ+285TS),trace151 raw00EA/niveau512/FULL-OVR-latch/result7. Préfixe conservé REJETÉ pourqualification4096 ; aucun essai supplémentaire. Cleanup0/0C8000/faults0/UIDsecond/detach, seconde sur image4096 inactive. Cadence complète≈181ko/s entre départs contre payloadSPI≈247ko/s ; croissance FIFO observée, coût précis non isolé.

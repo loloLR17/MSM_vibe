@@ -1,0 +1,109 @@
+{
+  "initial_head": "fbcab9c8e99e43be5c5ebb3f008f1270a52c7d26",
+  "historical_code_sha": "76b4a17577171c0009ada7e0c67e387286d282dc",
+  "Q_bin_sha256": "d76a6104a2adc19f77e3b9849e32b9d52312dfd2840eb01f76eb4749cf687b09",
+  "clock": {
+    "observed_core_hz": 16000000,
+    "SPI3_source": "PCLK3; MSI16, AHB/APB3 div1",
+    "cfg1_values": [
+      "0x20070007"
+    ],
+    "prescaler_MBR": [
+      2
+    ],
+    "divider": 8,
+    "calculated_SPI_hz": 2000000,
+    "wire_frequency_measured": false,
+    "CPU_SPI_coupled": true
+  },
+  "means_ms": {
+    "interval_ms": 4.988434210526316,
+    "FIFO_payload_ms": 3.631625,
+    "FIFO_command_ms": 0.020286184210526317,
+    "status_HAL_ms": 0.09877302631578948,
+    "config_HAL_ms": 0.18156250000000002,
+    "unobserved_residual_ms": 1.0561875,
+    "post_FIFO_to_status_envelope_ms": 0.6230756578947368
+  },
+  "interval_min_max_ms": [
+    4.96925,
+    5.000625
+  ],
+  "sensor_timestamp_estimate": {
+    "count": 285,
+    "delta_ticks": 6870,
+    "nominal_tick_us": 12.5,
+    "XYZ_between_each_TS": 8,
+    "relative_ODR_Hz": 26457.059679767102,
+    "not_independent_ODR": "INTERNAL_FREQ_FINE absent and no calibrated clock/external DRDY measurement"
+  },
+  "FIFO_balance_estimate": {
+    "first": {
+      "trace_index": 31,
+      "begin_cycles": 88446021,
+      "tick": 5528,
+      "level": 148,
+      "flags": 0,
+      "raw_hex": "9400"
+    },
+    "last": {
+      "trace_index": 145,
+      "begin_cycles": 89962504,
+      "tick": 5622,
+      "level": 507,
+      "flags": 129,
+      "raw_hex": "fb81"
+    },
+    "elapsed_DWT_ms": 94.7801875,
+    "drained_words": 2432,
+    "inferred_arrivals_words": 2791,
+    "inferred_total_words_per_second": 29447.082492846937,
+    "inferred_XYZ_Hz_assuming_8_to_1": 26175.184438086166,
+    "not_independent": "reads asynchronous, quantization and oscillator calibration unknown; pre-overflow status based estimate"
+  },
+  "required_bytes_per_second_nominal": 210000.00000000003,
+  "required_bytes_per_second_timestamp_nominal_tick": 208349.34497816593,
+  "SPI_ideal_payload_capacity_bytes_per_second": 250000.0,
+  "SPI_ideal_128word_frame_capacity_bytes_per_second": 249721.29319955406,
+  "measured_scheduled_payload_bytes_per_second": 179615.47896318062,
+  "margin_budget_ms_per_128words_nominal": 4.266666666666667,
+  "pure_wire_command_payload_ms": 3.588,
+  "decision": "A suffices: wire has theoretical margin; full service spends too much outside FIFO payload; no CPU-only attribution and no conditional physical test needed.",
+  "allowed_overhead_above_measured_payload_ms": 0.6350416666666665,
+  "sources": {
+    "window4096-capture-server.log.original.hex": "200a4bb1e42a3094ed1aa19b4d1783917c2f8fd975e42dc1c806bc53e843c43e",
+    "window4096-ctrl10.bin.hex": "b1a303c5ee4984f061f96966da598bf505b2d9e48e77b6909ee2a64628d8edff",
+    "window4096-trace-records.json": "356227de88b97fd7eacf5f13e3005147207e6937a90a32cc31da2cd37d9ba32b",
+    "window4096-single-trigger-server.log.original.hex": "200a4bb1e42a3094ed1aa19b4d1783917c2f8fd975e42dc1c806bc53e843c43e",
+    "window4096-payload.bin.hex": "89b51478d6a516af088cc0654122cf267d18999c4ef30b279faf8ceaf5c5bdbb",
+    "window4096-build.log.original.hex": "200e7876a17be8743d59ed3743f05930bddabb27aceaa6783c99d83e65f69b32",
+    "window4096-identity-before-flash-invocation.json": "014a9d1bf01b89b4baaebd1800e4ed18489bc905327cb1eaef060419ec31f1bd",
+    "window4096-capture.log.original.hex": "f7417e1bb0deb8d774fd7f6834de797ca50948af180db073393522e46a26b9ea",
+    "window4096-rows.json": "2b0236b677da940a087b7596ce0eb77ed95036970b36bb4899ada449a69fd022",
+    "window4096-official-words.bin.hex": "c62fa83073e7f9d940cfc29c111772c9b4796dbde9963503dfe737f9d3efcecc",
+    "window4096-capture-invocation.json": "b5f68ec472a780828167bcc298251f5fa5de22fc77afa61005e05409a152752d",
+    "window4096-qualification-original.json": "f3375010eefde4164dfbbc33dd84f15b5ef2083bb9c88378703b93603490f722",
+    "window4096-single-trigger.log.original.hex": "ee87604c9aaf26d8fb88a400c96dcfdaf3242234f227f1ec40d9eb476ec641bc",
+    "window4096-preclose.bin.hex": "2eb08227274524f1687c081dee6c3d2e345efd5c709b4f26cb10d0226c596152",
+    "window4096-result.bin.hex": "da91ba812afdc5fa2b7ea593ec6a1b4556aac0c0c3ae96b5038cd9a7d47a0c5b",
+    "window4096-flash.log.original.hex": "89bd6d17893532a38631fa6bbbfc283cf62ae1e506e322eac52aaac242cdbd2c",
+    "window4096-log-refused.bin.hex": "22dbe6b7b70a64966e31813e597db3e863492d341bee2fb05c0e8864773387af",
+    "window4096-image.bin.hex": "6d4a1fe1c5390c70278031b0922868c72d99653a5495243b3ffcfe51f80406c0",
+    "window4096-traces.bin.hex": "dfb50a8b36fcf6653c09a1579b66d4538742f48b7d5c8e1bc8e6257ca4de09cf",
+    "window4096-flash.bin.hex": "6d4a1fe1c5390c70278031b0922868c72d99653a5495243b3ffcfe51f80406c0",
+    "window4096-preclose-records.json": "6ea20f28be75e468ee47158017fb689642eb7a59df5ea86e3230630434aa9d7e",
+    "window4096-single-trigger-invocation.json": "1b3ad38f01a11ecdac789968af081b5dc7d2c1be9c5c81a7346874c51f516674",
+    "window4096-analysis.json": "09c865ababaab1fd26d3bc9b559256786c4e7528f205b9d6c15e0f1a1e5a2c5e",
+    "window4096-readback-reset-server.log.original.hex": "b59ab68ddf354683b72791d9189117c0c6abb412dc13cb72c4badbc1c199561f",
+    "window4096-configure.log.original.hex": "4adb5c3e37e444d1e452f09c22376e5570767f97ae8d464c717c0ee213d3b1cd",
+    "window4096-qualification.json": "54b402cc495b1cea7f0211b7d2ce0637edd29615924f5b76f5c0d01a653bb25c",
+    "window4096-identity-before-flash.log.original.hex": "b597ab8a931ea709cd1d9f6db4d5169490abee0837a0b07af2929294169ceccd",
+    "window4096-offline-analysis.log.original.hex": "ce6716a864a089168b6358be0d8cbe98d4f470aac834b4ddc0e181aa3728d585",
+    "window4096-identity-before-flash-server.log.original.hex": "200a4bb1e42a3094ed1aa19b4d1783917c2f8fd975e42dc1c806bc53e843c43e",
+    "window4096-window.bin.hex": "84694bb3b48bcf2db04b6d4469ab969dfc630c8b224dc6c2ffc04d6f0a4ac841",
+    "window4096-readback-reset-invocation.json": "a1967d70d0100398f3d62e4d5cf0c3f79991803b83754ace5020e2c52c08b863",
+    "window4096-overflow.bin.hex": "22dbe6b7b70a64966e31813e597db3e863492d341bee2fb05c0e8864773387af",
+    "window4096-readback-reset.log.original.hex": "7c3e36c2a1b6c7f2bd953f682f33133f136ad227f7c5c87d8122b8edecb81c26",
+    "window4096-flash-command.json": "5ab970ed62ffe111dbd3cae3df2c66d655f4ce3ce4c87a89e000f1d78b3aac92"
+  }
+}

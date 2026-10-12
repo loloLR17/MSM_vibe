@@ -1,0 +1,10 @@
+{
+  "raw_trace_json_matches": true,
+  "SPI_payload_RAM_byte_equal": true,
+  "cycle_partition_sum_exact": true,
+  "theoretical_margin_positive": true,
+  "measured_service_insufficient": true,
+  "new_hardware_operations": 0,
+  "Q_reference": "7f30bc548938d197f52202454392a4f90c6602ec",
+  "verified_at_utc": "2026-10-12T23:06:21.552157+00:00"
+}

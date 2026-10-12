@@ -1,11 +1,11 @@
 ---
-mission_id: TR2-20261013-M015-Q-FIFO-REPEATABILITY-WINDOWS
+mission_id: TR2-20261013-M015-R-FIFO-DEBIT
 status: BLOCKED
 base_ref: main
-base_sha: 6ea0468b43aa966a98a4037db5b741a0ec98178f
-initial_head: 0e20ade0bba44db1206f4af47ca0c30dfca70bce
+base_sha: 7f30bc548938d197f52202454392a4f90c6602ec
+initial_head: fbcab9c8e99e43be5c5ebb3f008f1270a52c7d26
 result_sha: 76b4a17577171c0009ada7e0c67e387286d282dc
-created_at_utc: 2026-10-12T22:41:11Z
+created_at_utc: 2026-10-12T23:05:22Z
 author: Codex
 target_branch: main
 allow_commit: true
@@ -14,64 +14,59 @@ allow_flash: true
 allow_debug: true
 ---
 
-# M015-Q — répétabilité et 512 XYZ acquis ; 4096 bloqué par overflow FIFO
+# M015-R — budget temporel établi sans nouvel essai
 
-## Résultats physiques et arrêt
+## Décision
 
-| Capture unique | Mots FIFO | XYZ / timestamps | XYZ distincts | Résultat / cleanup | Conclusion |
-|---|---:|---:|---:|---|---|
-| Témoin P, reset MCU n°1 |296|263 /33|263|0 /0|VALIDÉ PHYSIQUE BORNÉ|
-| Témoin P, reset MCU n°2 |296|263 /33|263|0 /0|VALIDÉ PHYSIQUE BORNÉ|
-| Témoin P, reset MCU n°3 |296|263 /33|263|0 /0|VALIDÉ PHYSIQUE BORNÉ|
-| Fenêtre512 |576|512 /64|509|0 /0|VALIDÉ PHYSIQUE BORNÉ512|
-| Fenêtre4096 |2560|2275 /285|2263|7 /0|REJETÉE, cible4096 non atteinte|
+L'analyse A suffit : **le SPI2MHz possède une marge théorique, mais la cadence du service complet Q est insuffisante**. Un segment128mots/896octets doit être traité en environ4,27ms au débit nominal ; les19intervalles DWT observés demandent4,99ms. Le coût supplémentaire au payload est1,357ms, contre0,635ms de budget disponible. Il manque environ0,722ms par segment. La limitation opérationnelle est établie ; elle n'est pas attribuée exclusivement au CPU ou au parsing.
 
-Les cinq bruts sont reconstruits indépendamment depuis les transactions SPI et comparés byte par byte au buffer RAM officiel. Tous les mots reçus sont conservés, y compris ceux de la fenêtre rejetée. Dans chaque capture : parité/counter discontinuities/composantes saturées zéro et huit XYZ entre timestamps successifs. Les trois témoins ont un pas timestamp24ticks ; les fenêtres512/4096 ont des pas24 ou27ticks, conservés sans correction. Ce résultat ne démontre pas l'absence globale de pertes : les compteurs modulo4 ne détectent pas toutes les pertes, et la dernière fenêtre comporte un overflow explicite.
+**Aucun essai conditionnel B**, flash, reset, debug ou acquisition dans R. Cette décision suit la consigne d'arrêt dès qu'une décision technique est possible. Répétabilité et512XYZ Q conservées ;4096 reste BLOCKED, cause O/P non établie. Statut provisoire BLOCKED uniquement en attente de publication/relecture de ce diagnostic ; passage DONE documentaire après preuve distante, sans transformer4096 en succès.
 
-**Premier refus4096 : trace151 (indice zéro), tick5627, FIFO_STATUS raw `00 EA`, niveau512, flags `EA` (FULL, overrun et latch).** Vingt segments de128mots avaient été reçus, soit2275XYZ+285TS ; result7/BENCH_OVERFLOW. Le service s'arrête avant tout segment supplémentaire. Les mots de ce préfixe sont reçus et décodables, mais ne qualifient pas une fenêtre4096 ni une fenêtre sans pertes. Aucun nouveau test physique, réglage ou variante après refus.
+## Débit requis et disponible
 
-Le cleanup est réussi dans tous les cas : CTRL1_XL=0C (XLoff), FIFO_CTRL4=80 (bypass), CTRL10_C=00 (timestamps off). UID et CPU16MHz vérifiés, CFSR/HFSR0, detach et serveurs terminés. La seconde NUCLEO reste sur l'image4096 **inactive après cleanup** ; aucune restauration ni backupFlash2MiB injustifiés. Le TR2 principal/M014-H, FRAM, microSD, partition, Modbus et HP n'ont jamais été accédés.
+| Origine | Débit payload | Portée |
+|---|---:|---|
+| ODR configurée80000/3Hz,7octets parXYZ et unTS pour8XYZ |210000octets/s|Calcul nominal |
+| Timestamps Q,285TS/6870ticks,8XYZ entreTS |208349octets/s|Estimation avec tick nominal12,5µs |
+| Bilan FIFO avant overflow :2432mots drainés +359mots accumulés sur94,780ms |206130octets/s environ|Estimation d'arrivées basée sur niveaux et DWT |
+| SPI2MHz idéal |250000octets/s|Limite fil, sans overhead |
+| SPI2MHz, trames commande1+payload896 |249721octets/s|Limite idéale avec commande FIFO |
+| Payload HAL Q |environ246721octets/s|Mesure DWT, phase payload seule |
+| Service complet Q,19intervalles DWT |179615octets/s|Mesure DWT entre débuts commande FIFO |
 
-## Mesures et diagnostic de débit
+Le210ko/s nominal inclut les tags et timestamps :26666,667XYZ/s ×7×9/8. Le calcul timestamp donne26457XYZ/s sur les octets reçus, **pas une ODR calibrée indépendante** : INTERNAL_FREQ_FINE/63h n'a pas été relevé dans Q, donc sa correction de résolution n'est pas disponible. Le bilan FIFO donne29447mots/s, soit26175XYZ/s sous le ratio8:1 ; lectures asynchrones/quantification/clocks non calibrées limitent sa précision. Ces deux estimations restent au-dessus du service mesuré.
 
-Les bursts896octets durent environ3,631..3,634ms par DWT, soit246,5..246,8ko/s pour la phase payload. Cette mesure ne couvre pas tout le service. Dans4096, les départs des vingt segments s'étalent sur94ms ; les dix-neuf intervalles transfèrent17024octets, soit **181,1ko/s** pour la cadence de service observée. Les niveaux avant les segments croissent de148 vers507, puis le statut final atteint512/EA. Le drainage complet ne suit donc pas le remplissage sur cette exécution, malgré des appels SPI complets et sans erreur.
+[Datasheet ST DS12569 Rev8](https://www.st.com/resource/en/datasheet/iis3dwb.pdf), §4.3/9.28/9.39 : format FIFO/tag, intercalage et résolution nominale timestamp ; correction INTERNAL_FREQ_FINE à distinguer. Avec l'hypothèse de dimensionnement ODR+2%, le payload requis serait214200octets/s, toujours sous le plafond SPI idéal mais avec moins de marge. La tolérance datasheet n'est pas une mesure du module.
 
-Le premier refus se situe114ms après first_tick de la fenêtre. Le champ last_tick firmware reste0 sur échec : une durée dérivée par soustraction modulo n'a aucune valeur ici. La première analyse contenant cette durée invalide est conservée ; l'analyse corrigée met duration_ms=null et calcule le délai jusqu'au statut de refus à partir de sa trace. Fenêtre512 :38ms incluant attente initiale, transferts et contrôles ; niveau max/final252, flags_OR0. Cette durée n'est pas une mesure indépendante de l'ODR.
+## Budget DWT, mêmes19intervalles avant overflow
 
-Pour4096 :164traces/18376octets/328snapshots,48statuts ; overflow du journal0 et aucun refus de capacité/HAL/SPI. Les budgets RAM/journal ne sont pas épuisés. Le coût exact entre parsing, contrôles de configuration, HAL et journalisation n'est pas isolé par ces observations ; aucune cause particulière n'est inventée. La récupération O/P et sa relation à la reconnexion de nappe restent **CAUSE NON ÉTABLIE** : Q qualifie la répétabilité actuelle, pas cette RCA.
+| Coût moyen parsegment | Durée | Nature de la preuve |
+|---|---:|---|
+| Payload FIFO HAL |3,631625ms|Mesure begin/end avant fermeture |
+| Commande FIFO HAL |0,020286ms|Mesure |
+| Deux lectures statut, phases HAL |0,098773ms|Mesure cumulée |
+| Trois lectures configuration, phases HAL |0,181563ms|Mesure cumulée |
+| Résidu entre appels/snapshots |1,056188ms|Durée mesurée par différence, fonctions non isolées |
+| **Total cycle** |**4,988434ms**|Mesure DWT, min4,96925/max5,000625 |
 
-## Méthode, code et garde-fous
+La somme est vérifiée. Les trois lectures configuration sont07/4octets,0F/10octets et19/1octet ; deux statuts3A/2octets, et le parsing128mots se placent entre drains. Le résidu inclut les fins HAL après snapshot, GPIO/CS, copie du payload dans le journal, vérifications et parsing/préparation des appels. **Aucune durée de parsing seul ni de memcpy seul n'est mesurée.** L'enveloppe entre fin snapshot payload et début commande du statut suivant vaut0,623076ms en moyenne ; elle inclut copie/parsing/fermeture/préparation, pas seulement calcul CPU. Pas de HAL_Delay1ms dans la portion saturée : les niveaux disponibles restent>=128 et le délai de fifo_window_run ne s'exécute que lorsqu'ils sont insuffisants.
 
-Le témoin immuable BIN P/O mode3, SHA `ed19310485d51af22b18420ea8af3ff3acba36531b3e9741bc78e91792f282f5`, était déjà présent en Flash. Relecture byte-identique et identité seconde avant chacun des trois resets GDB ; aucun flash du témoin. Trois déclenchements uniques, sans manipulation de nappe/module/alimentation. Reset MCU GDB distinct du reset logiciel capteur exécuté ensuite par la fonction ST ; aucune coupure d'alimentation manuelle ou mesurée.
+Le181,1ko/s Q provenait de ticks milliseconde arrondis et des débuts de traces. Le179,6ko/s R utilise les débuts commande DWT exacts sur la même acquisition : refinement de frontière/quantification, aucune nouvelle mesure cible. La croissance148→507mots avant la dernière vidange confirme le déficit ; trace151 raw00EA/niveau512 déclenche ensuite le refus Q inchangé. Journaux/buffers non épuisés, HAL sans erreur ; R ne requalifie pas le préfixe rejeté.
 
-Le nouveau service `fifo_window_run`, l'option BENCH_WINDOW_XYZ et le port conditionnel restent isolés dans `experiments/iis3dwb_st_reference`. La vraie fonction ST générée initialise le capteur ; à sa première demande FIFO_STATUS, le service remplace seulement la boucle drain/console par un drainage segmenté. Driver vendor, générateur, source ST, transport commande/RX, CPU16MHz, SPI2MHz/mode3, HAL_SPI O2 et réglages capteur inchangés. Le nouveau module de parsing est O2 ; le témoin par défaut reste byte-identique après cross-build.
+## Horloges et prochain choix
 
-Cible exacte XYZ et timestamps distincts ; segments<=128mots/896octets, dernier segment limité au nombre de XYZ restant. RAM4736mots (33152octets) pour accumulation, pas de supposition4096mots dans le FIFO capteur. BSS309456/data476, réserves heap512/stack2048 sur RAM786432 ; marge d'environ474000octets. Budget transport1024traces/65536octets/2048snapshots et réservecleanup12/32/24 inchangés. Statut dix bits avant/après segment, refus mask68/niveau>=512, maximum400statuts/500ms, stop, config définie avant/après, parité/counters/tags/timestamps/saturation et snapshots avant fermeture contrôlés.
+Source `src/platform.c:103` et suivantes :MSI16MHz, PLLabsente, AHB/APB3÷1, SPI3 sourcePCLK3, prescaler÷8. Dans les328snapshots Q, CFG1=20070007 et MBRbits30:28=2, cohérents avec÷8 selon CubeU5v1.9.0. `bench_core_hz=16000000` dans la capture Q. SCK2MHz calculé, cohérent avec3,63ms pour896octets contre3,584ms de temps fil ; **aucune mesure indépendante SCK/oscillateur**.
 
-[Critères établis avant extension](../../../experiments/iis3dwb_st_reference/QUALIFICATION_M015_Q.md). [Datasheet ST DS12569 Rev8](https://www.st.com/resource/en/datasheet/iis3dwb.pdf), table8 :11 et18 sont réservés ; ils restent dans les bruts, sans valeur de configuration imposée. Première analyse répétabilité rejetée pour comparaison erronée18=E0 contre E2historique : erreur propre à l'évaluateur conservée et corrigée sur les bruts existants. Aucun garde-fou cible refusé ou affaibli ; aucune quatrième capture.
+CPU et SPI partagent cette chaîne : changer seulement MSI ferait varier les deux, donc pas de prétention CPU-only. Le diviseur SPI est réglable séparément ;÷4 à CPU16 donnerait4MHz calculés. À overhead constant, ce serait un cycle estimé≈3,15ms, mais les capacités HAL au débit supérieur ne sont pas qualifiées. Ce scénario est une **proposition pour un prochain contrat**, pas un correctif validé ni une acquisition R.
 
-## Validations logicielles réelles
+Prochaine décision : conserver tous les contrôles et qualifier un changement de vitesse SPI seul, ou instrumenter séparément copie/parsing/fermetures si une optimisation logicielle est privilégiée. Exiger une cadence complète sous4,27ms avec marge ; ne pas choisir un test CPU-only sur une horloge partagée sans compensation/vérification explicite du SPI. Aucun chantier DMA/refactoring engagé. Les chiffres disponibles permettent ce choix sans consommer de nouveaux essais dans R.
 
-Validation ciblée justifiée par l'expérimentation autonome et l'absence de modification du cœur TR2 ou des interfaces V1 : CTest `bounded_fifo_xyz_window` réussi, dont succès synthétiques512/4096,39positions IO, capacités/timeout/stop, overflow avant/après drain, corruption config/parité/counter/tag/saturation/timestamps/ratio, conservation des bursts rejetés et tick wrap. Quatorze scénarios d'intégration avec vraie fonction ST générée/vrai port réussis : succès et refus IO/overflow/parité/config/capacitéjournal/cleanup pour512 et4096.
+## Vérification, préservation et publication
 
-Trois builds ARM réussis : contrôle/512/4096 ; contrôle byte-identique P. Warnings newlib usuels conservés. Premier mock échoué parce que le compte attendu incluait le timestamp suivant le dernier XYZ non reçu ; correction des attentes exactes du flux synthétique575/4607mots (63/511TS), sans changement de l'algorithme ni des gardes. Logs d'échec et corrections conservés. Aucun ancien test réussi rejoué sur code inchangé ; pas de nouvelle suite cœur/.NET.
+Analyse hors ligne effective `analysis.py` : décode les binaires Q, compare les164traces auJSON existant, reconstruit2560mots byte-identiques au buffer officiel, vérifie HAL/validité, partitions DWT et19intervalles. CSV et summary.json reproductibles. Aucun firmware modifié : tests/builds Q conservés sans répétition ; aucun nouveau cross-build utile pour des documents et calculs hors cible. Firmware évalué historiquement76b4a17/BINd76a6104a2adc19f77e3b9849e32b9d52312dfd2840eb01f76eb4749cf687b09, source analysée mainfbcab9c.
 
-## Artefacts et matériel
+AGENTS/protocole/journal inchangés depuisQ contrôlés sur Git ; contexte normatif et journal intégral précédemment consultés réutilisés, étatQ courant relu. Archives contrat/rapportQ copiées byte-exactes depuis7f30bc5. WorktreeR isolé, dépôt principal82169af et tous les worktrees/stashes préservés. `allow_commit/allow_push` exercés sur main ; `allow_flash/allow_debug` non exercés.
 
-Code fenêtres réellement évalué : `76b4a17577171c0009ada7e0c67e387286d282dc`.
+XLoff/FIFObypass/TSoff, UIDsecond, faults0/detach sont vérifiés **dans les preuves finales Q conservées**, pas comme une nouvelle observation matérielle R. Aucun accès primaire/M014-H/FRAM/SD/Modbus/HP, aucune manipulation. État matériel actuel depuisQ NON REVÉRIFIÉ ; aucune affirmation nouvelle de santé cible.
 
-| Image | BIN SHA-256 | ELF SHA-256 |
-|---|---|---|
-| Témoin P utilisé |ed19310485d51af22b18420ea8af3ff3acba36531b3e9741bc78e91792f282f5|9d5f4979d16d8fd07d6228e603ca5ce8b05b4b2a7673bb7415812fe44a930145|
-|512|f9dab29cd348efa7d2bc70a1bf3d86a2624f59ac7429f3d3defa82c779874e1a|2d889b8f6aacc8c477fe091f363932330c52a09dd82884094d38f5d30e67fd66|
-|4096|d76a6104a2adc19f77e3b9849e32b9d52312dfd2840eb01f76eb4749cf687b09|ac60234c6223a199fc0095477c2599029aaebe131c173b7fa35dfe3b75459a09|
-
-SNSTLINK `0032001F3235510C37333439`, UID `001B00463842501820333157` uniquement. Chaque flash512/4096 : identité, hashes, programmation standard SWD08000000/verify, reset CLI documenté puis relecture GDB exacte et reset GDB final, contrôle ready/faults avant triggerunique. Tous les scripts et codes de retour GDB/serveur0 sont conservés ; retour7 de qualification offline4096 signale le refus réel, pas un succès logiciel masqué. Aucun mass erase/Option Bytes/RDP ni intervention physique.
-
-## Préservation, publication et suite
-
-HEAD initial mission `0e20ade0bba44db1206f4af47ca0c30dfca70bce`, worktreeQ isolé. Dépôt principal conservé au82169af ; tous les worktrees historiques HEAD inchangés/propre et deux stashes conservés. Archives P mission/rapport copiées exactement depuis6ea0468 et vérifiées. Journal actualisé pour répétabilité/512/acquis4096 rejeté/état final ; roadmap M015 IN PROGRESS, continuité4096, V1, FFT/stockage non qualifiés.
-
-Checkpoints publiés et intégralement relus : répétabilité06038823d0e80963d8d6f85a85a774a9fe4ff141 (126fichiers), logiciel76b4a17577171c0009ada7e0c67e387286d282dc (45), physique512 `5b5443cf14d4033bf6cf5c19d87f9fd1b66b00d7` (48). Les journaux CLI normalisés comportaient des blancs finaux ; correction documentaire avec conservation intégrale des originaux en.hex, sans changement d'artefact ou résultat. Rapport final et preuves publiés au commit `1c9bb6c4e564b1023505371dfe1dfea958c020f8` (« M015-Q: report 512 XYZ qualification and guarded 4096 FIFO overrun »). Les 275 fichiers ajoutés/modifiés depuis le HEAD initial ont été intégralement relus depuis origin/main et comparés byte-identiques ; preuve final-results-readback.json. Statut **BLOCKED technique4096** maintenu après publication. Worktree de mission propre après ce commit ; dépôt principal et stashes préservés. Le présent complément consigne cette relecture et son SHA final est communiqué après vérification de sa publication.
-
-[Corpus et matrice](preuves/TR2-20261013-M015-Q/README.md), originaux `/home/lolo/dev/msm/reports/TR2-mission015-Q-20261012T224111Z`. Suite à contractualiser : établir un budget du **service complet** et mesurer/optimiser son coût hors boucle SPI, ou préparer un transport/service adapté (éventuellement DMA) en conservant tous les contrôles et cleanup. Reprendre ensuite uniquement l'étape4096 sous contrat, sans rejouer les trois témoins ni512 sur code inchangé. Conserver montage fonctionnel ; aucune recherche de faux contact ni emprunt du primaire.
+Journal/roadmap actualisés pour ce budget et le choix conditionnel non exécuté ; M015 IN PROGRESS/4096BLOCKED, acquis512 conservé. [Preuves R](preuves/TR2-20261013-M015-R/README.md), originaux `/home/lolo/dev/msm/reports/TR2-mission015-R-20261012T230522Z`, [corpus Q](preuves/TR2-20261013-M015-Q/). Rapport et calculs prêts à publication normale puis relecture distante. SHA final fourni après contrôle ; pas de réussite4096 ni de perte zéro annoncée.

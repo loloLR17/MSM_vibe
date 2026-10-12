@@ -1,0 +1,115 @@
+{
+  "worktrees": [
+    {
+      "worktree": "/home/lolo/dev/msm/projects/MSM_vibe",
+      "head": "82169af7e76797731358852bec83bfb0ceb54ccf",
+      "status": ""
+    },
+    {
+      "worktree": "/home/lolo/dev/msm/projects/MSM_vibe-M014-H",
+      "head": "762c459839439f7d27b42c11d12e309e65622a7f",
+      "status": ""
+    },
+    {
+      "worktree": "/home/lolo/dev/msm/projects/MSM_vibe-M015-A",
+      "head": "eab07d49a5f3b86506a97877d0fccf2188fb0a7a",
+      "status": ""
+    },
+    {
+      "worktree": "/home/lolo/dev/msm/projects/MSM_vibe-M015-B",
+      "head": "cfb9918dfe8e5ac3148d6ceaa79e50acda6ac53f",
+      "status": ""
+    },
+    {
+      "worktree": "/home/lolo/dev/msm/projects/MSM_vibe-M015-C",
+      "head": "37b97f7fd8ea70c4ae8e377a3042bb3e2b8c5328",
+      "status": ""
+    },
+    {
+      "worktree": "/home/lolo/dev/msm/projects/MSM_vibe-M015-D",
+      "head": "dbfcec4027200c5d5c989da52000166311fa6954",
+      "status": ""
+    },
+    {
+      "worktree": "/home/lolo/dev/msm/projects/MSM_vibe-M015-E",
+      "head": "1c062af564e3d4d45093b1c369128cb4cf6d0575",
+      "status": ""
+    },
+    {
+      "worktree": "/home/lolo/dev/msm/projects/MSM_vibe-M015-F",
+      "head": "e11088772987a50ce729eb4ca1148d657b2cc673",
+      "status": ""
+    },
+    {
+      "worktree": "/home/lolo/dev/msm/projects/MSM_vibe-M015-G",
+      "head": "6357b667a45b0979e5edaf394cb273595295414d",
+      "status": ""
+    },
+    {
+      "worktree": "/home/lolo/dev/msm/projects/MSM_vibe-M015-H",
+      "head": "c0d4f7b9786921db64f9e031f5458a662ba90332",
+      "status": ""
+    },
+    {
+      "worktree": "/home/lolo/dev/msm/projects/MSM_vibe-M015-I",
+      "head": "7a2aca1901162144142f3e13964a4abcc7dbed9d",
+      "status": ""
+    },
+    {
+      "worktree": "/home/lolo/dev/msm/projects/MSM_vibe-M015-I-physical",
+      "head": "d25aa42a3d2c4850f4cedeeaca545da63aad0c29",
+      "status": ""
+    },
+    {
+      "worktree": "/home/lolo/dev/msm/projects/MSM_vibe-M015-J",
+      "head": "0b76875c1a0257362280780f835991395b10fcbe",
+      "status": ""
+    },
+    {
+      "worktree": "/home/lolo/dev/msm/projects/MSM_vibe-M015-K",
+      "head": "fccb40cf799c753b9897e74ae6cc6e737a07383c",
+      "status": ""
+    },
+    {
+      "worktree": "/home/lolo/dev/msm/projects/MSM_vibe-M015-L",
+      "head": "f8e782a41e2cca94ab12ff3f180a2dc6461611aa",
+      "status": ""
+    },
+    {
+      "worktree": "/home/lolo/dev/msm/projects/MSM_vibe-M015-M",
+      "head": "83f9cb80bc292bd24dda878a8e99b85085f1d664",
+      "status": ""
+    },
+    {
+      "worktree": "/home/lolo/dev/msm/projects/MSM_vibe-M015-N",
+      "head": "f14183c81c9ff744ebb1d2c6d5f61537e9c1ddb0",
+      "status": ""
+    },
+    {
+      "worktree": "/home/lolo/dev/msm/projects/MSM_vibe-M015-O",
+      "head": "c3e85afbd32f38f07687d2f12cf07a96fc2ed6ee",
+      "status": ""
+    },
+    {
+      "worktree": "/home/lolo/dev/msm/projects/MSM_vibe-M015-P",
+      "head": "6ea0468b43aa966a98a4037db5b741a0ec98178f",
+      "status": ""
+    },
+    {
+      "worktree": "/home/lolo/dev/msm/projects/MSM_vibe-M015-Q",
+      "head": "7f30bc548938d197f52202454392a4f90c6602ec",
+      "status": ""
+    },
+    {
+      "worktree": "/home/lolo/dev/msm/projects/MSM_vibe-M015-R",
+      "head": "fbcab9c8e99e43be5c5ebb3f008f1270a52c7d26",
+      "status": "?? \"Modbus RTU/00_gouvernance/Echanges_Codex/archives/TR2-20261013-M015-Q-FIFO-REPEATABILITY-WINDOWS/\"\n"
+    }
+  ],
+  "stashes": [
+    "6251b988e8b20f97997a8f98fd26d4d35a45a1b2",
+    "f3b829e6188f491920edf74a5f9ed0f559d08b87"
+  ],
+  "original_main_head": "82169af7e76797731358852bec83bfb0ceb54ccf",
+  "rules_unchanged_vs_Q": true
+}
