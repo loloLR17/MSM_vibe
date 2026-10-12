@@ -18,6 +18,7 @@ HAL_StatusTypeDef HAL_SPI_TransmitReceive(SPI_HandleTypeDef *s,const uint8_t *tx
  uint8_t reg=tx[0]&127U;test_dwt.CYCCNT+=n*512U; /* wire model2.5MHz */
  s->ErrorCode=0;s->RxXferCount=0;s->TxXferCount=0;
  if((tx[0]&128U)==0U){assert(n==2U);assert(reg==7||reg==8||reg==9||reg==10||reg==16||reg==18||reg==20);regs[reg]=tx[1];writes++;if(reg==10){fifo_on=tx[1]==1;enable_cycles=test_dwt.CYCCNT;popped=0;stopped=0;if(!fifo_on)level=0;}if(fault>=13&&fault<20&&tr2_burst_info.stage==2U&&reg==config_regs[fault-13])return HAL_TIMEOUT;return HAL_OK;}
+ assert(n>2U); /* All reads grouped; a single control read is a regression. */
  for(unsigned i=1;i<n;i++)assert(tx[i]==0U);
  if(reg==0x3A){
   assert(n==3U);if(fifo_on&&regs[16]){uint32_t produced=(uint32_t)(((uint64_t)(test_dwt.CYCCNT-enable_cycles)*26667U)/160000000U);if(produced>=256)stopped=1;level=(stopped?256:produced)-popped;}
@@ -33,6 +34,12 @@ HAL_StatusTypeDef HAL_SPI_TransmitReceive(SPI_HandleTypeDef *s,const uint8_t *tx
   uint8_t target=config_regs[fault-6];
   if(target>=reg&&target<reg+n-1U){rx[1U+target-reg]^=1U;injected=1;}
  }
+ if(tr2_burst_info.stage==2U&&reg==15U){
+  if(fault==21)rx[1]^=1U;
+  if(fault==22)rx[5]=1U;
+  if(fault==23)rx[4]&=(uint8_t)~4U;
+ }
+ if(tr2_burst_info.stage==2U&&reg==7U){if(fault==24)s->ErrorCode=1U;if(fault==25)s->RxXferCount=1U;}
  if(fault==20&&tr2_burst_info.stage==2U&&reg==7U)return HAL_TIMEOUT;
  return HAL_OK;
 }
@@ -41,7 +48,7 @@ uint32_t HAL_GetTick(void){return test_dwt.CYCCNT/160000U;}
 uint32_t HAL_RCC_GetHCLKFreq(void){return 160000000U;}
 uint32_t HAL_RCCEx_GetPeriphCLKFreq(uint32_t id){assert(id==RCC_PERIPHCLK_SPI3);return 160000000U;}
 int main(void){
- for(fault=0;fault<21;fault++){
+ for(fault=0;fault<26;fault++){
   SPI_TypeDef peripheral={0,0x50070067,0x87400000};SPI_HandleTypeDef spi={&peripheral,0,0,0};
   memset(regs,0,sizeof(regs));regs[15]=0x7B;regs[18]=4;if(fault==5)regs[10]=1;
   memset((void*)&tr2_burst_info,0,sizeof(tr2_burst_info));memset(&test_dwt,0,sizeof(test_dwt));level=popped=writes=bursts=0;fifo_on=stopped=injected=0;
@@ -49,6 +56,14 @@ int main(void){
   if(setjmp(finish)==0)stm32_iis3dwb_burst_capture_run(&spi,&port,1U);
   assert(tr2_burst_info.stage==10&&port.ODR==1&&tr2_burst_info.poll_count<=TR2_BURST_POLLS);
   if(fault==5){assert(writes==0&&bursts==0&&tr2_burst_info.accepted==0);assert(tr2_config_first_refusal.valid&&tr2_config_first_refusal.reg==10U&&tr2_config_first_refusal.observed==1U);continue;}
+  if(fault>=21){
+   volatile Stm32ConfigRefusal *v=&tr2_config_first_refusal;
+   assert(v->valid&&v->phase==2U&&bursts==0&&tr2_burst_info.accepted==0&&tr2_burst_info.poll_count==0);
+   assert(tr2_burst_info.restore_result==TR2_OK&&v->io.method==2U);
+   if(fault<24){assert(v->reason==2U&&v->expected_valid&&v->observed_valid&&v->io.valid_mask==15U);assert(v->reg==(fault==21?15U:(fault==22?19U:18U)));}
+   else{assert(v->reason==1U&&v->observed_valid==0U&&v->io.hal_status==HAL_OK&&v->io.valid_mask==7U);assert(fault==24?v->io.error==1U:v->io.rx_left==1U);}
+   continue;
+  }
   if(fault>=13){
    volatile Stm32ConfigRefusal *v=&tr2_config_first_refusal;
    unsigned i=(unsigned)fault-13U;
@@ -66,7 +81,7 @@ int main(void){
    assert(injected&&bursts==0&&tr2_burst_info.poll_count==0&&tr2_burst_info.accepted==0);
    assert(v->valid==1U&&v->reason==2U&&v->phase==2U&&v->reg==config_regs[i]);
    assert(v->expected_valid==1U&&v->observed_valid==1U&&v->expected==config_expected[i]&&v->observed==(config_expected[i]^1U));
-   assert(v->io.method==(i<4?2U:1U)&&v->io.valid_mask==15U&&v->io.hal_status==HAL_OK);
+   assert(v->io.method==2U&&v->io.valid_mask==15U&&v->io.hal_status==HAL_OK);
    assert(v->io.cs_before==1U&&v->io.cs_during==0U&&v->io.cs_after==1U&&v->io.rx[0]==0xEEU);
    assert(v->io.rx[1U+config_regs[i]-v->io.reg]==v->observed);
    assert(tr2_burst_info.restore_result==TR2_OK&&regs[config_regs[i]]==(i==5U?4U:0U));

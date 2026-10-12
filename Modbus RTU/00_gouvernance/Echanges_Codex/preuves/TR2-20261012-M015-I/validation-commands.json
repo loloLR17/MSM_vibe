@@ -1,0 +1,47 @@
+[
+  [
+    "cmake",
+    "-S",
+    "/home/lolo/dev/msm/projects/MSM_vibe-M015-I/Modbus RTU/05_Firmware",
+    "-B",
+    "/home/lolo/dev/msm/reports/TR2-mission015-I-20261012T162708Z/build-host"
+  ],
+  [
+    "cmake",
+    "--build",
+    "/home/lolo/dev/msm/reports/TR2-mission015-I-20261012T162708Z/build-host",
+    "--target",
+    "test_stm32_burst_capture"
+  ],
+  [
+    "ctest",
+    "--test-dir",
+    "/home/lolo/dev/msm/reports/TR2-mission015-I-20261012T162708Z/build-host",
+    "-R",
+    "^stm32_burst_capture$",
+    "--output-on-failure"
+  ],
+  [
+    "cmake",
+    "-S",
+    "/home/lolo/dev/msm/projects/MSM_vibe-M015-I/Modbus RTU/05_Firmware/platform/stm32",
+    "-B",
+    "/home/lolo/dev/msm/reports/TR2-mission015-I-20261012T162708Z/build-burst",
+    "-G",
+    "Ninja",
+    "-DCMAKE_BUILD_TYPE=Debug",
+    "-DCMAKE_TOOLCHAIN_FILE=/home/lolo/dev/msm/projects/MSM_vibe-M015-I/Modbus RTU/05_Firmware/platform/stm32/cmake/arm-none-eabi-gcc.cmake",
+    "-DSTM32CUBE_U5_ROOT=/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0",
+    "-DTR2_STM32_BURST_CAPTURE=ON"
+  ],
+  [
+    "cmake",
+    "--build",
+    "/home/lolo/dev/msm/reports/TR2-mission015-I-20261012T162708Z/build-burst"
+  ],
+  [
+    "bash",
+    "./tr2_validate.sh",
+    "--cross-build-only"
+  ]
+]

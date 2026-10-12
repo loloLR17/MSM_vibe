@@ -1,0 +1,15 @@
+{
+  "code_sha_pending_software_commit": true,
+  "artifacts": {
+    "build-burst/tr2_stm32_p11c.bin": {
+      "size": 35132,
+      "sha256": "760aab56cf32aa458c861bf5f22e2801dd595f3bd73ad6a98602c1cff0cdd258"
+    },
+    "build-burst/tr2_stm32_p11c.elf": {
+      "size": 456836,
+      "sha256": "7893fda8b3e43e215cbab0a1bcc515d51b0a6986cdf9ff742974e53b8cbb076e"
+    }
+  },
+  "profile_isolated": true,
+  "physical_deferred": true
+}

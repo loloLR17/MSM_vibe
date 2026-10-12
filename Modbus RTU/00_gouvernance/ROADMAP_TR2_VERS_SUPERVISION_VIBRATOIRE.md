@@ -153,3 +153,7 @@ M014 restauréeexactement (Flash2Mio identique), FRAMgen12/configUNAVAILABLE, SD
 ## Actualisation M015-H — 12 octobre 2026
 
 **M015-H DONE pour diagnostic différentiel ; M015 IN PROGRESS.** Campagneunique S G G S active=A8/A8/A8/50, même motif après20,276ms ; repos/arrêt concordants. Association position/historique et actif, pas cause HAL/électrique attribuée ; guardlatched/result9, aucune FIFO/XYZ. M014-H restauré/Flash2Mio exacte, reprise B0/B1 réussie, FRAMgen12/SDOFF/partitionpréservées. Suite proposée : audit horscible transitions SPI7→2 puis ordreSSSS/GS sous nouveau contrat ; aucune acquisition/mesureBM/remplacementcapteur enH. Résultats 1ccec7f7d7916564322ddfb6437e20afa7f4b269 publiés et56livrables intégralement relus/identiques ; clôture documentaire contrôlée après son push.
+
+## Actualisation M015-I — 12 octobre 2026
+
+**IN_PROGRESS, logiciel validé seulement.** Harness FIFO réutilisé avec contrôles/audit groupés et gardes HAL/compteurs/CS renforcés ;26cas ciblés et cross-build défaut/profil réussis. Campagne physique reportée après renouvellement, quota annoncé12% ; M014-H reste installé, aucun accès cible/média/HP enI. Checkpoints etpointde reprise publiés ; aucune fiabilitéFIFO/continuitéV1 annoncée.

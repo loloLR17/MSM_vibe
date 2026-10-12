@@ -62,10 +62,12 @@ static Tr2Result io(uint8_t reg,uint8_t *data,uint16_t n,int write,Stm32BurstMet
  trace.hal_status=(uint32_t)status;trace.error=bus->ErrorCode;
  trace.rx_left=bus->RxXferCount;trace.tx_left=bus->TxXferCount;
  for(uint32_t j=0;j<trace.raw_length;j++){trace.tx[j]=tx[j];trace.rx[j]=rx[j];}
- trace.valid_mask|=2U|4U;if(status==HAL_OK&&!write)trace.valid_mask|=8U;
+ trace.valid_mask|=2U|4U;
+ int transfer_ok=status==HAL_OK&&trace.error==0U&&trace.rx_left==0U&&trace.tx_left==0U&&trace.cs_before==1U&&trace.cs_during==0U&&trace.cs_after==1U;
+ if(transfer_ok&&!write)trace.valid_mask|=8U;
  tr2_config_traces[index]=trace;tr2_config_trace_count=index+1U;
  if(meta){meta->cs_after=(port->ODR&pin)!=0U;meta->end_cycles=DWT->CYCCNT;meta->hal_status=(uint32_t)status;meta->error=bus->ErrorCode;meta->rx_left=bus->RxXferCount;meta->tx_left=bus->TxXferCount;}
- if(status!=HAL_OK){refuse(1U,reg,write?1U:0U,write?tx[1]:UINT32_MAX,0U,UINT32_MAX,index);tr2_burst_info.errors++;return status==HAL_TIMEOUT?TR2_ERROR_UNAVAILABLE:TR2_ERROR_INTERNAL;}
+ if(!transfer_ok){refuse(1U,reg,write?1U:0U,write?tx[1]:UINT32_MAX,0U,UINT32_MAX,index);tr2_burst_info.errors++;return status==HAL_TIMEOUT?TR2_ERROR_UNAVAILABLE:TR2_ERROR_INTERNAL;}
  if(!write&&data!=NULL)memcpy(data,rx+1U,n);
  return TR2_OK;
 }
@@ -74,13 +76,33 @@ static Tr2Result write_reg(uint8_t reg,uint8_t value)
  int allowed=0;for(unsigned i=0;i<7U;i++)if(reg==regs[i])allowed=1;
  return allowed?io(reg,&value,1U,1,NULL):TR2_ERROR_UNSUPPORTED;
 }
+/* Two grouped readbacks; no single control read on admission or restoration.
+ * WHO/IF_INC/CTRL4 anchor coherence; reserved0x11 is captured, not interpreted. */
 static Tr2Result controls(uint32_t *values)
 {
- uint8_t data[4];Tr2Result r=io(7U,data,4U,0,NULL);
+ uint8_t data[6];Tr2Result r=io(7U,data,4U,0,NULL);
  if(r!=TR2_OK)return r;
  for(unsigned i=0;i<4U;i++)values[i]=data[i];
- for(unsigned i=4U;i<7U;i++){r=io(regs[i],data,1U,0,NULL);if(r!=TR2_OK)return r;values[i]=data[0];}
- return r;
+ r=io(15U,data,6U,0,NULL);if(r!=TR2_OK)return r;
+ if(data[0]!=0x7BU){mismatch(15U,0x7BU,data[0]);tr2_burst_info.loss_flags|=4U;return TR2_ERROR_INTERNAL;}
+ if((data[3]&4U)==0U){mismatch(18U,tr2_burst_info.stage==1U||tr2_burst_info.stage==5U?4U:0x44U,data[3]);tr2_burst_info.loss_flags|=4U;return TR2_ERROR_INTERNAL;}
+ if(data[4]!=0U){mismatch(19U,0U,data[4]);tr2_burst_info.loss_flags|=4U;return TR2_ERROR_INTERNAL;}
+ values[4]=data[1];values[5]=data[3];values[6]=data[5];
+ return TR2_OK;
+}
+static Tr2Result audit_grouped(void)
+{
+ static const uint8_t starts[4]={0x0D,0x15,0x18,0x73};
+ static const uint8_t lengths[4]={3U,3U,2U,3U};
+ for(unsigned i=0;i<4U;i++){
+  uint8_t data[3];Tr2Result r=io(starts[i],data,lengths[i],0,NULL);if(r!=TR2_OK)return r;
+  for(unsigned j=0;j<lengths[i];j++){
+   if(i==2U&&j==0U)continue; /* Reserved0x18, no invented expected value. */
+   uint8_t expected=i==0U&&j==2U?0x7BU:0U;
+   if(data[j]!=expected){mismatch((uint8_t)(starts[i]+j),expected,data[j]);return TR2_ERROR_UNSUPPORTED;}
+  }
+ }
+ return TR2_OK;
 }
 static Tr2Result status_read(uint32_t *status)
 {
@@ -92,7 +114,7 @@ static unsigned parity(uint8_t tag){unsigned p=0;for(unsigned i=0;i<8;i++)p^=(ta
 __attribute__((noreturn)) void stm32_iis3dwb_burst_capture_run(SPI_HandleTypeDef *spi,GPIO_TypeDef *gpio,uint16_t cs)
 {
  uint32_t saved[7]={0},actual[7]={0},status=0U,previous_level=0U,last_counter=0U;
- uint8_t value=0U;int have_saved=0,changed=0;
+ int have_saved=0,changed=0;
  Tr2Result result=TR2_OK,restored=TR2_ERROR_NOT_AVAILABLE;
  bus=spi;port=gpio;pin=cs;tr2_burst_info.stage=1U;
  while(tr2_burst_trigger!=0x4D313546U)HAL_Delay(10U);
@@ -103,13 +125,10 @@ __attribute__((noreturn)) void stm32_iis3dwb_burst_capture_run(SPI_HandleTypeDef
  {uint32_t before=DWT->CYCCNT;HAL_Delay(2U);if(before==DWT->CYCCNT){result=TR2_ERROR_UNAVAILABLE;goto finish;}}
  tr2_burst_info.core_hz=HAL_RCC_GetHCLKFreq();tr2_burst_info.spi_hz=HAL_RCCEx_GetPeriphCLKFreq(RCC_PERIPHCLK_SPI3)/64U;
  if(tr2_burst_info.core_hz!=160000000U||tr2_burst_info.spi_hz!=2500000U){result=TR2_ERROR_UNSUPPORTED;goto finish;}
- result=io(15U,&value,1U,0,NULL);if(result!=TR2_OK||value!=0x7BU){if(result==TR2_OK)mismatch(15U,0x7BU,value);result=TR2_ERROR_INTERNAL;goto finish;}
  result=controls(saved);if(result!=TR2_OK)goto finish;
  for(unsigned i=0;i<7;i++){tr2_burst_info.saved[i]=saved[i];if(saved[i]!=(i==5U?4U:0U)){mismatch(regs[i],i==5U?4U:0U,saved[i]);result=TR2_ERROR_UNSUPPORTED;goto finish;}}
  have_saved=1;
- {static const uint8_t audit[]={0x0D,0x0E,0x13,0x15,0x16,0x17,0x19,0x73,0x74,0x75};
-  for(unsigned i=0;i<sizeof(audit);i++){result=io(audit[i],&value,1U,0,NULL);if(result!=TR2_OK||value!=0U){if(result==TR2_OK)mismatch(audit[i],0U,value);result=TR2_ERROR_UNSUPPORTED;goto finish;}}
- }
+ result=audit_grouped();if(result!=TR2_OK)goto finish;
  result=status_read(&status);if(result!=TR2_OK||status!=0U){result=TR2_ERROR_INVALID_STATE;goto finish;}
  changed=1;tr2_burst_info.stage=2U;
  {const uint8_t values[7]={0U,0x81U,0x0AU,0U,0xA8U,0x44U,0U};const uint8_t order[7]={5U,4U,0U,1U,2U,3U,6U};
