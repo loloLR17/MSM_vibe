@@ -88,5 +88,10 @@
     "published_sha256": "7b4518c1d2a34ada7b2940d53298d78e3ed17b738fd2110274743f032e81532e",
     "original_local_sha256": "2f660ac03a25d2be7fbd008e95ea33879df3061a19c391aa310a35edc59c0c75",
     "normalized": true
+  },
+  "publication-readback.json": {
+    "published_sha256": "077b2d1e6b7d6dc0483f0840f18a7cd0de8aa9c053abd931345eeed7677e8d38",
+    "original_local_sha256": "077b2d1e6b7d6dc0483f0840f18a7cd0de8aa9c053abd931345eeed7677e8d38",
+    "normalized": false
   }
 }

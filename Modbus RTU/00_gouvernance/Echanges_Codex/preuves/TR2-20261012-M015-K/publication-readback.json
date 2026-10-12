@@ -1,0 +1,274 @@
+{
+  "sha": "e222dc8ddb7cfd0829c655533ac8e646220721f2",
+  "full_byte_equal": [
+    {
+      "path": "Modbus RTU/00_gouvernance/ETAT_COURANT_TR2.md",
+      "sha256": "53bf672f84c9ce1ef7fb9fbb3f0a4a1d0b1b5c36a0d3a07a39a32ca517749e53"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/DERNIER_RAPPORT.md",
+      "sha256": "a0fa6a6433e063a13e79db41097f8702e9c24897406272a4080de71ede5162be"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/archives/TR2-20261012-M015-J-CONTINUOUS-FIFO/MISSION.md",
+      "sha256": "bfcc6d5f6dbe4d0c763cdc01e1693525ea3e3a634e2dc5f54f83edfe2b1c7c21"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/archives/TR2-20261012-M015-J-CONTINUOUS-FIFO/RAPPORT.md",
+      "sha256": "97312911d1b840b4a96f98377d12ef70361faaa68c82ae3ebc30d6ffb37a195a"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261012-M015-K/artifacts.json",
+      "sha256": "3d8e6caddc0f0e85c82fab58d6b03f2dd2908508f43a7bcd90023b2043808e23"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261012-M015-K/commands.json",
+      "sha256": "19ebbe5ef7df13044d11dfe128d5679e8d5bd240d8c5418e311768f397b80cad"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261012-M015-K/diagnostic-notes.md",
+      "sha256": "9c3901b86cbc0512a3668db80f2e4a136fa2f4f7826547c8dd0bf241595f04eb"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261012-M015-K/fifo-STATUS10-build.log",
+      "sha256": "fe2ec898ea8589c0535677e65f7b3ff78ac722de4b932687e6effb40a331b573"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261012-M015-K/fifo-STATUS10-configure.log",
+      "sha256": "c9c66e7d67a11943b156f517dfec6b65ce0440d855939e36016dd54e2a30de74"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261012-M015-K/fifo-ST_STRICT-build.log",
+      "sha256": "7c6604a390f0e65581232bb808ef5d9e915f7c5104a18efee2a0c3736440c1c3"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261012-M015-K/fifo-ST_STRICT-configure.log",
+      "sha256": "f7e962d418f5797da2b8013037eb5b0d67183cb8e7472257a55bb050da698ac5"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261012-M015-K/host-build.log",
+      "sha256": "1d69c190a1804326e69f753c30c1e230a7886a5c553967becef9e24ea82eaa0e"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261012-M015-K/host-configure.log",
+      "sha256": "1df324daad7990f226c2752a0d74a6025c99e18bebb957115dffbf3181ec5305"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261012-M015-K/host-test.log",
+      "sha256": "7b4518c1d2a34ada7b2940d53298d78e3ed17b738fd2110274743f032e81532e"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261012-M015-K/initial.json",
+      "sha256": "0629c231cc4eb86bca0aaed082a881b6dbe8276d3242ab9655e7dcc24e4742a7"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261012-M015-K/manifest.json",
+      "sha256": "febca738bf10c0b965db402d201092dcbf599301e17de0f357c14bc7e5b5eae2"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261012-M015-K/numbered-audit-sources.txt",
+      "sha256": "2888ff5a51e6f071ead4d6b8c918d0f97ecc943b1b4959fd08a3d668a8d80572"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261012-M015-K/polling-ST_STRICT-build.log",
+      "sha256": "11a3b380ebc00f2b3d01cf215149288f503efc78d3dd3659378b236bf02b9c39"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261012-M015-K/polling-ST_STRICT-configure.log",
+      "sha256": "2021501c41e79b29865779078ca7429417aacb62f500350177f93d5cbee5b50c"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261012-M015-K/size-and-isolation.json",
+      "sha256": "aa106f3f3b2cf701c1f81fdb78f264ae3f78e5d7d34a4109d60d00e96e8aea80"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261012-M015-K/source-hashes.json",
+      "sha256": "a765cb1bb3e45d0d96ecdd2d5b9d013805711175acf3d229b5d3094cdfcc3ac1"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261012-M015-K/who-ST_STRICT-build.log",
+      "sha256": "588be85ac452a4078a8b9849ca06cd4a6af866dca5477dca6ee78969c6ad26c8"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261012-M015-K/who-ST_STRICT-configure.log",
+      "sha256": "4134184b1b6cf7829abb856b9af57565a2a202d590dd34f0b944e914390bff26"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/ROADMAP_TR2_VERS_SUPERVISION_VIBRATOIRE.md",
+      "sha256": "a0e85a6dae3923e625ad623ebb5ae68c58ec18aedfdfc0f43da556c0e48f21e0"
+    },
+    {
+      "path": "experiments/iis3dwb_st_reference/.gitattributes",
+      "sha256": "8c8e8a9746cfa0fd374f6e6e704abcc618767f090668fb0f93df0128eb8340fc"
+    },
+    {
+      "path": "experiments/iis3dwb_st_reference/AUDIT.md",
+      "sha256": "0c4ca1e7b3b50e7919a4812954a6220e4952eebdaeca8fdd6504ac2b68e44e38"
+    },
+    {
+      "path": "experiments/iis3dwb_st_reference/CMakeLists.txt",
+      "sha256": "fddcdb69c88cae15630157cd93751b1bb9c1fd1b8d7d624f702a7b818fb1bbf2"
+    },
+    {
+      "path": "experiments/iis3dwb_st_reference/PHYSICAL_PROTOCOL.md",
+      "sha256": "377ae8a6663b57378deb8ba8313f05723b8315d6ad110066effcd87897bc4f9e"
+    },
+    {
+      "path": "experiments/iis3dwb_st_reference/PINOUT.md",
+      "sha256": "2ab976517a90507c7798a12c6093dfb6ba12c1eb96a7347f263d1f851ef5f618"
+    },
+    {
+      "path": "experiments/iis3dwb_st_reference/README.md",
+      "sha256": "ca2c55c16755395c5690bf34888d5c08530b7178dd4c7bef93d0784c6a12f1ad"
+    },
+    {
+      "path": "experiments/iis3dwb_st_reference/STM32U575ZITXQ_FLASH.ld",
+      "sha256": "3427c8ed98cf6f2f899f1cd2868153fb60fdc5104cfa0473d4876c59f1ce6ef5"
+    },
+    {
+      "path": "experiments/iis3dwb_st_reference/cmake/arm-none-eabi-gcc.cmake",
+      "sha256": "a226b0cc2f9b2b9fab352acd6169ed0c3f4eddd23a0fe38ec9f84a23b9ccbb35"
+    },
+    {
+      "path": "experiments/iis3dwb_st_reference/src/bench.c",
+      "sha256": "249de723fcfe9099a40ae246f741018b49914a92b64081899ddf7d5c67628431"
+    },
+    {
+      "path": "experiments/iis3dwb_st_reference/src/bench.h",
+      "sha256": "7973ef39b7811a6f862895c34c960b1e3e2f13c557781f761827c1cf2b0e08a5"
+    },
+    {
+      "path": "experiments/iis3dwb_st_reference/src/main.c",
+      "sha256": "20014be7ac0748136951ed143d173391a0eeb9f35bdc748fda5f3f0c5c443b3c"
+    },
+    {
+      "path": "experiments/iis3dwb_st_reference/src/platform.c",
+      "sha256": "e20b2438fe5b3f6f3639eb34394d619a9712e257eb87cc3d4b0cfcdd6f7fb68a"
+    },
+    {
+      "path": "experiments/iis3dwb_st_reference/src/platform.h",
+      "sha256": "52841eff7d9137754e1c4189f49b3b4fc7a64a6cd35708e05f2f2de27f5f9f23"
+    },
+    {
+      "path": "experiments/iis3dwb_st_reference/src/stm32u5xx_hal_conf.h",
+      "sha256": "6239962f4ceb56895e19861cfc92ce9fc8b55f0495e2977444016c6a084b3669"
+    },
+    {
+      "path": "experiments/iis3dwb_st_reference/tests/test_reference.c",
+      "sha256": "b430d6ccaaec4172b62ce1664e8021eb1c7ac55185a290896e084d347f3d4117"
+    },
+    {
+      "path": "experiments/iis3dwb_st_reference/tests/test_tools.py",
+      "sha256": "6dde4e9b37f603d98f92c97e36388cdbbc2b695401b28b167271802a30d90d21"
+    },
+    {
+      "path": "experiments/iis3dwb_st_reference/tools/capture.gdb",
+      "sha256": "6037bb631ca8cfbef96af027f44de2af1b1359557fb6b4380a2cc154c04a5e6d"
+    },
+    {
+      "path": "experiments/iis3dwb_st_reference/tools/decode_capture.py",
+      "sha256": "73825a78d0f5e3bb39b9841262023e88e9655e9a343f869d20fc5eb688800fd0"
+    },
+    {
+      "path": "experiments/iis3dwb_st_reference/tools/plan_target.py",
+      "sha256": "e532ae99dd51ca84df28b6b4fe4a733e343f5016d6e2089c560be50f8ecbf58d"
+    },
+    {
+      "path": "experiments/iis3dwb_st_reference/tools/validate.py",
+      "sha256": "059341d8458fa526e6b35ceadf89e3ae8d6d5e40eb18cad64d53988b503d3b8b"
+    },
+    {
+      "path": "experiments/iis3dwb_st_reference/vendor/SOURCES.json",
+      "sha256": "a8ac13cd430e27f256f077241e26e720bb23d951c429fdfff17cd5d8480ebe77"
+    },
+    {
+      "path": "experiments/iis3dwb_st_reference/vendor/st/LICENSE.driver",
+      "sha256": "b54f36a43cf9b8f6292c8f0f3b4c267ebd59859587e0152c94305bc81dda68bc"
+    },
+    {
+      "path": "experiments/iis3dwb_st_reference/vendor/st/LICENSE.examples",
+      "sha256": "b54f36a43cf9b8f6292c8f0f3b4c267ebd59859587e0152c94305bc81dda68bc"
+    },
+    {
+      "path": "experiments/iis3dwb_st_reference/vendor/st/examples/iis3dwb_fifo.c",
+      "sha256": "f8650edb8a1364624214ff0a3bc8132ec8f2d93a81c19b6a967769696acb34ec"
+    },
+    {
+      "path": "experiments/iis3dwb_st_reference/vendor/st/examples/iis3dwb_read_data_polling.c",
+      "sha256": "bb6217b05ffef4fb5f7c74b35ff40e0943756c3c5b0de461adf37f862d40c817"
+    },
+    {
+      "path": "experiments/iis3dwb_st_reference/vendor/st/iis3dwb_reg.c",
+      "sha256": "4bcec804d79a316386afc35c3f4cc39f2547d79689708b9ec6924608ab342d8f"
+    },
+    {
+      "path": "experiments/iis3dwb_st_reference/vendor/st/iis3dwb_reg.h",
+      "sha256": "94643441423b6f4ae741925289e1f47e69fa92f09febcfe97afc111e869b1c6c"
+    }
+  ],
+  "clean": true,
+  "archives_exact": true,
+  "active_mission_unchanged": true,
+  "TR2_code_unchanged": true,
+  "vendor_originals_exact": true,
+  "preserved_worktrees": [
+    {
+      "path": "/home/lolo/dev/msm/projects/MSM_vibe",
+      "sha": "82169af7e76797731358852bec83bfb0ceb54ccf"
+    },
+    {
+      "path": "/home/lolo/dev/msm/projects/MSM_vibe-M014-H",
+      "sha": "762c459839439f7d27b42c11d12e309e65622a7f"
+    },
+    {
+      "path": "/home/lolo/dev/msm/projects/MSM_vibe-M015-A",
+      "sha": "eab07d49a5f3b86506a97877d0fccf2188fb0a7a"
+    },
+    {
+      "path": "/home/lolo/dev/msm/projects/MSM_vibe-M015-B",
+      "sha": "cfb9918dfe8e5ac3148d6ceaa79e50acda6ac53f"
+    },
+    {
+      "path": "/home/lolo/dev/msm/projects/MSM_vibe-M015-C",
+      "sha": "37b97f7fd8ea70c4ae8e377a3042bb3e2b8c5328"
+    },
+    {
+      "path": "/home/lolo/dev/msm/projects/MSM_vibe-M015-D",
+      "sha": "dbfcec4027200c5d5c989da52000166311fa6954"
+    },
+    {
+      "path": "/home/lolo/dev/msm/projects/MSM_vibe-M015-E",
+      "sha": "1c062af564e3d4d45093b1c369128cb4cf6d0575"
+    },
+    {
+      "path": "/home/lolo/dev/msm/projects/MSM_vibe-M015-F",
+      "sha": "e11088772987a50ce729eb4ca1148d657b2cc673"
+    },
+    {
+      "path": "/home/lolo/dev/msm/projects/MSM_vibe-M015-G",
+      "sha": "6357b667a45b0979e5edaf394cb273595295414d"
+    },
+    {
+      "path": "/home/lolo/dev/msm/projects/MSM_vibe-M015-H",
+      "sha": "c0d4f7b9786921db64f9e031f5458a662ba90332"
+    },
+    {
+      "path": "/home/lolo/dev/msm/projects/MSM_vibe-M015-I",
+      "sha": "7a2aca1901162144142f3e13964a4abcc7dbed9d"
+    },
+    {
+      "path": "/home/lolo/dev/msm/projects/MSM_vibe-M015-I-physical",
+      "sha": "d25aa42a3d2c4850f4cedeeaca545da63aad0c29"
+    },
+    {
+      "path": "/home/lolo/dev/msm/projects/MSM_vibe-M015-J",
+      "sha": "0b76875c1a0257362280780f835991395b10fcbe"
+    }
+  ],
+  "stashes": [
+    "6251b988e8b20f97997a8f98fd26d4d35a45a1b2",
+    "f3b829e6188f491920edf74a5f9ed0f559d08b87"
+  ],
+  "status": "READY_FOR_PHYSICAL",
+  "hardware_operations": 0
+}

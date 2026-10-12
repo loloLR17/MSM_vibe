@@ -4,7 +4,7 @@ status: READY_FOR_PHYSICAL
 base_ref: main
 base_sha: 0b76875c1a0257362280780f835991395b10fcbe
 initial_head: b8dad142d85f2a4bc0f0a72ba6b17c12ca47e65f
-result_sha: null
+result_sha: e222dc8ddb7cfd0829c655533ac8e646220721f2
 created_at_utc: 2026-10-12T19:44:44.737484+00:00
 author: Codex
 target_branch: main
@@ -16,7 +16,7 @@ allow_debug: true
 
 # M015-K — Préparation officielle ST terminée hors matériel
 
-**READY_FOR_PHYSICAL** : projet autonome compilé et testé, publication en cours.
+**READY_FOR_PHYSICAL** : projet autonome compilé, testé et publié ; relecture distante intégrale effectuée.
 Aucun flash, debug, reset, accès carte ou essai physique exécuté. L'utilisateur
 monte le second banc ; câblage, révisions, point GND et SN/UID restent à confirmer.
 M014-H sur la première NUCLEO est préservé sans nouvelle observation matérielle.
@@ -122,4 +122,12 @@ commit/push exercées ; permissions flash/debug déclarées mais non exercées,
 restriction matérielle du contrat respectée. Aucun merge/rebase/reset/force push.
 Journal actualisé : préparation ST, validations, écarts driver et confirmations
 physiques attendues ; J BLOCKED/I256 acquis/M015 IN PROGRESS conservés.
-Relecture distante et SHA évalué seront consignés après le premier push.
+Code évalué publié au commit **e222dc8ddb7cfd0829c655533ac8e646220721f2**, `M015-K: prepare standalone ST IIS3DWB reference bench without hardware access`.
+Push normal sur main réussi, fetch puis relecture intégrale de **51 livrables
+byte-identiques**, sources ST exactes, archives J exactes, mission active inchangée,
+TR2 code inchangé, treize autres worktrees/HEAD propres et deux stashes préservés.
+Preuve `publication-readback.json`. Le worktree K était propre après ce push ;
+le présent accusé documentaire sera publié normalement et relu à son tour.
+SHA final distant et état Git dans la réponse finale, sans auto-référence.
+**READY_FOR_PHYSICAL conservé** : publication et compilation ne qualifient pas
+le banc ; aucune opération matérielle exercée. Contrôle indépendant ChatGPT attendu.
