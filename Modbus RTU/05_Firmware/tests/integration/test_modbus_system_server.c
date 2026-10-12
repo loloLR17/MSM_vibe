@@ -272,6 +272,8 @@ int main(void)
     handler.runtime = &runtime;
     binding.command_submit = submit;
     binding.command_submit_context = &handler;
+    /* Dedicated production opts into the live runtime producer. */
+    binding.refresh_status = system_runtime_build_boot_status_images;
     assert(modbus_system_server_init(&server, &binding) == TR2_OK);
     assert(modbus_system_server_start(&server) == TR2_OK);
     load(&serial, 17u, read_b0, sizeof(read_b0), false);
@@ -294,10 +296,14 @@ int main(void)
             assert(((uint16_t)view.pdu[2u + 2u * index] << 8u |
                 view.pdu[3u + 2u * index]) == identity.registers[index]);
         runtime.b1_image.registers[0] = (uint16_t)(4u + repeat);
+        /* Regression reproduced on physical H: B1 must age without a B5 write. */
+        host_platform_advance_monotonic(&platform, UINT64_C(2000));
         before = serial.tx_calls;
         load(&serial, 17u, read_full_b1, sizeof(read_full_b1), false);
         assert(run(&server, &serial) == TR2_OK && serial.tx_calls == before + 1u);
         view = response(&serial);
+        assert(runtime.b1_image.registers[4] == 0u);
+        assert(runtime.b1_image.registers[5] == platform.monotonic_ms / UINT64_C(1000));
         assert(view.pdu_length == 2u + 2u * TR2_B1_REGISTER_COUNT);
         assert(view.pdu[0] == 3u && view.pdu[1] == 2u * TR2_B1_REGISTER_COUNT);
         for (size_t index = 0u; index < TR2_B1_REGISTER_COUNT; ++index)

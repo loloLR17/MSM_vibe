@@ -14,6 +14,12 @@ static Tr2Result refresh_context(void *context)
         return TR2_ERROR_NOT_AVAILABLE;
     }
 
+    /* Refresh authoritative dynamic status before projecting a fresh response.
+     * Preserve explicit withdrawal: an unavailable B1 must not be resurrected. */
+    if (runtime->b1_image_available && server->binding.refresh_status != NULL) {
+        Tr2Result status = server->binding.refresh_status(runtime);
+        if (status != TR2_OK) return status;
+    }
     sources->b0_image = server->binding.identity;
     if (time_service_get_snapshot(&runtime->time_service, &server->time) == TR2_OK) {
         sources->time = &server->time;

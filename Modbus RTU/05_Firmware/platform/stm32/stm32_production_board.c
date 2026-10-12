@@ -170,6 +170,7 @@ __attribute__((noreturn)) void stm32_production_server_run(void)
     /* Persistent identity is authoritative, reviewed expected B0 is only a guard. */
     if(result==TR2_OK&&(binding.identity==NULL||binding.unit_id!=tr2_board_identity.identity.unit_id||
         memcmp(binding.identity->registers,tr2_board_expected_b0,sizeof(tr2_board_expected_b0))!=0))result=TR2_ERROR_INVALID_STATE;
+    binding.refresh_status=system_runtime_build_boot_status_images;
     if(result==TR2_OK)result=modbus_system_server_init(&server,&binding);
     if(result==TR2_OK)result=modbus_system_server_start(&server);
     tr2_production_result=(uint32_t)result;

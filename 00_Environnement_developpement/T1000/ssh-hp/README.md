@@ -106,3 +106,29 @@ La mission M014-E autorise seulement des tests SSH OFFLINE utiles, interdit COM7
 transmission/flash/debug/reset/médias physiques. Les succès OFFLINE/hash/retours
 observés ne qualifient aucune transmission physique. Les décisions de production
 sont suivies dans [le document M014-E](../../../Modbus%20RTU/00_gouvernance/PROVISIONING_PRODUCTION_M014_E.md).
+
+## M014-H : procédure physique distincte et bornée
+
+Les tâches historiques run_hp.py demeurent sans ouverture série. La mission H
+autorise séparément commissioning-h.ps1/run_commissioning_h.py, uniquement
+Prepare (extraction nouvelle/hash), Offline (aucun port) et Physical explicite.
+Le script physique exige manifeste/B0/ZIP hashes de confiance, OFFLINE réussi,
+HP identifié, COM7 FT232 PnP OK, mutex et absence de maître candidat. Il crée
+physical-once une seule fois et borne le processus à280s ; maximum9 FC03, zéro
+retry, aucune écriture Modbus. L'échec préflight avant création n'est pas un
+essai consommé ; toute transmission réelle exige un nouveau plan avant reprise.
+Aucune politique SSH/Windows, clé, service ou configuration permanente modifiée.
+
+Le gate doit dater une baseline GDB sûre, cible uptime<15s et compteursRX/TX0,
+serveurs/debuggers terminés avant trafic. Les horloges HP/T1000 ne sont pas
+supposées synchronisées : mesurer par SSH readonly HP UTC entre deux timestamps
+hôte, conserver RTT et offset borné. Convertir baselineUTC en référence HP avec
+la borne inférieure hpTimestamp-hostAfter (âge surévalué, jamais rajeuni).
+La garde stricte0..30s reste inchangée ; pas modification des horloges système.
+
+Fin physique : attendre exit connu/portfermé, récupérer journal et result.json
+par SCP, comparer leur SHA HP aux fichiers locaux et inspecter chaque événement.
+Seulement ensuite ouvrir GDB pour observations après. Un log décodé n'est pas
+une capture filaire ni une qualification électrique/temps réel. Fenêtre de
+silence MCU = perte de disponibilité du répondant, pas retrait du câble ;
+reconnexion driver exige B0 neuf et B1 frais. Ne pas rejouer M013-I/M014-C.

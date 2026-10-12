@@ -411,3 +411,5 @@ physiques temporelles/robustesse/production/J1global/E4 inchangées.
 - **OBSERVÉ / ÉTAT** : GDB seul confirme probe G/UID, Flash/RAM sauvegardées. Aucun flash H/provisioning/COM7 encore exécuté. Aucun accès SD en profiles dédiés ; partition strictement intouchable. Prochaine tranche : manufacturing puis readback et production, essais bornés HP ; M014 toujours IN PROGRESS.
 
 - **OBSERVÉ M014-H après commissioning** : FRAM réellement V2/génération12 activeB, unique trigger réussi, reset et readback262144 identiques à la simulation ; SHAd732acc557152180fc394097d6a5269ea2f45c1da387c8643f512318adf92fce. Plan10 périmé refusé sans réécriture. Cible encore manufacturing en attente, pas serveur actif. HP paquet nouveau371fichiers vérifiés/OFFLINE retour0. Aucune SD accédée, aucun COM7 transmis.
+
+- **OBSERVÉ première campagneH** :9requêtes/8réponses et timeout/reconnexion réels, journal complet vérifié, RX72/TC8/erreurs0. AnomalieuptimeB1figé1s → M014nonclose. Callback producteurstatus opt-in corrigé/113tests+cross réussis sur nouveaucode ; PC539inchangés nonrelancés. Nouvellequalification corrigée nécessaire, pas retryautomatique.

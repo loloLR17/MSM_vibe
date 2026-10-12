@@ -17,6 +17,9 @@ typedef struct {
     void *command_submit_context;
     ModbusCommandSubmit command_submit;
     Tr2Result (*command_snapshot)(void *context, CommandSnapshot *snapshot);
+    /* Optional live producer; NULL preserves externally owned projection policy.
+     * Invoked only while B1 authority is available, before response copy. */
+    Tr2Result (*refresh_status)(SystemRuntime *runtime);
 } ModbusSystemServerBinding;
 
 typedef struct {
