@@ -1,0 +1,44 @@
+{
+  "historical2MHz": {
+    "iis3dwb_reference.bin": {
+      "bytes": 55636,
+      "sha256": "d76a6104a2adc19f77e3b9849e32b9d52312dfd2840eb01f76eb4749cf687b09"
+    },
+    "iis3dwb_reference.map": {
+      "bytes": 326906,
+      "sha256": "a51bbb78f8725155fe32001aa4382154282c3bf4030a27a3cecc49b19c51aced"
+    },
+    "iis3dwb_reference.elf": {
+      "bytes": 604844,
+      "sha256": "88e5f3be8b0e20c0d84b81992e7509f3839195ce409ee84dafd185e6cd56260e"
+    }
+  },
+  "spi4MHz": {
+    "iis3dwb_reference.bin": {
+      "bytes": 55636,
+      "sha256": "d836824452672f61819c900330408ba8aab9122c241cde1e1bf2eacd6d1253b1"
+    },
+    "iis3dwb_reference.map": {
+      "bytes": 326906,
+      "sha256": "895441a926bba53ef5df3bf268fff25fd0e53689f3debab0988df9ce9e59cef0"
+    },
+    "iis3dwb_reference.elf": {
+      "bytes": 604800,
+      "sha256": "fad9a85dd18d2ca48ad1223fb26ab6c6d324ddf978c0422e107ee7cc6456bf05"
+    }
+  },
+  "spi8MHz": {
+    "iis3dwb_reference.bin": {
+      "bytes": 55636,
+      "sha256": "1c91bf71ab772a8ebd1c8615effc60046b21cc7f44cad25e4c5e529ef8f9a6a9"
+    },
+    "iis3dwb_reference.map": {
+      "bytes": 326906,
+      "sha256": "895441a926bba53ef5df3bf268fff25fd0e53689f3debab0988df9ce9e59cef0"
+    },
+    "iis3dwb_reference.elf": {
+      "bytes": 604800,
+      "sha256": "1f4f4e2ce29943cfe0aca50b811abdc14b49635677c9dce19d2be46b6a7a418a"
+    }
+  }
+}

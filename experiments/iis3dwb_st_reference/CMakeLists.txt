@@ -12,6 +12,10 @@ set(BENCH_DUPLEX 0 CACHE STRING "P causal factor: one duplex command+payload fra
 if(NOT BENCH_DUPLEX MATCHES "^(0|1)$")
  message(FATAL_ERROR "Unplanned transport strategy")
 endif()
+set(BENCH_SPI_DIVIDER 8 CACHE STRING "SPI3 divider: 8 historical, 4 or 2 comparison")
+if(NOT BENCH_SPI_DIVIDER MATCHES "^(8|4|2)$")
+ message(FATAL_ERROR "Unplanned SPI frequency")
+endif()
 set(BENCH_SPI_MODE3 0 CACHE STRING "SPI mode3 platform profile")
 set(OFFICIAL_STATUS10 0 CACHE STRING "Explicit local FIFO level getter correction")
 set(OFFICIAL_PACKETS 1 CACHE STRING "Bounded original example packets: 1 or 3")
@@ -133,7 +137,7 @@ target_include_directories(iis3dwb_reference PRIVATE src official ${HAL}/Inc ${D
   ${STM32CUBE_U5_ROOT}/Drivers/CMSIS/Include)
 target_compile_definitions(iis3dwb_reference PRIVATE STM32U575xx USE_HAL_DRIVER
   BENCH_WINDOW_XYZ=${BENCH_WINDOW_XYZ} BENCH_DUPLEX=${BENCH_DUPLEX}
-  BENCH_SPI_MODE3=${BENCH_SPI_MODE3} OFFICIAL_STATUS10=${OFFICIAL_STATUS10} OFFICIAL_PACKETS=${OFFICIAL_PACKETS}
+  BENCH_SPI_DIVIDER=${BENCH_SPI_DIVIDER} BENCH_SPI_MODE3=${BENCH_SPI_MODE3} OFFICIAL_STATUS10=${OFFICIAL_STATUS10} OFFICIAL_PACKETS=${OFFICIAL_PACKETS}
   BENCH_FIFO=$<IF:$<STREQUAL:${BENCH_EXAMPLE},who>,2,$<STREQUAL:${BENCH_EXAMPLE},fifo>>
   BENCH_STATUS10=$<STREQUAL:${BENCH_PROFILE},STATUS10>)
 foreach(target st_driver bench iis3dwb_reference)

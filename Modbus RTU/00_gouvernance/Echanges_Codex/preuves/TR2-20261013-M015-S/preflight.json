@@ -1,0 +1,23 @@
+{
+  "eight_MHz_allowed_documentary": true,
+  "four_MHz_allowed_documentary": true,
+  "IIS3DWB_max_SCK_MHz": 10,
+  "SPI3_clock_source_Hz": 16000000,
+  "dividers": [
+    4,
+    2
+  ],
+  "mode": 3,
+  "VDD_VDDIO": {
+    "volts": 3.3,
+    "provenance": "previous user confirmation; not new measurement"
+  },
+  "board": "ST MKI208V1K/MKIGIBV2 schematic v1 passive interconnect/resistors; no added frequency limit documented",
+  "wiring_signal_integrity": "Not measured independently; functional guards and one trial each. No new manipulation. Stop critical defect.",
+  "sources": [
+    "https://www.st.com/resource/en/datasheet/iis3dwb.pdf",
+    "https://www.st.com/resource/en/schematic_pack/steval-mki208v1k_schematic.pdf",
+    "https://www.st.com/resource/en/datasheet/stm32u575zi.pdf"
+  ],
+  "reason_for_8_after_4_success": "Explicit bounded comparison requested; within 10MHz documentary cap, identical safe voltage/configuration, only if 4MHz guards clear. Additional margins measured, no industrial signal qualification."
+}

@@ -127,7 +127,15 @@ int platform_init(stmdev_ctx_t *ctx,BenchClock *clock)
   spi.Init.CLKPolarity=SPI_POLARITY_HIGH;spi.Init.CLKPhase=SPI_PHASE_2EDGE;
 #endif
   spi.Init.NSS=SPI_NSS_SOFT;
+  #if BENCH_SPI_DIVIDER == 2
+  spi.Init.BaudRatePrescaler=SPI_BAUDRATEPRESCALER_2;
+#elif BENCH_SPI_DIVIDER == 4
+  spi.Init.BaudRatePrescaler=SPI_BAUDRATEPRESCALER_4;
+#elif BENCH_SPI_DIVIDER == 8
   spi.Init.BaudRatePrescaler=SPI_BAUDRATEPRESCALER_8;
+#else
+#error "Unplanned SPI3 divider"
+#endif
   spi.Init.FirstBit=SPI_FIRSTBIT_MSB;spi.Init.TIMode=SPI_TIMODE_DISABLE;
   spi.Init.CRCCalculation=SPI_CRCCALCULATION_DISABLE;spi.Init.CRCPolynomial=7;
   spi.Init.NSSPMode=SPI_NSS_PULSE_DISABLE;spi.Init.NSSPolarity=SPI_NSS_POLARITY_LOW;
