@@ -1,8 +1,8 @@
 ---
-mission_id: TR2-20261012-M015-I-PHYSICAL-RESUME
+mission_id: TR2-20261012-M015-J-CONTINUOUS-FIFO
 status: READY
 base_ref: main
-base_sha: 7a2aca1901162144142f3e13964a4abcc7dbed9d
+base_sha: d25aa42a3d2c4850f4cedeeaca545da63aad0c29
 author: ChatGPT
 target_branch: main
 allow_commit: true
@@ -11,19 +11,20 @@ allow_flash: true
 allow_debug: true
 ---
 
-# M015-I — Reprise de la qualification physique FIFO avec vérifications groupées
+# M015-J — Acquisition FIFO continue, fenêtre 4096 XYZ en RAM
 
-Reprise explicite de M015-I après renouvellement du quota. Lire AGENTS.md V2-B3, rapport précédent M015-I IN_PROGRESS, `Modbus RTU/00_gouvernance/REPRISE_M015_I_FIFO_GROUPEE.md`, ETAT_COURANT et roadmap sur main réel. Archiver mission/rapport antérieurs avant de les remplacer, préserver worktrees/stashes et toutes preuves. Ne pas redévelopper le harness déjà validé. SHA logiciel de référence `6c504a9d4035c2922d186a03350963bdac33379b`, BIN SHA256 `760aab56cf32aa458c861bf5f22e2801dd595f3bd73ad6a98602c1cff0cdd258`, ELF SHA256 `7893fda8b3e43e215cbab0a1bcc515d51b0a6986cdf9ff742974e53b8cbb076e`. Vérifier code et hashes avant utilisation. Le HEAD réel initial de main était `7a2aca1901162144142f3e13964a4abcc7dbed9d` avant publication du présent contrat ; relever le HEAD après publication.
+Lire AGENTS.md V2-B3, gouvernance courante, rapport M015-I DONE, preuves, état courant et roadmap sur main réel. Archiver mission et rapport précédents ; préserver worktrees, stashes et preuves. M015-I a validé physiquement deux bursts de 128 mots, 256 XYZ réels, contrôles SPI groupés, zéro erreur détectée et restauration M014-H. Cette preuve bornée ne valide pas le continu V1.
 
-## Objectif prioritaire
-Exécuter la **seule campagne physique bornée** prévue en M015-I pour savoir si les contrôles SPI groupés permettent enfin de franchir la configuration et lire de vrais échantillons FIFO XYZ. Garder le fail-closed : WHO, CTRL1=A8, IF_INC, contrôles FIFO, HAL/ErrorCode/compteurs/CS et intégrité stricts. Aucun vote, substitution ni acceptation d'une valeur incohérente. Une réussite courte ne qualifie pas le flux continu V1. Pas de recherche exhaustive de la cause 0x50, ni de nouveau harness exploratoire.
+## Objectif
+Construire et qualifier une acquisition FIFO réellement continue à ODR configurée 26667 Hz, pendant la vidange FIFO, et produire au moins une fenêtre complète de 4096 XYZ en RAM, sans changer le mapping ni les fenêtres V1 gelées 4096/8192/16384/32768. Les autres tailles, endurance et absence absolue de perte restent à qualifier séparément.
 
-## Exécution autonome
-1. Préflight git/main/worktrees/stashes, matériel STLINK `003500463235510B37333439`, UID STM32 `004A003D3842501820333157`, image permanente M014-H, SDK et outillage ; vérifier que les sauvegardes, scripts et binaires référencés existent réellement. Préparer et relire les helpers G adaptés à I et wrapper HP `physical-m015-i-restored` conformément au point de reprise ; ne jamais lancer l'ancien helper G inchangé. Tests/compilations déjà verts : ne répéter que si changement de code ou doute documenté.
-2. Sauvegarde **fraîche** Flash2 Mio et RAM utile, avec hashes et vérification. Avant flash, établir qu'il reste assez de temps et d'accès pour une restauration garantie. Aucun geste utilisateur, changement de câblage, de capteur, FRAM, SD ou partition. Un seul trigger `0x4D313546`, maximum deux bursts128/256 mots RAM si tous les contrôles passent. Capturer traces SPI brutes, état de configuration, FIFO/tags/XYZ/erreurs/timing et toute divergence, sans fabriquer de mesure. Stopper au premier écart bloquant.
-3. Flash standard NORMAL à 0x08000000 avec verify/reset, **jamais HOTPLUG**, mass erase, Option Bytes/RDP ni effacement non requis. GDB reset/readback qualifié après dernier CLI ; debugger détaché pendant campagne. Sauvegarder preuves RAM avant reflash. Restaurer **en finally** l'image M014-H et comparer Flash2 Mio octet par octet au backup frais. Reprise HP deux FC03 B0/B1 seulement, sans GDB pendant trafic, journal entier récupéré/hashé ; contrôler FRAM V2 gen12, config UNAVAILABLE, SD OFF, IRQ49/66, fault0, MCU running. Si impossibilité de garantir restauration, ne pas flasher.
-4. Publier bruts utiles, hashes, tests éventuels, diagnostic factuel, résultat positif ou BLOCKED, ETAT_COURANT, roadmap et DERNIER_RAPPORT.md ; commits et push normaux sur main, puis **relecture distante indépendante des livrables**. Conserver copies brutes locales et preuve de restauration. Aucun deuxième essai non prévu.
-5. Si groupé échoue encore : ne pas remplacer physiquement le breakout de manière autonome ; documenter exactement le point de refus et préparer une proposition de comparaison A/B avec le second IIS3DWB, qui nécessitera intervention physique de l'utilisateur. Si échec reproduit sur les deux modules lors d'une mission ultérieure, proposer un firmware SPI minimal reproductible pour assistance STMicroelectronics, sans bloquer la recherche d'un contournement.
+## Travaux
+1. Vérifier le code courant, les ressources RAM, pile, BSS, les interfaces, tests et ownership des buffers. Dimensionner XYZ int16 x3, tags, métadonnées, marges, état de validité, timestamps et backpressure. Si 32768 ne tient pas en RAM, proposer une architecture segmentée pour stockage futur sans modifier V1 ni écrire sur média.
+2. Réutiliser les contrôles groupés M015-I, WHO 7B, CTRL1 A8, IF_INC, FIFO controls, HAL_OK, ErrorCode, compteurs de transfert et CS. Aucune lecture simple sur admission, aucun vote, fallback ou assouplissement. Maintenir fail-closed au premier écart. Vérifier tags, parité, niveaux, overflow, comptage et budget temporel ; le compteur modulo4 ne suffit pas à prouver aucune perte.
+3. Implémenter la plus petite tranche de service FIFO continu : bursts maximum128 mots sous limite SPI3 1024 octets, FIFO restant active pendant lecture, buffer borné pour 4096 XYZ, transitions fenêtre, télémétrie cadence, temps de transfert, erreurs et pertes. Tests hôte nominal et défauts (SPI incomplet, niveau incohérent, overrun, timeout, wrap, limites RAM, arrêt). Cross-build ARM défaut et diagnostic. Checkpoint commit/push et relecture GitHub avant campagne.
+4. Si préflights et restauration garantis, réaliser une seule campagne physique courte et bornée visant 4096 XYZ réels pendant acquisition active, avec plafond explicite temps et bursts. Publier données brutes, niveaux FIFO, timings et critères de continuité. Arrêter au premier refus ; pas de répétition opportuniste. Une fenêtre 4096 n'est pas une qualification endurance ni stockage V1.
+5. Avant flash : UID 004A003D3842501820333157, STLINK 003500463235510B37333439, sauvegarde fraîche Flash2Mio et RAM utile avec hashes, image M014-H BIN SHA256 b462c29a775fec17fccf8036b5612742b1366210359bcd3f192c95435740d611. Flash NORMAL verify/reset uniquement, jamais HOTPLUG, mass erase, Option Bytes/RDP. Traces sauvegardées avant reflash ; restaurer M014-H en finally, Flash2Mio byte-identique à la sauvegarde fraîche, reprise HP deux FC03 B0/B1, FRAM gen12, SD OFF, IRQ49/66, fault0, MCU running. Aucune manipulation physique ni écriture FRAM/SD.
+6. Si ressources, quota ou sécurité insuffisants, publier état IN_PROGRESS et point de reprise plutôt que flasher. Si échec matériel, BLOCKED documenté, avec restauration contrôlée. Ne pas solliciter de validations répétitives pour développement, commit, push, flash ou debug autorisés.
 
-## Invariants et conditions d'arrêt
-ODR V1 26667 Hz, fenêtres4096..32768, continuité/store-and-forward, mapping gelé. Ne pas confondre 256 mots RAM avec V1 continue. Pas de DMA/FFT/Web/Modbus vibration ni instrumentation nouvelle. Toute incertitude matérielle ou impossibilité de restaurer arrête la campagne avant flash ; documenter précisément. Autorisations permanentes commit/push/flash/debug appliquées sans validations répétitives ; escalade uniquement intervention physique, risque matériel incontrôlé ou décision structurante.
+## Critères de sortie
+DONE seulement si 4096 XYZ réels en une fenêtre continue sont acceptés selon contrôles documentés, sans erreur ni perte détectée, et si restauration et Modbus HP sont vérifiés. Publier code, tests, cross-build, preuves et hashes, métriques, limites et statut exact dans DERNIER_RAPPORT.md, ETAT_COURANT et roadmap ; push main et relecture distante. Hors périmètre : FFT, DMA non nécessaire, stockage persistant, Modbus vibrations, supervision Web, calibration, changements V1 et endurance prolongée.
