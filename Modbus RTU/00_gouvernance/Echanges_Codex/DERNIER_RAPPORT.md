@@ -23,3 +23,9 @@ Acquisitioncampagne interdite sans stockage selonV1 etsnapshotactif ; FRAM/READY
 ArchivesM014-H exactes depuis762c459 ; dépôtinitialmain82169af, worktreeH762c459 et deuxstashes conservés. WorktreeM015 isolé surb147a918, destination explicitemain ; aucun merge/rebase/reset/force. BackupsH etimagepermanenteb462c29a préservés. Suite : dump/identitécible, capturebornée, preuvesbrutes, restaurationimageexacte, contrôleproduction, journal/roadmap etrapportfinal, relecturedistante complète. Aucun accèsSD, aucuneFRAMwrite oucampagneB5.
 
 Preuveslocales : /home/lolo/dev/msm/reports/TR2-mission015-A-20261012T085627Z. Erreurinitiale déclarationdriver corrigée puisvalidationcomplète réussie, aucun testaffaibli. Suite.NET539inchangée nonrelancée. Permissions exercées àcestade : commits/pushlogiciels ; flash/debug nonencoreexercésM015.
+
+## Première capture et correction en cours
+
+Code610f6c2 :2048 échantillons réels, WHO7B/readbacksA8/44,512parphase ;3281polls dont1229NOT_AVAILABLE,0erreurSPI,1saturation. DWT160MHz/SPI2.5MHz, lecturesmoyennes13.3kHz (médiane83.63µs), ODR26.667kHzconfiguré seulement. Normerepos≈1.54g/distribution bimodale prochefacteur2 : cohérenceinsuffisante, aucunevalidationphysiqueconclue. Captureintégraleetanalysespubliées, aucunevaleurécartée.
+
+ImagepermanenteM014 restaurée dès aprèscapture : Flash2Mio entièrementbyte-equal àbackup ;bootgen12/configUNAVAILABLE/IRQ49et66/faults0. Diagnostic justifié : HAL SPI_CloseTransfer désactiveSPI entreTransmitaladresse etReceive, CSresteactif ; hypothèsedécalagebit à cettefrontière. Correctif une seuleHAL_SPI_TransmitReceive commande+dummy/data sousunCS ; testsbornage/framing/discardcommand/errorCS et114/114+crossdéfautréussis. Nouvellecapturesurcodechangé nécessaire pour vérifier ;aucunessaireussiinchangérejoué.

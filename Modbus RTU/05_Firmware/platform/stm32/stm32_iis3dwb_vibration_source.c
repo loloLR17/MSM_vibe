@@ -39,20 +39,22 @@ static HAL_StatusTypeDef read_registers(
     uint8_t *data,
     uint16_t length)
 {
-    uint8_t command = (uint8_t)(reg | 0x80U);
+    uint8_t tx[7] = {0U};
+    uint8_t rx[7] = {0U};
     HAL_StatusTypeDef status;
 
     if (source == NULL || source->spi == NULL || source->cs_port == NULL ||
-        data == NULL || length == 0U) {
+        data == NULL || length == 0U || length > 6U) {
         return HAL_ERROR;
     }
-
+    tx[0] = (uint8_t)(reg | 0x80U);
+    /* A single full-duplex transfer keeps command and data in one clocked
+     * transaction. Split TX/RX closes and restarts SPI under asserted CS. */
     HAL_GPIO_WritePin(source->cs_port, source->cs_pin, GPIO_PIN_RESET);
-    status = HAL_SPI_Transmit(source->spi, &command, 1U, IIS3DWB_SPI_TIMEOUT_MS);
-    if (status == HAL_OK) {
-        status = HAL_SPI_Receive(source->spi, data, length, IIS3DWB_SPI_TIMEOUT_MS);
-    }
+    status = HAL_SPI_TransmitReceive(source->spi, tx, rx,
+        (uint16_t)(length + 1U), IIS3DWB_SPI_TIMEOUT_MS);
     HAL_GPIO_WritePin(source->cs_port, source->cs_pin, GPIO_PIN_SET);
+    if (status == HAL_OK) memcpy(data, rx + 1U, length);
     return status;
 }
 

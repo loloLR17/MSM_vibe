@@ -18,6 +18,7 @@ extern CoreDebug_Type test_core_debug;
 void HAL_GPIO_WritePin(GPIO_TypeDef*,uint16_t,GPIO_PinState);
 HAL_StatusTypeDef HAL_SPI_Transmit(SPI_HandleTypeDef*,uint8_t*,uint16_t,uint32_t);
 HAL_StatusTypeDef HAL_SPI_Receive(SPI_HandleTypeDef*,uint8_t*,uint16_t,uint32_t);
+HAL_StatusTypeDef HAL_SPI_TransmitReceive(SPI_HandleTypeDef*,const uint8_t*,uint8_t*,uint16_t,uint32_t);
 void HAL_Delay(uint32_t);
 uint32_t HAL_GetTick(void);
 uint32_t HAL_RCC_GetHCLKFreq(void);

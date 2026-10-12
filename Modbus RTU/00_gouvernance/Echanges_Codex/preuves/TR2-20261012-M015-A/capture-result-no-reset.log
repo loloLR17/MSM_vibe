@@ -1,0 +1,6 @@
+0x080021cc in HAL_Delay (Delay=100) at /home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal.c:419
+419	  while ((HAL_GetTick() - tickstart) < wait)
+$1 = {stage = 10, result = 0, count = 2048, polls = 3281, not_ready = 1229, errors = 0, saturation = 1, restore_result = 0, core_hz = 160000000, spi_kernel_hz = 160000000, spi_hz = 2500000, who_am_i = 123, clock_verified = 1, ctrl1_readback = 168, ctrl3_readback = 68, phase_ctrl5 = {0, 1, 2, 0}, original_controls = {0, 4, 0}, final_controls = {0, 4, 0}, audit_registers = {0 <repeats 13 times>}}
+$2 = 10964
+0xe000ed28:	0x00000000	0x00000000
+[Inferior 1 (Remote target) detached]

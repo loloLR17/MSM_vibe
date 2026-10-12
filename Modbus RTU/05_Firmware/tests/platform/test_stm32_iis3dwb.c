@@ -40,6 +40,15 @@ HAL_StatusTypeDef HAL_SPI_Receive(SPI_HandleTypeDef *spi,uint8_t *data,uint16_t 
     }else {assert(n==1U);data[0]=regs[address];}
     return HAL_OK;
 }
+HAL_StatusTypeDef HAL_SPI_TransmitReceive(SPI_HandleTypeDef *spi,
+    const uint8_t *tx,uint8_t *rx,uint16_t n,uint32_t timeout)
+{
+    assert(n>=2U && n<=7U && (tx[0]&0x80U)!=0U);
+    for(unsigned i=1U;i<n;i++)assert(tx[i]==0U);
+    if(tx_error!=HAL_OK)return tx_error;
+    address=tx[0]&0x7fU;rx[0]=0xaaU; /* command receive byte must be discarded */
+    return HAL_SPI_Receive(spi,rx+1U,(uint16_t)(n-1U),timeout);
+}
 void HAL_Delay(uint32_t ms)
 {
     tick+=ms;test_dwt.CYCCNT+=ms*160000U;

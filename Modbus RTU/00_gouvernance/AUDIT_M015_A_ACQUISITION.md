@@ -21,3 +21,7 @@ DWT CYCCNT vérifié en progression, fréquenceHCLK enregistrée ; begin/end bor
 ## Préservation matérielle
 
 Firmware permanentM014 BIN b462c29a775fec17fccf8036b5612742b1366210359bcd3f192c95435740d611 conservé avecELF etbackupsH. Avantflash : identitéST-LINK/UID, nouveauFlash/RAMdump, comparaison du préfixe permanent. FlashNORMAL 0x08000000 seulement, vérification ; resetGDB aprèsCLI, jamaisHOTPLUG. Restaurer ce BIN exact aprèsdiagnostic et vérifierreadback/bootFRAMgen12, configurationUNAVAILABLE, IRQ etabsencefaute. ContrôleB0/B1 borné si nécessaire pour constaterreprise aprèsflash. Aucun accèsmicroSD, aucuneFRAMwrite/provisioning. Preuvesphysiques à obtenir : aucun succès annoncé sur seules compilations.
+
+## Anomalie réelle traitée
+
+La premièrecapture souslecturesplit montre deuxpopulations environfacteur2 et1saturation, malgréHAL_OK. Elle est conservéeintégralement etnequalifiepascohérence. LectureHALU5 confirmeSPI_CloseTransfer désactiveSPE entreTX/RX sousCSactif. Correctifminimal : commande+data dansuneHAL_SPI_TransmitReceive ; hypothèsedécalagebitàconfirmer surcapturecorrective, sansoscilloscopeaucuneformedeSCKdirectementobservée.
