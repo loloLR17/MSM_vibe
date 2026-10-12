@@ -1,10 +1,16 @@
 # État courant TR2 — référence reconstruite
 
-Mise à jour : 12 octobre 2026. Mission `TR2-20261012-M015-B-FIFO-CADENCE`.
+Mise à jour : 12 octobre 2026. Mission `TR2-20261012-M015-C-FIFO-REGISTER-RELIABILITY`.
 
 **Ce document est un nouvel état de référence reconstruit à partir de preuves vérifiables. Il n'est pas une restitution du journal historique HP.** Sa création a été explicitement autorisée par l'utilisateur pour la mission `T1000-20261010-CLOTURE-001`, après escalade AGENTS.md §18. Aucun original n'a été retrouvé dans l'historique Git, les répertoires Linux locaux ou les documents Windows accessibles. Les archives d'échanges du 8 octobre mentionnent un journal local HP, sans en fournir le contenu. Aucun état historique inconnu n'est inventé.
 
-## État opérationnel actuel — M015-B, 12 octobre2026
+## État opérationnel actuel — M015-C, 12 octobre 2026
+
+- **VALIDÉ logiciel seulement** : audit statique A/B/ST/HAL ; profil isolé de lectures SPI,512transactions maximum, sans écriture capteur ou média ni FIFO/XYZ/UART. Nouveau test ciblé1/1, cross-build défaut/profil réussis ; validations A/B inchangées nonrejouées.
+- **OBSERVÉ / PRÉPARÉ** : GDB seul identifie image permanente M014 et UID attendu, sauvegardeFlash2Mio/RAM768K ; FRAMgen12/IRQ49-66/faults0/configUNAVAILABLE, cible détachée running. Flash temporaire/diagnostic encore non exécutés. M015-C BLOCKED provisoire, M015 globale IN PROGRESS.
+- Archives B exactes depuis cfb9918 ; worktree C isolé, tous worktrees/stashes antérieurs préservés. Preuves `/home/lolo/dev/msm/reports/TR2-mission015-C-20261012T131552Z`.
+
+## État opérationnel antérieur — M015-B, 12 octobre2026
 
 - **BLOCKED FIFO/cadence** : une seule campagne mode3/625kHz, code15c3369446a568ff2dd2d7a13453d6cfaa1cdbf0 ;171statuts/11reculs du niveau avant toute vidange,0x40FE au niveau254 puis0xA100/256, FIFO_CTRL2 relu0x80 après0x81 vérifié. Cause inconnue, HALerrors0 ne prouve pas intégrité. Garde refuse avant vidange :0XYZ accepté ; contrôle négatif non atteint. Pas nouvelle variante/essai, ni supposition d'immobilité du voilier.
 - **VALIDÉ logiciel seulement** : prototypeFIFO256/stopwatermark, tags/parité/niveaux/overrun/temps/restauration ; testhôte1/1 et cross-build défaut/profil réussis. Cœur/driver inchangés,114firmware/539.NET nonrejoués. PasDMA/production/stockage/B5/FFT ; portée réduite du contratB prévaut sur propositionhistoriqueA.

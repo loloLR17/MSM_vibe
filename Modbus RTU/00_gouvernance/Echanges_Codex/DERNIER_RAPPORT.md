@@ -1,11 +1,11 @@
 ---
-mission_id: TR2-20261012-M015-B-FIFO-CADENCE
+mission_id: TR2-20261012-M015-C-FIFO-REGISTER-RELIABILITY
 status: BLOCKED
 base_ref: main
-base_sha: eab07d49a5f3b86506a97877d0fccf2188fb0a7a
-initial_head: 8a51d96dbfc25d2396069210e3cc2b5c45935086
-result_sha: 15c3369446a568ff2dd2d7a13453d6cfaa1cdbf0
-created_at_utc: 2026-10-12T10:16:04.160618+00:00
+base_sha: cfb9918dfe8e5ac3148d6ceaa79e50acda6ac53f
+initial_head: 834f35e1759b3dd9ac1d42902f1c33cfad63f1c4
+result_sha: null
+created_at_utc: 2026-10-12T13:20:30.315264+00:00
 author: Codex
 target_branch: main
 allow_commit: true
@@ -14,91 +14,12 @@ allow_flash: true
 allow_debug: true
 ---
 
-# M015-B — FIFO préparée, preuve physique bloquée
+# M015-C — Tranche logicielle publiée, diagnostic cible en préparation
 
-**BLOCKED pour la qualification FIFO/cadence : les statuts observés sont incohérents et aucun XYZ n'a été accepté.** L'audit, le prototype, les tests ciblés et l'unique campagne autorisée sont réalisés. La limite de périmètre est respectée : aucune variante SPI supplémentaire, DMA, acquisition continue, stockage, B5, FFT ou Modbus vibration. M015 globale reste IN PROGRESS ; les acquis bornés M015-A ne sont pas rejoués.
+Audit statique et tableau hypothèses/discriminants dans `../AUDIT_M015_C_SPI_FIFO.md`. Archives B mission/rapport copiées exactement depuis cfb9918 sans écrasement ; mission C active inchangée. Worktree isolé MSM_vibe-M015-C/codex/m015-c ; originalmain82169af divergé préservé, aucun pull/rebase/merge/reset, deux stashes intacts.
 
-**Le firmware permanent M014 est restauré exactement et répond à B0/B1.** Aucun diagnostic ne reste en Flash. Aucun geste physique ou validation intermédiaire n'a été demandé.
+Probe lectureseule512transactions bornées, RX bruts/CS/temps/SR/CFG/HAL enregistrés ; aucune écriture capteur, FRAM ou SD, aucun FIFO/XYZ/UART démarré. Production et driver inchangés. Test ciblé neuf1/1, cross-build défaut et dédié réussis, warningsNewlib conservés. Commandes et sorties effectives dans **/home/lolo/dev/msm/reports/TR2-mission015-C-20261012T131552Z** (`validation-0..4.log`, `default-cross.log`, `register-symbols.txt`). Justification : harness isolé seulement ; pas répétition des tests A/B/.NET.
 
-## Tranches et résultats
+Sauvegarde GDB seule effectuée :UID004A003D3842501820333157, permanentBIN SHA b462c29a775fec17fccf8036b5612742b1366210359bcd3f192c95435740d611 vérifié contre Flash, backupFlash2Mio/RAM768K. Bootproductionstage2/result0/FRAMgen12/configUNAVAILABLE, IRQ49/66/faults0, détaché running. Aucun flash C à ce stade. Permissions commit/push/debug exercées ; flash autorisé mais pas encore exercé.
 
-| Tranche | Résultat |
-|---|---|
-| Reprise | Worktree isolé depuis8a51d96, archives mission/rapport M015-A exactes depuiseab07d4 ; anciens worktrees/stashes préservés |
-| Audit ciblé | AN5444/driver officiel ST : modes, watermark, format7octets, tags/parité, ordreBDU et overrun ; budget de bus insuffisant pour un flux continu |
-| Prototype | Profil FIFO isolé OFF par défaut, mode3/625kHz fixe,256XYZ au watermark ; statuts bruts, tags et garde de pertes ; restauration7registres |
-| Validation | Nouveau test hôte1/1 et cross-build défaut/profil FIFO réussis ; anciens114firmware et539.NET non rejoués |
-| Cible | Un flash diagnostic/un trigger ;171polls,11reculs de niveau, flag overrun brut et readback divergent ; refus avant vidange,0XYZ |
-| Reprise M014 | Flash2Mio identique au backup initial ; bootgen12 sain ; deuxFC03 B0/B1, deuxréponses, retour0/sansretry |
-
-La configuration prévue est FIFO mode1, STOP_ON_WTM=1, watermark256, BDR_XL=0xA/26667Hz, température/timestamps sensor en FIFO désactivés. Un mode continu32ms devait ensuite vérifier la détection d'overrun et le rejet des mots écrasés. **Ce contrôle négatif n'a pas été atteint**, la séquence nominale étant refusée avant la lecture de données.
-
-À625kHz, un mot avec commande nécessite8octets : plafond9765,6mots/s avant HAL/statuts, inférieur à26667. Le mode FIFO arrêté permettrait une capture finie puis une vidange lente ; il ne résout pas le débit continu. BuffersRAM bornés22716octets. Le driver production et le cœur restent inchangés ; configuration/WHO existants réutilisés, I/O FIFO dans le seul harness. Refus d'une FIFO préexistante/autorité active, pas de média ou UART démarré.
-
-Sources : [ST AN5444 Rev3, §6](https://www.st.com/resource/en/application_note/an5444-iis3dwb-ultrawide-bandwidth-lownoise-3axis-digital-vibration-sensor-stmicroelectronics.pdf) et [driver ST](https://github.com/STMicroelectronics/iis3dwb-pid), consultés12/10. Nouvel accès datasheet DS12569 expiré ; sa configuration SPI acquise enA est reprise, règles FIFO établies par AN5444/sourceST, aucun contenu non lu inventé. Audit et critères quantitatifs dans `AUDIT_M015_B_FIFO.md`. Aucun test de norme1g ou d'immobilité : les mouvements du voilier ne sont pas un motif de rejet.
-
-## Verrou physique et limites
-
-Code réellement évalué **15c3369446a568ff2dd2d7a13453d6cfaa1cdbf0**, BIN36532octets SHA **09a6ded74b4a254792c7ab9f1c5a38352166bfafb09537e710760e4cb19ad4fb**, ELF SHA **8d0f06e24147414e970dcef30dd3f24a6350e01bc1f557b6596bb639476217b8**. Flash vérifié et relu identique. MCU : WHO0x7B, SPI3 mode3/prescaler256,625kHz,HCLK160MHz, CFG1=0x70070067/CFG2=0x87400000, fautes0.
-
-| Observation brute | Portée |
-|---|---|
-|171statuts FIFO avant toute vidange | Tous conservés dansCSV, avec bornesDWT |
-|11reculs du niveau, notamment127→0 | Incompatible avec le remplissage attendu sans consommateur ; cause inconnue |
-|Poll169 :0x40FE, niveau254 | BitOVR_IA observé ; dans des statuts incohérents, ne prouve pas seul un écrasement physique |
-|Poll170 :0xA100, niveau256 | Watermark/full observés, mais fiabilité insuffisante pour qualifier la séquence |
-|FIFO_CTRL2 demandé/vérifié0x81, puis relu0x80 | Readback ultérieur divergent ; transport/configuration à établir |
-|bus_errors=0 | HAL_OK ne garantit pas l'intégrité des octets retournés |
-|result=INVALID_STATE,count=0 | Refus conservateur avant vidange ; aucune donnée XYZ ni faux échantillon publié |
-
-loss_flags=0x21 :0x01 correspond à l'overrun observé ;0x20 est ajouté par le garde global quand une perte existe. Ce dernier bit ne prouve pas un mauvais niveau final : celui-ci vaut256. Aucun correctif ne masque l'erreur ou modifie artificiellement les attendus.
-
-La cause précise n'est pas isolée. Les lectures SPI/framing/longueurs, l'ordreBDU ou le comportement capteur restent à distinguer ; aucune de ces hypothèses n'est déclarée cause certaine. Le tag modulo4 ne pourrait pas détecter seul des pertes multiples de4, et son observation physique n'a pas été atteinte. Ni consécutivité, ni absence de perte, ni cadence fiable ne sont démontrées.
-
-Les bornes d'activation/transition watermark donnent une **estimation non qualifiée26244..26864Hz**, dépendante de statuts incohérents. DWT date les lectures MCU, pas les conversions capteur ni l'UTC. Cette estimation n'est pas une validation de l'ODR. La série de256XYZ et le contrôle négatif restent seulement testés sur hôte.
-
-Conformément à la mission courte, aucune deuxième campagne ou nouvelle variante de vitesse/mode n'est lancée. La prochaine mission doit d'abord établir la fiabilité des lectures des registres FIFO avant de reprendre une qualification de séquence.
-
-## Préservation, flash et contrôle M014
-
-Avant flash : ST-LINK003500463235510B37333439/NUCLEO-U575ZI-Q/STM32U575-U5850x482RevU/3,29V, UID96 **004A003D3842501820333157** ; BIN/ELF permanents rehashés, préfixeFlash reconnu ; backups Flash2Mio etRAM768K conservés. Flash standard NORMAL `-c port=SWD sn=<SN> freq=8000 -w <BIN> 0x08000000 -v -rst`, secteurs0..4 pour diagnostic et0..17 pour restauration. Deux flashs seulement, chacun suivi de relectureGDB/reset qualifié aprèsCLI ; aucun HOTPLUG/mass erase/Option Bytes/RDP. Un triggerRAM4D313542 ; debugger détaché pendant capture.
-
-Résultats/RAM conservés avant restauration. Les sept registres du capteur sont relus restaurés :0/0/0/0/0/4/0, restore_result=0, avec la réserve générale de fiabilité des lectures FIFO. Les **2Mio de Flash sont entièrement identiques octet par octet au backup initial**, SHA **556fedf58a88f7de0ad63826af6b4941de8bb72dcd6e97a886c1017da5ba93f0**.
-
-Firmware actuellement laissé en exécution : production M014-H/source **0b2a901e185c9cbf8c02410bf2a29a0a3a75491e**, BIN143108octets SHA **b462c29a775fec17fccf8036b5612742b1366210359bcd3f192c95435740d611**, ELF SHA **c37ad8370fbfe3da35c0e5c16d7239d18e7d0ad102f33db79a67a029ecfca8de**. Pas nouvelle acquisition activée en production.
-
-Profil isolé sans symboles d'accès FRAM/SD ou démarrage UART. Aucune écriture/provisioning FRAM, lecture/allocation/écriture microSD ; partition LBA65536 préservée par absence d'accès. Boot permanent : FRAMV2/génération12/identité1, configuration UNAVAILABLE/READY0/stockage0, pas campagne B5. Les sauvegardes et acquis M014/A restent conservés.
-
-Contrôle de reprise seulement : paquet HP H existant,371fichiers hashés, nouveau nom `physical-m015-b-restored`, modeSteady limité à2FC03/sansretry. Garde fraîcheur0..30s avec calibrationSSH de l'heureHP ; baselineGDB sansreset, serveurs fermés avant trafic. Wrapper scope/syntaxe vérifiés sans port. Pas rebuild.NET, installation ou changementPC/SSH/horloge.
-
-HP12/10/2026 à10:06:21..22UTC, COM7/1152008E1/unité1 : B0/21 puisB1/20, deuxréponses/retour0/connexionfermée. B0 intégral conforme à l'identité persistée, B1 uptime215s/status1/flags0/stockage0/acquisition0. Journal complet récupéré parSCP, hash comparé au distant **8B31E409B02580B5D109D281C506D69B9F470C56A7C9B5812A4BDBF14831278F**, septévénements publiés/analyse complète, pas conclusion du seulSHA. GDB après sansreset : stage2/result0/pollerrors0,gen12/configUNAVAILABLE, UARTerror0/TXidle/filehead=tail20/IRQ49&66/CFSR-HFSR0 ; détaché enexécution/serveurterminé. Pas répétition du polling/perte M014, aucune autre émission HP.
-
-## Validation, publication et suite
-
-Commandes réellement réussies : CMake host puis build du seul `test_stm32_iis3dwb_fifo`, `ctest -R '^stm32_iis3dwb_fifo$'` **1/1** ; depuisracine `STM32CUBE_U5_ROOT=/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0 bash ./tr2_validate.sh --cross-build-only` ; profilDebug dédié avec toolchainprojet et `-DTR2_STM32_FIFO_CAPTURE=ON`. WarningsNewlib/nosys conservés, aucuneerreurbuild/test. Choixproportionné : nouveauharness isolé, cœur/driver inchangés ;114firmware/539.NET historiques nonrejoués.
-
-Le test hôte vérifie capture256, framing8octets/tag, niveau/parité/gaps, overrun/rejet, timeout et restauration, refusFIFOpréexistante. Il ne simule pas la cause des incohérences physiques et ne remplace pas la preuve cible. Replay offline `python3 'Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261012-M015-B/verify_fifo.py'` réussi :171polls/11reculs/hashbrut et rejet reproduits, contrôleHP passé. Aucun XYZ synthétique.
-
-Code et archives publiés au15c3369 puis relus intégralement depuisGitHub,11livrables byte-identiques. La présente publication ajoute CSV/analyses/manifest/statuts/résultats/rapport et modifications minimales du wrapper de reprise. Journal actualisé pour verrouFIFO/restauration/suite ; roadmap conserve M015 IN PROGRESS et M015-B BLOCKED. La mission active reste inchangée. Permissions exercées : commit/pushnormaux surmain, flash/debugstandard et2lecturesB0/B1 prévues. Aucun geste physique ou configurationpermanente.
-
-Dépôtinitial82169af, worktreeH762c459, worktreeAeab07d4 etdeuxstashes historiques préservés ; worktreeB isolé `codex/m015-b`, destinationexplicitement main. Aucun merge/rebase/reset destructif/force push. Diff et index inspectés avant la publication 8c39ff1 ; relecture distante intégrale réussie (30 livrables). BLOCKED restera pour la preuveFIFO manquante, même après publication.
-
-Preuves publiques : `preuves/TR2-20261012-M015-B/`. Preuvescomplèteslocales : **/home/lolo/dev/msm/reports/TR2-mission015-B-20261012T095010Z**, avec BIN/ELF/backups/commandes/CLI/GDB/logsvalidation/sourceST. Les dumpsmémoire etbinairesfirmware ne sont pas publiés.
-
-**Suite à transmettre à ChatGPT** : contrat ciblé de fiabilité des registres FIFO (readbacks stables, ordreBDU/framing/longueurs ; observation SCK/MOSI/MISO si nécessaire), avant toute nouvelle capture. Aucun besoin de DMA ou stockage pour résoudre ce verrou ; aucune hypothèse d'immobilité. M015-A garde sa portée, M015globale n'est pas clôturée.
-
-## Complément de reprise — analyse hors ligne, 12 octobre 2026
-
-Les 171 relevés originaux restent inchangés. Les 11 reculs comptent des transitions descendantes ; ils ne comptent ni les échantillons perdus ni toutes les lectures suspectes. Le premier recul est 127→0 (indice 82), avant toute lecture de données FIFO. Un modèle exploratoire ajusté uniquement sur les indices 0..81 (médiane des pentes entre points espacés d’au moins 20 relevés, puis médiane des intercepts, temps de fin de transaction et horloge nominale 160 MHz) donne environ 26,62 kHz. **Ce résultat ne qualifie pas la cadence** : les lectures initiales ne disposent pas d’une validation indépendante et les timestamps encadrent des transactions, pas des conversions.
-
-Avec un seuil exploratoire de trois unités, 17 lectures s’écartent du modèle, toutes après l’indice 81. Plusieurs valeurs sont compatibles avec un décalage du byte de niveau vers la gauche modulo 256 (par exemple niveau hypothétique 128→0, 130→4, 159→62) ou la perte du bit 7 (134→6, 158→30). D’autres ne suivent pas ces transformations. Les candidats utilisent une tolérance arbitraire de deux unités autour du modèle : **hypothèse de fiabilité de lecture à examiner, pas cause démontrée ni correction des données**. Calculs, méthode et résidus : `preuves/TR2-20261012-M015-B/fifo-offline-patterns.json`.
-
-Un simple décalage entre lecture des octets bas/haut au passage 255→256 n’explique pas à lui seul le premier recul 127→0 ni les reculs précédant ce passage. La cohérence BDU/ordre des lectures reste néanmoins à établir. Le mouvement du bateau ne suffit pas à expliquer un compteur d’occupation descendant sans consommateur ; aucune immobilité n’est supposée.
-
-L’overrun est un **bit observé** dans le statut 0x40FE à l’indice 169, suivi de 0xA100/256. Comme la chaîne de lecture des statuts est incohérente, ce bit ne permet pas de conclure à un écrasement physique ni d’en compter les pertes. Le garde a correctement refusé la capture ; aucun XYZ accepté, aucune vidange nominale ni contrôle négatif exécuté.
-
-Inspection statique du HAL STM32U5 local : la branche 8 bits traite RXDR via RXP, RXWNE et RXPLVL, puis ferme le transfert et contrôle les flags matériels. Aucun défaut HAL n’est démontré sans trace des flags/du bus. HAL_OK ne fournit pas de somme de contrôle du contenu reçu. Le framing logiciel commande+octets, les buffers bornés et le masque du niveau ne présentent pas d’erreur évidente à la lecture ; cela ne valide pas le bus physique.
-
-**Prochain contrat recommandé** : établir des readbacks fiables des registres de configuration et de statut, examiner framing/longueur/ordre et flags RX du SPI ; prévoir une observation SCK/MOSI/MISO si les preuves logicielles ne suffisent pas. Ne reprendre une qualification FIFO/cadence qu’après résolution de ce verrou. Pas de DMA, stockage ou modification du firmware permanent requis à ce stade.
-
-Reprise strictement hors ligne : aucun nouveau test hôte, cross-build, essai HP, accès cible, flash ou reset. Les validations déjà réussies et la restauration M014 sont conservées. Le rapport et les résultats préparés ont été publiés au **8c39ff1ac6cd8bf39f5fd761bd269d21568c213c**, puis les 30 livrables relus intégralement depuis origin/main et comparés octet par octet ; preuve `publication-readback-8c39ff1.json`. Le complément documentaire est publié par push normal et son SHA final/relecture sont consignés dans le compte rendu de publication et les preuves locales, sans prétendre connaître ici le hash du commit qui contient ce texte. **M015-B reste BLOCKED pour la qualification physique**, publication achevée ne valant pas qualification.
+BLOCKED provisoire en attente de l’unique diagnostic cible et de relecture distante. Pas de fiabilité ni cause précise déclarée. Firmware permanent M014 en place ; aucune requalification M014/A/B. Publication de cette tranche validée avant poursuite ; rapport complété après acquisition/restauration.
