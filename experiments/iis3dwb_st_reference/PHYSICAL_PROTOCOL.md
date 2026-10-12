@@ -1,3 +1,25 @@
+## Mise à jour M015-M — seconde NUCLEO seulement
+
+La chaîne seconde cible est qualifiée dans M015-L : SN `0032001F3235510C37333439`,
+UID `001B00463842501820333157`. WHO7B et polling64 sont acquis ; ne pas les
+rejouer sur code inchangé. Le contrat M015-M rend son firmware Flash jetable :
+**aucune sauvegarde Flash2MiB ni restauration initiale répétée**. Les instructions
+historiques K ci-dessous sont remplacées sur ce point, exclusivement pour ce banc.
+Identité avant chaque flash, image/hash, programmation normale 08000000/verify,
+readback et état final restent obligatoires. TR2 principal strictement exclu.
+
+Le pilote et les exemples IIS3DWB ST ainsi que le SDK original restent inchangés.
+`tools/instrument_hal.py` produit une copie HAL SPI dans le build, sur SHA original
+pinné, avec un seul appel observateur à l'entrée CloseTransfer, hors boucle RX.
+Les états SR/compteurs/offsets sont ainsi préservés avant nettoyage HAL.
+Une lecture n'est acceptée que complète (taille, offset, restant, CS et erreurs),
+en plus des contrôles HAL existants. 2048 snapshots maximum ; dépassement refusé.
+`BENCH_SPI_OPT=0` reproduit Debug ; `=2` (défaut) optimise **seulement** ce module.
+CPU16MHz, SPI mode0/2MHz, délais20ms et séquence capteur sont identiques.
+Deux essais FIFO STATUS10 au maximum : diagnostic O0 puis candidat O2 seulement
+si le premier refus est celui attendu. Arrêt sur anomalie nouvelle, aucune
+qualification V1 ou perte globale déduite d'un succès borné.
+
 # Protocole préparé — aucune exécution M015-K à ce stade
 
 Statut **READY_FOR_PHYSICAL**, pas GO matériel. Le contrat diffère le matériel

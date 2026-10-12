@@ -1,0 +1,30 @@
+{
+  "0": {
+    "iis3dwb_reference.bin": {
+      "sha256": "a88be10a08bad22230487648d6737e53baf9269a65bd2c324c8361e52db24bd7",
+      "bytes": 32444
+    },
+    "iis3dwb_reference.map": {
+      "sha256": "004ea693b36c2735234ac6fbcd4f53e46b381e8484cce676a858b2025435f668",
+      "bytes": 208689
+    },
+    "iis3dwb_reference.elf": {
+      "sha256": "c8f651c3a26944ae7d257ead0770c7dcda1e97293da7d22dc0c846c0163936ad",
+      "bytes": 305788
+    }
+  },
+  "2": {
+    "iis3dwb_reference.bin": {
+      "sha256": "98ec786c70a8fe104eb4dc6a8f5773ae525554f5a7d4b61f408beac7d90ef40a",
+      "bytes": 30852
+    },
+    "iis3dwb_reference.map": {
+      "sha256": "09e700fb2df1cfd244087035972f63f379428570651453cc8cdeda1de9bcb018",
+      "bytes": 208455
+    },
+    "iis3dwb_reference.elf": {
+      "sha256": "fb0f3cab26aa1f4655e79f35a6afbc2fe10b8b02f91c70b2b0fb3beaa68cbfc7",
+      "bytes": 315428
+    }
+  }
+}

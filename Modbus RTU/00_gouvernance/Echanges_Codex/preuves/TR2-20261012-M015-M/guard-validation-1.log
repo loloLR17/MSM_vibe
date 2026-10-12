@@ -1,0 +1,38 @@
+Internal ctest changing into directory: /home/lolo/dev/msm/reports/TR2-mission015-M-20261012T204419Z/host
+UpdateCTestConfiguration  from :/home/lolo/dev/msm/reports/TR2-mission015-M-20261012T204419Z/host/DartConfiguration.tcl
+UpdateCTestConfiguration  from :/home/lolo/dev/msm/reports/TR2-mission015-M-20261012T204419Z/host/DartConfiguration.tcl
+Test project /home/lolo/dev/msm/reports/TR2-mission015-M-20261012T204419Z/host
+Constructing a list of tests
+Done constructing a list of tests
+Updating test list for fixtures
+Added 0 tests to meet fixture requirements
+Checking test dependency graph...
+Checking test dependency graph end
+test 1
+    Start 1: spi_preclose_diagnostic
+
+1: Test command: /home/lolo/dev/msm/reports/TR2-mission015-M-20261012T204419Z/host/test_spi_diagnostic
+1: Working Directory: /home/lolo/dev/msm/reports/TR2-mission015-M-20261012T204419Z/host
+1: Test timeout computed to be: 10000000
+1: 14 diagnostic bounds and pre-cleanup preservation scenarios passed
+1/2 Test #1: spi_preclose_diagnostic ..........   Passed    0.00 sec
+test 3
+    Start 3: spi_hal_instrumentation
+
+3: Test command: /usr/bin/python3 "-B" "/home/lolo/dev/msm/projects/MSM_vibe-M015-M/experiments/iis3dwb_st_reference/tests/test_hal_instrumentation.py"
+3: Working Directory: /home/lolo/dev/msm/reports/TR2-mission015-M-20261012T204419Z/host
+3: Test timeout computed to be: 10000000
+3: ..
+3: ----------------------------------------------------------------------
+3: Ran 2 tests in 0.000s
+3:
+3: OK
+2/2 Test #3: spi_hal_instrumentation ..........   Passed    0.04 sec
+
+The following tests passed:
+	spi_preclose_diagnostic
+	spi_hal_instrumentation
+
+100% tests passed, 0 tests failed out of 2
+
+Total Test time (real) =   0.05 sec

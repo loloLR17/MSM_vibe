@@ -2,6 +2,7 @@
 #define ST_REFERENCE_PLATFORM_H
 #include "bench.h"
 #include "stm32u5xx_hal.h"
+#include "spi_diagnostic.h"
 #define TRACE_RECORDS 1024U
 #define TRACE_BYTES 65536U
 typedef struct {

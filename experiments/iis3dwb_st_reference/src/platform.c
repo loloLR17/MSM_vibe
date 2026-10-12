@@ -5,20 +5,46 @@ BenchTrace bench_trace[TRACE_RECORDS];
 uint8_t bench_payload[TRACE_BYTES];
 volatile uint32_t bench_trace_count,bench_payload_count,bench_stop;
 volatile uint32_t bench_command,bench_ready,bench_uid[3],bench_core_hz;
+BenchPreclose bench_preclose[PRECLOSE_RECORDS];
+volatile uint32_t bench_preclose_count,bench_preclose_overflow;
+static uint32_t active_trace,active_phase,active_begin,active_length;
+static uintptr_t active_data;
+/* Passive snapshot at HAL close entry; no hook inside the RX service loop. */
+void bench_spi_preclose(SPI_HandleTypeDef *handle)
+{
+  if(handle!=&spi)return;
+  if(bench_preclose_count>=PRECLOSE_RECORDS){bench_preclose_overflow=1;return;}
+  BenchPreclose *r=&bench_preclose[bench_preclose_count++];
+  r->sr=handle->Instance->SR;r->end_cycles=DWT->CYCCNT;
+  r->rx_size=handle->RxXferSize;r->rx_remaining=handle->RxXferCount;
+  r->tx_remaining=handle->TxXferCount;r->error_before_close=handle->ErrorCode;
+  r->trace_index=active_trace;r->phase=active_phase;r->begin_cycles=active_begin;
+  r->tick=HAL_GetTick();r->requested=active_length;r->state=handle->State;
+  r->cr1=handle->Instance->CR1;r->cr2=handle->Instance->CR2;
+  r->cfg1=handle->Instance->CFG1;r->cfg2=handle->Instance->CFG2;
+  r->rx_offset=bench_rx_offset(active_data,(uintptr_t)handle->pRxBuffPtr,
+                              active_length,&r->offset_valid);
+  r->cs=(GPIOC->ODR&GPIO_PIN_9)?1:0;
+}
 static uint32_t stop(void){return bench_stop;}
 static int32_t transfer(void *handle,uint8_t reg,uint8_t *data,uint16_t len,unsigned write)
 {
   if(handle!=&spi || !data || !len || len>896 || reg>0x7F ||
      bench_trace_count>=TRACE_RECORDS || bench_payload_count+len>TRACE_BYTES)
     return -1;
+  if(bench_preclose_overflow)return -1;
   BenchTrace *t=&bench_trace[bench_trace_count++];
   t->tick=HAL_GetTick();t->reg=reg;t->len=len;t->write=write;
   t->offset=bench_payload_count;bench_payload_count+=len;
   uint8_t command=write?reg:(uint8_t)(reg|0x80);
   /* ST callbacks: command TX then payload TX/RX, CS low across both calls. */
   HAL_GPIO_WritePin(GPIOC,GPIO_PIN_9,GPIO_PIN_RESET);
+  active_trace=bench_trace_count-1;active_phase=1;active_length=1;
+  active_data=(uintptr_t)&command;active_begin=DWT->CYCCNT;
   HAL_StatusTypeDef s=HAL_SPI_Transmit(&spi,&command,1,20);
   if(s==HAL_OK) {
+    active_phase=write?3:2;active_length=len;active_data=(uintptr_t)data;
+    active_begin=DWT->CYCCNT;
     if(write)s=HAL_SPI_Transmit(&spi,data,len,20);
     else {memset(data,0,len);s=HAL_SPI_Receive(&spi,data,len,20);}
   }
@@ -26,7 +52,11 @@ static int32_t transfer(void *handle,uint8_t reg,uint8_t *data,uint16_t len,unsi
   t->status=s;t->error=HAL_SPI_GetError(&spi);
   t->rx_left=spi.RxXferCount;t->tx_left=spi.TxXferCount;
   memcpy(bench_payload+t->offset,data,len);
-  t->valid=s==HAL_OK && !t->error && !t->rx_left && !t->tx_left;
+  t->valid=s==HAL_OK && !t->error && !t->rx_left && !t->tx_left && !bench_preclose_overflow;
+  if(!write) {
+    const BenchPreclose *r=bench_preclose_count?&bench_preclose[bench_preclose_count-1]:0;
+    t->valid=t->valid && bench_rx_complete(r,active_trace,len) && !(r->sr&SPI_SR_OVR);
+  }
   return t->valid?0:-1;
 }
 int32_t platform_read(void *h,uint8_t r,uint8_t *d,uint16_t n){return transfer(h,r,d,n,0);}
@@ -72,6 +102,9 @@ int platform_init(stmdev_ctx_t *ctx,BenchClock *clock)
   spi.Init.ReadyMasterManagement=SPI_RDY_MASTER_MANAGEMENT_INTERNALLY;
   spi.Init.ReadyPolarity=SPI_RDY_POLARITY_HIGH;
   if(HAL_SPI_Init(&spi)!=HAL_OK)return -1;
+  CoreDebug->DEMCR|=CoreDebug_DEMCR_TRCENA_Msk;
+  if(DWT->CTRL&DWT_CTRL_NOCYCCNT_Msk)return -1;
+  DWT->CYCCNT=0;DWT->CTRL|=DWT_CTRL_CYCCNTENA_Msk;
   *ctx=(stmdev_ctx_t){.write_reg=platform_write,.read_reg=platform_read,
     .mdelay=HAL_Delay,.handle=&spi};
   *clock=(BenchClock){HAL_GetTick,HAL_Delay,stop};

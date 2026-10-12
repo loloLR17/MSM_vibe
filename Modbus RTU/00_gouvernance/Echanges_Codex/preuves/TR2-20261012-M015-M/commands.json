@@ -1,0 +1,96 @@
+[
+  {
+    "name": "host-configure",
+    "command": [
+      "cmake",
+      "-S",
+      "/home/lolo/dev/msm/projects/MSM_vibe-M015-M/experiments/iis3dwb_st_reference",
+      "-B",
+      "/home/lolo/dev/msm/reports/TR2-mission015-M-20261012T204419Z/host",
+      "-G",
+      "Ninja",
+      "-DBENCH_HOST_TESTS=ON",
+      "-DCMAKE_BUILD_TYPE=Debug"
+    ],
+    "exit": 0
+  },
+  {
+    "name": "host-diagnostic-build",
+    "command": [
+      "cmake",
+      "--build",
+      "/home/lolo/dev/msm/reports/TR2-mission015-M-20261012T204419Z/host",
+      "--target",
+      "test_spi_diagnostic"
+    ],
+    "exit": 0
+  },
+  {
+    "name": "host-new-diagnostics",
+    "command": [
+      "ctest",
+      "--test-dir",
+      "/home/lolo/dev/msm/reports/TR2-mission015-M-20261012T204419Z/host",
+      "-R",
+      "spi_preclose_diagnostic|spi_hal_instrumentation",
+      "-V"
+    ],
+    "exit": 0
+  },
+  {
+    "name": "O0-configure",
+    "command": [
+      "cmake",
+      "-S",
+      "/home/lolo/dev/msm/projects/MSM_vibe-M015-M/experiments/iis3dwb_st_reference",
+      "-B",
+      "/home/lolo/dev/msm/reports/TR2-mission015-M-20261012T204419Z/fifo-O0",
+      "-G",
+      "Ninja",
+      "-DCMAKE_TOOLCHAIN_FILE=cmake/arm-none-eabi-gcc.cmake",
+      "-DSTM32CUBE_U5_ROOT=/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0",
+      "-DCMAKE_BUILD_TYPE=Debug",
+      "-DBENCH_EXAMPLE=fifo",
+      "-DBENCH_PROFILE=STATUS10",
+      "-DBENCH_SPI_OPT=0"
+    ],
+    "exit": 0
+  },
+  {
+    "name": "O0-build",
+    "command": [
+      "cmake",
+      "--build",
+      "/home/lolo/dev/msm/reports/TR2-mission015-M-20261012T204419Z/fifo-O0"
+    ],
+    "exit": 0
+  },
+  {
+    "name": "O2-configure",
+    "command": [
+      "cmake",
+      "-S",
+      "/home/lolo/dev/msm/projects/MSM_vibe-M015-M/experiments/iis3dwb_st_reference",
+      "-B",
+      "/home/lolo/dev/msm/reports/TR2-mission015-M-20261012T204419Z/fifo-O2",
+      "-G",
+      "Ninja",
+      "-DCMAKE_TOOLCHAIN_FILE=cmake/arm-none-eabi-gcc.cmake",
+      "-DSTM32CUBE_U5_ROOT=/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0",
+      "-DCMAKE_BUILD_TYPE=Debug",
+      "-DBENCH_EXAMPLE=fifo",
+      "-DBENCH_PROFILE=STATUS10",
+      "-DBENCH_SPI_OPT=2"
+    ],
+    "exit": 0
+  },
+  {
+    "name": "O2-build",
+    "command": [
+      "cmake",
+      "--build",
+      "/home/lolo/dev/msm/reports/TR2-mission015-M-20261012T204419Z/fifo-O2"
+    ],
+    "exit": 0
+  }
+]

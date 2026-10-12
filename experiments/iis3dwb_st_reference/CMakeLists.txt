@@ -4,6 +4,10 @@ set(CMAKE_C_STANDARD 11)
 set(CMAKE_C_STANDARD_REQUIRED ON)
 set(CMAKE_C_EXTENSIONS OFF)
 option(BENCH_HOST_TESTS "Build only offline mock tests" OFF)
+set(BENCH_SPI_OPT "2" CACHE STRING "HAL SPI only: 0 diagnostic baseline or 2 corrected service")
+if(NOT BENCH_SPI_OPT MATCHES "^(0|2)$")
+  message(FATAL_ERROR "BENCH_SPI_OPT must be 0 or 2")
+endif()
 set(BENCH_EXAMPLE "polling" CACHE STRING "who, polling or fifo")
 set(BENCH_PROFILE "ST_STRICT" CACHE STRING "ST_STRICT or STATUS10")
 if(NOT BENCH_EXAMPLE MATCHES "^(who|polling|fifo)$" OR
@@ -21,11 +25,17 @@ if(BENCH_HOST_TESTS)
     message(FATAL_ERROR "Host tests require a native compiler")
   endif()
   enable_testing()
+  add_executable(test_spi_diagnostic tests/test_spi_diagnostic.c src/spi_diagnostic.c)
+  target_include_directories(test_spi_diagnostic PRIVATE src)
+  target_compile_options(test_spi_diagnostic PRIVATE -Wall -Wextra -Werror -UNDEBUG)
+  add_test(NAME spi_preclose_diagnostic COMMAND test_spi_diagnostic)
   add_executable(test_reference tests/test_reference.c)
   target_link_libraries(test_reference PRIVATE bench)
   target_compile_options(test_reference PRIVATE -Wall -Wextra -Werror -UNDEBUG)
   add_test(NAME official_driver_and_bounded_examples COMMAND test_reference)
   find_package(Python3 REQUIRED COMPONENTS Interpreter)
+  add_test(NAME spi_hal_instrumentation COMMAND ${Python3_EXECUTABLE}
+    -B ${CMAKE_CURRENT_SOURCE_DIR}/tests/test_hal_instrumentation.py)
   add_test(NAME offline_capture_and_target_guards COMMAND ${Python3_EXECUTABLE}
     -B ${CMAKE_CURRENT_SOURCE_DIR}/tests/test_tools.py)
   return()
@@ -44,7 +54,18 @@ foreach(module hal hal_cortex hal_dma hal_flash hal_flash_ex hal_gpio hal_pwr ha
   endif()
   list(APPEND HAL_SOURCES ${source})
 endforeach()
-add_executable(iis3dwb_reference src/main.c src/platform.c ${HAL_SOURCES}
+find_package(Python3 REQUIRED COMPONENTS Interpreter)
+set(SPI_ORIGINAL ${HAL}/Src/stm32u5xx_hal_spi.c)
+set(SPI_OBSERVED ${CMAKE_CURRENT_BINARY_DIR}/generated/stm32u5xx_hal_spi_observed.c)
+execute_process(COMMAND ${Python3_EXECUTABLE} -B
+  ${CMAKE_CURRENT_SOURCE_DIR}/tools/instrument_hal.py ${SPI_ORIGINAL} ${SPI_OBSERVED}
+  RESULT_VARIABLE instrumentation_result)
+if(NOT instrumentation_result EQUAL 0)
+  message(FATAL_ERROR "HAL source fingerprint/instrumentation refused")
+endif()
+list(REMOVE_ITEM HAL_SOURCES ${SPI_ORIGINAL})
+set_source_files_properties(${SPI_OBSERVED} PROPERTIES COMPILE_OPTIONS "-O${BENCH_SPI_OPT}")
+add_executable(iis3dwb_reference src/main.c src/platform.c src/spi_diagnostic.c ${SPI_OBSERVED} ${HAL_SOURCES}
   ${DEV}/Source/Templates/gcc/startup_stm32u575xx.s
   ${DEV}/Source/Templates/system_stm32u5xx.c)
 target_include_directories(iis3dwb_reference PRIVATE src ${HAL}/Inc ${DEV}/Include

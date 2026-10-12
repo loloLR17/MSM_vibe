@@ -1,0 +1,7 @@
+{
+  "source": "/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_spi.c",
+  "original_sha256": "a1668346fe2847e5ed1fb1c7812158e3e39391a62cfd6487c4973e66308c22a3",
+  "build_copy": "/home/lolo/dev/msm/reports/TR2-mission015-M-20261012T204419Z/fifo-O0/generated/stm32u5xx_hal_spi_observed.c",
+  "generated_sha256": "85fa97b8d658c69e7846c13ed5975d13c01af61a2917877899e20f97aad2fdfa",
+  "changes": "LF normalization + observer declaration + one preclose call; original ST algorithm unchanged"
+}
