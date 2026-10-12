@@ -1,0 +1,31 @@
+{
+  "source_sha": "571b0d80d8910500556fc2fcaec4006cb633511c",
+  "result": "BLOCKED",
+  "hardware_attempts": 1,
+  "FIFO_start_reached": false,
+  "data_out_attempts": 0,
+  "accepted_xyz": 0,
+  "measured_drain_throughput": null,
+  "configuration_guard_rejection": true,
+  "failure_location": "After setup writes and controls(actual), before 100 ms stabilization/FIFO enable",
+  "exact_failed_register_expected_observed": "Not retained by this version; actual[] overwritten by restoration, configured[] only exported after freeze which was not reached",
+  "configured_array_all_zero_interpretation": "BSS not yet populated; not actual configuration values",
+  "tag_parity_gap_errors_zero_interpretation": "No data read, not an integrity validation",
+  "all_rx_buffers_zero": true,
+  "no_synthetic_xyz_published": true,
+  "restoration_by_register_readback": true,
+  "raw_dumps_sha256": {
+    "burst-info.bin": "a401fd166b8bc02be28cc227269933af952b1a95e124c6cfa492e00b94e8e13b",
+    "burst-rx.bin": "df817cf989bf498a36c7fa5bc5dc51dff7c7bc1978f1d23b8b8f8293b52e17c8",
+    "burst-meta.bin": "39f37f8d1931b3bdf767e7510dd69509fbf23af1f7654933d0a4d291cbdd4418",
+    "burst-polls.bin": "076a27c79e5ace2a3d47f9dd2e83e4ff6ea8872b3c2218f66c92b89b55f36560"
+  },
+  "theoretical_only": {
+    "burst128_bytes": 897,
+    "burst128_wire_ms_at_2_5MHz": 2.8704,
+    "XYZ256_duration_ms_at_nominal_ODR": 9.599880001499981,
+    "fraction_V1_4096_percent": 6.25,
+    "fraction_V1_32768_percent": 0.78125
+  },
+  "software_change_or_second_hardware_attempt_after_rejection": false
+}

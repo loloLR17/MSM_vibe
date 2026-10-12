@@ -1,0 +1,16 @@
+{
+  "sha": "571b0d80d8910500556fc2fcaec4006cb633511c",
+  "full_byte_equal": [
+    "Modbus RTU/00_gouvernance/AUDIT_M015_F_FIFO_BURST.md",
+    "Modbus RTU/00_gouvernance/ETAT_COURANT_TR2.md",
+    "Modbus RTU/00_gouvernance/Echanges_Codex/DERNIER_RAPPORT.md",
+    "Modbus RTU/00_gouvernance/Echanges_Codex/archives/TR2-20261012-M015-E-ACQUISITION-DECISION/MISSION.md",
+    "Modbus RTU/00_gouvernance/Echanges_Codex/archives/TR2-20261012-M015-E-ACQUISITION-DECISION/RAPPORT.md",
+    "Modbus RTU/05_Firmware/CMakeLists.txt",
+    "Modbus RTU/05_Firmware/platform/stm32/CMakeLists.txt",
+    "Modbus RTU/05_Firmware/platform/stm32/main.c",
+    "Modbus RTU/05_Firmware/platform/stm32/stm32_iis3dwb_burst_capture.c",
+    "Modbus RTU/05_Firmware/platform/stm32/stm32_iis3dwb_burst_capture.h",
+    "Modbus RTU/05_Firmware/tests/platform/test_stm32_burst_capture.c"
+  ]
+}

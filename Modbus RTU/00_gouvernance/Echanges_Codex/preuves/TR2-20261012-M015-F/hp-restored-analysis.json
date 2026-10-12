@@ -1,0 +1,33 @@
+{
+  "full_journal_retrieved_and_read": true,
+  "sha256": "c8ecaba10918e2b23f5fe6264f1b96aefef6d7f5dd6c2c524548f0d33ef17aea",
+  "start": "2026-10-12T15:04:33.8457156+00:00",
+  "end": "2026-10-12T15:04:34.6092702+00:00",
+  "events": 7,
+  "b0_full_match": true,
+  "b1_full_registers": [
+    1,
+    0,
+    0,
+    0,
+    0,
+    186,
+    5,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "requests": 2,
+  "retry": 0,
+  "passed": true
+}

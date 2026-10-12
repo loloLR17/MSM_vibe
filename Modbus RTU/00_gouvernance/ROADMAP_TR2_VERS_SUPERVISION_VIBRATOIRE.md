@@ -141,3 +141,7 @@ M014 restauréeexactement (Flash2Mio identique), FRAMgen12/configUNAVAILABLE, SD
 ## Actualisation M015-E — 12 octobre 2026
 
 **M015-E DONE documentaire** après publication10bcdeaf5e492dd5b87535ca8d536b42218dfc5f et relecture intégrale de11livrables identiques. Décision technique proposée : directA commeRAMdemo borné ;FIFO128bursts commevoieV1 àqualifier, DMA/service ensuite si nécessaire. Débit625kHz insuffisant (FIFO128+status≥1,500019Mbit/s), SPI3limité imposebatchs sous1024octets ;128mots=897octets. Prochaineactionproposée :mesurewire↔RAM ciblée88/87/BA à625kHz avecinstrumentidentifié etcontratdistinct, aucunbranchementsupposé. Enattente,analyses/contrats horsligne surdonnéesA, pas nouvellescaptures. M015 IN PROGRESS,B/C/DBLOCKED conservés,stockageV1/READYtoujoursindisponibles ;aucuntestouhardware exécuté enE.
+
+## Actualisation M015-F — 12 octobre 2026
+
+**M015-F BLOCKED ; M015 IN PROGRESS.** HarnessFIFO128/2,5MHz ettests préparés,maisunique tentative refusée avantactivationFIFO pargardereadbackconfiguration ;aucunXYZ/burst,aucundébit/latencemesuré. Valeurdivergente nonexportée,aucunecauseattribuée. M014restaurée/Flash2Mioexacte,FRAMgen12/SDOFF/partitionpréservée,repriseB0/B1réussie. V1ODR26667/fenêtres4096..32768/continuité/store-and-forward inchangées ;256motsprévus nevalentpasV1. Prochaincontrat :télémétrieaumismatch puis tentativebornée choisie ;625kHzFIFOfigée éventuellementpossiblemaisinsuffisant pourfluxcontinu,nonexécuté. Pasinstrumentabsentexigé,nirechercheexhaustive ourejeuA-F.

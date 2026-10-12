@@ -1,0 +1,55 @@
+{
+  "hypothesis_only": true,
+  "nominal_odr_hz": 26667,
+  "no_ODR_or_window_change_authorized": true,
+  "capture_attempt_accepted_xyz": 0,
+  "candidate_sizes": [
+    {
+      "samples": 256,
+      "duration_ms_at_nominal_ODR": 9.599880001499981,
+      "hypothetical_uniform_DFT_spacing_Hz": 104.16796875,
+      "raw_3int16_bytes": 1536,
+      "converted_3int32_bytes": 3072,
+      "V1_window_size_allowed": false
+    },
+    {
+      "samples": 4096,
+      "duration_ms_at_nominal_ODR": 153.5980800239997,
+      "hypothetical_uniform_DFT_spacing_Hz": 6.510498046875,
+      "raw_3int16_bytes": 24576,
+      "converted_3int32_bytes": 49152,
+      "V1_window_size_allowed": true
+    },
+    {
+      "samples": 8192,
+      "duration_ms_at_nominal_ODR": 307.1961600479994,
+      "hypothetical_uniform_DFT_spacing_Hz": 3.2552490234375,
+      "raw_3int16_bytes": 49152,
+      "converted_3int32_bytes": 98304,
+      "V1_window_size_allowed": true
+    },
+    {
+      "samples": 16384,
+      "duration_ms_at_nominal_ODR": 614.3923200959988,
+      "hypothetical_uniform_DFT_spacing_Hz": 1.62762451171875,
+      "raw_3int16_bytes": 98304,
+      "converted_3int32_bytes": 196608,
+      "V1_window_size_allowed": true
+    },
+    {
+      "samples": 32768,
+      "duration_ms_at_nominal_ODR": 1228.7846401919976,
+      "hypothetical_uniform_DFT_spacing_Hz": 0.813812255859375,
+      "raw_3int16_bytes": 196608,
+      "converted_3int32_bytes": 393216,
+      "V1_window_size_allowed": true
+    }
+  ],
+  "SPI_625kHz_finite_fallback_wire_ms_per_burst128": 11.4816,
+  "SPI_625kHz_stream_wire_utilization_with_status_percent": 240.00300000000001,
+  "SPI_2_5MHz_candidate_wire_ms_per_burst128": 2.8704,
+  "nominal_nyquist_hz_if_uniform": 13333.5,
+  "frequency_band_or_spectrum_qualified": false,
+  "physical_FIFO_DATA_OUT_and_latency_tested": false,
+  "storage_store_and_forward_qualified": false
+}

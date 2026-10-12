@@ -6,7 +6,8 @@ Mise à jour : 12 octobre 2026. Mission `TR2-20261012-M015-F-FIFO-BURST-FEASIBIL
 
 ## État opérationnel actuel — M015-F, 12 octobre 2026
 
-- **VALIDÉ logiciel / PRÉPARÉ physique** :harnessRAM deuxbursts128,mode3/2,5MHz,FIFOfigée256→128→0,configFIFOenburst,pasCTRL2singlecommevérité ;critèresintégrité/restauration7registres. Test neuf1/1 etcrossdéfaut/profilréussis,aucuneproduction/média/DMA modifiés. Préflightenpréparation,unecampagnepermise nonencoreexécutée ;BLOCKEDprovisoire,M015INPROGRESS.
+- **BLOCKED physique** :unique tentative mode3/2,5MHz, code571b0d8, arrêtgardeconfiguration avantactivationFIFO (result9/loss4/restore0/HALerrors0),0poll/0burst/0XYZ. Valeurdivergente nonexportée par cetteversion ;configured tout0=BSSnonrenseigné,aucune donnée synthétique. Pas deuxièmeessai ni rechercheexhaustive.
+- **VALIDÉ logiciel / M014 PRÉSERVÉ** :harness2bursts128 préparé,testneuf1/1/crossdéfaut-profilréussis,A-Einchangésnonrejoués. Contrôlesrestaurés0/0/0/0/0/4/0 ;Flash2Mioidentique,M014BINb462c29a,FRAMgen12/configUNAVAILABLE/SDOFF/IRQ49-66/faults0,2FC03derepriseB0/B1réussies,MCUrunning. Aucunmedia dansdiagnostic,partitionpréservée. M015F BLOCKED,M015INPROGRESS.
 - V1inchangée :256mots9,6msnevalentpas4096..32768/continuité/store-and-forward ;aucunequalificationFFT/ODR/SD. ArchivesEexactes,worktreeFisolé etanciensworktrees/stashespréservés. Preuveslocales /home/lolo/dev/msm/reports/TR2-mission015-F-20261012T145521Z.
 
 ## État opérationnel antérieur — M015-E, 12 octobre 2026

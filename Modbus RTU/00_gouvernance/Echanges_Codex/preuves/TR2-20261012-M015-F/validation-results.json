@@ -1,0 +1,16 @@
+{
+  "new_targeted_test": "1/1 passed, six scenarios",
+  "dedicated_cross": "passed",
+  "default_cross": "passed",
+  "previous_tests_replayed": false,
+  "initial_failure": "Werror=misleading-indentation on two statements; split lines, no warning flag/test weakened",
+  "logs_sha256": {
+    "validation-0.log": "4e04ef5005c9cb9c0508da55fb437272e9a184360ed317fd263653be277bef19",
+    "validation-1.log": "c976d960151319f2b19002fad877909dfd3ae5b4f5ae5ec59494ec8ccbdf4345",
+    "validation-final-0.log": "be0be7e8aef95d61695cc1c3796e7ba8f7e673a4a4104d29129c2ffe6e05aca2",
+    "validation-final-1.log": "c0008dd7f6592e6a6dd6bf4f1ac873b975ee612b5e6e2c1f6ce19fbf4db45bd2",
+    "validation-final-2.log": "7b06c1cbde149fe74ac65bb5a4248d82668a98034eb49c5672ad4e29f7aaffbd",
+    "validation-final-3.log": "7c18f7cecc0edf55612129b9de7e49015c4251a7b5d24e1dfbe5ce05e730f3b4",
+    "validation-final-4.log": "f4e91866bd3dd9ab6de7757f2efc023beeaa261a15f483a36495bd2daa9ef1f2"
+  }
+}

@@ -1,0 +1,89 @@
+{
+  "mission_id": "TR2-20261012-M015-F-FIFO-BURST-FEASIBILITY",
+  "status": "BLOCKED",
+  "source_sha": "571b0d80d8910500556fc2fcaec4006cb633511c",
+  "accepted_xyz": 0,
+  "hardware_attempts": 1,
+  "files": [
+    {
+      "path": "artifacts.json",
+      "bytes": 595,
+      "sha256": "d0f7dce13b11e0321283f36887e78d1b806b89e0153e19570c457b394dfdf7e3"
+    },
+    {
+      "path": "backup-verified.json",
+      "bytes": 472,
+      "sha256": "1f5b607a59481824393ad7ae056c87f81a3a219779057ac0aad821e26385d81b"
+    },
+    {
+      "path": "burst-analysis.json",
+      "bytes": 1555,
+      "sha256": "6b56117012456788db752e048c2011abebeb96752cafb10d5f564487937769ac"
+    },
+    {
+      "path": "burst-info.json",
+      "bytes": 602,
+      "sha256": "0e557bee838afd2faa84ad067a8a963d2efcf4c3f44149239f22a4dd49f8ecca"
+    },
+    {
+      "path": "burst-result-no-reset.log",
+      "bytes": 655,
+      "sha256": "9bd14fe0b4be83dd8a12456892f0caafecd87730eb8b456dda8e5a07ad48e36f"
+    },
+    {
+      "path": "burst-single-trigger.log",
+      "bytes": 1156,
+      "sha256": "da5995d194a627b24cac515d20dd6cc9a20302320c369624e72813c2d0ea4bfc"
+    },
+    {
+      "path": "clock-offset-restored.json",
+      "bytes": 198,
+      "sha256": "e07a7546c66455cc5483398f58f3074f34e377b6b6646afae136ba013fa83b62"
+    },
+    {
+      "path": "final-production-after-physical-no-reset.log",
+      "bytes": 1108,
+      "sha256": "e3546181bcaf680ce89347adb58d8d1c252c8739388ac2fc966ee093399302a3"
+    },
+    {
+      "path": "hp-restored-analysis.json",
+      "bytes": 480,
+      "sha256": "6c39f7b2fadea4749648bcb85c3e7d23460b9b64397921d27d40450d5d92c716"
+    },
+    {
+      "path": "hp-restored-physical.jsonl",
+      "bytes": 1390,
+      "sha256": "c8ecaba10918e2b23f5fe6264f1b96aefef6d7f5dd6c2c524548f0d33ef17aea"
+    },
+    {
+      "path": "restoration-verified.json",
+      "bytes": 269,
+      "sha256": "91585e0805933cf998be82cdf622a84b99335fd0392f38b3c045ed1697bae772"
+    },
+    {
+      "path": "restore-production-boot.log",
+      "bytes": 1119,
+      "sha256": "2c964527075531cc982a16c2666f0ee28379fcb5e2f852e4a572fb3d3418bfdb"
+    },
+    {
+      "path": "restored-physical-gate.json",
+      "bytes": 196,
+      "sha256": "7b137dc8b0b1355e1ada2856bc200aa03e1798e4b082e0a8afdd8dfba780f6d0"
+    },
+    {
+      "path": "software-readback.json",
+      "bytes": 859,
+      "sha256": "047a799c2fa31782cebec477fb6dcc9a082b63b4e47abdf83957feab03201444"
+    },
+    {
+      "path": "v1-consequences.json",
+      "bytes": 1872,
+      "sha256": "453763c57823ce9a7b42da62564f29fce3fcf66bc37b5d91e0657bebd4969b07"
+    },
+    {
+      "path": "validation-results.json",
+      "bytes": 964,
+      "sha256": "1d7fbcffc2532e8f82ec3ae57cf069b2ca1090144ae8255282cac9c2e669c783"
+    }
+  ]
+}

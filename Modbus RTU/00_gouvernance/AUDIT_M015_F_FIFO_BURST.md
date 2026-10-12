@@ -20,6 +20,22 @@ BrutsRAM conservés ycompriséchecpartiel ;décodage horsligne sans correction. 
 
 Pour fenêtres :raw3int16=24576..196608octets,3int32=49152..393216 ;mémoireDMA/traitement/latences etressourcesSDowned restent àqualifier. LaV1 exige26667Hz,4096..32768,continuité etstockagedurable :un succèsborné ne satisfait pas ces exigences. Prochaineétape conditionnée auproofF, pasdéclarationM015DONE.
 
-## Logiciel validé, physique encore en attente
+## Validation logicielle conservée
 
 Test neuf1/1 :nominal/deuxbursts/transitioninterburst,parité/gap/timeout/overrun refusés,préexistantsanswrite,restauration. Cross-builddéfaut etprofil réussis ;core/driverinchangés,A-E/114firmware/539.NET nonrejoués. Première compilation refusée pourdeux-Werror=misleading-indentation :instructions séparées, aucuneoptiondésactivée, logséchec conservés. WarningsNewlib conservés. Unecampagne seulement aprèspréflight ;restaurationM014 byte-identique etcontrôleHPminimal prévus.
+
+## Unique tentative physique : arrêt avant activation FIFO
+
+Code571b0d80d8910500556fc2fcaec4006cb633511c, SPI mode3/2,5MHz et HCLK160MHz observés. Le garde refuse après les writes de préparation et le readback global `controls(actual)`, avant100ms de stabilisation et avant writeFIFOmode1. result9/INTERNAL,loss_flags4/configuration,HALerrors0 ;poll_count/burst_count/word_count/accepted=0. Aucun FIFO_DATA_OUT ou délai de vidange mesuré.
+
+**Limite de télémétrie** : cette version n’exporte `configured[]` qu’après le freeze. Le mismatch de préparation sort avant cette étape ; `actual[]` est ensuite écrasé par la restauration. Le registre divergent, attendu et lu ne sont donc pas conservés. Le tableauconfigured tout0 est du BSS non renseigné, pas une lecture de configuration. Aucun diagnostic précis sur une fréquence, le capteur ou CTRL2 ne peut en être déduit. Les RX/metadata/polls tous0 ne sont pas des mesures ; aucun CSVXYZ artificiel publié.
+
+Les sept contrôles sont relus restaurés0/0/0/0/0/4/0,restore_result0. M014 restauré, Flash2Mio entièrement identique au backup. Contrôle minimal B0/B1 de reprise réussi, sansretry ;journalHP complet collecté. Une seule tentative, pas de variante ni recherche exhaustive après le rejet.
+
+**M015-F BLOCKED** : profil logiciel testé et réversible, faisabilité matérielle des bursts non démontrée. La présence de code et le flash réussi ne prouvent pas DATA_OUT. La capture prévue256mots n’a pas été acquise ;ODR, continuité, fenêtres, débit, latence, pertes, bande etspectre restent non vérifiés.
+
+## Suite minimale proposée, non exécutée
+
+Avant un prochain essai sous contrat distinct, exporter chaque readback de préparation ainsi que registre/attendu/observé au point de rejet. Puis viser une preuve RAM finie à une vitesse choisie, sansrelâcher le garde. Un candidat conservateur est625kHz/mode3 déjà observé pour A-D : une FIFO figée peut être vidée lentement (11,4816ms idéales parburst128), contrairement à un fluxODR continu. Cette variante n’a pas été exécutée et ne peut pas être vendue commeV1 : occupationidéale240% pour128+status à26667Hz.
+
+ÀN256/ODRnominal, durée9,59988ms et grilleDFT hypothétique104,168Hz contre6,5105Hz pour4096 et0,813873Hz pour32768. Ce sont calculs de conséquences si une séquence uniforme était établie, pas un spectre calculé ni une bande qualifiée. Nyquistnominal13,3335kHz ne qualifie pas la bande6kHz du système. RéduireSPI ne réduit pas silencieusement l’ODR ; réduire la fenêtre ou interrompre la capture rompt la conformité V1 tant que4096..32768/continuité/store-and-forward ne sont pas démontrés. Aucun changement de validator/mapping/specification.
