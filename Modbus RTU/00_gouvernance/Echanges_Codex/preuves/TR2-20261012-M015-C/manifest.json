@@ -34,6 +34,11 @@
       "sha256": "17c2a7205bf87eba0a91e823992c0c92273253192f9f986cc8b557788e2a314d"
     },
     {
+      "path": "publication-readback-8ce2a3b.json",
+      "bytes": 6890,
+      "sha256": "31b924ba29c77d1dfc78d1872cd813d92773ea5315ecba44066c0af5e3c53bcb"
+    },
+    {
       "path": "register-analysis.json",
       "bytes": 2551,
       "sha256": "57516e12b5bfc35b37f74d458cd7319f7613ab44e416263c1b81ba958ee53aae"
