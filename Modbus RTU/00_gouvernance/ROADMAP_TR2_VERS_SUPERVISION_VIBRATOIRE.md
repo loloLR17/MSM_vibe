@@ -152,4 +152,4 @@ M014 restauréeexactement (Flash2Mio identique), FRAMgen12/configUNAVAILABLE, SD
 
 ## Actualisation M015-H — 12 octobre 2026
 
-Diagnostic différentiel CTRL1 simple/groupé/délai/activation préparé et logiciel validé ; une campagne courte maximum, aucun FIFO/XYZ ou intervention physique. M014-H et V1 préservés, M015 IN PROGRESS ; résultat matériel et publication finale en attente.
+**Critère technique H satisfait : diagnostic différentiel exploitable ; M015 IN PROGRESS.** Campagneunique S G G S active=A8/A8/A8/50, même motif après20,276ms ; repos/arrêt concordants. Association position/historique et actif, pas cause HAL/électrique attribuée ; guardlatched/result9, aucune FIFO/XYZ. M014-H restauré/Flash2Mio exacte, reprise B0/B1 réussie, FRAMgen12/SDOFF/partitionpréservées. Suite proposée : audit horscible transitions SPI7→2 puis ordreSSSS/GS sous nouveau contrat ; aucune acquisition/mesureBM/remplacementcapteur enH. Publication/relecture finale en attente.

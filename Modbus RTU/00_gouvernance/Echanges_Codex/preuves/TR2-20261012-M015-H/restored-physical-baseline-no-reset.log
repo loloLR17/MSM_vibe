@@ -1,0 +1,7 @@
+HAL_GetTick () at /home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal.c:342
+342	{
+GATE stage=2 result=0 errors=0 gen=12 uart=0 tx=0 tick=23679
+$1 = CONFIGURATION_RECOVERY_UNAVAILABLE
+0xe000e100:	0x00000000	0x00020000	0x00000004
+0xe000ed28:	0x00000000	0x00000000
+[Inferior 1 (Remote target) detached]

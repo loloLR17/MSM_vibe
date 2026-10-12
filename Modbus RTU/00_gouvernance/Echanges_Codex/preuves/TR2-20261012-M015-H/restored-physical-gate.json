@@ -1,0 +1,8 @@
+{
+  "host_utc": "2026-10-12T16:01:20.425284+00:00",
+  "hp_clock_gate_utc": "2026-10-12T16:01:20.312261+00:00",
+  "maximum_requests": 2,
+  "retry": 0,
+  "debuggers_closed": true,
+  "reset": false
+}

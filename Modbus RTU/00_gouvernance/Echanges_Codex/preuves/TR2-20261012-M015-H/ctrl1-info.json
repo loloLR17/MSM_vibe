@@ -1,0 +1,33 @@
+{
+  "stage": 10,
+  "result": 9,
+  "restore_result": 0,
+  "core_hz": 160000000,
+  "spi_hz": 2500000,
+  "count": 43,
+  "errors": 0,
+  "mismatches": 2,
+  "start_cycles": 482075,
+  "end_cycles": 3904750,
+  "delay_begin_cycles": 595286,
+  "delay_end_cycles": 3839373,
+  "nvic_valid_phases": 126,
+  "saved": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    4,
+    0
+  ],
+  "restored": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    4,
+    0
+  ]
+}

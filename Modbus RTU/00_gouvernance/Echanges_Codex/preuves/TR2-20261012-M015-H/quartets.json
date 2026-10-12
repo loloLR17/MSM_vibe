@@ -1,0 +1,92 @@
+[
+  {
+    "phase": 1,
+    "indices": [
+      14,
+      15,
+      16,
+      17
+    ],
+    "method_order": "S G G S",
+    "ctrl1_hex": [
+      "00",
+      "00",
+      "00",
+      "00"
+    ],
+    "expected_hex": "00",
+    "hal_all_ok": true
+  },
+  {
+    "phase": 2,
+    "indices": [
+      19,
+      20,
+      21,
+      22
+    ],
+    "method_order": "S G G S",
+    "ctrl1_hex": [
+      "00",
+      "00",
+      "00",
+      "00"
+    ],
+    "expected_hex": "00",
+    "hal_all_ok": true
+  },
+  {
+    "phase": 3,
+    "indices": [
+      24,
+      25,
+      26,
+      27
+    ],
+    "method_order": "S G G S",
+    "ctrl1_hex": [
+      "A8",
+      "A8",
+      "A8",
+      "50"
+    ],
+    "expected_hex": "A8",
+    "hal_all_ok": true
+  },
+  {
+    "phase": 4,
+    "indices": [
+      28,
+      29,
+      30,
+      31
+    ],
+    "method_order": "S G G S",
+    "ctrl1_hex": [
+      "A8",
+      "A8",
+      "A8",
+      "50"
+    ],
+    "expected_hex": "A8",
+    "hal_all_ok": true
+  },
+  {
+    "phase": 5,
+    "indices": [
+      33,
+      34,
+      35,
+      36
+    ],
+    "method_order": "S G G S",
+    "ctrl1_hex": [
+      "00",
+      "00",
+      "00",
+      "00"
+    ],
+    "expected_hex": "00",
+    "hal_all_ok": true
+  }
+]

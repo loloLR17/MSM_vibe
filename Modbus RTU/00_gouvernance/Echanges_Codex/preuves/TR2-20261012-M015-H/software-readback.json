@@ -1,0 +1,117 @@
+{
+  "sha": "54e8deb1003fd02dd0b586d20211e89e89433a68",
+  "full_byte_equal": [
+    {
+      "path": "00_Environnement_developpement/T1000/ssh-hp/commissioning-h.ps1",
+      "sha256": "dfcf20c3108c07e59587ff508eda093be366034dae3234ab43bb9ba1bc5250a5"
+    },
+    {
+      "path": "00_Environnement_developpement/T1000/ssh-hp/run_commissioning_h.py",
+      "sha256": "3189cb1e81cd639df771c2d4852ee6fca780a8290fec7c4e6ea17b7bcbff2f78"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/DIAGNOSTIC_M015_H_CTRL1_DIFFERENTIEL.md",
+      "sha256": "8a6e65d73f8a3f121381499d27e4e41be95a173db3b75cc7f2961163be136a9c"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/ETAT_COURANT_TR2.md",
+      "sha256": "7dc22555fde6e81cf19e7cb3bde948a7de090f81b00fe1cd152081eb11d0502e"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/DERNIER_RAPPORT.md",
+      "sha256": "f7c2a069f82ac8cbcd726c6c91b48eaeffa23d3bb0634fb951da000fc626a395"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/archives/TR2-20261012-M015-G-CONFIG-READBACK/MISSION.md",
+      "sha256": "9ee5041614757f1e806f90384acb5291df7d51f5757ab89667c00ae1e98ef7eb"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/archives/TR2-20261012-M015-G-CONFIG-READBACK/RAPPORT.md",
+      "sha256": "a00d8a4261fa007f36f53d574dcb418e4973bd5d21f95275c4e4dea42514001f"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261012-M015-H/backup-verified.json",
+      "sha256": "cc82ae5e6031e31ffda5de83e81ed1971bce6e18010d0522e00dc6ac08b6aa4d"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261012-M015-H/exclusivity-negative.log",
+      "sha256": "80da04d4d98e5c96a43f256a3277a2e7f312141b919e104cd7dad1d9929a5e88"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261012-M015-H/hp-wrapper-validation.log",
+      "sha256": "c87ebd03ec0460cb1429cab5916d984b4c1aa7579e70dbaf5d83064c6e9f6a5b"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261012-M015-H/initial-preserve.log",
+      "sha256": "1c68598c3b395bc50d80e58e4f7b7286490f91f80445b0d35aea6a43ebb8c281"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261012-M015-H/profile-isolation.json",
+      "sha256": "4d2071380d0b81dca63bd5bf870300580ec16391d0145437315fbd9b23da28ae"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261012-M015-H/stlink-list.log",
+      "sha256": "8baab8d7699ea0de9f77e4d594b9d6316a4903b2c90aa2ffaace2c58382266bd"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261012-M015-H/validation-0.log",
+      "sha256": "5b3c92222281449132545857159c67e0e8f3ec9ef94a1f9ab76add24e76fe742"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261012-M015-H/validation-1.log",
+      "sha256": "9251ee42c4ea648b42e50dbd8574e1e659b4bda24415ae064e0fadc396d28d3e"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261012-M015-H/validation-2.log",
+      "sha256": "85f280500a2a79cbc04fd924531467162d97ab82921481df38051d9c5a9ae2e6"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261012-M015-H/validation-3.log",
+      "sha256": "0fd6493d6c52ab64f31f043a41f3393e97ff08da363654809838e88e4e37b4ae"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261012-M015-H/validation-4.log",
+      "sha256": "4a0f14b06c625d6fa1235947e730c1474b2feb238c248f8e69484019bfc9c386"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261012-M015-H/validation-5.log",
+      "sha256": "b2d29cf0cf5f2e57ffe599da167940a880ccedd89e26802cc42195f1d94d2376"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261012-M015-H/validation-commands.json",
+      "sha256": "e5a458dc722445fed61340796dc56c6d5c28bc9f85f42f7e93fe1ae0605504d5"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/ROADMAP_TR2_VERS_SUPERVISION_VIBRATOIRE.md",
+      "sha256": "fd15750487bf7e86cce0ae98db16a1f57a3a1a9e688a4c1f743469556a219580"
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/CMakeLists.txt",
+      "sha256": "8d7de30522bbafc8e387bd1677c4419ef6ce0a80c474f203c3feb5ce7ba8ccbe"
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/platform/stm32/CMakeLists.txt",
+      "sha256": "013253a8d8d131b6471225e61acad9ed6a74d221affc15d232807a35e48603b0"
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/platform/stm32/main.c",
+      "sha256": "bbc408ef552c7d8b610478089cdb26c800bee4eafaa6de4e8450ba1457b8dfb4"
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/platform/stm32/stm32_iis3dwb_ctrl1_differential.c",
+      "sha256": "9858f2713524d9e90619bbae3aaf7b781417a73b69315d270d6e64203f229668"
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/platform/stm32/stm32_iis3dwb_ctrl1_differential.h",
+      "sha256": "ece2744997347cb64045ef5338ff600ec6c7c706227c3733504feb3119427080"
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/tests/platform/stm32_hal_ctrl1_mock/stm32u5xx_hal.h",
+      "sha256": "5901eb34b0f155ab939f20fbe11188b968bd1e37892c8c58d538ed38076f98fb"
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/tests/platform/test_stm32_ctrl1_differential.c",
+      "sha256": "709cc7994f90c2eb358731707754b51f0be2c7f247c84f08c70a1644e6a282c1"
+    }
+  ]
+}

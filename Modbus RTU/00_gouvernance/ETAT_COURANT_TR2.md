@@ -6,8 +6,9 @@ Mise à jour : 12 octobre 2026. Mission `TR2-20261012-M015-H-CTRL1-DIFFERENTIAL`
 
 ## État opérationnel actuel — M015-H, 12 octobre 2026
 
-- **VALIDÉ logiciel / PRÉPARÉ physique** : protocole CTRL1 simple/groupé S G G S avant/après activation et délai20ms, aucune acquisition/FIFO.53scénarios ciblés et cross-build défaut/profil réussis ; gardes et V1 conservés, acquis A-G non rejoués. Essai unique en attente.
-- **PRÉSERVÉ / OBSERVÉ** : M014-H reconnu, UID/STLINK attendus, Flash2Mio/RAM768K sauvegardées ; stage2/result0/FRAMgen12/configUNAVAILABLE/IRQ49-66/faults0. Aucun flash/reset H à ce point. Worktrees/stashes/archives G intacts ; M015 IN PROGRESS.
+- **OBSERVÉ, diagnostic exploitable** : campagne unique code54e8deb,43transactions/21,392ms. S G G S actif = A8/A8/A8/50 immédiatement et après20,276ms ; arrêté/baseline=00 partout. Deux simples actifs corrects/deux incorrects/quatre groupés corrects ; première divergence trace27/CTRL1_XL10 attenduA8/reçu50/HAL_OK, result9/restoration0. Association à position/historique et actif, pas cause électrique/HAL attribuée ; aucun fallback/FIFO/XYZ/rejeu.
+- **VALIDÉ logiciel / M014 PRÉSERVÉ** :53scénarios ciblés et cross-build défaut/profil réussis, gardes/V1 inchangés. NVIC sixsnapshots conforme au profil sansIRQexternes, ISPRFFFFFFFF absent ; pas HOTPLUG. Septcontrôles restaurés0/0/0/0/0/4/0 et Flash2Mio byte-identique ; reprise HP B0/B1 réussie, journal complet hash7bb9a159… ; FRAMgen12/configUNAVAILABLE/SDOFF/IRQ49-66/faults0/MCUrunning, aucun accès partition/écriture média.
+- **SUITE / STATUT** : critère technique H satisfait, publication/relecture finale en attente ; M015 IN PROGRESS/FIFO non validée. Prochain audit logiciel ciblé transitions7→2 et ordre SSSS/GS sous contrat distinct ; BM869s nonutilisé/sanscaractéristiques présumées, substitutionbreakout proposée conditionnellement plus tard, aucun geste demandéH. Preuves /home/lolo/dev/msm/reports/TR2-mission015-H-20261012T155415Z ; acquis/worktrees/stashes/archives G préservés.
 
 ## État opérationnel antérieur — M015-G, 12 octobre 2026
 

@@ -1,0 +1,13 @@
+# Preuves M015-H
+
+Code évalué54e8deb1003fd02dd0b586d20211e89e89433a68. Une seule campagne configuration,43 transactions/5 quartets S G G S ; aucun FIFO_OUT/DATA_OUT/XYZ, DMA ou média. Premier écart CTRL1=50 contreA8 conservé, résultat9 malgré lectures conformes ; restauration0.
+
+`ctrl1-traces.json/.csv` conserve tous les champs des43 records renseignés, TX/RX complets avec commande, index zéro ; record92 octets. `first-divergence.json` reprend le record27 immuable, reason2/readback, reg16=0x10, phase 3. `ctrl1-info.json`, `quartets.json`, `nvic.json`, `analysis.json` : tailles/validités, observations et calculs DWT. Reconstruction JSON↔3956 octets du dump vérifiée, hash dans analyse ;64slots alloués mais seuls43 renseignés sont publiés.
+
+Valid_mask : bit0 début/état SPI ; bit1 HAL retourné ; bit2 TX/RX sauvegardés ; bit3 lecture complète HAL_OK. Méthode1 simple/2 groupée/4 write ; nbytes inclut commande, raw_length définit les octets de TX/RX ; padding zéro non interprété. expected_valid/observed_valid distinguent inconnu de valeur0. Phases1baseline/2BDUpréparé/3actifimmédiat/4actifaprèsdélai/5arrêté/6restauré. NVIC phases 1..6 valides (mask 126), phase 0 non renseignée exclue. Byte0x11 réservé capturé dansgroup0F..14, sans valeur normative supposée. Les tableaux saved/restored ne sont considérés mesurés que lorsqu’ils proviennent des readbacks complets réussis ; ici les deux sont complets (preuves I/O).
+
+`flash-*.log/.json`, readback/reset et boot : procédures NORMAL et restauration Flash2 Mio entière identique à l’initiale. `hp-restored-physical.jsonl` est le journal complet original, byte-identique HP, deux FC03 de reprise uniquement ; hash7bb9a159fb23043f840923bc4a75f55a8da0207daa3d60e61c68745afdb8a043. Aucun debugger pendant trafic ; journaux baseline/après sansreset. Registres décodés, pas capture wire.
+
+`validation-commands.json`, six sorties et exclusivité négative : validations nouvelles, aucune campagne/test A-G rejoué. `software-readback.json` :28 fichiers publiés puis relus avant matériel. `artifacts.json` : hashes desbruts BIN/ELF/Flash/RAM ; `manifest.json` : hashes publics/originaux locaux. Originaux complets : /home/lolo/dev/msm/reports/TR2-mission015-H-20261012T155415Z. Logs publics CP1252→UTF8/LF/espaces terminaux normalisés ; deux JSON HP normalisés UTF8 sansBOM/LF. Journal physique exact nonmodifié.
+
+Cause électrique/capteur/HAL et fiabilité générale SPI non démontrées. Deux simples actifs conformes et deux incorrects, quatre groupés conformes : aucune méthode n’est choisie par vote pour autoriser une acquisition. Timing/positions sont corrélés, pas totalement découplés. Aucune ODR au fil/FIFO/FFT/bande6kHz/continuité V1 qualifiée.

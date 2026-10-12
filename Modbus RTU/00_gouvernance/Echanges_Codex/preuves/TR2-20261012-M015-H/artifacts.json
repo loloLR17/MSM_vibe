@@ -1,0 +1,54 @@
+{
+  "source_sha": "54e8deb1003fd02dd0b586d20211e89e89433a68",
+  "local_proof_directory": "/home/lolo/dev/msm/reports/TR2-mission015-H-20261012T155415Z",
+  "artifacts": {
+    "build-ctrl1/tr2_stm32_p11c.bin": {
+      "size": 33300,
+      "sha256": "f0909839219b700c3a085abbd122c581e55350b10c4b094a74ba3834f144b262"
+    },
+    "build-ctrl1/tr2_stm32_p11c.elf": {
+      "size": 455164,
+      "sha256": "131018425b4333a034450818ef53b6d7be10ccb9ef0ccf44f11f47404cd01596"
+    },
+    "flash-before.bin": {
+      "size": 2097152,
+      "sha256": "556fedf58a88f7de0ad63826af6b4941de8bb72dcd6e97a886c1017da5ba93f0"
+    },
+    "flash-restored-full.bin": {
+      "size": 2097152,
+      "sha256": "556fedf58a88f7de0ad63826af6b4941de8bb72dcd6e97a886c1017da5ba93f0"
+    },
+    "ram-before.bin": {
+      "size": 786432,
+      "sha256": "6ad15fdfeb4e704f4d96d31f714d43e1a76509b990d50c17b7af887d75b574ba"
+    },
+    "ram-ctrl1-final.bin": {
+      "size": 786432,
+      "sha256": "247c25d48658c3f1a3fb47d87d8602f4d29551c4b7af5ac5d2161ab65eb3f997"
+    },
+    "ram-final-after-physical.bin": {
+      "size": 786432,
+      "sha256": "d798cb4a347dd1441d5aa5ad37938bda5a991f7d31fecc3dea511d380f6df18a"
+    },
+    "ctrl1-info.bin": {
+      "size": 108,
+      "sha256": "2c7cce724d27798ca01ae985f6cc896215eeaf7e33f2de59627d6593866d380d"
+    },
+    "ctrl1-first-divergence.bin": {
+      "size": 128,
+      "sha256": "81253296bc2605231a950a711cbf47698823bfbefc1f61bb601bfee5d203f9f6"
+    },
+    "ctrl1-traces.bin": {
+      "size": 5888,
+      "sha256": "6a9f23a4601c7bfca75aa38b1a53f9ea3b9b643fc88b717a1ac4c39cd6c47837"
+    },
+    "ctrl1-nvic.bin": {
+      "size": 280,
+      "sha256": "1f6c9de2e555d5d589e1149fed58f9cbcc101739df97d4a4d694a13f1242c5b9"
+    },
+    "hp-restored-physical.jsonl": {
+      "size": 1389,
+      "sha256": "7bb9a159fb23043f840923bc4a75f55a8da0207daa3d60e61c68745afdb8a043"
+    }
+  }
+}

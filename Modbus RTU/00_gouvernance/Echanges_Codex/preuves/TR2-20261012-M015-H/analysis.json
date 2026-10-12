@@ -1,0 +1,176 @@
+{
+  "source_sha": "54e8deb1003fd02dd0b586d20211e89e89433a68",
+  "quartets": [
+    {
+      "phase": 1,
+      "indices": [
+        14,
+        15,
+        16,
+        17
+      ],
+      "method_order": "S G G S",
+      "ctrl1_hex": [
+        "00",
+        "00",
+        "00",
+        "00"
+      ],
+      "expected_hex": "00",
+      "hal_all_ok": true
+    },
+    {
+      "phase": 2,
+      "indices": [
+        19,
+        20,
+        21,
+        22
+      ],
+      "method_order": "S G G S",
+      "ctrl1_hex": [
+        "00",
+        "00",
+        "00",
+        "00"
+      ],
+      "expected_hex": "00",
+      "hal_all_ok": true
+    },
+    {
+      "phase": 3,
+      "indices": [
+        24,
+        25,
+        26,
+        27
+      ],
+      "method_order": "S G G S",
+      "ctrl1_hex": [
+        "A8",
+        "A8",
+        "A8",
+        "50"
+      ],
+      "expected_hex": "A8",
+      "hal_all_ok": true
+    },
+    {
+      "phase": 4,
+      "indices": [
+        28,
+        29,
+        30,
+        31
+      ],
+      "method_order": "S G G S",
+      "ctrl1_hex": [
+        "A8",
+        "A8",
+        "A8",
+        "50"
+      ],
+      "expected_hex": "A8",
+      "hal_all_ok": true
+    },
+    {
+      "phase": 5,
+      "indices": [
+        33,
+        34,
+        35,
+        36
+      ],
+      "method_order": "S G G S",
+      "ctrl1_hex": [
+        "00",
+        "00",
+        "00",
+        "00"
+      ],
+      "expected_hex": "00",
+      "hal_all_ok": true
+    }
+  ],
+  "first_divergence": {
+    "valid": 1,
+    "reason": 2,
+    "phase": 3,
+    "reg": 16,
+    "expected_valid": 1,
+    "expected": 168,
+    "observed_valid": 1,
+    "observed": 80,
+    "trace_index": 27,
+    "io": {
+      "valid_mask": 15,
+      "phase": 3,
+      "method": 1,
+      "reg": 16,
+      "nbytes": 2,
+      "raw_length": 2,
+      "begin_cycles": 591951,
+      "end_cycles": 594352,
+      "hal_status": 0,
+      "error": 0,
+      "sr_before": 40961,
+      "sr_after": 49159,
+      "cfg1": 1342636135,
+      "cfg2": 2269118464,
+      "cs_before": 1,
+      "cs_during": 0,
+      "cs_after": 1,
+      "rx_left": 0,
+      "tx_left": 0,
+      "tx_hex": "90 00",
+      "rx_hex": "00 50",
+      "duration_us": 15.00625
+    }
+  },
+  "trace_count": 43,
+  "trace_size": 92,
+  "info_size": 108,
+  "refusal_size": 128,
+  "populated_trace_bytes": 3956,
+  "populated_trace_sha256": "dc0e2c4816b75d5f6be0b70b353043896f19136822b75969cafc2f77d176832d",
+  "json_raw_replay_byte_equal": true,
+  "delay_actual_ms": 20.27554375,
+  "diagnostic_elapsed_ms": 21.39171875,
+  "single_transfer_us": 15.00625,
+  "grouped_transfer_us": 33.425,
+  "first_bad_start_us_since_activation_write_end": 105.09375,
+  "first_good_start_us_since_activation_write_end": 4.925,
+  "nvic_snapshots_match_exclusive_profile": true,
+  "all_hal_ok": true,
+  "hypothesis_nvichotplug_signature_observed": false,
+  "acquisition_fifo_xyz": "NOT_PERFORMED",
+  "second_campaign": false,
+  "hp_complete_journal_read": true,
+  "hp_hash_sha256": "7bb9a159fb23043f840923bc4a75f55a8da0207daa3d60e61c68745afdb8a043",
+  "hp_result": {
+    "event": "result",
+    "utc": "2026-10-12T16:01:26.9022327+00:00",
+    "passed": true,
+    "deviceId": 1,
+    "systemState": {
+      "SystemStatus": 1,
+      "SystemFlags": 0,
+      "FaultFlags": 0,
+      "WarningFlags": 0,
+      "UptimeSeconds": 30,
+      "LastResetCause": 5,
+      "InternalTemperatureDeciCelsius": 0,
+      "CpuLoadPercent": 0,
+      "MemoryUsagePercent": 0,
+      "StorageStatus": 0,
+      "StorageUsagePercent": 0,
+      "AcquisitionState": 0,
+      "ActiveCampaignId": 0,
+      "ErrorCode": 0,
+      "WarningCode": 0
+    },
+    "readsStarted": 2
+  },
+  "hp_utc_start": "2026-10-12T16:01:26.2071809+00:00",
+  "hp_utc_end": "2026-10-12T16:01:26.9022327+00:00"
+}

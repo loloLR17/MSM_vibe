@@ -1,0 +1,4 @@
+modbus_system_server_poll_once (server=0x2000e5c8 <server>) at /home/lolo/dev/msm/projects/MSM_vibe-M014-H/Modbus RTU/05_Firmware/src/application/modbus_system_server.c:140
+140	{
+STM32 Successfully completed reset operation (System reset)
+[Inferior 1 (Remote target) detached]

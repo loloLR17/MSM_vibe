@@ -1,0 +1,18 @@
+0x0800f988 in system_runtime_is_ready_for_modbus (runtime=0x2000cd88 <production_runtime+52280>) at /home/lolo/dev/msm/projects/MSM_vibe-M014-H/Modbus RTU/05_Firmware/src/application/system_runtime.c:644
+644	    return runtime != NULL && runtime->initialized && runtime->system_ready_for_modbus;
+$1 = 94244
+$2 = 2
+$3 = 0
+$4 = 0
+$5 = {status = TRANSACTIONAL_IMAGE_RECOVERY_VALID, generation = 12, active_image = 1 '\001'}
+$6 = {generation = 1, identity = {hardware_uid = {4849725, 943869976, 540225879}, functional = {generation = 1, device_id = 1, hardware_version = 1, firmware_version_major = 0, firmware_version_minor = 14, firmware_version_patch = 8, protocol_version = 1, device_capabilities = 12, serial_number = "TR2-000001\000\000\000\000\000", manufacturer = "MSM\000\000\000\000"}, unit_id = 1 '\001'}}
+$7 = CONFIGURATION_RECOVERY_UNAVAILABLE
+$8 = {registers = {1, 0, 0, 0, 0, 30, 5, 0 <repeats 13 times>}, source_generation = 5}
+$9 = false
+$10 = false
+$11 = 0
+$12 = 20
+$13 = 20
+0xe000e100:	0x00000000	0x00020000	0x00000004
+0xe000ed28:	0x00000000	0x00000000
+[Inferior 1 (Remote target) detached]
