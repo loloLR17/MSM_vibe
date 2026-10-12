@@ -6,7 +6,8 @@ Mise à jour : 12 octobre 2026. Mission `TR2-20261012-M015-D-FIFO-ACTIVE-READBAC
 
 ## État opérationnel actuel — M015-D, 12 octobre 2026
 
-- **VALIDÉ logiciel / PRÉPARÉ cible** : diagnostic FIFO active dédié, bruts simples/bursts puis FIFO figée sans DATA_OUT/XYZ ;7registres volatils sauvegardés/restaurés, aucune FRAM/SD/UART. Test ciblé neuf1/1 et cross-build défaut/profil réussis. Campagnes A/B/C nonrejouées ; état permanent M014 à sauvegarder/vérifier avant l’unique campagne D. BLOCKED provisoire ; M015 IN PROGRESS.
+- **OBSERVÉ, défaut discriminé / BLOCKED cause précise** : campagneunique468transactions/28groupes actifs puis32figés. CTRL2single81 attendu :80×23/81×2/02×2/00×1, burst07..0A toujours81 ;26/28divergences. AprèscoupureCTRL1 sansvidange,32/32comparaisonsconcordantes. WHO7B/CTRL3=44stables, HALerrors0 ;28statutsgroupésmonotones1→256. Pas proofwire ni causefastpollB ; aucunecorrection/XYZ/DATA_OUT.
+- **VALIDÉ logiciel / M014 PRÉSERVÉ** : test ciblé neuf1/1 etcrossdéfaut/profilréussis ;A/B/Cnonrejouées. Contrôlescapteurrestaurés0/0/0/0/0/4/0 ; imageM014restaurée/Flash2Mio byte-identique, FRAMgen12/configUNAVAILABLE/SDOFF/IRQ49-66/faults0 ;2FC03derepriseB0/B1réussies,MCUrunning. AucuneFRAM/SDdansprobe,partitionpréservée. M015-D BLOCKED,M015 IN PROGRESS ; prochainepreuvewire↔RAM àpréparer avecinstrumentidentifié/contratdistinct.
 - Archives C exactes depuis37b97f7 ; worktree D isolé, autres worktrees/stashes préservés. Preuves locales /home/lolo/dev/msm/reports/TR2-mission015-D-20261012T135359Z.
 
 ## État opérationnel antérieur — M015-C, 12 octobre 2026

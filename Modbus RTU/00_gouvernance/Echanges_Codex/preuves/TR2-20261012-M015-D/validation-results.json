@@ -1,0 +1,17 @@
+{
+  "new_test": "1/1 passed; nominal, bit7 injection trace, config mismatch restore, active preexisting refusal",
+  "cross_default": "passed",
+  "cross_active": "passed",
+  "previous_tests_repeated": false,
+  "initial_failure": "Mock injection at exact128 missed burst due pair/single alternation; fixed to first burst>=128, exact record index asserted",
+  "logs_sha256": {
+    "validation-0.log": "f9a41817dc21e6b079692debb26ab8b43110b1d59d6237752a8b2eea57b7bf36",
+    "validation-1.log": "37433fa1f42f78c46e248df58b9efb1502a0258013b78a1088da2379c66daeab",
+    "validation-2.log": "ff50c8a4799fc48ecfd6339393fe585e61d645efff608ecdbd3199936090b1c7",
+    "validation-final-0.log": "2325125ff496d09b6b42d3f179b2b88cbc266fd70b6e8ce398eb59193746795d",
+    "validation-final-1.log": "dfc5c61f8eb5c7a54f7e60c03eb8087a799dfd14ab9bd93dfbece5d05a37ffd1",
+    "validation-final-2.log": "f73ae25dec84d6e88bcd8f91642a1501551fce2a1a6d47bde9b048f498efa86d",
+    "validation-final-3.log": "6e72b990c1b2e56edbb994649c465def0d81c947d13d72cd793534906a6b809b",
+    "validation-final-4.log": "16003e668dc872533f5480702ac7113e8c8b9a6963c202b6a41ed4f8323db62c"
+  }
+}
