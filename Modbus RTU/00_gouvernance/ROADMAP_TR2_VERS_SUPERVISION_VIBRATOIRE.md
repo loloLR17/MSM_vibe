@@ -145,3 +145,7 @@ M014 restauréeexactement (Flash2Mio identique), FRAMgen12/configUNAVAILABLE, SD
 ## Actualisation M015-F — 12 octobre 2026
 
 **M015-F BLOCKED ; M015 IN PROGRESS.** HarnessFIFO128/2,5MHz ettests préparés,maisunique tentative refusée avantactivationFIFO pargardereadbackconfiguration ;aucunXYZ/burst,aucundébit/latencemesuré. Valeurdivergente nonexportée,aucunecauseattribuée. M014restaurée/Flash2Mioexacte,FRAMgen12/SDOFF/partitionpréservée,repriseB0/B1réussie. V1ODR26667/fenêtres4096..32768/continuité/store-and-forward inchangées ;256motsprévus nevalentpasV1. Prochaincontrat :télémétrieaumismatch puis tentativebornée choisie ;625kHzFIFOfigée éventuellementpossiblemaisinsuffisant pourfluxcontinu,nonexécuté. Pasinstrumentabsentexigé,nirechercheexhaustive ourejeuA-F.
+
+## Actualisation M015-G — 12 octobre 2026
+
+Instrumentation du premier refus préparée et testée sans affaiblissement des gardes ; essai unique et reprise minimale M014-H en attente. M015 globale IN PROGRESS ; V1 et partition microSD préservées.

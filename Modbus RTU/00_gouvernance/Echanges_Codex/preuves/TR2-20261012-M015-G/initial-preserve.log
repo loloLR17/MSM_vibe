@@ -1,0 +1,10 @@
+0x08019dfe in serial_transport_is_valid (transport=0x2000e5b8 <transport>) at /home/lolo/dev/msm/projects/MSM_vibe-M014-H/Modbus RTU/05_Firmware/src/platform/serial_transport.c:9
+9	           transport->transmit != NULL &&
+0xbfa0700:	0x004a003d	0x38425018	0x20333157
+$1 = 2
+$2 = 0
+$3 = {status = TRANSACTIONAL_IMAGE_RECOVERY_VALID, generation = 12, active_image = 1 '\001'}
+$4 = CONFIGURATION_RECOVERY_UNAVAILABLE
+0xe000e100:	0x00000000	0x00020000	0x00000004
+0xe000ed28:	0x00000000	0x00000000
+[Inferior 1 (Remote target) detached]

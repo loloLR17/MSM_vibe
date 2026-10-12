@@ -1,10 +1,15 @@
 # État courant TR2 — référence reconstruite
 
-Mise à jour : 12 octobre 2026. Mission `TR2-20261012-M015-F-FIFO-BURST-FEASIBILITY`.
+Mise à jour : 12 octobre 2026. Mission `TR2-20261012-M015-G-CONFIG-READBACK`.
 
 **Ce document est un nouvel état de référence reconstruit à partir de preuves vérifiables. Il n'est pas une restitution du journal historique HP.** Sa création a été explicitement autorisée par l'utilisateur pour la mission `T1000-20261010-CLOTURE-001`, après escalade AGENTS.md §18. Aucun original n'a été retrouvé dans l'historique Git, les répertoires Linux locaux ou les documents Windows accessibles. Les archives d'échanges du 8 octobre mentionnent un journal local HP, sans en fournir le contenu. Aucun état historique inconnu n'est inventé.
 
-## État opérationnel actuel — M015-F, 12 octobre 2026
+## État opérationnel actuel — M015-G, 12 octobre 2026
+
+- **VALIDÉ logiciel / PRÉPARÉ physique** : premier refus immuable et traces SPI bornées ajoutés sans modifier les gardes. Test ciblé21 scénarios et cross-build défaut/profil réussis ; acquis A-F non rejoués. Essai G pas encore effectué.
+- **PRÉSERVÉ / OBSERVÉ** : M014-H reconnu, Flash2Mio et RAM768K sauvegardées, UID/STLINK attendus ; stage2/result0/FRAMgen12/configUNAVAILABLE/IRQ49-66/faults0. Aucun reset/flash G à ce point. Une tentative unique puis restauration et deux lectures de reprise prévues ; M015 IN PROGRESS.
+
+## État opérationnel antérieur — M015-F, 12 octobre 2026
 
 - **BLOCKED physique** :unique tentative mode3/2,5MHz, code571b0d8, arrêtgardeconfiguration avantactivationFIFO (result9/loss4/restore0/HALerrors0),0poll/0burst/0XYZ. Valeurdivergente nonexportée par cetteversion ;configured tout0=BSSnonrenseigné,aucune donnée synthétique. Pas deuxièmeessai ni rechercheexhaustive.
 - **VALIDÉ logiciel / M014 PRÉSERVÉ** :harness2bursts128 préparé,testneuf1/1/crossdéfaut-profilréussis,A-Einchangésnonrejoués. Contrôlesrestaurés0/0/0/0/0/4/0 ;Flash2Mioidentique,M014BINb462c29a,FRAMgen12/configUNAVAILABLE/SDOFF/IRQ49-66/faults0,2FC03derepriseB0/B1réussies,MCUrunning. Aucunmedia dansdiagnostic,partitionpréservée. M015F BLOCKED,M015INPROGRESS.

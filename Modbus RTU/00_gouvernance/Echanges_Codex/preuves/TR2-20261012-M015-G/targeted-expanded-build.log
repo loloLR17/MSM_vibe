@@ -1,0 +1,4 @@
+[ 96%] Built target tr2_core
+[ 96%] Building C object CMakeFiles/test_stm32_burst_capture.dir/tests/platform/test_stm32_burst_capture.c.o
+[ 96%] Linking C executable test_stm32_burst_capture
+[100%] Built target test_stm32_burst_capture

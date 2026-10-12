@@ -7,6 +7,31 @@ volatile Stm32BurstInfo tr2_burst_info;
 volatile Stm32BurstPoll tr2_burst_polls[TR2_BURST_POLLS];
 volatile Stm32BurstMeta tr2_burst_meta[2];
 volatile uint8_t tr2_burst_rx[2][TR2_BURST_BYTES];
+volatile uint32_t tr2_config_trace_count;
+volatile Stm32ConfigTrace tr2_config_traces[TR2_CONFIG_TRACE_COUNT];
+volatile Stm32ConfigRefusal tr2_config_first_refusal;
+/* Immutable first observable failure: later restoration cannot overwrite it.
+ * reason1 HAL I/O,2 readback mismatch,3 telemetry bound. */
+static void refuse(uint32_t reason,uint32_t reg,uint32_t ev,uint32_t expected,
+ uint32_t ov,uint32_t observed,uint32_t trace_index)
+{
+ if(tr2_config_first_refusal.valid)return;
+ tr2_config_first_refusal.reason=reason;tr2_config_first_refusal.phase=tr2_burst_info.stage;
+ tr2_config_first_refusal.reg=reg;tr2_config_first_refusal.expected_valid=ev;
+ tr2_config_first_refusal.expected=expected;tr2_config_first_refusal.observed_valid=ov;
+ tr2_config_first_refusal.observed=observed;tr2_config_first_refusal.trace_index=trace_index;
+ if(trace_index<tr2_config_trace_count)tr2_config_first_refusal.io=tr2_config_traces[trace_index];
+ tr2_config_first_refusal.valid=1U;
+}
+static void mismatch(uint32_t reg,uint32_t expected,uint32_t observed)
+{
+ uint32_t index=UINT32_MAX;
+ for(uint32_t i=tr2_config_trace_count;i>0U;i--){
+  volatile Stm32ConfigTrace *v=&tr2_config_traces[i-1U];
+  if(v->method!=4U&&reg>=v->reg&&reg<v->reg+v->nbytes-1U){index=i-1U;break;}
+ }
+ refuse(2U,reg,1U,expected,1U,observed,index);
+}
 static const uint8_t regs[7]={7U,8U,9U,10U,16U,18U,20U};
 static SPI_HandleTypeDef *bus;
 static GPIO_TypeDef *port;
@@ -15,16 +40,32 @@ static uint8_t tx[TR2_BURST_BYTES],rx[TR2_BURST_BYTES];
 static Tr2Result io(uint8_t reg,uint8_t *data,uint16_t n,int write,Stm32BurstMeta *meta)
 {
  HAL_StatusTypeDef status;
+ Stm32ConfigTrace trace={0};
+ uint32_t index=tr2_config_trace_count;
+ if(index>=TR2_CONFIG_TRACE_COUNT){refuse(3U,reg,0U,UINT32_MAX,0U,UINT32_MAX,UINT32_MAX);return TR2_ERROR_INTERNAL;}
  if(n==0U||n+1U>TR2_BURST_BYTES||(write&&n!=1U))return TR2_ERROR_INVALID_ARGUMENT;
  memset(tx,0,sizeof(tx));memset(rx,0,sizeof(rx));tx[0]=write?reg:(uint8_t)(reg|128U);
  if(write)tx[1]=data[0];
+ trace.phase=tr2_burst_info.stage;trace.method=write?4U:(reg==0x78U?3U:(n==1U?1U:2U));
+ trace.reg=reg;trace.nbytes=n+1U;trace.raw_length=n+1U<8U?n+1U:8U;
+ trace.cs_before=(port->ODR&pin)!=0U;trace.sr_before=bus->Instance->SR;
+ trace.cfg1=bus->Instance->CFG1;trace.cfg2=bus->Instance->CFG2;
+ trace.begin_cycles=DWT->CYCCNT;trace.valid_mask=1U;
  if(meta){meta->cs_before=(port->ODR&pin)!=0U;meta->cfg1=bus->Instance->CFG1;meta->cfg2=bus->Instance->CFG2;meta->begin_cycles=DWT->CYCCNT;}
  HAL_GPIO_WritePin(port,pin,GPIO_PIN_RESET);
+ trace.cs_during=(port->ODR&pin)!=0U;
  if(meta)meta->cs_during=(port->ODR&pin)!=0U;
  status=HAL_SPI_TransmitReceive(bus,tx,rx,(uint16_t)(n+1U),10U);
+ trace.sr_after=bus->Instance->SR;
  HAL_GPIO_WritePin(port,pin,GPIO_PIN_SET);
+ trace.end_cycles=DWT->CYCCNT;trace.cs_after=(port->ODR&pin)!=0U;
+ trace.hal_status=(uint32_t)status;trace.error=bus->ErrorCode;
+ trace.rx_left=bus->RxXferCount;trace.tx_left=bus->TxXferCount;
+ for(uint32_t j=0;j<trace.raw_length;j++){trace.tx[j]=tx[j];trace.rx[j]=rx[j];}
+ trace.valid_mask|=2U|4U;if(status==HAL_OK&&!write)trace.valid_mask|=8U;
+ tr2_config_traces[index]=trace;tr2_config_trace_count=index+1U;
  if(meta){meta->cs_after=(port->ODR&pin)!=0U;meta->end_cycles=DWT->CYCCNT;meta->hal_status=(uint32_t)status;meta->error=bus->ErrorCode;meta->rx_left=bus->RxXferCount;meta->tx_left=bus->TxXferCount;}
- if(status!=HAL_OK){tr2_burst_info.errors++;return status==HAL_TIMEOUT?TR2_ERROR_UNAVAILABLE:TR2_ERROR_INTERNAL;}
+ if(status!=HAL_OK){refuse(1U,reg,write?1U:0U,write?tx[1]:UINT32_MAX,0U,UINT32_MAX,index);tr2_burst_info.errors++;return status==HAL_TIMEOUT?TR2_ERROR_UNAVAILABLE:TR2_ERROR_INTERNAL;}
  if(!write&&data!=NULL)memcpy(data,rx+1U,n);
  return TR2_OK;
 }
@@ -62,19 +103,19 @@ __attribute__((noreturn)) void stm32_iis3dwb_burst_capture_run(SPI_HandleTypeDef
  {uint32_t before=DWT->CYCCNT;HAL_Delay(2U);if(before==DWT->CYCCNT){result=TR2_ERROR_UNAVAILABLE;goto finish;}}
  tr2_burst_info.core_hz=HAL_RCC_GetHCLKFreq();tr2_burst_info.spi_hz=HAL_RCCEx_GetPeriphCLKFreq(RCC_PERIPHCLK_SPI3)/64U;
  if(tr2_burst_info.core_hz!=160000000U||tr2_burst_info.spi_hz!=2500000U){result=TR2_ERROR_UNSUPPORTED;goto finish;}
- result=io(15U,&value,1U,0,NULL);if(result!=TR2_OK||value!=0x7BU){result=TR2_ERROR_INTERNAL;goto finish;}
+ result=io(15U,&value,1U,0,NULL);if(result!=TR2_OK||value!=0x7BU){if(result==TR2_OK)mismatch(15U,0x7BU,value);result=TR2_ERROR_INTERNAL;goto finish;}
  result=controls(saved);if(result!=TR2_OK)goto finish;
- for(unsigned i=0;i<7;i++){tr2_burst_info.saved[i]=saved[i];if(saved[i]!=(i==5U?4U:0U)){result=TR2_ERROR_UNSUPPORTED;goto finish;}}
+ for(unsigned i=0;i<7;i++){tr2_burst_info.saved[i]=saved[i];if(saved[i]!=(i==5U?4U:0U)){mismatch(regs[i],i==5U?4U:0U,saved[i]);result=TR2_ERROR_UNSUPPORTED;goto finish;}}
  have_saved=1;
  {static const uint8_t audit[]={0x0D,0x0E,0x13,0x15,0x16,0x17,0x19,0x73,0x74,0x75};
-  for(unsigned i=0;i<sizeof(audit);i++){result=io(audit[i],&value,1U,0,NULL);if(result!=TR2_OK||value!=0U){result=TR2_ERROR_UNSUPPORTED;goto finish;}}
+  for(unsigned i=0;i<sizeof(audit);i++){result=io(audit[i],&value,1U,0,NULL);if(result!=TR2_OK||value!=0U){if(result==TR2_OK)mismatch(audit[i],0U,value);result=TR2_ERROR_UNSUPPORTED;goto finish;}}
  }
  result=status_read(&status);if(result!=TR2_OK||status!=0U){result=TR2_ERROR_INVALID_STATE;goto finish;}
  changed=1;tr2_burst_info.stage=2U;
  {const uint8_t values[7]={0U,0x81U,0x0AU,0U,0xA8U,0x44U,0U};const uint8_t order[7]={5U,4U,0U,1U,2U,3U,6U};
   for(unsigned j=0;j<7;j++){unsigned i=order[j];result=write_reg(regs[i],values[i]);if(result!=TR2_OK)goto finish;}
   result=controls(actual);if(result!=TR2_OK)goto finish;
-  for(unsigned i=0;i<7;i++)if(actual[i]!=values[i]){tr2_burst_info.loss_flags|=4U;result=TR2_ERROR_INTERNAL;goto finish;}
+  for(unsigned i=0;i<7;i++)if(actual[i]!=values[i]){mismatch(regs[i],values[i],actual[i]);tr2_burst_info.loss_flags|=4U;result=TR2_ERROR_INTERNAL;goto finish;}
  }
  HAL_Delay(100U);
  tr2_burst_info.start_cycles=DWT->CYCCNT;result=write_reg(10U,1U);if(result!=TR2_OK)goto finish;
@@ -97,7 +138,7 @@ __attribute__((noreturn)) void stm32_iis3dwb_burst_capture_run(SPI_HandleTypeDef
  result=write_reg(16U,0U);if(result!=TR2_OK)goto finish;HAL_Delay(2U);
  result=controls(actual);if(result!=TR2_OK)goto finish;
  {const uint32_t expected[7]={0U,0x81U,0x0AU,1U,0U,0x44U,0U};
-  for(unsigned i=0;i<7;i++){tr2_burst_info.configured[i]=actual[i];if(actual[i]!=expected[i]){tr2_burst_info.loss_flags|=4U;result=TR2_ERROR_INTERNAL;goto finish;}}
+  for(unsigned i=0;i<7;i++){tr2_burst_info.configured[i]=actual[i];if(actual[i]!=expected[i]){mismatch(regs[i],expected[i],actual[i]);tr2_burst_info.loss_flags|=4U;result=TR2_ERROR_INTERNAL;goto finish;}}
  }
  result=status_read(&status);tr2_burst_info.stopped_status=status;
  if(result!=TR2_OK||(status&0x03FFU)!=256U||tr2_burst_info.loss_flags){result=TR2_ERROR_INVALID_STATE;goto finish;}
