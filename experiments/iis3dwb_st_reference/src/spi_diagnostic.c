@@ -1,4 +1,5 @@
 #include "spi_diagnostic.h"
+#include <string.h>
 uint32_t bench_rx_offset(uintptr_t base, uintptr_t current, uint32_t requested,
                          uint32_t *valid)
 {
@@ -20,4 +21,11 @@ uint32_t bench_log_refusal(uint32_t traces, uint32_t bytes, uint32_t snapshots,
   return (traces>=limit_t?1U:0U) |
     (bytes>limit_b || requested>limit_b-bytes?2U:0U) |
     (snapshots>limit_s || limit_s-snapshots<2U?4U:0U);
+}
+uint16_t bench_build_frame(uint8_t reg,const uint8_t *data,uint32_t n,uint32_t write,uint8_t *tx,uint32_t capacity)
+{
+  if(!tx || !n || n>896U || reg>0x7FU || capacity<n+1U || (write&&!data))return 0;
+  memset(tx,0,n+1U);tx[0]=write?reg:(uint8_t)(reg|0x80U);
+  if(write)memcpy(tx+1,data,n);
+  return (uint16_t)(n+1U);
 }

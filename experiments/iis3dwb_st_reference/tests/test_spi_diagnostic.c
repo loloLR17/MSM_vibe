@@ -31,6 +31,15 @@ int main(void)
   assert(bench_log_refusal(0,0,2024,1,1)==0);
   assert(bench_log_refusal(1024,65536,2048,1,1)==7);
   assert(bench_log_refusal(0,0,0,0xFFFFFFFFU,0)==2);
+  uint8_t tx[897],value=0x0A;
+  assert(bench_build_frame(0x78,0,896,0,tx,sizeof(tx))==897);
+  assert(tx[0]==0xF8 && tx[1]==0 && tx[896]==0);
+  assert(bench_build_frame(9,&value,1,1,tx,sizeof(tx))==2 && tx[0]==9 && tx[1]==0x0A);
+  assert(!bench_build_frame(0x78,0,897,0,tx,sizeof(tx)));
+  assert(!bench_build_frame(0x78,0,896,0,tx,896));
+  assert(!bench_build_frame(0x80,&value,1,1,tx,sizeof(tx)));
+  assert(!bench_build_frame(9,0,1,1,tx,sizeof(tx)));
+  assert(!bench_build_frame(9,&value,0,1,tx,sizeof(tx)));
   puts("14 diagnostic bounds and pre-cleanup preservation scenarios passed");
   return 0;
 }

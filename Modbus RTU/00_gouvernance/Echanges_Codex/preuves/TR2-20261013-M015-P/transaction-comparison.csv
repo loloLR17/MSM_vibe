@@ -1,0 +1,122 @@
+case,index,reg,write,payload_len,tx_observed_prefix,rx_observed_prefix_including_command,hal,error,phase
+I,0,7,False,4,87 00 00 00 00,00 00 00 00 00,0,0,1
+I,1,15,False,6,8F 00 00 00 00 00 00,00 7B 00 00 04 00 00,0,0,1
+I,2,13,False,3,8D 00 00 00,00 00 00 7B,0,0,1
+I,3,21,False,3,95 00 00 00,FF 00 00 00,0,0,1
+I,4,24,False,2,98 00 00,00 C0 00,0,0,1
+I,5,115,False,3,F3 00 00 00,00 00 00 00,0,0,1
+I,6,58,False,2,BA 00 00,00 00 00,0,0,1
+I,7,18,True,1,12 44,00 00,0,0,2
+I,8,16,True,1,10 A8,00 00,0,0,2
+I,9,7,True,1,07 00,00 00,0,0,2
+I,10,8,True,1,08 81,00 00,0,0,2
+I,11,9,True,1,09 0A,00 00,0,0,2
+I,12,10,True,1,0A 00,00 00,0,0,2
+I,13,20,True,1,14 00,00 00,0,0,2
+I,14,7,False,4,87 00 00 00 00,00 00 81 0A 00,0,0,2
+I,15,15,False,6,8F 00 00 00 00 00 00,00 7B A8 00 44 00 00,0,0,2
+I,16,10,True,1,0A 01,00 00,0,0,2
+I,17,58,False,2,BA 00 00,00 00 00,0,0,3
+I,18,58,False,2,BA 00 00,00 35 00,0,0,3
+I,19,58,False,2,BA 00 00,00 6A 00,0,0,3
+I,20,58,False,2,BA 00 00,00 9E 00,0,0,3
+I,21,58,False,2,BA 00 00,00 D4 00,0,0,3
+I,22,58,False,2,BA 00 00,00 00 A1,0,0,3
+I,23,16,True,1,10 00,FF FF,0,0,3
+I,24,7,False,4,87 00 00 00 00,FF 00 81 0A 01,0,0,3
+I,25,15,False,6,8F 00 00 00 00 00 00,FF 7B 00 00 44 00 00,0,0,3
+I,26,58,False,2,BA 00 00,00 00 A1,0,0,3
+I,27,120,False,896,F8 00 00 00 00 00 00 00,FF 11 DD 03 D0 14 FC E8,0,0,4
+I,28,58,False,2,BA 00 00,FF 80 00,0,0,4
+I,29,120,False,896,F8 00 00 00 00 00 00 00,00 11 70 03 FD 14 F8 E8,0,0,4
+I,30,58,False,2,BA 00 00,FF 00 00,0,0,4
+I,31,16,True,1,10 00,00 00,0,0,5
+I,32,10,True,1,0A 00,00 00,0,0,5
+I,33,9,True,1,09 00,00 00,0,0,5
+I,34,8,True,1,08 00,00 00,0,0,5
+I,35,7,True,1,07 00,00 00,0,0,5
+I,36,20,True,1,14 00,00 00,0,0,5
+I,37,18,True,1,12 04,00 00,0,0,5
+I,38,7,False,4,87 00 00 00 00,00 00 00 00 00,0,0,5
+I,39,15,False,6,8F 00 00 00 00 00 00,00 7B 00 00 04 00 00,0,0,5
+O,0,15,False,1,NOT_CAPTURED; reconstructed 8F,COMMAND_UNOBSERVED; payload 7b,0,0,official
+O,1,18,False,1,NOT_CAPTURED; reconstructed 92,COMMAND_UNOBSERVED; payload 44,0,0,official
+O,2,18,True,1,NOT_CAPTURED; reconstructed 12,COMMAND_UNOBSERVED; payload 45,0,0,official
+O,3,18,False,1,NOT_CAPTURED; reconstructed 92,COMMAND_UNOBSERVED; payload 04,0,0,official
+O,4,18,False,1,NOT_CAPTURED; reconstructed 92,COMMAND_UNOBSERVED; payload 04,0,0,official
+O,5,18,True,1,NOT_CAPTURED; reconstructed 12,COMMAND_UNOBSERVED; payload 44,0,0,official
+O,6,16,False,1,NOT_CAPTURED; reconstructed 90,COMMAND_UNOBSERVED; payload 00,0,0,official
+O,7,16,True,1,NOT_CAPTURED; reconstructed 10,COMMAND_UNOBSERVED; payload 0c,0,0,official
+O,8,8,False,1,NOT_CAPTURED; reconstructed 88,COMMAND_UNOBSERVED; payload 00,0,0,official
+O,9,7,True,1,NOT_CAPTURED; reconstructed 07,COMMAND_UNOBSERVED; payload 00,0,0,official
+O,10,8,True,1,NOT_CAPTURED; reconstructed 08,COMMAND_UNOBSERVED; payload 01,0,0,official
+O,11,9,False,1,NOT_CAPTURED; reconstructed 89,COMMAND_UNOBSERVED; payload 00,0,0,official
+O,12,9,True,1,NOT_CAPTURED; reconstructed 09,COMMAND_UNOBSERVED; payload 0a,0,0,official
+O,13,10,False,1,NOT_CAPTURED; reconstructed 8A,COMMAND_UNOBSERVED; payload 00,0,0,official
+O,14,10,True,1,NOT_CAPTURED; reconstructed 0A,COMMAND_UNOBSERVED; payload 06,0,0,official
+O,15,16,False,1,NOT_CAPTURED; reconstructed 90,COMMAND_UNOBSERVED; payload 0c,0,0,official
+O,16,16,True,1,NOT_CAPTURED; reconstructed 10,COMMAND_UNOBSERVED; payload ac,0,0,official
+O,17,10,False,1,NOT_CAPTURED; reconstructed 8A,COMMAND_UNOBSERVED; payload 06,0,0,official
+O,18,10,True,1,NOT_CAPTURED; reconstructed 0A,COMMAND_UNOBSERVED; payload 86,0,0,official
+O,19,25,False,1,NOT_CAPTURED; reconstructed 99,COMMAND_UNOBSERVED; payload 00,0,0,official
+O,20,25,True,1,NOT_CAPTURED; reconstructed 19,COMMAND_UNOBSERVED; payload 20,0,0,official
+O,21,58,False,2,NOT_CAPTURED; reconstructed BA,COMMAND_UNOBSERVED; payload 0000,0,0,official
+O,22,58,False,2,NOT_CAPTURED; reconstructed BA,COMMAND_UNOBSERVED; payload 0000,0,0,official
+O,23,58,False,2,NOT_CAPTURED; reconstructed BA,COMMAND_UNOBSERVED; payload 0000,0,0,official
+O,24,58,False,2,NOT_CAPTURED; reconstructed BA,COMMAND_UNOBSERVED; payload 0000,0,0,official
+O,25,58,False,2,NOT_CAPTURED; reconstructed BA,COMMAND_UNOBSERVED; payload 0000,0,0,official
+O,26,58,False,2,NOT_CAPTURED; reconstructed BA,COMMAND_UNOBSERVED; payload 0000,0,0,official
+O,27,58,False,2,NOT_CAPTURED; reconstructed BA,COMMAND_UNOBSERVED; payload 0700,0,0,official
+O,28,58,False,2,NOT_CAPTURED; reconstructed BA,COMMAND_UNOBSERVED; payload 0e00,0,0,official
+O,29,58,False,2,NOT_CAPTURED; reconstructed BA,COMMAND_UNOBSERVED; payload 1400,0,0,official
+O,30,58,False,2,NOT_CAPTURED; reconstructed BA,COMMAND_UNOBSERVED; payload 1b00,0,0,official
+O,31,58,False,2,NOT_CAPTURED; reconstructed BA,COMMAND_UNOBSERVED; payload 2100,0,0,official
+O,32,58,False,2,NOT_CAPTURED; reconstructed BA,COMMAND_UNOBSERVED; payload 2800,0,0,official
+O,33,58,False,2,NOT_CAPTURED; reconstructed BA,COMMAND_UNOBSERVED; payload 2f00,0,0,official
+O,34,58,False,2,NOT_CAPTURED; reconstructed BA,COMMAND_UNOBSERVED; payload 3500,0,0,official
+O,35,58,False,2,NOT_CAPTURED; reconstructed BA,COMMAND_UNOBSERVED; payload 3c00,0,0,official
+O,36,58,False,2,NOT_CAPTURED; reconstructed BA,COMMAND_UNOBSERVED; payload 4200,0,0,official
+O,37,58,False,2,NOT_CAPTURED; reconstructed BA,COMMAND_UNOBSERVED; payload 4900,0,0,official
+O,38,58,False,2,NOT_CAPTURED; reconstructed BA,COMMAND_UNOBSERVED; payload 5000,0,0,official
+O,39,58,False,2,NOT_CAPTURED; reconstructed BA,COMMAND_UNOBSERVED; payload 5600,0,0,official
+O,40,58,False,2,NOT_CAPTURED; reconstructed BA,COMMAND_UNOBSERVED; payload 5d00,0,0,official
+O,41,58,False,2,NOT_CAPTURED; reconstructed BA,COMMAND_UNOBSERVED; payload 6300,0,0,official
+O,42,58,False,2,NOT_CAPTURED; reconstructed BA,COMMAND_UNOBSERVED; payload 6a00,0,0,official
+O,43,58,False,2,NOT_CAPTURED; reconstructed BA,COMMAND_UNOBSERVED; payload 7100,0,0,official
+O,44,58,False,2,NOT_CAPTURED; reconstructed BA,COMMAND_UNOBSERVED; payload 7700,0,0,official
+O,45,58,False,2,NOT_CAPTURED; reconstructed BA,COMMAND_UNOBSERVED; payload 7e00,0,0,official
+O,46,58,False,2,NOT_CAPTURED; reconstructed BA,COMMAND_UNOBSERVED; payload 8400,0,0,official
+O,47,58,False,2,NOT_CAPTURED; reconstructed BA,COMMAND_UNOBSERVED; payload 8b00,0,0,official
+O,48,58,False,2,NOT_CAPTURED; reconstructed BA,COMMAND_UNOBSERVED; payload 9200,0,0,official
+O,49,58,False,2,NOT_CAPTURED; reconstructed BA,COMMAND_UNOBSERVED; payload 9800,0,0,official
+O,50,58,False,2,NOT_CAPTURED; reconstructed BA,COMMAND_UNOBSERVED; payload 9f00,0,0,official
+O,51,58,False,2,NOT_CAPTURED; reconstructed BA,COMMAND_UNOBSERVED; payload a500,0,0,official
+O,52,58,False,2,NOT_CAPTURED; reconstructed BA,COMMAND_UNOBSERVED; payload ac00,0,0,official
+O,53,58,False,2,NOT_CAPTURED; reconstructed BA,COMMAND_UNOBSERVED; payload b300,0,0,official
+O,54,58,False,2,NOT_CAPTURED; reconstructed BA,COMMAND_UNOBSERVED; payload b900,0,0,official
+O,55,58,False,2,NOT_CAPTURED; reconstructed BA,COMMAND_UNOBSERVED; payload c000,0,0,official
+O,56,58,False,2,NOT_CAPTURED; reconstructed BA,COMMAND_UNOBSERVED; payload c600,0,0,official
+O,57,58,False,2,NOT_CAPTURED; reconstructed BA,COMMAND_UNOBSERVED; payload cd00,0,0,official
+O,58,58,False,2,NOT_CAPTURED; reconstructed BA,COMMAND_UNOBSERVED; payload d400,0,0,official
+O,59,58,False,2,NOT_CAPTURED; reconstructed BA,COMMAND_UNOBSERVED; payload da00,0,0,official
+O,60,58,False,2,NOT_CAPTURED; reconstructed BA,COMMAND_UNOBSERVED; payload e100,0,0,official
+O,61,58,False,2,NOT_CAPTURED; reconstructed BA,COMMAND_UNOBSERVED; payload e700,0,0,official
+O,62,58,False,2,NOT_CAPTURED; reconstructed BA,COMMAND_UNOBSERVED; payload ee00,0,0,official
+O,63,58,False,2,NOT_CAPTURED; reconstructed BA,COMMAND_UNOBSERVED; payload f500,0,0,official
+O,64,58,False,2,NOT_CAPTURED; reconstructed BA,COMMAND_UNOBSERVED; payload fb00,0,0,official
+O,65,58,False,2,NOT_CAPTURED; reconstructed BA,COMMAND_UNOBSERVED; payload 0281,0,0,official
+O,66,120,False,896,NOT_CAPTURED; reconstructed F8,COMMAND_UNOBSERVED; payload 21ec020000000a21,0,0,official
+O,67,120,False,896,NOT_CAPTURED; reconstructed F8,COMMAND_UNOBSERVED; payload 21ec0e0000000a21,0,0,official
+O,68,120,False,14,NOT_CAPTURED; reconstructed F8,COMMAND_UNOBSERVED; payload 21ec1a0000000a21,0,0,official
+O,69,7,False,4,NOT_CAPTURED; reconstructed 87,COMMAND_UNOBSERVED; payload 00010a86,0,0,official
+O,70,15,False,10,NOT_CAPTURED; reconstructed 8F,COMMAND_UNOBSERVED; payload 7bac004400000000,0,0,official
+O,71,25,False,1,NOT_CAPTURED; reconstructed 99,COMMAND_UNOBSERVED; payload 20,0,0,official
+O,72,16,False,1,NOT_CAPTURED; reconstructed 90,COMMAND_UNOBSERVED; payload ac,0,0,official
+O,73,16,True,1,NOT_CAPTURED; reconstructed 10,COMMAND_UNOBSERVED; payload 0c,0,0,official
+O,74,10,False,1,NOT_CAPTURED; reconstructed 8A,COMMAND_UNOBSERVED; payload 86,0,0,official
+O,75,10,True,1,NOT_CAPTURED; reconstructed 0A,COMMAND_UNOBSERVED; payload 80,0,0,official
+O,76,25,False,1,NOT_CAPTURED; reconstructed 99,COMMAND_UNOBSERVED; payload 20,0,0,official
+O,77,25,True,1,NOT_CAPTURED; reconstructed 19,COMMAND_UNOBSERVED; payload 00,0,0,official
+O,78,16,False,1,NOT_CAPTURED; reconstructed 90,COMMAND_UNOBSERVED; payload 0c,0,0,official
+O,79,10,False,1,NOT_CAPTURED; reconstructed 8A,COMMAND_UNOBSERVED; payload 80,0,0,official
+O,80,25,False,1,NOT_CAPTURED; reconstructed 99,COMMAND_UNOBSERVED; payload 00,0,0,official

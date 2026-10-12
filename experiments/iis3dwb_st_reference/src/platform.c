@@ -2,6 +2,11 @@
 #include <string.h>
 _Static_assert(TRACE_RECORDS==1024U && TRACE_BYTES==65536U && PRECLOSE_RECORDS==2048U,"Budget policy mismatch");
 static SPI_HandleTypeDef spi;
+#if BENCH_DUPLEX
+_Alignas(4) static uint8_t duplex_tx[897],duplex_rx[897];
+#endif
+uint8_t bench_command_rx[TRACE_RECORDS];
+volatile uint32_t bench_transfer_method=BENCH_DUPLEX;
 BenchTrace bench_trace[TRACE_RECORDS];
 uint8_t bench_payload[TRACE_BYTES];
 volatile uint32_t bench_trace_count,bench_payload_count,bench_stop;
@@ -43,26 +48,39 @@ static int32_t transfer(void *handle,uint8_t reg,uint8_t *data,uint16_t len,unsi
   BenchTrace *t=&bench_trace[bench_trace_count++];
   t->tick=HAL_GetTick();t->reg=reg;t->len=len;t->write=write;
   t->offset=bench_payload_count;bench_payload_count+=len;
+#if !BENCH_DUPLEX
   uint8_t command=write?reg:(uint8_t)(reg|0x80);
+#endif
   /* ST callbacks: command TX then payload TX/RX, CS low across both calls. */
   HAL_GPIO_WritePin(GPIOC,GPIO_PIN_9,GPIO_PIN_RESET);
+  HAL_StatusTypeDef s;
+#if BENCH_DUPLEX
+  uint16_t size=bench_build_frame(reg,data,len,write,duplex_tx,sizeof(duplex_tx));
+  memset(duplex_rx,0,size);
+  active_trace=bench_trace_count-1;active_phase=2;active_length=size;
+  active_data=(uintptr_t)duplex_rx;active_begin=DWT->CYCCNT;
+  s=HAL_SPI_TransmitReceive(&spi,duplex_tx,duplex_rx,size,20);
+  bench_command_rx[active_trace]=duplex_rx[0];
+  if(!write)memcpy(data,duplex_rx+1,len);
+#else
   active_trace=bench_trace_count-1;active_phase=1;active_length=1;
   active_data=(uintptr_t)&command;active_begin=DWT->CYCCNT;
-  HAL_StatusTypeDef s=HAL_SPI_Transmit(&spi,&command,1,20);
+  s=HAL_SPI_Transmit(&spi,&command,1,20);
   if(s==HAL_OK) {
     active_phase=write?3:2;active_length=len;active_data=(uintptr_t)data;
     active_begin=DWT->CYCCNT;
     if(write)s=HAL_SPI_Transmit(&spi,data,len,20);
     else {memset(data,0,len);s=HAL_SPI_Receive(&spi,data,len,20);}
   }
+#endif
   HAL_GPIO_WritePin(GPIOC,GPIO_PIN_9,GPIO_PIN_SET);
   t->status=s;t->error=HAL_SPI_GetError(&spi);
   t->rx_left=spi.RxXferCount;t->tx_left=spi.TxXferCount;
   memcpy(bench_payload+t->offset,data,len);
   t->valid=s==HAL_OK && !t->error && !t->rx_left && !t->tx_left && !bench_preclose_overflow;
-  if(!write) {
+  if(!write || BENCH_DUPLEX) {
     const BenchPreclose *r=bench_preclose_count?&bench_preclose[bench_preclose_count-1]:0;
-    t->valid=t->valid && bench_rx_complete(r,active_trace,len) && !(r->sr&SPI_SR_OVR);
+    t->valid=t->valid && bench_rx_complete(r,active_trace,BENCH_DUPLEX?len+1U:len) && !(r->sr&SPI_SR_OVR);
   }
   if(t->valid && !write && reg==IIS3DWB_FIFO_STATUS1 && len==2) {
     uint32_t level=(data[0]|((uint32_t)data[1]<<8))&0x3FFU;

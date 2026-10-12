@@ -1,0 +1,16 @@
+[
+  {
+    "label": "I_BIN",
+    "path": "/home/lolo/dev/msm/reports/TR2-mission015-I-20261012T162708Z/build-burst/tr2_stm32_p11c.bin",
+    "exists": true,
+    "expected_sha256": "760aab56cf32aa458c861bf5f22e2801dd595f3bd73ad6a98602c1cff0cdd258",
+    "verified": true
+  },
+  {
+    "label": "I_ELF",
+    "path": "/home/lolo/dev/msm/reports/TR2-mission015-I-20261012T162708Z/build-burst/tr2_stm32_p11c.elf",
+    "exists": true,
+    "expected_sha256": "7893fda8b3e43e215cbab0a1bcc515d51b0a6986cdf9ff742974e53b8cbb076e",
+    "verified": true
+  }
+]

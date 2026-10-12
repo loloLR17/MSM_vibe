@@ -16,4 +16,5 @@ int bench_rx_complete(const BenchPreclose *r, uint32_t trace_index, uint32_t req
 /* Separate acquisition/cleanup budgets. Return refusal bits: trace1/payload2/preclose4. */
 uint32_t bench_log_refusal(uint32_t traces, uint32_t bytes, uint32_t snapshots,
                           uint32_t requested, uint32_t cleanup);
+uint16_t bench_build_frame(uint8_t reg,const uint8_t *data,uint32_t n,uint32_t write,uint8_t *tx,uint32_t capacity);
 #endif

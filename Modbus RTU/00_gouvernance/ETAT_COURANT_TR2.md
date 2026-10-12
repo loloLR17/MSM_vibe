@@ -1,10 +1,15 @@
 # État courant TR2 — référence reconstruite
 
-Mise à jour : 12 octobre 2026. Mission `TR2-20261012-M015-O-ST-OFFICIAL-DEMO-PORT`.
+Mise à jour : 12 octobre 2026. Mission `TR2-20261013-M015-P-COMPARATIVE-FIFO-ROOT-CAUSE`.
 
 **Ce document est un nouvel état de référence reconstruit à partir de preuves vérifiables. Il n'est pas une restitution du journal historique HP.** Sa création a été explicitement autorisée par l'utilisateur pour la mission `T1000-20261010-CLOTURE-001`, après escalade AGENTS.md §18. Aucun original n'a été retrouvé dans l'historique Git, les répertoires Linux locaux ou les documents Windows accessibles. Les archives d'échanges du 8 octobre mentionnent un journal local HP, sans en fournir le contenu. Aucun état historique inconnu n'est inventé.
 
-## État opérationnel actuel — M015-O, 12 octobre 2026
+## État opérationnel actuel — M015-P, checkpoint logiciel
+
+- **VALIDÉ audit** :I256XYZreconstruits/BINELFrehashésexacts,O258TS0XYZ ;>>2réfuté,tag>>3vérifié. J128tagXYZreçus/rejetés aprèscontrôle09=14/0A=0C ;nepasconfondrezéroaccepté etzéroreçu. TableauI/J/O etmatricepubliables,matériels/clocks/FS/mode/TS/freezeconfondus historiquement.
+- **PRÉPARÉ / NON VÉRIFIÉ** :hypothèseuniqueframingHALsplitvsduplexI/J,imagesmêmesecondbancconfigST/mode3/16MHz/2MHz/level10,seulBENCH_DUPLEXchange. Testcibléframes/budgets et2ARM passent,aucuncibleP encore ;uncontrôle etuncausal max,réservescleanuppréservées. Primaire/M014/médias intouchés,archivesO exactes/stashes/worktreespréservés ;preuves `/home/lolo/dev/msm/reports/TR2-mission015-P-20261012T221333Z`.
+
+## État opérationnel antérieur — M015-O, 12 octobre 2026
 
 - **VALIDÉ provenance/logiciel** : vraie fonction iis3dwb_fifo ST1f848c38 compilée/appelée sansbench_run,driverSTf83 explicité vs gitlinkd995 inaccessible. .iocSTV3mode3 identifié ;formatsconsole/buffer512/segmentation/guards/cleanup traceables.14mocks/4ARM passent,checkpoint906de1a publié/100fichiersrelusavantmatériel,originauxvendorinchangés.
 - **OBSERVÉ / BLOCKED XYZ** :témoinmode3/raw258/API2→2TS ;aliaslocalniveau10mode3→258TS ;mêmealiasmode0→258TSbyte-identiques,0XYZ. Troiscampagnesuniques/HALcomplet/cleanup0,CTRL07..0A00/01/0A/86/CTRL1AC/CTRL3 44/CTRL10 20,final0C/80/00,faults0. Paspreuvepertezéro,modeSPI/getterseulne résolventpasdéfaut. Deuxvariantesconsommées,confirmimagebuildseul/512XYZnonengagé ;étatbatchingXL/plateforme/versiondriveràdiscriminer indépendamment, pascapteurprésumédéfectueux.

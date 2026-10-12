@@ -4,6 +4,10 @@ set(CMAKE_C_STANDARD 11)
 set(CMAKE_C_STANDARD_REQUIRED ON)
 set(CMAKE_C_EXTENSIONS OFF)
 option(BENCH_OFFICIAL "Execute the official ST sensor function" OFF)
+set(BENCH_DUPLEX 0 CACHE STRING "P causal factor: one duplex command+payload frame")
+if(NOT BENCH_DUPLEX MATCHES "^(0|1)$")
+ message(FATAL_ERROR "Unplanned transport strategy")
+endif()
 set(BENCH_SPI_MODE3 0 CACHE STRING "SPI mode3 platform profile")
 set(OFFICIAL_STATUS10 0 CACHE STRING "Explicit local FIFO level getter correction")
 set(OFFICIAL_PACKETS 1 CACHE STRING "Bounded original example packets: 1 or 3")
@@ -111,6 +115,7 @@ add_executable(iis3dwb_reference ${BENCH_MAIN} ${OFFICIAL_SOURCES} src/platform.
 target_include_directories(iis3dwb_reference PRIVATE src official ${HAL}/Inc ${DEV}/Include
   ${STM32CUBE_U5_ROOT}/Drivers/CMSIS/Include)
 target_compile_definitions(iis3dwb_reference PRIVATE STM32U575xx USE_HAL_DRIVER
+  BENCH_DUPLEX=${BENCH_DUPLEX}
   BENCH_SPI_MODE3=${BENCH_SPI_MODE3} OFFICIAL_STATUS10=${OFFICIAL_STATUS10} OFFICIAL_PACKETS=${OFFICIAL_PACKETS}
   BENCH_FIFO=$<IF:$<STREQUAL:${BENCH_EXAMPLE},who>,2,$<STREQUAL:${BENCH_EXAMPLE},fifo>>
   BENCH_STATUS10=$<STREQUAL:${BENCH_PROFILE},STATUS10>)
