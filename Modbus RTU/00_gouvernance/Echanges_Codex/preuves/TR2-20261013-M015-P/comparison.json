@@ -1,0 +1,14 @@
+{
+  "O_vs_P_control_BIN": "BYTE_IDENTICAL",
+  "bin_bytes": 54780,
+  "bin_sha256": "ed19310485d51af22b18420ea8af3ff3acba36531b3e9741bc78e91792f282f5",
+  "O_words": 258,
+  "O_XYZ": 0,
+  "O_timestamps": 258,
+  "P_control_words": 296,
+  "P_control_XYZ": 263,
+  "P_control_timestamps": 33,
+  "causal_firmware": "BUILT_NOT_FLASHED",
+  "reason": "Unexpected positive control; no valid faulty baseline for duplex causality",
+  "cause": "NOT_ESTABLISHED"
+}

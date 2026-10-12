@@ -1,0 +1,13 @@
+{
+  "control_flash_readback": "EXACT",
+  "O_level10_vs_P_control_BIN": "BYTE_IDENTICAL",
+  "first_capture_GDB_exit": 1,
+  "cause_debug_error": "Unused bench_transfer_method discarded by linker; critical dumps obtained before error",
+  "server_exit": 0,
+  "final_detach_GDB_exit": 0,
+  "final_sensor": "XLoff/bypass/TSoff",
+  "causal_trial": "NOT_PERFORMED",
+  "primary_access": "NONE",
+  "secondary_full_flash_backup_restore": "NONE",
+  "worktrees_stashes": "UNCHANGED"
+}

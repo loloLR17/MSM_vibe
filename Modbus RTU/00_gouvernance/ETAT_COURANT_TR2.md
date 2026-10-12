@@ -4,10 +4,12 @@ Mise à jour : 12 octobre 2026. Mission `TR2-20261013-M015-P-COMPARATIVE-FIFO-RO
 
 **Ce document est un nouvel état de référence reconstruit à partir de preuves vérifiables. Il n'est pas une restitution du journal historique HP.** Sa création a été explicitement autorisée par l'utilisateur pour la mission `T1000-20261010-CLOTURE-001`, après escalade AGENTS.md §18. Aucun original n'a été retrouvé dans l'historique Git, les répertoires Linux locaux ou les documents Windows accessibles. Les archives d'échanges du 8 octobre mentionnent un journal local HP, sans en fournir le contenu. Aucun état historique inconnu n'est inventé.
 
-## État opérationnel actuel — M015-P, checkpoint logiciel
+## État opérationnel actuel — M015-P, 13 octobre 2026
 
-- **VALIDÉ audit** :I256XYZreconstruits/BINELFrehashésexacts,O258TS0XYZ ;>>2réfuté,tag>>3vérifié. J128tagXYZreçus/rejetés aprèscontrôle09=14/0A=0C ;nepasconfondrezéroaccepté etzéroreçu. TableauI/J/O etmatricepubliables,matériels/clocks/FS/mode/TS/freezeconfondus historiquement.
-- **PRÉPARÉ / NON VÉRIFIÉ** :hypothèseuniqueframingHALsplitvsduplexI/J,imagesmêmesecondbancconfigST/mode3/16MHz/2MHz/level10,seulBENCH_DUPLEXchange. Testcibléframes/budgets et2ARM passent,aucuncibleP encore ;uncontrôle etuncausal max,réservescleanuppréservées. Primaire/M014/médias intouchés,archivesO exactes/stashes/worktreespréservés ;preuves `/home/lolo/dev/msm/reports/TR2-mission015-P-20261012T221333Z`.
+- **VALIDÉ audit/logiciel** : I256XYZ reconstruits et BIN/ELF exacts ; O258TS/0XYZ ; J128XYZ reçus puis rejetés après registres09=14/0A=0C. >>2 réfuté ; comparaison détaillée publiée. Test ciblé et deux ARM réussis, acquis non répétés. Checkpoint b79fe8d publié et 26 fichiers relus avant matériel.
+- **VALIDÉ PHYSIQUE BORNÉ** : contrôle unique seconde NUCLEO, BIN byte-identique O niveau10/mode3, reçoit 263 XYZ distincts +33TS ; parité/discontinuités/saturation zéro sur cette capture, huit XYZ entre TS et pas24ticks. Pas preuve globale perte zéro, répétabilité ou fenêtres512/4096. Cleanup0, XLoff/bypass/TSoff, UID confirmé/faults0/detach ; seconde Flash laissée sur contrôle inactif.
+- **RAPPORTÉ UTILISATEUR / BLOCKED CAUSE** : nappe vérifiée, débranchée et rebranchée entre O/P. Association récupération/contexte établie, contact vs état initial/alimentation non discriminés. Variante duplex construite mais jamais flashée/exécutée : témoin positif, essai causal devenu non discriminant. Aucun nouvel essai. Erreur GDB sur symbole éliminé conservée ; données déjà sauvegardées, récupération finale lecture seule.
+- **PRÉSERVÉ / SUITE** : primaire/M014-H/FRAM/SD/Modbus non accédés ; archives O, worktrees et stashes conservés. Maintenir montage fonctionnel, prochaine mission répétabilité bornée/fenêtres avec gardes ; mesure indépendante si cause précise requise. M015 IN PROGRESS, V1/continu/FFT/stockage non qualifiés. Preuves `/home/lolo/dev/msm/reports/TR2-mission015-P-20261012T221333Z`.
 
 ## État opérationnel antérieur — M015-O, 12 octobre 2026
 

@@ -6,6 +6,10 @@
 
 > Cette roadmap pilote les jalons, sans modifier les spécifications Modbus RTU V1 gelées. Les statuts sont ceux du 11 octobre 2026, à actualiser après contrôle indépendant des rapports Codex. Une implémentation logicielle ne vaut pas qualification physique.
 
+## Actualisation M015-P — 13 octobre 2026
+
+Acquis physique borné supplémentaire sur le second banc : 263 XYZ distincts et 33 timestamps, contrôle unique byte-identique au binaire O auparavant limité aux timestamps. Reconnexion de nappe rapportée par l'utilisateur ; contact et état initial/alimentation non discriminés. M015-P BLOCKED pour cause précise, variante duplex non exécutée, M015 reste IN PROGRESS. Montage fonctionnel à préserver ; répétabilité et fenêtres512/4096 puis chaîne V1 restent à qualifier. M014-H et médias préservés. Voir DERNIER_RAPPORT et comparaison M015-P ; les échecs historiques ne sont pas annulés.
+
 ## 1. Situation de départ
 
 - **Socle Modbus RTU V1 :** spécification et mapping unifié gelés ; firmware transactionnel, persistance, campagnes et architecture A–J développés. Toutes les fonctions ne sont pas encore qualifiées sur matériel réel.

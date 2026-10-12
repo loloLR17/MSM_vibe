@@ -85,3 +85,11 @@ Snapshotsactualsize n+1 pourduplex,incluantRXcommande capturé séparément ;
 payloadcopiédepuisRX+1,parser/tagshorsligne identiques. AppelHALTXRX897max sous
 limiteSPI3 ;O2HAL_SPIinchangé,20ms,cleanup/réserves12/24/32 conservés.
 ÉcarttimeoutI10→P20 estgardelevelPconstantdansles2images,pasfactor changé.
+
+## Issue du contrôle et révision de l'hypothèse — 13 octobre 2026
+
+Le contrôle BENCH_DUPLEX=0 est byte-identique au BIN O niveau10/mode3 (SHA ed19310485d51af22b18420ea8af3ff3acba36531b3e9741bc78e91792f282f5), mais reçoit 263 XYZ +33 timestamps. L'utilisateur rapporte avoir vérifié, débranché et rebranché la nappe entre les campagnes. Les bruts sont reconstruits indépendamment : 263 XYZ distincts, parité et discontinuités zéro sur 296 mots ; cela ne prouve pas la perte globale zéro.
+
+La méthode HAL séparée peut donc produire des XYZ sur ce second banc. Sa responsabilité exclusive ou la nécessité du duplex n'est pas établie. La variante duplex reste construite uniquement ; le témoin fautif n'étant pas reproduit, son exécution ne permettrait pas d'attribuer la récupération à cette différence. Le contexte matériel/état initial est désormais le facteur rapporté à investiguer : contact et alimentation/reset ne sont pas discriminés. BLOCKED pour cause précise, succès physique borné conservé. Aucun essai supplémentaire.
+
+La capture I est appelée directement dans main.c:1728–1730 du commit 6c504a9, après initialisation MCU/SPI et avant les chemins de production : ne pas lui attribuer un reset capteur provenant d'un autre chemin logiciel.

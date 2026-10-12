@@ -1,0 +1,7 @@
+{
+  "classification": "USER_REPORTED",
+  "statement": "J'ai vérifier le branchement de la nappe du capteur, débrancher et rebrancher",
+  "recorded_at_utc": "2026-10-12T22:35:54.369814+00:00",
+  "measured_power_cycle": false,
+  "interpretation": "Reconnexion rapportée entre les essais O et P ; contact rétabli et changement de l’état initial/alimentation du capteur non discriminés."
+}
