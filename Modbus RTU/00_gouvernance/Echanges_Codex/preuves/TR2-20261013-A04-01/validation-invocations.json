@@ -1,0 +1,31 @@
+[
+  {
+    "label": "profile-tests-final",
+    "command": [
+      "python3",
+      "-B",
+      "Modbus RTU/05_Firmware/tests/platform/test_stm32_build_profiles.py",
+      "--evidence-dir",
+      "/home/lolo/dev/msm/reports/TR2-A04-01-20261013T144140Z/configurations-final",
+      "-v"
+    ],
+    "working_directory": "/home/lolo/dev/msm/projects/MSM_vibe-A04-01",
+    "environment": {
+      "STM32CUBE_U5_ROOT": "/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0"
+    },
+    "return_code": 0
+  },
+  {
+    "label": "cumulative-validator-final",
+    "command": [
+      "bash",
+      "./tr2_validate.sh",
+      "--cross-build-only"
+    ],
+    "working_directory": "/home/lolo/dev/msm/projects/MSM_vibe-A04-01",
+    "environment": {
+      "STM32CUBE_U5_ROOT": "/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0"
+    },
+    "return_code": 0
+  }
+]

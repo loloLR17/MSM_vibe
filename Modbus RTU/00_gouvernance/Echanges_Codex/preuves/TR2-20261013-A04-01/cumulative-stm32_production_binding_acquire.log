@@ -1,0 +1,160 @@
+
+/home/lolo/dev/msm/projects/MSM_vibe-A04-01/Modbus RTU/05_Firmware/build-stm32-cumulative/tr2-cumulative-m014-m015-spi4.elf:     file format elf32-littlearm
+
+
+Disassembly of section .text:
+
+080100d4 <stm32_production_binding_acquire>:
+ 80100d4:	b5b0      	push	{r4, r5, r7, lr}
+ 80100d6:	b0aa      	sub	sp, #168	@ 0xa8
+ 80100d8:	af00      	add	r7, sp, #0
+ 80100da:	6278      	str	r0, [r7, #36]	@ 0x24
+ 80100dc:	6239      	str	r1, [r7, #32]
+ 80100de:	61fa      	str	r2, [r7, #28]
+ 80100e0:	f7f8 f8cc 	bl	800827c <HAL_GetUIDw0>
+ 80100e4:	4603      	mov	r3, r0
+ 80100e6:	f8c7 3098 	str.w	r3, [r7, #152]	@ 0x98
+ 80100ea:	f7f8 f8d1 	bl	8008290 <HAL_GetUIDw1>
+ 80100ee:	4603      	mov	r3, r0
+ 80100f0:	f8c7 309c 	str.w	r3, [r7, #156]	@ 0x9c
+ 80100f4:	f7f8 f8d6 	bl	80082a4 <HAL_GetUIDw2>
+ 80100f8:	4603      	mov	r3, r0
+ 80100fa:	f8c7 30a0 	str.w	r3, [r7, #160]	@ 0xa0
+ 80100fe:	2300      	movs	r3, #0
+ 8010100:	f887 3097 	strb.w	r3, [r7, #151]	@ 0x97
+ 8010104:	4b4b      	ldr	r3, [pc, #300]	@ (8010234 <stm32_production_binding_acquire+0x160>)
+ 8010106:	781b      	ldrb	r3, [r3, #0]
+ 8010108:	f083 0301 	eor.w	r3, r3, #1
+ 801010c:	b2db      	uxtb	r3, r3
+ 801010e:	2b00      	cmp	r3, #0
+ 8010110:	d10e      	bne.n	8010130 <stm32_production_binding_acquire+0x5c>
+ 8010112:	6a3b      	ldr	r3, [r7, #32]
+ 8010114:	2b00      	cmp	r3, #0
+ 8010116:	d00b      	beq.n	8010130 <stm32_production_binding_acquire+0x5c>
+ 8010118:	69fb      	ldr	r3, [r7, #28]
+ 801011a:	2b00      	cmp	r3, #0
+ 801011c:	d008      	beq.n	8010130 <stm32_production_binding_acquire+0x5c>
+ 801011e:	6a78      	ldr	r0, [r7, #36]	@ 0x24
+ 8010120:	f00f ffb5 	bl	802008e <serial_transport_is_valid>
+ 8010124:	4603      	mov	r3, r0
+ 8010126:	f083 0301 	eor.w	r3, r3, #1
+ 801012a:	b2db      	uxtb	r3, r3
+ 801012c:	2b00      	cmp	r3, #0
+ 801012e:	d001      	beq.n	8010134 <stm32_production_binding_acquire+0x60>
+ 8010130:	2302      	movs	r3, #2
+ 8010132:	e07b      	b.n	801022c <stm32_production_binding_acquire+0x158>
+ 8010134:	2201      	movs	r2, #1
+ 8010136:	f107 0398 	add.w	r3, r7, #152	@ 0x98
+ 801013a:	4619      	mov	r1, r3
+ 801013c:	483e      	ldr	r0, [pc, #248]	@ (8010238 <stm32_production_binding_acquire+0x164>)
+ 801013e:	f003 fd23 	bl	8013b88 <production_commissioning_check_attribution>
+ 8010142:	4603      	mov	r3, r0
+ 8010144:	f887 30a7 	strb.w	r3, [r7, #167]	@ 0xa7
+ 8010148:	f897 30a7 	ldrb.w	r3, [r7, #167]	@ 0xa7
+ 801014c:	2b00      	cmp	r3, #0
+ 801014e:	d002      	beq.n	8010156 <stm32_production_binding_acquire+0x82>
+ 8010150:	f897 30a7 	ldrb.w	r3, [r7, #167]	@ 0xa7
+ 8010154:	e06a      	b.n	801022c <stm32_production_binding_acquire+0x158>
+ 8010156:	4b39      	ldr	r3, [pc, #228]	@ (801023c <stm32_production_binding_acquire+0x168>)
+ 8010158:	6819      	ldr	r1, [r3, #0]
+ 801015a:	f44f 7300 	mov.w	r3, #512	@ 0x200
+ 801015e:	4a38      	ldr	r2, [pc, #224]	@ (8010240 <stm32_production_binding_acquire+0x16c>)
+ 8010160:	4838      	ldr	r0, [pc, #224]	@ (8010244 <stm32_production_binding_acquire+0x170>)
+ 8010162:	f7f6 f882 	bl	800626a <stm32_iis3dwb_vibration_source_init>
+ 8010166:	4603      	mov	r3, r0
+ 8010168:	f887 30a7 	strb.w	r3, [r7, #167]	@ 0xa7
+ 801016c:	f897 30a7 	ldrb.w	r3, [r7, #167]	@ 0xa7
+ 8010170:	2b00      	cmp	r3, #0
+ 8010172:	d108      	bne.n	8010186 <stm32_production_binding_acquire+0xb2>
+ 8010174:	f107 0397 	add.w	r3, r7, #151	@ 0x97
+ 8010178:	4619      	mov	r1, r3
+ 801017a:	4832      	ldr	r0, [pc, #200]	@ (8010244 <stm32_production_binding_acquire+0x170>)
+ 801017c:	f7f6 f8da 	bl	8006334 <stm32_iis3dwb_vibration_source_read_who_am_i>
+ 8010180:	4603      	mov	r3, r0
+ 8010182:	f887 30a7 	strb.w	r3, [r7, #167]	@ 0xa7
+ 8010186:	f897 30a7 	ldrb.w	r3, [r7, #167]	@ 0xa7
+ 801018a:	2b00      	cmp	r3, #0
+ 801018c:	d103      	bne.n	8010196 <stm32_production_binding_acquire+0xc2>
+ 801018e:	f897 3097 	ldrb.w	r3, [r7, #151]	@ 0x97
+ 8010192:	2b7b      	cmp	r3, #123	@ 0x7b
+ 8010194:	d001      	beq.n	801019a <stm32_production_binding_acquire+0xc6>
+ 8010196:	2303      	movs	r3, #3
+ 8010198:	e048      	b.n	801022c <stm32_production_binding_acquire+0x158>
+ 801019a:	6a3b      	ldr	r3, [r7, #32]
+ 801019c:	4618      	mov	r0, r3
+ 801019e:	2360      	movs	r3, #96	@ 0x60
+ 80101a0:	461a      	mov	r2, r3
+ 80101a2:	2100      	movs	r1, #0
+ 80101a4:	f7f0 fcf4 	bl	8000b90 <memset>
+ 80101a8:	4b27      	ldr	r3, [pc, #156]	@ (8010248 <stm32_production_binding_acquire+0x174>)
+ 80101aa:	681a      	ldr	r2, [r3, #0]
+ 80101ac:	6a3b      	ldr	r3, [r7, #32]
+ 80101ae:	601a      	str	r2, [r3, #0]
+ 80101b0:	6a3b      	ldr	r3, [r7, #32]
+ 80101b2:	4a26      	ldr	r2, [pc, #152]	@ (801024c <stm32_production_binding_acquire+0x178>)
+ 80101b4:	605a      	str	r2, [r3, #4]
+ 80101b6:	6a3b      	ldr	r3, [r7, #32]
+ 80101b8:	f44f 4280 	mov.w	r2, #16384	@ 0x4000
+ 80101bc:	811a      	strh	r2, [r3, #8]
+ 80101be:	4b1f      	ldr	r3, [pc, #124]	@ (801023c <stm32_production_binding_acquire+0x168>)
+ 80101c0:	681a      	ldr	r2, [r3, #0]
+ 80101c2:	6a3b      	ldr	r3, [r7, #32]
+ 80101c4:	60da      	str	r2, [r3, #12]
+ 80101c6:	6a3b      	ldr	r3, [r7, #32]
+ 80101c8:	4a1d      	ldr	r2, [pc, #116]	@ (8010240 <stm32_production_binding_acquire+0x16c>)
+ 80101ca:	611a      	str	r2, [r3, #16]
+ 80101cc:	6a3b      	ldr	r3, [r7, #32]
+ 80101ce:	f44f 7200 	mov.w	r2, #512	@ 0x200
+ 80101d2:	829a      	strh	r2, [r3, #20]
+ 80101d4:	6a3c      	ldr	r4, [r7, #32]
+ 80101d6:	463b      	mov	r3, r7
+ 80101d8:	4618      	mov	r0, r3
+ 80101da:	f7ff ff21 	bl	8010020 <geometry>
+ 80101de:	3418      	adds	r4, #24
+ 80101e0:	463d      	mov	r5, r7
+ 80101e2:	cd0f      	ldmia	r5!, {r0, r1, r2, r3}
+ 80101e4:	c40f      	stmia	r4!, {r0, r1, r2, r3}
+ 80101e6:	e895 0003 	ldmia.w	r5, {r0, r1}
+ 80101ea:	e884 0003 	stmia.w	r4, {r0, r1}
+ 80101ee:	6a3b      	ldr	r3, [r7, #32]
+ 80101f0:	2201      	movs	r2, #1
+ 80101f2:	f883 2030 	strb.w	r2, [r3, #48]	@ 0x30
+ 80101f6:	6a3b      	ldr	r3, [r7, #32]
+ 80101f8:	2201      	movs	r2, #1
+ 80101fa:	f883 2031 	strb.w	r2, [r3, #49]	@ 0x31
+ 80101fe:	6a3b      	ldr	r3, [r7, #32]
+ 8010200:	2201      	movs	r2, #1
+ 8010202:	865a      	strh	r2, [r3, #50]	@ 0x32
+ 8010204:	6a3b      	ldr	r3, [r7, #32]
+ 8010206:	4a12      	ldr	r2, [pc, #72]	@ (8010250 <stm32_production_binding_acquire+0x17c>)
+ 8010208:	635a      	str	r2, [r3, #52]	@ 0x34
+ 801020a:	6a3b      	ldr	r3, [r7, #32]
+ 801020c:	4a11      	ldr	r2, [pc, #68]	@ (8010254 <stm32_production_binding_acquire+0x180>)
+ 801020e:	63da      	str	r2, [r3, #60]	@ 0x3c
+ 8010210:	6a3b      	ldr	r3, [r7, #32]
+ 8010212:	2200      	movs	r2, #0
+ 8010214:	f883 2040 	strb.w	r2, [r3, #64]	@ 0x40
+ 8010218:	6a3b      	ldr	r3, [r7, #32]
+ 801021a:	2200      	movs	r2, #0
+ 801021c:	645a      	str	r2, [r3, #68]	@ 0x44
+ 801021e:	6a3b      	ldr	r3, [r7, #32]
+ 8010220:	4a0d      	ldr	r2, [pc, #52]	@ (8010258 <stm32_production_binding_acquire+0x184>)
+ 8010222:	65da      	str	r2, [r3, #92]	@ 0x5c
+ 8010224:	69fb      	ldr	r3, [r7, #28]
+ 8010226:	6a7a      	ldr	r2, [r7, #36]	@ 0x24
+ 8010228:	601a      	str	r2, [r3, #0]
+ 801022a:	2300      	movs	r3, #0
+ 801022c:	4618      	mov	r0, r3
+ 801022e:	37a8      	adds	r7, #168	@ 0xa8
+ 8010230:	46bd      	mov	sp, r7
+ 8010232:	bdb0      	pop	{r4, r5, r7, pc}
+ 8010234:	2000ec90 	.word	0x2000ec90
+ 8010238:	2000eca0 	.word	0x2000eca0
+ 801023c:	2000ec64 	.word	0x2000ec64
+ 8010240:	42020800 	.word	0x42020800
+ 8010244:	2000ec68 	.word	0x2000ec68
+ 8010248:	2000ec60 	.word	0x2000ec60
+ 801024c:	42020c00 	.word	0x42020c00
+ 8010250:	2000ec78 	.word	0x2000ec78
+ 8010254:	0800ff93 	.word	0x0800ff93
+ 8010258:	0800ffa9 	.word	0x0800ffa9

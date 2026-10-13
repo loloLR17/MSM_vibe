@@ -1,0 +1,3 @@
+/home/lolo/dev/msm/projects/MSM_vibe-A04-01/Modbus RTU/05_Firmware/platform/stm32/main.c:10:2: error: #error "Implicit generic SD harness forbidden: select a dedicated mode or explicit LEGACY_SD_HARNESS"
+   10 | #error "Implicit generic SD harness forbidden: select a dedicated mode or explicit LEGACY_SD_HARNESS"
+      |  ^~~~~

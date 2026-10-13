@@ -1,0 +1,319 @@
+{
+  "profiles": [
+    {
+      "profile": "cumulative",
+      "bin_bytes": 169380,
+      "bin_sha256": "8529630a5a6c9aaa2449fde512b06d6ca16a89a08b7afea2abc9ecca3b75d480",
+      "elf_sha256": "f16e47ea2f1e88b5ae318695b33355461eef7ffa38d2eaed64a59ac6b0ab4dff",
+      "sd_writeblocks_linked": false,
+      "sd_bringup_main_call": false
+    },
+    {
+      "profile": "qualification-U",
+      "bin_bytes": 66444,
+      "bin_sha256": "761a413f05be582d4058da3b267fbb07e403bdbdf25a5433275316bd3c1fbfc1",
+      "elf_sha256": "0f0f8de65487b6e86483f609ec13f9ba499413aff9c8f4067410880327d08c4f",
+      "sd_writeblocks_linked": false,
+      "sd_bringup_main_call": false
+    },
+    {
+      "profile": "legacy",
+      "bin_bytes": 162744,
+      "bin_sha256": "b70aa493b09e6ac7a1172dd8c974ceefb8498fa37b4b26c2d0ce0e8b55d957e2",
+      "elf_sha256": "f864e167f75d2cdc354da4c6f9162960589931d33856ef6340d1e0bc1448bad0",
+      "sd_writeblocks_linked": true,
+      "sd_bringup_main_call": true
+    }
+  ],
+  "golden_byte_identical": true,
+  "golden_source": "/home/lolo/dev/msm/projects/MSM_vibe-A04-01/Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261013-M015-V/qualified-cumulative4.bin.hex",
+  "commands": [
+    {
+      "command": [
+        "arm-none-eabi-nm",
+        "-n",
+        "/home/lolo/dev/msm/projects/MSM_vibe-A04-01/Modbus RTU/05_Firmware/build-stm32-cumulative/tr2-cumulative-m014-m015-spi4.elf"
+      ],
+      "return_code": 0
+    },
+    {
+      "command": [
+        "arm-none-eabi-size",
+        "-A",
+        "/home/lolo/dev/msm/projects/MSM_vibe-A04-01/Modbus RTU/05_Firmware/build-stm32-cumulative/tr2-cumulative-m014-m015-spi4.elf"
+      ],
+      "return_code": 0
+    },
+    {
+      "command": [
+        "arm-none-eabi-objdump",
+        "-d",
+        "--disassemble=main",
+        "/home/lolo/dev/msm/projects/MSM_vibe-A04-01/Modbus RTU/05_Firmware/build-stm32-cumulative/tr2-cumulative-m014-m015-spi4.elf"
+      ],
+      "return_code": 0
+    },
+    {
+      "command": [
+        "ninja",
+        "-C",
+        "/home/lolo/dev/msm/projects/MSM_vibe-A04-01/Modbus RTU/05_Firmware/build-stm32-cumulative",
+        "-t",
+        "commands"
+      ],
+      "return_code": 0
+    },
+    {
+      "command": [
+        "arm-none-eabi-objdump",
+        "-d",
+        "--disassemble=stm32_production_board_initialize",
+        "/home/lolo/dev/msm/projects/MSM_vibe-A04-01/Modbus RTU/05_Firmware/build-stm32-cumulative/tr2-cumulative-m014-m015-spi4.elf"
+      ],
+      "return_code": 0
+    },
+    {
+      "command": [
+        "arm-none-eabi-objdump",
+        "-d",
+        "--disassemble=stm32_production_binding_acquire",
+        "/home/lolo/dev/msm/projects/MSM_vibe-A04-01/Modbus RTU/05_Firmware/build-stm32-cumulative/tr2-cumulative-m014-m015-spi4.elf"
+      ],
+      "return_code": 0
+    },
+    {
+      "command": [
+        "arm-none-eabi-objdump",
+        "-d",
+        "--disassemble=stm32_production_server_run",
+        "/home/lolo/dev/msm/projects/MSM_vibe-A04-01/Modbus RTU/05_Firmware/build-stm32-cumulative/tr2-cumulative-m014-m015-spi4.elf"
+      ],
+      "return_code": 0
+    },
+    {
+      "command": [
+        "arm-none-eabi-objdump",
+        "-d",
+        "--disassemble=storage_available",
+        "/home/lolo/dev/msm/projects/MSM_vibe-A04-01/Modbus RTU/05_Firmware/build-stm32-cumulative/tr2-cumulative-m014-m015-spi4.elf"
+      ],
+      "return_code": 0
+    },
+    {
+      "command": [
+        "arm-none-eabi-objdump",
+        "-d",
+        "--disassemble=unavailable_action",
+        "/home/lolo/dev/msm/projects/MSM_vibe-A04-01/Modbus RTU/05_Firmware/build-stm32-cumulative/tr2-cumulative-m014-m015-spi4.elf"
+      ],
+      "return_code": 0
+    },
+    {
+      "command": [
+        "arm-none-eabi-objdump",
+        "-d",
+        "--disassemble=unavailable_append",
+        "/home/lolo/dev/msm/projects/MSM_vibe-A04-01/Modbus RTU/05_Firmware/build-stm32-cumulative/tr2-cumulative-m014-m015-spi4.elf"
+      ],
+      "return_code": 0
+    },
+    {
+      "command": [
+        "arm-none-eabi-nm",
+        "-n",
+        "/home/lolo/dev/msm/reports/TR2-A04-01-20261013T144140Z/build-qualification-U/tr2-special-st_fifo_window-NON-CUMULATIVE.elf"
+      ],
+      "return_code": 0
+    },
+    {
+      "command": [
+        "arm-none-eabi-size",
+        "-A",
+        "/home/lolo/dev/msm/reports/TR2-A04-01-20261013T144140Z/build-qualification-U/tr2-special-st_fifo_window-NON-CUMULATIVE.elf"
+      ],
+      "return_code": 0
+    },
+    {
+      "command": [
+        "arm-none-eabi-objdump",
+        "-d",
+        "--disassemble=main",
+        "/home/lolo/dev/msm/reports/TR2-A04-01-20261013T144140Z/build-qualification-U/tr2-special-st_fifo_window-NON-CUMULATIVE.elf"
+      ],
+      "return_code": 0
+    },
+    {
+      "command": [
+        "ninja",
+        "-C",
+        "/home/lolo/dev/msm/reports/TR2-A04-01-20261013T144140Z/build-qualification-U",
+        "-t",
+        "commands"
+      ],
+      "return_code": 0
+    },
+    {
+      "command": [
+        "arm-none-eabi-objdump",
+        "-d",
+        "--disassemble=stm32_iis3dwb_st_window_run",
+        "/home/lolo/dev/msm/reports/TR2-A04-01-20261013T144140Z/build-qualification-U/tr2-special-st_fifo_window-NON-CUMULATIVE.elf"
+      ],
+      "return_code": 0
+    },
+    {
+      "command": [
+        "arm-none-eabi-nm",
+        "-n",
+        "/home/lolo/dev/msm/reports/TR2-A04-01-20261013T144140Z/build-legacy/tr2-legacy-SD-WRITES-NON-PRODUCTION.elf"
+      ],
+      "return_code": 0
+    },
+    {
+      "command": [
+        "arm-none-eabi-size",
+        "-A",
+        "/home/lolo/dev/msm/reports/TR2-A04-01-20261013T144140Z/build-legacy/tr2-legacy-SD-WRITES-NON-PRODUCTION.elf"
+      ],
+      "return_code": 0
+    },
+    {
+      "command": [
+        "arm-none-eabi-objdump",
+        "-d",
+        "--disassemble=main",
+        "/home/lolo/dev/msm/reports/TR2-A04-01-20261013T144140Z/build-legacy/tr2-legacy-SD-WRITES-NON-PRODUCTION.elf"
+      ],
+      "return_code": 0
+    },
+    {
+      "command": [
+        "ninja",
+        "-C",
+        "/home/lolo/dev/msm/reports/TR2-A04-01-20261013T144140Z/build-legacy",
+        "-t",
+        "commands"
+      ],
+      "return_code": 0
+    },
+    {
+      "command": [
+        "arm-none-eabi-objdump",
+        "-d",
+        "--disassemble=Sdmmc2_Bringup",
+        "/home/lolo/dev/msm/reports/TR2-A04-01-20261013T144140Z/build-legacy/tr2-legacy-SD-WRITES-NON-PRODUCTION.elf"
+      ],
+      "return_code": 0
+    },
+    {
+      "case": "direct-implicit",
+      "command": [
+        "/usr/bin/arm-none-eabi-gcc",
+        "-DBENCH_DUPLEX=0",
+        "-DBENCH_WINDOW_MAX_WORDS=36864",
+        "-DBENCH_WINDOW_XYZ=4096",
+        "-DOFFICIAL_STATUS10=1",
+        "-DSTM32U575xx",
+        "-DTR2_STM32_ACQUISITION_CAPTURE=0",
+        "-DTR2_STM32_ACTIVE_READBACK=0",
+        "-DTR2_STM32_BURST_CAPTURE=0",
+        "-DTR2_STM32_COMMISSIONING_READONLY=0",
+        "-DTR2_STM32_CONTINUOUS_FIFO=0",
+        "-DTR2_STM32_CTRL1_DIFFERENTIAL=0",
+        "-DTR2_STM32_DIAGNOSTIC_UNIT_ID=0",
+        "-DTR2_STM32_FIFO_CAPTURE=0",
+        "-DTR2_STM32_FIFO_COOPERATIVE=0",
+        "-DTR2_STM32_FIFO_SPI_MHZ=4",
+        "-DTR2_STM32_IRQ_DIAGNOSTICS=0",
+        "-DTR2_STM32_LEGACY_SD_HARNESS=0",
+        "-DTR2_STM32_MANUFACTURING=0",
+        "-DTR2_STM32_MODBUS_DIAGNOSTIC=0",
+        "-DTR2_STM32_PRODUCTION=0",
+        "-DTR2_STM32_PRODUCTION_SILENCE_TEST=0",
+        "-DTR2_STM32_REGISTER_PROBE=0",
+        "-DTR2_STM32_RS485_TX_QUALIFIED=0",
+        "-DTR2_STM32_ST_FIFO_WINDOW=0",
+        "-DUSE_HAL_DRIVER",
+        "-I/home/lolo/dev/msm/projects/MSM_vibe-A04-01/Modbus RTU/05_Firmware/build-stm32-cumulative/generated",
+        "-I/home/lolo/dev/msm/projects/MSM_vibe-A04-01/Modbus RTU/05_Firmware/platform/stm32",
+        "-I/home/lolo/dev/msm/projects/MSM_vibe-A04-01/Modbus RTU/05_Firmware/platform/stm32/../../include",
+        "-I/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/CMSIS/Include",
+        "-I/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/CMSIS/Device/ST/STM32U5xx/Include",
+        "-I/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/STM32U5xx_HAL_Driver/Inc",
+        "-I/home/lolo/dev/msm/projects/MSM_vibe-A04-01/Modbus RTU/05_Firmware/platform/stm32/../../../../experiments/iis3dwb_st_reference/src",
+        "-I/home/lolo/dev/msm/projects/MSM_vibe-A04-01/Modbus RTU/05_Firmware/platform/stm32/../../../../experiments/iis3dwb_st_reference/official",
+        "-I/home/lolo/dev/msm/projects/MSM_vibe-A04-01/Modbus RTU/05_Firmware/platform/stm32/../../../../experiments/iis3dwb_st_reference/vendor/st",
+        "-g",
+        "-std=c11",
+        "-mcpu=cortex-m33",
+        "-mthumb",
+        "-ffunction-sections",
+        "-fdata-sections",
+        "-Wall",
+        "-Wextra",
+        "-Wpedantic",
+        "-Werror",
+        "-E",
+        "/home/lolo/dev/msm/projects/MSM_vibe-A04-01/Modbus RTU/05_Firmware/platform/stm32/main.c",
+        "-o",
+        "/dev/null"
+      ],
+      "return_code": 1
+    },
+    {
+      "case": "direct-legacy",
+      "command": [
+        "/usr/bin/arm-none-eabi-gcc",
+        "-DBENCH_DUPLEX=0",
+        "-DBENCH_WINDOW_MAX_WORDS=36864",
+        "-DBENCH_WINDOW_XYZ=4096",
+        "-DOFFICIAL_STATUS10=1",
+        "-DSTM32U575xx",
+        "-DTR2_STM32_ACQUISITION_CAPTURE=0",
+        "-DTR2_STM32_ACTIVE_READBACK=0",
+        "-DTR2_STM32_BURST_CAPTURE=0",
+        "-DTR2_STM32_COMMISSIONING_READONLY=0",
+        "-DTR2_STM32_CONTINUOUS_FIFO=0",
+        "-DTR2_STM32_CTRL1_DIFFERENTIAL=0",
+        "-DTR2_STM32_DIAGNOSTIC_UNIT_ID=0",
+        "-DTR2_STM32_FIFO_CAPTURE=0",
+        "-DTR2_STM32_FIFO_COOPERATIVE=0",
+        "-DTR2_STM32_FIFO_SPI_MHZ=4",
+        "-DTR2_STM32_IRQ_DIAGNOSTICS=0",
+        "-DTR2_STM32_LEGACY_SD_HARNESS=1",
+        "-DTR2_STM32_MANUFACTURING=0",
+        "-DTR2_STM32_MODBUS_DIAGNOSTIC=0",
+        "-DTR2_STM32_PRODUCTION=0",
+        "-DTR2_STM32_PRODUCTION_SILENCE_TEST=0",
+        "-DTR2_STM32_REGISTER_PROBE=0",
+        "-DTR2_STM32_RS485_TX_QUALIFIED=0",
+        "-DTR2_STM32_ST_FIFO_WINDOW=0",
+        "-DUSE_HAL_DRIVER",
+        "-I/home/lolo/dev/msm/projects/MSM_vibe-A04-01/Modbus RTU/05_Firmware/build-stm32-cumulative/generated",
+        "-I/home/lolo/dev/msm/projects/MSM_vibe-A04-01/Modbus RTU/05_Firmware/platform/stm32",
+        "-I/home/lolo/dev/msm/projects/MSM_vibe-A04-01/Modbus RTU/05_Firmware/platform/stm32/../../include",
+        "-I/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/CMSIS/Include",
+        "-I/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/CMSIS/Device/ST/STM32U5xx/Include",
+        "-I/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/STM32U5xx_HAL_Driver/Inc",
+        "-I/home/lolo/dev/msm/projects/MSM_vibe-A04-01/Modbus RTU/05_Firmware/platform/stm32/../../../../experiments/iis3dwb_st_reference/src",
+        "-I/home/lolo/dev/msm/projects/MSM_vibe-A04-01/Modbus RTU/05_Firmware/platform/stm32/../../../../experiments/iis3dwb_st_reference/official",
+        "-I/home/lolo/dev/msm/projects/MSM_vibe-A04-01/Modbus RTU/05_Firmware/platform/stm32/../../../../experiments/iis3dwb_st_reference/vendor/st",
+        "-g",
+        "-std=c11",
+        "-mcpu=cortex-m33",
+        "-mthumb",
+        "-ffunction-sections",
+        "-fdata-sections",
+        "-Wall",
+        "-Wextra",
+        "-Wpedantic",
+        "-Werror",
+        "-E",
+        "/home/lolo/dev/msm/projects/MSM_vibe-A04-01/Modbus RTU/05_Firmware/platform/stm32/main.c",
+        "-o",
+        "/dev/null"
+      ],
+      "return_code": 0
+    }
+  ]
+}

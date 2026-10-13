@@ -1,0 +1,26 @@
+{
+  "initial_head": "a639b636e85b3ca2f1015c0f8dfa8b04b940e831",
+  "result_sha": "c9ee22292ae69cc6f333aaab3527d18556ee8272",
+  "base_sha": null,
+  "created_at_utc": "2026-10-13T14:48:06.358523+00:00",
+  "evaluated_files": {
+    ".gitignore": "aa59ae9416215595ec43e5fb3ddf2db3b392a1479028aa11fd6f86ab5c7bb47c",
+    "Modbus RTU/05_Firmware/platform/stm32/CMakeLists.txt": "9d81b94f972eec9c3b70be78893957b32f15d0b0aaa1a9bb516bb8c11190e28f",
+    "Modbus RTU/05_Firmware/platform/stm32/README.md": "891510ed3ebba403d81822a7817b16919355158dce71a070c1822dfa2a2c1ee9",
+    "Modbus RTU/05_Firmware/platform/stm32/main.c": "9f9508ad2bac3da66c01ab1bea72c5d3ecf682680406cff9be46005526576140",
+    "Modbus RTU/05_Firmware/platform/stm32/tr2_build_stm32.sh": "737d6624f1b2da52a52a5ffc6feb85364d3c0bfe26e3780e2d8c2a3aecb679e3",
+    "Modbus RTU/05_Firmware/tests/platform/test_stm32_build_profiles.py": "69fcf8fbd4f5255f9254f623caf376c9525acf009812a850526d7feafca85ba4",
+    "tr2_validate.sh": "6d29bbe0a8a65fa40e153fac5c7df1f840d712fa39e4e0cbf323cf6288a0c65b"
+  },
+  "protected_ledger_sha256": "804b90967317196374a844a86c955c2e91880045061e0d7241aeac9f3cfa8a8a",
+  "archived_A05_sha256": "310935e6613fa40004fa58b4937bdf33b6126a1a4472617aae528346ed5914fd",
+  "sdk_head": "d88042df24f16799957c24f00c2b234c9e306188",
+  "sdk_status": "",
+  "sdk_submodules": "-ad21d127fee4ef3432c37c980fbb8fd96fea2f8c Drivers/BSP/B-U585I-IOT02A\n-cf3581ba46e88944b604f6961505559b9efdac56 Drivers/BSP/Components/Common\n-80c1489164d737dabff0287a95f39ca1cf31b254 Drivers/BSP/Components/aps512xx\n-e4ba802bbdc78b7c1a80a664acf563eac927e170 Drivers/BSP/Components/aps6408\n-24b96a7ab3ff461f83aa3415a63cf5e45b1eb252 Drivers/BSP/Components/cs42l51\n-09249dc65e7947b9a3093b14ab8fcaab6feae419 Drivers/BSP/Components/gt911\n-1c5a219f4122f013a667d745f64f77d22e87d676 Drivers/BSP/Components/hts221\n-83466b15823c03216575d24bf3421e7191d7462b Drivers/BSP/Components/hx8347i\n-f1b6d89d0aa1f83fa2c9c2a34161c3900a9c77ad Drivers/BSP/Components/iis2mdc\n-ac62accb4fa1f002c9ae4e422f887b1aa3946422 Drivers/BSP/Components/ism330dhcx\n-e043337ca10760960c5883476c6a52adf4cf3508 Drivers/BSP/Components/lps22hh\n-24788033c89e3148989e8d99d7e417edde0ae477 Drivers/BSP/Components/lsm6dso\n-d7cba42c74ab2d417de22bc134511366dfec9da2 Drivers/BSP/Components/m24256\n-7f4389efee9c6a655b55e5df3fceef5586b35f9b Drivers/BSP/Components/mfxstm32l152\n-7daac2e449ffe7fa68b4ded3aa44628fe2d8acde Drivers/BSP/Components/mx25lm51245g\n-2fdc96a372222d6a3e47fb84263e176636a68972 Drivers/BSP/Components/mx25um51245g\n-8a8f75da6e1190a6101c61fadc7c318929a3e840 Drivers/BSP/Components/mx66uw1g45g\n-5b7de7f927e665d0f11607bb0941162eb24abd17 Drivers/BSP/Components/mx_wifi\n-d0c3aef81cd17b3a32907a341377d2a44d95d82b Drivers/BSP/Components/ov5640\n-acc765cf831ae24faf5c596ba324efc3c08a2644 Drivers/BSP/Components/rk050hr18\n-8fbda4431bd823a4c2573c79273921aefbf4ce50 Drivers/BSP/Components/sitronix\n-4cdcab0bc56c0cf617ac83e72b86abff5ff425f2 Drivers/BSP/Components/stm32wb_at\n-704f269ae014b69ca1bf974ea10428922d562728 Drivers/BSP/Components/stts22h\n-c7b7a8225b8dd5347929040d63cdfa35f8a353d0 Drivers/BSP/Components/sx8651\n-fb624ebf47cffe8a24d6d0ef9224e658ca204589 Drivers/BSP/Components/tcpp0203\n-853ad1ffb5a448dd1c5d31aa2633501a6e415b46 Drivers/BSP/Components/veml3235\n-1e6b8b35b25d59f2f256d9b6b1280b026132ab85 Drivers/BSP/Components/vl53l5cx\n-83d8fb77a80a4c6d458f37f6ec10471ba95ddc96 Drivers/BSP/STM32U575I-EV\n-30d203dbbab42b8dd4bed5f04c1df12455324e1c Drivers/BSP/STM32U5G9J-DK2\n-a5723a4ff404cb659b3c095d59527a0b0c2062f0 Drivers/BSP/STM32U5x9J-DK\n-ed50f1d2d4940e4efe23104027b8008ce79037f5 Drivers/BSP/STM32U5xx_Nucleo\n 624374fa1e21ca195d6f2102ac0caaa50d0ea4c8 Drivers/CMSIS/Device/ST/STM32U5xx (v1.4.3)\n 2552682ee5a0d6f826a6435750fc9267be65868b Drivers/STM32U5xx_HAL_Driver (2552682)\n-b7a3cd2c8cc81e662e2af1fe2aee2526e6e167a1 Middlewares/ST/OpenBootloader\n-0d2fea0607069e7e4d3322482336173906af2b6e Middlewares/ST/STM32_TouchSensing_Library\n-e356eda96cd8b4b1cb75215bef4c078716b4602a Middlewares/ST/STM32_USBPD_Library/Core\n-23686f5e1e9809efd3876f8461e9dd4b4d136404 Middlewares/ST/STM32_USBPD_Library/Devices/STM32U5XX\n-3b0b28a45c6eca4daaf6d640fefaa7a67aeead54 Middlewares/ST/cmsis_rtos_threadx\n-b27b7de22a586d05237beded201792946f81c1cb Middlewares/ST/filex\n-d672b69543320d0c9263983cdc0d249baf2ac739 Middlewares/ST/levelx\n-b69efb70496e1c45f15a2bdcd2571ca714cd9b2d Middlewares/ST/netxduo\n-b44bdbbbb5a9e4fb56728d2932236564c89db29a Middlewares/ST/threadx\n-9c353dc0767254d75ff6a11b29fad87f7d86502d Middlewares/ST/usbx\n-7ee7e20ec1460857446d2fa5628c1fd5ce6cd411 Middlewares/Third_Party/mbed-crypto\n-2c60cea6899301de819e2a44b088296bcd4abe3a Middlewares/Third_Party/mcuboot\n",
+  "gcc": "arm-none-eabi-gcc (15:14.2.rel1-1) 14.2.1 20241119",
+  "cmake": "cmake version 3.31.6",
+  "stashes": "6251b988e8b20f97997a8f98fd26d4d35a45a1b2 On main: TR2-20261010-DEV-RTU-PRODUCTION-005 preservation before incoming inventory correction\nf3b829e6188f491920edf74a5f9ed0f559d08b87 On main: TR2-20261010-DEV-RS485-003 preservation mission 002\n",
+  "original_head": "82169af7e76797731358852bec83bfb0ceb54ccf",
+  "local_proof_root": "/home/lolo/dev/msm/reports/TR2-A04-01-20261013T144140Z",
+  "hardware_access": false
+}

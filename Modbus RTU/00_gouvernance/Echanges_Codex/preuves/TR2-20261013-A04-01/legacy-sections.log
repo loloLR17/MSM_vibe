@@ -1,0 +1,23 @@
+/home/lolo/dev/msm/reports/TR2-A04-01-20261013T144140Z/build-legacy/tr2-legacy-SD-WRITES-NON-PRODUCTION.elf  :
+section               size        addr
+.isr_vector            568   134217728
+.text               162044   134218296
+.ARM.exidx               8   134380340
+.init_array              4   134380348
+.fini_array              4   134380352
+.data                  116   536870912
+.bss                126752   536871032
+._user_heap_stack     2560   536997784
+.ARM.attributes         48           0
+.debug_line           3531           0
+.debug_line_str        328           0
+.debug_info           3152           0
+.debug_abbrev         1108           0
+.debug_aranges         320           0
+.debug_str            2576           0
+.debug_frame           448           0
+.debug_loclists       3387           0
+.debug_rnglists        142           0
+Total               307096
+
+

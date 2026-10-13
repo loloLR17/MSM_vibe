@@ -1,0 +1,10 @@
+test_cumulative_recipe_and_cache_conflict (__main__.Profiles.test_cumulative_recipe_and_cache_conflict) ... ok
+test_default_and_ambiguous_refused (__main__.Profiles.test_default_and_ambiguous_refused) ... ok
+test_existing_eight_specific_guards (__main__.Profiles.test_existing_eight_specific_guards) ... ok
+test_helper_requires_explicit_profile (__main__.Profiles.test_helper_requires_explicit_profile) ... ok
+test_special_and_legacy_labels (__main__.Profiles.test_special_and_legacy_labels) ... ok
+
+----------------------------------------------------------------------
+Ran 5 tests in 14.895s
+
+OK

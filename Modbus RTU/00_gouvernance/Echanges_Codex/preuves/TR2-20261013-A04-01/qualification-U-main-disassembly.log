@@ -1,0 +1,28 @@
+
+/home/lolo/dev/msm/reports/TR2-A04-01-20261013T144140Z/build-qualification-U/tr2-special-st_fifo_window-NON-CUMULATIVE.elf:     file format elf32-littlearm
+
+
+Disassembly of section .text:
+
+0800645c <main>:
+ 800645c:	b580      	push	{r7, lr}
+ 800645e:	f5ad 7d04 	sub.w	sp, sp, #528	@ 0x210
+ 8006462:	af00      	add	r7, sp, #0
+ 8006464:	f507 73ec 	add.w	r3, r7, #472	@ 0x1d8
+ 8006468:	2224      	movs	r2, #36	@ 0x24
+ 800646a:	2100      	movs	r1, #0
+ 800646c:	4618      	mov	r0, r3
+ 800646e:	f7fa fbc7 	bl	8000c00 <memset>
+ 8006472:	2300      	movs	r3, #0
+ 8006474:	f887 320f 	strb.w	r3, [r7, #527]	@ 0x20f
+ 8006478:	f000 fec2 	bl	8007200 <HAL_Init>
+ 800647c:	f000 f810 	bl	80064a0 <SystemClock_Config>
+ 8006480:	f000 f86a 	bl	8006558 <SystemPower_Config>
+ 8006484:	f000 f876 	bl	8006574 <BringupLed_Init>
+ 8006488:	f000 f986 	bl	8006798 <Iis3dwbSpi_Init>
+ 800648c:	f000 f8a6 	bl	80065dc <FramSpi_Init>
+ 8006490:	4901      	ldr	r1, [pc, #4]	@ (8006498 <main+0x3c>)
+ 8006492:	4802      	ldr	r0, [pc, #8]	@ (800649c <main+0x40>)
+ 8006494:	f007 fdd6 	bl	800e044 <stm32_iis3dwb_st_window_run>
+ 8006498:	20000340 	.word	0x20000340
+ 800649c:	200003d0 	.word	0x200003d0

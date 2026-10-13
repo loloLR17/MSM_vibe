@@ -1,0 +1,363 @@
+[
+  {
+    "case": "cumulative",
+    "command": [
+      "cmake",
+      "-G",
+      "Ninja",
+      "-S",
+      "/home/lolo/dev/msm/projects/MSM_vibe-A04-01/Modbus RTU/05_Firmware/platform/stm32",
+      "-B",
+      "/home/lolo/dev/msm/reports/TR2-A04-01-20261013T144140Z/configurations-final/cumulative",
+      "-DCMAKE_TOOLCHAIN_FILE=/home/lolo/dev/msm/projects/MSM_vibe-A04-01/Modbus RTU/05_Firmware/platform/stm32/cmake/arm-none-eabi-gcc.cmake",
+      "-DSTM32CUBE_U5_ROOT=/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0",
+      "-DTR2_COMMISSIONING_MANIFEST=/home/lolo/dev/msm/projects/MSM_vibe-A04-01/Modbus RTU/00_gouvernance/COMMISSIONING_M014_H.json",
+      "-DTR2_COMMISSIONING_REGISTRY=/home/lolo/dev/msm/projects/MSM_vibe-A04-01/Modbus RTU/00_gouvernance/REGISTRE_ATTRIBUTION_TR2.json",
+      "-DTR2_STM32_BUILD_PROFILE=CUMULATIVE"
+    ],
+    "return_code": 0,
+    "expected_refusal": null,
+    "expected_artifact": "tr2-cumulative-m014-m015-spi4",
+    "log": "00-cumulative.log"
+  },
+  {
+    "case": "cumulative-off",
+    "command": [
+      "cmake",
+      "-G",
+      "Ninja",
+      "-S",
+      "/home/lolo/dev/msm/projects/MSM_vibe-A04-01/Modbus RTU/05_Firmware/platform/stm32",
+      "-B",
+      "/home/lolo/dev/msm/reports/TR2-A04-01-20261013T144140Z/configurations-final/cumulative-off",
+      "-DCMAKE_TOOLCHAIN_FILE=/home/lolo/dev/msm/projects/MSM_vibe-A04-01/Modbus RTU/05_Firmware/platform/stm32/cmake/arm-none-eabi-gcc.cmake",
+      "-DSTM32CUBE_U5_ROOT=/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0",
+      "-DTR2_COMMISSIONING_MANIFEST=/home/lolo/dev/msm/projects/MSM_vibe-A04-01/Modbus RTU/00_gouvernance/COMMISSIONING_M014_H.json",
+      "-DTR2_COMMISSIONING_REGISTRY=/home/lolo/dev/msm/projects/MSM_vibe-A04-01/Modbus RTU/00_gouvernance/REGISTRE_ATTRIBUTION_TR2.json",
+      "-DTR2_STM32_BUILD_PROFILE=CUMULATIVE",
+      "-DTR2_STM32_PRODUCTION=OFF"
+    ],
+    "return_code": 1,
+    "expected_refusal": "CUMULATIVE conflicts",
+    "expected_artifact": null,
+    "log": "01-cumulative-off.log"
+  },
+  {
+    "case": "cumulative",
+    "command": [
+      "cmake",
+      "-G",
+      "Ninja",
+      "-S",
+      "/home/lolo/dev/msm/projects/MSM_vibe-A04-01/Modbus RTU/05_Firmware/platform/stm32",
+      "-B",
+      "/home/lolo/dev/msm/reports/TR2-A04-01-20261013T144140Z/configurations-final/cumulative",
+      "-DCMAKE_TOOLCHAIN_FILE=/home/lolo/dev/msm/projects/MSM_vibe-A04-01/Modbus RTU/05_Firmware/platform/stm32/cmake/arm-none-eabi-gcc.cmake",
+      "-DSTM32CUBE_U5_ROOT=/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0",
+      "-DTR2_COMMISSIONING_MANIFEST=/home/lolo/dev/msm/projects/MSM_vibe-A04-01/Modbus RTU/00_gouvernance/COMMISSIONING_M014_H.json",
+      "-DTR2_COMMISSIONING_REGISTRY=/home/lolo/dev/msm/projects/MSM_vibe-A04-01/Modbus RTU/00_gouvernance/REGISTRE_ATTRIBUTION_TR2.json",
+      "-DTR2_STM32_BUILD_PROFILE=CUMULATIVE",
+      "-DTR2_STM32_IRQ_DIAGNOSTICS=OFF"
+    ],
+    "return_code": 1,
+    "expected_refusal": "CUMULATIVE conflicts",
+    "expected_artifact": null,
+    "log": "02-cumulative.log"
+  },
+  {
+    "case": "default",
+    "command": [
+      "cmake",
+      "-G",
+      "Ninja",
+      "-S",
+      "/home/lolo/dev/msm/projects/MSM_vibe-A04-01/Modbus RTU/05_Firmware/platform/stm32",
+      "-B",
+      "/home/lolo/dev/msm/reports/TR2-A04-01-20261013T144140Z/configurations-final/default",
+      "-DCMAKE_TOOLCHAIN_FILE=/home/lolo/dev/msm/projects/MSM_vibe-A04-01/Modbus RTU/05_Firmware/platform/stm32/cmake/arm-none-eabi-gcc.cmake",
+      "-DSTM32CUBE_U5_ROOT=/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0",
+      "-DTR2_COMMISSIONING_MANIFEST=/home/lolo/dev/msm/projects/MSM_vibe-A04-01/Modbus RTU/00_gouvernance/COMMISSIONING_M014_H.json",
+      "-DTR2_COMMISSIONING_REGISTRY=/home/lolo/dev/msm/projects/MSM_vibe-A04-01/Modbus RTU/00_gouvernance/REGISTRE_ATTRIBUTION_TR2.json"
+    ],
+    "return_code": 1,
+    "expected_refusal": "implicit generic SD harness is forbidden",
+    "expected_artifact": null,
+    "log": "03-default.log"
+  },
+  {
+    "case": "unknown-recipe",
+    "command": [
+      "cmake",
+      "-G",
+      "Ninja",
+      "-S",
+      "/home/lolo/dev/msm/projects/MSM_vibe-A04-01/Modbus RTU/05_Firmware/platform/stm32",
+      "-B",
+      "/home/lolo/dev/msm/reports/TR2-A04-01-20261013T144140Z/configurations-final/unknown-recipe",
+      "-DCMAKE_TOOLCHAIN_FILE=/home/lolo/dev/msm/projects/MSM_vibe-A04-01/Modbus RTU/05_Firmware/platform/stm32/cmake/arm-none-eabi-gcc.cmake",
+      "-DSTM32CUBE_U5_ROOT=/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0",
+      "-DTR2_COMMISSIONING_MANIFEST=/home/lolo/dev/msm/projects/MSM_vibe-A04-01/Modbus RTU/00_gouvernance/COMMISSIONING_M014_H.json",
+      "-DTR2_COMMISSIONING_REGISTRY=/home/lolo/dev/msm/projects/MSM_vibe-A04-01/Modbus RTU/00_gouvernance/REGISTRE_ATTRIBUTION_TR2.json",
+      "-DTR2_STM32_BUILD_PROFILE=unknown"
+    ],
+    "return_code": 1,
+    "expected_refusal": "Unknown TR2_STM32_BUILD_PROFILE",
+    "expected_artifact": null,
+    "log": "04-unknown-recipe.log"
+  },
+  {
+    "case": "legacy-production",
+    "command": [
+      "cmake",
+      "-G",
+      "Ninja",
+      "-S",
+      "/home/lolo/dev/msm/projects/MSM_vibe-A04-01/Modbus RTU/05_Firmware/platform/stm32",
+      "-B",
+      "/home/lolo/dev/msm/reports/TR2-A04-01-20261013T144140Z/configurations-final/legacy-production",
+      "-DCMAKE_TOOLCHAIN_FILE=/home/lolo/dev/msm/projects/MSM_vibe-A04-01/Modbus RTU/05_Firmware/platform/stm32/cmake/arm-none-eabi-gcc.cmake",
+      "-DSTM32CUBE_U5_ROOT=/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0",
+      "-DTR2_COMMISSIONING_MANIFEST=/home/lolo/dev/msm/projects/MSM_vibe-A04-01/Modbus RTU/00_gouvernance/COMMISSIONING_M014_H.json",
+      "-DTR2_COMMISSIONING_REGISTRY=/home/lolo/dev/msm/projects/MSM_vibe-A04-01/Modbus RTU/00_gouvernance/REGISTRE_ATTRIBUTION_TR2.json",
+      "-DTR2_STM32_LEGACY_SD_HARNESS=ON",
+      "-DTR2_STM32_PRODUCTION=ON",
+      "-DTR2_STM32_RS485_TX_QUALIFIED=ON"
+    ],
+    "return_code": 1,
+    "expected_refusal": "LEGACY_SD_HARNESS is exclusive",
+    "expected_artifact": null,
+    "log": "05-legacy-production.log"
+  },
+  {
+    "case": "production-no-TX",
+    "command": [
+      "cmake",
+      "-G",
+      "Ninja",
+      "-S",
+      "/home/lolo/dev/msm/projects/MSM_vibe-A04-01/Modbus RTU/05_Firmware/platform/stm32",
+      "-B",
+      "/home/lolo/dev/msm/reports/TR2-A04-01-20261013T144140Z/configurations-final/production-no-TX",
+      "-DCMAKE_TOOLCHAIN_FILE=/home/lolo/dev/msm/projects/MSM_vibe-A04-01/Modbus RTU/05_Firmware/platform/stm32/cmake/arm-none-eabi-gcc.cmake",
+      "-DSTM32CUBE_U5_ROOT=/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0",
+      "-DTR2_COMMISSIONING_MANIFEST=/home/lolo/dev/msm/projects/MSM_vibe-A04-01/Modbus RTU/00_gouvernance/COMMISSIONING_M014_H.json",
+      "-DTR2_COMMISSIONING_REGISTRY=/home/lolo/dev/msm/projects/MSM_vibe-A04-01/Modbus RTU/00_gouvernance/REGISTRE_ATTRIBUTION_TR2.json",
+      "-DTR2_STM32_PRODUCTION=ON"
+    ],
+    "return_code": 1,
+    "expected_refusal": "Production requires qualified RS485",
+    "expected_artifact": null,
+    "log": "06-production-no-TX.log"
+  },
+  {
+    "case": "cooperative-no-production",
+    "command": [
+      "cmake",
+      "-G",
+      "Ninja",
+      "-S",
+      "/home/lolo/dev/msm/projects/MSM_vibe-A04-01/Modbus RTU/05_Firmware/platform/stm32",
+      "-B",
+      "/home/lolo/dev/msm/reports/TR2-A04-01-20261013T144140Z/configurations-final/cooperative-no-production",
+      "-DCMAKE_TOOLCHAIN_FILE=/home/lolo/dev/msm/projects/MSM_vibe-A04-01/Modbus RTU/05_Firmware/platform/stm32/cmake/arm-none-eabi-gcc.cmake",
+      "-DSTM32CUBE_U5_ROOT=/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0",
+      "-DTR2_COMMISSIONING_MANIFEST=/home/lolo/dev/msm/projects/MSM_vibe-A04-01/Modbus RTU/00_gouvernance/COMMISSIONING_M014_H.json",
+      "-DTR2_COMMISSIONING_REGISTRY=/home/lolo/dev/msm/projects/MSM_vibe-A04-01/Modbus RTU/00_gouvernance/REGISTRE_ATTRIBUTION_TR2.json",
+      "-DTR2_STM32_FIFO_COOPERATIVE=ON"
+    ],
+    "return_code": 1,
+    "expected_refusal": "Cooperative FIFO requires",
+    "expected_artifact": null,
+    "log": "07-cooperative-no-production.log"
+  },
+  {
+    "case": "cooperative-no-observer",
+    "command": [
+      "cmake",
+      "-G",
+      "Ninja",
+      "-S",
+      "/home/lolo/dev/msm/projects/MSM_vibe-A04-01/Modbus RTU/05_Firmware/platform/stm32",
+      "-B",
+      "/home/lolo/dev/msm/reports/TR2-A04-01-20261013T144140Z/configurations-final/cooperative-no-observer",
+      "-DCMAKE_TOOLCHAIN_FILE=/home/lolo/dev/msm/projects/MSM_vibe-A04-01/Modbus RTU/05_Firmware/platform/stm32/cmake/arm-none-eabi-gcc.cmake",
+      "-DSTM32CUBE_U5_ROOT=/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0",
+      "-DTR2_COMMISSIONING_MANIFEST=/home/lolo/dev/msm/projects/MSM_vibe-A04-01/Modbus RTU/00_gouvernance/COMMISSIONING_M014_H.json",
+      "-DTR2_COMMISSIONING_REGISTRY=/home/lolo/dev/msm/projects/MSM_vibe-A04-01/Modbus RTU/00_gouvernance/REGISTRE_ATTRIBUTION_TR2.json",
+      "-DTR2_STM32_PRODUCTION=ON",
+      "-DTR2_STM32_RS485_TX_QUALIFIED=ON",
+      "-DTR2_STM32_FIFO_COOPERATIVE=ON"
+    ],
+    "return_code": 1,
+    "expected_refusal": "Cooperative FIFO requires",
+    "expected_artifact": null,
+    "log": "08-cooperative-no-observer.log"
+  },
+  {
+    "case": "production-manufacturing",
+    "command": [
+      "cmake",
+      "-G",
+      "Ninja",
+      "-S",
+      "/home/lolo/dev/msm/projects/MSM_vibe-A04-01/Modbus RTU/05_Firmware/platform/stm32",
+      "-B",
+      "/home/lolo/dev/msm/reports/TR2-A04-01-20261013T144140Z/configurations-final/production-manufacturing",
+      "-DCMAKE_TOOLCHAIN_FILE=/home/lolo/dev/msm/projects/MSM_vibe-A04-01/Modbus RTU/05_Firmware/platform/stm32/cmake/arm-none-eabi-gcc.cmake",
+      "-DSTM32CUBE_U5_ROOT=/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0",
+      "-DTR2_COMMISSIONING_MANIFEST=/home/lolo/dev/msm/projects/MSM_vibe-A04-01/Modbus RTU/00_gouvernance/COMMISSIONING_M014_H.json",
+      "-DTR2_COMMISSIONING_REGISTRY=/home/lolo/dev/msm/projects/MSM_vibe-A04-01/Modbus RTU/00_gouvernance/REGISTRE_ATTRIBUTION_TR2.json",
+      "-DTR2_STM32_PRODUCTION=ON",
+      "-DTR2_STM32_RS485_TX_QUALIFIED=ON",
+      "-DTR2_STM32_MANUFACTURING=ON"
+    ],
+    "return_code": 1,
+    "expected_refusal": "are exclusive",
+    "expected_artifact": null,
+    "log": "09-production-manufacturing.log"
+  },
+  {
+    "case": "production-probe",
+    "command": [
+      "cmake",
+      "-G",
+      "Ninja",
+      "-S",
+      "/home/lolo/dev/msm/projects/MSM_vibe-A04-01/Modbus RTU/05_Firmware/platform/stm32",
+      "-B",
+      "/home/lolo/dev/msm/reports/TR2-A04-01-20261013T144140Z/configurations-final/production-probe",
+      "-DCMAKE_TOOLCHAIN_FILE=/home/lolo/dev/msm/projects/MSM_vibe-A04-01/Modbus RTU/05_Firmware/platform/stm32/cmake/arm-none-eabi-gcc.cmake",
+      "-DSTM32CUBE_U5_ROOT=/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0",
+      "-DTR2_COMMISSIONING_MANIFEST=/home/lolo/dev/msm/projects/MSM_vibe-A04-01/Modbus RTU/00_gouvernance/COMMISSIONING_M014_H.json",
+      "-DTR2_COMMISSIONING_REGISTRY=/home/lolo/dev/msm/projects/MSM_vibe-A04-01/Modbus RTU/00_gouvernance/REGISTRE_ATTRIBUTION_TR2.json",
+      "-DTR2_STM32_PRODUCTION=ON",
+      "-DTR2_STM32_RS485_TX_QUALIFIED=ON",
+      "-DTR2_STM32_COMMISSIONING_READONLY=ON"
+    ],
+    "return_code": 1,
+    "expected_refusal": "are exclusive",
+    "expected_artifact": null,
+    "log": "10-production-probe.log"
+  },
+  {
+    "case": "cooperative-U",
+    "command": [
+      "cmake",
+      "-G",
+      "Ninja",
+      "-S",
+      "/home/lolo/dev/msm/projects/MSM_vibe-A04-01/Modbus RTU/05_Firmware/platform/stm32",
+      "-B",
+      "/home/lolo/dev/msm/reports/TR2-A04-01-20261013T144140Z/configurations-final/cooperative-U",
+      "-DCMAKE_TOOLCHAIN_FILE=/home/lolo/dev/msm/projects/MSM_vibe-A04-01/Modbus RTU/05_Firmware/platform/stm32/cmake/arm-none-eabi-gcc.cmake",
+      "-DSTM32CUBE_U5_ROOT=/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0",
+      "-DTR2_COMMISSIONING_MANIFEST=/home/lolo/dev/msm/projects/MSM_vibe-A04-01/Modbus RTU/00_gouvernance/COMMISSIONING_M014_H.json",
+      "-DTR2_COMMISSIONING_REGISTRY=/home/lolo/dev/msm/projects/MSM_vibe-A04-01/Modbus RTU/00_gouvernance/REGISTRE_ATTRIBUTION_TR2.json",
+      "-DTR2_STM32_PRODUCTION=ON",
+      "-DTR2_STM32_RS485_TX_QUALIFIED=ON",
+      "-DTR2_STM32_FIFO_COOPERATIVE=ON",
+      "-DTR2_STM32_IRQ_DIAGNOSTICS=ON",
+      "-DTR2_STM32_ST_FIFO_WINDOW=ON"
+    ],
+    "return_code": 1,
+    "expected_refusal": "Cooperative FIFO requires",
+    "expected_artifact": null,
+    "log": "11-cooperative-U.log"
+  },
+  {
+    "case": "cooperative-silence",
+    "command": [
+      "cmake",
+      "-G",
+      "Ninja",
+      "-S",
+      "/home/lolo/dev/msm/projects/MSM_vibe-A04-01/Modbus RTU/05_Firmware/platform/stm32",
+      "-B",
+      "/home/lolo/dev/msm/reports/TR2-A04-01-20261013T144140Z/configurations-final/cooperative-silence",
+      "-DCMAKE_TOOLCHAIN_FILE=/home/lolo/dev/msm/projects/MSM_vibe-A04-01/Modbus RTU/05_Firmware/platform/stm32/cmake/arm-none-eabi-gcc.cmake",
+      "-DSTM32CUBE_U5_ROOT=/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0",
+      "-DTR2_COMMISSIONING_MANIFEST=/home/lolo/dev/msm/projects/MSM_vibe-A04-01/Modbus RTU/00_gouvernance/COMMISSIONING_M014_H.json",
+      "-DTR2_COMMISSIONING_REGISTRY=/home/lolo/dev/msm/projects/MSM_vibe-A04-01/Modbus RTU/00_gouvernance/REGISTRE_ATTRIBUTION_TR2.json",
+      "-DTR2_STM32_PRODUCTION=ON",
+      "-DTR2_STM32_RS485_TX_QUALIFIED=ON",
+      "-DTR2_STM32_FIFO_COOPERATIVE=ON",
+      "-DTR2_STM32_IRQ_DIAGNOSTICS=ON",
+      "-DTR2_STM32_PRODUCTION_SILENCE_TEST=ON"
+    ],
+    "return_code": 1,
+    "expected_refusal": "Cooperative FIFO requires",
+    "expected_artifact": null,
+    "log": "12-cooperative-silence.log"
+  },
+  {
+    "case": "SPI16",
+    "command": [
+      "cmake",
+      "-G",
+      "Ninja",
+      "-S",
+      "/home/lolo/dev/msm/projects/MSM_vibe-A04-01/Modbus RTU/05_Firmware/platform/stm32",
+      "-B",
+      "/home/lolo/dev/msm/reports/TR2-A04-01-20261013T144140Z/configurations-final/SPI16",
+      "-DCMAKE_TOOLCHAIN_FILE=/home/lolo/dev/msm/projects/MSM_vibe-A04-01/Modbus RTU/05_Firmware/platform/stm32/cmake/arm-none-eabi-gcc.cmake",
+      "-DSTM32CUBE_U5_ROOT=/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0",
+      "-DTR2_COMMISSIONING_MANIFEST=/home/lolo/dev/msm/projects/MSM_vibe-A04-01/Modbus RTU/00_gouvernance/COMMISSIONING_M014_H.json",
+      "-DTR2_COMMISSIONING_REGISTRY=/home/lolo/dev/msm/projects/MSM_vibe-A04-01/Modbus RTU/00_gouvernance/REGISTRE_ATTRIBUTION_TR2.json",
+      "-DTR2_STM32_FIFO_SPI_MHZ=16"
+    ],
+    "return_code": 1,
+    "expected_refusal": "bounded to4/8MHz",
+    "expected_artifact": null,
+    "log": "13-SPI16.log"
+  },
+  {
+    "case": "helper-no-profile",
+    "command": [
+      "bash",
+      "/home/lolo/dev/msm/projects/MSM_vibe-A04-01/Modbus RTU/05_Firmware/platform/stm32/tr2_build_stm32.sh"
+    ],
+    "return_code": 2
+  },
+  {
+    "case": "qualification-U",
+    "command": [
+      "cmake",
+      "-G",
+      "Ninja",
+      "-S",
+      "/home/lolo/dev/msm/projects/MSM_vibe-A04-01/Modbus RTU/05_Firmware/platform/stm32",
+      "-B",
+      "/home/lolo/dev/msm/reports/TR2-A04-01-20261013T144140Z/configurations-final/qualification-U",
+      "-DCMAKE_TOOLCHAIN_FILE=/home/lolo/dev/msm/projects/MSM_vibe-A04-01/Modbus RTU/05_Firmware/platform/stm32/cmake/arm-none-eabi-gcc.cmake",
+      "-DSTM32CUBE_U5_ROOT=/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0",
+      "-DTR2_COMMISSIONING_MANIFEST=/home/lolo/dev/msm/projects/MSM_vibe-A04-01/Modbus RTU/00_gouvernance/COMMISSIONING_M014_H.json",
+      "-DTR2_COMMISSIONING_REGISTRY=/home/lolo/dev/msm/projects/MSM_vibe-A04-01/Modbus RTU/00_gouvernance/REGISTRE_ATTRIBUTION_TR2.json",
+      "-DTR2_STM32_ST_FIFO_WINDOW=ON"
+    ],
+    "return_code": 0,
+    "expected_refusal": null,
+    "expected_artifact": "tr2-special-st_fifo_window-NON-CUMULATIVE",
+    "log": "15-qualification-U.log"
+  },
+  {
+    "case": "legacy",
+    "command": [
+      "cmake",
+      "-G",
+      "Ninja",
+      "-S",
+      "/home/lolo/dev/msm/projects/MSM_vibe-A04-01/Modbus RTU/05_Firmware/platform/stm32",
+      "-B",
+      "/home/lolo/dev/msm/reports/TR2-A04-01-20261013T144140Z/configurations-final/legacy",
+      "-DCMAKE_TOOLCHAIN_FILE=/home/lolo/dev/msm/projects/MSM_vibe-A04-01/Modbus RTU/05_Firmware/platform/stm32/cmake/arm-none-eabi-gcc.cmake",
+      "-DSTM32CUBE_U5_ROOT=/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0",
+      "-DTR2_COMMISSIONING_MANIFEST=/home/lolo/dev/msm/projects/MSM_vibe-A04-01/Modbus RTU/00_gouvernance/COMMISSIONING_M014_H.json",
+      "-DTR2_COMMISSIONING_REGISTRY=/home/lolo/dev/msm/projects/MSM_vibe-A04-01/Modbus RTU/00_gouvernance/REGISTRE_ATTRIBUTION_TR2.json",
+      "-DTR2_STM32_LEGACY_SD_HARNESS=ON"
+    ],
+    "return_code": 0,
+    "expected_refusal": null,
+    "expected_artifact": "tr2-legacy-SD-WRITES-NON-PRODUCTION",
+    "log": "16-legacy.log"
+  }
+]

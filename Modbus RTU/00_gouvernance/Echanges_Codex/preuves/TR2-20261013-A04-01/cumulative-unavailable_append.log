@@ -1,0 +1,22 @@
+
+/home/lolo/dev/msm/projects/MSM_vibe-A04-01/Modbus RTU/05_Firmware/build-stm32-cumulative/tr2-cumulative-m014-m015-spi4.elf:     file format elf32-littlearm
+
+
+Disassembly of section .text:
+
+0800ff3c <unavailable_append>:
+ 800ff3c:	b580      	push	{r7, lr}
+ 800ff3e:	b084      	sub	sp, #16
+ 800ff40:	af00      	add	r7, sp, #0
+ 800ff42:	60f8      	str	r0, [r7, #12]
+ 800ff44:	60b9      	str	r1, [r7, #8]
+ 800ff46:	607a      	str	r2, [r7, #4]
+ 800ff48:	603b      	str	r3, [r7, #0]
+ 800ff4a:	68b9      	ldr	r1, [r7, #8]
+ 800ff4c:	68f8      	ldr	r0, [r7, #12]
+ 800ff4e:	f7ff ffea 	bl	800ff26 <unavailable_action>
+ 800ff52:	4603      	mov	r3, r0
+ 800ff54:	4618      	mov	r0, r3
+ 800ff56:	3710      	adds	r7, #16
+ 800ff58:	46bd      	mov	sp, r7
+ 800ff5a:	bd80      	pop	{r7, pc}

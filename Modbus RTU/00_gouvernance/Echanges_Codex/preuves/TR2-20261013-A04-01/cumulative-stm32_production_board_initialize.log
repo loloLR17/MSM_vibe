@@ -1,0 +1,62 @@
+
+/home/lolo/dev/msm/projects/MSM_vibe-A04-01/Modbus RTU/05_Firmware/build-stm32-cumulative/tr2-cumulative-m014-m015-spi4.elf:     file format elf32-littlearm
+
+
+Disassembly of section .text:
+
+0801004c <stm32_production_board_initialize>:
+ 801004c:	b4b0      	push	{r4, r5, r7}
+ 801004e:	b08b      	sub	sp, #44	@ 0x2c
+ 8010050:	af00      	add	r7, sp, #0
+ 8010052:	6078      	str	r0, [r7, #4]
+ 8010054:	6039      	str	r1, [r7, #0]
+ 8010056:	4a17      	ldr	r2, [pc, #92]	@ (80100b4 <stm32_production_board_initialize+0x68>)
+ 8010058:	687b      	ldr	r3, [r7, #4]
+ 801005a:	6013      	str	r3, [r2, #0]
+ 801005c:	4a16      	ldr	r2, [pc, #88]	@ (80100b8 <stm32_production_board_initialize+0x6c>)
+ 801005e:	683b      	ldr	r3, [r7, #0]
+ 8010060:	6013      	str	r3, [r2, #0]
+ 8010062:	4a16      	ldr	r2, [pc, #88]	@ (80100bc <stm32_production_board_initialize+0x70>)
+ 8010064:	4b16      	ldr	r3, [pc, #88]	@ (80100c0 <stm32_production_board_initialize+0x74>)
+ 8010066:	4614      	mov	r4, r2
+ 8010068:	461d      	mov	r5, r3
+ 801006a:	cd0f      	ldmia	r5!, {r0, r1, r2, r3}
+ 801006c:	c40f      	stmia	r4!, {r0, r1, r2, r3}
+ 801006e:	e895 0003 	ldmia.w	r5, {r0, r1}
+ 8010072:	e884 0003 	stmia.w	r4, {r0, r1}
+ 8010076:	4b13      	ldr	r3, [pc, #76]	@ (80100c4 <stm32_production_board_initialize+0x78>)
+ 8010078:	4a13      	ldr	r2, [pc, #76]	@ (80100c8 <stm32_production_board_initialize+0x7c>)
+ 801007a:	e892 0003 	ldmia.w	r2, {r0, r1}
+ 801007e:	e883 0003 	stmia.w	r3, {r0, r1}
+ 8010082:	4b10      	ldr	r3, [pc, #64]	@ (80100c4 <stm32_production_board_initialize+0x78>)
+ 8010084:	4a11      	ldr	r2, [pc, #68]	@ (80100cc <stm32_production_board_initialize+0x80>)
+ 8010086:	609a      	str	r2, [r3, #8]
+ 8010088:	4b0e      	ldr	r3, [pc, #56]	@ (80100c4 <stm32_production_board_initialize+0x78>)
+ 801008a:	2201      	movs	r2, #1
+ 801008c:	60da      	str	r2, [r3, #12]
+ 801008e:	687b      	ldr	r3, [r7, #4]
+ 8010090:	2b00      	cmp	r3, #0
+ 8010092:	d004      	beq.n	801009e <stm32_production_board_initialize+0x52>
+ 8010094:	683b      	ldr	r3, [r7, #0]
+ 8010096:	2b00      	cmp	r3, #0
+ 8010098:	d001      	beq.n	801009e <stm32_production_board_initialize+0x52>
+ 801009a:	2301      	movs	r3, #1
+ 801009c:	e000      	b.n	80100a0 <stm32_production_board_initialize+0x54>
+ 801009e:	2300      	movs	r3, #0
+ 80100a0:	f003 0301 	and.w	r3, r3, #1
+ 80100a4:	b2da      	uxtb	r2, r3
+ 80100a6:	4b0a      	ldr	r3, [pc, #40]	@ (80100d0 <stm32_production_board_initialize+0x84>)
+ 80100a8:	701a      	strb	r2, [r3, #0]
+ 80100aa:	bf00      	nop
+ 80100ac:	372c      	adds	r7, #44	@ 0x2c
+ 80100ae:	46bd      	mov	sp, r7
+ 80100b0:	bcb0      	pop	{r4, r5, r7}
+ 80100b2:	4770      	bx	lr
+ 80100b4:	2000ec60 	.word	0x2000ec60
+ 80100b8:	2000ec64 	.word	0x2000ec64
+ 80100bc:	2000ec78 	.word	0x2000ec78
+ 80100c0:	080285b0 	.word	0x080285b0
+ 80100c4:	2000eca0 	.word	0x2000eca0
+ 80100c8:	080285c8 	.word	0x080285c8
+ 80100cc:	08028930 	.word	0x08028930
+ 80100d0:	2000ec90 	.word	0x2000ec90

@@ -1,0 +1,24 @@
+/home/lolo/dev/msm/reports/TR2-A04-01-20261013T144140Z/build-qualification-U/tr2-special-st_fifo_window-NON-CUMULATIVE.elf  :
+section               size        addr
+.isr_vector            568   134217728
+.text                65164   134218296
+.ARM.extab              36   134283460
+.ARM.exidx             200   134283496
+.init_array              4   134283696
+.fini_array              4   134283700
+.data                  468   536870912
+.bss                569912   536871384
+._user_heap_stack     2560   537441296
+.ARM.attributes         48           0
+.debug_line          52137           0
+.debug_line_str        342           0
+.debug_info         124575           0
+.debug_abbrev        27817           0
+.debug_aranges        2240           0
+.debug_str           11525           0
+.debug_frame          6396           0
+.debug_loclists      41719           0
+.debug_rnglists       1268           0
+Total               906983
+
+

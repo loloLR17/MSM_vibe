@@ -1,0 +1,164 @@
+
+/home/lolo/dev/msm/projects/MSM_vibe-A04-01/Modbus RTU/05_Firmware/build-stm32-cumulative/tr2-cumulative-m014-m015-spi4.elf:     file format elf32-littlearm
+
+
+Disassembly of section .text:
+
+0801025c <stm32_production_server_run>:
+ 801025c:	b580      	push	{r7, lr}
+ 801025e:	b092      	sub	sp, #72	@ 0x48
+ 8010260:	af00      	add	r7, sp, #0
+ 8010262:	f107 0310 	add.w	r3, r7, #16
+ 8010266:	2224      	movs	r2, #36	@ 0x24
+ 8010268:	2100      	movs	r1, #0
+ 801026a:	4618      	mov	r0, r3
+ 801026c:	f7f0 fc90 	bl	8000b90 <memset>
+ 8010270:	4b54      	ldr	r3, [pc, #336]	@ (80103c4 <stm32_production_server_run+0x168>)
+ 8010272:	2201      	movs	r2, #1
+ 8010274:	601a      	str	r2, [r3, #0]
+ 8010276:	4854      	ldr	r0, [pc, #336]	@ (80103c8 <stm32_production_server_run+0x16c>)
+ 8010278:	f7f6 fec0 	bl	8006ffc <stm32_serial_transport_init>
+ 801027c:	4603      	mov	r3, r0
+ 801027e:	f887 3047 	strb.w	r3, [r7, #71]	@ 0x47
+ 8010282:	f897 3047 	ldrb.w	r3, [r7, #71]	@ 0x47
+ 8010286:	2b00      	cmp	r3, #0
+ 8010288:	d108      	bne.n	801029c <stm32_production_server_run+0x40>
+ 801028a:	f107 0310 	add.w	r3, r7, #16
+ 801028e:	4619      	mov	r1, r3
+ 8010290:	484d      	ldr	r0, [pc, #308]	@ (80103c8 <stm32_production_server_run+0x16c>)
+ 8010292:	f7f6 f86b 	bl	800636c <stm32_modbus_application_bind>
+ 8010296:	4603      	mov	r3, r0
+ 8010298:	f887 3047 	strb.w	r3, [r7, #71]	@ 0x47
+ 801029c:	f897 3047 	ldrb.w	r3, [r7, #71]	@ 0x47
+ 80102a0:	2b00      	cmp	r3, #0
+ 80102a2:	d112      	bne.n	80102ca <stm32_production_server_run+0x6e>
+ 80102a4:	69fb      	ldr	r3, [r7, #28]
+ 80102a6:	2b00      	cmp	r3, #0
+ 80102a8:	d00c      	beq.n	80102c4 <stm32_production_server_run+0x68>
+ 80102aa:	7e3b      	ldrb	r3, [r7, #24]
+ 80102ac:	2201      	movs	r2, #1
+ 80102ae:	4293      	cmp	r3, r2
+ 80102b0:	d108      	bne.n	80102c4 <stm32_production_server_run+0x68>
+ 80102b2:	69fb      	ldr	r3, [r7, #28]
+ 80102b4:	222a      	movs	r2, #42	@ 0x2a
+ 80102b6:	4945      	ldr	r1, [pc, #276]	@ (80103cc <stm32_production_server_run+0x170>)
+ 80102b8:	4618      	mov	r0, r3
+ 80102ba:	f7f0 fcbb 	bl	8000c34 <memcmp>
+ 80102be:	4603      	mov	r3, r0
+ 80102c0:	2b00      	cmp	r3, #0
+ 80102c2:	d002      	beq.n	80102ca <stm32_production_server_run+0x6e>
+ 80102c4:	2302      	movs	r3, #2
+ 80102c6:	f887 3047 	strb.w	r3, [r7, #71]	@ 0x47
+ 80102ca:	4b41      	ldr	r3, [pc, #260]	@ (80103d0 <stm32_production_server_run+0x174>)
+ 80102cc:	633b      	str	r3, [r7, #48]	@ 0x30
+ 80102ce:	f897 3047 	ldrb.w	r3, [r7, #71]	@ 0x47
+ 80102d2:	2b00      	cmp	r3, #0
+ 80102d4:	d108      	bne.n	80102e8 <stm32_production_server_run+0x8c>
+ 80102d6:	f107 0310 	add.w	r3, r7, #16
+ 80102da:	4619      	mov	r1, r3
+ 80102dc:	483d      	ldr	r0, [pc, #244]	@ (80103d4 <stm32_production_server_run+0x178>)
+ 80102de:	f002 fd27 	bl	8012d30 <modbus_system_server_init>
+ 80102e2:	4603      	mov	r3, r0
+ 80102e4:	f887 3047 	strb.w	r3, [r7, #71]	@ 0x47
+ 80102e8:	f897 3047 	ldrb.w	r3, [r7, #71]	@ 0x47
+ 80102ec:	2b00      	cmp	r3, #0
+ 80102ee:	d105      	bne.n	80102fc <stm32_production_server_run+0xa0>
+ 80102f0:	4838      	ldr	r0, [pc, #224]	@ (80103d4 <stm32_production_server_run+0x178>)
+ 80102f2:	f002 fdaf 	bl	8012e54 <modbus_system_server_start>
+ 80102f6:	4603      	mov	r3, r0
+ 80102f8:	f887 3047 	strb.w	r3, [r7, #71]	@ 0x47
+ 80102fc:	f897 3047 	ldrb.w	r3, [r7, #71]	@ 0x47
+ 8010300:	4a35      	ldr	r2, [pc, #212]	@ (80103d8 <stm32_production_server_run+0x17c>)
+ 8010302:	6013      	str	r3, [r2, #0]
+ 8010304:	f897 3047 	ldrb.w	r3, [r7, #71]	@ 0x47
+ 8010308:	2b00      	cmp	r3, #0
+ 801030a:	d006      	beq.n	801031a <stm32_production_server_run+0xbe>
+ 801030c:	4b2d      	ldr	r3, [pc, #180]	@ (80103c4 <stm32_production_server_run+0x168>)
+ 801030e:	2263      	movs	r2, #99	@ 0x63
+ 8010310:	601a      	str	r2, [r3, #0]
+ 8010312:	20fa      	movs	r0, #250	@ 0xfa
+ 8010314:	f7f7 ff8e 	bl	8008234 <HAL_Delay>
+ 8010318:	e7fb      	b.n	8010312 <stm32_production_server_run+0xb6>
+ 801031a:	4b2a      	ldr	r3, [pc, #168]	@ (80103c4 <stm32_production_server_run+0x168>)
+ 801031c:	2202      	movs	r2, #2
+ 801031e:	601a      	str	r2, [r3, #0]
+ 8010320:	4b2e      	ldr	r3, [pc, #184]	@ (80103dc <stm32_production_server_run+0x180>)
+ 8010322:	681b      	ldr	r3, [r3, #0]
+ 8010324:	4a2e      	ldr	r2, [pc, #184]	@ (80103e0 <stm32_production_server_run+0x184>)
+ 8010326:	6812      	ldr	r2, [r2, #0]
+ 8010328:	4611      	mov	r1, r2
+ 801032a:	4618      	mov	r0, r3
+ 801032c:	f001 fe18 	bl	8011f60 <stm32_fifo_cooperative_prepare>
+ 8010330:	f7f7 ff76 	bl	8008220 <HAL_GetTick>
+ 8010334:	6438      	str	r0, [r7, #64]	@ 0x40
+ 8010336:	4b23      	ldr	r3, [pc, #140]	@ (80103c4 <stm32_production_server_run+0x168>)
+ 8010338:	2202      	movs	r2, #2
+ 801033a:	601a      	str	r2, [r3, #0]
+ 801033c:	4b29      	ldr	r3, [pc, #164]	@ (80103e4 <stm32_production_server_run+0x188>)
+ 801033e:	6b1b      	ldr	r3, [r3, #48]	@ 0x30
+ 8010340:	63fb      	str	r3, [r7, #60]	@ 0x3c
+ 8010342:	4b24      	ldr	r3, [pc, #144]	@ (80103d4 <stm32_production_server_run+0x178>)
+ 8010344:	f8d3 317c 	ldr.w	r3, [r3, #380]	@ 0x17c
+ 8010348:	63bb      	str	r3, [r7, #56]	@ 0x38
+ 801034a:	4b22      	ldr	r3, [pc, #136]	@ (80103d4 <stm32_production_server_run+0x178>)
+ 801034c:	f893 3078 	ldrb.w	r3, [r3, #120]	@ 0x78
+ 8010350:	f887 3037 	strb.w	r3, [r7, #55]	@ 0x37
+ 8010354:	481f      	ldr	r0, [pc, #124]	@ (80103d4 <stm32_production_server_run+0x178>)
+ 8010356:	f002 fdb0 	bl	8012eba <modbus_system_server_poll_once>
+ 801035a:	4603      	mov	r3, r0
+ 801035c:	f887 3047 	strb.w	r3, [r7, #71]	@ 0x47
+ 8010360:	4b21      	ldr	r3, [pc, #132]	@ (80103e8 <stm32_production_server_run+0x18c>)
+ 8010362:	681b      	ldr	r3, [r3, #0]
+ 8010364:	3301      	adds	r3, #1
+ 8010366:	4a20      	ldr	r2, [pc, #128]	@ (80103e8 <stm32_production_server_run+0x18c>)
+ 8010368:	6013      	str	r3, [r2, #0]
+ 801036a:	f897 3047 	ldrb.w	r3, [r7, #71]	@ 0x47
+ 801036e:	2b00      	cmp	r3, #0
+ 8010370:	d004      	beq.n	801037c <stm32_production_server_run+0x120>
+ 8010372:	4b1e      	ldr	r3, [pc, #120]	@ (80103ec <stm32_production_server_run+0x190>)
+ 8010374:	681b      	ldr	r3, [r3, #0]
+ 8010376:	3301      	adds	r3, #1
+ 8010378:	4a1c      	ldr	r2, [pc, #112]	@ (80103ec <stm32_production_server_run+0x190>)
+ 801037a:	6013      	str	r3, [r2, #0]
+ 801037c:	4b19      	ldr	r3, [pc, #100]	@ (80103e4 <stm32_production_server_run+0x188>)
+ 801037e:	6b1b      	ldr	r3, [r3, #48]	@ 0x30
+ 8010380:	6bfa      	ldr	r2, [r7, #60]	@ 0x3c
+ 8010382:	429a      	cmp	r2, r3
+ 8010384:	d01a      	beq.n	80103bc <stm32_production_server_run+0x160>
+ 8010386:	f897 3037 	ldrb.w	r3, [r7, #55]	@ 0x37
+ 801038a:	2b01      	cmp	r3, #1
+ 801038c:	d003      	beq.n	8010396 <stm32_production_server_run+0x13a>
+ 801038e:	f897 3037 	ldrb.w	r3, [r7, #55]	@ 0x37
+ 8010392:	2b02      	cmp	r3, #2
+ 8010394:	d112      	bne.n	80103bc <stm32_production_server_run+0x160>
+ 8010396:	1d3b      	adds	r3, r7, #4
+ 8010398:	461a      	mov	r2, r3
+ 801039a:	6bb9      	ldr	r1, [r7, #56]	@ 0x38
+ 801039c:	4814      	ldr	r0, [pc, #80]	@ (80103f0 <stm32_production_server_run+0x194>)
+ 801039e:	f007 ff05 	bl	80181ac <modbus_rtu_adu_decode>
+ 80103a2:	4603      	mov	r3, r0
+ 80103a4:	2b00      	cmp	r3, #0
+ 80103a6:	d109      	bne.n	80103bc <stm32_production_server_run+0x160>
+ 80103a8:	793a      	ldrb	r2, [r7, #4]
+ 80103aa:	4b0a      	ldr	r3, [pc, #40]	@ (80103d4 <stm32_production_server_run+0x178>)
+ 80103ac:	f893 3074 	ldrb.w	r3, [r3, #116]	@ 0x74
+ 80103b0:	429a      	cmp	r2, r3
+ 80103b2:	d103      	bne.n	80103bc <stm32_production_server_run+0x160>
+ 80103b4:	1d3b      	adds	r3, r7, #4
+ 80103b6:	4618      	mov	r0, r3
+ 80103b8:	f002 f86e 	bl	8012498 <stm32_fifo_cooperative_observe>
+ 80103bc:	f001 fe54 	bl	8012068 <stm32_fifo_cooperative_poll>
+ 80103c0:	e7b6      	b.n	8010330 <stm32_production_server_run+0xd4>
+ 80103c2:	bf00      	nop
+ 80103c4:	2000ec94 	.word	0x2000ec94
+ 80103c8:	2000ecb0 	.word	0x2000ecb0
+ 80103cc:	08028940 	.word	0x08028940
+ 80103d0:	08015fe9 	.word	0x08015fe9
+ 80103d4:	2000ecc0 	.word	0x2000ecc0
+ 80103d8:	200001d4 	.word	0x200001d4
+ 80103dc:	2000ec64 	.word	0x2000ec64
+ 80103e0:	2000ec60 	.word	0x2000ec60
+ 80103e4:	2000e844 	.word	0x2000e844
+ 80103e8:	2000ec9c 	.word	0x2000ec9c
+ 80103ec:	2000ec98 	.word	0x2000ec98
+ 80103f0:	2000ed39 	.word	0x2000ed39

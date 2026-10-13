@@ -1,0 +1,11 @@
+test_authoritative_b0 (__main__.GeneratorTests.test_authoritative_b0) ... ok
+test_duplicate_full_uid_refused (__main__.GeneratorTests.test_duplicate_full_uid_refused) ... ok
+test_reserved_assignment_refused (__main__.GeneratorTests.test_reserved_assignment_refused) ... ok
+test_sd_authority_refused (__main__.GeneratorTests.test_sd_authority_refused) ... ok
+test_unqualified_capability_refused (__main__.GeneratorTests.test_unqualified_capability_refused) ... ok
+test_unreviewed_generation_refused (__main__.GeneratorTests.test_unreviewed_generation_refused) ... ok
+
+----------------------------------------------------------------------
+Ran 6 tests in 0.005s
+
+OK

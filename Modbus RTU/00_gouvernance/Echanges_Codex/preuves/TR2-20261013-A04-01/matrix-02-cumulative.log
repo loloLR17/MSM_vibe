@@ -1,0 +1,6 @@
+CMake Error at CMakeLists.txt:23 (message):
+  CUMULATIVE conflicts with TR2_STM32_IRQ_DIAGNOSTICS=OFF; use a fresh build
+  directory
+
+
+-- Configuring incomplete, errors occurred!

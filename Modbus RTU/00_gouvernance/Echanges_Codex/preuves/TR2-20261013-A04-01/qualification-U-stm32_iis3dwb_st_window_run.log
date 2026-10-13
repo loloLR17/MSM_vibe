@@ -1,0 +1,158 @@
+
+/home/lolo/dev/msm/reports/TR2-A04-01-20261013T144140Z/build-qualification-U/tr2-special-st_fifo_window-NON-CUMULATIVE.elf:     file format elf32-littlearm
+
+
+Disassembly of section .text:
+
+0800e044 <stm32_iis3dwb_st_window_run>:
+ 800e044:	b580      	push	{r7, lr}
+ 800e046:	b082      	sub	sp, #8
+ 800e048:	af00      	add	r7, sp, #0
+ 800e04a:	6078      	str	r0, [r7, #4]
+ 800e04c:	6039      	str	r1, [r7, #0]
+ 800e04e:	4a46      	ldr	r2, [pc, #280]	@ (800e168 <stm32_iis3dwb_st_window_run+0x124>)
+ 800e050:	687b      	ldr	r3, [r7, #4]
+ 800e052:	6013      	str	r3, [r2, #0]
+ 800e054:	4b45      	ldr	r3, [pc, #276]	@ (800e16c <stm32_iis3dwb_st_window_run+0x128>)
+ 800e056:	2200      	movs	r2, #0
+ 800e058:	601a      	str	r2, [r3, #0]
+ 800e05a:	f7f9 f9af 	bl	80073bc <HAL_GetUIDw0>
+ 800e05e:	4603      	mov	r3, r0
+ 800e060:	4a43      	ldr	r2, [pc, #268]	@ (800e170 <stm32_iis3dwb_st_window_run+0x12c>)
+ 800e062:	4293      	cmp	r3, r2
+ 800e064:	d10b      	bne.n	800e07e <stm32_iis3dwb_st_window_run+0x3a>
+ 800e066:	f7f9 f9b3 	bl	80073d0 <HAL_GetUIDw1>
+ 800e06a:	4603      	mov	r3, r0
+ 800e06c:	4a41      	ldr	r2, [pc, #260]	@ (800e174 <stm32_iis3dwb_st_window_run+0x130>)
+ 800e06e:	4293      	cmp	r3, r2
+ 800e070:	d105      	bne.n	800e07e <stm32_iis3dwb_st_window_run+0x3a>
+ 800e072:	f7f9 f9b7 	bl	80073e4 <HAL_GetUIDw2>
+ 800e076:	4603      	mov	r3, r0
+ 800e078:	4a3f      	ldr	r2, [pc, #252]	@ (800e178 <stm32_iis3dwb_st_window_run+0x134>)
+ 800e07a:	4293      	cmp	r3, r2
+ 800e07c:	d004      	beq.n	800e088 <stm32_iis3dwb_st_window_run+0x44>
+ 800e07e:	4b3f      	ldr	r3, [pc, #252]	@ (800e17c <stm32_iis3dwb_st_window_run+0x138>)
+ 800e080:	2206      	movs	r2, #6
+ 800e082:	601a      	str	r2, [r3, #0]
+ 800e084:	bf30      	wfi
+ 800e086:	e7fd      	b.n	800e084 <stm32_iis3dwb_st_window_run+0x40>
+ 800e088:	6838      	ldr	r0, [r7, #0]
+ 800e08a:	f7ff fe81 	bl	800dd90 <preserve_fram>
+ 800e08e:	4603      	mov	r3, r0
+ 800e090:	2b00      	cmp	r3, #0
+ 800e092:	d001      	beq.n	800e098 <stm32_iis3dwb_st_window_run+0x54>
+ 800e094:	2302      	movs	r3, #2
+ 800e096:	e000      	b.n	800e09a <stm32_iis3dwb_st_window_run+0x56>
+ 800e098:	2301      	movs	r3, #1
+ 800e09a:	4a39      	ldr	r2, [pc, #228]	@ (800e180 <stm32_iis3dwb_st_window_run+0x13c>)
+ 800e09c:	6013      	str	r3, [r2, #0]
+ 800e09e:	4b38      	ldr	r3, [pc, #224]	@ (800e180 <stm32_iis3dwb_st_window_run+0x13c>)
+ 800e0a0:	681b      	ldr	r3, [r3, #0]
+ 800e0a2:	2b01      	cmp	r3, #1
+ 800e0a4:	d004      	beq.n	800e0b0 <stm32_iis3dwb_st_window_run+0x6c>
+ 800e0a6:	4b35      	ldr	r3, [pc, #212]	@ (800e17c <stm32_iis3dwb_st_window_run+0x138>)
+ 800e0a8:	2201      	movs	r2, #1
+ 800e0aa:	601a      	str	r2, [r3, #0]
+ 800e0ac:	bf30      	wfi
+ 800e0ae:	e7fd      	b.n	800e0ac <stm32_iis3dwb_st_window_run+0x68>
+ 800e0b0:	f001 f902 	bl	800f2b8 <official_prepare>
+ 800e0b4:	4b33      	ldr	r3, [pc, #204]	@ (800e184 <stm32_iis3dwb_st_window_run+0x140>)
+ 800e0b6:	685b      	ldr	r3, [r3, #4]
+ 800e0b8:	2b00      	cmp	r3, #0
+ 800e0ba:	d005      	beq.n	800e0c8 <stm32_iis3dwb_st_window_run+0x84>
+ 800e0bc:	4b31      	ldr	r3, [pc, #196]	@ (800e184 <stm32_iis3dwb_st_window_run+0x140>)
+ 800e0be:	685b      	ldr	r3, [r3, #4]
+ 800e0c0:	4a2e      	ldr	r2, [pc, #184]	@ (800e17c <stm32_iis3dwb_st_window_run+0x138>)
+ 800e0c2:	6013      	str	r3, [r2, #0]
+ 800e0c4:	bf30      	wfi
+ 800e0c6:	e7fd      	b.n	800e0c4 <stm32_iis3dwb_st_window_run+0x80>
+ 800e0c8:	4b2f      	ldr	r3, [pc, #188]	@ (800e188 <stm32_iis3dwb_st_window_run+0x144>)
+ 800e0ca:	2201      	movs	r2, #1
+ 800e0cc:	601a      	str	r2, [r3, #0]
+ 800e0ce:	4b27      	ldr	r3, [pc, #156]	@ (800e16c <stm32_iis3dwb_st_window_run+0x128>)
+ 800e0d0:	2201      	movs	r2, #1
+ 800e0d2:	601a      	str	r2, [r3, #0]
+ 800e0d4:	e000      	b.n	800e0d8 <stm32_iis3dwb_st_window_run+0x94>
+ 800e0d6:	bf30      	wfi
+ 800e0d8:	4b2c      	ldr	r3, [pc, #176]	@ (800e18c <stm32_iis3dwb_st_window_run+0x148>)
+ 800e0da:	681b      	ldr	r3, [r3, #0]
+ 800e0dc:	2b00      	cmp	r3, #0
+ 800e0de:	d0fa      	beq.n	800e0d6 <stm32_iis3dwb_st_window_run+0x92>
+ 800e0e0:	4b29      	ldr	r3, [pc, #164]	@ (800e188 <stm32_iis3dwb_st_window_run+0x144>)
+ 800e0e2:	2200      	movs	r2, #0
+ 800e0e4:	601a      	str	r2, [r3, #0]
+ 800e0e6:	4b29      	ldr	r3, [pc, #164]	@ (800e18c <stm32_iis3dwb_st_window_run+0x148>)
+ 800e0e8:	681b      	ldr	r3, [r3, #0]
+ 800e0ea:	4a29      	ldr	r2, [pc, #164]	@ (800e190 <stm32_iis3dwb_st_window_run+0x14c>)
+ 800e0ec:	4293      	cmp	r3, r2
+ 800e0ee:	d007      	beq.n	800e100 <stm32_iis3dwb_st_window_run+0xbc>
+ 800e0f0:	4b22      	ldr	r3, [pc, #136]	@ (800e17c <stm32_iis3dwb_st_window_run+0x138>)
+ 800e0f2:	2205      	movs	r2, #5
+ 800e0f4:	601a      	str	r2, [r3, #0]
+ 800e0f6:	4b1d      	ldr	r3, [pc, #116]	@ (800e16c <stm32_iis3dwb_st_window_run+0x128>)
+ 800e0f8:	2200      	movs	r2, #0
+ 800e0fa:	601a      	str	r2, [r3, #0]
+ 800e0fc:	bf30      	wfi
+ 800e0fe:	e7fd      	b.n	800e0fc <stm32_iis3dwb_st_window_run+0xb8>
+ 800e100:	4b22      	ldr	r3, [pc, #136]	@ (800e18c <stm32_iis3dwb_st_window_run+0x148>)
+ 800e102:	2200      	movs	r2, #0
+ 800e104:	601a      	str	r2, [r3, #0]
+ 800e106:	4b19      	ldr	r3, [pc, #100]	@ (800e16c <stm32_iis3dwb_st_window_run+0x128>)
+ 800e108:	2202      	movs	r2, #2
+ 800e10a:	601a      	str	r2, [r3, #0]
+ 800e10c:	f001 fb18 	bl	800f740 <official_run>
+ 800e110:	f7ff fea0 	bl	800de54 <verify_fram>
+ 800e114:	4603      	mov	r3, r0
+ 800e116:	2b00      	cmp	r3, #0
+ 800e118:	d001      	beq.n	800e11e <stm32_iis3dwb_st_window_run+0xda>
+ 800e11a:	2302      	movs	r3, #2
+ 800e11c:	e000      	b.n	800e120 <stm32_iis3dwb_st_window_run+0xdc>
+ 800e11e:	2303      	movs	r3, #3
+ 800e120:	4a17      	ldr	r2, [pc, #92]	@ (800e180 <stm32_iis3dwb_st_window_run+0x13c>)
+ 800e122:	6013      	str	r3, [r2, #0]
+ 800e124:	4b17      	ldr	r3, [pc, #92]	@ (800e184 <stm32_iis3dwb_st_window_run+0x140>)
+ 800e126:	685b      	ldr	r3, [r3, #4]
+ 800e128:	2b00      	cmp	r3, #0
+ 800e12a:	d002      	beq.n	800e132 <stm32_iis3dwb_st_window_run+0xee>
+ 800e12c:	4b15      	ldr	r3, [pc, #84]	@ (800e184 <stm32_iis3dwb_st_window_run+0x140>)
+ 800e12e:	685b      	ldr	r3, [r3, #4]
+ 800e130:	e001      	b.n	800e136 <stm32_iis3dwb_st_window_run+0xf2>
+ 800e132:	4b14      	ldr	r3, [pc, #80]	@ (800e184 <stm32_iis3dwb_st_window_run+0x140>)
+ 800e134:	689b      	ldr	r3, [r3, #8]
+ 800e136:	4a11      	ldr	r2, [pc, #68]	@ (800e17c <stm32_iis3dwb_st_window_run+0x138>)
+ 800e138:	6013      	str	r3, [r2, #0]
+ 800e13a:	4b11      	ldr	r3, [pc, #68]	@ (800e180 <stm32_iis3dwb_st_window_run+0x13c>)
+ 800e13c:	681b      	ldr	r3, [r3, #0]
+ 800e13e:	2b03      	cmp	r3, #3
+ 800e140:	d10c      	bne.n	800e15c <stm32_iis3dwb_st_window_run+0x118>
+ 800e142:	4b14      	ldr	r3, [pc, #80]	@ (800e194 <stm32_iis3dwb_st_window_run+0x150>)
+ 800e144:	681b      	ldr	r3, [r3, #0]
+ 800e146:	4a14      	ldr	r2, [pc, #80]	@ (800e198 <stm32_iis3dwb_st_window_run+0x154>)
+ 800e148:	6812      	ldr	r2, [r2, #0]
+ 800e14a:	4619      	mov	r1, r3
+ 800e14c:	480d      	ldr	r0, [pc, #52]	@ (800e184 <stm32_iis3dwb_st_window_run+0x140>)
+ 800e14e:	f7ff fdcd 	bl	800dcec <tr2_fifo_admit>
+ 800e152:	4603      	mov	r3, r0
+ 800e154:	2b00      	cmp	r3, #0
+ 800e156:	d001      	beq.n	800e15c <stm32_iis3dwb_st_window_run+0x118>
+ 800e158:	2303      	movs	r3, #3
+ 800e15a:	e000      	b.n	800e15e <stm32_iis3dwb_st_window_run+0x11a>
+ 800e15c:	2300      	movs	r3, #0
+ 800e15e:	4a03      	ldr	r2, [pc, #12]	@ (800e16c <stm32_iis3dwb_st_window_run+0x128>)
+ 800e160:	6013      	str	r3, [r2, #0]
+ 800e162:	bf30      	wfi
+ 800e164:	e7fd      	b.n	800e162 <stm32_iis3dwb_st_window_run+0x11e>
+ 800e166:	bf00      	nop
+ 800e168:	2000071c 	.word	0x2000071c
+ 800e16c:	20040780 	.word	0x20040780
+ 800e170:	004a003d 	.word	0x004a003d
+ 800e174:	38425018 	.word	0x38425018
+ 800e178:	20333157 	.word	0x20333157
+ 800e17c:	20040784 	.word	0x20040784
+ 800e180:	20040788 	.word	0x20040788
+ 800e184:	200807e0 	.word	0x200807e0
+ 800e188:	2001a730 	.word	0x2001a730
+ 800e18c:	2001a72c 	.word	0x2001a72c
+ 800e190:	4d31354b 	.word	0x4d31354b
+ 800e194:	20040764 	.word	0x20040764
+ 800e198:	20040748 	.word	0x20040748

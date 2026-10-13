@@ -36,6 +36,7 @@
 - **Registre de dette A-04 :** [DETTE_TECHNIQUE_A04.md](DETTE_TECHNIQUE_A04.md), neuf constats ouverts ou différés, avec priorités et critères de clôture. Ne pas effacer ces constats lors du passage A-05.
 - Ordre décidé : **A-05 tests et preuves → A04-01 build sûr → A04-02 FRAM/Modbus → A04-03 intégration M016**. A04-08 avant activation SD ; autres dettes suivies par ID.
 - La mission A-04 est clôturée par son rapport `DONE` ; le contrat `READY` historique ne doit pas être relancé.
+- **13/10/2026 — A04-01, VALIDÉ LOGICIEL par Codex :** sélection explicite des profils, refus du harness SD implicite, BIN cumulatif byte-identique à M015-V. [Rapport de correction](Echanges_Codex/DERNIER_RAPPORT.md), code `c9ee22292ae69cc6f333aaab3527d18556ee8272`. **Revue indépendante / clôture de dette en attente** ; registre inchangé, aucun matériel accédé ni état actuel relu. A04-02 reste hors de cette correction.
 
 ## 5. Références durables
 

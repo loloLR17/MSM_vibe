@@ -1,0 +1,54 @@
+[
+  {
+    "command": [
+      "cmake",
+      "-G",
+      "Ninja",
+      "-S",
+      "/home/lolo/dev/msm/projects/MSM_vibe-A04-01/Modbus RTU/05_Firmware/platform/stm32",
+      "-B",
+      "/home/lolo/dev/msm/reports/TR2-A04-01-20261013T144140Z/build-qualification-U",
+      "-DCMAKE_TOOLCHAIN_FILE=/home/lolo/dev/msm/projects/MSM_vibe-A04-01/Modbus RTU/05_Firmware/platform/stm32/cmake/arm-none-eabi-gcc.cmake",
+      "-DSTM32CUBE_U5_ROOT=/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0",
+      "-DTR2_STM32_ST_FIFO_WINDOW=ON"
+    ],
+    "return_code": 0,
+    "log": "qualification-U-0.log"
+  },
+  {
+    "command": [
+      "cmake",
+      "--build",
+      "/home/lolo/dev/msm/reports/TR2-A04-01-20261013T144140Z/build-qualification-U",
+      "-j4"
+    ],
+    "return_code": 0,
+    "log": "qualification-U-1.log"
+  },
+  {
+    "command": [
+      "cmake",
+      "-G",
+      "Ninja",
+      "-S",
+      "/home/lolo/dev/msm/projects/MSM_vibe-A04-01/Modbus RTU/05_Firmware/platform/stm32",
+      "-B",
+      "/home/lolo/dev/msm/reports/TR2-A04-01-20261013T144140Z/build-legacy",
+      "-DCMAKE_TOOLCHAIN_FILE=/home/lolo/dev/msm/projects/MSM_vibe-A04-01/Modbus RTU/05_Firmware/platform/stm32/cmake/arm-none-eabi-gcc.cmake",
+      "-DSTM32CUBE_U5_ROOT=/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0",
+      "-DTR2_STM32_LEGACY_SD_HARNESS=ON"
+    ],
+    "return_code": 0,
+    "log": "legacy-0.log"
+  },
+  {
+    "command": [
+      "cmake",
+      "--build",
+      "/home/lolo/dev/msm/reports/TR2-A04-01-20261013T144140Z/build-legacy",
+      "-j4"
+    ],
+    "return_code": 0,
+    "log": "legacy-1.log"
+  }
+]
