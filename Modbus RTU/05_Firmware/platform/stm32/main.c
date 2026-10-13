@@ -155,6 +155,16 @@ volatile uint32_t tr2_commission_sd_blocks;
 uint8_t tr2_commission_fram_rdid[4];
 uint8_t tr2_commission_sd_prefix[8192];
 volatile uint32_t tr2_commission_sd_prefix_result = UINT32_MAX;
+/* M016 storage prerequisite: RAM-triggered, bounded READ ONLY inspection.
+ * No write callback, formatting, allocation or auto-repeat. Region is not owned.
+ * Limit scans to pre-partition LBAs, protect the existing partition by construction. */
+uint8_t tr2_commission_sd_chunk[65536];
+volatile uint32_t tr2_commission_sd_read_trigger;
+volatile uint32_t tr2_commission_sd_read_lba;
+volatile uint32_t tr2_commission_sd_read_blocks;
+volatile uint32_t tr2_commission_sd_read_result = UINT32_MAX;
+volatile uint32_t tr2_commission_sd_read_done;
+
 volatile uint32_t tr2_commission_sensor_result = UINT32_MAX;
 volatile uint32_t tr2_commission_sensor_whoami;
 #endif
@@ -1674,6 +1684,24 @@ static void CommissioningSdProbe(void)
         tr2_commission_sd_prefix, 0U, sizeof(tr2_commission_sd_prefix)/512U, 2000U);
 }
 
+static void CommissioningReadChunk(void)
+{
+    const uint32_t lba = tr2_commission_sd_read_lba;
+    const uint32_t blocks = tr2_commission_sd_read_blocks;
+    tr2_commission_sd_read_trigger = 0u;
+    tr2_commission_sd_read_result = (uint32_t)TR2_ERROR_INVALID_ARGUMENT;
+    /* 65536 is a read-only inspection ceiling, NOT an allocation authority.
+     * No arithmetic overflow, invalid initialized card or zero-size request. */
+    if (tr2_commission_sd_result == TR2_OK && blocks > 0u &&
+        blocks <= sizeof(tr2_commission_sd_chunk) / 512u &&
+        lba <= 65536u && blocks <= 65536u - lba &&
+        lba <= tr2_commission_sd_blocks && blocks <= tr2_commission_sd_blocks - lba) {
+        tr2_commission_sd_read_result = (uint32_t)HAL_SD_ReadBlocks(&hsd2,
+            tr2_commission_sd_chunk, lba, blocks, 2000u);
+    }
+    ++tr2_commission_sd_read_done;
+}
+
 __attribute__((noreturn)) static void CommissioningReadOnly(void)
 {
     Stm32FramStorage storage;
@@ -1717,7 +1745,13 @@ __attribute__((noreturn)) static void CommissioningReadOnly(void)
     CommissioningSdProbe();
     tr2_commission_stage = 5U;
     /* No transport start and no harness fall-through. */
-    for (;;) { HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN); HAL_Delay(250U); }
+    for (;;) {
+        if (tr2_commission_sd_read_trigger == UINT32_C(0x4D313653)) {
+            CommissioningReadChunk();
+        }
+        HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
+        HAL_Delay(1U);
+    }
 }
 #endif
 

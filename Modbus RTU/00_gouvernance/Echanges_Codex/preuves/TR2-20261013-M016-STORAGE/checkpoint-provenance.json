@@ -1,0 +1,18 @@
+{
+  "initial_head": "9647cb0b152dde28b2485de88f551f95883b8e06",
+  "cumulative_bin_sha256": "b4301d6f3325c266edc19297413fd0885828e5625ec030a8acad340444b3fd9b",
+  "readonly_bin_sha256": "3c64751fc92ce2fcc799007a4313d7827c26a09c1c992c54b8633b1ea9840ce9",
+  "readonly_write_symbols_absent": true,
+  "current_flash_prefix_exact_a0402": true,
+  "uid": [
+    "004A003D",
+    "38425018",
+    "20333157"
+  ],
+  "stlink": "003500463235510B37333439",
+  "local_evidence_root": "/home/lolo/dev/msm/reports/TR2-M016-storage-20261013T172331Z",
+  "stashes": [
+    "6251b988e8b20f97997a8f98fd26d4d35a45a1b2 On main: TR2-20261010-DEV-RTU-PRODUCTION-005 preservation before incoming inventory correction",
+    "f3b829e6188f491920edf74a5f9ed0f559d08b87 On main: TR2-20261010-DEV-RS485-003 preservation mission 002"
+  ]
+}
