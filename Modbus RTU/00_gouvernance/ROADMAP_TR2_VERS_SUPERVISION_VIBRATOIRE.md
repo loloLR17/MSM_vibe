@@ -1,44 +1,15 @@
 # MSM TR2 — Roadmap vers la supervision vibratoire
 
-**Version :** 1.0 — validée par l'utilisateur le 11 octobre 2026  
-**Référence :** branche `main` du dépôt `loloLR17/MSM_vibe`  
-**Objectif :** obtenir un démonstrateur physique dans lequel les vibrations acquises par le TR2 sont lisibles, historisées et visualisées dans la supervision Web PC.
+**Version de suivi :** A-02 — 13 octobre 2026. **Source :** `main` de `loloLR17/MSM_vibe`.
+**Objectif :** démonstrateur physique capteur → STM32 → Modbus → supervision PC → SQLite → Web.
 
-> Cette roadmap pilote les jalons, sans modifier les spécifications Modbus RTU V1 gelées. Les statuts sont ceux du 11 octobre 2026, à actualiser après contrôle indépendant des rapports Codex. Une implémentation logicielle ne vaut pas qualification physique.
+> **État de lecture :** M014 est terminé dans sa portée B0/B1 et perte/reprise ; M015-V est `DONE` pour l'acquisition physique bornée (32 768 XYZ / 4 096 timestamps et deux lectures B0/B1 simultanées). **La revue indépendante A-01 de M015 reste à formaliser, aucun tag présumé.** J3 reste EN COURS, car M016 (traitement/publication V1) n'est pas réalisée. M017–M020 restent à faire. La qualification industrielle est distincte du démonstrateur.
 
-## Actualisation M015-V — 13 octobre 2026
+**Avant M016 :** terminer la consolidation A-02, puis audits A-04/A-05 du build STM32 cumulatif, des chemins bloquants, des drivers ST et de la couverture effective des tests. Corrections ciblées selon A-06.
 
-**M015 DONE dans la portée physique d’acquisition bornée ; résultats publiés sur92c0966 et118fichiers intégralement relus, byte-identiques.** TR2-001 sur firmware cumulatif M014+M015 conservé à SPI4/CPU160. Une capture32768XYZ+4096TS démontre les préfixes V1 4096/8192/16384/32768 et la continuité sans reset entre frontières. B0/B1 simultanés, UART et guards sains, maxFIFO158, cleanup conforme. Quantummax2,916ms/budgetnominal4,267ms ; aucun8MHz nécessaire. Correction du scan FRAM B5 non demandé confirmée par campagne différentielle ; premier échec conservé séparément.
+**Traçabilité :** historique exact avant A-02 dans [Archives/ROADMAP_TR2_AVANT_A02_20261013.md](Archives/ROADMAP_TR2_AVANT_A02_20261013.md) ; résultats détaillés M015-V dans `Echanges_Codex/DERNIER_RAPPORT.md` et preuves référencées. La roadmap pilote les jalons, pas le journal des tentatives.
 
-RAM complète et CRC304bursts concordants, brutsSPI intégralement reconstruits pour dernière4096 seulement. FRAMgen12/candidate actif préservés, SD non accédée ; M014-H backup vérifié. Pas endurance/perteglobalezéro/calibration/FFT/stockage, aucune vibration publiée en V1, coexistenceB5 nonqualifiée. **J3 reste en cours, M016–M020 restent à faire.** Acquisition RAM de qualification bornée, pas campagne autonomeV1. Pause méthodologique sur driversST et coûtHAL/I/O, futur auditSDMMC4bits sous contrat, non lancé. Revue indépendante ChatGPT attendue.
-
-## Actualisation M015-U — 13 octobre 2026
-
-Fenêtrephysique4096XYZ+512timestamps qualifiée surTR2-001 original àCPU160/HSI16SPI4/mode3, guards etcleanupconformes,bruts reconstruits identiques. Firmwareprincipal contient désormaisprofilRAMOFF/exclusif ;M014-Hrestauréexactement,FRAMgen12/SDpréservées,B0/B1HPpassés,journalentier vérifié. M015resteINPROGRESS pour servicecoopératif/coexistencesimultanée ;J3encours,M016–M020nonengagées. Pasperteglobalezéro,endurance,32768,calibration,FFToustockage qualifiés. RevueChatGPTetcontratsuivantavantactivationV1,aucuneécrituremédia.
-
-M015-U DONE après publication `78ec2d7` et relecture intégrale de224fichiers identiques. Le statut global M015/J3 ci-dessus reste inchangé.
-
-## Actualisation T reprise — 13 octobre 2026
-
-Deux fenêtres4096XYZ qualifiées sur second banc :CPU160/SPI4 historique audité etunique CPU160/SPI8 réussi, chacune512timestamps. Service actif≈2,05→1,12ms,cleanup etguards corrects ;4estla plusfaiblefréquencequalifiée4096,8offre unemargebornéesupplémentaire. Ancienneanalyse desattentes corrigée sansnouvelessai4 ;pasgarantieperteglobalezéro/industrialisation. M015 resteINPROGRESS pourintégrationprimaire/continu/FFT/stockage/V1 ;M014-H/médiaspréservés. SourceSPI HSI16 etdiviseurs àcontrôler lorsd'une futureintégration souscontrat.
-
-## Actualisation M015-S — 13 octobre 2026
-
-SPI4MHz/CPU16 : unique capture4096 refusée au premier burst, HAL_OVR/TIMEOUT,63octets RXconsommés/896demandés ;0XYZadmis etcleanup réussi.8MHzNONTESTÉ aprèsarrêtcritique ;2MHzhistorique/512Qpréservés. M015INPROGRESS/4096BLOCKED,aucunefréquencevalidée4096. ProchaincontratserviceRXSPI3 plutôtquehaussefréquence ;guardsconservés. AuditFRAMsource :SPI1 distinctcapteurSPI3,aucunemodificationFRAMouprimaire. Rapport etpreuvesS portentleslimites etmatrice.
-
-## Actualisation M015-R — 13 octobre 2026
-
-Diagnostic documentaire du débit achevé sans nouvelle acquisition : budget nominal210ko/s et4,267ms/segment ; SPI2MHz a une marge théorique, mais cycle complet Q4,988ms/service179,6ko/s. Résidu copie/parsing/fermetures non isolé, pas causeCPU établie. Prochain choix : un facteurSPI indépendant (diviseur à CPU inchangé) ou profilage du résidu, avec guards conservés sous contrat.512XYZ et répétabilité conservés,4096 resteBLOCKED ; M015 IN PROGRESS. Aucun firmware/flash/debug/média/Modbus modifié.
-
-## Actualisation M015-Q — 13 octobre 2026
-
-Répétabilité acquise sur second banc : trois captures mêmes image/configuration après resets MCU, chacune263XYZ+33TS. Fenêtre512XYZ unique qualifiée (64TS intercalés,576mots). Fenêtre4096 bloquée :2275XYZ+285TS reçus puis niveau512/FULL-overrun-latch,cleanup réussi et arrêt sans nouvel essai. Débit du service complet insuffisant sur cette exécution, malgré SPIpayload≈247ko/s ; coût exact à isoler sous prochaine mission. M015 reste IN PROGRESS ; 4096 continu/V1/FFT/stockage nonqualifiés. Firmware primaire M014-H/médias inchangés, montage fonctionnel préservé. Voir DERNIER_RAPPORT et QUALIFICATION_M015_Q.md.
-
-## Actualisation M015-P — 13 octobre 2026
-
-Acquis physique borné supplémentaire sur le second banc : 263 XYZ distincts et 33 timestamps, contrôle unique byte-identique au binaire O auparavant limité aux timestamps. Reconnexion de nappe rapportée par l'utilisateur ; contact et état initial/alimentation non discriminés. M015-P BLOCKED pour cause précise, variante duplex non exécutée, M015 reste IN PROGRESS. Montage fonctionnel à préserver ; répétabilité et fenêtres512/4096 puis chaîne V1 restent à qualifier. M014-H et médias préservés. Voir DERNIER_RAPPORT et comparaison M015-P ; les échecs historiques ne sont pas annulés.
-
-## 1. Situation de départ
+## 1. Socle de référence (historique au 11 octobre 2026)
 
 - **Socle Modbus RTU V1 :** spécification et mapping unifié gelés ; firmware transactionnel, persistance, campagnes et architecture A–J développés. Toutes les fonctions ne sont pas encore qualifiées sur matériel réel.
 - **Supervision PC :** phases S0 à S7 développées et gelées (transport, persistance SQLite, orchestration, interface Web). Liaison réelle au TR2 à qualifier.
@@ -52,9 +23,9 @@ Capteur de vibrations → acquisition et traitement STM32U575 → registres Modb
 
 ## 3. Missions principales
 
-| Mission | Objectif | Statut initial | Découpage indicatif | Critère de sortie |
+| Mission | Objectif | Statut courant | Découpage indicatif | Critère de sortie |
 |---|---|---|---|---|
-| **M012** | Intégrer le serveur Modbus RTU et le TX RS-485 avec commande DE sûre | EN COURS | Selon résultats Codex | Chemin de réponse implémenté et testé ; qualification physique explicitement distinguée |
+| **M012** | Intégrer le serveur Modbus RTU et le TX RS-485 avec commande DE sûre | HISTORIQUE — intégré aux acquis M013 | Selon résultats Codex | Chemin de réponse implémenté et testé ; qualification physique explicitement distinguée |
 | **M013** | Qualifier le dialogue Modbus physique complet | ACQUIS BORNÉS / RÉSERVES | 2–3 sous-missions | Lecture répétable de registres STM32 par maître PC ; CRC, exceptions, turnaround et absence de contention vérifiés |
 | **M014** | Connecter la supervision au TR2 physique | DONE — PORTÉE B0/B1/PERTE-REPRISE | 2–3 | Lecture périodique des blocs système, déconnexion et reprise correctement traitées |
 | **M015** | Qualifier la chaîne d'acquisition vibratoire | DONE — ACQUISITION BORNÉE M015-V | 3–5 | Acquisition physique démontrée ou blocages matériels précisément identifiés |
@@ -64,7 +35,7 @@ Capteur de vibrations → acquisition et traitement STM32U575 → registres Modb
 | **M019** | Afficher les vibrations dans l'interface Web S7 | À FAIRE | 2–3 | Valeurs instantanées, axes, unités, tendances, historique et état de mesure consultables |
 | **M020** | Qualifier le démonstrateur intégré | À FAIRE | 3–4 | Vibration physique visible dans le Web, historique durable, essais de repos/excitation, coupures et reprise documentés |
 
-**Périmètre approuvé : huit missions futures M013 à M020, après M012.** Découpage indicatif de **18 à 27 sous-missions**, non figé et sans estimation de durée. Les missions principales restent stables ; les sous-missions sont créées progressivement en fonction des preuves et blocages.
+**Périmètre de référence :** M013 à M020. Les jalons restent stables ; le découpage en sous-missions dépend des preuves et risques, sans quota artificiel.
 
 ### M013 — Dialogue physique complet
 
@@ -100,12 +71,12 @@ Campagne physique reproductible : repos, vibration contrôlée, variation du sig
 
 ## 4. Jalons de qualification
 
-| Jalon | Définition | Missions | État initial |
+| Jalon | Définition | Missions | État courant |
 |---|---|---|---|
 | **J0** | STM32 reçoit une requête Modbus physique | M011 | **VALIDÉ** pour l'essai unique |
 | **J1** | STM32 répond correctement à un maître | M012–M013 | ACQUIS BORNÉS ; qualification générale ouverte |
 | **J2** | Supervision communique avec le TR2 réel | M014 | VALIDÉ PORTÉE B0/B1/perte-reprise ; revue indépendante indiquée par contrat M015-A |
-| **J3** | TR2 produit des mesures vibratoires physiques | M015–M016 | EN COURS — diagnostic acquisition M015-A prouvé |
+| **J3** | TR2 produit des mesures vibratoires physiques | M015–M016 | EN COURS — acquisition M015-V bornée démontrée ; publication M016 à faire |
 | **J4** | Supervision reçoit et conserve les vibrations | M017–M018 | À FAIRE |
 | **J5** | Vibrations réelles visibles dans le Web | M019–M020 | À FAIRE |
 
@@ -136,111 +107,3 @@ Une roadmap distincte **« TR2 — Qualification industrielle et mise en service
 
 Mettre à jour les statuts uniquement après preuves et contrôle indépendant. Ne pas renuméroter les jalons principaux pour masquer une difficulté ; détailler plutôt les sous-missions. La branche `main` et la gouvernance courante du dépôt restent les seules références de travail.
 
-## Actualisation factuelle M014-G — 12 octobre 2026
-
-M014 **IN PROGRESS** : attribution UID96/DeviceId1 acquise, backups FRAM/Flash et audit sensor/SD réalisés, inspecteur/provisioning préparatoire et outil PC borné testés (113 firmware/cross-build, 539 .NET). Cible actuellement en probe lecture seule, identité non provisionnée, aucun nouveau trafic Modbus. Partition microSD préservée ; aucun format ni écriture. Restent manifeste/binding/provisioning puis B0/B1 polling et perte/reprise physiques. J2 n'est pas déclaré validé, M015 reste À FAIRE. M013 conserve ses preuves historiques RX/TX et diagnostic mais la qualification complète (timings, DE/TC, contention, robustesse) n'est pas close. Le rapport intermédiaire G porte les preuves et le point de reprise ; contrôle indépendant ChatGPT non présumé.
-
-## Actualisation M014-H — 12 octobre 2026
-
-**M014 DONE dans la portée B0/B1/polling/perte-reprise : résultats physiques publiés et intégralement relus au SHA ae14c4c8e6081086ded87c5d505e83fa74c7a496.** Firmwareproduction réel etidentitéFRAM V2/gen12 provisionnée/readbackexact ; B0/B1complets surHP COM7/1152008E1/unit1, polling3+3, timeoutperte de disponibilité du répondant, fermeture/réouverture série, invalidationanciennevaleur/date puisidentiténeuve/B1frais. Uptimebootfigé détecté lors premièrecampagne, corrigé et requalifié physiquement9/11/14→217/219/221s ; RX72/TC8/erreurs0. Deux lecturesfinales réussies surimageproductionpermanente sansfenêtresilence/observer. Journauxcomplets publiés ethashes vérifiés, pas déduction d'un SHAseul.
-
-READY/stockage restent0, configuration UNAVAILABLE sansressourceowned. MicroSDtotalementOFF, aucuneallocation ni écriture des32premiersMio oupartitionLBA65536 ; acquisition/bulkSD/industrie nonqualifiés. Perte de disponibilité survrai bus nequalifie pasretraitdecâble ni coupurealim ; timingDE/TC/dernierstopbit/robustesse/CEM/E4 restentouverts. M013 conserve sa qualificationfonctionnellehistorique bornée, passtatutDONE général. RevueindépendanteChatGPT du rapportH encoreattendue.
-
-**Suite proposée M015, àcontractualiser** : qualification physique capteur/acquisition à partir du WHO_AM_I0x7B acquis, sans répéter les acquis ; activationopérationnelle etressourcesstockage traitées avecautorités/allocations/sauvegardesexplicites. Aucun essaiM015 lancé enH.
-
-## Actualisation M015-A — 12 octobre 2026
-
-**M015-A DONE : résultats publiés et 47 livrables intégralement relus au SHA 6d10287e85fc499c9f474e3d656253b00b071106 ; M015 globale IN PROGRESS.** Le diagnostic fournit 2 048 échantillons IIS3DWB cohérents en SPI mode 3 à 625 kHz/±4 g, avec WHO=0x7B, registres A8/44, timestamps MCU et cadence ≈6 538 lectures/s. L'auto-test mécanique interne positif/négatif produit des écarts de 1,6 à 1,9 g par axe, suivis du retour au repos. Les trois captures mode 0 anormales restent publiées. La cause électrique précise n'est pas mesurée ; ni calibration, ni excitation externe, ni acquisition continue de production ne sont qualifiées. J3 reste en cours.
-
-M014 conserve sa clôture bornée B0/B1/polling/perte-reprise ; sa revue indépendante est indiquée par le contrat M015-A. Son image permanente est restaurée exactement, Flash 2 Mio identique, FRAM génération 12/configuration UNAVAILABLE et READY/stockage=0. Deux lectures physiques B0/B1 confirment la reprise, sans rejouer la campagne. SD entièrement désactivée et partition LBA65536 préservée. L'acquisition mode 3 reste un profil RAM temporaire ; le firmware permanent M014 conserve le mode 0, sans acquisition.
-
-Suite proposée M015-B : raccordement production en mode 3, FIFO/DMA et débit, timestamps de conversion, détection des pertes, excitation externe contrôlée. Le stockage V1 avant campagne reste un lot distinct avec allocations et sauvegardes explicites. Aucune extension silencieuse vers M016/M017/Web ni qualification industrielle. Revue indépendante M015-A à faire après publication du rapport.
-
-## Actualisation M015-B — 12 octobre2026
-
-**M015-B BLOCKED ; M015 globale IN PROGRESS.** Le prototype FIFO borné256XYZ et son testhôte sont livrés, mais l'unique campagne fournit des statuts incohérents :171polls/11reculs du niveau/flagoverrun brut/readbackdivergent. Refus avantvidange,0XYZ accepté ; consécutivité/cadence/pertes nonqualifiées. Causeinconnue ; pas nouveauxessais/variantes danscette missionréduite, pasDMA/production/stockage/B5/FFT.
-
-M014 restauréeexactement (Flash2Mio identique), FRAMgen12/configUNAVAILABLE, SDtotalementOFF/partitionLBA65536préservée,2lecturesB0/B1dereprise réussies. AcquisM015-A nonrejoués ; J3resteen cours. Prochaincontrat : établirla fiabilité desregistresFIFO avant nouvellequalification, sanscritèreimmobilitéduvoilier. Rapport etpreuvesB portentle verrou etleslimites.
-
-## Actualisation M015-C — 12 octobre 2026
-
-**M015-C BLOCKED pour cause/fiabilité FIFO active ; M015 globale IN PROGRESS.** Une seule campagne read-only512transactions/128ms : WHO7B/CTRL3=04/FIFOvide0 cohérents, simples etbursts concordants, HALerrors0. Aucun remplissage ouXYZ, aucunecorrection ; anomaliesBnonrejouées etcauseinconnue. Tests ciblésneufs/profilARM seulement, validations A/B préservées. M014 restauréeexactement/Flash2Mio identique, contrôleminimal2FC03B0/B1réussi, FRAMgen12/SDOFF/partitionpréservée. Prochainepreuve envisagée : comparaisonwire↔RAM ettimingCS/SCK avecinstrumentidentifié etcontratdistinct ; protocolepréparé nonexécuté.
-
-## Actualisation M015-D — 12 octobre 2026
-
-**M015-D BLOCKED pour cause précise / fiabilité FIFO active complète ; M015 IN PROGRESS.** Diagnosticunique :26/28divergences CTRL2single↔burst pendantremplissage,0/32aprèsentrée coupée/FIFOconservée ;WHO/CTRL3stables,28statutsgroupésmonotones1→256. Défautdelecturelocalisé parcontexte, causeSPI/MCU/capteur etfastpollB nonisolés, aucunecorrectionheuristiqueouqualificationXYZ/cadence. M014restauréexactement,Flash2Mioidentique,contrôleminimalB0/B1passé ;FRAMgen12/SDOFF/partitionpréservée. Suite :preuvewire↔RAM88/87/BA avecinstrumentlogiqueidentifié etcontratdistinct, sansrejouer acquisA/B/C/D.
-
-## Actualisation M015-E — 12 octobre 2026
-
-**M015-E DONE documentaire** après publication10bcdeaf5e492dd5b87535ca8d536b42218dfc5f et relecture intégrale de11livrables identiques. Décision technique proposée : directA commeRAMdemo borné ;FIFO128bursts commevoieV1 àqualifier, DMA/service ensuite si nécessaire. Débit625kHz insuffisant (FIFO128+status≥1,500019Mbit/s), SPI3limité imposebatchs sous1024octets ;128mots=897octets. Prochaineactionproposée :mesurewire↔RAM ciblée88/87/BA à625kHz avecinstrumentidentifié etcontratdistinct, aucunbranchementsupposé. Enattente,analyses/contrats horsligne surdonnéesA, pas nouvellescaptures. M015 IN PROGRESS,B/C/DBLOCKED conservés,stockageV1/READYtoujoursindisponibles ;aucuntestouhardware exécuté enE.
-
-## Actualisation M015-F — 12 octobre 2026
-
-**M015-F BLOCKED ; M015 IN PROGRESS.** HarnessFIFO128/2,5MHz ettests préparés,maisunique tentative refusée avantactivationFIFO pargardereadbackconfiguration ;aucunXYZ/burst,aucundébit/latencemesuré. Valeurdivergente nonexportée,aucunecauseattribuée. M014restaurée/Flash2Mioexacte,FRAMgen12/SDOFF/partitionpréservée,repriseB0/B1réussie. V1ODR26667/fenêtres4096..32768/continuité/store-and-forward inchangées ;256motsprévus nevalentpasV1. Prochaincontrat :télémétrieaumismatch puis tentativebornée choisie ;625kHzFIFOfigée éventuellementpossiblemaisinsuffisant pourfluxcontinu,nonexécuté. Pasinstrumentabsentexigé,nirechercheexhaustive ourejeuA-F.
-
-## Actualisation M015-G — 12 octobre 2026
-
-**M015-G DONE pour refus caractérisé ; M015 globale IN PROGRESS.** Une seule tentative : CTRL1_XL/10 attenduA8/reçu50 en lecture simple, HAL_OK, groupé07..0A conforme ; arrêt avant FIFO/0XYZ. Gardes préservés et traces immuables publiées, aucune variante/rejeu A-F. M014-H restauré/Flash2Mio exacte, deux lectures B0/B1 réussies, FRAMgen12/SDOFF/partition préservées. Cause électrique et acquisition FIFO restent ouvertes ; prochain contrat limité pour distinguer write/readback CTRL1, sans affaiblissement V1. Résultats publiés au b3a3c428a9f2d35801f5601db1a38d58a120246a ; 50 livrables intégralement relus et identiques. Clôture documentaire contrôlée après son push.
-
-## Actualisation M015-H — 12 octobre 2026
-
-**M015-H DONE pour diagnostic différentiel ; M015 IN PROGRESS.** Campagneunique S G G S active=A8/A8/A8/50, même motif après20,276ms ; repos/arrêt concordants. Association position/historique et actif, pas cause HAL/électrique attribuée ; guardlatched/result9, aucune FIFO/XYZ. M014-H restauré/Flash2Mio exacte, reprise B0/B1 réussie, FRAMgen12/SDOFF/partitionpréservées. Suite proposée : audit horscible transitions SPI7→2 puis ordreSSSS/GS sous nouveau contrat ; aucune acquisition/mesureBM/remplacementcapteur enH. Résultats 1ccec7f7d7916564322ddfb6437e20afa7f4b269 publiés et56livrables intégralement relus/identiques ; clôture documentaire contrôlée après son push.
-
-## Actualisation M015-I — 12 octobre 2026
-
-**IN_PROGRESS, logiciel validé seulement.** Harness FIFO réutilisé avec contrôles/audit groupés et gardes HAL/compteurs/CS renforcés ;26cas ciblés et cross-build défaut/profil réussis. Campagne physique reportée après renouvellement, quota annoncé12% ; M014-H reste installé, aucun accès cible/média/HP enI. Checkpoints etpointde reprise publiés ; aucune fiabilitéFIFO/continuitéV1 annoncée.
-
-## Actualisation M015-I reprise physique — 12 octobre 2026
-
-**FIFO RAM bornée physiquement validée, M015 globale IN PROGRESS.** Unecampagne source6c504a9 :groupés conformes,256XYZ/tags en2bursts128,0erreur/perte signalée/saturation ; niveaux256→128→0,≈2,886ms/burst. M014-H restauré/Flash2Mio exacte/FRAMgen12/SDOFF/partitionpréservée/B0B1reprise réussie. 256motsnevalentpas4096..32768 ni fluxcontinu/store-and-forward ; prochainesressources/serviceFIFO/continuité/stockage souscontratdistinct. M015-I-PHYSICAL-RESUME DONE après publication 2cebe602ee5946de3adadb84a6361ab502c2ccdd et relecture intégrale de43livrables identiques ; clôture documentaire contrôlée après push. Aucune répétition ou intervention physique additionnelle.
-
-## Actualisation M015-J — 12 octobre 2026
-
-**M015-J BLOCKED pour fenêtre continue4096 ; M015 IN PROGRESS.** Diagnosticlogiciel/18cas/crossréussis puisunique campagne :unburst128reçu, groupé07..0Apostburstrefusé09=14vs0A et0A=0Cvs06, fenêtreINVALID/0XYZaccepté.19ecasderégressionhôtepostrefuspassé sansciblemodifiée/ARMrebuild/rejeuphysique. RAM/guards/timeboundspréparés, pasqualificationcontinu ;M014-Hrestauréexactement/Flash2Mio/FRAMgen12/SDOFF/B0B1reprise réussie. I256figé restevalidé. Suite :prochaincontratborné postreadbackactif/éventuellementABmodule, aucunbypassouinstrumentabsent requis. Résultats publiés au commit 2b96d8215a93c5012b813499abd61aea408f534d, 60 livrables relus intégralement et identiques ; BLOCKED technique maintenu, archives/worktrees/stashes préservés.
-
-
-## Actualisation M015-K — 12 octobre 2026
-
-**READY_FOR_PHYSICAL logiciel, M015 globale IN PROGRESS.** Projet indépendant NUCLEO/U575 + ST IIS3DWB préparé, sources officielles figées et licences/SHA conservés ;41scénarios C/5tests Python/4images ARM réussis. Audit I/J↔ST et pinout constructeur avec point GND/révisions/montage réel encore à confirmer. Défauts getter ST reproduits hors matériel, sans explication causale du refus J. Aucun accès cible/flash/debug/reset/essai pendant montage ; M014-H préservé, I256figé acquis/J4096BLOCKED inchangés. Prochaine étape : confirmation banc et identité certaine seconde carte, sauvegarde et chaîne qualifiée, puis WHO/polling/FIFO bornés suivant protocole. Projet publié au commit e222dc8ddb7cfd0829c655533ac8e646220721f2, 51 livrables relus intégralement et identiques ; statut READY_FOR_PHYSICAL conservé sans qualification physique.
-
-
-## Actualisation M015-L — 12 octobre 2026
-
-**BLOCKED matériel à WHO ; M015 IN PROGRESS.** Bancisolé confirméutilisateur/SN0032001F…/UID001B0046…, artefactsSTK réutilisés. UneseulelectureWHO reçoit00/attendu7B avecHAL_OK ;aucunwritecapteur, polling/FIFOstrict/STATUS10 nonexécutés auSTOP. Sourcee222dc8 intacte, aucunevalidationlogicielleK/I/J/M014rejouée. Secondecible restaurée Flash2MiB entièreexacte au backupfrais/SHAfcea004e…, debugdétaché/faults0 ;TR2principal jamaisaccédé/M014-H préservé. Cause nonattribuée, gettersSTnonatteints, aucunecomparaisoncausaleI/J. Suitecibléephysique MISO/orientationnappe/GND/VDDIO surMKI208 avantrepriseexplicitementcadrée ;pasnouvellevariantepourréussir. Résultats publiés au commit f36425707e97e233f079a9d37381567d92ea761b, 62 livrables relus intégralement et identiques ; BLOCKED technique maintenu, archives/worktrees/stashes préservés.
-
-
-## Actualisation M015-L — reprise essai n°2 après correctionSPI
-
-**WHO etpollingST physiquementvalidés dansportéebornée ; FIFOlong BLOCKED, M015INPROGRESS.** WHOautonome n°2=7B,64XYZdistincts/0saturation/309transfertsvalides, sourcesKinchangées/testsconservés. FIFOstrict reproduitgetter03F/API0/raw257 ;varianteSTATUS10séparée premierburst896→HAL_TIMEOUT/error104OVRSPISTM32,0motsacceptés. Bufferpartielpréinitialisé rejeté, tailleRXréellenonenregistrée/compteursHAL remis0 àfermeture ;pasqualification512 ou4096. Flashseconde2MiB restauréeexacte/SHAfcea004e…, TR2principal/M014-Hjamaisaccédé, preuveessai1conservée. Suitecibléelogicielle performance/diagnosticRXavantHALCloseTransfer sansmodifiervaleursST oumasquerOVR, pasnouvelleconfirmationphysiquemanquante invoquée. Résultats publiés au commit 0eda53843e64becf8dfa5ae4ec02dfb23a04c77d, 115 livrables relus intégralement et identiques ; WHO/pollingconformes etFIFOlongBLOCKED conservés.
-
-## Point M015-M — 12 octobre 2026
-
-Transfert SPI long du banc secondaire : O0 reproduit OVR/timeout et réception
-partielle211/896 ; optimisation du seul HALSPI O2 permet deux bursts complets
-896octets sans erreur, paramètres ST inchangés. FIFO512 reste BLOCKED :
-capacité1024traces atteinte après256timestamps et aucunXYZ, cleanupinitial
-empêché. STOP acquisition, image de sécurité met le capteur au repos.
-Prochain contrat : réservecleanup/pollsbornés, puis qualificationabsenceXYZ ;
-pas qualificationV1/4096/production ni résolution présumée des anomaliesTR2.
-La Flash secondaire est jetable sans backup/restaurationinitiale répétés ;
-identité/image/verify/readback maintenus, règle jamais applicable au principal.
-M014-H et preuves historiques préservés ; DERNIER_RAPPORT porte les détails.
-
-## Point M015-N — 12 octobre 2026
-
-Réservecleanup etpolls bornés corrigés,testés etobservés :référence512 complète
-maisuniquementtimestamps. Troisdiagnosticsautorisés :sansbatchTSFIFOvide,BDR
-aprèsXLtoujours512TS,lecture7octetshuitTS ;zéroXYZ,touscleanupconformes.
-FIFOXYZ resteBLOCKED,causeprécise nonattribuée malgréreadbacksBDR0A/XLAC.
-Extensions512XYZ/4096nonengagées fautepréconditions ;préparerpreuveindépendante
-wire/étatcapteur sousnouveaucontrat,aucunTR2principal/M014/média touché.
-
-## Point M015-O — 12 octobre 2026
-
-FonctionST originale portée et réellement exécutée,provenance/patchesplateforme
-explicités,drivergitlink inaccessible etversionSTcompatible déclarés. Témoin
-2timestamps/gettertronqué258→2 ;aliasniveau10donne258TS,zéroXYZ,enmode3comme0
-(payloads identiques). Touscleanupconformes,deuxvariantesconsommées,pas512XYZ.
-M015FIFOXYZresteBLOCKED ;comprendre version/initialisation/plateforme parpreuve
-indépendante sousnouveaucontrat,aucunemprunt ducapteurprimaire. M014/principal
-etmédias préservés ;publicationST ne signifiepas preuvephysiqueSTindépendante.
