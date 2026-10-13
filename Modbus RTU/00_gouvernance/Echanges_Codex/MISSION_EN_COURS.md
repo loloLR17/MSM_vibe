@@ -1,9 +1,9 @@
 ---
-mission_id: TR2-20261013-A04-02-FRAM-MODBUS
+mission_id: TR2-20261013-M016-V1-VIBRATION
 status: READY
 base_ref: main
-base_sha: ba6f34c4e536f430be74b2e6c27f6c8c9cb873e2
-created_at_utc: 2026-10-13T15:11:00Z
+base_sha: 25406aff35a769fc2bcf2dd77b33bf0571b832a9
+created_at_utc: 2026-10-13T17:00:00Z
 author: ChatGPT
 target_branch: main
 allow_commit: true
@@ -12,38 +12,32 @@ allow_flash: true
 allow_debug: true
 ---
 
-# A04-02 — Maîtrise des opérations FRAM/Modbus bloquantes
+# M016 — Traitement et publication vibratoire Modbus RTU V1
 
 ## Objectif
-Corriger la dette A04-02 identifiée par l'audit cumulatif A-04 : maîtriser les chemins FRAM/Modbus susceptibles de compromettre le service coopératif de la FIFO IIS3DWB. Préserver la persistance, les garanties transactionnelles et la spécification Modbus RTU V1 gelée. Correction minimale, robuste et mesurable, sans architecture imposée.
+Raccorder l'acquisition physique IIS3DWB déjà démontrée (M015-V et A04-02) aux traitements métier et aux registres vibratoires du mapping Modbus RTU V1 gelé. Livrer des mesures physiques réelles cohérentes, fraîches, qualifiées et invalidables, sans compromettre la FIFO, la persistance, le transport RTU ou les acquis M014/M015.
 
-## Références et état initial
-Lire sur la branche main courante AGENTS.md, GOUVERNANCE_CHATGPT_CODEX.md, PROTOCOLE_ECHANGE_V2.md, ETAT_COURANT_TR2.md, DETTE_TECHNIQUE_A04.md, les rapports archivés A-04/A-05, la matrice A-05 proposed-test-matrix.csv, le rapport et les preuves A04-01, les spécifications V1 et les sources du firmware cumulatif M014/M015. Vérifier HEAD distant, branche, git status, travaux préexistants et éventuelles divergences avant toute modification. Conserver les protections de profils de compilation A04-01.
+## Références et démarrage
+Lire l'état courant réel de main, AGENTS.md, GOUVERNANCE_CHATGPT_CODEX.md, PROTOCOLE_ECHANGE_V2.md, roadmap, DETTE_TECHNIQUE_A04.md, spécification/mapping unifié V1 (notamment B3, configuration B4 et commandes B5), architectures firmware A–J, sources cumulatives, rapports archivés M015-V/A04-01/A04-02 et leurs preuves, audit A-05 et matrice de tests. Vérifier HEAD, branche, état Git, provenance de l'image et travaux préexistants. Préserver les profils sûrs A04-01 et la protection B5 A04-02.
 
-## Analyse technique
-Caractériser les chemins FRAM/Modbus, notamment lectures B0/B1/B3, commandes B5, scans, commits, persistance/recovery, défauts média, scheduler et traitement FIFO. Distinguer les opérations au boot de celles possibles pendant capture. Documenter les conditions de déclenchement et les coûts. Les références historiques (~141 ms de blocage et ~17 ms de budget FIFO depuis vide) sont des éléments de cadrage, non des mesures physiques nouvelles.
+## Périmètre technique
+1. Inspecter le propriétaire unique des données FIFO, le scheduler, les fenêtres et traitements existants, les champs B3, la configuration active autoritative, les états acquisition/cleanup, les générations et la supervision existante. Réutiliser les composants existants avant toute création.
+2. Implémenter une chaîne bornée échantillons physiques → fenêtres métier validées → calculs/indicateurs strictement définis par V1 → projection atomique/cohérente vers registres B3, avec unités, échelles, saturation, axes et ordre de mots conformes au mapping gelé.
+3. Définir explicitement validité, fraîcheur, transitions de configuration, génération, reset, timeout, défaut FIFO, timestamp discontinu, perte de source, fin/annulation d'acquisition et absence de données ; ne jamais publier comme fraîche une valeur obsolète, ni inventer une mesure. Les lectures B3 doivent rester compatibles avec le service Modbus et la politique A04-02.
+4. Analyser et respecter les budgets CPU/RAM/stack et de service FIFO, la cadence/timestamps (A04-05/A04-06), les chemins bloquants (A04-07) et les risques de coexistence. Choisir la solution incrémentale la plus simple ; pas de RTOS, refonte des drivers, FFT coûteuse, allocation SD ou changement du format V1 sans justification. Si un champ V1 exige un traitement non soutenable ou une décision normative, documenter précisément le blocage au lieu de produire des valeurs fictives.
+5. Conserver ActiveConfiguration, idempotence et durabilité B5, recovery, B0/B1, communication M014, acquisition M015 et refus B5 pendant capture A04-02. Pas d'activation implicite du stockage bulk microSD, ni de modification silencieuse des spécifications gelées.
 
-## Correction ciblée
-Analyser puis implémenter la solution proportionnée la plus simple : traitement borné ou coopératif, projection/cache cohérent, politique explicite d'indisponibilité ou ordonnancement compatible FIFO, selon ce que les faits justifient. Ne pas imposer RTOS, DMA généralisé, refonte du stockage ou refactoring sans nécessité démontrée. Ne pas traiter A04-03/M016 dans cette mission.
+## Critères d'acceptation et preuves
+- Traçabilité champ par champ des sorties B3 au mapping V1, aux sources réelles et à la configuration active ; tests de décodage, axes, échelles, saturation, limites et cohérence des fenêtres.
+- Tests des transitions valid/invalid/stale, erreurs et changements de configuration/génération ; aucune publication partielle ni stale présentée comme valide.
+- Tests hôte pertinents et cross-build cumulatif ARM sûrs ; non-régressions Modbus/FRAM/FIFO, A04-01/A04-02 et cas A-05 adaptés. Ne jamais affaiblir des tests pour obtenir un vert.
+- Si banc sûr et accessible : flash/debug autorisés et qualification physique bornée repos/excitation contrôlée **sans demander de manipulation physique non disponible** ; lectures Modbus B3 réelles, cohérence avec acquisition et B0/B1, contrôle FIFO FULL/OVR, délais, erreurs UART, FRAM et état final. Séparer observations, estimations et garanties ; ne pas affirmer métrologie ou absence globale de pertes sans preuve.
+- Produire SHA code et BIN réellement exécutés, profil/toolchain, commandes, logs, données décodées, limites et dettes résiduelles ; conserver les résultats d'essais infructueux utiles.
 
-## Invariants protégés
-Préserver ActiveConfiguration et son autorité, durabilité/atomicité/recovery après coupure, idempotence B5 (pas d'ACK de succès avant durabilité), validation de configuration, sémantique et codes Modbus RTU V1, gestion des défauts, acquis M014/M015 et isolation des profils A04-01. Pas de nouveau code Modbus hors V1, pas de succès mensonger, pas de donnée obsolète exposée comme courante.
+## Autonomie et garde-fous
+Codex inspecte, choisit l'implémentation proportionnée, développe, corrige, teste, compile, flashe et débogue si pertinent, commit/push normalement sur main, puis publie DERNIER_RAPPORT.md et les preuves avec relecture distante. Les autorisations permanentes AGENTS.md s'appliquent ; pas de validation répétitive. Avant intervention STM32 : identifier TR2-001, vérifier image/profil/empreinte, état du banc, récupérabilité et préservation Flash/FRAM/microSD/identité ; utiliser procédure qualifiée. Pas de mass erase, Option Bytes/RDP, déprotection, opération destructive inhabituelle ou écriture SD non autorisée. Préserver worktrees/stashes, aucune opération Git destructive.
 
-## Validation et acceptation
-Employer en priorité les scénarios A-05 IO-01 à IO-05, avec instrumentation proportionnée :
-1. B0/B1/B3 ne déclenchent aucun scan/snapshot B5 FRAM inutile en l'absence de commande B5 ; réponses et fraîcheur conformes.
-2. B5 présente une vue autoritative cohérente, avec génération et invalidation en cas de défaut ; indisponibilité/refus conforme aux mécanismes V1 existants.
-3. Avec coûts d'I/O représentatifs, les interactions scans/commits/Modbus/FIFO sont bornées, différées ou refusées explicitement, sans masquer les coûts par des mocks instantanés.
-4. Durabilité, retries, collisions, corruption, coupures et recovery préservent les dernières générations valides et l'idempotence ; réutiliser les tests existants, compléter seulement les transitions touchées.
-5. Sur STM32 si matériel et conditions sûres disponibles : essai borné de coexistence FIFO + B0/B1/B3/B5, mesures scheduler/DWT, niveaux FIFO, gaps, FULL/OVR, pertes UART, CRC, générations et erreurs, avec traces et identité du banc.
+Arrêter/escalader uniquement si risque matériel non maîtrisé, contradiction normative V1, décision structurante ou intervention physique indispensable. Si l'intégration complète n'est pas sûre dans une tranche, livrer un checkpoint stable, un rapport explicite et une suite bornée sans revendiquer M016 DONE.
 
-Mesurer ou justifier les budgets et hypothèses avant de fixer des seuils ; distinguer résultats hôte, ARM, mesures physiques et estimations. Ne pas déclarer garantie de continuité globale si la preuve est bornée. Exécuter les tests pertinents, le cross-build cumulatif et les non-régressions proportionnées selon AGENTS.md. Ne désactiver, affaiblir ou contourner aucun test. Documenter explicitement toute limite empêchant une qualification.
-
-## Permissions et garde-fous STM32
-target_branch: main ; allow_commit: true ; allow_push: true ; allow_flash: true ; allow_debug: true.
-Flash/debug autorisés si utiles, sans confirmation répétitive. Avant flash : vérifier cible TR2-001, origine/empreinte et profil cumulatif de l'image, état matériel et sauvegarde des données/firmware si nécessaire ; utiliser la voie de programmation qualifiée et préserver FRAM, microSD, identité, Option Bytes/RDP et récupérabilité. Aucun mass erase, changement Option Bytes/RDP, déprotection ou écriture destructive inhabituelle. Arrêter en cas de risque non maîtrisé ; les manipulations physiques restent à l'utilisateur.
-
-## Autonomie, arrêt et livrables
-Codex inspecte, choisit, implémente, compile, teste, instrumente, flashe/débogue si pertinent, corrige les erreurs, commit/push normalement sur main et publie les preuves et DERNIER_RAPPORT.md. Pas de validations répétitives. Préserver travaux préexistants, stashes et worktrees ; aucune synchronisation Git destructive. Escalader seulement décision structurante, contradiction V1, opération destructive inhabituelle, risque matériel non maîtrisé, intervention physique nécessaire ou blocage réel.
-
-Le rapport A04-01 a été archivé préalablement sous archives/TR2-20261013-A04-01-SAFE-BUILD/RAPPORT.md ; ne pas l'écraser. Publier corrections ciblées, tests, commandes/résultats, mesures/bornes et hypothèses, risques résiduels, SHA et rapport DERNIER_RAPPORT.md. Vérifier les publications distantes. DONE signifie livrables publiés et relus, non qualification indépendante. ChatGPT contrôlera ensuite les commits, preuves et limites et décidera de la clôture A04-02. Ne pas engager A04-03/M016.
+## Livrables et clôture
+Commits de code et tests, preuves reproductibles hôte/ARM/physique si réalisées, cartographie B3 et états invalides, budgets/limites, état matériel final et rapport Codex DERNIER_RAPPORT.md avec statut réel et SHA vérifiés sur main. Ne pas autoqualifier M016 ni créer de tag A-01. ChatGPT décidera de la qualification et de la mise à jour des jalons après contrôle indépendant. Le rapport A04-02 est archivé dans archives/TR2-20261013-A04-02-FRAM-MODBUS/RAPPORT.md ; ne pas l'écraser.
