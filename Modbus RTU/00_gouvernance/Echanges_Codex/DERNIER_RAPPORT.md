@@ -1,6 +1,6 @@
 ---
 mission_id: TR2-20261013-M015-T-RESUME-PUBLICATION
-status: BLOCKED
+status: DONE
 base_ref: main
 base_sha: 7d762176b9fdc14d3c0cdce32bd6b3ce9d135d35
 initial_head: 7f7fc2a4e41b9734fce65123a371fcef8f154639
@@ -72,7 +72,7 @@ OriginauxT et échecsS conservés ;contrat et checkpointT archivés byte-exacts 
 
 ## Publication et suite
 
-Checkpoint de reprise `790301635b56bc23170a8d05c590bb42ec4ba8f4` publié avant l'essai8 :96fichiers intégralementrelus depuisorigin/main,byte-identiques. Rapport final et preuves préparés ;BLOCKED provisoire uniquement pour la publication/relecture restante, pas pour la fenêtre4096 désormais qualifiée dans cette portée.
+Checkpoint de reprise `790301635b56bc23170a8d05c590bb42ec4ba8f4` publié avant l'essai8 :96fichiers intégralementrelus depuisorigin/main,byte-identiques. Résultats et preuves publiés au commit `cf1ec57faea5a91f94d3b1340715340e19bb0422` ; 155 fichiers de mission intégralement relus depuis origin/main et byte-identiques au worktree. Mission de reprise clôturée ; qualification limitée aux fenêtres4096. Le commit documentaire de clôture fait ensuite l’objet d’un contrôle distant séparé.
 
 [Corpus, scripts et matrice](preuves/TR2-20261013-M015-T-RESUME/README.md). OriginauxT : `/home/lolo/dev/msm/reports/TR2-mission015-T-20261012T233912Z` ;reprise : `/home/lolo/dev/msm/reports/TR2-mission015-T-resume-20261013T084635Z`.
 
