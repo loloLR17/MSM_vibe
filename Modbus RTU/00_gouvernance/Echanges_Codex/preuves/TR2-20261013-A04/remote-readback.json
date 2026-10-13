@@ -1,0 +1,8 @@
+{
+  "mission_id": "TR2-20261013-A04-AUDIT-FIRMWARE",
+  "sha": "19d5a4bac8a018219f01fbd7fc769b3d9fe24d8a",
+  "file_count": 30,
+  "all_contents_byte_identical": true,
+  "reference": "origin/main after fetch",
+  "created_at_utc": "2026-10-13T13:47:20.935242+00:00"
+}

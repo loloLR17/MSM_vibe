@@ -1,6 +1,6 @@
 ---
 mission_id: TR2-20261013-A04-AUDIT-FIRMWARE
-status: IN_PROGRESS
+status: DONE
 base_ref: main
 base_sha: 82a151273d214b07bee033082824d4c0dc0abba6
 initial_head: c45a197416ad30fabf932da364eb540935693219
@@ -19,7 +19,7 @@ allow_debug: true
 
 **Audit technique terminé, sans correction.** Le BIN cumulatif est reproductible : une reconstruction neuve depuis le HEAD courant produit exactement les169380octets de M015-V, SHA-256 `8529630a5a6c9aaa2449fde512b06d6ca16a89a08b7afea2abc9ecca3b75d480`. Les acquis M014/M015 ne sont pas invalidés. Trois prérequis ressortent pour la qualification physique M016 : choix sûr du profil, maîtrise des accès FRAM synchrones, et raccordement autoritatif des fenêtres FIFO aux traitements/publications. Aucun flash, debug, reset, accès HP/COM7, transaction capteur/FRAM/SD ou nouvelle sauvegarde matérielle en A-04.
 
-L'état IN_PROGRESS porte uniquement sur la publication/relecture finale de cet audit. Les constats « bloquants avant M016 » ne sont pas des obstacles à l'achèvement d'A-04. A-04 n'est pas la revue indépendante de qualification A-01 ; aucun tag ni verdict de qualification ajouté.
+Rapport, archive et preuves publiés sur `19d5a4bac8a018219f01fbd7fc769b3d9fe24d8a` puis intégralement relus depuis origin/main :30fichiers byte-identiques. Les constats « bloquants avant M016 » ne sont pas des obstacles à l'achèvement d'A-04 ; statut DONE pour le contrat d'audit. A-04 n'est pas la revue indépendante de qualification A-01 ; aucun tag ni verdict de qualification ajouté.
 
 ## 1. Référence, méthode et préservation
 
@@ -162,4 +162,4 @@ L'audit satisfait les cinq axes du contrat sans correction. Recommandation : tra
 
 Preuves locales durables : `/home/lolo/dev/msm/reports/TR2-A04-20261013T132613Z`, nouveau build/ELF/map conservés localement ; [preuves publiques A-04](preuves/TR2-20261013-A04/MANIFEST.sha256). Permissions commit/push exercées uniquement pour rapport/archive/preuves ; permissions flash/debug accordées mais **non exercées**. Journal/roadmap volontairement non actualisés : restriction explicite du contrat. Leurs règles et états n'ont pas été corrigés dans cet audit.
 
-Publication et relecture distante à terminer ; aucun blocage technique. Le prochain commit documentaire ne change pas le code audité `c45a197` ni le firmware physiquement testé `ef468539`. SHA de publication final et état Git fournis après contrôle distant.
+Publication `19d5a4bac8a018219f01fbd7fc769b3d9fe24d8a` (« A-04: audit cumulative STM32 firmware, build reproduction and blocking paths »), push normal HEAD:refs/heads/main réussi, fetch et comparaison intégrale des30fichiers réussis. Cette mise à jour DONE consigne la relecture ; son SHA distant final est fourni après vérification dans la réponse Codex. Aucun blocage de mission. Le code audité `c45a197` et le firmware physiquement testé `ef468539` restent inchangés ; worktree de mission propre après commits, dépôt principal à82169af et deux stashes historiques conservés. Aucune qualification indépendante ni correction effectuée.
