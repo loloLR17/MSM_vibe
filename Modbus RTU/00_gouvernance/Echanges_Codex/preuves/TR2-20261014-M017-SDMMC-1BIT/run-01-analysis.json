@@ -1,0 +1,20 @@
+{
+  "run": 1,
+  "planned_seconds": 600,
+  "actual_write_elapsed_s": 0.402315,
+  "mean_written_Bps": 162897.23226824752,
+  "arrival_seconds_derived": 0.30805864926688414,
+  "producer_cpu_time_s": 0.0251854125,
+  "producer_cpu_fraction_over_arrival_interval": 0.08175525199482654,
+  "producer_max_us": 82.975,
+  "remaining_accepted_in_ram": 65536,
+  "quantiles_method": "nearest rank ceil(p*n); n=1 no distribution qualification",
+  "quantiles_total_us": {
+    "min": 248141,
+    "p50": 248141,
+    "p95": 248141,
+    "p99": 248141,
+    "max": 248141
+  },
+  "note": "At first overflow producer stops; do not extrapolate lost bytes over 600s"
+}

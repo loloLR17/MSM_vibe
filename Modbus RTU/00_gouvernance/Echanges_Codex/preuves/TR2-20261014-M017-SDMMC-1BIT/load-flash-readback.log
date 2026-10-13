@@ -1,0 +1,5 @@
+main () at /home/lolo/dev/msm/projects/MSM_vibe-M017/experiments/sdmmc_st_reference/src/load_main.c:241
+241	  while(load_trigger!=INIT_KEY) {} load_trigger=0;
+0xbfa0700:	0x001b0046	0x38425018	0x20333157
+STM32 Successfully completed reset operation (System reset)
+[Inferior 1 (Remote target) detached]

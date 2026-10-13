@@ -1,0 +1,30 @@
+diff --git a/experiments/sdmmc_st_reference/src/load_main.c b/experiments/sdmmc_st_reference/src/load_main.c
+index 88aa9e3..c30784a 100644
+--- a/experiments/sdmmc_st_reference/src/load_main.c
++++ b/experiments/sdmmc_st_reference/src/load_main.c
+@@ -38,6 +38,7 @@ volatile uint32_t load_dma_latency_us[MAX_CHUNKS], load_ready_latency_us[MAX_CHU
+ volatile uint32_t load_last_data_us, load_last_ready_us, load_last_before_us;
+ volatile uint32_t load_producer_cycles, load_producer_max_cycles;
+ volatile uint32_t diag_done, diag_error, diag_mismatches, diag_latency_us[16], diag_data_us[16], diag_ready_us[16];
++volatile uint32_t load_preerase_error, load_preerase_r1, load_preerase_count;
+ static uint32_t polling_transport; /* Diagnostic selector only; campaign retains DMA baseline. */
+ static volatile uint64_t clock_cycles, load_started_cycles;
+ static volatile uint32_t clock_last;
+@@ -129,6 +130,17 @@ static int transfer(int writing,uint8_t *buffer,uint32_t lba,uint32_t bytes) {
+   load_transfer_phase=1;
+   if(!ready()) return 0;
+   load_last_before_us=(uint32_t)((cycles_now()-begin)/(CPU_HZ/1000000U));
++  /* SD Association v7.10 ACMD23: announce exactly the next CMD25 count.
++   * Normal write preparation only; never CMD32/CMD33/CMD38 or media format. */
++  if(writing) {
++    load_preerase_error=SDMMC_CmdAppCommand(hsd2.Instance,hsd2.SdCard.RelCardAdd<<16);
++    load_preerase_r1=SDMMC_GetResponse(hsd2.Instance,SDMMC_RESP1);
++    if(!load_preerase_error && !(load_preerase_r1&0x20U)) load_preerase_error=HAL_SD_ERROR_ILLEGAL_CMD;
++    if(!load_preerase_error) load_preerase_error=SDMMC_CmdBlockCount(hsd2.Instance,bytes/512U);
++    load_preerase_r1=SDMMC_GetResponse(hsd2.Instance,SDMMC_RESP1);
++    if(load_preerase_error) { hsd2.ErrorCode|=load_preerase_error; return 0; }
++    load_preerase_count++;
++  }
+   begin=cycles_now();
+   if(polling_transport) {
+     load_hal_return=writing?HAL_SD_WriteBlocks(&hsd2,buffer,lba,bytes/512U,TIMEOUT):

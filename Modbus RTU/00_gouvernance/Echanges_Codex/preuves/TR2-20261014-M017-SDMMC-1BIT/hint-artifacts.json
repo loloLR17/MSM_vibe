@@ -1,0 +1,9 @@
+{
+  "base_sha": "65ff1fa93e3793c1ad4e18fe105034bedf1b5146",
+  "experiment": "isolated ACMD23 preparation; not adopted; no load run of this image",
+  "source_sha256": "12653f1bb2949e7960dd8eb2fbc5d5fb83f59667b1e9bafcd867c5f461cd400c",
+  "patch_sha256": "9ade58d75f4db0c572d44e9a3b8ab205394b581d0ef179a0ad1029413b4602a7",
+  "bin_sha256": "aa18a0c3f40ca1eed5b5cf88f49a182e1bec281f1d891317b87296b35fa163f6",
+  "bin_bytes": 26036,
+  "elf_sha256": "88d1eaade50747724f72cf729e87b8474d955ac1c5ea506259b8c2b9b749d7f5"
+}

@@ -1,0 +1,7 @@
+{
+  "run": 1,
+  "source_sha": "65ff1fa93e3793c1ad4e18fe105034bedf1b5146",
+  "bin_sha256": "17bd4d235b742276ea674297c894ebe2d8417a6104d2268c0a61fcb8f2410edd",
+  "utc": "2026-10-13T22:23:22.820982+00:00",
+  "parameters": "600s;426672B/s;1bit10MHz;ring131072;chunk65536;LBA2048"
+}

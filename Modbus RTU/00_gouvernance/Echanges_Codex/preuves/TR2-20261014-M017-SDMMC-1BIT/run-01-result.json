@@ -1,0 +1,55 @@
+{
+  "metrics": {
+    "load_stage": 99,
+    "load_error": 3,
+    "load_phase": 1,
+    "load_transfer_phase": 4,
+    "load_generated": 131440,
+    "load_produced": 131072,
+    "load_consumed": 65536,
+    "load_backlog_max": 131072,
+    "load_overflow": 1,
+    "load_lost": 368,
+    "load_producer_done": 0,
+    "load_producer_enabled": 0,
+    "load_written": 65536,
+    "load_written_logical": 65536,
+    "load_verified": 0,
+    "load_verified_logical": 0,
+    "load_write_chunks": 1,
+    "load_read_chunks": 0,
+    "load_mismatches": 0,
+    "load_first_mismatch": 4294967295,
+    "load_first_io_error": 0,
+    "load_first_cmd_error": 0,
+    "load_max_producer_gap_us": 1000,
+    "load_generation_us": 0,
+    "load_write_elapsed_us": 402315,
+    "load_verify_elapsed_us": 0,
+    "load_clock_hz": 10000000,
+    "load_kernel_hz": 160000000,
+    "load_clkcr": 8,
+    "load_bus_card": 0,
+    "load_blocks": 62333952,
+    "load_dma_error": 0,
+    "load_hal_return": 0,
+    "load_last_r1": 2304,
+    "load_cmd_error": 0,
+    "load_producer_cycles": 4029666,
+    "load_producer_max_cycles": 13276
+  },
+  "latency_us": {
+    "total": [
+      248141
+    ],
+    "data": [
+      244116
+    ],
+    "ready": [
+      4008
+    ]
+  },
+  "host_elapsed_s_including_connection": 5.718188578997797,
+  "utc_completed": "2026-10-13T22:23:28.542578+00:00",
+  "passed": false
+}

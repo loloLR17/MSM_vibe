@@ -1,0 +1,17 @@
+{
+  "run": 1,
+  "scope": "all bytes actually written, independent byte comparison; no new write/reset/retry",
+  "verified_bytes": 65536,
+  "mismatches": 0,
+  "first_mismatch": null,
+  "checks": [
+    {
+      "offset": 0,
+      "bytes": 65536,
+      "sha256_read": "b5c66c4dfe737e31145c2cf0a52a7ceadf0045f26dffd6ef3414b0f9d3687365",
+      "sha256_expected": "b5c66c4dfe737e31145c2cf0a52a7ceadf0045f26dffd6ef3414b0f9d3687365",
+      "mismatches": 0
+    }
+  ],
+  "firmware_verified_counters_not_modified": true
+}

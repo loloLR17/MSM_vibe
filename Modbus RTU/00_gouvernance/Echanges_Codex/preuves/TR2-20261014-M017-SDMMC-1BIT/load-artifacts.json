@@ -1,0 +1,8 @@
+{
+  "code_sha": "65ff1fa93e3793c1ad4e18fe105034bedf1b5146",
+  "bin_bytes": 25840,
+  "bin_sha256": "17bd4d235b742276ea674297c894ebe2d8417a6104d2268c0a61fcb8f2410edd",
+  "elf_sha256": "5416a779dc45670d78e4890a89c59db44cc6818c0b103267c514bba1897d08e5",
+  "ring_bytes": 131072,
+  "sdk_version": "v1.9.0"
+}

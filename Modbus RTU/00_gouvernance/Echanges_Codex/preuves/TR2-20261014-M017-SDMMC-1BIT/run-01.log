@@ -1,0 +1,48 @@
+main () at /home/lolo/dev/msm/projects/MSM_vibe-M017/experiments/sdmmc_st_reference/src/load_main.c:254
+254	    if(load_trigger==DIAG_KEY && !diag_done && !diag_error) {
+0xbfa0700:	0x001b0046	0x38425018	0x20333157
+Hardware assisted breakpoint 1 at 0x80013ec: file /home/lolo/dev/msm/projects/MSM_vibe-M017/experiments/sdmmc_st_reference/src/load_main.c, line 227.
+
+Breakpoint 1, load_terminal () at /home/lolo/dev/msm/projects/MSM_vibe-M017/experiments/sdmmc_st_reference/src/load_main.c:227
+227	__attribute__((noinline)) void load_terminal(void) { while(1) {} }
+METRIC load_stage=99
+METRIC load_error=3
+METRIC load_phase=1
+METRIC load_transfer_phase=4
+METRIC load_generated=131440
+METRIC load_produced=131072
+METRIC load_consumed=65536
+METRIC load_backlog_max=131072
+METRIC load_overflow=1
+METRIC load_lost=368
+METRIC load_producer_done=0
+METRIC load_producer_enabled=0
+METRIC load_written=65536
+METRIC load_written_logical=65536
+METRIC load_verified=0
+METRIC load_verified_logical=0
+METRIC load_write_chunks=1
+METRIC load_read_chunks=0
+METRIC load_mismatches=0
+METRIC load_first_mismatch=4294967295
+METRIC load_first_io_error=0
+METRIC load_first_cmd_error=0
+METRIC load_max_producer_gap_us=1000
+METRIC load_generation_us=0
+METRIC load_write_elapsed_us=402315
+METRIC load_verify_elapsed_us=0
+METRIC load_clock_hz=10000000
+METRIC load_kernel_hz=160000000
+METRIC load_clkcr=8
+METRIC load_bus_card=0
+METRIC load_blocks=62333952
+METRIC load_dma_error=0
+METRIC load_hal_return=0
+METRIC load_last_r1=2304
+METRIC load_cmd_error=0
+METRIC load_producer_cycles=4029666
+METRIC load_producer_max_cycles=13276
+$1 = {0x3534453, 0x44333247, 0x858bf092, 0x3c01927a}
+$2 = 0x0
+0xe000ed28:	0x00000000	0x00000000
+[Inferior 1 (Remote target) detached]

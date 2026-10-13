@@ -1,0 +1,17 @@
+{
+  "command": [
+    "/mnt/c/ST/STM32CubeCLT_1.22.0/STM32CubeProgrammer/bin/STM32_Programmer_CLI.exe",
+    "-c",
+    "port=SWD",
+    "sn=0032001F3235510C37333439",
+    "freq=8000",
+    "-w",
+    "\\\\wsl.localhost\\Debian\\home\\lolo\\dev\\msm\\reports\\M017-diagnostic-build\\sdmmc_reference.bin",
+    "0x08000000",
+    "-v",
+    "-rst"
+  ],
+  "code_sha": "65ff1fa + isolated ACMD23 experiment; source diff archived",
+  "sha256": "aa18a0c3f40ca1eed5b5cf88f49a182e1bec281f1d891317b87296b35fa163f6",
+  "normal_programming_only": true
+}

@@ -1,0 +1,7 @@
+{
+  "bytes": 65536,
+  "mismatches": 0,
+  "sha256": "b5c66c4dfe737e31145c2cf0a52a7ceadf0045f26dffd6ef3414b0f9d3687365",
+  "boundary": "read after later hint firmware flash/software reset/card INIT; no physical power-loss; no change to LBA2048..2175",
+  "same_as_initial_prefix": true
+}
