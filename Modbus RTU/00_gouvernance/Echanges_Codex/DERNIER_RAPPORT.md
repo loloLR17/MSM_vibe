@@ -1,11 +1,12 @@
 ---
 mission_id: TR2-20261013-A04-01-SAFE-BUILD
-status: IN_PROGRESS
+status: DONE
 base_ref: main
 base_sha: null
 initial_head: a639b636e85b3ca2f1015c0f8dfa8b04b940e831
 result_sha: c9ee22292ae69cc6f333aaab3527d18556ee8272
 created_at_utc: 2026-10-13T14:51:21.502331+00:00
+updated_at_utc: 2026-10-13T14:54:39.552502+00:00
 author: Codex
 target_branch: main
 allow_commit: true
@@ -16,7 +17,7 @@ allow_debug: false
 
 # A04-01 — Sélection sûre des builds STM32
 
-**Résultat logiciel acquis :** configuration générique implicite refusée ; profil cumulatif explicite ; artefacts distincts et options consignées ; harness SD historique conservé derrière opt-in. BIN cumulatif **byte-identique** à M015-V : **169380 octets**, SHA-256 **8529630a5a6c9aaa2449fde512b06d6ca16a89a08b7afea2abc9ecca3b75d480**. Aucun matériel accédé. **IN_PROGRESS uniquement pour la publication et relecture distante restant à effectuer**, aucun blocage technique identifié. Le registre A-04 reste inchangé ; ChatGPT décide de la clôture A04-01 après contrôle indépendant.
+**Résultat logiciel acquis :** configuration générique implicite refusée ; profil cumulatif explicite ; artefacts distincts et options consignées ; harness SD historique conservé derrière opt-in. BIN cumulatif **byte-identique** à M015-V : **169380 octets**, SHA-256 **8529630a5a6c9aaa2449fde512b06d6ca16a89a08b7afea2abc9ecca3b75d480**. Aucun matériel accédé. **DONE pour cette mission logicielle** : code, rapport et preuves publiés sur `ebce14fe6ba9d3ce2518f89a8eb8f267a5f1036e` puis intégralement relus ; aucun blocage technique identifié. Le registre A-04 reste inchangé ; ChatGPT décide de la clôture A04-01 après contrôle indépendant.
 
 ## Références et préservation
 
@@ -80,6 +81,13 @@ Aucun accès STM32/ST-LINK/GDB, flash, reset, COM7/HP/RS-485, FRAM ou microSD pe
 
 ## Preuves et publication
 
-[Manifest des preuves publiques](preuves/TR2-20261013-A04-01/manifest.json) :65 fichiers et leurs empreintes, ~482Ko ; scripts réellement exécutés, options, sources liées, désassemblages, logs et commandes. Images ELF/BIN/map conservées localement dans `/home/lolo/dev/msm/reports/TR2-A04-01-20261013T144140Z/qualified-cumulative-artifacts/`, autres builds dans ce même dossier de mission. Le golden public M015-V existant est réutilisé, sans dupliquer un BIN identique.
+[Manifest des preuves publiques](preuves/TR2-20261013-A04-01/manifest.json) :66 fichiers et leurs empreintes, 498122 octets ; scripts réellement exécutés, options, sources liées, désassemblages, logs et commandes. Images ELF/BIN/map conservées localement dans `/home/lolo/dev/msm/reports/TR2-A04-01-20261013T144140Z/qualified-cumulative-artifacts/`, autres builds dans ce même dossier de mission. Le golden public M015-V existant est réutilisé, sans dupliquer un BIN identique.
 
-Commit code local `c9ee22292ae69cc6f333aaab3527d18556ee8272` créé après inspection du diff/index et validations ciblées. Publication rapport/preuves et relecture intégrale depuis référence GitHub à effectuer ; push normal explicitement vers `HEAD:refs/heads/main`, aucun force push/merge/rebase. État de reprise : tranche logicielle complète et cohérente ; aucune modification expérimentale ni aucun blocage extérieur. Après publication/relecture, seul le statut et sa preuve distante restent à consigner ; **pas de nouveau build/test/accès matériel nécessaire**.
+Commits publiés par push normal `HEAD:refs/heads/main` :
+
+- `c9ee22292ae69cc6f333aaab3527d18556ee8272` — `A04-01: require explicit STM32 profiles and label cumulative artifacts`, code évalué.
+- `ebce14fe6ba9d3ce2518f89a8eb8f267a5f1036e` — `A04-01: publish safe build evidence and report for remote review`, rapport provisoire, archives, journal et preuves.
+
+Après fetch GitHub et `ls-remote`, HEAD local et distant identiques à `ebce14fe6ba9d3ce2518f89a8eb8f267a5f1036e`. **76 fichiers intégralement relus** depuis cet objet récupéré, comparés byte-à-byte aux fichiers publiés ; 65 entrées du manifest vérifiées, documents protégés inchangés. [Preuve de publication/relecture](preuves/TR2-20261013-A04-01/publication-readback.json). Ce rapport DONE ajoute cette preuve et actualise le manifest à66 entrées ; le commit de clôture et sa dernière vérification distante seront indiqués dans la réponse finale, sans SHA autoréférentiel dans le rapport.
+
+État Git constaté après première publication : worktree de mission propre et à jour de `origin/main`, hors présente mise à jour de clôture ; aucun travail expérimental, aucun autre changement à reprendre. Dépôt historique et stashes préservés. Aucun force push/merge/rebase. **Aucune validation logicielle ou physique supplémentaire requise pour la clôture de ce contrat.** DONE ne ferme pas la dette A04-01 et ne vaut pas qualification indépendante. Suite : contrôle ChatGPT et mission A04-02 distincte.

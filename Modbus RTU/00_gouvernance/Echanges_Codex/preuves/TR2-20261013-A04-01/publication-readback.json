@@ -1,0 +1,313 @@
+{
+  "remote_sha": "ebce14fe6ba9d3ce2518f89a8eb8f267a5f1036e",
+  "ls_remote_sha": "ebce14fe6ba9d3ce2518f89a8eb8f267a5f1036e",
+  "created_at_utc": "2026-10-13T14:53:47.672304+00:00",
+  "method": "fresh git fetch origin main; ls-remote; full git show of every changed file from fetched GitHub commit; byte comparison and manifest verification",
+  "files": {
+    ".gitignore": {
+      "bytes": 450,
+      "sha256": "aa59ae9416215595ec43e5fb3ddf2db3b392a1479028aa11fd6f86ab5c7bb47c"
+    },
+    "Modbus RTU/00_gouvernance/ETAT_COURANT_TR2.md": {
+      "bytes": 5822,
+      "sha256": "0efecb2ae0108cfdf6e4f22d4501ae6ab3a83ececc770566543fc871e6bcf945"
+    },
+    "Modbus RTU/00_gouvernance/Echanges_Codex/DERNIER_RAPPORT.md": {
+      "bytes": 12395,
+      "sha256": "b65232d68826ffb6f2dd28466773301efe423d003e7c07ea13b5ce8d8b0d37b8"
+    },
+    "Modbus RTU/00_gouvernance/Echanges_Codex/archives/TR2-20261013-A05-AUDIT-TESTS/RAPPORT.md": {
+      "bytes": 22431,
+      "sha256": "310935e6613fa40004fa58b4937bdf33b6126a1a4472617aae528346ed5914fd"
+    },
+    "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261013-A04-01/a0401_artifacts.py": {
+      "bytes": 1041,
+      "sha256": "a7679c06a25663451c22f073229d488924238c4eca7e348d9fe40799502a93ad"
+    },
+    "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261013-A04-01/a0401_inspect.py": {
+      "bytes": 4015,
+      "sha256": "5ea864a684fc76cb00771938bb7f7c660a7e9efa9be90021681f57331ba7689c"
+    },
+    "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261013-A04-01/a0401_validate.py": {
+      "bytes": 954,
+      "sha256": "5037ef6445d28c7fcfa0dc38d156b41ceadf0a57868eac807d763855eebec434"
+    },
+    "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261013-A04-01/additional-build-commands.json": {
+      "bytes": 1586,
+      "sha256": "e9d715183812dc90011df10721607de1b15cfaaad6f66f5391896e184d6bf78c"
+    },
+    "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261013-A04-01/artifact-inspection.json": {
+      "bytes": 11435,
+      "sha256": "43a96a53b99c7275d98e62b9f39f15032ea3c1636824988fd13b3156df33be93"
+    },
+    "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261013-A04-01/authority-tests.log": {
+      "bytes": 664,
+      "sha256": "6dc567567a742d5c9dd4abd54b465ae5e53d889acd8d3137f7d80779661cb371"
+    },
+    "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261013-A04-01/cumulative-CMakeCache.txt": {
+      "bytes": 18013,
+      "sha256": "38d825a7a423c7b8f57fa83de9cfdede7761d4e192c36482176075cb420042e6"
+    },
+    "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261013-A04-01/cumulative-build-profile.txt": {
+      "bytes": 937,
+      "sha256": "cb236a3bc4cc9c0e76e3fe4481c729614fd34ffb2ae77a15b9ed873a0aa545f6"
+    },
+    "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261013-A04-01/cumulative-build.log": {
+      "bytes": 24922,
+      "sha256": "76147b1d235de5d8942e597731b8a24b7d1114976320f9ff6f1f2b5f1256236c"
+    },
+    "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261013-A04-01/cumulative-compiled-sources.json": {
+      "bytes": 13476,
+      "sha256": "81afc82e43d6d6f147a6a8932ee8ff9a9efb2c6e85560ee6b2d4eb20c1a4aa64"
+    },
+    "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261013-A04-01/cumulative-main-and-link-commands.log": {
+      "bytes": 7280,
+      "sha256": "3a3961297653fcbfbdb87727065a19ddb3aa3db4dbd32868c1fa07a38f45768d"
+    },
+    "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261013-A04-01/cumulative-main-disassembly.log": {
+      "bytes": 1231,
+      "sha256": "adcba19e2a2be7426b77737090e2e66167134ea3e659c0cdba96431361cb9688"
+    },
+    "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261013-A04-01/cumulative-sections.log": {
+      "bytes": 917,
+      "sha256": "85407103249260bbe1c25d7a4523ab044e9e9b0e54196d1c33954434b9581d34"
+    },
+    "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261013-A04-01/cumulative-stm32_production_binding_acquire.log": {
+      "bytes": 7473,
+      "sha256": "0f3c1ba75efb6cf6332f4656f01964d34700d3b64aa8f4917e3c0370b45dd202"
+    },
+    "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261013-A04-01/cumulative-stm32_production_board_initialize.log": {
+      "bytes": 2941,
+      "sha256": "e5952f42a2f50be08bff5e65a4d6a923b9bfe9c14c3ceb2c19992a29782bcbe5"
+    },
+    "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261013-A04-01/cumulative-stm32_production_server_run.log": {
+      "bytes": 8200,
+      "sha256": "bc529aa60aa0df41d68f5bd50eb36a05085a218fe73363f16ee35d9af71e4c11"
+    },
+    "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261013-A04-01/cumulative-storage_available.log": {
+      "bytes": 547,
+      "sha256": "7021b6d728055727e72e63564b706665a786f8ebf85fa8db178ed17e689bed03"
+    },
+    "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261013-A04-01/cumulative-symbols.log": {
+      "bytes": 37728,
+      "sha256": "052bb261a6e8d1a1062e021f6a1e3a689c84878efb7636538a5e324e7d1820be"
+    },
+    "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261013-A04-01/cumulative-unavailable_action.log": {
+      "bytes": 586,
+      "sha256": "87cf94203a4e98f9bf9c03f442ec37139f3b216d94952f5d5f676ff170de63d7"
+    },
+    "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261013-A04-01/cumulative-unavailable_append.log": {
+      "bytes": 773,
+      "sha256": "2ea2e59fae2c7306db66d56e6fdf5e7c19d9bafd1d4056c4c32a35fa2ebe0ed7"
+    },
+    "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261013-A04-01/cumulative-validator-final.log": {
+      "bytes": 7049,
+      "sha256": "246c3cd869a12d8a2448a26ed3418be981704f2bb09016fd1312231006febf6d"
+    },
+    "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261013-A04-01/direct-implicit.log": {
+      "bytes": 329,
+      "sha256": "fddfce23c04ee47e965a5cf7d2c03afb8ba9f8be4eab4c403e8d0051facadd53"
+    },
+    "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261013-A04-01/direct-legacy.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261013-A04-01/legacy-0.log": {
+      "bytes": 720,
+      "sha256": "dd440936718f0c4a785dc5670114156e371be4503a4a573d478ccd05e8b27c60"
+    },
+    "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261013-A04-01/legacy-1.log": {
+      "bytes": 20142,
+      "sha256": "30d9a67ed0c7bbd84cc9577709241c0242f942e4221165f53517898454d744c8"
+    },
+    "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261013-A04-01/legacy-CMakeCache.txt": {
+      "bytes": 17073,
+      "sha256": "2b4d195ee90ea9adcc34199bde68bba5b92547fc31978efbc783513ae89cc9b5"
+    },
+    "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261013-A04-01/legacy-Sdmmc2_Bringup.log": {
+      "bytes": 63169,
+      "sha256": "3e5c9bde681ecebb2d13d034d94b070a0cb5a8d67086fc8db07951d13d578de5"
+    },
+    "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261013-A04-01/legacy-build-profile.txt": {
+      "bytes": 727,
+      "sha256": "a5426717dac7d95bd3c86efc172fbb4c2637ce13fca3d402ed222eee7510e398"
+    },
+    "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261013-A04-01/legacy-compiled-sources.json": {
+      "bytes": 12693,
+      "sha256": "e2dbffde402393ad1635a900185f83b9bf0d473b96d8f9283f2e2808035a5d95"
+    },
+    "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261013-A04-01/legacy-main-and-link-commands.log": {
+      "bytes": 5903,
+      "sha256": "625ed6f6713a3c9786176a7faae388baa4ac3f92bcc2f394ca7e7213cc8aa9fa"
+    },
+    "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261013-A04-01/legacy-main-disassembly.log": {
+      "bytes": 21446,
+      "sha256": "b00aa3096c7888cb32b0ec0165880e0ca5a64e2d4bbb14c21e2cc3bcf6d1c1c7"
+    },
+    "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261013-A04-01/legacy-sections.log": {
+      "bytes": 881,
+      "sha256": "34535c5f2b428d00026c6b963e0256c444a398c05ddadc061e5f540e496ffbfa"
+    },
+    "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261013-A04-01/legacy-symbols.log": {
+      "bytes": 36993,
+      "sha256": "572729227d67f03194fdcaeb7705d88a4285482f36db83cde9e1bf9de6da841f"
+    },
+    "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261013-A04-01/manifest.json": {
+      "bytes": 9101,
+      "sha256": "8f939a08db1884915ad48a88550625d26024899a8a63072565edf6d8464cda2c"
+    },
+    "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261013-A04-01/matrix-00-cumulative.log": {
+      "bytes": 701,
+      "sha256": "9e23d97905c3c4360d40c15b4d41f14952dc656f72cfb6416123463727a80cdb"
+    },
+    "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261013-A04-01/matrix-01-cumulative-off.log": {
+      "bytes": 524,
+      "sha256": "7bb53f48aaf3f0b13f25dc49dd58960bb44ec42bc79a402c809719932416d723"
+    },
+    "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261013-A04-01/matrix-02-cumulative.log": {
+      "bytes": 179,
+      "sha256": "d6b8083c2cf68b0eb673cf0870e02c929a15b4942ba9b85c02be6a265d3c2cb6"
+    },
+    "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261013-A04-01/matrix-03-default.log": {
+      "bytes": 526,
+      "sha256": "9fe827754c46340bb5140deb5b27b73ce97859c3290e3ef2811bb97a1631a867"
+    },
+    "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261013-A04-01/matrix-04-unknown-recipe.log": {
+      "bytes": 474,
+      "sha256": "88537c38af639a38c870cb9dcd6dcbcfa1f79743b206b60a62451af5871f408b"
+    },
+    "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261013-A04-01/matrix-05-legacy-production.log": {
+      "bytes": 606,
+      "sha256": "a9d7629dd23cbfb4eed433ae8aa54a903dd8169ec951c5f0d40f65d92e5c902f"
+    },
+    "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261013-A04-01/matrix-06-production-no-TX.log": {
+      "bytes": 488,
+      "sha256": "69ded8b13c7b5d3bcefde24d215391f433f9d90a9819658b489a0177e9de039f"
+    },
+    "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261013-A04-01/matrix-07-cooperative-no-production.log": {
+      "bytes": 517,
+      "sha256": "376d829c5562b3279d6266763d171cf7fa8182ea326bc937e3f480c7d3d40e29"
+    },
+    "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261013-A04-01/matrix-08-cooperative-no-observer.log": {
+      "bytes": 517,
+      "sha256": "376d829c5562b3279d6266763d171cf7fa8182ea326bc937e3f480c7d3d40e29"
+    },
+    "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261013-A04-01/matrix-09-production-manufacturing.log": {
+      "bytes": 504,
+      "sha256": "3f2323a078a65605fd171e135899d462e0f2fc0ec6119a77c88186db1523c388"
+    },
+    "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261013-A04-01/matrix-10-production-probe.log": {
+      "bytes": 504,
+      "sha256": "3f2323a078a65605fd171e135899d462e0f2fc0ec6119a77c88186db1523c388"
+    },
+    "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261013-A04-01/matrix-11-cooperative-U.log": {
+      "bytes": 517,
+      "sha256": "376d829c5562b3279d6266763d171cf7fa8182ea326bc937e3f480c7d3d40e29"
+    },
+    "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261013-A04-01/matrix-12-cooperative-silence.log": {
+      "bytes": 517,
+      "sha256": "376d829c5562b3279d6266763d171cf7fa8182ea326bc937e3f480c7d3d40e29"
+    },
+    "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261013-A04-01/matrix-13-SPI16.log": {
+      "bytes": 481,
+      "sha256": "d7f0cb4499a5d959ec5d6fd7a456b84703e67bce863c2bf346236d0b57c75e66"
+    },
+    "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261013-A04-01/matrix-15-qualification-U.log": {
+      "bytes": 718,
+      "sha256": "883be40354090ce0683ce0484d71b7188420420a7fd0548187a96bb9db6459d2"
+    },
+    "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261013-A04-01/matrix-16-legacy.log": {
+      "bytes": 735,
+      "sha256": "5c1502bbe03bccc638ec776f282e776785063516899e0d86b78a49efbe917f0b"
+    },
+    "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261013-A04-01/matrix-commands-results.json": {
+      "bytes": 16787,
+      "sha256": "3b1fe8b6085148056bb5510ec0d7aca84bddef642b433c5a50e789dbd7203476"
+    },
+    "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261013-A04-01/profile-tests-final.log": {
+      "bytes": 598,
+      "sha256": "e342382d54c09fe096cce3a8294f02ee759771f1740e31af463d8b47a4cb9e8b"
+    },
+    "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261013-A04-01/profile-tests.log": {
+      "bytes": 2079,
+      "sha256": "2527b08fc4e57ee445be175182aa53661d3ecb71b894350adf3e23a846c552c0"
+    },
+    "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261013-A04-01/provenance.json": {
+      "bytes": 5227,
+      "sha256": "fe67f032c80cc598d05ac214ec3c5d0f9502585aac9c9019a0621036c72072e6"
+    },
+    "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261013-A04-01/qualification-U-0.log": {
+      "bytes": 703,
+      "sha256": "30868677c0896c69c3d82c1fd384d7ef6841b4fb7c0c1b6c644ff4fecb81892d"
+    },
+    "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261013-A04-01/qualification-U-1.log": {
+      "bytes": 23621,
+      "sha256": "1a15542734041dbbe97c5cd32223e72c86d7decad22176f0e86d5a0649886eb7"
+    },
+    "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261013-A04-01/qualification-U-CMakeCache.txt": {
+      "bytes": 17806,
+      "sha256": "8657a071e98a438134264a77e628d451efb037a7d7873b224dd49cfcbf5ab56c"
+    },
+    "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261013-A04-01/qualification-U-build-profile.txt": {
+      "bytes": 733,
+      "sha256": "24942604c23cb57baa1b8fa3b31811b393959f89c86acf0c2bfa27cb44f2b6be"
+    },
+    "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261013-A04-01/qualification-U-compiled-sources.json": {
+      "bytes": 13346,
+      "sha256": "6f7f0e6c44e1fca8459b655110ecff0750fe1e98bf5051761385db2b6129b207"
+    },
+    "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261013-A04-01/qualification-U-main-and-link-commands.log": {
+      "bytes": 7066,
+      "sha256": "0069c4efde411e41d101450ad68c1cd9ff2058366c2e9ef33119cc80f1afb965"
+    },
+    "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261013-A04-01/qualification-U-main-disassembly.log": {
+      "bytes": 1161,
+      "sha256": "7162e9fb0710411883fdb279f8bf8490d0b8ade875323d95dcae4ebaed16f310"
+    },
+    "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261013-A04-01/qualification-U-sections.log": {
+      "bytes": 935,
+      "sha256": "f3749570a7bad96da292721984ad1fc25161c722e10ae2377431f24092d5e659"
+    },
+    "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261013-A04-01/qualification-U-stm32_iis3dwb_st_window_run.log": {
+      "bytes": 8015,
+      "sha256": "4fc8aca72f03304327d771a604bee7dcd86a0fbf1845821c390aa6aaeace984b"
+    },
+    "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261013-A04-01/qualification-U-symbols.log": {
+      "bytes": 17562,
+      "sha256": "b448d8a64d889bbd228b53adc9443b12d682239302f11a712608816fff2907b7"
+    },
+    "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261013-A04-01/source-change.patch": {
+      "bytes": 24898,
+      "sha256": "ad3577dc70806a53b5011af4e33c6e09d7386d84ecec2725e56cd82126b5a057"
+    },
+    "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261013-A04-01/validation-invocations.json": {
+      "bytes": 829,
+      "sha256": "2a8f4c599c07d4aa7265ae83cb692951a720b929d6376064b4a2e9ee3512f880"
+    },
+    "Modbus RTU/05_Firmware/platform/stm32/CMakeLists.txt": {
+      "bytes": 18798,
+      "sha256": "9d81b94f972eec9c3b70be78893957b32f15d0b0aaa1a9bb516bb8c11190e28f"
+    },
+    "Modbus RTU/05_Firmware/platform/stm32/README.md": {
+      "bytes": 4233,
+      "sha256": "891510ed3ebba403d81822a7817b16919355158dce71a070c1822dfa2a2c1ee9"
+    },
+    "Modbus RTU/05_Firmware/platform/stm32/main.c": {
+      "bytes": 109066,
+      "sha256": "9f9508ad2bac3da66c01ab1bea72c5d3ecf682680406cff9be46005526576140"
+    },
+    "Modbus RTU/05_Firmware/platform/stm32/tr2_build_stm32.sh": {
+      "bytes": 3623,
+      "sha256": "737d6624f1b2da52a52a5ffc6feb85364d3c0bfe26e3780e2d8c2a3aecb679e3"
+    },
+    "Modbus RTU/05_Firmware/tests/platform/test_stm32_build_profiles.py": {
+      "bytes": 4817,
+      "sha256": "69fcf8fbd4f5255f9254f623caf376c9525acf009812a850526d7feafca85ba4"
+    },
+    "tr2_validate.sh": {
+      "bytes": 3126,
+      "sha256": "6d29bbe0a8a65fa40e153fac5c7df1f840d712fa39e4e0cbf323cf6288a0c65b"
+    }
+  },
+  "protected_documents_unchanged": true
+}

@@ -258,5 +258,9 @@
   "validation-invocations.json": {
     "bytes": 829,
     "sha256": "2a8f4c599c07d4aa7265ae83cb692951a720b929d6376064b4a2e9ee3512f880"
+  },
+  "publication-readback.json": {
+    "bytes": 16404,
+    "sha256": "604d1cc71bd2d01224d8036f6c37e1854a54189d885593a9536b0b4278775b75"
   }
 }
