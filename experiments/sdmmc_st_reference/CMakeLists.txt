@@ -23,7 +23,15 @@ foreach(module hal hal_cortex hal_dma hal_flash hal_flash_ex hal_gpio hal_pwr ha
   endif()
   list(APPEND SOURCES ${source})
 endforeach()
-add_executable(sdmmc_reference src/main.c src/clock.c ${SOURCES}
+option(BENCH_LOAD_ONLY "One fixed 600-second 1-bit TR2-rate load" OFF)
+set(BENCH_MAIN src/main.c)
+if(BENCH_LOAD_ONLY)
+  if(NOT BENCH_WRITE_ENABLE)
+    message(FATAL_ERROR "Load-only requires explicitly authorized write profile")
+  endif()
+  set(BENCH_MAIN src/load_main.c)
+endif()
+add_executable(sdmmc_reference ${BENCH_MAIN} src/clock.c ${SOURCES}
  ${DEV}/Source/Templates/gcc/startup_stm32u575xx.s
  ${DEV}/Source/Templates/system_stm32u5xx.c)
 target_include_directories(sdmmc_reference PRIVATE src ${HAL}/Inc ${DEV}/Include ${STM32CUBE_U5_ROOT}/Drivers/CMSIS/Include)
