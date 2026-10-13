@@ -227,7 +227,7 @@ Ne pas effectuer automatiquement de merge ou de rebase pour résoudre une diverg
 
 Codex peut créer de façon autonome un commit local uniquement si une mission explicitement validée par l’utilisateur contient `allow_commit: true`. Ce champ vaut `false` par défaut : absent ou `false`, il interdit le commit ; une autorisation de modification seule ne suffit pas. Dans la branche et le périmètre autorisés, les conditions suivantes doivent aussi être satisfaites :
 
-- l'objectif et les critères d'acceptation sont satisfaits ;
+- pour un commit de clôture, l'objectif et les critères d'acceptation de la mission sont satisfaits ; pour un **commit intermédiaire/checkpoint**, la tranche concernée est cohérente, vérifiée à son niveau et explicitement identifiée comme intermédiaire, même si la mission complète reste `IN_PROGRESS` ;
 - la validation appropriée a réussi, lorsqu'elle est nécessaire ;
 - le diff et l'état Git ont été inspectés ;
 - aucun fichier hors périmètre n'est inclus ;
@@ -235,7 +235,7 @@ Codex peut créer de façon autonome un commit local uniquement si une mission e
 
 Vérifier le contenu indexé avant commit. Le commit doit être atomique et son message doit décrire clairement la tranche réalisée.
 
-Si les critères ne sont pas satisfaits, ne pas créer un commit présenté comme une tranche validée.
+Si les critères de clôture ne sont pas satisfaits, ne pas créer un commit présenté comme une mission terminée ou une tranche qualifiée. Les changements expérimentaux instables restent isolés et ne sont pas poussés sur `main`.
 
 ### Push
 
@@ -484,7 +484,7 @@ Si le journal est absent de la référence Git utilisée, signaler cette absence
 
 **Circuit normal pour les travaux techniques délégués :** ChatGPT → GitHub (contrat publié et vérifié) → Codex (exécution, commits et rapport) → GitHub (preuves publiées) → ChatGPT (contrôle indépendant). Les interventions directes de ChatGPT sur les documents de gouvernance constituent une responsabilité distincte ; elles ne nécessitent pas une mission Codex fictive. Aucune utilisation ni proposition de Work pour MSM TR2 sauf demande explicite de l'utilisateur.
 
-**Contrats sobres et autonomie.** Chaque mission technique précise objectif, périmètre, critères vérifiables, autorisations explicites, risques particuliers et livrables ; renvoyer aux règles permanentes au lieu de les recopier. Codex propose et applique les corrections minimales compatibles avec les critères et les risques, sans validations humaines répétitives. Il escalade uniquement les décisions structurantes, opérations destructives inhabituelles, risques matériels non maîtrisés ou gestes physiques indispensables. Une difficulté technique ordinaire doit être diagnostiquée et traitée dans le périmètre.
+**Contrats sobres et autonomie.** Chaque mission technique précise objectif, périmètre, critères vérifiables, autorisations explicites, risques particuliers et livrables ; renvoyer aux règles permanentes au lieu de les recopier. Codex propose et applique les corrections minimales compatibles avec les critères et les risques, sans validations humaines répétitives. Il escalade les décisions structurantes, opérations destructives inhabituelles, risques matériels non maîtrisés ou gestes physiques indispensables, **ainsi que les cas non résolubles du §8** (hors périmètre indispensable, contradiction factuelle aux spécifications, preuves insuffisantes ou ambiguïté non levable par vérifications autorisées). Une difficulté technique ordinaire doit être diagnostiquée et traitée dans le périmètre.
 
 **Reprise et checkpoints.** `IN_PROGRESS` désigne une mission commencée mais non terminée, distincte de `DONE`, `BLOCKED` (blocage réel) et `FAILED` (échec terminal). Une interruption de session ne vaut pas clôture. Quand une interruption est prévisible, Codex protège le travail utile par commit/push intermédiaire autorisé et publie un checkpoint proportionné : SHA, état Git, essais et preuves, état matériel, risques et reste à faire. Il reprend sous le même identifiant de mission ; les commits intermédiaires ne valent pas qualification. Vérifier la durée/quota disponible seulement lorsque l'outil le permet, sans inventer de métriques.
 
@@ -508,4 +508,4 @@ Pour chaque jalon effectivement qualifié, ChatGPT publie une fiche courte dans 
 
 **Checkpoint proportionné.** Avant une interruption prévisible, Codex consigne SHA, état Git local et distant, commits, tests et preuves, état matériel et médias si nécessaire, risques, reste à faire et conditions de reprise. Il préserve les travaux utiles par commit et push autorisés lorsque leur état est publiable et sûr ; il isole les travaux expérimentaux susceptibles de dégrader main. Une interruption imprévisible exige une reconstitution factuelle à la reprise, sans invention de preuves.
 
-**Autonomie.** Les difficultés techniques ordinaires sont diagnostiquées et corrigées sans validation humaine répétitive, y compris les cycles de flash et debug STM32 autorisés. Escalader seulement les décisions structurantes, opérations destructives inhabituelles, risques matériels non maîtrisés et gestes physiques indispensables. Préserver FRAM, microSD, identité, Option Bytes et récupérabilité ; sauvegardes et restaurations proportionnées au risque. ChatGPT ne remplace pas une mission active sans clôture explicite et vérifie les preuves avant qualification.
+**Autonomie.** Les difficultés techniques ordinaires sont diagnostiquées et corrigées sans validation humaine répétitive, y compris les cycles de flash et debug STM32 autorisés. Escalader les décisions structurantes, opérations destructives inhabituelles, risques matériels non maîtrisés, gestes physiques indispensables **et les autres conditions d'arrêt du §8 lorsqu'elles ne peuvent pas être levées dans le périmètre autorisé**. Préserver FRAM, microSD, identité, Option Bytes et récupérabilité ; sauvegardes et restaurations proportionnées au risque. ChatGPT ne remplace pas une mission active sans clôture explicite et vérifie les preuves avant qualification.
