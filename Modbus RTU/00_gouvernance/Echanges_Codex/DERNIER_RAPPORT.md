@@ -1,6 +1,6 @@
 ---
 mission_id: TR2-20261013-M016-V1-VIBRATION
-status: IN_PROGRESS
+status: BLOCKED
 base_ref: main
 base_sha: 25406aff35a769fc2bcf2dd77b33bf0571b832a9
 initial_head: 871d1186b7fea7ab5ce09a44a8e03ad79fc90618
@@ -16,7 +16,7 @@ allow_debug: true
 
 # M016 — précondition ActiveConfiguration incompatible avec la voie sans stockage
 
-**M016 non terminée et non qualifiée.** Diagnostic de précondition et cartographie livrés ; publication/relecture distante en cours. Un obstacle réel impose une décision structurante avant le raccordement métier : la voie M016 sans SD ne fournit aucune capacité utilisable, alors que la V1 exige du stockage pour valider une configuration et que le firmware interdit une acquisition métier sans configuration active autoritative. Ce n'est pas un échec FIFO ni une difficulté ordinaire de compilation.
+**M016 non terminée et non qualifiée.** Diagnostic de précondition et cartographie publiés et relus intégralement sur GitHub. Un obstacle réel impose une décision structurante avant le raccordement métier : la voie M016 sans SD ne fournit aucune capacité utilisable, alors que la V1 exige du stockage pour valider une configuration et que le firmware interdit une acquisition métier sans configuration active autoritative. Ce n'est pas un échec FIFO ni une difficulté ordinaire de compilation.
 
 ## Faits et reproduction
 
@@ -37,7 +37,7 @@ Preuves nouvelles : [résultat effectif](preuves/TR2-20261013-M016/authority-pro
 | Cartographie B3 |26champs/48registres inventoriés, source actuelle et lacunes identifiées |
 | Chaîne FIFO→fenêtre→B3, invalidations et budgets nouveaux | NON IMPLÉMENTÉE ; pas de contournement de la précondition |
 | Régression hôte/ARM et qualification physique M016 | NON EXÉCUTÉES ; aucun nouveau firmware à valider/flasher |
-| Publication | Rapport, preuves et journal préparés ; contrôle distant avant statut final |
+| Publication | Rapport, preuves et journal publiés au checkpoint et relus intégralement ; décision structurante en attente |
 
 [Cartographie champ par champ](preuves/TR2-20261013-M016/b3-field-map.csv). Le calculateur existant fournit les8RMS/crêtes en mg via sommes carrées, sqrt entier et maxima ; le service d'acquisition accumule une fenêtre sans tampon supplémentaire. Le codec respecte MSW/LSW, projection par candidate entière. Le propriétaire FIFO coopératif est distinct et non raccordé. La projection B3 n'est pas complète : statut0, alarmes/sévérité/axe dominant/dépassements/latch/compteurs initialisés à zéro ; validité limitée à trois bits. Ces zéros ne sont pas des résultats métier qualifiés. L'âge est calculé au snapshot mais le getter runtime rend l'image B3 mise en cache : actualisation de l'âge/fraîcheur encore à implémenter. Ces lacunes sont du travail M016 réalisable après définition de la voie autoritative, pas des validations déjà acquises.
 
@@ -64,4 +64,4 @@ Compilation C ciblée `cc -std=c11 -Wall -Wextra -Werror` et probe réussi, sort
 
 HEAD initial/distant871d1186b7fea7ab5ce09a44a8e03ad79fc90618 ; base contrat25406aff...ancêtre. Dépôt original `/home/lolo/dev/msm/projects/MSM_vibe` reste propre à82169af7e76797731358852bec83bfb0ceb54ccf. Worktree `/home/lolo/dev/msm/projects/MSM_vibe-M016`, branche locale `codex/m016-v1-vibration`, publication autorisée uniquement vers `refs/heads/main`. Stashes6251b988...etf3b829e6...inchangés. Seuls rapport/preuves/journal M016 modifiés, aucune règle de gouvernance, contrat, archive A04-02 ou registre des dettes modifié. Permissions exercées : lecture, compilation/probe hors ligne, documentation, commit/push normaux ; flash/debug non exercés.
 
-Journal actualisé factuellement : refus autoritatif, portée des preuves, absence d'intervention, décision et prochaine étape. SHA de publication et relecture intégrale à consigner après push ; le commit contenant ce rapport ne peut référencer son propre SHA. Aucun statutDONE, tag ou qualification M016 revendiqué.
+Journal actualisé factuellement : refus autoritatif, portée des preuves, absence d'intervention, décision et prochaine étape. Checkpoint `b1bf54ed56d5cb165f5b7e3f485655d15dc7291a`, message `M016 checkpoint: document authoritative configuration blocker with saved-record proof`, poussé normalement sur main puis récupéré par `git fetch origin main` : les10fichiers livrés relus intégralement via objetsGit distants et comparés byte-à-byte. [Reçu de relecture](preuves/TR2-20261013-M016/checkpoint-readback.json). La présente mise à jour BLOCKED est ensuite publiée et contrôlée ; son SHA est fourni dans la réponse finale. Worktree propre au checkpoint ; seulement cette clôture documentaire de diagnostic à publier. Le commit contenant ce rapport ne peut référencer son propre SHA. Aucun statutDONE, tag ou qualification M016 revendiqué.

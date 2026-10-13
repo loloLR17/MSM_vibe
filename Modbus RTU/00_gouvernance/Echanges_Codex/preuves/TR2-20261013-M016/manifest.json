@@ -28,6 +28,10 @@
     "run_probe.py": {
       "bytes": 1862,
       "sha256": "84c4d7f3d7535e0a1f094c7723cf439d0ad2d9ffd15b35d8c12ce810fe5e1caf"
+    },
+    "checkpoint-readback.json": {
+      "bytes": 2268,
+      "sha256": "b401c9d7eaab56889d99fc1a7b05a2bd7b5d9e3d4afcff1aece60fa98e552107"
     }
   }
 }

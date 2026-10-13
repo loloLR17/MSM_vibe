@@ -1,0 +1,57 @@
+{
+  "remote_sha": "b1bf54ed56d5cb165f5b7e3f485655d15dc7291a",
+  "utc": "2026-10-13T17:14:54.936090+00:00",
+  "files": [
+    {
+      "path": "Modbus RTU/00_gouvernance/ETAT_COURANT_TR2.md",
+      "bytes": 8816,
+      "sha256": "e93c74bdc9bec343642716abfa19a195b9c2eba2678dbc038664496387a84c86"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/DERNIER_RAPPORT.md",
+      "bytes": 10171,
+      "sha256": "e83791ee3a0cb7936d77e34ebbfba35ad74b040ccb87398a8a3e2d5301cb7522"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261013-M016/README.md",
+      "bytes": 1364,
+      "sha256": "a60460e137ab44542e31d6bb7f967dc6844166bd8d546cc1d6c6df243caf48cc"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261013-M016/authority-probe-result.json",
+      "bytes": 1439,
+      "sha256": "0d05cb4eaf0e8988613315b60a0079e476d943ea8c83af8abca84b001a335d50"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261013-M016/authority_probe.c",
+      "bytes": 2686,
+      "sha256": "76c0263fab45546b484a76d0a75b59faea9740f15bd4fb88b54b5f9d72a8eb65"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261013-M016/b3-field-map.csv",
+      "bytes": 4654,
+      "sha256": "50a4ed8aed26c5c8994823f29e28bf9b6083e7f70c8c7dfde79fe413620d650b"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261013-M016/configuration-slot1.hex",
+      "bytes": 281,
+      "sha256": "6030ffd01e1625e9a1275b1c19591077e7b37cc493c081806d68edc01693b7e6"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261013-M016/manifest.json",
+      "bytes": 1035,
+      "sha256": "e133252a189648f124b931e783e58e73df3ed5ffb6b73a1f74758c2ea9494aa6"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261013-M016/provenance.json",
+      "bytes": 1803,
+      "sha256": "49a599287a25d6b3a7d995792f2eea63146b0d9e2f497fcc0eae53246827a501"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261013-M016/run_probe.py",
+      "bytes": 1862,
+      "sha256": "84c4d7f3d7535e0a1f094c7723cf439d0ad2d9ffd15b35d8c12ce810fe5e1caf"
+    }
+  ],
+  "all_equal": true
+}
