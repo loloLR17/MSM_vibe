@@ -1,0 +1,56 @@
+{
+  "readonly": {
+    "code_sha": "077835157fbdefecb4ebc2a416cbf82d1f8891d7",
+    "build_directory": "/home/lolo/dev/msm/reports/M016-sdmmc-reference-build",
+    "files": {
+      "bin": {
+        "sha256": "b1091e8908614fb99576134b8cc18a334449073c3c9851fcc13e460e38e752f9",
+        "bytes": 20108
+      },
+      "elf": {
+        "sha256": "ab816f6a31bb3f87148ee71417d547afdd446eae1fdc65ad51af3770bb7e5e9e",
+        "bytes": 1773016
+      },
+      "map": {
+        "sha256": "b3e60437a256956d2d5e538d9659e4ef55d8de6c4dcc3afcc8515edb9596ef7f",
+        "bytes": 455603
+      }
+    }
+  },
+  "attempt01": {
+    "code_sha": "077835157fbdefecb4ebc2a416cbf82d1f8891d7",
+    "build_directory": "/home/lolo/dev/msm/reports/M016-sdmmc-reference-armed-build",
+    "files": {
+      "bin": {
+        "sha256": "c183e3296715af7aebee83c316532a237b7ab0535943087ef92177314f8011b9",
+        "bytes": 21328
+      },
+      "elf": {
+        "sha256": "a87417bb84f505661522fed3e41eca0fe4410fc366e2a5534286cad31e99a6d3",
+        "bytes": 1784924
+      },
+      "map": {
+        "sha256": "ab4af1f9f6e4f28cec1e5c3b02c1a699ba6756cee3b25c3b5aa590e786ecd4c5",
+        "bytes": 456996
+      }
+    }
+  },
+  "attempt02": {
+    "code_sha": "d9a223e4de996e01ffc701eecc17c5038398e8c5",
+    "build_directory": "/home/lolo/dev/msm/reports/M016-sdmmc-reference-two-node-build",
+    "files": {
+      "bin": {
+        "sha256": "092a1db046c5821e3401418f92a0a3c83f9b46ae7414e2af4ed75741fb2c166d",
+        "bytes": 21372
+      },
+      "elf": {
+        "sha256": "ffa7bc97f8227b640d224f5b63c8d256c11f59c33fe480be06d67749118d5aa1",
+        "bytes": 1785212
+      },
+      "map": {
+        "sha256": "155181c10db4da75b12450684565af403e6929a2943f710696c46dfaa56b5f53",
+        "bytes": 457035
+      }
+    }
+  }
+}

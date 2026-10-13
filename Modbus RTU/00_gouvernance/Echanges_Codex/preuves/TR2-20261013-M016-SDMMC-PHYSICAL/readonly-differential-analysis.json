@@ -1,0 +1,16 @@
+{
+  "readonly-4MHz-actual-rx.bin": {
+    "bytes": 4096,
+    "sha256": "18f5010abbc036ed1e7f46e24a8a1ff6d4f385c9466d5b730093457ce98fbd84",
+    "matched_bytes": 50,
+    "full_pattern_match": false,
+    "first32": "00254a6f94b9de03284d7297bce1062b50759abfe4092e53789dc2e70c31567b"
+  },
+  "readonly-1bit-4MHz-commanded-rx.bin": {
+    "bytes": 4096,
+    "sha256": "9ec45ab0c8505527af5931e27722ed5908748e5073169b4571c84e006eb90140",
+    "matched_bytes": 4096,
+    "full_pattern_match": true,
+    "first32": "00254a6f94b9de03284d7297bce1062b50759abfe4092e53789dc2e70c31567b"
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "command": "STM32_Programmer_CLI.exe -l stlink",
+  "observed": {
+    "count": 1,
+    "sn": "0032001F3235510C37333439",
+    "firmware": "V3J15M7",
+    "board": "NUCLEO-U575ZI-Q"
+  },
+  "exact_uid_gdb": "001B00463842501820333157",
+  "primary_not_selected": true
+}

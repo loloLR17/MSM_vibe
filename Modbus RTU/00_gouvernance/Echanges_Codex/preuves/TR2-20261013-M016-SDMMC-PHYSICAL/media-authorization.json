@@ -1,0 +1,17 @@
+{
+  "second_uid": "001B00463842501820333157",
+  "cid": [
+    "03534453",
+    "44333247",
+    "858BF092",
+    "3C01927A"
+  ],
+  "card_blocks": 62333952,
+  "block_bytes": 512,
+  "test_lba": 2048,
+  "test_blocks": 8,
+  "bytes_written_each_round": 4096,
+  "rounds": 3,
+  "authorization": "user and current contract: entire second-bench test SD disposable",
+  "no_erase_or_format_needed": true
+}

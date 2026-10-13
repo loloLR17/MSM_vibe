@@ -1,0 +1,17 @@
+{
+  "command": [
+    "/mnt/c/ST/STM32CubeCLT_1.22.0/STM32CubeProgrammer/bin/STM32_Programmer_CLI.exe",
+    "-c",
+    "port=SWD",
+    "sn=0032001F3235510C37333439",
+    "freq=8000",
+    "-w",
+    "\\\\wsl.localhost\\Debian\\home\\lolo\\dev\\msm\\reports\\M016-sdmmc-reference-two-node-build\\sdmmc_reference.bin",
+    "0x08000000",
+    "-v",
+    "-rst"
+  ],
+  "code_sha": "d9a223e4de996e01ffc701eecc17c5038398e8c5",
+  "sha256": "092a1db046c5821e3401418f92a0a3c83f9b46ae7414e2af4ed75741fb2c166d",
+  "normal_programming_only": true
+}

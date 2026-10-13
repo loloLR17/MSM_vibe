@@ -1,0 +1,5 @@
+0x08000a0e in Error_Handler () at /home/lolo/dev/msm/projects/MSM_vibe-M016-sdmmc-physical/experiments/sdmmc_st_reference/src/main.c:30
+30	void Error_Handler(void) { bench_error=hsd2.ErrorCode; bench_stage=99; while(1) {} }
+0xbfa0700:	0x001b0046	0x38425018	0x20333157
+STM32 Successfully completed reset operation (System reset)
+[Inferior 1 (Remote target) detached]

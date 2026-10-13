@@ -1,0 +1,17 @@
+main () at /home/lolo/dev/msm/projects/MSM_vibe-M016-sdmmc-reference/experiments/sdmmc_st_reference/src/main.c:123
+123	  while(bench_trigger!=TRIGGER) {}
+0xbfa0700:	0x001b0046	0x38425018	0x20333157
+$1 = 2
+$2 = 2
+$3 = 0x0
+$4 = {0x3534453, 0x44333247, 0x858bf092, 0x3c01927a}
+$5 = 62333952
+$6 = 48000000
+$7 = 24000000
+$8 = 0x14001
+$9 = 0x4000
+$10 = 0x900
+$11 = 0x0
+$12 = {CardType = 1, CardVersion = 1, Class = 1461, RelCardAdd = 43690, BlockNbr = 62333952, BlockSize = 512, LogBlockNbr = 62333952, LogBlockSize = 512, CardSpeed = 512}
+0xe000ed28:	0x00000000	0x00000000
+[Inferior 1 (Remote target) detached]

@@ -1,0 +1,5 @@
+main () at /home/lolo/dev/msm/projects/MSM_vibe-M016-sdmmc-reference/experiments/sdmmc_st_reference/src/main.c:123
+123	  while(bench_trigger!=TRIGGER) {}
+0xbfa0700:	0x001b0046	0x38425018	0x20333157
+STM32 Successfully completed reset operation (System reset)
+[Inferior 1 (Remote target) detached]

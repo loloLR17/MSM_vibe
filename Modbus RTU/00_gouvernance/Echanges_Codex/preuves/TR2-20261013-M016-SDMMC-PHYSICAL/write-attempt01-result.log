@@ -1,0 +1,22 @@
+0x080009e2 in Error_Handler () at /home/lolo/dev/msm/projects/MSM_vibe-M016-sdmmc-reference/experiments/sdmmc_st_reference/src/main.c:30
+30	void Error_Handler(void) { bench_error=hsd2.ErrorCode; bench_stage=99; while(1) {} }
+0xbfa0700:	0x001b0046	0x38425018	0x20333157
+$1 = 99
+$2 = 5
+$3 = 0
+$4 = 0x1002
+$5 = 0x0
+$6 = 0x1002
+$7 = 4294967295
+$8 = {0, 0, 0}
+$9 = {991, 0, 0}
+$10 = {0, 0, 0}
+$11 = 0x900
+$12 = 0x0
+$13 = 0x0
+$14 = 0x1002
+$15 = 0x14001
+$16 = 48000000
+$17 = 24000000
+0xe000ed28:	0x00000000	0x00000000
+[Inferior 1 (Remote target) detached]
