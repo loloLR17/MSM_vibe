@@ -1,0 +1,12 @@
+serial_transport_is_valid (transport=0x2000ecb0 <transport>) at /home/lolo/dev/msm/projects/MSM_vibe-M015-V/Modbus RTU/05_Firmware/src/platform/serial_transport.c:9
+9	           transport->transmit != NULL &&
+FINAL stage=2 result=0 errors=0 gen=12 coop=4 fifo=3 fram=3 crc_before=3022062602 crc_after=3022062602 UART=0 rx=16 tx=2 dropped=0 failsafe=0 head=20 tail=20 busy=0 fault=0 log_refused=0 preclose_overflow=0 core=160000000
+$1 = CONFIGURATION_RECOVERY_UNAVAILABLE
+0xbfa0700:	0x004a003d	0x38425018	0x20333157
+0xe000e100:	0x00000000	0x00020000	0x00000004
+0xe000ed28:	0x00000000	0x00000000
+0x46020ce8:	0x00000010
+0x46002000:	0x00001000	0x00000001	0x10070007	0x87440000
+0x46002010:	0x00000000	0x0000e007
+$2 = "\f\200"
+[Inferior 1 (Remote target) detached]

@@ -1,19 +1,15 @@
 # État courant TR2 — référence reconstruite
 
-Mise à jour : 13 octobre 2026. Mission `TR2-20261013-M015-U-INTEGRATION-TR2-001`.
+Mise à jour : 13 octobre 2026. Mission `TR2-20261013-M015-V-COOPERATIVE-CLOTURE`.
 
 **Ce document est un nouvel état de référence reconstruit à partir de preuves vérifiables. Il n'est pas une restitution du journal historique HP.** Sa création a été explicitement autorisée par l'utilisateur pour la mission `T1000-20261010-CLOTURE-001`, après escalade AGENTS.md §18. Aucun original n'a été retrouvé dans l'historique Git, les répertoires Linux locaux ou les documents Windows accessibles. Les archives d'échanges du 8 octobre mentionnent un journal local HP, sans en fournir le contenu. Aucun état historique inconnu n'est inventé.
 
-## M015-V — première coexistence refusée et correction, 13 octobre 2026
+## État opérationnel actuel — M015-V, 13 octobre 2026
 
-- **FAIL PHYSIQUE / RESTAURÉ** :2386654/SPI4, FIFO512/FULL/OVR avantpremierburst,0XYZ,result7/cleanup0. B0/B1 etUARTpassent,mais pause141ms entrestatuts ;B5journal256slots scannéinutilementpourB0/B1 parcode. M014-H restauré/Flash2MiBexacte/gen12,deuxB0/B1deretour réussis ;journauxcomplets conservés. Aucun8MHz.
-- **VALIDÉ LOGICIEL / PRÉPARÉ REPRISE** :refresh_request sélectifpourB0/B1, sanssnapshotB5 nondemandé ;guardsB5/freshness/withdrawal/CRC/mapping conservés. Tests backendB5 indisponible/refus/reprise et suite125/125+ARM passent. Nouvellecampagne nécessaire surcodecorrigé, pasrejeuacquisU/T. M015 IN PROGRESS ;cumulatif nonencorequalifié.
-
-## État opérationnel actuel — M015-V préparation, 13 octobre 2026
-
-- **VALIDÉ LOGICIEL / PRÉPARÉ PHYSIQUE** :service coopératif de production, Modbus pollé entre bursts128, CPU160/HSI16SPI4/mode3. FenêtresV1 4096/8192/16384/32768 et continuité du parser aux frontières, admission/cleanup stricts ;suite125/125+ARMdéfaut/profil et testtimestamps renforcé réussis. RAM602144 et marges documentées, aucun stockage ou mesureV1 activé.
-- **PRÉSERVÉ / OBSERVÉ AVANT FLASH** :TR2-001 SN003500463235510B37333439/UID004A003D3842501820333157, M014-H exact/gen12/configUNAVAILABLE/NVIC49-66/faults0 ;Flash2MiB doublebackup exactSHA556fedf5…, RAM sauvegardée. Aucun flash/reset/acquisition V encore effectué. SecondeNUCLEO exclue, stashes/worktrees/archivesU conservés.
-- **SUITE** :checkpoint logiciel puis une campagne32768 avecpréfixesV1, B0/B1 pendantacquisition et dernièretranche4096rawcomplète ;CRC/comparaison SPI↔RAM surchaqueburst.4MHz d'abord ;8 seulementsi mesuremarge le justifie. Conserver cumulatif si succès ou retourqualifié M014 sur défautcritique. M015 IN PROGRESS/J3encours/M016nonengagée.
+- **VALIDÉ PHYSIQUE BORNÉ** : code ef468539 sur TR2-001, CPU160/HSI16/SPI3 4MHz/mode3. Une capture continue de32768XYZ+4096TS, préfixes V1 4096/8192/16384/32768 sans reset entre fenêtres ; 304bursts, maxFIFO158/flags0, cleanup0/0C8000. B0/B1 pendant CAPTURING, latences HP54,006/31,815ms, RX16/TX2/drop/erreur0. CRC par burst concordants avec RAM ; dernière4096 SPI/RAM entièrement byte-identique. Quantummax2,916ms contre budgetnominal4,267ms ; aucun besoin démontré de SPI8.
+- **PRÉSERVÉ / CUMULATIF CONSERVÉ** : imageM014+M015 SHA8529630a… chargée, sensor au repos après cleanup, détaché/running. M014-H sauvegardé et retour qualifié lors premier échec. FRAMgen12/candidate actif byte-identique, CRC intégral égal avant/après ; SD non initialisée, aucune écriture. IRQ49/66 actives et faults0. SecondeNUCLEO exclue, worktrees/stashes inchangés.
+- **VALIDÉ LOGICIEL / PUBLICATION** : 125/125+ARMdéfaut et cumulatif4 après correction de la préparationB0/B1, pas de scan B5 non demandé. Premier essai2386654 refusé FULL/OVR avantpremierburst après pause141ms ; M014-H restauré et B0/B1 de retour passés. Cause opérationnelle étayée par différentiel corrigé, historique et deux tentatives conservés séparément. Rapport/proofs/journal/roadmap en clôture distante ; aucun blocage technique.
+- **PORTÉE / SUITE** : acquisitionphysiqueM015 satisfaite dans la portée bornée de la roadmap ; J3 reste EN COURS, M016–M020 non réalisées. Pas de preuve de perteglobalezéro/endurance/calibration, de coexistence B5 ou de SPIraw intégral32768. READY RAM n'est pas B1 READY ; configurationUNAVAILABLE/stockageOFF. ContrôleRAM de qualification, pas campagneV1 autonome. Pause méthodologique ST/HAL/I/Opersistantes puis futur auditSDMMC4bits à contractualiser. Revue indépendante ChatGPT attendue ; DERNIER_RAPPORT détaille les preuves et limites.
 
 ## État opérationnel antérieur — M015-U, 13 octobre 2026
 

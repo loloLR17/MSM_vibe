@@ -1,0 +1,17 @@
+0x080200c2 in serial_transport_is_valid (transport=0x2000ecb0 <transport>) at /home/lolo/dev/msm/projects/MSM_vibe-M015-V/Modbus RTU/05_Firmware/src/platform/serial_transport.c:11
+11	}
+0xbfa0700:	0x004a003d	0x38425018	0x20333157
+$1 = 2
+$2 = 0
+$3 = {status = TRANSACTIONAL_IMAGE_RECOVERY_VALID, generation = 12, active_image = 1 '\001'}
+$4 = {ctx = {write_reg = 0x80108f3 <platform_write>, read_reg = 0x80108c5 <platform_read>, mdelay = 0x8008235 <HAL_Delay>, handle = 0x200003d0 <hspi3>, priv_data = 0x0}, clock = {tick = 0x8008221 <HAL_GetTick>, delay = 0x8008235 <HAL_Delay>, stop = 0x8010559 <stop>, cleanup_begin = 0x8010541 <cleanup_begin>}, window = {target_xyz = 32768, received = 0, xyz = 0, timestamps = 0, polls = 0, bursts = 0, first_tick = 0, last_tick = 0, max_level = 0, last_level = 0, flags_or = 0, reason = 0, previous_counter = 0, counter_valid = 0, previous_ts = 0, ts_valid = 0, since_ts = 0}, words = 0x200517bc <official_words> "TR2M", capacity = 36864, state = 1, phase = 8, next_tick = 3692, reset_tick = 3692, result = 0, cleanup_result = 0, who = 123 '{', cleanup = "\000\000"}
+$5 = 1
+$6 = 1
+$7 = false
+$8 = 0
+0xe000e100:	0x00000000	0x00020000	0x00000004
+0xe000ed28:	0x00000000	0x00000000
+0x46020ce8:	0x00000010
+0x46002000:	0x00001000	0x00000001	0x10070007	0x87420000
+0x46002010:	0x00000000	0x00000002
+[Inferior 1 (Remote target) detached]

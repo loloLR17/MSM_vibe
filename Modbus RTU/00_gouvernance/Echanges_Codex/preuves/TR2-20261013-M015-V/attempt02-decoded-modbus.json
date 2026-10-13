@@ -1,0 +1,24 @@
+[
+  {
+    "tick": 13699,
+    "state": 2,
+    "xyz": 0,
+    "address": 0,
+    "count": 21,
+    "rx_bytes": 8,
+    "tx_count": 1,
+    "tx_complete_tick": 13704,
+    "service_to_observed_TC_ms": 5
+  },
+  {
+    "tick": 13766,
+    "state": 2,
+    "xyz": 1479,
+    "address": 1000,
+    "count": 20,
+    "rx_bytes": 16,
+    "tx_count": 2,
+    "tx_complete_tick": 13771,
+    "service_to_observed_TC_ms": 5
+  }
+]

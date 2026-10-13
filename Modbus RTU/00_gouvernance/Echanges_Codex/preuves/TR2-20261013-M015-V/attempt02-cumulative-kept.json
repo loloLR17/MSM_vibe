@@ -1,0 +1,9 @@
+{
+  "code_sha": "ef468539b9943cc9b9b4d832e513a0f8ab05c7ae",
+  "profile": "SPI4_COOPERATIVE",
+  "binary_sha256": "8529630a5a6c9aaa2449fde512b06d6ca16a89a08b7afea2abc9ecca3b75d480",
+  "no_reset_after_capture": true,
+  "M014_H_backup_verified": true,
+  "active_persistent_domain_byte_identical": true,
+  "native_gate_passed": true
+}

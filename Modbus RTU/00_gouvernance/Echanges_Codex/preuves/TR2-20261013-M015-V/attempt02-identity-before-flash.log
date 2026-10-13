@@ -1,0 +1,4 @@
+0x0800c814 in stm32_production_server_run () at /home/lolo/dev/msm/projects/MSM_vibe-M014-H/Modbus RTU/05_Firmware/platform/stm32/stm32_production_board.c:194
+194	        if(result!=TR2_OK)++tr2_production_poll_errors;
+0xbfa0700:	0x004a003d	0x38425018	0x20333157
+[Inferior 1 (Remote target) detached]

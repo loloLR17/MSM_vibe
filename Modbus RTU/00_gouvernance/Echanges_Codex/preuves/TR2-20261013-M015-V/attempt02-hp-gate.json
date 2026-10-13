@@ -1,0 +1,7 @@
+{
+  "utc": "2026-10-13T11:34:33.616951+00:00",
+  "maximum_requests": 2,
+  "retries": 0,
+  "debuggers_closed": true,
+  "acquisition_armed_on_next_rx": true
+}

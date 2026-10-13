@@ -1,0 +1,4 @@
+0x08012ed8 in modbus_system_server_poll_once (server=0x2000ecc0 <server>) at /home/lolo/dev/msm/projects/MSM_vibe-M015-V/Modbus RTU/05_Firmware/src/application/modbus_system_server.c:171
+171	    if (server == NULL || !server->initialized || !server->started) {
+0xbfa0700:	0x004a003d	0x38425018	0x20333157
+[Inferior 1 (Remote target) detached]

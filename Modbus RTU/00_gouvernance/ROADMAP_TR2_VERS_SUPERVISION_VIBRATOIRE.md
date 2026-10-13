@@ -6,6 +6,12 @@
 
 > Cette roadmap pilote les jalons, sans modifier les spécifications Modbus RTU V1 gelées. Les statuts sont ceux du 11 octobre 2026, à actualiser après contrôle indépendant des rapports Codex. Une implémentation logicielle ne vaut pas qualification physique.
 
+## Actualisation M015-V — 13 octobre 2026
+
+**Acquisition M015 qualifiée dans la portée physique bornée ; publication finale en vérification.** TR2-001 sur firmware cumulatif M014+M015 conservé à SPI4/CPU160. Une capture32768XYZ+4096TS démontre les préfixes V1 4096/8192/16384/32768 et la continuité sans reset entre frontières. B0/B1 simultanés, UART et guards sains, maxFIFO158, cleanup conforme. Quantummax2,916ms/budgetnominal4,267ms ; aucun8MHz nécessaire. Correction du scan FRAM B5 non demandé confirmée par campagne différentielle ; premier échec conservé séparément.
+
+RAM complète et CRC304bursts concordants, brutsSPI intégralement reconstruits pour dernière4096 seulement. FRAMgen12/candidate actif préservés, SD non accédée ; M014-H backup vérifié. Pas endurance/perteglobalezéro/calibration/FFT/stockage, aucune vibration publiée en V1, coexistenceB5 nonqualifiée. **J3 reste en cours, M016–M020 restent à faire.** Acquisition RAM de qualification bornée, pas campagne autonomeV1. Pause méthodologique sur driversST et coûtHAL/I/O, futur auditSDMMC4bits sous contrat, non lancé. Revue indépendante ChatGPT attendue.
+
 ## Actualisation M015-U — 13 octobre 2026
 
 Fenêtrephysique4096XYZ+512timestamps qualifiée surTR2-001 original àCPU160/HSI16SPI4/mode3, guards etcleanupconformes,bruts reconstruits identiques. Firmwareprincipal contient désormaisprofilRAMOFF/exclusif ;M014-Hrestauréexactement,FRAMgen12/SDpréservées,B0/B1HPpassés,journalentier vérifié. M015resteINPROGRESS pour servicecoopératif/coexistencesimultanée ;J3encours,M016–M020nonengagées. Pasperteglobalezéro,endurance,32768,calibration,FFToustockage qualifiés. RevueChatGPTetcontratsuivantavantactivationV1,aucuneécrituremédia.
@@ -51,7 +57,7 @@ Capteur de vibrations → acquisition et traitement STM32U575 → registres Modb
 | **M012** | Intégrer le serveur Modbus RTU et le TX RS-485 avec commande DE sûre | EN COURS | Selon résultats Codex | Chemin de réponse implémenté et testé ; qualification physique explicitement distinguée |
 | **M013** | Qualifier le dialogue Modbus physique complet | ACQUIS BORNÉS / RÉSERVES | 2–3 sous-missions | Lecture répétable de registres STM32 par maître PC ; CRC, exceptions, turnaround et absence de contention vérifiés |
 | **M014** | Connecter la supervision au TR2 physique | DONE — PORTÉE B0/B1/PERTE-REPRISE | 2–3 | Lecture périodique des blocs système, déconnexion et reprise correctement traitées |
-| **M015** | Qualifier la chaîne d'acquisition vibratoire | IN PROGRESS — M015-A ACQUISITION BORNÉE | 3–5 | Acquisition physique démontrée ou blocages matériels précisément identifiés |
+| **M015** | Qualifier la chaîne d'acquisition vibratoire | ACQUIS BORNÉS M015-V — CLÔTURE DISTANTE EN COURS | 3–5 | Acquisition physique démontrée ou blocages matériels précisément identifiés |
 | **M016** | Traiter et publier les mesures vibratoires dans les registres V1 | À FAIRE | 2–4 | Valeurs réelles cohérentes, unités, échelles et validité vérifiées dans le mapping gelé |
 | **M017** | Lire les vibrations de bout en bout via Modbus | À FAIRE | 2 | Variation physique retrouvée correctement dans les valeurs lues par le PC |
 | **M018** | Intégrer les mesures dans le service PC et SQLite | À FAIRE | 2–3 | Décodage, horodatage, persistance et gestion des données invalides opérationnels |

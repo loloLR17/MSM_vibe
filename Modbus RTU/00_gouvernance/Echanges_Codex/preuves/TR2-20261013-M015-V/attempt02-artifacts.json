@@ -1,0 +1,18 @@
+{
+  "source_head": "ef468539b9943cc9b9b4d832e513a0f8ab05c7ae",
+  "profile": "CPU160_HSI16_SPI4_PRODUCTION_COOPERATIVE_REFRESH_FIXED",
+  "artifacts": {
+    "tr2_stm32_p11c.elf": {
+      "size": 1533948,
+      "sha256": "0eb4e3b00a305905a0ac5002b5ef9041ae1ddb56911fba9b5c122c0c5b885f6a"
+    },
+    "tr2_stm32_p11c.bin": {
+      "size": 169380,
+      "sha256": "8529630a5a6c9aaa2449fde512b06d6ca16a89a08b7afea2abc9ecca3b75d480"
+    },
+    "tr2_stm32_p11c.map": {
+      "size": 680169,
+      "sha256": "3f2dff08f734eb2db4380fb877b17c5df8bc3f085e14f5a7241740b8a71cc10d"
+    }
+  }
+}
