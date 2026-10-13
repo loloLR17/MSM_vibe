@@ -26,7 +26,7 @@
 
 ## 4. Prochaine étape
 
-1. Finaliser la consolidation documentaire **A-02** ; appliquer les règles A-01 (fiche de qualification et tag uniquement après revue indépendante).
+1. **A-02 achevée** et **A-03 harmonisée** ; réaliser la revue indépendante A-01 de M015 (fiche et tag uniquement si les preuves le permettent).
 2. Auditer avant M016 la **configuration STM32 cumulative reproductible**, les budgets temporels FIFO/Modbus/FRAM/SD, les drivers officiels ST et la couverture fonctionnelle des tests (**A-04/A-05**). Corriger uniquement les risques significatifs selon A-06.
 3. Reprendre **M016** : traitements et publication des vibrations dans le mapping Modbus V1 gelé, puis M017–M020 selon la roadmap.
 
