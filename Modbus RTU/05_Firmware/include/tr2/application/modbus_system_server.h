@@ -20,6 +20,12 @@ typedef struct {
     /* Optional live producer; NULL preserves externally owned projection policy.
      * Invoked only while B1 authority is available, before response copy. */
     Tr2Result (*refresh_status)(SystemRuntime *runtime);
+    /* Optional single-loop admission guard for synchronous command-journal I/O.
+     * false withdraws B5 reads/writes before snapshot or mailbox mutation, using
+     * the existing PDU exception 04. NULL retains normal access. Boot validation
+     * remains complete; no cached B5 or deferred/acknowledged command is created. */
+    void *command_io_context;
+    bool (*command_io_available)(void *context);
 } ModbusSystemServerBinding;
 
 typedef struct {
@@ -31,6 +37,8 @@ typedef struct {
     ModbusBlock4Image b4;
     ModbusBlock5Image b5;
     ModbusBlock7Image b7;
+    uint32_t command_io_denied_requests;
+    uint32_t command_snapshot_failures;
     bool initialized;
     bool started;
 } ModbusSystemServer;

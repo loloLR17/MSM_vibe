@@ -59,3 +59,12 @@ void fifo_cooperative_poll(FifoCooperative *c)
   }
  }
 }
+
+bool fifo_cooperative_command_io_available(const FifoCooperative *c,bool capture_pending)
+{
+ if(!c)return false;
+ if(c->state==COOP_ARMED)return !capture_pending;
+ if(c->state!=COOP_READY && c->state!=COOP_INVALID)return false;
+ return c->cleanup_result==BENCH_OK && c->phase>=6 &&
+  !(c->cleanup[0]&0xE0) && !(c->cleanup[1]&7) && !(c->cleanup[2]&0x20);
+}

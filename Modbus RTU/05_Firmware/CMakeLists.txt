@@ -358,3 +358,9 @@ target_include_directories(test_fifo_cooperative PRIVATE ${ST_REF}/src ${ST_REF}
 target_compile_definitions(test_fifo_cooperative PRIVATE BENCH_WINDOW_MAX_WORDS=36864)
 target_compile_options(test_fifo_cooperative PRIVATE -Wall -Wextra -Werror -UNDEBUG)
 add_test(NAME fifo_cooperative_v1_windows_and_faults COMMAND test_fifo_cooperative)
+
+# A04-02: real RTU/command journal + cooperative FIFO with explicit I/O costs.
+tr2_add_host_test(test_modbus_fifo_io_budget tests/integration/test_modbus_fifo_io_budget.c modbus_fifo_io_budget)
+target_sources(test_modbus_fifo_io_budget PRIVATE ${ST_REF}/src/fifo_cooperative.c ${ST_REF}/src/fifo_window.c ${ST_REF}/vendor/st/iis3dwb_reg.c)
+target_include_directories(test_modbus_fifo_io_budget PRIVATE ${ST_REF}/src ${ST_REF}/vendor/st)
+target_compile_definitions(test_modbus_fifo_io_budget PRIVATE BENCH_WINDOW_MAX_WORDS=36864)

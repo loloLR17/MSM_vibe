@@ -77,3 +77,15 @@ another ELF. Standard Flash address remains the linker origin `0x08000000`;
 this document supplies no new flash command or permission. A filename/profile
 is a selection guard, not an authorization or physical proof. A04-01 performs
 software builds only; it neither flashes nor observes the connected STM32.
+
+## A04-02 — synchronous FRAM command admission
+
+In the cumulative profile, a mapped B5 read/write is unavailable (existing
+Modbus exception04) while capture is pending/configuring/running or cleanup is
+not verified. No mailbox mutation, deferred command or success ACK occurs.
+After verified cleanup, each B5 response is freshly projected from the actual
+journal; media faults withdraw the view and writes instead of exposing a stale
+image. Boot validation still fails on missing command authority. Reads of other
+blocks do not scan B5. Transactional storage/retry/recovery are unchanged.
+This is a bounded qualification policy, not the future M016 business acquisition
+scheduler; synchronous boot and post-cleanup I/O remain to be budgeted separately.

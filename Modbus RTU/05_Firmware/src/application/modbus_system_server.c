@@ -2,7 +2,8 @@
 
 #include "tr2/application/modbus_system_server.h"
 
-static Tr2Result refresh_context_selected(void *context, bool include_commands)
+static Tr2Result refresh_context_selected(void *context, bool include_commands,
+                                           bool request_context)
 {
     ModbusSystemServer *server = context;
     SystemRuntime *runtime = server->binding.runtime;
@@ -67,14 +68,19 @@ static Tr2Result refresh_context_selected(void *context, bool include_commands)
             : command_engine_snapshot(&runtime->command_engine, &snapshot);
         if (snapshot_result != TR2_OK ||
             modbus_project_b5(&projection, &server->b5) != TR2_OK) {
-            return TR2_ERROR_INTERNAL;
-        }
-        sources->b5_image = &server->b5;
-        /* Never acknowledge a B5 write whose submission would be discarded. */
-        if (server->binding.command_submit != NULL) {
-            pdu->command_mailbox = &runtime->command_mailbox;
-            pdu->command_submit = server->binding.command_submit;
-            pdu->command_submit_context = server->binding.command_submit_context;
+            ++server->command_snapshot_failures;
+            /* Initialization/start remain fail-fast. At request time, the
+             * freshly cleared context exposes no stale B5 or write authority:
+             * the existing read/write adapters return exception 04. */
+            if (!request_context) return TR2_ERROR_INTERNAL;
+        } else {
+            sources->b5_image = &server->b5;
+            /* Never acknowledge a B5 write whose submission would be discarded. */
+            if (server->binding.command_submit != NULL) {
+                pdu->command_mailbox = &runtime->command_mailbox;
+                pdu->command_submit = server->binding.command_submit;
+                pdu->command_submit_context = server->binding.command_submit_context;
+            }
         }
     }
     if (runtime->b6_image_available &&
@@ -93,28 +99,44 @@ static Tr2Result refresh_context_selected(void *context, bool include_commands)
 /* Initial binding/start still validate the complete context. */
 static Tr2Result refresh_context(void *context)
 {
-    return refresh_context_selected(context, true);
+    return refresh_context_selected(context, true, false);
 }
 
-static bool system_read_only(const ModbusRtuAduView *request)
+static bool request_targets_b5(const ModbusRtuAduView *request)
 {
-    if (request == NULL || request->pdu_length != 5u ||
-        request->pdu[0] != MODBUS_PDU_FC_READ_HOLDING_REGISTERS) return false;
-    const uint16_t first = (uint16_t)((uint16_t)request->pdu[1] << 8u | request->pdu[2]);
-    const uint16_t count = (uint16_t)((uint16_t)request->pdu[3] << 8u | request->pdu[4]);
-    if (count == 0u || !modbus_register_model_range_exists(first, count)) return false;
-    const ModbusRegisterDescriptor *a = modbus_register_model_find(first);
-    const ModbusRegisterDescriptor *b = modbus_register_model_find((uint16_t)(first + count - 1u));
-    return a != NULL && b != NULL && a->block == b->block &&
-        (a->block == MODBUS_BLOCK_0 || a->block == MODBUS_BLOCK_1);
+    if (request == NULL || request->pdu_length < 5u) return false;
+    const uint8_t *pdu = request->pdu;
+    const uint16_t first = (uint16_t)((uint16_t)pdu[1] << 8u | pdu[2]);
+    const uint16_t count = (uint16_t)((uint16_t)pdu[3] << 8u | pdu[4]);
+    if (pdu[0] == MODBUS_PDU_FC_READ_HOLDING_REGISTERS) {
+        if (request->pdu_length != 5u || count == 0u || count > 125u ||
+            modbus_register_model_validate_read(first, count) != MODBUS_ACCESS_OK)
+            return false;
+    } else if (pdu[0] == MODBUS_PDU_FC_WRITE_MULTIPLE_REGISTERS) {
+        if (count == 0u || count > 123u || request->pdu_length < 6u ||
+            pdu[5] != (size_t)count * 2u ||
+            request->pdu_length != 6u + (size_t)count * 2u ||
+            modbus_register_model_validate_write(first, count) != MODBUS_ACCESS_OK)
+            return false;
+    } else {
+        return false;
+    }
+    const ModbusRegisterDescriptor *descriptor = modbus_register_model_find(first);
+    return descriptor != NULL && descriptor->block == MODBUS_BLOCK_5;
 }
 
 static Tr2Result refresh_request(void *context, const ModbusRtuAduView *request)
 {
-    /* A B0/B1 read has no B5 payload. Avoid scanning the persistent command
-     * journal for an unrelated block; requested B5 retains its exact guards.
-     * Live status, withdrawal, CRC/address gate and mapping stay unchanged. */
-    return refresh_context_selected(context, !system_read_only(request));
+    ModbusSystemServer *server = context;
+    /* Only a mapped, structurally valid B5 request can need its journal.
+     * The PDU server retains all address/function/value validation and performs
+     * no B5 mailbox mutation when the synchronous I/O authority is withdrawn. */
+    const bool targets_b5 = request_targets_b5(request);
+    const bool include_commands = targets_b5 &&
+        (server->binding.command_io_available == NULL ||
+         server->binding.command_io_available(server->binding.command_io_context));
+    if (targets_b5 && !include_commands) ++server->command_io_denied_requests;
+    return refresh_context_selected(context, include_commands, true);
 }
 
 Tr2Result modbus_system_server_init(ModbusSystemServer *server,

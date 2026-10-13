@@ -332,11 +332,43 @@ int main(void)
     load(&serial, 17u, read_full_b1, sizeof(read_full_b1), false);
     assert(run(&server, &serial) == TR2_OK && snapshot_calls == 0u);
     assert(runtime.b1_image.registers[5] == platform.monotonic_ms / UINT64_C(1000));
+    /* B3 is independently available/withdrawn; never derive it from B5. */
+    const uint8_t read_b3[] = {3u, 0x0Bu, 0xC6u, 0u, 2u};
+    runtime.b3_image_available = true;
+    /* Explicit host supervision fixture, with the real generation guard. */
+    runtime.supervision_service.has_snapshot = true;
+    runtime.supervision_service.snapshot.values_available = true;
+    runtime.supervision_service.snapshot.calculation_sequence = 1u;
+    runtime.supervision_service.snapshot.rms_global_mg = 0x12345678u;
+    assert(modbus_project_b3(&runtime.supervision_service.snapshot, &runtime.b3_image) == TR2_OK);
+    load(&serial, 17u, read_b3, sizeof(read_b3), false);
+    assert(run(&server, &serial) == TR2_OK && snapshot_calls == 0u);
+    view = response(&serial);
+    assert(view.pdu[2] == 0x12u && view.pdu[5] == 0x78u);
+    runtime.supervision_service.snapshot.calculation_sequence = 2u;
+    runtime.supervision_service.snapshot.rms_global_mg = 0x12349ABCu;
+    assert(modbus_project_b3(&runtime.supervision_service.snapshot, &runtime.b3_image) == TR2_OK);
+    load(&serial, 17u, read_b3, sizeof(read_b3), false);
+    assert(run(&server, &serial) == TR2_OK && snapshot_calls == 0u);
+    assert(response(&serial).pdu[5] == 0xBCu);
+    assert(server.b3.source_calculation_sequence == 2u);
+    ++runtime.supervision_service.snapshot.calculation_sequence; /* stale image withdrawn */
+    load(&serial, 17u, read_b3, sizeof(read_b3), false);
+    assert(run(&server, &serial) == TR2_OK && snapshot_calls == 0u);
+    exception(&serial, 3u, MODBUS_PDU_EXCEPTION_SLAVE_DEVICE_FAILURE);
+    runtime.b3_image_available = false;
+    runtime.supervision_service.has_snapshot = false;
+    load(&serial, 17u, read_b3, sizeof(read_b3), false);
+    assert(run(&server, &serial) == TR2_OK && snapshot_calls == 0u);
+    exception(&serial, 3u, MODBUS_PDU_EXCEPTION_SLAVE_DEVICE_FAILURE);
     const uint8_t read_b5_guard[] = {3u, 0x13u, 0x88u, 0u, 1u};
     before = serial.tx_calls;
     load(&serial, 17u, read_b5_guard, sizeof(read_b5_guard), false);
-    assert(run(&server, &serial) == TR2_ERROR_INTERNAL && snapshot_calls == 1u);
-    assert(serial.tx_calls == before); /* Never expose a stale B5 after failure. */
+    assert(run(&server, &serial) == TR2_OK && snapshot_calls == 1u);
+    assert(serial.tx_calls == before + 1u);
+    exception(&serial, 3u, MODBUS_PDU_EXCEPTION_SLAVE_DEVICE_FAILURE);
+    assert(server.rtu.pdu_context.read_sources.b5_image == NULL);
+    assert(server.rtu.pdu_context.command_mailbox == NULL); /* No stale view or write. */
     snapshot_fails = false;
     load(&serial, 17u, read_b5_guard, sizeof(read_b5_guard), false);
     assert(run(&server, &serial) == TR2_OK && snapshot_calls == 2u);

@@ -182,6 +182,7 @@ __attribute__((noreturn)) void stm32_production_server_run(void)
     tr2_production_stage=2;
 #if TR2_STM32_FIFO_COOPERATIVE
     stm32_fifo_cooperative_prepare(sensor_spi,fram_spi);
+    server.binding.command_io_available=stm32_fifo_cooperative_command_io_available;
 #endif
     for(;;){
         tick=HAL_GetTick();
@@ -198,6 +199,7 @@ __attribute__((noreturn)) void stm32_production_server_run(void)
 #endif
         (void)tick;tr2_production_stage=2;
 #if TR2_STM32_FIFO_COOPERATIVE
+        const uint32_t before_modbus_cycles=DWT->CYCCNT;
         const uint32_t before_t3_5=tr2_irq_observer.t3_5_polled;
         const size_t frame_length=server.rtu.receiver.length;
         const ModbusRtuReceiverState receiver_state=server.rtu.receiver.state;
@@ -205,6 +207,8 @@ __attribute__((noreturn)) void stm32_production_server_run(void)
         result=modbus_system_server_poll_once(&server);++tr2_production_poll_count;
         if(result!=TR2_OK)++tr2_production_poll_errors;
 #if TR2_STM32_FIFO_COOPERATIVE
+        stm32_fifo_cooperative_observe_service(DWT->CYCCNT-before_modbus_cycles,
+            server.command_io_denied_requests,server.command_snapshot_failures);
         /* Passive observer uses the existing decoded-frame boundary, without
          * replacing production prepare/binding callbacks or their authority. */
         if(before_t3_5!=tr2_irq_observer.t3_5_polled &&
