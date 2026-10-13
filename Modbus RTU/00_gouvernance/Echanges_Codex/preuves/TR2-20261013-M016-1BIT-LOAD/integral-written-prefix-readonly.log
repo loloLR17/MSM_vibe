@@ -1,0 +1,33 @@
+main () at /home/lolo/dev/msm/projects/MSM_vibe-M016-1bit-load-only/experiments/sdmmc_st_reference/src/load_main.c:207
+207	  while(1) {} /* No rerun, retry, erase, repair or automatic boot write. */
+0xbfa0700:	0x001b0046	0x38425018	0x20333157
+$1 = 99
+$2 = 3
+$3 = 1310720
+Note: automatically using hardware breakpoints for read-only addresses.
+READ_CHUNK 0 result=1
+READ_CHUNK 1 result=1
+READ_CHUNK 2 result=1
+READ_CHUNK 3 result=1
+READ_CHUNK 4 result=1
+READ_CHUNK 5 result=1
+READ_CHUNK 6 result=1
+READ_CHUNK 7 result=1
+READ_CHUNK 8 result=1
+READ_CHUNK 9 result=1
+READ_CHUNK 10 result=1
+READ_CHUNK 11 result=1
+READ_CHUNK 12 result=1
+READ_CHUNK 13 result=1
+READ_CHUNK 14 result=1
+READ_CHUNK 15 result=1
+READ_CHUNK 16 result=1
+READ_CHUNK 17 result=1
+READ_CHUNK 18 result=1
+READ_CHUNK 19 result=1
+$4 = 99
+$5 = 3
+$6 = 0x0
+$7 = 0x900
+0xe000ed28:	0x00000000	0x00000000
+[Inferior 1 (Remote target) detached]

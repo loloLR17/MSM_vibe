@@ -27,3 +27,7 @@ cmake --build /home/lolo/dev/msm/reports/M016-1bit-load-build -j4
 ```
 
 Pas de garantie7jours, checkpoint/powerloss, fonctionnementcapteur, coexistence ou capacité disponible du runtime. Clock calculée depuis registres, pas mesureoscilloscope. Test10minutes + intégritéintégrale constituent uniquement preuve bornée du banc à ce débit/tampon/carte.
+
+## Arrêt anticipé et intégrité du préfixe
+
+En cas d'échec de charge, `campaign()` retourne avant sa vérification automatique. Un `load_verified=0` et un `load_mismatches=0` ne démontrent alors aucune intégrité. Pour le seul RUN du 13/10/2026, tous les octets effectivement écrits ont été vérifiés par une continuation en lecture seule, sans reset ni retry : appels à `transfer(0, rx, lba, 65536)`, dumps puis comparaison Python octet par octet. Les compteurs embarqués sont conservés ; les résultats externes sont publiés séparément dans `integral-prefix-verification.json`, avec le script `m016_load_verify_prefix.py`, les vingt lectures et leurs empreintes. Voir le [rapport](../../Modbus%20RTU/00_gouvernance/Echanges_Codex/DERNIER_RAPPORT.md). Cette vérification du préfixe ne valide pas les 600 secondes. Aucune répétition de charge n'est implicite.

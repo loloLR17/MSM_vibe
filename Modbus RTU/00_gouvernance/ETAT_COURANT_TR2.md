@@ -1,6 +1,6 @@
 # État courant MSM TR2 — synthèse opérationnelle
 
-**Actualisation :** 13 octobre 2026, mission GPIO DAT1/DAT2/DAT3 achevée : mesures DC rapportées conformes, second banc laissé tout-bas sans microSD. Stockage et SDMMC4bits restent non qualifiés. **Source de vérité :** branche `main` de `loloLR17/MSM_vibe`.
+**Actualisation :** 14 octobre 2026 (résultats UTC du 13/10), essai unique M016 LOAD-ONLY échoué par débordement après 4,164454 s ; préfixe écrit intégralement relu conforme. Second banc en firmware SD sûr 1 bit, carte de test insérée. Stockage V1 et SDMMC 4 bits restent non qualifiés. **Source de vérité :** branche `main` de `loloLR17/MSM_vibe`.
 
 > Ce document est une synthèse opérationnelle, non un journal d'essais. Le document intégral antérieur est conservé **sans modification** dans [Archives/ETAT_COURANT_TR2_AVANT_A02_20261013.md](Archives/ETAT_COURANT_TR2_AVANT_A02_20261013.md). Il s'agit d'un état reconstruit à partir des preuves disponibles, et non d'une restitution du journal HP historique introuvable.
 
@@ -77,7 +77,9 @@ ChatGPT a qualifié A04-01 (logiciel) et A04-02 (logiciel + essai physique born�
 
 - Mission GPIO clôturée **DONE dans sa portée statique**, après publication et relecture distante des résultats ; contrôle indépendant ChatGPT à réaliser. Ce statut ne clôture pas le diagnostic dynamique SDMMC4bits.
 
-## M016 — 1 bit LOAD-ONLY, checkpoint préalable
+## M016 — 1 bit LOAD-ONLY, résultat du seul essai
 
-- TransitionGPIO sécuriséesecondecarte : SDretirée avantflash confirméuser, firmwarec6c56b6 vérifié, PB15/3/4INPUT etPOWERoff, puisréinsertionhorsalimentation confirmée. Aucunimpactprincipal/FRAM/Modbus.
-- PréflightINITunique : CIDtest32Go attendu,62333952secteurs512, carte/contrôleur1bit, CLKCR8/kernel160MHz=10MHz ; ready/error0. Scénario600s/426672B/s/queue512KiB/chunks64KiB etintégritéintégrale préparé ; pasencorechargephysique àcecheckpoint. INTERRUPTIONutilisateur avantRUN, aucunevalidationréussierépétée.
+- **PRÉPARÉ / VALIDÉ LOGICIEL** : profil ST indépendant code `c6c56b63e02cb78f176f278195dc114a6b7cbe76`, BIN SHA-256 `2639dee58fd27da7471c513336a29bcc7493ff92a51c65b5fb9a02ac087791f1`, cross-build réussi. Arrivée 426672 B/s, ring réel 512 KiB, chunks 64 KiB, cible 600 s ; HAL officiel inchangé. Transition sûre GPIO→SD avec retrait avant flash puis insertion hors alimentation confirmés par l'utilisateur, readback Flash conforme, PB15/3/4 INPUT. Carte et contrôleur 1 bit, kernel 160 MHz/div8=10 MHz selon registres.
+- **OBSERVÉ PHYSIQUE, ÉCHEC CHARGE** : un seul RUN du 13/10 à 22:02:59 UTC, arrêt après 4,164454 s sur ring overflow (`stage99/error3`). Générés1769888, acceptés1769472, écrits1310720 octets ; pertes416, encore458752 en SRAM. Débit utile314739,94 B/s, backlogmax524288 ; vingt latences, P95 285,588 ms, P99/max323,973 ms. HAL/DMA/CMD/faults0. Dix minutes non validées ; cause détaillée de lenteur non isolée, aucun correctif spéculatif ni second RUN.
+- **INTÉGRITÉ PRÉFIXE OBSERVÉE** : vingt lectures de 64 KiB de LBA2048..4607, continuation du même essai sans reset/write/retry, comparaison Python de tous les1310720 octets : zéro différence, hashes par chunk publiés. Compteur embarqué verified0 conservé (branche erreur), résultat externe distingué. Pas de qualification runtime, stockage V1, coexistence ou sept jours.
+- **ÉTAT LAISSÉ / SUITE** : seconde SN0032001F3235510C37333439/UID001B00463842501820333157, CID03534453/44333247/858BF092/3C01927A, carte de test insérée ; firmware SD sûr au terminal99, producteur arrêté, aucun autowrite, GDB détaché, R1=900/HALerror0. Principal/FRAM/Modbus non accédés, worktrees/stashes préservés. Nouvelle mission nécessaire pour attribuer le déficit de débit et corriger une cause démontrée ; ne pas augmenter aveuglément le tampon. [Rapport et preuves](Echanges_Codex/DERNIER_RAPPORT.md) préparés pour publication et contrôle indépendant ; résultat technique en échec, statut final FAILED après relecture distante.

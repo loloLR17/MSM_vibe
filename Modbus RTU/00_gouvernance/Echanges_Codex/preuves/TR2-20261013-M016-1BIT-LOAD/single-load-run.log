@@ -1,0 +1,47 @@
+main () at /home/lolo/dev/msm/projects/MSM_vibe-M016-1bit-load-only/experiments/sdmmc_st_reference/src/load_main.c:205
+205	  while(load_trigger!=RUN_KEY) {} load_trigger=0;
+0xbfa0700:	0x001b0046	0x38425018	0x20333157
+$1 = 2
+$2 = 0
+Hardware assisted breakpoint 1 at 0x8001666: file /home/lolo/dev/msm/projects/MSM_vibe-M016-1bit-load-only/experiments/sdmmc_st_reference/src/load_main.c, line 207.
+
+Breakpoint 1, main () at /home/lolo/dev/msm/projects/MSM_vibe-M016-1bit-load-only/experiments/sdmmc_st_reference/src/load_main.c:207
+207	  while(1) {} /* No rerun, retry, erase, repair or automatic boot write. */
+METRIC load_stage=99
+METRIC load_error=3
+METRIC load_phase=1
+METRIC load_transfer_phase=4
+METRIC load_generated=1769888
+METRIC load_produced=1769472
+METRIC load_consumed=1310720
+METRIC load_backlog_max=524288
+METRIC load_overflow=1
+METRIC load_lost=416
+METRIC load_producer_done=0
+METRIC load_written=1310720
+METRIC load_written_logical=1310720
+METRIC load_verified=0
+METRIC load_verified_logical=0
+METRIC load_write_chunks=20
+METRIC load_read_chunks=0
+METRIC load_mismatches=0
+METRIC load_first_mismatch=4294967295
+METRIC load_first_io_error=0
+METRIC load_first_cmd_error=0
+METRIC load_max_producer_gap_us=1000
+METRIC load_generation_us=0
+METRIC load_write_elapsed_us=4164454
+METRIC load_verify_elapsed_us=0
+METRIC load_clock_hz=10000000
+METRIC load_kernel_hz=160000000
+METRIC load_clkcr=8
+METRIC load_bus_card=0
+METRIC load_blocks=62333952
+METRIC load_dma_error=0
+METRIC load_hal_return=0
+METRIC load_last_r1=2304
+METRIC load_cmd_error=0
+$3 = 0x0
+$4 = {0x3534453, 0x44333247, 0x858bf092, 0x3c01927a}
+0xe000ed28:	0x00000000	0x00000000
+[Inferior 1 (Remote target) detached]
