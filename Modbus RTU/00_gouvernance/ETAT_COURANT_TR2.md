@@ -4,7 +4,13 @@ Mise à jour : 13 octobre 2026. Mission `TR2-20261013-M015-S-SPI-FREQUENCY-SWEEP
 
 **Ce document est un nouvel état de référence reconstruit à partir de preuves vérifiables. Il n'est pas une restitution du journal historique HP.** Sa création a été explicitement autorisée par l'utilisateur pour la mission `T1000-20261010-CLOTURE-001`, après escalade AGENTS.md §18. Aucun original n'a été retrouvé dans l'historique Git, les répertoires Linux locaux ou les documents Windows accessibles. Les archives d'échanges du 8 octobre mentionnent un journal local HP, sans en fournir le contenu. Aucun état historique inconnu n'est inventé.
 
-## État opérationnel actuel — M015-S, 13 octobre 2026
+## État opérationnel actuel — reprise T, 13 octobre 2026
+
+- **VALIDÉ PHYSIQUE BORNÉ / AUDITÉ** :captureT4MHzhistorique4096XYZ+512TS/4082tripletsdistincts, reconstructionexacte etguards0,cleanup0/niveauFIFOmax187. SourcesCPU160/HSI16SPI4,VOS1/Flash4confirmées. L'échecpréflightadresseSPI3corrigéavanttriggerestconservé ;aucunnouvelessai4.
+- **ANALYSE CORRIGÉE / PRÉPARÉ** :serviceactif≈2,049ms/budget4,267ms ;anciencomptaged'attenteserroné corrigé75→40 sansmodifierbruts. Uniquecomparaison8autorisée, gainfilestimé0,896ms/21%dubudget pour réservefuture ;imagepréparée/diviseur2seul,guardsinchangés,8NONTESTÉavantcheckpoint. FFT/stockage/perteglobalezéro nonqualifiés.
+- **PRÉSERVÉ** :primaire/M014-H/médias/Modbus/HPintouchés,archivesetworktrees/stashesconservés. RapportetpreuvesT4àpublieravant8 ;publicationrepriseenautonomieconformecontrat.
+
+## État opérationnel antérieur — M015-S, 13 octobre 2026
 
 - **VALIDÉ LOGICIEL / LIMITES** : diviseurSPI3seulparamètre8/4/2,CPU16/mode3/ODR/vendor/parser/guards/instrumentationQinchangés.3ARM passent et div16 refusé ;BIN2identiqueQ,aucunretest2/512. Capteurmax10MHzdocumenté,signalintégriténonmesurée ;codef7abff2publié/32fichiersrelusavantcible.
 - **BLOCKED4 / STOP8** : uniqueessai4096 à4MHz,trace32HAL_TIMEOUT/error104OVR+timeout ;snapshotSR104A,63/896octetsconsommés,833restants,0XYZadmis. BufferdemandéconservéREJETÉ,aucunsegmentcomplet/margevalide ;niveau149/flags0seulementavantburst.8MHzconstruitjamaisflashé/exécuté,arrêtcritique conformecontrat. Premièreassertionoffline896rejetécontre0admis corrigée/sauvegardée,sansnouveaumateriel.

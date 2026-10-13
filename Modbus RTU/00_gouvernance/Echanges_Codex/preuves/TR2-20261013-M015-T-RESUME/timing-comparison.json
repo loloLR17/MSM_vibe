@@ -1,0 +1,44 @@
+{
+  "clock": {
+    "RCC_CR": "0x3000505",
+    "CFGR1": "0xf",
+    "CFGR2": "0x0",
+    "CFGR3": "0x0",
+    "PLL1CFGR": "0x40011",
+    "PLL1DIVR": "0x101024f",
+    "CCIPR3": "0x10",
+    "PWR_VOSR": "0x7c000",
+    "FLASH_ACR": "0x4",
+    "core_observed_Hz": 160000000,
+    "SPI_source": "HSI16",
+    "calculated_SPI_Hz": 4000000,
+    "SPI_divider": 4,
+    "physical_frequency_measured": false
+  },
+  "full_bursts": 35,
+  "all_bursts": 38,
+  "payload_full_mean_ms": 1.80722625,
+  "intervals": 35,
+  "complete_cadence_including_waits_mean_ms": 4.285707321428571,
+  "complete_cadence_range_ms": [
+    3.99981875,
+    6.000225
+  ],
+  "requested_idle_ms_total": 75,
+  "busy_envelope_mean_ms": 2.048577857142857,
+  "interval_minus_requested_delay_mean_ms": 2.1428501785714285,
+  "interval_minus_requested_delay_range_ms": [
+    1.9998187500000002,
+    3.0002250000000004
+  ],
+  "required_nominal_ms_128": 4.266666666666667,
+  "measured_service_bytes_per_second_including_waits": 209067.00640055208,
+  "service_estimate_bytes_per_second_subtract_requested_delay": 418134.69227108324,
+  "limit": "HAL_Delay1 is >=1ms and startup/phase quantized; subtracting requested delay gives an upper bound on busy duration, not exact isolated CPU cost.",
+  "conservative_time_margin_ms": 1.2664416666666662,
+  "timestamp_step_histogram": {
+    "24": 511
+  },
+  "bounded_qualification": true,
+  "global_loss_zero_proven": false
+}

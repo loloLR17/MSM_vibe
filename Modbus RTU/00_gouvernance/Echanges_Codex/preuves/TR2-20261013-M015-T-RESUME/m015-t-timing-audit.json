@@ -1,0 +1,290 @@
+{
+  "intervals": [
+    {
+      "first": 33,
+      "next": 40,
+      "span_ms": 3.99994375,
+      "actual_requested_idle_ms": 1,
+      "busy_upper_bound_ms": 2.99994375,
+      "busy_envelope_before_first_wait_ms": 2.04796875
+    },
+    {
+      "first": 40,
+      "next": 47,
+      "span_ms": 3.99983125,
+      "actual_requested_idle_ms": 1,
+      "busy_upper_bound_ms": 2.99983125,
+      "busy_envelope_before_first_wait_ms": 2.0495125
+    },
+    {
+      "first": 47,
+      "next": 54,
+      "span_ms": 4.00010625,
+      "actual_requested_idle_ms": 1,
+      "busy_upper_bound_ms": 3.00010625,
+      "busy_envelope_before_first_wait_ms": 2.04761875
+    },
+    {
+      "first": 54,
+      "next": 61,
+      "span_ms": 3.99995625,
+      "actual_requested_idle_ms": 1,
+      "busy_upper_bound_ms": 2.99995625,
+      "busy_envelope_before_first_wait_ms": 2.0492125
+    },
+    {
+      "first": 61,
+      "next": 69,
+      "span_ms": 5.9999875,
+      "actual_requested_idle_ms": 2,
+      "busy_upper_bound_ms": 3.9999874999999996,
+      "busy_envelope_before_first_wait_ms": 2.0481125
+    },
+    {
+      "first": 69,
+      "next": 76,
+      "span_ms": 4.00000625,
+      "actual_requested_idle_ms": 1,
+      "busy_upper_bound_ms": 3.00000625,
+      "busy_envelope_before_first_wait_ms": 2.04946875
+    },
+    {
+      "first": 76,
+      "next": 83,
+      "span_ms": 4.00005,
+      "actual_requested_idle_ms": 1,
+      "busy_upper_bound_ms": 3.00005,
+      "busy_envelope_before_first_wait_ms": 2.04830625
+    },
+    {
+      "first": 83,
+      "next": 90,
+      "span_ms": 4.0,
+      "actual_requested_idle_ms": 1,
+      "busy_upper_bound_ms": 3.0,
+      "busy_envelope_before_first_wait_ms": 2.0492125
+    },
+    {
+      "first": 90,
+      "next": 97,
+      "span_ms": 4.0000625,
+      "actual_requested_idle_ms": 1,
+      "busy_upper_bound_ms": 3.0000625000000003,
+      "busy_envelope_before_first_wait_ms": 2.04760625
+    },
+    {
+      "first": 97,
+      "next": 104,
+      "span_ms": 3.9999875,
+      "actual_requested_idle_ms": 1,
+      "busy_upper_bound_ms": 2.9999875,
+      "busy_envelope_before_first_wait_ms": 2.04918125
+    },
+    {
+      "first": 104,
+      "next": 111,
+      "span_ms": 3.999825,
+      "actual_requested_idle_ms": 1,
+      "busy_upper_bound_ms": 2.999825,
+      "busy_envelope_before_first_wait_ms": 2.0483375
+    },
+    {
+      "first": 111,
+      "next": 119,
+      "span_ms": 6.000075,
+      "actual_requested_idle_ms": 2,
+      "busy_upper_bound_ms": 4.000075,
+      "busy_envelope_before_first_wait_ms": 2.0495
+    },
+    {
+      "first": 119,
+      "next": 126,
+      "span_ms": 4.00005,
+      "actual_requested_idle_ms": 1,
+      "busy_upper_bound_ms": 3.00005,
+      "busy_envelope_before_first_wait_ms": 2.04830625
+    },
+    {
+      "first": 126,
+      "next": 133,
+      "span_ms": 4.0,
+      "actual_requested_idle_ms": 1,
+      "busy_upper_bound_ms": 3.0,
+      "busy_envelope_before_first_wait_ms": 2.04895
+    },
+    {
+      "first": 133,
+      "next": 140,
+      "span_ms": 3.999875,
+      "actual_requested_idle_ms": 1,
+      "busy_upper_bound_ms": 2.999875,
+      "busy_envelope_before_first_wait_ms": 2.04763125
+    },
+    {
+      "first": 140,
+      "next": 147,
+      "span_ms": 4.0001875,
+      "actual_requested_idle_ms": 1,
+      "busy_upper_bound_ms": 3.0001875,
+      "busy_envelope_before_first_wait_ms": 2.0492125
+    },
+    {
+      "first": 147,
+      "next": 154,
+      "span_ms": 3.99981875,
+      "actual_requested_idle_ms": 1,
+      "busy_upper_bound_ms": 2.99981875,
+      "busy_envelope_before_first_wait_ms": 2.0483375
+    },
+    {
+      "first": 154,
+      "next": 162,
+      "span_ms": 6.0002125,
+      "actual_requested_idle_ms": 2,
+      "busy_upper_bound_ms": 4.0002125,
+      "busy_envelope_before_first_wait_ms": 2.04950625
+    },
+    {
+      "first": 162,
+      "next": 169,
+      "span_ms": 3.99996875,
+      "actual_requested_idle_ms": 1,
+      "busy_upper_bound_ms": 2.99996875,
+      "busy_envelope_before_first_wait_ms": 2.048
+    },
+    {
+      "first": 169,
+      "next": 176,
+      "span_ms": 3.9998375,
+      "actual_requested_idle_ms": 1,
+      "busy_upper_bound_ms": 2.9998375,
+      "busy_envelope_before_first_wait_ms": 2.048575
+    },
+    {
+      "first": 176,
+      "next": 183,
+      "span_ms": 4.000025,
+      "actual_requested_idle_ms": 1,
+      "busy_upper_bound_ms": 3.000025,
+      "busy_envelope_before_first_wait_ms": 2.04759375
+    },
+    {
+      "first": 183,
+      "next": 190,
+      "span_ms": 4.00000625,
+      "actual_requested_idle_ms": 1,
+      "busy_upper_bound_ms": 3.00000625,
+      "busy_envelope_before_first_wait_ms": 2.04948125
+    },
+    {
+      "first": 190,
+      "next": 197,
+      "span_ms": 3.99999375,
+      "actual_requested_idle_ms": 1,
+      "busy_upper_bound_ms": 2.99999375,
+      "busy_envelope_before_first_wait_ms": 2.04805625
+    },
+    {
+      "first": 197,
+      "next": 204,
+      "span_ms": 4.000025,
+      "actual_requested_idle_ms": 1,
+      "busy_upper_bound_ms": 3.000025,
+      "busy_envelope_before_first_wait_ms": 2.049475
+    },
+    {
+      "first": 204,
+      "next": 212,
+      "span_ms": 6.0001125,
+      "actual_requested_idle_ms": 2,
+      "busy_upper_bound_ms": 4.0001125,
+      "busy_envelope_before_first_wait_ms": 2.04760625
+    },
+    {
+      "first": 212,
+      "next": 219,
+      "span_ms": 3.99983125,
+      "actual_requested_idle_ms": 1,
+      "busy_upper_bound_ms": 2.99983125,
+      "busy_envelope_before_first_wait_ms": 2.0495125
+    },
+    {
+      "first": 219,
+      "next": 226,
+      "span_ms": 4.00003125,
+      "actual_requested_idle_ms": 1,
+      "busy_upper_bound_ms": 3.00003125,
+      "busy_envelope_before_first_wait_ms": 2.0476
+    },
+    {
+      "first": 226,
+      "next": 233,
+      "span_ms": 4.00011875,
+      "actual_requested_idle_ms": 1,
+      "busy_upper_bound_ms": 3.0001187500000004,
+      "busy_envelope_before_first_wait_ms": 2.04885625
+    },
+    {
+      "first": 233,
+      "next": 240,
+      "span_ms": 3.99983125,
+      "actual_requested_idle_ms": 1,
+      "busy_upper_bound_ms": 2.99983125,
+      "busy_envelope_before_first_wait_ms": 2.04834375
+    },
+    {
+      "first": 240,
+      "next": 247,
+      "span_ms": 4.0000125,
+      "actual_requested_idle_ms": 1,
+      "busy_upper_bound_ms": 3.0000125000000004,
+      "busy_envelope_before_first_wait_ms": 2.04920625
+    },
+    {
+      "first": 247,
+      "next": 255,
+      "span_ms": 6.000225,
+      "actual_requested_idle_ms": 2,
+      "busy_upper_bound_ms": 4.000225,
+      "busy_envelope_before_first_wait_ms": 2.047625
+    },
+    {
+      "first": 255,
+      "next": 262,
+      "span_ms": 3.99991875,
+      "actual_requested_idle_ms": 1,
+      "busy_upper_bound_ms": 2.99991875,
+      "busy_envelope_before_first_wait_ms": 2.0489
+    },
+    {
+      "first": 262,
+      "next": 269,
+      "span_ms": 4.0,
+      "actual_requested_idle_ms": 1,
+      "busy_upper_bound_ms": 3.0,
+      "busy_envelope_before_first_wait_ms": 2.0475875
+    },
+    {
+      "first": 269,
+      "next": 276,
+      "span_ms": 4.000025,
+      "actual_requested_idle_ms": 1,
+      "busy_upper_bound_ms": 3.000025,
+      "busy_envelope_before_first_wait_ms": 2.04949375
+    },
+    {
+      "first": 276,
+      "next": 283,
+      "span_ms": 3.99981875,
+      "actual_requested_idle_ms": 1,
+      "busy_upper_bound_ms": 2.99981875,
+      "busy_envelope_before_first_wait_ms": 2.04833125
+    }
+  ],
+  "corrected_idle_requests": 40,
+  "busy_envelope_mean_ms": 2.048577857142857,
+  "busy_envelope_max_ms": 2.0495125,
+  "busy_upper_mean_ms": 3.1428501785714285,
+  "busy_upper_max_ms": 4.000225,
+  "correction": "Original unpublished timing analysis counted post-burst status<128 as HAL_Delay request. Those post-status calls do not delay. Corrected identifies only loop pre-status at i+5 onward, excludes post-status and matches next requested length. Preserve original as historical analysis, no hardware repeat."
+}

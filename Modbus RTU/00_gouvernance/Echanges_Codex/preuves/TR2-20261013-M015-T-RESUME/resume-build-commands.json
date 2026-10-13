@@ -1,0 +1,34 @@
+[
+  {
+    "command": [
+      "cmake",
+      "-S",
+      "/home/lolo/dev/msm/projects/MSM_vibe-M015-T-resume/experiments/iis3dwb_st_reference",
+      "-B",
+      "/home/lolo/dev/msm/reports/TR2-mission015-T-resume-20261013T084635Z/cpu160spi8",
+      "-G",
+      "Ninja",
+      "-DCMAKE_TOOLCHAIN_FILE=cmake/arm-none-eabi-gcc.cmake",
+      "-DSTM32CUBE_U5_ROOT=/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0",
+      "-DCMAKE_BUILD_TYPE=Debug",
+      "-DBENCH_OFFICIAL=ON",
+      "-DBENCH_SPI_MODE3=1",
+      "-DOFFICIAL_STATUS10=1",
+      "-DOFFICIAL_PACKETS=1",
+      "-DBENCH_DUPLEX=0",
+      "-DBENCH_SPI_OPT=2",
+      "-DBENCH_WINDOW_XYZ=4096",
+      "-DBENCH_SPI_DIVIDER=2",
+      "-DBENCH_CORE_MHZ=160"
+    ],
+    "exit": 0
+  },
+  {
+    "command": [
+      "cmake",
+      "--build",
+      "/home/lolo/dev/msm/reports/TR2-mission015-T-resume-20261013T084635Z/cpu160spi8"
+    ],
+    "exit": 0
+  }
+]

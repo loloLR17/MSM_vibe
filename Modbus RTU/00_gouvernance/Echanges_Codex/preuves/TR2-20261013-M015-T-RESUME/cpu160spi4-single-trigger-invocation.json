@@ -1,0 +1,14 @@
+{
+  "command": [
+    "/mnt/c/ST/STM32CubeCLT_1.22.0/GNU-tools-for-STM32/bin/arm-none-eabi-gdb.exe",
+    "-nx",
+    "-q",
+    "-batch",
+    "-x",
+    "\\\\wsl.localhost\\Debian\\home\\lolo\\dev\\msm\\reports\\TR2-mission015-T-20261012T233912Z\\cpu160spi4-single-trigger.gdb",
+    "\\\\wsl.localhost\\Debian\\home\\lolo\\dev\\msm\\reports\\TR2-mission015-T-20261012T233912Z\\cpu160spi4\\iis3dwb_reference.elf"
+  ],
+  "sn": "0032001F3235510C37333439",
+  "gdb_exit": 7,
+  "server_exit": 0
+}

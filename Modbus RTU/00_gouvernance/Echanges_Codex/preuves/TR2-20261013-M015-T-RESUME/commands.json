@@ -1,0 +1,101 @@
+[
+  {
+    "command": [
+      "cmake",
+      "-S",
+      "/home/lolo/dev/msm/projects/MSM_vibe-M015-T/experiments/iis3dwb_st_reference",
+      "-B",
+      "/home/lolo/dev/msm/reports/TR2-mission015-T-20261012T233912Z/invalid-core",
+      "-G",
+      "Ninja",
+      "-DBENCH_HOST_TESTS=ON",
+      "-DBENCH_CORE_MHZ=80"
+    ],
+    "exit": 1,
+    "expected_failure": true
+  },
+  {
+    "command": [
+      "cmake",
+      "-S",
+      "/home/lolo/dev/msm/projects/MSM_vibe-M015-T/experiments/iis3dwb_st_reference",
+      "-B",
+      "/home/lolo/dev/msm/reports/TR2-mission015-T-20261012T233912Z/invalid-SPI-pair",
+      "-G",
+      "Ninja",
+      "-DBENCH_HOST_TESTS=ON",
+      "-DBENCH_CORE_MHZ=160",
+      "-DBENCH_SPI_DIVIDER=8"
+    ],
+    "exit": 1,
+    "expected_failure": true
+  },
+  {
+    "command": [
+      "cmake",
+      "-S",
+      "/home/lolo/dev/msm/projects/MSM_vibe-M015-T/experiments/iis3dwb_st_reference",
+      "-B",
+      "/home/lolo/dev/msm/reports/TR2-mission015-T-20261012T233912Z/referenceS16",
+      "-G",
+      "Ninja",
+      "-DCMAKE_TOOLCHAIN_FILE=cmake/arm-none-eabi-gcc.cmake",
+      "-DSTM32CUBE_U5_ROOT=/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0",
+      "-DCMAKE_BUILD_TYPE=Debug",
+      "-DBENCH_OFFICIAL=ON",
+      "-DBENCH_SPI_MODE3=1",
+      "-DOFFICIAL_STATUS10=1",
+      "-DOFFICIAL_PACKETS=1",
+      "-DBENCH_DUPLEX=0",
+      "-DBENCH_SPI_OPT=2",
+      "-DBENCH_WINDOW_XYZ=4096",
+      "-DBENCH_SPI_DIVIDER=4",
+      "-DBENCH_CORE_MHZ=16"
+    ],
+    "exit": 0,
+    "expected_failure": false
+  },
+  {
+    "command": [
+      "cmake",
+      "--build",
+      "/home/lolo/dev/msm/reports/TR2-mission015-T-20261012T233912Z/referenceS16"
+    ],
+    "exit": 0,
+    "expected_failure": false
+  },
+  {
+    "command": [
+      "cmake",
+      "-S",
+      "/home/lolo/dev/msm/projects/MSM_vibe-M015-T/experiments/iis3dwb_st_reference",
+      "-B",
+      "/home/lolo/dev/msm/reports/TR2-mission015-T-20261012T233912Z/cpu160spi4",
+      "-G",
+      "Ninja",
+      "-DCMAKE_TOOLCHAIN_FILE=cmake/arm-none-eabi-gcc.cmake",
+      "-DSTM32CUBE_U5_ROOT=/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0",
+      "-DCMAKE_BUILD_TYPE=Debug",
+      "-DBENCH_OFFICIAL=ON",
+      "-DBENCH_SPI_MODE3=1",
+      "-DOFFICIAL_STATUS10=1",
+      "-DOFFICIAL_PACKETS=1",
+      "-DBENCH_DUPLEX=0",
+      "-DBENCH_SPI_OPT=2",
+      "-DBENCH_WINDOW_XYZ=4096",
+      "-DBENCH_SPI_DIVIDER=4",
+      "-DBENCH_CORE_MHZ=160"
+    ],
+    "exit": 0,
+    "expected_failure": false
+  },
+  {
+    "command": [
+      "cmake",
+      "--build",
+      "/home/lolo/dev/msm/reports/TR2-mission015-T-20261012T233912Z/cpu160spi4"
+    ],
+    "exit": 0,
+    "expected_failure": false
+  }
+]

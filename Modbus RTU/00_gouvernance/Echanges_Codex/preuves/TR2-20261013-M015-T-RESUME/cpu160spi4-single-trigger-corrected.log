@@ -1,0 +1,17 @@
+0x08006488 in main () at /home/lolo/dev/msm/projects/MSM_vibe-M015-T/experiments/iis3dwb_st_reference/official/main.c:10
+10	  while(bench_command!=0x4D31354BU)__WFI();
+$1 = 1
+$2 = {1769542, 943869976, 540225879}
+$3 = 160000000
+$4 = {stage = 0, result = 0, cleanup_result = 0, count = 0, xyz_count = 0, timestamp_count = 0, who = 0, raw_level = 0, st_level = 0, flags = 0, status10 = 0, st_batch = 0, controls = '\000' <repeats 13 times>, words = {{tag = 0 '\000', data = "\000\000\000\000\000"} <repeats 512 times>}, xyz = {{0, 0, 0} <repeats 64 times>}, temperature = 0, polls = 0, cleanup_controls = "\000\000"}
+0xe000ed28:	0x00000000	0x00000000
+$5 = 160000000
+0x46020c00:	0x03000505	0x00000000	0x44882d6a	0x00084210
+0x46020c10:	0x00100911	0x0000010b	0x00000000	0x0000000f
+0x46020c20:	0x00000000	0x00000000
+0x46020ce8:	0x00000010
+0x4602080c:	0x0007c000
+0x40022000:	0x00000004
+0x46002000:	0x00001000	0x00000000	0x10070007	0x87400000
+0x46002010:	0x00000000	0x00001002
+[Inferior 1 (Remote target) detached]

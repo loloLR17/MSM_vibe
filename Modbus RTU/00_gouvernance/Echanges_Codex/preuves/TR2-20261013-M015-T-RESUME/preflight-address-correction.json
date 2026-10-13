@@ -1,0 +1,9 @@
+{
+  "first_preflight_GDB_exit": 7,
+  "acquisition_triggered": false,
+  "firmware_changed": false,
+  "additional_flash_reset": false,
+  "cause": "Diagnostic script inherited 0x42020800 from old unclassified dump. Pinned CMSIS SPI3_BASE_NS = APB3(0x46000000)+0x2000 =0x46002000, CFG1 offset8. All CPU/RCC/PWR/Flash checks passed; only wrong-address check refused. Corrected preflight reads realSPI3, no ignored guard.",
+  "proof": "CPU160 and stage0/ready1; original script stops before set bench_command. Original logs and script preserved.",
+  "reference": "CubeU5 v1.9.0 stm32u575xx.h lines1659/1703 and SPI_TypeDef CFG1 offset8"
+}

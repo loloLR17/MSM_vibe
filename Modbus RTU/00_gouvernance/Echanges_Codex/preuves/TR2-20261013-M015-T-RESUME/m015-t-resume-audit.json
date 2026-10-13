@@ -1,0 +1,14 @@
+{
+  "iis3dwb_reference.bin": "0091c1e84bf7a351ec3f5d7ca4f00109ce72924633ff11a57ad0027750f0b2f3",
+  "iis3dwb_reference.elf": "9a9d568b1032e650ede0de5c7558dfdbf0bd4c0522f9cd3817d49deb547d6b57",
+  "XYZ": 4096,
+  "TS": 512,
+  "distinct": 4082,
+  "trace_count": 312,
+  "snapshots": 624,
+  "reconstruction": "BYTE_IDENTICAL",
+  "all_guards": true,
+  "cleanup": "0c8000",
+  "raw_sha256": "04e071f2f851ddb48293da0d329b7bf96f995d689c87ff913409daf7be1a33c6",
+  "eight_MHz_utility_estimate": "Payload wire time reduction896us per full128word segment, about21% of4.267ms nominal interval, extra processing headroom; not proof of FFT/storage capacity"
+}
