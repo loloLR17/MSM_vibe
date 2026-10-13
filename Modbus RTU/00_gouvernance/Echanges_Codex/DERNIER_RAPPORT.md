@@ -1,6 +1,6 @@
 ---
 mission_id: TR2-20261013-M016-SDMMC-REFERENCE-PHYSICAL
-status: IN_PROGRESS
+status: BLOCKED
 base_ref: main
 base_sha: 167b8cbcf1ba93209789ea6890799c77bbc7fc96
 initial_head: 087dd9e3f1947a5b8b2906fba0ca862b968185bd
@@ -18,7 +18,7 @@ allow_debug: true
 
 **Le fonctionnement bidirectionnel en 4 bits n'est pas démontré.** Deux campagnes échouent pendant leur première relecture. Les diagnostics supplémentaires confirment un échec CRC en 4 bits à 4 MHz, sur les fronts descendant et montant. En revanche, une lecture 1 bit à 4 MHz restitue exactement les 4096 octets écrits, après réinitialisation. Ce succès limité ne remplace pas le critère 4 bits.
 
-La préparation, les essais et les diagnostics autorisés sont réalisés. La poursuite nécessite une vérification électrique du banc ; la cause précise reste indéterminée. Statut IN_PROGRESS uniquement pour publication/relecture, avant rapport BLOCKED étayé. L'utilisateur a répondu « le câblage semble correct » : contrôle rapporté pris en compte, sans mesure de continuité ou correction précisée.
+La préparation, les essais et les diagnostics autorisés sont réalisés. La poursuite nécessite une vérification électrique du banc ; la cause précise reste indéterminée. **Statut BLOCKED** : preuve 4 bits non obtenue ; diagnostic électrique indispensable après vérifications autonomes disponibles. Publication et relecture acquises. L'utilisateur a répondu « le câblage semble correct » : contrôle rapporté pris en compte, sans mesure de continuité ou correction précisée.
 
 ## Identités et périmètre exercé
 
@@ -76,7 +76,7 @@ Artéfacts précédemment validés rehashés exacts, sans recompiler le code inc
 
 Erreurs d'outillage conservées : guillemets du filename UNC dans le premier dumpGDB →commande corrigée sans reflash ; HAL_SD_DeInit éliminé parGC →arrêt avant action, puis diagnostic avec primitivesST vérifiées. stdoutGDB enregistré en continu ; aucun timeout pendant cette campagne. Aucun échec masqué ni résultat attendu affaibli.
 
-Code évalué **d9a223e4de996e01ffc701eecc17c5038398e8c5**, commit « M016 physical checkpoint: restore official two-node SDMMC DMA layout ». Les variations diagnostiques RAM/registre sont détaillées ci-dessus ; elles ne sont pas des changements Flash. Checkpoint **14e1fe083aaccd82e97eb30963b2204d98eeedf5** publié et relu intégralement :108fichiers byte-identiques. La présente finalisation fera l'objet d'un push normal puis relecture avant statut BLOCKED.
+Code évalué **d9a223e4de996e01ffc701eecc17c5038398e8c5**, commit « M016 physical checkpoint: restore official two-node SDMMC DMA layout ». Les variations diagnostiques RAM/registre sont détaillées ci-dessus ; elles ne sont pas des changements Flash. Checkpoint **14e1fe083aaccd82e97eb30963b2204d98eeedf5** publié et relu intégralement :108fichiers byte-identiques. La présente finalisation est publiée et relue.
 
 ## État final et reprise
 
@@ -89,3 +89,5 @@ Dépôt original propre à82169af, worktrees antérieurs et stashes6251b988/f3b8
 **Prochaine action indispensable (AGENTS§9)** : mesurer la continuité, hors alimentation du second banc, de DAT1→PB15/CN12-26, DAT2→PB3/CN12-31, DAT3→PB4/CN12-27 ; contrôler absence de connexion partagée et3,3V/GND. Si conforme, observer électriquement CLK/CMD/DAT1–DAT3 pendant un transfert pour différencier réception, liaison ou composant. Décrire les résultats/corrections avant un essai supplémentaire justifié. Aucun formatage ne résout une erreurCRC de liaison ; aucun format lancé.
 
 Comparaison production : banc DMAinterne/IRQ/HSI48/4bits/falling versus portTR2polling/PLL160MHz/div16/5MHz/rising/1bit et RMW partiels. **Aucune correction du principal recommandée comme qualifiée avant preuve4bit** ; ne pas attribuer ses DATA_TIMEOUT antérieurs au nombre de nœuds du projet isolé. Restauration du principal et intégration stockage sont des missions distinctes.
+
+Relecture distante finale de la tranche de résultats au SHA **f81d359ecbab49a8cf1a2babfeab149d1d8b940f** : 132 fichiers byte-identiques, manifesteSHA256 intégral vérifié ; mission/AGENTS/dette/firmware principal inchangés. Mise à jour BLOCKED suivie de push normal et relecture ; son SHA final est fourni dans la réponse. Journal actualisé, reprise après mesures/correction physique, même contrat.

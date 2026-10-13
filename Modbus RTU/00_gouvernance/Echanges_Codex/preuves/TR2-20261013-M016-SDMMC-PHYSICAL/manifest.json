@@ -25,6 +25,7 @@
   "write-attempt02-result-server.log": "8bcc4c71699ee84963384971405c87e1a151e92fe6097483e261a0323be2f087",
   "readonly-4bit-4MHz-rising-edge.gdb": "bb4184a6933bcdecf630f4fbe369de500457031d2571e6cf19d5ba7994c5cf08",
   "m016_slow_read.py": "6bf9dde03550337d168dfeda6c55e330fe064f27315bb0144c494db13ad2adf0",
+  "publication-readback-final.json": "58c5e8a2948abcc7122f592fa73fe3e1548b6f70b18bb3c45c26a0939630b518",
   "readonly-reset-readback-server.log": "8bcc4c71699ee84963384971405c87e1a151e92fe6097483e261a0323be2f087",
   "write-attempt02-result.gdb": "1df827d81bc27780bc07b5f636a252332828ded87f459b4385b1d4c8620089fb",
   "error-decoding-correction.json": "cf9cf3781e00973d0880008cdf6db5124214a7c872ae3eaa083e9a27836b2347",
