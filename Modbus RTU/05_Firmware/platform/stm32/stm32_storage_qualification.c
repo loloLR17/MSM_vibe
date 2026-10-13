@@ -10,11 +10,11 @@
 #include "tr2/persistence/configuration_store.h"
 #include "tr2/application/configuration_service.h"
 
-#define BASE UINT32_C(16777216)
-#define SIZE UINT32_C(8388608)
+#define BASE UINT32_C(18874368)
+#define SIZE UINT32_C(6291456)
 #define PAYLOAD 16384u
-#define FIRST UINT32_C(0x01600003)
-#define SECOND UINT32_C(0x01600004)
+#define FIRST UINT32_C(0x01600005)
+#define SECOND UINT32_C(0x01600006)
 #define TEST_BYTES UINT32_C(4194304)
 static Stm32SdmmcBulkMedia sd;
 static CampaignBulkMedia raw;
@@ -103,11 +103,29 @@ static Tr2Result configuration_recovery(Stm32FramStorage *fram)
     /* Fixed payload blocks and minimum V1 windows avoid an optimistic raw
      * sector capacity. Retain eight partial-block reserves and metadata. */
     const uint64_t extent=(PAYLOAD+36u+511u)/512u*512u;
-    const uint64_t reserved=TR2_CAMPAIGN_BULK_METADATA_BYTES+8u*extent;
-    const uint64_t logical=((SIZE-reserved)/extent)*PAYLOAD;
+    uint64_t used=TR2_CAMPAIGN_BULK_METADATA_BYTES;
+    Tr2Result result;
+    /* Capacity is remaining usable space, never the raw region or occupied
+     * qualification prefixes. Recover real descriptors; no volatile guess. */
+    for(size_t slot=0;slot<TR2_CAMPAIGN_BULK_SLOT_COUNT;slot++) {
+        CampaignBulkMetadata meta; CampaignBulkMetadataRecoveryResult mr;
+        result=campaign_bulk_metadata_init(&meta,&region.interface,slot*1024u,slot*1024u+512u);
+        if(result==TR2_OK)result=campaign_bulk_metadata_recover(&meta,&mr);
+        if(result!=TR2_OK)return result;
+        if(mr.status==CAMPAIGN_BULK_METADATA_RECOVERY_EMPTY)continue;
+        if(mr.status!=CAMPAIGN_BULK_METADATA_RECOVERY_VALID ||
+            (mr.descriptor.campaign_id!=FIRST && mr.descriptor.campaign_id!=SECOND) ||
+            mr.descriptor.durable_prefix_bytes%PAYLOAD!=0)return TR2_ERROR_NOT_AVAILABLE;
+        uint64_t end=mr.descriptor.data_base+(mr.descriptor.durable_prefix_bytes/PAYLOAD)*extent;
+        if(end>SIZE)return TR2_ERROR_CORRUPTED;
+        if(end>used)used=end;
+    }
+    const uint64_t reserved=8u*extent;
+    if(used>SIZE || reserved>SIZE-used)return TR2_ERROR_NOT_AVAILABLE;
+    const uint64_t logical=((SIZE-used-reserved)/extent)*PAYLOAD;
     ConfigurationValidationEnvironment env={true,(uint32_t)(logical/1000000u)};
     physical.write=deny_fram_write;
-    Tr2Result result=transactional_image_media_init_v2(&fram_media,&physical,&g,candidate,sizeof(candidate));
+    result=transactional_image_media_init_v2(&fram_media,&physical,&g,candidate,sizeof(candidate));
     if(result==TR2_OK)result=transactional_image_media_recover(&fram_media,&recovered);
     if(result!=TR2_OK)return result;
     if(recovered.status!=TRANSACTIONAL_IMAGE_RECOVERY_VALID || recovered.generation!=12)

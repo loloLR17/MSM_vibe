@@ -12,14 +12,24 @@ static Tr2Result wait_transfer(Stm32SdmmcBulkMedia *adapter)
 
     start = HAL_GetTick();
     for (;;) {
-        HAL_SD_CardStateTypeDef state = HAL_SD_GetCardState(adapter->hsd);
-
-        if (state == HAL_SD_CARD_TRANSFER) {
-            return TR2_OK;
-        }
-        if (state < HAL_SD_CARD_READY || state > HAL_SD_CARD_PROGRAMMING) {
+        /* Same public ST LL primitive as HAL_SD_GetCardState, retaining its
+         * error result instead of interpreting a failed response as a state.
+         * SD R1 CURRENT_STATE alone is not READY_FOR_DATA (bit8). */
+        uint32_t error = SDMMC_CmdSendStatus(adapter->hsd->Instance,
+            adapter->hsd->SdCard.RelCardAdd << 16u);
+        adapter->last_status_error = error;
+        if (error != HAL_SD_ERROR_NONE) {
+            adapter->hsd->ErrorCode |= error;
             return TR2_ERROR_STORAGE;
         }
+        const uint32_t r1 = SDMMC_GetResponse(adapter->hsd->Instance, SDMMC_RESP1);
+        const uint32_t state = (r1 >> 9u) & 15u;
+        adapter->last_r1 = r1;
+        if (state == HAL_SD_CARD_TRANSFER && (r1 & UINT32_C(0x100)) != 0u)
+            return TR2_OK;
+        if (state == HAL_SD_CARD_TRANSFER) ++adapter->transfer_not_ready_polls;
+        if (state < HAL_SD_CARD_READY || state > HAL_SD_CARD_PROGRAMMING)
+            return TR2_ERROR_STORAGE;
         if ((HAL_GetTick() - start) >= adapter->ready_timeout_ms) {
             return TR2_ERROR_UNAVAILABLE;
         }
@@ -40,18 +50,22 @@ static Tr2Result read_blocks(Stm32SdmmcBulkMedia *adapter,
                              uint8_t *buffer,
                              uint32_t count)
 {
+    adapter->last_phase = 1u; adapter->last_block = block; adapter->last_count = count;
     Tr2Result result = wait_transfer(adapter);
 
     if (result != TR2_OK) {
         return result;
     }
-    if (HAL_SD_ReadBlocks(adapter->hsd,
+    adapter->last_phase = 2u;
+    adapter->last_hal_result = (uint32_t)HAL_SD_ReadBlocks(adapter->hsd,
                           buffer,
                           block,
                           count,
-                          adapter->io_timeout_ms) != HAL_OK) {
+                          adapter->io_timeout_ms);
+    if (adapter->last_hal_result != HAL_OK) {
         return TR2_ERROR_STORAGE;
     }
+    adapter->last_phase = 3u;
     return wait_transfer(adapter);
 }
 
@@ -60,18 +74,22 @@ static Tr2Result write_blocks(Stm32SdmmcBulkMedia *adapter,
                               const uint8_t *buffer,
                               uint32_t count)
 {
+    adapter->last_phase = 4u; adapter->last_block = block; adapter->last_count = count;
     Tr2Result result = wait_transfer(adapter);
 
     if (result != TR2_OK) {
         return result;
     }
-    if (HAL_SD_WriteBlocks(adapter->hsd,
+    adapter->last_phase = 5u;
+    adapter->last_hal_result = (uint32_t)HAL_SD_WriteBlocks(adapter->hsd,
                            buffer,
                            block,
                            count,
-                           adapter->io_timeout_ms) != HAL_OK) {
+                           adapter->io_timeout_ms);
+    if (adapter->last_hal_result != HAL_OK) {
         return TR2_ERROR_STORAGE;
     }
+    adapter->last_phase = 6u;
     return wait_transfer(adapter);
 }
 
@@ -212,6 +230,7 @@ static Tr2Result media_sync(void *context)
     if (!stm32_sdmmc_bulk_media_is_initialized(adapter)) {
         return TR2_ERROR_INVALID_STATE;
     }
+    adapter->last_phase = 7u;
     return wait_transfer(adapter);
 }
 

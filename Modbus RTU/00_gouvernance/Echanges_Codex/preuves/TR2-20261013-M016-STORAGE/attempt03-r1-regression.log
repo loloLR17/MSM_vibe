@@ -1,0 +1,13 @@
+[ 95%] Built target tr2_core
+[ 95%] Building C object CMakeFiles/test_sdmmc_bulk_media.dir/platform/stm32/stm32_sdmmc_bulk_media.c.o
+[100%] Building C object CMakeFiles/test_sdmmc_bulk_media.dir/tests/platform/test_sdmmc_bulk_media.c.o
+[100%] Linking C executable test_sdmmc_bulk_media
+[100%] Built target test_sdmmc_bulk_media
+Internal ctest changing into directory: /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/build-host-validation
+Test project /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/build-host-validation
+    Start 128: sdmmc_bulk_media
+1/1 Test #128: sdmmc_bulk_media .................   Passed    0.00 sec
+
+100% tests passed, 0 tests failed out of 1
+
+Total Test time (real) =   0.01 sec

@@ -8,7 +8,14 @@ typedef uint32_t HAL_SD_CardStateTypeDef;
 #define HAL_SD_CARD_PROGRAMMING 7u
 #define HAL_SD_CARD_DISCONNECTED 8u
 #define HAL_SD_CARD_ERROR 255u
-typedef struct {uint32_t ErrorCode;} SD_HandleTypeDef;
+typedef struct {uint32_t response;} SDMMC_TypeDef;
+typedef struct {uint32_t RelCardAdd;} SD_CardInfo;
+typedef struct {uint32_t ErrorCode; SDMMC_TypeDef *Instance; SD_CardInfo SdCard;} SD_HandleTypeDef;
+#define HAL_SD_ERROR_NONE 0u
+#define SDMMC_RESP1 0u
+uint32_t SDMMC_CmdSendStatus(SDMMC_TypeDef *,uint32_t);
+uint32_t SDMMC_GetResponse(const SDMMC_TypeDef *,uint32_t);
+
 typedef struct {uint32_t LogBlockNbr,LogBlockSize;} HAL_SD_CardInfoTypeDef;
 uint32_t HAL_GetTick(void);
 HAL_SD_CardStateTypeDef HAL_SD_GetCardState(SD_HandleTypeDef *);

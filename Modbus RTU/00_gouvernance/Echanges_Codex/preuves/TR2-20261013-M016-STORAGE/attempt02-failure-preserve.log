@@ -1,0 +1,21 @@
+0x08002898 in HAL_Delay (Delay=1) at /home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal.c:419
+419	  while ((HAL_GetTick() - tickstart) < wait)
+0xbfa0700:	0x004a003d	0x38425018	0x20333157
+$1 = HAL_SD_STATE_READY
+$2 = 0x8
+$3 = 0x10
+$4 = 160000000
+$5 = true
+$6 = 720896
+$7 = 655360
+$8 = {media = 0x20059404 <region+52>, campaign_id = 23068675, next_offset = 734720, next_block_index = 43, initialized = true, faulted = true}
+Note: automatically using hardware breakpoints for read-only addresses.
+$9 = 0
+#0  0x08002898 in HAL_Delay (Delay=1) at /home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal.c:419
+#1  0x0800c808 in stm32_storage_qualification_run (hsd=<optimized out>, fram=0x200bfdc0) at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/stm32_storage_qualification.c:185
+#2  0x08000f2e in CommissioningReadOnly () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1757
+#3  0x08000fa8 in main () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1832
+#2  0x08000f2e in CommissioningReadOnly () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1757
+1757	        stm32_storage_qualification_run(&hsd2, &storage);
+\\wsl.localhost\Debian\home\lolo\dev\msm\reports\TR2-M016-storage-20261013T172331Z\attempt02-failure-preserve.gdb:20: Error in sourced command file:
+No symbol "fram" in current context.

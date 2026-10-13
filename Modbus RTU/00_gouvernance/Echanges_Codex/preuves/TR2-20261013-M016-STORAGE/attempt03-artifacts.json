@@ -1,0 +1,17 @@
+{
+  "attempt": 3,
+  "bin_bytes": 63684,
+  "bin_sha256": "4dee078f0ab73023f61e8532847e837f909e0b448e81f4530560adb3869b0913",
+  "elf_sha256": "70173d0e44a3bb4da01f4d67975630a9d050879aae3aeb4e7ae32080cc406694",
+  "profile": "STORAGE_QUALIFICATION/Debug/O2",
+  "sd_hz": 5000000,
+  "base_bytes": 18874368,
+  "size_bytes": 6291456,
+  "ids": [
+    "01600005",
+    "01600006"
+  ],
+  "block_payload": 16384,
+  "raw_geometric_capacity_mb": 5,
+  "actual_environment_capacity": "computed after recovering occupied descriptors, not raw capacity"
+}

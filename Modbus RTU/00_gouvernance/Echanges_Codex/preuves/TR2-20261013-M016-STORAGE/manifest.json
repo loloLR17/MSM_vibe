@@ -21,6 +21,14 @@
       "bytes": 124625,
       "sha256": "fe4c7eb252cc6309f7a45efd3e51f72b1d45fbff662344c13c84c6467273cc42"
     },
+    "attempt02-failure-preserve.log": {
+      "bytes": 1584,
+      "sha256": "af912d6495de29af0628f2bb6bb19045a118d0019af20440ec57f22035905b1f"
+    },
+    "attempt02-failure-preserve.py": {
+      "bytes": 1954,
+      "sha256": "fa616df20a25fb19056b90d3487605f69813b7f0ad60615dcfb73be3d57eb669"
+    },
     "attempt02-port-regression-corrected.log": {
       "bytes": 940,
       "sha256": "438356ca3a8af5fd11b011b8decda90af8ad08ff79a58f6e0c614b354a2c114a"
@@ -28,6 +36,70 @@
     "attempt02-port-regression.log": {
       "bytes": 66,
       "sha256": "a7dc592e6d7af42e9f24c14bd8f08db781d2a9a81b1760144ed6fbf1be7d16fc"
+    },
+    "attempt02-prefix-recovery.py": {
+      "bytes": 1931,
+      "sha256": "630d54f3f71c5111c958738b8972cd19d6beaa747aa28864bc4576ecd1b7a632"
+    },
+    "attempt02-prewrite-gate.log": {
+      "bytes": 405,
+      "sha256": "4bb9f05a824977447a4aa070ca8f42568e5ac930309a8950f633aefd15372b79"
+    },
+    "attempt02-reboot-recovery.gdb": {
+      "bytes": 870,
+      "sha256": "e236f30baea4606c333a11e556fe43eb243a441cf8ca2c7bda4e6fa8de7f0a62"
+    },
+    "attempt02-reboot-recovery.log": {
+      "bytes": 402,
+      "sha256": "2aca632581fddc50afbd5831c0c444f874d79c3564796532a5082adbdd848529"
+    },
+    "attempt02-reboot-recovery.py": {
+      "bytes": 886,
+      "sha256": "73c4ee58ee55c79ec8bc8459de655f3a20cab964127c3505279b4f07e2781997"
+    },
+    "attempt02-run-attempt.json": {
+      "bytes": 293,
+      "sha256": "0c152611f55826cdc9411397c89d5cac9e068423525f120667123b4cf2b12f54"
+    },
+    "attempt02-run-results.gdb": {
+      "bytes": 699,
+      "sha256": "b7baab036d9a757a32a8ccc458aedc932b71638b493c675a9dd63e196a9bb295"
+    },
+    "attempt02-run-results.log": {
+      "bytes": 1155,
+      "sha256": "4e86f2eafce1f7b95a5eea7f06834022df53f8f7774863e112a29bd45b7f1ef7"
+    },
+    "attempt02-run.py": {
+      "bytes": 1443,
+      "sha256": "584fcde38ada650e09a2199d33352dcc5516a3fb552dd875002f50a109470002"
+    },
+    "attempt02-single-trigger.log": {
+      "bytes": 269,
+      "sha256": "3b193fcf018a2aeef5a8edb67d6ff35b1d566c7af9dc841c7d52bfd1c927cb40"
+    },
+    "attempt02-start.py": {
+      "bytes": 1098,
+      "sha256": "ad7a087ed197c4436ff9c934adcd54fda94687147f172702c84a7dc9ccad938b"
+    },
+    "attempt03-artifacts.json": {
+      "bytes": 535,
+      "sha256": "36be2f9dd34878319bce810630ae4af88cfe29728b756f0dee3437692092e1cf"
+    },
+    "attempt03-build-command.json": {
+      "bytes": 525,
+      "sha256": "e078db21bd9baabaa470b071a4dcc8198a6b0f466525b1c5daa66a003d0e24b8"
+    },
+    "attempt03-cross-build.log": {
+      "bytes": 27242,
+      "sha256": "d6c11676648483e26c6e643c816053439fb5ed722fdeb79234d8bdbeec43ccc3"
+    },
+    "attempt03-evaluated.bin.hex": {
+      "bytes": 127369,
+      "sha256": "51816b387ba9c5ff2ac46fab4c2e065e8f65a14838e66c804d826ac3ece08b17"
+    },
+    "attempt03-r1-regression.log": {
+      "bytes": 755,
+      "sha256": "233751f28b50cd313e101a12813e92bfa21cc8a4e7efa25db2fd8969372c0c19"
     },
     "candidate-complete-scan.gdb": {
       "bytes": 116701,

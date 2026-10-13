@@ -20,6 +20,10 @@ typedef struct {
     uint32_t ready_timeout_ms;
     uint64_t capacity_bytes;
     bool initialized;
+    /* Passive phase telemetry. R1 is authoritative only when status_error==0. */
+    uint32_t last_phase, last_block, last_count, last_hal_result;
+    uint32_t last_status_error, last_r1, transfer_not_ready_polls;
+
 } Stm32SdmmcBulkMedia;
 
 Tr2Result stm32_sdmmc_bulk_media_init(
