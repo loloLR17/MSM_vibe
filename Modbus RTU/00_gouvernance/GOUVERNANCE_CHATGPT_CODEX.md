@@ -44,3 +44,7 @@ Après rapport, ChatGPT vérifie au minimum : cohérence mission/rapport, SHA di
 
 ## 7. Périmètre technique à examiner avant M016
 Préparer une mission Codex distincte pour auditer la configuration STM32 cumulative reproductible, les budgets et appels bloquants FIFO/Modbus/FRAM/SD, l'encapsulation des drivers officiels ST, la pertinence des tests hôte/ARM et les lacunes de coexistence. Codex propose et effectue les corrections ciblées autorisées, escalade uniquement les décisions réellement structurantes. Ne pas confondre qualification M015 bornée avec validation de M016, DSP, SDMMC complet ou endurance.
+
+## 8. Procédure A-01 — Qualification sous responsabilité ChatGPT
+
+Après un rapport `DONE`, contrôler indépendamment le SHA exact du code exécuté, la configuration de compilation (toolchain et options), l'empreinte de l'image, l'identité du banc, les tests pertinents et les preuves matérielles, les limites et le statut du matériel. Publier une fiche synthétique dans `Modbus RTU/02_Validation/Qualifications/` ; citer les rapports et traces sans les recopier. Une qualification ne vaut que pour son périmètre explicite ; `DONE` n'est pas un verdict de qualification. Si les preuves sont suffisantes, créer et vérifier sur GitHub un tag **annoté** `tr2/Mnnn` sur le SHA de code effectivement qualifié, distinct du SHA documentaire. Si une donnée essentielle manque, déclarer la revue en attente et ne pas créer de tag. Aucun tag rétroactif sans examen individualisé. Codex fournit les preuves ; ChatGPT décide et publie la qualification.
