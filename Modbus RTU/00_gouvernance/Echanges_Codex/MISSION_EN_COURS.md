@@ -1,9 +1,7 @@
 ---
-mission_id: TR2-20261013-A05-AUDIT-TESTS
+mission_id: TR2-20261013-A04-01-SAFE-BUILD
 status: READY
 base_ref: main
-base_sha: d0238953ee0b0245f8540041fe6593939615c703
-created_at_utc: 2026-10-13T00:00:00Z
 author: ChatGPT
 target_branch: main
 allow_commit: true
@@ -12,22 +10,26 @@ allow_flash: false
 allow_debug: false
 ---
 
-# A-05 — Audit ciblé de la pertinence des tests et des preuves TR2
+# A04-01 — Sécurisation des profils de compilation STM32
 
-## Contexte et objectif
-A-04 (`TR2-20261013-A04-AUDIT-FIRMWARE`) est `DONE` selon le rapport Codex et ses preuves. La revue ChatGPT a accepté l'audit **sans qualifier de nouveau le matériel**. Les neuf dettes A04-01 à A04-09, leurs priorités et l'ordre de traitement sont **déjà publiés** dans `Modbus RTU/00_gouvernance/DETTE_TECHNIQUE_A04.md`, l'état courant et la roadmap. **Ne pas supprimer, réinterpréter ni clôturer ces dettes** sans preuves et revue.
+## Objectif
+Corriger uniquement la dette A04-01 : éliminer le risque de confusion entre le firmware cumulatif M014/M015 et le harness générique susceptible d'écrire sur la microSD. Conserver les usages historiques légitimes derrière une sélection explicite. Ne pas modifier les fonctionnalités FRAM/Modbus/FIFO ni activer SDMMC dans le cumulatif.
 
-Mission **exclusivement d'audit et de rapport** : identifier les lacunes significatives de couverture, définir la matrice de tests minimale, reproductible et proportionnée avant les corrections A04-01, A04-02 et l'intégration A04-03/M016. Aucun changement de firmware, CMake, tests, règles de gouvernance, état courant, roadmap ou registre de dette dans cette tranche. Préserver M014/M015 et le mapping V1 gelé.
+## Références
+Consulter AGENTS.md, GOUVERNANCE_CHATGPT_CODEX.md, PROTOCOLE_ECHANGE_V2.md, DETTE_TECHNIQUE_A04.md, rapports archivés A-04/A-05 et matrice A-05 proposed-test-matrix.csv sur main. Vérifier le HEAD courant.
 
-## Investigations demandées
-1. **Inventaire réel** des tests hôte, ARM, intégration, hardware, manifests et preuves existantes, avec fichiers/fonctions/commandes/SHAs précis ; distinguer tests exécutés pendant A-05, résultats historiques vérifiés et assertions non démontrées.
-2. **A04-01 / build sûr :** matrice CMake des profils cumulatif, défaut, qualification et combinaisons invalides ; preuve ELF/symboles, absence de chemins d'écriture SD dans les profils sûrs, empreinte du BIN de référence, refus explicite d'une sélection dangereuse. Définir critères de non-régression et limites des tests statiques.
-3. **A04-02 / FRAM-Modbus :** tests de budget et latence des scans, commits, snapshots et requêtes B0/B1/B3/B5 sous acquisition ; fiabilité des projections, durabilité transactionnelle, corruption/recovery, retries, erreurs de média et état d'indisponibilité explicite. Distinguer tests mock et mesures physiques indispensables ; proposer instrumentation minimale.
-4. **A04-03 / M016 :** tests du glue STM32, propriétaire unique SPI3/FIFO, quatre tailles, quatre échelles, axes, configuration/génération, timestamps (gaps, wrap, tolérances), saturation, CRC, invalidation, absence de publication partielle/périmée, budget RAM/stack/heap.
-5. **Autres dettes A04-04 à A04-08 :** identifier les vérifications pertinentes sur queue UART, démarrage FRAM, SD off / SD futur, délais d'erreur HAL, stabilité et perte d'échantillons ; garder A04-09 facultatif. Séparer ce qui doit précéder M016 de ce qui relève d'une qualification ultérieure.
-6. Proposer une **matrice de tests priorisée** (identifiant A04, scénario, niveau hôte/ARM/physique, méthode, critères d'acceptation mesurables, preuves attendues, priorité, coût/risque), sans transformer les tests existants en obligations redondantes.
+## Travaux
+Analyser CMake, scripts de build et de validation, main.c, chemins SDMMC et procédures de programmation. Mettre en place la correction minimale de sélection sûre : profil cumulatif explicite et reproductible, identification claire des artefacts, garde contre profil générique ambigu et accès SD non intentionnels. Préserver les profils spécialisés sans les présenter comme firmware de production. Pas de refonte générale.
 
-## Autorisations, limites et livrable
-Commit et push autorisés **uniquement** pour `DERNIER_RAPPORT.md`, l'archivage immuable du rapport A-04 et les preuves documentaires strictement nécessaires. `allow_flash: false`, `allow_debug: false` : **aucune intervention STM32 ni média physique en A-05** ; analyses statiques, builds et tests hôte/ARM non intrusifs autorisés. Préserver les worktrees/stashes et les preuves M015-V/A-04. Ne pas modifier les tests ou corriger des défauts pendant l'audit. Ne pas introduire CI lourde, refonte ou RTOS par défaut.
+## Acceptation
+- Exécuter les scénarios A-05 BUILD-01, BUILD-02, BUILD-03 et SD-01, y compris les gardes négatives déjà établies.
+- Vérifier les chemins de code et artefacts ELF, pas uniquement l'absence d'un symbole SD.
+- Reconstruire le cumulatif canonique A-04 et, si le runtime est inchangé, vérifier le BIN identique au SHA256 8529630a5a6c9aaa2449fde512b06d6ca16a89a08b7afea2abc9ecca3b75d480 (169380 octets).
+- Exécuter les tests logiciels pertinents et six tests Python d'autorité ; ajouter seulement des non-régressions ciblées. Publier commandes, résultats et preuves.
+- Ne pas accéder au matériel STM32 ni à la microSD : aucun flash, debug ou test destructif.
 
-Archiver le rapport A-04 **byte-identique** dans `Modbus RTU/00_gouvernance/Echanges_Codex/archives/TR2-20261013-A04-AUDIT-FIRMWARE/RAPPORT.md` s'il n'existe pas, avant remplacement. Publier le rapport A-05 avec le même `mission_id`, statuts V2, SHA, méthodes, matrice et limites dans `Modbus RTU/00_gouvernance/Echanges_Codex/DERNIER_RAPPORT.md`. Vérifier la publication et relire à distance les livrables. ChatGPT réalisera la revue indépendante avant toute mission de correction. En cas d'interruption, conserver l'identifiant et publier un checkpoint `IN_PROGRESS` selon A-03.
+## Autonomie et limites
+Commit/push autorisés sur main pour code et preuves, conformément à AGENTS.md. Flash/debug désactivés pour cette tranche logicielle. Préserver les acquis M014/M015, worktrees et stashes. Ne pas corriger A04-02 ou A04-03. Escalader uniquement les décisions structurantes ou risques non maîtrisés.
+
+## Livrable
+Archiver le rapport A-05 byte-identique sous Echanges_Codex/archives/TR2-20261013-A05-AUDIT-TESTS/RAPPORT.md s'il est absent. Publier DERNIER_RAPPORT.md avec mission_id, statut, commits, diff, tests, empreintes et limites ; vérifier les publications distantes. Ne pas clore la dette A04-01 : ChatGPT vérifiera les résultats et mettra le registre à jour. Reprise sous le même identifiant en cas d'interruption.
