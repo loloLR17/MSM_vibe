@@ -7,7 +7,7 @@
 ## 1. État matériel et logiciel
 
 - **Cible principale :** TR2-001 / NUCLEO STM32U575 ; capteur IIS3DWB sur SPI3. Firmware **cumulatif M014+M015 avec correction A04-02** conservé sur la carte après l'essai de coexistence ; CPU 160 MHz, SPI3 4 MHz mode 3. Ne pas restaurer automatiquement M014-H.
-- **Code courant A04-02 exécuté par Codex :** `8bcb8436822ce7444074865617cb3696f877a6ad`, BIN169948octets SHA `b4301d6f3325c266edc19297413fd0885828e5625ec030a8acad340444b3fd9b`. **OBSERVÉ PHYSIQUE BORNÉ** :32768XYZ/4096TS,6readsHP sans retry, B5 retiré pendant capture/relu après cleanup ; revue indépendante attendue.
+- **Code courant A04-02 exécuté par Codex :** `8bcb8436822ce7444074865617cb3696f877a6ad`, BIN169948octets SHA `b4301d6f3325c266edc19297413fd0885828e5625ec030a8acad340444b3fd9b`. **OBSERVÉ PHYSIQUE BORNÉ** :32768XYZ/4096TS,6readsHP sans retry, B5 retiré pendant capture/relu après cleanup ; qualification ChatGPT A04-02 acquise dans ce périmètre borné le 13/10/2026.
 - **Code M015-V déclaré testé par Codex :** `ef468539b9943cc9b9b4d832e513a0f8ab05c7ae` ; commit documentaire de preuves `92c0966d5a4f84ee4033490825e3f7cc6dc6737a`. SHA-256 BIN : `8529630a5a6c9aaa2449fde512b06d6ca16a89a08b7afea2abc9ecca3b75d480` (rapport M015-V). **Revue indépendante A-01 et tag `tr2/M015` encore à réaliser.**
 - **Supervision PC :** socle S0–S7 développé ; M014-H a démontré sur le TR2 réel les lectures B0/B1, le polling et la perte/reprise dans une portée bornée. Pas de preuve de mesure vibratoire V1 affichée.
 - **STM32/Modbus :** B0/B1 fonctionnels dans l'essai M015-V ; correction de préparation B5 inutile sur lecture FC03 B0/B1. A04-02 retire B5 par exception04 avant I/O pendant capture ; réponse fraîche après cleanup. I/O B5 reste synchrone au repos (max144,138ms observé), boot bloquant non corrigé.
@@ -28,8 +28,8 @@
 ## 4. Prochaine étape
 
 1. **A-02 achevée** et **A-03 harmonisée** ; réaliser la revue indépendante A-01 de M015 (fiche et tag uniquement si les preuves le permettent).
-2. Contrôler indépendamment les audits **A-04/A-05** et corrections **A04-01/A04-02** livrés ; décider des statuts de dette avant M016 et conserver les limites de budget/couverture/endurance relevées.
-3. Reprendre **M016** : traitements et publication des vibrations dans le mapping Modbus V1 gelé, puis M017–M020 selon la roadmap.
+2. **A04-01/A04-02 qualifiés et statuts de dette actualisés le 13/10/2026** ; conserver les limites de budget/couverture/endurance, A04-04 à A04-08 et la revue A-01 M015 distincte.
+3. Exécuter **M016** : traitements et publication des vibrations dans le mapping Modbus V1 gelé, puis M017–M020 selon la roadmap.
 
 ## 4 bis. Décisions après audit A-04
 
@@ -37,9 +37,9 @@
 - **Registre de dette A-04 :** [DETTE_TECHNIQUE_A04.md](DETTE_TECHNIQUE_A04.md), neuf constats ouverts ou différés, avec priorités et critères de clôture. Ne pas effacer ces constats lors du passage A-05.
 - Ordre décidé : **A-05 tests et preuves → A04-01 build sûr → A04-02 FRAM/Modbus → A04-03 intégration M016**. A04-08 avant activation SD ; autres dettes suivies par ID.
 - La mission A-04 est clôturée par son rapport `DONE` ; le contrat `READY` historique ne doit pas être relancé.
-- **13/10/2026 — A04-01, VALIDÉ LOGICIEL par Codex :** sélection explicite des profils, refus du harness SD implicite, BIN cumulatif byte-identique à M015-V. [Rapport de correction](Echanges_Codex/archives/TR2-20261013-A04-01-SAFE-BUILD/RAPPORT.md), code `c9ee22292ae69cc6f333aaab3527d18556ee8272`. **Revue indépendante / clôture de dette en attente** ; registre inchangé, aucun matériel accédé ni état actuel relu. A04-02 reste hors de cette correction.
+- **13/10/2026 — A04-01, VALIDÉ LOGICIEL par Codex :** sélection explicite des profils, refus du harness SD implicite, BIN cumulatif byte-identique à M015-V. [Rapport de correction](Echanges_Codex/archives/TR2-20261013-A04-01-SAFE-BUILD/RAPPORT.md), code `c9ee22292ae69cc6f333aaab3527d18556ee8272`. **Qualifié logiciel par ChatGPT le 13/10/2026 ; dette A04-01 clôturée dans cette portée** ; registre inchangé, aucun matériel accédé ni état actuel relu. A04-02 reste hors de cette correction.
 
-- **13/10/2026 — A04-02, VALIDÉ LOGICIEL / OBSERVÉ PHYSIQUE BORNÉ par Codex :**126tests et cross-build ; FIFOmax293, FULL/OVR0, gapDWT5,855ms, réserve nominale7,30ms/marge1,445ms. B3 métier reste indisponible ; B5exception04 pendant capture, journal frais après cleanup. [Rapport actuel](Echanges_Codex/DERNIER_RAPPORT.md). Revue/clôture de dette en attente ; A04-03/M016 non engagé.
+- **13/10/2026 — A04-02, VALIDÉ LOGICIEL / OBSERVÉ PHYSIQUE BORNÉ par Codex :**126tests et cross-build ; FIFOmax293, FULL/OVR0, gapDWT5,855ms, réserve nominale7,30ms/marge1,445ms. B3 métier reste indisponible ; B5exception04 pendant capture, journal frais après cleanup. [Rapport actuel](Echanges_Codex/DERNIER_RAPPORT.md). **Qualifié logiciel et physique borné par ChatGPT le 13/10/2026 ; dette A04-02 clôturée dans cette portée.** A04-03/M016 à exécuter.
 
 ## 5. Références durables
 
@@ -47,3 +47,8 @@
 - [Rapport Codex M015-V](Echanges_Codex/archives/TR2-20261013-M015-V-COOPERATIVE-CLOTURE/RAPPORT.md) : tests, empreintes, preuves, limites et publications.
 - [Historique complet pré-A-02](Archives/ETAT_COURANT_TR2_AVANT_A02_20261013.md) : missions M013 à M015-V et reconstruction T1000 ; préservé byte-identique.
 - [Gouvernance ChatGPT](GOUVERNANCE_CHATGPT_CODEX.md), `AGENTS.md` à la racine, et fiches A-01 dans `Modbus RTU/02_Validation/Qualifications/`.
+
+
+## Décision de pilotage du 13/10/2026
+
+ChatGPT a qualifié A04-01 (logiciel) et A04-02 (logiciel + essai physique borné) sur rapports, commits et preuves publiés. La qualification ne suppose pas une reproduction indépendante de tous les tests. Rapports durables : `Echanges_Codex/archives/TR2-20261013-A04-01-SAFE-BUILD/RAPPORT.md` et `Echanges_Codex/archives/TR2-20261013-A04-02-FRAM-MODBUS/RAPPORT.md`. La qualification A-01 et le tag M015 demeurent distincts et en attente. M016 est la prochaine mission ; ne pas confondre DONE Codex et qualification future M016.
