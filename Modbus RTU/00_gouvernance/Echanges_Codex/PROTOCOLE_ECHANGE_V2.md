@@ -13,11 +13,11 @@ Le code et les règles de `AGENTS.md` en vigueur priment sur ce protocole. Ce do
 Dossier : `Modbus RTU/00_gouvernance/Echanges_Codex/`.
 
 - `PROTOCOLE_ECHANGE_V2.md` : convention commune ; modifications sur mission dédiée.
-- `MISSION_EN_COURS.md` : **ChatGPT seul rédacteur**, mission active et son identifiant.
-- `DERNIER_RAPPORT.md` : **Codex seul rédacteur**, dernier résultat publié.
-- `archives/<mission_id>/MISSION.md` et `archives/<mission_id>/RAPPORT.md` : copie immuable des échanges clôturés, si archivage nécessaire ; jamais écraser une archive existante.
+- `MISSION_EN_COURS.md` : **ChatGPT seul rédacteur**, mission active et son identifiant, ou marqueur `IDLE`.
+- `DERNIER_RAPPORT.md` : **Codex seul rédacteur**, dernier résultat publié. Codex peut également actualiser les constats factuels du journal technique et les statuts factuels de la roadmap dans le périmètre autorisé ; les changements de règles de gouvernance relèvent de ChatGPT.
+- `archives/<mission_id>/MISSION.md` et `archives/<mission_id>/RAPPORT.md` : convention historique d'archivage des échanges clôturés, si nécessaire ; jamais écraser une archive existante. Les instantanés documentaires A-02 dans `Modbus RTU/00_gouvernance/Archives/` sont une archive distincte et légitime ; ne pas les déplacer ni les écraser.
 
-Un seul pilote actif à la fois sur la branche partagée. La mission suivante n'est publiée qu'après vérification et clôture de la précédente. Les fichiers actifs ne constituent pas une archive historique.
+Un seul pilote actif à la fois sur la branche partagée. La mission suivante n'est publiée qu'après vérification et clôture de la précédente. Les fichiers actifs ne constituent pas une archive historique. En l'absence de mission active, `MISSION_EN_COURS.md` peut porter `status: IDLE` et `mission_id: null` : ce marqueur n'est pas un contrat exécutable et ne confère aucune permission.
 
 ## 3. Contrat de mission
 
@@ -52,7 +52,7 @@ En tête YAML, au minimum :
 ```yaml
 ---
 mission_id: TR2-YYYYMMDD-NNN
-status: DONE # ou BLOCKED / FAILED
+status: DONE # ou IN_PROGRESS / BLOCKED / FAILED
 base_ref: <branche de mission>
 base_sha: <référence du contrat>
 initial_head: <HEAD observé au démarrage>
@@ -71,7 +71,7 @@ Corps : modifications et chemins, commandes réellement exécutées avec succès
 
 Le SHA du commit contenant le rapport est fourni dans la réponse finale Codex après commit ; ne pas tenter d'inscrire dans le même commit son propre SHA. ChatGPT doit relever et vérifier ce commit indépendamment sur GitHub.
 
-Cycle de clôture : publier d’abord un rapport provisoire `BLOCKED` si la preuve distante reste à obtenir, en précisant que ce statut porte sur cette attente. Après push, relire intégralement les livrables depuis la référence récupérée de GitHub et comparer leurs contenus aux fichiers publiés. Si tous les critères sont satisfaits, publier une mise à jour `DONE` consignant le SHA relu ; vérifier aussi cette dernière publication et fournir son SHA dans la réponse finale. Si un critère reste bloqué, conserver `BLOCKED`. Une présence distante seule ne démontre pas une relecture historique ; ne pas réécrire les archives pour compléter une preuve absente.
+Cycle de clôture : publier d’abord un rapport provisoire `IN_PROGRESS` si la preuve distante reste à obtenir, en précisant que ce statut porte sur cette attente et non sur un blocage extérieur. Après push, relire intégralement les livrables depuis la référence récupérée de GitHub et comparer leurs contenus aux fichiers publiés. Si tous les critères sont satisfaits, publier une mise à jour `DONE` consignant le SHA relu ; vérifier aussi cette dernière publication et fournir son SHA dans la réponse finale. Si un obstacle extérieur réel empêche de poursuivre, utiliser `BLOCKED` avec sa cause ; une vérification distante encore en cours relève de `IN_PROGRESS`, non de `BLOCKED`. Une présence distante seule ne démontre pas une relecture historique ; ne pas réécrire les archives pour compléter une preuve absente.
 
 ## 5. Procédure opératoire
 
