@@ -1,0 +1,19 @@
+[0/2] Re-checking globbed directories...
+[1/6] Building C object CMakeFiles/tr2_stm32_p11c.dir/generated/iis3dwb_fifo_ported.c.obj
+[2/6] Building C object CMakeFiles/tr2_stm32_p11c.dir/stm32_iis3dwb_st_window.c.obj
+FAILED: CMakeFiles/tr2_stm32_p11c.dir/stm32_iis3dwb_st_window.c.obj
+/usr/bin/arm-none-eabi-gcc -DBENCH_DUPLEX=0 -DBENCH_WINDOW_XYZ=4096 -DOFFICIAL_STATUS10=1 -DSTM32U575xx -DTR2_STM32_ACQUISITION_CAPTURE=0 -DTR2_STM32_ACTIVE_READBACK=0 -DTR2_STM32_BURST_CAPTURE=0 -DTR2_STM32_COMMISSIONING_READONLY=0 -DTR2_STM32_CONTINUOUS_FIFO=0 -DTR2_STM32_CTRL1_DIFFERENTIAL=0 -DTR2_STM32_DIAGNOSTIC_UNIT_ID=0 -DTR2_STM32_FIFO_CAPTURE=0 -DTR2_STM32_IRQ_DIAGNOSTICS=0 -DTR2_STM32_MANUFACTURING=0 -DTR2_STM32_MODBUS_DIAGNOSTIC=0 -DTR2_STM32_PRODUCTION=0 -DTR2_STM32_PRODUCTION_SILENCE_TEST=0 -DTR2_STM32_REGISTER_PROBE=0 -DTR2_STM32_RS485_TX_QUALIFIED=0 -DTR2_STM32_ST_FIFO_WINDOW=1 -DUSE_HAL_DRIVER -I"/home/lolo/dev/msm/projects/MSM_vibe-M015-U/Modbus RTU/05_Firmware/platform/stm32" -I"/home/lolo/dev/msm/projects/MSM_vibe-M015-U/Modbus RTU/05_Firmware/platform/stm32/../../include" -I/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/CMSIS/Include -I/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/CMSIS/Device/ST/STM32U5xx/Include -I/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/STM32U5xx_HAL_Driver/Inc -I"/home/lolo/dev/msm/projects/MSM_vibe-M015-U/Modbus RTU/05_Firmware/platform/stm32/../../../../experiments/iis3dwb_st_reference/src" -I"/home/lolo/dev/msm/projects/MSM_vibe-M015-U/Modbus RTU/05_Firmware/platform/stm32/../../../../experiments/iis3dwb_st_reference/official" -I"/home/lolo/dev/msm/projects/MSM_vibe-M015-U/Modbus RTU/05_Firmware/platform/stm32/../../../../experiments/iis3dwb_st_reference/vendor/st" -std=c11 -mcpu=cortex-m33 -mthumb -ffunction-sections -fdata-sections -Wall -Wextra -Wpedantic -Werror -MD -MT CMakeFiles/tr2_stm32_p11c.dir/stm32_iis3dwb_st_window.c.obj -MF CMakeFiles/tr2_stm32_p11c.dir/stm32_iis3dwb_st_window.c.obj.d -o CMakeFiles/tr2_stm32_p11c.dir/stm32_iis3dwb_st_window.c.obj -c '/home/lolo/dev/msm/projects/MSM_vibe-M015-U/Modbus RTU/05_Firmware/platform/stm32/stm32_iis3dwb_st_window.c'
+/home/lolo/dev/msm/projects/MSM_vibe-M015-U/Modbus RTU/05_Firmware/platform/stm32/stm32_iis3dwb_st_window.c: In function 'preserve_fram':
+/home/lolo/dev/msm/projects/MSM_vibe-M015-U/Modbus RTU/05_Firmware/platform/stm32/stm32_iis3dwb_st_window.c:112:45: error: passing argument 2 of 'stm32_fram_storage_init' from incompatible pointer type [-Wincompatible-pointer-types]
+  112 |  if(stm32_fram_storage_init(&protected_fram,fram,GPIOD,GPIO_PIN_14,100)!=TR2_OK)return -1;
+      |                                             ^~~~
+      |                                             |
+      |                                             SPI_HandleTypeDef * {aka struct __SPI_HandleTypeDef *}
+/home/lolo/dev/msm/projects/MSM_vibe-M015-U/Modbus RTU/05_Firmware/platform/stm32/stm32_iis3dwb_st_window.c:7:15: note: expected 'SPI_HandleTypeDef **' {aka 'struct __SPI_HandleTypeDef **'} but argument is of type 'SPI_HandleTypeDef *' {aka 'struct __SPI_HandleTypeDef *'}
+    7 | #define spi (*sensor_spi)
+/home/lolo/dev/msm/projects/MSM_vibe-M015-U/Modbus RTU/05_Firmware/platform/stm32/stm32_fram_storage.h:23:24: note: in expansion of macro 'spi'
+   23 |     SPI_HandleTypeDef *spi,
+      |                        ^~~
+[3/6] Building C object CMakeFiles/tr2_stm32_p11c.dir/main.c.obj
+[4/6] Building C object CMakeFiles/tr2_stm32_p11c.dir/generated/stm32u5xx_hal_spi_observed.c.obj
+ninja: build stopped: subcommand failed.

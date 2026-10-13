@@ -32,6 +32,7 @@ if(TR2_STM32_MODBUS_DIAGNOSTIC)
     endif()
 endif()
 
+option(TR2_STM32_ST_FIFO_WINDOW "M015-U RAM-only official ST4096 bounded profile" OFF)
 option(TR2_STM32_CONTINUOUS_FIFO "Bounded continuous FIFO4096 RAM qualification, no media" OFF)
 option(TR2_STM32_CTRL1_DIFFERENTIAL "Bounded CTRL1 configuration comparison, no acquisition" OFF)
 option(TR2_STM32_BURST_CAPTURE "Bounded FIFO bursts128 RAM capture, no continuous stream" OFF)
@@ -120,6 +121,14 @@ if(TR2_STM32_CONTINUOUS_FIFO AND (TR2_STM32_CTRL1_DIFFERENTIAL OR
     TR2_STM32_MODBUS_DIAGNOSTIC OR TR2_STM32_RS485_TX_QUALIFIED OR
     TR2_STM32_IRQ_DIAGNOSTICS))
     message(FATAL_ERROR "Continuous FIFO is exclusive, no media/TX/other capture")
+endif()
+
+if(TR2_STM32_ST_FIFO_WINDOW)
+ foreach(other PRODUCTION MANUFACTURING COMMISSIONING_READONLY MODBUS_DIAGNOSTIC RS485_TX_QUALIFIED IRQ_DIAGNOSTICS CONTINUOUS_FIFO CTRL1_DIFFERENTIAL BURST_CAPTURE ACTIVE_READBACK REGISTER_PROBE FIFO_CAPTURE ACQUISITION_CAPTURE)
+  if(TR2_STM32_${other})
+   message(FATAL_ERROR "ST FIFO window excludes media, transport and other resource owners")
+  endif()
+ endforeach()
 endif()
 
 set(TR2_FIRMWARE_ROOT "${CMAKE_CURRENT_SOURCE_DIR}/../..")
@@ -223,6 +232,7 @@ if(TR2_STM32_PRODUCTION OR TR2_STM32_MANUFACTURING)
     target_include_directories(tr2_stm32_p11c PRIVATE ${CMAKE_CURRENT_BINARY_DIR}/generated)
 endif()
 target_compile_definitions(tr2_stm32_p11c PRIVATE
+    TR2_STM32_ST_FIFO_WINDOW=$<BOOL:${TR2_STM32_ST_FIFO_WINDOW}>
     TR2_STM32_CONTINUOUS_FIFO=$<BOOL:${TR2_STM32_CONTINUOUS_FIFO}>
     TR2_STM32_CTRL1_DIFFERENTIAL=$<BOOL:${TR2_STM32_CTRL1_DIFFERENTIAL}>
     TR2_STM32_BURST_CAPTURE=$<BOOL:${TR2_STM32_BURST_CAPTURE}>
@@ -288,3 +298,30 @@ add_custom_command(TARGET tr2_stm32_p11c POST_BUILD
     COMMAND ${ARM_SIZE} $<TARGET_FILE:tr2_stm32_p11c>
     VERBATIM
 )
+
+if(TR2_STM32_ST_FIFO_WINDOW)
+ set(ST_REF "${CMAKE_CURRENT_SOURCE_DIR}/../../../../experiments/iis3dwb_st_reference")
+ find_package(Python3 REQUIRED COMPONENTS Interpreter)
+ set(OFFICIAL_PORTED ${CMAKE_CURRENT_BINARY_DIR}/generated/iis3dwb_fifo_ported.c)
+ execute_process(COMMAND ${Python3_EXECUTABLE} -B ${ST_REF}/official/generate.py
+   ${ST_REF}/vendor/st/examples/iis3dwb_fifo.c ${OFFICIAL_PORTED} RESULT_VARIABLE ported)
+ if(NOT ported EQUAL 0)
+  message(FATAL_ERROR "Official ST provenance refused")
+ endif()
+ set(SPI_OBSERVED ${CMAKE_CURRENT_BINARY_DIR}/generated/stm32u5xx_hal_spi_observed.c)
+ execute_process(COMMAND ${Python3_EXECUTABLE} -B ${ST_REF}/tools/instrument_hal.py
+   ${HAL_DIR}/Src/stm32u5xx_hal_spi.c ${SPI_OBSERVED} RESULT_VARIABLE observed)
+ if(NOT observed EQUAL 0)
+  message(FATAL_ERROR "HAL provenance refused")
+ endif()
+ get_target_property(all_sources tr2_stm32_p11c SOURCES)
+ list(REMOVE_ITEM all_sources ${HAL_DIR}/Src/stm32u5xx_hal_spi.c)
+ set_property(TARGET tr2_stm32_p11c PROPERTY SOURCES ${all_sources})
+ target_sources(tr2_stm32_p11c PRIVATE stm32_iis3dwb_st_window.c
+   ${ST_REF}/vendor/st/iis3dwb_reg.c ${ST_REF}/official/port.c
+   ${ST_REF}/src/fifo_window.c ${ST_REF}/src/spi_diagnostic.c ${OFFICIAL_PORTED} ${SPI_OBSERVED})
+ target_include_directories(tr2_stm32_p11c PRIVATE ${ST_REF}/src ${ST_REF}/official ${ST_REF}/vendor/st)
+ target_compile_definitions(tr2_stm32_p11c PRIVATE BENCH_WINDOW_XYZ=4096 BENCH_DUPLEX=0 OFFICIAL_STATUS10=1)
+ set_source_files_properties(${SPI_OBSERVED} ${ST_REF}/src/fifo_window.c PROPERTIES COMPILE_OPTIONS "-O2")
+ target_link_options(tr2_stm32_p11c PRIVATE -Wl,-u,_printf_float)
+endif()

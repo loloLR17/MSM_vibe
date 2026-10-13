@@ -1709,6 +1709,9 @@ __attribute__((noreturn)) static void CommissioningReadOnly(void)
 }
 #endif
 
+#if TR2_STM32_ST_FIFO_WINDOW
+extern __attribute__((noreturn)) void stm32_iis3dwb_st_window_run(SPI_HandleTypeDef *,SPI_HandleTypeDef *);
+#endif
 int main(void)
 {
     SerialTransport serial_transport;
@@ -1722,6 +1725,11 @@ int main(void)
     SystemClock_Config();
     SystemPower_Config();
     BringupLed_Init();
+#if TR2_STM32_ST_FIFO_WINDOW
+    Iis3dwbSpi_Init();
+    FramSpi_Init();
+    stm32_iis3dwb_st_window_run(&hspi3,&hspi1);
+#endif
 #if TR2_STM32_CONTINUOUS_FIFO
     Iis3dwbSpi_Init();
     stm32_iis3dwb_continuous_run(&hspi3, TR2_IIS3DWB_CS_PORT, TR2_IIS3DWB_CS_PIN);
@@ -2629,6 +2637,18 @@ static void Iis3dwbSpi_Init(void)
     GPIO_InitTypeDef gpio = {0};
 
     __HAL_RCC_GPIOC_CLK_ENABLE();
+#if TR2_STM32_ST_FIFO_WINDOW
+    RCC_OscInitTypeDef sensor_osc={0};
+    RCC_PeriphCLKInitTypeDef sensor_clock={0};
+    sensor_osc.OscillatorType=RCC_OSCILLATORTYPE_HSI;
+    sensor_osc.HSIState=RCC_HSI_ON;
+    sensor_osc.HSICalibrationValue=RCC_HSICALIBRATION_DEFAULT;
+    sensor_osc.PLL.PLLState=RCC_PLL_NONE;
+    sensor_clock.PeriphClockSelection=RCC_PERIPHCLK_SPI3;
+    sensor_clock.Spi3ClockSelection=RCC_SPI3CLKSOURCE_HSI;
+    if(HAL_RCC_OscConfig(&sensor_osc)!=HAL_OK ||
+       HAL_RCCEx_PeriphCLKConfig(&sensor_clock)!=HAL_OK)Error_Handler();
+#endif
     __HAL_RCC_SPI3_CLK_ENABLE();
 
     HAL_GPIO_WritePin(TR2_IIS3DWB_CS_PORT, TR2_IIS3DWB_CS_PIN, GPIO_PIN_SET);
@@ -2642,7 +2662,11 @@ static void Iis3dwbSpi_Init(void)
     gpio.Pin = GPIO_PIN_10 | GPIO_PIN_11 | GPIO_PIN_12;
     gpio.Mode = GPIO_MODE_AF_PP;
     gpio.Pull = GPIO_NOPULL;
+#if TR2_STM32_ST_FIFO_WINDOW
+    gpio.Speed = GPIO_SPEED_FREQ_HIGH;
+#else
     gpio.Speed = GPIO_SPEED_FREQ_LOW;
+#endif
     gpio.Alternate = GPIO_AF6_SPI3;
     HAL_GPIO_Init(GPIOC, &gpio);
 
@@ -2650,7 +2674,7 @@ static void Iis3dwbSpi_Init(void)
     hspi3.Init.Mode = SPI_MODE_MASTER;
     hspi3.Init.Direction = SPI_DIRECTION_2LINES;
     hspi3.Init.DataSize = SPI_DATASIZE_8BIT;
-#if TR2_STM32_ACQUISITION_CAPTURE || TR2_STM32_FIFO_CAPTURE || TR2_STM32_REGISTER_PROBE || TR2_STM32_ACTIVE_READBACK || TR2_STM32_BURST_CAPTURE || TR2_STM32_CTRL1_DIFFERENTIAL || TR2_STM32_CONTINUOUS_FIFO
+#if TR2_STM32_ST_FIFO_WINDOW || TR2_STM32_ACQUISITION_CAPTURE || TR2_STM32_FIFO_CAPTURE || TR2_STM32_REGISTER_PROBE || TR2_STM32_ACTIVE_READBACK || TR2_STM32_BURST_CAPTURE || TR2_STM32_CTRL1_DIFFERENTIAL || TR2_STM32_CONTINUOUS_FIFO
     /* Both mode0 and mode3 are supported by IIS3DWB DS12569. */
     hspi3.Init.CLKPolarity = SPI_POLARITY_HIGH;
     hspi3.Init.CLKPhase = SPI_PHASE_2EDGE;
@@ -2659,7 +2683,9 @@ static void Iis3dwbSpi_Init(void)
     hspi3.Init.CLKPhase = SPI_PHASE_1EDGE;
 #endif
     hspi3.Init.NSS = SPI_NSS_SOFT;
-#if TR2_STM32_BURST_CAPTURE || TR2_STM32_CTRL1_DIFFERENTIAL || TR2_STM32_CONTINUOUS_FIFO
+#if TR2_STM32_ST_FIFO_WINDOW
+    hspi3.Init.BaudRatePrescaler = SPI_BAUDRATEPRESCALER_4;
+#elif TR2_STM32_BURST_CAPTURE || TR2_STM32_CTRL1_DIFFERENTIAL || TR2_STM32_CONTINUOUS_FIFO
     hspi3.Init.BaudRatePrescaler = SPI_BAUDRATEPRESCALER_64;
 #elif TR2_STM32_ACQUISITION_CAPTURE || TR2_STM32_FIFO_CAPTURE || TR2_STM32_REGISTER_PROBE || TR2_STM32_ACTIVE_READBACK
     /* Conservative bench capture clock; production profile is preserved. */
@@ -2673,7 +2699,11 @@ static void Iis3dwbSpi_Init(void)
     hspi3.Init.CRCPolynomial = 0x7U;
     hspi3.Init.NSSPMode = SPI_NSS_PULSE_DISABLE;
     hspi3.Init.NSSPolarity = SPI_NSS_POLARITY_LOW;
+#if TR2_STM32_ST_FIFO_WINDOW
+    hspi3.Init.FifoThreshold = SPI_FIFO_THRESHOLD_01DATA;
+#else
     hspi3.Init.FifoThreshold = SPI_FIFO_THRESHOLD_08DATA;
+#endif
     hspi3.Init.MasterSSIdleness = SPI_MASTER_SS_IDLENESS_00CYCLE;
     hspi3.Init.MasterInterDataIdleness = SPI_MASTER_INTERDATA_IDLENESS_00CYCLE;
     hspi3.Init.MasterReceiverAutoSusp = SPI_MASTER_RX_AUTOSUSP_DISABLE;

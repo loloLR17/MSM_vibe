@@ -331,3 +331,17 @@ tr2_add_core_test(test_production_provisioning tests/unit/test_production_provis
 tr2_add_core_test(test_persistent_identity tests/unit/test_persistent_identity.c persistent_identity)
 
 tr2_add_core_test(test_production_commissioning tests/unit/test_production_commissioning.c production_commissioning)
+
+set(ST_REF "${CMAKE_CURRENT_SOURCE_DIR}/../../experiments/iis3dwb_st_reference")
+add_executable(test_st_fifo_window ${ST_REF}/tests/test_fifo_window.c ${ST_REF}/src/fifo_window.c ${ST_REF}/vendor/st/iis3dwb_reg.c)
+target_include_directories(test_st_fifo_window PRIVATE ${ST_REF}/src ${ST_REF}/vendor/st)
+target_compile_options(test_st_fifo_window PRIVATE -Wall -Wextra -Werror -UNDEBUG)
+add_test(NAME st_fifo_window_integration COMMAND test_st_fifo_window)
+add_executable(test_st_fifo_admission tests/platform/test_st_fifo_admission.c)
+target_include_directories(test_st_fifo_admission PRIVATE platform/stm32 ${ST_REF}/src ${ST_REF}/vendor/st)
+target_compile_options(test_st_fifo_admission PRIVATE -Wall -Wextra -Werror -UNDEBUG)
+add_test(NAME st_fifo_admission COMMAND test_st_fifo_admission)
+add_executable(test_st_spi_diagnostic ${ST_REF}/tests/test_spi_diagnostic.c ${ST_REF}/src/spi_diagnostic.c)
+target_include_directories(test_st_spi_diagnostic PRIVATE ${ST_REF}/src)
+target_compile_options(test_st_spi_diagnostic PRIVATE -Wall -Wextra -Werror -UNDEBUG)
+add_test(NAME st_spi_completion_integration COMMAND test_st_spi_diagnostic)
