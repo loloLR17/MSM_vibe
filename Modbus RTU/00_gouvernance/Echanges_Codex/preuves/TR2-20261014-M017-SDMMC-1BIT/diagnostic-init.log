@@ -1,0 +1,17 @@
+main () at /home/lolo/dev/msm/projects/MSM_vibe-M017/experiments/sdmmc_st_reference/src/load_main.c:240
+240	  while(load_trigger!=INIT_KEY) {} load_trigger=0;
+0xbfa0700:	0x001b0046	0x38425018	0x20333157
+'\\wsl.localhost\Debian\home\lolo\dev\msm\projects\MSM_vibe-M017'
+CMD.EXE a ‚t‚ d‚marr‚ avec le chemin d'accŠs comme r‚pertoire en
+cours. Les chemins d'accŠs UNC ne sont pas prise en charge. Utilisation
+du r‚pertoire Windows par d‚faut.
+'sleep' n'est pas reconnu en tant que commande interne
+ou externe, un programme ex‚cutable ou un fichier de commandes.
+sleep 1 exited with status 1
+\\wsl.localhost\Debian\home\lolo\dev\msm\reports\TR2-M017-20261014\diagnostic-init.gdb:13: Error in sourced command file:
+Cannot execute this command while the target is running.
+Use the "interrupt" command to stop the target
+and then try again.
+Cannot execute this command while the target is running.
+Use the "interrupt" command to stop the target
+and then try again.

@@ -1,0 +1,20 @@
+main () at /home/lolo/dev/msm/projects/MSM_vibe-M017/experiments/sdmmc_st_reference/src/load_main.c:252
+252	  while(load_trigger!=RUN_KEY) {
+0xbfa0700:	0x001b0046	0x38425018	0x20333157
+Hardware assisted breakpoint 1 at 0x8001a14: file /home/lolo/dev/msm/projects/MSM_vibe-M017/experiments/sdmmc_st_reference/src/load_main.c, line 47.
+
+Breakpoint 1, differential () at /home/lolo/dev/msm/projects/MSM_vibe-M017/experiments/sdmmc_st_reference/src/load_main.c:212
+212	  for(uint32_t i=0;i<CHUNK;i++) ring[i]=pattern(i);
+
+Breakpoint 1, differential () at /home/lolo/dev/msm/projects/MSM_vibe-M017/experiments/sdmmc_st_reference/src/load_main.c:212
+212	  for(uint32_t i=0;i<CHUNK;i++) ring[i]=pattern(i);
+$1 = 0
+$2 = 0
+$3 = 0
+$4 = {0 <repeats 16 times>}
+$5 = {0 <repeats 16 times>}
+$6 = {0 <repeats 16 times>}
+$7 = 0x0
+$8 = 0x900
+0xe000ed28:	0x00000000	0x00000000
+[Inferior 1 (Remote target) detached]

@@ -1,0 +1,12 @@
+main () at /home/lolo/dev/msm/projects/MSM_vibe-M016-1bit-load-only/experiments/sdmmc_st_reference/src/load_main.c:207
+207	  while(1) {} /* No rerun, retry, erase, repair or automatic boot write. */
+0xbfa0700:	0x001b0046	0x38425018	0x20333157
+$1 = 99
+$2 = 3
+$3 = {0x3534453, 0x44333247, 0x858bf092, 0x3c01927a}
+$4 = 62333952
+$5 = 10000000
+0x42020400:	0x2ffffc3f
+0x420c0400:	0x00000000
+0x420c0404:	0x00000000
+[Inferior 1 (Remote target) detached]

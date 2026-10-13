@@ -1,0 +1,126 @@
+diff --git a/experiments/sdmmc_st_reference/src/load_main.c b/experiments/sdmmc_st_reference/src/load_main.c
+index f3297d0..34c7176 100644
+--- a/experiments/sdmmc_st_reference/src/load_main.c
++++ b/experiments/sdmmc_st_reference/src/load_main.c
+@@ -16,6 +16,7 @@
+ #define MAX_CHUNKS 4096U
+ #define INIT_KEY 0x4C31494EU
+ #define RUN_KEY 0x4C314C44U
++#define DIAG_KEY 0x4D313744U
+ #define TIMEOUT 5000U
+ SD_HandleTypeDef hsd2;
+ _Alignas(32) static uint8_t ring[RING], rx[CHUNK];
+@@ -33,6 +34,11 @@ volatile uint32_t load_cid[4], load_uid[3], load_dma_done, load_dma_error, load_
+ volatile uint32_t load_last_r1, load_cmd_error, load_max_producer_gap_us;
+ volatile uint32_t load_generation_us, load_write_elapsed_us, load_verify_elapsed_us;
+ volatile uint32_t load_write_latency_us[MAX_CHUNKS];
++volatile uint32_t load_dma_latency_us[MAX_CHUNKS], load_ready_latency_us[MAX_CHUNKS];
++volatile uint32_t load_last_data_us, load_last_ready_us, load_last_before_us;
++volatile uint32_t load_producer_cycles, load_producer_max_cycles;
++volatile uint32_t diag_done, diag_error, diag_mismatches, diag_latency_us[16], diag_data_us[16], diag_ready_us[16];
++static uint32_t polling_transport; /* Diagnostic selector only; campaign retains DMA baseline. */
+ static volatile uint64_t clock_cycles, load_started_cycles;
+ static volatile uint32_t clock_last;
+ void SystemClock_Config(void);
+@@ -51,6 +57,7 @@ void SysTick_Handler(void) {
+   uint32_t now=DWT->CYCCNT, delta=now-clock_last;
+   clock_last=now; clock_cycles+=delta;
+   if(!load_producer_enabled) return;
++  uint32_t cpu_begin=DWT->CYCCNT;
+   uint64_t elapsed=clock_cycles-load_started_cycles;
+   const uint64_t end=(uint64_t)CPU_HZ*SECONDS;
+   if(elapsed>end) elapsed=end;
+@@ -66,6 +73,9 @@ void SysTick_Handler(void) {
+   if(used>load_backlog_max) load_backlog_max=used;
+   uint32_t gap=delta/(CPU_HZ/1000000U);
+   if(gap>load_max_producer_gap_us) load_max_producer_gap_us=gap;
++  uint32_t cpu_used=DWT->CYCCNT-cpu_begin;
++  load_producer_cycles+=cpu_used;
++  if(cpu_used>load_producer_max_cycles) load_producer_max_cycles=cpu_used;
+   if(take!=due) {
+     load_overflow=1; load_lost+=due-take; load_producer_enabled=0;
+   } else if(elapsed==end) {
+@@ -115,8 +125,21 @@ static int transfer(int writing,uint8_t *buffer,uint32_t lba,uint32_t bytes) {
+     if(HAL_SDEx_DMALinkedList_BuildNode(&nodes[i],&conf)!=HAL_OK ||
+        HAL_SDEx_DMALinkedList_InsertNode(&list,i?&nodes[0]:NULL,&nodes[i])!=HAL_OK) return 0;
+   }
++  uint64_t begin=cycles_now();
+   load_transfer_phase=1;
+   if(!ready()) return 0;
++  load_last_before_us=(uint32_t)((cycles_now()-begin)/(CPU_HZ/1000000U));
++  begin=cycles_now();
++  if(polling_transport) {
++    load_hal_return=writing?HAL_SD_WriteBlocks(&hsd2,buffer,lba,bytes/512U,TIMEOUT):
++      HAL_SD_ReadBlocks(&hsd2,buffer,lba,bytes/512U,TIMEOUT);
++    load_last_data_us=(uint32_t)((cycles_now()-begin)/(CPU_HZ/1000000U));
++    if(load_hal_return!=HAL_OK) return 0;
++    begin=cycles_now(); load_transfer_phase=4;
++    int ok=ready();
++    load_last_ready_us=(uint32_t)((cycles_now()-begin)/(CPU_HZ/1000000U));
++    return ok;
++  }
+   load_transfer_phase=2;
+   load_dma_done=0; load_dma_error=0;
+   load_hal_return=writing?HAL_SDEx_DMALinkedList_WriteBlocks(&hsd2,&list,lba,bytes/512U):
+@@ -126,8 +149,11 @@ static int transfer(int writing,uint8_t *buffer,uint32_t lba,uint32_t bytes) {
+   uint32_t start=HAL_GetTick();
+   while(!load_dma_done && HAL_GetTick()-start<TIMEOUT) {}
+   if(load_dma_done!=1 || load_dma_error) return 0;
+-  load_transfer_phase=4;
+-  return ready();
++  load_last_data_us=(uint32_t)((cycles_now()-begin)/(CPU_HZ/1000000U));
++  begin=cycles_now(); load_transfer_phase=4;
++  int ok=ready();
++  load_last_ready_us=(uint32_t)((cycles_now()-begin)/(CPU_HZ/1000000U));
++  return ok;
+ }
+ static int campaign(void) {
+   uint32_t old=__get_PRIMASK(); __disable_irq();
+@@ -149,6 +175,8 @@ static int campaign(void) {
+     uint32_t us=(uint32_t)((cycles_now()-begin)/(CPU_HZ/1000000U));
+     if(load_write_chunks>=MAX_CHUNKS) { load_error=5; break; }
+     load_write_latency_us[load_write_chunks]=us;
++    load_dma_latency_us[load_write_chunks]=load_last_data_us;
++    load_ready_latency_us[load_write_chunks]=load_last_ready_us;
+     if(!ok) { load_first_io_error=hsd2.ErrorCode; load_first_cmd_error=load_cmd_error; load_error=1; break; }
+     load_written+=bytes; load_written_logical+=logical; load_write_chunks++;
+     __DMB(); load_consumed+=logical;
+@@ -177,6 +205,25 @@ static int campaign(void) {
+   if(load_mismatches) { load_error=7; return 0; }
+   return 1;
+ }
++/* Short differential: same buffer, bus, card and LBA range; no producer.
++ * Eight DMA writes then eight polling writes, each fully read/compared.
++ * HAL stays untouched. Only explicit DIAG_KEY can enter, once per reset. */
++static void differential(void) {
++  for(uint32_t i=0;i<CHUNK;i++) ring[i]=pattern(i);
++  for(uint32_t j=0;j<16;j++) {
++    polling_transport=j>=8;
++    uint32_t lba=503000U+(j%8U)*(CHUNK/512U);
++    uint64_t begin=cycles_now();
++    if(!transfer(1,ring,lba,CHUNK)) { diag_error=1; break; }
++    diag_latency_us[j]=(uint32_t)((cycles_now()-begin)/(CPU_HZ/1000000U));
++    diag_data_us[j]=load_last_data_us; diag_ready_us[j]=load_last_ready_us;
++    if(!transfer(0,rx,lba,CHUNK)) { diag_error=2; break; }
++    for(uint32_t i=0;i<CHUNK;i++) if(rx[i]!=pattern(i)) diag_mismatches++;
++    diag_done++;
++    if(diag_mismatches) { diag_error=3; break; }
++  }
++  polling_transport=0;
++}
+ int main(void) {
+   for(unsigned i=0;i<3;i++) load_uid[i]=*(volatile uint32_t *)(0x0BFA0700U+i*4U);
+   if(load_uid[0]!=0x001B0046U || load_uid[1]!=0x38425018U || load_uid[2]!=0x20333157U) Error_Handler();
+@@ -202,7 +249,11 @@ int main(void) {
+      hsd2.CID[0]!=0x03534453U || hsd2.CID[1]!=0x44333247U || hsd2.CID[2]!=0x858BF092U || hsd2.CID[3]!=0x3C01927AU ||
+      BENCH_TEST_LBA>=load_blocks || PHYSICAL/512U>load_blocks-BENCH_TEST_LBA || !ready()) Error_Handler();
+   load_stage=2;
+-  while(load_trigger!=RUN_KEY) {} load_trigger=0;
++  while(load_trigger!=RUN_KEY) {
++    if(load_trigger==DIAG_KEY && !diag_done && !diag_error) {
++      load_trigger=0; differential();
++    }
++  } load_trigger=0;
+   if(campaign()) load_stage=5; else { load_producer_enabled=0; load_stage=99; }
+   while(1) {} /* No rerun, retry, erase, repair or automatic boot write. */
+ }
