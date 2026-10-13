@@ -32,6 +32,14 @@ if(TR2_STM32_MODBUS_DIAGNOSTIC)
     endif()
 endif()
 
+option(TR2_STM32_FIFO_COOPERATIVE "M015-V cooperative production FIFO" OFF)
+set(TR2_STM32_FIFO_SPI_MHZ 4 CACHE STRING "Independent HSI16 SPI3: 4 or 8MHz")
+if(NOT TR2_STM32_FIFO_SPI_MHZ MATCHES "^(4|8)$")
+ message(FATAL_ERROR "SPI3 qualification is bounded to4/8MHz")
+endif()
+if(TR2_STM32_FIFO_COOPERATIVE AND (NOT TR2_STM32_PRODUCTION OR NOT TR2_STM32_IRQ_DIAGNOSTICS OR TR2_STM32_ST_FIFO_WINDOW OR TR2_STM32_PRODUCTION_SILENCE_TEST))
+ message(FATAL_ERROR "Cooperative FIFO requires production and observer, excludes other profiles")
+endif()
 option(TR2_STM32_ST_FIFO_WINDOW "M015-U RAM-only official ST4096 bounded profile" OFF)
 option(TR2_STM32_CONTINUOUS_FIFO "Bounded continuous FIFO4096 RAM qualification, no media" OFF)
 option(TR2_STM32_CTRL1_DIFFERENTIAL "Bounded CTRL1 configuration comparison, no acquisition" OFF)
@@ -232,6 +240,8 @@ if(TR2_STM32_PRODUCTION OR TR2_STM32_MANUFACTURING)
     target_include_directories(tr2_stm32_p11c PRIVATE ${CMAKE_CURRENT_BINARY_DIR}/generated)
 endif()
 target_compile_definitions(tr2_stm32_p11c PRIVATE
+    TR2_STM32_FIFO_COOPERATIVE=$<BOOL:${TR2_STM32_FIFO_COOPERATIVE}>
+    TR2_STM32_FIFO_SPI_MHZ=${TR2_STM32_FIFO_SPI_MHZ}
     TR2_STM32_ST_FIFO_WINDOW=$<BOOL:${TR2_STM32_ST_FIFO_WINDOW}>
     TR2_STM32_CONTINUOUS_FIFO=$<BOOL:${TR2_STM32_CONTINUOUS_FIFO}>
     TR2_STM32_CTRL1_DIFFERENTIAL=$<BOOL:${TR2_STM32_CTRL1_DIFFERENTIAL}>
@@ -299,7 +309,7 @@ add_custom_command(TARGET tr2_stm32_p11c POST_BUILD
     VERBATIM
 )
 
-if(TR2_STM32_ST_FIFO_WINDOW)
+if(TR2_STM32_ST_FIFO_WINDOW OR TR2_STM32_FIFO_COOPERATIVE)
  set(ST_REF "${CMAKE_CURRENT_SOURCE_DIR}/../../../../experiments/iis3dwb_st_reference")
  find_package(Python3 REQUIRED COMPONENTS Interpreter)
  set(OFFICIAL_PORTED ${CMAKE_CURRENT_BINARY_DIR}/generated/iis3dwb_fifo_ported.c)
@@ -318,8 +328,15 @@ if(TR2_STM32_ST_FIFO_WINDOW)
  list(REMOVE_ITEM all_sources ${HAL_DIR}/Src/stm32u5xx_hal_spi.c)
  set_property(TARGET tr2_stm32_p11c PROPERTY SOURCES ${all_sources})
  target_sources(tr2_stm32_p11c PRIVATE stm32_iis3dwb_st_window.c
-   ${ST_REF}/vendor/st/iis3dwb_reg.c ${ST_REF}/official/port.c
-   ${ST_REF}/src/fifo_window.c ${ST_REF}/src/spi_diagnostic.c ${OFFICIAL_PORTED} ${SPI_OBSERVED})
+   ${ST_REF}/vendor/st/iis3dwb_reg.c
+   ${ST_REF}/src/fifo_window.c ${ST_REF}/src/spi_diagnostic.c ${SPI_OBSERVED})
+ if(TR2_STM32_FIFO_COOPERATIVE)
+  target_sources(tr2_stm32_p11c PRIVATE stm32_fifo_cooperative.c ${ST_REF}/src/fifo_cooperative.c)
+  target_compile_definitions(tr2_stm32_p11c PRIVATE BENCH_WINDOW_MAX_WORDS=36864)
+  set_source_files_properties(stm32_fifo_cooperative.c ${ST_REF}/src/fifo_cooperative.c PROPERTIES COMPILE_OPTIONS "-O2")
+ else()
+  target_sources(tr2_stm32_p11c PRIVATE ${ST_REF}/official/port.c ${OFFICIAL_PORTED})
+ endif()
  target_include_directories(tr2_stm32_p11c PRIVATE ${ST_REF}/src ${ST_REF}/official ${ST_REF}/vendor/st)
  target_compile_definitions(tr2_stm32_p11c PRIVATE BENCH_WINDOW_XYZ=4096 BENCH_DUPLEX=0 OFFICIAL_STATUS10=1)
  set_source_files_properties(${SPI_OBSERVED} ${ST_REF}/src/fifo_window.c PROPERTIES COMPILE_OPTIONS "-O2")

@@ -352,3 +352,9 @@ target_compile_options(test_st_window_adapter PRIVATE -Wall -Wextra -Werror -UND
 target_compile_definitions(test_st_window_adapter PRIVATE BENCH_DUPLEX=0)
 target_link_options(test_st_window_adapter PRIVATE -Wl,--gc-sections)
 add_test(NAME st_window_primary_preflight_and_transport COMMAND test_st_window_adapter)
+
+add_executable(test_fifo_cooperative tests/platform/test_fifo_cooperative.c ${ST_REF}/src/fifo_cooperative.c ${ST_REF}/src/fifo_window.c ${ST_REF}/vendor/st/iis3dwb_reg.c)
+target_include_directories(test_fifo_cooperative PRIVATE ${ST_REF}/src ${ST_REF}/vendor/st)
+target_compile_definitions(test_fifo_cooperative PRIVATE BENCH_WINDOW_MAX_WORDS=36864)
+target_compile_options(test_fifo_cooperative PRIVATE -Wall -Wextra -Werror -UNDEBUG)
+add_test(NAME fifo_cooperative_v1_windows_and_faults COMMAND test_fifo_cooperative)

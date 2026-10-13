@@ -6,6 +6,10 @@
 #include "stm32_modbus_application.h"
 #include "tr2_generated_commissioning.h"
 #include <string.h>
+#if TR2_STM32_FIFO_COOPERATIVE
+#include "stm32_fifo_cooperative.h"
+#include "stm32_irq_observer.h"
+#endif
 
 static SPI_HandleTypeDef *fram_spi, *sensor_spi;
 static Stm32Iis3dwbVibrationSource sensor_probe;
@@ -176,6 +180,9 @@ __attribute__((noreturn)) void stm32_production_server_run(void)
     tr2_production_result=(uint32_t)result;
     if(result!=TR2_OK){tr2_production_stage=99;for(;;)HAL_Delay(250);}
     tr2_production_stage=2;
+#if TR2_STM32_FIFO_COOPERATIVE
+    stm32_fifo_cooperative_prepare(sensor_spi,fram_spi);
+#endif
     for(;;){
         tick=HAL_GetTick();
 #if TR2_STM32_PRODUCTION_SILENCE_TEST
@@ -190,7 +197,23 @@ __attribute__((noreturn)) void stm32_production_server_run(void)
         }
 #endif
         (void)tick;tr2_production_stage=2;
+#if TR2_STM32_FIFO_COOPERATIVE
+        const uint32_t before_t3_5=tr2_irq_observer.t3_5_polled;
+        const size_t frame_length=server.rtu.receiver.length;
+        const ModbusRtuReceiverState receiver_state=server.rtu.receiver.state;
+#endif
         result=modbus_system_server_poll_once(&server);++tr2_production_poll_count;
         if(result!=TR2_OK)++tr2_production_poll_errors;
+#if TR2_STM32_FIFO_COOPERATIVE
+        /* Passive observer uses the existing decoded-frame boundary, without
+         * replacing production prepare/binding callbacks or their authority. */
+        if(before_t3_5!=tr2_irq_observer.t3_5_polled &&
+           (receiver_state==MODBUS_RTU_RECEIVER_RECEIVING || receiver_state==MODBUS_RTU_RECEIVER_WAITING_T3_5)){
+            ModbusRtuAduView request;
+            if(modbus_rtu_adu_decode(server.rtu.receiver.buffer,frame_length,&request)==MODBUS_RTU_CODEC_OK && request.unit_id==server.rtu.local_unit_id)
+                stm32_fifo_cooperative_observe(&request);
+        }
+        stm32_fifo_cooperative_poll();
+#endif
     }
 }

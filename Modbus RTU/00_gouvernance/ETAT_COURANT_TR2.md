@@ -4,7 +4,13 @@ Mise à jour : 13 octobre 2026. Mission `TR2-20261013-M015-U-INTEGRATION-TR2-001
 
 **Ce document est un nouvel état de référence reconstruit à partir de preuves vérifiables. Il n'est pas une restitution du journal historique HP.** Sa création a été explicitement autorisée par l'utilisateur pour la mission `T1000-20261010-CLOTURE-001`, après escalade AGENTS.md §18. Aucun original n'a été retrouvé dans l'historique Git, les répertoires Linux locaux ou les documents Windows accessibles. Les archives d'échanges du 8 octobre mentionnent un journal local HP, sans en fournir le contenu. Aucun état historique inconnu n'est inventé.
 
-## État opérationnel actuel — M015-U, 13 octobre 2026
+## État opérationnel actuel — M015-V préparation, 13 octobre 2026
+
+- **VALIDÉ LOGICIEL / PRÉPARÉ PHYSIQUE** :service coopératif de production, Modbus pollé entre bursts128, CPU160/HSI16SPI4/mode3. FenêtresV1 4096/8192/16384/32768 et continuité du parser aux frontières, admission/cleanup stricts ;suite125/125+ARMdéfaut/profil et testtimestamps renforcé réussis. RAM602144 et marges documentées, aucun stockage ou mesureV1 activé.
+- **PRÉSERVÉ / OBSERVÉ AVANT FLASH** :TR2-001 SN003500463235510B37333439/UID004A003D3842501820333157, M014-H exact/gen12/configUNAVAILABLE/NVIC49-66/faults0 ;Flash2MiB doublebackup exactSHA556fedf5…, RAM sauvegardée. Aucun flash/reset/acquisition V encore effectué. SecondeNUCLEO exclue, stashes/worktrees/archivesU conservés.
+- **SUITE** :checkpoint logiciel puis une campagne32768 avecpréfixesV1, B0/B1 pendantacquisition et dernièretranche4096rawcomplète ;CRC/comparaison SPI↔RAM surchaqueburst.4MHz d'abord ;8 seulementsi mesuremarge le justifie. Conserver cumulatif si succès ou retourqualifié M014 sur défautcritique. M015 IN PROGRESS/J3encours/M016nonengagée.
+
+## État opérationnel antérieur — M015-U, 13 octobre 2026
 
 - **VALIDÉ PHYSIQUE BORNÉ TR2-001** :coded18cf6a,CPU160/HSI16SPI3÷4/mode3 ;unique4096XYZ+512TS/4087distincts,rawswire↔RAMidentiques,guards0,38bursts/123statuts/max187/final60,cleanup0/0C8000. Serviceactif≈2,056ms/budget4,267ms ;pasperteglobalezéro/endurance/calibration/32768/FFT/stockage.
 - **VALIDÉ LOGICIEL** :suite123/123+ARMdéfaut/profil/production,1testadapterréelmockHALsupplémentaire ;gardesclock/UID/ressourcebusy/CS/offset/OVR/cleanup protégés. Profil OFFpar défaut/exclusif,fifocaptureintégréaumainprincipal mais pas simultanéproduction. M015 IN PROGRESS ;M016nonengagée,J3resteencours.

@@ -1,0 +1,18 @@
+{
+  "source_head_before_commit": "4faf74f42bd313efb9db5d17e0ea8b8ece370cd8",
+  "profile": "CPU160_HSI16_SPI4_PRODUCTION_COOPERATIVE",
+  "artifacts": {
+    "tr2_stm32_p11c.bin": {
+      "size": 169036,
+      "sha256": "d68bfff9b7395549b695c525e3f0e29732a0cc65bfb7fdc756463d6cee6980f0"
+    },
+    "tr2_stm32_p11c.elf": {
+      "size": 1532636,
+      "sha256": "14cd8cc37deff9fd64951fdfe487d73b55b3d4f1c5d1f13b6adc0f8fc6ce763e"
+    },
+    "tr2_stm32_p11c.map": {
+      "size": 679723,
+      "sha256": "f2772de5ced26bf02359b1f0e63201b9393d1d778307b60721df9f05a7642748"
+    }
+  }
+}

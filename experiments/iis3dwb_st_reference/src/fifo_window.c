@@ -70,3 +70,32 @@ int fifo_window_run(stmdev_ctx_t *c,const BenchClock *clock,uint32_t target,
  if(!w->timestamps)return BENCH_TAG;
  return BENCH_OK;
 }
+
+/* V: one scheduling quantum, same guards/parser/config as the qualified drain.
+ * Prefix boundaries preserve counter and timestamp history, never reset sensor. */
+int fifo_window_step(stmdev_ctx_t *c,const BenchClock *clock,uint8_t *words,uint32_t capacity,FifoWindow *w)
+{
+ if(!c || !clock || !words || !w ||
+    (w->target_xyz!=4096 && w->target_xyz!=8192 && w->target_xyz!=16384 && w->target_xyz!=32768) ||
+    capacity>WINDOW_MAX_WORDS || capacity<w->target_xyz)return BENCH_CAPACITY;
+ if(w->xyz>=w->target_xyz){w->last_tick=clock->tick();return w->timestamps?BENCH_OK:BENCH_TAG;}
+ if(clock->stop())return BENCH_STOP;
+ uint32_t scale=w->target_xyz/4096;
+ if(clock->tick()-w->first_tick>=500*scale)return BENCH_TIMEOUT;
+ if(w->polls>=400*scale)return BENCH_CAPACITY;
+ int result=status(c,w);if(result)return result;
+ uint32_t n=4096-w->xyz%4096;
+ if(n>w->target_xyz-w->xyz)n=w->target_xyz-w->xyz;
+ if(n>128)n=128;
+ if(w->last_level<n)return FIFO_WINDOW_PENDING;
+ if(n>capacity-w->received)return BENCH_CAPACITY;
+ if(c->read_reg(c->handle,120,words+w->received*7,(uint16_t)(n*7)))return BENCH_IO;
+ uint32_t first=w->received;w->received+=n;w->bursts++;
+ for(uint32_t i=first;i<w->received;i++){result=parse(words+i*7,w);if(result)return result;}
+ result=status(c,w);if(result)return result;
+ result=config(c);if(result)return result;
+ if(w->xyz==w->target_xyz){w->last_tick=clock->tick();return w->timestamps?BENCH_OK:BENCH_TAG;}
+ return FIFO_WINDOW_PENDING;
+}
+
+int fifo_window_check_configuration(stmdev_ctx_t *ctx){return config(ctx);}

@@ -1,6 +1,11 @@
 /* M015-U: transport/preclose port of qualified T platform.c; clock/GPIO setup
  * remains owned by main.c. No FRAM, SD or UART operations here. */
 #include "platform.h"
+#if defined(TR2_STM32_FIFO_SPI_MHZ) && TR2_STM32_FIFO_SPI_MHZ==8
+#define TR2_ST_FIFO_PRESCALER SPI_BAUDRATEPRESCALER_2
+#else
+#define TR2_ST_FIFO_PRESCALER SPI_BAUDRATEPRESCALER_4
+#endif
 #include "stm32_fram_storage.h"
 #include <string.h>
 _Static_assert(TRACE_RECORDS==1024U && TRACE_BYTES==65536U && PRECLOSE_RECORDS==2048U,"Budget policy mismatch");
@@ -132,7 +137,7 @@ int platform_init(stmdev_ctx_t *ctx, BenchClock *clock)
      sensor_spi->State!=HAL_SPI_STATE_READY ||
      HAL_RCC_GetHCLKFreq()!=160000000U ||
      HAL_RCCEx_GetPeriphCLKFreq(RCC_PERIPHCLK_SPI3)!=16000000U ||
-     sensor_spi->Init.BaudRatePrescaler!=SPI_BAUDRATEPRESCALER_4 ||
+     sensor_spi->Init.BaudRatePrescaler!=TR2_ST_FIFO_PRESCALER ||
      sensor_spi->Init.CLKPolarity!=SPI_POLARITY_HIGH ||
      sensor_spi->Init.CLKPhase!=SPI_PHASE_2EDGE ||
      !(GPIOC->ODR&GPIO_PIN_9) ||
@@ -167,4 +172,13 @@ __attribute__((noreturn)) void stm32_iis3dwb_st_window_run(SPI_HandleTypeDef *ha
   tr2_fifo_state=tr2_fifo_fram_status==3 && tr2_fifo_admit(&bench_result,bench_log_refused,bench_preclose_overflow)?TR2_FIFO_READY:TR2_FIFO_INVALID;
   /* Data are debugger-visible only. Never publish diagnostic READY as B1 READY. */
   for(;;)__WFI();
+}
+
+int stm32_st_transport_attach(SPI_HandleTypeDef *h,stmdev_ctx_t *ctx,BenchClock *clock)
+{sensor_spi=h;return platform_init(ctx,clock);}
+void stm32_st_transport_next_window(void)
+{
+ /* Only called after every transaction of the completed prefix passed.
+  * Sticky errors are never cleared here. No sensor reset or parser reset. */
+ bench_trace_count=bench_payload_count=bench_preclose_count=0;
 }
