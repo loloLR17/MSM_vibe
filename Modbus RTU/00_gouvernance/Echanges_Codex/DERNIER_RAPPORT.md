@@ -1,6 +1,6 @@
 ---
 mission_id: TR2-20261013-M015-U-INTEGRATION-TR2-001
-status: BLOCKED
+status: DONE
 base_ref: main
 base_sha: null
 initial_head: c27621ffbc40ae96ec5b67d2263a8a9daa21e610
@@ -22,7 +22,7 @@ L’unique acquisition a reçu **4096 XYZ et 512 timestamps**, soit 4608 mots FI
 
 L’audit indépendant reconstruit le buffer RAM officiel depuis les transactions SPI, byte à byte. Aucun défaut de parité, tag, compteur, ordre XYZ/TS, saturation, HAL, OVR, FULL/latch, offset RX, CS ou journal n’est observé. Les 511 intervalles de timestamps valent 24 ticks, avec huit XYZ entre timestamps. Cela qualifie cette fenêtre ; le compteur modulo 4 ne prouve pas une absence globale de pertes.
 
-**M014-H est restauré et fonctionne.** Les deux lectures HP B0/B1 ont réussi, et leur journal complet a été récupéré et vérifié. M015-U termine sa qualification bornée ; la publication/relecture finale reste à consigner, d’où le statut BLOCKED provisoire. M015 reste IN PROGRESS pour le service coopératif et la coexistence simultanée en production. M016–M020 ne sont pas engagées.
+**M014-H est restauré et fonctionne.** Les deux lectures HP B0/B1 ont réussi, et leur journal complet a été récupéré et vérifié. M015-U est clôturée dans sa portée bornée, après publication et relecture distante. M015 reste IN PROGRESS pour le service coopératif et la coexistence simultanée en production. M016–M020 ne sont pas engagées.
 
 ## Code et validations
 
@@ -75,4 +75,4 @@ Archive durable : `/home/lolo/dev/msm/reports/TR2-mission015-U-20261013T100029Z`
 
 Le dépôt principal historique82169af et les worktrees restent préservés ; les deux stashes sont intacts. L’archive T-reprise est exacte depuis51dff58. Le contrat courant omet base_sha et created_at_utc : cette absence est signalée, sans modifier MISSION_EN_COURS.md ; le HEAD initial complet figure dans ce rapport.
 
-Journal et roadmap actualisés pour le résultat primaire, le retour M014 et les limites. Publication finale/relecture à consigner. Prochaine étape : revue indépendante ChatGPT puis contrat pour le service coopératif et les autorités de ressources, sans activation implicite des médias ou de M016. Pas de nouvelle opération matérielle nécessaire ici. Continu, endurance, calibration, 32768, traitement et publication V1 restent hors qualification.
+Journal et roadmap actualisés pour le résultat primaire, le retour M014 et les limites. Publication et relecture intégrale vérifiées au commit `78ec2d7ff25bb1a31babaa071c29cb325130385b` : 224 fichiers byte-identiques à la référence récupérée de GitHub. Le commit documentaire de clôture est ensuite vérifié séparément. Prochaine étape : revue indépendante ChatGPT puis contrat pour le service coopératif et les autorités de ressources, sans activation implicite des médias ou de M016. Pas de nouvelle opération matérielle nécessaire ici. Continu, endurance, calibration, 32768, traitement et publication V1 restent hors qualification.

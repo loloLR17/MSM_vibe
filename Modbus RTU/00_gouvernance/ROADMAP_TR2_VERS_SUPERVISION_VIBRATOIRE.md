@@ -10,6 +10,8 @@
 
 Fenêtrephysique4096XYZ+512timestamps qualifiée surTR2-001 original àCPU160/HSI16SPI4/mode3, guards etcleanupconformes,bruts reconstruits identiques. Firmwareprincipal contient désormaisprofilRAMOFF/exclusif ;M014-Hrestauréexactement,FRAMgen12/SDpréservées,B0/B1HPpassés,journalentier vérifié. M015resteINPROGRESS pour servicecoopératif/coexistencesimultanée ;J3encours,M016–M020nonengagées. Pasperteglobalezéro,endurance,32768,calibration,FFToustockage qualifiés. RevueChatGPTetcontratsuivantavantactivationV1,aucuneécrituremédia.
 
+M015-U DONE après publication `78ec2d7` et relecture intégrale de224fichiers identiques. Le statut global M015/J3 ci-dessus reste inchangé.
+
 ## Actualisation T reprise — 13 octobre 2026
 
 Deux fenêtres4096XYZ qualifiées sur second banc :CPU160/SPI4 historique audité etunique CPU160/SPI8 réussi, chacune512timestamps. Service actif≈2,05→1,12ms,cleanup etguards corrects ;4estla plusfaiblefréquencequalifiée4096,8offre unemargebornéesupplémentaire. Ancienneanalyse desattentes corrigée sansnouvelessai4 ;pasgarantieperteglobalezéro/industrialisation. M015 resteINPROGRESS pourintégrationprimaire/continu/FFT/stockage/V1 ;M014-H/médiaspréservés. SourceSPI HSI16 etdiviseurs àcontrôler lorsd'une futureintégration souscontrat.
