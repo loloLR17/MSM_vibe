@@ -1,0 +1,27 @@
+offset,address,name,type,access,unit,current_source_or_gap,m016_status
+0,3000,B3_STATUS_GLOBAL,enum16,RO,enum,"Absent: candidate initialisée à zéro, pas de machine statut métier",NON QUALIFIÉ M016; pas de raccordement FIFO/configuration active
+1,3001,B3_VALIDITY_FLAGS,bitfield16,RO,bits,"Projection limitée aux bits WINDOW_COMPLETE, SENSOR_NOT_SATURATED, CALC_ERROR; autres bits non fournis",NON QUALIFIÉ M016; pas de raccordement FIFO/configuration active
+2,3002,B3_ALARM_FLAGS,bitfield16,RO,bits,"Absent: zéro issu de initialisation, pas de politique alarme/sévérité projetée",NON QUALIFIÉ M016; pas de raccordement FIFO/configuration active
+3,3003,B3_SEVERITY_GLOBAL,enum16,RO,enum,"Absent: zéro issu de initialisation, pas de politique alarme/sévérité projetée",NON QUALIFIÉ M016; pas de raccordement FIFO/configuration active
+4-5,3004-3005,B3_LAST_UPDATE_TR2,uint32,RO,s,SupervisionSnapshot.civil_timestamp si disponible; absence encore à qualifier,NON QUALIFIÉ M016; pas de raccordement FIFO/configuration active
+6-7,3006-3007,B3_VALUE_AGE_MS,uint32,RO,ms,SupervisionSnapshot.value_age_ms; getter runtime renvoie actuellement image mise en cache,NON QUALIFIÉ M016; pas de raccordement FIFO/configuration active
+8-9,3008-3009,B3_CALC_SEQUENCE,uint32,RO,compteur,SupervisionSnapshot.calculation_sequence; garde de séquence runtime existante,NON QUALIFIÉ M016; pas de raccordement FIFO/configuration active
+10-11,3010-3011,B3_WINDOW_DURATION_MS,uint32,RO,ms,"AcquisitionWindow.end_monotonic_ms - start_monotonic_ms, saturation UINT32_MAX",NON QUALIFIÉ M016; pas de raccordement FIFO/configuration active
+12-13,3012-3013,B3_VALID_SAMPLE_COUNT,uint32,RO,échantillons,AcquisitionWindow.valid_sample_count,NON QUALIFIÉ M016; pas de raccordement FIFO/configuration active
+14-15,3014-3015,B3_RMS_GLOBAL_MG,uint32,RO,mg,isqrt(sum_square_vector_mg2 / valid_sample_count),NON QUALIFIÉ M016; pas de raccordement FIFO/configuration active
+16-17,3016-3017,B3_PEAK_GLOBAL_MG,uint32,RO,mg,isqrt(peak_vector_square_mg2),NON QUALIFIÉ M016; pas de raccordement FIFO/configuration active
+18-19,3018-3019,B3_RMS_X_MG,uint32,RO,mg,isqrt(sum_square_x_mg2 / valid_sample_count),NON QUALIFIÉ M016; pas de raccordement FIFO/configuration active
+20-21,3020-3021,B3_RMS_Y_MG,uint32,RO,mg,isqrt(sum_square_y_mg2 / valid_sample_count),NON QUALIFIÉ M016; pas de raccordement FIFO/configuration active
+22-23,3022-3023,B3_RMS_Z_MG,uint32,RO,mg,isqrt(sum_square_z_mg2 / valid_sample_count),NON QUALIFIÉ M016; pas de raccordement FIFO/configuration active
+24-25,3024-3025,B3_PEAK_X_MG,uint32,RO,mg,peak_abs_x_mg,NON QUALIFIÉ M016; pas de raccordement FIFO/configuration active
+26-27,3026-3027,B3_PEAK_Y_MG,uint32,RO,mg,peak_abs_y_mg,NON QUALIFIÉ M016; pas de raccordement FIFO/configuration active
+28-29,3028-3029,B3_PEAK_Z_MG,uint32,RO,mg,peak_abs_z_mg,NON QUALIFIÉ M016; pas de raccordement FIFO/configuration active
+30,3030,B3_DOMINANT_AXIS,enum16,RO,enum,Absent de modbus_project_b3: zéro par initialisation; ne prouve aucun événement métier,NON QUALIFIÉ M016; pas de raccordement FIFO/configuration active
+31,3031,B3_EXCEED_GLOBAL,enum16,RO,0/1,Absent de modbus_project_b3: zéro par initialisation; ne prouve aucun événement métier,NON QUALIFIÉ M016; pas de raccordement FIFO/configuration active
+32,3032,B3_EXCEED_X,enum16,RO,0/1,Absent de modbus_project_b3: zéro par initialisation; ne prouve aucun événement métier,NON QUALIFIÉ M016; pas de raccordement FIFO/configuration active
+33,3033,B3_EXCEED_Y,enum16,RO,0/1,Absent de modbus_project_b3: zéro par initialisation; ne prouve aucun événement métier,NON QUALIFIÉ M016; pas de raccordement FIFO/configuration active
+34,3034,B3_EXCEED_Z,enum16,RO,0/1,Absent de modbus_project_b3: zéro par initialisation; ne prouve aucun événement métier,NON QUALIFIÉ M016; pas de raccordement FIFO/configuration active
+35,3035,B3_ALARM_LATCHED,enum16,RO,0/1,Absent de modbus_project_b3: zéro par initialisation; ne prouve aucun événement métier,NON QUALIFIÉ M016; pas de raccordement FIFO/configuration active
+36-37,3036-3037,B3_EXCEED_COUNT,uint32,RO,compteur,Absent de modbus_project_b3: zéro par initialisation; ne prouve aucun événement métier,NON QUALIFIÉ M016; pas de raccordement FIFO/configuration active
+38-39,3038-3039,B3_ALARM_COUNT,uint32,RO,compteur,Absent de modbus_project_b3: zéro par initialisation; ne prouve aucun événement métier,NON QUALIFIÉ M016; pas de raccordement FIFO/configuration active
+40-47,3040-3047,B3_RESERVED_0,uint16[8],RO,0,Réserves zéro: conforme; aucune mesure,NON QUALIFIÉ M016; pas de raccordement FIFO/configuration active

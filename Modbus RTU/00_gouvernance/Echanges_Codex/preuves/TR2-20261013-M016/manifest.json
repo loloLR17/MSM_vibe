@@ -1,0 +1,33 @@
+{
+  "mission_id": "TR2-20261013-M016-V1-VIBRATION",
+  "files": {
+    "README.md": {
+      "bytes": 1364,
+      "sha256": "a60460e137ab44542e31d6bb7f967dc6844166bd8d546cc1d6c6df243caf48cc"
+    },
+    "authority-probe-result.json": {
+      "bytes": 1439,
+      "sha256": "0d05cb4eaf0e8988613315b60a0079e476d943ea8c83af8abca84b001a335d50"
+    },
+    "authority_probe.c": {
+      "bytes": 2686,
+      "sha256": "76c0263fab45546b484a76d0a75b59faea9740f15bd4fb88b54b5f9d72a8eb65"
+    },
+    "b3-field-map.csv": {
+      "bytes": 4654,
+      "sha256": "50a4ed8aed26c5c8994823f29e28bf9b6083e7f70c8c7dfde79fe413620d650b"
+    },
+    "configuration-slot1.hex": {
+      "bytes": 281,
+      "sha256": "6030ffd01e1625e9a1275b1c19591077e7b37cc493c081806d68edc01693b7e6"
+    },
+    "provenance.json": {
+      "bytes": 1803,
+      "sha256": "49a599287a25d6b3a7d995792f2eea63146b0d9e2f497fcc0eae53246827a501"
+    },
+    "run_probe.py": {
+      "bytes": 1862,
+      "sha256": "84c4d7f3d7535e0a1f094c7723cf439d0ad2d9ffd15b35d8c12ce810fe5e1caf"
+    }
+  }
+}

@@ -1,6 +1,6 @@
 # État courant MSM TR2 — synthèse opérationnelle
 
-**Actualisation :** 13 octobre 2026, correction A04-02 et essai de coexistence borné. **Source de vérité :** branche `main` de `loloLR17/MSM_vibe`.
+**Actualisation :** 13 octobre 2026, précondition métier M016 examinée ; décision nécessaire. **Source de vérité :** branche `main` de `loloLR17/MSM_vibe`.
 
 > Ce document est une synthèse opérationnelle, non un journal d'essais. Le document intégral antérieur est conservé **sans modification** dans [Archives/ETAT_COURANT_TR2_AVANT_A02_20261013.md](Archives/ETAT_COURANT_TR2_AVANT_A02_20261013.md). Il s'agit d'un état reconstruit à partir des preuves disponibles, et non d'une restitution du journal HP historique introuvable.
 
@@ -39,7 +39,7 @@
 - La mission A-04 est clôturée par son rapport `DONE` ; le contrat `READY` historique ne doit pas être relancé.
 - **13/10/2026 — A04-01, VALIDÉ LOGICIEL par Codex :** sélection explicite des profils, refus du harness SD implicite, BIN cumulatif byte-identique à M015-V. [Rapport de correction](Echanges_Codex/archives/TR2-20261013-A04-01-SAFE-BUILD/RAPPORT.md), code `c9ee22292ae69cc6f333aaab3527d18556ee8272`. **Qualifié logiciel par ChatGPT le 13/10/2026 ; dette A04-01 clôturée dans cette portée** ; registre inchangé, aucun matériel accédé ni état actuel relu. A04-02 reste hors de cette correction.
 
-- **13/10/2026 — A04-02, VALIDÉ LOGICIEL / OBSERVÉ PHYSIQUE BORNÉ par Codex :**126tests et cross-build ; FIFOmax293, FULL/OVR0, gapDWT5,855ms, réserve nominale7,30ms/marge1,445ms. B3 métier reste indisponible ; B5exception04 pendant capture, journal frais après cleanup. [Rapport actuel](Echanges_Codex/DERNIER_RAPPORT.md). **Qualifié logiciel et physique borné par ChatGPT le 13/10/2026 ; dette A04-02 clôturée dans cette portée.** A04-03/M016 à exécuter.
+- **13/10/2026 — A04-02, VALIDÉ LOGICIEL / OBSERVÉ PHYSIQUE BORNÉ par Codex :**126tests et cross-build ; FIFOmax293, FULL/OVR0, gapDWT5,855ms, réserve nominale7,30ms/marge1,445ms. B3 métier reste indisponible ; B5exception04 pendant capture, journal frais après cleanup. [Rapport archivé A04-02](Echanges_Codex/archives/TR2-20261013-A04-02-FRAM-MODBUS/RAPPORT.md). **Qualifié logiciel et physique borné par ChatGPT le 13/10/2026 ; dette A04-02 clôturée dans cette portée.** A04-03/M016 à exécuter.
 
 ## 5. Références durables
 
@@ -52,3 +52,9 @@
 ## Décision de pilotage du 13/10/2026
 
 ChatGPT a qualifié A04-01 (logiciel) et A04-02 (logiciel + essai physique borné) sur rapports, commits et preuves publiés. La qualification ne suppose pas une reproduction indépendante de tous les tests. Rapports durables : `Echanges_Codex/archives/TR2-20261013-A04-01-SAFE-BUILD/RAPPORT.md` et `Echanges_Codex/archives/TR2-20261013-A04-02-FRAM-MODBUS/RAPPORT.md`. La qualification A-01 et le tag M015 demeurent distincts et en attente. M016 est la prochaine mission ; ne pas confondre DONE Codex et qualification future M016.
+
+## M016 — 13/10/2026, précondition métier à arbitrer
+
+- **VALIDÉ HORS LIGNE** : record de configuration conservé A04-02 CRC/décodage conformes (gen1/config1,±2g,4096,storage1/limit1MB). Le validateur C réel refuse l'environnement production `{false,0}` ; mode0/limite0 interdits parV1. Recovery UNAVAILABLE ne publie aucune ActiveConfiguration ; démarrage métier refusé.
+- **BLOCAGE DE DÉCISION** : M016 sans SD/stockage disponible ne peut publier une mesure métier sous configuration autoritative avec les politiques actuelles. Choisir une voie de stockage explicitement attribué/qualifié, ou une évolution explicite de la politique de supervision sans stockage ; aucun contournement appliqué. Cartographie26champs/48registres et détails dans le rapport M016. A04-03 reste ouverte ; M016 non terminée.
+- **NON VÉRIFIÉ sur cible pour M016** : aucune opération matérielle/Modbus/FRAM/SD/reset/flash/debug. Firmware conservé, dernier état documenté A04-02 inchangé ; pas une télémétrie actuelle. Aucun test/cross-build antérieur répété, aucun code fonctionnel modifié. Reprise après décision publiée, puis glueFIFO/configuration/fenêtres/validité/B3 et qualification bornée.

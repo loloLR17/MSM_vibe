@@ -1,0 +1,17 @@
+{
+  "kind": "OFFLINE_SAVED_RECORD_C_PROBE",
+  "compiler": "cc (Debian 14.2.0-19) 14.2.0",
+  "compile_returncode": 0,
+  "probe_returncode": 0,
+  "record_bytes": 140,
+  "record_sha256": "ebdd491153583d8753f9a4cf52ad8ed44728acfdcf5bf135ed5484eeadc12e22",
+  "record_origin": "A04-02 saved boot RAM candidate, slot1 offset140; not a new FRAM observation",
+  "source_sha256": {
+    "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261013-M016/authority_probe.c": "76c0263fab45546b484a76d0a75b59faea9740f15bd4fb88b54b5f9d72a8eb65",
+    "Modbus RTU/05_Firmware/src/persistence/configuration_record.c": "1808b4750f5e3d46ff36daaf9b53072954ce7fd7c2cab672f6e8bdb49bd16f9b",
+    "Modbus RTU/05_Firmware/src/domain/configuration/configuration_validator.c": "824b9b944561799a49d0c397a000b0e98987c5c2ce52cd2cd1f0cb44f80b5d77"
+  },
+  "stdout": "record CRC/decode OK; generation=1 config=1 revision=1 fs=0 storage_mode=1 storage_limit_mb=1 window=4096 odr=26667\nproduction_unknown: status=2 REFUSED; no validated output created\nknown_zero_capacity: status=1 REFUSED; no validated output created\nhypothetical_one_MB: status=0 VALID (hypothetical; no resource authority created)\nstructural_only_ceiling: status=0 VALID (hypothetical; no resource authority created)\nstorage_mode=0: INVALID even with hypothetical characterized capacity\nstorage_limit_mb=0: INVALID; no storage-free V1 configuration\n",
+  "stderr": "",
+  "hardware_operations": 0
+}
