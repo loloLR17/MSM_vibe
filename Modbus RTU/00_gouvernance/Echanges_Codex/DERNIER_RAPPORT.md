@@ -1,6 +1,6 @@
 ---
 mission_id: TR2-20261014-M017-SDMMC-1BIT-REALISTIC-QUALIFICATION
-status: IN_PROGRESS
+status: FAILED
 base_ref: main
 base_sha: 9dd90081ec6e51ec5c6fa84bd5b66f8369717ceb
 initial_head: df5050f41c180d080529229cfd836cb55a230b0e
@@ -16,7 +16,7 @@ allow_debug: true
 
 # M017 — campagne physique réellement exécutée, qualification échouée
 
-**Résultat technique : FAILED.** Première campagne lancée le **13/10/2026 à 22:23:22 UTC** (14/10 à00:23:22 Paris), arrêt sur **overflow après0,402315s**, et non après600s. **65536octets écrits et intégralement relus conformes**, puis conformes après réinitialisation contrôlée. Aucun retry, aucun RUN2/3, aucun succès annoncé sur préparation seule. Le statut provisoire IN_PROGRESS couvre seulement la publication/relecture distante du rapport final ; la qualification a échoué.
+**Résultat technique : FAILED.** Première campagne lancée le **13/10/2026 à 22:23:22 UTC** (14/10 à00:23:22 Paris), arrêt sur **overflow après0,402315s**, et non après600s. **65536octets écrits et intégralement relus conformes**, puis conformes après réinitialisation contrôlée. Aucun retry, aucun RUN2/3, aucun succès annoncé sur préparation seule. Le statut final FAILED consigne cet échec physique. La publication et la relecture distante des résultats ont réussi ; elles ne constituent pas une qualification de la cadence.
 
 L'écart C2c/M016 est **partiellement caractérisé, pas totalement expliqué** : la lenteur est reproduite sans producteur, sur DMA comme sur polling ; la majorité du temps est dans le transfert, pas dans READY final. La seule hypothèse corrective évaluée, ACMD23, n'améliore pas suffisamment la performance et n'a pas été adoptée. Aucun défaut matériel ni incapacité intrinsèque du bus1bit n'est établi.
 
@@ -26,7 +26,7 @@ L'écart C2c/M016 est **partiellement caractérisé, pas totalement expliqué** 
 2. Diagnostic court différentiel : **8 writes DMA +8 polling**, sans producteur, chacun suivi d'une relecture et comparaison entière de64KiB (65536octets). **16/16, zéro mismatch/HAL error**. Image source `df5050f` + `diagnostic-source.diff`, BIN SHA-256 `b8ac313e646f7c9571b924fea9785bc934ebbe4c428c7620acf4534471628db9` et readback exact conservés. [Log final](preuves/TR2-20261014-M017-SDMMC-1BIT/diagnostic-final.log), [CSV avant](preuves/TR2-20261014-M017-SDMMC-1BIT/baseline-diagnostic-latencies.csv).
 3. Harness instrumenté : temps transfert/READY et coût producteur, symbole terminal noinline, **ring128KiB** et runner durable à marker unique. Build spécialisé réussi, code/protocole publiés **avant RUN** au commit `65ff1fa93e3793c1ad4e18fe105034bedf1b5146`, message « M017 checkpoint: instrument ST transfer phases and publish bounded qualification runner ». Flash standard vérifiéCLI et readback intégral, INIT/preflight réussis, RUN réellement effectué avec unique hardware breakpoint terminal, **aucun halt intermédiaire**. [Runner](../../../experiments/sdmmc_st_reference/run_m017.py), [log charge](preuves/TR2-20261014-M017-SDMMC-1BIT/run-01.log).
 4. Après premier échec, répétitions arrêtées ; totalité du préfixe écrit vérifiée en lecture seule par oracle Python indépendant. Puis unique hypothèse ACMD23 testée par **16 transferts/relectures**, zéro corruption et commandes acceptées, mais pas d'amélioration démontrée. Aucun nouveau RUN spéculatif. Dernière relecture complète du préfixe initial après le flash/reset logiciel/INIT nécessaires à cette expérience : toujours exact. Cette dernière vérification ajoute la frontière de réinitialisation demandée par le contrat, sans prétendre tester un power-loss physique.
-5. Publication des scripts/logs/images/diffs/mesures et journal ; relecture distante à consigner avant statut final FAILED.
+5. Publication des scripts/logs/images/diffs/mesures et journal ; relecture intégrale distante réussie au commit76717ac,112fichiers comparés byte à byte.
 
 ## Comparaison C2c / M016 / M017
 
@@ -53,7 +53,7 @@ Seconde NUCLEO-U575ZI-Q seule : **SN0032001F3235510C37333439**, **UID001B0046/38
 
 Zone planifiée RUN **LBA2048..502054** ; effectivement écrit **LBA2048..2175**. Diagnostics **LBA503000..504023** sur la même carte de test. Aucune écriture secteur0, aucun formatage/erase explicite ou accès média principal. Motif déterministe par offset conservé M016, records techniques16octets ; ni capteur ni codecP8 métier qualifiés.
 
-Arrivée426672B/s,600s ⇒256003200octets logiques,256003584 physiques avec384octets paddingA5. FIFO réellement bornée131072octets, données en vol incluses, aucun overwrite/regénération ni retry. Pourquoi128KiB : cumulatif A04-02 historique `_ebss=0x2009283c` sur768KiB ⇒ environ186KiB libres avant stack ; ring128KiB laisse55236octets avant autres besoins. BufferSD existant à réutiliser et instrumentation à exclure lors d'une future intégration ; **aucun fit de production démontré**. Augmenter simplement la RAM n'a pas été utilisé comme correctif. Le scénario M017 a donc une capacité différente de M016, explicitement déclarée ; les charges ne sont pas prétendues identiques entre missions.
+Arrivée426672B/s,600s ⇒256003200octets logiques,256003584 physiques avec384octets paddingA5. FIFO réellement bornée131072octets, données en vol incluses, aucun overwrite/regénération ni retry. Pourquoi128KiB : cumulatif A04-02 historique `_ebss=0x2009283c` sur768KiB ⇒ environ182KiB libres avant stack ; ring128KiB laisse55236octets avant autres besoins. BufferSD existant à réutiliser et instrumentation à exclure lors d'une future intégration ; **aucun fit de production démontré**. Augmenter simplement la RAM n'a pas été utilisé comme correctif. Le scénario M017 a donc une capacité différente de M016, explicitement déclarée ; les charges ne sont pas prétendues identiques entre missions.
 
 Build isolé CubeU5v1.9.0/GCC ARM14.2.1, CMake `BENCH_LOAD_ONLY=ON/BENCH_WRITE_ENABLE=1/BENCH_TEST_LBA=2048`, O2/g3. BIN RUN **25840octets**, SHA-256 **`17bd4d235b742276ea674297c894ebe2d8417a6104d2268c0a61fcb8f2410edd`**, ELF SHA dans [load-artifacts.json](preuves/TR2-20261014-M017-SDMMC-1BIT/load-artifacts.json), BSS248960octets. Cross-build spécialisé instrumenté et variante ACMD23 réussis ; aucune suite hôte/cumulative inchangée rejouée, car pas de fonction ni interface production modifiée. Avertissements newlib syscalls non implémentés conservés, sans usage de ces fonctions sur cible.
 
@@ -107,4 +107,4 @@ Dépôt original conservé82169af7e76797731358852bec83bfb0ceb54ccf ; deux stashe
 
 [Preuves et index](preuves/TR2-20261014-M017-SDMMC-1BIT/README.md), manifestSHA-256 et bruts locaux `/home/lolo/dev/msm/reports/TR2-M017-20261014`, artefactsprojets `/home/lolo/dev/msm/reports/M017-diagnostic-build` ; images/ELF/MAP avant/après sauvegardés distinctement. Scripts et logs conservés même en cas d'interruption client ; markerRUN01 refuse une répétition silencieuse.
 
-Journal ETAT_COURANT_TR2 actualisé : diagnosticdifférentiel, RUNéchoué, préfixe intègre aprèsréinit, étatimageisolée et prochaineslimites. Publicationprovisoire à vérifier, puisstatutFAILEDfinal ; SHAdistantfinal et étatGit dansréponsefinale, pasd'auto-référence.
+Journal ETAT_COURANT_TR2 actualisé : diagnosticdifférentiel, RUNéchoué, préfixe intègre aprèsréinit, étatimageisolée et prochaineslimites. Résultats publiés par push normal `HEAD:refs/heads/main` au commit **76717ac408c922c63bd8779a794263a1cf498449**, message « M017 results: physical overflow, differential transfer timings and rejected ACMD23 hypothesis ». Après fetch depuis GitHub, SHA contrôlé par ls-remote ; **112 fichiers** modifiés depuis df5050f intégralement relus depuis la référence distante et comparés byte à byte, manifest vérifié. [Preuve de relecture](preuves/TR2-20261014-M017-SDMMC-1BIT/remote-readback-76717ac4.json). Worktree de mission propre à ce contrôle, dépôt original propre et HEAD inchangé, stashes et fichiers protégés vérifiés. Cette mise à jour finale consigne FAILED ; son SHA et la vérification distante finale sont fournis dans la réponse finale, sans auto-référence.
