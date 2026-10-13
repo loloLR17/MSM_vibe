@@ -48,3 +48,9 @@ Préparer une mission Codex distincte pour auditer la configuration STM32 cumula
 ## 8. Procédure A-01 — Qualification sous responsabilité ChatGPT
 
 Après un rapport `DONE`, contrôler indépendamment le SHA exact du code exécuté, la configuration de compilation (toolchain et options), l'empreinte de l'image, l'identité du banc, les tests pertinents et les preuves matérielles, les limites et le statut du matériel. Publier une fiche synthétique dans `Modbus RTU/02_Validation/Qualifications/` ; citer les rapports et traces sans les recopier. Une qualification ne vaut que pour son périmètre explicite ; `DONE` n'est pas un verdict de qualification. Si les preuves sont suffisantes, créer et vérifier sur GitHub un tag **annoté** `tr2/Mnnn` sur le SHA de code effectivement qualifié, distinct du SHA documentaire. Si une donnée essentielle manque, déclarer la revue en attente et ne pas créer de tag. Aucun tag rétroactif sans examen individualisé. Codex fournit les preuves ; ChatGPT décide et publie la qualification.
+
+## 9. A-03 — Reprise des missions
+
+ChatGPT vérifie le contrat, le dernier rapport, le statut, les commits distants et les preuves avant toute reprise. Une mission interrompue conserve son identifiant. Un contrat READY ne doit pas être relancé lorsque le rapport correspondant est DONE. Ne pas remplacer une mission active sans clôture explicite.
+
+Codex conserve un checkpoint proportionné : SHA, commits publiés, modifications locales, tests et preuves, état matériel si pertinent, risques et travaux restants. IN_PROGRESS est reprenable après interruption ; BLOCKED désigne un obstacle extérieur réel ; FAILED désigne un échec terminal documenté ; DONE ne vaut pas qualification indépendante. Publier les travaux intermédiaires seulement lorsqu'ils sont sûrs pour main. Préserver les autorisations permanentes et les garde-fous de AGENTS.md sans multiplier les demandes de validation.
