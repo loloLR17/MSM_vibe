@@ -1,0 +1,65 @@
+{
+  "initial_head": "2cbb9bbc88e6ee3a9392b662c23a33b6b64e3d34",
+  "contract_base_sha": "ba6f34c4e536f430be74b2e6c27f6c8c9cb873e2",
+  "code_sha": "8bcb8436822ce7444074865617cb3696f877a6ad",
+  "evaluated_files": {
+    "Modbus RTU/05_Firmware/CMakeLists.txt": "6bec37defefa97d8860de4307a45195f47be676a7244067d5b94387945a23ea6",
+    "Modbus RTU/05_Firmware/include/tr2/application/modbus_system_server.h": "8f74380048fd72fc60400e8aec78f1e7c1bfc3a286e310eba03bbea348f6d272",
+    "Modbus RTU/05_Firmware/platform/stm32/README.md": "145496e62a0bb866e4aa97ee237f85d1cfedd4a50494b634cad1838a7c6aa935",
+    "Modbus RTU/05_Firmware/platform/stm32/stm32_fifo_cooperative.c": "bd874fb4e9d32957db4d79fec8c503f150100b8e1dfa6110e661783ceb2a4304",
+    "Modbus RTU/05_Firmware/platform/stm32/stm32_fifo_cooperative.h": "51e04d59b4715399e7042fbee1a9a17818654c9ca8d55db97e4c7f0e22a3d390",
+    "Modbus RTU/05_Firmware/platform/stm32/stm32_production_board.c": "aad305f9caf5da793b9f95b08c3eef7758c0e898f778eb895eb30b3b7ffe5b74",
+    "Modbus RTU/05_Firmware/src/application/modbus_system_server.c": "d897fc96f39e3e191fce9ccac019d279de82f8de935652c8b54e6195e91c894d",
+    "Modbus RTU/05_Firmware/tests/integration/test_modbus_fifo_io_budget.c": "ce067ab2777e2b949e988b17d53283fe0e09206d5d60ac7fca25509f4da13761",
+    "Modbus RTU/05_Firmware/tests/integration/test_modbus_system_server.c": "a9f86b1e06ae3fbbac35911231a088fbe2d69fd79d221ab7913cd64caf83c064",
+    "experiments/iis3dwb_st_reference/src/fifo_cooperative.c": "82ed0481d760658d84b966264ab0ee64f0ad04fb4037d88e81e36dc67a7ec0a6",
+    "experiments/iis3dwb_st_reference/src/fifo_cooperative.h": "1e085e6843be0dd8821f56ddc4a8dffbe1a51ee9c73bc8e089c6ff55eb0f6fe1"
+  },
+  "protected_files_and_regions": [
+    "AGENTS.md",
+    "Modbus RTU/00_gouvernance/DETTE_TECHNIQUE_A04.md",
+    "Modbus RTU/00_gouvernance/GOUVERNANCE_CHATGPT_CODEX.md",
+    "Modbus RTU/00_gouvernance/Echanges_Codex/MISSION_EN_COURS.md",
+    "Modbus RTU/00_gouvernance/Echanges_Codex/PROTOCOLE_ECHANGE_V2.md",
+    "Modbus RTU/00_gouvernance/Echanges_Codex/archives/TR2-20261013-A04-01-SAFE-BUILD/RAPPORT.md",
+    "Modbus RTU/05_Firmware/src/persistence",
+    "Modbus RTU/05_Firmware/src/domain/configuration",
+    "Modbus RTU/05_Firmware/platform/stm32/CMakeLists.txt",
+    "experiments/iis3dwb_st_reference/vendor"
+  ],
+  "persistence_observations": {
+    "persistent-before.bin": {
+      "bytes": 51914,
+      "sha256": "560f0551315df7b3146f79850f67b72dd7cdf8a3234bbc136e00e89e4d26b239"
+    },
+    "persistent-before-capture.bin": {
+      "bytes": 51914,
+      "sha256": "560f0551315df7b3146f79850f67b72dd7cdf8a3234bbc136e00e89e4d26b239"
+    },
+    "physical-persistent.bin": {
+      "bytes": 51914,
+      "sha256": "560f0551315df7b3146f79850f67b72dd7cdf8a3234bbc136e00e89e4d26b239"
+    },
+    "fram-before-capture.bin": {
+      "bytes": 262144,
+      "sha256": "d732acc557152180fc394097d6a5269ea2f45c1da387c8643f512318adf92fce"
+    },
+    "flash-before.bin": {
+      "bytes": 2097152,
+      "sha256": "21d4c3b3dcbf35f175a1677508985caf3516f6371cb9689a781fe0416e9d1424"
+    },
+    "flash-after.bin": {
+      "bytes": 2097152,
+      "sha256": "1393bcc75619caae369ab78d908ad58aee238a61154ae7d671424c479882b503"
+    }
+  },
+  "full_fram_after_crc32_only": true,
+  "stashes": [
+    "6251b988e8b20f97997a8f98fd26d4d35a45a1b2",
+    "f3b829e6188f491920edf74a5f9ed0f559d08b87"
+  ],
+  "historical_main_sha": "82169af7e76797731358852bec83bfb0ceb54ccf",
+  "local_proof_root": "/home/lolo/dev/msm/reports/TR2-A04-02-20261013T152741Z",
+  "gcc": "arm-none-eabi-gcc (15:14.2.rel1-1) 14.2.1 20241119",
+  "sdk_sha": "d88042df24f16799957c24f00c2b234c9e306188"
+}

@@ -1,0 +1,17 @@
+{
+  "command": [
+    "/mnt/c/ST/STM32CubeCLT_1.22.0/STM32CubeProgrammer/bin/STM32_Programmer_CLI.exe",
+    "-c",
+    "port=SWD",
+    "sn=003500463235510B37333439",
+    "freq=8000",
+    "-w",
+    "\\\\wsl.localhost\\Debian\\home\\lolo\\dev\\msm\\reports\\TR2-A04-02-20261013T152741Z\\build-artifacts\\tr2-cumulative-m014-m015-spi4.bin",
+    "0x08000000",
+    "-v",
+    "-rst"
+  ],
+  "code_sha": "8bcb843",
+  "sha256": "b4301d6f3325c266edc19297413fd0885828e5625ec030a8acad340444b3fd9b",
+  "normal_programming_only": true
+}

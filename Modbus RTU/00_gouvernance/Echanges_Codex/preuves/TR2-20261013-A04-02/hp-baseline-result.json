@@ -1,0 +1,27 @@
+{
+  "mode": "Baseline",
+  "runId": "A0402-20261013T152741Z",
+  "image": "b4301d6f3325c266edc19297413fd0885828e5625ec030a8acad340444b3fd9b",
+  "hostname": "LAPTOP-3F6J7STJ",
+  "utc": "2026-10-13T15:49:14.1198997+00:00",
+  "gateUtc": "2026-10-13T15:49:11.666049+00:00",
+  "passed": true,
+  "error": null,
+  "requests": [
+    {
+      "name": "B5-before",
+      "utc": "2026-10-13T15:49:13.7200230+00:00",
+      "address": 5000,
+      "quantity": 20,
+      "request": "01-03-13-88-00-14-C1-6B",
+      "response": "01-03-28-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-01-00-00-00-00-00-00-00-00-00-00-00-00-65-1B",
+      "expectedException": 0,
+      "crcValid": true,
+      "passed": true,
+      "elapsedMs": 241.37810000000002
+    }
+  ],
+  "maximumRequests": 1,
+  "retries": 0,
+  "serialClosed": true
+}

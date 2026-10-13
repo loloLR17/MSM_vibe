@@ -1,0 +1,29 @@
+{
+  "command": [
+    "/mnt/c/Windows/System32/OpenSSH/ssh.exe",
+    "-T",
+    "-o",
+    "BatchMode=yes",
+    "-o",
+    "StrictHostKeyChecking=yes",
+    "-o",
+    "ConnectTimeout=10",
+    "tr2-hp",
+    "powershell.exe -NoProfile -NonInteractive -EncodedCommand WwBDAG8AbgBzAG8AbABlAF0AOgA6AEkAbgBwAHUAdABFAG4AYwBvAGQAaQBuAGcAPQBOAGUAdwAtAE8AYgBqAGUAYwB0ACAAUwB5AHMAdABlAG0ALgBUAGUAeAB0AC4AVQBUAEYAOABFAG4AYwBvAGQAaQBuAGcAKAAkAGYAYQBsAHMAZQApADsAIAAmACAAKABbAFMAYwByAGkAcAB0AEIAbABvAGMAawBdADoAOgBDAHIAZQBhAHQAZQAoAFsAQwBvAG4AcwBvAGwAZQBdADoAOgBJAG4ALgBSAGUAYQBkAFQAbwBFAG4AZAAoACkAKQApAA=="
+  ],
+  "return_code": 0,
+  "full_contents_read": true,
+  "no_serial_access": true,
+  "files": [
+    {
+      "mode": "Baseline",
+      "bytes": 1147,
+      "sha256": "0F77D9B79E93F5E8B9A0E0C05ED290953CA9574C5A99D64D24B39429E3EF6209"
+    },
+    {
+      "mode": "Capture",
+      "bytes": 3640,
+      "sha256": "11A9274372CDA26806D37932DD4BFBC84AFC4235BA5526B2175A6D59BB0D9222"
+    }
+  ]
+}

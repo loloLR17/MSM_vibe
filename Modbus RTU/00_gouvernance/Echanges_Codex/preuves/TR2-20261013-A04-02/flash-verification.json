@@ -1,0 +1,10 @@
+{
+  "profile": "CUMULATIVE SPI4 Debug",
+  "bin_sha256": "b4301d6f3325c266edc19297413fd0885828e5625ec030a8acad340444b3fd9b",
+  "programming_verified": true,
+  "gdb_flash_readback_exact": true,
+  "unchanged_tail_after_page_span": 172032,
+  "tail_sha256": "dc1e4fc597aff0bd9a436dda6c27d81b60e02b733c708703a748592d8302d2e4",
+  "software_reset_after_programmer": true,
+  "reason": "Qualified GDB reset after programmer exit restores the NVIC state documented in M013-D; no HOTPLUG read"
+}

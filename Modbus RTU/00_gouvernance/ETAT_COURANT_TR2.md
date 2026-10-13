@@ -1,33 +1,34 @@
 # État courant MSM TR2 — synthèse opérationnelle
 
-**Actualisation :** 13 octobre 2026, consolidation documentaire A-02. **Source de vérité :** branche `main` de `loloLR17/MSM_vibe`.
+**Actualisation :** 13 octobre 2026, correction A04-02 et essai de coexistence borné. **Source de vérité :** branche `main` de `loloLR17/MSM_vibe`.
 
 > Ce document est une synthèse opérationnelle, non un journal d'essais. Le document intégral antérieur est conservé **sans modification** dans [Archives/ETAT_COURANT_TR2_AVANT_A02_20261013.md](Archives/ETAT_COURANT_TR2_AVANT_A02_20261013.md). Il s'agit d'un état reconstruit à partir des preuves disponibles, et non d'une restitution du journal HP historique introuvable.
 
 ## 1. État matériel et logiciel
 
-- **Cible principale :** TR2-001 / NUCLEO STM32U575 ; capteur IIS3DWB sur SPI3. Firmware **cumulatif M014+M015** conservé sur la carte après l'essai réussi M015-V ; CPU 160 MHz, SPI3 4 MHz mode 3. Ne pas restaurer automatiquement M014-H.
+- **Cible principale :** TR2-001 / NUCLEO STM32U575 ; capteur IIS3DWB sur SPI3. Firmware **cumulatif M014+M015 avec correction A04-02** conservé sur la carte après l'essai de coexistence ; CPU 160 MHz, SPI3 4 MHz mode 3. Ne pas restaurer automatiquement M014-H.
+- **Code courant A04-02 exécuté par Codex :** `8bcb8436822ce7444074865617cb3696f877a6ad`, BIN169948octets SHA `b4301d6f3325c266edc19297413fd0885828e5625ec030a8acad340444b3fd9b`. **OBSERVÉ PHYSIQUE BORNÉ** :32768XYZ/4096TS,6readsHP sans retry, B5 retiré pendant capture/relu après cleanup ; revue indépendante attendue.
 - **Code M015-V déclaré testé par Codex :** `ef468539b9943cc9b9b4d832e513a0f8ab05c7ae` ; commit documentaire de preuves `92c0966d5a4f84ee4033490825e3f7cc6dc6737a`. SHA-256 BIN : `8529630a5a6c9aaa2449fde512b06d6ca16a89a08b7afea2abc9ecca3b75d480` (rapport M015-V). **Revue indépendante A-01 et tag `tr2/M015` encore à réaliser.**
 - **Supervision PC :** socle S0–S7 développé ; M014-H a démontré sur le TR2 réel les lectures B0/B1, le polling et la perte/reprise dans une portée bornée. Pas de preuve de mesure vibratoire V1 affichée.
-- **STM32/Modbus :** B0/B1 fonctionnels dans l'essai M015-V ; correction de préparation B5 inutile sur lecture FC03 B0/B1. B5 avec accès FRAM reste potentiellement bloquant et non coqualifié avec acquisition.
+- **STM32/Modbus :** B0/B1 fonctionnels dans l'essai M015-V ; correction de préparation B5 inutile sur lecture FC03 B0/B1. A04-02 retire B5 par exception04 avant I/O pendant capture ; réponse fraîche après cleanup. I/O B5 reste synchrone au repos (max144,138ms observé), boot bloquant non corrigé.
 
 ## 2. Preuves acquises et limites
 
 - **M015-V — mission `DONE`, acquisition physique bornée :** une capture continue de **32 768 XYZ + 4 096 timestamps**, préfixes 4 096/8 192/16 384/32 768, durée environ **1,247 s** ; 304 bursts, FIFO max 158, aucun FULL/OVR observé sur essai corrigé, nettoyage final conforme. Deux lectures Modbus B0/B1 durant l'acquisition, sans erreur UART signalée.
 - Contrôle RAM/CRC par bursts concordant ; bruts SPI intégraux reconstruits seulement pour les derniers 4 096. Une première tentative échouée (pause ~141 ms, FIFO FULL/OVR) est conservée séparément ; correction de la reconstruction B5 non demandée étayée par comparaison.
-- **Non qualifiés :** perte globale zéro, endurance, calibration/métrologie, FFT/indicateurs, stockage de campagne V1, SDMMC 4 bits, coexistence B5/FRAM/SD avec acquisition, publication vibratoire V1 et chaîne capteur→Web complète. Les tests hôte/ARM ne valent pas preuve physique.
+- **Non qualifiés :** perte globale zéro, endurance, calibration/métrologie, FFT/indicateurs, stockage de campagne V1, SDMMC 4 bits, I/O B5/FRAM/SD exécutée durant acquisition (A04-02 observe seulement son refus borné), publication vibratoire V1 et chaîne capteur→Web complète. Les tests hôte/ARM ne valent pas preuve physique.
 - **Jalons :** M014 `DONE` dans sa portée ; M015 `DONE` dans sa portée d'acquisition bornée selon Codex, revue indépendante A-01 en attente ; **J3 EN COURS** ; M016–M020 à faire.
 
 ## 3. Préservation et reprise
 
 - FRAM : génération 12 et domaine actif préservés dans les essais rapportés ; sauvegardes M014-H vérifiées et réutilisées. MicroSD non initialisée/accédée durant M015-V. Option Bytes non modifiés selon procédure rapportée.
-- Carte laissée avec firmware cumulatif, capteur au repos après cleanup, débogueur détaché. Vérifier **l'état réel actuel** avant toute intervention physique ultérieure ; ces indications sont celles du rapport M015-V, pas une télémétrie en direct.
+- Carte laissée avec firmware cumulatif, capteur au repos après cleanup, débogueur détaché. Vérifier **l'état réel actuel** avant toute intervention physique ultérieure ; dernier contrôle A04-02 : cleanup0C8000/READY, CRCFRAM avant/après concordant et logiquegen12 byte-identique, UART sans erreur ; pas une télémétrie en direct.
 - Préserver les backups FRAM/Flash, l'identité, les médias et les archives de tests. Opérations physiques à l'utilisateur ; Codex peut flasher/déboguer dans les limites de `AGENTS.md` et de la mission.
 
 ## 4. Prochaine étape
 
 1. **A-02 achevée** et **A-03 harmonisée** ; réaliser la revue indépendante A-01 de M015 (fiche et tag uniquement si les preuves le permettent).
-2. Auditer avant M016 la **configuration STM32 cumulative reproductible**, les budgets temporels FIFO/Modbus/FRAM/SD, les drivers officiels ST et la couverture fonctionnelle des tests (**A-04/A-05**). Corriger uniquement les risques significatifs selon A-06.
+2. Contrôler indépendamment les audits **A-04/A-05** et corrections **A04-01/A04-02** livrés ; décider des statuts de dette avant M016 et conserver les limites de budget/couverture/endurance relevées.
 3. Reprendre **M016** : traitements et publication des vibrations dans le mapping Modbus V1 gelé, puis M017–M020 selon la roadmap.
 
 ## 4 bis. Décisions après audit A-04
@@ -36,11 +37,13 @@
 - **Registre de dette A-04 :** [DETTE_TECHNIQUE_A04.md](DETTE_TECHNIQUE_A04.md), neuf constats ouverts ou différés, avec priorités et critères de clôture. Ne pas effacer ces constats lors du passage A-05.
 - Ordre décidé : **A-05 tests et preuves → A04-01 build sûr → A04-02 FRAM/Modbus → A04-03 intégration M016**. A04-08 avant activation SD ; autres dettes suivies par ID.
 - La mission A-04 est clôturée par son rapport `DONE` ; le contrat `READY` historique ne doit pas être relancé.
-- **13/10/2026 — A04-01, VALIDÉ LOGICIEL par Codex :** sélection explicite des profils, refus du harness SD implicite, BIN cumulatif byte-identique à M015-V. [Rapport de correction](Echanges_Codex/DERNIER_RAPPORT.md), code `c9ee22292ae69cc6f333aaab3527d18556ee8272`. **Revue indépendante / clôture de dette en attente** ; registre inchangé, aucun matériel accédé ni état actuel relu. A04-02 reste hors de cette correction.
+- **13/10/2026 — A04-01, VALIDÉ LOGICIEL par Codex :** sélection explicite des profils, refus du harness SD implicite, BIN cumulatif byte-identique à M015-V. [Rapport de correction](Echanges_Codex/archives/TR2-20261013-A04-01-SAFE-BUILD/RAPPORT.md), code `c9ee22292ae69cc6f333aaab3527d18556ee8272`. **Revue indépendante / clôture de dette en attente** ; registre inchangé, aucun matériel accédé ni état actuel relu. A04-02 reste hors de cette correction.
+
+- **13/10/2026 — A04-02, VALIDÉ LOGICIEL / OBSERVÉ PHYSIQUE BORNÉ par Codex :**126tests et cross-build ; FIFOmax293, FULL/OVR0, gapDWT5,855ms, réserve nominale7,30ms/marge1,445ms. B3 métier reste indisponible ; B5exception04 pendant capture, journal frais après cleanup. [Rapport actuel](Echanges_Codex/DERNIER_RAPPORT.md). Revue/clôture de dette en attente ; A04-03/M016 non engagé.
 
 ## 5. Références durables
 
 - [Roadmap](ROADMAP_TR2_VERS_SUPERVISION_VIBRATOIRE.md) : jalons et dépendances.
-- [Rapport Codex M015-V](Echanges_Codex/DERNIER_RAPPORT.md) : tests, empreintes, preuves, limites et publications.
+- [Rapport Codex M015-V](Echanges_Codex/archives/TR2-20261013-M015-V-COOPERATIVE-CLOTURE/RAPPORT.md) : tests, empreintes, preuves, limites et publications.
 - [Historique complet pré-A-02](Archives/ETAT_COURANT_TR2_AVANT_A02_20261013.md) : missions M013 à M015-V et reconstruction T1000 ; préservé byte-identique.
 - [Gouvernance ChatGPT](GOUVERNANCE_CHATGPT_CODEX.md), `AGENTS.md` à la racine, et fiches A-01 dans `Modbus RTU/02_Validation/Qualifications/`.

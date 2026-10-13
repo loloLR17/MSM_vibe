@@ -1,0 +1,75 @@
+{
+  "mode": "Capture",
+  "runId": "A0402-20261013T152741Z",
+  "image": "b4301d6f3325c266edc19297413fd0885828e5625ec030a8acad340444b3fd9b",
+  "hostname": "LAPTOP-3F6J7STJ",
+  "utc": "2026-10-13T15:50:45.3064991+00:00",
+  "gateUtc": "2026-10-13T15:50:40.218958+00:00",
+  "passed": true,
+  "error": null,
+  "requests": [
+    {
+      "name": "B0-trigger",
+      "utc": "2026-10-13T15:50:42.0303728+00:00",
+      "address": 0,
+      "quantity": 21,
+      "request": "01-03-00-00-00-15-84-05",
+      "response": "01-03-2A-00-00-00-01-00-01-00-00-00-0E-00-08-00-01-00-0C-54-52-32-2D-30-30-30-30-30-31-00-00-00-00-00-00-4D-53-4D-00-00-00-00-00-00-00-E9-87",
+      "expectedException": 0,
+      "crcValid": true,
+      "passed": true,
+      "elapsedMs": 74.6151
+    },
+    {
+      "name": "B1-active",
+      "utc": "2026-10-13T15:50:42.3455199+00:00",
+      "address": 1000,
+      "quantity": 20,
+      "request": "01-03-03-E8-00-14-C5-B5",
+      "response": "01-03-28-00-01-00-00-00-00-00-00-00-00-00-C9-00-05-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-AF-A0",
+      "expectedException": 0,
+      "crcValid": true,
+      "passed": true,
+      "elapsedMs": 21.3118
+    },
+    {
+      "name": "B3-unavailable",
+      "utc": "2026-10-13T15:50:42.5635375+00:00",
+      "address": 3000,
+      "quantity": 48,
+      "request": "01-03-0B-B8-00-30-C7-DF",
+      "response": "01-83-04-40-F3",
+      "expectedException": 4,
+      "crcValid": true,
+      "passed": true,
+      "elapsedMs": 10.1274
+    },
+    {
+      "name": "B5-denied",
+      "utc": "2026-10-13T15:50:42.7644852+00:00",
+      "address": 5000,
+      "quantity": 20,
+      "request": "01-03-13-88-00-14-C1-6B",
+      "response": "01-83-04-40-F3",
+      "expectedException": 4,
+      "crcValid": true,
+      "passed": true,
+      "elapsedMs": 16.6206
+    },
+    {
+      "name": "B5-after",
+      "utc": "2026-10-13T15:50:44.9884098+00:00",
+      "address": 5000,
+      "quantity": 20,
+      "request": "01-03-13-88-00-14-C1-6B",
+      "response": "01-03-28-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-01-00-00-00-00-00-00-00-00-00-00-00-00-65-1B",
+      "expectedException": 0,
+      "crcValid": true,
+      "passed": true,
+      "elapsedMs": 158.8621
+    }
+  ],
+  "maximumRequests": 5,
+  "retries": 0,
+  "serialClosed": true
+}

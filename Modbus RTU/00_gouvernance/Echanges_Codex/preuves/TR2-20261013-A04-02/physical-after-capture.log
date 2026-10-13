@@ -1,0 +1,37 @@
+modbus_system_server_poll_once (server=0xffffffff) at /home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/src/application/modbus_system_server.c:190
+190	{
+0xbfa0700:	0x004a003d	0x38425018	0x20333157
+$1 = 160000000
+$2 = {ctx = {write_reg = 0x801091f <platform_write>, read_reg = 0x80108f1 <platform_read>, mdelay = 0x8008235 <HAL_Delay>, handle = 0x200003d0 <hspi3>, priv_data = 0x0}, clock = {tick = 0x8008221 <HAL_GetTick>, delay = 0x8008235 <HAL_Delay>, stop = 0x8010585 <stop>, cleanup_begin = 0x801056d <cleanup_begin>}, window = {target_xyz = 32768, received = 36864, xyz = 32768, timestamps = 4096, polls = 1256, bursts = 304, first_tick = 201104, last_tick = 202351, max_level = 293, last_level = 98, flags_or = 129, reason = 0, previous_counter = 3, counter_valid = 1, previous_ts = 99059, ts_valid = 1, since_ts = 8}, words = 0x200517e4 <official_words> "!\v\003", capacity = 36864, state = 4, phase = 6, next_tick = 202348, reset_tick = 3651, result = 0, cleanup_result = 0, who = 123 '{', cleanup = "\f\200"}
+$3 = {stage = 6, result = 0, cleanup_result = 0, count = 36864, xyz_count = 32768, timestamp_count = 4096, who = 123, raw_level = 0, st_level = 0, flags = 129, status10 = 0, st_batch = 0, controls = '\000' <repeats 13 times>, words = {{tag = 0 '\000', data = "\000\000\000\000\000"} <repeats 512 times>}, xyz = {{0, 0, 0} <repeats 64 times>}, temperature = 0, polls = 0, cleanup_controls = "\f\200"}
+$4 = 304
+$5 = 6
+$6 = {{tick = 112507, state = 1, xyz = 0, address = 5000, count = 20, rx_bytes = 8, tx_count = 1, tx_complete_tick = 112511}, {tick = 201107, state = 2, xyz = 0, address = 0, count = 21, rx_bytes = 16, tx_count = 2, tx_complete_tick = 201111}, {tick = 201375, state = 2, xyz = 6826, address = 1000, count = 20, rx_bytes = 24, tx_count = 3, tx_complete_tick = 201382}, {tick = 201596, state = 2, xyz = 12629, address = 3000, count = 48, rx_bytes = 32, tx_count = 4, tx_complete_tick = 201599}, {tick = 201800, state = 2, xyz = 17976, address = 5000, count = 20, rx_bytes = 40, tx_count = 5, tx_complete_tick = 201803}, {tick = 204179, state = 4, xyz = 32768, address = 5000, count = 20, rx_bytes = 48, tx_count = 6, tx_complete_tick = 204183}, {tick = 0, state = 0, xyz = 0, address = 0, count = 0, rx_bytes = 0, tx_count = 0, tx_complete_tick = 0}, {tick = 0, state = 0, xyz = 0, address = 0, count = 0, rx_bytes = 0, tx_count = 0, tx_complete_tick = 0}}
+$7 = {4096, 8192, 12288, 16384, 20480, 24576, 28672, 32768}
+$8 = {201272, 201426, 201580, 201734, 201888, 202042, 202197, 202351}
+$9 = 201104
+$10 = 202351
+$11 = 460687
+$12 = 936817
+$13 = 23062149
+$14 = 933791
+$15 = 1
+$16 = 0
+$17 = 3022062602
+$18 = 3022062602
+$19 = 3
+$20 = 3
+$21 = {uart_irq = 252, timer_irq = 18, rx_callback = 48, error_callback = 0, tx_callback = 6, timer_callback = 18, events_pushed = 60, events_dropped = 0, events_polled = 60, bytes_polled = 48, errors_polled = 0, t1_5_polled = 6, t3_5_polled = 6, poll_count = 0, frame_count = 0, crc_valid = 0, crc_bad = 0, frame_invalid = 0, foreign_unit = 0, broadcast = 0, accepted_request = 0, available_status = 0, tx_attempt = 6, tx_started = 6, tx_fail_safe = 0, last_irq_isr = 6422736, last_hal_error = 0, last_rx_byte = 107, last_event = 3, last_codec_result = 0, last_frame_length = 0, last_tx_length = 45, last_frame = '\000' <repeats 255 times>, last_tx = "\001\003(", '\000' <repeats 27 times>, "\001", '\000' <repeats 12 times>, "e\033é‡", '\000' <repeats 208 times>, before_enable = {valid = 1, cpuid = 1091555860, vtor = 134217728, aircr = 4194640640, primask = 0, basepri = 0, faultmask = 0, control = 0, iser = {0, 0, 0}, ispr = {0, 0, 0}, itns = {0, 0, 0}, uart_isr = 0, uart_cr1 = 0, uart_cr3 = 0, hal_rx_state = 0, hal_error = 0}, after_timer_enable = {valid = 1, cpuid = 1091555860, vtor = 134217728, aircr = 4194640640, primask = 0, basepri = 0, faultmask = 0, control = 0, iser = {0, 131072, 0}, ispr = {0, 0, 0}, itns = {0, 0, 0}, uart_isr = 6291648, uart_cr1 = 5133, uart_cr3 = 0, hal_rx_state = 32, hal_error = 0}, after_uart_enable = {valid = 1, cpuid = 1091555860, vtor = 134217728, aircr = 4194640640, primask = 0, basepri = 0, faultmask = 0, control = 0, iser = {0, 131072, 4}, ispr = {0, 0, 0}, itns = {0, 0, 0}, uart_isr = 6291648, uart_cr1 = 5133, uart_cr3 = 0, hal_rx_state = 32, hal_error = 0}, live = {valid = 0, cpuid = 0, vtor = 0, aircr = 0, primask = 0, basepri = 0, faultmask = 0, control = 0, iser = {0, 0, 0}, ispr = {0, 0, 0}, itns = {0, 0, 0}, uart_isr = 0, uart_cr1 = 0, uart_cr3 = 0, hal_rx_state = 0, hal_error = 0}}
+$22 = 0
+$23 = {status = TRANSACTIONAL_IMAGE_RECOVERY_VALID, generation = 12, active_image = 1 '\001'}
+$24 = 0
+$25 = false
+$26 = false
+$27 = 318
+$28 = 33149
+$29 = 636
+$30 = 0
+$31 = 0
+0xe000e100:	0x00000000	0x00020000	0x00000004
+0xe000ed28:	0x00000000	0x00000000
+[Inferior 1 (Remote target) detached]

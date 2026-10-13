@@ -1,0 +1,62 @@
+[
+  {
+    "tick": 112507,
+    "state": 1,
+    "xyz": 0,
+    "address": 5000,
+    "count": 20,
+    "rx_bytes": 8,
+    "tx_count": 1,
+    "tx_complete_tick": 112511
+  },
+  {
+    "tick": 201107,
+    "state": 2,
+    "xyz": 0,
+    "address": 0,
+    "count": 21,
+    "rx_bytes": 16,
+    "tx_count": 2,
+    "tx_complete_tick": 201111
+  },
+  {
+    "tick": 201375,
+    "state": 2,
+    "xyz": 6826,
+    "address": 1000,
+    "count": 20,
+    "rx_bytes": 24,
+    "tx_count": 3,
+    "tx_complete_tick": 201382
+  },
+  {
+    "tick": 201596,
+    "state": 2,
+    "xyz": 12629,
+    "address": 3000,
+    "count": 48,
+    "rx_bytes": 32,
+    "tx_count": 4,
+    "tx_complete_tick": 201599
+  },
+  {
+    "tick": 201800,
+    "state": 2,
+    "xyz": 17976,
+    "address": 5000,
+    "count": 20,
+    "rx_bytes": 40,
+    "tx_count": 5,
+    "tx_complete_tick": 201803
+  },
+  {
+    "tick": 204179,
+    "state": 4,
+    "xyz": 32768,
+    "address": 5000,
+    "count": 20,
+    "rx_bytes": 48,
+    "tx_count": 6,
+    "tx_complete_tick": 204183
+  }
+]

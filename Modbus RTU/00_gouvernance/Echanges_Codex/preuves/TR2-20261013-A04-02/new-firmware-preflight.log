@@ -1,0 +1,16 @@
+stm32_fifo_cooperative_poll () at /home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/platform/stm32/stm32_fifo_cooperative.c:72
+72	 uint32_t trace_begin=bench_trace_count;
+0xbfa0700:	0x004a003d	0x38425018	0x20333157
+$1 = 160000000
+$2 = 2
+$3 = 0
+$4 = {status = TRANSACTIONAL_IMAGE_RECOVERY_VALID, generation = 12, active_image = 1 '\001'}
+$5 = {ctx = {write_reg = 0x801091f <platform_write>, read_reg = 0x80108f1 <platform_read>, mdelay = 0x8008235 <HAL_Delay>, handle = 0x200003d0 <hspi3>, priv_data = 0x0}, clock = {tick = 0x8008221 <HAL_GetTick>, delay = 0x8008235 <HAL_Delay>, stop = 0x8010585 <stop>, cleanup_begin = 0x801056d <cleanup_begin>}, window = {target_xyz = 32768, received = 0, xyz = 0, timestamps = 0, polls = 0, bursts = 0, first_tick = 0, last_tick = 0, max_level = 0, last_level = 0, flags_or = 0, reason = 0, previous_counter = 0, counter_valid = 0, previous_ts = 0, ts_valid = 0, since_ts = 0}, words = 0x200517e4 <official_words> "TR2M", capacity = 36864, state = 1, phase = 8, next_tick = 3651, reset_tick = 3651, result = 0, cleanup_result = 0, who = 123 '{', cleanup = "\000\000"}
+$6 = 0
+$7 = 1
+$8 = 1
+$9 = 3022062602
+$10 = {uart = {Instance = 0x46002400, Init = {BaudRate = 115200, WordLength = 4096, StopBits = 0, Parity = 1024, Mode = 12, HwFlowCtl = 0, OverSampling = 0, OneBitSampling = 0, ClockPrescaler = 0}, AdvancedInit = {AdvFeatureInit = 0, TxPinLevelInvert = 0, RxPinLevelInvert = 0, DataInvert = 0, Swap = 0, OverrunDisable = 0, DMADisableonRxError = 0, AutoBaudRateEnable = 0, AutoBaudRateMode = 0, MSBFirst = 0}, pTxBuffPtr = 0x0, TxXferSize = 0, TxXferCount = 0, pRxBuffPtr = 0x2000e671 <g_serial+225> "", RxXferSize = 1, RxXferCount = 1, Mask = 255, FifoMode = 0, NbRxDataToProcess = 1, NbTxDataToProcess = 1, ReceptionType = 0, RxEventType = 0, RxISR = 0x800ec69 <UART_RxISR_8BIT>, TxISR = 0x0, hdmatx = 0x0, hdmarx = 0x0, Lock = HAL_UNLOCKED, gState = 32, RxState = 34, ErrorCode = 0}, rtu_timer = {Instance = 0x40001000, Init = {Prescaler = 159, CounterMode = 0, Period = 749, ClockDivision = 0, RepetitionCounter = 0, AutoReloadPreload = 0}, Channel = HAL_TIM_ACTIVE_CHANNEL_CLEARED, hdma = {0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0}, Lock = HAL_UNLOCKED, State = HAL_TIM_STATE_READY, ChannelState = {HAL_TIM_CHANNEL_STATE_READY, HAL_TIM_CHANNEL_STATE_READY, HAL_TIM_CHANNEL_STATE_READY, HAL_TIM_CHANNEL_STATE_READY, HAL_TIM_CHANNEL_STATE_READY, HAL_TIM_CHANNEL_STATE_READY}, ChannelNState = {HAL_TIM_CHANNEL_STATE_READY, HAL_TIM_CHANNEL_STATE_READY, HAL_TIM_CHANNEL_STATE_READY, HAL_TIM_CHANNEL_STATE_READY}, DMABurstState = HAL_DMA_BURST_STATE_READY}, rtu_timer_phase = TR2_RTU_TIMER_IDLE, rx_byte = 0 '\000', tx_buffer = '\000' <repeats 255 times>, tx_busy = false, tx_fault = false, bus_silent = false, events = {{type = SERIAL_TRANSPORT_EVENT_NONE, byte = 0 '\000', error = SERIAL_TRANSPORT_ERROR_UNSPECIFIED} <repeats 64 times>}, event_head = 0, event_tail = 0, event_overflow_pending = false}
+0xe000e100:	0x00000000	0x00020000	0x00000004
+0xe000ed28:	0x00000000	0x00000000
+[Inferior 1 (Remote target) detached]

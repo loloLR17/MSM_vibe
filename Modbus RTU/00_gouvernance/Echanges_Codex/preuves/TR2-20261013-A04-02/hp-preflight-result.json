@@ -1,0 +1,9 @@
+{
+  "mode": "Preflight",
+  "hostname": "LAPTOP-3F6J7STJ",
+  "utc": "2026-10-13T15:45:35.6586585+00:00",
+  "serialOpened": false,
+  "crcSelfCheck": true,
+  "port": "USB Serial Port (COM7)",
+  "image": "b4301d6f3325c266edc19297413fd0885828e5625ec030a8acad340444b3fd9b"
+}

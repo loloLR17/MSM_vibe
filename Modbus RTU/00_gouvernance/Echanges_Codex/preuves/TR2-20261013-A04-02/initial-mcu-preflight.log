@@ -1,0 +1,14 @@
+0x080120c6 in stm32_fifo_cooperative_poll () at /home/lolo/dev/msm/projects/MSM_vibe-M015-V/Modbus RTU/05_Firmware/platform/stm32/stm32_fifo_cooperative.c:59
+59	 uint32_t trace_begin=bench_trace_count;
+0xbfa0700:	0x004a003d	0x38425018	0x20333157
+$1 = 160000000
+$2 = 2
+$3 = 0
+$4 = {status = TRANSACTIONAL_IMAGE_RECOVERY_VALID, generation = 12, active_image = 1 '\001'}
+$5 = 4
+$6 = 0
+$7 = "\f\200"
+$8 = 3
+0xe000e100:	0x00000000	0x00020000	0x00000004
+0xe000ed28:	0x00000000	0x00000000
+[Inferior 1 (Remote target) detached]

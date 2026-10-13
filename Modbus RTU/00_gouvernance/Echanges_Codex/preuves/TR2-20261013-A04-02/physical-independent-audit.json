@@ -1,0 +1,227 @@
+{
+  "code_sha": "8bcb843",
+  "bin_sha256": "b4301d6f3325c266edc19297413fd0885828e5625ec030a8acad340444b3fd9b",
+  "window": {
+    "target_xyz": 32768,
+    "received": 36864,
+    "xyz": 32768,
+    "timestamps": 4096,
+    "polls": 1256,
+    "bursts": 304,
+    "first_tick": 201104,
+    "last_tick": 202351,
+    "max_level": 293,
+    "last_level": 98,
+    "flags_or": 129,
+    "reason": 0,
+    "previous_counter": 3,
+    "counter_valid": 1,
+    "previous_ts": 99059,
+    "ts_valid": 1,
+    "since_ts": 8
+  },
+  "metrics": {
+    "fifo_max_level": 293,
+    "nominal_rate_words_per_second": 30000.375,
+    "headroom_at_observed_max_ms": 7.29990875114061,
+    "max_gap_fifo_service_ms": 5.85510625,
+    "max_fifo_poll_ms": 2.87929375,
+    "max_modbus_service_all_ms": 144.13843125,
+    "max_modbus_service_protected_ms": 5.83619375,
+    "capture_with_cleanup_ms": 1247,
+    "nominal_margin_ms": 1.44480250114061
+  },
+  "bursts_crc_verified": 304,
+  "raw_spi_words_verified_last_window": 4608,
+  "full_ram_words_sha256": "ba81f84032dc8d0fcc710c88bf8b7fdb6d064f35c2194b7e7ae0a3fe1f20b4a7",
+  "timestamps_strictly_monotonic_but_no_global_loss_guarantee": true,
+  "prefixes": [
+    {
+      "xyz": 4096,
+      "timestamps": 512,
+      "received": 4608
+    },
+    {
+      "xyz": 8192,
+      "timestamps": 1024,
+      "received": 9216
+    },
+    {
+      "xyz": 12288,
+      "timestamps": 1536,
+      "received": 13824
+    },
+    {
+      "xyz": 16384,
+      "timestamps": 2048,
+      "received": 18432
+    },
+    {
+      "xyz": 20480,
+      "timestamps": 2560,
+      "received": 23040
+    },
+    {
+      "xyz": 24576,
+      "timestamps": 3072,
+      "received": 27648
+    },
+    {
+      "xyz": 28672,
+      "timestamps": 3584,
+      "received": 32256
+    },
+    {
+      "xyz": 32768,
+      "timestamps": 4096,
+      "received": 36864
+    }
+  ],
+  "modbus": [
+    {
+      "tick": 112507,
+      "state": 1,
+      "xyz": 0,
+      "address": 5000,
+      "count": 20,
+      "rx_bytes": 8,
+      "tx_count": 1,
+      "tx_complete_tick": 112511
+    },
+    {
+      "tick": 201107,
+      "state": 2,
+      "xyz": 0,
+      "address": 0,
+      "count": 21,
+      "rx_bytes": 16,
+      "tx_count": 2,
+      "tx_complete_tick": 201111
+    },
+    {
+      "tick": 201375,
+      "state": 2,
+      "xyz": 6826,
+      "address": 1000,
+      "count": 20,
+      "rx_bytes": 24,
+      "tx_count": 3,
+      "tx_complete_tick": 201382
+    },
+    {
+      "tick": 201596,
+      "state": 2,
+      "xyz": 12629,
+      "address": 3000,
+      "count": 48,
+      "rx_bytes": 32,
+      "tx_count": 4,
+      "tx_complete_tick": 201599
+    },
+    {
+      "tick": 201800,
+      "state": 2,
+      "xyz": 17976,
+      "address": 5000,
+      "count": 20,
+      "rx_bytes": 40,
+      "tx_count": 5,
+      "tx_complete_tick": 201803
+    },
+    {
+      "tick": 204179,
+      "state": 4,
+      "xyz": 32768,
+      "address": 5000,
+      "count": 20,
+      "rx_bytes": 48,
+      "tx_count": 6,
+      "tx_complete_tick": 204183
+    }
+  ],
+  "hp_requests": [
+    {
+      "name": "B5-before",
+      "utc": "2026-10-13T15:49:13.7200230+00:00",
+      "address": 5000,
+      "quantity": 20,
+      "request": "01-03-13-88-00-14-C1-6B",
+      "response": "01-03-28-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-01-00-00-00-00-00-00-00-00-00-00-00-00-65-1B",
+      "expectedException": 0,
+      "crcValid": true,
+      "passed": true,
+      "elapsedMs": 241.37810000000002
+    },
+    {
+      "name": "B0-trigger",
+      "utc": "2026-10-13T15:50:42.0303728+00:00",
+      "address": 0,
+      "quantity": 21,
+      "request": "01-03-00-00-00-15-84-05",
+      "response": "01-03-2A-00-00-00-01-00-01-00-00-00-0E-00-08-00-01-00-0C-54-52-32-2D-30-30-30-30-30-31-00-00-00-00-00-00-4D-53-4D-00-00-00-00-00-00-00-E9-87",
+      "expectedException": 0,
+      "crcValid": true,
+      "passed": true,
+      "elapsedMs": 74.6151
+    },
+    {
+      "name": "B1-active",
+      "utc": "2026-10-13T15:50:42.3455199+00:00",
+      "address": 1000,
+      "quantity": 20,
+      "request": "01-03-03-E8-00-14-C5-B5",
+      "response": "01-03-28-00-01-00-00-00-00-00-00-00-00-00-C9-00-05-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-AF-A0",
+      "expectedException": 0,
+      "crcValid": true,
+      "passed": true,
+      "elapsedMs": 21.3118
+    },
+    {
+      "name": "B3-unavailable",
+      "utc": "2026-10-13T15:50:42.5635375+00:00",
+      "address": 3000,
+      "quantity": 48,
+      "request": "01-03-0B-B8-00-30-C7-DF",
+      "response": "01-83-04-40-F3",
+      "expectedException": 4,
+      "crcValid": true,
+      "passed": true,
+      "elapsedMs": 10.1274
+    },
+    {
+      "name": "B5-denied",
+      "utc": "2026-10-13T15:50:42.7644852+00:00",
+      "address": 5000,
+      "quantity": 20,
+      "request": "01-03-13-88-00-14-C1-6B",
+      "response": "01-83-04-40-F3",
+      "expectedException": 4,
+      "crcValid": true,
+      "passed": true,
+      "elapsedMs": 16.6206
+    },
+    {
+      "name": "B5-after",
+      "utc": "2026-10-13T15:50:44.9884098+00:00",
+      "address": 5000,
+      "quantity": 20,
+      "request": "01-03-13-88-00-14-C1-6B",
+      "response": "01-03-28-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-01-00-00-00-00-00-00-00-00-00-00-00-00-65-1B",
+      "expectedException": 0,
+      "crcValid": true,
+      "passed": true,
+      "elapsedMs": 158.8621
+    }
+  ],
+  "fram_crc32_before_after": 3022062602,
+  "fram_sha256_before": "d732acc557152180fc394097d6a5269ea2f45c1da387c8643f512318adf92fce",
+  "logical_persistent_bytes_unchanged": 51914,
+  "command_io_denied": 1,
+  "command_snapshot_failures": 0,
+  "uart_error_and_event_drop_zero": true,
+  "generation": 12,
+  "debugger_closed_during_hp_traffic": true,
+  "no_physical_command_write": true,
+  "restoration_needed": false,
+  "cumulative_firmware_kept": true
+}

@@ -1,0 +1,11 @@
+{
+  "old_elf_sha256": "0eb4e3b00a305905a0ac5002b5ef9041ae1ddb56911fba9b5c122c0c5b885f6a",
+  "golden_prefix_exact": true,
+  "flash_bytes": 2097152,
+  "flash_sha256": "21d4c3b3dcbf35f175a1677508985caf3516f6371cb9689a781fe0416e9d1424",
+  "persistent_bytes": 51914,
+  "persistent_sha256": "560f0551315df7b3146f79850f67b72dd7cdf8a3234bbc136e00e89e4d26b239",
+  "uid": "004A003D3842501820333157",
+  "sn": "003500463235510B37333439",
+  "backup_single_read_with_golden_verification": true
+}

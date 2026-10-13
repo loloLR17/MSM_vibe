@@ -1,0 +1,6 @@
+{
+  "result": "AssertionError in offline audit only",
+  "expected_flags_or": 0,
+  "observed_flags_or": 129,
+  "explanation": "Historical V max158 had flags0. Current max293 legitimately has watermark0x80 and high-level bit1; critical mask0x68 remains zero. No firmware or host guard changed."
+}

@@ -1,0 +1,677 @@
+diff --git a/Modbus RTU/05_Firmware/CMakeLists.txt b/Modbus RTU/05_Firmware/CMakeLists.txt
+index 71eba82..2c15fc2 100644
+--- a/Modbus RTU/05_Firmware/CMakeLists.txt	
++++ b/Modbus RTU/05_Firmware/CMakeLists.txt	
+@@ -358,3 +358,9 @@ target_include_directories(test_fifo_cooperative PRIVATE ${ST_REF}/src ${ST_REF}
+ target_compile_definitions(test_fifo_cooperative PRIVATE BENCH_WINDOW_MAX_WORDS=36864)
+ target_compile_options(test_fifo_cooperative PRIVATE -Wall -Wextra -Werror -UNDEBUG)
+ add_test(NAME fifo_cooperative_v1_windows_and_faults COMMAND test_fifo_cooperative)
++
++# A04-02: real RTU/command journal + cooperative FIFO with explicit I/O costs.
++tr2_add_host_test(test_modbus_fifo_io_budget tests/integration/test_modbus_fifo_io_budget.c modbus_fifo_io_budget)
++target_sources(test_modbus_fifo_io_budget PRIVATE ${ST_REF}/src/fifo_cooperative.c ${ST_REF}/src/fifo_window.c ${ST_REF}/vendor/st/iis3dwb_reg.c)
++target_include_directories(test_modbus_fifo_io_budget PRIVATE ${ST_REF}/src ${ST_REF}/vendor/st)
++target_compile_definitions(test_modbus_fifo_io_budget PRIVATE BENCH_WINDOW_MAX_WORDS=36864)
+diff --git a/Modbus RTU/05_Firmware/include/tr2/application/modbus_system_server.h b/Modbus RTU/05_Firmware/include/tr2/application/modbus_system_server.h
+index e3e0ed0..18b9548 100644
+--- a/Modbus RTU/05_Firmware/include/tr2/application/modbus_system_server.h	
++++ b/Modbus RTU/05_Firmware/include/tr2/application/modbus_system_server.h	
+@@ -20,6 +20,12 @@ typedef struct {
+     /* Optional live producer; NULL preserves externally owned projection policy.
+      * Invoked only while B1 authority is available, before response copy. */
+     Tr2Result (*refresh_status)(SystemRuntime *runtime);
++    /* Optional single-loop admission guard for synchronous command-journal I/O.
++     * false withdraws B5 reads/writes before snapshot or mailbox mutation, using
++     * the existing PDU exception 04. NULL retains normal access. Boot validation
++     * remains complete; no cached B5 or deferred/acknowledged command is created. */
++    void *command_io_context;
++    bool (*command_io_available)(void *context);
+ } ModbusSystemServerBinding;
+ 
+ typedef struct {
+@@ -31,6 +37,8 @@ typedef struct {
+     ModbusBlock4Image b4;
+     ModbusBlock5Image b5;
+     ModbusBlock7Image b7;
++    uint32_t command_io_denied_requests;
++    uint32_t command_snapshot_failures;
+     bool initialized;
+     bool started;
+ } ModbusSystemServer;
+diff --git a/Modbus RTU/05_Firmware/platform/stm32/README.md b/Modbus RTU/05_Firmware/platform/stm32/README.md
+index b1971d9..77c9d27 100644
+--- a/Modbus RTU/05_Firmware/platform/stm32/README.md	
++++ b/Modbus RTU/05_Firmware/platform/stm32/README.md	
+@@ -77,3 +77,15 @@ another ELF. Standard Flash address remains the linker origin `0x08000000`;
+ this document supplies no new flash command or permission. A filename/profile
+ is a selection guard, not an authorization or physical proof. A04-01 performs
+ software builds only; it neither flashes nor observes the connected STM32.
++
++## A04-02 — synchronous FRAM command admission
++
++In the cumulative profile, a mapped B5 read/write is unavailable (existing
++Modbus exception04) while capture is pending/configuring/running or cleanup is
++not verified. No mailbox mutation, deferred command or success ACK occurs.
++After verified cleanup, each B5 response is freshly projected from the actual
++journal; media faults withdraw the view and writes instead of exposing a stale
++image. Boot validation still fails on missing command authority. Reads of other
++blocks do not scan B5. Transactional storage/retry/recovery are unchanged.
++This is a bounded qualification policy, not the future M016 business acquisition
++scheduler; synchronous boot and post-cleanup I/O remain to be budgeted separately.
+diff --git a/Modbus RTU/05_Firmware/platform/stm32/stm32_fifo_cooperative.c b/Modbus RTU/05_Firmware/platform/stm32/stm32_fifo_cooperative.c
+index 635c64c..75c586a 100644
+--- a/Modbus RTU/05_Firmware/platform/stm32/stm32_fifo_cooperative.c	
++++ b/Modbus RTU/05_Firmware/platform/stm32/stm32_fifo_cooperative.c	
+@@ -15,6 +15,9 @@ uint8_t official_words[262144];
+  * independent per-burst CRCs and byte comparison retain earlier integrity. */
+ typedef struct {uint32_t first_word,words,crc_payload,begin_cycles,end_cycles,rx_before,rx_after;} BurstEvidence;
+ BurstEvidence cooperative_bursts[320];
++volatile uint32_t cooperative_service_max_gap_cycles,cooperative_service_last_cycles;
++volatile uint32_t cooperative_modbus_max_cycles,cooperative_modbus_capture_max_cycles;
++volatile uint32_t cooperative_command_io_denied,cooperative_command_snapshot_failures;
+ volatile uint32_t cooperative_burst_count,cooperative_start_tick,cooperative_end_tick;
+ volatile uint32_t cooperative_arm,cooperative_trigger_rx,cooperative_max_cycles;
+ volatile uint32_t cooperative_fram_crc_before,cooperative_fram_crc_after,cooperative_fram_state;
+@@ -49,6 +52,8 @@ void stm32_fifo_cooperative_poll(void)
+   if(bench_command==0x4D313556){bench_command=0;cooperative_arm=1;cooperative_trigger_rx=tr2_irq_observer.rx_callback;}
+   if(cooperative_arm && tr2_irq_observer.rx_callback!=cooperative_trigger_rx){
+    cooperative_start_tick=HAL_GetTick();bench_ready=0;tr2_fifo_state=2;
++   cooperative_service_max_gap_cycles=cooperative_service_last_cycles=0;
++   cooperative_modbus_capture_max_cycles=0;
+    if(fifo_cooperative_start(&cooperative))tr2_fifo_fault=BENCH_STOP;
+   }
+  }
+@@ -56,6 +61,14 @@ void stm32_fifo_cooperative_poll(void)
+   ModbusEvidence *e=&cooperative_modbus[i];
+   if(e->tx_count && !e->tx_complete_tick && tr2_irq_observer.tx_callback>=e->tx_count)e->tx_complete_tick=HAL_GetTick();
+  }
++ if((cooperative.state==COOP_CONFIGURING && cooperative.phase>=8) ||
++    cooperative.state==COOP_CAPTURING || cooperative.state==COOP_CLEANUP){
++  if(cooperative_service_last_cycles){
++   uint32_t gap=begin-cooperative_service_last_cycles;
++   if(gap>cooperative_service_max_gap_cycles)cooperative_service_max_gap_cycles=gap;
++  }
++  cooperative_service_last_cycles=begin;
++ }
+  uint32_t trace_begin=bench_trace_count;
+  fifo_cooperative_poll(&cooperative);
+  if(cooperative.window.received>before){
+@@ -98,3 +111,20 @@ void stm32_fifo_cooperative_observe(const ModbusRtuAduView *request)
+  const uint8_t *pdu=request->pdu;
+  cooperative_modbus[cooperative_modbus_count++]=(ModbusEvidence){HAL_GetTick(),cooperative.state,cooperative.window.xyz,((uint32_t)pdu[1]<<8)|pdu[2],((uint32_t)pdu[3]<<8)|pdu[4],tr2_irq_observer.rx_callback,tr2_irq_observer.tx_started,0};
+ }
++
++/* Single main-loop owner: no persistent command I/O while a capture can start,
++ * while the sensor is producing, or until its cleanup has been verified. */
++bool stm32_fifo_cooperative_command_io_available(void *context)
++{
++ (void)context;
++ return fifo_cooperative_command_io_available(&cooperative,
++  cooperative_arm || bench_command==0x4D313556);
++}
++
++void stm32_fifo_cooperative_observe_service(uint32_t cycles,uint32_t denied,uint32_t failures)
++{
++ if(cycles>cooperative_modbus_max_cycles)cooperative_modbus_max_cycles=cycles;
++ if(!stm32_fifo_cooperative_command_io_available(NULL) && cycles>cooperative_modbus_capture_max_cycles)
++  cooperative_modbus_capture_max_cycles=cycles;
++ cooperative_command_io_denied=denied;cooperative_command_snapshot_failures=failures;
++}
+diff --git a/Modbus RTU/05_Firmware/platform/stm32/stm32_fifo_cooperative.h b/Modbus RTU/05_Firmware/platform/stm32/stm32_fifo_cooperative.h
+index 9212aad..4b3a8fc 100644
+--- a/Modbus RTU/05_Firmware/platform/stm32/stm32_fifo_cooperative.h	
++++ b/Modbus RTU/05_Firmware/platform/stm32/stm32_fifo_cooperative.h	
+@@ -4,5 +4,7 @@
+ #include "tr2/modbus/codec.h"
+ void stm32_fifo_cooperative_prepare(SPI_HandleTypeDef *,SPI_HandleTypeDef *);
+ void stm32_fifo_cooperative_poll(void);
++bool stm32_fifo_cooperative_command_io_available(void *context);
++void stm32_fifo_cooperative_observe_service(uint32_t cycles,uint32_t denied,uint32_t failures);
+ void stm32_fifo_cooperative_observe(const ModbusRtuAduView *);
+ #endif
+diff --git a/Modbus RTU/05_Firmware/platform/stm32/stm32_production_board.c b/Modbus RTU/05_Firmware/platform/stm32/stm32_production_board.c
+index 6a3cbd2..352014a 100644
+--- a/Modbus RTU/05_Firmware/platform/stm32/stm32_production_board.c	
++++ b/Modbus RTU/05_Firmware/platform/stm32/stm32_production_board.c	
+@@ -182,6 +182,7 @@ __attribute__((noreturn)) void stm32_production_server_run(void)
+     tr2_production_stage=2;
+ #if TR2_STM32_FIFO_COOPERATIVE
+     stm32_fifo_cooperative_prepare(sensor_spi,fram_spi);
++    server.binding.command_io_available=stm32_fifo_cooperative_command_io_available;
+ #endif
+     for(;;){
+         tick=HAL_GetTick();
+@@ -198,6 +199,7 @@ __attribute__((noreturn)) void stm32_production_server_run(void)
+ #endif
+         (void)tick;tr2_production_stage=2;
+ #if TR2_STM32_FIFO_COOPERATIVE
++        const uint32_t before_modbus_cycles=DWT->CYCCNT;
+         const uint32_t before_t3_5=tr2_irq_observer.t3_5_polled;
+         const size_t frame_length=server.rtu.receiver.length;
+         const ModbusRtuReceiverState receiver_state=server.rtu.receiver.state;
+@@ -205,6 +207,8 @@ __attribute__((noreturn)) void stm32_production_server_run(void)
+         result=modbus_system_server_poll_once(&server);++tr2_production_poll_count;
+         if(result!=TR2_OK)++tr2_production_poll_errors;
+ #if TR2_STM32_FIFO_COOPERATIVE
++        stm32_fifo_cooperative_observe_service(DWT->CYCCNT-before_modbus_cycles,
++            server.command_io_denied_requests,server.command_snapshot_failures);
+         /* Passive observer uses the existing decoded-frame boundary, without
+          * replacing production prepare/binding callbacks or their authority. */
+         if(before_t3_5!=tr2_irq_observer.t3_5_polled &&
+diff --git a/Modbus RTU/05_Firmware/src/application/modbus_system_server.c b/Modbus RTU/05_Firmware/src/application/modbus_system_server.c
+index 6144f16..0385635 100644
+--- a/Modbus RTU/05_Firmware/src/application/modbus_system_server.c	
++++ b/Modbus RTU/05_Firmware/src/application/modbus_system_server.c	
+@@ -2,7 +2,8 @@
+ 
+ #include "tr2/application/modbus_system_server.h"
+ 
+-static Tr2Result refresh_context_selected(void *context, bool include_commands)
++static Tr2Result refresh_context_selected(void *context, bool include_commands,
++                                           bool request_context)
+ {
+     ModbusSystemServer *server = context;
+     SystemRuntime *runtime = server->binding.runtime;
+@@ -67,14 +68,19 @@ static Tr2Result refresh_context_selected(void *context, bool include_commands)
+             : command_engine_snapshot(&runtime->command_engine, &snapshot);
+         if (snapshot_result != TR2_OK ||
+             modbus_project_b5(&projection, &server->b5) != TR2_OK) {
+-            return TR2_ERROR_INTERNAL;
+-        }
+-        sources->b5_image = &server->b5;
+-        /* Never acknowledge a B5 write whose submission would be discarded. */
+-        if (server->binding.command_submit != NULL) {
+-            pdu->command_mailbox = &runtime->command_mailbox;
+-            pdu->command_submit = server->binding.command_submit;
+-            pdu->command_submit_context = server->binding.command_submit_context;
++            ++server->command_snapshot_failures;
++            /* Initialization/start remain fail-fast. At request time, the
++             * freshly cleared context exposes no stale B5 or write authority:
++             * the existing read/write adapters return exception 04. */
++            if (!request_context) return TR2_ERROR_INTERNAL;
++        } else {
++            sources->b5_image = &server->b5;
++            /* Never acknowledge a B5 write whose submission would be discarded. */
++            if (server->binding.command_submit != NULL) {
++                pdu->command_mailbox = &runtime->command_mailbox;
++                pdu->command_submit = server->binding.command_submit;
++                pdu->command_submit_context = server->binding.command_submit_context;
++            }
+         }
+     }
+     if (runtime->b6_image_available &&
+@@ -93,28 +99,44 @@ static Tr2Result refresh_context_selected(void *context, bool include_commands)
+ /* Initial binding/start still validate the complete context. */
+ static Tr2Result refresh_context(void *context)
+ {
+-    return refresh_context_selected(context, true);
++    return refresh_context_selected(context, true, false);
+ }
+ 
+-static bool system_read_only(const ModbusRtuAduView *request)
++static bool request_targets_b5(const ModbusRtuAduView *request)
+ {
+-    if (request == NULL || request->pdu_length != 5u ||
+-        request->pdu[0] != MODBUS_PDU_FC_READ_HOLDING_REGISTERS) return false;
+-    const uint16_t first = (uint16_t)((uint16_t)request->pdu[1] << 8u | request->pdu[2]);
+-    const uint16_t count = (uint16_t)((uint16_t)request->pdu[3] << 8u | request->pdu[4]);
+-    if (count == 0u || !modbus_register_model_range_exists(first, count)) return false;
+-    const ModbusRegisterDescriptor *a = modbus_register_model_find(first);
+-    const ModbusRegisterDescriptor *b = modbus_register_model_find((uint16_t)(first + count - 1u));
+-    return a != NULL && b != NULL && a->block == b->block &&
+-        (a->block == MODBUS_BLOCK_0 || a->block == MODBUS_BLOCK_1);
++    if (request == NULL || request->pdu_length < 5u) return false;
++    const uint8_t *pdu = request->pdu;
++    const uint16_t first = (uint16_t)((uint16_t)pdu[1] << 8u | pdu[2]);
++    const uint16_t count = (uint16_t)((uint16_t)pdu[3] << 8u | pdu[4]);
++    if (pdu[0] == MODBUS_PDU_FC_READ_HOLDING_REGISTERS) {
++        if (request->pdu_length != 5u || count == 0u || count > 125u ||
++            modbus_register_model_validate_read(first, count) != MODBUS_ACCESS_OK)
++            return false;
++    } else if (pdu[0] == MODBUS_PDU_FC_WRITE_MULTIPLE_REGISTERS) {
++        if (count == 0u || count > 123u || request->pdu_length < 6u ||
++            pdu[5] != (size_t)count * 2u ||
++            request->pdu_length != 6u + (size_t)count * 2u ||
++            modbus_register_model_validate_write(first, count) != MODBUS_ACCESS_OK)
++            return false;
++    } else {
++        return false;
++    }
++    const ModbusRegisterDescriptor *descriptor = modbus_register_model_find(first);
++    return descriptor != NULL && descriptor->block == MODBUS_BLOCK_5;
+ }
+ 
+ static Tr2Result refresh_request(void *context, const ModbusRtuAduView *request)
+ {
+-    /* A B0/B1 read has no B5 payload. Avoid scanning the persistent command
+-     * journal for an unrelated block; requested B5 retains its exact guards.
+-     * Live status, withdrawal, CRC/address gate and mapping stay unchanged. */
+-    return refresh_context_selected(context, !system_read_only(request));
++    ModbusSystemServer *server = context;
++    /* Only a mapped, structurally valid B5 request can need its journal.
++     * The PDU server retains all address/function/value validation and performs
++     * no B5 mailbox mutation when the synchronous I/O authority is withdrawn. */
++    const bool targets_b5 = request_targets_b5(request);
++    const bool include_commands = targets_b5 &&
++        (server->binding.command_io_available == NULL ||
++         server->binding.command_io_available(server->binding.command_io_context));
++    if (targets_b5 && !include_commands) ++server->command_io_denied_requests;
++    return refresh_context_selected(context, include_commands, true);
+ }
+ 
+ Tr2Result modbus_system_server_init(ModbusSystemServer *server,
+diff --git a/Modbus RTU/05_Firmware/tests/integration/test_modbus_fifo_io_budget.c b/Modbus RTU/05_Firmware/tests/integration/test_modbus_fifo_io_budget.c
+new file mode 100644
+index 0000000..2f00d3a
+--- /dev/null
++++ b/Modbus RTU/05_Firmware/tests/integration/test_modbus_fifo_io_budget.c	
+@@ -0,0 +1,321 @@
++#include <assert.h>
++#include <string.h>
++#include <stdio.h>
++
++#include "tr2/application/production_application.h"
++#include "fifo_cooperative.h"
++#include "tr2/modbus/b4_configuration_codec.h"
++#include "tr2/persistence/campaign_data_store_persistent_composition.h"
++#include "tr2/platform_host/host_platform.h"
++
++typedef struct {
++    SerialTransportEvent events[MODBUS_RTU_ADU_MAX_SIZE + 4u];
++    size_t count;
++    size_t index;
++    uint8_t response[MODBUS_RTU_ADU_MAX_SIZE];
++    size_t response_length;
++    unsigned tx_calls;
++    unsigned start_calls;
++    Tr2Result tx_result;
++    Tr2Result start_result;
++    bool poll_failure;
++} TestSerial;
++
++static Tr2Result start(void *context)
++{
++    TestSerial *serial = context;
++    serial->start_calls++;
++    return serial->start_result;
++}
++
++static Tr2Result transmit(void *context, const uint8_t *data, size_t length)
++{
++    TestSerial *serial = context;
++    serial->tx_calls++;
++    if (serial->tx_result == TR2_OK) {
++        assert(length <= sizeof(serial->response));
++        memcpy(serial->response, data, length);
++        serial->response_length = length;
++    }
++    return serial->tx_result;
++}
++
++static bool poll(void *context, SerialTransportEvent *event)
++{
++    TestSerial *serial = context;
++    if (serial->poll_failure) return false;
++    *event = (SerialTransportEvent){SERIAL_TRANSPORT_EVENT_NONE, 0u,
++                                   SERIAL_TRANSPORT_ERROR_UNSPECIFIED};
++    if (serial->index < serial->count) *event = serial->events[serial->index++];
++    return true;
++}
++
++static void load(TestSerial *serial, uint8_t address, const uint8_t *pdu,
++                 size_t length, bool corrupt)
++{
++    uint8_t adu[MODBUS_RTU_ADU_MAX_SIZE];
++    size_t adu_length;
++    assert(modbus_rtu_adu_encode(address, pdu, length, adu, sizeof(adu),
++                                 &adu_length) == MODBUS_RTU_CODEC_OK);
++    if (corrupt) adu[adu_length - 1u] ^= 1u;
++    serial->count = serial->index = 0u;
++    for (size_t i = 0u; i < adu_length; i++) {
++        serial->events[serial->count++] = (SerialTransportEvent){
++            SERIAL_TRANSPORT_EVENT_BYTE, adu[i], SERIAL_TRANSPORT_ERROR_UNSPECIFIED};
++    }
++    serial->events[serial->count++] = (SerialTransportEvent){
++        SERIAL_TRANSPORT_EVENT_SILENCE_T1_5, 0u, SERIAL_TRANSPORT_ERROR_UNSPECIFIED};
++    serial->events[serial->count++] = (SerialTransportEvent){
++        SERIAL_TRANSPORT_EVENT_SILENCE_T3_5, 0u, SERIAL_TRANSPORT_ERROR_UNSPECIFIED};
++}
++
++static Tr2Result run(ModbusSystemServer *server, TestSerial *serial)
++{
++    Tr2Result result = TR2_OK;
++    while (serial->index < serial->count) {
++        result = modbus_system_server_poll_once(server);
++        if (result != TR2_OK) return result;
++    }
++    return result;
++}
++
++static ModbusRtuAduView response(TestSerial *serial)
++{
++    ModbusRtuAduView view;
++    assert(modbus_rtu_adu_decode(serial->response, serial->response_length, &view)
++           == MODBUS_RTU_CODEC_OK);
++    assert(view.unit_id == 17u);
++    return view;
++}
++
++static void exception(TestSerial *serial, uint8_t function, uint8_t code)
++{
++    ModbusRtuAduView view = response(serial);
++    assert(view.pdu_length == 2u && view.pdu[0] == (uint8_t)(function | 0x80u));
++    if (view.pdu[1] != code) {
++        fprintf(stderr, "FC %u: exception %u, expected %u\n", function, view.pdu[1], code);
++    }
++    assert(view.pdu[1] == code);
++}
++
++/* An independent elapsed-time model: FRAM 2.5 MHz +20us transaction overhead,
++ * FIFO producer 30 words/ms (26k7 XYZ +1/8 timestamps), hardware depth512.
++ * Calls reach the actual host medium, bounded journal, engine and PDU/RTU.
++ * These are conservative simulated costs, never physical timing claims. */
++static uint64_t now_us, produced_remainder;
++static uint32_t level, max_level, produced, sequence, xyz, stamp, overrun;
++static uint8_t registers[128], words[36864*7];
++static FifoCooperative fifo;
++static bool pending_start, count_io, media_failure;
++static uint32_t media_reads, media_writes, media_commits;
++static uint64_t io_us;
++static PersistentMedia underlying;
++static HostPlatform platform;
++
++static void advance(uint64_t us)
++{
++    now_us += us;
++    if (registers[16] & 0xE0u) {
++        produced_remainder += us * 30u;
++        uint32_t added = (uint32_t)(produced_remainder / 1000u);
++        produced_remainder %= 1000u;
++        level += added; produced += added;
++        if (level > max_level) max_level = level;
++        if (level >= 512u) overrun = 1u;
++    }
++    platform.monotonic_ms = now_us / 1000u;
++}
++static void cost(size_t n)
++{
++    uint64_t us = 20u + ((n + 4u) * 32u + 9u) / 10u;
++    io_us += us; advance(us);
++}
++static Tr2Result media_read(void *context,uint32_t offset,void *buffer,size_t n)
++{
++    (void)context;
++    if (count_io) { ++media_reads; cost(n); }
++    if (media_failure) return TR2_ERROR_STORAGE;
++    return underlying.read(underlying.context,offset,buffer,n);
++}
++static Tr2Result media_write(void *context,uint32_t offset,const void *buffer,size_t n)
++{
++    (void)context;
++    if (count_io) { ++media_writes; cost(n); }
++    if (media_failure) return TR2_ERROR_STORAGE;
++    return underlying.write(underlying.context,offset,buffer,n);
++}
++static Tr2Result media_commit(void *context)
++{
++    (void)context;
++    if (count_io) { ++media_commits; cost(51914u*2u); }
++    if (media_failure) return TR2_ERROR_STORAGE;
++    return underlying.commit(underlying.context);
++}
++static uint32_t tick(void) { return (uint32_t)(now_us/1000u); }
++static void delay(uint32_t ms) { advance(ms*1000u); }
++static uint32_t stop(void) { return 0; }
++static void cleanup(void) { }
++static uint8_t tag(uint32_t kind,uint32_t count)
++{
++    uint8_t value = (uint8_t)((kind<<3)|(count<<1));
++    return value | (__builtin_parity(value)&1);
++}
++static int32_t read_sensor(void *context,uint8_t reg,uint8_t *data,uint16_t n)
++{
++    (void)context; advance(20u + n*2u); /* SPI4 MHz */
++    if (reg == 58u) {
++        data[0]=(uint8_t)level; data[1]=(uint8_t)(level>>8);
++        if (overrun) data[1] |= 0x60u;
++        return 0;
++    }
++    if (reg == 120u) {
++        assert(n%7u==0u && n/7u<=level); level-=n/7u;
++        for (unsigned i=0;i<n;i+=7u) {
++            memset(data+i,0,7u);
++            if (sequence%9u==0u) {
++                data[i]=tag(4u,0u); stamp+=24u; memcpy(data+i+1u,&stamp,4u);
++            } else {
++                data[i]=tag(2u,xyz%4u);uint16_t value=(uint16_t)(xyz%1000u);
++                memcpy(data+i+1u,&value,2u);++xyz;
++            }
++            ++sequence;
++        }
++        return 0;
++    }
++    assert(reg+n<=128u);memcpy(data,registers+reg,n);return 0;
++}
++static int32_t write_sensor(void *context,uint8_t reg,const uint8_t *data,uint16_t n)
++{
++    (void)context;advance(20u+n*2u);
++    if (reg==18u && n==1u && (data[0]&1u)) {
++        memset(registers,0,sizeof(registers));registers[15]=0x7Bu;registers[18]=4u;
++        level=0u;return 0;
++    }
++    memcpy(registers+reg,data,n);
++    if (reg==10u && !(data[0]&7u)) level=0u;
++    return 0;
++}
++static bool io_available(void *context)
++{
++    (void)context;return fifo_cooperative_command_io_available(&fifo,pending_start);
++}
++static void service(ModbusSystemServer *server,TestSerial *serial)
++{
++    while (serial->index < serial->count) {
++        advance(100u); /* independent UART/loop scheduling cost */
++        assert(modbus_system_server_poll_once(server)==TR2_OK);
++        fifo_cooperative_poll(&fifo);
++    }
++}
++int main(void)
++{
++    static ProductionApplication application;
++    static CampaignDataStorePersistentComposition historical;
++    SystemRuntimeDependencies deps={0};
++    ConfigurationValidationEnvironment environment={true,4096u};
++    TestSerial serial={0};SerialTransport transport={&serial,start,transmit,poll};
++    ModbusSystemServer server={0};ModbusSystemServerBinding binding={0};
++    ModbusBlock0Image identity={{0u},0u};
++    host_platform_init(&platform);underlying=host_platform_persistent_media(&platform);
++    PersistentMedia media={NULL,media_read,media_write,media_commit};
++    MonotonicClock monotonic=host_platform_monotonic_clock(&platform);
++    WallClock wall=host_platform_wall_clock(&platform);
++    ResetCauseProvider reset=host_platform_reset_cause_provider(&platform);
++    TimeContinuityEvidenceProvider continuity=host_platform_time_continuity_evidence_provider(&platform);
++    VibrationSource vibration=host_platform_vibration_source(&platform);
++    assert(campaign_data_store_persistent_composition_init(&historical,&media)==TR2_OK);
++    deps.monotonic_clock=&monotonic;deps.wall_clock=&wall;deps.reset_cause_provider=&reset;
++    deps.time_continuity_evidence_provider=&continuity;deps.persistent_media=&media;
++    deps.vibration_source=&vibration;deps.configuration_validation_environment=&environment;
++    deps.campaign_data_store=campaign_data_store_persistent_interface(&historical.store);
++    assert(production_application_boot(&application,&deps,NULL)==TR2_OK);
++    assert(production_application_binding(&application,&transport,17u,&identity,&binding)==TR2_OK);
++    binding.refresh_status=system_runtime_build_boot_status_images;
++    assert(modbus_system_server_init(&server,&binding)==TR2_OK);
++    assert(modbus_system_server_start(&server)==TR2_OK);
++    SystemRuntime *runtime=&application.runtime;
++    runtime->b3_image_available=true;
++    runtime->supervision_service.has_snapshot=true;
++    runtime->supervision_service.snapshot.values_available=true;
++    runtime->supervision_service.snapshot.calculation_sequence=1u;
++    assert(modbus_project_b3(&runtime->supervision_service.snapshot,&runtime->b3_image)==TR2_OK);
++    const uint8_t b0[]={3,0,0,0,2},b1[]={3,3,0xE8,0,1},b3[]={3,0x0B,0xB8,0,1};
++    const uint8_t b5[]={3,0x13,0x88,0,20};
++    uint8_t command[]={16,0x13,0x88,0,8,16,0,99,0,47,0,0,0,0,0,0,0,0,0,0,0,1};
++    count_io=true;
++    load(&serial,17,b5,sizeof(b5),false);assert(run(&server,&serial)==TR2_OK);
++    assert(response(&serial).pdu[0]==3u && media_reads>=512u && io_us>17000u);
++    uint64_t baseline_us=io_us;
++    stmdev_ctx_t ctx={.read_reg=read_sensor,.write_reg=write_sensor};
++    BenchClock clock={tick,delay,stop,cleanup};registers[15]=0x7Bu;registers[18]=4u;
++    assert(fifo_cooperative_init(&fifo,&ctx,&clock,words,36864u,32768u)==0);
++    assert(!io_available(NULL));
++    while (fifo.state==COOP_CONFIGURING) { advance(1000u);fifo_cooperative_poll(&fifo); }
++    assert(fifo.state==COOP_ARMED && io_available(NULL));
++    server.binding.command_io_available=io_available;pending_start=true;
++    uint32_t reads_before=media_reads,writes_before=media_writes,commits_before=media_commits;
++    load(&serial,17,command,sizeof(command),false);service(&server,&serial);
++    exception(&serial,16u,MODBUS_PDU_EXCEPTION_SLAVE_DEVICE_FAILURE);
++    assert(runtime->command_mailbox.transaction_id==0u && writes_before==media_writes);
++    assert(fifo_cooperative_start(&fifo)==0);pending_start=false;
++    while (fifo.state==COOP_CONFIGURING) { advance(100u);fifo_cooperative_poll(&fifo); }
++    assert(fifo.state==COOP_CAPTURING && !io_available(NULL));
++    for (unsigned iteration=0;iteration<8u;iteration++) {
++        const uint8_t *requests[]={b0,b1,b3,b5,command};
++        const size_t lengths[]={sizeof(b0),sizeof(b1),sizeof(b3),sizeof(b5),sizeof(command)};
++        for (unsigned j=0;j<5u;j++) {
++            load(&serial,17,requests[j],lengths[j],false);service(&server,&serial);
++            if(j>=3u) exception(&serial,j==3u?3u:16u,MODBUS_PDU_EXCEPTION_SLAVE_DEVICE_FAILURE);
++            else assert(response(&serial).pdu[0]==3u);
++            assert(media_reads==reads_before && media_writes==writes_before && media_commits==commits_before);
++            assert(!overrun && runtime->command_mailbox.transaction_id==0u);
++        }
++    }
++    while(fifo.state!=COOP_READY && fifo.state!=COOP_INVALID) {
++        advance(100u);fifo_cooperative_poll(&fifo);
++        if(fifo.state==COOP_CLEANUP) assert(!io_available(NULL));
++    }
++    assert(fifo.state==COOP_READY && io_available(NULL) && !overrun && max_level<512u);
++    assert(fifo.window.xyz==32768u && fifo.window.timestamps==4096u);
++    /* Same identity may now be admitted durably. Retry must not mutate media. */
++    load(&serial,17,command,sizeof(command),false);assert(run(&server,&serial)==TR2_OK);
++    assert(response(&serial).pdu[0]==16u && media_writes>writes_before && media_commits>commits_before);
++    uint32_t committed=media_commits,written=media_writes;
++    load(&serial,17,command,sizeof(command),false);assert(run(&server,&serial)==TR2_OK);
++    assert(response(&serial).pdu[0]==16u && media_commits==committed && media_writes==written);
++    load(&serial,17,b5,sizeof(b5),false);assert(run(&server,&serial)==TR2_OK);
++    assert(response(&serial).pdu[0]==3u && server.b5.source_generation>0u);
++    assert(server.b5.registers[15]==47u); /* authoritative durable last */
++    command[13]=1u; /* collision, same transaction, different identity */
++    load(&serial,17,command,sizeof(command),false);assert(run(&server,&serial)==TR2_OK);
++    exception(&serial,16u,MODBUS_PDU_EXCEPTION_SLAVE_DEVICE_FAILURE);
++    assert(media_writes==written && media_commits==committed);
++    media_failure=true;load(&serial,17,b5,sizeof(b5),false);assert(run(&server,&serial)==TR2_OK);
++    exception(&serial,3u,MODBUS_PDU_EXCEPTION_SLAVE_DEVICE_FAILURE);
++    assert(server.rtu.pdu_context.read_sources.b5_image==NULL && server.command_snapshot_failures==1u);
++    media_failure=false;
++    /* Store stays invalid until real recovery, not just restoration of the I/O flag. */
++    load(&serial,17,b5,sizeof(b5),false);assert(run(&server,&serial)==TR2_OK);
++    exception(&serial,3u,MODBUS_PDU_EXCEPTION_SLAVE_DEVICE_FAILURE);
++    CommandJournalBoundedRecoveryResult recovery;
++    assert(command_journal_bounded_store_recover(&runtime->command_journal_store,&recovery)==TR2_OK);
++    load(&serial,17,b5,sizeof(b5),false);assert(run(&server,&serial)==TR2_OK);
++    assert(response(&serial).pdu[0]==3u && server.b5.registers[15]==47u);
++    fifo.cleanup_result=BENCH_IO;assert(!io_available(NULL));
++    uint32_t qualified_max_level=max_level;
++    /* Negative control: the independent producer must detect the long scan
++     * when this test fixture deliberately omits the production admission guard. */
++    fifo.cleanup_result=BENCH_OK;max_level=level=overrun=produced_remainder=0u;
++    assert(fifo_cooperative_init(&fifo,&ctx,&clock,words,36864u,4096u)==0);
++    while(fifo.state==COOP_CONFIGURING){advance(1000u);fifo_cooperative_poll(&fifo);}
++    assert(fifo.state==COOP_ARMED && fifo_cooperative_start(&fifo)==0);
++    while(fifo.state==COOP_CONFIGURING){advance(100u);fifo_cooperative_poll(&fifo);}
++    server.binding.command_io_available=NULL;
++    load(&serial,17,b5,sizeof(b5),false);service(&server,&serial);
++    assert(overrun && media_reads>reads_before);
++    while(fifo.state!=COOP_INVALID && fifo.state!=COOP_READY){advance(100u);fifo_cooperative_poll(&fifo);}
++    assert(fifo.state==COOP_INVALID && fifo.result!=BENCH_OK);
++    printf("timed real journal: baseline B5=%llu us; protected capture XYZ=32768 TS=4096 maxFIFO=%u OVR=0; denied=%u; durable retry/collision/fault/recovery passed; unguarded negative control OVR=%u INVALID\n",
++           (unsigned long long)baseline_us,qualified_max_level,server.command_io_denied_requests,overrun);
++    return 0;
++}
+diff --git a/Modbus RTU/05_Firmware/tests/integration/test_modbus_system_server.c b/Modbus RTU/05_Firmware/tests/integration/test_modbus_system_server.c
+index 8ca74ea..ae75eeb 100644
+--- a/Modbus RTU/05_Firmware/tests/integration/test_modbus_system_server.c	
++++ b/Modbus RTU/05_Firmware/tests/integration/test_modbus_system_server.c	
+@@ -332,11 +332,43 @@ int main(void)
+     load(&serial, 17u, read_full_b1, sizeof(read_full_b1), false);
+     assert(run(&server, &serial) == TR2_OK && snapshot_calls == 0u);
+     assert(runtime.b1_image.registers[5] == platform.monotonic_ms / UINT64_C(1000));
++    /* B3 is independently available/withdrawn; never derive it from B5. */
++    const uint8_t read_b3[] = {3u, 0x0Bu, 0xC6u, 0u, 2u};
++    runtime.b3_image_available = true;
++    /* Explicit host supervision fixture, with the real generation guard. */
++    runtime.supervision_service.has_snapshot = true;
++    runtime.supervision_service.snapshot.values_available = true;
++    runtime.supervision_service.snapshot.calculation_sequence = 1u;
++    runtime.supervision_service.snapshot.rms_global_mg = 0x12345678u;
++    assert(modbus_project_b3(&runtime.supervision_service.snapshot, &runtime.b3_image) == TR2_OK);
++    load(&serial, 17u, read_b3, sizeof(read_b3), false);
++    assert(run(&server, &serial) == TR2_OK && snapshot_calls == 0u);
++    view = response(&serial);
++    assert(view.pdu[2] == 0x12u && view.pdu[5] == 0x78u);
++    runtime.supervision_service.snapshot.calculation_sequence = 2u;
++    runtime.supervision_service.snapshot.rms_global_mg = 0x12349ABCu;
++    assert(modbus_project_b3(&runtime.supervision_service.snapshot, &runtime.b3_image) == TR2_OK);
++    load(&serial, 17u, read_b3, sizeof(read_b3), false);
++    assert(run(&server, &serial) == TR2_OK && snapshot_calls == 0u);
++    assert(response(&serial).pdu[5] == 0xBCu);
++    assert(server.b3.source_calculation_sequence == 2u);
++    ++runtime.supervision_service.snapshot.calculation_sequence; /* stale image withdrawn */
++    load(&serial, 17u, read_b3, sizeof(read_b3), false);
++    assert(run(&server, &serial) == TR2_OK && snapshot_calls == 0u);
++    exception(&serial, 3u, MODBUS_PDU_EXCEPTION_SLAVE_DEVICE_FAILURE);
++    runtime.b3_image_available = false;
++    runtime.supervision_service.has_snapshot = false;
++    load(&serial, 17u, read_b3, sizeof(read_b3), false);
++    assert(run(&server, &serial) == TR2_OK && snapshot_calls == 0u);
++    exception(&serial, 3u, MODBUS_PDU_EXCEPTION_SLAVE_DEVICE_FAILURE);
+     const uint8_t read_b5_guard[] = {3u, 0x13u, 0x88u, 0u, 1u};
+     before = serial.tx_calls;
+     load(&serial, 17u, read_b5_guard, sizeof(read_b5_guard), false);
+-    assert(run(&server, &serial) == TR2_ERROR_INTERNAL && snapshot_calls == 1u);
+-    assert(serial.tx_calls == before); /* Never expose a stale B5 after failure. */
++    assert(run(&server, &serial) == TR2_OK && snapshot_calls == 1u);
++    assert(serial.tx_calls == before + 1u);
++    exception(&serial, 3u, MODBUS_PDU_EXCEPTION_SLAVE_DEVICE_FAILURE);
++    assert(server.rtu.pdu_context.read_sources.b5_image == NULL);
++    assert(server.rtu.pdu_context.command_mailbox == NULL); /* No stale view or write. */
+     snapshot_fails = false;
+     load(&serial, 17u, read_b5_guard, sizeof(read_b5_guard), false);
+     assert(run(&server, &serial) == TR2_OK && snapshot_calls == 2u);
+diff --git a/experiments/iis3dwb_st_reference/src/fifo_cooperative.c b/experiments/iis3dwb_st_reference/src/fifo_cooperative.c
+index 94e3819..3d1205d 100644
+--- a/experiments/iis3dwb_st_reference/src/fifo_cooperative.c
++++ b/experiments/iis3dwb_st_reference/src/fifo_cooperative.c
+@@ -59,3 +59,12 @@ void fifo_cooperative_poll(FifoCooperative *c)
+   }
+  }
+ }
++
++bool fifo_cooperative_command_io_available(const FifoCooperative *c,bool capture_pending)
++{
++ if(!c)return false;
++ if(c->state==COOP_ARMED)return !capture_pending;
++ if(c->state!=COOP_READY && c->state!=COOP_INVALID)return false;
++ return c->cleanup_result==BENCH_OK && c->phase>=6 &&
++  !(c->cleanup[0]&0xE0) && !(c->cleanup[1]&7) && !(c->cleanup[2]&0x20);
++}
+diff --git a/experiments/iis3dwb_st_reference/src/fifo_cooperative.h b/experiments/iis3dwb_st_reference/src/fifo_cooperative.h
+index ff3ef48..8e9bb37 100644
+--- a/experiments/iis3dwb_st_reference/src/fifo_cooperative.h
++++ b/experiments/iis3dwb_st_reference/src/fifo_cooperative.h
+@@ -1,6 +1,7 @@
+ #ifndef FIFO_COOPERATIVE_H
+ #define FIFO_COOPERATIVE_H
+ #include "fifo_window.h"
++#include <stdbool.h>
+ enum {COOP_CONFIGURING,COOP_ARMED,COOP_CAPTURING,COOP_CLEANUP,COOP_READY,COOP_INVALID};
+ typedef struct {
+  stmdev_ctx_t ctx;BenchClock clock;FifoWindow window;
+@@ -9,5 +10,8 @@ typedef struct {
+ } FifoCooperative;
+ int fifo_cooperative_init(FifoCooperative *,const stmdev_ctx_t *,const BenchClock *,uint8_t *,uint32_t,uint32_t);
+ int fifo_cooperative_start(FifoCooperative *);
++/* Synchronous command I/O is allowed only before arming or after verified
++ * sensor cleanup. Pending start is supplied by the single-loop owner. */
++bool fifo_cooperative_command_io_available(const FifoCooperative *,bool capture_pending);
+ void fifo_cooperative_poll(FifoCooperative *);
+ #endif

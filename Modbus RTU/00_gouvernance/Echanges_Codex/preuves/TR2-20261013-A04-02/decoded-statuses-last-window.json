@@ -1,0 +1,787 @@
+[
+  {
+    "tick": 202197,
+    "level": 108,
+    "flags": 0
+  },
+  {
+    "tick": 202198,
+    "level": 131,
+    "flags": 0
+  },
+  {
+    "tick": 202199,
+    "level": 61,
+    "flags": 0
+  },
+  {
+    "tick": 202200,
+    "level": 87,
+    "flags": 0
+  },
+  {
+    "tick": 202201,
+    "level": 92,
+    "flags": 0
+  },
+  {
+    "tick": 202202,
+    "level": 122,
+    "flags": 0
+  },
+  {
+    "tick": 202203,
+    "level": 151,
+    "flags": 0
+  },
+  {
+    "tick": 202204,
+    "level": 83,
+    "flags": 0
+  },
+  {
+    "tick": 202205,
+    "level": 110,
+    "flags": 0
+  },
+  {
+    "tick": 202206,
+    "level": 113,
+    "flags": 0
+  },
+  {
+    "tick": 202207,
+    "level": 144,
+    "flags": 0
+  },
+  {
+    "tick": 202208,
+    "level": 74,
+    "flags": 0
+  },
+  {
+    "tick": 202209,
+    "level": 100,
+    "flags": 0
+  },
+  {
+    "tick": 202210,
+    "level": 105,
+    "flags": 0
+  },
+  {
+    "tick": 202211,
+    "level": 135,
+    "flags": 0
+  },
+  {
+    "tick": 202212,
+    "level": 66,
+    "flags": 0
+  },
+  {
+    "tick": 202213,
+    "level": 93,
+    "flags": 0
+  },
+  {
+    "tick": 202214,
+    "level": 97,
+    "flags": 0
+  },
+  {
+    "tick": 202215,
+    "level": 126,
+    "flags": 0
+  },
+  {
+    "tick": 202216,
+    "level": 157,
+    "flags": 0
+  },
+  {
+    "tick": 202217,
+    "level": 87,
+    "flags": 0
+  },
+  {
+    "tick": 202218,
+    "level": 113,
+    "flags": 0
+  },
+  {
+    "tick": 202219,
+    "level": 119,
+    "flags": 0
+  },
+  {
+    "tick": 202220,
+    "level": 148,
+    "flags": 0
+  },
+  {
+    "tick": 202221,
+    "level": 80,
+    "flags": 0
+  },
+  {
+    "tick": 202222,
+    "level": 107,
+    "flags": 0
+  },
+  {
+    "tick": 202223,
+    "level": 110,
+    "flags": 0
+  },
+  {
+    "tick": 202224,
+    "level": 139,
+    "flags": 0
+  },
+  {
+    "tick": 202225,
+    "level": 71,
+    "flags": 0
+  },
+  {
+    "tick": 202226,
+    "level": 98,
+    "flags": 0
+  },
+  {
+    "tick": 202227,
+    "level": 101,
+    "flags": 0
+  },
+  {
+    "tick": 202228,
+    "level": 132,
+    "flags": 0
+  },
+  {
+    "tick": 202229,
+    "level": 62,
+    "flags": 0
+  },
+  {
+    "tick": 202230,
+    "level": 89,
+    "flags": 0
+  },
+  {
+    "tick": 202231,
+    "level": 92,
+    "flags": 0
+  },
+  {
+    "tick": 202232,
+    "level": 123,
+    "flags": 0
+  },
+  {
+    "tick": 202233,
+    "level": 153,
+    "flags": 0
+  },
+  {
+    "tick": 202234,
+    "level": 84,
+    "flags": 0
+  },
+  {
+    "tick": 202235,
+    "level": 111,
+    "flags": 0
+  },
+  {
+    "tick": 202236,
+    "level": 114,
+    "flags": 0
+  },
+  {
+    "tick": 202237,
+    "level": 144,
+    "flags": 0
+  },
+  {
+    "tick": 202238,
+    "level": 75,
+    "flags": 0
+  },
+  {
+    "tick": 202239,
+    "level": 102,
+    "flags": 0
+  },
+  {
+    "tick": 202240,
+    "level": 106,
+    "flags": 0
+  },
+  {
+    "tick": 202241,
+    "level": 136,
+    "flags": 0
+  },
+  {
+    "tick": 202242,
+    "level": 67,
+    "flags": 0
+  },
+  {
+    "tick": 202243,
+    "level": 92,
+    "flags": 0
+  },
+  {
+    "tick": 202244,
+    "level": 98,
+    "flags": 0
+  },
+  {
+    "tick": 202245,
+    "level": 127,
+    "flags": 0
+  },
+  {
+    "tick": 202246,
+    "level": 157,
+    "flags": 0
+  },
+  {
+    "tick": 202247,
+    "level": 88,
+    "flags": 0
+  },
+  {
+    "tick": 202248,
+    "level": 115,
+    "flags": 0
+  },
+  {
+    "tick": 202249,
+    "level": 118,
+    "flags": 0
+  },
+  {
+    "tick": 202250,
+    "level": 149,
+    "flags": 0
+  },
+  {
+    "tick": 202251,
+    "level": 80,
+    "flags": 0
+  },
+  {
+    "tick": 202252,
+    "level": 105,
+    "flags": 0
+  },
+  {
+    "tick": 202253,
+    "level": 111,
+    "flags": 0
+  },
+  {
+    "tick": 202254,
+    "level": 140,
+    "flags": 0
+  },
+  {
+    "tick": 202255,
+    "level": 71,
+    "flags": 0
+  },
+  {
+    "tick": 202256,
+    "level": 98,
+    "flags": 0
+  },
+  {
+    "tick": 202257,
+    "level": 102,
+    "flags": 0
+  },
+  {
+    "tick": 202258,
+    "level": 132,
+    "flags": 0
+  },
+  {
+    "tick": 202259,
+    "level": 63,
+    "flags": 0
+  },
+  {
+    "tick": 202260,
+    "level": 90,
+    "flags": 0
+  },
+  {
+    "tick": 202261,
+    "level": 93,
+    "flags": 0
+  },
+  {
+    "tick": 202262,
+    "level": 123,
+    "flags": 0
+  },
+  {
+    "tick": 202263,
+    "level": 154,
+    "flags": 0
+  },
+  {
+    "tick": 202264,
+    "level": 84,
+    "flags": 0
+  },
+  {
+    "tick": 202265,
+    "level": 111,
+    "flags": 0
+  },
+  {
+    "tick": 202266,
+    "level": 115,
+    "flags": 0
+  },
+  {
+    "tick": 202267,
+    "level": 145,
+    "flags": 0
+  },
+  {
+    "tick": 202268,
+    "level": 76,
+    "flags": 0
+  },
+  {
+    "tick": 202269,
+    "level": 103,
+    "flags": 0
+  },
+  {
+    "tick": 202270,
+    "level": 107,
+    "flags": 0
+  },
+  {
+    "tick": 202271,
+    "level": 136,
+    "flags": 0
+  },
+  {
+    "tick": 202272,
+    "level": 68,
+    "flags": 0
+  },
+  {
+    "tick": 202273,
+    "level": 95,
+    "flags": 0
+  },
+  {
+    "tick": 202274,
+    "level": 98,
+    "flags": 0
+  },
+  {
+    "tick": 202275,
+    "level": 128,
+    "flags": 0
+  },
+  {
+    "tick": 202276,
+    "level": 59,
+    "flags": 0
+  },
+  {
+    "tick": 202277,
+    "level": 84,
+    "flags": 0
+  },
+  {
+    "tick": 202278,
+    "level": 90,
+    "flags": 0
+  },
+  {
+    "tick": 202279,
+    "level": 120,
+    "flags": 0
+  },
+  {
+    "tick": 202280,
+    "level": 149,
+    "flags": 0
+  },
+  {
+    "tick": 202281,
+    "level": 81,
+    "flags": 0
+  },
+  {
+    "tick": 202282,
+    "level": 108,
+    "flags": 0
+  },
+  {
+    "tick": 202283,
+    "level": 111,
+    "flags": 0
+  },
+  {
+    "tick": 202284,
+    "level": 140,
+    "flags": 0
+  },
+  {
+    "tick": 202285,
+    "level": 72,
+    "flags": 0
+  },
+  {
+    "tick": 202286,
+    "level": 98,
+    "flags": 0
+  },
+  {
+    "tick": 202287,
+    "level": 102,
+    "flags": 0
+  },
+  {
+    "tick": 202288,
+    "level": 133,
+    "flags": 0
+  },
+  {
+    "tick": 202289,
+    "level": 63,
+    "flags": 0
+  },
+  {
+    "tick": 202290,
+    "level": 90,
+    "flags": 0
+  },
+  {
+    "tick": 202291,
+    "level": 94,
+    "flags": 0
+  },
+  {
+    "tick": 202292,
+    "level": 124,
+    "flags": 0
+  },
+  {
+    "tick": 202293,
+    "level": 154,
+    "flags": 0
+  },
+  {
+    "tick": 202294,
+    "level": 85,
+    "flags": 0
+  },
+  {
+    "tick": 202295,
+    "level": 111,
+    "flags": 0
+  },
+  {
+    "tick": 202296,
+    "level": 115,
+    "flags": 0
+  },
+  {
+    "tick": 202297,
+    "level": 146,
+    "flags": 0
+  },
+  {
+    "tick": 202298,
+    "level": 76,
+    "flags": 0
+  },
+  {
+    "tick": 202299,
+    "level": 103,
+    "flags": 0
+  },
+  {
+    "tick": 202300,
+    "level": 107,
+    "flags": 0
+  },
+  {
+    "tick": 202301,
+    "level": 137,
+    "flags": 0
+  },
+  {
+    "tick": 202302,
+    "level": 68,
+    "flags": 0
+  },
+  {
+    "tick": 202303,
+    "level": 96,
+    "flags": 0
+  },
+  {
+    "tick": 202304,
+    "level": 99,
+    "flags": 0
+  },
+  {
+    "tick": 202305,
+    "level": 128,
+    "flags": 0
+  },
+  {
+    "tick": 202306,
+    "level": 60,
+    "flags": 0
+  },
+  {
+    "tick": 202307,
+    "level": 87,
+    "flags": 0
+  },
+  {
+    "tick": 202308,
+    "level": 90,
+    "flags": 0
+  },
+  {
+    "tick": 202309,
+    "level": 121,
+    "flags": 0
+  },
+  {
+    "tick": 202310,
+    "level": 150,
+    "flags": 0
+  },
+  {
+    "tick": 202311,
+    "level": 81,
+    "flags": 0
+  },
+  {
+    "tick": 202312,
+    "level": 108,
+    "flags": 0
+  },
+  {
+    "tick": 202313,
+    "level": 112,
+    "flags": 0
+  },
+  {
+    "tick": 202314,
+    "level": 142,
+    "flags": 0
+  },
+  {
+    "tick": 202315,
+    "level": 73,
+    "flags": 0
+  },
+  {
+    "tick": 202316,
+    "level": 100,
+    "flags": 0
+  },
+  {
+    "tick": 202317,
+    "level": 103,
+    "flags": 0
+  },
+  {
+    "tick": 202318,
+    "level": 133,
+    "flags": 0
+  },
+  {
+    "tick": 202319,
+    "level": 64,
+    "flags": 0
+  },
+  {
+    "tick": 202320,
+    "level": 90,
+    "flags": 0
+  },
+  {
+    "tick": 202321,
+    "level": 94,
+    "flags": 0
+  },
+  {
+    "tick": 202322,
+    "level": 125,
+    "flags": 0
+  },
+  {
+    "tick": 202323,
+    "level": 155,
+    "flags": 0
+  },
+  {
+    "tick": 202324,
+    "level": 86,
+    "flags": 0
+  },
+  {
+    "tick": 202325,
+    "level": 113,
+    "flags": 0
+  },
+  {
+    "tick": 202326,
+    "level": 116,
+    "flags": 0
+  },
+  {
+    "tick": 202327,
+    "level": 146,
+    "flags": 0
+  },
+  {
+    "tick": 202328,
+    "level": 77,
+    "flags": 0
+  },
+  {
+    "tick": 202329,
+    "level": 103,
+    "flags": 0
+  },
+  {
+    "tick": 202330,
+    "level": 108,
+    "flags": 0
+  },
+  {
+    "tick": 202331,
+    "level": 138,
+    "flags": 0
+  },
+  {
+    "tick": 202332,
+    "level": 69,
+    "flags": 0
+  },
+  {
+    "tick": 202333,
+    "level": 96,
+    "flags": 0
+  },
+  {
+    "tick": 202334,
+    "level": 100,
+    "flags": 0
+  },
+  {
+    "tick": 202335,
+    "level": 129,
+    "flags": 0
+  },
+  {
+    "tick": 202336,
+    "level": 60,
+    "flags": 0
+  },
+  {
+    "tick": 202337,
+    "level": 87,
+    "flags": 0
+  },
+  {
+    "tick": 202338,
+    "level": 91,
+    "flags": 0
+  },
+  {
+    "tick": 202339,
+    "level": 121,
+    "flags": 0
+  },
+  {
+    "tick": 202340,
+    "level": 150,
+    "flags": 0
+  },
+  {
+    "tick": 202341,
+    "level": 82,
+    "flags": 0
+  },
+  {
+    "tick": 202342,
+    "level": 109,
+    "flags": 0
+  },
+  {
+    "tick": 202343,
+    "level": 112,
+    "flags": 0
+  },
+  {
+    "tick": 202344,
+    "level": 142,
+    "flags": 0
+  },
+  {
+    "tick": 202345,
+    "level": 73,
+    "flags": 0
+  },
+  {
+    "tick": 202346,
+    "level": 100,
+    "flags": 0
+  },
+  {
+    "tick": 202347,
+    "level": 104,
+    "flags": 0
+  },
+  {
+    "tick": 202348,
+    "level": 134,
+    "flags": 0
+  },
+  {
+    "tick": 202349,
+    "level": 73,
+    "flags": 0
+  },
+  {
+    "tick": 202350,
+    "level": 98,
+    "flags": 0
+  },
+  {
+    "tick": 202350,
+    "level": 91,
+    "flags": 0
+  },
+  {
+    "tick": 202351,
+    "level": 98,
+    "flags": 0
+  },
+  {
+    "tick": 202351,
+    "level": 98,
+    "flags": 0
+  }
+]
