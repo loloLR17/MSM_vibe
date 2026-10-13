@@ -1,0 +1,16 @@
+{
+  "TR2-20261013-M015-V": {
+    "manifest_sha256": "917f5595d18c09bb681a36fa8c49b580e55e46d16f3df6fda2aaaf1c3581b4ab",
+    "file_count_verified": 98
+  },
+  "TR2-20261013-A04": {
+    "manifest_sha256": "21ba2c434b6ad0ce94725e82df90b0922aca5d57382738dcc7ad9f7213913fd1",
+    "file_count_verified": 28
+  },
+  "host_log": {
+    "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261013-M015-V/validation-after-refresh-fix.log",
+    "sha256": "9ce048dee45c5a54590affa6dcba39a16beb0f6a3c09f7802a305fd118fe7fed",
+    "verified_result": "125/125 historical",
+    "new_execution": false
+  }
+}

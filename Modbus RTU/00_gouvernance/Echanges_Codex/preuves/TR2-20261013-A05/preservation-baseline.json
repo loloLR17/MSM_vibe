@@ -1,0 +1,13 @@
+{
+  "initial_HEAD": "7c4af323429768fc7ef0f5dd8d0ca872e0a06b3a",
+  "protected_sha256": {
+    "AGENTS.md": "8157c88cb3ce75fc3b9dc46d09bd7035dabca4b2bbf750e67ca8b1520b92df63",
+    "Modbus RTU/00_gouvernance/DETTE_TECHNIQUE_A04.md": "804b90967317196374a844a86c955c2e91880045061e0d7241aeac9f3cfa8a8a",
+    "Modbus RTU/00_gouvernance/ETAT_COURANT_TR2.md": "3c379ec583abcbc04a6849db357d1f357d92c2229ff076a4207eb24481e7b198",
+    "Modbus RTU/00_gouvernance/ROADMAP_TR2_VERS_SUPERVISION_VIBRATOIRE.md": "3357221ecdeb875adccb9267d98566ed5795b99c5a464355f2cd444f9a2ed20e"
+  },
+  "stashes": [
+    "6251b988e8b20f97997a8f98fd26d4d35a45a1b2",
+    "f3b829e6188f491920edf74a5f9ed0f559d08b87"
+  ]
+}

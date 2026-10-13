@@ -1,0 +1,3669 @@
+{
+  "backtraceGraph" :
+  {
+    "commands" :
+    [
+      "add_test",
+      "tr2_add_core_test",
+      "tr2_add_host_test"
+    ],
+    "files" :
+    [
+      "/home/lolo/dev/msm/projects/MSM_vibe-M015-V/Modbus RTU/05_Firmware/CMakeLists.txt"
+    ],
+    "nodes" :
+    [
+      {
+        "file" : 0
+      },
+      {
+        "command" : 0,
+        "file" : 0,
+        "line" : 114,
+        "parent" : 0
+      },
+      {
+        "file" : 0
+      },
+      {
+        "command" : 0,
+        "file" : 0,
+        "line" : 122,
+        "parent" : 2
+      },
+      {
+        "file" : 0
+      },
+      {
+        "command" : 0,
+        "file" : 0,
+        "line" : 130,
+        "parent" : 4
+      },
+      {
+        "file" : 0
+      },
+      {
+        "command" : 0,
+        "file" : 0,
+        "line" : 137,
+        "parent" : 6
+      },
+      {
+        "file" : 0
+      },
+      {
+        "command" : 0,
+        "file" : 0,
+        "line" : 144,
+        "parent" : 8
+      },
+      {
+        "file" : 0
+      },
+      {
+        "command" : 0,
+        "file" : 0,
+        "line" : 156,
+        "parent" : 10
+      },
+      {
+        "file" : 0
+      },
+      {
+        "command" : 0,
+        "file" : 0,
+        "line" : 167,
+        "parent" : 12
+      },
+      {
+        "file" : 0
+      },
+      {
+        "command" : 0,
+        "file" : 0,
+        "line" : 177,
+        "parent" : 14
+      },
+      {
+        "file" : 0
+      },
+      {
+        "command" : 0,
+        "file" : 0,
+        "line" : 198,
+        "parent" : 16
+      },
+      {
+        "file" : 0
+      },
+      {
+        "command" : 0,
+        "file" : 0,
+        "line" : 198,
+        "parent" : 18
+      },
+      {
+        "file" : 0
+      },
+      {
+        "command" : 0,
+        "file" : 0,
+        "line" : 198,
+        "parent" : 20
+      },
+      {
+        "file" : 0
+      },
+      {
+        "command" : 0,
+        "file" : 0,
+        "line" : 198,
+        "parent" : 22
+      },
+      {
+        "file" : 0
+      },
+      {
+        "command" : 0,
+        "file" : 0,
+        "line" : 213,
+        "parent" : 24
+      },
+      {
+        "file" : 0
+      },
+      {
+        "command" : 1,
+        "file" : 0,
+        "line" : 215,
+        "parent" : 26
+      },
+      {
+        "command" : 0,
+        "file" : 0,
+        "line" : 205,
+        "parent" : 27
+      },
+      {
+        "file" : 0
+      },
+      {
+        "command" : 1,
+        "file" : 0,
+        "line" : 216,
+        "parent" : 29
+      },
+      {
+        "command" : 0,
+        "file" : 0,
+        "line" : 205,
+        "parent" : 30
+      },
+      {
+        "file" : 0
+      },
+      {
+        "command" : 1,
+        "file" : 0,
+        "line" : 217,
+        "parent" : 32
+      },
+      {
+        "command" : 0,
+        "file" : 0,
+        "line" : 205,
+        "parent" : 33
+      },
+      {
+        "file" : 0
+      },
+      {
+        "command" : 1,
+        "file" : 0,
+        "line" : 218,
+        "parent" : 35
+      },
+      {
+        "command" : 0,
+        "file" : 0,
+        "line" : 205,
+        "parent" : 36
+      },
+      {
+        "file" : 0
+      },
+      {
+        "command" : 1,
+        "file" : 0,
+        "line" : 219,
+        "parent" : 38
+      },
+      {
+        "command" : 0,
+        "file" : 0,
+        "line" : 205,
+        "parent" : 39
+      },
+      {
+        "file" : 0
+      },
+      {
+        "command" : 1,
+        "file" : 0,
+        "line" : 220,
+        "parent" : 41
+      },
+      {
+        "command" : 0,
+        "file" : 0,
+        "line" : 205,
+        "parent" : 42
+      },
+      {
+        "file" : 0
+      },
+      {
+        "command" : 1,
+        "file" : 0,
+        "line" : 221,
+        "parent" : 44
+      },
+      {
+        "command" : 0,
+        "file" : 0,
+        "line" : 205,
+        "parent" : 45
+      },
+      {
+        "file" : 0
+      },
+      {
+        "command" : 1,
+        "file" : 0,
+        "line" : 222,
+        "parent" : 47
+      },
+      {
+        "command" : 0,
+        "file" : 0,
+        "line" : 205,
+        "parent" : 48
+      },
+      {
+        "file" : 0
+      },
+      {
+        "command" : 1,
+        "file" : 0,
+        "line" : 223,
+        "parent" : 50
+      },
+      {
+        "command" : 0,
+        "file" : 0,
+        "line" : 205,
+        "parent" : 51
+      },
+      {
+        "file" : 0
+      },
+      {
+        "command" : 1,
+        "file" : 0,
+        "line" : 224,
+        "parent" : 53
+      },
+      {
+        "command" : 0,
+        "file" : 0,
+        "line" : 205,
+        "parent" : 54
+      },
+      {
+        "file" : 0
+      },
+      {
+        "command" : 1,
+        "file" : 0,
+        "line" : 225,
+        "parent" : 56
+      },
+      {
+        "command" : 0,
+        "file" : 0,
+        "line" : 205,
+        "parent" : 57
+      },
+      {
+        "file" : 0
+      },
+      {
+        "command" : 1,
+        "file" : 0,
+        "line" : 226,
+        "parent" : 59
+      },
+      {
+        "command" : 0,
+        "file" : 0,
+        "line" : 205,
+        "parent" : 60
+      },
+      {
+        "file" : 0
+      },
+      {
+        "command" : 1,
+        "file" : 0,
+        "line" : 227,
+        "parent" : 62
+      },
+      {
+        "command" : 0,
+        "file" : 0,
+        "line" : 205,
+        "parent" : 63
+      },
+      {
+        "file" : 0
+      },
+      {
+        "command" : 1,
+        "file" : 0,
+        "line" : 228,
+        "parent" : 65
+      },
+      {
+        "command" : 0,
+        "file" : 0,
+        "line" : 205,
+        "parent" : 66
+      },
+      {
+        "file" : 0
+      },
+      {
+        "command" : 1,
+        "file" : 0,
+        "line" : 229,
+        "parent" : 68
+      },
+      {
+        "command" : 0,
+        "file" : 0,
+        "line" : 205,
+        "parent" : 69
+      },
+      {
+        "file" : 0
+      },
+      {
+        "command" : 1,
+        "file" : 0,
+        "line" : 230,
+        "parent" : 71
+      },
+      {
+        "command" : 0,
+        "file" : 0,
+        "line" : 205,
+        "parent" : 72
+      },
+      {
+        "file" : 0
+      },
+      {
+        "command" : 1,
+        "file" : 0,
+        "line" : 231,
+        "parent" : 74
+      },
+      {
+        "command" : 0,
+        "file" : 0,
+        "line" : 205,
+        "parent" : 75
+      },
+      {
+        "file" : 0
+      },
+      {
+        "command" : 1,
+        "file" : 0,
+        "line" : 232,
+        "parent" : 77
+      },
+      {
+        "command" : 0,
+        "file" : 0,
+        "line" : 205,
+        "parent" : 78
+      },
+      {
+        "file" : 0
+      },
+      {
+        "command" : 1,
+        "file" : 0,
+        "line" : 233,
+        "parent" : 80
+      },
+      {
+        "command" : 0,
+        "file" : 0,
+        "line" : 205,
+        "parent" : 81
+      },
+      {
+        "file" : 0
+      },
+      {
+        "command" : 1,
+        "file" : 0,
+        "line" : 234,
+        "parent" : 83
+      },
+      {
+        "command" : 0,
+        "file" : 0,
+        "line" : 205,
+        "parent" : 84
+      },
+      {
+        "file" : 0
+      },
+      {
+        "command" : 1,
+        "file" : 0,
+        "line" : 235,
+        "parent" : 86
+      },
+      {
+        "command" : 0,
+        "file" : 0,
+        "line" : 205,
+        "parent" : 87
+      },
+      {
+        "file" : 0
+      },
+      {
+        "command" : 1,
+        "file" : 0,
+        "line" : 236,
+        "parent" : 89
+      },
+      {
+        "command" : 0,
+        "file" : 0,
+        "line" : 205,
+        "parent" : 90
+      },
+      {
+        "file" : 0
+      },
+      {
+        "command" : 1,
+        "file" : 0,
+        "line" : 237,
+        "parent" : 92
+      },
+      {
+        "command" : 0,
+        "file" : 0,
+        "line" : 205,
+        "parent" : 93
+      },
+      {
+        "file" : 0
+      },
+      {
+        "command" : 1,
+        "file" : 0,
+        "line" : 238,
+        "parent" : 95
+      },
+      {
+        "command" : 0,
+        "file" : 0,
+        "line" : 205,
+        "parent" : 96
+      },
+      {
+        "file" : 0
+      },
+      {
+        "command" : 1,
+        "file" : 0,
+        "line" : 239,
+        "parent" : 98
+      },
+      {
+        "command" : 0,
+        "file" : 0,
+        "line" : 205,
+        "parent" : 99
+      },
+      {
+        "file" : 0
+      },
+      {
+        "command" : 1,
+        "file" : 0,
+        "line" : 240,
+        "parent" : 101
+      },
+      {
+        "command" : 0,
+        "file" : 0,
+        "line" : 205,
+        "parent" : 102
+      },
+      {
+        "file" : 0
+      },
+      {
+        "command" : 1,
+        "file" : 0,
+        "line" : 241,
+        "parent" : 104
+      },
+      {
+        "command" : 0,
+        "file" : 0,
+        "line" : 205,
+        "parent" : 105
+      },
+      {
+        "file" : 0
+      },
+      {
+        "command" : 1,
+        "file" : 0,
+        "line" : 242,
+        "parent" : 107
+      },
+      {
+        "command" : 0,
+        "file" : 0,
+        "line" : 205,
+        "parent" : 108
+      },
+      {
+        "file" : 0
+      },
+      {
+        "command" : 1,
+        "file" : 0,
+        "line" : 243,
+        "parent" : 110
+      },
+      {
+        "command" : 0,
+        "file" : 0,
+        "line" : 205,
+        "parent" : 111
+      },
+      {
+        "file" : 0
+      },
+      {
+        "command" : 1,
+        "file" : 0,
+        "line" : 244,
+        "parent" : 113
+      },
+      {
+        "command" : 0,
+        "file" : 0,
+        "line" : 205,
+        "parent" : 114
+      },
+      {
+        "file" : 0
+      },
+      {
+        "command" : 1,
+        "file" : 0,
+        "line" : 245,
+        "parent" : 116
+      },
+      {
+        "command" : 0,
+        "file" : 0,
+        "line" : 205,
+        "parent" : 117
+      },
+      {
+        "file" : 0
+      },
+      {
+        "command" : 1,
+        "file" : 0,
+        "line" : 246,
+        "parent" : 119
+      },
+      {
+        "command" : 0,
+        "file" : 0,
+        "line" : 205,
+        "parent" : 120
+      },
+      {
+        "file" : 0
+      },
+      {
+        "command" : 1,
+        "file" : 0,
+        "line" : 247,
+        "parent" : 122
+      },
+      {
+        "command" : 0,
+        "file" : 0,
+        "line" : 205,
+        "parent" : 123
+      },
+      {
+        "file" : 0
+      },
+      {
+        "command" : 1,
+        "file" : 0,
+        "line" : 248,
+        "parent" : 125
+      },
+      {
+        "command" : 0,
+        "file" : 0,
+        "line" : 205,
+        "parent" : 126
+      },
+      {
+        "file" : 0
+      },
+      {
+        "command" : 1,
+        "file" : 0,
+        "line" : 249,
+        "parent" : 128
+      },
+      {
+        "command" : 0,
+        "file" : 0,
+        "line" : 205,
+        "parent" : 129
+      },
+      {
+        "file" : 0
+      },
+      {
+        "command" : 1,
+        "file" : 0,
+        "line" : 250,
+        "parent" : 131
+      },
+      {
+        "command" : 0,
+        "file" : 0,
+        "line" : 205,
+        "parent" : 132
+      },
+      {
+        "file" : 0
+      },
+      {
+        "command" : 1,
+        "file" : 0,
+        "line" : 251,
+        "parent" : 134
+      },
+      {
+        "command" : 0,
+        "file" : 0,
+        "line" : 205,
+        "parent" : 135
+      },
+      {
+        "file" : 0
+      },
+      {
+        "command" : 1,
+        "file" : 0,
+        "line" : 252,
+        "parent" : 137
+      },
+      {
+        "command" : 0,
+        "file" : 0,
+        "line" : 205,
+        "parent" : 138
+      },
+      {
+        "file" : 0
+      },
+      {
+        "command" : 1,
+        "file" : 0,
+        "line" : 253,
+        "parent" : 140
+      },
+      {
+        "command" : 0,
+        "file" : 0,
+        "line" : 205,
+        "parent" : 141
+      },
+      {
+        "file" : 0
+      },
+      {
+        "command" : 1,
+        "file" : 0,
+        "line" : 254,
+        "parent" : 143
+      },
+      {
+        "command" : 0,
+        "file" : 0,
+        "line" : 205,
+        "parent" : 144
+      },
+      {
+        "file" : 0
+      },
+      {
+        "command" : 1,
+        "file" : 0,
+        "line" : 255,
+        "parent" : 146
+      },
+      {
+        "command" : 0,
+        "file" : 0,
+        "line" : 205,
+        "parent" : 147
+      },
+      {
+        "file" : 0
+      },
+      {
+        "command" : 1,
+        "file" : 0,
+        "line" : 256,
+        "parent" : 149
+      },
+      {
+        "command" : 0,
+        "file" : 0,
+        "line" : 205,
+        "parent" : 150
+      },
+      {
+        "file" : 0
+      },
+      {
+        "command" : 1,
+        "file" : 0,
+        "line" : 257,
+        "parent" : 152
+      },
+      {
+        "command" : 0,
+        "file" : 0,
+        "line" : 205,
+        "parent" : 153
+      },
+      {
+        "file" : 0
+      },
+      {
+        "command" : 1,
+        "file" : 0,
+        "line" : 258,
+        "parent" : 155
+      },
+      {
+        "command" : 0,
+        "file" : 0,
+        "line" : 205,
+        "parent" : 156
+      },
+      {
+        "file" : 0
+      },
+      {
+        "command" : 1,
+        "file" : 0,
+        "line" : 259,
+        "parent" : 158
+      },
+      {
+        "command" : 0,
+        "file" : 0,
+        "line" : 205,
+        "parent" : 159
+      },
+      {
+        "file" : 0
+      },
+      {
+        "command" : 1,
+        "file" : 0,
+        "line" : 260,
+        "parent" : 161
+      },
+      {
+        "command" : 0,
+        "file" : 0,
+        "line" : 205,
+        "parent" : 162
+      },
+      {
+        "file" : 0
+      },
+      {
+        "command" : 1,
+        "file" : 0,
+        "line" : 261,
+        "parent" : 164
+      },
+      {
+        "command" : 0,
+        "file" : 0,
+        "line" : 205,
+        "parent" : 165
+      },
+      {
+        "file" : 0
+      },
+      {
+        "command" : 1,
+        "file" : 0,
+        "line" : 262,
+        "parent" : 167
+      },
+      {
+        "command" : 0,
+        "file" : 0,
+        "line" : 205,
+        "parent" : 168
+      },
+      {
+        "file" : 0
+      },
+      {
+        "command" : 1,
+        "file" : 0,
+        "line" : 263,
+        "parent" : 170
+      },
+      {
+        "command" : 0,
+        "file" : 0,
+        "line" : 205,
+        "parent" : 171
+      },
+      {
+        "file" : 0
+      },
+      {
+        "command" : 1,
+        "file" : 0,
+        "line" : 264,
+        "parent" : 173
+      },
+      {
+        "command" : 0,
+        "file" : 0,
+        "line" : 205,
+        "parent" : 174
+      },
+      {
+        "file" : 0
+      },
+      {
+        "command" : 1,
+        "file" : 0,
+        "line" : 265,
+        "parent" : 176
+      },
+      {
+        "command" : 0,
+        "file" : 0,
+        "line" : 205,
+        "parent" : 177
+      },
+      {
+        "file" : 0
+      },
+      {
+        "command" : 1,
+        "file" : 0,
+        "line" : 266,
+        "parent" : 179
+      },
+      {
+        "command" : 0,
+        "file" : 0,
+        "line" : 205,
+        "parent" : 180
+      },
+      {
+        "file" : 0
+      },
+      {
+        "command" : 1,
+        "file" : 0,
+        "line" : 267,
+        "parent" : 182
+      },
+      {
+        "command" : 0,
+        "file" : 0,
+        "line" : 205,
+        "parent" : 183
+      },
+      {
+        "file" : 0
+      },
+      {
+        "command" : 1,
+        "file" : 0,
+        "line" : 268,
+        "parent" : 185
+      },
+      {
+        "command" : 0,
+        "file" : 0,
+        "line" : 205,
+        "parent" : 186
+      },
+      {
+        "file" : 0
+      },
+      {
+        "command" : 1,
+        "file" : 0,
+        "line" : 269,
+        "parent" : 188
+      },
+      {
+        "command" : 0,
+        "file" : 0,
+        "line" : 205,
+        "parent" : 189
+      },
+      {
+        "file" : 0
+      },
+      {
+        "command" : 1,
+        "file" : 0,
+        "line" : 270,
+        "parent" : 191
+      },
+      {
+        "command" : 0,
+        "file" : 0,
+        "line" : 205,
+        "parent" : 192
+      },
+      {
+        "file" : 0
+      },
+      {
+        "command" : 1,
+        "file" : 0,
+        "line" : 271,
+        "parent" : 194
+      },
+      {
+        "command" : 0,
+        "file" : 0,
+        "line" : 205,
+        "parent" : 195
+      },
+      {
+        "file" : 0
+      },
+      {
+        "command" : 1,
+        "file" : 0,
+        "line" : 272,
+        "parent" : 197
+      },
+      {
+        "command" : 0,
+        "file" : 0,
+        "line" : 205,
+        "parent" : 198
+      },
+      {
+        "file" : 0
+      },
+      {
+        "command" : 1,
+        "file" : 0,
+        "line" : 273,
+        "parent" : 200
+      },
+      {
+        "command" : 0,
+        "file" : 0,
+        "line" : 205,
+        "parent" : 201
+      },
+      {
+        "file" : 0
+      },
+      {
+        "command" : 1,
+        "file" : 0,
+        "line" : 274,
+        "parent" : 203
+      },
+      {
+        "command" : 0,
+        "file" : 0,
+        "line" : 205,
+        "parent" : 204
+      },
+      {
+        "file" : 0
+      },
+      {
+        "command" : 1,
+        "file" : 0,
+        "line" : 275,
+        "parent" : 206
+      },
+      {
+        "command" : 0,
+        "file" : 0,
+        "line" : 205,
+        "parent" : 207
+      },
+      {
+        "file" : 0
+      },
+      {
+        "command" : 1,
+        "file" : 0,
+        "line" : 276,
+        "parent" : 209
+      },
+      {
+        "command" : 0,
+        "file" : 0,
+        "line" : 205,
+        "parent" : 210
+      },
+      {
+        "file" : 0
+      },
+      {
+        "command" : 1,
+        "file" : 0,
+        "line" : 277,
+        "parent" : 212
+      },
+      {
+        "command" : 0,
+        "file" : 0,
+        "line" : 205,
+        "parent" : 213
+      },
+      {
+        "file" : 0
+      },
+      {
+        "command" : 1,
+        "file" : 0,
+        "line" : 278,
+        "parent" : 215
+      },
+      {
+        "command" : 0,
+        "file" : 0,
+        "line" : 205,
+        "parent" : 216
+      },
+      {
+        "file" : 0
+      },
+      {
+        "command" : 1,
+        "file" : 0,
+        "line" : 279,
+        "parent" : 218
+      },
+      {
+        "command" : 0,
+        "file" : 0,
+        "line" : 205,
+        "parent" : 219
+      },
+      {
+        "file" : 0
+      },
+      {
+        "command" : 1,
+        "file" : 0,
+        "line" : 280,
+        "parent" : 221
+      },
+      {
+        "command" : 0,
+        "file" : 0,
+        "line" : 205,
+        "parent" : 222
+      },
+      {
+        "file" : 0
+      },
+      {
+        "command" : 1,
+        "file" : 0,
+        "line" : 281,
+        "parent" : 224
+      },
+      {
+        "command" : 0,
+        "file" : 0,
+        "line" : 205,
+        "parent" : 225
+      },
+      {
+        "file" : 0
+      },
+      {
+        "command" : 1,
+        "file" : 0,
+        "line" : 282,
+        "parent" : 227
+      },
+      {
+        "command" : 0,
+        "file" : 0,
+        "line" : 205,
+        "parent" : 228
+      },
+      {
+        "file" : 0
+      },
+      {
+        "command" : 1,
+        "file" : 0,
+        "line" : 283,
+        "parent" : 230
+      },
+      {
+        "command" : 0,
+        "file" : 0,
+        "line" : 205,
+        "parent" : 231
+      },
+      {
+        "file" : 0
+      },
+      {
+        "command" : 1,
+        "file" : 0,
+        "line" : 284,
+        "parent" : 233
+      },
+      {
+        "command" : 0,
+        "file" : 0,
+        "line" : 205,
+        "parent" : 234
+      },
+      {
+        "file" : 0
+      },
+      {
+        "command" : 1,
+        "file" : 0,
+        "line" : 285,
+        "parent" : 236
+      },
+      {
+        "command" : 0,
+        "file" : 0,
+        "line" : 205,
+        "parent" : 237
+      },
+      {
+        "file" : 0
+      },
+      {
+        "command" : 1,
+        "file" : 0,
+        "line" : 286,
+        "parent" : 239
+      },
+      {
+        "command" : 0,
+        "file" : 0,
+        "line" : 205,
+        "parent" : 240
+      },
+      {
+        "file" : 0
+      },
+      {
+        "command" : 1,
+        "file" : 0,
+        "line" : 287,
+        "parent" : 242
+      },
+      {
+        "command" : 0,
+        "file" : 0,
+        "line" : 205,
+        "parent" : 243
+      },
+      {
+        "file" : 0
+      },
+      {
+        "command" : 1,
+        "file" : 0,
+        "line" : 288,
+        "parent" : 245
+      },
+      {
+        "command" : 0,
+        "file" : 0,
+        "line" : 205,
+        "parent" : 246
+      },
+      {
+        "file" : 0
+      },
+      {
+        "command" : 1,
+        "file" : 0,
+        "line" : 289,
+        "parent" : 248
+      },
+      {
+        "command" : 0,
+        "file" : 0,
+        "line" : 205,
+        "parent" : 249
+      },
+      {
+        "file" : 0
+      },
+      {
+        "command" : 1,
+        "file" : 0,
+        "line" : 290,
+        "parent" : 251
+      },
+      {
+        "command" : 0,
+        "file" : 0,
+        "line" : 205,
+        "parent" : 252
+      },
+      {
+        "file" : 0
+      },
+      {
+        "command" : 1,
+        "file" : 0,
+        "line" : 291,
+        "parent" : 254
+      },
+      {
+        "command" : 0,
+        "file" : 0,
+        "line" : 205,
+        "parent" : 255
+      },
+      {
+        "file" : 0
+      },
+      {
+        "command" : 1,
+        "file" : 0,
+        "line" : 292,
+        "parent" : 257
+      },
+      {
+        "command" : 0,
+        "file" : 0,
+        "line" : 205,
+        "parent" : 258
+      },
+      {
+        "file" : 0
+      },
+      {
+        "command" : 1,
+        "file" : 0,
+        "line" : 293,
+        "parent" : 260
+      },
+      {
+        "command" : 0,
+        "file" : 0,
+        "line" : 205,
+        "parent" : 261
+      },
+      {
+        "file" : 0
+      },
+      {
+        "command" : 1,
+        "file" : 0,
+        "line" : 294,
+        "parent" : 263
+      },
+      {
+        "command" : 0,
+        "file" : 0,
+        "line" : 205,
+        "parent" : 264
+      },
+      {
+        "file" : 0
+      },
+      {
+        "command" : 1,
+        "file" : 0,
+        "line" : 295,
+        "parent" : 266
+      },
+      {
+        "command" : 0,
+        "file" : 0,
+        "line" : 205,
+        "parent" : 267
+      },
+      {
+        "file" : 0
+      },
+      {
+        "command" : 1,
+        "file" : 0,
+        "line" : 296,
+        "parent" : 269
+      },
+      {
+        "command" : 0,
+        "file" : 0,
+        "line" : 205,
+        "parent" : 270
+      },
+      {
+        "file" : 0
+      },
+      {
+        "command" : 1,
+        "file" : 0,
+        "line" : 297,
+        "parent" : 272
+      },
+      {
+        "command" : 0,
+        "file" : 0,
+        "line" : 205,
+        "parent" : 273
+      },
+      {
+        "file" : 0
+      },
+      {
+        "command" : 1,
+        "file" : 0,
+        "line" : 298,
+        "parent" : 275
+      },
+      {
+        "command" : 0,
+        "file" : 0,
+        "line" : 205,
+        "parent" : 276
+      },
+      {
+        "file" : 0
+      },
+      {
+        "command" : 1,
+        "file" : 0,
+        "line" : 299,
+        "parent" : 278
+      },
+      {
+        "command" : 0,
+        "file" : 0,
+        "line" : 205,
+        "parent" : 279
+      },
+      {
+        "file" : 0
+      },
+      {
+        "command" : 1,
+        "file" : 0,
+        "line" : 300,
+        "parent" : 281
+      },
+      {
+        "command" : 0,
+        "file" : 0,
+        "line" : 205,
+        "parent" : 282
+      },
+      {
+        "file" : 0
+      },
+      {
+        "command" : 1,
+        "file" : 0,
+        "line" : 301,
+        "parent" : 284
+      },
+      {
+        "command" : 0,
+        "file" : 0,
+        "line" : 205,
+        "parent" : 285
+      },
+      {
+        "file" : 0
+      },
+      {
+        "command" : 1,
+        "file" : 0,
+        "line" : 302,
+        "parent" : 287
+      },
+      {
+        "command" : 0,
+        "file" : 0,
+        "line" : 205,
+        "parent" : 288
+      },
+      {
+        "file" : 0
+      },
+      {
+        "command" : 1,
+        "file" : 0,
+        "line" : 303,
+        "parent" : 290
+      },
+      {
+        "command" : 0,
+        "file" : 0,
+        "line" : 205,
+        "parent" : 291
+      },
+      {
+        "file" : 0
+      },
+      {
+        "command" : 1,
+        "file" : 0,
+        "line" : 304,
+        "parent" : 293
+      },
+      {
+        "command" : 0,
+        "file" : 0,
+        "line" : 205,
+        "parent" : 294
+      },
+      {
+        "file" : 0
+      },
+      {
+        "command" : 1,
+        "file" : 0,
+        "line" : 305,
+        "parent" : 296
+      },
+      {
+        "command" : 0,
+        "file" : 0,
+        "line" : 205,
+        "parent" : 297
+      },
+      {
+        "file" : 0
+      },
+      {
+        "command" : 1,
+        "file" : 0,
+        "line" : 306,
+        "parent" : 299
+      },
+      {
+        "command" : 0,
+        "file" : 0,
+        "line" : 205,
+        "parent" : 300
+      },
+      {
+        "file" : 0
+      },
+      {
+        "command" : 2,
+        "file" : 0,
+        "line" : 314,
+        "parent" : 302
+      },
+      {
+        "command" : 0,
+        "file" : 0,
+        "line" : 311,
+        "parent" : 303
+      },
+      {
+        "file" : 0
+      },
+      {
+        "command" : 2,
+        "file" : 0,
+        "line" : 315,
+        "parent" : 305
+      },
+      {
+        "command" : 0,
+        "file" : 0,
+        "line" : 311,
+        "parent" : 306
+      },
+      {
+        "file" : 0
+      },
+      {
+        "command" : 2,
+        "file" : 0,
+        "line" : 316,
+        "parent" : 308
+      },
+      {
+        "command" : 0,
+        "file" : 0,
+        "line" : 311,
+        "parent" : 309
+      },
+      {
+        "file" : 0
+      },
+      {
+        "command" : 2,
+        "file" : 0,
+        "line" : 317,
+        "parent" : 311
+      },
+      {
+        "command" : 0,
+        "file" : 0,
+        "line" : 311,
+        "parent" : 312
+      },
+      {
+        "file" : 0
+      },
+      {
+        "command" : 2,
+        "file" : 0,
+        "line" : 318,
+        "parent" : 314
+      },
+      {
+        "command" : 0,
+        "file" : 0,
+        "line" : 311,
+        "parent" : 315
+      },
+      {
+        "file" : 0
+      },
+      {
+        "command" : 2,
+        "file" : 0,
+        "line" : 319,
+        "parent" : 317
+      },
+      {
+        "command" : 0,
+        "file" : 0,
+        "line" : 311,
+        "parent" : 318
+      },
+      {
+        "file" : 0
+      },
+      {
+        "command" : 2,
+        "file" : 0,
+        "line" : 320,
+        "parent" : 320
+      },
+      {
+        "command" : 0,
+        "file" : 0,
+        "line" : 311,
+        "parent" : 321
+      },
+      {
+        "file" : 0
+      },
+      {
+        "command" : 2,
+        "file" : 0,
+        "line" : 321,
+        "parent" : 323
+      },
+      {
+        "command" : 0,
+        "file" : 0,
+        "line" : 311,
+        "parent" : 324
+      },
+      {
+        "file" : 0
+      },
+      {
+        "command" : 2,
+        "file" : 0,
+        "line" : 322,
+        "parent" : 326
+      },
+      {
+        "command" : 0,
+        "file" : 0,
+        "line" : 311,
+        "parent" : 327
+      },
+      {
+        "file" : 0
+      },
+      {
+        "command" : 2,
+        "file" : 0,
+        "line" : 323,
+        "parent" : 329
+      },
+      {
+        "command" : 0,
+        "file" : 0,
+        "line" : 311,
+        "parent" : 330
+      },
+      {
+        "file" : 0
+      },
+      {
+        "command" : 2,
+        "file" : 0,
+        "line" : 325,
+        "parent" : 332
+      },
+      {
+        "command" : 0,
+        "file" : 0,
+        "line" : 311,
+        "parent" : 333
+      },
+      {
+        "file" : 0
+      },
+      {
+        "command" : 2,
+        "file" : 0,
+        "line" : 327,
+        "parent" : 335
+      },
+      {
+        "command" : 0,
+        "file" : 0,
+        "line" : 311,
+        "parent" : 336
+      },
+      {
+        "file" : 0
+      },
+      {
+        "command" : 1,
+        "file" : 0,
+        "line" : 329,
+        "parent" : 338
+      },
+      {
+        "command" : 0,
+        "file" : 0,
+        "line" : 205,
+        "parent" : 339
+      },
+      {
+        "file" : 0
+      },
+      {
+        "command" : 1,
+        "file" : 0,
+        "line" : 331,
+        "parent" : 341
+      },
+      {
+        "command" : 0,
+        "file" : 0,
+        "line" : 205,
+        "parent" : 342
+      },
+      {
+        "file" : 0
+      },
+      {
+        "command" : 1,
+        "file" : 0,
+        "line" : 333,
+        "parent" : 344
+      },
+      {
+        "command" : 0,
+        "file" : 0,
+        "line" : 205,
+        "parent" : 345
+      },
+      {
+        "file" : 0
+      },
+      {
+        "command" : 0,
+        "file" : 0,
+        "line" : 339,
+        "parent" : 347
+      },
+      {
+        "file" : 0
+      },
+      {
+        "command" : 0,
+        "file" : 0,
+        "line" : 343,
+        "parent" : 349
+      },
+      {
+        "file" : 0
+      },
+      {
+        "command" : 0,
+        "file" : 0,
+        "line" : 347,
+        "parent" : 351
+      },
+      {
+        "file" : 0
+      },
+      {
+        "command" : 0,
+        "file" : 0,
+        "line" : 354,
+        "parent" : 353
+      },
+      {
+        "file" : 0
+      },
+      {
+        "command" : 0,
+        "file" : 0,
+        "line" : 360,
+        "parent" : 355
+      }
+    ]
+  },
+  "kind" : "ctestInfo",
+  "tests" :
+  [
+    {
+      "backtrace" : 1,
+      "command" :
+      [
+        "/home/lolo/dev/msm/projects/MSM_vibe-M015-V/Modbus RTU/05_Firmware/build-host-validation/test_stm32_continuous"
+      ],
+      "name" : "stm32_continuous",
+      "properties" :
+      [
+        {
+          "name" : "WORKING_DIRECTORY",
+          "value" : "/home/lolo/dev/msm/projects/MSM_vibe-M015-V/Modbus RTU/05_Firmware/build-host-validation"
+        }
+      ]
+    },
+    {
+      "backtrace" : 3,
+      "command" :
+      [
+        "/home/lolo/dev/msm/projects/MSM_vibe-M015-V/Modbus RTU/05_Firmware/build-host-validation/test_stm32_ctrl1_differential"
+      ],
+      "name" : "stm32_ctrl1_differential",
+      "properties" :
+      [
+        {
+          "name" : "WORKING_DIRECTORY",
+          "value" : "/home/lolo/dev/msm/projects/MSM_vibe-M015-V/Modbus RTU/05_Firmware/build-host-validation"
+        }
+      ]
+    },
+    {
+      "backtrace" : 5,
+      "command" :
+      [
+        "/home/lolo/dev/msm/projects/MSM_vibe-M015-V/Modbus RTU/05_Firmware/build-host-validation/test_stm32_burst_capture"
+      ],
+      "name" : "stm32_burst_capture",
+      "properties" :
+      [
+        {
+          "name" : "WORKING_DIRECTORY",
+          "value" : "/home/lolo/dev/msm/projects/MSM_vibe-M015-V/Modbus RTU/05_Firmware/build-host-validation"
+        }
+      ]
+    },
+    {
+      "backtrace" : 7,
+      "command" :
+      [
+        "/home/lolo/dev/msm/projects/MSM_vibe-M015-V/Modbus RTU/05_Firmware/build-host-validation/test_stm32_active_readback"
+      ],
+      "name" : "stm32_active_readback",
+      "properties" :
+      [
+        {
+          "name" : "WORKING_DIRECTORY",
+          "value" : "/home/lolo/dev/msm/projects/MSM_vibe-M015-V/Modbus RTU/05_Firmware/build-host-validation"
+        }
+      ]
+    },
+    {
+      "backtrace" : 9,
+      "command" :
+      [
+        "/home/lolo/dev/msm/projects/MSM_vibe-M015-V/Modbus RTU/05_Firmware/build-host-validation/test_stm32_register_probe"
+      ],
+      "name" : "stm32_register_probe",
+      "properties" :
+      [
+        {
+          "name" : "WORKING_DIRECTORY",
+          "value" : "/home/lolo/dev/msm/projects/MSM_vibe-M015-V/Modbus RTU/05_Firmware/build-host-validation"
+        }
+      ]
+    },
+    {
+      "backtrace" : 11,
+      "command" :
+      [
+        "/home/lolo/dev/msm/projects/MSM_vibe-M015-V/Modbus RTU/05_Firmware/build-host-validation/test_stm32_iis3dwb_fifo"
+      ],
+      "name" : "stm32_iis3dwb_fifo",
+      "properties" :
+      [
+        {
+          "name" : "WORKING_DIRECTORY",
+          "value" : "/home/lolo/dev/msm/projects/MSM_vibe-M015-V/Modbus RTU/05_Firmware/build-host-validation"
+        }
+      ]
+    },
+    {
+      "backtrace" : 13,
+      "command" :
+      [
+        "/home/lolo/dev/msm/projects/MSM_vibe-M015-V/Modbus RTU/05_Firmware/build-host-validation/test_stm32_iis3dwb"
+      ],
+      "name" : "stm32_iis3dwb",
+      "properties" :
+      [
+        {
+          "name" : "WORKING_DIRECTORY",
+          "value" : "/home/lolo/dev/msm/projects/MSM_vibe-M015-V/Modbus RTU/05_Firmware/build-host-validation"
+        }
+      ]
+    },
+    {
+      "backtrace" : 15,
+      "command" :
+      [
+        "/home/lolo/dev/msm/projects/MSM_vibe-M015-V/Modbus RTU/05_Firmware/build-host-validation/test_stm32_rs485_rx_gpio"
+      ],
+      "name" : "stm32_rs485_rx_gpio",
+      "properties" :
+      [
+        {
+          "name" : "WORKING_DIRECTORY",
+          "value" : "/home/lolo/dev/msm/projects/MSM_vibe-M015-V/Modbus RTU/05_Firmware/build-host-validation"
+        }
+      ]
+    },
+    {
+      "backtrace" : 17,
+      "command" :
+      [
+        "/home/lolo/dev/msm/projects/MSM_vibe-M015-V/Modbus RTU/05_Firmware/build-host-validation/test_stm32_rtu_tx_0"
+      ],
+      "name" : "stm32_rtu_tx_0",
+      "properties" :
+      [
+        {
+          "name" : "WORKING_DIRECTORY",
+          "value" : "/home/lolo/dev/msm/projects/MSM_vibe-M015-V/Modbus RTU/05_Firmware/build-host-validation"
+        }
+      ]
+    },
+    {
+      "backtrace" : 19,
+      "command" :
+      [
+        "/home/lolo/dev/msm/projects/MSM_vibe-M015-V/Modbus RTU/05_Firmware/build-host-validation/test_stm32_irq_observer_0"
+      ],
+      "name" : "stm32_irq_observer_0",
+      "properties" :
+      [
+        {
+          "name" : "WORKING_DIRECTORY",
+          "value" : "/home/lolo/dev/msm/projects/MSM_vibe-M015-V/Modbus RTU/05_Firmware/build-host-validation"
+        }
+      ]
+    },
+    {
+      "backtrace" : 21,
+      "command" :
+      [
+        "/home/lolo/dev/msm/projects/MSM_vibe-M015-V/Modbus RTU/05_Firmware/build-host-validation/test_stm32_rtu_tx_1"
+      ],
+      "name" : "stm32_rtu_tx_1",
+      "properties" :
+      [
+        {
+          "name" : "WORKING_DIRECTORY",
+          "value" : "/home/lolo/dev/msm/projects/MSM_vibe-M015-V/Modbus RTU/05_Firmware/build-host-validation"
+        }
+      ]
+    },
+    {
+      "backtrace" : 23,
+      "command" :
+      [
+        "/home/lolo/dev/msm/projects/MSM_vibe-M015-V/Modbus RTU/05_Firmware/build-host-validation/test_stm32_irq_observer_1"
+      ],
+      "name" : "stm32_irq_observer_1",
+      "properties" :
+      [
+        {
+          "name" : "WORKING_DIRECTORY",
+          "value" : "/home/lolo/dev/msm/projects/MSM_vibe-M015-V/Modbus RTU/05_Firmware/build-host-validation"
+        }
+      ]
+    },
+    {
+      "backtrace" : 25,
+      "command" :
+      [
+        "/home/lolo/dev/msm/projects/MSM_vibe-M015-V/Modbus RTU/05_Firmware/build-host-validation/test_stm32_modbus_diagnostic"
+      ],
+      "name" : "stm32_modbus_diagnostic",
+      "properties" :
+      [
+        {
+          "name" : "WORKING_DIRECTORY",
+          "value" : "/home/lolo/dev/msm/projects/MSM_vibe-M015-V/Modbus RTU/05_Firmware/build-host-validation"
+        }
+      ]
+    },
+    {
+      "backtrace" : 28,
+      "command" :
+      [
+        "/home/lolo/dev/msm/projects/MSM_vibe-M015-V/Modbus RTU/05_Firmware/build-host-validation/test_codec"
+      ],
+      "name" : "codec",
+      "properties" :
+      [
+        {
+          "name" : "WORKING_DIRECTORY",
+          "value" : "/home/lolo/dev/msm/projects/MSM_vibe-M015-V/Modbus RTU/05_Firmware/build-host-validation"
+        }
+      ]
+    },
+    {
+      "backtrace" : 31,
+      "command" :
+      [
+        "/home/lolo/dev/msm/projects/MSM_vibe-M015-V/Modbus RTU/05_Firmware/build-host-validation/test_b4_configuration_codec"
+      ],
+      "name" : "b4_configuration_codec",
+      "properties" :
+      [
+        {
+          "name" : "WORKING_DIRECTORY",
+          "value" : "/home/lolo/dev/msm/projects/MSM_vibe-M015-V/Modbus RTU/05_Firmware/build-host-validation"
+        }
+      ]
+    },
+    {
+      "backtrace" : 34,
+      "command" :
+      [
+        "/home/lolo/dev/msm/projects/MSM_vibe-M015-V/Modbus RTU/05_Firmware/build-host-validation/test_register_model"
+      ],
+      "name" : "register_model",
+      "properties" :
+      [
+        {
+          "name" : "WORKING_DIRECTORY",
+          "value" : "/home/lolo/dev/msm/projects/MSM_vibe-M015-V/Modbus RTU/05_Firmware/build-host-validation"
+        }
+      ]
+    },
+    {
+      "backtrace" : 37,
+      "command" :
+      [
+        "/home/lolo/dev/msm/projects/MSM_vibe-M015-V/Modbus RTU/05_Firmware/build-host-validation/test_projection_b0"
+      ],
+      "name" : "projection_b0",
+      "properties" :
+      [
+        {
+          "name" : "WORKING_DIRECTORY",
+          "value" : "/home/lolo/dev/msm/projects/MSM_vibe-M015-V/Modbus RTU/05_Firmware/build-host-validation"
+        }
+      ]
+    },
+    {
+      "backtrace" : 40,
+      "command" :
+      [
+        "/home/lolo/dev/msm/projects/MSM_vibe-M015-V/Modbus RTU/05_Firmware/build-host-validation/test_projection_b1"
+      ],
+      "name" : "projection_b1",
+      "properties" :
+      [
+        {
+          "name" : "WORKING_DIRECTORY",
+          "value" : "/home/lolo/dev/msm/projects/MSM_vibe-M015-V/Modbus RTU/05_Firmware/build-host-validation"
+        }
+      ]
+    },
+    {
+      "backtrace" : 43,
+      "command" :
+      [
+        "/home/lolo/dev/msm/projects/MSM_vibe-M015-V/Modbus RTU/05_Firmware/build-host-validation/test_projection_b2"
+      ],
+      "name" : "projection_b2",
+      "properties" :
+      [
+        {
+          "name" : "WORKING_DIRECTORY",
+          "value" : "/home/lolo/dev/msm/projects/MSM_vibe-M015-V/Modbus RTU/05_Firmware/build-host-validation"
+        }
+      ]
+    },
+    {
+      "backtrace" : 46,
+      "command" :
+      [
+        "/home/lolo/dev/msm/projects/MSM_vibe-M015-V/Modbus RTU/05_Firmware/build-host-validation/test_projection_b3"
+      ],
+      "name" : "projection_b3",
+      "properties" :
+      [
+        {
+          "name" : "WORKING_DIRECTORY",
+          "value" : "/home/lolo/dev/msm/projects/MSM_vibe-M015-V/Modbus RTU/05_Firmware/build-host-validation"
+        }
+      ]
+    },
+    {
+      "backtrace" : 49,
+      "command" :
+      [
+        "/home/lolo/dev/msm/projects/MSM_vibe-M015-V/Modbus RTU/05_Firmware/build-host-validation/test_projection_b4"
+      ],
+      "name" : "projection_b4",
+      "properties" :
+      [
+        {
+          "name" : "WORKING_DIRECTORY",
+          "value" : "/home/lolo/dev/msm/projects/MSM_vibe-M015-V/Modbus RTU/05_Firmware/build-host-validation"
+        }
+      ]
+    },
+    {
+      "backtrace" : 52,
+      "command" :
+      [
+        "/home/lolo/dev/msm/projects/MSM_vibe-M015-V/Modbus RTU/05_Firmware/build-host-validation/test_campaign_inventory_b6"
+      ],
+      "name" : "campaign_inventory_b6",
+      "properties" :
+      [
+        {
+          "name" : "WORKING_DIRECTORY",
+          "value" : "/home/lolo/dev/msm/projects/MSM_vibe-M015-V/Modbus RTU/05_Firmware/build-host-validation"
+        }
+      ]
+    },
+    {
+      "backtrace" : 55,
+      "command" :
+      [
+        "/home/lolo/dev/msm/projects/MSM_vibe-M015-V/Modbus RTU/05_Firmware/build-host-validation/test_b6_adapters"
+      ],
+      "name" : "b6_adapters",
+      "properties" :
+      [
+        {
+          "name" : "WORKING_DIRECTORY",
+          "value" : "/home/lolo/dev/msm/projects/MSM_vibe-M015-V/Modbus RTU/05_Firmware/build-host-validation"
+        }
+      ]
+    },
+    {
+      "backtrace" : 58,
+      "command" :
+      [
+        "/home/lolo/dev/msm/projects/MSM_vibe-M015-V/Modbus RTU/05_Firmware/build-host-validation/test_time_service"
+      ],
+      "name" : "time_service",
+      "properties" :
+      [
+        {
+          "name" : "WORKING_DIRECTORY",
+          "value" : "/home/lolo/dev/msm/projects/MSM_vibe-M015-V/Modbus RTU/05_Firmware/build-host-validation"
+        }
+      ]
+    },
+    {
+      "backtrace" : 61,
+      "command" :
+      [
+        "/home/lolo/dev/msm/projects/MSM_vibe-M015-V/Modbus RTU/05_Firmware/build-host-validation/test_time_recovery_types"
+      ],
+      "name" : "time_recovery_types",
+      "properties" :
+      [
+        {
+          "name" : "WORKING_DIRECTORY",
+          "value" : "/home/lolo/dev/msm/projects/MSM_vibe-M015-V/Modbus RTU/05_Firmware/build-host-validation"
+        }
+      ]
+    },
+    {
+      "backtrace" : 64,
+      "command" :
+      [
+        "/home/lolo/dev/msm/projects/MSM_vibe-M015-V/Modbus RTU/05_Firmware/build-host-validation/test_time_history_record"
+      ],
+      "name" : "time_history_record",
+      "properties" :
+      [
+        {
+          "name" : "WORKING_DIRECTORY",
+          "value" : "/home/lolo/dev/msm/projects/MSM_vibe-M015-V/Modbus RTU/05_Firmware/build-host-validation"
+        }
+      ]
+    },
+    {
+      "backtrace" : 67,
+      "command" :
+      [
+        "/home/lolo/dev/msm/projects/MSM_vibe-M015-V/Modbus RTU/05_Firmware/build-host-validation/test_time_history_store"
+      ],
+      "name" : "time_history_store",
+      "properties" :
+      [
+        {
+          "name" : "WORKING_DIRECTORY",
+          "value" : "/home/lolo/dev/msm/projects/MSM_vibe-M015-V/Modbus RTU/05_Firmware/build-host-validation"
+        }
+      ]
+    },
+    {
+      "backtrace" : 70,
+      "command" :
+      [
+        "/home/lolo/dev/msm/projects/MSM_vibe-M015-V/Modbus RTU/05_Firmware/build-host-validation/test_time_synchronization"
+      ],
+      "name" : "time_synchronization",
+      "properties" :
+      [
+        {
+          "name" : "WORKING_DIRECTORY",
+          "value" : "/home/lolo/dev/msm/projects/MSM_vibe-M015-V/Modbus RTU/05_Firmware/build-host-validation"
+        }
+      ]
+    },
+    {
+      "backtrace" : 73,
+      "command" :
+      [
+        "/home/lolo/dev/msm/projects/MSM_vibe-M015-V/Modbus RTU/05_Firmware/build-host-validation/test_configuration_types"
+      ],
+      "name" : "configuration_types",
+      "properties" :
+      [
+        {
+          "name" : "WORKING_DIRECTORY",
+          "value" : "/home/lolo/dev/msm/projects/MSM_vibe-M015-V/Modbus RTU/05_Firmware/build-host-validation"
+        }
+      ]
+    },
+    {
+      "backtrace" : 76,
+      "command" :
+      [
+        "/home/lolo/dev/msm/projects/MSM_vibe-M015-V/Modbus RTU/05_Firmware/build-host-validation/test_configuration_staging"
+      ],
+      "name" : "configuration_staging",
+      "properties" :
+      [
+        {
+          "name" : "WORKING_DIRECTORY",
+          "value" : "/home/lolo/dev/msm/projects/MSM_vibe-M015-V/Modbus RTU/05_Firmware/build-host-validation"
+        }
+      ]
+    },
+    {
+      "backtrace" : 79,
+      "command" :
+      [
+        "/home/lolo/dev/msm/projects/MSM_vibe-M015-V/Modbus RTU/05_Firmware/build-host-validation/test_configuration_validator"
+      ],
+      "name" : "configuration_validator",
+      "properties" :
+      [
+        {
+          "name" : "WORKING_DIRECTORY",
+          "value" : "/home/lolo/dev/msm/projects/MSM_vibe-M015-V/Modbus RTU/05_Firmware/build-host-validation"
+        }
+      ]
+    },
+    {
+      "backtrace" : 82,
+      "command" :
+      [
+        "/home/lolo/dev/msm/projects/MSM_vibe-M015-V/Modbus RTU/05_Firmware/build-host-validation/test_configuration_workflow"
+      ],
+      "name" : "configuration_workflow",
+      "properties" :
+      [
+        {
+          "name" : "WORKING_DIRECTORY",
+          "value" : "/home/lolo/dev/msm/projects/MSM_vibe-M015-V/Modbus RTU/05_Firmware/build-host-validation"
+        }
+      ]
+    },
+    {
+      "backtrace" : 85,
+      "command" :
+      [
+        "/home/lolo/dev/msm/projects/MSM_vibe-M015-V/Modbus RTU/05_Firmware/build-host-validation/test_configuration_service"
+      ],
+      "name" : "configuration_service",
+      "properties" :
+      [
+        {
+          "name" : "WORKING_DIRECTORY",
+          "value" : "/home/lolo/dev/msm/projects/MSM_vibe-M015-V/Modbus RTU/05_Firmware/build-host-validation"
+        }
+      ]
+    },
+    {
+      "backtrace" : 88,
+      "command" :
+      [
+        "/home/lolo/dev/msm/projects/MSM_vibe-M015-V/Modbus RTU/05_Firmware/build-host-validation/test_persistent_storage_core"
+      ],
+      "name" : "persistent_storage_core",
+      "properties" :
+      [
+        {
+          "name" : "WORKING_DIRECTORY",
+          "value" : "/home/lolo/dev/msm/projects/MSM_vibe-M015-V/Modbus RTU/05_Firmware/build-host-validation"
+        }
+      ]
+    },
+    {
+      "backtrace" : 91,
+      "command" :
+      [
+        "/home/lolo/dev/msm/projects/MSM_vibe-M015-V/Modbus RTU/05_Firmware/build-host-validation/test_configuration_record"
+      ],
+      "name" : "configuration_record",
+      "properties" :
+      [
+        {
+          "name" : "WORKING_DIRECTORY",
+          "value" : "/home/lolo/dev/msm/projects/MSM_vibe-M015-V/Modbus RTU/05_Firmware/build-host-validation"
+        }
+      ]
+    },
+    {
+      "backtrace" : 94,
+      "command" :
+      [
+        "/home/lolo/dev/msm/projects/MSM_vibe-M015-V/Modbus RTU/05_Firmware/build-host-validation/test_campaign_record"
+      ],
+      "name" : "campaign_record",
+      "properties" :
+      [
+        {
+          "name" : "WORKING_DIRECTORY",
+          "value" : "/home/lolo/dev/msm/projects/MSM_vibe-M015-V/Modbus RTU/05_Firmware/build-host-validation"
+        }
+      ]
+    },
+    {
+      "backtrace" : 97,
+      "command" :
+      [
+        "/home/lolo/dev/msm/projects/MSM_vibe-M015-V/Modbus RTU/05_Firmware/build-host-validation/test_campaign_repository_store"
+      ],
+      "name" : "campaign_repository_store",
+      "properties" :
+      [
+        {
+          "name" : "WORKING_DIRECTORY",
+          "value" : "/home/lolo/dev/msm/projects/MSM_vibe-M015-V/Modbus RTU/05_Firmware/build-host-validation"
+        }
+      ]
+    },
+    {
+      "backtrace" : 100,
+      "command" :
+      [
+        "/home/lolo/dev/msm/projects/MSM_vibe-M015-V/Modbus RTU/05_Firmware/build-host-validation/test_campaign_bulk_aggregator"
+      ],
+      "name" : "campaign_bulk_aggregator",
+      "properties" :
+      [
+        {
+          "name" : "WORKING_DIRECTORY",
+          "value" : "/home/lolo/dev/msm/projects/MSM_vibe-M015-V/Modbus RTU/05_Firmware/build-host-validation"
+        }
+      ]
+    },
+    {
+      "backtrace" : 103,
+      "command" :
+      [
+        "/home/lolo/dev/msm/projects/MSM_vibe-M015-V/Modbus RTU/05_Firmware/build-host-validation/test_campaign_bulk_block"
+      ],
+      "name" : "campaign_bulk_block",
+      "properties" :
+      [
+        {
+          "name" : "WORKING_DIRECTORY",
+          "value" : "/home/lolo/dev/msm/projects/MSM_vibe-M015-V/Modbus RTU/05_Firmware/build-host-validation"
+        }
+      ]
+    },
+    {
+      "backtrace" : 106,
+      "command" :
+      [
+        "/home/lolo/dev/msm/projects/MSM_vibe-M015-V/Modbus RTU/05_Firmware/build-host-validation/test_campaign_bulk_block_stream"
+      ],
+      "name" : "campaign_bulk_block_stream",
+      "properties" :
+      [
+        {
+          "name" : "WORKING_DIRECTORY",
+          "value" : "/home/lolo/dev/msm/projects/MSM_vibe-M015-V/Modbus RTU/05_Firmware/build-host-validation"
+        }
+      ]
+    },
+    {
+      "backtrace" : 109,
+      "command" :
+      [
+        "/home/lolo/dev/msm/projects/MSM_vibe-M015-V/Modbus RTU/05_Firmware/build-host-validation/test_campaign_bulk_checkpoint"
+      ],
+      "name" : "campaign_bulk_checkpoint",
+      "properties" :
+      [
+        {
+          "name" : "WORKING_DIRECTORY",
+          "value" : "/home/lolo/dev/msm/projects/MSM_vibe-M015-V/Modbus RTU/05_Firmware/build-host-validation"
+        }
+      ]
+    },
+    {
+      "backtrace" : 112,
+      "command" :
+      [
+        "/home/lolo/dev/msm/projects/MSM_vibe-M015-V/Modbus RTU/05_Firmware/build-host-validation/test_campaign_bulk_media"
+      ],
+      "name" : "campaign_bulk_media",
+      "properties" :
+      [
+        {
+          "name" : "WORKING_DIRECTORY",
+          "value" : "/home/lolo/dev/msm/projects/MSM_vibe-M015-V/Modbus RTU/05_Firmware/build-host-validation"
+        }
+      ]
+    },
+    {
+      "backtrace" : 115,
+      "command" :
+      [
+        "/home/lolo/dev/msm/projects/MSM_vibe-M015-V/Modbus RTU/05_Firmware/build-host-validation/test_campaign_bulk_metadata"
+      ],
+      "name" : "campaign_bulk_metadata",
+      "properties" :
+      [
+        {
+          "name" : "WORKING_DIRECTORY",
+          "value" : "/home/lolo/dev/msm/projects/MSM_vibe-M015-V/Modbus RTU/05_Firmware/build-host-validation"
+        }
+      ]
+    },
+    {
+      "backtrace" : 118,
+      "command" :
+      [
+        "/home/lolo/dev/msm/projects/MSM_vibe-M015-V/Modbus RTU/05_Firmware/build-host-validation/test_campaign_data_store_bulk"
+      ],
+      "name" : "campaign_data_store_bulk",
+      "properties" :
+      [
+        {
+          "name" : "WORKING_DIRECTORY",
+          "value" : "/home/lolo/dev/msm/projects/MSM_vibe-M015-V/Modbus RTU/05_Firmware/build-host-validation"
+        }
+      ]
+    },
+    {
+      "backtrace" : 121,
+      "command" :
+      [
+        "/home/lolo/dev/msm/projects/MSM_vibe-M015-V/Modbus RTU/05_Firmware/build-host-validation/test_campaign_data_store_persistent"
+      ],
+      "name" : "campaign_data_store_persistent",
+      "properties" :
+      [
+        {
+          "name" : "WORKING_DIRECTORY",
+          "value" : "/home/lolo/dev/msm/projects/MSM_vibe-M015-V/Modbus RTU/05_Firmware/build-host-validation"
+        }
+      ]
+    },
+    {
+      "backtrace" : 124,
+      "command" :
+      [
+        "/home/lolo/dev/msm/projects/MSM_vibe-M015-V/Modbus RTU/05_Firmware/build-host-validation/test_campaign_service"
+      ],
+      "name" : "campaign_service",
+      "properties" :
+      [
+        {
+          "name" : "WORKING_DIRECTORY",
+          "value" : "/home/lolo/dev/msm/projects/MSM_vibe-M015-V/Modbus RTU/05_Firmware/build-host-validation"
+        }
+      ]
+    },
+    {
+      "backtrace" : 127,
+      "command" :
+      [
+        "/home/lolo/dev/msm/projects/MSM_vibe-M015-V/Modbus RTU/05_Firmware/build-host-validation/test_configuration_store"
+      ],
+      "name" : "configuration_store",
+      "properties" :
+      [
+        {
+          "name" : "WORKING_DIRECTORY",
+          "value" : "/home/lolo/dev/msm/projects/MSM_vibe-M015-V/Modbus RTU/05_Firmware/build-host-validation"
+        }
+      ]
+    },
+    {
+      "backtrace" : 130,
+      "command" :
+      [
+        "/home/lolo/dev/msm/projects/MSM_vibe-M015-V/Modbus RTU/05_Firmware/build-host-validation/test_configuration_store_recovery"
+      ],
+      "name" : "configuration_store_recovery",
+      "properties" :
+      [
+        {
+          "name" : "WORKING_DIRECTORY",
+          "value" : "/home/lolo/dev/msm/projects/MSM_vibe-M015-V/Modbus RTU/05_Firmware/build-host-validation"
+        }
+      ]
+    },
+    {
+      "backtrace" : 133,
+      "command" :
+      [
+        "/home/lolo/dev/msm/projects/MSM_vibe-M015-V/Modbus RTU/05_Firmware/build-host-validation/test_configuration_store_recovery_unavailable"
+      ],
+      "name" : "configuration_store_recovery_unavailable",
+      "properties" :
+      [
+        {
+          "name" : "WORKING_DIRECTORY",
+          "value" : "/home/lolo/dev/msm/projects/MSM_vibe-M015-V/Modbus RTU/05_Firmware/build-host-validation"
+        }
+      ]
+    },
+    {
+      "backtrace" : 136,
+      "command" :
+      [
+        "/home/lolo/dev/msm/projects/MSM_vibe-M015-V/Modbus RTU/05_Firmware/build-host-validation/test_read_adapter"
+      ],
+      "name" : "read_adapter",
+      "properties" :
+      [
+        {
+          "name" : "WORKING_DIRECTORY",
+          "value" : "/home/lolo/dev/msm/projects/MSM_vibe-M015-V/Modbus RTU/05_Firmware/build-host-validation"
+        }
+      ]
+    },
+    {
+      "backtrace" : 139,
+      "command" :
+      [
+        "/home/lolo/dev/msm/projects/MSM_vibe-M015-V/Modbus RTU/05_Firmware/build-host-validation/test_read_adapter_b3"
+      ],
+      "name" : "read_adapter_b3",
+      "properties" :
+      [
+        {
+          "name" : "WORKING_DIRECTORY",
+          "value" : "/home/lolo/dev/msm/projects/MSM_vibe-M015-V/Modbus RTU/05_Firmware/build-host-validation"
+        }
+      ]
+    },
+    {
+      "backtrace" : 142,
+      "command" :
+      [
+        "/home/lolo/dev/msm/projects/MSM_vibe-M015-V/Modbus RTU/05_Firmware/build-host-validation/test_write_adapter"
+      ],
+      "name" : "write_adapter",
+      "properties" :
+      [
+        {
+          "name" : "WORKING_DIRECTORY",
+          "value" : "/home/lolo/dev/msm/projects/MSM_vibe-M015-V/Modbus RTU/05_Firmware/build-host-validation"
+        }
+      ]
+    },
+    {
+      "backtrace" : 145,
+      "command" :
+      [
+        "/home/lolo/dev/msm/projects/MSM_vibe-M015-V/Modbus RTU/05_Firmware/build-host-validation/test_p5a_contracts"
+      ],
+      "name" : "p5a_contracts",
+      "properties" :
+      [
+        {
+          "name" : "WORKING_DIRECTORY",
+          "value" : "/home/lolo/dev/msm/projects/MSM_vibe-M015-V/Modbus RTU/05_Firmware/build-host-validation"
+        }
+      ]
+    },
+    {
+      "backtrace" : 148,
+      "command" :
+      [
+        "/home/lolo/dev/msm/projects/MSM_vibe-M015-V/Modbus RTU/05_Firmware/build-host-validation/test_p6a_contracts"
+      ],
+      "name" : "p6a_contracts",
+      "properties" :
+      [
+        {
+          "name" : "WORKING_DIRECTORY",
+          "value" : "/home/lolo/dev/msm/projects/MSM_vibe-M015-V/Modbus RTU/05_Firmware/build-host-validation"
+        }
+      ]
+    },
+    {
+      "backtrace" : 151,
+      "command" :
+      [
+        "/home/lolo/dev/msm/projects/MSM_vibe-M015-V/Modbus RTU/05_Firmware/build-host-validation/test_p7a_command_types"
+      ],
+      "name" : "p7a_command_types",
+      "properties" :
+      [
+        {
+          "name" : "WORKING_DIRECTORY",
+          "value" : "/home/lolo/dev/msm/projects/MSM_vibe-M015-V/Modbus RTU/05_Firmware/build-host-validation"
+        }
+      ]
+    },
+    {
+      "backtrace" : 154,
+      "command" :
+      [
+        "/home/lolo/dev/msm/projects/MSM_vibe-M015-V/Modbus RTU/05_Firmware/build-host-validation/test_p7b_command_request_mailbox"
+      ],
+      "name" : "p7b_command_request_mailbox",
+      "properties" :
+      [
+        {
+          "name" : "WORKING_DIRECTORY",
+          "value" : "/home/lolo/dev/msm/projects/MSM_vibe-M015-V/Modbus RTU/05_Firmware/build-host-validation"
+        }
+      ]
+    },
+    {
+      "backtrace" : 157,
+      "command" :
+      [
+        "/home/lolo/dev/msm/projects/MSM_vibe-M015-V/Modbus RTU/05_Firmware/build-host-validation/test_p7c_command_journal"
+      ],
+      "name" : "p7c_command_journal",
+      "properties" :
+      [
+        {
+          "name" : "WORKING_DIRECTORY",
+          "value" : "/home/lolo/dev/msm/projects/MSM_vibe-M015-V/Modbus RTU/05_Firmware/build-host-validation"
+        }
+      ]
+    },
+    {
+      "backtrace" : 160,
+      "command" :
+      [
+        "/home/lolo/dev/msm/projects/MSM_vibe-M015-V/Modbus RTU/05_Firmware/build-host-validation/test_p7d_command_journal_store"
+      ],
+      "name" : "p7d_command_journal_store",
+      "properties" :
+      [
+        {
+          "name" : "WORKING_DIRECTORY",
+          "value" : "/home/lolo/dev/msm/projects/MSM_vibe-M015-V/Modbus RTU/05_Firmware/build-host-validation"
+        }
+      ]
+    },
+    {
+      "backtrace" : 163,
+      "command" :
+      [
+        "/home/lolo/dev/msm/projects/MSM_vibe-M015-V/Modbus RTU/05_Firmware/build-host-validation/test_p7e_command_engine_admission"
+      ],
+      "name" : "p7e_command_engine_admission",
+      "properties" :
+      [
+        {
+          "name" : "WORKING_DIRECTORY",
+          "value" : "/home/lolo/dev/msm/projects/MSM_vibe-M015-V/Modbus RTU/05_Firmware/build-host-validation"
+        }
+      ]
+    },
+    {
+      "backtrace" : 166,
+      "command" :
+      [
+        "/home/lolo/dev/msm/projects/MSM_vibe-M015-V/Modbus RTU/05_Firmware/build-host-validation/test_p7f_command_engine_lifecycle"
+      ],
+      "name" : "p7f_command_engine_lifecycle",
+      "properties" :
+      [
+        {
+          "name" : "WORKING_DIRECTORY",
+          "value" : "/home/lolo/dev/msm/projects/MSM_vibe-M015-V/Modbus RTU/05_Firmware/build-host-validation"
+        }
+      ]
+    },
+    {
+      "backtrace" : 169,
+      "command" :
+      [
+        "/home/lolo/dev/msm/projects/MSM_vibe-M015-V/Modbus RTU/05_Firmware/build-host-validation/test_p7g_apply_configuration"
+      ],
+      "name" : "p7g_apply_configuration",
+      "properties" :
+      [
+        {
+          "name" : "WORKING_DIRECTORY",
+          "value" : "/home/lolo/dev/msm/projects/MSM_vibe-M015-V/Modbus RTU/05_Firmware/build-host-validation"
+        }
+      ]
+    },
+    {
+      "backtrace" : 172,
+      "command" :
+      [
+        "/home/lolo/dev/msm/projects/MSM_vibe-M015-V/Modbus RTU/05_Firmware/build-host-validation/test_p7h_synchronize_time"
+      ],
+      "name" : "p7h_synchronize_time",
+      "properties" :
+      [
+        {
+          "name" : "WORKING_DIRECTORY",
+          "value" : "/home/lolo/dev/msm/projects/MSM_vibe-M015-V/Modbus RTU/05_Firmware/build-host-validation"
+        }
+      ]
+    },
+    {
+      "backtrace" : 175,
+      "command" :
+      [
+        "/home/lolo/dev/msm/projects/MSM_vibe-M015-V/Modbus RTU/05_Firmware/build-host-validation/test_p7i_start_acquisition"
+      ],
+      "name" : "p7i_start_acquisition",
+      "properties" :
+      [
+        {
+          "name" : "WORKING_DIRECTORY",
+          "value" : "/home/lolo/dev/msm/projects/MSM_vibe-M015-V/Modbus RTU/05_Firmware/build-host-validation"
+        }
+      ]
+    },
+    {
+      "backtrace" : 178,
+      "command" :
+      [
+        "/home/lolo/dev/msm/projects/MSM_vibe-M015-V/Modbus RTU/05_Firmware/build-host-validation/test_p7j_stop_acquisition"
+      ],
+      "name" : "p7j_stop_acquisition",
+      "properties" :
+      [
+        {
+          "name" : "WORKING_DIRECTORY",
+          "value" : "/home/lolo/dev/msm/projects/MSM_vibe-M015-V/Modbus RTU/05_Firmware/build-host-validation"
+        }
+      ]
+    },
+    {
+      "backtrace" : 181,
+      "command" :
+      [
+        "/home/lolo/dev/msm/projects/MSM_vibe-M015-V/Modbus RTU/05_Firmware/build-host-validation/test_p7k_command_boot_recovery"
+      ],
+      "name" : "p7k_command_boot_recovery",
+      "properties" :
+      [
+        {
+          "name" : "WORKING_DIRECTORY",
+          "value" : "/home/lolo/dev/msm/projects/MSM_vibe-M015-V/Modbus RTU/05_Firmware/build-host-validation"
+        }
+      ]
+    },
+    {
+      "backtrace" : 184,
+      "command" :
+      [
+        "/home/lolo/dev/msm/projects/MSM_vibe-M015-V/Modbus RTU/05_Firmware/build-host-validation/test_p7l_b5_adapters"
+      ],
+      "name" : "p7l_b5_adapters",
+      "properties" :
+      [
+        {
+          "name" : "WORKING_DIRECTORY",
+          "value" : "/home/lolo/dev/msm/projects/MSM_vibe-M015-V/Modbus RTU/05_Firmware/build-host-validation"
+        }
+      ]
+    },
+    {
+      "backtrace" : 187,
+      "command" :
+      [
+        "/home/lolo/dev/msm/projects/MSM_vibe-M015-V/Modbus RTU/05_Firmware/build-host-validation/test_p7m_command_policy"
+      ],
+      "name" : "p7m_command_policy",
+      "properties" :
+      [
+        {
+          "name" : "WORKING_DIRECTORY",
+          "value" : "/home/lolo/dev/msm/projects/MSM_vibe-M015-V/Modbus RTU/05_Firmware/build-host-validation"
+        }
+      ]
+    },
+    {
+      "backtrace" : 190,
+      "command" :
+      [
+        "/home/lolo/dev/msm/projects/MSM_vibe-M015-V/Modbus RTU/05_Firmware/build-host-validation/test_p7n_transaction_fault_injection"
+      ],
+      "name" : "p7n_transaction_fault_injection",
+      "properties" :
+      [
+        {
+          "name" : "WORKING_DIRECTORY",
+          "value" : "/home/lolo/dev/msm/projects/MSM_vibe-M015-V/Modbus RTU/05_Firmware/build-host-validation"
+        }
+      ]
+    },
+    {
+      "backtrace" : 193,
+      "command" :
+      [
+        "/home/lolo/dev/msm/projects/MSM_vibe-M015-V/Modbus RTU/05_Firmware/build-host-validation/test_p9b_diagnostic_service"
+      ],
+      "name" : "p9b_diagnostic_service",
+      "properties" :
+      [
+        {
+          "name" : "WORKING_DIRECTORY",
+          "value" : "/home/lolo/dev/msm/projects/MSM_vibe-M015-V/Modbus RTU/05_Firmware/build-host-validation"
+        }
+      ]
+    },
+    {
+      "backtrace" : 196,
+      "command" :
+      [
+        "/home/lolo/dev/msm/projects/MSM_vibe-M015-V/Modbus RTU/05_Firmware/build-host-validation/test_p9c_diagnostic_recovery"
+      ],
+      "name" : "p9c_diagnostic_recovery",
+      "properties" :
+      [
+        {
+          "name" : "WORKING_DIRECTORY",
+          "value" : "/home/lolo/dev/msm/projects/MSM_vibe-M015-V/Modbus RTU/05_Firmware/build-host-validation"
+        }
+      ]
+    },
+    {
+      "backtrace" : 199,
+      "command" :
+      [
+        "/home/lolo/dev/msm/projects/MSM_vibe-M015-V/Modbus RTU/05_Firmware/build-host-validation/test_p9h_selftest_command"
+      ],
+      "name" : "p9h_selftest_command",
+      "properties" :
+      [
+        {
+          "name" : "WORKING_DIRECTORY",
+          "value" : "/home/lolo/dev/msm/projects/MSM_vibe-M015-V/Modbus RTU/05_Firmware/build-host-validation"
+        }
+      ]
+    },
+    {
+      "backtrace" : 202,
+      "command" :
+      [
+        "/home/lolo/dev/msm/projects/MSM_vibe-M015-V/Modbus RTU/05_Firmware/build-host-validation/test_acquisition_service"
+      ],
+      "name" : "acquisition_service",
+      "properties" :
+      [
+        {
+          "name" : "WORKING_DIRECTORY",
+          "value" : "/home/lolo/dev/msm/projects/MSM_vibe-M015-V/Modbus RTU/05_Firmware/build-host-validation"
+        }
+      ]
+    },
+    {
+      "backtrace" : 205,
+      "command" :
+      [
+        "/home/lolo/dev/msm/projects/MSM_vibe-M015-V/Modbus RTU/05_Firmware/build-host-validation/test_indicator_calculator"
+      ],
+      "name" : "indicator_calculator",
+      "properties" :
+      [
+        {
+          "name" : "WORKING_DIRECTORY",
+          "value" : "/home/lolo/dev/msm/projects/MSM_vibe-M015-V/Modbus RTU/05_Firmware/build-host-validation"
+        }
+      ]
+    },
+    {
+      "backtrace" : 208,
+      "command" :
+      [
+        "/home/lolo/dev/msm/projects/MSM_vibe-M015-V/Modbus RTU/05_Firmware/build-host-validation/test_threshold_evaluator"
+      ],
+      "name" : "threshold_evaluator",
+      "properties" :
+      [
+        {
+          "name" : "WORKING_DIRECTORY",
+          "value" : "/home/lolo/dev/msm/projects/MSM_vibe-M015-V/Modbus RTU/05_Firmware/build-host-validation"
+        }
+      ]
+    },
+    {
+      "backtrace" : 211,
+      "command" :
+      [
+        "/home/lolo/dev/msm/projects/MSM_vibe-M015-V/Modbus RTU/05_Firmware/build-host-validation/test_supervision_service"
+      ],
+      "name" : "supervision_service",
+      "properties" :
+      [
+        {
+          "name" : "WORKING_DIRECTORY",
+          "value" : "/home/lolo/dev/msm/projects/MSM_vibe-M015-V/Modbus RTU/05_Firmware/build-host-validation"
+        }
+      ]
+    },
+    {
+      "backtrace" : 214,
+      "command" :
+      [
+        "/home/lolo/dev/msm/projects/MSM_vibe-M015-V/Modbus RTU/05_Firmware/build-host-validation/test_supervision_temporal_envelope"
+      ],
+      "name" : "supervision_temporal_envelope",
+      "properties" :
+      [
+        {
+          "name" : "WORKING_DIRECTORY",
+          "value" : "/home/lolo/dev/msm/projects/MSM_vibe-M015-V/Modbus RTU/05_Firmware/build-host-validation"
+        }
+      ]
+    },
+    {
+      "backtrace" : 217,
+      "command" :
+      [
+        "/home/lolo/dev/msm/projects/MSM_vibe-M015-V/Modbus RTU/05_Firmware/build-host-validation/test_time_fault_injection"
+      ],
+      "name" : "time_fault_injection",
+      "properties" :
+      [
+        {
+          "name" : "WORKING_DIRECTORY",
+          "value" : "/home/lolo/dev/msm/projects/MSM_vibe-M015-V/Modbus RTU/05_Firmware/build-host-validation"
+        }
+      ]
+    },
+    {
+      "backtrace" : 220,
+      "command" :
+      [
+        "/home/lolo/dev/msm/projects/MSM_vibe-M015-V/Modbus RTU/05_Firmware/build-host-validation/test_configuration_b4_flow"
+      ],
+      "name" : "configuration_b4_flow",
+      "properties" :
+      [
+        {
+          "name" : "WORKING_DIRECTORY",
+          "value" : "/home/lolo/dev/msm/projects/MSM_vibe-M015-V/Modbus RTU/05_Firmware/build-host-validation"
+        }
+      ]
+    },
+    {
+      "backtrace" : 223,
+      "command" :
+      [
+        "/home/lolo/dev/msm/projects/MSM_vibe-M015-V/Modbus RTU/05_Firmware/build-host-validation/test_configuration_activation_adapter"
+      ],
+      "name" : "configuration_activation_adapter",
+      "properties" :
+      [
+        {
+          "name" : "WORKING_DIRECTORY",
+          "value" : "/home/lolo/dev/msm/projects/MSM_vibe-M015-V/Modbus RTU/05_Firmware/build-host-validation"
+        }
+      ]
+    },
+    {
+      "backtrace" : 226,
+      "command" :
+      [
+        "/home/lolo/dev/msm/projects/MSM_vibe-M015-V/Modbus RTU/05_Firmware/build-host-validation/test_p12c_pdu_server"
+      ],
+      "name" : "p12c_pdu_server",
+      "properties" :
+      [
+        {
+          "name" : "WORKING_DIRECTORY",
+          "value" : "/home/lolo/dev/msm/projects/MSM_vibe-M015-V/Modbus RTU/05_Firmware/build-host-validation"
+        }
+      ]
+    },
+    {
+      "backtrace" : 229,
+      "command" :
+      [
+        "/home/lolo/dev/msm/projects/MSM_vibe-M015-V/Modbus RTU/05_Firmware/build-host-validation/test_p12d_rtu_receiver"
+      ],
+      "name" : "p12d_rtu_receiver",
+      "properties" :
+      [
+        {
+          "name" : "WORKING_DIRECTORY",
+          "value" : "/home/lolo/dev/msm/projects/MSM_vibe-M015-V/Modbus RTU/05_Firmware/build-host-validation"
+        }
+      ]
+    },
+    {
+      "backtrace" : 232,
+      "command" :
+      [
+        "/home/lolo/dev/msm/projects/MSM_vibe-M015-V/Modbus RTU/05_Firmware/build-host-validation/test_p12e_serial_transport"
+      ],
+      "name" : "p12e_serial_transport",
+      "properties" :
+      [
+        {
+          "name" : "WORKING_DIRECTORY",
+          "value" : "/home/lolo/dev/msm/projects/MSM_vibe-M015-V/Modbus RTU/05_Firmware/build-host-validation"
+        }
+      ]
+    },
+    {
+      "backtrace" : 235,
+      "command" :
+      [
+        "/home/lolo/dev/msm/projects/MSM_vibe-M015-V/Modbus RTU/05_Firmware/build-host-validation/test_p12h_rtu_server_runtime"
+      ],
+      "name" : "p12h_rtu_server_runtime",
+      "properties" :
+      [
+        {
+          "name" : "WORKING_DIRECTORY",
+          "value" : "/home/lolo/dev/msm/projects/MSM_vibe-M015-V/Modbus RTU/05_Firmware/build-host-validation"
+        }
+      ]
+    },
+    {
+      "backtrace" : 238,
+      "command" :
+      [
+        "/home/lolo/dev/msm/projects/MSM_vibe-M015-V/Modbus RTU/05_Firmware/build-host-validation/test_p12h3c3b_command_journal_bounded_record"
+      ],
+      "name" : "p12h3c3b_command_journal_bounded_record",
+      "properties" :
+      [
+        {
+          "name" : "WORKING_DIRECTORY",
+          "value" : "/home/lolo/dev/msm/projects/MSM_vibe-M015-V/Modbus RTU/05_Firmware/build-host-validation"
+        }
+      ]
+    },
+    {
+      "backtrace" : 241,
+      "command" :
+      [
+        "/home/lolo/dev/msm/projects/MSM_vibe-M015-V/Modbus RTU/05_Firmware/build-host-validation/test_p12h3c3c1_bounded_slot"
+      ],
+      "name" : "p12h3c3c1_bounded_slot",
+      "properties" :
+      [
+        {
+          "name" : "WORKING_DIRECTORY",
+          "value" : "/home/lolo/dev/msm/projects/MSM_vibe-M015-V/Modbus RTU/05_Firmware/build-host-validation"
+        }
+      ]
+    },
+    {
+      "backtrace" : 244,
+      "command" :
+      [
+        "/home/lolo/dev/msm/projects/MSM_vibe-M015-V/Modbus RTU/05_Firmware/build-host-validation/test_p12h3c3c2_bounded_recovery"
+      ],
+      "name" : "p12h3c3c2_bounded_recovery",
+      "properties" :
+      [
+        {
+          "name" : "WORKING_DIRECTORY",
+          "value" : "/home/lolo/dev/msm/projects/MSM_vibe-M015-V/Modbus RTU/05_Firmware/build-host-validation"
+        }
+      ]
+    },
+    {
+      "backtrace" : 247,
+      "command" :
+      [
+        "/home/lolo/dev/msm/projects/MSM_vibe-M015-V/Modbus RTU/05_Firmware/build-host-validation/test_p12h3c3c3_bounded_reader"
+      ],
+      "name" : "p12h3c3c3_bounded_reader",
+      "properties" :
+      [
+        {
+          "name" : "WORKING_DIRECTORY",
+          "value" : "/home/lolo/dev/msm/projects/MSM_vibe-M015-V/Modbus RTU/05_Firmware/build-host-validation"
+        }
+      ]
+    },
+    {
+      "backtrace" : 250,
+      "command" :
+      [
+        "/home/lolo/dev/msm/projects/MSM_vibe-M015-V/Modbus RTU/05_Firmware/build-host-validation/test_p12h3c3c4_bounded_writer"
+      ],
+      "name" : "p12h3c3c4_bounded_writer",
+      "properties" :
+      [
+        {
+          "name" : "WORKING_DIRECTORY",
+          "value" : "/home/lolo/dev/msm/projects/MSM_vibe-M015-V/Modbus RTU/05_Firmware/build-host-validation"
+        }
+      ]
+    },
+    {
+      "backtrace" : 253,
+      "command" :
+      [
+        "/home/lolo/dev/msm/projects/MSM_vibe-M015-V/Modbus RTU/05_Firmware/build-host-validation/test_p12h3c3c4b_bounded_admission"
+      ],
+      "name" : "p12h3c3c4b_bounded_admission",
+      "properties" :
+      [
+        {
+          "name" : "WORKING_DIRECTORY",
+          "value" : "/home/lolo/dev/msm/projects/MSM_vibe-M015-V/Modbus RTU/05_Firmware/build-host-validation"
+        }
+      ]
+    },
+    {
+      "backtrace" : 256,
+      "command" :
+      [
+        "/home/lolo/dev/msm/projects/MSM_vibe-M015-V/Modbus RTU/05_Firmware/build-host-validation/test_p12h3c3c4c1_bounded_store"
+      ],
+      "name" : "p12h3c3c4c1_bounded_store",
+      "properties" :
+      [
+        {
+          "name" : "WORKING_DIRECTORY",
+          "value" : "/home/lolo/dev/msm/projects/MSM_vibe-M015-V/Modbus RTU/05_Firmware/build-host-validation"
+        }
+      ]
+    },
+    {
+      "backtrace" : 259,
+      "command" :
+      [
+        "/home/lolo/dev/msm/projects/MSM_vibe-M015-V/Modbus RTU/05_Firmware/build-host-validation/test_p12h3c3c4d1_fault_media"
+      ],
+      "name" : "p12h3c3c4d1_fault_media",
+      "properties" :
+      [
+        {
+          "name" : "WORKING_DIRECTORY",
+          "value" : "/home/lolo/dev/msm/projects/MSM_vibe-M015-V/Modbus RTU/05_Firmware/build-host-validation"
+        }
+      ]
+    },
+    {
+      "backtrace" : 262,
+      "command" :
+      [
+        "/home/lolo/dev/msm/projects/MSM_vibe-M015-V/Modbus RTU/05_Firmware/build-host-validation/test_p12h3c3c4d2_admission_power_loss"
+      ],
+      "name" : "p12h3c3c4d2_admission_power_loss",
+      "properties" :
+      [
+        {
+          "name" : "WORKING_DIRECTORY",
+          "value" : "/home/lolo/dev/msm/projects/MSM_vibe-M015-V/Modbus RTU/05_Firmware/build-host-validation"
+        }
+      ]
+    },
+    {
+      "backtrace" : 265,
+      "command" :
+      [
+        "/home/lolo/dev/msm/projects/MSM_vibe-M015-V/Modbus RTU/05_Firmware/build-host-validation/test_p12h3c3c4d3_mutation_power_loss"
+      ],
+      "name" : "p12h3c3c4d3_mutation_power_loss",
+      "properties" :
+      [
+        {
+          "name" : "WORKING_DIRECTORY",
+          "value" : "/home/lolo/dev/msm/projects/MSM_vibe-M015-V/Modbus RTU/05_Firmware/build-host-validation"
+        }
+      ]
+    },
+    {
+      "backtrace" : 268,
+      "command" :
+      [
+        "/home/lolo/dev/msm/projects/MSM_vibe-M015-V/Modbus RTU/05_Firmware/build-host-validation/test_p12h3c3c4d4_completion_power_loss"
+      ],
+      "name" : "p12h3c3c4d4_completion_power_loss",
+      "properties" :
+      [
+        {
+          "name" : "WORKING_DIRECTORY",
+          "value" : "/home/lolo/dev/msm/projects/MSM_vibe-M015-V/Modbus RTU/05_Firmware/build-host-validation"
+        }
+      ]
+    },
+    {
+      "backtrace" : 271,
+      "command" :
+      [
+        "/home/lolo/dev/msm/projects/MSM_vibe-M015-V/Modbus RTU/05_Firmware/build-host-validation/test_p12h3c3c4d5_readmission_power_loss"
+      ],
+      "name" : "p12h3c3c4d5_readmission_power_loss",
+      "properties" :
+      [
+        {
+          "name" : "WORKING_DIRECTORY",
+          "value" : "/home/lolo/dev/msm/projects/MSM_vibe-M015-V/Modbus RTU/05_Firmware/build-host-validation"
+        }
+      ]
+    },
+    {
+      "backtrace" : 274,
+      "command" :
+      [
+        "/home/lolo/dev/msm/projects/MSM_vibe-M015-V/Modbus RTU/05_Firmware/build-host-validation/test_p12h3c3c4d6_d8_consolidation"
+      ],
+      "name" : "p12h3c3c4d6_d8_consolidation",
+      "properties" :
+      [
+        {
+          "name" : "WORKING_DIRECTORY",
+          "value" : "/home/lolo/dev/msm/projects/MSM_vibe-M015-V/Modbus RTU/05_Firmware/build-host-validation"
+        }
+      ]
+    },
+    {
+      "backtrace" : 277,
+      "command" :
+      [
+        "/home/lolo/dev/msm/projects/MSM_vibe-M015-V/Modbus RTU/05_Firmware/build-host-validation/test_p12h3d2_transactional_image_media"
+      ],
+      "name" : "p12h3d2_transactional_image_media",
+      "properties" :
+      [
+        {
+          "name" : "WORKING_DIRECTORY",
+          "value" : "/home/lolo/dev/msm/projects/MSM_vibe-M015-V/Modbus RTU/05_Firmware/build-host-validation"
+        }
+      ]
+    },
+    {
+      "backtrace" : 280,
+      "command" :
+      [
+        "/home/lolo/dev/msm/projects/MSM_vibe-M015-V/Modbus RTU/05_Firmware/build-host-validation/test_p12h3d2b_transactional_image_power_loss"
+      ],
+      "name" : "p12h3d2b_transactional_image_power_loss",
+      "properties" :
+      [
+        {
+          "name" : "WORKING_DIRECTORY",
+          "value" : "/home/lolo/dev/msm/projects/MSM_vibe-M015-V/Modbus RTU/05_Firmware/build-host-validation"
+        }
+      ]
+    },
+    {
+      "backtrace" : 283,
+      "command" :
+      [
+        "/home/lolo/dev/msm/projects/MSM_vibe-M015-V/Modbus RTU/05_Firmware/build-host-validation/test_p12h3d2c_transactional_image_recovery"
+      ],
+      "name" : "p12h3d2c_transactional_image_recovery",
+      "properties" :
+      [
+        {
+          "name" : "WORKING_DIRECTORY",
+          "value" : "/home/lolo/dev/msm/projects/MSM_vibe-M015-V/Modbus RTU/05_Firmware/build-host-validation"
+        }
+      ]
+    },
+    {
+      "backtrace" : 286,
+      "command" :
+      [
+        "/home/lolo/dev/msm/projects/MSM_vibe-M015-V/Modbus RTU/05_Firmware/build-host-validation/test_p12h3d2d_persistent_storage_core_integration"
+      ],
+      "name" : "p12h3d2d_persistent_storage_core_integration",
+      "properties" :
+      [
+        {
+          "name" : "WORKING_DIRECTORY",
+          "value" : "/home/lolo/dev/msm/projects/MSM_vibe-M015-V/Modbus RTU/05_Firmware/build-host-validation"
+        }
+      ]
+    },
+    {
+      "backtrace" : 289,
+      "command" :
+      [
+        "/home/lolo/dev/msm/projects/MSM_vibe-M015-V/Modbus RTU/05_Firmware/build-host-validation/test_p12h3d2e_campaign_transactional_media"
+      ],
+      "name" : "p12h3d2e_campaign_transactional_media",
+      "properties" :
+      [
+        {
+          "name" : "WORKING_DIRECTORY",
+          "value" : "/home/lolo/dev/msm/projects/MSM_vibe-M015-V/Modbus RTU/05_Firmware/build-host-validation"
+        }
+      ]
+    },
+    {
+      "backtrace" : 292,
+      "command" :
+      [
+        "/home/lolo/dev/msm/projects/MSM_vibe-M015-V/Modbus RTU/05_Firmware/build-host-validation/test_p12h3d2f_transactional_media_format_policy"
+      ],
+      "name" : "p12h3d2f_transactional_media_format_policy",
+      "properties" :
+      [
+        {
+          "name" : "WORKING_DIRECTORY",
+          "value" : "/home/lolo/dev/msm/projects/MSM_vibe-M015-V/Modbus RTU/05_Firmware/build-host-validation"
+        }
+      ]
+    },
+    {
+      "backtrace" : 295,
+      "command" :
+      [
+        "/home/lolo/dev/msm/projects/MSM_vibe-M015-V/Modbus RTU/05_Firmware/build-host-validation/test_p12h3d2g_transactional_media_format_power_loss"
+      ],
+      "name" : "p12h3d2g_transactional_media_format_power_loss",
+      "properties" :
+      [
+        {
+          "name" : "WORKING_DIRECTORY",
+          "value" : "/home/lolo/dev/msm/projects/MSM_vibe-M015-V/Modbus RTU/05_Firmware/build-host-validation"
+        }
+      ]
+    },
+    {
+      "backtrace" : 298,
+      "command" :
+      [
+        "/home/lolo/dev/msm/projects/MSM_vibe-M015-V/Modbus RTU/05_Firmware/build-host-validation/test_p12h3d2h1_transactional_media_geometry"
+      ],
+      "name" : "p12h3d2h1_transactional_media_geometry",
+      "properties" :
+      [
+        {
+          "name" : "WORKING_DIRECTORY",
+          "value" : "/home/lolo/dev/msm/projects/MSM_vibe-M015-V/Modbus RTU/05_Firmware/build-host-validation"
+        }
+      ]
+    },
+    {
+      "backtrace" : 301,
+      "command" :
+      [
+        "/home/lolo/dev/msm/projects/MSM_vibe-M015-V/Modbus RTU/05_Firmware/build-host-validation/test_p12h3d2h3_transactional_media_alternate_geometry"
+      ],
+      "name" : "p12h3d2h3_transactional_media_alternate_geometry",
+      "properties" :
+      [
+        {
+          "name" : "WORKING_DIRECTORY",
+          "value" : "/home/lolo/dev/msm/projects/MSM_vibe-M015-V/Modbus RTU/05_Firmware/build-host-validation"
+        }
+      ]
+    },
+    {
+      "backtrace" : 304,
+      "command" :
+      [
+        "/home/lolo/dev/msm/projects/MSM_vibe-M015-V/Modbus RTU/05_Firmware/build-host-validation/test_system_runtime"
+      ],
+      "name" : "system_runtime",
+      "properties" :
+      [
+        {
+          "name" : "WORKING_DIRECTORY",
+          "value" : "/home/lolo/dev/msm/projects/MSM_vibe-M015-V/Modbus RTU/05_Firmware/build-host-validation"
+        }
+      ]
+    },
+    {
+      "backtrace" : 307,
+      "command" :
+      [
+        "/home/lolo/dev/msm/projects/MSM_vibe-M015-V/Modbus RTU/05_Firmware/build-host-validation/test_system_runtime_bulk"
+      ],
+      "name" : "system_runtime_bulk",
+      "properties" :
+      [
+        {
+          "name" : "WORKING_DIRECTORY",
+          "value" : "/home/lolo/dev/msm/projects/MSM_vibe-M015-V/Modbus RTU/05_Firmware/build-host-validation"
+        }
+      ]
+    },
+    {
+      "backtrace" : 310,
+      "command" :
+      [
+        "/home/lolo/dev/msm/projects/MSM_vibe-M015-V/Modbus RTU/05_Firmware/build-host-validation/test_p8i_system_runtime_acquisition_commands"
+      ],
+      "name" : "p8i_system_runtime_acquisition_commands",
+      "properties" :
+      [
+        {
+          "name" : "WORKING_DIRECTORY",
+          "value" : "/home/lolo/dev/msm/projects/MSM_vibe-M015-V/Modbus RTU/05_Firmware/build-host-validation"
+        }
+      ]
+    },
+    {
+      "backtrace" : 313,
+      "command" :
+      [
+        "/home/lolo/dev/msm/projects/MSM_vibe-M015-V/Modbus RTU/05_Firmware/build-host-validation/test_p8j_system_runtime_b3_projection"
+      ],
+      "name" : "p8j_system_runtime_b3_projection",
+      "properties" :
+      [
+        {
+          "name" : "WORKING_DIRECTORY",
+          "value" : "/home/lolo/dev/msm/projects/MSM_vibe-M015-V/Modbus RTU/05_Firmware/build-host-validation"
+        }
+      ]
+    },
+    {
+      "backtrace" : 316,
+      "command" :
+      [
+        "/home/lolo/dev/msm/projects/MSM_vibe-M015-V/Modbus RTU/05_Firmware/build-host-validation/test_p8k_power_loss_boot_recovery"
+      ],
+      "name" : "p8k_power_loss_boot_recovery",
+      "properties" :
+      [
+        {
+          "name" : "WORKING_DIRECTORY",
+          "value" : "/home/lolo/dev/msm/projects/MSM_vibe-M015-V/Modbus RTU/05_Firmware/build-host-validation"
+        }
+      ]
+    },
+    {
+      "backtrace" : 319,
+      "command" :
+      [
+        "/home/lolo/dev/msm/projects/MSM_vibe-M015-V/Modbus RTU/05_Firmware/build-host-validation/test_p12h3c3c4e3_runtime_bounded_journal"
+      ],
+      "name" : "p12h3c3c4e3_runtime_bounded_journal",
+      "properties" :
+      [
+        {
+          "name" : "WORKING_DIRECTORY",
+          "value" : "/home/lolo/dev/msm/projects/MSM_vibe-M015-V/Modbus RTU/05_Firmware/build-host-validation"
+        }
+      ]
+    },
+    {
+      "backtrace" : 322,
+      "command" :
+      [
+        "/home/lolo/dev/msm/projects/MSM_vibe-M015-V/Modbus RTU/05_Firmware/build-host-validation/test_time_boot_recovery"
+      ],
+      "name" : "time_boot_recovery",
+      "properties" :
+      [
+        {
+          "name" : "WORKING_DIRECTORY",
+          "value" : "/home/lolo/dev/msm/projects/MSM_vibe-M015-V/Modbus RTU/05_Firmware/build-host-validation"
+        }
+      ]
+    },
+    {
+      "backtrace" : 325,
+      "command" :
+      [
+        "/home/lolo/dev/msm/projects/MSM_vibe-M015-V/Modbus RTU/05_Firmware/build-host-validation/test_configuration_fault_injection"
+      ],
+      "name" : "configuration_fault_injection",
+      "properties" :
+      [
+        {
+          "name" : "WORKING_DIRECTORY",
+          "value" : "/home/lolo/dev/msm/projects/MSM_vibe-M015-V/Modbus RTU/05_Firmware/build-host-validation"
+        }
+      ]
+    },
+    {
+      "backtrace" : 328,
+      "command" :
+      [
+        "/home/lolo/dev/msm/projects/MSM_vibe-M015-V/Modbus RTU/05_Firmware/build-host-validation/test_p5h_acquisition_supervision_b3"
+      ],
+      "name" : "p5h_acquisition_supervision_b3",
+      "properties" :
+      [
+        {
+          "name" : "WORKING_DIRECTORY",
+          "value" : "/home/lolo/dev/msm/projects/MSM_vibe-M015-V/Modbus RTU/05_Firmware/build-host-validation"
+        }
+      ]
+    },
+    {
+      "backtrace" : 331,
+      "command" :
+      [
+        "/home/lolo/dev/msm/projects/MSM_vibe-M015-V/Modbus RTU/05_Firmware/build-host-validation/test_post_p9_a5_host_modbus_read"
+      ],
+      "name" : "post_p9_a5_host_modbus_read",
+      "properties" :
+      [
+        {
+          "name" : "WORKING_DIRECTORY",
+          "value" : "/home/lolo/dev/msm/projects/MSM_vibe-M015-V/Modbus RTU/05_Firmware/build-host-validation"
+        }
+      ]
+    },
+    {
+      "backtrace" : 334,
+      "command" :
+      [
+        "/home/lolo/dev/msm/projects/MSM_vibe-M015-V/Modbus RTU/05_Firmware/build-host-validation/test_modbus_system_server"
+      ],
+      "name" : "modbus_system_server",
+      "properties" :
+      [
+        {
+          "name" : "WORKING_DIRECTORY",
+          "value" : "/home/lolo/dev/msm/projects/MSM_vibe-M015-V/Modbus RTU/05_Firmware/build-host-validation"
+        }
+      ]
+    },
+    {
+      "backtrace" : 337,
+      "command" :
+      [
+        "/home/lolo/dev/msm/projects/MSM_vibe-M015-V/Modbus RTU/05_Firmware/build-host-validation/test_production_commands"
+      ],
+      "name" : "production_commands",
+      "properties" :
+      [
+        {
+          "name" : "WORKING_DIRECTORY",
+          "value" : "/home/lolo/dev/msm/projects/MSM_vibe-M015-V/Modbus RTU/05_Firmware/build-host-validation"
+        }
+      ]
+    },
+    {
+      "backtrace" : 340,
+      "command" :
+      [
+        "/home/lolo/dev/msm/projects/MSM_vibe-M015-V/Modbus RTU/05_Firmware/build-host-validation/test_production_provisioning"
+      ],
+      "name" : "production_provisioning",
+      "properties" :
+      [
+        {
+          "name" : "WORKING_DIRECTORY",
+          "value" : "/home/lolo/dev/msm/projects/MSM_vibe-M015-V/Modbus RTU/05_Firmware/build-host-validation"
+        }
+      ]
+    },
+    {
+      "backtrace" : 343,
+      "command" :
+      [
+        "/home/lolo/dev/msm/projects/MSM_vibe-M015-V/Modbus RTU/05_Firmware/build-host-validation/test_persistent_identity"
+      ],
+      "name" : "persistent_identity",
+      "properties" :
+      [
+        {
+          "name" : "WORKING_DIRECTORY",
+          "value" : "/home/lolo/dev/msm/projects/MSM_vibe-M015-V/Modbus RTU/05_Firmware/build-host-validation"
+        }
+      ]
+    },
+    {
+      "backtrace" : 346,
+      "command" :
+      [
+        "/home/lolo/dev/msm/projects/MSM_vibe-M015-V/Modbus RTU/05_Firmware/build-host-validation/test_production_commissioning"
+      ],
+      "name" : "production_commissioning",
+      "properties" :
+      [
+        {
+          "name" : "WORKING_DIRECTORY",
+          "value" : "/home/lolo/dev/msm/projects/MSM_vibe-M015-V/Modbus RTU/05_Firmware/build-host-validation"
+        }
+      ]
+    },
+    {
+      "backtrace" : 348,
+      "command" :
+      [
+        "/home/lolo/dev/msm/projects/MSM_vibe-M015-V/Modbus RTU/05_Firmware/build-host-validation/test_st_fifo_window"
+      ],
+      "name" : "st_fifo_window_integration",
+      "properties" :
+      [
+        {
+          "name" : "WORKING_DIRECTORY",
+          "value" : "/home/lolo/dev/msm/projects/MSM_vibe-M015-V/Modbus RTU/05_Firmware/build-host-validation"
+        }
+      ]
+    },
+    {
+      "backtrace" : 350,
+      "command" :
+      [
+        "/home/lolo/dev/msm/projects/MSM_vibe-M015-V/Modbus RTU/05_Firmware/build-host-validation/test_st_fifo_admission"
+      ],
+      "name" : "st_fifo_admission",
+      "properties" :
+      [
+        {
+          "name" : "WORKING_DIRECTORY",
+          "value" : "/home/lolo/dev/msm/projects/MSM_vibe-M015-V/Modbus RTU/05_Firmware/build-host-validation"
+        }
+      ]
+    },
+    {
+      "backtrace" : 352,
+      "command" :
+      [
+        "/home/lolo/dev/msm/projects/MSM_vibe-M015-V/Modbus RTU/05_Firmware/build-host-validation/test_st_spi_diagnostic"
+      ],
+      "name" : "st_spi_completion_integration",
+      "properties" :
+      [
+        {
+          "name" : "WORKING_DIRECTORY",
+          "value" : "/home/lolo/dev/msm/projects/MSM_vibe-M015-V/Modbus RTU/05_Firmware/build-host-validation"
+        }
+      ]
+    },
+    {
+      "backtrace" : 354,
+      "command" :
+      [
+        "/home/lolo/dev/msm/projects/MSM_vibe-M015-V/Modbus RTU/05_Firmware/build-host-validation/test_st_window_adapter"
+      ],
+      "name" : "st_window_primary_preflight_and_transport",
+      "properties" :
+      [
+        {
+          "name" : "WORKING_DIRECTORY",
+          "value" : "/home/lolo/dev/msm/projects/MSM_vibe-M015-V/Modbus RTU/05_Firmware/build-host-validation"
+        }
+      ]
+    },
+    {
+      "backtrace" : 356,
+      "command" :
+      [
+        "/home/lolo/dev/msm/projects/MSM_vibe-M015-V/Modbus RTU/05_Firmware/build-host-validation/test_fifo_cooperative"
+      ],
+      "name" : "fifo_cooperative_v1_windows_and_faults",
+      "properties" :
+      [
+        {
+          "name" : "WORKING_DIRECTORY",
+          "value" : "/home/lolo/dev/msm/projects/MSM_vibe-M015-V/Modbus RTU/05_Firmware/build-host-validation"
+        }
+      ]
+    }
+  ],
+  "version" :
+  {
+    "major" : 1,
+    "minor" : 0
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "command": [
+    "python3",
+    "-B",
+    "Modbus RTU/05_Firmware/tests/platform/test_commissioning_generator.py",
+    "-v"
+  ],
+  "return_code": 0,
+  "tests_executed": 6,
+  "scope": "offline authority generator only; not included in125CTest; nohardware"
+}

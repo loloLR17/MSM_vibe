@@ -1,0 +1,33 @@
+{
+  "root_test_files": {
+    ".c": 120,
+    ".h": 6,
+    ".py": 1
+  },
+  "standalone_ST_CTest_names": [
+    "bounded_fifo_xyz_window",
+    "spi_preclose_diagnostic",
+    "official_driver_and_bounded_examples",
+    "fifo_independent_qualification",
+    "spi_hal_instrumentation",
+    "offline_capture_and_target_guards"
+  ],
+  "supervision_test_projects": [
+    "Modbus RTU/Supervision TR2/tests/TR2.Application.Tests/TR2.Application.Tests.csproj",
+    "Modbus RTU/Supervision TR2/tests/TR2.Architecture.Tests/TR2.Architecture.Tests.csproj",
+    "Modbus RTU/Supervision TR2/tests/TR2.Domain.Tests/TR2.Domain.Tests.csproj",
+    "Modbus RTU/Supervision TR2/tests/TR2.Persistence.Tests/TR2.Persistence.Tests.csproj",
+    "Modbus RTU/Supervision TR2/tests/TR2.Protocol.Tests/TR2.Protocol.Tests.csproj",
+    "Modbus RTU/Supervision TR2/tests/TR2.Supervision.Service.Tests/TR2.Supervision.Service.Tests.csproj",
+    "Modbus RTU/Supervision TR2/tests/TR2.Transport.Tests/TR2.Transport.Tests.csproj"
+  ],
+  "additional_Python_tests": [
+    "00_Environnement_developpement/T1000/ssh-hp/test_run_hp.py",
+    "Modbus RTU/05_Firmware/platform/host/rs485_rx_probe/test_preflight_hp.py",
+    "Modbus RTU/05_Firmware/platform/host/rs485_rx_probe/test_rtu_campaign.py",
+    "Modbus RTU/05_Firmware/tests/platform/test_commissioning_generator.py",
+    "experiments/iis3dwb_st_reference/tests/test_fifo_qualification.py",
+    "experiments/iis3dwb_st_reference/tests/test_hal_instrumentation.py",
+    "experiments/iis3dwb_st_reference/tests/test_tools.py"
+  ]
+}
