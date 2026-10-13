@@ -1,6 +1,6 @@
 ---
 mission_id: TR2-20261013-M016-SDMMC-1BIT-LOAD-ONLY
-status: IN_PROGRESS
+status: FAILED
 base_ref: main
 base_sha: 3538017a361d7178a1ac19a9563aeaf2eae1af37
 initial_head: 5efffbd84950cbe96d114b0619fd8846b07d63f0
@@ -18,7 +18,7 @@ allow_debug: true
 
 **Résultat technique : ÉCHEC du scénario de 600 secondes.** Une seule charge a été déclenchée le **13/10/2026 à 22:02:59 UTC** (14/10 à 00:02:59 à Paris). Arrêt après **4,164454 s**, premier refus `load_stage=99 / load_error=3` : **débordement du ring SRAM de 512 KiB**. Les **1 310 720 octets effectivement écrits** ont ensuite été intégralement relus et comparés : **zéro différence**, aucune nouvelle écriture ni répétition de charge. Les dix minutes ne sont pas validées.
 
-Le statut provisoire IN_PROGRESS porte exclusivement sur la publication et sa relecture distante. Il sera remplacé par FAILED après contrôle ; il ne présente pas la charge comme réussie.
+**Statut final FAILED** : le scénario physique n’a pas satisfait ses critères. Le code, les résultats et les preuves ont été publiés sur GitHub, puis intégralement relus ; ce succès de publication ne qualifie pas les dix minutes.
 
 ## Tranches réalisées et code évalué
 
@@ -92,4 +92,6 @@ Dépôt original conservé au HEAD **82169af7e76797731358852bec83bfb0ceb54ccf** 
 
 **Journal ETAT_COURANT_TR2.md actualisé** : transition sûre, essai unique échoué, intégrité du préfixe, état laissé et prochaine décision de mission. Permissions exercées : développement, builds, commit/push normal vers `main`, flash standard et debug de la seconde cible uniquement.
 
-Publication de cette tranche et relecture distante à effectuer ; SHA du commit contenant le rapport communiqué dans la réponse finale, sans auto-référence. Le résultat technique reste un échec, même après publication réussie.
+Commit de résultats **`5d5d9a894f13a0a7b5b5f6bf707ca9a5a0173be5`**, message « M016 load-only: record sole run overflow and verify every written byte », push normal `HEAD:refs/heads/main` réussi. Après fetch depuis GitHub et contrôle `ls-remote`, **58 fichiers** modifiés depuis le HEAD initial ont été intégralement relus depuis cette référence et comparés byte à byte aux fichiers locaux, y compris code, archives, rapport, journal et preuves ; manifest vérifié. [Preuve de relecture](preuves/TR2-20261013-M016-1BIT-LOAD/remote-readback-5d5d9a89.json). Contrat, gouvernance, registre A-04, code de production et main ST historique inchangés ; deux stashes préservés, worktree de mission et dépôt original propres à ce contrôle.
+
+Cette mise à jour clôt le rapport en FAILED. Le SHA du commit final contenant ce statut et le contrôle de sa publication sont fournis dans la réponse finale, sans auto-référence. Reprise technique après nouvelle mission cadrée ; aucun second RUN exécuté.
