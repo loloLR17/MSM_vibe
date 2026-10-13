@@ -1,0 +1,125 @@
+{
+  "mission": "A04",
+  "method": "current unmodified static parse() called through external audit wrapper; synthetic words, no hardware",
+  "observed": "timestamp delta48 after delta24 accepted with eight XYZ between TS; no upper delta bound",
+  "returns": [
+    {
+      "tag": 4,
+      "counter": 0,
+      "value": 0,
+      "result": 0
+    },
+    {
+      "tag": 2,
+      "counter": 0,
+      "value": 1,
+      "result": 0
+    },
+    {
+      "tag": 2,
+      "counter": 1,
+      "value": 1,
+      "result": 0
+    },
+    {
+      "tag": 2,
+      "counter": 2,
+      "value": 1,
+      "result": 0
+    },
+    {
+      "tag": 2,
+      "counter": 3,
+      "value": 1,
+      "result": 0
+    },
+    {
+      "tag": 2,
+      "counter": 0,
+      "value": 1,
+      "result": 0
+    },
+    {
+      "tag": 2,
+      "counter": 1,
+      "value": 1,
+      "result": 0
+    },
+    {
+      "tag": 2,
+      "counter": 2,
+      "value": 1,
+      "result": 0
+    },
+    {
+      "tag": 2,
+      "counter": 3,
+      "value": 1,
+      "result": 0
+    },
+    {
+      "tag": 4,
+      "counter": 0,
+      "value": 24,
+      "result": 0
+    },
+    {
+      "tag": 2,
+      "counter": 0,
+      "value": 2,
+      "result": 0
+    },
+    {
+      "tag": 2,
+      "counter": 1,
+      "value": 2,
+      "result": 0
+    },
+    {
+      "tag": 2,
+      "counter": 2,
+      "value": 2,
+      "result": 0
+    },
+    {
+      "tag": 2,
+      "counter": 3,
+      "value": 2,
+      "result": 0
+    },
+    {
+      "tag": 2,
+      "counter": 0,
+      "value": 2,
+      "result": 0
+    },
+    {
+      "tag": 2,
+      "counter": 1,
+      "value": 2,
+      "result": 0
+    },
+    {
+      "tag": 2,
+      "counter": 2,
+      "value": 2,
+      "result": 0
+    },
+    {
+      "tag": 2,
+      "counter": 3,
+      "value": 2,
+      "result": 0
+    },
+    {
+      "tag": 4,
+      "counter": 0,
+      "value": 72,
+      "result": 0
+    }
+  ],
+  "final_xyz": 16,
+  "final_timestamps": 3,
+  "final_reason": 0,
+  "scope": "demonstrates guard limit; does not establish physical data loss"
+}

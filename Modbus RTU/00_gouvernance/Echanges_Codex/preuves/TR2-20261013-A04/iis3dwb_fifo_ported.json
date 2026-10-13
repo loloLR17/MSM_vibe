@@ -1,0 +1,9 @@
+{
+  "original_sha256": "f8650edb8a1364624214ff0a3bc8132ec8f2d93a81c19b6a967769696acb34ec",
+  "sensor_function_sha256": "ec56a9d0835e26f5166edb8eaf144f5eaa857210c343520361de1398322474d5",
+  "sensor_control_sequence_unchanged": true,
+  "format_only_patch": "timestamp %ld with long cast",
+  "buffer_only_patch": "fifo_data[256] -> [512], watermark unchanged",
+  "original_function_sha256": "816e2a76f85e5bc41fc0ae9ac02464202fc435c3e44374f5fc7d9b30fc877655",
+  "generated_sha256": "11af5e80e1960336db57284018a56e9e63576569944bef470c327eefc919e19e"
+}

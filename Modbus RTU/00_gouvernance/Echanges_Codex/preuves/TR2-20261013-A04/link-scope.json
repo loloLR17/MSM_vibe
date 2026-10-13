@@ -1,0 +1,24 @@
+{
+  "discarded_or_not_linked": [
+    "Sdmmc2_Bringup",
+    "HAL_SD_WriteBlocks",
+    "HAL_SD_Init",
+    "stm32_production_manufacturing_run",
+    "tr2_provision_before",
+    "tr2_fifo_fram_backup",
+    "iis3dwb_fifo"
+  ],
+  "present_required": [
+    "stm32_fifo_cooperative_prepare",
+    "fifo_cooperative_poll",
+    "platform_read",
+    "command_journal_bounded_reader_latest_completed",
+    "stm32_production_server_run"
+  ],
+  "bss": 599612,
+  "heap_stack_reserved_section": 2564,
+  "data_RAM": 472,
+  "RAM_total": 786432,
+  "unallocated_after_sections": 183784,
+  "unallocated_KiB": 179.4765625
+}

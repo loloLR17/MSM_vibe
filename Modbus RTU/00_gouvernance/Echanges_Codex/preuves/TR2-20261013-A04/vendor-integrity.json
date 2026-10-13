@@ -1,0 +1,32 @@
+[
+  {
+    "path": "vendor/st/iis3dwb_reg.c",
+    "sha256": "4bcec804d79a316386afc35c3f4cc39f2547d79689708b9ec6924608ab342d8f",
+    "manifest_equal": true
+  },
+  {
+    "path": "vendor/st/iis3dwb_reg.h",
+    "sha256": "94643441423b6f4ae741925289e1f47e69fa92f09febcfe97afc111e869b1c6c",
+    "manifest_equal": true
+  },
+  {
+    "path": "vendor/st/LICENSE.driver",
+    "sha256": "b54f36a43cf9b8f6292c8f0f3b4c267ebd59859587e0152c94305bc81dda68bc",
+    "manifest_equal": true
+  },
+  {
+    "path": "vendor/st/LICENSE.examples",
+    "sha256": "b54f36a43cf9b8f6292c8f0f3b4c267ebd59859587e0152c94305bc81dda68bc",
+    "manifest_equal": true
+  },
+  {
+    "path": "vendor/st/examples/iis3dwb_read_data_polling.c",
+    "sha256": "bb6217b05ffef4fb5f7c74b35ff40e0943756c3c5b0de461adf37f862d40c817",
+    "manifest_equal": true
+  },
+  {
+    "path": "vendor/st/examples/iis3dwb_fifo.c",
+    "sha256": "f8650edb8a1364624214ff0a3bc8132ec8f2d93a81c19b6a967769696acb34ec",
+    "manifest_equal": true
+  }
+]

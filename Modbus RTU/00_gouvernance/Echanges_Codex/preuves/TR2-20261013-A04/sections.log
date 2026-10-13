@@ -1,0 +1,21 @@
+/home/lolo/dev/msm/reports/TR2-A04-20261013T132613Z/build-cumulative4/tr2_stm32_p11c.elf  :
+section                size        addr
+.isr_vector             568   134217728
+.text                168324   134218296
+.ARM.exidx                8   134386620
+.init_array               4   134386628
+.fini_array               4   134386632
+.data                   472   536870912
+.bss                 599612   536871384
+._user_heap_stack      2564   537470996
+.ARM.attributes          48           0
+.debug_info          577000           0
+.debug_abbrev         70801           0
+.debug_aranges        16648           0
+.debug_rnglists       12639           0
+.debug_line          306608           0
+.debug_str           106396           0
+.debug_frame          63560           0
+.debug_line_str         532           0
+.debug_loclists       44818           0
+Total               1970606

@@ -1,0 +1,19 @@
+[
+  "cmake",
+  "-G",
+  "Ninja",
+  "-S",
+  "/home/lolo/dev/msm/projects/MSM_vibe-A04/Modbus RTU/05_Firmware/platform/stm32",
+  "-B",
+  "/home/lolo/dev/msm/reports/TR2-A04-20261013T132613Z/build-cumulative4",
+  "-DCMAKE_BUILD_TYPE=Debug",
+  "-DCMAKE_TOOLCHAIN_FILE=/home/lolo/dev/msm/projects/MSM_vibe-A04/Modbus RTU/05_Firmware/platform/stm32/cmake/arm-none-eabi-gcc.cmake",
+  "-DSTM32CUBE_U5_ROOT=/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0",
+  "-DTR2_STM32_PRODUCTION=ON",
+  "-DTR2_STM32_RS485_TX_QUALIFIED=ON",
+  "-DTR2_STM32_IRQ_DIAGNOSTICS=ON",
+  "-DTR2_STM32_FIFO_COOPERATIVE=ON",
+  "-DTR2_STM32_FIFO_SPI_MHZ=4",
+  "-DTR2_COMMISSIONING_MANIFEST=/home/lolo/dev/msm/projects/MSM_vibe-A04/Modbus RTU/00_gouvernance/COMMISSIONING_M014_H.json",
+  "-DTR2_COMMISSIONING_REGISTRY=/home/lolo/dev/msm/projects/MSM_vibe-A04/Modbus RTU/00_gouvernance/REGISTRE_ATTRIBUTION_TR2.json"
+]

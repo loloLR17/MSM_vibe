@@ -1,0 +1,9 @@
+{
+  "source_head": "c45a197416ad30fabf932da364eb540935693219",
+  "code_equal_to_ef468539": true,
+  "new_BIN_sha256": "8529630a5a6c9aaa2449fde512b06d6ca16a89a08b7afea2abc9ecca3b75d480",
+  "new_BIN_size": 169380,
+  "M015_V_BIN_byte_identical": true,
+  "new_ELF_sha256": "35bb0d89dc3e045e69d8c34c4b9dc379ff3e64b515d872c303bfad04787e2df9",
+  "original_ELF_debug_paths_differ": true
+}

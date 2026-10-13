@@ -1,0 +1,9 @@
+{
+  "M015_V_manifest_files_verified": 98,
+  "full_RAM_sha256": "b4b2526d755dabb3dd1a47efa44a524dce40c9d3137b51559ae5125f707c2a53",
+  "burst_count": 304,
+  "all_RAM_burst_crc32_match": true,
+  "preserved_host_validation": "125/125",
+  "host_suite_not_reexecuted": "source/tests identical to ef468539; no new functional code in A04",
+  "physical_not_reexecuted": true
+}

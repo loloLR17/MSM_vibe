@@ -1,0 +1,11 @@
+[
+  "gcc",
+  "-shared",
+  "-fPIC",
+  "-DBENCH_WINDOW_MAX_WORDS=36864",
+  "-I/home/lolo/dev/msm/projects/MSM_vibe-A04/experiments/iis3dwb_st_reference/src",
+  "-I/home/lolo/dev/msm/projects/MSM_vibe-A04/experiments/iis3dwb_st_reference/vendor/st",
+  "/home/lolo/dev/msm/reports/TR2-A04-20261013T132613Z/parser-gap-probe.c",
+  "-o",
+  "/home/lolo/dev/msm/reports/TR2-A04-20261013T132613Z/parser-gap-probe.so"
+]
