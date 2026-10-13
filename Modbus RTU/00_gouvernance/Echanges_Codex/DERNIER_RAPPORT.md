@@ -1,10 +1,10 @@
 ---
 mission_id: TR2-20261013-M016-SDMMC-REFERENCE-BENCH
-status: IN_PROGRESS
+status: BLOCKED
 base_ref: main
 base_sha: 1c634e3a16c78feed3a5564fd59a6b2fd2298a93
 initial_head: 15d6519e253a7ad6a092557227491ba7e7aad0cd
-result_sha: null
+result_sha: 077835157fbdefecb4ebc2a416cbf82d1f8891d7
 created_at_utc: 2026-10-13T20:24:08.372367+00:00
 author: Codex
 target_branch: main
@@ -16,7 +16,7 @@ allow_debug: true
 
 # M016 — Banc de référence SDMMC2 4 bits
 
-**Préparation logicielle terminée ; qualification physique PENDING matériel.** Ce checkpoint est IN_PROGRESS en attente de publication/relecture. Aucun ST-LINK détecté par CubeProgrammer v2.23.0 (`-l stlink`, retour0 mais « No ST-Link detected! »). Montage, carte de test et zone d'écriture non confirmés ; question physique envoyée à l'utilisateur. Aucun flash, debug, reset, accès SD/FRAM ni trafic Modbus exécuté dans cette mission. Aucun processus Linux GDB/qualification concurrent observé ; cela ne démontre pas l'état interne d'une carte déconnectée.
+**Préparation logicielle terminée ; qualification physique PENDING matériel.** Statut BLOCKED : obstacle matériel réel, préparation logicielle publiée et relue. Aucun ST-LINK détecté par CubeProgrammer v2.23.0 (`-l stlink`, retour0 mais « No ST-Link detected! »). Montage, carte de test et zone d'écriture non confirmés ; question physique envoyée à l'utilisateur. Aucun flash, debug, reset, accès SD/FRAM ni trafic Modbus exécuté dans cette mission. Aucun processus Linux GDB/qualification concurrent observé ; cela ne démontre pas l'état interne d'une carte déconnectée.
 
 ## Référence et réalisation
 
@@ -52,3 +52,5 @@ Dépôtoriginal propre à82169af7e76797731358852bec83bfb0ceb54ccf, historique di
 Publication normale avec destinationHEAD:refs/heads/main, fetch et relecture intégrale des livrables/diff/empreintes avant statutfinal. SHAcode évalué sera renseigné aprèscommit, sans autoSHA. Aucune qualification indépendante ni tag créé.
 
 **Reprise physique nécessaire (AGENTS§9 et contrat§4–5)** : connecter le secondbanc ; confirmer pins/alimentation/modules déconnectés ; choisir microSDtest et autoriser huitsecteurs sacrifiables identifiés (ou annoncer données à préserver). Pas de formatage/repartition implicite. Puis préflightSN/UID/Flash et readonly, buildLBAautorisé/CID, troisrounds, observationerreurs/bus/clock et comparaisonintégrale ; rapportphysique et comparaisonminimalavecTR2 si succès. Aucun essai sur TR2principal ; la restauration de son cumulatif relève d'une clarification de périmètre ultérieure si souhaitée.
+
+Relecture distante intégrale effectuée aprèsfetch au SHA `077835157fbdefecb4ebc2a416cbf82d1f8891d7` : 30 livrables byte-identiques aux fichiers locaux, manifesteSHA256 vérifié. Code réellement cross-compilé à ce SHA ; matériel non exécuté. Commit `M016 reference bench: prepare isolated ST SDMMC2 4-bit demo and hardware handoff`. Mise à jour finale documentaire suivie depushnormal et nouvelle relecture ; SHAfinal fourni dans réponseCodex. Worktree propre aprèspremierpush, archives/Gouvernance/mission/dette/stashes préservés.

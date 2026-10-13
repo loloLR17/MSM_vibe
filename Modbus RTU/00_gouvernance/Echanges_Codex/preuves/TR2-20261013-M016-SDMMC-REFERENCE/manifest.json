@@ -10,5 +10,6 @@
   "inventory-observed.txt": "8d16f10763cd2c557498d45fb17e52af3c1e7f8db4ebe6c8bfbc67ba2069be24",
   "m016-sd-reference-armed-configure.log": "42c8f1144f0b90dfad1305ae56dfe0a64b14217e8dc0ffb65c8cadb5f1283c6d",
   "m016-sd-reference-build.log": "c93710c71d85484eada1531528a8e283182c272d4771cc342cf56c1f3d38e9ae",
+  "publication-readback.json": "2c6c071c1cf02128f2da3c6121bc394e236a927b265e495e41c198f03784e1d0",
   "armed_compile_only-symbols.log": "19e24b4844f784ef2979de28dae35890dcb50d7773619a35e70edf323b2338ab"
 }
