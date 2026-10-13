@@ -1,6 +1,6 @@
 /* Adapted ST SD_ReadWrite_DMALinkedList application.
  * Copyright (c) 2021 STMicroelectronics; vendor/LICENSE.examples.md.
- * Local adaptations: SDMMC2, single noncircular node, bounded RAM trigger,
+ * Local adaptations: SDMMC2, two contiguous noncircular nodes, bounded RAM trigger,
  * no erase/format, no automatic write, exact byte oracle and telemetry.
  */
 #include "stm32u5xx_hal.h"
@@ -12,7 +12,7 @@
 #define TIMEOUT 2000U
 #define TRIGGER 0x4D313642U
 SD_HandleTypeDef hsd2;
-SDMMC_DMALinkNodeTypeDef node;
+SDMMC_DMALinkNodeTypeDef node[2];
 SDMMC_DMALinkedListTypeDef list;
 _Alignas(32) uint8_t tx[BYTES], rx[BYTES];
 volatile uint32_t bench_stage, bench_trigger, bench_error, bench_phase;
@@ -60,11 +60,16 @@ static int ready(void) {
 }
 static int transfer(int writing) {
   bench_done=0; bench_dma_error=0;
-  memset(&node,0,sizeof node); memset(&list,0,sizeof list);
+  memset(node,0,sizeof node); memset(&list,0,sizeof list);
   SD_DMALinkNodeConfTypeDef config={0};
-  config.BufferAddress=(uint32_t)(writing?tx:rx); config.BufferSize=BYTES;
-  if(HAL_SDEx_DMALinkedList_BuildNode(&node,&config)!=HAL_OK ||
-     HAL_SDEx_DMALinkedList_InsertNode(&list,NULL,&node)!=HAL_OK) return 0;
+  /* The CubeU5 linked-list entry point preloads head+sizeof(node).
+   * Preserve the official two-node layout, rather than inventing a one-node list. */
+  for(unsigned i=0;i<2;i++) {
+    config.BufferAddress=(uint32_t)((writing?tx:rx)+i*(BYTES/2));
+    config.BufferSize=BYTES/2;
+    if(HAL_SDEx_DMALinkedList_BuildNode(&node[i],&config)!=HAL_OK ||
+       HAL_SDEx_DMALinkedList_InsertNode(&list,i?&node[0]:NULL,&node[i])!=HAL_OK) return 0;
+  }
   bench_hal_return=writing?
     HAL_SDEx_DMALinkedList_WriteBlocks(&hsd2,&list,BENCH_TEST_LBA,BLOCKS):
     HAL_SDEx_DMALinkedList_ReadBlocks(&hsd2,&list,BENCH_TEST_LBA,BLOCKS);

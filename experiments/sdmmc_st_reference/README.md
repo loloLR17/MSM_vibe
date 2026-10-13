@@ -6,7 +6,7 @@ Projet indépendant du firmware TR2. Référence : [ST CubeU5 v1.9.0, SD_ReadWri
 
 `vendor/` conserve main/MSP/README originaux et licences, empreintes dans `SOURCES.json`. Exemples SLA0044, HAL BSD-3-Clause, CMSIS Apache-2.0 ; HAL/CMSIS restent dépendances externes du SDK qualifié. `clock.c` reprend la fonction SystemClock_Config ST (MSI→PLL, CPU160MHz et HSI48). Toolchain/linker/config HAL adaptés du projet autonome M015, sans son driver ni son code capteur.
 
-Adaptations explicites : SDMMC1→2 et six GPIO, maintien clock falling/CLK48/div1 donc 24MHz nominal, bus4bit, pas de high-speed CMD6 facultatif, pas d'ICACHE/BSP LED, aucune commande erase/format, passage des deux nodes circulaires/24Mo à un node noncirculaire de4096octets et trois répétitions. Écriture et relecture utilisent les API **HAL_SDEx_DMALinkedList** du SDK, DMA interne/IRQ. Toutes les données sont techniques synthétiques.
+Adaptations explicites : SDMMC1→2 et six GPIO, maintien clock falling/CLK48/div1 donc 24MHz nominal, bus4bit, pas de high-speed CMD6 facultatif, pas d'ICACHE/BSP LED, aucune commande erase/format, passage des deux nodes circulaires/24Mo à deux nodes contigus noncirculaires de2048octets chacun et trois répétitions. Écriture et relecture utilisent les API **HAL_SDEx_DMALinkedList** du SDK, DMA interne/IRQ. Toutes les données sont techniques synthétiques.
 
 **Écart constaté dans le SDK :** les fonctions `HAL_SDEx_DMALinkedList_ReadCpltCallback/WriteCpltCallback` de l'exemple ne sont pas appelées par le HAL v1.9.0 présent. Son `HAL_SD_IRQHandler` appelle `HAL_SD_RxCpltCallback/TxCpltCallback` à DATAEND. L'adaptation utilise ces callbacks réels ; driver ST inchangé. Attentes bornées à2000ms et contrôle CMD13 sans erreur + TRANSFER + READY_FOR_DATA. Aucun délai dans IRQ. Pas de DCACHE ; buffers alignés32, SRAM normale. L'exemple adapté est à qualifier ; compilation ne démontre pas le DMA physique.
 
@@ -55,3 +55,5 @@ Un build avec `-DBENCH_WRITE_ENABLE=1 -DBENCH_TEST_LBA=<LBA autorisé>` doit êt
 6. En échec conserver les traces avant autres commandes carte, déterminer la première phase fautive. Une nouvelle hypothèse doit précéder tout changement. En succès comparaison des différences DMA/IRQ/clockedge/kernel/bus/alimentation avec TR2, proposition minimale pour mission suivante ; aucune intégration/flash TR2 ici. Laisser l'image isolée selon règle secondeNUCLEO, sans restauration non autorisée. Journal/rapport/proofs/push et relecture distante.
 
 Préconditions actuelles non satisfaites : aucun ST-LINK détecté et montage/média/zone non confirmés. Aucun essai physique exécuté pour cette mission.
+
+Correction de qualification physique : le premier essai à un seul node a échoué (CRC/RXOVR). Le HAL initialize IDMALAR avec ULA et sizeof(node) et prépare donc head+12 ; adaptation revenue aux deux nodes contigus ST, liste finie sans modecirculaire. Aucune modification de HAL, clock ou bus. Essais et preuves distincts dans rapport de mission PHYSICAL.
