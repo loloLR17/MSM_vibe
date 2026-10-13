@@ -71,7 +71,7 @@ Dernière observation GDB sans reset : production stage2/result0/pollerrors0, FR
 
 ## Publication et suite
 
-Archive durable : `/home/lolo/dev/msm/reports/TR2-mission015-U-20261013T100029Z`. Flash/RAM/FRAM/images/logs originaux y sont conservés ; seules les preuves utiles sont publiées. Logs normalisés pour Git avec originaux byte-exacts en `.original.hex`.
+Archive durable : `/home/lolo/dev/msm/reports/TR2-mission015-U-20261013T100029Z`. Flash/RAM/FRAM/images/logs originaux y sont conservés ; seules les preuves utiles sont publiées. Logs et CSV normalisés pour Git avec originaux byte-exacts en `.original.hex`. Le premier commit de résultats conservait les fins CRLF des CSV : le contrôle whitespace les a signalées, mais la commande groupée a continué jusqu’au push. Ce défaut de séquencement est corrigé ; les CSV sont normalisés sans changement de données et les commandes suivantes utilisent un arrêt au premier échec.
 
 Le dépôt principal historique82169af et les worktrees restent préservés ; les deux stashes sont intacts. L’archive T-reprise est exacte depuis51dff58. Le contrat courant omet base_sha et created_at_utc : cette absence est signalée, sans modifier MISSION_EN_COURS.md ; le HEAD initial complet figure dans ce rapport.
 
