@@ -1,35 +1,31 @@
 ---
-mission_id: TR2-20261013-A06-GOUVERNANCE-CONSOLIDATION
+mission_id: TR2-20261013-M015-V-COOPERATIVE-CLOTURE
 status: READY
 base_ref: main
 author: ChatGPT
 target_branch: main
 allow_commit: true
 allow_push: true
-allow_flash: false
-allow_debug: false
+allow_flash: true
+allow_debug: true
 ---
 
-# Audit A / A-06 — Consolidation incrémentale de la gouvernance MSM TR2
+# M015-V — Viser la clôture de M015 sur TR2-001
 
-## Objectif et principe intangible
-Appliquer les décisions conjointes de l'audit A-01 à A-06 en **préservant le fonctionnement actuel**. Le circuit obligatoire reste ChatGPT → GitHub → Codex → GitHub → ChatGPT. Aucun changement de firmware, de matériel, de spécification V1 gelée, de configuration GitHub du dépôt, ni de méthode de travail structurelle. Privilégier les modifications documentaires minimales, proportionnées, traçables, sans multiplier les documents ou les obligations. Examiner d'abord l'existant et signaler les contradictions éventuelles.
+## Références et objectif
+Lire AGENTS.md, ETAT_COURANT_TR2.md, ROADMAP_TR2_VERS_SUPERVISION_VIBRATOIRE.md, rapport et preuves M015-U, spécifications V1 et règles de sauvegarde. Vérifier le HEAD réel de main, l'état Git, les worktrees/stashes, archiver l'ancien contrat selon la gouvernance. Objectif : intégrer le moteur FIFO IIS3DWB au firmware STM32 principal en **service coopératif**, avec acquisition physique et Modbus B0/B1 **simultanés** sur TR2-001, puis viser la clôture M015 si et seulement si les critères applicables sont démontrés. Ne pas démarrer M016–M020 ni publier prématurément des mesures vibratoires V1.
 
-## Préparation et préservation
-Lire AGENTS.md et la gouvernance courante sur origin/main, le rapport M015-V et les documents de suivi. Vérifier HEAD réel, branche, git status, worktrees, stashes, éventuelle mission concurrente et état de la mission précédente. Archiver le contrat M015-V selon le protocole existant sans le modifier ni perdre sa traçabilité ; ne pas altérer DERNIER_RAPPORT.md tant que les preuves précédentes ne sont pas préservées. Travailler avec une zone Git propre et des commits/push normaux, jamais de force push ni d'écrasement de travaux existants. Ne pas modifier le présent contrat.
+## Travaux autorisés
+Auditer l'architecture actuelle et les propriétaires des ressources (SPI3, SPI1/FRAM, UART/Modbus, SDMMC2, IRQ, horloges, RAM, CPU). Transformer le profil FIFO expérimental exclusif M015-U en chemin de production coopératif à temps borné, sans affaiblir les guards ni casser M014-H. Réutiliser le driver ST et ses adaptations validées. Tester les défauts, transitions, reprise, erreurs HAL/OVR/FULL, timestamps, tags, compteurs, nettoyage et invalidation. Préserver le mapping V1, les médias et la configuration persistante. Pas de DMA, RTOS, refactoring global ou changement d'architecture majeur sans escalade motivée.
 
-## Travaux à effectuer de manière autonome
-1. Auditer la gouvernance et le protocole existants. Compléter **au plus juste** AGENTS.md et/ou les documents de gouvernance déjà présents ; n'ajouter un document que si une lacune précise le justifie.
-2. Expliciter les responsabilités : ChatGPT définit avec l'utilisateur les objectifs, contraintes et critères d'acceptation ; Codex analyse les solutions et risques puis réalise les travaux autorisés de manière autonome ; Codex publie code/preuves/rapport ; ChatGPT vérifie indépendamment. L'utilisateur n'intervient que pour décisions structurantes, risques matériels non maîtrisés, opérations destructives inhabituelles et gestes physiques.
-3. Rappeler à ChatGPT la lecture obligatoire de la gouvernance **courante de main** avant chaque analyse technique ou mission TR2, et la vérification distante de toute publication. Les instructions du projet ChatGPT dans l'interface ne peuvent pas être modifiées depuis ce dépôt : fournir en rapport un **texte bref prêt à copier** pour celles-ci, notamment la lecture GitHub obligatoire et **aucun recours à Work sans demande explicite de l'utilisateur**. Ne pas prétendre avoir modifié les paramètres ChatGPT.
-4. Formaliser la gestion des interruptions : checkpoint intermédiaire avec état IN_PROGRESS distinct de DONE/BLOCKED/FAILED, SHA et état Git, tests effectués, éléments matériels, reste à faire ; commits/push intermédiaires proportionnés si autorisés ; reprise de la même mission sans inventer de progression ni de quota observable. Ne pas rendre obligatoire un checkpoint à chaque action.
-5. Clarifier les rôles des documents existants (AGENTS.md permanent, MISSION_EN_COURS.md contrat, DERNIER_RAPPORT.md preuves récentes, ETAT_COURANT_TR2.md état synthétique, ROADMAP jalons), en limitant les répétitions. Ne pas entreprendre la réécriture massive des longs documents dans cette mission ; proposer seulement une simplification graduelle.
-6. Préparer un mécanisme léger de qualification : tags Git **annotés** pour jalons réellement qualifiés, pointant sur le commit de code qualifié et créés après revue indépendante ChatGPT ; fiche de qualification concise avec preuves, limites, SHA et configuration exacte. Ne créer **aucun tag de qualification rétroactif** ni affirmer que M015-V a été qualifié indépendamment.
-7. Consigner l'orientation A-06 « amélioration incrémentale maîtrisée » : conserver ce qui fonctionne, corriger les défauts démontrés et risques importants, pas de refonte préventive, pas de bureaucratie nouvelle.
-8. Documenter en quelques lignes le prochain audit technique, **sans l'exécuter** : configuration de build STM32 canonique, budgets temporels FIFO/Modbus/FRAM/SD, drivers ST et dépendances, qualité des tests, reproductibilité, CI légère facultative. Codex sera sollicité pour proposer et réaliser les corrections minimales après analyse des risques, dans une mission distincte.
+**SPI 8 MHz explicitement autorisé si les contraintes temporelles le justifient.** Mesurer d'abord la coexistence à 4 MHz sur TR2-001 (M015-U : service actif moyen 2,056 ms, budget nominal 4,267 ms, borne haute occupée maximale 4,000 ms). Si la marge est insuffisante, Codex peut de façon autonome tester et retenir SPI3 8 MHz, comme sur le second banc M015-T (CPU160, HSI16/div2, service actif moyen 1,119 ms), après contrôle effectif de la source RCC, du diviseur, du mode SPI, de l'intégrité des transactions et des ressources partagées sur TR2-001. La qualification 8 MHz du second banc ne vaut pas qualification automatique sur TR2-001. Ne pas dépasser 8 MHz ni modifier SPI1/FRAM.
 
-## Autorisations et limites
-Développement documentaire, commit et push sur main autorisés, sans demande de validation répétitive. allow_flash=false et allow_debug=false car **aucune opération STM32 n'est nécessaire**. Pas de modification de code, de scripts de build, de CI ou d'instructions ChatGPT hors dépôt. Ne pas changer les permissions permanentes ni affaiblir les garde-fous matériels de AGENTS.md. Pas de réorganisation globale ni de suppression d'archives. Escalader seulement un conflit normatif insoluble, une décision structurante ou un risque exceptionnel.
+## Validation et matériel
+Compiler et tester logiciel/ARM ; exécuter la validation complète lorsque les interfaces communes sont touchées. Avant flash/debug, identifier sans ambiguïté TR2-001 et distinguer la seconde NUCLEO ; sauvegarder/vérifier les images et données nécessaires, les empreintes, la méthode ST-LINK et la possibilité de retour M014-H. Autorisations de commit/push/flash/debug normales accordées, sans validation répétitive ; préserver FRAM, microSD, identité, Option Bytes et protections. Aucun mass erase, changement de câblage, écriture persistante imprévue ou opération destructive inhabituelle. L'utilisateur réalise uniquement les gestes physiques indispensables.
 
-## Acceptation et livraison
-Diff documentaire restreint et motivé ; absence de contradiction avec AGENTS.md et le protocole ; contrats précédents et preuves préservés ; vérifications documentaires adaptées ; état Git et commits SHA publiés ; DERNIER_RAPPORT.md avec DONE, IN_PROGRESS, BLOCKED ou FAILED et preuves, limites et texte court d'instructions projet ChatGPT. Vérifier la présence réelle des commits sur origin/main après push. ChatGPT contrôlera indépendamment le rapport et les fichiers modifiés avant toute qualification ou nouvelle mission technique.
+Effectuer des essais physiques bornés et instrumentés : au minimum fenêtre 4096 XYZ + timestamps, reconstruction wire/RAM, contrôle des erreurs et marges ; lectures B0/B1 **pendant** l'acquisition, contrôle des latences, de l'état UART et des transitions d'erreur. Vérifier les exigences M015 de la roadmap, dont les fenêtres V1 et la continuité ; une seule fenêtre 4096 ne suffit pas à affirmer une qualification complète si d'autres critères restent ouverts. Consigner PASS/FAIL/NON VERIFIE. Ne pas prétendre à endurance, zéro perte global, FFT, stockage ou calibration non testés.
+
+Si l'intégration et la qualification sont satisfaisantes, **laisser le firmware cumulatif M014+M015 en fonctionnement sur TR2-001** avec sauvegarde M014-H vérifiée ; ne pas restaurer M014-H par automatisme. Si échec critique, retour qualifié à l'image de référence sans perte de données et vérification B0/B1. Ne jamais laisser la carte dans un état indéterminé.
+
+## Livraison et clôture
+Publier code, tests, traces et preuves, rapport DERNIER_RAPPORT.md, ETAT_COURANT_TR2.md et roadmap selon les faits ; vérifier les commits distants. M015 DONE seulement si les critères réels sont tous remplis ; sinon M015 IN PROGRESS avec blocages et prochain pas explicites. Ne pas déclarer J3/M016 accomplis. Après clôture M015, prévoir une pause méthodologique sur l'usage des drivers officiels ST et l'audit futur SDMMC 4 bits. ChatGPT contrôlera indépendamment le rapport. Respecter AGENTS.md et préserver travaux et archives préexistants.
