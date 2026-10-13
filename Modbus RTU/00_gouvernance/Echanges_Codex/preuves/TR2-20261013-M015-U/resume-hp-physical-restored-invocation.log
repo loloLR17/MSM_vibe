@@ -1,0 +1,14 @@
+{
+    "task":  "Steady",
+    "utc":  "2026-10-13T09:53:39.4071311+00:00",
+    "package":  "C:\\Users\\Lolo\\AppData\\Local\\TR2\\M014-H-20261012T073729Z",
+    "filesVerified":  371,
+    "exitCode":  0,
+    "stdout":  "SYSTEM_CHECK plan: unit=1; FC03 B0=0/21 then B1=1000/20 only after compatible B0; supportedProtocolVersion=1; maximumRequests=2; retries=0; no writes/polling/runtime.\r\nSerial plan: COM7/115200/8/Even/One; timeoutMs=1000; perReadDeadlineMs=4000.\r\nSYSTEM_CHECK complete: DeviceId=1; SystemStatus=1; connection closed; no retry. Status is decoded, not an assertion of READY or production qualification.\r\n",
+    "stderr":  "",
+    "serialAuthorized":  true,
+    "journalHash":  "8C9A4B8B05871316C85FC4A5D6F277F42EF99E5A998FCF2E2693C62F9DC8BCDF"
+}
+
+#< CLIXML
+<Objs Version="1.1.0.1" xmlns="http://schemas.microsoft.com/powershell/2004/04"><Obj S="progress" RefId="0"><TN RefId="0"><T>System.Management.Automation.PSCustomObject</T><T>System.Object</T></TN><MS><I64 N="SourceId">1</I64><PR N="Record"><AV>Pr�paration des modules � la premi�re utilisation.</AV><AI>0</AI><Nil /><PI>-1</PI><PC>-1</PC><T>Completed</T><SR>-1</SR><SD> </SD></PR></MS></Obj></Objs>

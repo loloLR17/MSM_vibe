@@ -1,0 +1,78 @@
+modbus_rtu_server_runtime_poll_once (runtime=0x2000e5ec <server+36>) at /home/lolo/dev/msm/projects/MSM_vibe-M014-H/Modbus RTU/05_Firmware/src/modbus/rtu_server_runtime.c:151
+151	}
+0xbfa0700:	0x004a003d	0x38425018	0x20333157
+[Inferior 1 (Remote target) detached]
+
+serverexit 0
+0x0800e0d8 in stm32_iis3dwb_st_window_run (handle=0x200003d0 <hspi3>, fram=0x20000340 <hspi1>) at /home/lolo/dev/msm/projects/MSM_vibe-M015-U/Modbus RTU/05_Firmware/platform/stm32/stm32_iis3dwb_st_window.c:160
+160	  while(!bench_command)__WFI();
+0xbfa0700:	0x004a003d	0x38425018	0x20333157
+STM32 Successfully completed reset operation (System reset)
+[Inferior 1 (Remote target) detached]
+
+serverexit 0
+0x0800e0d8 in stm32_iis3dwb_st_window_run (handle=0x200003d0 <hspi3>, fram=0x20000340 <hspi1>) at /home/lolo/dev/msm/projects/MSM_vibe-M015-U/Modbus RTU/05_Firmware/platform/stm32/stm32_iis3dwb_st_window.c:160
+160	  while(!bench_command)__WFI();
+0xbfa0700:	0x004a003d	0x38425018	0x20333157
+$1 = 1
+$2 = 1
+$3 = 0
+$4 = 1
+$5 = 160000000
+$6 = 160000000
+0x46020c00:	0x03000505	0x00000000	0x4486b5c9	0x00084210
+0x46020c10:	0x0010090f	0x0000010d	0x00000000	0x0000000f
+0x46020c20:	0x00000000	0x00000000
+0x46020ce8:	0x00000010
+0x4602080c:	0x0007c000
+0x40022000:	0x00000004
+0x46002000:	0x00001000	0x00000000	0x10070007	0x87400000
+0x46002010:	0x00000000	0x00001002
+0xe000ed28:	0x00000000	0x00000000
+[Inferior 1 (Remote target) detached]
+
+serverexit 0
+0x0800e0d8 in stm32_iis3dwb_st_window_run (handle=0x200003d0 <hspi3>, fram=0x20000340 <hspi1>) at /home/lolo/dev/msm/projects/MSM_vibe-M015-U/Modbus RTU/05_Firmware/platform/stm32/stm32_iis3dwb_st_window.c:160
+160	  while(!bench_command)__WFI();
+0xbfa0700:	0x004a003d	0x38425018	0x20333157
+[Inferior 1 (Remote target) detached]
+
+serverexit 0
+0x0800e164 in stm32_iis3dwb_st_window_run (handle=0x200003d0 <hspi3>, fram=0x20000340 <hspi1>) at /home/lolo/dev/msm/projects/MSM_vibe-M015-U/Modbus RTU/05_Firmware/platform/stm32/stm32_iis3dwb_st_window.c:169
+169	  for(;;)__WFI();
+$1 = 3
+$2 = 0
+$3 = 3
+$4 = {stage = 6, result = 0, cleanup_result = 0, count = 4608, xyz_count = 4096, timestamp_count = 512, who = 123, raw_level = 60, st_level = 0, flags = 0, status10 = 0, st_batch = 0, controls = "\000\001\n†{¬\000D\000\000\000\000\000à", words = {{tag = 0 '\000', data = "\000\000\000\000\000"} <repeats 512 times>}, xyz = {{0, 0, 0} <repeats 64 times>}, temperature = 0, polls = 123, cleanup_controls = "\f\200"}
+$5 = {target_xyz = 4096, received = 4608, xyz = 4096, timestamps = 512, polls = 123, bursts = 38, first_tick = 10651, last_tick = 10817, max_level = 187, last_level = 60, flags_or = 0, reason = 0, previous_counter = 3, counter_valid = 1, previous_ts = 13044, ts_valid = 1, since_ts = 8}
+$6 = {4849725, 943869976, 540225879}
+$7 = 32
+0xe000ed28:	0x00000000	0x00000000
+[Inferior 1 (Remote target) detached]
+
+serverexit 0
+0x08003908 in HAL_GetTick () at /home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal.c:344
+344	}
+0xbfa0700:	0x004a003d	0x38425018	0x20333157
+STM32 Successfully completed reset operation (System reset)
+[Inferior 1 (Remote target) detached]
+
+serverexit 0
+modbus_system_server_poll_once (server=0x2000e5c8 <server>) at /home/lolo/dev/msm/projects/MSM_vibe-M014-H/Modbus RTU/05_Firmware/src/application/modbus_system_server.c:140
+140	{
+0xbfa0700:	0x004a003d	0x38425018	0x20333157
+$1 = 2
+$2 = 0
+$3 = 0
+$4 = {status = TRANSACTIONAL_IMAGE_RECOVERY_VALID, generation = 12, active_image = 1 '\001'}
+$5 = {generation = 1, identity = {hardware_uid = {4849725, 943869976, 540225879}, functional = {generation = 1, device_id = 1, hardware_version = 1, firmware_version_major = 0, firmware_version_minor = 14, firmware_version_patch = 8, protocol_version = 1, device_capabilities = 12, serial_number = "TR2-000001\000\000\000\000\000", manufacturer = "MSM\000\000\000\000"}, unit_id = 1 '\001'}}
+$6 = CONFIGURATION_RECOVERY_UNAVAILABLE
+$7 = false
+$8 = false
+$9 = 0
+0xe000e100:	0x00000000	0x00020000	0x00000004
+0xe000ed28:	0x00000000	0x00000000
+[Inferior 1 (Remote target) detached]
+
+serverexit 0
+Single campaign finished, M014-H restored; inspect raw result

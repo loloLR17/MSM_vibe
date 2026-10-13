@@ -1,0 +1,4 @@
+[  0%] Building C object CMakeFiles/test_st_window_adapter.dir/tests/platform/test_st_window_adapter.c.o
+[  0%] Building C object CMakeFiles/test_st_window_adapter.dir/home/lolo/dev/msm/projects/MSM_vibe-M015-U/experiments/iis3dwb_st_reference/src/spi_diagnostic.c.o
+[100%] Linking C executable test_st_window_adapter
+[100%] Built target test_st_window_adapter

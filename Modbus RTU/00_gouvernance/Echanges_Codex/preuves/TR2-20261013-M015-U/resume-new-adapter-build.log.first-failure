@@ -1,0 +1,9 @@
+[  0%] Building C object CMakeFiles/test_st_window_adapter.dir/tests/platform/test_st_window_adapter.c.o
+In file included from /home/lolo/dev/msm/projects/MSM_vibe-M015-U/Modbus RTU/05_Firmware/tests/platform/test_st_window_adapter.c:1:
+/home/lolo/dev/msm/projects/MSM_vibe-M015-U/Modbus RTU/05_Firmware/tests/platform/../../platform/stm32/stm32_iis3dwb_st_window.c:13:41: error: ‘BENCH_DUPLEX’ undeclared here (not in a function)
+   13 | volatile uint32_t bench_transfer_method=BENCH_DUPLEX;
+      |                                         ^~~~~~~~~~~~
+gmake[3]: *** [CMakeFiles/test_st_window_adapter.dir/build.make:79: CMakeFiles/test_st_window_adapter.dir/tests/platform/test_st_window_adapter.c.o] Error 1
+gmake[2]: *** [CMakeFiles/Makefile2:4545: CMakeFiles/test_st_window_adapter.dir/all] Error 2
+gmake[1]: *** [CMakeFiles/Makefile2:4552: CMakeFiles/test_st_window_adapter.dir/rule] Error 2
+gmake: *** [Makefile:1785: test_st_window_adapter] Error 2

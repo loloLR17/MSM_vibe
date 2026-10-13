@@ -1,0 +1,7 @@
+{
+  "baseline_main_sha": "c27621ffbc40ae96ec5b67d2263a8a9daa21e610",
+  "M015_U_production_BIN_byte_identical_baseline_main": true,
+  "baseline_sha256": "9e645d61fd8212374dbabe0fdc02bac15c0695fa6dae26f0e95f62def1bc2530",
+  "U_sha256": "9e645d61fd8212374dbabe0fdc02bac15c0695fa6dae26f0e95f62def1bc2530",
+  "reason": "Historical M014-H vs current production differs; isolate U effect without a physical repeat"
+}

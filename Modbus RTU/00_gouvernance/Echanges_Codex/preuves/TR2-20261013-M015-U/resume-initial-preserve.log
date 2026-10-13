@@ -1,0 +1,10 @@
+0x0800c7f8 in stm32_production_server_run () at /home/lolo/dev/msm/projects/MSM_vibe-M014-H/Modbus RTU/05_Firmware/platform/stm32/stm32_production_board.c:192
+192	        (void)tick;tr2_production_stage=2;
+0xbfa0700:	0x004a003d	0x38425018	0x20333157
+$1 = 2
+$2 = 0
+$3 = {status = TRANSACTIONAL_IMAGE_RECOVERY_VALID, generation = 12, active_image = 1 '\001'}
+$4 = CONFIGURATION_RECOVERY_UNAVAILABLE
+0xe000e100:	0x00000000	0x00020000	0x00000004
+0xe000ed28:	0x00000000	0x00000000
+[Inferior 1 (Remote target) detached]

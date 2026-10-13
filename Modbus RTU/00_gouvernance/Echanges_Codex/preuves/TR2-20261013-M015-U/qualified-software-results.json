@@ -1,0 +1,42 @@
+{
+  "host_tests": 123,
+  "complete_validation": true,
+  "default_ARM": true,
+  "ST_window_ARM": true,
+  "production_ARM": true,
+  "profile_forbidden_symbols_absent": [
+    "HAL_SD_ReadBlocks",
+    "HAL_SD_WriteBlocks",
+    "stm32_fram_storage_write",
+    "stm32_serial_transport_init",
+    "Sdmmc2_Bringup"
+  ],
+  "production_bin_identical_M014_H": false,
+  "resource_profile_refusals": 4,
+  "artifacts": {
+    "build-st-window/tr2_stm32_p11c.bin": {
+      "size": 66460,
+      "sha256": "c00918dab4eb1fbc454f8768a580dce12aa69872f30b61dca78b90a7c8b6410f"
+    },
+    "build-st-window/tr2_stm32_p11c.elf": {
+      "size": 871108,
+      "sha256": "beb1e8e2cec41fe1db9a652e47fd7e04c952d01449ce27ec684efe675dfdd6e2"
+    },
+    "build-st-window/tr2_stm32_p11c.map": {
+      "size": 657243,
+      "sha256": "b108238d1f399c49e5ff601b7927a72e2818540097dfd8f75c2bb40bb69a21cf"
+    },
+    "build-production/tr2_stm32_p11c.bin": {
+      "size": 144996,
+      "sha256": "9e645d61fd8212374dbabe0fdc02bac15c0695fa6dae26f0e95f62def1bc2530"
+    },
+    "build-production/tr2_stm32_p11c.elf": {
+      "size": 1206700,
+      "sha256": "41186a8d66b39b89af54da97a3f1242b316ee7918ce8f57abc4dcd18bf959c3c"
+    },
+    "build-production/tr2_stm32_p11c.map": {
+      "size": 542217,
+      "sha256": "e262026ef61e5ea1ac4da5e281c59014fe1b9f336adcf640afa0ea25f29f0024"
+    }
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "code_sha_evaluated": "d18cf6a29cea8b8361424cb1b0809eb9bf4571fd",
+  "archive": "/home/lolo/dev/msm/reports/TR2-mission015-U-20261013T100029Z",
+  "successful_acquisitions": 1,
+  "preflight_aborted_before_trigger": 1,
+  "BIN_unchanged_after_DWARF": true,
+  "flash_before_and_final_sha256": "556fedf58a88f7de0ad63826af6b4941de8bb72dcd6e97a886c1017da5ba93f0",
+  "FRAM_sha256_before_capture": "d732acc557152180fc394097d6a5269ea2f45c1da387c8643f512318adf92fce",
+  "FRAM_full_double_before_and_compare_after_capture": true,
+  "persistent_candidate_before_after_restore_byte_equal": true,
+  "HP_full_journal_SHA256": "8c9a4b8b05871316c85fc4a5d6f277f42ef99e5a998fcf2e2693c62f9dc8bcdf",
+  "media_write_calls": 0,
+  "secondary_access": 0,
+  "additional_acquisitions": 0,
+  "stashes": [
+    "6251b988e8b20f97997a8f98fd26d4d35a45a1b2",
+    "f3b829e6188f491920edf74a5f9ed0f559d08b87"
+  ],
+  "BIN_SHA256": "c00918dab4eb1fbc454f8768a580dce12aa69872f30b61dca78b90a7c8b6410f",
+  "ELF_SHA256": "beb1e8e2cec41fe1db9a652e47fd7e04c952d01449ce27ec684efe675dfdd6e2",
+  "clock": {
+    "RCC_CR": "0x3000505",
+    "CCIPR3": "0x10",
+    "VOSR": "0x7c000",
+    "FLASH_ACR": "0x4"
+  }
+}

@@ -1,0 +1,4 @@
+0x0800e0d8 in stm32_iis3dwb_st_window_run ()
+0xbfa0700:	0x004a003d	0x38425018	0x20333157
+\\wsl.localhost\Debian\tmp\TR2-mission015-U\integrated-preflight.gdb:9: Error in sourced command file:
+'bench_ready' has unknown type; cast it to its declared type

@@ -1,10 +1,17 @@
 # État courant TR2 — référence reconstruite
 
-Mise à jour : 13 octobre 2026. Mission `TR2-20261013-M015-T-RESUME-PUBLICATION`.
+Mise à jour : 13 octobre 2026. Mission `TR2-20261013-M015-U-INTEGRATION-TR2-001`.
 
 **Ce document est un nouvel état de référence reconstruit à partir de preuves vérifiables. Il n'est pas une restitution du journal historique HP.** Sa création a été explicitement autorisée par l'utilisateur pour la mission `T1000-20261010-CLOTURE-001`, après escalade AGENTS.md §18. Aucun original n'a été retrouvé dans l'historique Git, les répertoires Linux locaux ou les documents Windows accessibles. Les archives d'échanges du 8 octobre mentionnent un journal local HP, sans en fournir le contenu. Aucun état historique inconnu n'est inventé.
 
-## État opérationnel actuel — T reprise et8MHz, 13 octobre 2026
+## État opérationnel actuel — M015-U, 13 octobre 2026
+
+- **VALIDÉ PHYSIQUE BORNÉ TR2-001** :coded18cf6a,CPU160/HSI16SPI3÷4/mode3 ;unique4096XYZ+512TS/4087distincts,rawswire↔RAMidentiques,guards0,38bursts/123statuts/max187/final60,cleanup0/0C8000. Serviceactif≈2,056ms/budget4,267ms ;pasperteglobalezéro/endurance/calibration/32768/FFT/stockage.
+- **VALIDÉ LOGICIEL** :suite123/123+ARMdéfaut/profil/production,1testadapterréelmockHALsupplémentaire ;gardesclock/UID/ressourcebusy/CS/offset/OVR/cleanup protégés. Profil OFFpar défaut/exclusif,fifocaptureintégréaumainprincipal mais pas simultanéproduction. M015 IN PROGRESS ;M016nonengagée,J3resteencours.
+- **PRÉSERVÉ / RESTAURÉ** :UID004A003D3842501820333157/SN003500463235510B37333439 ;Flash2MiBexacteM014-H,FRAMgen12backupd732acc…comparéavant/aprèscapture,domaineactifidentiqueaprèssrestauration,SDOFF/partitionnonaccédée. DeuxB0/B1HPpassés,journalentierreçu/hashrecalculé8c9a4b8b…,UART/NVIC/faultssains,détaché/running. SecondeNUCLEOjamaisaccédée,stashes/worktreeshistoriquespréservés.
+- **PUBLICATION EN COURS / SUITE** :préflightinitialDWARFmanquant stoppéavanttriggeretrestauré,BINDebugidentique,pasdeuxièmeacquisition. Codecheckpointpubliéavantcapture. Rapport/archives/preuvesàrelire ;revueChatGPTpuiscontratservicecoopératif/ressources,V1inactivée ;pasnouveauflash/reset/essai requis ici.
+
+## État opérationnel antérieur — T reprise et8MHz, 13 octobre 2026
 
 - **VALIDÉ PHYSIQUE BORNÉ4096** :T4historique audité4096XYZ+512TS/4082distincts ;unique essai8àCPU160 réussit4096XYZ+512TS/4086distincts. Bruts reconstructedbyte-identiques,parité/counters/saturation/HAL/FIFOoverflow0,TS24ticks/huitXYZentreTS. Niveau max187/186,cleanup0/XLoff/bypass/TSoff/faults0/detach. Pas perteglobalezéro/endurance/FFT/stockage qualifiés.
 - **MARGES CORRIGÉES** :serviceactif4≈2,049ms contre8≈1,119ms/budget4,267ms ;gain≈0,93ms/22%. Anciencomptaged'attentes75T4erroné corrigé40,bornehauteoccupée moyenne3,143/max4,000ms ;8moyenne2,629/max3,000ms. Les anciennesanalyseslocales et préflightfausseadresseSPI3 sontconservés,aucunessai4rejoué.

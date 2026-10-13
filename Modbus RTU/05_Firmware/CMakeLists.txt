@@ -345,3 +345,10 @@ add_executable(test_st_spi_diagnostic ${ST_REF}/tests/test_spi_diagnostic.c ${ST
 target_include_directories(test_st_spi_diagnostic PRIVATE ${ST_REF}/src)
 target_compile_options(test_st_spi_diagnostic PRIVATE -Wall -Wextra -Werror -UNDEBUG)
 add_test(NAME st_spi_completion_integration COMMAND test_st_spi_diagnostic)
+
+add_executable(test_st_window_adapter tests/platform/test_st_window_adapter.c ${ST_REF}/src/spi_diagnostic.c)
+target_include_directories(test_st_window_adapter PRIVATE tests/platform/stm32_hal_st_window_mock include ${ST_REF}/src ${ST_REF}/official ${ST_REF}/vendor/st)
+target_compile_options(test_st_window_adapter PRIVATE -Wall -Wextra -Werror -UNDEBUG -ffunction-sections -fdata-sections)
+target_compile_definitions(test_st_window_adapter PRIVATE BENCH_DUPLEX=0)
+target_link_options(test_st_window_adapter PRIVATE -Wl,--gc-sections)
+add_test(NAME st_window_primary_preflight_and_transport COMMAND test_st_window_adapter)

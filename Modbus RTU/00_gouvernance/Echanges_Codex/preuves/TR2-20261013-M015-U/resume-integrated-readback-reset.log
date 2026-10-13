@@ -1,0 +1,4 @@
+0x0800e0d8 in stm32_iis3dwb_st_window_run ()
+0xbfa0700:	0x004a003d	0x38425018	0x20333157
+STM32 Successfully completed reset operation (System reset)
+[Inferior 1 (Remote target) detached]

@@ -1,0 +1,42 @@
+{
+  "code_sha": "d18cf6a",
+  "header": [
+    6,
+    0,
+    0,
+    4608,
+    4096,
+    512,
+    123,
+    60,
+    0,
+    0,
+    0,
+    0
+  ],
+  "bounded_acceptance": true,
+  "raw_words_sha256": "0c442a98b1c2736cd698b146fff5b8bc5443e721bb2e06028089a372a7a48e23",
+  "xyz": 4096,
+  "timestamps": 512,
+  "distinct_xyz": 4087,
+  "wire_buffer_byte_identical": true,
+  "parser_errors": [],
+  "transport_rejected": [],
+  "traces": 311,
+  "payload_bytes": 33132,
+  "preclose": 622,
+  "fifo_bursts": 38,
+  "max_level": 187,
+  "last_level": 60,
+  "timestamp_steps": [
+    24
+  ],
+  "cleanup_hex": "0c8000",
+  "nominal_budget_ms": 4.266666666666667,
+  "active_mean_ms": 2.0558426785714286,
+  "active_max_ms": 2.05771875,
+  "cadence_mean_ms": 4.230434107142857,
+  "busy_upper_max_ms": 4.0000375,
+  "delay_requests": 39,
+  "payload_mean_ms": 1.8106958928571428
+}

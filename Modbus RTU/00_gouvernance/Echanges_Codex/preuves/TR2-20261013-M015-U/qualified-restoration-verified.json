@@ -1,0 +1,7 @@
+{
+  "flash_2MiB_byte_equal": true,
+  "flash_sha256": "556fedf58a88f7de0ad63826af6b4941de8bb72dcd6e97a886c1017da5ba93f0",
+  "persistent_logical_candidate_identical": true,
+  "restore_span_bytes": 147456,
+  "M014_H_running": true
+}

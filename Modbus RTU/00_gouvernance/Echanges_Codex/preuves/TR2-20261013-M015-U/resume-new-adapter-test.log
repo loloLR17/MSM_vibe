@@ -1,0 +1,8 @@
+Internal ctest changing into directory: /home/lolo/dev/msm/projects/MSM_vibe-M015-U/Modbus RTU/05_Firmware/build-host-validation
+Test project /home/lolo/dev/msm/projects/MSM_vibe-M015-U/Modbus RTU/05_Firmware/build-host-validation
+    Start 124: st_window_primary_preflight_and_transport
+1/1 Test #124: st_window_primary_preflight_and_transport ...   Passed    0.00 sec
+
+100% tests passed, 0 tests failed out of 1
+
+Total Test time (real) =   0.00 sec

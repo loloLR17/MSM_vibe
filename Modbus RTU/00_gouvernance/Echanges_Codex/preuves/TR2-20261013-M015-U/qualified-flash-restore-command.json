@@ -1,0 +1,17 @@
+{
+  "command": [
+    "/mnt/c/ST/STM32CubeCLT_1.22.0/STM32CubeProgrammer/bin/STM32_Programmer_CLI.exe",
+    "-c",
+    "port=SWD",
+    "sn=003500463235510B37333439",
+    "freq=8000",
+    "-w",
+    "\\\\wsl.localhost\\Debian\\tmp\\TR2-mission015-U\\qualification\\restore-pages.bin",
+    "0x08000000",
+    "-v",
+    "-rst"
+  ],
+  "source_sha": "M014-H original backup fresh",
+  "sha256": "f944ce088dd6c101974f61845ec9003845f584f42ba04e4f2b6461dfbbd4e3cc",
+  "normal_flash_only": true
+}

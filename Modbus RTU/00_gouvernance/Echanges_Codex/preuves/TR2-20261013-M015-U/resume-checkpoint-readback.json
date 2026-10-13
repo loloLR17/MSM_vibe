@@ -1,0 +1,33 @@
+{
+  "sha": "d18cf6a29cea8b8361424cb1b0809eb9bf4571fd",
+  "files": [
+    "Modbus RTU/00_gouvernance/Echanges_Codex/DERNIER_RAPPORT.md",
+    "Modbus RTU/00_gouvernance/Echanges_Codex/archives/TR2-20261013-M015-T-RESUME-PUBLICATION/MISSION.md",
+    "Modbus RTU/00_gouvernance/Echanges_Codex/archives/TR2-20261013-M015-T-RESUME-PUBLICATION/RAPPORT.md",
+    "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261013-M015-U/MANIFEST.sha256",
+    "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261013-M015-U/backup-verified.json",
+    "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261013-M015-U/default-build-final.log",
+    "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261013-M015-U/initial-preserve.gdb",
+    "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261013-M015-U/initial-preserve.log",
+    "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261013-M015-U/initial-preserve.log.original.hex",
+    "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261013-M015-U/production-build.log",
+    "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261013-M015-U/production-config.log",
+    "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261013-M015-U/profile-build-final.log",
+    "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261013-M015-U/profile-build-initial-failure.log",
+    "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261013-M015-U/profile-build-initial-failure.log.original.hex",
+    "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261013-M015-U/profile-build-macro-failure.log",
+    "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261013-M015-U/profile-build-macro-failure.log.original.hex",
+    "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261013-M015-U/profile-symbols.txt",
+    "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261013-M015-U/software-results.json",
+    "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261013-M015-U/uid.bin.hex",
+    "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261013-M015-U/validation-full.log",
+    "Modbus RTU/00_gouvernance/INTEGRATION_FIFO_M015_U.md",
+    "Modbus RTU/05_Firmware/CMakeLists.txt",
+    "Modbus RTU/05_Firmware/platform/stm32/CMakeLists.txt",
+    "Modbus RTU/05_Firmware/platform/stm32/main.c",
+    "Modbus RTU/05_Firmware/platform/stm32/stm32_iis3dwb_st_window.c",
+    "Modbus RTU/05_Firmware/platform/stm32/tr2_fifo_admission.h",
+    "Modbus RTU/05_Firmware/tests/platform/test_st_fifo_admission.c"
+  ],
+  "byte_equal": true
+}

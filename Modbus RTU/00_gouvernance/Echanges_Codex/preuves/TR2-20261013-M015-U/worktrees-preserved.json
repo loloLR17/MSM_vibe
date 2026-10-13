@@ -1,0 +1,127 @@
+[
+  {
+    "path": "/home/lolo/dev/msm/projects/MSM_vibe",
+    "head": "82169af7e76797731358852bec83bfb0ceb54ccf",
+    "historical_clean": true
+  },
+  {
+    "path": "/home/lolo/dev/msm/projects/MSM_vibe-M014-H",
+    "head": "762c459839439f7d27b42c11d12e309e65622a7f",
+    "historical_clean": true
+  },
+  {
+    "path": "/home/lolo/dev/msm/projects/MSM_vibe-M015-A",
+    "head": "eab07d49a5f3b86506a97877d0fccf2188fb0a7a",
+    "historical_clean": true
+  },
+  {
+    "path": "/home/lolo/dev/msm/projects/MSM_vibe-M015-B",
+    "head": "cfb9918dfe8e5ac3148d6ceaa79e50acda6ac53f",
+    "historical_clean": true
+  },
+  {
+    "path": "/home/lolo/dev/msm/projects/MSM_vibe-M015-C",
+    "head": "37b97f7fd8ea70c4ae8e377a3042bb3e2b8c5328",
+    "historical_clean": true
+  },
+  {
+    "path": "/home/lolo/dev/msm/projects/MSM_vibe-M015-D",
+    "head": "dbfcec4027200c5d5c989da52000166311fa6954",
+    "historical_clean": true
+  },
+  {
+    "path": "/home/lolo/dev/msm/projects/MSM_vibe-M015-E",
+    "head": "1c062af564e3d4d45093b1c369128cb4cf6d0575",
+    "historical_clean": true
+  },
+  {
+    "path": "/home/lolo/dev/msm/projects/MSM_vibe-M015-F",
+    "head": "e11088772987a50ce729eb4ca1148d657b2cc673",
+    "historical_clean": true
+  },
+  {
+    "path": "/home/lolo/dev/msm/projects/MSM_vibe-M015-G",
+    "head": "6357b667a45b0979e5edaf394cb273595295414d",
+    "historical_clean": true
+  },
+  {
+    "path": "/home/lolo/dev/msm/projects/MSM_vibe-M015-H",
+    "head": "c0d4f7b9786921db64f9e031f5458a662ba90332",
+    "historical_clean": true
+  },
+  {
+    "path": "/home/lolo/dev/msm/projects/MSM_vibe-M015-I",
+    "head": "7a2aca1901162144142f3e13964a4abcc7dbed9d",
+    "historical_clean": true
+  },
+  {
+    "path": "/home/lolo/dev/msm/projects/MSM_vibe-M015-I-physical",
+    "head": "d25aa42a3d2c4850f4cedeeaca545da63aad0c29",
+    "historical_clean": true
+  },
+  {
+    "path": "/home/lolo/dev/msm/projects/MSM_vibe-M015-J",
+    "head": "0b76875c1a0257362280780f835991395b10fcbe",
+    "historical_clean": true
+  },
+  {
+    "path": "/home/lolo/dev/msm/projects/MSM_vibe-M015-K",
+    "head": "fccb40cf799c753b9897e74ae6cc6e737a07383c",
+    "historical_clean": true
+  },
+  {
+    "path": "/home/lolo/dev/msm/projects/MSM_vibe-M015-L",
+    "head": "f8e782a41e2cca94ab12ff3f180a2dc6461611aa",
+    "historical_clean": true
+  },
+  {
+    "path": "/home/lolo/dev/msm/projects/MSM_vibe-M015-M",
+    "head": "83f9cb80bc292bd24dda878a8e99b85085f1d664",
+    "historical_clean": true
+  },
+  {
+    "path": "/home/lolo/dev/msm/projects/MSM_vibe-M015-N",
+    "head": "f14183c81c9ff744ebb1d2c6d5f61537e9c1ddb0",
+    "historical_clean": true
+  },
+  {
+    "path": "/home/lolo/dev/msm/projects/MSM_vibe-M015-O",
+    "head": "c3e85afbd32f38f07687d2f12cf07a96fc2ed6ee",
+    "historical_clean": true
+  },
+  {
+    "path": "/home/lolo/dev/msm/projects/MSM_vibe-M015-P",
+    "head": "6ea0468b43aa966a98a4037db5b741a0ec98178f",
+    "historical_clean": true
+  },
+  {
+    "path": "/home/lolo/dev/msm/projects/MSM_vibe-M015-Q",
+    "head": "7f30bc548938d197f52202454392a4f90c6602ec",
+    "historical_clean": true
+  },
+  {
+    "path": "/home/lolo/dev/msm/projects/MSM_vibe-M015-R",
+    "head": "4c0785bf11dfedabe93e996fefecdb58971d0177",
+    "historical_clean": true
+  },
+  {
+    "path": "/home/lolo/dev/msm/projects/MSM_vibe-M015-S",
+    "head": "79c52f2882a63f4a12a2cf713c978c28253baf24",
+    "historical_clean": true
+  },
+  {
+    "path": "/home/lolo/dev/msm/projects/MSM_vibe-M015-T",
+    "head": "7d762176b9fdc14d3c0cdce32bd6b3ce9d135d35",
+    "historical_clean": true
+  },
+  {
+    "path": "/home/lolo/dev/msm/projects/MSM_vibe-M015-T-resume",
+    "head": "51dff589e6cd6a74ed308ac994734fbb38d2a6bc",
+    "historical_clean": true
+  },
+  {
+    "path": "/home/lolo/dev/msm/projects/MSM_vibe-M015-U",
+    "head": "d18cf6a29cea8b8361424cb1b0809eb9bf4571fd",
+    "historical_clean": null
+  }
+]

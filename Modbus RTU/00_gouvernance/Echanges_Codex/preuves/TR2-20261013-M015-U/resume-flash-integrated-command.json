@@ -1,0 +1,17 @@
+{
+  "command": [
+    "/mnt/c/ST/STM32CubeCLT_1.22.0/STM32CubeProgrammer/bin/STM32_Programmer_CLI.exe",
+    "-c",
+    "port=SWD",
+    "sn=003500463235510B37333439",
+    "freq=8000",
+    "-w",
+    "\\\\wsl.localhost\\Debian\\tmp\\TR2-mission015-U\\build-st-window\\tr2_stm32_p11c.bin",
+    "0x08000000",
+    "-v",
+    "-rst"
+  ],
+  "source_sha": "d18cf6a29cea8b8361424cb1b0809eb9bf4571fd",
+  "sha256": "c00918dab4eb1fbc454f8768a580dce12aa69872f30b61dca78b90a7c8b6410f",
+  "normal_flash_only": true
+}

@@ -1,0 +1,5 @@
+0x08019e9a in serial_transport_poll_event (transport=0x2000e5b8 <transport>, event=0x200bfd8c) at /home/lolo/dev/msm/projects/MSM_vibe-M014-H/Modbus RTU/05_Firmware/src/platform/serial_transport.c:34
+34	    if (!serial_transport_is_valid(transport) || event == NULL) {
+0xbfa0700:	0x004a003d	0x38425018	0x20333157
+STM32 Successfully completed reset operation (System reset)
+[Inferior 1 (Remote target) detached]

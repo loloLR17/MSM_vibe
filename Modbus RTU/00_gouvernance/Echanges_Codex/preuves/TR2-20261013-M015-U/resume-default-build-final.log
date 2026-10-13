@@ -1,0 +1,17 @@
+[0/2] Re-checking globbed directories...
+[1/3] Building C object CMakeFiles/tr2_stm32_p11c.dir/main.c.obj
+[2/3] Linking C executable tr2_stm32_p11c.elf
+/usr/lib/gcc/arm-none-eabi/14.2.1/../../../arm-none-eabi/bin/ld: /usr/lib/gcc/arm-none-eabi/14.2.1/../../../arm-none-eabi/lib/thumb/v8-m.main/nofp/libc_nano.a(libc_a-closer.o): in function `_close_r':
+/build/reproducible-path/newlib-4.5.0.20241231/build_nano/arm-none-eabi/thumb/v8-m.main/nofp/newlib/../../../../../../newlib/libc/reent/closer.c:47:(.text+0xc): warning: _close is not implemented and will always fail
+/usr/lib/gcc/arm-none-eabi/14.2.1/../../../arm-none-eabi/bin/ld: /usr/lib/gcc/arm-none-eabi/14.2.1/../../../arm-none-eabi/lib/thumb/v8-m.main/nofp/libc_nano.a(libc_a-closer.o): note: the message above does not take linker garbage collection into account
+/usr/lib/gcc/arm-none-eabi/14.2.1/../../../arm-none-eabi/bin/ld: /usr/lib/gcc/arm-none-eabi/14.2.1/../../../arm-none-eabi/lib/thumb/v8-m.main/nofp/libc_nano.a(libc_a-lseekr.o): in function `_lseek_r':
+/build/reproducible-path/newlib-4.5.0.20241231/build_nano/arm-none-eabi/thumb/v8-m.main/nofp/newlib/../../../../../../newlib/libc/reent/lseekr.c:49:(.text+0x14): warning: _lseek is not implemented and will always fail
+/usr/lib/gcc/arm-none-eabi/14.2.1/../../../arm-none-eabi/bin/ld: /usr/lib/gcc/arm-none-eabi/14.2.1/../../../arm-none-eabi/lib/thumb/v8-m.main/nofp/libc_nano.a(libc_a-lseekr.o): note: the message above does not take linker garbage collection into account
+/usr/lib/gcc/arm-none-eabi/14.2.1/../../../arm-none-eabi/bin/ld: /usr/lib/gcc/arm-none-eabi/14.2.1/../../../arm-none-eabi/lib/thumb/v8-m.main/nofp/libc_nano.a(libc_a-readr.o): in function `_read_r':
+/build/reproducible-path/newlib-4.5.0.20241231/build_nano/arm-none-eabi/thumb/v8-m.main/nofp/newlib/../../../../../../newlib/libc/reent/readr.c:49:(.text+0x14): warning: _read is not implemented and will always fail
+/usr/lib/gcc/arm-none-eabi/14.2.1/../../../arm-none-eabi/bin/ld: /usr/lib/gcc/arm-none-eabi/14.2.1/../../../arm-none-eabi/lib/thumb/v8-m.main/nofp/libc_nano.a(libc_a-readr.o): note: the message above does not take linker garbage collection into account
+/usr/lib/gcc/arm-none-eabi/14.2.1/../../../arm-none-eabi/bin/ld: /usr/lib/gcc/arm-none-eabi/14.2.1/../../../arm-none-eabi/lib/thumb/v8-m.main/nofp/libc_nano.a(libc_a-writer.o): in function `_write_r':
+/build/reproducible-path/newlib-4.5.0.20241231/build_nano/arm-none-eabi/thumb/v8-m.main/nofp/newlib/../../../../../../newlib/libc/reent/writer.c:49:(.text+0x14): warning: _write is not implemented and will always fail
+/usr/lib/gcc/arm-none-eabi/14.2.1/../../../arm-none-eabi/bin/ld: /usr/lib/gcc/arm-none-eabi/14.2.1/../../../arm-none-eabi/lib/thumb/v8-m.main/nofp/libc_nano.a(libc_a-writer.o): note: the message above does not take linker garbage collection into account
+   text	   data	    bss	    dec	    hex	filename
+ 162284	    124	 129312	 291720	  47388	/home/lolo/dev/msm/projects/MSM_vibe-M015-U/Modbus RTU/05_Firmware/build-stm32-p11c/tr2_stm32_p11c.elf
