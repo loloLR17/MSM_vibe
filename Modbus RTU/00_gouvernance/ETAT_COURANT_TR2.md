@@ -76,3 +76,8 @@ ChatGPT a qualifié A04-01 (logiciel) et A04-02 (logiciel + essai physique born�
 - **État final secondeNUCLEO** : stage4/phase6/command0/error0, trois sorties basses, SDMMCoff, debuggerdétaché. Garder microSDretirée tant quefirmwareGPIO présent, même tout-bas. Principal nonaccédé/nonrestauré, stashes et preuves antérieures préservés. Rapport pour contrôleindépendant ChatGPT et choix d'investigation dynamique ; CRC4bit reste inexpliqué.
 
 - Mission GPIO clôturée **DONE dans sa portée statique**, après publication et relecture distante des résultats ; contrôle indépendant ChatGPT à réaliser. Ce statut ne clôture pas le diagnostic dynamique SDMMC4bits.
+
+## M016 — 1 bit LOAD-ONLY, checkpoint préalable
+
+- TransitionGPIO sécuriséesecondecarte : SDretirée avantflash confirméuser, firmwarec6c56b6 vérifié, PB15/3/4INPUT etPOWERoff, puisréinsertionhorsalimentation confirmée. Aucunimpactprincipal/FRAM/Modbus.
+- PréflightINITunique : CIDtest32Go attendu,62333952secteurs512, carte/contrôleur1bit, CLKCR8/kernel160MHz=10MHz ; ready/error0. Scénario600s/426672B/s/queue512KiB/chunks64KiB etintégritéintégrale préparé ; pasencorechargephysique àcecheckpoint. INTERRUPTIONutilisateur avantRUN, aucunevalidationréussierépétée.

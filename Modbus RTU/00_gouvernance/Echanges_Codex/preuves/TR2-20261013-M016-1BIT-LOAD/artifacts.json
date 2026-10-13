@@ -1,0 +1,19 @@
+{
+  "code_sha": "c6c56b63e02cb78f176f278195dc114a6b7cbe76",
+  "initial_head": "5efffbd84950cbe96d114b0619fd8846b07d63f0",
+  "profile": "BENCH_LOAD_ONLY=ON BENCH_WRITE_ENABLE=1 BENCH_TEST_LBA=2048; fixed1bit10MHz",
+  "files": {
+    "bin": {
+      "sha256": "2639dee58fd27da7471c513336a29bcc7493ff92a51c65b5fb9a02ac087791f1",
+      "bytes": 23760
+    },
+    "elf": {
+      "sha256": "61b9cbc4ca2c23f2a12f414b060464bf639bc74d3abd15859cb88cf88545d73d",
+      "bytes": 1802488
+    },
+    "map": {
+      "sha256": "1d710b0ef3bcb5c2675c95686eb5b3b7441280747865d461bb087934eb447c08",
+      "bytes": 466135
+    }
+  }
+}

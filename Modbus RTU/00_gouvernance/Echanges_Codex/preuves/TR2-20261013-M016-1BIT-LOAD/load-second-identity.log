@@ -1,0 +1,6 @@
+0x08000ac2 in __udivmoddi4 (n=<optimized out>, d=<optimized out>, rp=0x0) at ../../../../../../libgcc/libgcc2.c:1099
+warning: 1099	../../../../../../libgcc/libgcc2.c: No such file or directory
+0xbfa0700:	0x001b0046	0x38425018	0x20333157
+0x8000000 <g_pfnVectors>:	0x200c0000	0x08002091	0x080020e1	0x080020e1
+0x8000010 <g_pfnVectors+16>:	0x080020e1	0x080020e1	0x080020e1	0x080020e1
+[Inferior 1 (Remote target) detached]
