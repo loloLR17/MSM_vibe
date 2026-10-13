@@ -1,8 +1,8 @@
 ---
-mission_id: TR2-20261013-M015-T-CPU-SPI4
+mission_id: TR2-20261013-M015-T-RESUME-PUBLICATION
 status: READY
 base_ref: main
-base_sha: 79c52f2882a63f4a12a2cf713c978c28253baf24
+base_sha: 7d762176b9fdc14d3c0cdce32bd6b3ce9d135d35
 author: ChatGPT
 target_branch: main
 allow_commit: true
@@ -11,16 +11,14 @@ allow_flash: true
 allow_debug: true
 ---
 
-# M015-T — CPU accéléré, SPI3 maintenu à 4 MHz
+# Reprise et clôture de M015-T après interruption du quota Codex
 
-Objectif : test discriminant unique du service RX HAL après l'échec M015-S (CPU16MHz/SPI4MHz, OVR+timeout, 63/896 octets consommés). Vérifier si davantage de cycles CPU, à SCK inchangé, permettent 4096 XYZ intègres sans débordement FIFO. Ne pas présumer de la cause.
+Il s'agit de la CONTINUATION de M015-T, et non d'une nouvelle campagne physique. Lire AGENTS.md et la gouvernance actuelle, vérifier HEAD origin/main et état Git/worktrees/stashes sans écraser les travaux. Préserver et archiver les contrats et rapports antérieurs selon protocole.
 
-Lire AGENTS.md, gouvernance, ETAT_COURANT_TR2, preuves et rapport S, budget R/Q ; vérifier origin/main HEAD, état Git, worktrees et stashes ; archiver contrat et rapport S à l'identique. Préserver les travaux préexistants.
+Faits à réconcilier : GitHub main contient le commit 7d762176b9fdc14d3c0cdce32bd6b3ce9d135d35 de préparation CPU160MHz/SPI3 HSI16 div4=4MHz, mais DERNIER_RAPPORT.md demeure un checkpoint provisoire BLOCKED avant essai. Le terminal Codex du 13 octobre annonce ensuite une acquisition physique unique réussie : 4096 XYZ, 512 timestamps, 4082 triplets distincts, zéro erreur de parité/compteur/transport/overflow observée, niveau FIFO maximal 187, cleanup réussi. Ces données sont un compte rendu d'écran, PAS encore une preuve publiée ou auditée. Codex a été interrompu par la limite d'utilisation avant calcul des marges et publication.
 
-Étudier clock tree STM32U575 et CubeU5 ; choisir fréquence CPU sûre, idéalement 160MHz si validée par la documentation. Ajuster indépendamment source et diviseur SPI3 pour maintenir SCK calculé à 4MHz. Contrôler RCC, SystemCoreClock, PCLK3, prescaler, latences flash et limites électriques. Ne modifier que la configuration d'horloge nécessaire ; garder SPI mode3, ODR, driver ST, parsing, buffers, instrumentation, contrôles et cleanup identiques. Documenter horloges calculées versus mesurées.
+MISSION : reprendre le worktree et les artefacts locaux existants M015-T, notamment /home/lolo/dev/msm/reports/TR2-mission015-T-20261012T233912Z et les fichiers de sortie de l'unique acquisition. Identifier les preuves réellement disponibles (BIN/ELF et hashes, UID/SN, logs bruts, dump, snapshots RCC/clock, DWT, états FIFO, buffers, parser, statut cleanup) ; ne jamais fabriquer ni extrapoler des preuves manquantes. Rejouer UNIQUEMENT les analyses hors ligne nécessaires, vérifier reconstruction byte-identique, tags/compteurs/timestamps, flags, débit et marges temporelles sur la fenêtre 4096. Comparer rigoureusement M015-S CPU16/SPI4 et M015-T CPU160/SPI4, distinguer calculs et mesures, et noter que la source SPI a changé MSI vers HSI donc isolement causal imparfait. La fréquence physique SCK n'a pas été mesurée à l'oscilloscope.
 
-Compiler ARM et tester les paramètres d'horloge de façon ciblée. Maximum **une acquisition physique nouvelle** de 4096 XYZ à CPU accéléré / SPI4MHz, sans DMA ni refactoring ; aucun test 8MHz ou répétition des essais 2MHz/512. Mesurer DWT payload, cadence complète et marge temporelle, RXoffset et OVR, statuts FIFO FULL/overrun, XYZ/timestamps/tags, intégrité des octets bruts, faults, journal et cleanup. Stop immédiat sur anomalie, conserver les données rejetées sans les qualifier. Comparer honnêtement S et T et ne pas revendiquer perte zéro globale.
+NE PAS réaliser de nouvelle acquisition, flash, reset, debug matériel ou autre opération physique pour cette reprise ; autorisations allow_flash/allow_debug restent explicites mais ne sont pas à exercer sans nouvelle mission. Ne pas modifier firmware primaire M014-H, FRAM SPI1, SD, Modbus, HP, supervision, ni changer les sources expérimentales hors corrections strictement nécessaires aux analyses hors ligne. Ne pas commencer essai 8MHz ni DMA. Préserver tous les bruts et l'historique.
 
-Flash/debug autorisés uniquement sur seconde NUCLEO : STLINK 0032001F3235510C37333439, UID 001B00463842501820333157, avec image identifiée, empreinte, programmation normale et vérification/relecture. Primaire exclu : STLINK 003500463235510B37333439, UID 004A003D3842501820333157 ; ne pas toucher M014-H, FRAM SPI1, SD, Modbus, HP. Pas de mass erase, Option Bytes/RDP, modification physique ou sauvegarde 2MiB injustifiée. Vérifier XL off, FIFO bypass, TS off, faults0 et detach.
-
-Publier preuves reproductibles, matrice comparative CPU16/CPU accéléré à SPI4, conclusion bornée, ETAT_COURANT_TR2, roadmap et DERNIER_RAPPORT.md ; relire la publication distante et préserver archives, worktrees et stashes. Limiter essais et builds pour économiser le quota.
+Livrer un rapport final DERNIER_RAPPORT.md avec statut correspondant aux preuves, matrice S/T, mesures de marges et implications pour un éventuel 8MHz (recommandation argumentée sans essai), preuves reproductibles, mise à jour ETAT_COURANT_TR2 et roadmap. Publier sur main par commit/push normal, vérifier intégralement la relecture distante, et conserver les archives et worktrees/stashes. En cas de preuves absentes, BLOCKED motivé, sans prétendre à une qualification 4096. Aucune validation humaine intermédiaire nécessaire pour ce travail documentaire et analytique.
