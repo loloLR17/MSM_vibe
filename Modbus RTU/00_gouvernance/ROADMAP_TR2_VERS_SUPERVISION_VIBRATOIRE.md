@@ -5,9 +5,9 @@
 
 > **État de lecture :** M014 est terminé dans sa portée B0/B1 et perte/reprise ; M015-V est `DONE` pour l'acquisition physique bornée (32 768 XYZ / 4 096 timestamps et deux lectures B0/B1 simultanées). **La revue indépendante A-01 de M015 reste à formaliser, aucun tag présumé.** J3 reste EN COURS, car M016 (traitement/publication V1) n'est pas réalisée. M017–M020 restent à faire. La qualification industrielle est distincte du démonstrateur.
 
-**Avant M016 :** A-02 achevée ; poursuivre les audits A-04/A-05 du build STM32 cumulatif, des chemins bloquants, des drivers ST et de la couverture effective des tests. Corrections ciblées selon A-06.
+**Avant M016 :** A-02 et A-05 réalisés ; A04-01/A04-02 qualifiés dans leur portée. M016 peut commencer avec suivi explicite des dettes résiduelles A04-04 à A04-08 et sans prétendre à une qualification industrielle.
 
-**Après A-04 :** audit firmware `TR2-20261013-A04-AUDIT-FIRMWARE` livré (`DONE` Codex), neuf constats consignés dans [DETTE_TECHNIQUE_A04.md](DETTE_TECHNIQUE_A04.md). Séquence validée : **A-05 (tests/preuves, audit seul) → correction A04-01 (profil sûr) → correction A04-02 (FRAM/Modbus) → M016 (A04-03, FIFO métier V1)**. Les autres constats restent suivis, notamment RAM, timestamps, démarrage et SD. Aucune correction A-04 encore réalisée.
+**Après A-04 :** audit firmware `TR2-20261013-A04-AUDIT-FIRMWARE` livré (`DONE` Codex), neuf constats consignés dans [DETTE_TECHNIQUE_A04.md](DETTE_TECHNIQUE_A04.md). Séquence validée : **A-05 (tests/preuves, audit seul) → correction A04-01 (profil sûr) → correction A04-02 (FRAM/Modbus) → M016 (A04-03, FIFO métier V1)**. Les autres constats restent suivis, notamment RAM, timestamps, démarrage et SD. **A04-01 qualifiée logiciel et A04-02 qualifiée logiciel/physique borné par ChatGPT le 13/10/2026** ; A04-03/M016 reste à réaliser. Voir registre A-04 et rapports archivés.
 
 **Traçabilité :** historique exact avant A-02 dans [Archives/ROADMAP_TR2_AVANT_A02_20261013.md](Archives/ROADMAP_TR2_AVANT_A02_20261013.md) ; résultats détaillés M015-V dans `Echanges_Codex/DERNIER_RAPPORT.md` et preuves référencées. La roadmap pilote les jalons, pas le journal des tentatives.
 
@@ -31,7 +31,7 @@ Capteur de vibrations → acquisition et traitement STM32U575 → registres Modb
 | **M013** | Qualifier le dialogue Modbus physique complet | ACQUIS BORNÉS / RÉSERVES | 2–3 sous-missions | Lecture répétable de registres STM32 par maître PC ; CRC, exceptions, turnaround et absence de contention vérifiés |
 | **M014** | Connecter la supervision au TR2 physique | DONE — PORTÉE B0/B1/PERTE-REPRISE | 2–3 | Lecture périodique des blocs système, déconnexion et reprise correctement traitées |
 | **M015** | Qualifier la chaîne d'acquisition vibratoire | DONE — ACQUISITION BORNÉE M015-V | 3–5 | Acquisition physique démontrée ou blocages matériels précisément identifiés |
-| **M016** | Traiter et publier les mesures vibratoires dans les registres V1 | À FAIRE | 2–4 | Valeurs réelles cohérentes, unités, échelles et validité vérifiées dans le mapping gelé |
+| **M016** | Traiter et publier les mesures vibratoires dans les registres V1 | MISSION PUBLIÉE — À EXÉCUTER | 2–4 | Valeurs réelles cohérentes, unités, échelles et validité vérifiées dans le mapping gelé |
 | **M017** | Lire les vibrations de bout en bout via Modbus | À FAIRE | 2 | Variation physique retrouvée correctement dans les valeurs lues par le PC |
 | **M018** | Intégrer les mesures dans le service PC et SQLite | À FAIRE | 2–3 | Décodage, horodatage, persistance et gestion des données invalides opérationnels |
 | **M019** | Afficher les vibrations dans l'interface Web S7 | À FAIRE | 2–3 | Valeurs instantanées, axes, unités, tendances, historique et état de mesure consultables |
