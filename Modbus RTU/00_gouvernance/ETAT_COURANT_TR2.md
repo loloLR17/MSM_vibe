@@ -1,14 +1,15 @@
 # État courant TR2 — référence reconstruite
 
-Mise à jour : 13 octobre 2026. Mission `TR2-20261013-M015-S-SPI-FREQUENCY-SWEEP`.
+Mise à jour : 13 octobre 2026. Mission `TR2-20261013-M015-T-RESUME-PUBLICATION`.
 
 **Ce document est un nouvel état de référence reconstruit à partir de preuves vérifiables. Il n'est pas une restitution du journal historique HP.** Sa création a été explicitement autorisée par l'utilisateur pour la mission `T1000-20261010-CLOTURE-001`, après escalade AGENTS.md §18. Aucun original n'a été retrouvé dans l'historique Git, les répertoires Linux locaux ou les documents Windows accessibles. Les archives d'échanges du 8 octobre mentionnent un journal local HP, sans en fournir le contenu. Aucun état historique inconnu n'est inventé.
 
-## État opérationnel actuel — reprise T, 13 octobre 2026
+## État opérationnel actuel — T reprise et8MHz, 13 octobre 2026
 
-- **VALIDÉ PHYSIQUE BORNÉ / AUDITÉ** :captureT4MHzhistorique4096XYZ+512TS/4082tripletsdistincts, reconstructionexacte etguards0,cleanup0/niveauFIFOmax187. SourcesCPU160/HSI16SPI4,VOS1/Flash4confirmées. L'échecpréflightadresseSPI3corrigéavanttriggerestconservé ;aucunnouvelessai4.
-- **ANALYSE CORRIGÉE / PRÉPARÉ** :serviceactif≈2,049ms/budget4,267ms ;anciencomptaged'attenteserroné corrigé75→40 sansmodifierbruts. Uniquecomparaison8autorisée, gainfilestimé0,896ms/21%dubudget pour réservefuture ;imagepréparée/diviseur2seul,guardsinchangés,8NONTESTÉavantcheckpoint. FFT/stockage/perteglobalezéro nonqualifiés.
-- **PRÉSERVÉ** :primaire/M014-H/médias/Modbus/HPintouchés,archivesetworktrees/stashesconservés. RapportetpreuvesT4àpublieravant8 ;publicationrepriseenautonomieconformecontrat.
+- **VALIDÉ PHYSIQUE BORNÉ4096** :T4historique audité4096XYZ+512TS/4082distincts ;unique essai8àCPU160 réussit4096XYZ+512TS/4086distincts. Bruts reconstructedbyte-identiques,parité/counters/saturation/HAL/FIFOoverflow0,TS24ticks/huitXYZentreTS. Niveau max187/186,cleanup0/XLoff/bypass/TSoff/faults0/detach. Pas perteglobalezéro/endurance/FFT/stockage qualifiés.
+- **MARGES CORRIGÉES** :serviceactif4≈2,049ms contre8≈1,119ms/budget4,267ms ;gain≈0,93ms/22%. Anciencomptaged'attentes75T4erroné corrigé40,bornehauteoccupée moyenne3,143/max4,000ms ;8moyenne2,629/max3,000ms. Les anciennesanalyseslocales et préflightfausseadresseSPI3 sontconservés,aucunessai4rejoué.
+- **CLOCK/LOGICIEL** :CPU160PLL,VOS1/Flash4,HSI16SPI3/div4ou2 vérifiés ;SCK4/8calculésnonmesurés. S→T modifieaussi sourceSPI/APB/latence,isolementCPUimparfait. SeulCMake autorise160/div2dansreprise,ARM8réussi,guards/parser/vendorinchangés.4plusfaiblefréquence4096qualifiée,bancisolé seulement ;8optionmarge supplémentaire.
+- **PRÉSERVÉ / PUBLIÉ EN COURS** :checkpoint7903016/96fichiersrelusavant8,rapportfinalàpublier/relire. Seconde8inactive,primaire/M014-H/FRAM/SD/Modbus/HPjamaisaccédés,originauxT/archivesS-T/worktrees/stashespréservés. M015INPROGRESS pourintégration/endurance/traitementstockageV1,aucunessaisupplémentaire.
 
 ## État opérationnel antérieur — M015-S, 13 octobre 2026
 
