@@ -1,0 +1,20 @@
+HAL_GetTick () at /home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal.c:343
+343	  return uwTick;
+0xbfa0700:	0x004a003d	0x38425018	0x20333157
+$1 = 99
+$2 = 6
+$3 = 8703
+$4 = 2
+$5 = 0
+$6 = 2008
+$7 = 0
+$8 = 0
+$9 = 0
+$10 = {1, 1}
+$11 = {0, 0}
+$12 = false
+$13 = {generation = 0, config_id = 0, revision_counter = 0, payload = {sampling_frequency_hz = 0, axes_enable_mask = 0, full_scale_code = 0, acquisition_mode = 0, window_size_samples = 0, indicator_period_ms = 0, campaign_duration_s = 0, storage_mode = 0, storage_limit_mb = 0, supervision_enable_mask = 0, rms_warn_threshold_mg = 0, rms_alarm_threshold_mg = 0, peak_warn_threshold_mg = 0, peak_alarm_threshold_mg = 0, threshold_hysteresis_mg = 0, alarm_hold_time_ms = 0, campaign_context_id = 0, mission_id = 0, campaign_label = '\000' <repeats 31 times>, mission_label = '\000' <repeats 31 times>, operating_mode_code = 0, navigation_zone_code = 0, load_state_code = 0, sea_state_code = 0}}
+$14 = (Tr2Result (*)(void *, uint32_t, const void *, size_t)) 0x0
+$15 = 160000000
+0xe000ed28:	0x00000000	0x00000000
+[Inferior 1 (Remote target) detached]

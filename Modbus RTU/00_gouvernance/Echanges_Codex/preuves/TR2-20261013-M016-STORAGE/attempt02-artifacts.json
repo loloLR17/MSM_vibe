@@ -1,0 +1,15 @@
+{
+  "attempt": 2,
+  "profile": "STORAGE_QUALIFICATION/Debug/core+module-O2",
+  "sd_clock_hz": 5000000,
+  "payload": 16384,
+  "region_base": 16777216,
+  "region_bytes": 8388608,
+  "ids": [
+    "01600003",
+    "01600004"
+  ],
+  "bin_bytes": 62312,
+  "bin_sha256": "00ba4f5b6750f3c20b2bd18832c99eaf10ac257449df6df12a53f6500ed81e5d",
+  "elf_sha256": "449134a07da5b02f1380d1ad33e3eec4185ae43095e7c4e780b36d2cbbbcda1b"
+}

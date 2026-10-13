@@ -10,11 +10,11 @@
 #include "tr2/persistence/configuration_store.h"
 #include "tr2/application/configuration_service.h"
 
-#define BASE UINT32_C(8388608)
-#define SIZE UINT32_C(16777216)
-#define PAYLOAD 4096u
-#define FIRST UINT32_C(0x01600001)
-#define SECOND UINT32_C(0x01600002)
+#define BASE UINT32_C(16777216)
+#define SIZE UINT32_C(8388608)
+#define PAYLOAD 16384u
+#define FIRST UINT32_C(0x01600003)
+#define SECOND UINT32_C(0x01600004)
 #define TEST_BYTES UINT32_C(4194304)
 static Stm32SdmmcBulkMedia sd;
 static CampaignBulkMedia raw;
@@ -100,10 +100,11 @@ static Tr2Result configuration_recovery(Stm32FramStorage *fram)
     TransactionalImagePhysicalStorage physical=stm32_fram_storage_physical(fram);
     const TransactionalImageGeometry g={262144,0,4096,8192,65536,57344};
     TransactionalImageRecoveryResult recovered; ActiveConfigurationSnapshot active;
-    /* Fixed 4096-byte blocks and minimum V1 windows avoid an optimistic raw
+    /* Fixed payload blocks and minimum V1 windows avoid an optimistic raw
      * sector capacity. Retain eight partial-block reserves and metadata. */
-    const uint64_t reserved=TR2_CAMPAIGN_BULK_METADATA_BYTES+8u*4608u;
-    const uint64_t logical=((SIZE-reserved)/4608u)*4096u;
+    const uint64_t extent=(PAYLOAD+36u+511u)/512u*512u;
+    const uint64_t reserved=TR2_CAMPAIGN_BULK_METADATA_BYTES+8u*extent;
+    const uint64_t logical=((SIZE-reserved)/extent)*PAYLOAD;
     ConfigurationValidationEnvironment env={true,(uint32_t)(logical/1000000u)};
     physical.write=deny_fram_write;
     Tr2Result result=transactional_image_media_init_v2(&fram_media,&physical,&g,candidate,sizeof(candidate));

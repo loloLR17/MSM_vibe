@@ -17,8 +17,7 @@ static Tr2Result wait_transfer(Stm32SdmmcBulkMedia *adapter)
         if (state == HAL_SD_CARD_TRANSFER) {
             return TR2_OK;
         }
-        if (state == HAL_SD_CARD_ERROR ||
-            state == HAL_SD_CARD_DISCONNECTED) {
+        if (state < HAL_SD_CARD_READY || state > HAL_SD_CARD_PROGRAMMING) {
             return TR2_ERROR_STORAGE;
         }
         if ((HAL_GetTick() - start) >= adapter->ready_timeout_ms) {

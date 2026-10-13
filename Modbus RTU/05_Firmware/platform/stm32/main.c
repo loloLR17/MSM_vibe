@@ -1633,7 +1633,11 @@ static void CommissioningSdProbe(void)
     hsd2.Init.ClockPowerSave = SDMMC_CLOCK_POWER_SAVE_DISABLE;
     hsd2.Init.BusWide = SDMMC_BUS_WIDE_1B;
     hsd2.Init.HardwareFlowControl = SDMMC_HARDWARE_FLOW_CONTROL_DISABLE;
+    #if TR2_STM32_STORAGE_QUALIFICATION
+    hsd2.Init.ClockDiv = 16U; /* 5 MHz; attempt2, keep the readonly baseline. */
+#else
     hsd2.Init.ClockDiv = 8U;
+#endif
 
     tr2_sdmmc2_stage = 4U;
     tr2_sdmmc2_init_status = (uint32_t)HAL_SD_Init(&hsd2);

@@ -365,3 +365,9 @@ tr2_add_host_test(test_modbus_fifo_io_budget tests/integration/test_modbus_fifo_
 target_sources(test_modbus_fifo_io_budget PRIVATE ${ST_REF}/src/fifo_cooperative.c ${ST_REF}/src/fifo_window.c ${ST_REF}/vendor/st/iis3dwb_reg.c)
 target_include_directories(test_modbus_fifo_io_budget PRIVATE ${ST_REF}/src ${ST_REF}/vendor/st)
 target_compile_definitions(test_modbus_fifo_io_budget PRIVATE BENCH_WINDOW_MAX_WORDS=36864)
+
+# M016 adapter error-state regression, real SD adapter with a bounded HAL model.
+add_executable(test_sdmmc_bulk_media tests/platform/test_sdmmc_bulk_media.c platform/stm32/stm32_sdmmc_bulk_media.c)
+target_include_directories(test_sdmmc_bulk_media PRIVATE tests/platform/stm32_hal_sdmmc_mock platform/stm32)
+target_link_libraries(test_sdmmc_bulk_media PRIVATE tr2_core)
+add_test(NAME sdmmc_bulk_media COMMAND test_sdmmc_bulk_media)

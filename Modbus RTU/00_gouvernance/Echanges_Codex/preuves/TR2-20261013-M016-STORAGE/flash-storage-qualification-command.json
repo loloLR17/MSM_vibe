@@ -1,0 +1,17 @@
+{
+  "command": [
+    "/mnt/c/ST/STM32CubeCLT_1.22.0/STM32CubeProgrammer/bin/STM32_Programmer_CLI.exe",
+    "-c",
+    "port=SWD",
+    "sn=003500463235510B37333439",
+    "freq=8000",
+    "-w",
+    "\\\\wsl.localhost\\Debian\\home\\lolo\\dev\\msm\\reports\\TR2-M016-storage-20261013T172331Z\\qualification-build\\tr2-special-storage_qualification-NON-CUMULATIVE.bin",
+    "0x08000000",
+    "-v",
+    "-rst"
+  ],
+  "code_sha": "9e8bf347b90c0747f310c37a4430982a33966bce",
+  "sha256": "d1b736a8027fbd373c4ce36c15a0a9f4d7a2d882a92e876e1ea95a24fb09b463",
+  "normal_programming_only": true
+}

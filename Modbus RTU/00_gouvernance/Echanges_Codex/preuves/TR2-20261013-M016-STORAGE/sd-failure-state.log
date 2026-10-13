@@ -1,0 +1,20 @@
+0x08002868 in HAL_GetTick () at /home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal.c:344
+344	}
+0xbfa0700:	0x004a003d	0x38425018	0x20333157
+$1 = HAL_SD_STATE_READY
+$2 = 0x5
+$3 = {hsd = 0x2000016c <hsd2>, sector_scratch = 0x2005314c <sector> "þÿ", sector_scratch_size = 512, io_timeout_ms = 2000, ready_timeout_ms = 2000, capacity_bytes = 511868665856, initialized = true}
+$4 = true
+$5 = 139264
+$6 = 131072
+$7 = 4096
+$8 = {media = 0x20053404 <region+52>, campaign_id = 23068673, next_offset = 160256, next_block_index = 33, initialized = true, faulted = true}
+$9 = 0x200000
+$10 = 0x10d
+$11 = 0xffff
+$12 = 0x8
+Note: automatically using hardware breakpoints for read-only addresses.
+$13 = 0
+$14 = 0x5
+$15 = 0xffff
+[Inferior 1 (Remote target) detached]

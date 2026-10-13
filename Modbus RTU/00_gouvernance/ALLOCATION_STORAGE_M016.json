@@ -52,29 +52,71 @@
     "region_must_be_fully_zero_before_first_run": true,
     "one_run_only": true,
     "campaign_ids": [
-      "01600001",
-      "01600002"
+      "01600003",
+      "01600004"
     ],
     "test_logical_bytes": [
       4194304,
       65536
     ],
-    "uncheckpointed_tail_bytes": 4096,
+    "uncheckpointed_tail_bytes": 16384,
     "no_fram_writes": true,
-    "production_auto_activation": false
+    "production_auto_activation": false,
+    "previous_attempt": {
+      "code_sha": "9e8bf347b90c0747f310c37a4430982a33966bce",
+      "source_region_bytes": 16777216,
+      "status": "FAILED_UNAVAILABLE; immutable partial result, recovered durable prefix131072 bytes at5MHz",
+      "retries": 0
+    },
+    "one_run_per_volume": true,
+    "sd_bus_hz": 5000000,
+    "attempt02_justification": "Real CMD CRC/response timeout observed at10MHz. Actual5MHz bus operation restored reads and the durable prefix. Use larger buffer to reduce transaction overhead; leave original extents immutable."
   },
   "capacity_policy": {
     "physical_region_is_not_logical_capacity": true,
-    "logical_block_payload_bytes": 4096,
-    "physical_block_extent_bytes": 4608,
+    "logical_block_payload_bytes": 16384,
+    "physical_block_extent_bytes": 16896,
     "metadata_bytes": 8192,
-    "partial_block_reserve_bytes": 36864,
-    "logical_capacity_floor_decimal_mb": 14,
-    "publication_requires_append_checkpoint_recovery_and_rate_proof": true
+    "partial_block_reserve_bytes": 135168,
+    "logical_capacity_floor_decimal_mb": 7,
+    "publication_requires_append_checkpoint_recovery_and_rate_proof": true,
+    "logical_capacity_bytes_conservative": 7995392,
+    "source": "CURRENT8MiB volume only; archive never counted as usable capacity"
   },
   "limits": [
     "Blank verified extent plus no partition overlap justifies this mission allocation; no general permission for other extents.",
     "No SD power-loss, atomic-sector, indefinite throughput, FIFO co-service or production-readiness qualification implied.",
     "No implicit boot erase/reclamation/format; card/UID/layout mismatch refuses operations."
+  ],
+  "revision": 2,
+  "volumes": [
+    {
+      "name": "ATTEMPT01_ARCHIVE",
+      "start_lba": 16384,
+      "blocks": 16384,
+      "base_bytes": 8388608,
+      "size_bytes": 8388608,
+      "writes_allowed": false,
+      "campaign_ids": [
+        "01600001",
+        "01600002"
+      ],
+      "durable_prefix_bytes": 131072,
+      "second_campaign_empty": true,
+      "geometry_reason": "Existing extents are below1MiB; all metadata and actual extents stay at original offsets. No relocation, erase, format or resume."
+    },
+    {
+      "name": "ATTEMPT02_CURRENT",
+      "start_lba": 32768,
+      "blocks": 16384,
+      "base_bytes": 16777216,
+      "size_bytes": 8388608,
+      "writes_allowed": true,
+      "campaign_ids": [
+        "01600003",
+        "01600004"
+      ],
+      "fresh_gate": true
+    }
   ]
 }
