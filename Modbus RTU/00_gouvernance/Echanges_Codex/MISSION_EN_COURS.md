@@ -1,8 +1,8 @@
 ---
-mission_id: TR2-20261013-M016-SDMMC-1BIT-LOAD-ONLY
+mission_id: TR2-20261014-M017-SDMMC-1BIT-REALISTIC-QUALIFICATION
 status: READY
 base_ref: main
-base_sha: 3538017a361d7178a1ac19a9563aeaf2eae1af37
+base_sha: 9dd90081ec6e51ec5c6fa84bd5b66f8369717ceb
 author: ChatGPT
 target_branch: main
 allow_commit: true
@@ -11,23 +11,30 @@ allow_flash: true
 allow_debug: true
 ---
 
-# M016 — Un seul essai de charge SDMMC2 1 bit, répétable
+# M017 — Qualification réelle et reproductible du mode SDMMC2 1 bit pour TR2
 
-## Priorité absolue — décision utilisateur
-Quota restant faible : **mission réduite à un seul scénario de charge pertinent TR2**, exécutable plusieurs fois à l'identique pour reproductibilité. Pas de diagnostic 4 bits, pas de recherche exploratoire, pas de matrice de tests, pas de refonte ni d'optimisation prématurée. L'utilisateur demande efficacité et résultat exploitable dès ce soir. **MicroSD SanDisk Ultra 32 Go de test déjà insérée, seconde Nucleo connectée sur ST-LINK**. Le média de test est sacrifiable. Aucun oscilloscope disponible : ne pas en demander.
+## Objectif et décision utilisateur
+L'utilisateur demande une **vraie qualification du 1 bit** en conditions représentatives TR2, après réinitialisation de son quota. Exécuter réellement les essais, pas seulement préparer le harness. Ne pas refaire les diagnostics 4 bits ni demander d'oscilloscope (non disponible). Priorité à la **preuve physique** et au diagnostic de l'échec précédent, sans annoncer de succès à l'avance.
 
-## Références
-Lire HEAD main, AGENTS.md, GOUVERNANCE_CHATGPT_CODEX.md, dernier rapport GPIO, rapport SDMMC-REFERENCE-PHYSICAL, README du démonstrateur `experiments/sdmmc_st_reference`, H3h-C2c, P8-B et arbitrage H3h-A. Ne pas modifier les spécifications gelées. Référence de débit : 26667 échantillons/s × 16 octets = **426672 B/s**. Le précédent C2c à 1 bit / 10 MHz avait validé 512 KiB à 1,20 MB/s moyen ; une latence isolée de 298 ms/64 KiB avait été observée.
+## État de référence et échec à expliquer
+Lire HEAD main réel, AGENTS.md, GOUVERNANCE_CHATGPT_CODEX.md, dernier rapport M016 FAILED, `experiments/sdmmc_st_reference/LOAD_ONLY.md`, code et preuves `preuves/TR2-20261013-M016-1BIT-LOAD`, rapports C2b/C2c, H3h-A, gel P8-B, état courant. Sur seconde NUCLEO-U575ZI-Q + Adafruit4682 + SanDisk Ultra32Go : M016 1bit/10MHz, producteur 426672 B/s, 64KiB/chunk, ring512KiB, **débordement après 4,164454 s**, 1 310 720 B écrits et relus sans mismatch, débit utile 314740 B/s, latence chunk142–324 ms, HAL errors0. Ancien C2c : 1bit/10MHz, 8x64KiB à54–55ms/chunk, 1 202 495 B/s, zéro mismatch. **La divergence majeure entre les deux campagnes doit être expliquée ou explicitement laissée non résolue.** Ne pas conclure prématurément à un défaut matériel ni à une insuffisance intrinsèque du 1bit.
 
-## Sécurité et transition depuis GPIO — NON NÉGOCIABLE
-Le dernier rapport indique que le firmware GPIO actuel configure PB15/PB3/PB4 en **sorties push-pull basses**. L'utilisateur vient d'indiquer que **la microSD est désormais insérée et la Nucleo sous ST-LINK**. Cette configuration peut provoquer une contention électrique avec une carte SD alimentée. **Avant toute commande GPIO, reset expérimental, test SDMMC ou flash**, identifier la seconde sonde ST-LINK 0032001F3235510C37333439 / UID 001B0046/38425018/20333157, puis faire immédiatement mettre le banc hors tension par l'utilisateur et demander de retirer la microSD. Ne pas supposer que la situation est sans danger ni faire tourner l'ancien firmware. Préparer et flasher ensuite une image SD sûre **avec carte retirée**, qui n'active pas les sorties GPIO basses et configure le bus SDMMC1bit correctement ; vérifier la configuration. Demander ensuite insertion microSD **hors tension**, puis reconnexion ST-LINK. Si l'utilisateur confirme qu'un autre firmware SD sûr a déjà remplacé le firmware GPIO, vérifier preuves réelles avant de sauter la séquence. Jamais de flash principal.
+## Contrat TR2 non négociable
+26667 samples/s × 16 octets = **426672 B/s** ; campagnes V1 60 s à 604800 s. Le scénario doit simuler une arrivée cadencée continue, un tampon réellement borné et l'écriture durable avec contrôles d'intégrité. Distinguer bus brut, débit applicatif, blocages du support, buffering et contraintes de RAM du firmware final. Une réussite moyenne seule ne qualifie pas l'absence de perte.
 
-## Un seul test physique à exécuter
-1. Réutiliser le démonstrateur indépendant dérivé de l'exemple ST CubeU5 v1.9.0 `SD_ReadWrite_DMALinkedList` déjà présent, adaptations minimales et documentées, HAL officiel inchangé. **Mode 1 bit forcé et vérifié sur carte et CLKCR**, fréquence cible **10 MHz** déjà caractérisée, fréquence effective prouvée.
-2. Définir **une campagne continue unique de 10 minutes**, simulant une arrivée logique à **426672 B/s**, soit environ **256 MB** en 600 s, avec écriture brute sur la microSD de test. Tampon de capacité fixe bornée, enregistrer backlog maximal, débordement, latences de chaque chunk (ou histogramme + P95/P99/max), débit utile, HAL/SDMMC errors. Choisir taille chunk raisonnable documentée (64 KiB par défaut) et zone LBA sûre sur carte sacrifiable après lecture CID/capacité. Aucune répétition automatique ; campagne déclenchable manuellement à nouveau à paramètres identiques, pour comparaison ultérieure.
-3. **Intégrité impérative** : données déterministes vérifiables ; relecture intégrale de la zone écrite après campagne et comparaison fiable (octet par octet ou hash par chunk avec comptage des erreurs). Si ressources RAM limitées, vérifier en flux. Reporter nombre d'octets écrits/relus et première divergence. Ne pas masquer les échecs par retries silencieux.
-4. Un seul scénario, sans benchmark annexe. Codex peut réaliser les préparations logicielles et un court contrôle d'initialisation strictement nécessaire pour garantir que la campagne n'endommagera pas le banc, mais pas d'essais supplémentaires exploratoires. **Exécuter une campagne complète si techniquement possible** ; si blocage, fournir la première cause prouvée et le correctif minimal justifié, sans enchaîner des changements spéculatifs.
-5. Fournir résultat explicite : durée effective, octets logiques générés, écrits, vérifiés, débit moyen, latence max/P95/P99, backlog maximal, pertes, erreurs, CID, UID, clock/bus réels, empreintes et code exact. Séparer succès du banc de qualification du runtime TR2. **Ne pas qualifier 7 jours sur 10 minutes**.
+## Périmètre d'exécution, ordre
+1. **Reprise sans repartir de zéro** : examiner l'implémentation M016 et les traces, comparer précisément chronométrage, callbacks, DMA linked-list, polling READY, fréquence, taille de chunk, comportement SD, priorité IRQ, charge CPU, producteur et consommateur. Vérifier s'il existe une erreur de méthode, un goulot logiciel ou une différence de mesure C2c/M016. Conserver la provenance ST CubeU5 v1.9.0 et les modifications documentées ; HAL/CMSIS officiels intacts. Ne corriger que des défauts démontrés, avec hypothèse et preuve avant/après. Ne pas contourner la contrainte en gonflant simplement la RAM.
+2. **Banc sécurisé** : uniquement seconde Nucleo ST-LINK 0032001F3235510C37333439 / UID 001B0046/38425018/20333157, jamais principal 003500463235510B37333439. Le rapport M016 confirme que firmware SD 1bit sûr a remplacé GPIO et microSD test réinsérée hors tension. Revalider identité, configuration électrique et présence carte, sans demander inutilement de la retirer. MicroSD SanDisk32Go de test sacrifiable, vérifier CID/capacité et zone LBA. Autorisations flash/debug/commit/push permanentes selon AGENTS ; pas de mass erase/Option Bytes/RDP.
+3. **Qualification physique progressive et proportionnée** : effectuer un diagnostic ciblé court uniquement si nécessaire pour isoler le goulot, puis un scénario d'arrivée réelle 426672 B/s pendant **au moins 10 minutes**, objectif ~256 MB, en 1bit/10MHz (ou variante strictement justifiée et traçable), avec FIFO bornée dimensionnée selon budget RAM plausible TR2 et latences. Répéter **au moins 3 campagnes complètes identiques** si le premier scénario passe, afin d'évaluer la reproductibilité ; mesurer aussi les échecs, sans retry caché. Les essais peuvent durer plus longtemps si nécessaire et autorisés ; ne pas prétendre avoir validé 7 jours. Prévoir sauvegarde de résultats entre runs et éviter d'écraser des preuves utiles. Ne pas effectuer de benchmark exploratoire sans rapport avec le critère TR2.
+4. **Mesures** : timestamps et temps réels, volume généré/accepté/écrit/relus, débit soutenu par run, latences write/READY min/P50/P95/P99/max, distribution et longues pauses, taille backlog max, high-water mark, overflows, pertes, HAL/SDMMC/DMA error et retours, checksum ou comparaison exacte des données sur tout le volume, y compris après réinitialisation contrôlée si faisable. Relecture de la totalité du volume (streaming), pas seulement du préfixe ; preuve de l'absence de perte et d'altération. Garder trace des registres 1bit et horloge effective déduite.
+5. **Critères** : pour qualifier le banc en conditions simulées, 3 × 600 s complets à 426672 B/s, zéro perte/overflow, zéro corruption et zéro erreur de transfert, sans backlog croissant non borné, avec latences documentées. Si la première campagne échoue, **arrêter les répétitions**, caractériser précisément la cause et faire au plus un correctif minimal fondé sur preuve suivi d'un nouveau run identique ; si le blocage persiste, publier BLOCKED/FAILED honnête avec preuves et options. Distinguer qualification du démonstrateur de qualification complète TR2 (capteur, codec, checkpoint, power-loss, 7 jours non prouvés).
+6. **Autonomie et temps** : pas de nouveau checkpoint final avant d'avoir tenté le RUN ; ne pas interrompre un run pour publier un rapport intermédiaire ; publier le code et le protocole nécessaires puis exécuter la campagne, sauvegarder les preuves et seulement ensuite publier le rapport final. Si session limitée, fournir un runner autonome durable, observable, reprenable et un état précis, sans prétendre qu'une campagne inachevée est qualifiée. Aucun besoin de validation humaine répétitive pour les opérations déjà autorisées. Escalade seulement pour gestes physiques, identité incertaine ou risque matériel réel.
 
-## Permissions et sortie
-`allow_commit: true`, `allow_push: true`, `allow_flash: true`, `allow_debug: true`. Autonomie Codex maximale après gestes physiques, sans validations répétitives. Uniquement seconde Nucleo et microSD de test, jamais principal, FRAM, Modbus, autres matériels. Pas de mass erase/OB/RDP, pas de formatage inutile. Publier code, preuves et `DERNIER_RAPPORT.md` sur main et vérifier distant. L'utilisateur relancera plus tard exactement le même test pour reproductibilité. ChatGPT contrôlera le rapport indépendamment.
+## Livrables et jugement
+Rapport `DERNIER_RAPPORT.md` sur main avec statut DONE seulement si critères réellement démontrés, sinon FAILED/BLOCKED/IN_PROGRESS selon faits ; code/commits/hashes, scripts, logs bruts, métriques par campagne, comparaison C2c/M016 et analyse de la cause. ChatGPT contrôlera indépendamment rapport et preuves avant toute décision d'adopter 1 bit pour TR2. Préserver le firmware principal, gels V1, FRAM et supports principaux.
+
+## Permissions
+allow_commit: true
+allow_push: true
+allow_flash: true
+allow_debug: true
