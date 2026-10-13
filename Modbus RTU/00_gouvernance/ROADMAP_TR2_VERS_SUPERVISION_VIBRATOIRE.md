@@ -7,6 +7,8 @@
 
 **Avant M016 :** A-02 achevée ; poursuivre les audits A-04/A-05 du build STM32 cumulatif, des chemins bloquants, des drivers ST et de la couverture effective des tests. Corrections ciblées selon A-06.
 
+**Après A-04 :** audit firmware `TR2-20261013-A04-AUDIT-FIRMWARE` livré (`DONE` Codex), neuf constats consignés dans [DETTE_TECHNIQUE_A04.md](DETTE_TECHNIQUE_A04.md). Séquence validée : **A-05 (tests/preuves, audit seul) → correction A04-01 (profil sûr) → correction A04-02 (FRAM/Modbus) → M016 (A04-03, FIFO métier V1)**. Les autres constats restent suivis, notamment RAM, timestamps, démarrage et SD. Aucune correction A-04 encore réalisée.
+
 **Traçabilité :** historique exact avant A-02 dans [Archives/ROADMAP_TR2_AVANT_A02_20261013.md](Archives/ROADMAP_TR2_AVANT_A02_20261013.md) ; résultats détaillés M015-V dans `Echanges_Codex/DERNIER_RAPPORT.md` et preuves référencées. La roadmap pilote les jalons, pas le journal des tentatives.
 
 ## 1. Socle de référence (historique au 11 octobre 2026)
