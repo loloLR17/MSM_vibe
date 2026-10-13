@@ -1,0 +1,8 @@
+{
+  "original_failure": "GDB unknown type: build_type empty; no Debug info",
+  "correction": "CMAKE_BUILD_TYPE=Debug, same source and all other options",
+  "bin_byte_identical": true,
+  "bin_sha256": "3c64751fc92ce2fcc799007a4313d7827c26a09c1c992c54b8633b1ea9840ce9",
+  "new_elf_sha256": "70edfe02e6e67dadd38c56ec714427d496b0e9f94ecc5e8a7cf742ae9e590d8c",
+  "no_reflash": true
+}

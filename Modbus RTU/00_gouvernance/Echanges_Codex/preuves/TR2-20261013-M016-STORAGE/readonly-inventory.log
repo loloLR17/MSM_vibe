@@ -1,0 +1,4 @@
+0x08002044 in HAL_GetTick ()
+0xbfa0700:	0x004a003d	0x38425018	0x20333157
+\\wsl.localhost\Debian\home\lolo\dev\msm\reports\TR2-M016-storage-20261013T172331Z\readonly-inventory.gdb:9: Error in sourced command file:
+'tr2_commission_stage' has unknown type; cast it to its declared type

@@ -1,0 +1,13 @@
+[
+  "cmake",
+  "-G",
+  "Ninja",
+  "-S",
+  "/home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32",
+  "-B",
+  "/home/lolo/dev/msm/reports/TR2-M016-storage-20261013T172331Z/qualification-build",
+  "-DCMAKE_TOOLCHAIN_FILE=/home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/cmake/arm-none-eabi-gcc.cmake",
+  "-DSTM32CUBE_U5_ROOT=/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0",
+  "-DCMAKE_BUILD_TYPE=Debug",
+  "-DTR2_STM32_STORAGE_QUALIFICATION=ON"
+]

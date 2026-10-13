@@ -34,6 +34,7 @@ elseif(NOT TR2_STM32_BUILD_PROFILE STREQUAL "")
 endif()
 option(TR2_STM32_LEGACY_SD_HARNESS "NON-PRODUCTION: historical harness writes microSD at boot; sacrificial media only" OFF)
 
+option(TR2_STM32_STORAGE_QUALIFICATION "Isolated M016 explicitly allocated storage qualification; RAM-triggered writes only" OFF)
 option(TR2_STM32_COMMISSIONING_READONLY "Isolated media inspection and backup, no data writes or Modbus" OFF)
 if(TR2_STM32_COMMISSIONING_READONLY AND TR2_STM32_MODBUS_DIAGNOSTIC)
     message(FATAL_ERROR "Commissioning probe and diagnostic modes are exclusive")
@@ -159,9 +160,14 @@ if(TR2_STM32_ST_FIFO_WINDOW)
  endforeach()
 endif()
 
+if(TR2_STM32_STORAGE_QUALIFICATION AND (TR2_STM32_RS485_TX_QUALIFIED OR
+    TR2_STM32_IRQ_DIAGNOSTICS OR TR2_STM32_FIFO_COOPERATIVE))
+    message(FATAL_ERROR "STORAGE_QUALIFICATION is isolated: no UART TX/observer/FIFO")
+endif()
+
 # Run the established guards first, then reject an implicit generic harness.
 set(TR2_SELECTED_MODES "")
-foreach(mode PRODUCTION MANUFACTURING COMMISSIONING_READONLY MODBUS_DIAGNOSTIC
+foreach(mode PRODUCTION MANUFACTURING COMMISSIONING_READONLY STORAGE_QUALIFICATION MODBUS_DIAGNOSTIC
         ST_FIFO_WINDOW CONTINUOUS_FIFO CTRL1_DIFFERENTIAL BURST_CAPTURE
         ACTIVE_READBACK REGISTER_PROBE FIFO_CAPTURE ACQUISITION_CAPTURE)
     if(TR2_STM32_${mode})
@@ -294,6 +300,13 @@ if(TR2_STM32_PRODUCTION OR TR2_STM32_MANUFACTURING)
     target_sources(tr2_stm32_p11c PRIVATE stm32_production_board.c)
     target_include_directories(tr2_stm32_p11c PRIVATE ${CMAKE_CURRENT_BINARY_DIR}/generated)
 endif()
+if(TR2_STM32_STORAGE_QUALIFICATION)
+    target_sources(tr2_stm32_p11c PRIVATE stm32_storage_qualification.c)
+    # Isolated throughput qualification: normal cumulative flags stay unchanged.
+    target_compile_options(tr2_core PRIVATE -O2)
+    set_source_files_properties(stm32_storage_qualification.c PROPERTIES COMPILE_OPTIONS "-O2")
+endif()
+
 target_compile_definitions(tr2_stm32_p11c PRIVATE
     TR2_STM32_LEGACY_SD_HARNESS=$<BOOL:${TR2_STM32_LEGACY_SD_HARNESS}>
     TR2_STM32_FIFO_COOPERATIVE=$<BOOL:${TR2_STM32_FIFO_COOPERATIVE}>
@@ -309,6 +322,7 @@ target_compile_definitions(tr2_stm32_p11c PRIVATE
     TR2_STM32_PRODUCTION=$<BOOL:${TR2_STM32_PRODUCTION}>
     TR2_STM32_MANUFACTURING=$<BOOL:${TR2_STM32_MANUFACTURING}>
     TR2_STM32_PRODUCTION_SILENCE_TEST=$<BOOL:${TR2_STM32_PRODUCTION_SILENCE_TEST}>
+    TR2_STM32_STORAGE_QUALIFICATION=$<BOOL:${TR2_STM32_STORAGE_QUALIFICATION}>
     TR2_STM32_COMMISSIONING_READONLY=$<BOOL:${TR2_STM32_COMMISSIONING_READONLY}>
     TR2_STM32_IRQ_DIAGNOSTICS=$<BOOL:${TR2_STM32_IRQ_DIAGNOSTICS}>
     TR2_STM32_RS485_TX_QUALIFIED=$<BOOL:${TR2_STM32_RS485_TX_QUALIFIED}>

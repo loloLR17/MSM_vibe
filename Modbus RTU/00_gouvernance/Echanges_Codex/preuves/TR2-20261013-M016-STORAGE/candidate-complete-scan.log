@@ -1,0 +1,1535 @@
+0x08002078 in HAL_Delay (Delay=1) at /home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal.c:419
+419	  while ((HAL_GetTick() - tickstart) < wait)
+0xbfa0700:	0x004a003d	0x38425018	0x20333157
+Hardware assisted breakpoint 1 at 0x8000d72: file /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c, line 1689.
+
+Temporary breakpoint 1, CommissioningReadChunk () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1689
+1689	    const uint32_t lba = tr2_commission_sd_read_lba;
+Note: automatically using hardware breakpoints for read-only addresses.
+CommissioningReadOnly () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1752
+1752	        HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
+Hardware assisted breakpoint 2 at 0x8000d72: file /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c, line 1689.
+
+Temporary breakpoint 2, CommissioningReadChunk () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1689
+1689	    const uint32_t lba = tr2_commission_sd_read_lba;
+CommissioningReadOnly () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1752
+1752	        HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
+Hardware assisted breakpoint 3 at 0x8000d72: file /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c, line 1689.
+
+Temporary breakpoint 3, CommissioningReadChunk () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1689
+1689	    const uint32_t lba = tr2_commission_sd_read_lba;
+CommissioningReadOnly () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1752
+1752	        HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
+Hardware assisted breakpoint 4 at 0x8000d72: file /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c, line 1689.
+
+Temporary breakpoint 4, CommissioningReadChunk () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1689
+1689	    const uint32_t lba = tr2_commission_sd_read_lba;
+CommissioningReadOnly () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1752
+1752	        HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
+Hardware assisted breakpoint 5 at 0x8000d72: file /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c, line 1689.
+
+Temporary breakpoint 5, CommissioningReadChunk () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1689
+1689	    const uint32_t lba = tr2_commission_sd_read_lba;
+CommissioningReadOnly () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1752
+1752	        HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
+Hardware assisted breakpoint 6 at 0x8000d72: file /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c, line 1689.
+
+Temporary breakpoint 6, CommissioningReadChunk () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1689
+1689	    const uint32_t lba = tr2_commission_sd_read_lba;
+CommissioningReadOnly () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1752
+1752	        HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
+Hardware assisted breakpoint 7 at 0x8000d72: file /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c, line 1689.
+
+Temporary breakpoint 7, CommissioningReadChunk () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1689
+1689	    const uint32_t lba = tr2_commission_sd_read_lba;
+CommissioningReadOnly () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1752
+1752	        HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
+Hardware assisted breakpoint 8 at 0x8000d72: file /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c, line 1689.
+
+Temporary breakpoint 8, CommissioningReadChunk () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1689
+1689	    const uint32_t lba = tr2_commission_sd_read_lba;
+CommissioningReadOnly () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1752
+1752	        HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
+Hardware assisted breakpoint 9 at 0x8000d72: file /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c, line 1689.
+
+Temporary breakpoint 9, CommissioningReadChunk () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1689
+1689	    const uint32_t lba = tr2_commission_sd_read_lba;
+CommissioningReadOnly () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1752
+1752	        HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
+Hardware assisted breakpoint 10 at 0x8000d72: file /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c, line 1689.
+
+Temporary breakpoint 10, CommissioningReadChunk () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1689
+1689	    const uint32_t lba = tr2_commission_sd_read_lba;
+CommissioningReadOnly () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1752
+1752	        HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
+Hardware assisted breakpoint 11 at 0x8000d72: file /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c, line 1689.
+
+Temporary breakpoint 11, CommissioningReadChunk () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1689
+1689	    const uint32_t lba = tr2_commission_sd_read_lba;
+CommissioningReadOnly () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1752
+1752	        HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
+Hardware assisted breakpoint 12 at 0x8000d72: file /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c, line 1689.
+
+Temporary breakpoint 12, CommissioningReadChunk () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1689
+1689	    const uint32_t lba = tr2_commission_sd_read_lba;
+CommissioningReadOnly () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1752
+1752	        HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
+Hardware assisted breakpoint 13 at 0x8000d72: file /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c, line 1689.
+
+Temporary breakpoint 13, CommissioningReadChunk () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1689
+1689	    const uint32_t lba = tr2_commission_sd_read_lba;
+CommissioningReadOnly () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1752
+1752	        HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
+Hardware assisted breakpoint 14 at 0x8000d72: file /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c, line 1689.
+
+Temporary breakpoint 14, CommissioningReadChunk () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1689
+1689	    const uint32_t lba = tr2_commission_sd_read_lba;
+CommissioningReadOnly () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1752
+1752	        HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
+Hardware assisted breakpoint 15 at 0x8000d72: file /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c, line 1689.
+
+Temporary breakpoint 15, CommissioningReadChunk () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1689
+1689	    const uint32_t lba = tr2_commission_sd_read_lba;
+CommissioningReadOnly () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1752
+1752	        HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
+Hardware assisted breakpoint 16 at 0x8000d72: file /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c, line 1689.
+
+Temporary breakpoint 16, CommissioningReadChunk () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1689
+1689	    const uint32_t lba = tr2_commission_sd_read_lba;
+CommissioningReadOnly () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1752
+1752	        HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
+Hardware assisted breakpoint 17 at 0x8000d72: file /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c, line 1689.
+
+Temporary breakpoint 17, CommissioningReadChunk () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1689
+1689	    const uint32_t lba = tr2_commission_sd_read_lba;
+CommissioningReadOnly () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1752
+1752	        HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
+Hardware assisted breakpoint 18 at 0x8000d72: file /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c, line 1689.
+
+Temporary breakpoint 18, CommissioningReadChunk () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1689
+1689	    const uint32_t lba = tr2_commission_sd_read_lba;
+CommissioningReadOnly () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1752
+1752	        HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
+Hardware assisted breakpoint 19 at 0x8000d72: file /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c, line 1689.
+
+Temporary breakpoint 19, CommissioningReadChunk () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1689
+1689	    const uint32_t lba = tr2_commission_sd_read_lba;
+CommissioningReadOnly () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1752
+1752	        HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
+Hardware assisted breakpoint 20 at 0x8000d72: file /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c, line 1689.
+
+Temporary breakpoint 20, CommissioningReadChunk () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1689
+1689	    const uint32_t lba = tr2_commission_sd_read_lba;
+CommissioningReadOnly () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1752
+1752	        HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
+Hardware assisted breakpoint 21 at 0x8000d72: file /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c, line 1689.
+
+Temporary breakpoint 21, CommissioningReadChunk () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1689
+1689	    const uint32_t lba = tr2_commission_sd_read_lba;
+CommissioningReadOnly () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1752
+1752	        HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
+Hardware assisted breakpoint 22 at 0x8000d72: file /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c, line 1689.
+
+Temporary breakpoint 22, CommissioningReadChunk () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1689
+1689	    const uint32_t lba = tr2_commission_sd_read_lba;
+CommissioningReadOnly () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1752
+1752	        HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
+Hardware assisted breakpoint 23 at 0x8000d72: file /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c, line 1689.
+
+Temporary breakpoint 23, CommissioningReadChunk () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1689
+1689	    const uint32_t lba = tr2_commission_sd_read_lba;
+CommissioningReadOnly () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1752
+1752	        HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
+Hardware assisted breakpoint 24 at 0x8000d72: file /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c, line 1689.
+
+Temporary breakpoint 24, CommissioningReadChunk () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1689
+1689	    const uint32_t lba = tr2_commission_sd_read_lba;
+CommissioningReadOnly () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1752
+1752	        HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
+Hardware assisted breakpoint 25 at 0x8000d72: file /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c, line 1689.
+
+Temporary breakpoint 25, CommissioningReadChunk () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1689
+1689	    const uint32_t lba = tr2_commission_sd_read_lba;
+CommissioningReadOnly () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1752
+1752	        HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
+Hardware assisted breakpoint 26 at 0x8000d72: file /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c, line 1689.
+
+Temporary breakpoint 26, CommissioningReadChunk () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1689
+1689	    const uint32_t lba = tr2_commission_sd_read_lba;
+CommissioningReadOnly () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1752
+1752	        HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
+Hardware assisted breakpoint 27 at 0x8000d72: file /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c, line 1689.
+
+Temporary breakpoint 27, CommissioningReadChunk () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1689
+1689	    const uint32_t lba = tr2_commission_sd_read_lba;
+CommissioningReadOnly () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1752
+1752	        HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
+Hardware assisted breakpoint 28 at 0x8000d72: file /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c, line 1689.
+
+Temporary breakpoint 28, CommissioningReadChunk () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1689
+1689	    const uint32_t lba = tr2_commission_sd_read_lba;
+CommissioningReadOnly () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1752
+1752	        HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
+Hardware assisted breakpoint 29 at 0x8000d72: file /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c, line 1689.
+
+Temporary breakpoint 29, CommissioningReadChunk () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1689
+1689	    const uint32_t lba = tr2_commission_sd_read_lba;
+CommissioningReadOnly () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1752
+1752	        HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
+Hardware assisted breakpoint 30 at 0x8000d72: file /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c, line 1689.
+
+Temporary breakpoint 30, CommissioningReadChunk () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1689
+1689	    const uint32_t lba = tr2_commission_sd_read_lba;
+CommissioningReadOnly () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1752
+1752	        HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
+Hardware assisted breakpoint 31 at 0x8000d72: file /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c, line 1689.
+
+Temporary breakpoint 31, CommissioningReadChunk () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1689
+1689	    const uint32_t lba = tr2_commission_sd_read_lba;
+CommissioningReadOnly () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1752
+1752	        HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
+Hardware assisted breakpoint 32 at 0x8000d72: file /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c, line 1689.
+
+Temporary breakpoint 32, CommissioningReadChunk () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1689
+1689	    const uint32_t lba = tr2_commission_sd_read_lba;
+CommissioningReadOnly () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1752
+1752	        HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
+Hardware assisted breakpoint 33 at 0x8000d72: file /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c, line 1689.
+
+Temporary breakpoint 33, CommissioningReadChunk () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1689
+1689	    const uint32_t lba = tr2_commission_sd_read_lba;
+CommissioningReadOnly () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1752
+1752	        HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
+Hardware assisted breakpoint 34 at 0x8000d72: file /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c, line 1689.
+
+Temporary breakpoint 34, CommissioningReadChunk () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1689
+1689	    const uint32_t lba = tr2_commission_sd_read_lba;
+CommissioningReadOnly () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1752
+1752	        HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
+Hardware assisted breakpoint 35 at 0x8000d72: file /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c, line 1689.
+
+Temporary breakpoint 35, CommissioningReadChunk () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1689
+1689	    const uint32_t lba = tr2_commission_sd_read_lba;
+CommissioningReadOnly () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1752
+1752	        HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
+Hardware assisted breakpoint 36 at 0x8000d72: file /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c, line 1689.
+
+Temporary breakpoint 36, CommissioningReadChunk () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1689
+1689	    const uint32_t lba = tr2_commission_sd_read_lba;
+CommissioningReadOnly () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1752
+1752	        HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
+Hardware assisted breakpoint 37 at 0x8000d72: file /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c, line 1689.
+
+Temporary breakpoint 37, CommissioningReadChunk () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1689
+1689	    const uint32_t lba = tr2_commission_sd_read_lba;
+CommissioningReadOnly () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1752
+1752	        HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
+Hardware assisted breakpoint 38 at 0x8000d72: file /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c, line 1689.
+
+Temporary breakpoint 38, CommissioningReadChunk () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1689
+1689	    const uint32_t lba = tr2_commission_sd_read_lba;
+CommissioningReadOnly () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1752
+1752	        HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
+Hardware assisted breakpoint 39 at 0x8000d72: file /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c, line 1689.
+
+Temporary breakpoint 39, CommissioningReadChunk () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1689
+1689	    const uint32_t lba = tr2_commission_sd_read_lba;
+CommissioningReadOnly () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1752
+1752	        HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
+Hardware assisted breakpoint 40 at 0x8000d72: file /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c, line 1689.
+
+Temporary breakpoint 40, CommissioningReadChunk () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1689
+1689	    const uint32_t lba = tr2_commission_sd_read_lba;
+CommissioningReadOnly () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1752
+1752	        HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
+Hardware assisted breakpoint 41 at 0x8000d72: file /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c, line 1689.
+
+Temporary breakpoint 41, CommissioningReadChunk () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1689
+1689	    const uint32_t lba = tr2_commission_sd_read_lba;
+CommissioningReadOnly () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1752
+1752	        HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
+Hardware assisted breakpoint 42 at 0x8000d72: file /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c, line 1689.
+
+Temporary breakpoint 42, CommissioningReadChunk () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1689
+1689	    const uint32_t lba = tr2_commission_sd_read_lba;
+CommissioningReadOnly () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1752
+1752	        HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
+Hardware assisted breakpoint 43 at 0x8000d72: file /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c, line 1689.
+
+Temporary breakpoint 43, CommissioningReadChunk () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1689
+1689	    const uint32_t lba = tr2_commission_sd_read_lba;
+CommissioningReadOnly () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1752
+1752	        HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
+Hardware assisted breakpoint 44 at 0x8000d72: file /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c, line 1689.
+
+Temporary breakpoint 44, CommissioningReadChunk () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1689
+1689	    const uint32_t lba = tr2_commission_sd_read_lba;
+CommissioningReadOnly () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1752
+1752	        HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
+Hardware assisted breakpoint 45 at 0x8000d72: file /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c, line 1689.
+
+Temporary breakpoint 45, CommissioningReadChunk () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1689
+1689	    const uint32_t lba = tr2_commission_sd_read_lba;
+CommissioningReadOnly () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1752
+1752	        HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
+Hardware assisted breakpoint 46 at 0x8000d72: file /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c, line 1689.
+
+Temporary breakpoint 46, CommissioningReadChunk () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1689
+1689	    const uint32_t lba = tr2_commission_sd_read_lba;
+CommissioningReadOnly () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1752
+1752	        HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
+Hardware assisted breakpoint 47 at 0x8000d72: file /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c, line 1689.
+
+Temporary breakpoint 47, CommissioningReadChunk () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1689
+1689	    const uint32_t lba = tr2_commission_sd_read_lba;
+CommissioningReadOnly () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1752
+1752	        HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
+Hardware assisted breakpoint 48 at 0x8000d72: file /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c, line 1689.
+
+Temporary breakpoint 48, CommissioningReadChunk () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1689
+1689	    const uint32_t lba = tr2_commission_sd_read_lba;
+CommissioningReadOnly () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1752
+1752	        HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
+Hardware assisted breakpoint 49 at 0x8000d72: file /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c, line 1689.
+
+Temporary breakpoint 49, CommissioningReadChunk () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1689
+1689	    const uint32_t lba = tr2_commission_sd_read_lba;
+CommissioningReadOnly () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1752
+1752	        HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
+Hardware assisted breakpoint 50 at 0x8000d72: file /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c, line 1689.
+
+Temporary breakpoint 50, CommissioningReadChunk () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1689
+1689	    const uint32_t lba = tr2_commission_sd_read_lba;
+CommissioningReadOnly () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1752
+1752	        HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
+Hardware assisted breakpoint 51 at 0x8000d72: file /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c, line 1689.
+
+Temporary breakpoint 51, CommissioningReadChunk () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1689
+1689	    const uint32_t lba = tr2_commission_sd_read_lba;
+CommissioningReadOnly () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1752
+1752	        HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
+Hardware assisted breakpoint 52 at 0x8000d72: file /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c, line 1689.
+
+Temporary breakpoint 52, CommissioningReadChunk () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1689
+1689	    const uint32_t lba = tr2_commission_sd_read_lba;
+CommissioningReadOnly () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1752
+1752	        HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
+Hardware assisted breakpoint 53 at 0x8000d72: file /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c, line 1689.
+
+Temporary breakpoint 53, CommissioningReadChunk () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1689
+1689	    const uint32_t lba = tr2_commission_sd_read_lba;
+CommissioningReadOnly () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1752
+1752	        HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
+Hardware assisted breakpoint 54 at 0x8000d72: file /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c, line 1689.
+
+Temporary breakpoint 54, CommissioningReadChunk () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1689
+1689	    const uint32_t lba = tr2_commission_sd_read_lba;
+CommissioningReadOnly () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1752
+1752	        HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
+Hardware assisted breakpoint 55 at 0x8000d72: file /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c, line 1689.
+
+Temporary breakpoint 55, CommissioningReadChunk () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1689
+1689	    const uint32_t lba = tr2_commission_sd_read_lba;
+CommissioningReadOnly () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1752
+1752	        HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
+Hardware assisted breakpoint 56 at 0x8000d72: file /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c, line 1689.
+
+Temporary breakpoint 56, CommissioningReadChunk () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1689
+1689	    const uint32_t lba = tr2_commission_sd_read_lba;
+CommissioningReadOnly () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1752
+1752	        HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
+Hardware assisted breakpoint 57 at 0x8000d72: file /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c, line 1689.
+
+Temporary breakpoint 57, CommissioningReadChunk () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1689
+1689	    const uint32_t lba = tr2_commission_sd_read_lba;
+CommissioningReadOnly () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1752
+1752	        HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
+Hardware assisted breakpoint 58 at 0x8000d72: file /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c, line 1689.
+
+Temporary breakpoint 58, CommissioningReadChunk () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1689
+1689	    const uint32_t lba = tr2_commission_sd_read_lba;
+CommissioningReadOnly () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1752
+1752	        HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
+Hardware assisted breakpoint 59 at 0x8000d72: file /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c, line 1689.
+
+Temporary breakpoint 59, CommissioningReadChunk () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1689
+1689	    const uint32_t lba = tr2_commission_sd_read_lba;
+CommissioningReadOnly () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1752
+1752	        HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
+Hardware assisted breakpoint 60 at 0x8000d72: file /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c, line 1689.
+
+Temporary breakpoint 60, CommissioningReadChunk () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1689
+1689	    const uint32_t lba = tr2_commission_sd_read_lba;
+CommissioningReadOnly () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1752
+1752	        HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
+Hardware assisted breakpoint 61 at 0x8000d72: file /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c, line 1689.
+
+Temporary breakpoint 61, CommissioningReadChunk () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1689
+1689	    const uint32_t lba = tr2_commission_sd_read_lba;
+CommissioningReadOnly () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1752
+1752	        HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
+Hardware assisted breakpoint 62 at 0x8000d72: file /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c, line 1689.
+
+Temporary breakpoint 62, CommissioningReadChunk () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1689
+1689	    const uint32_t lba = tr2_commission_sd_read_lba;
+CommissioningReadOnly () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1752
+1752	        HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
+Hardware assisted breakpoint 63 at 0x8000d72: file /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c, line 1689.
+
+Temporary breakpoint 63, CommissioningReadChunk () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1689
+1689	    const uint32_t lba = tr2_commission_sd_read_lba;
+CommissioningReadOnly () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1752
+1752	        HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
+Hardware assisted breakpoint 64 at 0x8000d72: file /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c, line 1689.
+
+Temporary breakpoint 64, CommissioningReadChunk () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1689
+1689	    const uint32_t lba = tr2_commission_sd_read_lba;
+CommissioningReadOnly () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1752
+1752	        HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
+Hardware assisted breakpoint 65 at 0x8000d72: file /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c, line 1689.
+
+Temporary breakpoint 65, CommissioningReadChunk () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1689
+1689	    const uint32_t lba = tr2_commission_sd_read_lba;
+CommissioningReadOnly () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1752
+1752	        HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
+Hardware assisted breakpoint 66 at 0x8000d72: file /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c, line 1689.
+
+Temporary breakpoint 66, CommissioningReadChunk () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1689
+1689	    const uint32_t lba = tr2_commission_sd_read_lba;
+CommissioningReadOnly () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1752
+1752	        HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
+Hardware assisted breakpoint 67 at 0x8000d72: file /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c, line 1689.
+
+Temporary breakpoint 67, CommissioningReadChunk () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1689
+1689	    const uint32_t lba = tr2_commission_sd_read_lba;
+CommissioningReadOnly () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1752
+1752	        HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
+Hardware assisted breakpoint 68 at 0x8000d72: file /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c, line 1689.
+
+Temporary breakpoint 68, CommissioningReadChunk () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1689
+1689	    const uint32_t lba = tr2_commission_sd_read_lba;
+CommissioningReadOnly () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1752
+1752	        HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
+Hardware assisted breakpoint 69 at 0x8000d72: file /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c, line 1689.
+
+Temporary breakpoint 69, CommissioningReadChunk () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1689
+1689	    const uint32_t lba = tr2_commission_sd_read_lba;
+CommissioningReadOnly () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1752
+1752	        HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
+Hardware assisted breakpoint 70 at 0x8000d72: file /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c, line 1689.
+
+Temporary breakpoint 70, CommissioningReadChunk () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1689
+1689	    const uint32_t lba = tr2_commission_sd_read_lba;
+CommissioningReadOnly () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1752
+1752	        HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
+Hardware assisted breakpoint 71 at 0x8000d72: file /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c, line 1689.
+
+Temporary breakpoint 71, CommissioningReadChunk () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1689
+1689	    const uint32_t lba = tr2_commission_sd_read_lba;
+CommissioningReadOnly () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1752
+1752	        HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
+Hardware assisted breakpoint 72 at 0x8000d72: file /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c, line 1689.
+
+Temporary breakpoint 72, CommissioningReadChunk () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1689
+1689	    const uint32_t lba = tr2_commission_sd_read_lba;
+CommissioningReadOnly () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1752
+1752	        HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
+Hardware assisted breakpoint 73 at 0x8000d72: file /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c, line 1689.
+
+Temporary breakpoint 73, CommissioningReadChunk () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1689
+1689	    const uint32_t lba = tr2_commission_sd_read_lba;
+CommissioningReadOnly () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1752
+1752	        HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
+Hardware assisted breakpoint 74 at 0x8000d72: file /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c, line 1689.
+
+Temporary breakpoint 74, CommissioningReadChunk () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1689
+1689	    const uint32_t lba = tr2_commission_sd_read_lba;
+CommissioningReadOnly () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1752
+1752	        HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
+Hardware assisted breakpoint 75 at 0x8000d72: file /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c, line 1689.
+
+Temporary breakpoint 75, CommissioningReadChunk () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1689
+1689	    const uint32_t lba = tr2_commission_sd_read_lba;
+CommissioningReadOnly () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1752
+1752	        HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
+Hardware assisted breakpoint 76 at 0x8000d72: file /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c, line 1689.
+
+Temporary breakpoint 76, CommissioningReadChunk () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1689
+1689	    const uint32_t lba = tr2_commission_sd_read_lba;
+CommissioningReadOnly () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1752
+1752	        HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
+Hardware assisted breakpoint 77 at 0x8000d72: file /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c, line 1689.
+
+Temporary breakpoint 77, CommissioningReadChunk () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1689
+1689	    const uint32_t lba = tr2_commission_sd_read_lba;
+CommissioningReadOnly () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1752
+1752	        HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
+Hardware assisted breakpoint 78 at 0x8000d72: file /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c, line 1689.
+
+Temporary breakpoint 78, CommissioningReadChunk () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1689
+1689	    const uint32_t lba = tr2_commission_sd_read_lba;
+CommissioningReadOnly () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1752
+1752	        HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
+Hardware assisted breakpoint 79 at 0x8000d72: file /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c, line 1689.
+
+Temporary breakpoint 79, CommissioningReadChunk () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1689
+1689	    const uint32_t lba = tr2_commission_sd_read_lba;
+CommissioningReadOnly () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1752
+1752	        HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
+Hardware assisted breakpoint 80 at 0x8000d72: file /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c, line 1689.
+
+Temporary breakpoint 80, CommissioningReadChunk () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1689
+1689	    const uint32_t lba = tr2_commission_sd_read_lba;
+CommissioningReadOnly () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1752
+1752	        HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
+Hardware assisted breakpoint 81 at 0x8000d72: file /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c, line 1689.
+
+Temporary breakpoint 81, CommissioningReadChunk () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1689
+1689	    const uint32_t lba = tr2_commission_sd_read_lba;
+CommissioningReadOnly () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1752
+1752	        HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
+Hardware assisted breakpoint 82 at 0x8000d72: file /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c, line 1689.
+
+Temporary breakpoint 82, CommissioningReadChunk () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1689
+1689	    const uint32_t lba = tr2_commission_sd_read_lba;
+CommissioningReadOnly () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1752
+1752	        HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
+Hardware assisted breakpoint 83 at 0x8000d72: file /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c, line 1689.
+
+Temporary breakpoint 83, CommissioningReadChunk () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1689
+1689	    const uint32_t lba = tr2_commission_sd_read_lba;
+CommissioningReadOnly () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1752
+1752	        HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
+Hardware assisted breakpoint 84 at 0x8000d72: file /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c, line 1689.
+
+Temporary breakpoint 84, CommissioningReadChunk () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1689
+1689	    const uint32_t lba = tr2_commission_sd_read_lba;
+CommissioningReadOnly () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1752
+1752	        HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
+Hardware assisted breakpoint 85 at 0x8000d72: file /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c, line 1689.
+
+Temporary breakpoint 85, CommissioningReadChunk () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1689
+1689	    const uint32_t lba = tr2_commission_sd_read_lba;
+CommissioningReadOnly () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1752
+1752	        HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
+Hardware assisted breakpoint 86 at 0x8000d72: file /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c, line 1689.
+
+Temporary breakpoint 86, CommissioningReadChunk () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1689
+1689	    const uint32_t lba = tr2_commission_sd_read_lba;
+CommissioningReadOnly () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1752
+1752	        HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
+Hardware assisted breakpoint 87 at 0x8000d72: file /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c, line 1689.
+
+Temporary breakpoint 87, CommissioningReadChunk () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1689
+1689	    const uint32_t lba = tr2_commission_sd_read_lba;
+CommissioningReadOnly () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1752
+1752	        HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
+Hardware assisted breakpoint 88 at 0x8000d72: file /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c, line 1689.
+
+Temporary breakpoint 88, CommissioningReadChunk () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1689
+1689	    const uint32_t lba = tr2_commission_sd_read_lba;
+CommissioningReadOnly () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1752
+1752	        HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
+Hardware assisted breakpoint 89 at 0x8000d72: file /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c, line 1689.
+
+Temporary breakpoint 89, CommissioningReadChunk () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1689
+1689	    const uint32_t lba = tr2_commission_sd_read_lba;
+CommissioningReadOnly () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1752
+1752	        HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
+Hardware assisted breakpoint 90 at 0x8000d72: file /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c, line 1689.
+
+Temporary breakpoint 90, CommissioningReadChunk () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1689
+1689	    const uint32_t lba = tr2_commission_sd_read_lba;
+CommissioningReadOnly () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1752
+1752	        HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
+Hardware assisted breakpoint 91 at 0x8000d72: file /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c, line 1689.
+
+Temporary breakpoint 91, CommissioningReadChunk () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1689
+1689	    const uint32_t lba = tr2_commission_sd_read_lba;
+CommissioningReadOnly () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1752
+1752	        HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
+Hardware assisted breakpoint 92 at 0x8000d72: file /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c, line 1689.
+
+Temporary breakpoint 92, CommissioningReadChunk () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1689
+1689	    const uint32_t lba = tr2_commission_sd_read_lba;
+CommissioningReadOnly () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1752
+1752	        HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
+Hardware assisted breakpoint 93 at 0x8000d72: file /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c, line 1689.
+
+Temporary breakpoint 93, CommissioningReadChunk () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1689
+1689	    const uint32_t lba = tr2_commission_sd_read_lba;
+CommissioningReadOnly () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1752
+1752	        HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
+Hardware assisted breakpoint 94 at 0x8000d72: file /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c, line 1689.
+
+Temporary breakpoint 94, CommissioningReadChunk () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1689
+1689	    const uint32_t lba = tr2_commission_sd_read_lba;
+CommissioningReadOnly () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1752
+1752	        HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
+Hardware assisted breakpoint 95 at 0x8000d72: file /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c, line 1689.
+
+Temporary breakpoint 95, CommissioningReadChunk () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1689
+1689	    const uint32_t lba = tr2_commission_sd_read_lba;
+CommissioningReadOnly () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1752
+1752	        HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
+Hardware assisted breakpoint 96 at 0x8000d72: file /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c, line 1689.
+
+Temporary breakpoint 96, CommissioningReadChunk () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1689
+1689	    const uint32_t lba = tr2_commission_sd_read_lba;
+CommissioningReadOnly () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1752
+1752	        HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
+Hardware assisted breakpoint 97 at 0x8000d72: file /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c, line 1689.
+
+Temporary breakpoint 97, CommissioningReadChunk () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1689
+1689	    const uint32_t lba = tr2_commission_sd_read_lba;
+CommissioningReadOnly () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1752
+1752	        HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
+Hardware assisted breakpoint 98 at 0x8000d72: file /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c, line 1689.
+
+Temporary breakpoint 98, CommissioningReadChunk () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1689
+1689	    const uint32_t lba = tr2_commission_sd_read_lba;
+CommissioningReadOnly () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1752
+1752	        HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
+Hardware assisted breakpoint 99 at 0x8000d72: file /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c, line 1689.
+
+Temporary breakpoint 99, CommissioningReadChunk () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1689
+1689	    const uint32_t lba = tr2_commission_sd_read_lba;
+CommissioningReadOnly () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1752
+1752	        HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
+Hardware assisted breakpoint 100 at 0x8000d72: file /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c, line 1689.
+
+Temporary breakpoint 100, CommissioningReadChunk () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1689
+1689	    const uint32_t lba = tr2_commission_sd_read_lba;
+CommissioningReadOnly () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1752
+1752	        HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
+Hardware assisted breakpoint 101 at 0x8000d72: file /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c, line 1689.
+
+Temporary breakpoint 101, CommissioningReadChunk () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1689
+1689	    const uint32_t lba = tr2_commission_sd_read_lba;
+CommissioningReadOnly () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1752
+1752	        HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
+Hardware assisted breakpoint 102 at 0x8000d72: file /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c, line 1689.
+
+Temporary breakpoint 102, CommissioningReadChunk () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1689
+1689	    const uint32_t lba = tr2_commission_sd_read_lba;
+CommissioningReadOnly () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1752
+1752	        HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
+Hardware assisted breakpoint 103 at 0x8000d72: file /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c, line 1689.
+
+Temporary breakpoint 103, CommissioningReadChunk () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1689
+1689	    const uint32_t lba = tr2_commission_sd_read_lba;
+CommissioningReadOnly () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1752
+1752	        HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
+Hardware assisted breakpoint 104 at 0x8000d72: file /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c, line 1689.
+
+Temporary breakpoint 104, CommissioningReadChunk () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1689
+1689	    const uint32_t lba = tr2_commission_sd_read_lba;
+CommissioningReadOnly () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1752
+1752	        HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
+Hardware assisted breakpoint 105 at 0x8000d72: file /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c, line 1689.
+
+Temporary breakpoint 105, CommissioningReadChunk () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1689
+1689	    const uint32_t lba = tr2_commission_sd_read_lba;
+CommissioningReadOnly () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1752
+1752	        HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
+Hardware assisted breakpoint 106 at 0x8000d72: file /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c, line 1689.
+
+Temporary breakpoint 106, CommissioningReadChunk () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1689
+1689	    const uint32_t lba = tr2_commission_sd_read_lba;
+CommissioningReadOnly () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1752
+1752	        HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
+Hardware assisted breakpoint 107 at 0x8000d72: file /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c, line 1689.
+
+Temporary breakpoint 107, CommissioningReadChunk () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1689
+1689	    const uint32_t lba = tr2_commission_sd_read_lba;
+CommissioningReadOnly () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1752
+1752	        HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
+Hardware assisted breakpoint 108 at 0x8000d72: file /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c, line 1689.
+
+Temporary breakpoint 108, CommissioningReadChunk () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1689
+1689	    const uint32_t lba = tr2_commission_sd_read_lba;
+CommissioningReadOnly () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1752
+1752	        HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
+Hardware assisted breakpoint 109 at 0x8000d72: file /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c, line 1689.
+
+Temporary breakpoint 109, CommissioningReadChunk () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1689
+1689	    const uint32_t lba = tr2_commission_sd_read_lba;
+CommissioningReadOnly () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1752
+1752	        HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
+Hardware assisted breakpoint 110 at 0x8000d72: file /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c, line 1689.
+
+Temporary breakpoint 110, CommissioningReadChunk () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1689
+1689	    const uint32_t lba = tr2_commission_sd_read_lba;
+CommissioningReadOnly () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1752
+1752	        HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
+Hardware assisted breakpoint 111 at 0x8000d72: file /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c, line 1689.
+
+Temporary breakpoint 111, CommissioningReadChunk () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1689
+1689	    const uint32_t lba = tr2_commission_sd_read_lba;
+CommissioningReadOnly () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1752
+1752	        HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
+Hardware assisted breakpoint 112 at 0x8000d72: file /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c, line 1689.
+
+Temporary breakpoint 112, CommissioningReadChunk () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1689
+1689	    const uint32_t lba = tr2_commission_sd_read_lba;
+CommissioningReadOnly () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1752
+1752	        HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
+Hardware assisted breakpoint 113 at 0x8000d72: file /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c, line 1689.
+
+Temporary breakpoint 113, CommissioningReadChunk () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1689
+1689	    const uint32_t lba = tr2_commission_sd_read_lba;
+CommissioningReadOnly () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1752
+1752	        HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
+Hardware assisted breakpoint 114 at 0x8000d72: file /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c, line 1689.
+
+Temporary breakpoint 114, CommissioningReadChunk () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1689
+1689	    const uint32_t lba = tr2_commission_sd_read_lba;
+CommissioningReadOnly () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1752
+1752	        HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
+Hardware assisted breakpoint 115 at 0x8000d72: file /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c, line 1689.
+
+Temporary breakpoint 115, CommissioningReadChunk () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1689
+1689	    const uint32_t lba = tr2_commission_sd_read_lba;
+CommissioningReadOnly () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1752
+1752	        HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
+Hardware assisted breakpoint 116 at 0x8000d72: file /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c, line 1689.
+
+Temporary breakpoint 116, CommissioningReadChunk () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1689
+1689	    const uint32_t lba = tr2_commission_sd_read_lba;
+CommissioningReadOnly () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1752
+1752	        HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
+Hardware assisted breakpoint 117 at 0x8000d72: file /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c, line 1689.
+
+Temporary breakpoint 117, CommissioningReadChunk () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1689
+1689	    const uint32_t lba = tr2_commission_sd_read_lba;
+CommissioningReadOnly () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1752
+1752	        HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
+Hardware assisted breakpoint 118 at 0x8000d72: file /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c, line 1689.
+
+Temporary breakpoint 118, CommissioningReadChunk () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1689
+1689	    const uint32_t lba = tr2_commission_sd_read_lba;
+CommissioningReadOnly () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1752
+1752	        HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
+Hardware assisted breakpoint 119 at 0x8000d72: file /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c, line 1689.
+
+Temporary breakpoint 119, CommissioningReadChunk () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1689
+1689	    const uint32_t lba = tr2_commission_sd_read_lba;
+CommissioningReadOnly () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1752
+1752	        HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
+Hardware assisted breakpoint 120 at 0x8000d72: file /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c, line 1689.
+
+Temporary breakpoint 120, CommissioningReadChunk () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1689
+1689	    const uint32_t lba = tr2_commission_sd_read_lba;
+CommissioningReadOnly () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1752
+1752	        HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
+Hardware assisted breakpoint 121 at 0x8000d72: file /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c, line 1689.
+
+Temporary breakpoint 121, CommissioningReadChunk () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1689
+1689	    const uint32_t lba = tr2_commission_sd_read_lba;
+CommissioningReadOnly () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1752
+1752	        HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
+Hardware assisted breakpoint 122 at 0x8000d72: file /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c, line 1689.
+
+Temporary breakpoint 122, CommissioningReadChunk () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1689
+1689	    const uint32_t lba = tr2_commission_sd_read_lba;
+CommissioningReadOnly () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1752
+1752	        HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
+Hardware assisted breakpoint 123 at 0x8000d72: file /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c, line 1689.
+
+Temporary breakpoint 123, CommissioningReadChunk () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1689
+1689	    const uint32_t lba = tr2_commission_sd_read_lba;
+CommissioningReadOnly () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1752
+1752	        HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
+Hardware assisted breakpoint 124 at 0x8000d72: file /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c, line 1689.
+
+Temporary breakpoint 124, CommissioningReadChunk () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1689
+1689	    const uint32_t lba = tr2_commission_sd_read_lba;
+CommissioningReadOnly () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1752
+1752	        HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
+Hardware assisted breakpoint 125 at 0x8000d72: file /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c, line 1689.
+
+Temporary breakpoint 125, CommissioningReadChunk () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1689
+1689	    const uint32_t lba = tr2_commission_sd_read_lba;
+CommissioningReadOnly () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1752
+1752	        HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
+Hardware assisted breakpoint 126 at 0x8000d72: file /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c, line 1689.
+
+Temporary breakpoint 126, CommissioningReadChunk () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1689
+1689	    const uint32_t lba = tr2_commission_sd_read_lba;
+CommissioningReadOnly () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1752
+1752	        HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
+Hardware assisted breakpoint 127 at 0x8000d72: file /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c, line 1689.
+
+Temporary breakpoint 127, CommissioningReadChunk () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1689
+1689	    const uint32_t lba = tr2_commission_sd_read_lba;
+CommissioningReadOnly () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1752
+1752	        HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
+Hardware assisted breakpoint 128 at 0x8000d72: file /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c, line 1689.
+
+Temporary breakpoint 128, CommissioningReadChunk () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1689
+1689	    const uint32_t lba = tr2_commission_sd_read_lba;
+CommissioningReadOnly () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1752
+1752	        HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
+Hardware assisted breakpoint 129 at 0x8000d72: file /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c, line 1689.
+
+Temporary breakpoint 129, CommissioningReadChunk () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1689
+1689	    const uint32_t lba = tr2_commission_sd_read_lba;
+CommissioningReadOnly () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1752
+1752	        HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
+Hardware assisted breakpoint 130 at 0x8000d72: file /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c, line 1689.
+
+Temporary breakpoint 130, CommissioningReadChunk () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1689
+1689	    const uint32_t lba = tr2_commission_sd_read_lba;
+CommissioningReadOnly () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1752
+1752	        HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
+Hardware assisted breakpoint 131 at 0x8000d72: file /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c, line 1689.
+
+Temporary breakpoint 131, CommissioningReadChunk () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1689
+1689	    const uint32_t lba = tr2_commission_sd_read_lba;
+CommissioningReadOnly () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1752
+1752	        HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
+Hardware assisted breakpoint 132 at 0x8000d72: file /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c, line 1689.
+
+Temporary breakpoint 132, CommissioningReadChunk () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1689
+1689	    const uint32_t lba = tr2_commission_sd_read_lba;
+CommissioningReadOnly () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1752
+1752	        HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
+Hardware assisted breakpoint 133 at 0x8000d72: file /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c, line 1689.
+
+Temporary breakpoint 133, CommissioningReadChunk () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1689
+1689	    const uint32_t lba = tr2_commission_sd_read_lba;
+CommissioningReadOnly () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1752
+1752	        HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
+Hardware assisted breakpoint 134 at 0x8000d72: file /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c, line 1689.
+
+Temporary breakpoint 134, CommissioningReadChunk () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1689
+1689	    const uint32_t lba = tr2_commission_sd_read_lba;
+CommissioningReadOnly () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1752
+1752	        HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
+Hardware assisted breakpoint 135 at 0x8000d72: file /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c, line 1689.
+
+Temporary breakpoint 135, CommissioningReadChunk () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1689
+1689	    const uint32_t lba = tr2_commission_sd_read_lba;
+CommissioningReadOnly () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1752
+1752	        HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
+Hardware assisted breakpoint 136 at 0x8000d72: file /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c, line 1689.
+
+Temporary breakpoint 136, CommissioningReadChunk () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1689
+1689	    const uint32_t lba = tr2_commission_sd_read_lba;
+CommissioningReadOnly () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1752
+1752	        HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
+Hardware assisted breakpoint 137 at 0x8000d72: file /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c, line 1689.
+
+Temporary breakpoint 137, CommissioningReadChunk () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1689
+1689	    const uint32_t lba = tr2_commission_sd_read_lba;
+CommissioningReadOnly () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1752
+1752	        HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
+Hardware assisted breakpoint 138 at 0x8000d72: file /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c, line 1689.
+
+Temporary breakpoint 138, CommissioningReadChunk () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1689
+1689	    const uint32_t lba = tr2_commission_sd_read_lba;
+CommissioningReadOnly () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1752
+1752	        HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
+Hardware assisted breakpoint 139 at 0x8000d72: file /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c, line 1689.
+
+Temporary breakpoint 139, CommissioningReadChunk () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1689
+1689	    const uint32_t lba = tr2_commission_sd_read_lba;
+CommissioningReadOnly () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1752
+1752	        HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
+Hardware assisted breakpoint 140 at 0x8000d72: file /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c, line 1689.
+
+Temporary breakpoint 140, CommissioningReadChunk () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1689
+1689	    const uint32_t lba = tr2_commission_sd_read_lba;
+CommissioningReadOnly () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1752
+1752	        HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
+Hardware assisted breakpoint 141 at 0x8000d72: file /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c, line 1689.
+
+Temporary breakpoint 141, CommissioningReadChunk () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1689
+1689	    const uint32_t lba = tr2_commission_sd_read_lba;
+CommissioningReadOnly () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1752
+1752	        HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
+Hardware assisted breakpoint 142 at 0x8000d72: file /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c, line 1689.
+
+Temporary breakpoint 142, CommissioningReadChunk () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1689
+1689	    const uint32_t lba = tr2_commission_sd_read_lba;
+CommissioningReadOnly () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1752
+1752	        HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
+Hardware assisted breakpoint 143 at 0x8000d72: file /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c, line 1689.
+
+Temporary breakpoint 143, CommissioningReadChunk () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1689
+1689	    const uint32_t lba = tr2_commission_sd_read_lba;
+CommissioningReadOnly () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1752
+1752	        HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
+Hardware assisted breakpoint 144 at 0x8000d72: file /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c, line 1689.
+
+Temporary breakpoint 144, CommissioningReadChunk () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1689
+1689	    const uint32_t lba = tr2_commission_sd_read_lba;
+CommissioningReadOnly () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1752
+1752	        HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
+Hardware assisted breakpoint 145 at 0x8000d72: file /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c, line 1689.
+
+Temporary breakpoint 145, CommissioningReadChunk () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1689
+1689	    const uint32_t lba = tr2_commission_sd_read_lba;
+CommissioningReadOnly () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1752
+1752	        HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
+Hardware assisted breakpoint 146 at 0x8000d72: file /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c, line 1689.
+
+Temporary breakpoint 146, CommissioningReadChunk () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1689
+1689	    const uint32_t lba = tr2_commission_sd_read_lba;
+CommissioningReadOnly () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1752
+1752	        HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
+Hardware assisted breakpoint 147 at 0x8000d72: file /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c, line 1689.
+
+Temporary breakpoint 147, CommissioningReadChunk () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1689
+1689	    const uint32_t lba = tr2_commission_sd_read_lba;
+CommissioningReadOnly () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1752
+1752	        HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
+Hardware assisted breakpoint 148 at 0x8000d72: file /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c, line 1689.
+
+Temporary breakpoint 148, CommissioningReadChunk () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1689
+1689	    const uint32_t lba = tr2_commission_sd_read_lba;
+CommissioningReadOnly () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1752
+1752	        HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
+Hardware assisted breakpoint 149 at 0x8000d72: file /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c, line 1689.
+
+Temporary breakpoint 149, CommissioningReadChunk () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1689
+1689	    const uint32_t lba = tr2_commission_sd_read_lba;
+CommissioningReadOnly () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1752
+1752	        HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
+Hardware assisted breakpoint 150 at 0x8000d72: file /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c, line 1689.
+
+Temporary breakpoint 150, CommissioningReadChunk () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1689
+1689	    const uint32_t lba = tr2_commission_sd_read_lba;
+CommissioningReadOnly () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1752
+1752	        HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
+Hardware assisted breakpoint 151 at 0x8000d72: file /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c, line 1689.
+
+Temporary breakpoint 151, CommissioningReadChunk () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1689
+1689	    const uint32_t lba = tr2_commission_sd_read_lba;
+CommissioningReadOnly () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1752
+1752	        HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
+Hardware assisted breakpoint 152 at 0x8000d72: file /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c, line 1689.
+
+Temporary breakpoint 152, CommissioningReadChunk () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1689
+1689	    const uint32_t lba = tr2_commission_sd_read_lba;
+CommissioningReadOnly () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1752
+1752	        HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
+Hardware assisted breakpoint 153 at 0x8000d72: file /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c, line 1689.
+
+Temporary breakpoint 153, CommissioningReadChunk () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1689
+1689	    const uint32_t lba = tr2_commission_sd_read_lba;
+CommissioningReadOnly () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1752
+1752	        HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
+Hardware assisted breakpoint 154 at 0x8000d72: file /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c, line 1689.
+
+Temporary breakpoint 154, CommissioningReadChunk () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1689
+1689	    const uint32_t lba = tr2_commission_sd_read_lba;
+CommissioningReadOnly () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1752
+1752	        HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
+Hardware assisted breakpoint 155 at 0x8000d72: file /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c, line 1689.
+
+Temporary breakpoint 155, CommissioningReadChunk () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1689
+1689	    const uint32_t lba = tr2_commission_sd_read_lba;
+CommissioningReadOnly () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1752
+1752	        HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
+Hardware assisted breakpoint 156 at 0x8000d72: file /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c, line 1689.
+
+Temporary breakpoint 156, CommissioningReadChunk () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1689
+1689	    const uint32_t lba = tr2_commission_sd_read_lba;
+CommissioningReadOnly () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1752
+1752	        HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
+Hardware assisted breakpoint 157 at 0x8000d72: file /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c, line 1689.
+
+Temporary breakpoint 157, CommissioningReadChunk () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1689
+1689	    const uint32_t lba = tr2_commission_sd_read_lba;
+CommissioningReadOnly () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1752
+1752	        HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
+Hardware assisted breakpoint 158 at 0x8000d72: file /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c, line 1689.
+
+Temporary breakpoint 158, CommissioningReadChunk () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1689
+1689	    const uint32_t lba = tr2_commission_sd_read_lba;
+CommissioningReadOnly () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1752
+1752	        HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
+Hardware assisted breakpoint 159 at 0x8000d72: file /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c, line 1689.
+
+Temporary breakpoint 159, CommissioningReadChunk () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1689
+1689	    const uint32_t lba = tr2_commission_sd_read_lba;
+CommissioningReadOnly () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1752
+1752	        HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
+Hardware assisted breakpoint 160 at 0x8000d72: file /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c, line 1689.
+
+Temporary breakpoint 160, CommissioningReadChunk () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1689
+1689	    const uint32_t lba = tr2_commission_sd_read_lba;
+CommissioningReadOnly () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1752
+1752	        HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
+Hardware assisted breakpoint 161 at 0x8000d72: file /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c, line 1689.
+
+Temporary breakpoint 161, CommissioningReadChunk () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1689
+1689	    const uint32_t lba = tr2_commission_sd_read_lba;
+CommissioningReadOnly () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1752
+1752	        HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
+Hardware assisted breakpoint 162 at 0x8000d72: file /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c, line 1689.
+
+Temporary breakpoint 162, CommissioningReadChunk () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1689
+1689	    const uint32_t lba = tr2_commission_sd_read_lba;
+CommissioningReadOnly () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1752
+1752	        HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
+Hardware assisted breakpoint 163 at 0x8000d72: file /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c, line 1689.
+
+Temporary breakpoint 163, CommissioningReadChunk () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1689
+1689	    const uint32_t lba = tr2_commission_sd_read_lba;
+CommissioningReadOnly () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1752
+1752	        HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
+Hardware assisted breakpoint 164 at 0x8000d72: file /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c, line 1689.
+
+Temporary breakpoint 164, CommissioningReadChunk () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1689
+1689	    const uint32_t lba = tr2_commission_sd_read_lba;
+CommissioningReadOnly () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1752
+1752	        HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
+Hardware assisted breakpoint 165 at 0x8000d72: file /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c, line 1689.
+
+Temporary breakpoint 165, CommissioningReadChunk () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1689
+1689	    const uint32_t lba = tr2_commission_sd_read_lba;
+CommissioningReadOnly () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1752
+1752	        HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
+Hardware assisted breakpoint 166 at 0x8000d72: file /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c, line 1689.
+
+Temporary breakpoint 166, CommissioningReadChunk () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1689
+1689	    const uint32_t lba = tr2_commission_sd_read_lba;
+CommissioningReadOnly () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1752
+1752	        HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
+Hardware assisted breakpoint 167 at 0x8000d72: file /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c, line 1689.
+
+Temporary breakpoint 167, CommissioningReadChunk () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1689
+1689	    const uint32_t lba = tr2_commission_sd_read_lba;
+CommissioningReadOnly () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1752
+1752	        HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
+Hardware assisted breakpoint 168 at 0x8000d72: file /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c, line 1689.
+
+Temporary breakpoint 168, CommissioningReadChunk () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1689
+1689	    const uint32_t lba = tr2_commission_sd_read_lba;
+CommissioningReadOnly () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1752
+1752	        HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
+Hardware assisted breakpoint 169 at 0x8000d72: file /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c, line 1689.
+
+Temporary breakpoint 169, CommissioningReadChunk () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1689
+1689	    const uint32_t lba = tr2_commission_sd_read_lba;
+CommissioningReadOnly () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1752
+1752	        HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
+Hardware assisted breakpoint 170 at 0x8000d72: file /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c, line 1689.
+
+Temporary breakpoint 170, CommissioningReadChunk () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1689
+1689	    const uint32_t lba = tr2_commission_sd_read_lba;
+CommissioningReadOnly () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1752
+1752	        HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
+Hardware assisted breakpoint 171 at 0x8000d72: file /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c, line 1689.
+
+Temporary breakpoint 171, CommissioningReadChunk () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1689
+1689	    const uint32_t lba = tr2_commission_sd_read_lba;
+CommissioningReadOnly () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1752
+1752	        HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
+Hardware assisted breakpoint 172 at 0x8000d72: file /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c, line 1689.
+
+Temporary breakpoint 172, CommissioningReadChunk () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1689
+1689	    const uint32_t lba = tr2_commission_sd_read_lba;
+CommissioningReadOnly () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1752
+1752	        HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
+Hardware assisted breakpoint 173 at 0x8000d72: file /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c, line 1689.
+
+Temporary breakpoint 173, CommissioningReadChunk () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1689
+1689	    const uint32_t lba = tr2_commission_sd_read_lba;
+CommissioningReadOnly () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1752
+1752	        HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
+Hardware assisted breakpoint 174 at 0x8000d72: file /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c, line 1689.
+
+Temporary breakpoint 174, CommissioningReadChunk () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1689
+1689	    const uint32_t lba = tr2_commission_sd_read_lba;
+CommissioningReadOnly () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1752
+1752	        HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
+Hardware assisted breakpoint 175 at 0x8000d72: file /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c, line 1689.
+
+Temporary breakpoint 175, CommissioningReadChunk () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1689
+1689	    const uint32_t lba = tr2_commission_sd_read_lba;
+CommissioningReadOnly () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1752
+1752	        HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
+Hardware assisted breakpoint 176 at 0x8000d72: file /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c, line 1689.
+
+Temporary breakpoint 176, CommissioningReadChunk () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1689
+1689	    const uint32_t lba = tr2_commission_sd_read_lba;
+CommissioningReadOnly () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1752
+1752	        HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
+Hardware assisted breakpoint 177 at 0x8000d72: file /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c, line 1689.
+
+Temporary breakpoint 177, CommissioningReadChunk () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1689
+1689	    const uint32_t lba = tr2_commission_sd_read_lba;
+CommissioningReadOnly () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1752
+1752	        HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
+Hardware assisted breakpoint 178 at 0x8000d72: file /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c, line 1689.
+
+Temporary breakpoint 178, CommissioningReadChunk () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1689
+1689	    const uint32_t lba = tr2_commission_sd_read_lba;
+CommissioningReadOnly () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1752
+1752	        HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
+Hardware assisted breakpoint 179 at 0x8000d72: file /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c, line 1689.
+
+Temporary breakpoint 179, CommissioningReadChunk () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1689
+1689	    const uint32_t lba = tr2_commission_sd_read_lba;
+CommissioningReadOnly () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1752
+1752	        HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
+Hardware assisted breakpoint 180 at 0x8000d72: file /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c, line 1689.
+
+Temporary breakpoint 180, CommissioningReadChunk () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1689
+1689	    const uint32_t lba = tr2_commission_sd_read_lba;
+CommissioningReadOnly () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1752
+1752	        HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
+Hardware assisted breakpoint 181 at 0x8000d72: file /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c, line 1689.
+
+Temporary breakpoint 181, CommissioningReadChunk () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1689
+1689	    const uint32_t lba = tr2_commission_sd_read_lba;
+CommissioningReadOnly () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1752
+1752	        HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
+Hardware assisted breakpoint 182 at 0x8000d72: file /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c, line 1689.
+
+Temporary breakpoint 182, CommissioningReadChunk () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1689
+1689	    const uint32_t lba = tr2_commission_sd_read_lba;
+CommissioningReadOnly () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1752
+1752	        HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
+Hardware assisted breakpoint 183 at 0x8000d72: file /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c, line 1689.
+
+Temporary breakpoint 183, CommissioningReadChunk () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1689
+1689	    const uint32_t lba = tr2_commission_sd_read_lba;
+CommissioningReadOnly () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1752
+1752	        HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
+Hardware assisted breakpoint 184 at 0x8000d72: file /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c, line 1689.
+
+Temporary breakpoint 184, CommissioningReadChunk () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1689
+1689	    const uint32_t lba = tr2_commission_sd_read_lba;
+CommissioningReadOnly () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1752
+1752	        HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
+Hardware assisted breakpoint 185 at 0x8000d72: file /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c, line 1689.
+
+Temporary breakpoint 185, CommissioningReadChunk () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1689
+1689	    const uint32_t lba = tr2_commission_sd_read_lba;
+CommissioningReadOnly () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1752
+1752	        HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
+Hardware assisted breakpoint 186 at 0x8000d72: file /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c, line 1689.
+
+Temporary breakpoint 186, CommissioningReadChunk () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1689
+1689	    const uint32_t lba = tr2_commission_sd_read_lba;
+CommissioningReadOnly () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1752
+1752	        HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
+Hardware assisted breakpoint 187 at 0x8000d72: file /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c, line 1689.
+
+Temporary breakpoint 187, CommissioningReadChunk () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1689
+1689	    const uint32_t lba = tr2_commission_sd_read_lba;
+CommissioningReadOnly () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1752
+1752	        HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
+Hardware assisted breakpoint 188 at 0x8000d72: file /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c, line 1689.
+
+Temporary breakpoint 188, CommissioningReadChunk () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1689
+1689	    const uint32_t lba = tr2_commission_sd_read_lba;
+CommissioningReadOnly () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1752
+1752	        HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
+Hardware assisted breakpoint 189 at 0x8000d72: file /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c, line 1689.
+
+Temporary breakpoint 189, CommissioningReadChunk () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1689
+1689	    const uint32_t lba = tr2_commission_sd_read_lba;
+CommissioningReadOnly () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1752
+1752	        HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
+Hardware assisted breakpoint 190 at 0x8000d72: file /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c, line 1689.
+
+Temporary breakpoint 190, CommissioningReadChunk () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1689
+1689	    const uint32_t lba = tr2_commission_sd_read_lba;
+CommissioningReadOnly () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1752
+1752	        HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
+Hardware assisted breakpoint 191 at 0x8000d72: file /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c, line 1689.
+
+Temporary breakpoint 191, CommissioningReadChunk () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1689
+1689	    const uint32_t lba = tr2_commission_sd_read_lba;
+CommissioningReadOnly () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1752
+1752	        HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
+Hardware assisted breakpoint 192 at 0x8000d72: file /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c, line 1689.
+
+Temporary breakpoint 192, CommissioningReadChunk () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1689
+1689	    const uint32_t lba = tr2_commission_sd_read_lba;
+CommissioningReadOnly () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1752
+1752	        HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
+Hardware assisted breakpoint 193 at 0x8000d72: file /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c, line 1689.
+
+Temporary breakpoint 193, CommissioningReadChunk () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1689
+1689	    const uint32_t lba = tr2_commission_sd_read_lba;
+CommissioningReadOnly () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1752
+1752	        HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
+Hardware assisted breakpoint 194 at 0x8000d72: file /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c, line 1689.
+
+Temporary breakpoint 194, CommissioningReadChunk () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1689
+1689	    const uint32_t lba = tr2_commission_sd_read_lba;
+CommissioningReadOnly () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1752
+1752	        HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
+Hardware assisted breakpoint 195 at 0x8000d72: file /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c, line 1689.
+
+Temporary breakpoint 195, CommissioningReadChunk () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1689
+1689	    const uint32_t lba = tr2_commission_sd_read_lba;
+CommissioningReadOnly () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1752
+1752	        HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
+Hardware assisted breakpoint 196 at 0x8000d72: file /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c, line 1689.
+
+Temporary breakpoint 196, CommissioningReadChunk () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1689
+1689	    const uint32_t lba = tr2_commission_sd_read_lba;
+CommissioningReadOnly () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1752
+1752	        HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
+Hardware assisted breakpoint 197 at 0x8000d72: file /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c, line 1689.
+
+Temporary breakpoint 197, CommissioningReadChunk () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1689
+1689	    const uint32_t lba = tr2_commission_sd_read_lba;
+CommissioningReadOnly () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1752
+1752	        HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
+Hardware assisted breakpoint 198 at 0x8000d72: file /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c, line 1689.
+
+Temporary breakpoint 198, CommissioningReadChunk () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1689
+1689	    const uint32_t lba = tr2_commission_sd_read_lba;
+CommissioningReadOnly () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1752
+1752	        HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
+Hardware assisted breakpoint 199 at 0x8000d72: file /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c, line 1689.
+
+Temporary breakpoint 199, CommissioningReadChunk () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1689
+1689	    const uint32_t lba = tr2_commission_sd_read_lba;
+CommissioningReadOnly () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1752
+1752	        HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
+Hardware assisted breakpoint 200 at 0x8000d72: file /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c, line 1689.
+
+Temporary breakpoint 200, CommissioningReadChunk () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1689
+1689	    const uint32_t lba = tr2_commission_sd_read_lba;
+CommissioningReadOnly () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1752
+1752	        HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
+Hardware assisted breakpoint 201 at 0x8000d72: file /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c, line 1689.
+
+Temporary breakpoint 201, CommissioningReadChunk () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1689
+1689	    const uint32_t lba = tr2_commission_sd_read_lba;
+CommissioningReadOnly () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1752
+1752	        HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
+Hardware assisted breakpoint 202 at 0x8000d72: file /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c, line 1689.
+
+Temporary breakpoint 202, CommissioningReadChunk () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1689
+1689	    const uint32_t lba = tr2_commission_sd_read_lba;
+CommissioningReadOnly () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1752
+1752	        HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
+Hardware assisted breakpoint 203 at 0x8000d72: file /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c, line 1689.
+
+Temporary breakpoint 203, CommissioningReadChunk () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1689
+1689	    const uint32_t lba = tr2_commission_sd_read_lba;
+CommissioningReadOnly () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1752
+1752	        HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
+Hardware assisted breakpoint 204 at 0x8000d72: file /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c, line 1689.
+
+Temporary breakpoint 204, CommissioningReadChunk () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1689
+1689	    const uint32_t lba = tr2_commission_sd_read_lba;
+CommissioningReadOnly () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1752
+1752	        HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
+Hardware assisted breakpoint 205 at 0x8000d72: file /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c, line 1689.
+
+Temporary breakpoint 205, CommissioningReadChunk () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1689
+1689	    const uint32_t lba = tr2_commission_sd_read_lba;
+CommissioningReadOnly () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1752
+1752	        HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
+Hardware assisted breakpoint 206 at 0x8000d72: file /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c, line 1689.
+
+Temporary breakpoint 206, CommissioningReadChunk () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1689
+1689	    const uint32_t lba = tr2_commission_sd_read_lba;
+CommissioningReadOnly () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1752
+1752	        HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
+Hardware assisted breakpoint 207 at 0x8000d72: file /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c, line 1689.
+
+Temporary breakpoint 207, CommissioningReadChunk () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1689
+1689	    const uint32_t lba = tr2_commission_sd_read_lba;
+CommissioningReadOnly () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1752
+1752	        HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
+Hardware assisted breakpoint 208 at 0x8000d72: file /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c, line 1689.
+
+Temporary breakpoint 208, CommissioningReadChunk () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1689
+1689	    const uint32_t lba = tr2_commission_sd_read_lba;
+CommissioningReadOnly () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1752
+1752	        HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
+Hardware assisted breakpoint 209 at 0x8000d72: file /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c, line 1689.
+
+Temporary breakpoint 209, CommissioningReadChunk () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1689
+1689	    const uint32_t lba = tr2_commission_sd_read_lba;
+CommissioningReadOnly () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1752
+1752	        HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
+Hardware assisted breakpoint 210 at 0x8000d72: file /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c, line 1689.
+
+Temporary breakpoint 210, CommissioningReadChunk () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1689
+1689	    const uint32_t lba = tr2_commission_sd_read_lba;
+CommissioningReadOnly () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1752
+1752	        HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
+Hardware assisted breakpoint 211 at 0x8000d72: file /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c, line 1689.
+
+Temporary breakpoint 211, CommissioningReadChunk () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1689
+1689	    const uint32_t lba = tr2_commission_sd_read_lba;
+CommissioningReadOnly () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1752
+1752	        HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
+Hardware assisted breakpoint 212 at 0x8000d72: file /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c, line 1689.
+
+Temporary breakpoint 212, CommissioningReadChunk () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1689
+1689	    const uint32_t lba = tr2_commission_sd_read_lba;
+CommissioningReadOnly () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1752
+1752	        HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
+Hardware assisted breakpoint 213 at 0x8000d72: file /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c, line 1689.
+
+Temporary breakpoint 213, CommissioningReadChunk () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1689
+1689	    const uint32_t lba = tr2_commission_sd_read_lba;
+CommissioningReadOnly () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1752
+1752	        HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
+Hardware assisted breakpoint 214 at 0x8000d72: file /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c, line 1689.
+
+Temporary breakpoint 214, CommissioningReadChunk () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1689
+1689	    const uint32_t lba = tr2_commission_sd_read_lba;
+CommissioningReadOnly () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1752
+1752	        HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
+Hardware assisted breakpoint 215 at 0x8000d72: file /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c, line 1689.
+
+Temporary breakpoint 215, CommissioningReadChunk () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1689
+1689	    const uint32_t lba = tr2_commission_sd_read_lba;
+CommissioningReadOnly () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1752
+1752	        HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
+Hardware assisted breakpoint 216 at 0x8000d72: file /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c, line 1689.
+
+Temporary breakpoint 216, CommissioningReadChunk () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1689
+1689	    const uint32_t lba = tr2_commission_sd_read_lba;
+CommissioningReadOnly () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1752
+1752	        HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
+Hardware assisted breakpoint 217 at 0x8000d72: file /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c, line 1689.
+
+Temporary breakpoint 217, CommissioningReadChunk () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1689
+1689	    const uint32_t lba = tr2_commission_sd_read_lba;
+CommissioningReadOnly () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1752
+1752	        HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
+Hardware assisted breakpoint 218 at 0x8000d72: file /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c, line 1689.
+
+Temporary breakpoint 218, CommissioningReadChunk () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1689
+1689	    const uint32_t lba = tr2_commission_sd_read_lba;
+CommissioningReadOnly () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1752
+1752	        HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
+Hardware assisted breakpoint 219 at 0x8000d72: file /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c, line 1689.
+
+Temporary breakpoint 219, CommissioningReadChunk () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1689
+1689	    const uint32_t lba = tr2_commission_sd_read_lba;
+CommissioningReadOnly () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1752
+1752	        HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
+Hardware assisted breakpoint 220 at 0x8000d72: file /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c, line 1689.
+
+Temporary breakpoint 220, CommissioningReadChunk () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1689
+1689	    const uint32_t lba = tr2_commission_sd_read_lba;
+CommissioningReadOnly () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1752
+1752	        HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
+Hardware assisted breakpoint 221 at 0x8000d72: file /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c, line 1689.
+
+Temporary breakpoint 221, CommissioningReadChunk () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1689
+1689	    const uint32_t lba = tr2_commission_sd_read_lba;
+CommissioningReadOnly () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1752
+1752	        HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
+Hardware assisted breakpoint 222 at 0x8000d72: file /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c, line 1689.
+
+Temporary breakpoint 222, CommissioningReadChunk () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1689
+1689	    const uint32_t lba = tr2_commission_sd_read_lba;
+CommissioningReadOnly () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1752
+1752	        HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
+Hardware assisted breakpoint 223 at 0x8000d72: file /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c, line 1689.
+
+Temporary breakpoint 223, CommissioningReadChunk () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1689
+1689	    const uint32_t lba = tr2_commission_sd_read_lba;
+CommissioningReadOnly () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1752
+1752	        HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
+Hardware assisted breakpoint 224 at 0x8000d72: file /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c, line 1689.
+
+Temporary breakpoint 224, CommissioningReadChunk () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1689
+1689	    const uint32_t lba = tr2_commission_sd_read_lba;
+CommissioningReadOnly () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1752
+1752	        HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
+Hardware assisted breakpoint 225 at 0x8000d72: file /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c, line 1689.
+
+Temporary breakpoint 225, CommissioningReadChunk () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1689
+1689	    const uint32_t lba = tr2_commission_sd_read_lba;
+CommissioningReadOnly () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1752
+1752	        HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
+Hardware assisted breakpoint 226 at 0x8000d72: file /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c, line 1689.
+
+Temporary breakpoint 226, CommissioningReadChunk () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1689
+1689	    const uint32_t lba = tr2_commission_sd_read_lba;
+CommissioningReadOnly () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1752
+1752	        HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
+Hardware assisted breakpoint 227 at 0x8000d72: file /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c, line 1689.
+
+Temporary breakpoint 227, CommissioningReadChunk () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1689
+1689	    const uint32_t lba = tr2_commission_sd_read_lba;
+CommissioningReadOnly () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1752
+1752	        HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
+Hardware assisted breakpoint 228 at 0x8000d72: file /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c, line 1689.
+
+Temporary breakpoint 228, CommissioningReadChunk () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1689
+1689	    const uint32_t lba = tr2_commission_sd_read_lba;
+CommissioningReadOnly () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1752
+1752	        HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
+Hardware assisted breakpoint 229 at 0x8000d72: file /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c, line 1689.
+
+Temporary breakpoint 229, CommissioningReadChunk () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1689
+1689	    const uint32_t lba = tr2_commission_sd_read_lba;
+CommissioningReadOnly () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1752
+1752	        HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
+Hardware assisted breakpoint 230 at 0x8000d72: file /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c, line 1689.
+
+Temporary breakpoint 230, CommissioningReadChunk () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1689
+1689	    const uint32_t lba = tr2_commission_sd_read_lba;
+CommissioningReadOnly () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1752
+1752	        HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
+Hardware assisted breakpoint 231 at 0x8000d72: file /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c, line 1689.
+
+Temporary breakpoint 231, CommissioningReadChunk () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1689
+1689	    const uint32_t lba = tr2_commission_sd_read_lba;
+CommissioningReadOnly () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1752
+1752	        HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
+Hardware assisted breakpoint 232 at 0x8000d72: file /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c, line 1689.
+
+Temporary breakpoint 232, CommissioningReadChunk () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1689
+1689	    const uint32_t lba = tr2_commission_sd_read_lba;
+CommissioningReadOnly () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1752
+1752	        HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
+Hardware assisted breakpoint 233 at 0x8000d72: file /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c, line 1689.
+
+Temporary breakpoint 233, CommissioningReadChunk () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1689
+1689	    const uint32_t lba = tr2_commission_sd_read_lba;
+CommissioningReadOnly () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1752
+1752	        HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
+Hardware assisted breakpoint 234 at 0x8000d72: file /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c, line 1689.
+
+Temporary breakpoint 234, CommissioningReadChunk () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1689
+1689	    const uint32_t lba = tr2_commission_sd_read_lba;
+CommissioningReadOnly () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1752
+1752	        HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
+Hardware assisted breakpoint 235 at 0x8000d72: file /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c, line 1689.
+
+Temporary breakpoint 235, CommissioningReadChunk () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1689
+1689	    const uint32_t lba = tr2_commission_sd_read_lba;
+CommissioningReadOnly () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1752
+1752	        HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
+Hardware assisted breakpoint 236 at 0x8000d72: file /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c, line 1689.
+
+Temporary breakpoint 236, CommissioningReadChunk () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1689
+1689	    const uint32_t lba = tr2_commission_sd_read_lba;
+CommissioningReadOnly () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1752
+1752	        HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
+Hardware assisted breakpoint 237 at 0x8000d72: file /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c, line 1689.
+
+Temporary breakpoint 237, CommissioningReadChunk () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1689
+1689	    const uint32_t lba = tr2_commission_sd_read_lba;
+CommissioningReadOnly () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1752
+1752	        HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
+Hardware assisted breakpoint 238 at 0x8000d72: file /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c, line 1689.
+
+Temporary breakpoint 238, CommissioningReadChunk () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1689
+1689	    const uint32_t lba = tr2_commission_sd_read_lba;
+CommissioningReadOnly () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1752
+1752	        HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
+Hardware assisted breakpoint 239 at 0x8000d72: file /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c, line 1689.
+
+Temporary breakpoint 239, CommissioningReadChunk () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1689
+1689	    const uint32_t lba = tr2_commission_sd_read_lba;
+CommissioningReadOnly () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1752
+1752	        HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
+Hardware assisted breakpoint 240 at 0x8000d72: file /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c, line 1689.
+
+Temporary breakpoint 240, CommissioningReadChunk () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1689
+1689	    const uint32_t lba = tr2_commission_sd_read_lba;
+CommissioningReadOnly () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1752
+1752	        HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
+Hardware assisted breakpoint 241 at 0x8000d72: file /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c, line 1689.
+
+Temporary breakpoint 241, CommissioningReadChunk () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1689
+1689	    const uint32_t lba = tr2_commission_sd_read_lba;
+CommissioningReadOnly () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1752
+1752	        HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
+Hardware assisted breakpoint 242 at 0x8000d72: file /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c, line 1689.
+
+Temporary breakpoint 242, CommissioningReadChunk () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1689
+1689	    const uint32_t lba = tr2_commission_sd_read_lba;
+CommissioningReadOnly () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1752
+1752	        HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
+Hardware assisted breakpoint 243 at 0x8000d72: file /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c, line 1689.
+
+Temporary breakpoint 243, CommissioningReadChunk () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1689
+1689	    const uint32_t lba = tr2_commission_sd_read_lba;
+CommissioningReadOnly () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1752
+1752	        HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
+Hardware assisted breakpoint 244 at 0x8000d72: file /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c, line 1689.
+
+Temporary breakpoint 244, CommissioningReadChunk () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1689
+1689	    const uint32_t lba = tr2_commission_sd_read_lba;
+CommissioningReadOnly () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1752
+1752	        HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
+Hardware assisted breakpoint 245 at 0x8000d72: file /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c, line 1689.
+
+Temporary breakpoint 245, CommissioningReadChunk () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1689
+1689	    const uint32_t lba = tr2_commission_sd_read_lba;
+CommissioningReadOnly () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1752
+1752	        HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
+Hardware assisted breakpoint 246 at 0x8000d72: file /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c, line 1689.
+
+Temporary breakpoint 246, CommissioningReadChunk () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1689
+1689	    const uint32_t lba = tr2_commission_sd_read_lba;
+CommissioningReadOnly () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1752
+1752	        HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
+Hardware assisted breakpoint 247 at 0x8000d72: file /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c, line 1689.
+
+Temporary breakpoint 247, CommissioningReadChunk () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1689
+1689	    const uint32_t lba = tr2_commission_sd_read_lba;
+CommissioningReadOnly () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1752
+1752	        HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
+Hardware assisted breakpoint 248 at 0x8000d72: file /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c, line 1689.
+
+Temporary breakpoint 248, CommissioningReadChunk () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1689
+1689	    const uint32_t lba = tr2_commission_sd_read_lba;
+CommissioningReadOnly () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1752
+1752	        HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
+Hardware assisted breakpoint 249 at 0x8000d72: file /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c, line 1689.
+
+Temporary breakpoint 249, CommissioningReadChunk () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1689
+1689	    const uint32_t lba = tr2_commission_sd_read_lba;
+CommissioningReadOnly () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1752
+1752	        HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
+Hardware assisted breakpoint 250 at 0x8000d72: file /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c, line 1689.
+
+Temporary breakpoint 250, CommissioningReadChunk () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1689
+1689	    const uint32_t lba = tr2_commission_sd_read_lba;
+CommissioningReadOnly () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1752
+1752	        HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
+Hardware assisted breakpoint 251 at 0x8000d72: file /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c, line 1689.
+
+Temporary breakpoint 251, CommissioningReadChunk () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1689
+1689	    const uint32_t lba = tr2_commission_sd_read_lba;
+CommissioningReadOnly () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1752
+1752	        HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
+Hardware assisted breakpoint 252 at 0x8000d72: file /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c, line 1689.
+
+Temporary breakpoint 252, CommissioningReadChunk () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1689
+1689	    const uint32_t lba = tr2_commission_sd_read_lba;
+CommissioningReadOnly () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1752
+1752	        HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
+Hardware assisted breakpoint 253 at 0x8000d72: file /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c, line 1689.
+
+Temporary breakpoint 253, CommissioningReadChunk () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1689
+1689	    const uint32_t lba = tr2_commission_sd_read_lba;
+CommissioningReadOnly () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1752
+1752	        HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
+Hardware assisted breakpoint 254 at 0x8000d72: file /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c, line 1689.
+
+Temporary breakpoint 254, CommissioningReadChunk () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1689
+1689	    const uint32_t lba = tr2_commission_sd_read_lba;
+CommissioningReadOnly () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1752
+1752	        HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
+Hardware assisted breakpoint 255 at 0x8000d72: file /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c, line 1689.
+
+Temporary breakpoint 255, CommissioningReadChunk () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1689
+1689	    const uint32_t lba = tr2_commission_sd_read_lba;
+CommissioningReadOnly () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1752
+1752	        HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
+[Inferior 1 (Remote target) detached]

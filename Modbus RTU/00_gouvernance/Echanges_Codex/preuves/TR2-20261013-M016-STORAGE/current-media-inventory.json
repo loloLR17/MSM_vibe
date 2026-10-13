@@ -1,0 +1,36 @@
+{
+  "physical_blocks": 999743488,
+  "block_bytes": 512,
+  "physical_capacity_bytes": 511868665856,
+  "partitions": [
+    {
+      "index": 0,
+      "type": 7,
+      "start_lba": 65536,
+      "blocks": 999677952
+    },
+    {
+      "index": 1,
+      "type": 0,
+      "start_lba": 0,
+      "blocks": 0
+    },
+    {
+      "index": 2,
+      "type": 0,
+      "start_lba": 0,
+      "blocks": 0
+    },
+    {
+      "index": 3,
+      "type": 0,
+      "start_lba": 0,
+      "blocks": 0
+    }
+  ],
+  "mbr_prefix_sha256": "22e2c58d886232b8c4d858b03d9575b574b27ec2eabfc1b4e89e22882316e3f3",
+  "fram_sha256": "d732acc557152180fc394097d6a5269ea2f45c1da387c8643f512318adf92fce",
+  "fram_equal_a0402": true,
+  "sd_writes": 0,
+  "allocation": null
+}

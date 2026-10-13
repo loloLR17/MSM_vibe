@@ -1,0 +1,80 @@
+{
+  "schema_version": 1,
+  "mission_id": "TR2-20261013-M016-STORAGE-PREREQUISITE",
+  "assigned_by": "Codex, within explicit mission permission to establish a justified non-destructive allocation",
+  "created_at_utc": "2026-10-13T18:52:47.477255+00:00",
+  "target_uid": [
+    "004A003D",
+    "38425018",
+    "20333157"
+  ],
+  "stlink": "003500463235510B37333439",
+  "card_cid": [
+    "03534453",
+    "44353132",
+    "8562E43C",
+    "F80195EA"
+  ],
+  "physical_blocks": 999743488,
+  "sector_bytes": 512,
+  "physical_capacity_bytes": 511868665856,
+  "region": {
+    "start_lba": 16384,
+    "blocks": 32768,
+    "base_bytes": 8388608,
+    "size_bytes": 16777216,
+    "end_lba_exclusive": 49152,
+    "purpose": "TR2 bulk campaign backend and bounded prerequisite qualification; preserve written qualification extents",
+    "assigned": true
+  },
+  "preserved_partition": {
+    "index": 0,
+    "type": 7,
+    "start_lba": 65536,
+    "blocks": 999677952
+  },
+  "basis": {
+    "full_candidate_bytes_read": 16777216,
+    "all_zero": true,
+    "candidate_backup_sha256": "080acf35a507ac9849cfcba47dc2ad83e01b75663a516279c8b9d243b719643e",
+    "candidate_backup_local": "/home/lolo/dev/msm/reports/TR2-M016-storage-20261013T172331Z/candidate-complete-backup.bin",
+    "mbr_prefix_sha256": "22e2c58d886232b8c4d858b03d9575b574b27ec2eabfc1b4e89e22882316e3f3",
+    "physical_fram_unchanged": true,
+    "fram_repository_candidate_empty": true,
+    "no_existing_partition_overlap": true,
+    "no_format_or_repartition": true
+  },
+  "qualification_write_policy": {
+    "allowed": true,
+    "profile": "STORAGE_QUALIFICATION only",
+    "boot_writes": false,
+    "explicit_ram_trigger": "0x4D313657",
+    "region_must_be_fully_zero_before_first_run": true,
+    "one_run_only": true,
+    "campaign_ids": [
+      "01600001",
+      "01600002"
+    ],
+    "test_logical_bytes": [
+      4194304,
+      65536
+    ],
+    "uncheckpointed_tail_bytes": 4096,
+    "no_fram_writes": true,
+    "production_auto_activation": false
+  },
+  "capacity_policy": {
+    "physical_region_is_not_logical_capacity": true,
+    "logical_block_payload_bytes": 4096,
+    "physical_block_extent_bytes": 4608,
+    "metadata_bytes": 8192,
+    "partial_block_reserve_bytes": 36864,
+    "logical_capacity_floor_decimal_mb": 14,
+    "publication_requires_append_checkpoint_recovery_and_rate_proof": true
+  },
+  "limits": [
+    "Blank verified extent plus no partition overlap justifies this mission allocation; no general permission for other extents.",
+    "No SD power-loss, atomic-sector, indefinite throughput, FIFO co-service or production-readiness qualification implied.",
+    "No implicit boot erase/reclamation/format; card/UID/layout mismatch refuses operations."
+  ]
+}

@@ -1,7 +1,7 @@
 /* A04-01: direct builds must also opt in to the historical SD-writing harness.
  * Dedicated modes terminate before the legacy fallthrough in main(). */
 #if !TR2_STM32_PRODUCTION && !TR2_STM32_MANUFACTURING && \
-    !TR2_STM32_COMMISSIONING_READONLY && !TR2_STM32_MODBUS_DIAGNOSTIC && \
+    !TR2_STM32_COMMISSIONING_READONLY && !TR2_STM32_STORAGE_QUALIFICATION && !TR2_STM32_MODBUS_DIAGNOSTIC && \
     !TR2_STM32_ST_FIFO_WINDOW && !TR2_STM32_CONTINUOUS_FIFO && \
     !TR2_STM32_CTRL1_DIFFERENTIAL && !TR2_STM32_BURST_CAPTURE && \
     !TR2_STM32_ACTIVE_READBACK && !TR2_STM32_REGISTER_PROBE && \
@@ -141,7 +141,7 @@ static SPI_HandleTypeDef hspi1;
 static SPI_HandleTypeDef hspi3;
 static SD_HandleTypeDef hsd2;
 
-#if TR2_STM32_COMMISSIONING_READONLY
+#if TR2_STM32_COMMISSIONING_READONLY || TR2_STM32_STORAGE_QUALIFICATION
 /* Read-only commissioning authority. Full FRAM snapshot remains in RAM for
  * GDB extraction. Neither WREN/WRITE nor any SD data write is called here. */
 uint8_t tr2_commission_fram_backup[TR2_STM32_FRAM_CAPACITY];
@@ -1589,7 +1589,7 @@ void HAL_MspInit(void)
     stm32_rs485_rx_gpio_init();
 }
 
-#if TR2_STM32_COMMISSIONING_READONLY
+#if TR2_STM32_COMMISSIONING_READONLY || TR2_STM32_STORAGE_QUALIFICATION
 static void CommissioningSdProbe(void)
 {
     HAL_SD_CardInfoTypeDef card_info = {0};
@@ -1744,6 +1744,16 @@ __attribute__((noreturn)) static void CommissioningReadOnly(void)
     }
     CommissioningSdProbe();
     tr2_commission_stage = 5U;
+#if TR2_STM32_STORAGE_QUALIFICATION
+    extern __attribute__((noreturn)) void stm32_storage_qualification_run(
+        SD_HandleTypeDef *, Stm32FramStorage *);
+    if (tr2_commission_fram_result == TR2_OK && tr2_commission_verify_result == TR2_OK &&
+        tr2_commission_sensor_result == TR2_OK && tr2_commission_sensor_whoami == 0x7Bu &&
+        tr2_commission_sd_result == TR2_OK && tr2_commission_sd_prefix_result == HAL_OK) {
+        stm32_storage_qualification_run(&hsd2, &storage);
+    }
+    for (;;) { HAL_Delay(250U); } /* Failed preflight never reaches a write. */
+#endif
     /* No transport start and no harness fall-through. */
     for (;;) {
         if (tr2_commission_sd_read_trigger == UINT32_C(0x4D313653)) {
@@ -1814,7 +1824,7 @@ int main(void)
     stm32_production_server_run();
 #endif
 #endif
-#if TR2_STM32_COMMISSIONING_READONLY
+#if TR2_STM32_COMMISSIONING_READONLY || TR2_STM32_STORAGE_QUALIFICATION
     CommissioningReadOnly();
 #endif
 #if TR2_STM32_MODBUS_DIAGNOSTIC

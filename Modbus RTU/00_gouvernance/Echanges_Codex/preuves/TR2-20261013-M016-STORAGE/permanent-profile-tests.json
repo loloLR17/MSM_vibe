@@ -1,0 +1,89 @@
+[
+  {
+    "case": "storage-qualification",
+    "command": [
+      "cmake",
+      "-G",
+      "Ninja",
+      "-S",
+      "/home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32",
+      "-B",
+      "/home/lolo/dev/msm/reports/TR2-M016-storage-20261013T172331Z/permanent-profile-tests/storage-qualification",
+      "-DCMAKE_TOOLCHAIN_FILE=/home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/cmake/arm-none-eabi-gcc.cmake",
+      "-DSTM32CUBE_U5_ROOT=/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0",
+      "-DTR2_COMMISSIONING_MANIFEST=/home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/00_gouvernance/COMMISSIONING_M014_H.json",
+      "-DTR2_COMMISSIONING_REGISTRY=/home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/00_gouvernance/REGISTRE_ATTRIBUTION_TR2.json",
+      "-DTR2_STM32_STORAGE_QUALIFICATION=ON"
+    ],
+    "return_code": 0,
+    "expected_refusal": null,
+    "expected_artifact": "tr2-special-storage_qualification-NON-CUMULATIVE",
+    "log": "00-storage-qualification.log"
+  },
+  {
+    "case": "storage-and-readonly",
+    "command": [
+      "cmake",
+      "-G",
+      "Ninja",
+      "-S",
+      "/home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32",
+      "-B",
+      "/home/lolo/dev/msm/reports/TR2-M016-storage-20261013T172331Z/permanent-profile-tests/storage-and-readonly",
+      "-DCMAKE_TOOLCHAIN_FILE=/home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/cmake/arm-none-eabi-gcc.cmake",
+      "-DSTM32CUBE_U5_ROOT=/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0",
+      "-DTR2_COMMISSIONING_MANIFEST=/home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/00_gouvernance/COMMISSIONING_M014_H.json",
+      "-DTR2_COMMISSIONING_REGISTRY=/home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/00_gouvernance/REGISTRE_ATTRIBUTION_TR2.json",
+      "-DTR2_STM32_STORAGE_QUALIFICATION=ON",
+      "-DTR2_STM32_COMMISSIONING_READONLY=ON"
+    ],
+    "return_code": 1,
+    "expected_refusal": "Select exactly one explicit STM32 mode",
+    "expected_artifact": null,
+    "log": "01-storage-and-readonly.log"
+  },
+  {
+    "case": "storage-and-tx",
+    "command": [
+      "cmake",
+      "-G",
+      "Ninja",
+      "-S",
+      "/home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32",
+      "-B",
+      "/home/lolo/dev/msm/reports/TR2-M016-storage-20261013T172331Z/permanent-profile-tests/storage-and-tx",
+      "-DCMAKE_TOOLCHAIN_FILE=/home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/cmake/arm-none-eabi-gcc.cmake",
+      "-DSTM32CUBE_U5_ROOT=/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0",
+      "-DTR2_COMMISSIONING_MANIFEST=/home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/00_gouvernance/COMMISSIONING_M014_H.json",
+      "-DTR2_COMMISSIONING_REGISTRY=/home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/00_gouvernance/REGISTRE_ATTRIBUTION_TR2.json",
+      "-DTR2_STM32_STORAGE_QUALIFICATION=ON",
+      "-DTR2_STM32_RS485_TX_QUALIFIED=ON"
+    ],
+    "return_code": 1,
+    "expected_refusal": "STORAGE_QUALIFICATION is isolated",
+    "expected_artifact": null,
+    "log": "02-storage-and-tx.log"
+  },
+  {
+    "case": "storage-and-cumulative",
+    "command": [
+      "cmake",
+      "-G",
+      "Ninja",
+      "-S",
+      "/home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32",
+      "-B",
+      "/home/lolo/dev/msm/reports/TR2-M016-storage-20261013T172331Z/permanent-profile-tests/storage-and-cumulative",
+      "-DCMAKE_TOOLCHAIN_FILE=/home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/cmake/arm-none-eabi-gcc.cmake",
+      "-DSTM32CUBE_U5_ROOT=/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0",
+      "-DTR2_COMMISSIONING_MANIFEST=/home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/00_gouvernance/COMMISSIONING_M014_H.json",
+      "-DTR2_COMMISSIONING_REGISTRY=/home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/00_gouvernance/REGISTRE_ATTRIBUTION_TR2.json",
+      "-DTR2_STM32_STORAGE_QUALIFICATION=ON",
+      "-DTR2_STM32_BUILD_PROFILE=CUMULATIVE"
+    ],
+    "return_code": 1,
+    "expected_refusal": "STORAGE_QUALIFICATION is isolated",
+    "expected_artifact": null,
+    "log": "03-storage-and-cumulative.log"
+  }
+]

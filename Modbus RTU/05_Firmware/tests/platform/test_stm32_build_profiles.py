@@ -73,6 +73,16 @@ class Profiles(unittest.TestCase):
             with self.subTest(name=name):
                 self.configure(name, flags, message)
 
+    def test_storage_qualification_isolated(self):
+        self.configure('storage-qualification', ['STORAGE_QUALIFICATION=ON'],
+                       label='tr2-special-storage_qualification-NON-CUMULATIVE')
+        self.configure('storage-and-readonly', ['STORAGE_QUALIFICATION=ON',
+                       'COMMISSIONING_READONLY=ON'], 'Select exactly one explicit STM32 mode')
+        self.configure('storage-and-tx', ['STORAGE_QUALIFICATION=ON',
+                       'RS485_TX_QUALIFIED=ON'], 'STORAGE_QUALIFICATION is isolated')
+        self.configure('storage-and-cumulative', ['STORAGE_QUALIFICATION=ON',
+                       'BUILD_PROFILE=CUMULATIVE'], 'STORAGE_QUALIFICATION is isolated')
+
     def test_helper_requires_explicit_profile(self):
         command = ['bash', str(SRC/'tr2_build_stm32.sh')]
         result = subprocess.run(command, capture_output=True, text=True)

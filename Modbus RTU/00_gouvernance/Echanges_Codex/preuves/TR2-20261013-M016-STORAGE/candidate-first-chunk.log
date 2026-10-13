@@ -1,0 +1,13 @@
+HAL_GetTick () at /home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal.c:342
+342	{
+0xbfa0700:	0x004a003d	0x38425018	0x20333157
+Hardware assisted breakpoint 1 at 0x8000d72: file /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c, line 1689.
+
+Temporary breakpoint 1, CommissioningReadChunk () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1689
+1689	    const uint32_t lba = tr2_commission_sd_read_lba;
+Note: automatically using hardware breakpoints for read-only addresses.
+CommissioningReadOnly () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1752
+1752	        HAL_GPIO_TogglePin(TR2_BRINGUP_LED_PORT, TR2_BRINGUP_LED_PIN);
+$1 = 0
+$2 = 1
+[Inferior 1 (Remote target) detached]
