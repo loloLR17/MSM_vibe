@@ -1,0 +1,16 @@
+HAL_Delay (Delay=Delay@entry=10) at /home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal.c:419
+419	  while ((HAL_GetTick() - tickstart) < wait)
+0xbfa0700:	0x001b0046	0x38425018	0x20333157
+$1 = 2
+$2 = 4
+$3 = 0
+$4 = 0x0
+$5 = 0
+$6 = 443424
+$7 = 417747
+$8 = 0x0
+$9 = 0x0
+$10 = 0x7ffffd7f
+$11 = 0x0
+$12 = 0xc0000002
+[Inferior 1 (Remote target) detached]

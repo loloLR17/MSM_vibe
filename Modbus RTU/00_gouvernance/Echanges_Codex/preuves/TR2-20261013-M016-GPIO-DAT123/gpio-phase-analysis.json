@@ -1,0 +1,99 @@
+{
+  "observed_phases": {
+    "1": {
+      "stage": 2,
+      "phase": 1,
+      "command": 0,
+      "output_mask": "0x8000",
+      "error": 0,
+      "tick_ms": 139339,
+      "phase_started_ms": 133705,
+      "ODR": "0x8000",
+      "IDR": "0x8000",
+      "MODER": "0x7ffffd7f",
+      "OTYPER": "0x0",
+      "RCC_AHB2ENR1": "0xc0000002"
+    },
+    "2": {
+      "stage": 2,
+      "phase": 2,
+      "command": 0,
+      "output_mask": "0x0",
+      "error": 0,
+      "tick_ms": 239841,
+      "phase_started_ms": 214203,
+      "ODR": "0x0",
+      "IDR": "0x0",
+      "MODER": "0x7ffffd7f",
+      "OTYPER": "0x0",
+      "RCC_AHB2ENR1": "0xc0000002"
+    },
+    "3": {
+      "stage": 2,
+      "phase": 3,
+      "command": 0,
+      "output_mask": "0x8",
+      "error": 0,
+      "tick_ms": 294222,
+      "phase_started_ms": 268488,
+      "ODR": "0x8",
+      "IDR": "0x8",
+      "MODER": "0x7ffffd7f",
+      "OTYPER": "0x0",
+      "RCC_AHB2ENR1": "0xc0000002"
+    },
+    "4": {
+      "stage": 2,
+      "phase": 4,
+      "command": 0,
+      "output_mask": "0x0",
+      "error": 0,
+      "tick_ms": 443424,
+      "phase_started_ms": 417747,
+      "ODR": "0x0",
+      "IDR": "0x0",
+      "MODER": "0x7ffffd7f",
+      "OTYPER": "0x0",
+      "RCC_AHB2ENR1": "0xc0000002"
+    },
+    "5": {
+      "stage": 2,
+      "phase": 5,
+      "command": 0,
+      "output_mask": "0x10",
+      "error": 0,
+      "tick_ms": 491824,
+      "phase_started_ms": 466180,
+      "ODR": "0x10",
+      "IDR": "0x10",
+      "MODER": "0x7ffffd7f",
+      "OTYPER": "0x0",
+      "RCC_AHB2ENR1": "0xc0000002"
+    },
+    "6": {
+      "stage": 4,
+      "phase": 6,
+      "command": 0,
+      "output_mask": "0x0",
+      "error": 0,
+      "tick_ms": 603459,
+      "phase_started_ms": 577808,
+      "ODR": "0x0",
+      "IDR": "0x0",
+      "MODER": "0x7ffffd7f",
+      "OTYPER": "0x0",
+      "RCC_AHB2ENR1": "0xc0000002"
+    }
+  },
+  "intervals_1_to_6_ms": [
+    80498,
+    54285,
+    149259,
+    48433,
+    111628
+  ],
+  "minimum_observed_dwell_ms": 48433,
+  "SDMMC_clock_bits_zero_all_phases": true,
+  "final_all_low": true,
+  "scope": "MCU observations, not breakout voltage measurements"
+}

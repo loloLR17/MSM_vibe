@@ -1,0 +1,56 @@
+{
+  "source": "user, BM869s tension DC at breakout, not independently observed",
+  "measurements": {
+    "0": {
+      "phase": 0,
+      "raw_user_reply": "D1=0, Dat2=0, D3=0",
+      "reported_volts": {
+        "D1": 0,
+        "DAT2": 0,
+        "D3": 0
+      },
+      "source": "user BM869s DC at breakout",
+      "precision_not_specified": true,
+      "at_utc": "2026-10-13T21:20:25.358548+00:00"
+    },
+    "1": {
+      "phase": 1,
+      "raw_user_reply": "D1=3,3V, Dat2=0V, D3=0V",
+      "reported_volts": {
+        "D1": 3.3,
+        "DAT2": 0,
+        "D3": 0
+      },
+      "source": "user BM869s DC at breakout",
+      "precision_not_specified": true,
+      "at_utc": "2026-10-13T21:21:45.773131+00:00"
+    },
+    "3": {
+      "phase": 3,
+      "raw_user_reply": "D1=0V, Dat2=3,3V, D3=0V",
+      "reported_volts": {
+        "D1": 0,
+        "DAT2": 3.3,
+        "D3": 0
+      },
+      "source": "user BM869s DC at breakout",
+      "precision_not_specified": true,
+      "at_utc": "2026-10-13T21:25:09.011972+00:00"
+    },
+    "5": {
+      "phase": 5,
+      "raw_user_reply": "D1=0V, Dat2=0V, D3=3,3V",
+      "reported_volts": {
+        "D1": 0,
+        "DAT2": 0,
+        "D3": 3.3
+      },
+      "source": "user BM869s DC at breakout",
+      "precision_not_specified": true,
+      "at_utc": "2026-10-13T21:27:48.917175+00:00"
+    }
+  },
+  "all_reported_values_match_expected_static_levels": true,
+  "no_ohmmeter_continuity_claim": true,
+  "no_dynamic_SDMMC_qualification": true
+}

@@ -1,0 +1,12 @@
+{
+  "phase": 5,
+  "raw_user_reply": "D1=0V, Dat2=0V, D3=3,3V",
+  "reported_volts": {
+    "D1": 0,
+    "DAT2": 0,
+    "D3": 3.3
+  },
+  "source": "user BM869s DC at breakout",
+  "precision_not_specified": true,
+  "at_utc": "2026-10-13T21:27:48.917175+00:00"
+}

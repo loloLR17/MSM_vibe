@@ -71,5 +71,6 @@ ChatGPT a qualifié A04-01 (logiciel) et A04-02 (logiciel + essai physique born�
 
 ## M016 — GPIO DAT1/DAT2/DAT3, 13/10/2026
 
-- **PRÉPARÉ / CONTRÔLÉ MCU** : firmware isolé GPIO ST NUCLEO-U575ZI-Q, code9b0ad67 ; cross-build et Flashreadback conformes, identitésecondeseule vérifiée. MSPPWR manquant corrigé avant commutationhaute ; preuveinitiale conservée. SDMMCoff, aucuneI/Ostockage/capteur/Modbus. MicroSDretirée/ligneslibres/bancalimenté confirmésutilisateur.
-- **MESURES DC rapportées utilisateur** : phase0 D1/DAT2/D3=0/0/0V ; phase1=3,3/0/0V, ODR/IDR correspondants. Phase2toutbas contrôlée. DAT2haut/DAT3haut et retourfinalbas à poursuivre ; pas de qualificationSDMMC4bits ni mesureohmique. MicroSD doitresterretirée tantqueGPIOfirmware présent. Principal et stashes préservés.
+- **CONTRÔLÉ MCU / MESURES DC RAPPORTÉES** : firmware isolé STGPIO NUCLEO-U575ZI-Q, code9b0ad67 ; cross-build/Flashreadback conformes, SDMMCoff. PortMSPPWR corrigé après arrêt initial avantGPIO, preuves conservées. MicroSDretirée/ligneslibres/bancalimenté confirmés utilisateur avantflash.
+- **Mesures utilisateur BM869s au breakout** : tout-bas=0/0/0V ; DAT1haut=3,3/0/0V ; DAT2haut=0/3,3/0V ; DAT3haut=0/0/3,3V. Septphases contrôléesGPIOODR/IDR, intervalleminimumobservé48433ms, pas de hautsimultané ; conformité statique étayée, aucune mesureohmique ou qualificationSDMMC4bit dynamique.
+- **État final secondeNUCLEO** : stage4/phase6/command0/error0, trois sorties basses, SDMMCoff, debuggerdétaché. Garder microSDretirée tant quefirmwareGPIO présent, même tout-bas. Principal nonaccédé/nonrestauré, stashes et preuves antérieures préservés. Rapport pour contrôleindépendant ChatGPT et choix d'investigation dynamique ; CRC4bit reste inexpliqué.

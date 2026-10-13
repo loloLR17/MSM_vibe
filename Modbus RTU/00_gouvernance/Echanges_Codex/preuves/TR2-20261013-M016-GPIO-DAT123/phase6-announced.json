@@ -1,0 +1,7 @@
+{
+  "phase": 6,
+  "expected_gpio_mask": "0x0",
+  "observed_verified": true,
+  "at_utc": "2026-10-13T21:28:19.485606+00:00",
+  "max_high_dwell_HAL_ms": 300000
+}
