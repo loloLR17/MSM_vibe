@@ -1,0 +1,105 @@
+[1/88] Building C object CMakeFiles/tr2_core.dir/src/application/campaign_inventory_service.c.o
+[2/88] Building C object CMakeFiles/tr2_core.dir/src/application/command_apply_configuration.c.o
+[3/88] Building C object CMakeFiles/tr2_core.dir/src/application/acquisition_service.c.o
+[4/88] Building C object CMakeFiles/tr2_core.dir/src/application/campaign_service.c.o
+[5/88] Building C object CMakeFiles/tr2_core.dir/src/application/command_policy.c.o
+[6/88] Building C object CMakeFiles/tr2_core.dir/src/application/command_boot_recovery.c.o
+[7/88] Building C object CMakeFiles/tr2_core.dir/src/application/command_request_mailbox.c.o
+[8/88] Building C object CMakeFiles/tr2_core.dir/src/application/command_engine.c.o
+[9/88] Building C object CMakeFiles/tr2_core.dir/src/application/command_selftest.c.o
+[10/88] Building C object CMakeFiles/tr2_core.dir/src/application/command_start_acquisition.c.o
+[11/88] Building C object CMakeFiles/tr2_core.dir/src/application/command_stop_acquisition.c.o
+[12/88] Building C object CMakeFiles/tr2_core.dir/src/application/command_synchronize_time.c.o
+[13/88] Building C object CMakeFiles/tr2_core.dir/src/application/configuration_activation_adapter.c.o
+[14/88] Building C object CMakeFiles/tr2_core.dir/src/application/configuration_service.c.o
+[15/88] Building C object CMakeFiles/tr2_core.dir/src/application/configuration_workflow.c.o
+[16/88] Building C object CMakeFiles/tr2_core.dir/src/application/supervision_service.c.o
+[17/88] Building C object CMakeFiles/tr2_core.dir/src/application/diagnostic_service.c.o
+[18/88] Building C object CMakeFiles/tr2_core.dir/src/application/system_command_dispatcher.c.o
+[19/88] Building C object CMakeFiles/tr2_core.dir/src/application/production_provisioning.c.o
+[20/88] Building C object CMakeFiles/tr2_core.dir/src/application/persistent_identity.c.o
+[21/88] Building C object CMakeFiles/tr2_core.dir/src/application/production_application.c.o
+[22/88] Building C object CMakeFiles/tr2_core.dir/src/application/production_commissioning.c.o
+[23/88] Building C object CMakeFiles/tr2_core.dir/src/application/modbus_system_server.c.o
+[24/88] Building C object CMakeFiles/tr2_core.dir/src/application/system_state_aggregator.c.o
+[25/88] Building C object CMakeFiles/tr2_core.dir/src/domain/command/command.c.o
+[26/88] Building C object CMakeFiles/tr2_core.dir/src/application/system_runtime.c.o
+[27/88] Building C object CMakeFiles/tr2_core.dir/src/domain/configuration/configuration_staging.c.o
+[28/88] Building C object CMakeFiles/tr2_core.dir/src/domain/configuration/configuration_validator.c.o
+[29/88] Building C object CMakeFiles/tr2_core.dir/src/domain/identity/identity.c.o
+[30/88] Building C object CMakeFiles/tr2_core.dir/src/application/system_runtime_acquisition_command.c.o
+[31/88] Building C object CMakeFiles/tr2_core.dir/src/domain/supervision/indicator_calculator.c.o
+[32/88] Building C object CMakeFiles/tr2_core.dir/src/domain/supervision/threshold_evaluator.c.o
+[33/88] Building C object CMakeFiles/tr2_core.dir/src/domain/time/time_recovery.c.o
+[34/88] Building C object CMakeFiles/tr2_core.dir/src/domain/system_state/system_state.c.o
+[35/88] Building C object CMakeFiles/tr2_core.dir/src/modbus/b5_projection.c.o
+[36/88] Building C object CMakeFiles/tr2_core.dir/src/modbus/b4_configuration_codec.c.o
+[37/88] Building C object CMakeFiles/tr2_core.dir/src/modbus/b5_write_adapter.c.o
+[38/88] Building C object CMakeFiles/tr2_core.dir/src/domain/time/time_service.c.o
+[39/88] Building C object CMakeFiles/tr2_core.dir/src/modbus/b6_write_adapter.c.o
+[40/88] Building C object CMakeFiles/tr2_core.dir/src/modbus/codec.c.o
+[41/88] Building C object CMakeFiles/tr2_core.dir/src/modbus/b6_projection.c.o
+[42/88] Building C object CMakeFiles/tr2_core.dir/src/modbus/pdu_server.c.o
+[43/88] Building C object CMakeFiles/tr2_core.dir/src/modbus/register_model.c.o
+[44/88] Building C object CMakeFiles/tr2_core.dir/src/modbus/read_adapter.c.o
+[45/88] Building C object CMakeFiles/tr2_core.dir/src/modbus/rtu_receiver.c.o
+[46/88] Building C object CMakeFiles/tr2_core.dir/src/modbus/projection.c.o
+[47/88] Building C object CMakeFiles/tr2_core.dir/src/modbus/rtu_server_runtime.c.o
+[48/88] Building C object CMakeFiles/tr2_core.dir/src/persistence/campaign_bulk_aggregator.c.o
+[49/88] Building C object CMakeFiles/tr2_core.dir/src/modbus/write_adapter.c.o
+[50/88] Building C object CMakeFiles/tr2_core.dir/src/persistence/campaign_bulk_block.c.o
+[51/88] Building C object CMakeFiles/tr2_core.dir/src/persistence/campaign_bulk_block_stream.c.o
+[52/88] Building C object CMakeFiles/tr2_core.dir/src/persistence/campaign_bulk_media.c.o
+[53/88] Building C object CMakeFiles/tr2_core.dir/src/persistence/campaign_bulk_checkpoint.c.o
+[54/88] Building C object CMakeFiles/tr2_core.dir/src/persistence/campaign_bulk_metadata.c.o
+[55/88] Building C object CMakeFiles/tr2_core.dir/src/persistence/campaign_data_store_bulk.c.o
+[56/88] Building C object CMakeFiles/tr2_core.dir/src/persistence/campaign_record.c.o
+[57/88] Building C object CMakeFiles/tr2_core.dir/src/persistence/campaign_data_store_persistent.c.o
+[58/88] Building C object CMakeFiles/tr2_core.dir/src/persistence/command_journal.c.o
+[59/88] Building C object CMakeFiles/tr2_core.dir/src/persistence/command_journal_bounded_record.c.o
+[60/88] Building C object CMakeFiles/tr2_core.dir/src/persistence/campaign_repository_store.c.o
+[61/88] Building C object CMakeFiles/tr2_core.dir/src/persistence/command_journal_bounded_recovery.c.o
+[62/88] Building C object CMakeFiles/tr2_core.dir/src/persistence/command_journal_bounded_reader.c.o
+[63/88] Building C object CMakeFiles/tr2_core.dir/src/persistence/command_journal_bounded_admission.c.o
+[64/88] Building C object CMakeFiles/tr2_core.dir/src/persistence/command_journal_bounded_slot.c.o
+[65/88] Building C object CMakeFiles/tr2_core.dir/src/persistence/command_journal_bounded_writer.c.o
+[66/88] Building C object CMakeFiles/tr2_core.dir/src/persistence/command_journal_context_store.c.o
+[67/88] Building C object CMakeFiles/tr2_core.dir/src/persistence/command_journal_bounded_store.c.o
+[68/88] Building C object CMakeFiles/tr2_core.dir/src/persistence/command_journal_record.c.o
+[69/88] Building C object CMakeFiles/tr2_core.dir/src/persistence/command_journal_store.c.o
+[70/88] Building C object CMakeFiles/tr2_core.dir/src/persistence/diagnostic_history_record.c.o
+[71/88] Building C object CMakeFiles/tr2_core.dir/src/persistence/configuration_store.c.o
+[72/88] Building C object CMakeFiles/tr2_core.dir/src/persistence/configuration_record.c.o
+[73/88] Building C object CMakeFiles/tr2_core.dir/src/persistence/diagnostic_history_store.c.o
+[74/88] Building C object CMakeFiles/tr2_core.dir/src/persistence/time_history_store.c.o
+[75/88] Building C object CMakeFiles/tr2_core.dir/src/persistence/time_history_record.c.o
+[76/88] Building C object CMakeFiles/tr2_core.dir/src/persistence/persistent_storage_core.c.o
+[77/88] Building C object CMakeFiles/tr2_core.dir/src/platform/serial_transport.c.o
+[78/88] Building C object CMakeFiles/tr2_platform_host.dir/platform/host/host_platform.c.o
+[79/88] Building C object CMakeFiles/tr2_core.dir/src/persistence/transactional_image_media.c.o
+[80/88] Building C object CMakeFiles/test_modbus_fifo_io_budget.dir/tests/integration/test_modbus_fifo_io_budget.c.o
+FAILED: CMakeFiles/test_modbus_fifo_io_budget.dir/tests/integration/test_modbus_fifo_io_budget.c.o 
+/usr/bin/cc -DBENCH_WINDOW_MAX_WORDS=36864 -I"/home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/../../experiments/iis3dwb_st_reference/src" -I"/home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/../../experiments/iis3dwb_st_reference/vendor/st" -I"/home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/include" -I"/home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/platform/host/include" -std=c11 -Wall -Wextra -Wpedantic -Werror -MD -MT CMakeFiles/test_modbus_fifo_io_budget.dir/tests/integration/test_modbus_fifo_io_budget.c.o -MF CMakeFiles/test_modbus_fifo_io_budget.dir/tests/integration/test_modbus_fifo_io_budget.c.o.d -o CMakeFiles/test_modbus_fifo_io_budget.dir/tests/integration/test_modbus_fifo_io_budget.c.o -c '/home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/tests/integration/test_modbus_fifo_io_budget.c'
+/home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/tests/integration/test_modbus_fifo_io_budget.c: In function ‘main’:
+/home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/tests/integration/test_modbus_fifo_io_budget.c:296:5: error: unknown type name ‘CommandJournalBoundedRecovery’; did you mean ‘CommandJournalBoundedRecord’?
+  296 |     CommandJournalBoundedRecovery recovery;
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |     CommandJournalBoundedRecord
+In file included from /home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/tests/integration/test_modbus_fifo_io_budget.c:1:
+/home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/tests/integration/test_modbus_fifo_io_budget.c:297:82: error: passing argument 2 of ‘command_journal_bounded_store_recover’ from incompatible pointer type [-Wincompatible-pointer-types]
+  297 |     assert(command_journal_bounded_store_recover(&runtime->command_journal_store,&recovery)==TR2_OK);
+      |                                                                                  ^~~~~~~~~
+      |                                                                                  |
+      |                                                                                  int *
+In file included from /home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/include/tr2/application/system_runtime.h:26,
+                 from /home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/include/tr2/application/modbus_system_server.h:4,
+                 from /home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/include/tr2/application/system_command_dispatcher.h:4,
+                 from /home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/include/tr2/application/production_application.h:4,
+                 from /home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/tests/integration/test_modbus_fifo_io_budget.c:5:
+/home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/include/tr2/persistence/command_journal_bounded_store.h:37:42: note: expected ‘CommandJournalBoundedRecoveryResult *’ but argument is of type ‘int *’
+   37 |     CommandJournalBoundedRecoveryResult *result);
+      |     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~
+[81/88] Building C object CMakeFiles/test_modbus_fifo_io_budget.dir/home/lolo/dev/msm/projects/MSM_vibe-A04-02/experiments/iis3dwb_st_reference/src/fifo_cooperative.c.o
+[82/88] Linking C static library libtr2_core.a
+[83/88] Building C object CMakeFiles/test_modbus_system_server.dir/tests/integration/test_modbus_system_server.c.o
+ninja: build stopped: subcommand failed.

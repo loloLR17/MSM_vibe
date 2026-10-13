@@ -1,0 +1,6 @@
+[1/6] Linking C static library libtr2_platform_host.a
+[2/6] Building C object CMakeFiles/test_modbus_fifo_io_budget.dir/home/lolo/dev/msm/projects/MSM_vibe-A04-02/experiments/iis3dwb_st_reference/src/fifo_window.c.o
+[3/6] Building C object CMakeFiles/test_modbus_fifo_io_budget.dir/tests/integration/test_modbus_fifo_io_budget.c.o
+[4/6] Linking C executable test_modbus_system_server
+[5/6] Building C object CMakeFiles/test_modbus_fifo_io_budget.dir/home/lolo/dev/msm/projects/MSM_vibe-A04-02/experiments/iis3dwb_st_reference/vendor/st/iis3dwb_reg.c.o
+[6/6] Linking C executable test_modbus_fifo_io_budget

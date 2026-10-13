@@ -1,0 +1,2037 @@
+Start testing: Oct 13 17:36 CEST
+----------------------------------------------------------
+1/126 Testing: stm32_continuous
+1/126 Test: stm32_continuous
+Command: "/home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/build-host-validation/test_stm32_continuous"
+Directory: /home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/build-host-validation
+"stm32_continuous" start time: Oct 13 17:36 CEST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"stm32_continuous" end time: Oct 13 17:36 CEST
+"stm32_continuous" time elapsed: 00:00:00
+----------------------------------------------------------
+
+2/126 Testing: stm32_ctrl1_differential
+2/126 Test: stm32_ctrl1_differential
+Command: "/home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/build-host-validation/test_stm32_ctrl1_differential"
+Directory: /home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/build-host-validation
+"stm32_ctrl1_differential" start time: Oct 13 17:36 CEST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"stm32_ctrl1_differential" end time: Oct 13 17:36 CEST
+"stm32_ctrl1_differential" time elapsed: 00:00:00
+----------------------------------------------------------
+
+3/126 Testing: stm32_burst_capture
+3/126 Test: stm32_burst_capture
+Command: "/home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/build-host-validation/test_stm32_burst_capture"
+Directory: /home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/build-host-validation
+"stm32_burst_capture" start time: Oct 13 17:36 CEST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"stm32_burst_capture" end time: Oct 13 17:36 CEST
+"stm32_burst_capture" time elapsed: 00:00:00
+----------------------------------------------------------
+
+4/126 Testing: stm32_active_readback
+4/126 Test: stm32_active_readback
+Command: "/home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/build-host-validation/test_stm32_active_readback"
+Directory: /home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/build-host-validation
+"stm32_active_readback" start time: Oct 13 17:36 CEST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"stm32_active_readback" end time: Oct 13 17:36 CEST
+"stm32_active_readback" time elapsed: 00:00:00
+----------------------------------------------------------
+
+5/126 Testing: stm32_register_probe
+5/126 Test: stm32_register_probe
+Command: "/home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/build-host-validation/test_stm32_register_probe"
+Directory: /home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/build-host-validation
+"stm32_register_probe" start time: Oct 13 17:36 CEST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"stm32_register_probe" end time: Oct 13 17:36 CEST
+"stm32_register_probe" time elapsed: 00:00:00
+----------------------------------------------------------
+
+6/126 Testing: stm32_iis3dwb_fifo
+6/126 Test: stm32_iis3dwb_fifo
+Command: "/home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/build-host-validation/test_stm32_iis3dwb_fifo"
+Directory: /home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/build-host-validation
+"stm32_iis3dwb_fifo" start time: Oct 13 17:36 CEST
+Output:
+----------------------------------------------------------
+FIFO bounded capture, framing, levels, tags, parity, gaps, overrun rejection and failure restoration: passed
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"stm32_iis3dwb_fifo" end time: Oct 13 17:36 CEST
+"stm32_iis3dwb_fifo" time elapsed: 00:00:00
+----------------------------------------------------------
+
+7/126 Testing: stm32_iis3dwb
+7/126 Test: stm32_iis3dwb
+Command: "/home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/build-host-validation/test_stm32_iis3dwb"
+Directory: /home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/build-host-validation
+"stm32_iis3dwb" start time: Oct 13 17:36 CEST
+Output:
+----------------------------------------------------------
+IIS3DWB driver/conversion/invalidity, bounded capture and failure restoration: passed
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"stm32_iis3dwb" end time: Oct 13 17:36 CEST
+"stm32_iis3dwb" time elapsed: 00:00:00
+----------------------------------------------------------
+
+8/126 Testing: stm32_rs485_rx_gpio
+8/126 Test: stm32_rs485_rx_gpio
+Command: "/home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/build-host-validation/test_stm32_rs485_rx_gpio"
+Directory: /home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/build-host-validation
+"stm32_rs485_rx_gpio" start time: Oct 13 17:36 CEST
+Output:
+----------------------------------------------------------
+RX GPIO sequencing passed; no electrical timing claim
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"stm32_rs485_rx_gpio" end time: Oct 13 17:36 CEST
+"stm32_rs485_rx_gpio" time elapsed: 00:00:00
+----------------------------------------------------------
+
+9/126 Testing: stm32_rtu_tx_0
+9/126 Test: stm32_rtu_tx_0
+Command: "/home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/build-host-validation/test_stm32_rtu_tx_0"
+Directory: /home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/build-host-validation
+"stm32_rtu_tx_0" start time: Oct 13 17:36 CEST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"stm32_rtu_tx_0" end time: Oct 13 17:36 CEST
+"stm32_rtu_tx_0" time elapsed: 00:00:00
+----------------------------------------------------------
+
+10/126 Testing: stm32_irq_observer_0
+10/126 Test: stm32_irq_observer_0
+Command: "/home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/build-host-validation/test_stm32_irq_observer_0"
+Directory: /home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/build-host-validation
+"stm32_irq_observer_0" start time: Oct 13 17:36 CEST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"stm32_irq_observer_0" end time: Oct 13 17:36 CEST
+"stm32_irq_observer_0" time elapsed: 00:00:00
+----------------------------------------------------------
+
+11/126 Testing: stm32_rtu_tx_1
+11/126 Test: stm32_rtu_tx_1
+Command: "/home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/build-host-validation/test_stm32_rtu_tx_1"
+Directory: /home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/build-host-validation
+"stm32_rtu_tx_1" start time: Oct 13 17:36 CEST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"stm32_rtu_tx_1" end time: Oct 13 17:36 CEST
+"stm32_rtu_tx_1" time elapsed: 00:00:00
+----------------------------------------------------------
+
+12/126 Testing: stm32_irq_observer_1
+12/126 Test: stm32_irq_observer_1
+Command: "/home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/build-host-validation/test_stm32_irq_observer_1"
+Directory: /home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/build-host-validation
+"stm32_irq_observer_1" start time: Oct 13 17:36 CEST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"stm32_irq_observer_1" end time: Oct 13 17:36 CEST
+"stm32_irq_observer_1" time elapsed: 00:00:00
+----------------------------------------------------------
+
+13/126 Testing: stm32_modbus_diagnostic
+13/126 Test: stm32_modbus_diagnostic
+Command: "/home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/build-host-validation/test_stm32_modbus_diagnostic"
+Directory: /home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/build-host-validation
+"stm32_modbus_diagnostic" start time: Oct 13 17:36 CEST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"stm32_modbus_diagnostic" end time: Oct 13 17:36 CEST
+"stm32_modbus_diagnostic" time elapsed: 00:00:00
+----------------------------------------------------------
+
+14/126 Testing: codec
+14/126 Test: codec
+Command: "/home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/build-host-validation/test_codec"
+Directory: /home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/build-host-validation
+"codec" start time: Oct 13 17:36 CEST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"codec" end time: Oct 13 17:36 CEST
+"codec" time elapsed: 00:00:00
+----------------------------------------------------------
+
+15/126 Testing: b4_configuration_codec
+15/126 Test: b4_configuration_codec
+Command: "/home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/build-host-validation/test_b4_configuration_codec"
+Directory: /home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/build-host-validation
+"b4_configuration_codec" start time: Oct 13 17:36 CEST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"b4_configuration_codec" end time: Oct 13 17:36 CEST
+"b4_configuration_codec" time elapsed: 00:00:00
+----------------------------------------------------------
+
+16/126 Testing: register_model
+16/126 Test: register_model
+Command: "/home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/build-host-validation/test_register_model"
+Directory: /home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/build-host-validation
+"register_model" start time: Oct 13 17:36 CEST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"register_model" end time: Oct 13 17:36 CEST
+"register_model" time elapsed: 00:00:00
+----------------------------------------------------------
+
+17/126 Testing: projection_b0
+17/126 Test: projection_b0
+Command: "/home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/build-host-validation/test_projection_b0"
+Directory: /home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/build-host-validation
+"projection_b0" start time: Oct 13 17:36 CEST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"projection_b0" end time: Oct 13 17:36 CEST
+"projection_b0" time elapsed: 00:00:00
+----------------------------------------------------------
+
+18/126 Testing: projection_b1
+18/126 Test: projection_b1
+Command: "/home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/build-host-validation/test_projection_b1"
+Directory: /home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/build-host-validation
+"projection_b1" start time: Oct 13 17:36 CEST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"projection_b1" end time: Oct 13 17:36 CEST
+"projection_b1" time elapsed: 00:00:00
+----------------------------------------------------------
+
+19/126 Testing: projection_b2
+19/126 Test: projection_b2
+Command: "/home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/build-host-validation/test_projection_b2"
+Directory: /home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/build-host-validation
+"projection_b2" start time: Oct 13 17:36 CEST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"projection_b2" end time: Oct 13 17:36 CEST
+"projection_b2" time elapsed: 00:00:00
+----------------------------------------------------------
+
+20/126 Testing: projection_b3
+20/126 Test: projection_b3
+Command: "/home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/build-host-validation/test_projection_b3"
+Directory: /home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/build-host-validation
+"projection_b3" start time: Oct 13 17:36 CEST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"projection_b3" end time: Oct 13 17:36 CEST
+"projection_b3" time elapsed: 00:00:00
+----------------------------------------------------------
+
+21/126 Testing: projection_b4
+21/126 Test: projection_b4
+Command: "/home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/build-host-validation/test_projection_b4"
+Directory: /home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/build-host-validation
+"projection_b4" start time: Oct 13 17:36 CEST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"projection_b4" end time: Oct 13 17:36 CEST
+"projection_b4" time elapsed: 00:00:00
+----------------------------------------------------------
+
+22/126 Testing: campaign_inventory_b6
+22/126 Test: campaign_inventory_b6
+Command: "/home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/build-host-validation/test_campaign_inventory_b6"
+Directory: /home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/build-host-validation
+"campaign_inventory_b6" start time: Oct 13 17:36 CEST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"campaign_inventory_b6" end time: Oct 13 17:36 CEST
+"campaign_inventory_b6" time elapsed: 00:00:00
+----------------------------------------------------------
+
+23/126 Testing: b6_adapters
+23/126 Test: b6_adapters
+Command: "/home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/build-host-validation/test_b6_adapters"
+Directory: /home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/build-host-validation
+"b6_adapters" start time: Oct 13 17:36 CEST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"b6_adapters" end time: Oct 13 17:36 CEST
+"b6_adapters" time elapsed: 00:00:00
+----------------------------------------------------------
+
+24/126 Testing: time_service
+24/126 Test: time_service
+Command: "/home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/build-host-validation/test_time_service"
+Directory: /home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/build-host-validation
+"time_service" start time: Oct 13 17:36 CEST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"time_service" end time: Oct 13 17:36 CEST
+"time_service" time elapsed: 00:00:00
+----------------------------------------------------------
+
+25/126 Testing: time_recovery_types
+25/126 Test: time_recovery_types
+Command: "/home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/build-host-validation/test_time_recovery_types"
+Directory: /home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/build-host-validation
+"time_recovery_types" start time: Oct 13 17:36 CEST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"time_recovery_types" end time: Oct 13 17:36 CEST
+"time_recovery_types" time elapsed: 00:00:00
+----------------------------------------------------------
+
+26/126 Testing: time_history_record
+26/126 Test: time_history_record
+Command: "/home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/build-host-validation/test_time_history_record"
+Directory: /home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/build-host-validation
+"time_history_record" start time: Oct 13 17:36 CEST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"time_history_record" end time: Oct 13 17:36 CEST
+"time_history_record" time elapsed: 00:00:00
+----------------------------------------------------------
+
+27/126 Testing: time_history_store
+27/126 Test: time_history_store
+Command: "/home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/build-host-validation/test_time_history_store"
+Directory: /home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/build-host-validation
+"time_history_store" start time: Oct 13 17:36 CEST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"time_history_store" end time: Oct 13 17:36 CEST
+"time_history_store" time elapsed: 00:00:00
+----------------------------------------------------------
+
+28/126 Testing: time_synchronization
+28/126 Test: time_synchronization
+Command: "/home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/build-host-validation/test_time_synchronization"
+Directory: /home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/build-host-validation
+"time_synchronization" start time: Oct 13 17:36 CEST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"time_synchronization" end time: Oct 13 17:36 CEST
+"time_synchronization" time elapsed: 00:00:00
+----------------------------------------------------------
+
+29/126 Testing: configuration_types
+29/126 Test: configuration_types
+Command: "/home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/build-host-validation/test_configuration_types"
+Directory: /home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/build-host-validation
+"configuration_types" start time: Oct 13 17:36 CEST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"configuration_types" end time: Oct 13 17:36 CEST
+"configuration_types" time elapsed: 00:00:00
+----------------------------------------------------------
+
+30/126 Testing: configuration_staging
+30/126 Test: configuration_staging
+Command: "/home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/build-host-validation/test_configuration_staging"
+Directory: /home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/build-host-validation
+"configuration_staging" start time: Oct 13 17:36 CEST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"configuration_staging" end time: Oct 13 17:36 CEST
+"configuration_staging" time elapsed: 00:00:00
+----------------------------------------------------------
+
+31/126 Testing: configuration_validator
+31/126 Test: configuration_validator
+Command: "/home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/build-host-validation/test_configuration_validator"
+Directory: /home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/build-host-validation
+"configuration_validator" start time: Oct 13 17:36 CEST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"configuration_validator" end time: Oct 13 17:36 CEST
+"configuration_validator" time elapsed: 00:00:00
+----------------------------------------------------------
+
+32/126 Testing: configuration_workflow
+32/126 Test: configuration_workflow
+Command: "/home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/build-host-validation/test_configuration_workflow"
+Directory: /home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/build-host-validation
+"configuration_workflow" start time: Oct 13 17:36 CEST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"configuration_workflow" end time: Oct 13 17:36 CEST
+"configuration_workflow" time elapsed: 00:00:00
+----------------------------------------------------------
+
+33/126 Testing: configuration_service
+33/126 Test: configuration_service
+Command: "/home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/build-host-validation/test_configuration_service"
+Directory: /home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/build-host-validation
+"configuration_service" start time: Oct 13 17:36 CEST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"configuration_service" end time: Oct 13 17:36 CEST
+"configuration_service" time elapsed: 00:00:00
+----------------------------------------------------------
+
+34/126 Testing: persistent_storage_core
+34/126 Test: persistent_storage_core
+Command: "/home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/build-host-validation/test_persistent_storage_core"
+Directory: /home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/build-host-validation
+"persistent_storage_core" start time: Oct 13 17:36 CEST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"persistent_storage_core" end time: Oct 13 17:36 CEST
+"persistent_storage_core" time elapsed: 00:00:00
+----------------------------------------------------------
+
+35/126 Testing: configuration_record
+35/126 Test: configuration_record
+Command: "/home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/build-host-validation/test_configuration_record"
+Directory: /home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/build-host-validation
+"configuration_record" start time: Oct 13 17:36 CEST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"configuration_record" end time: Oct 13 17:36 CEST
+"configuration_record" time elapsed: 00:00:00
+----------------------------------------------------------
+
+36/126 Testing: campaign_record
+36/126 Test: campaign_record
+Command: "/home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/build-host-validation/test_campaign_record"
+Directory: /home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/build-host-validation
+"campaign_record" start time: Oct 13 17:36 CEST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"campaign_record" end time: Oct 13 17:36 CEST
+"campaign_record" time elapsed: 00:00:00
+----------------------------------------------------------
+
+37/126 Testing: campaign_repository_store
+37/126 Test: campaign_repository_store
+Command: "/home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/build-host-validation/test_campaign_repository_store"
+Directory: /home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/build-host-validation
+"campaign_repository_store" start time: Oct 13 17:36 CEST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"campaign_repository_store" end time: Oct 13 17:36 CEST
+"campaign_repository_store" time elapsed: 00:00:00
+----------------------------------------------------------
+
+38/126 Testing: campaign_bulk_aggregator
+38/126 Test: campaign_bulk_aggregator
+Command: "/home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/build-host-validation/test_campaign_bulk_aggregator"
+Directory: /home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/build-host-validation
+"campaign_bulk_aggregator" start time: Oct 13 17:36 CEST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"campaign_bulk_aggregator" end time: Oct 13 17:36 CEST
+"campaign_bulk_aggregator" time elapsed: 00:00:00
+----------------------------------------------------------
+
+39/126 Testing: campaign_bulk_block
+39/126 Test: campaign_bulk_block
+Command: "/home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/build-host-validation/test_campaign_bulk_block"
+Directory: /home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/build-host-validation
+"campaign_bulk_block" start time: Oct 13 17:36 CEST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"campaign_bulk_block" end time: Oct 13 17:36 CEST
+"campaign_bulk_block" time elapsed: 00:00:00
+----------------------------------------------------------
+
+40/126 Testing: campaign_bulk_block_stream
+40/126 Test: campaign_bulk_block_stream
+Command: "/home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/build-host-validation/test_campaign_bulk_block_stream"
+Directory: /home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/build-host-validation
+"campaign_bulk_block_stream" start time: Oct 13 17:36 CEST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"campaign_bulk_block_stream" end time: Oct 13 17:36 CEST
+"campaign_bulk_block_stream" time elapsed: 00:00:00
+----------------------------------------------------------
+
+41/126 Testing: campaign_bulk_checkpoint
+41/126 Test: campaign_bulk_checkpoint
+Command: "/home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/build-host-validation/test_campaign_bulk_checkpoint"
+Directory: /home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/build-host-validation
+"campaign_bulk_checkpoint" start time: Oct 13 17:36 CEST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"campaign_bulk_checkpoint" end time: Oct 13 17:36 CEST
+"campaign_bulk_checkpoint" time elapsed: 00:00:00
+----------------------------------------------------------
+
+42/126 Testing: campaign_bulk_media
+42/126 Test: campaign_bulk_media
+Command: "/home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/build-host-validation/test_campaign_bulk_media"
+Directory: /home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/build-host-validation
+"campaign_bulk_media" start time: Oct 13 17:36 CEST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"campaign_bulk_media" end time: Oct 13 17:36 CEST
+"campaign_bulk_media" time elapsed: 00:00:00
+----------------------------------------------------------
+
+43/126 Testing: campaign_bulk_metadata
+43/126 Test: campaign_bulk_metadata
+Command: "/home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/build-host-validation/test_campaign_bulk_metadata"
+Directory: /home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/build-host-validation
+"campaign_bulk_metadata" start time: Oct 13 17:36 CEST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"campaign_bulk_metadata" end time: Oct 13 17:36 CEST
+"campaign_bulk_metadata" time elapsed: 00:00:00
+----------------------------------------------------------
+
+44/126 Testing: campaign_data_store_bulk
+44/126 Test: campaign_data_store_bulk
+Command: "/home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/build-host-validation/test_campaign_data_store_bulk"
+Directory: /home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/build-host-validation
+"campaign_data_store_bulk" start time: Oct 13 17:36 CEST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"campaign_data_store_bulk" end time: Oct 13 17:36 CEST
+"campaign_data_store_bulk" time elapsed: 00:00:00
+----------------------------------------------------------
+
+45/126 Testing: campaign_data_store_persistent
+45/126 Test: campaign_data_store_persistent
+Command: "/home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/build-host-validation/test_campaign_data_store_persistent"
+Directory: /home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/build-host-validation
+"campaign_data_store_persistent" start time: Oct 13 17:36 CEST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"campaign_data_store_persistent" end time: Oct 13 17:36 CEST
+"campaign_data_store_persistent" time elapsed: 00:00:00
+----------------------------------------------------------
+
+46/126 Testing: campaign_service
+46/126 Test: campaign_service
+Command: "/home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/build-host-validation/test_campaign_service"
+Directory: /home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/build-host-validation
+"campaign_service" start time: Oct 13 17:36 CEST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"campaign_service" end time: Oct 13 17:36 CEST
+"campaign_service" time elapsed: 00:00:00
+----------------------------------------------------------
+
+47/126 Testing: configuration_store
+47/126 Test: configuration_store
+Command: "/home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/build-host-validation/test_configuration_store"
+Directory: /home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/build-host-validation
+"configuration_store" start time: Oct 13 17:36 CEST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"configuration_store" end time: Oct 13 17:36 CEST
+"configuration_store" time elapsed: 00:00:00
+----------------------------------------------------------
+
+48/126 Testing: configuration_store_recovery
+48/126 Test: configuration_store_recovery
+Command: "/home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/build-host-validation/test_configuration_store_recovery"
+Directory: /home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/build-host-validation
+"configuration_store_recovery" start time: Oct 13 17:36 CEST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"configuration_store_recovery" end time: Oct 13 17:36 CEST
+"configuration_store_recovery" time elapsed: 00:00:00
+----------------------------------------------------------
+
+49/126 Testing: configuration_store_recovery_unavailable
+49/126 Test: configuration_store_recovery_unavailable
+Command: "/home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/build-host-validation/test_configuration_store_recovery_unavailable"
+Directory: /home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/build-host-validation
+"configuration_store_recovery_unavailable" start time: Oct 13 17:36 CEST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"configuration_store_recovery_unavailable" end time: Oct 13 17:36 CEST
+"configuration_store_recovery_unavailable" time elapsed: 00:00:00
+----------------------------------------------------------
+
+50/126 Testing: read_adapter
+50/126 Test: read_adapter
+Command: "/home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/build-host-validation/test_read_adapter"
+Directory: /home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/build-host-validation
+"read_adapter" start time: Oct 13 17:36 CEST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"read_adapter" end time: Oct 13 17:36 CEST
+"read_adapter" time elapsed: 00:00:00
+----------------------------------------------------------
+
+51/126 Testing: read_adapter_b3
+51/126 Test: read_adapter_b3
+Command: "/home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/build-host-validation/test_read_adapter_b3"
+Directory: /home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/build-host-validation
+"read_adapter_b3" start time: Oct 13 17:36 CEST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"read_adapter_b3" end time: Oct 13 17:36 CEST
+"read_adapter_b3" time elapsed: 00:00:00
+----------------------------------------------------------
+
+52/126 Testing: write_adapter
+52/126 Test: write_adapter
+Command: "/home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/build-host-validation/test_write_adapter"
+Directory: /home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/build-host-validation
+"write_adapter" start time: Oct 13 17:36 CEST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"write_adapter" end time: Oct 13 17:36 CEST
+"write_adapter" time elapsed: 00:00:00
+----------------------------------------------------------
+
+53/126 Testing: p5a_contracts
+53/126 Test: p5a_contracts
+Command: "/home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/build-host-validation/test_p5a_contracts"
+Directory: /home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/build-host-validation
+"p5a_contracts" start time: Oct 13 17:36 CEST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"p5a_contracts" end time: Oct 13 17:36 CEST
+"p5a_contracts" time elapsed: 00:00:00
+----------------------------------------------------------
+
+54/126 Testing: p6a_contracts
+54/126 Test: p6a_contracts
+Command: "/home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/build-host-validation/test_p6a_contracts"
+Directory: /home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/build-host-validation
+"p6a_contracts" start time: Oct 13 17:36 CEST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"p6a_contracts" end time: Oct 13 17:36 CEST
+"p6a_contracts" time elapsed: 00:00:00
+----------------------------------------------------------
+
+55/126 Testing: p7a_command_types
+55/126 Test: p7a_command_types
+Command: "/home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/build-host-validation/test_p7a_command_types"
+Directory: /home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/build-host-validation
+"p7a_command_types" start time: Oct 13 17:36 CEST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"p7a_command_types" end time: Oct 13 17:36 CEST
+"p7a_command_types" time elapsed: 00:00:00
+----------------------------------------------------------
+
+56/126 Testing: p7b_command_request_mailbox
+56/126 Test: p7b_command_request_mailbox
+Command: "/home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/build-host-validation/test_p7b_command_request_mailbox"
+Directory: /home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/build-host-validation
+"p7b_command_request_mailbox" start time: Oct 13 17:36 CEST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"p7b_command_request_mailbox" end time: Oct 13 17:36 CEST
+"p7b_command_request_mailbox" time elapsed: 00:00:00
+----------------------------------------------------------
+
+57/126 Testing: p7c_command_journal
+57/126 Test: p7c_command_journal
+Command: "/home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/build-host-validation/test_p7c_command_journal"
+Directory: /home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/build-host-validation
+"p7c_command_journal" start time: Oct 13 17:36 CEST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"p7c_command_journal" end time: Oct 13 17:36 CEST
+"p7c_command_journal" time elapsed: 00:00:00
+----------------------------------------------------------
+
+58/126 Testing: p7d_command_journal_store
+58/126 Test: p7d_command_journal_store
+Command: "/home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/build-host-validation/test_p7d_command_journal_store"
+Directory: /home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/build-host-validation
+"p7d_command_journal_store" start time: Oct 13 17:36 CEST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"p7d_command_journal_store" end time: Oct 13 17:36 CEST
+"p7d_command_journal_store" time elapsed: 00:00:00
+----------------------------------------------------------
+
+59/126 Testing: p7e_command_engine_admission
+59/126 Test: p7e_command_engine_admission
+Command: "/home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/build-host-validation/test_p7e_command_engine_admission"
+Directory: /home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/build-host-validation
+"p7e_command_engine_admission" start time: Oct 13 17:36 CEST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"p7e_command_engine_admission" end time: Oct 13 17:36 CEST
+"p7e_command_engine_admission" time elapsed: 00:00:00
+----------------------------------------------------------
+
+60/126 Testing: p7f_command_engine_lifecycle
+60/126 Test: p7f_command_engine_lifecycle
+Command: "/home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/build-host-validation/test_p7f_command_engine_lifecycle"
+Directory: /home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/build-host-validation
+"p7f_command_engine_lifecycle" start time: Oct 13 17:36 CEST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"p7f_command_engine_lifecycle" end time: Oct 13 17:36 CEST
+"p7f_command_engine_lifecycle" time elapsed: 00:00:00
+----------------------------------------------------------
+
+61/126 Testing: p7g_apply_configuration
+61/126 Test: p7g_apply_configuration
+Command: "/home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/build-host-validation/test_p7g_apply_configuration"
+Directory: /home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/build-host-validation
+"p7g_apply_configuration" start time: Oct 13 17:36 CEST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"p7g_apply_configuration" end time: Oct 13 17:36 CEST
+"p7g_apply_configuration" time elapsed: 00:00:00
+----------------------------------------------------------
+
+62/126 Testing: p7h_synchronize_time
+62/126 Test: p7h_synchronize_time
+Command: "/home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/build-host-validation/test_p7h_synchronize_time"
+Directory: /home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/build-host-validation
+"p7h_synchronize_time" start time: Oct 13 17:36 CEST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"p7h_synchronize_time" end time: Oct 13 17:36 CEST
+"p7h_synchronize_time" time elapsed: 00:00:00
+----------------------------------------------------------
+
+63/126 Testing: p7i_start_acquisition
+63/126 Test: p7i_start_acquisition
+Command: "/home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/build-host-validation/test_p7i_start_acquisition"
+Directory: /home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/build-host-validation
+"p7i_start_acquisition" start time: Oct 13 17:36 CEST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"p7i_start_acquisition" end time: Oct 13 17:36 CEST
+"p7i_start_acquisition" time elapsed: 00:00:00
+----------------------------------------------------------
+
+64/126 Testing: p7j_stop_acquisition
+64/126 Test: p7j_stop_acquisition
+Command: "/home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/build-host-validation/test_p7j_stop_acquisition"
+Directory: /home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/build-host-validation
+"p7j_stop_acquisition" start time: Oct 13 17:36 CEST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"p7j_stop_acquisition" end time: Oct 13 17:36 CEST
+"p7j_stop_acquisition" time elapsed: 00:00:00
+----------------------------------------------------------
+
+65/126 Testing: p7k_command_boot_recovery
+65/126 Test: p7k_command_boot_recovery
+Command: "/home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/build-host-validation/test_p7k_command_boot_recovery"
+Directory: /home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/build-host-validation
+"p7k_command_boot_recovery" start time: Oct 13 17:36 CEST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"p7k_command_boot_recovery" end time: Oct 13 17:36 CEST
+"p7k_command_boot_recovery" time elapsed: 00:00:00
+----------------------------------------------------------
+
+66/126 Testing: p7l_b5_adapters
+66/126 Test: p7l_b5_adapters
+Command: "/home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/build-host-validation/test_p7l_b5_adapters"
+Directory: /home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/build-host-validation
+"p7l_b5_adapters" start time: Oct 13 17:36 CEST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"p7l_b5_adapters" end time: Oct 13 17:36 CEST
+"p7l_b5_adapters" time elapsed: 00:00:00
+----------------------------------------------------------
+
+67/126 Testing: p7m_command_policy
+67/126 Test: p7m_command_policy
+Command: "/home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/build-host-validation/test_p7m_command_policy"
+Directory: /home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/build-host-validation
+"p7m_command_policy" start time: Oct 13 17:36 CEST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"p7m_command_policy" end time: Oct 13 17:36 CEST
+"p7m_command_policy" time elapsed: 00:00:00
+----------------------------------------------------------
+
+68/126 Testing: p7n_transaction_fault_injection
+68/126 Test: p7n_transaction_fault_injection
+Command: "/home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/build-host-validation/test_p7n_transaction_fault_injection"
+Directory: /home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/build-host-validation
+"p7n_transaction_fault_injection" start time: Oct 13 17:36 CEST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"p7n_transaction_fault_injection" end time: Oct 13 17:36 CEST
+"p7n_transaction_fault_injection" time elapsed: 00:00:00
+----------------------------------------------------------
+
+69/126 Testing: p9b_diagnostic_service
+69/126 Test: p9b_diagnostic_service
+Command: "/home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/build-host-validation/test_p9b_diagnostic_service"
+Directory: /home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/build-host-validation
+"p9b_diagnostic_service" start time: Oct 13 17:36 CEST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"p9b_diagnostic_service" end time: Oct 13 17:36 CEST
+"p9b_diagnostic_service" time elapsed: 00:00:00
+----------------------------------------------------------
+
+70/126 Testing: p9c_diagnostic_recovery
+70/126 Test: p9c_diagnostic_recovery
+Command: "/home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/build-host-validation/test_p9c_diagnostic_recovery"
+Directory: /home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/build-host-validation
+"p9c_diagnostic_recovery" start time: Oct 13 17:36 CEST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"p9c_diagnostic_recovery" end time: Oct 13 17:36 CEST
+"p9c_diagnostic_recovery" time elapsed: 00:00:00
+----------------------------------------------------------
+
+71/126 Testing: p9h_selftest_command
+71/126 Test: p9h_selftest_command
+Command: "/home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/build-host-validation/test_p9h_selftest_command"
+Directory: /home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/build-host-validation
+"p9h_selftest_command" start time: Oct 13 17:36 CEST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"p9h_selftest_command" end time: Oct 13 17:36 CEST
+"p9h_selftest_command" time elapsed: 00:00:00
+----------------------------------------------------------
+
+72/126 Testing: acquisition_service
+72/126 Test: acquisition_service
+Command: "/home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/build-host-validation/test_acquisition_service"
+Directory: /home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/build-host-validation
+"acquisition_service" start time: Oct 13 17:36 CEST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"acquisition_service" end time: Oct 13 17:36 CEST
+"acquisition_service" time elapsed: 00:00:00
+----------------------------------------------------------
+
+73/126 Testing: indicator_calculator
+73/126 Test: indicator_calculator
+Command: "/home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/build-host-validation/test_indicator_calculator"
+Directory: /home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/build-host-validation
+"indicator_calculator" start time: Oct 13 17:36 CEST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"indicator_calculator" end time: Oct 13 17:36 CEST
+"indicator_calculator" time elapsed: 00:00:00
+----------------------------------------------------------
+
+74/126 Testing: threshold_evaluator
+74/126 Test: threshold_evaluator
+Command: "/home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/build-host-validation/test_threshold_evaluator"
+Directory: /home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/build-host-validation
+"threshold_evaluator" start time: Oct 13 17:36 CEST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"threshold_evaluator" end time: Oct 13 17:36 CEST
+"threshold_evaluator" time elapsed: 00:00:00
+----------------------------------------------------------
+
+75/126 Testing: supervision_service
+75/126 Test: supervision_service
+Command: "/home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/build-host-validation/test_supervision_service"
+Directory: /home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/build-host-validation
+"supervision_service" start time: Oct 13 17:36 CEST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"supervision_service" end time: Oct 13 17:36 CEST
+"supervision_service" time elapsed: 00:00:00
+----------------------------------------------------------
+
+76/126 Testing: supervision_temporal_envelope
+76/126 Test: supervision_temporal_envelope
+Command: "/home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/build-host-validation/test_supervision_temporal_envelope"
+Directory: /home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/build-host-validation
+"supervision_temporal_envelope" start time: Oct 13 17:36 CEST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"supervision_temporal_envelope" end time: Oct 13 17:36 CEST
+"supervision_temporal_envelope" time elapsed: 00:00:00
+----------------------------------------------------------
+
+77/126 Testing: time_fault_injection
+77/126 Test: time_fault_injection
+Command: "/home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/build-host-validation/test_time_fault_injection"
+Directory: /home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/build-host-validation
+"time_fault_injection" start time: Oct 13 17:36 CEST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"time_fault_injection" end time: Oct 13 17:36 CEST
+"time_fault_injection" time elapsed: 00:00:00
+----------------------------------------------------------
+
+78/126 Testing: configuration_b4_flow
+78/126 Test: configuration_b4_flow
+Command: "/home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/build-host-validation/test_configuration_b4_flow"
+Directory: /home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/build-host-validation
+"configuration_b4_flow" start time: Oct 13 17:36 CEST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"configuration_b4_flow" end time: Oct 13 17:36 CEST
+"configuration_b4_flow" time elapsed: 00:00:00
+----------------------------------------------------------
+
+79/126 Testing: configuration_activation_adapter
+79/126 Test: configuration_activation_adapter
+Command: "/home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/build-host-validation/test_configuration_activation_adapter"
+Directory: /home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/build-host-validation
+"configuration_activation_adapter" start time: Oct 13 17:36 CEST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"configuration_activation_adapter" end time: Oct 13 17:36 CEST
+"configuration_activation_adapter" time elapsed: 00:00:00
+----------------------------------------------------------
+
+80/126 Testing: p12c_pdu_server
+80/126 Test: p12c_pdu_server
+Command: "/home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/build-host-validation/test_p12c_pdu_server"
+Directory: /home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/build-host-validation
+"p12c_pdu_server" start time: Oct 13 17:36 CEST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"p12c_pdu_server" end time: Oct 13 17:36 CEST
+"p12c_pdu_server" time elapsed: 00:00:00
+----------------------------------------------------------
+
+81/126 Testing: p12d_rtu_receiver
+81/126 Test: p12d_rtu_receiver
+Command: "/home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/build-host-validation/test_p12d_rtu_receiver"
+Directory: /home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/build-host-validation
+"p12d_rtu_receiver" start time: Oct 13 17:36 CEST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"p12d_rtu_receiver" end time: Oct 13 17:36 CEST
+"p12d_rtu_receiver" time elapsed: 00:00:00
+----------------------------------------------------------
+
+82/126 Testing: p12e_serial_transport
+82/126 Test: p12e_serial_transport
+Command: "/home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/build-host-validation/test_p12e_serial_transport"
+Directory: /home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/build-host-validation
+"p12e_serial_transport" start time: Oct 13 17:36 CEST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"p12e_serial_transport" end time: Oct 13 17:36 CEST
+"p12e_serial_transport" time elapsed: 00:00:00
+----------------------------------------------------------
+
+83/126 Testing: p12h_rtu_server_runtime
+83/126 Test: p12h_rtu_server_runtime
+Command: "/home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/build-host-validation/test_p12h_rtu_server_runtime"
+Directory: /home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/build-host-validation
+"p12h_rtu_server_runtime" start time: Oct 13 17:36 CEST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"p12h_rtu_server_runtime" end time: Oct 13 17:36 CEST
+"p12h_rtu_server_runtime" time elapsed: 00:00:00
+----------------------------------------------------------
+
+84/126 Testing: p12h3c3b_command_journal_bounded_record
+84/126 Test: p12h3c3b_command_journal_bounded_record
+Command: "/home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/build-host-validation/test_p12h3c3b_command_journal_bounded_record"
+Directory: /home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/build-host-validation
+"p12h3c3b_command_journal_bounded_record" start time: Oct 13 17:36 CEST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"p12h3c3b_command_journal_bounded_record" end time: Oct 13 17:36 CEST
+"p12h3c3b_command_journal_bounded_record" time elapsed: 00:00:00
+----------------------------------------------------------
+
+85/126 Testing: p12h3c3c1_bounded_slot
+85/126 Test: p12h3c3c1_bounded_slot
+Command: "/home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/build-host-validation/test_p12h3c3c1_bounded_slot"
+Directory: /home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/build-host-validation
+"p12h3c3c1_bounded_slot" start time: Oct 13 17:36 CEST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"p12h3c3c1_bounded_slot" end time: Oct 13 17:36 CEST
+"p12h3c3c1_bounded_slot" time elapsed: 00:00:00
+----------------------------------------------------------
+
+86/126 Testing: p12h3c3c2_bounded_recovery
+86/126 Test: p12h3c3c2_bounded_recovery
+Command: "/home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/build-host-validation/test_p12h3c3c2_bounded_recovery"
+Directory: /home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/build-host-validation
+"p12h3c3c2_bounded_recovery" start time: Oct 13 17:36 CEST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"p12h3c3c2_bounded_recovery" end time: Oct 13 17:36 CEST
+"p12h3c3c2_bounded_recovery" time elapsed: 00:00:00
+----------------------------------------------------------
+
+87/126 Testing: p12h3c3c3_bounded_reader
+87/126 Test: p12h3c3c3_bounded_reader
+Command: "/home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/build-host-validation/test_p12h3c3c3_bounded_reader"
+Directory: /home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/build-host-validation
+"p12h3c3c3_bounded_reader" start time: Oct 13 17:36 CEST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"p12h3c3c3_bounded_reader" end time: Oct 13 17:36 CEST
+"p12h3c3c3_bounded_reader" time elapsed: 00:00:00
+----------------------------------------------------------
+
+88/126 Testing: p12h3c3c4_bounded_writer
+88/126 Test: p12h3c3c4_bounded_writer
+Command: "/home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/build-host-validation/test_p12h3c3c4_bounded_writer"
+Directory: /home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/build-host-validation
+"p12h3c3c4_bounded_writer" start time: Oct 13 17:36 CEST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"p12h3c3c4_bounded_writer" end time: Oct 13 17:36 CEST
+"p12h3c3c4_bounded_writer" time elapsed: 00:00:00
+----------------------------------------------------------
+
+89/126 Testing: p12h3c3c4b_bounded_admission
+89/126 Test: p12h3c3c4b_bounded_admission
+Command: "/home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/build-host-validation/test_p12h3c3c4b_bounded_admission"
+Directory: /home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/build-host-validation
+"p12h3c3c4b_bounded_admission" start time: Oct 13 17:36 CEST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"p12h3c3c4b_bounded_admission" end time: Oct 13 17:36 CEST
+"p12h3c3c4b_bounded_admission" time elapsed: 00:00:00
+----------------------------------------------------------
+
+90/126 Testing: p12h3c3c4c1_bounded_store
+90/126 Test: p12h3c3c4c1_bounded_store
+Command: "/home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/build-host-validation/test_p12h3c3c4c1_bounded_store"
+Directory: /home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/build-host-validation
+"p12h3c3c4c1_bounded_store" start time: Oct 13 17:36 CEST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"p12h3c3c4c1_bounded_store" end time: Oct 13 17:36 CEST
+"p12h3c3c4c1_bounded_store" time elapsed: 00:00:00
+----------------------------------------------------------
+
+91/126 Testing: p12h3c3c4d1_fault_media
+91/126 Test: p12h3c3c4d1_fault_media
+Command: "/home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/build-host-validation/test_p12h3c3c4d1_fault_media"
+Directory: /home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/build-host-validation
+"p12h3c3c4d1_fault_media" start time: Oct 13 17:36 CEST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"p12h3c3c4d1_fault_media" end time: Oct 13 17:36 CEST
+"p12h3c3c4d1_fault_media" time elapsed: 00:00:00
+----------------------------------------------------------
+
+92/126 Testing: p12h3c3c4d2_admission_power_loss
+92/126 Test: p12h3c3c4d2_admission_power_loss
+Command: "/home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/build-host-validation/test_p12h3c3c4d2_admission_power_loss"
+Directory: /home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/build-host-validation
+"p12h3c3c4d2_admission_power_loss" start time: Oct 13 17:36 CEST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"p12h3c3c4d2_admission_power_loss" end time: Oct 13 17:36 CEST
+"p12h3c3c4d2_admission_power_loss" time elapsed: 00:00:00
+----------------------------------------------------------
+
+93/126 Testing: p12h3c3c4d3_mutation_power_loss
+93/126 Test: p12h3c3c4d3_mutation_power_loss
+Command: "/home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/build-host-validation/test_p12h3c3c4d3_mutation_power_loss"
+Directory: /home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/build-host-validation
+"p12h3c3c4d3_mutation_power_loss" start time: Oct 13 17:36 CEST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"p12h3c3c4d3_mutation_power_loss" end time: Oct 13 17:36 CEST
+"p12h3c3c4d3_mutation_power_loss" time elapsed: 00:00:00
+----------------------------------------------------------
+
+94/126 Testing: p12h3c3c4d4_completion_power_loss
+94/126 Test: p12h3c3c4d4_completion_power_loss
+Command: "/home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/build-host-validation/test_p12h3c3c4d4_completion_power_loss"
+Directory: /home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/build-host-validation
+"p12h3c3c4d4_completion_power_loss" start time: Oct 13 17:36 CEST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"p12h3c3c4d4_completion_power_loss" end time: Oct 13 17:36 CEST
+"p12h3c3c4d4_completion_power_loss" time elapsed: 00:00:00
+----------------------------------------------------------
+
+95/126 Testing: p12h3c3c4d5_readmission_power_loss
+95/126 Test: p12h3c3c4d5_readmission_power_loss
+Command: "/home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/build-host-validation/test_p12h3c3c4d5_readmission_power_loss"
+Directory: /home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/build-host-validation
+"p12h3c3c4d5_readmission_power_loss" start time: Oct 13 17:36 CEST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.04 sec
+----------------------------------------------------------
+Test Passed.
+"p12h3c3c4d5_readmission_power_loss" end time: Oct 13 17:36 CEST
+"p12h3c3c4d5_readmission_power_loss" time elapsed: 00:00:00
+----------------------------------------------------------
+
+96/126 Testing: p12h3c3c4d6_d8_consolidation
+96/126 Test: p12h3c3c4d6_d8_consolidation
+Command: "/home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/build-host-validation/test_p12h3c3c4d6_d8_consolidation"
+Directory: /home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/build-host-validation
+"p12h3c3c4d6_d8_consolidation" start time: Oct 13 17:36 CEST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"p12h3c3c4d6_d8_consolidation" end time: Oct 13 17:36 CEST
+"p12h3c3c4d6_d8_consolidation" time elapsed: 00:00:00
+----------------------------------------------------------
+
+97/126 Testing: p12h3d2_transactional_image_media
+97/126 Test: p12h3d2_transactional_image_media
+Command: "/home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/build-host-validation/test_p12h3d2_transactional_image_media"
+Directory: /home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/build-host-validation
+"p12h3d2_transactional_image_media" start time: Oct 13 17:36 CEST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.04 sec
+----------------------------------------------------------
+Test Passed.
+"p12h3d2_transactional_image_media" end time: Oct 13 17:36 CEST
+"p12h3d2_transactional_image_media" time elapsed: 00:00:00
+----------------------------------------------------------
+
+98/126 Testing: p12h3d2b_transactional_image_power_loss
+98/126 Test: p12h3d2b_transactional_image_power_loss
+Command: "/home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/build-host-validation/test_p12h3d2b_transactional_image_power_loss"
+Directory: /home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/build-host-validation
+"p12h3d2b_transactional_image_power_loss" start time: Oct 13 17:36 CEST
+Output:
+----------------------------------------------------------
+H3d2B case write=2 cut=0 value=0x31
+H3d2B case write=2 cut=1 value=0x31
+H3d2B case write=2 cut=2 value=0x31
+H3d2B case write=2 cut=3 value=0x31
+H3d2B case write=2 cut=4 value=0x31
+H3d2B case write=2 cut=5 value=0x31
+H3d2B case write=2 cut=6 value=0x31
+H3d2B case write=2 cut=7 value=0x31
+H3d2B case write=2 cut=8 value=0x31
+H3d2B case write=2 cut=9 value=0x31
+H3d2B case write=2 cut=10 value=0x31
+H3d2B case write=2 cut=11 value=0x31
+H3d2B case write=2 cut=12 value=0x31
+H3d2B case write=2 cut=13 value=0x31
+H3d2B case write=2 cut=14 value=0x31
+H3d2B case write=2 cut=15 value=0x31
+H3d2B case write=2 cut=16 value=0x31
+H3d2B case write=2 cut=17 value=0x31
+H3d2B case write=2 cut=18 value=0x31
+H3d2B case write=2 cut=19 value=0x31
+H3d2B case write=2 cut=20 value=0x31
+H3d2B case write=2 cut=21 value=0x31
+H3d2B case write=2 cut=22 value=0x31
+H3d2B case write=2 cut=23 value=0x31
+H3d2B case write=2 cut=24 value=0x31
+H3d2B case write=2 cut=25 value=0x31
+H3d2B case write=2 cut=26 value=0x31
+H3d2B case write=2 cut=27 value=0x31
+H3d2B case write=2 cut=28 value=0x31
+H3d2B case write=2 cut=29 value=0x31
+H3d2B case write=2 cut=30 value=0x31
+H3d2B case write=2 cut=31 value=0x31
+H3d2B case write=2 cut=32 value=0x31
+H3d2B case write=2 cut=33 value=0x31
+H3d2B case write=2 cut=34 value=0x31
+H3d2B case write=2 cut=35 value=0x31
+H3d2B case write=2 cut=36 value=0x31
+H3d2B case write=2 cut=37 value=0x31
+H3d2B case write=2 cut=38 value=0x31
+H3d2B case write=2 cut=39 value=0x31
+H3d2B case write=2 cut=40 value=0x31
+H3d2B case write=2 cut=41 value=0x31
+H3d2B case write=2 cut=42 value=0x31
+H3d2B case write=2 cut=43 value=0x31
+H3d2B case write=2 cut=44 value=0x31
+H3d2B case write=2 cut=45 value=0x31
+H3d2B case write=2 cut=46 value=0x31
+H3d2B case write=2 cut=47 value=0x31
+H3d2B case write=2 cut=48 value=0x31
+H3d2B case write=2 cut=49 value=0x31
+H3d2B case write=2 cut=50 value=0x31
+H3d2B case write=2 cut=51 value=0x31
+H3d2B case write=2 cut=52 value=0x31
+H3d2B case write=2 cut=53 value=0x31
+H3d2B case write=2 cut=54 value=0x31
+H3d2B case write=2 cut=55 value=0x31
+H3d2B case write=2 cut=56 value=0x31
+H3d2B case write=2 cut=57 value=0x31
+H3d2B case write=2 cut=58 value=0x31
+H3d2B case write=2 cut=59 value=0x31
+H3d2B case write=2 cut=60 value=0x31
+H3d2B case write=2 cut=61 value=0x31
+H3d2B case write=2 cut=62 value=0x31
+H3d2B case write=2 cut=63 value=0x31
+H3d2B case write=1 cut=0 value=0x42
+H3d2B case write=1 cut=1 value=0x42
+H3d2B case write=1 cut=63 value=0x42
+H3d2B case write=1 cut=64 value=0x42
+H3d2B case write=1 cut=255 value=0x42
+H3d2B case write=1 cut=256 value=0x42
+H3d2B case write=1 cut=25909 value=0x42
+H3d2B case write=1 cut=51816 value=0x42
+H3d2B case write=1 cut=51817 value=0x42
+H3d2B case write=3 cut=0 value=0x53
+H3d2B case write=3 cut=1 value=0x53
+H3d2B case write=3 cut=2 value=0x53
+H3d2B case write=3 cut=3 value=0x53
+H3d2B case write=3 cut=4 value=0x53
+H3d2B case write=3 cut=5 value=0x53
+H3d2B case write=3 cut=6 value=0x53
+H3d2B case write=3 cut=7 value=0x53
+H3d2B case write=3 cut=8 value=0x53
+H3d2B case write=3 cut=9 value=0x53
+H3d2B case write=3 cut=10 value=0x53
+H3d2B case write=3 cut=11 value=0x53
+H3d2B case write=3 cut=12 value=0x53
+H3d2B case write=3 cut=13 value=0x53
+H3d2B case write=3 cut=14 value=0x53
+H3d2B case write=3 cut=15 value=0x53
+H3d2B case write=3 cut=16 value=0x53
+H3d2B case write=3 cut=17 value=0x53
+H3d2B case write=3 cut=18 value=0x53
+H3d2B case write=3 cut=19 value=0x53
+H3d2B case write=3 cut=20 value=0x53
+H3d2B case write=3 cut=21 value=0x53
+H3d2B case write=3 cut=22 value=0x53
+H3d2B case write=3 cut=23 value=0x53
+H3d2B case write=3 cut=24 value=0x53
+H3d2B case write=3 cut=25 value=0x53
+H3d2B case write=3 cut=26 value=0x53
+H3d2B case write=3 cut=27 value=0x53
+H3d2B case write=3 cut=28 value=0x53
+H3d2B case write=3 cut=29 value=0x53
+H3d2B case write=3 cut=30 value=0x53
+H3d2B case write=3 cut=31 value=0x53
+H3d2B case write=3 cut=32 value=0x53
+H3d2B case write=3 cut=33 value=0x53
+H3d2B case write=3 cut=34 value=0x53
+H3d2B case write=3 cut=35 value=0x53
+H3d2B case write=3 cut=36 value=0x53
+H3d2B case write=3 cut=37 value=0x53
+H3d2B case write=3 cut=38 value=0x53
+H3d2B case write=3 cut=39 value=0x53
+H3d2B case write=3 cut=40 value=0x53
+H3d2B case write=3 cut=41 value=0x53
+H3d2B case write=3 cut=42 value=0x53
+H3d2B case write=3 cut=43 value=0x53
+H3d2B case write=3 cut=44 value=0x53
+H3d2B case write=3 cut=45 value=0x53
+H3d2B case write=3 cut=46 value=0x53
+H3d2B case write=3 cut=47 value=0x53
+H3d2B case write=3 cut=48 value=0x53
+H3d2B case write=3 cut=49 value=0x53
+H3d2B case write=3 cut=50 value=0x53
+H3d2B case write=3 cut=51 value=0x53
+H3d2B case write=3 cut=52 value=0x53
+H3d2B case write=3 cut=53 value=0x53
+H3d2B case write=3 cut=54 value=0x53
+H3d2B case write=3 cut=55 value=0x53
+H3d2B case write=3 cut=56 value=0x53
+H3d2B case write=3 cut=57 value=0x53
+H3d2B case write=3 cut=58 value=0x53
+H3d2B case write=3 cut=59 value=0x53
+H3d2B case write=3 cut=60 value=0x53
+H3d2B case write=3 cut=61 value=0x53
+H3d2B case write=3 cut=62 value=0x53
+H3d2B case write=3 cut=63 value=0x53
+<end of output>
+Test time =   0.84 sec
+----------------------------------------------------------
+Test Passed.
+"p12h3d2b_transactional_image_power_loss" end time: Oct 13 17:36 CEST
+"p12h3d2b_transactional_image_power_loss" time elapsed: 00:00:00
+----------------------------------------------------------
+
+99/126 Testing: p12h3d2c_transactional_image_recovery
+99/126 Test: p12h3d2c_transactional_image_recovery
+Command: "/home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/build-host-validation/test_p12h3d2c_transactional_image_recovery"
+Directory: /home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/build-host-validation
+"p12h3d2c_transactional_image_recovery" start time: Oct 13 17:36 CEST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.04 sec
+----------------------------------------------------------
+Test Passed.
+"p12h3d2c_transactional_image_recovery" end time: Oct 13 17:36 CEST
+"p12h3d2c_transactional_image_recovery" time elapsed: 00:00:00
+----------------------------------------------------------
+
+100/126 Testing: p12h3d2d_persistent_storage_core_integration
+100/126 Test: p12h3d2d_persistent_storage_core_integration
+Command: "/home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/build-host-validation/test_p12h3d2d_persistent_storage_core_integration"
+Directory: /home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/build-host-validation
+"p12h3d2d_persistent_storage_core_integration" start time: Oct 13 17:36 CEST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.02 sec
+----------------------------------------------------------
+Test Passed.
+"p12h3d2d_persistent_storage_core_integration" end time: Oct 13 17:36 CEST
+"p12h3d2d_persistent_storage_core_integration" time elapsed: 00:00:00
+----------------------------------------------------------
+
+101/126 Testing: p12h3d2e_campaign_transactional_media
+101/126 Test: p12h3d2e_campaign_transactional_media
+Command: "/home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/build-host-validation/test_p12h3d2e_campaign_transactional_media"
+Directory: /home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/build-host-validation
+"p12h3d2e_campaign_transactional_media" start time: Oct 13 17:36 CEST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.04 sec
+----------------------------------------------------------
+Test Passed.
+"p12h3d2e_campaign_transactional_media" end time: Oct 13 17:36 CEST
+"p12h3d2e_campaign_transactional_media" time elapsed: 00:00:00
+----------------------------------------------------------
+
+102/126 Testing: p12h3d2f_transactional_media_format_policy
+102/126 Test: p12h3d2f_transactional_media_format_policy
+Command: "/home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/build-host-validation/test_p12h3d2f_transactional_media_format_policy"
+Directory: /home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/build-host-validation
+"p12h3d2f_transactional_media_format_policy" start time: Oct 13 17:36 CEST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.02 sec
+----------------------------------------------------------
+Test Passed.
+"p12h3d2f_transactional_media_format_policy" end time: Oct 13 17:36 CEST
+"p12h3d2f_transactional_media_format_policy" time elapsed: 00:00:00
+----------------------------------------------------------
+
+103/126 Testing: p12h3d2g_transactional_media_format_power_loss
+103/126 Test: p12h3d2g_transactional_media_format_power_loss
+Command: "/home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/build-host-validation/test_p12h3d2g_transactional_media_format_power_loss"
+Directory: /home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/build-host-validation
+"p12h3d2g_transactional_media_format_power_loss" start time: Oct 13 17:36 CEST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.04 sec
+----------------------------------------------------------
+Test Passed.
+"p12h3d2g_transactional_media_format_power_loss" end time: Oct 13 17:36 CEST
+"p12h3d2g_transactional_media_format_power_loss" time elapsed: 00:00:00
+----------------------------------------------------------
+
+104/126 Testing: p12h3d2h1_transactional_media_geometry
+104/126 Test: p12h3d2h1_transactional_media_geometry
+Command: "/home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/build-host-validation/test_p12h3d2h1_transactional_media_geometry"
+Directory: /home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/build-host-validation
+"p12h3d2h1_transactional_media_geometry" start time: Oct 13 17:36 CEST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"p12h3d2h1_transactional_media_geometry" end time: Oct 13 17:36 CEST
+"p12h3d2h1_transactional_media_geometry" time elapsed: 00:00:00
+----------------------------------------------------------
+
+105/126 Testing: p12h3d2h3_transactional_media_alternate_geometry
+105/126 Test: p12h3d2h3_transactional_media_alternate_geometry
+Command: "/home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/build-host-validation/test_p12h3d2h3_transactional_media_alternate_geometry"
+Directory: /home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/build-host-validation
+"p12h3d2h3_transactional_media_alternate_geometry" start time: Oct 13 17:36 CEST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"p12h3d2h3_transactional_media_alternate_geometry" end time: Oct 13 17:36 CEST
+"p12h3d2h3_transactional_media_alternate_geometry" time elapsed: 00:00:00
+----------------------------------------------------------
+
+106/126 Testing: system_runtime
+106/126 Test: system_runtime
+Command: "/home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/build-host-validation/test_system_runtime"
+Directory: /home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/build-host-validation
+"system_runtime" start time: Oct 13 17:36 CEST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.02 sec
+----------------------------------------------------------
+Test Passed.
+"system_runtime" end time: Oct 13 17:36 CEST
+"system_runtime" time elapsed: 00:00:00
+----------------------------------------------------------
+
+107/126 Testing: system_runtime_bulk
+107/126 Test: system_runtime_bulk
+Command: "/home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/build-host-validation/test_system_runtime_bulk"
+Directory: /home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/build-host-validation
+"system_runtime_bulk" start time: Oct 13 17:36 CEST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.09 sec
+----------------------------------------------------------
+Test Passed.
+"system_runtime_bulk" end time: Oct 13 17:36 CEST
+"system_runtime_bulk" time elapsed: 00:00:00
+----------------------------------------------------------
+
+108/126 Testing: p8i_system_runtime_acquisition_commands
+108/126 Test: p8i_system_runtime_acquisition_commands
+Command: "/home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/build-host-validation/test_p8i_system_runtime_acquisition_commands"
+Directory: /home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/build-host-validation
+"p8i_system_runtime_acquisition_commands" start time: Oct 13 17:36 CEST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.02 sec
+----------------------------------------------------------
+Test Passed.
+"p8i_system_runtime_acquisition_commands" end time: Oct 13 17:36 CEST
+"p8i_system_runtime_acquisition_commands" time elapsed: 00:00:00
+----------------------------------------------------------
+
+109/126 Testing: p8j_system_runtime_b3_projection
+109/126 Test: p8j_system_runtime_b3_projection
+Command: "/home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/build-host-validation/test_p8j_system_runtime_b3_projection"
+Directory: /home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/build-host-validation
+"p8j_system_runtime_b3_projection" start time: Oct 13 17:36 CEST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"p8j_system_runtime_b3_projection" end time: Oct 13 17:36 CEST
+"p8j_system_runtime_b3_projection" time elapsed: 00:00:00
+----------------------------------------------------------
+
+110/126 Testing: p8k_power_loss_boot_recovery
+110/126 Test: p8k_power_loss_boot_recovery
+Command: "/home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/build-host-validation/test_p8k_power_loss_boot_recovery"
+Directory: /home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/build-host-validation
+"p8k_power_loss_boot_recovery" start time: Oct 13 17:36 CEST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"p8k_power_loss_boot_recovery" end time: Oct 13 17:36 CEST
+"p8k_power_loss_boot_recovery" time elapsed: 00:00:00
+----------------------------------------------------------
+
+111/126 Testing: p12h3c3c4e3_runtime_bounded_journal
+111/126 Test: p12h3c3c4e3_runtime_bounded_journal
+Command: "/home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/build-host-validation/test_p12h3c3c4e3_runtime_bounded_journal"
+Directory: /home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/build-host-validation
+"p12h3c3c4e3_runtime_bounded_journal" start time: Oct 13 17:36 CEST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"p12h3c3c4e3_runtime_bounded_journal" end time: Oct 13 17:36 CEST
+"p12h3c3c4e3_runtime_bounded_journal" time elapsed: 00:00:00
+----------------------------------------------------------
+
+112/126 Testing: time_boot_recovery
+112/126 Test: time_boot_recovery
+Command: "/home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/build-host-validation/test_time_boot_recovery"
+Directory: /home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/build-host-validation
+"time_boot_recovery" start time: Oct 13 17:36 CEST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.02 sec
+----------------------------------------------------------
+Test Passed.
+"time_boot_recovery" end time: Oct 13 17:36 CEST
+"time_boot_recovery" time elapsed: 00:00:00
+----------------------------------------------------------
+
+113/126 Testing: configuration_fault_injection
+113/126 Test: configuration_fault_injection
+Command: "/home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/build-host-validation/test_configuration_fault_injection"
+Directory: /home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/build-host-validation
+"configuration_fault_injection" start time: Oct 13 17:36 CEST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   2.41 sec
+----------------------------------------------------------
+Test Passed.
+"configuration_fault_injection" end time: Oct 13 17:36 CEST
+"configuration_fault_injection" time elapsed: 00:00:02
+----------------------------------------------------------
+
+114/126 Testing: p5h_acquisition_supervision_b3
+114/126 Test: p5h_acquisition_supervision_b3
+Command: "/home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/build-host-validation/test_p5h_acquisition_supervision_b3"
+Directory: /home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/build-host-validation
+"p5h_acquisition_supervision_b3" start time: Oct 13 17:36 CEST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"p5h_acquisition_supervision_b3" end time: Oct 13 17:36 CEST
+"p5h_acquisition_supervision_b3" time elapsed: 00:00:00
+----------------------------------------------------------
+
+115/126 Testing: post_p9_a5_host_modbus_read
+115/126 Test: post_p9_a5_host_modbus_read
+Command: "/home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/build-host-validation/test_post_p9_a5_host_modbus_read"
+Directory: /home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/build-host-validation
+"post_p9_a5_host_modbus_read" start time: Oct 13 17:36 CEST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"post_p9_a5_host_modbus_read" end time: Oct 13 17:36 CEST
+"post_p9_a5_host_modbus_read" time elapsed: 00:00:00
+----------------------------------------------------------
+
+116/126 Testing: modbus_system_server
+116/126 Test: modbus_system_server
+Command: "/home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/build-host-validation/test_modbus_system_server"
+Directory: /home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/build-host-validation
+"modbus_system_server" start time: Oct 13 17:36 CEST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"modbus_system_server" end time: Oct 13 17:36 CEST
+"modbus_system_server" time elapsed: 00:00:00
+----------------------------------------------------------
+
+117/126 Testing: production_commands
+117/126 Test: production_commands
+Command: "/home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/build-host-validation/test_production_commands"
+Directory: /home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/build-host-validation
+"production_commands" start time: Oct 13 17:36 CEST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.03 sec
+----------------------------------------------------------
+Test Passed.
+"production_commands" end time: Oct 13 17:36 CEST
+"production_commands" time elapsed: 00:00:00
+----------------------------------------------------------
+
+118/126 Testing: production_provisioning
+118/126 Test: production_provisioning
+Command: "/home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/build-host-validation/test_production_provisioning"
+Directory: /home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/build-host-validation
+"production_provisioning" start time: Oct 13 17:36 CEST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.10 sec
+----------------------------------------------------------
+Test Passed.
+"production_provisioning" end time: Oct 13 17:36 CEST
+"production_provisioning" time elapsed: 00:00:00
+----------------------------------------------------------
+
+119/126 Testing: persistent_identity
+119/126 Test: persistent_identity
+Command: "/home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/build-host-validation/test_persistent_identity"
+Directory: /home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/build-host-validation
+"persistent_identity" start time: Oct 13 17:36 CEST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.41 sec
+----------------------------------------------------------
+Test Passed.
+"persistent_identity" end time: Oct 13 17:36 CEST
+"persistent_identity" time elapsed: 00:00:00
+----------------------------------------------------------
+
+120/126 Testing: production_commissioning
+120/126 Test: production_commissioning
+Command: "/home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/build-host-validation/test_production_commissioning"
+Directory: /home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/build-host-validation
+"production_commissioning" start time: Oct 13 17:36 CEST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.08 sec
+----------------------------------------------------------
+Test Passed.
+"production_commissioning" end time: Oct 13 17:36 CEST
+"production_commissioning" time elapsed: 00:00:00
+----------------------------------------------------------
+
+121/126 Testing: st_fifo_window_integration
+121/126 Test: st_fifo_window_integration
+Command: "/home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/build-host-validation/test_st_fifo_window"
+Directory: /home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/build-host-validation
+"st_fifo_window_integration" start time: Oct 13 17:36 CEST
+Output:
+----------------------------------------------------------
+window success512/4096, guards, received-buffer retention, 39 IO fault positions passed
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"st_fifo_window_integration" end time: Oct 13 17:36 CEST
+"st_fifo_window_integration" time elapsed: 00:00:00
+----------------------------------------------------------
+
+122/126 Testing: st_fifo_admission
+122/126 Test: st_fifo_admission
+Command: "/home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/build-host-validation/test_st_fifo_admission"
+Directory: /home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/build-host-validation
+"st_fifo_admission" start time: Oct 13 17:36 CEST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"st_fifo_admission" end time: Oct 13 17:36 CEST
+"st_fifo_admission" time elapsed: 00:00:00
+----------------------------------------------------------
+
+123/126 Testing: st_spi_completion_integration
+123/126 Test: st_spi_completion_integration
+Command: "/home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/build-host-validation/test_st_spi_diagnostic"
+Directory: /home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/build-host-validation
+"st_spi_completion_integration" start time: Oct 13 17:36 CEST
+Output:
+----------------------------------------------------------
+14 diagnostic bounds and pre-cleanup preservation scenarios passed
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"st_spi_completion_integration" end time: Oct 13 17:36 CEST
+"st_spi_completion_integration" time elapsed: 00:00:00
+----------------------------------------------------------
+
+124/126 Testing: st_window_primary_preflight_and_transport
+124/126 Test: st_window_primary_preflight_and_transport
+Command: "/home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/build-host-validation/test_st_window_adapter"
+Directory: /home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/build-host-validation
+"st_window_primary_preflight_and_transport" start time: Oct 13 17:36 CEST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"st_window_primary_preflight_and_transport" end time: Oct 13 17:36 CEST
+"st_window_primary_preflight_and_transport" time elapsed: 00:00:00
+----------------------------------------------------------
+
+125/126 Testing: fifo_cooperative_v1_windows_and_faults
+125/126 Test: fifo_cooperative_v1_windows_and_faults
+Command: "/home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/build-host-validation/test_fifo_cooperative"
+Directory: /home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/build-host-validation
+"fifo_cooperative_v1_windows_and_faults" start time: Oct 13 17:36 CEST
+Output:
+----------------------------------------------------------
+four V1 windows, cooperative scheduling, errors/cleanup and30 IO failure positions passed
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"fifo_cooperative_v1_windows_and_faults" end time: Oct 13 17:36 CEST
+"fifo_cooperative_v1_windows_and_faults" time elapsed: 00:00:00
+----------------------------------------------------------
+
+126/126 Testing: modbus_fifo_io_budget
+126/126 Test: modbus_fifo_io_budget
+Command: "/home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/build-host-validation/test_modbus_fifo_io_budget"
+Directory: /home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/build-host-validation
+"modbus_fifo_io_budget" start time: Oct 13 17:36 CEST
+Output:
+----------------------------------------------------------
+timed real journal: baseline B5=131584 us; protected capture XYZ=32768 TS=4096 maxFIFO=212 OVR=0; denied=17; durable retry/collision/fault/recovery passed; unguarded negative control OVR=1 INVALID
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"modbus_fifo_io_budget" end time: Oct 13 17:36 CEST
+"modbus_fifo_io_budget" time elapsed: 00:00:00
+----------------------------------------------------------
+
+End testing: Oct 13 17:36 CEST

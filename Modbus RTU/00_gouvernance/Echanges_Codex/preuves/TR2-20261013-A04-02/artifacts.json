@@ -1,0 +1,14 @@
+{
+  "tr2-cumulative-m014-m015-spi4.map": {
+    "bytes": 682177,
+    "sha256": "b42bf7e8d21b98a26661a6475b28e601137f7973791e640a75fe1db5fb6325e8"
+  },
+  "tr2-cumulative-m014-m015-spi4.elf": {
+    "bytes": 1538660,
+    "sha256": "3a1310a77ba379bbc513dd57d0fbfdb7cab89aac50ab2e67400abddc903f40a1"
+  },
+  "tr2-cumulative-m014-m015-spi4.bin": {
+    "bytes": 169948,
+    "sha256": "b4301d6f3325c266edc19297413fd0885828e5625ec030a8acad340444b3fd9b"
+  }
+}

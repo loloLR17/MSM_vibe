@@ -1,0 +1,10 @@
+Internal ctest changing into directory: /home/lolo/dev/msm/reports/TR2-A04-02-20261013T152741Z/host-targeted
+Test project /home/lolo/dev/msm/reports/TR2-A04-02-20261013T152741Z/host-targeted
+    Start 116: modbus_system_server
+1/2 Test #116: modbus_system_server .............   Passed    0.01 sec
+    Start 126: modbus_fifo_io_budget
+2/2 Test #126: modbus_fifo_io_budget ............   Passed    0.01 sec
+
+100% tests passed, 0 tests failed out of 2
+
+Total Test time (real) =   0.02 sec

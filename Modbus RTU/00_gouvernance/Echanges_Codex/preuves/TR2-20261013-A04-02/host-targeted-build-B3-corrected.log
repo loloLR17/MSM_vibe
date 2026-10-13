@@ -1,0 +1,4 @@
+[1/4] Building C object CMakeFiles/test_modbus_fifo_io_budget.dir/tests/integration/test_modbus_fifo_io_budget.c.o
+[2/4] Building C object CMakeFiles/test_modbus_system_server.dir/tests/integration/test_modbus_system_server.c.o
+[3/4] Linking C executable test_modbus_system_server
+[4/4] Linking C executable test_modbus_fifo_io_budget

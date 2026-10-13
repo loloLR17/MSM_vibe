@@ -1,0 +1,23 @@
+/home/lolo/dev/msm/reports/TR2-A04-02-20261013T152741Z/build-artifacts/tr2-cumulative-m014-m015-spi4.elf  :
+section                size        addr
+.isr_vector             568   134217728
+.text                168892   134218296
+.ARM.exidx                8   134387188
+.init_array               4   134387196
+.fini_array               4   134387200
+.data                   472   536870912
+.bss                 599652   536871384
+._user_heap_stack      2564   537471036
+.ARM.attributes          48           0
+.debug_info          579119           0
+.debug_abbrev         70993           0
+.debug_aranges        16672           0
+.debug_rnglists       12681           0
+.debug_line          308893           0
+.debug_str           107069           0
+.debug_frame          63624           0
+.debug_line_str         552           0
+.debug_loclists       45159           0
+Total               1976974
+
+

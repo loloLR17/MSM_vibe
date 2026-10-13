@@ -1,0 +1,19 @@
+Internal ctest changing into directory: /home/lolo/dev/msm/reports/TR2-A04-02-20261013T152741Z/host-targeted
+Test project /home/lolo/dev/msm/reports/TR2-A04-02-20261013T152741Z/host-targeted
+    Start 116: modbus_system_server
+1/2 Test #116: modbus_system_server .............Subprocess aborted***Exception:   0.01 sec
+test_modbus_system_server: /home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/tests/integration/test_modbus_system_server.c:343: main: Assertion `view.pdu[2] == 0x12u && view.pdu[5] == 0x78u' failed.
+
+    Start 126: modbus_fifo_io_budget
+2/2 Test #126: modbus_fifo_io_budget ............Subprocess aborted***Exception:   0.01 sec
+test_modbus_fifo_io_budget: /home/lolo/dev/msm/projects/MSM_vibe-A04-02/Modbus RTU/05_Firmware/tests/integration/test_modbus_fifo_io_budget.c:265: main: Assertion `response(&serial).pdu[0]==3u' failed.
+
+
+0% tests passed, 2 tests failed out of 2
+
+Total Test time (real) =   0.02 sec
+
+The following tests FAILED:
+	116 - modbus_system_server (Subprocess aborted)
+	126 - modbus_fifo_io_budget (Subprocess aborted)
+Errors while running CTest
