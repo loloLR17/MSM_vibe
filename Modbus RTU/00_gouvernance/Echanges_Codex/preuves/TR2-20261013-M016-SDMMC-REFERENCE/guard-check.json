@@ -1,0 +1,15 @@
+{
+  "command": [
+    "cmake",
+    "-S",
+    "experiments/sdmmc_st_reference",
+    "-B",
+    "/home/lolo/dev/msm/reports/M016-sdmmc-reference-refused-build",
+    "-DCMAKE_TOOLCHAIN_FILE=cmake/arm-none-eabi-gcc.cmake",
+    "-DSTM32CUBE_U5_ROOT=/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0",
+    "-DBENCH_WRITE_ENABLE=1",
+    "-DBENCH_TEST_LBA=0"
+  ],
+  "returncode": 1,
+  "expected_refusal": true
+}

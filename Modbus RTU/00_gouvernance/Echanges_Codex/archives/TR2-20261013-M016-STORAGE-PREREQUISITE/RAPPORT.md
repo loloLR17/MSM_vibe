@@ -1,0 +1,65 @@
+---
+mission_id: TR2-20261013-M016-STORAGE-PREREQUISITE
+status: IN_PROGRESS
+base_ref: main
+base_sha: bb299d711d9bd0a76d52eafb201c2670e6cff161
+initial_head: 9647cb0b152dde28b2485de88f551f95883b8e06
+result_sha: null
+created_at_utc: 2026-10-13T17:25:50.574444+00:00
+author: Codex
+target_branch: main
+allow_commit: true
+allow_push: true
+allow_flash: true
+allow_debug: true
+---
+
+# Stockage préalable M016 — checkpoint d'inspection sûre
+
+Mission commencée, non terminée. Voie A du contrat : V1 inchangée ; FIFO→B3 hors périmètre. Rapport BLOCKED antérieur préservé byte-à-byte dans `archives/TR2-20261013-M016-V1-VIBRATION/`.
+
+Tranche réalisée : inspection du backend bulk, géométrie/durabilité et ressources ; extension minimale du profil **COMMISSIONING_READONLY** avec une commande RAM de lecture SD bornée (1..128secteurs, avantLBA65536, contrôle capacité réelle), sans write/format/allocation ni auto-repeat. Aucun DataStore de production activé. La zone pré-partition n'est pas encore une propriété de TR2.
+
+Validation : cross-build readonly réussi et symboles writeSD/Fram_Write/Sdmmc2_Bringup absents de l'ELF ; cross-build cumulatif canonique `tr2_validate.sh --cross-build-only` réussi, BIN169948octets SHA256 `b4301d6f3325c266edc19297413fd0885828e5625ec030a8acad340444b3fd9b` **identique A04-02**. Pas de suite hôte répétée pour ce seul harness readonly exclu du cumulatif. Firmware permanent inchangé à ce checkpoint.
+
+Préflight physique : ST-LINK003500463235510B37333439 attendu disponible, UID004A003D/38425018/20333157 vérifié par GDB ; préfixe Flash intégral égal au BIN A04-02 vérifié. Productionstage2/result0, FIFO READY/cleanup0C8000, FRAM recoveryVALID/gen12, TXidle/faultfalse. Debugger détaché. Backup et image de retour A04-02 vérifiés, pas de sauvegarde massive répétée.
+
+[Preuves checkpoint](preuves/TR2-20261013-M016-STORAGE/checkpoint-provenance.json), logs builds/GDB adjacents ; preuves locales dans `/home/lolo/dev/msm/reports/TR2-M016-storage-20261013T172331Z`. Prochaine tranche : flash normal du seul probe readonly, lecture de la capacité/CID/MBR et inspection conservatoire de l'espace candidat, puis retour au cumulatif A04-02. **Aucune écriture SD autorisée tant qu'une attribution non destructive n'est pas démontrée.** Toute zone occupée ambiguë exige une décision ; aucune interprétation de zéros comme permission automatique d'écrire.
+
+Dépôt original et deux stashes conservés. Worktree isolé `MSM_vibe-M016-storage` à partir de9647cb0. Seule modification de code : `platform/stm32/main.c` dans branche préprocesseur readonly ; archives et rapport/preuves de checkpoint. Les profils A04-01 et la politique B5 A04-02 sont inchangés. Commit/push normal versmain et relecture distante avant poursuite ; SHA évalué/physique consigné dans les preuves ultérieures.
+
+## Reprise et checkpoint avant qualification en écriture
+
+main distant et worktree confirmés à214e1055b01a669f89fed57ea9ab41698410bbc4 ; travaux non commitées préservés. Contrat actuel inchangé. Identité et Flash du probe readonly reconfirmées sans reset, read_done256, trigger0.
+
+**Acquis physiques nouveaux, lecture seulement** : CID03534453/44353132/8562E43C/F80195EA, capacité511868665856octets, MBR inchangé (partition type07 LBA65536/count999677952). Les16777216octets de [LBA16384,LBA49152) lus en256chunks64K sont entièrement nuls ; backup complet local SHA256080acf35a507ac9849cfcba47dc2ad83e01b75663a516279c8b9d243b719643e. FRAM262144octets SHA256d732acc557152180fc394097d6a5269ea2f45c1da387c8643f512318adf92fce, identique A04-02. Aucun writeSD/FRAM.
+
+[Attribution explicite](../ALLOCATION_STORAGE_M016.json) établie dans le périmètre de la mission : zone hors partition, intégralement lue nulle, sauvegardée, liée UID/CID/MBR ; pas de repartition/formatage ni de réutilisation de données préexistantes. La qualification future écrit seulement des nouvelles campagnes bornées dans cette région. Une commande RAM unique, profil isolé, nouvel examen intégral de vacuité et refus sur mismatch précèdent toute écriture. Les extents de qualification seront conservés.
+
+**Code préparé/validé logiciel** : adaptateur CampaignBulkMediaRegion réutilisant PersistentMediaRegion existant, confinement32bits sur média64bits, limites alignées secteurs, pas d'allocation implicite ; nouveau test réel de backend/durabilité, overflows, sentinelles hors région et erreurs. Profil STORAGE_QUALIFICATION exclusif, sans UART/FIFO/legacyharness. Programme autonome prévu :4Mio d'append/64checkpoints,4096octets de queue sans checkpoint, autre campagne65536octets avecfinish, recovery, débit requis426672octets/s puis recoveryConfigurationStore V2 réel sur FRAM en lecture seule avec callbackwrite refusant systématiquement. **Ces essais d'écriture ne sont pas encore réalisés.**
+
+Validation conservée :127/127tests hôte + cross-build, nouveau testregions inclus ; quatrecas de profils puis leur test permanent ciblé réussis. Après revue du confinementFRAM et des conditions de préflight, cross-builds spécialisés et cumulatif réussis. Un module expérimental lié inutilement modifiait l'ordre de résolution des archives/sections malgré GC : liaison désormais conditionnelle au seul profil spécialisé, BIN cumulatif169948octets à nouveau exactA04-02 (b4301d6f...). Pas de répétition des127tests sur des changements CMake/harness qui n'altèrent pas le cœur ; preuves de cross-build et refus CMake proportionnées. Profil de débit :Debug, core et modulequalification -O2, HAL inchangé ; pas une garantie de performance cumulative.
+
+BIN qualification62312octets SHA256d1b736a8027fbd373c4ce36c15a0a9f4d7a2d882a92e876e1ea95a24fb09b463 ; empreinteELF/profil dans `qualification-artifacts.json`. Capacité logique géométrique envisagée14MB décimaux, après8192metadata et huitréserves4608, payload4096/extent4608 ; pas encore une readinessproduction ni valeur normale du runtime. Qualification physique, reprise après reset, limites et productionreadiness restent à établir. Firmware actuel :probe readonly ; retour au cumulatif vérifié prévu après campagne.
+
+Cinq tests backend/configuration ciblés sous -O2 réussis après ajout de cette optimisation au seul profil isolé ; ils complètent les127tests déjà acquis sans rejouer les cas inchangés. Le test de profils permanent a été ajouté et exécuté sur ses quatre configurations, anciennes méthodes inchangées. Revue et cross-build finaux confirment les BIN publiés ; aucun nouveau flash ni writeSD depuis le checkpoint214e105.
+
+## Tentative1 conservée et correction avant tentative2
+
+Essai physique d'écriture1, source9e8bf347..., une seule commandeRAM, **échec** :8703appendsOK,2checkpoints, prochainflush après139264octets acceptés en RAM ; timeoutdisponibilitéSD, maxappend2008ms, HALerror0x5(CMDCRC/RSPTIMEOUT), étatcartegetteur0, MCU160MHz/faultregs0. Aucune capacité/configuration active publiée. Pas de retry automatique.
+
+Diagnostic readonly : re-initHAL demandée avecClockDiv16 retourneHAL_ERROR et laisseclockréelle0xC9(~398kHz), pas5MHz ; lectureMBR ensuiteOK et exact. Puis HAL_SD_ConfigWideBusOperation(1bit)réussit, clockréelle0x10(5MHz), carteTRANSFER4. Ré-initialisation du vraiDataStore et recovery readonly → campagne01600001 VALID/131072octets (deuxcheckpoints),01600002 EMPTY ; queue noncheckpointée ignorée. L'origine électrique/physique des erreurs n'est pas démontrée ; seule la communication de lecture restaurée est observée.
+
+Correction logicielle : l'adaptateur ne doit pas repoller un état0 non défini renvoyé par leHAL en échecCMD13 ; il le refuse immédiatement commeSTORAGE, erreurs conservées. PROGRAMMING reste un état d'attente normal borné. Nouveau test HALmodèle réeladaptateur réussit. Premier build cible introuvable dans Makecache : reconfigurationCMake explicite, sans suppression du build, puis testciblé réussi. Suite127antérieure conservée, pas présentée comme128tests rejoués.
+
+Tentative2 préparée dans une **sous-région distincte [16,24Mio)**,8Mio,ids01600003/01600004 ; ancienvolume [8,16Mio)archivéreadonly, métadonnées et extents existants non déplacés/non effacés. Attributionrévision2 explicite. Le premierprofil ne peut pas rerun : régionnonvide →freshfalse. NouveauprofilSD5MHz,buffer16K,extent16896,capacitégéométrique7MBdécimaux ; critèredébit426672octets/s inchangé, nouveaucontrôle de vacuitéintégrale obligatoire, aucuneinitialisationformat. Cross-builds spécialisés/cumulatif et testportciblé réussis ; BINcumulatif toujoursA04-02 exact. Preuves tentative1 et variante2 séparées ; essai2 encore NON EXÉCUTÉ à ce checkpoint.
+
+## Tentative2, recovery et dernière vérification protocolaire
+
+Une seule tentative2 a été déclenchée sur la version38c0273..., **échecSTORAGE(8)** :45055appendsOK,10checkpointsOK,720896octets acceptésenRAM,655360préfixecheckpointé ; maxappend51ms. HALerror0x8(DATA_TIMEOUT), CLKCR0x10/kernel160MHz doncSD5MHzréelle ; writerfaulted/index43/next_offset734720 ; aucunefaultCortex ni publication de capacité/active. Sous-opérationexacte(readRMW ouwrite)noncapturée par ce binaire.
+
+Recovery/contrôles : frameindexGDBvariable corrigé par `frame function` (commande vérifiée dans l'aide locale), lectureFRAM effectuéeavecstatut0+dump262144, SHAexactbaseline ; diagnosticGDB ultérieur expiréaprès60s, après ledumpFRAM etavant le nouveaudumpMBR ; lacommandebloquée précisément n’estpas conservée dansstdout, pas de prétention de réussite ni de nouvellewrite. Resetlogiciel justifiépar ce diagnosticinterrompu, puis bootreadonlydu mêmebinaire :card5MHz sanserreur, préfixe01600003 VALID/655360octets,01600004 EMPTY, scanNonZero702437, configurationtoujoursabsente. MBR8192octets aprèsresetbyte-identique à labaseline. Pas de coupureSDphysique ni de nouvellewrite à cette reprise.
+
+Avant escaladephysique, une lacune de garde est établie par lectureduSDK : HAL_SD_GetCardState ne transmetqueCURRENT_STATE et ne fournitpas lestatutd'erreur directement. [Spécification primaire SD, statutR1](https://www.sdcard.org/cms/wp-content/themes/sdcard-org/dl.php?f=Part1_Physical_Layer_Simplified_Specification_Ver7.10.pdf) définitREADY_FOR_DATA indépendamment. Correctionminimale de l'adaptateur : mêmeprimitivepubliqueST CMD13, errorret conservé et refusimmédiat, TRANSFER+READY requis, attentesprogrammationtoujoursbornées ; instrumentationpassive phase/LBA/count/retHAL/retCMD13/R1/pollsTRANSFERnonready. AucundriverSTmodifié. Testciblé renforcé (erreurCMD13, étatvalide maisnot-ready, RO, délais)et cross-buildsréussis, cumulatifencorebyte-identique.
+
+Dernière tentativepréparée dans la régiondistincte [18,24Mio),6Mio,ids01600005/01600006 ; anciensvolumes [8,16Mio)et[16,18Mio)readonly, aucune donnée mêmequeue noncheckpointée déplacéeou écrasée. Contrôlecompletdevacuité obligatoire ; géométriepotentielle5MBavantqualification, capacitéeffective calculéeensuitedepuislesdescriptorsen déduisantlesextentsdéjàoccupés. Cette correctionet ceprofil ne sont pasencore qualifiésphysiquementaucheckpoint. La cause matérielle des deuxéchecsresteindéterminée ; aucunDWORD/TR2readyfictif.

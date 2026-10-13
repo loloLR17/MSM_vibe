@@ -1,0 +1,14 @@
+{
+  "m016-sd-reference-configure.log": "d98fd6d8c47ce9da50710ea11778d5ecb55faba8da2c6edfd04765d340cc8863",
+  "m016-sd-reference-armed-build.log": "0f24bdbd4e8ce73c655326f856078ff8b183d9d7d2d642f072a2bcdd2b4c80bb",
+  "m016-sd-reference-build-final.log": "4ed7f47c71732fc6aec018f454e970302fdfda6c68b8e0e076c11fac4d74418a",
+  "refused-sector-zero-configure.log": "e9f57bd0bcdcc67c4b396ff36ad92bd0f134a7930a4ee6c73997ea3a03fdd4bd",
+  "artifacts.json": "4d533b4ee527a446779a014d1f1dabe8c6779c4eb06e5eea64d2e3c4d742f790",
+  "readonly-symbols.log": "6c136a84160ffc43d8f3ad5b54997b1152bffa8a0be8cb3807558ccb1f43cb7f",
+  "validation.json": "570419cf7df14c1211ab5d90fb634580c44af39df883c4896f4c8b38e22f1ebc",
+  "guard-check.json": "2e788187626ce538f6fcf60cf9c2d37a5e63ade4188d26eb5f834a6f1325a77b",
+  "inventory-observed.txt": "8d16f10763cd2c557498d45fb17e52af3c1e7f8db4ebe6c8bfbc67ba2069be24",
+  "m016-sd-reference-armed-configure.log": "42c8f1144f0b90dfad1305ae56dfe0a64b14217e8dc0ffb65c8cadb5f1283c6d",
+  "m016-sd-reference-build.log": "c93710c71d85484eada1531528a8e283182c272d4771cc342cf56c1f3d38e9ae",
+  "armed_compile_only-symbols.log": "19e24b4844f784ef2979de28dae35890dcb50d7773619a35e70edf323b2338ab"
+}

@@ -1,0 +1,3 @@
+2026-10-13 — command: /mnt/c/ST/STM32CubeCLT_1.22.0/STM32CubeProgrammer/bin/STM32_Programmer_CLI.exe -l stlink
+Exit0; STM32CubeProgrammer v2.23.0; No ST-Link detected!
+No target selected, no flash/debug/read/write.

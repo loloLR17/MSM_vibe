@@ -1,0 +1,13 @@
+{
+  "sdk": "STM32CubeU5 v1.9.0",
+  "commit": "d88042df24f16799957c24f00c2b234c9e306188",
+  "reference": "Projects/STM32U575I-EV/Examples/SD/SD_ReadWrite_DMALinkedList",
+  "url": "https://github.com/STMicroelectronics/STM32CubeU5/tree/v1.9.0/Projects/STM32U575I-EV/Examples/SD/SD_ReadWrite_DMALinkedList",
+  "files": {
+    "vendor/LICENSE.hal.md": "3ef135517604c828e7e2ac60daa5d34ce90a258dd0dfbec140651ac173b45ced",
+    "vendor/LICENSE.examples.md": "2925956f5c102172a6ee52deb66a6e878a9940062d82aeef3841647e21596501",
+    "vendor/main.c": "08938ec30d79c742ca529d7cd6e469eca2ed2ed1ec921ed2f525cd77b8d4ac2a",
+    "vendor/README.md": "a2e7c2394f5ef5e721924560a66974c1615ceb3b6db484c04deed3e9cc21400a",
+    "vendor/stm32u5xx_hal_msp.c": "7492d92f4c816b96ce7ffa7342a76cddba96588e8877dcc70eaee367e0d4992d"
+  }
+}
