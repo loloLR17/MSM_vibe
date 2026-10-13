@@ -474,6 +474,8 @@ Si le journal est absent de la référence Git utilisée, signaler cette absence
 
 ---
 
+**Charte opérationnelle ChatGPT :** voir [`Modbus RTU/00_gouvernance/GOUVERNANCE_CHATGPT_CODEX.md`](Modbus%20RTU/00_gouvernance/GOUVERNANCE_CHATGPT_CODEX.md), applicable aux vérifications GitHub, publications et contrôles indépendants. Cette charte complète les autorisations permanentes sans les remplacer.
+
 ## Gouvernance de collaboration ChatGPT / Codex — audit A, décision du 13/10/2026
 
 **Principe : amélioration incrémentale maîtrisée.** Préserver les acquis, corriger les défauts démontrés et les risques significatifs, simplifier les redondances ; aucune refonte préventive ni formalité sans bénéfice identifié. Cette section complète les règles V2-B3 et les autorisations permanentes ci-dessus, sans les remplacer.
