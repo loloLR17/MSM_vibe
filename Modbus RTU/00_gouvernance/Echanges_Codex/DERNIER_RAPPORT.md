@@ -1,6 +1,6 @@
 ---
 mission_id: TR2-20261013-A05-AUDIT-TESTS
-status: IN_PROGRESS
+status: DONE
 base_ref: main
 base_sha: d0238953ee0b0245f8540041fe6593939615c703
 initial_head: 7c4af323429768fc7ef0f5dd8d0ca872e0a06b3a
@@ -18,7 +18,7 @@ allow_debug: false
 
 **Audit terminé, sans correction ni nouveau test produit.** Les 125 entrées CTest du firmware sont reliées aux sources réelles ; les résultats M015-V/A-04 sont vérifiés et réutilisés. Dix configurations CMake ont été caractérisées (deux acceptées, huit refusées par les gardes attendues), et les six tests Python existants du générateur d'autorité ont réussi. Une matrice de **25 scénarios proposés**, regroupables dans les tests existants, précise niveaux, méthodes, critères, preuves, priorités, coût/risque et couverture à réutiliser.
 
-**Aucune dette A-04 n'est corrigée, clôturée ou reclassée.** Le registre, le journal, la roadmap, AGENTS.md, le firmware, CMake et les tests sont inchangés octet par octet. Ordre conservé : A-05 → correction A04-01 → correction A04-02 → A04-03/M016. A04-08 avant activation SD, A04-09 facultatif/différé. IN_PROGRESS correspond seulement à la publication/relecture à terminer ; aucun blocage de cet audit. DONE A-05 ne vaudra ni implémentation des 25 scénarios, ni clôture A04-04, ni qualification A-01/M016.
+**Aucune dette A-04 n'est corrigée, clôturée ou reclassée.** Le registre, le journal, la roadmap, AGENTS.md, le firmware, CMake et les tests sont inchangés octet par octet. Ordre conservé : A-05 → correction A04-01 → correction A04-02 → A04-03/M016. A04-08 avant activation SD, A04-09 facultatif/différé. Rapport, archive et preuves publiés sur `e232d2eceb206b40009b3a64276253a6e0996f34` puis intégralement relus : 33 fichiers byte-identiques. Statut DONE pour l'audit A-05 uniquement ; aucune implémentation des 25 scénarios, clôture A04-04 ou qualification A-01/M016 implicite.
 
 ## 1. Référence, méthode et garde-fous
 
@@ -137,10 +137,10 @@ Métrologie de timestamps : tolérancefréquence, résolution/compensationFREQ_F
 
 Preuves locales durables : `/home/lolo/dev/msm/reports/TR2-A05-20261013T140123Z`. [Manifest A-05](preuves/TR2-20261013-A05/MANIFEST.sha256),inventaires,logs des 10 configurations,6 tests Python etmatriceproposée. Les 125résultats etlesimagesARM restent au lienhistorique, nonrecopiés/relancés. RapportsA04/M015 etpreuvesimmuablespréservés ; aucune qualificationindépendanteou tag effectué.
 
-Registre A04 SHA-256 initial **804b90967317196374a844a86c955c2e91880045061e0d7241aeac9f3cfa8a8a** ; àcontrôlerbyte-identiqueaprès publication. Huit dettes OUVERT etA04-09DIFFÉRÉ demeurent tels quels. A05 définit la matrice associéeA04-04, **pas sa clôture**. Journal/roadmap/gouvernancenonactualisés conformément au contrat. Lesliensdynamiques anciens vers DERNIER_RAPPORT ne doiventpas servirdepreuvehistorique : utiliserl'archive A04citée ; aucunlien opérationnel corrigé horspérimètre.
+Registre A04 SHA-256 initial **804b90967317196374a844a86c955c2e91880045061e0d7241aeac9f3cfa8a8a** ; vérifié identique octet par octet après publication. Huit dettes OUVERT etA04-09DIFFÉRÉ demeurent tels quels. A05 définit la matrice associéeA04-04, **pas sa clôture**. Journal/roadmap/gouvernancenonactualisés conformément au contrat. Lesliensdynamiques anciens vers DERNIER_RAPPORT ne doiventpas servirdepreuvehistorique : utiliserl'archive A04citée ; aucunlien opérationnel corrigé horspérimètre.
 
 Limites : aucune mesuretemps/couvertureinstrumentée/pilephysique nouvelle ; aucun résultatxUnit/Supervision executéA05 ; caractérisationCMake ≠ compilationsdesdixprofils ≠ sûretéfirmware ; modèletemps etfuturematrice nonimplémentés. PreuvesRXHAL/copierRAM ne sontpas une capturewire externe ; SHA seul ne prouve pas le contenud'unjournal. La revue ChatGPTvientaprès ce rapport avanttoute correction.
 
 ## 7. Publication
 
-Diff limité au rapport, àl'archiveA04prescrite etpreuvesstrictementnécessaires. Commit/push etrelecturedistante àterminer ; aucuneinterruption niobstacletechnique. SHA depublicationfinal etétatGit serontfournisaprès vérification. Le code etlesdettes restent inchangés.
+Diff limité au rapport, à l'archive A-04 prescrite et aux preuves nécessaires. Commit `e232d2eceb206b40009b3a64276253a6e0996f34` (« A-05: audit test coverage and define targeted validation matrix »), push normal HEAD:refs/heads/main réussi ; fetch et comparaison intégrale des 33 fichiers réussis. Cette mise à jour DONE consigne cette preuve ; SHA final distant fourni après sa vérification. Worktree de mission propre après commits, dépôt principal à82169af et deux stashes historiques conservés. Aucun blocage de mission ; code, registre des dettes et autres documents protégés inchangés.

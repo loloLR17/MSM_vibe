@@ -1,0 +1,8 @@
+{
+  "mission_id": "TR2-20261013-A05-AUDIT-TESTS",
+  "sha": "e232d2eceb206b40009b3a64276253a6e0996f34",
+  "file_count": 33,
+  "full_byte_readback": true,
+  "reference": "origin/main after fetch",
+  "created_at_utc": "2026-10-13T14:27:09.440136+00:00"
+}
