@@ -1,8 +1,8 @@
 ---
-mission_id: TR2-20261013-M016-SDMMC-REFERENCE-PHYSICAL
+mission_id: TR2-20261013-M016-GPIO-DAT123-UNIT
 status: READY
 base_ref: main
-base_sha: 167b8cbcf1ba93209789ea6890799c77bbc7fc96
+base_sha: 025e46367a2185401d47866f5cfe790936f1ec03
 author: ChatGPT
 target_branch: main
 allow_commit: true
@@ -11,30 +11,29 @@ allow_flash: true
 allow_debug: true
 ---
 
-# M016 — Qualification physique du banc de référence ST SDMMC2 4 bits
+# M016 — Diagnostic GPIO statique indépendant DAT1 DAT2 DAT3
 
-## Décision et disponibilité matérielle confirmées par l'utilisateur
-L'utilisateur a confirmé : **seconde NUCLEO-U575ZI-Q connectée en ST-LINK**, second breakout **Adafruit 4682 câblé conformément au pinout H3h-B**, carte microSD de **test insérée**, dont **tout le contenu peut être effacé ou remplacé librement**. Cette autorisation porte exclusivement sur la microSD de test du **second banc**, et non sur la microSD du TR2 principal. Aucune nouvelle validation humaine répétitive n'est nécessaire pour les écritures/formatages raisonnables sur ce support après identification certaine.
+## Contexte et décision
+L'utilisateur confirme le second banc NUCLEO-U575ZI-Q / Adafruit 4682 câblé par fils Dupont et dispose d'un multimètre Brymen BM869s. La lecture SDMMC 1 bit fonctionne, le 4 bits échoue CRC, fait connu avant la dernière mission. Il accepte les tests GPIO unitaires. **Ne pas refaire les essais SDMMC ni modifier empiriquement le portage ST** dans cette tranche.
 
-## Références et reprise
-Partir du HEAD réel de main, consulter AGENTS.md, GOUVERNANCE_CHATGPT_CODEX.md, mission précédente et DERNIER_RAPPORT.md (BLOCKED faute de ST-LINK), preuves et README de `experiments/sdmmc_st_reference`, provenance ST CubeU5 v1.9.0 `STM32U575I-EV/Examples/SD/SD_ReadWrite_DMALinkedList`, pinout H3h-B et archives M016-STORAGE. Préserver worktrees/stashes et acquis. Vérifier que le banc n'est pas utilisé par une autre session avant flash.
+## Démarrage
+Lire HEAD main réel, AGENTS.md, gouvernance, dernier rapport BLOCKED, pinout H3h-B, schémas et manuel ST de la Nucleo, et exemples GPIO officiels ST du STM32U575 / NUCLEO-U575ZI-Q. Préserver preuves, stashes et worktrees. Vérifier qu'aucune autre session n'utilise la sonde.
 
-## Objectif et exécution autonome
-1. Détecter et **identifier formellement la seconde Nucleo** (ST-LINK et UID) ; comparer aux identités documentées. Si seule la carte TR2 principale est visible, si les identités sont ambiguës ou si le câblage/alimentation semblent dangereux : ne pas flasher et remonter le blocage.
-2. Reprendre le projet de démonstration **isolé** déjà préparé à partir du code ST, sans le réécrire ni substituer un driver expérimental. Vérifier les écarts HAL/callbacks, clocks, GPIO, pull-ups et bus SDMMC2, avec traçabilité. Ne pas imposer au préalable de modifications arbitraires de paramètres.
-3. Effectuer le préflight, puis flash/debug autorisés **sur la seconde Nucleo seulement**. Démarrer en diagnostic lecture seule : identification microSD, CID/capacité, état carte, bus et horloge. Confirmer que la configuration matérielle est effectivement **SDMMC 4 bits**.
-4. La microSD du second banc est **sacrifiable** : après confirmation de son identité et de l'absence de confusion avec le TR2 principal, autorisation explicite d'écrire, de réécrire, de formater ou de repartitionner cette carte si cela est utile à la démonstration. Privilégier d'abord l'essai brut borné prévu par le projet ST, avec zone/LBA vérifiés et test de lecture/comparaison octet par octet ; ne pas exiger une confirmation supplémentaire pour l'effacement de la carte de test.
-5. Exécuter des essais reproductibles en SDMMC2 **4 bits** : plusieurs cycles écriture/relecture avec motifs différents, comparaison complète, vérification après réinitialisation, erreurs/états HAL et CMD13, mesures de fréquence et débit. Séparer les preuves de fonctionnement de l'interface, de l'intégrité et de la performance ; tester des hypothèses explicites en cas d'échec, sans changements empiriques en cascade.
-6. Si le banc réussit, comparer la référence fonctionnelle à l'implémentation SDMMC du TR2 principal et identifier les différences pertinentes et la correction minimale recommandée. **Ne pas flasher, écrire, reformater ou modifier le firmware/média du TR2 principal dans cette mission** ; sa remise en état et l'intégration de production seront pilotées séparément.
+## Mission technique
+1. Identifier sans ambiguïté **la seconde** Nucleo (ST-LINK historique 0032001F3235510C37333439 ; UID 001B0046/38425018/20333157) avant flash ; refuser la principale. Confirmer le brochage physique CN12-26 PB15/DAT1, CN12-31 PB3/DAT2, CN12-27 PB4/DAT3, masse commune et fonctions partagées selon révision.
+2. Rechercher et documenter l'exemple GPIO officiel ST le plus proche, version, licence et adaptations minimales. Créer un firmware GPIO **isolé** dérivé de cette référence, sans SDMMC actif, DMA, Modbus, FRAM, capteur ou écriture microSD. Ne pas prétendre que l'adaptation est validée constructeur.
+3. **Avant toute commutation**, exiger carte microSD de test retirée physiquement par l'utilisateur, alimentation coupée pour retrait, et confirmer absence d'autre charge/pilotage sur les lignes. Ne jamais piloter en sortie un signal auquel une carte SD insérée pourrait répondre. Les gestes physiques restent à l'utilisateur.
+4. Implémenter une séquence de sortie GPIO lente, bornée, sans ambiguïté : PB15, PB3, PB4 en sorties push-pull 3,3 V, les autres à niveau bas, puis une seule ligne haute à la fois ; phase tout-bas, phase DAT1 haut, tout-bas, DAT2 haut, tout-bas, DAT3 haut, tout-bas, avec pauses longues (par exemple 15–30 s) permettant mesures au BM869s. Préférer un déclenchement/avancement par debug contrôlé ou séquence stable observable ; consigner l'état réel. Ne pas produire d'impulsions rapides, ne pas modifier les autres GPIO, prévoir un arrêt sûr et aucun flash principal.
+5. Codex compile, flashe et débogue de façon autonome la **seconde** Nucleo identifiée ; vérifie les états des registres GPIO et la correspondance attendue. Il fournit à l'utilisateur un protocole concret de mesure **tension DC** : pointe noire sur GND breakout, pointe rouge successivement sur D1, DAT2, D3, et grille des tensions attendues (bas proche 0 V, haut proche 3,3 V). Le BM869s ne doit **jamais** être mis en mode ohmmètre/continuité sur un circuit alimenté. Mesures physiques effectuées uniquement par l'utilisateur. En cas de risque de court-circuit avec pointes de touche, proposer sondes adaptées et arrêt.
+6. Si les lignes ne sont pas libres ou l'état du câblage incertain, **ne pas flasher/commuter** et publier un rapport BLOCKED avec la raison et la vérification physique requise. Ne pas considérer les lectures GPIO au niveau MCU comme preuve de continuité jusqu'au breakout. Aucun test d'injection directe 3,3 V sur DATx.
 
 ## Critères d'acceptation
-- Identification indépendante et certaine de la seconde Nucleo et de la microSD de test, version/source du code ST tracées.
-- Preuve physique répétable d'écriture et relecture identique en SDMMC2 4 bits, avec configuration réellement appliquée, capacité, CID, métriques et erreurs ; ou statut BLOCKED étayé si la preuve ne peut être obtenue.
-- Aucun impact sur TR2 principal, FRAM, campagne historique, spécifications Modbus V1 ou données préservées ; le support test seul peut être effacé.
-- Tests et compilations proportionnés, logs/artefacts/commits et push normaux sur main, rapport DERNIER_RAPPORT.md publié avec preuves, limites, état matériel final et prochaines recommandations. Ne jamais qualifier une simple compilation comme réussite physique.
+- Firmware test autonome traçable, cross-build et préflight sonde, états GPIO contrôlés et preuve de non-activation SDMMC.
+- Tableau mesurable des états attendus DAT1/DAT2/DAT3, méthode de mesure BM869s et collecte des résultats physiques de l'utilisateur ; distinguer contrôles logiciels et continuité réellement mesurée.
+- Aucun changement au TR2 principal, spécifications V1, stockage ou carte SD. Autorisations commit/push/flash/debug true. Rapport DERNIER_RAPPORT.md publié sur main avec identités, SHA, preuves, état du banc, et attente éventuelle des mesures humaines.
 
-## Autonomie et garde-fous
-`target_branch: main`, `allow_commit: true`, `allow_push: true`, `allow_flash: true`, `allow_debug: true`. Autorisation permanente AGENTS.md appliquée sans validations répétitives. Flash/debug exclusivement seconde Nucleo identifiée ; aucun mass erase ni changement Option Bytes/RDP, aucune manipulation physique par Codex, aucune écriture sur la carte principale. La microSD **du second banc seulement** peut être entièrement effacée. En cas de doute d'identité, risque électrique ou accès matériel absent, suspendre l'action dangereuse et publier les preuves et le blocage.
+## Garde-fous
+Flash/debug seulement seconde Nucleo identifiée, sans mass erase, Option Bytes/RDP. SD de test retirée avant sortie GPIO. Pas d'injection de tension externe. Aucun geste physique automatique. Arrêter en cas de risque matériel non maîtrisé.
 
-## Sortie et suite
-Publier rapport et preuves vérifiables. ChatGPT contrôlera indépendamment la démonstration avant une mission distincte de correction/intégration du stockage V1 du TR2 principal.
+## Sortie
+Après rapport, ChatGPT examinera les mesures et déterminera si défaut de connexion, de ligne partagée, ou investigation dynamique nécessaire.
