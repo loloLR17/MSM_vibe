@@ -5,7 +5,7 @@
 
 > **État de lecture :** M014 est terminé dans sa portée B0/B1 et perte/reprise ; M015-V est `DONE` pour l'acquisition physique bornée (32 768 XYZ / 4 096 timestamps et deux lectures B0/B1 simultanées). **La revue indépendante A-01 de M015 reste à formaliser, aucun tag présumé.** J3 reste EN COURS, car M016 (traitement/publication V1) n'est pas réalisée. M017–M020 restent à faire. La qualification industrielle est distincte du démonstrateur.
 
-**Avant M016 :** terminer la consolidation A-02, puis audits A-04/A-05 du build STM32 cumulatif, des chemins bloquants, des drivers ST et de la couverture effective des tests. Corrections ciblées selon A-06.
+**Avant M016 :** A-02 achevée ; poursuivre les audits A-04/A-05 du build STM32 cumulatif, des chemins bloquants, des drivers ST et de la couverture effective des tests. Corrections ciblées selon A-06.
 
 **Traçabilité :** historique exact avant A-02 dans [Archives/ROADMAP_TR2_AVANT_A02_20261013.md](Archives/ROADMAP_TR2_AVANT_A02_20261013.md) ; résultats détaillés M015-V dans `Echanges_Codex/DERNIER_RAPPORT.md` et preuves référencées. La roadmap pilote les jalons, pas le journal des tentatives.
 
