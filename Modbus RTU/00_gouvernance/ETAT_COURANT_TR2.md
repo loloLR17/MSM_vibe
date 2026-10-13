@@ -30,6 +30,13 @@
 2. Auditer avant M016 la **configuration STM32 cumulative reproductible**, les budgets temporels FIFO/Modbus/FRAM/SD, les drivers officiels ST et la couverture fonctionnelle des tests (**A-04/A-05**). Corriger uniquement les risques significatifs selon A-06.
 3. Reprendre **M016** : traitements et publication des vibrations dans le mapping Modbus V1 gelé, puis M017–M020 selon la roadmap.
 
+## 4 bis. Décisions après audit A-04
+
+- Audit A-04 livré par Codex (`TR2-20261013-A04-AUDIT-FIRMWARE`, `DONE`) ; revue documentaire indépendante effectuée, **sans qualification physique nouvelle**. Le build cumulatif reproduit le SHA-256 BIN M015-V selon les preuves Codex.
+- **Registre de dette A-04 :** [DETTE_TECHNIQUE_A04.md](DETTE_TECHNIQUE_A04.md), neuf constats ouverts ou différés, avec priorités et critères de clôture. Ne pas effacer ces constats lors du passage A-05.
+- Ordre décidé : **A-05 tests et preuves → A04-01 build sûr → A04-02 FRAM/Modbus → A04-03 intégration M016**. A04-08 avant activation SD ; autres dettes suivies par ID.
+- La mission A-04 est clôturée par son rapport `DONE` ; le contrat `READY` historique ne doit pas être relancé.
+
 ## 5. Références durables
 
 - [Roadmap](ROADMAP_TR2_VERS_SUPERVISION_VIBRATOIRE.md) : jalons et dépendances.
