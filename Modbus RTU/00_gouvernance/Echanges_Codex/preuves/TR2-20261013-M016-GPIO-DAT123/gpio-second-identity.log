@@ -1,0 +1,6 @@
+0x08000a0e in main () at /home/lolo/dev/msm/projects/MSM_vibe-M016-gpio-dat123/experiments/gpio_dat123_st_reference/src/main.c:41
+41	  HAL_GPIO_WritePin(GPIOB,MASK,GPIO_PIN_RESET);
+0xbfa0700:	0x001b0046	0x38425018	0x20333157
+0x8000000 <g_pfnVectors>:	0x200c0000	0x080051e5	0x08005235	0x08005235
+0x8000010 <g_pfnVectors+16>:	0x08005235	0x08005235	0x08005235	0x08005235
+[Inferior 1 (Remote target) detached]

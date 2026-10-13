@@ -1,0 +1,30 @@
+[ 13%] Building C object CMakeFiles/gpio_dat123.dir/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal.c.obj
+[ 13%] Building C object CMakeFiles/gpio_dat123.dir/src/main.c.obj
+[ 20%] Building C object CMakeFiles/gpio_dat123.dir/src/clock.c.obj
+[ 26%] Building C object CMakeFiles/gpio_dat123.dir/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_cortex.c.obj
+[ 33%] Building C object CMakeFiles/gpio_dat123.dir/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_dma.c.obj
+[ 40%] Building C object CMakeFiles/gpio_dat123.dir/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_flash.c.obj
+[ 46%] Building C object CMakeFiles/gpio_dat123.dir/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_flash_ex.c.obj
+[ 53%] Building C object CMakeFiles/gpio_dat123.dir/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_gpio.c.obj
+[ 60%] Building C object CMakeFiles/gpio_dat123.dir/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_pwr.c.obj
+[ 66%] Building C object CMakeFiles/gpio_dat123.dir/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_pwr_ex.c.obj
+[ 73%] Building C object CMakeFiles/gpio_dat123.dir/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rcc.c.obj
+[ 80%] Building C object CMakeFiles/gpio_dat123.dir/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rcc_ex.c.obj
+[ 86%] Building ASM object CMakeFiles/gpio_dat123.dir/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/CMSIS/Device/ST/STM32U5xx/Source/Templates/gcc/startup_stm32u575xx.s.obj
+[ 93%] Building C object CMakeFiles/gpio_dat123.dir/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/CMSIS/Device/ST/STM32U5xx/Source/Templates/system_stm32u5xx.c.obj
+[100%] Linking C executable gpio_dat123.elf
+/usr/lib/gcc/arm-none-eabi/14.2.1/../../../arm-none-eabi/bin/ld: /usr/lib/gcc/arm-none-eabi/14.2.1/../../../arm-none-eabi/lib/thumb/v8-m.main/nofp/libg_nano.a(libc_a-closer.o): in function `_close_r':
+/build/reproducible-path/newlib-4.5.0.20241231/build_nano/arm-none-eabi/thumb/v8-m.main/nofp/newlib/../../../../../../newlib/libc/reent/closer.c:47:(.text+0xc): warning: _close is not implemented and will always fail
+/usr/lib/gcc/arm-none-eabi/14.2.1/../../../arm-none-eabi/bin/ld: /usr/lib/gcc/arm-none-eabi/14.2.1/../../../arm-none-eabi/lib/thumb/v8-m.main/nofp/libg_nano.a(libc_a-closer.o): note: the message above does not take linker garbage collection into account
+/usr/lib/gcc/arm-none-eabi/14.2.1/../../../arm-none-eabi/bin/ld: /usr/lib/gcc/arm-none-eabi/14.2.1/../../../arm-none-eabi/lib/thumb/v8-m.main/nofp/libg_nano.a(libc_a-lseekr.o): in function `_lseek_r':
+/build/reproducible-path/newlib-4.5.0.20241231/build_nano/arm-none-eabi/thumb/v8-m.main/nofp/newlib/../../../../../../newlib/libc/reent/lseekr.c:49:(.text+0x14): warning: _lseek is not implemented and will always fail
+/usr/lib/gcc/arm-none-eabi/14.2.1/../../../arm-none-eabi/bin/ld: /usr/lib/gcc/arm-none-eabi/14.2.1/../../../arm-none-eabi/lib/thumb/v8-m.main/nofp/libg_nano.a(libc_a-lseekr.o): note: the message above does not take linker garbage collection into account
+/usr/lib/gcc/arm-none-eabi/14.2.1/../../../arm-none-eabi/bin/ld: /usr/lib/gcc/arm-none-eabi/14.2.1/../../../arm-none-eabi/lib/thumb/v8-m.main/nofp/libg_nano.a(libc_a-readr.o): in function `_read_r':
+/build/reproducible-path/newlib-4.5.0.20241231/build_nano/arm-none-eabi/thumb/v8-m.main/nofp/newlib/../../../../../../newlib/libc/reent/readr.c:49:(.text+0x14): warning: _read is not implemented and will always fail
+/usr/lib/gcc/arm-none-eabi/14.2.1/../../../arm-none-eabi/bin/ld: /usr/lib/gcc/arm-none-eabi/14.2.1/../../../arm-none-eabi/lib/thumb/v8-m.main/nofp/libg_nano.a(libc_a-readr.o): note: the message above does not take linker garbage collection into account
+/usr/lib/gcc/arm-none-eabi/14.2.1/../../../arm-none-eabi/bin/ld: /usr/lib/gcc/arm-none-eabi/14.2.1/../../../arm-none-eabi/lib/thumb/v8-m.main/nofp/libg_nano.a(libc_a-writer.o): in function `_write_r':
+/build/reproducible-path/newlib-4.5.0.20241231/build_nano/arm-none-eabi/thumb/v8-m.main/nofp/newlib/../../../../../../newlib/libc/reent/writer.c:49:(.text+0x14): warning: _write is not implemented and will always fail
+/usr/lib/gcc/arm-none-eabi/14.2.1/../../../arm-none-eabi/bin/ld: /usr/lib/gcc/arm-none-eabi/14.2.1/../../../arm-none-eabi/lib/thumb/v8-m.main/nofp/libg_nano.a(libc_a-writer.o): note: the message above does not take linker garbage collection into account
+   text	   data	    bss	    dec	    hex	filename
+   8680	     20	   2636	  11336	   2c48	/home/lolo/dev/msm/reports/M016-gpio-dat123-build/gpio_dat123.elf
+[100%] Built target gpio_dat123

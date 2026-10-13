@@ -1,0 +1,17 @@
+{
+  "command": [
+    "/mnt/c/ST/STM32CubeCLT_1.22.0/STM32CubeProgrammer/bin/STM32_Programmer_CLI.exe",
+    "-c",
+    "port=SWD",
+    "sn=0032001F3235510C37333439",
+    "freq=8000",
+    "-w",
+    "\\\\wsl.localhost\\Debian\\home\\lolo\\dev\\msm\\reports\\M016-gpio-dat123-build\\gpio_dat123.bin",
+    "0x08000000",
+    "-v",
+    "-rst"
+  ],
+  "code_sha": "9b0ad67e8a981226d12fc48addf45ce35489e225",
+  "sha256": "90f3b24cc36f854669fbd251ca1d00f041475e274f40a72e2ebd47b7bbb73b4a",
+  "normal_programming_only": true
+}

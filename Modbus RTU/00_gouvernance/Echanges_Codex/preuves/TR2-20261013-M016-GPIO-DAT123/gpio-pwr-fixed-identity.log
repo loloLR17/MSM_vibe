@@ -1,0 +1,6 @@
+HAL_MspInit () at /home/lolo/dev/msm/projects/MSM_vibe-M016-gpio-dat123/experiments/gpio_dat123_st_reference/src/main.c:17
+17	void HAL_MspInit(void) { __HAL_RCC_PWR_CLK_ENABLE(); }
+0xbfa0700:	0x001b0046	0x38425018	0x20333157
+0x8000000 <g_pfnVectors>:	0x200c0000	0x08002071	0x080020c1	0x080020c1
+0x8000010 <g_pfnVectors+16>:	0x080020c1	0x080020c1	0x080020c1	0x080020c1
+[Inferior 1 (Remote target) detached]

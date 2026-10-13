@@ -1,0 +1,17 @@
+0x08000964 in Error_Handler () at /home/lolo/dev/msm/projects/MSM_vibe-M016-gpio-dat123/experiments/gpio_dat123_st_reference/src/main.c:21
+21	void Error_Handler(void) { all_low(); gpio_stage=99; while(1) {} }
+0xbfa0700:	0x001b0046	0x38425018	0x20333157
+$1 = 99
+$2 = 0
+$3 = 0
+$4 = 0x0
+$5 = 2
+$6 = 0xfffffebf
+$7 = 0xfffffebf
+$8 = 0xfffffebf
+$9 = 0xfffffebf
+$10 = 0xfffffebf
+$11 = 0xc0000000
+$12 = 0x0
+$13 = 0x6
+0xe000ed28:	0x00000000	0x00000000

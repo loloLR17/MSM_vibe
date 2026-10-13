@@ -1,0 +1,17 @@
+{
+  "code_sha": "e39b1d6a77d86c92aca3789fce6adad8d688b9aa",
+  "files": {
+    "bin": {
+      "sha256": "616caa53e4aba8e8b06aae1d47f1f5ab1822b49eaac98f0a0de360522ff48fe8",
+      "bytes": 8700
+    },
+    "elf": {
+      "sha256": "f1d04db9a2880c5d6dc4a896c385b240aa6bbcf2f871e41c04e73902a21c1423",
+      "bytes": 1628428
+    },
+    "map": {
+      "sha256": "2fb1ab96d3757dc658066ae56b31b88e3789eceb5cf22e9ff937daee8ea9123c",
+      "bytes": 349424
+    }
+  }
+}
