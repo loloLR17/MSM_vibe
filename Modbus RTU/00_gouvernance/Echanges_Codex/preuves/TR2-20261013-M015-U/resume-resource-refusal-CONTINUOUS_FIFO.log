@@ -9,5 +9,3 @@
 -- Configuring incomplete, errors occurred!
 CMake Error at CMakeLists.txt:129 (message):
   ST FIFO window excludes media, transport and other resource owners
-
-

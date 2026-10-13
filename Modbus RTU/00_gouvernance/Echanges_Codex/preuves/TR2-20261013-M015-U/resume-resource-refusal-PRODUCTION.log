@@ -9,5 +9,3 @@
 -- Configuring incomplete, errors occurred!
 CMake Error at CMakeLists.txt:54 (message):
   Production requires qualified RS485 transport
-
-
