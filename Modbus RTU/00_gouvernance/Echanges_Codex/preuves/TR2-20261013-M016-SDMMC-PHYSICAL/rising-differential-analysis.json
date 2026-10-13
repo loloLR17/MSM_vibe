@@ -1,0 +1,13 @@
+{
+  "profile": "4bit4MHzRISING actual CLKCR4006",
+  "read_result": 0,
+  "data_crc_error": "0x2",
+  "matched_bytes": 50,
+  "full_match": false,
+  "rx_sha256": "18f5010abbc036ed1e7f46e24a8a1ff6d4f385c9466d5b730093457ce98fbd84",
+  "phase_change_not_sufficient": true,
+  "DBGMCU_CR": "0x6, TRACE_IOEN(bit4)=0",
+  "PWR_UCPDR": "0x1 DBDIS=1",
+  "GPIOB_IDR": "0xC018 all four DAT idle inputs high",
+  "user_feedback": "le c\u00e2blage semble correct; no continuity measurement or modification specified"
+}

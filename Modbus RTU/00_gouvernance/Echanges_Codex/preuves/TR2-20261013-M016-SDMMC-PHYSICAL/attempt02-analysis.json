@@ -3,9 +3,11 @@
   "stage": 99,
   "phase": 5,
   "rounds_passed": 0,
-  "hal_error": "0x1002",
+  "hal_error": "0x1002 DATA_CRC_FAIL | COM_CRC_FAILED",
   "write_ms": 135,
-  "read_error": "DATA_CRC_FAIL | RX_OVERRUN",
+  "read_error": "DATA_CRC_FAIL | COM_CRC_FAILED",
   "matched_pattern_bytes": 15,
-  "two_node_hypothesis_not_sufficient": true
+  "two_node_hypothesis_not_sufficient": true,
+  "interpretation_revision": 2,
+  "original_raw_codes_unchanged": true
 }

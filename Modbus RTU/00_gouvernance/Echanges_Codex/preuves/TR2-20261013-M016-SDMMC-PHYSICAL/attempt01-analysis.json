@@ -2,9 +2,12 @@
   "status": "FAILED",
   "phase": "read",
   "rounds_passed": 0,
-  "hal_error": "0x1002 DATA_CRC_FAIL | RX_OVERRUN",
+  "hal_error": "0x1002 DATA_CRC_FAIL | COM_CRC_FAILED",
   "write_ms": 991,
   "rx_matches_first_pattern_bytes": 16,
   "rx_sha256": "1e5ef683b68dfb729cb8720e20f8f7759e9b06f31d365acdec983bf3bf3e7ba5",
-  "no_compare_success_claim": true
+  "no_compare_success_claim": true,
+  "read_error": "DATA_CRC_FAIL | COM_CRC_FAILED",
+  "interpretation_revision": 2,
+  "original_raw_codes_unchanged": true
 }

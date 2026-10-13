@@ -56,4 +56,4 @@ Un build avec `-DBENCH_WRITE_ENABLE=1 -DBENCH_TEST_LBA=<LBA autorisé>` doit êt
 
 Préconditions actuelles non satisfaites : aucun ST-LINK détecté et montage/média/zone non confirmés. Aucun essai physique exécuté pour cette mission.
 
-Correction de qualification physique : le premier essai à un seul node a échoué (CRC/RXOVR). Le HAL initialize IDMALAR avec ULA et sizeof(node) et prépare donc head+12 ; adaptation revenue aux deux nodes contigus ST, liste finie sans modecirculaire. Aucune modification de HAL, clock ou bus. Essais et preuves distincts dans rapport de mission PHYSICAL.
+Correction de qualification physique : le premier essai à un seul node a échoué (CRC données/commande précédente). Le HAL initialize IDMALAR avec ULA et sizeof(node) et prépare donc head+12 ; adaptation revenue aux deux nodes contigus ST, liste finie sans modecirculaire. Aucune modification de HAL, clock ou bus. Essais et preuves distincts dans rapport de mission PHYSICAL.

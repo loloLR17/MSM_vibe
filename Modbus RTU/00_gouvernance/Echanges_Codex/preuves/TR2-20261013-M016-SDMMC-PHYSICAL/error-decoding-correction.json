@@ -1,0 +1,12 @@
+{
+  "previous_interpretation": "0x1002 was wrongly described as DATA_CRC_FAIL + RX_OVERRUN",
+  "correct": "DATA_CRC_FAIL(0x2) | COM_CRC_FAILED(0x1000)",
+  "RX_OVERRUN": "0x20, not observed in these failure codes",
+  "DATA_TIMEOUT": "0x8, not observed here",
+  "source": "/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/STM32U5xx_HAL_Driver/Inc/stm32u5xx_ll_sdmmc.h",
+  "source_sha256": "d6c3c0cb92a121da20106483295c5a395b679a467e054840eeed1d5924424452",
+  "hal_git_sha": "2552682ee5a0d6f826a6435750fc9267be65868b",
+  "url": "https://github.com/STMicroelectronics/stm32u5xx-hal-driver/blob/2552682ee5a0d6f826a6435750fc9267be65868b/Inc/stm32u5xx_ll_sdmmc.h",
+  "lines": "153,157,164",
+  "correction_published_explicitly": true
+}

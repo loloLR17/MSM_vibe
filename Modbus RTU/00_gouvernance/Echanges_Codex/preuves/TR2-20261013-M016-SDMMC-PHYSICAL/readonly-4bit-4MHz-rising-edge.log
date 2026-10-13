@@ -1,0 +1,10 @@
+main () at /home/lolo/dev/msm/projects/MSM_vibe-M016-sdmmc-physical/experiments/sdmmc_st_reference/src/main.c:128
+128	  while(bench_trigger!=TRIGGER) {}
+0xbfa0700:	0x001b0046	0x38425018	0x20333157
+$1 = {0x3534453, 0x44333247, 0x858bf092, 0x3c01927a}
+$2 = 0x6
+$3 = 0x0
+$4 = {0xcc000, 0xcc000000}
+$5 = {0xbb000000, 0x0}
+Note: automatically using hardware breakpoints for read-only addresses.
+$6 = 0x1000

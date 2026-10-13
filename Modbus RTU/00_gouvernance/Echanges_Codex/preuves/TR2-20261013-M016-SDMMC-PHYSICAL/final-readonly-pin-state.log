@@ -1,0 +1,15 @@
+main () at /home/lolo/dev/msm/projects/MSM_vibe-M016-sdmmc-physical/experiments/sdmmc_st_reference/src/main.c:128
+128	  while(bench_trigger!=TRIGGER) {}
+0xbfa0700:	0x001b0046	0x38425018	0x20333157
+$1 = 2
+$2 = 0
+$3 = 0x4006
+$4 = 0xc018
+$5 = 0xaffffebf
+$6 = {0xcc000, 0xcc000000}
+$7 = 0x0
+$8 = 0x6
+$9 = 0x1
+$10 = 0x2
+0xe000ed28:	0x00000000	0x00000000
+[Inferior 1 (Remote target) detached]
