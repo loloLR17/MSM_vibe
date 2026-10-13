@@ -14,6 +14,26 @@ if(NOT STM32CUBE_U5_ROOT)
     message(FATAL_ERROR "Set -DSTM32CUBE_U5_ROOT=/path/to/STM32CubeU5 (recursive checkout, v1.9.0)")
 endif()
 
+# A04-01: opt-in cumulative recipe; never overwrite conflicting cache inputs.
+set(TR2_STM32_BUILD_PROFILE "" CACHE STRING "Explicit recipe: CUMULATIVE or individual specialized flags")
+set_property(CACHE TR2_STM32_BUILD_PROFILE PROPERTY STRINGS "" CUMULATIVE)
+if(TR2_STM32_BUILD_PROFILE STREQUAL "CUMULATIVE")
+    foreach(flag PRODUCTION RS485_TX_QUALIFIED IRQ_DIAGNOSTICS FIFO_COOPERATIVE)
+        if(DEFINED TR2_STM32_${flag} AND NOT TR2_STM32_${flag})
+            message(FATAL_ERROR "CUMULATIVE conflicts with TR2_STM32_${flag}=OFF; use a fresh build directory")
+        endif()
+        set(TR2_STM32_${flag} ON CACHE BOOL "Required by CUMULATIVE")
+    endforeach()
+    if(NOT CMAKE_BUILD_TYPE)
+        set(CMAKE_BUILD_TYPE Debug CACHE STRING "Canonical cumulative build type" FORCE)
+    elseif(NOT CMAKE_BUILD_TYPE STREQUAL "Debug")
+        message(FATAL_ERROR "CUMULATIVE requires canonical Debug build type")
+    endif()
+elseif(NOT TR2_STM32_BUILD_PROFILE STREQUAL "")
+    message(FATAL_ERROR "Unknown TR2_STM32_BUILD_PROFILE")
+endif()
+option(TR2_STM32_LEGACY_SD_HARNESS "NON-PRODUCTION: historical harness writes microSD at boot; sacrificial media only" OFF)
+
 option(TR2_STM32_COMMISSIONING_READONLY "Isolated media inspection and backup, no data writes or Modbus" OFF)
 if(TR2_STM32_COMMISSIONING_READONLY AND TR2_STM32_MODBUS_DIAGNOSTIC)
     message(FATAL_ERROR "Commissioning probe and diagnostic modes are exclusive")
@@ -139,6 +159,41 @@ if(TR2_STM32_ST_FIFO_WINDOW)
  endforeach()
 endif()
 
+# Run the established guards first, then reject an implicit generic harness.
+set(TR2_SELECTED_MODES "")
+foreach(mode PRODUCTION MANUFACTURING COMMISSIONING_READONLY MODBUS_DIAGNOSTIC
+        ST_FIFO_WINDOW CONTINUOUS_FIFO CTRL1_DIFFERENTIAL BURST_CAPTURE
+        ACTIVE_READBACK REGISTER_PROBE FIFO_CAPTURE ACQUISITION_CAPTURE)
+    if(TR2_STM32_${mode})
+        list(APPEND TR2_SELECTED_MODES ${mode})
+    endif()
+endforeach()
+list(LENGTH TR2_SELECTED_MODES mode_count)
+if(TR2_STM32_LEGACY_SD_HARNESS)
+    if(mode_count GREATER 0 OR TR2_STM32_RS485_TX_QUALIFIED OR TR2_STM32_IRQ_DIAGNOSTICS)
+        message(FATAL_ERROR "LEGACY_SD_HARNESS is exclusive and must not enable qualified TX/observer")
+    endif()
+    set(TR2_ARTIFACT_NAME "tr2-legacy-SD-WRITES-NON-PRODUCTION")
+    message(WARNING "Historical harness: automatic microSD writes at boot; NEVER production")
+elseif(NOT mode_count EQUAL 1)
+    message(FATAL_ERROR "Select exactly one explicit STM32 mode; implicit generic SD harness is forbidden")
+elseif(TR2_STM32_FIFO_COOPERATIVE)
+    set(TR2_ARTIFACT_NAME "tr2-cumulative-m014-m015-spi${TR2_STM32_FIFO_SPI_MHZ}")
+else()
+    string(TOLOWER "${TR2_SELECTED_MODES}" mode_label)
+    set(TR2_ARTIFACT_NAME "tr2-special-${mode_label}-NON-CUMULATIVE")
+endif()
+set(profile_description "artifact=${TR2_ARTIFACT_NAME}\nrecipe=${TR2_STM32_BUILD_PROFILE}\nbuild_type=${CMAKE_BUILD_TYPE}\n")
+get_cmake_property(cache_variables CACHE_VARIABLES)
+list(SORT cache_variables)
+foreach(variable IN LISTS cache_variables)
+    if(variable MATCHES "^TR2_(STM32_|COMMISSIONING_)")
+        string(APPEND profile_description "${variable}=${${variable}}\n")
+    endif()
+endforeach()
+file(WRITE "${CMAKE_CURRENT_BINARY_DIR}/build-profile.txt" "${profile_description}")
+message(STATUS "STM32 artifact: ${TR2_ARTIFACT_NAME}; no hardware qualification implied")
+
 set(TR2_FIRMWARE_ROOT "${CMAKE_CURRENT_SOURCE_DIR}/../..")
 set(CMSIS_CORE_DIR ${STM32CUBE_U5_ROOT}/Drivers/CMSIS/Include)
 set(CMSIS_DEVICE_DIR ${STM32CUBE_U5_ROOT}/Drivers/CMSIS/Device/ST/STM32U5xx)
@@ -240,6 +295,7 @@ if(TR2_STM32_PRODUCTION OR TR2_STM32_MANUFACTURING)
     target_include_directories(tr2_stm32_p11c PRIVATE ${CMAKE_CURRENT_BINARY_DIR}/generated)
 endif()
 target_compile_definitions(tr2_stm32_p11c PRIVATE
+    TR2_STM32_LEGACY_SD_HARNESS=$<BOOL:${TR2_STM32_LEGACY_SD_HARNESS}>
     TR2_STM32_FIFO_COOPERATIVE=$<BOOL:${TR2_STM32_FIFO_COOPERATIVE}>
     TR2_STM32_FIFO_SPI_MHZ=${TR2_STM32_FIFO_SPI_MHZ}
     TR2_STM32_ST_FIFO_WINDOW=$<BOOL:${TR2_STM32_ST_FIFO_WINDOW}>
@@ -294,17 +350,17 @@ target_link_options(tr2_stm32_p11c PRIVATE
     --specs=nosys.specs
     -Wl,--gc-sections
     -Wl,--build-id=none
-    -Wl,-Map=${CMAKE_CURRENT_BINARY_DIR}/tr2_stm32_p11c.map
+    -Wl,-Map=${CMAKE_CURRENT_BINARY_DIR}/${TR2_ARTIFACT_NAME}.map
     -T${CMAKE_CURRENT_SOURCE_DIR}/linker/STM32U575ZITXQ_FLASH.ld
 )
 
-set_target_properties(tr2_stm32_p11c PROPERTIES SUFFIX ".elf")
+set_target_properties(tr2_stm32_p11c PROPERTIES SUFFIX ".elf" OUTPUT_NAME "${TR2_ARTIFACT_NAME}")
 
 find_program(ARM_OBJCOPY arm-none-eabi-objcopy REQUIRED)
 find_program(ARM_SIZE arm-none-eabi-size REQUIRED)
 
 add_custom_command(TARGET tr2_stm32_p11c POST_BUILD
-    COMMAND ${ARM_OBJCOPY} -O binary $<TARGET_FILE:tr2_stm32_p11c> ${CMAKE_CURRENT_BINARY_DIR}/tr2_stm32_p11c.bin
+    COMMAND ${ARM_OBJCOPY} -O binary $<TARGET_FILE:tr2_stm32_p11c> ${CMAKE_CURRENT_BINARY_DIR}/${TR2_ARTIFACT_NAME}.bin
     COMMAND ${ARM_SIZE} $<TARGET_FILE:tr2_stm32_p11c>
     VERBATIM
 )

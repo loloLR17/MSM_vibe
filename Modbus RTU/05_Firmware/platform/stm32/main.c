@@ -1,3 +1,15 @@
+/* A04-01: direct builds must also opt in to the historical SD-writing harness.
+ * Dedicated modes terminate before the legacy fallthrough in main(). */
+#if !TR2_STM32_PRODUCTION && !TR2_STM32_MANUFACTURING && \
+    !TR2_STM32_COMMISSIONING_READONLY && !TR2_STM32_MODBUS_DIAGNOSTIC && \
+    !TR2_STM32_ST_FIFO_WINDOW && !TR2_STM32_CONTINUOUS_FIFO && \
+    !TR2_STM32_CTRL1_DIFFERENTIAL && !TR2_STM32_BURST_CAPTURE && \
+    !TR2_STM32_ACTIVE_READBACK && !TR2_STM32_REGISTER_PROBE && \
+    !TR2_STM32_FIFO_CAPTURE && !TR2_STM32_ACQUISITION_CAPTURE && \
+    !TR2_STM32_LEGACY_SD_HARNESS
+#error "Implicit generic SD harness forbidden: select a dedicated mode or explicit LEGACY_SD_HARNESS"
+#endif
+
 #include "stm32u5xx_hal.h"
 
 #include <string.h>

@@ -24,3 +24,5 @@ obj/
 # Regenerable outputs of the canonical TR2 firmware validation scripts
 /Modbus RTU/05_Firmware/build-host-validation/
 /Modbus RTU/05_Firmware/build-stm32-p11c/
+/Modbus RTU/05_Firmware/build-stm32-cumulative/
+/Modbus RTU/05_Firmware/build-stm32-legacy-sd-harness/

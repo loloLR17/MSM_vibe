@@ -1,113 +1,79 @@
-# TR2 STM32 target — P11-C CMSIS/HAL bring-up
+# STM32 TR2 — explicit build profiles (A04-01)
 
-## Scope
+The source tree supports cumulative M014/M015 and historical qualification modes.
+A build is not a hardware qualification or permission to program a board.
+The former implicit P11-C/P12-A harness selection is rejected: that harness can
+write microSD automatically at boot. Old `tr2_stm32_p11c.*` files are ambiguous;
+do not select them for a new programming operation by filename alone.
 
-P11-C turns the P11-B bare-metal skeleton into the first real `NUCLEO-U575ZI-Q / STM32U575ZIT6Q` bring-up image.
+## Canonical cumulative M014/M015
 
-This slice deliberately remains below the TR2 portable core. It does not link `tr2_core`, does not instantiate any TR2 service and does not configure SPI, SDMMC, LPUART, RTC, GPDMA or IWDG.
-
-The purpose is limited to proving the physical-target software foundation:
-
-- Arm GNU cross-toolchain;
-- official STM32U5 CMSIS Device startup and vector table;
-- official `system_stm32u5xx.c`;
-- minimal STM32U5 HAL subset;
-- 160 MHz system clock from MSI + PLL;
-- Nucleo power supply configuration;
-- SysTick HAL time base;
-- visible board bring-up through LED1 (green, PC7).
-
-## Validation state
-
-The P11-C software side is cross-build validated with STM32CubeU5 v1.9.0 and Arm GNU 12.2.1.
-
-Hardware validation is explicitly pending until a NUCLEO-U575ZI-Q is available. Until then, no claim is made about real silicon boot, 160 MHz clock operation, SysTick timing, SMPS configuration, LED1 toggling or SWD after programming.
-
-## STM32CubeU5 dependency
-
-P11-C is validated against **STM32CubeU5 v1.9.0**.
-
-The dependency is intentionally external to the TR2 repository. Do not vendor HAL/CMSIS into `tr2_core` or `include/tr2/platform`.
-
-Example installation beside the TR2 repository:
+From the repository root, with the qualified Linux SDK:
 
 ```sh
-git clone --recursive --branch v1.9.0 \
-    https://github.com/STMicroelectronics/STM32CubeU5.git
+STM32CUBE_U5_ROOT=/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0 \
+    bash ./tr2_validate.sh --cross-build-only
 ```
 
-A recursive checkout is required because STM32CubeU5 publishes CMSIS Device and HAL as submodules.
+This explicitly calls the build helper with `--profile cumulative`. The helper
+selects `TR2_STM32_BUILD_PROFILE=CUMULATIVE`, Debug, production, qualified TX,
+IRQ observer, cooperative FIFO, SPI3 4 MHz, and the reviewed M014-H manifest
+and attribution registry. It never deletes the build directory. Reuse requires
+a matching profile label; conflicting/unlabelled caches require a fresh directory.
+The helper verifies ELF/BIN/map and writes `artifact-sha256.txt`.
 
-## Reproducible cross-build
-
-From `Modbus RTU/05_Firmware`, use the P11-D helper script:
+Equivalent direct configuration for a **fresh** directory (from repository root):
 
 ```sh
-STM32CUBE_U5_ROOT=/absolute/path/to/STM32CubeU5 \
-    ./platform/stm32/tr2_build_stm32.sh
+cmake -G Ninja -S 'Modbus RTU/05_Firmware/platform/stm32' -B /tmp/tr2-cumulative-fresh \
+  -DCMAKE_TOOLCHAIN_FILE="$PWD/Modbus RTU/05_Firmware/platform/stm32/cmake/arm-none-eabi-gcc.cmake" \
+  -DSTM32CUBE_U5_ROOT=/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0 \
+  -DTR2_STM32_BUILD_PROFILE=CUMULATIVE \
+  -DTR2_STM32_FIFO_SPI_MHZ=4 \
+  -DTR2_COMMISSIONING_MANIFEST="$PWD/Modbus RTU/00_gouvernance/COMMISSIONING_M014_H.json" \
+  -DTR2_COMMISSIONING_REGISTRY="$PWD/Modbus RTU/00_gouvernance/REGISTRE_ATTRIBUTION_TR2.json"
+cmake --build /tmp/tr2-cumulative-fresh
 ```
 
-The Cube root may alternatively be passed as the first argument:
+Artifacts: `tr2-cumulative-m014-m015-spi4.{elf,bin,map}` and `build-profile.txt`.
+The canonical reference BIN is 169380 bytes, SHA-256
+`8529630a5a6c9aaa2449fde512b06d6ca16a89a08b7afea2abc9ecca3b75d480`.
+Another toolchain/SDK/input or SPI8 selection requires comparison and a mission
+covering any necessary qualification; the recipe name alone proves no equivalence.
+This profile does not initialize SDMMC or link a usable SD campaign backend.
+FRAM/Modbus/FIFO functionality and existing limitations remain unchanged.
+
+## Specialized and historical profiles
+
+Existing individual mode flags remain supported in a fresh CMake directory,
+with their existing exclusion, TX and commissioning-authority guards. Examples:
+`TR2_STM32_ST_FIFO_WINDOW=ON`, `TR2_STM32_REGISTER_PROBE=ON`, or the dedicated
+M014 production options without cooperative FIFO. These emit
+`tr2-special-<mode>-NON-CUMULATIVE.{elf,bin,map}`. `build-profile.txt` records all
+STM32 options, build type and commissioning paths; inspect it for modifiers
+such as silence windows, diagnostic address and TX. Manufacturing is never the
+cumulative server. Multiple primary modes and implicit all-OFF are refused.
+
+The generic historical harness requires `TR2_STM32_LEGACY_SD_HARNESS=ON`, or:
 
 ```sh
-./platform/stm32/tr2_build_stm32.sh /absolute/path/to/STM32CubeU5
+STM32CUBE_U5_ROOT=/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0 \
+  bash 'Modbus RTU/05_Firmware/platform/stm32/tr2_build_stm32.sh' --profile legacy-sd-harness
 ```
 
-The script checks the required host tools and CubeU5 files, performs a clean Ninja configuration/build using the STM32 toolchain file, and verifies the expected artifacts.
+Its output is `tr2-legacy-SD-WRITES-NON-PRODUCTION.{elf,bin,map}`. It cannot be
+combined with dedicated modes, qualified TX or the IRQ observer. It retains
+historical automatic SD writes, including LBA2048 and campaign metadata tests;
+**only sacrificial media and an explicitly authorized hardware mission** may
+use it. A compile-time guard in `main.c` also rejects direct all-OFF builds.
 
-Equivalent manual commands from `Modbus RTU/05_Firmware`:
+## Before any future programming operation
 
-```sh
-cmake -G Ninja \
-      -S platform/stm32 \
-      -B build-stm32-p11c \
-      -DCMAKE_TOOLCHAIN_FILE="$PWD/platform/stm32/cmake/arm-none-eabi-gcc.cmake" \
-      -DSTM32CUBE_U5_ROOT=/absolute/path/to/STM32CubeU5
-cmake --build build-stm32-p11c
-```
-
-Expected artifacts:
-
-- `tr2_stm32_p11c.elf`
-- `tr2_stm32_p11c.bin`
-- `tr2_stm32_p11c.map`
-
-## Hardware acceptance for this slice
-
-When the target board becomes available, flash `tr2_stm32_p11c.bin` at `0x08000000` using ST-LINK / STM32CubeProgrammer.
-
-Expected observable result after reset:
-
-- LED1 (green, PC7) toggles every 250 ms;
-- SWD remains available;
-- no TR2 peripheral or Modbus behavior is expected yet.
-
-A failure to blink is a target bring-up failure and must be resolved before introducing any TR2 peripheral driver.
-
-## Architectural boundary
-
-The dependency direction remains:
-
-```text
-tr2_core
-    ↓
-include/tr2/platform
-    ↓
-platform/stm32
-    ↓
-STM32CubeU5 CMSIS / HAL
-```
-
-P11-C adds only the bottom layer. No STM32 header may be introduced into `src/` or generic `include/tr2/platform/` contracts.
-
-## Deferred work
-
-Explicitly deferred after P11-C:
-
-- IIS3DWB / SPI1 / EXTI / GPDMA;
-- MB85RS2MTA and W25Q64JV / SPI2;
-- SDMMC1 bulk storage;
-- ADM2587E / LPUART1 / DE-/RE;
-- RTC/LSE/VBAT service binding;
-- IWDG;
-- connection of the generic TR2 platform contracts to STM32 implementations.
+Follow AGENTS.md and the mission's flash/debug permissions, target/ST-LINK
+identity, preservation and the already qualified programming/debug procedure.
+Match the chosen BIN, ELF, map, `build-profile.txt`, actual CMake cache and
+SHA-256 to the intended profile and tested image; never reuse a breakpoint from
+another ELF. Standard Flash address remains the linker origin `0x08000000`;
+this document supplies no new flash command or permission. A filename/profile
+is a selection guard, not an authorization or physical proof. A04-01 performs
+software builds only; it neither flashes nor observes the connected STM32.

@@ -3,8 +3,32 @@ set -euo pipefail
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 FIRMWARE_DIR="$(cd "${SCRIPT_DIR}/../.." && pwd)"
-BUILD_DIR="${FIRMWARE_DIR}/build-stm32-p11c"
-CUBE_ROOT="${STM32CUBE_U5_ROOT:-${1:-}}"
+PROFILE=""
+CUBE_ROOT="${STM32CUBE_U5_ROOT:-}"
+while [[ $# -gt 0 ]]; do
+    case "$1" in
+        --profile) PROFILE="${2:?missing profile}"; shift ;;
+        --help|-h)
+            echo "Usage: $0 --profile cumulative|legacy-sd-harness [STM32CubeU5-root]"
+            echo "No flash. Legacy profile writes microSD at boot; sacrificial media only."
+            exit 0 ;;
+        -*) echo "error: unknown option: $1" >&2; exit 2 ;;
+        *) [[ -z "${CUBE_ROOT}" ]] || { echo "error: extra SDK argument" >&2; exit 2; }; CUBE_ROOT="$1" ;;
+    esac
+    shift
+done
+case "${PROFILE}" in
+    cumulative)
+        profile_options=(-DTR2_STM32_BUILD_PROFILE=CUMULATIVE -DTR2_STM32_FIFO_SPI_MHZ=4
+            -DTR2_COMMISSIONING_MANIFEST="${FIRMWARE_DIR}/../00_gouvernance/COMMISSIONING_M014_H.json"
+            -DTR2_COMMISSIONING_REGISTRY="${FIRMWARE_DIR}/../00_gouvernance/REGISTRE_ATTRIBUTION_TR2.json")
+        artifact=tr2-cumulative-m014-m015-spi4 ;;
+    legacy-sd-harness)
+        profile_options=(-DTR2_STM32_LEGACY_SD_HARNESS=ON)
+        artifact=tr2-legacy-SD-WRITES-NON-PRODUCTION ;;
+    *) echo "error: explicit --profile cumulative|legacy-sd-harness required" >&2; exit 2 ;;
+esac
+BUILD_DIR="${FIRMWARE_DIR}/build-stm32-${PROFILE}"
 
 if [[ -z "${CUBE_ROOT}" ]]; then
     echo "error: set STM32CUBE_U5_ROOT or pass the STM32CubeU5 root as argument" >&2
@@ -35,28 +59,35 @@ for relative_path in "${required_cube_files[@]}"; do
     }
 done
 
-rm -rf "${BUILD_DIR}"
+# Preserve artefacts; reuse only a directory already labelled for this profile.
+if [[ -e "${BUILD_DIR}" ]] && ! [[ -f "${BUILD_DIR}/build-profile.txt" && "$(head -n 1 "${BUILD_DIR}/build-profile.txt")" == "artifact=${artifact}" ]]; then
+    echo "error: unlabelled or conflicting build directory; use a fresh direct CMake build: ${BUILD_DIR}" >&2
+    exit 6
+fi
 
 cmake -G Ninja \
     -S "${SCRIPT_DIR}" \
     -B "${BUILD_DIR}" \
     -DCMAKE_TOOLCHAIN_FILE="${SCRIPT_DIR}/cmake/arm-none-eabi-gcc.cmake" \
-    -DSTM32CUBE_U5_ROOT="${CUBE_ROOT}"
+    -DSTM32CUBE_U5_ROOT="${CUBE_ROOT}" \
+    "${profile_options[@]}"
 
 cmake --build "${BUILD_DIR}"
 
 artifacts=(
-    "tr2_stm32_p11c.elf"
-    "tr2_stm32_p11c.bin"
-    "tr2_stm32_p11c.map"
+    "${artifact}.elf"
+    "${artifact}.bin"
+    "${artifact}.map"
 )
 
-for artifact in "${artifacts[@]}"; do
-    [[ -s "${BUILD_DIR}/${artifact}" ]] || {
-        echo "error: expected artifact missing or empty: ${BUILD_DIR}/${artifact}" >&2
+for expected_artifact in "${artifacts[@]}"; do
+    [[ -s "${BUILD_DIR}/${expected_artifact}" ]] || {
+        echo "error: expected artifact missing or empty: ${BUILD_DIR}/${expected_artifact}" >&2
         exit 5
     }
 done
 
-echo "TR2 P11-C STM32 cross-build complete."
-echo "Hardware validation remains pending until the NUCLEO-U575ZI-Q is available."
+sha256sum "${BUILD_DIR}/${artifact}.bin" "${BUILD_DIR}/${artifact}.elf" > "${BUILD_DIR}/artifact-sha256.txt"
+echo "TR2 ${PROFILE} cross-build complete: ${artifact}."
+echo "Profile: ${BUILD_DIR}/build-profile.txt; hashes: ${BUILD_DIR}/artifact-sha256.txt"
+echo "Software build only; no hardware qualification or flash."

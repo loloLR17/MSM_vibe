@@ -22,7 +22,7 @@ Usage:
   bash ./tr2_validate.sh --cross-build-only [STM32CubeU5-root]
 
 Options:
-  --cross-build-only   Skip the host build/tests and run only the STM32
+  --cross-build-only   Skip the host build/tests and run only the cumulative STM32
                        Cortex-M33 cross-build.
   -h, --help           Show this help.
 
@@ -99,9 +99,9 @@ if [[ "${CROSS_BUILD_ONLY}" == false ]]; then
     echo "HOST VALIDATED: firmware host build and tests passed."
 fi
 
-log_section "TR2 VALIDATION — STM32 CROSS-BUILD P12-A"
+log_section "TR2 VALIDATION — STM32 CROSS-BUILD — CUMULATIVE M014/M015"
 STM32CUBE_U5_ROOT="${CUBE_ROOT}" \
-    bash "${STM32_BUILD_SCRIPT}"
+    bash "${STM32_BUILD_SCRIPT}" --profile cumulative
 
 echo "CROSS-BUILD VALIDATED: portable tr2_core compiled and linked for STM32U575 Cortex-M33."
 
