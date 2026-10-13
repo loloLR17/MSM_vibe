@@ -12,7 +12,7 @@ Le code et les règles de `AGENTS.md` en vigueur priment sur ce protocole. Ce do
 
 Dossier : `Modbus RTU/00_gouvernance/Echanges_Codex/`.
 
-- `PROTOCOLE_ECHANGE_V2.md` : convention commune ; modifications sur mission dédiée.
+- `PROTOCOLE_ECHANGE_V2.md` : convention commune ; ChatGPT modifie et publie directement ses règles sur GitHub, puis vérifie la publication distante, sans mission Codex artificielle.
 - `MISSION_EN_COURS.md` : **ChatGPT seul rédacteur**, mission active et son identifiant, ou marqueur `IDLE`.
 - `DERNIER_RAPPORT.md` : **Codex seul rédacteur**, dernier résultat publié. Codex peut également actualiser les constats factuels du journal technique et les statuts factuels de la roadmap dans le périmètre autorisé ; les changements de règles de gouvernance relèvent de ChatGPT.
 - `archives/<mission_id>/MISSION.md` et `archives/<mission_id>/RAPPORT.md` : convention historique d'archivage des échanges clôturés, si nécessaire ; jamais écraser une archive existante. Les instantanés documentaires A-02 dans `Modbus RTU/00_gouvernance/Archives/` sont une archive distincte et légitime ; ne pas les déplacer ni les écraser.
