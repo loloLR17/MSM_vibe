@@ -2,7 +2,7 @@
 
 #include "tr2/application/modbus_system_server.h"
 
-static Tr2Result refresh_context(void *context)
+static Tr2Result refresh_context_selected(void *context, bool include_commands)
 {
     ModbusSystemServer *server = context;
     SystemRuntime *runtime = server->binding.runtime;
@@ -58,7 +58,7 @@ static Tr2Result refresh_context(void *context)
         pdu->configuration_staging = workflow->staging;
         pdu->configuration_workflow = workflow;
     }
-    if (runtime->command_runtime_available) {
+    if (runtime->command_runtime_available && include_commands) {
         CommandSnapshot snapshot;
         ModbusBlock5ProjectionSource projection = {&runtime->command_mailbox, &snapshot};
 
@@ -90,6 +90,33 @@ static Tr2Result refresh_context(void *context)
     return TR2_OK;
 }
 
+/* Initial binding/start still validate the complete context. */
+static Tr2Result refresh_context(void *context)
+{
+    return refresh_context_selected(context, true);
+}
+
+static bool system_read_only(const ModbusRtuAduView *request)
+{
+    if (request == NULL || request->pdu_length != 5u ||
+        request->pdu[0] != MODBUS_PDU_FC_READ_HOLDING_REGISTERS) return false;
+    const uint16_t first = (uint16_t)((uint16_t)request->pdu[1] << 8u | request->pdu[2]);
+    const uint16_t count = (uint16_t)((uint16_t)request->pdu[3] << 8u | request->pdu[4]);
+    if (count == 0u || !modbus_register_model_range_exists(first, count)) return false;
+    const ModbusRegisterDescriptor *a = modbus_register_model_find(first);
+    const ModbusRegisterDescriptor *b = modbus_register_model_find((uint16_t)(first + count - 1u));
+    return a != NULL && b != NULL && a->block == b->block &&
+        (a->block == MODBUS_BLOCK_0 || a->block == MODBUS_BLOCK_1);
+}
+
+static Tr2Result refresh_request(void *context, const ModbusRtuAduView *request)
+{
+    /* A B0/B1 read has no B5 payload. Avoid scanning the persistent command
+     * journal for an unrelated block; requested B5 retains its exact guards.
+     * Live status, withdrawal, CRC/address gate and mapping stay unchanged. */
+    return refresh_context_selected(context, !system_read_only(request));
+}
+
 Tr2Result modbus_system_server_init(ModbusSystemServer *server,
                                     const ModbusSystemServerBinding *binding)
 {
@@ -116,7 +143,8 @@ Tr2Result modbus_system_server_init(ModbusSystemServer *server,
         result = refresh_context(server);
     }
     server->rtu.prepare_context = server;
-    server->rtu.prepare = refresh_context;
+    server->rtu.prepare = NULL;
+    server->rtu.prepare_request = refresh_request;
     server->initialized = result == TR2_OK;
     return result;
 }

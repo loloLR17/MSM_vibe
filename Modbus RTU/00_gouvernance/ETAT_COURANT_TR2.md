@@ -4,6 +4,11 @@ Mise à jour : 13 octobre 2026. Mission `TR2-20261013-M015-U-INTEGRATION-TR2-001
 
 **Ce document est un nouvel état de référence reconstruit à partir de preuves vérifiables. Il n'est pas une restitution du journal historique HP.** Sa création a été explicitement autorisée par l'utilisateur pour la mission `T1000-20261010-CLOTURE-001`, après escalade AGENTS.md §18. Aucun original n'a été retrouvé dans l'historique Git, les répertoires Linux locaux ou les documents Windows accessibles. Les archives d'échanges du 8 octobre mentionnent un journal local HP, sans en fournir le contenu. Aucun état historique inconnu n'est inventé.
 
+## M015-V — première coexistence refusée et correction, 13 octobre 2026
+
+- **FAIL PHYSIQUE / RESTAURÉ** :2386654/SPI4, FIFO512/FULL/OVR avantpremierburst,0XYZ,result7/cleanup0. B0/B1 etUARTpassent,mais pause141ms entrestatuts ;B5journal256slots scannéinutilementpourB0/B1 parcode. M014-H restauré/Flash2MiBexacte/gen12,deuxB0/B1deretour réussis ;journauxcomplets conservés. Aucun8MHz.
+- **VALIDÉ LOGICIEL / PRÉPARÉ REPRISE** :refresh_request sélectifpourB0/B1, sanssnapshotB5 nondemandé ;guardsB5/freshness/withdrawal/CRC/mapping conservés. Tests backendB5 indisponible/refus/reprise et suite125/125+ARM passent. Nouvellecampagne nécessaire surcodecorrigé, pasrejeuacquisU/T. M015 IN PROGRESS ;cumulatif nonencorequalifié.
+
 ## État opérationnel actuel — M015-V préparation, 13 octobre 2026
 
 - **VALIDÉ LOGICIEL / PRÉPARÉ PHYSIQUE** :service coopératif de production, Modbus pollé entre bursts128, CPU160/HSI16SPI4/mode3. FenêtresV1 4096/8192/16384/32768 et continuité du parser aux frontières, admission/cleanup stricts ;suite125/125+ARMdéfaut/profil et testtimestamps renforcé réussis. RAM602144 et marges documentées, aucun stockage ou mesureV1 activé.

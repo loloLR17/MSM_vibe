@@ -43,6 +43,7 @@ void stm32_fifo_cooperative_poll(void)
 {
  if(tr2_fifo_fault)return;
  uint32_t begin=DWT->CYCCNT,before=cooperative.window.received;
+ uint32_t rx_before=tr2_irq_observer.rx_callback;
  if(cooperative.state==COOP_ARMED){
   bench_ready=1;tr2_fifo_state=1;
   if(bench_command==0x4D313556){bench_command=0;cooperative_arm=1;cooperative_trigger_rx=tr2_irq_observer.rx_callback;}
@@ -62,7 +63,7 @@ void stm32_fifo_cooperative_poll(void)
    BenchTrace *t=&bench_trace[i];if(t->reg!=120 || t->write)continue;
    if(cooperative_burst_count>=320 || memcmp(bench_payload+t->offset,official_words+before*7,t->len)){cooperative.result=BENCH_CAPACITY;cooperative.state=COOP_CLEANUP;cooperative.phase=0;bench_cleanup_mode=1;break;}
    uint32_t end=DWT->CYCCNT;
-   cooperative_bursts[cooperative_burst_count++]=(BurstEvidence){before,t->len/7,crc(UINT32_MAX,bench_payload+t->offset,t->len)^UINT32_MAX,begin,end,cooperative_trigger_rx,tr2_irq_observer.rx_callback};
+   cooperative_bursts[cooperative_burst_count++]=(BurstEvidence){before,t->len/7,crc(UINT32_MAX,bench_payload+t->offset,t->len)^UINT32_MAX,begin,end,rx_before,tr2_irq_observer.rx_callback};
   }
   if(cooperative.window.xyz%4096==0 && cooperative_prefix_count<8){
    uint32_t k=cooperative_prefix_count++;cooperative_prefix_xyz[k]=cooperative.window.xyz;cooperative_prefix_tick[k]=HAL_GetTick();

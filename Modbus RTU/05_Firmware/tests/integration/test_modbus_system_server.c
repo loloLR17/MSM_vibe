@@ -130,6 +130,16 @@ static Tr2Result submit(void *context, CommandMailboxSubmitResult kind,
                                               &admission, &entry);
 }
 
+static unsigned snapshot_calls;
+static bool snapshot_fails;
+static Tr2Result observed_snapshot(void *context, CommandSnapshot *snapshot)
+{
+    TestCommandHandler *handler = context;
+    ++snapshot_calls;
+    if (snapshot_fails) return TR2_ERROR_STORAGE;
+    return command_engine_snapshot(&handler->runtime->command_engine, snapshot);
+}
+
 int main(void)
 {
     static HostPlatform platform;
@@ -310,6 +320,29 @@ int main(void)
             assert(((uint16_t)view.pdu[2u + 2u * index] << 8u |
                 view.pdu[3u + 2u * index]) == runtime.b1_image.registers[index]);
     }
+    /* B0/B1 must not scan B5: exercise actual RTU/PDU responses, fresh status,
+     * CRC/address gates and an independently unavailable command snapshot. */
+    server.binding.command_snapshot = observed_snapshot;
+    snapshot_calls = 0u;
+    snapshot_fails = true;
+    load(&serial, 17u, read_full_b0, sizeof(read_full_b0), false);
+    assert(run(&server, &serial) == TR2_OK && snapshot_calls == 0u);
+    assert(response(&serial).pdu_length == 2u + 2u * TR2_B0_REGISTER_COUNT);
+    host_platform_advance_monotonic(&platform, UINT64_C(3000));
+    load(&serial, 17u, read_full_b1, sizeof(read_full_b1), false);
+    assert(run(&server, &serial) == TR2_OK && snapshot_calls == 0u);
+    assert(runtime.b1_image.registers[5] == platform.monotonic_ms / UINT64_C(1000));
+    const uint8_t read_b5_guard[] = {3u, 0x13u, 0x88u, 0u, 1u};
+    before = serial.tx_calls;
+    load(&serial, 17u, read_b5_guard, sizeof(read_b5_guard), false);
+    assert(run(&server, &serial) == TR2_ERROR_INTERNAL && snapshot_calls == 1u);
+    assert(serial.tx_calls == before); /* Never expose a stale B5 after failure. */
+    snapshot_fails = false;
+    load(&serial, 17u, read_b5_guard, sizeof(read_b5_guard), false);
+    assert(run(&server, &serial) == TR2_OK && snapshot_calls == 2u);
+    assert(response(&serial).pdu[0] == 3u);
+    server.binding.command_snapshot = NULL;
+
     /* Availability is authoritative: no stale last image after withdrawal. */
     runtime.b1_image_available = false;
     load(&serial, 17u, read_full_b1, sizeof(read_full_b1), false);

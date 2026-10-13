@@ -1,0 +1,10 @@
+{
+    "task":  "Steady",
+    "utc":  "2026-10-13T10:53:18.2525160+00:00",
+    "package":  "C:\\Users\\Lolo\\AppData\\Local\\TR2\\M014-H-20261012T073729Z",
+    "filesVerified":  371,
+    "exitCode":  0,
+    "stdout":  "SYSTEM_CHECK plan: unit=1; FC03 B0=0/21 then B1=1000/20 only after compatible B0; supportedProtocolVersion=1; maximumRequests=2; retries=0; no writes/polling/runtime.\r\nSerial plan: COM7/115200/8/Even/One; timeoutMs=1000; perReadDeadlineMs=4000.\r\nSYSTEM_CHECK complete: DeviceId=1; SystemStatus=1; connection closed; no retry. Status is decoded, not an assertion of READY or production qualification.\r\n",
+    "stderr":  "",
+    "serialAuthorized":  true
+}

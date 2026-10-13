@@ -1,0 +1,30 @@
+[
+  {
+    "tick": 13630,
+    "raw": "0000",
+    "HAL": 0,
+    "error": 0,
+    "valid": 1
+  },
+  {
+    "tick": 13631,
+    "raw": "0000",
+    "HAL": 0,
+    "error": 0,
+    "valid": 1
+  },
+  {
+    "tick": 13632,
+    "raw": "0000",
+    "HAL": 0,
+    "error": 0,
+    "valid": 1
+  },
+  {
+    "tick": 13773,
+    "raw": "00ea",
+    "HAL": 0,
+    "error": 0,
+    "valid": 1
+  }
+]
