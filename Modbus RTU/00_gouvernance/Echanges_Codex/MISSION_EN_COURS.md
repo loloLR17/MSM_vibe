@@ -1,9 +1,9 @@
 ---
-mission_id: TR2-20261013-M016-V1-VIBRATION
+mission_id: TR2-20261013-M016-STORAGE-PREREQUISITE
 status: READY
 base_ref: main
-base_sha: 25406aff35a769fc2bcf2dd77b33bf0571b832a9
-created_at_utc: 2026-10-13T17:00:00Z
+base_sha: bb299d711d9bd0a76d52eafb201c2670e6cff161
+created_at_utc: 2026-10-13T18:00:00Z
 author: ChatGPT
 target_branch: main
 allow_commit: true
@@ -12,32 +12,40 @@ allow_flash: true
 allow_debug: true
 ---
 
-# M016 — Traitement et publication vibratoire Modbus RTU V1
+# M016 — Mission préalable : rendre le stockage V1 réellement disponible
+
+## Décision de pilotage
+La mission M016-V1-VIBRATION demeure **BLOCKED**, et n'est pas qualifiée. L'utilisateur retient la **voie A** : conserver intégralement la spécification Modbus RTU V1 gelée et rendre disponible une capacité de stockage de campagne réellement attribuée et qualifiée avant reprise de la publication vibratoire. La présente mission est une tranche préalable distincte ; elle ne clôture pas M016.
 
 ## Objectif
-Raccorder l'acquisition physique IIS3DWB déjà démontrée (M015-V et A04-02) aux traitements métier et aux registres vibratoires du mapping Modbus RTU V1 gelé. Livrer des mesures physiques réelles cohérentes, fraîches, qualifiées et invalidables, sans compromettre la FIFO, la persistance, le transport RTU ou les acquis M014/M015.
+Identifier, réaliser et qualifier la solution minimale permettant à l'environnement STM32 de fournir une capacité de stockage de campagne **réellement utilisable**, de valider/reconstituer une ActiveConfiguration autoritative conforme à B4 et d'autoriser le démarrage métier selon les invariants existants. Codex choisit librement l'implémentation proportionnée à l'état réel des composants, sans architecture, système de fichiers, refonte SDMMC ou découpage artificiel imposé.
 
-## Références et démarrage
-Lire l'état courant réel de main, AGENTS.md, GOUVERNANCE_CHATGPT_CODEX.md, PROTOCOLE_ECHANGE_V2.md, roadmap, DETTE_TECHNIQUE_A04.md, spécification/mapping unifié V1 (notamment B3, configuration B4 et commandes B5), architectures firmware A–J, sources cumulatives, rapports archivés M015-V/A04-01/A04-02 et leurs preuves, audit A-05 et matrice de tests. Vérifier HEAD, branche, état Git, provenance de l'image et travaux préexistants. Préserver les profils sûrs A04-01 et la protection B5 A04-02.
+## Références obligatoires
+Depuis le HEAD réel de main : AGENTS.md, GOUVERNANCE_CHATGPT_CODEX.md, protocole d'échange, roadmap, dette A04, ETAT_COURANT_TR2, spécification V1 B4/B5/B6 et mappings gelés, conception stockage/campaign/recovery, code de la plateforme STM32 et des drivers SDMMC, rapports M015-V/A04-01/A04-02, rapport BLOCKED M016 et preuves `preuves/TR2-20261013-M016/`. Vérifier l'état Git, les travaux existants, l'identité du banc et les contraintes matérielles avant action.
 
-## Périmètre technique
-1. Inspecter le propriétaire unique des données FIFO, le scheduler, les fenêtres et traitements existants, les champs B3, la configuration active autoritative, les états acquisition/cleanup, les générations et la supervision existante. Réutiliser les composants existants avant toute création.
-2. Implémenter une chaîne bornée échantillons physiques → fenêtres métier validées → calculs/indicateurs strictement définis par V1 → projection atomique/cohérente vers registres B3, avec unités, échelles, saturation, axes et ordre de mots conformes au mapping gelé.
-3. Définir explicitement validité, fraîcheur, transitions de configuration, génération, reset, timeout, défaut FIFO, timestamp discontinu, perte de source, fin/annulation d'acquisition et absence de données ; ne jamais publier comme fraîche une valeur obsolète, ni inventer une mesure. Les lectures B3 doivent rester compatibles avec le service Modbus et la politique A04-02.
-4. Analyser et respecter les budgets CPU/RAM/stack et de service FIFO, la cadence/timestamps (A04-05/A04-06), les chemins bloquants (A04-07) et les risques de coexistence. Choisir la solution incrémentale la plus simple ; pas de RTOS, refonte des drivers, FFT coûteuse, allocation SD ou changement du format V1 sans justification. Si un champ V1 exige un traitement non soutenable ou une décision normative, documenter précisément le blocage au lieu de produire des valeurs fictives.
-5. Conserver ActiveConfiguration, idempotence et durabilité B5, recovery, B0/B1, communication M014, acquisition M015 et refus B5 pendant capture A04-02. Pas d'activation implicite du stockage bulk microSD, ni de modification silencieuse des spécifications gelées.
+## Périmètre autorisé
+- Analyser les ressources physiques et logiques de stockage, leur attribution réelle, les limites de partition et de capacité, les politiques de durabilité/recovery et les prérequis de mise en service.
+- Choisir puis implémenter les raccordements logiciels nécessaires pour disposer d'un CampaignDataStore réel et d'une capacité autoritative, en réutilisant prioritairement les composants existants et en préservant la séparation entre stockage campagne, FRAM de configuration et buffers FIFO.
+- Vérifier la validation de configuration, le recovery de l'ActiveConfiguration, la cohérence des générations et les refus en cas d'absence, de corruption ou de capacité insuffisante. Ne jamais convertir une configuration candidate inactive en active sans validation effective.
+- Si un essai physique est nécessaire et sûr, le réaliser de manière bornée avec flash/debug autorisés, preuves d'identité, de capacité, de lecture/écriture et de reprise, sans dégrader la FIFO/Modbus ni les données existantes.
+- Proposer un checkpoint stable et un rapport BLOCKED si une allocation de stockage nécessiterait une décision structurante ou un risque destructif non maîtrisé.
 
-## Critères d'acceptation et preuves
-- Traçabilité champ par champ des sorties B3 au mapping V1, aux sources réelles et à la configuration active ; tests de décodage, axes, échelles, saturation, limites et cohérence des fenêtres.
-- Tests des transitions valid/invalid/stale, erreurs et changements de configuration/génération ; aucune publication partielle ni stale présentée comme valide.
-- Tests hôte pertinents et cross-build cumulatif ARM sûrs ; non-régressions Modbus/FRAM/FIFO, A04-01/A04-02 et cas A-05 adaptés. Ne jamais affaiblir des tests pour obtenir un vert.
-- Si banc sûr et accessible : flash/debug autorisés et qualification physique bornée repos/excitation contrôlée **sans demander de manipulation physique non disponible** ; lectures Modbus B3 réelles, cohérence avec acquisition et B0/B1, contrôle FIFO FULL/OVR, délais, erreurs UART, FRAM et état final. Séparer observations, estimations et garanties ; ne pas affirmer métrologie ou absence globale de pertes sans preuve.
-- Produire SHA code et BIN réellement exécutés, profil/toolchain, commandes, logs, données décodées, limites et dettes résiduelles ; conserver les résultats d'essais infructueux utiles.
+## Invariants et limites impératives
+- **V1 inchangée** : storage_mode=0 et storage_limit_mb=0 restent invalides ; pas de capacité fictive, de fallback permissif, de mode supervision hors stockage ni de modification silencieuse du mapping.
+- **Données et médias préservés** : aucune repartition, formatage, effacement, écriture dans une zone non explicitement attribuée, altération de FRAM/microSD/identité/Option Bytes/RDP ou écrasement de données préexistantes. Une attribution nouvelle doit être justifiée et non destructive ; si elle ne peut être établie, documenter les options et escalader avant d'écrire.
+- Respecter durabilité, idempotence B5, recovery, garanties ActiveConfiguration, architecture M014/M015 et protections A04-01/A04-02. Aucun ACK de succès prématuré.
+- Pas de refonte générale, RTOS, changement de driver ST, SDMMC 4-bit imposé ou qualification d'endurance/métrologie non démontrée.
+- Le chemin métier FIFO→B3 et les calculs vibratoires restent **hors de cette mission préalable** : les reprendre dans M016 après qualification de la précondition.
 
-## Autonomie et garde-fous
-Codex inspecte, choisit l'implémentation proportionnée, développe, corrige, teste, compile, flashe et débogue si pertinent, commit/push normalement sur main, puis publie DERNIER_RAPPORT.md et les preuves avec relecture distante. Les autorisations permanentes AGENTS.md s'appliquent ; pas de validation répétitive. Avant intervention STM32 : identifier TR2-001, vérifier image/profil/empreinte, état du banc, récupérabilité et préservation Flash/FRAM/microSD/identité ; utiliser procédure qualifiée. Pas de mass erase, Option Bytes/RDP, déprotection, opération destructive inhabituelle ou écriture SD non autorisée. Préserver worktrees/stashes, aucune opération Git destructive.
+## Critères d'acceptation
+1. Capacité de stockage exploitable démontrée, physiquement et logiquement attribuée, avec origine et limites documentées ; aucune hypothèse de capacité ne vaut autorité.
+2. DataStore réel : comportement lecture/écriture, persistance, erreurs, corruption, saturation et recovery validés selon les exigences V1, avec tests hôte/ARM et essais physiques bornés si sûrs.
+3. Validation B4 et recovery de l'ActiveConfiguration sur cette capacité : acceptation conforme lorsque conditions réunies, refus sûr sinon ; cohérence après redémarrage/coupure dans la portée testée.
+4. Non-régression des profils sûrs, FRAM, Modbus B0/B1/B5, FIFO et acquis A04-02 ; budgets d'I/O et risques de contention documentés. Distinguer simulation, essais matériels et garanties.
+5. Rapport avec commits, SHA, preuves, statut réel, capacité effectivement attribuée, état final du matériel et éventuelles décisions résiduelles. Aucun test affaibli ou preuve inventée.
 
-Arrêter/escalader uniquement si risque matériel non maîtrisé, contradiction normative V1, décision structurante ou intervention physique indispensable. Si l'intégration complète n'est pas sûre dans une tranche, livrer un checkpoint stable, un rapport explicite et une suite bornée sans revendiquer M016 DONE.
+## Autonomie et garde-fous matériels
+`target_branch: main`, `allow_commit: true`, `allow_push: true`, `allow_flash: true`, `allow_debug: true`. Codex analyse, conçoit, implémente, compile, teste, corrige, flashe/debug si nécessaire et sûr, commit/push normalement et publie `DERNIER_RAPPORT.md` avec relecture distante. Pas de validations répétitives. Identifier TR2-001 et l'image avant flash, vérifier la récupérabilité et les sauvegardes pertinentes ; aucune opération destructive inhabituelle, mass erase, changement Option Bytes/RDP ou intervention physique autonome hors périmètre. Préserver stashes/worktrees et l'historique Git. Escalader uniquement décision structurante, risque matériel non maîtrisé ou intervention physique requise.
 
-## Livrables et clôture
-Commits de code et tests, preuves reproductibles hôte/ARM/physique si réalisées, cartographie B3 et états invalides, budgets/limites, état matériel final et rapport Codex DERNIER_RAPPORT.md avec statut réel et SHA vérifiés sur main. Ne pas autoqualifier M016 ni créer de tag A-01. ChatGPT décidera de la qualification et de la mise à jour des jalons après contrôle indépendant. Le rapport A04-02 est archivé dans archives/TR2-20261013-A04-02-FRAM-MODBUS/RAPPORT.md ; ne pas l'écraser.
+## Livrables et suite
+Rapport et preuves Codex, résultats et limites, éventuellement code/test/qualification physique. ChatGPT vérifiera la cohérence et décidera de la qualification de la précondition, puis préparera la **reprise de M016-V1-VIBRATION** sous référence explicite, sans prétendre que M016 a déjà été achevée.
