@@ -1,11 +1,12 @@
 ---
 mission_id: TR2-20261013-A04-02-FRAM-MODBUS
-status: IN_PROGRESS
+status: DONE
 base_ref: main
 base_sha: ba6f34c4e536f430be74b2e6c27f6c8c9cb873e2
 initial_head: 2cbb9bbc88e6ee3a9392b662c23a33b6b64e3d34
 result_sha: 8bcb8436822ce7444074865617cb3696f877a6ad
 created_at_utc: 2026-10-13T16:09:08.902564+00:00
+updated_at_utc: 2026-10-13T16:18:03.722025+00:00
 author: Codex
 target_branch: main
 allow_commit: true
@@ -18,7 +19,7 @@ allow_debug: true
 
 **Critères logiciels et essai physique prévus satisfaits dans la portée ci-dessous.** B0/B1/B3 ne préparent plus B5 inutilement ; B5 est explicitement indisponible par **exception V1 existante04** pendant armement/capture/cleanup non vérifié, avant toute mutation du mailbox ou I/O journal. Après cleanup, projection fraîche et chemin transactionnel inchangé. **126/126 tests hôte + cross-build cumulatif réussis.** Une capture physique32768XYZ+4096timestamps, six readsHP au total/retry0, aucun FULL/OVR/UARTdrop observé, données persistantes contrôlées. Firmware cumulatif corrigé laissé sur TR2-001, debugger détaché.
 
-**IN_PROGRESS uniquement pour publication du rapport physique et relecture distante**, aucun blocage extérieur. La marge nominale calculée sur cet essai est **1,445ms** : suffisante pour les observations acquises mais étroite, sans garantie générale de continuité ou d'acceptation M016. ChatGPT décide de la qualification/clôture de dette ; registre inchangé et aucun tag créé.
+**DONE dans le périmètre du contrat** : rapport physique, code et preuves publiés sur `dddb58c96202ecc699e4b56ab8c385a5b4119eb1` puis intégralement relus (127fichiers byte-identiques), aucun blocage extérieur. La marge nominale calculée sur cet essai est **1,445ms** : suffisante pour les observations acquises mais étroite, sans garantie générale de continuité ou d'acceptation M016. ChatGPT décide de la qualification/clôture de dette ; registre inchangé et aucun tag créé.
 
 ## 1. Référence, code et invariants
 
@@ -89,13 +90,13 @@ DélaisHP incluent transport/Windows et ne sont pas des coûts CPU. Les six tram
 
 ### Acquisition, marge et conservation
 
-[Audit indépendant offline](preuves/TR2-20261013-A04-02/physical-independent-audit.json) sur dumps/bytes, [304bursts décodés](preuves/TR2-20261013-A04-02/decoded-bursts.json), [six observationsModbus](preuves/TR2-20261013-A04-02/decoded-modbus.json).
+[Recalcul offline distinct des résultats firmware](preuves/TR2-20261013-A04-02/physical-independent-audit.json) sur dumps/bytes, [304bursts décodés](preuves/TR2-20261013-A04-02/decoded-bursts.json), [six observationsModbus](preuves/TR2-20261013-A04-02/decoded-modbus.json).
 
 - **32768XYZ +4096TS /36864mots**, durée début→cleanup1247ms ; huit préfixes4096XYZ, dont quatre taillesV1.304bursts contigus avec CRC de **chaque** payload concordant à la RAM ; parity/counter/timestamp monotone/saturation contrôlés sur la RAM complète. Reconstruction SPI intégrale seulement sur les derniers4608mots, soit4096XYZ+512TS, avec préclose/longueurs/offsets/state et comparaison byte-à-byte. Ne pas revendiquer un SPIjournal intégral sur32768XYZ.
 - **FIFOmax293/512**, flags agrégés **0x81** : watermark0x80 et bit haut de niveau0x01 attendus ; **masque critique0x68 nul**, aucun FULL/OVR/latch observé. L'audit offline initial réutilisait improprement flags==0 de M015-V (max158) : corrigé à partir du masque réel inchangé du driver, données conservées ; aucun firmware/test de garde affaibli, aucune nouvelle capture.
 - À CPU160MHz : **gap maximal entre servicesFIFO5,855106ms**, pollFIFOmax2,879294ms ; serviceModbusmax en phase protégée **5,836194ms**, global hors/protégé **144,138431ms**. À débit nominal26667×9/8=30000,375mots/s, réserve au max293 =219mots ≈**7,299909ms**, marge comparative≈**1,444803ms**. Minima/marges estimés par débit nominal, mesuresDWT pour les durées ; maxima non nécessairement simultanés. Cette comparaison et l'absence FULL démontrent la portée bornée, **pas WCET ni endurance/perteglobalezéro**.
 - IRQ :48RXcallbacks,6TXstarted/6TXcomplete,60eventspushed/polled ; drops/errors/fail-safe0, UARTErrorCode0, txbusy/faultfalse, productionpollerrors0, CFSR/HFSR0. Cleanup **0C 80 00**, stateREADY/FIFOvalid, capteur au repos.
-- **FRAM** : CRC32 avant/après **0xB422080A**, indépendant depuis backup262144octets ; SHA256 de la lectureavant `d732acc557152180fc394097d6a5269ea2f45c1da387c8643f512318adf92fce`. Image logique51914octets avant/après **byte-identique**, SHA `560f0551315df7b3146f79850f67b72dd7cdf8a3234bbc136e00e89e4d26b239`, recoveryVALID/gen12. Pour la FRAM complète après capture, preuve **CRC32 MCU**, pas nouvelle lecturehost SHA256 complète ; ne pas confondre ces niveaux.
+- **FRAM** : CRC32 avant/après **0xB422080A**, indépendant depuis backup262144octets ; SHA256 de la lectureavant `d732acc557152180fc394097d6a5269ea2f45c1da387c8643f512318adf92fce`. Image logique51914octets avant/après **byte-identique**, SHA `560f0551315df7b3146f79850f67b72dd7cdf8a3234bbc136e00e89e4d26b239`, état recoveryboot VALID/gen12 relevé au debugger. Les51914octets sont la candidate logique en RAM issue du boot, recoupée par le CRC physique post-cleanup. Pour la FRAM complète après capture, preuve **CRC32 MCU**, pas nouvelle lecturehost SHA256 complète ; ne pas confondre ces niveaux.
 
 ## 5. Limites et décisions suivantes
 
@@ -107,6 +108,8 @@ Journal `ETAT_COURANT_TR2.md` actualisé : code/binaire courant A04-02, preuvebo
 
 ## 6. Publication et état Git
 
-[Manifest](preuves/TR2-20261013-A04-02/manifest.json) :113 fichiers, empreintes exactes, 1539192octets de preuves ; BINhex, RAM/SPIbornés, commandesGDB/CLI/SSH réellement exécutées, scripts et logs. Sorties brutes conservées (whitespace des logs/caches/patch : attendu, non modifié pour masquer un résultat) ; code/documents vérifiés via diffcheck. Contrats/archives/dette et protectionA04-01 préservés. Worktree propre au checkpoint5088d50, actuellement seulement rapport/journal/preuves de clôture à publier ; aucun code instable ni blocage.
+[Manifest](preuves/TR2-20261013-A04-02/manifest.json) :114 fichiers, empreintes exactes, 1560723octets de preuves ; BINhex, RAM/SPIbornés, commandesGDB/CLI/SSH réellement exécutées, scripts et logs. Sorties brutes conservées (whitespace des logs/caches/patch : attendu, non modifié pour masquer un résultat) ; code/documents vérifiés via diffcheck. Contrats/archives/dette et protectionA04-01 préservés. Worktree propre au checkpoint5088d50, actuellement seulement rapport/journal/preuves de clôture à publier ; aucun code instable ni blocage.
 
-Après push normal explicite `HEAD:refs/heads/main`, relecture intégrale des fichiers depuis GitHub à effectuer, puis statutDONE. Aucune validation réussie, transmission, flash, reset ou lecture physique supplémentaire nécessaire. Le SHA du commit final distant sera fourni dans la réponse finale ; ne pas l'inscrire dans son propre commit.
+**Publication physique/finale : `dddb58c96202ecc699e4b56ab8c385a5b4119eb1`**, `A04-02: publish bounded physical coexistence evidence and final results`, push normal réussi. Après fetch et ls-remote : HEAD local=main distant, **127fichiers intégralement relus** depuis GitHub et comparés byte-à-byte aux fichiers publiés ; [preuve](preuves/TR2-20261013-A04-02/publication-final-results-readback.json). Manifest et BINhex vérifiés, worktree propre après ce push. La présente mise à jour DONE ajoute cette preuve et le manifest114 entrées ; sa publication sera aussi relue avant réponse finale.
+
+Aucune validation réussie, transmission, flash, reset ou lecture physique supplémentaire nécessaire. L'analyse offline est réalisée par Codex en recalculant les bytes, **pas une revue indépendante ChatGPT**. Le SHA du commit de clôture et l'état Git après dernière publication seront fournis dans la réponse finale, sans SHA autoréférentiel dans le rapport. Autorisations utilisées seulement dans cette mission ; aucun tag/clôture de dette décidés par Codex.

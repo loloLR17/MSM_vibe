@@ -450,5 +450,9 @@
   "validation-full.log": {
     "bytes": 82423,
     "sha256": "d4ed5b2055f2c7941fac68000f416253334c671d52415b5135a529eeb8482d97"
+  },
+  "publication-final-results-readback.json": {
+    "bytes": 21531,
+    "sha256": "77d57ae8e68778b7d69af888680a291f8e09a5b0208f6e82f718eef9c49d4bc9"
   }
 }
