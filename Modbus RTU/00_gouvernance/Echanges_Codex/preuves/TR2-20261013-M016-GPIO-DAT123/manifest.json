@@ -89,6 +89,7 @@
   "gpio-pwr-fixed-phase0-baseline-invocation.json": "192488b1c63e9632fe6d8af13dd1956dd1160705bcfab7bac407b2a48055dc66",
   "m016-gpio-pwr-fixed-build.log": "8ae41e4a1de18e1f96d094cd8ebef230997ca6b95abfba3c1bf6e77f00b0a4a6",
   "phase5-announced.json": "5328a40ed97a242074a1aa06aaf895f0971803b28f8fbb65be7ffa6c4d67586c",
+  "publication-readback.json": "0e1f84961ef7f43e18ec104a6dd9a728860409c70e1c151c323453c3be563645",
   "gpio-phase1-observed-invocation.json": "4cafdfb5ff518b6ee385a3a768f4148ab4ba7def7be70706d08184b162e247a3",
   "gpio-phase6-observed.gdb": "887aa18e04f2641e025f4c44e35627e15427976cf80f7bb257da84dac5ef19d1",
   "m016-gpio-configure.log": "1070279ff29d139cdc954c81573508fddc230b4393e23fc46666f026f7e565a0",

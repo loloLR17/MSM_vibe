@@ -1,6 +1,6 @@
 ---
 mission_id: TR2-20261013-M016-GPIO-DAT123-UNIT
-status: IN_PROGRESS
+status: DONE
 base_ref: main
 base_sha: 025e46367a2185401d47866f5cfe790936f1ec03
 initial_head: 5e72a70b5ee220bb564e481fc5fc96826e022243
@@ -16,7 +16,7 @@ allow_debug: true
 
 # M016 — Test GPIO statique DAT1/DAT2/DAT3 terminé
 
-**Les trois lignes reproduisent au breakout les niveaux DC attendus**, selon les mesures rapportées par l'utilisateur au BM869s. Les sept phases ont été contrôlées sur le MCU ; le banc est laissé à l'arrêt, toutes sorties basses. Statut provisoire IN_PROGRESS uniquement pour publication/relecture, puis DONE dans cette portée GPIO statique. **Aucune qualification dynamique SDMMC4bits n'en découle.** Aucun essai SDMMC répété ni portage SD modifié.
+**Les trois lignes reproduisent au breakout les niveaux DC attendus**, selon les mesures rapportées par l'utilisateur au BM869s. Les sept phases ont été contrôlées sur le MCU ; le banc est laissé à l'arrêt, toutes sorties basses. **Statut DONE dans cette portée GPIO statique**, après publication et relecture intégrale. **Aucune qualification dynamique SDMMC4bits n'en découle.** Aucun essai SDMMC répété ni portage SD modifié.
 
 ## Préconditions et identités
 
@@ -67,3 +67,5 @@ Principal totalement non accédé : dernier probeSTORAGE2 historique/code38c0273
 Dépôt original propre à82169af ; worktrees historiques et stashes6251b988e8b20f97997a8f98fd26d4d35a45a1b2/f3b829e6188f491920edf74a5f9ed0f559d08b87 conservés. Worktree `MSM_vibe-M016-gpio-dat123`, branchecodex/m016-gpio-dat123 basée5e72a70 ; commits e39b1d6 (initial),9b0ad67 (MSPcorrectif),80291b68db8cde30ffe72fc05761c59658d8681b (checkpoint). Ce checkpoint a été poussé et relu intégralement :88fichiers byte-identiques, manifeste vérifié. Résultats finaux publiés parpushnormalHEAD:refs/heads/main puisfetch/relecture ; miseàjourDONE après cettepreuve. Aucunforce/merge/rebase/reset/clean ; aucun changement de gouvernance ou contrat. SHAfinal fourni dans réponseCodex.
 
 **À transmettre à ChatGPT :** mesures statiques conformes pour les trois lignes ; examiner les preuves et décider de la prochaine investigation dynamique. La mission GPIO peut être clôturée dans sa portée ; stockageV1, CRC4bit, production et restauration du principal restent distincts. Aucunequalification indépendante ni tag créé par Codex.
+
+Publication relue intégralement au SHA **acbe81b7f1c1e99fe7cf7e998f78e909c528f44c** : 119 fichiers byte-identiques, manifesteSHA256 vérifié, contrat/gouvernance/dette/firmwareprincipal/portageSD inchangés. Mise à jourDONE suivie depushnormal/relecture ; son SHAfinal est fourni dans la réponseCodex. StatutDONE ne remplace pas le contrôle indépendant ChatGPT et ne qualifie pas SDMMC4bits.

@@ -1,12 +1,12 @@
 # État courant MSM TR2 — synthèse opérationnelle
 
-**Actualisation :** 13 octobre 2026, stockage M016 suspendu ; banc SDMMC2 connecté ; échecs4bits, diagnostic1bit exact et vérification physique demandée. **Source de vérité :** branche `main` de `loloLR17/MSM_vibe`.
+**Actualisation :** 13 octobre 2026, mission GPIO DAT1/DAT2/DAT3 achevée : mesures DC rapportées conformes, second banc laissé tout-bas sans microSD. Stockage et SDMMC4bits restent non qualifiés. **Source de vérité :** branche `main` de `loloLR17/MSM_vibe`.
 
 > Ce document est une synthèse opérationnelle, non un journal d'essais. Le document intégral antérieur est conservé **sans modification** dans [Archives/ETAT_COURANT_TR2_AVANT_A02_20261013.md](Archives/ETAT_COURANT_TR2_AVANT_A02_20261013.md). Il s'agit d'un état reconstruit à partir des preuves disponibles, et non d'une restitution du journal HP historique introuvable.
 
 ## 1. État matériel et logiciel
 
-- **Cible principale :** TR2-001 / NUCLEO STM32U575 ; dernier état connu : probe stockage tentative2 (voir M016 ci-dessous), cumulatif A04-02 non encore restauré. Aucun état actuel relu dans le banc indépendant, sans ST-LINK détecté. Ne pas restaurer automatiquement M014-H.
+- **Cible principale :** TR2-001 / NUCLEO STM32U575 ; dernier état connu : probe stockage tentative2 (voir M016 ci-dessous), cumulatif A04-02 non encore restauré. Principal non sélectionné ; aucun état actuel relu pendant les missions du second banc. Ne pas restaurer automatiquement M014-H.
 - **Code A04-02 historiquement exécuté par Codex :** `8bcb8436822ce7444074865617cb3696f877a6ad`, BIN169948octets SHA `b4301d6f3325c266edc19297413fd0885828e5625ec030a8acad340444b3fd9b`. **OBSERVÉ PHYSIQUE BORNÉ** :32768XYZ/4096TS,6readsHP sans retry, B5 retiré pendant capture/relu après cleanup ; qualification ChatGPT A04-02 acquise dans ce périmètre borné le 13/10/2026.
 - **Code M015-V déclaré testé par Codex :** `ef468539b9943cc9b9b4d832e513a0f8ab05c7ae` ; commit documentaire de preuves `92c0966d5a4f84ee4033490825e3f7cc6dc6737a`. SHA-256 BIN : `8529630a5a6c9aaa2449fde512b06d6ca16a89a08b7afea2abc9ecca3b75d480` (rapport M015-V). **Revue indépendante A-01 et tag `tr2/M015` encore à réaliser.**
 - **Supervision PC :** socle S0–S7 développé ; M014-H a démontré sur le TR2 réel les lectures B0/B1, le polling et la perte/reprise dans une portée bornée. Pas de preuve de mesure vibratoire V1 affichée.
@@ -74,3 +74,5 @@ ChatGPT a qualifié A04-01 (logiciel) et A04-02 (logiciel + essai physique born�
 - **CONTRÔLÉ MCU / MESURES DC RAPPORTÉES** : firmware isolé STGPIO NUCLEO-U575ZI-Q, code9b0ad67 ; cross-build/Flashreadback conformes, SDMMCoff. PortMSPPWR corrigé après arrêt initial avantGPIO, preuves conservées. MicroSDretirée/ligneslibres/bancalimenté confirmés utilisateur avantflash.
 - **Mesures utilisateur BM869s au breakout** : tout-bas=0/0/0V ; DAT1haut=3,3/0/0V ; DAT2haut=0/3,3/0V ; DAT3haut=0/0/3,3V. Septphases contrôléesGPIOODR/IDR, intervalleminimumobservé48433ms, pas de hautsimultané ; conformité statique étayée, aucune mesureohmique ou qualificationSDMMC4bit dynamique.
 - **État final secondeNUCLEO** : stage4/phase6/command0/error0, trois sorties basses, SDMMCoff, debuggerdétaché. Garder microSDretirée tant quefirmwareGPIO présent, même tout-bas. Principal nonaccédé/nonrestauré, stashes et preuves antérieures préservés. Rapport pour contrôleindépendant ChatGPT et choix d'investigation dynamique ; CRC4bit reste inexpliqué.
+
+- Mission GPIO clôturée **DONE dans sa portée statique**, après publication et relecture distante des résultats ; contrôle indépendant ChatGPT à réaliser. Ce statut ne clôture pas le diagnostic dynamique SDMMC4bits.
