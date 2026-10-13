@@ -13,6 +13,8 @@ volatile uint32_t gpio_stage, gpio_phase, gpio_command, gpio_output_mask;
 volatile uint32_t gpio_phase_started_ms, gpio_error, gpio_initialized;
 volatile uint32_t gpio_uid[3];
 void SystemClock_Config(void);
+/* Retain the official example MSP power-clock initialization. */
+void HAL_MspInit(void) { __HAL_RCC_PWR_CLK_ENABLE(); }
 void SysTick_Handler(void) { HAL_IncTick(); }
 static void all_low(void) {
   if(gpio_initialized) HAL_GPIO_WritePin(GPIOB,MASK,GPIO_PIN_RESET);
