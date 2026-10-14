@@ -1,6 +1,6 @@
 ---
 mission_id: TR2-20261014-P12H3H-SDMMC1-REFERENCE-POC
-status: IN_PROGRESS
+status: FAILED
 base_ref: main
 base_sha: a517e1cd8ce35d6e48bbe92e53f07c7289980ae5
 initial_head: 3073d95b1fcf9d6e3e3ed5c35307a17364bdf3d5
@@ -17,7 +17,7 @@ allow_debug: true
 
 # P12/H3h — SDMMC1 communautaire reproduit fidèlement, fonctionnement instable
 
-**Résultat technique : FAILED pour un fonctionnement fiable du PoC.** Le firmware tiers inchangé compile et s'exécute. **4 bits effectifs prouvés**, USB natif reconnu, **deux jeux distincts de 128 KiB écrits puis intégralement relus sans différence**. Cependant des CRC et des passages « No Media » persistent ; la dernière observation montre de nouveau l'indisponibilité du média. Le succès borné ne masque pas ces échecs. Le statut IN_PROGRESS concerne seulement la publication/relecture distante, puis sera FAILED.
+**Résultat technique : FAILED pour un fonctionnement fiable du PoC.** Le firmware tiers inchangé compile et s'exécute. **4 bits effectifs prouvés**, USB natif reconnu, **deux jeux distincts de 128 KiB écrits puis intégralement relus sans différence**. Cependant des CRC et des passages « No Media » persistent ; la dernière observation montre de nouveau l'indisponibilité du média. Le succès borné ne masque pas ces échecs. Le statut final FAILED constate cette instabilité non résolue ; les succès bornés restent acquis et ne qualifient pas le stockage TR2.
 
 Aucune source SDMMC, bus, fréquence, GPIO, driver ou middleware tiers n'a été corrigé. Aucun portage SDMMC2 ; mission P12/H3h distincte de M018 PC/SQLite. Il ne s'agit pas d'une qualification TR2 à426672 B/s ou sept jours.
 
@@ -76,7 +76,7 @@ Lanceur hôte Win32 propre : [NativeAligned.cs](preuves/TR2-20261014-SDMMC1-REFE
 
 Chronométrage hôte natif, **aucun debugger connecté pendant les transferts mesurés**, payload131072 à16chunks8KiB et flush. Jeu B : write+flush **3178,7446ms**, read **187,4372ms**, soit environ **41234B/s écrit** et **699285B/s lu** dans cette petite séquence. Jeu A readaprèsreset **194,6563ms**. Ce sont des durées applicatives hôte/USB/volume brut, incluant leurs coûts ; pas une mesure intrinsèque SD ni un débit soutenu. Pas de P95/P99 de longues campagnes déduit d'un seul agrégat.
 
-Le readme tiers annonce environ570KB/s ; cela n'a pas été reproduit comme benchmark comparable ici. M017 utilisait SDMMC2/1bit10MHz/HAL1.9SDK/DMA/ring/producteur426672B/s ; ici SDMMC1/4bit12MHz/HAL tiers/polling/USB/buf8KiB sans producteur. **Aucune attribution causale du gain/perte aux seuls4bits**, aucun transfert de qualification M017 ou runtimeTR2.
+Le readme tiers annonce environ570KB/s ; cela n'a pas été reproduit comme benchmark comparable ici. M017 utilisait SDMMC2/1bit10MHz/HAL du SDK CubeU5 v1.9.0/DMA/ring/producteur426672B/s ; ici SDMMC1/4bit12MHz/HAL tiers/polling/USB/buf8KiB sans producteur. **Aucune attribution causale du gain/perte aux seuls4bits**, aucun transfert de qualification M017 ou runtimeTR2.
 
 **Faits :** CRCdata0x02 en Debug et Release, puis erreurs accumulées2005 (CMD_CRC_FAIL1+CMD_RSP_TIMEOUT4+ILLEGAL_CMD2000) avec média devenant indisponible. Le HAL original quitte une multi-read CRC sans CMD12 lorsque DATAEND manque ; la carte a été observée DATA5 et le handle logiciel READY. Le callback retourne erreur, puis TEST_UNIT_READY peut annoncer notready ; un reset récupère temporairement. Cela explique une séquence de récupération insuffisante, **pas la cause initiale des CRC**. `sd_ready=1` seul n'est pas une preuve de disponibilité.
 
@@ -94,4 +94,4 @@ Prochaine mission/décision à ChatGPT : isoler le premier CRC sans modifier sil
 
 Journal ETAT_COURANT_TR2 actualisé, M017 archivée byte-identique depuisa517e1c. Dépôt original82169af et deux stashes6251b988…/f3b829e6… préservés ; autres worktrees, production, gels et dettesA04 intacts. Worktree de mission `MSM_vibe-SDMMC1-PoC`, branchelocale `codex/p12h3h-sdmmc1-reference`, ciblemain ; pas de merge/rebase/force/reset destructif. Permissions exercées : développement/outillage, builds, flash/debugseconde, commit/pushmain.
 
-[Index preuves](preuves/TR2-20261014-SDMMC1-REFERENCE-POC/README.md), manifestSHA256, bruts et BIN/ELF/MAP locaux `/home/lolo/dev/msm/reports/TR2-SDMMC1-POC-20261014` et dossiersbuild. Le `result_sha` est **le commit externe tiers réellement évalué**, distinct des commits MSM de lanceur/rapport. Publication puis relecture complète à effectuer ; SHAfinal du rapport communiqué dans réponse finale sans auto-référence.
+[Index preuves](preuves/TR2-20261014-SDMMC1-REFERENCE-POC/README.md), manifestSHA256, bruts et BIN/ELF/MAP locaux `/home/lolo/dev/msm/reports/TR2-SDMMC1-POC-20261014` et dossiersbuild. Le `result_sha` est **le commit externe tiers réellement évalué**, distinct des commits MSM de lanceur/rapport. Publication normale sur `main` du commit `51da6b09306ad942cb365b8c1a5196297f76fcdb` (`P12 H3h SDMMC1 checkpoint: faithful community build and physical evidence with recurring media failure`) réussie. Référence récupérée de GitHub et **134 fichiers intégralement relus et comparés byte-identiques**, avec **127 entrées du manifest SHA-256 vérifiées** : [preuve de relecture distante](preuves/TR2-20261014-SDMMC1-REFERENCE-POC/remote-readback-51da6b09.json). Checkout tiers toujours propre/épinglé, dépôt original propre à82169af et deux stashes inchangés. Mise à jour finale du rapport FAILED et du journal seule, plus preuve/script de relecture ; aucun nouvel essai, build, flash ou reset. Worktree de mission propre après commit ; publication finale à vérifier de la même manière. Le SHA final distant est communiqué dans la réponse finale, sans auto-référence.
