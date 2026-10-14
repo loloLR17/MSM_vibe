@@ -33,56 +33,63 @@ def confirmation(name):
     assert record['confirmed'] is True and record['user_reply'],name
     return record
 def main():
-    parser=argparse.ArgumentParser();parser.add_argument('operation',choices=['flash-A','run-A','terminal-A'])
-    args=parser.parse_args();build=Path('/home/lolo/dev/msm/reports/SDMMC1-firstfault-A-build')
+    parser=argparse.ArgumentParser();parser.add_argument('operation',choices=['flash-A','run-A','terminal-A','flash-B','run-B','terminal-B'])
+    args=parser.parse_args();profile=args.operation[-1];width=1 if profile=='A' else 4
+    if profile=='B':
+        a=json.loads((P/'RUN-A-decoded.json').read_text())
+        assert a['passed_bounded'] and a['profile']==1 and a['stage']==100 and a['run_count']==1 and a['ssr_width']==0
+        assert a['initial_state']==4 and a['terminal_reason']==0 and not a['first_error']['valid']
+    build=Path('/home/lolo/dev/msm/reports/SDMMC1-firstfault-'+profile+'-build')
     elf=build/'sdmmc1_firstfault.elf';image=build/'sdmmc1_firstfault.bin'
-    artifacts=json.loads((P/'artifacts-A.json').read_text())
+    artifacts=json.loads((P/('artifacts-'+profile+'.json')).read_text())
     assert hashlib.sha256(image.read_bytes()).hexdigest()==artifacts['bin_sha256']
     assert hashlib.sha256(elf.read_bytes()).hexdigest()==artifacts['elf_sha256']
-    if args.operation=='flash-A':
-        confirmation('physical-preflash-A')
-        original=Path('/home/lolo/dev/msm/reports/SDMMC1-PoC-release-build/sdmmc1_poc.elf')
-        dump=P/'original-preflash-A.bin'
-        debug('original-preflash-A',original,'dump binary memory '+win(dump)+' 0x08000000 0x08007acd\n')
-        assert hashlib.sha256(dump.read_bytes()).hexdigest()=='2a2fe744ab926789ae180b74f2a250b2a9202329b5afde51a1155cdd69d54c1a','Unexpected prior image: preserve and stop'
+    if args.operation.startswith('flash-'):
+        confirmation('physical-preflash-A') if profile=='A' else None
+        original=Path('/home/lolo/dev/msm/reports/SDMMC1-PoC-release-build/sdmmc1_poc.elf') if profile=='A' else Path('/home/lolo/dev/msm/reports/SDMMC1-firstfault-A-build/sdmmc1_firstfault.elf')
+        previous_bytes=31437 if profile=='A' else 21852
+        previous_hash='2a2fe744ab926789ae180b74f2a250b2a9202329b5afde51a1155cdd69d54c1a' if profile=='A' else json.loads((P/'artifacts-A.json').read_text())['bin_sha256']
+        dump=P/('original-preflash-'+profile+'.bin')
+        debug('original-preflash-'+profile,original,'dump binary memory '+win(dump)+' 0x08000000 '+hex(0x08000000+previous_bytes)+'\n'+ ('p ff_result\nif ff_result.stage != 100 || ff_result.run_count != 1 || ff_result.profile != 1\n quit 4\nend\n' if profile=='B' else ''))
+        assert hashlib.sha256(dump.read_bytes()).hexdigest()==previous_hash,'Unexpected prior image: preserve and stop'
         command=[CLI,'-c','port=SWD','sn='+SN,'freq=8000','-w',win(image),'0x08000000','-v','-rst']
-        with (P/'flash-A-command.json').open('x') as f:json.dump({'command':command,'bin_sha256':artifacts['bin_sha256']},f,indent=2)
+        with (P/('flash-'+profile+'-command.json')).open('x') as f:json.dump({'command':command,'bin_sha256':artifacts['bin_sha256']},f,indent=2)
         result=subprocess.run(command,capture_output=True,timeout=55)
-        (P/'flash-A.log').write_bytes(result.stdout+result.stderr);result.check_returncode()
+        (P/('flash-'+profile+'.log')).write_bytes(result.stdout+result.stderr);result.check_returncode()
         assert b'Download verified successfully' in result.stdout
-        debug('flash-A-readback-wait',elf,'dump binary memory '+win(P/'flash-A-readback.bin')+' 0x08000000 '+hex(0x08000000+len(image.read_bytes()))+'''\np ff_result
-if ff_result.magic != 0x46303133 || ff_result.profile != 1 || ff_result.stage != 1 || ff_result.run_count != 0
+        debug('flash-'+profile+'-readback-wait',elf,'dump binary memory '+win(P/('flash-'+profile+'-readback.bin'))+' 0x08000000 '+hex(0x08000000+len(image.read_bytes()))+'''\np ff_result
+if ff_result.magic != 0x46303133 || ff_result.profile != WIDTH || ff_result.stage != 1 || ff_result.run_count != 0
  quit 4
 end
-''')
-        assert (P/'flash-A-readback.bin').read_bytes()==image.read_bytes()
-    elif args.operation=='run-A':
-        confirmation('physical-start-A')
+'''.replace('WIDTH',str(width)))
+        assert (P/('flash-'+profile+'-readback.bin')).read_bytes()==image.read_bytes()
+    elif args.operation.startswith('run-'):
+        confirmation('physical-start-'+profile)
         # Creating the marker before trigger prevents operator retries after an interrupted call.
-        with (P/'RUN-A-started.json').open('x') as f:json.dump({'utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),'maximum_runs':1},f)
-        debug('RUN-A-trigger',elf,'''p ff_result
-if ff_result.magic != 0x46303133 || ff_result.profile != 1 || ff_result.stage != 1 || ff_result.run_count != 0 || ff_result.trigger != 0
+        with (P/('RUN-'+profile+'-started.json')).open('x') as f:json.dump({'utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),'maximum_runs':1},f)
+        debug('RUN-'+profile+'-trigger',elf,'''p ff_result
+if ff_result.magic != 0x46303133 || ff_result.profile != WIDTH || ff_result.stage != 1 || ff_result.run_count != 0 || ff_result.trigger != 0
  quit 4
 end
 set ff_result.trigger = 0x52454144
-''')
+'''.replace('WIDTH',str(width)))
         # No GDB connection/halt during the bounded polling interval.
         time.sleep(10)
-        terminal(elf)
+        terminal(elf,profile,width)
     else:
-        assert (P/'RUN-A-started.json').exists()
-        terminal(elf)
-def terminal(elf):
+        assert (P/('RUN-'+profile+'-started.json')).exists()
+        terminal(elf,profile,width)
+def terminal(elf,profile,width):
     # Unique output names prevent repeating a successful terminal collection.
-    debug('RUN-A-terminal',elf,'''p ff_result
+    debug('RUN-'+profile+'-terminal',elf,'''p ff_result
 p hsd1
-'''+ 'dump binary memory '+win(P/'RUN-A-result.bin')+' &ff_result ((unsigned char *)&ff_result)+sizeof(ff_result)\n'+
-        'dump binary memory '+win(P/'RUN-A-data512.bin')+' ff_data512 ff_data512+512\n'+
-        'dump binary memory '+win(P/'RUN-A-data8192.bin')+' ff_data8192 ff_data8192+8192\n'+'''
+'''+ 'dump binary memory '+win(P/('RUN-'+profile+'-result.bin'))+' &ff_result ((unsigned char *)&ff_result)+sizeof(ff_result)\n'+
+        'dump binary memory '+win(P/('RUN-'+profile+'-data512.bin'))+' ff_data512 ff_data512+512\n'+
+        'dump binary memory '+win(P/('RUN-'+profile+'-data8192.bin'))+' ff_data8192 ff_data8192+8192\n'+'''
 if ff_result.stage != 99 && ff_result.stage != 100
  printf "OPERATOR_TIMEOUT_HALTED: no detach/resume, reset or retry\\n"
  disconnect
  quit 6
 end
-''')
+'''.replace('WIDTH',str(width)))
 if __name__=='__main__':main()

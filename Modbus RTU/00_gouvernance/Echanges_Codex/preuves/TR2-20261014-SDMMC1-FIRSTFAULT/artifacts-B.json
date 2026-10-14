@@ -1,0 +1,10 @@
+{
+  "profile": 4,
+  "upstream_sha": "1e3c9183bad023ebf7d234134823d9270a0e8b64",
+  "bin_bytes": 21860,
+  "bin_sha256": "fdb7fa151bd69051c839cf11a1f1e3eb134d6a821a07ab0b827eef1d91bdf829",
+  "elf_sha256": "c9973b5b4713e8215fc24ce1e38ffdd4b50cec466fa890306586903347e1b1f9",
+  "build": "passed",
+  "A_PASS_required_and_verified": true,
+  "no_usb_msc_fatfs_or_sd_write_command_symbols": true
+}

@@ -56,3 +56,10 @@ hash et comparaison des données uniquement si retour HAL data conforme.
 La présence de fonctions HAL non utilisées dans le source externe ne permet pas
 leur invocation : elles ne sont pas liées au probe. Préserver BIN/ELF/MAP et
 readback vérifiés ; pas de distribution du source tiers ni de flash automatique.
+
+Après PASS A intégral, FF_PROFILE=4 se construit dans `SDMMC1-firstfault-B-build`.
+`observe.py flash-B` vérifie preuve PASS A, UID et image A précédente avant
+chargement B au WAIT ; carte insérée mais aucune transaction SD du probe au boot.
+La coupure utilisateur après chargement B est nécessaire au départ électrique B.
+`physical-start-B.json` contient le retour réel ; `run-B` crée un marqueur unique.
+`decode.py ... --profile B` compare les données B, conservées séparément de A.

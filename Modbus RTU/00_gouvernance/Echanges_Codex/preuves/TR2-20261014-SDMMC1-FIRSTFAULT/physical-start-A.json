@@ -1,0 +1,8 @@
+{
+  "confirmed": true,
+  "user_reply": "Je te confirme cet état ST-LINK connecté, carte SD inésrée, USB-C déconnecté. J'ai bien mesuré 0,003V lors de l'insertion de la carte SD. A toi de jouer",
+  "utc": "2026-10-14T15:40:40.222402+00:00",
+  "vdd_before_insertion_volts_reported": 0.003,
+  "physical_pinout_confirmation": "previous off-state confirmation: blue CN11-20 GND, aubergine CN11-16 3V3",
+  "safety_condition": "ST documentation reviewed; physical off-state pinout confirmed by user; conditional safety block resolved, contract file unmodified"
+}
