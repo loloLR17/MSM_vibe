@@ -13,9 +13,9 @@ allow_flash: true
 allow_debug: true
 ---
 
-# Checkpoint logiciel — probe A préparé, aucun essai physique
+# Checkpoint — A PASS borné, B chargé au WAIT, départ B attendu
 
-**Build A réussi ; zéro flash, reset, accès GDB cible ou commande SD exécuté.** La première erreur n'est pas encore observée. Profil B ni construit ni exécuté. Aucune qualification physique, TR2 ou industrielle annoncée.
+**État actuel : essai A unique PASS physique borné ; B construit et chargé au WAIT, pas encore exécuté.** Aucun CRC reproduit dans A. Pas de qualification TR2 ou industrielle. Les paragraphes de préparation ci-dessous décrivent les checkpoints antérieurs ; les mises à jour RUN A et flash B donnent l'état actuel.
 
 ## Acquis et preuves
 
@@ -58,3 +58,9 @@ Départ confirmé utilisateur : ST-LINK seul/carte insérée/CN15off, VDDbreakou
 A terminal100/raison0/run_count1, UID et CID exacts,62333952secteurs512, SSRwidth0/CLKCR2 et kernelHSI48 ⇒1bit/12MHz calculés, CPU160MHz/IPSR0. Init et lectures HAL_OK/ErrorCode0, première erreur valid0. CMD17/512 et CMD18/8192 au LBA506304 :0différence embarquée et comparaison Python intégrale, SHA512a9f4d9b…/SHA81922ac5183f… exacts. CMD13 init et postlectures retournentTRANSFER4/R1=900 ; CMD12 original après DATAEND du multibloc observé. HALContext1/2 reste historique après succès, sans l'assimiler à une carte encore DATA ; statut carte séparément observé. Durées DWT : lecture5120,965331ms, lecture819211,575350ms ; appels HAL instrumentés, pas benchmark industriel.
 
 A ne sera pas rejoué. Succès borné horsUSB : il autoriseB mais ne démontre ni causeUSB ni fiabilité/endurance. B construit seulement aprèsPASS A, mêmes overlayHAL/LL/main byte-identiques et codeprobe inchangé, seule définitionFF_PROFILE=4. Build/symboles/hashesB publiés. Les outils d'observation/décodage ajoutent sélectionB avec gardePASS A et noms de preuves distincts ; py_compile réussi. Aucun test de production inchangé rejoué. B physique non encore exécuté ; prochain flash standard B au WAIT puis coupure/reconnexion utilisateur obligatoire avant son trigger unique.
+
+## Profil B au WAIT — prochain geste requis
+
+PublicationA667154ee041e3b52c11fd54661cd58add57f94ee relue :57fichiers byte-identiques/45empreintes. Source du probe inchangée depuis42e8dd2, outilsB au commit667154e. Bbuild21860octets SHA256fdb7fa151bd69051c839cf11a1f1e3eb134d6a821a07ab0b827eef1d91bdf829.
+
+PréflightUID et imageA exacte, terminal100 confirmé avant flashB. Flash standardverifyOK/readbackexact, WAITprofile4/stage1/trigger0/run_count0, debuggerdétaché. [Synthèse](preuves/TR2-20261014-SDMMC1-FIRSTFAULT/flash-B-summary.json). Carte restéeinsérée, aucun init/accèsSD du nouveaufirmware avanttrigger ; resetflash avant futur départélectriqueB, pas un RUN. En attente coupureSTLINK/VDD0 si possible/reconnexionSTLINKseul parutilisateur ; CN15 reste déconnecté. Un seul essaiB, sansretry ; sauvegardesA et imageoriginaleconservées, aucune restaurationUSB nonnécessaire.

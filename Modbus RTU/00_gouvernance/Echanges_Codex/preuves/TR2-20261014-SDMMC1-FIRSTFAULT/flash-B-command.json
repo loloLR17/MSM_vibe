@@ -1,0 +1,15 @@
+{
+  "command": [
+    "/mnt/c/ST/STM32CubeCLT_1.22.0/STM32CubeProgrammer/bin/STM32_Programmer_CLI.exe",
+    "-c",
+    "port=SWD",
+    "sn=0032001F3235510C37333439",
+    "freq=8000",
+    "-w",
+    "\\\\wsl.localhost\\Debian\\home\\lolo\\dev\\msm\\reports\\SDMMC1-firstfault-B-build\\sdmmc1_firstfault.bin",
+    "0x08000000",
+    "-v",
+    "-rst"
+  ],
+  "bin_sha256": "fdb7fa151bd69051c839cf11a1f1e3eb134d6a821a07ab0b827eef1d91bdf829"
+}

@@ -1,0 +1,14 @@
+{
+  "stlink": "0032001F3235510C37333439",
+  "uid": "001B0046/38425018/20333157",
+  "preflash_image_sha256": "fb2843742056093610f979268c004bb9c66455cf540069ea5d8f55531a252fb1",
+  "prior_A_terminal_PASS_verified": true,
+  "B_bin_sha256": "fdb7fa151bd69051c839cf11a1f1e3eb134d6a821a07ab0b827eef1d91bdf829",
+  "B_readback_sha256": "fdb7fa151bd69051c839cf11a1f1e3eb134d6a821a07ab0b827eef1d91bdf829",
+  "readback_matches": true,
+  "observed_profile": 4,
+  "stage": 1,
+  "trigger": 0,
+  "run_count": 0,
+  "note": "Flash B and flash-reset while card inserted; no SD init before RAM trigger; cold start B still required after flash."
+}
