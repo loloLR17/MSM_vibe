@@ -1,5 +1,5 @@
 ---
-mission_id: TR2-20261014-M018-SDMMC1-COMMUNITY-REFERENCE
+mission_id: TR2-20261014-P12H3H-SDMMC1-REFERENCE-POC
 status: READY
 base_ref: main
 base_sha: a517e1cd8ce35d6e48bbe92e53f07c7289980ae5
@@ -11,7 +11,10 @@ allow_flash: true
 allow_debug: true
 ---
 
-# M018 — Reproduction fidèle du projet communautaire SDMMC1 sur NUCLEO-U575ZI-Q
+# P12/H3h — Reproduction fidèle du projet communautaire SDMMC1 sur NUCLEO-U575ZI-Q
+
+## Positionnement dans la roadmap
+PoC de stockage P12/H3h, distinct du jalon M018 (service PC et SQLite). Aucun jalon M013–M020 n'est renuméroté. La mission précédente M017 de qualification SDMMC2 est clôturée FAILED selon son rapport.
 
 ## Objectif
 Reproduire sur la seconde Nucleo le fonctionnement SDMMC1 4 bits du projet public https://github.com/VILLO88/NUCLEOU575 (branche main), **sans modifier son code SDMMC, sa configuration de bus ni ses paramètres pour masquer un défaut**. Compiler, flasher, exécuter et diagnostiquer avec GDB ; vérifier le mode 4 bits effectif, l'intégrité des accès et les limites des performances observées. Établir la provenance exacte du commit tiers, de l'image et de la toolchain. Ne pas porter sur SDMMC2 dans cette mission.
