@@ -1,6 +1,6 @@
 ---
 mission_id: TR2-20261014-P12H3H-SDMMC1-CABLE10CM-COMPARISON
-status: IN_PROGRESS
+status: FAILED
 base_ref: main
 base_sha: 7271e03e513e3fb5a9ba33051713307125c60bbe
 initial_head: e4630199d4859e09b431ea159bfa36e553589617
@@ -17,7 +17,7 @@ allow_debug: true
 
 # SDMMC1 — comparatif ciblé fils 20 cm / 10 cm
 
-**Résultat technique : FAILED — amélioration non démontrée.** Avant le premier debug, Windows indique déjà « No Media ». Après l'unique récupération initiale autorisée, le média reste indisponible et le STM32 présente des erreurs de commande. **Zéro cycle USB de données, zéro écriture, zéro reflash** ; un reset logiciel seulement. La campagne courte ne peut pas être engagée dans cet état. Aucun nouvel essai après le critère d'arrêt. IN_PROGRESS concerne uniquement la publication/relecture distante en cours, puis sera FAILED conformément au contrat.
+**Résultat technique : FAILED — amélioration non démontrée.** Avant le premier debug, Windows indique déjà « No Media ». Après l'unique récupération initiale autorisée, le média reste indisponible et le STM32 présente des erreurs de commande. **Zéro cycle USB de données, zéro écriture, zéro reflash** ; un reset logiciel seulement. La campagne courte ne peut pas être engagée dans cet état. Aucun nouvel essai après le critère d'arrêt. Le statut final FAILED constate l’absence d’amélioration démontrée selon le contrat ; il ne déclare pas le contrôleur SDMMC1 défectueux.
 
 ## Tranche 1 — préservation et configuration identique
 
@@ -69,4 +69,4 @@ Firmware Release original SDMMC1 laissé sur seconde Nucleo, débogueur détach�
 
 Validation proportionnée : inspections Git/source/diff, vérification d'image par readback et observations physiques ci-dessus. **Aucun build ni ancien test rejoué** puisque le firmware et les interfaces de production sont inchangés. Seuls rapport, preuves minimales, archives et journal technique changent ; pas de tests de code nécessaires pour cette publication documentaire.
 
-Rapport et mission du PoC précédent archivés byte-identiques depuis `7271e03e513e3fb5a9ba33051713307125c60bbe` sous `archives/TR2-20261014-P12H3H-SDMMC1-REFERENCE-POC/`. Journal `ETAT_COURANT_TR2.md` actualisé avec la comparaison FAILED, le reset unique, zéro cycle et l'état laissé. Gels, roadmap, detteA04 et règles de gouvernance inchangés. Permissions exercées : lecture/GDB/debug, un reset logiciel, documentation et commit/pushmain ; `allow_flash` non exercée. Publication/relecture distante à effectuer ; SHA final transmis après vérification.
+Rapport et mission du PoC précédent archivés byte-identiques depuis `7271e03e513e3fb5a9ba33051713307125c60bbe` sous `archives/TR2-20261014-P12H3H-SDMMC1-REFERENCE-POC/`. Journal `ETAT_COURANT_TR2.md` actualisé avec la comparaison FAILED, le reset unique, zéro cycle et l'état laissé. Gels, roadmap, detteA04 et règles de gouvernance inchangés. Permissions exercées : lecture/GDB/debug, un reset logiciel, documentation et commit/pushmain ; `allow_flash` non exercée. Push normal sur `main` réussi : commit `309c8654f7b8f54dedf10d958c21c885fe247e64`, message `P12 H3h SDMMC1: record bounded 10 cm cable comparison and persistent No Media`. Référence récupérée de GitHub, **33 fichiers relus intégralement et comparés byte-identiques**, **28 empreintes du manifest vérifiées** ; [preuve distante](preuves/TR2-20261014-SDMMC1-CABLE10CM-COMPARISON/remote-readback-309c8654.json). Archives et fichiers protégés contrôlés, dépôt original propre et stashes inchangés. Finalisation documentaire FAILED uniquement, aucun nouvel accès matériel ; worktree de mission propre après commit. La dernière publication sera également vérifiée ; son SHA final sera transmis dans la réponse, sans auto-référence.

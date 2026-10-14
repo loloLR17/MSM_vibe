@@ -1,0 +1,183 @@
+{
+  "utc": "2026-10-14T10:59:41.084872+00:00",
+  "remote_sha": "309c8654f7b8f54dedf10d958c21c885fe247e64",
+  "base_sha": "e4630199d4859e09b431ea159bfa36e553589617",
+  "all_changed_files_read_and_byte_equal": true,
+  "changed_file_count": 33,
+  "manifest_entries_verified": 28,
+  "archive_byte_identical": true,
+  "original_worktree_clean_and_preserved": true,
+  "stashes": [
+    "6251b988e8b20f97997a8f98fd26d4d35a45a1b2",
+    "f3b829e6188f491920edf74a5f9ed0f559d08b87"
+  ],
+  "upstream_source_clean_and_pinned": true,
+  "protected_files_unchanged": true,
+  "files": [
+    {
+      "path": "Modbus RTU/00_gouvernance/ETAT_COURANT_TR2.md",
+      "bytes": 21099,
+      "sha256": "c41e2c55d707662aebc992ee0197e51f3adeaab6396901b61f0c9da8318030b2"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/DERNIER_RAPPORT.md",
+      "bytes": 9164,
+      "sha256": "99b2a1cc58eb44e6085176adf519cc0df1b63805ea1c91565e08357cfd73f6bd"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/archives/TR2-20261014-P12H3H-SDMMC1-REFERENCE-POC/MISSION.md",
+      "bytes": 4737,
+      "sha256": "2eb65796427a80d9f85f25113ce2a8372debb5de5562e2ca8d4775c74a1233cc"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/archives/TR2-20261014-P12H3H-SDMMC1-REFERENCE-POC/RAPPORT.md",
+      "bytes": 15082,
+      "sha256": "9eaea4de3c11e3ce9fb059d5860bde0fe30308112f040a042edda3212bac7c4a"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261014-SDMMC1-CABLE10CM-COMPARISON/NativeAligned.cs",
+      "bytes": 3609,
+      "sha256": "f55d13a68ac5260f747f99892d6af4640bc99b560fe2d4541b87ae98fa50d69f"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261014-SDMMC1-CABLE10CM-COMPARISON/README.md",
+      "bytes": 1677,
+      "sha256": "53c374238eaf3cd7b9eba40f9a42aeb299e441ca7c729f9a47c12d8257165787"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261014-SDMMC1-CABLE10CM-COMPARISON/after-initial-recovery-preflight-invocation.json",
+      "bytes": 737,
+      "sha256": "f892779afdfdd208119976beeda3d247f2b166e2e0603ee9e629ef1a0472aa25"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261014-SDMMC1-CABLE10CM-COMPARISON/after-initial-recovery-preflight-server.log",
+      "bytes": 642,
+      "sha256": "8bcc4c71699ee84963384971405c87e1a151e92fe6097483e261a0323be2f087"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261014-SDMMC1-CABLE10CM-COMPARISON/after-initial-recovery-preflight.gdb",
+      "bytes": 1082,
+      "sha256": "5965cf01062e36982893250c787a6cffc114449e20170d1682cea2f7f2789941"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261014-SDMMC1-CABLE10CM-COMPARISON/after-initial-recovery-preflight.log",
+      "bytes": 524,
+      "sha256": "257a7c640c8fa2cd6b0a71a3e1dd6e7a2ca60e620e35f60304c278dd3314170a"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261014-SDMMC1-CABLE10CM-COMPARISON/campaign-summary.json",
+      "bytes": 1077,
+      "sha256": "60bf66543c8fbc4d65c8445eb3d1edbeb8bb84766c5f9e7a15a129f13a954e09"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261014-SDMMC1-CABLE10CM-COMPARISON/comparison.py",
+      "bytes": 3612,
+      "sha256": "a2b3f3772ffa5d5a5780688fa355e087546f90bc03cc9f93c835069e18d4d192"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261014-SDMMC1-CABLE10CM-COMPARISON/hardware.py",
+      "bytes": 2243,
+      "sha256": "878a68bf0524d7ba8dcc0076256747a5150a5e35f707b418a0ddd6edc52327b7"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261014-SDMMC1-CABLE10CM-COMPARISON/host-after-initial-debug-invocation.json",
+      "bytes": 616,
+      "sha256": "d8f72c30426022fe74d4261d2fb0a5649483ea38099afadd078df6e146931921"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261014-SDMMC1-CABLE10CM-COMPARISON/host-after-initial-debug-stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261014-SDMMC1-CABLE10CM-COMPARISON/host-after-initial-debug.json",
+      "bytes": 739,
+      "sha256": "fd33c119a404d6fd845bfecf6777745889882af0f2443727560b6cc21f309dc6"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261014-SDMMC1-CABLE10CM-COMPARISON/host-after-initial-recovery-invocation.json",
+      "bytes": 616,
+      "sha256": "3503cc69ce06c9c29f54c582c9cda3bc70817a70ea4553425bf3c6e5c6497a7b"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261014-SDMMC1-CABLE10CM-COMPARISON/host-after-initial-recovery-stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261014-SDMMC1-CABLE10CM-COMPARISON/host-after-initial-recovery.json",
+      "bytes": 739,
+      "sha256": "c5c3e4ef4dfd317108fc0cce179c4b00518ea0cd6a6ee777c8803c9580abb3a1"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261014-SDMMC1-CABLE10CM-COMPARISON/host-before-debug-invocation.json",
+      "bytes": 616,
+      "sha256": "f3a026ed5aceec0cc67999cbf5d5f305aa64c8f9a80dc0ccdbd8a1598b3a195b"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261014-SDMMC1-CABLE10CM-COMPARISON/host-before-debug-stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261014-SDMMC1-CABLE10CM-COMPARISON/host-before-debug.json",
+      "bytes": 739,
+      "sha256": "715648512bc97be3c25b9902f23b4353e75217aff8c8d908f03153e972b05635"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261014-SDMMC1-CABLE10CM-COMPARISON/image-verification.json",
+      "bytes": 359,
+      "sha256": "bf0f59065c066b15341774a2b20c9cbb6c6077bcb13b46684531d4d7c6d61747"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261014-SDMMC1-CABLE10CM-COMPARISON/initial-context.json",
+      "bytes": 545,
+      "sha256": "791423ad13d4f9cda50dfce653cd86b61f35594ed8e4c8d11f11a2a4f8b03b5e"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261014-SDMMC1-CABLE10CM-COMPARISON/initial-identity-image-state-invocation.json",
+      "bytes": 733,
+      "sha256": "a20ea28f13e0fe9a1d6dba6d26bd579465b12a91d578f0fc5ba2f540a4e2fc02"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261014-SDMMC1-CABLE10CM-COMPARISON/initial-identity-image-state-server.log",
+      "bytes": 642,
+      "sha256": "8bcc4c71699ee84963384971405c87e1a151e92fe6097483e261a0323be2f087"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261014-SDMMC1-CABLE10CM-COMPARISON/initial-identity-image-state.gdb",
+      "bytes": 1228,
+      "sha256": "b8221922ff07499ca9939a8a99fe9bf06b79bcc850d86f520307d8e7a5634d80"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261014-SDMMC1-CABLE10CM-COMPARISON/initial-identity-image-state.log",
+      "bytes": 671,
+      "sha256": "f6608687be3887e80ec51a949643a2fe4468852a7c64c8ba8da6a171f0a868d0"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261014-SDMMC1-CABLE10CM-COMPARISON/initial-no-media-recovery-invocation.json",
+      "bytes": 730,
+      "sha256": "805b40739756f5f5ee683ccc0bedf4a65494596b01225695aa6c6201d6c039fb"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261014-SDMMC1-CABLE10CM-COMPARISON/initial-no-media-recovery-server.log",
+      "bytes": 642,
+      "sha256": "8bcc4c71699ee84963384971405c87e1a151e92fe6097483e261a0323be2f087"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261014-SDMMC1-CABLE10CM-COMPARISON/initial-no-media-recovery.gdb",
+      "bytes": 671,
+      "sha256": "03a6733d50d896e0c7514c4847127063ef72a8fe31dd29234b07653746dae497"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261014-SDMMC1-CABLE10CM-COMPARISON/initial-no-media-recovery.log",
+      "bytes": 723,
+      "sha256": "0a706c24a1382b66f61568ac836e87cf8210a08afd798db163a2c824271200f1"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261014-SDMMC1-CABLE10CM-COMPARISON/manifest.json",
+      "bytes": 2933,
+      "sha256": "d2a2e71e42f78f70999ba06e7633cd880d8aed4d0039849cd563491ba00abe2b"
+    }
+  ]
+}
