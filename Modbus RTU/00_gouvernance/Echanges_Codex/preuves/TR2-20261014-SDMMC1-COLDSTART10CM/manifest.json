@@ -13,5 +13,6 @@
   "initial-identity-image-state-invocation.json": "4adecf0e40f358e3bab833148094c5bc3c740a4e70de89cf424e7d12a48d6cb1",
   "initial-identity-image-state-server.log": "8bcc4c71699ee84963384971405c87e1a151e92fe6097483e261a0323be2f087",
   "initial-identity-image-state.gdb": "a668b9c70c2f7aa985f225cca92010cbd5e67655bda9ef3511073df6c7114ecf",
-  "initial-identity-image-state.log": "4ce6ca07622c81b9a24600f128fd19d4df935538a6d7134c43dad56531751b0b"
+  "initial-identity-image-state.log": "4ce6ca07622c81b9a24600f128fd19d4df935538a6d7134c43dad56531751b0b",
+  "remote-readback-8253835e.json": "a0cf196a208d4241ce6134120dfd19483e84746407e665d526720b29b6d4fb5a"
 }

@@ -1,6 +1,6 @@
 ---
 mission_id: TR2-20261014-P12H3H-SDMMC1-COLDSTART10CM
-status: IN_PROGRESS
+status: FAILED
 base_ref: main
 base_sha: d4f451c1ced5c39f2df9abf690a71be4bb8ce53e
 initial_head: ac39881d54792156fa78524351960507a2fd1991
@@ -17,7 +17,7 @@ allow_debug: true
 
 # SDMMC1 — contrôle après coupure électrique complète, fils 10 cm
 
-**Résultat technique : FAILED.** Après le power-cycle rapporté par l'utilisateur dans le contrat, **No Media est déjà présent avant tout GDB/reset**. Un seul diagnostic minimal confirme l'image inchangée et des erreurs SDMMC. **Zéro reset Codex, zéro flash, zéro écriture, zéro cycle de données**. Arrêt selon §2 de la séquence contractuelle ; aucun retry ni récupération supplémentaire. IN_PROGRESS concerne exclusivement la publication/relecture distante à terminer, puis sera FAILED.
+**Résultat technique : FAILED.** Après le power-cycle rapporté par l'utilisateur dans le contrat, **No Media est déjà présent avant tout GDB/reset**. Un seul diagnostic minimal confirme l'image inchangée et des erreurs SDMMC. **Zéro reset Codex, zéro flash, zéro écriture, zéro cycle de données**. Arrêt selon §2 de la séquence contractuelle ; aucun retry ni récupération supplémentaire. Statut final FAILED : média indisponible après le redémarrage électrique rapporté, comparatif non réalisable dans ce périmètre.
 
 ## Tranche 1 — état initial sans perturbation GDB
 
@@ -66,4 +66,4 @@ Dépôt d'origine propre, HEAD82169af7e76797731358852bec83bfb0ceb54ccf historiqu
 
 **État laissé :** seconde Nucleo imageoriginaleRelease inchangée, debuggerdétaché ; dernier MCUerror1007/R1B00 puis WindowsNoMedia. Carte/câbles connectés selon contrat, pas de télémétrie continue après detach. **Principal003500463235510B37333439, FRAM, média512Go, Modbus, protections/OptionBytes non accédés**. Aucune élévation, politiqueWindows ou ACL modifiée. `allow_debug` exercée pour observation ponctuelle ; `allow_flash` non exercée. Commit/pushmain de documentation/preuves autorisés.
 
-Validation proportionnée : identité/image/diff et observations réelles. Firmware et interfaces inchangés : aucun build/test ancien rejoué, aucune validation globale nécessaire pour les documents. JournalETAT_COURANT_TR2 actualisé avec fait nouveau utilisateur, NoMedia avantGDB, erreur1007, zéro reset/cycle et arrêt. Gouvernance/gels/roadmap/detteA04 inchangés. Publication/relecture distante à effectuer ; SHA final communiqué après vérification.
+Validation proportionnée : identité/image/diff et observations réelles. Firmware et interfaces inchangés : aucun build/test ancien rejoué, aucune validation globale nécessaire pour les documents. JournalETAT_COURANT_TR2 actualisé avec fait nouveau utilisateur, NoMedia avantGDB, erreur1007, zéro reset/cycle et arrêt. Gouvernance/gels/roadmap/detteA04 inchangés. Push normal sur `main` réussi : `8253835ef0adbe990db7842e847ae6ea12e7629d` (`P12 H3h SDMMC1: preserve cold-start No Media observation without reset or write`). Référence récupérée de GitHub et **20 fichiers relus intégralement, byte-identiques**, **15 empreintes du manifest vérifiées** : [preuve de relecture distante](preuves/TR2-20261014-SDMMC1-COLDSTART10CM/remote-readback-8253835e.json). Archives/fichiers protégés contrôlés, source tiers propre, dépôt original et stashes préservés. Mise à jour finale FAILED purement documentaire, aucun nouvel accès matériel ; worktree de mission propre après commit. La dernière publication sera vérifiée à son tour et son SHA distant communiqué dans la réponse finale sans auto-référence.
