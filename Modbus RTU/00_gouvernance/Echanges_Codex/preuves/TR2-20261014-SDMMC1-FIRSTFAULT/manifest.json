@@ -1,0 +1,15 @@
+{
+  "artifacts-A.json": "f71a72f8da8cddf377f4f4b0fcc93d9bb74ed23421700a1f8ccefcc02b2e3de2",
+  "build-A-attempt1.log": "09e07e2623254f16998bdfc8ee4628cb7cd40d5478d242b8bb8468c357ef98a9",
+  "build-A-attempt2.log": "f733faf7d4018571b761260cfb8c2f96078f176dc380693d54e0c95b9e7acf2f",
+  "configure-A.log": "076d07e98e38160204a9091de454f31b54cfe5db7c11f7f8ff2090b99450f213",
+  "main.c.diff": "f320d57e9bde4cdd4691ada5d76bf9310c0370432ed385293df91ee9865e5cb5",
+  "offline-ABI-A.log": "3c48647c596f9e0913177a046cc2026af5759d306a27423d5d259d8229cbb6c7",
+  "overlay-provenance.json": "a5d0a09473c6ef402d9651b3e45fe4960a59861c9ad07ef71348d9d3791b21b8",
+  "pinout-confirmation.json": "79cc1ee449b058428d7add9213c4b0cee2d72cda7d5b4c4a804305682629fc3a",
+  "profile-guard.log": "43e430cd9428fc6ade29913010485ffba77eebc1352ca79924f3491700999da9",
+  "stm32u5xx_hal_sd.c.diff": "07e28d66d907720528239ccbc44b7025378dd489cbdcec8e0a7b29d3a2dd68a9",
+  "stm32u5xx_it.c.diff": "a334af618827eddb2f09aa438bfa1c47d987941d173c382047eb1a14258809af",
+  "stm32u5xx_ll_sdmmc.c.diff": "d6ce614ffac90e1c70eefb3957a2938e0a42791786bf0f3102e66f461bff2b85",
+  "symbols-A.txt": "2af9a31cc331f5b827152dc7393dc3159f1f59c73e122dc11cb95f81ef10cae7"
+}

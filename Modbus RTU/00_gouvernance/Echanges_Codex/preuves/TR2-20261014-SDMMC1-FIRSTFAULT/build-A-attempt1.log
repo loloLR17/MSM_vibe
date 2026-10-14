@@ -1,0 +1,53 @@
+[  2%] Building C object CMakeFiles/sdmmc1_firstfault.dir/probe.c.obj
+[  5%] Building C object CMakeFiles/sdmmc1_firstfault.dir/overlay/stm32u5xx_hal_sd.c.obj
+[  8%] Building C object CMakeFiles/sdmmc1_firstfault.dir/overlay/stm32u5xx_it.c.obj
+[ 11%] Building C object CMakeFiles/sdmmc1_firstfault.dir/overlay/main.c.obj
+/home/lolo/dev/msm/reports/SDMMC1-firstfault-A-build/overlay/main.c:234:13: warning: 'MX_USB_OTG_FS_PCD_Init' defined but not used [-Wunused-function]
+  234 | static void MX_USB_OTG_FS_PCD_Init(void)
+      |             ^~~~~~~~~~~~~~~~~~~~~~
+/home/lolo/dev/msm/reports/SDMMC1-firstfault-A-build/overlay/main.c:203:13: warning: 'MX_SDMMC1_SD_Init' defined but not used [-Wunused-function]
+  203 | static void MX_SDMMC1_SD_Init(void)
+      |             ^~~~~~~~~~~~~~~~~
+[ 13%] Building C object CMakeFiles/sdmmc1_firstfault.dir/overlay/stm32u5xx_ll_sdmmc.c.obj
+[ 16%] Building C object CMakeFiles/sdmmc1_firstfault.dir/home/lolo/dev/msm/cache/VILLO88-NUCLEOU575-SDMMC1-PoC/Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal.c.obj
+[ 19%] Building C object CMakeFiles/sdmmc1_firstfault.dir/home/lolo/dev/msm/cache/VILLO88-NUCLEOU575-SDMMC1-PoC/Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_cortex.c.obj
+/home/lolo/dev/msm/reports/SDMMC1-firstfault-A-build/overlay/stm32u5xx_ll_sdmmc.c: In function 'SDMMC_DMALinkedList_BuildNode':
+/home/lolo/dev/msm/reports/SDMMC1-firstfault-A-build/overlay/stm32u5xx_ll_sdmmc.c:1932:16: error: 'SDMMCx' undeclared (first use in this function); did you mean 'SDMMC1'?
+ 1932 |     ff_capture(SDMMCx, SDMMC_ERROR_INVALID_PARAMETER, __LINE__, 1U); /* FF_INSTRUMENT */
+      |                ^~~~~~
+      |                SDMMC1
+/home/lolo/dev/msm/reports/SDMMC1-firstfault-A-build/overlay/stm32u5xx_ll_sdmmc.c:1932:16: note: each undeclared identifier is reported only once for each function it appears in
+/home/lolo/dev/msm/reports/SDMMC1-firstfault-A-build/overlay/stm32u5xx_ll_sdmmc.c: In function 'SDMMC_DMALinkedList_InsertNode':
+/home/lolo/dev/msm/reports/SDMMC1-firstfault-A-build/overlay/stm32u5xx_ll_sdmmc.c:1970:18: error: 'SDMMCx' undeclared (first use in this function); did you mean 'SDMMC1'?
+ 1970 |       ff_capture(SDMMCx, SDMMC_ERROR_INVALID_PARAMETER, __LINE__, 1U); /* FF_INSTRUMENT */
+      |                  ^~~~~~
+      |                  SDMMC1
+/home/lolo/dev/msm/reports/SDMMC1-firstfault-A-build/overlay/stm32u5xx_ll_sdmmc.c: In function 'SDMMC_DMALinkedList_RemoveNode':
+/home/lolo/dev/msm/reports/SDMMC1-firstfault-A-build/overlay/stm32u5xx_ll_sdmmc.c:2026:16: error: 'SDMMCx' undeclared (first use in this function); did you mean 'SDMMC1'?
+ 2026 |     ff_capture(SDMMCx, SDMMC_ERROR_INVALID_PARAMETER, __LINE__, 1U); /* FF_INSTRUMENT */
+      |                ^~~~~~
+      |                SDMMC1
+/home/lolo/dev/msm/reports/SDMMC1-firstfault-A-build/overlay/stm32u5xx_ll_sdmmc.c: In function 'SDMMC_DMALinkedList_LockNode':
+/home/lolo/dev/msm/reports/SDMMC1-firstfault-A-build/overlay/stm32u5xx_ll_sdmmc.c:2080:16: error: 'SDMMCx' undeclared (first use in this function); did you mean 'SDMMC1'?
+ 2080 |     ff_capture(SDMMCx, SDMMC_ERROR_INVALID_PARAMETER, __LINE__, 1U); /* FF_INSTRUMENT */
+      |                ^~~~~~
+      |                SDMMC1
+/home/lolo/dev/msm/reports/SDMMC1-firstfault-A-build/overlay/stm32u5xx_ll_sdmmc.c: In function 'SDMMC_DMALinkedList_UnlockNode':
+/home/lolo/dev/msm/reports/SDMMC1-firstfault-A-build/overlay/stm32u5xx_ll_sdmmc.c:2100:16: error: 'SDMMCx' undeclared (first use in this function); did you mean 'SDMMC1'?
+ 2100 |     ff_capture(SDMMCx, SDMMC_ERROR_INVALID_PARAMETER, __LINE__, 1U); /* FF_INSTRUMENT */
+      |                ^~~~~~
+      |                SDMMC1
+/home/lolo/dev/msm/reports/SDMMC1-firstfault-A-build/overlay/stm32u5xx_ll_sdmmc.c: In function 'SDMMC_DMALinkedList_EnableCircularMode':
+/home/lolo/dev/msm/reports/SDMMC1-firstfault-A-build/overlay/stm32u5xx_ll_sdmmc.c:2120:16: error: 'SDMMCx' undeclared (first use in this function); did you mean 'SDMMC1'?
+ 2120 |     ff_capture(SDMMCx, SDMMC_ERROR_INVALID_PARAMETER, __LINE__, 1U); /* FF_INSTRUMENT */
+      |                ^~~~~~
+      |                SDMMC1
+/home/lolo/dev/msm/reports/SDMMC1-firstfault-A-build/overlay/stm32u5xx_ll_sdmmc.c: In function 'SDMMC_DMALinkedList_DisableCircularMode':
+/home/lolo/dev/msm/reports/SDMMC1-firstfault-A-build/overlay/stm32u5xx_ll_sdmmc.c:2139:16: error: 'SDMMCx' undeclared (first use in this function); did you mean 'SDMMC1'?
+ 2139 |     ff_capture(SDMMCx, SDMMC_ERROR_INVALID_PARAMETER, __LINE__, 1U); /* FF_INSTRUMENT */
+      |                ^~~~~~
+      |                SDMMC1
+gmake[2]: *** [CMakeFiles/sdmmc1_firstfault.dir/build.make:135: CMakeFiles/sdmmc1_firstfault.dir/overlay/stm32u5xx_ll_sdmmc.c.obj] Error 1
+gmake[2]: *** Waiting for unfinished jobs....
+gmake[1]: *** [CMakeFiles/Makefile2:87: CMakeFiles/sdmmc1_firstfault.dir/all] Error 2
+gmake: *** [Makefile:91: all] Error 2

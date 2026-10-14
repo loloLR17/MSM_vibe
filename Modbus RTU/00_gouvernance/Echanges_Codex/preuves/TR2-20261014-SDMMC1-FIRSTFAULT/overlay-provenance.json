@@ -1,0 +1,27 @@
+{
+  "upstream": "1e3c9183bad023ebf7d234134823d9270a0e8b64",
+  "original_checkout_unchanged": true,
+  "hal_ll_original_statements_preserved": true,
+  "files": [
+    {
+      "source": "Core/Src/main.c",
+      "source_sha256": "8118786fa41935673c87ae21abe32461a769afa12a82a9c92cdf1607d99f4cc0",
+      "overlay_sha256": "b59e0828234073fdc44e50d88de99096cef95c8d738626f1008e50cbf068686d"
+    },
+    {
+      "source": "Core/Src/stm32u5xx_it.c",
+      "source_sha256": "e33b8e1fc739ed5a42001cbd90f6c5918ae7a758d9a450746dca01fab2554b3b",
+      "overlay_sha256": "83234e45117e5e464aae734c5a029c411ec0a914e774b0751c4768ff3d3e2925"
+    },
+    {
+      "source": "Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_sd.c",
+      "source_sha256": "78441c2277acadac8738ebc49f5abfe395d4760d050115325284f303affde2a7",
+      "overlay_sha256": "fbbb80fb572c0d362994d000f8a28361f25a7bfadd3dac0ce58ab99c998c991e"
+    },
+    {
+      "source": "Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_ll_sdmmc.c",
+      "source_sha256": "8fbf607ec39f920591cccc4e8a17c150bc3110db95e943b2aa7c9e7d4fa666a6",
+      "overlay_sha256": "a93b184684eb4183079a1e94b8e5d4c025b1c89ec3f7328247c8bffd84e0f2ca"
+    }
+  ]
+}

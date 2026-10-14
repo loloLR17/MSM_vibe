@@ -1,0 +1,551 @@
+--- upstream/Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_sd.c
++++ overlay/Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_sd.c
+@@ -1,2 +1,3 @@
++#include "trace.h" /* FF_INSTRUMENT */
+ /**
+   ******************************************************************************
+@@ -438,4 +439,5 @@
+     if ((HAL_GetTick() - tickstart) >=  SDMMC_SWDATATIMEOUT)
+     {
++      ff_capture(hsd->Instance, HAL_SD_ERROR_TIMEOUT, __LINE__, 4U); /* FF_INSTRUMENT */
+       hsd->ErrorCode = HAL_SD_ERROR_TIMEOUT;
+       hsd->State = HAL_SD_STATE_READY;
+@@ -539,4 +541,5 @@
+   {
+     /* Clear all the static flags */
++    ff_data_preclear(hsd, __LINE__); /* FF_INSTRUMENT */
+     __HAL_SD_CLEAR_FLAG(hsd, SDMMC_STATIC_FLAGS);
+     hsd->ErrorCode |= errorstate;
+@@ -731,4 +734,5 @@
+     {
+       /* Clear all the static flags */
++      ff_data_preclear(hsd, __LINE__); /* FF_INSTRUMENT */
+       __HAL_SD_CLEAR_FLAG(hsd, SDMMC_STATIC_FLAGS);
+       hsd->ErrorCode |= errorstate;
+@@ -762,5 +766,7 @@
+       if (((HAL_GetTick() - tickstart) >=  Timeout) || (Timeout == 0U))
+       {
++        ff_capture(hsd->Instance, HAL_SD_ERROR_TIMEOUT, __LINE__, 4U); /* FF_INSTRUMENT */
+         /* Clear all the static flags */
++        ff_data_preclear(hsd, __LINE__); /* FF_INSTRUMENT */
+         __HAL_SD_CLEAR_FLAG(hsd, SDMMC_STATIC_FLAGS);
+         hsd->ErrorCode |= HAL_SD_ERROR_TIMEOUT;
+@@ -782,4 +788,5 @@
+         {
+           /* Clear all the static flags */
++          ff_data_preclear(hsd, __LINE__); /* FF_INSTRUMENT */
+           __HAL_SD_CLEAR_FLAG(hsd, SDMMC_STATIC_FLAGS);
+           hsd->ErrorCode |= errorstate;
+@@ -795,4 +802,5 @@
+     {
+       /* Clear all the static flags */
++      ff_data_preclear(hsd, __LINE__); /* FF_INSTRUMENT */
+       __HAL_SD_CLEAR_FLAG(hsd, SDMMC_STATIC_FLAGS);
+       hsd->ErrorCode |= HAL_SD_ERROR_DATA_TIMEOUT;
+@@ -804,4 +812,5 @@
+     {
+       /* Clear all the static flags */
++      ff_data_preclear(hsd, __LINE__); /* FF_INSTRUMENT */
+       __HAL_SD_CLEAR_FLAG(hsd, SDMMC_STATIC_FLAGS);
+       hsd->ErrorCode |= HAL_SD_ERROR_DATA_CRC_FAIL;
+@@ -813,4 +822,5 @@
+     {
+       /* Clear all the static flags */
++      ff_data_preclear(hsd, __LINE__); /* FF_INSTRUMENT */
+       __HAL_SD_CLEAR_FLAG(hsd, SDMMC_STATIC_FLAGS);
+       hsd->ErrorCode |= HAL_SD_ERROR_RX_OVERRUN;
+@@ -825,4 +835,5 @@
+ 
+     /* Clear all the static flags */
++    ff_data_preclear(hsd, __LINE__); /* FF_INSTRUMENT */
+     __HAL_SD_CLEAR_FLAG(hsd, SDMMC_STATIC_DATA_FLAGS);
+ 
+@@ -916,4 +927,5 @@
+     {
+       /* Clear all the static flags */
++      ff_data_preclear(hsd, __LINE__); /* FF_INSTRUMENT */
+       __HAL_SD_CLEAR_FLAG(hsd, SDMMC_STATIC_FLAGS);
+       hsd->ErrorCode |= errorstate;
+@@ -948,5 +960,7 @@
+       if (((HAL_GetTick() - tickstart) >=  Timeout) || (Timeout == 0U))
+       {
++        ff_capture(hsd->Instance, HAL_SD_ERROR_TIMEOUT, __LINE__, 4U); /* FF_INSTRUMENT */
+         /* Clear all the static flags */
++        ff_data_preclear(hsd, __LINE__); /* FF_INSTRUMENT */
+         __HAL_SD_CLEAR_FLAG(hsd, SDMMC_STATIC_FLAGS);
+         hsd->ErrorCode |= errorstate;
+@@ -968,4 +982,5 @@
+         {
+           /* Clear all the static flags */
++          ff_data_preclear(hsd, __LINE__); /* FF_INSTRUMENT */
+           __HAL_SD_CLEAR_FLAG(hsd, SDMMC_STATIC_FLAGS);
+           hsd->ErrorCode |= errorstate;
+@@ -981,4 +996,5 @@
+     {
+       /* Clear all the static flags */
++      ff_data_preclear(hsd, __LINE__); /* FF_INSTRUMENT */
+       __HAL_SD_CLEAR_FLAG(hsd, SDMMC_STATIC_FLAGS);
+       hsd->ErrorCode |= HAL_SD_ERROR_DATA_TIMEOUT;
+@@ -990,4 +1006,5 @@
+     {
+       /* Clear all the static flags */
++      ff_data_preclear(hsd, __LINE__); /* FF_INSTRUMENT */
+       __HAL_SD_CLEAR_FLAG(hsd, SDMMC_STATIC_FLAGS);
+       hsd->ErrorCode |= HAL_SD_ERROR_DATA_CRC_FAIL;
+@@ -999,4 +1016,5 @@
+     {
+       /* Clear all the static flags */
++      ff_data_preclear(hsd, __LINE__); /* FF_INSTRUMENT */
+       __HAL_SD_CLEAR_FLAG(hsd, SDMMC_STATIC_FLAGS);
+       hsd->ErrorCode |= HAL_SD_ERROR_TX_UNDERRUN;
+@@ -1011,4 +1029,5 @@
+ 
+     /* Clear all the static flags */
++    ff_data_preclear(hsd, __LINE__); /* FF_INSTRUMENT */
+     __HAL_SD_CLEAR_FLAG(hsd, SDMMC_STATIC_DATA_FLAGS);
+ 
+@@ -1101,4 +1120,5 @@
+     {
+       /* Clear all the static flags */
++      ff_data_preclear(hsd, __LINE__); /* FF_INSTRUMENT */
+       __HAL_SD_CLEAR_FLAG(hsd, SDMMC_STATIC_FLAGS);
+       hsd->ErrorCode |= errorstate;
+@@ -1197,4 +1217,5 @@
+     {
+       /* Clear all the static flags */
++      ff_data_preclear(hsd, __LINE__); /* FF_INSTRUMENT */
+       __HAL_SD_CLEAR_FLAG(hsd, SDMMC_STATIC_FLAGS);
+       hsd->ErrorCode |= errorstate;
+@@ -1296,4 +1317,5 @@
+     {
+       /* Clear all the static flags */
++      ff_data_preclear(hsd, __LINE__); /* FF_INSTRUMENT */
+       __HAL_SD_CLEAR_FLAG(hsd, SDMMC_STATIC_FLAGS);
+       hsd->ErrorCode |= errorstate;
+@@ -1395,4 +1417,5 @@
+     {
+       /* Clear all the static flags */
++      ff_data_preclear(hsd, __LINE__); /* FF_INSTRUMENT */
+       __HAL_SD_CLEAR_FLAG(hsd, SDMMC_STATIC_FLAGS);
+       hsd->ErrorCode |= errorstate;
+@@ -1450,4 +1473,5 @@
+     {
+       /* Clear all the static flags */
++      ff_data_preclear(hsd, __LINE__); /* FF_INSTRUMENT */
+       __HAL_SD_CLEAR_FLAG(hsd, SDMMC_STATIC_FLAGS);
+       hsd->ErrorCode |= HAL_SD_ERROR_REQUEST_NOT_APPLICABLE;
+@@ -1459,4 +1483,5 @@
+     {
+       /* Clear all the static flags */
++      ff_data_preclear(hsd, __LINE__); /* FF_INSTRUMENT */
+       __HAL_SD_CLEAR_FLAG(hsd, SDMMC_STATIC_FLAGS);
+       hsd->ErrorCode |= HAL_SD_ERROR_LOCK_UNLOCK_FAILED;
+@@ -1480,4 +1505,5 @@
+       {
+         /* Clear all the static flags */
++        ff_data_preclear(hsd, __LINE__); /* FF_INSTRUMENT */
+         __HAL_SD_CLEAR_FLAG(hsd, SDMMC_STATIC_FLAGS);
+         hsd->ErrorCode |= errorstate;
+@@ -1491,4 +1517,5 @@
+       {
+         /* Clear all the static flags */
++        ff_data_preclear(hsd, __LINE__); /* FF_INSTRUMENT */
+         __HAL_SD_CLEAR_FLAG(hsd, SDMMC_STATIC_FLAGS);
+         hsd->ErrorCode |= errorstate;
+@@ -1503,4 +1530,5 @@
+     {
+       /* Clear all the static flags */
++      ff_data_preclear(hsd, __LINE__); /* FF_INSTRUMENT */
+       __HAL_SD_CLEAR_FLAG(hsd, SDMMC_STATIC_FLAGS);
+       hsd->ErrorCode |= errorstate;
+@@ -1537,4 +1565,5 @@
+   else if (__HAL_SD_GET_FLAG(hsd, SDMMC_FLAG_DATAEND) != RESET)
+   {
++    ff_data_preclear(hsd, __LINE__); /* FF_INSTRUMENT */
+     __HAL_SD_CLEAR_FLAG(hsd, SDMMC_FLAG_DATAEND);
+ 
+@@ -1563,4 +1592,5 @@
+ 
+       /* Clear all the static flags */
++      ff_data_preclear(hsd, __LINE__); /* FF_INSTRUMENT */
+       __HAL_SD_CLEAR_FLAG(hsd, SDMMC_STATIC_DATA_FLAGS);
+ 
+@@ -1657,4 +1687,5 @@
+ 
+     /* Clear All flags */
++    ff_data_preclear(hsd, __LINE__); /* FF_INSTRUMENT */
+     __HAL_SD_CLEAR_FLAG(hsd, SDMMC_STATIC_DATA_FLAGS);
+ 
+@@ -1668,4 +1699,5 @@
+     hsd->ErrorCode |= SDMMC_CmdStopTransfer(hsd->Instance);
+     hsd->Instance->CMD &= ~(SDMMC_CMD_CMDSTOP);
++    ff_data_preclear(hsd, __LINE__); /* FF_INSTRUMENT */
+     __HAL_SD_CLEAR_FLAG(hsd, SDMMC_FLAG_DABORT);
+ 
+@@ -1706,4 +1738,5 @@
+   else if (__HAL_SD_GET_FLAG(hsd, SDMMC_FLAG_IDMABTC) != RESET)
+   {
++    ff_data_preclear(hsd, __LINE__); /* FF_INSTRUMENT */
+     __HAL_SD_CLEAR_FLAG(hsd, SDMMC_FLAG_IDMABTC);
+ 
+@@ -2207,4 +2240,5 @@
+   {
+     /* Clear all the static flags */
++    ff_data_preclear(hsd, __LINE__); /* FF_INSTRUMENT */
+     __HAL_SD_CLEAR_FLAG(hsd, SDMMC_STATIC_FLAGS);
+     hsd->ErrorCode |= HAL_SD_ERROR_UNSUPPORTED_FEATURE;
+@@ -2274,4 +2308,5 @@
+   {
+     /* Clear all the static flags */
++    ff_data_preclear(hsd, __LINE__); /* FF_INSTRUMENT */
+     __HAL_SD_CLEAR_FLAG(hsd, SDMMC_STATIC_FLAGS);
+     hsd->ErrorCode |= errorstate;
+@@ -2312,4 +2347,5 @@
+   {
+     /* Clear all the static flags */
++    ff_data_preclear(hsd, __LINE__); /* FF_INSTRUMENT */
+     __HAL_SD_CLEAR_FLAG(hsd, SDMMC_STATIC_FLAGS);
+     hsd->ErrorCode = errorstate;
+@@ -2400,4 +2436,5 @@
+   {
+     /* Clear all the static flags */
++    ff_data_preclear(hsd, __LINE__); /* FF_INSTRUMENT */
+     __HAL_SD_CLEAR_FLAG(hsd, SDMMC_STATIC_FLAGS);
+     status = HAL_ERROR;
+@@ -2495,4 +2532,5 @@
+   {
+     /* Clear all the static flags */
++    ff_data_preclear(hsd, __LINE__); /* FF_INSTRUMENT */
+     __HAL_SD_CLEAR_FLAG(hsd, SDMMC_STATIC_FLAGS);
+     hsd->ErrorCode |= errorstate;
+@@ -2790,4 +2828,5 @@
+     if ((HAL_GetTick() - tickstart) >=  SDMMC_SWDATATIMEOUT)
+     {
++      ff_capture(hsd->Instance, HAL_SD_ERROR_TIMEOUT, __LINE__, 4U); /* FF_INSTRUMENT */
+       hsd->ErrorCode = HAL_SD_ERROR_TIMEOUT;
+       hsd->State = HAL_SD_STATE_READY;
+@@ -2801,4 +2840,5 @@
+   {
+     /* Clear all the static flags */
++    ff_data_preclear(hsd, __LINE__); /* FF_INSTRUMENT */
+     __HAL_SD_CLEAR_FLAG(hsd, SDMMC_STATIC_FLAGS);
+     hsd->ErrorCode |= errorstate;
+@@ -2873,5 +2913,6 @@
+           if ((HAL_GetTick() - tickstart) >=  SDMMC_SWDATATIMEOUT)
+           {
+-            hsd->ErrorCode = HAL_SD_ERROR_TIMEOUT;
++            ff_capture(hsd->Instance, HAL_SD_ERROR_TIMEOUT, __LINE__, 4U); /* FF_INSTRUMENT */
++      hsd->ErrorCode = HAL_SD_ERROR_TIMEOUT;
+             hsd->State = HAL_SD_STATE_READY;
+             return HAL_TIMEOUT;
+@@ -2886,5 +2927,6 @@
+           if ((HAL_GetTick() - tickstart) >=  SDMMC_SWDATATIMEOUT)
+           {
+-            hsd->ErrorCode = HAL_SD_ERROR_TIMEOUT;
++            ff_capture(hsd->Instance, HAL_SD_ERROR_TIMEOUT, __LINE__, 4U); /* FF_INSTRUMENT */
++      hsd->ErrorCode = HAL_SD_ERROR_TIMEOUT;
+             hsd->State = HAL_SD_STATE_READY;
+             return HAL_TIMEOUT;
+@@ -2899,5 +2941,6 @@
+         if ((HAL_GetTick() - tickstart) >=  SDMMC_SWDATATIMEOUT)
+         {
+-          hsd->ErrorCode = HAL_SD_ERROR_TIMEOUT;
++          ff_capture(hsd->Instance, HAL_SD_ERROR_TIMEOUT, __LINE__, 4U); /* FF_INSTRUMENT */
++      hsd->ErrorCode = HAL_SD_ERROR_TIMEOUT;
+           hsd->State = HAL_SD_STATE_READY;
+           return HAL_TIMEOUT;
+@@ -2916,5 +2959,7 @@
+ 
+     /*SDMMC ready for clear data flags*/
++    ff_data_preclear(hsd, __LINE__); /* FF_INSTRUMENT */
+     __HAL_SD_CLEAR_FLAG(hsd, SDMMC_FLAG_BUSYD0END);
++    ff_data_preclear(hsd, __LINE__); /* FF_INSTRUMENT */
+     __HAL_SD_CLEAR_FLAG(hsd, SDMMC_STATIC_DATA_FLAGS);
+     /* If IDMA Context, disable Internal DMA */
+@@ -2947,4 +2992,5 @@
+ 
+   /* Clear All flags */
++  ff_data_preclear(hsd, __LINE__); /* FF_INSTRUMENT */
+   __HAL_SD_CLEAR_FLAG(hsd, SDMMC_STATIC_DATA_FLAGS);
+ 
+@@ -3002,4 +3048,5 @@
+   {
+     /* Power off */
++    ff_capture(hsd->Instance, HAL_SD_ERROR_REQUEST_NOT_APPLICABLE, __LINE__, 4U); /* FF_INSTRUMENT */
+     return HAL_SD_ERROR_REQUEST_NOT_APPLICABLE;
+   }
+@@ -3036,4 +3083,5 @@
+       if ((HAL_GetTick() - tickstart) >=  SDMMC_CMDTIMEOUT)
+       {
++        ff_capture(hsd->Instance, HAL_SD_ERROR_TIMEOUT, __LINE__, 4U); /* FF_INSTRUMENT */
+         return HAL_SD_ERROR_TIMEOUT;
+       }
+@@ -3067,4 +3115,5 @@
+   if (HAL_SD_GetCardCSD(hsd, &CSD) != HAL_OK)
+   {
++    ff_capture(hsd->Instance, HAL_SD_ERROR_UNSUPPORTED_FEATURE, __LINE__, 4U); /* FF_INSTRUMENT */
+     return HAL_SD_ERROR_UNSUPPORTED_FEATURE;
+   }
+@@ -3129,4 +3178,5 @@
+     if (errorstate != HAL_SD_ERROR_NONE)
+     {
++      ff_capture(hsd->Instance, HAL_SD_ERROR_UNSUPPORTED_FEATURE, __LINE__, 4U); /* FF_INSTRUMENT */
+       return HAL_SD_ERROR_UNSUPPORTED_FEATURE;
+     }
+@@ -3148,4 +3198,5 @@
+     if (errorstate != HAL_SD_ERROR_NONE)
+     {
++      ff_capture(hsd->Instance, HAL_SD_ERROR_UNSUPPORTED_FEATURE, __LINE__, 4U); /* FF_INSTRUMENT */
+       return HAL_SD_ERROR_UNSUPPORTED_FEATURE;
+     }
+@@ -3162,4 +3213,5 @@
+   if (count >= SDMMC_MAX_VOLT_TRIAL)
+   {
++    ff_capture(hsd->Instance, HAL_SD_ERROR_INVALID_VOLTRANGE, __LINE__, 4U); /* FF_INSTRUMENT */
+     return HAL_SD_ERROR_INVALID_VOLTRANGE;
+   }
+@@ -3193,4 +3245,5 @@
+           if ((HAL_GetTick() - tickstart) >=  SDMMC_SWDATATIMEOUT)
+           {
++            ff_capture(hsd->Instance, HAL_SD_ERROR_TIMEOUT, __LINE__, 4U); /* FF_INSTRUMENT */
+             return HAL_SD_ERROR_TIMEOUT;
+           }
+@@ -3223,4 +3276,5 @@
+             if ((HAL_GetTick() - tickstart) >=  SDMMC_SWDATATIMEOUT)
+             {
++              ff_capture(hsd->Instance, HAL_SD_ERROR_TIMEOUT, __LINE__, 4U); /* FF_INSTRUMENT */
+               return HAL_SD_ERROR_TIMEOUT;
+             }
+@@ -3234,4 +3288,5 @@
+           {
+             /* Error when enabling 1.8V mode */
++            ff_capture(hsd->Instance, HAL_SD_ERROR_INVALID_VOLTRANGE, __LINE__, 4U); /* FF_INSTRUMENT */
+             return HAL_SD_ERROR_INVALID_VOLTRANGE;
+           }
+@@ -3281,4 +3336,5 @@
+   if ((SDMMC_GetResponse(hsd->Instance, SDMMC_RESP1) & SDMMC_CARD_LOCKED) == SDMMC_CARD_LOCKED)
+   {
++    ff_capture(hsd->Instance, HAL_SD_ERROR_LOCK_UNLOCK_FAILED, __LINE__, 4U); /* FF_INSTRUMENT */
+     return HAL_SD_ERROR_LOCK_UNLOCK_FAILED;
+   }
+@@ -3331,4 +3387,5 @@
+     if ((HAL_GetTick() - tickstart) >=  SDMMC_SWDATATIMEOUT)
+     {
++      ff_capture(hsd->Instance, HAL_SD_ERROR_TIMEOUT, __LINE__, 4U); /* FF_INSTRUMENT */
+       return HAL_SD_ERROR_TIMEOUT;
+     }
+@@ -3337,12 +3394,15 @@
+   if (__HAL_SD_GET_FLAG(hsd, SDMMC_FLAG_DTIMEOUT))
+   {
++    ff_capture(hsd->Instance, HAL_SD_ERROR_DATA_TIMEOUT, __LINE__, 4U); /* FF_INSTRUMENT */
+     return HAL_SD_ERROR_DATA_TIMEOUT;
+   }
+   else if (__HAL_SD_GET_FLAG(hsd, SDMMC_FLAG_DCRCFAIL))
+   {
++    ff_capture(hsd->Instance, HAL_SD_ERROR_DATA_CRC_FAIL, __LINE__, 4U); /* FF_INSTRUMENT */
+     return HAL_SD_ERROR_DATA_CRC_FAIL;
+   }
+   else if (__HAL_SD_GET_FLAG(hsd, SDMMC_FLAG_RXOVERR))
+   {
++    ff_capture(hsd->Instance, HAL_SD_ERROR_RX_OVERRUN, __LINE__, 4U); /* FF_INSTRUMENT */
+     return HAL_SD_ERROR_RX_OVERRUN;
+   }
+@@ -3359,4 +3419,5 @@
+     if ((HAL_GetTick() - tickstart) >=  SDMMC_SWDATATIMEOUT)
+     {
++      ff_capture(hsd->Instance, HAL_SD_ERROR_TIMEOUT, __LINE__, 4U); /* FF_INSTRUMENT */
+       return HAL_SD_ERROR_TIMEOUT;
+     }
+@@ -3364,4 +3425,5 @@
+ 
+   /* Clear all the static status flags*/
++  ff_data_preclear(hsd, __LINE__); /* FF_INSTRUMENT */
+   __HAL_SD_CLEAR_FLAG(hsd, SDMMC_STATIC_DATA_FLAGS);
+ 
+@@ -3382,4 +3444,5 @@
+   if (pCardStatus == NULL)
+   {
++    ff_capture(hsd->Instance, HAL_SD_ERROR_PARAM, __LINE__, 4U); /* FF_INSTRUMENT */
+     return HAL_SD_ERROR_PARAM;
+   }
+@@ -3410,4 +3473,5 @@
+   if ((SDMMC_GetResponse(hsd->Instance, SDMMC_RESP1) & SDMMC_CARD_LOCKED) == SDMMC_CARD_LOCKED)
+   {
++    ff_capture(hsd->Instance, HAL_SD_ERROR_LOCK_UNLOCK_FAILED, __LINE__, 4U); /* FF_INSTRUMENT */
+     return HAL_SD_ERROR_LOCK_UNLOCK_FAILED;
+   }
+@@ -3441,4 +3505,5 @@
+   else
+   {
++    ff_capture(hsd->Instance, HAL_SD_ERROR_REQUEST_NOT_APPLICABLE, __LINE__, 4U); /* FF_INSTRUMENT */
+     return HAL_SD_ERROR_REQUEST_NOT_APPLICABLE;
+   }
+@@ -3457,4 +3522,5 @@
+   if ((SDMMC_GetResponse(hsd->Instance, SDMMC_RESP1) & SDMMC_CARD_LOCKED) == SDMMC_CARD_LOCKED)
+   {
++    ff_capture(hsd->Instance, HAL_SD_ERROR_LOCK_UNLOCK_FAILED, __LINE__, 4U); /* FF_INSTRUMENT */
+     return HAL_SD_ERROR_LOCK_UNLOCK_FAILED;
+   }
+@@ -3488,4 +3554,5 @@
+   else
+   {
++    ff_capture(hsd->Instance, HAL_SD_ERROR_REQUEST_NOT_APPLICABLE, __LINE__, 4U); /* FF_INSTRUMENT */
+     return HAL_SD_ERROR_REQUEST_NOT_APPLICABLE;
+   }
+@@ -3548,4 +3615,5 @@
+     if ((HAL_GetTick() - tickstart) >=  SDMMC_SWDATATIMEOUT)
+     {
++      ff_capture(hsd->Instance, HAL_SD_ERROR_TIMEOUT, __LINE__, 4U); /* FF_INSTRUMENT */
+       return HAL_SD_ERROR_TIMEOUT;
+     }
+@@ -3554,18 +3622,24 @@
+   if (__HAL_SD_GET_FLAG(hsd, SDMMC_FLAG_DTIMEOUT))
+   {
++    ff_data_preclear(hsd, __LINE__); /* FF_INSTRUMENT */
+     __HAL_SD_CLEAR_FLAG(hsd, SDMMC_FLAG_DTIMEOUT);
+ 
++    ff_capture(hsd->Instance, HAL_SD_ERROR_DATA_TIMEOUT, __LINE__, 4U); /* FF_INSTRUMENT */
+     return HAL_SD_ERROR_DATA_TIMEOUT;
+   }
+   else if (__HAL_SD_GET_FLAG(hsd, SDMMC_FLAG_DCRCFAIL))
+   {
++    ff_data_preclear(hsd, __LINE__); /* FF_INSTRUMENT */
+     __HAL_SD_CLEAR_FLAG(hsd, SDMMC_FLAG_DCRCFAIL);
+ 
++    ff_capture(hsd->Instance, HAL_SD_ERROR_DATA_CRC_FAIL, __LINE__, 4U); /* FF_INSTRUMENT */
+     return HAL_SD_ERROR_DATA_CRC_FAIL;
+   }
+   else if (__HAL_SD_GET_FLAG(hsd, SDMMC_FLAG_RXOVERR))
+   {
++    ff_data_preclear(hsd, __LINE__); /* FF_INSTRUMENT */
+     __HAL_SD_CLEAR_FLAG(hsd, SDMMC_FLAG_RXOVERR);
+ 
++    ff_capture(hsd->Instance, HAL_SD_ERROR_RX_OVERRUN, __LINE__, 4U); /* FF_INSTRUMENT */
+     return HAL_SD_ERROR_RX_OVERRUN;
+   }
+@@ -3574,4 +3648,5 @@
+     /* No error flag set */
+     /* Clear all the static flags */
++    ff_data_preclear(hsd, __LINE__); /* FF_INSTRUMENT */
+     __HAL_SD_CLEAR_FLAG(hsd, SDMMC_STATIC_DATA_FLAGS);
+ 
+@@ -3678,4 +3753,5 @@
+   {
+     /* Standard Speed Card <= 12.5Mhz  */
++    ff_capture(hsd->Instance, HAL_SD_ERROR_REQUEST_NOT_APPLICABLE, __LINE__, 4U); /* FF_INSTRUMENT */
+     return HAL_SD_ERROR_REQUEST_NOT_APPLICABLE;
+   }
+@@ -3721,6 +3797,8 @@
+       if ((HAL_GetTick() - Timeout) >=  SDMMC_SWDATATIMEOUT)
+       {
+-        hsd->ErrorCode = HAL_SD_ERROR_TIMEOUT;
++        ff_capture(hsd->Instance, HAL_SD_ERROR_TIMEOUT, __LINE__, 4U); /* FF_INSTRUMENT */
++      hsd->ErrorCode = HAL_SD_ERROR_TIMEOUT;
+         hsd->State = HAL_SD_STATE_READY;
++        ff_capture(hsd->Instance, HAL_SD_ERROR_TIMEOUT, __LINE__, 4U); /* FF_INSTRUMENT */
+         return HAL_SD_ERROR_TIMEOUT;
+       }
+@@ -3729,4 +3807,5 @@
+     if (__HAL_SD_GET_FLAG(hsd, SDMMC_FLAG_DTIMEOUT))
+     {
++      ff_data_preclear(hsd, __LINE__); /* FF_INSTRUMENT */
+       __HAL_SD_CLEAR_FLAG(hsd, SDMMC_FLAG_DTIMEOUT);
+ 
+@@ -3735,4 +3814,5 @@
+     else if (__HAL_SD_GET_FLAG(hsd, SDMMC_FLAG_DCRCFAIL))
+     {
++      ff_data_preclear(hsd, __LINE__); /* FF_INSTRUMENT */
+       __HAL_SD_CLEAR_FLAG(hsd, SDMMC_FLAG_DCRCFAIL);
+ 
+@@ -3743,4 +3823,5 @@
+     else if (__HAL_SD_GET_FLAG(hsd, SDMMC_FLAG_RXOVERR))
+     {
++      ff_data_preclear(hsd, __LINE__); /* FF_INSTRUMENT */
+       __HAL_SD_CLEAR_FLAG(hsd, SDMMC_FLAG_RXOVERR);
+ 
+@@ -3755,4 +3836,5 @@
+ 
+     /* Clear all the static flags */
++    ff_data_preclear(hsd, __LINE__); /* FF_INSTRUMENT */
+     __HAL_SD_CLEAR_FLAG(hsd, SDMMC_STATIC_DATA_FLAGS);
+ 
+@@ -3790,4 +3872,5 @@
+   {
+     /* Standard Speed Card <= 12.5Mhz  */
++    ff_capture(hsd->Instance, HAL_SD_ERROR_REQUEST_NOT_APPLICABLE, __LINE__, 4U); /* FF_INSTRUMENT */
+     return HAL_SD_ERROR_REQUEST_NOT_APPLICABLE;
+   }
+@@ -3837,6 +3920,8 @@
+       if ((HAL_GetTick() - Timeout) >=  SDMMC_SWDATATIMEOUT)
+       {
+-        hsd->ErrorCode = HAL_SD_ERROR_TIMEOUT;
++        ff_capture(hsd->Instance, HAL_SD_ERROR_TIMEOUT, __LINE__, 4U); /* FF_INSTRUMENT */
++      hsd->ErrorCode = HAL_SD_ERROR_TIMEOUT;
+         hsd->State = HAL_SD_STATE_READY;
++        ff_capture(hsd->Instance, HAL_SD_ERROR_TIMEOUT, __LINE__, 4U); /* FF_INSTRUMENT */
+         return HAL_SD_ERROR_TIMEOUT;
+       }
+@@ -3845,4 +3930,5 @@
+     if (__HAL_SD_GET_FLAG(hsd, SDMMC_FLAG_DTIMEOUT))
+     {
++      ff_data_preclear(hsd, __LINE__); /* FF_INSTRUMENT */
+       __HAL_SD_CLEAR_FLAG(hsd, SDMMC_FLAG_DTIMEOUT);
+ 
+@@ -3851,4 +3937,5 @@
+     else if (__HAL_SD_GET_FLAG(hsd, SDMMC_FLAG_DCRCFAIL))
+     {
++      ff_data_preclear(hsd, __LINE__); /* FF_INSTRUMENT */
+       __HAL_SD_CLEAR_FLAG(hsd, SDMMC_FLAG_DCRCFAIL);
+ 
+@@ -3859,4 +3946,5 @@
+     else if (__HAL_SD_GET_FLAG(hsd, SDMMC_FLAG_RXOVERR))
+     {
++      ff_data_preclear(hsd, __LINE__); /* FF_INSTRUMENT */
+       __HAL_SD_CLEAR_FLAG(hsd, SDMMC_FLAG_RXOVERR);
+ 
+@@ -3871,4 +3959,5 @@
+ 
+     /* Clear all the static flags */
++    ff_data_preclear(hsd, __LINE__); /* FF_INSTRUMENT */
+     __HAL_SD_CLEAR_FLAG(hsd, SDMMC_STATIC_DATA_FLAGS);
+ 
+@@ -3917,4 +4006,5 @@
+   {
+     /* Standard Speed Card <= 12.5Mhz  */
++    ff_capture(hsd->Instance, HAL_SD_ERROR_REQUEST_NOT_APPLICABLE, __LINE__, 4U); /* FF_INSTRUMENT */
+     return HAL_SD_ERROR_REQUEST_NOT_APPLICABLE;
+   }
+@@ -3964,6 +4054,8 @@
+       if ((HAL_GetTick() - Timeout) >=  SDMMC_SWDATATIMEOUT)
+       {
+-        hsd->ErrorCode = HAL_SD_ERROR_TIMEOUT;
++        ff_capture(hsd->Instance, HAL_SD_ERROR_TIMEOUT, __LINE__, 4U); /* FF_INSTRUMENT */
++      hsd->ErrorCode = HAL_SD_ERROR_TIMEOUT;
+         hsd->State = HAL_SD_STATE_READY;
++        ff_capture(hsd->Instance, HAL_SD_ERROR_TIMEOUT, __LINE__, 4U); /* FF_INSTRUMENT */
+         return HAL_SD_ERROR_TIMEOUT;
+       }
+@@ -3972,4 +4064,5 @@
+     if (__HAL_SD_GET_FLAG(hsd, SDMMC_FLAG_DTIMEOUT))
+     {
++      ff_data_preclear(hsd, __LINE__); /* FF_INSTRUMENT */
+       __HAL_SD_CLEAR_FLAG(hsd, SDMMC_FLAG_DTIMEOUT);
+ 
+@@ -3978,4 +4071,5 @@
+     else if (__HAL_SD_GET_FLAG(hsd, SDMMC_FLAG_DCRCFAIL))
+     {
++      ff_data_preclear(hsd, __LINE__); /* FF_INSTRUMENT */
+       __HAL_SD_CLEAR_FLAG(hsd, SDMMC_FLAG_DCRCFAIL);
+ 
+@@ -3986,4 +4080,5 @@
+     else if (__HAL_SD_GET_FLAG(hsd, SDMMC_FLAG_RXOVERR))
+     {
++      ff_data_preclear(hsd, __LINE__); /* FF_INSTRUMENT */
+       __HAL_SD_CLEAR_FLAG(hsd, SDMMC_FLAG_RXOVERR);
+ 
+@@ -3998,4 +4093,5 @@
+ 
+     /* Clear all the static flags */
++    ff_data_preclear(hsd, __LINE__); /* FF_INSTRUMENT */
+     __HAL_SD_CLEAR_FLAG(hsd, SDMMC_STATIC_DATA_FLAGS);
+ 

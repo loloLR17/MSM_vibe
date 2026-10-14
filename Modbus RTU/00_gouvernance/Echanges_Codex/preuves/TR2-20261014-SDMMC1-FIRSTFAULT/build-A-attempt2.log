@@ -1,0 +1,55 @@
+[  2%] Building C object CMakeFiles/sdmmc1_firstfault.dir/overlay/stm32u5xx_hal_sd.c.obj
+[  5%] Building C object CMakeFiles/sdmmc1_firstfault.dir/overlay/stm32u5xx_it.c.obj
+[  8%] Building C object CMakeFiles/sdmmc1_firstfault.dir/overlay/main.c.obj
+[ 11%] Building C object CMakeFiles/sdmmc1_firstfault.dir/probe.c.obj
+/home/lolo/dev/msm/reports/SDMMC1-firstfault-A-build/overlay/main.c:234:13: warning: 'MX_USB_OTG_FS_PCD_Init' defined but not used [-Wunused-function]
+  234 | static void MX_USB_OTG_FS_PCD_Init(void)
+      |             ^~~~~~~~~~~~~~~~~~~~~~
+/home/lolo/dev/msm/reports/SDMMC1-firstfault-A-build/overlay/main.c:203:13: warning: 'MX_SDMMC1_SD_Init' defined but not used [-Wunused-function]
+  203 | static void MX_SDMMC1_SD_Init(void)
+      |             ^~~~~~~~~~~~~~~~~
+[ 13%] Building C object CMakeFiles/sdmmc1_firstfault.dir/overlay/stm32u5xx_ll_sdmmc.c.obj
+[ 16%] Building C object CMakeFiles/sdmmc1_firstfault.dir/home/lolo/dev/msm/cache/VILLO88-NUCLEOU575-SDMMC1-PoC/Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_dma.c.obj
+[ 19%] Building C object CMakeFiles/sdmmc1_firstfault.dir/home/lolo/dev/msm/cache/VILLO88-NUCLEOU575-SDMMC1-PoC/Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_dma_ex.c.obj
+[ 22%] Building C object CMakeFiles/sdmmc1_firstfault.dir/home/lolo/dev/msm/cache/VILLO88-NUCLEOU575-SDMMC1-PoC/Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_exti.c.obj
+[ 25%] Building C object CMakeFiles/sdmmc1_firstfault.dir/home/lolo/dev/msm/cache/VILLO88-NUCLEOU575-SDMMC1-PoC/Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_flash.c.obj
+[ 27%] Building C object CMakeFiles/sdmmc1_firstfault.dir/home/lolo/dev/msm/cache/VILLO88-NUCLEOU575-SDMMC1-PoC/Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_flash_ex.c.obj
+[ 30%] Building C object CMakeFiles/sdmmc1_firstfault.dir/home/lolo/dev/msm/cache/VILLO88-NUCLEOU575-SDMMC1-PoC/Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_gpio.c.obj
+[ 33%] Building C object CMakeFiles/sdmmc1_firstfault.dir/home/lolo/dev/msm/cache/VILLO88-NUCLEOU575-SDMMC1-PoC/Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_gtzc.c.obj
+[ 36%] Building C object CMakeFiles/sdmmc1_firstfault.dir/home/lolo/dev/msm/cache/VILLO88-NUCLEOU575-SDMMC1-PoC/Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_i2c.c.obj
+[ 38%] Building C object CMakeFiles/sdmmc1_firstfault.dir/home/lolo/dev/msm/cache/VILLO88-NUCLEOU575-SDMMC1-PoC/Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_i2c_ex.c.obj
+[ 41%] Building C object CMakeFiles/sdmmc1_firstfault.dir/home/lolo/dev/msm/cache/VILLO88-NUCLEOU575-SDMMC1-PoC/Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_icache.c.obj
+[ 44%] Building C object CMakeFiles/sdmmc1_firstfault.dir/home/lolo/dev/msm/cache/VILLO88-NUCLEOU575-SDMMC1-PoC/Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_mmc.c.obj
+[ 47%] Building C object CMakeFiles/sdmmc1_firstfault.dir/home/lolo/dev/msm/cache/VILLO88-NUCLEOU575-SDMMC1-PoC/Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_mmc_ex.c.obj
+[ 50%] Building C object CMakeFiles/sdmmc1_firstfault.dir/home/lolo/dev/msm/cache/VILLO88-NUCLEOU575-SDMMC1-PoC/Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_pcd.c.obj
+[ 52%] Building C object CMakeFiles/sdmmc1_firstfault.dir/home/lolo/dev/msm/cache/VILLO88-NUCLEOU575-SDMMC1-PoC/Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_pcd_ex.c.obj
+[ 55%] Building C object CMakeFiles/sdmmc1_firstfault.dir/home/lolo/dev/msm/cache/VILLO88-NUCLEOU575-SDMMC1-PoC/Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_pwr.c.obj
+[ 58%] Building C object CMakeFiles/sdmmc1_firstfault.dir/home/lolo/dev/msm/cache/VILLO88-NUCLEOU575-SDMMC1-PoC/Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_pwr_ex.c.obj
+[ 61%] Building C object CMakeFiles/sdmmc1_firstfault.dir/home/lolo/dev/msm/cache/VILLO88-NUCLEOU575-SDMMC1-PoC/Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rcc.c.obj
+[ 63%] Building C object CMakeFiles/sdmmc1_firstfault.dir/home/lolo/dev/msm/cache/VILLO88-NUCLEOU575-SDMMC1-PoC/Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rcc_ex.c.obj
+[ 66%] Building C object CMakeFiles/sdmmc1_firstfault.dir/home/lolo/dev/msm/cache/VILLO88-NUCLEOU575-SDMMC1-PoC/Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_sd_ex.c.obj
+[ 69%] Building C object CMakeFiles/sdmmc1_firstfault.dir/home/lolo/dev/msm/cache/VILLO88-NUCLEOU575-SDMMC1-PoC/Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_sdio.c.obj
+[ 72%] Building C object CMakeFiles/sdmmc1_firstfault.dir/home/lolo/dev/msm/cache/VILLO88-NUCLEOU575-SDMMC1-PoC/Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_tim.c.obj
+[ 75%] Building C object CMakeFiles/sdmmc1_firstfault.dir/home/lolo/dev/msm/cache/VILLO88-NUCLEOU575-SDMMC1-PoC/Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_ll_dlyb.c.obj
+[ 77%] Building C object CMakeFiles/sdmmc1_firstfault.dir/home/lolo/dev/msm/cache/VILLO88-NUCLEOU575-SDMMC1-PoC/Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_tim_ex.c.obj
+[ 80%] Building C object CMakeFiles/sdmmc1_firstfault.dir/home/lolo/dev/msm/cache/VILLO88-NUCLEOU575-SDMMC1-PoC/Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_ll_usb.c.obj
+[ 83%] Building C object CMakeFiles/sdmmc1_firstfault.dir/home/lolo/dev/msm/cache/VILLO88-NUCLEOU575-SDMMC1-PoC/Core/Src/stm32u5xx_hal_msp.c.obj
+[ 86%] Building C object CMakeFiles/sdmmc1_firstfault.dir/home/lolo/dev/msm/cache/VILLO88-NUCLEOU575-SDMMC1-PoC/Core/Src/stm32u5xx_hal_timebase_tim.c.obj
+[ 88%] Building C object CMakeFiles/sdmmc1_firstfault.dir/home/lolo/dev/msm/cache/VILLO88-NUCLEOU575-SDMMC1-PoC/Core/Src/system_stm32u5xx.c.obj
+[ 91%] Building ASM object CMakeFiles/sdmmc1_firstfault.dir/home/lolo/dev/msm/cache/VILLO88-NUCLEOU575-SDMMC1-PoC/STM32CubeIDE/Application/User/Startup/startup_stm32u575zitxq.s.obj
+[ 94%] Linking C executable sdmmc1_firstfault.elf
+/usr/lib/gcc/arm-none-eabi/14.2.1/../../../arm-none-eabi/bin/ld: /usr/lib/gcc/arm-none-eabi/14.2.1/../../../arm-none-eabi/lib/thumb/v8-m.main+fp/hard/libc_nano.a(libc_a-closer.o): in function `_close_r':
+/build/reproducible-path/newlib-4.5.0.20241231/build_nano/arm-none-eabi/thumb/v8-m.main+fp/hard/newlib/../../../../../../newlib/libc/reent/closer.c:47:(.text+0xc): warning: _close is not implemented and will always fail
+/usr/lib/gcc/arm-none-eabi/14.2.1/../../../arm-none-eabi/bin/ld: /usr/lib/gcc/arm-none-eabi/14.2.1/../../../arm-none-eabi/lib/thumb/v8-m.main+fp/hard/libc_nano.a(libc_a-closer.o): note: the message above does not take linker garbage collection into account
+/usr/lib/gcc/arm-none-eabi/14.2.1/../../../arm-none-eabi/bin/ld: /usr/lib/gcc/arm-none-eabi/14.2.1/../../../arm-none-eabi/lib/thumb/v8-m.main+fp/hard/libc_nano.a(libc_a-lseekr.o): in function `_lseek_r':
+/build/reproducible-path/newlib-4.5.0.20241231/build_nano/arm-none-eabi/thumb/v8-m.main+fp/hard/newlib/../../../../../../newlib/libc/reent/lseekr.c:49:(.text+0x14): warning: _lseek is not implemented and will always fail
+/usr/lib/gcc/arm-none-eabi/14.2.1/../../../arm-none-eabi/bin/ld: /usr/lib/gcc/arm-none-eabi/14.2.1/../../../arm-none-eabi/lib/thumb/v8-m.main+fp/hard/libc_nano.a(libc_a-lseekr.o): note: the message above does not take linker garbage collection into account
+/usr/lib/gcc/arm-none-eabi/14.2.1/../../../arm-none-eabi/bin/ld: /usr/lib/gcc/arm-none-eabi/14.2.1/../../../arm-none-eabi/lib/thumb/v8-m.main+fp/hard/libc_nano.a(libc_a-readr.o): in function `_read_r':
+/build/reproducible-path/newlib-4.5.0.20241231/build_nano/arm-none-eabi/thumb/v8-m.main+fp/hard/newlib/../../../../../../newlib/libc/reent/readr.c:49:(.text+0x14): warning: _read is not implemented and will always fail
+/usr/lib/gcc/arm-none-eabi/14.2.1/../../../arm-none-eabi/bin/ld: /usr/lib/gcc/arm-none-eabi/14.2.1/../../../arm-none-eabi/lib/thumb/v8-m.main+fp/hard/libc_nano.a(libc_a-readr.o): note: the message above does not take linker garbage collection into account
+/usr/lib/gcc/arm-none-eabi/14.2.1/../../../arm-none-eabi/bin/ld: /usr/lib/gcc/arm-none-eabi/14.2.1/../../../arm-none-eabi/lib/thumb/v8-m.main+fp/hard/libc_nano.a(libc_a-writer.o): in function `_write_r':
+/build/reproducible-path/newlib-4.5.0.20241231/build_nano/arm-none-eabi/thumb/v8-m.main+fp/hard/newlib/../../../../../../newlib/libc/reent/writer.c:49:(.text+0x14): warning: _write is not implemented and will always fail
+/usr/lib/gcc/arm-none-eabi/14.2.1/../../../arm-none-eabi/bin/ld: /usr/lib/gcc/arm-none-eabi/14.2.1/../../../arm-none-eabi/lib/thumb/v8-m.main+fp/hard/libc_nano.a(libc_a-writer.o): note: the message above does not take linker garbage collection into account
+   text	   data	    bss	    dec	    hex	filename
+  21840	     12	  12732	  34584	   8718	/home/lolo/dev/msm/reports/SDMMC1-firstfault-A-build/sdmmc1_firstfault.elf
+[100%] Built target sdmmc1_firstfault

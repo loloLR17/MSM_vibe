@@ -1,0 +1,8 @@
+{
+  "utc": "2026-10-14T12:41:36.187279+00:00",
+  "pinout_source": "https://www.st.com/resource/en/user_manual/um2861-stm32u5-nucleo144-board-mb1549-stmicroelectronics.pdf",
+  "document": "UM2861 table 19: CN11-16 3V3, CN11-18 5V, CN11-20 GND",
+  "user_correction": "erreur de ma part, bleu est sur CN11-20 et aubergine sur CN11-16",
+  "user_off_confirmation": "ST-LINK déconnecté, bleu sur CN11-20, aubergine sur CN11-16, banc hor tension, SD card non insérée",
+  "interpretation": "Repérage confirmé hors tension par utilisateur. Aucune mesure ohmique ou observation du montage par Codex. CN15 non explicitement confirmé, maintien hors tension avant préparation flash."
+}

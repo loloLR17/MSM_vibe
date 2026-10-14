@@ -1,0 +1,13 @@
+-- The C compiler identification is GNU 14.2.0
+-- The ASM compiler identification is GNU
+-- Found assembler: /usr/bin/cc
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /usr/bin/cc - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+CMake Error at CMakeLists.txt:6 (message):
+  Explicit FF_PROFILE=1 or 4 required
+
+
+-- Configuring incomplete, errors occurred!

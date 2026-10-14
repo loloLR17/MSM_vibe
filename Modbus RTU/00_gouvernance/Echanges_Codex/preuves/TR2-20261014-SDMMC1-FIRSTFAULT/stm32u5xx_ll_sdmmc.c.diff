@@ -1,0 +1,319 @@
+--- upstream/Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_ll_sdmmc.c
++++ overlay/Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_ll_sdmmc.c
+@@ -1,2 +1,3 @@
++#include "trace.h" /* FF_INSTRUMENT */
+ /**
+   ******************************************************************************
+@@ -1366,4 +1367,5 @@
+     if (count-- == 0U)
+     {
++      ff_capture(SDMMCx, SDMMC_ERROR_TIMEOUT, __LINE__, 1U); /* FF_INSTRUMENT */
+       return SDMMC_ERROR_TIMEOUT;
+     }
+@@ -1374,12 +1376,16 @@
+   if (__SDMMC_GET_FLAG(SDMMCx, SDMMC_FLAG_CTIMEOUT))
+   {
++    ff_capture(SDMMCx, SDMMC_ERROR_CMD_RSP_TIMEOUT, __LINE__, 1U); /* FF_INSTRUMENT */
+     __SDMMC_CLEAR_FLAG(SDMMCx, SDMMC_FLAG_CTIMEOUT);
+ 
++    ff_capture(SDMMCx, SDMMC_ERROR_CMD_RSP_TIMEOUT, __LINE__, 1U); /* FF_INSTRUMENT */
+     return SDMMC_ERROR_CMD_RSP_TIMEOUT;
+   }
+   else if (__SDMMC_GET_FLAG(SDMMCx, SDMMC_FLAG_CCRCFAIL))
+   {
++    ff_capture(SDMMCx, SDMMC_ERROR_CMD_CRC_FAIL, __LINE__, 1U); /* FF_INSTRUMENT */
+     __SDMMC_CLEAR_FLAG(SDMMCx, SDMMC_FLAG_CCRCFAIL);
+ 
++    ff_capture(SDMMCx, SDMMC_ERROR_CMD_CRC_FAIL, __LINE__, 1U); /* FF_INSTRUMENT */
+     return SDMMC_ERROR_CMD_CRC_FAIL;
+   }
+@@ -1390,4 +1396,5 @@
+ 
+   /* Clear all the static flags */
++  ff_r1_preclear(SDMMCx, SD_CMD, __LINE__); /* FF_INSTRUMENT */
+   __SDMMC_CLEAR_FLAG(SDMMCx, SDMMC_STATIC_CMD_FLAGS);
+ 
+@@ -1395,4 +1402,5 @@
+   if (SDMMC_GetCommandResponse(SDMMCx) != SD_CMD)
+   {
++    ff_capture(SDMMCx, SDMMC_ERROR_CMD_CRC_FAIL, __LINE__, 1U); /* FF_INSTRUMENT */
+     return SDMMC_ERROR_CMD_CRC_FAIL;
+   }
+@@ -1407,76 +1415,95 @@
+   else if ((response_r1 & SDMMC_OCR_ADDR_OUT_OF_RANGE) == SDMMC_OCR_ADDR_OUT_OF_RANGE)
+   {
++    ff_capture(SDMMCx, SDMMC_ERROR_ADDR_OUT_OF_RANGE, __LINE__, 1U); /* FF_INSTRUMENT */
+     return SDMMC_ERROR_ADDR_OUT_OF_RANGE;
+   }
+   else if ((response_r1 & SDMMC_OCR_ADDR_MISALIGNED) == SDMMC_OCR_ADDR_MISALIGNED)
+   {
++    ff_capture(SDMMCx, SDMMC_ERROR_ADDR_MISALIGNED, __LINE__, 1U); /* FF_INSTRUMENT */
+     return SDMMC_ERROR_ADDR_MISALIGNED;
+   }
+   else if ((response_r1 & SDMMC_OCR_BLOCK_LEN_ERR) == SDMMC_OCR_BLOCK_LEN_ERR)
+   {
++    ff_capture(SDMMCx, SDMMC_ERROR_BLOCK_LEN_ERR, __LINE__, 1U); /* FF_INSTRUMENT */
+     return SDMMC_ERROR_BLOCK_LEN_ERR;
+   }
+   else if ((response_r1 & SDMMC_OCR_ERASE_SEQ_ERR) == SDMMC_OCR_ERASE_SEQ_ERR)
+   {
++    ff_capture(SDMMCx, SDMMC_ERROR_ERASE_SEQ_ERR, __LINE__, 1U); /* FF_INSTRUMENT */
+     return SDMMC_ERROR_ERASE_SEQ_ERR;
+   }
+   else if ((response_r1 & SDMMC_OCR_BAD_ERASE_PARAM) == SDMMC_OCR_BAD_ERASE_PARAM)
+   {
++    ff_capture(SDMMCx, SDMMC_ERROR_BAD_ERASE_PARAM, __LINE__, 1U); /* FF_INSTRUMENT */
+     return SDMMC_ERROR_BAD_ERASE_PARAM;
+   }
+   else if ((response_r1 & SDMMC_OCR_WRITE_PROT_VIOLATION) == SDMMC_OCR_WRITE_PROT_VIOLATION)
+   {
++    ff_capture(SDMMCx, SDMMC_ERROR_WRITE_PROT_VIOLATION, __LINE__, 1U); /* FF_INSTRUMENT */
+     return SDMMC_ERROR_WRITE_PROT_VIOLATION;
+   }
+   else if ((response_r1 & SDMMC_OCR_LOCK_UNLOCK_FAILED) == SDMMC_OCR_LOCK_UNLOCK_FAILED)
+   {
++    ff_capture(SDMMCx, SDMMC_ERROR_LOCK_UNLOCK_FAILED, __LINE__, 1U); /* FF_INSTRUMENT */
+     return SDMMC_ERROR_LOCK_UNLOCK_FAILED;
+   }
+   else if ((response_r1 & SDMMC_OCR_COM_CRC_FAILED) == SDMMC_OCR_COM_CRC_FAILED)
+   {
++    ff_capture(SDMMCx, SDMMC_ERROR_COM_CRC_FAILED, __LINE__, 1U); /* FF_INSTRUMENT */
+     return SDMMC_ERROR_COM_CRC_FAILED;
+   }
+   else if ((response_r1 & SDMMC_OCR_ILLEGAL_CMD) == SDMMC_OCR_ILLEGAL_CMD)
+   {
++    ff_capture(SDMMCx, SDMMC_ERROR_ILLEGAL_CMD, __LINE__, 1U); /* FF_INSTRUMENT */
+     return SDMMC_ERROR_ILLEGAL_CMD;
+   }
+   else if ((response_r1 & SDMMC_OCR_CARD_ECC_FAILED) == SDMMC_OCR_CARD_ECC_FAILED)
+   {
++    ff_capture(SDMMCx, SDMMC_ERROR_CARD_ECC_FAILED, __LINE__, 1U); /* FF_INSTRUMENT */
+     return SDMMC_ERROR_CARD_ECC_FAILED;
+   }
+   else if ((response_r1 & SDMMC_OCR_CC_ERROR) == SDMMC_OCR_CC_ERROR)
+   {
++    ff_capture(SDMMCx, SDMMC_ERROR_CC_ERR, __LINE__, 1U); /* FF_INSTRUMENT */
+     return SDMMC_ERROR_CC_ERR;
+   }
+   else if ((response_r1 & SDMMC_OCR_STREAM_READ_UNDERRUN) == SDMMC_OCR_STREAM_READ_UNDERRUN)
+   {
++    ff_capture(SDMMCx, SDMMC_ERROR_STREAM_READ_UNDERRUN, __LINE__, 1U); /* FF_INSTRUMENT */
+     return SDMMC_ERROR_STREAM_READ_UNDERRUN;
+   }
+   else if ((response_r1 & SDMMC_OCR_STREAM_WRITE_OVERRUN) == SDMMC_OCR_STREAM_WRITE_OVERRUN)
+   {
++    ff_capture(SDMMCx, SDMMC_ERROR_STREAM_WRITE_OVERRUN, __LINE__, 1U); /* FF_INSTRUMENT */
+     return SDMMC_ERROR_STREAM_WRITE_OVERRUN;
+   }
+   else if ((response_r1 & SDMMC_OCR_CID_CSD_OVERWRITE) == SDMMC_OCR_CID_CSD_OVERWRITE)
+   {
++    ff_capture(SDMMCx, SDMMC_ERROR_CID_CSD_OVERWRITE, __LINE__, 1U); /* FF_INSTRUMENT */
+     return SDMMC_ERROR_CID_CSD_OVERWRITE;
+   }
+   else if ((response_r1 & SDMMC_OCR_WP_ERASE_SKIP) == SDMMC_OCR_WP_ERASE_SKIP)
+   {
++    ff_capture(SDMMCx, SDMMC_ERROR_WP_ERASE_SKIP, __LINE__, 1U); /* FF_INSTRUMENT */
+     return SDMMC_ERROR_WP_ERASE_SKIP;
+   }
+   else if ((response_r1 & SDMMC_OCR_CARD_ECC_DISABLED) == SDMMC_OCR_CARD_ECC_DISABLED)
+   {
++    ff_capture(SDMMCx, SDMMC_ERROR_CARD_ECC_DISABLED, __LINE__, 1U); /* FF_INSTRUMENT */
+     return SDMMC_ERROR_CARD_ECC_DISABLED;
+   }
+   else if ((response_r1 & SDMMC_OCR_ERASE_RESET) == SDMMC_OCR_ERASE_RESET)
+   {
++    ff_capture(SDMMCx, SDMMC_ERROR_ERASE_RESET, __LINE__, 1U); /* FF_INSTRUMENT */
+     return SDMMC_ERROR_ERASE_RESET;
+   }
+   else if ((response_r1 & SDMMC_OCR_AKE_SEQ_ERROR) == SDMMC_OCR_AKE_SEQ_ERROR)
+   {
++    ff_capture(SDMMCx, SDMMC_ERROR_AKE_SEQ_ERR, __LINE__, 1U); /* FF_INSTRUMENT */
+     return SDMMC_ERROR_AKE_SEQ_ERR;
+   }
+   else
+   {
++    ff_capture(SDMMCx, SDMMC_ERROR_GENERAL_UNKNOWN_ERR, __LINE__, 1U); /* FF_INSTRUMENT */
+     return SDMMC_ERROR_GENERAL_UNKNOWN_ERR;
+   }
+@@ -1499,4 +1526,5 @@
+     if (count-- == 0U)
+     {
++      ff_capture(SDMMCx, SDMMC_ERROR_TIMEOUT, __LINE__, 1U); /* FF_INSTRUMENT */
+       return SDMMC_ERROR_TIMEOUT;
+     }
+@@ -1507,12 +1535,16 @@
+   if (__SDMMC_GET_FLAG(SDMMCx, SDMMC_FLAG_CTIMEOUT))
+   {
++    ff_capture(SDMMCx, SDMMC_ERROR_CMD_RSP_TIMEOUT, __LINE__, 1U); /* FF_INSTRUMENT */
+     __SDMMC_CLEAR_FLAG(SDMMCx, SDMMC_FLAG_CTIMEOUT);
+ 
++    ff_capture(SDMMCx, SDMMC_ERROR_CMD_RSP_TIMEOUT, __LINE__, 1U); /* FF_INSTRUMENT */
+     return SDMMC_ERROR_CMD_RSP_TIMEOUT;
+   }
+   else if (__SDMMC_GET_FLAG(SDMMCx, SDMMC_FLAG_CCRCFAIL))
+   {
++    ff_capture(SDMMCx, SDMMC_ERROR_CMD_CRC_FAIL, __LINE__, 1U); /* FF_INSTRUMENT */
+     __SDMMC_CLEAR_FLAG(SDMMCx, SDMMC_FLAG_CCRCFAIL);
+ 
++    ff_capture(SDMMCx, SDMMC_ERROR_CMD_CRC_FAIL, __LINE__, 1U); /* FF_INSTRUMENT */
+     return SDMMC_ERROR_CMD_CRC_FAIL;
+   }
+@@ -1543,4 +1575,5 @@
+     if (count-- == 0U)
+     {
++      ff_capture(SDMMCx, SDMMC_ERROR_TIMEOUT, __LINE__, 1U); /* FF_INSTRUMENT */
+       return SDMMC_ERROR_TIMEOUT;
+     }
+@@ -1551,6 +1584,8 @@
+   if (__SDMMC_GET_FLAG(SDMMCx, SDMMC_FLAG_CTIMEOUT))
+   {
++    ff_capture(SDMMCx, SDMMC_ERROR_CMD_RSP_TIMEOUT, __LINE__, 1U); /* FF_INSTRUMENT */
+     __SDMMC_CLEAR_FLAG(SDMMCx, SDMMC_FLAG_CTIMEOUT);
+ 
++    ff_capture(SDMMCx, SDMMC_ERROR_CMD_RSP_TIMEOUT, __LINE__, 1U); /* FF_INSTRUMENT */
+     return SDMMC_ERROR_CMD_RSP_TIMEOUT;
+   }
+@@ -1582,4 +1617,5 @@
+     if (count-- == 0U)
+     {
++      ff_capture(SDMMCx, SDMMC_ERROR_TIMEOUT, __LINE__, 1U); /* FF_INSTRUMENT */
+       return SDMMC_ERROR_TIMEOUT;
+     }
+@@ -1590,6 +1626,8 @@
+   if (__SDMMC_GET_FLAG(SDMMCx, SDMMC_FLAG_CTIMEOUT))
+   {
++    ff_capture(SDMMCx, SDMMC_ERROR_CMD_RSP_TIMEOUT, __LINE__, 1U); /* FF_INSTRUMENT */
+     __SDMMC_CLEAR_FLAG(SDMMCx, SDMMC_FLAG_CTIMEOUT);
+ 
++    ff_capture(SDMMCx, SDMMC_ERROR_CMD_RSP_TIMEOUT, __LINE__, 1U); /* FF_INSTRUMENT */
+     return SDMMC_ERROR_CMD_RSP_TIMEOUT;
+   }
+@@ -1629,4 +1667,5 @@
+     if (count-- == 0U)
+     {
++      ff_capture(SDMMCx, SDMMC_ERROR_TIMEOUT, __LINE__, 1U); /* FF_INSTRUMENT */
+       return SDMMC_ERROR_TIMEOUT;
+     }
+@@ -1637,12 +1676,16 @@
+   if (__SDMMC_GET_FLAG(SDMMCx, SDMMC_FLAG_CTIMEOUT))
+   {
++    ff_capture(SDMMCx, SDMMC_ERROR_CMD_RSP_TIMEOUT, __LINE__, 1U); /* FF_INSTRUMENT */
+     __SDMMC_CLEAR_FLAG(SDMMCx, SDMMC_FLAG_CTIMEOUT);
+ 
++    ff_capture(SDMMCx, SDMMC_ERROR_CMD_RSP_TIMEOUT, __LINE__, 1U); /* FF_INSTRUMENT */
+     return SDMMC_ERROR_CMD_RSP_TIMEOUT;
+   }
+   else if (__SDMMC_GET_FLAG(SDMMCx, SDMMC_FLAG_CCRCFAIL))
+   {
++    ff_capture(SDMMCx, SDMMC_ERROR_CMD_CRC_FAIL, __LINE__, 1U); /* FF_INSTRUMENT */
+     __SDMMC_CLEAR_FLAG(SDMMCx, SDMMC_FLAG_CCRCFAIL);
+ 
++    ff_capture(SDMMCx, SDMMC_ERROR_CMD_CRC_FAIL, __LINE__, 1U); /* FF_INSTRUMENT */
+     return SDMMC_ERROR_CMD_CRC_FAIL;
+   }
+@@ -1655,4 +1698,5 @@
+   if (SDMMC_GetCommandResponse(SDMMCx) != SDIO_CMD)
+   {
++    ff_capture(SDMMCx, SDMMC_ERROR_CMD_CRC_FAIL, __LINE__, 1U); /* FF_INSTRUMENT */
+     return SDMMC_ERROR_CMD_CRC_FAIL;
+   }
+@@ -1676,20 +1720,25 @@
+   else if ((response_r5 & SDMMC_SDIO_R5_OUT_OF_RANGE) == SDMMC_SDIO_R5_OUT_OF_RANGE)
+   {
++    ff_capture(SDMMCx, SDMMC_ERROR_ADDR_OUT_OF_RANGE, __LINE__, 1U); /* FF_INSTRUMENT */
+     return SDMMC_ERROR_ADDR_OUT_OF_RANGE;
+   }
+   else if ((response_r5 & SDMMC_SDIO_R5_INVALID_FUNCTION_NUMBER) == SDMMC_SDIO_R5_INVALID_FUNCTION_NUMBER)
+   {
++    ff_capture(SDMMCx, SDMMC_ERROR_INVALID_PARAMETER, __LINE__, 1U); /* FF_INSTRUMENT */
+     return SDMMC_ERROR_INVALID_PARAMETER;
+   }
+   else if ((response_r5 & SDMMC_SDIO_R5_ILLEGAL_CMD) == SDMMC_SDIO_R5_ILLEGAL_CMD)
+   {
++    ff_capture(SDMMCx, SDMMC_ERROR_ILLEGAL_CMD, __LINE__, 1U); /* FF_INSTRUMENT */
+     return SDMMC_ERROR_ILLEGAL_CMD;
+   }
+   else if ((response_r5 & SDMMC_SDIO_R5_COM_CRC_FAILED) == SDMMC_SDIO_R5_COM_CRC_FAILED)
+   {
++    ff_capture(SDMMCx, SDMMC_ERROR_COM_CRC_FAILED, __LINE__, 1U); /* FF_INSTRUMENT */
+     return SDMMC_ERROR_COM_CRC_FAILED;
+   }
+   else
+   {
++    ff_capture(SDMMCx, SDMMC_ERROR_GENERAL_UNKNOWN_ERR, __LINE__, 1U); /* FF_INSTRUMENT */
+     return SDMMC_ERROR_GENERAL_UNKNOWN_ERR;
+   }
+@@ -1717,4 +1766,5 @@
+     if (count-- == 0U)
+     {
++      ff_capture(SDMMCx, SDMMC_ERROR_TIMEOUT, __LINE__, 1U); /* FF_INSTRUMENT */
+       return SDMMC_ERROR_TIMEOUT;
+     }
+@@ -1725,12 +1775,16 @@
+   if (__SDMMC_GET_FLAG(SDMMCx, SDMMC_FLAG_CTIMEOUT))
+   {
++    ff_capture(SDMMCx, SDMMC_ERROR_CMD_RSP_TIMEOUT, __LINE__, 1U); /* FF_INSTRUMENT */
+     __SDMMC_CLEAR_FLAG(SDMMCx, SDMMC_FLAG_CTIMEOUT);
+ 
++    ff_capture(SDMMCx, SDMMC_ERROR_CMD_RSP_TIMEOUT, __LINE__, 1U); /* FF_INSTRUMENT */
+     return SDMMC_ERROR_CMD_RSP_TIMEOUT;
+   }
+   else if (__SDMMC_GET_FLAG(SDMMCx, SDMMC_FLAG_CCRCFAIL))
+   {
++    ff_capture(SDMMCx, SDMMC_ERROR_CMD_CRC_FAIL, __LINE__, 1U); /* FF_INSTRUMENT */
+     __SDMMC_CLEAR_FLAG(SDMMCx, SDMMC_FLAG_CCRCFAIL);
+ 
++    ff_capture(SDMMCx, SDMMC_ERROR_CMD_CRC_FAIL, __LINE__, 1U); /* FF_INSTRUMENT */
+     return SDMMC_ERROR_CMD_CRC_FAIL;
+   }
+@@ -1743,8 +1797,10 @@
+   if (SDMMC_GetCommandResponse(SDMMCx) != SD_CMD)
+   {
++    ff_capture(SDMMCx, SDMMC_ERROR_CMD_CRC_FAIL, __LINE__, 1U); /* FF_INSTRUMENT */
+     return SDMMC_ERROR_CMD_CRC_FAIL;
+   }
+ 
+   /* Clear all the static flags */
++  ff_r6_preclear(SDMMCx, __LINE__); /* FF_INSTRUMENT */
+   __SDMMC_CLEAR_FLAG(SDMMCx, SDMMC_STATIC_CMD_FLAGS);
+ 
+@@ -1761,12 +1817,15 @@
+   else if ((response_r1 & SDMMC_R6_ILLEGAL_CMD) == SDMMC_R6_ILLEGAL_CMD)
+   {
++    ff_capture(SDMMCx, SDMMC_ERROR_ILLEGAL_CMD, __LINE__, 1U); /* FF_INSTRUMENT */
+     return SDMMC_ERROR_ILLEGAL_CMD;
+   }
+   else if ((response_r1 & SDMMC_R6_COM_CRC_FAILED) == SDMMC_R6_COM_CRC_FAILED)
+   {
++    ff_capture(SDMMCx, SDMMC_ERROR_COM_CRC_FAILED, __LINE__, 1U); /* FF_INSTRUMENT */
+     return SDMMC_ERROR_COM_CRC_FAILED;
+   }
+   else
+   {
++    ff_capture(SDMMCx, SDMMC_ERROR_GENERAL_UNKNOWN_ERR, __LINE__, 1U); /* FF_INSTRUMENT */
+     return SDMMC_ERROR_GENERAL_UNKNOWN_ERR;
+   }
+@@ -1789,4 +1848,5 @@
+     if (count-- == 0U)
+     {
++      ff_capture(SDMMCx, SDMMC_ERROR_TIMEOUT, __LINE__, 1U); /* FF_INSTRUMENT */
+       return SDMMC_ERROR_TIMEOUT;
+     }
+@@ -1798,6 +1858,8 @@
+   {
+     /* Card is not SD V2.0 compliant */
++    ff_capture(SDMMCx, SDMMC_ERROR_CMD_RSP_TIMEOUT, __LINE__, 1U); /* FF_INSTRUMENT */
+     __SDMMC_CLEAR_FLAG(SDMMCx, SDMMC_FLAG_CTIMEOUT);
+ 
++    ff_capture(SDMMCx, SDMMC_ERROR_CMD_RSP_TIMEOUT, __LINE__, 1U); /* FF_INSTRUMENT */
+     return SDMMC_ERROR_CMD_RSP_TIMEOUT;
+   }
+@@ -1806,6 +1868,8 @@
+   {
+     /* Card is not SD V2.0 compliant */
++    ff_capture(SDMMCx, SDMMC_ERROR_CMD_CRC_FAIL, __LINE__, 1U); /* FF_INSTRUMENT */
+     __SDMMC_CLEAR_FLAG(SDMMCx, SDMMC_FLAG_CCRCFAIL);
+ 
++    ff_capture(SDMMCx, SDMMC_ERROR_CMD_CRC_FAIL, __LINE__, 1U); /* FF_INSTRUMENT */
+     return SDMMC_ERROR_CMD_CRC_FAIL;
+   }

@@ -1,0 +1,13 @@
+{
+  "profile": 1,
+  "upstream_sha": "1e3c9183bad023ebf7d234134823d9270a0e8b64",
+  "bin_bytes": 21852,
+  "bin_sha256": "fb2843742056093610f979268c004bb9c66455cf540069ea5d8f55531a252fb1",
+  "elf_sha256": "1d88d7054a82ab75edb3bd7b6f6aa321e4095a3535dbba0107d1cd6cac285b01",
+  "compiler": "arm-none-eabi-gcc (15:14.2.rel1-1) 14.2.1 20241119",
+  "no_usb_msc_fatfs_or_sd_write_command_symbols": true,
+  "build_attempt1": "failed instrumentation injected peripheral capture into unused DMA utilities; fixed generator scope; no target operation",
+  "build_attempt2": "passed",
+  "profile_B_built": false,
+  "hardware_operations": 0
+}
