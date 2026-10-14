@@ -1,0 +1,5 @@
+{
+  "command": "[Console]::OutputEncoding=[Text.UTF8Encoding]::new($false);$ErrorActionPreference='Stop'; $n=@(Get-PnpDevice -PresentOnly | Where-Object {$_.InstanceId.Contains('VID_0483&PID_572B')} | Select-Object Status,FriendlyName,InstanceId); $d=@(Get-Disk | Where-Object {$_.FriendlyName -eq 'STM32 SD Card' -and $_.SerialNumber.Trim() -eq '123456'} | Select-Object Number,FriendlyName,SerialNumber,Size,OperationalStatus,BusType,PartitionStyle); [ordered]@{utc=[DateTime]::UtcNow.ToString('o');devices=$n;disks=$d} | ConvertTo-Json -Depth 4",
+  "return_code": 0,
+  "utc": "2026-10-14T11:04:23.383822+00:00"
+}

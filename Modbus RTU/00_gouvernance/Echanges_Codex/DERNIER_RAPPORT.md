@@ -1,12 +1,12 @@
 ---
-mission_id: TR2-20261014-P12H3H-SDMMC1-CABLE10CM-COMPARISON
-status: FAILED
+mission_id: TR2-20261014-P12H3H-SDMMC1-COLDSTART10CM
+status: IN_PROGRESS
 base_ref: main
-base_sha: 7271e03e513e3fb5a9ba33051713307125c60bbe
-initial_head: e4630199d4859e09b431ea159bfa36e553589617
+base_sha: d4f451c1ced5c39f2df9abf690a71be4bb8ce53e
+initial_head: ac39881d54792156fa78524351960507a2fd1991
 result_repository: https://github.com/VILLO88/NUCLEOU575
 result_sha: 1e3c9183bad023ebf7d234134823d9270a0e8b64
-created_at_utc: 2026-10-14T10:58:28.618028+00:00
+created_at_utc: 2026-10-14T11:06:19.164737+00:00
 author: Codex
 target_branch: main
 allow_commit: true
@@ -15,58 +15,55 @@ allow_flash: true
 allow_debug: true
 ---
 
-# SDMMC1 — comparatif ciblé fils 20 cm / 10 cm
+# SDMMC1 — contrôle après coupure électrique complète, fils 10 cm
 
-**Résultat technique : FAILED — amélioration non démontrée.** Avant le premier debug, Windows indique déjà « No Media ». Après l'unique récupération initiale autorisée, le média reste indisponible et le STM32 présente des erreurs de commande. **Zéro cycle USB de données, zéro écriture, zéro reflash** ; un reset logiciel seulement. La campagne courte ne peut pas être engagée dans cet état. Aucun nouvel essai après le critère d'arrêt. Le statut final FAILED constate l’absence d’amélioration démontrée selon le contrat ; il ne déclare pas le contrôleur SDMMC1 défectueux.
+**Résultat technique : FAILED.** Après le power-cycle rapporté par l'utilisateur dans le contrat, **No Media est déjà présent avant tout GDB/reset**. Un seul diagnostic minimal confirme l'image inchangée et des erreurs SDMMC. **Zéro reset Codex, zéro flash, zéro écriture, zéro cycle de données**. Arrêt selon §2 de la séquence contractuelle ; aucun retry ni récupération supplémentaire. IN_PROGRESS concerne exclusivement la publication/relecture distante à terminer, puis sera FAILED.
 
-## Tranche 1 — préservation et configuration identique
+## Tranche 1 — état initial sans perturbation GDB
 
-Mission et gouvernance récupérées sur main `e4630199d4859e09b431ea159bfa36e553589617`. Dépôt d'origine propre mais historiquement divergent, HEAD `82169af7e76797731358852bec83bfb0ceb54ccf` : préservé sans pull, reset, merge ou rebase. Nouveau worktree `MSM_vibe-SDMMC1-cable10cm`, branche `codex/p12h3h-sdmmc1-cable10cm`, basé sur main courant. Les worktrees existants et les deux stashes `6251b988e8b20f97997a8f98fd26d4d35a45a1b2` / `f3b829e6188f491920edf74a5f9ed0f559d08b87` sont conservés. AGENTS, protocole et gouvernance inchangés depuis le rapport précédent ; journal relu intégralement.
+Mission récupérée sur main `ac39881d54792156fa78524351960507a2fd1991` ; gouvernance inchangée depuis `d4f451c1ced5c39f2df9abf690a71be4bb8ce53e`, journal et dernier rapport relus. Coupure complète ST-LINK + USB natif puis reconnexion, microSD test32Go insérée, fils10cm et SB19/SB22 inchangés : **confirmation utilisateur publiée par ChatGPT dans le contrat**, pas une mesure électrique par Codex. Aucune manipulation physique supplémentaire demandée.
 
-Fils Dupont **10 cm au lieu de 20 cm**, raccordement et SB19/SB22 conservés, carte insérée, ST-LINK et USB natif connectés : **déclarations utilisateur consignées dans le contrat**, pas une mesure de longueur/continuité effectuée par Codex. Aucune intervention physique redondante demandée.
+**Windows à11:04:23,309UTC**, avant toute connexion GDB ou reset : USB **0483:572B**, serial123456, présent/OK. Disque2 `STM32 SD Card`, BusUSB, **Size0 / OperationalStatus No Media**, PartitionStyleRAW. Cette énumération ne constitue pas un accès réussi aux données.
 
-Seconde cible strictement vérifiée via GDB : ST-LINK **0032001F3235510C37333439**, UID **001B0046/38425018/20333157**. Carte CID **03534453/44333247/858BF092/3C01927A**, capacité enregistrée **62333952 × 512 = 31914983424 octets**. Ces valeurs proviennent du handle initialisé ; elles ne prouvent pas l'accessibilité actuelle du média.
+## Tranche 2 — diagnostic minimal et arrêt
 
-**Readback Flash intégral des 31437 octets de l'image** byte-identique au BIN Release conservé : SHA-256 **2a2fe744ab926789ae180b74f2a250b2a9202329b5afde51a1155cdd69d54c1a**. ELF SHA-256 **511322f3bcfc2a19b0572d5db34d86dfc53ce6eb055abd502ae8b07bbc077494**. Source tiers toujours propre et épinglée au commit `1e3c9183bad023ebf7d234134823d9270a0e8b64`. Aucune modification, rebuild ou flash. Le `result_sha` désigne le code externe évalué, pas le commit MSM de rapport.
+Seconde cible vérifiée exclusivement : ST-LINK **0032001F3235510C37333439**, UID **001B0046/38425018/20333157**. GDB : CID du handle **03534453/44333247/858BF092/3C01927A**, **62333952 secteurs512** enregistrés. **Un CID mémorisé dans le handle ne prouve pas la disponibilité physique actuelle**.
 
-**Configuration effective inchangée**, observée avant et après récupération : `SDMMC1_CLKCR=0x4002`, donc largeur contrôleur 4 bits/div2. RCC CCIPR1 ICLKSEL=0 et CCIPR2 SDMMCSEL=0, HSI48 ON/RDY, donc kernel 48 MHz et SD **12 MHz calculés**. CPU 160 MHz. Valeur côté carte 4 bits déjà démontrée par SSR dans le PoC précédent ; pas de nouvelle commande SSR dans cette mission. HAL, TinyUSB, broches et carte inchangés ; pas de mesure électrique de fréquence.
+Readback complet de l'image **31437octets**, byte-identique au BIN tiers Release précédemment qualifié pour sa provenance : **SHA-256 2a2fe744ab926789ae180b74f2a250b2a9202329b5afde51a1155cdd69d54c1a**. ELF **511322f3bcfc2a19b0572d5db34d86dfc53ce6eb055abd502ae8b07bbc077494** ; checkoutVILLO88 propre au commit `1e3c9183bad023ebf7d234134823d9270a0e8b64`. Pas de reflash/rebuild ni modification firmware. `result_sha` est ce commit externe, distinct du commit MSM de publication.
 
-## Tranche 2 — état initial, récupération unique et arrêt
-
-| Observation | Résultat réel |
+| Lecture réelle | Valeur |
 |---|---|
-| Windows avant tout debug, 10:55:09 UTC | USB 0483:572B / serial123456 présent et OK ; disque STM32 SD Card numéro2, Size0, **No Media** |
-| GDB initial | UID/image/CID/configuration conformes ; `sd_ready=1`, HAL READY, ErrorCode **0x3005**, RESP1 **0xB00**, STA **0x81000**, USB connecté/config1, ejected=false, CFSR/HFSR0 |
-| Windows après premier debug | No Media persiste, aucune écriture ni lecture de données demandée |
-| Récupération initiale | **Un seul `monitor reset` GDB**, procédure déjà documentée ; detach, attente huit secondes, image originale et paramètres inchangés |
-| GDB après récupération | UID/CID/CLKCR/RCC conformes ; ErrorCode **0x2005**, RESP1 **0xB00**, STA **0x81000**, HAL READY, sd_ready1, USB connecté/config1, faults0 ; detach |
-| Windows final, 10:55:47 UTC | USB reconnu, mais disque Size0/**No Media** à nouveau ; garde de disponibilité non satisfait |
+| SDMMC1_CLKCR |0x4002 : contrôleur4bits/div2|
+| RCC CR / CCIPR1 / CCIPR2 |0x03003005 /0 /0 : HSI48 ON/RDY et kernel48MHz, donc SD12MHz calculés|
+| CPU |160MHz|
+| sd_ready / HALstate |1 /READY ; ne démontrent pas la disponibilité|
+| HAL.ErrorCode |**0x1007**|
+| RESP1 / STA |0xB00 /0x81000|
+| USB connected/config / ejected |1/1 /false|
+| CFSR / HFSR |0/0|
 
-Codes interprétés à partir du header réel `stm32u5xx_ll_sdmmc.h` tiers : `0x3005` = CMD_CRC_FAIL `0x1` + CMD_RSP_TIMEOUT `0x4` + COM_CRC_FAILED `0x1000` + ILLEGAL_CMD `0x2000`. Après reset `0x2005` conserve CMD_CRC_FAIL + CMD_RSP_TIMEOUT + ILLEGAL_CMD. **Ce n'est pas un RX_OVERRUN (`0x20`)**. RESP1 `0xB00` encode état carte DATA5 avec READY_FOR_DATA ; HAL READY et sd_ready1 ne prouvent donc pas la disponibilité. Les erreurs sont accumulées dans le handle : aucune chronologie de première commande fautive n'est déduite de ces seuls bits.
+Interprétation d'après header HAL tiers conservé : **0x1007 = CMD_CRC_FAIL0x1 + DATA_CRC_FAIL0x2 + CMD_RSP_TIMEOUT0x4 + COM_CRC_FAILED0x1000**. Pas de RX_OVERRUN0x20 ni ILLEGAL_CMD0x2000 dans ce relevé. RESP1B00 encode DATA5 et READY_FOR_DATA. Ces erreurs sont accumulées : le relevé n'isole ni la première commande fautive ni la cause électrique. Aucune nouvelle commande SSR ou transfert SD exécuté par GDB ; la largeur4bits côté carte reste une preuve historique du PoC, non rejouée ici.
 
-**Arrêt contractuel atteint : support toujours indisponible après la récupération initiale.** Aucun cycle de 16×8192, aucune nouvelle écriture ni relecture de payload ; l'outil aligné original est conservé mais non exécuté. Aucun cycle2/3, aucune autre récupération, aucun diagnostic annexe. Les opérations automatiques Windows/USB du firmware original restent possibles ; « zéro écriture opérateur » ne prétend pas instrumenter toutes les requêtes du PC.
+Débogueur détaché. **Windows final à11:04:31,307UTC : USB toujours reconnu, disque Size0 / No Media**. Aucun test16×8192 lancé puisque le support est indisponible ; aucun cycle2/3, benchmark, changement de configuration ou recovery. Windows/USB peuvent traiter automatiquement des commandes dans le firmware tiers inchangé ; zéro écriture opérateur ne signifie pas que ces échanges automatiques ont été instrumentés.
 
-## Comparaison avec 20 cm et limites
+## Comparaison et limites
 
-| Critère | PoC 20 cm précédent | Comparatif 10 cm actuel |
-|---|---|---|
-| Image / configuration | Release originale, 4 bits, 12 MHz | Identiques, image vérifiée sans flash |
-| Disponibilité | Succès bornés après récupérations, CRC et No Media récurrents | No Media initial et persistant après un reset |
-| Jeu B 128 KiB write/flush + read | Intégrité intégrale, zéro différence | Aucun cycle possible |
-| Durée write+flush | 3178,7446 ms (~41234 B/s applicatifs) | Non mesurée |
-| Durée read | 187,4372 ms (~699285 B/s applicatifs) | Non mesurée |
-| Amélioration fiable démontrée | Non qualifié | **Non démontrée** |
+| État | Résultat |
+|---|---|
+| PoC20cm original |Succès ponctuel jeuB128KiB exact ; write+flush3178,7446ms (~41234B/s), read187,4372ms (~699285B/s), puis CRC/NoMedia|
+| Comparatif10cm précédent |NoMedia initial persistant après un reset logiciel, zéro cycle|
+| **10cm après coupure complète rapportée** |**NoMedia avant GDB et après diagnostic, zéro cycle, aucun reset supplémentaire**|
 
-Les durées précédentes sont hôte/USB, pas un débit SD intrinsèque. Aucun pourcentage de gain ni comparaison de performances n'est calculable ici. Ce résultat **ne prouve pas que les fils courts sont sans effet** ; il prouve qu'ils n'ont pas suffi à rendre le média disponible dans cette observation et avec cette récupération. Pas de qualification industrielle, cadence TR2 426672 B/s, endurance, filesystem, récupération ou adoption du firmware tiers.
+**Aucun gain chiffré calculable** : pas de cycle mesuré dans cette mission. Les temps20cm sont applicatifs hôte/USB, pas du débit SD pur. L'accès n'est pas restauré dans cette observation ; **cela ne conclut pas à l'inefficacité des fils10cm**, ni à une panne intrinsèque de SDMMC1 ou de la microSD. Origine CRC, séquence d'initialisation/USB et causes électriques restent non isolées ; influence du halt/detach non exclue, mais NoMedia préexistait à cette session. Coupure électrique déclarée, durée/rail non mesurés par Codex.
 
-**Limites causales :** aucune mesure électrique, état de carte potentiellement hérité, reset logiciel distinct d'une coupure d'alimentation, effets possibles des halt/detach sur USB/polling. No Media est observé avant le premier GDB de cette mission, mais aucune cause initiale précise n'est isolée. Aucun correctif multi-read/MSC, changement de fréquence, HAL, carte ou câblage n'a été appliqué pour masquer l'échec. Une nouvelle campagne/correction exige une mission distincte ; pas de manipulation supplémentaire demandée dans celle-ci.
+Ni cadenceTR2 426672B/s, endurance, filesystem, intégrité générale ou recovery ne sont qualifiées. Aucune correction HAL/multi-read/MSC, variation de fréquence, formatage ou changement de câblage : hors périmètre. Si une investigation de la première erreur devient nécessaire, elle doit faire l'objet d'une **mission distincte**, pas de resets répétés dans celle-ci.
 
-## Tranche 3 — publication et état laissé
+## Tranche 3 — préservation, preuves et publication
 
-[Preuves et méthode](preuves/TR2-20261014-SDMMC1-CABLE10CM-COMPARISON/README.md), [résumé](preuves/TR2-20261014-SDMMC1-CABLE10CM-COMPARISON/campaign-summary.json), [image](preuves/TR2-20261014-SDMMC1-CABLE10CM-COMPARISON/image-verification.json), [état final Windows](preuves/TR2-20261014-SDMMC1-CABLE10CM-COMPARISON/host-after-initial-recovery.json). Bruts et readback Flash local : `/home/lolo/dev/msm/reports/TR2-SDMMC1-CABLE10CM-20261014`. Sources/image tierces non redistribuées ; scripts d'outillage et petits logs publiés avec manifest SHA-256.
+[Preuves minimales](preuves/TR2-20261014-SDMMC1-COLDSTART10CM/README.md), [résumé](preuves/TR2-20261014-SDMMC1-COLDSTART10CM/campaign-summary.json), [Windows avant debug](preuves/TR2-20261014-SDMMC1-COLDSTART10CM/host-before-debug.json), [image](preuves/TR2-20261014-SDMMC1-COLDSTART10CM/image-verification.json). Bruts/readback local : `/home/lolo/dev/msm/reports/TR2-SDMMC1-COLDSTART10CM-20261014`. Image/sources tierces non redistribuées, méthode/hashes/petits logs avec manifestSHA256 publiables.
 
-Firmware Release original SDMMC1 laissé sur seconde Nucleo, débogueur détaché. Dernier état MCU observé ErrorCode2005/RESP1B00 puis Windows No Media ; absence de télémétrie continue après detach. Carte de test et deux câbles connectés selon le contrat ; aucune modification persistante sensible. **TR2-001 principal, FRAM, média512Go, Modbus, Option Bytes et protections non accédés**. Pas de formatage, changement de politique Windows, ACL ou élévation.
+Dépôt d'origine propre, HEAD82169af7e76797731358852bec83bfb0ceb54ccf historiquement divergent conservé. Nouveau worktree `MSM_vibe-SDMMC1-coldstart10cm` / branche `codex/p12h3h-sdmmc1-coldstart10cm`, base main courant ; aucun merge/rebase/reset ou écrasement. Stashes6251b988e8b20f97997a8f98fd26d4d35a45a1b2 /f3b829e6188f491920edf74a5f9ed0f559d08b87 et worktrees/précédentes preuves préservés. Mission/rapport précédent archivés byte-identiques depuis `d4f451c1ced5c39f2df9abf690a71be4bb8ce53e` sous `archives/TR2-20261014-P12H3H-SDMMC1-CABLE10CM-COMPARISON/`.
 
-Validation proportionnée : inspections Git/source/diff, vérification d'image par readback et observations physiques ci-dessus. **Aucun build ni ancien test rejoué** puisque le firmware et les interfaces de production sont inchangés. Seuls rapport, preuves minimales, archives et journal technique changent ; pas de tests de code nécessaires pour cette publication documentaire.
+**État laissé :** seconde Nucleo imageoriginaleRelease inchangée, debuggerdétaché ; dernier MCUerror1007/R1B00 puis WindowsNoMedia. Carte/câbles connectés selon contrat, pas de télémétrie continue après detach. **Principal003500463235510B37333439, FRAM, média512Go, Modbus, protections/OptionBytes non accédés**. Aucune élévation, politiqueWindows ou ACL modifiée. `allow_debug` exercée pour observation ponctuelle ; `allow_flash` non exercée. Commit/pushmain de documentation/preuves autorisés.
 
-Rapport et mission du PoC précédent archivés byte-identiques depuis `7271e03e513e3fb5a9ba33051713307125c60bbe` sous `archives/TR2-20261014-P12H3H-SDMMC1-REFERENCE-POC/`. Journal `ETAT_COURANT_TR2.md` actualisé avec la comparaison FAILED, le reset unique, zéro cycle et l'état laissé. Gels, roadmap, detteA04 et règles de gouvernance inchangés. Permissions exercées : lecture/GDB/debug, un reset logiciel, documentation et commit/pushmain ; `allow_flash` non exercée. Push normal sur `main` réussi : commit `309c8654f7b8f54dedf10d958c21c885fe247e64`, message `P12 H3h SDMMC1: record bounded 10 cm cable comparison and persistent No Media`. Référence récupérée de GitHub, **33 fichiers relus intégralement et comparés byte-identiques**, **28 empreintes du manifest vérifiées** ; [preuve distante](preuves/TR2-20261014-SDMMC1-CABLE10CM-COMPARISON/remote-readback-309c8654.json). Archives et fichiers protégés contrôlés, dépôt original propre et stashes inchangés. Finalisation documentaire FAILED uniquement, aucun nouvel accès matériel ; worktree de mission propre après commit. La dernière publication sera également vérifiée ; son SHA final sera transmis dans la réponse, sans auto-référence.
+Validation proportionnée : identité/image/diff et observations réelles. Firmware et interfaces inchangés : aucun build/test ancien rejoué, aucune validation globale nécessaire pour les documents. JournalETAT_COURANT_TR2 actualisé avec fait nouveau utilisateur, NoMedia avantGDB, erreur1007, zéro reset/cycle et arrêt. Gouvernance/gels/roadmap/detteA04 inchangés. Publication/relecture distante à effectuer ; SHA final communiqué après vérification.

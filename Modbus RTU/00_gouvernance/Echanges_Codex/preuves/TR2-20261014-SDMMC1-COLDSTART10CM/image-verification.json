@@ -1,0 +1,9 @@
+{
+  "bytes": 31437,
+  "readback_sha256": "2a2fe744ab926789ae180b74f2a250b2a9202329b5afde51a1155cdd69d54c1a",
+  "expected_sha256": "2a2fe744ab926789ae180b74f2a250b2a9202329b5afde51a1155cdd69d54c1a",
+  "byte_equal": true,
+  "flash_executed": false,
+  "reset_executed": false,
+  "elf_sha256": "511322f3bcfc2a19b0572d5db34d86dfc53ce6eb055abd502ae8b07bbc077494"
+}

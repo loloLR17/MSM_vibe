@@ -1,0 +1,21 @@
+0x080052c4 in tu_fifo_read_n_access_mode (f=f@entry=0x20000024 <_usbd_qdef+8>, buffer=buffer@entry=0x200bff8c, n=<optimized out>, access_mode=access_mode@entry=0x0) at /home/lolo/dev/msm/cache/VILLO88-NUCLEOU575-SDMMC1-PoC/Middlewares/TinyUSB/src/common/tusb_fifo.c:513
+513	  return n;
+0xbfa0700:	0x001b0046	0x38425018	0x20333157
+$1 = 1 '\001'
+$2 = {0x3534453, 0x44333247, 0x858bf092, 0x3c01927a}
+$3 = 62333952
+$4 = 512
+$5 = 0x1007
+$6 = HAL_SD_STATE_READY
+$7 = 0x4002
+$8 = 0xb00
+$9 = 0x81000
+$10 = 160000000
+$11 = 0x3003005
+$12 = 0x0
+$13 = 0x0
+$14 = 1 '\001'
+$15 = 1 '\001'
+$16 = false
+0xe000ed28:	0x00000000	0x00000000
+[Inferior 1 (Remote target) detached]

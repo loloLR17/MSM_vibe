@@ -1,0 +1,23 @@
+{
+  "mission_id": "TR2-20261014-P12H3H-SDMMC1-COLDSTART10CM",
+  "initial_main": "ac39881d54792156fa78524351960507a2fd1991",
+  "power_cycle": "user declaration in published contract: both ST-LINK and native USB disconnected then reconnected after preceding failure",
+  "initial_host_no_media_before_any_gdb_or_reset": true,
+  "initial_host_utc": "2026-10-14T11:04:23.3091478Z",
+  "hal_error": "0x1007",
+  "resp1": "0xB00",
+  "sdmmc_clkcr": "0x4002",
+  "image_byte_identical": true,
+  "operator_reset_count": 0,
+  "flash_count": 0,
+  "operator_write_count": 0,
+  "data_cycles": 0,
+  "operator_data_read_count": 0,
+  "final_host_utc": "2026-10-14T11:04:31.3068275Z",
+  "final_host_no_media": true,
+  "technical_status": "FAILED",
+  "reason": "media remains unavailable after user-reported full power cycle; contractual stop without reset or data cycle",
+  "performance_comparison_measured": false,
+  "causal_effect_of_10cm_wires_determined": false,
+  "utc": "2026-10-14T11:06:19.163348+00:00"
+}
