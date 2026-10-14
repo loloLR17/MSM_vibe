@@ -1,0 +1,52 @@
+{
+  "utc": "2026-10-14T16:27:26.739656+00:00",
+  "sources": [
+    {
+      "id": "SDA6",
+      "url": "https://www.sdcard.org/cms/wp-content/themes/sdcard-org/dl.php?f=Part1_Physical_Layer_Simplified_Specification_Ver6.00.pdf",
+      "version": "6.00, 2018",
+      "sections": "3.6.1 data frames; CRC16 subsection printed p78, Fig4-21",
+      "access": "official indexed full paragraphs about per-line CRC, polynomial and test vector consulted; web direct force-download unsupported, local HTTP403; not entire PDF read",
+      "facts": "Each lane individually checked; polynomial x16+x12+x5+1; identical method 1bit/wide; FF*512 CRC7FA1; start/end per lane"
+    },
+    {
+      "id": "ST-packet",
+      "url": "https://www.st.com/content/ccc/resource/training/technical/product_training/group0/06/8b/84/d3/16/f6/4b/95/STM32H7-Peripheral-SDMMC_interface_SDMMC/files/STM32H7-Peripheral-SDMMC_interface_SDMMC.pdf/_jcr_content/translations/en.STM32H7-Peripheral-SDMMC_interface_SDMMC.pdf",
+      "sections": "SDR Data packet format p15",
+      "access": "official indexed slide with diagram/text consulted; direct open tool failed; related STM32H7 training, not claimed an exact U5 manual",
+      "facts": "DAT3 bits7/3, DAT2 bits6/2, DAT1 bits5/1, DAT0 bits4/0; separate start/end/CRC16 each; write CRC status on DAT0"
+    },
+    {
+      "id": "RM0456",
+      "url": "https://www.st.com/resource/en/reference_manual/rm0456-stm32u5-series-armbased-32bit-mcus-stmicroelectronics.pdf",
+      "access": "official search index/table entry consulted only; full web PDF exceeds size, local download timed out. No exact unseen paragraph cited. U5 symbols/HAL and captured flags inspected locally."
+    },
+    {
+      "id": "UM2861",
+      "url": "https://www.st.com/resource/en/user_manual/um2861-stm32u5-nucleo144-board-mb1549-stmicroelectronics.pdf",
+      "version": "Rev10 March2025",
+      "sections": "table19 p38; table20 p39; USB shared functions",
+      "access": "official full PDF text web accessible; relevant sections read",
+      "facts": "CN11-16 3V3 /18 5V /20 GND, CN11/12 mapping and SB19/SB22"
+    },
+    {
+      "id": "MB1549",
+      "url": "https://www.st.com/resource/en/schematic_pack/mb1549-u575ziq-c05-schematic.pdf",
+      "sections": "MCU/IO/ZIO/power sheets",
+      "access": "official PDF text web consulted; no physical revision check or local image claimed"
+    },
+    {
+      "id": "Adafruit-guide",
+      "url": "https://learn.adafruit.com/adafruit-microsd-spi-sdio/pinouts",
+      "access": "official pinout read",
+      "facts": "3V3 power; labels D0 D1 DAT2 D3; CMD not data; pullups provided"
+    },
+    {
+      "id": "Adafruit-netlist",
+      "url": "https://github.com/adafruit/Adafruit-MicroSD-SPI-or-SDIO-card-breakout-PCB/tree/959792478854acec21fb862650427ffaa32b07f1",
+      "access": "local pinned clean Eagle source and earlier versioned netlist consulted",
+      "facts": "DO=D0; DI=CMD; CS=D3; DAT1 and DAT2 named nets; no lane interchange in design"
+    }
+  ],
+  "conclusion": "Normative per-line rule and framing accessible in official indexed text, sufficient for conditional formal proof; PDF-download limitations disclosed, not assumed a hidden U5 implementation guarantee."
+}

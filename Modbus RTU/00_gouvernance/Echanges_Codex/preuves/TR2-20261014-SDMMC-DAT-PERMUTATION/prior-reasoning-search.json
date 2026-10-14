@@ -1,0 +1,39 @@
+{
+  "reference": "240a83a86e0f93e1ef647f945853e396111ba971",
+  "command": [
+    "git",
+    "grep",
+    "-n",
+    "-i",
+    "-E",
+    "permut|invers.*(fil|ligne|dat)|crois.*(fil|ligne|dat)",
+    "240a83a",
+    "--",
+    "*.md",
+    "*.py",
+    "*.c",
+    "*.json",
+    "*.txt"
+  ],
+  "return_code": 0,
+  "global_matching_lines": 18,
+  "SDMMC_matching_lines": [
+    "240a83a:Modbus RTU/00_gouvernance/Echanges_Codex/archives/TR2-20261013-M016-SDMMC-REFERENCE-PHYSICAL/RAPPORT.md:61:**D\u00e9duction limit\u00e9e :** le chemin commande/DAT0, la lecture DMA et la persistance fonctionnent dans le contr\u00f4le1bit. La d\u00e9faillance est associ\u00e9e au mode4bit dans cette s\u00e9rie, sans preuve d'un contact invers\u00e9, d'un rail ou d'un composant d\u00e9fectueux. Le contr\u00f4le visuel utilisateur et les v\u00e9rifications logicielles ne suffisent pas \u00e0 identifier la cause.",
+    "240a83a:Modbus RTU/00_gouvernance/Echanges_Codex/archives/TR2-20261014-M017-SDMMC-1BIT-REALISTIC-QUALIFICATION/MISSION.md:30:5. **Crit\u00e8res** : pour qualifier le banc en conditions simul\u00e9es, 3 \u00d7 600 s complets \u00e0 426672 B/s, z\u00e9ro perte/overflow, z\u00e9ro corruption et z\u00e9ro erreur de transfert, sans backlog croissant non born\u00e9, avec latences document\u00e9es. Si la premi\u00e8re campagne \u00e9choue, **arr\u00eater les r\u00e9p\u00e9titions**, caract\u00e9riser pr\u00e9cis\u00e9ment la cause et faire au plus un correctif minimal fond\u00e9 sur preuve suivi d'un nouveau run identique ; si le blocage persiste, publier BLOCKED/FAILED honn\u00eate avec preuves et options. Distinguer qualification du d\u00e9monstrateur de qualification compl\u00e8te TR2 (capteur, codec, checkpoint, power-loss, 7 jours non prouv\u00e9s)."
+  ],
+  "conclusion": "No formal prior CRC-per-lane/inverse-roundtrip DAT permutation calculation found in this versioned search; physical inverse-contact caveats exist. UART/Modbus word-order permutations are unrelated. Conversation-only reasoning inaccessible to Git not asserted absent.",
+  "additional_SDMMC_scoped_command": [
+    "git",
+    "grep",
+    "-n",
+    "-i",
+    "-E",
+    "permut|invers|crois",
+    "240a83a",
+    "--",
+    "Modbus RTU/00_gouvernance/Echanges_Codex/archives/*SDMMC*",
+    "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/*SDMMC*",
+    "experiments/sdmmc*"
+  ],
+  "additional_return_code": 0
+}

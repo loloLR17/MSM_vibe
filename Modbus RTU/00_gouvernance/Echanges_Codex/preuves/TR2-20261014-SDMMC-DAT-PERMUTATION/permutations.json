@@ -1,0 +1,854 @@
+{
+  "model": "SD SDR 4-bit, ideal bijective static reciprocal wiring, no timing/noise/level/mode errors; p maps host line to card line; read inverse of write",
+  "crc_polynomial": "0x1021, initial 0, MSB first; check FF*512=0x7FA1",
+  "self_checks": "all 24 permutations x256 byte values; inverse in both directions, independent binascii checks, per-line data+CRC/start/end invariance",
+  "datasets": [
+    {
+      "label": "M016_write4_read1",
+      "file": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261013-M016-SDMMC-PHYSICAL/readonly-1bit-4MHz-commanded-rx.bin.hex",
+      "actual_sha256": "9ec45ab0c8505527af5931e27722ed5908748e5073169b4571c84e006eb90140",
+      "bytes": 4096,
+      "unique_values": 256,
+      "role": "card bytes observed through 1-bit after 4-bit write; compare write permutation",
+      "direction": "write"
+    },
+    {
+      "label": "PoC_write4_FIRSTFAULT_read1",
+      "file": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261014-SDMMC1-FIRSTFAULT/RUN-A-data8192.bin",
+      "actual_sha256": "2ac5183f9757f9b08e94e4cf2f4b1ee03a3a66171e8b366989e5b36b93ab563b",
+      "bytes": 8192,
+      "unique_values": 256,
+      "role": "1-bit read of earlier PoC game B written by STM32 in 4-bit; no later write to same zone documented",
+      "direction": "write"
+    },
+    {
+      "label": "M017_write1_PoC_read4",
+      "file": "/home/lolo/dev/msm/reports/TR2-SDMMC1-POC-20261014/release-original-read-8192.bin",
+      "corroborating_versioned_file": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261014-SDMMC1-REFERENCE-POC/release-first-read-verification.json",
+      "actual_sha256": "486984c9b5e563c023984c5ec115692a9035118cc41658165c85055e196a23ab",
+      "bytes": 8192,
+      "unique_values": 256,
+      "role": "local original dump, independently hash-matched to published verification; 4-bit read of 1-bit M017 prefix",
+      "direction": "read"
+    }
+  ],
+  "permutations": [
+    {
+      "host_to_card": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "DAT0_fixed": true,
+      "payload_roundtrip_identity": true,
+      "CRC_per_lane_preserved_ideal_SDR": true,
+      "start_end_all_lanes_preserved": true,
+      "changed_byte_values_of_256": 0,
+      "read_55AA": "55aa",
+      "signature_preserved": true,
+      "SSR_width2_decoded_from_top_byte_under_permutation": 2,
+      "dataset_comparisons": {
+        "M016_write4_read1": {
+          "mismatches": 0,
+          "predicted_sha256": "9ec45ab0c8505527af5931e27722ed5908748e5073169b4571c84e006eb90140",
+          "compatible": true
+        },
+        "PoC_write4_FIRSTFAULT_read1": {
+          "mismatches": 0,
+          "predicted_sha256": "2ac5183f9757f9b08e94e4cf2f4b1ee03a3a66171e8b366989e5b36b93ab563b",
+          "compatible": true
+        },
+        "M017_write1_PoC_read4": {
+          "mismatches": 0,
+          "predicted_sha256": "486984c9b5e563c023984c5ec115692a9035118cc41658165c85055e196a23ab",
+          "compatible": true
+        }
+      },
+      "scope": "full read-frame algebra only; DAT0-moved 1-bit/CRC-status/busy may fail, so no operational roundtrip guarantee"
+    },
+    {
+      "host_to_card": [
+        0,
+        1,
+        3,
+        2
+      ],
+      "DAT0_fixed": true,
+      "payload_roundtrip_identity": true,
+      "CRC_per_lane_preserved_ideal_SDR": true,
+      "start_end_all_lanes_preserved": true,
+      "changed_byte_values_of_256": 192,
+      "read_55AA": "9966",
+      "signature_preserved": false,
+      "SSR_width2_decoded_from_top_byte_under_permutation": 1,
+      "dataset_comparisons": {
+        "M016_write4_read1": {
+          "mismatches": 3072,
+          "predicted_sha256": "d44032d454feb8fa7ede307a8b435e6d01c032bd9514aeb59811ef12b5b7c38d",
+          "compatible": false
+        },
+        "PoC_write4_FIRSTFAULT_read1": {
+          "mismatches": 6144,
+          "predicted_sha256": "b5e9776440b24e77ed74e9da5a41bb47729bff66d2d43d1f3135aafb9005625d",
+          "compatible": false
+        },
+        "M017_write1_PoC_read4": {
+          "mismatches": 6144,
+          "predicted_sha256": "5837165fd83e6525dd1afb723008b91f0d7aeb0c69d8d169b16bd8e8afa9546f",
+          "compatible": false
+        }
+      },
+      "scope": "full read-frame algebra only; DAT0-moved 1-bit/CRC-status/busy may fail, so no operational roundtrip guarantee"
+    },
+    {
+      "host_to_card": [
+        0,
+        2,
+        1,
+        3
+      ],
+      "DAT0_fixed": true,
+      "payload_roundtrip_identity": true,
+      "CRC_per_lane_preserved_ideal_SDR": true,
+      "start_end_all_lanes_preserved": true,
+      "changed_byte_values_of_256": 192,
+      "read_55AA": "33cc",
+      "signature_preserved": false,
+      "SSR_width2_decoded_from_top_byte_under_permutation": 2,
+      "dataset_comparisons": {
+        "M016_write4_read1": {
+          "mismatches": 3072,
+          "predicted_sha256": "300be348afc1d02322cde3fd946d9b711ab0066c00f6b0ad989a1f95aa0f8c7a",
+          "compatible": false
+        },
+        "PoC_write4_FIRSTFAULT_read1": {
+          "mismatches": 6144,
+          "predicted_sha256": "3d44d0f5b9d202175a4136d8b3e059e739f09773ecfeaeb7d6c611e67a7e2d28",
+          "compatible": false
+        },
+        "M017_write1_PoC_read4": {
+          "mismatches": 6144,
+          "predicted_sha256": "fb872d2484a2db186e5a6eaaa9a474e5ff205f8ef2d714f165d81f65f122d5c4",
+          "compatible": false
+        }
+      },
+      "scope": "full read-frame algebra only; DAT0-moved 1-bit/CRC-status/busy may fail, so no operational roundtrip guarantee"
+    },
+    {
+      "host_to_card": [
+        0,
+        2,
+        3,
+        1
+      ],
+      "DAT0_fixed": true,
+      "payload_roundtrip_identity": true,
+      "CRC_per_lane_preserved_ideal_SDR": true,
+      "start_end_all_lanes_preserved": true,
+      "changed_byte_values_of_256": 240,
+      "read_55AA": "33cc",
+      "signature_preserved": false,
+      "SSR_width2_decoded_from_top_byte_under_permutation": 1,
+      "dataset_comparisons": {
+        "M016_write4_read1": {
+          "mismatches": 3840,
+          "predicted_sha256": "7e20c2204d5cc898264672f2841e7d3eb9157cf4847aae92af3cb41298633c1c",
+          "compatible": false
+        },
+        "PoC_write4_FIRSTFAULT_read1": {
+          "mismatches": 7680,
+          "predicted_sha256": "22a339525908817032b6376624c1ab5a190fecd1cd9b4b1c530980ba8bdaab19",
+          "compatible": false
+        },
+        "M017_write1_PoC_read4": {
+          "mismatches": 7680,
+          "predicted_sha256": "b3148b973f6e21289af16be77ecd0215484e7dad6564d098196605dd6dba5cae",
+          "compatible": false
+        }
+      },
+      "scope": "full read-frame algebra only; DAT0-moved 1-bit/CRC-status/busy may fail, so no operational roundtrip guarantee"
+    },
+    {
+      "host_to_card": [
+        0,
+        3,
+        1,
+        2
+      ],
+      "DAT0_fixed": true,
+      "payload_roundtrip_identity": true,
+      "CRC_per_lane_preserved_ideal_SDR": true,
+      "start_end_all_lanes_preserved": true,
+      "changed_byte_values_of_256": 240,
+      "read_55AA": "9966",
+      "signature_preserved": false,
+      "SSR_width2_decoded_from_top_byte_under_permutation": 0,
+      "dataset_comparisons": {
+        "M016_write4_read1": {
+          "mismatches": 3840,
+          "predicted_sha256": "3d3ae6ffdcd3ed2fbeb190ce2687c65527c980156243305d067941c8de779876",
+          "compatible": false
+        },
+        "PoC_write4_FIRSTFAULT_read1": {
+          "mismatches": 7680,
+          "predicted_sha256": "90659d642413b9b89bdb06f23e204ceb6241822c7df0e153ffcd846957075e33",
+          "compatible": false
+        },
+        "M017_write1_PoC_read4": {
+          "mismatches": 7680,
+          "predicted_sha256": "96df3a532e751aa61e9bede99e08c8768a186a5832090457981140f90cfe14a1",
+          "compatible": false
+        }
+      },
+      "scope": "full read-frame algebra only; DAT0-moved 1-bit/CRC-status/busy may fail, so no operational roundtrip guarantee"
+    },
+    {
+      "host_to_card": [
+        0,
+        3,
+        2,
+        1
+      ],
+      "DAT0_fixed": true,
+      "payload_roundtrip_identity": true,
+      "CRC_per_lane_preserved_ideal_SDR": true,
+      "start_end_all_lanes_preserved": true,
+      "changed_byte_values_of_256": 192,
+      "read_55AA": "55aa",
+      "signature_preserved": true,
+      "SSR_width2_decoded_from_top_byte_under_permutation": 0,
+      "dataset_comparisons": {
+        "M016_write4_read1": {
+          "mismatches": 3072,
+          "predicted_sha256": "bfcacc9a50c41cbeb2305042c34b934c89c88b1cd4a3124313e039df4df3af4c",
+          "compatible": false
+        },
+        "PoC_write4_FIRSTFAULT_read1": {
+          "mismatches": 6144,
+          "predicted_sha256": "29eebe8382cee2eb65df4567ab3cc0879b7c63913b7f11b5f531c3464420b112",
+          "compatible": false
+        },
+        "M017_write1_PoC_read4": {
+          "mismatches": 6144,
+          "predicted_sha256": "7ae8c2b5d01bc6ad11cd145b27f2a69978981db1f7f6bdcf3e9706a17980a9cb",
+          "compatible": false
+        }
+      },
+      "scope": "full read-frame algebra only; DAT0-moved 1-bit/CRC-status/busy may fail, so no operational roundtrip guarantee"
+    },
+    {
+      "host_to_card": [
+        1,
+        0,
+        2,
+        3
+      ],
+      "DAT0_fixed": false,
+      "payload_roundtrip_identity": true,
+      "CRC_per_lane_preserved_ideal_SDR": true,
+      "start_end_all_lanes_preserved": true,
+      "changed_byte_values_of_256": 192,
+      "read_55AA": "6699",
+      "signature_preserved": false,
+      "SSR_width2_decoded_from_top_byte_under_permutation": 2,
+      "dataset_comparisons": {
+        "M016_write4_read1": {
+          "mismatches": 3072,
+          "predicted_sha256": "311c664b523efeef1078b3db15be4fd27accfc3bda88fe2ccb55465e6dc9d65d",
+          "compatible": false
+        },
+        "PoC_write4_FIRSTFAULT_read1": {
+          "mismatches": 6144,
+          "predicted_sha256": "f9ef85df0bd9065fc18ce65c8aec11a3b58c32e5fd7e4c73cd4c5b42d4060347",
+          "compatible": false
+        },
+        "M017_write1_PoC_read4": {
+          "mismatches": 6144,
+          "predicted_sha256": "6ee1ba6a7d8a66638655a8630c9428c73fb7843555c0b94f86b8b8e0529b4cd0",
+          "compatible": false
+        }
+      },
+      "scope": "full read-frame algebra only; DAT0-moved 1-bit/CRC-status/busy may fail, so no operational roundtrip guarantee"
+    },
+    {
+      "host_to_card": [
+        1,
+        0,
+        3,
+        2
+      ],
+      "DAT0_fixed": false,
+      "payload_roundtrip_identity": true,
+      "CRC_per_lane_preserved_ideal_SDR": true,
+      "start_end_all_lanes_preserved": true,
+      "changed_byte_values_of_256": 240,
+      "read_55AA": "aa55",
+      "signature_preserved": false,
+      "SSR_width2_decoded_from_top_byte_under_permutation": 1,
+      "dataset_comparisons": {
+        "M016_write4_read1": {
+          "mismatches": 3840,
+          "predicted_sha256": "e39b8513496e19d48090275bb200cc8681990874e8ad1ea896869cceab6f8e8d",
+          "compatible": false
+        },
+        "PoC_write4_FIRSTFAULT_read1": {
+          "mismatches": 7680,
+          "predicted_sha256": "9c155ce6a2fa147a4bd103105f6b2412b10b1c1264ed231b17948edbe05eee19",
+          "compatible": false
+        },
+        "M017_write1_PoC_read4": {
+          "mismatches": 7680,
+          "predicted_sha256": "2a15db3013808fb94c88beb959349bc4ca2ae69039760cba7c3cd24023f65fed",
+          "compatible": false
+        }
+      },
+      "scope": "full read-frame algebra only; DAT0-moved 1-bit/CRC-status/busy may fail, so no operational roundtrip guarantee"
+    },
+    {
+      "host_to_card": [
+        1,
+        2,
+        0,
+        3
+      ],
+      "DAT0_fixed": false,
+      "payload_roundtrip_identity": true,
+      "CRC_per_lane_preserved_ideal_SDR": true,
+      "start_end_all_lanes_preserved": true,
+      "changed_byte_values_of_256": 240,
+      "read_55AA": "6699",
+      "signature_preserved": false,
+      "SSR_width2_decoded_from_top_byte_under_permutation": 2,
+      "dataset_comparisons": {
+        "M016_write4_read1": {
+          "mismatches": 3840,
+          "predicted_sha256": "a823fa2dd764dcf3798e6640c0948708ef20d63da61598d77b8d780720fbca51",
+          "compatible": false
+        },
+        "PoC_write4_FIRSTFAULT_read1": {
+          "mismatches": 7680,
+          "predicted_sha256": "552bc06d3c141ef9c50b6bd206bfc70496b54cd89b502960d5c8f1fdfb05d998",
+          "compatible": false
+        },
+        "M017_write1_PoC_read4": {
+          "mismatches": 7680,
+          "predicted_sha256": "1fcc0917c39d8909ab57eb971aa49f814ce2643797a708146b13267a4b824fac",
+          "compatible": false
+        }
+      },
+      "scope": "full read-frame algebra only; DAT0-moved 1-bit/CRC-status/busy may fail, so no operational roundtrip guarantee"
+    },
+    {
+      "host_to_card": [
+        1,
+        2,
+        3,
+        0
+      ],
+      "DAT0_fixed": false,
+      "payload_roundtrip_identity": true,
+      "CRC_per_lane_preserved_ideal_SDR": true,
+      "start_end_all_lanes_preserved": true,
+      "changed_byte_values_of_256": 252,
+      "read_55AA": "aa55",
+      "signature_preserved": false,
+      "SSR_width2_decoded_from_top_byte_under_permutation": 1,
+      "dataset_comparisons": {
+        "M016_write4_read1": {
+          "mismatches": 4032,
+          "predicted_sha256": "37659ccfa647e232a25749e28571d52f7aa6e0dd325de7856a2cbe760f678838",
+          "compatible": false
+        },
+        "PoC_write4_FIRSTFAULT_read1": {
+          "mismatches": 8064,
+          "predicted_sha256": "6f9ea97072a76996ead6f4961375c61124c4a8751ee9f62a85129bec315c3ee2",
+          "compatible": false
+        },
+        "M017_write1_PoC_read4": {
+          "mismatches": 8064,
+          "predicted_sha256": "e473853bcde3f0fc1a7b99a2259ee7e07e3f11c3b503949e04efe2ed976fefe3",
+          "compatible": false
+        }
+      },
+      "scope": "full read-frame algebra only; DAT0-moved 1-bit/CRC-status/busy may fail, so no operational roundtrip guarantee"
+    },
+    {
+      "host_to_card": [
+        1,
+        3,
+        0,
+        2
+      ],
+      "DAT0_fixed": false,
+      "payload_roundtrip_identity": true,
+      "CRC_per_lane_preserved_ideal_SDR": true,
+      "start_end_all_lanes_preserved": true,
+      "changed_byte_values_of_256": 252,
+      "read_55AA": "cc33",
+      "signature_preserved": false,
+      "SSR_width2_decoded_from_top_byte_under_permutation": 0,
+      "dataset_comparisons": {
+        "M016_write4_read1": {
+          "mismatches": 4032,
+          "predicted_sha256": "0615d31ffec787dda068ad3cd70ee74559d0b114a4c2990a501633b7cdd9bb6c",
+          "compatible": false
+        },
+        "PoC_write4_FIRSTFAULT_read1": {
+          "mismatches": 8064,
+          "predicted_sha256": "3e34b51be47063a9a7d2701751320d796fb9d803e22dae91d636de9e15c1da99",
+          "compatible": false
+        },
+        "M017_write1_PoC_read4": {
+          "mismatches": 8064,
+          "predicted_sha256": "cac54f7436154e0f225a73acf0fcdcbc688b0f938efdb6d24a27b23631c02514",
+          "compatible": false
+        }
+      },
+      "scope": "full read-frame algebra only; DAT0-moved 1-bit/CRC-status/busy may fail, so no operational roundtrip guarantee"
+    },
+    {
+      "host_to_card": [
+        1,
+        3,
+        2,
+        0
+      ],
+      "DAT0_fixed": false,
+      "payload_roundtrip_identity": true,
+      "CRC_per_lane_preserved_ideal_SDR": true,
+      "start_end_all_lanes_preserved": true,
+      "changed_byte_values_of_256": 240,
+      "read_55AA": "cc33",
+      "signature_preserved": false,
+      "SSR_width2_decoded_from_top_byte_under_permutation": 0,
+      "dataset_comparisons": {
+        "M016_write4_read1": {
+          "mismatches": 3840,
+          "predicted_sha256": "c4ce10c87daf535f39a6b6f924b2b8390fa7a80312bb3d68665f1b0a52b32b55",
+          "compatible": false
+        },
+        "PoC_write4_FIRSTFAULT_read1": {
+          "mismatches": 7680,
+          "predicted_sha256": "1b6ed9663e41fb94d80a65cad40e32ff426e6e4bd19d692c5ef467fa279d433c",
+          "compatible": false
+        },
+        "M017_write1_PoC_read4": {
+          "mismatches": 7680,
+          "predicted_sha256": "e2f3aa5b1198e0a5d46e2760bae2429330643658f1d965fcf6e46181658d5d5d",
+          "compatible": false
+        }
+      },
+      "scope": "full read-frame algebra only; DAT0-moved 1-bit/CRC-status/busy may fail, so no operational roundtrip guarantee"
+    },
+    {
+      "host_to_card": [
+        2,
+        0,
+        1,
+        3
+      ],
+      "DAT0_fixed": false,
+      "payload_roundtrip_identity": true,
+      "CRC_per_lane_preserved_ideal_SDR": true,
+      "start_end_all_lanes_preserved": true,
+      "changed_byte_values_of_256": 240,
+      "read_55AA": "33cc",
+      "signature_preserved": false,
+      "SSR_width2_decoded_from_top_byte_under_permutation": 2,
+      "dataset_comparisons": {
+        "M016_write4_read1": {
+          "mismatches": 3840,
+          "predicted_sha256": "5e79b1b6704487bc126f3743fb23d07f7968a32d80955e3922936bffd4bfade1",
+          "compatible": false
+        },
+        "PoC_write4_FIRSTFAULT_read1": {
+          "mismatches": 7680,
+          "predicted_sha256": "43a3c901ee576ab3d9c415e286a6ea1de56e145ed54976507780db9fc5363d78",
+          "compatible": false
+        },
+        "M017_write1_PoC_read4": {
+          "mismatches": 7680,
+          "predicted_sha256": "f928ce3b36f2eaaf11091deb117f0e996be7cadb4ae43b6d05e5c5dad1a9acbb",
+          "compatible": false
+        }
+      },
+      "scope": "full read-frame algebra only; DAT0-moved 1-bit/CRC-status/busy may fail, so no operational roundtrip guarantee"
+    },
+    {
+      "host_to_card": [
+        2,
+        0,
+        3,
+        1
+      ],
+      "DAT0_fixed": false,
+      "payload_roundtrip_identity": true,
+      "CRC_per_lane_preserved_ideal_SDR": true,
+      "start_end_all_lanes_preserved": true,
+      "changed_byte_values_of_256": 252,
+      "read_55AA": "33cc",
+      "signature_preserved": false,
+      "SSR_width2_decoded_from_top_byte_under_permutation": 1,
+      "dataset_comparisons": {
+        "M016_write4_read1": {
+          "mismatches": 4032,
+          "predicted_sha256": "5b10d0c57541dea775c36f429fc6e8442eea6ad2be01f4f1ddb0dfe26c403599",
+          "compatible": false
+        },
+        "PoC_write4_FIRSTFAULT_read1": {
+          "mismatches": 8064,
+          "predicted_sha256": "3cd98894a553371e167caf7b4ae67c6ca3ad212d24fdf57d936223bede4acaf9",
+          "compatible": false
+        },
+        "M017_write1_PoC_read4": {
+          "mismatches": 8064,
+          "predicted_sha256": "70eab1d309950946df5f2857bb61012467c9f87b5cbb123bf46131aea796490e",
+          "compatible": false
+        }
+      },
+      "scope": "full read-frame algebra only; DAT0-moved 1-bit/CRC-status/busy may fail, so no operational roundtrip guarantee"
+    },
+    {
+      "host_to_card": [
+        2,
+        1,
+        0,
+        3
+      ],
+      "DAT0_fixed": false,
+      "payload_roundtrip_identity": true,
+      "CRC_per_lane_preserved_ideal_SDR": true,
+      "start_end_all_lanes_preserved": true,
+      "changed_byte_values_of_256": 192,
+      "read_55AA": "55aa",
+      "signature_preserved": true,
+      "SSR_width2_decoded_from_top_byte_under_permutation": 2,
+      "dataset_comparisons": {
+        "M016_write4_read1": {
+          "mismatches": 3072,
+          "predicted_sha256": "74de00b8a9b1a28a821f885e1ae949e11cbc7ad420ce8c178359a35a28f6a4ee",
+          "compatible": false
+        },
+        "PoC_write4_FIRSTFAULT_read1": {
+          "mismatches": 6144,
+          "predicted_sha256": "9c3ebb7519b9ead251e4c69ef40165b5626010a530fe251e5d338ca8978e51aa",
+          "compatible": false
+        },
+        "M017_write1_PoC_read4": {
+          "mismatches": 6144,
+          "predicted_sha256": "4bdd086a407352eb46bfdcb9c5f83d3e4f35dd712e2e55c3367b2b8897804ed8",
+          "compatible": false
+        }
+      },
+      "scope": "full read-frame algebra only; DAT0-moved 1-bit/CRC-status/busy may fail, so no operational roundtrip guarantee"
+    },
+    {
+      "host_to_card": [
+        2,
+        1,
+        3,
+        0
+      ],
+      "DAT0_fixed": false,
+      "payload_roundtrip_identity": true,
+      "CRC_per_lane_preserved_ideal_SDR": true,
+      "start_end_all_lanes_preserved": true,
+      "changed_byte_values_of_256": 240,
+      "read_55AA": "9966",
+      "signature_preserved": false,
+      "SSR_width2_decoded_from_top_byte_under_permutation": 1,
+      "dataset_comparisons": {
+        "M016_write4_read1": {
+          "mismatches": 3840,
+          "predicted_sha256": "93f1225b55ca5bf1b56de13149e126edf18058a9a8f35eac92dd1eb3ded9df27",
+          "compatible": false
+        },
+        "PoC_write4_FIRSTFAULT_read1": {
+          "mismatches": 7680,
+          "predicted_sha256": "c53dfa8769d2736d140d290560a932a3b36991878d9cfcec3f7a6885b87a4382",
+          "compatible": false
+        },
+        "M017_write1_PoC_read4": {
+          "mismatches": 7680,
+          "predicted_sha256": "22ed06adb5303189e24f11696c17097ead70a6602ccd3594fc6d026f37542684",
+          "compatible": false
+        }
+      },
+      "scope": "full read-frame algebra only; DAT0-moved 1-bit/CRC-status/busy may fail, so no operational roundtrip guarantee"
+    },
+    {
+      "host_to_card": [
+        2,
+        3,
+        0,
+        1
+      ],
+      "DAT0_fixed": false,
+      "payload_roundtrip_identity": true,
+      "CRC_per_lane_preserved_ideal_SDR": true,
+      "start_end_all_lanes_preserved": true,
+      "changed_byte_values_of_256": 240,
+      "read_55AA": "55aa",
+      "signature_preserved": true,
+      "SSR_width2_decoded_from_top_byte_under_permutation": 0,
+      "dataset_comparisons": {
+        "M016_write4_read1": {
+          "mismatches": 3840,
+          "predicted_sha256": "f3c92b5fe7dc2c8f4ed761eaca420d8e820542896c9f84740a3601f97fefe8a1",
+          "compatible": false
+        },
+        "PoC_write4_FIRSTFAULT_read1": {
+          "mismatches": 7680,
+          "predicted_sha256": "421cc0eb330479c4f6176a2f9242caa8e74b45b80502d579795b256be79de97a",
+          "compatible": false
+        },
+        "M017_write1_PoC_read4": {
+          "mismatches": 7680,
+          "predicted_sha256": "005bc46e936cec36e53a61d25d4486e186aeb3118dc24de85be79170f0aa6c8a",
+          "compatible": false
+        }
+      },
+      "scope": "full read-frame algebra only; DAT0-moved 1-bit/CRC-status/busy may fail, so no operational roundtrip guarantee"
+    },
+    {
+      "host_to_card": [
+        2,
+        3,
+        1,
+        0
+      ],
+      "DAT0_fixed": false,
+      "payload_roundtrip_identity": true,
+      "CRC_per_lane_preserved_ideal_SDR": true,
+      "start_end_all_lanes_preserved": true,
+      "changed_byte_values_of_256": 252,
+      "read_55AA": "9966",
+      "signature_preserved": false,
+      "SSR_width2_decoded_from_top_byte_under_permutation": 0,
+      "dataset_comparisons": {
+        "M016_write4_read1": {
+          "mismatches": 4032,
+          "predicted_sha256": "f503dd934a15fa626625a288f090bdf5ac5fd574f5d99387b5eda1439626b199",
+          "compatible": false
+        },
+        "PoC_write4_FIRSTFAULT_read1": {
+          "mismatches": 8064,
+          "predicted_sha256": "0e5b33e175c05045aeabb8292a771e36a95f39d0e6b82d6eaac34994cc688196",
+          "compatible": false
+        },
+        "M017_write1_PoC_read4": {
+          "mismatches": 8064,
+          "predicted_sha256": "863763f17ea72c6d381e1efbf23b1e994bb8198976f02a3ae96d817c6ff5ac4f",
+          "compatible": false
+        }
+      },
+      "scope": "full read-frame algebra only; DAT0-moved 1-bit/CRC-status/busy may fail, so no operational roundtrip guarantee"
+    },
+    {
+      "host_to_card": [
+        3,
+        0,
+        1,
+        2
+      ],
+      "DAT0_fixed": false,
+      "payload_roundtrip_identity": true,
+      "CRC_per_lane_preserved_ideal_SDR": true,
+      "start_end_all_lanes_preserved": true,
+      "changed_byte_values_of_256": 252,
+      "read_55AA": "aa55",
+      "signature_preserved": false,
+      "SSR_width2_decoded_from_top_byte_under_permutation": 0,
+      "dataset_comparisons": {
+        "M016_write4_read1": {
+          "mismatches": 4032,
+          "predicted_sha256": "92399cd0e2776933847f44295f9eaa1b94cfaf7da89433b262df049fa596c19f",
+          "compatible": false
+        },
+        "PoC_write4_FIRSTFAULT_read1": {
+          "mismatches": 8064,
+          "predicted_sha256": "a6b39fd1e28f0b91edd79c8bc03dc7fa19a4d6434087e80d7900545fa7c17dde",
+          "compatible": false
+        },
+        "M017_write1_PoC_read4": {
+          "mismatches": 8064,
+          "predicted_sha256": "7b45867c1c845c8b441a2d418b09d77398c66e7297ff48abe91331477abdf14e",
+          "compatible": false
+        }
+      },
+      "scope": "full read-frame algebra only; DAT0-moved 1-bit/CRC-status/busy may fail, so no operational roundtrip guarantee"
+    },
+    {
+      "host_to_card": [
+        3,
+        0,
+        2,
+        1
+      ],
+      "DAT0_fixed": false,
+      "payload_roundtrip_identity": true,
+      "CRC_per_lane_preserved_ideal_SDR": true,
+      "start_end_all_lanes_preserved": true,
+      "changed_byte_values_of_256": 240,
+      "read_55AA": "6699",
+      "signature_preserved": false,
+      "SSR_width2_decoded_from_top_byte_under_permutation": 0,
+      "dataset_comparisons": {
+        "M016_write4_read1": {
+          "mismatches": 3840,
+          "predicted_sha256": "8154f712d1bede72aa9e1d39bf8a68e4668c1ed8356a935df081b2d6a8950a6d",
+          "compatible": false
+        },
+        "PoC_write4_FIRSTFAULT_read1": {
+          "mismatches": 7680,
+          "predicted_sha256": "04140052747f33ef8943b110bf74bd8ac7cb19d68965637cd89681e5ab67ae46",
+          "compatible": false
+        },
+        "M017_write1_PoC_read4": {
+          "mismatches": 7680,
+          "predicted_sha256": "2bc96fa78bade758e506408719232cb4664fabbd5d41245080064d322936c2f2",
+          "compatible": false
+        }
+      },
+      "scope": "full read-frame algebra only; DAT0-moved 1-bit/CRC-status/busy may fail, so no operational roundtrip guarantee"
+    },
+    {
+      "host_to_card": [
+        3,
+        1,
+        0,
+        2
+      ],
+      "DAT0_fixed": false,
+      "payload_roundtrip_identity": true,
+      "CRC_per_lane_preserved_ideal_SDR": true,
+      "start_end_all_lanes_preserved": true,
+      "changed_byte_values_of_256": 240,
+      "read_55AA": "cc33",
+      "signature_preserved": false,
+      "SSR_width2_decoded_from_top_byte_under_permutation": 0,
+      "dataset_comparisons": {
+        "M016_write4_read1": {
+          "mismatches": 3840,
+          "predicted_sha256": "e99d9168a65b2f7f08edf48dee02c5fd624dc7960fdcebf80e71c746b8417f65",
+          "compatible": false
+        },
+        "PoC_write4_FIRSTFAULT_read1": {
+          "mismatches": 7680,
+          "predicted_sha256": "bd9ae16235ca4b284ac22bcfa42f0d81de963fe51fd9938de853e4003aa8afe7",
+          "compatible": false
+        },
+        "M017_write1_PoC_read4": {
+          "mismatches": 7680,
+          "predicted_sha256": "01ab941d46768c2bb66a01008afbb7f0042c63f52247842ce53dab82d5f8c047",
+          "compatible": false
+        }
+      },
+      "scope": "full read-frame algebra only; DAT0-moved 1-bit/CRC-status/busy may fail, so no operational roundtrip guarantee"
+    },
+    {
+      "host_to_card": [
+        3,
+        1,
+        2,
+        0
+      ],
+      "DAT0_fixed": false,
+      "payload_roundtrip_identity": true,
+      "CRC_per_lane_preserved_ideal_SDR": true,
+      "start_end_all_lanes_preserved": true,
+      "changed_byte_values_of_256": 192,
+      "read_55AA": "cc33",
+      "signature_preserved": false,
+      "SSR_width2_decoded_from_top_byte_under_permutation": 0,
+      "dataset_comparisons": {
+        "M016_write4_read1": {
+          "mismatches": 3072,
+          "predicted_sha256": "2e58c82c1d9fdc31616f7b7e35c038e60f544576f5a8e361331251381cd56c23",
+          "compatible": false
+        },
+        "PoC_write4_FIRSTFAULT_read1": {
+          "mismatches": 6144,
+          "predicted_sha256": "69691c20fe7622daedf9b42207d739a210cd294cc74862a11ce1dd6ae8ec3007",
+          "compatible": false
+        },
+        "M017_write1_PoC_read4": {
+          "mismatches": 6144,
+          "predicted_sha256": "270196f6184c87a8e3456e582bc4fe88dd885eb8fc6110b6ed52dc04173bc920",
+          "compatible": false
+        }
+      },
+      "scope": "full read-frame algebra only; DAT0-moved 1-bit/CRC-status/busy may fail, so no operational roundtrip guarantee"
+    },
+    {
+      "host_to_card": [
+        3,
+        2,
+        0,
+        1
+      ],
+      "DAT0_fixed": false,
+      "payload_roundtrip_identity": true,
+      "CRC_per_lane_preserved_ideal_SDR": true,
+      "start_end_all_lanes_preserved": true,
+      "changed_byte_values_of_256": 252,
+      "read_55AA": "6699",
+      "signature_preserved": false,
+      "SSR_width2_decoded_from_top_byte_under_permutation": 0,
+      "dataset_comparisons": {
+        "M016_write4_read1": {
+          "mismatches": 4032,
+          "predicted_sha256": "f404620fe73275f539dd998bef3aa704763fe84120e9a73300506f78d19774da",
+          "compatible": false
+        },
+        "PoC_write4_FIRSTFAULT_read1": {
+          "mismatches": 8064,
+          "predicted_sha256": "70ebce0d2e4e8de81433c2f8439aa282fffe2eab433afb8942f021ecbedc18b9",
+          "compatible": false
+        },
+        "M017_write1_PoC_read4": {
+          "mismatches": 8064,
+          "predicted_sha256": "3ceb64a6cdb4d8776a68af2a6b1aca4f0111e069b7930ca1cd884b5d23c0870c",
+          "compatible": false
+        }
+      },
+      "scope": "full read-frame algebra only; DAT0-moved 1-bit/CRC-status/busy may fail, so no operational roundtrip guarantee"
+    },
+    {
+      "host_to_card": [
+        3,
+        2,
+        1,
+        0
+      ],
+      "DAT0_fixed": false,
+      "payload_roundtrip_identity": true,
+      "CRC_per_lane_preserved_ideal_SDR": true,
+      "start_end_all_lanes_preserved": true,
+      "changed_byte_values_of_256": 240,
+      "read_55AA": "aa55",
+      "signature_preserved": false,
+      "SSR_width2_decoded_from_top_byte_under_permutation": 0,
+      "dataset_comparisons": {
+        "M016_write4_read1": {
+          "mismatches": 3840,
+          "predicted_sha256": "978e44acedaf51eb9ef31be3d827df4b1e6b37f48f8b0149aa8a66939589ef53",
+          "compatible": false
+        },
+        "PoC_write4_FIRSTFAULT_read1": {
+          "mismatches": 7680,
+          "predicted_sha256": "00b368186266ea5a1136ed46a2279a8713da686ceb22382282d2c32d6838d65c",
+          "compatible": false
+        },
+        "M017_write1_PoC_read4": {
+          "mismatches": 7680,
+          "predicted_sha256": "610d601a775a335437ed38eb18893f5b0d27bd727ca930ba18a0a83ed06d9d64",
+          "compatible": false
+        }
+      },
+      "scope": "full read-frame algebra only; DAT0-moved 1-bit/CRC-status/busy may fail, so no operational roundtrip guarantee"
+    }
+  ],
+  "hardware_operations": 0
+}

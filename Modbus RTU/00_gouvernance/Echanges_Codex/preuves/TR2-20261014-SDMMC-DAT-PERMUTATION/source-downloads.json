@@ -1,0 +1,14 @@
+[
+  {
+    "file": "sd-6.00.pdf",
+    "url": "https://www.sdcard.org/cms/wp-content/themes/sdcard-org/dl.php?f=Part1_Physical_Layer_Simplified_Specification_Ver6.00.pdf",
+    "status": "failed",
+    "error": "HTTP Error 403: Forbidden"
+  },
+  {
+    "file": "rm0456.pdf",
+    "url": "https://www.st.com/resource/en/reference_manual/rm0456-stm32u5-series-armbased-32bit-mcus-stmicroelectronics.pdf",
+    "status": "failed",
+    "error": "The read operation timed out"
+  }
+]

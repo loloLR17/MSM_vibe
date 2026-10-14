@@ -1,0 +1,110 @@
+[
+  {
+    "file": "Modbus RTU/00_gouvernance/Echanges_Codex/archives/TR2-20261013-M016-SDMMC-REFERENCE-BENCH/MISSION.md",
+    "sha256": "8d31e8ca16ea00a172a5ca319bbe0186a764fc31d471888bf5b87d81b9a52219",
+    "status": "READY",
+    "lines": 40
+  },
+  {
+    "file": "Modbus RTU/00_gouvernance/Echanges_Codex/archives/TR2-20261013-M016-SDMMC-REFERENCE-BENCH/RAPPORT.md",
+    "sha256": "8f3e94c7e459798dab7e333b8cea058275c94b2bafd8f761eb2d621f488dc5bb",
+    "status": "BLOCKED",
+    "lines": 56
+  },
+  {
+    "file": "Modbus RTU/00_gouvernance/Echanges_Codex/archives/TR2-20261013-M016-SDMMC-REFERENCE-PHYSICAL/MISSION.md",
+    "sha256": "04f0a82a8792a45edfbcb2f61e9993fcd504e12d3560868c01b7ae2a56440c3b",
+    "status": "READY",
+    "lines": 40
+  },
+  {
+    "file": "Modbus RTU/00_gouvernance/Echanges_Codex/archives/TR2-20261013-M016-SDMMC-REFERENCE-PHYSICAL/RAPPORT.md",
+    "sha256": "59bf2d2005041c00be916658cc50b48fff2ef8f2a366c87671fe74f920e7cd8e",
+    "status": "BLOCKED",
+    "lines": 93
+  },
+  {
+    "file": "Modbus RTU/00_gouvernance/Echanges_Codex/archives/TR2-20261013-M016-SDMMC-1BIT-LOAD-ONLY/MISSION.md",
+    "sha256": "32502710cfc7790928f6ddf3735542df63a6b25780abb4d42fc5695379a2d2fa",
+    "status": "READY",
+    "lines": 33
+  },
+  {
+    "file": "Modbus RTU/00_gouvernance/Echanges_Codex/archives/TR2-20261013-M016-SDMMC-1BIT-LOAD-ONLY/RAPPORT.md",
+    "sha256": "e7e8cb520e5dabd721c750f1b8b378c61aa5e1686015f4f0166115c567ae8c43",
+    "status": "FAILED",
+    "lines": 97
+  },
+  {
+    "file": "Modbus RTU/00_gouvernance/Echanges_Codex/archives/TR2-20261014-M017-SDMMC-1BIT-REALISTIC-QUALIFICATION/MISSION.md",
+    "sha256": "9c7e73d0ff0eda4c76a2aea7eb574c06cb48226e35cde26703eec2618c5fc1e4",
+    "status": "READY",
+    "lines": 40
+  },
+  {
+    "file": "Modbus RTU/00_gouvernance/Echanges_Codex/archives/TR2-20261014-M017-SDMMC-1BIT-REALISTIC-QUALIFICATION/RAPPORT.md",
+    "sha256": "913877273664ff177ceddb159cf75b6b7ba27fb88e619418b6c4c389a85fd045",
+    "status": "FAILED",
+    "lines": 110
+  },
+  {
+    "file": "Modbus RTU/00_gouvernance/Echanges_Codex/archives/TR2-20261014-P12H3H-SDMMC1-REFERENCE-POC/MISSION.md",
+    "sha256": "2eb65796427a80d9f85f25113ce2a8372debb5de5562e2ca8d4775c74a1233cc",
+    "status": "READY",
+    "lines": 36
+  },
+  {
+    "file": "Modbus RTU/00_gouvernance/Echanges_Codex/archives/TR2-20261014-P12H3H-SDMMC1-REFERENCE-POC/RAPPORT.md",
+    "sha256": "9eaea4de3c11e3ce9fb059d5860bde0fe30308112f040a042edda3212bac7c4a",
+    "status": "FAILED",
+    "lines": 97
+  },
+  {
+    "file": "Modbus RTU/00_gouvernance/Echanges_Codex/archives/TR2-20261014-P12H3H-SDMMC1-CABLE10CM-COMPARISON/MISSION.md",
+    "sha256": "811426c2bbbc7c00db16d366003635c9c91ef179adc3298b1a743ed9b9bdaede",
+    "status": "READY",
+    "lines": 38
+  },
+  {
+    "file": "Modbus RTU/00_gouvernance/Echanges_Codex/archives/TR2-20261014-P12H3H-SDMMC1-CABLE10CM-COMPARISON/RAPPORT.md",
+    "sha256": "d335230bc9dea13cf2380a6e4c81559a2ed3ec783deb6a36d806ba9df6cda15a",
+    "status": "FAILED",
+    "lines": 72
+  },
+  {
+    "file": "Modbus RTU/00_gouvernance/Echanges_Codex/archives/TR2-20261014-P12H3H-SDMMC1-COLDSTART10CM/MISSION.md",
+    "sha256": "d71ef5088736766274149aa5fb07ecd1a6f8b57405eb2825a60c4e3a7de7e50d",
+    "status": "READY",
+    "lines": 35
+  },
+  {
+    "file": "Modbus RTU/00_gouvernance/Echanges_Codex/archives/TR2-20261014-P12H3H-SDMMC1-COLDSTART10CM/RAPPORT.md",
+    "sha256": "58cf5043b133dd31ea5c40cd2d6d840df42bf03544a09007e764f9f7f855c960",
+    "status": "FAILED",
+    "lines": 69
+  },
+  {
+    "file": "Modbus RTU/00_gouvernance/Echanges_Codex/archives/TR2-20261014-P12H3H-SDMMC1-ROOTCAUSE-REVIEW/MISSION.md",
+    "sha256": "88481b4059e7d0d6c90d4d2b3d1e49dce776769cd02e32efd6da3dc55376b143",
+    "status": "READY",
+    "lines": 30
+  },
+  {
+    "file": "Modbus RTU/00_gouvernance/Echanges_Codex/archives/TR2-20261014-P12H3H-SDMMC1-ROOTCAUSE-REVIEW/RAPPORT.md",
+    "sha256": "bb1fbf2e071adf0bd3162c015dd6afcc5a26048141adb1f7b5de1a24a1f981a3",
+    "status": "DONE",
+    "lines": 115
+  },
+  {
+    "file": "Modbus RTU/00_gouvernance/Echanges_Codex/archives/TR2-20261014-P12H3H-SDMMC1-READONLY-FIRSTFAULT/MISSION.md",
+    "sha256": "2adf5df403737f2284788ce99c940cb9b378e87cf8f0424b93cf6d44e91ff3ff",
+    "status": "BLOCKED",
+    "lines": 44
+  },
+  {
+    "file": "Modbus RTU/00_gouvernance/Echanges_Codex/archives/TR2-20261014-P12H3H-SDMMC1-READONLY-FIRSTFAULT/RAPPORT.md",
+    "sha256": "dd5a644b9b13018e1b3a4e5ef137e520f50dcdc6b25bac3b2b908cbc4c11477c",
+    "status": "FAILED",
+    "lines": 90
+  }
+]
