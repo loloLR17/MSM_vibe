@@ -1,10 +1,11 @@
 ---
 mission_id: TR2-20261014-P12H3H-SDMMC1-READONLY-FIRSTFAULT
-status: IN_PROGRESS
+status: FAILED
 base_ref: main
 base_sha: 94fffb0177fbfb6b02731a31a6e2f2ad284bf50b
 initial_head: be0864ae11447c544dfb6ee460c8e983aaca0e15
-result_sha: 42e8dd236d883366cf37167f9f96293fe95166f4
+result_sha: 667154ee041e3b52c11fd54661cd58add57f94ee
+created_at_utc: 2026-10-14T15:53:01.900926+00:00
 author: Codex
 target_branch: main
 allow_commit: true
@@ -13,54 +14,75 @@ allow_flash: true
 allow_debug: true
 ---
 
-# Checkpoint — A PASS borné, B chargé au WAIT, départ B attendu
+# SDMMC1 : A conforme en 1 bit ; premier CRC B isolé sur SSR en 4 bits
 
-**État actuel : essai A unique PASS physique borné ; B construit et chargé au WAIT, pas encore exécuté.** Aucun CRC reproduit dans A. Pas de qualification TR2 ou industrielle. Les paragraphes de préparation ci-dessous décrivent les checkpoints antérieurs ; les mises à jour RUN A et flash B donnent l'état actuel.
+**Diagnostic borné exécuté : A PASS ; B FAILED dès ACMD13/SD Status (64 octets), avant CMD17/CMD18. Première erreur B capturée en RAM avant effacement : STA=0x2/DCRCFAIL.** Un seul départ et un seul trigger par profil, aucun retry. FAILED désigne la qualification physique 4 bits, pas un échec de collecte : l'objectif de localisation de la première erreur est acquis dans cet essai. Ni stockage V1, ni fiabilité TR2, ni qualification industrielle démontrés.
 
-## Acquis et preuves
+## Résultats réellement observés
 
-Code isolé dans `experiments/sdmmc1_firstfault/`, source communautaire propre épinglée `1e3c9183bad023ebf7d234134823d9270a0e8b64`. Le générateur produit un overlay HAL/LL et main hors USB/TinyUSB/FatFs, avec [diffs et provenance](preuves/TR2-20261014-SDMMC1-FIRSTFAULT/overlay-provenance.json). Les hooks figent la première erreur en RAM avant effacement des flags, sans instrumentation des boucles FIFO ni modification du recovery original. Les éventuelles transactions internes de HAL_Init après capture restent celles du HAL original : le wrapper arrête la suite au retour, il ne change pas artificiellement cette séquence.
+| Contrôle | A — 1 bit | B — 4 bits demandé |
+|---|---|---|
+| Identité | UID/CID exacts ; 62333952 secteurs ×512 | Mêmes UID/CID/capacité exacts |
+| Départ utilisateur | Coupure/insertion ; VDD=0,003 V mesuré | Coupure/remise ST-LINK confirmée ; nouvelle mesure VDD non rapportée |
+| Init HAL / sélection largeur | HAL_OK/ErrorCode0, CLKCR2 | HAL_OK/ErrorCode0, CLKCR4002 |
+| SSR explicite | HAL_OK, DataBusWidth0 conforme | HAL_ERROR/ErrorCode2 ; SSR non valide |
+| CMD13 initial, après lectures | TRANSFER4/R1=900 | Non exécutés par le harness après échec SSR |
+| CMD17 512 au LBA506304 | HAL_OK, 0 différence intégrale, SHA exact | Non exécuté |
+| CMD18 8192 au LBA506304 | HAL_OK, 0 différence intégrale, SHA exact | Non exécuté |
+| Première erreur | valid0 | valid1, CRC données sur SSR64 |
+| Terminal | stage100/raison0/run_count1 | stage99/raison2/run_count1 |
 
-Boot WAIT sans accès SD, trigger RAM unique, UID/CID/capacité/broches/horloges/largeur/SSR gardés. A=1bit/12MHz ; CMD17 512 puis CMD18 8192 au LBA506304 uniquement après phases conformes. Comparaison complète embarquée et décodeur indépendant préparés. Aucun CMD13 ajouté après erreur. Collecte terminale seulement, pas de breakpoint pendant polling. B conditionné par PASS physique complet A.
+[Décodage A et contrôles intégraux](preuves/TR2-20261014-SDMMC1-FIRSTFAULT/RUN-A-decoded.json), [décodage B](preuves/TR2-20261014-SDMMC1-FIRSTFAULT/RUN-B-decoded.json), [comparaison et durées](preuves/TR2-20261014-SDMMC1-FIRSTFAULT/comparison-summary.json). Buffers RAM bruts et scripts/GDB/logs sont publiés séparément A/B. Les buffers B sont restés inutilisés ; leurs hashes et mismatch0 initialisés **ne sont pas une intégrité de données validée**. SSRwidth0 B provient de la structure initialisée à zéro après HAL_ERROR, **pas la preuve d'une carte restée en 1 bit**. La sélection HAL4bits réussit et CLKCR4002 confirme le contrôleur ; la largeur effective annoncée dans SSR ne peut pas être confirmée à cause du CRC.
 
-[Build A attempt2](preuves/TR2-20261014-SDMMC1-FIRSTFAULT/build-A-attempt2.log) : GCC ARM14.2.1, Os/g3, BIN21852octets SHA256 `fb2843742056093610f979268c004bb9c66455cf540069ea5d8f55531a252fb1`, ELF `1d88d7054a82ab75edb3bd7b6f6aa321e4095a3535dbba0107d1cd6cac285b01`. Builddir `/home/lolo/dev/msm/reports/SDMMC1-firstfault-A-build`, preuves locales `/home/lolo/dev/msm/reports/TR2-SDMMC1-FIRSTFAULT-20261014`. Images complètes conservées localement ; sources tiers non modifiées ni réembarquées.
+A : SHA512 `a9f4d9b4604080bea7999abf2d2874653e71c43a7805bc1735068b1f004f3daf`, SHA8192 `2ac5183f9757f9b08e94e4cf2f4b1ee03a3a66171e8b366989e5b36b93ab563b` concordent avec les oracles. Comparaison complète embarquée et Python indépendante, 512+8192octets ; pas de nouvelle écriture de référence. Durées DWT/160MHz des appels HAL instrumentés : initA166,678119ms, read5120,965331ms, read819211,575350ms. CMD12 original observé après DATAEND, CMD13 postreadTRANSFER4. HALContext historique1/2 ne suffit pas à conclure carte DATA : statut carte lu séparément. Ce ne sont pas des benchmarks industriels.
 
-Première tentative compile échouée : hook LL injecté dans des utilitaires DMA sans pointeur SDMMCx ; périmètre du générateur corrigé, [échec conservé](preuves/TR2-20261014-SDMMC1-FIRSTFAULT/build-A-attempt1.log). Deuxième tentative réussie. Contrôles : profil implicite rejeté, py_compile des trois outils, ABI ARM2260/200/84octets vérifiée hors cible, décodeur testé sur frame valide et phase_count invalide. nm ne contient pas les symboles MSC/FatFs/write/erase listés dans artifacts-A.json. Ce contrôle statique ne prouve pas encore une exécution cible.
+## Première erreur B avant cleanup
 
-Validation proportionnée : build ARM du probe réellement concerné, garde de profil et outils hors ligne ; pas de répétition des campagnes ni validations globales de production sur code inchangé. Oracles SHA512 `a9f4d9b4604080bea7999abf2d2874653e71c43a7805bc1735068b1f004f3daf`, SHA8192 `2ac5183f9757f9b08e94e4cf2f4b1ee03a3a66171e8b366989e5b36b93ab563b`, issus du protocole antérieur, non nouvellement relus sur carte.
+Phase4 = lecture SSR par `HAL_SD_GetCardStatus` → `SD_SendSDStatus`. Hook à **overlay stm32u5xx_hal_sd.c:3401**, branche DCRCFAIL avant retour2, record figé :
 
-## Correction de repérage et sécurité
+- valid1, kind4 (retour d'erreur HAL instrumenté), error2, tick60654, cycles1114083489, IPSR0 ; HAL_ErrorCode encore0 au moment de la capture.
+- **STA00000002**, RESPCMD13, RESP1 **00000920**, ARG0, CMD10D ; ACMD13 identifiée par le chemin CMD55/ACMD13 original, réponse APP_CMD bit5, pas CMD13 de readiness.
+- DCTRL62, DLEN64, DCOUNT0, CLKCR4002, MASK0 ; HALStateREADY1/Context0. DCOUNT0 ne prouve pas intégrité des64octets.
+- Aucun RXOVERR0x20, DTIMEOUT0x8 ou CCRCFAIL0x1 présent dans cet instantané. CRC données concret avant effacement, pas simple OR tardif des erreurs ni bitCRC attribué par défaut à un problème électrique de commande.
 
-Main concurrent `e02f7c4d969dd94f7761b3c5c8332acbb50af7cb` suspend le matériel sur erreur de repérage alimentation. Manuel ST UM2861 table19 : CN11-16=3V3, CN11-18=5V, CN11-20=GND. Utilisateur corrige « bleu est sur CN11-20 et aubergine sur CN11-16 », puis confirme « ST-LINK déconnecté, bleu sur CN11-20, aubergine sur CN11-16, banc hor tension, SD card non insérée ». [Retours exacts](preuves/TR2-20261014-SDMMC1-FIRSTFAULT/pinout-confirmation.json). Cela étaye le repérage hors tension ; aucune mesure de continuité, de décharge VDD ou inspection visuelle par Codex n'est prétendue. CN15 reste à confirmer explicitement déconnecté. Mission ChatGPT conservée sans modification.
+InitB166,541750ms ; sélectionlargeur0,097906ms ; phaseSSR0,102475ms. Retour HAL_ERROR1/ErrorCode2 puis terminal99, sans initialstatus, CMD17, CMD18 ou CMD13 ajoutés par le harness. [Extraits source précis et empreintes](preuves/TR2-20261014-SDMMC1-FIRSTFAULT/SSR-firstfault-source-excerpts.json).
 
-Prochaine étape physique : ST-LINK seul, SD absente, CN15 déconnecté. Vérifier identité seconde cible et image originale avant flash qualifié A, readback et WAIT. Puis insertion de la carte de test hors tension et départ électrique A confirmé utilisateur, mesure VDD0 si possible ou limite documentée. Aucun essai tant que ces conditions ne sont pas réunies. Arrêt définitif du protocole en cas d'échec A ; pas de retry. Si A PASS complet, construire puis exécuter B après coupure utilisateur.
+**Limite de l'arrêt :** le HAL original `HAL_SD_GetCardStatus` efface les flags, reporte ErrorCode2 puis envoie **CMD16/512** avant de retourner, même après erreur SSR. Cela explique STA0/RESPCMD16/ARG512 à la sortie de phase, alors que le premier record conserve STA2/RESPCMD13/ARG0. Ce CMD16 est une transaction interne originale, non ajoutée par Codex. Le probe ne détourne pas le HAL au premier hook ; il arrête les phases suivantes au retour de l'appel. « Aucune commande après la première erreur » au sens littéral n'est donc pas démontré : aucune commande de récupération/retry/CMD13 **ajoutée**, mais ce cleanup original subsiste, conformément à la conservation de la séquence HAL demandée. La première preuve n'a pas été perdue. Aucune nouvelle session active n'a tenté de vérifier la disponibilité de la carte après échec.
 
-## Préservation et publication
+## Diagnostic et limites causales
 
-Commit logiciel initial `42e8dd236d883366cf37167f9f96293fe95166f4` préservé. Main a avancé pendant la préparation ; utilisateur autorise explicitement l'intégration isolée. Worktree original de mission intact ; nouveau worktree `MSM_vibe-SDMMC1-firstfault-integrated` basé e02f7c4, réapplication du seul commit logiciel : `8d3db40267d4a1dc9093c9b0e3d9b31819768d69`, arbre source identique, build déjà acquis non répété. `result_sha` désigne le code au build initial ; commit réappliqué identique dans les sept fichiers du probe.
+**Fait :** le défaut est reproduit hors USB/TinyUSB/MSC/FatFs, dès un transfertSSR64, avant tout lecture multibloc. USB n'est donc pas nécessaire à ce défaut observé ; le recovery de CMD18 ne peut pas expliquer sa première apparition dans B. Ceci n'exclut pas d'autres effets USB/recovery dans les essais historiques.
 
-Dépôt principal historique propre `82169af7e76797731358852bec83bfb0ceb54ccf`, stashes `6251b988e8b20f97997a8f98fd26d4d35a45a1b2` et `f3b829e6188f491920edf74a5f9ed0f559d08b87` préservés. ROOTCAUSE-REVIEW archivée byte-identique depuis94fffb0. Journal actualisé : préparation logicielle, correction utilisateur et prochaine étape physique. Principal/FRAM/média512Go/Modbus/protections non accédés. Permissions exercées à ce checkpoint : logiciel et commits ; push normal prévu avec contrôle distant, aucune opération matérielle.
+**Déduction bornée :** sensibilité au profil4bits renforcée par A entièrement conforme/BCRC, avec mêmes sources compilées, broches et fréquence calculée12MHz. Les lignesD1–D3, le débitFIFO quadruplé, l'état électrique initial et le média ne sont pas isolés entre eux. A/B sont deux départs uniques, B sans mesureVDD0 dédiée, pas une statistique de fiabilité. DCRCFAIL sans RXOVR dans la capture ne qualifie ni fronts/overshoot/tensions transitoires ni une ligne particulière. Aucune cause électrique unique prouvée, aucun correctif spéculatif appliqué.
 
-Statut IN_PROGRESS de reprise, pas DONE. Publication et relecture distante de ce checkpoint à effectuer ; SHA publié communiqué après contrôle, sans auto-référence dans ce commit.
+**Prochaines actions proposées à ChatGPT, non exécutées :** revue indépendante du premier record et du cleanupCMD16 ; mission distincte pour une vérification dynamique ciblée alimentation/CLK/CMD/D0–D3 ou un comparatif explicite à fréquence réduite, avec une seule variable et budget d'essais. Ne pas ajouter des pull-ups à l'aveugle (ils existent dans conception), changer OSPEEDR, câblage/straps, passerSD4bits en production, réparer recovery ou refaireA/B sans nouveau contrat. Une éventuelle évolution de la contrainte « aucune commande après erreur » doit définir le traitement du cleanup original avant prochain probe.
 
-## Mise à jour — préparation matérielle accomplie, RUN A non lancé
+## Logiciel, validation et traçabilité
 
-Checkpoint12ca34935468afe09e0951cea055d1ea197976a6 publié normalement et récupéré de GitHub :25fichiers relus byte-identiques,13empreintes vérifiées ; [preuve](preuves/TR2-20261014-SDMMC1-FIRSTFAULT/remote-readback-12ca349.json). Les avertissements whitespace concernent les diff tiers et CRLF des logs bruts, conservés intacts ; documents/JSON contrôlés.
+Probe isolé `experiments/sdmmc1_firstfault/`, source tierce inchangée et propre `VILLO88/NUCLEOU575@1e3c9183bad023ebf7d234134823d9270a0e8b64`, HAL1.6.2/TinyUSB0.20.1 originaux, aucune modification upstream. Générateur overlay main/HAL/LL : mêmes séquences originales, hooks frontières/erreurs avant effacement, pas hooks des bouclesFIFO. Boot WAIT sans accèsSD, UIDguard/trigger unique, pas de printf, breakpoint ou halt pendantpolling. Un GDBattach avanttrigger, detach ; attente10s sansdebug ; attach collecte terminale puisdetach. Horloges/GPIO observés à la frontièrepostinit : CPU160MHz, HSI48actif/kernel48MHz, ClockDiv2⇒SD12MHz calculés ; AF12/PULLUP/HIGH conformes, IRQUSBdésactivée, IPSR0. Pas de mesure à l'oscilloscope.
 
-Après confirmation utilisateur « Je confirme ST-LINK connecté, SD card retirée, USB C débranché », préflight par GDB attach sans reset : UIDconforme, image originale31437octets SHA2a2fe744… identique et sauvegardée. Le firmware précédent était dans Error_Handler sans carte ; cela ne constitue pas un nouvel essai SD. Flash standard qualifié secondeSN uniquement, secteurs nécessaires0–2, verifyOK/resetlogiciel avant insertion. Readback21852octets exact SHAfb284374…, observation WAIT1/trigger0/run_count0 puis detach. [Synthèse et logs bruts](preuves/TR2-20261014-SDMMC1-FIRSTFAULT/flash-A-summary.json). Pas de mass erase/OptionBytes/RDP, pas de commande SD opérateur.
+Codeprobe au commit initial `42e8dd236d883366cf37167f9f96293fe95166f4`, réappliqué identique `8d3db40267d4a1dc9093c9b0e3d9b31819768d69`. Outils B validés au commit `667154ee041e3b52c11fd54661cd58add57f94ee`, result_sha ; probe.c/générateur/trace/description de build inchangés, seule définitionFF_PROFILE1→4 entrebuilds. Overlays A/B identiques octet à octet. Générateur vérifie source épinglée/propre et restauration des instructions originales après retrait des seules lignes injectées ; ce n'est pas une identité binaire de HAL instrumenté et original.
 
-Autorisations flash/debug exercées pour cette préparation, après résolution du repérage documentaire et confirmation utilisateur hors tension. Mission active inchangée. Le seul RUN A reste à effectuer après coupure/insertion/reconnexion confirmées ; mesureVDD0 si possible, sinon limite explicite. Carte test absente lors du flash ; état au moment d'insertion non présumé. Pas de restauration automatique du firmware USB original afin d'éviter des transactions SD/MSC non prévues.
+| Artefact | A | B (construit seulement après A PASS) |
+|---|---|---|
+| BINoctets |21852|21860|
+| SHA256BIN |`fb2843742056093610f979268c004bb9c66455cf540069ea5d8f55531a252fb1`|`fdb7fa151bd69051c839cf11a1f1e3eb134d6a821a07ab0b827eef1d91bdf829`|
+| SHA256ELF |`1d88d7054a82ab75edb3bd7b6f6aa321e4095a3535dbba0107d1cd6cac285b01`|`c9973b5b4713e8215fc24ce1e38ffdd4b50cec466fa890306586903347e1b1f9`|
 
-## RUN A — PASS physique borné, profil B construit ensuite
+GCC ARM14.2.1/Os/g3, builds logs effectifs publiés. Écheccompilation A, tentative 1 conservé : hooks appliqués à des utilitairesDMA sans SDMMCx ; générateur limité à la sectionSD, attempt2réussi. Build B réussi première tentative. Profil implicite rejeté, py_compile outils réussi, ABIARM2260/200/84octets vérifiée hors cible, décodeur contrôleframevalide/phase_countinvalide. nm A/B : absence des symbolesTinyUSB/MSC/FatFs/write/erase listés dansartifacts. Aucun affaiblissement desgardes, aucun codeproduction/validationantérieure rejoué. Validation proportionnée au probe autonome : son cross-build et outils hors ligne, puis les deux exécutions physiques contractuelles, pas les testsglobauxTR2 inchangés. Compilation/flash et observationdebug sont distingués des comparaisons physiques acquises A ; BCRC est une observation physique d'échec.
 
-Départ confirmé utilisateur : ST-LINK seul/carte insérée/CN15off, VDDbreakout **0,003V mesuré lors de l'insertion**. Mesure utilisateur, pas mesure automatisée. Condition de sécurité documentaire/repérage hors tension satisfaite, fichier mission ChatGPT resté intact. Un seul trigger A, détachement avant polling, collecte terminale après10s sans reset ni breakpoint en transfert. [Traces et contrôle complet](preuves/TR2-20261014-SDMMC1-FIRSTFAULT/RUN-A-decoded.json).
+## Sécurité, autorisations et état laissé
 
-A terminal100/raison0/run_count1, UID et CID exacts,62333952secteurs512, SSRwidth0/CLKCR2 et kernelHSI48 ⇒1bit/12MHz calculés, CPU160MHz/IPSR0. Init et lectures HAL_OK/ErrorCode0, première erreur valid0. CMD17/512 et CMD18/8192 au LBA506304 :0différence embarquée et comparaison Python intégrale, SHA512a9f4d9b…/SHA81922ac5183f… exacts. CMD13 init et postlectures retournentTRANSFER4/R1=900 ; CMD12 original après DATAEND du multibloc observé. HALContext1/2 reste historique après succès, sans l'assimiler à une carte encore DATA ; statut carte séparément observé. Durées DWT : lecture5120,965331ms, lecture819211,575350ms ; appels HAL instrumentés, pas benchmark industriel.
+Main concurrente02f7c4 a suspendu lesopérations surCN11-18erronémentGND. RevueSTUM2861table19 : CN11-16=3V3/CN11-18=5V/CN11-20=GND ; utilisateur confirme hors tension bleuCN11-20/aubergineCN11-16, sans changement de câblage. Retours exacts [pinout](preuves/TR2-20261014-SDMMC1-FIRSTFAULT/pinout-confirmation.json), [départA](preuves/TR2-20261014-SDMMC1-FIRSTFAULT/physical-start-A.json), [départB](preuves/TR2-20261014-SDMMC1-FIRSTFAULT/physical-start-B.json). Conditions factuelles de l'arrêt de sécurité satisfaites ; aucun changement du contrat ChatGPT par Codex, statusBLOCKED historique du fichier conservé et signalé. A VDD0,003V mesuréparutilisateur ; B seulementcycleconfirmé, nontransposition de mesureA. Aucune observationvisuelle/continuitéohmique parCodex prétendue.
 
-A ne sera pas rejoué. Succès borné horsUSB : il autoriseB mais ne démontre ni causeUSB ni fiabilité/endurance. B construit seulement aprèsPASS A, mêmes overlayHAL/LL/main byte-identiques et codeprobe inchangé, seule définitionFF_PROFILE=4. Build/symboles/hashesB publiés. Les outils d'observation/décodage ajoutent sélectionB avec gardePASS A et noms de preuves distincts ; py_compile réussi. Aucun test de production inchangé rejoué. B physique non encore exécuté ; prochain flash standard B au WAIT puis coupure/reconnexion utilisateur obligatoire avant son trigger unique.
+Cible exclusive SN0032001F3235510C37333439/UID001B0046/38425018/20333157. PréflashA image originale31437octets sauvegardée et SHA2a2fe744ab926789ae180b74f2a250b2a9202329b5afde51a1155cdd69d54c1a conforme (ancienne image enError_Handler, SDabsente). PréflashB UID/imageA exacts et terminalPASS confirmés. Deuxflashstandards0x08000000/verify, secteursnécessaires0–2, resetflash avantdépart électrique dechaqueprofil, readbackscomplets exacts. Aucunflash supplémentaire/reset pendantRUN, pasmasserase/OptionBytes/RDP/writeSD/MSCWindows. LeshooksnefontpasdewriteSD ; nos outilsGDB n'appellentpasd'APIcarte. Interventions physiques effectuées exclusivement par l’utilisateur.
 
-## Profil B au WAIT — prochain geste requis
+**État final observé seconde Nucleo :** imageBconservée, stage99/trigger0/run_count1, HAL_READY/ErrorCode2/Context0, dernierRESPCMD16/R1=900 aprèscleanuporiginal. MicroSDtestinsérée/STLINKseul/CN15déconnecté selon confirmations ; debuggerdétaché, aucune transaction automatique après terminal. Cet état HAL ne qualifie pas la disponibilité de la carte ; pas de CMD13 ajouté. Ne pas restaurer automatiquement l'imageUSBoriginale : cela ajouterait du trafic SD/MSC non requis. Backup original, readbacks et images A/B conservés localement, empreintes publiées.
 
-PublicationA667154ee041e3b52c11fd54661cd58add57f94ee relue :57fichiers byte-identiques/45empreintes. Source du probe inchangée depuis42e8dd2, outilsB au commit667154e. Bbuild21860octets SHA256fdb7fa151bd69051c839cf11a1f1e3eb134d6a821a07ab0b827eef1d91bdf829.
+## Git, archives et publication
 
-PréflightUID et imageA exacte, terminal100 confirmé avant flashB. Flash standardverifyOK/readbackexact, WAITprofile4/stage1/trigger0/run_count0, debuggerdétaché. [Synthèse](preuves/TR2-20261014-SDMMC1-FIRSTFAULT/flash-B-summary.json). Carte restéeinsérée, aucun init/accèsSD du nouveaufirmware avanttrigger ; resetflash avant futur départélectriqueB, pas un RUN. En attente coupureSTLINK/VDD0 si possible/reconnexionSTLINKseul parutilisateur ; CN15 reste déconnecté. Un seul essaiB, sansretry ; sauvegardesA et imageoriginaleconservées, aucune restaurationUSB nonnécessaire.
+Dépôt originalhistorique propreHEAD82169af7e76797731358852bec83bfb0ceb54ccf et stashes6251b988e8b20f97997a8f98fd26d4d35a45a1b2/f3b829e6188f491920edf74a5f9ed0f559d08b87 préservés. Worktreeinitial42e8dd2 conservé, intégrationisoléeautoriséeexplicitementparutilisateur depuismainconcurrente02f7c4, sansmerge/rebase/reset/forcepush. Worktreeactif `MSM_vibe-SDMMC1-firstfault-integrated`. Principal / FRAM/média512Go/Modbus/gels/registre A04 nonmodifiés. ROOTCAUSE-REVIEW archivée byte-identique depuis94fffb0. Journalactualisé avec A PASS, premierCRCSSR B, limites et prochainesactions.
+
+Checkpoints normauxmain publiés et relus :12ca349 (25fichiers/13empreintes),559ae68 (38/26),667154e (57/45),9926693 (69/57). [Dernièrepreuvecheckpoint](preuves/TR2-20261014-SDMMC1-FIRSTFAULT/remote-readback-9926693.json). LeslogsbrutsCRLF etdiffstiers sontconservésidentiques octet à octet malgréwhitespace ; documents/JSON/codepropres contrôlés. Les permissions du contrat commit/push/flash/debug ont été exercées dans le périmètre ; aucune opération matérielle hors contrat.
+
+Ce rapport et les preuves B sont à publier puis relire intégralement depuis GitHub. La preuve distante complémentaire sera publiée après contrôle ; SHA final donné dans la réponse sans auto-référence dans ce commit. Mission arrêtée au critère CRC de B ; aucun essai annexe. Contrôle indépendant ChatGPT et choix d'une future mission distincts.

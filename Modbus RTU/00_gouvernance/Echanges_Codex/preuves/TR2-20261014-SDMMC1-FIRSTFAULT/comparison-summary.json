@@ -1,0 +1,49 @@
+{
+  "A": "PASS bounded single run",
+  "B": "FAILED single run at SSR before CMD17/CMD18",
+  "A_start_VDD_user_V": 0.003,
+  "B_start_VDD": "not measured/reported",
+  "first_fault_B": {
+    "valid": 1,
+    "phase": 4,
+    "source_line": 3401,
+    "kind": 4,
+    "error": 2,
+    "tick": 60654,
+    "cycles": 1114083489,
+    "ipsr": 0,
+    "sta": 2,
+    "respcmd": 13,
+    "resp1": 2336,
+    "arg": 0,
+    "cmd": 269,
+    "dctrl": 98,
+    "dlen": 64,
+    "dcount": 0,
+    "clkcr": 16386,
+    "mask": 0,
+    "hal_error": 0,
+    "hal_state": 1,
+    "hal_context": 0
+  },
+  "SSR_output_valid_B": false,
+  "no_additional_commands_by_harness_after_failure": true,
+  "original_HAL_CMD16_after_SSR_fault": "HAL_SD_GetCardStatus restores 512 byte block length before returning; observed phase after RESPCMD16/ARG512. Not an added recovery or CMD13. No immediate abort of original HAL implementation.",
+  "data_reads_B_executed": 0,
+  "no_USB_MSC_during_runs": true,
+  "duration_ms_A": {
+    "2": 166.67811875,
+    "3": 0.09804375,
+    "4": 0.133475,
+    "5": 0.0109,
+    "6": 0.96533125,
+    "7": 0.01099375,
+    "8": 11.57535,
+    "9": 0.01099375
+  },
+  "duration_ms_B": {
+    "2": 166.54175,
+    "3": 0.09790625,
+    "4": 0.102475
+  }
+}

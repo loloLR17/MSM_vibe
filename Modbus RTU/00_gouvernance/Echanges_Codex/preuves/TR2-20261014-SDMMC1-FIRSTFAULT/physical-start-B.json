@@ -1,0 +1,8 @@
+{
+  "confirmed": true,
+  "user_reply": "je te confirme le débranchement / branchement du ST-LINK correspondant à la coupur/mise sous tension demandée",
+  "utc": "2026-10-14T15:49:26.688833+00:00",
+  "vdd_zero_measurement_B": "non rapportée",
+  "card_inserted_and_CN15_disconnected": "maintained from last confirmation and requested unchanged B setup",
+  "note": "Only B power cycle confirmed; A 0.003 V measurement not transferred to B."
+}
