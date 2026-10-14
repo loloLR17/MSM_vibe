@@ -1,0 +1,23 @@
+{
+  "mission_id": "TR2-20261014-P12H3H-SDMMC1-CABLE10CM-COMPARISON",
+  "initial_main": "e4630199d4859e09b431ea159bfa36e553589617",
+  "previous_report_sha": "7271e03e513e3fb5a9ba33051713307125c60bbe",
+  "image_verification": "byte-identical readback; no flash",
+  "initial_host_no_media_before_debug": true,
+  "initial_hal_error": "0x3005",
+  "initial_recovery": "one qualified GDB system reset, eight seconds wait, detach",
+  "reset_count": 1,
+  "flash_count": 0,
+  "post_recovery_hal_error": "0x2005",
+  "post_recovery_resp1": "0x00000b00",
+  "post_recovery_host_no_media": true,
+  "writes_executed": 0,
+  "cycles_executed": 0,
+  "requested_data_reads_executed": 0,
+  "usb_background_io": "original firmware and Windows active; not controlled/instrumented as operator data cycles",
+  "comparative_improvement_proven": false,
+  "performance_comparison_measurable": false,
+  "technical_status": "FAILED",
+  "stop_reason": "No Media persists after allowed initial recovery; no write guard satisfied; no additional reset/repetition",
+  "utc": "2026-10-14T10:58:28.614445+00:00"
+}

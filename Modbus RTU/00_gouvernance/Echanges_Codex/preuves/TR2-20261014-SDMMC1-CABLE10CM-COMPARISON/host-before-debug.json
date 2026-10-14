@@ -1,0 +1,21 @@
+{
+    "utc":  "2026-10-14T10:55:09.9630403Z",
+    "devices":  [
+                    {
+                        "Status":  "OK",
+                        "FriendlyName":  "Dispositif de stockage de masse USB",
+                        "InstanceId":  "USB\\VID_0483\u0026PID_572B\\123456"
+                    }
+                ],
+    "disks":  [
+                  {
+                      "Number":  2,
+                      "FriendlyName":  "STM32 SD Card",
+                      "SerialNumber":  "123456",
+                      "Size":  0,
+                      "OperationalStatus":  "No Media",
+                      "BusType":  "USB",
+                      "PartitionStyle":  "RAW"
+                  }
+              ]
+}

@@ -1,0 +1,12 @@
+{
+  "initial_main": "e4630199d4859e09b431ea159bfa36e553589617",
+  "reference_report_main": "7271e03e513e3fb5a9ba33051713307125c60bbe",
+  "source_commit": "1e3c9183bad023ebf7d234134823d9270a0e8b64",
+  "bin_sha256": "2a2fe744ab926789ae180b74f2a250b2a9202329b5afde51a1155cdd69d54c1a",
+  "bin_bytes": 31437,
+  "NativeAligned_cs_byte_identical": true,
+  "cable_10cm_only_physical_change": "user declaration in mission; no automated length/continuity measurement",
+  "reset_count": 0,
+  "flash_count": 0,
+  "utc": "2026-10-14T10:54:14.680901+00:00"
+}
