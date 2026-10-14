@@ -1,0 +1,8 @@
+{
+  "utc": "2026-10-14T10:06:53.998514+00:00",
+  "card_lba": 506304,
+  "relative_partition_lba": 504256,
+  "bytes": 131072,
+  "sha256": "c8a5f1e01ab61ebcace803eb63d5cf360035b17a8aaaae309369c3922a611df4",
+  "zone_distinct_from_original_GDB_writes": true
+}

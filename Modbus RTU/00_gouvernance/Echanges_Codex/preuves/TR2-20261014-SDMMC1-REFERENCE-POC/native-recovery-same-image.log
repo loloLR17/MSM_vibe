@@ -1,0 +1,7 @@
+dwc2_int_set (rhport=0 '\000', role=TUSB_ROLE_DEVICE, enabled=false) at /home/lolo/dev/msm/cache/VILLO88-NUCLEOU575-SDMMC1-PoC/Middlewares/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h:164
+164	  const IRQn_Type irqn = (IRQn_Type) _dwc2_controller[rhport].irqnum;
+0xbfa0700:	0x001b0046	0x38425018	0x20333157
+$1 = 0x2005
+$2 = 0xb00
+STM32 Successfully completed reset operation (System reset)
+[Inferior 1 (Remote target) detached]

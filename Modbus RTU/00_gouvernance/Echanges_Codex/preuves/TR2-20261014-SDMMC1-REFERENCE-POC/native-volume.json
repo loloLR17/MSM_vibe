@@ -1,0 +1,21 @@
+{
+    "partitions":  [
+                       {
+                           "DiskNumber":  2,
+                           "PartitionNumber":  1,
+                           "DriveLetter":  "E",
+                           "Offset":  1048576,
+                           "Size":  17179869184
+                       }
+                   ],
+    "volumes":  [
+                    {
+                        "DriveLetter":  "E",
+                        "FileSystem":  "",
+                        "FileSystemLabel":  "",
+                        "HealthStatus":  "Healthy",
+                        "Size":  0,
+                        "SizeRemaining":  0
+                    }
+                ]
+}

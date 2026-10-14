@@ -1,0 +1,14 @@
+dwc2_int_set (rhport=0 '\000', role=TUSB_ROLE_DEVICE, enabled=false) at /home/lolo/dev/msm/cache/VILLO88-NUCLEOU575-SDMMC1-PoC/Middlewares/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h:168
+168	    NVIC_DisableIRQ(irqn);
+0xbfa0700:	0x001b0046	0x38425018	0x20333157
+$1 = 1 '\001'
+$2 = 0x0
+$3 = {0x3534453, 0x44333247, 0x858bf092, 0x3c01927a}
+$4 = 0x4002
+Note: automatically using hardware breakpoints for read-only addresses.
+$5 = -1
+$6 = 0x2
+$7 = 0
+$8 = 0x0
+0xe000ed28:	0x00000000	0x00000000
+[Inferior 1 (Remote target) detached]

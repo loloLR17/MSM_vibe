@@ -1,0 +1,6 @@
+HAL_GPIO_Init (GPIOx=<error reading variable: Cannot access memory at address 0x4>, pGPIO_Init=<error reading variable: Cannot access memory at address 0x0>) at /home/lolo/dev/msm/cache/VILLO88-NUCLEOU575-SDMMC1-PoC/Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_gpio.c:245
+245	        p_gpio->AFR[(pin_position) >> 3U] = tmp;
+0xbfa0700:	0x001b0046	0x38425018	0x20333157
+0x8000000 <g_pfnVectors>:	0x200c0000	0x08006415	0x08006465	0x08006465
+0x8000010 <g_pfnVectors+16>:	0x08006465	0x08006465	0x08006465	0x08006465
+[Inferior 1 (Remote target) detached]

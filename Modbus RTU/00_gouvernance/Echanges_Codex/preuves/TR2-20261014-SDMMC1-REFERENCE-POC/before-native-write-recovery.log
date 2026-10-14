@@ -1,0 +1,14 @@
+0x080052a6 in tu_fifo_read_n_access_mode (f=f@entry=0x20000024 <_usbd_qdef+8>, buffer=buffer@entry=0x200bff8c, n=12, access_mode=access_mode@entry=0x0) at /home/lolo/dev/msm/cache/VILLO88-NUCLEOU575-SDMMC1-PoC/Middlewares/TinyUSB/src/common/tusb_fifo.c:509
+509	  n         = tu_fifo_peek_n_access_mode(f, buffer, n, f->wr_idx, f->rd_idx, access_mode);
+0xbfa0700:	0x001b0046	0x38425018	0x20333157
+$1 = 0x2004
+$2 = {0x3534453, 0x44333247, 0x858bf092, 0x3c01927a}
+$3 = 62333952
+$4 = 0xb00
+$5 = 0x4002
+$6 = 1 '\001'
+$7 = 1 '\001'
+$8 = false
+0xe000ed28:	0x00000000	0x00000000
+STM32 Successfully completed reset operation (System reset)
+[Inferior 1 (Remote target) detached]

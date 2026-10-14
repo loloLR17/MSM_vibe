@@ -1,0 +1,62 @@
+0x080008b0 in main () at /home/lolo/dev/msm/cache/VILLO88-NUCLEOU575-SDMMC1-PoC/Core/Src/main.c:156
+156	    if (HAL_GetTick() - led_timer > 500)
+0xbfa0700:	0x001b0046	0x38425018	0x20333157
+$1 = 1 '\001'
+$2 = {0x3534453, 0x44333247, 0x858bf092, 0x3c01927a}
+$3 = {CardType = 1, CardVersion = 1, Class = 1461, RelCardAdd = 43690, BlockNbr = 62333952, BlockSize = 512, LogBlockNbr = 62333952, LogBlockSize = 512, CardSpeed = 512}
+$4 = 0x4002
+Restoring binary file \\wsl.localhost\Debian\home\lolo\dev\msm\reports\TR2-SDMMC1-POC-20261014\payload-00.bin into memory (0x200002c8 to 0x200022c8)
+Note: automatically using hardware breakpoints for read-only addresses.
+WRITE chunk=0 lba=506048 result=8192
+$5 = 0x0
+Restoring binary file \\wsl.localhost\Debian\home\lolo\dev\msm\reports\TR2-SDMMC1-POC-20261014\payload-01.bin into memory (0x200002c8 to 0x200022c8)
+WRITE chunk=1 lba=506064 result=8192
+$6 = 0x0
+Restoring binary file \\wsl.localhost\Debian\home\lolo\dev\msm\reports\TR2-SDMMC1-POC-20261014\payload-02.bin into memory (0x200002c8 to 0x200022c8)
+WRITE chunk=2 lba=506080 result=8192
+$7 = 0x0
+Restoring binary file \\wsl.localhost\Debian\home\lolo\dev\msm\reports\TR2-SDMMC1-POC-20261014\payload-03.bin into memory (0x200002c8 to 0x200022c8)
+WRITE chunk=3 lba=506096 result=8192
+$8 = 0x0
+Restoring binary file \\wsl.localhost\Debian\home\lolo\dev\msm\reports\TR2-SDMMC1-POC-20261014\payload-04.bin into memory (0x200002c8 to 0x200022c8)
+WRITE chunk=4 lba=506112 result=8192
+$9 = 0x0
+Restoring binary file \\wsl.localhost\Debian\home\lolo\dev\msm\reports\TR2-SDMMC1-POC-20261014\payload-05.bin into memory (0x200002c8 to 0x200022c8)
+WRITE chunk=5 lba=506128 result=8192
+$10 = 0x0
+Restoring binary file \\wsl.localhost\Debian\home\lolo\dev\msm\reports\TR2-SDMMC1-POC-20261014\payload-06.bin into memory (0x200002c8 to 0x200022c8)
+WRITE chunk=6 lba=506144 result=8192
+$11 = 0x0
+Restoring binary file \\wsl.localhost\Debian\home\lolo\dev\msm\reports\TR2-SDMMC1-POC-20261014\payload-07.bin into memory (0x200002c8 to 0x200022c8)
+WRITE chunk=7 lba=506160 result=8192
+$12 = 0x0
+Restoring binary file \\wsl.localhost\Debian\home\lolo\dev\msm\reports\TR2-SDMMC1-POC-20261014\payload-08.bin into memory (0x200002c8 to 0x200022c8)
+WRITE chunk=8 lba=506176 result=8192
+$13 = 0x0
+Restoring binary file \\wsl.localhost\Debian\home\lolo\dev\msm\reports\TR2-SDMMC1-POC-20261014\payload-09.bin into memory (0x200002c8 to 0x200022c8)
+WRITE chunk=9 lba=506192 result=8192
+$14 = 0x0
+Restoring binary file \\wsl.localhost\Debian\home\lolo\dev\msm\reports\TR2-SDMMC1-POC-20261014\payload-10.bin into memory (0x200002c8 to 0x200022c8)
+WRITE chunk=10 lba=506208 result=8192
+$15 = 0x0
+Restoring binary file \\wsl.localhost\Debian\home\lolo\dev\msm\reports\TR2-SDMMC1-POC-20261014\payload-11.bin into memory (0x200002c8 to 0x200022c8)
+WRITE chunk=11 lba=506224 result=8192
+$16 = 0x0
+Restoring binary file \\wsl.localhost\Debian\home\lolo\dev\msm\reports\TR2-SDMMC1-POC-20261014\payload-12.bin into memory (0x200002c8 to 0x200022c8)
+WRITE chunk=12 lba=506240 result=8192
+$17 = 0x0
+Restoring binary file \\wsl.localhost\Debian\home\lolo\dev\msm\reports\TR2-SDMMC1-POC-20261014\payload-13.bin into memory (0x200002c8 to 0x200022c8)
+WRITE chunk=13 lba=506256 result=8192
+$18 = 0x0
+Restoring binary file \\wsl.localhost\Debian\home\lolo\dev\msm\reports\TR2-SDMMC1-POC-20261014\payload-14.bin into memory (0x200002c8 to 0x200022c8)
+WRITE chunk=14 lba=506272 result=8192
+$19 = 0x0
+Restoring binary file \\wsl.localhost\Debian\home\lolo\dev\msm\reports\TR2-SDMMC1-POC-20261014\payload-15.bin into memory (0x200002c8 to 0x200022c8)
+WRITE chunk=15 lba=506288 result=8192
+$20 = 0x0
+READ chunk=0 lba=506048 result=8192
+$21 = 0x0
+READ chunk=1 lba=506064 result=8192
+$22 = 0x0
+READ chunk=2 lba=506080 result=-1
+$23 = 0x2

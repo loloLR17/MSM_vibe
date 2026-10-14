@@ -1,0 +1,24 @@
+{
+    "utc":  "2026-10-14T09:50:03.8417157Z",
+    "method":  "read-only inline cmdlets; execution policy unchanged; serial omitted",
+    "devices":  [
+                    {
+                        "Status":  "OK",
+                        "Class":  "USB",
+                        "FriendlyName":  "Périphérique USB composite",
+                        "USBIdentifier":  "VID_04E8\u0026PID_6860"
+                    },
+                    {
+                        "Status":  "OK",
+                        "Class":  "WPD",
+                        "FriendlyName":  "Galaxy A16 5G",
+                        "USBIdentifier":  "VID_04E8\u0026PID_6860\u0026MI_00"
+                    },
+                    {
+                        "Status":  "OK",
+                        "Class":  "Ports",
+                        "FriendlyName":  "Périphérique série USB (COM6)",
+                        "USBIdentifier":  "VID_04E8\u0026PID_6860\u0026MI_01"
+                    }
+                ]
+}

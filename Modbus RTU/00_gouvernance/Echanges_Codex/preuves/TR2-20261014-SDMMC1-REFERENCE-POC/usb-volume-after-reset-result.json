@@ -1,0 +1,9 @@
+{
+    "passed":  true,
+    "access":  "read-only target partition handle, target VID0483 PID572B/serial123456/size31914983424",
+    "disk":  2,
+    "lba":  506048,
+    "bytes":  131072,
+    "host_elapsed_ms":  194.65630000000002,
+    "utc":  "2026-10-14T10:03:57.0341441Z"
+}

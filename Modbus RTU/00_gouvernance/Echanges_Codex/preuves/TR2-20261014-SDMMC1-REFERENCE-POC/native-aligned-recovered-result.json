@@ -1,0 +1,19 @@
+{
+    "passed":  true,
+    "result":  {
+                   "WrittenBytes":  131072,
+                   "ReadBytes":  131072,
+                   "FlushOK":  true,
+                   "WriteFlushMs":  3178.7446,
+                   "ReadMs":  187.43720000000002,
+                   "Mismatches":  0,
+                   "FirstMismatch":  -1,
+                   "ReadSHA256":  "c8a5f1e01ab61ebcace803eb63d5cf360035b17a8aaaae309369c3922a611df4"
+               },
+    "card_lba":  506304,
+    "relative_partition_lba":  504256,
+    "no_buffering":  true,
+    "write_through":  true,
+    "firmware_unmodified":  true,
+    "utc":  "2026-10-14T10:14:23.4385848Z"
+}

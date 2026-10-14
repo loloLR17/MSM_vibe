@@ -1,0 +1,5 @@
+{
+  "command": "$ErrorActionPreference='Stop'; $benchPhones=@(Get-PnpDevice -PresentOnly | Where-Object { $_.InstanceId -match '^USB\\\\VID_04E8' -or ($_.Class -eq 'WPD' -and $_.FriendlyName -match 'Galaxy|Samsung') } | ForEach-Object { [ordered]@{Status=$_.Status;Class=$_.Class;FriendlyName=$_.FriendlyName;USBIdentifier=($_.InstanceId.Split('\\')[1])} }); [ordered]@{utc=[DateTime]::UtcNow.ToString('o');method='read-only inline cmdlets; execution policy unchanged; serial omitted';devices=$benchPhones} | ConvertTo-Json -Depth 5",
+  "return_code": 0,
+  "no_execution_policy_change": true
+}

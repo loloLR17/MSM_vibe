@@ -1,0 +1,15 @@
+0x0800517e in tu_fifo_peek_n_access_mode (f=f@entry=0x20000024 <_usbd_qdef+8>, p_buffer=p_buffer@entry=0x200bff8c, n=12, wr_idx=wr_idx@entry=204, rd_idx=rd_idx@entry=204, access_mode=access_mode@entry=0x0) at /home/lolo/dev/msm/cache/VILLO88-NUCLEOU575-SDMMC1-PoC/Middlewares/TinyUSB/src/common/tusb_fifo.c:465
+465	                                    const tu_hwfifo_access_t *access_mode) {
+0xbfa0700:	0x001b0046	0x38425018	0x20333157
+$1 = 1 '\001'
+$2 = {0x3534453, 0x44333247, 0x858bf092, 0x3c01927a}
+$3 = {CardType = 1, CardVersion = 1, Class = 1461, RelCardAdd = 43690, BlockNbr = 62333952, BlockSize = 512, LogBlockNbr = 62333952, LogBlockSize = 512, CardSpeed = 512}
+$4 = 0x2005
+$5 = HAL_SD_STATE_READY
+$6 = 0x4002
+$7 = 0xb00
+$8 = 1 '\001'
+$9 = 1 '\001'
+$10 = false
+0xe000ed28:	0x00000000	0x00000000
+[Inferior 1 (Remote target) detached]

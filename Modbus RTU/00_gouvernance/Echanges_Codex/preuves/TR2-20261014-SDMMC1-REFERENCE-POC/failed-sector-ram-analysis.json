@@ -1,0 +1,11 @@
+{
+  "bytes_in_ram": 512,
+  "callback_return": -1,
+  "HAL_ErrorCode": "0x2",
+  "not_a_successful_read": true,
+  "matches_previous_M017_pattern": false,
+  "mismatches_to_previous_pattern": 367,
+  "first_mismatch": 145,
+  "sha256_ram": "0a8e0b9cb0d5349cfcedc9de376ea1b9e83fba84708f75111ae82f912bf6d480",
+  "sha256_expected": "eda04e59a20f1be022239fe01051d3a26bab3b864fa5e0755b4d1ac7a1a4e8cb"
+}

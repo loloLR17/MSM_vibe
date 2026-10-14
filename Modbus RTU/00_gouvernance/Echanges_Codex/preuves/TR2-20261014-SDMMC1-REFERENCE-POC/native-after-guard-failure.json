@@ -1,0 +1,43 @@
+{
+    "utc":  "2026-10-14T10:11:52.6209365Z",
+    "devices":  [
+                    {
+                        "Status":  "OK",
+                        "Class":  "WPD",
+                        "FriendlyName":  "E:\\",
+                        "InstanceId":  "SWD\\WPDBUSENUM\\_??_USBSTOR#DISK\u0026VEN_STM32\u0026PROD_SD_CARD\u0026REV_1.0#123456\u00260#{53F56307-B6BF-11D0-94F2-00A0C91EFB8B}"
+                    },
+                    {
+                        "Status":  "OK",
+                        "Class":  "DiskDrive",
+                        "FriendlyName":  "STM32 SD Card USB Device",
+                        "InstanceId":  "USBSTOR\\DISK\u0026VEN_STM32\u0026PROD_SD_CARD\u0026REV_1.0\\123456\u00260"
+                    },
+                    {
+                        "Status":  "OK",
+                        "Class":  "USB",
+                        "FriendlyName":  "Dispositif de stockage de masse USB",
+                        "InstanceId":  "USB\\VID_0483\u0026PID_572B\\123456"
+                    },
+                    {
+                        "Status":  "OK",
+                        "Class":  "Volume",
+                        "FriendlyName":  "Volume",
+                        "InstanceId":  "STORAGE\\VOLUME\\_??_USBSTOR#DISK\u0026VEN_STM32\u0026PROD_SD_CARD\u0026REV_1.0#123456\u00260#{53F56307-B6BF-11D0-94F2-00A0C91EFB8B}"
+                    }
+                ],
+    "disks":  [
+                  {
+                      "Number":  2,
+                      "FriendlyName":  "STM32 SD Card",
+                      "SerialNumber":  "123456",
+                      "Size":  0,
+                      "BusType":  "USB",
+                      "OperationalStatus":  "No Media",
+                      "IsOffline":  true,
+                      "IsReadOnly":  false,
+                      "PartitionStyle":  "RAW"
+                  }
+              ],
+    "method":  "read-only diagnosis of failed identity guard; no write"
+}

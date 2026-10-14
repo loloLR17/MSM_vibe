@@ -1,0 +1,6 @@
+{
+    "passed":  false,
+    "phase":  "write",
+    "error":  "Exception lors de l\u0027appel de « Write » avec « 3 » argument(s) : « L\u0027opération IO ne fonctionnera pas. Le fichier deviendra probablement trop grand ou le handle n\u0027était pas ouvert pour prendre en charge les opérations IO synchrones. »",
+    "utc":  "2026-10-14T10:06:57.5398930Z"
+}

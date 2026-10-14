@@ -1,0 +1,7 @@
+{
+  "passed": false,
+  "operator_note": "host identity guard refused before native C# execution; raw stdout was empty",
+  "return_code": 1,
+  "reason": "Get-Disk no longer met size31914983424; later observation shows No Media/size0",
+  "no_aligned_write_executed": true
+}

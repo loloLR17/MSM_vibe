@@ -1,0 +1,8 @@
+{
+  "third_party_sha": "1e3c9183bad023ebf7d234134823d9270a0e8b64",
+  "bin_bytes": 60252,
+  "bin_sha256": "a2248ae4e35878703134b89c272d9c122e3aff1840e107744c762fe0b9256f94",
+  "elf_sha256": "e3ee21d74cf2417371a476eabc1bdc4a3d4cbfd0a9851b4765de39aa4e08baa7",
+  "source_diff": "none; external clean checkout; only Linux build wrapper",
+  "compiler": "arm-none-eabi-gcc (15:14.2.rel1-1) 14.2.1 20241119"
+}

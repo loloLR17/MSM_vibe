@@ -1,0 +1,31 @@
+dcd_int_enable (rhport=32 ' ') at /home/lolo/dev/msm/cache/VILLO88-NUCLEOU575-SDMMC1-PoC/Middlewares/TinyUSB/src/portable/synopsys/dwc2/dcd_dwc2.c:494
+494	void dcd_int_enable(uint8_t rhport) {
+0xbfa0700:	0x001b0046	0x38425018	0x20333157
+$1 = 0x2
+$2 = HAL_SD_STATE_READY
+$3 = 1 '\001'
+$4 = 0x81000
+$5 = 0x112
+$6 = 0x900
+$7 = 0x4002
+$8 = 0x3
+$9 = 0x92
+$10 = 7680
+$11 = 8192
+$12 = 0xf2aa7fff
+$13 = 0x550000
+$14 = 0x2aa0000
+$15 = {0x0, 0xccccc}
+$16 = 0x1980
+$17 = 0xffffffef
+$18 = 0x10
+$19 = {0xc00, 0x0}
+$20 = 0x4
+$21 = 0xabebffff
+$22 = {0x0, 0x770}
+Note: automatically using hardware breakpoints for read-only addresses.
+$23 = 48000000
+$24 = 160000000
+$25 = 160117
+0xe000ed28:	0x00000000	0x00000000
+[Inferior 1 (Remote target) detached]

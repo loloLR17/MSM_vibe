@@ -1,0 +1,6 @@
+{
+    "passed":  false,
+    "error":  "Exception lors de l\u0027appel de « .ctor » avec « 4 » argument(s) : « L\u0027accès au chemin d\u0027accès \u0027\\\\.\\PhysicalDrive2\u0027 est refusé. »",
+    "exception_type":  "System.Management.Automation.MethodInvocationException",
+    "utc":  "2026-10-14T09:56:26.5830712Z"
+}

@@ -1,0 +1,4 @@
+{
+  "command": "[Console]::OutputEncoding=[Text.UTF8Encoding]::new($false); $ErrorActionPreference='Stop'; $benchNodes=@(Get-PnpDevice -PresentOnly | Where-Object {$_.InstanceId.Contains('PID_572B') -or $_.InstanceId.Contains('VEN_STM32')} | Select-Object Status,Class,FriendlyName,InstanceId); $benchDisks=@(Get-Disk | Where-Object {$_.Size -eq 31914983424 -and $_.BusType -eq 'USB'} | Select-Object Number,FriendlyName,SerialNumber,Size,BusType,OperationalStatus,PartitionStyle); [ordered]@{utc=[DateTime]::UtcNow.ToString('o'); method='literal ID match after firmware reports configured USB; read-only'; devices=$benchNodes;disks=$benchDisks} | ConvertTo-Json -Depth 5",
+  "return_code": 0
+}

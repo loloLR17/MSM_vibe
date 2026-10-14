@@ -1,0 +1,10 @@
+{
+  "bytes": 8192,
+  "mismatches": 0,
+  "sha256": "486984c9b5e563c023984c5ec115692a9035118cc41658165c85055e196a23ab",
+  "callback_return": 8192,
+  "HAL_ErrorCode": 0,
+  "profile": "original Release -Os; sources unchanged",
+  "gdb_script_exit": 1,
+  "gdb_post_read_error": "GPIOA macro unavailable in current optimized context, after dump; not a transfer failure"
+}

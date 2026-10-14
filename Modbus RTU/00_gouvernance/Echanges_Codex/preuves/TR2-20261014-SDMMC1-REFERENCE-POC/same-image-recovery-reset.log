@@ -1,0 +1,5 @@
+0x080097a4 in tud_task_ext (timeout_ms=4294967295, in_isr=false) at /home/lolo/dev/msm/cache/VILLO88-NUCLEOU575-SDMMC1-PoC/Middlewares/TinyUSB/src/device/usbd.c:672
+672	    if (!osal_queue_receive(_usbd_q, &event, timeout_ms)) {
+0xbfa0700:	0x001b0046	0x38425018	0x20333157
+STM32 Successfully completed reset operation (System reset)
+[Inferior 1 (Remote target) detached]

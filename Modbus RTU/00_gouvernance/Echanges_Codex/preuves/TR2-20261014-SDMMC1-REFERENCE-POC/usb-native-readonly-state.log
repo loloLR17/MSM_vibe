@@ -1,0 +1,24 @@
+0x08005106 in advance_index (depth=<optimized out>, idx=idx@entry=108, offset=offset@entry=0) at /home/lolo/dev/msm/cache/VILLO88-NUCLEOU575-SDMMC1-PoC/Middlewares/TinyUSB/src/common/tusb_fifo.c:427
+427	  if ((idx > new_idx) || (new_idx >= 2 * depth)) {
+0xbfa0700:	0x001b0046	0x38425018	0x20333157
+$1 = 1 '\001'
+$2 = 0x0
+$3 = 0x4002
+$4 = 0x30900c0
+$5 = 0x1
+$6 = 0x40001847
+$7 = 0x44848428
+$8 = 0x801c3814
+$9 = 0x10000
+$10 = 0x82000e7
+$11 = 0x0
+$12 = 0x441e06
+$13 = 0xabebffff
+$14 = 0x770
+$15 = 0x64000000
+$16 = 0xd000
+$17 = 0 '\000'
+$18 = {connected = 1 '\001', addressed = 1 '\001', suspended = 0 '\000', {{self_powered = 0 '\000', remote_wakeup_en = 0 '\000'}, dev_state_bm = 0 '\000'}, cfg_num = 1 '\001', speed = 0 '\000', sof_consumer = 0 '\000', itf2drv = "\000", 'ÿ' <repeats 15 times>, ep2drv = {"ÿÿ", "\000", "ÿÿ", "ÿÿ", "ÿÿ", "ÿÿ"}, ep_status = {{{busy = 0 '\000', stalled = 0 '\000', claimed = 0 '\000'}, {busy = 0 '\000', stalled = 0 '\000', claimed = 0 '\000'}}, {{busy = 0 '\000', stalled = 0 '\000', claimed = 0 '\000'}, {busy = 1 '\001', stalled = 0 '\000', claimed = 0 '\000'}}, {{busy = 0 '\000', stalled = 0 '\000', claimed = 0 '\000'}, {busy = 0 '\000', stalled = 0 '\000', claimed = 0 '\000'}}, {{busy = 0 '\000', stalled = 0 '\000', claimed = 0 '\000'}, {busy = 0 '\000', stalled = 0 '\000', claimed = 0 '\000'}}, {{busy = 0 '\000', stalled = 0 '\000', claimed = 0 '\000'}, {busy = 0 '\000', stalled = 0 '\000', claimed = 0 '\000'}}, {{busy = 0 '\000', stalled = 0 '\000', claimed = 0 '\000'}, {busy = 0 '\000', stalled = 0 '\000', claimed = 0 '\000'}}}}
+0xe000e100:	0x00000000	0x00000000	0x00004080	0x00000000
+0xe000ed28:	0x00000000	0x00000000
+[Inferior 1 (Remote target) detached]

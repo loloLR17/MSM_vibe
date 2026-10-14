@@ -1,0 +1,7 @@
+{
+  "bytes": 131072,
+  "mismatches": 0,
+  "sha256_read": "c8a5f1e01ab61ebcace803eb63d5cf360035b17a8aaaae309369c3922a611df4",
+  "sha256_expected": "c8a5f1e01ab61ebcace803eb63d5cf360035b17a8aaaae309369c3922a611df4",
+  "full_byte_comparison_independent_python": true
+}

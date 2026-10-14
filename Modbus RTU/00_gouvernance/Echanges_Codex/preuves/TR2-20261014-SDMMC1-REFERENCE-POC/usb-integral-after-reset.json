@@ -1,0 +1,8 @@
+{
+  "bytes": 131072,
+  "mismatches": 0,
+  "first_mismatch": null,
+  "sha256_read": "43290e316d188d8736115ab1b92516e0b28d82f3a69edf8312be2c0ba9c3bf12",
+  "sha256_expected": "43290e316d188d8736115ab1b92516e0b28d82f3a69edf8312be2c0ba9c3bf12",
+  "explicit_recovery_attempt": 1
+}

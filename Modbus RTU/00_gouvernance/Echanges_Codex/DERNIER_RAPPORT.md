@@ -1,11 +1,12 @@
 ---
-mission_id: TR2-20261014-M017-SDMMC-1BIT-REALISTIC-QUALIFICATION
-status: FAILED
+mission_id: TR2-20261014-P12H3H-SDMMC1-REFERENCE-POC
+status: IN_PROGRESS
 base_ref: main
-base_sha: 9dd90081ec6e51ec5c6fa84bd5b66f8369717ceb
-initial_head: df5050f41c180d080529229cfd836cb55a230b0e
-result_sha: 65ff1fa93e3793c1ad4e18fe105034bedf1b5146
-created_at_utc: 2026-10-13T22:31:32.497979+00:00
+base_sha: a517e1cd8ce35d6e48bbe92e53f07c7289980ae5
+initial_head: 3073d95b1fcf9d6e3e3ed5c35307a17364bdf3d5
+result_repository: https://github.com/VILLO88/NUCLEOU575
+result_sha: 1e3c9183bad023ebf7d234134823d9270a0e8b64
+created_at_utc: 2026-10-14T10:26:06.069377+00:00
 author: Codex
 target_branch: main
 allow_commit: true
@@ -14,97 +15,83 @@ allow_flash: true
 allow_debug: true
 ---
 
-# M017 — campagne physique réellement exécutée, qualification échouée
+# P12/H3h — SDMMC1 communautaire reproduit fidèlement, fonctionnement instable
 
-**Résultat technique : FAILED.** Première campagne lancée le **13/10/2026 à 22:23:22 UTC** (14/10 à00:23:22 Paris), arrêt sur **overflow après0,402315s**, et non après600s. **65536octets écrits et intégralement relus conformes**, puis conformes après réinitialisation contrôlée. Aucun retry, aucun RUN2/3, aucun succès annoncé sur préparation seule. Le statut final FAILED consigne cet échec physique. La publication et la relecture distante des résultats ont réussi ; elles ne constituent pas une qualification de la cadence.
+**Résultat technique : FAILED pour un fonctionnement fiable du PoC.** Le firmware tiers inchangé compile et s'exécute. **4 bits effectifs prouvés**, USB natif reconnu, **deux jeux distincts de 128 KiB écrits puis intégralement relus sans différence**. Cependant des CRC et des passages « No Media » persistent ; la dernière observation montre de nouveau l'indisponibilité du média. Le succès borné ne masque pas ces échecs. Le statut IN_PROGRESS concerne seulement la publication/relecture distante, puis sera FAILED.
 
-L'écart C2c/M016 est **partiellement caractérisé, pas totalement expliqué** : la lenteur est reproduite sans producteur, sur DMA comme sur polling ; la majorité du temps est dans le transfert, pas dans READY final. La seule hypothèse corrective évaluée, ACMD23, n'améliore pas suffisamment la performance et n'a pas été adoptée. Aucun défaut matériel ni incapacité intrinsèque du bus1bit n'est établi.
+Aucune source SDMMC, bus, fréquence, GPIO, driver ou middleware tiers n'a été corrigé. Aucun portage SDMMC2 ; mission P12/H3h distincte de M018 PC/SQLite. Il ne s'agit pas d'une qualification TR2 à426672 B/s ou sept jours.
 
-## Tranches et preuves
+## Provenance et compilation
 
-1. HEAD distant récupéré `df5050f41c180d080529229cfd836cb55a230b0e` ; AGENTS, contrat, protocole, gouvernance, état courant, H3h-A/P8-B et preuves C2b/C2c/M016 lus. Worktree isolé `MSM_vibe-M017`, branche `codex/m017-sdmmc-qualification` ; original divergent conservé, aucun pull/merge/rebase/reset. M016 archivée byte-identique depuis9dd9008 ; anciennes archives/gels/dettes intacts.
-2. Diagnostic court différentiel : **8 writes DMA +8 polling**, sans producteur, chacun suivi d'une relecture et comparaison entière de64KiB (65536octets). **16/16, zéro mismatch/HAL error**. Image source `df5050f` + `diagnostic-source.diff`, BIN SHA-256 `b8ac313e646f7c9571b924fea9785bc934ebbe4c428c7620acf4534471628db9` et readback exact conservés. [Log final](preuves/TR2-20261014-M017-SDMMC-1BIT/diagnostic-final.log), [CSV avant](preuves/TR2-20261014-M017-SDMMC-1BIT/baseline-diagnostic-latencies.csv).
-3. Harness instrumenté : temps transfert/READY et coût producteur, symbole terminal noinline, **ring128KiB** et runner durable à marker unique. Build spécialisé réussi, code/protocole publiés **avant RUN** au commit `65ff1fa93e3793c1ad4e18fe105034bedf1b5146`, message « M017 checkpoint: instrument ST transfer phases and publish bounded qualification runner ». Flash standard vérifiéCLI et readback intégral, INIT/preflight réussis, RUN réellement effectué avec unique hardware breakpoint terminal, **aucun halt intermédiaire**. [Runner](../../../experiments/sdmmc_st_reference/run_m017.py), [log charge](preuves/TR2-20261014-M017-SDMMC-1BIT/run-01.log).
-4. Après premier échec, répétitions arrêtées ; totalité du préfixe écrit vérifiée en lecture seule par oracle Python indépendant. Puis unique hypothèse ACMD23 testée par **16 transferts/relectures**, zéro corruption et commandes acceptées, mais pas d'amélioration démontrée. Aucun nouveau RUN spéculatif. Dernière relecture complète du préfixe initial après le flash/reset logiciel/INIT nécessaires à cette expérience : toujours exact. Cette dernière vérification ajoute la frontière de réinitialisation demandée par le contrat, sans prétendre tester un power-loss physique.
-5. Publication des scripts/logs/images/diffs/mesures et journal ; relecture intégrale distante réussie au commit76717ac,112fichiers comparés byte à byte.
+Référence inspectée et clonée directement : [VILLO88/NUCLEOU575 au commit évalué](https://github.com/VILLO88/NUCLEOU575/tree/1e3c9183bad023ebf7d234134823d9270a0e8b64), checkout externe propre `/home/lolo/dev/msm/cache/VILLO88-NUCLEOU575-SDMMC1-PoC`. [Provenance et hashes sources](preuves/TR2-20261014-SDMMC1-REFERENCE-POC/reference-provenance.json). HAL embarqué1.6.2 ; .ioc déclare CubeU5 package1.8.0 ; TinyUSB0.20.1 et FatFs du tiers conservés. SDK MSM1.9.0 non substitué. Buffer MSC source8192 octets, contrairement aux4096 annoncés dans README tiers ; utilisation de la source réelle.
 
-## Comparaison C2c / M016 / M017
+Seule adaptation au build : [CMake Linux](../../../experiments/sdmmc1_community_reference/CMakeLists.txt), HEAD tiers et état propre obligatoires, sources/startup/linker d'origine, Cortex-M33/FPUfpv5-sp-d16/ABIhard/GCC14.2.1. Debug O0/g3 puis **Release Os/g3**, optimisation déjà définie dans .cproject tiers ; changement de profil de build, pas changement des paramètres SD. [Commandes reproductibles](../../../experiments/sdmmc1_community_reference/README.md), flags effectifs/logs et [artefacts Release](preuves/TR2-20261014-SDMMC1-REFERENCE-POC/artifacts-release.json).
 
-| Élément | C2c historique | M016 | M017 observé |
-|---|---|---|---|
-| Source |3b0b9089|c6c56b63|65ff1fa + diagnostic conservé|
-| Bus/horloge |1bit/10MHz documentés|1bit/10MHz registres|1bit/10MHz carte et registres|
-| Write API |HAL_SD_WriteBlocks polling|HAL_SDEx_DMALinkedList,2nodes|DMA et polling comparés sur même banc|
-| Producteur |aucun|cadencé SysTick|absent dans diagnostic, cadencé dans RUN|
-| Chunk |64KiB|64KiB|64KiB|
-| Tampon borné de charge |non testé|512KiB|128KiB|
-| Chronométrage |HALtick ms|DWT étendu|DWT étendu, phases séparées|
-| Fin durable technique |TRANSFER|TRANSFER+READY_FOR_DATA|mêmes contrôles stricts M016|
-| Latence |54–55ms ×8|142–324ms ×20|sans producteur plateau≈190ms ; RUN248,141ms|
-| Intégrité observée |512KiB selon rapport|1310720octets exacts|16×64KiB diagnostic ;65536octets RUN exacts|
+| Image | Taille BIN | SHA-256 |
+|---|---:|---|
+| Debug |60252|a2248ae4e35878703134b89c272d9c122e3aff1840e107744c762fe0b9256f94|
+| Release laissée |31437|2a2fe744ab926789ae180b74f2a250b2a9202329b5afde51a1155cdd69d54c1a|
 
-Sources C2b/C2c : rapports versionnés `VALIDATION_FIRMWARE_P12H3H_C2B_SDMMC2_WRITE_THROUGHPUT.md` / `...C2C_SDMMC2_SUSTAINED_WRITE.md`. Le rapport de débit C2c ne donne pas UID/CID, donc **la même carte et le même banc ne sont pas démontrés** ; carte/state/history et différences de méthode restent des variables non éliminées. Pas de reproduction C2c ni de sollicitation du TR2 principal.
+Deux builds ARM réussis et flashs standards verify + readbacks intégraux concordants. Avertissements newlib/syscalls et fonction USB HAL inutilisée conservés. Aucun test hôte/firmware production inchangé rejoué : zone isolée, aucune interface de production modifiée. Les artefacts complets BIN/ELF/MAP restent locaux ; absence de licence globale trouvée et absence de nécessité de redistribuer l'image tierce : Git contient scripts/hashes/observations, sources publiques épinglées et notices composants dans checkout intact.
 
-Sur M017 sans producteur, DMA total106,023..954,529ms (pause954ms conservée), polling189,800..321,918ms. READY final1,068..3,025ms ; le plateau est dans la phase data. Revenir au polling ne reproduit pas les55ms. L'ajout du producteur n'est donc pas l'explication unique du ralentissement, et READY final n'est pas son goulot dominant. Le coût producteur RUN est25,185ms cumulé et82,975µs max/tick, environ8,2% de l'intervalle d'arrivée dérivé avant overflow ; pas100% CPU.
+## Cible, câblage, insertion et largeur réelle
 
-## Configuration, mémoire et image évaluée
+Seconde Nucleo seulement : **ST-LINK0032001F3235510C37333439 / UID001B0046/38425018/20333157**, vérifiés avant flash et dans chaque script. Ancienne image M017 readback/hash concordants ; retrait de SD indiqué au contrat, puis insertion32Go et alimentation ST-LINK confirmées utilisateur avant flash. Principal003500463235510B37333439 jamais sélectionné ; pas de FRAM, média512Go ou Modbus principal.
 
-Seconde NUCLEO-U575ZI-Q seule : **SN0032001F3235510C37333439**, **UID001B0046/38425018/20333157**. MicroSD de test SanDisk32Go sacrifiable, **CID03534453/44333247/858BF092/3C01927A**, **62333952secteurs512**. Broches anciennes DAT1/DAT2/DAT3 libérées INPUT (`GPIOB_MODER=2FFFFC3F`), 1bit côté carteSSR0 et contrôleurWIDBUS0, CLKCR8, PLL1kernel160MHz ⇒ **10MHz calculés**, front montant. Pas de mesure électrique de CLK/alimentation inventée ; câblage/alimentation confirmés dans la transition utilisateur précédente, registres et carte revérifiés ici.
+Carte **CID03534453/44333247/858BF092/3C01927A**, **62333952 secteurs512 =31914983424 octets** vérifiés avant toute write. Pas de formatage, mass erase, OB/RDP, nouvelle soudure ni modification de jumper. Câblage CN11/CN12 et pontsSB19/SB22 fermés **rapportés par l'utilisateur**, pas de mesure de continuité collectée ici.
 
-Zone planifiée RUN **LBA2048..502054** ; effectivement écrit **LBA2048..2175**. Diagnostics **LBA503000..504023** sur la même carte de test. Aucune écriture secteur0, aucun formatage/erase explicite ou accès média principal. Motif déterministe par offset conservé M016, records techniques16octets ; ni capteur ni codecP8 métier qualifiés.
+[ST UM2861 Rev10 tables19/20](https://www.st.com/resource/en/user_manual/um2861-stm32u5-nucleo144-board-mb1549-stmicroelectronics.pdf) : D0/PC8→CN12-2 viaSB19 ; D1/PC9→CN12-1 viaSB22 ; D2/PC10→CN11-1 ; D3/PC11→CN11-2 ; CLK/PC12→CN11-3 ; CMD/PD2→CN11-4. Ponts ouverts déconnectent D0/D1 du morpho ; ponts fermés rendent les contacts disponibles mais ST signale le risque de stubs. L'hypothèse de ponts ouverts a été écartée après retour utilisateur ; aucune cause électrique précise n'est prouvée.
 
-Arrivée426672B/s,600s ⇒256003200octets logiques,256003584 physiques avec384octets paddingA5. FIFO réellement bornée131072octets, données en vol incluses, aucun overwrite/regénération ni retry. Pourquoi128KiB : cumulatif A04-02 historique `_ebss=0x2009283c` sur768KiB ⇒ environ182KiB libres avant stack ; ring128KiB laisse55236octets avant autres besoins. BufferSD existant à réutiliser et instrumentation à exclure lors d'une future intégration ; **aucun fit de production démontré**. Augmenter simplement la RAM n'a pas été utilisé comme correctif. Le scénario M017 a donc une capacité différente de M016, explicitement déclarée ; les charges ne sont pas prétendues identiques entre missions.
+GDB observe **HAL_SD_Init=HAL_OK**, puis **HAL_SD_ConfigWideBusOperation(4B)=HAL_OK**. **CLKCR=0x4002** : WIDBUS4 ; **SSR DataBusWidth=2** côté carte :4 bits. `hsd1.Init.BusWide=0` conserve la valeur initiale1bit et ne décrit pas le registre actuel. Kernel **HSI48=48000000**, diviseur2 ⇒ **12MHz calculés**, CPU160MHz. Front montant/pull-ups/AF12 PC8..12 etPD2 conformes au code original ; fréquence déduite des registres/HAL, pas mesurée électriquement. [Observation Release](preuves/TR2-20261014-SDMMC1-REFERENCE-POC/release-community-init-observation.log).
 
-Build isolé CubeU5v1.9.0/GCC ARM14.2.1, CMake `BENCH_LOAD_ONLY=ON/BENCH_WRITE_ENABLE=1/BENCH_TEST_LBA=2048`, O2/g3. BIN RUN **25840octets**, SHA-256 **`17bd4d235b742276ea674297c894ebe2d8417a6104d2268c0a61fcb8f2410edd`**, ELF SHA dans [load-artifacts.json](preuves/TR2-20261014-M017-SDMMC-1BIT/load-artifacts.json), BSS248960octets. Cross-build spécialisé instrumenté et variante ACMD23 réussis ; aucune suite hôte/cumulative inchangée rejouée, car pas de fonction ni interface production modifiée. Avertissements newlib syscalls non implémentés conservés, sans usage de ces fonctions sur cible.
+## Exécution, erreurs et intégrité
 
-## Première campagne — mesures exactes
+| Étape | Observation réelle |
+|---|---|
+| Debug O0 |init et4bits OK ; read8192 puis512 échouées CRC0x02 ; RAM de read ratée non utilisée comme donnée valide|
+| Recovery après multi-read CRC |carte observée DATA5/R1B00 alors que handleHAL READY ; reset identique nécessaire|
+| Release Os |read8192 àLBA2048 entièrement conforme au motif M017 antérieur, HAL0|
+| Jeu A : callbacks originaux viaGDB |16writes×8192 =131072 àLBA506048..506303 réussies ;2reads16384 exactes, CRC auchunk2 ; aucune intégrité entière prétendue à ce stade|
+| USB natif |CN15 branché par utilisateur ; câble/mêmeport validé avec GalaxyA16 détecté ; Nucleo0483:572B/serial123456 et disque32Go reconnus|
+| Read jeu A après reset explicite |USB via handle du volume de test :131072 octets exacts, SHA43290e316d188d8736115ab1b92516e0b28d82f3a69edf8312be2c0ba9c3bf12|
+| Première write USB FileStream |échec API hôte, pas un résultat de write SD qualifié|
+| Lanceur Win32 aligné initial |garde refusé avant exécution : WindowsNoMedia/Size0 ; aucune write alignée lancée|
+| Recovery explicite mêmeimage |identité/CID/4bits/capacité vérifiés, aucune modification SD|
+| Jeu B : Win32 aligné sanscache |16writes×8192 =131072 àLBA506304..506559, flush réussi ; read intégral131072 exact, SHAc8a5f1e01ab61ebcace803eb63d5cf360035b17a8aaaae309369c3922a611df4|
+| Dernier contrôle |SDerror2005/R1B00, USB configuré mais WindowsNoMedia revient : instabilité non résolue|
 
-| Mesure | RUN1 |
-|---|---:|
-| Durée jusqu'à terminal |0,402315s|
-| Générés / acceptés / écrits |131440 /131072 /65536octets|
-| Vérifiés externes intégralement |65536octets, zéro différence|
-| Backlogmax / overflow / perte initiale |131072 /1 /368octets (23records)|
-| Acceptés encore en SRAM après write |65536octets|
-| Débit utile écrit/durée totale |162897.23B/s|
-| Write total / transfert / READY final |248,141 /244,116 /4,008ms|
-| HALreturn/HALerror/DMAerror/CMDerror |0 /0 /0 /0|
-| Gap producteurmax |1000µs|
-| Producteurcycles cumulé/max |4029666 /13276|
-| CFSR/HFSR |0 /0|
+[Jeu A intégral](preuves/TR2-20261014-SDMMC1-REFERENCE-POC/usb-integral-after-reset.json), [Jeu B résultats](preuves/TR2-20261014-SDMMC1-REFERENCE-POC/native-aligned-recovered-result.json), [comparaison indépendante Python jeu B](preuves/TR2-20261014-SDMMC1-REFERENCE-POC/native-aligned-recovered-verification.json). **262144 octets distincts écrits/vérifiés**, mêmes sources originales, aucun compteur forcé ; resets et tentatives explicitement distingués, aucun retry opérateur caché. Retries internes Windows/USB non instrumentés, donc pas de claim « zéro retry interne ».
 
-`stage99/error3` est l'overflow prouvé. Le producteur stoppe à la première perte, puis l'écriture en vol termine et libère64KiB. L'intervalle d'arrivée dérivé est0,308059s environ, distinct de0,402315s jusqu'au terminal ; la durée hôte5,718s comprenddebug/capture. `generation_us=0` signifie600s non atteintes. Les368octets sont les pertes du premier refus, pas une extrapolation sur600s.
+Le jeu A a été écrit après CID/capacité gardés, réutilise le callback original sans modification du firmware. GDB restaure seulement le payload dans la RAM MSC ; aucune pause à l'intérieur du transfert, pauses entre chunks, **ce n'est pas un benchmark de débit**. Les données de read512 ratée (367 octets différents en RAM) ne prouvent pas une corruption durable sur carte, puisque le HAL avait refusé la lecture.
 
-P50/P95/P99/min/max=248,141ms pour **n=1** ; il serait trompeur d'en déduire une distribution qualifiée. Les distributions pertinentes ici sont les deux diagnostics de16writes, intégralement publiées en CSV et [quantiles par transport et phase](preuves/TR2-20261014-M017-SDMMC-1BIT/diagnostic-analysis.json), pas une qualification statistique des longues pauses. Sans ACMD23 : P50/P95 total DMA190,877/954,529ms, polling194,444/321,918ms ; avec ACMD23 :193,052/328,272ms et189,911/359,590ms. [Résultat brut](preuves/TR2-20261014-M017-SDMMC-1BIT/run-01-result.json), [analyse](preuves/TR2-20261014-M017-SDMMC-1BIT/run-01-analysis.json).
+## USB, permissions et méthode hôte
 
-Compteurs embarqués `verified=0/read_chunks=0/mismatches=0` au terminal : vérification automatique court-circuitée par l'erreur, **ces zéros ne prouvaient aucune intégrité** et n'ont pas été forcés. [Script oracle indépendant](../../../experiments/sdmmc_st_reference/verify_m017_prefix.py), [préfixe avant réinit](preuves/TR2-20261014-M017-SDMMC-1BIT/run-01-prefix-verification.json), [préfixe après réinit](preuves/TR2-20261014-M017-SDMMC-1BIT/prefix-after-reinit-verification.json) ; dumps bruts complets en hex et hashes concordants.
+CN15 USB-C natif distinct du ST-LINK est nécessaire au MSC. L'utilisateur a testé le même câble/port avec Galaxy ; Windows reconnaît USB composite/WPD puis Nucleo USB0483:572B. [Preuve câble sans numéro de série du téléphone](preuves/TR2-20261014-SDMMC1-REFERENCE-POC/usb-phone-data-capability.json), [énumération effective](preuves/TR2-20261014-SDMMC1-REFERENCE-POC/usb-enumeration-settled.json). Les premières probes négatives n'établissaient ni câble de charge ni panneUSB ; le filtre et le contrôle ont été complétés à partir de l'étatTinyUSB configuré. Aucun patch GPIOUSB n'a été appliqué.
 
-## Unique hypothèse ACMD23 — résultat négatif, pas d'adoption
+Windows refuse PhysicalDrive2 avec droits courants. Le volume de test E:, partition16GiB àoffset1048576, est RAW/non exploitable comme filesystem ; aucun formatage. Son handle de partition autorise les accès ciblés sans élévation : origine relative504000 secteurs pour jeu A et504256 pour jeu B, traduits en LBAs carte506048 et506304. Garde obligatoire modèleSTM32/USB/serial123456/taille31914983424/partition correspondante, pour ne jamais toucher un autre disque.
 
-La [spécification SD Association7.10 §4.3.4](https://www.sdcard.org/cms/wp-content/themes/sdcard-org/dl.php?f=Part1_Physical_Layer_Simplified_Specification_Ver7.10.pdf) recommande l'annonce de la taille avant l'écriture multiple pour certaines cartes. Extrait officiel indexé consulté ; accèsPDF direct refusé403, aucun document intégral prétendu vérifié. Lecture du HAL courant : ni polling ni DMA n'envoient ACMD23. **Hypothèse testable**, pas défaut obligatoire de HAL ni cause affirmée d'avance.
+Lanceur hôte Win32 propre : [NativeAligned.cs](preuves/TR2-20261014-SDMMC1-REFERENCE-POC/NativeAligned.cs), tampon VirtualAlloc aligné4096, requêtes8192 multiples de512/4096, NO_BUFFERING+WRITE_THROUGH, FlushFileBuffers, fermeture puis nouvelle ouverture/relecture. [Méthode Microsoft](https://learn.microsoft.com/en-us/windows/win32/fileio/file-buffering). Adaptation de l'outillage Windows uniquement, pas de contournement SD. Refus et erreurs API sont conservés, pas d'ACL/politique persistante ni demande d'admin. Fichiers PowerShell refusés par politique locale lors du contrôle téléphone ; cmdlets inline de lecture seules utilisées ensuite sans changer cette politique.
 
-Variante isolée après premier échec : CMD55 vérifié APP_CMD puis `SDMMC_CmdBlockCount` officiel pour les128blocs avant CMD25, sans changer HAL, fréquence, GPIO, producteur ou ring. Seize commandes acceptées (`preerase_count16/error0/R1=920`), seize écritures/relectures exactes. **DMA188,953..328,272ms ; polling148,608..359,590ms**, READY1,212..2,844ms ; la lenteur persiste. [Log après](preuves/TR2-20261014-M017-SDMMC-1BIT/hint-diagnostic-differential.log), [CSV après](preuves/TR2-20261014-M017-SDMMC-1BIT/acmd23-diagnostic-latencies.csv).
+## Performances limitées et diagnostic
 
-Pas de correctif de performance démontré, donc **pas de nouveau RUN spéculatif**. Variante retirée du harness actif par annulation exacte de notre patch, après conservation intégrale source/diff/images/ELF/MAP. [Source expérimentale exacte](preuves/TR2-20261014-M017-SDMMC-1BIT/hint-load_main.c), [patch](preuves/TR2-20261014-M017-SDMMC-1BIT/preerase-hypothesis.diff), [empreintes](preuves/TR2-20261014-M017-SDMMC-1BIT/hint-artifacts.json). Elle est publiée comme preuve distincte, pas comme adoption ou firmware qualifié.
+Chronométrage hôte natif, **aucun debugger connecté pendant les transferts mesurés**, payload131072 à16chunks8KiB et flush. Jeu B : write+flush **3178,7446ms**, read **187,4372ms**, soit environ **41234B/s écrit** et **699285B/s lu** dans cette petite séquence. Jeu A readaprèsreset **194,6563ms**. Ce sont des durées applicatives hôte/USB/volume brut, incluant leurs coûts ; pas une mesure intrinsèque SD ni un débit soutenu. Pas de P95/P99 de longues campagnes déduit d'un seul agrégat.
 
-## Critères, arrêt et prochaine décision
+Le readme tiers annonce environ570KB/s ; cela n'a pas été reproduit comme benchmark comparable ici. M017 utilisait SDMMC2/1bit10MHz/HAL1.9SDK/DMA/ring/producteur426672B/s ; ici SDMMC1/4bit12MHz/HAL tiers/polling/USB/buf8KiB sans producteur. **Aucune attribution causale du gain/perte aux seuls4bits**, aucun transfert de qualification M017 ou runtimeTR2.
 
-Critères **3×600s identiques, zéro perte/overflow/corruption/erreur** : **NON SATISFAITS**. Le contrat demande d'arrêter les répétitions si la première charge échoue, puis au plus un correctif fondé sur preuve. Aucun correctif suffisant établi ; l'unique hypothèse testée est négative. L'arrêt est donc un échec physique mesuré conformément au contrat, pas un simple checkpoint logiciel ni une attente utilisateur artificielle.
+**Faits :** CRCdata0x02 en Debug et Release, puis erreurs accumulées2005 (CMD_CRC_FAIL1+CMD_RSP_TIMEOUT4+ILLEGAL_CMD2000) avec média devenant indisponible. Le HAL original quitte une multi-read CRC sans CMD12 lorsque DATAEND manque ; la carte a été observée DATA5 et le handle logiciel READY. Le callback retourne erreur, puis TEST_UNIT_READY peut annoncer notready ; un reset récupère temporairement. Cela explique une séquence de récupération insuffisante, **pas la cause initiale des CRC**. `sd_ready=1` seul n'est pas une preuve de disponibilité.
 
-Reste à attribuer la durée dans transfert (temporisations internes du support, backpressure sur bus, différence effective banc/carte C2c), sans présumer une panne. Prochaine mission recommandée : établir l'identité/méthode du C2c historique et comparer un chemin de référence sur un média/banc identifié, avec une mesure ciblée des blocages entre blocs ; décider ensuite d'une correction démontrée ou d'un média alternatif. Pas d'oscilloscope exigé, pas de rejet définitif du1bit, pas de matrice4bits.
+**Hypothèses non départagées :** signal/routage/stubs, comportement support, contraintes du polling/IRQ et effets d'observation. Release améliore certains accès mais ne résout pas les CRC. Aucun changement de bus/fréquence/HAL/cleanup pour rendre la mesure artificiellement positive.
 
-Instrumentation à corriger avant un futur long succès : `load_producer_cycles` cumulé estuint32 et peut dépasser2^32 sur600s ; ici le compteur est exact sur0,308s. Le DWT étendu64bits d'arrivée n'a pas cette limite. Ce point n'explique pas l'overflow observé et aucun600s réussit n'a été évalué avec un compteur CPU tronqué.
+Incidents d'outillage conservés : constante RCC initiale erronée retournait0 ; corrigée par lecture du header à0x00200000, mesure48000000 réelle, aucun changement de clock. Expression GPIOA indisponible après dump Release8192 (read déjà réussie, oracle indépendant confirmé). Logs/octetOEM et erreur de décodage Python après snapshot GDB réussi conservés ; ces erreurs ne sont pas des échecs de transfert supplémentaires.
 
-Non qualifiés : stockageV1 disponible, intégrationruntime/capteur/codec/checkpoints, power-loss/endurance7jours, coexistenceModbus et4bits. Intégrité technique du préfixe et diagnostics réussie ≠ cadence soutenue qualifiée.
+## Critères, état laissé et prochaine action
 
-## État laissé, Git et publication
+**Prouvés :** compilation/flash fidèle, origine images, seconde cible/CID,4bits carte+contrôleur, USB natif, deux jeux128KiB intègres après récupération. **Non prouvés :** fiabilité continue, absence générale de corruption/pertes, cadenceTR2, filesystem/provisioning, checkpoint/power-loss et sept jours. PoC fonctionne par épisodes mais finit à nouveau indisponible ; il ne peut pas être déclaré fiable/adopté.
 
-Seconde carte laissée avec **image expérimentale ACMD23 sûre** (BIN SHA **aa18a0c3f40ca1eed5b5cf88f49a182e1bec281f1d891317b87296b35fa163f6**, **26036octets**, source65ff1fa+patch conservé), au repos **stage2**, producteurdisabled, aucun RUN automatique, GDBdétaché. Carte présente1bit10MHz, GPIOB_MODER2FFFFC3F, R1=900 TRANSFER/READY, HALerror/CFSR/HFSR0. Pas de restauration GPIO ni de flash de confort. Cette image diffère du code de qualification ; provenance exacte explicitement conservée, pas présentée comme adoptée.
+Dernière observation réelle : image Release31437/sha2a2fe744…, `sd_ready=1`, HAL_STATE_READY mais ErrorCode2005/RESP1B00 (état DATA5 encodé), CLKCR4002, USBconnected/config1, CFSR/HFSR0, GDBdétaché. Windows conserve le périphérique USB mais disque2 **Size0/NoMedia**. [Snapshot final](preuves/TR2-20261014-SDMMC1-REFERENCE-POC/final-original-release-state.log), [état Windows final](preuves/TR2-20261014-SDMMC1-REFERENCE-POC/final-native-enumeration.json). Carte de test et deux câbles connectés selon dernière confirmation ; aucune restaurationGPIO/SDMMC2 ou firmware principal.
 
-Principal003500463235510B37333439, FRAM/microSD principales, HP/Modbus **jamais sélectionnés/accédés**. Firmware principal historique probe stockage inchangé, aucune restauration automatique M014-H/A04-02. Pas de mass erase/OB/RDP/formatage, pas de manipulation physique demandée ou effectuée pendant M017.
+Prochaine mission/décision à ChatGPT : isoler le premier CRC sans modifier silencieusement le profil, puis autoriser si pertinent une correction séparée de récupération multi-read/MSC, avec comparaison au firmware strict original. Le risque de stubsCN12 signalé par ST peut être vérifié expérimentalement, mais **aucune nouvelle soudure n'est justifiée automatiquement** ni cause électrique affirmée ici. Ne pas formater pour masquer le problème ; la reconnaissance RAW est distincte du CRC. Pas de correction SD appliquée dans cette mission fidèle.
 
-Dépôt original conservé82169af7e76797731358852bec83bfb0ceb54ccf ; deux stashes6251b988e8b20f97997a8f98fd26d4d35a45a1b2 etf3b829e6188f491920edf74a5f9ed0f559d08b87 préservés, autres worktrees/checkpoints intacts. Permissionsexercées : développement, builds spécialisés, flash/debugseconde, commit/pushmain. Fichiers contractuels, gouvernance, dettes et gels non modifiés.
+Journal ETAT_COURANT_TR2 actualisé, M017 archivée byte-identique depuisa517e1c. Dépôt original82169af et deux stashes6251b988…/f3b829e6… préservés ; autres worktrees, production, gels et dettesA04 intacts. Worktree de mission `MSM_vibe-SDMMC1-PoC`, branchelocale `codex/p12h3h-sdmmc1-reference`, ciblemain ; pas de merge/rebase/force/reset destructif. Permissions exercées : développement/outillage, builds, flash/debugseconde, commit/pushmain.
 
-[Preuves et index](preuves/TR2-20261014-M017-SDMMC-1BIT/README.md), manifestSHA-256 et bruts locaux `/home/lolo/dev/msm/reports/TR2-M017-20261014`, artefactsprojets `/home/lolo/dev/msm/reports/M017-diagnostic-build` ; images/ELF/MAP avant/après sauvegardés distinctement. Scripts et logs conservés même en cas d'interruption client ; markerRUN01 refuse une répétition silencieuse.
-
-Journal ETAT_COURANT_TR2 actualisé : diagnosticdifférentiel, RUNéchoué, préfixe intègre aprèsréinit, étatimageisolée et prochaineslimites. Résultats publiés par push normal `HEAD:refs/heads/main` au commit **76717ac408c922c63bd8779a794263a1cf498449**, message « M017 results: physical overflow, differential transfer timings and rejected ACMD23 hypothesis ». Après fetch depuis GitHub, SHA contrôlé par ls-remote ; **112 fichiers** modifiés depuis df5050f intégralement relus depuis la référence distante et comparés byte à byte, manifest vérifié. [Preuve de relecture](preuves/TR2-20261014-M017-SDMMC-1BIT/remote-readback-76717ac4.json). Worktree de mission propre à ce contrôle, dépôt original propre et HEAD inchangé, stashes et fichiers protégés vérifiés. Cette mise à jour finale consigne FAILED ; son SHA et la vérification distante finale sont fournis dans la réponse finale, sans auto-référence.
+[Index preuves](preuves/TR2-20261014-SDMMC1-REFERENCE-POC/README.md), manifestSHA256, bruts et BIN/ELF/MAP locaux `/home/lolo/dev/msm/reports/TR2-SDMMC1-POC-20261014` et dossiersbuild. Le `result_sha` est **le commit externe tiers réellement évalué**, distinct des commits MSM de lanceur/rapport. Publication puis relecture complète à effectuer ; SHAfinal du rapport communiqué dans réponse finale sans auto-référence.

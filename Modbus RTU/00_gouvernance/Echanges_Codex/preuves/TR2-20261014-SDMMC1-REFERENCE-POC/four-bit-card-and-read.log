@@ -1,0 +1,14 @@
+0x080091c6 in tu_fifo_read_n_access_mode (f=0x2000002c <_usbd_qdef+8>, buffer=0x200bff98, n=2048, access_mode=0x0) at /home/lolo/dev/msm/cache/VILLO88-NUCLEOU575-SDMMC1-PoC/Middlewares/TinyUSB/src/common/tusb_fifo.c:505
+505	uint16_t tu_fifo_read_n_access_mode(tu_fifo_t *f, void *buffer, uint16_t n, const tu_hwfifo_access_t *access_mode) {
+0xbfa0700:	0x001b0046	0x38425018	0x20333157
+$1 = 1 '\001'
+$2 = {0x3534453, 0x44333247, 0x858bf092, 0x3c01927a}
+$3 = {CardType = 1, CardVersion = 1, Class = 1461, RelCardAdd = 43690, BlockNbr = 62333952, BlockSize = 512, LogBlockNbr = 62333952, LogBlockSize = 512, CardSpeed = 512}
+$4 = 0x4002
+Note: automatically using hardware breakpoints for read-only addresses.
+$5 = HAL_OK
+$6 = {DataBusWidth = 2 '\002', SecuredMode = 0 '\000', CardType = 0, ProtectedAreaSize = 83886080, SpeedClass = 4 '\004', PerformanceMove = 0 '\000', AllocationUnitSize = 9 '\t', EraseSize = 15, EraseTimeout = 1 '\001', EraseOffset = 1 '\001', UhsSpeedGrade = 0 '\000', UhsAllocationUnitSize = 15 '\017', VideoSpeedClass = 0 '\000'}
+$7 = 0
+$8 = 4
+$9 = -1
+$10 = 0x2

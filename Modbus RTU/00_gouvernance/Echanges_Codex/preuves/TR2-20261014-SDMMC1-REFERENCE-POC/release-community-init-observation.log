@@ -1,0 +1,34 @@
+tud_task_ext (timeout_ms=timeout_ms@entry=4294967295, in_isr=in_isr@entry=false) at /home/lolo/dev/msm/cache/VILLO88-NUCLEOU575-SDMMC1-PoC/Middlewares/TinyUSB/src/device/usbd.c:503
+503	  return _usbd_rhport != RHPORT_INVALID;
+0xbfa0700:	0x001b0046	0x38425018	0x20333157
+Hardware assisted breakpoint 1 at 0x8004268: file /home/lolo/dev/msm/cache/VILLO88-NUCLEOU575-SDMMC1-PoC/Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_sd.c, line 344.
+STM32 Successfully completed reset operation (System reset)
+
+Breakpoint 1, HAL_SD_Init (hsd=hsd@entry=0x20000060 <hsd1>) at /home/lolo/dev/msm/cache/VILLO88-NUCLEOU575-SDMMC1-PoC/Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_sd.c:344
+344	  if (hsd == NULL)
+Note: automatically using hardware breakpoints for read-only addresses.
+0x0800083c in MX_SDMMC1_SD_Init () at /home/lolo/dev/msm/cache/VILLO88-NUCLEOU575-SDMMC1-PoC/Core/Src/main.c:304
+304	  if (HAL_SD_Init(&hsd1) != HAL_OK)
+Value returned is $1 = HAL_OK
+HAL_SD_Init return=0
+$2 = 0x0
+$3 = {0x3534453, 0x44333247, 0x858bf092, 0x3c01927a}
+$4 = {CardType = 1, CardVersion = 1, Class = 1461, RelCardAdd = 43690, BlockNbr = 62333952, BlockSize = 512, LogBlockNbr = 62333952, LogBlockSize = 512, CardSpeed = 512}
+Hardware assisted breakpoint 2 at 0x80040cc: file /home/lolo/dev/msm/cache/VILLO88-NUCLEOU575-SDMMC1-PoC/Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_sd.c, line 2367.
+
+Breakpoint 2, HAL_SD_ConfigWideBusOperation (hsd=hsd@entry=0x20000060 <hsd1>, WideMode=WideMode@entry=16384) at /home/lolo/dev/msm/cache/VILLO88-NUCLEOU575-SDMMC1-PoC/Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_sd.c:2367
+2367	  hsd->State = HAL_SD_STATE_BUSY;
+main () at /home/lolo/dev/msm/cache/VILLO88-NUCLEOU575-SDMMC1-PoC/Core/Src/main.c:118
+118	  while (HAL_SD_GetCardState(&hsd1) != HAL_SD_CARD_TRANSFER)
+Value returned is $5 = HAL_OK
+HAL_SD_ConfigWideBusOperation return=0
+$6 = 0x0
+$7 = 0x4002
+$8 = {ClockEdge = 0, ClockPowerSave = 0, BusWide = 0, HardwareFlowControl = 0, ClockDiv = 2}
+$9 = 160000000
+$10 = 0xf2aa7fff
+$11 = {0x0, 0xccccc}
+$12 = 0xffffffef
+$13 = {0xc00, 0x0}
+0xe000ed28:	0x00000000	0x00000000
+[Inferior 1 (Remote target) detached]

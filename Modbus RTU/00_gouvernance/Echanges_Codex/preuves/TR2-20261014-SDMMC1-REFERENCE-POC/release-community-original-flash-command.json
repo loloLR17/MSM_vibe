@@ -1,0 +1,17 @@
+{
+  "command": [
+    "/mnt/c/ST/STM32CubeCLT_1.22.0/STM32CubeProgrammer/bin/STM32_Programmer_CLI.exe",
+    "-c",
+    "port=SWD",
+    "sn=0032001F3235510C37333439",
+    "freq=8000",
+    "-w",
+    "\\\\wsl.localhost\\Debian\\home\\lolo\\dev\\msm\\reports\\SDMMC1-PoC-release-build\\sdmmc1_poc.bin",
+    "0x08000000",
+    "-v",
+    "-rst"
+  ],
+  "code_sha": "1e3c9183bad023ebf7d234134823d9270a0e8b64",
+  "sha256": "2a2fe744ab926789ae180b74f2a250b2a9202329b5afde51a1155cdd69d54c1a",
+  "normal_programming_only": true
+}

@@ -1,0 +1,28 @@
+{
+  "write_chunks_success": 16,
+  "write_bytes": 131072,
+  "read_success_chunks": 2,
+  "read_verified_bytes": 16384,
+  "failed_read_chunk": 2,
+  "failed_lba": 506080,
+  "HAL_ErrorCode": "0x2",
+  "verification_incomplete": true,
+  "checks": [
+    {
+      "chunk": 0,
+      "lba": 506048,
+      "read_bytes": 8192,
+      "mismatches": 0,
+      "sha256_read": "891920d786148cce0a126261f48b18c4872f56fa8e47c60077aa2847934e3c58",
+      "sha256_expected": "891920d786148cce0a126261f48b18c4872f56fa8e47c60077aa2847934e3c58"
+    },
+    {
+      "chunk": 1,
+      "lba": 506064,
+      "read_bytes": 8192,
+      "mismatches": 0,
+      "sha256_read": "3327ebf0cac56a4adda5d8a99db94d8b0e7c6befe00def0fb0908a14d2d6fb9b",
+      "sha256_expected": "3327ebf0cac56a4adda5d8a99db94d8b0e7c6befe00def0fb0908a14d2d6fb9b"
+    }
+  ]
+}

@@ -1,0 +1,6 @@
+{
+    "passed":  false,
+    "error":  "Exception lors de l\u0027appel de « Read » avec « 3 » argument(s) : « Le périphérique n’est pas prêt.\r\n »",
+    "exception_type":  "System.Management.Automation.MethodInvocationException",
+    "utc":  "2026-10-14T10:00:40.9417390Z"
+}
