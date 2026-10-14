@@ -1,0 +1,26 @@
+{
+  "remote_sha": "576a859cbc2dffc23db5fcf3f01d02973ae61cd7",
+  "utc": "2026-10-14T17:09:05.880047+00:00",
+  "files_read_byte_identical": [
+    "Modbus RTU/00_gouvernance/Echanges_Codex/DERNIER_RAPPORT.md",
+    "Modbus RTU/00_gouvernance/Echanges_Codex/archives/TR2-20261014-P12H3H-SDMMC-DAT-PERMUTATION-REVIEW/MISSION.md",
+    "Modbus RTU/00_gouvernance/Echanges_Codex/archives/TR2-20261014-P12H3H-SDMMC-DAT-PERMUTATION-REVIEW/RAPPORT.md",
+    "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261014-CN8-DRIVER-DIFFERENTIAL/CN8-documentary-map.json",
+    "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261014-CN8-DRIVER-DIFFERENTIAL/driver-file-comparison.json",
+    "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261014-CN8-DRIVER-DIFFERENTIAL/driver-functions.json",
+    "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261014-CN8-DRIVER-DIFFERENTIAL/hal-sd-1.6.2-to-1.6.3.diff",
+    "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261014-CN8-DRIVER-DIFFERENTIAL/manifest.json",
+    "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261014-CN8-DRIVER-DIFFERENTIAL/official-v162-source-match.json",
+    "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261014-CN8-DRIVER-DIFFERENTIAL/official-v162-tag.json",
+    "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261014-CN8-DRIVER-DIFFERENTIAL/provenance.json",
+    "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261014-CN8-DRIVER-DIFFERENTIAL/review-scope.json",
+    "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261014-CN8-DRIVER-DIFFERENTIAL/upstream-commit-comments.json",
+    "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261014-CN8-DRIVER-DIFFERENTIAL/upstream-review.json"
+  ],
+  "new_manifest_entries_verified": 10,
+  "archive_exact": true,
+  "protected_files_including_journal_unchanged": true,
+  "source_hashes_and_comparison_results_verified": true,
+  "original_repository_stashes_upstream_preserved": true,
+  "worktree_clean": true
+}

@@ -1,6 +1,6 @@
 ---
 mission_id: TR2-20261014-P12H3H-CN8-DRIVER-DIFFERENTIAL
-status: IN_PROGRESS
+status: DONE
 base_ref: main
 base_sha: b2f00a77250780a3ed62058cf4baca56325a78b3
 initial_head: ea860be2223223ed59a3e3d748bdf1fad2115bb4
@@ -23,7 +23,7 @@ allow_debug: false
 
 Recommandation prioritaire : **un seul futur essai du profil B existant par CN8**, même firmware et paramètres, sans rejouer A. Protocole proposé ci-dessous, **non exécuté** ; il exige une mission matérielle distincte et les prérequis physiques. L'enregistrement industriel des vibrations reste l'objectif, sans renoncement au stockage ni changement d'architecture.
 
-Statut IN_PROGRESS uniquement pour publication et relecture avant clôture documentaire. Zéro flash/debug/reset/connexion cible/commande SD, accès lecteur PC ou écriture mémoire persistante.
+Statut DONE pour l’étude documentaire publiée et relue ; aucune qualification matérielle nouvelle. Zéro flash/debug/reset/connexion cible/commande SD, accès lecteur PC ou écriture mémoire persistante.
 
 ## 1. Sources et acquis réutilisés
 
@@ -140,4 +140,6 @@ Dépôt original propre82169af7e76797731358852bec83bfb0ceb54ccf préservé ; wor
 
 Validation proportionnée : lecture/diff complet des six fichiers SD, hashes de 27 fonctions et correspondance avecST1.6.2 distant, pinoutST ethistoriqueupstream, inspections des liens/documents/diff. Pas de compilation, test firmware ni recalcul des validations historiques. Comparaison desfonctions = preuve statique, pas testphysique. `result_sha` désigne le code tiers examiné, pas unnouveau code flashé ; sources officielles séparément épinglées dans provenance.json. Permissions commit/push uniquement exercées, flash/debugfalse respectés.
 
-Publication normale sur main puis relecture intégrale des livrables/archives/empreintes prévue avant statut DONE ; SHA final distant annoncé après contrôle, sans auto-référence dans ce commit. Contrôle indépendant ChatGPT reste distinct. Aucune correction fonctionnelle appliquée et aucune architecture abandonnée.
+Publication normale sur `main` du commit **`576a859cbc2dffc23db5fcf3f01d02973ae61cd7`**, message `P12 H3h: document CN8 routing and prove shared ST SDMMC driver paths`, réussie. Référence récupérée depuis GitHub ; **14 fichiers intégralement relus et identiques octet à octet, 10 empreintes de preuves vérifiées**. Archive permutation exacte, documents protégés et journal inchangés, sources comparées et hashes conservés, dépôt historique et stashes préservés. [Preuve de relecture distante](preuves/TR2-20261014-CN8-DRIVER-DIFFERENTIAL/remote-readback-576a859.json). Worktree propre au contrôle.
+
+Cette finalisation DONE reste documentaire. Son push normal et sa relecture seront également vérifiés ; SHA final annoncé dans la réponse sans auto-référence. Contrôle indépendant ChatGPT et autorisation d’un futur essai distincts. Aucune correction fonctionnelle, intervention matérielle ou décision d’abandon du stockage.
