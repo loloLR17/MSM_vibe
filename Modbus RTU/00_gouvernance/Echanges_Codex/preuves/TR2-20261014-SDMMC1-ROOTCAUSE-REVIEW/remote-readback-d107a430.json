@@ -1,0 +1,113 @@
+{
+  "utc": "2026-10-14T11:56:48.839361+00:00",
+  "remote_sha": "d107a4307c4f83900633bc41835fc550c563b29b",
+  "base_sha": "274214e3a0b40e06e11e11401b00318c5cd0480c",
+  "all_changed_files_read_and_byte_equal": true,
+  "changed_file_count": 19,
+  "manifest_entries_verified": 14,
+  "archive_byte_identical": true,
+  "original_worktree_clean_and_preserved": true,
+  "stashes": [
+    "6251b988e8b20f97997a8f98fd26d4d35a45a1b2",
+    "f3b829e6188f491920edf74a5f9ed0f559d08b87"
+  ],
+  "upstream_source_clean_and_pinned": true,
+  "protected_files_unchanged": true,
+  "files": [
+    {
+      "path": "Modbus RTU/00_gouvernance/ETAT_COURANT_TR2.md",
+      "bytes": 23802,
+      "sha256": "33a565dcb36be745fca3654f16eb337c77fd9a7e3e3a04ac9c92271276752305"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/DERNIER_RAPPORT.md",
+      "bytes": 16801,
+      "sha256": "5ca5c7a34e1e53166a13a3a6f9257658201d6f0b0ef4946b3f56c542cee10600"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/archives/TR2-20261014-P12H3H-SDMMC1-COLDSTART10CM/MISSION.md",
+      "bytes": 4858,
+      "sha256": "d71ef5088736766274149aa5fb07ecd1a6f8b57405eb2825a60c4e3a7de7e50d"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/archives/TR2-20261014-P12H3H-SDMMC1-COLDSTART10CM/RAPPORT.md",
+      "bytes": 8193,
+      "sha256": "58cf5043b133dd31ea5c40cd2d6d840df42bf03544a09007e764f9f7f855c960"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261014-SDMMC1-ROOTCAUSE-REVIEW/PROTOCOLE_LECTURE_PROPOSE.md",
+      "bytes": 6271,
+      "sha256": "32479ea1414c055a87e88399a791f1006bbc658fe74b175dffc5d3936243b0e0"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261014-SDMMC1-ROOTCAUSE-REVIEW/README.md",
+      "bytes": 1415,
+      "sha256": "38495b4946fc1aa0b5c914cd477fe0f5019ffd9e1e20d392ac4da25499301032"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261014-SDMMC1-ROOTCAUSE-REVIEW/adafruit-netlist-review.json",
+      "bytes": 6197,
+      "sha256": "6503abe8ccc538c7d4371dfc0c611889c378d69c56cf0da39a08bf2acc53d035"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261014-SDMMC1-ROOTCAUSE-REVIEW/manifest.json",
+      "bytes": 1642,
+      "sha256": "51a9421450f657b59f566ed56cbf54f2a8335dbf210330c2cc580d15d416e3ef"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261014-SDMMC1-ROOTCAUSE-REVIEW/qualification-PC-anterieure/RAPPORT_QUALIFICATION_CARTE_PC.md",
+      "bytes": 7578,
+      "sha256": "7e9880d217d3d7dca5699f0b0e27556d8fd3d3edebdb1e530ec31b98c528fff1"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261014-SDMMC1-ROOTCAUSE-REVIEW/qualification-PC-anterieure/README.md",
+      "bytes": 957,
+      "sha256": "95fb41dbc686591d6792cb23680fbee2252908bbc1c4717671267baa4eac6626"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261014-SDMMC1-ROOTCAUSE-REVIEW/qualification-PC-anterieure/bounded-result-summary.json",
+      "bytes": 1043,
+      "sha256": "d074690a4875108b14daa52325119f24c3d917cbbd9b5611c8768fca38518d8a"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261014-SDMMC1-ROOTCAUSE-REVIEW/qualification-PC-anterieure/bounded-statistics.json",
+      "bytes": 693,
+      "sha256": "1d343f5b05bff89912587536f471d1121d0ac9b111d7136503a0caf7ca25db97"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261014-SDMMC1-ROOTCAUSE-REVIEW/qualification-PC-anterieure/final-reader-state.json",
+      "bytes": 970,
+      "sha256": "31f83f5ec094b0ff9bc26fe65c73f0f75aea1ab3d2439e6c683844b5fa90ff89"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261014-SDMMC1-ROOTCAUSE-REVIEW/qualification-PC-anterieure/manifest.json",
+      "bytes": 2600,
+      "sha256": "f5928d327c0274a4b46aa12e675e7a01288e51fbcfa1307601547e478204fe10"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261014-SDMMC1-ROOTCAUSE-REVIEW/qualification-PC-anterieure/qualification-summary.json",
+      "bytes": 1406,
+      "sha256": "3a27edddc66ad4a90614dd12a928ed6b2156cb1a13dbaaea089d9975c933af03"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261014-SDMMC1-ROOTCAUSE-REVIEW/qualification-PC-anterieure/random-no-write-through-result.json",
+      "bytes": 738,
+      "sha256": "fdd138ae8618d967d92692fba7c4a2d96e2d631cf0247728d67f7615b9bc2666"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261014-SDMMC1-ROOTCAUSE-REVIEW/qualification-PC-anterieure/random-result.json",
+      "bytes": 738,
+      "sha256": "f1d7c2130c8b2141d953fd74d89bab39ab83430fdb1253d28372b5ff195949f0"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261014-SDMMC1-ROOTCAUSE-REVIEW/qualification-PC-anterieure/read-probe-result.json",
+      "bytes": 906,
+      "sha256": "1613ce1a7dde69a5de3bf574eefa9f91e77d61a33ebb3cfd8d97b305cd96daa7"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261014-SDMMC1-ROOTCAUSE-REVIEW/source-review-provenance.json",
+      "bytes": 7016,
+      "sha256": "34473b1cff50508af5fae7afd473881804137720622355a358bb03f11b1ee97c"
+    }
+  ]
+}

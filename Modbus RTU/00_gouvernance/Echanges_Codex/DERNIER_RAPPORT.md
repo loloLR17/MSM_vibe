@@ -1,6 +1,6 @@
 ---
 mission_id: TR2-20261014-P12H3H-SDMMC1-ROOTCAUSE-REVIEW
-status: IN_PROGRESS
+status: DONE
 base_ref: main
 base_sha: 6e9f0a48023288a5ed1e3cf4029ebc1f6c143ccd
 initial_head: 274214e3a0b40e06e11e11401b00318c5cd0480c
@@ -19,7 +19,7 @@ allow_debug: false
 
 **Revue documentaire accomplie. Aucune cause unique du premier CRC n'est démontrée.** Les sources contredisent l'absence générale de pull-ups et l'exécution des transferts MSC directement en IRQ. Elles confirment un chemin de récupération multibloc incomplet et une traduction large des erreurs en « média absent ». Ces constats expliquent une aggravation possible après panne, sans identifier ce qui provoque la première erreur.
 
-Un protocole court de lecture hors MSC est proposé, **non exécuté**. Le statut IN_PROGRESS concerne seulement la publication et la relecture distante ; il deviendra DONE pour la revue documentaire, sans qualification physique.
+Un protocole court de lecture hors MSC est proposé, **non exécuté**. Statut **DONE pour la revue documentaire publiée et relue**, sans qualification physique ni clôture de la cause du premier CRC.
 
 ## Sources et limites de cette revue
 
@@ -112,4 +112,4 @@ Le [rapport PC antérieur](preuves/TR2-20261014-SDMMC1-ROOTCAUSE-REVIEW/qualific
 
 Dépôt original propre à82169af7e76797731358852bec83bfb0ceb54ccf et deux stashes6251b988e8b20f97997a8f98fd26d4d35a45a1b2/f3b829e6188f491920edf74a5f9ed0f559d08b87 préservés. Worktree `MSM_vibe-SDMMC1-rootcause-review`, branche `codex/p12h3h-sdmmc1-rootcause-review`, basé sur main courant, sans merge/rebase/reset destructif. COLDSTART archivé byte-identique depuis6e9f0a48023288a5ed1e3cf4029ebc1f6c143ccd. Mission active/gouvernance/gels/roadmap/detteA04 intacts. Journal actualisé avec les constats, hypothèses et protocole **NON EXÉCUTÉ**. Commit/pushmain autorisés pour documents ; flash/debugfalse respectés.
 
-Publication et relecture distante à effectuer. Le SHA final sera transmis après vérification ; DONE ne vaudra que revue documentaire accomplie.
+Publication normale sur `main` du commit `d107a4307c4f83900633bc41835fc550c563b29b` (`P12 H3h SDMMC1: document root cause review, prior PC evidence and bounded read protocol`) réussie. Référence récupérée de GitHub ; **19 fichiers relus intégralement et byte-identiques**, **14 entrées du manifest vérifiées** : [preuve distante](preuves/TR2-20261014-SDMMC1-ROOTCAUSE-REVIEW/remote-readback-d107a430.json). Archive et fichiers protégés inchangés, source tiers propre, dépôt original et stashes préservés. Finalisation documentaire DONE uniquement, sans nouvelle opération matérielle. Le worktree sera propre après commit ; dernière publication également à vérifier, SHA distant communiqué dans la réponse finale sans auto-référence. DONE signifie revue accomplie ; contrôle indépendant ChatGPT et futur contrat physique restent distincts.
