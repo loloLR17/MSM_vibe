@@ -1,8 +1,8 @@
 ---
-mission_id: TR2-20261014-M017-SDMMC-1BIT-REALISTIC-QUALIFICATION
+mission_id: TR2-20261014-M018-SDMMC1-COMMUNITY-REFERENCE
 status: READY
 base_ref: main
-base_sha: 9dd90081ec6e51ec5c6fa84bd5b66f8369717ceb
+base_sha: a517e1cd8ce35d6e48bbe92e53f07c7289980ae5
 author: ChatGPT
 target_branch: main
 allow_commit: true
@@ -11,30 +11,23 @@ allow_flash: true
 allow_debug: true
 ---
 
-# M017 — Qualification réelle et reproductible du mode SDMMC2 1 bit pour TR2
+# M018 — Reproduction fidèle du projet communautaire SDMMC1 sur NUCLEO-U575ZI-Q
 
-## Objectif et décision utilisateur
-L'utilisateur demande une **vraie qualification du 1 bit** en conditions représentatives TR2, après réinitialisation de son quota. Exécuter réellement les essais, pas seulement préparer le harness. Ne pas refaire les diagnostics 4 bits ni demander d'oscilloscope (non disponible). Priorité à la **preuve physique** et au diagnostic de l'échec précédent, sans annoncer de succès à l'avance.
+## Objectif
+Reproduire sur la seconde Nucleo le fonctionnement SDMMC1 4 bits du projet public https://github.com/VILLO88/NUCLEOU575 (branche main), **sans modifier son code SDMMC, sa configuration de bus ni ses paramètres pour masquer un défaut**. Compiler, flasher, exécuter et diagnostiquer avec GDB ; vérifier le mode 4 bits effectif, l'intégrité des accès et les limites des performances observées. Établir la provenance exacte du commit tiers, de l'image et de la toolchain. Ne pas porter sur SDMMC2 dans cette mission.
 
-## État de référence et échec à expliquer
-Lire HEAD main réel, AGENTS.md, GOUVERNANCE_CHATGPT_CODEX.md, dernier rapport M016 FAILED, `experiments/sdmmc_st_reference/LOAD_ONLY.md`, code et preuves `preuves/TR2-20261013-M016-1BIT-LOAD`, rapports C2b/C2c, H3h-A, gel P8-B, état courant. Sur seconde NUCLEO-U575ZI-Q + Adafruit4682 + SanDisk Ultra32Go : M016 1bit/10MHz, producteur 426672 B/s, 64KiB/chunk, ring512KiB, **débordement après 4,164454 s**, 1 310 720 B écrits et relus sans mismatch, débit utile 314740 B/s, latence chunk142–324 ms, HAL errors0. Ancien C2c : 1bit/10MHz, 8x64KiB à54–55ms/chunk, 1 202 495 B/s, zéro mismatch. **La divergence majeure entre les deux campagnes doit être expliquée ou explicitement laissée non résolue.** Ne pas conclure prématurément à un défaut matériel ni à une insuffisance intrinsèque du 1bit.
+## Préparation et état physique
+L'utilisateur a soudé les broches, recâblé l'Adafruit 4682 en SDMMC1, vérifié deux fois le câblage, alimenté la seconde Nucleo, et **retiré la microSD SanDisk Ultra A1 32 Go**. **Ne pas considérer la carte présente** : procéder d'abord à l'identification ST-LINK, à l'inspection non destructive et à la compilation hors cible. L'insertion physique de la 32 Go appartient à l'utilisateur : demander uniquement ce geste lorsqu'il devient nécessaire, avec mise hors tension si exigée par le banc. Ne jamais tenter d'écriture SD avant confirmation de présence et identification CID/capacité. Aucun essai sur la SanDisk Ultra 512 Go de TR2-001.
 
-## Contrat TR2 non négociable
-26667 samples/s × 16 octets = **426672 B/s** ; campagnes V1 60 s à 604800 s. Le scénario doit simuler une arrivée cadencée continue, un tampon réellement borné et l'écriture durable avec contrôles d'intégrité. Distinguer bus brut, débit applicatif, blocages du support, buffering et contraintes de RAM du firmware final. Une réussite moyenne seule ne qualifie pas l'absence de perte.
+## Référence et fidélité
+Inspecter directement le commit réel du dépôt VILLO88/NUCLEOU575 : README, fichier .ioc, Core/Src/main.c, stm32u5xx_hal_msp.c, USB/TinyUSB/FatFs et configuration du projet. SDMMC1 attendu : CLK PC12, CMD PD2, D0 PC8, D1 PC9, D2 PC10, D3 PC11, 3V3/GND. Le code communautaire initialise en 1 bit puis demande 4 bits, avec repli 1 bit possible : un montage USB Mass Storage réussi ne démontre PAS 4 bits. Contrôler également l'adéquation du câblage et des connexions de la Nucleo au schéma ST, sans demander de soudures supplémentaires sans preuve. Toute adaptation indispensable à l'environnement de build ou au debug doit être minimale, séparée, documentée et comparée au code original ; ne pas réécrire le pilote.
 
-## Périmètre d'exécution, ordre
-1. **Reprise sans repartir de zéro** : examiner l'implémentation M016 et les traces, comparer précisément chronométrage, callbacks, DMA linked-list, polling READY, fréquence, taille de chunk, comportement SD, priorité IRQ, charge CPU, producteur et consommateur. Vérifier s'il existe une erreur de méthode, un goulot logiciel ou une différence de mesure C2c/M016. Conserver la provenance ST CubeU5 v1.9.0 et les modifications documentées ; HAL/CMSIS officiels intacts. Ne corriger que des défauts démontrés, avec hypothèse et preuve avant/après. Ne pas contourner la contrainte en gonflant simplement la RAM.
-2. **Banc sécurisé** : uniquement seconde Nucleo ST-LINK 0032001F3235510C37333439 / UID 001B0046/38425018/20333157, jamais principal 003500463235510B37333439. Le rapport M016 confirme que firmware SD 1bit sûr a remplacé GPIO et microSD test réinsérée hors tension. Revalider identité, configuration électrique et présence carte, sans demander inutilement de la retirer. MicroSD SanDisk32Go de test sacrifiable, vérifier CID/capacité et zone LBA. Autorisations flash/debug/commit/push permanentes selon AGENTS ; pas de mass erase/Option Bytes/RDP.
-3. **Qualification physique progressive et proportionnée** : effectuer un diagnostic ciblé court uniquement si nécessaire pour isoler le goulot, puis un scénario d'arrivée réelle 426672 B/s pendant **au moins 10 minutes**, objectif ~256 MB, en 1bit/10MHz (ou variante strictement justifiée et traçable), avec FIFO bornée dimensionnée selon budget RAM plausible TR2 et latences. Répéter **au moins 3 campagnes complètes identiques** si le premier scénario passe, afin d'évaluer la reproductibilité ; mesurer aussi les échecs, sans retry caché. Les essais peuvent durer plus longtemps si nécessaire et autorisés ; ne pas prétendre avoir validé 7 jours. Prévoir sauvegarde de résultats entre runs et éviter d'écraser des preuves utiles. Ne pas effectuer de benchmark exploratoire sans rapport avec le critère TR2.
-4. **Mesures** : timestamps et temps réels, volume généré/accepté/écrit/relus, débit soutenu par run, latences write/READY min/P50/P95/P99/max, distribution et longues pauses, taille backlog max, high-water mark, overflows, pertes, HAL/SDMMC/DMA error et retours, checksum ou comparaison exacte des données sur tout le volume, y compris après réinitialisation contrôlée si faisable. Relecture de la totalité du volume (streaming), pas seulement du préfixe ; preuve de l'absence de perte et d'altération. Garder trace des registres 1bit et horloge effective déduite.
-5. **Critères** : pour qualifier le banc en conditions simulées, 3 × 600 s complets à 426672 B/s, zéro perte/overflow, zéro corruption et zéro erreur de transfert, sans backlog croissant non borné, avec latences documentées. Si la première campagne échoue, **arrêter les répétitions**, caractériser précisément la cause et faire au plus un correctif minimal fondé sur preuve suivi d'un nouveau run identique ; si le blocage persiste, publier BLOCKED/FAILED honnête avec preuves et options. Distinguer qualification du démonstrateur de qualification complète TR2 (capteur, codec, checkpoint, power-loss, 7 jours non prouvés).
-6. **Autonomie et temps** : pas de nouveau checkpoint final avant d'avoir tenté le RUN ; ne pas interrompre un run pour publier un rapport intermédiaire ; publier le code et le protocole nécessaires puis exécuter la campagne, sauvegarder les preuves et seulement ensuite publier le rapport final. Si session limitée, fournir un runner autonome durable, observable, reprenable et un état précis, sans prétendre qu'une campagne inachevée est qualifiée. Aucun besoin de validation humaine répétitive pour les opérations déjà autorisées. Escalade seulement pour gestes physiques, identité incertaine ou risque matériel réel.
+## Exécution et preuves
+1. Lire gouvernance courante AGENTS, GOUVERNANCE_CHATGPT_CODEX, dernier rapport M017, état courant et garde-fous ; vérifier HEAD et état local ; préserver les travaux existants.
+2. Identifier strictement **seconde** NUCLEO ST-LINK SN 0032001F3235510C37333439 / UID 001B0046/38425018/20333157 ; interdire la principale SN 003500463235510B37333439. Ne pas toucher TR2-001, sa FRAM, ni sa microSD 512 Go. Pas de mass erase, Option Bytes, RDP, déprotection, reconfiguration destructrice.
+3. Préparer compilation reproductible du projet tiers original. Vérifier si son firmware nécessite le port USB-C natif distinct du ST-LINK et le signaler précisément. Produire image, hash et logs.
+4. Quand le banc et la présence physique de la microSD 32 Go sont confirmés, flasher normalement la seconde Nucleo et diagnostiquer avec GDB : retours HAL_SD_Init / HAL_SD_ConfigWideBusOperation, WIDBUS réel dans SDMMC1_CLKCR, clock réelle, erreurs HAL/SDMMC, identité carte, lectures/écritures et comparaison d'intégrité. GDB autorisé, mais ne pas transformer un test temporel en benchmark avec arrêts intempestifs. Mesurer débit et latences uniquement si méthode valide et sans modifier le comportement SD d'origine.
+5. Si le firmware original ne peut être compilé ou exécuté tel quel, documenter exactement le blocage et proposer uniquement la correction minimale nécessaire ; ne pas conclure à l'échec du contrôleur SDMMC1 sur un problème d'environnement.
 
-## Livrables et jugement
-Rapport `DERNIER_RAPPORT.md` sur main avec statut DONE seulement si critères réellement démontrés, sinon FAILED/BLOCKED/IN_PROGRESS selon faits ; code/commits/hashes, scripts, logs bruts, métriques par campagne, comparaison C2c/M016 et analyse de la cause. ChatGPT contrôlera indépendamment rapport et preuves avant toute décision d'adopter 1 bit pour TR2. Préserver le firmware principal, gels V1, FRAM et supports principaux.
-
-## Permissions
-allow_commit: true
-allow_push: true
-allow_flash: true
-allow_debug: true
+## Critères et sortie
+Rapport factuel dans DERNIER_RAPPORT.md : SHA tiers, diffs éventuels, SHA firmware, identité Nucleo/carte, configuration effective SDMMC1, résultat 4 bits **prouvé ou non**, résultats d'intégrité, limites et comparaison prudente avec M017 SDMMC2. Logs et scripts publiés sur main, commits vérifiés. Distinguer preuve fonctionnelle du PoC et qualification TR2 426672 B/s soutenus. Signaler tout besoin de manipulation physique (insertion SD, connexion USB-C) sans transférer les opérations Git à l'utilisateur. Autonomie normale flash/debug/commit/push conformément à AGENTS.md. Ne pas annoncer de test physique non réalisé.
