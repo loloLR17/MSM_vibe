@@ -1,0 +1,407 @@
+[
+  {
+    "file": "Src/stm32u5xx_hal_sd.c",
+    "function": "HAL_SD_Init",
+    "identical_LF_text": true,
+    "community": {
+      "first_line": 336,
+      "last_line": 456,
+      "sha256_LF": "e2531a64293ae5feab1f62976763b13428b11275103d245dffbb24de5493f34a"
+    },
+    "official": {
+      "first_line": 336,
+      "last_line": 456,
+      "sha256_LF": "e2531a64293ae5feab1f62976763b13428b11275103d245dffbb24de5493f34a"
+    }
+  },
+  {
+    "file": "Src/stm32u5xx_hal_sd.c",
+    "function": "HAL_SD_InitCard",
+    "identical_LF_text": false,
+    "community": {
+      "first_line": 465,
+      "last_line": 548,
+      "sha256_LF": "e33726ce0736771754d04d9b9a80615a02afba0610282283a6149748d4c3f91a"
+    },
+    "official": {
+      "first_line": 465,
+      "last_line": 555,
+      "sha256_LF": "9f77a49f4c1c422df307a76e01b2caca1068db78d5f869be6e696f87dddb6132"
+    }
+  },
+  {
+    "file": "Src/stm32u5xx_hal_sd.c",
+    "function": "SD_PowerON",
+    "identical_LF_text": false,
+    "community": {
+      "first_line": 3090,
+      "last_line": 3252,
+      "sha256_LF": "f075e52e4e463a69894aa85f7e91030f8a5e809749d3f46d017b43b46e2c0f92"
+    },
+    "official": {
+      "first_line": 3097,
+      "last_line": 3259,
+      "sha256_LF": "1d0a8eab1cef32d3c2e426ca325be6307d7c0877a5b41b6f5c45fcae528189ff"
+    }
+  },
+  {
+    "file": "Src/stm32u5xx_hal_sd.c",
+    "function": "HAL_SD_ConfigWideBusOperation",
+    "identical_LF_text": true,
+    "community": {
+      "first_line": 2355,
+      "last_line": 2506,
+      "sha256_LF": "c6e04ad967de1f612628782c81bc0a081928a81097fbd30e4f6f3df89e51e92e"
+    },
+    "official": {
+      "first_line": 2362,
+      "last_line": 2513,
+      "sha256_LF": "c6e04ad967de1f612628782c81bc0a081928a81097fbd30e4f6f3df89e51e92e"
+    }
+  },
+  {
+    "file": "Src/stm32u5xx_hal_sd.c",
+    "function": "SD_WideBus_Enable",
+    "identical_LF_text": true,
+    "community": {
+      "first_line": 3405,
+      "last_line": 3445,
+      "sha256_LF": "c951e203982d44029f4f67a500785a8b1efb5e529b10dc4ecbc4e1c455479593"
+    },
+    "official": {
+      "first_line": 3412,
+      "last_line": 3452,
+      "sha256_LF": "c951e203982d44029f4f67a500785a8b1efb5e529b10dc4ecbc4e1c455479593"
+    }
+  },
+  {
+    "file": "Src/stm32u5xx_hal_sd.c",
+    "function": "SD_WideBus_Disable",
+    "identical_LF_text": true,
+    "community": {
+      "first_line": 3452,
+      "last_line": 3492,
+      "sha256_LF": "95a88faadea244c0c7963e55b1199effa59f544da45aaae96080c5055152c5bf"
+    },
+    "official": {
+      "first_line": 3459,
+      "last_line": 3499,
+      "sha256_LF": "95a88faadea244c0c7963e55b1199effa59f544da45aaae96080c5055152c5bf"
+    }
+  },
+  {
+    "file": "Src/stm32u5xx_hal_sd.c",
+    "function": "SD_FindSCR",
+    "identical_LF_text": true,
+    "community": {
+      "first_line": 3500,
+      "last_line": 3587,
+      "sha256_LF": "394758da0d39da2ca617e348e8d0bc761ffff753e04fc21dfe0348d5099c5d57"
+    },
+    "official": {
+      "first_line": 3507,
+      "last_line": 3594,
+      "sha256_LF": "394758da0d39da2ca617e348e8d0bc761ffff753e04fc21dfe0348d5099c5d57"
+    }
+  },
+  {
+    "file": "Src/stm32u5xx_hal_sd.c",
+    "function": "HAL_SD_GetCardStatus",
+    "identical_LF_text": true,
+    "community": {
+      "first_line": 2261,
+      "last_line": 2321,
+      "sha256_LF": "f6c5150ef80f3447dfce06feb5737430e8150508a59d3d9003f104b6343ccf7e"
+    },
+    "official": {
+      "first_line": 2268,
+      "last_line": 2328,
+      "sha256_LF": "f6c5150ef80f3447dfce06feb5737430e8150508a59d3d9003f104b6343ccf7e"
+    }
+  },
+  {
+    "file": "Src/stm32u5xx_hal_sd.c",
+    "function": "SD_SendSDStatus",
+    "identical_LF_text": true,
+    "community": {
+      "first_line": 3272,
+      "last_line": 3369,
+      "sha256_LF": "bdfd238286d87d02142bc4a7adbf9531ed0bd0d8c0f34b402e8393c74837e9c9"
+    },
+    "official": {
+      "first_line": 3279,
+      "last_line": 3376,
+      "sha256_LF": "bdfd238286d87d02142bc4a7adbf9531ed0bd0d8c0f34b402e8393c74837e9c9"
+    }
+  },
+  {
+    "file": "Src/stm32u5xx_hal_sd.c",
+    "function": "SD_SendStatus",
+    "identical_LF_text": true,
+    "community": {
+      "first_line": 3378,
+      "last_line": 3398,
+      "sha256_LF": "1370e2e9bdd88011ee73f651d54913c55ec9716c2ce0cbc5dab3e93fdee4eb21"
+    },
+    "official": {
+      "first_line": 3385,
+      "last_line": 3405,
+      "sha256_LF": "1370e2e9bdd88011ee73f651d54913c55ec9716c2ce0cbc5dab3e93fdee4eb21"
+    }
+  },
+  {
+    "file": "Src/stm32u5xx_hal_sd.c",
+    "function": "HAL_SD_GetCardState",
+    "identical_LF_text": true,
+    "community": {
+      "first_line": 2818,
+      "last_line": 2833,
+      "sha256_LF": "0d59371ea52c852becbde7c16e6b5f10bb7aca23da657da4179d5a01c226b139"
+    },
+    "official": {
+      "first_line": 2825,
+      "last_line": 2840,
+      "sha256_LF": "0d59371ea52c852becbde7c16e6b5f10bb7aca23da657da4179d5a01c226b139"
+    }
+  },
+  {
+    "file": "Src/stm32u5xx_hal_sd.c",
+    "function": "HAL_SD_ReadBlocks",
+    "identical_LF_text": true,
+    "community": {
+      "first_line": 667,
+      "last_line": 838,
+      "sha256_LF": "ff3375c1299987ea12879e487935769ce994407942541d9e31d978dca29ba18c"
+    },
+    "official": {
+      "first_line": 674,
+      "last_line": 845,
+      "sha256_LF": "ff3375c1299987ea12879e487935769ce994407942541d9e31d978dca29ba18c"
+    }
+  },
+  {
+    "file": "Src/stm32u5xx_hal_sd.c",
+    "function": "HAL_SD_WriteBlocks",
+    "identical_LF_text": true,
+    "community": {
+      "first_line": 852,
+      "last_line": 1024,
+      "sha256_LF": "1be32761b11eb0b00a1f1b00ec6d23dcba2fc4f584be04aee843e85914e79e9d"
+    },
+    "official": {
+      "first_line": 859,
+      "last_line": 1031,
+      "sha256_LF": "1be32761b11eb0b00a1f1b00ec6d23dcba2fc4f584be04aee843e85914e79e9d"
+    }
+  },
+  {
+    "file": "Src/stm32u5xx_hal_sd.c",
+    "function": "HAL_SD_ReadBlocks_DMA",
+    "identical_LF_text": true,
+    "community": {
+      "first_line": 1231,
+      "last_line": 1314,
+      "sha256_LF": "20b5fafac60bed01c9e59cd39d9e43d21d49664ef59d712d55c6cb134c9b022c"
+    },
+    "official": {
+      "first_line": 1238,
+      "last_line": 1321,
+      "sha256_LF": "20b5fafac60bed01c9e59cd39d9e43d21d49664ef59d712d55c6cb134c9b022c"
+    }
+  },
+  {
+    "file": "Src/stm32u5xx_hal_sd.c",
+    "function": "HAL_SD_WriteBlocks_DMA",
+    "identical_LF_text": true,
+    "community": {
+      "first_line": 1329,
+      "last_line": 1413,
+      "sha256_LF": "2daaf8abf3901db624518dc1483d97455f5342e9d464f8232dae67ef1a49554c"
+    },
+    "official": {
+      "first_line": 1336,
+      "last_line": 1420,
+      "sha256_LF": "2daaf8abf3901db624518dc1483d97455f5342e9d464f8232dae67ef1a49554c"
+    }
+  },
+  {
+    "file": "Src/stm32u5xx_hal_sd.c",
+    "function": "HAL_SD_IRQHandler",
+    "identical_LF_text": true,
+    "community": {
+      "first_line": 1526,
+      "last_line": 1731,
+      "sha256_LF": "a5e8f4ca466e1f8957350da59fd7a037b1987f8a0db3097c9d551e7e7eff417a"
+    },
+    "official": {
+      "first_line": 1533,
+      "last_line": 1738,
+      "sha256_LF": "a5e8f4ca466e1f8957350da59fd7a037b1987f8a0db3097c9d551e7e7eff417a"
+    }
+  },
+  {
+    "file": "Src/stm32u5xx_ll_sdmmc.c",
+    "function": "SDMMC_CmdGoIdleState",
+    "identical_LF_text": true,
+    "community": {
+      "first_line": 840,
+      "last_line": 856,
+      "sha256_LF": "7f1fe450e790f31a7e75f0bee70bb8ae3d1e204072bc0a66a186c4a35111a19e"
+    },
+    "official": {
+      "first_line": 840,
+      "last_line": 856,
+      "sha256_LF": "7f1fe450e790f31a7e75f0bee70bb8ae3d1e204072bc0a66a186c4a35111a19e"
+    }
+  },
+  {
+    "file": "Src/stm32u5xx_ll_sdmmc.c",
+    "function": "SDMMC_CmdOperCond",
+    "identical_LF_text": true,
+    "community": {
+      "first_line": 863,
+      "last_line": 884,
+      "sha256_LF": "bac0adb233ce5e70cb4a3afa978ddaf15bbd101829c2a7300f92aaae0383b195"
+    },
+    "official": {
+      "first_line": 863,
+      "last_line": 884,
+      "sha256_LF": "bac0adb233ce5e70cb4a3afa978ddaf15bbd101829c2a7300f92aaae0383b195"
+    }
+  },
+  {
+    "file": "Src/stm32u5xx_ll_sdmmc.c",
+    "function": "SDMMC_CmdAppOperCommand",
+    "identical_LF_text": true,
+    "community": {
+      "first_line": 922,
+      "last_line": 938,
+      "sha256_LF": "8c3f75d44f0878aadd21530f46fd09c0678eb5f2bc922a83fad2a40d3c0637a3"
+    },
+    "official": {
+      "first_line": 922,
+      "last_line": 938,
+      "sha256_LF": "8c3f75d44f0878aadd21530f46fd09c0678eb5f2bc922a83fad2a40d3c0637a3"
+    }
+  },
+  {
+    "file": "Src/stm32u5xx_ll_sdmmc.c",
+    "function": "SDMMC_CmdBusWidth",
+    "identical_LF_text": true,
+    "community": {
+      "first_line": 946,
+      "last_line": 962,
+      "sha256_LF": "448f363597ff92e0b0ef6c88ff9abc8d17c5b840a3fba623e214345f58322c70"
+    },
+    "official": {
+      "first_line": 946,
+      "last_line": 962,
+      "sha256_LF": "448f363597ff92e0b0ef6c88ff9abc8d17c5b840a3fba623e214345f58322c70"
+    }
+  },
+  {
+    "file": "Src/stm32u5xx_ll_sdmmc.c",
+    "function": "SDMMC_CmdStatusRegister",
+    "identical_LF_text": true,
+    "community": {
+      "first_line": 1141,
+      "last_line": 1157,
+      "sha256_LF": "13b359689be76497541cd58924814130e540359ff9ce27c0b863a80709b5234e"
+    },
+    "official": {
+      "first_line": 1141,
+      "last_line": 1157,
+      "sha256_LF": "13b359689be76497541cd58924814130e540359ff9ce27c0b863a80709b5234e"
+    }
+  },
+  {
+    "file": "Src/stm32u5xx_ll_sdmmc.c",
+    "function": "SDMMC_CmdBlockLength",
+    "identical_LF_text": true,
+    "community": {
+      "first_line": 514,
+      "last_line": 531,
+      "sha256_LF": "28b396060b5a0639207606f71dba0eeeb2f85b874b144422c7d71f0a79a15747"
+    },
+    "official": {
+      "first_line": 514,
+      "last_line": 531,
+      "sha256_LF": "28b396060b5a0639207606f71dba0eeeb2f85b874b144422c7d71f0a79a15747"
+    }
+  },
+  {
+    "file": "Src/stm32u5xx_ll_sdmmc.c",
+    "function": "SDMMC_CmdStopTransfer",
+    "identical_LF_text": true,
+    "community": {
+      "first_line": 779,
+      "last_line": 808,
+      "sha256_LF": "9bc3a42df00dc6f84e5a17dcb70735a3aab602aba88bdedbc6246bb2d71b0f70"
+    },
+    "official": {
+      "first_line": 779,
+      "last_line": 808,
+      "sha256_LF": "9bc3a42df00dc6f84e5a17dcb70735a3aab602aba88bdedbc6246bb2d71b0f70"
+    }
+  },
+  {
+    "file": "Src/stm32u5xx_ll_sdmmc.c",
+    "function": "SDMMC_GetCmdResp1",
+    "identical_LF_text": true,
+    "community": {
+      "first_line": 1355,
+      "last_line": 1483,
+      "sha256_LF": "4271f6805039cc7d4903b1fdb69a6d005796a30c66afe76b2961b902b5fa3246"
+    },
+    "official": {
+      "first_line": 1355,
+      "last_line": 1483,
+      "sha256_LF": "4271f6805039cc7d4903b1fdb69a6d005796a30c66afe76b2961b902b5fa3246"
+    }
+  },
+  {
+    "file": "Src/stm32u5xx_ll_sdmmc.c",
+    "function": "SDMMC_GetCmdResp3",
+    "identical_LF_text": true,
+    "community": {
+      "first_line": 1534,
+      "last_line": 1564,
+      "sha256_LF": "6031efeb50cebd843a103c61db93467e41175fe28fae26408bc160fb4cc27722"
+    },
+    "official": {
+      "first_line": 1534,
+      "last_line": 1564,
+      "sha256_LF": "6031efeb50cebd843a103c61db93467e41175fe28fae26408bc160fb4cc27722"
+    }
+  },
+  {
+    "file": "Src/stm32u5xx_ll_sdmmc.c",
+    "function": "SDMMC_Init",
+    "identical_LF_text": true,
+    "community": {
+      "first_line": 201,
+      "last_line": 225,
+      "sha256_LF": "f23ceae1427d59fb5539ee91c9af4f84fe33a85b429f3f7ab5a2775a160a022f"
+    },
+    "official": {
+      "first_line": 201,
+      "last_line": 225,
+      "sha256_LF": "f23ceae1427d59fb5539ee91c9af4f84fe33a85b429f3f7ab5a2775a160a022f"
+    }
+  },
+  {
+    "file": "Src/stm32u5xx_ll_sdmmc.c",
+    "function": "SDMMC_ConfigData",
+    "identical_LF_text": true,
+    "community": {
+      "first_line": 420,
+      "last_line": 448,
+      "sha256_LF": "053be301378ebab8e6167200320c56a37485443fc90c3efed283987182287b2d"
+    },
+    "official": {
+      "first_line": 420,
+      "last_line": 448,
+      "sha256_LF": "053be301378ebab8e6167200320c56a37485443fc90c3efed283987182287b2d"
+    }
+  }
+]

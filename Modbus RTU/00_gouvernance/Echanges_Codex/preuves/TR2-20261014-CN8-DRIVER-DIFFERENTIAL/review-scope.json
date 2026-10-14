@@ -1,0 +1,19 @@
+{
+  "utc": "2026-10-14T17:04:29.056456+00:00",
+  "read_source_commit": "ea860be2223223ed59a3e3d748bdf1fad2115bb4",
+  "governance_same_as_prior_mission": true,
+  "journal_read_in_full": "Modbus RTU/00_gouvernance/ETAT_COURANT_TR2.md",
+  "prior_evidence_reused": [
+    "TR2-20261013-M016-SDMMC-PHYSICAL",
+    "TR2-20261013-M016-1BIT-LOAD",
+    "TR2-20261014-M017-SDMMC-1BIT",
+    "TR2-20261014-SDMMC1-REFERENCE-POC",
+    "TR2-20261014-SDMMC1-FIRSTFAULT",
+    "TR2-20261014-SDMMC1-ROOTCAUSE-REVIEW",
+    "TR2-20261014-SDMMC-DAT-PERMUTATION"
+  ],
+  "no_previous_test_or_model_reexecuted": true,
+  "new_work": "static source/file/function comparison, primary documentary pin map, upstream metadata inspection",
+  "journal_unchanged": "contract restricts publication to documentary report/proofs; no operational hardware change",
+  "no_hardware_or_PC_media_access": true
+}

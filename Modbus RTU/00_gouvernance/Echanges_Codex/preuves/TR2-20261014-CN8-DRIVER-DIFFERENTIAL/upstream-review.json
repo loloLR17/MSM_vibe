@@ -1,0 +1,52 @@
+{
+  "utc": "2026-10-14T16:58:38.421039+00:00",
+  "community_main_sha": "1e3c9183bad023ebf7d234134823d9270a0e8b64",
+  "community_commits": [
+    "1e3c9183bad023ebf7d234134823d9270a0e8b64 Add MCU selection report: STM32U5 vs STM32F7",
+    "5d3451617566bcca621e8ef1f60fd50e2106c217 Increase MSC buffer to 8192 bytes",
+    "f5be9feaacfa5600274056cc5834cd4291aec5cd Optimize MSC transfer speed and add README",
+    "4bf9fd6365f468cf7acbb679b8704c8a8f0a2d1f WIP: integrazione TinyUSB, compilazione non ancora funzionante",
+    "9127ca700e723ede6b0065ec065ba628a6f27689 Add SDMMC 4-bit support and FatFs filesystem",
+    "f1b0e37e9bd13ec72a853b1eab109dfecdfd5140 Initial commit"
+  ],
+  "community_issues_all_states_count": 0,
+  "issues_request": "https://api.github.com/repos/VILLO88/NUCLEOU575/issues?state=all&per_page=100",
+  "official_SD_commits": [
+    {
+      "sha": "2552682ee5a0d6f826a6435750fc9267be65868b",
+      "title": "Release v1.6.3"
+    },
+    {
+      "sha": "0a165ed854e333e890588f5446f47a788ea63514",
+      "title": "[HAL][SDMMC] Fix SD, MMC and SDIO Misra and Coverity warnings"
+    },
+    {
+      "sha": "826bf9f0dc7dec90fc51db440e2b60497dc5e7f3",
+      "title": "Release v1.6.1"
+    },
+    {
+      "sha": "55765b13c9425e79c5bbc1dda00973858e1fb437",
+      "title": "Release v1.5.0"
+    },
+    {
+      "sha": "4d93097a67928e9377e655ddd14622adc31b9770",
+      "title": "Release v1.3.0"
+    },
+    {
+      "sha": "ac9feee53dc1f7c37080a187e68fc8197205eaa8",
+      "title": "Release v1.2.0"
+    },
+    {
+      "sha": "dde086bdf2aa44a213ed96568e4b2c5ce2527dd7",
+      "title": "Release v1.1.0"
+    },
+    {
+      "sha": "f7c98c441a3b7bebec750b157ece1ae99d39533d",
+      "title": "Release v1.0.0"
+    }
+  ],
+  "HAL_path_community_history": [
+    "f1b0e37e9bd13ec72a853b1eab109dfecdfd5140 Initial commit"
+  ],
+  "author_intentions": "9127ca7 adds 1-to-4-bit and internal pullups; f5be9fe reduces divider4-to2/increases MSC buffer;5d34516 buffer8192 and reports polling preferred, DMA slower,24MHz unstable. Author claims no raw comparative measurements supplied. No SSR/CRC HAL patch in community history."
+}

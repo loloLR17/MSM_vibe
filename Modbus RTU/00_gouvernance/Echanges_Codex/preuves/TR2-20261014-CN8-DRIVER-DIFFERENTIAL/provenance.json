@@ -1,0 +1,58 @@
+{
+  "initial_head": "ea860be2223223ed59a3e3d748bdf1fad2115bb4",
+  "community_sha": "1e3c9183bad023ebf7d234134823d9270a0e8b64",
+  "SDK_sha": "d88042df24f16799957c24f00c2b234c9e306188",
+  "HAL1.6.3_sha": "2552682ee5a0d6f826a6435750fc9267be65868b",
+  "files": [
+    {
+      "file": "/home/lolo/dev/msm/cache/VILLO88-NUCLEOU575-SDMMC1-PoC/Core/Src/main.c",
+      "sha256": "8118786fa41935673c87ae21abe32461a769afa12a82a9c92cdf1607d99f4cc0"
+    },
+    {
+      "file": "/home/lolo/dev/msm/cache/VILLO88-NUCLEOU575-SDMMC1-PoC/Core/Src/stm32u5xx_hal_msp.c",
+      "sha256": "6e0eaa36637ec75f66f94ffaed1c770b2b10ef8ce3ef1cad254615e54ecbfdbf"
+    },
+    {
+      "file": "/home/lolo/dev/msm/cache/VILLO88-NUCLEOU575-SDMMC1-PoC/Core/Src/stm32u5xx_hal_timebase_tim.c",
+      "sha256": "2c2610a37165cbb0e3b32cd14e408e058ade2bcda674b6bd87ce88d2cfa69b92"
+    },
+    {
+      "file": "/home/lolo/dev/msm/cache/VILLO88-NUCLEOU575-SDMMC1-PoC/Core/Src/msc_disk.c",
+      "sha256": "dba9e72eca1cb2006da0ea5988f08aa38b470764a8b283efc589f260b29a41de"
+    },
+    {
+      "file": "/home/lolo/dev/msm/cache/VILLO88-NUCLEOU575-SDMMC1-PoC/Drivers/STM32U5xx_HAL_Driver/LICENSE.md",
+      "sha256": "06a8a2c4dd0516964772c2629b18cdfc68b5e9f472ffe10c24dcc55850188bab"
+    },
+    {
+      "file": "/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/STM32U5xx_HAL_Driver/LICENSE.md",
+      "sha256": "3ef135517604c828e7e2ac60daa5d34ce90a258dd0dfbec140651ac173b45ced"
+    },
+    {
+      "file": "/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/STM32U5xx_HAL_Driver/Release_Notes.html",
+      "sha256": "e85a04bbfffc9f6dfb46e31ec0023d2c211844b791d0e04555943564a7722679"
+    },
+    {
+      "file": "/home/lolo/dev/msm/projects/MSM_vibe-CN8-driver-differential/experiments/sdmmc_st_reference/src/main.c",
+      "sha256": "c092e370cb87711c34e3be73ab3b6554fa06d0ce03fb57f39676e7189261e603"
+    },
+    {
+      "file": "/home/lolo/dev/msm/projects/MSM_vibe-CN8-driver-differential/experiments/sdmmc_st_reference/src/load_main.c",
+      "sha256": "21b526c22e5b52b7498b155a24dafebf62e42ff3ecb79ace5dbcd3092803e079"
+    },
+    {
+      "file": "/home/lolo/dev/msm/projects/MSM_vibe-CN8-driver-differential/experiments/sdmmc_st_reference/src/clock.c",
+      "sha256": "a1d013daa9b0a8fa0da5a0b44cb352b523284d00d9cf9f7255bc7cf6f97c6a52"
+    },
+    {
+      "file": "/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Projects/STM32U575I-EV/Examples/SD/SD_ReadWrite_DMALinkedList/Src/main.c",
+      "sha256": "08938ec30d79c742ca529d7cd6e469eca2ed2ed1ec921ed2f525cd77b8d4ac2a"
+    },
+    {
+      "file": "/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Projects/STM32U575I-EV/Examples/SD/SD_ReadWrite_DMALinkedList/Src/stm32u5xx_hal_msp.c",
+      "sha256": "7492d92f4c816b96ce7ffa7342a76cddba96588e8877dcc70eaee367e0d4992d"
+    }
+  ],
+  "hardware_operations": 0,
+  "licenses": "HAL BSD-3-Clause; ST examples SLA0044; no global community project license found at pinned root; no third-party full source/image redistribution"
+}

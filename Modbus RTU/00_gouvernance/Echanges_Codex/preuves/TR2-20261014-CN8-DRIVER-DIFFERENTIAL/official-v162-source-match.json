@@ -1,0 +1,24 @@
+[
+  {
+    "url": "https://raw.githubusercontent.com/STMicroelectronics/stm32u5xx-hal-driver/v1.6.2/Src/stm32u5xx_hal_sd.c",
+    "local_community_file": "/home/lolo/dev/msm/cache/VILLO88-NUCLEOU575-SDMMC1-PoC/Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_sd.c",
+    "download_sha256": "78441c2277acadac8738ebc49f5abfe395d4760d050115325284f303affde2a7",
+    "community_sha256": "78441c2277acadac8738ebc49f5abfe395d4760d050115325284f303affde2a7",
+    "byte_identical": true
+  },
+  {
+    "url": "https://raw.githubusercontent.com/STMicroelectronics/stm32u5xx-hal-driver/v1.6.2/Src/stm32u5xx_ll_sdmmc.c",
+    "local_community_file": "/home/lolo/dev/msm/cache/VILLO88-NUCLEOU575-SDMMC1-PoC/Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_ll_sdmmc.c",
+    "download_sha256": "8fbf607ec39f920591cccc4e8a17c150bc3110db95e943b2aa7c9e7d4fa666a6",
+    "community_sha256": "8fbf607ec39f920591cccc4e8a17c150bc3110db95e943b2aa7c9e7d4fa666a6",
+    "byte_identical": true
+  },
+  {
+    "url": "https://api.github.com/repos/STMicroelectronics/stm32u5xx-hal-driver/git/ref/tags/v1.6.2",
+    "tag_object": {
+      "sha": "36cc28d890b600abc27f211d743c308fc5509ddf",
+      "type": "tag",
+      "url": "https://api.github.com/repos/STMicroelectronics/stm32u5xx-hal-driver/git/tags/36cc28d890b600abc27f211d743c308fc5509ddf"
+    }
+  }
+]

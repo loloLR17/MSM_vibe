@@ -1,0 +1,9 @@
+{
+  "tag": "v1.6.2",
+  "object": {
+    "sha": "2c5e2568fbdb1900a13ca3b2901fdd302cac3444",
+    "type": "commit",
+    "url": "https://api.github.com/repos/STMicroelectronics/stm32u5xx-hal-driver/git/commits/2c5e2568fbdb1900a13ca3b2901fdd302cac3444"
+  },
+  "url": "https://api.github.com/repos/STMicroelectronics/stm32u5xx-hal-driver/git/tags/36cc28d890b600abc27f211d743c308fc5509ddf"
+}

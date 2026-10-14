@@ -1,0 +1,80 @@
+{
+  "manual": "UM2861 Rev10 March2025, Table16 p34 and Table20 p39",
+  "manual_url": "https://www.st.com/resource/en/user_manual/um2861-stm32u5-nucleo144-board-mb1549-stmicroelectronics.pdf",
+  "schematic": "MB1549-U575ZI-Q-C05, extension-connectors sheet5",
+  "schematic_url": "https://www.st.com/resource/en/schematic_pack/mb1549-u575ziq-c05-schematic.pdf",
+  "source_mode": "official PDF text consulted, physical board revision and solder quality not inspected",
+  "instance": "SDMMC1 only, not historical SDMMC2",
+  "rows": [
+    {
+      "signal": "DAT0/D0",
+      "CN8_pin": 2,
+      "MCU": "PC8",
+      "AF": 12,
+      "morpho": "CN12-2",
+      "note": "CN8 direct; SB19 controls morpho branch"
+    },
+    {
+      "signal": "DAT1/D1",
+      "CN8_pin": 4,
+      "MCU": "PC9",
+      "AF": 12,
+      "morpho": "CN12-1",
+      "note": "CN8 direct; SB22 controls morpho branch"
+    },
+    {
+      "signal": "DAT2",
+      "CN8_pin": 6,
+      "MCU": "PC10",
+      "AF": 12,
+      "morpho": "CN11-1"
+    },
+    {
+      "signal": "DAT3/D3",
+      "CN8_pin": 8,
+      "MCU": "PC11",
+      "AF": 12,
+      "morpho": "CN11-2"
+    },
+    {
+      "signal": "CLK",
+      "CN8_pin": 10,
+      "MCU": "PC12",
+      "AF": 12,
+      "morpho": "CN11-3"
+    },
+    {
+      "signal": "CMD",
+      "CN8_pin": 12,
+      "MCU": "PD2",
+      "AF": 12,
+      "morpho": "CN11-4"
+    },
+    {
+      "signal": "3V3",
+      "CN8_pin": 7,
+      "MCU": null,
+      "AF": null,
+      "morpho": "CN11-16",
+      "note": "not IOREF3,5V9,VIN15"
+    },
+    {
+      "signal": "GND",
+      "CN8_pin": 11,
+      "alternate_CN8_pin": 13,
+      "MCU": null,
+      "AF": null,
+      "morpho": "CN11-20"
+    }
+  ],
+  "current_user_reported_bridges": "SB19 and SB22 closed; no implicit change",
+  "what_bypassed": "CN11/CN12 inserted contacts and series header solder path when replacing all affected interconnects",
+  "what_not_bypassed": "same MCU pins, rail/breakout/socket/card, shared PCB nets, morpho stubs with bridges closed, shorts loading those nets",
+  "CN8_pin1": "NC",
+  "CN8_pin3": "IOREF",
+  "CN8_pin5": "NRST",
+  "CN8_pin9": "5V",
+  "CN8_pin15": "VIN",
+  "CN8_pin14_16": "PF3/PF5, not SD",
+  "physical_actions_performed": false
+}

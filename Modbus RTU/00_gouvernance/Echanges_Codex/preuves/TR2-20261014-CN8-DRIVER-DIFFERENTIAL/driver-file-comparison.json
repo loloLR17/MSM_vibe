@@ -1,0 +1,56 @@
+[
+  {
+    "file": "Src/stm32u5xx_hal_sd.c",
+    "community_sha256": "78441c2277acadac8738ebc49f5abfe395d4760d050115325284f303affde2a7",
+    "official_sha256": "5ec395f5e2a79431960596b50bf2b776b28f5c8d4ff36d93822efb825dbf90af",
+    "byte_identical": false,
+    "hunks": 2,
+    "community_lines": 4070,
+    "official_lines": 4077
+  },
+  {
+    "file": "Src/stm32u5xx_ll_sdmmc.c",
+    "community_sha256": "8fbf607ec39f920591cccc4e8a17c150bc3110db95e943b2aa7c9e7d4fa666a6",
+    "official_sha256": "8fbf607ec39f920591cccc4e8a17c150bc3110db95e943b2aa7c9e7d4fa666a6",
+    "byte_identical": true,
+    "hunks": 0,
+    "community_lines": 2111,
+    "official_lines": 2111
+  },
+  {
+    "file": "Src/stm32u5xx_hal_sd_ex.c",
+    "community_sha256": "4cde4e449ba8f243defbc4c7ce3f7b621abb95786a6f24e304dcdb18327c3d99",
+    "official_sha256": "4cde4e449ba8f243defbc4c7ce3f7b621abb95786a6f24e304dcdb18327c3d99",
+    "byte_identical": true,
+    "hunks": 0,
+    "community_lines": 395,
+    "official_lines": 395
+  },
+  {
+    "file": "Inc/stm32u5xx_hal_sd.h",
+    "community_sha256": "8b44a1339a2edc7df15613aa6a31312628ce38d75077a99e3a321367816a7ebf",
+    "official_sha256": "8b44a1339a2edc7df15613aa6a31312628ce38d75077a99e3a321367816a7ebf",
+    "byte_identical": true,
+    "hunks": 0,
+    "community_lines": 798,
+    "official_lines": 798
+  },
+  {
+    "file": "Inc/stm32u5xx_ll_sdmmc.h",
+    "community_sha256": "d6c3c0cb92a121da20106483295c5a395b679a467e054840eeed1d5924424452",
+    "official_sha256": "d6c3c0cb92a121da20106483295c5a395b679a467e054840eeed1d5924424452",
+    "byte_identical": true,
+    "hunks": 0,
+    "community_lines": 1321,
+    "official_lines": 1321
+  },
+  {
+    "file": "Inc/stm32u5xx_hal_sd_ex.h",
+    "community_sha256": "dfdc08e5b8e8fa38178988902cf4d71674f028aec926faf7717008d94c101f0a",
+    "official_sha256": "dfdc08e5b8e8fa38178988902cf4d71674f028aec926faf7717008d94c101f0a",
+    "byte_identical": true,
+    "hunks": 0,
+    "community_lines": 119,
+    "official_lines": 119
+  }
+]

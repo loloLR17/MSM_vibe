@@ -1,0 +1,44 @@
+[
+  {
+    "sha": "9127ca700e723ede6b0065ec065ba628a6f27689",
+    "title": "Add SDMMC 4-bit support and FatFs filesystem",
+    "comments_count": 0,
+    "changed_files": [
+      ".mxproject",
+      "Core/Inc/main.h",
+      "Core/Src/main.c",
+      "Core/Src/stm32u5xx_hal_msp.c",
+      "Middlewares/FatFs/LICENSE.txt",
+      "Middlewares/FatFs/src/diskio.c",
+      "Middlewares/FatFs/src/diskio.h",
+      "Middlewares/FatFs/src/ff.c",
+      "Middlewares/FatFs/src/ff.h",
+      "Middlewares/FatFs/src/ffconf.h",
+      "Middlewares/FatFs/src/ffunicode.c",
+      "NUcleoU575.ioc",
+      "STM32CubeIDE/.cproject",
+      "STM32CubeIDE/.project"
+    ],
+    "url": "https://api.github.com/repos/VILLO88/NUCLEOU575/commits/9127ca700e723ede6b0065ec065ba628a6f27689"
+  },
+  {
+    "sha": "f5be9feaacfa5600274056cc5834cd4291aec5cd",
+    "title": "Optimize MSC transfer speed and add README",
+    "comments_count": 0,
+    "changed_files": [
+      "Core/Inc/tusb_config.h",
+      "Core/Src/main.c",
+      "README.md"
+    ],
+    "url": "https://api.github.com/repos/VILLO88/NUCLEOU575/commits/f5be9feaacfa5600274056cc5834cd4291aec5cd"
+  },
+  {
+    "sha": "5d3451617566bcca621e8ef1f60fd50e2106c217",
+    "title": "Increase MSC buffer to 8192 bytes",
+    "comments_count": 0,
+    "changed_files": [
+      "Core/Inc/tusb_config.h"
+    ],
+    "url": "https://api.github.com/repos/VILLO88/NUCLEOU575/commits/5d3451617566bcca621e8ef1f60fd50e2106c217"
+  }
+]
