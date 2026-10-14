@@ -1,0 +1,133 @@
+{
+  "retrieved_at_utc": "2026-10-14T11:43:05.623320+00:00",
+  "source_sha": "1e3c9183bad023ebf7d234134823d9270a0e8b64",
+  "source_status": "",
+  "files_inspected": [
+    {
+      "path": "NUcleoU575.ioc",
+      "lines": 263,
+      "sha256": "14d7a7bee9824582c1f3a69c666f6f6c2875fe16b57aa975055d14feee5daf44",
+      "url": "https://github.com/VILLO88/NUCLEOU575/blob/1e3c9183bad023ebf7d234134823d9270a0e8b64/NUcleoU575.ioc"
+    },
+    {
+      "path": "README.md",
+      "lines": 56,
+      "sha256": "c44790b2ec030e376b8b4784a6ff8aaec423e1fa4fdac56c57805d6c9b98a9dd",
+      "url": "https://github.com/VILLO88/NUCLEOU575/blob/1e3c9183bad023ebf7d234134823d9270a0e8b64/README.md"
+    },
+    {
+      "path": "Core/Src/main.c",
+      "lines": 481,
+      "sha256": "8118786fa41935673c87ae21abe32461a769afa12a82a9c92cdf1607d99f4cc0",
+      "url": "https://github.com/VILLO88/NUCLEOU575/blob/1e3c9183bad023ebf7d234134823d9270a0e8b64/Core/Src/main.c"
+    },
+    {
+      "path": "Core/Src/stm32u5xx_hal_msp.c",
+      "lines": 287,
+      "sha256": "6e0eaa36637ec75f66f94ffaed1c770b2b10ef8ce3ef1cad254615e54ecbfdbf",
+      "url": "https://github.com/VILLO88/NUCLEOU575/blob/1e3c9183bad023ebf7d234134823d9270a0e8b64/Core/Src/stm32u5xx_hal_msp.c"
+    },
+    {
+      "path": "Core/Src/stm32u5xx_it.c",
+      "lines": 249,
+      "sha256": "e33b8e1fc739ed5a42001cbd90f6c5918ae7a758d9a450746dca01fab2554b3b",
+      "url": "https://github.com/VILLO88/NUCLEOU575/blob/1e3c9183bad023ebf7d234134823d9270a0e8b64/Core/Src/stm32u5xx_it.c"
+    },
+    {
+      "path": "Core/Src/stm32u5xx_hal_timebase_tim.c",
+      "lines": 126,
+      "sha256": "2c2610a37165cbb0e3b32cd14e408e058ade2bcda674b6bd87ce88d2cfa69b92",
+      "url": "https://github.com/VILLO88/NUCLEOU575/blob/1e3c9183bad023ebf7d234134823d9270a0e8b64/Core/Src/stm32u5xx_hal_timebase_tim.c"
+    },
+    {
+      "path": "Core/Src/msc_disk.c",
+      "lines": 153,
+      "sha256": "dba9e72eca1cb2006da0ea5988f08aa38b470764a8b283efc589f260b29a41de",
+      "url": "https://github.com/VILLO88/NUCLEOU575/blob/1e3c9183bad023ebf7d234134823d9270a0e8b64/Core/Src/msc_disk.c"
+    },
+    {
+      "path": "Core/Inc/tusb_config.h",
+      "lines": 70,
+      "sha256": "6c9687faeb4c40c7f3f9cd30eeef0be19089d95eec47afa2e0717dba57c96fce",
+      "url": "https://github.com/VILLO88/NUCLEOU575/blob/1e3c9183bad023ebf7d234134823d9270a0e8b64/Core/Inc/tusb_config.h"
+    },
+    {
+      "path": "Core/Inc/stm32u5xx_hal_conf.h",
+      "lines": 517,
+      "sha256": "9a75c6b3a23d24f901e47e8b47428128dac19d6970ab61fe1fd6d1c8aa7c854b",
+      "url": "https://github.com/VILLO88/NUCLEOU575/blob/1e3c9183bad023ebf7d234134823d9270a0e8b64/Core/Inc/stm32u5xx_hal_conf.h"
+    },
+    {
+      "path": "Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_sd.c",
+      "lines": 4070,
+      "sha256": "78441c2277acadac8738ebc49f5abfe395d4760d050115325284f303affde2a7",
+      "url": "https://github.com/VILLO88/NUCLEOU575/blob/1e3c9183bad023ebf7d234134823d9270a0e8b64/Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_sd.c"
+    },
+    {
+      "path": "Drivers/STM32U5xx_HAL_Driver/Inc/stm32u5xx_hal_gpio.h",
+      "lines": 410,
+      "sha256": "6d9e6c1abe6303f3e72f488c21fe2a1272a033a8309e6b8da4a3f2f62c3ced23",
+      "url": "https://github.com/VILLO88/NUCLEOU575/blob/1e3c9183bad023ebf7d234134823d9270a0e8b64/Drivers/STM32U5xx_HAL_Driver/Inc/stm32u5xx_hal_gpio.h"
+    },
+    {
+      "path": "Drivers/STM32U5xx_HAL_Driver/Inc/stm32u5xx_ll_sdmmc.h",
+      "lines": 1321,
+      "sha256": "d6c3c0cb92a121da20106483295c5a395b679a467e054840eeed1d5924424452",
+      "url": "https://github.com/VILLO88/NUCLEOU575/blob/1e3c9183bad023ebf7d234134823d9270a0e8b64/Drivers/STM32U5xx_HAL_Driver/Inc/stm32u5xx_ll_sdmmc.h"
+    },
+    {
+      "path": "Middlewares/TinyUSB/src/device/usbd.c",
+      "lines": 1578,
+      "sha256": "7a304e64acc0338ac3437268794edb0a5d43b65e67eaa8a35e1fb840cb890551",
+      "url": "https://github.com/VILLO88/NUCLEOU575/blob/1e3c9183bad023ebf7d234134823d9270a0e8b64/Middlewares/TinyUSB/src/device/usbd.c"
+    },
+    {
+      "path": "Middlewares/TinyUSB/src/class/msc/msc_device.c",
+      "lines": 964,
+      "sha256": "9bcd1daa30d0c9367396b76196a627d536b76766833977f42bb8b071affd4eb7",
+      "url": "https://github.com/VILLO88/NUCLEOU575/blob/1e3c9183bad023ebf7d234134823d9270a0e8b64/Middlewares/TinyUSB/src/class/msc/msc_device.c"
+    },
+    {
+      "path": "Middlewares/TinyUSB/src/osal/osal_none.h",
+      "lines": 217,
+      "sha256": "1813d7a38fc460bbf92efa8cc9e0333879a7a76d7ba433fb36b8f1a9998e1bb4",
+      "url": "https://github.com/VILLO88/NUCLEOU575/blob/1e3c9183bad023ebf7d234134823d9270a0e8b64/Middlewares/TinyUSB/src/osal/osal_none.h"
+    },
+    {
+      "path": "Middlewares/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h",
+      "lines": 381,
+      "sha256": "121ed21bea302bb01242817cc9cb9949c2383286c229f56263de0f4789f4edf9",
+      "url": "https://github.com/VILLO88/NUCLEOU575/blob/1e3c9183bad023ebf7d234134823d9270a0e8b64/Middlewares/TinyUSB/src/portable/synopsys/dwc2/dwc2_stm32.h"
+    },
+    {
+      "path": "Middlewares/TinyUSB/src/portable/synopsys/dwc2/dcd_dwc2.c",
+      "lines": 1244,
+      "sha256": "c279b5c4957520ced65e8f44a27f58ffcd6a87d636e0ccd5319b27167645e41c",
+      "url": "https://github.com/VILLO88/NUCLEOU575/blob/1e3c9183bad023ebf7d234134823d9270a0e8b64/Middlewares/TinyUSB/src/portable/synopsys/dwc2/dcd_dwc2.c"
+    },
+    {
+      "path": "Middlewares/FatFs/src/diskio.c",
+      "lines": 155,
+      "sha256": "b43f5f3ba710fb2128ee07522469e117ff9554e1bb506bba4eeea11e44c8dc80",
+      "url": "https://github.com/VILLO88/NUCLEOU575/blob/1e3c9183bad023ebf7d234134823d9270a0e8b64/Middlewares/FatFs/src/diskio.c"
+    },
+    {
+      "path": "Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_ll_sdmmc.c",
+      "lines": 2111,
+      "sha256": "8fbf607ec39f920591cccc4e8a17c150bc3110db95e943b2aa7c9e7d4fa666a6",
+      "url": "https://github.com/VILLO88/NUCLEOU575/blob/1e3c9183bad023ebf7d234134823d9270a0e8b64/Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_ll_sdmmc.c"
+    },
+    {
+      "path": "Drivers/CMSIS/Device/ST/STM32U5xx/Include/stm32u575xx.h",
+      "lines": 24242,
+      "sha256": "636685e17b9637d3dc58808867f76721647c0b0ceb1c3eed6d663c51ee345ccd",
+      "url": "https://github.com/VILLO88/NUCLEOU575/blob/1e3c9183bad023ebf7d234134823d9270a0e8b64/Drivers/CMSIS/Device/ST/STM32U5xx/Include/stm32u575xx.h"
+    }
+  ],
+  "no_build_flash_debug_or_media_access": true,
+  "official_ST_schematic": "https://www.st.com/resource/en/schematic_pack/mb1549-u575ziq-c05-schematic.pdf",
+  "official_ST_manual": "https://www.st.com/resource/en/user_manual/um2861-stm32u5-nucleo144-board-mb1549-stmicroelectronics.pdf",
+  "ST_access": "PDF parsed via web tool, C-05 pages5/7 + UM2861Rev10 tables19/20 and power section; direct urllib download timed out, no local PDF copy; actual board revision unverified",
+  "Adafruit_downloads": "https://learn.adafruit.com/adafruit-microsd-spi-sdio/downloads",
+  "expert_note_source": "hypotheses summarized in mission contract only; original full Claude memo not supplied"
+}

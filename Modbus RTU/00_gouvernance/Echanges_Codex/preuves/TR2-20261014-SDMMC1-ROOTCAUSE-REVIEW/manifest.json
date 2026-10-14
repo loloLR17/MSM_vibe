@@ -1,0 +1,16 @@
+{
+  "PROTOCOLE_LECTURE_PROPOSE.md": "32479ea1414c055a87e88399a791f1006bbc658fe74b175dffc5d3936243b0e0",
+  "README.md": "38495b4946fc1aa0b5c914cd477fe0f5019ffd9e1e20d392ac4da25499301032",
+  "adafruit-netlist-review.json": "6503abe8ccc538c7d4371dfc0c611889c378d69c56cf0da39a08bf2acc53d035",
+  "qualification-PC-anterieure/RAPPORT_QUALIFICATION_CARTE_PC.md": "7e9880d217d3d7dca5699f0b0e27556d8fd3d3edebdb1e530ec31b98c528fff1",
+  "qualification-PC-anterieure/README.md": "95fb41dbc686591d6792cb23680fbee2252908bbc1c4717671267baa4eac6626",
+  "qualification-PC-anterieure/bounded-result-summary.json": "d074690a4875108b14daa52325119f24c3d917cbbd9b5611c8768fca38518d8a",
+  "qualification-PC-anterieure/bounded-statistics.json": "1d343f5b05bff89912587536f471d1121d0ac9b111d7136503a0caf7ca25db97",
+  "qualification-PC-anterieure/final-reader-state.json": "31f83f5ec094b0ff9bc26fe65c73f0f75aea1ab3d2439e6c683844b5fa90ff89",
+  "qualification-PC-anterieure/manifest.json": "f5928d327c0274a4b46aa12e675e7a01288e51fbcfa1307601547e478204fe10",
+  "qualification-PC-anterieure/qualification-summary.json": "3a27edddc66ad4a90614dd12a928ed6b2156cb1a13dbaaea089d9975c933af03",
+  "qualification-PC-anterieure/random-no-write-through-result.json": "fdd138ae8618d967d92692fba7c4a2d96e2d631cf0247728d67f7615b9bc2666",
+  "qualification-PC-anterieure/random-result.json": "f1d7c2130c8b2141d953fd74d89bab39ab83430fdb1253d28372b5ff195949f0",
+  "qualification-PC-anterieure/read-probe-result.json": "1613ce1a7dde69a5de3bf574eefa9f91e77d61a33ebb3cfd8d97b305cd96daa7",
+  "source-review-provenance.json": "34473b1cff50508af5fae7afd473881804137720622355a358bb03f11b1ee97c"
+}

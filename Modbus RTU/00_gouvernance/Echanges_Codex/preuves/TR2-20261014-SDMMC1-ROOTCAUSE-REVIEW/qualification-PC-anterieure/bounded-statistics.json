@@ -1,0 +1,26 @@
+{
+  "write": {
+    "count": 16384,
+    "min_ms": 0.7653000000000001,
+    "p50_ms": 1.6903000000000001,
+    "p95_ms": 3.5608,
+    "p99_ms": 140.11520000000002,
+    "max_ms": 1077.7948000000001,
+    "over_TR2_chunk_arrival_153_6ms": 44
+  },
+  "read": {
+    "count": 16384,
+    "min_ms": 0.7272000000000001,
+    "p50_ms": 0.7549,
+    "p95_ms": 0.9061,
+    "p99_ms": 1.0327,
+    "max_ms": 2.6955,
+    "over_TR2_chunk_arrival_153_6ms": 0
+  },
+  "write_MB_per_s": 12.472043537470453,
+  "read_MB_per_s": 66.68308044505001,
+  "minimum_write_class_MB_per_s": 10,
+  "comparison_TR2_nominal_B_per_s": 426672,
+  "aggregate_write_ratio_TR2": 29.230986653613208,
+  "formal_A1_C10_U1_certification": false
+}

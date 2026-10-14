@@ -1,0 +1,29 @@
+{
+  "passed": true,
+  "disk": 3,
+  "reader": "Realtek PCIE CardReader",
+  "partition": 1,
+  "volume": "F",
+  "physical_start_byte": 1074790400,
+  "physical_last_byte": 2148532223,
+  "no_buffering": true,
+  "write_through": true,
+  "full_capacity_qualification": false,
+  "result": {
+    "BytesWritten": 1073741824,
+    "BytesRead": 1073741824,
+    "Mismatches": 0,
+    "FirstMismatch": -1,
+    "WriteFlushMs": 86091.8919,
+    "ReadMs": 16102.162900000001,
+    "ExpectedSHA256": "efc54c222e733c30126fc20ec275c5406a9ea2fcc1a633f0061efdbb0107cdce",
+    "ReadSHA256": "efc54c222e733c30126fc20ec275c5406a9ea2fcc1a633f0061efdbb0107cdce",
+    "ChunkBytes": 65536,
+    "Offset": 1073741824,
+    "Span": 1073741824,
+    "FlushOK": true
+  },
+  "utc": "2026-10-14T11:15:52.6097697Z",
+  "documentary_copy_note": "Previous test, 2026-10-14; latency arrays omitted from this compact derivative. Original file SHA included below, retained locally. No new test.",
+  "original_file_sha256": "2ef81f765b9bee6b76c45262d1fcde55b20109c355930b1a103fc9413ff929cf"
+}

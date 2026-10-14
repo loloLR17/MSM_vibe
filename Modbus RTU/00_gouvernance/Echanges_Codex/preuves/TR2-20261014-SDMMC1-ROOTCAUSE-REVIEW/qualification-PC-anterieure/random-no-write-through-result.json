@@ -1,0 +1,21 @@
+{
+    "passed":  true,
+    "official_A1_certification":  false,
+    "no_buffering":  true,
+    "write_through":  false,
+    "result":  {
+                   "ReadOps":  11556,
+                   "WriteOps":  2823,
+                   "VerifiedBlocks":  2048,
+                   "ReadMs":  5000.082,
+                   "WriteFlushMs":  5088.6647,
+                   "ReadIOPS":  2311.16209694161,
+                   "WriteIOPS":  554.76243109513575,
+                   "Mismatches":  0,
+                   "FlushOK":  true,
+                   "BlockBytes":  4096,
+                   "RangeBytes":  8388608,
+                   "PartitionOffset":  3221225472
+               },
+    "utc":  "2026-10-14T11:17:31.5512270Z"
+}

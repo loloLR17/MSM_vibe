@@ -1,0 +1,22 @@
+{
+    "utc":  "2026-10-14T11:11:19.4736254Z",
+    "disk_number":  3,
+    "reader":  "Realtek PCIE CardReader",
+    "bytes":  31914983424,
+    "volume":  "F",
+    "no_write":  true,
+    "results":  [
+                    {
+                        "kind":  "PhysicalDisk",
+                        "passed":  false,
+                        "error":  "Exception lors de l\u0027appel de « .ctor » avec « 6 » argument(s) : « L\u0027accès au chemin d\u0027accès \u0027\\\\.\\PhysicalDrive3\u0027 est refusé. »"
+                    },
+                    {
+                        "kind":  "Partition",
+                        "passed":  true,
+                        "bytes":  131072,
+                        "elapsed_ms":  7.2218,
+                        "sha256":  "c8a5f1e01ab61ebcace803eb63d5cf360035b17a8aaaae309369c3922a611df4"
+                    }
+                ]
+}

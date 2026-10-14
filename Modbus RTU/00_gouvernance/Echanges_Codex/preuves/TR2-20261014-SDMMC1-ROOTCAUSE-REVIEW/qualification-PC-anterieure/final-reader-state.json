@@ -1,0 +1,28 @@
+{
+    "utc":  "2026-10-14T11:20:40.1165736Z",
+    "disk":  {
+                 "Number":  3,
+                 "FriendlyName":  "Realtek PCIE CardReader",
+                 "Size":  31914983424,
+                 "OperationalStatus":  "Online",
+                 "BusType":  "SCSI",
+                 "PartitionStyle":  "MBR"
+             },
+    "partitions":  [
+                       {
+                           "PartitionNumber":  1,
+                           "Offset":  1048576,
+                           "Size":  17179869184,
+                           "DriveLetter":  "F",
+                           "Type":  "FAT32 XINT13"
+                       }
+                   ],
+    "volumes":  [
+                    {
+                        "DriveLetter":  "F",
+                        "FileSystemType":  "Unknown",
+                        "HealthStatus":  "Healthy",
+                        "Size":  0
+                    }
+                ]
+}
