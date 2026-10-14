@@ -1,0 +1,33 @@
+{
+  "remote_sha": "12ca34935468afe09e0951cea055d1ea197976a6",
+  "files_read_byte_identical": [
+    "Modbus RTU/00_gouvernance/ETAT_COURANT_TR2.md",
+    "Modbus RTU/00_gouvernance/Echanges_Codex/DERNIER_RAPPORT.md",
+    "Modbus RTU/00_gouvernance/Echanges_Codex/archives/TR2-20261014-P12H3H-SDMMC1-ROOTCAUSE-REVIEW/MISSION.md",
+    "Modbus RTU/00_gouvernance/Echanges_Codex/archives/TR2-20261014-P12H3H-SDMMC1-ROOTCAUSE-REVIEW/RAPPORT.md",
+    "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261014-SDMMC1-FIRSTFAULT/artifacts-A.json",
+    "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261014-SDMMC1-FIRSTFAULT/build-A-attempt1.log",
+    "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261014-SDMMC1-FIRSTFAULT/build-A-attempt2.log",
+    "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261014-SDMMC1-FIRSTFAULT/configure-A.log",
+    "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261014-SDMMC1-FIRSTFAULT/main.c.diff",
+    "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261014-SDMMC1-FIRSTFAULT/manifest.json",
+    "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261014-SDMMC1-FIRSTFAULT/offline-ABI-A.log",
+    "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261014-SDMMC1-FIRSTFAULT/overlay-provenance.json",
+    "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261014-SDMMC1-FIRSTFAULT/pinout-confirmation.json",
+    "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261014-SDMMC1-FIRSTFAULT/profile-guard.log",
+    "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261014-SDMMC1-FIRSTFAULT/stm32u5xx_hal_sd.c.diff",
+    "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261014-SDMMC1-FIRSTFAULT/stm32u5xx_it.c.diff",
+    "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261014-SDMMC1-FIRSTFAULT/stm32u5xx_ll_sdmmc.c.diff",
+    "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261014-SDMMC1-FIRSTFAULT/symbols-A.txt",
+    "experiments/sdmmc1_firstfault/CMakeLists.txt",
+    "experiments/sdmmc1_firstfault/README.md",
+    "experiments/sdmmc1_firstfault/decode.py",
+    "experiments/sdmmc1_firstfault/generate.py",
+    "experiments/sdmmc1_firstfault/observe.py",
+    "experiments/sdmmc1_firstfault/probe.c",
+    "experiments/sdmmc1_firstfault/trace.h"
+  ],
+  "manifest_entries_verified": 13,
+  "protected_files_preserved": true,
+  "original_repo_and_stashes_preserved": true
+}

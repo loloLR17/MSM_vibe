@@ -42,3 +42,11 @@ Commit logiciel initial `42e8dd236d883366cf37167f9f96293fe95166f4` préservé. M
 Dépôt principal historique propre `82169af7e76797731358852bec83bfb0ceb54ccf`, stashes `6251b988e8b20f97997a8f98fd26d4d35a45a1b2` et `f3b829e6188f491920edf74a5f9ed0f559d08b87` préservés. ROOTCAUSE-REVIEW archivée byte-identique depuis94fffb0. Journal actualisé : préparation logicielle, correction utilisateur et prochaine étape physique. Principal/FRAM/média512Go/Modbus/protections non accédés. Permissions exercées à ce checkpoint : logiciel et commits ; push normal prévu avec contrôle distant, aucune opération matérielle.
 
 Statut IN_PROGRESS de reprise, pas DONE. Publication et relecture distante de ce checkpoint à effectuer ; SHA publié communiqué après contrôle, sans auto-référence dans ce commit.
+
+## Mise à jour — préparation matérielle accomplie, RUN A non lancé
+
+Checkpoint12ca34935468afe09e0951cea055d1ea197976a6 publié normalement et récupéré de GitHub :25fichiers relus byte-identiques,13empreintes vérifiées ; [preuve](preuves/TR2-20261014-SDMMC1-FIRSTFAULT/remote-readback-12ca349.json). Les avertissements whitespace concernent les diff tiers et CRLF des logs bruts, conservés intacts ; documents/JSON contrôlés.
+
+Après confirmation utilisateur « Je confirme ST-LINK connecté, SD card retirée, USB C débranché », préflight par GDB attach sans reset : UIDconforme, image originale31437octets SHA2a2fe744… identique et sauvegardée. Le firmware précédent était dans Error_Handler sans carte ; cela ne constitue pas un nouvel essai SD. Flash standard qualifié secondeSN uniquement, secteurs nécessaires0–2, verifyOK/resetlogiciel avant insertion. Readback21852octets exact SHAfb284374…, observation WAIT1/trigger0/run_count0 puis detach. [Synthèse et logs bruts](preuves/TR2-20261014-SDMMC1-FIRSTFAULT/flash-A-summary.json). Pas de mass erase/OptionBytes/RDP, pas de commande SD opérateur.
+
+Autorisations flash/debug exercées pour cette préparation, après résolution du repérage documentaire et confirmation utilisateur hors tension. Mission active inchangée. Le seul RUN A reste à effectuer après coupure/insertion/reconnexion confirmées ; mesureVDD0 si possible, sinon limite explicite. Carte test absente lors du flash ; état au moment d'insertion non présumé. Pas de restauration automatique du firmware USB original afin d'éviter des transactions SD/MSC non prévues.

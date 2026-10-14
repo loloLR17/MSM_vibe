@@ -1,0 +1,4 @@
+Error_Handler () at /home/lolo/dev/msm/cache/VILLO88-NUCLEOU575-SDMMC1-PoC/Core/Src/main.c:461
+461	  while (1)
+0xbfa0700:	0x001b0046	0x38425018	0x20333157
+[Inferior 1 (Remote target) detached]
