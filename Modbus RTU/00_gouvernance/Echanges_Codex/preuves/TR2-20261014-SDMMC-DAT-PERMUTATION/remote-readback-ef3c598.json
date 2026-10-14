@@ -1,0 +1,25 @@
+{
+  "remote_sha": "ef3c5981a093a2d2c79788310abf7bc6b867eb89",
+  "utc": "2026-10-14T16:33:23.874228+00:00",
+  "files_read_byte_identical": [
+    "Modbus RTU/00_gouvernance/Echanges_Codex/DERNIER_RAPPORT.md",
+    "Modbus RTU/00_gouvernance/Echanges_Codex/archives/TR2-20261014-P12H3H-SDMMC1-READONLY-FIRSTFAULT/MISSION.md",
+    "Modbus RTU/00_gouvernance/Echanges_Codex/archives/TR2-20261014-P12H3H-SDMMC1-READONLY-FIRSTFAULT/RAPPORT.md",
+    "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261014-SDMMC-DAT-PERMUTATION/analyse.py",
+    "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261014-SDMMC-DAT-PERMUTATION/historical-contract-report-catalogue.json",
+    "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261014-SDMMC-DAT-PERMUTATION/historical-proof-inventory.json",
+    "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261014-SDMMC-DAT-PERMUTATION/manifest.json",
+    "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261014-SDMMC-DAT-PERMUTATION/permutations.json",
+    "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261014-SDMMC-DAT-PERMUTATION/prior-reasoning-search.json",
+    "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261014-SDMMC-DAT-PERMUTATION/source-access.json",
+    "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261014-SDMMC-DAT-PERMUTATION/source-downloads.json",
+    "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261014-SDMMC-DAT-PERMUTATION/static-source-verification.json"
+  ],
+  "new_manifest_entries_verified": 8,
+  "historical_manifest_entries_verified": 662,
+  "model_verified": true,
+  "archives_BLOCKED_FAILED_preserved": true,
+  "protected_files_including_journal_unchanged": true,
+  "original_repository_stashes_upstreams_preserved": true,
+  "worktree_clean": true
+}

@@ -1,10 +1,10 @@
 ---
 mission_id: TR2-20261014-P12H3H-SDMMC-DAT-PERMUTATION-REVIEW
-status: IN_PROGRESS
+status: DONE
 base_ref: main
 base_sha: 240a83a86e0f93e1ef647f945853e396111ba971
 initial_head: 163255a6b67b9260c2d213f8ef500268da9f89bd
-result_sha: null
+result_sha: ef3c5981a093a2d2c79788310abf7bc6b867eb89
 created_at_utc: 2026-10-14T16:27:26.740222+00:00
 author: Codex
 target_branch: main
@@ -18,7 +18,7 @@ allow_debug: false
 
 **Une permutation idéale et constante de DAT1–DAT3 peut corrompre les octets sans erreur CRC, et être masquée par une écriture/relecture sur le même câblage. Elle ne produit pas, à elle seule, le premier DCRCFAIL du SSR observé dans FIRSTFAULT B.** Une anomalie supplémentaire, électrique, temporelle, de mode ou d'implémentation, serait nécessaire.
 
-Les preuves qui changent de chemin — write4bits/read1bit, writeSTM32/readPC et write1bit/read4bits — excluent les permutations non identiques constantes aux périodes concernées. Elles ne certifient pas le montage actuel après ses recâblages successifs. Statut IN_PROGRESS uniquement en attente de publication et relecture de cette revue, sans blocage technique.
+Les preuves qui changent de chemin — write4bits/read1bit, writeSTM32/readPC et write1bit/read4bits — excluent les permutations non identiques constantes aux périodes concernées. Elles ne certifient pas le montage actuel après ses recâblages successifs. Statut DONE pour cette revue documentaire publiée et relue, sans qualification matérielle nouvelle ni identification d’une cause électrique unique.
 
 **Aucun nouvel essai matériel, flash, debug, reset, connexion à une cible, commande SD, accès au lecteur PC ou changement de firmware.** Le travail est documentaire et hors ligne.
 
@@ -131,8 +131,8 @@ FIRSTFAULT archivée intacte depuis240a83a : contrat **BLOCKED**, rapport **FAIL
 
 Dépôt historique propre82169af7e76797731358852bec83bfb0ceb54ccf ; worktreeisolé `MSM_vibe-SDMMC-DAT-permutation-review`, branche `codex/p12h3h-dat-permutation-review`, basé163255a. Stashes6251b988e8b20f97997a8f98fd26d4d35a45a1b2 etf3b829e6188f491920edf74a5f9ed0f559d08b87 préservés. Aucun merge/rebase/reset/clean ou écrasement.
 
-Validation proportionnée : documents/diff, manifests/archives et [script hors ligne](preuves/TR2-20261014-SDMMC-DAT-PERMUTATION/analyse.py),24 permutations×256octets, inverse dans lesdeux sens, CRC indépendantstdlib,3 jeux antérieurs intégralement comparés. Commande exécutée depuis le worktree : `python3 'Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261014-SDMMC-DAT-PERMUTATION/analyse.py' --repo "$PWD" --out 'Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261014-SDMMC-DAT-PERMUTATION'`. Résultat24cas/3datasets/662empreintes/0matériel. Aucun échec de calcul/manifest masqué. Pas de compilation ou tests de production sur code inchangé. `result_sha:null` avant commit : aucun firmware nouvellement évalué. Le SHA du script de modèle effectivement exécuté sera indiqué après publication, sans l’attribuer à un nouveau runSTM32.
+Validation proportionnée : documents/diff, manifests/archives et [script hors ligne](preuves/TR2-20261014-SDMMC-DAT-PERMUTATION/analyse.py),24 permutations×256octets, inverse dans lesdeux sens, CRC indépendantstdlib,3 jeux antérieurs intégralement comparés. Commande exécutée depuis le worktree : `python3 'Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261014-SDMMC-DAT-PERMUTATION/analyse.py' --repo "$PWD" --out 'Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261014-SDMMC-DAT-PERMUTATION'`. Résultat24cas/3datasets/662empreintes/0matériel. Aucun échec de calcul/manifest masqué. Pas de compilation ou tests de production sur code inchangé. `result_sha:ef3c5981a093a2d2c79788310abf7bc6b867eb89` désigne le script de modèle hors ligne effectivement exécuté et publié, sans modification de ce script depuis son analyse. Aucun firmware nouvellement évalué, aucun nouveau runSTM32.
 
 État matériel **hérité et non relu** : secondeNucleo probeB SHA fdb7fa151bd69051c839cf11a1f1e3eb134d6a821a07ab0b827eef1d91bdf829 au terminal99/trigger0/run1/error2, débogueur détaché ; carte insérée/STLINKseul/CN15off selon dernier utilisateur. Principal/FRAM/microSD512Go/Modbus/protections jamais accédés dans cette mission. Aucun geste physique nécessaire pour cette revue.
 
-Journal intégral relu et conservé sans modification : le contrat limite la publication au rapport et aux preuves documentaires nécessaires (exception de périmètre à l’actualisation normale AGENTS§18). Conclusions, preuves croisées, limite55AA et mapping actuel non certifié sont transmis ici à ChatGPT ; aucun changement de règle ou de jalon. Publications et relecture distante à effectuer avant DONE ; SHA final et étatGit annoncés après vérification. Contrôle indépendant ChatGPT distinct de cette clôture documentaire.
+Journal intégral relu et conservé sans modification : le contrat limite la publication au rapport et aux preuves documentaires nécessaires (exception de périmètre à l’actualisation normale AGENTS§18). Conclusions, preuves croisées, limite55AA et mapping actuel non certifié sont transmis ici à ChatGPT ; aucun changement de règle ou de jalon. Publication normale sur `main` au commit **`ef3c5981a093a2d2c79788310abf7bc6b867eb89`**, message `P12 H3h: review DAT permutations, per-lane CRC and historical cross-path evidence`, réussie. Après fetch depuis GitHub : **12 fichiers intégralement relus et identiques octet à octet, 8 nouvelles empreintes et 662 empreintes historiques vérifiées**, archive BLOCKED/FAILED exacte, modèle et fichiers protégés/journal/stashes/upstreams conservés. [Preuve de relecture distante](preuves/TR2-20261014-SDMMC-DAT-PERMUTATION/remote-readback-ef3c598.json). Worktree propre à ce contrôle. Cette finalisation DONE est documentaire ; son push normal et sa relecture seront également vérifiés, SHA final donné dans la réponse sans auto-référence. Contrôle indépendant ChatGPT distinct de cette clôture, aucun accès matériel supplémentaire.
