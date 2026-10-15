@@ -1,0 +1,261 @@
+[  2%] Built target test_stm32_active_readback
+[  2%] Built target test_stm32_rs485_rx_gpio
+[  3%] Built target test_st_fifo_window
+[  4%] Built target test_stm32_register_probe
+[  5%] Built target test_st_fifo_admission
+[  5%] Built target test_st_spi_diagnostic
+[  6%] Built target test_st_window_adapter
+[  7%] Building C object CMakeFiles/tr2_core.dir/src/application/live_command_engine.c.o
+[  8%] Built target test_fifo_cooperative
+[  8%] Linking C static library libtr2_core.a
+[ 29%] Built target tr2_core
+[ 30%] Linking C executable tr2_rtu_request
+[ 30%] Linking C executable test_stm32_ctrl1_differential
+[ 31%] Linking C executable test_stm32_burst_capture
+[ 31%] Linking C executable test_stm32_continuous
+[ 31%] Linking C executable test_stm32_rtu_tx_0
+[ 32%] Linking C executable test_stm32_iis3dwb
+[ 33%] Built target tr2_platform_host
+[ 34%] Linking C executable test_stm32_iis3dwb_fifo
+[ 35%] Linking C executable test_stm32_irq_observer_0
+[ 35%] Built target test_stm32_continuous
+[ 36%] Built target test_stm32_burst_capture
+[ 36%] Built target test_stm32_ctrl1_differential
+[ 37%] Built target test_stm32_iis3dwb
+[ 38%] Built target test_stm32_rtu_tx_0
+[ 38%] Built target tr2_rtu_request
+[ 38%] Linking C executable test_codec
+[ 38%] Linking C executable test_stm32_modbus_diagnostic
+[ 39%] Linking C executable test_stm32_irq_observer_1
+[ 39%] Linking C executable test_stm32_rtu_tx_1
+[ 39%] Built target test_stm32_iis3dwb_fifo
+[ 40%] Linking C executable test_b4_configuration_codec
+[ 40%] Linking C executable test_register_model
+[ 41%] Linking C executable test_projection_b0
+[ 41%] Built target test_stm32_irq_observer_0
+[ 41%] Linking C executable test_projection_b1
+[ 41%] Built target test_codec
+[ 42%] Built target test_stm32_rtu_tx_1
+[ 42%] Built target test_stm32_irq_observer_1
+[ 42%] Built target test_stm32_modbus_diagnostic
+[ 42%] Built target test_register_model
+[ 43%] Linking C executable test_projection_b2
+[ 44%] Linking C executable test_projection_b4
+[ 44%] Linking C executable test_campaign_inventory_b6
+[ 44%] Built target test_b4_configuration_codec
+[ 44%] Linking C executable test_projection_b3
+[ 44%] Linking C executable test_b6_adapters
+[ 44%] Built target test_projection_b0
+[ 44%] Linking C executable test_time_service
+[ 44%] Linking C executable test_time_recovery_types
+[ 44%] Built target test_projection_b1
+[ 44%] Built target test_projection_b4
+[ 44%] Built target test_projection_b3
+[ 44%] Built target test_campaign_inventory_b6
+[ 44%] Built target test_projection_b2
+[ 44%] Built target test_b6_adapters
+[ 44%] Linking C executable test_time_history_record
+[ 44%] Linking C executable test_time_history_store
+[ 44%] Linking C executable test_time_synchronization
+[ 45%] Linking C executable test_configuration_types
+[ 46%] Linking C executable test_configuration_staging
+[ 46%] Linking C executable test_configuration_validator
+[ 47%] Built target test_time_service
+[ 47%] Built target test_time_recovery_types
+[ 47%] Linking C executable test_configuration_workflow
+[ 47%] Linking C executable test_configuration_service
+[ 48%] Built target test_time_history_store
+[ 48%] Built target test_time_history_record
+[ 48%] Built target test_configuration_types
+[ 48%] Built target test_time_synchronization
+[ 48%] Built target test_configuration_staging
+[ 49%] Linking C executable test_configuration_record
+[ 49%] Linking C executable test_persistent_storage_core
+[ 49%] Linking C executable test_campaign_record
+[ 49%] Linking C executable test_campaign_repository_store
+[ 50%] Linking C executable test_campaign_bulk_aggregator
+[ 50%] Built target test_configuration_validator
+[ 50%] Linking C executable test_campaign_bulk_block
+[ 50%] Built target test_configuration_service
+[ 50%] Built target test_configuration_record
+[ 51%] Linking C executable test_campaign_bulk_block_stream
+[ 52%] Built target test_persistent_storage_core
+[ 53%] Built target test_configuration_workflow
+[ 53%] Linking C executable test_campaign_bulk_checkpoint
+[ 54%] Built target test_campaign_record
+[ 54%] Built target test_campaign_repository_store
+[ 55%] Linking C executable test_campaign_bulk_media
+[ 55%] Linking C executable test_campaign_bulk_media_region
+[ 55%] Linking C executable test_campaign_bulk_metadata
+[ 55%] Linking C executable test_campaign_data_store_bulk
+[ 55%] Built target test_campaign_bulk_aggregator
+[ 55%] Linking C executable test_campaign_data_store_persistent
+[ 55%] Built target test_campaign_bulk_block
+[ 55%] Built target test_campaign_bulk_block_stream
+[ 55%] Built target test_campaign_bulk_checkpoint
+[ 55%] Linking C executable test_campaign_service
+[ 55%] Built target test_campaign_bulk_media_region
+[ 55%] Built target test_campaign_data_store_bulk
+[ 56%] Built target test_campaign_bulk_metadata
+[ 56%] Built target test_campaign_bulk_media
+[ 57%] Linking C executable test_configuration_store_recovery
+[ 57%] Linking C executable test_configuration_store
+[ 57%] Linking C executable test_configuration_store_recovery_unavailable
+[ 57%] Linking C executable test_read_adapter
+[ 57%] Linking C executable test_read_adapter_b3
+[ 57%] Linking C executable test_write_adapter
+[ 58%] Built target test_campaign_data_store_persistent
+[ 58%] Linking C executable test_p5a_contracts
+[ 59%] Built target test_campaign_service
+[ 59%] Built target test_configuration_store
+[ 59%] Built target test_configuration_store_recovery_unavailable
+[ 59%] Built target test_configuration_store_recovery
+[ 59%] Linking C executable test_p6a_contracts
+[ 59%] Built target test_read_adapter
+[ 60%] Built target test_write_adapter
+[ 61%] Built target test_read_adapter_b3
+[ 61%] Linking C executable test_p7a_command_types
+[ 61%] Linking C executable test_p7b_command_request_mailbox
+[ 61%] Linking C executable test_p7e_command_engine_admission
+[ 61%] Linking C executable test_p7d_command_journal_store
+[ 61%] Linking C executable test_p7c_command_journal
+[ 61%] Built target test_p5a_contracts
+[ 62%] Linking C executable test_p7f_command_engine_lifecycle
+[ 62%] Linking C executable test_p7g_apply_configuration
+[ 62%] Built target test_p6a_contracts
+[ 62%] Built target test_p7d_command_journal_store
+[ 62%] Built target test_p7b_command_request_mailbox
+[ 63%] Built target test_p7a_command_types
+[ 64%] Built target test_p7e_command_engine_admission
+[ 65%] Linking C executable test_p7h_synchronize_time
+[ 66%] Linking C executable test_p7j_stop_acquisition
+[ 66%] Linking C executable test_p7i_start_acquisition
+[ 66%] Linking C executable test_p7k_command_boot_recovery
+[ 67%] Linking C executable test_p7l_b5_adapters
+[ 68%] Built target test_p7c_command_journal
+[ 68%] Linking C executable test_p7m_command_policy
+[ 68%] Built target test_p7f_command_engine_lifecycle
+[ 68%] Built target test_p7g_apply_configuration
+[ 68%] Linking C executable test_p7n_transaction_fault_injection
+[ 68%] Linking C executable test_p9b_diagnostic_service
+[ 68%] Built target test_p7h_synchronize_time
+[ 68%] Built target test_p7l_b5_adapters
+[ 68%] Built target test_p7j_stop_acquisition
+[ 68%] Built target test_p7k_command_boot_recovery
+[ 68%] Linking C executable test_p9c_diagnostic_recovery
+[ 68%] Linking C executable test_p9h_selftest_command
+[ 68%] Linking C executable test_acquisition_service
+[ 69%] Linking C executable test_indicator_calculator
+[ 69%] Built target test_p7i_start_acquisition
+[ 69%] Linking C executable test_threshold_evaluator
+[ 69%] Built target test_p7m_command_policy
+[ 70%] Built target test_p7n_transaction_fault_injection
+[ 71%] Linking C executable test_supervision_service
+[ 71%] Linking C executable test_supervision_temporal_envelope
+[ 72%] Built target test_p9b_diagnostic_service
+[ 72%] Built target test_p9c_diagnostic_recovery
+[ 73%] Built target test_p9h_selftest_command
+[ 73%] Built target test_acquisition_service
+[ 73%] Linking C executable test_time_fault_injection
+[ 74%] Linking C executable test_configuration_b4_flow
+[ 74%] Linking C executable test_p12c_pdu_server
+[ 74%] Linking C executable test_configuration_activation_adapter
+[ 74%] Built target test_indicator_calculator
+[ 75%] Linking C executable test_p12d_rtu_receiver
+[ 76%] Built target test_threshold_evaluator
+[ 76%] Linking C executable test_p12e_serial_transport
+[ 76%] Built target test_supervision_service
+[ 76%] Built target test_supervision_temporal_envelope
+[ 77%] Built target test_time_fault_injection
+[ 77%] Built target test_configuration_b4_flow
+[ 78%] Built target test_configuration_activation_adapter
+[ 78%] Linking C executable test_p12h_rtu_server_runtime
+[ 79%] Linking C executable test_p12h3c3c2_bounded_recovery
+[ 79%] Linking C executable test_p12h3c3c1_bounded_slot
+[ 80%] Linking C executable test_p12h3c3b_command_journal_bounded_record
+[ 80%] Built target test_p12c_pdu_server
+[ 80%] Linking C executable test_p12h3c3c3_bounded_reader
+[ 80%] Linking C executable test_p12h3c3c4_bounded_writer
+[ 80%] Built target test_p12d_rtu_receiver
+[ 80%] Built target test_p12h3c3c1_bounded_slot
+[ 80%] Built target test_p12e_serial_transport
+[ 81%] Built target test_p12h_rtu_server_runtime
+[ 81%] Built target test_p12h3c3c2_bounded_recovery
+[ 81%] Linking C executable test_p12h3c3c4b_bounded_admission
+[ 81%] Linking C executable test_p12h3c3c4c1_bounded_store
+[ 81%] Linking C executable test_p12h3c3c4d2_admission_power_loss
+[ 81%] Linking C executable test_p12h3c3c4d1_fault_media
+[ 81%] Linking C executable test_p12h3c3c4d3_mutation_power_loss
+[ 81%] Built target test_p12h3c3b_command_journal_bounded_record
+[ 81%] Linking C executable test_p12h3c3c4d4_completion_power_loss
+[ 81%] Built target test_p12h3c3c3_bounded_reader
+[ 82%] Built target test_p12h3c3c4_bounded_writer
+[ 82%] Linking C executable test_p12h3c3c4d6_d8_consolidation
+[ 82%] Linking C executable test_p12h3c3c4d5_readmission_power_loss
+[ 83%] Built target test_p12h3c3c4d2_admission_power_loss
+[ 83%] Built target test_p12h3c3c4d1_fault_media
+[ 83%] Built target test_p12h3c3c4d3_mutation_power_loss
+[ 83%] Built target test_p12h3c3c4b_bounded_admission
+[ 84%] Built target test_p12h3c3c4d4_completion_power_loss
+[ 85%] Built target test_p12h3c3c4c1_bounded_store
+[ 85%] Linking C executable test_p12h3d2_transactional_image_media
+[ 86%] Linking C executable test_p12h3d2b_transactional_image_power_loss
+[ 86%] Linking C executable test_p12h3d2c_transactional_image_recovery
+[ 87%] Linking C executable test_p12h3d2d_persistent_storage_core_integration
+[ 87%] Linking C executable test_p12h3d2e_campaign_transactional_media
+[ 88%] Linking C executable test_p12h3d2f_transactional_media_format_policy
+[ 89%] Built target test_p12h3c3c4d6_d8_consolidation
+[ 89%] Built target test_p12h3c3c4d5_readmission_power_loss
+[ 89%] Built target test_p12h3d2d_persistent_storage_core_integration
+[ 89%] Built target test_p12h3d2e_campaign_transactional_media
+[ 89%] Built target test_p12h3d2f_transactional_media_format_policy
+[ 89%] Built target test_p12h3d2_transactional_image_media
+[ 89%] Built target test_p12h3d2b_transactional_image_power_loss
+[ 90%] Linking C executable test_p12h3d2h1_transactional_media_geometry
+[ 90%] Linking C executable test_p12h3d2g_transactional_media_format_power_loss
+[ 90%] Built target test_p12h3d2c_transactional_image_recovery
+[ 91%] Linking C executable test_system_runtime
+[ 91%] Linking C executable test_p12h3d2h3_transactional_media_alternate_geometry
+[ 91%] Linking C executable test_system_runtime_bulk
+[ 91%] Linking C executable test_p8j_system_runtime_b3_projection
+[ 91%] Linking C executable test_p8i_system_runtime_acquisition_commands
+[ 91%] Linking C executable test_p8k_power_loss_boot_recovery
+[ 91%] Built target test_p12h3d2h1_transactional_media_geometry
+[ 91%] Built target test_p12h3d2g_transactional_media_format_power_loss
+[ 91%] Built target test_system_runtime
+[ 91%] Built target test_p12h3d2h3_transactional_media_alternate_geometry
+[ 91%] Built target test_system_runtime_bulk
+[ 92%] Linking C executable test_p12h3c3c4e3_runtime_bounded_journal
+[ 92%] Linking C executable test_time_boot_recovery
+[ 93%] Built target test_p8j_system_runtime_b3_projection
+[ 93%] Built target test_p8i_system_runtime_acquisition_commands
+[ 93%] Linking C executable test_configuration_fault_injection
+[ 93%] Linking C executable test_p5h_acquisition_supervision_b3
+[ 94%] Linking C executable test_post_p9_a5_host_modbus_read
+[ 95%] Linking C executable test_modbus_system_server
+[ 95%] Linking C executable test_production_commands
+[ 95%] Built target test_p8k_power_loss_boot_recovery
+[ 95%] Linking C executable test_production_provisioning
+[ 95%] Built target test_time_boot_recovery
+[ 95%] Built target test_p12h3c3c4e3_runtime_bounded_journal
+[ 95%] Built target test_configuration_fault_injection
+[ 96%] Linking C executable test_production_commissioning
+[ 96%] Linking C executable test_persistent_identity
+[ 96%] Linking C executable test_modbus_fifo_io_budget
+[ 96%] Built target test_post_p9_a5_host_modbus_read
+[ 97%] Built target test_p5h_acquisition_supervision_b3
+[ 97%] Built target test_modbus_system_server
+[ 97%] Built target test_production_commands
+[ 97%] Linking C executable test_sdmmc_bulk_media
+[ 98%] Linking C executable test_live_configuration
+[ 98%] Building C object CMakeFiles/test_live_command_engine.dir/tests/unit/test_live_command_engine.c.o
+[ 98%] Linking C executable tr2_host
+[ 98%] Built target test_persistent_identity
+[ 98%] Built target test_production_commissioning
+[ 98%] Built target test_production_provisioning
+[ 99%] Built target test_modbus_fifo_io_budget
+[100%] Built target test_sdmmc_bulk_media
+[100%] Built target test_live_configuration
+[100%] Built target tr2_host
+[100%] Linking C executable test_live_command_engine
+[100%] Built target test_live_command_engine

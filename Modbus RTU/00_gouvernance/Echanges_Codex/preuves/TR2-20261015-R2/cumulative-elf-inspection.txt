@@ -1,0 +1,4 @@
+   text	   data	    bss	    dec	    hex	filename
+ 170892	    480	 602232	 773604	  bcde4	Modbus RTU/05_Firmware/build-stm32-cumulative/tr2-cumulative-m014-m015-spi4.elf
+
+R2 engine/store symbols absent: production composition remains V1.

@@ -1,0 +1,6 @@
+00010816 00000072 B r2_record_size
+00010720 00000096 B r2_media_size
+00000000 00000480 B r2_engine_size
+00010136 00000584 B r2_configuration_size
+00000480 00009656 B r2_store_size
+00010888 00052298 B r2_candidate_size

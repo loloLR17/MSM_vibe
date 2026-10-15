@@ -1,0 +1,9 @@
+COMMAND ["arm-none-eabi-gcc", "-std=c11", "-mcpu=cortex-m33", "-mthumb", "-O0", "-g", "-I", "/home/lolo/dev/msm/projects/MSM_vibe-R2-live-command-engine/Modbus RTU/05_Firmware/include", "-nostartfiles", "--specs=nosys.specs", "-Wl,-e,main", "-Wl,--gc-sections", "/home/lolo/dev/msm/reports/r2-resources/arm_link_smoke.c", "/home/lolo/dev/msm/projects/MSM_vibe-R2-live-command-engine/Modbus RTU/05_Firmware/build-stm32-cumulative/libtr2_core.a", "-lm", "-lc", "-lgcc", "-o", "/home/lolo/dev/msm/reports/r2-resources/r2-arm-link-smoke-NOT-FOR-FLASH.elf"]
+   text	   data	    bss	    dec	    hex	filename
+  33441	      0	  10832	  44273	   acf1	/home/lolo/dev/msm/reports/r2-resources/r2-arm-link-smoke-NOT-FOR-FLASH.elf
+SHA256 b5111e23e80d58baccf4a415407f028f7a76ce5332b708c65d53f03359de54f0
+ARM linked symbol: live_command_engine_boot
+ARM linked symbol: live_command_engine_submit
+ARM linked symbol: live_command_engine_step
+ARM linked symbol: live_command_store_commit
+ARM linked symbol: live_configuration_apply

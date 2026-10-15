@@ -1,0 +1,6 @@
+[  4%] Building C object CMakeFiles/tr2_core.dir/src/application/live_command_engine.c.o
+[  4%] Linking C static library libtr2_core.a
+[100%] Built target tr2_core
+[100%] Building C object CMakeFiles/test_live_command_engine.dir/tests/unit/test_live_command_engine.c.o
+[100%] Linking C executable test_live_command_engine
+[100%] Built target test_live_command_engine

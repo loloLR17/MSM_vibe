@@ -1,0 +1,19 @@
+384 independent R0 START/STOP context rows: PASS
+START real-store I/O: 1255664 bytes read, 209704 bytes written
+Durable START/STOP, retry/collision priority, renewal/reboot/timestamps, original FRAM: PASS
+Recovery RESERVED28 / STARTED9 / durable receipt / renewal N+1, no redispatch: PASS
+Unconfirmed sensor and FRAM failure: safety stop, no false success: PASS
+29-register mailbox, RO atomic refusal, immutable capture, actual APPLY: PASS
+Synthetic epoch ceiling without wrap/STOP loss, absent acquisition port refusal, no false LIVE capability: PASS
+126 real admissions, no eviction, reserved STOP126/renew127, new epoch reuse and timestamp non-retroactivity: PASS
+Explicit causal ABSENCE_PROVEN29, mismatched receipt9 and journal CRC refusal: PASS
+Power-loss stage 0: 142 budgets, protected bytes/no redispatch: PASS
+Power-loss stage 1: 142 budgets, protected bytes/no redispatch: PASS
+Power-loss stage 2: 142 budgets, protected bytes/no redispatch: PASS
+Power-loss stage 3: 142 budgets, protected bytes/no redispatch: PASS
+Power-loss stage 4: 142 budgets, protected bytes/no redispatch: PASS
+Power-loss stage 5: 142 budgets, protected bytes/no redispatch: PASS
+Power-loss stage 6: 142 budgets, protected bytes/no redispatch: PASS
+Power-loss stage 7: 142 budgets, protected bytes/no redispatch: PASS
+Power-loss stage 8: 142 budgets, protected bytes/no redispatch: PASS
+Power-loss stage 9: 283 budgets, protected bytes/no redispatch: PASS

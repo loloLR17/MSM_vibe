@@ -1,0 +1,56 @@
+{
+  "mission_id": "TR2-20261015-R2-LIVE-COMMAND-ENGINE",
+  "utc": "2026-10-15T10:56:28.594513+00:00",
+  "initial_head": "091f5e8f22cb500c6f331df325da60315d59a4d7",
+  "base_sha": "f56d0a688e520d556965ae78e94d30203d5dab0f",
+  "evaluated_code_sha": "59d3757e88c6fadbc36a2de1cb17c6b67a15186a",
+  "host_passed": 130,
+  "host_failed": 0,
+  "host_final_seconds": 38.05,
+  "sanitizers": [
+    "AddressSanitizer",
+    "UndefinedBehaviorSanitizer"
+  ],
+  "r0_context_decisions": 384,
+  "real_admissions_before_reserved_stop": 126,
+  "power_loss_budgets": {
+    "stages_0_to_8_each": 142,
+    "stage_9_apply_two_commits": 283,
+    "total": 1561,
+    "payload_stride": 4096,
+    "headers_and_publications": "bytewise"
+  },
+  "arm_bytes": {
+    "engine": 480,
+    "store": 9656,
+    "configuration": 584,
+    "media": 96,
+    "candidate": 52298,
+    "autonomous_design_total": 63210,
+    "increment_over_R1": 10144,
+    "largest_static_frame_in_analyzed_units": 440
+  },
+  "start_io_model": {
+    "read_bytes": 1255664,
+    "write_bytes": 209704,
+    "outer_commits": 4
+  },
+  "protected_files_verified": 2382,
+  "stashes_preserved": [
+    "6251b988e8b20f97997a8f98fd26d4d35a45a1b2",
+    "f3b829e6188f491920edf74a5f9ed0f559d08b87"
+  ],
+  "r1_archive_source": "f56d0a688e520d556965ae78e94d30203d5dab0f",
+  "hardware_operations": [],
+  "production_protocol": 1,
+  "production_b5_registers": 20,
+  "successor_b5_adapter_registers": 29,
+  "limits": [
+    "not wired into STM32 production or RTU",
+    "no R3 continuous acquisition port",
+    "successor B1/B6/B7 projections and effects2..11 not bound",
+    "no physical ownership/provisioning established",
+    "no physical latency or R4 qualification",
+    "384 context decisions are pure policy tests; realizable flows additionally run through real stores"
+  ]
+}

@@ -1,0 +1,3 @@
+384 independent R0 START/STOP context rows: PASS
+Durable START/STOP, retry/collision priority, renewal/reboot/timestamps, original FRAM: PASS
+test_live_command_engine: /home/lolo/dev/msm/projects/MSM_vibe-R2-live-command-engine/Modbus RTU/05_Firmware/tests/unit/test_live_command_engine.c:142: recovery_phases: Assertion `b->engine.status==9u&&b->engine.has_last&&b->engine.last.request.epoch==1u' failed.
