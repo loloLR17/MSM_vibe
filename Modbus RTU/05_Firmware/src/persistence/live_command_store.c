@@ -109,7 +109,11 @@ static Tr2Result validate_control(void *context,const uint8_t *image,size_t size
 {
     LiveCommandStore *s=context;int copy;Tr2Result result;unsigned i,j,nonterminal=0;
     s->mounted=false;s->has_effect=false;s->has_terminal=false;s->generation=0;memset(s->present,0,sizeof(s->present));
-    if(size!=52298u||!uniform(image+44594u,7168u,0)||!uniform(image+51802u,16u,0))return TR2_ERROR_CORRUPTED;
+    bool empty=false;
+    if(size!=52298u)return TR2_ERROR_CORRUPTED;
+    result=tr2_cooperative_equal(s->configuration->live->work,image+44594u,0,7168u,&empty);
+    if(result!=TR2_OK)return result;
+    if(!empty||!uniform(image+51802u,16u,0))return TR2_ERROR_CORRUPTED;
     result=select_pair(image+51914u,64,&copy);if(result!=TR2_OK)return result;
     if(copy<0)return TR2_ERROR_NOT_AVAILABLE;
     s->epoch_copy=(uint8_t)copy;result=decode_epoch(image+51914u+64u*(unsigned)copy,&s->epoch);if(result!=TR2_OK)return result;
@@ -133,6 +137,7 @@ static Tr2Result validate_control(void *context,const uint8_t *image,size_t size
     s->effect_copy=copy<0?1u:(uint8_t)copy;
     if(copy>=0){result=decode_effect(image+52042u+64u*(unsigned)copy,&s->effect);if(result!=TR2_OK)return result;s->has_effect=true;}
     for(i=0;i<128;i++) {
+        result=tr2_cooperative_checkpoint(s->configuration->live->work);if(result!=TR2_OK)return result;
         result=select_pair(image+15922u+224u*i,112,&copy);if(result!=TR2_OK)return result;
         s->copy[i]=copy<0?1u:(uint8_t)copy;
         if(copy<0)continue;
@@ -207,7 +212,7 @@ Tr2Result live_command_store_commit(LiveCommandStore *s,unsigned slot,const Live
     const LiveEpochRecord *epoch,const LiveEffectRecord *effect)
 {
     uint8_t b[112];Tr2Result result=TR2_OK;PersistentMedia *media;unsigned target;
-    if(s==NULL||!s->mounted||slot>=128u||r==NULL)return TR2_ERROR_INVALID_STATE;
+    if(s==NULL||!s->mounted||slot>=128u||r==NULL||tr2_cooperative_status(s->configuration->live->work)!=TR2_OK)return TR2_ERROR_INVALID_STATE;
     media=transactional_image_media_interface(s->configuration->live);
     target=1u-s->copy[slot];
     /* A retired last may occupy the opposite copy during namespace reuse.

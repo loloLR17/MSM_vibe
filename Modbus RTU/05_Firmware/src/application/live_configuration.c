@@ -63,8 +63,8 @@ static Tr2Result read_history(LiveConfiguration *s,PersistentIdentityRecord *ide
     if(result!=TR2_OK) return result;
     s->historical_generation=recovery.generation;
     memcpy(s->historical_slots,s->historical->candidate,sizeof(s->historical_slots));
-    return tr2_sha256_bytes(s->historical->candidate,
-        TR2_TRANSACTIONAL_MEDIA_V2_LOGICAL_SIZE,s->historical_sha);
+    return tr2_sha256_bytes_cooperative(s->historical->candidate,
+        TR2_TRANSACTIONAL_MEDIA_V2_LOGICAL_SIZE,s->historical_sha,s->historical->work);
 }
 static Tr2Result check_provenance(const LiveConfiguration *s)
 {
@@ -83,17 +83,19 @@ static Tr2Result check_provenance(const LiveConfiguration *s)
     for(i=0u;i<3u;++i) if(get32(chosen+48+4u*i)!=s->uid[i]) return TR2_ERROR_INVALID_STATE;
     return TR2_OK;
 }
-static Tr2Result check_r1_control_boundary(const uint8_t *image)
+static Tr2Result check_r1_control_boundary(const uint8_t *image,Tr2CooperativeWork *work)
 {
     const uint8_t *epoch=image+TR2_LIVE_EPOCH_OFFSET;
     /* R1 creates an anchor, never a pretend transaction engine. Anything R1
      * cannot interpret (including effects/journal admitted by future R2) is
      * refused, never replayed or silently discarded by recovery. */
+    bool empty=false;
+    if(tr2_cooperative_equal(work,image+15922u,0u,35840u,&empty)!=TR2_OK)return TR2_ERROR_UNAVAILABLE;
     if(!record_ok(epoch,"TR2Q")||get64(epoch+8)!=1u||get32(epoch+16)!=1u||
         get16(epoch+20)!=1u||!uniform(epoch+22,38u,0u)||
         !blank(epoch+64u,64u)||
         !uniform(image+TR2_LIVE_EFFECT_OFFSET,128u,0u)||
-        !uniform(image+15922u,35840u,0u)||
+        !empty||
         !uniform(image+51802u,16u,0u)) return TR2_ERROR_UNSUPPORTED;
     return TR2_OK;
 }
@@ -158,12 +160,12 @@ Tr2Result live_configuration_init(LiveConfiguration *s,
     s->assignments=assignments;s->assignment_count=count;memcpy(s->uid,uid,sizeof(s->uid));
     s->initialized=true;return TR2_OK;
 }
-Tr2Result live_configuration_recover(LiveConfiguration *s)
+static Tr2Result live_configuration_recover_impl(LiveConfiguration *s)
 {
     PersistentIdentityRecord old;
     TransactionalImageRecoveryResult recovery;
     Tr2Result result;
-    if(!initialized(s)) return TR2_ERROR_INVALID_STATE;
+    if(!initialized(s)||tr2_cooperative_status(s->live->work)!=TR2_OK) return TR2_ERROR_INVALID_STATE;
     s->has_active=false;s->mounted=false;memset(&s->identity,0,sizeof(s->identity));
     result=read_history(s,&old);
     if(result!=TR2_OK) return revoke(s,result);
@@ -174,7 +176,7 @@ Tr2Result live_configuration_recover(LiveConfiguration *s)
     result=check_provenance(s);
     if(result==TR2_OK) result=s->validate_control!=NULL?
         s->validate_control(s->control_context,s->live->candidate,TR2_LIVE_LOGICAL_SIZE):
-        check_r1_control_boundary(s->live->candidate);
+        check_r1_control_boundary(s->live->candidate,s->live->work);
     if(result==TR2_OK) result=persistent_identity_decode_live(
         s->live->candidate+TR2_PERSISTENT_IDENTITY_OFFSET,96u,&s->identity);
     if(result!=TR2_OK) return revoke(s,result);
@@ -198,7 +200,7 @@ Tr2Result live_configuration_migrate(LiveConfiguration *s)
     Tr2Result result;
     uint8_t *image,*record;
     unsigned i;
-    if(!initialized(s)) return TR2_ERROR_INVALID_STATE;
+    if(!initialized(s)||tr2_cooperative_status(s->live->work)!=TR2_OK) return TR2_ERROR_INVALID_STATE;
     s->has_active=false;s->mounted=false;
     /* Check EMPTY before constructing candidate, allowing one shared work
      * buffer for historical and LIVE media without an extra 52 KiB copy. */
@@ -234,7 +236,7 @@ Tr2Result live_configuration_migrate(LiveConfiguration *s)
     if(result!=TR2_OK) return revoke(s,result);
     return live_configuration_recover(s);
 }
-Tr2Result live_configuration_apply(LiveConfiguration *s,
+static Tr2Result live_configuration_apply_impl(LiveConfiguration *s,
     const PreparedConfiguration *prepared,bool running)
 {
     ValidatedConfiguration validated;
@@ -242,7 +244,7 @@ Tr2Result live_configuration_apply(LiveConfiguration *s,
     uint8_t record[140];
     PersistentStorageCore storage;
     Tr2Result result;
-    if(!initialized(s)) return TR2_ERROR_INVALID_STATE;
+    if(!initialized(s)||tr2_cooperative_status(s->live->work)!=TR2_OK) return TR2_ERROR_INVALID_STATE;
     if(running) return TR2_ERROR_INVALID_STATE; /* no I/O while acquisition runs */
     if(prepared==NULL||prepared->config_id==0u) {
         s->state=CONFIGURATION_STATE_VALIDATION_ERROR;s->error=1u;
@@ -307,4 +309,22 @@ Tr2Result live_configuration_bind_control(LiveConfiguration *s,void *context,
     if(!initialized(s)||validate==NULL||context==NULL||s->mounted||s->validate_control!=NULL)
         return TR2_ERROR_INVALID_STATE;
     s->control_context=context;s->validate_control=validate;return TR2_OK;
+}
+
+Tr2Result live_configuration_recover(LiveConfiguration *s)
+{
+ if(!s||!s->live||!s->historical||s->live->work!=s->historical->work)return TR2_ERROR_INVALID_STATE;
+ Tr2Result r=tr2_cooperative_enter(s->live->work);if(r!=TR2_OK)return r;
+ r=live_configuration_recover_impl(s);Tr2Result end=tr2_cooperative_leave(s->live->work);
+ if(end!=TR2_OK)return revoke(s,end);
+ return r;
+}
+
+Tr2Result live_configuration_apply(LiveConfiguration *s,const PreparedConfiguration *p,bool running)
+{
+ if(!s||!s->live||!s->historical||s->live->work!=s->historical->work)return TR2_ERROR_INVALID_STATE;
+ Tr2Result r=tr2_cooperative_enter(s->live->work);if(r!=TR2_OK)return r;
+ r=live_configuration_apply_impl(s,p,running);Tr2Result end=tr2_cooperative_leave(s->live->work);
+ if(end!=TR2_OK)return revoke(s,end);
+ return r;
 }

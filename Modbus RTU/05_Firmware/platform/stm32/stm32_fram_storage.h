@@ -40,4 +40,7 @@ Tr2Result stm32_fram_storage_write(
     const void *buffer,
     size_t size);
 
+#define TR2_STM32_FRAM_BOUNDED_QUANTUM ((size_t)64u)
+/* Opt-in cooperative successor path; not installed in production by default. */
+TransactionalImagePhysicalStorage stm32_fram_storage_bounded_physical(Stm32FramStorage *);
 #endif

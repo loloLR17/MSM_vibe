@@ -35,7 +35,7 @@ static void block(uint32_t h[8], const uint8_t data[64])
     }
     h[0]+=a;h[1]+=b;h[2]+=c;h[3]+=d;h[4]+=e;h[5]+=f;h[6]+=g;h[7]+=k;
 }
-Tr2Result tr2_sha256_bytes(const uint8_t *data,size_t size,uint8_t digest[32])
+static Tr2Result cooperative_sha_impl(const uint8_t *data,size_t size,uint8_t digest[32],Tr2CooperativeWork *work)
 {
     uint32_t h[8]={0x6a09e667u,0xbb67ae85u,0x3c6ef372u,0xa54ff53au,
                    0x510e527fu,0x9b05688cu,0x1f83d9abu,0x5be0cd19u};
@@ -47,13 +47,24 @@ Tr2Result tr2_sha256_bytes(const uint8_t *data,size_t size,uint8_t digest[32])
     if(size>UINT64_MAX/8u) return TR2_ERROR_INVALID_ARGUMENT;
 #endif
     bits=(uint64_t)size*8u;
-    while (remaining>=64u) {block(h,data);data+=64u;remaining-=64u;}
+    while (remaining>=64u) {{Tr2Result r=tr2_cooperative_checkpoint(work);if(r!=TR2_OK)return r;}block(h,data);data+=64u;remaining-=64u;}
     if (remaining!=0u) memcpy(tail,data,remaining);
     tail[remaining]=0x80u;
     padded=remaining<56u?64u:128u;
     for(i=0u;i<8u;++i) tail[padded-1u-i]=(uint8_t)(bits>>(8u*i));
+    {Tr2Result r=tr2_cooperative_checkpoint(work);if(r!=TR2_OK)return r;}
     block(h,tail);
-    if(padded==128u) block(h,tail+64u);
+    if(padded==128u) {{Tr2Result r=tr2_cooperative_checkpoint(work);if(r!=TR2_OK)return r;}block(h,tail+64u);}
     for(i=0u;i<32u;++i) digest[i]=(uint8_t)(h[i/4u]>>(24u-8u*(i%4u)));
     return TR2_OK;
+}
+
+Tr2Result tr2_sha256_bytes(const uint8_t *data,size_t size,uint8_t digest[32])
+{return tr2_sha256_bytes_cooperative(data,size,digest,NULL);}
+
+Tr2Result tr2_sha256_bytes_cooperative(const uint8_t *data,size_t size,uint8_t digest[32],Tr2CooperativeWork *work)
+{
+ Tr2Result r=tr2_cooperative_enter(work);if(r!=TR2_OK)return r;
+ r=cooperative_sha_impl(data,size,digest,work);Tr2Result end=tr2_cooperative_leave(work);
+ return r!=TR2_OK?r:end;
 }

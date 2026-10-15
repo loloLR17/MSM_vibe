@@ -271,3 +271,23 @@ Tr2Result stm32_fram_storage_write(
 
     return (status == HAL_OK) ? TR2_OK : TR2_ERROR_STORAGE;
 }
+
+/* Opt-in R4 transport only. The canonical V1 interface/timeout is unchanged.
+ * Every call is a complete command (CS released); no yield inside CS or WREN.
+ * 1ms is a HAL timeout parameter, NOT a measured MCU deadline guarantee. */
+static Tr2Result bounded_read(void *ctx,uint32_t at,void *data,size_t n)
+{
+    if(!ctx || n>TR2_STM32_FRAM_BOUNDED_QUANTUM)return TR2_ERROR_INVALID_ARGUMENT;
+    Stm32FramStorage copy=*(Stm32FramStorage *)ctx;copy.timeout_ms=1u;
+    return stm32_fram_storage_read(&copy,at,data,n);
+}
+static Tr2Result bounded_write(void *ctx,uint32_t at,const void *data,size_t n)
+{
+    if(!ctx || n>TR2_STM32_FRAM_BOUNDED_QUANTUM)return TR2_ERROR_INVALID_ARGUMENT;
+    Stm32FramStorage copy=*(Stm32FramStorage *)ctx;copy.timeout_ms=1u;
+    return stm32_fram_storage_write(&copy,at,data,n);
+}
+TransactionalImagePhysicalStorage stm32_fram_storage_bounded_physical(Stm32FramStorage *storage)
+{
+    TransactionalImagePhysicalStorage p={storage,bounded_read,bounded_write};return p;
+}

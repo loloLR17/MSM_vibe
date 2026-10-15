@@ -235,7 +235,7 @@ static void absence_proof_and_record_corruption(void)
     engine_boot(b);assert(b->engine.has_active&&b->engine.status==9u);destroy(b);
     puts("Explicit causal ABSENCE_PROVEN29, mismatched receipt9 and journal CRC refusal: PASS");
 }
-static void cut_campaign(unsigned stage)
+static void cut_campaign_with_work(unsigned stage,Tr2CooperativeWork *work)
 {
     Bench *b=bench();LiveCommandRequest q=request(1,1,stage>=4u&&stage<=6u?12u:13u);
     uint8_t *physical=malloc(262144u),*candidate=malloc(52298u);size_t cut,cases=0;
@@ -251,6 +251,10 @@ static void cut_campaign(unsigned stage)
     }
     if(stage!=0u)assert(live_command_engine_submit(&b->engine,&q)==TR2_OK);
     for(i=0;i<setup_steps;i++)assert(live_command_engine_step(&b->engine)==TR2_OK);
+    if(work) {
+        assert(transactional_image_media_bind_work(&b->f->historical,work)==TR2_OK);
+        assert(transactional_image_media_bind_work(&b->f->live,work)==TR2_OK);
+    }
     memcpy(physical,b->f->physical.bytes,262144u);memcpy(candidate,b->f->candidate,52298u);
     historical=b->f->historical;live=b->f->live;configuration=b->f->service;
     store=b->store;engine=b->engine;acquisition=b->acquisition;
@@ -287,6 +291,7 @@ static void cut_campaign(unsigned stage)
     printf("Power-loss stage %u: %zu budgets, protected bytes/no redispatch: PASS\n",stage,cases);
     free(physical);free(candidate);destroy(b);
 }
+static void cut_campaign(unsigned stage) {cut_campaign_with_work(stage,NULL);}
 static void fixture_u32(uint8_t *p,uint32_t value)
 {p[0]=(uint8_t)(value>>24);p[1]=(uint8_t)(value>>16);p[2]=(uint8_t)(value>>8);p[3]=(uint8_t)value;}
 static void fixture_u64(uint8_t *p,uint64_t value)

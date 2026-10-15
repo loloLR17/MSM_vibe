@@ -95,7 +95,7 @@ Tr2Result live_command_engine_init(LiveCommandEngine *e,LiveCommandStore *s,cons
     if(e==NULL||s==NULL||s->configuration==NULL||port==NULL)return TR2_ERROR_INVALID_ARGUMENT;
     memset(e,0,sizeof(*e));e->store=s;e->acquisition=*port;e->state=LIVE_BOOT;return TR2_OK;
 }
-Tr2Result live_command_engine_boot(LiveCommandEngine *e)
+static Tr2Result live_command_engine_boot_impl(LiveCommandEngine *e)
 {
     unsigned i;Tr2Result result;ActiveConfigurationSnapshot active;
     if(!ready(e))return TR2_ERROR_INVALID_ARGUMENT;
@@ -128,14 +128,14 @@ Tr2Result live_command_engine_boot(LiveCommandEngine *e)
     }
     return TR2_OK;
 }
-Tr2Result live_command_engine_prepare(LiveCommandEngine *e,const PreparedConfiguration *p)
+static Tr2Result live_command_engine_prepare_impl(LiveCommandEngine *e,const PreparedConfiguration *p)
 {
     if(!ready(e)||p==NULL)return TR2_ERROR_INVALID_ARGUMENT;
     e->prepared=*p;e->prepared_present=true;return TR2_OK;
 }
 static Tr2Result refuse(LiveCommandEngine *e,uint16_t status,uint16_t result)
 {e->status=status;e->result=result;e->detail=0;return TR2_OK;}
-Tr2Result live_command_engine_submit(LiveCommandEngine *e,const LiveCommandRequest *request)
+static Tr2Result live_command_engine_submit_impl(LiveCommandEngine *e,const LiveCommandRequest *request)
 {
     LiveCommandRequest q;LiveCommandRecord r={0};ActiveConfigurationSnapshot config;
     LiveCommandContext context={0};LiveCommandDecision d;LiveEffectRecord intent={0};int slot;uint16_t code,tx;Tr2Result error;
@@ -224,7 +224,7 @@ Tr2Result live_command_engine_submit(LiveCommandEngine *e,const LiveCommandReque
     if(error!=TR2_OK)return storage_fault(e,error);
     e->active=r;e->has_active=true;e->status=2u;e->result=0;e->detail=0;return TR2_OK;
 }
-Tr2Result live_command_engine_step(LiveCommandEngine *e)
+static Tr2Result live_command_engine_step_impl(LiveCommandEngine *e)
 {
     LiveCommandRecord r;LiveEpochRecord epoch;LiveEffectRecord effect={0};
     ActiveConfigurationSnapshot config;LiveAcquisitionObservation observation={0};
@@ -316,7 +316,7 @@ Tr2Result live_command_engine_read_b5(const LiveCommandEngine *e,uint16_t addres
     if(out==NULL||!count||address<5000u||address>5028u||count>5029u-address)return TR2_ERROR_INVALID_ARGUMENT;
     result=live_command_engine_project_b5(e,image);if(result==TR2_OK)memcpy(out,image+address-5000u,2u*count);return result;
 }
-Tr2Result live_command_engine_write_b5(LiveCommandEngine *e,uint16_t address,const uint16_t *values,uint16_t count)
+static Tr2Result live_command_engine_write_b5_impl(LiveCommandEngine *e,uint16_t address,const uint16_t *values,uint16_t count)
 {
     uint16_t staged[8];uint32_t epoch;unsigned i;LiveCommandRequest q={0};
     if(!ready(e)||values==NULL||!count||address<5000u||address>5021u||count>5022u-address)return TR2_ERROR_INVALID_ARGUMENT;
@@ -337,4 +337,54 @@ Tr2Result live_command_engine_write_b5(LiveCommandEngine *e,uint16_t address,con
     q.command.identity.command_code=staged[0];q.command.identity.param1=staged[2];q.command.identity.param2=staged[3];
     q.command.identity.param3=((uint32_t)staged[4]<<16)|staged[5];q.command.identity.confirm_key=staged[6];
     return live_command_engine_submit(e,&q);
+}
+
+Tr2Result live_command_engine_boot(LiveCommandEngine *e)
+{
+ if(!ready(e))return TR2_ERROR_INVALID_ARGUMENT;
+ Tr2CooperativeWork *work=e->store->configuration->live->work;
+ Tr2Result r=tr2_cooperative_enter(work);if(r!=TR2_OK)return r;
+ r=live_command_engine_boot_impl(e);Tr2Result end=tr2_cooperative_leave(work);
+ if(end!=TR2_OK){(void)live_command_engine_fault(e);return end;}
+ return r;
+}
+
+Tr2Result live_command_engine_submit(LiveCommandEngine *e,const LiveCommandRequest *q)
+{
+ if(!ready(e))return TR2_ERROR_INVALID_ARGUMENT;
+ Tr2CooperativeWork *work=e->store->configuration->live->work;
+ Tr2Result r=tr2_cooperative_enter(work);if(r!=TR2_OK)return r;
+ r=live_command_engine_submit_impl(e,q);Tr2Result end=tr2_cooperative_leave(work);
+ if(end!=TR2_OK){(void)live_command_engine_fault(e);return end;}
+ return r;
+}
+
+Tr2Result live_command_engine_step(LiveCommandEngine *e)
+{
+ if(!ready(e))return TR2_ERROR_INVALID_ARGUMENT;
+ Tr2CooperativeWork *work=e->store->configuration->live->work;
+ Tr2Result r=tr2_cooperative_enter(work);if(r!=TR2_OK)return r;
+ r=live_command_engine_step_impl(e);Tr2Result end=tr2_cooperative_leave(work);
+ if(end!=TR2_OK){(void)live_command_engine_fault(e);return end;}
+ return r;
+}
+
+Tr2Result live_command_engine_prepare(LiveCommandEngine *e,const PreparedConfiguration *p)
+{
+ if(!ready(e))return TR2_ERROR_INVALID_ARGUMENT;
+ Tr2CooperativeWork *work=e->store->configuration->live->work;
+ Tr2Result r=tr2_cooperative_enter(work);if(r!=TR2_OK)return r;
+ r=live_command_engine_prepare_impl(e,p);Tr2Result end=tr2_cooperative_leave(work);
+ if(end!=TR2_OK){(void)live_command_engine_fault(e);return end;}
+ return r;
+}
+
+Tr2Result live_command_engine_write_b5(LiveCommandEngine *e,uint16_t address,const uint16_t *v,uint16_t n)
+{
+ if(!ready(e))return TR2_ERROR_INVALID_ARGUMENT;
+ Tr2CooperativeWork *work=e->store->configuration->live->work;
+ Tr2Result r=tr2_cooperative_enter(work);if(r!=TR2_OK)return r;
+ r=live_command_engine_write_b5_impl(e,address,v,n);Tr2Result end=tr2_cooperative_leave(work);
+ if(end!=TR2_OK){(void)live_command_engine_fault(e);return end;}
+ return r;
 }

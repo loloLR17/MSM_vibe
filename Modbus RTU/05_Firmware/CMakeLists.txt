@@ -12,6 +12,7 @@ else()
 endif()
 
 add_library(tr2_core STATIC
+    src/common/cooperative_work.c
     src/domain/acquisition/window_statistics.c
     src/application/live_metrology.c
     src/persistence/live_command_store.c
@@ -396,3 +397,18 @@ add_test(NAME live_io_cost COMMAND test_live_io_cost)
 add_executable(test_live_metrology tests/unit/test_live_metrology.c)
 target_link_libraries(test_live_metrology PRIVATE tr2_core)
 add_test(NAME live_metrology COMMAND test_live_metrology)
+
+add_executable(test_cooperative_fram_fifo tests/platform/test_cooperative_fram_fifo.c platform/stm32/live_fifo_acquisition.c
+ ${ST_REF}/src/fifo_live.c ${ST_REF}/src/fifo_window.c ${ST_REF}/vendor/st/iis3dwb_reg.c)
+target_include_directories(test_cooperative_fram_fifo PRIVATE platform/stm32 ${ST_REF}/src ${ST_REF}/vendor/st)
+target_link_libraries(test_cooperative_fram_fifo PRIVATE tr2_core)
+add_test(NAME cooperative_fram_fifo COMMAND test_cooperative_fram_fifo)
+
+add_executable(test_cooperative_work tests/unit/test_cooperative_work.c)
+target_link_libraries(test_cooperative_work PRIVATE tr2_core)
+add_test(NAME cooperative_work COMMAND test_cooperative_work)
+
+add_executable(test_stm32_fram_bounded tests/platform/test_stm32_fram_bounded.c platform/stm32/stm32_fram_storage.c)
+target_include_directories(test_stm32_fram_bounded PRIVATE tests/platform/stm32_hal_fram_mock platform/stm32)
+target_link_libraries(test_stm32_fram_bounded PRIVATE tr2_core)
+add_test(NAME stm32_fram_bounded COMMAND test_stm32_fram_bounded)

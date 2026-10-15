@@ -6,6 +6,7 @@
 #include <stdint.h>
 
 #include "tr2/common/result.h"
+#include "tr2/common/cooperative_work.h"
 #include "tr2/platform/persistent_media.h"
 
 #define TR2_TRANSACTIONAL_MEDIA_PHYSICAL_SIZE ((size_t)262144u)
@@ -72,6 +73,7 @@ typedef struct {
     bool recovered;
     bool recovery_required;
     PersistentMedia interface;
+    Tr2CooperativeWork *work;
 } TransactionalImageMedia;
 
 Tr2Result transactional_image_media_init(
@@ -112,4 +114,7 @@ Tr2Result transactional_image_media_init_live(TransactionalImageMedia *media,
  * The input may be candidate itself when creating an EMPTY partition. */
 Tr2Result transactional_image_media_create_live(TransactionalImageMedia *media,
     const uint8_t *image, size_t size);
+/* Optional scoped scheduling; bind both historical and LIVE media to the same
+ * work object before any successor use. No default admission or ownership. */
+Tr2Result transactional_image_media_bind_work(TransactionalImageMedia *,Tr2CooperativeWork *);
 #endif
