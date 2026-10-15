@@ -1,5 +1,27 @@
 # MSM TR2 — Roadmap vers la supervision vibratoire
 
+> **Mise à jour A-06 / 15 octobre 2026 — nouvelle trajectoire adoptée.** Le découplage supervision live / sauvegarde des campagnes est décidé. [Contrat R0](CONTRAT_R0_EXTENSION_LIVE_SANS_STOCKAGE.md) publié : orientation normative adoptée, valeurs d'encodage et mapping successeur à finaliser et vérifier. Les mentions historiques de M016 « V1 » et de dépendance au stockage ci-dessous sont conservées pour traçabilité ; **la séquence R0–R7 suivante prime désormais pour la planification**. Aucun nouveau firmware ni test physique qualifié par cette décision. Référence d'audit : [A-06](ETUDE_A06_SUPERVISION_SANS_STOCKAGE.md).
+
+## Trajectoire active A-06 — R0 à R7
+
+| Lot | Statut au 15/10/2026 | Travaux et dépendances | Critères de sortie |
+|---|---|---|---|
+| **R0 — Norme LIVE** | **CADRAGE ADOPTÉ ; MAPPING ET ORACLES À FINALISER** | Extension versionnée distincte de V1/V1.1 ; vérifier version B0/B4, commandes B5, durée live continue, B1/B3/B6/B7, FRAM, migration, compatibilité, FT/TT. Aucun code modifié. | Mapping successeur et matrices d'états/refus/tests cohérents, CRC et migration documentés, revue ChatGPT. |
+| **R1 — Configuration/FRAM** | À faire, après R0 | Validateur LIVE, version de record, commit atomique, recovery sans SD, migration/rollback non destructifs. | Tests corruption, coupure et compatibilité ; aucune active partielle ni conversion implicite. |
+| **R2 — Moteur live** | À faire, après R1 | START_LIVE/STOP_LIVE séparés des campagnes ; exclusivité ; aucun DataStore/ID campagne ; pas d'auto-restart. | Tests d'idempotence, refus, journal, absence écriture SD. |
+| **R3 — FIFO/calcul/B3** | À faire, après R2 ; travaux de calcul préparables en parallèle | Flux IIS3DWB unique, fenêtres et échelle active, RMS/crêtes/seuils, snapshots B3 cohérents, âge et invalidité. | Oracles indépendants, non-régression B3, aucun zéro fictif valide. |
+| **R4 — Temps réel** | À faire ; instrumentation possible dès R2/R3 | Budgets CPU/RAM/pile, FIFO max, latences FRAM/Modbus, gaps, charge longue et arrêt sûr. | Marges chiffrées, critères d'endurance bornés, aucune perte silencieuse dans les essais qualifiés. |
+| **R5 — PC/SQLite/Web** | À faire ; peut avancer après stabilisation R0 | Profils/version B0, décodage B3, archivage SQLite qualifié, qualité/trous/doublons, affichage S7, anciens profils. | Tests de compatibilité, déconnexion/reprise, persistance, état invalide. |
+| **R6 — Physique bout en bout sans SD** | À faire, après R1–R5 | STM32 → Modbus → PC → SQLite → Web ; quatre fenêtres, défauts, arrêt/reprise, power-cycle utilisateur et endurance progressive. | Preuves physiques, SHA image, cible, budgets et revue indépendante ChatGPT ; pas de qualification industrielle présumée. |
+| **R7 — Stockage réintégré** | Différé ; indépendant du GO R6 | Qualification SDMMC/alternative puis enregistrement du même flux ; débit, backpressure, préfixe durable, panne/plein/retrait et coexistence. | Campagnes durables prouvées sans régression du live ; qualification distincte. |
+
+**Passerelle M014–M020 :** M014/M015 restent des acquis bornés ; M016 (publication B3) se réalise principalement en R3 ; M017 (Modbus physique) en R6 ; M018/M019 (PC, SQLite, Web) en R5/R6 ; M020 (démonstrateur) en R6. J3–J5 demeurent ouverts. Les dettes A04-04..08 et la revue A-01 M015 restent ouvertes ; aucun jalon historique requalifié.
+
+**Règles de progression :** R0 doit être finalisé avant toute modification des domaines gelés ; R1–R3 par incréments réversibles et tests ; R4 et R5 peuvent avancer en parallèle selon interfaces ; R6 n'attend pas R7. La supervision live doit rester opérationnelle sans média de campagnes, sans dissimuler les défauts réels. Aucun flash/debug ni intervention physique implicite dans R0.
+
+---
+
+
 **Version de suivi :** A-02 — 13 octobre 2026. **Source :** `main` de `loloLR17/MSM_vibe`.
 **Objectif :** démonstrateur physique capteur → STM32 → Modbus → supervision PC → SQLite → Web.
 
