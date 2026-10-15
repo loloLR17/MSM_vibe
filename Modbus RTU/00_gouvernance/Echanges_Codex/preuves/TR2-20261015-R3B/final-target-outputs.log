@@ -1,0 +1,74 @@
+131/133 Testing: live_fifo_continuous_owner
+131/133 Test: live_fifo_continuous_owner
+Command: "/home/lolo/dev/msm/projects/MSM_vibe-R3B-live-metrology/Modbus RTU/05_Firmware/build-host-validation/test_live_fifo"
+Directory: /home/lolo/dev/msm/projects/MSM_vibe-R3B-live-metrology/Modbus RTU/05_Firmware/build-host-validation
+"live_fifo_continuous_owner" start time: Oct 16 00:00 CEST
+Output:
+----------------------------------------------------------
+R2 real journal + actual continuous owner on simulated SPI: START/STOP causal, APPLY refusal and FRAM-independent safety: PASS
+Actual owner -> metrology: >4M checked XYZ, sensor timestamp rollover, periodic windows, FIFO error invalidates/stops: PASS
+Continuous FIFO: four full scales, >4M XYZ beyond finite capacity, 64-bit time boundary, guarded consumer, faults, STOP and40 start I/O cuts: PASS
+<end of output>
+Test time =   0.44 sec
+----------------------------------------------------------
+Test Passed.
+"live_fifo_continuous_owner" end time: Oct 16 00:00 CEST
+"live_fifo_continuous_owner" time elapsed: 00:00:00
+----------------------------------------------------------
+
+
+132/133 Testing: live_io_cost
+132/133 Test: live_io_cost
+Command: "/home/lolo/dev/msm/projects/MSM_vibe-R3B-live-metrology/Modbus RTU/05_Firmware/build-host-validation/test_live_io_cost"
+Directory: /home/lolo/dev/msm/projects/MSM_vibe-R3B-live-metrology/Modbus RTU/05_Firmware/build-host-validation
+"live_io_cost" start time: Oct 16 00:00 CEST
+Output:
+----------------------------------------------------------
+IO_COST,command,phase,read_bytes,write_bytes,host_cpu_ms,running_after
+IO_COST,START,0,313916,52426,6.683,0
+IO_COST,START,1,313916,52426,7.308,0
+IO_COST,START,2,313916,52426,6.488,1
+IO_COST,START,3,313916,52426,7.073,1
+IO_COST,RENEW_LIVE,0,313916,52426,7.785,1
+IO_COST,RENEW_LIVE,1,313916,52426,6.654,1
+IO_COST,RENEW_LIVE,2,313916,52426,6.663,1
+IO_COST,RENEW_LIVE,3,313916,52426,6.255,1
+IO_COST,STOP,0,313916,52426,6.897,1
+IO_COST,STOP,1,313916,52426,7.590,1
+IO_COST,STOP,2,313916,52426,7.047,0
+IO_COST,STOP,3,313916,52426,6.313,0
+IO_COST,APPLY_IDLE,0,313916,52426,7.755,0
+IO_COST,APPLY_IDLE,1,313916,52426,6.771,0
+IO_COST,APPLY_IDLE,2,627832,104852,14.937,0
+IO_COST,APPLY_IDLE,3,313916,52426,6.546,0
+<end of output>
+Test time =   0.14 sec
+----------------------------------------------------------
+Test Passed.
+"live_io_cost" end time: Oct 16 00:00 CEST
+"live_io_cost" time elapsed: 00:00:00
+----------------------------------------------------------
+
+
+133/133 Testing: live_metrology
+133/133 Test: live_metrology
+Command: "/home/lolo/dev/msm/projects/MSM_vibe-R3B-live-metrology/Modbus RTU/05_Firmware/build-host-validation/test_live_metrology"
+Directory: /home/lolo/dev/msm/projects/MSM_vibe-R3B-live-metrology/Modbus RTU/05_Firmware/build-host-validation
+"live_metrology" start time: Oct 16 00:00 CEST
+Output:
+----------------------------------------------------------
+448 independent Python numeric oracles: four FS, seven masks, four N, constants/AC/near-saturation: PASS
+B3 age2P/2P+1, retained STOP/config loss, rollover64, >7d, saturated counters, reversal: PASS
+Alarms: equality, hold boundary, cancellation, hysteresis floor, latch ACK, union counters, dominance tie: PASS
+Causal/index/config faults, all-axis saturation including disabled axis, accumulator/time overflow: PASS
+A missing valid window cancels the pending hold without extrapolation: PASS
+Burst chunking invariance, four exact periodic windows, UTC overflow/epoch0, independent monotone streams: PASS
+<end of output>
+Test time =   0.30 sec
+----------------------------------------------------------
+Test Passed.
+"live_metrology" end time: Oct 16 00:00 CEST
+"live_metrology" time elapsed: 00:00:00
+----------------------------------------------------------
+
+End testing: Oct 16 00:00 CEST

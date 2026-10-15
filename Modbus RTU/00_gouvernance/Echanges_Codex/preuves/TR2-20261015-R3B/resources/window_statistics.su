@@ -1,0 +1,3 @@
+/home/lolo/dev/msm/projects/MSM_vibe-R3B-live-metrology/Modbus RTU/05_Firmware/src/domain/acquisition/window_statistics.c:5:17:sample_abs_mg	16	static
+/home/lolo/dev/msm/projects/MSM_vibe-R3B-live-metrology/Modbus RTU/05_Firmware/src/domain/acquisition/window_statistics.c:13:13:checked_add_u64	40	static
+/home/lolo/dev/msm/projects/MSM_vibe-R3B-live-metrology/Modbus RTU/05_Firmware/src/domain/acquisition/window_statistics.c:22:6:acquisition_window_accumulate_valid_sample	176	static

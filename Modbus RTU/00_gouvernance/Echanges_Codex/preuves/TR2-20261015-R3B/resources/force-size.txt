@@ -1,0 +1,2 @@
+   text	   data	    bss	    dec	    hex	filename
+ 179288	    480	 602232	 782000	  beeb0	/home/lolo/dev/msm/reports/TR2-r3b/resources/R3B-force-linked-NOT-FOR-FLASH.elf

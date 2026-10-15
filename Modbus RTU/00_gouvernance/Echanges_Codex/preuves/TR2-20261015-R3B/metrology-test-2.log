@@ -1,0 +1,1 @@
+test_live_metrology: /home/lolo/dev/msm/projects/MSM_vibe-R3B-live-metrology/Modbus RTU/05_Firmware/tests/unit/test_live_metrology.c:116: strict_faults: Assertion `live_metrology_sample(&s,3,1,1,0,raw,0,false,0)==TR2_OK' failed.

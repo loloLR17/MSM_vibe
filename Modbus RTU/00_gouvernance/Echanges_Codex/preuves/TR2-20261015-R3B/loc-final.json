@@ -1,0 +1,83 @@
+{
+  "method": "physical splitlines; firmware includes owned experiments/historical candidates, NOT only ELF-linked sources; tests include host/PC source; documentation md/rst/adoc; vendor/generated/build excluded; JSON/CSV/log/proofs data not LOC",
+  "measurements": {
+    "b6bae880": {
+      "owned_firmware_c_cpp": {
+        "files": 255,
+        "physical_lines": 30415
+      },
+      "tests": {
+        "files": 258,
+        "physical_lines": 45422
+      },
+      "documentation": {
+        "files": 2515,
+        "physical_lines": 140951
+      }
+    },
+    "3f3ca1c": {
+      "owned_firmware_c_cpp": {
+        "files": 263,
+        "physical_lines": 31768
+      },
+      "tests": {
+        "files": 262,
+        "physical_lines": 46516
+      },
+      "documentation": {
+        "files": 2523,
+        "physical_lines": 141714
+      }
+    },
+    "0c6f002": {
+      "owned_firmware_c_cpp": {
+        "files": 269,
+        "physical_lines": 31999
+      },
+      "tests": {
+        "files": 263,
+        "physical_lines": 46620
+      },
+      "documentation": {
+        "files": 2526,
+        "physical_lines": 142059
+      }
+    },
+    "HEAD": {
+      "owned_firmware_c_cpp": {
+        "files": 273,
+        "physical_lines": 32341
+      },
+      "tests": {
+        "files": 267,
+        "physical_lines": 47329
+      },
+      "documentation": {
+        "files": 2530,
+        "physical_lines": 142428
+      }
+    }
+  },
+  "net_lines_from_first": {
+    "b6bae880": {
+      "owned_firmware_c_cpp": 0,
+      "tests": 0,
+      "documentation": 0
+    },
+    "3f3ca1c": {
+      "owned_firmware_c_cpp": 1353,
+      "tests": 1094,
+      "documentation": 763
+    },
+    "0c6f002": {
+      "owned_firmware_c_cpp": 1584,
+      "tests": 1198,
+      "documentation": 1108
+    },
+    "HEAD": {
+      "owned_firmware_c_cpp": 1926,
+      "tests": 1907,
+      "documentation": 1477
+    }
+  }
+}

@@ -1,0 +1,2 @@
+   text	   data	    bss	    dec	    hex	filename
+ 170916	    480	 602232	 773628	  bcdfc	/home/lolo/dev/msm/projects/MSM_vibe-R3B-live-metrology/Modbus RTU/05_Firmware/build-stm32-cumulative/tr2-cumulative-m014-m015-spi4.elf

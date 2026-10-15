@@ -1,0 +1,20 @@
+{
+  "accumulation": {
+    "body_sha256": "9fa4e3737643e8bb19fd6d25bec751d44d48abe68cf3fe4555cc0e9bc3a546f4",
+    "old": "Modbus RTU/05_Firmware/src/application/acquisition_service.c",
+    "new": "Modbus RTU/05_Firmware/src/domain/acquisition/window_statistics.c",
+    "body_byte_identical": true
+  },
+  "raw_conversion": {
+    "body_sha256": "57a535f44988c65eebe76e12e5d05cb26676ac04fd3e60aadf6eebb30ab31c51",
+    "old": "Modbus RTU/05_Firmware/platform/stm32/stm32_iis3dwb_vibration_source.c",
+    "new": "Modbus RTU/05_Firmware/include/tr2/platform/iis3dwb_units.h",
+    "body_byte_identical": true
+  },
+  "src/domain/supervision/indicator_calculator.c": {
+    "file_unchanged": true
+  },
+  "src/modbus/projection.c": {
+    "file_unchanged": true
+  }
+}

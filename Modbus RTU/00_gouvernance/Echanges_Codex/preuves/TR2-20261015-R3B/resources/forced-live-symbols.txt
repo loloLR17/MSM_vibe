@@ -1,0 +1,12 @@
+08018c78 T acquisition_window_accumulate_valid_sample	/home/lolo/dev/msm/projects/MSM_vibe-R3B-live-metrology/Modbus RTU/05_Firmware/src/domain/acquisition/window_statistics.c:22
+08012f00 T live_fifo_acquisition_bind_engine	/home/lolo/dev/msm/projects/MSM_vibe-R3B-live-metrology/Modbus RTU/05_Firmware/platform/stm32/live_fifo_acquisition.c:93
+08012e3c T live_fifo_acquisition_bind_metrology	/home/lolo/dev/msm/projects/MSM_vibe-R3B-live-metrology/Modbus RTU/05_Firmware/platform/stm32/live_fifo_acquisition.c:81
+08012bc8 T live_fifo_acquisition_init	/home/lolo/dev/msm/projects/MSM_vibe-R3B-live-metrology/Modbus RTU/05_Firmware/platform/stm32/live_fifo_acquisition.c:42
+08012c26 T live_fifo_acquisition_poll	/home/lolo/dev/msm/projects/MSM_vibe-R3B-live-metrology/Modbus RTU/05_Firmware/platform/stm32/live_fifo_acquisition.c:51
+0801474c T live_metrology_ack	/home/lolo/dev/msm/projects/MSM_vibe-R3B-live-metrology/Modbus RTU/05_Firmware/src/application/live_metrology.c:211
+080136be T live_metrology_invalidate	/home/lolo/dev/msm/projects/MSM_vibe-R3B-live-metrology/Modbus RTU/05_Firmware/src/application/live_metrology.c:18
+08014180 T live_metrology_project_b3	/home/lolo/dev/msm/projects/MSM_vibe-R3B-live-metrology/Modbus RTU/05_Firmware/src/application/live_metrology.c:170
+08013dc4 T live_metrology_sample	/home/lolo/dev/msm/projects/MSM_vibe-R3B-live-metrology/Modbus RTU/05_Firmware/src/application/live_metrology.c:115
+08012a78 T stm32_live_acquisition_attach	/home/lolo/dev/msm/projects/MSM_vibe-R3B-live-metrology/Modbus RTU/05_Firmware/platform/stm32/stm32_live_acquisition.c:15
+08012b20 T stm32_live_acquisition_poll	/home/lolo/dev/msm/projects/MSM_vibe-R3B-live-metrology/Modbus RTU/05_Firmware/platform/stm32/stm32_live_acquisition.c:27
+080194a0 T vibration_indicators_from_window	/home/lolo/dev/msm/projects/MSM_vibe-R3B-live-metrology/Modbus RTU/05_Firmware/src/domain/supervision/indicator_calculator.c:39

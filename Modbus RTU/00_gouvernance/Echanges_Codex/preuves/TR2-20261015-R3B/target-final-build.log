@@ -1,0 +1,9 @@
+[1/9] Building C object CMakeFiles/test_live_fifo.dir/platform/stm32/live_fifo_acquisition.c.o
+[2/9] Building C object CMakeFiles/tr2_core.dir/src/application/live_command_engine.c.o
+[3/9] Building C object CMakeFiles/test_live_metrology.dir/tests/unit/test_live_metrology.c.o
+[4/9] Linking C static library libtr2_core.a
+[5/9] Building C object CMakeFiles/test_live_fifo.dir/tests/platform/test_live_fifo.c.o
+[6/9] Building C object CMakeFiles/test_live_io_cost.dir/tests/unit/test_live_io_cost.c.o
+[7/9] Linking C executable test_live_metrology
+[8/9] Linking C executable test_live_io_cost
+[9/9] Linking C executable test_live_fifo

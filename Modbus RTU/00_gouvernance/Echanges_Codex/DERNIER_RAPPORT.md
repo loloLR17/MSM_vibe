@@ -1,11 +1,11 @@
 ---
-mission_id: TR2-20261015-R3A-ACQUISITION-LIVE-ARCHITECTURE
-status: DONE
+mission_id: TR2-20261015-R3B-LIVE-METROLOGY-B3
+status: IN_PROGRESS
 base_ref: main
-base_sha: 3f3ca1c38742c277de349b789e3e82fd52a1c791
-initial_head: c5c1c22df5291dc29782d4a81cc3dc17adf56556
-result_sha: 0c6f002fd9cc09f577ff9ec446b5af46d5393c27
-created_at_utc: 2026-10-15T21:43:18Z
+base_sha: fa2af5606ff7ae939a14a77c8d593da5f38d7e14
+initial_head: 5a50214d2382b53bc8f1798028154674c39f9637
+result_sha: 1c5368fd56bc52195d5f44dc37f38f7edf848900
+created_at_utc: 2026-10-15T22:04:32Z
 author: Codex
 target_branch: main
 allow_commit: true
@@ -14,167 +14,186 @@ allow_flash: true
 allow_debug: true
 ---
 
-# R3-A — acquisition continue et revue architecturale
+# R3-B — fenêtres, métrologie B3 et coût de coexistence
 
-**Critères logiciels R3-A satisfaits ; rapport et preuves publiés puis relus sur main.**
-Un propriétaire continu réutilise le driver ST, le transport SPI STM32 qualifié
-et les guards/parser FIFO existants. Le vrai moteur R2 utilise ce propriétaire
-dans un test d'intégration avec SPI/FRAM simulés. **La production reste V1 ; aucun
-profil2, B3 valide ou PASS physique n'est annoncé.**
+**Livraison logicielle terminée ; publication/relecture en cours.** Calcul B3
+entier, qualité/âge, alarmes/latch et raccordement causal au propriétaire FIFO
+R3-A sont testés. **Production V1 conservée ; aucun profil2, B3 physique, accès
+FRAM LIVE ou qualification temporelle n'est annoncé.** Contrôle indépendant
+ChatGPT à effectuer ; R4 est nécessaire avant composition opérationnelle.
 
-## Référence et préservation
+## Références et Git
 
-Mission READY récupérée sur main `c5c1c22`, base3f3ca1c vérifiée ; gouvernance
-inchangée depuis la mission précédente (diff contrôlé), journal intégral et
-références R0/R1/R2 consultés. Le contrat n'a pas de created_at_utc ; aucune date
-contractuelle inventée. Dépôt principal propre historiquement divergent à82169af,
-aucun pull/merge/rebase/reset. Travail dans
-`/home/lolo/dev/msm/projects/MSM_vibe-R3A-live-acquisition`, branche locale
-`codex/r3a-live-acquisition`, destination autorisée main. Les worktrees et stashes
-6251b988e8b20f97997a8f98fd26d4d35a45a1b2 /
-f3b829e6188f491920edf74a5f9ed0f559d08b87 sont préservés. Fichiers protégés
-recomparés par SHA256, gels/dettes/archives antérieures inchangés ; mission et
-rapport R2 archivés intégralement depuis3f3ca1c.
+Mission READY récupérée sur main5a50214, basefa2af56 contrôlée, AGENTS/protocole,
+gouvernance §10 T1000, journal intégral, roadmap, norme/mapping/tests R0,
+LIVE_R1/R2/R3A et mission/rapport R3-A consultés. Mission/rapport R3-A archivés
+intégralement depuisfa2af56, sans remplacer une archive. Aucune modification du
+contrat ChatGPT ni des gels/dettes/archives préexistantes :2334 empreintes
+protégées vérifiées. Le contrat omet created_at_utc ; aucune date contractuelle
+n'est inventée, la date ci-dessus est celle de rédaction du rapport.
 
-Code évalué **`0c6f002fd9cc09f577ff9ec446b5af46d5393c27`** —
-`R3-A: reuse qualified FIFO guards for a continuous causal acquisition owner`.
-Les commits suivants concernent uniquement preuves/rapport/journal/roadmap.
+Dépôt historique main82169af propre mais divergent conservé, aucun pull dangereux,
+merge/rebase/reset/clean. Worktree isolé
+`/home/lolo/dev/msm/projects/MSM_vibe-R3B-live-metrology`, branche locale
+`codex/r3b-live-metrology`, destination main. Stashes6251b988e8b20f97997a8f98fd26d4d35a45a1b2
+etf3b829e6188f491920edf74a5f9ed0f559d08b87 inchangés, autres worktrees préservés.
 
-## Développement et architecture
+- `e80e252` — R3-B: add causal LIVE windows, integer B3 metrology and strict quality alarms.
+- `1c5368fd56bc52195d5f44dc37f38f7edf848900` — R3-B: normalize extracted statistics file ending.
 
-- `fifo_live` : tampon constant896octets, continuité tags/compteurs/timestamps
-  conservée, totaux et temps64bits ; pas de limite de capture/durée/campagne.
-  Un burst passe parser, statut et readback configuration avant callback ; aucune
-  publication partielle sur échec. Gap de poll, absence de données, overflow,
-  erreur SPI, tag, configuration ou consommateur provoquent arrêt sûr.
-- `live_fifo_acquisition` : vrai port causal R2 START/STOP/observe. Configuration
-  et run figés, lectures effectives des contrôles avant observation ; STOP
-  OFF/BYPASS/timestamp OFF et readback indépendants de la FRAM. Init sans I/O,
-  aucun auto-START ; budget I/O absent/refusé par défaut.
-- `stm32_live_acquisition` : réutilisation du même transport SPI3/CS/UID/clock et
-  contrôle HAL/preclose. Claim unique par boot, refus d'un second attachement.
-  Recyclage des logs finis entre quanta validés, jamais des erreurs sticky ;
-  budget cleanup conservé. Aucun driver ST/HAL/pin modifié.
-- Mutualisation démontrée : corps du parser et contrôle FIFO identiques avant/après,
-  exportés depuis fifo_window et utilisés par les deux chemins. Aucun parseur
-  recopié, aucun framework, aucun chemin V1 supprimé.
+Tests/builds dynamiques sur le contenu du premier ; le second retire seulement
+une ligne blanche finale (signalée par diff --check), aucun token exécutable ni
+corps de fonction ne change. Contrôle statique de ce dernier, sans validation
+physique ni répétition de tests pour une fin de fichier. Les commits suivants
+concernent uniquement preuves/rapport/état/roadmap.
 
-Cartographie complète, méthode et matrice **conservé/mutualisé/remplacé/différé** :
-[`LIVE_R3A.md`](../../05_Firmware/LIVE_R3A.md).
-Inventaire407 modules/interfaces/tests avec preuves CMake et symboles :
-[`r3a-module-inventory.json`](preuves/TR2-20261015-R3A/r3a-module-inventory.json).
-L'ELF canonique possède des symboles issus de88 chemins du dépôt (incluant
-sources partagées/vendor/générées identifiées) ; bibliothèque compilée et unité
-réellement liée sont distinguées. R1/R2/nouveau propriétaire sont préparés/testés,
-pas qualifiés « morts ». Le B5 V1 et le moteur epoch restent distincts pour leurs
-contrats/records ; un seul média/driver FRAM est réutilisé. **Aucun candidat à
-retrait immédiat démontré** ; les archives/bancs historiques sont nécessaires.
+## Résultats et portée
 
-## Mesures de code et images
+`LIVE_R3B.md` contient la correspondance R0 détaillée, politique de frontières,
+matrice conservé/mutualisé/remplacé/différé et dépendances RTU2.
 
-Méthode reproductible : script commité `tools/measure_live_architecture.py`, blobs
-Git b6bae880/3f3ca1c/0c6f002, lignes physiques incluant blancs/commentaires.
-Code propriétaire C/C++ firmware et expériences, hors vendor/générés/builds ;
-tests source séparés ; documentation MD/RST/ADOC. JSON/CSV/logs/preuves ne sont
-pas des LOC ; la colonne code n'est pas limitée aux fonctions liées à l'ELF.
+- Service `LiveMetrology` constant en mémoire, run/config_id/génération copiés,
+  indices XYZ exacts, quatre N et P normatifs. Première fenêtre immédiate, suivantes
+  au premier XYZ dont temps observé atteint début précédent+P, sans chevauchement
+  ni rattrapage inventé. XYZ entre fenêtres toujours drainés et contrôlés.
+- Accumulateur vérifié et conversion brute V1 extraits sans changer leurs corps ;
+  calculateur isqrt et encodage B3 existants réutilisés, parser/driverST inchangés.
+  mg arrondi hérité le plus proche, demi-mg éloigné de zéro ; RMS/crêtes R0 entiers,
+  axes désactivés0 avant sommes/global/alarmes ; saturation même non sélectionnée
+  rejette conformément au garde-fou physique R3-A/V1.
+- B3 mémoire48registres complet : statut/validité/fraîcheur/âge à2P inclus,
+  métadonnées non redatées, UTC indisponible/overflow sans arrêter numérique,
+  séquence/compteurs saturés, sévérité/dominance et réservés0. Aucun CRC B3 inventé.
+- Alarmes strictement>seuil, hystérésis à plancher0, hold causal annulé si fenêtre
+  valide manquante/invalidité/STOP/péremption ; latch et compteurs par montée de
+  l'union. ACK seulement après disparition prouvée par fenêtre valide fraîche.
+  STOP retient la dernière valeur qualifiée, F0/HELD/STOPPED ; erreur retire V/F,
+  perte d'autorité retire aussi bit7, sans écraser nombres et métadonnées.
+- Binding réel R3-A→service, START après readback, STOP et fautes propagés.
+  Notification de perte d'autorité R2 ajoutée sans changer journal/format/codes ;
+  panne FRAM invalide B3 et arrête indépendamment de l'écriture du succès.
 
-| Référence | C/C++ propriétaire | Tests | Documentation |
+Le provider **sample_time** observé/calibré est obligatoire et sans défaut permissif.
+La grille rationnelle des tests est un modèle, pas un temps capteur réel. Pas de
+provider STM32 inventé depuis le temps de défilement SPI ni d'UTC qualifiée par
+supposition. Ce raccordement et les budgets R4 restent à prouver.
+
+## Validations réellement exécutées
+
+[Preuves et manifeste](preuves/TR2-20261015-R3B/README.md).
+
+- **133/133 tests hôte PASS**,33,00s au dernier cycle. Validation complète requise
+  car accumulateur/conversion partagés et notification moteur touchés. Full
+  `STM32CUBE_U5_ROOT=… bash ./tr2_validate.sh`, puis rebuild/ctest finaux et ARM
+  `--cross-build-only` justifiés par correction de l'annulation hold à fenêtre
+  manquante ; aucune validation physique historique rejouée.
+- **448 oracles Python indépendants** :4FS×7masques×4N×4formes, constants/AC/zéro/
+  proche saturation ; math.isqrt et rationnels indépendants du C/ST. Aucun attendu
+  ajusté à partir du résultat C. N-1 sans résultat, N exact, frontières périodiques,
+  invariance aux découpages1..128, arrêt/reprise/erreurs, temps32→64 et >7jours
+  simulés, âge2P/2P+1, UTC invalide/overflow/epoch0, compteurs saturés.
+- **>4M XYZ supplémentaires** : vrai owner R3-A et vraie métrologie sur modèle SPI,
+  timestamps capteur modulo32, fenêtres périodiques puis faute FIFO et invalidation.
+  Vraie intégration moteur/store R2→owner→métrologie, APPLY refusé sans I/O en
+  acquisition et panne FRAM→arrêt/autorité retirée. Tests R3-A >4M/FS conservés.
+- **ASan/UBSan PASS**, trois suites ciblées,4,08s. Pas d'exécution HAL physique.
+- **Cross-build cumulatif ARM PASS**,GCC14.2.1/SDK1.9.0 ; lien forcé séparé de
+  métrologie/binding STM32 réussi. Ni cette image ni le canonique flashés.
+
+Erreurs conservées : première instrumentation inclut un main de fixture imbriqué
+(redefinition) ; wrapper de suite extrait sans changer les assertions. Après
+séparation des temps d'événement et de lecture, un test synthétique revenait à0
+après un run : corrigé pour conserver la monotonie, pas affaiblir le contrôle.
+Les séquences de clock restent indépendantes : une lecture actuelle ne doit pas
+faire rejeter artificiellement un échantillon antérieur en queue.
+
+**Écart de méthode à transmettre :** règles/formules R0 lues avant développement,
+mais générateur d'oracles matérialisé après première rédaction du service, avant
+sa compilation, contrairement à l'ordre demandé « avant développement ». Cela ne
+change pas l'indépendance des attendus ; la revue ChatGPT doit connaître cet écart.
+
+## FRAM/FIFO : mesures, déduction et recommandation R4
+
+Instrumentation des vraies phases R2 sur transport mémoire :**313916octets lus /
+52426écrits par phase** ; START/STOP/RENEW1255664lus/209704écrits ; APPLY ajoute
+une transaction,1569580lus/262130écrits. CPU hôte nominal≈6–14ms selon phase dans
+le relevé initial ; sorties finales également conservées, pas une borne de WCET
+STM32 ni une latence électrique. START phase2 arme avant persistance, phase3
+encore active ; STOP phases0/1 et tout RENEW LIVE exposent aussi la coexistence.
+
+Lecture main.c :FRAM SPI1 SYSCLK160MHz/prescaler64 ⇒2,5MHz calculés. Les seuls
+366342octets utiles d'une phase nécessiteraient **>=1,1722944s** de bus sérialisé,
+hors entêtes/CPU. FIFO512 à26667XYZ/s +1TS/8XYZ ⇒30000,375words/s :**17,06645ms**
+nominal depuis vide,7,06658ms au niveau300. Déduction conditionnelle au clock réel,
+pas mesure sur carte : phase monolithique incompatible, budget absent reste refusé.
+
+Stratégie R4 concrète documentée : conserver formats atomiques, un seul owner ;
+quanta transport et CRC/hash avec service FIFO entre quanta, aucune réentrance
+FRAM/dispatchB5 dans callback, réception STOP prioritaire et arrêt de faute
+indépendant. Point de départ32octets=102,4µs utiles à2,5MHz, **à mesurer avec tous
+les surcoûts**, admission selon niveau/gap/coût pire ; pas un budget autorisé.
+Alternative journal delta serait structurante si cette voie échoue ; aucune
+migration/format ni architecture imposés silencieusement ici.
+
+## Architecture, métriques et ressources
+
+[Inventaire414unités/interfaces/tests](preuves/TR2-20261015-R3B/module-inventory.json)
+actualisé depuis R3-A avec CMake/glob/symboles :89chemins source ont des symboles
+dans le canonique (incluant vendor/générés identifiés). Non lié n'est pas mort.
+[Préparation187champs de projection](preuves/TR2-20261015-R3B/projection-readiness.json).
+
+|Référence code Git|C/C++ propriétaire|Tests source|Documentation|
 |---|---:|---:|---:|
-| Avant R1 b6bae880 |30415|45422|140951|
-| HEAD R2 3f3ca1c |31768|46516|141714|
-| Code R3-A 0c6f002 |31999|46620|142059|
+|Avant R1 b6bae880|30415|45422|140951|
+|R2 3f3ca1c|31768|46516|141714|
+|R3-A 0c6f002|31999|46620|142059|
+|R3-B 1c5368f|32341|47329|142428|
 
-R3-A versus R2 : **+231 code, +104 tests, +345 documentation**, cette dernière
-incluant archive et évolution de mission entrante. Ce ne sont pas747lignes de
-production supplémentaires. Diff de notre tranche c5c1c22→0c6f002 :
-**757ajouts/10suppressions Git**,17fichiers, incluant outils/docs/archive/tests ;
-numstat conservé séparément. Les commits d'échange ultérieurs ne sont pas comptés
-dans la mesure du commit de code. L'outillage Python ne devient pas C/C++.
+Méthode script R3-A inchangé :blobs Git, lignes physiques avec blancs/commentaires,
+hors vendor/générés/build ; code inclut candidats historiques/expériences, tests
+séparés, JSON/CSV/logs données hors LOC. **+342code/+709tests/+369docs** versus
+R3-A code ; docs incluent entrées mission/archives/rapports intermédiaires. Diff
+propre depuis5a50214 :1939ajouts/89retraits Git,23fichiers incluant JSON450lignes,
+archives/outils/tests ; pas1939lignes de production. Les rapports ultérieurs ne
+sont pas inclus dans le commit code mesuré. Aucun retrait spéculatif.
 
-| Image/mesure réelle | text | data | bss | Portée |
-|---|---:|---:|---:|---|
-| ELF R2 conservé, empreinte vérifiée |170892|480|602232|V1 canonique, code59d3757 inchangé à3f3ca1c|
-| Canonique R3-A |170916|480|602232|V1, nouveau propriétaire non appelé|
-| Lien forcé R3-A distinct |175144|480|602232|Nouveaux symboles résolus, aucun nouvel objet propriétaire instancié|
+|ARM-O0|Octets/sections réelles|
+|---|---|
+|LiveMetrology|720|
+|LiveFifoAcquisition|1096 (inclut owner, +8 sur R3-A)|
+|LiveCommandEngine|488 (+8 pour notification)|
+|AcquisitionWindow|224, type existant|
+|Canonique V1 text/data/bss|170916/480/602232|
+|ELF de lien forcé distinct text/data/bss|179288/480/602232|
 
-Avant R1 : pas de taille image remesurée ; comparaison LOC seule disponible.
-Propriétaire ARM1064octets dont896de burst, adaptateur incluant propriétaire1088,
-hors contexte STM32/consommateur. Cadres statiques `.su` conservés, pas une borne
-complète de pile/IRQ ni de CPU. Aucun gain de marge physique n'est extrapolé.
+Les nouveaux objets ne sont pas instanciés dans le canonique. `.su` :sample120,
+complete312, projection288, consume152octets de cadres statiques, **pas** une
+borne complète de pile/IRQ ni de charge. Pas de taille FLASH avantR1 remesurée.
+BIN canonique SHA256
+`990b2f27fe5c8c27c9c57d596e78fe9d5ce223ef2d9a5c1fe38c3643f8ffba96` ;
+ELF `bfd2006d46713505847ba8e101872c1200bd7d4dcab55fe02c2fd82d2df8afc7`.
+Lien forcé **NON DESTINÉ AU FLASH** SHA256
+`1ab6f8e4560da29ed68249d21f394c1341712fd9f9c89380a83c431ca60a8bb0`.
 
-## Tests et erreurs
+## Limites et état laissé
 
-Preuves et empreintes : [`TR2-20261015-R3A`](preuves/TR2-20261015-R3A/README.md).
+Projections B1/B6/B7/B0/B4/B5 préparées champ/par champ et dépendances explicitées,
+pas présentées comme raccordées. Agrégateur autorités/READY/fautes R0, inventaire
+unknown4/schema2, événements B7 durables, effets hérités2..11, routagePDU/RTU29,
+capacité LIVE et provider temps capteur manquent à la composition complète. B0
+V1 masque bit4 et B6 V1 refuse santé4 : élargir seuls ces points serait mensonger.
+ACK local B3 testé, commande6 successeur non dispatchée ; SELFTEST5 sansSD à
+raccorder, REFRESH7 ne devra jamais rajeunir le snapshot ; commande11 garde les
+compteurs R0. R4/R5/R6 restent nécessaires ; pas de validation bout-en-bout ni
+métrologie/calibration/endurance physique extrapolée des simulations.
 
-- **131/131 tests hôte PASS**,35,60s au dernier cycle ; full validation puis
-  rebuild/tests finaux justifiés par le claim exclusif ajouté au transport.
-  Les tests bornés V1, FIFO et budgets existants restent actifs.
-- **Port R2 réel + owner réel sur SPI simulé** : START/STOP avec readbacks,
-  consommation, APPLY refusé sans I/O pendant acquisition, arrêt de sécurité
-  après panne FRAM ; aucune observation de succès inventée par un stub.
-- **Plus de4millions XYZ modélisés**, quatre pleines échelles, au-delà des limites
-  de capture précédentes ; frontière temps32bits franchie. Il ne s'agit pas d'un
-  essai à cadence physique TR2 ni d'une preuve d'endurance.
-- Erreurs de FIFO/tags/parité/saturation/timestamp/configuration, absence de données,
-  gap, backpressure consommateur et40positions d'injection START I/O contrôlées.
-  La fixture avait initialement laissé une injection START tomber dans STOP ;
-  sa portée a été corrigée sans retirer l'assertion de STOP vérifié.
-- **ASan/UBSan PASS** sur propriétaire/port/intégration R2 hôte. Les corps partagés
-  sont byte-identiques (preuve shared-bodies.json), les oracles historiques inchangés.
-- **Cross-build cumulatif ARM PASS**, GCC14.2.1/SDK1.9.0. Nouveau propriétaire et
-  binding STM32 compilés ; lien forcé des points d'entrée dans une image distincte,
-  sans flash, car le canonique V1 ne les appelle pas. Premier contrôle de lien a
-  montré que le constructeur du port était éliminé ; l'ancrage explicite de ce
-  symbole a ensuite démontré le lien complet attendu, sans changer le produit.
+**Zéro opération matérielle dans R3-B** : ni inventaire live du banc, ni connexion
+cible/debug/reset/flash, ni FRAM/SD/RS485/OptionBytes. L'état hérité est conservé
+sans le prétendre relu/restauré. T1000 seul banc futur, HP retiré. Autorisations
+commit/push exercées ; flash/debug non exercées. Temps capteur et coexistence
+non qualifiés ne justifient pas de flasher une composition incomplète.
 
-Commandes/logs réels conservés : `bash ./tr2_validate.sh` avec SDK Linux, rebuild
-hôte+ctest puis `--cross-build-only`, build/exécution sanitizer et commande de lien
-forcé. Validation complète requise par modification partagée/transport, pas une
-répétition de qualification physique antérieure.
-
-BIN canonique non flashé SHA256
-`e8bb8fa797e7c3865de9a10f966a1045389644fcf65b5a78e0242c3a54704e1d` ;
-ELF `8bcf27df8e2140a26a6c86fd3510e78fd3d75f70988fe6d3642eafdd90be8134`.
-Image de lien forcé **NON DESTINÉE AU FLASH** SHA256
-`285b43d540f22f91047674a610acfb7de3dc64c12852a6f0a09ef68f6ee2fe7f`.
-
-## Limites et suite R3-B/R4
-
-1. **Risque fort R4** : commits/relectures FRAM synchrones R2 après START peuvent
-   affamer FIFO. Le port ne donne aucun budget vrai par défaut. Garantir STOP,
-   service/latences avant composition réellement active ; le service continu
-   seul ne corrige pas ce coût de persistance.
-2. **R3-B** : fenêtres exactes, unités/RMS/crêtes/alarmes/qualité B3, projections
-   B1/B6/B7 et routage RTU2/effets hérités à compléter ; production reste V1.
-3. **Qualification** : politique gap, SPI électrique et CPU/stack sous charge non
-   mesurés sur cible. Les guards hérités ne prouvent pas une métrologie temporelle
-   exhaustive ni zéro perte physique. Toutes les trois composantes sont capturées ;
-   masque logique figé appliqué en R3-B, saturation d'un axe non choisi rejetée
-   conservativement, à couvrir sans affaiblir V1.
-
-Journal et roadmap mis à jour factuellement ; dettes anciennes non réécrites.
-Choix de mutualisation et dette bornée dans LIVE_R3A.md pour contrôle ChatGPT.
-
-## Matériel et publication
-
-Seule action matérielle/outillage : **énumération ST-LINK en lecture seule**,
-SN003500463235510B37333439/FWV3J15M7/NUCLEO-U575ZI-Q observés. Pas de lecture UID,
-Flash, variables ou accès cible. État actuel de la carte/alimentation/câblage et
-marges de coexistence non établis : aucune campagne physique ni flash tenté.
-Ce choix préserve l'état hérité non relu ; ne pas le présenter comme une carte
-absente ou comme un échec de qualification. Aucun accès FRAM/SD/RS485/reset,
-Option Bytes/protections inchangés. Permissions commit/push exercées, flash/debug
-non exercées. HP retiré ; le banc futur reste T1000.
-
-Push normal effectué vers main au commit
-**`a33066d52c4aa08771a2c78ae19778009e25b1f5`** —
-`R3-A: publish software qualification, architecture inventory and provisional report`.
-Référence récupérée de GitHub, tous les livrables modifiés relus intégralement et
-comparés octet à octet ; 30 fichiers du manifeste, 2332 fichiers protégés,
-sources évaluées et deux stashes vérifiés. Reçu détaillé :
-[`remote-readback.json`](preuves/TR2-20261015-R3A/remote-readback.json).
-Worktree propre après cette publication ; dépôt principal et autres worktrees
-préservés. Cette mise à jour DONE clôt les critères logiciels R3-A, sans
-qualification physique ni validation indépendante ChatGPT présumée.
-Le SHA de cette dernière publication et sa vérification sont fournis dans la
-réponse finale ; aucun SHA autoréférent n'est inscrit dans son propre commit.
+Journal/roadmap actualisés ; gels/dettes et mission ChatGPT intacts. Rapport et
+preuves IN_PROGRESS prêts pour push normal et relecture distante ; statut lié
+uniquement à cette publication, aucun blocage logiciel déclaré. SHA final et
+état Git après dernière publication seront fournis dans la réponse finale.

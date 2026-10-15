@@ -1,0 +1,37 @@
+{
+  "mission_id": "TR2-20261015-R3B-LIVE-METROLOGY-B3",
+  "initial_head": "5a50214d2382b53bc8f1798028154674c39f9637",
+  "dynamic_tests_code_sha": "e80e252d3fdcd501ada107187dfba462b469df67",
+  "result_sha": "1c5368fd56bc52195d5f44dc37f38f7edf848900",
+  "final_difference": "1 trailing blank line removed only; body comparison exact; no executable token changed",
+  "host_tests": 133,
+  "host_test_seconds": 33.0,
+  "sanitizer_tests": 3,
+  "independent_numeric_vectors": 448,
+  "raw_owner_model_xyz": ">4000000 additional to retained R3A tests",
+  "arm_sizes": {
+    "LiveMetrology": 720,
+    "LiveFifoAcquisition": 1096,
+    "LiveCommandEngine": 488,
+    "AcquisitionWindow": 224
+  },
+  "canonical": {
+    "text": 170916,
+    "data": 480,
+    "bss": 602232
+  },
+  "forced_link_only": {
+    "text": 179288,
+    "data": 480,
+    "bss": 602232,
+    "sha256": "1ab6f8e4560da29ed68249d21f394c1341712fd9f9c89380a83c431ca60a8bb0"
+  },
+  "hardware_actions": [],
+  "physical_validation": false,
+  "production_protocol": 1,
+  "B3_runtime_exposed_over_RTU": false,
+  "protected_files": 2334,
+  "module_inventory": 414,
+  "mapping_readiness_fields": 187,
+  "utc": "2026-10-15T22:03:00.042600+00:00"
+}

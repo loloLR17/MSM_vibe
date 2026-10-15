@@ -1,0 +1,5 @@
+448 independent Python numeric oracles: four FS, seven masks, four N, constants/AC/near-saturation: PASS
+B3 age2P/2P+1, retained STOP/config loss, rollover64, >7d, saturated counters, reversal: PASS
+Alarms: equality, hold boundary, cancellation, hysteresis floor, latch ACK, union counters, dominance tie: PASS
+Causal/index/config faults, all-axis saturation including disabled axis, accumulator/time overflow: PASS
+Burst chunking invariance, four exact periodic windows, UTC overflow/epoch0, independent monotone streams: PASS
