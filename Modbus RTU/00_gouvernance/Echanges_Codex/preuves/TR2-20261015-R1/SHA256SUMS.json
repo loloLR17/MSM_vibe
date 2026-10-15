@@ -1,5 +1,5 @@
 {
-  "README.md": "0cb3e1492883ef14fc370ab82c2633959e102f9108d52fd6106a00324ec9ad31",
+  "README.md": "98a90cb55c782a5e45219dbdc42b38da173347203587e3c444fc7aa262406d0c",
   "artifact-sha256.txt": "63c9f24c45b389419ee9b52804b7fc76ab550f8d737294b4e51b3bb111dfc4cd",
   "build-profile.txt": "cc1d17c01a2734c5502fd13ae859a6444015057d9e068cc1d9f10e3de0f35a29",
   "elf-inspection.txt": "05d145b19928d9846966875e2b612a01809239368589e409529fda52391b2c2e",
@@ -12,6 +12,7 @@
   "r1-live-sanitize-configure.log": "c061f13c3828e98a4db60abbd7c40190e435140fe3c9ce4a087c1a1ca01ae3c7",
   "r1-live-sanitize-tests.log": "b5480957e8f9da840ef9866e5e7642c9db58f4bc6f793beb1770d73e360ba2b9",
   "r1-live-validation.log": "aa2b384e58cb85d78ab3b258a49b3bc4b1f0af0b900f22ce240ecc0cfde77c01",
+  "remote-readback.json": "b4396e22a078f7d08c453201e22ef33904a7e863c4eabf03e2caa95522b7bbe4",
   "resources/application_live_configuration.su": "7bba2453928e4606f538a394b0e26a29035bb467d961caef6ca0b815da986e04",
   "resources/application_persistent_identity.su": "05d1c1e626a2a23bf4cb899551e7dd68a1ae07430580a12010ce20ef20ce0511",
   "resources/baseline_resource_probe.c": "4ddc8860d53ad6af91612c15e18607a06ad76d660a6c4e5d90d9f30cd1e1a01a",

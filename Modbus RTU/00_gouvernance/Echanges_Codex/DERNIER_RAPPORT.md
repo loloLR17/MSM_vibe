@@ -1,6 +1,6 @@
 ---
 mission_id: TR2-20261015-R1-LIVE-FRAM-CONFIGURATION
-status: IN_PROGRESS
+status: DONE
 base_ref: main
 base_sha: null
 initial_head: b6bae88001a46527ccab5249fce0c2527f2672d2
@@ -16,7 +16,7 @@ allow_debug: true
 
 # R1 — configuration LIVE et autorité FRAM indépendantes de la SD
 
-**Résultat logiciel acquis ; publication et relecture distante encore à terminer.**
+**DONE logiciel : code, preuves et rapport publiés puis relus depuis GitHub.**
 Backend R1 implémenté et testé sur les vraies implémentations de stores, avec
 transport physique simulé. Ce résultat ne qualifie ni LIVE opérationnel, ni le
 matériel, ni les marges temps réel. Aucun blocage technique rencontré dans le
@@ -160,9 +160,20 @@ la zone LIVE, sauvegardes appropriées, attribution UID/DeviceId et cible.
 
 ## Publication
 
-État avant publication : commit de code local créé, rapport/preuves/journal en
-préparation sur le worktree isolé ; dépôt principal et stashes préservés.
-Destination vérifiée `https://github.com/loloLR17/MSM_vibe.git`, push normal
-`HEAD:refs/heads/main`. Relecture distante encore à obtenir ; statut
-IN_PROGRESS limité à cette attente, pas un blocage externe. Le SHA contenant le
-rapport sera communiqué après publication, jamais inventé dans son propre commit.
+Premier push normal réussi sur main au commit
+**`450ca809929213b4eff13f21e576ad8b75b7196d`** —
+`R1: publish software validation evidence and provisional mission report`.
+Après nouveau fetch, **49 fichiers livrés relus intégralement depuis cette
+référence distante et comparés byte à byte**, rapport provisoire compris ;
+27 empreintes de preuves vérifiées, 2576 fichiers protégés inchangés, stashes
+préservés. Reçu versionné :
+[`remote-readback.json`](preuves/TR2-20261015-R1/remote-readback.json).
+
+Worktree R1 propre après le premier commit publié, puis ajout uniquement du reçu
+et des mises à jour de clôture documentaire. Aucun travail préexistant inclus ;
+dépôt principal et ses références historiques intacts. Destination contrôlée :
+`https://github.com/loloLR17/MSM_vibe.git`, push normal
+`HEAD:refs/heads/main`, sans force ni résolution d'une divergence. Le rapport passe
+à DONE après cette relecture ; la publication finale est vérifiée à son tour et
+son SHA est communiqué dans la réponse Codex. Cette clôture de mission logicielle
+reste distincte du contrôle indépendant ChatGPT et des qualifications R2–R6.

@@ -17,3 +17,8 @@ octet de payload. Les préconditions de propriété n'ont valeur que dans ce mod
 Les empreintes vérifient le contenu conservé, pas une qualification électrique.
 Les paths absolus dans les logs désignent ce worktree/SDK, jamais une instruction
 de déplacer le dépôt actif.
+
+`remote-readback.json` atteste la relecture des 49 livrables du premier push
+`450ca809929213b4eff13f21e576ad8b75b7196d` ; il ne prétend pas auto-attester le
+commit qui ajoute ce reçu. La publication finale est contrôlée ensuite et son
+SHA est fourni dans la réponse Codex. `SHA256SUMS.json` couvre les autres preuves.
