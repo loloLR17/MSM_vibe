@@ -1,8 +1,8 @@
 ---
-mission_id: TR2-20261015-R3B-LIVE-METROLOGY-B3
+mission_id: TR2-20261016-R4-COOPERATIVE-FRAM-FIFO-RT
 status: READY
 base_ref: main
-base_sha: fa2af5606ff7ae939a14a77c8d593da5f38d7e14
+base_sha: 66c5e167b31cbc7baa302843c354760569d1c88d
 author: ChatGPT
 target_branch: main
 allow_commit: true
@@ -11,27 +11,32 @@ allow_flash: true
 allow_debug: true
 ---
 
-# R3-B — Métrologie vibratoire continue, fenêtres et publication B3
+# R4 — Ordonnancement coopératif FRAM/FIFO et qualification temps réel
 
-## Références et état d'entrée
-Lire AGENTS.md, GOUVERNANCE_CHATGPT_CODEX.md §10, état/roadmap, contrat R0, LIVE_R0 (PROFIL_LIVE, mapping, tests, décisions), LIVE_R1.md, LIVE_R2.md, LIVE_R3A.md, mission et DERNIER_RAPPORT R3-A sur main. Vérifier HEAD réel, worktrees/stashes et intégrité des gels. Archiver mission et rapport R3-A sans perte. R3-A est reçu comme logiciel seulement : owner FIFO continu et port causal sur SPI simulé ; production reste V1, aucun B3 valide/RTU2 ni mesure physique qualifiée.
+## Contexte et références
+R0 normatif, R1 FRAM/configuration, R2 moteur epoch/commandes, R3-A owner continu, R3-B métrologie/B3 sont livrés **au niveau logiciel**. Le binaire STM32 canonique reste V1 et ne publie pas protocole2. R3-B révèle un risque de blocage majeur : une phase R2 transfère 313916 octets lus + 52426 écrits ; à 2,5 MHz calculés, le seul temps utile de bus est >=1,172 s, alors que la FIFO 512 mots se remplit théoriquement en ~17 ms à la cadence visée. Aucune de ces durées n'est une mesure physique. Ne pas activer LIVE sur cette base.
 
-## Objectif
-Transformer les bursts XYZ contrôlés de R3-A en fenêtres de supervision LIVE et indicateurs B3 corrects, sans microSD, en réutilisant les composants existants. Préparer puis raccorder les projections de registre successeur **seulement si l'ensemble des dépendances réelles est satisfait**. Pas de publication de faux états, de faux échantillons ni de capacité protocole2 anticipée.
+Consulter AGENTS.md, GOUVERNANCE_CHATGPT_CODEX.md §10, roadmap/état, contrat et normes R0, LIVE_R1/R2/R3A/R3B, missions et rapports, preuves et gouvernance actuelle sur main. Vérifier HEAD distant, archive complète de mission/rapport R3-B, préservation des gels V1/V1.1 et travaux locaux historiques. Respecter A-06.
+
+## Objectif prioritaire
+Résoudre **sans compromettre l'atomicité, la causalité ni la sûreté** la coexistence du service FIFO continu, du journal/configuration FRAM, des commandes START/STOP/RENEW/APPLY et du transport Modbus. Obtenir des marges chiffrées et vérifiables ; qualifier honnêtement les limites hôte/ARM/STM32. Ne pas engager le raccordement RTU2 tant que le service temps réel n'est pas démontré.
 
 ## Travaux
-1. Relever exactement la norme R0 : fréquences, axes sélectionnés, pleine échelle, unités, RMS/crêtes, seuils warning/alarm, fenêtres, horodatage, validité/âge, compteurs, CRC et registres B3. Dresser les oracles indépendants avant développement ; aucune valeur ou sémantique inventée.
-2. Implémenter un accumulateur de fenêtres borné en mémoire et continu, consommant les bursts validés du propriétaire R3-A avec run_id, config_id/génération et axes/FS immuables. Définir frontières exactes, arrondis, saturations, overflow, gaps, timestamp rollover, changement de run, STOP et invalidation. Aucun calcul sur échantillons incomplets ni zéro marqué valide. Préserver l'intégrité XYZ et tester explicitement le masque logique des axes et la saturation d'un axe non sélectionné.
-3. Implémenter RMS, pics, seuils et indicateurs B3 avec entiers/arithmétique conformes à R0 ; tests vecteurs numériques indépendants, limites, invariance au découpage des bursts, cadence et fenêtres multiples, longue durée et arrêt/reprise. Éviter allocations ou traitements non bornés en acquisition.
-4. Préparer les projections cohérentes B1/B3/B6/B7, B0/B4/B5 successeur et les effets hérités 2..11 selon la norme ; identifier les dépendances et limites. Raccorder au serveur PDU/RTU et à la composition STM32 seulement si le chemin complet est réellement cohérent et sûr ; sinon conserver production V1 et documenter précisément les raccordements restants, sans annoncer protocole2 ou bit LIVE.
-5. Examiner **en priorité** la coexistence temporelle du moteur R2 avec le propriétaire FIFO : START/STOP/epoch/APPLY écrivent et relisent de grands volumes FRAM synchrones. Instrumenter les coûts hôte et, si matériel qualifiable, STM32 ; proposer une architecture minimale de budget/admission/ordonnancement qui garantit service FIFO et STOP, sans transformer un budget simulé en preuve physique. Si une modification structurante est indispensable, documenter les options et escalader uniquement cette décision.
-6. Appliquer la maîtrise de code R3-A : réutiliser le parseur, transport SPI, stores et oracles ; maintenir inventaire et métriques LOC/ELF, démontrer toute duplication, aucun nettoyage spéculatif ou réécriture globale.
-
-## Tests et preuves
-Exécuter les validations complètes hôte et cross-build ARM, tests numériques B3 indépendants, continuité sur >4M XYZ simulés si applicable, fenêtres aux frontières, fautes FIFO/SPI, acquisition/STOP, défaillance FRAM, recovery, non-régression V1 et ASan/UBSan. Fournir mesures mémoire/stack statique et E/S, résultats réellement exécutés et logs versionnés. Distinguer simulation, lien ARM et qualification physique.
+1. Cartographier la chaîne effective SPI1 FRAM, SPI3 IIS3DWB, interruptions, DMA éventuel, scheduler, CRC/SHA, transport Modbus et callbacks R1/R2. Mesurer/borner le pire coût de chaque transaction et phase, fréquence réelle, CS, retries, délais HAL et priorités. Vérifier l'hypothèse 2,5 MHz ; ne pas confondre bus SPI distincts et blocage CPU global.
+2. Concevoir et implémenter une **transaction FRAM incrémentale coopérative** avec quanta bornés (32 octets point de départ à qualifier, non valeur imposée), yield FIFO entre quanta, CRC/hash et readback incrémentaux. Conserver exactement les formats et contrats R0, publication atomique, root/bank, barrières STARTED/effet/COMPLETED, récupération power-loss, idempotence et anti-rejeu ; aucune écriture physique si ownership FRAM LIVE non prouvé. Éviter toute réentrance dans les callbacks et toute inversion de priorité.
+3. Donner la priorité au STOP sûr, indépendant de la réussite d'écriture FRAM, et au service FIFO ; prouver admission et réserves de ressources pour START/STOP/RENEW/APPLY. Si l'approche coopérative ne peut garantir les bornes, documenter l'alternative journal delta comme décision structurante **sans migrer silencieusement les formats**.
+4. Instrumenter FIFO niveau maximal, gaps, overflow, temps par quantum, jitter, CPU/stack/RAM, latences Modbus et STOP ; scénarios cadence max, bursts, fautes SPI/FRAM, coupures entre chaque phase et sur les frontières de commit, service prolongé et absence de SD. Définir seuils d'acceptation issus des normes et capacités physiques réelles, pas des hypothèses arbitraires.
+5. Raccorder le provider de temps d'échantillon R3-B uniquement avec une source calibrée et vérifiable ; si non disponible, conserver B3 invalide, ne jamais substituer un temps de lecture SPI. Ne pas annoncer protocole2 ni LIVE physique prématurément.
+6. Réutiliser les composants existants et conserver V1 ; mettre à jour cartographie/LOC et supprimer uniquement des duplications démontrées. Réaliser tests hôte, injections, ASan/UBSan et cross-build ARM ; essais physiques T1000 uniquement après vérification des conditions matérielles.
 
 ## Matériel et autonomie
-T1000 seul banc, HP retiré. allow_flash=true et allow_debug=true avec garde-fous AGENTS.md : identification positive carte/UID/image/connexions et sauvegardes avant intervention ; aucune écriture FRAM LIVE [122880,245760) sans preuve de propriété, contenu et sauvegarde vérifiée. Pas de mass erase, Option Bytes/RDP ni changement électrique risqué. L'utilisateur réalise les manipulations physiques. En cas d'incertitude matérielle, continuer hôte/ARM et signaler sans inventer de PASS. Ne pas dépendre de SDMMC.
+allow_flash=true, allow_debug=true : autorisations permanentes applicables sous AGENTS.md. T1000 seul banc ; identifier carte/UID/ST-LINK, image/état de flash, alimentation et câblage, vérifier sauvegardes et risques avant toute intervention. Aucune écriture FRAM LIVE [122880,245760) avant inventaire, preuve de propriété exclusive et sauvegarde vérifiée ; protéger zones historiques, Option Bytes/RDP et autres médias. Aucun mass erase, aucune intervention physique manuelle déléguée à Codex. Si les preuves matérielles manquent, avancer sur modèle hôte/ARM et signaler clairement les limites.
 
-## Critères d'acceptation et publication
-B3/fenêtres conformes R0 avec oracles indépendants et invalidation stricte ; pas de publication LIVE mensongère. Risque FIFO/FRAM explicitement quantifié dans les limites réellement mesurées, avec stratégie R4 concrète. Architecture incrémentale, non-régression V1 et preuves complètes. Mettre à jour état/roadmap, publier DERNIER_RAPPORT.md, commits et preuves sur main par push normal, puis vérifier le contenu distant. ChatGPT fera le contrôle indépendant avant R4/R5. Aucune validation répétitive requise pour actions couvertes par AGENTS.md.
+## Critères d'acceptation
+- Démonstration traçable de la conservation de l'atomicité et des invariants R0/R1/R2 sous transactionnement incrémental et injections de coupure.
+- FIFO/STOP/RTU servis sous charges représentatives avec budgets et marges **mesurés ou bornés**, distinction stricte simulation / cible réelle ; aucune réussite ou temps physique inventé.
+- Tests de non-régression V1, métrologie B3 et architecture existante réussis ; aucune capacité successeur annoncée avant intégration complète.
+- Rapport explicite des limites, métriques, risques résiduels, choix R5/R6 et preuves reproductibles. Si risque matériel non maîtrisé, ne pas le masquer.
+
+## Publication
+Codex développe/committe/push sur main sans force, publie preuves, état/roadmap et DERNIER_RAPPORT.md, puis vérifie lecture distante. ChatGPT contrôlera indépendamment. Pas de demandes de validations répétitives pour actes autorisés ; escalade uniquement structurante, destructive inhabituelle ou physique.
