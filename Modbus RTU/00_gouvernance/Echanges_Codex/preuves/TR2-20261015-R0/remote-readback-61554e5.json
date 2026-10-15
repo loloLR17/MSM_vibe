@@ -1,0 +1,121 @@
+{
+  "remote_sha": "61554e5616c7d08a2f177bd1ed361b798dd6b094",
+  "checked_at_utc": "2026-10-15T09:49:45.566380+00:00",
+  "method": "git fetch origin main puis lecture integrale de chaque blob recupere et comparaison octet a octet",
+  "delivered_files": 22,
+  "files": [
+    {
+      "path": "Modbus RTU/00_gouvernance/ETAT_COURANT_TR2.md",
+      "bytes": 30931,
+      "sha256": "26f31f96b54cf05383980a758b60542fd29322a655cbc76f0fbaec86c4c2db3f"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/DERNIER_RAPPORT.md",
+      "bytes": 10188,
+      "sha256": "09eb4be23e18ff5de4b979e336ec1325fe7be58a4a4c073105c29e55d20b920a"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/archives/TR2-20261015-A06-DECOUPLAGE-SUPERVISION-STOCKAGE-AUDIT/MISSION.md",
+      "bytes": 5096,
+      "sha256": "802c0ca0d0aaea505b8a8ee9a33ae71cbdff9486b6e28e38968e41c2df8bc6e8"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/archives/TR2-20261015-A06-DECOUPLAGE-SUPERVISION-STOCKAGE-AUDIT/RAPPORT.md",
+      "bytes": 12200,
+      "sha256": "ab501016847a2a386fd8d4fdb7cff1828d93a0b1b389f48dd0bb07a72cf5b8f0"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261015-R0/MANIFEST.sha256",
+      "bytes": 590,
+      "sha256": "8d16df93aa3ad49ff085a66286dda3aa82c742b8a7b2711f900d012b1a0f88d4"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261015-R0/README.md",
+      "bytes": 1655,
+      "sha256": "78f2136f3fe44b8f92e82d983f27139cb73faa2669111b86f0cf0bb6cddb7bd9"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261015-R0/check_documents.py",
+      "bytes": 7142,
+      "sha256": "9d383ff0ca64727c683bf94533b40eb93c5ae5790fe111672e20f7327081c2ae"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261015-R0/corpus-reuse.json",
+      "bytes": 397,
+      "sha256": "ecb8a51fd379449ee153fe7cfc14a8eaea17a4e753e4c4aec4435d92560c2519"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261015-R0/document-checks.json",
+      "bytes": 1248,
+      "sha256": "0b602f11ea6a88fcb448d79e3f97f79a42f9c2d7ee11e4a0fdbb1ea6062cf9f9"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261015-R0/initial-state.json",
+      "bytes": 634430,
+      "sha256": "0f3f49e883f66e3b00855c713efebbfa0897f5df66e85f7bc6b990c4fb87ca0d"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261015-R0/layout-review.json",
+      "bytes": 1195,
+      "sha256": "ad8c29e120ba0ff54ebf17f6d5574f91f3b050823d272a5c2f5bd987c3c346b8"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261015-R0/namespace-review.json",
+      "bytes": 1350,
+      "sha256": "a3c2084fa84221619a48ddf72530d7a76773a57f77c68bb4625db09e68af6d8b"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/ROADMAP_TR2_VERS_SUPERVISION_VIBRATOIRE.md",
+      "bytes": 14452,
+      "sha256": "e0db53b3f8c3da8a3348f488703b47449c1aa48317037d51c481d5b3ccc3a2f8"
+    },
+    {
+      "path": "Modbus RTU/01_Specification_source/LIVE_R0/MIGRATION_FRAM.md",
+      "bytes": 16765,
+      "sha256": "9ea541351bbbf87b5848c521712cb5e57fac91667eaa35ab084e74e07403c0ba"
+    },
+    {
+      "path": "Modbus RTU/01_Specification_source/LIVE_R0/PROFIL_LIVE.md",
+      "bytes": 26987,
+      "sha256": "814638e3a3f9260ef46bcb72007c066d3b88a1d75adb16cbd16cef217d9872b3"
+    },
+    {
+      "path": "Modbus RTU/01_Specification_source/LIVE_R0/README.md",
+      "bytes": 1189,
+      "sha256": "896366389013af9a299716d3899c4ee2672181d709088a5601f7f8965d75f9ac"
+    },
+    {
+      "path": "Modbus RTU/01_Specification_source/LIVE_R0/reservations.json",
+      "bytes": 1077,
+      "sha256": "ac6efabb0196e446252390338539202514ab0d2fe0ca75bd81e225ddc11b501c"
+    },
+    {
+      "path": "Modbus RTU/01_Specification_source/LIVE_R0/vectors.json",
+      "bytes": 5617,
+      "sha256": "6046f42cbced9a4abe09c5bf8cb7b771c52920b3c81d30a4e6a9687143097b72"
+    },
+    {
+      "path": "Modbus RTU/02_Validation/LIVE_R0/README.md",
+      "bytes": 2339,
+      "sha256": "1acb954803e94afccc00743b698440e403dd99be344ee20f889d9bafe4149ece"
+    },
+    {
+      "path": "Modbus RTU/02_Validation/LIVE_R0/decisions_start_stop.csv",
+      "bytes": 54498,
+      "sha256": "7928e95d061e7183f6959b126c8882167572b3b4f0aa2186af2e977f7b123a06"
+    },
+    {
+      "path": "Modbus RTU/02_Validation/LIVE_R0/mapping_live.csv",
+      "bytes": 44970,
+      "sha256": "5ce0df0edef329ec7970a9f23a4a9d8e137e562ac1e7b86946890b45b807fa84"
+    },
+    {
+      "path": "Modbus RTU/02_Validation/LIVE_R0/tests_live.csv",
+      "bytes": 19639,
+      "sha256": "54c47e3734d37f040c7f22f0d068078bb8535f918f68c9407cbadaa525bb3497"
+    }
+  ],
+  "manifest_entries_verified": 7,
+  "protected_remote_files_unchanged": 2940,
+  "stashes_preserved": true
+}

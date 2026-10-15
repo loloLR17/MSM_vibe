@@ -1,6 +1,6 @@
 ---
 mission_id: TR2-20261015-R0-NORME-LIVE-SUCCESSEUR
-status: IN_PROGRESS
+status: DONE
 base_ref: main
 base_sha: null
 initial_head: 2b9c0202f79bc132b166776c4aed2a48925593dc
@@ -14,11 +14,11 @@ allow_flash: false
 allow_debug: false
 ---
 
-# R0 — Profil LIVE continu spécifié, publication en cours
+# R0 — Profil LIVE continu spécifié, publié et relu
 
 La finalisation normative est réalisée : **protocole 2, structures B4/B6 version 2, commandes 13/14 et durée LIVE 0 pour fonctionnement continu**. Le profil reprend B5 V1.1 avec epoch, sans réattribuer le code 12. Les campagnes 3/4 et tous les gels historiques restent intacts. Aucun firmware n'est implémenté ou qualifié par cette mission.
 
-Statut provisoire IN_PROGRESS uniquement en attente de publication et de relecture distante. Le contrôle indépendant de ChatGPT reste nécessaire avant R1, même après livraison DONE de R0. La mission publiée ne contient pas `base_sha` ni `created_at_utc` : champs de contrat manquants signalés, sans SHA inventé ; HEAD effectif et permissions explicites ont été vérifiés.
+Livraison documentaire DONE après publication et relecture intégrale depuis la référence récupérée de GitHub. Le contrôle indépendant de ChatGPT reste nécessaire avant R1, même après livraison DONE de R0. La mission publiée ne contient pas `base_sha` ni `created_at_utc` : champs de contrat manquants signalés, sans SHA inventé ; HEAD effectif et permissions explicites ont été vérifiés.
 
 ## Livrables
 
@@ -81,4 +81,6 @@ Entrée R1 : contrôle indépendant de ChatGPT des documents/mapping/oracles et 
 
 Dépôt original propre à `82169af7e76797731358852bec83bfb0ceb54ccf`, divergence historique conservée ; aucun pull/merge/rebase/reset destructif. Stashes `6251b988e8b20f97997a8f98fd26d4d35a45a1b2` et `f3b829e6188f491920edf74a5f9ed0f559d08b87` conservés. Worktree `/home/lolo/dev/msm/projects/MSM_vibe-R0-live-successor`, branche locale `codex/r0-live-successor`, publication autorisée vers `refs/heads/main` uniquement.
 
-`result_sha` désigne la référence initiale statiquement examinée, pas un code exécuté. Seuls nouveaux documents successeurs/preuves, archive A06, rapport, journal et statut factuel de roadmap sont inclus. Aucun fichier applicatif modifié. Commit/push autorisés exercés ; flash/debug false respectés. Diff et index à vérifier avant publication, puis comparaison intégrale des livrables depuis la référence récupérée de GitHub avant DONE ; SHA final fourni sans auto-référence impossible.
+`result_sha` désigne la référence initiale statiquement examinée, pas un code exécuté. Seuls nouveaux documents successeurs/preuves, archive A06, rapport, journal et statut factuel de roadmap sont inclus. Aucun fichier applicatif modifié. Commit/push autorisés exercés ; flash/debug false respectés. Diff et index examinés, contrôles documentaires réussis. Premier commit **`61554e5616c7d08a2f177bd1ed361b798dd6b094`**, message `R0: specify continuous LIVE profile, safe FRAM migration and successor validation`, poussé normalement sur main. Après `git fetch origin main`, les **22 livrables ont été relus intégralement et comparés octet à octet**, 7 empreintes de preuves vérifiées et 2 940 fichiers protégés contrôlés également dans les objets distants ; stashes conservés. [Reçu distant](preuves/TR2-20261015-R0/remote-readback-61554e5.json).
+
+La présente clôture ajoute le reçu et consigne le statut DONE ; elle est à son tour poussée normalement et relue. Son SHA final est fourni dans la réponse sans auto-référence. Le contrôle indépendant ChatGPT et les autorisations R1 restent distincts ; aucun jalon logiciel/physique n'est qualifié par ce statut. Worktree propre au premier checkpoint, uniquement la clôture documentaire ajoutée ensuite.
