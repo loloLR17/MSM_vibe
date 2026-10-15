@@ -1,6 +1,6 @@
 ---
 mission_id: TR2-20261015-R3B-LIVE-METROLOGY-B3
-status: IN_PROGRESS
+status: DONE
 base_ref: main
 base_sha: fa2af5606ff7ae939a14a77c8d593da5f38d7e14
 initial_head: 5a50214d2382b53bc8f1798028154674c39f9637
@@ -16,7 +16,7 @@ allow_debug: true
 
 # R3-B — fenêtres, métrologie B3 et coût de coexistence
 
-**Livraison logicielle terminée ; publication/relecture en cours.** Calcul B3
+**Livraison logicielle R3-B publiée et relue sur main ; limites explicites ci-dessous.** Calcul B3
 entier, qualité/âge, alarmes/latch et raccordement causal au propriétaire FIFO
 R3-A sont testés. **Production V1 conservée ; aucun profil2, B3 physique, accès
 FRAM LIVE ou qualification temporelle n'est annoncé.** Contrôle indépendant
@@ -193,7 +193,15 @@ sans le prétendre relu/restauré. T1000 seul banc futur, HP retiré. Autorisati
 commit/push exercées ; flash/debug non exercées. Temps capteur et coexistence
 non qualifiés ne justifient pas de flasher une composition incomplète.
 
-Journal/roadmap actualisés ; gels/dettes et mission ChatGPT intacts. Rapport et
-preuves IN_PROGRESS prêts pour push normal et relecture distante ; statut lié
-uniquement à cette publication, aucun blocage logiciel déclaré. SHA final et
-état Git après dernière publication seront fournis dans la réponse finale.
+Journal/roadmap actualisés ; gels/dettes et mission ChatGPT intacts. Push normal
+réussi sur main au commit **`faf0f9456e25cd298ed5a1a147655bef861a59b5`** —
+`R3-B: publish metrology evidence, FIFO FRAM analysis and provisional report`.
+Après récupération depuis GitHub, tous les livrables modifiés ont été relus
+intégralement et comparés octet à octet ;44fichiers du manifeste,2334fichiers
+protégés, sources évaluées et stashes vérifiés. Reçu détaillé dans
+[remote-readback.json](preuves/TR2-20261015-R3B/remote-readback.json).
+Worktree propre à ce point ; dépôt principal et autres worktrees préservés.
+Cette mise à jour DONE clôt la livraison logicielle, avec l'écart méthodologique
+signalé pour revue ; elle ne clôt ni R4 ni une qualification physique ou un
+contrôle indépendant ChatGPT. Le SHA de cette dernière publication et son
+contrôle distant sont fournis dans la réponse finale, sans SHA autoréférent.

@@ -9,3 +9,5 @@ Résultats logiciels uniquement. `verification.json` distingue code testé et re
 Les logs d'échec sont préservés : inclusion imbriquée du main de fixture avant extraction d'un wrapper de test, puis test synthétique tentant un retour de temps à0 après redémarrage ; corrigé en conservant l'oracle de monotonie stricte. Aucune erreur masquée ni test supprimé. Les normes ont été lues avant développement, mais les vecteurs Python ont été matérialisés après la première rédaction du service, avant sa compilation : écart méthodologique explicité dans LIVE_R3B.md.
 
 Manifeste SHA256SUMS.json pour chaque fichier sauf lui-même. Aucun flash/debug/reset, accès FRAM/SD ou émission RS485 dans cette mission.
+
+`remote-readback.json` consigne la relecture intégrale du premier rapport/preuves au commit faf0f94. La dernière publication DONE est contrôlée séparément et son SHA fourni dans la réponse finale.

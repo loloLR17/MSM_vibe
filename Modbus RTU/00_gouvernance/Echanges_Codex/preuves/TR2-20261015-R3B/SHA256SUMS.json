@@ -1,5 +1,5 @@
 {
-  "README.md": "76a5b84c401b2ecb18c5baa218204c40a7664ce84bfc6e5660af850f4a3db586",
+  "README.md": "8d4970fe2b933a1c5c4aa01d8bf91c8984abb81032d6a4ce9da86803afc5004c",
   "artifact-sha256.txt": "6a163daacc35a9ab3ab49b7e93572733af60c5d405bec0d0d125d8a7e2c3791f",
   "build-profile.txt": "139dde4bdfc67112dab92366cab29fa2bcf7293ba743bb091caa574ff17454ff",
   "evaluated-source-sha256.json": "0434bf222358193ef692e87e04e60a2a06cb00cfbbb3b3b65252686ad0ec4f30",
@@ -22,6 +22,7 @@
   "r3b-audit.py": "9d5e3654411b453390c882bd7ec90baedea78257fec905aa9223bdbce026db5e",
   "r3b-inventory.py": "e67941d2fbd60ae637f8a2400f34ffac8ade00a9e3849b11b2d17ba86e1595fc",
   "r3b-resources.py": "18bb8be9170f1770772f6153170826b5c61789642a590d6eef6ba0d6512aa5f1",
+  "remote-readback.json": "c76438893c6a42f8600409b2f84c3b581c9e647dc908b198c4c4a6b1036b9723",
   "resources/canonical-size.txt": "b159dcc89c7335c630b6a57638472bb898ea0dd0a628bfbd5818913e531cd87c",
   "resources/commands.json": "b4d400c182595761e62e6b31446a1195c44d22f46a2d3caa184b6ea8a9ef05e7",
   "resources/force-link.log": "4925793a0213a21e00aca5f14d534a2a1dd4f9a5356882897490e7ba3153d9ed",
