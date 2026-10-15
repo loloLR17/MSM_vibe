@@ -65,4 +65,3 @@ bool acquisition_window_accumulate_valid_sample(AcquisitionWindow *window,
 
     return true;
 }
-
