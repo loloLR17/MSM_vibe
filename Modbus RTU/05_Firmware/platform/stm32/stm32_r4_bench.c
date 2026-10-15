@@ -27,6 +27,8 @@ static LiveCommandStore store;
 static LiveCommandEngine engine;
 static Stm32LiveAcquisition owner;
 static Tr2CooperativeWork work;
+static bool resume_after_r1;
+static const uint8_t r1_sha[32]={0x82,0x84,0x45,0xa7,0xf1,0xd1,0x17,0x00,0x53,0x57,0x9c,0xf6,0xdf,0x2e,0x42,0x3b,0x12,0x8e,0xc9,0xde,0xa2,0x8d,0x8e,0xa0,0x2b,0xea,0x71,0x80,0x62,0xe9,0x06,0xa6};
 static uint32_t previous_cycles;
 static uint64_t elapsed_cycles;
 static const uint32_t uid[3]={0x004A003D,0x38425018,0x20333157};
@@ -80,7 +82,8 @@ static Tr2Result ownership(void *ctx,uint32_t at,size_t n)
 {
  (void)ctx;
  /* Exclusive single main-stack owner; no transport/SD task exists in this image.
-  * Flag only follows exact full SHA check against both verified fresh backups. */
+  * Flag follows exact SHA of the original double backup or verified R4 R1
+  * checkpoint; a mounted LIVE checkpoint is recovered, never reformatted. */
  return r4_result.ownership&&identity_ok()&&at>=122880u&&at<=245760u&&n<=245760u-at
   ?TR2_OK:TR2_ERROR_UNAVAILABLE;
 }
@@ -110,7 +113,8 @@ static Tr2Result read_baseline(void)
  }
  REQUIRE(tr2_cooperative_leave(&work));
  REQUIRE(tr2_sha256_bytes_cooperative(baseline,sizeof(baseline),digest,&work));
- if(memcmp(digest,baseline_sha,32))return TR2_ERROR_STORAGE;
+ resume_after_r1=!memcmp(digest,r1_sha,32);
+ if(memcmp(digest,baseline_sha,32)&&!resume_after_r1)return TR2_ERROR_STORAGE;
  r4_result.baseline_equal=1;r4_result.read_passes++;return TR2_OK;
 }
 static Tr2Result compare_protected(void)
@@ -170,15 +174,24 @@ static Tr2Result qualify(uint32_t mode)
  r4_result.ownership=1;
  TransactionalImagePhysicalStorage storage={NULL,read_physical,write_physical};
  TransactionalImageGeometry geometry=transactional_image_geometry_qualification_profile();
- PersistentIdentityAssignment assignment={ {0x004A003D,0x38425018,0x20333157},1};
+ static const PersistentIdentityAssignment assignment={ {0x004A003D,0x38425018,0x20333157},1};
  REQUIRE(transactional_image_media_init_v2(&historical,&storage,&geometry,candidate,sizeof(candidate)));
  REQUIRE(transactional_image_media_init_live(&live,&storage,candidate,sizeof(candidate),NULL,ownership));
  REQUIRE(transactional_image_media_bind_work(&historical,&work));
  REQUIRE(transactional_image_media_bind_work(&live,&work));
  REQUIRE(live_configuration_init(&configuration,&historical,&live,uid,&assignment,1));
- r4_result.stage=4;REQUIRE(live_configuration_migrate(&configuration));
- PreparedConfiguration q=prepared();REQUIRE(live_configuration_apply(&configuration,&q,false));
+ /* Control authority must bind before any mount; never relax that guard. */
  REQUIRE(live_command_store_init(&store,&configuration));
+ r4_result.stage=4;PreparedConfiguration q=prepared();
+ if(resume_after_r1) {
+  REQUIRE(live_configuration_recover(&configuration));
+  if(!configuration.has_active||configuration.active.config_id!=2||
+     configuration.active.generation!=2||configuration.active.payload.acquisition_mode!=2)
+   return TR2_ERROR_INVALID_STATE;
+ } else {
+  REQUIRE(live_configuration_migrate(&configuration));
+  REQUIRE(live_configuration_apply(&configuration,&q,false));
+ }
  owner.acquisition.budget=admission;owner.acquisition.budget_context=NULL;
  LiveAcquisitionPort port=live_fifo_acquisition_port(&owner.acquisition);
  REQUIRE(live_command_engine_init(&engine,&store,&port));
