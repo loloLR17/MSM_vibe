@@ -12,7 +12,7 @@ static int controls(FifoLive *s,bool on)
 int fifo_live_init(FifoLive *s,const stmdev_ctx_t *ctx,uint32_t max_gap_ms,FifoLiveConsume consume,void *consumer)
 {
  if(!s||!ctx||!ctx->read_reg||!ctx->write_reg||!max_gap_ms||!consume)return BENCH_CONFIG;
- memset(s,0,sizeof(*s));s->ctx=*ctx;s->max_gap_ms=max_gap_ms;s->consume=consume;s->consumer=consumer;s->initialized=true;
+ memset(s,0,sizeof(*s));s->ctx=*ctx;s->max_gap_ms=max_gap_ms;s->first_data_timeout_ms=max_gap_ms;s->consume=consume;s->consumer=consumer;s->initialized=true;
  /* No observation or write at init, and no claim that unknown hardware is off. */
  return BENCH_OK;
 }
@@ -70,7 +70,10 @@ int fifo_live_poll(FifoLive *s,uint64_t now)
  s->last_ms=now;
  error=fifo_window_read_status(&s->ctx,&s->parser);if(error)return fault(s,error);
  n=s->parser.last_level;if(n>128)n=128;
- if(!n)return now-s->last_data_ms>s->max_gap_ms?fault(s,BENCH_TIMEOUT):BENCH_OK;
+ if(!n) {
+  uint32_t allowance=(s->total_xyz||s->total_ts)?s->max_gap_ms:s->first_data_timeout_ms;
+  return !allowance||now-s->last_data_ms>allowance?fault(s,BENCH_TIMEOUT):BENCH_OK;
+ }
  s->last_data_ms=now;
  if(s->ctx.read_reg(s->ctx.handle,120,s->words,(uint16_t)(n*7u)))return fault(s,BENCH_IO);
  /* Keep continuity history across bursts. Only unbounded local statistics reset;

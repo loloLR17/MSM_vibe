@@ -11,7 +11,7 @@
 typedef struct {
  uint32_t stage,error,line,command,ownership,read_passes,commands;
  uint32_t core_hz,spi1_hz,spi3_hz,tick_start,tick_end;
- uint64_t max_read_us,max_write_us,max_gap_us,last_poll_us,safety_us;
+ uint64_t max_read_us,max_write_us,max_gap_us,last_poll_us,safety_us,first_data_us,start_us;
  uint64_t read_bytes,write_bytes,xyz,timestamps,polls,elapsed_us;
  uint32_t max_level,fifo_error,stop_error,engine_status,engine_result;
  uint32_t protected_equal,baseline_equal;
@@ -40,7 +40,7 @@ static uint64_t now_us(void *unused)
  return elapsed_cycles/160u;
 }
 static int consume(void *ctx,const uint8_t *words,uint32_t n,uint64_t index)
-{(void)ctx;(void)words;(void)n;(void)index;return 0;}
+{(void)ctx;(void)words;(void)n;(void)index;if(!r4_result.first_data_us)r4_result.first_data_us=now_us(NULL)-r4_result.start_us;return 0;}
 static void stop(void *unused)
 {
  (void)unused;uint64_t start=now_us(NULL);
@@ -152,6 +152,7 @@ static Tr2Result qualify(uint32_t mode)
  r4_result.stage=3;
  if(fifo_live_stop(&owner.acquisition.fifo))return TR2_ERROR_UNAVAILABLE;
  if(mode==1) {
+  r4_result.start_us=now_us(NULL);
   if(fifo_live_start(&owner.acquisition.fifo,1,1,1,7,0,HAL_GetTick()))return TR2_ERROR_UNAVAILABLE;
   REQUIRE(tr2_cooperative_enter(&work));
   uint64_t until=now_us(NULL)+5000000u;
@@ -183,7 +184,7 @@ static Tr2Result qualify(uint32_t mode)
  REQUIRE(live_command_engine_init(&engine,&store,&port));
  owner.acquisition.engine=&engine; /* Raw qualification only: B3 remains unbound. */
  REQUIRE(live_command_engine_boot(&engine));
- r4_result.stage=5;REQUIRE(command(1,1,13));
+ r4_result.stage=5;r4_result.start_us=now_us(NULL);REQUIRE(command(1,1,13));
  r4_result.stage=6;REQUIRE(command(1,65535,12));
  r4_result.stage=7;
  REQUIRE(tr2_cooperative_enter(&work));uint64_t until=now_us(NULL)+60000000u;
@@ -205,6 +206,10 @@ __attribute__((noreturn)) void stm32_r4_benchmark_run(SPI_HandleTypeDef *spi1,SP
     stm32_live_acquisition_attach(&owner,spi3,5,consume,NULL)!=TR2_OK) {
   r4_result.error=TR2_ERROR_UNAVAILABLE;for(;;)__WFI();
  }
+ /* ST IIS3DWB datasheet Ton=10ms typical, no guaranteed maximum.
+  * 20ms is a bounded experimental startup allowance, never a claimed WCET.
+  * Service gap remains5ms and status/overflow are checked on every poll. */
+ owner.acquisition.fifo.first_data_timeout_ms=20;
  previous_cycles=DWT->CYCCNT;elapsed_cycles=0;
  bounded=stm32_fram_storage_bounded_physical(&fram);
  if(tr2_cooperative_init(&work,NULL,now_us,service,stop,32,1000,2500)!=TR2_OK)for(;;)__WFI();

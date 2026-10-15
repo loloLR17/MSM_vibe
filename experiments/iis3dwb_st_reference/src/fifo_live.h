@@ -11,6 +11,10 @@ typedef struct {
  uint8_t words[128u*7u];
  uint64_t run_id,total_xyz,total_ts,last_ms,last_data_ms;
  uint32_t config_id,config_generation,max_gap_ms;
+ /* Explicit first-data policy, defaults to max_gap_ms. The board may select a
+  * bounded startup allowance after checking sensor turn-on specifications;
+  * polling-gap, status/overrun and steady-state no-data guards stay unchanged. */
+ uint32_t first_data_timeout_ms;
  uint16_t axes,full_scale;
  void (*cleanup_begin)(void);
  FifoLiveConsume consume;void *consumer;

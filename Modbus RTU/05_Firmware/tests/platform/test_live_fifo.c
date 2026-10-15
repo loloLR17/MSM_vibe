@@ -90,9 +90,31 @@ static void real_engine_port(void)
  assert(!acquisition.fifo.running&&!(regs[16]&0xE0)&&engine.state==LIVE_FAULT&&!metrology.running&&!metrology.value_valid&&!metrology.authority);
  free(f);puts("R2 real journal + actual continuous owner on simulated SPI: START/STOP causal, APPLY refusal and FRAM-independent safety: PASS");
 }
+static int32_t delayed_read(void *handle,uint8_t reg,uint8_t *b,uint16_t n)
+{
+ if(reg==58 && n==2 && time64<12){memset(b,0,n);return 0;}
+ return ctx.read_reg(handle,reg,b,n);
+}
+static void first_data_policy(void)
+{
+ ActiveConfigurationSnapshot c=configuration();setup();
+ acquisition.fifo.ctx.read_reg=delayed_read;
+ acquisition.fifo.first_data_timeout_ms=20;
+ LiveAcquisitionPort p=live_fifo_acquisition_port(&acquisition);
+ assert(p.start(p.context,1,&c)==TR2_OK);
+ for(time64=1;time64<=12;time64++)assert(live_fifo_acquisition_poll(&acquisition)==TR2_OK);
+ assert(acquisition.fifo.total_xyz>0);
+ /* A startup allowance never changes the ordinary service-gap guard. */
+ time64+=6;assert(live_fifo_acquisition_poll(&acquisition)!=TR2_OK&&!acquisition.fifo.running);
+ setup();acquisition.fifo.ctx.read_reg=delayed_read;acquisition.fifo.first_data_timeout_ms=10;
+ p=live_fifo_acquisition_port(&acquisition);assert(p.start(p.context,1,&c)==TR2_OK);
+ for(time64=1;time64<=10;time64++)assert(live_fifo_acquisition_poll(&acquisition)==TR2_OK);
+ time64=11;assert(live_fifo_acquisition_poll(&acquisition)!=TR2_OK&&!acquisition.fifo.running);
+ puts("Explicit first-data allowance: delayed startup, finite timeout and unchanged service-gap guard: PASS");
+}
 int main(void)
 {
- real_engine_port();metrology_stream();
+ first_data_policy();real_engine_port();metrology_stream();
  ActiveConfigurationSnapshot c=configuration();LiveAcquisitionObservation o;
  LiveAcquisitionPort p;
  for(unsigned fs=0;fs<4;fs++) {
