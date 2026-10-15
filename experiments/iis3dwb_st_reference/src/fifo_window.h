@@ -11,6 +11,8 @@ typedef struct {
  uint32_t first_tick, last_tick, max_level, last_level, flags_or, reason;
  uint32_t previous_counter, counter_valid, previous_ts, ts_valid, since_ts;
 } FifoWindow;
+int fifo_window_parse_word(const uint8_t *,FifoWindow *);
+int fifo_window_read_status(stmdev_ctx_t *,FifoWindow *);
 int fifo_window_controls(const uint8_t controls[14], uint8_t ctrl10);
 enum { FIFO_WINDOW_PENDING=12 };
 int fifo_window_check_configuration(stmdev_ctx_t *);

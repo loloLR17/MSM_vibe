@@ -379,3 +379,10 @@ add_test(NAME sdmmc_bulk_media COMMAND test_sdmmc_bulk_media)
 # R1: actual transactional stores, immutable R0 vectors and bounded tear injection.
 tr2_add_core_test(test_live_configuration tests/unit/test_live_configuration.c live_configuration)
 tr2_add_core_test(test_live_command_engine tests/unit/test_live_command_engine.c live_command_engine)
+
+add_executable(test_live_fifo tests/platform/test_live_fifo.c platform/stm32/live_fifo_acquisition.c
+ ${ST_REF}/src/fifo_live.c ${ST_REF}/src/fifo_window.c ${ST_REF}/src/fifo_cooperative.c ${ST_REF}/vendor/st/iis3dwb_reg.c)
+target_include_directories(test_live_fifo PRIVATE platform/stm32 ${ST_REF}/src ${ST_REF}/vendor/st)
+target_compile_definitions(test_live_fifo PRIVATE BENCH_WINDOW_MAX_WORDS=36864)
+target_link_libraries(test_live_fifo PRIVATE tr2_core)
+add_test(NAME live_fifo_continuous_owner COMMAND test_live_fifo)

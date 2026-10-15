@@ -34,4 +34,6 @@ int main(void){
  bench_cleanup_mode=1;handle.ErrorCode=0;mock_spi3.SR=0;
  assert(platform_read(sensor_spi,16,value,1)==0);
  return 0;
+ assert(stm32_st_transport_attach(&handle,&ctx,&clock)==0);
+ assert(stm32_st_transport_attach(&handle,&ctx,&clock)!=0);
 }

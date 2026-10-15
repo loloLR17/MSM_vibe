@@ -14,7 +14,7 @@ static int config(stmdev_ctx_t *c)
     c->read_reg(c->handle,25,&ts,1))return BENCH_IO;
  return fifo_window_controls(regs,ts)?BENCH_OK:BENCH_CONFIG;
 }
-static int status(stmdev_ctx_t *c,FifoWindow *w)
+int fifo_window_read_status(stmdev_ctx_t *c,FifoWindow *w)
 {
  uint8_t b[2];
  if(c->read_reg(c->handle,58,b,2))return BENCH_IO;
@@ -24,7 +24,7 @@ static int status(stmdev_ctx_t *c,FifoWindow *w)
  if((b[1]&0x68) || level>=512)return BENCH_OVERFLOW;
  return BENCH_OK;
 }
-static int parse(const uint8_t *b,FifoWindow *w)
+int fifo_window_parse_word(const uint8_t *b,FifoWindow *w)
 {
  unsigned parity=b[0];parity^=parity>>4;parity^=parity>>2;parity^=parity>>1;
  if(parity&1){w->reason=1;return BENCH_TAG;}
@@ -54,7 +54,7 @@ int fifo_window_run(stmdev_ctx_t *c,const BenchClock *clock,uint32_t target,
   if(clock->stop())return BENCH_STOP;
   if(clock->tick()-w->first_tick>=500)return BENCH_TIMEOUT;
   if(w->polls>=400)return BENCH_CAPACITY;
-  result=status(c,w);if(result)return result;
+  result=fifo_window_read_status(c,w);if(result)return result;
   uint32_t n=target-w->xyz;if(n>128)n=128;
   if(w->last_level<n){clock->delay(1);continue;}
   if(n>capacity-w->received)return BENCH_CAPACITY;
@@ -62,8 +62,8 @@ int fifo_window_run(stmdev_ctx_t *c,const BenchClock *clock,uint32_t target,
   if(c->read_reg(c->handle,120,at,(uint16_t)(n*7)))return BENCH_IO;
   uint32_t first=w->received;w->received+=n;w->bursts++;
   /* Preserve the complete received burst even when parsing rejects it. */
-  for(uint32_t i=first;i<w->received;i++){result=parse(words+i*7,w);if(result)return result;}
-  result=status(c,w);if(result)return result;
+  for(uint32_t i=first;i<w->received;i++){result=fifo_window_parse_word(words+i*7,w);if(result)return result;}
+  result=fifo_window_read_status(c,w);if(result)return result;
   result=config(c);if(result)return result;
  }
  w->last_tick=clock->tick();
@@ -83,7 +83,7 @@ int fifo_window_step(stmdev_ctx_t *c,const BenchClock *clock,uint8_t *words,uint
  uint32_t scale=w->target_xyz/4096;
  if(clock->tick()-w->first_tick>=500*scale)return BENCH_TIMEOUT;
  if(w->polls>=400*scale)return BENCH_CAPACITY;
- int result=status(c,w);if(result)return result;
+ int result=fifo_window_read_status(c,w);if(result)return result;
  uint32_t n=4096-w->xyz%4096;
  if(n>w->target_xyz-w->xyz)n=w->target_xyz-w->xyz;
  if(n>128)n=128;
@@ -91,8 +91,8 @@ int fifo_window_step(stmdev_ctx_t *c,const BenchClock *clock,uint8_t *words,uint
  if(n>capacity-w->received)return BENCH_CAPACITY;
  if(c->read_reg(c->handle,120,words+w->received*7,(uint16_t)(n*7)))return BENCH_IO;
  uint32_t first=w->received;w->received+=n;w->bursts++;
- for(uint32_t i=first;i<w->received;i++){result=parse(words+i*7,w);if(result)return result;}
- result=status(c,w);if(result)return result;
+ for(uint32_t i=first;i<w->received;i++){result=fifo_window_parse_word(words+i*7,w);if(result)return result;}
+ result=fifo_window_read_status(c,w);if(result)return result;
  result=config(c);if(result)return result;
  if(w->xyz==w->target_xyz){w->last_tick=clock->tick();return w->timestamps?BENCH_OK:BENCH_TAG;}
  return FIFO_WINDOW_PENDING;

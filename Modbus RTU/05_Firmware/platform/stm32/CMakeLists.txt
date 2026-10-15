@@ -401,7 +401,8 @@ if(TR2_STM32_ST_FIFO_WINDOW OR TR2_STM32_FIFO_COOPERATIVE)
    ${ST_REF}/vendor/st/iis3dwb_reg.c
    ${ST_REF}/src/fifo_window.c ${ST_REF}/src/spi_diagnostic.c ${SPI_OBSERVED})
  if(TR2_STM32_FIFO_COOPERATIVE)
-  target_sources(tr2_stm32_p11c PRIVATE stm32_fifo_cooperative.c ${ST_REF}/src/fifo_cooperative.c)
+  target_sources(tr2_stm32_p11c PRIVATE stm32_fifo_cooperative.c ${ST_REF}/src/fifo_cooperative.c
+    stm32_live_acquisition.c live_fifo_acquisition.c ${ST_REF}/src/fifo_live.c)
   target_compile_definitions(tr2_stm32_p11c PRIVATE BENCH_WINDOW_MAX_WORDS=36864)
   set_source_files_properties(stm32_fifo_cooperative.c ${ST_REF}/src/fifo_cooperative.c PROPERTIES COMPILE_OPTIONS "-O2")
  else()

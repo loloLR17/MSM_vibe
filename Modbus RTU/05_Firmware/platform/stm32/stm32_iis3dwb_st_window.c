@@ -10,6 +10,7 @@
 #include <string.h>
 _Static_assert(TRACE_RECORDS==1024U && TRACE_BYTES==65536U && PRECLOSE_RECORDS==2048U,"Budget policy mismatch");
 static SPI_HandleTypeDef *sensor_spi;
+static bool transport_claimed;
 #define spi (*sensor_spi)
 #if BENCH_DUPLEX
 _Alignas(4) static uint8_t duplex_tx[897],duplex_rx[897];
@@ -175,7 +176,13 @@ __attribute__((noreturn)) void stm32_iis3dwb_st_window_run(SPI_HandleTypeDef *ha
 }
 
 int stm32_st_transport_attach(SPI_HandleTypeDef *h,stmdev_ctx_t *ctx,BenchClock *clock)
-{sensor_spi=h;return platform_init(ctx,clock);}
+{
+ if(transport_claimed)return -1;
+ sensor_spi=h;
+ int result=platform_init(ctx,clock);
+ if(!result)transport_claimed=true;
+ return result;
+}
 void stm32_st_transport_next_window(void)
 {
  /* Only called after every transaction of the completed prefix passed.
