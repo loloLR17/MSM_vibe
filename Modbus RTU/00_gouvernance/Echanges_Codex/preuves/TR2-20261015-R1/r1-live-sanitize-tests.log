@@ -1,0 +1,8 @@
+SHA256 empty/abc/two-block/million-a: PASS
+R0 CRC vectors, 560 LIVE domain combinations, refusal and version isolation: PASS
+Apply mock I/O: 313916 read bytes, 52426 write bytes
+Real-store migration/apply/reboot, protected bytes, no SD: PASS; commit=52426 bytes; host service=592 media=152 candidate=52298
+Corruption/unknown schema/conflicts/UID/provenance/control boundary/generation limits: PASS
+Read failures at commit barriers, uncertain publication recovered without false authority: PASS
+Migration power-cut byte budgets: 407 cases, historical prefix/tail preserved: PASS
+Activation power-cut byte budgets: 407 cases, historical prefix/tail preserved: PASS

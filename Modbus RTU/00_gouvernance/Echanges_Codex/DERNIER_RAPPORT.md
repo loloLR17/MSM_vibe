@@ -1,86 +1,168 @@
 ---
-mission_id: TR2-20261015-R0-NORME-LIVE-SUCCESSEUR
-status: DONE
+mission_id: TR2-20261015-R1-LIVE-FRAM-CONFIGURATION
+status: IN_PROGRESS
 base_ref: main
 base_sha: null
-initial_head: 2b9c0202f79bc132b166776c4aed2a48925593dc
-result_sha: 2b9c0202f79bc132b166776c4aed2a48925593dc
-created_at_utc: 2026-10-15T09:43:52.214068+00:00
+initial_head: b6bae88001a46527ccab5249fce0c2527f2672d2
+result_sha: f4697febfd5cea267a3c4fa21a1f1e0071845665
+created_at_utc: 2026-10-15T10:23:14Z
 author: Codex
 target_branch: main
 allow_commit: true
 allow_push: true
-allow_flash: false
-allow_debug: false
+allow_flash: true
+allow_debug: true
 ---
 
-# R0 — Profil LIVE continu spécifié, publié et relu
+# R1 — configuration LIVE et autorité FRAM indépendantes de la SD
 
-La finalisation normative est réalisée : **protocole 2, structures B4/B6 version 2, commandes 13/14 et durée LIVE 0 pour fonctionnement continu**. Le profil reprend B5 V1.1 avec epoch, sans réattribuer le code 12. Les campagnes 3/4 et tous les gels historiques restent intacts. Aucun firmware n'est implémenté ou qualifié par cette mission.
+**Résultat logiciel acquis ; publication et relecture distante encore à terminer.**
+Backend R1 implémenté et testé sur les vraies implémentations de stores, avec
+transport physique simulé. Ce résultat ne qualifie ni LIVE opérationnel, ni le
+matériel, ni les marges temps réel. Aucun blocage technique rencontré dans le
+périmètre logiciel ; R2/R3 et provisioning physique restent des étapes distinctes.
 
-Livraison documentaire DONE après publication et relecture intégrale depuis la référence récupérée de GitHub. Le contrôle indépendant de ChatGPT reste nécessaire avant R1, même après livraison DONE de R0. La mission publiée ne contient pas `base_sha` ni `created_at_utc` : champs de contrat manquants signalés, sans SHA inventé ; HEAD effectif et permissions explicites ont été vérifiés.
+## Référence et préservation
 
-## Livrables
+Mission READY lue sur main `b6bae88001a46527ccab5249fce0c2527f2672d2`, avec
+AGENTS.md V2-B3, protocole V2, gouvernance §10, journal intégral, contrat/norme R0,
+mapping et oracles. Le contrat ne fournit ni `base_sha` ni `created_at_utc` :
+`base_sha: null` ici, aucune valeur contractuelle inventée. L'initial_head est le
+HEAD distant effectivement récupéré et utilisé.
 
-- [Norme et index](../../01_Specification_source/LIVE_R0/README.md), [profil complet](../../01_Specification_source/LIVE_R0/PROFIL_LIVE.md) : réservations, durée continue, configuration, états/refus, qualité, alarmes, temps, rollover et PC.
-- [Migration FRAM](../../01_Specification_source/LIVE_R0/MIGRATION_FRAM.md) : layout existant, nouvelle partition disjointe, identité/configuration/journal/epoch versionnés, coupures et rollback.
-- [Mapping et validation](../../02_Validation/LIVE_R0/README.md) : 187 champs / 390 registres, 106 scénarios successeurs et 384 contextes START/STOP, tous fonctionnellement SPECIFIED_NOT_EXECUTED.
-- [Contrôles effectifs](preuves/TR2-20261015-R0/document-checks.json), [géométrie et modèle de coupures](preuves/TR2-20261015-R0/layout-review.json), [réservations examinées](preuves/TR2-20261015-R0/namespace-review.json), [réutilisation du corpus A06](preuves/TR2-20261015-R0/corpus-reuse.json).
-- Mission et rapport A06 archivés intacts depuis `4eecf373407e939f61307dc44ac538b22bc7fdfb`, sous `archives/TR2-20261015-A06-DECOUPLAGE-SUPERVISION-STOCKAGE-AUDIT/`. Étude et preuves A06 inchangées.
+Le dépôt principal reste à `82169af7e76797731358852bec83bfb0ceb54ccf`, propre mais
+historiquement divergent ; aucune fusion/rebase/reset/pull forcé. Travail isolé
+dans `/home/lolo/dev/msm/projects/MSM_vibe-R1-live-fram-configuration`, branche
+`codex/r1-live-fram-configuration`, publication autorisée vers main. Les worktrees
+historiques et deux stashes `6251b988e8b20f97997a8f98fd26d4d35a45a1b2` et
+`f3b829e6188f491920edf74a5f9ed0f559d08b87` sont préservés. **2576 fichiers protégés**
+recomparés par SHA256, inchangés : gels, corpus R0, dettes, anciens travaux,
+mission/gouvernance notamment. Archives R0 mission/rapport créées sans écrasement,
+byte-identiques à `07c1769de0ded11dbac8bb6af576ce24788aaefc`.
 
-## Résultats et choix normatifs
+## Changements et comportement observé
 
-| Tranche | Résultat |
+Commit de code évalué : **`f4697febfd5cea267a3c4fa21a1f1e0071845665`** —
+`R1: add isolated LIVE configuration and transactional FRAM recovery`.
+Les validations conservées portent sur les fichiers de ce commit ; seuls
+rapport/journal/roadmap/archives/preuves sont ajoutés ensuite.
+
+- Validateur LIVE séparé du V1 : tuple acquisition 2/stockage 0/limite 0/durée 0,
+  domaines et labels R0, IDs, masque supervision 1, warning <= alarm. Aucune
+  dépendance SD ni capacité de campagne fictive.
+- Codecs configuration format 2 et identité format 2 explicites ; anciens
+  décodeurs restent stricts. Générations, identité, CRC et miroirs B4 vérifiés.
+- Média logique 3/taille 52298, superblocks 122880/126976 et banques
+  131072/188416. Écritures exclusivement dans [122880,245760), callback de
+  propriété obligatoire à chaque écriture ; absence/refus interdit l'écriture.
+- Migration explicite hors boot, espace EMPTY seulement : copie contrôlée,
+  identité protocole 2 préparée, TR2M generation/SHA256/UID, ancre TR2Q epoch 1 ;
+  journal nouveau et BootIntent vides. Aucun effet historique rejoué ni
+  configuration campagne convertie en active LIVE. Originaux conservés.
+- Recovery choisit d'abord la racine publiée CRC-valide la plus récente puis sa
+  banque ; pas de fallback après corruption de cette banque. Conflit de même
+  génération/incompatibilité/erreur média refusés. Ancienne racine vers banque
+  inactive réécrite ne bloque pas la publication courante. Changement de
+  l'historique après rollback invalide la provenance et impose réconciliation.
+- Application locale refusée avant I/O si acquisition en cours ou CRC/domaine
+  incorrects ; plafond refusé sans écriture après recovery. Persistance avant publication. Erreur aux barrières :
+  autorité retirée jusqu'à recovery, y compris commit durable dont la relecture
+  échoue. Nouvelle corruption de slot refusée ; seul le marqueur historique
+  endommagé byte-identique peut être ignoré.
+
+**Frontière d'intégration R1 :** `LiveConfiguration` et projection B4 schema 2
+sont des API de backend, sans raccordement au RTU de production. L'identité
+préparée conserve seulement les bits historiques 2/3 : ni acquisition/SD/LIVE.
+Le serveur cumulatif reste protocole 1. Aucune commande 12/13/14 ni B3 LIVE n'est
+simulée. L'ancre epoch est une réservation versionnée ; R1 refuse journal/effets
+ou epoch futurs plutôt que les rejouer. R2 doit intégrer le vrai moteur et les
+versions B0/B4/B6 de manière cohérente avant d'exposer protocole 2. Ce choix
+satisfait le découpage incrémental R1 sans annoncer un profil complet absent.
+
+Documentation des API, exclusivité, partage du buffer et recovery :
+[`05_Firmware/LIVE_R1.md`](../../05_Firmware/LIVE_R1.md).
+
+## Validations exécutées et preuves
+
+Preuves versionnées : [`preuves/TR2-20261015-R1`](preuves/TR2-20261015-R1/README.md),
+logs bruts, empreintes du firmware évalué, contrôle des fichiers protégés,
+ressources ARM et profils/empreintes de build.
+
+| Validation réellement exécutée | Résultat / portée |
 |---|---|
-| Git et sources | main distant 2b9c020, dépôt historique et stashes préservés, worktree isolé. Gouvernance inchangée depuis A06, journal intégral relu, contrat R0/roadmap et dépendances revus. Empreintes des 2 167 fichiers du corpus A06 identiques ; aucune répétition de ses campagnes ou tests. |
-| Versions et encodages | Protocole 2/B4=2/B6=2/B7=1 ; B0 bit4 LIVE, B4 capbits0/1 ;13 START_LIVE / 14 STOP_LIVE,12 epoch conservé ; B3 bit8 campagne durable reste 0 en LIVE ; B6 santé4 indisponible. Aucun déplacement/type/accès modifié ; B5 longueur 29 héritée de V1.1. |
-| Supervision continue | Tuple(acquisition2, stockage0, limite0, durée0), durée non nulle refusée en LIVE ; aucun minuteur campagne. STOP explicite, arrêt sûr sur défaut bloquant, aucun auto-START après boot, retour SD ou retry historique. Compteurs saturés sans arrêter les calculs ; UTC qui déborde devient invalide sans wrap. |
-| États et mesures | Table B1/B3/B6/B7, fautes actives/mémorisées, absence prévue distincte de panne ; qualité indépendante du média. Seuils/hold/hystérésis/arrondis et latch/ACK définis pour LIVE, sans rétroattribuer ces oracles aux zones NOT_DEFINED de V1. |
-| Commandes | Priorités contexte définies après contrôles V1.1 ; 384 combinaisons 13/14 développées en oracles. Retry admis avant revalidation métier ; STOP inactif avec nouvelle identité→21, retry exact→résultat historique. Succès START n'est pas redémarrage après reboot. |
-| FRAM | Partition historique [0,122880) conservée readonly par LIVE ; nouvelle partition [122880,245760), deux banques et deux superblocks. Image 52298 + header64 tient dans 57344. Propriété réelle du tail à établir avant écriture R1. |
-| Migration et rollback | Nouveaux formats configuration2 / identité2 / logique média3 ; journal4 borné sans éviction de l'epoch courante, réserves STOP/renew. Provenance lie historique et LIVE ; ancien firmware cumulatif V2 retrouve son espace intact. Changement historique après rollback interdit l'activation automatique de LIVE ; réconciliation explicite. |
-| Compatibilité PC | Ancien PC refuse 2 avant écriture ; nouveau PC choisit explicitement V1 ou LIVE+B5 epoch. SQLite garde observations qualifiées, métadonnées version/config/mode et trous ; pas de fausse campagne ou de promesse exactly-once avec séquence saturée. |
+| Validation complète hôte, `cmake --build .../build-host-validation -j 8`, `ctest --test-dir .../build-host-validation --output-on-failure` | **129/129 PASS**, 11,70 s au dernier passage ; aucune suppression/atténuation de test |
+| Test R1 avec AddressSanitizer + UndefinedBehaviorSanitizer | **PASS**, aucune erreur rapportée ; vrais codecs/média/commits, transport mémoire |
+| CRC préparé/actif R0 V1_REFERENCE, LIVE_A, LIVE_B | **5207CCFC/092C7610**, **7BA855C8/7818AAB3**, **FC4001B4/E5F05014** ; tableaux exacts et miroirs |
+| Domaines LIVE | **560 combinaisons PASS**, cas négatifs tuple, IDs, seuils, labels, masques, domaines ; V1 refuse LIVE |
+| Coupures simulées | **407 budgets migration + 407 activation** ; payload tous les 256 octets, puis chaque octet du budget 52224 à 52426. Historique et tail inchangés à chaque cas. Activation : ancienne ou nouvelle active complète récupérable, aucune active partielle |
+| Corruption/compatibilité | Banque publiée endommagée, format inconnu, conflits, record endommagé avec image saine, UID erroné, provenance périmée, futur epoch/effet/journal/capacités, propriété absente, compteurs U32 au plafond : refus vérifiés |
+| Erreurs de lecture après chacune des 3 écritures du commit | **PASS** : aucune autorité conservée sur erreur ; reboot retrouve ancien état ou nouveau commit effectivement durable |
+| SHA256 portable | Vide, abc, padding deux blocs et million de `a` conformes ; aucune certification cryptographique revendiquée |
+| `STM32CUBE_U5_ROOT=/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0 bash ./tr2_validate.sh --cross-build-only` | **PASS** Cortex-M33 cumulatif, nouveaux sources compilés ; fonctions backend non référencées absentes de l'ELF final |
 
-La règle de durée bornée proposée dans A06 est explicitement remplacée par la décision R0 de supervision continue ; le document A06 historique n'est pas réécrit. Le code courant ne fournit pas déjà le protocole 2, la nouvelle identité, la nouvelle partition ni B5 epoch. Ces dépendances sont affectées à R1/R2 et les budgets à R4.
+Validation complète justifiée par modification du cœur, codecs et média partagés.
+Le premier lancement direct `./tr2_validate.sh` a échoué (mode fichier non
+exécutable), puis le lancement documenté avec `bash` a exécuté 129 tests PASS.
+Son premier cross-build a détecté `-Werror=type-limits` : comparaison SHA256 à une
+borne U64 impossible pour size_t 32 bits. Correction par garde de compilation
+suivant SIZE_MAX, sans affaiblir les warnings. Rebuild/tests hôte complets puis
+cross-build final réussis. Deux fixtures négatives ont été corrigées avant
+validation finale : conflit initialement construit identique, mutation d'epoch
+initialement identique ; les assertions de refus sont conservées. Aucun test
+physique réussi antérieur n'a été répété.
 
-## CRC et contrôles documentaires
+Binaire cumulatif compilé **non flashé** : SHA256
+`ac27b274bf526ba71c363fd1c331bb5e82048d8f19c192a601526560f759cbea` ;
+ELF `29e096aa3cb50fe93e47da1295c8e4c6c81fc6546366e5be3310b1377c372101`.
+Linker : text 170892, data 480, bss 602232 octets ; avertissements newlib de
+syscalls non implémentés conservés dans le log, sans échec de linkage. Ces
+artefacts prouvent une compilation, pas l'image présente sur la carte.
 
-| Vecteur | CRC préparé 168 octets | CRC actif 152 octets |
-|---|---|---|
-| V1_REFERENCE |5207CCFC|092C7610|
-| LIVE_A |7BA855C8|7818AAB3|
-| LIVE_B |FC4001B4|E5F05014|
+## Coût et limites mesurées
 
-Le CRC préparé V1 est la constante historique gelée ; son CRC actif est un résultat documentaire calculé ici, pas une nouvelle constante historique prétendument qualifiée. Tous les registres et SHA sont dans `01_Specification_source/LIVE_R0/vectors.json`. Deux calculs indépendants (bitwise et zlib) concordent, avec relecture du fixture normatif B4. Algorithme, périmètres 168/152 octets, endian et réservés sont conservés ; la version 4000 reste hors CRC et doit être contrôlée séparément.
+ARM GCC 14.2.1 Cortex-M33, -O0 : service **576**, média **96** (baseline **80**),
+candidate **52298**, snapshot **132** octets. Design avec candidate partagée :
+**53066 octets**, soit **+1072** par rapport à l'ancien média/candidate, hors
+alignement et buffers des couches appelantes. La structure média partagée grossit
+de 16 octets par instance, y compris historique ; aucun service/candidate LIVE
+n'est instancié dans la production actuelle. Plus grand cadre statique observé
+parmi les unités analysées : **440 octets** ; ce n'est pas une borne de pile
+complète avec appels/HAL/IRQ ni une mesure high-water sur cible.
 
-Commande réellement exécutée depuis le worktree :
+Commit : **52426 octets écrits** (52298 + 64 + 64), avec relectures et CRC.
+Première application dans la fixture nominale : **313916 octets lus**, mesurés
+par le transport simulé. Aucun délai physique dérivé de ces volumes n'est
+revendiqué. Le backend synchrone refuse APPLY pendant acquisition ; R2/R4 doivent
+qualifier ordonnanceur, réserves STOP/renouvellement, latences et marges FIFO.
+Les coupures sont un modèle hôte borné, pas l'atomicité électrique ni l'endurance.
+Une migration interrompue peut laisser un espace non EMPTY : arrêt et
+réconciliation explicite, jamais formatage opportuniste.
 
-```text
-python3 'Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261015-R0/check_documents.py'
-```
+## Matériel, journal et suite
 
-Résultat `DOCUMENTARY_CHECKS_PASSED` : 187 champs / 390 registres sans trou ni recouvrement, adresses/types/accès hérités identiques, 17 identifiants d'exigence couverts, CRC concordants, géométrie disjointe et 2 940 fichiers historiques protégés identiques. Le modèle de coupures vérifie chaque préfixe des écritures prévues dans la seule partition LIVE ; **il n'exécute pas les stores ni les barrières du firmware et ne prouve pas l'atomicité physique**.
+**Aucune opération matérielle** : zéro flash/debug/reset, accès ou écriture FRAM,
+commande SD, trafic RS-485. Autorisations commit/push exercées ; flash/debug non
+exercées. La propriété/contenu de la zone LIVE réelle n'ont pas été déterminés,
+aucun callback matériel fourni et aucune écriture tentée. Firmware, FRAM et SD
+conservent leur état hérité **non relu**, sans prétendre restaurer M014-H à partir
+d'une hypothèse. Le HP est retiré selon gouvernance §10 ; tout essai futur doit
+inventorier le banc unique T1000 et son maître effectif.
 
-La revue a corrigé avant publication : une longueur B6 mal recopiée (64 registres réellement), une ambiguïté de sélection entre racine courante et ancien superblock pointant une banque inactive réécrite, et la branche STOP quand son budget journal manque. Le premier contrôle de couverture a signalé deux cas de domaine LIVE manquants (masque et ordre des seuils), ajoutés ; le parseur identifiait aussi à tort le segment R0-NORME du mission_id comme exigence, filtre corrigé sur les identifiants normatifs déclarés. Aucun oracle ni test ancien affaibli.
+Journal `ETAT_COURANT_TR2.md` et roadmap actualisés : R0 reçu selon contrat R1,
+configuration/persistance validées logiciel, frontières R2/R3, coûts R4 et absence
+de qualification matérielle explicites. Dettes A-04 et corpus gelés préservés.
 
-Validation proportionnée : contrôles documentaires/numériques seulement. Aucun `tr2_validate.sh`, build hôte/ARM, test PC, ST-LINK, GDB, flash/reset, Modbus, accès FRAM/microSD/lecteur PC. Les 106 cas sont spécifiés, non exécutés ; les résultats matériels M014/M015/SD restent ceux des archives. L'état physique des deux cartes est hérité et non relu, aucun firmware ou média restauré.
+Suite recommandée à ChatGPT : contrôle indépendant du commit, puis mission R2
+moteur epoch/journal/START_LIVE/STOP_LIVE et intégration de protocole cohérente,
+sans se contenter de l'ancre R1. R3 calcul, R4 marges et R6 physique restent à
+qualifier. Avant provisioning : établir propriétaire et contenu réels de toute
+la zone LIVE, sauvegardes appropriées, attribution UID/DeviceId et cible.
 
-## Risques ouverts et conditions R1
+## Publication
 
-Aucune contradiction normative identifiée à l'issue de la revue locale. Restent des **préconditions et preuves d'implémentation**, pas des encodages laissés à décider :
-
-1. Disponibilité/attribution réelle de la zone FRAM avant toute écriture ; contenu inconnu→arrêt, jamais « libre car non référencé ». Rollback seulement vers cumulatif compatible V2, pas pré-V2.
-2. Port de l'enveloppe logique 3, nouveau décodeur identité/autorité, migration et coupures sur vrais stores ; conserver strictement les anciennes banques, UID et données. L'ancien UNAVAILABLE ne doit plus masquer la candidate LIVE autoritative.
-3. Implémentation B5 epoch et rétention actuelle limitée ; slots 126/127 réservés STOP/renouvellement, sans GC d'identité admise. Après STARTED sans reçu d'effet, recovery 9 peut réellement bloquer les commandes ; aucun reset ou timeout n'est une preuve d'absence autorisant 28/29. Prévoir diagnostic et résolution fondés sur preuves, pas de blind replay.
-4. Coût des commits complets de 52 Ko, SRAM/pile et ordonnanceur IO compatibles FIFO ; aucune marge temps réel déduite du simple calcul géométrique. Le chemin STOP ne doit pas subir de famine, à démontrer en R4.
-5. Qualifier plus tard firmware, PC et physique selon R1–R6 ; R7 stockage reste distinct, sans bloquer LIVE. L'absence de mesure physique R0 est conforme au contrat, pas une qualification positive.
-
-Entrée R1 : contrôle indépendant de ChatGPT des documents/mapping/oracles et nouvelle mission explicite. Roadmap R0 actualisée « documents rédigés, contrôle ChatGPT à réaliser », sans qualifier R1/J3/J4/J5. Journal complété factuellement ; dettes A04, gels, contrat R0 et règles de gouvernance intacts.
-
-## Git et publication
-
-Dépôt original propre à `82169af7e76797731358852bec83bfb0ceb54ccf`, divergence historique conservée ; aucun pull/merge/rebase/reset destructif. Stashes `6251b988e8b20f97997a8f98fd26d4d35a45a1b2` et `f3b829e6188f491920edf74a5f9ed0f559d08b87` conservés. Worktree `/home/lolo/dev/msm/projects/MSM_vibe-R0-live-successor`, branche locale `codex/r0-live-successor`, publication autorisée vers `refs/heads/main` uniquement.
-
-`result_sha` désigne la référence initiale statiquement examinée, pas un code exécuté. Seuls nouveaux documents successeurs/preuves, archive A06, rapport, journal et statut factuel de roadmap sont inclus. Aucun fichier applicatif modifié. Commit/push autorisés exercés ; flash/debug false respectés. Diff et index examinés, contrôles documentaires réussis. Premier commit **`61554e5616c7d08a2f177bd1ed361b798dd6b094`**, message `R0: specify continuous LIVE profile, safe FRAM migration and successor validation`, poussé normalement sur main. Après `git fetch origin main`, les **22 livrables ont été relus intégralement et comparés octet à octet**, 7 empreintes de preuves vérifiées et 2 940 fichiers protégés contrôlés également dans les objets distants ; stashes conservés. [Reçu distant](preuves/TR2-20261015-R0/remote-readback-61554e5.json).
-
-La présente clôture ajoute le reçu et consigne le statut DONE ; elle est à son tour poussée normalement et relue. Son SHA final est fourni dans la réponse sans auto-référence. Le contrôle indépendant ChatGPT et les autorisations R1 restent distincts ; aucun jalon logiciel/physique n'est qualifié par ce statut. Worktree propre au premier checkpoint, uniquement la clôture documentaire ajoutée ensuite.
+État avant publication : commit de code local créé, rapport/preuves/journal en
+préparation sur le worktree isolé ; dépôt principal et stashes préservés.
+Destination vérifiée `https://github.com/loloLR17/MSM_vibe.git`, push normal
+`HEAD:refs/heads/main`. Relecture distante encore à obtenir ; statut
+IN_PROGRESS limité à cette attente, pas un blocage externe. Le SHA contenant le
+rapport sera communiqué après publication, jamais inventé dans son propre commit.

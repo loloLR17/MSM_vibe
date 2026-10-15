@@ -1,0 +1,4 @@
+/home/lolo/dev/msm/projects/MSM_vibe-R1-live-fram-configuration/Modbus RTU/05_Firmware/src/common/sha256.c:15:17:rotate	16	static
+/home/lolo/dev/msm/projects/MSM_vibe-R1-live-fram-configuration/Modbus RTU/05_Firmware/src/common/sha256.c:16:17:read_be	16	static
+/home/lolo/dev/msm/projects/MSM_vibe-R1-live-fram-configuration/Modbus RTU/05_Firmware/src/common/sha256.c:18:13:block	336	static
+/home/lolo/dev/msm/projects/MSM_vibe-R1-live-fram-configuration/Modbus RTU/05_Firmware/src/common/sha256.c:38:11:tr2_sha256_bytes	232	static

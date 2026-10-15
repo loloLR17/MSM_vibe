@@ -1,0 +1,264 @@
+Internal ctest changing into directory: /home/lolo/dev/msm/projects/MSM_vibe-R1-live-fram-configuration/Modbus RTU/05_Firmware/build-host-validation
+Test project /home/lolo/dev/msm/projects/MSM_vibe-R1-live-fram-configuration/Modbus RTU/05_Firmware/build-host-validation
+        Start   1: stm32_continuous
+  1/129 Test   #1: stm32_continuous ...................................   Passed    0.00 sec
+        Start   2: stm32_ctrl1_differential
+  2/129 Test   #2: stm32_ctrl1_differential ...........................   Passed    0.00 sec
+        Start   3: stm32_burst_capture
+  3/129 Test   #3: stm32_burst_capture ................................   Passed    0.00 sec
+        Start   4: stm32_active_readback
+  4/129 Test   #4: stm32_active_readback ..............................   Passed    0.00 sec
+        Start   5: stm32_register_probe
+  5/129 Test   #5: stm32_register_probe ...............................   Passed    0.00 sec
+        Start   6: stm32_iis3dwb_fifo
+  6/129 Test   #6: stm32_iis3dwb_fifo .................................   Passed    0.00 sec
+        Start   7: stm32_iis3dwb
+  7/129 Test   #7: stm32_iis3dwb ......................................   Passed    0.00 sec
+        Start   8: stm32_rs485_rx_gpio
+  8/129 Test   #8: stm32_rs485_rx_gpio ................................   Passed    0.00 sec
+        Start   9: stm32_rtu_tx_0
+  9/129 Test   #9: stm32_rtu_tx_0 .....................................   Passed    0.00 sec
+        Start  10: stm32_irq_observer_0
+ 10/129 Test  #10: stm32_irq_observer_0 ...............................   Passed    0.00 sec
+        Start  11: stm32_rtu_tx_1
+ 11/129 Test  #11: stm32_rtu_tx_1 .....................................   Passed    0.00 sec
+        Start  12: stm32_irq_observer_1
+ 12/129 Test  #12: stm32_irq_observer_1 ...............................   Passed    0.00 sec
+        Start  13: stm32_modbus_diagnostic
+ 13/129 Test  #13: stm32_modbus_diagnostic ............................   Passed    0.00 sec
+        Start  14: codec
+ 14/129 Test  #14: codec ..............................................   Passed    0.00 sec
+        Start  15: b4_configuration_codec
+ 15/129 Test  #15: b4_configuration_codec .............................   Passed    0.00 sec
+        Start  16: register_model
+ 16/129 Test  #16: register_model .....................................   Passed    0.00 sec
+        Start  17: projection_b0
+ 17/129 Test  #17: projection_b0 ......................................   Passed    0.00 sec
+        Start  18: projection_b1
+ 18/129 Test  #18: projection_b1 ......................................   Passed    0.00 sec
+        Start  19: projection_b2
+ 19/129 Test  #19: projection_b2 ......................................   Passed    0.00 sec
+        Start  20: projection_b3
+ 20/129 Test  #20: projection_b3 ......................................   Passed    0.00 sec
+        Start  21: projection_b4
+ 21/129 Test  #21: projection_b4 ......................................   Passed    0.00 sec
+        Start  22: campaign_inventory_b6
+ 22/129 Test  #22: campaign_inventory_b6 ..............................   Passed    0.00 sec
+        Start  23: b6_adapters
+ 23/129 Test  #23: b6_adapters ........................................   Passed    0.00 sec
+        Start  24: time_service
+ 24/129 Test  #24: time_service .......................................   Passed    0.00 sec
+        Start  25: time_recovery_types
+ 25/129 Test  #25: time_recovery_types ................................   Passed    0.00 sec
+        Start  26: time_history_record
+ 26/129 Test  #26: time_history_record ................................   Passed    0.00 sec
+        Start  27: time_history_store
+ 27/129 Test  #27: time_history_store .................................   Passed    0.00 sec
+        Start  28: time_synchronization
+ 28/129 Test  #28: time_synchronization ...............................   Passed    0.00 sec
+        Start  29: configuration_types
+ 29/129 Test  #29: configuration_types ................................   Passed    0.00 sec
+        Start  30: configuration_staging
+ 30/129 Test  #30: configuration_staging ..............................   Passed    0.00 sec
+        Start  31: configuration_validator
+ 31/129 Test  #31: configuration_validator ............................   Passed    0.00 sec
+        Start  32: configuration_workflow
+ 32/129 Test  #32: configuration_workflow .............................   Passed    0.00 sec
+        Start  33: configuration_service
+ 33/129 Test  #33: configuration_service ..............................   Passed    0.00 sec
+        Start  34: persistent_storage_core
+ 34/129 Test  #34: persistent_storage_core ............................   Passed    0.00 sec
+        Start  35: configuration_record
+ 35/129 Test  #35: configuration_record ...............................   Passed    0.00 sec
+        Start  36: campaign_record
+ 36/129 Test  #36: campaign_record ....................................   Passed    0.00 sec
+        Start  37: campaign_repository_store
+ 37/129 Test  #37: campaign_repository_store ..........................   Passed    0.00 sec
+        Start  38: campaign_bulk_aggregator
+ 38/129 Test  #38: campaign_bulk_aggregator ...........................   Passed    0.00 sec
+        Start  39: campaign_bulk_block
+ 39/129 Test  #39: campaign_bulk_block ................................   Passed    0.00 sec
+        Start  40: campaign_bulk_block_stream
+ 40/129 Test  #40: campaign_bulk_block_stream .........................   Passed    0.00 sec
+        Start  41: campaign_bulk_checkpoint
+ 41/129 Test  #41: campaign_bulk_checkpoint ...........................   Passed    0.00 sec
+        Start  42: campaign_bulk_media
+ 42/129 Test  #42: campaign_bulk_media ................................   Passed    0.00 sec
+        Start  43: campaign_bulk_media_region
+ 43/129 Test  #43: campaign_bulk_media_region .........................   Passed    0.00 sec
+        Start  44: campaign_bulk_metadata
+ 44/129 Test  #44: campaign_bulk_metadata .............................   Passed    0.00 sec
+        Start  45: campaign_data_store_bulk
+ 45/129 Test  #45: campaign_data_store_bulk ...........................   Passed    0.00 sec
+        Start  46: campaign_data_store_persistent
+ 46/129 Test  #46: campaign_data_store_persistent .....................   Passed    0.00 sec
+        Start  47: campaign_service
+ 47/129 Test  #47: campaign_service ...................................   Passed    0.00 sec
+        Start  48: configuration_store
+ 48/129 Test  #48: configuration_store ................................   Passed    0.00 sec
+        Start  49: configuration_store_recovery
+ 49/129 Test  #49: configuration_store_recovery .......................   Passed    0.00 sec
+        Start  50: configuration_store_recovery_unavailable
+ 50/129 Test  #50: configuration_store_recovery_unavailable ...........   Passed    0.00 sec
+        Start  51: read_adapter
+ 51/129 Test  #51: read_adapter .......................................   Passed    0.00 sec
+        Start  52: read_adapter_b3
+ 52/129 Test  #52: read_adapter_b3 ....................................   Passed    0.00 sec
+        Start  53: write_adapter
+ 53/129 Test  #53: write_adapter ......................................   Passed    0.00 sec
+        Start  54: p5a_contracts
+ 54/129 Test  #54: p5a_contracts ......................................   Passed    0.00 sec
+        Start  55: p6a_contracts
+ 55/129 Test  #55: p6a_contracts ......................................   Passed    0.00 sec
+        Start  56: p7a_command_types
+ 56/129 Test  #56: p7a_command_types ..................................   Passed    0.00 sec
+        Start  57: p7b_command_request_mailbox
+ 57/129 Test  #57: p7b_command_request_mailbox ........................   Passed    0.00 sec
+        Start  58: p7c_command_journal
+ 58/129 Test  #58: p7c_command_journal ................................   Passed    0.00 sec
+        Start  59: p7d_command_journal_store
+ 59/129 Test  #59: p7d_command_journal_store ..........................   Passed    0.00 sec
+        Start  60: p7e_command_engine_admission
+ 60/129 Test  #60: p7e_command_engine_admission .......................   Passed    0.00 sec
+        Start  61: p7f_command_engine_lifecycle
+ 61/129 Test  #61: p7f_command_engine_lifecycle .......................   Passed    0.00 sec
+        Start  62: p7g_apply_configuration
+ 62/129 Test  #62: p7g_apply_configuration ............................   Passed    0.00 sec
+        Start  63: p7h_synchronize_time
+ 63/129 Test  #63: p7h_synchronize_time ...............................   Passed    0.00 sec
+        Start  64: p7i_start_acquisition
+ 64/129 Test  #64: p7i_start_acquisition ..............................   Passed    0.00 sec
+        Start  65: p7j_stop_acquisition
+ 65/129 Test  #65: p7j_stop_acquisition ...............................   Passed    0.00 sec
+        Start  66: p7k_command_boot_recovery
+ 66/129 Test  #66: p7k_command_boot_recovery ..........................   Passed    0.00 sec
+        Start  67: p7l_b5_adapters
+ 67/129 Test  #67: p7l_b5_adapters ....................................   Passed    0.00 sec
+        Start  68: p7m_command_policy
+ 68/129 Test  #68: p7m_command_policy .................................   Passed    0.00 sec
+        Start  69: p7n_transaction_fault_injection
+ 69/129 Test  #69: p7n_transaction_fault_injection ....................   Passed    0.00 sec
+        Start  70: p9b_diagnostic_service
+ 70/129 Test  #70: p9b_diagnostic_service .............................   Passed    0.00 sec
+        Start  71: p9c_diagnostic_recovery
+ 71/129 Test  #71: p9c_diagnostic_recovery ............................   Passed    0.00 sec
+        Start  72: p9h_selftest_command
+ 72/129 Test  #72: p9h_selftest_command ...............................   Passed    0.00 sec
+        Start  73: acquisition_service
+ 73/129 Test  #73: acquisition_service ................................   Passed    0.00 sec
+        Start  74: indicator_calculator
+ 74/129 Test  #74: indicator_calculator ...............................   Passed    0.00 sec
+        Start  75: threshold_evaluator
+ 75/129 Test  #75: threshold_evaluator ................................   Passed    0.00 sec
+        Start  76: supervision_service
+ 76/129 Test  #76: supervision_service ................................   Passed    0.00 sec
+        Start  77: supervision_temporal_envelope
+ 77/129 Test  #77: supervision_temporal_envelope ......................   Passed    0.00 sec
+        Start  78: time_fault_injection
+ 78/129 Test  #78: time_fault_injection ...............................   Passed    0.00 sec
+        Start  79: configuration_b4_flow
+ 79/129 Test  #79: configuration_b4_flow ..............................   Passed    0.00 sec
+        Start  80: configuration_activation_adapter
+ 80/129 Test  #80: configuration_activation_adapter ...................   Passed    0.00 sec
+        Start  81: p12c_pdu_server
+ 81/129 Test  #81: p12c_pdu_server ....................................   Passed    0.00 sec
+        Start  82: p12d_rtu_receiver
+ 82/129 Test  #82: p12d_rtu_receiver ..................................   Passed    0.00 sec
+        Start  83: p12e_serial_transport
+ 83/129 Test  #83: p12e_serial_transport ..............................   Passed    0.00 sec
+        Start  84: p12h_rtu_server_runtime
+ 84/129 Test  #84: p12h_rtu_server_runtime ............................   Passed    0.00 sec
+        Start  85: p12h3c3b_command_journal_bounded_record
+ 85/129 Test  #85: p12h3c3b_command_journal_bounded_record ............   Passed    0.00 sec
+        Start  86: p12h3c3c1_bounded_slot
+ 86/129 Test  #86: p12h3c3c1_bounded_slot .............................   Passed    0.00 sec
+        Start  87: p12h3c3c2_bounded_recovery
+ 87/129 Test  #87: p12h3c3c2_bounded_recovery .........................   Passed    0.00 sec
+        Start  88: p12h3c3c3_bounded_reader
+ 88/129 Test  #88: p12h3c3c3_bounded_reader ...........................   Passed    0.00 sec
+        Start  89: p12h3c3c4_bounded_writer
+ 89/129 Test  #89: p12h3c3c4_bounded_writer ...........................   Passed    0.00 sec
+        Start  90: p12h3c3c4b_bounded_admission
+ 90/129 Test  #90: p12h3c3c4b_bounded_admission .......................   Passed    0.01 sec
+        Start  91: p12h3c3c4c1_bounded_store
+ 91/129 Test  #91: p12h3c3c4c1_bounded_store ..........................   Passed    0.01 sec
+        Start  92: p12h3c3c4d1_fault_media
+ 92/129 Test  #92: p12h3c3c4d1_fault_media ............................   Passed    0.00 sec
+        Start  93: p12h3c3c4d2_admission_power_loss
+ 93/129 Test  #93: p12h3c3c4d2_admission_power_loss ...................   Passed    0.01 sec
+        Start  94: p12h3c3c4d3_mutation_power_loss
+ 94/129 Test  #94: p12h3c3c4d3_mutation_power_loss ....................   Passed    0.01 sec
+        Start  95: p12h3c3c4d4_completion_power_loss
+ 95/129 Test  #95: p12h3c3c4d4_completion_power_loss ..................   Passed    0.01 sec
+        Start  96: p12h3c3c4d5_readmission_power_loss
+ 96/129 Test  #96: p12h3c3c4d5_readmission_power_loss .................   Passed    0.05 sec
+        Start  97: p12h3c3c4d6_d8_consolidation
+ 97/129 Test  #97: p12h3c3c4d6_d8_consolidation .......................   Passed    0.00 sec
+        Start  98: p12h3d2_transactional_image_media
+ 98/129 Test  #98: p12h3d2_transactional_image_media ..................   Passed    0.05 sec
+        Start  99: p12h3d2b_transactional_image_power_loss
+ 99/129 Test  #99: p12h3d2b_transactional_image_power_loss ............   Passed    0.93 sec
+        Start 100: p12h3d2c_transactional_image_recovery
+100/129 Test #100: p12h3d2c_transactional_image_recovery ..............   Passed    0.04 sec
+        Start 101: p12h3d2d_persistent_storage_core_integration
+101/129 Test #101: p12h3d2d_persistent_storage_core_integration .......   Passed    0.03 sec
+        Start 102: p12h3d2e_campaign_transactional_media
+102/129 Test #102: p12h3d2e_campaign_transactional_media ..............   Passed    0.04 sec
+        Start 103: p12h3d2f_transactional_media_format_policy
+103/129 Test #103: p12h3d2f_transactional_media_format_policy .........   Passed    0.02 sec
+        Start 104: p12h3d2g_transactional_media_format_power_loss
+104/129 Test #104: p12h3d2g_transactional_media_format_power_loss .....   Passed    0.04 sec
+        Start 105: p12h3d2h1_transactional_media_geometry
+105/129 Test #105: p12h3d2h1_transactional_media_geometry .............   Passed    0.00 sec
+        Start 106: p12h3d2h3_transactional_media_alternate_geometry
+106/129 Test #106: p12h3d2h3_transactional_media_alternate_geometry ...   Passed    0.01 sec
+        Start 107: system_runtime
+107/129 Test #107: system_runtime .....................................   Passed    0.02 sec
+        Start 108: system_runtime_bulk
+108/129 Test #108: system_runtime_bulk ................................   Passed    0.09 sec
+        Start 109: p8i_system_runtime_acquisition_commands
+109/129 Test #109: p8i_system_runtime_acquisition_commands ............   Passed    0.02 sec
+        Start 110: p8j_system_runtime_b3_projection
+110/129 Test #110: p8j_system_runtime_b3_projection ...................   Passed    0.01 sec
+        Start 111: p8k_power_loss_boot_recovery
+111/129 Test #111: p8k_power_loss_boot_recovery .......................   Passed    0.01 sec
+        Start 112: p12h3c3c4e3_runtime_bounded_journal
+112/129 Test #112: p12h3c3c4e3_runtime_bounded_journal ................   Passed    0.01 sec
+        Start 113: time_boot_recovery
+113/129 Test #113: time_boot_recovery .................................   Passed    0.02 sec
+        Start 114: configuration_fault_injection
+114/129 Test #114: configuration_fault_injection ......................   Passed    2.14 sec
+        Start 115: p5h_acquisition_supervision_b3
+115/129 Test #115: p5h_acquisition_supervision_b3 .....................   Passed    0.01 sec
+        Start 116: post_p9_a5_host_modbus_read
+116/129 Test #116: post_p9_a5_host_modbus_read ........................   Passed    0.00 sec
+        Start 117: modbus_system_server
+117/129 Test #117: modbus_system_server ...............................   Passed    0.02 sec
+        Start 118: production_commands
+118/129 Test #118: production_commands ................................   Passed    0.05 sec
+        Start 119: production_provisioning
+119/129 Test #119: production_provisioning ............................   Passed    0.12 sec
+        Start 120: persistent_identity
+120/129 Test #120: persistent_identity ................................   Passed    0.46 sec
+        Start 121: production_commissioning
+121/129 Test #121: production_commissioning ...........................   Passed    0.08 sec
+        Start 122: st_fifo_window_integration
+122/129 Test #122: st_fifo_window_integration .........................   Passed    0.00 sec
+        Start 123: st_fifo_admission
+123/129 Test #123: st_fifo_admission ..................................   Passed    0.00 sec
+        Start 124: st_spi_completion_integration
+124/129 Test #124: st_spi_completion_integration ......................   Passed    0.00 sec
+        Start 125: st_window_primary_preflight_and_transport
+125/129 Test #125: st_window_primary_preflight_and_transport ..........   Passed    0.00 sec
+        Start 126: fifo_cooperative_v1_windows_and_faults
+126/129 Test #126: fifo_cooperative_v1_windows_and_faults .............   Passed    0.00 sec
+        Start 127: modbus_fifo_io_budget
+127/129 Test #127: modbus_fifo_io_budget ..............................   Passed    0.01 sec
+        Start 128: sdmmc_bulk_media
+128/129 Test #128: sdmmc_bulk_media ...................................   Passed    0.00 sec
+        Start 129: live_configuration
+129/129 Test #129: live_configuration .................................   Passed    7.20 sec
+
+100% tests passed, 0 tests failed out of 129
+
+Total Test time (real) =  11.70 sec

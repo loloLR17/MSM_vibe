@@ -1,0 +1,7 @@
+/home/lolo/dev/msm/projects/MSM_vibe-R1-live-fram-configuration/Modbus RTU/05_Firmware/src/modbus/b4_configuration_codec.c:7:13:encode_fixed_ascii_32	24	static
+/home/lolo/dev/msm/projects/MSM_vibe-R1-live-fram-configuration/Modbus RTU/05_Firmware/src/modbus/b4_configuration_codec.c:19:13:encode_u32	16	static
+/home/lolo/dev/msm/projects/MSM_vibe-R1-live-fram-configuration/Modbus RTU/05_Firmware/src/modbus/b4_configuration_codec.c:24:6:tr2_b4_serialize_prepared_payload	16	static
+/home/lolo/dev/msm/projects/MSM_vibe-R1-live-fram-configuration/Modbus RTU/05_Firmware/src/modbus/b4_configuration_codec.c:57:6:tr2_b4_serialize_active_payload	16	static
+/home/lolo/dev/msm/projects/MSM_vibe-R1-live-fram-configuration/Modbus RTU/05_Firmware/src/modbus/b4_configuration_codec.c:90:10:tr2_b4_crc32_registers	32	static
+/home/lolo/dev/msm/projects/MSM_vibe-R1-live-fram-configuration/Modbus RTU/05_Firmware/src/modbus/b4_configuration_codec.c:119:10:tr2_b4_prepared_payload_crc	184	static
+/home/lolo/dev/msm/projects/MSM_vibe-R1-live-fram-configuration/Modbus RTU/05_Firmware/src/modbus/b4_configuration_codec.c:127:10:tr2_b4_active_payload_crc	168	static

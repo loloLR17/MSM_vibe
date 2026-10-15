@@ -1,0 +1,2 @@
+ac27b274bf526ba71c363fd1c331bb5e82048d8f19c192a601526560f759cbea  /home/lolo/dev/msm/projects/MSM_vibe-R1-live-fram-configuration/Modbus RTU/05_Firmware/build-stm32-cumulative/tr2-cumulative-m014-m015-spi4.bin
+29e096aa3cb50fe93e47da1295c8e4c6c81fc6546366e5be3310b1377c372101  /home/lolo/dev/msm/projects/MSM_vibe-R1-live-fram-configuration/Modbus RTU/05_Firmware/build-stm32-cumulative/tr2-cumulative-m014-m015-spi4.elf

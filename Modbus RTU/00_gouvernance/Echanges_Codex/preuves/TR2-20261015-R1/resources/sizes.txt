@@ -1,0 +1,9 @@
+
+/home/lolo/dev/msm/reports/r1-live-resources/resource_probe.o:
+00000576 00000096 B r1_media_size
+00052972 00000132 B r1_snapshot_size
+00000000 00000576 B r1_service_size
+00000672 00052298 B r1_candidate_size
+
+/home/lolo/dev/msm/reports/r1-live-resources/baseline_resource_probe.o:
+00000000 00000080 B baseline_media_size

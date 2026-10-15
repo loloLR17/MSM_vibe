@@ -1,0 +1,55 @@
+{
+  "mission_id": "TR2-20261015-R1-LIVE-FRAM-CONFIGURATION",
+  "recorded_at_utc": "2026-10-15T10:21:26.564411+00:00",
+  "initial_head": "b6bae88001a46527ccab5249fce0c2527f2672d2",
+  "evaluated_code_sha": "f4697febfd5cea267a3c4fa21a1f1e0071845665",
+  "protected_files_verified": 2576,
+  "stashes_preserved": [
+    "6251b988e8b20f97997a8f98fd26d4d35a45a1b2",
+    "f3b829e6188f491920edf74a5f9ed0f559d08b87"
+  ],
+  "r0_archive_source": "07c1769de0ded11dbac8bb6af576ce24788aaefc",
+  "host_tests": {
+    "passed": 129,
+    "failed": 0
+  },
+  "sanitizers": [
+    "AddressSanitizer",
+    "UndefinedBehaviorSanitizer"
+  ],
+  "r1_vectors": [
+    "V1_REFERENCE 5207CCFC/092C7610",
+    "LIVE_A 7BA855C8/7818AAB3",
+    "LIVE_B FC4001B4/E5F05014"
+  ],
+  "valid_domain_combinations": 560,
+  "power_cut_budgets": {
+    "migration": 407,
+    "activation": 407,
+    "payload_stride_bytes": 256,
+    "bytewise_from": 52224,
+    "last_budget": 52426
+  },
+  "read_failure_barriers": 3,
+  "normal_apply_mock_read_bytes": 313916,
+  "normal_commit_write_bytes": 52426,
+  "arm_resources_bytes": {
+    "service": 576,
+    "current_media": 96,
+    "baseline_media": 80,
+    "candidate": 52298,
+    "snapshot": 132,
+    "shared_design_total": 53066,
+    "design_increment_over_baseline": 1072,
+    "largest_observed_static_frame": 440
+  },
+  "hardware_operations": [],
+  "protocol2_server_bound": false,
+  "r2_commands_implemented": false,
+  "limits": [
+    "host power-loss model only",
+    "ownership of physical LIVE area not established",
+    "R2/R3/R4/R6 not qualified",
+    "stack frames are not complete dynamic stack bound"
+  ]
+}

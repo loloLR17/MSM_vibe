@@ -1,0 +1,5 @@
+/home/lolo/dev/msm/projects/MSM_vibe-R1-live-fram-configuration/Modbus RTU/05_Firmware/src/domain/configuration/configuration_validator.c:5:13:window_size_is_valid	16	static
+/home/lolo/dev/msm/projects/MSM_vibe-R1-live-fram-configuration/Modbus RTU/05_Firmware/src/domain/configuration/configuration_validator.c:10:13:indicator_period_is_valid	16	static
+/home/lolo/dev/msm/projects/MSM_vibe-R1-live-fram-configuration/Modbus RTU/05_Firmware/src/domain/configuration/configuration_validator.c:16:13:static_constraints_are_valid	72	static
+/home/lolo/dev/msm/projects/MSM_vibe-R1-live-fram-configuration/Modbus RTU/05_Firmware/src/domain/configuration/configuration_validator.c:59:31:configuration_validate	32	static
+/home/lolo/dev/msm/projects/MSM_vibe-R1-live-fram-configuration/Modbus RTU/05_Firmware/src/domain/configuration/configuration_validator.c:90:31:configuration_validate_live	80	static
