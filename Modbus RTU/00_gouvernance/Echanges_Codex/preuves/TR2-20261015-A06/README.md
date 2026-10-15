@@ -16,3 +16,5 @@ Aucun essai physique, test firmware/PC ni compilation dans cette mission.
 Reproduire le parcours sans accès matériel depuis un checkout de la référence examinée : copier `inventory-script.py` vers `/tmp/a06_scan.py`, puis lancer `python3 /tmp/a06_scan.py` depuis la racine du checkout. Le script écrit uniquement dans le répertoire de preuves A-06. Il classe toutes les variantes historiques ; un doublon de contenu n'autorise ni fusion ni suppression. La relecture sémantique et les recommandations ne sont pas automatisées par ce script.
 
 Les CSV livrés sont sérialisés avec champs entre guillemets et fins de ligne LF. Le premier contrôle de diff avait signalé les CRLF produits par le writer CSV standard ; seule la sérialisation des nouvelles preuves a été normalisée, aucun contenu source ou archive modifié.
+
+`remote-readback-67c074e.json` consigne la lecture intégrale des 17 livrables au premier push, les 11 empreintes alors présentes et les 2 939 fichiers protégés distants. Le manifest de clôture inclut ensuite ce reçu comme douzième preuve.

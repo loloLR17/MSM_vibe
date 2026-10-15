@@ -1,0 +1,96 @@
+{
+  "remote_sha": "67c074ed5cb0fcbdee29de373f1c2c4d4e9af5c5",
+  "checked_at_utc": "2026-10-15T09:05:44.328689+00:00",
+  "method": "git fetch origin main puis lecture integrale de chaque blob distant et comparaison octet a octet au fichier local",
+  "delivered_files": 17,
+  "files": [
+    {
+      "path": "Modbus RTU/00_gouvernance/ETAT_COURANT_TR2.md",
+      "bytes": 29741,
+      "sha256": "3d5a8c50e2decc087e921f963503fc94ef14e7b6d2f726e4f47fc2ed25a99fd7"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/ETUDE_A06_SUPERVISION_SANS_STOCKAGE.md",
+      "bytes": 31967,
+      "sha256": "8bb5038d0583922e1dd130d37b5c653c82c28b12d250cca3631556ebf0361661"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/DERNIER_RAPPORT.md",
+      "bytes": 11363,
+      "sha256": "9bd73cb4c0e1d02e4f672039fe32731769622700b1dcd44648b90bdb4fcba842"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/archives/TR2-20261014-P12H3H-CN8-DRIVER-DIFFERENTIAL/MISSION.md",
+      "bytes": 4433,
+      "sha256": "573fa33aea6574ef04fbc0d90962a961828aaf73fa35c7eb2995e8e2a8155a89"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/archives/TR2-20261014-P12H3H-CN8-DRIVER-DIFFERENTIAL/RAPPORT.md",
+      "bytes": 23297,
+      "sha256": "53b72fdf4e905967a81899b5496e44c743f7aa6c63ad36cb64414da3a88026f1"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261015-A06/MANIFEST.sha256",
+      "bytes": 958,
+      "sha256": "91893201f15df38354571edd3ff6f13d5b2605595beeb5210758eb745b9beddc"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261015-A06/README.md",
+      "bytes": 2271,
+      "sha256": "91cf6c30de941e55bae5e2e2eea57863c1023d8d2064acd5879bc1736b303454"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261015-A06/active-headings.csv",
+      "bytes": 535742,
+      "sha256": "c9a6cad5304ac8d891734f16652a770940aa6575fe7705ae3e3852ec0a87c353"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261015-A06/corpus-inventory.csv",
+      "bytes": 927317,
+      "sha256": "27cb31dd3b826d75ced0cf5bd308bdd2f19d958ae0cdfad653c6aed8ee5293e6"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261015-A06/corpus-summary.json",
+      "bytes": 678,
+      "sha256": "507ccaf8c393bbe4c877dc3ac15c8c1bef38b23366b494a23302f6629cb883bd"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261015-A06/dependency-occurrences.csv",
+      "bytes": 320964,
+      "sha256": "70ef12555158da122e3508d2ccf67d025a6fd60f127e4fa6bdb7bc9688e3fb4e"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261015-A06/document-checks.json",
+      "bytes": 286,
+      "sha256": "f8e31681cb1b726659a530e2a02149a873c8b58f1caeefe9f55ea21311d648cc"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261015-A06/file-impact-screening.csv",
+      "bytes": 639193,
+      "sha256": "8e531d2010012d1cbc4c4aa5e299dbc7b348135ff923305b95fd1924778ceeb3"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261015-A06/inventory-script.py",
+      "bytes": 2757,
+      "sha256": "d44d6095ac282850e66898b4eceaef134385baac21d9e2795d8b2d000bf1e234"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261015-A06/preservation-baseline.json",
+      "bytes": 641152,
+      "sha256": "d0ab3792e61c2f52fd1384b2529599f8efe10c97bac66f866dcaddeed8021d87"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261015-A06/requirements-index.csv",
+      "bytes": 91618,
+      "sha256": "4198f8e979bd91d3793774e2d6e39e664ed8c99a5186949c66ef0a3f9d8da416"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261015-A06/traceability.csv",
+      "bytes": 7202,
+      "sha256": "c547c65b473b89066a0f12031d535cbd834f4633d6e9d4602e74f2465c1618d8"
+    }
+  ],
+  "manifest_entries_verified": 11,
+  "protected_remote_files_unchanged": 2939,
+  "stashes_unchanged": true
+}

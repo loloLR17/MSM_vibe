@@ -1,6 +1,6 @@
 ---
 mission_id: TR2-20261015-A06-DECOUPLAGE-SUPERVISION-STOCKAGE-AUDIT
-status: IN_PROGRESS
+status: DONE
 base_ref: main
 base_sha: 0c88e6ef195b44fdbf21890d946ef7ea8bf190fe
 initial_head: 45ee898a6ebe9269e63904262dc9f1b9c8b87c78
@@ -16,7 +16,7 @@ allow_debug: false
 
 # A-06 — Découplage faisable, avec extension explicite du contrat
 
-**Étude terminée ; publication et relecture distante en cours.** Le mode supervision sans média de campagnes est faisable en réutilisant acquisition, calculs et projections existants. La V1 actuelle l'interdit au niveau configuration et impose une ouverture de campagne au START : supprimer un test de capacité ne constitue pas une solution conforme.
+**Étude terminée, publiée sur main et intégralement relue depuis la référence récupérée de GitHub.** Le mode supervision sans média de campagnes est faisable en réutilisant acquisition, calculs et projections existants. La V1 actuelle l'interdit au niveau configuration et impose une ouverture de campagne au START : supprimer un test de capacité ne constitue pas une solution conforme.
 
 **Recommandation ferme : extension versionnée avec configuration live autoritative en FRAM et commandes live distinctes.** Préserver les commandes 3/4 de campagne et leurs oracles, ne pas inventer de capacité ou de magasin donnant un faux succès. Le stockage industriel reste prévu et sera qualifié/réintégré séparément. La décision utilisateur de découpler est acquise ; seuls les encodages et politiques résiduels nécessitent le travail normatif de ChatGPT.
 
@@ -31,7 +31,7 @@ allow_debug: false
 | Dépendances firmware | Validateur exige mode 1 / limite positive/capacité connue ; recovery UNAVAILABLE ne publie pas d'active. CampaignService ouvre dépôt + DataStore avant acquisition. Acquisition/calcul ont déjà des responsabilités distinctes, intégration FIFO→B3 à achever. |
 | PC/SQLite | B3ArchivePublisher ne requiert pas de campagne B6 ni de SD ; session compatible nécessaire. PC actuel refuse une version différente par égalité stricte. SQLite archive des observations B3, pas le flux XYZ ni les trous hors connexion. |
 | Étude normative | Trois stratégies comparées ; recommandation versionnée, tuple live 2/0/0 proposé uniquement pour successeur, commandes candidates 13/14 (12 déjà alloué V1.1), migration FRAM et CRC traités. Aucune proposition adoptée/implémentée ici. |
-| Validation | Contrôles documentaires, chemins, empreintes, archives et préservation ; aucun build/test firmware/PC ou essai physique rejoué. Relecture distante encore requise avant DONE. |
+| Validation | Contrôles documentaires, chemins, empreintes, archives et préservation ; aucun build/test firmware/PC ou essai physique rejoué. Relecture distante des 17 livrables effectuée au commit 67c074e ; aucun changement des fichiers protégés. |
 
 Le parcours intégral est traçable par fichier, titres actifs et occurrences de dépendances ; il ne signifie pas une lecture humaine individuelle ni une qualification de chaque fiche générée. Le classement par famille dans `file-impact-screening.csv` est conservateur, accompagné de la revue détaillée de l'étude. Répartition : 1 869 inchangés, 7 gels impactés, 256 à compléter, 35 à modifier pour le successeur ; **les fichiers actuels restent intacts**. Les nouveaux tests sont proposés dans l'étude et ne sont pas comptés comme existants.
 
@@ -77,4 +77,6 @@ Livrables : présente étude et rapport, preuves d'audit, archives CN8 intactes 
 
 Commandes réalisées : git status/rev-parse/fetch/ls-remote/worktree list/stash list, inspections rg et lectures, inventaire Python des 2 167 fichiers, génération matrices, vérification des chemins et archives, contrôle empreintes des 2 939 fichiers protégés. Validation proportionnée documentaire : aucun changement fonctionnel, donc aucun test/build hôte/ARM/PC ni reprise essai SD ne fournirait une preuve de plus pour l'étude. Les contrôles de livrables ne sont pas des tests fonctionnels. Le contrôle initial du diff indexé a signalé les fins de ligne CRLF des nouvelles preuves CSV ; sérialisation corrigée en LF avec champs entre guillemets, sans modification des sources ni des archives.
 
-Publication provisoire autorisée vers main ; après push normal, récupération GitHub et comparaison intégrale des livrables avant passage DONE. Aucun merge/rebase/reset/clean/forcepush ni résolution automatique de divergence. Le SHA final contenant le rapport sera annoncé après publication, sans auto-référence impossible.
+Publication normale sur `main` réussie au commit **`67c074ed5cb0fcbdee29de373f1c2c4d4e9af5c5`**, message `A06: audit live supervision without campaign storage and preserve V1 contracts`. Référence récupérée par `git fetch origin main`, puis **17 fichiers intégralement relus et identiques octet à octet**, 11 empreintes de preuves vérifiées et 2 939 fichiers protégés contrôlés également dans les objets distants. [Reçu de relecture](preuves/TR2-20261015-A06/remote-readback-67c074e.json). Dépôt historique et deux stashes préservés ; worktree propre au checkpoint.
+
+La présente clôture `DONE` consigne ce résultat et ajoute le reçu ; elle est ensuite poussée normalement et relue à son tour. Son SHA final sera fourni dans la réponse, sans auto-référence impossible. Aucun merge/rebase/reset/clean/force push ni résolution automatique de divergence. `DONE` qualifie la livraison de l'étude, pas le mode live, la V1, le matériel ou une décision normative. Contrôle indépendant ChatGPT et mission d'implémentation restent à réaliser.
