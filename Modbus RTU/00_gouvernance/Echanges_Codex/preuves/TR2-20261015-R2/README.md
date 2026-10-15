@@ -20,3 +20,8 @@ pas4096 et octets de headers/publications ; pas un modèle électrique exhaustif
 Les fixtures de plafond et ABSENCE_PROVEN sont des autorités simulées explicites,
 jamais des faits physiques déduits d'un reboot. Les logs conservent leurs chemins
 de worktree/SDK, sans instruction de déplacer la racine active.
+
+`remote-readback.json` atteste la relecture des45 fichiers au commit
+b78e7105a9a7da7ed6ba6fe3d57b0bfbc6cf0204. Il n'auto-atteste pas le commit qui
+ajoute le reçu ; la publication finale est vérifiée ensuite, SHA dans la réponse.
+`SHA256SUMS.json` couvre les autres preuves, sans s'auto-empreinter.

@@ -1,6 +1,6 @@
 ---
 mission_id: TR2-20261015-R2-LIVE-COMMAND-ENGINE
-status: IN_PROGRESS
+status: DONE
 base_ref: main
 base_sha: f56d0a688e520d556965ae78e94d30203d5dab0f
 initial_head: 091f5e8f22cb500c6f331df325da60315d59a4d7
@@ -16,7 +16,7 @@ allow_debug: true
 
 # R2 — moteur epoch / commandes LIVE, livraison logicielle et limites
 
-**Moteur logiciel implémenté et validé ; publication/relecture encore à terminer.**
+**DONE — livraison du moteur logiciel, preuves publiées et relues ; limites de composition maintenues.**
 Le journal epoch, les commandes12/13/14, APPLY1 et l'adaptateur B5 dédié29registres
 fonctionnent sur vrais stores avec transport et acquisition simulés. **La
 composition STM32/protocole2 complète reste non raccordée.** Aucun firmware LIVE
@@ -152,8 +152,19 @@ Journal et roadmap actualisés : réception logicielle R1 selon contrat R2, mote
 R2 testé, points non raccordés, coût R4 et prochaine intégration explicités.
 Dettes A-04, gels V1/V1.1, corpus R0 et preuves antérieures préservés.
 
-Code commité localement, preuves/rapport préparés dans le worktree isolé.
-Destination vérifiée `https://github.com/loloLR17/MSM_vibe.git`, push normal
-`HEAD:refs/heads/main` autorisé ; publication et relecture restent à obtenir.
-IN_PROGRESS porte ici sur cette attente, sans blocage externe déclaré. Le SHA
-publié sera communiqué après contrôle, sans autoréférence inventée dans le commit.
+Premier push normal réussi au commit
+**`b78e7105a9a7da7ed6ba6fe3d57b0bfbc6cf0204`** —
+`R2: publish engine validation evidence and explicit integration limits`.
+Après fetch, **45 fichiers livrés intégralement relus depuis cette référence
+GitHub et byte-identiques**, rapport provisoire compris ;29 empreintes de preuves
+et2382 fichiers protégés contrôlés. Stashes inchangés, worktree propre avant
+ajout du reçu/clôture. Preuve versionnée :
+[`remote-readback.json`](preuves/TR2-20261015-R2/remote-readback.json).
+
+Destination `https://github.com/loloLR17/MSM_vibe.git`, push normal
+`HEAD:refs/heads/main`, sans force ni résolution automatique d'une divergence.
+Le rapport passe à DONE pour la livraison logicielle et ses limites contractuelles,
+sans annoncer la composition complète ni une qualification indépendante.
+La publication finale est contrôlée à son tour ; son SHA et l'état Git final
+sont fournis dans la réponse Codex, sans autoréférence inventée dans ce commit.
+Le dépôt principal, les travaux historiques et les médias restent préservés.
