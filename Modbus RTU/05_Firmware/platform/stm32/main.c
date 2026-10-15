@@ -1769,6 +1769,9 @@ __attribute__((noreturn)) static void CommissioningReadOnly(void)
 }
 #endif
 
+#if TR2_STM32_R4_BENCH
+extern __attribute__((noreturn)) void stm32_r4_benchmark_run(SPI_HandleTypeDef *,SPI_HandleTypeDef *);
+#endif
 #if TR2_STM32_ST_FIFO_WINDOW
 extern __attribute__((noreturn)) void stm32_iis3dwb_st_window_run(SPI_HandleTypeDef *,SPI_HandleTypeDef *);
 #endif
@@ -1821,6 +1824,9 @@ int main(void)
 #if TR2_STM32_PRODUCTION || TR2_STM32_MANUFACTURING
     FramSpi_Init();
     Iis3dwbSpi_Init();
+#if TR2_STM32_R4_BENCH
+    stm32_r4_benchmark_run(&hspi1,&hspi3);
+#endif
     stm32_production_board_initialize(&hspi1,&hspi3);
 #if TR2_STM32_MANUFACTURING
     stm32_production_manufacturing_run();
