@@ -1,7 +1,8 @@
 ---
-mission_id: TR2-20261015-R1-LIVE-FRAM-CONFIGURATION
+mission_id: TR2-20261015-R2-LIVE-COMMAND-ENGINE
 status: READY
 base_ref: main
+base_sha: f56d0a688e520d556965ae78e94d30203d5dab0f
 author: ChatGPT
 target_branch: main
 allow_commit: true
@@ -10,30 +11,30 @@ allow_flash: true
 allow_debug: true
 ---
 
-# R1 — Implémenter configuration LIVE, persistance FRAM et recovery
+# R2 — Intégration protocole 2, journal epoch et START_LIVE / STOP_LIVE
 
-## Décision et références
-R0 est reçu pour entrée en R1 après contrôle indépendant documentaire de ChatGPT ; aucune validation firmware ou physique LIVE n'est acquise. Références impératives : AGENTS.md, GOUVERNANCE_CHATGPT_CODEX.md §10 (HP retraité, banc unique T1000), CONTRAT_R0_EXTENSION_LIVE_SANS_STOCKAGE.md, PROFIL_LIVE.md, MIGRATION_FRAM.md, mapping_live.csv, tests_live.csv, état/roadmap et dernier rapport R0. Vérifier HEAD main et état Git, préserver worktrees/stashes historiques. Archiver mission et rapport R0 sans perte avant de publier le nouveau rapport.
+## Contexte et références
+R1 est reçu comme tranche **logicielle** : backend LiveConfiguration et partition FRAM transactionnelle testés, mais non raccordés à la production, non qualifiés physiquement. Lire les versions courantes de AGENTS.md, GOUVERNANCE_CHATGPT_CODEX.md (§10 T1000), CONTRAT_R0_EXTENSION_LIVE_SANS_STOCKAGE.md, LIVE_R0/PROFIL_LIVE.md et MIGRATION_FRAM.md, LIVE_R0/mapping_live.csv et tests_live.csv, 05_Firmware/LIVE_R1.md, roadmap, état, mission et rapport R1. Vérifier HEAD main, état des worktrees et preuves avant action. Archiver intégralement mission/rapport R1 avant remplacement ; conserver les archives A-06/R0.
 
-## Objectif R1
-Implémenter de manière incrémentale et testable le **profil de configuration LIVE protocole 2** et son autorité persistante indépendante de la microSD, sans encore réaliser START_LIVE/STOP_LIVE ni le calcul B3 (R2/R3). Préserver le fonctionnement historique V1/V1.1 et les données FRAM anciennes.
+## Objectif
+Intégrer **réellement** le moteur B5 versionné/epoch et les commandes 12 RENEW_TRANSACTION_EPOCH, 13 START_LIVE et 14 STOP_LIVE au firmware, en utilisant R1 pour la configuration/identité persistantes, sans rendre la microSD nécessaire au LIVE. Respecter le découpage R2/R3 : ne pas simuler une chaîne de mesure B3 déjà opérationnelle.
 
-## Travail autorisé
-1. Examiner la composition firmware, le layout et les stores FRAM réels ; implémenter validation des tuples B4 LIVE, version/capabilités B0/B4, CRC/miroirs, identité et activation transactionnelle, refus et diagnostics nécessaires au seul périmètre R1. Ne pas annoncer une capacité opérationnelle qui n'est pas implémentée.
-2. Implémenter une partition LIVE physiquement disjointe et une récupération déterministe selon MIGRATION_FRAM.md ; préserver les banques historiques et la provenance. Aucune conversion silencieuse de configuration campagne, aucun auto-START. Gestion explicite des corruptions, états UNAVAILABLE, conflits de générations, interruptions et rollback compatible.
-3. Préparer les interfaces minimales pour l'epoch B5 et la future commande LIVE, mais **ne pas simuler comme implémentées** les commandes 12/13/14 ni le moteur R2. Les opérations de migration ne doivent pas exécuter un effet B5 historique inconnu.
-4. Ajouter des tests hôte/ARM ciblés sur vrais stores, vecteurs CRC, migration, atomicité aux points de coupure, identités, erreurs FRAM, compatibilité V1/V1.1, et non-régression complète selon impact. Conserver les sorties, SHA, preuves et limites ; contrôler la charge RAM/pile et le coût de transaction sans annoncer R4 qualifié.
-5. Mettre à jour l'état et la roadmap factuellement, sans altérer gels V1 ni réécrire les oracles historiques. Conserver le nouveau corpus R0.
+## Travaux autorisés
+1. Analyser les points d'entrée réels de la composition STM32, registres B0/B1/B4/B5/B6/B7, commande transactionnelle, journal, FRAM et acquisition ; établir le plan minimal d'intégration sans dégrader V1 ni les gels historiques.
+2. Implémenter la machine B5 epoch complète du successeur, avec journal format 4, identités et protections anti-rejeu, transitions RESERVED/STARTED/COMPLETED, erreurs aux barrières, refus/idempotence et recovery après coupure. Le code 12 doit respecter V1.1 ; 13/14 suivent les tables R0 et `decisions_start_stop.csv`. Aucune réussite de commande ne doit être publiée avant preuve de l'effet correspondant.
+3. Implémenter le cycle LIVE STARTING/LIVE/STOPPING/READY/FAULT, arrêt sûr, exclusion mutuelle avec les campagnes, aucun campaign_id fictif, aucun appel au DataStore SD, aucun auto-START au reboot. Ne pas démarrer réellement le capteur si la couche d'acquisition requise n'est pas disponible : garder les capacités non annoncées et refuser explicitement plutôt que fabriquer un succès. Préparer l'interface réelle du futur R3.
+4. Raccorder de façon cohérente B0/B1/B4/B5/B6/B7 à la composition successeur **uniquement lorsque l'ensemble des invariants requis est tenu** ; préserver le protocole 1 historique et ses oracles. Ne pas publier protocole 2 avec capacités ou valeurs B3 mensongères. Définir le comportement déterministe de sélection/commissioning et de rollback sans modifier la FRAM historique.
+5. Tester le vrai moteur et les vrais stores sur transport simulé : 384 contextes R0 START/STOP, duplication/epoch/reboot/power-loss, fautes capteur/FRAM, refus APPLY pendant acquisition, absence SD, identité et compatibilité V1.1. Ajouter tests unitaires, intégration et non-régression complets, logs et preuves ; cross-build ARM. Documenter ressources CPU/RAM/pile et volumes I/O sans inventer de marges physiques.
+6. Actualiser état et roadmap factuellement, rapporter les fonctions non raccordées ou non qualifiées et préparer R3 (FIFO/indicateurs B3) et R4 (latences).
 
-## Banc T1000 et interventions STM32
-Le HP Brouette est retiré. Le banc physique cible est **T1000** : ST-LINK + USB–RS-485 + supervision locale, ports à inventorier avant usage. Autorisations permanentes explicites ici : allow_flash=true, allow_debug=true, sous AGENTS.md. **Aucun flash, debug ou écriture FRAM n'est obligatoire pour clore la partie logicielle R1.** Si l'accès matériel est utile et sûr : vérifier identité cible (TR2-001 versus seconde Nucleo), firmware/image et empreintes, état des cartes et câblage, sauvegardes vérifiées et autorité réelle de la zone FRAM [122880,245760) AVANT la première écriture. Zone inconnue ou risque de perte : arrêter cette seule opération, ne jamais formater, effacer massivement, changer Option Bytes/RDP ni écraser des données ; poursuivre les essais hôte/ARM et rapporter la limite. L'utilisateur reste responsable des manipulations physiques. Aucun accès SDMMC ni campagne de stockage demandé.
+## Matériel / T1000
+Banc unique T1000 ; HP retiré. `allow_flash: true` et `allow_debug: true` autorisent les interventions STM32 conformes à AGENTS.md, mais ne les imposent pas. Avant tout flash/debug/provisioning : vérifier identité réelle de la carte (TR2-001 ou seconde Nucleo), image et sauvegardes ; inventaire ST-LINK et USB–RS-485 du T1000, ports et propriétaires ; protéger les Option Bytes, le câblage et l'alimentation. Avant toute première écriture FRAM LIVE [122880,245760), prouver la propriété exclusive et le contenu réel de cette zone et disposer d'une sauvegarde vérifiée. Propriété inconnue ou risque de perte : ne pas écrire, poursuivre les tests logiciels et consigner la limite. Aucune opération physique utilisateur déléguée à Codex. Aucun essai SDMMC demandé.
 
 ## Critères d'acceptation
-- Profil LIVE B4 conforme R0 et CRC V1/LIVE vérifiés ; anciennes configurations conservées et interprétées selon leur version.
-- Autorité FRAM et recovery cohérents sous corruption/coupures simulées et vraies implémentations, avec préservation vérifiable de la partition historique ; aucune écriture sur zone de propriété inconnue.
-- Aucun auto-START, aucune campagne créée et aucune fausse capacité B5 LIVE publiée.
-- Tests ciblés et régressions pertinents exécutés avec logs, SHA et limites ; preuve physique distincte si effectivement réalisée.
-- Si l'epoch/identité requiert une intégration plus large pour la cohérence, décrire et implémenter la plus petite tranche sûre, ou signaler le blocage réel ; ne pas livrer un profil prétendument complet avec commandes absentes.
+- Journal epoch et B5 12/13/14 implémentés ou limites d'intégration honnêtement exposées ; aucun faux PASS, faux démarrage ni annonce protocole/capacité prématurée.
+- Invariants R0 sur transactions, exclusion campagne/LIVE, reboot sans auto-START, absence de dépendance SD, erreur/rollback et FRAM préservée ; scénarios R0 applicables exécutés avec oracles indépendants.
+- Build/tests hôte et ARM réussis, non-régression V1, preuves et hashes conservés ; distinction explicite des essais logiciels et physiques.
+- Révision critique des coûts de commits FRAM (~52426 octets écrits, lectures synchrones), disponibilité STOP et marges FIFO/Modbus à mesurer en R4.
 
 ## Publication
-Autonomie pour analyse, code, tests, commits et push sur main conformément à AGENTS.md. Publier DERNIER_RAPPORT.md avec commits, preuves, état matériel, écarts et recommandation R2 ; vérification distante de publication. ChatGPT réalise ensuite le contrôle indépendant, sans tag ni qualification automatique.
+Développement, commit et push normaux autorisés sur main ; préserver travaux préexistants et éviter force push. Publier DERNIER_RAPPORT.md, preuves, état/roadmap et SHA ; vérifier publication distante. ChatGPT contrôlera indépendamment avant R3.
