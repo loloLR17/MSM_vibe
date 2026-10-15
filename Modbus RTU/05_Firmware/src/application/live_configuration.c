@@ -172,7 +172,9 @@ Tr2Result live_configuration_recover(LiveConfiguration *s)
     if(recovery.status!=TRANSACTIONAL_IMAGE_RECOVERY_VALID)
         return revoke(s,recovery_error(recovery.status));
     result=check_provenance(s);
-    if(result==TR2_OK) result=check_r1_control_boundary(s->live->candidate);
+    if(result==TR2_OK) result=s->validate_control!=NULL?
+        s->validate_control(s->control_context,s->live->candidate,TR2_LIVE_LOGICAL_SIZE):
+        check_r1_control_boundary(s->live->candidate);
     if(result==TR2_OK) result=persistent_identity_decode_live(
         s->live->candidate+TR2_PERSISTENT_IDENTITY_OFFSET,96u,&s->identity);
     if(result!=TR2_OK) return revoke(s,result);
@@ -297,4 +299,12 @@ Tr2Result live_configuration_identity(const LiveConfiguration *s,PersistentIdent
     if(!initialized(s)||!s->mounted||s->live->recovery_required||identity==NULL)
         return TR2_ERROR_NOT_AVAILABLE;
     *identity=s->identity;return TR2_OK;
+}
+
+Tr2Result live_configuration_bind_control(LiveConfiguration *s,void *context,
+    Tr2Result (*validate)(void *,const uint8_t *,size_t))
+{
+    if(!initialized(s)||validate==NULL||context==NULL||s->mounted||s->validate_control!=NULL)
+        return TR2_ERROR_INVALID_STATE;
+    s->control_context=context;s->validate_control=validate;return TR2_OK;
 }

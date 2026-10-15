@@ -26,6 +26,8 @@ typedef struct {
     unsigned target_slot;
     uint16_t state;
     uint16_t error;
+    void *control_context;
+    Tr2Result (*validate_control)(void *,const uint8_t *,size_t);
     bool initialized;
     bool mounted;
     bool has_active;
@@ -35,6 +37,10 @@ Tr2Result live_configuration_init(LiveConfiguration *service,
     TransactionalImageMedia *historical, TransactionalImageMedia *live,
     const uint32_t uid[3], const PersistentIdentityAssignment *assignments,
     size_t assignment_count);
+/* Explicit successor engine reader; bind once before mounting, no permissive
+ * default. The validator must check the complete control namespace. */
+Tr2Result live_configuration_bind_control(LiveConfiguration *service,void *context,
+    Tr2Result (*validate)(void *,const uint8_t *,size_t));
 /* Read-only, deterministic, revokes authority on any failure. */
 Tr2Result live_configuration_recover(LiveConfiguration *service);
 /* Explicit off-boot creation, unknown ownership or nonempty roots are refused.
