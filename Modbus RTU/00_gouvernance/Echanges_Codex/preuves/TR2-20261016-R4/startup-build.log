@@ -1,0 +1,6 @@
+[ 95%] Built target tr2_core
+[ 95%] Building C object CMakeFiles/test_live_fifo.dir/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/experiments/iis3dwb_st_reference/src/fifo_live.c.o
+[ 95%] Building C object CMakeFiles/test_live_fifo.dir/platform/stm32/live_fifo_acquisition.c.o
+[ 95%] Building C object CMakeFiles/test_live_fifo.dir/tests/platform/test_live_fifo.c.o
+[ 95%] Linking C executable test_live_fifo
+[100%] Built target test_live_fifo

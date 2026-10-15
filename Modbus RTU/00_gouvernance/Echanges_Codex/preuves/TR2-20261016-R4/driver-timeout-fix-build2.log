@@ -1,0 +1,5 @@
+[ 95%] Built target tr2_core
+[ 95%] Building C object CMakeFiles/test_stm32_fram_bounded.dir/platform/stm32/stm32_fram_storage.c.o
+[100%] Building C object CMakeFiles/test_stm32_fram_bounded.dir/tests/platform/test_stm32_fram_bounded.c.o
+[100%] Linking C executable test_stm32_fram_bounded
+[100%] Built target test_stm32_fram_bounded

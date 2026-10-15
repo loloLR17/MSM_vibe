@@ -1,0 +1,10 @@
+Internal ctest changing into directory: /home/lolo/dev/msm/cache/r4-host
+Test project /home/lolo/dev/msm/cache/r4-host
+    Start 134: cooperative_fram_fifo
+1/2 Test #134: cooperative_fram_fifo ............   Passed    2.49 sec
+    Start 135: cooperative_work
+2/2 Test #135: cooperative_work .................   Passed   16.96 sec
+
+100% tests passed, 0 tests failed out of 2
+
+Total Test time (real) =  19.45 sec

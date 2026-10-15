@@ -4,7 +4,7 @@ status: IN_PROGRESS
 base_ref: main
 base_sha: 66c5e167b31cbc7baa302843c354760569d1c88d
 initial_head: 178f3481e087110ef3f897f02bc8077b4b018028
-result_sha: ae3d52f32787ea443090a5554c1fd89d23b48fc1
+result_sha: 12e7a1fe6cd6ddee64767bdfecc430d841d1f33d
 created_at_utc: 2026-10-15T22:34:08Z
 author: Codex
 target_branch: main
@@ -74,3 +74,24 @@ Stashes6251b988e8b20f97997a8f98fd26d4d35a45a1b2 etf3b829e6188f491920edf74a5f9ed0
 conservés ;2336fichiers gels/dettes/archives/mission contrôlés. R3-B archivée
 intégralement depuis66c5e16. Journal actualisé, mission ChatGPT inchangée.
 Publication/relecture de ce checkpoint en cours, puis poursuite physique autorisée.
+
+
+## Checkpoint physique complémentaire —16/10/2026
+
+Code supplémentaire0e5f495 (probe isolé), f870df0 (quantification HAL),12e7a1f
+(premier-mot distinct, garde gap inchangé). Flash standard qualifié, image vérifiée
+par CLI et lecture GDB complète ; reset logiciel après programmation selon M013-D.
+Aucun OptionBytes/mass erase. Essai1 : timeout1ms réel après256octets, sans write.
+Essai2 après correction : SHA complet FRAM conforme, puis aucune donnée avant5ms,
+arrêt sûr. Essai3 après politique premier-mot20ms :180826XYZ/22604TS, premier mot
+11,043ms, FIFOmax18, gap601us, read132us/service461us/arrêt235us observés.
+Le halt d'observation est survenu pendant le contrôle FRAM final à l'arrêt et a
+causé un timeout ; ne pas déclarer RUN complet PASS. FRAM intégrale ensuite relue
+à l'arrêt avec le pilote existant :262144octets inchangés et SHA initial exact.
+
+R1/R2 viennent d'être déclenchés après reset contrôlé, sans halte pendant acquisition ;
+aucun résultat de cette tranche encore revendiqué. Garder M016 sauvegardé pour
+restauration.136/136tests hôte et ARM PASS après corrections, ASan/UBSan3suites PASS.
+Code canonique BIN identique à ae3d52f ; mise à jour cartographie/LOC/ressources
+et détails dans LIVE_R4.md. Aucun trafic RS485 ni SD, B3/protocole2 nonqualifiés.
+Publication de ce checkpoint puis poursuite des mesures/restauration/rapport final.

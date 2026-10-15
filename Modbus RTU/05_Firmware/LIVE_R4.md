@@ -55,7 +55,7 @@ qualification du T1000 ou du STM32.
 ## Transport STM32 optionnel
 
 `stm32_fram_storage_bounded_physical` refuse>64octets, réutilise les mêmes commandes
-avec copie locale du contexte et timeout HAL1ms ; originalV1 reste10ms. Au plus
+avec copie locale du contexte et timeout HAL2ms ; originalV1 reste10ms. Au plus
 6appels HAL en écriture,2en lecture, WRDI/CS fermé même sur échec. Cela borne le
 **paramètre** de timeout, pas un WCET physique : tick IRQ, HAL, sections critiques,
 latence totale et arrêt SPI3 doivent être mesurés. Une opération peut dépasser
@@ -109,3 +109,37 @@ propriété exclusive de [122880,245760), mesures WCET/quanta/IRQ/FIFO/STOP/RTU 
 corrélation temporelle. Les preuves sur cible et limites effectivement obtenues
 sont dans DERNIER_RAPPORT et ses preuves, séparées de ce modèle. Ne pas déclarer
 R4 physique ni passerelle R6 acquis sur ces seuls résultats hôte/ARM.
+
+
+## Qualification R4 sur TR2-001 — 16/10/2026
+
+Probe explicite `TR2_STM32_R4_BENCH=ON`, recette matérielle cumulative mais
+artefact `tr2-r4-qualification-NON-PRODUCTION`, aucune entrée production/SD/UART.
+WAIT RAM puis commande1 lecture seule ou commande2 allocation LIVE/R1/R2.
+Propriété conditionnée par UID exact, SHA complet FRAM fraîchement relu égal à
+la double sauvegarde, partition LIVE vide normative et unique owner de ce probe.
+Les deux couches écriture refusent hors[122880,245760), après chaque yield.
+
+Deux écarts physiques ont été conservés puis corrigés : HAL Timeout1 expire au
+prochain tick même sur commande courte (ErrorCode32), donc2ms ; premier mot FIFO
+absent à5ms alors que [ST Ton](https://www.st.com/resource/en/datasheet/iis3dwb.pdf)
+est10ms typique, sans maximum garanti. Un paramètre premier-mot distinct est
+ajouté, par défaut égal à l'ancien délai ; le probe choisit20ms expérimentalement.
+Le gap entre polls5ms, les statuts/overrun et la surveillance après premier mot
+restent inchangés. Première donnée observée11,043ms ; pas une borne constructeur.
+
+Préfixe physique lecture seule :180826XYZ/22604TS, FIFOmax18/512, gapmax601us,
+FRAMreadmax132us et service461us, arrêt235us. Aucune écriture. Le halt GDB trop tôt
+pendant le contrôle final à l'arrêt a interrompu une lecture et causé son timeout ;
+ce RUN n'est donc pas déclaré entièrement PASS. Contrôle indépendant ensuite à
+l'arrêt :262144octets identiques à la sauvegarde. R1/R2 en cours, résultat final
+et restauration dans le rapport ; ne pas interpréter ce préfixe comme qualification RTU2.
+
+136tests hôte/ARM repris après correction (57,44s), trois suites ASan/UBSan PASS
+(17,07s). BIN canonique SHA inchangé6a2150af8939ead0b81219a96cfd51dc2cbef03a3851d46775fa71ddbfeb15a9.
+Cartographie421modules, C/C++ propriétaire32841lignes/tests47665 à12e7a1f,
+soit+500/+336 depuis66c5e16 (méthode physique splitlines, pas additions Git).
+Tailles ARM work64, acquisition1104, FIFO1072, moteur488/store9656/config584/média96.
+Probe text105596/data476/bss593928 ; canonique text172580/data480/bss602232.
+Les `.su` sont des cadres statiques compilateur, pas une mesure de pile maximale
+ni une preuve de WCET ; pas de DMA/retry ajouté, ni changement de fréquence/pins.

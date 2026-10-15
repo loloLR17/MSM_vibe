@@ -1,0 +1,6 @@
+/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/common/sha256.c:15:17:rotate	16	static
+/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/common/sha256.c:16:17:read_be	16	static
+/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/common/sha256.c:18:13:block	336	static
+/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/common/sha256.c:38:18:cooperative_sha_impl	232	static
+/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/common/sha256.c:62:11:tr2_sha256_bytes	24	static
+/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/common/sha256.c:65:11:tr2_sha256_bytes_cooperative	32	static

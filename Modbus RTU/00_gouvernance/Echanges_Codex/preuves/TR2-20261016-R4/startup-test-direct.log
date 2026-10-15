@@ -1,0 +1,4 @@
+Explicit first-data allowance: delayed startup, finite timeout and unchanged service-gap guard: PASS
+R2 real journal + actual continuous owner on simulated SPI: START/STOP causal, APPLY refusal and FRAM-independent safety: PASS
+Actual owner -> metrology: >4M checked XYZ, sensor timestamp rollover, periodic windows, FIFO error invalidates/stops: PASS
+Continuous FIFO: four full scales, >4M XYZ beyond finite capacity, 64-bit time boundary, guarded consumer, faults, STOP and40 start I/O cuts: PASS

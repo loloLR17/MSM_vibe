@@ -1,0 +1,4 @@
+[1/4] Building C object CMakeFiles/tr2_core.dir/src/persistence/transactional_image_media.c.o
+[2/4] Linking C static library libtr2_core.a
+[3/4] Building C object CMakeFiles/test_cooperative_fram_fifo.dir/tests/platform/test_cooperative_fram_fifo.c.o
+[4/4] Linking C executable test_cooperative_fram_fifo

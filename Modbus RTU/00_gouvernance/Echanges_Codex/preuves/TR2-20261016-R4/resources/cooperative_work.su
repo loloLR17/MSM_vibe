@@ -1,0 +1,7 @@
+/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/common/cooperative_work.c:3:11:tr2_cooperative_init	24	static
+/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/common/cooperative_work.c:10:11:tr2_cooperative_status	16	static
+/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/common/cooperative_work.c:12:18:failed	16	static
+/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/common/cooperative_work.c:16:11:tr2_cooperative_checkpoint	104	static
+/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/common/cooperative_work.c:37:11:tr2_cooperative_equal	48	static
+/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/common/cooperative_work.c:51:11:tr2_cooperative_enter	24	static
+/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/common/cooperative_work.c:59:11:tr2_cooperative_leave	24	static

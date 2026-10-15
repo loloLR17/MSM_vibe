@@ -1,0 +1,6 @@
+[1/6] Building C object CMakeFiles/tr2_core.dir/src/common/sha256.c.o
+[2/6] Building C object CMakeFiles/tr2_core.dir/src/persistence/live_command_store.c.o
+[3/6] Linking C static library libtr2_core.a
+[4/6] Building C object CMakeFiles/test_cooperative_fram_fifo.dir/tests/platform/test_cooperative_fram_fifo.c.o
+[5/6] Linking C executable test_cooperative_work
+[6/6] Linking C executable test_cooperative_fram_fifo

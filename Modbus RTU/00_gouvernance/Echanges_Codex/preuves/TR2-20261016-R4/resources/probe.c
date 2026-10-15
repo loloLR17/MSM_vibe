@@ -1,0 +1,9 @@
+#include "live_fifo_acquisition.h"
+#include "tr2/common/cooperative_work.h"
+char work_bytes[sizeof(Tr2CooperativeWork)];
+char acquisition_bytes[sizeof(LiveFifoAcquisition)];
+char fifo_bytes[sizeof(FifoLive)];
+char engine_bytes[sizeof(LiveCommandEngine)];
+char store_bytes[sizeof(LiveCommandStore)];
+char configuration_bytes[sizeof(LiveConfiguration)];
+char media_bytes[sizeof(TransactionalImageMedia)];

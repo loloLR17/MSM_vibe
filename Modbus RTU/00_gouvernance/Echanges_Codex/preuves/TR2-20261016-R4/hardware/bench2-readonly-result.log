@@ -1,0 +1,10 @@
+HAL_GetTick () at /home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal.c:343
+343	  return uwTick;
+0xbfa0700:	0x004a003d	0x38425018	0x20333157
+$1 = {stage = 2147483651, error = 6, line = 162, command = 1, ownership = 0, read_passes = 1, commands = 0, core_hz = 160000000, spi1_hz = 2500000, spi3_hz = 4000000, tick_start = 6314, tick_end = 8392, max_read_us = 132, max_write_us = 0, max_gap_us = 174, last_poll_us = 8391895, safety_us = 236, read_bytes = 263072, write_bytes = 0, xyz = 0, timestamps = 0, polls = 30, elapsed_us = 8392642, max_level = 0, fifo_error = 4, stop_error = 0, engine_status = 0, engine_result = 0, protected_equal = 0, baseline_equal = 1}
+$2 = {context = 0x0, now_us = 0x800ec2d <now_us>, service = 0x800ed89 <service>, safety_stop = 0x800ecad <stop>, last_us = 8391755, max_work_us = 232, max_service_us = 269, checkpoints = 12322, work_limit_us = 1000, service_limit_us = 2500, quantum_bytes = 32, depth = 1, error = TR2_ERROR_UNAVAILABLE, servicing = false, seen = true, deadline_missed = false}
+$3 = {ctx = {write_reg = 0x800ce8b <platform_write>, read_reg = 0x800ce5d <platform_read>, mdelay = 0x8006541 <HAL_Delay>, handle = 0x200003d0 <hspi3>, priv_data = 0x0}, parser = {target_xyz = 0, received = 0, xyz = 0, timestamps = 0, polls = 30, bursts = 0, first_tick = 0, last_tick = 0, max_level = 0, last_level = 0, flags_or = 0, reason = 0, previous_counter = 0, counter_valid = 0, previous_ts = 0, ts_valid = 0, since_ts = 0}, words = '\000' <repeats 895 times>, run_id = 1, total_xyz = 0, total_ts = 0, last_ms = 8392, last_data_ms = 8386, config_id = 1, config_generation = 1, max_gap_ms = 5, axes = 7, full_scale = 0, cleanup_begin = 0x800cad9 <cleanup_begin>, consume = 0x800ec95 <consume>, consumer = 0x0, error = 4, stop_error = 0, initialized = true, running = false, stopped = true}
+$4 = 0
+$5 = 0
+0xe000e100:	0x00000000	0x00000000
+[Inferior 1 (Remote target) detached]

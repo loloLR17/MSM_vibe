@@ -1,0 +1,45 @@
+{
+  "method": "physical splitlines; firmware includes owned experiments/historical candidates, NOT only ELF-linked sources; tests include host/PC source; documentation md/rst/adoc; vendor/generated/build excluded; JSON/CSV/log/proofs data not LOC",
+  "measurements": {
+    "66c5e16": {
+      "owned_firmware_c_cpp": {
+        "files": 273,
+        "physical_lines": 32341
+      },
+      "tests": {
+        "files": 267,
+        "physical_lines": 47329
+      },
+      "documentation": {
+        "files": 2531,
+        "physical_lines": 142478
+      }
+    },
+    "12e7a1f": {
+      "owned_firmware_c_cpp": {
+        "files": 276,
+        "physical_lines": 32841
+      },
+      "tests": {
+        "files": 271,
+        "physical_lines": 47665
+      },
+      "documentation": {
+        "files": 2535,
+        "physical_lines": 142719
+      }
+    }
+  },
+  "net_lines_from_first": {
+    "66c5e16": {
+      "owned_firmware_c_cpp": 0,
+      "tests": 0,
+      "documentation": 0
+    },
+    "12e7a1f": {
+      "owned_firmware_c_cpp": 500,
+      "tests": 336,
+      "documentation": 241
+    }
+  }
+}

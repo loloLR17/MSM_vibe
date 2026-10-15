@@ -1,0 +1,5 @@
+COOPERATIVE,q=16,elapsed_us=160131041,work_us=544,service_us=272,FIFOmax=16,gap_us=364,XYZ=3462559,RTU=5887,RTUlat_us=2772,identical_bytes=262144
+COOPERATIVE,q=32,elapsed_us=94628395,work_us=544,service_us=300,FIFOmax=19,gap_us=430,XYZ=1967728,RTU=3466,RTUlat_us=3214,identical_bytes=262144
+COOPERATIVE,q=64,elapsed_us=61838691,work_us=544,service_us=356,FIFOmax=24,gap_us=546,XYZ=1219683,RTU=2224,RTUlat_us=4074,identical_bytes=262144
+EMERGENCY,latency_us=240,sticky_error=6,no_reentry_no_write=PASS
+FRAM failure stops actual FIFO owner independently of journal success: PASS

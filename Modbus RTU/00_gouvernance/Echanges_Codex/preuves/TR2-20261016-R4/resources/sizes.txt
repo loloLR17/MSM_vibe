@@ -1,0 +1,7 @@
+00000000 00000040 B work_bytes
+000032a8 00000060 B media_bytes
+000008c0 000001e8 B engine_bytes
+00003060 00000248 B configuration_bytes
+00000490 00000430 B fifo_bytes
+00000040 00000450 B acquisition_bytes
+00000aa8 000025b8 B store_bytes

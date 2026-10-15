@@ -1,0 +1,770 @@
+0800636c W ADC1_IRQHandler	/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/CMSIS/Device/ST/STM32U5xx/Source/Templates/gcc/startup_stm32u575xx.s:115
+0800636c W ADC4_IRQHandler	/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/CMSIS/Device/ST/STM32U5xx/Source/Templates/gcc/startup_stm32u575xx.s:115
+0800636c W ADF1_IRQHandler	/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/CMSIS/Device/ST/STM32U5xx/Source/Templates/gcc/startup_stm32u575xx.s:115
+0801990c T AHBPrescTable	/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/CMSIS/Device/ST/STM32U5xx/Source/Templates/system_stm32u5xx.c:169
+0801991c T APBPrescTable	/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/CMSIS/Device/ST/STM32U5xx/Source/Templates/system_stm32u5xx.c:170
+f1e0f85f a BootRAM
+080053f8 t BringupLed_Init	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/platform/stm32/main.c:2627
+0800636c W BusFault_Handler	/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/CMSIS/Device/ST/STM32U5xx/Source/Templates/gcc/startup_stm32u575xx.s:115
+0800636c W COMP_IRQHandler	/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/CMSIS/Device/ST/STM32U5xx/Source/Templates/gcc/startup_stm32u575xx.s:115
+0800636c W CORDIC_IRQHandler	/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/CMSIS/Device/ST/STM32U5xx/Source/Templates/gcc/startup_stm32u575xx.s:115
+0800636c W CRS_IRQHandler	/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/CMSIS/Device/ST/STM32U5xx/Source/Templates/gcc/startup_stm32u575xx.s:115
+08006328 t CopyDataInit	/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/CMSIS/Device/ST/STM32U5xx/Source/Templates/gcc/startup_stm32u575xx.s:71
+0800636c W DAC1_IRQHandler	/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/CMSIS/Device/ST/STM32U5xx/Source/Templates/gcc/startup_stm32u575xx.s:115
+0800636c W DCACHE1_IRQHandler	/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/CMSIS/Device/ST/STM32U5xx/Source/Templates/gcc/startup_stm32u575xx.s:115
+0800636c W DCMI_PSSI_IRQHandler	/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/CMSIS/Device/ST/STM32U5xx/Source/Templates/gcc/startup_stm32u575xx.s:115
+0800636c W DMA2D_IRQHandler	/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/CMSIS/Device/ST/STM32U5xx/Source/Templates/gcc/startup_stm32u575xx.s:115
+0800636c W DebugMon_Handler	/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/CMSIS/Device/ST/STM32U5xx/Source/Templates/gcc/startup_stm32u575xx.s:115
+0800636c T Default_Handler	/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/CMSIS/Device/ST/STM32U5xx/Source/Templates/gcc/startup_stm32u575xx.s:115
+0800636c W EXTI0_IRQHandler	/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/CMSIS/Device/ST/STM32U5xx/Source/Templates/gcc/startup_stm32u575xx.s:115
+0800636c W EXTI10_IRQHandler	/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/CMSIS/Device/ST/STM32U5xx/Source/Templates/gcc/startup_stm32u575xx.s:115
+0800636c W EXTI11_IRQHandler	/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/CMSIS/Device/ST/STM32U5xx/Source/Templates/gcc/startup_stm32u575xx.s:115
+0800636c W EXTI12_IRQHandler	/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/CMSIS/Device/ST/STM32U5xx/Source/Templates/gcc/startup_stm32u575xx.s:115
+0800636c W EXTI13_IRQHandler	/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/CMSIS/Device/ST/STM32U5xx/Source/Templates/gcc/startup_stm32u575xx.s:115
+0800636c W EXTI14_IRQHandler	/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/CMSIS/Device/ST/STM32U5xx/Source/Templates/gcc/startup_stm32u575xx.s:115
+0800636c W EXTI15_IRQHandler	/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/CMSIS/Device/ST/STM32U5xx/Source/Templates/gcc/startup_stm32u575xx.s:115
+0800636c W EXTI1_IRQHandler	/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/CMSIS/Device/ST/STM32U5xx/Source/Templates/gcc/startup_stm32u575xx.s:115
+0800636c W EXTI2_IRQHandler	/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/CMSIS/Device/ST/STM32U5xx/Source/Templates/gcc/startup_stm32u575xx.s:115
+0800636c W EXTI3_IRQHandler	/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/CMSIS/Device/ST/STM32U5xx/Source/Templates/gcc/startup_stm32u575xx.s:115
+0800636c W EXTI4_IRQHandler	/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/CMSIS/Device/ST/STM32U5xx/Source/Templates/gcc/startup_stm32u575xx.s:115
+0800636c W EXTI5_IRQHandler	/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/CMSIS/Device/ST/STM32U5xx/Source/Templates/gcc/startup_stm32u575xx.s:115
+0800636c W EXTI6_IRQHandler	/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/CMSIS/Device/ST/STM32U5xx/Source/Templates/gcc/startup_stm32u575xx.s:115
+0800636c W EXTI7_IRQHandler	/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/CMSIS/Device/ST/STM32U5xx/Source/Templates/gcc/startup_stm32u575xx.s:115
+0800636c W EXTI8_IRQHandler	/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/CMSIS/Device/ST/STM32U5xx/Source/Templates/gcc/startup_stm32u575xx.s:115
+0800636c W EXTI9_IRQHandler	/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/CMSIS/Device/ST/STM32U5xx/Source/Templates/gcc/startup_stm32u575xx.s:115
+08005834 t Error_Handler	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/platform/stm32/main.c:2810
+0800636c W FDCAN1_IT0_IRQHandler	/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/CMSIS/Device/ST/STM32U5xx/Source/Templates/gcc/startup_stm32u575xx.s:115
+0800636c W FDCAN1_IT1_IRQHandler	/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/CMSIS/Device/ST/STM32U5xx/Source/Templates/gcc/startup_stm32u575xx.s:115
+0800636c W FLASH_IRQHandler	/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/CMSIS/Device/ST/STM32U5xx/Source/Templates/gcc/startup_stm32u575xx.s:115
+0800636c W FLASH_S_IRQHandler	/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/CMSIS/Device/ST/STM32U5xx/Source/Templates/gcc/startup_stm32u575xx.s:115
+0800636c W FMAC_IRQHandler	/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/CMSIS/Device/ST/STM32U5xx/Source/Templates/gcc/startup_stm32u575xx.s:115
+0800636c W FMC_IRQHandler	/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/CMSIS/Device/ST/STM32U5xx/Source/Templates/gcc/startup_stm32u575xx.s:115
+0800636c W FPU_IRQHandler	/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/CMSIS/Device/ST/STM32U5xx/Source/Templates/gcc/startup_stm32u575xx.s:115
+0800633e t FillZerobss	/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/CMSIS/Device/ST/STM32U5xx/Source/Templates/gcc/startup_stm32u575xx.s:86
+08005460 t FramSpi_Init	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/platform/stm32/main.c:2642
+0800636c W GPDMA1_Channel0_IRQHandler	/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/CMSIS/Device/ST/STM32U5xx/Source/Templates/gcc/startup_stm32u575xx.s:115
+0800636c W GPDMA1_Channel10_IRQHandler	/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/CMSIS/Device/ST/STM32U5xx/Source/Templates/gcc/startup_stm32u575xx.s:115
+0800636c W GPDMA1_Channel11_IRQHandler	/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/CMSIS/Device/ST/STM32U5xx/Source/Templates/gcc/startup_stm32u575xx.s:115
+0800636c W GPDMA1_Channel12_IRQHandler	/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/CMSIS/Device/ST/STM32U5xx/Source/Templates/gcc/startup_stm32u575xx.s:115
+0800636c W GPDMA1_Channel13_IRQHandler	/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/CMSIS/Device/ST/STM32U5xx/Source/Templates/gcc/startup_stm32u575xx.s:115
+0800636c W GPDMA1_Channel14_IRQHandler	/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/CMSIS/Device/ST/STM32U5xx/Source/Templates/gcc/startup_stm32u575xx.s:115
+0800636c W GPDMA1_Channel15_IRQHandler	/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/CMSIS/Device/ST/STM32U5xx/Source/Templates/gcc/startup_stm32u575xx.s:115
+0800636c W GPDMA1_Channel1_IRQHandler	/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/CMSIS/Device/ST/STM32U5xx/Source/Templates/gcc/startup_stm32u575xx.s:115
+0800636c W GPDMA1_Channel2_IRQHandler	/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/CMSIS/Device/ST/STM32U5xx/Source/Templates/gcc/startup_stm32u575xx.s:115
+0800636c W GPDMA1_Channel3_IRQHandler	/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/CMSIS/Device/ST/STM32U5xx/Source/Templates/gcc/startup_stm32u575xx.s:115
+0800636c W GPDMA1_Channel4_IRQHandler	/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/CMSIS/Device/ST/STM32U5xx/Source/Templates/gcc/startup_stm32u575xx.s:115
+0800636c W GPDMA1_Channel5_IRQHandler	/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/CMSIS/Device/ST/STM32U5xx/Source/Templates/gcc/startup_stm32u575xx.s:115
+0800636c W GPDMA1_Channel6_IRQHandler	/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/CMSIS/Device/ST/STM32U5xx/Source/Templates/gcc/startup_stm32u575xx.s:115
+0800636c W GPDMA1_Channel7_IRQHandler	/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/CMSIS/Device/ST/STM32U5xx/Source/Templates/gcc/startup_stm32u575xx.s:115
+0800636c W GPDMA1_Channel8_IRQHandler	/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/CMSIS/Device/ST/STM32U5xx/Source/Templates/gcc/startup_stm32u575xx.s:115
+0800636c W GPDMA1_Channel9_IRQHandler	/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/CMSIS/Device/ST/STM32U5xx/Source/Templates/gcc/startup_stm32u575xx.s:115
+0800636c W GTZC_IRQHandler	/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/CMSIS/Device/ST/STM32U5xx/Source/Templates/gcc/startup_stm32u575xx.s:115
+08006888 T HAL_DMA_Abort	/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_dma.c:597
+08006980 T HAL_DMA_Abort_IT	/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_dma.c:689
+080069d0 T HAL_DMA_GetError	/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_dma.c:1332
+08006540 W HAL_Delay	/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal.c:408
+080069e8 T HAL_GPIO_Init	/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_gpio.c:200
+08006da8 T HAL_GPIO_WritePin	/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_gpio.c:509
+0800652c W HAL_GetTick	/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal.c:341
+08006588 T HAL_GetUIDw0	/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal.c:487
+0800659c T HAL_GetUIDw1	/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal.c:496
+080065b0 T HAL_GetUIDw2	/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal.c:505
+08006508 W HAL_IncTick	/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal.c:330
+080063cc T HAL_Init	/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal.c:140
+0800641c W HAL_InitTick	/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal.c:237
+080052d4 T HAL_MspInit	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/platform/stm32/main.c:1586
+080066f6 T HAL_NVIC_SetPriority	/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_cortex.c:212
+080066e0 T HAL_NVIC_SetPriorityGrouping	/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_cortex.c:189
+08006ee8 T HAL_PWREx_ConfigSupply	/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_pwr_ex.c:423
+08006dd8 T HAL_PWREx_ControlVoltageScaling	/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_pwr_ex.c:340
+08006fa0 T HAL_PWREx_DisableUCPDDeadBattery	/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_pwr_ex.c:1506
+08006f84 T HAL_PWREx_EnableVddIO2	/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_pwr_ex.c:1259
+08006ed0 T HAL_PWREx_GetVoltageRange	/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_pwr_ex.c:409
+0800907c T HAL_RCCEx_GetPLL1ClockFreq	/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rcc_ex.c:1498
+08009384 T HAL_RCCEx_GetPLL2ClockFreq	/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rcc_ex.c:1585
+0800968c T HAL_RCCEx_GetPLL3ClockFreq	/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rcc_ex.c:1672
+08009994 T HAL_RCCEx_GetPeriphCLKFreq	/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rcc_ex.c:1794
+0800853c T HAL_RCCEx_PeriphCLKConfig	/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rcc_ex.c:430
+08007d74 T HAL_RCC_ClockConfig	/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rcc.c:1349
+08008384 T HAL_RCC_GetHCLKFreq	/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rcc.c:1809
+080083b8 T HAL_RCC_GetPCLK1Freq	/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rcc.c:1821
+080083e0 T HAL_RCC_GetPCLK2Freq	/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rcc.c:1833
+08008408 T HAL_RCC_GetPCLK3Freq	/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rcc.c:1845
+08008158 T HAL_RCC_GetSysClockFreq	/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rcc.c:1707
+08006fbc T HAL_RCC_OscConfig	/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rcc.c:522
+0800def4 T HAL_SPI_GetError	/home/lolo/dev/msm/reports/TR2-r4/bench-build/generated/stm32u5xx_hal_spi_observed.c:3462
+0800d7d8 T HAL_SPI_Init	/home/lolo/dev/msm/reports/TR2-r4/bench-build/generated/stm32u5xx_hal_spi_observed.c:240
+0800d7d4 W HAL_SPI_MspInit	/home/lolo/dev/msm/reports/TR2-r4/bench-build/generated/stm32u5xx_hal_spi_observed.c:548
+0800dbec T HAL_SPI_Receive	/home/lolo/dev/msm/reports/TR2-r4/bench-build/generated/stm32u5xx_hal_spi_observed.c:1073
+0800d954 T HAL_SPI_Transmit	/home/lolo/dev/msm/reports/TR2-r4/bench-build/generated/stm32u5xx_hal_spi_observed.c:839
+0800676c T HAL_SYSTICK_CLKSourceConfig	/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_cortex.c:428
+0800672c T HAL_SYSTICK_Config	/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_cortex.c:278
+08006818 T HAL_SYSTICK_GetCLKSourceConfig	/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_cortex.c:467
+0800c932 W HAL_TIMEx_Break2Callback	/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_tim_ex.c:3201
+0800c920 W HAL_TIMEx_BreakCallback	/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_tim_ex.c:3186
+0800c90e W HAL_TIMEx_CommutCallback	/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_tim_ex.c:3157
+0800c956 W HAL_TIMEx_DirectionChangeCallback	/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_tim_ex.c:3231
+0800c944 W HAL_TIMEx_EncoderIndexCallback	/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_tim_ex.c:3216
+0800c968 W HAL_TIMEx_IndexErrorCallback	/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_tim_ex.c:3246
+0800c97a W HAL_TIMEx_TransitionErrorCallback	/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_tim_ex.c:3261
+0800c8d8 W HAL_TIM_IC_CaptureCallback	/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_tim.c:6184
+0800c628 T HAL_TIM_IRQHandler	/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_tim.c:3846
+0800c8c6 W HAL_TIM_OC_DelayElapsedCallback	/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_tim.c:6169
+0800c8ea W HAL_TIM_PWM_PulseFinishedCallback	/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_tim.c:6214
+08006240 T HAL_TIM_PeriodElapsedCallback	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/platform/stm32/stm32_serial_transport.c:486
+0800c8fc W HAL_TIM_TriggerCallback	/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_tim.c:6244
+0800b7e8 W HAL_UARTEx_RxEventCallback	/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_uart.c:2815
+0800c604 W HAL_UARTEx_RxFifoFullCallback	/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_uart_ex.c:270
+0800c616 W HAL_UARTEx_TxFifoEmptyCallback	/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_uart_ex.c:285
+0800b108 T HAL_UART_AbortReceive	/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_uart.c:1944
+0800b024 T HAL_UART_AbortTransmit	/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_uart.c:1884
+0800619c T HAL_UART_ErrorCallback	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/platform/stm32/stm32_serial_transport.c:458
+0800b7fe T HAL_UART_GetError	/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_uart.c:3112
+0800b238 T HAL_UART_IRQHandler	/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_uart.c:2349
+0800af60 T HAL_UART_Receive_IT	/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_uart.c:1390
+08006098 T HAL_UART_RxCpltCallback	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/platform/stm32/stm32_serial_transport.c:415
+0800611c T HAL_UART_TxCpltCallback	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/platform/stm32/stm32_serial_transport.c:440
+0800636c W HASH_IRQHandler	/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/CMSIS/Device/ST/STM32U5xx/Source/Templates/gcc/startup_stm32u575xx.s:115
+0800636c W HardFault_Handler	/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/CMSIS/Device/ST/STM32U5xx/Source/Templates/gcc/startup_stm32u575xx.s:115
+0800636c W I2C1_ER_IRQHandler	/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/CMSIS/Device/ST/STM32U5xx/Source/Templates/gcc/startup_stm32u575xx.s:115
+0800636c W I2C1_EV_IRQHandler	/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/CMSIS/Device/ST/STM32U5xx/Source/Templates/gcc/startup_stm32u575xx.s:115
+0800636c W I2C2_ER_IRQHandler	/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/CMSIS/Device/ST/STM32U5xx/Source/Templates/gcc/startup_stm32u575xx.s:115
+0800636c W I2C2_EV_IRQHandler	/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/CMSIS/Device/ST/STM32U5xx/Source/Templates/gcc/startup_stm32u575xx.s:115
+0800636c W I2C3_ER_IRQHandler	/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/CMSIS/Device/ST/STM32U5xx/Source/Templates/gcc/startup_stm32u575xx.s:115
+0800636c W I2C3_EV_IRQHandler	/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/CMSIS/Device/ST/STM32U5xx/Source/Templates/gcc/startup_stm32u575xx.s:115
+0800636c W I2C4_ER_IRQHandler	/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/CMSIS/Device/ST/STM32U5xx/Source/Templates/gcc/startup_stm32u575xx.s:115
+0800636c W I2C4_EV_IRQHandler	/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/CMSIS/Device/ST/STM32U5xx/Source/Templates/gcc/startup_stm32u575xx.s:115
+0800636c W ICACHE_IRQHandler	/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/CMSIS/Device/ST/STM32U5xx/Source/Templates/gcc/startup_stm32u575xx.s:115
+0800636c W IWDG_IRQHandler	/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/CMSIS/Device/ST/STM32U5xx/Source/Templates/gcc/startup_stm32u575xx.s:115
+0800561c t Iis3dwbSpi_Init	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/platform/stm32/main.c:2701
+0800636c t Infinite_Loop	/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/CMSIS/Device/ST/STM32U5xx/Source/Templates/gcc/startup_stm32u575xx.s:115
+0800636c W LPDMA1_Channel0_IRQHandler	/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/CMSIS/Device/ST/STM32U5xx/Source/Templates/gcc/startup_stm32u575xx.s:115
+0800636c W LPDMA1_Channel1_IRQHandler	/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/CMSIS/Device/ST/STM32U5xx/Source/Templates/gcc/startup_stm32u575xx.s:115
+0800636c W LPDMA1_Channel2_IRQHandler	/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/CMSIS/Device/ST/STM32U5xx/Source/Templates/gcc/startup_stm32u575xx.s:115
+0800636c W LPDMA1_Channel3_IRQHandler	/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/CMSIS/Device/ST/STM32U5xx/Source/Templates/gcc/startup_stm32u575xx.s:115
+08019964 t LPGPIO_Map	/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_gpio.c:145
+0800636c W LPTIM1_IRQHandler	/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/CMSIS/Device/ST/STM32U5xx/Source/Templates/gcc/startup_stm32u575xx.s:115
+0800636c W LPTIM2_IRQHandler	/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/CMSIS/Device/ST/STM32U5xx/Source/Templates/gcc/startup_stm32u575xx.s:115
+0800636c W LPTIM3_IRQHandler	/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/CMSIS/Device/ST/STM32U5xx/Source/Templates/gcc/startup_stm32u575xx.s:115
+0800636c W LPTIM4_IRQHandler	/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/CMSIS/Device/ST/STM32U5xx/Source/Templates/gcc/startup_stm32u575xx.s:115
+08006304 T LPUART1_IRQHandler	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/platform/stm32/stm32u5xx_it.c:9
+0800636c W LSECSSD_IRQHandler	/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/CMSIS/Device/ST/STM32U5xx/Source/Templates/gcc/startup_stm32u575xx.s:115
+08006330 t LoopCopyDataInit	/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/CMSIS/Device/ST/STM32U5xx/Source/Templates/gcc/startup_stm32u575xx.s:77
+08006344 t LoopFillZerobss	/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/CMSIS/Device/ST/STM32U5xx/Source/Templates/gcc/startup_stm32u575xx.s:90
+08006352 t LoopForever	/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/CMSIS/Device/ST/STM32U5xx/Source/Templates/gcc/startup_stm32u575xx.s:100
+0800636c W MDF1_FLT0_IRQHandler	/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/CMSIS/Device/ST/STM32U5xx/Source/Templates/gcc/startup_stm32u575xx.s:115
+0800636c W MDF1_FLT1_IRQHandler	/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/CMSIS/Device/ST/STM32U5xx/Source/Templates/gcc/startup_stm32u575xx.s:115
+0800636c W MDF1_FLT2_IRQHandler	/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/CMSIS/Device/ST/STM32U5xx/Source/Templates/gcc/startup_stm32u575xx.s:115
+0800636c W MDF1_FLT3_IRQHandler	/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/CMSIS/Device/ST/STM32U5xx/Source/Templates/gcc/startup_stm32u575xx.s:115
+0800636c W MDF1_FLT4_IRQHandler	/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/CMSIS/Device/ST/STM32U5xx/Source/Templates/gcc/startup_stm32u575xx.s:115
+0800636c W MDF1_FLT5_IRQHandler	/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/CMSIS/Device/ST/STM32U5xx/Source/Templates/gcc/startup_stm32u575xx.s:115
+08019924 T MSIRangeTable	/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/CMSIS/Device/ST/STM32U5xx/Source/Templates/system_stm32u5xx.c:171
+0800636c W MemManage_Handler	/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/CMSIS/Device/ST/STM32U5xx/Source/Templates/gcc/startup_stm32u575xx.s:115
+0800636c W NMI_Handler	/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/CMSIS/Device/ST/STM32U5xx/Source/Templates/gcc/startup_stm32u575xx.s:115
+0800667c t NVIC_EncodePriority	/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/CMSIS/Include/core_cm33.h:2634
+0800636c W OCTOSPI1_IRQHandler	/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/CMSIS/Device/ST/STM32U5xx/Source/Templates/gcc/startup_stm32u575xx.s:115
+0800636c W OCTOSPI2_IRQHandler	/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/CMSIS/Device/ST/STM32U5xx/Source/Templates/gcc/startup_stm32u575xx.s:115
+0800636c W OTG_FS_IRQHandler	/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/CMSIS/Device/ST/STM32U5xx/Source/Templates/gcc/startup_stm32u575xx.s:115
+0800636c W PVD_PVM_IRQHandler	/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/CMSIS/Device/ST/STM32U5xx/Source/Templates/gcc/startup_stm32u575xx.s:115
+0800636c W PWR_S3WU_IRQHandler	/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/CMSIS/Device/ST/STM32U5xx/Source/Templates/gcc/startup_stm32u575xx.s:115
+0800636c W PendSV_Handler	/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/CMSIS/Device/ST/STM32U5xx/Source/Templates/gcc/startup_stm32u575xx.s:115
+0800636c W RAMCFG_IRQHandler	/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/CMSIS/Device/ST/STM32U5xx/Source/Templates/gcc/startup_stm32u575xx.s:115
+0800ad00 t RCCEx_PLL2_Config	/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rcc_ex.c:4166
+0800ae30 t RCCEx_PLL3_Config	/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rcc_ex.c:4240
+0800636c W RCC_IRQHandler	/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/CMSIS/Device/ST/STM32U5xx/Source/Templates/gcc/startup_stm32u575xx.s:115
+0800636c W RCC_S_IRQHandler	/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/CMSIS/Device/ST/STM32U5xx/Source/Templates/gcc/startup_stm32u575xx.s:115
+08008430 t RCC_SetFlashLatencyFromMSIRange	/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rcc.c:2194
+0800636c W RNG_IRQHandler	/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/CMSIS/Device/ST/STM32U5xx/Source/Templates/gcc/startup_stm32u575xx.s:115
+0800636c W RTC_IRQHandler	/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/CMSIS/Device/ST/STM32U5xx/Source/Templates/gcc/startup_stm32u575xx.s:115
+0800636c W RTC_S_IRQHandler	/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/CMSIS/Device/ST/STM32U5xx/Source/Templates/gcc/startup_stm32u575xx.s:115
+0800631c W Reset_Handler	/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/CMSIS/Device/ST/STM32U5xx/Source/Templates/gcc/startup_stm32u575xx.s:62
+0800636c W SAI1_IRQHandler	/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/CMSIS/Device/ST/STM32U5xx/Source/Templates/gcc/startup_stm32u575xx.s:115
+0800636c W SAI2_IRQHandler	/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/CMSIS/Device/ST/STM32U5xx/Source/Templates/gcc/startup_stm32u575xx.s:115
+0800636c W SDMMC1_IRQHandler	/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/CMSIS/Device/ST/STM32U5xx/Source/Templates/gcc/startup_stm32u575xx.s:115
+0800636c W SDMMC2_IRQHandler	/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/CMSIS/Device/ST/STM32U5xx/Source/Templates/gcc/startup_stm32u575xx.s:115
+0800636c W SPI1_IRQHandler	/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/CMSIS/Device/ST/STM32U5xx/Source/Templates/gcc/startup_stm32u575xx.s:115
+0800636c W SPI2_IRQHandler	/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/CMSIS/Device/ST/STM32U5xx/Source/Templates/gcc/startup_stm32u575xx.s:115
+0800636c W SPI3_IRQHandler	/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/CMSIS/Device/ST/STM32U5xx/Source/Templates/gcc/startup_stm32u575xx.s:115
+0800d71c t SPI_CloseTransfer	/home/lolo/dev/msm/reports/TR2-r4/bench-build/generated/stm32u5xx_hal_spi_observed.c:3934
+0800636c W SVC_Handler	/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/CMSIS/Device/ST/STM32U5xx/Source/Templates/gcc/startup_stm32u575xx.s:115
+0800636c W SecureFault_Handler	/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/CMSIS/Device/ST/STM32U5xx/Source/Templates/gcc/startup_stm32u575xx.s:115
+080062f8 T SysTick_Handler	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/platform/stm32/stm32u5xx_it.c:4
+08005324 t SystemClock_Config	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/platform/stm32/main.c:2574
+200001c8 D SystemCoreClock	/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/CMSIS/Device/ST/STM32U5xx/Source/Templates/system_stm32u5xx.c:167
+08006370 T SystemInit	/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/CMSIS/Device/ST/STM32U5xx/Source/Templates/system_stm32u5xx.c:195
+080053dc t SystemPower_Config	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/platform/stm32/main.c:2618
+0800636c W TAMP_IRQHandler	/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/CMSIS/Device/ST/STM32U5xx/Source/Templates/gcc/startup_stm32u575xx.s:115
+0800636c W TIM15_IRQHandler	/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/CMSIS/Device/ST/STM32U5xx/Source/Templates/gcc/startup_stm32u575xx.s:115
+0800636c W TIM16_IRQHandler	/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/CMSIS/Device/ST/STM32U5xx/Source/Templates/gcc/startup_stm32u575xx.s:115
+0800636c W TIM17_IRQHandler	/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/CMSIS/Device/ST/STM32U5xx/Source/Templates/gcc/startup_stm32u575xx.s:115
+0800636c W TIM1_BRK_IRQHandler	/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/CMSIS/Device/ST/STM32U5xx/Source/Templates/gcc/startup_stm32u575xx.s:115
+0800636c W TIM1_CC_IRQHandler	/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/CMSIS/Device/ST/STM32U5xx/Source/Templates/gcc/startup_stm32u575xx.s:115
+0800636c W TIM1_TRG_COM_IRQHandler	/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/CMSIS/Device/ST/STM32U5xx/Source/Templates/gcc/startup_stm32u575xx.s:115
+0800636c W TIM1_UP_IRQHandler	/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/CMSIS/Device/ST/STM32U5xx/Source/Templates/gcc/startup_stm32u575xx.s:115
+0800636c W TIM2_IRQHandler	/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/CMSIS/Device/ST/STM32U5xx/Source/Templates/gcc/startup_stm32u575xx.s:115
+0800636c W TIM3_IRQHandler	/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/CMSIS/Device/ST/STM32U5xx/Source/Templates/gcc/startup_stm32u575xx.s:115
+0800636c W TIM4_IRQHandler	/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/CMSIS/Device/ST/STM32U5xx/Source/Templates/gcc/startup_stm32u575xx.s:115
+0800636c W TIM5_IRQHandler	/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/CMSIS/Device/ST/STM32U5xx/Source/Templates/gcc/startup_stm32u575xx.s:115
+08006310 T TIM6_IRQHandler	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/platform/stm32/stm32u5xx_it.c:14
+0800636c W TIM7_IRQHandler	/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/CMSIS/Device/ST/STM32U5xx/Source/Templates/gcc/startup_stm32u575xx.s:115
+0800636c W TIM8_BRK_IRQHandler	/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/CMSIS/Device/ST/STM32U5xx/Source/Templates/gcc/startup_stm32u575xx.s:115
+0800636c W TIM8_CC_IRQHandler	/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/CMSIS/Device/ST/STM32U5xx/Source/Templates/gcc/startup_stm32u575xx.s:115
+0800636c W TIM8_TRG_COM_IRQHandler	/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/CMSIS/Device/ST/STM32U5xx/Source/Templates/gcc/startup_stm32u575xx.s:115
+0800636c W TIM8_UP_IRQHandler	/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/CMSIS/Device/ST/STM32U5xx/Source/Templates/gcc/startup_stm32u575xx.s:115
+0800636c W TSC_IRQHandler	/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/CMSIS/Device/ST/STM32U5xx/Source/Templates/gcc/startup_stm32u575xx.s:115
+0800636c W UART4_IRQHandler	/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/CMSIS/Device/ST/STM32U5xx/Source/Templates/gcc/startup_stm32u575xx.s:115
+0800636c W UART5_IRQHandler	/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/CMSIS/Device/ST/STM32U5xx/Source/Templates/gcc/startup_stm32u575xx.s:115
+0800bb22 t UART_DMAAbortOnError	/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_uart.c:3955
+0800ba58 t UART_EndRxTransfer	/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_uart.c:3713
+0800bb3e t UART_EndTransmit_IT	/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_uart.c:4280
+0800bd58 t UART_RxISR_16BIT	/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_uart.c:4396
+0800c28c t UART_RxISR_16BIT_FIFOEN	/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_uart.c:4652
+0800bb94 t UART_RxISR_8BIT	/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_uart.c:4305
+0800bf1c t UART_RxISR_8BIT_FIFOEN	/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_uart.c:4489
+0800b818 T UART_Start_Receive_IT	/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_uart.c:3527
+0800636c W UCPD1_IRQHandler	/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/CMSIS/Device/ST/STM32U5xx/Source/Templates/gcc/startup_stm32u575xx.s:115
+0800636c W USART1_IRQHandler	/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/CMSIS/Device/ST/STM32U5xx/Source/Templates/gcc/startup_stm32u575xx.s:115
+0800636c W USART2_IRQHandler	/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/CMSIS/Device/ST/STM32U5xx/Source/Templates/gcc/startup_stm32u575xx.s:115
+0800636c W USART3_IRQHandler	/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/CMSIS/Device/ST/STM32U5xx/Source/Templates/gcc/startup_stm32u575xx.s:115
+0800636c W UsageFault_Handler	/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/CMSIS/Device/ST/STM32U5xx/Source/Templates/gcc/startup_stm32u575xx.s:115
+0800636c W WWDG_IRQHandler	/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/CMSIS/Device/ST/STM32U5xx/Source/Templates/gcc/startup_stm32u575xx.s:115
+080029b8 T _Balloc	/build/reproducible-path/newlib-4.5.0.20241231/build_nano/arm-none-eabi/thumb/v8-m.main/nofp/newlib/../../../../../../newlib/libc/stdlib/mprec.c:102
+08002a38 T _Bfree	/build/reproducible-path/newlib-4.5.0.20241231/build_nano/arm-none-eabi/thumb/v8-m.main/nofp/newlib/../../../../../../newlib/libc/stdlib/mprec.c:141
+00000200 A _Min_Heap_Size
+00000800 A _Min_Stack_Size
+0800660c t __NVIC_GetPriorityGrouping	/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/CMSIS/Include/core_cm33.h:2378
+08006628 t __NVIC_SetPriority	/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/CMSIS/Include/core_cm33.h:2587
+080065c4 t __NVIC_SetPriorityGrouping	/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/CMSIS/Include/core_cm33.h:2359
+200001d4 D __TMC_END__
+08004914 T __adddf3	/build/reproducible-path/gcc-arm-none-eabi-14.2.rel1/build/arm-none-eabi/thumb/v8-m.main/nofp/libgcc/../../../../../../libgcc/config/arm/ieee754-df.S:91
+080002d0 T __addsf3	/build/reproducible-path/gcc-arm-none-eabi-14.2.rel1/build/arm-none-eabi/thumb/v8-m.main/nofp/libgcc/../../../../../../libgcc/config/arm/ieee754-sf.S:74
+08005140 T __aeabi_cdcmpeq	/build/reproducible-path/gcc-arm-none-eabi-14.2.rel1/build/arm-none-eabi/thumb/v8-m.main/nofp/libgcc/../../../../../../libgcc/config/arm/ieee754-df.S:1205
+08005140 T __aeabi_cdcmple	/build/reproducible-path/gcc-arm-none-eabi-14.2.rel1/build/arm-none-eabi/thumb/v8-m.main/nofp/libgcc/../../../../../../libgcc/config/arm/ieee754-df.S:1205
+08005130 T __aeabi_cdrcmple	/build/reproducible-path/gcc-arm-none-eabi-14.2.rel1/build/arm-none-eabi/thumb/v8-m.main/nofp/libgcc/../../../../../../libgcc/config/arm/ieee754-df.S:1192
+080051e0 T __aeabi_d2iz
+08004914 T __aeabi_dadd	/build/reproducible-path/gcc-arm-none-eabi-14.2.rel1/build/arm-none-eabi/thumb/v8-m.main/nofp/libgcc/../../../../../../libgcc/config/arm/ieee754-df.S:91
+08005150 T __aeabi_dcmpeq	/build/reproducible-path/gcc-arm-none-eabi-14.2.rel1/build/arm-none-eabi/thumb/v8-m.main/nofp/libgcc/../../../../../../libgcc/config/arm/ieee754-df.S:1228
+0800518c T __aeabi_dcmpge	/build/reproducible-path/gcc-arm-none-eabi-14.2.rel1/build/arm-none-eabi/thumb/v8-m.main/nofp/libgcc/../../../../../../libgcc/config/arm/ieee754-df.S:1277
+080051a0 T __aeabi_dcmpgt	/build/reproducible-path/gcc-arm-none-eabi-14.2.rel1/build/arm-none-eabi/thumb/v8-m.main/nofp/libgcc/../../../../../../libgcc/config/arm/ieee754-df.S:1293
+08005178 T __aeabi_dcmple	/build/reproducible-path/gcc-arm-none-eabi-14.2.rel1/build/arm-none-eabi/thumb/v8-m.main/nofp/libgcc/../../../../../../libgcc/config/arm/ieee754-df.S:1261
+08005164 T __aeabi_dcmplt	/build/reproducible-path/gcc-arm-none-eabi-14.2.rel1/build/arm-none-eabi/thumb/v8-m.main/nofp/libgcc/../../../../../../libgcc/config/arm/ieee754-df.S:1245
+080051b4 T __aeabi_dcmpun	/build/reproducible-path/gcc-arm-none-eabi-14.2.rel1/build/arm-none-eabi/thumb/v8-m.main/nofp/libgcc/../../../../../../libgcc/config/arm/ieee754-df.S:1315
+08004ed4 T __aeabi_ddiv	/build/reproducible-path/gcc-arm-none-eabi-14.2.rel1/build/arm-none-eabi/thumb/v8-m.main/nofp/libgcc/../../../../../../libgcc/config/arm/ieee754-df.S:890
+08004c80 T __aeabi_dmul	/build/reproducible-path/gcc-arm-none-eabi-14.2.rel1/build/arm-none-eabi/thumb/v8-m.main/nofp/libgcc/../../../../../../libgcc/config/arm/ieee754-df.S:637
+08004908 T __aeabi_drsub	/build/reproducible-path/gcc-arm-none-eabi-14.2.rel1/build/arm-none-eabi/thumb/v8-m.main/nofp/libgcc/../../../../../../libgcc/config/arm/ieee754-df.S:77
+08004910 T __aeabi_dsub	/build/reproducible-path/gcc-arm-none-eabi-14.2.rel1/build/arm-none-eabi/thumb/v8-m.main/nofp/libgcc/../../../../../../libgcc/config/arm/ieee754-df.S:83
+08004bd0 T __aeabi_f2d	/build/reproducible-path/gcc-arm-none-eabi-14.2.rel1/build/arm-none-eabi/thumb/v8-m.main/nofp/libgcc/../../../../../../libgcc/config/arm/ieee754-df.S:501
+08000780 T __aeabi_f2uiz	/build/reproducible-path/gcc-arm-none-eabi-14.2.rel1/build/arm-none-eabi/thumb/v8-m.main/nofp/libgcc/../../../../../../libgcc/config/arm/ieee754-sf.S:1071
+080002d0 T __aeabi_fadd	/build/reproducible-path/gcc-arm-none-eabi-14.2.rel1/build/arm-none-eabi/thumb/v8-m.main/nofp/libgcc/../../../../../../libgcc/config/arm/ieee754-sf.S:74
+08000648 T __aeabi_fdiv	/build/reproducible-path/gcc-arm-none-eabi-14.2.rel1/build/arm-none-eabi/thumb/v8-m.main/nofp/libgcc/../../../../../../libgcc/config/arm/ieee754-sf.S:634
+080004e0 T __aeabi_fmul
+080002c4 T __aeabi_frsub	/build/reproducible-path/gcc-arm-none-eabi-14.2.rel1/build/arm-none-eabi/thumb/v8-m.main/nofp/libgcc/../../../../../../libgcc/config/arm/ieee754-sf.S:59
+080002cc T __aeabi_fsub	/build/reproducible-path/gcc-arm-none-eabi-14.2.rel1/build/arm-none-eabi/thumb/v8-m.main/nofp/libgcc/../../../../../../libgcc/config/arm/ieee754-sf.S:65
+08004bac T __aeabi_i2d	/build/reproducible-path/gcc-arm-none-eabi-14.2.rel1/build/arm-none-eabi/thumb/v8-m.main/nofp/libgcc/../../../../../../libgcc/config/arm/ieee754-df.S:471
+08000438 T __aeabi_i2f	/build/reproducible-path/gcc-arm-none-eabi-14.2.rel1/build/arm-none-eabi/thumb/v8-m.main/nofp/libgcc/../../../../../../libgcc/config/arm/ieee754-sf.S:311
+08000b3c W __aeabi_idiv0	/build/reproducible-path/gcc-arm-none-eabi-14.2.rel1/build/arm-none-eabi/thumb/v8-m.main/nofp/libgcc/../../../../../../libgcc/config/arm/lib1funcs.S:1466
+08004c24 T __aeabi_l2d	/build/reproducible-path/gcc-arm-none-eabi-14.2.rel1/build/arm-none-eabi/thumb/v8-m.main/nofp/libgcc/../../../../../../libgcc/config/arm/ieee754-df.S:561
+08000464 T __aeabi_l2f	/build/reproducible-path/gcc-arm-none-eabi-14.2.rel1/build/arm-none-eabi/thumb/v8-m.main/nofp/libgcc/../../../../../../libgcc/config/arm/ieee754-sf.S:348
+08000b3c W __aeabi_ldiv0	/build/reproducible-path/gcc-arm-none-eabi-14.2.rel1/build/arm-none-eabi/thumb/v8-m.main/nofp/libgcc/../../../../../../libgcc/config/arm/lib1funcs.S:1466
+08004b8c T __aeabi_ui2d	/build/reproducible-path/gcc-arm-none-eabi-14.2.rel1/build/arm-none-eabi/thumb/v8-m.main/nofp/libgcc/../../../../../../libgcc/config/arm/ieee754-df.S:443
+08000430 T __aeabi_ui2f	/build/reproducible-path/gcc-arm-none-eabi-14.2.rel1/build/arm-none-eabi/thumb/v8-m.main/nofp/libgcc/../../../../../../libgcc/config/arm/ieee754-sf.S:305
+08004c14 T __aeabi_ul2d	/build/reproducible-path/gcc-arm-none-eabi-14.2.rel1/build/arm-none-eabi/thumb/v8-m.main/nofp/libgcc/../../../../../../libgcc/config/arm/ieee754-df.S:541
+08000454 T __aeabi_ul2f	/build/reproducible-path/gcc-arm-none-eabi-14.2.rel1/build/arm-none-eabi/thumb/v8-m.main/nofp/libgcc/../../../../../../libgcc/config/arm/ieee754-sf.S:338
+080007c0 T __aeabi_uldivmod	/build/reproducible-path/gcc-arm-none-eabi-14.2.rel1/build/arm-none-eabi/thumb/v8-m.main/nofp/libgcc/../../../../../../libgcc/config/arm/bpabi.S:254
+0800344c T __any_on	/build/reproducible-path/newlib-4.5.0.20241231/build_nano/arm-none-eabi/thumb/v8-m.main/nofp/newlib/../../../../../../newlib/libc/stdlib/mprec.c:1019
+080044f8 T __ascii_mbtowc	/build/reproducible-path/newlib-4.5.0.20241231/build_nano/arm-none-eabi/thumb/v8-m.main/nofp/newlib/../../../../../../newlib/libc/stdlib/mbtowc_r.c:21
+08003b74 T __ascii_wctomb	/build/reproducible-path/newlib-4.5.0.20241231/build_nano/arm-none-eabi/thumb/v8-m.main/nofp/newlib/../../../../../../newlib/libc/stdlib/wctomb_r.c:19
+080029ac T __assert	/build/reproducible-path/newlib-4.5.0.20241231/newlib/libc/include/assert.h:39
+08002970 T __assert_func	/build/reproducible-path/newlib-4.5.0.20241231/newlib/libc/include/assert.h:41
+080031d8 T __b2d	/build/reproducible-path/newlib-4.5.0.20241231/build_nano/arm-none-eabi/thumb/v8-m.main/nofp/newlib/../../../../../../newlib/libc/stdlib/mprec.c:683
+200907e0 B __bss_end__
+200001d8 B __bss_start__
+080050b4 T __cmpdf2	/build/reproducible-path/gcc-arm-none-eabi-14.2.rel1/build/arm-none-eabi/thumb/v8-m.main/nofp/libgcc/../../../../../../libgcc/config/arm/ieee754-df.S:1103
+080033f0 T __copybits	/build/reproducible-path/newlib-4.5.0.20241231/build_nano/arm-none-eabi/thumb/v8-m.main/nofp/newlib/../../../../../../newlib/libc/stdlib/mprec.c:991
+08000d90 T __cvt	/build/reproducible-path/newlib-4.5.0.20241231/build_nano/arm-none-eabi/thumb/v8-m.main/nofp/newlib/../../../../../../newlib/libc/stdio/nano-vfprintf_float.c:68
+0800329c T __d2b	/build/reproducible-path/newlib-4.5.0.20241231/build_nano/arm-none-eabi/thumb/v8-m.main/nofp/newlib/../../../../../../newlib/libc/stdlib/mprec.c:759
+08004ed4 T __divdf3	/build/reproducible-path/gcc-arm-none-eabi-14.2.rel1/build/arm-none-eabi/thumb/v8-m.main/nofp/libgcc/../../../../../../libgcc/config/arm/ieee754-df.S:890
+08000648 T __divsf3	/build/reproducible-path/gcc-arm-none-eabi-14.2.rel1/build/arm-none-eabi/thumb/v8-m.main/nofp/libgcc/../../../../../../libgcc/config/arm/ieee754-sf.S:634
+0800027c t __do_global_dtors_aux
+08019c80 d __do_global_dtors_aux_fini_array_entry
+080050b4 T __eqdf2	/build/reproducible-path/gcc-arm-none-eabi-14.2.rel1/build/arm-none-eabi/thumb/v8-m.main/nofp/libgcc/../../../../../../libgcc/config/arm/ieee754-df.S:1103
+08019c7c R __exidx_end
+08019c74 R __exidx_start
+08000e90 T __exponent	/build/reproducible-path/newlib-4.5.0.20241231/build_nano/arm-none-eabi/thumb/v8-m.main/nofp/newlib/../../../../../../newlib/libc/stdio/nano-vfprintf_float.c:128
+08004bd0 T __extendsfdf2	/build/reproducible-path/gcc-arm-none-eabi-14.2.rel1/build/arm-none-eabi/thumb/v8-m.main/nofp/libgcc/../../../../../../libgcc/config/arm/ieee754-df.S:501
+08019c84 d __fini_array_end
+08019c80 d __fini_array_start
+080051e0 T __fixdfsi
+08000780 T __fixunssfsi	/build/reproducible-path/gcc-arm-none-eabi-14.2.rel1/build/arm-none-eabi/thumb/v8-m.main/nofp/libgcc/../../../../../../libgcc/config/arm/ieee754-sf.S:1071
+08004c24 T __floatdidf	/build/reproducible-path/gcc-arm-none-eabi-14.2.rel1/build/arm-none-eabi/thumb/v8-m.main/nofp/libgcc/../../../../../../libgcc/config/arm/ieee754-df.S:561
+08000464 T __floatdisf	/build/reproducible-path/gcc-arm-none-eabi-14.2.rel1/build/arm-none-eabi/thumb/v8-m.main/nofp/libgcc/../../../../../../libgcc/config/arm/ieee754-sf.S:348
+08004bac T __floatsidf	/build/reproducible-path/gcc-arm-none-eabi-14.2.rel1/build/arm-none-eabi/thumb/v8-m.main/nofp/libgcc/../../../../../../libgcc/config/arm/ieee754-df.S:471
+08000438 T __floatsisf	/build/reproducible-path/gcc-arm-none-eabi-14.2.rel1/build/arm-none-eabi/thumb/v8-m.main/nofp/libgcc/../../../../../../libgcc/config/arm/ieee754-sf.S:311
+08004c14 T __floatundidf	/build/reproducible-path/gcc-arm-none-eabi-14.2.rel1/build/arm-none-eabi/thumb/v8-m.main/nofp/libgcc/../../../../../../libgcc/config/arm/ieee754-df.S:541
+08000454 T __floatundisf	/build/reproducible-path/gcc-arm-none-eabi-14.2.rel1/build/arm-none-eabi/thumb/v8-m.main/nofp/libgcc/../../../../../../libgcc/config/arm/ieee754-sf.S:338
+08004b8c T __floatunsidf	/build/reproducible-path/gcc-arm-none-eabi-14.2.rel1/build/arm-none-eabi/thumb/v8-m.main/nofp/libgcc/../../../../../../libgcc/config/arm/ieee754-df.S:443
+08000430 T __floatunsisf	/build/reproducible-path/gcc-arm-none-eabi-14.2.rel1/build/arm-none-eabi/thumb/v8-m.main/nofp/libgcc/../../../../../../libgcc/config/arm/ieee754-sf.S:305
+0800353c t __fp_lock	/build/reproducible-path/newlib-4.5.0.20241231/build_nano/arm-none-eabi/thumb/v8-m.main/nofp/newlib/../../../../../../newlib/libc/stdio/findfp.c:280
+08003738 T __fp_lock_all	/build/reproducible-path/newlib-4.5.0.20241231/build_nano/arm-none-eabi/thumb/v8-m.main/nofp/newlib/../../../../../../newlib/libc/stdio/findfp.c:299
+08003598 t __fp_unlock	/build/reproducible-path/newlib-4.5.0.20241231/build_nano/arm-none-eabi/thumb/v8-m.main/nofp/newlib/../../../../../../newlib/libc/stdio/findfp.c:290
+0800374c T __fp_unlock_all	/build/reproducible-path/newlib-4.5.0.20241231/build_nano/arm-none-eabi/thumb/v8-m.main/nofp/newlib/../../../../../../newlib/libc/stdio/findfp.c:306
+08019c7c d __frame_dummy_init_array_entry
+080050a4 T __gedf2
+2000005c D __global_locale	/build/reproducible-path/newlib-4.5.0.20241231/build_nano/arm-none-eabi/thumb/v8-m.main/nofp/newlib/../../../../../../newlib/libc/locale/locale.c:247
+080050a4 T __gtdf2
+08002bcc T __hi0bits	/build/reproducible-path/newlib-4.5.0.20241231/build_nano/arm-none-eabi/thumb/v8-m.main/nofp/newlib/../../../../../../newlib/libc/stdlib/mprec.c:237
+08002c74 T __i2b	/build/reproducible-path/newlib-4.5.0.20241231/build_nano/arm-none-eabi/thumb/v8-m.main/nofp/newlib/../../../../../../newlib/libc/stdlib/mprec.c:321
+08019c80 d __init_array_end
+08019c7c d __init_array_start
+080050ac T __ledf2	/build/reproducible-path/gcc-arm-none-eabi-14.2.rel1/build/arm-none-eabi/thumb/v8-m.main/nofp/libgcc/../../../../../../libgcc/config/arm/ieee754-df.S:1097
+08000c40 T __libc_init_array	/build/reproducible-path/newlib-4.5.0.20241231/build_nano/arm-none-eabi/thumb/v8-m.main/nofp/newlib/../../../../../../newlib/libc/misc/init.c:30
+08002c14 T __lo0bits	/build/reproducible-path/newlib-4.5.0.20241231/build_nano/arm-none-eabi/thumb/v8-m.main/nofp/newlib/../../../../../../newlib/libc/stdlib/mprec.c:271
+08002540 T __localeconv_l	/build/reproducible-path/newlib-4.5.0.20241231/build_nano/arm-none-eabi/thumb/v8-m.main/nofp/newlib/../../../../../../newlib/libc/locale/localeconv.c:6
+08002ee4 T __lshift	/build/reproducible-path/newlib-4.5.0.20241231/build_nano/arm-none-eabi/thumb/v8-m.main/nofp/newlib/../../../../../../newlib/libc/stdlib/mprec.c:463
+080050ac T __ltdf2	/build/reproducible-path/gcc-arm-none-eabi-14.2.rel1/build/arm-none-eabi/thumb/v8-m.main/nofp/libgcc/../../../../../../libgcc/config/arm/ieee754-df.S:1097
+20000334 B __malloc_free_list	/build/reproducible-path/newlib-4.5.0.20241231/build_nano/arm-none-eabi/thumb/v8-m.main/nofp/newlib/../../../../../../newlib/libc/stdlib/nano-mallocr.c:198
+08003bd4 T __malloc_lock	/build/reproducible-path/newlib-4.5.0.20241231/newlib/libc/include/malloc.h:136
+20000330 B __malloc_sbrk_start	/build/reproducible-path/newlib-4.5.0.20241231/build_nano/arm-none-eabi/thumb/v8-m.main/nofp/newlib/../../../../../../newlib/libc/stdlib/nano-mallocr.c:201
+08003bd8 T __malloc_unlock	/build/reproducible-path/newlib-4.5.0.20241231/newlib/libc/include/malloc.h:138
+08002fcc T __mcmp	/build/reproducible-path/newlib-4.5.0.20241231/build_nano/arm-none-eabi/thumb/v8-m.main/nofp/newlib/../../../../../../newlib/libc/stdlib/mprec.c:523
+0800300c T __mdiff	/build/reproducible-path/newlib-4.5.0.20241231/build_nano/arm-none-eabi/thumb/v8-m.main/nofp/newlib/../../../../../../newlib/libc/stdlib/mprec.c:553
+080197e0 T __mprec_bigtens	/build/reproducible-path/newlib-4.5.0.20241231/build_nano/arm-none-eabi/thumb/v8-m.main/nofp/newlib/../../../../../../newlib/libc/stdlib/mprec.c:962
+080196f0 T __mprec_tens	/build/reproducible-path/newlib-4.5.0.20241231/build_nano/arm-none-eabi/thumb/v8-m.main/nofp/newlib/../../../../../../newlib/libc/stdlib/mprec.c:953
+080197b8 T __mprec_tinytens	/build/reproducible-path/newlib-4.5.0.20241231/build_nano/arm-none-eabi/thumb/v8-m.main/nofp/newlib/../../../../../../newlib/libc/stdlib/mprec.c:965
+08004c80 T __muldf3	/build/reproducible-path/gcc-arm-none-eabi-14.2.rel1/build/arm-none-eabi/thumb/v8-m.main/nofp/libgcc/../../../../../../libgcc/config/arm/ieee754-df.S:637
+080004e0 T __mulsf3
+08002a80 T __multadd	/build/reproducible-path/newlib-4.5.0.20241231/build_nano/arm-none-eabi/thumb/v8-m.main/nofp/newlib/../../../../../../newlib/libc/stdlib/mprec.c:152
+08002ca0 T __multiply	/build/reproducible-path/newlib-4.5.0.20241231/build_nano/arm-none-eabi/thumb/v8-m.main/nofp/newlib/../../../../../../newlib/libc/stdlib/mprec.c:332
+080050b4 T __nedf2	/build/reproducible-path/gcc-arm-none-eabi-14.2.rel1/build/arm-none-eabi/thumb/v8-m.main/nofp/libgcc/../../../../../../libgcc/config/arm/ieee754-df.S:1103
+08002e04 T __pow5mult	/build/reproducible-path/newlib-4.5.0.20241231/build_nano/arm-none-eabi/thumb/v8-m.main/nofp/newlib/../../../../../../newlib/libc/stdlib/mprec.c:424
+08019c7c d __preinit_array_end
+08019c7c d __preinit_array_start
+0800335c T __ratio	/build/reproducible-path/newlib-4.5.0.20241231/build_nano/arm-none-eabi/thumb/v8-m.main/nofp/newlib/../../../../../../newlib/libc/stdlib/mprec.c:912
+08002b1c T __s2b	/build/reproducible-path/newlib-4.5.0.20241231/build_nano/arm-none-eabi/thumb/v8-m.main/nofp/newlib/../../../../../../newlib/libc/stdlib/mprec.c:198
+080041b8 T __sclose	/build/reproducible-path/newlib-4.5.0.20241231/build_nano/arm-none-eabi/thumb/v8-m.main/nofp/newlib/../../../../../../newlib/libc/stdio/stdio.c:125
+0800414c T __seofread	/build/reproducible-path/newlib-4.5.0.20241231/build_nano/arm-none-eabi/thumb/v8-m.main/nofp/newlib/../../../../../../newlib/libc/stdio/stdio.c:65
+200001f4 B __sf	/build/reproducible-path/newlib-4.5.0.20241231/newlib/libc/include/sys/reent.h:274
+08003770 T __sflush_r	/build/reproducible-path/newlib-4.5.0.20241231/build_nano/arm-none-eabi/thumb/v8-m.main/nofp/newlib/../../../../../../newlib/libc/stdio/fflush.c:103
+0800366c T __sfp	/build/reproducible-path/newlib-4.5.0.20241231/build_nano/arm-none-eabi/thumb/v8-m.main/nofp/newlib/../../../../../../newlib/libc/stdio/findfp.c:174
+08003730 T __sfp_lock_acquire	/build/reproducible-path/newlib-4.5.0.20241231/build_nano/arm-none-eabi/thumb/v8-m.main/nofp/newlib/../../../../../../newlib/libc/stdio/findfp.c:267
+08003734 T __sfp_lock_release	/build/reproducible-path/newlib-4.5.0.20241231/build_nano/arm-none-eabi/thumb/v8-m.main/nofp/newlib/../../../../../../newlib/libc/stdio/findfp.c:273
+08003e3c t __sfputc_r	/build/reproducible-path/newlib-4.5.0.20241231/build_nano/arm-none-eabi/thumb/v8-m.main/nofp/newlib/../../../../../../newlib/libc/stdio/nano-vfprintf.c:392
+08003e64 T __sfputs_r	/build/reproducible-path/newlib-4.5.0.20241231/build_nano/arm-none-eabi/thumb/v8-m.main/nofp/newlib/../../../../../../newlib/libc/stdio/nano-vfprintf.c:403
+080041ec T __sfvwrite_r	/build/reproducible-path/newlib-4.5.0.20241231/build_nano/arm-none-eabi/thumb/v8-m.main/nofp/newlib/../../../../../../newlib/libc/stdio/fvwrite.c:51
+20000050 D __sglue	/build/reproducible-path/newlib-4.5.0.20241231/newlib/libc/include/sys/reent.h:283
+08003dd8 T __sigtramp	/build/reproducible-path/newlib-4.5.0.20241231/build_nano/arm-none-eabi/thumb/v8-m.main/nofp/newlib/../../../../../../newlib/libc/signal/signal.c:220
+08003ca4 T __sigtramp_r	/build/reproducible-path/newlib-4.5.0.20241231/build_nano/arm-none-eabi/thumb/v8-m.main/nofp/newlib/../../../../../../newlib/libc/signal/signal.c:170
+08003710 T __sinit	/build/reproducible-path/newlib-4.5.0.20241231/build_nano/arm-none-eabi/thumb/v8-m.main/nofp/newlib/../../../../../../newlib/libc/stdio/findfp.c:245
+08004760 T __smakebuf_r	/build/reproducible-path/newlib-4.5.0.20241231/build_nano/arm-none-eabi/thumb/v8-m.main/nofp/newlib/../../../../../../newlib/libc/stdio/makebuf.c:38
+08003e94 T __sprint_r	/build/reproducible-path/newlib-4.5.0.20241231/build_nano/arm-none-eabi/thumb/v8-m.main/nofp/newlib/../../../../../../newlib/libc/stdio/nano-vfprintf.c:348
+08004128 T __sread	/build/reproducible-path/newlib-4.5.0.20241231/build_nano/arm-none-eabi/thumb/v8-m.main/nofp/newlib/../../../../../../newlib/libc/stdio/stdio.c:33
+08004190 T __sseek	/build/reproducible-path/newlib-4.5.0.20241231/build_nano/arm-none-eabi/thumb/v8-m.main/nofp/newlib/../../../../../../newlib/libc/stdio/stdio.c:105
+2000032c B __stdio_exit_handler	/build/reproducible-path/newlib-4.5.0.20241231/newlib/libc/include/sys/reent.h:920
+08004910 T __subdf3	/build/reproducible-path/gcc-arm-none-eabi-14.2.rel1/build/arm-none-eabi/thumb/v8-m.main/nofp/libgcc/../../../../../../libgcc/config/arm/ieee754-df.S:83
+080002cc T __subsf3	/build/reproducible-path/gcc-arm-none-eabi-14.2.rel1/build/arm-none-eabi/thumb/v8-m.main/nofp/libgcc/../../../../../../libgcc/config/arm/ieee754-sf.S:65
+080046ec T __swbuf	/build/reproducible-path/newlib-4.5.0.20241231/build_nano/arm-none-eabi/thumb/v8-m.main/nofp/newlib/../../../../../../newlib/libc/stdio/wbuf.c:91
+08004664 T __swbuf_r	/build/reproducible-path/newlib-4.5.0.20241231/newlib/libc/include/stdio.h:584
+08004828 T __swhatbuf_r	/build/reproducible-path/newlib-4.5.0.20241231/build_nano/arm-none-eabi/thumb/v8-m.main/nofp/newlib/../../../../../../newlib/libc/stdio/makebuf.c:77
+08004150 T __swrite	/build/reproducible-path/newlib-4.5.0.20241231/build_nano/arm-none-eabi/thumb/v8-m.main/nofp/newlib/../../../../../../newlib/libc/stdio/stdio.c:74
+080045a0 T __swsetup_r	/build/reproducible-path/newlib-4.5.0.20241231/build_nano/arm-none-eabi/thumb/v8-m.main/nofp/newlib/../../../../../../newlib/libc/stdio/wsetup.c:33
+080007f0 T __udivmoddi4	/build/reproducible-path/gcc-arm-none-eabi-14.2.rel1/build/arm-none-eabi/thumb/v8-m.main/nofp/libgcc/../../../../../../libgcc/libgcc2.c:995
+0800318c T __ulp	/build/reproducible-path/newlib-4.5.0.20241231/build_nano/arm-none-eabi/thumb/v8-m.main/nofp/newlib/../../../../../../newlib/libc/stdlib/mprec.c:637
+080051b4 T __unorddf2	/build/reproducible-path/gcc-arm-none-eabi-14.2.rel1/build/arm-none-eabi/thumb/v8-m.main/nofp/libgcc/../../../../../../libgcc/config/arm/ieee754-df.S:1315
+08003904 T _calloc_r	/build/reproducible-path/newlib-4.5.0.20241231/newlib/libc/include/malloc.h:66
+08005230 T _close	/build/reproducible-path/newlib-4.5.0.20241231/build/arm-none-eabi/thumb/v8-m.main/nofp/libgloss/../../../../../../libgloss/libnosys/close.c:14
+08004550 T _close_r	/build/reproducible-path/newlib-4.5.0.20241231/newlib/libc/include/reent.h:140
+08019808 T _ctype_	/build/reproducible-path/newlib-4.5.0.20241231/newlib/libc/include/ctype.h:70
+08001540 T _dtoa_r	/build/reproducible-path/newlib-4.5.0.20241231/newlib/libc/include/stdlib.h:294
+200907e0 B _ebss
+200001d4 D _edata
+200c0000 R _estack
+08019c74 T _etext
+080052d0 T _exit	/build/reproducible-path/newlib-4.5.0.20241231/build/arm-none-eabi/thumb/v8-m.main/nofp/libgloss/../../../../../../libgloss/libnosys/_exit.c:9
+08003880 T _fflush_r	/build/reproducible-path/newlib-4.5.0.20241231/newlib/libc/include/stdio.h:417
+08019c68 T _fini
+08003b90 T _fiprintf_r	/build/reproducible-path/newlib-4.5.0.20241231/build_nano/arm-none-eabi/thumb/v8-m.main/nofp/newlib/../../../../../../newlib/libc/stdio/fprintf.c:28
+08003b90 T _fprintf_r	/build/reproducible-path/newlib-4.5.0.20241231/newlib/libc/include/stdio.h:436
+08003a74 T _free_r	/build/reproducible-path/newlib-4.5.0.20241231/newlib/libc/include/malloc.h:50
+08005240 T _fstat	/build/reproducible-path/newlib-4.5.0.20241231/build/arm-none-eabi/thumb/v8-m.main/nofp/libgloss/../../../../../../libgloss/libnosys/fstat.c:16
+080048a4 T _fstat_r	/build/reproducible-path/newlib-4.5.0.20241231/newlib/libc/include/reent.h:144
+08003b1c T _fwalk_sglue	/build/reproducible-path/newlib-4.5.0.20241231/newlib/libc/include/sys/reent.h:924
+08005250 T _getpid	/build/reproducible-path/newlib-4.5.0.20241231/build/arm-none-eabi/thumb/v8-m.main/nofp/libgloss/../../../../../../libgloss/libnosys/getpid.c:14
+080048a0 T _getpid_r	/build/reproducible-path/newlib-4.5.0.20241231/newlib/libc/include/reent.h:145
+20000004 D _impure_data	/build/reproducible-path/newlib-4.5.0.20241231/newlib/libc/include/sys/reent.h:803
+20000000 D _impure_ptr	/build/reproducible-path/newlib-4.5.0.20241231/newlib/libc/include/sys/reent.h:797
+08019c5c T _init
+08003da4 T _init_signal	/build/reproducible-path/newlib-4.5.0.20241231/build_nano/arm-none-eabi/thumb/v8-m.main/nofp/newlib/../../../../../../newlib/libc/signal/signal.c:214
+08003bdc T _init_signal_r	/build/reproducible-path/newlib-4.5.0.20241231/build_nano/arm-none-eabi/thumb/v8-m.main/nofp/newlib/../../../../../../newlib/libc/signal/signal.c:96
+08005260 T _isatty	/build/reproducible-path/newlib-4.5.0.20241231/build/arm-none-eabi/thumb/v8-m.main/nofp/libgloss/../../../../../../libgloss/libnosys/isatty.c:14
+080048e4 T _isatty_r	/build/reproducible-path/newlib-4.5.0.20241231/newlib/libc/include/reent.h:146
+08005270 T _kill	/build/reproducible-path/newlib-4.5.0.20241231/build/arm-none-eabi/thumb/v8-m.main/nofp/libgloss/../../../../../../libgloss/libnosys/kill.c:14
+08004874 T _kill_r	/build/reproducible-path/newlib-4.5.0.20241231/newlib/libc/include/reent.h:147
+08002544 T _localeconv_r	/build/reproducible-path/newlib-4.5.0.20241231/newlib/libc/include/locale.h:72
+08005280 T _lseek	/build/reproducible-path/newlib-4.5.0.20241231/build/arm-none-eabi/thumb/v8-m.main/nofp/libgloss/../../../../../../libgloss/libnosys/lseek.c:14
+08004574 T _lseek_r	/build/reproducible-path/newlib-4.5.0.20241231/newlib/libc/include/reent.h:149
+08003974 T _malloc_r	/build/reproducible-path/newlib-4.5.0.20241231/newlib/libc/include/malloc.h:42
+080048d0 T _malloc_usable_size_r	/build/reproducible-path/newlib-4.5.0.20241231/newlib/libc/include/malloc.h:106
+080044e4 T _mbtowc_r	/build/reproducible-path/newlib-4.5.0.20241231/newlib/libc/include/stdlib.h:112
+080033b8 T _mprec_log10	/build/reproducible-path/newlib-4.5.0.20241231/build_nano/arm-none-eabi/thumb/v8-m.main/nofp/newlib/../../../../../../newlib/libc/stdlib/mprec.c:977
+08002574 T _printf_common	/build/reproducible-path/newlib-4.5.0.20241231/build_nano/arm-none-eabi/thumb/v8-m.main/nofp/newlib/../../../../../../newlib/libc/stdio/nano-vfprintf_i.c:49
+08000f18 W _printf_float	/build/reproducible-path/newlib-4.5.0.20241231/build_nano/arm-none-eabi/thumb/v8-m.main/nofp/newlib/../../../../../../newlib/libc/stdio/nano-vfprintf_float.c:165
+08002690 T _printf_i	/build/reproducible-path/newlib-4.5.0.20241231/build_nano/arm-none-eabi/thumb/v8-m.main/nofp/newlib/../../../../../../newlib/libc/stdio/nano-vfprintf_i.c:108
+08003c54 T _raise_r	/build/reproducible-path/newlib-4.5.0.20241231/newlib/libc/include/signal.h:25
+08005290 T _read	/build/reproducible-path/newlib-4.5.0.20241231/build/arm-none-eabi/thumb/v8-m.main/nofp/libgloss/../../../../../../libgloss/libnosys/read.c:14
+080041c0 T _read_r	/build/reproducible-path/newlib-4.5.0.20241231/newlib/libc/include/reent.h:152
+080046fc T _realloc_r	/build/reproducible-path/newlib-4.5.0.20241231/newlib/libc/include/malloc.h:58
+080052a0 T _sbrk	/build/reproducible-path/newlib-4.5.0.20241231/build/arm-none-eabi/thumb/v8-m.main/nofp/libgloss/../../../../../../libgloss/libnosys/sbrk.c:7
+08004104 T _sbrk_r	/build/reproducible-path/newlib-4.5.0.20241231/newlib/libc/include/reent.h:154
+200001d8 B _sbss
+20000000 D _sdata
+08019c84 A _sidata
+08003c08 T _signal_r	/build/reproducible-path/newlib-4.5.0.20241231/newlib/libc/include/signal.h:24
+08003eb4 T _vfiprintf_r	/build/reproducible-path/newlib-4.5.0.20241231/build_nano/arm-none-eabi/thumb/v8-m.main/nofp/newlib/../../../../../../newlib/libc/stdio/nano-vfprintf.c:472
+08003eb4 T _vfprintf_r	/build/reproducible-path/newlib-4.5.0.20241231/newlib/libc/include/stdio.h:509
+08003b60 T _wctomb_r	/build/reproducible-path/newlib-4.5.0.20241231/newlib/libc/include/stdlib.h:114
+080052c0 T _write	/build/reproducible-path/newlib-4.5.0.20241231/build/arm-none-eabi/thumb/v8-m.main/nofp/libgloss/../../../../../../libgloss/libnosys/write.c:14
+08004524 T _write_r	/build/reproducible-path/newlib-4.5.0.20241231/newlib/libc/include/reent.h:159
+08003760 T abort	/build/reproducible-path/newlib-4.5.0.20241231/newlib/libc/include/stdlib.h:69
+080194f8 t acknowledge_fault_parameters_valid	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/application/command_policy.c:17
+20040b30 b active_begin	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/platform/stm32/stm32_iis3dwb_st_window.c:26
+20040b38 b active_data	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/platform/stm32/stm32_iis3dwb_st_window.c:27
+20040b34 b active_length	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/platform/stm32/stm32_iis3dwb_st_window.c:26
+20040b2c b active_phase	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/platform/stm32/stm32_iis3dwb_st_window.c:26
+20040b28 b active_trace	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/platform/stm32/stm32_iis3dwb_st_window.c:26
+0800f03c t admission	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/platform/stm32/stm32_r4_bench.c:94
+08013804 t ascii	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/application/persistent_identity.c:12
+20040c1c b baseline	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/platform/stm32/stm32_r4_bench.c:21
+08019a04 t baseline_sha	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/platform/stm32/stm32_r4_bench.c:33
+20040b3c B bench_cleanup_mode	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/platform/stm32/stm32_iis3dwb_st_window.c:45
+2001ab1c B bench_core_hz	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/platform/stm32/stm32_iis3dwb_st_window.c:23
+0800d68a T bench_log_refusal	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/experiments/iis3dwb_st_reference/src/spi_diagnostic.c:15
+20040b40 B bench_log_refused	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/platform/stm32/stm32_iis3dwb_st_window.c:45
+2000ab04 B bench_payload	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/platform/stm32/stm32_iis3dwb_st_window.c:21
+2001ab08 B bench_payload_count	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/platform/stm32/stm32_iis3dwb_st_window.c:22
+20040b44 B bench_poll_aggregate	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/platform/stm32/stm32_iis3dwb_st_window.c:47
+2001ab20 B bench_preclose	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/platform/stm32/stm32_iis3dwb_st_window.c:24
+20040b20 B bench_preclose_count	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/platform/stm32/stm32_iis3dwb_st_window.c:25
+20040b24 B bench_preclose_overflow	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/platform/stm32/stm32_iis3dwb_st_window.c:25
+0800d618 T bench_rx_complete	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/experiments/iis3dwb_st_reference/src/spi_diagnostic.c:9
+0800d5c8 T bench_rx_offset	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/experiments/iis3dwb_st_reference/src/spi_diagnostic.c:3
+0800c98c T bench_spi_preclose	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/platform/stm32/stm32_iis3dwb_st_window.c:29
+2001ab0c B bench_stop	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/platform/stm32/stm32_iis3dwb_st_window.c:22
+20000b04 B bench_trace	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/platform/stm32/stm32_iis3dwb_st_window.c:20
+2001ab04 B bench_trace_count	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/platform/stm32/stm32_iis3dwb_st_window.c:22
+2001ab10 B bench_uid	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/platform/stm32/stm32_iis3dwb_st_window.c:23
+080120c4 t blank	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/application/live_configuration.c:26
+08015b58 t blank	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/persistence/live_command_store.c:18
+08014344 t block	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/common/sha256.c:18
+2008d878 b bounded	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/platform/stm32/stm32_r4_bench.c:23
+08005c8a t bounded_read	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/platform/stm32/stm32_fram_storage.c:280
+08005cd0 t bounded_write	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/platform/stm32/stm32_fram_storage.c:286
+0800e2ee t budget	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/platform/stm32/live_fifo_acquisition.c:40
+080059ca t build_command_address	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/platform/stm32/stm32_fram_storage.c:114
+080134ee t cancel_timers	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/application/live_metrology.c:10
+20080c1c b candidate	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/platform/stm32/stm32_r4_bench.c:21
+08015bf0 t check	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/persistence/live_command_store.c:21
+08012390 t check_provenance	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/application/live_configuration.c:69
+0801248c t check_r1_control_boundary	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/application/live_configuration.c:86
+0800cad8 t cleanup_begin	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/platform/stm32/stm32_iis3dwb_st_window.c:48
+08003558 t cleanup_stdio	/build/reproducible-path/newlib-4.5.0.20241231/build_nano/arm-none-eabi/thumb/v8-m.main/nofp/newlib/../../../../../../newlib/libc/stdio/findfp.c:230
+0800f36c t command	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/platform/stm32/stm32_r4_bench.c:139
+0801498c T command_request_identity_equal	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/domain/command/command.c:10
+08019574 T command_request_policy_validate	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/application/command_policy.c:78
+0801496c T command_transaction_id_is_valid	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/domain/command/command.c:5
+0800f1c0 t compare_protected	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/platform/stm32/stm32_r4_bench.c:116
+08010110 t complete	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/application/live_command_engine.c:69
+200001d8 b completed.1
+2008d948 b configuration	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/platform/stm32/stm32_r4_bench.c:25
+08014a88 T configuration_validate_live	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/domain/configuration/configuration_validator.c:90
+08019a24 t constants	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/common/sha256.c:5
+0800ecc0 t consume	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/platform/stm32/stm32_r4_bench.c:42
+0800e488 t controls	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/experiments/iis3dwb_st_reference/src/fifo_live.c:4
+08014728 t cooperative_sha_impl	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/common/sha256.c:38
+08012018 t crc	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/application/live_configuration.c:13
+08013798 t crc	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/application/persistent_identity.c:11
+08015aac t crc	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/persistence/live_command_store.c:10
+08015208 t crc32_bytes	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/persistence/configuration_record.c:43
+080175a8 t crc32_bytes	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/persistence/transactional_image_media.c:17
+08005872 t cs_high	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/platform/stm32/stm32_fram_storage.c:22
+08005892 t cs_low	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/platform/stm32/stm32_fram_storage.c:27
+0800fccc t decision	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/application/live_command_engine.c:6
+0801643c t decode_effect	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/persistence/live_command_store.c:87
+08016224 t decode_epoch	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/persistence/live_command_store.c:71
+080154da t decode_payload	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/persistence/configuration_record.c:100
+08013aa4 t decode_version	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/application/persistent_identity.c:35
+0801582c t decode_version	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/persistence/configuration_record.c:162
+08000238 t deregister_tm_clones
+200907d8 b elapsed_cycles	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/platform/stm32/stm32_r4_bench.c:31
+08016378 t encode_effect	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/persistence/live_command_store.c:81
+08016178 t encode_epoch	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/persistence/live_command_store.c:65
+08014cc6 t encode_fixed_ascii_32	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/modbus/b4_configuration_codec.c:7
+08017a9c t encode_image_header	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/persistence/transactional_image_media.c:140
+0801527c t encode_payload	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/persistence/configuration_record.c:64
+08017b50 t encode_superblock	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/persistence/transactional_image_media.c:149
+08014d24 t encode_u32	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/modbus/b4_configuration_codec.c:19
+08013900 t encode_version	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/application/persistent_identity.c:22
+0801576c t encode_version	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/persistence/configuration_record.c:138
+200907e0 B end
+20090148 b engine	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/platform/stm32/stm32_r4_bench.c:27
+20000338 B errno	/build/reproducible-path/newlib-4.5.0.20241231/build_nano/arm-none-eabi/thumb/v8-m.main/nofp/newlib/../../../../../../newlib/libc/reent/reent.c:26
+08005ddc t event_push_from_isr	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/platform/stm32/stm32_serial_transport.c:92
+080199e8 t expected.0	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/experiments/iis3dwb_st_reference/src/fifo_live.c:6
+08013f68 t failed	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/common/cooperative_work.c:12
+0800e6ce t fault	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/experiments/iis3dwb_st_reference/src/fifo_live.c:32
+0800ff8c t fault	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/application/live_command_engine.c:43
+080038b8 T fflush	/build/reproducible-path/newlib-4.5.0.20241231/newlib/libc/include/stdio.h:198
+0800e58c T fifo_live_init	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/experiments/iis3dwb_st_reference/src/fifo_live.c:12
+0800e908 T fifo_live_observe	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/experiments/iis3dwb_st_reference/src/fifo_live.c:59
+0800e96c T fifo_live_poll	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/experiments/iis3dwb_st_reference/src/fifo_live.c:65
+0800e6f0 T fifo_live_start	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/experiments/iis3dwb_st_reference/src/fifo_live.c:34
+0800e614 T fifo_live_stop	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/experiments/iis3dwb_st_reference/src/fifo_live.c:19
+0800d51c T fifo_window_parse_word	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/experiments/iis3dwb_st_reference/src/fifo_window.c:27
+0800d4c4 T fifo_window_read_status	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/experiments/iis3dwb_st_reference/src/fifo_window.c:17
+08003bac T fiprintf	/build/reproducible-path/newlib-4.5.0.20241231/build_nano/arm-none-eabi/thumb/v8-m.main/nofp/newlib/../../../../../../newlib/libc/stdio/fprintf.c:49
+08003bac T fprintf	/build/reproducible-path/newlib-4.5.0.20241231/newlib/libc/include/stdio.h:202
+2008d868 b fram	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/platform/stm32/stm32_r4_bench.c:22
+080002a4 t frame_dummy
+08002564 T free	/build/reproducible-path/newlib-4.5.0.20241231/newlib/libc/include/malloc.h:45
+08013744 t g16	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/application/persistent_identity.c:9
+08015972 t g16	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/persistence/live_command_store.c:4
+0801376e t g32	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/application/persistent_identity.c:10
+0801599c t g32	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/persistence/live_command_store.c:5
+080159c4 t g64	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/persistence/live_command_store.c:6
+08000000 R g_pfnVectors
+20000464 b g_serial	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/platform/stm32/stm32_serial_transport.c:49
+08011edc t get16	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/application/live_configuration.c:7
+08011f06 t get32	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/application/live_configuration.c:8
+08011f2e t get64	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/application/live_configuration.c:9
+080174fa t get_u16	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/persistence/transactional_image_media.c:13
+080151aa t get_u16_be	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/persistence/configuration_record.c:30
+08017524 t get_u32	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/persistence/transactional_image_media.c:14
+080151d4 t get_u32_be	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/persistence/configuration_record.c:35
+08017558 t get_u64	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/persistence/transactional_image_media.c:15
+0800359c t global_stdio_init.part.0	/build/reproducible-path/newlib-4.5.0.20241231/build_nano/arm-none-eabi/thumb/v8-m.main/nofp/newlib/../../../../../../newlib/libc/stdio/findfp.c:159
+08012102 t header	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/application/live_configuration.c:28
+08015b96 t header	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/persistence/live_command_store.c:19
+2000033c b heap_end.0	/build/reproducible-path/newlib-4.5.0.20241231/build/arm-none-eabi/thumb/v8-m.main/nofp/libgloss/../../../../../../libgloss/libnosys/sbrk.c:11
+2008d888 b historical	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/platform/stm32/stm32_r4_bench.c:24
+20000340 b hspi1	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/platform/stm32/main.c:140
+200003d0 b hspi3	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/platform/stm32/main.c:141
+0800ef08 t identity_ok	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/platform/stm32/stm32_r4_bench.c:77
+0800d310 T iis3dwb_auto_increment_set	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/experiments/iis3dwb_st_reference/vendor/st/iis3dwb_reg.c:1253
+0800d1bc T iis3dwb_block_data_update_set	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/experiments/iis3dwb_st_reference/vendor/st/iis3dwb_reg.c:298
+0800d2ee T iis3dwb_device_id_get	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/experiments/iis3dwb_st_reference/vendor/st/iis3dwb_reg.c:1191
+0800d424 T iis3dwb_fifo_mode_set	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/experiments/iis3dwb_st_reference/vendor/st/iis3dwb_reg.c:2897
+0800d474 T iis3dwb_fifo_timestamp_batch_set	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/experiments/iis3dwb_st_reference/vendor/st/iis3dwb_reg.c:3045
+0800d360 T iis3dwb_fifo_watermark_set	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/experiments/iis3dwb_st_reference/vendor/st/iis3dwb_reg.c:2712
+0800d3d4 T iis3dwb_fifo_xl_batch_set	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/experiments/iis3dwb_st_reference/vendor/st/iis3dwb_reg.c:2832
+0800d0a8 W iis3dwb_read_reg	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/experiments/iis3dwb_st_reference/vendor/st/iis3dwb_reg.c:49
+0800d29e T iis3dwb_timestamp_set	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/experiments/iis3dwb_st_reference/vendor/st/iis3dwb_reg.c:783
+0800d0e2 W iis3dwb_write_reg	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/experiments/iis3dwb_st_reference/vendor/st/iis3dwb_reg.c:71
+0800d20c T iis3dwb_xl_axis_selection_set	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/experiments/iis3dwb_st_reference/vendor/st/iis3dwb_reg.c:408
+0800d16c T iis3dwb_xl_data_rate_set	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/experiments/iis3dwb_st_reference/vendor/st/iis3dwb_reg.c:236
+0800d11c T iis3dwb_xl_full_scale_set	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/experiments/iis3dwb_st_reference/vendor/st/iis3dwb_reg.c:166
+08017872 t image_base	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/persistence/transactional_image_media.c:99
+08014a38 t indicator_period_is_valid	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/domain/configuration/configuration_validator.c:10
+080121e4 t initialized	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/application/live_configuration.c:33
+2008d8e8 b live	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/platform/stm32/stm32_r4_bench.c:24
+0800fd0c T live_command_context_decide	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/application/live_command_engine.c:8
+08011d24 T live_command_engine_boot	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/application/live_command_engine.c:342
+080103da t live_command_engine_boot_impl	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/application/live_command_engine.c:98
+0800ffec T live_command_engine_fault	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/application/live_command_engine.c:49
+0801037a T live_command_engine_init	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/application/live_command_engine.c:93
+08011e6c T live_command_engine_prepare	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/application/live_command_engine.c:372
+080106aa t live_command_engine_prepare_impl	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/application/live_command_engine.c:131
+08011e00 T live_command_engine_step	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/application/live_command_engine.c:362
+080114ec t live_command_engine_step_impl	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/application/live_command_engine.c:227
+08011d90 T live_command_engine_submit	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/application/live_command_engine.c:352
+08010726 t live_command_engine_submit_impl	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/application/live_command_engine.c:138
+08015f9c T live_command_record_decode	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/persistence/live_command_store.c:51
+08015dec T live_command_record_encode	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/persistence/live_command_store.c:39
+08016fcc T live_command_store_allocate	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/persistence/live_command_store.c:204
+080170ac T live_command_store_commit	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/persistence/live_command_store.c:211
+08016ec4 T live_command_store_init	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/persistence/live_command_store.c:185
+08016f58 T live_command_store_lookup	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/persistence/live_command_store.c:199
+08016f08 T live_command_store_recover	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/persistence/live_command_store.c:191
+080132fe T live_configuration_active	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/application/live_configuration.c:282
+0801345e T live_configuration_apply	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/application/live_configuration.c:323
+08012fac t live_configuration_apply_impl	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/application/live_configuration.c:239
+0801337e T live_configuration_bind_control	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/application/live_configuration.c:306
+08012a1c T live_configuration_init	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/application/live_configuration.c:148
+08012d44 T live_configuration_migrate	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/application/live_configuration.c:196
+080133da T live_configuration_recover	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/application/live_configuration.c:314
+08012b18 t live_configuration_recover_impl	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/application/live_configuration.c:163
+0800e334 T live_fifo_acquisition_init	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/platform/stm32/live_fifo_acquisition.c:42
+0800e3e4 T live_fifo_acquisition_poll	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/platform/stm32/live_fifo_acquisition.c:51
+0800e394 T live_fifo_acquisition_port	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/platform/stm32/live_fifo_acquisition.c:49
+08013524 T live_metrology_invalidate	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/application/live_metrology.c:18
+080135ac T live_metrology_start	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/application/live_metrology.c:27
+080136b2 T live_metrology_stop	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/application/live_metrology.c:40
+0800254c T localeconv	/build/reproducible-path/newlib-4.5.0.20241231/newlib/libc/include/locale.h:84
+080052e0 T main	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/platform/stm32/main.c:1778
+08002554 T malloc	/build/reproducible-path/newlib-4.5.0.20241231/newlib/libc/include/malloc.h:37
+08006000 t map_uart_error	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/platform/stm32/stm32_serial_transport.c:276
+08018644 t media_commit_cb	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/persistence/transactional_image_media.c:278
+0801837e t media_commit_cb_impl	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/persistence/transactional_image_media.c:237
+0801730c t media_contract_valid	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/persistence/persistent_storage_core.c:9
+08018578 t media_read_cb	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/persistence/transactional_image_media.c:264
+08018240 t media_read_cb_impl	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/persistence/transactional_image_media.c:214
+080185de t media_write_cb	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/persistence/transactional_image_media.c:271
+080182ce t media_write_cb_impl	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/persistence/transactional_image_media.c:222
+080034a4 T memchr	/build/reproducible-path/newlib-4.5.0.20241231/newlib/libc/include/string.h:29
+08000d34 T memcmp	/build/reproducible-path/newlib-4.5.0.20241231/newlib/libc/include/string.h:30
+08002454 T memcpy	/build/reproducible-path/newlib-4.5.0.20241231/build_nano/arm-none-eabi/thumb/v8-m.main/nofp/newlib/../../../../../../newlib/libc/machine/arm/memcpy-armv7m.S:102
+08000b40 T memmove	/build/reproducible-path/newlib-4.5.0.20241231/newlib/libc/include/string.h:32
+08000c90 T memset	/build/reproducible-path/newlib-4.5.0.20241231/newlib/libc/include/string.h:33
+08014f86 T modbus_codec_ascii_fixed_encode	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/modbus/codec.c:33
+08014f52 T modbus_codec_u32_to_msw_lsw	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/modbus/codec.c:4
+08015060 T modbus_project_b0	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/modbus/projection.c:120
+0800defc t now	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/platform/stm32/stm32_live_acquisition.c:8
+0800ec58 t now_us	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/platform/stm32/stm32_r4_bench.c:36
+200001dc b object.0
+0800e258 t observe	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/platform/stm32/live_fifo_acquisition.c:28
+20090330 b owner	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/platform/stm32/stm32_r4_bench.c:28
+0800ef4c t ownership	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/platform/stm32/stm32_r4_bench.c:79
+080196e0 t p05.0	/build/reproducible-path/newlib-4.5.0.20241231/build_nano/arm-none-eabi/thumb/v8-m.main/nofp/newlib/../../../../../../newlib/libc/stdlib/mprec.c:428
+080136e8 t p16	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/application/persistent_identity.c:7
+08015a14 t p16	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/persistence/live_command_store.c:7
+08013714 t p32	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/application/persistent_identity.c:8
+08015a40 t p32	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/persistence/live_command_store.c:8
+08015a70 t p64	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/persistence/live_command_store.c:9
+08013d84 T persistent_identity_attribution_check	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/application/persistent_identity.c:96
+08013e54 T persistent_identity_decode	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/application/persistent_identity.c:121
+08013e94 T persistent_identity_decode_live	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/application/persistent_identity.c:126
+08013e76 T persistent_identity_encode_live	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/application/persistent_identity.c:124
+08013ccc T persistent_identity_from_image	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/application/persistent_identity.c:51
+0801741a T persistent_storage_core_commit	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/persistence/persistent_storage_core.c:73
+08017348 T persistent_storage_core_init	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/persistence/persistent_storage_core.c:17
+08017384 T persistent_storage_core_is_initialized	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/persistence/persistent_storage_core.c:30
+080173be T persistent_storage_core_write	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/persistence/persistent_storage_core.c:54
+08017a4c t physical_read	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/persistence/transactional_image_media.c:135
+08017640 t physical_region_end	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/persistence/transactional_image_media.c:24
+08017a74 t physical_write	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/persistence/transactional_image_media.c:137
+0800ceb8 T platform_init	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/platform/stm32/stm32_iis3dwb_st_window.c:135
+0800ce5c T platform_read	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/platform/stm32/stm32_iis3dwb_st_window.c:105
+0800ce8a T platform_write	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/platform/stm32/stm32_iis3dwb_st_window.c:106
+0800fed0 t port_available	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/application/live_command_engine.c:33
+0800f2cc t prepared	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/platform/stm32/stm32_r4_bench.c:127
+200907d0 b previous_cycles	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/platform/stm32/stm32_r4_bench.c:30
+08019548 t protected_command	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/application/command_policy.c:31
+08011f7e t put16	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/application/live_configuration.c:10
+08011faa t put32	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/application/live_configuration.c:11
+08011fda t put64	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/application/live_configuration.c:12
+08017452 t put_u16	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/persistence/transactional_image_media.c:10
+0801513e t put_u16_be	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/persistence/configuration_record.c:16
+0801747e t put_u32	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/persistence/transactional_image_media.c:11
+0801516a t put_u32_be	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/persistence/configuration_record.c:22
+080174be t put_u64	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/persistence/transactional_image_media.c:12
+0800f450 t qualify	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/platform/stm32/stm32_r4_bench.c:149
+08001408 t quorem	/build/reproducible-path/newlib-4.5.0.20241231/build_nano/arm-none-eabi/thumb/v8-m.main/nofp/newlib/../../../../../../newlib/libc/stdlib/dtoa.c:41
+20040b60 B r4_result	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/platform/stm32/stm32_r4_bench.c:19
+20040c18 B r4_trigger	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/platform/stm32/stm32_r4_bench.c:20
+08003d04 T raise	/build/reproducible-path/newlib-4.5.0.20241231/newlib/libc/include/signal.h:29
+08005840 t range_is_valid	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/platform/stm32/stm32_fram_storage.c:13
+08017838 t range_ok	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/persistence/transactional_image_media.c:93
+0800f088 t read_baseline	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/platform/stm32/stm32_r4_bench.c:103
+08014310 t read_be	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/common/sha256.c:16
+0801229a t read_history	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/application/live_configuration.c:50
+0800ee78 t read_physical	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/platform/stm32/stm32_r4_bench.c:71
+08005a3c t read_status_register	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/platform/stm32/stm32_fram_storage.c:138
+0800fe4c t ready	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/application/live_command_engine.c:28
+080102b4 t receipt_matches	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/application/live_command_engine.c:85
+080058e6 t receive	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/platform/stm32/stm32_fram_storage.c:48
+08005972 t receive_chunked	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/platform/stm32/stm32_fram_storage.c:89
+0801217c t record_ok	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/application/live_configuration.c:31
+0801259c t recover_configuration	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/application/live_configuration.c:102
+08018ba0 t recover_impl	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/persistence/transactional_image_media.c:404
+08018784 t recover_live	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/persistence/transactional_image_media.c:321
+08012264 t recovery_error	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/application/live_configuration.c:41
+080106f2 t refuse	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/application/live_command_engine.c:136
+0801767a t regions_overlap	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/persistence/transactional_image_media.c:32
+08000254 t register_tm_clones
+080194a8 t request_parameters_must_be_zero	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/application/command_policy.c:5
+0801007a t restore_last	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/application/live_command_engine.c:57
+08005f58 t restore_receive	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/platform/stm32/stm32_serial_transport.c:149
+08012222 t revoke	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/application/live_configuration.c:35
+080142f4 t rotate	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/common/sha256.c:15
+08005f3c t rtu_timer_restart_from_byte	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/platform/stm32/stm32_serial_transport.c:127
+08005ed0 t rtu_timer_start_period	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/platform/stm32/stm32_serial_transport.c:117
+08005e5c t rtu_timer_stop	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/platform/stm32/stm32_serial_transport.c:109
+0800fe82 t same_request	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/application/live_command_engine.c:30
+0800392c t sbrk_aligned	/build/reproducible-path/newlib-4.5.0.20241231/build_nano/arm-none-eabi/thumb/v8-m.main/nofp/newlib/../../../../../../newlib/libc/stdlib/nano-mallocr.c:209
+080199e4 t scales	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/experiments/iis3dwb_st_reference/src/fifo_live.c:3
+08012154 t seal	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/application/live_configuration.c:30
+08016580 t select_pair	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/persistence/live_command_store.c:96
+08005a0a t send_simple_command	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/platform/stm32/stm32_fram_storage.c:125
+20000afc b sensor_spi	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/platform/stm32/stm32_iis3dwb_st_window.c:12
+0800edd8 t service	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/platform/stm32/stm32_r4_bench.c:61
+08003d58 T signal	/build/reproducible-path/newlib-4.5.0.20241231/newlib/libc/include/signal.h:28
+0800ed54 t snapshot	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/platform/stm32/stm32_r4_bench.c:51
+0800e0e0 t start	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/platform/stm32/live_fifo_acquisition.c:3
+08003540 t stdio_exit_handler	/build/reproducible-path/newlib-4.5.0.20241231/build_nano/arm-none-eabi/thumb/v8-m.main/nofp/newlib/../../../../../../newlib/libc/stdio/findfp.c:153
+08005d18 T stm32_fram_storage_bounded_physical	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/platform/stm32/stm32_fram_storage.c:292
+08005a86 T stm32_fram_storage_init	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/platform/stm32/stm32_fram_storage.c:155
+08005ade T stm32_fram_storage_read	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/platform/stm32/stm32_fram_storage.c:191
+08005b7a T stm32_fram_storage_write	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/platform/stm32/stm32_fram_storage.c:224
+0800df90 T stm32_live_acquisition_attach	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/platform/stm32/stm32_live_acquisition.c:15
+0800e038 T stm32_live_acquisition_poll	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/platform/stm32/stm32_live_acquisition.c:27
+0800fad8 T stm32_r4_benchmark_run	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/platform/stm32/stm32_r4_bench.c:198
+08005d50 T stm32_rs485_rx_gpio_init	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/platform/stm32/stm32_rs485_rx_gpio.c:4
+0800604c T stm32_serial_transport_irq_handler	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/platform/stm32/stm32_serial_transport.c:400
+08006078 T stm32_serial_transport_tim6_irq_handler	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/platform/stm32/stm32_serial_transport.c:409
+0800d038 T stm32_st_transport_attach	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/platform/stm32/stm32_iis3dwb_st_window.c:178
+0800d080 T stm32_st_transport_next_window	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/platform/stm32/stm32_iis3dwb_st_window.c:186
+0800caf0 t stop	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/platform/stm32/stm32_iis3dwb_st_window.c:49
+0800e200 t stop	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/platform/stm32/live_fifo_acquisition.c:19
+0800ecfc t stop	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/platform/stm32/stm32_r4_bench.c:44
+0800ff06 t stop_confirmed	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/application/live_command_engine.c:35
+08010006 t storage_fault	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/application/live_command_engine.c:51
+2008db90 b store	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/platform/stm32/stm32_r4_bench.c:26
+08002914 T strlen	/build/reproducible-path/newlib-4.5.0.20241231/newlib/libc/include/string.h:41
+08017898 t superblock_base	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/persistence/transactional_image_media.c:104
+08017bf0 t supported_shape	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/persistence/transactional_image_media.c:159
+080100be t terminal_time	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/application/live_command_engine.c:62
+08014e80 T tr2_b4_crc32_registers	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/modbus/b4_configuration_codec.c:90
+08014f28 T tr2_b4_prepared_payload_crc	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/modbus/b4_configuration_codec.c:119
+08014d44 T tr2_b4_serialize_prepared_payload	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/modbus/b4_configuration_codec.c:24
+0801590c T tr2_configuration_record_decode	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/persistence/configuration_record.c:203
+08015950 T tr2_configuration_record_decode_live	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/persistence/configuration_record.c:211
+0801592e T tr2_configuration_record_encode_live	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/persistence/configuration_record.c:207
+08013fa2 T tr2_cooperative_checkpoint	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/common/cooperative_work.c:16
+08014240 T tr2_cooperative_enter	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/common/cooperative_work.c:51
+0801418c T tr2_cooperative_equal	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/common/cooperative_work.c:37
+08013eb6 T tr2_cooperative_init	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/common/cooperative_work.c:3
+080142ac T tr2_cooperative_leave	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/common/cooperative_work.c:59
+08013f38 T tr2_cooperative_status	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/common/cooperative_work.c:10
+20000460 B tr2_iis3dwb_spi_init_ok	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/platform/stm32/main.c:566
+20000718 B tr2_irq_observer	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/platform/stm32/stm32_serial_transport.c:52
+0801491c T tr2_sha256_bytes_cooperative	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/common/sha256.c:65
+080177f8 T transactional_image_geometry_qualification_profile	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/persistence/transactional_image_media.c:80
+080176e4 T transactional_image_geometry_validate	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/persistence/transactional_image_media.c:41
+0801942e T transactional_image_media_bind_work	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/persistence/transactional_image_media.c:542
+080192a0 T transactional_image_media_create_live	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/persistence/transactional_image_media.c:510
+080186b4 T transactional_image_media_init	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/persistence/transactional_image_media.c:287
+08019218 T transactional_image_media_init_live	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/persistence/transactional_image_media.c:493
+080191be T transactional_image_media_init_v2	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/persistence/transactional_image_media.c:449
+08019194 T transactional_image_media_interface	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/persistence/transactional_image_media.c:446
+080193a2 T transactional_image_media_recover	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/persistence/transactional_image_media.c:534
+0800cb04 t transfer	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/platform/stm32/stm32_iis3dwb_st_window.c:50
+080178fe t transfer	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/persistence/transactional_image_media.c:114
+080058b2 t transmit	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/platform/stm32/stm32_fram_storage.c:32
+0800591a t transmit_chunked	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/platform/stm32/stm32_fram_storage.c:64
+20000b00 b transport_claimed	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/platform/stm32/stm32_iis3dwb_st_window.c:13
+08005f90 t tx_fail_safe	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/platform/stm32/stm32_serial_transport.c:155
+080199f8 t uid	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/platform/stm32/stm32_r4_bench.c:32
+08012084 t uniform	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/application/live_configuration.c:24
+08015b18 t uniform	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/persistence/live_command_store.c:16
+080178be t uniform	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/persistence/transactional_image_media.c:109
+20000af8 B uwTick	/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal.c:77
+200001d0 D uwTickFreq	/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal.c:79
+200001cc D uwTickPrio	/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal.c:78
+08013856 t valid	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/application/persistent_identity.c:13
+08015c9c t valid_record	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/persistence/live_command_store.c:28
+08016692 t validate_control	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/persistence/live_command_store.c:108
+08017c68 t validate_image	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/persistence/transactional_image_media.c:166
+08017fc0 t validate_superblock	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/persistence/transactional_image_media.c:190
+080040ec T vfiprintf	/build/reproducible-path/newlib-4.5.0.20241231/build_nano/arm-none-eabi/thumb/v8-m.main/nofp/newlib/../../../../../../newlib/libc/stdio/nano-vfprintf.c:443
+080040ec T vfprintf	/build/reproducible-path/newlib-4.5.0.20241231/newlib/libc/include/stdio.h:212
+080149f8 t window_size_is_valid	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/domain/configuration/configuration_validator.c:5
+20090790 b work	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/platform/stm32/stm32_r4_bench.c:29
+0800ef98 t write_physical	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/platform/stm32/stm32_r4_bench.c:87

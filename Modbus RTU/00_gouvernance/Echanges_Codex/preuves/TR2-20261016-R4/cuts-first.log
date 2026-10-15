@@ -1,0 +1,12 @@
+Cooperative callback failure, deadline/reversal, sticky abort and reentry, unchanged SHA: PASS
+Power-loss stage 0: 142 budgets, protected bytes/no redispatch: PASS
+Power-loss stage 1: 142 budgets, protected bytes/no redispatch: PASS
+Power-loss stage 2: 142 budgets, protected bytes/no redispatch: PASS
+Power-loss stage 3: 142 budgets, protected bytes/no redispatch: PASS
+Power-loss stage 4: 142 budgets, protected bytes/no redispatch: PASS
+Power-loss stage 5: 142 budgets, protected bytes/no redispatch: PASS
+Power-loss stage 6: 142 budgets, protected bytes/no redispatch: PASS
+Power-loss stage 7: 142 budgets, protected bytes/no redispatch: PASS
+Power-loss stage 8: 142 budgets, protected bytes/no redispatch: PASS
+Power-loss stage 9: 283 budgets, protected bytes/no redispatch: PASS
+Original 1561 R2 power-loss oracles reused with cooperative physical chunks/CRC/SHA, all phases: PASS

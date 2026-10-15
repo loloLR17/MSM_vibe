@@ -1,0 +1,7 @@
+/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/experiments/iis3dwb_st_reference/src/fifo_live.c:4:12:controls	48	static
+/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/experiments/iis3dwb_st_reference/src/fifo_live.c:12:5:fifo_live_init	32	static
+/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/experiments/iis3dwb_st_reference/src/fifo_live.c:19:5:fifo_live_stop	24	static
+/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/experiments/iis3dwb_st_reference/src/fifo_live.c:32:12:fault	16	static
+/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/experiments/iis3dwb_st_reference/src/fifo_live.c:34:5:fifo_live_start	32	static
+/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/experiments/iis3dwb_st_reference/src/fifo_live.c:59:5:fifo_live_observe	16	static
+/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/experiments/iis3dwb_st_reference/src/fifo_live.c:65:5:fifo_live_poll	144	static

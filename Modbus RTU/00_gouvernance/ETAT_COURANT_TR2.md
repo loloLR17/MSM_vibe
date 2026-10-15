@@ -192,3 +192,12 @@ Publication R3-B vérifiée : code1c5368f, preuves/rapport faf0f94 sur main relu
 - **VALIDÉ LOGICIEL / EN COURS** : codeae3d52f,136tests/ARM et sanitizers ; quantaFRAM/CRC/SHA/scans, mêmes1561oracles coupure, image physique identique au modèle noncoop. Charge simulée620,605s/13,77MXYZ, FIFOmax19/overflow0 et RTU réel sur UART simulée. Pas qualification physique ni protocole2.
 - **OBSERVÉ DEBUG / SAUVEGARDÉ** : utilisateur confirme TR2-001 inchangé ; UID/SN relus, Flash2Mio sauvegardée et doublelecture conforme, firmwareM016tentative2 exact. FRAM262144 doublelecture conforme SHA d732acc557152180fc394097d6a5269ea2f45c1da387c8643f512318adf92fce ; gen12 historique, LIVE/tail vides0. RCC/SPI1 :2,5MHz configurés déduits, pas mesure électrique. Aucun reset/flash/NVMwrite/SD/RS485 ; GDB détaché, ancien firmware reprend attente.
 - **SUITE** : préparer probeWAIT sansSD, garde UID/backup/ownership stricte avant toutwriteLIVE, qualifier progressivement les marges ; provider temps capteur absent donc B3invalide. Préserver historique/tail et restaurer ancien firmware si successeur non qualifié.
+
+
+R4 complément physique16/10local : utilisateur confirme TR2-001 inchangé ; probe
+R4 distinct RAM-trigger chargé/vérifié. TimeoutHAL1ms trop court au tick corrigé2ms ;
+attente premier mot séparée (20ms probe, défaut inchangé), arrivée observée11ms.
+Préfixe FRAMlecture/FIFO180826XYZ sans défaut/niveau18 ; contrôle final interrompu
+par halt GDB, donc pas RUN entier PASS. FRAM262144octets ensuite vérifiés inchangés.
+R1/R2 en cours sans halt, sauvegarde firmwareM016 conservée pour restauration ;
+aucune SD/RS485 ni qualification LIVE/B3. Code12e7a1f,136tests/ARM/sanitizers PASS.

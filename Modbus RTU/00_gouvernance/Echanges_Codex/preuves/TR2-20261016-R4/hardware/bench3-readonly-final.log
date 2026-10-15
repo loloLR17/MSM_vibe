@@ -1,0 +1,5 @@
+0x08006570 in HAL_Delay (Delay=1) at /home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal.c:419
+419	  while ((HAL_GetTick() - tickstart) < wait)
+0xbfa0700:	0x004a003d	0x38425018	0x20333157
+$1 = {stage = 2147483651, error = 8, line = 167, command = 1, ownership = 0, read_passes = 1, commands = 0, core_hz = 160000000, spi1_hz = 2500000, spi3_hz = 4000000, tick_start = 6208, tick_end = 15480, max_read_us = 1399, max_write_us = 0, max_gap_us = 601, last_poll_us = 15080923, safety_us = 236, first_data_us = 11043, start_us = 8267854, read_bytes = 720704, write_bytes = 0, xyz = 180826, timestamps = 22604, polls = 11522, elapsed_us = 15480103, max_level = 18, fifo_error = 0, stop_error = 0, engine_status = 0, engine_result = 0, protected_equal = 0, baseline_equal = 1}
+$2 = {context = 0x0, now_us = 0x800ec59 <now_us>, service = 0x800edd9 <service>, safety_stop = 0x800ecfd <stop>, last_us = 15478459, max_work_us = 230, max_service_us = 461, checkpoints = 26625, work_limit_us = 1000, service_limit_us = 2500, quantum_bytes = 32, depth = 1, error = TR2_OK, servicing = false, seen = true, deadline_missed = false}

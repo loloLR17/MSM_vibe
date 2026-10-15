@@ -1,0 +1,14 @@
+[1/14] Building C object CMakeFiles/test_stm32_fram_bounded.dir/tests/platform/test_stm32_fram_bounded.c.o
+[2/14] Building C object CMakeFiles/test_live_fifo.dir/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/experiments/iis3dwb_st_reference/src/fifo_live.c.o
+[3/14] Building C object CMakeFiles/test_live_fifo.dir/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/experiments/iis3dwb_st_reference/src/fifo_cooperative.c.o
+[4/14] Building C object CMakeFiles/test_cooperative_fram_fifo.dir/platform/stm32/live_fifo_acquisition.c.o
+[5/14] Building C object CMakeFiles/test_live_fifo.dir/platform/stm32/live_fifo_acquisition.c.o
+[6/14] Building C object CMakeFiles/test_cooperative_fram_fifo.dir/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/experiments/iis3dwb_st_reference/src/fifo_live.c.o
+[7/14] Building C object CMakeFiles/test_stm32_fram_bounded.dir/platform/stm32/stm32_fram_storage.c.o
+[8/14] Building C object CMakeFiles/test_live_fifo.dir/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/experiments/iis3dwb_st_reference/src/fifo_window.c.o
+[9/14] Linking C executable test_stm32_fram_bounded
+[10/14] Building C object CMakeFiles/test_live_fifo.dir/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/experiments/iis3dwb_st_reference/vendor/st/iis3dwb_reg.c.o
+[11/14] Building C object CMakeFiles/test_live_fifo.dir/tests/platform/test_live_fifo.c.o
+[12/14] Linking C executable test_live_fifo
+[13/14] Building C object CMakeFiles/test_cooperative_fram_fifo.dir/tests/platform/test_cooperative_fram_fifo.c.o
+[14/14] Linking C executable test_cooperative_fram_fifo
