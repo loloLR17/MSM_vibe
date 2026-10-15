@@ -1,0 +1,20 @@
+{
+  "head": "45ee898a6ebe9269e63904262dc9f1b9c8b87c78",
+  "files": 2167,
+  "bytes": 3524702,
+  "categories": {
+    "specification": 10,
+    "retire": 1,
+    "historique": 1530,
+    "cadrage": 104,
+    "detaille": 143,
+    "instancie": 305,
+    "source": 66,
+    "qualification": 1,
+    "mapping derive": 7
+  },
+  "exact_duplicate_groups": 129,
+  "exact_redundant_files": 129,
+  "keyword_occurrences": 1677,
+  "limitations": "Parcours de tous les octets UTF-8, indexation de contenu et classement structurel; pas affirmation de relecture humaine individuelle des milliers de fiches ni de qualification des tests. Les doublons exacts ne resolvent pas les doublons semantiques."
+}

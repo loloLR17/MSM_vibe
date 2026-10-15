@@ -1,0 +1,9 @@
+{
+  "errors": [],
+  "protected_files_verified": 2939,
+  "corpus_files_verified": 2167,
+  "traceability_paths_verified": 60,
+  "archive_byte_identical": true,
+  "stashes_unchanged": true,
+  "checks": "Controles de livrables documentaires; aucun test fonctionnel/firmware ni materiel."
+}
