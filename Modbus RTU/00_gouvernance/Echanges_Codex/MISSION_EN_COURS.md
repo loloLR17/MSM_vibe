@@ -1,8 +1,8 @@
 ---
-mission_id: TR2-20261014-P12H3H-CN8-DRIVER-DIFFERENTIAL
+mission_id: TR2-20261015-A06-DECOUPLAGE-SUPERVISION-STOCKAGE-AUDIT
 status: READY
 base_ref: main
-base_sha: b2f00a77250780a3ed62058cf4baca56325a78b3
+base_sha: 0c88e6ef195b44fdbf21890d946ef7ea8bf190fe
 author: ChatGPT
 target_branch: main
 allow_commit: true
@@ -11,22 +11,29 @@ allow_flash: false
 allow_debug: false
 ---
 
-# P12/H3h — Faisabilité CN8 et analyse différentielle des drivers SDMMC
+# A-06 — Étude d'impact : supervision vibratoire sans stockage de campagnes
 
-## Objectif
-Sortir des essais SDMMC répétitifs en évaluant deux pistes distinctes, sans nouvel essai matériel : (1) connexion du breakout microSD via CN8 pour contourner les soudures/connecteurs suspects, (2) comparaison causale du projet communautaire SDMMC1 avec le driver officiel ST effectivement utilisé dans les bancs historiques. Préserver l'objectif industriel d'enregistrement des vibrations ; aucune décision d'abandon du stockage ou de modification d'architecture.
+## Décision utilisateur et objectif
+Décision structurante du 15 octobre 2026 : découpler entièrement le développement et l'exploitation de la supervision vibratoire de la présence d'une capacité d'enregistrement durable des campagnes. La sauvegarde reste une fonctionnalité industrielle prévue et sera réintégrée lorsque SDMMC ou une autre solution de stockage sera qualifiée. Ne pas abandonner les campagnes, ne pas déclarer la V1 modifiée ou validée. Objectif immédiat : **audit documentaire et de faisabilité**, sans implémentation ni modification des spécifications gelées.
 
-## Références et méthode
-Partir du HEAD réel de main et consulter AGENTS.md, GOUVERNANCE_CHATGPT_CODEX.md, ETAT_COURANT_TR2.md, les preuves M016/M017, SDMMC1 PoC, FIRSTFAULT, ROOTCAUSE et le dernier rapport permutation DONE. Archiver intégralement mission et rapport permutation avant remplacement, sans réécrire l'histoire. Distinguer SDMMC2 historique, SDMMC1 récent, configurations, versions HAL, broches, horloges, modes et provenance des résultats. Ne pas refaire les essais ni une analyse générique déjà réalisée.
+## Périmètre obligatoire
+Lire le HEAD réel de main, AGENTS.md, GOUVERNANCE_CHATGPT_CODEX.md, état courant, roadmap, journal, mission et dernier rapport CN8, puis parcourir **intégralement et méthodiquement** :
+- `Modbus RTU/01_Specification_source/` (blocs 0 à 7, charte, V1_1);
+- `Modbus RTU/02_Validation/` (FT et TT pertinents, mapping unifié, qualifications et matrices; distinguer archives historiques, doublons et référentiels actifs).
+Compléter par l'architecture, le firmware, les tests et la supervision PC existants uniquement pour vérifier les dépendances réelles et la faisabilité. Reprendre l'obstacle déjà démontré par le rapport `TR2-20261013-M016-V1-VIBRATION`, et les acquis M014-H/M015-V, sans répéter les essais.
 
-### Axe A — CN8, faisabilité documentaire
-À partir des schémas ST MB1549, UM2861 et de la configuration carte réelle, vérifier **si CN8 est bien un connecteur utilisable pour tous les signaux SDMMC 4 bits nécessaires** (CLK, CMD, DAT0–DAT3, 3V3 et GND), pour quelle instance SDMMC et avec quels AF, straps/solder bridges, conflits de périphériques, masses, niveaux et limitations. Ne jamais présupposer CN8 compatible. Produire une table pin-à-pin vérifiée, ou conclure explicitement impossible/incomplet ; distinguer ce que le déplacement contournerait réellement (soudures, câbles, contacts) et les nouveaux risques. Ne demander aucun branchement ni soudure à ce stade.
+## Questions à résoudre
+1. Inventorier chaque exigence et test qui suppose la présence d'une microSD ou d'une capacité de stockage : B4 `storage_mode`/`storage_limit_mb`, activation de l'ActiveConfiguration, CRC/mirrors, B5 démarrer/arrêter acquisition, B1 statuts et fautes, B3 calcul/validité/alarmes, B6 inventaire, B7 diagnostics, recovery, persistance, autorité de configuration, supervision PC.
+2. Distinguer strictement **acquisition de mesures pour supervision live**, calcul et publication d'indicateurs B3, **enregistrement de campagnes**, et **historisation côté PC SQLite**. Préciser quelles fonctions doivent marcher sans média, lesquelles sont indisponibles et lesquelles peuvent continuer avec une panne/retrait de média, sans fausses données ni perte silencieuse.
+3. Proposer la plus petite évolution normative cohérente : maintien des adresses/types/endianness et contrats V1 autant que possible, analyse explicite de la possibilité d'un mode « supervision seule » sans stockage, encodage B4 (y compris CRC et version), compatibilité, migration des configurations persistées, refus anciens, codes d'état et d'erreur, B5, B6 et recovery. Ne jamais traiter `storage_mode=0` comme autorisé dans la V1 gelée sans proposition formelle de changement.
+4. Examiner les impacts de `02_Validation` : références FT-STR/ACC/LIM/BLK/INT/SEQ et leurs TT, couverture, oracles, cas nominal/sans média/erreur de média/réintégration, non-régression et preuves physiques nécessaires. Classer chaque élément : inchangé, à compléter, à modifier, nouveau, gel impacté; référencer les chemins exacts.
+5. Comparer au moins deux stratégies minimales (extension versionnée du protocole/configuration ou mode interne temporaire strictement borné, éventuellement autre voie justifiée), leurs compromis et recommandation pour progresser vite sans dette de conformité cachée. Établir une trajectoire de migration incrémentale et des critères d'acceptation pour la future mission d'implémentation, puis réintégration du stockage.
 
-### Axe B — Différences projet communautaire / référence ST
-Identifier exactement le dépôt, commit, licence et code du projet communautaire SDMMC1 utilisé dans le PoC, et les sources officielles ST / HAL STM32U5 / exemples pertinents, avec versions réellement utilisées. Comparer les implémentations et séquences **sur code source**, pas seulement les API : GPIO/AF, clocks, alimentation, init, CMD0/8/55/ACMD41, largeur 1→4 bits, ACMD6, ACMD13/SSR, CRC, FIFO/polling/DMA, gestion STA/ICR, timeouts, vitesse, fronts, bus width, retry, recovery, CMD12/CMD16 et interprétation des erreurs. Rechercher historique upstream, commits, issues et commentaires pour établir ce que la communauté a effectivement voulu corriger ; ne pas attribuer d'intention sans preuve. Construire une matrice différence → motif prouvé/supposé → mécanisme possible pour premier DCRCFAIL SSR → cohérence avec les réussites 4 bits et échecs 1/4 bits historiques → test discriminant éventuel. Mettre en avant les écarts réellement causaux et éviter les modifications opportunistes.
+## Livrables
+- Rapport argumenté `DERNIER_RAPPORT.md` avec matrice de traçabilité exigence → test → code → impact → proposition, priorités, risques et ambiguïtés à arbitrer par ChatGPT.
+- Une note d'étude autonome versionnée sous `Modbus RTU/00_gouvernance/` ou chemin approprié, **sans altérer les spécifications, FT/TT gelées, mapping ni code**.
+- Préconisation ferme sur faisabilité, compatibilité, ordre de réalisation et distinction des validations documentaires, logicielles et physiques.
+- Archiver mission et rapport CN8 existants sans perte, publier par commit/push sur main, puis relire à distance les fichiers et le SHA; rapporter preuves et limites.
 
-## Livrables et critères
-Rapport dans DERNIER_RAPPORT.md, liens précis vers sources/commits/lignes et tableaux vérifiables, recommandation priorisée : (a) CN8 faisable ou non, (b) différence logicielle candidate justifiant ou non une correction minimale, (c) **un seul** prochain essai discriminant si nécessaire, avec résultat attendu selon les hypothèses et prérequis physiques. Si aucune différence causale plausible, le dire. Aucun changement firmware, aucune intervention sur la cible, aucun test SD, aucune répétition d'essai, aucun flash/debug. Publier les seules preuves documentaires nécessaires, archiver le contrat précédent et son rapport, commit/push normal sur main puis relecture distante. Statut DONE si étude complète, BLOCKED si sources essentielles inaccessibles.
-
-## Autonomie, garde-fous
-Travail documentaire/hors ligne uniquement ; préserver la Nucleo principale, la seconde Nucleo, FRAM, médias et firmware, sans reset, connexion cible, flash, debug, recâblage ni geste physique. Ne pas modifier les règles de gouvernance ou les spécifications gelées. Préserver le Git existant et ne pas écraser les travaux locaux. Les opérations physiques et la décision de renoncer au stockage restent à l'utilisateur. Aucune validation intermédiaire requise.
+## Autonomie et limites
+Analyse documentaire/logicielle en lecture seule hors livrables d'audit. Aucun flash, debug, reset, accès ST-LINK, changement de configuration matérielle, recâblage ou écriture FRAM/microSD. Ne pas lancer de nouvelle campagne SDMMC ni demander une décision déjà prise. Ne pas implémenter le nouveau mode ni modifier les gels dans cette mission. Les décisions normatives résiduelles seront présentées à ChatGPT pour arbitrage structurant. Aucun besoin de validation intermédiaire pour mener l'étude. Respecter A-06, préserver les acquis et ne pas substituer une simulation à une preuve physique.
