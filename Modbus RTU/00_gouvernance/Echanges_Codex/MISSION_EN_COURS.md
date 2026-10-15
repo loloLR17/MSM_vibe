@@ -1,8 +1,8 @@
 ---
-mission_id: TR2-20261015-R2-LIVE-COMMAND-ENGINE
+mission_id: TR2-20261015-R3A-ACQUISITION-LIVE-ARCHITECTURE
 status: READY
 base_ref: main
-base_sha: f56d0a688e520d556965ae78e94d30203d5dab0f
+base_sha: 3f3ca1c38742c277de349b789e3e82fd52a1c791
 author: ChatGPT
 target_branch: main
 allow_commit: true
@@ -11,30 +11,37 @@ allow_flash: true
 allow_debug: true
 ---
 
-# R2 — Intégration protocole 2, journal epoch et START_LIVE / STOP_LIVE
+# R3-A — Acquisition continue LIVE et maîtrise de l'architecture firmware
 
-## Contexte et références
-R1 est reçu comme tranche **logicielle** : backend LiveConfiguration et partition FRAM transactionnelle testés, mais non raccordés à la production, non qualifiés physiquement. Lire les versions courantes de AGENTS.md, GOUVERNANCE_CHATGPT_CODEX.md (§10 T1000), CONTRAT_R0_EXTENSION_LIVE_SANS_STOCKAGE.md, LIVE_R0/PROFIL_LIVE.md et MIGRATION_FRAM.md, LIVE_R0/mapping_live.csv et tests_live.csv, 05_Firmware/LIVE_R1.md, roadmap, état, mission et rapport R1. Vérifier HEAD main, état des worktrees et preuves avant action. Archiver intégralement mission/rapport R1 avant remplacement ; conserver les archives A-06/R0.
+## Contexte
+R0 norme et R1 configuration/FRAM sont livrés ; R2 a livré moteur B5 epoch/START/STOP testé hôte mais non lié à la composition STM32 de production. Production reste protocole 1. La croissance R1+R2 atteint +2727 lignes nettes **incluant tests et documentation**, sans preuve d'un code mort massif. Risque à maîtriser : maintenir deux chaînes parallèles ou du code non intégré. Le présent lot R3-A prépare l'acquisition continue et exige une revue architecturale **intégrée au travail**, pas une refonte administrative.
 
-## Objectif
-Intégrer **réellement** le moteur B5 versionné/epoch et les commandes 12 RENEW_TRANSACTION_EPOCH, 13 START_LIVE et 14 STOP_LIVE au firmware, en utilisant R1 pour la configuration/identité persistantes, sans rendre la microSD nécessaire au LIVE. Respecter le découpage R2/R3 : ne pas simuler une chaîne de mesure B3 déjà opérationnelle.
+## Références et méthode
+Avant toute action : consulter AGENTS.md, GOUVERNANCE_CHATGPT_CODEX.md (notamment §10 : banc T1000, HP retiré), état courant, roadmap, contrat R0, LIVE_R0 (profil, mapping, scénarios), LIVE_R1.md, LIVE_R2.md, mission et rapport R2 ; vérifier HEAD distant et état Git. Archiver la mission et le rapport R2 sans perte, préserver les gels V1/V1.1, worktrees, stashes, preuves et branche main. Appliquer A-06 : réutilisation maximale, changements incrémentaux, pas de réécriture globale.
 
-## Travaux autorisés
-1. Analyser les points d'entrée réels de la composition STM32, registres B0/B1/B4/B5/B6/B7, commande transactionnelle, journal, FRAM et acquisition ; établir le plan minimal d'intégration sans dégrader V1 ni les gels historiques.
-2. Implémenter la machine B5 epoch complète du successeur, avec journal format 4, identités et protections anti-rejeu, transitions RESERVED/STARTED/COMPLETED, erreurs aux barrières, refus/idempotence et recovery après coupure. Le code 12 doit respecter V1.1 ; 13/14 suivent les tables R0 et `decisions_start_stop.csv`. Aucune réussite de commande ne doit être publiée avant preuve de l'effet correspondant.
-3. Implémenter le cycle LIVE STARTING/LIVE/STOPPING/READY/FAULT, arrêt sûr, exclusion mutuelle avec les campagnes, aucun campaign_id fictif, aucun appel au DataStore SD, aucun auto-START au reboot. Ne pas démarrer réellement le capteur si la couche d'acquisition requise n'est pas disponible : garder les capacités non annoncées et refuser explicitement plutôt que fabriquer un succès. Préparer l'interface réelle du futur R3.
-4. Raccorder de façon cohérente B0/B1/B4/B5/B6/B7 à la composition successeur **uniquement lorsque l'ensemble des invariants requis est tenu** ; préserver le protocole 1 historique et ses oracles. Ne pas publier protocole 2 avec capacités ou valeurs B3 mensongères. Définir le comportement déterministe de sélection/commissioning et de rollback sans modifier la FRAM historique.
-5. Tester le vrai moteur et les vrais stores sur transport simulé : 384 contextes R0 START/STOP, duplication/epoch/reboot/power-loss, fautes capteur/FRAM, refus APPLY pendant acquisition, absence SD, identité et compatibilité V1.1. Ajouter tests unitaires, intégration et non-régression complets, logs et preuves ; cross-build ARM. Documenter ressources CPU/RAM/pile et volumes I/O sans inventer de marges physiques.
-6. Actualiser état et roadmap factuellement, rapporter les fonctions non raccordées ou non qualifiées et préparer R3 (FIFO/indicateurs B3) et R4 (latences).
+## Objectif technique R3-A
+Concevoir et implémenter, sur les composants STM32/IIS3DWB/FIFO existants, le propriétaire d'acquisition **continue sans microSD** avec START/STOP causal, association run_id/configuration/génération et observation effective de l'état. Il doit pouvoir satisfaire l'interface LiveAcquisitionPort de R2, sans fabriquer une preuve de fonctionnement ni prétendre que le profil 2 est exposé par Modbus tant que la composition complète ne l'est pas. Préparer R3-B : fenêtres, RMS/crêtes/seuils, B3 et raccordement RTU2 cohérent.
 
-## Matériel / T1000
-Banc unique T1000 ; HP retiré. `allow_flash: true` et `allow_debug: true` autorisent les interventions STM32 conformes à AGENTS.md, mais ne les imposent pas. Avant tout flash/debug/provisioning : vérifier identité réelle de la carte (TR2-001 ou seconde Nucleo), image et sauvegardes ; inventaire ST-LINK et USB–RS-485 du T1000, ports et propriétaires ; protéger les Option Bytes, le câblage et l'alimentation. Avant toute première écriture FRAM LIVE [122880,245760), prouver la propriété exclusive et le contenu réel de cette zone et disposer d'une sauvegarde vérifiée. Propriété inconnue ou risque de perte : ne pas écrire, poursuivre les tests logiciels et consigner la limite. Aucune opération physique utilisateur déléguée à Codex. Aucun essai SDMMC demandé.
+## Exigence de maîtrise du code (obligatoire, proportionnée)
+1. Cartographier les chemins existants : acquisition V1 et FIFO qualifiée bornée, composition STM32, B5 historique, stores, R1/R2, Modbus/PC ; classer chaque module comme lié à l'ELF de production, utilisé seulement par tests, préparé pour intégration, historique requis, candidat à retrait. Prouver les classifications par CMake/linker/références, sans qualifier « mort » un module seulement non lié aujourd'hui.
+2. Produire un tableau mesuré de lignes physiques production C/C++ (hors générés/vendor), tests, documentation pour baseline avant R1, HEAD R2 et résultat R3-A, avec méthode reproductible et distinction ajouts Git/LOC nettes ; taille FLASH/RAM et dépendances si mesurables. Identifier duplications réelles (moteurs B5, médias FRAM, source vibration, chemins FIFO) et les choix de mutualisation.
+3. Réutiliser prioritairement les pilotes, ordonnancement, gestion d'erreur et types déjà qualifiés ; supprimer ou simplifier seulement les duplications démontrées, après tests. Ne pas effacer le code historique nécessaire à V1 ou les preuves. Pas de refonte générale, pas de réduction artificielle de LOC ni de nouveaux frameworks.
+4. Livrer dans le rapport une matrice « conservé / mutualisé / remplacé / différé » et une liste limitée de dettes prouvées, classées selon risque réel.
+
+## Travaux fonctionnels
+- Examiner les contraintes de la capture FIFO existante et du bus SPI, les fenêtres R0 et le contrat causal R2. Créer le plus petit service continu réutilisant les chemins HAL existants, avec un propriétaire unique, état réel, run_id et configuration figés par exécution ; absence SD/DataStore/campaign_id dans le LIVE.
+- START ne réussit que si l'acquisition est réellement armée et observable, STOP doit être sûr, idempotent et observable même après défaut FRAM ; reboot sans auto-START. Gérer les transitions, débordements FIFO, gaps, erreurs capteur et refus sans émettre de faux résultats valides.
+- Prévoir les interfaces de publication des échantillons/fenêtres pour R3-B sans fabriquer RMS/B3. Le raccordement au moteur R2 est autorisé si les preuves et la composition le permettent ; sinon exposer explicitement les limites et laisser les capacités non annoncées.
+- Tester hôte avec ports simulés, transitions/échecs/coupures, non-régression V1 et cross-build ARM. Lorsque réalisable, tests ciblés STM32 T1000 avec preuves distinctes ; aucun PASS physique présumé.
+
+## Sécurité matérielle et autonomie
+allow_flash=true et allow_debug=true selon AGENTS.md ; Codex peut flasher/debugger sur T1000 après identification positive de la cible, vérification des connexions/alimentation et sauvegardes appropriées. Ne pas écrire la partition FRAM LIVE [122880,245760) avant preuve de propriété et contenu, et sauvegarde vérifiée ; ne pas modifier Option Bytes/RDP, effacer des zones inconnues ou réécrire l'historique. Le HP est hors banc. Les interventions physiques manuelles restent à l'utilisateur. Si matériel absent ou non sûr, poursuivre la validation hôte/ARM et signaler la limite, sans bloquer le travail logiciel.
 
 ## Critères d'acceptation
-- Journal epoch et B5 12/13/14 implémentés ou limites d'intégration honnêtement exposées ; aucun faux PASS, faux démarrage ni annonce protocole/capacité prématurée.
-- Invariants R0 sur transactions, exclusion campagne/LIVE, reboot sans auto-START, absence de dépendance SD, erreur/rollback et FRAM préservée ; scénarios R0 applicables exécutés avec oracles indépendants.
-- Build/tests hôte et ARM réussis, non-régression V1, preuves et hashes conservés ; distinction explicite des essais logiciels et physiques.
-- Révision critique des coûts de commits FRAM (~52426 octets écrits, lectures synchrones), disponibilité STOP et marges FIFO/Modbus à mesurer en R4.
+- Cartographie/mesures LOC/ELF et analyse de duplication traçables, proportionnées et reproductibles ; aucun code déclaré mort sans preuve.
+- Acquisition continue et START/STOP causal développés dans le périmètre démontrable ; transitions et refus prouvés, pas de campagne ni dépendance SD en LIVE.
+- Tests pertinents et non-régression V1 réussis, preuves versionnées et empreintes ; distinction explicite logiciel vs STM32 physique.
+- Aucun profil protocole 2 ou B3 valide annoncé prématurément ; limites R3-B/R4/R6 documentées et roadmap actualisée.
 
-## Publication
-Développement, commit et push normaux autorisés sur main ; préserver travaux préexistants et éviter force push. Publier DERNIER_RAPPORT.md, preuves, état/roadmap et SHA ; vérifier publication distante. ChatGPT contrôlera indépendamment avant R3.
+## Publication et clôture
+Codex analyse, développe, teste, commit/push normalement sur main, publie DERNIER_RAPPORT.md avec commits, preuves, métriques, limites et recommandation R3-B, puis vérifie la publication distante. ChatGPT effectuera un contrôle indépendant. Ne pas demander de validations intermédiaires pour les actions couvertes par AGENTS.md ; escalader seulement décisions structurantes, opérations destructives inhabituelles ou risques matériels non maîtrisés.
