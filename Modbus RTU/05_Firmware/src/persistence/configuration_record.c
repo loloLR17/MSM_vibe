@@ -135,7 +135,7 @@ static void decode_payload(const uint8_t *input, ConfigurationPayload *payload)
     (void)offset;
 }
 
-Tr2Result tr2_configuration_record_encode(const ActiveConfigurationSnapshot *snapshot,
+static Tr2Result encode_version(uint16_t version,const ActiveConfigurationSnapshot *snapshot,
                                           uint8_t *record,
                                           size_t record_size)
 {
@@ -147,7 +147,7 @@ Tr2Result tr2_configuration_record_encode(const ActiveConfigurationSnapshot *sna
 
     memset(record, 0, record_size);
     put_u32_be(&record[0], TR2_CONFIGURATION_RECORD_MAGIC);
-    put_u16_be(&record[4], TR2_CONFIGURATION_RECORD_FORMAT_VERSION);
+    put_u16_be(&record[4], version);
     put_u16_be(&record[6], (uint16_t)TR2_CONFIGURATION_RECORD_SIZE);
     put_u32_be(&record[8], snapshot->generation);
     put_u32_be(&record[12], snapshot->config_id);
@@ -159,7 +159,7 @@ Tr2Result tr2_configuration_record_encode(const ActiveConfigurationSnapshot *sna
     return TR2_OK;
 }
 
-Tr2Result tr2_configuration_record_decode(const uint8_t *record,
+static Tr2Result decode_version(uint16_t version,const uint8_t *record,
                                           size_t record_size,
                                           ActiveConfigurationSnapshot *snapshot)
 {
@@ -184,7 +184,7 @@ Tr2Result tr2_configuration_record_decode(const uint8_t *record,
         return TR2_ERROR_CORRUPTED;
     }
 
-    if (get_u16_be(&record[4]) != TR2_CONFIGURATION_RECORD_FORMAT_VERSION) {
+    if (get_u16_be(&record[4]) != version) {
         return TR2_ERROR_UNSUPPORTED;
     }
 
@@ -195,3 +195,19 @@ Tr2Result tr2_configuration_record_decode(const uint8_t *record,
     decode_payload(&record[TR2_CONFIGURATION_RECORD_HEADER_SIZE], &snapshot->payload);
     return TR2_OK;
 }
+
+Tr2Result tr2_configuration_record_encode(const ActiveConfigurationSnapshot *snapshot,
+    uint8_t *record, size_t size)
+{ return encode_version(1u, snapshot, record, size); }
+
+Tr2Result tr2_configuration_record_decode(const uint8_t *record,
+    size_t size, ActiveConfigurationSnapshot *snapshot)
+{ return decode_version(1u, record, size, snapshot); }
+
+Tr2Result tr2_configuration_record_encode_live(const ActiveConfigurationSnapshot *snapshot,
+    uint8_t *record, size_t size)
+{ return encode_version(2u, snapshot, record, size); }
+
+Tr2Result tr2_configuration_record_decode_live(const uint8_t *record,
+    size_t size, ActiveConfigurationSnapshot *snapshot)
+{ return decode_version(2u, record, size, snapshot); }

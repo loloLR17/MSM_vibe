@@ -10,18 +10,19 @@ static uint16_t g16(const uint8_t *p){return (uint16_t)(((uint16_t)p[0]<<8)|p[1]
 static uint32_t g32(const uint8_t *p){return ((uint32_t)g16(p)<<16)|g16(p+2);}
 static uint32_t crc(const uint8_t *p,size_t n){uint32_t c=UINT32_MAX;size_t i;for(i=0;i<n;++i){unsigned b;c^=p[i];for(b=0;b<8;++b)c=(c&1u)?(c>>1)^UINT32_C(0xEDB88320):c>>1;}return c^UINT32_MAX;}
 static bool ascii(const char *p,size_t n){size_t i;for(i=0;i<n;++i)if(p[i]!=0&&((unsigned char)p[i]<32u||(unsigned char)p[i]>126u))return false;return true;}
-static Tr2Result valid(const PersistentIdentityRecord *r){
+static Tr2Result valid(const PersistentIdentityRecord *r,uint16_t version){
     if(r==NULL||r->generation==0u||r->generation==UINT64_MAX||
        r->identity.unit_id==0u||r->identity.unit_id>247u||
-       (r->identity.functional.device_capabilities&0xFFF0u)!=0u||
+       (r->identity.functional.device_capabilities&(version==2u?0xFFE0u:0xFFF0u))!=0u ||
+       (version==2u && r->identity.functional.protocol_version!=2u)||
        !ascii(r->identity.functional.serial_number,16u)||
        !ascii(r->identity.functional.manufacturer,8u))return TR2_ERROR_INVALID_ARGUMENT;
     return TR2_OK;
 }
-Tr2Result persistent_identity_encode(const PersistentIdentityRecord *r,uint8_t b[96]){
+static Tr2Result encode_version(uint16_t version,const PersistentIdentityRecord *r,uint8_t b[96]){
     const IdentitySnapshot *f;unsigned i;
-    if(b==NULL||valid(r)!=TR2_OK)return TR2_ERROR_INVALID_ARGUMENT;
-    f=&r->identity.functional;memset(b,0,96);memcpy(b,"TR2D",4);p16(b+4,1u);p16(b+6,96u);
+    if(b==NULL||valid(r,version)!=TR2_OK)return TR2_ERROR_INVALID_ARGUMENT;
+    f=&r->identity.functional;memset(b,0,96);memcpy(b,"TR2D",4);p16(b+4,version);p16(b+6,96u);
     p32(b+8,(uint32_t)(r->generation>>32));p32(b+12,(uint32_t)r->generation);
     for(i=0;i<3;++i)p32(b+16+4*i,r->identity.hardware_uid[i]);
     p32(b+28,f->device_id);p32(b+32,f->generation);
@@ -31,12 +32,12 @@ Tr2Result persistent_identity_encode(const PersistentIdentityRecord *r,uint8_t b
     memcpy(b+48,f->serial_number,16);memcpy(b+64,f->manufacturer,8);b[72]=r->identity.unit_id;
     p32(b+92,crc(b,92));return TR2_OK;
 }
-Tr2Result persistent_identity_decode(const uint8_t *b,size_t size,PersistentIdentityRecord *r){
+static Tr2Result decode_version(uint16_t version,const uint8_t *b,size_t size,PersistentIdentityRecord *r){
     PersistentIdentityRecord parsed={0};IdentitySnapshot *f=&parsed.identity.functional;unsigned i;
     if(b==NULL||r==NULL||size!=96u)return TR2_ERROR_INVALID_ARGUMENT;
     memset(r,0,sizeof(*r));
     if(memcmp(b,"TR2D",4)!=0||g16(b+6)!=96u||g32(b+92)!=crc(b,92))return TR2_ERROR_CORRUPTED;
-    if(g16(b+4)!=1u)return TR2_ERROR_UNSUPPORTED;
+    if(g16(b+4)!=version)return TR2_ERROR_UNSUPPORTED;
     for(i=73;i<92;++i)if(b[i]!=0u)return TR2_ERROR_CORRUPTED;
     parsed.generation=((uint64_t)g32(b+8)<<32)|g32(b+12);
     for(i=0;i<3;++i)parsed.identity.hardware_uid[i]=g32(b+16+4*i);
@@ -44,7 +45,7 @@ Tr2Result persistent_identity_decode(const uint8_t *b,size_t size,PersistentIden
     f->firmware_version_major=g16(b+38);f->firmware_version_minor=g16(b+40);f->firmware_version_patch=g16(b+42);
     f->protocol_version=g16(b+44);f->device_capabilities=g16(b+46);
     memcpy(f->serial_number,b+48,16);memcpy(f->manufacturer,b+64,8);parsed.identity.unit_id=b[72];
-    if(valid(&parsed)!=TR2_OK)return TR2_ERROR_CORRUPTED;
+    if(valid(&parsed,version)!=TR2_OK)return TR2_ERROR_CORRUPTED;
     *r=parsed;return TR2_OK;
 }
 Tr2Result persistent_identity_from_image(const uint8_t *image,size_t size,
@@ -114,3 +115,13 @@ Tr2Result persistent_identity_attribution_check(
     }
     return found ? TR2_OK : TR2_ERROR_NOT_AVAILABLE;
 }
+
+Tr2Result persistent_identity_encode(const PersistentIdentityRecord *r,uint8_t b[96])
+{return encode_version(1u,r,b);}
+Tr2Result persistent_identity_decode(const uint8_t *b,size_t size,PersistentIdentityRecord *r)
+{return decode_version(1u,b,size,r);}
+
+Tr2Result persistent_identity_encode_live(const PersistentIdentityRecord *r,uint8_t b[96])
+{return encode_version(2u,r,b);}
+Tr2Result persistent_identity_decode_live(const uint8_t *b,size_t size,PersistentIdentityRecord *r)
+{return decode_version(2u,b,size,r);}

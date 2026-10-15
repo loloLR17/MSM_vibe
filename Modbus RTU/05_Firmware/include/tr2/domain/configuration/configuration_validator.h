@@ -26,4 +26,9 @@ ConfigurationValidationResult configuration_validate(
     const ConfigurationValidationEnvironment *environment,
     ValidatedConfiguration *out_validated);
 
+/* Explicit schema 2 entry point; legacy configuration_validate remains V1. */
+ConfigurationValidationResult configuration_validate_live(
+    const PreparedConfiguration *prepared,
+    ValidatedConfiguration *out_validated);
+
 #endif

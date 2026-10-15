@@ -114,7 +114,17 @@ static bool uniform(const uint8_t *p, size_t n, uint8_t value)
 static Tr2Result physical_read(TransactionalImageMedia *m,uint32_t o,void *b,size_t s)
 { return m->physical.read(m->physical.context,o,b,s); }
 static Tr2Result physical_write(TransactionalImageMedia *m,uint32_t o,const void *b,size_t s)
-{ return m->physical.write(m->physical.context,o,b,s); }
+{
+    if (m->accepts_live) {
+        Tr2Result result;
+        if (o < TR2_LIVE_PHYSICAL_START || o > TR2_LIVE_PHYSICAL_END ||
+            s > TR2_LIVE_PHYSICAL_END - o || m->check_write_ownership == NULL)
+            return TR2_ERROR_NOT_AVAILABLE;
+        result = m->check_write_ownership(m->ownership_context, o, s);
+        if (result != TR2_OK) return result;
+    }
+    return m->physical.write(m->physical.context,o,b,s);
+}
 
 static void encode_image_header(const TransactionalImageMedia *m,uint8_t h[64],uint64_t generation,const uint8_t *payload)
 {
@@ -137,6 +147,7 @@ typedef enum { REC_EMPTY=0, REC_VALID, REC_UNSUPPORTED, REC_BAD, REC_IO } Record
 
 static bool supported_shape(const TransactionalImageMedia *m, uint16_t version, uint32_t size)
 {
+    if (m->accepts_live) return version == 3u && size == TR2_LIVE_LOGICAL_SIZE;
     return (version==1u && size==TR2_TRANSACTIONAL_MEDIA_LOGICAL_SIZE) ||
         (m->accepts_v2 && version==2u && size==TR2_TRANSACTIONAL_MEDIA_V2_LOGICAL_SIZE);
 }
@@ -201,6 +212,13 @@ static Tr2Result media_write_cb(void *context,uint32_t offset,const void *buffer
 {
     TransactionalImageMedia *m=context;
     if(m==NULL||!m->recovered||m->recovery_required||(buffer==NULL&&size!=0u)||!range_ok(m,offset,size)) return TR2_ERROR_INVALID_STATE;
+    if (m->accepts_live) {
+        Tr2Result result;
+        if (m->check_write_ownership == NULL) return TR2_ERROR_NOT_AVAILABLE;
+        result = m->check_write_ownership(m->ownership_context,
+            TR2_LIVE_PHYSICAL_START, TR2_LIVE_PHYSICAL_END - TR2_LIVE_PHYSICAL_START);
+        if (result != TR2_OK) return result;
+    }
     if(size!=0u) memcpy(m->candidate+offset,buffer,size);
     return TR2_OK;
 }
@@ -244,7 +262,7 @@ Tr2Result transactional_image_media_init(TransactionalImageMedia *m,const Transa
 Tr2Result transactional_image_media_format_empty(TransactionalImageMedia *m)
 {
     uint8_t h[64],s[64],invalid[64]={0}; uint64_t verified; uint8_t img;
-    if(m==NULL||!m->initialized) return TR2_ERROR_INVALID_STATE;
+    if(m==NULL||!m->initialized||m->accepts_live) return TR2_ERROR_INVALID_STATE;
 
     /*
      * Formatting is explicitly destructive.  Invalidate both publication
@@ -266,10 +284,94 @@ Tr2Result transactional_image_media_format_empty(TransactionalImageMedia *m)
     m->generation=1u; m->active_image=0u; m->active_superblock=0u; m->recovered=true; m->recovery_required=false; return TR2_OK;
 }
 
+static Tr2Result recover_live(TransactionalImageMedia *m, TransactionalImageRecoveryResult *out)
+{
+    uint8_t roots[2][64];
+    int chosen = -1;
+    uint64_t generation = 0u, observed;
+    unsigned i;
+    bool all_empty = true;
+    m->recovered = false;
+    m->recovery_required = true;
+    memset(out, 0, sizeof(*out));
+    out->status = TRANSACTIONAL_IMAGE_RECOVERY_CORRUPTED;
+    for (i = 0u; i < 2u; ++i) {
+        if (physical_read(m, superblock_base(m, (uint8_t)i), roots[i], 64u) != TR2_OK) {
+            out->status = TRANSACTIONAL_IMAGE_RECOVERY_UNAVAILABLE;
+            return TR2_OK;
+        }
+        if (uniform(roots[i], 64u, 0u) || uniform(roots[i], 64u, 0xFFu)) continue;
+        all_empty = false;
+        /* Torn publication records have no authority. Check CRC BEFORE shape. */
+        if (get_u32(roots[i] + 60) != crc32_bytes(roots[i], 60u)) continue;
+        if (get_u32(roots[i]) != MEDIA_MAGIC ||
+            get_u16(roots[i] + 4) != PHYSICAL_VERSION) {
+            out->status = TRANSACTIONAL_IMAGE_RECOVERY_UNSUPPORTED;
+            return TR2_OK;
+        }
+        observed = get_u64(roots[i] + 8);
+        if (observed == 0u || observed == UINT64_MAX) return TR2_OK;
+        if (chosen >= 0 && generation == observed &&
+            memcmp(roots[chosen], roots[i], 64u) != 0) return TR2_OK;
+        if (chosen < 0 || observed > generation) {
+            chosen = (int)i;
+            generation = observed;
+        }
+    }
+    if (chosen < 0) {
+        if (all_empty) {
+            uint8_t header[64];
+            for (i = 0u; i < 2u; ++i) {
+                if (physical_read(m, image_base(m, (uint8_t)i), header, 64u) != TR2_OK) {
+                    out->status = TRANSACTIONAL_IMAGE_RECOVERY_UNAVAILABLE;
+                    return TR2_OK;
+                }
+                if (!uniform(header,64u,0u) && !uniform(header,64u,0xFFu)) return TR2_OK;
+            }
+            out->status = TRANSACTIONAL_IMAGE_RECOVERY_EMPTY;
+        }
+        return TR2_OK;
+    }
+    {
+        RecordState state;
+        uint64_t verified;
+        uint8_t image;
+        const uint8_t *root = roots[chosen];
+        if (!supported_shape(m,get_u16(root+6),get_u32(root+20))) {
+            out->status = TRANSACTIONAL_IMAGE_RECOVERY_UNSUPPORTED;
+            return TR2_OK;
+        }
+        /* Validate only the selected publication against its bank. A lower
+         * root may legitimately reference an inactive bank already rewritten. */
+        state = validate_superblock(m, (uint8_t)chosen, &verified, &image);
+        if (state != REC_VALID) {
+            if (state == REC_IO) out->status = TRANSACTIONAL_IMAGE_RECOVERY_UNAVAILABLE;
+            if (state == REC_UNSUPPORTED) out->status = TRANSACTIONAL_IMAGE_RECOVERY_UNSUPPORTED;
+            return TR2_OK;
+        }
+        if (physical_read(m, image_base(m,image)+64u,m->candidate,TR2_LIVE_LOGICAL_SIZE) != TR2_OK) {
+            out->status = TRANSACTIONAL_IMAGE_RECOVERY_UNAVAILABLE;
+            return TR2_OK;
+        }
+        m->logical_size = TR2_LIVE_LOGICAL_SIZE;
+        m->logical_version = 3u;
+        m->active_image = image;
+        m->active_superblock = (uint8_t)chosen;
+        m->generation = verified;
+        m->recovered = true;
+        m->recovery_required = false;
+        out->status = TRANSACTIONAL_IMAGE_RECOVERY_VALID;
+        out->generation = verified;
+        out->active_image = image;
+    }
+    return TR2_OK;
+}
+
 Tr2Result transactional_image_media_recover(TransactionalImageMedia *m,TransactionalImageRecoveryResult *out)
 {
     RecordState a,b; uint64_t ga=0,gb=0; uint8_t ia=0,ib=0; uint8_t chosen; uint64_t generation;
     if(m==NULL||!m->initialized||out==NULL) return TR2_ERROR_INVALID_ARGUMENT;
+    if (m->accepts_live) return recover_live(m,out);
     /* Revoke previous authority before every recovery attempt, including failures. */
     m->recovered=false; m->recovery_required=true;
     memset(out,0,sizeof(*out)); a=validate_superblock(m,0u,&ga,&ia); b=validate_superblock(m,1u,&gb,&ib);
@@ -350,5 +452,45 @@ Tr2Result transactional_image_media_publish_v2(TransactionalImageMedia *m,
     memcpy(m->candidate,image,size);m->logical_version=2u;m->logical_size=size;
     m->generation=0u;m->active_image=1u;m->active_superblock=1u;
     m->recovered=true;m->recovery_required=false;
+    return media_commit_cb(m);
+}
+
+Tr2Result transactional_image_media_init_live(TransactionalImageMedia *m,
+    const TransactionalImagePhysicalStorage *p,uint8_t *candidate,size_t size,
+    void *owner_context,Tr2Result (*check_owner)(void *,uint32_t,size_t))
+{
+    const TransactionalImageGeometry geometry = {262144u,122880u,126976u,131072u,188416u,57344u};
+    Tr2Result result;
+    if (size < TR2_LIVE_LOGICAL_SIZE) return TR2_ERROR_INVALID_ARGUMENT;
+    result = transactional_image_media_init(m,p,&geometry,candidate,size);
+    if (result != TR2_OK) return result;
+    m->accepts_live = true;
+    m->logical_version = 3u;
+    m->logical_size = TR2_LIVE_LOGICAL_SIZE;
+    m->ownership_context = owner_context;
+    m->check_write_ownership = check_owner;
+    return TR2_OK;
+}
+
+Tr2Result transactional_image_media_create_live(TransactionalImageMedia *m,
+    const uint8_t *image,size_t size)
+{
+    TransactionalImageRecoveryResult recovery;
+    Tr2Result result;
+    if (m == NULL || !m->initialized || !m->accepts_live || image == NULL ||
+        size != TR2_LIVE_LOGICAL_SIZE) return TR2_ERROR_INVALID_ARGUMENT;
+    if (m->check_write_ownership == NULL) return TR2_ERROR_NOT_AVAILABLE;
+    result = m->check_write_ownership(m->ownership_context,
+        TR2_LIVE_PHYSICAL_START,TR2_LIVE_PHYSICAL_END-TR2_LIVE_PHYSICAL_START);
+    if (result != TR2_OK) return result;
+    result = transactional_image_media_recover(m,&recovery);
+    if (result != TR2_OK) return result;
+    if (recovery.status != TRANSACTIONAL_IMAGE_RECOVERY_EMPTY) return TR2_ERROR_INVALID_STATE;
+    memmove(m->candidate,image,size);
+    m->generation = 0u;
+    m->active_image = 1u;
+    m->active_superblock = 1u;
+    m->recovered = true;
+    m->recovery_required = false;
     return media_commit_cb(m);
 }

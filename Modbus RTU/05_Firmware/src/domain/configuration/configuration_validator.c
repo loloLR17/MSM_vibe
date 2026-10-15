@@ -86,3 +86,41 @@ ConfigurationValidationResult configuration_validate(
     result.status = CONFIGURATION_VALIDATION_VALID;
     return result;
 }
+
+ConfigurationValidationResult configuration_validate_live(
+    const PreparedConfiguration *prepared,
+    ValidatedConfiguration *out_validated)
+{
+    ConfigurationValidationResult result = {CONFIGURATION_VALIDATION_INVALID};
+    const ConfigurationPayload *p;
+    size_t i;
+
+    if (prepared == NULL) return result;
+    p = &prepared->payload;
+    if (prepared->config_id == 0u || p->campaign_context_id == 0u ||
+        p->mission_id == 0u || p->sampling_frequency_hz != 26667u ||
+        p->axes_enable_mask == 0u || p->axes_enable_mask > 7u ||
+        p->full_scale_code > 3u || p->acquisition_mode != 2u ||
+        p->storage_mode != 0u || p->storage_limit_mb != 0u ||
+        p->campaign_duration_s != 0u || p->supervision_enable_mask != 1u ||
+        p->rms_warn_threshold_mg > p->rms_alarm_threshold_mg ||
+        p->peak_warn_threshold_mg > p->peak_alarm_threshold_mg ||
+        !window_size_is_valid(p->window_size_samples) ||
+        !indicator_period_is_valid(p->indicator_period_ms) ||
+        (uint64_t)p->indicator_period_ms * p->sampling_frequency_hz <
+            UINT64_C(1000) * p->window_size_samples) return result;
+    for (i = 0u; i < TR2_CONFIGURATION_LABEL_LENGTH; ++i) {
+        unsigned char a = (unsigned char)p->campaign_label[i];
+        unsigned char b = (unsigned char)p->mission_label[i];
+        if ((a != 0u && (a < 32u || a > 126u)) ||
+            (b != 0u && (b < 32u || b > 126u))) return result;
+    }
+    if (out_validated != NULL) {
+        out_validated->generation = prepared->generation;
+        out_validated->config_id = prepared->config_id;
+        out_validated->supplied_crc = prepared->supplied_crc;
+        out_validated->payload = prepared->payload;
+    }
+    result.status = CONFIGURATION_VALIDATION_VALID;
+    return result;
+}

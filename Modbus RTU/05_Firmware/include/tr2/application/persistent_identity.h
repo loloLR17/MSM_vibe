@@ -40,4 +40,8 @@ typedef struct {
 Tr2Result persistent_identity_provision(TransactionalImageMedia *media,
     const PersistentIdentityProvisioningRequest *request, bool write_authorized,
     ProductionProvisioningResult *result);
+Tr2Result persistent_identity_encode_live(const PersistentIdentityRecord *record,
+    uint8_t bytes[TR2_PERSISTENT_IDENTITY_SIZE]);
+Tr2Result persistent_identity_decode_live(const uint8_t *bytes, size_t size,
+    PersistentIdentityRecord *record);
 #endif

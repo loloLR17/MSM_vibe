@@ -12,6 +12,8 @@ else()
 endif()
 
 add_library(tr2_core STATIC
+    src/common/sha256.c
+    src/application/live_configuration.c
     src/application/acquisition_service.c
     src/application/campaign_inventory_service.c
     src/application/campaign_service.c
@@ -371,3 +373,6 @@ add_executable(test_sdmmc_bulk_media tests/platform/test_sdmmc_bulk_media.c plat
 target_include_directories(test_sdmmc_bulk_media PRIVATE tests/platform/stm32_hal_sdmmc_mock platform/stm32)
 target_link_libraries(test_sdmmc_bulk_media PRIVATE tr2_core)
 add_test(NAME sdmmc_bulk_media COMMAND test_sdmmc_bulk_media)
+
+# R1: actual transactional stores, immutable R0 vectors and bounded tear injection.
+tr2_add_core_test(test_live_configuration tests/unit/test_live_configuration.c live_configuration)

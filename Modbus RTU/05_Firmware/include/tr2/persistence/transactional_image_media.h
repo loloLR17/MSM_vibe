@@ -63,6 +63,9 @@ typedef struct {
     size_t logical_size;
     uint16_t logical_version;
     bool accepts_v2;
+    bool accepts_live;
+    void *ownership_context;
+    Tr2Result (*check_write_ownership)(void *context, uint32_t offset, size_t size);
     uint8_t active_image;
     uint8_t active_superblock;
     bool initialized;
@@ -96,4 +99,17 @@ Tr2Result transactional_image_media_recover(
 
 PersistentMedia *transactional_image_media_interface(TransactionalImageMedia *media);
 
+#define TR2_LIVE_LOGICAL_SIZE ((size_t)52298u)
+#define TR2_LIVE_PHYSICAL_START UINT32_C(122880)
+#define TR2_LIVE_PHYSICAL_END UINT32_C(245760)
+/* No ownership provider means strictly read-only. Every physical write checks it.
+ * Init/recovery never creates a partition or accepts a historical root. */
+Tr2Result transactional_image_media_init_live(TransactionalImageMedia *media,
+    const TransactionalImagePhysicalStorage *physical, uint8_t *candidate,
+    size_t candidate_size, void *ownership_context,
+    Tr2Result (*check_write_ownership)(void *, uint32_t, size_t));
+/* Off-boot explicit creation only, never format/overwrite an existing namespace.
+ * The input may be candidate itself when creating an EMPTY partition. */
+Tr2Result transactional_image_media_create_live(TransactionalImageMedia *media,
+    const uint8_t *image, size_t size);
 #endif
