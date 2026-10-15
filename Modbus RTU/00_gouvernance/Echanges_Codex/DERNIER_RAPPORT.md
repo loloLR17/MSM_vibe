@@ -1,11 +1,11 @@
 ---
-mission_id: TR2-20261015-A06-DECOUPLAGE-SUPERVISION-STOCKAGE-AUDIT
-status: DONE
+mission_id: TR2-20261015-R0-NORME-LIVE-SUCCESSEUR
+status: IN_PROGRESS
 base_ref: main
-base_sha: 0c88e6ef195b44fdbf21890d946ef7ea8bf190fe
-initial_head: 45ee898a6ebe9269e63904262dc9f1b9c8b87c78
-result_sha: 45ee898a6ebe9269e63904262dc9f1b9c8b87c78
-created_at_utc: 2026-10-15T09:01:52.720065+00:00
+base_sha: null
+initial_head: 2b9c0202f79bc132b166776c4aed2a48925593dc
+result_sha: 2b9c0202f79bc132b166776c4aed2a48925593dc
+created_at_utc: 2026-10-15T09:43:52.214068+00:00
 author: Codex
 target_branch: main
 allow_commit: true
@@ -14,69 +14,71 @@ allow_flash: false
 allow_debug: false
 ---
 
-# A-06 — Découplage faisable, avec extension explicite du contrat
+# R0 — Profil LIVE continu spécifié, publication en cours
 
-**Étude terminée, publiée sur main et intégralement relue depuis la référence récupérée de GitHub.** Le mode supervision sans média de campagnes est faisable en réutilisant acquisition, calculs et projections existants. La V1 actuelle l'interdit au niveau configuration et impose une ouverture de campagne au START : supprimer un test de capacité ne constitue pas une solution conforme.
+La finalisation normative est réalisée : **protocole 2, structures B4/B6 version 2, commandes 13/14 et durée LIVE 0 pour fonctionnement continu**. Le profil reprend B5 V1.1 avec epoch, sans réattribuer le code 12. Les campagnes 3/4 et tous les gels historiques restent intacts. Aucun firmware n'est implémenté ou qualifié par cette mission.
 
-**Recommandation ferme : extension versionnée avec configuration live autoritative en FRAM et commandes live distinctes.** Préserver les commandes 3/4 de campagne et leurs oracles, ne pas inventer de capacité ou de magasin donnant un faux succès. Le stockage industriel reste prévu et sera qualifié/réintégré séparément. La décision utilisateur de découpler est acquise ; seuls les encodages et politiques résiduels nécessitent le travail normatif de ChatGPT.
+Statut provisoire IN_PROGRESS uniquement en attente de publication et de relecture distante. Le contrôle indépendant de ChatGPT reste nécessaire avant R1, même après livraison DONE de R0. La mission publiée ne contient pas `base_sha` ni `created_at_utc` : champs de contrat manquants signalés, sans SHA inventé ; HEAD effectif et permissions explicites ont été vérifiés.
 
-[Étude autonome complète](../ETUDE_A06_SUPERVISION_SANS_STOCKAGE.md) : constats, proposition précise, compatibilité/migration, matrice des FT/TT et trajectoire L0–L7. [Matrice exigence → test → code → impact → proposition](preuves/TR2-20261015-A06/traceability.csv), 20 relations avec chemins vérifiés. [Classement des 2 167 fichiers](preuves/TR2-20261015-A06/file-impact-screening.csv) et [inventaire empreinté](preuves/TR2-20261015-A06/corpus-inventory.csv).
+## Livrables
 
-## Tranches et constats
+- [Norme et index](../../01_Specification_source/LIVE_R0/README.md), [profil complet](../../01_Specification_source/LIVE_R0/PROFIL_LIVE.md) : réservations, durée continue, configuration, états/refus, qualité, alarmes, temps, rollover et PC.
+- [Migration FRAM](../../01_Specification_source/LIVE_R0/MIGRATION_FRAM.md) : layout existant, nouvelle partition disjointe, identité/configuration/journal/epoch versionnés, coupures et rollback.
+- [Mapping et validation](../../02_Validation/LIVE_R0/README.md) : 187 champs / 390 registres, 106 scénarios successeurs et 384 contextes START/STOP, tous fonctionnellement SPECIFIED_NOT_EXECUTED.
+- [Contrôles effectifs](preuves/TR2-20261015-R0/document-checks.json), [géométrie et modèle de coupures](preuves/TR2-20261015-R0/layout-review.json), [réservations examinées](preuves/TR2-20261015-R0/namespace-review.json), [réutilisation du corpus A06](preuves/TR2-20261015-R0/corpus-reuse.json).
+- Mission et rapport A06 archivés intacts depuis `4eecf373407e939f61307dc44ac538b22bc7fdfb`, sous `archives/TR2-20261015-A06-DECOUPLAGE-SUPERVISION-STOCKAGE-AUDIT/`. Étude et preuves A06 inchangées.
 
-| Tranche | Résultat réel |
+## Résultats et choix normatifs
+
+| Tranche | Résultat |
 |---|---|
-| Référence/Git/gouvernance | Mission READY 45ee898, base 0c88e6e ancêtre ; règles, protocole, journal intégral, roadmap et précédent CN8 examinés. Dépôt historique divergent préservé, worktree neuf depuis main distant. |
-| Corpus spécification/validation | Lecture automatisée intégrale de 2 167 fichiers/3 524 702 octets ; revue des contrats et familles actives. 10 sources normatives,2 157 éléments de validation dont 1 530 historiques ; FT-ACC-01 retirée. 129 copies binaires surnuméraires identifiées, sans fusion. |
-| Dépendances firmware | Validateur exige mode 1 / limite positive/capacité connue ; recovery UNAVAILABLE ne publie pas d'active. CampaignService ouvre dépôt + DataStore avant acquisition. Acquisition/calcul ont déjà des responsabilités distinctes, intégration FIFO→B3 à achever. |
-| PC/SQLite | B3ArchivePublisher ne requiert pas de campagne B6 ni de SD ; session compatible nécessaire. PC actuel refuse une version différente par égalité stricte. SQLite archive des observations B3, pas le flux XYZ ni les trous hors connexion. |
-| Étude normative | Trois stratégies comparées ; recommandation versionnée, tuple live 2/0/0 proposé uniquement pour successeur, commandes candidates 13/14 (12 déjà alloué V1.1), migration FRAM et CRC traités. Aucune proposition adoptée/implémentée ici. |
-| Validation | Contrôles documentaires, chemins, empreintes, archives et préservation ; aucun build/test firmware/PC ou essai physique rejoué. Relecture distante des 17 livrables effectuée au commit 67c074e ; aucun changement des fichiers protégés. |
+| Git et sources | main distant 2b9c020, dépôt historique et stashes préservés, worktree isolé. Gouvernance inchangée depuis A06, journal intégral relu, contrat R0/roadmap et dépendances revus. Empreintes des 2 167 fichiers du corpus A06 identiques ; aucune répétition de ses campagnes ou tests. |
+| Versions et encodages | Protocole 2/B4=2/B6=2/B7=1 ; B0 bit4 LIVE, B4 capbits0/1 ;13 START_LIVE / 14 STOP_LIVE,12 epoch conservé ; B3 bit8 campagne durable reste 0 en LIVE ; B6 santé4 indisponible. Aucun déplacement/type/accès modifié ; B5 longueur 29 héritée de V1.1. |
+| Supervision continue | Tuple(acquisition2, stockage0, limite0, durée0), durée non nulle refusée en LIVE ; aucun minuteur campagne. STOP explicite, arrêt sûr sur défaut bloquant, aucun auto-START après boot, retour SD ou retry historique. Compteurs saturés sans arrêter les calculs ; UTC qui déborde devient invalide sans wrap. |
+| États et mesures | Table B1/B3/B6/B7, fautes actives/mémorisées, absence prévue distincte de panne ; qualité indépendante du média. Seuils/hold/hystérésis/arrondis et latch/ACK définis pour LIVE, sans rétroattribuer ces oracles aux zones NOT_DEFINED de V1. |
+| Commandes | Priorités contexte définies après contrôles V1.1 ; 384 combinaisons 13/14 développées en oracles. Retry admis avant revalidation métier ; STOP inactif avec nouvelle identité→21, retry exact→résultat historique. Succès START n'est pas redémarrage après reboot. |
+| FRAM | Partition historique [0,122880) conservée readonly par LIVE ; nouvelle partition [122880,245760), deux banques et deux superblocks. Image 52298 + header64 tient dans 57344. Propriété réelle du tail à établir avant écriture R1. |
+| Migration et rollback | Nouveaux formats configuration2 / identité2 / logique média3 ; journal4 borné sans éviction de l'epoch courante, réserves STOP/renew. Provenance lie historique et LIVE ; ancien firmware cumulatif V2 retrouve son espace intact. Changement historique après rollback interdit l'activation automatique de LIVE ; réconciliation explicite. |
+| Compatibilité PC | Ancien PC refuse 2 avant écriture ; nouveau PC choisit explicitement V1 ou LIVE+B5 epoch. SQLite garde observations qualifiées, métadonnées version/config/mode et trous ; pas de fausse campagne ou de promesse exactly-once avec séquence saturée. |
 
-Le parcours intégral est traçable par fichier, titres actifs et occurrences de dépendances ; il ne signifie pas une lecture humaine individuelle ni une qualification de chaque fiche générée. Le classement par famille dans `file-impact-screening.csv` est conservateur, accompagné de la revue détaillée de l'étude. Répartition : 1 869 inchangés, 7 gels impactés, 256 à compléter, 35 à modifier pour le successeur ; **les fichiers actuels restent intacts**. Les nouveaux tests sont proposés dans l'étude et ne sont pas comptés comme existants.
+La règle de durée bornée proposée dans A06 est explicitement remplacée par la décision R0 de supervision continue ; le document A06 historique n'est pas réécrit. Le code courant ne fournit pas déjà le protocole 2, la nouvelle identité, la nouvelle partition ni B5 epoch. Ces dépendances sont affectées à R1/R2 et les budgets à R4.
 
-## Matrice technique synthétique
+## CRC et contrôles documentaires
 
-Chemins complets, exigences/TT et propositions détaillées : [traceability.csv](preuves/TR2-20261015-A06/traceability.csv), A06-01..20.
+| Vecteur | CRC préparé 168 octets | CRC actif 152 octets |
+|---|---|---|
+| V1_REFERENCE |5207CCFC|092C7610|
+| LIVE_A |7BA855C8|7818AAB3|
+| LIVE_B |FC4001B4|E5F05014|
 
-| Exigence → couverture | Code réel / impact / proposition |
-|---|---|
-| B4 domaines → FT-LIM01/02, LIM01-RQ008/012/013, LIM02-C02 | configuration_validator.c : gel impacté ; mode campagne inchangé, nouveau tuple live seulement en version nouvelle ; capacité réelle exigée pour campagne. |
-| B4 CRC/miroirs/apply → FT-LIM03, TT-INT-B04B05-001..004 | b4_configuration_codec.c/configuration_service.c : garder 168/152 octets et vecteur 5207CCFC ; nouveaux vecteurs et contrôle schéma hors CRC ; commit avant active. |
-| Recovery/autorité → FT-PER03/04/06 | configuration_store.c/configuration_record.c : nouveau format refusé par ancien firmware, lecture explicite anciens records ; aucune conversion automatique campagne→live. |
-| B5 START/STOP → FT-CMD06, FT-LIM04, TT-INT-B05B06-001/002 | campaign_service.c : préserver 3/4 et ouverture/clôture ; nouvelles commandes live sans ID campagne ni DataStore. Epoch V1.1 conservé distinctement. |
-| B1/B3/B7 → FT-LIM08/10, TT-BLK-B03-201..209, TT-INT-B03B04-001..004, FT-INT05 | projection.c/supervision_service.c : mesure valide indépendante du média, âge réel et défauts visibles ; bit 8 et synthèse des états à spécifier. Calculs d’accélération mg inchangés, raccordement et qualité encore à développer. |
-| B6 inventaire → FT-BLK05, FT-LIM05/06, TT-SEQ-CAMP-001/002 | b6_projection.c : aucune campagne fictive ; indisponible distinct de vide, nouveau statut 4 proposé exclusivement dans le successeur ; historique préservé. |
-| Structure/accès → FT-STR/ACC | codec.c/write_adapter.c : adresses/types/endian/RO/RW conservés ; mapping successeur distinct après décision, sans modification des gels. |
-| PC/SQLite → PollingB3ArchiveIntegrationTests/SqliteB3ArchiveSinkTests | B0SessionFactory/B3ArchivePublisher/SqliteB3ArchiveSink : refus de l’ancien PC sûr, reconnaissance explicite future ; métadonnées version/config/mode et gestion trous/erreurs à compléter. |
+Le CRC préparé V1 est la constante historique gelée ; son CRC actif est un résultat documentaire calculé ici, pas une nouvelle constante historique prétendument qualifiée. Tous les registres et SHA sont dans `01_Specification_source/LIVE_R0/vectors.json`. Deux calculs indépendants (bitwise et zlib) concordent, avec relecture du fixture normatif B4. Algorithme, périmètres 168/152 octets, endian et réservés sont conservés ; la version 4000 reste hors CRC et doit être contrôlée séparément.
 
-Les NOT_DEFINED actuels demeurent : dérivation exhaustive états/validité/alarmes, dominance, hystérésis/hold, priorités de refus simultanés et certaines relations inter-blocs. Ne pas créer de PASS depuis des annexes métier informatives ou supposer une égalité B1 active_campaign_id/B6 universelle. L'étude propose une sémantique live explicite, sans la rétroattribuer à V1.
+Commande réellement exécutée depuis le worktree :
 
-## Ordre recommandé, risques et arbitrages
+```text
+python3 'Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261015-R0/check_documents.py'
+```
 
-1. ChatGPT contrôle cette étude puis publie l'extension normative : versions/capacités, tuple live, codes 13/14, bit 8, B6 indisponible, politique autotest/défauts, migration/rollback et contrat transactionnel V1/V1.1 retenu.
-2. Implémenter autorité FRAM/recovery puis orchestration live et fenêtres/calcul/B3, avec refus sûrs et propriétaire FIFO unique. Quatre fenêtres V1, échelle réelle, snapshots cohérents ; préserver les dettes et marges A04.
-3. Validation complète firmware/ARM et tests PC concernés, puis **nouvelle mission physique autorisée** capteur→B3→PC→SQLite, sans média, avec budgets et durées chiffrés. Ne pas considérer M014/M015 comme preuve de cette nouvelle chaîne.
-4. Réintégrer l’enregistrement après qualification média distincte, même flux capteur, backpressure bornée, panne/plein/retrait explicitement signalés et préfixe durable vérifié ; retour média sans auto-ouverture. Ne pas risquer la partition existante.
+Résultat `DOCUMENTARY_CHECKS_PASSED` : 187 champs / 390 registres sans trou ni recouvrement, adresses/types/accès hérités identiques, 17 identifiants d'exigence couverts, CRC concordants, géométrie disjointe et 2 940 fichiers historiques protégés identiques. Le modèle de coupures vérifie chaque préfixe des écritures prévues dans la seule partition LIVE ; **il n'exécute pas les stores ni les barrières du firmware et ne prouve pas l'atomicité physique**.
 
-Risques principaux : adoption implicite du mode 0 V1, capacité inventée, changement invisible START, version hors CRC, downgrade FRAM illisible, faute SD masquée, B3 zéro ou périmé affiché valide, I/O FRAM bloquant FIFO et confusion SQLite/campagne. Le mode interne temporaire ne satisfait pas la supervision d'exploitation ; il ne doit pas créer une dette de conformité cachée.
+La revue a corrigé avant publication : une longueur B6 mal recopiée (64 registres réellement), une ambiguïté de sélection entre racine courante et ancien superblock pointant une banque inactive réécrite, et la branche STOP quand son budget journal manque. Le premier contrôle de couverture a signalé deux cas de domaine LIVE manquants (masque et ordre des seuils), ajoutés ; le parseur identifiait aussi à tort le segment R0-NORME du mission_id comme exigence, filtre corrigé sur les identifiants normatifs déclarés. Aucun oracle ni test ancien affaibli.
 
-## Preuves antérieures et limites matérielles
+Validation proportionnée : contrôles documentaires/numériques seulement. Aucun `tr2_validate.sh`, build hôte/ARM, test PC, ST-LINK, GDB, flash/reset, Modbus, accès FRAM/microSD/lecteur PC. Les 106 cas sont spécifiés, non exécutés ; les résultats matériels M014/M015/SD restent ceux des archives. L'état physique des deux cartes est hérité et non relu, aucun firmware ou média restauré.
 
-[M016 bloqué](archives/TR2-20261013-M016-V1-VIBRATION/RAPPORT.md) et sa cartographie/probe sauvegardé réutilisés sans réexécution. M014-H ne prouve que polling B0/B1/perte/reprise bornés. M015-V (`ef468539...`) :32 768 XYZ / 4 096 TS / ~1,247 s et deux lectures B0/B1, pas B3 métier. A04-02 (`8bcb843...`) : gap 5,855 ms / marge nominale 1,445 ms et B5 refusé pendant capture, I/O au repos 144,138 ms et boot bloquant restent des limites. Le rapport CN8 et sa mission sont archivés byte-identiques depuis 0c88e6e, sans effacer les preuves FIRSTFAULT.
+## Risques ouverts et conditions R1
 
-**Aucune opération matérielle A-06** : ni ST-LINK/GDB/flash/reset/Modbus/RS485, ni accès lecteur PC/FRAM/microSD. État uniquement hérité, non relu : principal dernier probe STORAGE2, cumulatif A04-02 non restauré ; seconde probe FIRSTFAULT B terminal 99 / trigger 0 / run 1 / error 2, SD test insérée / STLINK seul / CN15 off selon dernier retour utilisateur. Aucun nouveau résultat physique ou restauration revendiqué. Contrôle indépendant de ChatGPT distinct du statut DONE de l'audit.
+Aucune contradiction normative identifiée à l'issue de la revue locale. Restent des **préconditions et preuves d'implémentation**, pas des encodages laissés à décider :
 
-Journal actualisé par une section factuelle A-06 : décision du 15/10, dépendances observées, recommandation non adoptée, aucun matériel accédé et suite normative. Roadmap et dettes restent inchangées ; M016/A04-03 ne sont pas clôturées.
+1. Disponibilité/attribution réelle de la zone FRAM avant toute écriture ; contenu inconnu→arrêt, jamais « libre car non référencé ». Rollback seulement vers cumulatif compatible V2, pas pré-V2.
+2. Port de l'enveloppe logique 3, nouveau décodeur identité/autorité, migration et coupures sur vrais stores ; conserver strictement les anciennes banques, UID et données. L'ancien UNAVAILABLE ne doit plus masquer la candidate LIVE autoritative.
+3. Implémentation B5 epoch et rétention actuelle limitée ; slots 126/127 réservés STOP/renouvellement, sans GC d'identité admise. Après STARTED sans reçu d'effet, recovery 9 peut réellement bloquer les commandes ; aucun reset ou timeout n'est une preuve d'absence autorisant 28/29. Prévoir diagnostic et résolution fondés sur preuves, pas de blind replay.
+4. Coût des commits complets de 52 Ko, SRAM/pile et ordonnanceur IO compatibles FIFO ; aucune marge temps réel déduite du simple calcul géométrique. Le chemin STOP ne doit pas subir de famine, à démontrer en R4.
+5. Qualifier plus tard firmware, PC et physique selon R1–R6 ; R7 stockage reste distinct, sans bloquer LIVE. L'absence de mesure physique R0 est conforme au contrat, pas une qualification positive.
 
-## Git, contrôles et publication
+Entrée R1 : contrôle indépendant de ChatGPT des documents/mapping/oracles et nouvelle mission explicite. Roadmap R0 actualisée « documents rédigés, contrôle ChatGPT à réaliser », sans qualifier R1/J3/J4/J5. Journal complété factuellement ; dettes A04, gels, contrat R0 et règles de gouvernance intacts.
 
-HEAD initial distant 45ee898a6ebe9269e63904262dc9f1b9c8b87c78. Dépôt original `/home/lolo/dev/msm/projects/MSM_vibe` propre à 82169af7e76797731358852bec83bfb0ceb54ccf, divergence historique non résolue et tous les worktrees préservés. Worktree A06 `/home/lolo/dev/msm/projects/MSM_vibe-A06-supervision-storage-audit`, branche locale `codex/a06-supervision-storage-audit`, publication explicite vers `refs/heads/main`. Stashes 6251b988e8b20f97997a8f98fd26d4d35a45a1b2 et f3b829e6188f491920edf74a5f9ed0f559d08b87 conservés.
+## Git et publication
 
-Livrables : présente étude et rapport, preuves d'audit, archives CN8 intactes et ajout journal factuel uniquement. Code, spécifications, FT/TT, mappings, architectures normatives, gouvernance/contrat/roadmap/dettes protégés par comparaison empreintes. `result_sha` désigne le code et le corpus **inspectés statiquement**, pas un code exécuté ou flashé par A-06. Permissions commit/push seules exercées ; flash/debug false respectés.
+Dépôt original propre à `82169af7e76797731358852bec83bfb0ceb54ccf`, divergence historique conservée ; aucun pull/merge/rebase/reset destructif. Stashes `6251b988e8b20f97997a8f98fd26d4d35a45a1b2` et `f3b829e6188f491920edf74a5f9ed0f559d08b87` conservés. Worktree `/home/lolo/dev/msm/projects/MSM_vibe-R0-live-successor`, branche locale `codex/r0-live-successor`, publication autorisée vers `refs/heads/main` uniquement.
 
-Commandes réalisées : git status/rev-parse/fetch/ls-remote/worktree list/stash list, inspections rg et lectures, inventaire Python des 2 167 fichiers, génération matrices, vérification des chemins et archives, contrôle empreintes des 2 939 fichiers protégés. Validation proportionnée documentaire : aucun changement fonctionnel, donc aucun test/build hôte/ARM/PC ni reprise essai SD ne fournirait une preuve de plus pour l'étude. Les contrôles de livrables ne sont pas des tests fonctionnels. Le contrôle initial du diff indexé a signalé les fins de ligne CRLF des nouvelles preuves CSV ; sérialisation corrigée en LF avec champs entre guillemets, sans modification des sources ni des archives.
-
-Publication normale sur `main` réussie au commit **`67c074ed5cb0fcbdee29de373f1c2c4d4e9af5c5`**, message `A06: audit live supervision without campaign storage and preserve V1 contracts`. Référence récupérée par `git fetch origin main`, puis **17 fichiers intégralement relus et identiques octet à octet**, 11 empreintes de preuves vérifiées et 2 939 fichiers protégés contrôlés également dans les objets distants. [Reçu de relecture](preuves/TR2-20261015-A06/remote-readback-67c074e.json). Dépôt historique et deux stashes préservés ; worktree propre au checkpoint.
-
-La présente clôture `DONE` consigne ce résultat et ajoute le reçu ; elle est ensuite poussée normalement et relue à son tour. Son SHA final sera fourni dans la réponse, sans auto-référence impossible. Aucun merge/rebase/reset/clean/force push ni résolution automatique de divergence. `DONE` qualifie la livraison de l'étude, pas le mode live, la V1, le matériel ou une décision normative. Contrôle indépendant ChatGPT et mission d'implémentation restent à réaliser.
+`result_sha` désigne la référence initiale statiquement examinée, pas un code exécuté. Seuls nouveaux documents successeurs/preuves, archive A06, rapport, journal et statut factuel de roadmap sont inclus. Aucun fichier applicatif modifié. Commit/push autorisés exercés ; flash/debug false respectés. Diff et index à vérifier avant publication, puis comparaison intégrale des livrables depuis la référence récupérée de GitHub avant DONE ; SHA final fourni sans auto-référence impossible.

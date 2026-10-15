@@ -1,0 +1,27 @@
+{
+  "reference": "2b9c0202f79bc132b166776c4aed2a48925593dc",
+  "findings": [
+    {
+      "source": "Modbus RTU/05_Firmware/platform/stm32/stm32_production_board.c",
+      "fact": "Composition produit supported_protocol_version=1 ; fixture7/8 non allocation produit."
+    },
+    {
+      "source": "Modbus RTU/01_Specification_source/bloc0.md#6.1",
+      "fact": "Bits0..3 definis ; bit4 reserve jusqueLIVE, alloue uniquement au successeur."
+    },
+    {
+      "source": "Modbus RTU/01_Specification_source/V1_1/bloc5_v1_1_transaction_epoch.md",
+      "fact": "Code12 renouvellement ; codes13+ reserves ; resultats23..29 conserves ; extension B5 jusqu5028."
+    },
+    {
+      "source": "Modbus RTU/05_Firmware/src/application/persistent_identity.c",
+      "fact": "Protocole exact et masqueFFF0 bloquent LIVE ; nouveau format2 distinct necessaire."
+    },
+    {
+      "source": "Modbus RTU/02_Validation/mapping_unifie/tr2_mapping_unifie_logique.csv",
+      "fact": "Les allocations portent sur domaines et bits, aucune adresse nouvelle hors B5 V1_1 deja fige."
+    }
+  ],
+  "decision": "protocole2, B4/B6version2, bitB0=4, commandes13/14 et media logical3 dans nouvelles partitions ; aucune reattribution des gels.",
+  "limit": "Revue locale des espaces normatifs du projet, pas registre international des versions ni qualification fonctionnelle."
+}

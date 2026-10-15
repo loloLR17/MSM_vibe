@@ -1,0 +1,58 @@
+{
+  "status": "DOCUMENTARY_CHECKS_PASSED",
+  "mapping_fields": 187,
+  "decision_contexts": 384,
+  "mapped_registers": 390,
+  "block_lengths": {
+    "0": 21,
+    "1": 20,
+    "2": 16,
+    "3": 48,
+    "4": 176,
+    "5": 29,
+    "6": 64,
+    "7": 16
+  },
+  "numeric_reservations_checked": true,
+  "crc_vectors": [
+    {
+      "id": "V1_REFERENCE",
+      "prepared": "5207CCFC",
+      "active": "092C7610"
+    },
+    {
+      "id": "LIVE_A",
+      "prepared": "7BA855C8",
+      "active": "7818AAB3"
+    },
+    {
+      "id": "LIVE_B",
+      "prepared": "FC4001B4",
+      "active": "E5F05014"
+    }
+  ],
+  "crc_implementations": "bitwise independant + zlib; fixture historique relue depuis bloc4.md",
+  "test_oracles_specified": 106,
+  "requirement_ids": [
+    "R0-ALARM",
+    "R0-ALCFG",
+    "R0-BASE",
+    "R0-CFG",
+    "R0-CMD",
+    "R0-CRC",
+    "R0-FAULT",
+    "R0-FRAM",
+    "R0-IDENT",
+    "R0-INV",
+    "R0-PC",
+    "R0-POWER",
+    "R0-QUAL",
+    "R0-REC",
+    "R0-RUN",
+    "R0-TIME",
+    "R0-VER"
+  ],
+  "historical_files_unchanged": 2940,
+  "layout_proof": "layout-review.json",
+  "limits": "Ces controles ne sont ni une implementation LIVE ni une execution des 106 tests firmware/PC/physiques. Revue independante ChatGPT requise avant R1."
+}

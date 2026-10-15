@@ -1,0 +1,52 @@
+{
+  "profile": "LIVE_R0",
+  "protocol_version": 2,
+  "config_structure_version": 2,
+  "inventory_structure_version": 2,
+  "diag_structure_version": 1,
+  "b0_live_bit": 4,
+  "b4_capabilities": {
+    "LIVE": 0,
+    "CAMPAIGN": 1
+  },
+  "commands": {
+    "RENEW_TRANSACTION_EPOCH": 12,
+    "START_LIVE": 13,
+    "STOP_LIVE": 14
+  },
+  "b6_unavailable": 4,
+  "tuple_live": {
+    "acquisition_mode": 2,
+    "storage_mode": 0,
+    "storage_limit_mb": 0,
+    "campaign_duration_s": 0
+  },
+  "config_record_version": 2,
+  "identity_record_version": 2,
+  "journal_record_version": 4,
+  "media_logical_version": 3,
+  "media_physical_version": 1,
+  "config_error_codes": {
+    "NONE": 0,
+    "INCOMPLETE": 1,
+    "DOMAIN": 2,
+    "CRC": 3,
+    "VERSION": 4,
+    "PERSISTENCE": 5
+  },
+  "fault_codes": {
+    "NONE": 0,
+    "CONFIG": 1,
+    "SENSOR": 2,
+    "ACQUISITION": 3,
+    "FRAM_IDENTITY_EPOCH": 4,
+    "SD": 5,
+    "INTERNAL": 6,
+    "CLOCK": 7,
+    "SUPPLY": 8,
+    "TEMPERATURE": 9,
+    "INTERCONNECT": 10
+  },
+  "ack_vibration_latch_target": 256,
+  "b3_campaign_active_bit": 8
+}

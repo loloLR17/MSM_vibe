@@ -6,7 +6,7 @@
 
 | Lot | Statut au 15/10/2026 | Travaux et dépendances | Critères de sortie |
 |---|---|---|---|
-| **R0 — Norme LIVE** | **CADRAGE ADOPTÉ ; MAPPING ET ORACLES À FINALISER** | Extension versionnée distincte de V1/V1.1 ; vérifier version B0/B4, commandes B5, durée live continue, B1/B3/B6/B7, FRAM, migration, compatibilité, FT/TT. Aucun code modifié. | Mapping successeur et matrices d'états/refus/tests cohérents, CRC et migration documentés, revue ChatGPT. |
+| **R0 — Norme LIVE** | **DOCUMENTS SUCCESSEURS RÉDIGÉS ; CONTRÔLE CHATGPT À RÉALISER** | Extension versionnée distincte de V1/V1.1 ; vérifier version B0/B4, commandes B5, durée live continue, B1/B3/B6/B7, FRAM, migration, compatibilité, FT/TT. Aucun code modifié. | [Profil LIVE](../01_Specification_source/LIVE_R0/README.md), mapping 187 champs / 390 registres, 106 scénarios et 384 contextes spécifiés ; CRC et géométrie contrôlés documentairement. Revue ChatGPT requise avant R1 ; aucun PASS firmware/physique. |
 | **R1 — Configuration/FRAM** | À faire, après R0 | Validateur LIVE, version de record, commit atomique, recovery sans SD, migration/rollback non destructifs. | Tests corruption, coupure et compatibilité ; aucune active partielle ni conversion implicite. |
 | **R2 — Moteur live** | À faire, après R1 | START_LIVE/STOP_LIVE séparés des campagnes ; exclusivité ; aucun DataStore/ID campagne ; pas d'auto-restart. | Tests d'idempotence, refus, journal, absence écriture SD. |
 | **R3 — FIFO/calcul/B3** | À faire, après R2 ; travaux de calcul préparables en parallèle | Flux IIS3DWB unique, fenêtres et échelle active, RMS/crêtes/seuils, snapshots B3 cohérents, âge et invalidité. | Oracles indépendants, non-régression B3, aucun zéro fictif valide. |

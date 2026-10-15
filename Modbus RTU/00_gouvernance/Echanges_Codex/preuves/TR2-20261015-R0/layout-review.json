@@ -1,0 +1,71 @@
+{
+  "source_layout": [
+    {
+      "name": "configuration",
+      "start": 0,
+      "end": 280
+    },
+    {
+      "name": "time",
+      "start": 280,
+      "end": 298
+    },
+    {
+      "name": "campaign_repository",
+      "start": 298,
+      "end": 4370
+    },
+    {
+      "name": "campaign_data",
+      "start": 4370,
+      "end": 15922
+    },
+    {
+      "name": "journal",
+      "start": 15922,
+      "end": 51762
+    },
+    {
+      "name": "diagnostic",
+      "start": 51762,
+      "end": 51802
+    },
+    {
+      "name": "boot",
+      "start": 51802,
+      "end": 51818
+    },
+    {
+      "name": "identity",
+      "start": 51818,
+      "end": 51914
+    }
+  ],
+  "historical_protected": [
+    0,
+    122880
+  ],
+  "live_regions": [
+    [
+      122880,
+      126976
+    ],
+    [
+      126976,
+      131072
+    ],
+    [
+      131072,
+      188416
+    ],
+    [
+      188416,
+      245760
+    ]
+  ],
+  "logical_live_size": 52298,
+  "bank_slack": 4982,
+  "journal_size": 28672,
+  "model_cut_positions": 52427,
+  "limit": "Modele des intervalles planifies uniquement; aucun test de migration du firmware, aucune preuve de disponibilite physique du tail ni de resistance a une coupure reelle."
+}

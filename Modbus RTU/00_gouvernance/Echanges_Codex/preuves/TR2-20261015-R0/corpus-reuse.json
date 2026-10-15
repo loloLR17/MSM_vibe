@@ -1,0 +1,7 @@
+{
+  "files": 2167,
+  "unchanged": true,
+  "source": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261015-A06/corpus-inventory.csv",
+  "source_sha256": "27cb31dd3b826d75ced0cf5bd308bdd2f19d958ae0cdfad653c6aed8ee5293e6",
+  "method": "Chaque contenu a ete relu pour comparer son empreinte au parcours integral A06; revue R0 ciblee contrats, versions, domaines, layout et oracles actifs."
+}
