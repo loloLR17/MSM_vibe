@@ -1,5 +1,5 @@
 {
-  "README.md": "e34f31349d770aa98c6573fb2ab5757010d32f78c6360bb7873671575a14c216",
+  "README.md": "07439c973ea37bd17f49f110d0eb0ff4a83d14efc6f27b982d6c7386db424f96",
   "artifact-sha256.txt": "acfaf6f312eac37f14213fb212544c1ebf81a47004bf8f949e65b4ff94799bfe",
   "build-profile.txt": "87054b7366101854a3f16586344b8593baae13fb047228b318e8145d715ea2ed",
   "evaluated-source-sha256.json": "24fc843c6caca9c8115172b62dfb5504272b1b057b94965a24c4ec3958fa8065",
@@ -22,6 +22,7 @@
   "r3a-sanitize-tests.log": "5a9fe5fd6a75d72d44ca2dcb2f2c7197c1ffe3720b54f11012af83b834adf3ad",
   "r3a-target-build.log": "6216afb6372cc12af00be3a1978f599ba597f88013527afaf452fe96e0f7aaa9",
   "r3a-target-tests.log": "5a9fe5fd6a75d72d44ca2dcb2f2c7197c1ffe3720b54f11012af83b834adf3ad",
+  "remote-readback.json": "69da4364cc9c975f6860f161a099cc16bddd7ce332594bbfd24f1fa749a8e794",
   "resources/commands.json": "b0a474da8533bf98674ba25dafe9208fe7dba3cc948e9aa55237ca2893dc5441",
   "resources/fifo_live.su": "4f4677d9cb5d6ae67ea726fca147d54138c1344cc7bca4d9eed0eabcd0ccea88",
   "resources/live_fifo_acquisition.su": "a93ca047a41f19f3ae6f69bc7859bf3ddb61b048ff72d2a28e3f7d7a38dc7c48",

@@ -16,3 +16,5 @@ ABI/pile statique, pas un high-water dynamique.
 `verification.json` : synthèse/limites. Les logs intermédiaires ne sont pas tous
 le dernier passage ; host-final et arm-final sont les résultats finaux, sanitizer
 couvre owner/port/intégration hôte. Aucune qualification physique présumée.
+
+`remote-readback.json` consigne la relecture intégrale depuis GitHub du commit a33066d, avant la mise à jour DONE. La dernière publication est vérifiée séparément et son SHA fourni dans la réponse finale.

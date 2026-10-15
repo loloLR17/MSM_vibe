@@ -1,6 +1,6 @@
 ---
 mission_id: TR2-20261015-R3A-ACQUISITION-LIVE-ARCHITECTURE
-status: IN_PROGRESS
+status: DONE
 base_ref: main
 base_sha: 3f3ca1c38742c277de349b789e3e82fd52a1c791
 initial_head: c5c1c22df5291dc29782d4a81cc3dc17adf56556
@@ -16,7 +16,7 @@ allow_debug: true
 
 # R3-A — acquisition continue et revue architecturale
 
-**Développement et validations logiciels terminés ; publication/relecture en cours.**
+**Critères logiciels R3-A satisfaits ; rapport et preuves publiés puis relus sur main.**
 Un propriétaire continu réutilise le driver ST, le transport SPI STM32 qualifié
 et les guards/parser FIFO existants. Le vrai moteur R2 utilise ce propriétaire
 dans un test d'intégration avec SPI/FRAM simulés. **La production reste V1 ; aucun
@@ -166,7 +166,15 @@ absente ou comme un échec de qualification. Aucun accès FRAM/SD/RS485/reset,
 Option Bytes/protections inchangés. Permissions commit/push exercées, flash/debug
 non exercées. HP retiré ; le banc futur reste T1000.
 
-Code commité ; rapport/preuves préparés sur le worktree isolé. Push normal autorisé
-vers main, sans force. IN_PROGRESS porte sur publication/relecture encore à
-obtenir ; aucun blocage logiciel déclaré. SHA final et état Git seront fournis
-après contrôle distant, sans autoréférence dans ce commit.
+Push normal effectué vers main au commit
+**`a33066d52c4aa08771a2c78ae19778009e25b1f5`** —
+`R3-A: publish software qualification, architecture inventory and provisional report`.
+Référence récupérée de GitHub, tous les livrables modifiés relus intégralement et
+comparés octet à octet ; 30 fichiers du manifeste, 2332 fichiers protégés,
+sources évaluées et deux stashes vérifiés. Reçu détaillé :
+[`remote-readback.json`](preuves/TR2-20261015-R3A/remote-readback.json).
+Worktree propre après cette publication ; dépôt principal et autres worktrees
+préservés. Cette mise à jour DONE clôt les critères logiciels R3-A, sans
+qualification physique ni validation indépendante ChatGPT présumée.
+Le SHA de cette dernière publication et sa vérification sont fournis dans la
+réponse finale ; aucun SHA autoréférent n'est inscrit dans son propre commit.
