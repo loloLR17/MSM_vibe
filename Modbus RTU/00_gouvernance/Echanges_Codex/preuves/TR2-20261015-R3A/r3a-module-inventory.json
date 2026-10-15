@@ -1,0 +1,3814 @@
+{
+  "method": "nm -l --defined-only canonical ELF + CMake basename references (globs documented separately); nonlinked is NOT dead",
+  "modules": [
+    {
+      "path": "Modbus RTU/05_Firmware/include/tr2/application/acquisition_service.h",
+      "classification": "required_interface_not_link_unit",
+      "cmake_filename_references": [],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/include/tr2/application/campaign_inventory_service.h",
+      "classification": "required_interface_not_link_unit",
+      "cmake_filename_references": [],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/include/tr2/application/campaign_service.h",
+      "classification": "required_interface_not_link_unit",
+      "cmake_filename_references": [],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/include/tr2/application/command_acknowledge_fault.h",
+      "classification": "required_interface_not_link_unit",
+      "cmake_filename_references": [],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/include/tr2/application/command_apply_configuration.h",
+      "classification": "required_interface_not_link_unit",
+      "cmake_filename_references": [],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/include/tr2/application/command_boot_recovery.h",
+      "classification": "required_interface_not_link_unit",
+      "cmake_filename_references": [],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/include/tr2/application/command_engine.h",
+      "classification": "required_interface_not_link_unit",
+      "cmake_filename_references": [],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/include/tr2/application/command_maintenance.h",
+      "classification": "required_interface_not_link_unit",
+      "cmake_filename_references": [],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/include/tr2/application/command_policy.h",
+      "classification": "required_interface_not_link_unit",
+      "cmake_filename_references": [],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/include/tr2/application/command_refresh_indicators.h",
+      "classification": "required_interface_not_link_unit",
+      "cmake_filename_references": [],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/include/tr2/application/command_request_mailbox.h",
+      "classification": "required_interface_not_link_unit",
+      "cmake_filename_references": [],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/include/tr2/application/command_selftest.h",
+      "classification": "required_interface_not_link_unit",
+      "cmake_filename_references": [],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/include/tr2/application/command_software_reset.h",
+      "classification": "required_interface_not_link_unit",
+      "cmake_filename_references": [],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/include/tr2/application/command_start_acquisition.h",
+      "classification": "required_interface_not_link_unit",
+      "cmake_filename_references": [],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/include/tr2/application/command_stop_acquisition.h",
+      "classification": "required_interface_not_link_unit",
+      "cmake_filename_references": [],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/include/tr2/application/command_synchronize_time.h",
+      "classification": "required_interface_not_link_unit",
+      "cmake_filename_references": [],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/include/tr2/application/configuration_activation_adapter.h",
+      "classification": "required_interface_not_link_unit",
+      "cmake_filename_references": [],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/include/tr2/application/configuration_service.h",
+      "classification": "required_interface_not_link_unit",
+      "cmake_filename_references": [],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/include/tr2/application/configuration_workflow.h",
+      "classification": "required_interface_not_link_unit",
+      "cmake_filename_references": [],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/include/tr2/application/diagnostic_service.h",
+      "classification": "required_interface_not_link_unit",
+      "cmake_filename_references": [],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/include/tr2/application/live_command_engine.h",
+      "classification": "required_interface_not_link_unit",
+      "cmake_filename_references": [],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/include/tr2/application/live_configuration.h",
+      "classification": "required_interface_not_link_unit",
+      "cmake_filename_references": [],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/include/tr2/application/maintenance_service.h",
+      "classification": "required_interface_not_link_unit",
+      "cmake_filename_references": [],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/include/tr2/application/modbus_system_server.h",
+      "classification": "required_interface_not_link_unit",
+      "cmake_filename_references": [],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/include/tr2/application/persistent_identity.h",
+      "classification": "required_interface_not_link_unit",
+      "cmake_filename_references": [],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/include/tr2/application/production_application.h",
+      "classification": "required_interface_not_link_unit",
+      "cmake_filename_references": [],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/include/tr2/application/production_commissioning.h",
+      "classification": "required_interface_not_link_unit",
+      "cmake_filename_references": [],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/include/tr2/application/production_provisioning.h",
+      "classification": "required_interface_not_link_unit",
+      "cmake_filename_references": [],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/include/tr2/application/selftest_service.h",
+      "classification": "required_interface_not_link_unit",
+      "cmake_filename_references": [],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/include/tr2/application/supervision_service.h",
+      "classification": "required_interface_not_link_unit",
+      "cmake_filename_references": [],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/include/tr2/application/system_command_dispatcher.h",
+      "classification": "required_interface_not_link_unit",
+      "cmake_filename_references": [],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/include/tr2/application/system_runtime.h",
+      "classification": "required_interface_not_link_unit",
+      "cmake_filename_references": [],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/include/tr2/application/system_state_aggregator.h",
+      "classification": "required_interface_not_link_unit",
+      "cmake_filename_references": [],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/include/tr2/common/result.h",
+      "classification": "required_interface_not_link_unit",
+      "cmake_filename_references": [],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/include/tr2/common/sha256.h",
+      "classification": "required_interface_not_link_unit",
+      "cmake_filename_references": [],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/include/tr2/domain/acquisition/acquisition.h",
+      "classification": "required_interface_not_link_unit",
+      "cmake_filename_references": [],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/include/tr2/domain/boot/boot_intent.h",
+      "classification": "required_interface_not_link_unit",
+      "cmake_filename_references": [],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/include/tr2/domain/campaign/campaign.h",
+      "classification": "required_interface_not_link_unit",
+      "cmake_filename_references": [],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/include/tr2/domain/command/command.h",
+      "classification": "required_interface_not_link_unit",
+      "cmake_filename_references": [],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/include/tr2/domain/configuration/configuration.h",
+      "classification": "required_interface_not_link_unit",
+      "cmake_filename_references": [],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/include/tr2/domain/configuration/configuration_staging.h",
+      "classification": "required_interface_not_link_unit",
+      "cmake_filename_references": [],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/include/tr2/domain/configuration/configuration_validator.h",
+      "classification": "required_interface_not_link_unit",
+      "cmake_filename_references": [],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/include/tr2/domain/diagnostic/diagnostic.h",
+      "classification": "required_interface_not_link_unit",
+      "cmake_filename_references": [],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/include/tr2/domain/identity/identity.h",
+      "classification": "required_interface_not_link_unit",
+      "cmake_filename_references": [],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/include/tr2/domain/supervision/indicator_calculator.h",
+      "classification": "required_interface_not_link_unit",
+      "cmake_filename_references": [],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/include/tr2/domain/supervision/supervision.h",
+      "classification": "required_interface_not_link_unit",
+      "cmake_filename_references": [],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/include/tr2/domain/supervision/threshold_evaluator.h",
+      "classification": "required_interface_not_link_unit",
+      "cmake_filename_references": [],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/include/tr2/domain/system_mode/system_mode.h",
+      "classification": "required_interface_not_link_unit",
+      "cmake_filename_references": [],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/include/tr2/domain/system_state/system_state.h",
+      "classification": "required_interface_not_link_unit",
+      "cmake_filename_references": [],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/include/tr2/domain/time/time_recovery.h",
+      "classification": "required_interface_not_link_unit",
+      "cmake_filename_references": [],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/include/tr2/domain/time/time_service.h",
+      "classification": "required_interface_not_link_unit",
+      "cmake_filename_references": [],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/include/tr2/modbus/b4_configuration_codec.h",
+      "classification": "required_interface_not_link_unit",
+      "cmake_filename_references": [],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/include/tr2/modbus/codec.h",
+      "classification": "required_interface_not_link_unit",
+      "cmake_filename_references": [],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/include/tr2/modbus/pdu_server.h",
+      "classification": "required_interface_not_link_unit",
+      "cmake_filename_references": [],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/include/tr2/modbus/projection.h",
+      "classification": "required_interface_not_link_unit",
+      "cmake_filename_references": [],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/include/tr2/modbus/read_adapter.h",
+      "classification": "required_interface_not_link_unit",
+      "cmake_filename_references": [],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/include/tr2/modbus/register_model.h",
+      "classification": "required_interface_not_link_unit",
+      "cmake_filename_references": [],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/include/tr2/modbus/rtu_receiver.h",
+      "classification": "required_interface_not_link_unit",
+      "cmake_filename_references": [],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/include/tr2/modbus/rtu_server_runtime.h",
+      "classification": "required_interface_not_link_unit",
+      "cmake_filename_references": [],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/include/tr2/modbus/write_adapter.h",
+      "classification": "required_interface_not_link_unit",
+      "cmake_filename_references": [],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/include/tr2/persistence/boot_intent_record.h",
+      "classification": "required_interface_not_link_unit",
+      "cmake_filename_references": [],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/include/tr2/persistence/boot_intent_store.h",
+      "classification": "required_interface_not_link_unit",
+      "cmake_filename_references": [],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/include/tr2/persistence/campaign_bulk_aggregator.h",
+      "classification": "required_interface_not_link_unit",
+      "cmake_filename_references": [],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/include/tr2/persistence/campaign_bulk_block.h",
+      "classification": "required_interface_not_link_unit",
+      "cmake_filename_references": [],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/include/tr2/persistence/campaign_bulk_block_stream.h",
+      "classification": "required_interface_not_link_unit",
+      "cmake_filename_references": [],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/include/tr2/persistence/campaign_bulk_checkpoint.h",
+      "classification": "required_interface_not_link_unit",
+      "cmake_filename_references": [],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/include/tr2/persistence/campaign_bulk_media.h",
+      "classification": "required_interface_not_link_unit",
+      "cmake_filename_references": [],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/include/tr2/persistence/campaign_bulk_media_region.h",
+      "classification": "required_interface_not_link_unit",
+      "cmake_filename_references": [],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/include/tr2/persistence/campaign_bulk_metadata.h",
+      "classification": "required_interface_not_link_unit",
+      "cmake_filename_references": [],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/include/tr2/persistence/campaign_data_store.h",
+      "classification": "required_interface_not_link_unit",
+      "cmake_filename_references": [],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/include/tr2/persistence/campaign_data_store_bulk.h",
+      "classification": "required_interface_not_link_unit",
+      "cmake_filename_references": [],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/include/tr2/persistence/campaign_data_store_persistent.h",
+      "classification": "required_interface_not_link_unit",
+      "cmake_filename_references": [],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/include/tr2/persistence/campaign_data_store_persistent_composition.h",
+      "classification": "required_interface_not_link_unit",
+      "cmake_filename_references": [],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/include/tr2/persistence/campaign_record.h",
+      "classification": "required_interface_not_link_unit",
+      "cmake_filename_references": [],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/include/tr2/persistence/campaign_repository.h",
+      "classification": "required_interface_not_link_unit",
+      "cmake_filename_references": [],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/include/tr2/persistence/campaign_repository_store.h",
+      "classification": "required_interface_not_link_unit",
+      "cmake_filename_references": [],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/include/tr2/persistence/command_journal.h",
+      "classification": "required_interface_not_link_unit",
+      "cmake_filename_references": [],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/include/tr2/persistence/command_journal_bounded_admission.h",
+      "classification": "required_interface_not_link_unit",
+      "cmake_filename_references": [],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/include/tr2/persistence/command_journal_bounded_reader.h",
+      "classification": "required_interface_not_link_unit",
+      "cmake_filename_references": [],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/include/tr2/persistence/command_journal_bounded_record.h",
+      "classification": "required_interface_not_link_unit",
+      "cmake_filename_references": [],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/include/tr2/persistence/command_journal_bounded_recovery.h",
+      "classification": "required_interface_not_link_unit",
+      "cmake_filename_references": [],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/include/tr2/persistence/command_journal_bounded_slot.h",
+      "classification": "required_interface_not_link_unit",
+      "cmake_filename_references": [],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/include/tr2/persistence/command_journal_bounded_store.h",
+      "classification": "required_interface_not_link_unit",
+      "cmake_filename_references": [],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/include/tr2/persistence/command_journal_bounded_writer.h",
+      "classification": "required_interface_not_link_unit",
+      "cmake_filename_references": [],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/include/tr2/persistence/command_journal_record.h",
+      "classification": "required_interface_not_link_unit",
+      "cmake_filename_references": [],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/include/tr2/persistence/command_journal_store.h",
+      "classification": "required_interface_not_link_unit",
+      "cmake_filename_references": [],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/include/tr2/persistence/configuration_record.h",
+      "classification": "required_interface_not_link_unit",
+      "cmake_filename_references": [],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/include/tr2/persistence/configuration_store.h",
+      "classification": "required_interface_not_link_unit",
+      "cmake_filename_references": [],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/include/tr2/persistence/diagnostic_history_record.h",
+      "classification": "required_interface_not_link_unit",
+      "cmake_filename_references": [],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/include/tr2/persistence/diagnostic_history_store.h",
+      "classification": "required_interface_not_link_unit",
+      "cmake_filename_references": [],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/include/tr2/persistence/live_command_store.h",
+      "classification": "required_interface_not_link_unit",
+      "cmake_filename_references": [],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/include/tr2/persistence/persistent_media_region.h",
+      "classification": "required_interface_not_link_unit",
+      "cmake_filename_references": [],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/include/tr2/persistence/persistent_storage_core.h",
+      "classification": "required_interface_not_link_unit",
+      "cmake_filename_references": [],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/include/tr2/persistence/system_persistent_layout.h",
+      "classification": "required_interface_not_link_unit",
+      "cmake_filename_references": [],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/include/tr2/persistence/time_history_record.h",
+      "classification": "required_interface_not_link_unit",
+      "cmake_filename_references": [],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/include/tr2/persistence/time_history_store.h",
+      "classification": "required_interface_not_link_unit",
+      "cmake_filename_references": [],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/include/tr2/persistence/transactional_image_media.h",
+      "classification": "required_interface_not_link_unit",
+      "cmake_filename_references": [],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/include/tr2/platform/monotonic_clock.h",
+      "classification": "required_interface_not_link_unit",
+      "cmake_filename_references": [],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/include/tr2/platform/persistent_media.h",
+      "classification": "required_interface_not_link_unit",
+      "cmake_filename_references": [],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/include/tr2/platform/reset_cause_provider.h",
+      "classification": "required_interface_not_link_unit",
+      "cmake_filename_references": [],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/include/tr2/platform/reset_trigger.h",
+      "classification": "required_interface_not_link_unit",
+      "cmake_filename_references": [],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/include/tr2/platform/serial_transport.h",
+      "classification": "required_interface_not_link_unit",
+      "cmake_filename_references": [],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/include/tr2/platform/time_continuity_evidence.h",
+      "classification": "required_interface_not_link_unit",
+      "cmake_filename_references": [],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/include/tr2/platform/vibration_source.h",
+      "classification": "required_interface_not_link_unit",
+      "cmake_filename_references": [],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/include/tr2/platform/wall_clock.h",
+      "classification": "required_interface_not_link_unit",
+      "cmake_filename_references": [],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/platform/host/commissioning_plan_check.c",
+      "classification": "historical_or_specialized_or_tested_library_not_default_linked",
+      "cmake_filename_references": [],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/platform/host/host_platform.c",
+      "classification": "historical_or_specialized_or_tested_library_not_default_linked",
+      "cmake_filename_references": [
+        "Modbus RTU/05_Firmware/CMakeLists.txt"
+      ],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/platform/host/include/tr2/platform_host/host_platform.h",
+      "classification": "required_interface_not_link_unit",
+      "cmake_filename_references": [],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/platform/host/main.c",
+      "classification": "historical_or_specialized_or_tested_library_not_default_linked",
+      "cmake_filename_references": [
+        "Modbus RTU/05_Firmware/CMakeLists.txt",
+        "Modbus RTU/05_Firmware/platform/stm32/CMakeLists.txt",
+        "experiments/iis3dwb_st_reference/CMakeLists.txt",
+        "experiments/sdmmc_st_reference/CMakeLists.txt",
+        "experiments/gpio_dat123_st_reference/CMakeLists.txt",
+        "experiments/sdmmc1_firstfault/CMakeLists.txt"
+      ],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/platform/host/rtu_request.c",
+      "classification": "historical_or_specialized_or_tested_library_not_default_linked",
+      "cmake_filename_references": [
+        "Modbus RTU/05_Firmware/CMakeLists.txt"
+      ],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/platform/stm32/live_fifo_acquisition.c",
+      "classification": "prepared_R1_R2_R3A_not_default_linked",
+      "cmake_filename_references": [
+        "Modbus RTU/05_Firmware/CMakeLists.txt",
+        "Modbus RTU/05_Firmware/platform/stm32/CMakeLists.txt"
+      ],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/platform/stm32/live_fifo_acquisition.h",
+      "classification": "required_interface_not_link_unit",
+      "cmake_filename_references": [],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/platform/stm32/main.c",
+      "classification": "linked_canonical_elf",
+      "cmake_filename_references": [
+        "Modbus RTU/05_Firmware/CMakeLists.txt",
+        "Modbus RTU/05_Firmware/platform/stm32/CMakeLists.txt",
+        "experiments/iis3dwb_st_reference/CMakeLists.txt",
+        "experiments/sdmmc_st_reference/CMakeLists.txt",
+        "experiments/gpio_dat123_st_reference/CMakeLists.txt",
+        "experiments/sdmmc1_firstfault/CMakeLists.txt"
+      ],
+      "production_symbols": [
+        "080053fc t BringupLed_Init",
+        "08005838 t Error_Handler",
+        "08005464 t FramSpi_Init",
+        "080052d4 T HAL_MspInit",
+        "08005620 t Iis3dwbSpi_Init",
+        "08005328 t SystemClock_Config",
+        "080053e0 t SystemPower_Config",
+        "20000340 b hspi1",
+        "200003d0 b hspi3",
+        "080052e0 T main",
+        "20000460 B tr2_iis3dwb_spi_init_ok"
+      ]
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/platform/stm32/stm32_fifo_cooperative.c",
+      "classification": "linked_canonical_elf",
+      "cmake_filename_references": [
+        "Modbus RTU/05_Firmware/platform/stm32/CMakeLists.txt"
+      ],
+      "production_symbols": [
+        "20091884 B bench_result",
+        "200917f8 B cooperative",
+        "2004f4cc B cooperative_arm",
+        "2004f4d8 B cooperative_burst_count",
+        "2004f4f4 B cooperative_bursts",
+        "2004f4e0 B cooperative_command_io_denied",
+        "2004f4dc B cooperative_command_snapshot_failures",
+        "2004f4d0 B cooperative_end_tick",
+        "2004f4bc B cooperative_fram_crc_after",
+        "2004f4c0 B cooperative_fram_crc_before",
+        "2004f4b8 B cooperative_fram_state",
+        "2004f4b4 B cooperative_log_first_word",
+        "2004f4c4 B cooperative_max_cycles",
+        "2004f370 B cooperative_modbus",
+        "2004f4e4 B cooperative_modbus_capture_max_cycles",
+        "2004f36c B cooperative_modbus_count",
+        "2004f4e8 B cooperative_modbus_max_cycles",
+        "2004f470 B cooperative_prefix_count",
+        "2004f474 B cooperative_prefix_tick",
+        "2004f494 B cooperative_prefix_xyz",
+        "2004f4ec B cooperative_service_last_cycles",
+        "2004f4f0 B cooperative_service_max_gap_cycles",
+        "2004f4d4 B cooperative_start_tick",
+        "2004f4c8 B cooperative_trigger_rx",
+        "2004f354 b fram",
+        "200517f4 B official_words",
+        "080125dc T stm32_fifo_cooperative_command_io_available",
+        "0801255c T stm32_fifo_cooperative_observe",
+        "08012610 T stm32_fifo_cooperative_observe_service",
+        "080120a8 T stm32_fifo_cooperative_poll",
+        "08011fa0 T stm32_fifo_cooperative_prepare",
+        "2004f364 b verify_crc",
+        "2004f368 b verify_offset"
+      ]
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/platform/stm32/stm32_fifo_cooperative.h",
+      "classification": "required_interface_not_link_unit",
+      "cmake_filename_references": [],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/platform/stm32/stm32_fram_storage.c",
+      "classification": "linked_canonical_elf",
+      "cmake_filename_references": [
+        "Modbus RTU/05_Firmware/platform/stm32/CMakeLists.txt"
+      ],
+      "production_symbols": [
+        "080059ce t build_command_address",
+        "08005876 t cs_high",
+        "08005896 t cs_low",
+        "08005844 t range_is_valid",
+        "08005a40 t read_status_register",
+        "080058ea t receive",
+        "08005976 t receive_chunked",
+        "08005a0e t send_simple_command",
+        "08005a8a T stm32_fram_storage_init",
+        "08005ae4 T stm32_fram_storage_physical",
+        "08005b1c T stm32_fram_storage_read",
+        "08005bb8 T stm32_fram_storage_write",
+        "080058b6 t transmit",
+        "0800591e t transmit_chunked"
+      ]
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/platform/stm32/stm32_fram_storage.h",
+      "classification": "required_interface_not_link_unit",
+      "cmake_filename_references": [],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/platform/stm32/stm32_iis3dwb_active_readback.c",
+      "classification": "historical_or_specialized_or_tested_library_not_default_linked",
+      "cmake_filename_references": [
+        "Modbus RTU/05_Firmware/CMakeLists.txt",
+        "Modbus RTU/05_Firmware/platform/stm32/CMakeLists.txt"
+      ],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/platform/stm32/stm32_iis3dwb_active_readback.h",
+      "classification": "required_interface_not_link_unit",
+      "cmake_filename_references": [],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/platform/stm32/stm32_iis3dwb_burst_capture.c",
+      "classification": "historical_or_specialized_or_tested_library_not_default_linked",
+      "cmake_filename_references": [
+        "Modbus RTU/05_Firmware/CMakeLists.txt",
+        "Modbus RTU/05_Firmware/platform/stm32/CMakeLists.txt"
+      ],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/platform/stm32/stm32_iis3dwb_burst_capture.h",
+      "classification": "required_interface_not_link_unit",
+      "cmake_filename_references": [],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/platform/stm32/stm32_iis3dwb_capture.c",
+      "classification": "historical_or_specialized_or_tested_library_not_default_linked",
+      "cmake_filename_references": [
+        "Modbus RTU/05_Firmware/CMakeLists.txt",
+        "Modbus RTU/05_Firmware/platform/stm32/CMakeLists.txt"
+      ],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/platform/stm32/stm32_iis3dwb_capture.h",
+      "classification": "required_interface_not_link_unit",
+      "cmake_filename_references": [],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/platform/stm32/stm32_iis3dwb_continuous.c",
+      "classification": "historical_or_specialized_or_tested_library_not_default_linked",
+      "cmake_filename_references": [
+        "Modbus RTU/05_Firmware/CMakeLists.txt",
+        "Modbus RTU/05_Firmware/platform/stm32/CMakeLists.txt"
+      ],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/platform/stm32/stm32_iis3dwb_continuous.h",
+      "classification": "required_interface_not_link_unit",
+      "cmake_filename_references": [],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/platform/stm32/stm32_iis3dwb_ctrl1_differential.c",
+      "classification": "historical_or_specialized_or_tested_library_not_default_linked",
+      "cmake_filename_references": [
+        "Modbus RTU/05_Firmware/CMakeLists.txt",
+        "Modbus RTU/05_Firmware/platform/stm32/CMakeLists.txt"
+      ],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/platform/stm32/stm32_iis3dwb_ctrl1_differential.h",
+      "classification": "required_interface_not_link_unit",
+      "cmake_filename_references": [],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/platform/stm32/stm32_iis3dwb_fifo_capture.c",
+      "classification": "historical_or_specialized_or_tested_library_not_default_linked",
+      "cmake_filename_references": [
+        "Modbus RTU/05_Firmware/CMakeLists.txt",
+        "Modbus RTU/05_Firmware/platform/stm32/CMakeLists.txt"
+      ],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/platform/stm32/stm32_iis3dwb_fifo_capture.h",
+      "classification": "required_interface_not_link_unit",
+      "cmake_filename_references": [],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/platform/stm32/stm32_iis3dwb_register_probe.c",
+      "classification": "historical_or_specialized_or_tested_library_not_default_linked",
+      "cmake_filename_references": [
+        "Modbus RTU/05_Firmware/CMakeLists.txt",
+        "Modbus RTU/05_Firmware/platform/stm32/CMakeLists.txt"
+      ],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/platform/stm32/stm32_iis3dwb_register_probe.h",
+      "classification": "required_interface_not_link_unit",
+      "cmake_filename_references": [],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/platform/stm32/stm32_iis3dwb_st_window.c",
+      "classification": "linked_canonical_elf",
+      "cmake_filename_references": [
+        "Modbus RTU/05_Firmware/platform/stm32/CMakeLists.txt"
+      ],
+      "production_symbols": [
+        "2004f320 b active_begin",
+        "2004f328 b active_data",
+        "2004f324 b active_length",
+        "2004f31c b active_phase",
+        "2004f318 b active_trace",
+        "2004f32c B bench_cleanup_mode",
+        "200292f8 B bench_command",
+        "2002930c B bench_core_hz",
+        "2004f330 B bench_log_refused",
+        "200192ec B bench_payload",
+        "200292f0 B bench_payload_count",
+        "2004f334 B bench_poll_aggregate",
+        "20029310 B bench_preclose",
+        "2004f310 B bench_preclose_count",
+        "2004f314 B bench_preclose_overflow",
+        "200292fc B bench_ready",
+        "08010420 T bench_spi_preclose",
+        "200292f4 B bench_stop",
+        "2000f2ec B bench_trace",
+        "200292ec B bench_trace_count",
+        "20029300 B bench_uid",
+        "0801056c t cleanup_begin",
+        "0801094c T platform_init",
+        "080108f0 T platform_read",
+        "0801091e T platform_write",
+        "2000f2e4 b sensor_spi",
+        "08010acc T stm32_st_transport_attach",
+        "08010b14 T stm32_st_transport_next_window",
+        "08010584 t stop",
+        "2004f350 B tr2_fifo_fault",
+        "2004f34c B tr2_fifo_state",
+        "08010598 t transfer",
+        "2000f2e8 b transport_claimed"
+      ]
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/platform/stm32/stm32_iis3dwb_vibration_source.c",
+      "classification": "linked_canonical_elf",
+      "cmake_filename_references": [
+        "Modbus RTU/05_Firmware/CMakeLists.txt",
+        "Modbus RTU/05_Firmware/platform/stm32/CMakeLists.txt"
+      ],
+      "production_symbols": [
+        "08005ef8 t adapter_configure",
+        "080061cc t adapter_read",
+        "08005fd8 t adapter_start",
+        "08006230 t adapter_stop",
+        "08005e30 t full_scale_bits",
+        "08005cc8 t hal_to_tr2",
+        "08005e98 t raw_to_mg",
+        "08005cf8 t read_registers",
+        "08028ff4 t sensitivity_ug_per_lsb.0",
+        "0800601a T stm32_iis3dwb_read_raw",
+        "0800626a T stm32_iis3dwb_vibration_source_init",
+        "080062ec T stm32_iis3dwb_vibration_source_interface",
+        "08006334 T stm32_iis3dwb_vibration_source_read_who_am_i",
+        "08005db8 t write_register"
+      ]
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/platform/stm32/stm32_iis3dwb_vibration_source.h",
+      "classification": "required_interface_not_link_unit",
+      "cmake_filename_references": [],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/platform/stm32/stm32_irq_observer.h",
+      "classification": "required_interface_not_link_unit",
+      "cmake_filename_references": [],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/platform/stm32/stm32_live_acquisition.c",
+      "classification": "prepared_R1_R2_R3A_not_default_linked",
+      "cmake_filename_references": [
+        "Modbus RTU/05_Firmware/platform/stm32/CMakeLists.txt"
+      ],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/platform/stm32/stm32_live_acquisition.h",
+      "classification": "required_interface_not_link_unit",
+      "cmake_filename_references": [],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/platform/stm32/stm32_modbus_application.c",
+      "classification": "linked_canonical_elf",
+      "cmake_filename_references": [
+        "Modbus RTU/05_Firmware/platform/stm32/CMakeLists.txt"
+      ],
+      "production_symbols": [
+        "20000468 b production_runtime",
+        "0800636c T stm32_modbus_application_bind"
+      ]
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/platform/stm32/stm32_modbus_application.h",
+      "classification": "required_interface_not_link_unit",
+      "cmake_filename_references": [],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/platform/stm32/stm32_modbus_diagnostic.c",
+      "classification": "historical_or_specialized_or_tested_library_not_default_linked",
+      "cmake_filename_references": [
+        "Modbus RTU/05_Firmware/CMakeLists.txt",
+        "Modbus RTU/05_Firmware/platform/stm32/CMakeLists.txt"
+      ],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/platform/stm32/stm32_modbus_diagnostic.h",
+      "classification": "required_interface_not_link_unit",
+      "cmake_filename_references": [],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/platform/stm32/stm32_production_board.c",
+      "classification": "linked_canonical_elf",
+      "cmake_filename_references": [
+        "Modbus RTU/05_Firmware/platform/stm32/CMakeLists.txt"
+      ],
+      "production_symbols": [
+        "2000ec70 b fram_spi",
+        "08010020 t geometry",
+        "2000eca0 b initialized",
+        "0800ffa8 t preboot_authority",
+        "2000ec78 b sensor_probe",
+        "2000ec74 b sensor_spi",
+        "2000ecd0 b server.0",
+        "080100d4 T stm32_production_binding_acquire",
+        "0801004c T stm32_production_board_initialize",
+        "0801025c T stm32_production_server_run",
+        "0800ff92 t storage_available",
+        "2000ecb0 b structural_authority",
+        "2000ecac B tr2_production_poll_count",
+        "2000eca8 B tr2_production_poll_errors",
+        "200001d4 D tr2_production_result",
+        "2000eca4 B tr2_production_stage",
+        "2000ecc0 b transport.1",
+        "0800ff26 t unavailable_action",
+        "0800ff3c t unavailable_append",
+        "0800ff5c t unavailable_recover",
+        "2000ec88 b unavailable_store"
+      ]
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/platform/stm32/stm32_production_board.h",
+      "classification": "required_interface_not_link_unit",
+      "cmake_filename_references": [],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/platform/stm32/stm32_production_runtime.c",
+      "classification": "linked_canonical_elf",
+      "cmake_filename_references": [
+        "Modbus RTU/05_Firmware/platform/stm32/CMakeLists.txt"
+      ],
+      "production_symbols": [
+        "0800641c T stm32_production_runtime_prepare"
+      ]
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/platform/stm32/stm32_production_runtime.h",
+      "classification": "required_interface_not_link_unit",
+      "cmake_filename_references": [],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/platform/stm32/stm32_rs485_rx_gpio.c",
+      "classification": "linked_canonical_elf",
+      "cmake_filename_references": [
+        "Modbus RTU/05_Firmware/CMakeLists.txt",
+        "Modbus RTU/05_Firmware/platform/stm32/CMakeLists.txt"
+      ],
+      "production_symbols": [
+        "08006788 T stm32_rs485_rx_gpio_init"
+      ]
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/platform/stm32/stm32_rs485_rx_gpio.h",
+      "classification": "required_interface_not_link_unit",
+      "cmake_filename_references": [],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/platform/stm32/stm32_runtime_platform.c",
+      "classification": "linked_canonical_elf",
+      "cmake_filename_references": [
+        "Modbus RTU/05_Firmware/platform/stm32/CMakeLists.txt"
+      ],
+      "production_symbols": [
+        "08007e40 t capture_reset_cause",
+        "0800751c t days_before_month",
+        "080074d4 t days_before_year_from_tr2_epoch",
+        "08007498 t days_in_month",
+        "2000ec34 b g_runtime_platform",
+        "08007bf8 t initialize_rtc",
+        "0800743c t is_leap_year",
+        "08029004 t month_days.0",
+        "08007558 t rtc_to_timestamp",
+        "08007dc4 t stm32_now_ms",
+        "08007e0a t stm32_reset_cause_get",
+        "08007f1c T stm32_runtime_monotonic_clock",
+        "08007ecc T stm32_runtime_platform_init",
+        "08007f50 T stm32_runtime_reset_cause_provider",
+        "08007fb8 T stm32_runtime_time_continuity_evidence_provider",
+        "08007f84 T stm32_runtime_wall_clock",
+        "08007b6c t stm32_time_continuity_get",
+        "080079e0 t stm32_wall_clock_read",
+        "08007a8c t stm32_wall_clock_set",
+        "08007840 t timestamp_to_rtc"
+      ]
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/platform/stm32/stm32_runtime_platform.h",
+      "classification": "required_interface_not_link_unit",
+      "cmake_filename_references": [],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/platform/stm32/stm32_sdmmc_bulk_media.c",
+      "classification": "historical_or_specialized_or_tested_library_not_default_linked",
+      "cmake_filename_references": [
+        "Modbus RTU/05_Firmware/CMakeLists.txt",
+        "Modbus RTU/05_Firmware/platform/stm32/CMakeLists.txt"
+      ],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/platform/stm32/stm32_sdmmc_bulk_media.h",
+      "classification": "required_interface_not_link_unit",
+      "cmake_filename_references": [],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/platform/stm32/stm32_serial_transport.c",
+      "classification": "linked_canonical_elf",
+      "cmake_filename_references": [
+        "Modbus RTU/05_Firmware/CMakeLists.txt",
+        "Modbus RTU/05_Firmware/platform/stm32/CMakeLists.txt"
+      ],
+      "production_symbols": [
+        "08007384 T HAL_TIM_PeriodElapsedCallback",
+        "080072e0 T HAL_UART_ErrorCallback",
+        "080071dc T HAL_UART_RxCpltCallback",
+        "08007260 T HAL_UART_TxCpltCallback",
+        "08006908 t event_push_from_isr",
+        "2000e5a0 b g_serial",
+        "08006e90 t map_uart_error",
+        "08006abc t restore_receive",
+        "08006edc t rtu_timer_init",
+        "08006a68 t rtu_timer_restart_from_byte",
+        "080069fc t rtu_timer_start_period",
+        "08006988 t rtu_timer_stop",
+        "08006814 t sample_core",
+        "08006ce0 t stm32_poll_event",
+        "08006ffc T stm32_serial_transport_init",
+        "08007190 T stm32_serial_transport_irq_handler",
+        "080071bc T stm32_serial_transport_tim6_irq_handler",
+        "08006a84 t stm32_start_receive",
+        "08006b64 t stm32_transmit",
+        "2000e854 B tr2_irq_observer",
+        "08006af4 t tx_fail_safe"
+      ]
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/platform/stm32/stm32_serial_transport.h",
+      "classification": "required_interface_not_link_unit",
+      "cmake_filename_references": [],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/platform/stm32/stm32_storage_qualification.c",
+      "classification": "historical_or_specialized_or_tested_library_not_default_linked",
+      "cmake_filename_references": [
+        "Modbus RTU/05_Firmware/platform/stm32/CMakeLists.txt"
+      ],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/platform/stm32/stm32u5xx_hal_conf.h",
+      "classification": "required_interface_not_link_unit",
+      "cmake_filename_references": [],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/platform/stm32/stm32u5xx_it.c",
+      "classification": "linked_canonical_elf",
+      "cmake_filename_references": [
+        "Modbus RTU/05_Firmware/platform/stm32/CMakeLists.txt",
+        "experiments/sdmmc1_firstfault/CMakeLists.txt"
+      ],
+      "production_symbols": [
+        "08007ff8 T LPUART1_IRQHandler",
+        "08007fec T SysTick_Handler",
+        "08008004 T TIM6_IRQHandler"
+      ]
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/platform/stm32/tr2_fifo_admission.h",
+      "classification": "required_interface_not_link_unit",
+      "cmake_filename_references": [],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/src/application/acquisition_service.c",
+      "classification": "linked_canonical_elf",
+      "cmake_filename_references": [
+        "Modbus RTU/05_Firmware/CMakeLists.txt"
+      ],
+      "production_symbols": [
+        "080209bc t acquisition_configuration_from_active",
+        "08020abc T acquisition_service_begin_window",
+        "08020960 t acquisition_service_dependencies_valid",
+        "08020c00 T acquisition_service_end_window",
+        "08020a36 T acquisition_service_init",
+        "08020a90 T acquisition_service_is_initialized",
+        "08020a00 t vibration_source_configuration_from_context"
+      ]
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/src/application/campaign_inventory_service.c",
+      "classification": "linked_canonical_elf",
+      "cmake_filename_references": [
+        "Modbus RTU/05_Firmware/CMakeLists.txt"
+      ],
+      "production_symbols": [
+        "08020d0e T campaign_inventory_service_init",
+        "08020d54 T campaign_inventory_service_is_initialized",
+        "08020d8e T campaign_inventory_service_select",
+        "08020dca T campaign_inventory_service_snapshot",
+        "08020cda t repository_valid"
+      ]
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/src/application/campaign_service.c",
+      "classification": "linked_canonical_elf",
+      "cmake_filename_references": [
+        "Modbus RTU/05_Firmware/CMakeLists.txt"
+      ],
+      "production_symbols": [
+        "080211a2 T campaign_service_acquisition_running",
+        "08021172 T campaign_service_campaign_open",
+        "080210a6 T campaign_service_init",
+        "08021146 T campaign_service_is_initialized",
+        "08021422 T campaign_service_publish_supervision_step",
+        "080211d2 T campaign_service_reserve_start_id",
+        "0802128a T campaign_service_start_reserved",
+        "0802178c T campaign_service_stop",
+        "0802147e t campaign_service_stop_internal",
+        "080217aa T campaign_service_stop_with_supervision",
+        "08020fca t checkpoint_completed_window",
+        "08020f7e t data_store_valid",
+        "0802101c t metadata_from_active",
+        "08020f3a t repository_valid"
+      ]
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/src/application/command_apply_configuration.c",
+      "classification": "linked_canonical_elf",
+      "cmake_filename_references": [
+        "Modbus RTU/05_Firmware/CMakeLists.txt"
+      ],
+      "production_symbols": [
+        "08021824 T command_apply_configuration_execute_bound",
+        "080219e8 T command_apply_configuration_reconcile",
+        "080217e6 t final_result"
+      ]
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/src/application/command_boot_recovery.c",
+      "classification": "linked_canonical_elf",
+      "cmake_filename_references": [
+        "Modbus RTU/05_Firmware/CMakeLists.txt"
+      ],
+      "production_symbols": [
+        "08021ebc t collect_incomplete_transaction",
+        "08021f20 T command_boot_recovery_scan",
+        "08021b72 T command_software_reset_execute",
+        "08021d7e T command_software_reset_reconcile",
+        "08021b2e t complete_reset_refusal",
+        "08021e10 t reconcile_started",
+        "08021ae6 t software_reset_parameters_valid"
+      ]
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/src/application/command_engine.c",
+      "classification": "linked_canonical_elf",
+      "cmake_filename_references": [
+        "Modbus RTU/05_Firmware/CMakeLists.txt"
+      ],
+      "production_symbols": [
+        "0802288e t acknowledge_fault_request_parameters_valid",
+        "080220b8 t active_entry_matches",
+        "0802292e T command_acknowledge_fault_execute",
+        "080221b8 T command_engine_active_transaction_id",
+        "080222d8 T command_engine_admit",
+        "08022514 T command_engine_complete",
+        "08022188 T command_engine_has_active_transaction",
+        "08022108 T command_engine_init",
+        "0802214e T command_engine_is_initialized",
+        "08022462 T command_engine_mark_started",
+        "080221e2 T command_engine_restore_incomplete",
+        "0802260c T command_engine_snapshot",
+        "08022c78 T command_enter_maintenance_execute",
+        "08022dc8 T command_exit_maintenance_execute",
+        "08022754 T command_refresh_indicators_execute",
+        "080228de t complete_acknowledgement",
+        "08022c2c t complete_maintenance_command",
+        "0802206c t journal_contract_valid",
+        "08022b74 T maintenance_service_active",
+        "08022ba4 T maintenance_service_enter",
+        "08022be8 T maintenance_service_exit",
+        "08022b10 T maintenance_service_init",
+        "08022b48 T maintenance_service_is_initialized"
+      ]
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/src/application/command_policy.c",
+      "classification": "linked_canonical_elf",
+      "cmake_filename_references": [
+        "Modbus RTU/05_Firmware/CMakeLists.txt"
+      ],
+      "production_symbols": [
+        "08022f4a t acknowledge_fault_parameters_valid",
+        "08022fc6 T command_engine_flags_project",
+        "08023136 T command_policy_consume_cancel_request",
+        "0802308e T command_request_policy_validate",
+        "08022f9a t protected_command",
+        "08022efa t request_parameters_must_be_zero"
+      ]
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/src/application/command_request_mailbox.c",
+      "classification": "linked_canonical_elf",
+      "cmake_filename_references": [
+        "Modbus RTU/05_Firmware/CMakeLists.txt"
+      ],
+      "production_symbols": [
+        "0802316e t capture_request",
+        "080232d6 T command_request_mailbox_cancel_requested",
+        "080231d4 T command_request_mailbox_clear_fields",
+        "080231b2 T command_request_mailbox_init",
+        "08023212 T command_request_mailbox_write_control"
+      ]
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/src/application/command_selftest.c",
+      "classification": "linked_canonical_elf",
+      "cmake_filename_references": [
+        "Modbus RTU/05_Firmware/CMakeLists.txt"
+      ],
+      "production_symbols": [
+        "0802338a T command_selftest_execute",
+        "08023572 T command_selftest_reconcile",
+        "0802333a t complete_selftest_command",
+        "08023304 t request_parameters_valid"
+      ]
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/src/application/command_start_acquisition.c",
+      "classification": "linked_canonical_elf",
+      "cmake_filename_references": [
+        "Modbus RTU/05_Firmware/CMakeLists.txt"
+      ],
+      "production_symbols": [
+        "0802363a T command_start_acquisition_execute",
+        "0802386e T command_start_acquisition_reconcile",
+        "080235de t converge_failed_start",
+        "080235a0 t final_result"
+      ]
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/src/application/command_stop_acquisition.c",
+      "classification": "linked_canonical_elf",
+      "cmake_filename_references": [
+        "Modbus RTU/05_Firmware/CMakeLists.txt"
+      ],
+      "production_symbols": [
+        "08023974 T command_stop_acquisition_execute",
+        "08023c5c T command_stop_acquisition_reconcile",
+        "08023936 t final_result"
+      ]
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/src/application/command_synchronize_time.c",
+      "classification": "linked_canonical_elf",
+      "cmake_filename_references": [
+        "Modbus RTU/05_Firmware/CMakeLists.txt"
+      ],
+      "production_symbols": [
+        "08023d62 T command_synchronize_time_execute_bound",
+        "08023f48 T command_synchronize_time_reconcile",
+        "08023d24 t final_result"
+      ]
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/src/application/configuration_activation_adapter.c",
+      "classification": "linked_canonical_elf",
+      "cmake_filename_references": [
+        "Modbus RTU/05_Firmware/CMakeLists.txt"
+      ],
+      "production_symbols": [
+        "08023ff0 t activation_commit",
+        "0802408a T configuration_activation_adapter_init",
+        "080240e8 T configuration_activation_adapter_port"
+      ]
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/src/application/configuration_service.c",
+      "classification": "linked_canonical_elf",
+      "cmake_filename_references": [
+        "Modbus RTU/05_Firmware/CMakeLists.txt"
+      ],
+      "production_symbols": [
+        "0802432c T configuration_service_active_snapshot",
+        "08024266 T configuration_service_commit_validated",
+        "08024138 T configuration_service_init",
+        "08024184 T configuration_service_is_initialized",
+        "080241c6 T configuration_service_recover",
+        "0802437a T configuration_service_recovery_status"
+      ]
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/src/application/configuration_workflow.c",
+      "classification": "linked_canonical_elf",
+      "cmake_filename_references": [
+        "Modbus RTU/05_Firmware/CMakeLists.txt"
+      ],
+      "production_symbols": [
+        "08024728 T configuration_workflow_apply",
+        "0802442a T configuration_workflow_init",
+        "0802449c T configuration_workflow_note_prepared_payload_modified",
+        "08024878 T configuration_workflow_state",
+        "080244da T configuration_workflow_validate",
+        "08024898 T configuration_workflow_validated_snapshot",
+        "080243de t validated_matches_current",
+        "080243c4 t validation_result"
+      ]
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/src/application/diagnostic_service.c",
+      "classification": "linked_canonical_elf",
+      "cmake_filename_references": [
+        "Modbus RTU/05_Firmware/CMakeLists.txt"
+      ],
+      "production_symbols": [
+        "08024d56 T diagnostic_service_acknowledge_all",
+        "08024cf0 T diagnostic_service_acknowledge_fault",
+        "08024c78 T diagnostic_service_acknowledgeable_fault_count",
+        "08024c1a T diagnostic_service_fault_acknowledgement",
+        "08024a48 T diagnostic_service_init",
+        "08024a7a T diagnostic_service_is_initialized",
+        "08024aa6 T diagnostic_service_publish_facts",
+        "08024b7a T diagnostic_service_publish_selftest",
+        "08024b10 T diagnostic_service_restore_last_fault",
+        "08024be4 T diagnostic_service_restore_selftest",
+        "08024dee T diagnostic_service_snapshot",
+        "08024a0e t ensure_snapshot",
+        "08024932 t find_active_fault",
+        "080249a0 t find_active_fault_mutable",
+        "08024fbc T selftest_service_begin_standard",
+        "08025026 T selftest_service_complete",
+        "08024e4a T selftest_service_init",
+        "08024eb6 T selftest_service_is_initialized",
+        "08024f40 T selftest_service_recover",
+        "08024f10 T selftest_service_running"
+      ]
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/src/application/live_command_engine.c",
+      "classification": "prepared_R1_R2_R3A_not_default_linked",
+      "cmake_filename_references": [
+        "Modbus RTU/05_Firmware/CMakeLists.txt"
+      ],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/src/application/live_configuration.c",
+      "classification": "prepared_R1_R2_R3A_not_default_linked",
+      "cmake_filename_references": [
+        "Modbus RTU/05_Firmware/CMakeLists.txt"
+      ],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/src/application/modbus_system_server.c",
+      "classification": "linked_canonical_elf",
+      "cmake_filename_references": [
+        "Modbus RTU/05_Firmware/CMakeLists.txt"
+      ],
+      "production_symbols": [
+        "08012f78 T modbus_system_server_init",
+        "08013106 T modbus_system_server_poll_once",
+        "080130a0 T modbus_system_server_start",
+        "08012dd8 t refresh_context",
+        "080129e4 t refresh_context_selected",
+        "08012efa t refresh_request",
+        "08012df4 t request_targets_b5"
+      ]
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/src/application/persistent_identity.c",
+      "classification": "linked_canonical_elf",
+      "cmake_filename_references": [
+        "Modbus RTU/05_Firmware/CMakeLists.txt"
+      ],
+      "production_symbols": [
+        "08013240 t ascii",
+        "080131d4 t crc",
+        "0801333c t decode_version",
+        "08013180 t g16",
+        "080131aa t g32",
+        "0801361c T persistent_identity_attribution_check",
+        "080136ec T persistent_identity_decode",
+        "08013564 T persistent_identity_from_image",
+        "08013292 t valid"
+      ]
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/src/application/production_application.c",
+      "classification": "linked_canonical_elf",
+      "cmake_filename_references": [
+        "Modbus RTU/05_Firmware/CMakeLists.txt"
+      ],
+      "production_symbols": [
+        "080138ca T production_application_binding",
+        "0801370e T production_application_boot",
+        "08013978 T production_application_enable_configuration"
+      ]
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/src/application/production_commissioning.c",
+      "classification": "linked_canonical_elf",
+      "cmake_filename_references": [
+        "Modbus RTU/05_Firmware/CMakeLists.txt"
+      ],
+      "production_symbols": [
+        "08013db2 t deny_commit",
+        "08013d98 t deny_write",
+        "08013e20 T production_commissioning_check_attribution",
+        "08013e54 T production_commissioning_inspect_prefix",
+        "08013d48 t read_prefix",
+        "08013dc8 t status_result"
+      ]
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/src/application/production_provisioning.c",
+      "classification": "linked_canonical_elf",
+      "cmake_filename_references": [
+        "Modbus RTU/05_Firmware/CMakeLists.txt"
+      ],
+      "production_symbols": [
+        "080143c8 T production_provisioning_probe"
+      ]
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/src/application/supervision_service.c",
+      "classification": "linked_canonical_elf",
+      "cmake_filename_references": [
+        "Modbus RTU/05_Firmware/CMakeLists.txt"
+      ],
+      "production_symbols": [
+        "080250d8 t next_sequence_value",
+        "080250fc t saturating_age_ms",
+        "08025168 T supervision_service_bind_temporal_dependencies",
+        "08025136 T supervision_service_init",
+        "080251cc T supervision_service_is_initialized",
+        "080251f8 T supervision_service_publish_window",
+        "08025468 T supervision_service_snapshot"
+      ]
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/src/application/system_command_dispatcher.c",
+      "classification": "linked_canonical_elf",
+      "cmake_filename_references": [
+        "Modbus RTU/05_Firmware/CMakeLists.txt"
+      ],
+      "production_symbols": [
+        "080145a6 t submit_request",
+        "08014c40 T system_command_dispatcher_bind",
+        "0801452c T system_command_dispatcher_init",
+        "08014a84 T system_command_dispatcher_snapshot",
+        "080149d0 T system_command_dispatcher_submit",
+        "080144d6 t terminal_time",
+        "08014484 t view"
+      ]
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/src/application/system_runtime.c",
+      "classification": "linked_canonical_elf",
+      "cmake_filename_references": [
+        "Modbus RTU/05_Firmware/CMakeLists.txt"
+      ],
+      "production_symbols": [
+        "0801541e t compose_fg_runtime",
+        "080154e8 t compose_p9_authorities",
+        "0801503a t continuity_from_platform",
+        "08014f2c t dependencies_are_valid",
+        "080158b0 t rebuild_b4",
+        "08015950 t rebuild_b5",
+        "080159fc t rebuild_b6",
+        "08015246 t recover_campaigns",
+        "0801564e t recover_commands",
+        "080151e2 t recover_configuration",
+        "08015074 t recover_time",
+        "08015d9c T system_runtime_b4_image",
+        "08015b6e T system_runtime_boot",
+        "08015ab0 T system_runtime_init",
+        "08015d5c T system_runtime_is_ready_for_modbus"
+      ]
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/src/application/system_runtime_acquisition_command.c",
+      "classification": "linked_canonical_elf",
+      "cmake_filename_references": [
+        "Modbus RTU/05_Firmware/CMakeLists.txt"
+      ],
+      "production_symbols": [
+        "08015e40 t b1_reset_cause_from_platform",
+        "08015e8c t collect_runtime_system_state",
+        "0801611c t project_runtime_b1",
+        "08016192 t project_runtime_b7",
+        "080161fa t project_runtime_status_images",
+        "08016298 t refresh_b3",
+        "080162fa t refresh_b5",
+        "080163d0 t refresh_b6",
+        "08016228 t refresh_runtime_status",
+        "0801696c T system_runtime_b1_image",
+        "08016a04 T system_runtime_b3_image",
+        "08016aae T system_runtime_b7_image",
+        "08016280 T system_runtime_build_boot_status_images",
+        "08016484 T system_runtime_execute_acquisition_command",
+        "0801662c T system_runtime_execute_p9_command"
+      ]
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/src/application/system_state_aggregator.c",
+      "classification": "linked_canonical_elf",
+      "cmake_filename_references": [
+        "Modbus RTU/05_Firmware/CMakeLists.txt"
+      ],
+      "production_symbols": [
+        "08016b74 T system_state_aggregator_build",
+        "08016b42 T system_state_aggregator_init",
+        "08016d60 T system_state_aggregator_refresh"
+      ]
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/src/common/sha256.c",
+      "classification": "prepared_R1_R2_R3A_not_default_linked",
+      "cmake_filename_references": [
+        "Modbus RTU/05_Firmware/CMakeLists.txt"
+      ],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/src/domain/command/command.c",
+      "classification": "linked_canonical_elf",
+      "cmake_filename_references": [
+        "Modbus RTU/05_Firmware/CMakeLists.txt"
+      ],
+      "production_symbols": [
+        "08016e72 T command_request_identity_equal",
+        "08016ede T command_status_is_final",
+        "08016e52 T command_transaction_id_is_valid"
+      ]
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/src/domain/configuration/configuration_staging.c",
+      "classification": "linked_canonical_elf",
+      "cmake_filename_references": [
+        "Modbus RTU/05_Firmware/CMakeLists.txt"
+      ],
+      "production_symbols": [
+        "08016f5e T configuration_staging_has_prepared",
+        "08016f44 T configuration_staging_init",
+        "08017028 T configuration_staging_is_validation_current",
+        "0801700e T configuration_staging_mark_validation_current",
+        "08016fe6 T configuration_staging_replace_payload",
+        "08016faa T configuration_staging_set_config_id",
+        "08016fc8 T configuration_staging_set_supplied_crc",
+        "08016f74 T configuration_staging_snapshot",
+        "08016f1c t configuration_staging_touch"
+      ]
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/src/domain/configuration/configuration_validator.c",
+      "classification": "linked_canonical_elf",
+      "cmake_filename_references": [
+        "Modbus RTU/05_Firmware/CMakeLists.txt"
+      ],
+      "production_symbols": [
+        "08017254 T configuration_validate",
+        "0801707e t indicator_period_is_valid",
+        "080170d0 t static_constraints_are_valid",
+        "0801703e t window_size_is_valid"
+      ]
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/src/domain/identity/identity.c",
+      "classification": "historical_or_specialized_or_tested_library_not_default_linked",
+      "cmake_filename_references": [
+        "Modbus RTU/05_Firmware/CMakeLists.txt"
+      ],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/src/domain/supervision/indicator_calculator.c",
+      "classification": "linked_canonical_elf",
+      "cmake_filename_references": [
+        "Modbus RTU/05_Firmware/CMakeLists.txt"
+      ],
+      "production_symbols": [
+        "08025620 t duration_ms_from_window",
+        "08025526 t integer_sqrt_u64",
+        "08025658 T vibration_indicators_from_window"
+      ]
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/src/domain/supervision/threshold_evaluator.c",
+      "classification": "linked_canonical_elf",
+      "cmake_filename_references": [
+        "Modbus RTU/05_Firmware/CMakeLists.txt"
+      ],
+      "production_symbols": [
+        "080257be t compare_metric",
+        "0802578e t compare_u32_u16",
+        "08025830 T supervision_thresholds_compare"
+      ]
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/src/domain/system_state/system_state.c",
+      "classification": "historical_or_specialized_or_tested_library_not_default_linked",
+      "cmake_filename_references": [
+        "Modbus RTU/05_Firmware/CMakeLists.txt"
+      ],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/src/domain/time/time_recovery.c",
+      "classification": "linked_canonical_elf",
+      "cmake_filename_references": [
+        "Modbus RTU/05_Firmware/CMakeLists.txt"
+      ],
+      "production_symbols": [
+        "08025904 T time_last_sync_history_none",
+        "08025936 T time_last_sync_history_valid",
+        "080259a6 T time_since_sync_available",
+        "08025976 T time_since_sync_unavailable"
+      ]
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/src/domain/time/time_service.c",
+      "classification": "linked_canonical_elf",
+      "cmake_filename_references": [
+        "Modbus RTU/05_Firmware/CMakeLists.txt"
+      ],
+      "production_symbols": [
+        "080172de t reconstruct_time_since_sync",
+        "080174d0 T time_service_apply_recovery_context",
+        "0801746a T time_service_bind_synchronization_dependencies",
+        "080176bc T time_service_get_prepared_time",
+        "08017538 T time_service_get_snapshot",
+        "080173cc T time_service_init",
+        "0801770e T time_service_prepare_time",
+        "0801775e T time_service_synchronize_prepared"
+      ]
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/src/modbus/b4_configuration_codec.c",
+      "classification": "linked_canonical_elf",
+      "cmake_filename_references": [
+        "Modbus RTU/05_Firmware/CMakeLists.txt"
+      ],
+      "production_symbols": [
+        "080178b2 t encode_fixed_ascii_32",
+        "08017910 t encode_u32",
+        "08017c76 T tr2_b4_active_payload_crc",
+        "08017ba4 T tr2_b4_crc32_registers",
+        "08017c4c T tr2_b4_prepared_payload_crc",
+        "08017a6a T tr2_b4_serialize_active_payload",
+        "08017930 T tr2_b4_serialize_prepared_payload"
+      ]
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/src/modbus/b5_projection.c",
+      "classification": "linked_canonical_elf",
+      "cmake_filename_references": [
+        "Modbus RTU/05_Firmware/CMakeLists.txt"
+      ],
+      "production_symbols": [
+        "08017ca0 T modbus_project_b5"
+      ]
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/src/modbus/b5_write_adapter.c",
+      "classification": "linked_canonical_elf",
+      "cmake_filename_references": [
+        "Modbus RTU/05_Firmware/CMakeLists.txt"
+      ],
+      "production_symbols": [
+        "08028940 T modbus_write_adapter_write_b5"
+      ]
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/src/modbus/b6_projection.c",
+      "classification": "linked_canonical_elf",
+      "cmake_filename_references": [
+        "Modbus RTU/05_Firmware/CMakeLists.txt"
+      ],
+      "production_symbols": [
+        "08017e1e t campaign_count_to_register",
+        "08017ea4 t campaign_state",
+        "08017ee2 t data_integrity_status",
+        "08017e50 t data_size_mb",
+        "08017f18 T modbus_project_b6"
+      ]
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/src/modbus/b6_write_adapter.c",
+      "classification": "linked_canonical_elf",
+      "cmake_filename_references": [
+        "Modbus RTU/05_Firmware/CMakeLists.txt"
+      ],
+      "production_symbols": [
+        "08028b38 T modbus_write_adapter_write_b6"
+      ]
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/src/modbus/codec.c",
+      "classification": "linked_canonical_elf",
+      "cmake_filename_references": [
+        "Modbus RTU/05_Firmware/CMakeLists.txt"
+      ],
+      "production_symbols": [
+        "08018218 T modbus_codec_ascii_fixed_encode",
+        "08018202 T modbus_codec_i16_to_register",
+        "080181e0 T modbus_codec_u32_from_msw_lsw",
+        "080181ac T modbus_codec_u32_to_msw_lsw",
+        "08018444 T modbus_rtu_adu_decode",
+        "08018380 T modbus_rtu_adu_encode",
+        "080182f4 T modbus_rtu_crc16"
+      ]
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/src/modbus/pdu_server.c",
+      "classification": "linked_canonical_elf",
+      "cmake_filename_references": [
+        "Modbus RTU/05_Firmware/CMakeLists.txt"
+      ],
+      "production_symbols": [
+        "08025abc t access_exception",
+        "08025d28 t dispatch_write",
+        "08025a60 t exception_response",
+        "08025a32 t failure",
+        "0802620e T modbus_pdu_server_process",
+        "08025ad2 t process_fc03",
+        "08025f44 t process_fc10",
+        "080259dc t read_u16_be",
+        "08025a06 t write_u16_be"
+      ]
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/src/modbus/projection.c",
+      "classification": "linked_canonical_elf",
+      "cmake_filename_references": [
+        "Modbus RTU/05_Firmware/CMakeLists.txt"
+      ],
+      "production_symbols": [
+        "080184de t b4_config_state_is_emittable",
+        "0801870c T modbus_project_b0",
+        "080187ea T modbus_project_b1",
+        "080188f2 T modbus_project_b2",
+        "080189fa T modbus_project_b3",
+        "08018bc8 T modbus_project_b4",
+        "08018e3e T modbus_project_b7",
+        "08018522 t project_b1_system_flags",
+        "080185a8 t project_b2_time_flags",
+        "08018562 t project_b2_time_status",
+        "08018600 t project_b3_validity_flags",
+        "08018654 t project_b7_fault_flags"
+      ]
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/src/modbus/read_adapter.c",
+      "classification": "linked_canonical_elf",
+      "cmake_filename_references": [
+        "Modbus RTU/05_Firmware/CMakeLists.txt"
+      ],
+      "production_symbols": [
+        "080266b8 T modbus_read_adapter_read",
+        "0802629a t read_from_b0",
+        "08026312 t read_from_b1",
+        "08026390 t read_from_b2",
+        "0802643c t read_from_b3",
+        "080264ba t read_from_b4",
+        "08026538 t read_from_b5",
+        "080265b8 t read_from_b6",
+        "08026638 t read_from_b7"
+      ]
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/src/modbus/register_model.c",
+      "classification": "linked_canonical_elf",
+      "cmake_filename_references": [
+        "Modbus RTU/05_Firmware/CMakeLists.txt"
+      ],
+      "production_symbols": [
+        "08018f42 t descriptor_count",
+        "0802915c t descriptors",
+        "08018f54 T modbus_register_model_find",
+        "08018fac T modbus_register_model_range_exists",
+        "08019008 T modbus_register_model_validate_read",
+        "08019034 T modbus_register_model_validate_write"
+      ]
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/src/modbus/rtu_receiver.c",
+      "classification": "linked_canonical_elf",
+      "cmake_filename_references": [
+        "Modbus RTU/05_Firmware/CMakeLists.txt"
+      ],
+      "production_symbols": [
+        "080190dc T modbus_rtu_receiver_init",
+        "080191a8 T modbus_rtu_receiver_on_silence_t1_5",
+        "080191e0 T modbus_rtu_receiver_on_silence_t3_5",
+        "08019104 T modbus_rtu_receiver_push_byte",
+        "080190ae t no_frame"
+      ]
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/src/modbus/rtu_server_runtime.c",
+      "classification": "linked_canonical_elf",
+      "cmake_filename_references": [
+        "Modbus RTU/05_Firmware/CMakeLists.txt"
+      ],
+      "production_symbols": [
+        "080193f2 T modbus_rtu_server_runtime_init",
+        "080194c4 T modbus_rtu_server_runtime_poll_once",
+        "08019490 T modbus_rtu_server_runtime_start",
+        "080193c6 T modbus_rtu_server_runtime_unit_id_is_valid",
+        "0801926e t process_frame",
+        "08019254 t reset_receiver"
+      ]
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/src/modbus/write_adapter.c",
+      "classification": "linked_canonical_elf",
+      "cmake_filename_references": [
+        "Modbus RTU/05_Firmware/CMakeLists.txt"
+      ],
+      "production_symbols": [
+        "08026838 t b4_snapshot_or_zero",
+        "080268cc t b4_write_payload_register",
+        "08026868 t b4_write_u32_word",
+        "08026b74 T modbus_write_adapter_write_b2",
+        "08026ca0 T modbus_write_adapter_write_b4"
+      ]
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/src/persistence/campaign_bulk_aggregator.c",
+      "classification": "historical_or_specialized_or_tested_library_not_default_linked",
+      "cmake_filename_references": [
+        "Modbus RTU/05_Firmware/CMakeLists.txt"
+      ],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/src/persistence/campaign_bulk_block.c",
+      "classification": "historical_or_specialized_or_tested_library_not_default_linked",
+      "cmake_filename_references": [
+        "Modbus RTU/05_Firmware/CMakeLists.txt"
+      ],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/src/persistence/campaign_bulk_block_stream.c",
+      "classification": "historical_or_specialized_or_tested_library_not_default_linked",
+      "cmake_filename_references": [
+        "Modbus RTU/05_Firmware/CMakeLists.txt"
+      ],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/src/persistence/campaign_bulk_checkpoint.c",
+      "classification": "historical_or_specialized_or_tested_library_not_default_linked",
+      "cmake_filename_references": [
+        "Modbus RTU/05_Firmware/CMakeLists.txt"
+      ],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/src/persistence/campaign_bulk_media.c",
+      "classification": "historical_or_specialized_or_tested_library_not_default_linked",
+      "cmake_filename_references": [
+        "Modbus RTU/05_Firmware/CMakeLists.txt"
+      ],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/src/persistence/campaign_bulk_metadata.c",
+      "classification": "historical_or_specialized_or_tested_library_not_default_linked",
+      "cmake_filename_references": [
+        "Modbus RTU/05_Firmware/CMakeLists.txt"
+      ],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/src/persistence/campaign_data_store_bulk.c",
+      "classification": "historical_or_specialized_or_tested_library_not_default_linked",
+      "cmake_filename_references": [
+        "Modbus RTU/05_Firmware/CMakeLists.txt"
+      ],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/src/persistence/campaign_data_store_persistent.c",
+      "classification": "linked_canonical_elf",
+      "cmake_filename_references": [
+        "Modbus RTU/05_Firmware/CMakeLists.txt"
+      ],
+      "production_symbols": [
+        "08019fea t append_data",
+        "08019eb2 t begin_campaign",
+        "08019790 t bytes_are_empty",
+        "0801a340 T campaign_data_store_persistent_init",
+        "0801a406 T campaign_data_store_persistent_inspect",
+        "0801a3c4 T campaign_data_store_persistent_is_initialized",
+        "0801a0e2 t checkpoint_data",
+        "0801985e t chunk_offset",
+        "0801971c t crc32_bytes",
+        "08019838 t descriptor_offset",
+        "0801a13c t finish_campaign",
+        "0801966c t get_u16_be",
+        "08019696 t get_u32_be",
+        "080196ca t get_u64_be",
+        "08019ac2 t load_slot_descriptor",
+        "08019e30 t publish_checkpoint",
+        "080195c4 t put_u16_be",
+        "080195f0 t put_u32_be",
+        "08019630 t put_u64_be",
+        "08019884 t read_descriptor",
+        "0801a1ca t recover_campaign",
+        "080199ec t select_descriptor",
+        "0801981c t slot_base",
+        "08019d2c t validate_chunk",
+        "08019c34 t write_chunk",
+        "08019b24 t write_descriptor"
+      ]
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/src/persistence/campaign_record.c",
+      "classification": "linked_canonical_elf",
+      "cmake_filename_references": [
+        "Modbus RTU/05_Firmware/CMakeLists.txt"
+      ],
+      "production_symbols": [
+        "0802715c t crc32_bytes",
+        "08026f8a t get_u16_be",
+        "08026fb4 t get_u32_be",
+        "08026fe8 t get_u64_be",
+        "0802721c t historical_context_to_snapshot",
+        "080271fc t integrity_is_valid",
+        "080271d0 t lifecycle_is_valid",
+        "08026e4e t put_u16_be",
+        "08026e7a t put_u32_be",
+        "08026eba t put_u64_be",
+        "08027258 t snapshot_to_historical_context",
+        "08027488 T tr2_campaign_record_decode",
+        "08027294 T tr2_campaign_record_encode"
+      ]
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/src/persistence/campaign_repository_store.c",
+      "classification": "linked_canonical_elf",
+      "cmake_filename_references": [
+        "Modbus RTU/05_Firmware/CMakeLists.txt"
+      ],
+      "production_symbols": [
+        "0801a70c t allocator_offset",
+        "0801b2ec t by_id",
+        "0801b23e t by_index",
+        "0801b5e8 T campaign_repository_store_init",
+        "0801b6e6 T campaign_repository_store_inspect",
+        "0801b6c2 T campaign_repository_store_interface",
+        "0801b680 T campaign_repository_store_is_initialized",
+        "0801b004 t close_campaign",
+        "0801a728 t copy_offset",
+        "0801a614 t crc32_bytes",
+        "0801a680 t empty_bytes",
+        "0801a5b4 t get_u16",
+        "0801a5de t get_u32",
+        "0801b12a t inventory",
+        "0801aa9c t load_slot",
+        "0801aeae t open_campaign",
+        "0801a548 t put_u16",
+        "0801a574 t put_u32",
+        "0801a750 t read_allocator",
+        "0801a928 t read_copy",
+        "0801b398 t recover_repo",
+        "0801ac2c t reserve_id",
+        "0801aa1e t select_copy",
+        "0801a858 t write_allocator",
+        "0801ab5a t write_copy"
+      ]
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/src/persistence/command_journal.c",
+      "classification": "linked_canonical_elf",
+      "cmake_filename_references": [
+        "Modbus RTU/05_Firmware/CMakeLists.txt"
+      ],
+      "production_symbols": [
+        "08027718 T command_journal_entry_is_consistent",
+        "080276e0 T command_recovery_context_is_valid"
+      ]
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/src/persistence/command_journal_bounded_admission.c",
+      "classification": "linked_canonical_elf",
+      "cmake_filename_references": [
+        "Modbus RTU/05_Firmware/CMakeLists.txt"
+      ],
+      "production_symbols": [
+        "08027834 T command_journal_bounded_admission_plan",
+        "0802780a t slot_error"
+      ]
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/src/persistence/command_journal_bounded_reader.c",
+      "classification": "linked_canonical_elf",
+      "cmake_filename_references": [
+        "Modbus RTU/05_Firmware/CMakeLists.txt"
+      ],
+      "production_symbols": [
+        "08027a9c T command_journal_bounded_reader_find",
+        "08027bd8 T command_journal_bounded_reader_latest_completed",
+        "08027b40 T command_journal_bounded_reader_visit",
+        "08027a48 t select_valid_or_empty",
+        "08027a1e t selection_error"
+      ]
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/src/persistence/command_journal_bounded_record.c",
+      "classification": "linked_canonical_elf",
+      "cmake_filename_references": [
+        "Modbus RTU/05_Firmware/CMakeLists.txt"
+      ],
+      "production_symbols": [
+        "08027dc0 t crc32_bytes",
+        "08027d62 t get_u16_be",
+        "08027d8c t get_u32_be",
+        "08027cf6 t put_u16_be",
+        "08027d22 t put_u32_be",
+        "0802806c T tr2_command_journal_bounded_record_decode",
+        "08027e34 T tr2_command_journal_bounded_record_encode"
+      ]
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/src/persistence/command_journal_bounded_recovery.c",
+      "classification": "linked_canonical_elf",
+      "cmake_filename_references": [
+        "Modbus RTU/05_Firmware/CMakeLists.txt"
+      ],
+      "production_symbols": [
+        "0801ba22 T command_journal_bounded_recovery_scan",
+        "0801b9fe t set_classified_result"
+      ]
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/src/persistence/command_journal_bounded_slot.c",
+      "classification": "linked_canonical_elf",
+      "cmake_filename_references": [
+        "Modbus RTU/05_Firmware/CMakeLists.txt"
+      ],
+      "production_symbols": [
+        "0801be32 t bytes_uniform",
+        "0801bf08 T command_journal_bounded_slot_offset",
+        "0801bfe0 T command_journal_bounded_slot_select",
+        "0801bf48 t read_copy",
+        "0801be72 t record_bytes_empty",
+        "0801beae t records_canonically_equal"
+      ]
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/src/persistence/command_journal_bounded_store.c",
+      "classification": "linked_canonical_elf",
+      "cmake_filename_references": [
+        "Modbus RTU/05_Firmware/CMakeLists.txt"
+      ],
+      "production_symbols": [
+        "0801cb14 T command_journal_bounded_store_init",
+        "0801cbc0 T command_journal_bounded_store_is_initialized",
+        "0801cc02 T command_journal_bounded_store_journal",
+        "0801cc2c T command_journal_bounded_store_recover",
+        "0801c246 t guard_read_result",
+        "0801c930 t journal_complete",
+        "0801c270 t journal_find",
+        "0801c3d4 t journal_latest_completed",
+        "0801c7c8 t journal_mark_started",
+        "0801c464 t journal_reserve",
+        "0801c632 t journal_set_recovery_context",
+        "0801c354 t journal_visit",
+        "0801c20e t result_requires_recovery",
+        "0801c318 t visit_adapter"
+      ]
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/src/persistence/command_journal_bounded_writer.c",
+      "classification": "linked_canonical_elf",
+      "cmake_filename_references": [
+        "Modbus RTU/05_Firmware/CMakeLists.txt"
+      ],
+      "production_symbols": [
+        "0801cd3a T command_journal_bounded_writer_admit_empty",
+        "0801cddc T command_journal_bounded_writer_mutate",
+        "0801ce8a T command_journal_bounded_writer_readmit_completed",
+        "0801ccb6 t write_record"
+      ]
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/src/persistence/command_journal_context_store.c",
+      "classification": "historical_or_specialized_or_tested_library_not_default_linked",
+      "cmake_filename_references": [
+        "Modbus RTU/05_Firmware/CMakeLists.txt"
+      ],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/src/persistence/command_journal_record.c",
+      "classification": "historical_or_specialized_or_tested_library_not_default_linked",
+      "cmake_filename_references": [
+        "Modbus RTU/05_Firmware/CMakeLists.txt"
+      ],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/src/persistence/command_journal_store.c",
+      "classification": "historical_or_specialized_or_tested_library_not_default_linked",
+      "cmake_filename_references": [
+        "Modbus RTU/05_Firmware/CMakeLists.txt"
+      ],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/src/persistence/configuration_record.c",
+      "classification": "linked_canonical_elf",
+      "cmake_filename_references": [
+        "Modbus RTU/05_Firmware/CMakeLists.txt"
+      ],
+      "production_symbols": [
+        "0801d038 t crc32_bytes",
+        "0801d30a t decode_payload",
+        "0801d65c t decode_version",
+        "0801d0ac t encode_payload",
+        "0801d59c t encode_version",
+        "0801cfd8 t get_u16_be",
+        "0801d002 t get_u32_be",
+        "0801cf6c t put_u16_be",
+        "0801cf98 t put_u32_be",
+        "0801d75e T tr2_configuration_record_decode",
+        "0801d73c T tr2_configuration_record_encode"
+      ]
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/src/persistence/configuration_store.c",
+      "classification": "linked_canonical_elf",
+      "cmake_filename_references": [
+        "Modbus RTU/05_Firmware/CMakeLists.txt"
+      ],
+      "production_symbols": [
+        "0801dcfe T configuration_store_commit",
+        "0801dc74 T configuration_store_init",
+        "0801dcbc T configuration_store_is_initialized",
+        "0801dec0 T configuration_store_recover",
+        "0801d83a t read_slot",
+        "0801d80e t read_slot_record",
+        "0801d7d6 t record_is_empty",
+        "0801d79a t record_is_uniform",
+        "0801d9dc t recover_slot",
+        "0801db40 t select_recovery_status",
+        "0801d8a6 t select_target_slot",
+        "0801d780 t slot_offset",
+        "0801d978 t validate_recovered_snapshot"
+      ]
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/src/persistence/diagnostic_history_record.c",
+      "classification": "linked_canonical_elf",
+      "cmake_filename_references": [
+        "Modbus RTU/05_Firmware/CMakeLists.txt"
+      ],
+      "production_symbols": [
+        "08028388 t crc32_bytes",
+        "08028328 t get_u16_be",
+        "08028352 t get_u32_be",
+        "080282bc t put_u16_be",
+        "080282e8 t put_u32_be",
+        "080283fc T tr2_diagnostic_history_record_decode",
+        "080285b4 T tr2_diagnostic_selftest_record_decode",
+        "080284ec T tr2_diagnostic_selftest_record_encode"
+      ]
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/src/persistence/diagnostic_history_store.c",
+      "classification": "linked_canonical_elf",
+      "cmake_filename_references": [
+        "Modbus RTU/05_Firmware/CMakeLists.txt"
+      ],
+      "production_symbols": [
+        "0801e1d6 T diagnostic_history_store_commit_selftest",
+        "0801e07a T diagnostic_history_store_init",
+        "0801e0ca T diagnostic_history_store_is_initialized",
+        "0801e10c T diagnostic_history_store_recover",
+        "0801e278 T diagnostic_history_store_recover_selftest",
+        "0801e024 t record_is_empty",
+        "0801dfe4 t record_is_uniform",
+        "0801e062 t selftest_offset"
+      ]
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/src/persistence/live_command_store.c",
+      "classification": "prepared_R1_R2_R3A_not_default_linked",
+      "cmake_filename_references": [
+        "Modbus RTU/05_Firmware/CMakeLists.txt"
+      ],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/src/persistence/persistent_storage_core.c",
+      "classification": "linked_canonical_elf",
+      "cmake_filename_references": [
+        "Modbus RTU/05_Firmware/CMakeLists.txt"
+      ],
+      "production_symbols": [
+        "0801e81c t boot_intent_record_is_uniform",
+        "0801e98c T boot_intent_store_clear",
+        "0801e8ea T boot_intent_store_commit",
+        "0801e858 T boot_intent_store_init",
+        "0801e8a8 T boot_intent_store_is_initialized",
+        "0801ea00 T boot_intent_store_recover",
+        "0801e630 t crc32_bytes",
+        "0801e5d0 t get_u16_be",
+        "0801e5fa t get_u32_be",
+        "0801e3c2 t media_contract_valid",
+        "0801e52c T persistent_storage_core_commit",
+        "0801e3fe T persistent_storage_core_init",
+        "0801e43a T persistent_storage_core_is_initialized",
+        "0801e474 T persistent_storage_core_read",
+        "0801e4d0 T persistent_storage_core_write",
+        "0801e564 t put_u16_be",
+        "0801e590 t put_u32_be",
+        "0801e748 T tr2_boot_intent_record_decode",
+        "0801e69c T tr2_boot_intent_record_encode"
+      ]
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/src/persistence/time_history_record.c",
+      "classification": "linked_canonical_elf",
+      "cmake_filename_references": [
+        "Modbus RTU/05_Firmware/CMakeLists.txt"
+      ],
+      "production_symbols": [
+        "0802876c t crc32_bytes",
+        "0802870c t get_u16_be",
+        "08028736 t get_u32_be",
+        "080286a0 t put_u16_be",
+        "080286cc t put_u32_be",
+        "08028880 T tr2_time_history_record_decode",
+        "080287e0 T tr2_time_history_record_encode"
+      ]
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/src/persistence/time_history_store.c",
+      "classification": "linked_canonical_elf",
+      "cmake_filename_references": [
+        "Modbus RTU/05_Firmware/CMakeLists.txt"
+      ],
+      "production_symbols": [
+        "0801eb42 t record_is_empty",
+        "0801eb06 t record_is_uniform",
+        "0801ec3c T time_history_store_commit",
+        "0801eb7a T time_history_store_init",
+        "0801ebca T time_history_store_is_initialized",
+        "0801ece0 T time_history_store_recover",
+        "0801ec0c T time_history_store_recovery_required"
+      ]
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/src/persistence/transactional_image_media.c",
+      "classification": "linked_canonical_elf",
+      "cmake_filename_references": [
+        "Modbus RTU/05_Firmware/CMakeLists.txt"
+      ],
+      "production_symbols": [
+        "0801ef28 t crc32_bytes",
+        "0801f2b0 t encode_image_header",
+        "0801f35c t encode_superblock",
+        "0801ee78 t get_u16",
+        "0801eea2 t get_u32",
+        "0801eed6 t get_u64",
+        "0801f184 t image_base",
+        "0801fb1e t media_commit_cb",
+        "0801f9e0 t media_read_cb",
+        "0801fa6e t media_write_cb",
+        "0801f210 t physical_read",
+        "0801ef94 t physical_region_end",
+        "0801f238 t physical_write",
+        "0801edd0 t put_u16",
+        "0801edfc t put_u32",
+        "0801ee3c t put_u64",
+        "0801f14a t range_ok",
+        "0801fde8 t recover_live",
+        "0801efce t regions_overlap",
+        "0801f1aa t superblock_base",
+        "0801f3f4 t supported_shape",
+        "0801f038 T transactional_image_geometry_validate",
+        "0801fd18 T transactional_image_media_init",
+        "08020812 T transactional_image_media_init_v2",
+        "080207e8 T transactional_image_media_interface",
+        "08020200 T transactional_image_media_recover",
+        "0801f1d0 t uniform",
+        "0801f46c t validate_image",
+        "0801f764 t validate_superblock"
+      ]
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/src/platform/serial_transport.c",
+      "classification": "linked_canonical_elf",
+      "cmake_filename_references": [
+        "Modbus RTU/05_Firmware/CMakeLists.txt",
+        "Modbus RTU/05_Firmware/platform/stm32/CMakeLists.txt"
+      ],
+      "production_symbols": [
+        "0802086c T serial_transport_is_valid",
+        "08020922 T serial_transport_poll_event",
+        "080208a8 T serial_transport_start_receive",
+        "080208dc T serial_transport_transmit"
+      ]
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/tests/integration/test_configuration_activation_adapter.c",
+      "classification": "host_test_only",
+      "cmake_filename_references": [
+        "Modbus RTU/05_Firmware/CMakeLists.txt"
+      ],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/tests/integration/test_configuration_b4_flow.c",
+      "classification": "host_test_only",
+      "cmake_filename_references": [
+        "Modbus RTU/05_Firmware/CMakeLists.txt"
+      ],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/tests/integration/test_configuration_fault_injection.c",
+      "classification": "host_test_only",
+      "cmake_filename_references": [
+        "Modbus RTU/05_Firmware/CMakeLists.txt"
+      ],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/tests/integration/test_modbus_fifo_io_budget.c",
+      "classification": "host_test_only",
+      "cmake_filename_references": [
+        "Modbus RTU/05_Firmware/CMakeLists.txt"
+      ],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/tests/integration/test_modbus_system_server.c",
+      "classification": "host_test_only",
+      "cmake_filename_references": [
+        "Modbus RTU/05_Firmware/CMakeLists.txt"
+      ],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/tests/integration/test_p12h3c3c4e3_runtime_bounded_journal.c",
+      "classification": "host_test_only",
+      "cmake_filename_references": [
+        "Modbus RTU/05_Firmware/CMakeLists.txt"
+      ],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/tests/integration/test_p5h_acquisition_supervision_b3.c",
+      "classification": "host_test_only",
+      "cmake_filename_references": [
+        "Modbus RTU/05_Firmware/CMakeLists.txt"
+      ],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/tests/integration/test_p8i_system_runtime_acquisition_commands.c",
+      "classification": "host_test_only",
+      "cmake_filename_references": [
+        "Modbus RTU/05_Firmware/CMakeLists.txt"
+      ],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/tests/integration/test_p8j_system_runtime_b3_projection.c",
+      "classification": "host_test_only",
+      "cmake_filename_references": [
+        "Modbus RTU/05_Firmware/CMakeLists.txt"
+      ],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/tests/integration/test_p8k_power_loss_boot_recovery.c",
+      "classification": "host_test_only",
+      "cmake_filename_references": [
+        "Modbus RTU/05_Firmware/CMakeLists.txt"
+      ],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/tests/integration/test_post_p9_a5_host_modbus_read.c",
+      "classification": "host_test_only",
+      "cmake_filename_references": [
+        "Modbus RTU/05_Firmware/CMakeLists.txt"
+      ],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/tests/integration/test_production_commands.c",
+      "classification": "host_test_only",
+      "cmake_filename_references": [
+        "Modbus RTU/05_Firmware/CMakeLists.txt"
+      ],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/tests/integration/test_system_runtime.c",
+      "classification": "host_test_only",
+      "cmake_filename_references": [
+        "Modbus RTU/05_Firmware/CMakeLists.txt"
+      ],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/tests/integration/test_system_runtime_bulk.c",
+      "classification": "host_test_only",
+      "cmake_filename_references": [
+        "Modbus RTU/05_Firmware/CMakeLists.txt"
+      ],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/tests/integration/test_time_boot_recovery.c",
+      "classification": "host_test_only",
+      "cmake_filename_references": [
+        "Modbus RTU/05_Firmware/CMakeLists.txt"
+      ],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/tests/integration/test_time_fault_injection.c",
+      "classification": "host_test_only",
+      "cmake_filename_references": [
+        "Modbus RTU/05_Firmware/CMakeLists.txt"
+      ],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/tests/platform/stm32_hal_ctrl1_mock/stm32u5xx_hal.h",
+      "classification": "host_test_only",
+      "cmake_filename_references": [
+        "Modbus RTU/05_Firmware/platform/stm32/CMakeLists.txt"
+      ],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/tests/platform/stm32_hal_iis3dwb_mock/stm32u5xx_hal.h",
+      "classification": "host_test_only",
+      "cmake_filename_references": [
+        "Modbus RTU/05_Firmware/platform/stm32/CMakeLists.txt"
+      ],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/tests/platform/stm32_hal_register_mock/stm32u5xx_hal.h",
+      "classification": "host_test_only",
+      "cmake_filename_references": [
+        "Modbus RTU/05_Firmware/platform/stm32/CMakeLists.txt"
+      ],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/tests/platform/stm32_hal_rx_mock/stm32u5xx_hal.h",
+      "classification": "host_test_only",
+      "cmake_filename_references": [
+        "Modbus RTU/05_Firmware/platform/stm32/CMakeLists.txt"
+      ],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/tests/platform/stm32_hal_sdmmc_mock/stm32u5xx_hal.h",
+      "classification": "host_test_only",
+      "cmake_filename_references": [
+        "Modbus RTU/05_Firmware/platform/stm32/CMakeLists.txt"
+      ],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/tests/platform/stm32_hal_st_window_mock/stm32u5xx_hal.h",
+      "classification": "host_test_only",
+      "cmake_filename_references": [
+        "Modbus RTU/05_Firmware/platform/stm32/CMakeLists.txt"
+      ],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/tests/platform/stm32_hal_tx_mock/stm32u5xx_hal.h",
+      "classification": "host_test_only",
+      "cmake_filename_references": [
+        "Modbus RTU/05_Firmware/platform/stm32/CMakeLists.txt"
+      ],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/tests/platform/test_fifo_cooperative.c",
+      "classification": "host_test_only",
+      "cmake_filename_references": [
+        "Modbus RTU/05_Firmware/CMakeLists.txt"
+      ],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/tests/platform/test_live_fifo.c",
+      "classification": "host_test_only",
+      "cmake_filename_references": [
+        "Modbus RTU/05_Firmware/CMakeLists.txt"
+      ],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/tests/platform/test_sdmmc_bulk_media.c",
+      "classification": "host_test_only",
+      "cmake_filename_references": [
+        "Modbus RTU/05_Firmware/CMakeLists.txt"
+      ],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/tests/platform/test_st_fifo_admission.c",
+      "classification": "host_test_only",
+      "cmake_filename_references": [
+        "Modbus RTU/05_Firmware/CMakeLists.txt"
+      ],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/tests/platform/test_st_window_adapter.c",
+      "classification": "host_test_only",
+      "cmake_filename_references": [
+        "Modbus RTU/05_Firmware/CMakeLists.txt"
+      ],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/tests/platform/test_stm32_active_readback.c",
+      "classification": "host_test_only",
+      "cmake_filename_references": [
+        "Modbus RTU/05_Firmware/CMakeLists.txt"
+      ],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/tests/platform/test_stm32_burst_capture.c",
+      "classification": "host_test_only",
+      "cmake_filename_references": [
+        "Modbus RTU/05_Firmware/CMakeLists.txt"
+      ],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/tests/platform/test_stm32_continuous.c",
+      "classification": "host_test_only",
+      "cmake_filename_references": [
+        "Modbus RTU/05_Firmware/CMakeLists.txt"
+      ],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/tests/platform/test_stm32_ctrl1_differential.c",
+      "classification": "host_test_only",
+      "cmake_filename_references": [
+        "Modbus RTU/05_Firmware/CMakeLists.txt"
+      ],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/tests/platform/test_stm32_iis3dwb.c",
+      "classification": "host_test_only",
+      "cmake_filename_references": [
+        "Modbus RTU/05_Firmware/CMakeLists.txt"
+      ],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/tests/platform/test_stm32_iis3dwb_fifo.c",
+      "classification": "host_test_only",
+      "cmake_filename_references": [
+        "Modbus RTU/05_Firmware/CMakeLists.txt"
+      ],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/tests/platform/test_stm32_modbus_diagnostic.c",
+      "classification": "host_test_only",
+      "cmake_filename_references": [
+        "Modbus RTU/05_Firmware/CMakeLists.txt"
+      ],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/tests/platform/test_stm32_register_probe.c",
+      "classification": "host_test_only",
+      "cmake_filename_references": [
+        "Modbus RTU/05_Firmware/CMakeLists.txt"
+      ],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/tests/platform/test_stm32_rs485_rx_gpio.c",
+      "classification": "host_test_only",
+      "cmake_filename_references": [
+        "Modbus RTU/05_Firmware/CMakeLists.txt"
+      ],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/tests/platform/test_stm32_rtu_tx.c",
+      "classification": "host_test_only",
+      "cmake_filename_references": [
+        "Modbus RTU/05_Firmware/CMakeLists.txt"
+      ],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/tests/unit/live_context_vectors.h",
+      "classification": "host_test_only",
+      "cmake_filename_references": [],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/tests/unit/live_r0_vectors.h",
+      "classification": "host_test_only",
+      "cmake_filename_references": [],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/tests/unit/test_acquisition_service.c",
+      "classification": "host_test_only",
+      "cmake_filename_references": [
+        "Modbus RTU/05_Firmware/CMakeLists.txt"
+      ],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/tests/unit/test_b4_configuration_codec.c",
+      "classification": "host_test_only",
+      "cmake_filename_references": [
+        "Modbus RTU/05_Firmware/CMakeLists.txt"
+      ],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/tests/unit/test_b6_adapters.c",
+      "classification": "host_test_only",
+      "cmake_filename_references": [
+        "Modbus RTU/05_Firmware/CMakeLists.txt"
+      ],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/tests/unit/test_campaign_bulk_aggregator.c",
+      "classification": "host_test_only",
+      "cmake_filename_references": [
+        "Modbus RTU/05_Firmware/CMakeLists.txt"
+      ],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/tests/unit/test_campaign_bulk_block.c",
+      "classification": "host_test_only",
+      "cmake_filename_references": [
+        "Modbus RTU/05_Firmware/CMakeLists.txt"
+      ],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/tests/unit/test_campaign_bulk_block_stream.c",
+      "classification": "host_test_only",
+      "cmake_filename_references": [
+        "Modbus RTU/05_Firmware/CMakeLists.txt"
+      ],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/tests/unit/test_campaign_bulk_checkpoint.c",
+      "classification": "host_test_only",
+      "cmake_filename_references": [
+        "Modbus RTU/05_Firmware/CMakeLists.txt"
+      ],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/tests/unit/test_campaign_bulk_media.c",
+      "classification": "host_test_only",
+      "cmake_filename_references": [
+        "Modbus RTU/05_Firmware/CMakeLists.txt"
+      ],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/tests/unit/test_campaign_bulk_media_region.c",
+      "classification": "host_test_only",
+      "cmake_filename_references": [
+        "Modbus RTU/05_Firmware/CMakeLists.txt"
+      ],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/tests/unit/test_campaign_bulk_metadata.c",
+      "classification": "host_test_only",
+      "cmake_filename_references": [
+        "Modbus RTU/05_Firmware/CMakeLists.txt"
+      ],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/tests/unit/test_campaign_data_store_bulk.c",
+      "classification": "host_test_only",
+      "cmake_filename_references": [
+        "Modbus RTU/05_Firmware/CMakeLists.txt"
+      ],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/tests/unit/test_campaign_data_store_persistent.c",
+      "classification": "host_test_only",
+      "cmake_filename_references": [
+        "Modbus RTU/05_Firmware/CMakeLists.txt"
+      ],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/tests/unit/test_campaign_inventory_b6.c",
+      "classification": "host_test_only",
+      "cmake_filename_references": [
+        "Modbus RTU/05_Firmware/CMakeLists.txt"
+      ],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/tests/unit/test_campaign_record.c",
+      "classification": "host_test_only",
+      "cmake_filename_references": [
+        "Modbus RTU/05_Firmware/CMakeLists.txt"
+      ],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/tests/unit/test_campaign_repository_store.c",
+      "classification": "host_test_only",
+      "cmake_filename_references": [
+        "Modbus RTU/05_Firmware/CMakeLists.txt"
+      ],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/tests/unit/test_campaign_service.c",
+      "classification": "host_test_only",
+      "cmake_filename_references": [
+        "Modbus RTU/05_Firmware/CMakeLists.txt"
+      ],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/tests/unit/test_codec.c",
+      "classification": "host_test_only",
+      "cmake_filename_references": [
+        "Modbus RTU/05_Firmware/CMakeLists.txt"
+      ],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/tests/unit/test_configuration_record.c",
+      "classification": "host_test_only",
+      "cmake_filename_references": [
+        "Modbus RTU/05_Firmware/CMakeLists.txt"
+      ],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/tests/unit/test_configuration_service.c",
+      "classification": "host_test_only",
+      "cmake_filename_references": [
+        "Modbus RTU/05_Firmware/CMakeLists.txt"
+      ],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/tests/unit/test_configuration_staging.c",
+      "classification": "host_test_only",
+      "cmake_filename_references": [
+        "Modbus RTU/05_Firmware/CMakeLists.txt"
+      ],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/tests/unit/test_configuration_store.c",
+      "classification": "host_test_only",
+      "cmake_filename_references": [
+        "Modbus RTU/05_Firmware/CMakeLists.txt"
+      ],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/tests/unit/test_configuration_store_recovery.c",
+      "classification": "host_test_only",
+      "cmake_filename_references": [
+        "Modbus RTU/05_Firmware/CMakeLists.txt"
+      ],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/tests/unit/test_configuration_store_recovery_unavailable.c",
+      "classification": "host_test_only",
+      "cmake_filename_references": [
+        "Modbus RTU/05_Firmware/CMakeLists.txt"
+      ],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/tests/unit/test_configuration_types.c",
+      "classification": "host_test_only",
+      "cmake_filename_references": [
+        "Modbus RTU/05_Firmware/CMakeLists.txt"
+      ],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/tests/unit/test_configuration_validator.c",
+      "classification": "host_test_only",
+      "cmake_filename_references": [
+        "Modbus RTU/05_Firmware/CMakeLists.txt"
+      ],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/tests/unit/test_configuration_workflow.c",
+      "classification": "host_test_only",
+      "cmake_filename_references": [
+        "Modbus RTU/05_Firmware/CMakeLists.txt"
+      ],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/tests/unit/test_indicator_calculator.c",
+      "classification": "host_test_only",
+      "cmake_filename_references": [
+        "Modbus RTU/05_Firmware/CMakeLists.txt"
+      ],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/tests/unit/test_live_command_engine.c",
+      "classification": "host_test_only",
+      "cmake_filename_references": [
+        "Modbus RTU/05_Firmware/CMakeLists.txt"
+      ],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/tests/unit/test_live_configuration.c",
+      "classification": "host_test_only",
+      "cmake_filename_references": [
+        "Modbus RTU/05_Firmware/CMakeLists.txt"
+      ],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/tests/unit/test_p12c_pdu_server.c",
+      "classification": "host_test_only",
+      "cmake_filename_references": [
+        "Modbus RTU/05_Firmware/CMakeLists.txt"
+      ],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/tests/unit/test_p12d_rtu_receiver.c",
+      "classification": "host_test_only",
+      "cmake_filename_references": [
+        "Modbus RTU/05_Firmware/CMakeLists.txt"
+      ],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/tests/unit/test_p12e_serial_transport.c",
+      "classification": "host_test_only",
+      "cmake_filename_references": [
+        "Modbus RTU/05_Firmware/CMakeLists.txt"
+      ],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/tests/unit/test_p12h3c3b_command_journal_bounded_record.c",
+      "classification": "host_test_only",
+      "cmake_filename_references": [
+        "Modbus RTU/05_Firmware/CMakeLists.txt"
+      ],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/tests/unit/test_p12h3c3c1_bounded_slot.c",
+      "classification": "host_test_only",
+      "cmake_filename_references": [
+        "Modbus RTU/05_Firmware/CMakeLists.txt"
+      ],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/tests/unit/test_p12h3c3c2_bounded_recovery.c",
+      "classification": "host_test_only",
+      "cmake_filename_references": [
+        "Modbus RTU/05_Firmware/CMakeLists.txt"
+      ],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/tests/unit/test_p12h3c3c3_bounded_reader.c",
+      "classification": "host_test_only",
+      "cmake_filename_references": [
+        "Modbus RTU/05_Firmware/CMakeLists.txt"
+      ],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/tests/unit/test_p12h3c3c4_bounded_writer.c",
+      "classification": "host_test_only",
+      "cmake_filename_references": [
+        "Modbus RTU/05_Firmware/CMakeLists.txt"
+      ],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/tests/unit/test_p12h3c3c4b_bounded_admission.c",
+      "classification": "host_test_only",
+      "cmake_filename_references": [
+        "Modbus RTU/05_Firmware/CMakeLists.txt"
+      ],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/tests/unit/test_p12h3c3c4c1_bounded_store.c",
+      "classification": "host_test_only",
+      "cmake_filename_references": [
+        "Modbus RTU/05_Firmware/CMakeLists.txt"
+      ],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/tests/unit/test_p12h3c3c4d1_fault_media.c",
+      "classification": "host_test_only",
+      "cmake_filename_references": [
+        "Modbus RTU/05_Firmware/CMakeLists.txt"
+      ],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/tests/unit/test_p12h3c3c4d2_admission_power_loss.c",
+      "classification": "host_test_only",
+      "cmake_filename_references": [
+        "Modbus RTU/05_Firmware/CMakeLists.txt"
+      ],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/tests/unit/test_p12h3c3c4d3_mutation_power_loss.c",
+      "classification": "host_test_only",
+      "cmake_filename_references": [
+        "Modbus RTU/05_Firmware/CMakeLists.txt"
+      ],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/tests/unit/test_p12h3c3c4d4_completion_power_loss.c",
+      "classification": "host_test_only",
+      "cmake_filename_references": [
+        "Modbus RTU/05_Firmware/CMakeLists.txt"
+      ],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/tests/unit/test_p12h3c3c4d5_readmission_power_loss.c",
+      "classification": "host_test_only",
+      "cmake_filename_references": [
+        "Modbus RTU/05_Firmware/CMakeLists.txt"
+      ],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/tests/unit/test_p12h3c3c4d6_d8_consolidation.c",
+      "classification": "host_test_only",
+      "cmake_filename_references": [
+        "Modbus RTU/05_Firmware/CMakeLists.txt"
+      ],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/tests/unit/test_p12h3d2_transactional_image_media.c",
+      "classification": "host_test_only",
+      "cmake_filename_references": [
+        "Modbus RTU/05_Firmware/CMakeLists.txt"
+      ],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/tests/unit/test_p12h3d2b_transactional_image_power_loss.c",
+      "classification": "host_test_only",
+      "cmake_filename_references": [
+        "Modbus RTU/05_Firmware/CMakeLists.txt"
+      ],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/tests/unit/test_p12h3d2c_transactional_image_recovery.c",
+      "classification": "host_test_only",
+      "cmake_filename_references": [
+        "Modbus RTU/05_Firmware/CMakeLists.txt"
+      ],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/tests/unit/test_p12h3d2d_persistent_storage_core_integration.c",
+      "classification": "host_test_only",
+      "cmake_filename_references": [
+        "Modbus RTU/05_Firmware/CMakeLists.txt"
+      ],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/tests/unit/test_p12h3d2e_campaign_transactional_media.c",
+      "classification": "host_test_only",
+      "cmake_filename_references": [
+        "Modbus RTU/05_Firmware/CMakeLists.txt"
+      ],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/tests/unit/test_p12h3d2f_transactional_media_format_policy.c",
+      "classification": "host_test_only",
+      "cmake_filename_references": [
+        "Modbus RTU/05_Firmware/CMakeLists.txt"
+      ],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/tests/unit/test_p12h3d2g_transactional_media_format_power_loss.c",
+      "classification": "host_test_only",
+      "cmake_filename_references": [
+        "Modbus RTU/05_Firmware/CMakeLists.txt"
+      ],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/tests/unit/test_p12h3d2h1_transactional_media_geometry.c",
+      "classification": "host_test_only",
+      "cmake_filename_references": [
+        "Modbus RTU/05_Firmware/CMakeLists.txt"
+      ],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/tests/unit/test_p12h3d2h3_transactional_media_alternate_geometry.c",
+      "classification": "host_test_only",
+      "cmake_filename_references": [
+        "Modbus RTU/05_Firmware/CMakeLists.txt"
+      ],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/tests/unit/test_p12h_rtu_server_runtime.c",
+      "classification": "host_test_only",
+      "cmake_filename_references": [
+        "Modbus RTU/05_Firmware/CMakeLists.txt"
+      ],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/tests/unit/test_p5a_contracts.c",
+      "classification": "host_test_only",
+      "cmake_filename_references": [
+        "Modbus RTU/05_Firmware/CMakeLists.txt"
+      ],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/tests/unit/test_p6a_contracts.c",
+      "classification": "host_test_only",
+      "cmake_filename_references": [
+        "Modbus RTU/05_Firmware/CMakeLists.txt"
+      ],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/tests/unit/test_p7a_command_types.c",
+      "classification": "host_test_only",
+      "cmake_filename_references": [
+        "Modbus RTU/05_Firmware/CMakeLists.txt"
+      ],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/tests/unit/test_p7b_command_request_mailbox.c",
+      "classification": "host_test_only",
+      "cmake_filename_references": [
+        "Modbus RTU/05_Firmware/CMakeLists.txt"
+      ],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/tests/unit/test_p7c_command_journal.c",
+      "classification": "host_test_only",
+      "cmake_filename_references": [
+        "Modbus RTU/05_Firmware/CMakeLists.txt"
+      ],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/tests/unit/test_p7d_command_journal_store.c",
+      "classification": "host_test_only",
+      "cmake_filename_references": [
+        "Modbus RTU/05_Firmware/CMakeLists.txt"
+      ],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/tests/unit/test_p7e_command_engine_admission.c",
+      "classification": "host_test_only",
+      "cmake_filename_references": [
+        "Modbus RTU/05_Firmware/CMakeLists.txt"
+      ],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/tests/unit/test_p7f_command_engine_lifecycle.c",
+      "classification": "host_test_only",
+      "cmake_filename_references": [
+        "Modbus RTU/05_Firmware/CMakeLists.txt"
+      ],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/tests/unit/test_p7g_apply_configuration.c",
+      "classification": "host_test_only",
+      "cmake_filename_references": [
+        "Modbus RTU/05_Firmware/CMakeLists.txt"
+      ],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/tests/unit/test_p7h_synchronize_time.c",
+      "classification": "host_test_only",
+      "cmake_filename_references": [
+        "Modbus RTU/05_Firmware/CMakeLists.txt"
+      ],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/tests/unit/test_p7i_start_acquisition.c",
+      "classification": "host_test_only",
+      "cmake_filename_references": [
+        "Modbus RTU/05_Firmware/CMakeLists.txt"
+      ],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/tests/unit/test_p7j_stop_acquisition.c",
+      "classification": "host_test_only",
+      "cmake_filename_references": [
+        "Modbus RTU/05_Firmware/CMakeLists.txt"
+      ],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/tests/unit/test_p7k_command_boot_recovery.c",
+      "classification": "host_test_only",
+      "cmake_filename_references": [
+        "Modbus RTU/05_Firmware/CMakeLists.txt"
+      ],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/tests/unit/test_p7l_b5_adapters.c",
+      "classification": "host_test_only",
+      "cmake_filename_references": [
+        "Modbus RTU/05_Firmware/CMakeLists.txt"
+      ],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/tests/unit/test_p7m_command_policy.c",
+      "classification": "host_test_only",
+      "cmake_filename_references": [
+        "Modbus RTU/05_Firmware/CMakeLists.txt"
+      ],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/tests/unit/test_p7n_transaction_fault_injection.c",
+      "classification": "host_test_only",
+      "cmake_filename_references": [
+        "Modbus RTU/05_Firmware/CMakeLists.txt"
+      ],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/tests/unit/test_p9b_diagnostic_service.c",
+      "classification": "host_test_only",
+      "cmake_filename_references": [
+        "Modbus RTU/05_Firmware/CMakeLists.txt"
+      ],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/tests/unit/test_p9c_diagnostic_recovery.c",
+      "classification": "host_test_only",
+      "cmake_filename_references": [
+        "Modbus RTU/05_Firmware/CMakeLists.txt"
+      ],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/tests/unit/test_p9h_selftest_command.c",
+      "classification": "host_test_only",
+      "cmake_filename_references": [
+        "Modbus RTU/05_Firmware/CMakeLists.txt"
+      ],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/tests/unit/test_persistent_identity.c",
+      "classification": "host_test_only",
+      "cmake_filename_references": [
+        "Modbus RTU/05_Firmware/CMakeLists.txt"
+      ],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/tests/unit/test_persistent_storage_core.c",
+      "classification": "host_test_only",
+      "cmake_filename_references": [
+        "Modbus RTU/05_Firmware/CMakeLists.txt"
+      ],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/tests/unit/test_production_commissioning.c",
+      "classification": "host_test_only",
+      "cmake_filename_references": [
+        "Modbus RTU/05_Firmware/CMakeLists.txt"
+      ],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/tests/unit/test_production_provisioning.c",
+      "classification": "host_test_only",
+      "cmake_filename_references": [
+        "Modbus RTU/05_Firmware/CMakeLists.txt"
+      ],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/tests/unit/test_projection_b0.c",
+      "classification": "host_test_only",
+      "cmake_filename_references": [
+        "Modbus RTU/05_Firmware/CMakeLists.txt"
+      ],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/tests/unit/test_projection_b1.c",
+      "classification": "host_test_only",
+      "cmake_filename_references": [
+        "Modbus RTU/05_Firmware/CMakeLists.txt"
+      ],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/tests/unit/test_projection_b2.c",
+      "classification": "host_test_only",
+      "cmake_filename_references": [
+        "Modbus RTU/05_Firmware/CMakeLists.txt"
+      ],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/tests/unit/test_projection_b3.c",
+      "classification": "host_test_only",
+      "cmake_filename_references": [
+        "Modbus RTU/05_Firmware/CMakeLists.txt"
+      ],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/tests/unit/test_projection_b4.c",
+      "classification": "host_test_only",
+      "cmake_filename_references": [
+        "Modbus RTU/05_Firmware/CMakeLists.txt"
+      ],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/tests/unit/test_read_adapter.c",
+      "classification": "host_test_only",
+      "cmake_filename_references": [
+        "Modbus RTU/05_Firmware/CMakeLists.txt"
+      ],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/tests/unit/test_read_adapter_b3.c",
+      "classification": "host_test_only",
+      "cmake_filename_references": [
+        "Modbus RTU/05_Firmware/CMakeLists.txt"
+      ],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/tests/unit/test_register_model.c",
+      "classification": "host_test_only",
+      "cmake_filename_references": [
+        "Modbus RTU/05_Firmware/CMakeLists.txt"
+      ],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/tests/unit/test_supervision_service.c",
+      "classification": "host_test_only",
+      "cmake_filename_references": [
+        "Modbus RTU/05_Firmware/CMakeLists.txt"
+      ],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/tests/unit/test_supervision_temporal_envelope.c",
+      "classification": "host_test_only",
+      "cmake_filename_references": [
+        "Modbus RTU/05_Firmware/CMakeLists.txt"
+      ],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/tests/unit/test_threshold_evaluator.c",
+      "classification": "host_test_only",
+      "cmake_filename_references": [
+        "Modbus RTU/05_Firmware/CMakeLists.txt"
+      ],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/tests/unit/test_time_history_record.c",
+      "classification": "host_test_only",
+      "cmake_filename_references": [
+        "Modbus RTU/05_Firmware/CMakeLists.txt"
+      ],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/tests/unit/test_time_history_store.c",
+      "classification": "host_test_only",
+      "cmake_filename_references": [
+        "Modbus RTU/05_Firmware/CMakeLists.txt"
+      ],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/tests/unit/test_time_recovery_types.c",
+      "classification": "host_test_only",
+      "cmake_filename_references": [
+        "Modbus RTU/05_Firmware/CMakeLists.txt"
+      ],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/tests/unit/test_time_service.c",
+      "classification": "host_test_only",
+      "cmake_filename_references": [
+        "Modbus RTU/05_Firmware/CMakeLists.txt"
+      ],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/tests/unit/test_time_synchronization.c",
+      "classification": "host_test_only",
+      "cmake_filename_references": [
+        "Modbus RTU/05_Firmware/CMakeLists.txt"
+      ],
+      "production_symbols": []
+    },
+    {
+      "path": "Modbus RTU/05_Firmware/tests/unit/test_write_adapter.c",
+      "classification": "host_test_only",
+      "cmake_filename_references": [
+        "Modbus RTU/05_Firmware/CMakeLists.txt"
+      ],
+      "production_symbols": []
+    },
+    {
+      "path": "experiments/gpio_dat123_st_reference/src/clock.c",
+      "classification": "historical_or_specialized_or_tested_library_not_default_linked",
+      "cmake_filename_references": [
+        "experiments/sdmmc_st_reference/CMakeLists.txt",
+        "experiments/gpio_dat123_st_reference/CMakeLists.txt"
+      ],
+      "production_symbols": []
+    },
+    {
+      "path": "experiments/gpio_dat123_st_reference/src/main.c",
+      "classification": "historical_or_specialized_or_tested_library_not_default_linked",
+      "cmake_filename_references": [
+        "Modbus RTU/05_Firmware/CMakeLists.txt",
+        "Modbus RTU/05_Firmware/platform/stm32/CMakeLists.txt",
+        "experiments/iis3dwb_st_reference/CMakeLists.txt",
+        "experiments/sdmmc_st_reference/CMakeLists.txt",
+        "experiments/gpio_dat123_st_reference/CMakeLists.txt",
+        "experiments/sdmmc1_firstfault/CMakeLists.txt"
+      ],
+      "production_symbols": []
+    },
+    {
+      "path": "experiments/gpio_dat123_st_reference/src/stm32u5xx_hal_conf.h",
+      "classification": "required_interface_not_link_unit",
+      "cmake_filename_references": [],
+      "production_symbols": []
+    },
+    {
+      "path": "experiments/iis3dwb_st_reference/official/main.c",
+      "classification": "historical_or_specialized_or_tested_library_not_default_linked",
+      "cmake_filename_references": [
+        "Modbus RTU/05_Firmware/CMakeLists.txt",
+        "Modbus RTU/05_Firmware/platform/stm32/CMakeLists.txt",
+        "experiments/iis3dwb_st_reference/CMakeLists.txt",
+        "experiments/sdmmc_st_reference/CMakeLists.txt",
+        "experiments/gpio_dat123_st_reference/CMakeLists.txt",
+        "experiments/sdmmc1_firstfault/CMakeLists.txt"
+      ],
+      "production_symbols": []
+    },
+    {
+      "path": "experiments/iis3dwb_st_reference/official/mocks/platform.h",
+      "classification": "required_interface_not_link_unit",
+      "cmake_filename_references": [],
+      "production_symbols": []
+    },
+    {
+      "path": "experiments/iis3dwb_st_reference/official/mocks/test.c",
+      "classification": "historical_or_specialized_or_tested_library_not_default_linked",
+      "cmake_filename_references": [
+        "Modbus RTU/05_Firmware/CMakeLists.txt"
+      ],
+      "production_symbols": []
+    },
+    {
+      "path": "experiments/iis3dwb_st_reference/official/mocks/window_test.c",
+      "classification": "historical_or_specialized_or_tested_library_not_default_linked",
+      "cmake_filename_references": [],
+      "production_symbols": []
+    },
+    {
+      "path": "experiments/iis3dwb_st_reference/official/port.c",
+      "classification": "historical_or_specialized_or_tested_library_not_default_linked",
+      "cmake_filename_references": [
+        "Modbus RTU/05_Firmware/CMakeLists.txt",
+        "Modbus RTU/05_Firmware/platform/stm32/CMakeLists.txt",
+        "experiments/iis3dwb_st_reference/CMakeLists.txt"
+      ],
+      "production_symbols": []
+    },
+    {
+      "path": "experiments/iis3dwb_st_reference/official/port.h",
+      "classification": "required_interface_not_link_unit",
+      "cmake_filename_references": [],
+      "production_symbols": []
+    },
+    {
+      "path": "experiments/iis3dwb_st_reference/src/bench.c",
+      "classification": "historical_or_specialized_or_tested_library_not_default_linked",
+      "cmake_filename_references": [
+        "experiments/iis3dwb_st_reference/CMakeLists.txt"
+      ],
+      "production_symbols": []
+    },
+    {
+      "path": "experiments/iis3dwb_st_reference/src/bench.h",
+      "classification": "required_interface_not_link_unit",
+      "cmake_filename_references": [],
+      "production_symbols": []
+    },
+    {
+      "path": "experiments/iis3dwb_st_reference/src/cleanup_main.c",
+      "classification": "historical_or_specialized_or_tested_library_not_default_linked",
+      "cmake_filename_references": [
+        "experiments/iis3dwb_st_reference/CMakeLists.txt"
+      ],
+      "production_symbols": []
+    },
+    {
+      "path": "experiments/iis3dwb_st_reference/src/fifo_cooperative.c",
+      "classification": "linked_canonical_elf",
+      "cmake_filename_references": [
+        "Modbus RTU/05_Firmware/CMakeLists.txt",
+        "Modbus RTU/05_Firmware/platform/stm32/CMakeLists.txt"
+      ],
+      "production_symbols": [
+        "080129a0 T fifo_cooperative_command_io_available",
+        "08012678 T fifo_cooperative_init",
+        "08012748 T fifo_cooperative_poll",
+        "08012720 T fifo_cooperative_start"
+      ]
+    },
+    {
+      "path": "experiments/iis3dwb_st_reference/src/fifo_cooperative.h",
+      "classification": "required_interface_not_link_unit",
+      "cmake_filename_references": [],
+      "production_symbols": []
+    },
+    {
+      "path": "experiments/iis3dwb_st_reference/src/fifo_live.c",
+      "classification": "prepared_R1_R2_R3A_not_default_linked",
+      "cmake_filename_references": [
+        "Modbus RTU/05_Firmware/CMakeLists.txt",
+        "Modbus RTU/05_Firmware/platform/stm32/CMakeLists.txt"
+      ],
+      "production_symbols": []
+    },
+    {
+      "path": "experiments/iis3dwb_st_reference/src/fifo_live.h",
+      "classification": "required_interface_not_link_unit",
+      "cmake_filename_references": [],
+      "production_symbols": []
+    },
+    {
+      "path": "experiments/iis3dwb_st_reference/src/fifo_window.c",
+      "classification": "linked_canonical_elf",
+      "cmake_filename_references": [
+        "Modbus RTU/05_Firmware/CMakeLists.txt",
+        "Modbus RTU/05_Firmware/platform/stm32/CMakeLists.txt",
+        "experiments/iis3dwb_st_reference/CMakeLists.txt"
+      ],
+      "production_symbols": [
+        "08010f08 t config",
+        "0802914c t expected.0",
+        "080111f0 T fifo_window_check_configuration",
+        "08010fd4 T fifo_window_parse_word",
+        "08010f7c T fifo_window_read_status",
+        "08011080 T fifo_window_step"
+      ]
+    },
+    {
+      "path": "experiments/iis3dwb_st_reference/src/fifo_window.h",
+      "classification": "required_interface_not_link_unit",
+      "cmake_filename_references": [],
+      "production_symbols": []
+    },
+    {
+      "path": "experiments/iis3dwb_st_reference/src/main.c",
+      "classification": "historical_or_specialized_or_tested_library_not_default_linked",
+      "cmake_filename_references": [
+        "Modbus RTU/05_Firmware/CMakeLists.txt",
+        "Modbus RTU/05_Firmware/platform/stm32/CMakeLists.txt",
+        "experiments/iis3dwb_st_reference/CMakeLists.txt",
+        "experiments/sdmmc_st_reference/CMakeLists.txt",
+        "experiments/gpio_dat123_st_reference/CMakeLists.txt",
+        "experiments/sdmmc1_firstfault/CMakeLists.txt"
+      ],
+      "production_symbols": []
+    },
+    {
+      "path": "experiments/iis3dwb_st_reference/src/platform.c",
+      "classification": "historical_or_specialized_or_tested_library_not_default_linked",
+      "cmake_filename_references": [
+        "Modbus RTU/05_Firmware/CMakeLists.txt",
+        "Modbus RTU/05_Firmware/platform/stm32/CMakeLists.txt",
+        "experiments/iis3dwb_st_reference/CMakeLists.txt"
+      ],
+      "production_symbols": []
+    },
+    {
+      "path": "experiments/iis3dwb_st_reference/src/platform.h",
+      "classification": "required_interface_not_link_unit",
+      "cmake_filename_references": [],
+      "production_symbols": []
+    },
+    {
+      "path": "experiments/iis3dwb_st_reference/src/spi_diagnostic.c",
+      "classification": "linked_canonical_elf",
+      "cmake_filename_references": [
+        "Modbus RTU/05_Firmware/CMakeLists.txt",
+        "Modbus RTU/05_Firmware/platform/stm32/CMakeLists.txt",
+        "experiments/iis3dwb_st_reference/CMakeLists.txt"
+      ],
+      "production_symbols": [
+        "080112b6 T bench_log_refusal",
+        "08011244 T bench_rx_complete",
+        "080111f4 T bench_rx_offset"
+      ]
+    },
+    {
+      "path": "experiments/iis3dwb_st_reference/src/spi_diagnostic.h",
+      "classification": "required_interface_not_link_unit",
+      "cmake_filename_references": [],
+      "production_symbols": []
+    },
+    {
+      "path": "experiments/iis3dwb_st_reference/src/stm32u5xx_hal_conf.h",
+      "classification": "required_interface_not_link_unit",
+      "cmake_filename_references": [],
+      "production_symbols": []
+    },
+    {
+      "path": "experiments/iis3dwb_st_reference/tests/test_fifo_window.c",
+      "classification": "host_test_only",
+      "cmake_filename_references": [
+        "Modbus RTU/05_Firmware/CMakeLists.txt",
+        "experiments/iis3dwb_st_reference/CMakeLists.txt"
+      ],
+      "production_symbols": []
+    },
+    {
+      "path": "experiments/iis3dwb_st_reference/tests/test_reference.c",
+      "classification": "host_test_only",
+      "cmake_filename_references": [
+        "experiments/iis3dwb_st_reference/CMakeLists.txt"
+      ],
+      "production_symbols": []
+    },
+    {
+      "path": "experiments/iis3dwb_st_reference/tests/test_spi_diagnostic.c",
+      "classification": "host_test_only",
+      "cmake_filename_references": [
+        "Modbus RTU/05_Firmware/CMakeLists.txt",
+        "experiments/iis3dwb_st_reference/CMakeLists.txt"
+      ],
+      "production_symbols": []
+    },
+    {
+      "path": "experiments/sdmmc1_firstfault/probe.c",
+      "classification": "historical_or_specialized_or_tested_library_not_default_linked",
+      "cmake_filename_references": [
+        "Modbus RTU/05_Firmware/CMakeLists.txt",
+        "Modbus RTU/05_Firmware/platform/stm32/CMakeLists.txt",
+        "experiments/sdmmc1_firstfault/CMakeLists.txt"
+      ],
+      "production_symbols": []
+    },
+    {
+      "path": "experiments/sdmmc1_firstfault/trace.h",
+      "classification": "required_interface_not_link_unit",
+      "cmake_filename_references": [],
+      "production_symbols": []
+    },
+    {
+      "path": "experiments/sdmmc_st_reference/src/clock.c",
+      "classification": "historical_or_specialized_or_tested_library_not_default_linked",
+      "cmake_filename_references": [
+        "experiments/sdmmc_st_reference/CMakeLists.txt",
+        "experiments/gpio_dat123_st_reference/CMakeLists.txt"
+      ],
+      "production_symbols": []
+    },
+    {
+      "path": "experiments/sdmmc_st_reference/src/load_main.c",
+      "classification": "historical_or_specialized_or_tested_library_not_default_linked",
+      "cmake_filename_references": [
+        "experiments/sdmmc_st_reference/CMakeLists.txt"
+      ],
+      "production_symbols": []
+    },
+    {
+      "path": "experiments/sdmmc_st_reference/src/main.c",
+      "classification": "historical_or_specialized_or_tested_library_not_default_linked",
+      "cmake_filename_references": [
+        "Modbus RTU/05_Firmware/CMakeLists.txt",
+        "Modbus RTU/05_Firmware/platform/stm32/CMakeLists.txt",
+        "experiments/iis3dwb_st_reference/CMakeLists.txt",
+        "experiments/sdmmc_st_reference/CMakeLists.txt",
+        "experiments/gpio_dat123_st_reference/CMakeLists.txt",
+        "experiments/sdmmc1_firstfault/CMakeLists.txt"
+      ],
+      "production_symbols": []
+    },
+    {
+      "path": "experiments/sdmmc_st_reference/src/stm32u5xx_hal_conf.h",
+      "classification": "required_interface_not_link_unit",
+      "cmake_filename_references": [],
+      "production_symbols": []
+    }
+  ]
+}

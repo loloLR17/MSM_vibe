@@ -1,0 +1,10 @@
+{
+  "source": "STM32_Programmer_CLI.exe -l stlink",
+  "probe_sn": "003500463235510B37333439",
+  "fw": "V3J15M7",
+  "board": "NUCLEO-U575ZI-Q",
+  "target_uid_read": false,
+  "target_flash_read": false,
+  "flash_debug_operations": [],
+  "limit": "one STLINK seen; target state, wiring, power and real-time budgets not established; no physical run attempted"
+}

@@ -1,0 +1,17 @@
+40	0	Modbus RTU/00_gouvernance/Echanges_Codex/archives/TR2-20261015-R2-LIVE-COMMAND-ENGINE/MISSION.md
+170	0	Modbus RTU/00_gouvernance/Echanges_Codex/archives/TR2-20261015-R2-LIVE-COMMAND-ENGINE/RAPPORT.md
+7	0	Modbus RTU/05_Firmware/CMakeLists.txt
+128	0	Modbus RTU/05_Firmware/LIVE_R3A.md
+2	1	Modbus RTU/05_Firmware/platform/stm32/CMakeLists.txt
+41	0	Modbus RTU/05_Firmware/platform/stm32/live_fifo_acquisition.c
+15	0	Modbus RTU/05_Firmware/platform/stm32/live_fifo_acquisition.h
+8	1	Modbus RTU/05_Firmware/platform/stm32/stm32_iis3dwb_st_window.c
+40	0	Modbus RTU/05_Firmware/platform/stm32/stm32_live_acquisition.c
+14	0	Modbus RTU/05_Firmware/platform/stm32/stm32_live_acquisition.h
+102	0	Modbus RTU/05_Firmware/tests/platform/test_live_fifo.c
+2	0	Modbus RTU/05_Firmware/tests/platform/test_st_window_adapter.c
+66	0	Modbus RTU/05_Firmware/tools/measure_live_architecture.py
+87	0	experiments/iis3dwb_st_reference/src/fifo_live.c
+25	0	experiments/iis3dwb_st_reference/src/fifo_live.h
+8	8	experiments/iis3dwb_st_reference/src/fifo_window.c
+2	0	experiments/iis3dwb_st_reference/src/fifo_window.h

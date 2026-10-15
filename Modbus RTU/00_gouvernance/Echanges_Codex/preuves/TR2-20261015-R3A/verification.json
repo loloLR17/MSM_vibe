@@ -1,0 +1,47 @@
+{
+  "mission_id": "TR2-20261015-R3A-ACQUISITION-LIVE-ARCHITECTURE",
+  "initial_head": "c5c1c22df5291dc29782d4a81cc3dc17adf56556",
+  "code_sha": "0c6f002fd9cc09f577ff9ec446b5af46d5393c27",
+  "utc": "2026-10-15T21:41:42.631176+00:00",
+  "host_tests": 131,
+  "host_test_seconds": 35.6,
+  "streaming_model_xyz": ">4000000 across four FS runs",
+  "cuts_start_io_positions": 40,
+  "model_fault_modes": 10,
+  "sanitizers": [
+    "ASan",
+    "UBSan"
+  ],
+  "arm_sizes": {
+    "owner": 1064,
+    "adapter_including_owner": 1088,
+    "raw_buffer": 896
+  },
+  "canonical_elf": {
+    "text": 170916,
+    "data": 480,
+    "bss": 602232,
+    "live_owner_symbols_linked": false
+  },
+  "force_link_elf": {
+    "text": 175144,
+    "data": 480,
+    "bss": 602232,
+    "sha256": "285b43d540f22f91047674a610acfb7de3dc64c12852a6f0a09ef68f6ee2fe7f"
+  },
+  "module_inventory_entries": 407,
+  "repo_source_paths_with_default_symbols": 88,
+  "protected_files": 2332,
+  "hardware_actions": [
+    "read-only STLINK enumeration"
+  ],
+  "target_operations": [],
+  "production_protocol": 1,
+  "B3_valid_published": false,
+  "limits": [
+    "SPI timing and power loss not physically qualified",
+    "R4 synchronous FRAM during active FIFO unresolved",
+    "B3/calculations and RTU2 composition remain R3-B",
+    "continuous raw samples not durable or archived as full physical proof"
+  ]
+}

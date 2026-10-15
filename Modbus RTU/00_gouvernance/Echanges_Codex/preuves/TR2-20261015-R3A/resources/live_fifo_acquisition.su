@@ -1,0 +1,7 @@
+/home/lolo/dev/msm/projects/MSM_vibe-R3A-live-acquisition/Modbus RTU/05_Firmware/platform/stm32/live_fifo_acquisition.c:3:18:start	208	static
+/home/lolo/dev/msm/projects/MSM_vibe-R3A-live-acquisition/Modbus RTU/05_Firmware/platform/stm32/live_fifo_acquisition.c:12:18:stop	16	static
+/home/lolo/dev/msm/projects/MSM_vibe-R3A-live-acquisition/Modbus RTU/05_Firmware/platform/stm32/live_fifo_acquisition.c:14:18:observe	24	static
+/home/lolo/dev/msm/projects/MSM_vibe-R3A-live-acquisition/Modbus RTU/05_Firmware/platform/stm32/live_fifo_acquisition.c:23:13:budget	24	static
+/home/lolo/dev/msm/projects/MSM_vibe-R3A-live-acquisition/Modbus RTU/05_Firmware/platform/stm32/live_fifo_acquisition.c:25:11:live_fifo_acquisition_init	32	static
+/home/lolo/dev/msm/projects/MSM_vibe-R3A-live-acquisition/Modbus RTU/05_Firmware/platform/stm32/live_fifo_acquisition.c:32:21:live_fifo_acquisition_port	48	static
+/home/lolo/dev/msm/projects/MSM_vibe-R3A-live-acquisition/Modbus RTU/05_Firmware/platform/stm32/live_fifo_acquisition.c:34:11:live_fifo_acquisition_poll	24	static

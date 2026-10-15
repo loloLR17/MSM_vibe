@@ -1,0 +1,4 @@
+[ 91%] Built target tr2_core
+[ 95%] Building C object CMakeFiles/test_live_fifo.dir/tests/platform/test_live_fifo.c.o
+[ 95%] Linking C executable test_live_fifo
+[100%] Built target test_live_fifo

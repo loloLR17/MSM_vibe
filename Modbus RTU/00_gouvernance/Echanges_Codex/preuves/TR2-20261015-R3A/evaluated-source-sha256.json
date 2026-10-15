@@ -1,0 +1,1634 @@
+[
+  {
+    "path": "Modbus RTU/05_Firmware/CMakeLists.txt",
+    "sha256": "d45c375eadf1c770f73c2fc321849cf7515ae1d856a2c505a929fbcb5ce4a173"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/LIVE_R1.md",
+    "sha256": "5e5e16e8d4eecc3ea8259d9c1fc2b3ab71bec6acdb5a47103365287824d8b4e1"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/LIVE_R2.md",
+    "sha256": "56aee67c218f68158c6efc50327a6a0d542c5dd412ad3f96ef614eedb0d5d533"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/LIVE_R3A.md",
+    "sha256": "6f7d2ba65bb0dd16863d766cfdd2e961258037b00f2ab8a4535a42b95c7685cf"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/include/tr2/application/acquisition_service.h",
+    "sha256": "5344222745a6bfa82da50740c39f31ec23bb3e07e84a8b83b171ba63e860707d"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/include/tr2/application/campaign_inventory_service.h",
+    "sha256": "613bfcced6720f3e1053c8434149e642f917c86827ffc50acd788fb3403e75db"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/include/tr2/application/campaign_service.h",
+    "sha256": "99b5ce11eddfc07165c04e02e7bb1c76e7dd533e2cbf96b20b06ea3ba765b722"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/include/tr2/application/command_acknowledge_fault.h",
+    "sha256": "088be759437cc015c41de76e2198ce3594a77565f041fc7a8a4d2158d9463a37"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/include/tr2/application/command_apply_configuration.h",
+    "sha256": "374f692fedbbce8dd7eebabd49acd3eff72b7ee8fc0739c8485c15f88eb9efe0"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/include/tr2/application/command_boot_recovery.h",
+    "sha256": "4a1da4a7ce1289644a39a166f100ee8eb896b75907a01e4ff0446cb31c688edc"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/include/tr2/application/command_engine.h",
+    "sha256": "cbc2803146660f55dd17589ff88ef7ea5eb5ef1b3e098d1219d270e8b0f1af28"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/include/tr2/application/command_maintenance.h",
+    "sha256": "d54240f2d0df052c15d5a1d6d5ec9eedaa2436ca47c6673aae8ed5bd3c769b2b"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/include/tr2/application/command_policy.h",
+    "sha256": "321a1064d7879bce0165f1e1ea225da924be392156d9ab54c3a1511d06a2174b"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/include/tr2/application/command_refresh_indicators.h",
+    "sha256": "15a57862d8c10cb5a15eaa5d2afc73d9e2715946268501bade9713dfbfee6b54"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/include/tr2/application/command_request_mailbox.h",
+    "sha256": "a3003085e5feffdd36f67b860900d40204c54b0de647dbefe5e80a9793d9b9cd"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/include/tr2/application/command_selftest.h",
+    "sha256": "10817b1f22a84dabbb0a13f3ced27f991fe97907f58330f07460672068f9e272"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/include/tr2/application/command_software_reset.h",
+    "sha256": "fc485e1e7e43fc592b7807dcb2ea4c8a92c62b0eaa4bcb272dc2d83916a03d66"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/include/tr2/application/command_start_acquisition.h",
+    "sha256": "388679dd758bc425cb8a37e1b2e17246aad8bc9195ca97718c652751031e6422"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/include/tr2/application/command_stop_acquisition.h",
+    "sha256": "0cd91cfc9cc59db3f96e808920d807aba925d61948df54176315a4bc2baf73eb"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/include/tr2/application/command_synchronize_time.h",
+    "sha256": "ba49dd6b1c4ca37b3d711e12d51edd44b70c458bf84a4aa8d6a0d11fe6f814f5"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/include/tr2/application/configuration_activation_adapter.h",
+    "sha256": "7d410d9bf3f9df0cb9c9f4a1c0a2d143f777ef26bf34eba0ee18ae1cd65d280e"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/include/tr2/application/configuration_service.h",
+    "sha256": "27f0dc29cf5f8c6ad201bb90039c68f27ea761d348ae6300e63dd74fea78683a"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/include/tr2/application/configuration_workflow.h",
+    "sha256": "e4d6a458790630f3cdd5c0e22875484a6eb0efd0168a296303c7e2831df55f90"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/include/tr2/application/diagnostic_service.h",
+    "sha256": "03161bb0eaa41798977c8ef7f694284664ee90121da3f89a4a12094bf02d6861"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/include/tr2/application/live_command_engine.h",
+    "sha256": "24758b67ac12c37ac521971eb88283a08bc57cc794abe6878fb53e2d7ca2868a"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/include/tr2/application/live_configuration.h",
+    "sha256": "01ef7c573ad33d498c34b9cc0528bbc6a21372704a0ca3f1fc49d8919e1ec400"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/include/tr2/application/maintenance_service.h",
+    "sha256": "d1c6225cd1d0fb152c8df2c17172ae5f8b9407654dc93f95db29e308e6589699"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/include/tr2/application/modbus_system_server.h",
+    "sha256": "8f74380048fd72fc60400e8aec78f1e7c1bfc3a286e310eba03bbea348f6d272"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/include/tr2/application/persistent_identity.h",
+    "sha256": "7dc8c8bd572e6da509d4aae1a20a1cac9e1fb3e24333764c7fb9a89bb6ddbdd9"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/include/tr2/application/production_application.h",
+    "sha256": "2813028e8428ad58d7d0f4bdc8291182ef7d04cc968dd1fb614925266d7dca7f"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/include/tr2/application/production_commissioning.h",
+    "sha256": "120a485c3dbaffc0ceb4501dea262abd7c73584a6f0f6b8f7491f8020037c5e1"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/include/tr2/application/production_provisioning.h",
+    "sha256": "a32c4523f701b4a813c85fee7002a5f93ed1a499b55d07ce8aace3ad53af9a29"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/include/tr2/application/selftest_service.h",
+    "sha256": "20026fd18f5d9249aa3afeca080fafabc80d69de928231ee44122547953e5d79"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/include/tr2/application/supervision_service.h",
+    "sha256": "147f3133ba96e3126b83ce2aa909f3829c1760e1e4eb630455c6902bbc017fc2"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/include/tr2/application/system_command_dispatcher.h",
+    "sha256": "b2b57d0bbef38aa5e2e5d9e065ae377978504bef6cdd3a846d5904ab84bda1e1"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/include/tr2/application/system_runtime.h",
+    "sha256": "373f25a1086f2b1ca498cd5c804346f80eff985b1bf492856ccb72be350f3cf8"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/include/tr2/application/system_state_aggregator.h",
+    "sha256": "2a8aafa959e0bab968bcabad85f27b62f9367b0a2a4379d33a26c0e4fbcc7f20"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/include/tr2/common/result.h",
+    "sha256": "376a4344b639242da14e1b4003459c28b1df62d18a4130c872defbe1eea46a07"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/include/tr2/common/sha256.h",
+    "sha256": "2a90d45fbc9cc01cb86f80ef28ccfc6475800b4f3c4b7fb9b31b02355ed2d60b"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/include/tr2/domain/acquisition/acquisition.h",
+    "sha256": "b7937400494700c21fdddc7385fddf06acda8d6b8a5c8bc9f745306efce9e05c"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/include/tr2/domain/boot/boot_intent.h",
+    "sha256": "c6d76241797ca926bdf6230a05e1c67854d8bd29172a7335e53b234342c7acae"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/include/tr2/domain/campaign/campaign.h",
+    "sha256": "5a1eff216af96661269e8b82ac6a0bbd6a639000d7b5c21698b2e121ce456d39"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/include/tr2/domain/command/command.h",
+    "sha256": "cd2a3fbe9f0697d1db88e7aa0fe801b72450fff0e207dbb3d21c02bb89a3287a"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/include/tr2/domain/configuration/configuration.h",
+    "sha256": "3a6cf078997d69db994d83e8f616b57a4e301edb3e52566cc97a88744dbbedff"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/include/tr2/domain/configuration/configuration_staging.h",
+    "sha256": "e700ba99fc19a99d2405ac088d08cfe61549136a99ccb4d40aa59db6ea570f46"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/include/tr2/domain/configuration/configuration_validator.h",
+    "sha256": "dd515cf6648c988bd7a7d5fbef0f17f30e130302f918bf21e5d60b2de3c18d95"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/include/tr2/domain/diagnostic/diagnostic.h",
+    "sha256": "b5054d35f80e208f09f57e6296574d568fabf7029dd94a49289b4869a9159112"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/include/tr2/domain/identity/identity.h",
+    "sha256": "55f0810d5400acb049e24d5ec99b1f1cdeea9ae34865b400789e3fe533d582f1"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/include/tr2/domain/supervision/indicator_calculator.h",
+    "sha256": "7ef6c3ceeb22117292b4d810b9c52938b1d3cbf012d9f8dbf9c8f02713d6ad26"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/include/tr2/domain/supervision/supervision.h",
+    "sha256": "7cf0fe0ae17fcb41c7fb0fa5612ec4b01c8ee45c1d2991a8d80871f3665f5a5b"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/include/tr2/domain/supervision/threshold_evaluator.h",
+    "sha256": "e868597a99333f757c5a53b623f4ac97f6be4f07558c074e9195906df68e445d"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/include/tr2/domain/system_mode/system_mode.h",
+    "sha256": "c0e09c5177719e01ffce106dfb25807dd6e7f11a08ad219a6b9cf1198e88038f"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/include/tr2/domain/system_state/system_state.h",
+    "sha256": "9a218d8bb6daeba86830a6efce20239608cd72793115c968c3bfb2e745fba989"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/include/tr2/domain/time/time_recovery.h",
+    "sha256": "5e30321ed93b1758e1d135b9ea43736fa5b948742c2422c125b68064cde5dba1"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/include/tr2/domain/time/time_service.h",
+    "sha256": "3439cee552e0174c58c7e189444018a066f2c55aa9d241d84856d8b4f4a22f87"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/include/tr2/modbus/b4_configuration_codec.h",
+    "sha256": "3bbe93e2a4bce6d9f74a12f218ec595052e6c4899c69d7eca902adf582dd2c40"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/include/tr2/modbus/codec.h",
+    "sha256": "ee64e7d6fc155c30b5228bbe9aab65973411b028dac6e9383857aa8508d1bcfc"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/include/tr2/modbus/pdu_server.h",
+    "sha256": "960455cdbc6f8500e990f37f44d52dca730ba430d9147c3caaffd977ef2793d8"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/include/tr2/modbus/projection.h",
+    "sha256": "4b77f3d08edf75709f54583f583565f423312b922266f387954cc11dff84de38"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/include/tr2/modbus/read_adapter.h",
+    "sha256": "14edd39e52f91f6e9e73af10d61ded595fb790d980e58ea79e6680fc3e901e5b"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/include/tr2/modbus/register_model.h",
+    "sha256": "517c94196c1c2f50b72f5c16685a5461dd797f64fc6f3034422f75436e740af8"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/include/tr2/modbus/rtu_receiver.h",
+    "sha256": "f2d09b58ce312502e740718489b43902fad7b32658eff2007b167f9499895036"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/include/tr2/modbus/rtu_server_runtime.h",
+    "sha256": "dc1b82bea1026df93a00723203c35b8f4984dce5010c0b3ce36bcbd1cc927b97"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/include/tr2/modbus/write_adapter.h",
+    "sha256": "0b7b7e19595cfb4a3a3172f95987186b0f20d03f35454a0be8cba5f68333c5f9"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/include/tr2/persistence/boot_intent_record.h",
+    "sha256": "d6590b0b841169c9486364c76b57af65dfd2504d6ba2298a0d1f9a068bd87ec9"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/include/tr2/persistence/boot_intent_store.h",
+    "sha256": "154358dc7fff84a5d2ff02f9e909ce3e8e68a6906b6277df8f3d9277e453903d"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/include/tr2/persistence/campaign_bulk_aggregator.h",
+    "sha256": "5cd1891730804995d26116808f673305b7b0435ce196dae0023f9cc6331061a2"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/include/tr2/persistence/campaign_bulk_block.h",
+    "sha256": "c51e9a0bc20d250e36b659358bfb6a1d3bf2e8e092709f6cc81211679d3c0797"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/include/tr2/persistence/campaign_bulk_block_stream.h",
+    "sha256": "ce07d00ea290e0ad64e519984caa7b932192350c5d6868fb074d7086294a968f"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/include/tr2/persistence/campaign_bulk_checkpoint.h",
+    "sha256": "b24c3495ff1b10f997b63fd486ac0ec423e1ee2680612cff4f3eae3fa75f6f82"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/include/tr2/persistence/campaign_bulk_media.h",
+    "sha256": "77737166c17011c4b39fe5dcf5b972baa7c1622fcd4c412d42c3d4768bbc8f8d"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/include/tr2/persistence/campaign_bulk_media_region.h",
+    "sha256": "d42126e594bbbec3a0490f383727a1e0a78139f57ae1b7f75ba24ef59232983c"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/include/tr2/persistence/campaign_bulk_metadata.h",
+    "sha256": "95f5bcbdf0dda062f9818f6842106e3d0a80fe913048fb50c00e6de70839ca83"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/include/tr2/persistence/campaign_data_store.h",
+    "sha256": "bf5a404aa06ac17d8939979c1a682cd8d9c414622456b44a7af0aaa6c37086a7"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/include/tr2/persistence/campaign_data_store_bulk.h",
+    "sha256": "3d9b0cba05f944281c7b975816a3453c97ddffe1f9fe492d9be0971272acf794"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/include/tr2/persistence/campaign_data_store_persistent.h",
+    "sha256": "3c5934ac7d6e1767f5e6ae2969f7c9dee60d9ffe5045dfbd4879e52464cee526"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/include/tr2/persistence/campaign_data_store_persistent_composition.h",
+    "sha256": "c6acdaf6072065d55673f513620b5a423c86730930c163799595327cf658633d"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/include/tr2/persistence/campaign_record.h",
+    "sha256": "a548f6e3b69143a48b8f3e3d75783819f110af9bc3075cb63dc67cb8308ddc0f"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/include/tr2/persistence/campaign_repository.h",
+    "sha256": "1a1ea728e241cf572367eeae5530ce3d79b7a72dbf6572b235ac6955082c6da0"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/include/tr2/persistence/campaign_repository_store.h",
+    "sha256": "9c2d9c04e3219302a1a80923784660f66b1f9503bdccf0df93e7e65c2d04e6a0"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/include/tr2/persistence/command_journal.h",
+    "sha256": "7000cbafa99d1af1e663d8c7292b29f0f86a4002cacc33a88f38624e87dcff5c"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/include/tr2/persistence/command_journal_bounded_admission.h",
+    "sha256": "fbb87fbc5a1c0a2e86fb0401c6b584933ad07779cc7bee0427128205032c9e09"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/include/tr2/persistence/command_journal_bounded_reader.h",
+    "sha256": "690d4289fa39a69de7c401ce13985f0a07bc3bd87da391db0561f974fbfd20e8"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/include/tr2/persistence/command_journal_bounded_record.h",
+    "sha256": "ffa0c0251b9058ff8c90077a5b634114ebc71f50f2b72e415e7024f2327427c9"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/include/tr2/persistence/command_journal_bounded_recovery.h",
+    "sha256": "79f524bb7ef0e3807e9a1ac23be4d0af5a0363a6522da4e9f9e7efe87184d7d6"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/include/tr2/persistence/command_journal_bounded_slot.h",
+    "sha256": "4cf929e1e591fb66fffb56e03d2cafd50249058abc025fb05ee6ba1d62b9ea9e"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/include/tr2/persistence/command_journal_bounded_store.h",
+    "sha256": "8c49c3d6ad0162a241b352018d2b84c49cb5bd8c76a936af95856a9b9142a3b8"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/include/tr2/persistence/command_journal_bounded_writer.h",
+    "sha256": "c17fdae528b8a90a67c5b71e4dad3f89edea465d7a5ff9601c373d31fd43a842"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/include/tr2/persistence/command_journal_record.h",
+    "sha256": "c419eaac746e9bdcdf6b05032aef4c9a4f82377fb6228fec8423415f35bc8fa3"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/include/tr2/persistence/command_journal_store.h",
+    "sha256": "c22ab0ab6fd8d149e25c8db83c877601cc77fed243bc8da1a4411d716ac73343"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/include/tr2/persistence/configuration_record.h",
+    "sha256": "74b3c718ee95436b8799482e7878f87740f07eb0b20f4db89558f7730d75ffe9"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/include/tr2/persistence/configuration_store.h",
+    "sha256": "272d7ac77d19437bcf2a19f8f3af77453cf37d6d809843e2782fca8cfd8d42b4"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/include/tr2/persistence/diagnostic_history_record.h",
+    "sha256": "4a8dda6ee6e60b57eb90acaad072ffbda586fea9901618558e5e8afef16532ce"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/include/tr2/persistence/diagnostic_history_store.h",
+    "sha256": "45cbc0e19a148c6265b9ae357ff1efa6b0360865298d6f1021621b1d6bae8364"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/include/tr2/persistence/live_command_store.h",
+    "sha256": "a96c19c800b7d52778adb0af9735f2811b988406a5aaaff79ed14251909b7a3a"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/include/tr2/persistence/persistent_media_region.h",
+    "sha256": "b004c48a647c8e8bca5f50360587fb114163dc5f97ff42102edf5bc83d96d65e"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/include/tr2/persistence/persistent_storage_core.h",
+    "sha256": "b5eaba54c418d0ccb8ef7e91ed3d2e9e906b83ccd99d90d87f3a463ec15362b0"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/include/tr2/persistence/system_persistent_layout.h",
+    "sha256": "e4afec33c2a07609da62c3cd56fbacf1141e9eb5a1317279a3b74c969efd640d"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/include/tr2/persistence/time_history_record.h",
+    "sha256": "c7b21ffe1e17ff3b290c17ae15b28ae0b6bbd288bf181e6d80fb46f9371656f3"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/include/tr2/persistence/time_history_store.h",
+    "sha256": "c41ca604c70381bc876e414fcd9156e13b85f9a54db7032c55df02c456acea3f"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/include/tr2/persistence/transactional_image_media.h",
+    "sha256": "8032c110b7584d18cfa7fc507778e58a60805973d791f082b6fc2bc204be5c67"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/include/tr2/platform/monotonic_clock.h",
+    "sha256": "d6f9b759d993bd247e9f017180788dcf23eb1f79f4f2bb4b3a5b96592a0724c6"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/include/tr2/platform/persistent_media.h",
+    "sha256": "9c501242b497439906e0a92eb3c2609cf5f2d9ed64c8e77a704321f8a11fa88f"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/include/tr2/platform/reset_cause_provider.h",
+    "sha256": "89259479c0728f8443acef5ec3426d67eea1f47cce43ec98c6e6b51cfb5c7ede"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/include/tr2/platform/reset_trigger.h",
+    "sha256": "e4ed737a95f406edd4a60e26b6768af7c95563571cba33d3551b94021dd14e83"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/include/tr2/platform/serial_transport.h",
+    "sha256": "93659d6ec811a5f8bb5cb5ccde1dc138677f5f1563d53bc5b5b38dcde333dbc5"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/include/tr2/platform/time_continuity_evidence.h",
+    "sha256": "fb9506fb3580ac62d08b179e7cd043bef6532f3d3dc6d7db03a9988d437ed993"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/include/tr2/platform/vibration_source.h",
+    "sha256": "b78b6b3162ccb27bacaa6709fcdcfbb048df17f5158d644beaf9592b2ec26e07"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/include/tr2/platform/wall_clock.h",
+    "sha256": "d3eed424a175a55a0b81d790dcddd0db407b1b6ce2f035587eb7b03dd40a826e"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/platform/host/commissioning_plan_check.c",
+    "sha256": "22c9ecbb5046b36391eb1fa7547c0220e24248d1baea542f6093d36a469ef3e2"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/platform/host/host_platform.c",
+    "sha256": "98b3e2ac8e7ebd3e64d1ad184cbd2a11f6814a1a3fea8e9dc910a89ae26133c3"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/platform/host/include/tr2/platform_host/host_platform.h",
+    "sha256": "56723cfad02bf38b50e065773737fcfb7346fcbf310ba8c2bce297cfa902645e"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/platform/host/main.c",
+    "sha256": "07d0ad5f873ed35ca193697c05b57f7a1076e2a00e447272775ef81aad8c92b8"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/platform/host/rs485_rx_probe/Send-Tr2RxProbe.ps1",
+    "sha256": "5279f77f1cacc0ede09e46172d0a3ccdc24af47392c9653f03eb4f3bb3e57656"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/platform/host/rs485_rx_probe/preflight_hp.py",
+    "sha256": "2eb5e5475e719ab3f9a2a748ba2e1a4beb7120fe5f51b5f49d52629a0e7ea20b"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/platform/host/rs485_rx_probe/rtu_campaign.py",
+    "sha256": "5efd7e37769f84adfe1a439225814e7ead481a0fdb48614331d8ffe4b649d957"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/platform/host/rs485_rx_probe/rx_snapshot.gdb",
+    "sha256": "f624a87d26bcda0c6b30c7235e902370bc8b7427b5fabecf4f877230ce0934d1"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/platform/host/rs485_rx_probe/test_preflight_hp.py",
+    "sha256": "be9c5b044e086246c62ce5d9aa85a18095c428f52cda48327d4cef8d5388d746"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/platform/host/rs485_rx_probe/test_rtu_campaign.py",
+    "sha256": "75061f6394a83d5e4a67b45c60e563a7e92f9f2bc480628eb61250e3ba897c63"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/platform/host/rtu_request.c",
+    "sha256": "c9e4de7b39a1ac1214488289965bf7208b85a8bf4beff345d39bc87e32ac2ca4"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/platform/stm32/CMakeLists.txt",
+    "sha256": "f17d4bd40557f3850ed974d4035c74214197fa472e5b32b6da5815fd16e093df"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/platform/stm32/README.md",
+    "sha256": "145496e62a0bb866e4aa97ee237f85d1cfedd4a50494b634cad1838a7c6aa935"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/platform/stm32/cmake/arm-none-eabi-gcc.cmake",
+    "sha256": "a226b0cc2f9b2b9fab352acd6169ed0c3f4eddd23a0fe38ec9f84a23b9ccbb35"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/platform/stm32/generate_commissioning_identity.py",
+    "sha256": "f1534e7872126e3e9801311748f8a83c29a48c5fa967291c81084f879926dcf1"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/platform/stm32/linker/STM32U575ZITXQ_FLASH.ld",
+    "sha256": "3427c8ed98cf6f2f899f1cd2868153fb60fdc5104cfa0473d4876c59f1ce6ef5"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/platform/stm32/live_fifo_acquisition.c",
+    "sha256": "4feadb015963d112ace63d596fc523d6515f942d7999bfa16987a71ba0897c30"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/platform/stm32/live_fifo_acquisition.h",
+    "sha256": "37fae2f91f7c039520f17eb0e8863f3e7536f648099b936aff767436de3f51ac"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/platform/stm32/main.c",
+    "sha256": "f44a0a83f47c86fcff8cd2e3bab42c5bb3fb40b5c4a69666771b946d3cef3862"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/platform/stm32/stm32_fifo_cooperative.c",
+    "sha256": "bd874fb4e9d32957db4d79fec8c503f150100b8e1dfa6110e661783ceb2a4304"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/platform/stm32/stm32_fifo_cooperative.h",
+    "sha256": "51e04d59b4715399e7042fbee1a9a17818654c9ca8d55db97e4c7f0e22a3d390"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/platform/stm32/stm32_fram_storage.c",
+    "sha256": "e08bbc72e3f0006007606a8d5b0b4250f518cd4ec8350bcf7e046fb50ab10f2b"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/platform/stm32/stm32_fram_storage.h",
+    "sha256": "99aeba2a5a130ccefb37d9a69ff81bad26fc0dadf76195c9cb52202e9206f7e5"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/platform/stm32/stm32_iis3dwb_active_readback.c",
+    "sha256": "fd57704207462350940015b872b16ebe86c3efd6ef9c767d419d17fd4fd8b823"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/platform/stm32/stm32_iis3dwb_active_readback.h",
+    "sha256": "38d055e0a4c75e2fd36860f66b03f9b414f4da4a651308c944b0863dbd61d8cd"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/platform/stm32/stm32_iis3dwb_burst_capture.c",
+    "sha256": "26e8f3e712d94a04585587232289f2cfebe3a881a87fa9f11096453b9ff47edb"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/platform/stm32/stm32_iis3dwb_burst_capture.h",
+    "sha256": "fc5c6e04d68272b992efc0cce0806d215aa139ed87722daea5181f8d0ea6d0c6"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/platform/stm32/stm32_iis3dwb_capture.c",
+    "sha256": "1865f32d63e03be7d52c292f2ca528954672f56ec6a687ba97a2d81b697bd606"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/platform/stm32/stm32_iis3dwb_capture.h",
+    "sha256": "3ca294dade7151b72da6b29fab59b37c3ea06c87053a06fd0dc898a12c369de5"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/platform/stm32/stm32_iis3dwb_continuous.c",
+    "sha256": "456ae6fc4d71c4edc7dd5828c1fd0474ce57674912bf25d01b7baa63c6cb7c61"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/platform/stm32/stm32_iis3dwb_continuous.h",
+    "sha256": "53764be008f8bb03e689ce093455ecab9208f22cbce4c36a42f8db21fdf1c593"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/platform/stm32/stm32_iis3dwb_ctrl1_differential.c",
+    "sha256": "9858f2713524d9e90619bbae3aaf7b781417a73b69315d270d6e64203f229668"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/platform/stm32/stm32_iis3dwb_ctrl1_differential.h",
+    "sha256": "ece2744997347cb64045ef5338ff600ec6c7c706227c3733504feb3119427080"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/platform/stm32/stm32_iis3dwb_fifo_capture.c",
+    "sha256": "fc581f6e8f383185be631431c29057ab541e81cd646a4cdb8df486ffefe0f9da"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/platform/stm32/stm32_iis3dwb_fifo_capture.h",
+    "sha256": "8cf94dce3d923a682a5f0d2b1e1aeda818346dfda6a8af4f125e219c0d7e7a61"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/platform/stm32/stm32_iis3dwb_register_probe.c",
+    "sha256": "11ec64065dcf26272b4d7cd3d8bbf4465bec9126d849a11491443fad1af2e9a0"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/platform/stm32/stm32_iis3dwb_register_probe.h",
+    "sha256": "05eeb3f5866b39847bafc9eda3bd277b5c7aea10617bef77d540953d7037dfce"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/platform/stm32/stm32_iis3dwb_st_window.c",
+    "sha256": "1a8f09deb1c627e9863aea4856dcd0377c22bd9c191f1448505c444ef015c4f3"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/platform/stm32/stm32_iis3dwb_vibration_source.c",
+    "sha256": "335480ead9e0dd0f6c34a4491043cb284432f72d6e4f4df8204bac8bf91c8421"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/platform/stm32/stm32_iis3dwb_vibration_source.h",
+    "sha256": "7512a49b4c879bc694b2550c8a88ee7af609e6ed9150df00038e83a867d8e29d"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/platform/stm32/stm32_irq_observer.h",
+    "sha256": "5a9fdcc002c65fd11f97f93cf654ccf2d6d724874457d6538cd0b304e6363e42"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/platform/stm32/stm32_live_acquisition.c",
+    "sha256": "4627668e61c12ad49e401343c37d4cbc90fea7be536d17b2f8677e497d9e685f"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/platform/stm32/stm32_live_acquisition.h",
+    "sha256": "c3f167045319789ec3b213869c8b4a3ee7d12876f0aeb7b059349fe3514aa6bf"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/platform/stm32/stm32_modbus_application.c",
+    "sha256": "b2395e4b16c01b3d5a867a06dc62fb2a1279c5a092f32ef3eb0dfc6b6849a8ec"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/platform/stm32/stm32_modbus_application.h",
+    "sha256": "635bfd271498dbcb72199dbd4b51291f1cd9032d37c91e1c3f5d325dd9350ab6"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/platform/stm32/stm32_modbus_diagnostic.c",
+    "sha256": "d13f0a5b2c408e5accc18610779f43483603641278a5b09eea84a425b8cbc08f"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/platform/stm32/stm32_modbus_diagnostic.h",
+    "sha256": "57f4ee4ef48e0d98ffbcbc5b0096a276eb99cc4f50a3185094b5be0b4d885699"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/platform/stm32/stm32_production_board.c",
+    "sha256": "aad305f9caf5da793b9f95b08c3eef7758c0e898f778eb895eb30b3b7ffe5b74"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/platform/stm32/stm32_production_board.h",
+    "sha256": "4325880c3a2fd3d6de88ab6827bb1d3d8aadd6c6c55eea687ab535db96f8cf33"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/platform/stm32/stm32_production_runtime.c",
+    "sha256": "b92cda783468ec3c41604f3b717d7b2b8dc4c08804ec4a49f986177c078c9732"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/platform/stm32/stm32_production_runtime.h",
+    "sha256": "61f5adc345c9335937203b1545b81b96f3ba3bb8a2c643f06b55d152f884aa80"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/platform/stm32/stm32_rs485_rx_gpio.c",
+    "sha256": "a8af8c9c30296e437c49063d40e66076ff36e98057b2de7e583232ebd98194a4"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/platform/stm32/stm32_rs485_rx_gpio.h",
+    "sha256": "ebfd77776c33b28da267f3095fff140cefbbcacdd005b257514dd00db67f5dbc"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/platform/stm32/stm32_runtime_platform.c",
+    "sha256": "412bcea9bf0a9ec24149e5a17497f8d3379303dd3a4e6b419b6b62ce239ae03b"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/platform/stm32/stm32_runtime_platform.h",
+    "sha256": "548cc7c8ae7fcd2235a128fb716a83794e4593bd7a0e0bb4b71b2af9cf0b73fd"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/platform/stm32/stm32_sdmmc_bulk_media.c",
+    "sha256": "9004b34da78f07655da0cd2d3118ca114567385c219dbdaa3f6422ad75c907b7"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/platform/stm32/stm32_sdmmc_bulk_media.h",
+    "sha256": "4ed70b2137f1a20df64934dec77632e9b8b4ca0b92105743ac98495aaeb1f80b"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/platform/stm32/stm32_serial_transport.c",
+    "sha256": "d8fa604ca1f084217896b676f1877dbb5341584818bd3e1d2c62e4483950d56d"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/platform/stm32/stm32_serial_transport.h",
+    "sha256": "bebc3c5211dea51dbd935ea92d675035138f4c5b8d4466e78e6880e477564ffd"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/platform/stm32/stm32_storage_qualification.c",
+    "sha256": "6ad6551e89362b9a9bc297f64e2ff7705cd0f5bdb6941443025ccda297fdf49c"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/platform/stm32/stm32u5xx_hal_conf.h",
+    "sha256": "33e62fc4b6871953bfdad52aa7d98a38c63407ab2952a74818ed980732e2811c"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/platform/stm32/stm32u5xx_it.c",
+    "sha256": "83c65ec543fffdaabbb8e88802c039ef34bd12f2eb42084eb4ce42d15c9aa28e"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/platform/stm32/tr2_build_stm32.sh",
+    "sha256": "737d6624f1b2da52a52a5ffc6feb85364d3c0bfe26e3780e2d8c2a3aecb679e3"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/platform/stm32/tr2_fifo_admission.h",
+    "sha256": "001466045599b5b1661dc5a7acaa910e6a51a5da41c01149756cf64fa4f3547b"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/src/application/acquisition_service.c",
+    "sha256": "e6c893642c50e525f807ac91ec3dc434c3a9d2dedfa45945b0de49c50488808b"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/src/application/campaign_inventory_service.c",
+    "sha256": "a3eaf9d5808e031fb88cf5d987e3d538436479473c4aa783b8d237a559f33dbd"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/src/application/campaign_service.c",
+    "sha256": "9c69d2018200ed6baffb0e9ae3ab6fbfd397c64de7be7e3a7be44304b07e4e87"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/src/application/command_apply_configuration.c",
+    "sha256": "7d2d839974f2ff20777ae48cae7dc7fe97181c142578f0e9c58d558cdd0eb50f"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/src/application/command_boot_recovery.c",
+    "sha256": "6da6f94432d2044768efeb1e5b2908d6f175ce8c55d4aa469958d2a718addaa1"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/src/application/command_engine.c",
+    "sha256": "bc6495275649ad5c8d6b462184462fb299a7aa1084f7c07edc709bdacd739fd5"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/src/application/command_policy.c",
+    "sha256": "2795116bb4990b5ea31871aea2aecb08f195d8ccec73b80b6b7a3fe2ec637f47"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/src/application/command_request_mailbox.c",
+    "sha256": "7af2d00a8de4b16739453e228b9e4e57c6e9a778516c6a2dd897442c8c8d9ee0"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/src/application/command_selftest.c",
+    "sha256": "4718897e5ee89167fd601952a443a54c055ebc9cf74cd38ea8f06397d4530832"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/src/application/command_start_acquisition.c",
+    "sha256": "2ab4bba70ade1023d821e66d2a1b097a9d2bae0589c3269904a55c63ccdcccae"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/src/application/command_stop_acquisition.c",
+    "sha256": "e16f86a33d02874553358a97df7f2826fc7e750a8134ea53c1561d3a7dc7c965"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/src/application/command_synchronize_time.c",
+    "sha256": "3e382f5a54bd1d0b494ccae881c31cb40fbb4452539f821f40c1b9430e523186"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/src/application/configuration_activation_adapter.c",
+    "sha256": "d3c2fad4b112473eb3884bd5d7ccc423a2176b1faa9af709e7dbbd1c90604aae"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/src/application/configuration_service.c",
+    "sha256": "b6a085201b0a1ca5b969332f05395d5c92948c9bba50fb310e95a1d84cce64ff"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/src/application/configuration_workflow.c",
+    "sha256": "81d78e10e4cbb958b6c214c0e64afb67c01d7d1b90790e73fceb30205dd9efca"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/src/application/diagnostic_service.c",
+    "sha256": "1911e7cd78951a7da441d27167edd0b8388bf45e1ad9c51c677fd1a0f2c5c35d"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/src/application/live_command_engine.c",
+    "sha256": "aa090292d5163b06dd9a2691566842763acd951dba056ef80ecdf3f2d1713219"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/src/application/live_configuration.c",
+    "sha256": "8d206d8c831f68dc653d6b4b07ae93892e51dc9a631c3155e7e986f288979594"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/src/application/modbus_system_server.c",
+    "sha256": "d897fc96f39e3e191fce9ccac019d279de82f8de935652c8b54e6195e91c894d"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/src/application/persistent_identity.c",
+    "sha256": "f9ba592afff487144c903c3425b09ee9c1decb6c719de3669d4e3cc7356ca51a"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/src/application/production_application.c",
+    "sha256": "1d5d1743182d6a3c9a333f0d6033df12ca83889cdfa2b361893f8c1b68bea779"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/src/application/production_commissioning.c",
+    "sha256": "c747abf1e61844e9a275c72a21517d13e348cb724c5e40c758748492094cd093"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/src/application/production_provisioning.c",
+    "sha256": "33d74ad6457f1d9133a1a9524a24574c9d84f6ff1d1d147af282653b602f3460"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/src/application/supervision_service.c",
+    "sha256": "bfd9defba816ee1fe7ac44c2d9e5e19b8ca0f6e17d7947e53fc04297d3b4636f"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/src/application/system_command_dispatcher.c",
+    "sha256": "0143d47109ed139dfe3f96b8ee08856a46761ee9171cabecd8167a3a7323e76c"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/src/application/system_runtime.c",
+    "sha256": "eeadb03a13737ce2cf0c31fef570a8a5db4ea572cbc219a3576c2d565562f565"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/src/application/system_runtime_acquisition_command.c",
+    "sha256": "be3c92e453e6a793e7ac889182b903dea6db0eb9b6cb7587de5acc53bd4fba9a"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/src/application/system_state_aggregator.c",
+    "sha256": "85efb9c8665a815744cd2c00a6a2f1111533eabc778298409e0546c3c2fd03c2"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/src/common/sha256.c",
+    "sha256": "65fe46bbe79f6b951161ef3539f10fbf445db1a20d89c8a841dfd89140145f89"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/src/domain/command/command.c",
+    "sha256": "2172d8881bc98ed47181b63f22ba652c509f88d3d7445a76fdde966502b9259a"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/src/domain/configuration/configuration_staging.c",
+    "sha256": "f6d77b76b13169143162ac90cd9a93a8a274b088eb7d0de499ad493a488e60b2"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/src/domain/configuration/configuration_validator.c",
+    "sha256": "c2c209c7d4ac72a3c170011a10d14007e2aa2a7fed4e158bbf7b6501869abcde"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/src/domain/identity/identity.c",
+    "sha256": "8610aef8a01bbdb4f4f48bbbc762bdd4c18d2ea23ce261f622732e40f8680e85"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/src/domain/supervision/indicator_calculator.c",
+    "sha256": "3b36472b7ea856ebe4511cc7ef87dcb764d6720482b03aa5a167cd9c4c271312"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/src/domain/supervision/threshold_evaluator.c",
+    "sha256": "bac18009055c642d5da5927cd5bd604d705b72b4615a402581ddabfcb1427abb"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/src/domain/system_state/system_state.c",
+    "sha256": "e4e6631e1ccd7d70d768218e6fda973566ee34320f8f658c9c94fd0235cec3a8"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/src/domain/time/time_recovery.c",
+    "sha256": "d899d64c4d28dc4f488067cb16b669e90c7238321812d0788f3cb0fc39884ea1"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/src/domain/time/time_service.c",
+    "sha256": "82e069c9934bacbc75ec75147d025aab36674df7f5774643990b4350eab9b179"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/src/modbus/b4_configuration_codec.c",
+    "sha256": "728c1304f8a98120f934667c349ad547831dbe2a5cb43ac84943c38b79f61854"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/src/modbus/b5_projection.c",
+    "sha256": "fee40f075a3dc07eff74ba9b7ec26fe1e5a139fc55367490707860eec453a8a1"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/src/modbus/b5_write_adapter.c",
+    "sha256": "0b7d79927cf27363cc4b683080bc9182431e60658b6f09994ef937dc655614b4"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/src/modbus/b6_projection.c",
+    "sha256": "96078c08a1f7229ae527dd28c58a348d724ac9a690cf648479d6c7045548df2e"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/src/modbus/b6_write_adapter.c",
+    "sha256": "025dfe54c168ab5568c48c7de8bec5919a5a48d923ae8c5e653b47e60418c5ba"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/src/modbus/codec.c",
+    "sha256": "2335347e858cbc3850b793d430423be02675590768b27226eb68fe78348ffcba"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/src/modbus/pdu_server.c",
+    "sha256": "fd40daa229ee1d8ebd59f4e7bdfa0dfd3197100dc600cbabc330564c1f26fa22"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/src/modbus/projection.c",
+    "sha256": "e13a14595a627c48144b08151507675ff20a29161eb32d841e83bfc184d12cfc"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/src/modbus/read_adapter.c",
+    "sha256": "ac3fe5b1fe2e9662503fbcd515d661a9ff164959743cd77cdd4bdece41ee582c"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/src/modbus/register_model.c",
+    "sha256": "417114f7c278d33515e9b06baee8604b418a1a070dc0f6ec5973e0629fc2c4ef"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/src/modbus/rtu_receiver.c",
+    "sha256": "69f890b6d384634f9cc362ab62b936fcaf6d8f0ee542e671d8b0bb9d1d0766e8"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/src/modbus/rtu_server_runtime.c",
+    "sha256": "7538a04a953c38979d1b910afb6eb5f5eaa047e919639d196ef234e83889a602"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/src/modbus/write_adapter.c",
+    "sha256": "5594912828a8c0c8c9bb2417d7586ba3c3467240ddcac3ecb6e775709cc748d1"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/src/persistence/campaign_bulk_aggregator.c",
+    "sha256": "ee902d4c48b992a488de9a7826f6edf7c03b59940166aeca2f6b3447990a80d4"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/src/persistence/campaign_bulk_block.c",
+    "sha256": "b43c18b6e057f041ad1456c0fc13c66431c5795fba90168b5d9941fe27e07013"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/src/persistence/campaign_bulk_block_stream.c",
+    "sha256": "809fb689401a8886e9c381d5433df507b1404796174d75189f5d5f48d2857ce7"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/src/persistence/campaign_bulk_checkpoint.c",
+    "sha256": "ac70d19f90466a4d8d810ec763268d04b802dd1cf93844dab0c906277a7e5de5"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/src/persistence/campaign_bulk_media.c",
+    "sha256": "eb675c791cd9cc709305df88b75754a6fed97d78bb23ea073542540439f53268"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/src/persistence/campaign_bulk_metadata.c",
+    "sha256": "e6f46b098bb48e8266a3c183608c0cf2ea4d1a8a27a1fe5b7792e325fec4b28f"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/src/persistence/campaign_data_store_bulk.c",
+    "sha256": "ac2c871183d7383facaf8533e4e387f25885170521be6a290434f0ca309b677a"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/src/persistence/campaign_data_store_persistent.c",
+    "sha256": "afefcb8078667353b2ee3a71328788d8c6948992d645b1c77a2864f3dbb68f54"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/src/persistence/campaign_record.c",
+    "sha256": "cc54441032b4ea5c563a151cb95d5147357ea6d73269d43b38909420ec2be151"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/src/persistence/campaign_repository_store.c",
+    "sha256": "9b1e3c74803c25068a53d73659a6119220d4cfeb989025d9ae637bd853ab70d9"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/src/persistence/command_journal.c",
+    "sha256": "37506d1d51c1367817dc94e1c93c17f8fa8a4e3453cb439fa3b70c4726b4003b"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/src/persistence/command_journal_bounded_admission.c",
+    "sha256": "c13807f405583167049b115c835a756b92e4be09b4e14a63598225c3c2f703c7"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/src/persistence/command_journal_bounded_reader.c",
+    "sha256": "5fcc65dcadb8eeaf2bd77a3db334c40bb30a98b19eae06252b77f8aa8ba14020"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/src/persistence/command_journal_bounded_record.c",
+    "sha256": "ed16a3c71356ca51eb0b07d79f654d28c26dd7f31ba2a45c30b09be6903cbc2b"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/src/persistence/command_journal_bounded_recovery.c",
+    "sha256": "17f94681bcc9e2b3ba3c5c16d22ccc287caa38ccd840f79a7b9930b103b2d19e"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/src/persistence/command_journal_bounded_slot.c",
+    "sha256": "2a19427333950a8988fc03d75850010a833005cadb31ecfc4e126cd435e77a52"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/src/persistence/command_journal_bounded_store.c",
+    "sha256": "c4a6ddc1441a50dd380207689d5dfe89e907f24fb773d7cabe2d903fbcc90189"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/src/persistence/command_journal_bounded_writer.c",
+    "sha256": "48e45d40856e8e157f4be954b75475f043c1dc4e7d7bdfd168532026b05e8a3a"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/src/persistence/command_journal_context_store.c",
+    "sha256": "7475371aadcf3a031ffad26896228dc7e409fcb534e198a3501140f4d8e5e060"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/src/persistence/command_journal_record.c",
+    "sha256": "77f22a24b3c2b7b418c650f946ee65c39c325260336d9bc9f812b45ac740996a"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/src/persistence/command_journal_store.c",
+    "sha256": "2f5d961a8302fa7ed7266571bd17fd1f09e0fe18ec9c6da87a4e393d4f8718b3"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/src/persistence/configuration_record.c",
+    "sha256": "b1a92f2433f1a083a7273cf00a6f8bf1bd5f4dc54ef587e58af8ea21053e2c4b"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/src/persistence/configuration_store.c",
+    "sha256": "837318ce1139546d490bf554037f388fe8c450e8470747bcb9b0cab64efdec70"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/src/persistence/diagnostic_history_record.c",
+    "sha256": "6c95a8fe047a8ef94fc24877362733e6aa367e6290c53943bb527d8a73c5d1a2"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/src/persistence/diagnostic_history_store.c",
+    "sha256": "c224b1547d0980dab11de405a0f54f6bc571ac1f8c43e02ebe5a67a0a2a5c997"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/src/persistence/live_command_store.c",
+    "sha256": "4d0d33f4240b1289f873fe8564b53fd5880676420235662965854b12decaa8f2"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/src/persistence/persistent_storage_core.c",
+    "sha256": "1252fc9fe21a7831b2496846a7adba64fef416f8029da4d824f5652973315477"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/src/persistence/time_history_record.c",
+    "sha256": "60bb6785204efcd2c276b202921a221ff456dfece119fdd12fb60fef4e494bbb"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/src/persistence/time_history_store.c",
+    "sha256": "21c41eb9b2bef44927c95e3bb1a69ccaef3d49b187112f7b0c78fdc5258e1d52"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/src/persistence/transactional_image_media.c",
+    "sha256": "bc9a96bd3ade25b8a71d4c571dfc6169ab8af1955924d71ed7491f79f3271fc9"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/src/platform/serial_transport.c",
+    "sha256": "64cf9be91761befb0ecd0fee800ba51fabc28fcd61994b24f11f25a6cf0df655"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/tests/integration/test_configuration_activation_adapter.c",
+    "sha256": "222144679e3119bb77e44219e8705cb0272747a612d2f76788d448242f7e008d"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/tests/integration/test_configuration_b4_flow.c",
+    "sha256": "b02ba1515152d10607e7db3ddefe6e1d41a912a8759ee611f4ef9228ca4a73cd"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/tests/integration/test_configuration_fault_injection.c",
+    "sha256": "5d1259a9952f21a1d23fa892a80feaeb1257f9637d593c9501b26769b33ca957"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/tests/integration/test_modbus_fifo_io_budget.c",
+    "sha256": "ce067ab2777e2b949e988b17d53283fe0e09206d5d60ac7fca25509f4da13761"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/tests/integration/test_modbus_system_server.c",
+    "sha256": "a9f86b1e06ae3fbbac35911231a088fbe2d69fd79d221ab7913cd64caf83c064"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/tests/integration/test_p12h3c3c4e3_runtime_bounded_journal.c",
+    "sha256": "66827aa0bc7441620968c527457e12ef5473bd75fd8e7aa2c5d44759a1762b81"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/tests/integration/test_p5h_acquisition_supervision_b3.c",
+    "sha256": "585153fd06b49e19d3072f6f14282f9426f2248b563811b1ec107c50a2ef7d30"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/tests/integration/test_p8i_system_runtime_acquisition_commands.c",
+    "sha256": "0fde1d427620ee8884f4e4999bbbb7c39c94821d2c0d91444e65bb0161191e16"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/tests/integration/test_p8j_system_runtime_b3_projection.c",
+    "sha256": "d602d16792e185a3148c8bf4d1a6d4b93298a62f5fa76fe0bd7535e10644f6b3"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/tests/integration/test_p8k_power_loss_boot_recovery.c",
+    "sha256": "aef7938eef0843a62f961695cea217b4a5007e7589e6751d1ecef57f66ad9736"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/tests/integration/test_post_p9_a5_host_modbus_read.c",
+    "sha256": "7f96bc89aa8ca67abb58a08c078882a5ae23fa188a6e2332999054d95cf9464c"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/tests/integration/test_production_commands.c",
+    "sha256": "9034b41692ea4a6190d3ac286f2e711f35136527fe36cbe7e7d23f602e21b2f7"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/tests/integration/test_system_runtime.c",
+    "sha256": "fc1efb236ae6dabfa8b5581164dab07953e2e328aa06fa6381a504fa8cbd8923"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/tests/integration/test_system_runtime_bulk.c",
+    "sha256": "164e3aa5f618e3ac62f9ad2918e2cbd48dbf12c99d3a86df251bdda3ae31c8fa"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/tests/integration/test_time_boot_recovery.c",
+    "sha256": "82613493c8c19a7455dea737b4a62156e058b7e101245e3e88abcdf6db096980"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/tests/integration/test_time_fault_injection.c",
+    "sha256": "7379f88b5108a9ee80e4e2abb6d567487e634ce5f4b92f67aa7bfbbdff5b9107"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/tests/platform/stm32_hal_ctrl1_mock/stm32u5xx_hal.h",
+    "sha256": "5901eb34b0f155ab939f20fbe11188b968bd1e37892c8c58d538ed38076f98fb"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/tests/platform/stm32_hal_iis3dwb_mock/stm32u5xx_hal.h",
+    "sha256": "0973fa52553806232873e289011eba42dbce3189149c77c306fda55c0d3ab5cd"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/tests/platform/stm32_hal_register_mock/stm32u5xx_hal.h",
+    "sha256": "3a7c122421f7aaf7e8eecdbeb9c7a54eb0e19098a7e19f478af42d7318e22fce"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/tests/platform/stm32_hal_rx_mock/stm32u5xx_hal.h",
+    "sha256": "e4cff34093ce018c81e586efb37d22f5630f844a583eabf024f588fcba926fe8"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/tests/platform/stm32_hal_sdmmc_mock/stm32u5xx_hal.h",
+    "sha256": "929148458f7367062da7465f11c88d8fa0c73d6c78bcab0366f434209b7ac878"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/tests/platform/stm32_hal_st_window_mock/stm32u5xx_hal.h",
+    "sha256": "f5ea8fc48375d4886ee4ebbfe3f71a19e0c0b3a488fd80c028f7985131f53fc3"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/tests/platform/stm32_hal_tx_mock/stm32u5xx_hal.h",
+    "sha256": "9422da02386f8851ab0c594ee8a36b6fd67e0bd0be08a6cfb1ce4c512122d9bd"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/tests/platform/test_commissioning_generator.py",
+    "sha256": "0d135294d275f11e3dd18ad80eee78e9661020191cf267123a7ad494267e75d4"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/tests/platform/test_fifo_cooperative.c",
+    "sha256": "387b7441886013ff5afbf74f014c05adf02602b4220218bb20a432cdfc26e56a"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/tests/platform/test_live_fifo.c",
+    "sha256": "6562eaa16eabd5e2314d7f39afe7e1811650d55b5691711fcb908a0f3f8519d9"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/tests/platform/test_sdmmc_bulk_media.c",
+    "sha256": "cbf4d48bbe3502683a18246506cc606b652b3124a3ed26cb0c3377d9ef42f97b"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/tests/platform/test_st_fifo_admission.c",
+    "sha256": "3b225968ee0ff28c702abc092b0c552103db1c99fdd297dc55e02f7fadd8be4b"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/tests/platform/test_st_window_adapter.c",
+    "sha256": "a3429769bf2e94de16b585233b46f45ce398a38579d9d361affc1cddaa2befd4"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/tests/platform/test_stm32_active_readback.c",
+    "sha256": "e8e37f8b410218b2b7a2034953469cf2fda264b4548158e7979046ffaab6a36a"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/tests/platform/test_stm32_build_profiles.py",
+    "sha256": "b7da5fc58eaf901054d9643471a97981b555da07de9742ea123d2057bc4a7490"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/tests/platform/test_stm32_burst_capture.c",
+    "sha256": "96d97e82505f666e1ebe70ada992ae06cade2f48151a6fd730e2082aded1d71c"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/tests/platform/test_stm32_continuous.c",
+    "sha256": "d8b03962809fd2301c64a409fee9cefe0e1f60d52c64907de77ad097ccdd496a"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/tests/platform/test_stm32_ctrl1_differential.c",
+    "sha256": "709cc7994f90c2eb358731707754b51f0be2c7f247c84f08c70a1644e6a282c1"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/tests/platform/test_stm32_iis3dwb.c",
+    "sha256": "3bce1b49eb68b3f2cbbb293a132a386d21c45b91137822564dbe3b0055293a76"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/tests/platform/test_stm32_iis3dwb_fifo.c",
+    "sha256": "ab71f5b5cd2b69b1c6f1d2d0e495290610d914583f932d2c9a690894fc084ce8"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/tests/platform/test_stm32_modbus_diagnostic.c",
+    "sha256": "886bf29e22065ca31226382873c9b704cc49976c47a8be93de56a6299430e200"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/tests/platform/test_stm32_register_probe.c",
+    "sha256": "25945ca035dcbc11fa5c625339d9d2250f309181d975ac9df40b81ba85dfa2e0"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/tests/platform/test_stm32_rs485_rx_gpio.c",
+    "sha256": "4e98c5f228be64fb40b5847d4b574bcc0c4c44b8956f2b665ab4ec0a0640b533"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/tests/platform/test_stm32_rtu_tx.c",
+    "sha256": "9e89260382b7468514f4ab21c897025488835ad38f7de31f9ef379712fd3f605"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/tests/unit/live_context_vectors.h",
+    "sha256": "5ed864e05cf976a4f617ff6e8860ece6eafe9f1a289ee387321a83fec897ed88"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/tests/unit/live_r0_vectors.h",
+    "sha256": "a866a94b9d035ea84ae92ba1f7ad964650fd68fcfebc3bcda5745bef9a7f9c8d"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/tests/unit/test_acquisition_service.c",
+    "sha256": "e5f64fd476ddb87e7de78fde51313ad0fcc520f61aa774b428b0492140691805"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/tests/unit/test_b4_configuration_codec.c",
+    "sha256": "ab0f0badb85a14c4aadb51723198dcb2bf87816bbbfa0b81d312e3a67008da94"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/tests/unit/test_b6_adapters.c",
+    "sha256": "cf575fb75c1343775bbaf8594f0646a4a8fb2970aa12f977084449b5c7bf657d"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/tests/unit/test_campaign_bulk_aggregator.c",
+    "sha256": "7c6b5d51322a5a88c319584c35269a120b1499ee53816dd89a738371a058f2a0"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/tests/unit/test_campaign_bulk_block.c",
+    "sha256": "ad8ae1cf1de54ef861793daf888edd3b000daeaea1ed91b0aec5969639b6d365"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/tests/unit/test_campaign_bulk_block_stream.c",
+    "sha256": "a0f0057b55b3d1f27434e03a282b4507753df3e9ed5126c83f60a4f5caf7882c"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/tests/unit/test_campaign_bulk_checkpoint.c",
+    "sha256": "42dd8a6dc38663fc59d5618c475b9b1ff448b17e3642d33077a4905f595d395c"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/tests/unit/test_campaign_bulk_media.c",
+    "sha256": "538822b06ddf9df558a007423b89581700af05e12a4ee7f3c532a3a7e24f5675"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/tests/unit/test_campaign_bulk_media_region.c",
+    "sha256": "e3243631a00fc3c194552d46a477d11826a0b2e95e44ef26c4a5379406802305"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/tests/unit/test_campaign_bulk_metadata.c",
+    "sha256": "4cdea0c0f2ddaaeb1f77334ca1e4b79e5d20c913e047c7a725fccbde4ba69fcd"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/tests/unit/test_campaign_data_store_bulk.c",
+    "sha256": "30098564cea0e224b5007ebf82a50ec7d900e024bbc8115aba596e9a2dd36273"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/tests/unit/test_campaign_data_store_persistent.c",
+    "sha256": "983f9e43873dbd870b1e127a0aad7f31562f7e24623a90df82cce451fbb11118"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/tests/unit/test_campaign_inventory_b6.c",
+    "sha256": "6c5a734acc5fd1428f5b84b71538796efbd71d6e1ddb56b3ef07a3b2770da20b"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/tests/unit/test_campaign_record.c",
+    "sha256": "3c23149df71b8b19bff5b74f326fa6fb266ea68a411efd10fd7c21a8723c7ad5"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/tests/unit/test_campaign_repository_store.c",
+    "sha256": "108becd3aa5ce0b7affc007bab4f631c705e85ad00e0dbdb0074907721d2a496"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/tests/unit/test_campaign_service.c",
+    "sha256": "6a8bad4e02a77e603e4a29ed9093e53a620b5c9bab54d593356dee0e1be5c601"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/tests/unit/test_codec.c",
+    "sha256": "872b1520b740bcdda020c9da2533e3092d8d42a6ca16ad4bfee97d0b998db8c6"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/tests/unit/test_configuration_record.c",
+    "sha256": "371fcb59df25850b3ca5ad5d703feb855b51aaf7f7cb63a619a17853c4a9f48b"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/tests/unit/test_configuration_service.c",
+    "sha256": "1717b29fa5eaca54bcfb52a8f922a568db3db972c3da934108de014c7fe1afef"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/tests/unit/test_configuration_staging.c",
+    "sha256": "a6edcc15379e3a22c8b8a11a8bbfd861e3be1201c52fa5afe59722cf01e0b94c"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/tests/unit/test_configuration_store.c",
+    "sha256": "2291ac85cf6142afa3b47bb9be3c15343788968dd0ddc46c76a4611b209de11b"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/tests/unit/test_configuration_store_recovery.c",
+    "sha256": "829285a6adc3e066f6ed07881a26590ab997fda1d91f7bcc775c9f671e3d9f4f"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/tests/unit/test_configuration_store_recovery_unavailable.c",
+    "sha256": "b0bf7828395776412d03c2d1575fd291772b165318a52e56c0194a283c96b053"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/tests/unit/test_configuration_types.c",
+    "sha256": "1f01dcf6aedfd38b50c40803e3cad6c77bbbb79448e16fcf4f1c7bba06d198e8"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/tests/unit/test_configuration_validator.c",
+    "sha256": "f35f1336860d49609e3a44abf1554ded97502bb32da7fb555da89e760e2c27d8"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/tests/unit/test_configuration_workflow.c",
+    "sha256": "90f86bb521497c6582331f29aff24fa8c10715bb79cf4385c77541e8cbfd72f3"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/tests/unit/test_indicator_calculator.c",
+    "sha256": "bf136231dc6b6ca984f2490bf62e6b78c42cec226b72537166e28a8f699a39ab"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/tests/unit/test_live_command_engine.c",
+    "sha256": "c0ab3e3c7bd7662bd8f6fb9695a3dd94869e7aa001044bb32669b1d1780b16e2"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/tests/unit/test_live_configuration.c",
+    "sha256": "bc1e70a46713abcdabf071b6bd277e41cc7ad5d2fddf7889b4bd0699e51b18a3"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/tests/unit/test_p12c_pdu_server.c",
+    "sha256": "11cf2c71b671628ef970cb61f1f84c623f2718ecbc607be766c0fd8d774a544e"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/tests/unit/test_p12d_rtu_receiver.c",
+    "sha256": "be6080fe4fef18fd739f664189a461cb6f1174e399b765b014b8e2381f854600"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/tests/unit/test_p12e_serial_transport.c",
+    "sha256": "d64735e703e22380d6e39d6bc6399ff2ddca07ce85ca5ba6fc019d5d6baf27e8"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/tests/unit/test_p12h3c3b_command_journal_bounded_record.c",
+    "sha256": "b14a60b5a3a9ff47ad3ef781fe93ad36092006d4d64f503af67df3589f1c7864"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/tests/unit/test_p12h3c3c1_bounded_slot.c",
+    "sha256": "929fdef238b7eae58e84828532d05a2863e6b319cbbd0083143c51cdbcd9a961"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/tests/unit/test_p12h3c3c2_bounded_recovery.c",
+    "sha256": "593d3a513dd2fb3f4aecdbcf9495abe2b004987802d6f1c6892ef8ae43c09c3e"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/tests/unit/test_p12h3c3c3_bounded_reader.c",
+    "sha256": "ad41e6bfbb4fe2ea97e6cddd8fd98385855cbc43a56cb40199245538a24ab9b8"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/tests/unit/test_p12h3c3c4_bounded_writer.c",
+    "sha256": "52d3c8ef2a5d97bd3282ba81691dcdcd32262be57b60ed7a84f810f2eb64940b"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/tests/unit/test_p12h3c3c4b_bounded_admission.c",
+    "sha256": "ca6e13f64463dbdc6549595971ac5f32bab22777294c698f6811d71eebdebcd9"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/tests/unit/test_p12h3c3c4c1_bounded_store.c",
+    "sha256": "018d5de5c64b3ff0829ee977a068866a194ae463412c8deac1744b9335955cb6"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/tests/unit/test_p12h3c3c4d1_fault_media.c",
+    "sha256": "098c1bbe8d861fc96d451a5d12a25bb07cbc9d4abfc7cb4638eb2197fe2e04c9"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/tests/unit/test_p12h3c3c4d2_admission_power_loss.c",
+    "sha256": "bc90ab8b0ac3ba8814606205ca7fb906639f2269e4abf77fa884eeea2121f377"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/tests/unit/test_p12h3c3c4d3_mutation_power_loss.c",
+    "sha256": "1c8170cf8f2a8a86e7f4bc358a64babf1a4c349def871681caab0ba8e62a781e"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/tests/unit/test_p12h3c3c4d4_completion_power_loss.c",
+    "sha256": "bcb163ffffc7b213db9f152b79a0e7bdbe3146e7890d6f76452283c8b857a04c"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/tests/unit/test_p12h3c3c4d5_readmission_power_loss.c",
+    "sha256": "d13e66ac8a0675d85d68989939b905587553d9a666ec846e8b3511e5258e773d"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/tests/unit/test_p12h3c3c4d6_d8_consolidation.c",
+    "sha256": "7a9c2c412bd7be82decb15e3bb06ce6176e0984879ec261bff46b357fcf3034d"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/tests/unit/test_p12h3d2_transactional_image_media.c",
+    "sha256": "767ebd7bf19848f659a0bdcc4db888f7728e92099d7c48c07b557d342de9faa4"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/tests/unit/test_p12h3d2b_transactional_image_power_loss.c",
+    "sha256": "71978a1585e1d877e694318eecd47a1608a9dedefed7c788780530eaf1b72ba8"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/tests/unit/test_p12h3d2c_transactional_image_recovery.c",
+    "sha256": "e3ced3e8557500049a8edd030de1cff4f85d50b051b197cf38dfb890c3bec41f"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/tests/unit/test_p12h3d2d_persistent_storage_core_integration.c",
+    "sha256": "d0215fb243b8bb3cfbab7f3588ca581885d7e658ef3a72b6d26a7b37995e5673"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/tests/unit/test_p12h3d2e_campaign_transactional_media.c",
+    "sha256": "f6a856604649f7bcabe3e241eb574e2127871a84ad7b06607aa198b1dc627d5a"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/tests/unit/test_p12h3d2f_transactional_media_format_policy.c",
+    "sha256": "bb9bc5a97b518e3dfdbc6e46590e26d68b00f6094e4811716e6e1b1e796f19f0"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/tests/unit/test_p12h3d2g_transactional_media_format_power_loss.c",
+    "sha256": "0b238233661857d1720cc7867864442e602ab33cc1e7eea976e909ba1bc6ccee"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/tests/unit/test_p12h3d2h1_transactional_media_geometry.c",
+    "sha256": "80b34961a95f428feb2bb5713aebcf5cc6916fa949623ca2c30944a3d4c10c2a"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/tests/unit/test_p12h3d2h3_transactional_media_alternate_geometry.c",
+    "sha256": "bf55651482a4e043fbebf93820f35c48b658f01573ba199932a38be534f0465e"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/tests/unit/test_p12h_rtu_server_runtime.c",
+    "sha256": "f8ca332a92b5e6c5974832b49516fd68678e0c90312018ac023be7b10f11b8cb"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/tests/unit/test_p5a_contracts.c",
+    "sha256": "f1d2b947a7f39723273a053fa01c80bbed249f48dce26972a6a85bea6c903e9f"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/tests/unit/test_p6a_contracts.c",
+    "sha256": "099c8aba00f876cffcaf75afe466f377fafb357281b14df5391a7500be9f9738"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/tests/unit/test_p7a_command_types.c",
+    "sha256": "9aa0258ab4a2d5b98b2ac915c1cc82bfa54cc23b269160595cb17e27c48088b4"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/tests/unit/test_p7b_command_request_mailbox.c",
+    "sha256": "3d8fe1deeb939c5575086600e8a8b9b38a9d7e8a74bbdc5fd7454748413e1166"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/tests/unit/test_p7c_command_journal.c",
+    "sha256": "e1b1cc4100fee26c8d1b30e75517d156954c340c253e9229918e3d0631743f21"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/tests/unit/test_p7d_command_journal_store.c",
+    "sha256": "a26fa6aba95997115b89cbfc713d409a28a04f2c8940a44ec486e07edbf34ea4"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/tests/unit/test_p7e_command_engine_admission.c",
+    "sha256": "4ebbcf55a2ba2dafba529602fe0bf90aacae2f1c1bc7d8b04f3f9c0bc42ca6d9"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/tests/unit/test_p7f_command_engine_lifecycle.c",
+    "sha256": "ac9336d97ab6d92010667c7e286035ec37dd842ed5060d33fc77f6b364125ad1"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/tests/unit/test_p7g_apply_configuration.c",
+    "sha256": "e8b80b16648789234276efd879b28966ae514e043ce91199b0d6e8ee8a2e27b9"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/tests/unit/test_p7h_synchronize_time.c",
+    "sha256": "74ef6fe5dc9d6b48706f7745b3e55447f23a41cab7d54d6a0a88dcb759ee44f5"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/tests/unit/test_p7i_start_acquisition.c",
+    "sha256": "ba4e68ca6d93a5c2a78299a3ca2ef76f4ecfbafd24b4c8aca6f2072c3973ece0"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/tests/unit/test_p7j_stop_acquisition.c",
+    "sha256": "edea797286e468e8e1b36f2a30ea2b4757fde6f263fcb244f8f578ee6ab1a5c3"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/tests/unit/test_p7k_command_boot_recovery.c",
+    "sha256": "7a70b007ee19b835be28ed003adddc372ef6909d4aff5cb03c06a34bb9b1dc22"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/tests/unit/test_p7l_b5_adapters.c",
+    "sha256": "c432ea0bab5e2e059d9466a722b2d7732041f75b73a2fde8917e11b691e0e389"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/tests/unit/test_p7m_command_policy.c",
+    "sha256": "8689d9b2a46328991452b149fa7b7fb22c81e3b4f7bcd5fdd716a61a7155ea78"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/tests/unit/test_p7n_transaction_fault_injection.c",
+    "sha256": "80031111eb3c1757a4ee0480a72a873386b1ac0814e9bfb0d84c531f25c24265"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/tests/unit/test_p9b_diagnostic_service.c",
+    "sha256": "ad4f944ec221ed0c5ca9f194c7f377752e40b192ce87d3e6031647ed4e2f86d3"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/tests/unit/test_p9c_diagnostic_recovery.c",
+    "sha256": "a2de92221b7b7a67aef1433ae0385d2739ce73fd4018ff6766f123b0f4fa42cb"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/tests/unit/test_p9h_selftest_command.c",
+    "sha256": "9ebad76fcf4cb277ed3bfe900b7a896a2e3626f0ad7cdfcd425eefad06f6ee65"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/tests/unit/test_persistent_identity.c",
+    "sha256": "6435039f083be792acb7cec835f73f30e94ab67b78d9dc725fea877fcbcf23fb"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/tests/unit/test_persistent_storage_core.c",
+    "sha256": "f6b590032077fcd892275915f00ebb8fbe5cdb3dc6e0e7143e61447b378cdae8"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/tests/unit/test_production_commissioning.c",
+    "sha256": "6d16ce420fa2453e893ce98cbb51fca22f2820a2dbf62220a15de44fcf1893ad"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/tests/unit/test_production_provisioning.c",
+    "sha256": "1473d3f8c5a050d82b48dfaf48cdcc6e5098272d5b01be0c955c9a04dd74a972"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/tests/unit/test_projection_b0.c",
+    "sha256": "aa9eec2bd8960f5e1ba531503ed2efc5fc5b332bf983570e99b31b74b15871f2"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/tests/unit/test_projection_b1.c",
+    "sha256": "cd1439b190c6002bef228bed90f9098c22e10d11302939f716cfd2073604c8a7"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/tests/unit/test_projection_b2.c",
+    "sha256": "d90ccecabf2f203b321a319cd2adeb770d418ba736b1bea7281e8c249224bb4e"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/tests/unit/test_projection_b3.c",
+    "sha256": "4905240ead36a03bfb80b8ace4e443bb103360805fbd978e3f2f16e9ec9ac6d1"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/tests/unit/test_projection_b4.c",
+    "sha256": "0103c7770d012ef29066f05ecd0700bf145f4461c35cff117f7bf803aa26c9c1"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/tests/unit/test_read_adapter.c",
+    "sha256": "4558645d5cf5bf9ee2e510cff2bf60abd188e930a8a3ed961ff5f317e789e50d"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/tests/unit/test_read_adapter_b3.c",
+    "sha256": "4586d8e0847b151ba06144b1e2e07645c5bfdba6ac7b9b698f98b4314053c0ac"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/tests/unit/test_register_model.c",
+    "sha256": "5a1c75e76158f12b559b7052dc64ef93fb5d683d58c536b7abf557d3d43e1874"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/tests/unit/test_supervision_service.c",
+    "sha256": "f6ae1a690153fc8fcf55f363d2f3a406a0eb5f1a19fad8e4edddef1a605bb1d0"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/tests/unit/test_supervision_temporal_envelope.c",
+    "sha256": "c4f0aef5682944c69343d1ed00229173d25fe3086434e84f94af326f8cd11507"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/tests/unit/test_threshold_evaluator.c",
+    "sha256": "35c12cd62e44df1528e2f5318210f056f366711b212f53d8a5c0c6ae00c3f0e9"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/tests/unit/test_time_history_record.c",
+    "sha256": "fe3c0cb7a2c605eac2ab98019dfa936cb35499ef543cc23a91b4df648e881dde"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/tests/unit/test_time_history_store.c",
+    "sha256": "79a2523df705a0e94247849dbb6ec5de246d655905081c7b0e974ed6a34e5766"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/tests/unit/test_time_recovery_types.c",
+    "sha256": "3151bbbe7e4ada6a3b133d78c0dd2d3f55b6f9e881101c838ffab57dcfe72664"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/tests/unit/test_time_service.c",
+    "sha256": "7e18abfe904e155e9ec77736d02065840857b0c74d1263515649938c0ac5fbe7"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/tests/unit/test_time_synchronization.c",
+    "sha256": "ac377f14629640f3a459f219eff33af0c3c9c31b5c0785f10ebdbdf8febd7ceb"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/tests/unit/test_write_adapter.c",
+    "sha256": "fd4bceeaa45375434c11f4f10f461c68899956bec10aff7c11f18c4641904554"
+  },
+  {
+    "path": "Modbus RTU/05_Firmware/tools/measure_live_architecture.py",
+    "sha256": "fb2c5fe4af7131d9a3061fc3c0fda511467fc0cc03d0e3b799ffc4bc991413fe"
+  },
+  {
+    "path": "experiments/iis3dwb_st_reference/src/bench.c",
+    "sha256": "22385f9ac19acc7f5d8c9bcb4eb15ae723b116797cb39ad3e1aadb54b39d2a3d"
+  },
+  {
+    "path": "experiments/iis3dwb_st_reference/src/bench.h",
+    "sha256": "1f457e4863dba4d403de1d28cdebd92305bc617540626ad8aaaad95e45aca690"
+  },
+  {
+    "path": "experiments/iis3dwb_st_reference/src/cleanup_main.c",
+    "sha256": "e53efc68c2bcc2275cf3809a2ed869b2ac69f083fc5cd2359419f1e875d4acf7"
+  },
+  {
+    "path": "experiments/iis3dwb_st_reference/src/fifo_cooperative.c",
+    "sha256": "82ed0481d760658d84b966264ab0ee64f0ad04fb4037d88e81e36dc67a7ec0a6"
+  },
+  {
+    "path": "experiments/iis3dwb_st_reference/src/fifo_cooperative.h",
+    "sha256": "1e085e6843be0dd8821f56ddc4a8dffbe1a51ee9c73bc8e089c6ff55eb0f6fe1"
+  },
+  {
+    "path": "experiments/iis3dwb_st_reference/src/fifo_live.c",
+    "sha256": "56c9983cbdbace98f4c83db593c03d69bdee1c7d8cdca9b08c65b13f964a1c0a"
+  },
+  {
+    "path": "experiments/iis3dwb_st_reference/src/fifo_live.h",
+    "sha256": "ab835a24a177c1e97d1a69b489a6c574be9e053376acb33035e3e5c8f4ed0c3a"
+  },
+  {
+    "path": "experiments/iis3dwb_st_reference/src/fifo_window.c",
+    "sha256": "465fc353199bac3ab2c675b5fbd89b12da6bc2489d0c59b5b6715e36a8ac97f9"
+  },
+  {
+    "path": "experiments/iis3dwb_st_reference/src/fifo_window.h",
+    "sha256": "0bb5fad84047e01ae7771c87000a982661fb405b1bee493e9493d49a3cc776cf"
+  },
+  {
+    "path": "experiments/iis3dwb_st_reference/src/main.c",
+    "sha256": "20014be7ac0748136951ed143d173391a0eeb9f35bdc748fda5f3f0c5c443b3c"
+  },
+  {
+    "path": "experiments/iis3dwb_st_reference/src/platform.c",
+    "sha256": "efd870be0307e75b3b6316cbe04e1e876d0bf0b7ce5b48e6cbade238defef902"
+  },
+  {
+    "path": "experiments/iis3dwb_st_reference/src/platform.h",
+    "sha256": "5b742ec7d9928cadd81decc26b1d2b1a51a9c6259af092ca516c761291f87ccb"
+  },
+  {
+    "path": "experiments/iis3dwb_st_reference/src/spi_diagnostic.c",
+    "sha256": "38270d0c31d6aa0dceedf1e746cecc3bd22b8dfa5639305745c679b806fdf71b"
+  },
+  {
+    "path": "experiments/iis3dwb_st_reference/src/spi_diagnostic.h",
+    "sha256": "eced40c490808293eddef066e8ddea3d47bd293e1eab5aa5476b02ed2005a406"
+  },
+  {
+    "path": "experiments/iis3dwb_st_reference/src/stm32u5xx_hal_conf.h",
+    "sha256": "6239962f4ceb56895e19861cfc92ce9fc8b55f0495e2977444016c6a084b3669"
+  }
+]
