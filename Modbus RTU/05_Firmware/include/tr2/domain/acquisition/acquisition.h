@@ -6,6 +6,7 @@
 
 #include "tr2/domain/configuration/configuration.h"
 #include "tr2/platform/monotonic_clock.h"
+#include "tr2/platform/vibration_source.h"
 
 typedef struct {
     uint32_t generation;
@@ -35,5 +36,8 @@ typedef struct {
     bool source_error;
     bool statistics_overflow;
 } AcquisitionWindow;
+
+/* Checked statistics, shared by V1 and LIVE; caller masks disabled axes. */
+bool acquisition_window_accumulate_valid_sample(AcquisitionWindow *, const VibrationSample *);
 
 #endif

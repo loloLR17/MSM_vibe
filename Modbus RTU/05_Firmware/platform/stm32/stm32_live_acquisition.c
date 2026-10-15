@@ -32,6 +32,7 @@ Tr2Result stm32_live_acquisition_poll(Stm32LiveAcquisition *s)
  /* The previous bounded quantum was fully checked. Sticky errors never clear. */
  if(bench_log_refused||bench_preclose_overflow) {
   (void)fifo_live_stop(&s->acquisition.fifo);
+  if(s->acquisition.metrology)live_metrology_invalidate(s->acquisition.metrology,false,false);
   if(s->acquisition.engine)(void)live_command_engine_fault(s->acquisition.engine);
   return TR2_ERROR_UNAVAILABLE;
  }

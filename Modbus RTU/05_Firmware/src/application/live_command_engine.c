@@ -40,14 +40,17 @@ static Tr2Result stop_confirmed(LiveCommandEngine *e)
     if(result==TR2_OK)result=e->acquisition.observe(e->acquisition.context,&observed);
     return result==TR2_OK&&observed.stopped&&!observed.running?TR2_OK:TR2_ERROR_UNAVAILABLE;
 }
-Tr2Result live_command_engine_fault(LiveCommandEngine *e)
+static Tr2Result fault(LiveCommandEngine *e,bool authority_lost)
 {
     Tr2Result result;if(!ready(e))return TR2_ERROR_INVALID_ARGUMENT;
+    if(e->fault_observer)e->fault_observer(e->fault_context,authority_lost);
     result=stop_confirmed(e);e->blocking_fault=true;e->state=LIVE_FAULT;return result;
 }
+Tr2Result live_command_engine_fault(LiveCommandEngine *e)
+{ return fault(e,false); }
 static Tr2Result storage_fault(LiveCommandEngine *e,Tr2Result error)
 {
-    (void)live_command_engine_fault(e);e->epoch_status=e->has_active&&e->active.request.command.identity.command_code==12u?5u:3u;
+    (void)fault(e,true);e->epoch_status=e->has_active&&e->active.request.command.identity.command_code==12u?5u:3u;
     e->indeterminate=e->has_active;e->status=e->has_active?9u:6u;e->result=e->has_active?0u:8u;
     return error;
 }

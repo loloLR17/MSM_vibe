@@ -1,3 +1,4 @@
+#include "tr2/platform/iis3dwb_units.h"
 #include "stm32_iis3dwb_vibration_source.h"
 
 #include <limits.h>
@@ -91,17 +92,6 @@ static bool full_scale_bits(uint16_t code, uint8_t *bits)
     }
 }
 
-static int32_t raw_to_mg(int16_t raw, uint16_t full_scale_code)
-{
-    static const int32_t sensitivity_ug_per_lsb[4] = {61, 122, 244, 488};
-    int32_t micro_g = (int32_t)raw * sensitivity_ug_per_lsb[full_scale_code];
-
-    if (micro_g >= 0) {
-        return (micro_g + 500) / 1000;
-    }
-    return (micro_g - 500) / 1000;
-}
-
 static Tr2Result adapter_configure(
     void *context,
     const VibrationSourceConfiguration *configuration)
@@ -192,13 +182,13 @@ Tr2Result stm32_iis3dwb_read_raw(Stm32Iis3dwbVibrationSource *source,
 
     memcpy(capture->xyz, raw, sizeof(raw));
     if ((source->axes_enable_mask & 0x0001U) != 0U) {
-        sample->x_mg = raw_to_mg(raw[0], source->full_scale_code);
+        sample->x_mg = tr2_iis3dwb_raw_to_mg(raw[0], source->full_scale_code);
     }
     if ((source->axes_enable_mask & 0x0002U) != 0U) {
-        sample->y_mg = raw_to_mg(raw[1], source->full_scale_code);
+        sample->y_mg = tr2_iis3dwb_raw_to_mg(raw[1], source->full_scale_code);
     }
     if ((source->axes_enable_mask & 0x0004U) != 0U) {
-        sample->z_mg = raw_to_mg(raw[2], source->full_scale_code);
+        sample->z_mg = tr2_iis3dwb_raw_to_mg(raw[2], source->full_scale_code);
     }
 
     sample->valid = true;

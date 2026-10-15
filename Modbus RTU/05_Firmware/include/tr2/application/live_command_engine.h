@@ -36,6 +36,10 @@ typedef struct {
     uint16_t status,result,detail,epoch_status;
     bool has_active,has_last,indeterminate,booted,prepared_present;
     bool blocking_fault,maintenance,campaign_active;
+    /* Optional bounded measurement invalidation before safety stop. The bool
+     * marks lost persistent authority, not an invented sensor fault. */
+    void *fault_context;
+    void (*fault_observer)(void *,bool);
 } LiveCommandEngine;
 LiveCommandDecision live_command_context_decide(uint16_t code,const LiveCommandContext *context);
 Tr2Result live_command_engine_init(LiveCommandEngine *,LiveCommandStore *,const LiveAcquisitionPort *);

@@ -12,6 +12,8 @@ else()
 endif()
 
 add_library(tr2_core STATIC
+    src/domain/acquisition/window_statistics.c
+    src/application/live_metrology.c
     src/persistence/live_command_store.c
     src/application/live_command_engine.c
     src/common/sha256.c
@@ -386,3 +388,11 @@ target_include_directories(test_live_fifo PRIVATE platform/stm32 ${ST_REF}/src $
 target_compile_definitions(test_live_fifo PRIVATE BENCH_WINDOW_MAX_WORDS=36864)
 target_link_libraries(test_live_fifo PRIVATE tr2_core)
 add_test(NAME live_fifo_continuous_owner COMMAND test_live_fifo)
+
+add_executable(test_live_io_cost tests/unit/test_live_io_cost.c)
+target_link_libraries(test_live_io_cost PRIVATE tr2_core)
+add_test(NAME live_io_cost COMMAND test_live_io_cost)
+
+add_executable(test_live_metrology tests/unit/test_live_metrology.c)
+target_link_libraries(test_live_metrology PRIVATE tr2_core)
+add_test(NAME live_metrology COMMAND test_live_metrology)

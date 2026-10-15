@@ -31,15 +31,43 @@ static void setup(void)
  assert(io_count==0);assert(!acquisition.fifo.running&&!acquisition.fifo.stopped);
 }
 static bool model_budget(void *ctx,uint16_t code){(void)ctx;(void)code;return true;}
+static LiveMetrology metrology;
+/* Explicit model clock only: rational sample grid independent of burst shape. */
+static Tr2Result sample_clock(void *context,uint64_t index,uint64_t *mono,bool *utc_valid,uint64_t *utc)
+{
+ (void)context;*mono=index*1000u/26667u;*utc_valid=false;*utc=0;return TR2_OK;
+}
+static void metrology_stream(void)
+{
+ ActiveConfigurationSnapshot c=configuration();ModbusBlock3Image b;LiveAcquisitionPort p;
+ setup();live_metrology_init(&metrology);
+ assert(live_fifo_acquisition_bind_metrology(&acquisition,&metrology,NULL,NULL)!=TR2_OK);
+ assert(live_fifo_acquisition_bind_metrology(&acquisition,&metrology,sample_clock,NULL)==TR2_OK);
+ p=live_fifo_acquisition_port(&acquisition);assert(p.start(p.context,1,&c)==TR2_OK);
+ timestamp=UINT32_MAX-50u; /* shared sensor timestamp guard crosses modulo32 */
+ for(unsigned i=0;i<40000;i++) {
+  time64=acquisition.fifo.total_xyz*1000u/26667u;
+  assert(live_fifo_acquisition_poll(&acquisition)==TR2_OK);
+ }
+ assert(acquisition.fifo.total_xyz>4000000u&&metrology.sequence>80);
+ assert(live_metrology_project_b3(&metrology,metrology.last_ms,&b)==TR2_OK&&(b.registers[1]&6)==6);
+ mode=4;sequence=10; /* malformed next raw burst -> no current valid B3 */
+ time64=acquisition.fifo.total_xyz*1000u/26667u;
+ assert(live_fifo_acquisition_poll(&acquisition)!=TR2_OK);
+ assert(!metrology.running&&!metrology.value_valid&&!acquisition.fifo.running);
+ puts("Actual owner -> metrology: >4M checked XYZ, sensor timestamp rollover, periodic windows, FIFO error invalidates/stops: PASS");
+}
 static void real_engine_port(void)
 {
  Fixture *f=fixture();PreparedConfiguration prep=prepared(vector_1_prepared,2u);
  LiveCommandStore store;LiveCommandEngine engine;LiveAcquisitionPort p;LiveCommandRequest q={0};
  assert(live_configuration_migrate(&f->service)==TR2_OK);
  assert(live_configuration_apply(&f->service,&prep,false)==TR2_OK);boot(f);setup();
+ live_metrology_init(&metrology);
+ assert(live_fifo_acquisition_bind_metrology(&acquisition,&metrology,sample_clock,NULL)==TR2_OK);
  assert(live_command_store_init(&store,&f->service)==TR2_OK);
  acquisition.budget=model_budget;p=live_fifo_acquisition_port(&acquisition);
- assert(live_command_engine_init(&engine,&store,&p)==TR2_OK);acquisition.engine=&engine;
+ assert(live_command_engine_init(&engine,&store,&p)==TR2_OK);assert(live_fifo_acquisition_bind_engine(&acquisition,&engine)==TR2_OK);
  assert(live_command_engine_boot(&engine)==TR2_OK);
  q.epoch=1;q.command.transaction_id=1;q.command.identity.command_code=13;
  assert(live_command_engine_submit(&engine,&q)==TR2_OK);
@@ -59,12 +87,12 @@ static void real_engine_port(void)
  for(unsigned i=0;i<3;i++)assert(live_command_engine_step(&engine)==TR2_OK);
  f->physical.budget=0;q.command.transaction_id=5;q.command.identity.command_code=14;
  assert(live_command_engine_submit(&engine,&q)!=TR2_OK);
- assert(!acquisition.fifo.running&&!(regs[16]&0xE0)&&engine.state==LIVE_FAULT);
+ assert(!acquisition.fifo.running&&!(regs[16]&0xE0)&&engine.state==LIVE_FAULT&&!metrology.running&&!metrology.value_valid&&!metrology.authority);
  free(f);puts("R2 real journal + actual continuous owner on simulated SPI: START/STOP causal, APPLY refusal and FRAM-independent safety: PASS");
 }
 int main(void)
 {
- real_engine_port();
+ real_engine_port();metrology_stream();
  ActiveConfigurationSnapshot c=configuration();LiveAcquisitionObservation o;
  LiveAcquisitionPort p;
  for(unsigned fs=0;fs<4;fs++) {

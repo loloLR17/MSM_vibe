@@ -331,10 +331,14 @@ static void boundaries_and_unavailable_port(void)
     assert(b->engine.last.timestamp.available&&b->engine.last.timestamp.value==0u);
     destroy(b);puts("Synthetic epoch ceiling without wrap/STOP loss, absent acquisition port refusal, no false LIVE capability: PASS");
 }
-int main(void)
+int live_r2_regression(void)
 {
     unsigned stage;contexts_test();lifecycle_and_epoch();recovery_phases();effect_and_storage_faults();
     mailbox_and_apply();boundaries_and_unavailable_port();saturation_and_historical_time();absence_proof_and_record_corruption();
     for(stage=0u;stage<10u;stage++)cut_campaign(stage);
     return 0;
 }
+
+#ifndef TR2_LIVE_R2_TEST_LIBRARY
+int main(void) { return live_r2_regression(); }
+#endif
