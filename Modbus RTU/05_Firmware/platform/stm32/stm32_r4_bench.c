@@ -201,7 +201,7 @@ __attribute__((noreturn)) void stm32_r4_benchmark_run(SPI_HandleTypeDef *spi1,SP
  r4_result.spi3_hz=HAL_RCCEx_GetPeriphCLKFreq(RCC_PERIPHCLK_SPI3)/4u;
  if(!identity_ok()||r4_result.core_hz!=160000000u||r4_result.spi1_hz!=2500000u||
     r4_result.spi3_hz!=4000000u||spi1->Init.BaudRatePrescaler!=SPI_BAUDRATEPRESCALER_64||
-    stm32_fram_storage_init(&fram,spi1,GPIOD,GPIO_PIN_14,1)!=TR2_OK||
+    stm32_fram_storage_init(&fram,spi1,GPIOD,GPIO_PIN_14,2)!=TR2_OK||
     stm32_live_acquisition_attach(&owner,spi3,5,consume,NULL)!=TR2_OK) {
   r4_result.error=TR2_ERROR_UNAVAILABLE;for(;;)__WFI();
  }

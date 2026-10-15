@@ -17,15 +17,15 @@ int main(void)
  for(unsigned i=0;i<=6;i++) {
   calls=0;fail_at=i;
   Tr2Result r=p.write(p.context,122880,b,32);
-  assert((i==0)==(r==TR2_OK));assert(cs&&calls<=6&&timeout_seen==1&&storage.timeout_ms==10);
+  assert((i==0)==(r==TR2_OK));assert(cs&&calls<=6&&timeout_seen==2&&storage.timeout_ms==10);
  }
  for(unsigned i=0;i<=2;i++) {
   calls=0;fail_at=i;Tr2Result r=p.read(p.context,122880,b,32);
-  assert((i==0)==(r==TR2_OK));assert(cs&&calls<=2&&timeout_seen==1);
+  assert((i==0)==(r==TR2_OK));assert(cs&&calls<=2&&timeout_seen==2);
  }
  calls=0;assert(p.write(p.context,122880,b,65)==TR2_ERROR_INVALID_ARGUMENT&&!calls);
  fail_at=0;p=stm32_fram_storage_physical(&storage);
  assert(p.read(p.context,0,b,32)==TR2_OK&&timeout_seen==10); /* V1 untouched */
- puts("Actual STM32 FRAM driver on HAL mock: CS released, all6/2 I/O failure positions, no retry, opt-in1ms, V1 timeout unchanged: PASS");
+ puts("Actual STM32 FRAM driver on HAL mock: CS released, all6/2 I/O failure positions, no retry, opt-in2ms, V1 timeout unchanged: PASS");
  return 0;
 }
