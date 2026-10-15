@@ -1,0 +1,1025 @@
+
+============================================================
+TR2 VALIDATION — HOST
+============================================================
+-- The C compiler identification is GNU 14.2.0
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /usr/bin/cc - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Configuring done (0.6s)
+-- Generating done (0.2s)
+-- Build files have been written to: /home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/build-host-validation
+[  0%] Building C object CMakeFiles/tr2_core.dir/src/common/cooperative_work.c.o
+[  0%] Building C object CMakeFiles/tr2_core.dir/src/domain/acquisition/window_statistics.c.o
+[  0%] Building C object CMakeFiles/tr2_core.dir/src/application/live_metrology.c.o
+[  1%] Building C object CMakeFiles/tr2_core.dir/src/persistence/live_command_store.c.o
+[  1%] Building C object CMakeFiles/tr2_core.dir/src/application/live_command_engine.c.o
+[  1%] Building C object CMakeFiles/tr2_core.dir/src/common/sha256.c.o
+[  1%] Building C object CMakeFiles/tr2_core.dir/src/application/live_configuration.c.o
+[  2%] Building C object CMakeFiles/tr2_core.dir/src/application/acquisition_service.c.o
+[  2%] Building C object CMakeFiles/tr2_core.dir/src/application/campaign_inventory_service.c.o
+[  2%] Building C object CMakeFiles/tr2_core.dir/src/application/campaign_service.c.o
+[  2%] Building C object CMakeFiles/tr2_core.dir/src/application/command_apply_configuration.c.o
+[  3%] Building C object CMakeFiles/tr2_core.dir/src/application/command_boot_recovery.c.o
+[  3%] Building C object CMakeFiles/tr2_core.dir/src/application/command_engine.c.o
+[  3%] Building C object CMakeFiles/tr2_core.dir/src/application/command_policy.c.o
+[  3%] Building C object CMakeFiles/tr2_core.dir/src/application/command_request_mailbox.c.o
+[  4%] Building C object CMakeFiles/tr2_core.dir/src/application/command_selftest.c.o
+[  4%] Building C object CMakeFiles/tr2_core.dir/src/application/command_start_acquisition.c.o
+[  4%] Building C object CMakeFiles/tr2_core.dir/src/application/command_stop_acquisition.c.o
+[  4%] Building C object CMakeFiles/tr2_core.dir/src/application/command_synchronize_time.c.o
+[  5%] Building C object CMakeFiles/tr2_core.dir/src/application/configuration_activation_adapter.c.o
+[  5%] Building C object CMakeFiles/tr2_core.dir/src/application/configuration_service.c.o
+[  5%] Building C object CMakeFiles/tr2_core.dir/src/application/configuration_workflow.c.o
+[  5%] Building C object CMakeFiles/tr2_core.dir/src/application/diagnostic_service.c.o
+[  6%] Building C object CMakeFiles/tr2_core.dir/src/application/supervision_service.c.o
+[  6%] Building C object CMakeFiles/tr2_core.dir/src/application/system_command_dispatcher.c.o
+[  6%] Building C object CMakeFiles/tr2_core.dir/src/application/production_provisioning.c.o
+[  6%] Building C object CMakeFiles/tr2_core.dir/src/application/persistent_identity.c.o
+[  7%] Building C object CMakeFiles/tr2_core.dir/src/application/production_commissioning.c.o
+[  7%] Building C object CMakeFiles/tr2_core.dir/src/application/production_application.c.o
+[  7%] Building C object CMakeFiles/tr2_core.dir/src/application/modbus_system_server.c.o
+[  7%] Building C object CMakeFiles/tr2_core.dir/src/application/system_runtime.c.o
+[  8%] Building C object CMakeFiles/tr2_core.dir/src/application/system_runtime_acquisition_command.c.o
+[  8%] Building C object CMakeFiles/tr2_core.dir/src/application/system_state_aggregator.c.o
+[  8%] Building C object CMakeFiles/tr2_core.dir/src/domain/command/command.c.o
+[  8%] Building C object CMakeFiles/tr2_core.dir/src/domain/configuration/configuration_staging.c.o
+[  9%] Building C object CMakeFiles/tr2_core.dir/src/domain/configuration/configuration_validator.c.o
+[  9%] Building C object CMakeFiles/tr2_core.dir/src/domain/identity/identity.c.o
+[  9%] Building C object CMakeFiles/tr2_core.dir/src/domain/supervision/indicator_calculator.c.o
+[  9%] Building C object CMakeFiles/tr2_core.dir/src/domain/supervision/threshold_evaluator.c.o
+[ 10%] Building C object CMakeFiles/tr2_core.dir/src/domain/system_state/system_state.c.o
+[ 10%] Building C object CMakeFiles/tr2_core.dir/src/domain/time/time_recovery.c.o
+[ 10%] Building C object CMakeFiles/tr2_core.dir/src/domain/time/time_service.c.o
+[ 10%] Building C object CMakeFiles/tr2_core.dir/src/modbus/b4_configuration_codec.c.o
+[ 11%] Building C object CMakeFiles/tr2_core.dir/src/modbus/b5_projection.c.o
+[ 11%] Building C object CMakeFiles/tr2_core.dir/src/modbus/b5_write_adapter.c.o
+[ 11%] Building C object CMakeFiles/tr2_core.dir/src/modbus/b6_projection.c.o
+[ 11%] Building C object CMakeFiles/tr2_core.dir/src/modbus/b6_write_adapter.c.o
+[ 12%] Building C object CMakeFiles/tr2_core.dir/src/modbus/codec.c.o
+[ 12%] Building C object CMakeFiles/tr2_core.dir/src/modbus/pdu_server.c.o
+[ 12%] Building C object CMakeFiles/tr2_core.dir/src/modbus/register_model.c.o
+[ 12%] Building C object CMakeFiles/tr2_core.dir/src/modbus/projection.c.o
+[ 13%] Building C object CMakeFiles/tr2_core.dir/src/modbus/read_adapter.c.o
+[ 13%] Building C object CMakeFiles/tr2_core.dir/src/modbus/rtu_receiver.c.o
+[ 13%] Building C object CMakeFiles/tr2_core.dir/src/modbus/rtu_server_runtime.c.o
+[ 13%] Building C object CMakeFiles/tr2_core.dir/src/modbus/write_adapter.c.o
+[ 14%] Building C object CMakeFiles/tr2_core.dir/src/persistence/campaign_bulk_aggregator.c.o
+[ 14%] Building C object CMakeFiles/tr2_core.dir/src/persistence/campaign_bulk_block.c.o
+[ 14%] Building C object CMakeFiles/tr2_core.dir/src/persistence/campaign_bulk_block_stream.c.o
+[ 14%] Building C object CMakeFiles/tr2_core.dir/src/persistence/campaign_bulk_checkpoint.c.o
+[ 15%] Building C object CMakeFiles/tr2_core.dir/src/persistence/campaign_bulk_media.c.o
+[ 15%] Building C object CMakeFiles/tr2_core.dir/src/persistence/campaign_bulk_metadata.c.o
+[ 15%] Building C object CMakeFiles/tr2_core.dir/src/persistence/campaign_data_store_bulk.c.o
+[ 15%] Building C object CMakeFiles/tr2_core.dir/src/persistence/campaign_data_store_persistent.c.o
+[ 16%] Building C object CMakeFiles/tr2_core.dir/src/persistence/campaign_record.c.o
+[ 16%] Building C object CMakeFiles/tr2_core.dir/src/persistence/campaign_repository_store.c.o
+[ 16%] Building C object CMakeFiles/tr2_core.dir/src/persistence/command_journal.c.o
+[ 16%] Building C object CMakeFiles/tr2_core.dir/src/persistence/command_journal_bounded_record.c.o
+[ 17%] Building C object CMakeFiles/tr2_core.dir/src/persistence/command_journal_bounded_recovery.c.o
+[ 17%] Building C object CMakeFiles/tr2_core.dir/src/persistence/command_journal_bounded_reader.c.o
+[ 17%] Building C object CMakeFiles/tr2_core.dir/src/persistence/command_journal_bounded_slot.c.o
+[ 17%] Building C object CMakeFiles/tr2_core.dir/src/persistence/command_journal_bounded_writer.c.o
+[ 18%] Building C object CMakeFiles/tr2_core.dir/src/persistence/command_journal_bounded_admission.c.o
+[ 18%] Building C object CMakeFiles/tr2_core.dir/src/persistence/command_journal_bounded_store.c.o
+[ 18%] Building C object CMakeFiles/tr2_core.dir/src/persistence/command_journal_context_store.c.o
+[ 18%] Building C object CMakeFiles/tr2_core.dir/src/persistence/command_journal_record.c.o
+[ 19%] Building C object CMakeFiles/tr2_core.dir/src/persistence/command_journal_store.c.o
+[ 19%] Building C object CMakeFiles/tr2_core.dir/src/persistence/configuration_record.c.o
+[ 19%] Building C object CMakeFiles/tr2_core.dir/src/persistence/configuration_store.c.o
+[ 19%] Building C object CMakeFiles/tr2_core.dir/src/persistence/diagnostic_history_record.c.o
+[ 20%] Building C object CMakeFiles/tr2_core.dir/src/persistence/diagnostic_history_store.c.o
+[ 20%] Building C object CMakeFiles/tr2_core.dir/src/persistence/persistent_storage_core.c.o
+[ 20%] Building C object CMakeFiles/tr2_core.dir/src/persistence/time_history_record.c.o
+[ 20%] Building C object CMakeFiles/tr2_core.dir/src/persistence/time_history_store.c.o
+[ 21%] Building C object CMakeFiles/tr2_core.dir/src/persistence/transactional_image_media.c.o
+[ 21%] Building C object CMakeFiles/tr2_core.dir/src/platform/serial_transport.c.o
+[ 21%] Linking C static library libtr2_core.a
+[ 21%] Built target tr2_core
+[ 21%] Building C object CMakeFiles/tr2_platform_host.dir/platform/host/host_platform.c.o
+[ 21%] Linking C static library libtr2_platform_host.a
+[ 21%] Built target tr2_platform_host
+[ 21%] Building C object CMakeFiles/tr2_host.dir/platform/host/main.c.o
+[ 22%] Linking C executable tr2_host
+[ 22%] Built target tr2_host
+[ 22%] Building C object CMakeFiles/tr2_rtu_request.dir/platform/host/rtu_request.c.o
+[ 23%] Linking C executable tr2_rtu_request
+[ 23%] Built target tr2_rtu_request
+[ 23%] Building C object CMakeFiles/test_stm32_continuous.dir/tests/platform/test_stm32_continuous.c.o
+[ 23%] Building C object CMakeFiles/test_stm32_continuous.dir/platform/stm32/stm32_iis3dwb_continuous.c.o
+[ 24%] Linking C executable test_stm32_continuous
+[ 24%] Built target test_stm32_continuous
+[ 24%] Building C object CMakeFiles/test_stm32_ctrl1_differential.dir/tests/platform/test_stm32_ctrl1_differential.c.o
+[ 24%] Building C object CMakeFiles/test_stm32_ctrl1_differential.dir/platform/stm32/stm32_iis3dwb_ctrl1_differential.c.o
+[ 24%] Linking C executable test_stm32_ctrl1_differential
+[ 24%] Built target test_stm32_ctrl1_differential
+[ 24%] Building C object CMakeFiles/test_stm32_burst_capture.dir/tests/platform/test_stm32_burst_capture.c.o
+[ 25%] Building C object CMakeFiles/test_stm32_burst_capture.dir/platform/stm32/stm32_iis3dwb_burst_capture.c.o
+[ 25%] Linking C executable test_stm32_burst_capture
+[ 25%] Built target test_stm32_burst_capture
+[ 26%] Building C object CMakeFiles/test_stm32_active_readback.dir/tests/platform/test_stm32_active_readback.c.o
+[ 26%] Building C object CMakeFiles/test_stm32_active_readback.dir/platform/stm32/stm32_iis3dwb_active_readback.c.o
+[ 26%] Linking C executable test_stm32_active_readback
+[ 26%] Built target test_stm32_active_readback
+[ 26%] Building C object CMakeFiles/test_stm32_register_probe.dir/tests/platform/test_stm32_register_probe.c.o
+[ 26%] Building C object CMakeFiles/test_stm32_register_probe.dir/platform/stm32/stm32_iis3dwb_register_probe.c.o
+[ 27%] Linking C executable test_stm32_register_probe
+[ 27%] Built target test_stm32_register_probe
+[ 27%] Building C object CMakeFiles/test_stm32_iis3dwb_fifo.dir/tests/platform/test_stm32_iis3dwb_fifo.c.o
+[ 28%] Building C object CMakeFiles/test_stm32_iis3dwb_fifo.dir/platform/stm32/stm32_iis3dwb_vibration_source.c.o
+[ 28%] Building C object CMakeFiles/test_stm32_iis3dwb_fifo.dir/platform/stm32/stm32_iis3dwb_fifo_capture.c.o
+[ 28%] Linking C executable test_stm32_iis3dwb_fifo
+[ 28%] Built target test_stm32_iis3dwb_fifo
+[ 28%] Building C object CMakeFiles/test_stm32_iis3dwb.dir/tests/platform/test_stm32_iis3dwb.c.o
+[ 29%] Building C object CMakeFiles/test_stm32_iis3dwb.dir/platform/stm32/stm32_iis3dwb_vibration_source.c.o
+[ 29%] Building C object CMakeFiles/test_stm32_iis3dwb.dir/platform/stm32/stm32_iis3dwb_capture.c.o
+[ 29%] Linking C executable test_stm32_iis3dwb
+[ 29%] Built target test_stm32_iis3dwb
+[ 29%] Building C object CMakeFiles/test_stm32_rs485_rx_gpio.dir/tests/platform/test_stm32_rs485_rx_gpio.c.o
+[ 29%] Building C object CMakeFiles/test_stm32_rs485_rx_gpio.dir/platform/stm32/stm32_rs485_rx_gpio.c.o
+[ 29%] Linking C executable test_stm32_rs485_rx_gpio
+[ 29%] Built target test_stm32_rs485_rx_gpio
+[ 30%] Building C object CMakeFiles/test_stm32_rtu_tx_0.dir/tests/platform/test_stm32_rtu_tx.c.o
+[ 30%] Building C object CMakeFiles/test_stm32_rtu_tx_0.dir/platform/stm32/stm32_serial_transport.c.o
+[ 30%] Building C object CMakeFiles/test_stm32_rtu_tx_0.dir/platform/stm32/stm32_modbus_diagnostic.c.o
+[ 30%] Linking C executable test_stm32_rtu_tx_0
+[ 30%] Built target test_stm32_rtu_tx_0
+[ 30%] Building C object CMakeFiles/test_stm32_irq_observer_0.dir/tests/platform/test_stm32_rtu_tx.c.o
+[ 31%] Building C object CMakeFiles/test_stm32_irq_observer_0.dir/platform/stm32/stm32_serial_transport.c.o
+[ 31%] Building C object CMakeFiles/test_stm32_irq_observer_0.dir/platform/stm32/stm32_modbus_diagnostic.c.o
+[ 31%] Linking C executable test_stm32_irq_observer_0
+[ 31%] Built target test_stm32_irq_observer_0
+[ 32%] Building C object CMakeFiles/test_stm32_rtu_tx_1.dir/tests/platform/test_stm32_rtu_tx.c.o
+[ 32%] Building C object CMakeFiles/test_stm32_rtu_tx_1.dir/platform/stm32/stm32_serial_transport.c.o
+[ 32%] Building C object CMakeFiles/test_stm32_rtu_tx_1.dir/platform/stm32/stm32_modbus_diagnostic.c.o
+[ 32%] Linking C executable test_stm32_rtu_tx_1
+[ 32%] Built target test_stm32_rtu_tx_1
+[ 32%] Building C object CMakeFiles/test_stm32_irq_observer_1.dir/tests/platform/test_stm32_rtu_tx.c.o
+[ 33%] Building C object CMakeFiles/test_stm32_irq_observer_1.dir/platform/stm32/stm32_serial_transport.c.o
+[ 33%] Building C object CMakeFiles/test_stm32_irq_observer_1.dir/platform/stm32/stm32_modbus_diagnostic.c.o
+[ 33%] Linking C executable test_stm32_irq_observer_1
+[ 33%] Built target test_stm32_irq_observer_1
+[ 33%] Building C object CMakeFiles/test_stm32_modbus_diagnostic.dir/tests/platform/test_stm32_modbus_diagnostic.c.o
+[ 34%] Building C object CMakeFiles/test_stm32_modbus_diagnostic.dir/platform/stm32/stm32_modbus_diagnostic.c.o
+[ 34%] Linking C executable test_stm32_modbus_diagnostic
+[ 34%] Built target test_stm32_modbus_diagnostic
+[ 35%] Building C object CMakeFiles/test_codec.dir/tests/unit/test_codec.c.o
+[ 35%] Linking C executable test_codec
+[ 35%] Built target test_codec
+[ 35%] Building C object CMakeFiles/test_b4_configuration_codec.dir/tests/unit/test_b4_configuration_codec.c.o
+[ 35%] Linking C executable test_b4_configuration_codec
+[ 35%] Built target test_b4_configuration_codec
+[ 35%] Building C object CMakeFiles/test_register_model.dir/tests/unit/test_register_model.c.o
+[ 36%] Linking C executable test_register_model
+[ 36%] Built target test_register_model
+[ 36%] Building C object CMakeFiles/test_projection_b0.dir/tests/unit/test_projection_b0.c.o
+[ 36%] Linking C executable test_projection_b0
+[ 36%] Built target test_projection_b0
+[ 36%] Building C object CMakeFiles/test_projection_b1.dir/tests/unit/test_projection_b1.c.o
+[ 37%] Linking C executable test_projection_b1
+[ 37%] Built target test_projection_b1
+[ 37%] Building C object CMakeFiles/test_projection_b2.dir/tests/unit/test_projection_b2.c.o
+[ 37%] Linking C executable test_projection_b2
+[ 37%] Built target test_projection_b2
+[ 37%] Building C object CMakeFiles/test_projection_b3.dir/tests/unit/test_projection_b3.c.o
+[ 38%] Linking C executable test_projection_b3
+[ 38%] Built target test_projection_b3
+[ 38%] Building C object CMakeFiles/test_projection_b4.dir/tests/unit/test_projection_b4.c.o
+[ 38%] Linking C executable test_projection_b4
+[ 38%] Built target test_projection_b4
+[ 39%] Building C object CMakeFiles/test_campaign_inventory_b6.dir/tests/unit/test_campaign_inventory_b6.c.o
+[ 39%] Linking C executable test_campaign_inventory_b6
+[ 39%] Built target test_campaign_inventory_b6
+[ 40%] Building C object CMakeFiles/test_b6_adapters.dir/tests/unit/test_b6_adapters.c.o
+[ 40%] Linking C executable test_b6_adapters
+[ 40%] Built target test_b6_adapters
+[ 40%] Building C object CMakeFiles/test_time_service.dir/tests/unit/test_time_service.c.o
+[ 41%] Linking C executable test_time_service
+[ 41%] Built target test_time_service
+[ 41%] Building C object CMakeFiles/test_time_recovery_types.dir/tests/unit/test_time_recovery_types.c.o
+[ 41%] Linking C executable test_time_recovery_types
+[ 41%] Built target test_time_recovery_types
+[ 41%] Building C object CMakeFiles/test_time_history_record.dir/tests/unit/test_time_history_record.c.o
+[ 41%] Linking C executable test_time_history_record
+[ 41%] Built target test_time_history_record
+[ 42%] Building C object CMakeFiles/test_time_history_store.dir/tests/unit/test_time_history_store.c.o
+[ 42%] Linking C executable test_time_history_store
+[ 42%] Built target test_time_history_store
+[ 42%] Building C object CMakeFiles/test_time_synchronization.dir/tests/unit/test_time_synchronization.c.o
+[ 42%] Linking C executable test_time_synchronization
+[ 42%] Built target test_time_synchronization
+[ 43%] Building C object CMakeFiles/test_configuration_types.dir/tests/unit/test_configuration_types.c.o
+[ 43%] Linking C executable test_configuration_types
+[ 43%] Built target test_configuration_types
+[ 44%] Building C object CMakeFiles/test_configuration_staging.dir/tests/unit/test_configuration_staging.c.o
+[ 44%] Linking C executable test_configuration_staging
+[ 44%] Built target test_configuration_staging
+[ 44%] Building C object CMakeFiles/test_configuration_validator.dir/tests/unit/test_configuration_validator.c.o
+[ 44%] Linking C executable test_configuration_validator
+[ 44%] Built target test_configuration_validator
+[ 45%] Building C object CMakeFiles/test_configuration_workflow.dir/tests/unit/test_configuration_workflow.c.o
+[ 45%] Linking C executable test_configuration_workflow
+[ 45%] Built target test_configuration_workflow
+[ 45%] Building C object CMakeFiles/test_configuration_service.dir/tests/unit/test_configuration_service.c.o
+[ 45%] Linking C executable test_configuration_service
+[ 45%] Built target test_configuration_service
+[ 46%] Building C object CMakeFiles/test_persistent_storage_core.dir/tests/unit/test_persistent_storage_core.c.o
+[ 46%] Linking C executable test_persistent_storage_core
+[ 46%] Built target test_persistent_storage_core
+[ 47%] Building C object CMakeFiles/test_configuration_record.dir/tests/unit/test_configuration_record.c.o
+[ 47%] Linking C executable test_configuration_record
+[ 47%] Built target test_configuration_record
+[ 47%] Building C object CMakeFiles/test_campaign_record.dir/tests/unit/test_campaign_record.c.o
+[ 47%] Linking C executable test_campaign_record
+[ 47%] Built target test_campaign_record
+[ 48%] Building C object CMakeFiles/test_campaign_repository_store.dir/tests/unit/test_campaign_repository_store.c.o
+[ 48%] Linking C executable test_campaign_repository_store
+[ 48%] Built target test_campaign_repository_store
+[ 48%] Building C object CMakeFiles/test_campaign_bulk_aggregator.dir/tests/unit/test_campaign_bulk_aggregator.c.o
+[ 48%] Linking C executable test_campaign_bulk_aggregator
+[ 48%] Built target test_campaign_bulk_aggregator
+[ 49%] Building C object CMakeFiles/test_campaign_bulk_block.dir/tests/unit/test_campaign_bulk_block.c.o
+[ 49%] Linking C executable test_campaign_bulk_block
+[ 49%] Built target test_campaign_bulk_block
+[ 49%] Building C object CMakeFiles/test_campaign_bulk_block_stream.dir/tests/unit/test_campaign_bulk_block_stream.c.o
+[ 49%] Linking C executable test_campaign_bulk_block_stream
+[ 49%] Built target test_campaign_bulk_block_stream
+[ 50%] Building C object CMakeFiles/test_campaign_bulk_checkpoint.dir/tests/unit/test_campaign_bulk_checkpoint.c.o
+[ 50%] Linking C executable test_campaign_bulk_checkpoint
+[ 50%] Built target test_campaign_bulk_checkpoint
+[ 50%] Building C object CMakeFiles/test_campaign_bulk_media.dir/tests/unit/test_campaign_bulk_media.c.o
+[ 50%] Linking C executable test_campaign_bulk_media
+[ 50%] Built target test_campaign_bulk_media
+[ 51%] Building C object CMakeFiles/test_campaign_bulk_media_region.dir/tests/unit/test_campaign_bulk_media_region.c.o
+[ 51%] Linking C executable test_campaign_bulk_media_region
+[ 51%] Built target test_campaign_bulk_media_region
+[ 51%] Building C object CMakeFiles/test_campaign_bulk_metadata.dir/tests/unit/test_campaign_bulk_metadata.c.o
+[ 51%] Linking C executable test_campaign_bulk_metadata
+[ 51%] Built target test_campaign_bulk_metadata
+[ 52%] Building C object CMakeFiles/test_campaign_data_store_bulk.dir/tests/unit/test_campaign_data_store_bulk.c.o
+[ 52%] Linking C executable test_campaign_data_store_bulk
+[ 52%] Built target test_campaign_data_store_bulk
+[ 52%] Building C object CMakeFiles/test_campaign_data_store_persistent.dir/tests/unit/test_campaign_data_store_persistent.c.o
+[ 52%] Linking C executable test_campaign_data_store_persistent
+[ 52%] Built target test_campaign_data_store_persistent
+[ 52%] Building C object CMakeFiles/test_campaign_service.dir/tests/unit/test_campaign_service.c.o
+[ 52%] Linking C executable test_campaign_service
+[ 52%] Built target test_campaign_service
+[ 52%] Building C object CMakeFiles/test_configuration_store.dir/tests/unit/test_configuration_store.c.o
+[ 52%] Linking C executable test_configuration_store
+[ 52%] Built target test_configuration_store
+[ 53%] Building C object CMakeFiles/test_configuration_store_recovery.dir/tests/unit/test_configuration_store_recovery.c.o
+[ 53%] Linking C executable test_configuration_store_recovery
+[ 53%] Built target test_configuration_store_recovery
+[ 53%] Building C object CMakeFiles/test_configuration_store_recovery_unavailable.dir/tests/unit/test_configuration_store_recovery_unavailable.c.o
+[ 53%] Linking C executable test_configuration_store_recovery_unavailable
+[ 53%] Built target test_configuration_store_recovery_unavailable
+[ 53%] Building C object CMakeFiles/test_read_adapter.dir/tests/unit/test_read_adapter.c.o
+[ 54%] Linking C executable test_read_adapter
+[ 54%] Built target test_read_adapter
+[ 54%] Building C object CMakeFiles/test_read_adapter_b3.dir/tests/unit/test_read_adapter_b3.c.o
+[ 54%] Linking C executable test_read_adapter_b3
+[ 54%] Built target test_read_adapter_b3
+[ 54%] Building C object CMakeFiles/test_write_adapter.dir/tests/unit/test_write_adapter.c.o
+[ 55%] Linking C executable test_write_adapter
+[ 55%] Built target test_write_adapter
+[ 56%] Building C object CMakeFiles/test_p5a_contracts.dir/tests/unit/test_p5a_contracts.c.o
+[ 56%] Linking C executable test_p5a_contracts
+[ 56%] Built target test_p5a_contracts
+[ 57%] Building C object CMakeFiles/test_p6a_contracts.dir/tests/unit/test_p6a_contracts.c.o
+[ 57%] Linking C executable test_p6a_contracts
+[ 57%] Built target test_p6a_contracts
+[ 57%] Building C object CMakeFiles/test_p7a_command_types.dir/tests/unit/test_p7a_command_types.c.o
+[ 57%] Linking C executable test_p7a_command_types
+[ 57%] Built target test_p7a_command_types
+[ 58%] Building C object CMakeFiles/test_p7b_command_request_mailbox.dir/tests/unit/test_p7b_command_request_mailbox.c.o
+[ 58%] Linking C executable test_p7b_command_request_mailbox
+[ 58%] Built target test_p7b_command_request_mailbox
+[ 58%] Building C object CMakeFiles/test_p7c_command_journal.dir/tests/unit/test_p7c_command_journal.c.o
+[ 58%] Linking C executable test_p7c_command_journal
+[ 58%] Built target test_p7c_command_journal
+[ 59%] Building C object CMakeFiles/test_p7d_command_journal_store.dir/tests/unit/test_p7d_command_journal_store.c.o
+[ 59%] Linking C executable test_p7d_command_journal_store
+[ 59%] Built target test_p7d_command_journal_store
+[ 59%] Building C object CMakeFiles/test_p7e_command_engine_admission.dir/tests/unit/test_p7e_command_engine_admission.c.o
+[ 59%] Linking C executable test_p7e_command_engine_admission
+[ 59%] Built target test_p7e_command_engine_admission
+[ 60%] Building C object CMakeFiles/test_p7f_command_engine_lifecycle.dir/tests/unit/test_p7f_command_engine_lifecycle.c.o
+[ 60%] Linking C executable test_p7f_command_engine_lifecycle
+[ 60%] Built target test_p7f_command_engine_lifecycle
+[ 60%] Building C object CMakeFiles/test_p7g_apply_configuration.dir/tests/unit/test_p7g_apply_configuration.c.o
+[ 60%] Linking C executable test_p7g_apply_configuration
+[ 60%] Built target test_p7g_apply_configuration
+[ 61%] Building C object CMakeFiles/test_p7h_synchronize_time.dir/tests/unit/test_p7h_synchronize_time.c.o
+[ 61%] Linking C executable test_p7h_synchronize_time
+[ 61%] Built target test_p7h_synchronize_time
+[ 61%] Building C object CMakeFiles/test_p7i_start_acquisition.dir/tests/unit/test_p7i_start_acquisition.c.o
+[ 61%] Linking C executable test_p7i_start_acquisition
+[ 61%] Built target test_p7i_start_acquisition
+[ 62%] Building C object CMakeFiles/test_p7j_stop_acquisition.dir/tests/unit/test_p7j_stop_acquisition.c.o
+[ 62%] Linking C executable test_p7j_stop_acquisition
+[ 62%] Built target test_p7j_stop_acquisition
+[ 62%] Building C object CMakeFiles/test_p7k_command_boot_recovery.dir/tests/unit/test_p7k_command_boot_recovery.c.o
+[ 62%] Linking C executable test_p7k_command_boot_recovery
+[ 62%] Built target test_p7k_command_boot_recovery
+[ 63%] Building C object CMakeFiles/test_p7l_b5_adapters.dir/tests/unit/test_p7l_b5_adapters.c.o
+[ 63%] Linking C executable test_p7l_b5_adapters
+[ 63%] Built target test_p7l_b5_adapters
+[ 63%] Building C object CMakeFiles/test_p7m_command_policy.dir/tests/unit/test_p7m_command_policy.c.o
+[ 63%] Linking C executable test_p7m_command_policy
+[ 63%] Built target test_p7m_command_policy
+[ 64%] Building C object CMakeFiles/test_p7n_transaction_fault_injection.dir/tests/unit/test_p7n_transaction_fault_injection.c.o
+[ 64%] Linking C executable test_p7n_transaction_fault_injection
+[ 64%] Built target test_p7n_transaction_fault_injection
+[ 65%] Building C object CMakeFiles/test_p9b_diagnostic_service.dir/tests/unit/test_p9b_diagnostic_service.c.o
+[ 65%] Linking C executable test_p9b_diagnostic_service
+[ 65%] Built target test_p9b_diagnostic_service
+[ 65%] Building C object CMakeFiles/test_p9c_diagnostic_recovery.dir/tests/unit/test_p9c_diagnostic_recovery.c.o
+[ 65%] Linking C executable test_p9c_diagnostic_recovery
+[ 65%] Built target test_p9c_diagnostic_recovery
+[ 66%] Building C object CMakeFiles/test_p9h_selftest_command.dir/tests/unit/test_p9h_selftest_command.c.o
+[ 66%] Linking C executable test_p9h_selftest_command
+[ 66%] Built target test_p9h_selftest_command
+[ 66%] Building C object CMakeFiles/test_acquisition_service.dir/tests/unit/test_acquisition_service.c.o
+[ 66%] Linking C executable test_acquisition_service
+[ 66%] Built target test_acquisition_service
+[ 66%] Building C object CMakeFiles/test_indicator_calculator.dir/tests/unit/test_indicator_calculator.c.o
+[ 67%] Linking C executable test_indicator_calculator
+[ 67%] Built target test_indicator_calculator
+[ 68%] Building C object CMakeFiles/test_threshold_evaluator.dir/tests/unit/test_threshold_evaluator.c.o
+[ 68%] Linking C executable test_threshold_evaluator
+[ 68%] Built target test_threshold_evaluator
+[ 69%] Building C object CMakeFiles/test_supervision_service.dir/tests/unit/test_supervision_service.c.o
+[ 69%] Linking C executable test_supervision_service
+[ 69%] Built target test_supervision_service
+[ 69%] Building C object CMakeFiles/test_supervision_temporal_envelope.dir/tests/unit/test_supervision_temporal_envelope.c.o
+[ 69%] Linking C executable test_supervision_temporal_envelope
+[ 69%] Built target test_supervision_temporal_envelope
+[ 70%] Building C object CMakeFiles/test_time_fault_injection.dir/tests/integration/test_time_fault_injection.c.o
+[ 70%] Linking C executable test_time_fault_injection
+[ 70%] Built target test_time_fault_injection
+[ 71%] Building C object CMakeFiles/test_configuration_b4_flow.dir/tests/integration/test_configuration_b4_flow.c.o
+[ 71%] Linking C executable test_configuration_b4_flow
+[ 71%] Built target test_configuration_b4_flow
+[ 71%] Building C object CMakeFiles/test_configuration_activation_adapter.dir/tests/integration/test_configuration_activation_adapter.c.o
+[ 71%] Linking C executable test_configuration_activation_adapter
+[ 71%] Built target test_configuration_activation_adapter
+[ 71%] Building C object CMakeFiles/test_p12c_pdu_server.dir/tests/unit/test_p12c_pdu_server.c.o
+[ 72%] Linking C executable test_p12c_pdu_server
+[ 72%] Built target test_p12c_pdu_server
+[ 72%] Building C object CMakeFiles/test_p12d_rtu_receiver.dir/tests/unit/test_p12d_rtu_receiver.c.o
+[ 72%] Linking C executable test_p12d_rtu_receiver
+[ 72%] Built target test_p12d_rtu_receiver
+[ 72%] Building C object CMakeFiles/test_p12e_serial_transport.dir/tests/unit/test_p12e_serial_transport.c.o
+[ 73%] Linking C executable test_p12e_serial_transport
+[ 73%] Built target test_p12e_serial_transport
+[ 73%] Building C object CMakeFiles/test_p12h_rtu_server_runtime.dir/tests/unit/test_p12h_rtu_server_runtime.c.o
+[ 73%] Linking C executable test_p12h_rtu_server_runtime
+[ 73%] Built target test_p12h_rtu_server_runtime
+[ 73%] Building C object CMakeFiles/test_p12h3c3b_command_journal_bounded_record.dir/tests/unit/test_p12h3c3b_command_journal_bounded_record.c.o
+[ 73%] Linking C executable test_p12h3c3b_command_journal_bounded_record
+[ 73%] Built target test_p12h3c3b_command_journal_bounded_record
+[ 73%] Building C object CMakeFiles/test_p12h3c3c1_bounded_slot.dir/tests/unit/test_p12h3c3c1_bounded_slot.c.o
+[ 73%] Linking C executable test_p12h3c3c1_bounded_slot
+[ 73%] Built target test_p12h3c3c1_bounded_slot
+[ 74%] Building C object CMakeFiles/test_p12h3c3c2_bounded_recovery.dir/tests/unit/test_p12h3c3c2_bounded_recovery.c.o
+[ 74%] Linking C executable test_p12h3c3c2_bounded_recovery
+[ 74%] Built target test_p12h3c3c2_bounded_recovery
+[ 74%] Building C object CMakeFiles/test_p12h3c3c3_bounded_reader.dir/tests/unit/test_p12h3c3c3_bounded_reader.c.o
+[ 74%] Linking C executable test_p12h3c3c3_bounded_reader
+[ 74%] Built target test_p12h3c3c3_bounded_reader
+[ 75%] Building C object CMakeFiles/test_p12h3c3c4_bounded_writer.dir/tests/unit/test_p12h3c3c4_bounded_writer.c.o
+[ 75%] Linking C executable test_p12h3c3c4_bounded_writer
+[ 75%] Built target test_p12h3c3c4_bounded_writer
+[ 75%] Building C object CMakeFiles/test_p12h3c3c4b_bounded_admission.dir/tests/unit/test_p12h3c3c4b_bounded_admission.c.o
+[ 75%] Linking C executable test_p12h3c3c4b_bounded_admission
+[ 75%] Built target test_p12h3c3c4b_bounded_admission
+[ 76%] Building C object CMakeFiles/test_p12h3c3c4c1_bounded_store.dir/tests/unit/test_p12h3c3c4c1_bounded_store.c.o
+[ 76%] Linking C executable test_p12h3c3c4c1_bounded_store
+[ 76%] Built target test_p12h3c3c4c1_bounded_store
+[ 76%] Building C object CMakeFiles/test_p12h3c3c4d1_fault_media.dir/tests/unit/test_p12h3c3c4d1_fault_media.c.o
+[ 76%] Linking C executable test_p12h3c3c4d1_fault_media
+[ 76%] Built target test_p12h3c3c4d1_fault_media
+[ 77%] Building C object CMakeFiles/test_p12h3c3c4d2_admission_power_loss.dir/tests/unit/test_p12h3c3c4d2_admission_power_loss.c.o
+[ 77%] Linking C executable test_p12h3c3c4d2_admission_power_loss
+[ 77%] Built target test_p12h3c3c4d2_admission_power_loss
+[ 77%] Building C object CMakeFiles/test_p12h3c3c4d3_mutation_power_loss.dir/tests/unit/test_p12h3c3c4d3_mutation_power_loss.c.o
+[ 77%] Linking C executable test_p12h3c3c4d3_mutation_power_loss
+[ 77%] Built target test_p12h3c3c4d3_mutation_power_loss
+[ 78%] Building C object CMakeFiles/test_p12h3c3c4d4_completion_power_loss.dir/tests/unit/test_p12h3c3c4d4_completion_power_loss.c.o
+[ 78%] Linking C executable test_p12h3c3c4d4_completion_power_loss
+[ 78%] Built target test_p12h3c3c4d4_completion_power_loss
+[ 78%] Building C object CMakeFiles/test_p12h3c3c4d5_readmission_power_loss.dir/tests/unit/test_p12h3c3c4d5_readmission_power_loss.c.o
+[ 78%] Linking C executable test_p12h3c3c4d5_readmission_power_loss
+[ 78%] Built target test_p12h3c3c4d5_readmission_power_loss
+[ 79%] Building C object CMakeFiles/test_p12h3c3c4d6_d8_consolidation.dir/tests/unit/test_p12h3c3c4d6_d8_consolidation.c.o
+[ 79%] Linking C executable test_p12h3c3c4d6_d8_consolidation
+[ 79%] Built target test_p12h3c3c4d6_d8_consolidation
+[ 80%] Building C object CMakeFiles/test_p12h3d2_transactional_image_media.dir/tests/unit/test_p12h3d2_transactional_image_media.c.o
+[ 80%] Linking C executable test_p12h3d2_transactional_image_media
+[ 80%] Built target test_p12h3d2_transactional_image_media
+[ 80%] Building C object CMakeFiles/test_p12h3d2b_transactional_image_power_loss.dir/tests/unit/test_p12h3d2b_transactional_image_power_loss.c.o
+[ 80%] Linking C executable test_p12h3d2b_transactional_image_power_loss
+[ 80%] Built target test_p12h3d2b_transactional_image_power_loss
+[ 81%] Building C object CMakeFiles/test_p12h3d2c_transactional_image_recovery.dir/tests/unit/test_p12h3d2c_transactional_image_recovery.c.o
+[ 81%] Linking C executable test_p12h3d2c_transactional_image_recovery
+[ 81%] Built target test_p12h3d2c_transactional_image_recovery
+[ 81%] Building C object CMakeFiles/test_p12h3d2d_persistent_storage_core_integration.dir/tests/unit/test_p12h3d2d_persistent_storage_core_integration.c.o
+[ 81%] Linking C executable test_p12h3d2d_persistent_storage_core_integration
+[ 81%] Built target test_p12h3d2d_persistent_storage_core_integration
+[ 82%] Building C object CMakeFiles/test_p12h3d2e_campaign_transactional_media.dir/tests/unit/test_p12h3d2e_campaign_transactional_media.c.o
+[ 82%] Linking C executable test_p12h3d2e_campaign_transactional_media
+[ 82%] Built target test_p12h3d2e_campaign_transactional_media
+[ 82%] Building C object CMakeFiles/test_p12h3d2f_transactional_media_format_policy.dir/tests/unit/test_p12h3d2f_transactional_media_format_policy.c.o
+[ 82%] Linking C executable test_p12h3d2f_transactional_media_format_policy
+[ 82%] Built target test_p12h3d2f_transactional_media_format_policy
+[ 83%] Building C object CMakeFiles/test_p12h3d2g_transactional_media_format_power_loss.dir/tests/unit/test_p12h3d2g_transactional_media_format_power_loss.c.o
+[ 83%] Linking C executable test_p12h3d2g_transactional_media_format_power_loss
+[ 83%] Built target test_p12h3d2g_transactional_media_format_power_loss
+[ 83%] Building C object CMakeFiles/test_p12h3d2h1_transactional_media_geometry.dir/tests/unit/test_p12h3d2h1_transactional_media_geometry.c.o
+[ 83%] Linking C executable test_p12h3d2h1_transactional_media_geometry
+[ 83%] Built target test_p12h3d2h1_transactional_media_geometry
+[ 84%] Building C object CMakeFiles/test_p12h3d2h3_transactional_media_alternate_geometry.dir/tests/unit/test_p12h3d2h3_transactional_media_alternate_geometry.c.o
+[ 84%] Linking C executable test_p12h3d2h3_transactional_media_alternate_geometry
+[ 84%] Built target test_p12h3d2h3_transactional_media_alternate_geometry
+[ 85%] Building C object CMakeFiles/test_system_runtime.dir/tests/integration/test_system_runtime.c.o
+[ 85%] Linking C executable test_system_runtime
+[ 85%] Built target test_system_runtime
+[ 85%] Building C object CMakeFiles/test_system_runtime_bulk.dir/tests/integration/test_system_runtime_bulk.c.o
+[ 85%] Linking C executable test_system_runtime_bulk
+[ 85%] Built target test_system_runtime_bulk
+[ 85%] Building C object CMakeFiles/test_p8i_system_runtime_acquisition_commands.dir/tests/integration/test_p8i_system_runtime_acquisition_commands.c.o
+[ 85%] Linking C executable test_p8i_system_runtime_acquisition_commands
+[ 85%] Built target test_p8i_system_runtime_acquisition_commands
+[ 86%] Building C object CMakeFiles/test_p8j_system_runtime_b3_projection.dir/tests/integration/test_p8j_system_runtime_b3_projection.c.o
+[ 86%] Linking C executable test_p8j_system_runtime_b3_projection
+[ 86%] Built target test_p8j_system_runtime_b3_projection
+[ 86%] Building C object CMakeFiles/test_p8k_power_loss_boot_recovery.dir/tests/integration/test_p8k_power_loss_boot_recovery.c.o
+[ 86%] Linking C executable test_p8k_power_loss_boot_recovery
+[ 86%] Built target test_p8k_power_loss_boot_recovery
+[ 86%] Building C object CMakeFiles/test_p12h3c3c4e3_runtime_bounded_journal.dir/tests/integration/test_p12h3c3c4e3_runtime_bounded_journal.c.o
+[ 86%] Linking C executable test_p12h3c3c4e3_runtime_bounded_journal
+[ 86%] Built target test_p12h3c3c4e3_runtime_bounded_journal
+[ 86%] Building C object CMakeFiles/test_time_boot_recovery.dir/tests/integration/test_time_boot_recovery.c.o
+[ 86%] Linking C executable test_time_boot_recovery
+[ 86%] Built target test_time_boot_recovery
+[ 86%] Building C object CMakeFiles/test_configuration_fault_injection.dir/tests/integration/test_configuration_fault_injection.c.o
+[ 86%] Linking C executable test_configuration_fault_injection
+[ 86%] Built target test_configuration_fault_injection
+[ 86%] Building C object CMakeFiles/test_p5h_acquisition_supervision_b3.dir/tests/integration/test_p5h_acquisition_supervision_b3.c.o
+[ 86%] Linking C executable test_p5h_acquisition_supervision_b3
+[ 86%] Built target test_p5h_acquisition_supervision_b3
+[ 86%] Building C object CMakeFiles/test_post_p9_a5_host_modbus_read.dir/tests/integration/test_post_p9_a5_host_modbus_read.c.o
+[ 86%] Linking C executable test_post_p9_a5_host_modbus_read
+[ 86%] Built target test_post_p9_a5_host_modbus_read
+[ 86%] Building C object CMakeFiles/test_modbus_system_server.dir/tests/integration/test_modbus_system_server.c.o
+[ 86%] Linking C executable test_modbus_system_server
+[ 86%] Built target test_modbus_system_server
+[ 87%] Building C object CMakeFiles/test_production_commands.dir/tests/integration/test_production_commands.c.o
+[ 87%] Linking C executable test_production_commands
+[ 87%] Built target test_production_commands
+[ 87%] Building C object CMakeFiles/test_production_provisioning.dir/tests/unit/test_production_provisioning.c.o
+[ 88%] Linking C executable test_production_provisioning
+[ 88%] Built target test_production_provisioning
+[ 88%] Building C object CMakeFiles/test_persistent_identity.dir/tests/unit/test_persistent_identity.c.o
+[ 88%] Linking C executable test_persistent_identity
+[ 88%] Built target test_persistent_identity
+[ 88%] Building C object CMakeFiles/test_production_commissioning.dir/tests/unit/test_production_commissioning.c.o
+[ 88%] Linking C executable test_production_commissioning
+[ 88%] Built target test_production_commissioning
+[ 88%] Building C object CMakeFiles/test_st_fifo_window.dir/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/experiments/iis3dwb_st_reference/tests/test_fifo_window.c.o
+[ 88%] Building C object CMakeFiles/test_st_fifo_window.dir/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/experiments/iis3dwb_st_reference/src/fifo_window.c.o
+[ 89%] Building C object CMakeFiles/test_st_fifo_window.dir/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/experiments/iis3dwb_st_reference/vendor/st/iis3dwb_reg.c.o
+[ 89%] Linking C executable test_st_fifo_window
+[ 89%] Built target test_st_fifo_window
+[ 90%] Building C object CMakeFiles/test_st_fifo_admission.dir/tests/platform/test_st_fifo_admission.c.o
+[ 90%] Linking C executable test_st_fifo_admission
+[ 90%] Built target test_st_fifo_admission
+[ 90%] Building C object CMakeFiles/test_st_spi_diagnostic.dir/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/experiments/iis3dwb_st_reference/tests/test_spi_diagnostic.c.o
+[ 90%] Building C object CMakeFiles/test_st_spi_diagnostic.dir/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/experiments/iis3dwb_st_reference/src/spi_diagnostic.c.o
+[ 91%] Linking C executable test_st_spi_diagnostic
+[ 91%] Built target test_st_spi_diagnostic
+[ 91%] Building C object CMakeFiles/test_st_window_adapter.dir/tests/platform/test_st_window_adapter.c.o
+[ 91%] Building C object CMakeFiles/test_st_window_adapter.dir/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/experiments/iis3dwb_st_reference/src/spi_diagnostic.c.o
+[ 91%] Linking C executable test_st_window_adapter
+[ 91%] Built target test_st_window_adapter
+[ 91%] Building C object CMakeFiles/test_fifo_cooperative.dir/tests/platform/test_fifo_cooperative.c.o
+[ 91%] Building C object CMakeFiles/test_fifo_cooperative.dir/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/experiments/iis3dwb_st_reference/src/fifo_cooperative.c.o
+[ 92%] Building C object CMakeFiles/test_fifo_cooperative.dir/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/experiments/iis3dwb_st_reference/src/fifo_window.c.o
+[ 92%] Building C object CMakeFiles/test_fifo_cooperative.dir/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/experiments/iis3dwb_st_reference/vendor/st/iis3dwb_reg.c.o
+[ 92%] Linking C executable test_fifo_cooperative
+[ 92%] Built target test_fifo_cooperative
+[ 93%] Building C object CMakeFiles/test_modbus_fifo_io_budget.dir/tests/integration/test_modbus_fifo_io_budget.c.o
+[ 93%] Building C object CMakeFiles/test_modbus_fifo_io_budget.dir/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/experiments/iis3dwb_st_reference/src/fifo_cooperative.c.o
+[ 93%] Building C object CMakeFiles/test_modbus_fifo_io_budget.dir/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/experiments/iis3dwb_st_reference/src/fifo_window.c.o
+[ 93%] Building C object CMakeFiles/test_modbus_fifo_io_budget.dir/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/experiments/iis3dwb_st_reference/vendor/st/iis3dwb_reg.c.o
+[ 94%] Linking C executable test_modbus_fifo_io_budget
+[ 94%] Built target test_modbus_fifo_io_budget
+[ 94%] Building C object CMakeFiles/test_sdmmc_bulk_media.dir/tests/platform/test_sdmmc_bulk_media.c.o
+[ 94%] Building C object CMakeFiles/test_sdmmc_bulk_media.dir/platform/stm32/stm32_sdmmc_bulk_media.c.o
+[ 94%] Linking C executable test_sdmmc_bulk_media
+[ 94%] Built target test_sdmmc_bulk_media
+[ 94%] Building C object CMakeFiles/test_live_configuration.dir/tests/unit/test_live_configuration.c.o
+[ 95%] Linking C executable test_live_configuration
+[ 95%] Built target test_live_configuration
+[ 95%] Building C object CMakeFiles/test_live_command_engine.dir/tests/unit/test_live_command_engine.c.o
+[ 95%] Linking C executable test_live_command_engine
+[ 95%] Built target test_live_command_engine
+[ 95%] Building C object CMakeFiles/test_live_fifo.dir/tests/platform/test_live_fifo.c.o
+[ 95%] Building C object CMakeFiles/test_live_fifo.dir/platform/stm32/live_fifo_acquisition.c.o
+[ 95%] Building C object CMakeFiles/test_live_fifo.dir/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/experiments/iis3dwb_st_reference/src/fifo_live.c.o
+[ 96%] Building C object CMakeFiles/test_live_fifo.dir/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/experiments/iis3dwb_st_reference/src/fifo_window.c.o
+[ 96%] Building C object CMakeFiles/test_live_fifo.dir/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/experiments/iis3dwb_st_reference/src/fifo_cooperative.c.o
+[ 96%] Building C object CMakeFiles/test_live_fifo.dir/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/experiments/iis3dwb_st_reference/vendor/st/iis3dwb_reg.c.o
+[ 96%] Linking C executable test_live_fifo
+[ 96%] Built target test_live_fifo
+[ 97%] Building C object CMakeFiles/test_live_io_cost.dir/tests/unit/test_live_io_cost.c.o
+[ 97%] Linking C executable test_live_io_cost
+[ 97%] Built target test_live_io_cost
+[ 97%] Building C object CMakeFiles/test_live_metrology.dir/tests/unit/test_live_metrology.c.o
+[ 97%] Linking C executable test_live_metrology
+[ 97%] Built target test_live_metrology
+[ 97%] Building C object CMakeFiles/test_cooperative_fram_fifo.dir/tests/platform/test_cooperative_fram_fifo.c.o
+[ 97%] Building C object CMakeFiles/test_cooperative_fram_fifo.dir/platform/stm32/live_fifo_acquisition.c.o
+[ 98%] Building C object CMakeFiles/test_cooperative_fram_fifo.dir/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/experiments/iis3dwb_st_reference/src/fifo_live.c.o
+[ 98%] Building C object CMakeFiles/test_cooperative_fram_fifo.dir/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/experiments/iis3dwb_st_reference/src/fifo_window.c.o
+[ 98%] Building C object CMakeFiles/test_cooperative_fram_fifo.dir/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/experiments/iis3dwb_st_reference/vendor/st/iis3dwb_reg.c.o
+[ 98%] Linking C executable test_cooperative_fram_fifo
+[ 98%] Built target test_cooperative_fram_fifo
+[ 99%] Building C object CMakeFiles/test_cooperative_work.dir/tests/unit/test_cooperative_work.c.o
+[ 99%] Linking C executable test_cooperative_work
+[ 99%] Built target test_cooperative_work
+[100%] Building C object CMakeFiles/test_stm32_fram_bounded.dir/tests/platform/test_stm32_fram_bounded.c.o
+[100%] Building C object CMakeFiles/test_stm32_fram_bounded.dir/platform/stm32/stm32_fram_storage.c.o
+[100%] Linking C executable test_stm32_fram_bounded
+[100%] Built target test_stm32_fram_bounded
+Internal ctest changing into directory: /home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/build-host-validation
+Test project /home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/build-host-validation
+        Start   1: stm32_continuous
+  1/136 Test   #1: stm32_continuous ...................................   Passed    0.00 sec
+        Start   2: stm32_ctrl1_differential
+  2/136 Test   #2: stm32_ctrl1_differential ...........................   Passed    0.00 sec
+        Start   3: stm32_burst_capture
+  3/136 Test   #3: stm32_burst_capture ................................   Passed    0.00 sec
+        Start   4: stm32_active_readback
+  4/136 Test   #4: stm32_active_readback ..............................   Passed    0.00 sec
+        Start   5: stm32_register_probe
+  5/136 Test   #5: stm32_register_probe ...............................   Passed    0.00 sec
+        Start   6: stm32_iis3dwb_fifo
+  6/136 Test   #6: stm32_iis3dwb_fifo .................................   Passed    0.00 sec
+        Start   7: stm32_iis3dwb
+  7/136 Test   #7: stm32_iis3dwb ......................................   Passed    0.00 sec
+        Start   8: stm32_rs485_rx_gpio
+  8/136 Test   #8: stm32_rs485_rx_gpio ................................   Passed    0.00 sec
+        Start   9: stm32_rtu_tx_0
+  9/136 Test   #9: stm32_rtu_tx_0 .....................................   Passed    0.00 sec
+        Start  10: stm32_irq_observer_0
+ 10/136 Test  #10: stm32_irq_observer_0 ...............................   Passed    0.00 sec
+        Start  11: stm32_rtu_tx_1
+ 11/136 Test  #11: stm32_rtu_tx_1 .....................................   Passed    0.00 sec
+        Start  12: stm32_irq_observer_1
+ 12/136 Test  #12: stm32_irq_observer_1 ...............................   Passed    0.00 sec
+        Start  13: stm32_modbus_diagnostic
+ 13/136 Test  #13: stm32_modbus_diagnostic ............................   Passed    0.00 sec
+        Start  14: codec
+ 14/136 Test  #14: codec ..............................................   Passed    0.00 sec
+        Start  15: b4_configuration_codec
+ 15/136 Test  #15: b4_configuration_codec .............................   Passed    0.00 sec
+        Start  16: register_model
+ 16/136 Test  #16: register_model .....................................   Passed    0.00 sec
+        Start  17: projection_b0
+ 17/136 Test  #17: projection_b0 ......................................   Passed    0.00 sec
+        Start  18: projection_b1
+ 18/136 Test  #18: projection_b1 ......................................   Passed    0.00 sec
+        Start  19: projection_b2
+ 19/136 Test  #19: projection_b2 ......................................   Passed    0.00 sec
+        Start  20: projection_b3
+ 20/136 Test  #20: projection_b3 ......................................   Passed    0.00 sec
+        Start  21: projection_b4
+ 21/136 Test  #21: projection_b4 ......................................   Passed    0.00 sec
+        Start  22: campaign_inventory_b6
+ 22/136 Test  #22: campaign_inventory_b6 ..............................   Passed    0.00 sec
+        Start  23: b6_adapters
+ 23/136 Test  #23: b6_adapters ........................................   Passed    0.00 sec
+        Start  24: time_service
+ 24/136 Test  #24: time_service .......................................   Passed    0.00 sec
+        Start  25: time_recovery_types
+ 25/136 Test  #25: time_recovery_types ................................   Passed    0.00 sec
+        Start  26: time_history_record
+ 26/136 Test  #26: time_history_record ................................   Passed    0.00 sec
+        Start  27: time_history_store
+ 27/136 Test  #27: time_history_store .................................   Passed    0.00 sec
+        Start  28: time_synchronization
+ 28/136 Test  #28: time_synchronization ...............................   Passed    0.00 sec
+        Start  29: configuration_types
+ 29/136 Test  #29: configuration_types ................................   Passed    0.00 sec
+        Start  30: configuration_staging
+ 30/136 Test  #30: configuration_staging ..............................   Passed    0.00 sec
+        Start  31: configuration_validator
+ 31/136 Test  #31: configuration_validator ............................   Passed    0.00 sec
+        Start  32: configuration_workflow
+ 32/136 Test  #32: configuration_workflow .............................   Passed    0.00 sec
+        Start  33: configuration_service
+ 33/136 Test  #33: configuration_service ..............................   Passed    0.00 sec
+        Start  34: persistent_storage_core
+ 34/136 Test  #34: persistent_storage_core ............................   Passed    0.00 sec
+        Start  35: configuration_record
+ 35/136 Test  #35: configuration_record ...............................   Passed    0.00 sec
+        Start  36: campaign_record
+ 36/136 Test  #36: campaign_record ....................................   Passed    0.00 sec
+        Start  37: campaign_repository_store
+ 37/136 Test  #37: campaign_repository_store ..........................   Passed    0.00 sec
+        Start  38: campaign_bulk_aggregator
+ 38/136 Test  #38: campaign_bulk_aggregator ...........................   Passed    0.00 sec
+        Start  39: campaign_bulk_block
+ 39/136 Test  #39: campaign_bulk_block ................................   Passed    0.00 sec
+        Start  40: campaign_bulk_block_stream
+ 40/136 Test  #40: campaign_bulk_block_stream .........................   Passed    0.00 sec
+        Start  41: campaign_bulk_checkpoint
+ 41/136 Test  #41: campaign_bulk_checkpoint ...........................   Passed    0.00 sec
+        Start  42: campaign_bulk_media
+ 42/136 Test  #42: campaign_bulk_media ................................   Passed    0.00 sec
+        Start  43: campaign_bulk_media_region
+ 43/136 Test  #43: campaign_bulk_media_region .........................   Passed    0.00 sec
+        Start  44: campaign_bulk_metadata
+ 44/136 Test  #44: campaign_bulk_metadata .............................   Passed    0.00 sec
+        Start  45: campaign_data_store_bulk
+ 45/136 Test  #45: campaign_data_store_bulk ...........................   Passed    0.00 sec
+        Start  46: campaign_data_store_persistent
+ 46/136 Test  #46: campaign_data_store_persistent .....................   Passed    0.00 sec
+        Start  47: campaign_service
+ 47/136 Test  #47: campaign_service ...................................   Passed    0.00 sec
+        Start  48: configuration_store
+ 48/136 Test  #48: configuration_store ................................   Passed    0.00 sec
+        Start  49: configuration_store_recovery
+ 49/136 Test  #49: configuration_store_recovery .......................   Passed    0.00 sec
+        Start  50: configuration_store_recovery_unavailable
+ 50/136 Test  #50: configuration_store_recovery_unavailable ...........   Passed    0.00 sec
+        Start  51: read_adapter
+ 51/136 Test  #51: read_adapter .......................................   Passed    0.00 sec
+        Start  52: read_adapter_b3
+ 52/136 Test  #52: read_adapter_b3 ....................................   Passed    0.00 sec
+        Start  53: write_adapter
+ 53/136 Test  #53: write_adapter ......................................   Passed    0.00 sec
+        Start  54: p5a_contracts
+ 54/136 Test  #54: p5a_contracts ......................................   Passed    0.00 sec
+        Start  55: p6a_contracts
+ 55/136 Test  #55: p6a_contracts ......................................   Passed    0.00 sec
+        Start  56: p7a_command_types
+ 56/136 Test  #56: p7a_command_types ..................................   Passed    0.00 sec
+        Start  57: p7b_command_request_mailbox
+ 57/136 Test  #57: p7b_command_request_mailbox ........................   Passed    0.00 sec
+        Start  58: p7c_command_journal
+ 58/136 Test  #58: p7c_command_journal ................................   Passed    0.00 sec
+        Start  59: p7d_command_journal_store
+ 59/136 Test  #59: p7d_command_journal_store ..........................   Passed    0.00 sec
+        Start  60: p7e_command_engine_admission
+ 60/136 Test  #60: p7e_command_engine_admission .......................   Passed    0.00 sec
+        Start  61: p7f_command_engine_lifecycle
+ 61/136 Test  #61: p7f_command_engine_lifecycle .......................   Passed    0.00 sec
+        Start  62: p7g_apply_configuration
+ 62/136 Test  #62: p7g_apply_configuration ............................   Passed    0.00 sec
+        Start  63: p7h_synchronize_time
+ 63/136 Test  #63: p7h_synchronize_time ...............................   Passed    0.00 sec
+        Start  64: p7i_start_acquisition
+ 64/136 Test  #64: p7i_start_acquisition ..............................   Passed    0.00 sec
+        Start  65: p7j_stop_acquisition
+ 65/136 Test  #65: p7j_stop_acquisition ...............................   Passed    0.00 sec
+        Start  66: p7k_command_boot_recovery
+ 66/136 Test  #66: p7k_command_boot_recovery ..........................   Passed    0.00 sec
+        Start  67: p7l_b5_adapters
+ 67/136 Test  #67: p7l_b5_adapters ....................................   Passed    0.00 sec
+        Start  68: p7m_command_policy
+ 68/136 Test  #68: p7m_command_policy .................................   Passed    0.00 sec
+        Start  69: p7n_transaction_fault_injection
+ 69/136 Test  #69: p7n_transaction_fault_injection ....................   Passed    0.00 sec
+        Start  70: p9b_diagnostic_service
+ 70/136 Test  #70: p9b_diagnostic_service .............................   Passed    0.00 sec
+        Start  71: p9c_diagnostic_recovery
+ 71/136 Test  #71: p9c_diagnostic_recovery ............................   Passed    0.00 sec
+        Start  72: p9h_selftest_command
+ 72/136 Test  #72: p9h_selftest_command ...............................   Passed    0.00 sec
+        Start  73: acquisition_service
+ 73/136 Test  #73: acquisition_service ................................   Passed    0.00 sec
+        Start  74: indicator_calculator
+ 74/136 Test  #74: indicator_calculator ...............................   Passed    0.00 sec
+        Start  75: threshold_evaluator
+ 75/136 Test  #75: threshold_evaluator ................................   Passed    0.00 sec
+        Start  76: supervision_service
+ 76/136 Test  #76: supervision_service ................................   Passed    0.00 sec
+        Start  77: supervision_temporal_envelope
+ 77/136 Test  #77: supervision_temporal_envelope ......................   Passed    0.00 sec
+        Start  78: time_fault_injection
+ 78/136 Test  #78: time_fault_injection ...............................   Passed    0.00 sec
+        Start  79: configuration_b4_flow
+ 79/136 Test  #79: configuration_b4_flow ..............................   Passed    0.00 sec
+        Start  80: configuration_activation_adapter
+ 80/136 Test  #80: configuration_activation_adapter ...................   Passed    0.00 sec
+        Start  81: p12c_pdu_server
+ 81/136 Test  #81: p12c_pdu_server ....................................   Passed    0.00 sec
+        Start  82: p12d_rtu_receiver
+ 82/136 Test  #82: p12d_rtu_receiver ..................................   Passed    0.00 sec
+        Start  83: p12e_serial_transport
+ 83/136 Test  #83: p12e_serial_transport ..............................   Passed    0.00 sec
+        Start  84: p12h_rtu_server_runtime
+ 84/136 Test  #84: p12h_rtu_server_runtime ............................   Passed    0.00 sec
+        Start  85: p12h3c3b_command_journal_bounded_record
+ 85/136 Test  #85: p12h3c3b_command_journal_bounded_record ............   Passed    0.00 sec
+        Start  86: p12h3c3c1_bounded_slot
+ 86/136 Test  #86: p12h3c3c1_bounded_slot .............................   Passed    0.00 sec
+        Start  87: p12h3c3c2_bounded_recovery
+ 87/136 Test  #87: p12h3c3c2_bounded_recovery .........................   Passed    0.00 sec
+        Start  88: p12h3c3c3_bounded_reader
+ 88/136 Test  #88: p12h3c3c3_bounded_reader ...........................   Passed    0.00 sec
+        Start  89: p12h3c3c4_bounded_writer
+ 89/136 Test  #89: p12h3c3c4_bounded_writer ...........................   Passed    0.00 sec
+        Start  90: p12h3c3c4b_bounded_admission
+ 90/136 Test  #90: p12h3c3c4b_bounded_admission .......................   Passed    0.01 sec
+        Start  91: p12h3c3c4c1_bounded_store
+ 91/136 Test  #91: p12h3c3c4c1_bounded_store ..........................   Passed    0.01 sec
+        Start  92: p12h3c3c4d1_fault_media
+ 92/136 Test  #92: p12h3c3c4d1_fault_media ............................   Passed    0.00 sec
+        Start  93: p12h3c3c4d2_admission_power_loss
+ 93/136 Test  #93: p12h3c3c4d2_admission_power_loss ...................   Passed    0.01 sec
+        Start  94: p12h3c3c4d3_mutation_power_loss
+ 94/136 Test  #94: p12h3c3c4d3_mutation_power_loss ....................   Passed    0.01 sec
+        Start  95: p12h3c3c4d4_completion_power_loss
+ 95/136 Test  #95: p12h3c3c4d4_completion_power_loss ..................   Passed    0.01 sec
+        Start  96: p12h3c3c4d5_readmission_power_loss
+ 96/136 Test  #96: p12h3c3c4d5_readmission_power_loss .................   Passed    0.06 sec
+        Start  97: p12h3c3c4d6_d8_consolidation
+ 97/136 Test  #97: p12h3c3c4d6_d8_consolidation .......................   Passed    0.00 sec
+        Start  98: p12h3d2_transactional_image_media
+ 98/136 Test  #98: p12h3d2_transactional_image_media ..................   Passed    0.05 sec
+        Start  99: p12h3d2b_transactional_image_power_loss
+ 99/136 Test  #99: p12h3d2b_transactional_image_power_loss ............   Passed    1.06 sec
+        Start 100: p12h3d2c_transactional_image_recovery
+100/136 Test #100: p12h3d2c_transactional_image_recovery ..............   Passed    0.04 sec
+        Start 101: p12h3d2d_persistent_storage_core_integration
+101/136 Test #101: p12h3d2d_persistent_storage_core_integration .......   Passed    0.03 sec
+        Start 102: p12h3d2e_campaign_transactional_media
+102/136 Test #102: p12h3d2e_campaign_transactional_media ..............   Passed    0.05 sec
+        Start 103: p12h3d2f_transactional_media_format_policy
+103/136 Test #103: p12h3d2f_transactional_media_format_policy .........   Passed    0.02 sec
+        Start 104: p12h3d2g_transactional_media_format_power_loss
+104/136 Test #104: p12h3d2g_transactional_media_format_power_loss .....   Passed    0.05 sec
+        Start 105: p12h3d2h1_transactional_media_geometry
+105/136 Test #105: p12h3d2h1_transactional_media_geometry .............   Passed    0.00 sec
+        Start 106: p12h3d2h3_transactional_media_alternate_geometry
+106/136 Test #106: p12h3d2h3_transactional_media_alternate_geometry ...   Passed    0.01 sec
+        Start 107: system_runtime
+107/136 Test #107: system_runtime .....................................   Passed    0.02 sec
+        Start 108: system_runtime_bulk
+108/136 Test #108: system_runtime_bulk ................................   Passed    0.11 sec
+        Start 109: p8i_system_runtime_acquisition_commands
+109/136 Test #109: p8i_system_runtime_acquisition_commands ............   Passed    0.03 sec
+        Start 110: p8j_system_runtime_b3_projection
+110/136 Test #110: p8j_system_runtime_b3_projection ...................   Passed    0.01 sec
+        Start 111: p8k_power_loss_boot_recovery
+111/136 Test #111: p8k_power_loss_boot_recovery .......................   Passed    0.01 sec
+        Start 112: p12h3c3c4e3_runtime_bounded_journal
+112/136 Test #112: p12h3c3c4e3_runtime_bounded_journal ................   Passed    0.01 sec
+        Start 113: time_boot_recovery
+113/136 Test #113: time_boot_recovery .................................   Passed    0.02 sec
+        Start 114: configuration_fault_injection
+114/136 Test #114: configuration_fault_injection ......................   Passed    2.58 sec
+        Start 115: p5h_acquisition_supervision_b3
+115/136 Test #115: p5h_acquisition_supervision_b3 .....................   Passed    0.01 sec
+        Start 116: post_p9_a5_host_modbus_read
+116/136 Test #116: post_p9_a5_host_modbus_read ........................   Passed    0.00 sec
+        Start 117: modbus_system_server
+117/136 Test #117: modbus_system_server ...............................   Passed    0.01 sec
+        Start 118: production_commands
+118/136 Test #118: production_commands ................................   Passed    0.04 sec
+        Start 119: production_provisioning
+119/136 Test #119: production_provisioning ............................   Passed    0.12 sec
+        Start 120: persistent_identity
+120/136 Test #120: persistent_identity ................................   Passed    0.51 sec
+        Start 121: production_commissioning
+121/136 Test #121: production_commissioning ...........................   Passed    0.09 sec
+        Start 122: st_fifo_window_integration
+122/136 Test #122: st_fifo_window_integration .........................   Passed    0.00 sec
+        Start 123: st_fifo_admission
+123/136 Test #123: st_fifo_admission ..................................   Passed    0.00 sec
+        Start 124: st_spi_completion_integration
+124/136 Test #124: st_spi_completion_integration ......................   Passed    0.00 sec
+        Start 125: st_window_primary_preflight_and_transport
+125/136 Test #125: st_window_primary_preflight_and_transport ..........   Passed    0.00 sec
+        Start 126: fifo_cooperative_v1_windows_and_faults
+126/136 Test #126: fifo_cooperative_v1_windows_and_faults .............   Passed    0.00 sec
+        Start 127: modbus_fifo_io_budget
+127/136 Test #127: modbus_fifo_io_budget ..............................   Passed    0.01 sec
+        Start 128: sdmmc_bulk_media
+128/136 Test #128: sdmmc_bulk_media ...................................   Passed    0.00 sec
+        Start 129: live_configuration
+129/136 Test #129: live_configuration .................................   Passed    7.02 sec
+        Start 130: live_command_engine
+130/136 Test #130: live_command_engine ................................   Passed   24.65 sec
+        Start 131: live_fifo_continuous_owner
+131/136 Test #131: live_fifo_continuous_owner .........................   Passed    0.43 sec
+        Start 132: live_io_cost
+132/136 Test #132: live_io_cost .......................................   Passed    0.15 sec
+        Start 133: live_metrology
+133/136 Test #133: live_metrology .....................................   Passed    0.27 sec
+        Start 134: cooperative_fram_fifo
+134/136 Test #134: cooperative_fram_fifo ..............................   Passed    2.44 sec
+        Start 135: cooperative_work
+135/136 Test #135: cooperative_work ...................................   Passed   17.39 sec
+        Start 136: stm32_fram_bounded
+136/136 Test #136: stm32_fram_bounded .................................   Passed    0.00 sec
+
+100% tests passed, 0 tests failed out of 136
+
+Total Test time (real) =  57.57 sec
+HOST VALIDATED: firmware host build and tests passed.
+
+============================================================
+TR2 VALIDATION — STM32 CROSS-BUILD — CUMULATIVE M014/M015
+============================================================
+-- The C compiler identification is GNU 14.2.1
+-- The ASM compiler identification is GNU
+-- Found assembler: /usr/bin/arm-none-eabi-gcc
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /usr/bin/arm-none-eabi-gcc - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Found Python3: /usr/bin/python3 (found version "3.13.5") found components: Interpreter
+-- STM32 artifact: tr2-cumulative-m014-m015-spi4; no hardware qualification implied
+-- Configuring done (1.8s)
+-- Generating done (0.0s)
+-- Build files have been written to: /home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/build-stm32-cumulative
+[0/2] Re-checking globbed directories...
+[1/135] Building C object CMakeFiles/tr2_core.dir/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus_RTU/05_Firmware/src/application/command_policy.c.obj
+[2/135] Building C object CMakeFiles/tr2_core.dir/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus_RTU/05_Firmware/src/application/command_request_mailbox.c.obj
+[3/135] Building C object CMakeFiles/tr2_core.dir/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus_RTU/05_Firmware/src/application/command_selftest.c.obj
+[4/135] Building C object CMakeFiles/tr2_core.dir/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus_RTU/05_Firmware/src/application/campaign_inventory_service.c.obj
+[5/135] Building C object CMakeFiles/tr2_core.dir/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus_RTU/05_Firmware/src/application/command_boot_recovery.c.obj
+[6/135] Building C object CMakeFiles/tr2_core.dir/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus_RTU/05_Firmware/src/application/command_apply_configuration.c.obj
+[7/135] Building C object CMakeFiles/tr2_core.dir/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus_RTU/05_Firmware/src/application/configuration_activation_adapter.c.obj
+[8/135] Building C object CMakeFiles/tr2_core.dir/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus_RTU/05_Firmware/src/application/campaign_service.c.obj
+[9/135] Building C object CMakeFiles/tr2_core.dir/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus_RTU/05_Firmware/src/application/command_synchronize_time.c.obj
+[10/135] Building C object CMakeFiles/tr2_core.dir/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus_RTU/05_Firmware/src/application/acquisition_service.c.obj
+[11/135] Building C object CMakeFiles/tr2_core.dir/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus_RTU/05_Firmware/src/application/command_stop_acquisition.c.obj
+[12/135] Building C object CMakeFiles/tr2_core.dir/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus_RTU/05_Firmware/src/application/command_engine.c.obj
+[13/135] Building C object CMakeFiles/tr2_core.dir/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus_RTU/05_Firmware/src/application/configuration_service.c.obj
+[14/135] Building C object CMakeFiles/tr2_core.dir/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus_RTU/05_Firmware/src/application/command_start_acquisition.c.obj
+[15/135] Building C object CMakeFiles/tr2_core.dir/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus_RTU/05_Firmware/src/application/configuration_workflow.c.obj
+[16/135] Building C object CMakeFiles/tr2_core.dir/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus_RTU/05_Firmware/src/application/diagnostic_service.c.obj
+[17/135] Building C object CMakeFiles/tr2_core.dir/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus_RTU/05_Firmware/src/application/modbus_system_server.c.obj
+[18/135] Building C object CMakeFiles/tr2_core.dir/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus_RTU/05_Firmware/src/application/supervision_service.c.obj
+[19/135] Building C object CMakeFiles/tr2_core.dir/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus_RTU/05_Firmware/src/application/persistent_identity.c.obj
+[20/135] Building C object CMakeFiles/tr2_core.dir/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus_RTU/05_Firmware/src/application/live_metrology.c.obj
+[21/135] Building C object CMakeFiles/tr2_core.dir/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus_RTU/05_Firmware/src/application/production_application.c.obj
+[22/135] Building C object CMakeFiles/tr2_core.dir/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus_RTU/05_Firmware/src/application/production_provisioning.c.obj
+[23/135] Building C object CMakeFiles/tr2_core.dir/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus_RTU/05_Firmware/src/application/system_state_aggregator.c.obj
+[24/135] Building C object CMakeFiles/tr2_core.dir/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus_RTU/05_Firmware/src/application/system_command_dispatcher.c.obj
+[25/135] Building C object CMakeFiles/tr2_core.dir/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus_RTU/05_Firmware/src/application/production_commissioning.c.obj
+[26/135] Building C object CMakeFiles/tr2_core.dir/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus_RTU/05_Firmware/src/common/cooperative_work.c.obj
+[27/135] Building C object CMakeFiles/tr2_core.dir/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus_RTU/05_Firmware/src/domain/configuration/configuration_staging.c.obj
+[28/135] Building C object CMakeFiles/tr2_core.dir/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus_RTU/05_Firmware/src/domain/acquisition/window_statistics.c.obj
+[29/135] Building C object CMakeFiles/tr2_core.dir/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus_RTU/05_Firmware/src/domain/command/command.c.obj
+[30/135] Building C object CMakeFiles/tr2_core.dir/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus_RTU/05_Firmware/src/domain/identity/identity.c.obj
+[31/135] Building C object CMakeFiles/tr2_core.dir/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus_RTU/05_Firmware/src/application/live_command_engine.c.obj
+[32/135] Building C object CMakeFiles/tr2_core.dir/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus_RTU/05_Firmware/src/application/live_configuration.c.obj
+[33/135] Building C object CMakeFiles/tr2_core.dir/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus_RTU/05_Firmware/src/common/sha256.c.obj
+[34/135] Building C object CMakeFiles/tr2_core.dir/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus_RTU/05_Firmware/src/domain/configuration/configuration_validator.c.obj
+[35/135] Building C object CMakeFiles/tr2_core.dir/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus_RTU/05_Firmware/src/application/system_runtime_acquisition_command.c.obj
+[36/135] Building C object CMakeFiles/tr2_core.dir/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus_RTU/05_Firmware/src/domain/supervision/threshold_evaluator.c.obj
+[37/135] Building C object CMakeFiles/tr2_core.dir/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus_RTU/05_Firmware/src/application/system_runtime.c.obj
+[38/135] Building C object CMakeFiles/tr2_core.dir/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus_RTU/05_Firmware/src/domain/supervision/indicator_calculator.c.obj
+[39/135] Building C object CMakeFiles/tr2_core.dir/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus_RTU/05_Firmware/src/domain/time/time_recovery.c.obj
+[40/135] Building C object CMakeFiles/tr2_core.dir/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus_RTU/05_Firmware/src/domain/system_state/system_state.c.obj
+[41/135] Building C object CMakeFiles/tr2_core.dir/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus_RTU/05_Firmware/src/modbus/b4_configuration_codec.c.obj
+[42/135] Building C object CMakeFiles/tr2_core.dir/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus_RTU/05_Firmware/src/modbus/b5_projection.c.obj
+[43/135] Building C object CMakeFiles/tr2_core.dir/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus_RTU/05_Firmware/src/modbus/b5_write_adapter.c.obj
+[44/135] Building C object CMakeFiles/tr2_core.dir/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus_RTU/05_Firmware/src/modbus/b6_write_adapter.c.obj
+[45/135] Building C object CMakeFiles/tr2_core.dir/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus_RTU/05_Firmware/src/modbus/b6_projection.c.obj
+[46/135] Building C object CMakeFiles/tr2_core.dir/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus_RTU/05_Firmware/src/domain/time/time_service.c.obj
+[47/135] Building C object CMakeFiles/tr2_core.dir/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus_RTU/05_Firmware/src/modbus/codec.c.obj
+[48/135] Building C object CMakeFiles/tr2_core.dir/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus_RTU/05_Firmware/src/modbus/rtu_receiver.c.obj
+[49/135] Building C object CMakeFiles/tr2_core.dir/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus_RTU/05_Firmware/src/modbus/register_model.c.obj
+[50/135] Building C object CMakeFiles/tr2_core.dir/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus_RTU/05_Firmware/src/modbus/rtu_server_runtime.c.obj
+[51/135] Building C object CMakeFiles/tr2_core.dir/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus_RTU/05_Firmware/src/persistence/campaign_bulk_block.c.obj
+[52/135] Building C object CMakeFiles/tr2_core.dir/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus_RTU/05_Firmware/src/modbus/projection.c.obj
+[53/135] Building C object CMakeFiles/tr2_core.dir/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus_RTU/05_Firmware/src/persistence/campaign_bulk_block_stream.c.obj
+[54/135] Building C object CMakeFiles/tr2_core.dir/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus_RTU/05_Firmware/src/modbus/read_adapter.c.obj
+[55/135] Building C object CMakeFiles/tr2_core.dir/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus_RTU/05_Firmware/src/persistence/campaign_bulk_media.c.obj
+[56/135] Building C object CMakeFiles/tr2_core.dir/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus_RTU/05_Firmware/src/modbus/pdu_server.c.obj
+[57/135] Building C object CMakeFiles/tr2_core.dir/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus_RTU/05_Firmware/src/persistence/campaign_bulk_aggregator.c.obj
+[58/135] Building C object CMakeFiles/tr2_core.dir/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus_RTU/05_Firmware/src/persistence/campaign_bulk_checkpoint.c.obj
+[59/135] Building C object CMakeFiles/tr2_core.dir/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus_RTU/05_Firmware/src/modbus/write_adapter.c.obj
+[60/135] Building C object CMakeFiles/tr2_core.dir/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus_RTU/05_Firmware/src/persistence/command_journal.c.obj
+[61/135] Building C object CMakeFiles/tr2_core.dir/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus_RTU/05_Firmware/src/persistence/command_journal_bounded_admission.c.obj
+[62/135] Building C object CMakeFiles/tr2_core.dir/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus_RTU/05_Firmware/src/persistence/campaign_bulk_metadata.c.obj
+[63/135] Building C object CMakeFiles/tr2_core.dir/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus_RTU/05_Firmware/src/persistence/campaign_record.c.obj
+[64/135] Building C object CMakeFiles/tr2_core.dir/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus_RTU/05_Firmware/src/persistence/command_journal_bounded_reader.c.obj
+[65/135] Building C object CMakeFiles/tr2_core.dir/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus_RTU/05_Firmware/src/persistence/campaign_data_store_persistent.c.obj
+[66/135] Building C object CMakeFiles/tr2_core.dir/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus_RTU/05_Firmware/src/persistence/command_journal_bounded_slot.c.obj
+[67/135] Building C object CMakeFiles/tr2_core.dir/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus_RTU/05_Firmware/src/persistence/command_journal_bounded_record.c.obj
+[68/135] Building C object CMakeFiles/tr2_core.dir/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus_RTU/05_Firmware/src/persistence/command_journal_bounded_recovery.c.obj
+[69/135] Building C object CMakeFiles/tr2_core.dir/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus_RTU/05_Firmware/src/persistence/command_journal_bounded_writer.c.obj
+[70/135] Building C object CMakeFiles/tr2_core.dir/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus_RTU/05_Firmware/src/persistence/campaign_data_store_bulk.c.obj
+[71/135] Building C object CMakeFiles/tr2_core.dir/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus_RTU/05_Firmware/src/persistence/campaign_repository_store.c.obj
+[72/135] Building C object CMakeFiles/tr2_core.dir/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus_RTU/05_Firmware/src/persistence/command_journal_context_store.c.obj
+[73/135] Building C object CMakeFiles/tr2_core.dir/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus_RTU/05_Firmware/src/persistence/command_journal_record.c.obj
+[74/135] Building C object CMakeFiles/tr2_core.dir/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus_RTU/05_Firmware/src/persistence/diagnostic_history_record.c.obj
+[75/135] Building C object CMakeFiles/tr2_core.dir/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus_RTU/05_Firmware/src/persistence/diagnostic_history_store.c.obj
+[76/135] Building C object CMakeFiles/tr2_core.dir/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus_RTU/05_Firmware/src/persistence/command_journal_bounded_store.c.obj
+[77/135] Building C object CMakeFiles/tr2_core.dir/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus_RTU/05_Firmware/src/persistence/time_history_record.c.obj
+[78/135] Building C object CMakeFiles/tr2_core.dir/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus_RTU/05_Firmware/src/persistence/command_journal_store.c.obj
+[79/135] Building C object CMakeFiles/tr2_core.dir/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus_RTU/05_Firmware/src/persistence/configuration_record.c.obj
+[80/135] Building C object CMakeFiles/tr2_core.dir/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus_RTU/05_Firmware/src/persistence/time_history_store.c.obj
+[81/135] Building C object CMakeFiles/tr2_core.dir/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus_RTU/05_Firmware/src/persistence/configuration_store.c.obj
+[82/135] Building C object CMakeFiles/tr2_core.dir/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus_RTU/05_Firmware/src/platform/serial_transport.c.obj
+[83/135] Building C object CMakeFiles/tr2_core.dir/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus_RTU/05_Firmware/src/persistence/persistent_storage_core.c.obj
+[84/135] Building C object CMakeFiles/tr2_core.dir/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus_RTU/05_Firmware/src/persistence/live_command_store.c.obj
+[85/135] Building C object CMakeFiles/tr2_core.dir/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus_RTU/05_Firmware/src/persistence/transactional_image_media.c.obj
+[86/135] Building C object CMakeFiles/tr2_stm32_p11c.dir/stm32_iis3dwb_active_readback.c.obj
+[87/135] Building C object CMakeFiles/tr2_stm32_p11c.dir/stm32_iis3dwb_register_probe.c.obj
+[88/135] Building C object CMakeFiles/tr2_stm32_p11c.dir/stm32_iis3dwb_capture.c.obj
+[89/135] Building C object CMakeFiles/tr2_stm32_p11c.dir/stm32_fram_storage.c.obj
+[90/135] Building C object CMakeFiles/tr2_stm32_p11c.dir/stm32_iis3dwb_continuous.c.obj
+[91/135] Building C object CMakeFiles/tr2_stm32_p11c.dir/stm32_iis3dwb_fifo_capture.c.obj
+[92/135] Linking C static library libtr2_core.a
+[93/135] Building C object CMakeFiles/tr2_stm32_p11c.dir/stm32_modbus_diagnostic.c.obj
+[94/135] Building C object CMakeFiles/tr2_stm32_p11c.dir/stm32_iis3dwb_ctrl1_differential.c.obj
+[95/135] Building C object CMakeFiles/tr2_stm32_p11c.dir/stm32_iis3dwb_vibration_source.c.obj
+[96/135] Building ASM object CMakeFiles/tr2_stm32_p11c.dir/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/CMSIS/Device/ST/STM32U5xx/Source/Templates/gcc/startup_stm32u575xx.s.obj
+[97/135] Building C object CMakeFiles/tr2_stm32_p11c.dir/stm32_rs485_rx_gpio.c.obj
+[98/135] Building C object CMakeFiles/tr2_stm32_p11c.dir/stm32_iis3dwb_burst_capture.c.obj
+[99/135] Building C object CMakeFiles/tr2_stm32_p11c.dir/stm32_production_runtime.c.obj
+[100/135] Building C object CMakeFiles/tr2_stm32_p11c.dir/stm32_runtime_platform.c.obj
+[101/135] Building C object CMakeFiles/tr2_stm32_p11c.dir/main.c.obj
+[102/135] Building C object CMakeFiles/tr2_stm32_p11c.dir/stm32_modbus_application.c.obj
+[103/135] Building C object CMakeFiles/tr2_stm32_p11c.dir/stm32_serial_transport.c.obj
+[104/135] Building C object CMakeFiles/tr2_stm32_p11c.dir/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/CMSIS/Device/ST/STM32U5xx/Source/Templates/system_stm32u5xx.c.obj
+[105/135] Building C object CMakeFiles/tr2_stm32_p11c.dir/stm32u5xx_it.c.obj
+[106/135] Building C object CMakeFiles/tr2_stm32_p11c.dir/stm32_sdmmc_bulk_media.c.obj
+[107/135] Building C object CMakeFiles/tr2_stm32_p11c.dir/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal.c.obj
+[108/135] Building C object CMakeFiles/tr2_stm32_p11c.dir/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_cortex.c.obj
+[109/135] Building C object CMakeFiles/tr2_stm32_p11c.dir/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_pwr.c.obj
+[110/135] Building C object CMakeFiles/tr2_stm32_p11c.dir/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_gpio.c.obj
+[111/135] Building C object CMakeFiles/tr2_stm32_p11c.dir/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_pwr_ex.c.obj
+[112/135] Building C object CMakeFiles/tr2_stm32_p11c.dir/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_dma.c.obj
+[113/135] Building C object CMakeFiles/tr2_stm32_p11c.dir/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rcc.c.obj
+[114/135] Building C object CMakeFiles/tr2_stm32_p11c.dir/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc.c.obj
+[115/135] Building C object CMakeFiles/tr2_stm32_p11c.dir/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc_ex.c.obj
+[116/135] Building C object CMakeFiles/tr2_stm32_p11c.dir/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_ll_sdmmc.c.obj
+[117/135] Building C object CMakeFiles/tr2_stm32_p11c.dir/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_uart_ex.c.obj
+[118/135] Building C object CMakeFiles/tr2_stm32_p11c.dir/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_sd.c.obj
+[119/135] Building C object CMakeFiles/tr2_stm32_p11c.dir/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/experiments/iis3dwb_st_reference/src/spi_diagnostic.c.obj
+[120/135] Building C object CMakeFiles/tr2_stm32_p11c.dir/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rcc_ex.c.obj
+[121/135] Building C object CMakeFiles/tr2_stm32_p11c.dir/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/experiments/iis3dwb_st_reference/src/fifo_window.c.obj
+[122/135] Building C object CMakeFiles/tr2_stm32_p11c.dir/stm32_production_board.c.obj
+[123/135] Building C object CMakeFiles/tr2_stm32_p11c.dir/stm32_iis3dwb_st_window.c.obj
+[124/135] Building C object CMakeFiles/tr2_stm32_p11c.dir/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/experiments/iis3dwb_st_reference/vendor/st/iis3dwb_reg.c.obj
+[125/135] Building C object CMakeFiles/tr2_stm32_p11c.dir/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_tim_ex.c.obj
+[126/135] Building C object CMakeFiles/tr2_stm32_p11c.dir/live_fifo_acquisition.c.obj
+[127/135] Building C object CMakeFiles/tr2_stm32_p11c.dir/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/experiments/iis3dwb_st_reference/src/fifo_live.c.obj
+[128/135] Building C object CMakeFiles/tr2_stm32_p11c.dir/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/experiments/iis3dwb_st_reference/src/fifo_cooperative.c.obj
+[129/135] Building C object CMakeFiles/tr2_stm32_p11c.dir/stm32_live_acquisition.c.obj
+[130/135] Building C object CMakeFiles/tr2_stm32_p11c.dir/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_uart.c.obj
+[131/135] Building C object CMakeFiles/tr2_stm32_p11c.dir/stm32_fifo_cooperative.c.obj
+[132/135] Building C object CMakeFiles/tr2_stm32_p11c.dir/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_tim.c.obj
+[133/135] Building C object CMakeFiles/tr2_stm32_p11c.dir/generated/stm32u5xx_hal_spi_observed.c.obj
+[134/135] Linking C executable tr2-cumulative-m014-m015-spi4.elf
+/usr/lib/gcc/arm-none-eabi/14.2.1/../../../arm-none-eabi/bin/ld: /usr/lib/gcc/arm-none-eabi/14.2.1/../../../arm-none-eabi/lib/thumb/v8-m.main/nofp/libg_nano.a(libc_a-closer.o): in function `_close_r':
+/build/reproducible-path/newlib-4.5.0.20241231/build_nano/arm-none-eabi/thumb/v8-m.main/nofp/newlib/../../../../../../newlib/libc/reent/closer.c:47:(.text+0xc): warning: _close is not implemented and will always fail
+/usr/lib/gcc/arm-none-eabi/14.2.1/../../../arm-none-eabi/bin/ld: /usr/lib/gcc/arm-none-eabi/14.2.1/../../../arm-none-eabi/lib/thumb/v8-m.main/nofp/libg_nano.a(libc_a-closer.o): note: the message above does not take linker garbage collection into account
+/usr/lib/gcc/arm-none-eabi/14.2.1/../../../arm-none-eabi/bin/ld: /usr/lib/gcc/arm-none-eabi/14.2.1/../../../arm-none-eabi/lib/thumb/v8-m.main/nofp/libg_nano.a(libc_a-fstatr.o): in function `_fstat_r':
+/build/reproducible-path/newlib-4.5.0.20241231/build_nano/arm-none-eabi/thumb/v8-m.main/nofp/newlib/../../../../../../newlib/libc/reent/fstatr.c:55:(.text+0x12): warning: _fstat is not implemented and will always fail
+/usr/lib/gcc/arm-none-eabi/14.2.1/../../../arm-none-eabi/bin/ld: /usr/lib/gcc/arm-none-eabi/14.2.1/../../../arm-none-eabi/lib/thumb/v8-m.main/nofp/libg_nano.a(libc_a-fstatr.o): note: the message above does not take linker garbage collection into account
+/usr/lib/gcc/arm-none-eabi/14.2.1/../../../arm-none-eabi/bin/ld: /usr/lib/gcc/arm-none-eabi/14.2.1/../../../arm-none-eabi/lib/thumb/v8-m.main/nofp/libg_nano.a(libc_a-signalr.o): in function `_getpid_r':
+/build/reproducible-path/newlib-4.5.0.20241231/build_nano/arm-none-eabi/thumb/v8-m.main/nofp/newlib/../../../../../../newlib/libc/reent/signalr.c:83:(.text+0x2c): warning: _getpid is not implemented and will always fail
+/usr/lib/gcc/arm-none-eabi/14.2.1/../../../arm-none-eabi/bin/ld: /usr/lib/gcc/arm-none-eabi/14.2.1/../../../arm-none-eabi/lib/thumb/v8-m.main/nofp/libg_nano.a(libc_a-signalr.o): note: the message above does not take linker garbage collection into account
+/usr/lib/gcc/arm-none-eabi/14.2.1/../../../arm-none-eabi/bin/ld: /usr/lib/gcc/arm-none-eabi/14.2.1/../../../arm-none-eabi/lib/thumb/v8-m.main/nofp/libg_nano.a(libc_a-isattyr.o): in function `_isatty_r':
+/build/reproducible-path/newlib-4.5.0.20241231/build_nano/arm-none-eabi/thumb/v8-m.main/nofp/newlib/../../../../../../newlib/libc/reent/isattyr.c:52:(.text+0xc): warning: _isatty is not implemented and will always fail
+/usr/lib/gcc/arm-none-eabi/14.2.1/../../../arm-none-eabi/bin/ld: /usr/lib/gcc/arm-none-eabi/14.2.1/../../../arm-none-eabi/lib/thumb/v8-m.main/nofp/libg_nano.a(libc_a-isattyr.o): note: the message above does not take linker garbage collection into account
+/usr/lib/gcc/arm-none-eabi/14.2.1/../../../arm-none-eabi/bin/ld: /usr/lib/gcc/arm-none-eabi/14.2.1/../../../arm-none-eabi/lib/thumb/v8-m.main/nofp/libg_nano.a(libc_a-signalr.o): in function `_kill_r':
+/build/reproducible-path/newlib-4.5.0.20241231/build_nano/arm-none-eabi/thumb/v8-m.main/nofp/newlib/../../../../../../newlib/libc/reent/signalr.c:53:(.text+0x12): warning: _kill is not implemented and will always fail
+/usr/lib/gcc/arm-none-eabi/14.2.1/../../../arm-none-eabi/bin/ld: /usr/lib/gcc/arm-none-eabi/14.2.1/../../../arm-none-eabi/lib/thumb/v8-m.main/nofp/libg_nano.a(libc_a-signalr.o): note: the message above does not take linker garbage collection into account
+/usr/lib/gcc/arm-none-eabi/14.2.1/../../../arm-none-eabi/bin/ld: /usr/lib/gcc/arm-none-eabi/14.2.1/../../../arm-none-eabi/lib/thumb/v8-m.main/nofp/libg_nano.a(libc_a-lseekr.o): in function `_lseek_r':
+/build/reproducible-path/newlib-4.5.0.20241231/build_nano/arm-none-eabi/thumb/v8-m.main/nofp/newlib/../../../../../../newlib/libc/reent/lseekr.c:49:(.text+0x14): warning: _lseek is not implemented and will always fail
+/usr/lib/gcc/arm-none-eabi/14.2.1/../../../arm-none-eabi/bin/ld: /usr/lib/gcc/arm-none-eabi/14.2.1/../../../arm-none-eabi/lib/thumb/v8-m.main/nofp/libg_nano.a(libc_a-lseekr.o): note: the message above does not take linker garbage collection into account
+/usr/lib/gcc/arm-none-eabi/14.2.1/../../../arm-none-eabi/bin/ld: /usr/lib/gcc/arm-none-eabi/14.2.1/../../../arm-none-eabi/lib/thumb/v8-m.main/nofp/libg_nano.a(libc_a-readr.o): in function `_read_r':
+/build/reproducible-path/newlib-4.5.0.20241231/build_nano/arm-none-eabi/thumb/v8-m.main/nofp/newlib/../../../../../../newlib/libc/reent/readr.c:49:(.text+0x14): warning: _read is not implemented and will always fail
+/usr/lib/gcc/arm-none-eabi/14.2.1/../../../arm-none-eabi/bin/ld: /usr/lib/gcc/arm-none-eabi/14.2.1/../../../arm-none-eabi/lib/thumb/v8-m.main/nofp/libg_nano.a(libc_a-readr.o): note: the message above does not take linker garbage collection into account
+/usr/lib/gcc/arm-none-eabi/14.2.1/../../../arm-none-eabi/bin/ld: /usr/lib/gcc/arm-none-eabi/14.2.1/../../../arm-none-eabi/lib/thumb/v8-m.main/nofp/libg_nano.a(libc_a-writer.o): in function `_write_r':
+/build/reproducible-path/newlib-4.5.0.20241231/build_nano/arm-none-eabi/thumb/v8-m.main/nofp/newlib/../../../../../../newlib/libc/reent/writer.c:49:(.text+0x14): warning: _write is not implemented and will always fail
+/usr/lib/gcc/arm-none-eabi/14.2.1/../../../arm-none-eabi/bin/ld: /usr/lib/gcc/arm-none-eabi/14.2.1/../../../arm-none-eabi/lib/thumb/v8-m.main/nofp/libg_nano.a(libc_a-writer.o): note: the message above does not take linker garbage collection into account
+   text	   data	    bss	    dec	    hex	filename
+ 172580	    480	 602232	 775292	  bd47c	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/build-stm32-cumulative/tr2-cumulative-m014-m015-spi4.elf
+TR2 cumulative cross-build complete: tr2-cumulative-m014-m015-spi4.
+Profile: /home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/build-stm32-cumulative/build-profile.txt; hashes: /home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/build-stm32-cumulative/artifact-sha256.txt
+Software build only; no hardware qualification or flash.
+CROSS-BUILD VALIDATED: portable tr2_core compiled and linked for STM32U575 Cortex-M33.
+
+============================================================
+TR2 VALIDATION RESULT
+============================================================
+HOST VALIDATED
+CROSS-BUILD VALIDATED
+HARDWARE PENDING: no NUCLEO-U575ZI-Q runtime or RS-485 hardware claim is made.

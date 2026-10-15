@@ -1,0 +1,8 @@
+Internal ctest changing into directory: /home/lolo/dev/msm/cache/r4-sanitize
+Test project /home/lolo/dev/msm/cache/r4-sanitize
+    Start 134: cooperative_fram_fifo
+1/1 Test #134: cooperative_fram_fifo ............   Passed   12.16 sec
+
+100% tests passed, 0 tests failed out of 1
+
+Total Test time (real) =  12.16 sec

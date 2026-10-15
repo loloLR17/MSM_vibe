@@ -1,0 +1,14 @@
+{
+  "flash_sha256": "c5bc344d64984c48c3e34b05fa9432c9c124e8b67428eb0eef22c0d62ddf5b26",
+  "bytes": 2097152,
+  "two_reads_equal": true,
+  "known_attempt02_bytes": 62312,
+  "known_attempt02_sha256": "00ba4f5b6750f3c20b2bd18832c99eaf10ac257449df6df12a53f6500ed81e5d",
+  "known_attempt02_prefix_equal": true,
+  "operations": [
+    "GDB attach/halt",
+    "read UID/registers/Flash",
+    "detach/resume"
+  ],
+  "no_reset": true
+}

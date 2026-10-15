@@ -1,0 +1,29 @@
+{
+  "sha256": "d732acc557152180fc394097d6a5269ea2f45c1da387c8643f512318adf92fce",
+  "bytes": 262144,
+  "two_reads_equal": true,
+  "regions": {
+    "historical": {
+      "start": 0,
+      "end": 122880,
+      "sha256": "4e3c2d39f03eaf7cf46d8c987d944548c1f14752d36bafa1a41439078cfb3cf3",
+      "nonzero": 199,
+      "not_ff": 122878
+    },
+    "LIVE": {
+      "start": 122880,
+      "end": 245760,
+      "sha256": "6d7bd1fa33ee71b2d2c4fc8062f6c4b09804b84449ff73a687fe7cfd568d0625",
+      "nonzero": 0,
+      "not_ff": 122880
+    },
+    "tail": {
+      "start": 245760,
+      "end": 262144,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe",
+      "nonzero": 0,
+      "not_ff": 16384
+    }
+  },
+  "writes": 0
+}

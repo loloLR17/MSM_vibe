@@ -1,0 +1,5 @@
+0x080028a2 in HAL_Delay (Delay=250) at /home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal.c:419
+419	  while ((HAL_GetTick() - tickstart) < wait)
+0xbfa0700:	0x004a003d	0x38425018	0x20333157
+\\wsl.localhost\Debian\home\lolo\dev\msm\reports\TR2-r4\hardware\fram-preflight-readonly.gdb:9: Error in sourced command file:
+No frame for function "stm32_storage_qualification_run".

@@ -1,0 +1,7 @@
+COOPERATIVE,q=16,elapsed_us=169182525,work_us=544,service_us=292,FIFOmax=16,gap_us=370,XYZ=3606403,RTU=10659,RTUenqueue_us=25086,identical_bytes=262144
+COOPERATIVE,q=32,elapsed_us=99235971,work_us=544,service_us=320,FIFOmax=19,gap_us=436,XYZ=2040976,RTU=6213,RTUenqueue_us=25112,identical_bytes=262144
+LONG_MODEL,elapsed_us=620604981,XYZ=13776548,renewals=13,FIFOmax=19,RTU=38804,RXqueueMax=8,overflow=0
+COOPERATIVE,q=64,elapsed_us=64226429,work_us=544,service_us=362,FIFOmax=24,gap_us=566,XYZ=1257687,RTU=4023,RTUenqueue_us=25334,identical_bytes=262144
+EMERGENCY,latency_us=272,sticky_error=6,no_reentry_no_write=PASS
+FRAM failure stops actual FIFO owner independently of journal success: PASS
+NEGATIVE CONTROL: same actual stores without cooperative service overflow the independent FIFO producer: PASS

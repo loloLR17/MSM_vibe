@@ -1,0 +1,1 @@
+Actual STM32 FRAM driver on HAL mock: CS released, all6/2 I/O failure positions, no retry, opt-in1ms, V1 timeout unchanged: PASS

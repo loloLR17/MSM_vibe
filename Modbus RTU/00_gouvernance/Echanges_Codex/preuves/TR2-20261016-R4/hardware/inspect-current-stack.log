@@ -1,0 +1,12 @@
+HAL_GetTick () at /home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal.c:342
+342	{
+0xbfa0700:	0x004a003d	0x38425018	0x20333157
+#0  HAL_GetTick () at /home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal.c:342
+#1  0x0800289c in HAL_Delay (Delay=250) at /home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal.c:419
+#2  0x08000f34 in CommissioningReadOnly () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1759
+#3  0x08000fa8 in main () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1832
+$1 = 5
+$2 = {context = 0x0, read = 0x0, write = 0x0}
+$3 = 0x2000004c
+\\wsl.localhost\Debian\home\lolo\dev\msm\reports\TR2-r4\hardware\inspect-current-stack.gdb:13: Error in sourced command file:
+No symbol "tr2_commission_sd_chunk" in current context.

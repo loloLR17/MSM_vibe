@@ -1,0 +1,14 @@
+Internal ctest changing into directory: /home/lolo/dev/msm/cache/r4-sanitize
+Test project /home/lolo/dev/msm/cache/r4-sanitize
+    Start 133: live_metrology
+1/4 Test #133: live_metrology ...................   Passed    1.59 sec
+    Start 134: cooperative_fram_fifo
+2/4 Test #134: cooperative_fram_fifo ............   Passed   11.06 sec
+    Start 135: cooperative_work
+3/4 Test #135: cooperative_work .................   Passed   50.48 sec
+    Start 136: stm32_fram_bounded
+4/4 Test #136: stm32_fram_bounded ...............   Passed    0.01 sec
+
+100% tests passed, 0 tests failed out of 4
+
+Total Test time (real) =  63.16 sec
