@@ -1,0 +1,28 @@
+Internal ctest changing into directory: /home/lolo/dev/msm/cache/r4q-host
+UpdateCTestConfiguration  from :/home/lolo/dev/msm/cache/r4q-host/DartConfiguration.tcl
+UpdateCTestConfiguration  from :/home/lolo/dev/msm/cache/r4q-host/DartConfiguration.tcl
+Test project /home/lolo/dev/msm/cache/r4q-host
+Constructing a list of tests
+Done constructing a list of tests
+Updating test list for fixtures
+Added 0 tests to meet fixture requirements
+Checking test dependency graph...
+Checking test dependency graph end
+test 140
+    Start 140: live_modbus_server
+
+140: Test command: /home/lolo/dev/msm/cache/r4q-host/test_live_modbus_server
+140: Working Directory: /home/lolo/dev/msm/cache/r4q-host
+140: Test timeout computed to be: 10000000
+140: test_live_modbus_server: /home/lolo/dev/msm/projects/MSM_vibe-R4Q-live-b3-rtu/Modbus RTU/05_Firmware/tests/platform/test_live_modbus_server.c:125: lifecycle: Assertion `image->run_id==1&&image->config_id==2&&image->config_generation==1' failed.
+1/1 Test #140: live_modbus_server ...............Subprocess aborted***Exception:   0.61 sec
+
+0% tests passed, 1 tests failed out of 1
+
+Total Test time (real) =   0.61 sec
+
+The following tests FAILED:
+	140 - live_modbus_server (Subprocess aborted)
+Errors while running CTest
+Output from these tests are in: /home/lolo/dev/msm/cache/r4q-host/Testing/Temporary/LastTest.log
+Use "--rerun-failed --output-on-failure" to re-run the failed cases verbosely.

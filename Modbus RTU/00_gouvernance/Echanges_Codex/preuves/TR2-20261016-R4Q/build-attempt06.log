@@ -1,0 +1,6 @@
+[  0%] Building C object CMakeFiles/tr2_core.dir/src/application/live_modbus_server.c.o
+[  0%] Linking C static library libtr2_core.a
+[ 95%] Built target tr2_core
+[ 95%] Building C object CMakeFiles/test_live_modbus_server.dir/tests/platform/test_live_modbus_server.c.o
+[ 95%] Linking C executable test_live_modbus_server
+[100%] Built target test_live_modbus_server

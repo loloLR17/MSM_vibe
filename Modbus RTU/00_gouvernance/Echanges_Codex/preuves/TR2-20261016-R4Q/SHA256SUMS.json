@@ -1,0 +1,212 @@
+{
+  "files": {
+    "README.md": {
+      "bytes": 665,
+      "sha256": "c5f6883c76a6d2043631ffa2ab5a3ffabc7f444871247f39c89401c90620b762"
+    },
+    "build-artifacts.json": {
+      "bytes": 2911,
+      "sha256": "d5285ca33321a0db3e77ca2c55079a2a7a73ca160fa35e5c9b39843ab8024303"
+    },
+    "build-attempt02.log": {
+      "bytes": 232,
+      "sha256": "e36b94a9657ae8e48025dde3588c2528710e6c481086c0d84f7f34c63cd12287"
+    },
+    "build-attempt03.log": {
+      "bytes": 232,
+      "sha256": "e36b94a9657ae8e48025dde3588c2528710e6c481086c0d84f7f34c63cd12287"
+    },
+    "build-attempt04.log": {
+      "bytes": 232,
+      "sha256": "e36b94a9657ae8e48025dde3588c2528710e6c481086c0d84f7f34c63cd12287"
+    },
+    "build-attempt05.log": {
+      "bytes": 366,
+      "sha256": "96cbb5610a04671f0052da6d19644a106aef7fef2be7293b561bbc0134706504"
+    },
+    "build-attempt06.log": {
+      "bytes": 366,
+      "sha256": "96cbb5610a04671f0052da6d19644a106aef7fef2be7293b561bbc0134706504"
+    },
+    "build-attempt07.log": {
+      "bytes": 259,
+      "sha256": "55e985d84230c928b19702977985bd58fcaa1e931ee147477153f84f774f324b"
+    },
+    "build.log": {
+      "bytes": 8606,
+      "sha256": "8ddfd5cdf2b8d1490e165b20eb4bae30d2b426b89235a3a8386bc876bdf4f4a9"
+    },
+    "configure.log": {
+      "bytes": 460,
+      "sha256": "0319621f6ad78e6b2fde97e0b80eb0bd0d8c0963b49be4252750d56b8f21263f"
+    },
+    "fram-before.bin.zlib": {
+      "bytes": 1549,
+      "sha256": "863bf453d7def9c4ab9c9bc624959204171e4728830467b4f94a2047618a3ebe"
+    },
+    "full-validation.log": {
+      "bytes": 92731,
+      "sha256": "d0308adc27c4f7e11393f35248a20d247e1323025dea2eea0b7a5713f1fed732"
+    },
+    "hardware/flash-fresh-check-invocation.json": {
+      "bytes": 788,
+      "sha256": "c2f22a2c15680e394fef2a9a1f85387c49a5398fb27779426227afe1661642ac"
+    },
+    "hardware/flash-fresh-check-server.log": {
+      "bytes": 642,
+      "sha256": "8bcc4c71699ee84963384971405c87e1a151e92fe6097483e261a0323be2f087"
+    },
+    "hardware/flash-fresh-check.gdb": {
+      "bytes": 542,
+      "sha256": "5fb68010ece3803d2c803783865da6d792ff89fd97327437f3d01cc1edd95a75"
+    },
+    "hardware/flash-fresh-check.log": {
+      "bytes": 473,
+      "sha256": "f8e1a37fd6bf95928d32298114d2c199c1e0f73a826ec909dca1cbbac6bcb41c"
+    },
+    "hardware/fram-fresh-check-invocation.json": {
+      "bytes": 787,
+      "sha256": "84494a1ece13ff5d35907ce432bb6783a5d8b1f1513a8923dab540e649af8ae8"
+    },
+    "hardware/fram-fresh-check-server.log": {
+      "bytes": 642,
+      "sha256": "8bcc4c71699ee84963384971405c87e1a151e92fe6097483e261a0323be2f087"
+    },
+    "hardware/fram-fresh-check.gdb": {
+      "bytes": 621,
+      "sha256": "d78d0e6d3df121ee77e3f72637d810942cd367b90ea0b981010af98dd8368b57"
+    },
+    "hardware/fram-fresh-check.log": {
+      "bytes": 674,
+      "sha256": "8582c7ab51597c13971278a79bcbd113315baed1be8e2125d077fce2550442c8"
+    },
+    "hardware/hardware.py": {
+      "bytes": 2321,
+      "sha256": "14fdd9d9728827ed803558247adf7836cb85be03d6e666c419e27519be848767"
+    },
+    "hardware/preflight-summary.json": {
+      "bytes": 701,
+      "sha256": "191fe808038b0bfead5352244e99866963f22f6d77912dcb5835358f5f970de7"
+    },
+    "hardware/preflight.py": {
+      "bytes": 2502,
+      "sha256": "4a637b7966348ec5212c1468c26ca29549c31f02abac675752daa87686786fd1"
+    },
+    "hardware/sensor-stopped-readonly-invocation.json": {
+      "bytes": 794,
+      "sha256": "b77d03effd10f11529cf89c0f4e275358af389c9e19e55e09c728d26912a1931"
+    },
+    "hardware/sensor-stopped-readonly-server.log": {
+      "bytes": 642,
+      "sha256": "8bcc4c71699ee84963384971405c87e1a151e92fe6097483e261a0323be2f087"
+    },
+    "hardware/sensor-stopped-readonly.gdb": {
+      "bytes": 890,
+      "sha256": "9fc035c3b694dd0a9ba9d2e72b85057ba8200bff8f50b42fd16ae07817876624"
+    },
+    "hardware/sensor-stopped-readonly.log": {
+      "bytes": 386,
+      "sha256": "9a43c09a8f4a5743dc4c55c050495c28ce875bf51d10f6577d1110ff9e4e96c0"
+    },
+    "implement.py": {
+      "bytes": 12083,
+      "sha256": "0dc5d5358798d5385ee39f19ed37fff81c2fbeaeadfe660d8e030808f6bf1cf6"
+    },
+    "initial-state.json": {
+      "bytes": 539917,
+      "sha256": "2c8ac71a5444065b446fa01825028aaac8b0f413d68600ac717036f96d5fc6a5"
+    },
+    "preservation.json": {
+      "bytes": 348,
+      "sha256": "df6b7585d1904ad695f2f4dfdae40ea7dda0ee2540f82b5d631ba50191464ad6"
+    },
+    "probe-build.log": {
+      "bytes": 26223,
+      "sha256": "707fbd97d84a78350dcb3d84310f354edcf2113fd2fb2ca92e2b025c014031d1"
+    },
+    "probe-configure.log": {
+      "bytes": 667,
+      "sha256": "91bcd20f1c01c5eb722d13281af154fab37cd3a3926e42f3ebf662f2df01afc6"
+    },
+    "probe.bin.zlib": {
+      "bytes": 70932,
+      "sha256": "863de35fadc34e8bb7d6dd9c501dfd7b90879b7ffe7eeec92e37bc8087e0731e"
+    },
+    "publish.py": {
+      "bytes": 2462,
+      "sha256": "69e60a87f7048978b5db2f923f405732b58cb7d4ea3e21b1138afa9e439ca07e"
+    },
+    "readback.py": {
+      "bytes": 1366,
+      "sha256": "f4866477768040930f2b76416030e7e6fdd736dde41d343e1668766265284cd4"
+    },
+    "sanitize-build.log": {
+      "bytes": 8854,
+      "sha256": "954d3306a3c7c01a3be35b812b39a412b39cfc98344d061c349c39e51086a03a"
+    },
+    "sanitize-configure.log": {
+      "bytes": 464,
+      "sha256": "97c5f9a8dba607ff86e04dfabed72aa454eb4eac41dfca2e3c4546ffcba9688e"
+    },
+    "sanitize-test.log": {
+      "bytes": 1883,
+      "sha256": "ca41bbd54c286595152352ac1ea9b917c8a031216e0ea73a3fce3e3ab0e09441"
+    },
+    "sanitize-window-build.log": {
+      "bytes": 232,
+      "sha256": "e36b94a9657ae8e48025dde3588c2528710e6c481086c0d84f7f34c63cd12287"
+    },
+    "sanitize-window-test.log": {
+      "bytes": 1662,
+      "sha256": "52f0843a41285f8f1374228547df07c0a5afc621dcc2ca9639bf5b859c39b82d"
+    },
+    "stlink-inventory.log": {
+      "bytes": 506,
+      "sha256": "944d661571428454b8cbf1577533a917ff49105319364f2cd50c8384d7cf6155"
+    },
+    "test-attempt01.log": {
+      "bytes": 1408,
+      "sha256": "bc975c3cc7760d77424e88b3f0f529ae0dc83648c5f8d80a2ad5fbea767d88fd"
+    },
+    "test-attempt02.log": {
+      "bytes": 1404,
+      "sha256": "3ea87473651b495455253c362a5c315100dbf418c6e7b1a762b450398a0c50d4"
+    },
+    "test-attempt03.log": {
+      "bytes": 1426,
+      "sha256": "76754d15d2b240c9472746fe23e9f1af28f6b6f26bfb3a136cfb3222520051c3"
+    },
+    "test-attempt04.log": {
+      "bytes": 1187,
+      "sha256": "d30554d24a871adcb8cd2deb2862a38a754ee9baf81a39c9b6295716c23400cd"
+    },
+    "test-attempt05.log": {
+      "bytes": 1407,
+      "sha256": "9bdf2834f78376dfa602cf42e60cedc15a92d051af3d56b5a071c7e48d5ea61e"
+    },
+    "test-attempt06.log": {
+      "bytes": 1527,
+      "sha256": "1a3b50a6af91d9e6d5a05b78e7b04acf2386a99e635c3993d5b8cac88bc4d11a"
+    },
+    "test-attempt07.log": {
+      "bytes": 1527,
+      "sha256": "4ad5af7d26c98d63f41b413187951e279576414107968004aa048c59e47d752c"
+    },
+    "validation-launch-error.log": {
+      "bytes": 56,
+      "sha256": "df4a6455cb8be267cd2a1a27698394b10309d73c1342961af66db42dd6876ffc"
+    },
+    "verify.py": {
+      "bytes": 1882,
+      "sha256": "f84ffab2f16a342f18568e70b3fda47643bd09c35c754b91d77af3487497b1ab"
+    },
+    "window-build.log": {
+      "bytes": 232,
+      "sha256": "e36b94a9657ae8e48025dde3588c2528710e6c481086c0d84f7f34c63cd12287"
+    },
+    "window-test.log": {
+      "bytes": 1638,
+      "sha256": "f09bd30a332d8a415b176e4950968c9fc85eb8aad4ca99f7623564f9621140bd"
+    }
+  }
+}

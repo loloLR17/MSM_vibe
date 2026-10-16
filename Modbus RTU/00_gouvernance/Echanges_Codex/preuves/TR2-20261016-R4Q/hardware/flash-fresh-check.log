@@ -1,0 +1,11 @@
+0x0800289e in HAL_Delay (Delay=250) at /home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal.c:419
+419	  while ((HAL_GetTick() - tickstart) < wait)
+0xbfa0700:	0x004a003d	0x38425018	0x20333157
+pc             0x800289e           0x800289e <HAL_Delay+46>
+sp             0x200bfb88          0x200bfb88
+xpsr           0x21000000          553648128
+$1 = 5
+$2 = 123
+$3 = 1
+$4 = "\004\177H\003"
+[Inferior 1 (Remote target) detached]

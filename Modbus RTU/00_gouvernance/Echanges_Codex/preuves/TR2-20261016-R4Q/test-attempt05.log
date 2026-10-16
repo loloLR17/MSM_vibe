@@ -1,0 +1,28 @@
+Internal ctest changing into directory: /home/lolo/dev/msm/cache/r4q-host
+UpdateCTestConfiguration  from :/home/lolo/dev/msm/cache/r4q-host/DartConfiguration.tcl
+UpdateCTestConfiguration  from :/home/lolo/dev/msm/cache/r4q-host/DartConfiguration.tcl
+Test project /home/lolo/dev/msm/cache/r4q-host
+Constructing a list of tests
+Done constructing a list of tests
+Updating test list for fixtures
+Added 0 tests to meet fixture requirements
+Checking test dependency graph...
+Checking test dependency graph end
+test 140
+    Start 140: live_modbus_server
+
+140: Test command: /home/lolo/dev/msm/cache/r4q-host/test_live_modbus_server
+140: Working Directory: /home/lolo/dev/msm/cache/r4q-host
+140: Test timeout computed to be: 10000000
+140: R4Q_MODEL,work_us=484,service_us=498,gap_us=613,FIFOmax=26,XYZ=1554683,RTU=7019,B3=4624,B5=2312,RXmax=6,response_enqueue_us=24874,sequence=12,STOP_reserved=PASS
+140: RTU CRC/address/framing overflow/UART overrun/disconnect/TX failure and V1 profile isolation: PASS
+140: Read-time age/freshness on immutable RAM, UTC retained and backward clock invalidation deferred to owner: PASS
+140: R4Q actual FIFO -> R3B -> coherent RAM -> RTU and deferred durable R2: PASS (SIMULATION)
+1/1 Test #140: live_modbus_server ...............   Passed    1.30 sec
+
+The following tests passed:
+	live_modbus_server
+
+100% tests passed, 0 tests failed out of 1
+
+Total Test time (real) =   1.30 sec
