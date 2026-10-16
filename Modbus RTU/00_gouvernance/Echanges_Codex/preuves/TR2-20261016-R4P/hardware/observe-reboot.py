@@ -1,6 +1,6 @@
 from hardware import *
 assert time.time()-json.loads((P/'r4p-reboot-started.json').read_text())['epoch']>=15
-elf=Path('/home/lolo/dev/msm/reports/TR2-r4p/bench-build/tr2-r4p-coexistence-NON-PRODUCTION.elf')
+elf=Path('/home/lolo/dev/msm/reports/TR2-r4p/resume-build/tr2-r4p-coexistence-NON-PRODUCTION.elf')
 debug('r4p-reboot-observation5',elf,IDENTITY+'''p r4_result
 p work
 p r4m_guard
@@ -18,5 +18,5 @@ if $r != 0
  quit 5
 end
 '''+f'dump binary memory {win(P/"fram-after-reboot.bin")} baseline baseline+262144\n',timeout=60)
-assert (P/'fram-after-reboot.bin').read_bytes()==(P/'fram-after-physical.bin').read_bytes()
+assert (P/'fram-after-reboot.bin').read_bytes()==(P/'fram-after-resume.bin').read_bytes()
 (P/'reboot-summary.json').write_text(json.dumps(dict(result='PASS',zero_writes=True,full_fram_unchanged=True,no_auto_start=True,utc=datetime.datetime.now(datetime.timezone.utc).isoformat()),indent=2)+'\n')

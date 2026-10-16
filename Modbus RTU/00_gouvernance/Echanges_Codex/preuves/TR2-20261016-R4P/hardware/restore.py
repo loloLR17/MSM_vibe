@@ -1,10 +1,10 @@
 from hardware import *
 old=Path('/home/lolo/dev/msm/reports/TR2-M016-storage-20261013T172331Z/qualification-attempt02-build/tr2-special-storage_qualification-NON-CUMULATIVE.elf')
 a=(P/'flash-before.bin').read_bytes();assert len(a)==2097152 and hashlib.sha256(a).hexdigest()=='c5bc344d64984c48c3e34b05fa9432c9c124e8b67428eb0eef22c0d62ddf5b26'
-b=(P/'fram-after-physical.bin').read_bytes();assert len(b)==262144
+b=(P/'fram-after-resume.bin').read_bytes();assert len(b)==262144
 original_fram=(P/'fram-before.bin').read_bytes();assert original_fram[:122880]==b[:122880] and original_fram[245760:]==b[245760:]
 base=Path('/home/lolo/dev/msm/reports/TR2-r4p')
-n=max((base/'bench-build/tr2-r4p-coexistence-NON-PRODUCTION.bin').stat().st_size,old.with_suffix('.bin').stat().st_size);n=(n+8191)//8192*8192
+n=max((base/'bench-build/tr2-r4p-coexistence-NON-PRODUCTION.bin').stat().st_size,(base/'resume-build/tr2-r4p-coexistence-NON-PRODUCTION.bin').stat().st_size,old.with_suffix('.bin').stat().st_size);n=(n+8191)//8192*8192
 image=P/'restore-pages.bin';assert not image.exists();image.write_bytes(a[:n])
 flash('restore-inherited-firmware',image,'fresh verified Flash backup at03309c0; inherited M016 attempt02')
 debug('restore-full-flash-reset',old,IDENTITY+f'dump binary memory {win(P/"flash-restored.bin")} 0x08000000 0x08200000\nmonitor reset\n')

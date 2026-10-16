@@ -1,18 +1,22 @@
 from pathlib import Path
 import shutil,json,hashlib,zlib,subprocess as s
 root=Path('/home/lolo/dev/msm/projects/MSM_vibe-R4P-physical-coexistence');local=Path('/home/lolo/dev/msm/reports/TR2-r4p');proof=root/'Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261016-R4P'
-image=local/'bench-build/tr2-r4p-coexistence-NON-PRODUCTION.bin';elf=image.with_suffix('.elf')
-r=dict(code_sha=s.check_output(['git','rev-parse','369887b'],cwd=root,text=True).strip(),bin_bytes=image.stat().st_size,bin_sha256=hashlib.sha256(image.read_bytes()).hexdigest(),elf_sha256=hashlib.sha256(elf.read_bytes()).hexdigest(),profile=(image.parent/'build-profile.txt').read_text(),canonical_sha256=hashlib.sha256((root/'Modbus RTU/05_Firmware/build-stm32-cumulative/tr2-cumulative-m014-m015-spi4.bin').read_bytes()).hexdigest())
-assert r['canonical_sha256']=='6a2150af8939ead0b81219a96cfd51dc2cbef03a3851d46775fa71ddbfeb15a9'
+artifacts={}
+for label,directory,ref in [('initial','bench-build','369887b'),('corrected','resume-build','9f429e5')]:
+ image=local/(directory+'/tr2-r4p-coexistence-NON-PRODUCTION.bin');elf=image.with_suffix('.elf')
+ artifacts[label]=dict(code_sha=s.check_output(['git','rev-parse',ref],cwd=root,text=True).strip(),bin_bytes=image.stat().st_size,bin_sha256=hashlib.sha256(image.read_bytes()).hexdigest(),elf_sha256=hashlib.sha256(elf.read_bytes()).hexdigest(),profile=(image.parent/'build-profile.txt').read_text())
+artifacts['canonical_sha256']=hashlib.sha256((root/'Modbus RTU/05_Firmware/build-stm32-cumulative/tr2-cumulative-m014-m015-spi4.bin').read_bytes()).hexdigest()
+assert artifacts['canonical_sha256']=='6a2150af8939ead0b81219a96cfd51dc2cbef03a3851d46775fa71ddbfeb15a9'
+r=artifacts
 (local/'build-artifacts.json').write_text(json.dumps(r,indent=2)+'\n')
 for f in local.iterdir():
  if f.is_file() and f.suffix in {'.json','.log','.py'} and f.stat().st_size<300000:shutil.copy2(f,proof/f.name)
 for f in (local/'hardware').iterdir():
  if f.is_file() and f.suffix in {'.json','.gdb','.log','.py'}:shutil.copy2(f,proof/'hardware'/f.name)
-for name in ['fram-after-physical.bin','fram-after-reboot.bin','fram-after-restoration.bin']:
+for name in ['fram-after-physical.bin','fram-after-readonly.bin','fram-after-resume.bin','fram-after-reboot.bin','fram-after-restoration.bin']:
  f=local/'hardware'/name
  if f.exists():(proof/(name+'.zlib')).write_bytes(zlib.compress(f.read_bytes(),9))
-(proof/'probe.bin.zlib').write_bytes(zlib.compress(image.read_bytes(),9))
+(proof/'corrected-probe.bin.zlib').write_bytes(zlib.compress((local/'resume-build/tr2-r4p-coexistence-NON-PRODUCTION.bin').read_bytes(),9))
 (proof/'README.md').write_text('''# R4-P — preuves
 
 Le rapport courant distingue les étapes acquises, les erreurs et les opérations

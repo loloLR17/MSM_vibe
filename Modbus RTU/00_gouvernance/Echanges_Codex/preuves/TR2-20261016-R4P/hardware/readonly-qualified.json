@@ -1,0 +1,9 @@
+{
+  "result": "PASS",
+  "protected_bytes_compared": 139264,
+  "full_fram_unchanged": true,
+  "fram_writes": 0,
+  "epoch": 2,
+  "run_floor": 2,
+  "utc": "2026-10-16T13:08:16.021668+00:00"
+}

@@ -62,3 +62,14 @@ Plan suivant dans LIVE_R4P : nouvelle image au WAIT, trigger7 readonly/ownership
 reset CLOSED puis trigger8+token, reprise du vrai RENEW2->3 sans réisolation. Le risque
 est analysé et le dépassement doit être démontré maîtrisé avant reprise d'écriture.
 Aucune de ces opérations de poursuite n'est encore présentée comme exécutée.
+
+
+## Checkpoint de reprise — contrôle readonly réussi
+
+Trigger7 réel PASS : montage du pont et139264octets protégés comparés, workmax342us,
+service4us, zéro write, aucune deadline ; snapshot262144 byte-identique713a9533…13ba0.
+Ce contrôle démontre la maîtrise du dépassement avant toute reprise d'écriture.
+Reset logiciel vers CLOSED puis trigger8 explicitement lancé le16/10 à13:08:52UTC,
+sans seconde isolation : seul le vrai RENEW2->3 ouvre la suite R4-P. Image corrigée
+issue du code9f429e5 et empreintes exactes dans build-artifacts.json. Lecture terminale
+pas encore effectuée ; aucun succès FRAM/FIFO/START n'est déduit de ce lancement.
