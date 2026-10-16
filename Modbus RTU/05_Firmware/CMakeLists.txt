@@ -14,6 +14,7 @@ endif()
 add_library(tr2_core STATIC
     src/common/cooperative_work.c
     src/domain/acquisition/window_statistics.c
+    src/application/live_modbus_server.c
     src/application/live_metrology.c
     src/persistence/live_command_store.c
     src/application/live_command_engine.c
@@ -428,3 +429,9 @@ add_executable(test_r4p_maintenance tests/platform/test_r4p_maintenance.c platfo
 target_include_directories(test_r4p_maintenance PRIVATE platform/stm32)
 target_link_libraries(test_r4p_maintenance PRIVATE tr2_core)
 add_test(NAME r4p_maintenance COMMAND ${Python3_EXECUTABLE} ${CMAKE_CURRENT_SOURCE_DIR}/tests/platform/run_r4p_maintenance.py $<TARGET_FILE:test_r4p_maintenance> ${CMAKE_CURRENT_SOURCE_DIR}/tests/fixtures/r4p_started_snapshot.zlib)
+
+add_executable(test_live_modbus_server tests/platform/test_live_modbus_server.c platform/stm32/live_fifo_acquisition.c
+    ${ST_REF}/src/fifo_live.c ${ST_REF}/src/fifo_window.c ${ST_REF}/vendor/st/iis3dwb_reg.c)
+target_include_directories(test_live_modbus_server PRIVATE platform/stm32 ${ST_REF}/src ${ST_REF}/vendor/st)
+target_link_libraries(test_live_modbus_server PRIVATE tr2_core)
+add_test(NAME live_modbus_server COMMAND test_live_modbus_server)

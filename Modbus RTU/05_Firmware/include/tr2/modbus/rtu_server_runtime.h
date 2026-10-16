@@ -24,6 +24,11 @@ typedef struct {
      * The borrowed ADU view is valid only for this synchronous callback. */
     Tr2Result (*prepare_request)(void *context, const ModbusRtuAduView *request);
     ModbusPduServerContext pdu_context;
+    /* Optional explicit successor PDU composition. NULL retains V1 exactly.
+     * Main-loop only, RAM-only; no IRQ dispatch or durable admission here. */
+    void *process_context;
+    ModbusPduServerOutcome (*process_pdu)(void *, const uint8_t *, size_t,
+                                         uint8_t *, size_t);
     uint8_t local_unit_id;
     ModbusRtuReceiver receiver;
     uint8_t response_pdu[MODBUS_RTU_PDU_MAX_SIZE];

@@ -211,4 +211,7 @@ static void emergency_and_fault(void)
  assert(live_command_engine_submit(&m->b->engine,&q)!=TR2_OK&&!m->acquisition.fifo.running);model_free(m);
  puts("FRAM failure stops actual FIFO owner independently of journal success: PASS");
 }
-int main(void){format_and_load();emergency_and_fault();negative_control();return 0;}
+int tr2_cooperative_model_regression(void){format_and_load();emergency_and_fault();negative_control();return 0;}
+#ifndef TR2_COOPERATIVE_MODEL_LIBRARY
+int main(void){return tr2_cooperative_model_regression();}
+#endif

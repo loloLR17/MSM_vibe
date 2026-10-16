@@ -45,11 +45,16 @@ static Tr2Result process_frame(ModbusRtuServerRuntime *runtime,
         if (result != TR2_OK) return result;
     }
 
+    if (runtime->process_pdu != NULL) {
+        pdu_outcome = runtime->process_pdu(runtime->process_context, request.pdu,
+            request.pdu_length, runtime->response_pdu, sizeof(runtime->response_pdu));
+    } else {
     pdu_outcome = modbus_pdu_server_process(&runtime->pdu_context,
                                             request.pdu,
                                             request.pdu_length,
                                             runtime->response_pdu,
                                             sizeof(runtime->response_pdu));
+    }
     if (pdu_outcome.operation_result != TR2_OK) {
         return pdu_outcome.operation_result;
     }
@@ -89,6 +94,8 @@ Tr2Result modbus_rtu_server_runtime_init(ModbusRtuServerRuntime *runtime,
         return TR2_ERROR_INVALID_ARGUMENT;
     }
 
+    runtime->process_context = NULL;
+    runtime->process_pdu = NULL;
     runtime->transport = transport;
     runtime->prepare_context = NULL;
     runtime->prepare = NULL;
