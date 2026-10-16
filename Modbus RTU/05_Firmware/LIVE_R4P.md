@@ -43,8 +43,8 @@ on archive son indécidabilité ; aucun COMPLETED/28/29 fictif n'est écrit pour
 
 **Quarantaine indispensable :** le pont n'est pas une récupération produit sûre
 si un firmware générique l'expose à des commandes. Le contrôle négatif conserve
-ce fait visible. Ce probe n'a aucune entrée normale ; après reset CLOSED et SHA
-initial refusé sur tout état intermédiaire, trigger6 de reprise R4-M désactivé.
+ce fait visible. Ce probe n'a aucune entrée normale ; après reset CLOSED et trigger4/SHA
+initial refusés sur tout état intermédiaire, trigger6 de reprise R4-M désactivé.
 Aucun générique LIVE ne doit être chargé sur un pont interrompu. Les images M016/V1
 ignorent LIVE ; tout nouveau STARTED arrête cette mission sans nettoyage ni retry.
 Un échec avant RENEW n'autorise pas non plus une nouvelle isolation.
@@ -65,3 +65,29 @@ Le transport et le HAL conservent leurs limites connues en faute ; les maxima
 nominaux ne sont pas des WCET. Aucun SD, HP, RTU électrique, PC/SQLite/Web ou R6.
 La restauration FRAM depuis une ancienne archive n'est pas un rollback autorisé :
 préserver toutes les bornes epoch/run consommées et faire cadrer toute reprise.
+
+
+## Correction démontrée après l'isolation unique
+
+Le premier trigger4 publie l'isolation (52426octets) puis s'arrête avant RENEW,
+work1075us>1000us. Aucun nouveau STARTED : le journal courant est vide et epoch2/run2
+ne sont pas avancés. Snapshot intégral du pont :
+713a953384f2688f8448989ba706bf0dcef33ace3f177a1ee90fa5eb63713ba0.
+Les écritures sont arrêtées et ce snapshot est préservé, sans nouvelle isolation.
+
+Diagnostic lecture seule : breakpointfailed, pile compare_protected, at=245760,
+work1075us. Cause démontrée :3840itérations sans service pour ignorer LIVE dans le
+scan protégé, puis première lecturetail. Correction : saut O(1)122880->245760 ;
+aucun octet historique/tail omis, compteur139264octets comparés attendu par passage.
+Ce défaut du harness est distinct du START/OBSERVE R4-D ; aucun seuil relâché.
+
+Plan de poursuite borné à ce pont, dans la même autorisation d'isolation unique :
+trigger7 readonly, ownershipfalse/0write, montage/contrôle du pont et comparaison
+complète protégée sous budget. Si échec, pas de nouvelle écriture. Si PASS et double
+snapshot exact, reset vers CLOSED puis trigger8+token vérifié : capture du pont
+sans actif/last/journal, epoch2/gen3/previous1, INTENT128 authentique byte-identique
+à l'archive et floor2. RETIRING autorise seulement le vrai RENEW2->3 ; **aucune
+seconde isolation**. Trigger6 reste désactivé, aucune reprise automatique au boot.
+La correction est testée/compilée avant ce contrôle readonly ; la reprise d'écriture
+n'a lieu qu'après démonstration que le dépassement est maîtrisé. Tout nouveau
+STARTED indéterminé arrête la campagne, sans nouvelle exception ni nettoyage.

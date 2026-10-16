@@ -52,13 +52,21 @@ static const uint8_t r4m_final_sha[32]={0xa1,0x3b,0x34,0x1,0xc5,0xec,0x93,0xec,0
 static const uint8_t r4m_final_sha[32]={0x1b,0xef,0xa9,0x5c,0x6b,0xe8,0xba,0xad,0xfc,0xe8,0xe3,0xfc,0x4f,0xd2,0x3d,0x5b,0xe1,0x0b,0xee,0x6b,0xa0,0x83,0x43,0xd2,0x08,0xec,0xfc,0xfe,0x44,0x07,0xb7,0x67};
 #endif
 static bool r4m_final_snapshot,r4m_enabled,r4m_inject,r4m_bridge;
+#if TR2_STM32_R4P_COEXISTENCE
+static const uint8_t r4m_bridge_sha[32]={0x71,0x3a,0x95,0x33,0x84,0xf2,0x68,0x8f,0x84,0x48,0x98,0x9b,0xa7,0x6,0xbf,0xd,0xce,0xf3,0x3a,0xce,0x3f,0x17,0x7a,0x1e,0xe9,0xf,0xa5,0xeb,0x63,0x71,0x3b,0xa0};
+#else
 static const uint8_t r4m_bridge_sha[32]={0xc8,0x68,0x95,0x0f,0xe3,0xc6,0x0f,0x9a,0x3b,0x23,0xa9,0xce,0x8d,0x56,0x50,0x29,0xee,0x57,0xd4,0xf0,0x6b,0x08,0xcb,0xf6,0x06,0x2d,0xe9,0x23,0x8b,0x2a,0xf9,0x50};
+#endif
+#if TR2_STM32_R4P_COEXISTENCE
+static const uint8_t r4m_archived_intent[128]={0x54,0x52,0x32,0x45,0x0,0x1,0x0,0x40,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x3,0x0,0x0,0x0,0x2,0x0,0x1,0x0,0xd,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x2,0x0,0x0,0x0,0x2,0x0,0x0,0x0,0x2,0x0,0x1,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x1e,0xa5,0x34,0x9d,0x54,0x52,0x32,0x45,0x0,0x1,0x0,0x40,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x4,0x0,0x0,0x0,0x2,0x0,0x1,0x0,0xd,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x2,0x0,0x0,0x0,0x2,0x0,0x0,0x0,0x2,0x0,0x1,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0xc2,0xa5,0xe1,0xfb};
+#else
 static const uint8_t r4m_archived_intent[128]={0x54,0x52,0x32,0x45,0x0,0x1,0x0,0x40,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x1,0x0,0x0,0x0,0x1,0x0,0x1,0x0,0xd,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x1,0x0,0x0,0x0,0x2,0x0,0x0,0x0,0x2,0x0,0x1,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0xc4,0xb9,0xbe,0x8a,0x54,0x52,0x32,0x45,0x0,0x1,0x0,0x40,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x2,0x0,0x0,0x0,0x1,0x0,0x1,0x0,0xd,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x1,0x0,0x0,0x0,0x2,0x0,0x0,0x0,0x2,0x0,0x1,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0xfb,0x72,0xc0,0x1f};
+#endif
 static uint64_t r4m_fault_due;
 R4mMaintenance r4m_guard;
 static LiveAcquisitionPort r4m_real_port;
 volatile uint32_t r4m_backup_token,r4m_old_rejected,r4m_range_count,r4m_op_count;
-volatile uint32_t r4m_cs_closed,r4m_protected_checks,r4m_fifo_max_all;
+volatile uint32_t r4m_cs_closed,r4m_protected_checks,r4m_fifo_max_all,r4m_protected_bytes;
 static uint64_t r4m_prior_xyz,r4m_prior_ts;
 volatile uint64_t r4m_xyz_all,r4m_ts_all;
 volatile uint64_t r4m_stop_max_us,r4m_stop_end_us,r4m_fault_seen_us,r4m_fault_reaction_us;
@@ -191,9 +199,6 @@ static Tr2Result read_baseline(void)
 #if TR2_STM32_R4M_MAINTENANCE
  r4m_final_snapshot=!memcmp(digest,r4m_final_sha,32);
  r4m_bridge=!memcmp(digest,r4m_bridge_sha,32);
-#if TR2_STM32_R4P_COEXISTENCE
- r4m_bridge=false;
-#endif
  resume_after_r1=resume_after_r1||r4m_final_snapshot||r4m_bridge;
 #endif
  if(memcmp(digest,baseline_sha,32)&&!resume_after_r1)return TR2_ERROR_STORAGE;
@@ -203,9 +208,12 @@ static Tr2Result compare_protected(void)
 {
  uint8_t bytes[32];r4_result.protected_equal=0;REQUIRE(tr2_cooperative_enter(&work));
  for(uint32_t at=0;at<262144u;at+=32) {
-  if(at>=122880u&&at<245760u)continue;
+  if(at==122880u)at=245760u; /* O(1) jump; do not burn a quantum scanning LIVE. */
   REQUIRE(read_physical(NULL,at,bytes,32));
   if(memcmp(bytes,baseline+at,32))return TR2_ERROR_STORAGE;
+#if TR2_STM32_R4M_MAINTENANCE
+  r4m_protected_bytes+=32;
+#endif
   REQUIRE(tr2_cooperative_checkpoint(&work));
  }
  REQUIRE(tr2_cooperative_leave(&work));r4_result.protected_equal=1;
@@ -265,8 +273,8 @@ static Tr2Result maintenance_sequence(const LiveAcquisitionPort *port)
  const uint32_t retired=TR2_STM32_R4P_COEXISTENCE?2u:1u;
  const uint64_t floor=TR2_STM32_R4P_COEXISTENCE?2u:1u;
  LiveCommandRequest old=engine.active.request;
- if(r4m_bridge) { memset(&old,0,sizeof(old));old.epoch=1;old.command.transaction_id=1;old.command.identity.command_code=13; }
- if(r4m_bridge) { REQUIRE(r4m_capture_bridge(&r4m_guard,&engine,r4m_archived_intent)); }
+ if(r4m_bridge) { memset(&old,0,sizeof(old));old.epoch=retired;old.command.transaction_id=1;old.command.identity.command_code=13; }
+ if(r4m_bridge) { REQUIRE(TR2_STM32_R4P_COEXISTENCE?r4p_capture_bridge(&r4m_guard,&engine,r4m_archived_intent):r4m_capture_bridge(&r4m_guard,&engine,r4m_archived_intent)); }
  else { REQUIRE(TR2_STM32_R4P_COEXISTENCE?r4p_capture(&r4m_guard,&engine):r4m_capture(&r4m_guard,&engine)); }
  if(!owner.acquisition.fifo.stopped)return TR2_ERROR_INVALID_STATE;
  if(!r4m_bridge) { r4_result.stage=20;REQUIRE(r4m_isolate_journal(&r4m_guard,&engine));
@@ -312,12 +320,13 @@ static Tr2Result qualify(uint32_t mode)
  r4_result.stage=2;REQUIRE(read_baseline());
  r4_result.stage=3;
 #if TR2_STM32_R4M_MAINTENANCE
- if((mode==4||mode==6)&&((mode==4?!readonly_r2:!r4m_bridge)||r4m_backup_token!=0x52344D42u))return TR2_ERROR_INVALID_STATE;
+ if((mode==4||mode==6||mode==8)&&((mode==4?!readonly_r2:!r4m_bridge)||r4m_backup_token!=0x52344D42u))return TR2_ERROR_INVALID_STATE;
  if(mode==5&&!r4m_final_snapshot)return TR2_ERROR_INVALID_STATE;
 #if TR2_STM32_R4P_COEXISTENCE
- if(mode!=4&&mode!=5)return TR2_ERROR_INVALID_STATE;
+ if(mode!=4&&mode!=5&&mode!=7&&mode!=8)return TR2_ERROR_INVALID_STATE;
+ if((mode==7||mode==8)&&!r4m_bridge)return TR2_ERROR_INVALID_STATE;
 #endif
- if(mode!=4&&mode!=5&&mode!=6)return TR2_ERROR_INVALID_STATE;
+ if(mode!=4&&mode!=5&&mode!=6&&mode!=7&&mode!=8)return TR2_ERROR_INVALID_STATE;
  r4m_backup_token=0;r4m_enabled=true;
 #else
  if(readonly_r2&&mode!=3)return TR2_ERROR_INVALID_STATE;
@@ -340,7 +349,7 @@ static Tr2Result qualify(uint32_t mode)
   REQUIRE(compare_protected());return TR2_OK;
  }
  /* Ownership grant is local to this explicitly triggered, verified allocation. */
- r4_result.ownership=mode!=3&&mode!=5;
+ r4_result.ownership=mode!=3&&mode!=5&&mode!=7;
  TransactionalImagePhysicalStorage storage={NULL,read_physical,write_physical};
  TransactionalImageGeometry geometry=transactional_image_geometry_qualification_profile();
  static const PersistentIdentityAssignment assignment={ {0x004A003D,0x38425018,0x20333157},1};
@@ -370,7 +379,15 @@ static Tr2Result qualify(uint32_t mode)
  owner.acquisition.engine=&engine; /* Raw qualification only: B3 remains unbound. */
  REQUIRE(live_command_engine_boot(&engine));
 #if TR2_STM32_R4M_MAINTENANCE
- if(mode==4||mode==6)return maintenance_sequence(&port);
+ if(mode==4||mode==6||mode==8)return maintenance_sequence(&port);
+#if TR2_STM32_R4P_COEXISTENCE
+ if(mode==7) {
+  if(engine.indeterminate||engine.has_active||engine.has_last||store.epoch.current!=2||
+     store.effect.run_id!=2||owner.acquisition.fifo.running||!owner.acquisition.fifo.stopped||r4_result.write_bytes)
+   return TR2_ERROR_INVALID_STATE;
+  REQUIRE(compare_protected());snapshot();return TR2_OK;
+ }
+#endif
  if(mode==5) {
   if(engine.indeterminate||engine.has_active||store.epoch.current!=(TR2_STM32_R4P_COEXISTENCE?4u:3u)||configuration.active.config_id!=3||
      !engine.has_last||engine.last.request.command.identity.command_code!=13||engine.last.request.command.transaction_id!=4||
@@ -419,7 +436,7 @@ __attribute__((noreturn)) void stm32_r4_benchmark_run(SPI_HandleTypeDef *spi1,SP
  /* Every reset is CLOSED and WAIT. The bridge hash is deliberately NOT accepted
   * for another run: interrupted maintenance requires inspection, never a loop. */
 #if TR2_STM32_R4P_COEXISTENCE
- while(r4_trigger!=0x52340004u&&r4_trigger!=0x52340005u){(void)now_us(NULL);HAL_Delay(1);}
+ while(r4_trigger!=0x52340004u&&r4_trigger!=0x52340005u&&r4_trigger!=0x52340007u&&r4_trigger!=0x52340008u){(void)now_us(NULL);HAL_Delay(1);}
 #else
  while(r4_trigger!=0x52340004u&&r4_trigger!=0x52340005u&&r4_trigger!=0x52340006u){(void)now_us(NULL);HAL_Delay(1);}
 #endif

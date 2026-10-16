@@ -20,4 +20,5 @@ Tr2Result r4m_open_after_renew(R4mMaintenance *,const LiveCommandEngine *);
 
 /* R4P exact epoch2/run2 snapshot only, caller also verifies full FRAM SHA. */
 Tr2Result r4p_capture(R4mMaintenance *,const LiveCommandEngine *);
+Tr2Result r4p_capture_bridge(R4mMaintenance *,const LiveCommandEngine *,const uint8_t archived_intent[128]);
 #endif
