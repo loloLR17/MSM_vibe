@@ -89,23 +89,701 @@
         "stage": 20,
         "status": 0
       }
+    ]
+  },
+  "physical_mode8": {
+    "r4_result": {
+      "stage": 10,
+      "error": 0,
+      "line": 0,
+      "command": 8,
+      "ownership": 0,
+      "read_passes": 1,
+      "commands": 6,
+      "core_hz": 160000000,
+      "spi1_hz": 2500000,
+      "spi3_hz": 4000000,
+      "tick_start": 6226,
+      "tick_end": 302399,
+      "max_read_us": 132,
+      "max_write_us": 164,
+      "max_gap_us": 822,
+      "last_poll_us": 302398138,
+      "safety_us": 235,
+      "first_data_us": 6027487,
+      "start_us": 26350722,
+      "read_bytes": 10470252,
+      "write_bytes": 1310650,
+      "xyz": 1028814,
+      "timestamps": 128602,
+      "polls": 550976,
+      "elapsed_us": 302399084,
+      "max_level": 25,
+      "fifo_error": 0,
+      "stop_error": 0,
+      "engine_status": 4,
+      "engine_result": 0,
+      "protected_equal": 1,
+      "baseline_equal": 1
+    },
+    "work": {
+      "last_us": 302398488,
+      "max_work_us": 913,
+      "max_service_us": 566,
+      "checkpoints": 1196902,
+      "work_limit_us": 1000,
+      "service_limit_us": 2500,
+      "quantum_bytes": 32,
+      "depth": 0,
+      "servicing": false,
+      "seen": true,
+      "deadline_missed": false
+    },
+    "r4m_guard": "$3 = {epoch_floor = 2, run_floor = 2, intent = \"TR2E\\000\\001\\000@\\000\\000\\000\\000\\000\\000\\000\\003\\000\\000\\000\\002\\000\\001\\000\\r\\000\\000\\000\\000\\000\\000\\000\\002\\000\\000\\000\\002\\000\\000\\000\\002\\000\\001\", '\\000' <repeats 18 times>, \"\\036\ufffd4\\235TR2E\\000\\001\\000@\\000\\000\\000\\000\\000\\000\\000\\004\\000\\000\\000\\002\\000\\001\\000\\r\\000\\000\\000\\000\\000\\000\\000\\002\\000\\000\\000\\002\\000\\000\\000\\002\\000\\001\", '\\000' <repeats 18 times>, \"\u00a5\ufffd\ufffd\", phase = 0}",
+    "r4m_range_count": 75,
+    "r4m_op_count": 6,
+    "r4m_old_rejected": 24,
+    "r4m_protected_checks": 2,
+    "r4m_protected_bytes": 278528,
+    "r4m_cs_closed": 40975,
+    "r4m_fifo_max_all": 25,
+    "r4m_xyz_all": 6454507,
+    "r4m_ts_all": 806814,
+    "r4m_stop_max_us": 238,
+    "r4m_stop_end_us": 302398737,
+    "r4m_fault_seen_us": 302398495,
+    "r4m_fault_reaction_us": 242,
+    "bench_log_refused": 0,
+    "bench_preclose_overflow": 0,
+    "engine": "$19 = {store = 0x2008db90 <store>, acquisition = {context = 0x20090330 <owner>, start = 0x800f71d <guarded_start>, stop = 0x800f7c1 <timed_stop>, observe = 0x800e259 <observe>, io_admissible = 0x800e2ef <budget>, terminal_time = 0x0}, state = LIVE_FAULT, active = {generation = 0, request = {epoch = 0, command = {transaction_id = 0, identity = {command_code = 0, param1 = 0, param2 = 0, param3 = 0, confirm_key = 0}}}, phase = 0, status = 0, result = 0, detail = 0, timestamp = {available = false, value = 0}, run_id = 0, config_id = 0, config_generation = 0, effect_state = 0}, last = {generation = 24, request = {epoch = 4, command = {transaction_id = 4, identity = {command_code = 13, param1 = 0, param2 = 0, param3 = 0, confirm_key = 0}}}, phase = 3, status = 4, result = 0, detail = 0, timestamp = {available = false, value = 0}, run_id = 4, config_id = 3, config_generation = 3, effect_state = 2}, prepared = {generation = 0, config_id = 3, supplied_crc = 426994983, payload = {sampling_frequency_hz = 26667, axes_enable_mask = 7, full_scale_code = 0, acquisition_mode = 2, window_size_samples = 4096, indicator_period_ms = 2000, campaign_duration_s = 0, storage_mode = 0, storage_limit_mb = 0, supervision_enable_mask = 1, rms_warn_threshold_mg = 0, rms_alarm_threshold_mg = 1000, peak_warn_threshold_mg = 0, peak_alarm_threshold_mg = 2000, threshold_hysteresis_mg = 0, alarm_hold_time_ms = 0, campaign_context_id = 1, mission_id = 4, campaign_label = \"R4-BENCH\", '\\000' <repeats 23 times>, mission_label = \"FRAM-FIFO\", '\\000' <repeats 22 times>, operating_mode_code = 0, navigation_zone_code = 0, load_state_code = 0, sea_state_code = 0}}, captured_prepared = {generation = 0, config_id = 3, supplied_crc = 426994983, payload = {sampling_frequency_hz = 26667, axes_enable_mask = 7, full_scale_code = 0, acquisition_mode = 2, window_size_samples = 4096, indicator_period_ms = 2000, campaign_duration_s = 0, storage_mode = 0, storage_limit_mb = 0, supervision_enable_mask = 1, rms_warn_threshold_mg = 0, rms_alarm_threshold_mg = 1000, peak_warn_threshold_mg = 0, peak_alarm_threshold_mg = 2000, threshold_hysteresis_mg = 0, alarm_hold_time_ms = 0, campaign_context_id = 1, mission_id = 4, campaign_label = \"R4-BENCH\", '\\000' <repeats 23 times>, mission_label = \"FRAM-FIFO\", '\\000' <repeats 22 times>, operating_mode_code = 0, navigation_zone_code = 0, load_state_code = 0, sea_state_code = 0}}, mailbox = {0, 0, 0, 0, 0, 0, 0, 0}, mailbox_epoch = 0, status = 4, result = 0, detail = 0, epoch_status = 1, has_active = false, has_last = true, indeterminate = false, booted = true, prepared_present = true, blocking_fault = true, maintenance = false, campaign_active = false, fault_context = 0x0, fault_observer = 0x0}",
+    "store.epoch": "$20 = {generation = 7, current = 4, previous = 3, renew_txid = 65535, flags = 0, transition = 11}",
+    "store.effect": "$21 = {generation = 13, epoch = 4, txid = 4, code = 13, run_id = 4, config_id = 3, config_generation = 3, phase = 2}",
+    "configuration.active": "$22 = {generation = 3, config_id = 3, revision_counter = 3, payload = {sampling_frequency_hz = 26667, axes_enable_mask = 7, full_scale_code = 0, acquisition_mode = 2, window_size_samples = 4096, indicator_period_ms = 2000, campaign_duration_s = 0, storage_mode = 0, storage_limit_mb = 0, supervision_enable_mask = 1, rms_warn_threshold_mg = 0, rms_alarm_threshold_mg = 1000, peak_warn_threshold_mg = 0, peak_alarm_threshold_mg = 2000, threshold_hysteresis_mg = 0, alarm_hold_time_ms = 0, campaign_context_id = 1, mission_id = 4, campaign_label = \"R4-BENCH\", '\\000' <repeats 23 times>, mission_label = \"FRAM-FIFO\", '\\000' <repeats 22 times>, operating_mode_code = 0, navigation_zone_code = 0, load_state_code = 0, sea_state_code = 0}}",
+    "owner.acquisition.fifo": "$23 = {ctx = {write_reg = 0x800ce8b <platform_write>, read_reg = 0x800ce5d <platform_read>, mdelay = 0x8006541 <HAL_Delay>, handle = 0x200003d0 <hspi3>, priv_data = 0x0}, parser = {target_xyz = 0, received = 0, xyz = 10, timestamps = 1, polls = 1, bursts = 0, first_tick = 0, last_tick = 0, max_level = 25, last_level = 6, flags_or = 0, reason = 0, previous_counter = 1, counter_valid = 1, previous_ts = 19908962, ts_valid = 1, since_ts = 6}, words = \"\\021\\t\ufffd\\231\ufffd\ufffd\ufffd\\022z\ufffd]\ufffdF\ufffd\\024\ufffd\ufffd\\210\ufffdc\ufffd\\027d\ufffd\\217\ufffd\\\\\ufffd!b\ufffd/\\001\\000\\n\\021\\002\ufffd\ufffd\ufffd\ufffd\ufffd\\022r\ufffd\ufffd\ufffd\ufffd\ufffd\\024\ufffd\ufffd\ufffd\ufffd&\ufffd\\027\ufffd\ufffd?\ufffd\ufffd\ufffd\\021\ufffd\u00a8\ufffd\ufffd\ufffd\\022(\ufffd\ufffd\ufffd\ufffd\ufffd\\022z\ufffd\ufffd\ufffd\ufffd\ufffd\\021N\ufffd\\210\ufffd\ufffd\ufffd\\022\ufffd\ufffd\ufffd\ufffdT\ufffd\\024\ufffd\u0082\ufffd\\024\ufffd\\027\ufffd\u00de\ufffd\ufffd\ufffd!\\022\ufffd/\\001\\000\\n\\021\ufffd\ufffdN\ufffd:\ufffd!b\ufffd,\\001\\000\\n\\021>\ufffd\\020\ufffd\ufffd\ufffd\\022\\002\ufffd?\ufffd\ufffd\ufffd\\024M\ufffdl\ufffd\ufffd\ufffd!B\ufffd,\\001\\000\\n\\021\ufffd\ufffd\ufffd\ufffd\\000\ufffd\\022 \ufffd\\v\ufffdT\ufffd\", '\\000' <repeats 720 times>, run_id = 4, total_xyz = 1028814, total_ts = 128602, last_ms = 302398, last_data_ms = 302398, config_id = 3, config_generation = 3, max_gap_ms = 5, first_data_timeout_ms = 20, axes = 7, full_scale = 0, cleanup_begin = 0x800cad9 <cleanup_begin>, consume = 0x800ecc1 <consume>, consumer = 0x0, error = 0, stop_error = 0, initialized = true, running = false, stopped = true}",
+    "*r4m_ranges@r4m_range_count": [
+      {
+        "at": 131136,
+        "bytes": 52298,
+        "commands": 1635,
+        "stage": 21,
+        "status": 0
+      },
+      {
+        "at": 131072,
+        "bytes": 64,
+        "commands": 2,
+        "stage": 21,
+        "status": 0
+      },
+      {
+        "at": 122880,
+        "bytes": 64,
+        "commands": 2,
+        "stage": 21,
+        "status": 0
+      },
+      {
+        "at": 188480,
+        "bytes": 52298,
+        "commands": 1635,
+        "stage": 21,
+        "status": 0
+      },
+      {
+        "at": 188416,
+        "bytes": 64,
+        "commands": 2,
+        "stage": 21,
+        "status": 0
+      },
+      {
+        "at": 126976,
+        "bytes": 64,
+        "commands": 2,
+        "stage": 21,
+        "status": 0
+      },
+      {
+        "at": 131136,
+        "bytes": 52298,
+        "commands": 1635,
+        "stage": 21,
+        "status": 0
+      },
+      {
+        "at": 131072,
+        "bytes": 64,
+        "commands": 2,
+        "stage": 21,
+        "status": 0
+      },
+      {
+        "at": 122880,
+        "bytes": 64,
+        "commands": 2,
+        "stage": 21,
+        "status": 0
+      },
+      {
+        "at": 188480,
+        "bytes": 52298,
+        "commands": 1635,
+        "stage": 21,
+        "status": 0
+      },
+      {
+        "at": 188416,
+        "bytes": 64,
+        "commands": 2,
+        "stage": 21,
+        "status": 0
+      },
+      {
+        "at": 126976,
+        "bytes": 64,
+        "commands": 2,
+        "stage": 21,
+        "status": 0
+      },
+      {
+        "at": 131136,
+        "bytes": 52298,
+        "commands": 1635,
+        "stage": 22,
+        "status": 0
+      },
+      {
+        "at": 131072,
+        "bytes": 64,
+        "commands": 2,
+        "stage": 22,
+        "status": 0
+      },
+      {
+        "at": 122880,
+        "bytes": 64,
+        "commands": 2,
+        "stage": 22,
+        "status": 0
+      },
+      {
+        "at": 188480,
+        "bytes": 52298,
+        "commands": 1635,
+        "stage": 22,
+        "status": 0
+      },
+      {
+        "at": 188416,
+        "bytes": 64,
+        "commands": 2,
+        "stage": 22,
+        "status": 0
+      },
+      {
+        "at": 126976,
+        "bytes": 64,
+        "commands": 2,
+        "stage": 22,
+        "status": 0
+      },
+      {
+        "at": 131136,
+        "bytes": 52298,
+        "commands": 1635,
+        "stage": 22,
+        "status": 0
+      },
+      {
+        "at": 131072,
+        "bytes": 64,
+        "commands": 2,
+        "stage": 22,
+        "status": 0
+      },
+      {
+        "at": 122880,
+        "bytes": 64,
+        "commands": 2,
+        "stage": 22,
+        "status": 0
+      },
+      {
+        "at": 188480,
+        "bytes": 52298,
+        "commands": 1635,
+        "stage": 22,
+        "status": 0
+      },
+      {
+        "at": 188416,
+        "bytes": 64,
+        "commands": 2,
+        "stage": 22,
+        "status": 0
+      },
+      {
+        "at": 126976,
+        "bytes": 64,
+        "commands": 2,
+        "stage": 22,
+        "status": 0
+      },
+      {
+        "at": 131136,
+        "bytes": 52298,
+        "commands": 1635,
+        "stage": 23,
+        "status": 0
+      },
+      {
+        "at": 131072,
+        "bytes": 64,
+        "commands": 2,
+        "stage": 23,
+        "status": 0
+      },
+      {
+        "at": 122880,
+        "bytes": 64,
+        "commands": 2,
+        "stage": 23,
+        "status": 0
+      },
+      {
+        "at": 188480,
+        "bytes": 52298,
+        "commands": 1635,
+        "stage": 23,
+        "status": 0
+      },
+      {
+        "at": 188416,
+        "bytes": 64,
+        "commands": 2,
+        "stage": 23,
+        "status": 0
+      },
+      {
+        "at": 126976,
+        "bytes": 64,
+        "commands": 2,
+        "stage": 23,
+        "status": 0
+      },
+      {
+        "at": 131136,
+        "bytes": 52298,
+        "commands": 1635,
+        "stage": 23,
+        "status": 0
+      },
+      {
+        "at": 131072,
+        "bytes": 64,
+        "commands": 2,
+        "stage": 23,
+        "status": 0
+      },
+      {
+        "at": 122880,
+        "bytes": 64,
+        "commands": 2,
+        "stage": 23,
+        "status": 0
+      },
+      {
+        "at": 188480,
+        "bytes": 52298,
+        "commands": 1635,
+        "stage": 23,
+        "status": 0
+      },
+      {
+        "at": 188416,
+        "bytes": 64,
+        "commands": 2,
+        "stage": 23,
+        "status": 0
+      },
+      {
+        "at": 126976,
+        "bytes": 64,
+        "commands": 2,
+        "stage": 23,
+        "status": 0
+      },
+      {
+        "at": 131136,
+        "bytes": 52298,
+        "commands": 1635,
+        "stage": 25,
+        "status": 0
+      },
+      {
+        "at": 131072,
+        "bytes": 64,
+        "commands": 2,
+        "stage": 25,
+        "status": 0
+      },
+      {
+        "at": 122880,
+        "bytes": 64,
+        "commands": 2,
+        "stage": 25,
+        "status": 0
+      },
+      {
+        "at": 188480,
+        "bytes": 52298,
+        "commands": 1635,
+        "stage": 25,
+        "status": 0
+      },
+      {
+        "at": 188416,
+        "bytes": 64,
+        "commands": 2,
+        "stage": 25,
+        "status": 0
+      },
+      {
+        "at": 126976,
+        "bytes": 64,
+        "commands": 2,
+        "stage": 25,
+        "status": 0
+      },
+      {
+        "at": 131136,
+        "bytes": 52298,
+        "commands": 1635,
+        "stage": 25,
+        "status": 0
+      },
+      {
+        "at": 131072,
+        "bytes": 64,
+        "commands": 2,
+        "stage": 25,
+        "status": 0
+      },
+      {
+        "at": 122880,
+        "bytes": 64,
+        "commands": 2,
+        "stage": 25,
+        "status": 0
+      },
+      {
+        "at": 188480,
+        "bytes": 52298,
+        "commands": 1635,
+        "stage": 25,
+        "status": 0
+      },
+      {
+        "at": 188416,
+        "bytes": 64,
+        "commands": 2,
+        "stage": 25,
+        "status": 0
+      },
+      {
+        "at": 126976,
+        "bytes": 64,
+        "commands": 2,
+        "stage": 25,
+        "status": 0
+      },
+      {
+        "at": 131136,
+        "bytes": 52298,
+        "commands": 1635,
+        "stage": 26,
+        "status": 0
+      },
+      {
+        "at": 131072,
+        "bytes": 64,
+        "commands": 2,
+        "stage": 26,
+        "status": 0
+      },
+      {
+        "at": 122880,
+        "bytes": 64,
+        "commands": 2,
+        "stage": 26,
+        "status": 0
+      },
+      {
+        "at": 188480,
+        "bytes": 52298,
+        "commands": 1635,
+        "stage": 26,
+        "status": 0
+      },
+      {
+        "at": 188416,
+        "bytes": 64,
+        "commands": 2,
+        "stage": 26,
+        "status": 0
+      },
+      {
+        "at": 126976,
+        "bytes": 64,
+        "commands": 2,
+        "stage": 26,
+        "status": 0
+      },
+      {
+        "at": 131136,
+        "bytes": 52298,
+        "commands": 1635,
+        "stage": 26,
+        "status": 0
+      },
+      {
+        "at": 131072,
+        "bytes": 64,
+        "commands": 2,
+        "stage": 26,
+        "status": 0
+      },
+      {
+        "at": 122880,
+        "bytes": 64,
+        "commands": 2,
+        "stage": 26,
+        "status": 0
+      },
+      {
+        "at": 188480,
+        "bytes": 52298,
+        "commands": 1635,
+        "stage": 26,
+        "status": 0
+      },
+      {
+        "at": 188416,
+        "bytes": 64,
+        "commands": 2,
+        "stage": 26,
+        "status": 0
+      },
+      {
+        "at": 126976,
+        "bytes": 64,
+        "commands": 2,
+        "stage": 26,
+        "status": 0
+      },
+      {
+        "at": 131136,
+        "bytes": 52298,
+        "commands": 1635,
+        "stage": 26,
+        "status": 0
+      },
+      {
+        "at": 131072,
+        "bytes": 64,
+        "commands": 2,
+        "stage": 26,
+        "status": 0
+      },
+      {
+        "at": 122880,
+        "bytes": 64,
+        "commands": 2,
+        "stage": 26,
+        "status": 0
+      },
+      {
+        "at": 188480,
+        "bytes": 52298,
+        "commands": 1635,
+        "stage": 27,
+        "status": 0
+      },
+      {
+        "at": 188416,
+        "bytes": 64,
+        "commands": 2,
+        "stage": 27,
+        "status": 0
+      },
+      {
+        "at": 126976,
+        "bytes": 64,
+        "commands": 2,
+        "stage": 27,
+        "status": 0
+      },
+      {
+        "at": 131136,
+        "bytes": 52298,
+        "commands": 1635,
+        "stage": 27,
+        "status": 0
+      },
+      {
+        "at": 131072,
+        "bytes": 64,
+        "commands": 2,
+        "stage": 27,
+        "status": 0
+      },
+      {
+        "at": 122880,
+        "bytes": 64,
+        "commands": 2,
+        "stage": 27,
+        "status": 0
+      },
+      {
+        "at": 188480,
+        "bytes": 52298,
+        "commands": 1635,
+        "stage": 27,
+        "status": 0
+      },
+      {
+        "at": 188416,
+        "bytes": 64,
+        "commands": 2,
+        "stage": 27,
+        "status": 0
+      },
+      {
+        "at": 126976,
+        "bytes": 64,
+        "commands": 2,
+        "stage": 27,
+        "status": 0
+      },
+      {
+        "at": 131136,
+        "bytes": 52298,
+        "commands": 1635,
+        "stage": 27,
+        "status": 0
+      },
+      {
+        "at": 131072,
+        "bytes": 64,
+        "commands": 2,
+        "stage": 27,
+        "status": 0
+      },
+      {
+        "at": 122880,
+        "bytes": 64,
+        "commands": 2,
+        "stage": 27,
+        "status": 0
+      }
+    ],
+    "*r4m_operations@r4m_op_count": [
+      {
+        "epoch": 2,
+        "txid": 65535,
+        "code": 12,
+        "status": 4,
+        "result": 0,
+        "begin_us": 14321520,
+        "end_us": 26350688,
+        "xyz": 0,
+        "run_id": 0,
+        "max_level": 0,
+        "duration_us": 12029168
+      },
+      {
+        "epoch": 3,
+        "txid": 1,
+        "code": 13,
+        "status": 4,
+        "result": 0,
+        "begin_us": 26350725,
+        "end_us": 68393870,
+        "xyz": 956971,
+        "run_id": 3,
+        "max_level": 25,
+        "duration_us": 42043145
+      },
+      {
+        "epoch": 3,
+        "txid": 65535,
+        "code": 12,
+        "status": 4,
+        "result": 0,
+        "begin_us": 68393874,
+        "end_us": 140511184,
+        "xyz": 2873147,
+        "run_id": 3,
+        "max_level": 25,
+        "duration_us": 72117310
+      },
+      {
+        "epoch": 4,
+        "txid": 2,
+        "code": 14,
+        "status": 4,
+        "result": 0,
+        "begin_us": 200512173,
+        "end_us": 242594812,
+        "xyz": 5425693,
+        "run_id": 3,
+        "max_level": 25,
+        "duration_us": 42082639
+      },
+      {
+        "epoch": 4,
+        "txid": 3,
+        "code": 1,
+        "status": 4,
+        "result": 0,
+        "begin_us": 242595212,
+        "end_us": 257645263,
+        "xyz": 5425693,
+        "run_id": 3,
+        "max_level": 25,
+        "duration_us": 15050051
+      },
+      {
+        "epoch": 4,
+        "txid": 4,
+        "code": 13,
+        "status": 4,
+        "result": 0,
+        "begin_us": 257645267,
+        "end_us": 299711282,
+        "xyz": 957412,
+        "run_id": 4,
+        "max_level": 25,
+        "duration_us": 42066015
+      }
     ],
     "write_audit": {
       "all_in_LIVE": true,
       "all_status_zero": true,
-      "bytes": 52426,
-      "commands": 1639
+      "bytes": 1310650,
+      "commands": 40975
     },
     "physical_limits": {
-      "work_pass": false,
+      "work_pass": true,
       "service_pass": true,
       "gap_pass": true,
-      "no_deadline": false
+      "no_deadline": true
     },
     "write_audit_complete": true,
-    "run60_observed_us": null
+    "run60_observed_us": 60000989,
+    "protected_scan_complete": true
   },
-  "overall_phase_C_pass": false,
+  "overall_phase_C_pass": true,
   "flash-before.bin": {
     "bytes": 2097152,
     "sha256": "c5bc344d64984c48c3e34b05fa9432c9c124e8b67428eb0eef22c0d62ddf5b26"
@@ -114,5 +792,29 @@
     "bytes": 262144,
     "sha256": "f2bd7a99d3d0e9f17292310f2cec51fe3a3f521ba3a4d2f07da5b6302258a0c1"
   },
-  "utc": "2026-10-16T13:02:05.546936+00:00"
+  "fram-after-physical.bin": {
+    "bytes": 262144,
+    "sha256": "713a953384f2688f8448989ba706bf0dcef33ace3f177a1ee90fa5eb63713ba0"
+  },
+  "fram-after-readonly.bin": {
+    "bytes": 262144,
+    "sha256": "713a953384f2688f8448989ba706bf0dcef33ace3f177a1ee90fa5eb63713ba0"
+  },
+  "fram-after-resume.bin": {
+    "bytes": 262144,
+    "sha256": "a13b3401c5ec93ec278e0b35ad2ad1fe38f42755dcc93ef61ce1b29f09aa2ef9"
+  },
+  "fram-after-reboot.bin": {
+    "bytes": 262144,
+    "sha256": "a13b3401c5ec93ec278e0b35ad2ad1fe38f42755dcc93ef61ce1b29f09aa2ef9"
+  },
+  "flash-restored.bin": {
+    "bytes": 2097152,
+    "sha256": "c5bc344d64984c48c3e34b05fa9432c9c124e8b67428eb0eef22c0d62ddf5b26"
+  },
+  "fram-after-restoration.bin": {
+    "bytes": 262144,
+    "sha256": "a13b3401c5ec93ec278e0b35ad2ad1fe38f42755dcc93ef61ce1b29f09aa2ef9"
+  },
+  "utc": "2026-10-16T13:20:11.786055+00:00"
 }

@@ -1,0 +1,12 @@
+Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261016-R4P/hardware/r4p-corrected-flash.log:2: trailing whitespace.
++                       STM32CubeProgrammer v2.23.0                  
+Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261016-R4P/hardware/r4p-corrected-flash.log:22: trailing whitespace.
++        Choose flashing speed for Cortex M33 series.(default speed=Reliable)                  
+Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261016-R4P/hardware/r4p-corrected-flash.log:32: trailing whitespace.
++  Size          : 110.47 KB 
+Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261016-R4P/resume-check.log:2: trailing whitespace.
+++                       STM32CubeProgrammer v2.23.0                  
+Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261016-R4P/resume-check.log:4: trailing whitespace.
+++        Choose flashing speed for Cortex M33 series.(default speed=Reliable)                  
+Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261016-R4P/resume-check.log:6: trailing whitespace.
+++  Size          : 110.12 KB 

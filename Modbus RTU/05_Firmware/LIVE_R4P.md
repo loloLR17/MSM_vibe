@@ -91,3 +91,27 @@ seconde isolation**. Trigger6 reste désactivé, aucune reprise automatique au b
 La correction est testée/compilée avant ce contrôle readonly ; la reprise d'écriture
 n'a lieu qu'après démonstration que le dépassement est maîtrisé. Tout nouveau
 STARTED indéterminé arrête la campagne, sans nouvelle exception ni nettoyage.
+
+
+## Résultat physique du 16/10/2026 — code9f429e5
+
+Trigger7 readonly PASS,0write/snapshot713a inchangé/work342us. Trigger8 démarre
+le vrai RENEW2->3 sans réisolation puis six commandes terminales4/0 : START3/run3,
+RENEW3->4 sousFIFO, RUN60,000989s, STOP/APPLYconfig3/START4/run4. Work913us,
+service566us/gap822us,6454507XYZ/806814TS sur les deux runs, niveau25, aucune
+erreur FIFO/stop signalée ;1310650octets/40975commandes physiques/75plages LIVE,
+CSfermés40975fois. Deux scans complets278528octets protégés. Première isolation
+séparée52426octets/1639commandes, jamais répétée. L'échec1075us reste archivé.
+
+Faute logicielle de service8 post-COMPLETED : STOP235us, réaction242us,
+aucune écriture supplémentaire, pas de nouveau STARTED indéterminé. STOP métier
+portmax238us ; durée transactionnelle STOP42,082639s inclut les barrières.
+Snapshot cible finala13b3401c5ec93ec278e0b35ad2ad1fe38f42755dcc93ef61ce1b29f09aa2ef9
+byte-identique à l'oracle (jamais écrit sur cible), racine37/epoch4/run4/config3.
+Reset logiciel/recoveryreadonly PASS,0write/0autostart, snapshot intégral inchangé.
+Flash initiale2Mio restaurée exactec5bc344d…f5b26, FRAM finale conservéea13b…a2ef9.
+
+Ces observations satisfont le périmètre borné R4-P ; pas qualification indépendante
+ChatGPT/R4globale/R6, ni power-cycle, WCET en faute électrique, providerB3 ou
+communicationRTU validés. Premiermot6027487us mesuré depuis admission inclut
+commitspré-effet, ce n'est pas un Ton capteur. Voir rapport/preuves de mission.

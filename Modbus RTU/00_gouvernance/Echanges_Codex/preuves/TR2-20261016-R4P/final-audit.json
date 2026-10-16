@@ -1,0 +1,6 @@
+{
+  "result": "PASS",
+  "checks": "six exact R2 commands; 60s; old key rejected; postterminal software fault; causal stop; budgets; complete write/CS/protected audit; metadata CRC and exact full snapshots; no new indeterminate; no auto-start; Flash restored without FRAM rewind",
+  "different_fram_bytes": 411,
+  "utc": "2026-10-16T13:20:34.954905+00:00"
+}

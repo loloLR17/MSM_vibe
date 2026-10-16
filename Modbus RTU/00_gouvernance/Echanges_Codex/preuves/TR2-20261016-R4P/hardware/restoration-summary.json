@@ -1,0 +1,15 @@
+{
+  "result": "PASS",
+  "flash_full_2MiB_exact": true,
+  "flash_sha256": "c5bc344d64984c48c3e34b05fa9432c9c124e8b67428eb0eef22c0d62ddf5b26",
+  "fram_unchanged_during_restoration": true,
+  "historical_and_tail_equal": true,
+  "fram_sha256": "a13b3401c5ec93ec278e0b35ad2ad1fe38f42755dcc93ef61ce1b29f09aa2ef9",
+  "programmed_bytes": 114688,
+  "pages": 14,
+  "fram_restoration_writes": 0,
+  "option_bytes_changed": false,
+  "mass_erase": false,
+  "final_state": "Inherited M016 CommissioningReadOnly waiting, debugger detached; no cumulative LIVE firmware",
+  "utc": "2026-10-16T13:18:20.112688+00:00"
+}

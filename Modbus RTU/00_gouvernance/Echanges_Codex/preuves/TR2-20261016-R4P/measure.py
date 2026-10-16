@@ -26,7 +26,8 @@ if 'physical_mode8' in r:
  a['physical_limits']=dict(work_pass=w.get('max_work_us',1001)<=1000,service_pass=w.get('max_service_us',2501)<=2500,gap_pass=v.get('max_gap_us',5001)<=5000,no_deadline=not w.get('deadline_missed',True))
  a['write_audit_complete']=audit['bytes']==v.get('write_bytes') and audit['commands']==a.get('r4m_cs_closed') and audit['all_in_LIVE'] and audit['all_status_zero']
  a['run60_observed_us']=ops[3]['begin_us']-ops[2]['end_us'] if len(ops)>3 else None
- r['overall_phase_C_pass']=r['overall_phase_C_pass'] and all(a['physical_limits'].values()) and a['write_audit_complete'] and v.get('fifo_error')==0 and v.get('stop_error')==0 and a.get('r4m_xyz_all',0)>0
+ a['protected_scan_complete']=a.get('r4m_protected_checks',0)>=2 and a.get('r4m_protected_bytes')==a.get('r4m_protected_checks',0)*139264 and v.get('protected_equal')==1
+ r['overall_phase_C_pass']=r['overall_phase_C_pass'] and a['protected_scan_complete'] and all(a['physical_limits'].values()) and a['write_audit_complete'] and v.get('fifo_error')==0 and v.get('stop_error')==0 and a.get('r4m_xyz_all',0)>0
 for f in ['flash-before.bin' ,'fram-before.bin','fram-after-physical.bin','fram-after-readonly.bin','fram-after-resume.bin','fram-bridge-second-read.bin','fram-after-resume.bin','fram-after-reboot.bin','flash-restored.bin','fram-after-restoration.bin']:
  if (p/f).exists():r[f]=dict(bytes=(p/f).stat().st_size,sha256=hashlib.sha256((p/f).read_bytes()).hexdigest())
 r['utc']=datetime.datetime.now(datetime.timezone.utc).isoformat();(local/'measurements.json').write_text(json.dumps(r,indent=2)+'\n');print(json.dumps({k:v for k,v in r.items() if k not in ['physical_mode4','physical_mode4']},indent=2))
