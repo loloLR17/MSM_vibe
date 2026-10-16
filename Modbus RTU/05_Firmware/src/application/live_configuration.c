@@ -110,6 +110,7 @@ static Tr2Result recover_configuration(LiveConfiguration *s)
     for(i=0u;i<2u;++i) {
         const uint8_t *p=s->live->candidate+140u*i;
         Tr2Result result;
+        result=tr2_cooperative_checkpoint(s->live->work);if(result!=TR2_OK)return result;
         if(blank(p,140u)) continue;
         versions[i]=get16(p+4);
         if(versions[i]==2u) result=tr2_configuration_record_decode_live(p,140u,&slots[i]);
@@ -122,6 +123,7 @@ static Tr2Result recover_configuration(LiveConfiguration *s)
                 continue;
             return result;
         }
+        result=tr2_cooperative_checkpoint(s->live->work);if(result!=TR2_OK)return result;
         known[i]=true;
         if(slots[i].generation==0u||slots[i].config_id==0u) return TR2_ERROR_CORRUPTED;
         if(slots[i].revision_counter>s->last_revision) s->last_revision=slots[i].revision_counter;
@@ -177,6 +179,7 @@ static Tr2Result live_configuration_recover_impl(LiveConfiguration *s)
     if(result==TR2_OK) result=s->validate_control!=NULL?
         s->validate_control(s->control_context,s->live->candidate,TR2_LIVE_LOGICAL_SIZE):
         check_r1_control_boundary(s->live->candidate,s->live->work);
+    if(result==TR2_OK)result=tr2_cooperative_checkpoint(s->live->work);
     if(result==TR2_OK) result=persistent_identity_decode_live(
         s->live->candidate+TR2_PERSISTENT_IDENTITY_OFFSET,96u,&s->identity);
     if(result!=TR2_OK) return revoke(s,result);
@@ -189,6 +192,7 @@ static Tr2Result live_configuration_recover_impl(LiveConfiguration *s)
         memcmp(s->identity.identity.functional.serial_number,old.identity.functional.serial_number,16u)!=0||
         memcmp(s->identity.identity.functional.manufacturer,old.identity.functional.manufacturer,8u)!=0)
         return revoke(s,TR2_ERROR_INVALID_STATE);
+    result=tr2_cooperative_checkpoint(s->live->work);if(result!=TR2_OK)return revoke(s,result);
     result=recover_configuration(s);
     if(result!=TR2_OK) return revoke(s,result);
     s->mounted=true;return TR2_OK;

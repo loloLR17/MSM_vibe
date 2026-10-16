@@ -11,6 +11,9 @@ typedef struct {
  unsigned phase; /* 0 CLOSED, 1 CAPTURED, 2 RETIRING, 3 OPEN after genuine durable RENEW */
 } R4mMaintenance;
 Tr2Result r4m_capture(R4mMaintenance *,const LiveCommandEngine *);
+/* Explicit reviewed bridge resume only: caller must verify full snapshot SHA
+ * and authenticated archived intent. Never a generic boot recovery. */
+Tr2Result r4m_capture_bridge(R4mMaintenance *,const LiveCommandEngine *,const uint8_t archived_intent[128]);
 Tr2Result r4m_isolate_journal(R4mMaintenance *,LiveCommandEngine *);
 bool r4m_authorize(const R4mMaintenance *,const LiveCommandEngine *,const LiveCommandRequest *);
 Tr2Result r4m_open_after_renew(R4mMaintenance *,const LiveCommandEngine *);

@@ -117,6 +117,7 @@ static Tr2Result validate_control(void *context,const uint8_t *image,size_t size
     if(!empty||!uniform(image+51802u,16u,0))return TR2_ERROR_CORRUPTED;
     result=select_pair(image+51914u,64,&copy,s->configuration->live->work);if(result!=TR2_OK)return result;
     if(copy<0)return TR2_ERROR_NOT_AVAILABLE;
+    result=tr2_cooperative_checkpoint(s->configuration->live->work);if(result!=TR2_OK)return result;
     s->epoch_copy=(uint8_t)copy;result=decode_epoch(image+51914u+64u*(unsigned)copy,&s->epoch);if(result!=TR2_OK)return result;
     {
         const uint8_t *old=image+51914u+64u*(1u-s->epoch_copy);
@@ -124,6 +125,7 @@ static Tr2Result validate_control(void *context,const uint8_t *image,size_t size
             if(s->epoch.generation!=1u||s->epoch.current!=1u)return TR2_ERROR_CORRUPTED;
         } else {
             LiveEpochRecord previous;
+            result=tr2_cooperative_checkpoint(s->configuration->live->work);if(result!=TR2_OK)return result;
             result=decode_epoch(old,&previous);if(result!=TR2_OK)return result;
             if(s->epoch.generation==previous.generation) {
                 if(memcmp(old,image+51914u+64u*s->epoch_copy,64u))return TR2_ERROR_CORRUPTED;
@@ -134,8 +136,10 @@ static Tr2Result validate_control(void *context,const uint8_t *image,size_t size
                 return TR2_ERROR_CORRUPTED;
         }
     }
+    result=tr2_cooperative_checkpoint(s->configuration->live->work);if(result!=TR2_OK)return result;
     result=select_pair(image+52042u,64,&copy,s->configuration->live->work);if(result!=TR2_OK)return result;
     s->effect_copy=copy<0?1u:(uint8_t)copy;
+    result=tr2_cooperative_checkpoint(s->configuration->live->work);if(result!=TR2_OK)return result;
     if(copy>=0){result=decode_effect(image+52042u+64u*(unsigned)copy,&s->effect);if(result!=TR2_OK)return result;s->has_effect=true;}
     for(i=0;i<128;i++) {
         result=tr2_cooperative_checkpoint(s->configuration->live->work);if(result!=TR2_OK)return result;

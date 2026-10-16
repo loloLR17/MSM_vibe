@@ -109,3 +109,24 @@ peut être restaurée pour forensic uniquement, jamais pour réutiliser un epoch
 consommé ultérieurement : maintenir la quarantaine et faire arbitrer la réconciliation
 des bornes avant activation. Si la borne maximale est inconnue, rester fermé.
 Aucun mass erase, changement OptionBytes/RDP, écriture historique/tail ou SD.
+
+
+## Reprise explicite du pont après le premier essai R4-M
+
+Le premier essai a publié le journal isolé, puis s'est arrêté avant RENEW sur
+1075us >1000us pendant recovery. Aucun nouveau START ni epoch/run consommé.
+Snapshot intégral réel `c868950fe3c60f9a3b23a9ce8d565029ee57d4f06b08cbf6062de9238b2af950`,
+protégés identiques. La relecture seule a réussi ensuite (824us maximum) : cause
+précise non attribuée ; validations CRC/décodage successives ont des checkpoints
+supplémentaires, sans supprimer aucun contrôle ni augmenter les budgets.
+
+Un **nouveau plan explicite de reprise**, pas un retry de reprovisionnement,
+est borné à ce seul SHA intégral et au trigger6 distinct. Chaque boot reste
+CLOSED/WAIT. Le token exige sauvegardes vérifiées du pont. `r4m_capture_bridge`
+exige journal entièrement absent, epoch1/gen1/flags0, aucun actif/last/indéterminé,
+INTENT run1/config2/gen2 authentique, et copie128 byte-identique à l'archive initiale.
+Il arme RETIRING ; **aucune isolation/écriture de zéro n'est appelée**. Seul le
+vrai RENEW1->2 peut ensuite ouvrir la campagne. L'ancienne clé est reconstruite
+comme requête de contrôle négatif, jamais comme reçu. Une nouvelle indétermination
+impose l'arrêt, sans nouveau plan de nettoyage. Ce chemin n'est jamais automatique
+ni disponible dans le firmware produit ; il n'est valable que pour le banc fermé.

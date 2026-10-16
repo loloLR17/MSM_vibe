@@ -62,6 +62,11 @@ int main(int argc,char **argv)
  assert(live_command_engine_boot(&b->engine)==TR2_OK&&!b->engine.has_active&&b->store.has_effect&&b->store.effect.run_id==1);
  assert(!r4m_authorize(&b->guard,&b->engine,&old));
  uint8_t *bridge=malloc(262144);assert(bridge);memcpy(bridge,b->bytes,262144);
+ R4mMaintenance resumed,rejected_bridge;
+ assert(r4m_capture_bridge(&resumed,&b->engine,retiring.intent)==TR2_OK&&resumed.phase==2);
+ uint8_t altered[128];memcpy(altered,retiring.intent,128);altered[20]^=1;
+ assert(r4m_capture_bridge(&rejected_bridge,&b->engine,altered)!=TR2_OK&&!rejected_bridge.phase);
+ b->guard=resumed;
  LiveCommandRequest renew={0};renew.epoch=1;renew.command.transaction_id=65535;renew.command.identity.command_code=12;
  run(b,&renew);assert(r4m_open_after_renew(&b->guard,&b->engine)==TR2_OK);
  before=b->writes;assert(!r4m_authorize(&b->guard,&b->engine,&old));

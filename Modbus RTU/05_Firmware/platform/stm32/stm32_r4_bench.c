@@ -40,7 +40,9 @@ static uint32_t previous_cycles;
 static uint64_t elapsed_cycles;
 #if TR2_STM32_R4M_MAINTENANCE
 static const uint8_t r4m_final_sha[32]={0x1b,0xef,0xa9,0x5c,0x6b,0xe8,0xba,0xad,0xfc,0xe8,0xe3,0xfc,0x4f,0xd2,0x3d,0x5b,0xe1,0x0b,0xee,0x6b,0xa0,0x83,0x43,0xd2,0x08,0xec,0xfc,0xfe,0x44,0x07,0xb7,0x67};
-static bool r4m_final_snapshot,r4m_enabled,r4m_inject;
+static bool r4m_final_snapshot,r4m_enabled,r4m_inject,r4m_bridge;
+static const uint8_t r4m_bridge_sha[32]={0xc8,0x68,0x95,0x0f,0xe3,0xc6,0x0f,0x9a,0x3b,0x23,0xa9,0xce,0x8d,0x56,0x50,0x29,0xee,0x57,0xd4,0xf0,0x6b,0x08,0xcb,0xf6,0x06,0x2d,0xe9,0x23,0x8b,0x2a,0xf9,0x50};
+static const uint8_t r4m_archived_intent[128]={0x54,0x52,0x32,0x45,0x0,0x1,0x0,0x40,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x1,0x0,0x0,0x0,0x1,0x0,0x1,0x0,0xd,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x1,0x0,0x0,0x0,0x2,0x0,0x0,0x0,0x2,0x0,0x1,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0xc4,0xb9,0xbe,0x8a,0x54,0x52,0x32,0x45,0x0,0x1,0x0,0x40,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x2,0x0,0x0,0x0,0x1,0x0,0x1,0x0,0xd,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x1,0x0,0x0,0x0,0x2,0x0,0x0,0x0,0x2,0x0,0x1,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0xfb,0x72,0xc0,0x1f};
 static uint64_t r4m_fault_due;
 R4mMaintenance r4m_guard;
 static LiveAcquisitionPort r4m_real_port;
@@ -177,7 +179,8 @@ static Tr2Result read_baseline(void)
  resume_after_r1=!memcmp(digest,r1_sha,32)||readonly_r2;
 #if TR2_STM32_R4M_MAINTENANCE
  r4m_final_snapshot=!memcmp(digest,r4m_final_sha,32);
- resume_after_r1=resume_after_r1||r4m_final_snapshot;
+ r4m_bridge=!memcmp(digest,r4m_bridge_sha,32);
+ resume_after_r1=resume_after_r1||r4m_final_snapshot||r4m_bridge;
 #endif
  if(memcmp(digest,baseline_sha,32)&&!resume_after_r1)return TR2_ERROR_STORAGE;
  r4_result.baseline_equal=1;r4_result.read_passes++;return TR2_OK;
@@ -246,10 +249,13 @@ static Tr2Result command(uint32_t epoch,uint16_t txid,uint16_t code)
 static Tr2Result maintenance_sequence(const LiveAcquisitionPort *port)
 {
  LiveCommandRequest old=engine.active.request;
- REQUIRE(r4m_capture(&r4m_guard,&engine));
+ if(r4m_bridge) { memset(&old,0,sizeof(old));old.epoch=1;old.command.transaction_id=1;old.command.identity.command_code=13; }
+ if(r4m_bridge) { REQUIRE(r4m_capture_bridge(&r4m_guard,&engine,r4m_archived_intent)); }
+ else { REQUIRE(r4m_capture(&r4m_guard,&engine)); }
  if(!owner.acquisition.fifo.stopped)return TR2_ERROR_INVALID_STATE;
- r4_result.stage=20;REQUIRE(r4m_isolate_journal(&r4m_guard,&engine));
- REQUIRE(live_command_store_recover(&store));REQUIRE(compare_protected());
+ if(!r4m_bridge) { r4_result.stage=20;REQUIRE(r4m_isolate_journal(&r4m_guard,&engine));
+ REQUIRE(live_command_store_recover(&store)); }
+ REQUIRE(compare_protected());
  REQUIRE(live_command_engine_init(&engine,&store,port));REQUIRE(live_command_engine_boot(&engine));
  r4_result.stage=21;REQUIRE(command(1,65535,12));REQUIRE(r4m_open_after_renew(&r4m_guard,&engine));
  uint64_t written=r4_result.write_bytes;
@@ -290,9 +296,9 @@ static Tr2Result qualify(uint32_t mode)
  r4_result.stage=2;REQUIRE(read_baseline());
  r4_result.stage=3;
 #if TR2_STM32_R4M_MAINTENANCE
- if(mode==4&&(!readonly_r2||r4m_backup_token!=0x52344D42u))return TR2_ERROR_INVALID_STATE;
+ if((mode==4||mode==6)&&((mode==4?!readonly_r2:!r4m_bridge)||r4m_backup_token!=0x52344D42u))return TR2_ERROR_INVALID_STATE;
  if(mode==5&&!r4m_final_snapshot)return TR2_ERROR_INVALID_STATE;
- if(mode!=4&&mode!=5)return TR2_ERROR_INVALID_STATE;
+ if(mode!=4&&mode!=5&&mode!=6)return TR2_ERROR_INVALID_STATE;
  r4m_backup_token=0;r4m_enabled=true;
 #else
  if(readonly_r2&&mode!=3)return TR2_ERROR_INVALID_STATE;
@@ -345,7 +351,7 @@ static Tr2Result qualify(uint32_t mode)
  owner.acquisition.engine=&engine; /* Raw qualification only: B3 remains unbound. */
  REQUIRE(live_command_engine_boot(&engine));
 #if TR2_STM32_R4M_MAINTENANCE
- if(mode==4)return maintenance_sequence(&port);
+ if(mode==4||mode==6)return maintenance_sequence(&port);
  if(mode==5) {
   if(engine.indeterminate||engine.has_active||store.epoch.current!=3||configuration.active.config_id!=3||
      !engine.has_last||engine.last.request.command.identity.command_code!=13||engine.last.request.command.transaction_id!=4||
@@ -393,7 +399,7 @@ __attribute__((noreturn)) void stm32_r4_benchmark_run(SPI_HandleTypeDef *spi1,SP
 #if TR2_STM32_R4M_MAINTENANCE
  /* Every reset is CLOSED and WAIT. The bridge hash is deliberately NOT accepted
   * for another run: interrupted maintenance requires inspection, never a loop. */
- while(r4_trigger!=0x52340004u&&r4_trigger!=0x52340005u){(void)now_us(NULL);HAL_Delay(1);}
+ while(r4_trigger!=0x52340004u&&r4_trigger!=0x52340005u&&r4_trigger!=0x52340006u){(void)now_us(NULL);HAL_Delay(1);}
 #else
  while(r4_trigger!=0x52340001u&&r4_trigger!=0x52340002u&&r4_trigger!=0x52340003u){(void)now_us(NULL);HAL_Delay(1);}
 #endif
