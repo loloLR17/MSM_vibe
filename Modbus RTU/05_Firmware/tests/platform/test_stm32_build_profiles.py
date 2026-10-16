@@ -83,6 +83,10 @@ class Profiles(unittest.TestCase):
         self.configure('storage-and-cumulative', ['STORAGE_QUALIFICATION=ON',
                        'BUILD_PROFILE=CUMULATIVE'], 'STORAGE_QUALIFICATION is isolated')
 
+    def test_r4s_readonly_profile(self):
+        self.configure('r4s-alone', ['R4S_BENCH=ON'], 'R4S requires explicit')
+        self.configure('r4s-safe', ['BUILD_PROFILE=CUMULATIVE','R4_BENCH=ON','R4M_MAINTENANCE=ON','R4P_COEXISTENCE=ON','R4R_BENCH=ON','R4S_BENCH=ON'], label='tr2-r4s-readonly-service-NON-PRODUCTION')
+
     def test_r4r_isolated_profile(self):
         flags=['BUILD_PROFILE=CUMULATIVE','R4_BENCH=ON','R4M_MAINTENANCE=ON','R4P_COEXISTENCE=ON','R4R_BENCH=ON']
         self.configure('r4r-alone', ['R4R_BENCH=ON'], 'R4R requires explicit')

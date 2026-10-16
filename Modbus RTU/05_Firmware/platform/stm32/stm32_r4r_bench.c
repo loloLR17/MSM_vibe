@@ -196,7 +196,10 @@ static Tr2Result genuine_live(void)
  if(!r4r_result.valid_responses||!r4r_result.held_responses||!metric.has_value||event_time.fault)return TR2_ERROR_INVALID_STATE;
  return TR2_OK;
 }
-__attribute__((noreturn)) void stm32_r4_benchmark_run(SPI_HandleTypeDef *spi1,SPI_HandleTypeDef *spi3)
+#ifndef TR2_R4R_ENTRY
+#define TR2_R4R_ENTRY stm32_r4_benchmark_run
+#endif
+__attribute__((noreturn)) void TR2_R4R_ENTRY(SPI_HandleTypeDef *spi1,SPI_HandleTypeDef *spi3)
 {
  r4_result.core_hz=HAL_RCC_GetHCLKFreq();r4_result.spi1_hz=HAL_RCCEx_GetPeriphCLKFreq(RCC_PERIPHCLK_SPI1)/64u;
  r4_result.spi3_hz=HAL_RCCEx_GetPeriphCLKFreq(RCC_PERIPHCLK_SPI3)/4u;
