@@ -1,12 +1,12 @@
 ---
 mission_id: TR2-20261016-R4P-PHYSICAL-COEXISTENCE
-status: IN_PROGRESS
+status: DONE
 base_ref: main
 base_sha: f7366e535b90a4ef79642a3debfa601f35c40b9c
 initial_head: 03309c076da7322fb774d41c032112cd663390fd
 result_sha: 9f429e513faba26ce89b760361c9cba08057bc24
 created_at_utc: 2026-10-16T12:55:58Z
-updated_at_utc: 2026-10-16T13:20:00Z
+updated_at_utc: 2026-10-16T13:21:27Z
 author: Codex
 target_branch: main
 allow_commit: true
@@ -23,7 +23,7 @@ et FIFO IIS3DWB simultanés : deux START durablement COMPLETED, renouvellement s
 acquisition, RUN60s, STOP/APPLY/START, faute de service post-COMPLETED et recovery
 lecture seule réussis. Le premier échec du harness et sa correction sont conservés.
 Aucun seuil relevé, aucune seconde isolation, aucun nouveau STARTED indéterminé.
-Le statut IN_PROGRESS porte seulement sur la publication/relecture finale à obtenir.
+Le statut DONE constate la livraison après publication et relecture distante intégrale.
 La qualification indépendante ChatGPT et R4/R6 complets restent distincts.
 
 ## Référence, permissions et préservation
@@ -202,8 +202,14 @@ hors Git ; images probes compressées publiées pour contrôle, NON-PRODUCTION.
 
 Commits logiciels369887b et9f429e5 ; checkpoints0daaf36/2929a8b/9394e9b déjà publiés
 et relus. Dernier checkpoint9394e9bb4a99a6be4a412fad0abbbcd6786ed1ec relu intégralement
-125fichiers/112preuves avant lecture terminale. Rapport final/proofs/journal/roadmap
-à publier et relire selon protocole ; aucun statut DONE anticipé.
+125fichiers/112preuves avant lecture terminale. Bilan final/proofs/journal/roadmap publiés au commit
+13e5c840c29ca896ae0e532fbcca38b86c4e069f — R4P: publish physical R2 FRAM/FIFO
+coexistence, fault recovery and exact Flash restoration evidence. Relecture réelle
+depuis origin/main le16/10/2026 à13:21:03UTC :170fichiers intégralement comparés,
+155preuves SHA contrôlées (latest-readback.json). HEAD=origin/main et worktree propre
+après ce push ; aucune qualification indépendante déduite de la publication.
+Cette mise à jour DONE est publiée ensuite par push normal, avec dernier SHA
+vérifié fourni dans la réponse finale (pas de SHA auto-référentiel inventé).
 
 ETAT_COURANT_TR2 actualisé : coexistence bornée, défaut/correction, réservations,
 recovery/restauration et limites ; roadmap R4 actualisée sans fermer R4 global/R6.

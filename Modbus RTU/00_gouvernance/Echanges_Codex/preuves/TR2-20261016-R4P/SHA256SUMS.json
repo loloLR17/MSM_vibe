@@ -525,8 +525,8 @@
       "sha256": "3a33ce247b77feff8f0a021099ca3a3067e9f4c3facaf82cb94bc33ca899669a"
     },
     "latest-readback.json": {
-      "bytes": 12788,
-      "sha256": "1087f461b3cc79afe1b196afe82eda5d6b6914114427ac54f564c8e46c9c586e"
+      "bytes": 17549,
+      "sha256": "45060d8574bd62d02da7b0d43c6caf9d4a93f31e0a5bc41aa8b47070dd10d76b"
     },
     "maintenance-test.log": {
       "bytes": 1547,
@@ -550,7 +550,7 @@
     },
     "preservation-summary.json": {
       "bytes": 329,
-      "sha256": "0f70c5d5a07648226276a20d3be8085b1b3088cea8400a4210c43b344ad3943c"
+      "sha256": "814d84c5b7d83b4aaa40df5d7d9b7fe0f9a33b62917638ce2fd34031c1abcc0e"
     },
     "probe.bin.zlib": {
       "bytes": 59582,
