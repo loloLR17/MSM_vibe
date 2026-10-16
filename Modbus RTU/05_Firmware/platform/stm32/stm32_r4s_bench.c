@@ -4,11 +4,13 @@
 #include "stm32_r4r_bench.c"
 
 typedef struct {
- uint64_t total,poll,consumer,clock,publish,rtu;
+ uint64_t total,poll,consumer,clock,publish,rtu,mapping,metrology;
  uint32_t words,level,sequence,published;
 } R4sService;
 volatile struct {uint32_t stage,error,write_attempts,clock_checks,trace_count;uint64_t begin_us,end_us,max_consumer_us,start_us,stop_us;} r4s_result;
 R4sService r4s_trace[64],r4s_max_service;
+ClockBracket r4s_clock_brackets[128];
+uint32_t fifo_event_time_cycles(void){return DWT->CYCCNT;}
 static uint64_t consumer_us;
 static int s_consume(void *ctx,const uint8_t *b,uint32_t n,uint64_t index)
 {
@@ -43,12 +45,19 @@ static Tr2Result s_service(void *ctx)
   if(!event_time.initialized||now_us(NULL)>=next_check){
    ClockBracket c;c.before_us=now_us(NULL);
    if(iis3dwb_timestamp_raw_get(&owner.acquisition.fifo.ctx,&c.raw))return TR2_ERROR_UNAVAILABLE;
-   c.after_us=now_us(NULL);
+   c.after_us=now_us(NULL);c.index=(uint32_t)owner.acquisition.fifo.total_xyz;
    if(!event_time.initialized)r=fifo_event_time_init(&event_time,&owner.acquisition.fifo,&metric,c.raw,(c.before_us+c.after_us)/2,r4r_result.span_us,r4r_result.span_ticks);
-   else {r=fifo_event_time_check(&event_time,c.raw,c.before_us,c.after_us,100);r4s_result.clock_checks++;}
+   else {
+    if(r4s_result.clock_checks>=128)return TR2_ERROR_INVALID_STATE;
+    r4s_clock_brackets[r4s_result.clock_checks]=c;
+    r=fifo_event_time_track(&event_time,c.raw,c.before_us,c.after_us,100);r4s_result.clock_checks++;
+   }
    sample.clock=c.after_us-c.before_us;if(r!=TR2_OK)return r;next_check=c.after_us+100000u;
   }
+  uint64_t mapping=event_time.mapping_cycles,metrology=event_time.metrology_cycles;
   uint64_t before=owner.acquisition.fifo.total_xyz;consumer_us=0;t=now_us(NULL);r=service(NULL);
+  sample.mapping=(event_time.mapping_cycles-mapping+159u)/160u;
+  sample.metrology=(event_time.metrology_cycles-metrology+159u)/160u;
   sample.poll=now_us(NULL)-t;sample.consumer=consumer_us;sample.words=(uint32_t)(owner.acquisition.fifo.total_xyz-before);sample.level=owner.acquisition.fifo.parser.last_level;
   if(sample.consumer>r4s_result.max_consumer_us)r4s_result.max_consumer_us=sample.consumer;
   if(r!=TR2_OK)return r;

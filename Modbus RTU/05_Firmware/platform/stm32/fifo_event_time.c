@@ -1,6 +1,9 @@
 #include "fifo_event_time.h"
 #include <string.h>
 #include <limits.h>
+#if TR2_FIFO_TIME_PROFILE
+extern uint32_t fifo_event_time_cycles(void);
+#endif
 static bool scale(const FifoEventTime *t,uint64_t eighths,uint64_t *us)
 {
  if(!t->span_ticks||t->span_ticks>UINT64_MAX/8u||eighths>UINT64_MAX/t->span_us)return false;
@@ -14,7 +17,7 @@ Tr2Result fifo_event_time_init(FifoEventTime *t,FifoLive *f,LiveMetrology *m,
  if(!t||!f||!m||!span_us||!span_ticks||span_ticks>UINT32_MAX||span_us>UINT32_MAX)
   return TR2_ERROR_INVALID_ARGUMENT;
  memset(t,0,sizeof(*t));t->fifo=f;t->metric=m;t->raw=raw;t->base_us=base_us;
- t->span_us=span_us;t->span_ticks=span_ticks;t->initialized=true;return TR2_OK;
+ t->span_us=span_us;t->span_ticks=span_ticks;t->calibration_raw=raw;t->calibration_us=base_us;t->initialized=true;return TR2_OK;
 }
 static Tr2Result failed(FifoEventTime *t)
 {
@@ -46,11 +49,21 @@ int fifo_event_time_consume(void *context,const uint8_t *words,uint32_t n,uint64
     uint64_t width=t->ticks-t->anchor_ticks;
     if(t->count!=8||width<23u||width>25u||counter!=t->counter||t->anchor_ticks>UINT64_MAX/8u)goto error;
     for(unsigned j=0;j<8;j++) {
+#if TR2_FIFO_TIME_PROFILE
+     uint32_t started=fifo_event_time_cycles();
+#endif
      uint64_t eighths=t->anchor_ticks*8u,us;
      if(width>UINT64_MAX/8u||eighths>UINT64_MAX-j*width||!scale(t,eighths+j*width,&us)||
         (t->emitted&&us<t->last_event_us))goto error;
+#if TR2_FIFO_TIME_PROFILE
+     t->mapping_cycles+=(uint32_t)(fifo_event_time_cycles()-started);
+     started=fifo_event_time_cycles();
+#endif
      if(live_metrology_sample(t->metric,t->fifo->run_id,t->fifo->config_id,t->fifo->config_generation,
        t->emitted,t->xyz[j],us/1000u,false,0)!=TR2_OK)goto error;
+#if TR2_FIFO_TIME_PROFILE
+     t->metrology_cycles+=(uint32_t)(fifo_event_time_cycles()-started);
+#endif
      if(!t->emitted)t->first_event_us=us;
      t->last_event_us=us;t->emitted++;
     }
@@ -69,4 +82,29 @@ int fifo_event_time_consume(void *context,const uint8_t *words,uint32_t n,uint64
  return 0;
 error:
  (void)failed(t);return -1;
+}
+
+Tr2Result fifo_event_time_track(FifoEventTime *t,uint32_t raw,uint64_t before,uint64_t after,uint64_t allowed)
+{
+ Tr2Result r=fifo_event_time_check(t,raw,before,after,allowed);
+ if(r!=TR2_OK)return r;
+ uint64_t mid=before+(after-before)/2u,predicted,pivot;
+ uint32_t ticks=raw-t->calibration_raw,delta=raw-t->raw;
+ if(!ticks||ticks>=0x80000000u||mid<=t->calibration_us||
+    t->ticks>UINT64_MAX/8u||t->ticks+delta>UINT64_MAX/8u||
+    !scale(t,(t->ticks+delta)*8u,&predicted)||!scale(t,t->ticks*8u,&pivot))return failed(t);
+ uint64_t measured=mid-t->calibration_us,corrected=measured;
+ if(mid>=predicted) {
+  if(corrected>UINT64_MAX-(mid-predicted))return failed(t);
+  corrected+=mid-predicted;
+ }else {
+  if(corrected<=predicted-mid)return failed(t);
+  corrected-=predicted-mid;
+ }
+ if(!corrected||corrected>UINT32_MAX)return failed(t);
+ /* Preserve the already observed anchor exactly and leave the <8 pending XYZ
+  * unpublished. The new affine interval only applies beyond that anchor. */
+ t->base_us=pivot;t->ticks=t->anchor_ticks=0;
+ t->span_us=corrected;t->span_ticks=ticks;
+ t->calibration_us=mid;t->calibration_raw=raw;return TR2_OK;
 }

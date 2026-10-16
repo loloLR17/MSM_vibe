@@ -41,5 +41,27 @@ int main(void)
  anchor(b,100,0);assert(!fifo_event_time_consume(&t,b,1,0));xyz(b,1);assert(fifo_event_time_consume(&t,b,1,0)==-1);
  assert(fifo_event_time_init(&t,&f,&m,100,UINT64_MAX-1,1000000,80000)==TR2_OK);
  assert(fifo_event_time_check(&t,200,0,10,100)==TR2_ERROR_INVALID_STATE);
+ /* Two observed clocks differ by +80ppm: fixed affine conversion eventually
+  * exceeds the unchanged100us guard. Tracking is continuous at FIFO anchors,
+  * and every sample remains causal and monotone under observed clock reads. */
+ live_metrology_init(&m);assert(live_metrology_start(&m,5,&c)==TR2_OK);
+ assert(fifo_event_time_init(&t,&f,&m,1000,5000000,1000000,80000)==TR2_OK);
+ FifoEventTime fixed=t;uint64_t previous=0;uint32_t raw=1000;
+ for(unsigned g=0;g<33300;g++) {
+  raw=1000+g*24;anchor(b,raw,0);assert(!fifo_event_time_consume(&t,b,1,(uint64_t)g*8));
+  assert(!t.emitted||t.last_event_us>=previous);previous=t.last_event_us;
+  for(unsigned j=0;j<8;j++){xyz(b,j%4);assert(!fifo_event_time_consume(&t,b,1,(uint64_t)g*8+j));}
+  if(g%333==332) {
+   uint32_t observed=raw+24;uint64_t mid=5000000+(uint64_t)(observed-1000)*12501/1000;
+   uint64_t last=t.last_event_us;
+   assert(fifo_event_time_track(&t,observed,mid-16,mid+16,100)==TR2_OK&&t.last_event_us==last);
+   assert(t.max_residual_us<=100);
+  }
+ }
+ uint64_t mid=5000000+(uint64_t)(raw+24-1000)*12501/1000;
+ assert(fifo_event_time_check(&fixed,raw+24,mid-16,mid+16,100)!=TR2_OK);
+ assert(t.emitted==((uint64_t)33300-1)*8&&m.sequence>=4);
+ assert(fifo_event_time_track(&t,raw+24,mid+500,mid+532,100)!=TR2_OK);
+ puts("tracking PASS: 10s +80ppm observed clock model, no redating, fixed mapper fails, same100us guard retained");
  puts("fifo_event_time PASS: real-anchor interpolation, wrap, exact indices, UTC absent, RMS oracle, drift and malformed groups fail closed");return 0;
 }

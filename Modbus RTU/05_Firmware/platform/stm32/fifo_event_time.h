@@ -11,7 +11,8 @@ typedef struct {
  FifoLive *fifo;LiveMetrology *metric;
  uint64_t base_us,span_us,span_ticks,ticks,anchor_ticks,input_index,emitted;
  uint64_t max_residual_us,last_event_us,first_event_us;
- uint32_t raw,anchor_raw,groups;
+ uint32_t raw,anchor_raw,groups,calibration_raw;
+ uint64_t calibration_us,mapping_cycles,metrology_cycles;
  uint8_t counter,count;
  int16_t xyz[8][3];
  bool initialized,anchor,fault;
@@ -21,5 +22,10 @@ Tr2Result fifo_event_time_init(FifoEventTime *,FifoLive *,LiveMetrology *,
 /* MCU clock bracketing of a live counter read. A violated empirical envelope
  * fails closed; it does not silently move an old window or claim UTC. */
 Tr2Result fifo_event_time_check(FifoEventTime *,uint32_t,uint64_t,uint64_t,uint64_t);
+/* Optional continuous sensor/MCU clock discipline. Checks the SAME residual
+ * limit before correction; measured slope plus measured phase error steers
+ * the next interval, continuously pivoting at the last FIFO anchor. Published
+ * event times never change. No UTC or nominal ODR is introduced. */
+Tr2Result fifo_event_time_track(FifoEventTime *,uint32_t,uint64_t,uint64_t,uint64_t);
 int fifo_event_time_consume(void *,const uint8_t *,uint32_t,uint64_t);
 #endif
