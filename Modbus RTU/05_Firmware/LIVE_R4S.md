@@ -47,3 +47,27 @@ refus au même seuil100us.141tests complets60,50s/ARM etASan/UBSan-O2 ciblés PA
 Seconde image : instrumentation cycles datation/métrologie distincts, incluse
 dans les budgets ; capture des brackets de contrôle, maxima appariés. Qualification
 physique à poursuivre ; aucune nouvelle admission R2 avant phase1 entièrementPASS.
+
+
+## Phase 1 acquise — troisième image
+
+L'essai instrumenté intermédiaire s'arrête sur service2511us, sans atteindre le
+premier contrôle d'horloge. Paire fautive2507us : poll1991us dont consommation789,
+metrologie556/datation102, RTU513 ; publication0. Source de statistiques et
+calculateur encore-O0 alors que caller-O2. Gardes inchangées. Lecture GDB terminale
+initialement interrompue par dump d'une plage vide (0contrôle) ; collecte FRAM
+complétée àl'arrêt sans rejouer l'essai, hash14fb exact.
+
+Compilation-O2 limitée aux deux feuilles de calcul du profilR4S, mêmes sources
+et oracles numériques déjà contrôlés sous-O2/ASan/UBSan. Troisième image physique :
+10,001045s,265669XYZ/33209TS,5fenêtres diagnostiques,808RTU,0V/F autoritatifs.
+Work333us/service1804us/gap1902us/niveau58, erreursFIFO/STOP0 ; STARTvolatil911us,
+STOP232us. Paire maximale1801us : clock30/poll1248 (date64/metrologie201,
+consommation351)/RTU513, pas publication.99contrôles horloge, résidumax10us.
+Oracle4096 indépendant : RMS959/953/102/39mg, crêtes998/992/138/82mg.
+FRAM262144 exacte14fb,0write/0tentative/0commande ; phase1PASS borné seulement.
+
+Phase2 : audit/coupures/anti-rejeu sur snapshot authentique avant tout traitement
+R2 physique. Le capteur est arrêté ; poursuite entreprobes isolés fermés avec
+backupM016 vérifié, restauration complète àla fin, sans restauration intermédiaire
+inutile avant chaque flash de probe. Aucune entréeLIVE générique sur un pont.

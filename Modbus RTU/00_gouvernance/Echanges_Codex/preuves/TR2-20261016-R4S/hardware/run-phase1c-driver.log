@@ -1,0 +1,5 @@
+phase1c-before-flash OK
+phase1c-flash verified
+phase1c-reset-readback OK
+phase1c-trigger12-result OK
+Phase1 returned; full FRAM exact. Inspect result before phase2

@@ -8,6 +8,18 @@
       "bytes": 2314,
       "sha256": "ef04fee991fb56740c172daa0e514c74506804c691cdf5b3e2efc8d06f0a68e6"
     },
+    "analyze-phase1b.py": {
+      "bytes": 2319,
+      "sha256": "1274161eac149d20785e0be1b52594dc625115e1ad5e4b1b3c74ad68a6949e93"
+    },
+    "analyze-phase1c.py": {
+      "bytes": 2319,
+      "sha256": "a8d734d3bcb8621862b54fa77f28da88bcec4bbb1e5fe075014415f2c4456118"
+    },
+    "build-probe-hotleaf.py": {
+      "bytes": 939,
+      "sha256": "b18c79b6759b6cb550c293038aa7d4de3e03381c1d41de2e4931e464e84c7d27"
+    },
     "build-probe-tracking.py": {
       "bytes": 939,
       "sha256": "9140bc2efc7d2f7b3295f1c2a36a99739f74c601ce40005cb9f71412c78ccc8f"
@@ -44,6 +56,18 @@
       "bytes": 1614,
       "sha256": "91d6dea7c0680669b90184f2f7c9ede70bb0948fdebb799448e4b0672797cbbd"
     },
+    "hardware/fram-after-phase1a.bin.zlib": {
+      "bytes": 1614,
+      "sha256": "91d6dea7c0680669b90184f2f7c9ede70bb0948fdebb799448e4b0672797cbbd"
+    },
+    "hardware/fram-after-phase1b.bin.zlib": {
+      "bytes": 1614,
+      "sha256": "91d6dea7c0680669b90184f2f7c9ede70bb0948fdebb799448e4b0672797cbbd"
+    },
+    "hardware/fram-after-phase1c.bin.zlib": {
+      "bytes": 1614,
+      "sha256": "91d6dea7c0680669b90184f2f7c9ede70bb0948fdebb799448e4b0672797cbbd"
+    },
     "hardware/fram-before.bin.zlib": {
       "bytes": 1614,
       "sha256": "91d6dea7c0680669b90184f2f7c9ede70bb0948fdebb799448e4b0672797cbbd"
@@ -67,6 +91,14 @@
     "hardware/hardware.py": {
       "bytes": 2321,
       "sha256": "b670d841d0cb47faeb1d0fc3048480467a601ad04d49561f8302762c6c748f61"
+    },
+    "hardware/harvest-phase1b-driver.log": {
+      "bytes": 84,
+      "sha256": "ea79afc40c8435435e735b2bb3010700dd42f831e02fd43cab7abd4581b9d30b"
+    },
+    "hardware/harvest-phase1b.py": {
+      "bytes": 600,
+      "sha256": "85ba581731a1953aafec9a58f6f61273a97d51f235430145ebcad3190d0ca8d2"
     },
     "hardware/phase1-brackets.bin.zlib": {
       "bytes": 2394,
@@ -128,6 +160,178 @@
       "bytes": 17589,
       "sha256": "879a3426678b405681fc6f2e1314b6cdde1c42904558555c446cebbdff197501"
     },
+    "hardware/phase1b-before-flash-invocation.json": {
+      "bytes": 741,
+      "sha256": "f835145e768f347359db4fb3abfd1deef0b701e1ab366883ca5a95ce9a426bb6"
+    },
+    "hardware/phase1b-before-flash-server.log": {
+      "bytes": 642,
+      "sha256": "8bcc4c71699ee84963384971405c87e1a151e92fe6097483e261a0323be2f087"
+    },
+    "hardware/phase1b-before-flash.gdb": {
+      "bytes": 386,
+      "sha256": "b904fca8e645d37554c5e112a2e12e059d07c928b5aa77477f6efe7841981df3"
+    },
+    "hardware/phase1b-before-flash.log": {
+      "bytes": 232,
+      "sha256": "60f73e8a157872692fc0df01a17c95159dfd56bda286ec5bab9ad0c0773379f2"
+    },
+    "hardware/phase1b-brackets.bin.zlib": {
+      "bytes": 2403,
+      "sha256": "f9a523def7a7be1b5c6ed97df09549aa06fb55211b906770a12c7f4a0ddc34ba"
+    },
+    "hardware/phase1b-flash-command.json": {
+      "bytes": 543,
+      "sha256": "fe9141aa487a4bc9902c09aa472127979b2c9ae0d6cddc584f47fe846717c746"
+    },
+    "hardware/phase1b-flash.log": {
+      "bytes": 1683,
+      "sha256": "096db830d340c46417d025f9950209fdfad2345f804099579cc901ebcda03fd2"
+    },
+    "hardware/phase1b-raw.bin.zlib": {
+      "bytes": 9963,
+      "sha256": "c3809808d85f8e7dfe6568fbeb5488a9221e3b4d10a693f057a3c177608873fc"
+    },
+    "hardware/phase1b-readback.bin.zlib": {
+      "bytes": 71561,
+      "sha256": "635e975595495a6667bf46edc243ede1aeaa13b0ac524d1cf1b3ac3bee25a2a8"
+    },
+    "hardware/phase1b-reset-readback-invocation.json": {
+      "bytes": 743,
+      "sha256": "88c7467e9ae18076a9f06cc876daa558ab00d1fa054ae4d9ce594269b21d1730"
+    },
+    "hardware/phase1b-reset-readback-server.log": {
+      "bytes": 642,
+      "sha256": "8bcc4c71699ee84963384971405c87e1a151e92fe6097483e261a0323be2f087"
+    },
+    "hardware/phase1b-reset-readback.gdb": {
+      "bytes": 413,
+      "sha256": "4c04186e55b07b040b02a025caacf25abddf93460f593249be80f67dbb8581ca"
+    },
+    "hardware/phase1b-reset-readback.log": {
+      "bytes": 330,
+      "sha256": "35185ae33694edb80a9a452a166da6a1c0d69aa7566c5d0ce99ae4ecf4874fbd"
+    },
+    "hardware/phase1b-terminal-fram-invocation.json": {
+      "bytes": 742,
+      "sha256": "de9f1503e0a520466801fdc64c43ab0daf965e6cdf06a50553ed4e5edd07e714"
+    },
+    "hardware/phase1b-terminal-fram-server.log": {
+      "bytes": 642,
+      "sha256": "8bcc4c71699ee84963384971405c87e1a151e92fe6097483e261a0323be2f087"
+    },
+    "hardware/phase1b-terminal-fram.gdb": {
+      "bytes": 621,
+      "sha256": "8891eef61c0b6ca06eeeb09ccce6cc9a3205578e453d1d51f32c8c90636cb15b"
+    },
+    "hardware/phase1b-terminal-fram.log": {
+      "bytes": 492,
+      "sha256": "cc62617c7d092a7171a0877ed3c99e990a9e3313696e8d3412f01734b4c671c6"
+    },
+    "hardware/phase1b-trace.bin.zlib": {
+      "bytes": 175,
+      "sha256": "676a34d611ab2865b16ebb3ae3c31651373d9b37bf0884875c8a72a1eeb83a8e"
+    },
+    "hardware/phase1b-trigger12-result-invocation.json": {
+      "bytes": 745,
+      "sha256": "e1c9749389e01812be515ba1870700b94d890544c0b81805552bbf26d7e3785e"
+    },
+    "hardware/phase1b-trigger12-result-server.log": {
+      "bytes": 642,
+      "sha256": "8bcc4c71699ee84963384971405c87e1a151e92fe6097483e261a0323be2f087"
+    },
+    "hardware/phase1b-trigger12-result.gdb": {
+      "bytes": 2016,
+      "sha256": "e18120fcd05edbc2fe5ddf1ab310530479d150f45fb7744f049995d77be11a8b"
+    },
+    "hardware/phase1b-trigger12-result.log": {
+      "bytes": 11968,
+      "sha256": "09c148cfd66e90c6436a52e4e1117eb626299c488fddc195d4a2f9491ca46d99"
+    },
+    "hardware/phase1b-xyz.bin.zlib": {
+      "bytes": 3554,
+      "sha256": "53445ee7cd0656e1df8e34751b7a92a25789734cbff746887f2d547179636e83"
+    },
+    "hardware/phase1c-before-flash-invocation.json": {
+      "bytes": 741,
+      "sha256": "53a4ee473c31e489d1a38cdeeef6c97fdeb15ddb215c84646833b1d74d70f3ca"
+    },
+    "hardware/phase1c-before-flash-server.log": {
+      "bytes": 642,
+      "sha256": "8bcc4c71699ee84963384971405c87e1a151e92fe6097483e261a0323be2f087"
+    },
+    "hardware/phase1c-before-flash.gdb": {
+      "bytes": 386,
+      "sha256": "b904fca8e645d37554c5e112a2e12e059d07c928b5aa77477f6efe7841981df3"
+    },
+    "hardware/phase1c-before-flash.log": {
+      "bytes": 232,
+      "sha256": "60f73e8a157872692fc0df01a17c95159dfd56bda286ec5bab9ad0c0773379f2"
+    },
+    "hardware/phase1c-brackets.bin.zlib": {
+      "bytes": 2395,
+      "sha256": "e78c8cec54e6c36771e8a1fd173a01d180cbb794d76a84ce049f31ac6f59d35c"
+    },
+    "hardware/phase1c-clock-checks.bin.zlib": {
+      "bytes": 1374,
+      "sha256": "15e3bfc5cf6fe47c3f64109d27b58fb40873b73232521ee04eb63d6d58b50525"
+    },
+    "hardware/phase1c-flash-command.json": {
+      "bytes": 543,
+      "sha256": "e0fba554e3891a578031bb0be0ab13481e0696a93222bd20fd93237932fc2c38"
+    },
+    "hardware/phase1c-flash.log": {
+      "bytes": 1683,
+      "sha256": "227ed4551171b59af9a38200fec9e91b24218b15b33fc1c358d8a7e0ee5f7875"
+    },
+    "hardware/phase1c-raw.bin.zlib": {
+      "bytes": 9917,
+      "sha256": "cb761f03480dbc34af99b3a00bb8817d01b06f1e0685a49fd49f79c5c3f9ab15"
+    },
+    "hardware/phase1c-readback.bin.zlib": {
+      "bytes": 71684,
+      "sha256": "e0722c06f89c07b6c2c5c45b2d8801516abd1bef49c61a146551c5e3bf2c3caf"
+    },
+    "hardware/phase1c-reset-readback-invocation.json": {
+      "bytes": 743,
+      "sha256": "cd27d8e6eed1aaf80f7959bb4d495a4f9c14a3713e07e74c576c15d6ad8884cd"
+    },
+    "hardware/phase1c-reset-readback-server.log": {
+      "bytes": 642,
+      "sha256": "8bcc4c71699ee84963384971405c87e1a151e92fe6097483e261a0323be2f087"
+    },
+    "hardware/phase1c-reset-readback.gdb": {
+      "bytes": 413,
+      "sha256": "e2d2417cb0a265bfd12453b9199ceee1eb09a94bc4ac98d69894a6d401f0defa"
+    },
+    "hardware/phase1c-reset-readback.log": {
+      "bytes": 282,
+      "sha256": "ed09ca1085635e8902dcc997a4c4e28ddf80e0b8a2960856234614981cbae4eb"
+    },
+    "hardware/phase1c-trace.bin.zlib": {
+      "bytes": 699,
+      "sha256": "468c1e563a32e4818d59aac5421a7c7f60eadaa91499a927c7f76bb3c1880d7c"
+    },
+    "hardware/phase1c-trigger12-result-invocation.json": {
+      "bytes": 745,
+      "sha256": "87996b7c52c94f345b25a26e53b7b68025b60c08f8d9941eb00c21140932a315"
+    },
+    "hardware/phase1c-trigger12-result-server.log": {
+      "bytes": 642,
+      "sha256": "8bcc4c71699ee84963384971405c87e1a151e92fe6097483e261a0323be2f087"
+    },
+    "hardware/phase1c-trigger12-result.gdb": {
+      "bytes": 2052,
+      "sha256": "c5fc11fbf453dd8cf31f5595158e70730a181e8f07c3b72b0c8607739d0feb66"
+    },
+    "hardware/phase1c-trigger12-result.log": {
+      "bytes": 20977,
+      "sha256": "88ff71d6d1225019225bf61f2e12df79539fef0df72f7ab701a062eeb8c3af5c"
+    },
+    "hardware/phase1c-xyz.bin.zlib": {
+      "bytes": 17649,
+      "sha256": "477112463f8b682f6494ae42a666637e5e4b5f8f35f66ec4f77c9135eb87b712"
+    },
     "hardware/preflight-driver.log": {
       "bytes": 756,
       "sha256": "b6ffe84b22d5a697b55296dc84ebb17cda9331e765c65e79399ab241bcfe8fd6"
@@ -147,6 +351,22 @@
     "hardware/run-phase1.py": {
       "bytes": 2589,
       "sha256": "c289aa69170bc0d232b85d09401e975d13be0287b0351543b5bfa5bcc27b4dce"
+    },
+    "hardware/run-phase1b-driver.log": {
+      "bytes": 1477,
+      "sha256": "dc917f719cf09fc3d72b205a481ba8d31a729a61b0c10d0bcf9b4743f00408f1"
+    },
+    "hardware/run-phase1b.py": {
+      "bytes": 2953,
+      "sha256": "15a3b0f3e6986536c602f81b6953b422e628e66fb0c38bae5c74d55893aa8004"
+    },
+    "hardware/run-phase1c-driver.log": {
+      "bytes": 164,
+      "sha256": "f485ecb9fab431087d90505d2fc58f5ff4eccbd54efcc52b2773ca0e5e8e73a1"
+    },
+    "hardware/run-phase1c.py": {
+      "bytes": 2990,
+      "sha256": "575c93f18d48e88f94f22107d7eeaff9b2e38bddde173a3da037ad38dbbc4105"
     },
     "hardware/sensor-stopped-readonly-invocation.json": {
       "bytes": 794,
@@ -168,9 +388,17 @@
       "bytes": 9498,
       "sha256": "a7276655ff6e0586aae90c16160782f49b0a603954812f092c4973e59def3eed"
     },
+    "hotleaf-compile.json": {
+      "bytes": 7411,
+      "sha256": "31b0315838a4c5f7834ffeeb145efc45abc9809d5ef97ae08bd98896d0a96a55"
+    },
     "initial-state.json.zlib": {
       "bytes": 170402,
       "sha256": "db2a7652470912ca6bb6f0a18a1e34a2ed4164b214227ae4a7aa247015688083"
+    },
+    "latest-readback.json": {
+      "bytes": 7017,
+      "sha256": "92772043ac0f5a37966e84ac6dc147e0542e89c01fd08f9db96bce8fb1ba1ada"
     },
     "phase1-build.json": {
       "bytes": 1516,
@@ -179,6 +407,26 @@
     "phase1-summary.json": {
       "bytes": 3180,
       "sha256": "6a3d3e68196e45e2c65b21373314e5f4fd07f4a07833727741d7dfc54835094c"
+    },
+    "phase1b-analysis.log": {
+      "bytes": 3065,
+      "sha256": "67e960b9ba463ce6f9f2408275c566853949b6c58e151bea73621c081d9d63d2"
+    },
+    "phase1b-build.json": {
+      "bytes": 1516,
+      "sha256": "750b391234d23367a0a7f4eff1856e8450a4bfbc1cc9861fc1c1a8183a6d89e8"
+    },
+    "phase1b-summary.json": {
+      "bytes": 3065,
+      "sha256": "67e960b9ba463ce6f9f2408275c566853949b6c58e151bea73621c081d9d63d2"
+    },
+    "phase1c-build.json": {
+      "bytes": 1516,
+      "sha256": "404255658756866eaeb404f152a2408fa73f98cad0aba01d03f34aa9c5618b42"
+    },
+    "phase1c-summary.json": {
+      "bytes": 3356,
+      "sha256": "dbfbf1c45c6794555541635941990d85b89802753c7d845c1f4cfe67d0be67de"
     },
     "probe-build-01-tr2-r4s-readonly-service-NON-PRODUCTION.bin.zlib": {
       "bytes": 70606,
@@ -204,6 +452,14 @@
       "bytes": 5759,
       "sha256": "28d9f04d1bd3e4984c3d32a80cde1d6b083ea0e4511578fa188cbfaf698f5ee2"
     },
+    "probe-build-03-tr2-r4s-readonly-service-NON-PRODUCTION.bin.zlib": {
+      "bytes": 71684,
+      "sha256": "e0722c06f89c07b6c2c5c45b2d8801516abd1bef49c61a146551c5e3bf2c3caf"
+    },
+    "probe-build-03-tr2-r4s-readonly-service-NON-PRODUCTION.elf.zlib": {
+      "bytes": 453596,
+      "sha256": "cee4213e0b3b31ba75fe4e9ccf31ee7195a651242541cf3cc21bd6007ef215a2"
+    },
     "probe-build-03.log": {
       "bytes": 5759,
       "sha256": "66d7de43ccfcb1aeb5d921d0ee7aa84cd51be36f8aa05e13e7fe6d1cff86d024"
@@ -216,6 +472,10 @@
       "bytes": 12056,
       "sha256": "796a462145dd2748f408623a025d21921cba94b792ddf61220f7f05fda96ef14"
     },
+    "probe-build-06.log": {
+      "bytes": 28535,
+      "sha256": "f1292c64c35fb4d10461f5d99423d9379ebd5df5965f54b7453d8164e0eadff5"
+    },
     "profile-checks.log": {
       "bytes": 98,
       "sha256": "0cef80c124ae419ecec2c5086df6e4743da42e37556f6b556200ccbf39dd5939"
@@ -223,6 +483,10 @@
     "publish.py": {
       "bytes": 2137,
       "sha256": "caf493c001b8101054aab5e2aee0cfa5ebf957a3a59ab9cf181568e1c5383777"
+    },
+    "readback.py": {
+      "bytes": 1383,
+      "sha256": "ef8f7c568955a42ab82f24d2ad1ce9374d7608a56a1a903fd90141a5e71d82d3"
     },
     "stlink-inventory.log": {
       "bytes": 506,

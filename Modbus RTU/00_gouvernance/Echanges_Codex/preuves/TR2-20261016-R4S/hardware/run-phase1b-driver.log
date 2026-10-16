@@ -1,0 +1,21 @@
+phase1b-before-flash OK
+phase1b-flash verified
+phase1b-reset-readback OK
+Traceback (most recent call last):
+  File "/home/lolo/dev/msm/reports/TR2-r4s/hardware/run-phase1b.py", line 13, in <module>
+    debug('phase1b-trigger12-result',elf,IDENTITY+'''p r4s_result
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    if r4s_result.stage != 1 || r4s_result.error != 0
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<29 lines>...
+    dump binary memory {win(P/'fram-after-phase1.bin')} baseline baseline+262144
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ''',timeout=100)
+    ^^^^^^^^^^^^^^^^
+  File "/home/lolo/dev/msm/reports/TR2-r4s/hardware/hardware.py", line 26, in debug
+    proc.wait(timeout=15);z.check_returncode();print(name,'OK',flush=True)
+                          ~~~~~~~~~~~~~~~~~~^^
+  File "/usr/lib/python3.13/subprocess.py", line 508, in check_returncode
+    raise CalledProcessError(self.returncode, self.args, self.stdout,
+                             self.stderr)
+subprocess.CalledProcessError: Command '['/mnt/c/ST/STM32CubeCLT_1.22.0/GNU-tools-for-STM32/bin/arm-none-eabi-gdb.exe', '-nx', '-q', '-batch', '-x', '\\\\wsl.localhost\\Debian\\home\\lolo\\dev\\msm\\reports\\TR2-r4s\\hardware\\phase1b-trigger12-result.gdb', '\\\\wsl.localhost\\Debian\\home\\lolo\\dev\\msm\\reports\\TR2-r4s\\probe-build-02\\tr2-r4s-readonly-service-NON-PRODUCTION.elf']' returned non-zero exit status 1.

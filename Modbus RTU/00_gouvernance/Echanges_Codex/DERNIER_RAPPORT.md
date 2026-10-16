@@ -14,38 +14,45 @@ allow_flash: true
 allow_debug: true
 ---
 
-# R4-S — checkpoint phase 1, poursuite autonome en cours
+# R4-S — phase 1 PASS, reprise transactionnelle en préparation
 
-La première tentative volatile f52a5a8 a réellement exécuté FIFO + métrologie +
-RTU loopback + FRAM readonly, sans admission R2 ni écriture FRAM. Préflight UID/SN,
-Flash M016 complète et FRAM14fb conformes. Archive R4-R déjà présente vérifiée exacte,
-aucune duplication/réécriture ; worktree isolé, ancien main/stashes conservés.
+**IN_PROGRESS**, poursuite autonome versphase2. Préflight UID/SN/FlashM016/FRAM14fb
+conforme, archiveR4-R déjàprésente vérifiéeexacte ; worktreeisolé/stashes préservés.
+Aucune admission ni écriture R2/FRAM durant cette phase.
 
-Résultats : 31787XYZ/3974TS en1,206563s, work335us/service2322us/gap2457us,
-FIFOmax73/0erreur. Une fenêtre numérique diagnostique N4096 contrôlée par Python :
-RMS global/X/Y/Z960/953/102/40mg, crêtes997/989/135/79mg. Aucune mesure autoritative
-R2 prétendue : autoritéfalse et0V/F RTU,96réponses cohérentes/CRC contrôlés.
-Maximum apparié2318us : poll1803 dont consommation663, RTU513, publication0.
+Trois essais distincts conservés :
 
-Arrêt sûr sur autre défaut : conversion temporelle affine fixe dérive jusqu'à
-109us >100us après12contrôles. Seuil inchangé, échec conservé. La FRAM entière
-est restée exacte14fb, étatR2 indéterminé epoch4/tx5/run5 inchangé. Carte actuellement
-enprobe phase1 terminal arrêté, GDBdétaché, M016 sauvegardée récupérable ; restauration
-finale pas encore faite car qualification volatile en cours.
+1. Affine fixe :31787XYZ,1,206563s ; budgets335/2322/2457us conformes, arrêt sur
+ écart109>100us.4096XYZ diagnostiques vérifiésparoracle (RMS960mg/peak997mg global).
+2. Suivi/instrumentation :746XYZ, arrêt service2511>2500us ; traceappariée prouve
+ poll1991us dont métrologie556/date102, RTU513. Feuilles de calcul encore-O0 ;
+ aucune nouvellewindow. Une plageGDBvide a nécessité collecteFRAM terminale séparée,
+ sans rejouer l'essai ; snapshotsintacts. Ne pas déclarer ce probePASS.
+3. Feuilles statistiques/calculateur-O2 dansR4S uniquement : **10,001045s,
+265669XYZ/33209TS,5fenêtres diagnostiques et808RTU**. Work333/service1804/gap1902us,
+FIFOmax58/0erreur ; STARTvolatil911us/STOP232us.99contrôles de conversion capteur→DWT,
+maximum10us, seuil100us conservé. Traceappariée maximale1801us (poll1248 dont
+consommation351, date64/métrologie201 ; clock30/RTU513). Ce sont des coûts inclus,
+non additionnables àleurs parents. Oracle4096 bruts : RMSglobal/X/Y/Z959/953/102/39mg,
+crêtes998/992/138/82mg exactes. FRAM entière14fb byte-identique,0tentative d'écriture.
 
-Correction préparée : suivi des deux horloges depuis brackets réellement observées,
-pivot continu au dernierTSFIFO et aucune redatation de valeur publiée. Le même
-contrôle100us est appliqué avant toute correction ; aucune grille nominale ou UTC.
-141tests complets60,50s/ARM, modèle10s+80ppm/refus de l'ancien affine et garde100us,
-ASan/UBSan-O2 fournisseur et448oracles métrologie PASS. Nouvelle instrumentation
-sépare datation/métrologie et garde des traces appariées. Code du checkpoint logiciel
-ci-dessus, nouvelle image pas encore essayée ; V1 et B5/R2 inchangés.
+**Pas B3 LIVE autoritatif** : identité d'acquisition diagnostique volatile, autorité
+métrologiefalse/V0/F0 enRTU. ÉtatR2 reste STARTED epoch4/tx5/run5. Pas UTC/SI ni
+qualificationR4/R6, UART/RS485/SD/PC. Le provider corrige la conversion entrehorloges
+àpartir de brackets réellement observées ; pivotcontinu, pas de grilleODR ni
+redatation. Les141tests complets60,50s/ARM etASan/UBSan-O2/provider+448oracles passent.
+V1 etR2/B5 inchangés ; validation complète justifiée par ajout du suivi temporel.
 
-Prochaine action autonome : nouveau probe volatil instrumenté, dix secondes sous
-charge et vérification intégrale FRAM ; seulement après PASS, étude d'applicabilité
-du retrait contrôlé R4-M/R4-P au snapshot authentique14fb. Pas encore phase2/3,
-aucune isolation/RENEW/START R2. Conserver le run5 consommé et toutes les preuves.
+Image troisième probe etpreuves exactes BIN/ELF dans phase1c-build.json et
+[preuvesR4S](preuves/TR2-20261016-R4S/README.md). Détails [LIVE_R4S](../../05_Firmware/LIVE_R4S.md).
+Carte au terminal arrêté, GDBdétaché, M016backup récupérable ; restauration finale
+prévue après lesprobes suivants, pas de flash intermédiaire inutile.
 
-Détails : [LIVE_R4S](../../05_Firmware/LIVE_R4S.md), [preuves](preuves/TR2-20261016-R4S/README.md).
-Journal mis à jour. Publication/relecture à vérifier après push ; statutIN_PROGRESS
-signifie poursuite physique, pas arrêt sur checkpoint ni demande de validation.
+**Prochaine tranche** : preuve d'applicabilité du retraitisolé R4-M/R4-P au vrai
+snapshot14fb, tests coupures/contre-tests/anti-rejeu ; seules transitions R2 réelles
+seront admises après toutespréconditions. Aucun isolement/RENEW/START physique
+encore effectué. Run5 resteconsommé ; toute décision hors procédure sera escaladée.
+
+Checkpointprécédent c071d05f861ec20698ae61776a45b4441bd78dec relu depuisGitHub,
+69fichiers/58preuves vérifiés. Publication de ce nouveaucheckpoint àvérifier après
+push ; le statut n'est pas une fin de mission. Journal actualisé.

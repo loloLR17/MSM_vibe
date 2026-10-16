@@ -278,3 +278,10 @@ Publication R3-B vérifiée : code1c5368f, preuves/rapport faf0f94 sur main relu
  ASan+UBSan-O2 ciblés PASS. Seconde qualification volatile àpoursuivre avantphase2.
 - État : probe arrêté/GDBdétaché, restaurationfinale M016 àfaire aprèsqualification ;
  aucun isolement/RENEW/START, run5/epoch4 conservés. Pas encore de B3 LIVE autoritatif.
+
+- **R4-S phase1 PASS** : troisièmeimage,10,001045s/265669XYZ/33209TS/5fenêtres
+ diagnostiques/808RTU V0/F0. Work333/service1804/gap1902us/niveau58, gardehorloge
+100us conservée/99contrôles/résidumax10us.4096bruts oracleRMS959/peak998mg global.
+ Correctionprofilseule : feuillesstatistiques/calculateur-O2 ; premieraffinefixe
+ etsecondservice2511us conservés. FRAMcomplète14fb exacte, aucunewrite/admission.
+ Capteurarrêté/probedédié/GDBdétaché ; phase2 horsligne àdémontrer avantmutation.
