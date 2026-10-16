@@ -1,0 +1,9 @@
+0x08000860 in __udivmoddi4 (n=<optimized out>, d=<optimized out>, rp=0x200bfcc0) at ../../../../../../libgcc/libgcc2.c:1062
+0xbfa0700:	0x004a003d	0x38425018	0x20333157
+$1 = 12
+$2 = 11
+$3 = true
+$4 = 0
+$5 = true
+[Inferior 1 (Remote target) detached]
+warning: 1062	../../../../../../libgcc/libgcc2.c: No such file or directory

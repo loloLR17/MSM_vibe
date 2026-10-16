@@ -239,16 +239,25 @@ Publication R3-B vérifiée : code1c5368f, preuves/rapport faf0f94 sur main relu
 - **PUBLICATION R4-Q RELUE** : bilan30c6b710d50bd3eda09c81249432b6925190c59d,110fichiers comparés intégralement/94preuves SHA256 vérifiées depuis GitHub. Livraison DONE logiciel dans le périmètre incrémental, couverture physique PARTIAL inchangée ; contrôle indépendant ChatGPT distinct. Worktree propre/HEAD=origin/main au bilan, ancienmain préservé.
 
 
-## R4-R — 16/10/2026 UTC, checkpoint capteur/temps (en cours)
+## R4-R — 16/10/2026 UTC, BLOCKED après dépassement de service
 
-- **VALIDÉ LOGICIEL** : provider DEC8 interpolé entre ancres réelles et TAG_CNT,
- tampon8XYZ/UTCabsente, binding R3-B optionnel ;141tests/ARM/ASan+UBSan ciblés PASS.
- CanoniqueV1 BIN identiqueR4-Q, jamais flashé. [LIVE_R4R](../05_Firmware/LIVE_R4R.md).
-- **OBSERVÉ PHYSIQUE** : diagnostic complet2,000064s/52894XYZ/6612TS, erreurs0,
- TS avantXYZ du mêmecompteur/delta24, poll401us/gap425us/niveau13 ; pente
- DWT12,54054us/tick/résidu22us/bracket33us. Premier essai interrompu parGDB
- prématuré conservé avecSTOP sûr ; procédure de fin corrigée, aucun seuil relâché.
-- **PRÉSERVÉ / SUITE** : Flash initialeM016 sauvegardée vérifiée/FRAM complètea13b
- inchangée ; imageprobe/stage11WAIT, capteurarrêté/debugdétaché, restaurationfinale
- àfaire. VraiSTART4/5/run5 puisB3/RTUloopback/chargeFRAM/STOP4/6 àexercer ;
- aucune nouvelleidentitéconsommée àcecheckpoint. Pas encoreB3physique/R4global/R6.
+- **OBSERVÉ / PARTIEL** : code0e808f3 ; diagnostic complet2,000064s/52894XYZ/6612TS,
+ TS avantXYZ mêmecompteur/delta24,0anomalie/niveau13/poll401us/gap425us.
+ Calibration197brackets DWT12,54054us/tick/résidu22us/bracket33us, pasUTC/SI.
+ Provider8XYZ ancré surTS réels testé ; premierdiagnosticinterrompuGDB conservé.
+- **BLOCKED R2 / B3 NON QUALIFIÉ** : vraiSTART4/5/run5,118XYZ/15TS/112datés,
+ service2715>2500us/work922us/gap2141us/niveau64, STOPsûr235us.3660RTU RAM
+ contrôlés/0B3valide, pasfenêtre4096/HELD/STOPcommande/10sreadonly/dérivelongue.
+ STARTEDgen26/INTENT15/phase1/racine39 CRCvalides ;run5 jamaisréutilisable.
+- **CANDIDATE LOGICIELLE** :83d4fbd, publication avantrequête et-O2 profilbanc,
+ ARM/sanitizers-O2/provider+448oracles PASS, **nonflashée/nonchronométrée**.
+141tests/ARM PASS, canoniqueV1 BIN85b1be60…c0f5 inchangé/nonflashé.
+- **RESTAURÉ / PRÉSERVÉ** :20:57:06UTC FlashM016 exacte2Mio c5bc344d…f5b26,
+18pages normales ; FRAMcomplète14fb172f2917d0a8e440438051831c84f3f3e746161702a7de9e9a1a251b2aa9
+ inchangée aprèsrestauration,113octetsdifférents seulementLIVE/104852écrits.
+ Historique/tail exacts ;M016CommissioningReadOnlyWAIT/capteurarrêté/GDBdétaché.
+57worktrees/deuxstashes/4021fichiers protégés etR4-Q archivée préservés.
+- **DÉCISION CHATGPT / SUITE** : nouveaucontrat sursnapshot14fb, qualifierd'abord
+ servicecorrigé sansadmissionR2, puis traitementexplicitementautorisé deSTARTED
+ avantnouveauSTART. Aucunreplay/effacement/reçuinventé/rollback. R4global/R6 ouverts.
+[Plan etpreuves](../05_Firmware/LIVE_R4R.md). Checkpoint5e4fde6 relu113fichiers/97preuves.

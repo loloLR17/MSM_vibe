@@ -9,9 +9,10 @@ for f in (p/'hardware').iterdir():
  if f.is_file() and f.suffix in {'.json','.log','.py','.gdb'}:shutil.copy2(f,proof/'hardware'/f.name)
  if f.is_file() and f.suffix=='.bin' and (f.name.startswith('fram-') or f.name in {'raw.bin','brackets.bin','raw02.bin','brackets02.bin','xyz.bin','valid-adu.bin','held-adu.bin'}):
   (proof/'hardware'/(f.name+'.zlib')).write_bytes(zlib.compress(f.read_bytes(),9))
-for b,label in [('probe-build','diagnostic-attempt01'),('probe-build-02','event-probe')]:
+for b,label in [('probe-build','diagnostic-attempt01'),('probe-build-02','candidate-probe')]:
  f=p/b/'tr2-r4r-physical-time-NON-PRODUCTION.bin'
  if f.exists():(proof/(label+'.bin.zlib')).write_bytes(zlib.compress(f.read_bytes(),9))
+(proof/'event-probe.bin.zlib').write_bytes(zlib.compress((p/'hardware/event-probe-readback.bin').read_bytes(),9))
 if (p/'hardware/calibration/time-analysis.json').exists():shutil.copy2(p/'hardware/calibration/time-analysis.json',proof/'hardware/calibration-time-analysis.json')
 (proof/'README.md').write_text('''# R4-R — preuves distinctes
 

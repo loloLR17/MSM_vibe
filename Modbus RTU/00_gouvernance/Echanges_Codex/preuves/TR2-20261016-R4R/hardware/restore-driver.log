@@ -1,0 +1,5 @@
+restore-stopped-check OK
+restore-initial-flash verified
+restore-full-readback OK
+restore-final-fram OK
+RESTORATION_FULL_FLASH_AND_NEW_FRAM_PASS 147456 14fb172f2917d0a8e440438051831c84f3f3e746161702a7de9e9a1a251b2aa9
