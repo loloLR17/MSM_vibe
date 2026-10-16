@@ -56,6 +56,10 @@
       "bytes": 1934,
       "sha256": "6429f687b8d02ceedca49f6a2f7083aa17aa6812d5edc47e3eee426c6ac7788d"
     },
+    "final-report-readback.json": {
+      "bytes": 17686,
+      "sha256": "f8e9064527544f5742f705339e8a01a1dcf2dda59a5e50d9f6b5a7c65c3f9db5"
+    },
     "finalize-docs.py": {
       "bytes": 18775,
       "sha256": "89381c01453e914339acd1fe160f27f529e4b3ad8e495bd19dc9ba694cc42770"

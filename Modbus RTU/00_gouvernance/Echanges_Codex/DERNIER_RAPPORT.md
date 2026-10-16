@@ -174,8 +174,15 @@ Checkpoint physique `7eb49cd891edadfe7af937b33b06d08bddbfc464` publié et relu
 intégralement depuis GitHub ; le manifeste des preuves a été vérifié.
 Le présent rapport et les preuves finales sont publiés depuis le worktree
 `MSM_vibe-R4S-publication`, branche locale `codex/r4s-publication`, par push normal
-explicite `HEAD:refs/heads/main`. La preuve de relecture finale et le SHA du commit
-contenant ce rapport sont fournis après publication, sans autoréférence fictive.
+explicite `HEAD:refs/heads/main`. Le commit `cabdff22d92ef6a0b46fd2cea302ca51868ac88c`
+(`R4S: publish physical service PASS, retirement counterexample and exact M016 restoration`)
+a été poussé puis relu depuis GitHub : **170 fichiers comparés intégralement,
+158 preuves vérifiées par SHA256**, le 2026-10-16T21:51:37.014183+00:00.
+Preuve durable : `preuves/TR2-20261016-R4S/final-report-readback.json`.
+Cette dernière annotation documentaire fait l'objet d'un second push et d'une
+relecture finale dont le SHA est communiqué dans la réponse Codex, sans
+chercher à inscrire dans le commit son propre hash. Statut technique BLOCKED
+inchangé ; publication et qualification technique restent distinctes.
 
 Dépôt principal préservé à `82169af7e76797731358852bec83bfb0ceb54ccf`, deux stashes
 historiques inchangés (`6251b988…`, `f3b829e6…`), autres worktrees et fichiers
