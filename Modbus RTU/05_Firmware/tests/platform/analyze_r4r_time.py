@@ -10,17 +10,19 @@ import struct
 
 def fifo(data):
     assert len(data) % 7 == 0
-    anchors=[]; index=0; last_tag=None; counter_errors=0; reserved_errors=0
+    anchors=[]; index=0; last_tag=None; pending=None; counter_errors=0; reserved_errors=0
     for (tag,x,y,z) in struct.iter_unpack('<BHHH',data):
         assert tag.bit_count()%2==0, ('parity',index,tag)
         counter=(tag>>1)&3
         if tag>>3==2:
             if last_tag is not None: assert counter==(last_tag+1)%4
+            if pending is not None: counter_errors+=counter!=pending; pending=None
             last_tag=counter; index+=1
         elif tag>>3==4:
-            counter_errors+=counter!=last_tag
+            if pending is not None: counter_errors+=1
+            pending=counter
             reserved_errors+=z!=0x0a00
-            anchors.append(dict(index=index-1,raw=x+(y<<16),counter=counter))
+            anchors.append(dict(index=index,raw=x+(y<<16),counter=counter))
         else: raise AssertionError(('tag',tag))
     deltas=[(b['raw']-a['raw'])&0xffffffff for a,b in zip(anchors,anchors[1:])]
     assert all(0<d<0x80000000 for d in deltas)
@@ -31,7 +33,7 @@ def brackets(data):
     rows=list(struct.iter_unpack('<QQII',data)); assert len(rows)>2
     # Discard samples before the first sensor tick; startup and clock freeze
     # belong to distinct domains and are never folded into a rate estimate.
-    rows=[r for r in rows if r[2]!=0]; first,last=rows[0],rows[-1]
+    rows=[r for r in rows[10:] if r[2]!=0]; first,last=rows[0],rows[-1]
     tickspan=(last[2]-first[2])&0xffffffff
     assert 0<tickspan<0x80000000
     mid=lambda r:(r[0]+r[1])/2
@@ -41,13 +43,14 @@ def brackets(data):
 
 def self_test():
     words=[]
-    for i in range(24):
-        ctr=i%4; tag=16+2*ctr;tag|=tag.bit_count()%2
-        words.append(struct.pack('<BHHH',tag,1,2,3))
-        if i%8==7:
-            tag=32+2*ctr;tag|=tag.bit_count()%2
+    for i in range(25):
+        if i%8==0:
+            tag=32;tag|=tag.bit_count()%2
             raw=(0xfffffff0+24*(i//8))&0xffffffff
             words.append(struct.pack('<BIH',tag,raw,0xa00))
+        if i<24:
+            ctr=i%4; tag=16+2*ctr;tag|=tag.bit_count()%2
+            words.append(struct.pack('<BHHH',tag,1,2,3))
     r=fifo(b''.join(words));assert r['delta_ticks_min']==24 and r['counter_mismatch']==0
     rows=b''.join(struct.pack('<QQII',10000+i*10000,10020+i*10000,800+i*800,i) for i in range(20))
     r=brackets(rows);assert r['us_per_tick']==12.5 and r['residual_us_max']==0

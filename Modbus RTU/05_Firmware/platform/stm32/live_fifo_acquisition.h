@@ -20,5 +20,9 @@ Tr2Result live_fifo_acquisition_poll(LiveFifoAcquisition *);
  * provide observed per-XYZ monotone/UTC from a qualified timestamp authority. */
 Tr2Result live_fifo_acquisition_bind_metrology(LiveFifoAcquisition *,LiveMetrology *,
  Tr2Result (*)(void *,uint64_t,uint64_t *,bool *,uint64_t *),void *);
+/* Delayed anchor-based sink: same start/stop/fault lifecycle as the per-index
+ * sink, but may buffer a bounded group until the next actual timestamp. Sink
+ * must feed live_metrology_sample with exact run/config/index, never media. */
+Tr2Result live_fifo_acquisition_bind_event_metrology(LiveFifoAcquisition *,LiveMetrology *,FifoLiveConsume,void *);
 Tr2Result live_fifo_acquisition_bind_engine(LiveFifoAcquisition *,LiveCommandEngine *);
 #endif

@@ -435,3 +435,8 @@ add_executable(test_live_modbus_server tests/platform/test_live_modbus_server.c 
 target_include_directories(test_live_modbus_server PRIVATE platform/stm32 ${ST_REF}/src ${ST_REF}/vendor/st)
 target_link_libraries(test_live_modbus_server PRIVATE tr2_core)
 add_test(NAME live_modbus_server COMMAND test_live_modbus_server)
+
+add_executable(test_fifo_event_time tests/platform/test_fifo_event_time.c platform/stm32/fifo_event_time.c)
+target_include_directories(test_fifo_event_time PRIVATE platform/stm32 ${ST_REF}/src ${ST_REF}/vendor/st)
+target_link_libraries(test_fifo_event_time PRIVATE tr2_core)
+add_test(NAME fifo_event_time COMMAND test_fifo_event_time)

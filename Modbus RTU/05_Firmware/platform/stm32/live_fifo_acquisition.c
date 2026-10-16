@@ -98,3 +98,12 @@ Tr2Result live_fifo_acquisition_bind_engine(LiveFifoAcquisition *a,LiveCommandEn
  a->engine=engine;engine->fault_context=a->metrology;
  engine->fault_observer=engine_measurement_fault;return TR2_OK;
 }
+
+Tr2Result live_fifo_acquisition_bind_event_metrology(LiveFifoAcquisition *a,LiveMetrology *m,
+ FifoLiveConsume consume,void *context)
+{
+ if(!a||!m||!consume||!context||!a->fifo.initialized)return TR2_ERROR_INVALID_ARGUMENT;
+ if(a->fifo.running||a->metrology||m->running)return TR2_ERROR_INVALID_STATE;
+ a->metrology=m;a->fifo.consume=consume;a->fifo.consumer=context;
+ m->safe_stop=metrology_safety_stop;m->stop_context=a;return TR2_OK;
+}

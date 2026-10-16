@@ -83,6 +83,12 @@ class Profiles(unittest.TestCase):
         self.configure('storage-and-cumulative', ['STORAGE_QUALIFICATION=ON',
                        'BUILD_PROFILE=CUMULATIVE'], 'STORAGE_QUALIFICATION is isolated')
 
+    def test_r4r_isolated_profile(self):
+        flags=['BUILD_PROFILE=CUMULATIVE','R4_BENCH=ON','R4M_MAINTENANCE=ON','R4P_COEXISTENCE=ON','R4R_BENCH=ON']
+        self.configure('r4r-alone', ['R4R_BENCH=ON'], 'R4R requires explicit')
+        self.configure('r4r-q-conflict', flags+['R4Q_BENCH=ON'], 'R4R requires explicit')
+        self.configure('r4r-qualified-recipe', flags, label='tr2-r4r-physical-time-NON-PRODUCTION')
+
     def test_helper_requires_explicit_profile(self):
         command = ['bash', str(SRC/'tr2_build_stm32.sh')]
         result = subprocess.run(command, capture_output=True, text=True)
