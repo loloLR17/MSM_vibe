@@ -269,12 +269,19 @@ static Tr2Result live_command_engine_step_impl(LiveCommandEngine *e)
     }
     /* No effect may occur until the immutable STARTED+intent transaction has
      * been verified. An error/uncertain observation is never retried. */
+    /* Hardware effect and independent readback are separate bounded work.
+     * A service failure here must leave STARTED/INTENT, never invent a receipt.
+     * No checkpoint inside safety stop, which remains FRAM-independent. */
+    error=tr2_cooperative_checkpoint(e->store->configuration->live->work);
+    if(error!=TR2_OK)return storage_fault(e,error);
     if(code==13u) {
         if(!live_configuration_active(e->store->configuration,&config)||config.config_id!=r.config_id||config.generation!=r.config_generation)
             return storage_fault(e,TR2_ERROR_INVALID_STATE);
         error=e->acquisition.start(e->acquisition.context,r.run_id,&config);
     } else error=e->acquisition.stop(e->acquisition.context);
+    if(error==TR2_OK)error=tr2_cooperative_checkpoint(e->store->configuration->live->work);
     if(error==TR2_OK)error=e->acquisition.observe(e->acquisition.context,&observation);
+    if(error==TR2_OK)error=tr2_cooperative_checkpoint(e->store->configuration->live->work);
     if(error!=TR2_OK||(code==13u&&(!observation.running||observation.stopped||!observation.configuration_confirmed||
         observation.run_id!=r.run_id||observation.config_id!=r.config_id||observation.config_generation!=r.config_generation))||
         (code==14u&&(!observation.stopped||observation.running||observation.run_id!=r.run_id||

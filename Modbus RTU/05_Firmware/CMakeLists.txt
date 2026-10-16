@@ -421,3 +421,5 @@ target_link_libraries(test_r4m_maintenance PRIVATE tr2_core)
 add_test(NAME r4m_maintenance COMMAND ${Python3_EXECUTABLE}
     ${CMAKE_CURRENT_SOURCE_DIR}/tests/platform/run_r4m_maintenance.py
     $<TARGET_FILE:test_r4m_maintenance> ${CMAKE_CURRENT_SOURCE_DIR}/tests/fixtures/r4_started_snapshot.zlib)
+
+tr2_add_core_test(test_live_effect_timing tests/unit/test_live_effect_timing.c live_effect_timing)
