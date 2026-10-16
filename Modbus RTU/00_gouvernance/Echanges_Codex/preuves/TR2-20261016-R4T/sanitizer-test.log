@@ -1,0 +1,8 @@
+Internal ctest changing into directory: /home/lolo/dev/msm/reports/TR2-r4t/sanitizers
+Test project /home/lolo/dev/msm/reports/TR2-r4t/sanitizers
+    Start 142: r4t_maintenance
+1/1 Test #142: r4t_maintenance ..................   Passed   13.41 sec
+
+100% tests passed, 0 tests failed out of 1
+
+Total Test time (real) =  13.41 sec

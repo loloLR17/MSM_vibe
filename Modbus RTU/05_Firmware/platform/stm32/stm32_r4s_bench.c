@@ -9,7 +9,7 @@ typedef struct {
 } R4sService;
 volatile struct {uint32_t stage,error,write_attempts,clock_checks,trace_count;uint64_t begin_us,end_us,max_consumer_us,start_us,stop_us;} r4s_result;
 R4sService r4s_trace[64],r4s_max_service;
-ClockBracket r4s_clock_brackets[128];
+ClockBracket r4s_clock_brackets[128],r4s_clock_last;
 uint32_t fifo_event_time_cycles(void){return DWT->CYCCNT;}
 static uint64_t consumer_us;
 static int s_consume(void *ctx,const uint8_t *b,uint32_t n,uint64_t index)
@@ -18,14 +18,14 @@ static int s_consume(void *ctx,const uint8_t *b,uint32_t n,uint64_t index)
 }
 static Tr2Result s_deny_write(void *ctx,uint32_t at,const void *b,size_t n)
 {(void)ctx;(void)at;(void)b;(void)n;r4s_result.write_attempts++;return TR2_ERROR_STORAGE;}
-static Tr2Result mount_readonly(void)
+static Tr2Result mount_snapshot(bool writable)
 {
  static const uint8_t expected[32]={0x14,0xfb,0x17,0x2f,0x29,0x17,0xd0,0xa8,0xe4,0x40,0x43,0x80,0x51,0x83,0x1c,0x84,0xf3,0xf3,0xe7,0x46,0x16,0x17,0x02,0xa7,0xde,0x9e,0x9a,0x1a,0x25,0x1b,0x2a,0xa9};
  uint8_t hash[32];REQUIRE(tr2_cooperative_enter(&work));
  for(uint32_t at=0;at<sizeof(baseline);at+=32){REQUIRE(read_physical(NULL,at,baseline+at,32));REQUIRE(tr2_cooperative_checkpoint(&work));}
  REQUIRE(tr2_cooperative_leave(&work));REQUIRE(tr2_sha256_bytes_cooperative(baseline,sizeof(baseline),hash,&work));
  if(memcmp(hash,expected,32))return TR2_ERROR_STORAGE;
- TransactionalImagePhysicalStorage storage={NULL,read_physical,s_deny_write};
+ TransactionalImagePhysicalStorage storage={NULL,read_physical,writable?write_physical:s_deny_write};
  TransactionalImageGeometry geometry=transactional_image_geometry_qualification_profile();
  static const PersistentIdentityAssignment assignment={{0x004A003D,0x38425018,0x20333157},1};
  REQUIRE(transactional_image_media_init_v2(&historical,&storage,&geometry,candidate,sizeof(candidate)));
@@ -48,8 +48,8 @@ static Tr2Result s_service(void *ctx)
    c.after_us=now_us(NULL);c.index=(uint32_t)owner.acquisition.fifo.total_xyz;
    if(!event_time.initialized)r=fifo_event_time_init(&event_time,&owner.acquisition.fifo,&metric,c.raw,(c.before_us+c.after_us)/2,r4r_result.span_us,r4r_result.span_ticks);
    else {
-    if(r4s_result.clock_checks>=128)return TR2_ERROR_INVALID_STATE;
-    r4s_clock_brackets[r4s_result.clock_checks]=c;
+    r4s_clock_last=c;
+    if(r4s_result.clock_checks<128)r4s_clock_brackets[r4s_result.clock_checks]=c;
     r=fifo_event_time_track(&event_time,c.raw,c.before_us,c.after_us,100);r4s_result.clock_checks++;
    }
    sample.clock=c.after_us-c.before_us;if(r!=TR2_OK)return r;next_check=c.after_us+100000u;
@@ -74,24 +74,14 @@ static Tr2Result s_service(void *ctx)
  if(r4s_result.trace_count<64&&(sample.published||sample.clock||!r4s_result.trace_count||sample.total>r4s_trace[r4s_result.trace_count-1].total))r4s_trace[r4s_result.trace_count++]=sample;
  return TR2_OK;
 }
-__attribute__((noreturn)) void stm32_r4_benchmark_run(SPI_HandleTypeDef *spi1,SPI_HandleTypeDef *spi3)
+static Tr2Result s_calibrate(void)
 {
- r4_result.core_hz=HAL_RCC_GetHCLKFreq();r4_result.spi1_hz=HAL_RCCEx_GetPeriphCLKFreq(RCC_PERIPHCLK_SPI1)/64u;
- r4_result.spi3_hz=HAL_RCCEx_GetPeriphCLKFreq(RCC_PERIPHCLK_SPI3)/4u;
- if(!identity_ok()||r4_result.core_hz!=160000000u||r4_result.spi1_hz!=2500000u||r4_result.spi3_hz!=4000000u||
- stm32_fram_storage_init(&fram,spi1,GPIOD,GPIO_PIN_14,2)!=TR2_OK||stm32_live_acquisition_attach(&owner,spi3,5,consume,NULL)!=TR2_OK){r4s_result.error=1;goto end;}
- owner.acquisition.fifo.first_data_timeout_ms=20;previous_cycles=DWT->CYCCNT;elapsed_cycles=0;
- bounded=stm32_fram_storage_bounded_physical(&fram);
- if(tr2_cooperative_init(&work,NULL,now_us,service,stop,32,1000,2500)!=TR2_OK){r4s_result.error=2;goto end;}
- r4s_result.stage=1;while(r4_trigger!=0x5234000Cu){(void)now_us(NULL);HAL_Delay(1);}
- r4_trigger=0;r4s_result.stage=2;
- if(mount_readonly()!=TR2_OK){r4s_result.error=3;goto end;}
- uint8_t fine=0;if(iis3dwb_odr_cal_reg_get(&owner.acquisition.fifo.ctx,&fine)){r4r_result.error=4;goto end;}
+ uint8_t fine=0;if(iis3dwb_odr_cal_reg_get(&owner.acquisition.fifo.ctx,&fine)){r4r_result.error=4;return TR2_ERROR_UNAVAILABLE;}
  r4r_result.fine=fine;r4r_result.min_delta=UINT32_MAX;r4r_result.stage=3;
- if(fifo_live_init(&diag_fifo,&owner.acquisition.fifo.ctx,5,r_consume,NULL)){r4r_result.error=5;goto end;}
+ if(fifo_live_init(&diag_fifo,&owner.acquisition.fifo.ctx,5,r_consume,NULL)){r4r_result.error=5;return TR2_ERROR_UNAVAILABLE;}
  diag_fifo.cleanup_begin=owner.acquisition.fifo.cleanup_begin;diag_fifo.first_data_timeout_ms=20;
  r4_result.start_us=now_us(NULL);
- if(fifo_live_start(&diag_fifo,UINT64_MAX-1,3,3,7,0,r_ms(NULL))){r4r_result.error=5;goto end;}
+ if(fifo_live_start(&diag_fifo,UINT64_MAX-1,3,3,7,0,r_ms(NULL))){r4r_result.error=5;return TR2_ERROR_UNAVAILABLE;}
  r4r_result.begin_us=now_us(NULL);uint64_t next_bracket=r4r_result.begin_us;
  while(now_us(NULL)-r4r_result.begin_us<2000000u){
   if(diag_service()!=TR2_OK){r4r_result.error=6;break;}
@@ -102,18 +92,36 @@ __attribute__((noreturn)) void stm32_r4_benchmark_run(SPI_HandleTypeDef *spi1,SP
   }
  }
  r4r_result.end_us=now_us(NULL);
- if(fifo_live_stop(&diag_fifo)||r4r_result.error||r4r_result.anchors<100||r4r_result.brackets<100||r4r_result.counter_mismatch||r4r_result.reserved_nonzero){r4r_result.error=8;goto end;}
+ if(fifo_live_stop(&diag_fifo)||r4r_result.error||r4r_result.anchors<100||r4r_result.brackets<100||r4r_result.counter_mismatch||r4r_result.reserved_nonzero){r4r_result.error=8;return TR2_ERROR_UNAVAILABLE;}
  ClockBracket *a=&r4r_brackets[10],*b=&r4r_brackets[r4r_result.brackets-1];
  r4r_result.span_us=(b->before_us+b->after_us-a->before_us-a->after_us)/2;
  r4r_result.span_ticks=(uint32_t)(b->raw-a->raw);
- if(!r4r_result.span_ticks){r4r_result.error=9;goto end;}
+ if(!r4r_result.span_ticks){r4r_result.error=9;return TR2_ERROR_UNAVAILABLE;}
  for(uint32_t i=10;i<r4r_result.brackets;i++){
   ClockBracket *c=&r4r_brackets[i];uint64_t predicted=(a->before_us+a->after_us)/2+(uint32_t)(c->raw-a->raw)*r4r_result.span_us/r4r_result.span_ticks;
   uint64_t mid=(c->before_us+c->after_us)/2,residual=mid>predicted?mid-predicted:predicted-mid;
   if(residual>r4r_result.calibration_residual_us)r4r_result.calibration_residual_us=residual;
  }
- if(r4r_result.calibration_residual_us>100){r4r_result.error=10;goto end;}
+ if(r4r_result.calibration_residual_us>100){r4r_result.error=10;return TR2_ERROR_UNAVAILABLE;}
 
+ return TR2_OK;
+}
+#ifndef TR2_R4S_ENTRY
+#define TR2_R4S_ENTRY stm32_r4_benchmark_run
+#endif
+__attribute__((noreturn)) void TR2_R4S_ENTRY(SPI_HandleTypeDef *spi1,SPI_HandleTypeDef *spi3)
+{
+ r4_result.core_hz=HAL_RCC_GetHCLKFreq();r4_result.spi1_hz=HAL_RCCEx_GetPeriphCLKFreq(RCC_PERIPHCLK_SPI1)/64u;
+ r4_result.spi3_hz=HAL_RCCEx_GetPeriphCLKFreq(RCC_PERIPHCLK_SPI3)/4u;
+ if(!identity_ok()||r4_result.core_hz!=160000000u||r4_result.spi1_hz!=2500000u||r4_result.spi3_hz!=4000000u||
+ stm32_fram_storage_init(&fram,spi1,GPIOD,GPIO_PIN_14,2)!=TR2_OK||stm32_live_acquisition_attach(&owner,spi3,5,consume,NULL)!=TR2_OK){r4s_result.error=1;goto end;}
+ owner.acquisition.fifo.first_data_timeout_ms=20;previous_cycles=DWT->CYCCNT;elapsed_cycles=0;
+ bounded=stm32_fram_storage_bounded_physical(&fram);
+ if(tr2_cooperative_init(&work,NULL,now_us,service,stop,32,1000,2500)!=TR2_OK){r4s_result.error=2;goto end;}
+ r4s_result.stage=1;while(r4_trigger!=0x5234000Cu){(void)now_us(NULL);HAL_Delay(1);}
+ r4_trigger=0;r4s_result.stage=2;
+ if(mount_snapshot(false)!=TR2_OK){r4s_result.error=3;goto end;}
+ if(s_calibrate()!=TR2_OK){r4s_result.error=14;goto end;}
  r4s_result.stage=3;
  live_metrology_init(&metric);
  if(live_fifo_acquisition_bind_event_metrology(&owner.acquisition,&metric,s_consume,&event_time)!=TR2_OK){r4s_result.error=4;goto end;}

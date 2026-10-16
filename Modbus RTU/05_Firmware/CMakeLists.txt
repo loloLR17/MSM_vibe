@@ -440,3 +440,10 @@ add_executable(test_fifo_event_time tests/platform/test_fifo_event_time.c platfo
 target_include_directories(test_fifo_event_time PRIVATE platform/stm32 ${ST_REF}/src ${ST_REF}/vendor/st)
 target_link_libraries(test_fifo_event_time PRIVATE tr2_core)
 add_test(NAME fifo_event_time COMMAND test_fifo_event_time)
+
+add_executable(test_r4t_maintenance tests/platform/test_r4t_maintenance.c platform/stm32/r4t_maintenance.c platform/stm32/r4m_maintenance.c)
+target_include_directories(test_r4t_maintenance PRIVATE platform/stm32)
+target_link_libraries(test_r4t_maintenance PRIVATE tr2_core)
+add_test(NAME r4t_maintenance COMMAND ${Python3_EXECUTABLE}
+    ${CMAKE_CURRENT_SOURCE_DIR}/tests/platform/run_r4t_maintenance.py
+    $<TARGET_FILE:test_r4t_maintenance> ${CMAKE_CURRENT_SOURCE_DIR}/tests/fixtures/r4r_started_snapshot.zlib)
