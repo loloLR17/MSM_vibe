@@ -4,7 +4,7 @@ status: IN_PROGRESS
 base_ref: main
 base_sha: 0e09805f4ade74ed04553f04efb7a881e8bfb84b
 initial_head: 11719e3946e0aa0773e8993b841c82760130fcf3
-result_sha: bc3e83de050a527cc839b494025c906f5c06246b
+result_sha: 3606942239f54930249d024dc33d1812d8629879
 created_at_utc: 2026-10-16T08:39:36Z
 author: Codex
 target_branch: main
@@ -53,3 +53,26 @@ AucunSD/HP/COM7/RTUélectrique ni provider temps capteur arbitraire. B3/LIVE2/R6
 
 Commit logiciel bc3e83de050a527cc839b494025c906f5c06246b, branchecodex/r4m-live-fram-reconciliation ; publication et
 relecture du checkpoint puis poursuite physique. Le contrat courant reste inchangé.
+
+
+## Checkpoint physique intermédiaire — reprise fermée du pont
+
+Le trigger4 réel a publié une unique isolation LIVE (52426 octets,1639 commandes,
+3 plages LIVE) puis s'est arrêté avant RENEW/START : work1075us>1000us, erreur6,
+aucun échantillon ni nouvelle commande. Capteur arrêté ; snapshot262144 préservé,
+SHA c868950fe3c60f9a3b23a9ce8d565029ee57d4f06b08cbf6062de9238b2af950,
+historique/tail inchangés. Observation GDB a fini en erreur de présentation pour
+un tableau de0opérations ; les résultats précédents et le snapshot sont acquis.
+Relecture seule en RAM réussie824us/0write ; cause exacte du dépassement nonattribuée.
+
+Correction logicielle : checkpoints entre validations/décodages successifs,
+contrôles/limites inchangés.137tests complets PASS56,30s, sanitizer maintenance
+PASS1,38s, cross-build canonique/probe PASS. Réexécution137 justifiée par correction
+core ; aucun ancien test physique rejoué.
+
+Plan de poursuite documenté dans LIVE_R4M : trigger6 explicite accepte uniquement
+le SHA du pont inspecté et l'INTENT128authentique. Frontend reste CLOSED jusqu'à
+ce contrôle, puis RETIRING/unique vraiRENEW1->2. **Aucun second reprovisionnement**.
+Nouveau snapshot vérifié avant token ; arrêt impératif si nouvelle indétermination.
+Cette tranche est préparée, pas encore exécutée. Firmware initial sera restauré.
+Code de reprise : 3606942239f54930249d024dc33d1812d8629879

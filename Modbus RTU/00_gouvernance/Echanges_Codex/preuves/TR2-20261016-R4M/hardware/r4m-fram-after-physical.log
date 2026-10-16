@@ -1,0 +1,8 @@
+0x0800656c in HAL_Delay (Delay=1) at /home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal.c:419
+419	  while ((HAL_GetTick() - tickstart) < wait)
+0xbfa0700:	0x004a003d	0x38425018	0x20333157
+$1 = {stage = 2147483668, error = 6, line = 252, command = 4, ownership = 0, read_passes = 1, commands = 0, core_hz = 160000000, spi1_hz = 2500000, spi3_hz = 4000000, tick_start = 6272, tick_end = 15504, max_read_us = 132, max_write_us = 164, max_gap_us = 0, last_poll_us = 0, safety_us = 236, first_data_us = 0, start_us = 0, read_bytes = 1272938, write_bytes = 52426, xyz = 0, timestamps = 0, polls = 0, elapsed_us = 15504611, max_level = 0, fifo_error = 0, stop_error = 0, engine_status = 9, engine_result = 0, protected_equal = 0, baseline_equal = 1}
+$2 = false
+Note: automatically using hardware breakpoints for read-only addresses.
+$3 = 0
+[Inferior 1 (Remote target) detached]

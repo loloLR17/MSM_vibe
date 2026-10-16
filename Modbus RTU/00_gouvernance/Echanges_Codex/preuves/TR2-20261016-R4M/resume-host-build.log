@@ -1,0 +1,465 @@
+[  0%] Building C object CMakeFiles/tr2_core.dir/src/persistence/live_command_store.c.o
+[  1%] Building C object CMakeFiles/tr2_core.dir/src/application/live_configuration.c.o
+[  1%] Linking C static library libtr2_core.a
+[ 21%] Built target tr2_core
+[ 21%] Building C object CMakeFiles/tr2_platform_host.dir/platform/host/host_platform.c.o
+[ 21%] Linking C static library libtr2_platform_host.a
+[ 21%] Built target tr2_platform_host
+[ 21%] Building C object CMakeFiles/tr2_host.dir/platform/host/main.c.o
+[ 22%] Linking C executable tr2_host
+[ 22%] Built target tr2_host
+[ 22%] Building C object CMakeFiles/tr2_rtu_request.dir/platform/host/rtu_request.c.o
+[ 23%] Linking C executable tr2_rtu_request
+[ 23%] Built target tr2_rtu_request
+[ 23%] Building C object CMakeFiles/test_stm32_continuous.dir/tests/platform/test_stm32_continuous.c.o
+[ 24%] Building C object CMakeFiles/test_stm32_continuous.dir/platform/stm32/stm32_iis3dwb_continuous.c.o
+[ 24%] Linking C executable test_stm32_continuous
+[ 24%] Built target test_stm32_continuous
+[ 24%] Building C object CMakeFiles/test_stm32_ctrl1_differential.dir/tests/platform/test_stm32_ctrl1_differential.c.o
+[ 24%] Building C object CMakeFiles/test_stm32_ctrl1_differential.dir/platform/stm32/stm32_iis3dwb_ctrl1_differential.c.o
+[ 25%] Linking C executable test_stm32_ctrl1_differential
+[ 25%] Built target test_stm32_ctrl1_differential
+[ 26%] Building C object CMakeFiles/test_stm32_burst_capture.dir/tests/platform/test_stm32_burst_capture.c.o
+[ 26%] Building C object CMakeFiles/test_stm32_burst_capture.dir/platform/stm32/stm32_iis3dwb_burst_capture.c.o
+[ 26%] Linking C executable test_stm32_burst_capture
+[ 26%] Built target test_stm32_burst_capture
+[ 26%] Building C object CMakeFiles/test_stm32_active_readback.dir/tests/platform/test_stm32_active_readback.c.o
+[ 26%] Building C object CMakeFiles/test_stm32_active_readback.dir/platform/stm32/stm32_iis3dwb_active_readback.c.o
+[ 26%] Linking C executable test_stm32_active_readback
+[ 26%] Built target test_stm32_active_readback
+[ 26%] Building C object CMakeFiles/test_stm32_register_probe.dir/tests/platform/test_stm32_register_probe.c.o
+[ 27%] Building C object CMakeFiles/test_stm32_register_probe.dir/platform/stm32/stm32_iis3dwb_register_probe.c.o
+[ 27%] Linking C executable test_stm32_register_probe
+[ 27%] Built target test_stm32_register_probe
+[ 28%] Building C object CMakeFiles/test_stm32_iis3dwb_fifo.dir/tests/platform/test_stm32_iis3dwb_fifo.c.o
+[ 28%] Building C object CMakeFiles/test_stm32_iis3dwb_fifo.dir/platform/stm32/stm32_iis3dwb_vibration_source.c.o
+[ 28%] Building C object CMakeFiles/test_stm32_iis3dwb_fifo.dir/platform/stm32/stm32_iis3dwb_fifo_capture.c.o
+[ 28%] Linking C executable test_stm32_iis3dwb_fifo
+[ 28%] Built target test_stm32_iis3dwb_fifo
+[ 29%] Building C object CMakeFiles/test_stm32_iis3dwb.dir/tests/platform/test_stm32_iis3dwb.c.o
+[ 29%] Building C object CMakeFiles/test_stm32_iis3dwb.dir/platform/stm32/stm32_iis3dwb_vibration_source.c.o
+[ 29%] Building C object CMakeFiles/test_stm32_iis3dwb.dir/platform/stm32/stm32_iis3dwb_capture.c.o
+[ 29%] Linking C executable test_stm32_iis3dwb
+[ 29%] Built target test_stm32_iis3dwb
+[ 29%] Building C object CMakeFiles/test_stm32_rs485_rx_gpio.dir/tests/platform/test_stm32_rs485_rx_gpio.c.o
+[ 29%] Building C object CMakeFiles/test_stm32_rs485_rx_gpio.dir/platform/stm32/stm32_rs485_rx_gpio.c.o
+[ 30%] Linking C executable test_stm32_rs485_rx_gpio
+[ 30%] Built target test_stm32_rs485_rx_gpio
+[ 30%] Building C object CMakeFiles/test_stm32_rtu_tx_0.dir/tests/platform/test_stm32_rtu_tx.c.o
+[ 30%] Building C object CMakeFiles/test_stm32_rtu_tx_0.dir/platform/stm32/stm32_serial_transport.c.o
+[ 30%] Building C object CMakeFiles/test_stm32_rtu_tx_0.dir/platform/stm32/stm32_modbus_diagnostic.c.o
+[ 31%] Linking C executable test_stm32_rtu_tx_0
+[ 31%] Built target test_stm32_rtu_tx_0
+[ 32%] Building C object CMakeFiles/test_stm32_irq_observer_0.dir/tests/platform/test_stm32_rtu_tx.c.o
+[ 32%] Building C object CMakeFiles/test_stm32_irq_observer_0.dir/platform/stm32/stm32_serial_transport.c.o
+[ 32%] Building C object CMakeFiles/test_stm32_irq_observer_0.dir/platform/stm32/stm32_modbus_diagnostic.c.o
+[ 32%] Linking C executable test_stm32_irq_observer_0
+[ 32%] Built target test_stm32_irq_observer_0
+[ 32%] Building C object CMakeFiles/test_stm32_rtu_tx_1.dir/tests/platform/test_stm32_rtu_tx.c.o
+[ 32%] Building C object CMakeFiles/test_stm32_rtu_tx_1.dir/platform/stm32/stm32_serial_transport.c.o
+[ 32%] Building C object CMakeFiles/test_stm32_rtu_tx_1.dir/platform/stm32/stm32_modbus_diagnostic.c.o
+[ 33%] Linking C executable test_stm32_rtu_tx_1
+[ 33%] Built target test_stm32_rtu_tx_1
+[ 34%] Building C object CMakeFiles/test_stm32_irq_observer_1.dir/tests/platform/test_stm32_rtu_tx.c.o
+[ 34%] Building C object CMakeFiles/test_stm32_irq_observer_1.dir/platform/stm32/stm32_serial_transport.c.o
+[ 34%] Building C object CMakeFiles/test_stm32_irq_observer_1.dir/platform/stm32/stm32_modbus_diagnostic.c.o
+[ 34%] Linking C executable test_stm32_irq_observer_1
+[ 34%] Built target test_stm32_irq_observer_1
+[ 35%] Building C object CMakeFiles/test_stm32_modbus_diagnostic.dir/tests/platform/test_stm32_modbus_diagnostic.c.o
+[ 35%] Building C object CMakeFiles/test_stm32_modbus_diagnostic.dir/platform/stm32/stm32_modbus_diagnostic.c.o
+[ 35%] Linking C executable test_stm32_modbus_diagnostic
+[ 35%] Built target test_stm32_modbus_diagnostic
+[ 36%] Building C object CMakeFiles/test_codec.dir/tests/unit/test_codec.c.o
+[ 36%] Linking C executable test_codec
+[ 36%] Built target test_codec
+[ 36%] Building C object CMakeFiles/test_b4_configuration_codec.dir/tests/unit/test_b4_configuration_codec.c.o
+[ 36%] Linking C executable test_b4_configuration_codec
+[ 36%] Built target test_b4_configuration_codec
+[ 36%] Building C object CMakeFiles/test_register_model.dir/tests/unit/test_register_model.c.o
+[ 36%] Linking C executable test_register_model
+[ 36%] Built target test_register_model
+[ 37%] Building C object CMakeFiles/test_projection_b0.dir/tests/unit/test_projection_b0.c.o
+[ 37%] Linking C executable test_projection_b0
+[ 37%] Built target test_projection_b0
+[ 37%] Building C object CMakeFiles/test_projection_b1.dir/tests/unit/test_projection_b1.c.o
+[ 37%] Linking C executable test_projection_b1
+[ 37%] Built target test_projection_b1
+[ 38%] Building C object CMakeFiles/test_projection_b2.dir/tests/unit/test_projection_b2.c.o
+[ 38%] Linking C executable test_projection_b2
+[ 38%] Built target test_projection_b2
+[ 38%] Building C object CMakeFiles/test_projection_b3.dir/tests/unit/test_projection_b3.c.o
+[ 38%] Linking C executable test_projection_b3
+[ 38%] Built target test_projection_b3
+[ 39%] Building C object CMakeFiles/test_projection_b4.dir/tests/unit/test_projection_b4.c.o
+[ 39%] Linking C executable test_projection_b4
+[ 39%] Built target test_projection_b4
+[ 40%] Building C object CMakeFiles/test_campaign_inventory_b6.dir/tests/unit/test_campaign_inventory_b6.c.o
+[ 40%] Linking C executable test_campaign_inventory_b6
+[ 40%] Built target test_campaign_inventory_b6
+[ 41%] Building C object CMakeFiles/test_b6_adapters.dir/tests/unit/test_b6_adapters.c.o
+[ 41%] Linking C executable test_b6_adapters
+[ 41%] Built target test_b6_adapters
+[ 42%] Building C object CMakeFiles/test_time_service.dir/tests/unit/test_time_service.c.o
+[ 42%] Linking C executable test_time_service
+[ 42%] Built target test_time_service
+[ 42%] Building C object CMakeFiles/test_time_recovery_types.dir/tests/unit/test_time_recovery_types.c.o
+[ 42%] Linking C executable test_time_recovery_types
+[ 42%] Built target test_time_recovery_types
+[ 42%] Building C object CMakeFiles/test_time_history_record.dir/tests/unit/test_time_history_record.c.o
+[ 42%] Linking C executable test_time_history_record
+[ 42%] Built target test_time_history_record
+[ 43%] Building C object CMakeFiles/test_time_history_store.dir/tests/unit/test_time_history_store.c.o
+[ 43%] Linking C executable test_time_history_store
+[ 43%] Built target test_time_history_store
+[ 43%] Building C object CMakeFiles/test_time_synchronization.dir/tests/unit/test_time_synchronization.c.o
+[ 43%] Linking C executable test_time_synchronization
+[ 43%] Built target test_time_synchronization
+[ 44%] Building C object CMakeFiles/test_configuration_types.dir/tests/unit/test_configuration_types.c.o
+[ 44%] Linking C executable test_configuration_types
+[ 44%] Built target test_configuration_types
+[ 45%] Building C object CMakeFiles/test_configuration_staging.dir/tests/unit/test_configuration_staging.c.o
+[ 45%] Linking C executable test_configuration_staging
+[ 45%] Built target test_configuration_staging
+[ 45%] Building C object CMakeFiles/test_configuration_validator.dir/tests/unit/test_configuration_validator.c.o
+[ 45%] Linking C executable test_configuration_validator
+[ 45%] Built target test_configuration_validator
+[ 46%] Building C object CMakeFiles/test_configuration_workflow.dir/tests/unit/test_configuration_workflow.c.o
+[ 46%] Linking C executable test_configuration_workflow
+[ 46%] Built target test_configuration_workflow
+[ 46%] Building C object CMakeFiles/test_configuration_service.dir/tests/unit/test_configuration_service.c.o
+[ 46%] Linking C executable test_configuration_service
+[ 46%] Built target test_configuration_service
+[ 46%] Building C object CMakeFiles/test_persistent_storage_core.dir/tests/unit/test_persistent_storage_core.c.o
+[ 46%] Linking C executable test_persistent_storage_core
+[ 46%] Built target test_persistent_storage_core
+[ 47%] Building C object CMakeFiles/test_configuration_record.dir/tests/unit/test_configuration_record.c.o
+[ 47%] Linking C executable test_configuration_record
+[ 47%] Built target test_configuration_record
+[ 47%] Building C object CMakeFiles/test_campaign_record.dir/tests/unit/test_campaign_record.c.o
+[ 47%] Linking C executable test_campaign_record
+[ 47%] Built target test_campaign_record
+[ 48%] Building C object CMakeFiles/test_campaign_repository_store.dir/tests/unit/test_campaign_repository_store.c.o
+[ 48%] Linking C executable test_campaign_repository_store
+[ 48%] Built target test_campaign_repository_store
+[ 48%] Building C object CMakeFiles/test_campaign_bulk_aggregator.dir/tests/unit/test_campaign_bulk_aggregator.c.o
+[ 48%] Linking C executable test_campaign_bulk_aggregator
+[ 48%] Built target test_campaign_bulk_aggregator
+[ 49%] Building C object CMakeFiles/test_campaign_bulk_block.dir/tests/unit/test_campaign_bulk_block.c.o
+[ 49%] Linking C executable test_campaign_bulk_block
+[ 49%] Built target test_campaign_bulk_block
+[ 49%] Building C object CMakeFiles/test_campaign_bulk_block_stream.dir/tests/unit/test_campaign_bulk_block_stream.c.o
+[ 49%] Linking C executable test_campaign_bulk_block_stream
+[ 49%] Built target test_campaign_bulk_block_stream
+[ 50%] Building C object CMakeFiles/test_campaign_bulk_checkpoint.dir/tests/unit/test_campaign_bulk_checkpoint.c.o
+[ 50%] Linking C executable test_campaign_bulk_checkpoint
+[ 50%] Built target test_campaign_bulk_checkpoint
+[ 50%] Building C object CMakeFiles/test_campaign_bulk_media.dir/tests/unit/test_campaign_bulk_media.c.o
+[ 50%] Linking C executable test_campaign_bulk_media
+[ 50%] Built target test_campaign_bulk_media
+[ 51%] Building C object CMakeFiles/test_campaign_bulk_media_region.dir/tests/unit/test_campaign_bulk_media_region.c.o
+[ 51%] Linking C executable test_campaign_bulk_media_region
+[ 51%] Built target test_campaign_bulk_media_region
+[ 51%] Building C object CMakeFiles/test_campaign_bulk_metadata.dir/tests/unit/test_campaign_bulk_metadata.c.o
+[ 51%] Linking C executable test_campaign_bulk_metadata
+[ 51%] Built target test_campaign_bulk_metadata
+[ 52%] Building C object CMakeFiles/test_campaign_data_store_bulk.dir/tests/unit/test_campaign_data_store_bulk.c.o
+[ 52%] Linking C executable test_campaign_data_store_bulk
+[ 52%] Built target test_campaign_data_store_bulk
+[ 52%] Building C object CMakeFiles/test_campaign_data_store_persistent.dir/tests/unit/test_campaign_data_store_persistent.c.o
+[ 52%] Linking C executable test_campaign_data_store_persistent
+[ 52%] Built target test_campaign_data_store_persistent
+[ 52%] Building C object CMakeFiles/test_campaign_service.dir/tests/unit/test_campaign_service.c.o
+[ 52%] Linking C executable test_campaign_service
+[ 52%] Built target test_campaign_service
+[ 52%] Building C object CMakeFiles/test_configuration_store.dir/tests/unit/test_configuration_store.c.o
+[ 52%] Linking C executable test_configuration_store
+[ 52%] Built target test_configuration_store
+[ 53%] Building C object CMakeFiles/test_configuration_store_recovery.dir/tests/unit/test_configuration_store_recovery.c.o
+[ 53%] Linking C executable test_configuration_store_recovery
+[ 53%] Built target test_configuration_store_recovery
+[ 53%] Building C object CMakeFiles/test_configuration_store_recovery_unavailable.dir/tests/unit/test_configuration_store_recovery_unavailable.c.o
+[ 53%] Linking C executable test_configuration_store_recovery_unavailable
+[ 53%] Built target test_configuration_store_recovery_unavailable
+[ 53%] Building C object CMakeFiles/test_read_adapter.dir/tests/unit/test_read_adapter.c.o
+[ 53%] Linking C executable test_read_adapter
+[ 53%] Built target test_read_adapter
+[ 53%] Building C object CMakeFiles/test_read_adapter_b3.dir/tests/unit/test_read_adapter_b3.c.o
+[ 54%] Linking C executable test_read_adapter_b3
+[ 54%] Built target test_read_adapter_b3
+[ 55%] Building C object CMakeFiles/test_write_adapter.dir/tests/unit/test_write_adapter.c.o
+[ 55%] Linking C executable test_write_adapter
+[ 55%] Built target test_write_adapter
+[ 55%] Building C object CMakeFiles/test_p5a_contracts.dir/tests/unit/test_p5a_contracts.c.o
+[ 56%] Linking C executable test_p5a_contracts
+[ 56%] Built target test_p5a_contracts
+[ 56%] Building C object CMakeFiles/test_p6a_contracts.dir/tests/unit/test_p6a_contracts.c.o
+[ 57%] Linking C executable test_p6a_contracts
+[ 57%] Built target test_p6a_contracts
+[ 57%] Building C object CMakeFiles/test_p7a_command_types.dir/tests/unit/test_p7a_command_types.c.o
+[ 57%] Linking C executable test_p7a_command_types
+[ 57%] Built target test_p7a_command_types
+[ 57%] Building C object CMakeFiles/test_p7b_command_request_mailbox.dir/tests/unit/test_p7b_command_request_mailbox.c.o
+[ 58%] Linking C executable test_p7b_command_request_mailbox
+[ 58%] Built target test_p7b_command_request_mailbox
+[ 58%] Building C object CMakeFiles/test_p7c_command_journal.dir/tests/unit/test_p7c_command_journal.c.o
+[ 58%] Linking C executable test_p7c_command_journal
+[ 58%] Built target test_p7c_command_journal
+[ 58%] Building C object CMakeFiles/test_p7d_command_journal_store.dir/tests/unit/test_p7d_command_journal_store.c.o
+[ 59%] Linking C executable test_p7d_command_journal_store
+[ 59%] Built target test_p7d_command_journal_store
+[ 59%] Building C object CMakeFiles/test_p7e_command_engine_admission.dir/tests/unit/test_p7e_command_engine_admission.c.o
+[ 59%] Linking C executable test_p7e_command_engine_admission
+[ 59%] Built target test_p7e_command_engine_admission
+[ 59%] Building C object CMakeFiles/test_p7f_command_engine_lifecycle.dir/tests/unit/test_p7f_command_engine_lifecycle.c.o
+[ 60%] Linking C executable test_p7f_command_engine_lifecycle
+[ 60%] Built target test_p7f_command_engine_lifecycle
+[ 60%] Building C object CMakeFiles/test_p7g_apply_configuration.dir/tests/unit/test_p7g_apply_configuration.c.o
+[ 60%] Linking C executable test_p7g_apply_configuration
+[ 60%] Built target test_p7g_apply_configuration
+[ 60%] Building C object CMakeFiles/test_p7h_synchronize_time.dir/tests/unit/test_p7h_synchronize_time.c.o
+[ 61%] Linking C executable test_p7h_synchronize_time
+[ 61%] Built target test_p7h_synchronize_time
+[ 61%] Building C object CMakeFiles/test_p7i_start_acquisition.dir/tests/unit/test_p7i_start_acquisition.c.o
+[ 61%] Linking C executable test_p7i_start_acquisition
+[ 61%] Built target test_p7i_start_acquisition
+[ 61%] Building C object CMakeFiles/test_p7j_stop_acquisition.dir/tests/unit/test_p7j_stop_acquisition.c.o
+[ 61%] Linking C executable test_p7j_stop_acquisition
+[ 61%] Built target test_p7j_stop_acquisition
+[ 62%] Building C object CMakeFiles/test_p7k_command_boot_recovery.dir/tests/unit/test_p7k_command_boot_recovery.c.o
+[ 62%] Linking C executable test_p7k_command_boot_recovery
+[ 62%] Built target test_p7k_command_boot_recovery
+[ 62%] Building C object CMakeFiles/test_p7l_b5_adapters.dir/tests/unit/test_p7l_b5_adapters.c.o
+[ 62%] Linking C executable test_p7l_b5_adapters
+[ 62%] Built target test_p7l_b5_adapters
+[ 63%] Building C object CMakeFiles/test_p7m_command_policy.dir/tests/unit/test_p7m_command_policy.c.o
+[ 63%] Linking C executable test_p7m_command_policy
+[ 63%] Built target test_p7m_command_policy
+[ 63%] Building C object CMakeFiles/test_p7n_transaction_fault_injection.dir/tests/unit/test_p7n_transaction_fault_injection.c.o
+[ 63%] Linking C executable test_p7n_transaction_fault_injection
+[ 63%] Built target test_p7n_transaction_fault_injection
+[ 63%] Building C object CMakeFiles/test_p9b_diagnostic_service.dir/tests/unit/test_p9b_diagnostic_service.c.o
+[ 63%] Linking C executable test_p9b_diagnostic_service
+[ 63%] Built target test_p9b_diagnostic_service
+[ 64%] Building C object CMakeFiles/test_p9c_diagnostic_recovery.dir/tests/unit/test_p9c_diagnostic_recovery.c.o
+[ 64%] Linking C executable test_p9c_diagnostic_recovery
+[ 64%] Built target test_p9c_diagnostic_recovery
+[ 64%] Building C object CMakeFiles/test_p9h_selftest_command.dir/tests/unit/test_p9h_selftest_command.c.o
+[ 64%] Linking C executable test_p9h_selftest_command
+[ 64%] Built target test_p9h_selftest_command
+[ 64%] Building C object CMakeFiles/test_acquisition_service.dir/tests/unit/test_acquisition_service.c.o
+[ 64%] Linking C executable test_acquisition_service
+[ 64%] Built target test_acquisition_service
+[ 64%] Building C object CMakeFiles/test_indicator_calculator.dir/tests/unit/test_indicator_calculator.c.o
+[ 64%] Linking C executable test_indicator_calculator
+[ 64%] Built target test_indicator_calculator
+[ 65%] Building C object CMakeFiles/test_threshold_evaluator.dir/tests/unit/test_threshold_evaluator.c.o
+[ 65%] Linking C executable test_threshold_evaluator
+[ 65%] Built target test_threshold_evaluator
+[ 65%] Building C object CMakeFiles/test_supervision_service.dir/tests/unit/test_supervision_service.c.o
+[ 65%] Linking C executable test_supervision_service
+[ 65%] Built target test_supervision_service
+[ 65%] Building C object CMakeFiles/test_supervision_temporal_envelope.dir/tests/unit/test_supervision_temporal_envelope.c.o
+[ 65%] Linking C executable test_supervision_temporal_envelope
+[ 65%] Built target test_supervision_temporal_envelope
+[ 66%] Building C object CMakeFiles/test_time_fault_injection.dir/tests/integration/test_time_fault_injection.c.o
+[ 66%] Linking C executable test_time_fault_injection
+[ 66%] Built target test_time_fault_injection
+[ 67%] Building C object CMakeFiles/test_configuration_b4_flow.dir/tests/integration/test_configuration_b4_flow.c.o
+[ 67%] Linking C executable test_configuration_b4_flow
+[ 67%] Built target test_configuration_b4_flow
+[ 67%] Building C object CMakeFiles/test_configuration_activation_adapter.dir/tests/integration/test_configuration_activation_adapter.c.o
+[ 67%] Linking C executable test_configuration_activation_adapter
+[ 67%] Built target test_configuration_activation_adapter
+[ 67%] Building C object CMakeFiles/test_p12c_pdu_server.dir/tests/unit/test_p12c_pdu_server.c.o
+[ 67%] Linking C executable test_p12c_pdu_server
+[ 67%] Built target test_p12c_pdu_server
+[ 68%] Building C object CMakeFiles/test_p12d_rtu_receiver.dir/tests/unit/test_p12d_rtu_receiver.c.o
+[ 68%] Linking C executable test_p12d_rtu_receiver
+[ 68%] Built target test_p12d_rtu_receiver
+[ 68%] Building C object CMakeFiles/test_p12e_serial_transport.dir/tests/unit/test_p12e_serial_transport.c.o
+[ 68%] Linking C executable test_p12e_serial_transport
+[ 68%] Built target test_p12e_serial_transport
+[ 68%] Building C object CMakeFiles/test_p12h_rtu_server_runtime.dir/tests/unit/test_p12h_rtu_server_runtime.c.o
+[ 68%] Linking C executable test_p12h_rtu_server_runtime
+[ 68%] Built target test_p12h_rtu_server_runtime
+[ 69%] Building C object CMakeFiles/test_p12h3c3b_command_journal_bounded_record.dir/tests/unit/test_p12h3c3b_command_journal_bounded_record.c.o
+[ 69%] Linking C executable test_p12h3c3b_command_journal_bounded_record
+[ 69%] Built target test_p12h3c3b_command_journal_bounded_record
+[ 69%] Building C object CMakeFiles/test_p12h3c3c1_bounded_slot.dir/tests/unit/test_p12h3c3c1_bounded_slot.c.o
+[ 69%] Linking C executable test_p12h3c3c1_bounded_slot
+[ 69%] Built target test_p12h3c3c1_bounded_slot
+[ 70%] Building C object CMakeFiles/test_p12h3c3c2_bounded_recovery.dir/tests/unit/test_p12h3c3c2_bounded_recovery.c.o
+[ 70%] Linking C executable test_p12h3c3c2_bounded_recovery
+[ 70%] Built target test_p12h3c3c2_bounded_recovery
+[ 70%] Building C object CMakeFiles/test_p12h3c3c3_bounded_reader.dir/tests/unit/test_p12h3c3c3_bounded_reader.c.o
+[ 70%] Linking C executable test_p12h3c3c3_bounded_reader
+[ 70%] Built target test_p12h3c3c3_bounded_reader
+[ 71%] Building C object CMakeFiles/test_p12h3c3c4_bounded_writer.dir/tests/unit/test_p12h3c3c4_bounded_writer.c.o
+[ 71%] Linking C executable test_p12h3c3c4_bounded_writer
+[ 71%] Built target test_p12h3c3c4_bounded_writer
+[ 71%] Building C object CMakeFiles/test_p12h3c3c4b_bounded_admission.dir/tests/unit/test_p12h3c3c4b_bounded_admission.c.o
+[ 71%] Linking C executable test_p12h3c3c4b_bounded_admission
+[ 71%] Built target test_p12h3c3c4b_bounded_admission
+[ 72%] Building C object CMakeFiles/test_p12h3c3c4c1_bounded_store.dir/tests/unit/test_p12h3c3c4c1_bounded_store.c.o
+[ 72%] Linking C executable test_p12h3c3c4c1_bounded_store
+[ 72%] Built target test_p12h3c3c4c1_bounded_store
+[ 72%] Building C object CMakeFiles/test_p12h3c3c4d1_fault_media.dir/tests/unit/test_p12h3c3c4d1_fault_media.c.o
+[ 72%] Linking C executable test_p12h3c3c4d1_fault_media
+[ 72%] Built target test_p12h3c3c4d1_fault_media
+[ 72%] Building C object CMakeFiles/test_p12h3c3c4d2_admission_power_loss.dir/tests/unit/test_p12h3c3c4d2_admission_power_loss.c.o
+[ 73%] Linking C executable test_p12h3c3c4d2_admission_power_loss
+[ 73%] Built target test_p12h3c3c4d2_admission_power_loss
+[ 73%] Building C object CMakeFiles/test_p12h3c3c4d3_mutation_power_loss.dir/tests/unit/test_p12h3c3c4d3_mutation_power_loss.c.o
+[ 73%] Linking C executable test_p12h3c3c4d3_mutation_power_loss
+[ 73%] Built target test_p12h3c3c4d3_mutation_power_loss
+[ 73%] Building C object CMakeFiles/test_p12h3c3c4d4_completion_power_loss.dir/tests/unit/test_p12h3c3c4d4_completion_power_loss.c.o
+[ 74%] Linking C executable test_p12h3c3c4d4_completion_power_loss
+[ 74%] Built target test_p12h3c3c4d4_completion_power_loss
+[ 74%] Building C object CMakeFiles/test_p12h3c3c4d5_readmission_power_loss.dir/tests/unit/test_p12h3c3c4d5_readmission_power_loss.c.o
+[ 74%] Linking C executable test_p12h3c3c4d5_readmission_power_loss
+[ 74%] Built target test_p12h3c3c4d5_readmission_power_loss
+[ 74%] Building C object CMakeFiles/test_p12h3c3c4d6_d8_consolidation.dir/tests/unit/test_p12h3c3c4d6_d8_consolidation.c.o
+[ 75%] Linking C executable test_p12h3c3c4d6_d8_consolidation
+[ 75%] Built target test_p12h3c3c4d6_d8_consolidation
+[ 75%] Building C object CMakeFiles/test_p12h3d2_transactional_image_media.dir/tests/unit/test_p12h3d2_transactional_image_media.c.o
+[ 76%] Linking C executable test_p12h3d2_transactional_image_media
+[ 76%] Built target test_p12h3d2_transactional_image_media
+[ 76%] Building C object CMakeFiles/test_p12h3d2b_transactional_image_power_loss.dir/tests/unit/test_p12h3d2b_transactional_image_power_loss.c.o
+[ 76%] Linking C executable test_p12h3d2b_transactional_image_power_loss
+[ 76%] Built target test_p12h3d2b_transactional_image_power_loss
+[ 76%] Building C object CMakeFiles/test_p12h3d2c_transactional_image_recovery.dir/tests/unit/test_p12h3d2c_transactional_image_recovery.c.o
+[ 77%] Linking C executable test_p12h3d2c_transactional_image_recovery
+[ 77%] Built target test_p12h3d2c_transactional_image_recovery
+[ 77%] Building C object CMakeFiles/test_p12h3d2d_persistent_storage_core_integration.dir/tests/unit/test_p12h3d2d_persistent_storage_core_integration.c.o
+[ 77%] Linking C executable test_p12h3d2d_persistent_storage_core_integration
+[ 77%] Built target test_p12h3d2d_persistent_storage_core_integration
+[ 77%] Building C object CMakeFiles/test_p12h3d2e_campaign_transactional_media.dir/tests/unit/test_p12h3d2e_campaign_transactional_media.c.o
+[ 78%] Linking C executable test_p12h3d2e_campaign_transactional_media
+[ 78%] Built target test_p12h3d2e_campaign_transactional_media
+[ 78%] Building C object CMakeFiles/test_p12h3d2f_transactional_media_format_policy.dir/tests/unit/test_p12h3d2f_transactional_media_format_policy.c.o
+[ 78%] Linking C executable test_p12h3d2f_transactional_media_format_policy
+[ 78%] Built target test_p12h3d2f_transactional_media_format_policy
+[ 78%] Building C object CMakeFiles/test_p12h3d2g_transactional_media_format_power_loss.dir/tests/unit/test_p12h3d2g_transactional_media_format_power_loss.c.o
+[ 79%] Linking C executable test_p12h3d2g_transactional_media_format_power_loss
+[ 79%] Built target test_p12h3d2g_transactional_media_format_power_loss
+[ 79%] Building C object CMakeFiles/test_p12h3d2h1_transactional_media_geometry.dir/tests/unit/test_p12h3d2h1_transactional_media_geometry.c.o
+[ 79%] Linking C executable test_p12h3d2h1_transactional_media_geometry
+[ 79%] Built target test_p12h3d2h1_transactional_media_geometry
+[ 79%] Building C object CMakeFiles/test_p12h3d2h3_transactional_media_alternate_geometry.dir/tests/unit/test_p12h3d2h3_transactional_media_alternate_geometry.c.o
+[ 80%] Linking C executable test_p12h3d2h3_transactional_media_alternate_geometry
+[ 80%] Built target test_p12h3d2h3_transactional_media_alternate_geometry
+[ 81%] Building C object CMakeFiles/test_system_runtime.dir/tests/integration/test_system_runtime.c.o
+[ 81%] Linking C executable test_system_runtime
+[ 81%] Built target test_system_runtime
+[ 81%] Building C object CMakeFiles/test_system_runtime_bulk.dir/tests/integration/test_system_runtime_bulk.c.o
+[ 81%] Linking C executable test_system_runtime_bulk
+[ 81%] Built target test_system_runtime_bulk
+[ 82%] Building C object CMakeFiles/test_p8i_system_runtime_acquisition_commands.dir/tests/integration/test_p8i_system_runtime_acquisition_commands.c.o
+[ 82%] Linking C executable test_p8i_system_runtime_acquisition_commands
+[ 82%] Built target test_p8i_system_runtime_acquisition_commands
+[ 82%] Building C object CMakeFiles/test_p8j_system_runtime_b3_projection.dir/tests/integration/test_p8j_system_runtime_b3_projection.c.o
+[ 82%] Linking C executable test_p8j_system_runtime_b3_projection
+[ 82%] Built target test_p8j_system_runtime_b3_projection
+[ 83%] Building C object CMakeFiles/test_p8k_power_loss_boot_recovery.dir/tests/integration/test_p8k_power_loss_boot_recovery.c.o
+[ 83%] Linking C executable test_p8k_power_loss_boot_recovery
+[ 83%] Built target test_p8k_power_loss_boot_recovery
+[ 83%] Building C object CMakeFiles/test_p12h3c3c4e3_runtime_bounded_journal.dir/tests/integration/test_p12h3c3c4e3_runtime_bounded_journal.c.o
+[ 83%] Linking C executable test_p12h3c3c4e3_runtime_bounded_journal
+[ 83%] Built target test_p12h3c3c4e3_runtime_bounded_journal
+[ 83%] Building C object CMakeFiles/test_time_boot_recovery.dir/tests/integration/test_time_boot_recovery.c.o
+[ 83%] Linking C executable test_time_boot_recovery
+[ 83%] Built target test_time_boot_recovery
+[ 83%] Building C object CMakeFiles/test_configuration_fault_injection.dir/tests/integration/test_configuration_fault_injection.c.o
+[ 83%] Linking C executable test_configuration_fault_injection
+[ 83%] Built target test_configuration_fault_injection
+[ 83%] Building C object CMakeFiles/test_p5h_acquisition_supervision_b3.dir/tests/integration/test_p5h_acquisition_supervision_b3.c.o
+[ 83%] Linking C executable test_p5h_acquisition_supervision_b3
+[ 83%] Built target test_p5h_acquisition_supervision_b3
+[ 84%] Building C object CMakeFiles/test_post_p9_a5_host_modbus_read.dir/tests/integration/test_post_p9_a5_host_modbus_read.c.o
+[ 84%] Linking C executable test_post_p9_a5_host_modbus_read
+[ 84%] Built target test_post_p9_a5_host_modbus_read
+[ 85%] Building C object CMakeFiles/test_modbus_system_server.dir/tests/integration/test_modbus_system_server.c.o
+[ 85%] Linking C executable test_modbus_system_server
+[ 85%] Built target test_modbus_system_server
+[ 85%] Building C object CMakeFiles/test_production_commands.dir/tests/integration/test_production_commands.c.o
+[ 85%] Linking C executable test_production_commands
+[ 85%] Built target test_production_commands
+[ 85%] Building C object CMakeFiles/test_production_provisioning.dir/tests/unit/test_production_provisioning.c.o
+[ 85%] Linking C executable test_production_provisioning
+[ 85%] Built target test_production_provisioning
+[ 86%] Building C object CMakeFiles/test_persistent_identity.dir/tests/unit/test_persistent_identity.c.o
+[ 86%] Linking C executable test_persistent_identity
+[ 86%] Built target test_persistent_identity
+[ 87%] Building C object CMakeFiles/test_production_commissioning.dir/tests/unit/test_production_commissioning.c.o
+[ 87%] Linking C executable test_production_commissioning
+[ 87%] Built target test_production_commissioning
+[ 88%] Building C object CMakeFiles/test_st_fifo_window.dir/home/lolo/dev/msm/projects/MSM_vibe-R4M-live-fram-reconciliation/experiments/iis3dwb_st_reference/tests/test_fifo_window.c.o
+[ 88%] Building C object CMakeFiles/test_st_fifo_window.dir/home/lolo/dev/msm/projects/MSM_vibe-R4M-live-fram-reconciliation/experiments/iis3dwb_st_reference/src/fifo_window.c.o
+[ 88%] Building C object CMakeFiles/test_st_fifo_window.dir/home/lolo/dev/msm/projects/MSM_vibe-R4M-live-fram-reconciliation/experiments/iis3dwb_st_reference/vendor/st/iis3dwb_reg.c.o
+[ 88%] Linking C executable test_st_fifo_window
+[ 88%] Built target test_st_fifo_window
+[ 88%] Building C object CMakeFiles/test_st_fifo_admission.dir/tests/platform/test_st_fifo_admission.c.o
+[ 88%] Linking C executable test_st_fifo_admission
+[ 88%] Built target test_st_fifo_admission
+[ 88%] Building C object CMakeFiles/test_st_spi_diagnostic.dir/home/lolo/dev/msm/projects/MSM_vibe-R4M-live-fram-reconciliation/experiments/iis3dwb_st_reference/tests/test_spi_diagnostic.c.o
+[ 89%] Building C object CMakeFiles/test_st_spi_diagnostic.dir/home/lolo/dev/msm/projects/MSM_vibe-R4M-live-fram-reconciliation/experiments/iis3dwb_st_reference/src/spi_diagnostic.c.o
+[ 89%] Linking C executable test_st_spi_diagnostic
+[ 89%] Built target test_st_spi_diagnostic
+[ 89%] Building C object CMakeFiles/test_st_window_adapter.dir/tests/platform/test_st_window_adapter.c.o
+[ 89%] Building C object CMakeFiles/test_st_window_adapter.dir/home/lolo/dev/msm/projects/MSM_vibe-R4M-live-fram-reconciliation/experiments/iis3dwb_st_reference/src/spi_diagnostic.c.o
+[ 90%] Linking C executable test_st_window_adapter
+[ 90%] Built target test_st_window_adapter
+[ 90%] Building C object CMakeFiles/test_fifo_cooperative.dir/tests/platform/test_fifo_cooperative.c.o
+[ 90%] Building C object CMakeFiles/test_fifo_cooperative.dir/home/lolo/dev/msm/projects/MSM_vibe-R4M-live-fram-reconciliation/experiments/iis3dwb_st_reference/src/fifo_cooperative.c.o
+[ 90%] Building C object CMakeFiles/test_fifo_cooperative.dir/home/lolo/dev/msm/projects/MSM_vibe-R4M-live-fram-reconciliation/experiments/iis3dwb_st_reference/src/fifo_window.c.o
+[ 91%] Building C object CMakeFiles/test_fifo_cooperative.dir/home/lolo/dev/msm/projects/MSM_vibe-R4M-live-fram-reconciliation/experiments/iis3dwb_st_reference/vendor/st/iis3dwb_reg.c.o
+[ 91%] Linking C executable test_fifo_cooperative
+[ 91%] Built target test_fifo_cooperative
+[ 91%] Building C object CMakeFiles/test_modbus_fifo_io_budget.dir/tests/integration/test_modbus_fifo_io_budget.c.o
+[ 92%] Building C object CMakeFiles/test_modbus_fifo_io_budget.dir/home/lolo/dev/msm/projects/MSM_vibe-R4M-live-fram-reconciliation/experiments/iis3dwb_st_reference/src/fifo_cooperative.c.o
+[ 92%] Building C object CMakeFiles/test_modbus_fifo_io_budget.dir/home/lolo/dev/msm/projects/MSM_vibe-R4M-live-fram-reconciliation/experiments/iis3dwb_st_reference/src/fifo_window.c.o
+[ 92%] Building C object CMakeFiles/test_modbus_fifo_io_budget.dir/home/lolo/dev/msm/projects/MSM_vibe-R4M-live-fram-reconciliation/experiments/iis3dwb_st_reference/vendor/st/iis3dwb_reg.c.o
+[ 92%] Linking C executable test_modbus_fifo_io_budget
+[ 92%] Built target test_modbus_fifo_io_budget
+[ 92%] Building C object CMakeFiles/test_sdmmc_bulk_media.dir/tests/platform/test_sdmmc_bulk_media.c.o
+[ 93%] Building C object CMakeFiles/test_sdmmc_bulk_media.dir/platform/stm32/stm32_sdmmc_bulk_media.c.o
+[ 93%] Linking C executable test_sdmmc_bulk_media
+[ 93%] Built target test_sdmmc_bulk_media
+[ 93%] Building C object CMakeFiles/test_live_configuration.dir/tests/unit/test_live_configuration.c.o
+[ 93%] Linking C executable test_live_configuration
+[ 93%] Built target test_live_configuration
+[ 94%] Building C object CMakeFiles/test_live_command_engine.dir/tests/unit/test_live_command_engine.c.o
+[ 94%] Linking C executable test_live_command_engine
+[ 94%] Built target test_live_command_engine
+[ 95%] Building C object CMakeFiles/test_live_fifo.dir/tests/platform/test_live_fifo.c.o
+[ 95%] Building C object CMakeFiles/test_live_fifo.dir/platform/stm32/live_fifo_acquisition.c.o
+[ 95%] Building C object CMakeFiles/test_live_fifo.dir/home/lolo/dev/msm/projects/MSM_vibe-R4M-live-fram-reconciliation/experiments/iis3dwb_st_reference/src/fifo_live.c.o
+[ 95%] Building C object CMakeFiles/test_live_fifo.dir/home/lolo/dev/msm/projects/MSM_vibe-R4M-live-fram-reconciliation/experiments/iis3dwb_st_reference/src/fifo_window.c.o
+[ 96%] Building C object CMakeFiles/test_live_fifo.dir/home/lolo/dev/msm/projects/MSM_vibe-R4M-live-fram-reconciliation/experiments/iis3dwb_st_reference/src/fifo_cooperative.c.o
+[ 96%] Building C object CMakeFiles/test_live_fifo.dir/home/lolo/dev/msm/projects/MSM_vibe-R4M-live-fram-reconciliation/experiments/iis3dwb_st_reference/vendor/st/iis3dwb_reg.c.o
+[ 96%] Linking C executable test_live_fifo
+[ 96%] Built target test_live_fifo
+[ 96%] Building C object CMakeFiles/test_live_io_cost.dir/tests/unit/test_live_io_cost.c.o
+[ 97%] Linking C executable test_live_io_cost
+[ 97%] Built target test_live_io_cost
+[ 97%] Building C object CMakeFiles/test_live_metrology.dir/tests/unit/test_live_metrology.c.o
+[ 97%] Linking C executable test_live_metrology
+[ 97%] Built target test_live_metrology
+[ 97%] Building C object CMakeFiles/test_cooperative_fram_fifo.dir/tests/platform/test_cooperative_fram_fifo.c.o
+[ 97%] Building C object CMakeFiles/test_cooperative_fram_fifo.dir/platform/stm32/live_fifo_acquisition.c.o
+[ 97%] Building C object CMakeFiles/test_cooperative_fram_fifo.dir/home/lolo/dev/msm/projects/MSM_vibe-R4M-live-fram-reconciliation/experiments/iis3dwb_st_reference/src/fifo_live.c.o
+[ 98%] Building C object CMakeFiles/test_cooperative_fram_fifo.dir/home/lolo/dev/msm/projects/MSM_vibe-R4M-live-fram-reconciliation/experiments/iis3dwb_st_reference/src/fifo_window.c.o
+[ 98%] Building C object CMakeFiles/test_cooperative_fram_fifo.dir/home/lolo/dev/msm/projects/MSM_vibe-R4M-live-fram-reconciliation/experiments/iis3dwb_st_reference/vendor/st/iis3dwb_reg.c.o
+[ 98%] Linking C executable test_cooperative_fram_fifo
+[ 98%] Built target test_cooperative_fram_fifo
+[ 98%] Building C object CMakeFiles/test_cooperative_work.dir/tests/unit/test_cooperative_work.c.o
+[ 99%] Linking C executable test_cooperative_work
+[ 99%] Built target test_cooperative_work
+[ 99%] Building C object CMakeFiles/test_stm32_fram_bounded.dir/tests/platform/test_stm32_fram_bounded.c.o
+[ 99%] Building C object CMakeFiles/test_stm32_fram_bounded.dir/platform/stm32/stm32_fram_storage.c.o
+[ 99%] Linking C executable test_stm32_fram_bounded
+[ 99%] Built target test_stm32_fram_bounded
+[ 99%] Building C object CMakeFiles/test_r4m_maintenance.dir/platform/stm32/r4m_maintenance.c.o
+[ 99%] Building C object CMakeFiles/test_r4m_maintenance.dir/tests/platform/test_r4m_maintenance.c.o
+[100%] Linking C executable test_r4m_maintenance
+[100%] Built target test_r4m_maintenance

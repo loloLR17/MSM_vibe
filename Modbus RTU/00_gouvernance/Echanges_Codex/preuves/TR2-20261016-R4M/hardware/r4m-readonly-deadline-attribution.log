@@ -1,0 +1,13 @@
+0x0800656c in HAL_Delay (Delay=1) at /home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal.c:419
+419	  while ((HAL_GetTick() - tickstart) < wait)
+0xbfa0700:	0x004a003d	0x38425018	0x20333157
+$1 = false
+Breakpoint 1 at 0x8015278: file /home/lolo/dev/msm/projects/MSM_vibe-R4M-live-fram-reconciliation/Modbus RTU/05_Firmware/src/common/cooperative_work.c, line 14.
+Note: automatically using hardware breakpoints for read-only addresses.
+#0  0x0800656c in HAL_Delay (Delay=1) at /home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal.c:419
+#1  0x08010a30 in stm32_r4_benchmark_run (spi1=0x20000340 <hspi1>, spi3=0x200003d0 <hspi3>) at /home/lolo/dev/msm/projects/MSM_vibe-R4M-live-fram-reconciliation/Modbus RTU/05_Firmware/platform/stm32/stm32_r4_bench.c:405
+#2  0x0800531c in main () at /home/lolo/dev/msm/projects/MSM_vibe-R4M-live-fram-reconciliation/Modbus RTU/05_Firmware/platform/stm32/main.c:1828
+$2 = {context = 0x0, now_us = 0x800ec59 <now_us>, service = 0x800ee7d <service>, safety_stop = 0x800ecfd <stop>, last_us = 372043524, max_work_us = 824, max_service_us = 4, checkpoints = 123275, work_limit_us = 1000, service_limit_us = 2500, quantum_bytes = 32, depth = 0, error = TR2_OK, servicing = false, seen = true, deadline_missed = false}
+$3 = 52426
+$4 = {epoch_floor = 1, run_floor = 1, intent = "TR2E\000\001\000@\000\000\000\000\000\000\000\001\000\000\000\001\000\001\000\r\000\000\000\000\000\000\000\001\000\000\000\002\000\000\000\002\000\001", '\000' <repeats 18 times>, "Ä¹¾ŠTR2E\000\001\000@\000\000\000\000\000\000\000\002\000\000\000\001\000\001\000\r\000\000\000\000\000\000\000\001\000\000\000\002\000\000\000\002\000\001", '\000' <repeats 18 times>, "ûrÀ\037", phase = 2}
+[Inferior 1 (Remote target) detached]
