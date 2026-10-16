@@ -1,0 +1,14 @@
+Internal ctest changing into directory: /home/lolo/dev/msm/cache/r4d-sanitize
+Test project /home/lolo/dev/msm/cache/r4d-sanitize
+    Start 131: live_fifo_continuous_owner
+1/4 Test #131: live_fifo_continuous_owner .......   Passed    0.67 sec
+    Start 134: cooperative_fram_fifo
+2/4 Test #134: cooperative_fram_fifo ............   Passed    5.29 sec
+    Start 135: cooperative_work
+3/4 Test #135: cooperative_work .................   Passed    9.91 sec
+    Start 138: live_effect_timing
+4/4 Test #138: live_effect_timing ...............   Passed    0.18 sec
+
+100% tests passed, 0 tests failed out of 4
+
+Total Test time (real) =  16.06 sec

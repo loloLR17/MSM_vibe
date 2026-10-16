@@ -65,3 +65,26 @@ sans garantie électrique de succès. Les mesures nominales ne qualifient pas
 IRQ masquées, bus bloqué, panne électrique, FIFO sous charge, RTU2 ou R6.
 La campagne R2 physique et la réconciliation du verrou nécessitent une mission
 ultérieure distincte ; aucun nettoyage/reprovisionnement autorisé ici.
+
+
+## Résultat final de la tranche physique R4-D
+
+Le trigger2 a exécuté seulement les exercices nouveaux : quanta corrigés,
+maxwork911us/service2us, START907,09us, OBSERVE102,34us, STOP234,83us,
+aucune deadline manquée. Marge nominale observée89us, pas un WCET qualifié.
+Erreur logicielle unique au11e callback (lectureCTRL3_C avant transport) :
+START refuse6, nettoyage et relecture réels confirment l'arrêt, stop_error0.
+Il ne s'agit ni d'un timeout HAL forcé ni d'une panne électrique SPI.
+Sur l'authentique record STARTED conservé, décodage239,23us et encodage227,29us,
+à contenu constant, sans nouvelle phase/reçu/admission ni persistance.
+Les905–907us de START +102us OBSERVE +227us codec expliquent l'ordre de grandeur
+1241us ; le coût exact historique reste une déduction, pas une mesure simultanée.
+
+ASan/UBSan ciblés4suites PASS16,06s. Le build sanitizer globalO1 avait rencontré
+un warning-Werror clobbered dans un ancien test longjmp hors tranche ; aucune
+assertion ni alerte désactivée. Les quatre cibles pertinentes ont ensuite été
+construites explicitement et exécutées ; pas de suite sanitizer intégrale annoncée.
+Flash initiale restaurée9pages/73728octets puis2Mio relus exacts. FRAM262144 relue
+après chaque probe et après restauration, toujours f2bd7a99…8a0c1 ; aucune écriture
+LIVE/historique/tail, aucun nettoyage du journal. M016 CommissioningReadOnly en
+attente, GDB détaché. R4-D livré ; campagne R2 complète et verrou2/run2 non résolus.

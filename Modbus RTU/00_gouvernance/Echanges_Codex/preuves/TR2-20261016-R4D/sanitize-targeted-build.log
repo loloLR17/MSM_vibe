@@ -1,0 +1,25 @@
+[ 91%] Built target tr2_core
+[ 91%] Building C object CMakeFiles/test_live_fifo.dir/tests/platform/test_live_fifo.c.o
+[ 91%] Building C object CMakeFiles/test_live_fifo.dir/platform/stm32/live_fifo_acquisition.c.o
+[ 95%] Building C object CMakeFiles/test_live_fifo.dir/home/lolo/dev/msm/projects/MSM_vibe-R4D-start-timing/experiments/iis3dwb_st_reference/src/fifo_live.c.o
+[ 95%] Building C object CMakeFiles/test_live_fifo.dir/home/lolo/dev/msm/projects/MSM_vibe-R4D-start-timing/experiments/iis3dwb_st_reference/src/fifo_window.c.o
+[ 95%] Building C object CMakeFiles/test_live_fifo.dir/home/lolo/dev/msm/projects/MSM_vibe-R4D-start-timing/experiments/iis3dwb_st_reference/src/fifo_cooperative.c.o
+[ 95%] Building C object CMakeFiles/test_live_fifo.dir/home/lolo/dev/msm/projects/MSM_vibe-R4D-start-timing/experiments/iis3dwb_st_reference/vendor/st/iis3dwb_reg.c.o
+[100%] Linking C executable test_live_fifo
+[100%] Built target test_live_fifo
+[ 95%] Built target tr2_core
+[ 95%] Building C object CMakeFiles/test_cooperative_work.dir/tests/unit/test_cooperative_work.c.o
+[100%] Linking C executable test_cooperative_work
+[100%] Built target test_cooperative_work
+[ 95%] Built target tr2_core
+[ 95%] Building C object CMakeFiles/test_cooperative_fram_fifo.dir/tests/platform/test_cooperative_fram_fifo.c.o
+[ 95%] Building C object CMakeFiles/test_cooperative_fram_fifo.dir/platform/stm32/live_fifo_acquisition.c.o
+[ 95%] Building C object CMakeFiles/test_cooperative_fram_fifo.dir/home/lolo/dev/msm/projects/MSM_vibe-R4D-start-timing/experiments/iis3dwb_st_reference/src/fifo_live.c.o
+[100%] Building C object CMakeFiles/test_cooperative_fram_fifo.dir/home/lolo/dev/msm/projects/MSM_vibe-R4D-start-timing/experiments/iis3dwb_st_reference/src/fifo_window.c.o
+[100%] Building C object CMakeFiles/test_cooperative_fram_fifo.dir/home/lolo/dev/msm/projects/MSM_vibe-R4D-start-timing/experiments/iis3dwb_st_reference/vendor/st/iis3dwb_reg.c.o
+[100%] Linking C executable test_cooperative_fram_fifo
+[100%] Built target test_cooperative_fram_fifo
+[ 95%] Built target tr2_core
+[100%] Building C object CMakeFiles/test_live_effect_timing.dir/tests/unit/test_live_effect_timing.c.o
+[100%] Linking C executable test_live_effect_timing
+[100%] Built target test_live_effect_timing

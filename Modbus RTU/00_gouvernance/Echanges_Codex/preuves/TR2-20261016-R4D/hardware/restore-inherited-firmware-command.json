@@ -1,0 +1,17 @@
+{
+  "command": [
+    "/mnt/c/ST/STM32CubeCLT_1.22.0/STM32CubeProgrammer/bin/STM32_Programmer_CLI.exe",
+    "-c",
+    "port=SWD",
+    "sn=003500463235510B37333439",
+    "freq=8000",
+    "-w",
+    "\\\\wsl.localhost\\Debian\\home\\lolo\\dev\\msm\\reports\\TR2-r4d\\hardware\\restore-pages.bin",
+    "0x08000000",
+    "-v",
+    "-rst"
+  ],
+  "code_sha": "fresh verified Flash backup at88298cf; inherited M016 attempt02",
+  "sha256": "0360e8a29a9ea8cdc3ba6f83cf5ce227dbe36fa612dec86ef46633179bde2084",
+  "normal_programming_only": true
+}

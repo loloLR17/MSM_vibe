@@ -1,0 +1,145 @@
+Internal ctest changing into directory: /home/lolo/dev/msm/cache/r4d-sanitize
+Test project /home/lolo/dev/msm/cache/r4d-sanitize
+    Start 131: live_fifo_continuous_owner
+Could not find executable /home/lolo/dev/msm/cache/r4d-sanitize/test_live_fifo
+Looked in the following places:
+/home/lolo/dev/msm/cache/r4d-sanitize/test_live_fifo
+/home/lolo/dev/msm/cache/r4d-sanitize/test_live_fifo
+/home/lolo/dev/msm/cache/r4d-sanitize/Release/test_live_fifo
+/home/lolo/dev/msm/cache/r4d-sanitize/Release/test_live_fifo
+/home/lolo/dev/msm/cache/r4d-sanitize/Debug/test_live_fifo
+/home/lolo/dev/msm/cache/r4d-sanitize/Debug/test_live_fifo
+/home/lolo/dev/msm/cache/r4d-sanitize/MinSizeRel/test_live_fifo
+/home/lolo/dev/msm/cache/r4d-sanitize/MinSizeRel/test_live_fifo
+/home/lolo/dev/msm/cache/r4d-sanitize/RelWithDebInfo/test_live_fifo
+/home/lolo/dev/msm/cache/r4d-sanitize/RelWithDebInfo/test_live_fifo
+/home/lolo/dev/msm/cache/r4d-sanitize/Deployment/test_live_fifo
+/home/lolo/dev/msm/cache/r4d-sanitize/Deployment/test_live_fifo
+/home/lolo/dev/msm/cache/r4d-sanitize/Development/test_live_fifo
+/home/lolo/dev/msm/cache/r4d-sanitize/Development/test_live_fifo
+home/lolo/dev/msm/cache/r4d-sanitize/test_live_fifo
+home/lolo/dev/msm/cache/r4d-sanitize/test_live_fifo
+home/lolo/dev/msm/cache/r4d-sanitize/Release/test_live_fifo
+home/lolo/dev/msm/cache/r4d-sanitize/Release/test_live_fifo
+home/lolo/dev/msm/cache/r4d-sanitize/Debug/test_live_fifo
+home/lolo/dev/msm/cache/r4d-sanitize/Debug/test_live_fifo
+home/lolo/dev/msm/cache/r4d-sanitize/MinSizeRel/test_live_fifo
+home/lolo/dev/msm/cache/r4d-sanitize/MinSizeRel/test_live_fifo
+home/lolo/dev/msm/cache/r4d-sanitize/RelWithDebInfo/test_live_fifo
+home/lolo/dev/msm/cache/r4d-sanitize/RelWithDebInfo/test_live_fifo
+home/lolo/dev/msm/cache/r4d-sanitize/Deployment/test_live_fifo
+home/lolo/dev/msm/cache/r4d-sanitize/Deployment/test_live_fifo
+home/lolo/dev/msm/cache/r4d-sanitize/Development/test_live_fifo
+home/lolo/dev/msm/cache/r4d-sanitize/Development/test_live_fifo
+Unable to find executable: /home/lolo/dev/msm/cache/r4d-sanitize/test_live_fifo
+1/4 Test #131: live_fifo_continuous_owner .......***Not Run   0.00 sec
+    Start 134: cooperative_fram_fifo
+Could not find executable /home/lolo/dev/msm/cache/r4d-sanitize/test_cooperative_fram_fifo
+Looked in the following places:
+/home/lolo/dev/msm/cache/r4d-sanitize/test_cooperative_fram_fifo
+/home/lolo/dev/msm/cache/r4d-sanitize/test_cooperative_fram_fifo
+/home/lolo/dev/msm/cache/r4d-sanitize/Release/test_cooperative_fram_fifo
+/home/lolo/dev/msm/cache/r4d-sanitize/Release/test_cooperative_fram_fifo
+/home/lolo/dev/msm/cache/r4d-sanitize/Debug/test_cooperative_fram_fifo
+/home/lolo/dev/msm/cache/r4d-sanitize/Debug/test_cooperative_fram_fifo
+/home/lolo/dev/msm/cache/r4d-sanitize/MinSizeRel/test_cooperative_fram_fifo
+/home/lolo/dev/msm/cache/r4d-sanitize/MinSizeRel/test_cooperative_fram_fifo
+/home/lolo/dev/msm/cache/r4d-sanitize/RelWithDebInfo/test_cooperative_fram_fifo
+/home/lolo/dev/msm/cache/r4d-sanitize/RelWithDebInfo/test_cooperative_fram_fifo
+/home/lolo/dev/msm/cache/r4d-sanitize/Deployment/test_cooperative_fram_fifo
+/home/lolo/dev/msm/cache/r4d-sanitize/Deployment/test_cooperative_fram_fifo
+/home/lolo/dev/msm/cache/r4d-sanitize/Development/test_cooperative_fram_fifo
+/home/lolo/dev/msm/cache/r4d-sanitize/Development/test_cooperative_fram_fifo
+home/lolo/dev/msm/cache/r4d-sanitize/test_cooperative_fram_fifo
+home/lolo/dev/msm/cache/r4d-sanitize/test_cooperative_fram_fifo
+home/lolo/dev/msm/cache/r4d-sanitize/Release/test_cooperative_fram_fifo
+home/lolo/dev/msm/cache/r4d-sanitize/Release/test_cooperative_fram_fifo
+home/lolo/dev/msm/cache/r4d-sanitize/Debug/test_cooperative_fram_fifo
+home/lolo/dev/msm/cache/r4d-sanitize/Debug/test_cooperative_fram_fifo
+home/lolo/dev/msm/cache/r4d-sanitize/MinSizeRel/test_cooperative_fram_fifo
+home/lolo/dev/msm/cache/r4d-sanitize/MinSizeRel/test_cooperative_fram_fifo
+home/lolo/dev/msm/cache/r4d-sanitize/RelWithDebInfo/test_cooperative_fram_fifo
+home/lolo/dev/msm/cache/r4d-sanitize/RelWithDebInfo/test_cooperative_fram_fifo
+home/lolo/dev/msm/cache/r4d-sanitize/Deployment/test_cooperative_fram_fifo
+home/lolo/dev/msm/cache/r4d-sanitize/Deployment/test_cooperative_fram_fifo
+home/lolo/dev/msm/cache/r4d-sanitize/Development/test_cooperative_fram_fifo
+home/lolo/dev/msm/cache/r4d-sanitize/Development/test_cooperative_fram_fifo
+Unable to find executable: /home/lolo/dev/msm/cache/r4d-sanitize/test_cooperative_fram_fifo
+2/4 Test #134: cooperative_fram_fifo ............***Not Run   0.00 sec
+    Start 135: cooperative_work
+Could not find executable /home/lolo/dev/msm/cache/r4d-sanitize/test_cooperative_work
+Looked in the following places:
+/home/lolo/dev/msm/cache/r4d-sanitize/test_cooperative_work
+/home/lolo/dev/msm/cache/r4d-sanitize/test_cooperative_work
+/home/lolo/dev/msm/cache/r4d-sanitize/Release/test_cooperative_work
+/home/lolo/dev/msm/cache/r4d-sanitize/Release/test_cooperative_work
+/home/lolo/dev/msm/cache/r4d-sanitize/Debug/test_cooperative_work
+/home/lolo/dev/msm/cache/r4d-sanitize/Debug/test_cooperative_work
+/home/lolo/dev/msm/cache/r4d-sanitize/MinSizeRel/test_cooperative_work
+/home/lolo/dev/msm/cache/r4d-sanitize/MinSizeRel/test_cooperative_work
+/home/lolo/dev/msm/cache/r4d-sanitize/RelWithDebInfo/test_cooperative_work
+/home/lolo/dev/msm/cache/r4d-sanitize/RelWithDebInfo/test_cooperative_work
+/home/lolo/dev/msm/cache/r4d-sanitize/Deployment/test_cooperative_work
+/home/lolo/dev/msm/cache/r4d-sanitize/Deployment/test_cooperative_work
+/home/lolo/dev/msm/cache/r4d-sanitize/Development/test_cooperative_work
+/home/lolo/dev/msm/cache/r4d-sanitize/Development/test_cooperative_work
+home/lolo/dev/msm/cache/r4d-sanitize/test_cooperative_work
+home/lolo/dev/msm/cache/r4d-sanitize/test_cooperative_work
+home/lolo/dev/msm/cache/r4d-sanitize/Release/test_cooperative_work
+home/lolo/dev/msm/cache/r4d-sanitize/Release/test_cooperative_work
+home/lolo/dev/msm/cache/r4d-sanitize/Debug/test_cooperative_work
+home/lolo/dev/msm/cache/r4d-sanitize/Debug/test_cooperative_work
+home/lolo/dev/msm/cache/r4d-sanitize/MinSizeRel/test_cooperative_work
+home/lolo/dev/msm/cache/r4d-sanitize/MinSizeRel/test_cooperative_work
+home/lolo/dev/msm/cache/r4d-sanitize/RelWithDebInfo/test_cooperative_work
+home/lolo/dev/msm/cache/r4d-sanitize/RelWithDebInfo/test_cooperative_work
+home/lolo/dev/msm/cache/r4d-sanitize/Deployment/test_cooperative_work
+home/lolo/dev/msm/cache/r4d-sanitize/Deployment/test_cooperative_work
+home/lolo/dev/msm/cache/r4d-sanitize/Development/test_cooperative_work
+home/lolo/dev/msm/cache/r4d-sanitize/Development/test_cooperative_work
+Unable to find executable: /home/lolo/dev/msm/cache/r4d-sanitize/test_cooperative_work
+3/4 Test #135: cooperative_work .................***Not Run   0.00 sec
+    Start 138: live_effect_timing
+Could not find executable /home/lolo/dev/msm/cache/r4d-sanitize/test_live_effect_timing
+Looked in the following places:
+/home/lolo/dev/msm/cache/r4d-sanitize/test_live_effect_timing
+/home/lolo/dev/msm/cache/r4d-sanitize/test_live_effect_timing
+/home/lolo/dev/msm/cache/r4d-sanitize/Release/test_live_effect_timing
+/home/lolo/dev/msm/cache/r4d-sanitize/Release/test_live_effect_timing
+/home/lolo/dev/msm/cache/r4d-sanitize/Debug/test_live_effect_timing
+/home/lolo/dev/msm/cache/r4d-sanitize/Debug/test_live_effect_timing
+/home/lolo/dev/msm/cache/r4d-sanitize/MinSizeRel/test_live_effect_timing
+/home/lolo/dev/msm/cache/r4d-sanitize/MinSizeRel/test_live_effect_timing
+/home/lolo/dev/msm/cache/r4d-sanitize/RelWithDebInfo/test_live_effect_timing
+/home/lolo/dev/msm/cache/r4d-sanitize/RelWithDebInfo/test_live_effect_timing
+/home/lolo/dev/msm/cache/r4d-sanitize/Deployment/test_live_effect_timing
+/home/lolo/dev/msm/cache/r4d-sanitize/Deployment/test_live_effect_timing
+/home/lolo/dev/msm/cache/r4d-sanitize/Development/test_live_effect_timing
+/home/lolo/dev/msm/cache/r4d-sanitize/Development/test_live_effect_timing
+home/lolo/dev/msm/cache/r4d-sanitize/test_live_effect_timing
+home/lolo/dev/msm/cache/r4d-sanitize/test_live_effect_timing
+home/lolo/dev/msm/cache/r4d-sanitize/Release/test_live_effect_timing
+home/lolo/dev/msm/cache/r4d-sanitize/Release/test_live_effect_timing
+home/lolo/dev/msm/cache/r4d-sanitize/Debug/test_live_effect_timing
+home/lolo/dev/msm/cache/r4d-sanitize/Debug/test_live_effect_timing
+home/lolo/dev/msm/cache/r4d-sanitize/MinSizeRel/test_live_effect_timing
+home/lolo/dev/msm/cache/r4d-sanitize/MinSizeRel/test_live_effect_timing
+home/lolo/dev/msm/cache/r4d-sanitize/RelWithDebInfo/test_live_effect_timing
+home/lolo/dev/msm/cache/r4d-sanitize/RelWithDebInfo/test_live_effect_timing
+home/lolo/dev/msm/cache/r4d-sanitize/Deployment/test_live_effect_timing
+home/lolo/dev/msm/cache/r4d-sanitize/Deployment/test_live_effect_timing
+home/lolo/dev/msm/cache/r4d-sanitize/Development/test_live_effect_timing
+home/lolo/dev/msm/cache/r4d-sanitize/Development/test_live_effect_timing
+Unable to find executable: /home/lolo/dev/msm/cache/r4d-sanitize/test_live_effect_timing
+4/4 Test #138: live_effect_timing ...............***Not Run   0.00 sec
+
+0% tests passed, 4 tests failed out of 4
+
+Total Test time (real) =   0.00 sec
+
+The following tests FAILED:
+	131 - live_fifo_continuous_owner (Not Run)
+	134 - cooperative_fram_fifo (Not Run)
+	135 - cooperative_work (Not Run)
+	138 - live_effect_timing (Not Run)
+Errors while running CTest

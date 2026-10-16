@@ -1,0 +1,125 @@
+[  0%] Building C object CMakeFiles/tr2_core.dir/src/common/cooperative_work.c.o
+[  0%] Building C object CMakeFiles/tr2_core.dir/src/domain/acquisition/window_statistics.c.o
+[  1%] Building C object CMakeFiles/tr2_core.dir/src/application/live_metrology.c.o
+[  1%] Building C object CMakeFiles/tr2_core.dir/src/persistence/live_command_store.c.o
+[  1%] Building C object CMakeFiles/tr2_core.dir/src/application/live_command_engine.c.o
+[  1%] Building C object CMakeFiles/tr2_core.dir/src/common/sha256.c.o
+[  2%] Building C object CMakeFiles/tr2_core.dir/src/application/live_configuration.c.o
+[  2%] Building C object CMakeFiles/tr2_core.dir/src/application/acquisition_service.c.o
+[  2%] Building C object CMakeFiles/tr2_core.dir/src/application/campaign_inventory_service.c.o
+[  2%] Building C object CMakeFiles/tr2_core.dir/src/application/campaign_service.c.o
+[  3%] Building C object CMakeFiles/tr2_core.dir/src/application/command_apply_configuration.c.o
+[  3%] Building C object CMakeFiles/tr2_core.dir/src/application/command_boot_recovery.c.o
+[  3%] Building C object CMakeFiles/tr2_core.dir/src/application/command_engine.c.o
+[  3%] Building C object CMakeFiles/tr2_core.dir/src/application/command_policy.c.o
+[  4%] Building C object CMakeFiles/tr2_core.dir/src/application/command_request_mailbox.c.o
+[  4%] Building C object CMakeFiles/tr2_core.dir/src/application/command_selftest.c.o
+[  4%] Building C object CMakeFiles/tr2_core.dir/src/application/command_start_acquisition.c.o
+[  4%] Building C object CMakeFiles/tr2_core.dir/src/application/command_stop_acquisition.c.o
+[  5%] Building C object CMakeFiles/tr2_core.dir/src/application/command_synchronize_time.c.o
+[  5%] Building C object CMakeFiles/tr2_core.dir/src/application/configuration_activation_adapter.c.o
+[  5%] Building C object CMakeFiles/tr2_core.dir/src/application/configuration_service.c.o
+[  5%] Building C object CMakeFiles/tr2_core.dir/src/application/configuration_workflow.c.o
+[  6%] Building C object CMakeFiles/tr2_core.dir/src/application/diagnostic_service.c.o
+[  6%] Building C object CMakeFiles/tr2_core.dir/src/application/supervision_service.c.o
+[  6%] Building C object CMakeFiles/tr2_core.dir/src/application/system_command_dispatcher.c.o
+[  6%] Building C object CMakeFiles/tr2_core.dir/src/application/production_provisioning.c.o
+[  7%] Building C object CMakeFiles/tr2_core.dir/src/application/persistent_identity.c.o
+[  7%] Building C object CMakeFiles/tr2_core.dir/src/application/production_commissioning.c.o
+[  7%] Building C object CMakeFiles/tr2_core.dir/src/application/production_application.c.o
+[  7%] Building C object CMakeFiles/tr2_core.dir/src/application/modbus_system_server.c.o
+[  8%] Building C object CMakeFiles/tr2_core.dir/src/application/system_runtime.c.o
+[  8%] Building C object CMakeFiles/tr2_core.dir/src/application/system_runtime_acquisition_command.c.o
+[  8%] Building C object CMakeFiles/tr2_core.dir/src/application/system_state_aggregator.c.o
+[  8%] Building C object CMakeFiles/tr2_core.dir/src/domain/command/command.c.o
+[  9%] Building C object CMakeFiles/tr2_core.dir/src/domain/configuration/configuration_staging.c.o
+[  9%] Building C object CMakeFiles/tr2_core.dir/src/domain/configuration/configuration_validator.c.o
+[  9%] Building C object CMakeFiles/tr2_core.dir/src/domain/identity/identity.c.o
+[  9%] Building C object CMakeFiles/tr2_core.dir/src/domain/supervision/indicator_calculator.c.o
+[ 10%] Building C object CMakeFiles/tr2_core.dir/src/domain/supervision/threshold_evaluator.c.o
+[ 10%] Building C object CMakeFiles/tr2_core.dir/src/domain/system_state/system_state.c.o
+[ 10%] Building C object CMakeFiles/tr2_core.dir/src/domain/time/time_recovery.c.o
+[ 10%] Building C object CMakeFiles/tr2_core.dir/src/domain/time/time_service.c.o
+[ 11%] Building C object CMakeFiles/tr2_core.dir/src/modbus/b4_configuration_codec.c.o
+[ 11%] Building C object CMakeFiles/tr2_core.dir/src/modbus/b5_projection.c.o
+[ 11%] Building C object CMakeFiles/tr2_core.dir/src/modbus/b5_write_adapter.c.o
+[ 11%] Building C object CMakeFiles/tr2_core.dir/src/modbus/b6_projection.c.o
+[ 11%] Building C object CMakeFiles/tr2_core.dir/src/modbus/b6_write_adapter.c.o
+[ 12%] Building C object CMakeFiles/tr2_core.dir/src/modbus/codec.c.o
+[ 12%] Building C object CMakeFiles/tr2_core.dir/src/modbus/pdu_server.c.o
+[ 12%] Building C object CMakeFiles/tr2_core.dir/src/modbus/register_model.c.o
+[ 12%] Building C object CMakeFiles/tr2_core.dir/src/modbus/projection.c.o
+[ 13%] Building C object CMakeFiles/tr2_core.dir/src/modbus/read_adapter.c.o
+[ 13%] Building C object CMakeFiles/tr2_core.dir/src/modbus/rtu_receiver.c.o
+[ 13%] Building C object CMakeFiles/tr2_core.dir/src/modbus/rtu_server_runtime.c.o
+[ 13%] Building C object CMakeFiles/tr2_core.dir/src/modbus/write_adapter.c.o
+[ 14%] Building C object CMakeFiles/tr2_core.dir/src/persistence/campaign_bulk_aggregator.c.o
+[ 14%] Building C object CMakeFiles/tr2_core.dir/src/persistence/campaign_bulk_block.c.o
+[ 14%] Building C object CMakeFiles/tr2_core.dir/src/persistence/campaign_bulk_block_stream.c.o
+[ 14%] Building C object CMakeFiles/tr2_core.dir/src/persistence/campaign_bulk_checkpoint.c.o
+[ 15%] Building C object CMakeFiles/tr2_core.dir/src/persistence/campaign_bulk_media.c.o
+[ 15%] Building C object CMakeFiles/tr2_core.dir/src/persistence/campaign_bulk_metadata.c.o
+[ 15%] Building C object CMakeFiles/tr2_core.dir/src/persistence/campaign_data_store_bulk.c.o
+[ 15%] Building C object CMakeFiles/tr2_core.dir/src/persistence/campaign_data_store_persistent.c.o
+[ 16%] Building C object CMakeFiles/tr2_core.dir/src/persistence/campaign_record.c.o
+[ 16%] Building C object CMakeFiles/tr2_core.dir/src/persistence/campaign_repository_store.c.o
+[ 16%] Building C object CMakeFiles/tr2_core.dir/src/persistence/command_journal.c.o
+[ 16%] Building C object CMakeFiles/tr2_core.dir/src/persistence/command_journal_bounded_record.c.o
+[ 17%] Building C object CMakeFiles/tr2_core.dir/src/persistence/command_journal_bounded_recovery.c.o
+[ 17%] Building C object CMakeFiles/tr2_core.dir/src/persistence/command_journal_bounded_reader.c.o
+[ 17%] Building C object CMakeFiles/tr2_core.dir/src/persistence/command_journal_bounded_slot.c.o
+[ 17%] Building C object CMakeFiles/tr2_core.dir/src/persistence/command_journal_bounded_writer.c.o
+[ 18%] Building C object CMakeFiles/tr2_core.dir/src/persistence/command_journal_bounded_admission.c.o
+[ 18%] Building C object CMakeFiles/tr2_core.dir/src/persistence/command_journal_bounded_store.c.o
+[ 18%] Building C object CMakeFiles/tr2_core.dir/src/persistence/command_journal_context_store.c.o
+[ 18%] Building C object CMakeFiles/tr2_core.dir/src/persistence/command_journal_record.c.o
+[ 19%] Building C object CMakeFiles/tr2_core.dir/src/persistence/command_journal_store.c.o
+[ 19%] Building C object CMakeFiles/tr2_core.dir/src/persistence/configuration_record.c.o
+[ 19%] Building C object CMakeFiles/tr2_core.dir/src/persistence/configuration_store.c.o
+[ 19%] Building C object CMakeFiles/tr2_core.dir/src/persistence/diagnostic_history_record.c.o
+[ 20%] Building C object CMakeFiles/tr2_core.dir/src/persistence/diagnostic_history_store.c.o
+[ 20%] Building C object CMakeFiles/tr2_core.dir/src/persistence/persistent_storage_core.c.o
+[ 20%] Building C object CMakeFiles/tr2_core.dir/src/persistence/time_history_record.c.o
+[ 20%] Building C object CMakeFiles/tr2_core.dir/src/persistence/time_history_store.c.o
+[ 21%] Building C object CMakeFiles/tr2_core.dir/src/persistence/transactional_image_media.c.o
+[ 21%] Building C object CMakeFiles/tr2_core.dir/src/platform/serial_transport.c.o
+[ 21%] Linking C static library libtr2_core.a
+[ 21%] Built target tr2_core
+[ 21%] Building C object CMakeFiles/tr2_platform_host.dir/platform/host/host_platform.c.o
+[ 21%] Linking C static library libtr2_platform_host.a
+[ 21%] Built target tr2_platform_host
+[ 21%] Building C object CMakeFiles/tr2_host.dir/platform/host/main.c.o
+[ 22%] Linking C executable tr2_host
+[ 22%] Built target tr2_host
+[ 22%] Building C object CMakeFiles/tr2_rtu_request.dir/platform/host/rtu_request.c.o
+[ 23%] Linking C executable tr2_rtu_request
+[ 23%] Built target tr2_rtu_request
+[ 24%] Building C object CMakeFiles/test_stm32_continuous.dir/tests/platform/test_stm32_continuous.c.o
+[ 24%] Building C object CMakeFiles/test_stm32_continuous.dir/platform/stm32/stm32_iis3dwb_continuous.c.o
+[ 24%] Linking C executable test_stm32_continuous
+[ 24%] Built target test_stm32_continuous
+[ 24%] Building C object CMakeFiles/test_stm32_ctrl1_differential.dir/tests/platform/test_stm32_ctrl1_differential.c.o
+[ 25%] Building C object CMakeFiles/test_stm32_ctrl1_differential.dir/platform/stm32/stm32_iis3dwb_ctrl1_differential.c.o
+[ 25%] Linking C executable test_stm32_ctrl1_differential
+[ 25%] Built target test_stm32_ctrl1_differential
+[ 25%] Building C object CMakeFiles/test_stm32_burst_capture.dir/tests/platform/test_stm32_burst_capture.c.o
+[ 25%] Building C object CMakeFiles/test_stm32_burst_capture.dir/platform/stm32/stm32_iis3dwb_burst_capture.c.o
+[ 25%] Linking C executable test_stm32_burst_capture
+[ 25%] Built target test_stm32_burst_capture
+[ 25%] Building C object CMakeFiles/test_stm32_active_readback.dir/tests/platform/test_stm32_active_readback.c.o
+[ 25%] Building C object CMakeFiles/test_stm32_active_readback.dir/platform/stm32/stm32_iis3dwb_active_readback.c.o
+[ 26%] Linking C executable test_stm32_active_readback
+[ 26%] Built target test_stm32_active_readback
+[ 26%] Building C object CMakeFiles/test_stm32_register_probe.dir/tests/platform/test_stm32_register_probe.c.o
+[ 27%] Building C object CMakeFiles/test_stm32_register_probe.dir/platform/stm32/stm32_iis3dwb_register_probe.c.o
+[ 27%] Linking C executable test_stm32_register_probe
+[ 27%] Built target test_stm32_register_probe
+[ 27%] Building C object CMakeFiles/test_stm32_iis3dwb_fifo.dir/tests/platform/test_stm32_iis3dwb_fifo.c.o
+/home/lolo/dev/msm/projects/MSM_vibe-R4D-start-timing/Modbus RTU/05_Firmware/tests/platform/test_stm32_iis3dwb_fifo.c: In function ‘main’:
+/home/lolo/dev/msm/projects/MSM_vibe-R4D-start-timing/Modbus RTU/05_Firmware/tests/platform/test_stm32_iis3dwb_fifo.c:58:18: error: variable ‘run’ might be clobbered by ‘longjmp’ or ‘vfork’ [-Werror=clobbered]
+   58 |     for(unsigned run=0U;run<5U;run++){
+      |                  ^~~
+cc1: all warnings being treated as errors
+gmake[2]: *** [CMakeFiles/test_stm32_iis3dwb_fifo.dir/build.make:79: CMakeFiles/test_stm32_iis3dwb_fifo.dir/tests/platform/test_stm32_iis3dwb_fifo.c.o] Error 1
+gmake[1]: *** [CMakeFiles/Makefile2:799: CMakeFiles/test_stm32_iis3dwb_fifo.dir/all] Error 2
+gmake: *** [Makefile:101: all] Error 2

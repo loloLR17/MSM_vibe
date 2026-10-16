@@ -1,11 +1,11 @@
 ---
-mission_id: TR2-20261016-R4M-LIVE-FRAM-RECONCILIATION
-status: BLOCKED
+mission_id: TR2-20261016-R4D-START-TIMING-DIAGNOSTIC
+status: IN_PROGRESS
 base_ref: main
-base_sha: 0e09805f4ade74ed04553f04efb7a881e8bfb84b
-initial_head: 11719e3946e0aa0773e8993b841c82760130fcf3
-result_sha: 3606942239f54930249d024dc33d1812d8629879
-created_at_utc: 2026-10-16T09:01:43Z
+base_sha: 71ee541d6f534d993d439475c32bec5b03d7856c
+initial_head: 88298cffa0403d80dfe95f534138401da0d9d3fb
+result_sha: 7a6a8b924f4e616adfcb5fb2dc52c7ccc16297e0
+created_at_utc: 2026-10-16T09:48:32Z
 author: Codex
 target_branch: main
 allow_commit: true
@@ -14,170 +14,154 @@ allow_flash: true
 allow_debug: true
 ---
 
-# R4-M — maintenance acquise dans sa portée ; campagne arrêtée sur nouveau STARTED
+# R4-D — défaut de découpage reproduit, correction et diagnostic livrés
 
-**BLOCKED, conformément à la condition d'arrêt du contrat.** La maintenance
-isolée a réellement retiré l'epoch1 par un vrai RENEW terminé4/0 et refusé
-l'ancienne clé1/1/code13 avec résultat24, sans écriture ni acquisition.
-Le nouveau START(epoch2,txid1,run2) s'est arrêté sur budget1241us>1000us,
-avec nouveau STARTED indéterminé9. Aucun nouveau nettoyage, reprovisionnement
-ni essai n'a suivi. **Aucune qualification écritureFRAM+FIFO ou R6**.
-Firmware initial restauré exactement2Mio ; FRAM nouvelle conservée intégralement.
+Travail technique terminé ; **IN_PROGRESS uniquement pour publication/relecture**.
+START et OBSERVE forment un travail nominal continu de plus de1008us sans yield,
+au-delà de la limite1000us. Leur séparation explicite donne un quantum cible
+maximal de911us, sans relâcher les limites. Ce diagnostic ne résout ni ne nettoie
+le STARTED epoch2/run2 ; aucune admission R2 ni écriture FRAM n'a été exécutée.
+La Flash initiale est restaurée intégralement, FRAM byte-identique avant/après.
 
-[Procédure et restrictions](../../05_Firmware/LIVE_R4M.md) ·
-[preuves et manifeste](preuves/TR2-20261016-R4M/README.md) ·
-[mesures dérivées des logs](preuves/TR2-20261016-R4M/measurements.json) ·
-[audit indépendant du snapshot final](preuves/TR2-20261016-R4M/fram-final-audit.json).
-Les logs GDB bruts priment ; les fichiers MODEL-ONLY ne sont pas des relevés cible.
+[Procédure, correction et limites](../../05_Firmware/LIVE_R4D.md) ·
+[preuves brutes et manifeste](preuves/TR2-20261016-R4D/README.md) ·
+[mesures](preuves/TR2-20261016-R4D/measurements.json) ·
+[artefacts/configurations](preuves/TR2-20261016-R4D/build-artifacts.json).
 
-## Identité, sauvegardes et ancien verrou
+## Préflight et préservation
 
-TR2-001, ST-LINK003500463235510B37333439, UID004A003D/38425018/20333157
-vérifiés. Flash2097152 etFRAM262144 sauvegardées deux fois avant flash/reset/writeNVM,
-comparées intégralement et égales au final R4. Accès GDB qualifié minimal nécessaire
-aux sauvegardes ; seulement transport de lecture/RAM avant vérification des fichiers.
-WHO7B/CTRL1=00/FIFO_CTRL4=80(mode0 bypass)/CTRL10=00 observés sans écriture capteur.
-Ancienne Flash M016 attempt02, pas un successeur cumulatif qualifié.
+Worktree neuf basé sur main88298cf, branche `codex/r4d-start-timing` ; aucun merge,
+rebase, reset ou écrasement du dépôt historique.54anciens worktrees/HEAD préservés,
+55au total ; deux stashes inchangés.2734fichiers protégés contrôlés par SHA, incluant
+mission/gouvernance/gels/dettes/archives et preuvesR4-M. Mission et rapport R4-M
+archivés byte-identiques à71ee541 sous archives/TR2-20261016-R4M-LIVE-FRAM-RECONCILIATION.
 
-Ancien journal : RESERVEDgen1 CRC05cd4bb6, STARTEDgen2 CRC73a97135,
-epoch1/tx1/code13/run1/config2/gen2, deux INTENT authentiques sans reçu observé.
-**L'effet ancien reste indécidable** ; aucun COMPLETED/28/29 inventé. Snapshot
-intégral initial archivé sans perte dans tests/fixtures/r4_started_snapshot.zlib,
-SHA c814 ci-dessous ; mission et rapport R4 archivés byte-identiques à0e09805.
-Sauvegardes binaires complètes récupérables sous /home/lolo/dev/msm/reports/TR2-r4m/hardware/.
+ST-LINK003500463235510B37333439/NUCLEO-U575ZI-Q et UID004A003D/38425018/20333157
+vérifiés. Flash2097152 etFRAM262144 relues deux fois, identiques aux backups R4-M.
+Capteur relu arrêté : WHO7B, ODRoff, FIFO_CTRL4=80(modebypass), timestampoff.
+GDB qualifié de lecture/RAM avant flash ; aucun HOTPLUG, aucun geste physique requis.
+Backups complets récupérables : /home/lolo/dev/msm/reports/TR2-r4d/hardware/.
 
-## Modifications et validation logicielle
+## Décomposition réellement mesurée
 
-Code initial de maintenance **bc3e83de050a527cc839b494025c906f5c06246b** :
-module bench-only r4m_maintenance, entrée opt-in fermée/WAIT à chaque boot,
-journal d'adresses, mesures et garde-fous, test sur snapshot authentique,
-auditeur hors ligne inspect_live_fram.py et LIVE_R4M.md. Aucun serveur UART/RTU/SD
-n'est initialisé dans ce probe. INTENT128 authentique maintient la borne run1 ;
-commit logique journal par média transactionnel existant, aucun effacement brut.
-Pont RETIRING autorise uniquement vraiRENEW1->2 ; frontend ouvre après retraite durable.
-Le contrôle négatif prouve que ce pont ne doit jamais être exposé à une entrée
-produit générique. Reset : CLOSED ; reprises limitées aux SHA explicitement inspectés.
-Ce n'est pas une nouvelle politique R0 de recovery automatique.
+Probe avant correction **05033ffb1e6052c9f9744be80d667a2ee857bea7** ; transport et propriétaire réels,
+SPI3 4MHz, cœur160MHz, driver officiel ST inchangé. Aucun UART/SD/commande R2.
+L'ELF ne contient ni submit R2, ni commit du journal, ni maintenance, ni write FRAM.
+Chaque image attend un triggerRAM et vérifie le SHA FRAM avant l'exercice.
+Identifiants0x5234440000000001+n de diagnostic **volatils, non admis R2**.
+Aucun halt GDB pendant l'exécution ;15s minimum avant lecture terminale.
 
-Après premier échec, code **3606942239f54930249d024dc33d1812d8629879** : checkpoints supplémentaires
-entre CRC/décodages successifs d'epoch/effet/identité/configurations, aucun contrôle
-supprimé ni seuil relevé. Reprise6 indépendante de l'isolation, limitée au SHA exact
-du pont et à l'INTENT128 byte-identique à l'archive ; pas de second vidage journal.
+| Exercice | START | OBSERVE | Intervalle combiné | STOP | Résultat |
+|---|---:|---:|---:|---:|---|
+| Direct0 |905,64us|102,34us|1008,26us|235,64us|effets/relectures conformes|
+| Tracé1 |959,21us|106,93us|1066,43us|247,09us|48callbacks conservés|
+| Direct2 |906,55us|102,34us|1009,18us|235,47us|contrôle de perturbation|
+| Garde ancienne3 |904,98us|102,02us|1007,28us|234,38us|work1012us, erreur6, arrêt sûr|
+| Découpage corrigé4 |907,09us|102,34us|1021,10us total|234,83us|**workmax911us**, service2us, aucune deadline|
 
-Validations effectives :
+Le total1021,10us du cas4 comprend les yields ; il n'est pas un quantum continu.
+**Marge nominale observée89us**, pas WCET/borne industrielle. Le probe corrigé
+exécute les mêmes frontières autour du vrai port avec callback de service idle ;
+il ne fait pas tourner une commande R2 complète ni le service FRAM/FIFO sous charge.
+Les138tests hôte contrôlent le vrai moteur modifié ; cette distinction est essentielle.
 
-- Nouveau test maintenance :142budgets de coupure d'isolation,4phasesRENEW,
-  anti-rejeu/runfloor, refus sans INTENT, refus double isolation, reprise du pont
-  exacte et refus INTENT altéré. Initial PASS1,97s, sanitizer1,16s.
-- **Après modification core,137/137 tests hôte PASS56,30s**, dont test1371,92s.
-  Réexécution justifiée par le risque de régression ; code cœur a alors changé.
-  Sanitizer ASan/UBSan du test maintenance PASS1,38s.
-- `cmake --build` hôte/probe ARM et
-  `STM32CUBE_U5_ROOT=/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0 bash ./tr2_validate.sh --cross-build-only` PASS.
-  Appel préalable `./tr2_validate.sh` refusé126 (fichier nonexécutable), sans test lancé ;
-  hôte etcross exécutés séparément, aucune répétition de suite déjà réussie.
-- BIN canonique V1 inchangé :6a2150af8939ead0b81219a96cfd51dc2cbef03a3851d46775fa71ddbfeb15a9.
-  Aucun test hôte/cross/sanitizer présenté comme validation matérielle.
+START comporte36callbacks SPI :9pour le STOP préalable,1WHO,23configuration,
+3contrôles ; OBSERVE3, STOP9. Chaque callback vérifie les statuts/préclose et clôt CS.
+Calibration128appels vides avant :63cycles direct,217wrapper sans append,293avec
+append ; surcoût total230cycles=1,4375us/callback. Après ajout de l'injection,
+surcoût1,56875us/callback. Les valeurs directes sont la référence temporelle ;
+le surplus tracé≈58us pour39callbacks concorde. DWT/HCLK, sans calibration externe.
 
-## Exécutions physiques distinctes
+Sur l'authentique copie STARTED déjà présente : decode239,225us, encode227,2875us,
+avec vérification byte-à-byte du réencodage. **Aucune phase/reçu nouveau construit**,
+aucune admission ou persistance. START905–907 + OBSERVE102 + codec227 donnent
+≈1235–1237us : déduction cohérente avec1241us de R4-M. L'ancienne pile exacte
+n'étant pas capturée, il ne s'agit pas d'une reconstruction simultanée microseconde
+par microseconde. En revanche, le dépassement par l'enchaînement START/OBSERVE seul
+et son déclenchement sous garde sont directement reproduits.
 
-| Observation | Trigger4 initial, bc3e83d | Trigger6 reprise,3606942 |
-|---|---:|---:|
-| Départ UTC |08:43:58|08:53:57|
-| Image BIN SHA256 |cc2d815b1ca3089d9fb05fb336d5484ae789c70daa20c26a80e9b2fe201bc062|a76be76c890383040bd58de281d1fc1f6c86195363809a39b5df850bd470ad21|
-| État terminal |stage20 erreur6 après isolation|stage22 erreur6 pendant START|
-| Workmax / limite |1075/1000us|1241/1000us|
-| FRAM readmax/write max |132/164us|132/164us|
-| Octets écrits, LIVE seulement |52426|314556|
-| Plages agrégées / commandes physiques |3/1639|18/9834|
-| FIFO XYZ / timestamps |0/0|0/0|
-| FIFO running/stopped ; error/stop_error |false/true ;0/0|false/true ;0/0|
+## Correction minimale et causalité
 
-Les seuils restent quantum32/work1000us/service2500us/gap5ms/premier-mot20ms expérimental.
-DWT/HCLK160MHz ; pas calibration externe ni WCET électrique. Aucun halt GDB pendant
-les essais :300s minimum avant les observations terminales. Le premier essai a fini
-en9,232s de ticks, le second26,258s. Les délais d'attente hôte ne sont pas des durées RUN.
-CS relâché observé via ODR après chaque write ; toutes plages dans[122880,245760),
-tous résultats0, aucune saturation du journal d'adresses/transport. Cumul366982octets,
-11473commandes sur21plages ; relectures payload/header/root du média conservées.
-Comparaison externe complète des zones protégées après chaque exécution et à la fin.
+Code **7a6a8b924f4e616adfcb5fb2dc52c7ccc16297e0**, sept lignes dans live_command_engine.c :
+points de service avant effet, entre effet et observation indépendante et après
+observation avant encodage/persistance. Contrôles SPI, CRC, phases, anti-rejeu et
+seuils1000us/2500us/gap5ms inchangés ; contexteNULL = no-op historique.
+Le STOP de sécurité reste indépendant de FRAM et ne dépend pas de ces checkpoints.
 
-**Premier essai :** isolation atomique publiée (racine gen5), puis dépassement pendant
-recovery avant RENEW/START. Snapshot pont c868 sauvegardé puis double lecture identique.
-Un diagnostic **lecture seule** (0write, capteur arrêté) a réussi avec workmax824us ;
-la cause précise du premier dépassement reste non attribuée. La sortie GDB initiale
-s'est terminée en erreur de présentation sur tableau0opérations ; résultats précédents
-et snapshot sont acquis, pas une réussite masquée de la commande d'observation.
+Une erreur entre effet et observation, ou avant reçu, conserve STARTED/INTENT et
+arrête le capteur. Aucun effet incertain redispatché, aucun COMPLETED/ABSENCE_PROVEN
+inventé. Un effet unique1100us reste refusé : le découpage ne borne pas un callback
+HAL arbitrairement long. Les corps du driverST et du propriétaire FIFO sont inchangés.
 
-**Reprise distincte, sans reprovisionnement :** frontend fermé sur snapshotc868,
-INTENT et journal vérifiés, vraiRENEW1/65535/code12 terminé4/0 en12,062952s.
-Epoch2/previous1/flags0 durable ; ancienne clé refus24 sans écriture ni dispatch.
-START2/1/run2 dure6,035546s puis échec : work1241us, safety STOP236us,
-maximum observé des appels STOP237us. Ces valeurs ne sont pas un WCET de panne SPI.
-Le port contient run2/config2 et0XYZ ; cela **ne prouve pas l'absence d'effet capteur**.
+## Tests et erreurs conservées
 
-Snapshot final : racine gen11/payload/header/root CRC valides ; slot0 copieA
-RESERVEDgen5 CRCb6a943c8, copieB STARTEDgen6 CRCc0cd794b, epoch2/tx1/code13/run2,
-effect_state1. Deux INTENTgen3/4 pourrun2, aucun START_OBSERVED durable.
-Slot127 conserve vraiRENEW COMPLETEDgen4/4/0. Moteur observé FAULT/indeterminate9.
-Hypothèse à vérifier hors écriture : coût cumulé du start/observe réel avant le
-prochain checkpoint. Le code et les variables bornent cette piste ; aucun backtrace
-au point exact de la panne ne permet d'en faire une cause démontrée.
+- Nouveau test138 : échec reproductible avant correction, PASS après. Modèle905us
+  START+103us OBSERVE ; comparaison des262144octets finaux START/STOP aux mêmes
+  opérations non coopératives ; deux fautes de service aux nouvelles barrières,
+ 0write supplémentaire, recovery9/no replay ; callback1100us toujours arrêté.
+- **138/138 tests hôte PASS56,80s** après modification du cœur. Réexécution justifiée
+  par le risque R2 ; includes1561oracles coupure/recovery,40positions d'erreur I/O
+  du propriétaire et scénarios FIFO/STOP existants. Pas de répétition physique R4-M.
+- **ASan/UBSan4suites ciblées PASS16,06s** : propriétaireFIFO, coopérationFRAM/FIFO,
+  cooperative_work et live_effect_timing. Un premier build sanitizer globalO1
+  a échoué sur `-Werror=clobbered` d'un ancien test longjmp hors tranche ; premières
+  tentatives ctest NotRun, aucun PASS attribué. Les quatre cibles utiles ont ensuite
+  été construites explicitement, sans suppression de warning/test/assertion.
+  La suite sanitizer intégrale n'est pas déclarée validée.
+- Cross-build canonique via `bash ./tr2_validate.sh --cross-build-only` et deux
+  probes ARM PASS. Validation complète proportionnée composée de CMake/ctest138
+  puis cross-build ; pas de second lancement inutile de138tests via le wrapper.
+  BIN canonique V1 byte-identique6a2150af8939ead0b81219a96cfd51dc2cbef03a3851d46775fa71ddbfeb15a9.
+- Première configuration ARM refusée car argument registre commissioning manquant ;
+  corrigée par le chemin réel REGISTRE_ATTRIBUTION_TR2.json, sans modifier le générateur.
+  Logs de ces échecs conservés avec les sorties réussies et versions toolchain.
 
-## Restauration, empreintes et limites
+## Erreur capteur et limites HAL
 
-Flash standard avec vérification,114688octets/14pages restaurés depuis la nouvelle
-sauvegarde, puis comparaison intégrale2Mio exacte. Aucune écriture FRAM de restauration,
-aucun mass erase/Option Bytes/RDP, aucune manipulation physique demandée.
-Dernière observation : CommissioningReadOnly en attente, GDB détaché.
-FRAM relue après restauration byte-identique au snapshot final f2bd.
+Exercice5 nouveau, sans commande R2 : refus logiciel unique avant le11e callback
+(lectureCTRL3_C), pas transfert matériel défaillant. START retourne6 ; nettoyage et
+OBSERVE/STOP réels confirment arrêt, stop_error0, aucune saturation de trace.
+Le sticky FIFOerror1 attendu reste visible ; il n'est pas effacé pour afficher PASS.
+Ce n'est pas une panne électrique ni un timeoutHAL injecté.
 
-| Donnée | SHA256 |
+Transport SPI3 : commande puis payload en polling, timeout20ms pour chaque appel,
+aucun retry ; phasepayload seulement si commandeHAL_OK, CS relâché au retour,
+statuts/compteurs/preclose contrôlés. HAL_GetTick commande le timeout : tick figé
+ou IRQ masquées peuvent empêcher la borne temporelle. Une opération peut dépasser
+1ms avant détection ; STOP partage le bus SPI3 et ne garantit pas la réussite
+d'un arrêt électrique sur bus bloqué. **Pas de WCET fauteSPI/IRQ/CPU/pile qualifié**.
+
+## État matériel final et empreintes
+
+Flash initiale restaurée depuis backup frais,9pages/73728octets programmés par
+procédure standard puis **2Mio comparés intégralement**. FRAM262144 relue après
+chaque probe puis après restauration, toujours byte-identique. Historique/LIVE/tail
+intacts, STARTEDepoch2/run2 toujours préservé, aucune identité persistante consommée.
+Aucun mass erase/OptionBytes/RDP, aucun accèsSD/HP/COM7/RTU électrique.
+Dernier état vérifié : M016 commissioning initial en attente, GDB détaché,
+capteur arrêté par relectures du port réel avant restauration.
+
+| Artefact | SHA256 |
 |---|---|
-| Flash initiale et finale2Mio |c5bc344d64984c48c3e34b05fa9432c9c124e8b67428eb0eef22c0d62ddf5b26|
-| FRAM initiale262144 |c814e9cc32eff06016f28ef964233354e35ba458653a16434e4416b296271561|
-| Pont après isolation, doublelecture |c868950fe3c60f9a3b23a9ce8d565029ee57d4f06b08cbf6062de9238b2af950|
-| FRAM finale262144, avant/aprèsrestauration |f2bd7a99d3d0e9f17292310f2cec51fe3a3f521ba3a4d2f07da5b6302258a0c1|
-| Historique[0,122880), avant=après |4e3c2d39f03eaf7cf46d8c987d944548c1f14752d36bafa1a41439078cfb3cf3|
-| Tail[245760,262144), avant=après |4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe|
-| LIVE finale |3d3d4f7c76e2fe4295f5ab2519dc86a2ffaa279fdb905c7df99d909d4e6556e3|
+| Flash initiale/finale2Mio |c5bc344d64984c48c3e34b05fa9432c9c124e8b67428eb0eef22c0d62ddf5b26|
+| FRAM avant/après probes/restauration |f2bd7a99d3d0e9f17292310f2cec51fe3a3f521ba3a4d2f07da5b6302258a0c1|
+| Probe avant BIN |04b0d3c75bd4c031f7f46040ac4f670667ab0878790070d45f3ea65197b3a955|
+| Probe après BIN |354b2e81f4577dbf4d9da001d140281b4471b0cf742875d61aa650621ad60e18|
 
-**Non exécutés après le nouveau STARTED :** RENEW2->3, service60s/FIFO en coexistence,
-STOP de commande, APPLY, START3, injection de faute service aprèsCOMPLETED,
-reboot/recovery finale mode5. Scripts correspondants préparés ne sont pas des essais.
-Aucune répétition pour obtenir PASS. Aucun nouvel essaiSD/HP/COM7/RS485 ; aucun
-provider temps capteur calibré, B3/protocole2/RTU électrique/R6 non qualifiés.
+## Suite distincte et publication
 
-## Blocage réel et prochaines actions
+R4-D livre le diagnostic et sa correction ; **R4/R6 restent non qualifiés**.
+La nouvelle campagne R2 en coexistence FRAM/FIFO, STOP/APPLY/reboot et provider
+capteur demandent un contrat distinct, incluant la décision de traitement du
+STARTED existant. Ne pas relancer les probes de maintenance pour nettoyer ce verrou.
+Aucune extension de R0 ou annonce LIVE/protocole2/B3 n'est réalisée.
 
-La condition explicite du contrat « nouveau STARTED indéterminé : stopper » est
-atteinte. **Ne pas rembobiner FRAM ni réutiliser epoch1/run1 ou run2**. Les triggers
-actuels refusent le SHA final ; M016 ignore LIVE. Conserver cet état et les snapshots.
-Prochaine mission/arbitrage : qualifier hors écriture les bornes START/observe/STOP,
-instrumenter chaque étape du port réel, puis décider d'une réconciliation fondée
-sur preuve causale authentique ou d'un nouveau contexte de maintenance explicitement
-autorisé. Aucune terminalisation rétrospective9->COMPLETED ni budget relâché pour PASS.
-
-## Git, journal et publication
-
-53anciens worktrees/HEAD inchangés,54au total avec celui de mission ; deux stashes
-6251b988e8b20f97997a8f98fd26d4d35a45a1b2 etf3b829e6188f491920edf74a5f9ed0f559d08b87
-préservés. Dépôt d'origine propre à82169af7e76797731358852bec83bfb0ceb54ccf.
-2596fichiers protégés hash-identiques, dont archives/gels/mission/gouvernance/dettes.
-Worktree isolé : /home/lolo/dev/msm/projects/MSM_vibe-R4M-live-fram-reconciliation,
-branchecodex/r4m-live-fram-reconciliation, push explicite versrefs/heads/main.
-
-Checkpoints0d1fc0fe6bfd1e33e057021b25bbd55f8d2b7953 et
-093cc1c4ccf6f261481bda96464a4ff3895094f1 publiés et relus intégralement depuis GitHub,
-manifestes41 puis80preuves contrôlés. Code réellement flashé indiqué ci-dessus ;
-les commits documentaires ultérieurs ne changent pas l'image évaluée.
-Journal ETAT_COURANT_TR2 actualisé et roadmap factuelle R4-M ajoutée : maintenance
-bornée acquise, nouveau verrou/run2, firmware restauré, suite conditionnée au contrat.
-Permissions exercées : développement/tests/commit/push normal/flash/debug qualifiés.
-Bilan publié **e0d87711e65c85919d5ca1e2bc7c2bd599181f99**, puis relu intégralement
-sur la référence récupérée de GitHub :151fichiers changés comparés et133preuves
-vérifiées par SHA. Worktree propre etHEAD=origin/main après cette publication.
-`latest-readback.json` conserve cette preuve distante. La présente mise à jour
-consigne la relecture ; son propre SHA sera fourni après push et contrôle final.
-Statut **BLOCKED** maintenu pour le nouveau STARTED/arrêt contractuel, sans attente
-logicielle restante. Contrôle indépendant ChatGPT à effectuer sur ces résultats.
+Journal ETAT_COURANT_TR2 et statut factuel R4 de la roadmap actualisés pour transmettre
+ces acquis/limites à ChatGPT. Archives R4-M et2734fichiers protégés hash-identiques.
+Dépôt historique propre à82169af7e76797731358852bec83bfb0ceb54ccf ; stashes
+6251b988e8b20f97997a8f98fd26d4d35a45a1b2 etf3b829e6188f491920edf74a5f9ed0f559d08b87 conservés.
+Permissions exercées : développement/tests/commit/push normal versmain, flash/debug
+qualifiés de probes puis restauration, sans écritureFRAM ni opération sensible.
+SHA de code testés ci-dessus ; la relecture distante du bilan et la clôture restent
+à consigner après push. Le SHA du dernier commit documentaire sera fourni dans la
+réponse finale ; aucun statut ne vaut qualification indépendante ChatGPT.

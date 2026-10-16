@@ -1,0 +1,16 @@
+-- The C compiler identification is GNU 14.2.1
+-- The ASM compiler identification is GNU
+-- Found assembler: /usr/bin/arm-none-eabi-gcc
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /usr/bin/arm-none-eabi-gcc - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Found Python3: /usr/bin/python3 (found version "3.13.5") found components: Interpreter
+usage: generate_commissioning_identity.py [-h] manifest registry output
+generate_commissioning_identity.py: error: the following arguments are required: output
+CMake Error at CMakeLists.txt:103 (message):
+  Commissioning authority generation failed
+
+
+-- Configuring incomplete, errors occurred!

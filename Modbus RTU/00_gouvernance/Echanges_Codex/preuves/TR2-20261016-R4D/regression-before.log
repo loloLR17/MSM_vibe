@@ -1,0 +1,14 @@
+Internal ctest changing into directory: /home/lolo/dev/msm/cache/r4d-host
+Test project /home/lolo/dev/msm/cache/r4d-host
+    Start 138: live_effect_timing
+1/1 Test #138: live_effect_timing ...............Subprocess aborted***Exception:   0.05 sec
+test_live_effect_timing: /home/lolo/dev/msm/projects/MSM_vibe-R4D-start-timing/Modbus RTU/05_Firmware/tests/unit/test_live_effect_timing.c:34: scenario: Assertion `result==TR2_OK' failed.
+
+
+0% tests passed, 1 tests failed out of 1
+
+Total Test time (real) =   0.05 sec
+
+The following tests FAILED:
+	138 - live_effect_timing (Subprocess aborted)
+Errors while running CTest
