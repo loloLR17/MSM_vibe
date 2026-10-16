@@ -1,0 +1,4 @@
+REAL CORE: original STARTED9, gate rejects old request, authentic INTENT1 retained, durable RENEW1->2, retired old key24, next RESERVED run2, no acquisition dispatch: PASS
+MODEL FINAL ORACLE: genuine core phases START epoch2/run2, RENEW->3, STOP/APPLY config3, protected regions unchanged: PASS
+NEGATIVE CONTROL: bypassing the isolated maintenance frontend would re-admit old key in bridge; never expose it as product recovery: PASS
+MAINTENANCE_COMMIT_CUTS=142,protected_bytes=139264,gate_closed_after_reset=PASS

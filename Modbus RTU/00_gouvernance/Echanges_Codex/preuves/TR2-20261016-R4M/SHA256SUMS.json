@@ -1,0 +1,168 @@
+{
+  "files": {
+    "README.md": {
+      "bytes": 630,
+      "sha256": "15d10cba7bc7f0991167bcdcd6a64e9b238de66db45ab57df59b358468d8197c"
+    },
+    "bench-build-final.log": {
+      "bytes": 5749,
+      "sha256": "da8a86e14547ffd80f8be5cfa9d682d73b1825128e7282a4b6833805b07dc2d6"
+    },
+    "bench-build.log": {
+      "bytes": 27226,
+      "sha256": "1ad8b6eb7fa2f2e884c22b7e5e79b1a5aedceb7052848884db63c47978d01395"
+    },
+    "bench-build2.log": {
+      "bytes": 5749,
+      "sha256": "db4cfeafdc46930851fd441d449151917b059e4905ecea74b3fd29b587cf3d4d"
+    },
+    "bench-configure.log": {
+      "bytes": 668,
+      "sha256": "b3dc3fcd09a11c199619c6928c59a8a2da4d7709e6ef950e0757f8925f8296ac"
+    },
+    "canonical-cross-build.log": {
+      "bytes": 28790,
+      "sha256": "c0917c275127ebeec97cf20894310f5624e151494967d200f9ac7fe692357a1b"
+    },
+    "expected-final-MODEL-ONLY.json": {
+      "bytes": 8990,
+      "sha256": "ebf8f5035a0f3c7a5ffd1aff4c23eca916f592859b3900ce29615a84853cdf9f"
+    },
+    "expected-final-MODEL-ONLY.zlib": {
+      "bytes": 1540,
+      "sha256": "d77798a8d8b980e56ad1193c8efafa4deb23b418dfb2566defba30de9e394729"
+    },
+    "fram-before-audit.json": {
+      "bytes": 4883,
+      "sha256": "c426b5e38469733016bf709f24a54adf681f1cdb11aae491330078ff13e428e7"
+    },
+    "hardware/flash-double-backup-invocation.json": {
+      "bytes": 790,
+      "sha256": "7c9f6cb095792222b824d64990b867dcc2cc3843fbf021ab0b1c354b7d99a6ea"
+    },
+    "hardware/flash-double-backup-server.log": {
+      "bytes": 642,
+      "sha256": "8bcc4c71699ee84963384971405c87e1a151e92fe6097483e261a0323be2f087"
+    },
+    "hardware/flash-double-backup.gdb": {
+      "bytes": 671,
+      "sha256": "127d4756ef059ecf4d13b37057d6d581806e7bb5e1b94e85fa880e9da4a0e648"
+    },
+    "hardware/flash-double-backup.log": {
+      "bytes": 408,
+      "sha256": "30d1a7ffa0d3de3172d940947ff875d23ce5922fdab6c0f7ab8d82467fc33cda"
+    },
+    "hardware/fram-double-backup-invocation.json": {
+      "bytes": 789,
+      "sha256": "b4ee8e3dcd43ce9d9814feeb66f2f0cdbe2e2de2cd8d7b32108b2591c1849e32"
+    },
+    "hardware/fram-double-backup-server.log": {
+      "bytes": 642,
+      "sha256": "8bcc4c71699ee84963384971405c87e1a151e92fe6097483e261a0323be2f087"
+    },
+    "hardware/fram-double-backup.gdb": {
+      "bytes": 928,
+      "sha256": "94ed8a4f3a36e2c652ee89669ffdeed241ae3fd30e3c94ff6d38e50bc473070e"
+    },
+    "hardware/fram-double-backup.log": {
+      "bytes": 682,
+      "sha256": "c3605a1ba3257a471d9fdccc22c091b8242c202c84be3fcabeb5608621ecd8c1"
+    },
+    "hardware/hardware.py": {
+      "bytes": 2321,
+      "sha256": "d41563489e414d890b37a5a0236be6463aecbb5ecf9f995eb541afd8b0da037e"
+    },
+    "hardware/preflight-summary.json": {
+      "bytes": 718,
+      "sha256": "5d0e228a0deac0046a6b5b5b053e479a6eaf25ae37b3735898c9642448dfbc28"
+    },
+    "hardware/preflight.py": {
+      "bytes": 2970,
+      "sha256": "3993793887ca7f9338a3195955921c1ecfcd4d2ea7ab5fdbcab92a701fd0aef5"
+    },
+    "hardware/sensor-stopped-readonly-invocation.json": {
+      "bytes": 794,
+      "sha256": "f7da83b3c4c0c44fca8fe2efb6a2371669fba7589e26a4e9a4778f73045348c6"
+    },
+    "hardware/sensor-stopped-readonly-server.log": {
+      "bytes": 642,
+      "sha256": "8bcc4c71699ee84963384971405c87e1a151e92fe6097483e261a0323be2f087"
+    },
+    "hardware/sensor-stopped-readonly.gdb": {
+      "bytes": 890,
+      "sha256": "4875e3d4353e71e421a585dc5e970d24c1bb9a009605e66c87ccba9211954a4d"
+    },
+    "hardware/sensor-stopped-readonly.log": {
+      "bytes": 400,
+      "sha256": "6f0b4e9b3f8bda20e43b780d2cae2a2acd4841e1be5e01570c2ce487c2ce26ae"
+    },
+    "hardware/stlink-inventory.log": {
+      "bytes": 506,
+      "sha256": "944d661571428454b8cbf1577533a917ff49105319364f2cd50c8384d7cf6155"
+    },
+    "host-configure.log": {
+      "bytes": 370,
+      "sha256": "f3e56415498d52f6737807eff5f685f01f9885dc1f3170868b8f41ac3d7809cd"
+    },
+    "host-configure2.log": {
+      "bytes": 214,
+      "sha256": "0755bb61a0ba126479dee6ef1a03dec86e9c331da897c3d626b54dab9dea3caa"
+    },
+    "host-core-build.log": {
+      "bytes": 7699,
+      "sha256": "a87fba1c1fa8bdf01e252453333afb7fa0b6c31a7bd24685bf8bea5a0c116053"
+    },
+    "initial-state.json": {
+      "bytes": 592397,
+      "sha256": "f8653175a36f84feae5281f476df397fcd40569fc3c0ed8b955c0dd381a1865d"
+    },
+    "maintenance-build.log": {
+      "bytes": 316,
+      "sha256": "0208ee1e481c6c477521d199cd3fa9d91354f4dbf1e035f7bdb43e1a6868c501"
+    },
+    "maintenance-build2.log": {
+      "bytes": 220,
+      "sha256": "3b34ffc3c6c350e664c8662be61d66d6df0060002a5c90e3c2ca64b1acf140ad"
+    },
+    "maintenance-build3.log": {
+      "bytes": 220,
+      "sha256": "3b34ffc3c6c350e664c8662be61d66d6df0060002a5c90e3c2ca64b1acf140ad"
+    },
+    "maintenance-final-build.log": {
+      "bytes": 220,
+      "sha256": "3b34ffc3c6c350e664c8662be61d66d6df0060002a5c90e3c2ca64b1acf140ad"
+    },
+    "maintenance-final-test.log": {
+      "bytes": 1927,
+      "sha256": "32c875994de51631b2e0889b56f6ec693dadee04d1c69517463dd09923ffc897"
+    },
+    "maintenance-guard-test.log": {
+      "bytes": 304,
+      "sha256": "74510020f7edbd928c75def413d469eba3db15d57544dacc0581a0327c1f851d"
+    },
+    "maintenance-oracle-final.log": {
+      "bytes": 578,
+      "sha256": "3362e0a11c8444cad9f184b6891bff04e689bada533648a2072cba52b3c1f151"
+    },
+    "maintenance-oracle-test.log": {
+      "bytes": 513,
+      "sha256": "dfe934e49a3dd80dd8e86bede5b86263370aa36ab134e46459349ebe0a6f8550"
+    },
+    "maintenance-test.log": {
+      "bytes": 390,
+      "sha256": "a8c9e5be8c52eea94ae9ce6460298fc0b78a588c9c99297b1576c857736791a6"
+    },
+    "sanitize-build.log": {
+      "bytes": 7986,
+      "sha256": "4930b6e8d4f5469394a52037ab70615cf851c551d1ba1f82b409698c14ea6558"
+    },
+    "sanitize-configure.log": {
+      "bytes": 464,
+      "sha256": "7807aca6e3a3b03d9d90d69c17550f2c0f29a00223723fd461cdafdf180ba39f"
+    },
+    "sanitize-test.log": {
+      "bytes": 1951,
+      "sha256": "838be6bcc8f9774e455f8e28cc4ecbe9160055423915669be01a515fe7627962"
+    }
+  }
+}

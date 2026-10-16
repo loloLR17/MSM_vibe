@@ -1,0 +1,29 @@
+Internal ctest changing into directory: /home/lolo/dev/msm/cache/r4m-sanitize
+UpdateCTestConfiguration  from :/home/lolo/dev/msm/cache/r4m-sanitize/DartConfiguration.tcl
+UpdateCTestConfiguration  from :/home/lolo/dev/msm/cache/r4m-sanitize/DartConfiguration.tcl
+Test project /home/lolo/dev/msm/cache/r4m-sanitize
+Constructing a list of tests
+Done constructing a list of tests
+Updating test list for fixtures
+Added 0 tests to meet fixture requirements
+Checking test dependency graph...
+Checking test dependency graph end
+test 137
+    Start 137: r4m_maintenance
+
+137: Test command: /usr/bin/python3 "/home/lolo/dev/msm/projects/MSM_vibe-R4M-live-fram-reconciliation/Modbus RTU/05_Firmware/tests/platform/run_r4m_maintenance.py" "/home/lolo/dev/msm/cache/r4m-sanitize/test_r4m_maintenance" "/home/lolo/dev/msm/projects/MSM_vibe-R4M-live-fram-reconciliation/Modbus RTU/05_Firmware/tests/fixtures/r4_started_snapshot.zlib"
+137: Working Directory: /home/lolo/dev/msm/cache/r4m-sanitize
+137: Test timeout computed to be: 10000000
+137: REAL CORE: original STARTED9, gate rejects old request, authentic INTENT1 retained, durable RENEW1->2, retired old key24, next RESERVED run2, no acquisition dispatch: PASS
+137: MODEL FINAL ORACLE: genuine core phases START epoch2/run2, RENEW->3, STOP/APPLY config3, completed START run3 then safety fault without journal mutation, protected regions unchanged: PASS
+137: RENEW four cut phases: CLOSED frontend at reset, RESERVED28/STARTED9/durable2 recovery, no acquisition or old-key replay: PASS
+137: NEGATIVE CONTROL: bypassing the isolated maintenance frontend would re-admit old key in bridge; never expose it as product recovery: PASS
+137: MAINTENANCE_COMMIT_CUTS=142,protected_bytes=139264,gate_closed_after_reset=PASS
+1/1 Test #137: r4m_maintenance ..................   Passed    1.15 sec
+
+The following tests passed:
+	r4m_maintenance
+
+100% tests passed, 0 tests failed out of 1
+
+Total Test time (real) =   1.16 sec

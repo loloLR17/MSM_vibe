@@ -1,0 +1,19 @@
+{
+  "utc": "2026-10-16T08:14:34.646287+00:00",
+  "flash_bytes": 2097152,
+  "flash_sha256": "c5bc344d64984c48c3e34b05fa9432c9c124e8b67428eb0eef22c0d62ddf5b26",
+  "fram_bytes": 262144,
+  "fram_sha256": "c814e9cc32eff06016f28ef964233354e35ba458653a16434e4416b296271561",
+  "double_flash_and_fram_equal": true,
+  "match_R4_final": true,
+  "UID": [
+    "004A003D",
+    "38425018",
+    "20333157"
+  ],
+  "STLINK": "003500463235510B37333439",
+  "flash_or_persistent_write": false,
+  "reset": false,
+  "access": "qualified GDB backup/read-only sensor registers; only RAM staging reused",
+  "note": "Phase-A backup necessarily uses read-only debug transport; no diagnostic modification or flash before both backups verified"
+}

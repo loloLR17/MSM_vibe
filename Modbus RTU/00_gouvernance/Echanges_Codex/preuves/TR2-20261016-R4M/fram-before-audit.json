@@ -1,0 +1,198 @@
+{
+  "bytes": 262144,
+  "sha256": "c814e9cc32eff06016f28ef964233354e35ba458653a16434e4416b296271561",
+  "partitions": {
+    "historical": {
+      "start": 0,
+      "end": 122880,
+      "sha256": "4e3c2d39f03eaf7cf46d8c987d944548c1f14752d36bafa1a41439078cfb3cf3"
+    },
+    "LIVE": {
+      "start": 122880,
+      "end": 245760,
+      "sha256": "2e3ad028062cc95feea756998b4e436f0c6ca0100fc10722eb2464c81ba493a9"
+    },
+    "tail": {
+      "start": 245760,
+      "end": 262144,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe"
+    }
+  },
+  "roots": [
+    {
+      "at": 122880,
+      "empty": false,
+      "magic": "TR2M",
+      "generation": 3,
+      "crc32": "58986752",
+      "crc_valid": true,
+      "sha256": "793264d85c510acdc06d3aec3a9d64e743cd18932bae4cd15260b212c1e52eed",
+      "physical_version": 1,
+      "logical_version": 3
+    },
+    {
+      "at": 126976,
+      "empty": false,
+      "magic": "TR2M",
+      "generation": 4,
+      "crc32": "aeb08a56",
+      "crc_valid": true,
+      "sha256": "2b761cb92b6e691aa3f4822f228966e5fe4c5baa13931a3564d0df7673d68bc9",
+      "physical_version": 1,
+      "logical_version": 3
+    }
+  ],
+  "active_root": {
+    "at": 126976,
+    "empty": false,
+    "magic": "TR2M",
+    "generation": 4,
+    "crc32": "aeb08a56",
+    "crc_valid": true,
+    "sha256": "2b761cb92b6e691aa3f4822f228966e5fe4c5baa13931a3564d0df7673d68bc9",
+    "physical_version": 1,
+    "logical_version": 3
+  },
+  "active_header": {
+    "at": 188416,
+    "empty": false,
+    "magic": "TR2I",
+    "generation": 4,
+    "crc32": "a39bacbf",
+    "crc_valid": true,
+    "sha256": "d421d4f97e9bc4b2fef74d3b7ca790e817fb6ce65eb25726a6363ec700288d83",
+    "physical_version": 1,
+    "logical_version": 3
+  },
+  "active_payload_sha256": "5040daa2224e3c1d51190e1f0d9215cf0bef1ea6b451a457045d43071d59a0ec",
+  "payload_crc_valid": true,
+  "journal": [
+    {
+      "slot": 0,
+      "copies": [
+        {
+          "at": 15922,
+          "empty": false,
+          "magic": "TR2J",
+          "generation": 1,
+          "crc32": "05cd4bb6",
+          "crc_valid": true,
+          "sha256": "fd15a8a80c3b742e1dcdb44c586cc65696ed91ce8352bcffa17d4ded908daa24",
+          "format": 4,
+          "size": 112,
+          "copy": 0,
+          "epoch": 1,
+          "txid": 1,
+          "command": 13,
+          "phase": 1,
+          "status": 0,
+          "result": 0,
+          "run_id": 1,
+          "config_id": 2,
+          "config_generation": 2,
+          "effect_state": 0
+        },
+        {
+          "at": 16034,
+          "empty": false,
+          "magic": "TR2J",
+          "generation": 2,
+          "crc32": "73a97135",
+          "crc_valid": true,
+          "sha256": "08861bfcd0416e0719cd746c571c1218e8323db450c6be87ded283e80169f3d2",
+          "format": 4,
+          "size": 112,
+          "copy": 1,
+          "epoch": 1,
+          "txid": 1,
+          "command": 13,
+          "phase": 2,
+          "status": 0,
+          "result": 0,
+          "run_id": 1,
+          "config_id": 2,
+          "config_generation": 2,
+          "effect_state": 1
+        }
+      ],
+      "selected_generation": 2
+    }
+  ],
+  "epoch": [
+    {
+      "at": 51914,
+      "empty": false,
+      "magic": "TR2Q",
+      "generation": 1,
+      "crc32": "058c4599",
+      "crc_valid": true,
+      "sha256": "8cf4341a2288f34769d7f4aaa72712a6755955b4db280b88f99f8e17f5f55dd6",
+      "format": 1,
+      "size": 64,
+      "current": 1,
+      "previous": 0,
+      "flags": 0,
+      "transition": 0
+    },
+    {
+      "at": 51978,
+      "empty": true
+    }
+  ],
+  "intent_or_effect": [
+    {
+      "at": 52042,
+      "empty": false,
+      "magic": "TR2E",
+      "generation": 1,
+      "crc32": "c4b9be8a",
+      "crc_valid": true,
+      "sha256": "bdf4640759b498cf2c2ea662fec4c908cd65be28e53bdef9812a7ab2a230d276",
+      "format": 1,
+      "size": 64,
+      "epoch": 1,
+      "txid": 1,
+      "command": 13,
+      "run_id": 1,
+      "config_id": 2,
+      "config_generation": 2,
+      "phase": 1
+    },
+    {
+      "at": 52106,
+      "empty": false,
+      "magic": "TR2E",
+      "generation": 2,
+      "crc32": "fb72c01f",
+      "crc_valid": true,
+      "sha256": "d9d2893f7c0be465a37afbaddd96a2066879cb808693b2d5a5888c9272daf5dc",
+      "format": 1,
+      "size": 64,
+      "epoch": 1,
+      "txid": 1,
+      "command": 13,
+      "run_id": 1,
+      "config_id": 2,
+      "config_generation": 2,
+      "phase": 1
+    }
+  ],
+  "provenance": [
+    {
+      "at": 52170,
+      "empty": false,
+      "magic": "TR2M",
+      "generation": 12,
+      "crc32": "1cf8b820",
+      "crc_valid": true,
+      "sha256": "1c93a7a152024cd38f3564a57d492095da7a9c26dbbbb4a53fa9d0ef895422fa",
+      "format": 1,
+      "size": 64,
+      "historical_payload_sha256": "560f0551315df7b3146f79850f67b72dd7cdf8a3234bbc136e00e89e4d26b239"
+    },
+    {
+      "at": 52234,
+      "empty": true
+    }
+  ]
+}

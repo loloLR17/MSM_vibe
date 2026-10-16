@@ -1,0 +1,5 @@
+[ 95%] Built target tr2_core
+[ 95%] Building C object CMakeFiles/test_r4m_maintenance.dir/tests/platform/test_r4m_maintenance.c.o
+[ 95%] Building C object CMakeFiles/test_r4m_maintenance.dir/platform/stm32/r4m_maintenance.c.o
+[100%] Linking C executable test_r4m_maintenance
+[100%] Built target test_r4m_maintenance

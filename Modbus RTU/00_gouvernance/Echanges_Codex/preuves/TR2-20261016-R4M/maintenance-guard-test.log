@@ -1,0 +1,8 @@
+Internal ctest changing into directory: /home/lolo/dev/msm/cache/r4m-host
+Test project /home/lolo/dev/msm/cache/r4m-host
+    Start 137: r4m_maintenance
+1/1 Test #137: r4m_maintenance ..................   Passed    1.63 sec
+
+100% tests passed, 0 tests failed out of 1
+
+Total Test time (real) =   1.64 sec

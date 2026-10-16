@@ -1,0 +1,359 @@
+{
+  "bytes": 262144,
+  "sha256": "1befa95c6be8baadfce8e3fc4fd23d5be10bee6ba08343d208ecfcfe4407b767",
+  "partitions": {
+    "historical": {
+      "start": 0,
+      "end": 122880,
+      "sha256": "4e3c2d39f03eaf7cf46d8c987d944548c1f14752d36bafa1a41439078cfb3cf3"
+    },
+    "LIVE": {
+      "start": 122880,
+      "end": 245760,
+      "sha256": "e866ea80ba1071f286f472008b0bc79d33ad8f668e8c2f14e81f026c1863042d"
+    },
+    "tail": {
+      "start": 245760,
+      "end": 262144,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe"
+    }
+  },
+  "roots": [
+    {
+      "at": 122880,
+      "empty": false,
+      "magic": "TR2M",
+      "generation": 29,
+      "crc32": "02246891",
+      "crc_valid": true,
+      "sha256": "4e65bdeb00b73cb242aef0322f8af5e724af7124d22eda22f4613df5bf582766",
+      "physical_version": 1,
+      "logical_version": 3
+    },
+    {
+      "at": 126976,
+      "empty": false,
+      "magic": "TR2M",
+      "generation": 30,
+      "crc32": "17c72e66",
+      "crc_valid": true,
+      "sha256": "334e5b8d998b76a9859d5e8bdb026b74bf755a231981c298b62649161c1e953a",
+      "physical_version": 1,
+      "logical_version": 3
+    }
+  ],
+  "active_root": {
+    "at": 126976,
+    "empty": false,
+    "magic": "TR2M",
+    "generation": 30,
+    "crc32": "17c72e66",
+    "crc_valid": true,
+    "sha256": "334e5b8d998b76a9859d5e8bdb026b74bf755a231981c298b62649161c1e953a",
+    "physical_version": 1,
+    "logical_version": 3
+  },
+  "active_header": {
+    "at": 188416,
+    "empty": false,
+    "magic": "TR2I",
+    "generation": 30,
+    "crc32": "529c3360",
+    "crc_valid": true,
+    "sha256": "a666b54a062d3b3f7753739e32e79423c30588091a3192eefc70ee3d127f2437",
+    "physical_version": 1,
+    "logical_version": 3
+  },
+  "active_payload_sha256": "9b34d0a61d72e7b3e891d445a87f6d370af30eaa5d1306ed3b2e08d130c3fb1c",
+  "payload_crc_valid": true,
+  "journal": [
+    {
+      "slot": 0,
+      "copies": [
+        {
+          "at": 15922,
+          "empty": false,
+          "magic": "TR2J",
+          "generation": 15,
+          "crc32": "ee1ce882",
+          "crc_valid": true,
+          "sha256": "7941a72a5f6c7cae6f42a36f890cfb5ade6f09d3f0a5e5b43ee5be799abbdcb6",
+          "format": 4,
+          "size": 112,
+          "copy": 0,
+          "epoch": 3,
+          "txid": 2,
+          "command": 14,
+          "phase": 2,
+          "status": 0,
+          "result": 0,
+          "run_id": 2,
+          "config_id": 2,
+          "config_generation": 2,
+          "effect_state": 2
+        },
+        {
+          "at": 16034,
+          "empty": false,
+          "magic": "TR2J",
+          "generation": 16,
+          "crc32": "569bebfc",
+          "crc_valid": true,
+          "sha256": "c44bcdc06955f525065c58280bf47c4a2880e17d18e1a99df99e589708ebbf44",
+          "format": 4,
+          "size": 112,
+          "copy": 1,
+          "epoch": 3,
+          "txid": 2,
+          "command": 14,
+          "phase": 3,
+          "status": 4,
+          "result": 0,
+          "run_id": 2,
+          "config_id": 2,
+          "config_generation": 2,
+          "effect_state": 2
+        }
+      ],
+      "selected_generation": 16
+    },
+    {
+      "slot": 1,
+      "copies": [
+        {
+          "at": 16146,
+          "empty": false,
+          "magic": "TR2J",
+          "generation": 19,
+          "crc32": "9f0946dd",
+          "crc_valid": true,
+          "sha256": "272e154527da176e06b87d68a7396eff751de462cb587ee92ef2b99043eac923",
+          "format": 4,
+          "size": 112,
+          "copy": 0,
+          "epoch": 3,
+          "txid": 3,
+          "command": 1,
+          "phase": 2,
+          "status": 0,
+          "result": 0,
+          "run_id": 0,
+          "config_id": 3,
+          "config_generation": 3,
+          "effect_state": 2
+        },
+        {
+          "at": 16258,
+          "empty": false,
+          "magic": "TR2J",
+          "generation": 20,
+          "crc32": "d8db2dff",
+          "crc_valid": true,
+          "sha256": "d263613893d4a8409feee799b2de50bbc0fe53a6e82469ca9d16869239dd0172",
+          "format": 4,
+          "size": 112,
+          "copy": 1,
+          "epoch": 3,
+          "txid": 3,
+          "command": 1,
+          "phase": 3,
+          "status": 4,
+          "result": 0,
+          "run_id": 0,
+          "config_id": 3,
+          "config_generation": 3,
+          "effect_state": 2
+        }
+      ],
+      "selected_generation": 20
+    },
+    {
+      "slot": 2,
+      "copies": [
+        {
+          "at": 16370,
+          "empty": false,
+          "magic": "TR2J",
+          "generation": 23,
+          "crc32": "0531d7f9",
+          "crc_valid": true,
+          "sha256": "99684945233cd3698483870a84475b69ffe59b916227644a353b6dcdbbe6b70b",
+          "format": 4,
+          "size": 112,
+          "copy": 0,
+          "epoch": 3,
+          "txid": 4,
+          "command": 13,
+          "phase": 2,
+          "status": 0,
+          "result": 0,
+          "run_id": 3,
+          "config_id": 3,
+          "config_generation": 3,
+          "effect_state": 2
+        },
+        {
+          "at": 16482,
+          "empty": false,
+          "magic": "TR2J",
+          "generation": 24,
+          "crc32": "a10066d0",
+          "crc_valid": true,
+          "sha256": "13498f691f0b19bb8551ad427c23da11b747a907f482c2679ccec4031e369c26",
+          "format": 4,
+          "size": 112,
+          "copy": 1,
+          "epoch": 3,
+          "txid": 4,
+          "command": 13,
+          "phase": 3,
+          "status": 4,
+          "result": 0,
+          "run_id": 3,
+          "config_id": 3,
+          "config_generation": 3,
+          "effect_state": 2
+        }
+      ],
+      "selected_generation": 24
+    },
+    {
+      "slot": 127,
+      "copies": [
+        {
+          "at": 44370,
+          "empty": false,
+          "magic": "TR2J",
+          "generation": 11,
+          "crc32": "59eb84a0",
+          "crc_valid": true,
+          "sha256": "953a534823625a819c6abd2778fdb1c043c681fc27b086a5de8a3ee1ec7f63ca",
+          "format": 4,
+          "size": 112,
+          "copy": 0,
+          "epoch": 2,
+          "txid": 65535,
+          "command": 12,
+          "phase": 2,
+          "status": 0,
+          "result": 0,
+          "run_id": 0,
+          "config_id": 0,
+          "config_generation": 0,
+          "effect_state": 0
+        },
+        {
+          "at": 44482,
+          "empty": false,
+          "magic": "TR2J",
+          "generation": 12,
+          "crc32": "1e39ef82",
+          "crc_valid": true,
+          "sha256": "794048565e0ae93f6beb0f69999e0ae75b3588923b5e7517c048cb54e8a1e034",
+          "format": 4,
+          "size": 112,
+          "copy": 1,
+          "epoch": 2,
+          "txid": 65535,
+          "command": 12,
+          "phase": 3,
+          "status": 4,
+          "result": 0,
+          "run_id": 0,
+          "config_id": 0,
+          "config_generation": 0,
+          "effect_state": 0
+        }
+      ],
+      "selected_generation": 12
+    }
+  ],
+  "epoch": [
+    {
+      "at": 51914,
+      "empty": false,
+      "magic": "TR2Q",
+      "generation": 5,
+      "crc32": "9a863e84",
+      "crc_valid": true,
+      "sha256": "826731bca68f7b732d4d1124e028dc5f3ead2459b61114b74c32e414065014a4",
+      "format": 1,
+      "size": 64,
+      "current": 3,
+      "previous": 2,
+      "flags": 0,
+      "transition": 11
+    },
+    {
+      "at": 51978,
+      "empty": false,
+      "magic": "TR2Q",
+      "generation": 4,
+      "crc32": "5a17cfec",
+      "crc_valid": true,
+      "sha256": "01a0cf2eeadf37d0585042fd88145356885acc81b1a2c096168ec53d40b2a624",
+      "format": 1,
+      "size": 64,
+      "current": 3,
+      "previous": 2,
+      "flags": 1,
+      "transition": 11
+    }
+  ],
+  "intent_or_effect": [
+    {
+      "at": 52042,
+      "empty": false,
+      "magic": "TR2E",
+      "generation": 11,
+      "crc32": "bf889aca",
+      "crc_valid": true,
+      "sha256": "fa7cd41ed2a2a9fd2268cc52be17e36edd125e9f0449c863c75f7e60130f7005",
+      "format": 1,
+      "size": 64,
+      "epoch": 3,
+      "txid": 4,
+      "command": 13,
+      "run_id": 3,
+      "config_id": 3,
+      "config_generation": 3,
+      "phase": 2
+    },
+    {
+      "at": 52106,
+      "empty": false,
+      "magic": "TR2E",
+      "generation": 10,
+      "crc32": "bf48342f",
+      "crc_valid": true,
+      "sha256": "1149f567b30bbe240a36fe1fdf8fa9614671e62506db5ae651df693464703397",
+      "format": 1,
+      "size": 64,
+      "epoch": 3,
+      "txid": 4,
+      "command": 13,
+      "run_id": 3,
+      "config_id": 3,
+      "config_generation": 3,
+      "phase": 1
+    }
+  ],
+  "provenance": [
+    {
+      "at": 52170,
+      "empty": false,
+      "magic": "TR2M",
+      "generation": 12,
+      "crc32": "1cf8b820",
+      "crc_valid": true,
+      "sha256": "1c93a7a152024cd38f3564a57d492095da7a9c26dbbbb4a53fa9d0ef895422fa",
+      "format": 1,
+      "size": 64,
+      "historical_payload_sha256": "560f0551315df7b3146f79850f67b72dd7cdf8a3234bbc136e00e89e4d26b239"
+    },
+    {
+      "at": 52234,
+      "empty": true
+    }
+  ]
+}
