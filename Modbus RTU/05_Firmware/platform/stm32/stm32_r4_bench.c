@@ -7,6 +7,12 @@
 #include "tr2/common/sha256.h"
 #include "tr2/modbus/b4_configuration_codec.h"
 #include <string.h>
+#ifndef TR2_STM32_R4M_MAINTENANCE
+#define TR2_STM32_R4M_MAINTENANCE 0
+#endif
+#if TR2_STM32_R4M_MAINTENANCE
+#include "r4m_maintenance.h"
+#endif
 
 typedef struct {
  uint32_t stage,error,line,command,ownership,read_passes,commands;
@@ -32,6 +38,23 @@ static const uint8_t r2_sha[32]={0xc8,0x14,0xe9,0xcc,0x32,0xef,0xf0,0x60,0x16,0x
 static const uint8_t r1_sha[32]={0x82,0x84,0x45,0xa7,0xf1,0xd1,0x17,0x00,0x53,0x57,0x9c,0xf6,0xdf,0x2e,0x42,0x3b,0x12,0x8e,0xc9,0xde,0xa2,0x8d,0x8e,0xa0,0x2b,0xea,0x71,0x80,0x62,0xe9,0x06,0xa6};
 static uint32_t previous_cycles;
 static uint64_t elapsed_cycles;
+#if TR2_STM32_R4M_MAINTENANCE
+static const uint8_t r4m_final_sha[32]={0x1b,0xef,0xa9,0x5c,0x6b,0xe8,0xba,0xad,0xfc,0xe8,0xe3,0xfc,0x4f,0xd2,0x3d,0x5b,0xe1,0x0b,0xee,0x6b,0xa0,0x83,0x43,0xd2,0x08,0xec,0xfc,0xfe,0x44,0x07,0xb7,0x67};
+static bool r4m_final_snapshot,r4m_enabled,r4m_inject;
+static uint64_t r4m_fault_due;
+R4mMaintenance r4m_guard;
+static LiveAcquisitionPort r4m_real_port;
+volatile uint32_t r4m_backup_token,r4m_old_rejected,r4m_range_count,r4m_op_count;
+volatile uint32_t r4m_cs_closed,r4m_protected_checks,r4m_fifo_max_all;
+static uint64_t r4m_prior_xyz,r4m_prior_ts;
+volatile uint64_t r4m_xyz_all,r4m_ts_all;
+volatile uint64_t r4m_stop_max_us,r4m_stop_end_us,r4m_fault_seen_us,r4m_fault_reaction_us;
+typedef struct {uint32_t at,bytes,commands,stage,status;} R4mWriteRange;
+typedef struct {uint32_t epoch,txid,code,status,result;uint64_t begin_us,end_us,xyz,run_id;uint32_t max_level;} R4mOperation;
+volatile R4mWriteRange r4m_ranges[256];
+volatile R4mOperation r4m_operations[8];
+#endif
+
 static const uint32_t uid[3]={0x004A003D,0x38425018,0x20333157};
 static const uint8_t baseline_sha[32]={
  0xd7,0x32,0xac,0xc5,0x57,0x15,0x21,0x80,0xfc,0x39,0x40,0x97,0xd6,0xa5,0x26,0x9e,
@@ -49,6 +72,10 @@ static void stop(void *unused)
  (void)unused;uint64_t start=now_us(NULL);
  (void)fifo_live_stop(&owner.acquisition.fifo);
  uint64_t duration=now_us(NULL)-start;
+#if TR2_STM32_R4M_MAINTENANCE
+ r4m_stop_end_us=now_us(NULL);
+ if(r4m_fault_seen_us)r4m_fault_reaction_us=r4m_stop_end_us-r4m_fault_seen_us;
+#endif
  if(duration>r4_result.safety_us)r4_result.safety_us=duration;
 }
 static void snapshot(void)
@@ -60,16 +87,30 @@ static void snapshot(void)
  r4_result.stop_error=owner.acquisition.fifo.stop_error;
  r4_result.elapsed_us=now_us(NULL);r4_result.tick_end=HAL_GetTick();
  r4_result.engine_status=engine.status;r4_result.engine_result=engine.result;
+#if TR2_STM32_R4M_MAINTENANCE
+ if(owner.acquisition.fifo.parser.max_level>r4m_fifo_max_all)r4m_fifo_max_all=owner.acquisition.fifo.parser.max_level;
+ r4m_xyz_all=r4m_prior_xyz+owner.acquisition.fifo.total_xyz;
+ r4m_ts_all=r4m_prior_ts+owner.acquisition.fifo.total_ts;
+#endif
 }
 static Tr2Result service(void *unused)
 {
  (void)unused;
+#if TR2_STM32_R4M_MAINTENANCE
+ if(r4m_inject&&now_us(NULL)>=r4m_fault_due) {
+  r4m_fault_seen_us=now_us(NULL);return TR2_ERROR_STORAGE; /* software-injected boundary fault, not electrical */
+ }
+#endif
  if(!owner.acquisition.fifo.running)return TR2_OK;
  uint64_t t=now_us(NULL);
  if(r4_result.last_poll_us&&t-r4_result.last_poll_us>r4_result.max_gap_us)
   r4_result.max_gap_us=t-r4_result.last_poll_us;
  r4_result.last_poll_us=t;r4_result.polls++;
- return stm32_live_acquisition_poll(&owner);
+ Tr2Result result=stm32_live_acquisition_poll(&owner);
+#if TR2_STM32_R4M_MAINTENANCE
+ if(owner.acquisition.fifo.parser.max_level>r4m_fifo_max_all)r4m_fifo_max_all=owner.acquisition.fifo.parser.max_level;
+#endif
+ return result;
 }
 static Tr2Result read_physical(void *ctx,uint32_t at,void *buffer,size_t n)
 {
@@ -91,7 +132,25 @@ static Tr2Result ownership(void *ctx,uint32_t at,size_t n)
 static Tr2Result write_physical(void *ctx,uint32_t at,const void *buffer,size_t n)
 {
  (void)ctx;if(ownership(NULL,at,n)!=TR2_OK)return TR2_ERROR_UNAVAILABLE;
+#if TR2_STM32_R4M_MAINTENANCE
+ volatile R4mWriteRange *range=NULL;
+ if(r4m_enabled) {
+  if(r4m_range_count) {
+   volatile R4mWriteRange *last=&r4m_ranges[r4m_range_count-1];
+   if(!last->status&&last->stage==r4_result.stage&&last->at+last->bytes==at)range=last;
+  }
+  if(!range) {
+   if(r4m_range_count>=256)return TR2_ERROR_UNAVAILABLE; /* no unlogged write */
+   range=&r4m_ranges[r4m_range_count++];range->at=at;range->stage=r4_result.stage;
+  }
+  range->bytes+=(uint32_t)n;range->commands++;
+ }
+#endif
  uint64_t t=now_us(NULL);Tr2Result r=bounded.write(bounded.context,at,buffer,n);
+#if TR2_STM32_R4M_MAINTENANCE
+ if(range)range->status=(uint32_t)r;
+ if(GPIOD->ODR&GPIO_PIN_14)r4m_cs_closed++;else return TR2_ERROR_STORAGE;
+#endif
  t=now_us(NULL)-t;if(t>r4_result.max_write_us)r4_result.max_write_us=t;
  r4_result.write_bytes+=n;return r;
 }
@@ -116,19 +175,27 @@ static Tr2Result read_baseline(void)
  REQUIRE(tr2_sha256_bytes_cooperative(baseline,sizeof(baseline),digest,&work));
  readonly_r2=!memcmp(digest,r2_sha,32);
  resume_after_r1=!memcmp(digest,r1_sha,32)||readonly_r2;
+#if TR2_STM32_R4M_MAINTENANCE
+ r4m_final_snapshot=!memcmp(digest,r4m_final_sha,32);
+ resume_after_r1=resume_after_r1||r4m_final_snapshot;
+#endif
  if(memcmp(digest,baseline_sha,32)&&!resume_after_r1)return TR2_ERROR_STORAGE;
  r4_result.baseline_equal=1;r4_result.read_passes++;return TR2_OK;
 }
 static Tr2Result compare_protected(void)
 {
- uint8_t bytes[32];REQUIRE(tr2_cooperative_enter(&work));
+ uint8_t bytes[32];r4_result.protected_equal=0;REQUIRE(tr2_cooperative_enter(&work));
  for(uint32_t at=0;at<262144u;at+=32) {
   if(at>=122880u&&at<245760u)continue;
   REQUIRE(read_physical(NULL,at,bytes,32));
   if(memcmp(bytes,baseline+at,32))return TR2_ERROR_STORAGE;
   REQUIRE(tr2_cooperative_checkpoint(&work));
  }
- REQUIRE(tr2_cooperative_leave(&work));r4_result.protected_equal=1;return TR2_OK;
+ REQUIRE(tr2_cooperative_leave(&work));r4_result.protected_equal=1;
+#if TR2_STM32_R4M_MAINTENANCE
+ r4m_protected_checks++;
+#endif
+ return TR2_OK;
 }
 static PreparedConfiguration prepared(void)
 {
@@ -142,7 +209,7 @@ static PreparedConfiguration prepared(void)
  memcpy(q.payload.mission_label,"FRAM-FIFO",9);
  q.supplied_crc=tr2_b4_prepared_payload_crc(&q.payload);return q;
 }
-static Tr2Result command(uint32_t epoch,uint16_t txid,uint16_t code)
+static Tr2Result command_impl(uint32_t epoch,uint16_t txid,uint16_t code)
 {
  LiveCommandRequest q={0};q.epoch=epoch;q.command.transaction_id=txid;
  q.command.identity.command_code=code;
@@ -152,11 +219,84 @@ static Tr2Result command(uint32_t epoch,uint16_t txid,uint16_t code)
  if(engine.has_active||engine.status!=4||engine.result)return TR2_ERROR_INVALID_STATE;
  r4_result.commands++;return TR2_OK;
 }
+#if TR2_STM32_R4M_MAINTENANCE
+static Tr2Result guarded_start(void *ctx,uint64_t run,const ActiveConfigurationSnapshot *c)
+{
+ (void)ctx;
+ if(r4m_guard.phase!=3||run<=r4m_guard.run_floor)return TR2_ERROR_INVALID_STATE;
+ r4m_prior_xyz+=owner.acquisition.fifo.total_xyz;r4m_prior_ts+=owner.acquisition.fifo.total_ts;
+ r4_result.last_poll_us=0; /* exclude genuinely stopped interval between runs */
+ return r4m_real_port.start(r4m_real_port.context,run,c);
+}
+static Tr2Result timed_stop(void *ctx)
+{
+ (void)ctx;uint64_t t=now_us(NULL);Tr2Result r=r4m_real_port.stop(r4m_real_port.context);
+ uint64_t elapsed=now_us(NULL)-t;if(elapsed>r4m_stop_max_us)r4m_stop_max_us=elapsed;return r;
+}
+static Tr2Result command(uint32_t epoch,uint16_t txid,uint16_t code)
+{
+ LiveCommandRequest q={0};q.epoch=epoch;q.command.transaction_id=txid;q.command.identity.command_code=code;
+ if(!r4m_authorize(&r4m_guard,&engine,&q)||r4m_op_count>=8)return TR2_ERROR_INVALID_STATE;
+ volatile R4mOperation *op=&r4m_operations[r4m_op_count++];
+ op->epoch=epoch;op->txid=txid;op->code=code;op->begin_us=now_us(NULL);
+ Tr2Result r=command_impl(epoch,txid,code);op->end_us=now_us(NULL);op->status=engine.status;op->result=engine.result;
+ op->xyz=owner.acquisition.fifo.total_xyz;op->run_id=owner.acquisition.fifo.run_id;op->max_level=owner.acquisition.fifo.parser.max_level;
+ return r;
+}
+static Tr2Result maintenance_sequence(const LiveAcquisitionPort *port)
+{
+ LiveCommandRequest old=engine.active.request;
+ REQUIRE(r4m_capture(&r4m_guard,&engine));
+ if(!owner.acquisition.fifo.stopped)return TR2_ERROR_INVALID_STATE;
+ r4_result.stage=20;REQUIRE(r4m_isolate_journal(&r4m_guard,&engine));
+ REQUIRE(live_command_store_recover(&store));REQUIRE(compare_protected());
+ REQUIRE(live_command_engine_init(&engine,&store,port));REQUIRE(live_command_engine_boot(&engine));
+ r4_result.stage=21;REQUIRE(command(1,65535,12));REQUIRE(r4m_open_after_renew(&r4m_guard,&engine));
+ uint64_t written=r4_result.write_bytes;
+ if(r4m_authorize(&r4m_guard,&engine,&old))return TR2_ERROR_INVALID_STATE;
+ REQUIRE(live_command_engine_submit(&engine,&old));
+ if(engine.result!=24||engine.has_active||owner.acquisition.fifo.running||r4_result.write_bytes!=written)
+  return TR2_ERROR_INVALID_STATE;
+ r4m_old_rejected=engine.result;
+ r4_result.stage=22;r4_result.start_us=now_us(NULL);REQUIRE(command(2,1,13));
+ if(owner.acquisition.fifo.run_id!=2)return TR2_ERROR_INVALID_STATE;
+ r4_result.stage=23;REQUIRE(command(2,65535,12));
+ r4_result.stage=24;REQUIRE(tr2_cooperative_enter(&work));uint64_t until=now_us(NULL)+60000000u;
+ while(now_us(NULL)<until)REQUIRE(tr2_cooperative_checkpoint(&work));
+ REQUIRE(tr2_cooperative_leave(&work));
+ r4_result.stage=25;REQUIRE(command(3,2,14));
+ PreparedConfiguration q={0};q.config_id=3;q.payload=configuration.active.payload;
+ q.supplied_crc=tr2_b4_prepared_payload_crc(&q.payload);
+ r4_result.stage=26;REQUIRE(live_command_engine_prepare(&engine,&q));REQUIRE(command(3,3,1));
+ r4_result.stage=27;REQUIRE(command(3,4,13));
+ if(owner.acquisition.fifo.run_id!=3)return TR2_ERROR_INVALID_STATE;
+ REQUIRE(compare_protected());
+ /* Fault AFTER durable completion: do not manufacture a new STARTED to clear.
+  * Real hardware FIFO/stop, but injected scheduling error, not broken SPI wire. */
+ r4_result.stage=28;written=r4_result.write_bytes;r4m_inject=true;r4m_fault_due=now_us(NULL)+100000;
+ REQUIRE(tr2_cooperative_enter(&work));
+ while(tr2_cooperative_status(&work)==TR2_OK)(void)tr2_cooperative_checkpoint(&work);
+ Tr2Result end=tr2_cooperative_leave(&work);r4m_inject=false;r4m_guard.phase=0;
+ if(end!=TR2_ERROR_STORAGE||work.deadline_missed||!r4m_fault_seen_us||
+    owner.acquisition.fifo.running||!owner.acquisition.fifo.stopped||r4_result.write_bytes!=written)
+  return TR2_ERROR_INVALID_STATE;
+ REQUIRE(live_command_engine_fault(&engine));snapshot();return TR2_OK;
+}
+#else
+#define command command_impl
+#endif
 static Tr2Result qualify(uint32_t mode)
 {
  r4_result.stage=2;REQUIRE(read_baseline());
  r4_result.stage=3;
+#if TR2_STM32_R4M_MAINTENANCE
+ if(mode==4&&(!readonly_r2||r4m_backup_token!=0x52344D42u))return TR2_ERROR_INVALID_STATE;
+ if(mode==5&&!r4m_final_snapshot)return TR2_ERROR_INVALID_STATE;
+ if(mode!=4&&mode!=5)return TR2_ERROR_INVALID_STATE;
+ r4m_backup_token=0;r4m_enabled=true;
+#else
  if(readonly_r2&&mode!=3)return TR2_ERROR_INVALID_STATE;
+#endif
  if(mode==3&&!readonly_r2)return TR2_ERROR_INVALID_STATE;
  if(fifo_live_stop(&owner.acquisition.fifo))return TR2_ERROR_UNAVAILABLE;
  if(mode==1) {
@@ -175,7 +315,7 @@ static Tr2Result qualify(uint32_t mode)
   REQUIRE(compare_protected());return TR2_OK;
  }
  /* Ownership grant is local to this explicitly triggered, verified allocation. */
- r4_result.ownership=mode!=3;
+ r4_result.ownership=mode!=3&&mode!=5;
  TransactionalImagePhysicalStorage storage={NULL,read_physical,write_physical};
  TransactionalImageGeometry geometry=transactional_image_geometry_qualification_profile();
  static const PersistentIdentityAssignment assignment={ {0x004A003D,0x38425018,0x20333157},1};
@@ -189,8 +329,8 @@ static Tr2Result qualify(uint32_t mode)
  r4_result.stage=4;PreparedConfiguration q=prepared();
  if(resume_after_r1) {
   REQUIRE(live_configuration_recover(&configuration));
-  if(!configuration.has_active||configuration.active.config_id!=2||
-     configuration.active.generation!=2||configuration.active.payload.acquisition_mode!=2)
+  if(!configuration.has_active||configuration.active.config_id!=(mode==5?3u:2u)||
+     configuration.active.generation!=(mode==5?3u:2u)||configuration.active.payload.acquisition_mode!=2)
    return TR2_ERROR_INVALID_STATE;
  } else {
   REQUIRE(live_configuration_migrate(&configuration));
@@ -198,9 +338,22 @@ static Tr2Result qualify(uint32_t mode)
  }
  owner.acquisition.budget=admission;owner.acquisition.budget_context=NULL;
  LiveAcquisitionPort port=live_fifo_acquisition_port(&owner.acquisition);
+#if TR2_STM32_R4M_MAINTENANCE
+ r4m_real_port=port;port.start=guarded_start;port.stop=timed_stop;
+#endif
  REQUIRE(live_command_engine_init(&engine,&store,&port));
  owner.acquisition.engine=&engine; /* Raw qualification only: B3 remains unbound. */
  REQUIRE(live_command_engine_boot(&engine));
+#if TR2_STM32_R4M_MAINTENANCE
+ if(mode==4)return maintenance_sequence(&port);
+ if(mode==5) {
+  if(engine.indeterminate||engine.has_active||store.epoch.current!=3||configuration.active.config_id!=3||
+     !engine.has_last||engine.last.request.command.identity.command_code!=13||engine.last.request.command.transaction_id!=4||
+     store.effect.run_id!=3||owner.acquisition.fifo.running||!owner.acquisition.fifo.stopped||r4_result.write_bytes)
+   return TR2_ERROR_INVALID_STATE;
+  snapshot();REQUIRE(compare_protected());return TR2_OK;
+ }
+#endif
  if(mode==3) {
   /* Recovery qualification only: preserve STARTED, never replay or clear it. */
   if(!engine.indeterminate||engine.status!=9||!engine.has_active||r4_result.write_bytes)
@@ -237,7 +390,13 @@ __attribute__((noreturn)) void stm32_r4_benchmark_run(SPI_HandleTypeDef *spi1,SP
  bounded=stm32_fram_storage_bounded_physical(&fram);
  if(tr2_cooperative_init(&work,NULL,now_us,service,stop,32,1000,2500)!=TR2_OK)for(;;)__WFI();
  r4_result.stage=1;
+#if TR2_STM32_R4M_MAINTENANCE
+ /* Every reset is CLOSED and WAIT. The bridge hash is deliberately NOT accepted
+  * for another run: interrupted maintenance requires inspection, never a loop. */
+ while(r4_trigger!=0x52340004u&&r4_trigger!=0x52340005u){(void)now_us(NULL);HAL_Delay(1);}
+#else
  while(r4_trigger!=0x52340001u&&r4_trigger!=0x52340002u&&r4_trigger!=0x52340003u){(void)now_us(NULL);HAL_Delay(1);}
+#endif
  uint32_t mode=r4_trigger&0xFFFFu;r4_trigger=0;r4_result.command=mode;
  r4_result.tick_start=HAL_GetTick();Tr2Result status=qualify(mode);
  if(status!=TR2_OK){if(!r4_result.error)r4_result.error=status;stop(NULL);r4_result.stage|=0x80000000u;}

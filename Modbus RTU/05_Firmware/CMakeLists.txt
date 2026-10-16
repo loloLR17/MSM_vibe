@@ -412,3 +412,12 @@ add_executable(test_stm32_fram_bounded tests/platform/test_stm32_fram_bounded.c 
 target_include_directories(test_stm32_fram_bounded PRIVATE tests/platform/stm32_hal_fram_mock platform/stm32)
 target_link_libraries(test_stm32_fram_bounded PRIVATE tr2_core)
 add_test(NAME stm32_fram_bounded COMMAND test_stm32_fram_bounded)
+
+# R4M: isolated maintenance safety, real R4 snapshot archived losslessly.
+find_package(Python3 REQUIRED COMPONENTS Interpreter)
+add_executable(test_r4m_maintenance tests/platform/test_r4m_maintenance.c platform/stm32/r4m_maintenance.c)
+target_include_directories(test_r4m_maintenance PRIVATE platform/stm32)
+target_link_libraries(test_r4m_maintenance PRIVATE tr2_core)
+add_test(NAME r4m_maintenance COMMAND ${Python3_EXECUTABLE}
+    ${CMAKE_CURRENT_SOURCE_DIR}/tests/platform/run_r4m_maintenance.py
+    $<TARGET_FILE:test_r4m_maintenance> ${CMAKE_CURRENT_SOURCE_DIR}/tests/fixtures/r4_started_snapshot.zlib)

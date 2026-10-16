@@ -1,0 +1,59 @@
+#include "r4m_maintenance.h"
+#include <string.h>
+Tr2Result r4m_capture(R4mMaintenance *m,const LiveCommandEngine *e)
+{
+ if(!m||!e||!e->store||!e->store->configuration)return TR2_ERROR_INVALID_ARGUMENT;
+ memset(m,0,sizeof(*m));const LiveCommandStore *s=e->store;unsigned count=0;
+ for(unsigned i=0;i<128;i++)if(s->present[i])count++;
+ /* This narrowly reviewed plan applies only to the single R4 STARTED case.
+  * Require an authentic intent already durable; never synthesize a watermark. */
+ if(!e->booted||!e->indeterminate||!e->has_active||e->active.phase!=2||
+    e->active.request.command.identity.command_code!=13||count!=1||
+    s->epoch.current!=1||s->epoch.flags||!s->has_effect||s->effect.phase!=1||
+    s->effect.epoch!=e->active.request.epoch||s->effect.txid!=e->active.request.command.transaction_id||
+    s->effect.code!=13||s->effect.run_id!=e->active.run_id||
+    s->effect.config_id!=e->active.config_id||s->effect.config_generation!=e->active.config_generation||
+    e->active.request.command.transaction_id==65535||!s->mounted)
+  return TR2_ERROR_INVALID_STATE;
+ m->epoch_floor=s->epoch.current;m->run_floor=s->effect.run_id;
+ if(!m->run_floor||m->run_floor==UINT64_MAX)return TR2_ERROR_INVALID_STATE;
+ memcpy(m->intent,s->configuration->live->candidate+TR2_LIVE_EFFECT_OFFSET,128);
+ m->phase=1;return TR2_OK;
+}
+Tr2Result r4m_isolate_journal(R4mMaintenance *m,LiveCommandEngine *e)
+{
+ if(!m||m->phase!=1||!e||!e->indeterminate||!e->store->mounted)return TR2_ERROR_INVALID_STATE;
+ TransactionalImageMedia *live=e->store->configuration->live;
+ PersistentMedia *media=transactional_image_media_interface(live);const uint8_t zero[32]={0};
+ m->phase=0; /* one attempt only, including an interrupted/failed publication */
+ Tr2Result r=tr2_cooperative_enter(live->work);if(r!=TR2_OK)return r;
+ /* Logical staging only. The old published bank/STARTED stays authoritative
+  * until payload/readback/header/root publication completes atomically.
+  * Epoch, both authentic intent copies and both configurations stay unchanged.
+  * CLOSED/RETIRING frontend forbids old START throughout this bridge state. */
+ for(uint32_t at=0;at<28672&&r==TR2_OK;at+=32)
+  r=media->write(media->context,15922+at,zero,32);
+ if(r==TR2_OK)r=media->commit(media->context);
+ Tr2Result end=tr2_cooperative_leave(live->work);if(r==TR2_OK)r=end;
+ if(r==TR2_OK)m->phase=2;
+ return r;
+}
+bool r4m_authorize(const R4mMaintenance *m,const LiveCommandEngine *e,const LiveCommandRequest *q)
+{
+ if(!m||!e||!q||!e->store||!e->booted)return false;
+ if(m->phase==2)return q->epoch==m->epoch_floor&&e->store->epoch.current==m->epoch_floor&&
+  q->command.transaction_id==65535&&q->command.identity.command_code==12;
+ return m->phase==3&&e->store->epoch.current>m->epoch_floor&&q->epoch==e->store->epoch.current&&
+  e->store->has_effect&&e->store->effect.run_id>=m->run_floor;
+}
+Tr2Result r4m_open_after_renew(R4mMaintenance *m,const LiveCommandEngine *e)
+{
+ if(!m||m->phase!=2||!e||!e->booted||e->has_active||!e->has_last||!e->store->mounted||
+    e->store->epoch.current!=m->epoch_floor+1||e->store->epoch.previous!=m->epoch_floor||e->store->epoch.flags||
+    e->last.request.epoch!=m->epoch_floor||e->last.request.command.transaction_id!=65535||
+    e->last.request.command.identity.command_code!=12||e->last.status!=4||e->last.result||
+    !e->store->has_effect||e->store->effect.run_id!=m->run_floor||
+    memcmp(m->intent,e->store->configuration->live->candidate+TR2_LIVE_EFFECT_OFFSET,128))
+  return TR2_ERROR_INVALID_STATE;
+ m->phase=3;return TR2_OK;
+}
