@@ -1,0 +1,124 @@
+{
+  "files": {
+    "README.md": {
+      "bytes": 301,
+      "sha256": "895d38c1c707582292a14ebabf1a51d3e5c783dda35b04c31615b791b8e2eac8"
+    },
+    "bench-build.log": {
+      "bytes": 26862,
+      "sha256": "42317846295d7e4189b5fb9615c14c6bf0790af89014362cbf733cd94a39f37b"
+    },
+    "bench-configure.log": {
+      "bytes": 666,
+      "sha256": "5f562f6dd2afa5145e41f7059ca0e5d1a20baf076a40027c58dc4ed67e2dd90a"
+    },
+    "canonical-cross.log": {
+      "bytes": 28414,
+      "sha256": "0a6aeeeb483319c3bcf13f80391f5034ad5fa3371edfcf54eef0cf339eae2e38"
+    },
+    "expected-final-MODEL-ONLY.json": {
+      "bytes": 8990,
+      "sha256": "7e3acd77f178b6fa3501946e150d77cdbc8cb3646769242aa6d3105cb40b6a18"
+    },
+    "expected-final-MODEL-ONLY.zlib": {
+      "bytes": 1549,
+      "sha256": "863bf453d7def9c4ab9c9bc624959204171e4728830467b4f94a2047618a3ebe"
+    },
+    "fram-before-audit.json": {
+      "bytes": 6458,
+      "sha256": "f1ccd094180b8f6478ca91e3235c8bc94f91a1a19d572e95a464b11fcdc18e8d"
+    },
+    "hardware/flash-double-backup-invocation.json": {
+      "bytes": 790,
+      "sha256": "005a370d396a7a9bd4b156dc15e0db1513404ee97dbe68118a6cab492ef4372e"
+    },
+    "hardware/flash-double-backup-server.log": {
+      "bytes": 642,
+      "sha256": "8bcc4c71699ee84963384971405c87e1a151e92fe6097483e261a0323be2f087"
+    },
+    "hardware/flash-double-backup.gdb": {
+      "bytes": 671,
+      "sha256": "ced4bcdfb97914452a5a555288d50a3f75886bd242584ed693e2619a75beae57"
+    },
+    "hardware/flash-double-backup.log": {
+      "bytes": 425,
+      "sha256": "ab0684c6898c760d55b18b5ef67a79179ecdb824a734bfd0838dded65b73e093"
+    },
+    "hardware/fram-double-backup-invocation.json": {
+      "bytes": 789,
+      "sha256": "484d10bdf83e148c54ca0d3a523ae3c1e9539938fc47d9738b7269ae897f26f5"
+    },
+    "hardware/fram-double-backup-server.log": {
+      "bytes": 642,
+      "sha256": "8bcc4c71699ee84963384971405c87e1a151e92fe6097483e261a0323be2f087"
+    },
+    "hardware/fram-double-backup.gdb": {
+      "bytes": 928,
+      "sha256": "d32192f96b87908fd23ae784eccef7aca22b7888686c2f42da282a78953efe7f"
+    },
+    "hardware/fram-double-backup.log": {
+      "bytes": 633,
+      "sha256": "b3f08bd79596e965ef05c3edad5e64e3457e5f9f7ffd9c5c1ea16df371cea4c5"
+    },
+    "hardware/hardware.py": {
+      "bytes": 2321,
+      "sha256": "b5e618b823c979ef6b3f2ff38f215ace5053fb3d1c85805fb72b647530f43c32"
+    },
+    "hardware/preflight-summary.json": {
+      "bytes": 719,
+      "sha256": "2f81c6438f023dc6496ca5d3dd7de866ef82b8c69aa38317763a1e51431e0dc5"
+    },
+    "hardware/preflight.py": {
+      "bytes": 2971,
+      "sha256": "461138340139a51e2ad367353b95599fe9109d57ab6b00f233b13e2f35c9e5cb"
+    },
+    "hardware/sensor-stopped-readonly-invocation.json": {
+      "bytes": 794,
+      "sha256": "38a83147cf1fdaeba8c2da7703fb8468c0d03c234ecc29745cfda14214c95ff3"
+    },
+    "hardware/sensor-stopped-readonly-server.log": {
+      "bytes": 642,
+      "sha256": "8bcc4c71699ee84963384971405c87e1a151e92fe6097483e261a0323be2f087"
+    },
+    "hardware/sensor-stopped-readonly.gdb": {
+      "bytes": 890,
+      "sha256": "9fc035c3b694dd0a9ba9d2e72b85057ba8200bff8f50b42fd16ae07817876624"
+    },
+    "hardware/sensor-stopped-readonly.log": {
+      "bytes": 386,
+      "sha256": "9a43c09a8f4a5743dc4c55c050495c28ce875bf51d10f6577d1110ff9e4e96c0"
+    },
+    "host-build.log": {
+      "bytes": 7986,
+      "sha256": "0a56cd2ea77c2e5a8e9138f805c25796231f34bd57984112870cbe0c5c6e7603"
+    },
+    "host-configure.log": {
+      "bytes": 460,
+      "sha256": "3a33ce247b77feff8f0a021099ca3a3067e9f4c3facaf82cb94bc33ca899669a"
+    },
+    "maintenance-test.log": {
+      "bytes": 1547,
+      "sha256": "1b5d71d3b489694d15ddcd652b3b7f7f7925923e5db4f65f01bd6091f5e1b44d"
+    },
+    "model-oracle.log": {
+      "bytes": 347,
+      "sha256": "6f360d43548e86b6597e7955afdd32f086e277053ea89d201b1ae2eca49cca0e"
+    },
+    "sanitize-build.log": {
+      "bytes": 7986,
+      "sha256": "0a56cd2ea77c2e5a8e9138f805c25796231f34bd57984112870cbe0c5c6e7603"
+    },
+    "sanitize-configure.log": {
+      "bytes": 464,
+      "sha256": "56dc04b54ad7c28a6f45685e7c4ef52ade657a731718104a6bab03f748bf51c1"
+    },
+    "sanitize-test.log": {
+      "bytes": 312,
+      "sha256": "2bc19bd32eb8bc41e59e686c30a4a1b058849b0c801982fa8ca40b2d278035a3"
+    },
+    "verify-preservation.py": {
+      "bytes": 1744,
+      "sha256": "1977592a692104d2a6c065be91520a27550d426029165908565a42321dca4a0e"
+    }
+  }
+}

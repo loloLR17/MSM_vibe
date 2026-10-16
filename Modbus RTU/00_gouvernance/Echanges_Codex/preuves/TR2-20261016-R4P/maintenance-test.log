@@ -1,0 +1,26 @@
+Internal ctest changing into directory: /home/lolo/dev/msm/cache/r4p-host
+UpdateCTestConfiguration  from :/home/lolo/dev/msm/cache/r4p-host/DartConfiguration.tcl
+UpdateCTestConfiguration  from :/home/lolo/dev/msm/cache/r4p-host/DartConfiguration.tcl
+Test project /home/lolo/dev/msm/cache/r4p-host
+Constructing a list of tests
+Done constructing a list of tests
+Updating test list for fixtures
+Added 0 tests to meet fixture requirements
+Checking test dependency graph...
+Checking test dependency graph end
+test 139
+    Start 139: r4p_maintenance
+
+139: Test command: /usr/bin/python3 "/home/lolo/dev/msm/projects/MSM_vibe-R4P-physical-coexistence/Modbus RTU/05_Firmware/tests/platform/run_r4p_maintenance.py" "/home/lolo/dev/msm/cache/r4p-host/test_r4p_maintenance" "/home/lolo/dev/msm/projects/MSM_vibe-R4P-physical-coexistence/Modbus RTU/05_Firmware/tests/fixtures/r4p_started_snapshot.zlib"
+139: Working Directory: /home/lolo/dev/msm/cache/r4p-host
+139: Test timeout computed to be: 10000000
+139: R4P model: authentic STARTED2/run2 archived; one isolation; genuine RENEW2->3; old epochs1/2 rejected24/0write; next runs3/4, STOP/APPLY and final receipt, protected bytes identical: PASS
+139: R4P isolation cuts=142 +4 genuine RENEW cut phases: CLOSED after reset, no dispatch; negative control confirms bridge must never receive product ingress: PASS
+1/1 Test #139: r4p_maintenance ..................   Passed    1.93 sec
+
+The following tests passed:
+	r4p_maintenance
+
+100% tests passed, 0 tests failed out of 1
+
+Total Test time (real) =   1.93 sec

@@ -1,0 +1,1 @@
+R4-P checkpoint : préflight et nouveau test139/sanitizer/ARM acquis. Pas encore de maintenance physique. Les fichiers MODEL-ONLY sont des oracles RAM, pas des relevés. Source et garde-fous dans LIVE_R4P. SHA256SUMS.json vérifie tous les fichiers sauf lui-même. Logs Windows CRLF bruts conservés.
