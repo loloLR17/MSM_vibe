@@ -1,0 +1,162 @@
+-- The C compiler identification is GNU 14.2.1
+-- The ASM compiler identification is GNU
+-- Found assembler: /usr/bin/arm-none-eabi-gcc
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /usr/bin/arm-none-eabi-gcc - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Found Python3: /usr/bin/python3 (found version "3.13.5") found components: Interpreter
+-- STM32 artifact: tr2-r4r-physical-time-NON-PRODUCTION; no hardware qualification implied
+-- Configuring done (1.5s)
+-- Generating done (0.0s)
+-- Build files have been written to: /home/lolo/dev/msm/reports/TR2-r4r/probe-build-02
+[0/2] Re-checking globbed directories...
+[1/139] Building C object CMakeFiles/tr2_core.dir/home/lolo/dev/msm/projects/MSM_vibe-R4R-physical-time-b3/Modbus_RTU/05_Firmware/src/application/command_request_mailbox.c.obj
+[2/139] Building C object CMakeFiles/tr2_core.dir/home/lolo/dev/msm/projects/MSM_vibe-R4R-physical-time-b3/Modbus_RTU/05_Firmware/src/application/command_selftest.c.obj
+[3/139] Building C object CMakeFiles/tr2_core.dir/home/lolo/dev/msm/projects/MSM_vibe-R4R-physical-time-b3/Modbus_RTU/05_Firmware/src/application/acquisition_service.c.obj
+[4/139] Building C object CMakeFiles/tr2_core.dir/home/lolo/dev/msm/projects/MSM_vibe-R4R-physical-time-b3/Modbus_RTU/05_Firmware/src/application/campaign_inventory_service.c.obj
+[5/139] Building C object CMakeFiles/tr2_core.dir/home/lolo/dev/msm/projects/MSM_vibe-R4R-physical-time-b3/Modbus_RTU/05_Firmware/src/application/command_start_acquisition.c.obj
+[6/139] Building C object CMakeFiles/tr2_core.dir/home/lolo/dev/msm/projects/MSM_vibe-R4R-physical-time-b3/Modbus_RTU/05_Firmware/src/application/command_policy.c.obj
+[7/139] Building C object CMakeFiles/tr2_core.dir/home/lolo/dev/msm/projects/MSM_vibe-R4R-physical-time-b3/Modbus_RTU/05_Firmware/src/application/command_apply_configuration.c.obj
+[8/139] Building C object CMakeFiles/tr2_core.dir/home/lolo/dev/msm/projects/MSM_vibe-R4R-physical-time-b3/Modbus_RTU/05_Firmware/src/application/command_boot_recovery.c.obj
+[9/139] Building C object CMakeFiles/tr2_core.dir/home/lolo/dev/msm/projects/MSM_vibe-R4R-physical-time-b3/Modbus_RTU/05_Firmware/src/application/command_engine.c.obj
+[10/139] Building C object CMakeFiles/tr2_core.dir/home/lolo/dev/msm/projects/MSM_vibe-R4R-physical-time-b3/Modbus_RTU/05_Firmware/src/application/command_stop_acquisition.c.obj
+[11/139] Building C object CMakeFiles/tr2_core.dir/home/lolo/dev/msm/projects/MSM_vibe-R4R-physical-time-b3/Modbus_RTU/05_Firmware/src/application/configuration_activation_adapter.c.obj
+[12/139] Building C object CMakeFiles/tr2_core.dir/home/lolo/dev/msm/projects/MSM_vibe-R4R-physical-time-b3/Modbus_RTU/05_Firmware/src/application/command_synchronize_time.c.obj
+[13/139] Building C object CMakeFiles/tr2_core.dir/home/lolo/dev/msm/projects/MSM_vibe-R4R-physical-time-b3/Modbus_RTU/05_Firmware/src/application/configuration_service.c.obj
+[14/139] Building C object CMakeFiles/tr2_core.dir/home/lolo/dev/msm/projects/MSM_vibe-R4R-physical-time-b3/Modbus_RTU/05_Firmware/src/application/campaign_service.c.obj
+[15/139] Building C object CMakeFiles/tr2_core.dir/home/lolo/dev/msm/projects/MSM_vibe-R4R-physical-time-b3/Modbus_RTU/05_Firmware/src/application/diagnostic_service.c.obj
+[16/139] Building C object CMakeFiles/tr2_core.dir/home/lolo/dev/msm/projects/MSM_vibe-R4R-physical-time-b3/Modbus_RTU/05_Firmware/src/application/configuration_workflow.c.obj
+[17/139] Building C object CMakeFiles/tr2_core.dir/home/lolo/dev/msm/projects/MSM_vibe-R4R-physical-time-b3/Modbus_RTU/05_Firmware/src/application/persistent_identity.c.obj
+[18/139] Building C object CMakeFiles/tr2_core.dir/home/lolo/dev/msm/projects/MSM_vibe-R4R-physical-time-b3/Modbus_RTU/05_Firmware/src/application/live_metrology.c.obj
+[19/139] Building C object CMakeFiles/tr2_core.dir/home/lolo/dev/msm/projects/MSM_vibe-R4R-physical-time-b3/Modbus_RTU/05_Firmware/src/application/modbus_system_server.c.obj
+[20/139] Building C object CMakeFiles/tr2_core.dir/home/lolo/dev/msm/projects/MSM_vibe-R4R-physical-time-b3/Modbus_RTU/05_Firmware/src/application/live_configuration.c.obj
+[21/139] Building C object CMakeFiles/tr2_core.dir/home/lolo/dev/msm/projects/MSM_vibe-R4R-physical-time-b3/Modbus_RTU/05_Firmware/src/application/production_application.c.obj
+[22/139] Building C object CMakeFiles/tr2_core.dir/home/lolo/dev/msm/projects/MSM_vibe-R4R-physical-time-b3/Modbus_RTU/05_Firmware/src/application/production_commissioning.c.obj
+[23/139] Building C object CMakeFiles/tr2_core.dir/home/lolo/dev/msm/projects/MSM_vibe-R4R-physical-time-b3/Modbus_RTU/05_Firmware/src/application/live_modbus_server.c.obj
+[24/139] Building C object CMakeFiles/tr2_core.dir/home/lolo/dev/msm/projects/MSM_vibe-R4R-physical-time-b3/Modbus_RTU/05_Firmware/src/application/production_provisioning.c.obj
+[25/139] Building C object CMakeFiles/tr2_core.dir/home/lolo/dev/msm/projects/MSM_vibe-R4R-physical-time-b3/Modbus_RTU/05_Firmware/src/application/supervision_service.c.obj
+[26/139] Building C object CMakeFiles/tr2_core.dir/home/lolo/dev/msm/projects/MSM_vibe-R4R-physical-time-b3/Modbus_RTU/05_Firmware/src/application/system_command_dispatcher.c.obj
+[27/139] Building C object CMakeFiles/tr2_core.dir/home/lolo/dev/msm/projects/MSM_vibe-R4R-physical-time-b3/Modbus_RTU/05_Firmware/src/application/system_state_aggregator.c.obj
+[28/139] Building C object CMakeFiles/tr2_core.dir/home/lolo/dev/msm/projects/MSM_vibe-R4R-physical-time-b3/Modbus_RTU/05_Firmware/src/domain/command/command.c.obj
+[29/139] Building C object CMakeFiles/tr2_core.dir/home/lolo/dev/msm/projects/MSM_vibe-R4R-physical-time-b3/Modbus_RTU/05_Firmware/src/application/live_command_engine.c.obj
+[30/139] Building C object CMakeFiles/tr2_core.dir/home/lolo/dev/msm/projects/MSM_vibe-R4R-physical-time-b3/Modbus_RTU/05_Firmware/src/domain/acquisition/window_statistics.c.obj
+[31/139] Building C object CMakeFiles/tr2_core.dir/home/lolo/dev/msm/projects/MSM_vibe-R4R-physical-time-b3/Modbus_RTU/05_Firmware/src/common/cooperative_work.c.obj
+[32/139] Building C object CMakeFiles/tr2_core.dir/home/lolo/dev/msm/projects/MSM_vibe-R4R-physical-time-b3/Modbus_RTU/05_Firmware/src/common/sha256.c.obj
+[33/139] Building C object CMakeFiles/tr2_core.dir/home/lolo/dev/msm/projects/MSM_vibe-R4R-physical-time-b3/Modbus_RTU/05_Firmware/src/domain/configuration/configuration_staging.c.obj
+[34/139] Building C object CMakeFiles/tr2_core.dir/home/lolo/dev/msm/projects/MSM_vibe-R4R-physical-time-b3/Modbus_RTU/05_Firmware/src/domain/identity/identity.c.obj
+[35/139] Building C object CMakeFiles/tr2_core.dir/home/lolo/dev/msm/projects/MSM_vibe-R4R-physical-time-b3/Modbus_RTU/05_Firmware/src/domain/configuration/configuration_validator.c.obj
+[36/139] Building C object CMakeFiles/tr2_core.dir/home/lolo/dev/msm/projects/MSM_vibe-R4R-physical-time-b3/Modbus_RTU/05_Firmware/src/application/system_runtime_acquisition_command.c.obj
+[37/139] Building C object CMakeFiles/tr2_core.dir/home/lolo/dev/msm/projects/MSM_vibe-R4R-physical-time-b3/Modbus_RTU/05_Firmware/src/domain/supervision/threshold_evaluator.c.obj
+[38/139] Building C object CMakeFiles/tr2_core.dir/home/lolo/dev/msm/projects/MSM_vibe-R4R-physical-time-b3/Modbus_RTU/05_Firmware/src/domain/system_state/system_state.c.obj
+[39/139] Building C object CMakeFiles/tr2_core.dir/home/lolo/dev/msm/projects/MSM_vibe-R4R-physical-time-b3/Modbus_RTU/05_Firmware/src/domain/supervision/indicator_calculator.c.obj
+[40/139] Building C object CMakeFiles/tr2_core.dir/home/lolo/dev/msm/projects/MSM_vibe-R4R-physical-time-b3/Modbus_RTU/05_Firmware/src/domain/time/time_recovery.c.obj
+[41/139] Building C object CMakeFiles/tr2_core.dir/home/lolo/dev/msm/projects/MSM_vibe-R4R-physical-time-b3/Modbus_RTU/05_Firmware/src/application/system_runtime.c.obj
+[42/139] Building C object CMakeFiles/tr2_core.dir/home/lolo/dev/msm/projects/MSM_vibe-R4R-physical-time-b3/Modbus_RTU/05_Firmware/src/modbus/b5_projection.c.obj
+[43/139] Building C object CMakeFiles/tr2_core.dir/home/lolo/dev/msm/projects/MSM_vibe-R4R-physical-time-b3/Modbus_RTU/05_Firmware/src/domain/time/time_service.c.obj
+[44/139] Building C object CMakeFiles/tr2_core.dir/home/lolo/dev/msm/projects/MSM_vibe-R4R-physical-time-b3/Modbus_RTU/05_Firmware/src/modbus/b5_write_adapter.c.obj
+[45/139] Building C object CMakeFiles/tr2_core.dir/home/lolo/dev/msm/projects/MSM_vibe-R4R-physical-time-b3/Modbus_RTU/05_Firmware/src/modbus/b6_write_adapter.c.obj
+[46/139] Building C object CMakeFiles/tr2_core.dir/home/lolo/dev/msm/projects/MSM_vibe-R4R-physical-time-b3/Modbus_RTU/05_Firmware/src/modbus/codec.c.obj
+[47/139] Building C object CMakeFiles/tr2_core.dir/home/lolo/dev/msm/projects/MSM_vibe-R4R-physical-time-b3/Modbus_RTU/05_Firmware/src/modbus/b6_projection.c.obj
+[48/139] Building C object CMakeFiles/tr2_core.dir/home/lolo/dev/msm/projects/MSM_vibe-R4R-physical-time-b3/Modbus_RTU/05_Firmware/src/modbus/b4_configuration_codec.c.obj
+[49/139] Building C object CMakeFiles/tr2_core.dir/home/lolo/dev/msm/projects/MSM_vibe-R4R-physical-time-b3/Modbus_RTU/05_Firmware/src/modbus/register_model.c.obj
+[50/139] Building C object CMakeFiles/tr2_core.dir/home/lolo/dev/msm/projects/MSM_vibe-R4R-physical-time-b3/Modbus_RTU/05_Firmware/src/modbus/read_adapter.c.obj
+[51/139] Building C object CMakeFiles/tr2_core.dir/home/lolo/dev/msm/projects/MSM_vibe-R4R-physical-time-b3/Modbus_RTU/05_Firmware/src/modbus/rtu_receiver.c.obj
+[52/139] Building C object CMakeFiles/tr2_core.dir/home/lolo/dev/msm/projects/MSM_vibe-R4R-physical-time-b3/Modbus_RTU/05_Firmware/src/modbus/projection.c.obj
+[53/139] Building C object CMakeFiles/tr2_core.dir/home/lolo/dev/msm/projects/MSM_vibe-R4R-physical-time-b3/Modbus_RTU/05_Firmware/src/persistence/campaign_bulk_aggregator.c.obj
+[54/139] Building C object CMakeFiles/tr2_core.dir/home/lolo/dev/msm/projects/MSM_vibe-R4R-physical-time-b3/Modbus_RTU/05_Firmware/src/modbus/pdu_server.c.obj
+[55/139] Building C object CMakeFiles/tr2_core.dir/home/lolo/dev/msm/projects/MSM_vibe-R4R-physical-time-b3/Modbus_RTU/05_Firmware/src/modbus/rtu_server_runtime.c.obj
+[56/139] Building C object CMakeFiles/tr2_core.dir/home/lolo/dev/msm/projects/MSM_vibe-R4R-physical-time-b3/Modbus_RTU/05_Firmware/src/modbus/write_adapter.c.obj
+[57/139] Building C object CMakeFiles/tr2_core.dir/home/lolo/dev/msm/projects/MSM_vibe-R4R-physical-time-b3/Modbus_RTU/05_Firmware/src/persistence/campaign_bulk_checkpoint.c.obj
+[58/139] Building C object CMakeFiles/tr2_core.dir/home/lolo/dev/msm/projects/MSM_vibe-R4R-physical-time-b3/Modbus_RTU/05_Firmware/src/persistence/campaign_bulk_block.c.obj
+[59/139] Building C object CMakeFiles/tr2_core.dir/home/lolo/dev/msm/projects/MSM_vibe-R4R-physical-time-b3/Modbus_RTU/05_Firmware/src/persistence/campaign_bulk_block_stream.c.obj
+[60/139] Building C object CMakeFiles/tr2_core.dir/home/lolo/dev/msm/projects/MSM_vibe-R4R-physical-time-b3/Modbus_RTU/05_Firmware/src/persistence/campaign_bulk_media.c.obj
+[61/139] Building C object CMakeFiles/tr2_core.dir/home/lolo/dev/msm/projects/MSM_vibe-R4R-physical-time-b3/Modbus_RTU/05_Firmware/src/persistence/command_journal.c.obj
+[62/139] Building C object CMakeFiles/tr2_core.dir/home/lolo/dev/msm/projects/MSM_vibe-R4R-physical-time-b3/Modbus_RTU/05_Firmware/src/persistence/campaign_bulk_metadata.c.obj
+[63/139] Building C object CMakeFiles/tr2_core.dir/home/lolo/dev/msm/projects/MSM_vibe-R4R-physical-time-b3/Modbus_RTU/05_Firmware/src/persistence/command_journal_bounded_admission.c.obj
+[64/139] Building C object CMakeFiles/tr2_core.dir/home/lolo/dev/msm/projects/MSM_vibe-R4R-physical-time-b3/Modbus_RTU/05_Firmware/src/persistence/campaign_record.c.obj
+[65/139] Building C object CMakeFiles/tr2_core.dir/home/lolo/dev/msm/projects/MSM_vibe-R4R-physical-time-b3/Modbus_RTU/05_Firmware/src/persistence/campaign_data_store_bulk.c.obj
+[66/139] Building C object CMakeFiles/tr2_core.dir/home/lolo/dev/msm/projects/MSM_vibe-R4R-physical-time-b3/Modbus_RTU/05_Firmware/src/persistence/command_journal_bounded_recovery.c.obj
+[67/139] Building C object CMakeFiles/tr2_core.dir/home/lolo/dev/msm/projects/MSM_vibe-R4R-physical-time-b3/Modbus_RTU/05_Firmware/src/persistence/command_journal_bounded_writer.c.obj
+[68/139] Building C object CMakeFiles/tr2_core.dir/home/lolo/dev/msm/projects/MSM_vibe-R4R-physical-time-b3/Modbus_RTU/05_Firmware/src/persistence/campaign_data_store_persistent.c.obj
+[69/139] Building C object CMakeFiles/tr2_core.dir/home/lolo/dev/msm/projects/MSM_vibe-R4R-physical-time-b3/Modbus_RTU/05_Firmware/src/persistence/command_journal_bounded_slot.c.obj
+[70/139] Building C object CMakeFiles/tr2_core.dir/home/lolo/dev/msm/projects/MSM_vibe-R4R-physical-time-b3/Modbus_RTU/05_Firmware/src/persistence/command_journal_bounded_record.c.obj
+[71/139] Building C object CMakeFiles/tr2_core.dir/home/lolo/dev/msm/projects/MSM_vibe-R4R-physical-time-b3/Modbus_RTU/05_Firmware/src/persistence/command_journal_bounded_reader.c.obj
+[72/139] Building C object CMakeFiles/tr2_core.dir/home/lolo/dev/msm/projects/MSM_vibe-R4R-physical-time-b3/Modbus_RTU/05_Firmware/src/persistence/command_journal_context_store.c.obj
+[73/139] Building C object CMakeFiles/tr2_core.dir/home/lolo/dev/msm/projects/MSM_vibe-R4R-physical-time-b3/Modbus_RTU/05_Firmware/src/persistence/command_journal_bounded_store.c.obj
+[74/139] Building C object CMakeFiles/tr2_core.dir/home/lolo/dev/msm/projects/MSM_vibe-R4R-physical-time-b3/Modbus_RTU/05_Firmware/src/persistence/command_journal_record.c.obj
+[75/139] Building C object CMakeFiles/tr2_core.dir/home/lolo/dev/msm/projects/MSM_vibe-R4R-physical-time-b3/Modbus_RTU/05_Firmware/src/persistence/diagnostic_history_store.c.obj
+[76/139] Building C object CMakeFiles/tr2_core.dir/home/lolo/dev/msm/projects/MSM_vibe-R4R-physical-time-b3/Modbus_RTU/05_Firmware/src/persistence/campaign_repository_store.c.obj
+[77/139] Building C object CMakeFiles/tr2_core.dir/home/lolo/dev/msm/projects/MSM_vibe-R4R-physical-time-b3/Modbus_RTU/05_Firmware/src/persistence/configuration_store.c.obj
+[78/139] Building C object CMakeFiles/tr2_core.dir/home/lolo/dev/msm/projects/MSM_vibe-R4R-physical-time-b3/Modbus_RTU/05_Firmware/src/persistence/diagnostic_history_record.c.obj
+[79/139] Building C object CMakeFiles/tr2_core.dir/home/lolo/dev/msm/projects/MSM_vibe-R4R-physical-time-b3/Modbus_RTU/05_Firmware/src/persistence/command_journal_store.c.obj
+[80/139] Building C object CMakeFiles/tr2_core.dir/home/lolo/dev/msm/projects/MSM_vibe-R4R-physical-time-b3/Modbus_RTU/05_Firmware/src/persistence/time_history_record.c.obj
+[81/139] Building C object CMakeFiles/tr2_core.dir/home/lolo/dev/msm/projects/MSM_vibe-R4R-physical-time-b3/Modbus_RTU/05_Firmware/src/persistence/persistent_storage_core.c.obj
+[82/139] Building C object CMakeFiles/tr2_core.dir/home/lolo/dev/msm/projects/MSM_vibe-R4R-physical-time-b3/Modbus_RTU/05_Firmware/src/persistence/configuration_record.c.obj
+[83/139] Building C object CMakeFiles/tr2_core.dir/home/lolo/dev/msm/projects/MSM_vibe-R4R-physical-time-b3/Modbus_RTU/05_Firmware/src/platform/serial_transport.c.obj
+[84/139] Building C object CMakeFiles/tr2_core.dir/home/lolo/dev/msm/projects/MSM_vibe-R4R-physical-time-b3/Modbus_RTU/05_Firmware/src/persistence/time_history_store.c.obj
+[85/139] Building C object CMakeFiles/tr2_core.dir/home/lolo/dev/msm/projects/MSM_vibe-R4R-physical-time-b3/Modbus_RTU/05_Firmware/src/persistence/live_command_store.c.obj
+[86/139] Building C object CMakeFiles/tr2_stm32_p11c.dir/stm32_iis3dwb_capture.c.obj
+[87/139] Building C object CMakeFiles/tr2_stm32_p11c.dir/stm32_iis3dwb_fifo_capture.c.obj
+[88/139] Building C object CMakeFiles/tr2_stm32_p11c.dir/stm32_iis3dwb_register_probe.c.obj
+[89/139] Building C object CMakeFiles/tr2_stm32_p11c.dir/stm32_iis3dwb_vibration_source.c.obj
+[90/139] Building C object CMakeFiles/tr2_stm32_p11c.dir/stm32_iis3dwb_active_readback.c.obj
+[91/139] Building C object CMakeFiles/tr2_stm32_p11c.dir/stm32_iis3dwb_continuous.c.obj
+[92/139] Building C object CMakeFiles/tr2_stm32_p11c.dir/stm32_modbus_diagnostic.c.obj
+[93/139] Building C object CMakeFiles/tr2_stm32_p11c.dir/stm32_fram_storage.c.obj
+[94/139] Building C object CMakeFiles/tr2_stm32_p11c.dir/stm32_iis3dwb_burst_capture.c.obj
+[95/139] Building C object CMakeFiles/tr2_stm32_p11c.dir/stm32_iis3dwb_ctrl1_differential.c.obj
+[96/139] Building ASM object CMakeFiles/tr2_stm32_p11c.dir/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/CMSIS/Device/ST/STM32U5xx/Source/Templates/gcc/startup_stm32u575xx.s.obj
+[97/139] Building C object CMakeFiles/tr2_stm32_p11c.dir/main.c.obj
+[98/139] Building C object CMakeFiles/tr2_core.dir/home/lolo/dev/msm/projects/MSM_vibe-R4R-physical-time-b3/Modbus_RTU/05_Firmware/src/persistence/transactional_image_media.c.obj
+[99/139] Building C object CMakeFiles/tr2_stm32_p11c.dir/stm32_modbus_application.c.obj
+[100/139] Building C object CMakeFiles/tr2_stm32_p11c.dir/stm32_rs485_rx_gpio.c.obj
+[101/139] Building C object CMakeFiles/tr2_stm32_p11c.dir/stm32_production_runtime.c.obj
+[102/139] Building C object CMakeFiles/tr2_stm32_p11c.dir/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/CMSIS/Device/ST/STM32U5xx/Source/Templates/system_stm32u5xx.c.obj
+[103/139] Linking C static library libtr2_core.a
+[104/139] Building C object CMakeFiles/tr2_stm32_p11c.dir/stm32_sdmmc_bulk_media.c.obj
+[105/139] Building C object CMakeFiles/tr2_stm32_p11c.dir/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal.c.obj
+[106/139] Building C object CMakeFiles/tr2_stm32_p11c.dir/stm32_runtime_platform.c.obj
+[107/139] Building C object CMakeFiles/tr2_stm32_p11c.dir/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_gpio.c.obj
+[108/139] Building C object CMakeFiles/tr2_stm32_p11c.dir/stm32u5xx_it.c.obj
+[109/139] Building C object CMakeFiles/tr2_stm32_p11c.dir/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_cortex.c.obj
+[110/139] Building C object CMakeFiles/tr2_stm32_p11c.dir/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_dma.c.obj
+[111/139] Building C object CMakeFiles/tr2_stm32_p11c.dir/stm32_serial_transport.c.obj
+[112/139] Building C object CMakeFiles/tr2_stm32_p11c.dir/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_pwr.c.obj
+[113/139] Building C object CMakeFiles/tr2_stm32_p11c.dir/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc.c.obj
+[114/139] Building C object CMakeFiles/tr2_stm32_p11c.dir/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_uart_ex.c.obj
+[115/139] Building C object CMakeFiles/tr2_stm32_p11c.dir/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rcc.c.obj
+[116/139] Building C object CMakeFiles/tr2_stm32_p11c.dir/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_ll_sdmmc.c.obj
+[117/139] Building C object CMakeFiles/tr2_stm32_p11c.dir/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rcc_ex.c.obj
+[118/139] Building C object CMakeFiles/tr2_stm32_p11c.dir/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_pwr_ex.c.obj
+[119/139] Building C object CMakeFiles/tr2_stm32_p11c.dir/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rtc_ex.c.obj
+[120/139] Building C object CMakeFiles/tr2_stm32_p11c.dir/home/lolo/dev/msm/projects/MSM_vibe-R4R-physical-time-b3/experiments/iis3dwb_st_reference/src/spi_diagnostic.c.obj
+[121/139] Building C object CMakeFiles/tr2_stm32_p11c.dir/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_sd.c.obj
+[122/139] Building C object CMakeFiles/tr2_stm32_p11c.dir/stm32_production_board.c.obj
+[123/139] Building C object CMakeFiles/tr2_stm32_p11c.dir/stm32_iis3dwb_st_window.c.obj
+[124/139] Building C object CMakeFiles/tr2_stm32_p11c.dir/home/lolo/dev/msm/projects/MSM_vibe-R4R-physical-time-b3/experiments/iis3dwb_st_reference/src/fifo_window.c.obj
+[125/139] Building C object CMakeFiles/tr2_stm32_p11c.dir/home/lolo/dev/msm/projects/MSM_vibe-R4R-physical-time-b3/experiments/iis3dwb_st_reference/vendor/st/iis3dwb_reg.c.obj
+[126/139] Building C object CMakeFiles/tr2_stm32_p11c.dir/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_tim_ex.c.obj
+[127/139] Building C object CMakeFiles/tr2_stm32_p11c.dir/live_fifo_acquisition.c.obj
+[128/139] Building C object CMakeFiles/tr2_stm32_p11c.dir/home/lolo/dev/msm/projects/MSM_vibe-R4R-physical-time-b3/experiments/iis3dwb_st_reference/src/fifo_cooperative.c.obj
+[129/139] Building C object CMakeFiles/tr2_stm32_p11c.dir/fifo_event_time.c.obj
+[130/139] Building C object CMakeFiles/tr2_stm32_p11c.dir/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_uart.c.obj
+[131/139] Building C object CMakeFiles/tr2_stm32_p11c.dir/home/lolo/dev/msm/projects/MSM_vibe-R4R-physical-time-b3/experiments/iis3dwb_st_reference/src/fifo_live.c.obj
+[132/139] Building C object CMakeFiles/tr2_stm32_p11c.dir/stm32_live_acquisition.c.obj
+[133/139] Building C object CMakeFiles/tr2_stm32_p11c.dir/r4m_maintenance.c.obj
+[134/139] Building C object CMakeFiles/tr2_stm32_p11c.dir/stm32_fifo_cooperative.c.obj
+[135/139] Building C object CMakeFiles/tr2_stm32_p11c.dir/stm32_r4r_bench.c.obj
+FAILED: CMakeFiles/tr2_stm32_p11c.dir/stm32_r4r_bench.c.obj 
+/usr/bin/arm-none-eabi-gcc -DBENCH_DUPLEX=0 -DBENCH_WINDOW_MAX_WORDS=36864 -DBENCH_WINDOW_XYZ=4096 -DOFFICIAL_STATUS10=1 -DSTM32U575xx -DTR2_STM32_ACQUISITION_CAPTURE=0 -DTR2_STM32_ACTIVE_READBACK=0 -DTR2_STM32_BURST_CAPTURE=0 -DTR2_STM32_COMMISSIONING_READONLY=0 -DTR2_STM32_CONTINUOUS_FIFO=0 -DTR2_STM32_CTRL1_DIFFERENTIAL=0 -DTR2_STM32_DIAGNOSTIC_UNIT_ID=0 -DTR2_STM32_FIFO_CAPTURE=0 -DTR2_STM32_FIFO_COOPERATIVE=1 -DTR2_STM32_FIFO_SPI_MHZ=4 -DTR2_STM32_IRQ_DIAGNOSTICS=1 -DTR2_STM32_LEGACY_SD_HARNESS=0 -DTR2_STM32_MANUFACTURING=0 -DTR2_STM32_MODBUS_DIAGNOSTIC=0 -DTR2_STM32_PRODUCTION=1 -DTR2_STM32_PRODUCTION_SILENCE_TEST=0 -DTR2_STM32_R4M_MAINTENANCE=1 -DTR2_STM32_R4P_COEXISTENCE=1 -DTR2_STM32_R4_BENCH=1 -DTR2_STM32_REGISTER_PROBE=0 -DTR2_STM32_RS485_TX_QUALIFIED=1 -DTR2_STM32_STORAGE_QUALIFICATION=0 -DTR2_STM32_ST_FIFO_WINDOW=0 -DUSE_HAL_DRIVER -I/home/lolo/dev/msm/reports/TR2-r4r/probe-build-02/generated -I"/home/lolo/dev/msm/projects/MSM_vibe-R4R-physical-time-b3/Modbus RTU/05_Firmware/platform/stm32" -I"/home/lolo/dev/msm/projects/MSM_vibe-R4R-physical-time-b3/Modbus RTU/05_Firmware/platform/stm32/../../include" -I/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/CMSIS/Include -I/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/CMSIS/Device/ST/STM32U5xx/Include -I/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/STM32U5xx_HAL_Driver/Inc -I"/home/lolo/dev/msm/projects/MSM_vibe-R4R-physical-time-b3/Modbus RTU/05_Firmware/platform/stm32/../../../../experiments/iis3dwb_st_reference/src" -I"/home/lolo/dev/msm/projects/MSM_vibe-R4R-physical-time-b3/Modbus RTU/05_Firmware/platform/stm32/../../../../experiments/iis3dwb_st_reference/official" -I"/home/lolo/dev/msm/projects/MSM_vibe-R4R-physical-time-b3/Modbus RTU/05_Firmware/platform/stm32/../../../../experiments/iis3dwb_st_reference/vendor/st" -g -std=c11 -mcpu=cortex-m33 -mthumb -ffunction-sections -fdata-sections -Wall -Wextra -Wpedantic -Werror -MD -MT CMakeFiles/tr2_stm32_p11c.dir/stm32_r4r_bench.c.obj -MF CMakeFiles/tr2_stm32_p11c.dir/stm32_r4r_bench.c.obj.d -o CMakeFiles/tr2_stm32_p11c.dir/stm32_r4r_bench.c.obj -c '/home/lolo/dev/msm/projects/MSM_vibe-R4R-physical-time-b3/Modbus RTU/05_Firmware/platform/stm32/stm32_r4r_bench.c'
+/home/lolo/dev/msm/projects/MSM_vibe-R4R-physical-time-b3/Modbus RTU/05_Firmware/platform/stm32/stm32_r4r_bench.c: In function 'live_service':
+/home/lolo/dev/msm/projects/MSM_vibe-R4R-physical-time-b3/Modbus RTU/05_Firmware/platform/stm32/stm32_r4r_bench.c:134:3: error: this 'if' clause does not guard... [-Werror=misleading-indentation]
+  134 |   if(us>r4r_result.max_pdu_us)r4r_result.max_pdu_us=us;if(r!=TR2_OK)return r;
+      |   ^~
+/home/lolo/dev/msm/projects/MSM_vibe-R4R-physical-time-b3/Modbus RTU/05_Firmware/platform/stm32/stm32_r4r_bench.c:134:56: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the 'if'
+  134 |   if(us>r4r_result.max_pdu_us)r4r_result.max_pdu_us=us;if(r!=TR2_OK)return r;
+      |                                                        ^~
+cc1: all warnings being treated as errors
+[136/139] Building C object CMakeFiles/tr2_stm32_p11c.dir/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_tim.c.obj
+[137/139] Building C object CMakeFiles/tr2_stm32_p11c.dir/generated/stm32u5xx_hal_spi_observed.c.obj
+ninja: build stopped: subcommand failed.

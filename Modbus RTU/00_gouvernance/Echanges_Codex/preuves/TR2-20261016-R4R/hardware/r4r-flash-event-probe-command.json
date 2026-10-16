@@ -1,0 +1,17 @@
+{
+  "command": [
+    "/mnt/c/ST/STM32CubeCLT_1.22.0/STM32CubeProgrammer/bin/STM32_Programmer_CLI.exe",
+    "-c",
+    "port=SWD",
+    "sn=003500463235510B37333439",
+    "freq=8000",
+    "-w",
+    "\\\\wsl.localhost\\Debian\\home\\lolo\\dev\\msm\\reports\\TR2-r4r\\probe-build-02\\tr2-r4r-physical-time-NON-PRODUCTION.bin",
+    "0x08000000",
+    "-v",
+    "-rst"
+  ],
+  "code_sha": "0e808f3881844279b268facc5db2543a382b806a",
+  "sha256": "bf225bf171e44b982490046a8f45a318aea70557b3bdf565d0abbe18e8ac560f",
+  "normal_programming_only": true
+}

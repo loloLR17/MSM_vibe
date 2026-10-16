@@ -1,0 +1,5 @@
+r4r-before-second-flash OK
+r4r-flash-event-probe verified
+r4r-event-reset-readback OK
+r4r-trigger10-complete OK
+CALIBRATION COMPLETE stage11, full FRAM unchanged; target WAIT safe for analysis

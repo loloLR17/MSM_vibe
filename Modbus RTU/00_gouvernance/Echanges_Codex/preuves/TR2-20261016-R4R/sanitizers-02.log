@@ -1,0 +1,6 @@
+[ 95%] Built target tr2_core
+[ 95%] Building C object CMakeFiles/test_fifo_event_time.dir/platform/stm32/fifo_event_time.c.o
+[100%] Building C object CMakeFiles/test_fifo_event_time.dir/tests/platform/test_fifo_event_time.c.o
+[100%] Linking C executable test_fifo_event_time
+[100%] Built target test_fifo_event_time
+fifo_event_time PASS: real-anchor interpolation, wrap, exact indices, UTC absent, RMS oracle, drift and malformed groups fail closed

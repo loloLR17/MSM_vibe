@@ -1,0 +1,1 @@
+test_fifo_event_time: /home/lolo/dev/msm/projects/MSM_vibe-R4R-physical-time-b3/Modbus RTU/05_Firmware/tests/platform/test_fifo_event_time.c:18: main: Assertion `live_metrology_start(&m,5,&c)==TR2_OK' failed.

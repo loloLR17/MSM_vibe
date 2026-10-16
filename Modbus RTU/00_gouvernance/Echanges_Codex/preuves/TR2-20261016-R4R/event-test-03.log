@@ -1,0 +1,1 @@
+fifo_event_time PASS: real-anchor interpolation, wrap, exact indices, UTC absent, RMS oracle, drift and malformed groups fail closed

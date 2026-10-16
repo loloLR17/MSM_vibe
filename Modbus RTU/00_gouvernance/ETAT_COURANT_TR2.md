@@ -237,3 +237,18 @@ Publication R3-B vérifiée : code1c5368f, preuves/rapport faf0f94 sur main relu
 - **V1 / REVUE** : profil/recette V1 conservés, handler NULL par défaut ; nouveau BIN85b1be60…c0f5 différent par runtime/disposition,140tests pour nonrégression de comportement, pas de byte-identité annoncée. Ce canonique n'a pas été flashé. Rapport/preuves publiés selon protocole pour contrôle indépendant ChatGPT, limites R4-P/R4/R6 conservées.
 
 - **PUBLICATION R4-Q RELUE** : bilan30c6b710d50bd3eda09c81249432b6925190c59d,110fichiers comparés intégralement/94preuves SHA256 vérifiées depuis GitHub. Livraison DONE logiciel dans le périmètre incrémental, couverture physique PARTIAL inchangée ; contrôle indépendant ChatGPT distinct. Worktree propre/HEAD=origin/main au bilan, ancienmain préservé.
+
+
+## R4-R — 16/10/2026 UTC, checkpoint capteur/temps (en cours)
+
+- **VALIDÉ LOGICIEL** : provider DEC8 interpolé entre ancres réelles et TAG_CNT,
+ tampon8XYZ/UTCabsente, binding R3-B optionnel ;141tests/ARM/ASan+UBSan ciblés PASS.
+ CanoniqueV1 BIN identiqueR4-Q, jamais flashé. [LIVE_R4R](../05_Firmware/LIVE_R4R.md).
+- **OBSERVÉ PHYSIQUE** : diagnostic complet2,000064s/52894XYZ/6612TS, erreurs0,
+ TS avantXYZ du mêmecompteur/delta24, poll401us/gap425us/niveau13 ; pente
+ DWT12,54054us/tick/résidu22us/bracket33us. Premier essai interrompu parGDB
+ prématuré conservé avecSTOP sûr ; procédure de fin corrigée, aucun seuil relâché.
+- **PRÉSERVÉ / SUITE** : Flash initialeM016 sauvegardée vérifiée/FRAM complètea13b
+ inchangée ; imageprobe/stage11WAIT, capteurarrêté/debugdétaché, restaurationfinale
+ àfaire. VraiSTART4/5/run5 puisB3/RTUloopback/chargeFRAM/STOP4/6 àexercer ;
+ aucune nouvelleidentitéconsommée àcecheckpoint. Pas encoreB3physique/R4global/R6.

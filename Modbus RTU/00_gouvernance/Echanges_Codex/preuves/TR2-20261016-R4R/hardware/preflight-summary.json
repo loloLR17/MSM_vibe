@@ -1,0 +1,19 @@
+{
+  "utc": "2026-10-16T20:41:01.461982+00:00",
+  "flash_bytes": 2097152,
+  "flash_sha256": "c5bc344d64984c48c3e34b05fa9432c9c124e8b67428eb0eef22c0d62ddf5b26",
+  "fram_bytes": 262144,
+  "fram_sha256": "a13b3401c5ec93ec278e0b35ad2ad1fe38f42755dcc93ef61ce1b29f09aa2ef9",
+  "fresh_full_reads_match_verified_R4P_backups": true,
+  "match_R4P_final": true,
+  "UID": [
+    "004A003D",
+    "38425018",
+    "20333157"
+  ],
+  "STLINK": "003500463235510B37333439",
+  "flash_or_persistent_write": false,
+  "reset": false,
+  "access": "qualified GDB backup/read-only sensor registers; only RAM staging reused",
+  "note": "Fresh full reads compared to previously verified R4P backups, reused; no flash or writes."
+}

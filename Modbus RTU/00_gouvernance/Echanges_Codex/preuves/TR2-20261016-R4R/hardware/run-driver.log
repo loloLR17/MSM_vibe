@@ -1,0 +1,4 @@
+r4r-flash-diagnostic verified
+r4r-reset-readback OK
+r4r-trigger10 OK
+TRIGGERED one bounded 2s sensor/time diagnostic; no NVM command
