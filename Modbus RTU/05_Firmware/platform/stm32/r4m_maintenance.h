@@ -17,4 +17,7 @@ Tr2Result r4m_capture_bridge(R4mMaintenance *,const LiveCommandEngine *,const ui
 Tr2Result r4m_isolate_journal(R4mMaintenance *,LiveCommandEngine *);
 bool r4m_authorize(const R4mMaintenance *,const LiveCommandEngine *,const LiveCommandRequest *);
 Tr2Result r4m_open_after_renew(R4mMaintenance *,const LiveCommandEngine *);
+
+/* R4P exact epoch2/run2 snapshot only, caller also verifies full FRAM SHA. */
+Tr2Result r4p_capture(R4mMaintenance *,const LiveCommandEngine *);
 #endif

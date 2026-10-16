@@ -70,3 +70,24 @@ Tr2Result r4m_capture_bridge(R4mMaintenance *m,const LiveCommandEngine *e,const 
  for(unsigned i=0;i<128;i++)if(s->present[i])return TR2_ERROR_INVALID_STATE;
  m->epoch_floor=1;m->run_floor=1;memcpy(m->intent,intent,128);m->phase=2;return TR2_OK;
 }
+
+Tr2Result r4p_capture(R4mMaintenance *m,const LiveCommandEngine *e)
+{
+ if(!m||!e||!e->store||!e->store->configuration)return TR2_ERROR_INVALID_ARGUMENT;
+ memset(m,0,sizeof(*m));const LiveCommandStore *s=e->store;unsigned count=0;
+ for(unsigned i=0;i<128;i++)if(s->present[i])count++;
+ if(!e->booted||!e->indeterminate||!e->has_active||!e->has_last||!s->mounted||count!=2||
+    !s->present[0]||!s->present[127]||e->active.phase!=2||e->active.generation!=6||
+    e->active.request.epoch!=2||e->active.request.command.transaction_id!=1||
+    e->active.request.command.identity.command_code!=13||e->active.run_id!=2||
+    e->active.config_id!=2||e->active.config_generation!=2||e->active.effect_state!=1||
+    e->last.phase!=3||e->last.generation!=4||e->last.request.epoch!=1||
+    e->last.request.command.transaction_id!=65535||e->last.request.command.identity.command_code!=12||
+    e->last.status!=4||e->last.result||s->epoch.current!=2||s->epoch.previous!=1||
+    s->epoch.generation!=3||s->epoch.flags||!s->has_effect||s->effect.phase!=1||
+    s->effect.epoch!=2||s->effect.txid!=1||s->effect.code!=13||s->effect.run_id!=2||
+    s->effect.config_id!=2||s->effect.config_generation!=2)return TR2_ERROR_INVALID_STATE;
+ m->epoch_floor=2;m->run_floor=2;
+ memcpy(m->intent,s->configuration->live->candidate+TR2_LIVE_EFFECT_OFFSET,128);
+ m->phase=1;return TR2_OK;
+}
