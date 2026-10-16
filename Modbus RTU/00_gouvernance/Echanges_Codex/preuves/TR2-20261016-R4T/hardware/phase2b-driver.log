@@ -1,0 +1,4 @@
+phase2b-flash verified
+phase2b-reset-readback OK
+phase2b-retire-result OK
+PHASE2 FULL FRAM EXACT MODEL {'physical_full_sha256': 'f035749d0f0881277971824df5a338500c5636063c131f056648a4a682f1e312', 'model_full_sha256': 'f035749d0f0881277971824df5a338500c5636063c131f056648a4a682f1e312', 'full_exact_model': True, 'protected_exact': True, 'utc': '2026-10-16T22:06:09.977045+00:00'}

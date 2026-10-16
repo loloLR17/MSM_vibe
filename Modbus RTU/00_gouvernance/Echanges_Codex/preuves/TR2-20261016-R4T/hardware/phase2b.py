@@ -9,8 +9,8 @@ image=local/'probe-build-02/tr2-r4t-monotone-recovery-NON-PRODUCTION.bin';elf=im
 r=dict(code_sha=sha,bin_bytes=image.stat().st_size,bin_sha256=hashlib.sha256(image.read_bytes()).hexdigest(),elf_sha256=hashlib.sha256(elf.read_bytes()).hexdigest(),profile=(image.parent/'build-profile.txt').read_text(),compiler=subprocess.check_output(['arm-none-eabi-gcc','--version'],text=True),same_sources_after_commit_noop_build=(local/'probe-code-identity-02.log').read_text(),utc=datetime.datetime.now(datetime.timezone.utc).isoformat())
 (local/'physical-build-02.json').write_text(json.dumps(r,indent=2)+'\n')
 flash('phase2b-flash',image,sha)
-debug('phase2b-reset-readback',elf,IDENTITY+f'dump binary memory {win(P/"probe-readback.bin")} 0x08000000 {hex(0x08000000+image.stat().st_size)}\nmonitor reset\n')
-assert (P/'probe-readback.bin').read_bytes()==image.read_bytes();time.sleep(2)
+debug('phase2b-reset-readback',elf,IDENTITY+f'dump binary memory {win(P/"probe-readback-b.bin")} 0x08000000 {hex(0x08000000+image.stat().st_size)}\nmonitor reset\n')
+assert (P/'probe-readback-b.bin').read_bytes()==image.read_bytes();time.sleep(2)
 debug('phase2b-retire-result',elf,IDENTITY+'''p r4t_recovery
 if r4t_recovery.stage != 1 || r4t_recovery.error
  quit 4

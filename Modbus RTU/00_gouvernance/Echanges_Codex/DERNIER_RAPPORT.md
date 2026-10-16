@@ -4,7 +4,7 @@ status: IN_PROGRESS
 base_ref: main
 base_sha: 1799b97db7d1c5dc0bc3892501569fdcd7a4e0b9
 initial_head: d17c5457e35fd99269bdc0312fb5c48770ff0572
-result_sha: 65afffc1304e3d099f5cf306629fe313a6e68cf3
+result_sha: 79ba06a156d43ca337da405b750b03134de5e72b
 created_at_utc: 2026-10-16T22:05:00Z
 author: Codex
 target_branch: main
@@ -53,3 +53,14 @@ existante conservée, sans true forcé. Contre-test de refus PASS0,05s et nouvel
 image02 ARM construite. Pas de répétition des568coupures/sanitizers inchangés.
 La reprise est autorisée par l'absence démontrée de mutation ; nouvelle image et
 nouveaux logs distincts. Plan exact actualisé avant le prochain essai.
+
+
+## Maintenance physique acquise — poursuite vers phase5
+
+Image02/code79ba06a : vrai RENEW4→5 COMPLETED4/0, journal26→30/root39→43,
+INTENT/runfloor5 et configuration3 inchangés. FRAM entière byte-identique au modèle,
+SHA f035749d0f0881277971824df5a338500c5636063c131f056648a4a682f1e312 ;
+historique/tail exacts,209704octets écrits par4commits LIVE. Ancienneclé refus24
+sans write/start ; aucun reçu pour STARTED5 fabriqué. Preuves phase2b distinctes
+du refus initial. La phase5 est lancée sous contrôle des budgets, sans reset ni
+reflash supplémentaire ; mesures à attendre, aucune réussite anticipée.

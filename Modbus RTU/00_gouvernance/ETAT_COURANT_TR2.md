@@ -300,3 +300,5 @@ Publication R3-B vérifiée : code1c5368f, preuves/rapport faf0f94 sur main relu
 - **PRÉFLIGHT OBSERVÉ22:00:20UTC** : UID/SN/capteur arrêté conformes ; FlashM0162Mio c5bc…f5b26 et FRAM14fb…2aa9 exactes. Suite autonome sous gardes du [plan R4-T](../05_Firmware/LIVE_R4T.md) publié avant mutation ; pas de B3 autoritatif encore démontré.
 
 - **R4-T première tentative22:03:55UTC** : refus R2 5/7 par budget I/O non raccordé ;0write/0admission, snapshot FRAM entier14fb inchangé. Probe01 terminal/capteur arrêté/GDBdétaché, M016 restaurable depuis backup. Raccordement du prédicat existant corrigé, contre-test de refus PASS ; image02 distincte préparée, poursuite autonome sans réisolation durable.
+
+- **R4-T maintenance physique PASS22:06:09UTC** : RENEW réel4→5, journal26→30/root39→43, runfloor5/INTENT/config3 conservés, FRAM f035749d…e312 exacte au modèle, historique/tail intacts. Ancienneclé refus24/0write. Phase5 FIFO/B3/R2 lancée sur image02/code79ba06a ; résultat en attente, pas de qualification anticipée ni rollback.

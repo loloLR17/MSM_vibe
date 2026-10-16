@@ -1,0 +1,27 @@
+{
+  "result": "PASS",
+  "journal_before": 26,
+  "journal_after": 30,
+  "root_before": 39,
+  "root_after": 43,
+  "epoch_before": 4,
+  "epoch_after": 5,
+  "run_floor": 5,
+  "write_bytes": 209704,
+  "work": {
+    "last_us": 25240850,
+    "max_work_us": 335,
+    "max_service_us": 3,
+    "checkpoints": 221799,
+    "work_limit_us": 1000,
+    "service_limit_us": 2500,
+    "quantum_bytes": 32,
+    "depth": 0
+  },
+  "full_exact_model": true,
+  "full_sha256": "f035749d0f0881277971824df5a338500c5636063c131f056648a4a682f1e312",
+  "old_key_refused": 24,
+  "original_STARTED5_terminalized": false,
+  "utc": "2026-10-16T22:06:35.072970+00:00",
+  "harness_command_counter": 0
+}
