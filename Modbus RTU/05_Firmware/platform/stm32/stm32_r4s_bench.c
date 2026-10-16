@@ -141,7 +141,7 @@ __attribute__((noreturn)) void stm32_r4_benchmark_run(SPI_HandleTypeDef *spi1,SP
  start=now_us(NULL);
  if(port.stop(port.context)!=TR2_OK)r4s_result.error=12;
  r4s_result.stop_us=now_us(NULL)-start;
- if(r4s_result.write_attempts||r4_result.write_bytes||!metric.has_value||r4r_result.valid_responses)r4s_result.error=13;
+ if(!r4s_result.error&&(r4s_result.write_attempts||r4_result.write_bytes||!metric.has_value||r4r_result.valid_responses))r4s_result.error=13;
  if(!r4s_result.error)r4s_result.stage=10;
 end:
  if(diag_fifo.running)(void)fifo_live_stop(&diag_fifo);
