@@ -459,6 +459,10 @@ endif()
 if(TR2_STM32_R4_BENCH)
  if(TR2_STM32_R4R_BENCH)
   target_sources(tr2_stm32_p11c PRIVATE stm32_r4r_bench.c fifo_event_time.c)
+  # Qualification candidate after the measured R4R service overrun. No default
+  # V1 flags change; algorithms and all deadline/quality guards stay identical.
+  set_source_files_properties(stm32_r4r_bench.c fifo_event_time.c
+   "${TR2_FIRMWARE_ROOT}/src/application/live_metrology.c" PROPERTIES COMPILE_OPTIONS "-O2")
  elseif(TR2_STM32_R4Q_BENCH)
   target_sources(tr2_stm32_p11c PRIVATE stm32_r4q_bench.c)
  elseif(TR2_STM32_R4D_DIAGNOSTIC)

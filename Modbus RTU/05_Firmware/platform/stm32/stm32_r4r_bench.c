@@ -136,9 +136,17 @@ static Tr2Result live_service(void *ctx)
   if(us>r4r_result.max_poll_us)r4r_result.max_poll_us=us;
   if(r!=TR2_OK)return r;
  }
- begin=now_us(NULL);r=live_modbus_server_publish(&server,r_ms(NULL));
- uint64_t us=now_us(NULL)-begin;if(us>r4r_result.max_publish_us)r4r_result.max_publish_us=us;
- if(r!=TR2_OK)return r;
+ /* Loopback-specific publication policy: capture immediately before the
+  * next request starts. AGE still projects at PDU time. Do not repeatedly copy
+  * the same image at every FRAM32 checkpoint while the client is waiting.
+  * This is a software candidate, not physically qualified after STARTED5. */
+ if(!frame_index&&now_us(NULL)>=next_request) {
+  begin=now_us(NULL);r=live_modbus_server_publish(&server,r_ms(NULL));
+  uint64_t us=now_us(NULL)-begin;
+  if(us>r4r_result.max_publish_us)r4r_result.max_publish_us=us;
+  if(r!=TR2_OK)return r;
+ }
+ uint64_t us;
  for(unsigned i=0;i<8;i++) {
   begin=now_us(NULL);r=live_modbus_server_poll_once(&server);us=now_us(NULL)-begin;
   if(us>r4r_result.max_pdu_us)r4r_result.max_pdu_us=us;
