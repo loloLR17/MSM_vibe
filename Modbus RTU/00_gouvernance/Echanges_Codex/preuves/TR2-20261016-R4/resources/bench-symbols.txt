@@ -1,8 +1,8 @@
 0800636c W ADC1_IRQHandler	/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/CMSIS/Device/ST/STM32U5xx/Source/Templates/gcc/startup_stm32u575xx.s:115
 0800636c W ADC4_IRQHandler	/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/CMSIS/Device/ST/STM32U5xx/Source/Templates/gcc/startup_stm32u575xx.s:115
 0800636c W ADF1_IRQHandler	/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/CMSIS/Device/ST/STM32U5xx/Source/Templates/gcc/startup_stm32u575xx.s:115
-0801990c T AHBPrescTable	/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/CMSIS/Device/ST/STM32U5xx/Source/Templates/system_stm32u5xx.c:169
-0801991c T APBPrescTable	/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/CMSIS/Device/ST/STM32U5xx/Source/Templates/system_stm32u5xx.c:170
+08019b24 T AHBPrescTable	/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/CMSIS/Device/ST/STM32U5xx/Source/Templates/system_stm32u5xx.c:169
+08019b34 T APBPrescTable	/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/CMSIS/Device/ST/STM32U5xx/Source/Templates/system_stm32u5xx.c:170
 f1e0f85f a BootRAM
 080053f8 t BringupLed_Init	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/platform/stm32/main.c:2627
 0800636c W BusFault_Handler	/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/CMSIS/Device/ST/STM32U5xx/Source/Templates/gcc/startup_stm32u575xx.s:115
@@ -142,7 +142,7 @@ f1e0f85f a BootRAM
 0800636c W LPDMA1_Channel1_IRQHandler	/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/CMSIS/Device/ST/STM32U5xx/Source/Templates/gcc/startup_stm32u575xx.s:115
 0800636c W LPDMA1_Channel2_IRQHandler	/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/CMSIS/Device/ST/STM32U5xx/Source/Templates/gcc/startup_stm32u575xx.s:115
 0800636c W LPDMA1_Channel3_IRQHandler	/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/CMSIS/Device/ST/STM32U5xx/Source/Templates/gcc/startup_stm32u575xx.s:115
-08019964 t LPGPIO_Map	/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_gpio.c:145
+08019b7c t LPGPIO_Map	/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_gpio.c:145
 0800636c W LPTIM1_IRQHandler	/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/CMSIS/Device/ST/STM32U5xx/Source/Templates/gcc/startup_stm32u575xx.s:115
 0800636c W LPTIM2_IRQHandler	/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/CMSIS/Device/ST/STM32U5xx/Source/Templates/gcc/startup_stm32u575xx.s:115
 0800636c W LPTIM3_IRQHandler	/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/CMSIS/Device/ST/STM32U5xx/Source/Templates/gcc/startup_stm32u575xx.s:115
@@ -158,7 +158,7 @@ f1e0f85f a BootRAM
 0800636c W MDF1_FLT3_IRQHandler	/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/CMSIS/Device/ST/STM32U5xx/Source/Templates/gcc/startup_stm32u575xx.s:115
 0800636c W MDF1_FLT4_IRQHandler	/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/CMSIS/Device/ST/STM32U5xx/Source/Templates/gcc/startup_stm32u575xx.s:115
 0800636c W MDF1_FLT5_IRQHandler	/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/CMSIS/Device/ST/STM32U5xx/Source/Templates/gcc/startup_stm32u575xx.s:115
-08019924 T MSIRangeTable	/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/CMSIS/Device/ST/STM32U5xx/Source/Templates/system_stm32u5xx.c:171
+08019b3c T MSIRangeTable	/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/CMSIS/Device/ST/STM32U5xx/Source/Templates/system_stm32u5xx.c:171
 0800636c W MemManage_Handler	/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/CMSIS/Device/ST/STM32U5xx/Source/Templates/gcc/startup_stm32u575xx.s:115
 0800636c W NMI_Handler	/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/CMSIS/Device/ST/STM32U5xx/Source/Templates/gcc/startup_stm32u575xx.s:115
 0800667c t NVIC_EncodePriority	/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/CMSIS/Include/core_cm33.h:2634
@@ -286,14 +286,14 @@ f1e0f85f a BootRAM
 08004ed4 T __divdf3	/build/reproducible-path/gcc-arm-none-eabi-14.2.rel1/build/arm-none-eabi/thumb/v8-m.main/nofp/libgcc/../../../../../../libgcc/config/arm/ieee754-df.S:890
 08000648 T __divsf3	/build/reproducible-path/gcc-arm-none-eabi-14.2.rel1/build/arm-none-eabi/thumb/v8-m.main/nofp/libgcc/../../../../../../libgcc/config/arm/ieee754-sf.S:634
 0800027c t __do_global_dtors_aux
-08019c80 d __do_global_dtors_aux_fini_array_entry
+08019ee8 d __do_global_dtors_aux_fini_array_entry
 080050b4 T __eqdf2	/build/reproducible-path/gcc-arm-none-eabi-14.2.rel1/build/arm-none-eabi/thumb/v8-m.main/nofp/libgcc/../../../../../../libgcc/config/arm/ieee754-df.S:1103
-08019c7c R __exidx_end
-08019c74 R __exidx_start
+08019ee4 R __exidx_end
+08019edc R __exidx_start
 08000e90 T __exponent	/build/reproducible-path/newlib-4.5.0.20241231/build_nano/arm-none-eabi/thumb/v8-m.main/nofp/newlib/../../../../../../newlib/libc/stdio/nano-vfprintf_float.c:128
 08004bd0 T __extendsfdf2	/build/reproducible-path/gcc-arm-none-eabi-14.2.rel1/build/arm-none-eabi/thumb/v8-m.main/nofp/libgcc/../../../../../../libgcc/config/arm/ieee754-df.S:501
-08019c84 d __fini_array_end
-08019c80 d __fini_array_start
+08019eec d __fini_array_end
+08019ee8 d __fini_array_start
 080051e0 T __fixdfsi
 08000780 T __fixunssfsi	/build/reproducible-path/gcc-arm-none-eabi-14.2.rel1/build/arm-none-eabi/thumb/v8-m.main/nofp/libgcc/../../../../../../libgcc/config/arm/ieee754-sf.S:1071
 08004c24 T __floatdidf	/build/reproducible-path/gcc-arm-none-eabi-14.2.rel1/build/arm-none-eabi/thumb/v8-m.main/nofp/libgcc/../../../../../../libgcc/config/arm/ieee754-df.S:561
@@ -308,14 +308,14 @@ f1e0f85f a BootRAM
 08003738 T __fp_lock_all	/build/reproducible-path/newlib-4.5.0.20241231/build_nano/arm-none-eabi/thumb/v8-m.main/nofp/newlib/../../../../../../newlib/libc/stdio/findfp.c:299
 08003598 t __fp_unlock	/build/reproducible-path/newlib-4.5.0.20241231/build_nano/arm-none-eabi/thumb/v8-m.main/nofp/newlib/../../../../../../newlib/libc/stdio/findfp.c:290
 0800374c T __fp_unlock_all	/build/reproducible-path/newlib-4.5.0.20241231/build_nano/arm-none-eabi/thumb/v8-m.main/nofp/newlib/../../../../../../newlib/libc/stdio/findfp.c:306
-08019c7c d __frame_dummy_init_array_entry
+08019ee4 d __frame_dummy_init_array_entry
 080050a4 T __gedf2
 2000005c D __global_locale	/build/reproducible-path/newlib-4.5.0.20241231/build_nano/arm-none-eabi/thumb/v8-m.main/nofp/newlib/../../../../../../newlib/libc/locale/locale.c:247
 080050a4 T __gtdf2
 08002bcc T __hi0bits	/build/reproducible-path/newlib-4.5.0.20241231/build_nano/arm-none-eabi/thumb/v8-m.main/nofp/newlib/../../../../../../newlib/libc/stdlib/mprec.c:237
 08002c74 T __i2b	/build/reproducible-path/newlib-4.5.0.20241231/build_nano/arm-none-eabi/thumb/v8-m.main/nofp/newlib/../../../../../../newlib/libc/stdlib/mprec.c:321
-08019c80 d __init_array_end
-08019c7c d __init_array_start
+08019ee8 d __init_array_end
+08019ee4 d __init_array_start
 080050ac T __ledf2	/build/reproducible-path/gcc-arm-none-eabi-14.2.rel1/build/arm-none-eabi/thumb/v8-m.main/nofp/libgcc/../../../../../../libgcc/config/arm/ieee754-df.S:1097
 08000c40 T __libc_init_array	/build/reproducible-path/newlib-4.5.0.20241231/build_nano/arm-none-eabi/thumb/v8-m.main/nofp/newlib/../../../../../../newlib/libc/misc/init.c:30
 08002c14 T __lo0bits	/build/reproducible-path/newlib-4.5.0.20241231/build_nano/arm-none-eabi/thumb/v8-m.main/nofp/newlib/../../../../../../newlib/libc/stdlib/mprec.c:271
@@ -328,17 +328,17 @@ f1e0f85f a BootRAM
 08003bd8 T __malloc_unlock	/build/reproducible-path/newlib-4.5.0.20241231/newlib/libc/include/malloc.h:138
 08002fcc T __mcmp	/build/reproducible-path/newlib-4.5.0.20241231/build_nano/arm-none-eabi/thumb/v8-m.main/nofp/newlib/../../../../../../newlib/libc/stdlib/mprec.c:523
 0800300c T __mdiff	/build/reproducible-path/newlib-4.5.0.20241231/build_nano/arm-none-eabi/thumb/v8-m.main/nofp/newlib/../../../../../../newlib/libc/stdlib/mprec.c:553
-080197e0 T __mprec_bigtens	/build/reproducible-path/newlib-4.5.0.20241231/build_nano/arm-none-eabi/thumb/v8-m.main/nofp/newlib/../../../../../../newlib/libc/stdlib/mprec.c:962
-080196f0 T __mprec_tens	/build/reproducible-path/newlib-4.5.0.20241231/build_nano/arm-none-eabi/thumb/v8-m.main/nofp/newlib/../../../../../../newlib/libc/stdlib/mprec.c:953
-080197b8 T __mprec_tinytens	/build/reproducible-path/newlib-4.5.0.20241231/build_nano/arm-none-eabi/thumb/v8-m.main/nofp/newlib/../../../../../../newlib/libc/stdlib/mprec.c:965
+080199f8 T __mprec_bigtens	/build/reproducible-path/newlib-4.5.0.20241231/build_nano/arm-none-eabi/thumb/v8-m.main/nofp/newlib/../../../../../../newlib/libc/stdlib/mprec.c:962
+08019908 T __mprec_tens	/build/reproducible-path/newlib-4.5.0.20241231/build_nano/arm-none-eabi/thumb/v8-m.main/nofp/newlib/../../../../../../newlib/libc/stdlib/mprec.c:953
+080199d0 T __mprec_tinytens	/build/reproducible-path/newlib-4.5.0.20241231/build_nano/arm-none-eabi/thumb/v8-m.main/nofp/newlib/../../../../../../newlib/libc/stdlib/mprec.c:965
 08004c80 T __muldf3	/build/reproducible-path/gcc-arm-none-eabi-14.2.rel1/build/arm-none-eabi/thumb/v8-m.main/nofp/libgcc/../../../../../../libgcc/config/arm/ieee754-df.S:637
 080004e0 T __mulsf3
 08002a80 T __multadd	/build/reproducible-path/newlib-4.5.0.20241231/build_nano/arm-none-eabi/thumb/v8-m.main/nofp/newlib/../../../../../../newlib/libc/stdlib/mprec.c:152
 08002ca0 T __multiply	/build/reproducible-path/newlib-4.5.0.20241231/build_nano/arm-none-eabi/thumb/v8-m.main/nofp/newlib/../../../../../../newlib/libc/stdlib/mprec.c:332
 080050b4 T __nedf2	/build/reproducible-path/gcc-arm-none-eabi-14.2.rel1/build/arm-none-eabi/thumb/v8-m.main/nofp/libgcc/../../../../../../libgcc/config/arm/ieee754-df.S:1103
 08002e04 T __pow5mult	/build/reproducible-path/newlib-4.5.0.20241231/build_nano/arm-none-eabi/thumb/v8-m.main/nofp/newlib/../../../../../../newlib/libc/stdlib/mprec.c:424
-08019c7c d __preinit_array_end
-08019c7c d __preinit_array_start
+08019ee4 d __preinit_array_end
+08019ee4 d __preinit_array_start
 0800335c T __ratio	/build/reproducible-path/newlib-4.5.0.20241231/build_nano/arm-none-eabi/thumb/v8-m.main/nofp/newlib/../../../../../../newlib/libc/stdlib/mprec.c:912
 08002b1c T __s2b	/build/reproducible-path/newlib-4.5.0.20241231/build_nano/arm-none-eabi/thumb/v8-m.main/nofp/newlib/../../../../../../newlib/libc/stdlib/mprec.c:198
 080041b8 T __sclose	/build/reproducible-path/newlib-4.5.0.20241231/build_nano/arm-none-eabi/thumb/v8-m.main/nofp/newlib/../../../../../../newlib/libc/stdio/stdio.c:125
@@ -373,15 +373,15 @@ f1e0f85f a BootRAM
 08003904 T _calloc_r	/build/reproducible-path/newlib-4.5.0.20241231/newlib/libc/include/malloc.h:66
 08005230 T _close	/build/reproducible-path/newlib-4.5.0.20241231/build/arm-none-eabi/thumb/v8-m.main/nofp/libgloss/../../../../../../libgloss/libnosys/close.c:14
 08004550 T _close_r	/build/reproducible-path/newlib-4.5.0.20241231/newlib/libc/include/reent.h:140
-08019808 T _ctype_	/build/reproducible-path/newlib-4.5.0.20241231/newlib/libc/include/ctype.h:70
+08019a20 T _ctype_	/build/reproducible-path/newlib-4.5.0.20241231/newlib/libc/include/ctype.h:70
 08001540 T _dtoa_r	/build/reproducible-path/newlib-4.5.0.20241231/newlib/libc/include/stdlib.h:294
 200907e0 B _ebss
 200001d4 D _edata
 200c0000 R _estack
-08019c74 T _etext
+08019edc T _etext
 080052d0 T _exit	/build/reproducible-path/newlib-4.5.0.20241231/build/arm-none-eabi/thumb/v8-m.main/nofp/libgloss/../../../../../../libgloss/libnosys/_exit.c:9
 08003880 T _fflush_r	/build/reproducible-path/newlib-4.5.0.20241231/newlib/libc/include/stdio.h:417
-08019c68 T _fini
+08019ed0 T _fini
 08003b90 T _fiprintf_r	/build/reproducible-path/newlib-4.5.0.20241231/build_nano/arm-none-eabi/thumb/v8-m.main/nofp/newlib/../../../../../../newlib/libc/stdio/fprintf.c:28
 08003b90 T _fprintf_r	/build/reproducible-path/newlib-4.5.0.20241231/newlib/libc/include/stdio.h:436
 08003a74 T _free_r	/build/reproducible-path/newlib-4.5.0.20241231/newlib/libc/include/malloc.h:50
@@ -392,7 +392,7 @@ f1e0f85f a BootRAM
 080048a0 T _getpid_r	/build/reproducible-path/newlib-4.5.0.20241231/newlib/libc/include/reent.h:145
 20000004 D _impure_data	/build/reproducible-path/newlib-4.5.0.20241231/newlib/libc/include/sys/reent.h:803
 20000000 D _impure_ptr	/build/reproducible-path/newlib-4.5.0.20241231/newlib/libc/include/sys/reent.h:797
-08019c5c T _init
+08019ec4 T _init
 08003da4 T _init_signal	/build/reproducible-path/newlib-4.5.0.20241231/build_nano/arm-none-eabi/thumb/v8-m.main/nofp/newlib/../../../../../../newlib/libc/signal/signal.c:214
 08003bdc T _init_signal_r	/build/reproducible-path/newlib-4.5.0.20241231/build_nano/arm-none-eabi/thumb/v8-m.main/nofp/newlib/../../../../../../newlib/libc/signal/signal.c:96
 08005260 T _isatty	/build/reproducible-path/newlib-4.5.0.20241231/build/arm-none-eabi/thumb/v8-m.main/nofp/libgloss/../../../../../../libgloss/libnosys/isatty.c:14
@@ -417,7 +417,7 @@ f1e0f85f a BootRAM
 08004104 T _sbrk_r	/build/reproducible-path/newlib-4.5.0.20241231/newlib/libc/include/reent.h:154
 200001d8 B _sbss
 20000000 D _sdata
-08019c84 A _sidata
+08019eec A _sidata
 08003c08 T _signal_r	/build/reproducible-path/newlib-4.5.0.20241231/newlib/libc/include/signal.h:24
 08003eb4 T _vfiprintf_r	/build/reproducible-path/newlib-4.5.0.20241231/build_nano/arm-none-eabi/thumb/v8-m.main/nofp/newlib/../../../../../../newlib/libc/stdio/nano-vfprintf.c:472
 08003eb4 T _vfprintf_r	/build/reproducible-path/newlib-4.5.0.20241231/newlib/libc/include/stdio.h:509
@@ -425,16 +425,17 @@ f1e0f85f a BootRAM
 080052c0 T _write	/build/reproducible-path/newlib-4.5.0.20241231/build/arm-none-eabi/thumb/v8-m.main/nofp/libgloss/../../../../../../libgloss/libnosys/write.c:14
 08004524 T _write_r	/build/reproducible-path/newlib-4.5.0.20241231/newlib/libc/include/reent.h:159
 08003760 T abort	/build/reproducible-path/newlib-4.5.0.20241231/newlib/libc/include/stdlib.h:69
-080194f8 t acknowledge_fault_parameters_valid	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/application/command_policy.c:17
+08019720 t acknowledge_fault_parameters_valid	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/application/command_policy.c:17
 20040b30 b active_begin	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/platform/stm32/stm32_iis3dwb_st_window.c:26
 20040b38 b active_data	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/platform/stm32/stm32_iis3dwb_st_window.c:27
 20040b34 b active_length	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/platform/stm32/stm32_iis3dwb_st_window.c:26
 20040b2c b active_phase	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/platform/stm32/stm32_iis3dwb_st_window.c:26
 20040b28 b active_trace	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/platform/stm32/stm32_iis3dwb_st_window.c:26
-0800f03c t admission	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/platform/stm32/stm32_r4_bench.c:94
-08013804 t ascii	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/application/persistent_identity.c:12
+0800f03c t admission	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/platform/stm32/stm32_r4_bench.c:98
+08013998 t ascii	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/application/persistent_identity.c:12
+08019c7c t assignment.0	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/platform/stm32/stm32_r4_bench.c:181
 20040c1c b baseline	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/platform/stm32/stm32_r4_bench.c:21
-08019a04 t baseline_sha	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/platform/stm32/stm32_r4_bench.c:33
+08019c5c t baseline_sha	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/platform/stm32/stm32_r4_bench.c:36
 20040b3c B bench_cleanup_mode	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/platform/stm32/stm32_iis3dwb_st_window.c:45
 2001ab1c B bench_core_hz	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/platform/stm32/stm32_iis3dwb_st_window.c:23
 0800d68a T bench_log_refusal	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/experiments/iis3dwb_st_reference/src/spi_diagnostic.c:15
@@ -452,66 +453,66 @@ f1e0f85f a BootRAM
 20000b04 B bench_trace	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/platform/stm32/stm32_iis3dwb_st_window.c:20
 2001ab04 B bench_trace_count	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/platform/stm32/stm32_iis3dwb_st_window.c:22
 2001ab10 B bench_uid	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/platform/stm32/stm32_iis3dwb_st_window.c:23
-080120c4 t blank	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/application/live_configuration.c:26
-08015b58 t blank	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/persistence/live_command_store.c:18
-08014344 t block	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/common/sha256.c:18
+08012258 t blank	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/application/live_configuration.c:26
+08015cec t blank	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/persistence/live_command_store.c:18
+080144d8 t block	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/common/sha256.c:18
 2008d878 b bounded	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/platform/stm32/stm32_r4_bench.c:23
 08005c8a t bounded_read	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/platform/stm32/stm32_fram_storage.c:280
 08005cd0 t bounded_write	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/platform/stm32/stm32_fram_storage.c:286
 0800e2ee t budget	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/platform/stm32/live_fifo_acquisition.c:40
 080059ca t build_command_address	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/platform/stm32/stm32_fram_storage.c:114
-080134ee t cancel_timers	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/application/live_metrology.c:10
+08013682 t cancel_timers	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/application/live_metrology.c:10
 20080c1c b candidate	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/platform/stm32/stm32_r4_bench.c:21
-08015bf0 t check	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/persistence/live_command_store.c:21
-08012390 t check_provenance	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/application/live_configuration.c:69
-0801248c t check_r1_control_boundary	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/application/live_configuration.c:86
+08015d84 t check	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/persistence/live_command_store.c:21
+08012524 t check_provenance	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/application/live_configuration.c:69
+08012620 t check_r1_control_boundary	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/application/live_configuration.c:86
 0800cad8 t cleanup_begin	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/platform/stm32/stm32_iis3dwb_st_window.c:48
 08003558 t cleanup_stdio	/build/reproducible-path/newlib-4.5.0.20241231/build_nano/arm-none-eabi/thumb/v8-m.main/nofp/newlib/../../../../../../newlib/libc/stdio/findfp.c:230
-0800f36c t command	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/platform/stm32/stm32_r4_bench.c:139
-0801498c T command_request_identity_equal	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/domain/command/command.c:10
-08019574 T command_request_policy_validate	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/application/command_policy.c:78
-0801496c T command_transaction_id_is_valid	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/domain/command/command.c:5
-0800f1c0 t compare_protected	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/platform/stm32/stm32_r4_bench.c:116
-08010110 t complete	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/application/live_command_engine.c:69
+0800f3d0 t command	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/platform/stm32/stm32_r4_bench.c:145
+08014b20 T command_request_identity_equal	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/domain/command/command.c:10
+0801979c T command_request_policy_validate	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/application/command_policy.c:78
+08014b00 T command_transaction_id_is_valid	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/domain/command/command.c:5
+0800f224 t compare_protected	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/platform/stm32/stm32_r4_bench.c:122
+080102a4 t complete	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/application/live_command_engine.c:69
 200001d8 b completed.1
 2008d948 b configuration	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/platform/stm32/stm32_r4_bench.c:25
-08014a88 T configuration_validate_live	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/domain/configuration/configuration_validator.c:90
-08019a24 t constants	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/common/sha256.c:5
-0800ecc0 t consume	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/platform/stm32/stm32_r4_bench.c:42
+08014c1c T configuration_validate_live	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/domain/configuration/configuration_validator.c:90
+08019c8c t constants	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/common/sha256.c:5
+0800ecc0 t consume	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/platform/stm32/stm32_r4_bench.c:45
 0800e488 t controls	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/experiments/iis3dwb_st_reference/src/fifo_live.c:4
-08014728 t cooperative_sha_impl	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/common/sha256.c:38
-08012018 t crc	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/application/live_configuration.c:13
-08013798 t crc	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/application/persistent_identity.c:11
-08015aac t crc	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/persistence/live_command_store.c:10
-08015208 t crc32_bytes	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/persistence/configuration_record.c:43
-080175a8 t crc32_bytes	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/persistence/transactional_image_media.c:17
+080148bc t cooperative_sha_impl	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/common/sha256.c:38
+080121ac t crc	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/application/live_configuration.c:13
+0801392c t crc	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/application/persistent_identity.c:11
+08015c40 t crc	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/persistence/live_command_store.c:10
+0801539c t crc32_bytes	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/persistence/configuration_record.c:43
+080177d0 t crc32_bytes	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/persistence/transactional_image_media.c:17
 08005872 t cs_high	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/platform/stm32/stm32_fram_storage.c:22
 08005892 t cs_low	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/platform/stm32/stm32_fram_storage.c:27
-0800fccc t decision	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/application/live_command_engine.c:6
-0801643c t decode_effect	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/persistence/live_command_store.c:87
-08016224 t decode_epoch	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/persistence/live_command_store.c:71
-080154da t decode_payload	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/persistence/configuration_record.c:100
-08013aa4 t decode_version	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/application/persistent_identity.c:35
-0801582c t decode_version	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/persistence/configuration_record.c:162
+0800fe60 t decision	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/application/live_command_engine.c:6
+080165d0 t decode_effect	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/persistence/live_command_store.c:87
+080163b8 t decode_epoch	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/persistence/live_command_store.c:71
+0801566e t decode_payload	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/persistence/configuration_record.c:100
+08013c38 t decode_version	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/application/persistent_identity.c:35
+080159c0 t decode_version	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/persistence/configuration_record.c:162
 08000238 t deregister_tm_clones
-200907d8 b elapsed_cycles	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/platform/stm32/stm32_r4_bench.c:31
-08016378 t encode_effect	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/persistence/live_command_store.c:81
-08016178 t encode_epoch	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/persistence/live_command_store.c:65
-08014cc6 t encode_fixed_ascii_32	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/modbus/b4_configuration_codec.c:7
-08017a9c t encode_image_header	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/persistence/transactional_image_media.c:140
-0801527c t encode_payload	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/persistence/configuration_record.c:64
-08017b50 t encode_superblock	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/persistence/transactional_image_media.c:149
-08014d24 t encode_u32	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/modbus/b4_configuration_codec.c:19
-08013900 t encode_version	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/application/persistent_identity.c:22
-0801576c t encode_version	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/persistence/configuration_record.c:138
+200907d8 b elapsed_cycles	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/platform/stm32/stm32_r4_bench.c:34
+0801650c t encode_effect	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/persistence/live_command_store.c:81
+0801630c t encode_epoch	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/persistence/live_command_store.c:65
+08014e5a t encode_fixed_ascii_32	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/modbus/b4_configuration_codec.c:7
+08017cc4 t encode_image_header	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/persistence/transactional_image_media.c:140
+08015410 t encode_payload	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/persistence/configuration_record.c:64
+08017d78 t encode_superblock	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/persistence/transactional_image_media.c:149
+08014eb8 t encode_u32	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/modbus/b4_configuration_codec.c:19
+08013a94 t encode_version	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/application/persistent_identity.c:22
+08015900 t encode_version	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/persistence/configuration_record.c:138
 200907e0 B end
 20090148 b engine	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/platform/stm32/stm32_r4_bench.c:27
 20000338 B errno	/build/reproducible-path/newlib-4.5.0.20241231/build_nano/arm-none-eabi/thumb/v8-m.main/nofp/newlib/../../../../../../newlib/libc/reent/reent.c:26
 08005ddc t event_push_from_isr	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/platform/stm32/stm32_serial_transport.c:92
-080199e8 t expected.0	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/experiments/iis3dwb_st_reference/src/fifo_live.c:6
-08013f68 t failed	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/common/cooperative_work.c:12
+08019c00 t expected.0	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/experiments/iis3dwb_st_reference/src/fifo_live.c:6
+080140fc t failed	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/common/cooperative_work.c:12
 0800e6ce t fault	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/experiments/iis3dwb_st_reference/src/fifo_live.c:32
-0800ff8c t fault	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/application/live_command_engine.c:43
+08010120 t fault	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/application/live_command_engine.c:43
 080038b8 T fflush	/build/reproducible-path/newlib-4.5.0.20241231/newlib/libc/include/stdio.h:198
 0800e58c T fifo_live_init	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/experiments/iis3dwb_st_reference/src/fifo_live.c:12
 0800e908 T fifo_live_observe	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/experiments/iis3dwb_st_reference/src/fifo_live.c:59
@@ -525,29 +526,29 @@ f1e0f85f a BootRAM
 2008d868 b fram	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/platform/stm32/stm32_r4_bench.c:22
 080002a4 t frame_dummy
 08002564 T free	/build/reproducible-path/newlib-4.5.0.20241231/newlib/libc/include/malloc.h:45
-08013744 t g16	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/application/persistent_identity.c:9
-08015972 t g16	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/persistence/live_command_store.c:4
-0801376e t g32	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/application/persistent_identity.c:10
-0801599c t g32	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/persistence/live_command_store.c:5
-080159c4 t g64	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/persistence/live_command_store.c:6
+080138d8 t g16	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/application/persistent_identity.c:9
+08015b06 t g16	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/persistence/live_command_store.c:4
+08013902 t g32	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/application/persistent_identity.c:10
+08015b30 t g32	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/persistence/live_command_store.c:5
+08015b58 t g64	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/persistence/live_command_store.c:6
 08000000 R g_pfnVectors
 20000464 b g_serial	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/platform/stm32/stm32_serial_transport.c:49
-08011edc t get16	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/application/live_configuration.c:7
-08011f06 t get32	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/application/live_configuration.c:8
-08011f2e t get64	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/application/live_configuration.c:9
-080174fa t get_u16	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/persistence/transactional_image_media.c:13
-080151aa t get_u16_be	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/persistence/configuration_record.c:30
-08017524 t get_u32	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/persistence/transactional_image_media.c:14
-080151d4 t get_u32_be	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/persistence/configuration_record.c:35
-08017558 t get_u64	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/persistence/transactional_image_media.c:15
+08012070 t get16	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/application/live_configuration.c:7
+0801209a t get32	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/application/live_configuration.c:8
+080120c2 t get64	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/application/live_configuration.c:9
+08017722 t get_u16	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/persistence/transactional_image_media.c:13
+0801533e t get_u16_be	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/persistence/configuration_record.c:30
+0801774c t get_u32	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/persistence/transactional_image_media.c:14
+08015368 t get_u32_be	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/persistence/configuration_record.c:35
+08017780 t get_u64	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/persistence/transactional_image_media.c:15
 0800359c t global_stdio_init.part.0	/build/reproducible-path/newlib-4.5.0.20241231/build_nano/arm-none-eabi/thumb/v8-m.main/nofp/newlib/../../../../../../newlib/libc/stdio/findfp.c:159
-08012102 t header	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/application/live_configuration.c:28
-08015b96 t header	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/persistence/live_command_store.c:19
+08012296 t header	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/application/live_configuration.c:28
+08015d2a t header	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/persistence/live_command_store.c:19
 2000033c b heap_end.0	/build/reproducible-path/newlib-4.5.0.20241231/build/arm-none-eabi/thumb/v8-m.main/nofp/libgloss/../../../../../../libgloss/libnosys/sbrk.c:11
 2008d888 b historical	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/platform/stm32/stm32_r4_bench.c:24
 20000340 b hspi1	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/platform/stm32/main.c:140
 200003d0 b hspi3	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/platform/stm32/main.c:141
-0800ef08 t identity_ok	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/platform/stm32/stm32_r4_bench.c:77
+0800ef08 t identity_ok	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/platform/stm32/stm32_r4_bench.c:80
 0800d310 T iis3dwb_auto_increment_set	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/experiments/iis3dwb_st_reference/vendor/st/iis3dwb_reg.c:1253
 0800d1bc T iis3dwb_block_data_update_set	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/experiments/iis3dwb_st_reference/vendor/st/iis3dwb_reg.c:298
 0800d2ee T iis3dwb_device_id_get	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/experiments/iis3dwb_st_reference/vendor/st/iis3dwb_reg.c:1191
@@ -561,142 +562,146 @@ f1e0f85f a BootRAM
 0800d20c T iis3dwb_xl_axis_selection_set	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/experiments/iis3dwb_st_reference/vendor/st/iis3dwb_reg.c:408
 0800d16c T iis3dwb_xl_data_rate_set	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/experiments/iis3dwb_st_reference/vendor/st/iis3dwb_reg.c:236
 0800d11c T iis3dwb_xl_full_scale_set	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/experiments/iis3dwb_st_reference/vendor/st/iis3dwb_reg.c:166
-08017872 t image_base	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/persistence/transactional_image_media.c:99
-08014a38 t indicator_period_is_valid	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/domain/configuration/configuration_validator.c:10
-080121e4 t initialized	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/application/live_configuration.c:33
+08017a9a t image_base	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/persistence/transactional_image_media.c:99
+08014bcc t indicator_period_is_valid	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/domain/configuration/configuration_validator.c:10
+08012378 t initialized	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/application/live_configuration.c:33
 2008d8e8 b live	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/platform/stm32/stm32_r4_bench.c:24
-0800fd0c T live_command_context_decide	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/application/live_command_engine.c:8
-08011d24 T live_command_engine_boot	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/application/live_command_engine.c:342
-080103da t live_command_engine_boot_impl	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/application/live_command_engine.c:98
-0800ffec T live_command_engine_fault	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/application/live_command_engine.c:49
-0801037a T live_command_engine_init	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/application/live_command_engine.c:93
-08011e6c T live_command_engine_prepare	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/application/live_command_engine.c:372
-080106aa t live_command_engine_prepare_impl	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/application/live_command_engine.c:131
-08011e00 T live_command_engine_step	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/application/live_command_engine.c:362
-080114ec t live_command_engine_step_impl	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/application/live_command_engine.c:227
-08011d90 T live_command_engine_submit	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/application/live_command_engine.c:352
-08010726 t live_command_engine_submit_impl	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/application/live_command_engine.c:138
-08015f9c T live_command_record_decode	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/persistence/live_command_store.c:51
-08015dec T live_command_record_encode	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/persistence/live_command_store.c:39
-08016fcc T live_command_store_allocate	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/persistence/live_command_store.c:204
-080170ac T live_command_store_commit	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/persistence/live_command_store.c:211
-08016ec4 T live_command_store_init	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/persistence/live_command_store.c:185
-08016f58 T live_command_store_lookup	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/persistence/live_command_store.c:199
-08016f08 T live_command_store_recover	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/persistence/live_command_store.c:191
-080132fe T live_configuration_active	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/application/live_configuration.c:282
-0801345e T live_configuration_apply	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/application/live_configuration.c:323
-08012fac t live_configuration_apply_impl	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/application/live_configuration.c:239
-0801337e T live_configuration_bind_control	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/application/live_configuration.c:306
-08012a1c T live_configuration_init	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/application/live_configuration.c:148
-08012d44 T live_configuration_migrate	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/application/live_configuration.c:196
-080133da T live_configuration_recover	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/application/live_configuration.c:314
-08012b18 t live_configuration_recover_impl	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/application/live_configuration.c:163
+0800fea0 T live_command_context_decide	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/application/live_command_engine.c:8
+08011eb8 T live_command_engine_boot	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/application/live_command_engine.c:342
+0801056e t live_command_engine_boot_impl	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/application/live_command_engine.c:98
+08010180 T live_command_engine_fault	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/application/live_command_engine.c:49
+0801050e T live_command_engine_init	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/application/live_command_engine.c:93
+08012000 T live_command_engine_prepare	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/application/live_command_engine.c:372
+0801083e t live_command_engine_prepare_impl	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/application/live_command_engine.c:131
+08011f94 T live_command_engine_step	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/application/live_command_engine.c:362
+08011680 t live_command_engine_step_impl	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/application/live_command_engine.c:227
+08011f24 T live_command_engine_submit	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/application/live_command_engine.c:352
+080108ba t live_command_engine_submit_impl	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/application/live_command_engine.c:138
+08016130 T live_command_record_decode	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/persistence/live_command_store.c:51
+08015f80 T live_command_record_encode	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/persistence/live_command_store.c:39
+080171f4 T live_command_store_allocate	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/persistence/live_command_store.c:208
+080172d4 T live_command_store_commit	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/persistence/live_command_store.c:215
+080170ec T live_command_store_init	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/persistence/live_command_store.c:189
+08017180 T live_command_store_lookup	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/persistence/live_command_store.c:203
+08017130 T live_command_store_recover	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/persistence/live_command_store.c:195
+08013492 T live_configuration_active	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/application/live_configuration.c:282
+080135f2 T live_configuration_apply	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/application/live_configuration.c:323
+08013140 t live_configuration_apply_impl	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/application/live_configuration.c:239
+08013512 T live_configuration_bind_control	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/application/live_configuration.c:306
+08012bb0 T live_configuration_init	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/application/live_configuration.c:148
+08012ed8 T live_configuration_migrate	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/application/live_configuration.c:196
+0801356e T live_configuration_recover	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/application/live_configuration.c:314
+08012cac t live_configuration_recover_impl	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/application/live_configuration.c:163
 0800e334 T live_fifo_acquisition_init	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/platform/stm32/live_fifo_acquisition.c:42
 0800e3e4 T live_fifo_acquisition_poll	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/platform/stm32/live_fifo_acquisition.c:51
 0800e394 T live_fifo_acquisition_port	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/platform/stm32/live_fifo_acquisition.c:49
-08013524 T live_metrology_invalidate	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/application/live_metrology.c:18
-080135ac T live_metrology_start	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/application/live_metrology.c:27
-080136b2 T live_metrology_stop	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/application/live_metrology.c:40
+080136b8 T live_metrology_invalidate	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/application/live_metrology.c:18
+08013740 T live_metrology_start	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/application/live_metrology.c:27
+08013846 T live_metrology_stop	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/application/live_metrology.c:40
 0800254c T localeconv	/build/reproducible-path/newlib-4.5.0.20241231/newlib/libc/include/locale.h:84
 080052e0 T main	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/platform/stm32/main.c:1778
 08002554 T malloc	/build/reproducible-path/newlib-4.5.0.20241231/newlib/libc/include/malloc.h:37
 08006000 t map_uart_error	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/platform/stm32/stm32_serial_transport.c:276
-08018644 t media_commit_cb	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/persistence/transactional_image_media.c:278
-0801837e t media_commit_cb_impl	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/persistence/transactional_image_media.c:237
-0801730c t media_contract_valid	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/persistence/persistent_storage_core.c:9
-08018578 t media_read_cb	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/persistence/transactional_image_media.c:264
-08018240 t media_read_cb_impl	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/persistence/transactional_image_media.c:214
-080185de t media_write_cb	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/persistence/transactional_image_media.c:271
-080182ce t media_write_cb_impl	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/persistence/transactional_image_media.c:222
+0801886c t media_commit_cb	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/persistence/transactional_image_media.c:278
+080185a6 t media_commit_cb_impl	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/persistence/transactional_image_media.c:237
+08017534 t media_contract_valid	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/persistence/persistent_storage_core.c:9
+080187a0 t media_read_cb	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/persistence/transactional_image_media.c:264
+08018468 t media_read_cb_impl	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/persistence/transactional_image_media.c:214
+08018806 t media_write_cb	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/persistence/transactional_image_media.c:271
+080184f6 t media_write_cb_impl	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/persistence/transactional_image_media.c:222
 080034a4 T memchr	/build/reproducible-path/newlib-4.5.0.20241231/newlib/libc/include/string.h:29
 08000d34 T memcmp	/build/reproducible-path/newlib-4.5.0.20241231/newlib/libc/include/string.h:30
 08002454 T memcpy	/build/reproducible-path/newlib-4.5.0.20241231/build_nano/arm-none-eabi/thumb/v8-m.main/nofp/newlib/../../../../../../newlib/libc/machine/arm/memcpy-armv7m.S:102
 08000b40 T memmove	/build/reproducible-path/newlib-4.5.0.20241231/newlib/libc/include/string.h:32
 08000c90 T memset	/build/reproducible-path/newlib-4.5.0.20241231/newlib/libc/include/string.h:33
-08014f86 T modbus_codec_ascii_fixed_encode	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/modbus/codec.c:33
-08014f52 T modbus_codec_u32_to_msw_lsw	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/modbus/codec.c:4
-08015060 T modbus_project_b0	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/modbus/projection.c:120
+0801511a T modbus_codec_ascii_fixed_encode	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/modbus/codec.c:33
+080150e6 T modbus_codec_u32_to_msw_lsw	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/modbus/codec.c:4
+080151f4 T modbus_project_b0	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/modbus/projection.c:120
 0800defc t now	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/platform/stm32/stm32_live_acquisition.c:8
-0800ec58 t now_us	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/platform/stm32/stm32_r4_bench.c:36
+0800ec58 t now_us	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/platform/stm32/stm32_r4_bench.c:39
 200001dc b object.0
 0800e258 t observe	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/platform/stm32/live_fifo_acquisition.c:28
 20090330 b owner	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/platform/stm32/stm32_r4_bench.c:28
-0800ef4c t ownership	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/platform/stm32/stm32_r4_bench.c:79
-080196e0 t p05.0	/build/reproducible-path/newlib-4.5.0.20241231/build_nano/arm-none-eabi/thumb/v8-m.main/nofp/newlib/../../../../../../newlib/libc/stdlib/mprec.c:428
-080136e8 t p16	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/application/persistent_identity.c:7
-08015a14 t p16	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/persistence/live_command_store.c:7
-08013714 t p32	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/application/persistent_identity.c:8
-08015a40 t p32	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/persistence/live_command_store.c:8
-08015a70 t p64	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/persistence/live_command_store.c:9
-08013d84 T persistent_identity_attribution_check	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/application/persistent_identity.c:96
-08013e54 T persistent_identity_decode	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/application/persistent_identity.c:121
-08013e94 T persistent_identity_decode_live	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/application/persistent_identity.c:126
-08013e76 T persistent_identity_encode_live	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/application/persistent_identity.c:124
-08013ccc T persistent_identity_from_image	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/application/persistent_identity.c:51
-0801741a T persistent_storage_core_commit	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/persistence/persistent_storage_core.c:73
-08017348 T persistent_storage_core_init	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/persistence/persistent_storage_core.c:17
-08017384 T persistent_storage_core_is_initialized	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/persistence/persistent_storage_core.c:30
-080173be T persistent_storage_core_write	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/persistence/persistent_storage_core.c:54
-08017a4c t physical_read	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/persistence/transactional_image_media.c:135
-08017640 t physical_region_end	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/persistence/transactional_image_media.c:24
-08017a74 t physical_write	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/persistence/transactional_image_media.c:137
+0800ef4c t ownership	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/platform/stm32/stm32_r4_bench.c:82
+080198f8 t p05.0	/build/reproducible-path/newlib-4.5.0.20241231/build_nano/arm-none-eabi/thumb/v8-m.main/nofp/newlib/../../../../../../newlib/libc/stdlib/mprec.c:428
+0801387c t p16	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/application/persistent_identity.c:7
+08015ba8 t p16	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/persistence/live_command_store.c:7
+080138a8 t p32	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/application/persistent_identity.c:8
+08015bd4 t p32	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/persistence/live_command_store.c:8
+08015c04 t p64	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/persistence/live_command_store.c:9
+08013f18 T persistent_identity_attribution_check	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/application/persistent_identity.c:96
+08013fe8 T persistent_identity_decode	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/application/persistent_identity.c:121
+08014028 T persistent_identity_decode_live	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/application/persistent_identity.c:126
+0801400a T persistent_identity_encode_live	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/application/persistent_identity.c:124
+08013e60 T persistent_identity_from_image	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/application/persistent_identity.c:51
+08017642 T persistent_storage_core_commit	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/persistence/persistent_storage_core.c:73
+08017570 T persistent_storage_core_init	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/persistence/persistent_storage_core.c:17
+080175ac T persistent_storage_core_is_initialized	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/persistence/persistent_storage_core.c:30
+080175e6 T persistent_storage_core_write	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/persistence/persistent_storage_core.c:54
+08017c74 t physical_read	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/persistence/transactional_image_media.c:135
+08017868 t physical_region_end	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/persistence/transactional_image_media.c:24
+08017c9c t physical_write	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/persistence/transactional_image_media.c:137
 0800ceb8 T platform_init	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/platform/stm32/stm32_iis3dwb_st_window.c:135
 0800ce5c T platform_read	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/platform/stm32/stm32_iis3dwb_st_window.c:105
 0800ce8a T platform_write	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/platform/stm32/stm32_iis3dwb_st_window.c:106
-0800fed0 t port_available	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/application/live_command_engine.c:33
-0800f2cc t prepared	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/platform/stm32/stm32_r4_bench.c:127
-200907d0 b previous_cycles	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/platform/stm32/stm32_r4_bench.c:30
-08019548 t protected_command	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/application/command_policy.c:31
-08011f7e t put16	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/application/live_configuration.c:10
-08011faa t put32	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/application/live_configuration.c:11
-08011fda t put64	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/application/live_configuration.c:12
-08017452 t put_u16	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/persistence/transactional_image_media.c:10
-0801513e t put_u16_be	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/persistence/configuration_record.c:16
-0801747e t put_u32	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/persistence/transactional_image_media.c:11
-0801516a t put_u32_be	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/persistence/configuration_record.c:22
-080174be t put_u64	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/persistence/transactional_image_media.c:12
-0800f450 t qualify	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/platform/stm32/stm32_r4_bench.c:149
+08010064 t port_available	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/application/live_command_engine.c:33
+0800f330 t prepared	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/platform/stm32/stm32_r4_bench.c:133
+200907d4 b previous_cycles	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/platform/stm32/stm32_r4_bench.c:33
+08019770 t protected_command	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/application/command_policy.c:31
+08012112 t put16	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/application/live_configuration.c:10
+0801213e t put32	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/application/live_configuration.c:11
+0801216e t put64	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/application/live_configuration.c:12
+0801767a t put_u16	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/persistence/transactional_image_media.c:10
+080152d2 t put_u16_be	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/persistence/configuration_record.c:16
+080176a6 t put_u32	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/persistence/transactional_image_media.c:11
+080152fe t put_u32_be	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/persistence/configuration_record.c:22
+080176e6 t put_u64	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/persistence/transactional_image_media.c:12
+0800f4b4 t qualify	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/platform/stm32/stm32_r4_bench.c:155
 08001408 t quorem	/build/reproducible-path/newlib-4.5.0.20241231/build_nano/arm-none-eabi/thumb/v8-m.main/nofp/newlib/../../../../../../newlib/libc/stdlib/dtoa.c:41
+08019c30 t r1_sha	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/platform/stm32/stm32_r4_bench.c:32
+08019c10 t r2_sha	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/platform/stm32/stm32_r4_bench.c:31
 20040b60 B r4_result	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/platform/stm32/stm32_r4_bench.c:19
 20040c18 B r4_trigger	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/platform/stm32/stm32_r4_bench.c:20
 08003d04 T raise	/build/reproducible-path/newlib-4.5.0.20241231/newlib/libc/include/signal.h:29
 08005840 t range_is_valid	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/platform/stm32/stm32_fram_storage.c:13
-08017838 t range_ok	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/persistence/transactional_image_media.c:93
-0800f088 t read_baseline	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/platform/stm32/stm32_r4_bench.c:103
-08014310 t read_be	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/common/sha256.c:16
-0801229a t read_history	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/application/live_configuration.c:50
-0800ee78 t read_physical	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/platform/stm32/stm32_r4_bench.c:71
+08017a60 t range_ok	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/persistence/transactional_image_media.c:93
+0800f088 t read_baseline	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/platform/stm32/stm32_r4_bench.c:107
+080144a4 t read_be	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/common/sha256.c:16
+0801242e t read_history	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/application/live_configuration.c:50
+0800ee78 t read_physical	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/platform/stm32/stm32_r4_bench.c:74
 08005a3c t read_status_register	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/platform/stm32/stm32_fram_storage.c:138
-0800fe4c t ready	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/application/live_command_engine.c:28
-080102b4 t receipt_matches	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/application/live_command_engine.c:85
+200907d1 b readonly_r2	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/platform/stm32/stm32_r4_bench.c:30
+0800ffe0 t ready	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/application/live_command_engine.c:28
+08010448 t receipt_matches	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/application/live_command_engine.c:85
 080058e6 t receive	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/platform/stm32/stm32_fram_storage.c:48
 08005972 t receive_chunked	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/platform/stm32/stm32_fram_storage.c:89
-0801217c t record_ok	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/application/live_configuration.c:31
-0801259c t recover_configuration	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/application/live_configuration.c:102
-08018ba0 t recover_impl	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/persistence/transactional_image_media.c:404
-08018784 t recover_live	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/persistence/transactional_image_media.c:321
-08012264 t recovery_error	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/application/live_configuration.c:41
-080106f2 t refuse	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/application/live_command_engine.c:136
-0801767a t regions_overlap	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/persistence/transactional_image_media.c:32
+08012310 t record_ok	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/application/live_configuration.c:31
+08012730 t recover_configuration	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/application/live_configuration.c:102
+08018dc8 t recover_impl	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/persistence/transactional_image_media.c:404
+080189ac t recover_live	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/persistence/transactional_image_media.c:321
+080123f8 t recovery_error	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/application/live_configuration.c:41
+08010886 t refuse	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/application/live_command_engine.c:136
+080178a2 t regions_overlap	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/persistence/transactional_image_media.c:32
 08000254 t register_tm_clones
-080194a8 t request_parameters_must_be_zero	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/application/command_policy.c:5
-0801007a t restore_last	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/application/live_command_engine.c:57
+080196d0 t request_parameters_must_be_zero	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/application/command_policy.c:5
+0801020e t restore_last	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/application/live_command_engine.c:57
 08005f58 t restore_receive	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/platform/stm32/stm32_serial_transport.c:149
-08012222 t revoke	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/application/live_configuration.c:35
-080142f4 t rotate	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/common/sha256.c:15
+200907d0 b resume_after_r1	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/platform/stm32/stm32_r4_bench.c:30
+080123b6 t revoke	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/application/live_configuration.c:35
+08014488 t rotate	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/common/sha256.c:15
 08005f3c t rtu_timer_restart_from_byte	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/platform/stm32/stm32_serial_transport.c:127
 08005ed0 t rtu_timer_start_period	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/platform/stm32/stm32_serial_transport.c:117
 08005e5c t rtu_timer_stop	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/platform/stm32/stm32_serial_transport.c:109
-0800fe82 t same_request	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/application/live_command_engine.c:30
+08010016 t same_request	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/application/live_command_engine.c:30
 0800392c t sbrk_aligned	/build/reproducible-path/newlib-4.5.0.20241231/build_nano/arm-none-eabi/thumb/v8-m.main/nofp/newlib/../../../../../../newlib/libc/stdlib/nano-mallocr.c:209
-080199e4 t scales	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/experiments/iis3dwb_st_reference/src/fifo_live.c:3
-08012154 t seal	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/application/live_configuration.c:30
-08016580 t select_pair	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/persistence/live_command_store.c:96
+08019bfc t scales	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/experiments/iis3dwb_st_reference/src/fifo_live.c:3
+080122e8 t seal	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/application/live_configuration.c:30
+08016714 t select_pair	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/persistence/live_command_store.c:96
 08005a0a t send_simple_command	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/platform/stm32/stm32_fram_storage.c:125
 20000afc b sensor_spi	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/platform/stm32/stm32_iis3dwb_st_window.c:12
-0800edd8 t service	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/platform/stm32/stm32_r4_bench.c:61
+0800edd8 t service	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/platform/stm32/stm32_r4_bench.c:64
 08003d58 T signal	/build/reproducible-path/newlib-4.5.0.20241231/newlib/libc/include/signal.h:28
-0800ed54 t snapshot	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/platform/stm32/stm32_r4_bench.c:51
+0800ed54 t snapshot	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/platform/stm32/stm32_r4_bench.c:54
 0800e0e0 t start	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/platform/stm32/live_fifo_acquisition.c:3
 08003540 t stdio_exit_handler	/build/reproducible-path/newlib-4.5.0.20241231/build_nano/arm-none-eabi/thumb/v8-m.main/nofp/newlib/../../../../../../newlib/libc/stdio/findfp.c:153
 08005d18 T stm32_fram_storage_bounded_physical	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/platform/stm32/stm32_fram_storage.c:292
@@ -705,7 +710,7 @@ f1e0f85f a BootRAM
 08005b7a T stm32_fram_storage_write	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/platform/stm32/stm32_fram_storage.c:224
 0800df90 T stm32_live_acquisition_attach	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/platform/stm32/stm32_live_acquisition.c:15
 0800e038 T stm32_live_acquisition_poll	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/platform/stm32/stm32_live_acquisition.c:27
-0800fad8 T stm32_r4_benchmark_run	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/platform/stm32/stm32_r4_bench.c:198
+0800fc5c T stm32_r4_benchmark_run	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/platform/stm32/stm32_r4_bench.c:221
 08005d50 T stm32_rs485_rx_gpio_init	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/platform/stm32/stm32_rs485_rx_gpio.c:4
 0800604c T stm32_serial_transport_irq_handler	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/platform/stm32/stm32_serial_transport.c:400
 08006078 T stm32_serial_transport_tim6_irq_handler	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/platform/stm32/stm32_serial_transport.c:409
@@ -713,58 +718,58 @@ f1e0f85f a BootRAM
 0800d080 T stm32_st_transport_next_window	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/platform/stm32/stm32_iis3dwb_st_window.c:186
 0800caf0 t stop	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/platform/stm32/stm32_iis3dwb_st_window.c:49
 0800e200 t stop	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/platform/stm32/live_fifo_acquisition.c:19
-0800ecfc t stop	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/platform/stm32/stm32_r4_bench.c:44
-0800ff06 t stop_confirmed	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/application/live_command_engine.c:35
-08010006 t storage_fault	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/application/live_command_engine.c:51
+0800ecfc t stop	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/platform/stm32/stm32_r4_bench.c:47
+0801009a t stop_confirmed	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/application/live_command_engine.c:35
+0801019a t storage_fault	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/application/live_command_engine.c:51
 2008db90 b store	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/platform/stm32/stm32_r4_bench.c:26
 08002914 T strlen	/build/reproducible-path/newlib-4.5.0.20241231/newlib/libc/include/string.h:41
-08017898 t superblock_base	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/persistence/transactional_image_media.c:104
-08017bf0 t supported_shape	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/persistence/transactional_image_media.c:159
-080100be t terminal_time	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/application/live_command_engine.c:62
-08014e80 T tr2_b4_crc32_registers	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/modbus/b4_configuration_codec.c:90
-08014f28 T tr2_b4_prepared_payload_crc	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/modbus/b4_configuration_codec.c:119
-08014d44 T tr2_b4_serialize_prepared_payload	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/modbus/b4_configuration_codec.c:24
-0801590c T tr2_configuration_record_decode	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/persistence/configuration_record.c:203
-08015950 T tr2_configuration_record_decode_live	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/persistence/configuration_record.c:211
-0801592e T tr2_configuration_record_encode_live	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/persistence/configuration_record.c:207
-08013fa2 T tr2_cooperative_checkpoint	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/common/cooperative_work.c:16
-08014240 T tr2_cooperative_enter	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/common/cooperative_work.c:51
-0801418c T tr2_cooperative_equal	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/common/cooperative_work.c:37
-08013eb6 T tr2_cooperative_init	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/common/cooperative_work.c:3
-080142ac T tr2_cooperative_leave	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/common/cooperative_work.c:59
-08013f38 T tr2_cooperative_status	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/common/cooperative_work.c:10
+08017ac0 t superblock_base	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/persistence/transactional_image_media.c:104
+08017e18 t supported_shape	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/persistence/transactional_image_media.c:159
+08010252 t terminal_time	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/application/live_command_engine.c:62
+08015014 T tr2_b4_crc32_registers	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/modbus/b4_configuration_codec.c:90
+080150bc T tr2_b4_prepared_payload_crc	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/modbus/b4_configuration_codec.c:119
+08014ed8 T tr2_b4_serialize_prepared_payload	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/modbus/b4_configuration_codec.c:24
+08015aa0 T tr2_configuration_record_decode	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/persistence/configuration_record.c:203
+08015ae4 T tr2_configuration_record_decode_live	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/persistence/configuration_record.c:211
+08015ac2 T tr2_configuration_record_encode_live	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/persistence/configuration_record.c:207
+08014136 T tr2_cooperative_checkpoint	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/common/cooperative_work.c:16
+080143d4 T tr2_cooperative_enter	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/common/cooperative_work.c:51
+08014320 T tr2_cooperative_equal	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/common/cooperative_work.c:37
+0801404a T tr2_cooperative_init	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/common/cooperative_work.c:3
+08014440 T tr2_cooperative_leave	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/common/cooperative_work.c:59
+080140cc T tr2_cooperative_status	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/common/cooperative_work.c:10
 20000460 B tr2_iis3dwb_spi_init_ok	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/platform/stm32/main.c:566
 20000718 B tr2_irq_observer	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/platform/stm32/stm32_serial_transport.c:52
-0801491c T tr2_sha256_bytes_cooperative	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/common/sha256.c:65
-080177f8 T transactional_image_geometry_qualification_profile	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/persistence/transactional_image_media.c:80
-080176e4 T transactional_image_geometry_validate	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/persistence/transactional_image_media.c:41
-0801942e T transactional_image_media_bind_work	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/persistence/transactional_image_media.c:542
-080192a0 T transactional_image_media_create_live	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/persistence/transactional_image_media.c:510
-080186b4 T transactional_image_media_init	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/persistence/transactional_image_media.c:287
-08019218 T transactional_image_media_init_live	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/persistence/transactional_image_media.c:493
-080191be T transactional_image_media_init_v2	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/persistence/transactional_image_media.c:449
-08019194 T transactional_image_media_interface	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/persistence/transactional_image_media.c:446
-080193a2 T transactional_image_media_recover	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/persistence/transactional_image_media.c:534
+08014ab0 T tr2_sha256_bytes_cooperative	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/common/sha256.c:65
+08017a20 T transactional_image_geometry_qualification_profile	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/persistence/transactional_image_media.c:80
+0801790c T transactional_image_geometry_validate	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/persistence/transactional_image_media.c:41
+08019656 T transactional_image_media_bind_work	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/persistence/transactional_image_media.c:542
+080194c8 T transactional_image_media_create_live	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/persistence/transactional_image_media.c:510
+080188dc T transactional_image_media_init	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/persistence/transactional_image_media.c:287
+08019440 T transactional_image_media_init_live	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/persistence/transactional_image_media.c:493
+080193e6 T transactional_image_media_init_v2	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/persistence/transactional_image_media.c:449
+080193bc T transactional_image_media_interface	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/persistence/transactional_image_media.c:446
+080195ca T transactional_image_media_recover	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/persistence/transactional_image_media.c:534
 0800cb04 t transfer	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/platform/stm32/stm32_iis3dwb_st_window.c:50
-080178fe t transfer	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/persistence/transactional_image_media.c:114
+08017b26 t transfer	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/persistence/transactional_image_media.c:114
 080058b2 t transmit	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/platform/stm32/stm32_fram_storage.c:32
 0800591a t transmit_chunked	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/platform/stm32/stm32_fram_storage.c:64
 20000b00 b transport_claimed	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/platform/stm32/stm32_iis3dwb_st_window.c:13
 08005f90 t tx_fail_safe	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/platform/stm32/stm32_serial_transport.c:155
-080199f8 t uid	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/platform/stm32/stm32_r4_bench.c:32
-08012084 t uniform	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/application/live_configuration.c:24
-08015b18 t uniform	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/persistence/live_command_store.c:16
-080178be t uniform	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/persistence/transactional_image_media.c:109
+08019c50 t uid	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/platform/stm32/stm32_r4_bench.c:35
+08012218 t uniform	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/application/live_configuration.c:24
+08015cac t uniform	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/persistence/live_command_store.c:16
+08017ae6 t uniform	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/persistence/transactional_image_media.c:109
 20000af8 B uwTick	/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal.c:77
 200001d0 D uwTickFreq	/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal.c:79
 200001cc D uwTickPrio	/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal.c:78
-08013856 t valid	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/application/persistent_identity.c:13
-08015c9c t valid_record	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/persistence/live_command_store.c:28
-08016692 t validate_control	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/persistence/live_command_store.c:108
-08017c68 t validate_image	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/persistence/transactional_image_media.c:166
-08017fc0 t validate_superblock	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/persistence/transactional_image_media.c:190
+080139ea t valid	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/application/persistent_identity.c:13
+08015e30 t valid_record	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/persistence/live_command_store.c:28
+0801683e t validate_control	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/persistence/live_command_store.c:109
+08017e90 t validate_image	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/persistence/transactional_image_media.c:166
+080181e8 t validate_superblock	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/persistence/transactional_image_media.c:190
 080040ec T vfiprintf	/build/reproducible-path/newlib-4.5.0.20241231/build_nano/arm-none-eabi/thumb/v8-m.main/nofp/newlib/../../../../../../newlib/libc/stdio/nano-vfprintf.c:443
 080040ec T vfprintf	/build/reproducible-path/newlib-4.5.0.20241231/newlib/libc/include/stdio.h:212
-080149f8 t window_size_is_valid	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/domain/configuration/configuration_validator.c:5
+08014b8c t window_size_is_valid	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/domain/configuration/configuration_validator.c:5
 20090790 b work	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/platform/stm32/stm32_r4_bench.c:29
-0800ef98 t write_physical	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/platform/stm32/stm32_r4_bench.c:87
+0800ef98 t write_physical	/home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/platform/stm32/stm32_r4_bench.c:91

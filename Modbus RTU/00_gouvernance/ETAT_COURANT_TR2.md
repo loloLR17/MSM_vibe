@@ -187,17 +187,11 @@ Publication R3-A : code 0c6f002, preuves/rapport a33066d publiés sur main et re
 Publication R3-B vérifiée : code1c5368f, preuves/rapport faf0f94 sur main relus intégralement depuis GitHub le15/10/2026UTC (16/10local) ;44empreintes et2334fichiers protégés contrôlés. Clôture logicielle Codex, contrôle indépendant ChatGPT et qualification physique distincts.
 
 
-## R4 — checkpoint logiciel/préflight,16/10/2026
+## R4 — coopération et blocage causal,16/10/2026
 
-- **VALIDÉ LOGICIEL / EN COURS** : codeae3d52f,136tests/ARM et sanitizers ; quantaFRAM/CRC/SHA/scans, mêmes1561oracles coupure, image physique identique au modèle noncoop. Charge simulée620,605s/13,77MXYZ, FIFOmax19/overflow0 et RTU réel sur UART simulée. Pas qualification physique ni protocole2.
-- **OBSERVÉ DEBUG / SAUVEGARDÉ** : utilisateur confirme TR2-001 inchangé ; UID/SN relus, Flash2Mio sauvegardée et doublelecture conforme, firmwareM016tentative2 exact. FRAM262144 doublelecture conforme SHA d732acc557152180fc394097d6a5269ea2f45c1da387c8643f512318adf92fce ; gen12 historique, LIVE/tail vides0. RCC/SPI1 :2,5MHz configurés déduits, pas mesure électrique. Aucun reset/flash/NVMwrite/SD/RS485 ; GDB détaché, ancien firmware reprend attente.
-- **SUITE** : préparer probeWAIT sansSD, garde UID/backup/ownership stricte avant toutwriteLIVE, qualifier progressivement les marges ; provider temps capteur absent donc B3invalide. Préserver historique/tail et restaurer ancien firmware si successeur non qualifié.
-
-
-R4 complément physique16/10local : utilisateur confirme TR2-001 inchangé ; probe
-R4 distinct RAM-trigger chargé/vérifié. TimeoutHAL1ms trop court au tick corrigé2ms ;
-attente premier mot séparée (20ms probe, défaut inchangé), arrivée observée11ms.
-Préfixe FRAMlecture/FIFO180826XYZ sans défaut/niveau18 ; contrôle final interrompu
-par halt GDB, donc pas RUN entier PASS. FRAM262144octets ensuite vérifiés inchangés.
-R1/R2 en cours sans halt, sauvegarde firmwareM016 conservée pour restauration ;
-aucune SD/RS485 ni qualification LIVE/B3. Code12e7a1f,136tests/ARM/sanitizers PASS.
+- **VALIDÉ LOGICIEL** : codef3ae3a6, quantaFRAM/CRC/SHA/recovery et contrôle de réentrée/ownership, formats R0/R1/R2 conservés.136tests/ARM PASS,74,52s ; ASan/UBSan4suites PASS,141,52s ;1561oracles R2 préservés. Modèle q32 prolongé624,225s/13859117XYZ/39033RTU, FIFOmax19/RXqueue8/overflow0. Pas des temps cible.
+- **OBSERVÉ PHYSIQUE BORNÉ** : TR2-001/UID et ST-LINK attendus confirmés, double backup initial. Préfixe FRAMreadonly/FIFO180826XYZ, niveau18, gap601us, read132us/service461us/arrêt235us ; RUN entier interrompu par GDB pendant contrôle à l'arrêt, nonPASS. Premier-mot11ms, politique initiale distincte du gap5ms ; timeoutHAL1ms corrigé2ms, V1inchangé. R1 migration/config2 réussies ; harness init réordonné avant mount sans répéter ces écritures.
+- **CORRECTION CIBLE** : R2 dépasse1030us au seuil1000us, arrêt sûr, START non confirmé. Pile readonly situe le bloc entre copies/décodages journal ; points de service ajoutés, seuil conservé. Recovery physique corrigé PASS6,275s/workmax907us/0write, FRAM inchangée ; statut9/STARTED indéterminé conservé, aucun replay. Ce succès ne qualifie pas écritureR2+FIFO.
+- **BLOCKED / DÉCISION CHATGPT** : R0 interdit redispatch/effacement et reçu inventé. Définir maintenance/réconciliation ou reprovisionnement LIVE expressément autorisé pour cette trace archivée, puis reprendre la campagne START/RENEW/STOP/APPLY sans refaire validations inchangées. WCET fautesSPI3/IRQ/STOP, RTU électrique (T1000seulCOM3), CPU/pile et provider temps calibré restent à qualifier ; pas RTU2/B3 physique ni budget production.
+- **MATÉRIEL FINAL VÉRIFIÉ** :07:50:12UTC, Flash2Mio intégralement identique à l'état initial, M016 commissioning WAIT/GDBdétaché ; pas nouveau cumulatif LIVE.14pages reprogrammées normalement, ni mass erase ni OptionBytes. FRAM finale SHA c814e9cc32eff06016f28ef964233354e35ba458653a16434e4416b296271561,566octets modifiés seulementLIVE ; historique/tail inchangés. Backups locaux reports/TR2-r4/hardware. Aucun essai SD/RS485 R4.
+- **PRÉSERVATION / PUBLICATION** :53worktrees, stashes et2336fichiers gels/dettes/archives préservés, ancienmain82169af propre.421modules inventoriés ;32868lignesC/C++/47665tests au codef3ae3a6. Journal/roadmap et rapport mis à jour ; publication/relecture finale en cours. Contrôle indépendant ChatGPT distinct de la clôture Codex.

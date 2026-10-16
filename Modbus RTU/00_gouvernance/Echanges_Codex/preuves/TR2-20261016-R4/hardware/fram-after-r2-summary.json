@@ -1,0 +1,10 @@
+{
+  "sha256": "c814e9cc32eff06016f28ef964233354e35ba458653a16434e4416b296271561",
+  "bytes": 262144,
+  "historical_unchanged": true,
+  "tail_unchanged": true,
+  "changed_bytes": 566,
+  "write_scope": "LIVE only",
+  "state": "STARTED indeterminate from bench4-r2-result.log; no erase/replay",
+  "note": "WAIT freshly observed after previous terminal reading, cause of reinitialization not established; no assumption of power cycle"
+}

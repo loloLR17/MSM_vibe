@@ -1,0 +1,7 @@
+COOPERATIVE,q=16,elapsed_us=169693615,work_us=544,service_us=292,FIFOmax=16,gap_us=370,XYZ=3618328,RTU=10691,RTUenqueue_us=25062,identical_bytes=262144
+COOPERATIVE,q=32,elapsed_us=99747019,work_us=544,service_us=320,FIFOmax=19,gap_us=436,XYZ=2052899,RTU=6245,RTUenqueue_us=25094,identical_bytes=262144
+LONG_MODEL,elapsed_us=624225411,XYZ=13859117,renewals=13,FIFOmax=19,RTU=39033,RXqueueMax=8,overflow=0
+COOPERATIVE,q=64,elapsed_us=64737463,work_us=544,service_us=362,FIFOmax=24,gap_us=566,XYZ=1269608,RTU=4055,RTUenqueue_us=25234,identical_bytes=262144
+EMERGENCY,latency_us=272,sticky_error=6,no_reentry_no_write=PASS
+NEGATIVE CONTROL: same actual stores without cooperative service overflow the independent FIFO producer: PASS
+Original 1561 R2 power-loss oracles reused with cooperative physical chunks/CRC/SHA, all phases: PASS

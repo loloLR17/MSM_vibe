@@ -1,6 +1,6 @@
 {
   "method": "refresh R3B inventory with git ls-files, canonical nm -l paths, literal CMake references; portable src glob documented; nonlinked is NOT dead",
-  "code_sha": "12e7a1fe6cd6ddee64767bdfecc430d841d1f33d",
+  "code_sha": "f3ae3a6e3669ff6be3b5ec844b41f807a673c1da",
   "modules": [
     {
       "path": "Modbus RTU/05_Firmware/include/tr2/application/acquisition_service.h",

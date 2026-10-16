@@ -1,0 +1,11 @@
+{
+  "source": "flash-before.bin",
+  "source_sha256": "c5bc344d64984c48c3e34b05fa9432c9c124e8b67428eb0eef22c0d62ddf5b26",
+  "address": "0x08000000",
+  "page_bytes": 8192,
+  "bytes": 114688,
+  "sha256": "a7f0c0617b5b35f3ad5d05e4361820b4b801a8b0374d379efd0b6c0b24581f24",
+  "normal_programming_only": true,
+  "mass_erase": false,
+  "justification": "Restore exactly the page span changed by R4 programming, including original FF padding; preserve every untouched page. Full 2MiB readback follows."
+}

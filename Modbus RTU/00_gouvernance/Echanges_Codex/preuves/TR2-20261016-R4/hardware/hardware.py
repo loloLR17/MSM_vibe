@@ -11,7 +11,7 @@ if *(unsigned int *)0x0BFA0700 != 0x004A003D || *(unsigned int *)0x0BFA0704 != 0
 end
 '''
 def win(path):return subprocess.check_output(['wslpath','-w',str(path)],text=True).strip()
-def debug(name,elf,body,timeout=45):
+def debug(name,elf,body,timeout=45,post_commands=None):
  script=P/(name+'.gdb');assert not script.exists();script.write_text('set pagination off\nset confirm off\nset remotetimeout 10\ntarget extended-remote localhost:61234\n'+body+'\ndetach\nquit\n')
  cmd=[SERVER,'-d','-g','-i',SN,'--frequency','8000','-p','61234','-cp',r'C:\ST\STM32CubeCLT_1.22.0\STM32CubeProgrammer\bin']
  with (P/(name+'-server.log')).open('wb') as log:
@@ -19,6 +19,8 @@ def debug(name,elf,body,timeout=45):
   try:
    time.sleep(2)
    gdbcmd=[GDB,'-nx','-q','-batch','-x',win(script),win(elf)]
+   if post_commands:
+    for command in post_commands:gdbcmd.extend(['-ex',command])
    z=subprocess.run(gdbcmd,capture_output=True,timeout=timeout);(P/(name+'.log')).write_bytes(z.stdout+z.stderr)
    result=dict(server=cmd,gdb=gdbcmd,return_code=z.returncode,utc=datetime.datetime.now(datetime.timezone.utc).isoformat());(P/(name+'-invocation.json')).write_text(json.dumps(result,indent=2)+'\n')
    proc.wait(timeout=15);z.check_returncode();print(name,'OK',flush=True)

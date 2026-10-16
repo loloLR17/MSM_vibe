@@ -1,0 +1,8 @@
+[1/8] Building C object CMakeFiles/test_live_configuration.dir/tests/unit/test_live_configuration.c.o
+[2/8] Building C object CMakeFiles/tr2_core.dir/src/persistence/live_command_store.c.o
+[3/8] Linking C static library libtr2_core.a
+[4/8] Building C object CMakeFiles/test_live_command_engine.dir/tests/unit/test_live_command_engine.c.o
+[5/8] Linking C executable test_live_configuration
+[6/8] Linking C executable test_cooperative_work
+[7/8] Linking C executable test_cooperative_fram_fifo
+[8/8] Linking C executable test_live_command_engine

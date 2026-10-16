@@ -1,0 +1,5 @@
+HAL_GetTick () at /home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal.c:342
+342	{
+0xbfa0700:	0x004a003d	0x38425018	0x20333157
+$1 = {stage = 1, error = 0, line = 0, command = 0, ownership = 0, read_passes = 0, commands = 0, core_hz = 160000000, spi1_hz = 2500000, spi3_hz = 4000000, tick_start = 0, tick_end = 0, max_read_us = 0, max_write_us = 0, max_gap_us = 0, last_poll_us = 0, safety_us = 0, first_data_us = 0, start_us = 0, read_bytes = 0, write_bytes = 0, xyz = 0, timestamps = 0, polls = 0, elapsed_us = 0, max_level = 0, fifo_error = 0, stop_error = 0, engine_status = 0, engine_result = 0, protected_equal = 0, baseline_equal = 0}
+[Inferior 1 (Remote target) detached]

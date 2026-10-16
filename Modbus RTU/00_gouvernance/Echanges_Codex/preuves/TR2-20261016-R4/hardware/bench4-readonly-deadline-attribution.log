@@ -1,0 +1,8 @@
+0x0800656e in HAL_Delay (Delay=1) at /home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal.c:419
+419	  while ((HAL_GetTick() - tickstart) < wait)
+0xbfa0700:	0x004a003d	0x38425018	0x20333157
+Note: automatically using hardware breakpoints for read-only addresses.
+$1 = 0
+Breakpoint 1 at 0x8013ff8: file /home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/common/cooperative_work.c, line 14.
+\\wsl.localhost\Debian\home\lolo\dev\msm\reports\TR2-r4\hardware\bench4-readonly-deadline-attribution.gdb:20: Error in sourced command file:
+Scripting in the "Python" language is not supported in this copy of GDB.

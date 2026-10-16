@@ -1,0 +1,29 @@
+0x0800656c in HAL_Delay (Delay=1) at /home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal.c:419
+419	  while ((HAL_GetTick() - tickstart) < wait)
+0xbfa0700:	0x004a003d	0x38425018	0x20333157
+$1 = 0x1c004400
+Note: automatically using hardware breakpoints for read-only addresses.
+$2 = 0
+$3 = 0
+$4 = 0
+$5 = 0
+$6 = 0
+$7 = 0
+$8 = 0
+Breakpoint 1 at 0x8013ff8: file /home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/common/cooperative_work.c, line 14.
+#0  failed (w=0x20090790 <work>, error=TR2_ERROR_UNAVAILABLE) at /home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/common/cooperative_work.c:14
+#1  0x080140e6 in tr2_cooperative_checkpoint (w=0x20090790 <work>) at /home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/common/cooperative_work.c:26
+#2  0x08016a3c in validate_control (context=0x2008db90 <store>, image=0x20080c1c <candidate> "TR2C", size=52298) at /home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/persistence/live_command_store.c:140
+#3  0x08012c96 in live_configuration_recover_impl (s=0x2008d948 <configuration>) at /home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/application/live_configuration.c:178
+#4  0x080134b0 in live_configuration_recover (s=0x2008d948 <configuration>) at /home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/application/live_configuration.c:318
+#5  <function called from gdb>
+#6  0x0800656c in HAL_Delay (Delay=1) at /home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal.c:419
+#7  0x0800fc80 in stm32_r4_benchmark_run (spi1=0x20000340 <hspi1>, spi3=0x200003d0 <hspi3>) at /home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/platform/stm32/stm32_r4_bench.c:230
+#8  0x0800531c in main () at /home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/platform/stm32/main.c:1828
+$9 = {context = 0x0, now_us = 0x800ec59 <now_us>, service = 0x800edd9 <service>, safety_stop = 0x800ecfd <stop>, last_us = 41474255, max_work_us = 1030, max_service_us = 4, checkpoints = 22259, work_limit_us = 1000, service_limit_us = 2500, quantum_bytes = 32, depth = 1, error = TR2_OK, servicing = false, seen = true, deadline_missed = true}
+[Inferior 1 (Remote target) detached]
+\\wsl.localhost\Debian\home\lolo\dev\msm\reports\TR2-r4\hardware\bench4-readonly-mount-attribution-ex.gdb:34: Error in sourced command file:
+The program being debugged stopped while in a function called from GDB.
+Evaluation of the expression containing the function
+(live_configuration_recover) will be abandoned.
+When the function is done executing, GDB will silently stop.

@@ -1,0 +1,15 @@
+{
+  "restoration": "PASS",
+  "flash_full_2MiB_exact": true,
+  "flash_sha256": "c5bc344d64984c48c3e34b05fa9432c9c124e8b67428eb0eef22c0d62ddf5b26",
+  "fram_after_restoration_unchanged": true,
+  "fram_sha256": "c814e9cc32eff06016f28ef964233354e35ba458653a16434e4416b296271561",
+  "historical_and_tail_unchanged": true,
+  "firmware": "Inherited M016 attempt02 commissioning WAIT, exact initial Flash; not a newly qualified cumulative successor",
+  "programmed_bytes": 114688,
+  "pages": 14,
+  "option_bytes_changed": false,
+  "mass_erase": false,
+  "final_state": "CommissioningReadOnly waiting; GDB detached",
+  "utc": "2026-10-16T07:50:12.571944+00:00"
+}

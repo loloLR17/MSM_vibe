@@ -1,0 +1,18 @@
+0x08006538 in HAL_GetTick () at /home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal.c:344
+344	}
+0xbfa0700:	0x004a003d	0x38425018	0x20333157
+$1 = 0x1c004400
+Note: automatically using hardware breakpoints for read-only addresses.
+$2 = 0
+$3 = 0
+$4 = 0
+$5 = 0
+$6 = 0
+$7 = 0
+$8 = 0
+Breakpoint 1 at 0x8013ff8: file /home/lolo/dev/msm/projects/MSM_vibe-R4-cooperative-fram/Modbus RTU/05_Firmware/src/common/cooperative_work.c, line 14.
+\\wsl.localhost\Debian\home\lolo\dev\msm\reports\TR2-r4\hardware\bench4-readonly-mount-deadline-attribution.gdb:34: Error in sourced command file:
+The program being debugged stopped while in a function called from GDB.
+Evaluation of the expression containing the function
+(live_configuration_recover) will be abandoned.
+When the function is done executing, GDB will silently stop.

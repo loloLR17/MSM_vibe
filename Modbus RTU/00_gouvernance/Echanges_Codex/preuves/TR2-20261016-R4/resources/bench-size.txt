@@ -1,2 +1,2 @@
    text	   data	    bss	    dec	    hex	filename
- 105596	    476	 593928	 700000	  aae60	/home/lolo/dev/msm/reports/TR2-r4/bench-build/tr2-r4-qualification-NON-PRODUCTION.elf
+ 106212	    476	 593928	 700616	  ab0c8	/home/lolo/dev/msm/reports/TR2-r4/bench-build/tr2-r4-qualification-NON-PRODUCTION.elf

@@ -1,0 +1,17 @@
+{
+  "utc": "2026-10-16T07:54:46.720804+00:00",
+  "protected_files": 2336,
+  "protected_hashes_unchanged": true,
+  "other_worktree_heads_unchanged": true,
+  "worktree_count": 53,
+  "original_main_clean": true,
+  "original_main_head": "82169af7e76797731358852bec83bfb0ceb54ccf",
+  "stashes": [
+    "6251b988e8b20f97997a8f98fd26d4d35a45a1b2",
+    "f3b829e6188f491920edf74a5f9ed0f559d08b87"
+  ],
+  "R3B_archives_exact_at_66c5e16": [
+    "Modbus RTU/00_gouvernance/Echanges_Codex/archives/TR2-20261015-R3B-LIVE-METROLOGY-B3/MISSION.md",
+    "Modbus RTU/00_gouvernance/Echanges_Codex/archives/TR2-20261015-R3B-LIVE-METROLOGY-B3/RAPPORT.md"
+  ]
+}

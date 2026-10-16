@@ -27,8 +27,8 @@ Les API restent synchrones avec **points de service coopératifs à l'intérieur
 de leur pile d'appels, pas des futures/threads ni un moteur delta. Les phases R2
 restent RESERVED/STARTED/effet/COMPLETED. Payload complet puis header image, validation,
 publication root puis revalidation ; aucun succès anticipé. CRC et scans longs
-sont incrémentaux, SHA compression64octets inchangée ; chaque entrée journal128
-est un quantum CPU borné en taille. Codecs fixes96/112/140octets restent bornés.
+sont incrémentaux, SHA compression64octets inchangée ; les copies et décodages des128entrées journal
+sont séparés par des points de service CPU. Codecs fixes96/112/140octets restent bornés.
 Les scopes R2/R1/média/SHA s'imbriquent ; idle entre opérations ne crée pas un
 faux timeout. En service : réentrée de transaction/staging/commande refusée avant
 mutation. Sur erreur de service, recul de temps ou dépassement de limite : arrêt
@@ -79,7 +79,7 @@ perte déjà survenue. Pas de budget physique autorisé par ce seul changement.
   FC03B0 et FC10max255octets RO refusé02, alternés ; TX modélisé asynchrone avec
   attente de durée fil avant nouveau maître. Drain borné8événements/callback,
   backlog vérifié<64. Pas une qualification du driver IRQ/DE physique.
-- Résultat renforcé q32 :620,605s simulées,13776548XYZ,13renouvellements,38804réponses,
+- Résultat renforcé q32 :624,225411s simulées,13859117XYZ,13renouvellements,39033réponses,
   FIFOmax19, RXqueueMax8, overflow0. q16/64 FIFOmax16/24, gapmax370/566us ;
   workmax544us et servicemax362us dans ces hypothèses. Latence enqueue FC10≈25ms
   inclut la réception255octets ; pas temps de transmission complet ni borne cible.
@@ -111,35 +111,40 @@ sont dans DERNIER_RAPPORT et ses preuves, séparées de ce modèle. Ne pas décl
 R4 physique ni passerelle R6 acquis sur ces seuls résultats hôte/ARM.
 
 
-## Qualification R4 sur TR2-001 — 16/10/2026
+## Qualification R4 sur TR2-001 —16/10/2026
 
-Probe explicite `TR2_STM32_R4_BENCH=ON`, recette matérielle cumulative mais
-artefact `tr2-r4-qualification-NON-PRODUCTION`, aucune entrée production/SD/UART.
-WAIT RAM puis commande1 lecture seule ou commande2 allocation LIVE/R1/R2.
-Propriété conditionnée par UID exact, SHA complet FRAM fraîchement relu égal à
-la double sauvegarde, partition LIVE vide normative et unique owner de ce probe.
-Les deux couches écriture refusent hors[122880,245760), après chaque yield.
+Voir DERNIER_RAPPORT.md et preuves pour les étapes séparées. Préflight positif,
+Flash/FRAM doublées et vérifiées, allocation LIVE exclusive contrôlée. Probe opt-in
+au WAIT RAM, artefact NON-PRODUCTION ; modes1lecture/2R1R2/3recovery readonly.
+Aucun raccordement UART/SD ni capability protocole2/B3.
 
-Deux écarts physiques ont été conservés puis corrigés : HAL Timeout1 expire au
-prochain tick même sur commande courte (ErrorCode32), donc2ms ; premier mot FIFO
-absent à5ms alors que [ST Ton](https://www.st.com/resource/en/datasheet/iis3dwb.pdf)
-est10ms typique, sans maximum garanti. Un paramètre premier-mot distinct est
-ajouté, par défaut égal à l'ancien délai ; le probe choisit20ms expérimentalement.
-Le gap entre polls5ms, les statuts/overrun et la surveillance après premier mot
-restent inchangés. Première donnée observée11,043ms ; pas une borne constructeur.
+Échecs conservés : timeoutHAL1ms corrigé2ms ; premier-mot absent avant5ms, distinct
+du gap continu (probe20ms, ST Ton10ms typique sans maximum garanti). Préfixe FIFO
+readonly180826XYZ/FIFOmax18/gap601us/service461us/read132us, premier burst11,043ms,
+arrêt235us. RUN entier nonPASS : contrôle final interrompu à l'arrêt par GDB ;
+FRAM ensuite relue intégralement identique. R1 migrate+APPLY réussis sans FIFO,
+puis harness réordonné pour binder le contrôle R2 avant mount, sans répéter R1.
 
-Préfixe physique lecture seule :180826XYZ/22604TS, FIFOmax18/512, gapmax601us,
-FRAMreadmax132us et service461us, arrêt235us. Aucune écriture. Le halt GDB trop tôt
-pendant le contrôle final à l'arrêt a interrompu une lecture et causé son timeout ;
-ce RUN n'est donc pas déclaré entièrement PASS. Contrôle indépendant ensuite à
-l'arrêt :262144octets identiques à la sauvegarde. R1/R2 en cours, résultat final
-et restauration dans le rapport ; ne pas interpréter ce préfixe comme qualification RTU2.
+R2 cible :1030us>1000us pendant validation des copies/décodages d'une entrée journal,
+reproduit par recovery readonly avec pile GDB. Points de service entre copies et
+décodages ajoutés, formats/invariants/limite inchangés. Codef3ae3a6 :136tests/ARM
+PASS,74,52s ; ASan/UBSan4suites PASS,141,52s,1561oracles de coupure préservés.
+Modèle final q32 :624,225411s/13859117XYZ/13renewals/39033RTU/FIFO19/RXqueue8/overflow0.
 
-136tests hôte/ARM repris après correction (57,44s), trois suites ASan/UBSan PASS
-(17,07s). BIN canonique SHA inchangé6a2150af8939ead0b81219a96cfd51dc2cbef03a3851d46775fa71ddbfeb15a9.
-Cartographie421modules, C/C++ propriétaire32841lignes/tests47665 à12e7a1f,
-soit+500/+336 depuis66c5e16 (méthode physique splitlines, pas additions Git).
-Tailles ARM work64, acquisition1104, FIFO1072, moteur488/store9656/config584/média96.
-Probe text105596/data476/bss593928 ; canonique text172580/data480/bss602232.
-Les `.su` sont des cadres statiques compilateur, pas une mesure de pile maximale
-ni une preuve de WCET ; pas de DMA/retry ajouté, ni changement de fréquence/pins.
+Recovery physique corrigé PASS en6,275s :923428octets lus/0écrit, workmax907us,
+limite1000us inchangée, statut9 indéterminé conservé, aucun redispatch et FRAM
+identique. Pas de qualification écritureR2+FIFO sur cible ; STARTED reste durable
+sans reçu permettant de conclure. **Blocage causal réel** : décision de maintenance
+ou reprovisionnement LIVE explicite requise avant nouvelle campagne R2.
+R0 n'autorise ni reçu inventé ni effacement pour restaurer. Timeouts SPI3/IRQ/STOP
+en faute, provider capteur calibré, RTU électrique et pile/CPU total restent à qualifier.
+T1000 seulCOM3/STLINK, aucun adaptateur RS485 détecté. Pas de budget production accordé.
+
+Flash initiale M016 retrouvée **entièrement restaurée2Mio**,14pages modifiées reprogrammées
+sans mass erase ; FRAM finale conservée, historique et tail byte-identiques.
+Voir empreintes et logs dans le rapport. Aucun firmware successeur laissé actif.
+Cartographie421modules ;32868lignes C/C++/47665tests àf3ae3a6 (+527/+336 depuis66c5e16).
+Tailles ARM work64/acquisition1104/FIFO1072/engine488/store9656/config584/media96.
+Probe text106212/data476/bss593928 ; canonique text172580/data480/bss602232 et BIN
+inchangé6a2150af8939ead0b81219a96cfd51dc2cbef03a3851d46775fa71ddbfeb15a9.
+Cadres `.su` statiques O0 seulement, pas high-water de pile ni WCET garanti.

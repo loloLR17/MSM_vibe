@@ -1,0 +1,14 @@
+Internal ctest changing into directory: /home/lolo/dev/msm/cache/r4-sanitize
+Test project /home/lolo/dev/msm/cache/r4-sanitize
+    Start 129: live_configuration
+1/4 Test #129: live_configuration ...............   Passed   18.19 sec
+    Start 130: live_command_engine
+2/4 Test #130: live_command_engine ..............   Passed   70.52 sec
+    Start 134: cooperative_fram_fifo
+3/4 Test #134: cooperative_fram_fifo ............   Passed   12.75 sec
+    Start 135: cooperative_work
+4/4 Test #135: cooperative_work .................   Passed   40.03 sec
+
+100% tests passed, 0 tests failed out of 4
+
+Total Test time (real) = 141.52 sec
