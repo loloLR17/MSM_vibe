@@ -269,8 +269,8 @@
       "sha256": "2c8ac71a5444065b446fa01825028aaac8b0f413d68600ac717036f96d5fc6a5"
     },
     "latest-readback.json": {
-      "bytes": 6249,
-      "sha256": "25207778e85a7ffb3af2c4c7c3a3ce95d8eaca1472466ac34ce8f1295a205665"
+      "bytes": 10697,
+      "sha256": "ccf2c5890b695927011af1a92a05fddd754c58a372c25359e56934ff7ab33c6a"
     },
     "measure.py": {
       "bytes": 1140,

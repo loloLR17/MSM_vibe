@@ -1,13 +1,13 @@
 ---
 mission_id: TR2-20261016-R4Q-LIVE-B3-RTU-COMPOSITION
-status: IN_PROGRESS
+status: DONE
 coverage: SOFTWARE_DONE_PHYSICAL_PARTIAL
 base_ref: main
 base_sha: 48805fe638151a33f2e44f17eb6da01a00e91efa
 initial_head: cf9d1b5321923a0abb2494b46b2c7860e5dcecc6
 result_sha: 6e813501a973fb25bd41bf3b0713435763414779
 created_at_utc: 2026-10-16T15:04:00Z
-updated_at_utc: 2026-10-16T15:04:00Z
+updated_at_utc: 2026-10-16T15:06:09Z
 author: Codex
 target_branch: main
 allow_commit: true
@@ -25,7 +25,8 @@ capturées en RAM puis traitées hors callback RTU/ISR, avec admission R2 inchan
 Le probe cible a mesuré dix secondes de lectures FRAM et de RTU loopback RAM,
 capteur arrêté et B3 sans valeur valide ; ce n'est pas B3 vibratoire physique.
 La Flash initiale est restaurée, la FRAM R4-P epoch4/run4 reste entière inchangée.
-IN_PROGRESS porte seulement sur la publication/relecture finale à obtenir.
+DONE constate la livraison de cette tranche préparatoire après publication et relecture
+distante intégrale ; la couverture physique reste PARTIAL, sans qualification R6.
 Aucun blocage technique n'a empêché la livraison logicielle ; le temps événement
 STM32 non qualifié limite la qualification physique complète, reportée explicitement.
 Aucune décision normative inventée, aucune qualification R6/industrielle annoncée.
@@ -236,9 +237,13 @@ normative nouvelle n'est nécessaire pour réceptionner la tranche préparatoire
 ## Publications et état Git
 
 Code6e813501…14779 et checkpoint32cc6a1a99bcbc95b3f9e7b3479a37d17b7c1c53 publiés
-sur main et intégralement relus (66fichiers/52preuves) avant le probe. Le présent
-bilan technique, preuves, journal et roadmap attendent leur publication/relecture
-finale selon protocole ; statut DONE non anticipé. Aucun blocage de push connu.
+sur main et intégralement relus (66fichiers/52preuves) avant le probe. Bilan technique, preuves, journal et roadmap publiés au commit
+30c6b710d50bd3eda09c81249432b6925190c59d — R4Q: publish software integration and
+bounded read-only STM32 loopback evidence with exact restoration. Relecture réelle
+origin/main à 2026-10-16T15:05:41.061389+00:00 :110fichiers intégralement comparés,
+94preuves SHA256 contrôlées, HEAD=origin/main et worktree propre. Cette mise à jour
+DONE consigne cette relecture ; elle est ensuite publiée normalement et vérifiée,
+SHA final donné dans la réponse finale, sans auto-référence inventée.
 [Preuves complètes](preuves/TR2-20261016-R4Q/README.md) : logs bruts, commandes GDB/flash,
 images/provenance, tests avec échecs, snapshots zlib, audits et manifeste SHA256SUMS.
 Journal actualisé sur état carte, portée logiciel/physique et suite ; roadmap R2/R3/R4
