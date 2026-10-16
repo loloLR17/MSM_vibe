@@ -367,6 +367,10 @@
     "verify-preservation.py": {
       "bytes": 1737,
       "sha256": "ab3ae2c6f0616265660a8f7a344601c1a0f3d74fc11c69bcb84483520cc81329"
+    },
+    "latest-readback.json": {
+      "bytes": 10687,
+      "sha256": "fb53c4be4e4a7f215b9c502e0f0a2029ce0877bfa1eb64e71caf170934bd0661"
     }
   }
 }

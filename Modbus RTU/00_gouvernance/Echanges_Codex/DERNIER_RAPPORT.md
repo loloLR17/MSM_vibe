@@ -1,6 +1,6 @@
 ---
 mission_id: TR2-20261016-R4D-START-TIMING-DIAGNOSTIC
-status: IN_PROGRESS
+status: DONE
 base_ref: main
 base_sha: 71ee541d6f534d993d439475c32bec5b03d7856c
 initial_head: 88298cffa0403d80dfe95f534138401da0d9d3fb
@@ -16,7 +16,7 @@ allow_debug: true
 
 # R4-D — défaut de découpage reproduit, correction et diagnostic livrés
 
-Travail technique terminé ; **IN_PROGRESS uniquement pour publication/relecture**.
+**DONE dans la portée de diagnostic R4-D**, après publication et relecture distante.
 START et OBSERVE forment un travail nominal continu de plus de1008us sans yield,
 au-delà de la limite1000us. Leur séparation explicite donne un quantum cible
 maximal de911us, sans relâcher les limites. Ce diagnostic ne résout ni ne nettoie
@@ -162,6 +162,10 @@ Dépôt historique propre à82169af7e76797731358852bec83bfb0ceb54ccf ; stashes
 6251b988e8b20f97997a8f98fd26d4d35a45a1b2 etf3b829e6188f491920edf74a5f9ed0f559d08b87 conservés.
 Permissions exercées : développement/tests/commit/push normal versmain, flash/debug
 qualifiés de probes puis restauration, sans écritureFRAM ni opération sensible.
-SHA de code testés ci-dessus ; la relecture distante du bilan et la clôture restent
-à consigner après push. Le SHA du dernier commit documentaire sera fourni dans la
-réponse finale ; aucun statut ne vaut qualification indépendante ChatGPT.
+Bilan publié **85fb51e7aca24d210b60fb88d656a824617c6c49**, puis intégralement relu
+sur la référence récupérée de GitHub :104fichiers comparés byte-à-byte,92preuves
+contrôlées par SHA. Worktree propre, HEAD=origin/main après cette publication.
+La preuve de relecture figure dans latest-readback.json. Le présent commit clôture
+R4-D ; son SHA et la vérification distante finale sont fournis dans la réponse Codex.
+**DONE ne qualifie pas R4/R6**, ne lève pas le STARTED existant et ne remplace pas
+le contrôle indépendant ChatGPT. Aucun travail matériel supplémentaire après restauration.
