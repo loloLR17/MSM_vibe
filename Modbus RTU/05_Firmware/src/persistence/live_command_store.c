@@ -93,10 +93,11 @@ static Tr2Result decode_effect(const uint8_t b[64],LiveEffectRecord *r)
     return r->epoch&&r->txid&&r->txid<65535u&&(r->code==13||r->code==14)&&r->run_id&&
         r->config_id&&r->config_generation&&r->phase>=1&&r->phase<=4?TR2_OK:TR2_ERROR_CORRUPTED;
 }
-static Tr2Result select_pair(const uint8_t *a,size_t size,int *copy)
+static Tr2Result select_pair(const uint8_t *a,size_t size,int *copy,Tr2CooperativeWork *work)
 {
     unsigned i;*copy=-1;
     for(i=0;i<2;i++) {
+        Tr2Result result=tr2_cooperative_checkpoint(work);if(result!=TR2_OK)return result;
         const uint8_t *p=a+size*i;
         if(blank(p,size))continue;
         if(g32(p+size-4)!=crc(p,size-4))return TR2_ERROR_CORRUPTED;
@@ -114,7 +115,7 @@ static Tr2Result validate_control(void *context,const uint8_t *image,size_t size
     result=tr2_cooperative_equal(s->configuration->live->work,image+44594u,0,7168u,&empty);
     if(result!=TR2_OK)return result;
     if(!empty||!uniform(image+51802u,16u,0))return TR2_ERROR_CORRUPTED;
-    result=select_pair(image+51914u,64,&copy);if(result!=TR2_OK)return result;
+    result=select_pair(image+51914u,64,&copy,s->configuration->live->work);if(result!=TR2_OK)return result;
     if(copy<0)return TR2_ERROR_NOT_AVAILABLE;
     s->epoch_copy=(uint8_t)copy;result=decode_epoch(image+51914u+64u*(unsigned)copy,&s->epoch);if(result!=TR2_OK)return result;
     {
@@ -133,20 +134,23 @@ static Tr2Result validate_control(void *context,const uint8_t *image,size_t size
                 return TR2_ERROR_CORRUPTED;
         }
     }
-    result=select_pair(image+52042u,64,&copy);if(result!=TR2_OK)return result;
+    result=select_pair(image+52042u,64,&copy,s->configuration->live->work);if(result!=TR2_OK)return result;
     s->effect_copy=copy<0?1u:(uint8_t)copy;
     if(copy>=0){result=decode_effect(image+52042u+64u*(unsigned)copy,&s->effect);if(result!=TR2_OK)return result;s->has_effect=true;}
     for(i=0;i<128;i++) {
         result=tr2_cooperative_checkpoint(s->configuration->live->work);if(result!=TR2_OK)return result;
-        result=select_pair(image+15922u+224u*i,112,&copy);if(result!=TR2_OK)return result;
+        result=select_pair(image+15922u+224u*i,112,&copy,s->configuration->live->work);if(result!=TR2_OK)return result;
         s->copy[i]=copy<0?1u:(uint8_t)copy;
         if(copy<0)continue;
+        result=tr2_cooperative_checkpoint(s->configuration->live->work);if(result!=TR2_OK)return result;
         result=live_command_record_decode(image+15922u+224u*i+112u*(unsigned)copy,&s->entries[i]);if(result!=TR2_OK)return result;
+        result=tr2_cooperative_checkpoint(s->configuration->live->work);if(result!=TR2_OK)return result;
         {
             const uint8_t *old=image+15922u+224u*i+112u*(1u-(unsigned)copy);
             if(!blank(old,112u)) {
                 LiveCommandRecord previous;
                 result=live_command_record_decode(old,&previous);if(result!=TR2_OK)return result;
+                result=tr2_cooperative_checkpoint(s->configuration->live->work);if(result!=TR2_OK)return result;
                 if(previous.request.epoch==s->entries[i].request.epoch&&
                    (previous.request.command.transaction_id!=s->entries[i].request.command.transaction_id||
                     !command_request_identity_equal(&previous.request.command.identity,&s->entries[i].request.command.identity)||

@@ -27,7 +27,8 @@ static LiveCommandStore store;
 static LiveCommandEngine engine;
 static Stm32LiveAcquisition owner;
 static Tr2CooperativeWork work;
-static bool resume_after_r1;
+static bool resume_after_r1,readonly_r2;
+static const uint8_t r2_sha[32]={0xc8,0x14,0xe9,0xcc,0x32,0xef,0xf0,0x60,0x16,0xf2,0x8e,0xf9,0x64,0x23,0x33,0x54,0xe3,0x5b,0xa4,0x58,0x65,0x3a,0x16,0x43,0x4e,0x44,0x16,0xb2,0x96,0x27,0x15,0x61};
 static const uint8_t r1_sha[32]={0x82,0x84,0x45,0xa7,0xf1,0xd1,0x17,0x00,0x53,0x57,0x9c,0xf6,0xdf,0x2e,0x42,0x3b,0x12,0x8e,0xc9,0xde,0xa2,0x8d,0x8e,0xa0,0x2b,0xea,0x71,0x80,0x62,0xe9,0x06,0xa6};
 static uint32_t previous_cycles;
 static uint64_t elapsed_cycles;
@@ -113,7 +114,8 @@ static Tr2Result read_baseline(void)
  }
  REQUIRE(tr2_cooperative_leave(&work));
  REQUIRE(tr2_sha256_bytes_cooperative(baseline,sizeof(baseline),digest,&work));
- resume_after_r1=!memcmp(digest,r1_sha,32);
+ readonly_r2=!memcmp(digest,r2_sha,32);
+ resume_after_r1=!memcmp(digest,r1_sha,32)||readonly_r2;
  if(memcmp(digest,baseline_sha,32)&&!resume_after_r1)return TR2_ERROR_STORAGE;
  r4_result.baseline_equal=1;r4_result.read_passes++;return TR2_OK;
 }
@@ -154,6 +156,8 @@ static Tr2Result qualify(uint32_t mode)
 {
  r4_result.stage=2;REQUIRE(read_baseline());
  r4_result.stage=3;
+ if(readonly_r2&&mode!=3)return TR2_ERROR_INVALID_STATE;
+ if(mode==3&&!readonly_r2)return TR2_ERROR_INVALID_STATE;
  if(fifo_live_stop(&owner.acquisition.fifo))return TR2_ERROR_UNAVAILABLE;
  if(mode==1) {
   r4_result.start_us=now_us(NULL);
@@ -171,7 +175,7 @@ static Tr2Result qualify(uint32_t mode)
   REQUIRE(compare_protected());return TR2_OK;
  }
  /* Ownership grant is local to this explicitly triggered, verified allocation. */
- r4_result.ownership=1;
+ r4_result.ownership=mode!=3;
  TransactionalImagePhysicalStorage storage={NULL,read_physical,write_physical};
  TransactionalImageGeometry geometry=transactional_image_geometry_qualification_profile();
  static const PersistentIdentityAssignment assignment={ {0x004A003D,0x38425018,0x20333157},1};
@@ -197,6 +201,12 @@ static Tr2Result qualify(uint32_t mode)
  REQUIRE(live_command_engine_init(&engine,&store,&port));
  owner.acquisition.engine=&engine; /* Raw qualification only: B3 remains unbound. */
  REQUIRE(live_command_engine_boot(&engine));
+ if(mode==3) {
+  /* Recovery qualification only: preserve STARTED, never replay or clear it. */
+  if(!engine.indeterminate||engine.status!=9||!engine.has_active||r4_result.write_bytes)
+   return TR2_ERROR_INVALID_STATE;
+  snapshot();REQUIRE(compare_protected());return TR2_OK;
+ }
  r4_result.stage=5;r4_result.start_us=now_us(NULL);REQUIRE(command(1,1,13));
  r4_result.stage=6;REQUIRE(command(1,65535,12));
  r4_result.stage=7;
@@ -227,7 +237,7 @@ __attribute__((noreturn)) void stm32_r4_benchmark_run(SPI_HandleTypeDef *spi1,SP
  bounded=stm32_fram_storage_bounded_physical(&fram);
  if(tr2_cooperative_init(&work,NULL,now_us,service,stop,32,1000,2500)!=TR2_OK)for(;;)__WFI();
  r4_result.stage=1;
- while(r4_trigger!=0x52340001u&&r4_trigger!=0x52340002u){(void)now_us(NULL);HAL_Delay(1);}
+ while(r4_trigger!=0x52340001u&&r4_trigger!=0x52340002u&&r4_trigger!=0x52340003u){(void)now_us(NULL);HAL_Delay(1);}
  uint32_t mode=r4_trigger&0xFFFFu;r4_trigger=0;r4_result.command=mode;
  r4_result.tick_start=HAL_GetTick();Tr2Result status=qualify(mode);
  if(status!=TR2_OK){if(!r4_result.error)r4_result.error=status;stop(NULL);r4_result.stage|=0x80000000u;}
