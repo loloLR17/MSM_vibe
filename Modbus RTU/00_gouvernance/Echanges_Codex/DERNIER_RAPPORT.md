@@ -168,6 +168,11 @@ Journal actualisé : statut BLOCKED, temps caractérisé, échec service/STARTED
 candidate non qualifiée, restauration et conditions de reprise. Roadmap R3/R4
 actualisée sans modifier les normes ni effacer les acquis R4-P/R4-Q.
 Checkpoint **5e4fde66b52902798807c6adcd6522194a591eaa** relu depuis GitHub :113 fichiers/
-97 preuves contrôlés. Le présent bilan et ses nouvelles preuves sont à relire après
-push ; BLOCKED désigne le verrou technique, aucune qualification physique implicite.
-Le SHA du dernier commit de publication sera donné après vérification distante.
+97 preuves contrôlés. Le bilan technique **444f01acc07ec4eb1389b508b634ead7710a1923**
+a ensuite été récupéré depuis GitHub et relu intégralement : **155 fichiers comparés,
+138 preuves SHA256 vérifiées**, le 16/10/2026 UTC. La trace complète est publiée
+avec les preuves. Statut **BLOCKED technique** maintenu pour STARTED run 5 et budget
+non satisfait ; publication vérifiée distincte de la qualification physique.
+Le commit de confirmation de cette relecture aura son SHA fourni dans la réponse
+finale, après contrôle de sa propre publication. Aucun nouvel accès matériel depuis
+la restauration vérifiée à 20:57:06 UTC.

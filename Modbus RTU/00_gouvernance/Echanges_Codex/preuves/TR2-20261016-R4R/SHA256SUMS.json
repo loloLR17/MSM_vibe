@@ -92,6 +92,10 @@
       "bytes": 209,
       "sha256": "0d18ea6ca9a650711b47fc931d87ae84dcaa38f3765d077af6ecab1aa5a608ae"
     },
+    "final-report-readback.json": {
+      "bytes": 15700,
+      "sha256": "fb82b855e3ba4bcc0c481ed1d4a1cb3f40e133098adbc457077aff2f1a9893b8"
+    },
     "finalize.py": {
       "bytes": 18579,
       "sha256": "ab61807c9bef3c51b245c575a5960519c227965446ec106aef16ea18e897126e"
@@ -485,8 +489,8 @@
       "sha256": "7151083c28364463ab2127ece30a93d914806bffdfa3bcf0cc3556fc3c121df3"
     },
     "latest-readback.json": {
-      "bytes": 11374,
-      "sha256": "d639d616a3fb4ee5a0f72a8a32169ea8bd984e4bf3edd48e85b29dd918b1a344"
+      "bytes": 15700,
+      "sha256": "fb82b855e3ba4bcc0c481ed1d4a1cb3f40e133098adbc457077aff2f1a9893b8"
     },
     "oracle-self-test.log": {
       "bytes": 69,

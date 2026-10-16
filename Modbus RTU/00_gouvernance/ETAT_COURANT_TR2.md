@@ -261,3 +261,8 @@ Publication R3-B vérifiée : code1c5368f, preuves/rapport faf0f94 sur main relu
  servicecorrigé sansadmissionR2, puis traitementexplicitementautorisé deSTARTED
  avantnouveauSTART. Aucunreplay/effacement/reçuinventé/rollback. R4global/R6 ouverts.
 [Plan etpreuves](../05_Firmware/LIVE_R4R.md). Checkpoint5e4fde6 relu113fichiers/97preuves.
+
+- **BILAN DISTANT RELU** :444f01acc07ec4eb1389b508b634ead7710a1923 récupéré de
+ GitHub,155 fichiers comparés intégralement/138 preuves SHA vérifiées ; statut
+ BLOCKED technique maintenu. Publication et restauration démontrées, B3 physique
+ et correction candidate non qualifiés ; contrôle indépendant ChatGPT distinct.
