@@ -1,0 +1,38 @@
+{
+  "server": [
+    "/mnt/c/ST/STM32CubeCLT_1.22.0/STLink-gdb-server/bin/ST-LINK_gdbserver.exe",
+    "-d",
+    "-g",
+    "-i",
+    "003500463235510B37333439",
+    "--frequency",
+    "8000",
+    "-p",
+    "61234",
+    "-cp",
+    "C:\\ST\\STM32CubeCLT_1.22.0\\STM32CubeProgrammer\\bin"
+  ],
+  "gdb": [
+    "/mnt/c/ST/STM32CubeCLT_1.22.0/GNU-tools-for-STM32/bin/arm-none-eabi-gdb.exe",
+    "-nx",
+    "-q",
+    "-batch",
+    "-x",
+    "\\\\wsl.localhost\\Debian\\home\\lolo\\dev\\msm\\reports\\TR2-r4p\\hardware\\r4p-protected-skip-attribution.gdb",
+    "\\\\wsl.localhost\\Debian\\home\\lolo\\dev\\msm\\reports\\TR2-r4p\\bench-build\\tr2-r4p-coexistence-NON-PRODUCTION.elf",
+    "-ex",
+    "bt",
+    "-ex",
+    "p work",
+    "-ex",
+    "frame 2",
+    "-ex",
+    "info locals",
+    "-ex",
+    "detach",
+    "-ex",
+    "quit"
+  ],
+  "return_code": 0,
+  "utc": "2026-10-16T13:03:29.591343+00:00"
+}

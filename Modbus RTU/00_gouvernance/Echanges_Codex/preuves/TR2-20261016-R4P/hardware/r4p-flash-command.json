@@ -1,0 +1,17 @@
+{
+  "command": [
+    "/mnt/c/ST/STM32CubeCLT_1.22.0/STM32CubeProgrammer/bin/STM32_Programmer_CLI.exe",
+    "-c",
+    "port=SWD",
+    "sn=003500463235510B37333439",
+    "freq=8000",
+    "-w",
+    "\\\\wsl.localhost\\Debian\\home\\lolo\\dev\\msm\\reports\\TR2-r4p\\bench-build\\tr2-r4p-coexistence-NON-PRODUCTION.bin",
+    "0x08000000",
+    "-v",
+    "-rst"
+  ],
+  "code_sha": "369887b9583ca05d0208c3d18bdd485311bcb151",
+  "sha256": "7d51abafd51c4b19159e84d360ba36d7873bac86d46c983586d958d3ace58283",
+  "normal_programming_only": true
+}

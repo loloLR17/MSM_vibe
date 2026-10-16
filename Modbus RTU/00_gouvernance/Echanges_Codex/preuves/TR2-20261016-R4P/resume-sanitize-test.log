@@ -1,0 +1,8 @@
+Internal ctest changing into directory: /home/lolo/dev/msm/cache/r4p-sanitize
+Test project /home/lolo/dev/msm/cache/r4p-sanitize
+    Start 139: r4p_maintenance
+1/1 Test #139: r4p_maintenance ..................   Passed    1.12 sec
+
+100% tests passed, 0 tests failed out of 1
+
+Total Test time (real) =   1.12 sec

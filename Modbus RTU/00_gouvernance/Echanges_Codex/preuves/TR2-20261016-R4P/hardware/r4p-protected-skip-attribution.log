@@ -1,0 +1,29 @@
+0x08006538 in HAL_GetTick () at /home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal.c:344
+344	}
+0xbfa0700:	0x004a003d	0x38425018	0x20333157
+$1 = false
+Breakpoint 1 at 0x8015770: file /home/lolo/dev/msm/projects/MSM_vibe-R4P-physical-coexistence/Modbus RTU/05_Firmware/src/common/cooperative_work.c, line 14.
+Note: automatically using hardware breakpoints for read-only addresses.
+
+Breakpoint 1, failed (w=0x20090790 <work>, error=TR2_ERROR_UNAVAILABLE) at /home/lolo/dev/msm/projects/MSM_vibe-R4P-physical-coexistence/Modbus RTU/05_Firmware/src/common/cooperative_work.c:14
+14	 w->error=error;w->servicing=true;w->safety_stop(w->context);w->servicing=false;return error;
+#0  failed (w=0x20090790 <work>, error=TR2_ERROR_UNAVAILABLE) at /home/lolo/dev/msm/projects/MSM_vibe-R4P-physical-coexistence/Modbus RTU/05_Firmware/src/common/cooperative_work.c:14
+#1  0x0801585e in tr2_cooperative_checkpoint (w=0x20090790 <work>) at /home/lolo/dev/msm/projects/MSM_vibe-R4P-physical-coexistence/Modbus RTU/05_Firmware/src/common/cooperative_work.c:26
+#2  0x0800f50a in compare_protected () at /home/lolo/dev/msm/projects/MSM_vibe-R4P-physical-coexistence/Modbus RTU/05_Firmware/platform/stm32/stm32_r4_bench.c:209
+#3  <function called from gdb>
+#4  0x08006538 in HAL_GetTick () at /home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal.c:344
+#5  0x0800656c in HAL_Delay (Delay=1) at /home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal.c:419
+#6  0x08010ba8 in stm32_r4_benchmark_run (spi1=0x20000340 <hspi1>, spi3=0x200003d0 <hspi3>) at /home/lolo/dev/msm/projects/MSM_vibe-R4P-physical-coexistence/Modbus RTU/05_Firmware/platform/stm32/stm32_r4_bench.c:434
+#7  0x0800531c in main () at /home/lolo/dev/msm/projects/MSM_vibe-R4P-physical-coexistence/Modbus RTU/05_Firmware/platform/stm32/main.c:1828
+$2 = {context = 0x0, now_us = 0x800ec59 <now_us>, service = 0x800ee7d <service>, safety_stop = 0x800ecfd <stop>, last_us = 415653075, max_work_us = 1075, max_service_us = 4, checkpoints = 104505, work_limit_us = 1000, service_limit_us = 2500, quantum_bytes = 32, depth = 1, error = TR2_OK, servicing = false, seen = true, deadline_missed = true}
+#2  0x0800f50a in compare_protected () at /home/lolo/dev/msm/projects/MSM_vibe-R4P-physical-coexistence/Modbus RTU/05_Firmware/platform/stm32/stm32_r4_bench.c:209
+209	  REQUIRE(tr2_cooperative_checkpoint(&work));
+status = TR2_OK
+at = 245760
+bytes = '\000' <repeats 31 times>
+[Inferior 1 (Remote target) detached]
+\\wsl.localhost\Debian\home\lolo\dev\msm\reports\TR2-r4p\hardware\r4p-protected-skip-attribution.gdb:20: Error in sourced command file:
+The program being debugged stopped while in a function called from GDB.
+Evaluation of the expression containing the function
+(compare_protected) will be abandoned.
+When the function is done executing, GDB will silently stop.

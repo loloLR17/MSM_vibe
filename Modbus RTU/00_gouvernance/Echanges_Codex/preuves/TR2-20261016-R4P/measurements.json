@@ -1,0 +1,118 @@
+{
+  "physical_mode4": {
+    "r4_result": {
+      "stage": 2147483668,
+      "error": 6,
+      "line": 274,
+      "command": 4,
+      "ownership": 0,
+      "read_passes": 1,
+      "commands": 0,
+      "core_hz": 160000000,
+      "spi1_hz": 2500000,
+      "spi3_hz": 4000000,
+      "tick_start": 6182,
+      "tick_end": 15382,
+      "max_read_us": 132,
+      "max_write_us": 164,
+      "max_gap_us": 0,
+      "last_poll_us": 0,
+      "safety_us": 236,
+      "first_data_us": 0,
+      "start_us": 0,
+      "read_bytes": 1272938,
+      "write_bytes": 52426,
+      "xyz": 0,
+      "timestamps": 0,
+      "polls": 0,
+      "elapsed_us": 15382340,
+      "max_level": 0,
+      "fifo_error": 0,
+      "stop_error": 0,
+      "engine_status": 9,
+      "engine_result": 0,
+      "protected_equal": 0,
+      "baseline_equal": 1
+    },
+    "work": {
+      "last_us": 15380780,
+      "max_work_us": 1075,
+      "max_service_us": 4,
+      "checkpoints": 100664,
+      "work_limit_us": 1000,
+      "service_limit_us": 2500,
+      "quantum_bytes": 32,
+      "depth": 1,
+      "servicing": false,
+      "seen": true,
+      "deadline_missed": true
+    },
+    "r4m_guard": "$3 = {epoch_floor = 2, run_floor = 2, intent = \"TR2E\\000\\001\\000@\\000\\000\\000\\000\\000\\000\\000\\003\\000\\000\\000\\002\\000\\001\\000\\r\\000\\000\\000\\000\\000\\000\\000\\002\\000\\000\\000\\002\\000\\000\\000\\002\\000\\001\", '\\000' <repeats 18 times>, \"\\036\ufffd4\\235TR2E\\000\\001\\000@\\000\\000\\000\\000\\000\\000\\000\\004\\000\\000\\000\\002\\000\\001\\000\\r\\000\\000\\000\\000\\000\\000\\000\\002\\000\\000\\000\\002\\000\\000\\000\\002\\000\\001\", '\\000' <repeats 18 times>, \"\u00a5\ufffd\ufffd\", phase = 2}",
+    "r4m_range_count": 3,
+    "r4m_op_count": 0,
+    "r4m_old_rejected": 0,
+    "r4m_protected_checks": 0,
+    "r4m_cs_closed": 1639,
+    "r4m_fifo_max_all": 0,
+    "r4m_xyz_all": 0,
+    "r4m_ts_all": 0,
+    "r4m_stop_max_us": 238,
+    "r4m_stop_end_us": 15382337,
+    "r4m_fault_seen_us": 0,
+    "r4m_fault_reaction_us": 0,
+    "bench_log_refused": 0,
+    "bench_preclose_overflow": 0,
+    "engine": "$18 = {store = 0x2008db90 <store>, acquisition = {context = 0x20090330 <owner>, start = 0x800f715 <guarded_start>, stop = 0x800f7b9 <timed_stop>, observe = 0x800e259 <observe>, io_admissible = 0x800e2ef <budget>, terminal_time = 0x0}, state = LIVE_READY, active = {generation = 6, request = {epoch = 2, command = {transaction_id = 1, identity = {command_code = 13, param1 = 0, param2 = 0, param3 = 0, confirm_key = 0}}}, phase = 2, status = 0, result = 0, detail = 0, timestamp = {available = false, value = 0}, run_id = 2, config_id = 2, config_generation = 2, effect_state = 1}, last = {generation = 4, request = {epoch = 1, command = {transaction_id = 65535, identity = {command_code = 12, param1 = 0, param2 = 0, param3 = 0, confirm_key = 0}}}, phase = 3, status = 4, result = 0, detail = 0, timestamp = {available = false, value = 0}, run_id = 0, config_id = 0, config_generation = 0, effect_state = 0}, prepared = {generation = 0, config_id = 0, supplied_crc = 0, payload = {sampling_frequency_hz = 0, axes_enable_mask = 0, full_scale_code = 0, acquisition_mode = 0, window_size_samples = 0, indicator_period_ms = 0, campaign_duration_s = 0, storage_mode = 0, storage_limit_mb = 0, supervision_enable_mask = 0, rms_warn_threshold_mg = 0, rms_alarm_threshold_mg = 0, peak_warn_threshold_mg = 0, peak_alarm_threshold_mg = 0, threshold_hysteresis_mg = 0, alarm_hold_time_ms = 0, campaign_context_id = 0, mission_id = 0, campaign_label = '\\000' <repeats 31 times>, mission_label = '\\000' <repeats 31 times>, operating_mode_code = 0, navigation_zone_code = 0, load_state_code = 0, sea_state_code = 0}}, captured_prepared = {generation = 0, config_id = 0, supplied_crc = 0, payload = {sampling_frequency_hz = 0, axes_enable_mask = 0, full_scale_code = 0, acquisition_mode = 0, window_size_samples = 0, indicator_period_ms = 0, campaign_duration_s = 0, storage_mode = 0, storage_limit_mb = 0, supervision_enable_mask = 0, rms_warn_threshold_mg = 0, rms_alarm_threshold_mg = 0, peak_warn_threshold_mg = 0, peak_alarm_threshold_mg = 0, threshold_hysteresis_mg = 0, alarm_hold_time_ms = 0, campaign_context_id = 0, mission_id = 0, campaign_label = '\\000' <repeats 31 times>, mission_label = '\\000' <repeats 31 times>, operating_mode_code = 0, navigation_zone_code = 0, load_state_code = 0, sea_state_code = 0}}, mailbox = {0, 0, 0, 0, 0, 0, 0, 0}, mailbox_epoch = 0, status = 9, result = 0, detail = 0, epoch_status = 1, has_active = true, has_last = true, indeterminate = true, booted = true, prepared_present = false, blocking_fault = false, maintenance = false, campaign_active = false, fault_context = 0x0, fault_observer = 0x0}",
+    "store.epoch": "$19 = {generation = 3, current = 2, previous = 1, renew_txid = 65535, flags = 0, transition = 3}",
+    "store.effect": "$20 = {generation = 4, epoch = 2, txid = 1, code = 13, run_id = 2, config_id = 2, config_generation = 2, phase = 1}",
+    "configuration.active": "$21 = {generation = 2, config_id = 2, revision_counter = 2, payload = {sampling_frequency_hz = 26667, axes_enable_mask = 7, full_scale_code = 0, acquisition_mode = 2, window_size_samples = 4096, indicator_period_ms = 2000, campaign_duration_s = 0, storage_mode = 0, storage_limit_mb = 0, supervision_enable_mask = 1, rms_warn_threshold_mg = 0, rms_alarm_threshold_mg = 1000, peak_warn_threshold_mg = 0, peak_alarm_threshold_mg = 2000, threshold_hysteresis_mg = 0, alarm_hold_time_ms = 0, campaign_context_id = 1, mission_id = 4, campaign_label = \"R4-BENCH\", '\\000' <repeats 23 times>, mission_label = \"FRAM-FIFO\", '\\000' <repeats 22 times>, operating_mode_code = 0, navigation_zone_code = 0, load_state_code = 0, sea_state_code = 0}}",
+    "owner.acquisition.fifo": "$22 = {ctx = {write_reg = 0x800ce8b <platform_write>, read_reg = 0x800ce5d <platform_read>, mdelay = 0x8006541 <HAL_Delay>, handle = 0x200003d0 <hspi3>, priv_data = 0x0}, parser = {target_xyz = 0, received = 0, xyz = 0, timestamps = 0, polls = 0, bursts = 0, first_tick = 0, last_tick = 0, max_level = 0, last_level = 0, flags_or = 0, reason = 0, previous_counter = 0, counter_valid = 0, previous_ts = 0, ts_valid = 0, since_ts = 0}, words = '\\000' <repeats 895 times>, run_id = 0, total_xyz = 0, total_ts = 0, last_ms = 0, last_data_ms = 0, config_id = 0, config_generation = 0, max_gap_ms = 5, first_data_timeout_ms = 20, axes = 0, full_scale = 0, cleanup_begin = 0x800cad9 <cleanup_begin>, consume = 0x800ecc1 <consume>, consumer = 0x0, error = 0, stop_error = 0, initialized = true, running = false, stopped = true}",
+    "*r4m_ranges@r4m_range_count": [
+      {
+        "at": 188480,
+        "bytes": 52298,
+        "commands": 1635,
+        "stage": 20,
+        "status": 0
+      },
+      {
+        "at": 188416,
+        "bytes": 64,
+        "commands": 2,
+        "stage": 20,
+        "status": 0
+      },
+      {
+        "at": 126976,
+        "bytes": 64,
+        "commands": 2,
+        "stage": 20,
+        "status": 0
+      }
+    ],
+    "write_audit": {
+      "all_in_LIVE": true,
+      "all_status_zero": true,
+      "bytes": 52426,
+      "commands": 1639
+    },
+    "physical_limits": {
+      "work_pass": false,
+      "service_pass": true,
+      "gap_pass": true,
+      "no_deadline": false
+    },
+    "write_audit_complete": true,
+    "run60_observed_us": null
+  },
+  "overall_phase_C_pass": false,
+  "flash-before.bin": {
+    "bytes": 2097152,
+    "sha256": "c5bc344d64984c48c3e34b05fa9432c9c124e8b67428eb0eef22c0d62ddf5b26"
+  },
+  "fram-before.bin": {
+    "bytes": 262144,
+    "sha256": "f2bd7a99d3d0e9f17292310f2cec51fe3a3f521ba3a4d2f07da5b6302258a0c1"
+  },
+  "utc": "2026-10-16T13:02:05.546936+00:00"
+}
