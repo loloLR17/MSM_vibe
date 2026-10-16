@@ -421,8 +421,8 @@
       "sha256": "f8653175a36f84feae5281f476df397fcd40569fc3c0ed8b955c0dd381a1865d"
     },
     "latest-readback.json": {
-      "bytes": 9678,
-      "sha256": "32fc11ddc60733b1638eff74b6e5c86d0fb582ee6f5aadb142a586435e1c4503"
+      "bytes": 15418,
+      "sha256": "f742bfe3bb5ec7331352b3470158c73df870402220eac48e504939741dd2a14e"
     },
     "maintenance-build.log": {
       "bytes": 316,

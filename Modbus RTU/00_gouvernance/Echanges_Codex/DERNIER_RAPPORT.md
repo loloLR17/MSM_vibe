@@ -174,6 +174,10 @@ les commits documentaires ultérieurs ne changent pas l'image évaluée.
 Journal ETAT_COURANT_TR2 actualisé et roadmap factuelle R4-M ajoutée : maintenance
 bornée acquise, nouveau verrou/run2, firmware restauré, suite conditionnée au contrat.
 Permissions exercées : développement/tests/commit/push normal/flash/debug qualifiés.
-Publication finale et relecture distante encore en cours ; statut BLOCKED porte
-sur le verrou matériel/persistant, pas sur l'attente de publication. Le SHA final
-et l'état Git après publication seront fournis dans la réponse Codex.
+Bilan publié **e0d87711e65c85919d5ca1e2bc7c2bd599181f99**, puis relu intégralement
+sur la référence récupérée de GitHub :151fichiers changés comparés et133preuves
+vérifiées par SHA. Worktree propre etHEAD=origin/main après cette publication.
+`latest-readback.json` conserve cette preuve distante. La présente mise à jour
+consigne la relecture ; son propre SHA sera fourni après push et contrôle final.
+Statut **BLOCKED** maintenu pour le nouveau STARTED/arrêt contractuel, sans attente
+logicielle restante. Contrôle indépendant ChatGPT à effectuer sur ces résultats.
