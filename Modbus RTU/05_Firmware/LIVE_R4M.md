@@ -130,3 +130,15 @@ vrai RENEW1->2 peut ensuite ouvrir la campagne. L'ancienne clé est reconstruite
 comme requête de contrôle négatif, jamais comme reçu. Une nouvelle indétermination
 impose l'arrêt, sans nouveau plan de nettoyage. Ce chemin n'est jamais automatique
 ni disponible dans le firmware produit ; il n'est valable que pour le banc fermé.
+
+
+## Résultat physique et fermeture du plan
+
+Le trigger6 a réellement terminé RENEW1->2/4/0 et rejeté l'ancienne clé24/0write.
+Le START2/1/run2 a ensuite échoué sur1241us>1000us, avec nouveau STARTED indéterminé9.
+**Arrêt contractuel : aucun second nettoyage ni nouvelle campagne autorisée par ce plan.**
+Snapshot final intégral f2bd7a99d3d0e9f17292310f2cec51fe3a3f521ba3a4d2f07da5b6302258a0c1,
+rootgen11 et INTENT run2,0XYZ. Les SHA autorisés par les triggers refusent ce snapshot.
+Mode5/reboot final,60s/FIFO,STOP de commande,APPLY/faute injectée non exécutés.
+Flash initiale restaurée exacte2Mio ; FRAM finale conservée sans rembobinage.
+La reprise exige un nouveau contrat/plan, pas la réexécution des scripts de ce plan.

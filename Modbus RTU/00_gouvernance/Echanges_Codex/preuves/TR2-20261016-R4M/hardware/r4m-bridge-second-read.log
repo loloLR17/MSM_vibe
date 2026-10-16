@@ -1,0 +1,7 @@
+HAL_GetTick () at /home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal.c:342
+342	{
+0xbfa0700:	0x004a003d	0x38425018	0x20333157
+$1 = false
+Note: automatically using hardware breakpoints for read-only addresses.
+$2 = 0
+[Inferior 1 (Remote target) detached]

@@ -1,0 +1,147 @@
+{
+  "bytes": 262144,
+  "sha256": "c868950fe3c60f9a3b23a9ce8d565029ee57d4f06b08cbf6062de9238b2af950",
+  "partitions": {
+    "historical": {
+      "start": 0,
+      "end": 122880,
+      "sha256": "4e3c2d39f03eaf7cf46d8c987d944548c1f14752d36bafa1a41439078cfb3cf3"
+    },
+    "LIVE": {
+      "start": 122880,
+      "end": 245760,
+      "sha256": "91957247a756729dc7f84e7ba15c38e95f5ea1345f368f512f0de518d8d88281"
+    },
+    "tail": {
+      "start": 245760,
+      "end": 262144,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe"
+    }
+  },
+  "roots": [
+    {
+      "at": 122880,
+      "empty": false,
+      "magic": "TR2M",
+      "generation": 5,
+      "crc32": "270e9a78",
+      "crc_valid": true,
+      "sha256": "a68cbd20c089cd6a21432732393012ca960201d1459a5af7413c983244591fd1",
+      "physical_version": 1,
+      "logical_version": 3
+    },
+    {
+      "at": 126976,
+      "empty": false,
+      "magic": "TR2M",
+      "generation": 4,
+      "crc32": "aeb08a56",
+      "crc_valid": true,
+      "sha256": "2b761cb92b6e691aa3f4822f228966e5fe4c5baa13931a3564d0df7673d68bc9",
+      "physical_version": 1,
+      "logical_version": 3
+    }
+  ],
+  "active_root": {
+    "at": 122880,
+    "empty": false,
+    "magic": "TR2M",
+    "generation": 5,
+    "crc32": "270e9a78",
+    "crc_valid": true,
+    "sha256": "a68cbd20c089cd6a21432732393012ca960201d1459a5af7413c983244591fd1",
+    "physical_version": 1,
+    "logical_version": 3
+  },
+  "active_header": {
+    "at": 131072,
+    "empty": false,
+    "magic": "TR2I",
+    "generation": 5,
+    "crc32": "b9342e32",
+    "crc_valid": true,
+    "sha256": "120f7411e014e3e9b2d7361f6195854a13679321b2bd1aebf1a1509a8f96c141",
+    "physical_version": 1,
+    "logical_version": 3
+  },
+  "active_payload_sha256": "839e661e581df34df73f9f8a1a3f2572957f3729f7bc2cf92f3fbf60a0a1e01d",
+  "payload_crc_valid": true,
+  "journal": [],
+  "epoch": [
+    {
+      "at": 51914,
+      "empty": false,
+      "magic": "TR2Q",
+      "generation": 1,
+      "crc32": "058c4599",
+      "crc_valid": true,
+      "sha256": "8cf4341a2288f34769d7f4aaa72712a6755955b4db280b88f99f8e17f5f55dd6",
+      "format": 1,
+      "size": 64,
+      "current": 1,
+      "previous": 0,
+      "flags": 0,
+      "transition": 0
+    },
+    {
+      "at": 51978,
+      "empty": true
+    }
+  ],
+  "intent_or_effect": [
+    {
+      "at": 52042,
+      "empty": false,
+      "magic": "TR2E",
+      "generation": 1,
+      "crc32": "c4b9be8a",
+      "crc_valid": true,
+      "sha256": "bdf4640759b498cf2c2ea662fec4c908cd65be28e53bdef9812a7ab2a230d276",
+      "format": 1,
+      "size": 64,
+      "epoch": 1,
+      "txid": 1,
+      "command": 13,
+      "run_id": 1,
+      "config_id": 2,
+      "config_generation": 2,
+      "phase": 1
+    },
+    {
+      "at": 52106,
+      "empty": false,
+      "magic": "TR2E",
+      "generation": 2,
+      "crc32": "fb72c01f",
+      "crc_valid": true,
+      "sha256": "d9d2893f7c0be465a37afbaddd96a2066879cb808693b2d5a5888c9272daf5dc",
+      "format": 1,
+      "size": 64,
+      "epoch": 1,
+      "txid": 1,
+      "command": 13,
+      "run_id": 1,
+      "config_id": 2,
+      "config_generation": 2,
+      "phase": 1
+    }
+  ],
+  "provenance": [
+    {
+      "at": 52170,
+      "empty": false,
+      "magic": "TR2M",
+      "generation": 12,
+      "crc32": "1cf8b820",
+      "crc_valid": true,
+      "sha256": "1c93a7a152024cd38f3564a57d492095da7a9c26dbbbb4a53fa9d0ef895422fa",
+      "format": 1,
+      "size": 64,
+      "historical_payload_sha256": "560f0551315df7b3146f79850f67b72dd7cdf8a3234bbc136e00e89e4d26b239"
+    },
+    {
+      "at": 52234,
+      "empty": true
+    }
+  ]
+}

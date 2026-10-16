@@ -1,0 +1,42 @@
+[  0%] Building C object CMakeFiles/tr2_core.dir/src/persistence/live_command_store.c.o
+[  1%] Building C object CMakeFiles/tr2_core.dir/src/application/live_configuration.c.o
+[  1%] Linking C static library libtr2_core.a
+[ 21%] Built target tr2_core
+[ 21%] Building C object CMakeFiles/tr2_platform_host.dir/platform/host/host_platform.c.o
+[ 21%] Linking C static library libtr2_platform_host.a
+[ 21%] Built target tr2_platform_host
+[ 21%] Building C object CMakeFiles/tr2_host.dir/platform/host/main.c.o
+[ 22%] Linking C executable tr2_host
+[ 22%] Built target tr2_host
+[ 22%] Building C object CMakeFiles/tr2_rtu_request.dir/platform/host/rtu_request.c.o
+[ 23%] Linking C executable tr2_rtu_request
+[ 23%] Built target tr2_rtu_request
+[ 23%] Building C object CMakeFiles/test_stm32_continuous.dir/tests/platform/test_stm32_continuous.c.o
+[ 24%] Building C object CMakeFiles/test_stm32_continuous.dir/platform/stm32/stm32_iis3dwb_continuous.c.o
+[ 24%] Linking C executable test_stm32_continuous
+[ 24%] Built target test_stm32_continuous
+[ 24%] Building C object CMakeFiles/test_stm32_ctrl1_differential.dir/tests/platform/test_stm32_ctrl1_differential.c.o
+[ 24%] Building C object CMakeFiles/test_stm32_ctrl1_differential.dir/platform/stm32/stm32_iis3dwb_ctrl1_differential.c.o
+[ 25%] Linking C executable test_stm32_ctrl1_differential
+[ 25%] Built target test_stm32_ctrl1_differential
+[ 26%] Building C object CMakeFiles/test_stm32_burst_capture.dir/tests/platform/test_stm32_burst_capture.c.o
+[ 26%] Building C object CMakeFiles/test_stm32_burst_capture.dir/platform/stm32/stm32_iis3dwb_burst_capture.c.o
+[ 26%] Linking C executable test_stm32_burst_capture
+[ 26%] Built target test_stm32_burst_capture
+[ 26%] Building C object CMakeFiles/test_stm32_active_readback.dir/tests/platform/test_stm32_active_readback.c.o
+[ 26%] Building C object CMakeFiles/test_stm32_active_readback.dir/platform/stm32/stm32_iis3dwb_active_readback.c.o
+[ 26%] Linking C executable test_stm32_active_readback
+[ 26%] Built target test_stm32_active_readback
+[ 26%] Building C object CMakeFiles/test_stm32_register_probe.dir/tests/platform/test_stm32_register_probe.c.o
+[ 27%] Building C object CMakeFiles/test_stm32_register_probe.dir/platform/stm32/stm32_iis3dwb_register_probe.c.o
+[ 27%] Linking C executable test_stm32_register_probe
+[ 27%] Built target test_stm32_register_probe
+[ 28%] Building C object CMakeFiles/test_stm32_iis3dwb_fifo.dir/tests/platform/test_stm32_iis3dwb_fifo.c.o
+/home/lolo/dev/msm/projects/MSM_vibe-R4M-live-fram-reconciliation/Modbus RTU/05_Firmware/tests/platform/test_stm32_iis3dwb_fifo.c: In function ‘main’:
+/home/lolo/dev/msm/projects/MSM_vibe-R4M-live-fram-reconciliation/Modbus RTU/05_Firmware/tests/platform/test_stm32_iis3dwb_fifo.c:58:18: error: variable ‘run’ might be clobbered by ‘longjmp’ or ‘vfork’ [-Werror=clobbered]
+   58 |     for(unsigned run=0U;run<5U;run++){
+      |                  ^~~
+cc1: all warnings being treated as errors
+gmake[2]: *** [CMakeFiles/test_stm32_iis3dwb_fifo.dir/build.make:79: CMakeFiles/test_stm32_iis3dwb_fifo.dir/tests/platform/test_stm32_iis3dwb_fifo.c.o] Error 1
+gmake[1]: *** [CMakeFiles/Makefile2:796: CMakeFiles/test_stm32_iis3dwb_fifo.dir/all] Error 2
+gmake: *** [Makefile:101: all] Error 2

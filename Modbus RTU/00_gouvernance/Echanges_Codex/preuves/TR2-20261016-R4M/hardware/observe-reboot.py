@@ -18,5 +18,5 @@ if $r != 0
  quit 5
 end
 '''+f'dump binary memory {win(P/"fram-after-reboot.bin")} baseline baseline+262144\n',timeout=60)
-assert (P/'fram-after-reboot.bin').read_bytes()==(P/'fram-after-physical.bin').read_bytes()
+assert (P/'fram-after-reboot.bin').read_bytes()==(P/'fram-after-resume.bin').read_bytes()
 (P/'reboot-summary.json').write_text(json.dumps(dict(result='PASS',zero_writes=True,full_fram_unchanged=True,no_auto_start=True,utc=datetime.datetime.now(datetime.timezone.utc).isoformat()),indent=2)+'\n')

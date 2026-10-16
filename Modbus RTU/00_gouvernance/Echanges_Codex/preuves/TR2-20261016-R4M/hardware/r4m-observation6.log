@@ -1,0 +1,52 @@
+HAL_GetTick () at /home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal.c:343
+343	  return uwTick;
+0xbfa0700:	0x004a003d	0x38425018	0x20333157
+R4M_LABEL r4_result
+$1 = {stage = 2147483670, error = 6, line = 267, command = 6, ownership = 0, read_passes = 1, commands = 1, core_hz = 160000000, spi1_hz = 2500000, spi3_hz = 4000000, tick_start = 11680, tick_end = 37938, max_read_us = 132, max_write_us = 164, max_gap_us = 0, last_poll_us = 0, safety_us = 236, first_data_us = 0, start_us = 31902574, read_bytes = 3379610, write_bytes = 314556, xyz = 0, timestamps = 0, polls = 0, elapsed_us = 37938368, max_level = 0, fifo_error = 0, stop_error = 0, engine_status = 9, engine_result = 0, protected_equal = 1, baseline_equal = 1}
+R4M_LABEL work
+$2 = {context = 0x0, now_us = 0x800ec59 <now_us>, service = 0x800ee7d <service>, safety_stop = 0x800ecfd <stop>, last_us = 37935964, max_work_us = 1241, max_service_us = 4, checkpoints = 309122, work_limit_us = 1000, service_limit_us = 2500, quantum_bytes = 32, depth = 0, error = TR2_ERROR_UNAVAILABLE, servicing = false, seen = true, deadline_missed = true}
+R4M_LABEL r4m_guard
+$3 = {epoch_floor = 1, run_floor = 1, intent = "TR2E\000\001\000@\000\000\000\000\000\000\000\001\000\000\000\001\000\001\000\r\000\000\000\000\000\000\000\001\000\000\000\002\000\000\000\002\000\001", '\000' <repeats 18 times>, "Ä¹¾ŠTR2E\000\001\000@\000\000\000\000\000\000\000\002\000\000\000\001\000\001\000\r\000\000\000\000\000\000\000\001\000\000\000\002\000\000\000\002\000\001", '\000' <repeats 18 times>, "ûrÀ\037", phase = 3}
+R4M_LABEL r4m_range_count
+$4 = 18
+R4M_LABEL r4m_op_count
+$5 = 2
+R4M_LABEL r4m_old_rejected
+$6 = 24
+R4M_LABEL r4m_protected_checks
+$7 = 1
+R4M_LABEL r4m_cs_closed
+$8 = 9834
+R4M_LABEL r4m_fifo_max_all
+$9 = 0
+R4M_LABEL r4m_xyz_all
+$10 = 0
+R4M_LABEL r4m_ts_all
+$11 = 0
+R4M_LABEL r4m_stop_max_us
+$12 = 237
+R4M_LABEL r4m_stop_end_us
+$13 = 37938365
+R4M_LABEL r4m_fault_seen_us
+$14 = 0
+R4M_LABEL r4m_fault_reaction_us
+$15 = 0
+R4M_LABEL bench_log_refused
+$16 = 0
+R4M_LABEL bench_preclose_overflow
+$17 = 0
+R4M_LABEL engine
+$18 = {store = 0x2008db90 <store>, acquisition = {context = 0x20090330 <owner>, start = 0x800f711 <guarded_start>, stop = 0x800f7b5 <timed_stop>, observe = 0x800e259 <observe>, io_admissible = 0x800e2ef <budget>, terminal_time = 0x0}, state = LIVE_FAULT, active = {generation = 6, request = {epoch = 2, command = {transaction_id = 1, identity = {command_code = 13, param1 = 0, param2 = 0, param3 = 0, confirm_key = 0}}}, phase = 2, status = 0, result = 0, detail = 0, timestamp = {available = false, value = 0}, run_id = 2, config_id = 2, config_generation = 2, effect_state = 1}, last = {generation = 4, request = {epoch = 1, command = {transaction_id = 65535, identity = {command_code = 12, param1 = 0, param2 = 0, param3 = 0, confirm_key = 0}}}, phase = 3, status = 4, result = 0, detail = 0, timestamp = {available = false, value = 0}, run_id = 0, config_id = 0, config_generation = 0, effect_state = 0}, prepared = {generation = 0, config_id = 0, supplied_crc = 0, payload = {sampling_frequency_hz = 0, axes_enable_mask = 0, full_scale_code = 0, acquisition_mode = 0, window_size_samples = 0, indicator_period_ms = 0, campaign_duration_s = 0, storage_mode = 0, storage_limit_mb = 0, supervision_enable_mask = 0, rms_warn_threshold_mg = 0, rms_alarm_threshold_mg = 0, peak_warn_threshold_mg = 0, peak_alarm_threshold_mg = 0, threshold_hysteresis_mg = 0, alarm_hold_time_ms = 0, campaign_context_id = 0, mission_id = 0, campaign_label = '\000' <repeats 31 times>, mission_label = '\000' <repeats 31 times>, operating_mode_code = 0, navigation_zone_code = 0, load_state_code = 0, sea_state_code = 0}}, captured_prepared = {generation = 0, config_id = 0, supplied_crc = 0, payload = {sampling_frequency_hz = 0, axes_enable_mask = 0, full_scale_code = 0, acquisition_mode = 0, window_size_samples = 0, indicator_period_ms = 0, campaign_duration_s = 0, storage_mode = 0, storage_limit_mb = 0, supervision_enable_mask = 0, rms_warn_threshold_mg = 0, rms_alarm_threshold_mg = 0, peak_warn_threshold_mg = 0, peak_alarm_threshold_mg = 0, threshold_hysteresis_mg = 0, alarm_hold_time_ms = 0, campaign_context_id = 0, mission_id = 0, campaign_label = '\000' <repeats 31 times>, mission_label = '\000' <repeats 31 times>, operating_mode_code = 0, navigation_zone_code = 0, load_state_code = 0, sea_state_code = 0}}, mailbox = {0, 0, 0, 0, 0, 0, 0, 0}, mailbox_epoch = 0, status = 9, result = 0, detail = 0, epoch_status = 3, has_active = true, has_last = true, indeterminate = true, booted = true, prepared_present = false, blocking_fault = true, maintenance = false, campaign_active = false, fault_context = 0x0, fault_observer = 0x0}
+R4M_LABEL store.epoch
+$19 = {generation = 3, current = 2, previous = 1, renew_txid = 65535, flags = 0, transition = 3}
+R4M_LABEL store.effect
+$20 = {generation = 4, epoch = 2, txid = 1, code = 13, run_id = 2, config_id = 2, config_generation = 2, phase = 1}
+R4M_LABEL configuration.active
+$21 = {generation = 2, config_id = 2, revision_counter = 2, payload = {sampling_frequency_hz = 26667, axes_enable_mask = 7, full_scale_code = 0, acquisition_mode = 2, window_size_samples = 4096, indicator_period_ms = 2000, campaign_duration_s = 0, storage_mode = 0, storage_limit_mb = 0, supervision_enable_mask = 1, rms_warn_threshold_mg = 0, rms_alarm_threshold_mg = 1000, peak_warn_threshold_mg = 0, peak_alarm_threshold_mg = 2000, threshold_hysteresis_mg = 0, alarm_hold_time_ms = 0, campaign_context_id = 1, mission_id = 4, campaign_label = "R4-BENCH", '\000' <repeats 23 times>, mission_label = "FRAM-FIFO", '\000' <repeats 22 times>, operating_mode_code = 0, navigation_zone_code = 0, load_state_code = 0, sea_state_code = 0}}
+R4M_LABEL owner.acquisition.fifo
+$22 = {ctx = {write_reg = 0x800ce8b <platform_write>, read_reg = 0x800ce5d <platform_read>, mdelay = 0x8006541 <HAL_Delay>, handle = 0x200003d0 <hspi3>, priv_data = 0x0}, parser = {target_xyz = 0, received = 0, xyz = 0, timestamps = 0, polls = 0, bursts = 0, first_tick = 0, last_tick = 0, max_level = 0, last_level = 0, flags_or = 0, reason = 0, previous_counter = 0, counter_valid = 0, previous_ts = 0, ts_valid = 0, since_ts = 0}, words = '\000' <repeats 895 times>, run_id = 2, total_xyz = 0, total_ts = 0, last_ms = 37936, last_data_ms = 37936, config_id = 2, config_generation = 2, max_gap_ms = 5, first_data_timeout_ms = 20, axes = 7, full_scale = 0, cleanup_begin = 0x800cad9 <cleanup_begin>, consume = 0x800ecc1 <consume>, consumer = 0x0, error = 0, stop_error = 0, initialized = true, running = false, stopped = true}
+R4M_LABEL *r4m_ranges@r4m_range_count
+$23 = {{at = 188480, bytes = 52298, commands = 1635, stage = 21, status = 0}, {at = 188416, bytes = 64, commands = 2, stage = 21, status = 0}, {at = 126976, bytes = 64, commands = 2, stage = 21, status = 0}, {at = 131136, bytes = 52298, commands = 1635, stage = 21, status = 0}, {at = 131072, bytes = 64, commands = 2, stage = 21, status = 0}, {at = 122880, bytes = 64, commands = 2, stage = 21, status = 0}, {at = 188480, bytes = 52298, commands = 1635, stage = 21, status = 0}, {at = 188416, bytes = 64, commands = 2, stage = 21, status = 0}, {at = 126976, bytes = 64, commands = 2, stage = 21, status = 0}, {at = 131136, bytes = 52298, commands = 1635, stage = 21, status = 0}, {at = 131072, bytes = 64, commands = 2, stage = 21, status = 0}, {at = 122880, bytes = 64, commands = 2, stage = 21, status = 0}, {at = 188480, bytes = 52298, commands = 1635, stage = 22, status = 0}, {at = 188416, bytes = 64, commands = 2, stage = 22, status = 0}, {at = 126976, bytes = 64, commands = 2, stage = 22, status = 0}, {at = 131136, bytes = 52298, commands = 1635, stage = 22, status = 0}, {at = 131072, bytes = 64, commands = 2, stage = 22, status = 0}, {at = 122880, bytes = 64, commands = 2, stage = 22, status = 0}}
+R4M_LABEL *r4m_operations@r4m_op_count
+$24 = {{epoch = 1, txid = 65535, code = 12, status = 4, result = 0, begin_us = 19839588, end_us = 31902540, xyz = 0, run_id = 0, max_level = 0}, {epoch = 2, txid = 1, code = 13, status = 9, result = 0, begin_us = 31902578, end_us = 37938124, xyz = 0, run_id = 2, max_level = 0}}
+[Inferior 1 (Remote target) detached]
