@@ -1,0 +1,4 @@
+phase1-flash verified
+phase1-reset-readback OK
+phase1-trigger12-result OK
+Phase1 returned; full FRAM exact. Inspect result before phase2

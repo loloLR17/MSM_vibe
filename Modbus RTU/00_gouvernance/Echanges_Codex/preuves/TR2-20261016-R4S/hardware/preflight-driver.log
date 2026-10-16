@@ -1,0 +1,5 @@
+flash-fresh-check OK
+FLASH_IDENTICAL_TO_R4_RESTORED
+fram-fresh-check OK
+sensor-stopped-readonly OK
+{'utc': '2026-10-16T21:23:18.269208+00:00', 'flash_bytes': 2097152, 'flash_sha256': 'c5bc344d64984c48c3e34b05fa9432c9c124e8b67428eb0eef22c0d62ddf5b26', 'fram_bytes': 262144, 'fram_sha256': '14fb172f2917d0a8e440438051831c84f3f3e746161702a7de9e9a1a251b2aa9', 'fresh_full_reads_match_verified_R4R_backups': True, 'match_R4R_final': True, 'UID': ['004A003D', '38425018', '20333157'], 'STLINK': '003500463235510B37333439', 'flash_or_persistent_write': False, 'reset': False, 'access': 'qualified GDB backup/read-only sensor registers; only RAM staging reused', 'note': 'Fresh full reads compared to previously verified R4R backups, reused; no flash or writes.'}

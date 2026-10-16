@@ -1,0 +1,15 @@
+[ 95%] Built target tr2_core
+[ 95%] Building C object CMakeFiles/test_fifo_event_time.dir/platform/stm32/fifo_event_time.c.o
+[100%] Building C object CMakeFiles/test_fifo_event_time.dir/tests/platform/test_fifo_event_time.c.o
+[100%] Linking C executable test_fifo_event_time
+[100%] Built target test_fifo_event_time
+[ 95%] Built target tr2_core
+[100%] Built target test_live_metrology
+tracking PASS: 10s +80ppm observed clock model, no redating, fixed mapper fails, same100us guard retained
+fifo_event_time PASS: real-anchor interpolation, wrap, exact indices, UTC absent, RMS oracle, drift and malformed groups fail closed
+448 independent Python numeric oracles: four FS, seven masks, four N, constants/AC/near-saturation: PASS
+B3 age2P/2P+1, retained STOP/config loss, rollover64, >7d, saturated counters, reversal: PASS
+Alarms: equality, hold boundary, cancellation, hysteresis floor, latch ACK, union counters, dominance tie: PASS
+Causal/index/config faults, all-axis saturation including disabled axis, accumulator/time overflow: PASS
+A missing valid window cancels the pending hold without extrapolation: PASS
+Burst chunking invariance, four exact periodic windows, UTC overflow/epoch0, independent monotone streams: PASS

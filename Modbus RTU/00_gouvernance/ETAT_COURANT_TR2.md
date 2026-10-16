@@ -266,3 +266,15 @@ Publication R3-B vérifiée : code1c5368f, preuves/rapport faf0f94 sur main relu
  GitHub,155 fichiers comparés intégralement/138 preuves SHA vérifiées ; statut
  BLOCKED technique maintenu. Publication et restauration démontrées, B3 physique
  et correction candidate non qualifiés ; contrôle indépendant ChatGPT distinct.
+
+
+## R4-S — phase 1 en cours, 16/10/2026 UTC
+
+- Préflight principal conforme M016 c5bc et FRAM14fb/STARTED5, sauvegardes vérifiées.
+ Premier probe readonly :31787XYZ/3974TS, work335/service2322/gap2457us,96RTU
+ cohérents et fenêtre4096 diagnostique contrôlée horsligne ; V/F toujours0.
+- Arrêt sûr après1,206563s sur écart d'affine fixe109>100us ; FRAM complète inchangée,
+ aucune admission R2. Suivi d'horloge continu préparé, même garde100us,141tests/ARM/
+ ASan+UBSan-O2 ciblés PASS. Seconde qualification volatile àpoursuivre avantphase2.
+- État : probe arrêté/GDBdétaché, restaurationfinale M016 àfaire aprèsqualification ;
+ aucun isolement/RENEW/START, run5/epoch4 conservés. Pas encore de B3 LIVE autoritatif.
