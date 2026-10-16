@@ -29,6 +29,10 @@
       "bytes": 666,
       "sha256": "0899cf47561823ef1b33440b33c011ebb12cfed324fdaa69fd9f85677f3578ed"
     },
+    "bilan-readback.json": {
+      "bytes": 29860,
+      "sha256": "a685ab01120263d5091542495b1bde87b6d3950e97d3e23083cd0a482167933f"
+    },
     "build-first.log": {
       "bytes": 9109,
       "sha256": "bcf35748bb50164c9f2dd373e10f9a7d23a7f4786f485ebc6ee3fc3511b56599"

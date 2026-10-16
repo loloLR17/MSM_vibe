@@ -1,6 +1,6 @@
 ---
 mission_id: TR2-20261016-R4-COOPERATIVE-FRAM-FIFO-RT
-status: IN_PROGRESS
+status: BLOCKED
 base_ref: main
 base_sha: 66c5e167b31cbc7baa302843c354760569d1c88d
 initial_head: 178f3481e087110ef3f897f02bc8077b4b018028
@@ -16,9 +16,8 @@ allow_debug: true
 
 # R4 — résultats acquis, correction du quantum et blocage causal
 
-**Résultat technique : BLOCKED pour la campagne complète R2 sur cible.** Le statut
-provisoire IN_PROGRESS ci-dessus concerne uniquement la publication/relecture de
-ce bilan. La correction logicielle et sa récupération physique sont démontrées ;
+**Mission BLOCKED pour la campagne complète R2 sur cible.** La correction
+logicielle et sa récupération physique sont démontrées ;
 START/RENEW/STOP/APPLY en coexistence physique complète ne sont pas qualifiés.
 Le firmware initial est restauré intégralement et la FRAM historique est préservée.
 
@@ -187,6 +186,9 @@ Journal et roadmap actualisés : résultats bornés, restauration, blocage et pr
 Fins CRLF et espaces des sorties Windows brutes conservés pour traçabilité ; diff
 code/documentation contrôlé séparément des logs. Aucun secret ajouté.
 
-Publication finale et relecture intégrale GitHub en cours ; statut technique BLOCKED
-ne signifie pas code non sauvegardé. Le SHA final de publication et l'état Git seront
-fournis dans la réponse après vérification distante. Contrôle indépendant ChatGPT distinct.
+Bilan publié au commit `ff40f8e99b5f67b1cd0c3a24f5b3881015f0968c`, puis récupéré
+et relu intégralement depuis GitHub :286fichiers comparés byte-à-byte et256preuves
+vérifiées par empreinte. Preuve `bilan-readback.json`. La présente mise à jour fixe
+le statut final BLOCKED ; sa publication est contrôlée après commit, avec SHA final
+et état Git dans la réponse. Aucun travail non publié ni firmware de probe actif.
+Contrôle indépendant ChatGPT distinct ; aucune qualification LIVE globale annoncée.
