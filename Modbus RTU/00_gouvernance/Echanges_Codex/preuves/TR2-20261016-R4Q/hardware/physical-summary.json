@@ -1,0 +1,8 @@
+{
+  "result": "PASS",
+  "entire_fram_unchanged": true,
+  "bytes": 262144,
+  "sha256": "a13b3401c5ec93ec278e0b35ad2ad1fe38f42755dcc93ef61ce1b29f09aa2ef9",
+  "scope": "MCU FRAM readonly + RAM RTU loopback, sensor stopped, zero FRAM command admission; NOT electrical RTU or physical B3 vibration",
+  "utc": "2026-10-16T14:59:37.767787+00:00"
+}

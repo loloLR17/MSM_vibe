@@ -1,0 +1,17 @@
+{
+  "command": [
+    "/mnt/c/ST/STM32CubeCLT_1.22.0/STM32CubeProgrammer/bin/STM32_Programmer_CLI.exe",
+    "-c",
+    "port=SWD",
+    "sn=003500463235510B37333439",
+    "freq=8000",
+    "-w",
+    "\\\\wsl.localhost\\Debian\\home\\lolo\\dev\\msm\\reports\\TR2-r4q\\hardware\\restore-pages.bin",
+    "0x08000000",
+    "-v",
+    "-rst"
+  ],
+  "code_sha": "fresh full backup c5bc344d, verified identical to R4P initial M016",
+  "sha256": "176392715e03cd10bfa19803696023bccb0af59d09027820d63078b5b601172c",
+  "normal_programming_only": true
+}

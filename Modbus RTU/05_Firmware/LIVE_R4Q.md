@@ -75,3 +75,19 @@ Cela ne qualifie ni l'électrique ni le FIFO avec calcul physique ; fournisseur 
 temps événement absent, aucune nouvelle transaction FRAM pour contourner cela.
 Après essai : snapshot FRAM entier exact, Flash initiale restaurée et relue2Mio ;
 aucun rollback epoch/run ni OptionBytes. Résultats effectifs et SHA dans le rapport.
+
+
+## Résultat cible effectif
+
+Code6e813501a973fb25bd41bf3b0713435763414779, BINb4460829…ba9f7 ; trigger9
+le16/10 à14:58:41UTC.10,000754s,872réponses loopback (218parbloc), work341us,
+service1074us, publication378us/pollRTUmax637us, lectureFRAM132us ;0writeFRAM,
+0commande,0XYZ, capteur arrêté. B0préparé2/cap12, B3statut1/flags4097/V0/F0.
+Aucune IRQ/TX électrique mesurée ; max_gap0 sur FIFOinactive ne qualifie rien.
+Snapshot FRAM intégral exacta13b…a2ef9 après essai et après restauration Flash.
+Flash2Mio initiale exactec5bc…f5b26 restaurée (17pages), M016 WAIT/GDBdétaché.
+
+Ce succès readonly n'étend pas R4-P au calcul physique B3 ni à R6 ; le modèle
+et les mesures sans FIFO ne s'additionnent pas pour établir un budget composé.
+Cohérence des réponses par ADU seulement ; deux requêtes peuvent lire deux
+séquences successives. Réserve STOP finie, aucune garantie anti-DoS ajoutée.

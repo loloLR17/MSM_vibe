@@ -1,0 +1,3 @@
+   text	   data	    bss	    dec	    hex	filename
+ 136204	    492	 605032	 741728	  b5160	/home/lolo/dev/msm/reports/TR2-r4q/probe-build/tr2-r4q-readonly-rtu-NON-PRODUCTION.elf
+ 172652	    480	 602240	 775372	  bd4cc	Modbus RTU/05_Firmware/build-stm32-cumulative/tr2-cumulative-m014-m015-spi4.elf

@@ -1,0 +1,12 @@
+{
+  "result": "PASS",
+  "scope": "software integration, host model, read-only MCU loopback, exact firmware restoration; no FIFO+B3 hardware or electrical RTU qualification",
+  "code_sha": "6e813501a973fb25bd41bf3b0713435763414779",
+  "full_fram_unchanged": true,
+  "flash_2MiB_restored": true,
+  "root_generation": 37,
+  "epoch": 4,
+  "run_id": 4,
+  "no_new_indeterminate": true,
+  "utc": "2026-10-16T15:04:45.888507+00:00"
+}
