@@ -1,8 +1,8 @@
 ---
-mission_id: TR2-20261016-R4-COOPERATIVE-FRAM-FIFO-RT
+mission_id: TR2-20261016-R4M-LIVE-FRAM-RECONCILIATION
 status: READY
 base_ref: main
-base_sha: 66c5e167b31cbc7baa302843c354760569d1c88d
+base_sha: 0e09805f4ade74ed04553f04efb7a881e8bfb84b
 author: ChatGPT
 target_branch: main
 allow_commit: true
@@ -11,32 +11,37 @@ allow_flash: true
 allow_debug: true
 ---
 
-# R4 — Ordonnancement coopératif FRAM/FIFO et qualification temps réel
+# R4-M — Maintenance sûre de la trace STARTED et reprise contrôlée R4
 
-## Contexte et références
-R0 normatif, R1 FRAM/configuration, R2 moteur epoch/commandes, R3-A owner continu, R3-B métrologie/B3 sont livrés **au niveau logiciel**. Le binaire STM32 canonique reste V1 et ne publie pas protocole2. R3-B révèle un risque de blocage majeur : une phase R2 transfère 313916 octets lus + 52426 écrits ; à 2,5 MHz calculés, le seul temps utile de bus est >=1,172 s, alors que la FIFO 512 mots se remplit théoriquement en ~17 ms à la cadence visée. Aucune de ces durées n'est une mesure physique. Ne pas activer LIVE sur cette base.
+## Situation et objectif
+R4 a livré la coopération FRAM/FIFO et 136 tests hôte PASS, mais la campagne physique est BLOCKED : la partition FRAM LIVE contient une transaction STARTED dont l'effet causal est indécidable (recovery 9). C'est un verrou de sûreté voulu par R0, **pas** une preuve que START a eu lieu ou non. Firmware initial M016 restauré, historique et tail FRAM intacts, trace conservée. L'objectif est d'établir une voie sûre, auditable et reproductible pour **réconcilier ou isoler** cette trace et reprendre les essais, sans effacement opportuniste, faux reçu ni modification cachée des formats.
 
-Consulter AGENTS.md, GOUVERNANCE_CHATGPT_CODEX.md §10, roadmap/état, contrat et normes R0, LIVE_R1/R2/R3A/R3B, missions et rapports, preuves et gouvernance actuelle sur main. Vérifier HEAD distant, archive complète de mission/rapport R3-B, préservation des gels V1/V1.1 et travaux locaux historiques. Respecter A-06.
+## Références obligatoires
+Vérifier HEAD main, AGENTS.md, GOUVERNANCE_CHATGPT_CODEX.md (§10 T1000), ETAT_COURANT_TR2, roadmap, R0 PROFIL_LIVE/MIGRATION_FRAM, LIVE_R1/R2/R3A/R3B/R4, dernier rapport BLOCKED et preuves R4, backups et hashes. Archiver intégralement mission et rapport R4 avant remplacement, préserver stashes/worktrees et gels V1. Réévaluer état physique au début, ne jamais supposer qu'il est inchangé depuis le rapport.
 
-## Objectif prioritaire
-Résoudre **sans compromettre l'atomicité, la causalité ni la sûreté** la coexistence du service FIFO continu, du journal/configuration FRAM, des commandes START/STOP/RENEW/APPLY et du transport Modbus. Obtenir des marges chiffrées et vérifiables ; qualifier honnêtement les limites hôte/ARM/STM32. Ne pas engager le raccordement RTU2 tant que le service temps réel n'est pas démontré.
+## Phase A — Analyse et sauvegarde, sans écriture
+1. Relire les preuves et analyser les deux copies du journal STARTED, les racines/générations/CRC, la trace de START, l'état capteur et les limites de preuve. Distinguer absence d'effet prouvée, effet prouvé, et indécidabilité persistante ; aucune reconstruction spéculative.
+2. Confirmer l'identité TR2-001/UID/ST-LINK, la géométrie FRAM, le contenu LIVE [122880,245760), historique [0,122880) et tail [245760,262144), et les hashes du rapport. Réaliser une nouvelle sauvegarde **intégrale** Flash 2 Mio et FRAM 262144, double lecture et SHA256 ; vérifier les fichiers réellement récupérables, préserver aussi le snapshot initial R4 et l'état STARTED, avant tout flash/debug/écriture. Si l'accès est absent ou l'état diffère, arrêter l'écriture et documenter.
+3. Documenter les possibilités compatibles R0 : (a) réconciliation fondée sur preuve causale authentique, si elle existe ; (b) reprovisionnement explicitement borné **uniquement de la partition LIVE** pour un banc de qualification isolé, avec archive vérifiée, reset/arrêt capteur prouvé et journal historique intact. Aucun « COMPLETED » fictif, aucune modification de phase à la main, aucune réutilisation de run_id/epoch qui pourrait faire rejouer une ancienne commande.
 
-## Travaux
-1. Cartographier la chaîne effective SPI1 FRAM, SPI3 IIS3DWB, interruptions, DMA éventuel, scheduler, CRC/SHA, transport Modbus et callbacks R1/R2. Mesurer/borner le pire coût de chaque transaction et phase, fréquence réelle, CS, retries, délais HAL et priorités. Vérifier l'hypothèse 2,5 MHz ; ne pas confondre bus SPI distincts et blocage CPU global.
-2. Concevoir et implémenter une **transaction FRAM incrémentale coopérative** avec quanta bornés (32 octets point de départ à qualifier, non valeur imposée), yield FIFO entre quanta, CRC/hash et readback incrémentaux. Conserver exactement les formats et contrats R0, publication atomique, root/bank, barrières STARTED/effet/COMPLETED, récupération power-loss, idempotence et anti-rejeu ; aucune écriture physique si ownership FRAM LIVE non prouvé. Éviter toute réentrance dans les callbacks et toute inversion de priorité.
-3. Donner la priorité au STOP sûr, indépendant de la réussite d'écriture FRAM, et au service FIFO ; prouver admission et réserves de ressources pour START/STOP/RENEW/APPLY. Si l'approche coopérative ne peut garantir les bornes, documenter l'alternative journal delta comme décision structurante **sans migrer silencieusement les formats**.
-4. Instrumenter FIFO niveau maximal, gaps, overflow, temps par quantum, jitter, CPU/stack/RAM, latences Modbus et STOP ; scénarios cadence max, bursts, fautes SPI/FRAM, coupures entre chaque phase et sur les frontières de commit, service prolongé et absence de SD. Définir seuils d'acceptation issus des normes et capacités physiques réelles, pas des hypothèses arbitraires.
-5. Raccorder le provider de temps d'échantillon R3-B uniquement avec une source calibrée et vérifiable ; si non disponible, conserver B3 invalide, ne jamais substituer un temps de lecture SPI. Ne pas annoncer protocole2 ni LIVE physique prématurément.
-6. Réutiliser les composants existants et conserver V1 ; mettre à jour cartographie/LOC et supprimer uniquement des duplications démontrées. Réaliser tests hôte, injections, ASan/UBSan et cross-build ARM ; essais physiques T1000 uniquement après vérification des conditions matérielles.
+## Phase B — Procédure de maintenance bornée
+Créer une procédure/outillage de maintenance traçable, indépendante du chemin de commande normal, qui vérifie UID, géométrie, contenu attendu et SHA, état arrêté, sauvegardes, puis prépare une **nouvelle initialisation LIVE propre** pour essais si la réconciliation causale est impossible. Le reprovisionnement est autorisé **pour la seule partition LIVE du banc TR2-001**, dans les limites suivantes :
+- préserver hors cible, avec contrôle SHA et procédure de restauration, les 262144 octets FRAM antérieurs, notamment l'état indéterminé ; ne pas détruire la seule preuve ;
+- ne jamais effacer/réécrire l'historique [0,122880) ni le tail [245760,262144), ne pas modifier identité historique, UID, Option Bytes, RDP ou la norme R0 ;
+- n'effectuer aucun effacement de masse FRAM/Flash ; toute écriture doit être bornée et vérifiée en lecture retour, avec journal d'adresses et comparaison complète des zones protégées ;
+- traiter la réinitialisation comme **nouveau contexte de qualification** : ne pas prétendre résoudre rétroactivement START, ne pas inventer d'effet absent, et garantir que l'ancienne identité transactionnelle ne sera pas réadmise/rejouée ; si l'invariant epoch/run_id ne peut être garanti, rester en analyse et escalader ce point structurant avant écriture ;
+- utiliser l'outil le moins invasif compatible avec le format et les barrières ; aucune suppression brute de records sans démonstration de cohérence des racines.
+Cette autorisation ciblée de maintenance est une décision de gouvernance pour le banc de test uniquement, **pas** une politique de récupération automatique du produit en exploitation.
 
-## Matériel et autonomie
-allow_flash=true, allow_debug=true : autorisations permanentes applicables sous AGENTS.md. T1000 seul banc ; identifier carte/UID/ST-LINK, image/état de flash, alimentation et câblage, vérifier sauvegardes et risques avant toute intervention. Aucune écriture FRAM LIVE [122880,245760) avant inventaire, preuve de propriété exclusive et sauvegarde vérifiée ; protéger zones historiques, Option Bytes/RDP et autres médias. Aucun mass erase, aucune intervention physique manuelle déléguée à Codex. Si les preuves matérielles manquent, avancer sur modèle hôte/ARM et signaler clairement les limites.
+## Phase C — Reprise ciblée, seulement après réussite A/B
+Sur banc T1000 et conditions de sûreté prouvées, reprendre les tests R4 interrompus START/RENEW/STOP/APPLY, coexistence FRAM écriture/FIFO, priorité STOP, récupération après reboot, timing quanta/fautes SPI et provider temps si disponible. Ne pas requalifier comme PASS un run interrompu ou un probe non représentatif ; ne pas refaire inutilement les campagnes déjà qualifiées sans changement de code. Restaurer à la fin le firmware initial depuis backup avec vérification complète et conserver les snapshots FRAM et traces des essais. En cas de nouveau STARTED indéterminé, stopper et conserver la preuve ; ne pas réinitialiser en boucle pour obtenir un PASS.
 
-## Critères d'acceptation
-- Démonstration traçable de la conservation de l'atomicité et des invariants R0/R1/R2 sous transactionnement incrémental et injections de coupure.
-- FIFO/STOP/RTU servis sous charges représentatives avec budgets et marges **mesurés ou bornés**, distinction stricte simulation / cible réelle ; aucune réussite ou temps physique inventé.
-- Tests de non-régression V1, métrologie B3 et architecture existante réussis ; aucune capacité successeur annoncée avant intégration complète.
-- Rapport explicite des limites, métriques, risques résiduels, choix R5/R6 et preuves reproductibles. Si risque matériel non maîtrisé, ne pas le masquer.
+## Autorisations et limites
+allow_flash: true, allow_debug: true, allow_commit: true, allow_push: true. Codex agit de façon autonome dans AGENTS.md. Flash/debug seulement après identification et sauvegardes. Le HP est retiré ; T1000 seul banc. L'utilisateur est sollicité **uniquement** si connexion/alimentation/manipulation physique nécessaire, si une incertitude matérielle non maîtrisée subsiste, ou si un choix structurant non couvert survient. Ne pas lui déléguer des commandes Git ou de maintenance exécutables par Codex. Aucun essai SD ni RTU électrique sans dispositif approprié.
 
-## Publication
-Codex développe/committe/push sur main sans force, publie preuves, état/roadmap et DERNIER_RAPPORT.md, puis vérifie lecture distante. ChatGPT contrôlera indépendamment. Pas de demandes de validations répétitives pour actes autorisés ; escalade uniquement structurante, destructive inhabituelle ou physique.
+## Critères d'acceptation et sortie
+- Preuves archivées avant maintenance et hashes Flash/FRAM/partitions avant/après ; journal STARTED préservé hors cible, état physique de fin explicite.
+- Procédure reproductible, sûre, bornée à LIVE, respect de l'anti-rejeu et absence de faux reçu ; sinon arrêt justifié et proposition d'arbitrage.
+- Si maintenance possible, essais R4 ciblés avec résultats et latences physiques réellement mesurées ; sinon BLOCKED sans masquer la cause.
+- Tests hôte/ARM/sanitizers pertinents et non-régression V1 si code modifié ; pas de revendication protocole2 ou qualification R6.
+- Publication sur main de preuves, rapport DERNIER_RAPPORT.md, roadmap/état ; push normal et relecture distante. ChatGPT contrôlera indépendamment les preuves et les commits.
