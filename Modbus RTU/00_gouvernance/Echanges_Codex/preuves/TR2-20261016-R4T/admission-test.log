@@ -1,0 +1,8 @@
+Internal ctest changing into directory: /home/lolo/dev/msm/reports/TR2-r4t/host
+Test project /home/lolo/dev/msm/reports/TR2-r4t/host
+    Start 143: r4t_admission_gate
+1/1 Test #143: r4t_admission_gate ...............   Passed    0.05 sec
+
+100% tests passed, 0 tests failed out of 1
+
+Total Test time (real) =   0.05 sec

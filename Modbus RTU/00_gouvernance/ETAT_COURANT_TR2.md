@@ -298,3 +298,5 @@ Publication R3-B vérifiée : code1c5368f, preuves/rapport faf0f94 sur main relu
 
 - **VALIDÉ LOGICIEL / physique en préparation** : retraite slot3 + vrai RESERVED RENEW27 dans une unique enveloppe, puis steps28/29/30 ;568coupures/reboot/anti-rejeu et sanitizer ciblé PASS, ARM canonique/probe PASS. Cœur R2/R0/V1 inchangés ;141tests R4-S acquis non répétés. Aucune mutation physique à ce checkpoint.
 - **PRÉFLIGHT OBSERVÉ22:00:20UTC** : UID/SN/capteur arrêté conformes ; FlashM0162Mio c5bc…f5b26 et FRAM14fb…2aa9 exactes. Suite autonome sous gardes du [plan R4-T](../05_Firmware/LIVE_R4T.md) publié avant mutation ; pas de B3 autoritatif encore démontré.
+
+- **R4-T première tentative22:03:55UTC** : refus R2 5/7 par budget I/O non raccordé ;0write/0admission, snapshot FRAM entier14fb inchangé. Probe01 terminal/capteur arrêté/GDBdétaché, M016 restaurable depuis backup. Raccordement du prédicat existant corrigé, contre-test de refus PASS ; image02 distincte préparée, poursuite autonome sans réisolation durable.

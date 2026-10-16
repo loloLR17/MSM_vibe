@@ -10,11 +10,12 @@ static void check(const Bench *b,const uint8_t *original)
  assert(!memcmp(original,b->bytes,122880)&&!memcmp(original+245760,b->bytes+245760,16384));
  assert(b->store.has_effect&&b->store.effect.phase==1&&b->store.effect.run_id==5);
 }
+static bool denied(void *ctx,uint16_t code){(void)ctx;(void)code;return false;}
 static void dump(const char *name,const uint8_t *b)
 {FILE *f=fopen(name,"wb");assert(f);assert(fwrite(b,1,262144,f)==262144&&!fclose(f));}
 int main(int argc,char **argv)
 {
- assert(argc==2||argc==4);FILE *f=fopen(argv[1],"rb");assert(f);
+ assert(argc==2||argc==3||argc==4);FILE *f=fopen(argv[1],"rb");assert(f);
  uint8_t *original=malloc(262144),*admitted=malloc(262144);assert(original&&admitted);
  assert(fread(original,1,262144,f)==262144&&fgetc(f)==EOF);fclose(f);
  Bench *b=calloc(1,sizeof(*b));assert(b);b->owner=true;b->budget=SIZE_MAX;memcpy(b->bytes,original,262144);boot(b);
@@ -23,6 +24,17 @@ int main(int argc,char **argv)
  for(unsigned i=0;i<5;i++)old[i]=b->store.entries[slots[i]].request;
  R4tRetirement t;assert(r4t_capture(&t,&b->engine,original)==TR2_OK);
  assert(t.archived.phase==2&&t.archived.generation==26&&t.archived.run_id==5);
+ if(argc==3) {
+  assert(!strcmp(argv[2],"--deny"));b->engine.acquisition.io_admissible=denied;
+  assert(r4t_retire_and_admit(&t,&b->engine)!=TR2_OK&&!t.gate.phase);
+  assert(!b->engine.booted&&!b->store.mounted&&!b->writes&&!b->starts);
+  assert(r4t_retire_and_admit(&t,&b->engine)!=TR2_OK);
+  assert(!memcmp(original,b->bytes,262144));boot(b);
+  assert(live_command_engine_boot(&b->engine)==TR2_OK&&b->engine.indeterminate&&b->store.generation==26);
+  puts("R4T ADMISSION DENIED: original FRAM262144 exact,0writes,0starts,token consumed,frontend invalidated; reboot STARTED5/26 preserved: PASS");
+  free(b);free(original);free(admitted);return 0;
+ }
+
  uint8_t intent[128];memcpy(intent,t.gate.intent,128);
  /* Alter every domain, including protected regions and journal CRC: exact hash refuses. */
  unsigned changed[]={0,122880,131072,147733,188416,245760,262143};

@@ -1,0 +1,17 @@
+{
+  "command": [
+    "/mnt/c/ST/STM32CubeCLT_1.22.0/STM32CubeProgrammer/bin/STM32_Programmer_CLI.exe",
+    "-c",
+    "port=SWD",
+    "sn=003500463235510B37333439",
+    "freq=8000",
+    "-w",
+    "\\\\wsl.localhost\\Debian\\home\\lolo\\dev\\msm\\reports\\TR2-r4t\\probe-build-01\\tr2-r4t-monotone-recovery-NON-PRODUCTION.bin",
+    "0x08000000",
+    "-v",
+    "-rst"
+  ],
+  "code_sha": "65afffc1304e3d099f5cf306629fe313a6e68cf3",
+  "sha256": "f248fbaf6b6ee7d15da11afac9374726fe80433443e71ed94168b03eec7389c5",
+  "normal_programming_only": true
+}

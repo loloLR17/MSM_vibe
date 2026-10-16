@@ -1,0 +1,8 @@
+phase2-flash verified
+phase2-reset-readback OK
+phase2-retire-result OK
+Traceback (most recent call last):
+  File "/home/lolo/dev/msm/reports/TR2-r4t/hardware/phase2.py", line 38, in <module>
+    (P/'phase2-comparison.json').write_text(json.dumps(r,indent=2)+'\n');assert r['full_exact_model'] and r['protected_exact'],r
+                                                                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: {'physical_full_sha256': '14fb172f2917d0a8e440438051831c84f3f3e746161702a7de9e9a1a251b2aa9', 'model_full_sha256': 'f035749d0f0881277971824df5a338500c5636063c131f056648a4a682f1e312', 'full_exact_model': False, 'protected_exact': True, 'utc': '2026-10-16T22:03:55.865670+00:00'}

@@ -447,3 +447,7 @@ target_link_libraries(test_r4t_maintenance PRIVATE tr2_core)
 add_test(NAME r4t_maintenance COMMAND ${Python3_EXECUTABLE}
     ${CMAKE_CURRENT_SOURCE_DIR}/tests/platform/run_r4t_maintenance.py
     $<TARGET_FILE:test_r4t_maintenance> ${CMAKE_CURRENT_SOURCE_DIR}/tests/fixtures/r4r_started_snapshot.zlib)
+
+add_test(NAME r4t_admission_gate COMMAND ${Python3_EXECUTABLE}
+    ${CMAKE_CURRENT_SOURCE_DIR}/tests/platform/run_r4t_maintenance.py
+    $<TARGET_FILE:test_r4t_maintenance> ${CMAKE_CURRENT_SOURCE_DIR}/tests/fixtures/r4r_started_snapshot.zlib --deny)

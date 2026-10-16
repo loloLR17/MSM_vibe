@@ -1,4 +1,4 @@
-/* Exact R4S plan. Every boot CLOSED/WAIT; no generic RTU ingress.
+/* Exact R4T plan. Every boot CLOSED/WAIT; no generic RTU ingress.
  * Readonly phase1 must PASS before host grants the explicit backup token. */
 #define TR2_R4S_ENTRY unused_r4s_readonly_entry
 #include "stm32_r4s_bench.c"
@@ -14,6 +14,7 @@ static Tr2Result retire(void)
  r4s_backup_token=0;REQUIRE(r4t_capture(&retirement,&engine,baseline));r4m_guard=retirement.gate;
  memcpy(saved_intent,r4m_guard.intent,128);
  LiveCommandRequest old=engine.active.request;
+ owner.acquisition.budget=admission;
  r4_result.ownership=1;r4m_enabled=true;r4_result.stage=40;r4t_recovery.stage=2;
  REQUIRE(r4t_retire_and_admit(&retirement,&engine));
  r4m_guard=retirement.gate;

@@ -4,6 +4,22 @@
       "bytes": 594,
       "sha256": "4ecf26b9ec326168f2a862a82cac1a3ad163f9e45844ee8d239afc65585218f3"
     },
+    "admission-build.log": {
+      "bytes": 220,
+      "sha256": "fff84b4e1e063a4879773690a55c5b1a9c015a5ab60d232b43630f34445d5879"
+    },
+    "admission-configure.log": {
+      "bytes": 130,
+      "sha256": "90e40e16bf00b06158f44cfbdcf7245c6046e4997de53de70c1b141213936b4f"
+    },
+    "admission-test.log": {
+      "bytes": 319,
+      "sha256": "a9801085a7b70b743d2bf36149cb9a2349930f0bc79656258ed51de61e252722"
+    },
+    "build-probe-02.py": {
+      "bytes": 944,
+      "sha256": "6592ac0fdec7d5c15535d09814d3105c778d3ff498cd39cb3e0e747e187461bb"
+    },
     "build-probe.py": {
       "bytes": 944,
       "sha256": "8c065c2c5cb84a9e4027a55eaef309e19c16ae3a8c0a93513026b564a695558e"
@@ -32,6 +48,10 @@
       "bytes": 473,
       "sha256": "b375075e515d9698f26f3412b52f55d0a0e185c17d5d9d1a542b9e54388645a3"
     },
+    "hardware/fram-after-maintenance.bin.zlib": {
+      "bytes": 1614,
+      "sha256": "91d6dea7c0680669b90184f2f7c9ede70bb0948fdebb799448e4b0672797cbbd"
+    },
     "hardware/fram-before.bin.zlib": {
       "bytes": 1614,
       "sha256": "91d6dea7c0680669b90184f2f7c9ede70bb0948fdebb799448e4b0672797cbbd"
@@ -56,6 +76,62 @@
       "bytes": 2321,
       "sha256": "9ac21c96905e0393637a06c6dfec6ea4a3cfefecde57c6d5dbc93ea3651682c6"
     },
+    "hardware/phase2-comparison.json": {
+      "bytes": 289,
+      "sha256": "e472903086d0d306f039f19109aa1f1f21577c9ab4f0f63a048bb029c61623a7"
+    },
+    "hardware/phase2-driver.log": {
+      "bytes": 740,
+      "sha256": "9c36825a9ced311a0e3d31686f017b694efc528f40ae8179f14dfe4e548e4509"
+    },
+    "hardware/phase2-flash-command.json": {
+      "bytes": 544,
+      "sha256": "8444a1b75730bc14c3792594617442df074f7d414b313c63de93d17ed2c39aa7"
+    },
+    "hardware/phase2-flash.log": {
+      "bytes": 1685,
+      "sha256": "15b91015c8137851eaa11fea800639b5a54d8a3f3e5fc1f975821260d677ccbd"
+    },
+    "hardware/phase2-reset-readback-invocation.json": {
+      "bytes": 743,
+      "sha256": "e5880f82523f10dd4dcbc933e2c2b9ca086c99fa354ae3479796b469a3a9ca00"
+    },
+    "hardware/phase2-reset-readback-server.log": {
+      "bytes": 642,
+      "sha256": "8bcc4c71699ee84963384971405c87e1a151e92fe6097483e261a0323be2f087"
+    },
+    "hardware/phase2-reset-readback.gdb": {
+      "bytes": 411,
+      "sha256": "49c8decb2aedf9a461b0f2b5bb15c43fa7445d4908275ada2387eb6ee19e9518"
+    },
+    "hardware/phase2-reset-readback.log": {
+      "bytes": 330,
+      "sha256": "82d499685838062aebd91ab7fcbcd58527243bd69966bd6c1009ba8ed3fd6cad"
+    },
+    "hardware/phase2-retire-result-invocation.json": {
+      "bytes": 742,
+      "sha256": "826ab192c01f3cce630e28d870530627ec3f51b2ffa2556cb172e3f217ed1b56"
+    },
+    "hardware/phase2-retire-result-server.log": {
+      "bytes": 642,
+      "sha256": "8bcc4c71699ee84963384971405c87e1a151e92fe6097483e261a0323be2f087"
+    },
+    "hardware/phase2-retire-result.gdb": {
+      "bytes": 763,
+      "sha256": "39456de3dbaa79a4aed8a493ed195e20579f6d8cb5f770f8c3033c26d8612b36"
+    },
+    "hardware/phase2-retire-result.log": {
+      "bytes": 9242,
+      "sha256": "5ce70745171833fe9eebfe021fbbc1213475129b16be8a6e5ae1607b153dfd82"
+    },
+    "hardware/phase2.py": {
+      "bytes": 2538,
+      "sha256": "9e59fa945a830eeafd03b5018d39dd5cf51feaad4d47d2ae1c99a5cb5c3d0576"
+    },
+    "hardware/phase2b.py": {
+      "bytes": 2552,
+      "sha256": "0e89486d034d926337fc2f6bdd2b52a4786089f2ee8f5b94235ee0d5be6afcee"
+    },
     "hardware/preflight-driver.log": {
       "bytes": 756,
       "sha256": "f31ce8013feac8952820c5ae3f504b06b854900e46ae648580bc2c4e99e93307"
@@ -67,6 +143,10 @@
     "hardware/preflight.py": {
       "bytes": 2502,
       "sha256": "0e9ff81e4e33db78aeb78769cfb1541a687427e961246c25612fa1c3d9baed79"
+    },
+    "hardware/probe-readback.bin.zlib": {
+      "bytes": 78292,
+      "sha256": "73c65010e7d5ea296633b31cbc1c37389ef410905f7f305d92ee334fd6c51a5f"
     },
     "hardware/sensor-stopped-readonly-invocation.json": {
       "bytes": 794,
@@ -104,6 +184,10 @@
       "bytes": 281293,
       "sha256": "4fea11e4868c2f16716ff0ee50207554dd9d90edaf2d4f2e895e5aa77e65c239"
     },
+    "latest-readback.json": {
+      "bytes": 4994,
+      "sha256": "5cfc406dd31e3ec7e2a7d914231c325f3772f1724a00ebc0388c0ec0e580fc00"
+    },
     "model-admitted.bin.zlib": {
       "bytes": 1587,
       "sha256": "452a32310bc7193d2325b679683f93985b31d253591c5e4d7d8686b18a8e6b94"
@@ -115,6 +199,10 @@
     "model-test.log": {
       "bytes": 216,
       "sha256": "cef6ebd5cd41d067109d8d842641e79359929490f3f58920574443012a232230"
+    },
+    "physical-build.json": {
+      "bytes": 1956,
+      "sha256": "92230aa20b9dc2534e03ef01a1ca3ed4f360ef616b22cf3d2595325ad8e155b9"
     },
     "prepare-probe.py": {
       "bytes": 3460,
@@ -136,6 +224,22 @@
       "bytes": 27711,
       "sha256": "8bec6113e4e423495fa445c8976839f0ce693e28e51f54de4b10d259f7106423"
     },
+    "probe-build-02-tr2-r4t-monotone-recovery-NON-PRODUCTION.bin.zlib": {
+      "bytes": 78337,
+      "sha256": "2d378fe25d86d2ae101ae84ed774814fab07d36fb824d984aad59354d0c87848"
+    },
+    "probe-build-02-tr2-r4t-monotone-recovery-NON-PRODUCTION.elf.zlib": {
+      "bytes": 477412,
+      "sha256": "8b7c21e1b19142dcc73091758aafdcee7c11664f1b050984c30078cec7ae9496"
+    },
+    "probe-build-02.log": {
+      "bytes": 27711,
+      "sha256": "79fec9efee494314ab76396f1b02547764dd6b0e0ad62cd2e3176716def66bc4"
+    },
+    "probe-code-identity.log": {
+      "bytes": 63,
+      "sha256": "c2ed93ffd93c840755c0e91392ae593b1b52de9b7aaf6c208123feaceb1dde2e"
+    },
     "publish.py": {
       "bytes": 2001,
       "sha256": "103747bcd776c2b34d3c5f0c97e6c2c64c17be94681c15475d2b4f5b70449e3b"
@@ -155,6 +259,10 @@
     "sanitizer-test.log": {
       "bytes": 328,
       "sha256": "585b17ea06c081a5ebae6ed515eedf2459adedcefae6dbbacf8ea59919f6c821"
+    },
+    "stlink-inventory.log": {
+      "bytes": 506,
+      "sha256": "944d661571428454b8cbf1577533a917ff49105319364f2cd50c8384d7cf6155"
     }
   }
 }

@@ -4,7 +4,7 @@ status: IN_PROGRESS
 base_ref: main
 base_sha: 1799b97db7d1c5dc0bc3892501569fdcd7a4e0b9
 initial_head: d17c5457e35fd99269bdc0312fb5c48770ff0572
-result_sha: null
+result_sha: 65afffc1304e3d099f5cf306629fe313a6e68cf3
 created_at_utc: 2026-10-16T22:05:00Z
 author: Codex
 target_branch: main
@@ -40,3 +40,16 @@ Worktree isolé MSM_vibe-R4T-monotonic-recovery, ancienmain82169af/stashes et é
 Publication du plan/code/tests/preuves avant toute mutation ; SHA du code exécuté
 et image exacte seront consignés au départ du probe, après ce commit. Pas de
 qualification physique présumée, R4/R6 ouverts. Voir [preuves](preuves/TR2-20261016-R4T/README.md).
+
+
+## Mise à jour après le premier probe
+
+Image01/code65afffc flashée et relue exacte ; essai arrêté par le vrai refus
+R2 5/7, avant toute écriture FRAM/admission durable : prédicat du port I/O non
+raccordé au harness. Snapshot complet14fb inchangé,0octet/0commande write,
+capteur arrêté/GDBdétaché ; ancien STARTED5 physiquement intact.
+Correction minimale du raccordement `owner.acquisition.budget=admission`, garde
+existante conservée, sans true forcé. Contre-test de refus PASS0,05s et nouvelle
+image02 ARM construite. Pas de répétition des568coupures/sanitizers inchangés.
+La reprise est autorisée par l'absence démontrée de mutation ; nouvelle image et
+nouveaux logs distincts. Plan exact actualisé avant le prochain essai.

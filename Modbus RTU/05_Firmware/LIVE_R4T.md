@@ -88,3 +88,16 @@ Après essais, snapshot FRAM final intégral et audit sans rollback d'identité 
 restaurer Flash M016 seulement, par pages normales + relecture2Mio, capteur arrêté,
 GDB détaché. Aucun SD/HP/câblage/OptionBytes/RDP/mass erase. Les résultats physiques
 et SHA exacts de l'image seront ajoutés au rapport, sans préjuger du succès.
+
+
+## Premier essai physique : refus sans mutation, raccordement corrigé
+
+Image01/code65afffc : garde I/O du vrai port non raccordée (`budget=NULL`),
+RENEW refusé5/7 avant commit, zéro write/commande physique ; FRAM entière14fb
+exacte, capteur arrêté. Aucun pont publié, aucune identité consommée. Correction
+harness : `owner.acquisition.budget=admission` avant la retraite, réemploi du
+prédicat existant ownership/work/FIFOreserve106, sans le remplacer par true.
+Contre-test de refus : zéro write/start, token consommé/frontend indisponible,
+reboot exact STARTED5/journal26 ; aucune reprise implicite de la candidate RAM.
+L'essai corrigé utilise une image02 distincte, même snapshot initial revérifié.
+Les568coupures et sanitizers du helper inchangé sont acquis, pas rejoués.
