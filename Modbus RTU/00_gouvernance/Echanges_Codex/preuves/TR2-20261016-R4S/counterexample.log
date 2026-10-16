@@ -1,0 +1,4 @@
+JOURNAL_BEFORE=26
+JOURNAL_BRIDGE=0
+JOURNAL_AFTER_RENEW=4 CONTRACT_COUNTER_PRESERVATION=FAILED
+MODEL MECHANICS ONLY (NOT CONTRACT PASS): exact STARTED5, old R4M/P guards unchanged; 142 isolation cuts+4 RENEW cut phases, floors/config/intent/protected exact;5 old keys rejected24/0write after real RENEW4->5; model next run6 STOP; CLOSED bridge negative control retained

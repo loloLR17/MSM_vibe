@@ -1,0 +1,19 @@
+{
+  "result": "PASS",
+  "flash_full_bytes": 2097152,
+  "flash_sha256": "c5bc344d64984c48c3e34b05fa9432c9c124e8b67428eb0eef22c0d62ddf5b26",
+  "fram_full_bytes": 262144,
+  "fram_sha256": "14fb172f2917d0a8e440438051831c84f3f3e746161702a7de9e9a1a251b2aa9",
+  "flash_exact_initial": true,
+  "fram_exact_initial": true,
+  "historical_and_tail_exact": true,
+  "pages": 16,
+  "bytes": 131072,
+  "fram_writes": 0,
+  "R2_admissions": 0,
+  "phase2_or_phase3_performed": false,
+  "final": "M016 CommissioningReadOnly WAIT; sensor stopped; GDB detached",
+  "mass_erase": false,
+  "option_bytes_changed": false,
+  "utc": "2026-10-16T21:45:31.572741+00:00"
+}

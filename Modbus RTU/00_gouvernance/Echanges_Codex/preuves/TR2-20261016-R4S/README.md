@@ -7,4 +7,10 @@ Aucune valeur diagnostique à identité volatile ne vaut admission R2 : V/F reti
 Scripts historiques : ne pas relancer sur un autre état, vérifier image/SHA/cible.
 Les temps modèles hôte sont distincts des observations STM32 et des horloges SI.
 Logs bruts Windows CRLF conservés ; diff whitespace vérifié sur code/docs.
+Les logs maintenance/recovery/probe-build-04..06 et model-hashes relèvent d'une
+étude hôte NON AUTORISÉE SUR CIBLE ; code local86d0f4b, image04 jamais flashée
+ni exportée ici. Ils ne prouvent aucune écriture physique ni conformité phase2.
+Le contre-exemple indépendant counterexample_model.c utilise main inchangé ;
+son application générique sur RAM ne vaut pas autorisation de capture.
+Restoration-summary.json décrit l'état final matériel, aucune phase2/3 physique.
 SHA256SUMS couvre tous les fichiers sauf lui-même.

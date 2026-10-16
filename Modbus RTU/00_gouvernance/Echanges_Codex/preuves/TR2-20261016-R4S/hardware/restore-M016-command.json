@@ -1,0 +1,17 @@
+{
+  "command": [
+    "/mnt/c/ST/STM32CubeCLT_1.22.0/STM32CubeProgrammer/bin/STM32_Programmer_CLI.exe",
+    "-c",
+    "port=SWD",
+    "sn=003500463235510B37333439",
+    "freq=8000",
+    "-w",
+    "\\\\wsl.localhost\\Debian\\home\\lolo\\dev\\msm\\reports\\TR2-r4s\\hardware\\restore-pages.bin",
+    "0x08000000",
+    "-v",
+    "-rst"
+  ],
+  "code_sha": "fresh verified full M016 backup c5bc; only three readonly probes were flashed",
+  "sha256": "af61d6a8f87a1ed9f677d96a66c95e21c23e8ecca492313b67a51027dae0503c",
+  "normal_programming_only": true
+}

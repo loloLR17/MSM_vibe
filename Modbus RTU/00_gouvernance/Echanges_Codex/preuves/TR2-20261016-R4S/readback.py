@@ -1,6 +1,6 @@
 from pathlib import Path
 import subprocess as s,json,hashlib,tarfile,io,datetime
-root=Path('/home/lolo/dev/msm/projects/MSM_vibe-R4S-service-budget-safe-recovery');s.run(['git','fetch','origin','main'],cwd=root,check=True,capture_output=True)
+root=Path('/home/lolo/dev/msm/projects/MSM_vibe-R4S-publication');s.run(['git','fetch','origin','main'],cwd=root,check=True,capture_output=True)
 sha=s.check_output(['git','rev-parse','origin/main'],cwd=root,text=True).strip();assert sha==s.check_output(['git','rev-parse','HEAD'],cwd=root,text=True).strip()
 names=s.check_output(['git','diff','--name-only','20c8089',sha],cwd=root,text=True).splitlines()
 with tarfile.open(fileobj=io.BytesIO(s.check_output(['git','archive',sha],cwd=root))) as archive:

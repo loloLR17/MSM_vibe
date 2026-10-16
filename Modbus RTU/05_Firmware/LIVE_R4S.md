@@ -24,7 +24,7 @@ Validation logicielle : profil/refus CMake, ARM dédié/canonique, provider et
 métrologie O2/ASan/UBSan/oracles avant cible. Ancienne suite141tests préservée,
 non répétée pour ajout strictement harness. Les phases2/3 restent conditionnelles
 au succès physique du service et à la preuve d'applicabilité de la maintenance.
-Restauration Flash M016 complète et FRAM inchangée à vérifier après ce probe.
+Restauration finale vérifiée ci-dessous ; ces paragraphes retracent les étapes intermédiaires.
 
 ## Premier résultat et correction de suivi d'horloge
 
@@ -67,7 +67,25 @@ consommation351)/RTU513, pas publication.99contrôles horloge, résidumax10us.
 Oracle4096 indépendant : RMS959/953/102/39mg, crêtes998/992/138/82mg.
 FRAM262144 exacte14fb,0write/0tentative/0commande ; phase1PASS borné seulement.
 
-Phase2 : audit/coupures/anti-rejeu sur snapshot authentique avant tout traitement
-R2 physique. Le capteur est arrêté ; poursuite entreprobes isolés fermés avec
-backupM016 vérifié, restauration complète àla fin, sans restauration intermédiaire
-inutile avant chaque flash de probe. Aucune entréeLIVE générique sur un pont.
+## Résultat final — phase 2 BLOCKED, cible restaurée
+
+Le mécanisme R4-M/R4-P appliqué sur copie RAM authentique fait passer
+`LiveCommandStore.generation` de 26 à 0, puis à 4 après RENEW simulé ; runfloor5
+préservé et epoch4→5. Les anciennes gardes exactes refusent le snapshot14fb.
+Aucune garde élargie ni maintenance n'a été intégrée sur main. Ce compteur est
+celui du journal, distinct des générations root/configuration et des identités
+run/epoch. L'exigence « aucun reset des compteurs » nécessite une décision sur
+sa portée ou une politique explicite de préservation ; aucune exception déduite
+de R0. Contre-exemple reproductible avec le code inchangé de main dans les preuves.
+
+L'étude de retraite reste dans le commit local86d0f4b, branche
+codex/r4s-retirement-study ; image04 jamais flashée ni publiée. Les coupures et
+anti-rejeu mécaniques réussis ne valent pas autorisation contractuelle.
+Aucune phase2/3 physique, aucun START/RENEW R2, zéro écriture FRAM. B3
+numérique diagnostique ne vaut toujours pas B3 LIVE autoritatif.
+
+Restauration vérifiée le16/10/2026 à21:45:31UTC : Flash2Mio exacte c5bc344d…f5b26,
+FRAM262144 exacte14fb172f…2aa9, historique/tail inchangés ; M016
+CommissioningReadOnly WAIT, capteur arrêté, GDB détaché. Reprise après décision
+structurante, sans rejouer les trois acquisitions acquises sur code inchangé.
+Rapport et preuves : ../00_gouvernance/Echanges_Codex/DERNIER_RAPPORT.md.

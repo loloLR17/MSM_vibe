@@ -1,0 +1,50 @@
+{
+  "journal_before": 26,
+  "journal_bridge": 0,
+  "journal_after_renew": 4,
+  "run_floor": 5,
+  "epoch_after_renew": 5,
+  "old_guards_refuse": true,
+  "target_access": false,
+  "counter_preservation_criterion": "FAILED",
+  "diagnostic": "counterexample reproduced with unchanged main R4M/R2",
+  "model_exit_code": 7,
+  "commands": [
+    [
+      "cmake",
+      "-S",
+      "/home/lolo/dev/msm/projects/MSM_vibe-R4S-publication/Modbus RTU/05_Firmware",
+      "-B",
+      "/tmp/r4s-counterexample-uhlb42sa/build"
+    ],
+    [
+      "cmake",
+      "--build",
+      "/tmp/r4s-counterexample-uhlb42sa/build",
+      "--target",
+      "tr2_core",
+      "-j2"
+    ],
+    [
+      "cc",
+      "-std=c11",
+      "-Wall",
+      "-Wextra",
+      "-Wpedantic",
+      "-Werror",
+      "-I/home/lolo/dev/msm/projects/MSM_vibe-R4S-publication/Modbus RTU/05_Firmware/include",
+      "-I/home/lolo/dev/msm/projects/MSM_vibe-R4S-publication/Modbus RTU/05_Firmware/platform/stm32",
+      "-I/home/lolo/dev/msm/projects/MSM_vibe-R4S-publication/Modbus RTU/05_Firmware/tests/platform",
+      "/home/lolo/dev/msm/reports/TR2-r4s/counterexample_model.c",
+      "/home/lolo/dev/msm/projects/MSM_vibe-R4S-publication/Modbus RTU/05_Firmware/platform/stm32/r4m_maintenance.c",
+      "/tmp/r4s-counterexample-uhlb42sa/build/libtr2_core.a",
+      "-o",
+      "/tmp/r4s-counterexample-uhlb42sa/model"
+    ],
+    [
+      "/tmp/r4s-counterexample-uhlb42sa/model",
+      "/tmp/r4s-counterexample-uhlb42sa/snapshot.bin"
+    ]
+  ],
+  "utc": "2026-10-16T21:47:37.854628+00:00"
+}
