@@ -1,6 +1,6 @@
 ---
 mission_id: TR2-20261017-R4V-RTU-START-STOP-LATENCY
-status: IN_PROGRESS
+status: DONE
 base_ref: main
 base_sha: 1a9cf6a34bd36a695fb0410ead4a65f38b948a1f
 initial_head: 8010d0101d70170a13731ca928833ce8c95774c3
@@ -16,7 +16,7 @@ allow_debug: true
 
 # R4-V — diagnostic causal et correction qualifiés dans la portée bornée
 
-**Résultat technique acquis ; IN_PROGRESS uniquement pour publication et relecture distante de ce bilan.** La reprise a trouvé le candidat déjà terminé, COM4 fermé, GDB détaché ; aucun essai physique, build ou test réussi n'a été rejoué. Aucun obstacle technique actif. [Chronologie, sûreté et limites](../../05_Firmware/LIVE_R4V.md).
+**DONE pour le diagnostic et la correction minimale démontrés, avec publication et relecture distante du bilan.** La reprise a trouvé le candidat déjà terminé, COM4 fermé, GDB détaché ; aucun essai physique, build ou test réussi n'a été rejoué. Aucun obstacle technique actif. [Chronologie, sûreté et limites](../../05_Firmware/LIVE_R4V.md).
 
 ## Résultats avant/après
 
@@ -68,10 +68,16 @@ BINbaseline150664octets SHA e6e744dbd414014a34af86577987cf6fb82b242499687e9053e7
 
 Worktree isolé `MSM_vibe-R4V-rtu-latency`, branche `codex/r4v-rtu-latency` versmain parpushnormalHEAD:refs/heads/main. Ancienmain82169af propre préservé,62autresworktrees,2stashes6251b988…/f3b829e6… et6873fichiers protégés vérifiés intacts. ÉtudeR4S86d0f4b et archivesR4U inchangées. Commits publiés/revus f8bf7ca instrumentation, bad1041baseline,8db2f67correctif final ; HEADlocal=origin/main8db2f67propre avantce bilan. Pas de merge/rebase/reset/forcepush.
 
-Journal actualisé : nouveau bilanR4V, état matérielfinal/journal62/run9, diagnostic et latencerésiduelle ; roadmapR2/R3/R4 factualisée sans qualificationindépendante. Missionactive et registredettesA04préservés. Ce rapport attend son premierpush/relecture ; statutdepublication distinct du résultattechnique.
+Journal actualisé : nouveau bilanR4V, état matérielfinal/journal62/run9, diagnostic et latencerésiduelle ; roadmapR2/R3/R4 factualisée sans qualificationindépendante. Missionactive et registredettesA04préservés. Bilan publié et relu intégralement depuis GitHub ; statut de publication distinct du résultat technique et de la qualification indépendante ChatGPT.
 
 ## Limites et recommandations pour ChatGPT
 
 Diagnostic et correction minimale prouvés dans ce périmètre, aucune garantie industrielle. Les maxima mesurés ne sont pas un WCET ; fautesFRAM/service et coupures/reboot couverts surhôte, aucun défautélectrique ni coupurephysiqueinjecté ici. Pas de bornageIRQ/HALisolé/pile/endurance/dériveSI/thermique. Pas de produitLIVEcomplet, B1/B2/B7absents/B6UNAVAILABLE/capLIVE16absente ; R5PC/SQLite/Web etR6bout-en-bout nonqualifiés.
 
 L'optimisation seule ne répond pas à un éventuel besoin d'arrêt rapide. Faire décider explicitement le besoin de sécurité et la sémantique deSTOP ; envisager contratd'optimisationbornée CPU/CRC/service sanschangerbarrières, ou décisiond'architecture surreprésentationdurable/voied'arrêtindépendante. Aucun déplacementdebarrière/changementnormatif appliqué. Contrôle indépendantChatGPT requis, pas de tag ni GO R4global/R5/R6 parCodex.
+
+## Publication et clôture
+
+Bilan `ff469924b3ff624f1c54b148e307b780e801b996` (docs(r4v): publish measured latency reduction and verified M016 restoration) poussé normalement surmain puis récupéré/relu à2026-10-17T10:56:14.671782+00:00.168fichiers changés comparés intégralement aux blobs GitHub,156preuves SHA256 et114artefacts BUNDLE vérifiés/décompressés,1655+1075ADU parsées ; Flash/FRAM restaurées vérifiées depuis les preuves distantes. [Preuve de relecture](preuves/TR2-20261017-R4V/final-bilan-readback.json). HEADlocal=origin/main etworktreepropre àl'issue du bilan ;62autresworktrees/mainhistorique/stashes préservés.
+
+Mise àjourDONE et nouvelles archivesR4V identiques aux fichiers actifs ajoutées après cette relecture. La publication de cette clôture sera elle aussi vérifiée ; son SHA sera fourni dans la réponse finale, sans autoréférence impossible dans le commit. Aucun essai supplémentaire, aucune qualification industrielle/R4global/R5/R6 ni tag.

@@ -1,0 +1,15 @@
+{
+  "result": "PASS",
+  "mission_id": "TR2-20261017-R4V-RTU-START-STOP-LATENCY",
+  "sha": "ff469924b3ff624f1c54b148e307b780e801b996",
+  "all_changed_files_fully_read_and_equal": 168,
+  "evidence_manifest_files": 156,
+  "bundle_files": 114,
+  "master_adus_parsed": {
+    "baseline": 1655,
+    "paced": 1075
+  },
+  "restoration_verified_from_remote": true,
+  "report_status": "IN_PROGRESS",
+  "utc": "2026-10-17T10:56:14.671782+00:00"
+}
