@@ -43,3 +43,11 @@ La cible diagnostic M014-C ne fournit pas ces blocs : **NO-GO physique actuel**.
 Voir [matrice, contrôles HP et reprise D](../00_gouvernance/INTEGRATION_SUPERVISION_M014_D.md).
 
 L'essai nominal M014-C est consommé : ne pas relancer sa commande ou son marqueur.
+
+## R5-A — lecture LIVE et relecture hors ligne
+
+[Contrat de données, migration 7, commandes et limites](LIVE_R5A.md). Le service V1
+reste compatible ; `--live-replay` compose le lecteur LIVE/SQLite/Web sans ouvrir
+de port série. Les captures R4-U/V révèlent une inversion firmware 3002/3003 :
+ces B3 sont refusés et conservés en quarantaine. R5-A ne peut être clôturée sans
+correction firmware autorisée ; aucun contournement PC n'est appliqué.

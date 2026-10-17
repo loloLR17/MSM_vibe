@@ -5,7 +5,7 @@ namespace TR2.Persistence.Sqlite;
 
 public sealed class SqliteDatabase
 {
-    public const int CurrentSchemaVersion = 6;
+    public const int CurrentSchemaVersion = 7;
 
     private readonly SqlitePersistenceOptions _options;
 
@@ -87,6 +87,7 @@ public sealed class SqliteDatabase
                 3 => ApplyMigration4(connection),
                 4 => ApplyMigration5(connection),
                 5 => ApplyMigration6(connection),
+                6 => ApplyMigration7(connection),
                 _ => throw new InvalidOperationException($"No migration path is defined from schema version {version}.")
             };
         }
@@ -346,6 +347,33 @@ public sealed class SqliteDatabase
         SetUserVersion(connection, transaction, 6);
         transaction.Commit();
         return 6;
+    }
+
+    private static int ApplyMigration7(SqliteConnection connection)
+    {
+        using var transaction = connection.BeginTransaction();
+        using var command = connection.CreateCommand();
+        command.Transaction = transaction;
+        command.CommandText = """
+            CREATE TABLE live_observation (
+                row_id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+                observation_id TEXT NOT NULL UNIQUE,
+                device_id INTEGER NULL CHECK(device_id IS NULL OR device_id BETWEEN 0 AND 4294967295),
+                segment_id TEXT NOT NULL,
+                received_utc TEXT NOT NULL,
+                protocol_version INTEGER NULL,
+                profile TEXT NULL,
+                continuity TEXT NOT NULL,
+                values_valid INTEGER NOT NULL CHECK(values_valid IN (0,1)),
+                fresh INTEGER NOT NULL CHECK(fresh IN (0,1)),
+                payload_json TEXT NOT NULL
+            );
+            CREATE INDEX ix_live_observation_device_row ON live_observation(device_id, row_id);
+            """;
+        command.ExecuteNonQuery();
+        SetUserVersion(connection, transaction, 7);
+        transaction.Commit();
+        return 7;
     }
 
     private static void SetUserVersion(SqliteConnection connection, SqliteTransaction transaction, int version)

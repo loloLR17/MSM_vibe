@@ -32,6 +32,7 @@ public sealed record DeviceReadResponse(DateTimeOffset ObservedAt, IhmDeviceRead
 public sealed class SupervisionWebHost
 {
     private const int MaxRequestIdentityLength = 128;
+    private readonly ILiveReadSource? _liveReadSource;
     private readonly SupervisionWebOptions _options;
     private readonly SupervisionReadProjection _projection;
     private readonly TimeProvider _timeProvider;
@@ -47,10 +48,12 @@ public sealed class SupervisionWebHost
         ISupervisionSystemReadSource? systemReadSource = null,
         ISupervisionCommandSink? commandSink = null,
         ISupervisionCampaignSelectionSink? campaignSelectionSink = null,
-        ISupervisionCommandHistoryReadSource? commandHistoryReadSource = null)
+        ISupervisionCommandHistoryReadSource? commandHistoryReadSource = null,
+        ILiveReadSource? liveReadSource = null)
     {
         ArgumentNullException.ThrowIfNull(options);
         ArgumentNullException.ThrowIfNull(projection);
+        _liveReadSource = liveReadSource;
         _options = options;
         _projection = projection;
         _timeProvider = timeProvider ?? TimeProvider.System;
@@ -62,12 +65,21 @@ public sealed class SupervisionWebHost
 
     public WebApplication CreateApplication()
     {
-        var builder = WebApplication.CreateSlimBuilder(Array.Empty<string>());
+        var builder = WebApplication.CreateSlimBuilder(new WebApplicationOptions
+        {
+            Args = Array.Empty<string>(),
+            ContentRootPath = AppContext.BaseDirectory,
+            WebRootPath = Path.Combine(AppContext.BaseDirectory, "wwwroot")
+        });
         builder.WebHost.UseUrls(_options.ListenUri.ToString());
         builder.Services.ConfigureHttpJsonOptions(options => options.SerializerOptions.Converters.Add(new JsonStringEnumConverter(allowIntegerValues: false)));
         var application = builder.Build();
         application.UseDefaultFiles();
         application.UseStaticFiles();
+
+        application.MapGet("/api/v2/live", () => _liveReadSource is null
+            ? Results.NotFound()
+            : Results.Ok(_liveReadSource.Read(_timeProvider.GetUtcNow())));
 
         application.MapGet("/api/v1/fleet", () =>
         {

@@ -24,6 +24,9 @@ public static class SupervisionConsoleApplication
         ArgumentNullException.ThrowIfNull(output);
         ArgumentNullException.ThrowIfNull(error);
 
+        if (args.Count > 0 && args[0] == "--live-replay")
+            return await LiveReplayConsoleApplication.RunAsync(args, cancellationToken, output, error);
+
         if (args.Count > 0 && args[0] == "--diagnostic")
         {
             return await DiagnosticConsoleApplication.RunAsync(
