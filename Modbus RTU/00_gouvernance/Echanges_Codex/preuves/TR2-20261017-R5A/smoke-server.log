@@ -1,0 +1,19 @@
+warn: Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware[16]
+      The WebRootPath was not found: /home/lolo/dev/msm/projects/MSM_vibe-R5A-pc-live/Modbus RTU/Supervision TR2/src/TR2.Supervision.Service/wwwroot. Static files may be unavailable.
+info: Microsoft.Hosting.Lifetime[14]
+      Now listening on: http://127.0.0.1:37425
+info: Microsoft.Hosting.Lifetime[0]
+      Application started. Press Ctrl+C to shut down.
+OFFLINE replay only: historical B0/B3 ADUs, simulated structure headers, no COM/STM32. Open /live.html.
+info: Microsoft.Hosting.Lifetime[0]
+      Hosting environment: Production
+info: Microsoft.Hosting.Lifetime[0]
+      Content root path: /home/lolo/dev/msm/projects/MSM_vibe-R5A-pc-live/Modbus RTU/Supervision TR2/src/TR2.Supervision.Service
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]
+      Request starting HTTP/1.1 GET http://127.0.0.1:37425/ - - -
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]
+      Request finished HTTP/1.1 GET http://127.0.0.1:37425/ - 404 0 - 124.2069ms
+info: Microsoft.AspNetCore.Hosting.Diagnostics[16]
+      Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://127.0.0.1:37425/, Response status code: 404
+info: Microsoft.Hosting.Lifetime[0]
+      Application is shutting down...

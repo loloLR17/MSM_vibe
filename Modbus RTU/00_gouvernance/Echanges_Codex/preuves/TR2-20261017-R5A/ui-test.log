@@ -1,0 +1,8 @@
+PASS fresh with UTC unavailable
+PASS held never current
+PASS PC stale overrides frame fresh
+PASS rejected frame quarantined
+PASS transport disconnected
+PASS API failure clears old values
+PASS archive failure visible
+PASS text-only rendering; 7 UI scenarios, simulated DOM (not a browser qualification)

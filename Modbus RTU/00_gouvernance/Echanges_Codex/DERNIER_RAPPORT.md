@@ -1,83 +1,75 @@
 ---
-mission_id: TR2-20261017-R4V-RTU-START-STOP-LATENCY
-status: DONE
+mission_id: TR2-20261017-R5A-PC-LIVE-PROFILE-SQLITE-WEB
+status: BLOCKED
 base_ref: main
-base_sha: 1a9cf6a34bd36a695fb0410ead4a65f38b948a1f
-initial_head: 8010d0101d70170a13731ca928833ce8c95774c3
-result_sha: 8db2f673ac46c3e4d2bb64f0bbd39ca16bd39a4e
-created_at_utc: 2026-10-17T10:54:34.530677+00:00
+base_sha: d0a37efb7f29d6fb8ff4e275e6f666916ff79abb
+initial_head: 8f16632ea3595b7421d9a7373d33c88bd269cbc4
+result_sha: 1efc4f1500f8401a5996951f8798a8c977019ec2
+created_at_utc: 2026-10-17T11:26:58.376226+00:00
 author: Codex
 target_branch: main
 allow_commit: true
 allow_push: true
-allow_flash: true
-allow_debug: true
+allow_flash: false
+allow_debug: false
 ---
 
-# R4-V — diagnostic causal et correction qualifiés dans la portée bornée
+# R5-A — tranche PC livrée, conformité B3 physique bloquée
 
-**DONE pour le diagnostic et la correction minimale démontrés, avec publication et relecture distante du bilan.** La reprise a trouvé le candidat déjà terminé, COM4 fermé, GDB détaché ; aucun essai physique, build ou test réussi n'a été rejoué. Aucun obstacle technique actif. [Chronologie, sûreté et limites](../../05_Firmware/LIVE_R4V.md).
+**Blocage réel : le firmware LIVE inverse ALARM_FLAGS et SEVERITY_GLOBAL aux adresses 3002/3003.** Le lecteur normatif refuse donc les mesures des captures R4-U/V. La correction STM32 sort du contrat PC, qui interdit flash/debug ; aucun échange automatique des mots côté PC ni changement de norme n'est appliqué. R5-A ne satisfait pas tous ses critères et n'est pas déclarée DONE. Les tranches logicielles réalisables ont été développées et testées.
 
-## Résultats avant/après
+## Constats et preuve du blocage
 
-Référence exécutée `f8bf7ca80a7dad385dd84d00ffecea7e3dea125b` ; candidat exécuté `8db2f673ac46c3e4d2bb64f0bbd39ca16bd39a4e`. Instrumentation identique, vraies commandes COM4 et vrai store, nouvelles identités monotones.
+Le mapping LIVE hérité et le décodeur PC existant imposent 3002=alarmes, 3003=sévérité. `Modbus RTU/05_Firmware/src/application/live_metrology.c:203` écrit la sévérité en `registers[2]`, et la ligne204 écrit les alarmes en `registers[3]`. Ce fichier à la référence initiale est identique à celui exécuté en R4-V (`8db2f67`).
 
-| Mesure | Référence | Candidat |
-|---|---:|---:|
-| Capture MCU → effet START |7,678087s|7,816831s|
-| Capture MCU → terminal START |64,280557s|40,809834s|
-| Capture MCU → effet STOP |56,628081s|33,028351s|
-| Capture MCU → terminal STOP |64,318544s|40,858764s|
-| Callback STOP seul |205µs|205µs|
-| Fin callback → HELD publié |1242µs|429µs|
-| ACKSTOP → premierHELD maître |56,354535s|32,866055s|
-| Work/service/gapFIFO max |815/1624/1852µs|814/2063/2274µs|
-| FIFOmax/erreurs |55/0|68/0|
-| Réponses COM4 CRC exactes |1655|1075|
-| B3 V-F/HELD |740/50|447/51|
-| XYZ/TS |3084000/385500|1833115/229140|
+La première valeur du candidat R4-V, `10:36:09.3891128 UTC`, contient réellement 3002=3, 3003=240, statut4/flags1215, séquence1, RMS958mg ; CRC valide. **240 est une sévérité réservée.** Sur 4362 ADU réanalysées sans aucun essai physique : 2217 B3, dont2068 avec cette sévérité non conforme (780 R4-U,790 baselineR4-V,498 candidatR4-V). Les149 autres sont des états sans mesure valide. Le PC conserve les octets/décodage pour diagnostic, jamais comme résultat qualifié.
 
-Réduction STOP terminalMCU36,47%, ACK→HELD maître41,68%. **La latence restante est importante : aucun arrêt industriel rapide ni GO R4global/R5/R6 annoncé.** Horloges MCU DWT160MHz nominal et maître UTC/Stopwatch distinctes ; points de départ distincts, pas de synchronisation SI. CaptureMCU vue après traitementRTU, pas arrivée électrique ; derniers XYZ consommés, pas dernier produit garanti. B1 non supporté : aucune publication fictive.
+Les mesures FIFO/latence/FRAM historiques ne sont ni rejouées ni supprimées. Elles ne démontrent pas la conformité intégrale des champs B3. Les archives R4-U/V restent intactes. [Premier/dernier exemple et comptes](preuves/TR2-20261017-R5A/wire-mismatch.json), [provenance source/mapping](preuves/TR2-20261017-R5A/source-provenance.json).
 
-## Cause et correctif minimal
+## Modifications réalisées
 
-Le service FIFO/SPI coûteux à chaque checkpoint CRC/copie/store occupe82,14% du temps STOP de référence ; quatre barrières sont conservées, I/O physique6,980s/commande. Pacing minimal250µs après **fin** de drain réduit la part service à71,41%. STOP candidat : spans40,859791s = service29,178062s +I/O6,979826s +résiduCPU/instrumentation4,701903s. Les deux barrières avant l'effet prennent33,0s ; le callback matériel prend205µs. Donc ni «FRAM seule63s» ni «callbackSTOP33s». Tables des admissions/STARTED/effets/observations/reçus/terminaux et bruts dans LIVE_R4V et summaries.
+Le commit logiciel **`1efc4f1500f8401a5996951f8798a8c977019ec2`**, `feat(r5a): add strict readonly LIVE observations and SQLite Web integration`, ajoute une voie de lecture au socle existant, sans refonte et sans nouveau logiciel séparé. [Note technique, matrice des champs et reprise](../../Supervision%20TR2/LIVE_R5A.md).
 
-API `live_runtime_set_drain_period` arrêtée seulement, bornée work_limit/4 ; défaut0 préserve le comportement antérieur. UART8événements/deadlines à chaque checkpoint, aucune relaxation1000/2500/5000µs. Publication immédiate sur transitionrunning/error évite un cacheFRESH pendant10ms après STOP ; erreurforeground/service utilise le faultR2 existant puis publie invalide sans reçu fictif. Moteur R2, formats, barrières et anti-rejeu inchangés ; pas de RTOS/refonte. Fichiers principaux : `live_runtime.c/.h`, harnessR4Uparamétré/R4Vdédié, CMake et nouveau testpacing145. Probe explicitement NON-PRODUCTION opt-in ; V1/protocole1 inchangés.
+- Sélection exacte V1/protocole1 ou LIVE/protocole2, vérification des tailles, versions B4/B6/B7 et capacités ; rejet des versions inconnues. Les images partielles sans LIVE16 restent refusées par défaut et accessibles seulement par un opt-in LiveDiagnostic explicitement étiqueté. Aucune inférence epoch sur V1, aucune écriture B4/B5 ni lecture B5 longue.
+- Décodage normatif B3/48 avec MSW/LSW, mg, âge/séquence, réservés, V/F/HELD, UTC et cohérence de sévérité. Une trame refusée n'obtient pas de snapshot validé ; registres et décodage normatif sont conservés en quarantaine. Les alarmes/sévérité réelles ne sont pas réinterprétées silencieusement.
+- Observations avec identité, profil/versions/capacités, bus/adresse, source, réception PC et segment. UTC fenêtre déclarée par B3 distincte de la réception PC et de toute vérification B2. Run/epoch/configuration/génération/temps événement non exposés : null, aucun campaign_id inventé.
+- Séquences répétées, trous, saturation, recul, reconnect et restart distingués ; nouveaux segments PC, sans preuve de boot ni exactly-once prétendue. Erreurs transport, rejet et erreur d'archivage visibles ; SQLite indisponible ne devient pas un succès et le cycle suivant peut reprendre.
+- Migration7 additive vers live_observation, sans modification des anciennes lignes b3_archive ni du journal B5. Tests sur une structure6 contenant une ligne historique avant migration, puis observations LIVE distinctes et répétées conservées.
+- GET `/api/v2/live` et `/live.html` intégrés au host S7, sans action d'écriture. HELD ou réception périmée ne deviennent pas une valeur courante ; UTC absente, qualité, continuité, source et archivage sont affichés. Contrats V1 conservés. Mode explicite `--live-replay` utilisant les mêmes couches et des captures historiques, sans port série.
 
-## Validations effectives et incidents
+Le replay utilise B0/B3 authentiques contrôlés par CRC ; ses headers B4/B6 absents des captures sont **simulés et annoncés comme tels**. Le timestamp de relecture PC n'est pas celui de l'acquisition historique. Ce mode ne prouve ni la présence actuelle d'un firmware LIVE, ni R6.
 
-- `STM32CUBE_U5_ROOT=/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0 ./tr2_validate.sh` :145tests complets et cross-build finalPASS, pertinent car runtime partagé modifié.144anciens tests conservés, dont1561coupures/rebootR2 ; contre-tests retry/collision/budgetSTOP, fauteFRAM/service, nonréentrée et invalidationB3. Logs final et intermédiaires conservés.
-- Quatre suitesO2/ASan/UBSan ciblées PASS8,69s ; ARMbaseline/candidatPASS. BIN canonique `85b1be6044d76349a715ea0627b442bd3301e63daa606399b3d83bd5b9bbc0f5` inchangé et non flashé.
-- Rouge/vert significatifs : faute service arrêtait le FIFO sans retirer le B3retenu, corrigée ; STOP avantpublication10ms laissait FRESH, corrigé. Deux erreurs initiales d'oracle corrigées explicitement (lecturehorloge modèle4µs, projectionB3enfaute retourneINVALID_STATE) ; aucun test supprimé/affaibli. Première variantepacingdepuisdébut jamaisflashée conservée distincte. Décodage horsligne d'un log GDB nonUTF8 repris avec remplacement des caractères d'affichage, pas de changement des octets bruts.
-- Préflight10:18:02UTC UID/SN/M016/FRAM entière/WHO7B exacts. COM4FTDI0403:6001/BG04KSSW identifié, utilisateur avait confirmé raccordement ; COM3STLINK exclu, maître natif exclusif1152008E1/T1000, pasHP. Flashs normaux qualifiés et vérifiés, GDB seulement aux checkpoints/fin, pas de pause pendant acquisition.
-- Référence START5/5/run8/STOP5/6 ; candidat START5/7/run9/STOP5/9 terminaux4/0. Retry exact sans effet, collision27 ; STOP5/8budgetrefus5/7/I/O0/journal58→58/root71→71/runningtrue. Refus négatif volontaire, aucune admission fictive ; STOPneuf9 sur budgets réels ensuite.
-- Oracle indépendant4096XYZ réel : RMS958/955/75/13mg, peaks998/994/110/50mg exacts. UART0drop/0erreur, FIFO0erreur,25événements/11spans sans overflow. Pas de calibration vibratoire. Nsupérieurs non collectés.
+## Validations et incidents conservés
 
-## Persistance et fermeture matérielle
+Environnement T1000 Debian WSL2, SDK.NET10.0.401/runtime10.0.12. Commandes détaillées dans la note et les logs :
 
-FRAM complète262144octets initiale `95dab7909dbbab0a85abf1a3d9f8292bafb48dc98de73f026ce2786251b9af41` ; aprèsbaseline `fce8e1f9330989e02f7139d10cb066383bca1c58447a00a9852a8ca6c4b4a682` ; finale **`70e273972a83e61283a6e572db3187af002fd97ba8de63f8c709d3e30af73587`**. Deux snapshots finaux exacts aux modèles utilisant le vrai store/R2 ;419408octetsécrits/8commits parphase, uniquementLIVE. Journal46→54→62, root59→67→75, epoch5/run9/config3gen3, STOP5/9COMPLETED/effect39phase3. Historique/tail exacts. Aucune clé admise recyclée, retraite ou epochréinitialisé.
+| Validation exécutée | Résultat |
+|---|---|
+| dotnet restore de la solution | PASS |
+| dotnet build --no-restore | PASS,0warning/0erreur |
+| dotnet test de la solution --no-build | **551 PASS/0skip**,539 anciens +12 nouveaux cas |
+| Après dernière correction Web/fixtureUTC : tests Service | **201 PASS**, compilation dépendante réussie |
+| Tests UI Node avec DOM simulé | **7 scénarios PASS**, pas de navigateur graphique qualifié |
+| Démarrage réel service/HTTP hors ligne | Routes `/`, `/live.html`, `/live.js`, `/api/v1/fleet`, `/api/v2/live` :200 |
+| SQLite du smoke-test |52observations, dont1quarantainéeV/F0 ; export conservé |
+| Non-écriture / compatibilité historique |PASS sur transports simulés ; aucun accès COM réel |
 
-**M016 CommissioningReadOnly WAIT restauré à10:52:16UTC**,19pagesnormales155648octets ; relecture intégraleFlash2097152octets identique àl'initiale **`c5bc344d64984c48c3e34b05fa9432c9c124e8b67428eb0eef22c0d62ddf5b26`**. FRAMentière relue aprèsrestauration identique70e finale, aucunrollback ; capteurWHO7B/ODRoff/FIFObypass/TSoff constaté ensuite, COM4fermé/GDBdétaché. Aucun SD/HP/câblage/OptionBytes/RDP/masserase. Les permissions commit/push/flash/debug ont été exercées uniquement dans ce périmètre.
+Les tests couvrent sélection stricte, CRC/longueur, endianess, qualités/réservés, UTC absente, vrais ADU non conformes, gaps/repeats/saturation/reboot/reconnect/restart, corruption/indisponibilité SQLite, ancienne base et contrats API/S7. Le code firmware n'est pas modifié : aucun build ARM ou essai STM32 inchangé n'a été répété.
 
-## Preuves et traçabilité
+Échecs réels conservés : premier chargement hex incompatible avec les espaces du captureur, corrigé sans changer les octets ; puis les3tests de captures ont révélé le défaut firmware. Leur oracle final exige le **refus** des trames, pas une acceptation de240. Les fixtures normatives sont indépendantes. Le premier smoke-testHTTP a échoué404 : fichiers statiques cherchés seloncwd ; correction ciblée de ContentRoot/WebRoot vers le répertoire du binaire, où les fichiers sont déjà copiés. Les201tests Service et le second smoke-test passent après correction. Les logs initiaux restent publiés.
 
-[Référence physique](preuves/TR2-20261017-R4V/baseline-summary.json), [candidat physique](preuves/TR2-20261017-R4V/paced-summary.json), [refus et comparaison](preuves/TR2-20261017-R4V/comparison-final.json), [auditFRAM](preuves/TR2-20261017-R4V/final-fram-audit.json), [restauration](preuves/TR2-20261017-R4V/hardware/restoration-summary.json), [bundle bruts/empreintes](preuves/TR2-20261017-R4V/BUNDLE.json). Captures COM4 complètes, traces GDB/commandes, modèles, sources du maître, BIN/ELF et backups complets conservés souspreuves ; zlib standard avec SHA brut et stocké. Copieopérationnelle `/home/lolo/dev/msm/reports/TR2-r4v`.
+## Preuves et publication
 
-BINbaseline150664octets SHA e6e744dbd414014a34af86577987cf6fb82b242499687e9053e79bce029db676 ; BINcandidat150768octets SHA a4c253386ba488cf9cd54373ac9cc3ca8b3a9d096260693c8a334d19c6663e1f. ELFbaseline25c3eea7077700acbbc0ea465131bfdd7f43a4c3e7e65196de68d236523e6e20 ; ELF candidat698f97902dd70e9e18c9ed3fc41c21fd38451e0e2cde77cdaf5ff28e60c76dc8.
+[Manifeste SHA-256](preuves/TR2-20261017-R5A/SHA256SUMS), [résumé HTTP/SQLite](preuves/TR2-20261017-R5A/smoke02-summary.json), [API non conforme](preuves/TR2-20261017-R5A/smoke02-api-live.json), [tests complets](preuves/TR2-20261017-R5A/test-final.log), [tests Service finaux](preuves/TR2-20261017-R5A/service-final.log), [préservation](preuves/TR2-20261017-R5A/preservation.json). TRX compressés, sources de vérification, export SQLite temporaire et journaux d'échecs sont conservés avec SHA brut/stocké. Rapports opérationnels : `/home/lolo/dev/msm/reports/TR2-r5a`.
 
-Worktree isolé `MSM_vibe-R4V-rtu-latency`, branche `codex/r4v-rtu-latency` versmain parpushnormalHEAD:refs/heads/main. Ancienmain82169af propre préservé,62autresworktrees,2stashes6251b988…/f3b829e6… et6873fichiers protégés vérifiés intacts. ÉtudeR4S86d0f4b et archivesR4U inchangées. Commits publiés/revus f8bf7ca instrumentation, bad1041baseline,8db2f67correctif final ; HEADlocal=origin/main8db2f67propre avantce bilan. Pas de merge/rebase/reset/forcepush.
+Travail dans `MSM_vibe-R5A-pc-live`, branche `codex/r5a-pc-live`, créée depuis le main distant vérifié `8f16632ea3595b7421d9a7373d33c88bd269cbc4`. L'ancien main local82169af reste propre et intact.7855fichiers protégés (firmware, normes, archives et preuves antérieures),63autresworktrees, étudeR4-S86d0f4b et2stashes6251b988…/f3b829e6… sont vérifiés inchangés. Aucun merge/rebase/reset/forcepush ni secret inclus. Commit/push normaux autorisés exercés ; flash/debugfalse respectés.
 
-Journal actualisé : nouveau bilanR4V, état matérielfinal/journal62/run9, diagnostic et latencerésiduelle ; roadmapR2/R3/R4 factualisée sans qualificationindépendante. Missionactive et registredettesA04préservés. Bilan publié et relu intégralement depuis GitHub ; statut de publication distinct du résultat technique et de la qualification indépendante ChatGPT.
+Journal actualisé avec le blocage de conformité, la tranche PC testée et l'absence d'intervention matérielle ; roadmapR3/R5 factualisée. Les décisions normatives et la detteA04 ne sont pas modifiées. L'état matériel M016/FRAM70e273…73587 reste le **dernier état rapporté R4-V**, non une nouvelle observation.
 
-## Limites et recommandations pour ChatGPT
+Ce bilan est préparé pour publication normale surmain et relecture distante ; le statutBLOCKED décrit l'obstacle firmware, pas l'attente GitHub. La preuve de publication et les SHA relus seront ajoutés après le push.
 
-Diagnostic et correction minimale prouvés dans ce périmètre, aucune garantie industrielle. Les maxima mesurés ne sont pas un WCET ; fautesFRAM/service et coupures/reboot couverts surhôte, aucun défautélectrique ni coupurephysiqueinjecté ici. Pas de bornageIRQ/HALisolé/pile/endurance/dériveSI/thermique. Pas de produitLIVEcomplet, B1/B2/B7absents/B6UNAVAILABLE/capLIVE16absente ; R5PC/SQLite/Web etR6bout-en-bout nonqualifiés.
+## Reprise attendue de ChatGPT
 
-L'optimisation seule ne répond pas à un éventuel besoin d'arrêt rapide. Faire décider explicitement le besoin de sécurité et la sémantique deSTOP ; envisager contratd'optimisationbornée CPU/CRC/service sanschangerbarrières, ou décisiond'architecture surreprésentationdurable/voied'arrêtindépendante. Aucun déplacementdebarrière/changementnormatif appliqué. Contrôle indépendantChatGPT requis, pas de tag ni GO R4global/R5/R6 parCodex.
+Publier un contrat autorisant la correction ciblée de `live_metrology_project_b3` et sa validation : alarmes à3002, sévérité à3003, oracles indépendants de l'encodeur et contrôle d'une capture réelle incluant V/F/UTCabsente/HELD. La norme ne doit pas être changée pour suivre le défaut. Les permissions firmware/flash/debug manquent volontairement à R5-A ; elles doivent être accordées dans ce contrat avant ces opérations.
 
-## Publication et clôture
-
-Bilan `ff469924b3ff624f1c54b148e307b780e801b996` (docs(r4v): publish measured latency reduction and verified M016 restoration) poussé normalement surmain puis récupéré/relu à2026-10-17T10:56:14.671782+00:00.168fichiers changés comparés intégralement aux blobs GitHub,156preuves SHA256 et114artefacts BUNDLE vérifiés/décompressés,1655+1075ADU parsées ; Flash/FRAM restaurées vérifiées depuis les preuves distantes. [Preuve de relecture](preuves/TR2-20261017-R4V/final-bilan-readback.json). HEADlocal=origin/main etworktreepropre àl'issue du bilan ;62autresworktrees/mainhistorique/stashes préservés.
-
-Mise àjourDONE et nouvelles archivesR4V identiques aux fichiers actifs ajoutées après cette relecture. La publication de cette clôture sera elle aussi vérifiée ; son SHA sera fourni dans la réponse finale, sans autoréférence impossible dans le commit. Aucun essai supplémentaire, aucune qualification industrielle/R4global/R5/R6 ni tag.
+Les acquis PC sont reprenables au SHA ci-dessus. Ensuite, connecter le lecteur au scheduler série unique R5-B, identifier le vrai firmware/capacités, et qualifier la chaîne SQLite/Web réelle. B1/B2/B7 et produit LIVE complet restent à composer ; aucun GO R5/R6 ou industriel, aucun tag ni qualification indépendante ChatGPT attribuée par Codex.

@@ -1,0 +1,326 @@
+{
+  "utc": "2026-10-17T11:27:16.454706+00:00",
+  "files": [
+    {
+      "path": "restore.log",
+      "raw_bytes": 2265,
+      "raw_sha256": "03cd6d586efd8fdb10c6e84f65759efb255be9db3fdad4b2a864de044c4b8f2c",
+      "stored_bytes": 2265,
+      "stored_sha256": "03cd6d586efd8fdb10c6e84f65759efb255be9db3fdad4b2a864de044c4b8f2c",
+      "zlib": false
+    },
+    {
+      "path": "build01.log",
+      "raw_bytes": 2538,
+      "raw_sha256": "bf988a1c0a21bed039c6e865347facf6a2dda530277f1b820601e7b98a45e452",
+      "stored_bytes": 2538,
+      "stored_sha256": "bf988a1c0a21bed039c6e865347facf6a2dda530277f1b820601e7b98a45e452",
+      "zlib": false
+    },
+    {
+      "path": "build-final.log",
+      "raw_bytes": 2538,
+      "raw_sha256": "f1edc413d921420c62e1d1a8678e019c8efa952de2bd8b168c65873bc1fabe46",
+      "stored_bytes": 2538,
+      "stored_sha256": "f1edc413d921420c62e1d1a8678e019c8efa952de2bd8b168c65873bc1fabe46",
+      "zlib": false
+    },
+    {
+      "path": "live01.log",
+      "raw_bytes": 4847,
+      "raw_sha256": "a12b91cd2c49dc37ec78c57b86261d8846490ffe121e1e5cfa04bddca6990b25",
+      "stored_bytes": 4847,
+      "stored_sha256": "a12b91cd2c49dc37ec78c57b86261d8846490ffe121e1e5cfa04bddca6990b25",
+      "zlib": false
+    },
+    {
+      "path": "live02.log",
+      "raw_bytes": 5126,
+      "raw_sha256": "05ecb5eaa75737cd741dc7fcb5f6f59b5ff5e404577651f47187821240906ec5",
+      "stored_bytes": 5126,
+      "stored_sha256": "05ecb5eaa75737cd741dc7fcb5f6f59b5ff5e404577651f47187821240906ec5",
+      "zlib": false
+    },
+    {
+      "path": "live03.log",
+      "raw_bytes": 1894,
+      "raw_sha256": "c567f6922905fe599c31ed34f7f1f9a56380720a54b7ae700999f29d7cc7eee1",
+      "stored_bytes": 1894,
+      "stored_sha256": "c567f6922905fe599c31ed34f7f1f9a56380720a54b7ae700999f29d7cc7eee1",
+      "zlib": false
+    },
+    {
+      "path": "test-final.log",
+      "raw_bytes": 3316,
+      "raw_sha256": "8bc0ab4832f1c0bfd7034ddccd44879a9d2e3eea74896fcad168fb7238421244",
+      "stored_bytes": 3316,
+      "stored_sha256": "8bc0ab4832f1c0bfd7034ddccd44879a9d2e3eea74896fcad168fb7238421244",
+      "zlib": false
+    },
+    {
+      "path": "service-final.log",
+      "raw_bytes": 1898,
+      "raw_sha256": "f58b96fea88929595d6b2aa64b2526c3511087df51b8fcdfe831da0ac09f7365",
+      "stored_bytes": 1898,
+      "stored_sha256": "f58b96fea88929595d6b2aa64b2526c3511087df51b8fcdfe831da0ac09f7365",
+      "zlib": false
+    },
+    {
+      "path": "ui-test.log",
+      "raw_bytes": 302,
+      "raw_sha256": "3ce90204caeeec1b3e2d4300b1a696e902f25d7d0cc2956ef9c18fac4bf6f631",
+      "stored_bytes": 302,
+      "stored_sha256": "3ce90204caeeec1b3e2d4300b1a696e902f25d7d0cc2956ef9c18fac4bf6f631",
+      "zlib": false
+    },
+    {
+      "path": "wire-mismatch.json",
+      "raw_bytes": 3916,
+      "raw_sha256": "1c25a29e21f0fb648f2a9359ec2dbc89aa0d38fe9a7af58d57d03dc2c08224ff",
+      "stored_bytes": 3916,
+      "stored_sha256": "1c25a29e21f0fb648f2a9359ec2dbc89aa0d38fe9a7af58d57d03dc2c08224ff",
+      "zlib": false
+    },
+    {
+      "path": "source-provenance.json",
+      "raw_bytes": 25357,
+      "raw_sha256": "f5f27c521106ff39368701507165f04f25857ba174e0f5c23a44423f558777b8",
+      "stored_bytes": 25357,
+      "stored_sha256": "f5f27c521106ff39368701507165f04f25857ba174e0f5c23a44423f558777b8",
+      "zlib": false
+    },
+    {
+      "path": "preservation.json",
+      "raw_bytes": 334,
+      "raw_sha256": "3378c04312628ae4a4e3b2b6580bff6e39c16e293d4af83e0d0fa7123f5f5a4c",
+      "stored_bytes": 334,
+      "stored_sha256": "3378c04312628ae4a4e3b2b6580bff6e39c16e293d4af83e0d0fa7123f5f5a4c",
+      "zlib": false
+    },
+    {
+      "path": "dotnet-info.txt",
+      "raw_bytes": 1050,
+      "raw_sha256": "bfedfeef6166690ee4949d67e9a0228665337b8f963b3ff4923ae041a060c29a",
+      "stored_bytes": 1050,
+      "stored_sha256": "bfedfeef6166690ee4949d67e9a0228665337b8f963b3ff4923ae041a060c29a",
+      "zlib": false
+    },
+    {
+      "path": "node-version.txt",
+      "raw_bytes": 9,
+      "raw_sha256": "ac0259ce8d5ce33e50e35f29b5e42e0e308a536e87f851e7e2f21369de92e420",
+      "stored_bytes": 9,
+      "stored_sha256": "ac0259ce8d5ce33e50e35f29b5e42e0e308a536e87f851e7e2f21369de92e420",
+      "zlib": false
+    },
+    {
+      "path": "smoke-server.log",
+      "raw_bytes": 1305,
+      "raw_sha256": "77ae323919122421363508430a92b41d207d5c237ca726123875a7758f312a6c",
+      "stored_bytes": 1305,
+      "stored_sha256": "77ae323919122421363508430a92b41d207d5c237ca726123875a7758f312a6c",
+      "zlib": false
+    },
+    {
+      "path": "smoke02-server.log",
+      "raw_bytes": 22943,
+      "raw_sha256": "0e835d470c98d4183cb67f64399e8a7bf7bf582fd1d8c54736b798e52e7b62e5",
+      "stored_bytes": 22943,
+      "stored_sha256": "0e835d470c98d4183cb67f64399e8a7bf7bf582fd1d8c54736b798e52e7b62e5",
+      "zlib": false
+    },
+    {
+      "path": "smoke02-driver.log",
+      "raw_bytes": 1084,
+      "raw_sha256": "3d4e42729682b5d877b8e02b979fd45460762aecdf90181c62ead1082f9e7fdc",
+      "stored_bytes": 1084,
+      "stored_sha256": "3d4e42729682b5d877b8e02b979fd45460762aecdf90181c62ead1082f9e7fdc",
+      "zlib": false
+    },
+    {
+      "path": "smoke02-summary.json",
+      "raw_bytes": 1084,
+      "raw_sha256": "3d4e42729682b5d877b8e02b979fd45460762aecdf90181c62ead1082f9e7fdc",
+      "stored_bytes": 1084,
+      "stored_sha256": "3d4e42729682b5d877b8e02b979fd45460762aecdf90181c62ead1082f9e7fdc",
+      "zlib": false
+    },
+    {
+      "path": "smoke02-api-live.json",
+      "raw_bytes": 1531,
+      "raw_sha256": "885f7b79101117215d3a79abdb844399558a60197d017de818550295daa2c794",
+      "stored_bytes": 1531,
+      "stored_sha256": "885f7b79101117215d3a79abdb844399558a60197d017de818550295daa2c794",
+      "zlib": false
+    },
+    {
+      "path": "smoke02-api-v1-fleet.txt",
+      "raw_bytes": 63,
+      "raw_sha256": "492faf1c7643760b1ad59f545b73ad1cd5c71c12df590237bdf0c2b322545086",
+      "stored_bytes": 63,
+      "stored_sha256": "492faf1c7643760b1ad59f545b73ad1cd5c71c12df590237bdf0c2b322545086",
+      "zlib": false
+    },
+    {
+      "path": "smoke02-live.html.txt",
+      "raw_bytes": 788,
+      "raw_sha256": "a85d428b1f35d997e9e663389a3eeb0f459bec9642960aa7be6597c80f30f123",
+      "stored_bytes": 788,
+      "stored_sha256": "a85d428b1f35d997e9e663389a3eeb0f459bec9642960aa7be6597c80f30f123",
+      "zlib": false
+    },
+    {
+      "path": "smoke02-live.js.txt",
+      "raw_bytes": 2438,
+      "raw_sha256": "054d532dd9936d3969d87c3ca3304eb744f8461474df233cd305600a20a14e85",
+      "stored_bytes": 2438,
+      "stored_sha256": "054d532dd9936d3969d87c3ca3304eb744f8461474df233cd305600a20a14e85",
+      "zlib": false
+    },
+    {
+      "path": "smoke02-.txt",
+      "raw_bytes": 2690,
+      "raw_sha256": "a1a25af43d98a590bd2a5f0cf00c2dccb721bf553e5373170a938322d5ef5805",
+      "stored_bytes": 2690,
+      "stored_sha256": "a1a25af43d98a590bd2a5f0cf00c2dccb721bf553e5373170a938322d5ef5805",
+      "zlib": false
+    },
+    {
+      "path": "check-preservation.py",
+      "raw_bytes": 1276,
+      "raw_sha256": "891bf8382e678b8f10aad5f4581cdfeba9b1dfe8ea9699c9cf9596711ade57df",
+      "stored_bytes": 1276,
+      "stored_sha256": "891bf8382e678b8f10aad5f4581cdfeba9b1dfe8ea9699c9cf9596711ade57df",
+      "zlib": false
+    },
+    {
+      "path": "smoke-web.py",
+      "raw_bytes": 2993,
+      "raw_sha256": "d28b412195742f2e12c0421a2097cb7160a217b5e6a02561dba6ff9e1425259d",
+      "stored_bytes": 2993,
+      "stored_sha256": "d28b412195742f2e12c0421a2097cb7160a217b5e6a02561dba6ff9e1425259d",
+      "zlib": false
+    },
+    {
+      "path": "smoke-web02.py",
+      "raw_bytes": 3007,
+      "raw_sha256": "16188f03fd6a4caff1aa73a5b36171b989b687b82b40c64444376d12d7769d84",
+      "stored_bytes": 3007,
+      "stored_sha256": "16188f03fd6a4caff1aa73a5b36171b989b687b82b40c64444376d12d7769d84",
+      "zlib": false
+    },
+    {
+      "path": "package-evidence.py",
+      "raw_bytes": 2281,
+      "raw_sha256": "376b7a1633e5670a58c13a59438c16fb2af01553b49f6fbf360746e9291aeb9f",
+      "stored_bytes": 2281,
+      "stored_sha256": "376b7a1633e5670a58c13a59438c16fb2af01553b49f6fbf360746e9291aeb9f",
+      "zlib": false
+    },
+    {
+      "path": "tests/full-tests/_PCdeLolo_2026-10-17_13_20_17_net10.0.trx.zlib",
+      "raw_bytes": 65562,
+      "raw_sha256": "46b579ee84156837c964b694883ff4c275b092ad80c249b29a6d1f9a5c773f11",
+      "stored_bytes": 7942,
+      "stored_sha256": "e7b74adbb19a1bde85082111c99d157018a343aad0dfd7e1ff97ea50ae9c04c1",
+      "zlib": true
+    },
+    {
+      "path": "tests/full-tests/_PCdeLolo_2026-10-17_13_20_18_net10.0.trx.zlib",
+      "raw_bytes": 3003,
+      "raw_sha256": "5b6ac38d4f9f7bcbc8aa7c8d10719122f4dcc9964bb99f95addbc4f851e18c2b",
+      "stored_bytes": 1220,
+      "stored_sha256": "6408df8b47c3c186f8cc671418cbc4358b168a04cd1c925e50264675fc402db5",
+      "zlib": true
+    },
+    {
+      "path": "tests/full-tests/_PCdeLolo_2026-10-17_13_20_18_net10.0[1].trx.zlib",
+      "raw_bytes": 25674,
+      "raw_sha256": "daace2c63d12df461606a1f3b95fa0c5de4556656fa28f714dc93d87f86f979f",
+      "stored_bytes": 3400,
+      "stored_sha256": "af26e33dfe27be13444c116936a2f4d05a861bb8ba787836abfb513a2223978b",
+      "zlib": true
+    },
+    {
+      "path": "tests/full-tests/_PCdeLolo_2026-10-17_13_20_18_net10.0[2].trx.zlib",
+      "raw_bytes": 54588,
+      "raw_sha256": "5421cbd96eca9fbb629248b48bf9806b40a4422830e4a10e480057e8df0b1f1c",
+      "stored_bytes": 6050,
+      "stored_sha256": "c90cc9a86052f72cc1efbcd458c2cceb21740f48b77b67d503103302933dd52a",
+      "zlib": true
+    },
+    {
+      "path": "tests/full-tests/_PCdeLolo_2026-10-17_13_20_18_net10.0[3].trx.zlib",
+      "raw_bytes": 335001,
+      "raw_sha256": "3ca54bf839b5d32654081cf610df42e00a1b6a82825de924131ecce12c43d262",
+      "stored_bytes": 51616,
+      "stored_sha256": "388a749bc07189b194cbaee6cf532d337ad608fab35508bf9206371318cd99fa",
+      "zlib": true
+    },
+    {
+      "path": "tests/full-tests/_PCdeLolo_2026-10-17_13_20_18_net10.0[4].trx.zlib",
+      "raw_bytes": 47515,
+      "raw_sha256": "4a8b5e17658fb9c0e75b02dccce4d5c3ea5cc1549dea79bf013f6eea59040592",
+      "stored_bytes": 5586,
+      "stored_sha256": "f30636af26c75e0bd66e48bfb5606f5c150f884df7b94cf264bb24bf7056bd22",
+      "zlib": true
+    },
+    {
+      "path": "tests/full-tests/_PCdeLolo_2026-10-17_13_20_18_net10.0[5].trx.zlib",
+      "raw_bytes": 361450,
+      "raw_sha256": "e3a09d0a80ea8462c71f4769f7e1ae6313a04d31bfb3fc90a4c2019d844873ef",
+      "stored_bytes": 51978,
+      "stored_sha256": "3d862e10c311053179990d33abb5490e06b8527a892a97ab36bd3a7e5faabc2b",
+      "zlib": true
+    },
+    {
+      "path": "tests/live01.trx.zlib",
+      "raw_bytes": 32047,
+      "raw_sha256": "e0ede05d8fa501b8be29a4b583050c82655ce8aad0e9fbe5b8d1e59cf9edf358",
+      "stored_bytes": 4245,
+      "stored_sha256": "2a8be5f079b3646ebd682cdf17391d51649452b4428d36ff5f48d98e4b4e277a",
+      "zlib": true
+    },
+    {
+      "path": "tests/live02.trx.zlib",
+      "raw_bytes": 32584,
+      "raw_sha256": "0bfc7e5d72d1ae2e9fcc1facca179aaa76817e991da41c3fb83eeb9abcdd8194",
+      "stored_bytes": 4250,
+      "stored_sha256": "bd461aea0c5544b6f28d5176481a4c739d72b62c5e97212c15630f7654518394",
+      "zlib": true
+    },
+    {
+      "path": "tests/live03.trx.zlib",
+      "raw_bytes": 27033,
+      "raw_sha256": "53d7263cb53baf84ccb767700aa7f191aa9ecb4af7142ca0df8d302196fc4cb4",
+      "stored_bytes": 3759,
+      "stored_sha256": "a7bb0e79e4c762283bde07c2354dfdf8e942d3281106ac8fc1c144354b87b24a",
+      "zlib": true
+    },
+    {
+      "path": "tests/service-final.trx.zlib",
+      "raw_bytes": 361475,
+      "raw_sha256": "905a8b42b62b82865c07863963e8469554096ad4d90438140fa6a519916cbc6d",
+      "stored_bytes": 51452,
+      "stored_sha256": "6ac5e8216e78938cd5889113e63be7677bb705efded2301ca40a691dad0361f7",
+      "zlib": true
+    },
+    {
+      "path": "initial-state.json.zlib",
+      "raw_bytes": 1682109,
+      "raw_sha256": "17d18f78a9f9a535a7888aa993f0fab17a3cabd0017dd55faf98b543ae2f2f81",
+      "stored_bytes": 343866,
+      "stored_sha256": "7d418beb797eed54a4b692108562660301cea1b981e78d79c14ae8a92e3aebd2",
+      "zlib": true
+    },
+    {
+      "path": "smoke02-export.sqlite.zlib",
+      "raw_bytes": 221184,
+      "raw_sha256": "89c8fa1db0ff239468bec79c39b20473e0e7ca5831a807fb9eb20f8c72cc8f6f",
+      "stored_bytes": 9600,
+      "stored_sha256": "bd0e4ffd272c320b589728ea1847a076dbfc2e1242968bd2a327d6f34535b341",
+      "zlib": true
+    }
+  ],
+  "comment": "Software-only R5A evidence; genuine historical ADUs referenced unchanged from R4U/V, not transmitted again. Offline HTTP with explicit simulated B4/B6 headers; rejected B3 retained as invalid. Tests do not qualify STM32."
+}

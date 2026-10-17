@@ -1,0 +1,16 @@
+  Determining projects to restore...
+  Restored /home/lolo/dev/msm/projects/MSM_vibe-R5A-pc-live/Modbus RTU/Supervision TR2/src/TR2.Transport/TR2.Transport.csproj (in 705 ms).
+  Restored /home/lolo/dev/msm/projects/MSM_vibe-R5A-pc-live/Modbus RTU/Supervision TR2/src/TR2.Protocol/TR2.Protocol.csproj (in 705 ms).
+  Restored /home/lolo/dev/msm/projects/MSM_vibe-R5A-pc-live/Modbus RTU/Supervision TR2/tests/TR2.Transport.Tests/TR2.Transport.Tests.csproj (in 705 ms).
+  Restored /home/lolo/dev/msm/projects/MSM_vibe-R5A-pc-live/Modbus RTU/Supervision TR2/tests/TR2.Protocol.Tests/TR2.Protocol.Tests.csproj (in 705 ms).
+  Restored /home/lolo/dev/msm/projects/MSM_vibe-R5A-pc-live/Modbus RTU/Supervision TR2/tests/TR2.Persistence.Tests/TR2.Persistence.Tests.csproj (in 705 ms).
+  Restored /home/lolo/dev/msm/projects/MSM_vibe-R5A-pc-live/Modbus RTU/Supervision TR2/src/TR2.Supervision.Service/TR2.Supervision.Service.csproj (in 705 ms).
+  Restored /home/lolo/dev/msm/projects/MSM_vibe-R5A-pc-live/Modbus RTU/Supervision TR2/tests/TR2.Supervision.Service.Tests/TR2.Supervision.Service.Tests.csproj (in 705 ms).
+  Restored /home/lolo/dev/msm/projects/MSM_vibe-R5A-pc-live/Modbus RTU/Supervision TR2/src/TR2.Persistence/TR2.Persistence.csproj (in 705 ms).
+  Restored /home/lolo/dev/msm/projects/MSM_vibe-R5A-pc-live/Modbus RTU/Supervision TR2/src/TR2.Domain/TR2.Domain.csproj (in 3 ms).
+  Restored /home/lolo/dev/msm/projects/MSM_vibe-R5A-pc-live/Modbus RTU/Supervision TR2/tests/TR2.Architecture.Tests/TR2.Architecture.Tests.csproj (in 4 ms).
+  Restored /home/lolo/dev/msm/projects/MSM_vibe-R5A-pc-live/Modbus RTU/Supervision TR2/tests/TR2.Domain.Tests/TR2.Domain.Tests.csproj (in 5 ms).
+  Restored /home/lolo/dev/msm/projects/MSM_vibe-R5A-pc-live/Modbus RTU/Supervision TR2/tests/TR2.Application.Tests/TR2.Application.Tests.csproj (in 7 ms).
+  Restored /home/lolo/dev/msm/projects/MSM_vibe-R5A-pc-live/Modbus RTU/Supervision TR2/src/TR2.Campaigns/TR2.Campaigns.csproj (in 8 ms).
+  Restored /home/lolo/dev/msm/projects/MSM_vibe-R5A-pc-live/Modbus RTU/Supervision TR2/src/TR2.Supervision.Web/TR2.Supervision.Web.csproj (in 7 ms).
+  Restored /home/lolo/dev/msm/projects/MSM_vibe-R5A-pc-live/Modbus RTU/Supervision TR2/src/TR2.Application/TR2.Application.csproj (in 11 ms).

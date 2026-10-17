@@ -1,0 +1,44 @@
+{
+  "result": "PASS_OFFLINE",
+  "command": [
+    "dotnet",
+    "/home/lolo/dev/msm/projects/MSM_vibe-R5A-pc-live/Modbus RTU/Supervision TR2/src/TR2.Supervision.Service/bin/Debug/net10.0/TR2.Supervision.Service.dll",
+    "--live-replay",
+    "/home/lolo/dev/msm/reports/TR2-r5a/paced-master.jsonl",
+    "--database",
+    "/home/lolo/dev/msm/reports/TR2-r5a/smoke02.db",
+    "--listen",
+    "http://127.0.0.1:0"
+  ],
+  "utc": "2026-10-17T11:21:50.266294+00:00",
+  "responses": {
+    "/": {
+      "status": 200,
+      "bytes": 2690
+    },
+    "/live.html": {
+      "status": 200,
+      "bytes": 788
+    },
+    "/live.js": {
+      "status": 200,
+      "bytes": 2438
+    },
+    "/api/v1/fleet": {
+      "status": 200,
+      "bytes": 63
+    },
+    "/api/v2/live": {
+      "status": 200,
+      "isCurrent": false,
+      "continuity": "Rejected",
+      "severityRaw": 240,
+      "source": "Offline ADU replay; B4/B6 structure headers simulated; no serial access"
+    }
+  },
+  "sqliteRows": 52,
+  "quarantinedRows": 1,
+  "noSerialAccess": true,
+  "noHardwareAccess": true,
+  "returnCode": 0
+}

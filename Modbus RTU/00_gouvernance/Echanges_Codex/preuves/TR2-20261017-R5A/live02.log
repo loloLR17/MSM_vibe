@@ -1,0 +1,38 @@
+  TR2.Domain -> /home/lolo/dev/msm/projects/MSM_vibe-R5A-pc-live/Modbus RTU/Supervision TR2/src/TR2.Domain/bin/Debug/net10.0/TR2.Domain.dll
+  TR2.Transport -> /home/lolo/dev/msm/projects/MSM_vibe-R5A-pc-live/Modbus RTU/Supervision TR2/src/TR2.Transport/bin/Debug/net10.0/TR2.Transport.dll
+  TR2.Protocol -> /home/lolo/dev/msm/projects/MSM_vibe-R5A-pc-live/Modbus RTU/Supervision TR2/src/TR2.Protocol/bin/Debug/net10.0/TR2.Protocol.dll
+  TR2.Application -> /home/lolo/dev/msm/projects/MSM_vibe-R5A-pc-live/Modbus RTU/Supervision TR2/src/TR2.Application/bin/Debug/net10.0/TR2.Application.dll
+  TR2.Campaigns -> /home/lolo/dev/msm/projects/MSM_vibe-R5A-pc-live/Modbus RTU/Supervision TR2/src/TR2.Campaigns/bin/Debug/net10.0/TR2.Campaigns.dll
+  TR2.Persistence -> /home/lolo/dev/msm/projects/MSM_vibe-R5A-pc-live/Modbus RTU/Supervision TR2/src/TR2.Persistence/bin/Debug/net10.0/TR2.Persistence.dll
+  TR2.Supervision.Web -> /home/lolo/dev/msm/projects/MSM_vibe-R5A-pc-live/Modbus RTU/Supervision TR2/src/TR2.Supervision.Web/bin/Debug/net10.0/TR2.Supervision.Web.dll
+  TR2.Supervision.Service -> /home/lolo/dev/msm/projects/MSM_vibe-R5A-pc-live/Modbus RTU/Supervision TR2/src/TR2.Supervision.Service/bin/Debug/net10.0/TR2.Supervision.Service.dll
+  TR2.Supervision.Service.Tests -> /home/lolo/dev/msm/projects/MSM_vibe-R5A-pc-live/Modbus RTU/Supervision TR2/tests/TR2.Supervision.Service.Tests/bin/Debug/net10.0/TR2.Supervision.Service.Tests.dll
+Test run for /home/lolo/dev/msm/projects/MSM_vibe-R5A-pc-live/Modbus RTU/Supervision TR2/tests/TR2.Supervision.Service.Tests/bin/Debug/net10.0/TR2.Supervision.Service.Tests.dll (.NETCoreApp,Version=v10.0)
+A total of 1 test files matched the specified pattern.
+[xUnit.net 00:00:00.43]     TR2.Supervision.Service.Tests.LiveSupervisionTests.AuthenticPhysicalAdusDecodeWithUtcAbsentAndHeldHonest(mission: "TR2-20261017-R4V", name: "hardware/baseline-master.jsonl.zlib", expected: 1655) [FAIL]
+[xUnit.net 00:00:00.43]     TR2.Supervision.Service.Tests.LiveSupervisionTests.AuthenticPhysicalAdusDecodeWithUtcAbsentAndHeldHonest(mission: "TR2-20261017-R4U", name: "hardware/live05-master.jsonl.zlib", expected: 1632) [FAIL]
+[xUnit.net 00:00:00.44]     TR2.Supervision.Service.Tests.LiveSupervisionTests.AuthenticPhysicalAdusDecodeWithUtcAbsentAndHeldHonest(mission: "TR2-20261017-R4V", name: "hardware/paced-master.jsonl.zlib", expected: 1075) [FAIL]
+  Failed TR2.Supervision.Service.Tests.LiveSupervisionTests.AuthenticPhysicalAdusDecodeWithUtcAbsentAndHeldHonest(mission: "TR2-20261017-R4V", name: "hardware/baseline-master.jsonl.zlib", expected: 1655) [22 ms]
+  Error Message:
+   System.IO.InvalidDataException : Reserved LIVE B3 enum/flags.
+  Stack Trace:
+     at TR2.Protocol.LiveB3Snapshot.Parse(ReadOnlySpan`1 words) in /home/lolo/dev/msm/projects/MSM_vibe-R5A-pc-live/Modbus RTU/Supervision TR2/src/TR2.Protocol/LiveProfileReader.cs:line 85
+   at TR2.Supervision.Service.Tests.LiveSupervisionTests.AuthenticPhysicalAdusDecodeWithUtcAbsentAndHeldHonest(String mission, String name, Int32 expected) in /home/lolo/dev/msm/projects/MSM_vibe-R5A-pc-live/Modbus RTU/Supervision TR2/tests/TR2.Supervision.Service.Tests/LiveSupervisionTests.cs:line 54
+--- End of stack trace from previous location ---
+  Failed TR2.Supervision.Service.Tests.LiveSupervisionTests.AuthenticPhysicalAdusDecodeWithUtcAbsentAndHeldHonest(mission: "TR2-20261017-R4U", name: "hardware/live05-master.jsonl.zlib", expected: 1632) [13 ms]
+  Error Message:
+   System.IO.InvalidDataException : Reserved LIVE B3 enum/flags.
+  Stack Trace:
+     at TR2.Protocol.LiveB3Snapshot.Parse(ReadOnlySpan`1 words) in /home/lolo/dev/msm/projects/MSM_vibe-R5A-pc-live/Modbus RTU/Supervision TR2/src/TR2.Protocol/LiveProfileReader.cs:line 85
+   at TR2.Supervision.Service.Tests.LiveSupervisionTests.AuthenticPhysicalAdusDecodeWithUtcAbsentAndHeldHonest(String mission, String name, Int32 expected) in /home/lolo/dev/msm/projects/MSM_vibe-R5A-pc-live/Modbus RTU/Supervision TR2/tests/TR2.Supervision.Service.Tests/LiveSupervisionTests.cs:line 54
+--- End of stack trace from previous location ---
+  Failed TR2.Supervision.Service.Tests.LiveSupervisionTests.AuthenticPhysicalAdusDecodeWithUtcAbsentAndHeldHonest(mission: "TR2-20261017-R4V", name: "hardware/paced-master.jsonl.zlib", expected: 1075) [9 ms]
+  Error Message:
+   System.IO.InvalidDataException : Reserved LIVE B3 enum/flags.
+  Stack Trace:
+     at TR2.Protocol.LiveB3Snapshot.Parse(ReadOnlySpan`1 words) in /home/lolo/dev/msm/projects/MSM_vibe-R5A-pc-live/Modbus RTU/Supervision TR2/src/TR2.Protocol/LiveProfileReader.cs:line 85
+   at TR2.Supervision.Service.Tests.LiveSupervisionTests.AuthenticPhysicalAdusDecodeWithUtcAbsentAndHeldHonest(String mission, String name, Int32 expected) in /home/lolo/dev/msm/projects/MSM_vibe-R5A-pc-live/Modbus RTU/Supervision TR2/tests/TR2.Supervision.Service.Tests/LiveSupervisionTests.cs:line 54
+--- End of stack trace from previous location ---
+Results File: /home/lolo/dev/msm/reports/TR2-r5a/live02.trx
+
+Failed!  - Failed:     3, Passed:     9, Skipped:     0, Total:    12, Duration: 757 ms - TR2.Supervision.Service.Tests.dll (net10.0)

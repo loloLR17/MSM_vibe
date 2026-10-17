@@ -1,0 +1,38 @@
+  TR2.Domain -> /home/lolo/dev/msm/projects/MSM_vibe-R5A-pc-live/Modbus RTU/Supervision TR2/src/TR2.Domain/bin/Debug/net10.0/TR2.Domain.dll
+  TR2.Transport -> /home/lolo/dev/msm/projects/MSM_vibe-R5A-pc-live/Modbus RTU/Supervision TR2/src/TR2.Transport/bin/Debug/net10.0/TR2.Transport.dll
+  TR2.Protocol -> /home/lolo/dev/msm/projects/MSM_vibe-R5A-pc-live/Modbus RTU/Supervision TR2/src/TR2.Protocol/bin/Debug/net10.0/TR2.Protocol.dll
+  TR2.Application -> /home/lolo/dev/msm/projects/MSM_vibe-R5A-pc-live/Modbus RTU/Supervision TR2/src/TR2.Application/bin/Debug/net10.0/TR2.Application.dll
+  TR2.Persistence -> /home/lolo/dev/msm/projects/MSM_vibe-R5A-pc-live/Modbus RTU/Supervision TR2/src/TR2.Persistence/bin/Debug/net10.0/TR2.Persistence.dll
+  TR2.Campaigns -> /home/lolo/dev/msm/projects/MSM_vibe-R5A-pc-live/Modbus RTU/Supervision TR2/src/TR2.Campaigns/bin/Debug/net10.0/TR2.Campaigns.dll
+  TR2.Supervision.Web -> /home/lolo/dev/msm/projects/MSM_vibe-R5A-pc-live/Modbus RTU/Supervision TR2/src/TR2.Supervision.Web/bin/Debug/net10.0/TR2.Supervision.Web.dll
+  TR2.Supervision.Service -> /home/lolo/dev/msm/projects/MSM_vibe-R5A-pc-live/Modbus RTU/Supervision TR2/src/TR2.Supervision.Service/bin/Debug/net10.0/TR2.Supervision.Service.dll
+  TR2.Supervision.Service.Tests -> /home/lolo/dev/msm/projects/MSM_vibe-R5A-pc-live/Modbus RTU/Supervision TR2/tests/TR2.Supervision.Service.Tests/bin/Debug/net10.0/TR2.Supervision.Service.Tests.dll
+Test run for /home/lolo/dev/msm/projects/MSM_vibe-R5A-pc-live/Modbus RTU/Supervision TR2/tests/TR2.Supervision.Service.Tests/bin/Debug/net10.0/TR2.Supervision.Service.Tests.dll (.NETCoreApp,Version=v10.0)
+A total of 1 test files matched the specified pattern.
+[xUnit.net 00:00:00.48]     TR2.Supervision.Service.Tests.LiveSupervisionTests.AuthenticPhysicalAdusDecodeWithUtcAbsentAndHeldHonest(mission: "TR2-20261017-R4V", name: "hardware/baseline-master.jsonl.zlib", expected: 1655) [FAIL]
+[xUnit.net 00:00:00.49]     TR2.Supervision.Service.Tests.LiveSupervisionTests.AuthenticPhysicalAdusDecodeWithUtcAbsentAndHeldHonest(mission: "TR2-20261017-R4U", name: "hardware/live05-master.jsonl.zlib", expected: 1632) [FAIL]
+[xUnit.net 00:00:00.50]     TR2.Supervision.Service.Tests.LiveSupervisionTests.AuthenticPhysicalAdusDecodeWithUtcAbsentAndHeldHonest(mission: "TR2-20261017-R4V", name: "hardware/paced-master.jsonl.zlib", expected: 1075) [FAIL]
+  Failed TR2.Supervision.Service.Tests.LiveSupervisionTests.AuthenticPhysicalAdusDecodeWithUtcAbsentAndHeldHonest(mission: "TR2-20261017-R4V", name: "hardware/baseline-master.jsonl.zlib", expected: 1655) [19 ms]
+  Error Message:
+   System.FormatException : The input is not a valid hex string as its length is not a multiple of 2.
+  Stack Trace:
+     at System.Convert.FromHexString(ReadOnlySpan`1 chars)
+   at TR2.Supervision.Service.Tests.LiveSupervisionTests.AuthenticPhysicalAdusDecodeWithUtcAbsentAndHeldHonest(String mission, String name, Int32 expected) in /home/lolo/dev/msm/projects/MSM_vibe-R5A-pc-live/Modbus RTU/Supervision TR2/tests/TR2.Supervision.Service.Tests/LiveSupervisionTests.cs:line 43
+--- End of stack trace from previous location ---
+  Failed TR2.Supervision.Service.Tests.LiveSupervisionTests.AuthenticPhysicalAdusDecodeWithUtcAbsentAndHeldHonest(mission: "TR2-20261017-R4U", name: "hardware/live05-master.jsonl.zlib", expected: 1632) [11 ms]
+  Error Message:
+   System.FormatException : The input is not a valid hex string as its length is not a multiple of 2.
+  Stack Trace:
+     at System.Convert.FromHexString(ReadOnlySpan`1 chars)
+   at TR2.Supervision.Service.Tests.LiveSupervisionTests.AuthenticPhysicalAdusDecodeWithUtcAbsentAndHeldHonest(String mission, String name, Int32 expected) in /home/lolo/dev/msm/projects/MSM_vibe-R5A-pc-live/Modbus RTU/Supervision TR2/tests/TR2.Supervision.Service.Tests/LiveSupervisionTests.cs:line 43
+--- End of stack trace from previous location ---
+  Failed TR2.Supervision.Service.Tests.LiveSupervisionTests.AuthenticPhysicalAdusDecodeWithUtcAbsentAndHeldHonest(mission: "TR2-20261017-R4V", name: "hardware/paced-master.jsonl.zlib", expected: 1075) [7 ms]
+  Error Message:
+   System.FormatException : The input is not a valid hex string as its length is not a multiple of 2.
+  Stack Trace:
+     at System.Convert.FromHexString(ReadOnlySpan`1 chars)
+   at TR2.Supervision.Service.Tests.LiveSupervisionTests.AuthenticPhysicalAdusDecodeWithUtcAbsentAndHeldHonest(String mission, String name, Int32 expected) in /home/lolo/dev/msm/projects/MSM_vibe-R5A-pc-live/Modbus RTU/Supervision TR2/tests/TR2.Supervision.Service.Tests/LiveSupervisionTests.cs:line 43
+--- End of stack trace from previous location ---
+Results File: /home/lolo/dev/msm/reports/TR2-r5a/live01.trx
+
+Failed!  - Failed:     3, Passed:     9, Skipped:     0, Total:    12, Duration: 899 ms - TR2.Supervision.Service.Tests.dll (net10.0)
