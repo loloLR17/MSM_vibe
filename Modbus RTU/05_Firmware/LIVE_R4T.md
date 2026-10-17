@@ -101,3 +101,13 @@ Contre-test de refus : zéro write/start, token consommé/frontend indisponible,
 reboot exact STARTED5/journal26 ; aucune reprise implicite de la candidate RAM.
 L'essai corrigé utilise une image02 distincte, même snapshot initial revérifié.
 Les568coupures et sanitizers du helper inchangé sont acquis, pas rejoués.
+
+
+## Résultat physique final — 16/10/2026 UTC (17/10 local)
+
+- Image02/code79ba06a : RENEW4→5 réel, journal26→30/root39→43, snapshot f035…e312 exact au modèle ; ancienneclé4/5 refusée24/0write. Puis START5/1/run6 et STOP5/2 COMPLETED4/0 réels.
+- Composition réelle :3918509XYZ/489814TS,74fenêtres N4096,13548RTU RAM cohérents dont11989V/F ; oracle indépendant première4096exact (RMS959/952/102/38mg, crêtes993/985/147/79mg). Temps entre événements datés147,320665s ; boucle explicite après START terminé10,000766s, commits R2 sousFIFO distincts.
+- Maxwork915/service1964/gap2203µs, bornes1000/2500/5000 inchangées ; FIFOmax66, erreurs0.1465contrôles horloge/résidumax13µs/seuil100. Arrêt sûr234µs ; timer STOP nominal distinct non exporté, aucune valeur ajoutée a posteriori.
+-12commits/629112octets/19668appels physiques uniquement LIVE,36plages auditées. FRAM finale entière371a9d16c6285d0150608751ccfdd5217ff303d42d8e5446d66a8130342e6634 exacte au modèle de métadonnées ; journal38/root51/epoch5/run6/config3, historique/tail intacts.
+- M016 restauré22:10:24UTC :18pages normales, Flash2Mio exacte c5bc…f5b26 ; FRAM finale relue après restauration et inchangée, aucune identité rembobinée. Capteur arrêté/GDBdétaché. Pas de reboot LIVE produit ni power-cycle, RS485 électrique, R4global/R6 ou endurance qualifiés.
+- N supérieurs non couverts par ce harness/oracle4096 ; BSS660568 et collecte32768naïve+172032 dépasseraient786432SRAM avant pile. Prévoir collecte adaptée dans une tranche distincte. Rapport final et preuves pour contrôle indépendant ChatGPT.

@@ -16,6 +16,10 @@
       "bytes": 319,
       "sha256": "a9801085a7b70b743d2bf36149cb9a2349930f0bc79656258ed51de61e252722"
     },
+    "analyze-physical.py": {
+      "bytes": 3783,
+      "sha256": "7abadedf1fc0113dc4eb6f0a4184fadb1204c13014c5a60fd9c8d4e6a879a597"
+    },
     "build-probe-02.py": {
       "bytes": 944,
       "sha256": "6592ac0fdec7d5c15535d09814d3105c778d3ff498cd39cb3e0e747e187461bb"
@@ -31,6 +35,26 @@
     "canonical-build.log": {
       "bytes": 56,
       "sha256": "df4a6455cb8be267cd2a1a27698394b10309d73c1342961af66db42dd6876ffc"
+    },
+    "check-preservation.py": {
+      "bytes": 1328,
+      "sha256": "8dde9d099c621099c014d6b22f803ba1ec51a867c4ca4e104743df530d8b61bd"
+    },
+    "final-fram-audit.json": {
+      "bytes": 8992,
+      "sha256": "b4b43ac69d093c1016749de88e963f07110b0415f14ef5fd107743d4dd9bc465"
+    },
+    "final-metadata-model.log": {
+      "bytes": 138,
+      "sha256": "4ea3fa72a9e8aefc5878b742a11d90398843224394df0e137317823a6b7856b7"
+    },
+    "final_metadata_model.c": {
+      "bytes": 1094,
+      "sha256": "9b28ce3f53ba6d8f972584f11078862d9274e37223d51c3c0f28ed4ab290fc86"
+    },
+    "finalize-docs.py": {
+      "bytes": 19535,
+      "sha256": "0e644979c3fbb7f4a541e3cbe6f81ec0f7004e57124c8cb0e534738da4b8aec8"
     },
     "hardware/flash-fresh-check-invocation.json": {
       "bytes": 788,
@@ -48,6 +72,10 @@
       "bytes": 473,
       "sha256": "b375075e515d9698f26f3412b52f55d0a0e185c17d5d9d1a542b9e54388645a3"
     },
+    "hardware/fram-after-composed.bin.zlib": {
+      "bytes": 1539,
+      "sha256": "856857bf8a986a2af7f289f32cf009d1ab1fd0df1a449769fbd8f8d9ad0199a3"
+    },
     "hardware/fram-after-maintenance-b.bin.zlib": {
       "bytes": 1556,
       "sha256": "64e249951138614d3f0f0ab0fef5ea7647b9ab7ba8b19a42a09c728634d8c242"
@@ -55,6 +83,10 @@
     "hardware/fram-after-maintenance.bin.zlib": {
       "bytes": 1614,
       "sha256": "91d6dea7c0680669b90184f2f7c9ede70bb0948fdebb799448e4b0672797cbbd"
+    },
+    "hardware/fram-after-restoration.bin.zlib": {
+      "bytes": 1539,
+      "sha256": "856857bf8a986a2af7f289f32cf009d1ab1fd0df1a449769fbd8f8d9ad0199a3"
     },
     "hardware/fram-before.bin.zlib": {
       "bytes": 1614,
@@ -184,17 +216,45 @@
       "bytes": 2556,
       "sha256": "a893c0bf5eae9bbc9c8b3540afa3d7db9989fbb57c73a5b7302949b1fb9c5cdc"
     },
+    "hardware/phase5-composed-result-invocation.json": {
+      "bytes": 744,
+      "sha256": "dbb49462b82f826fcc2e61638605af84f4599c7e13aa5795dda54c1be6808bbe"
+    },
     "hardware/phase5-composed-result-server.log": {
-      "bytes": 617,
-      "sha256": "3006c36fa68c223f61ad31a90aa8c8433c462b0be209ed17901c7c275224ebc7"
+      "bytes": 642,
+      "sha256": "8bcc4c71699ee84963384971405c87e1a151e92fe6097483e261a0323be2f087"
     },
     "hardware/phase5-composed-result.gdb": {
       "bytes": 2208,
       "sha256": "d1d149768f1c754ea7ae65b8a59f0efc5ab69131bacb2471697e3ac9ff44b0bf"
     },
+    "hardware/phase5-composed-result.log": {
+      "bytes": 17027,
+      "sha256": "da8531e9702105d6aedfe1d9b3aebb98e1184781971689db16bf4c143e444e09"
+    },
     "hardware/phase5-driver.log": {
-      "bytes": 0,
-      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      "bytes": 97,
+      "sha256": "2247236b0a09e585ab0dee89013b6bdb3d881df64ccd9932a12131328dfb5b00"
+    },
+    "hardware/phase5-held-adu.bin.zlib": {
+      "bytes": 64,
+      "sha256": "23027cff598b58cec68c6fbdefdce08c34f5032f9487811e2c46a742d78870d6"
+    },
+    "hardware/phase5-raw.bin.zlib": {
+      "bytes": 10098,
+      "sha256": "9bc0b1a530b1c652ab9c6a269f59c68b2520cfa1208cab1f3972fe5376472fe8"
+    },
+    "hardware/phase5-trace.bin.zlib": {
+      "bytes": 118,
+      "sha256": "db2cb4b74db60ecc97d4861b75d885efc74953864cc78b40aa155e89b72ecd65"
+    },
+    "hardware/phase5-valid-adu.bin.zlib": {
+      "bytes": 64,
+      "sha256": "253829f9032f0eb91a2c845abad4f794d8f9cb5ab001a8a9f3ee86b94b2aaf08"
+    },
+    "hardware/phase5-xyz.bin.zlib": {
+      "bytes": 18013,
+      "sha256": "ef3d8679bd4fd815da7fa223edcccb7edf6aa01ad759a4a89a7d29aafd09c2b6"
     },
     "hardware/phase5.py": {
       "bytes": 2097,
@@ -219,6 +279,74 @@
     "hardware/probe-readback.bin.zlib": {
       "bytes": 78292,
       "sha256": "73c65010e7d5ea296633b31cbc1c37389ef410905f7f305d92ee334fd6c51a5f"
+    },
+    "hardware/restoration-summary.json": {
+      "bytes": 620,
+      "sha256": "a4d43a7283f447f216087b3e0d962adeca9f1d851f4dcf17cbe672e4b898933a"
+    },
+    "hardware/restore-M016-command.json": {
+      "bytes": 526,
+      "sha256": "c2a7ecdf1addbca6c7de839b343684f2baf8444fc6539a73aa6adbfec8ef73b8"
+    },
+    "hardware/restore-M016.log": {
+      "bytes": 1631,
+      "sha256": "98a7006f12a69151aacb20215949ecf8accdd5300db847ac807166c67a95f84f"
+    },
+    "hardware/restore-driver.log": {
+      "bytes": 682,
+      "sha256": "40e37339d45e8c19a19453191badbb07dc444ad8324ff90fec4d7d2e0976d634"
+    },
+    "hardware/restore-final-fram-invocation.json": {
+      "bytes": 789,
+      "sha256": "452b33acdd6fa7f95c73d0e6780cb146ae984d3a8425769ccdcc613053112b67"
+    },
+    "hardware/restore-final-fram-server.log": {
+      "bytes": 642,
+      "sha256": "8bcc4c71699ee84963384971405c87e1a151e92fe6097483e261a0323be2f087"
+    },
+    "hardware/restore-final-fram.gdb": {
+      "bytes": 632,
+      "sha256": "3acc76617dcfead19cb1f6cd576b4dd0aebe7a76af5676a353e1c334f4033685"
+    },
+    "hardware/restore-final-fram.log": {
+      "bytes": 784,
+      "sha256": "7c33d0bebcab08edb815ddc6c27343051d866ba7dc61c9b1e097602c843c7728"
+    },
+    "hardware/restore-full-readback-invocation.json": {
+      "bytes": 792,
+      "sha256": "d37d7ff6d0efebca3cacbdf551582a1ef12304e3bf63c0123145747c20004eee"
+    },
+    "hardware/restore-full-readback-server.log": {
+      "bytes": 642,
+      "sha256": "8bcc4c71699ee84963384971405c87e1a151e92fe6097483e261a0323be2f087"
+    },
+    "hardware/restore-full-readback.gdb": {
+      "bytes": 412,
+      "sha256": "e6a7f68b0bf75508320143fa3cb1cbb983a471f229e28d89054a1e714e759d6d"
+    },
+    "hardware/restore-full-readback.log": {
+      "bytes": 332,
+      "sha256": "e4edc0aa3234f83daca70827486e2641172982904248a6a45db64f8306b1a85b"
+    },
+    "hardware/restore-stopped-check-invocation.json": {
+      "bytes": 743,
+      "sha256": "af230331054627a2bc38f8668128b62d0c1b9014127e48780247df055f33e164"
+    },
+    "hardware/restore-stopped-check-server.log": {
+      "bytes": 642,
+      "sha256": "8bcc4c71699ee84963384971405c87e1a151e92fe6097483e261a0323be2f087"
+    },
+    "hardware/restore-stopped-check.gdb": {
+      "bytes": 474,
+      "sha256": "f31cab271112e1d30195a93819fb6306b442cbd79e4f09e74a6561f342582aaa"
+    },
+    "hardware/restore-stopped-check.log": {
+      "bytes": 372,
+      "sha256": "c37e0f817439be45c8075291ba7ee801958520099fdda607738a6b7ca5972e10"
+    },
+    "hardware/restore.py": {
+      "bytes": 2431,
+      "sha256": "4769854818eaa089eeeb6434a8f5b9ed2e71dfe663f3ac8d3449a8427cf26072"
     },
     "hardware/sensor-stopped-readonly-invocation.json": {
       "bytes": 794,
@@ -257,8 +385,8 @@
       "sha256": "4fea11e4868c2f16716ff0ee50207554dd9d90edaf2d4f2e895e5aa77e65c239"
     },
     "latest-readback.json": {
-      "bytes": 7828,
-      "sha256": "991bdd175f8fc4b6335e7425f32adf6ce05682eb2df8fc66293abbcb37336a47"
+      "bytes": 10186,
+      "sha256": "bfd1a76fdd4b7aef9184f2df61741cd43b62af1311a382759ea6235cc78db442"
     },
     "maintenance-fram-audit.json": {
       "bytes": 8990,
@@ -272,6 +400,14 @@
       "bytes": 1587,
       "sha256": "452a32310bc7193d2325b679683f93985b31d253591c5e4d7d8686b18a8e6b94"
     },
+    "model-final.bin.zlib": {
+      "bytes": 1539,
+      "sha256": "856857bf8a986a2af7f289f32cf009d1ab1fd0df1a449769fbd8f8d9ad0199a3"
+    },
+    "model-final.json": {
+      "bytes": 923,
+      "sha256": "54eddb5ecf582707a15b7987ce23dd511cdf5cec1d0c963771e791068b2e09fe"
+    },
     "model-renew.bin.zlib": {
       "bytes": 1556,
       "sha256": "64e249951138614d3f0f0ab0fef5ea7647b9ab7ba8b19a42a09c728634d8c242"
@@ -279,6 +415,10 @@
     "model-test.log": {
       "bytes": 216,
       "sha256": "cef6ebd5cd41d067109d8d842641e79359929490f3f58920574443012a232230"
+    },
+    "physical-analysis.log": {
+      "bytes": 9055,
+      "sha256": "26f124185a911be8b30c64c241fb3f9de31bf20398939d71fe0c947aea1dc3cc"
     },
     "physical-build-02.json": {
       "bytes": 1956,
@@ -288,6 +428,10 @@
       "bytes": 1956,
       "sha256": "92230aa20b9dc2534e03ef01a1ca3ed4f360ef616b22cf3d2595325ad8e155b9"
     },
+    "physical-summary.json": {
+      "bytes": 9055,
+      "sha256": "26f124185a911be8b30c64c241fb3f9de31bf20398939d71fe0c947aea1dc3cc"
+    },
     "prepare-probe.py": {
       "bytes": 3460,
       "sha256": "45966a4a0650a41289fdcff58576b9ab51b63629fea795beb958b598f4c9b97d"
@@ -295,6 +439,10 @@
     "prepare.py": {
       "bytes": 5647,
       "sha256": "45ed28100b3b2d36d0fbdd07555854d23ce0b0c3a61c49487458d75b0e24bbfd"
+    },
+    "preservation-final.json": {
+      "bytes": 379,
+      "sha256": "1b493fd5fad4fbb3300cec82d8455668a1b03f7943cc851666706a574ccb6603"
     },
     "probe-build-01-tr2-r4t-monotone-recovery-NON-PRODUCTION.bin.zlib": {
       "bytes": 78292,
@@ -329,8 +477,8 @@
       "sha256": "c2ed93ffd93c840755c0e91392ae593b1b52de9b7aaf6c208123feaceb1dde2e"
     },
     "publish.py": {
-      "bytes": 2001,
-      "sha256": "103747bcd776c2b34d3c5f0c97e6c2c64c17be94681c15475d2b4f5b70449e3b"
+      "bytes": 2024,
+      "sha256": "b7fa679f9e0f0a2c9ca57db46f05aa3a0034aa2b5527e90d8b0ba73235869c83"
     },
     "readback.py": {
       "bytes": 1373,

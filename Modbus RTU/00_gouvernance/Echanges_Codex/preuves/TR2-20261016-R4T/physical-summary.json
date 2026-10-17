@@ -1,0 +1,533 @@
+{
+  "result": "PASS",
+  "recovery": {
+    "stage": 10,
+    "error": 0,
+    "old_key_rejected": 24,
+    "writes_before_live": 209704,
+    "run_begin_us": 135214047,
+    "run_end_us": 145214813
+  },
+  "shared": {
+    "stage": 3,
+    "error": 0,
+    "words": 59550,
+    "anchors": 6617,
+    "counter_mismatch": 0,
+    "reserved_nonzero": 0,
+    "min_delta": 24,
+    "max_delta": 24,
+    "raw_words": 2048,
+    "brackets": 196,
+    "fine": 1,
+    "first_ts": 21755807,
+    "last_ts": 21914591,
+    "first_index": 0,
+    "last_index": 52928,
+    "begin_us": 54719769,
+    "end_us": 56719859,
+    "max_poll_us": 368,
+    "span_us": 1887696,
+    "span_ticks": 150635,
+    "calibration_residual_us": 25,
+    "live_begin_us": 0,
+    "live_end_us": 0,
+    "max_publish_us": 0,
+    "max_pdu_us": 0,
+    "max_event_age_us": 1928,
+    "stop_us": 0,
+    "responses": 13548,
+    "valid_responses": 11989,
+    "held_responses": 809,
+    "b3_status": 1,
+    "b3_flags": 5819,
+    "coherence_checks": 13548,
+    "b3_sequence": 74,
+    "b3_age": 10123,
+    "first_window_checked": 1,
+    "stop_status": 0,
+    "first_event_us": 66564252,
+    "first_window_end_us": 66718000,
+    "hardware_stop_us": 0
+  },
+  "bench": {
+    "stage": 44,
+    "error": 0,
+    "line": 0,
+    "command": 0,
+    "ownership": 0,
+    "read_passes": 0,
+    "commands": 2,
+    "core_hz": 160000000,
+    "spi1_hz": 2500000,
+    "spi3_hz": 4000000,
+    "tick_start": 0,
+    "tick_end": 222850,
+    "max_read_us": 130,
+    "max_write_us": 163,
+    "max_gap_us": 2203,
+    "last_poll_us": 213885097,
+    "safety_us": 234,
+    "first_data_us": 10851,
+    "start_us": 54718891,
+    "read_bytes": 6139550,
+    "write_bytes": 629112,
+    "xyz": 3918509,
+    "timestamps": 489814,
+    "polls": 164811,
+    "elapsed_us": 222849999,
+    "max_level": 66,
+    "fifo_error": 0,
+    "stop_error": 0,
+    "engine_status": 4,
+    "engine_result": 0,
+    "protected_equal": 1,
+    "baseline_equal": 0
+  },
+  "work": {
+    "last_us": 222849762,
+    "max_work_us": 915,
+    "max_service_us": 1964,
+    "checkpoints": 560532,
+    "work_limit_us": 1000,
+    "service_limit_us": 2500,
+    "quantum_bytes": 32,
+    "depth": 0
+  },
+  "paired_max": {
+    "total": 1961,
+    "poll": 1396,
+    "consumer": 394,
+    "clock": 0,
+    "publish": 0,
+    "rtu": 562,
+    "mapping": 77,
+    "metrology": 239,
+    "words": 48,
+    "level": 25,
+    "sequence": 30,
+    "published": 0
+  },
+  "clock": {
+    "base_us": 213840736,
+    "span_us": 100195,
+    "span_ticks": 7994,
+    "ticks": 3528,
+    "anchor_ticks": 3528,
+    "input_index": 3918509,
+    "emitted": 3918504,
+    "max_residual_us": 13,
+    "last_event_us": 213884917,
+    "first_event_us": 66564252,
+    "raw": 33670934,
+    "anchor_raw": 33670934,
+    "groups": 489813,
+    "calibration_raw": 33667461,
+    "calibration_us": 213841434,
+    "mapping_cycles": 996932907,
+    "metrology_cycles": 1743639367
+  },
+  "oracle": {
+    "result": "PASS",
+    "N": 4096,
+    "rms_mg": [
+      959,
+      952,
+      102,
+      38
+    ],
+    "peak_mg": [
+      993,
+      985,
+      147,
+      79
+    ],
+    "duration_ms": 154,
+    "physical_raw_values": true
+  },
+  "adus": {
+    "valid": {
+      "observed": true,
+      "CRC": "PASS",
+      "registers": [
+        4,
+        1215,
+        3,
+        240,
+        0,
+        0,
+        0,
+        1195,
+        0,
+        74,
+        0,
+        153,
+        0,
+        4096,
+        0,
+        958,
+        0,
+        995,
+        0,
+        952,
+        0,
+        102,
+        0,
+        39,
+        0,
+        989,
+        0,
+        134,
+        0,
+        78,
+        1,
+        1,
+        1,
+        1,
+        1,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "status": 4,
+      "flags": 1215,
+      "age_ms": 1195,
+      "sequence": 74
+    },
+    "held": {
+      "observed": true,
+      "CRC": "PASS",
+      "registers": [
+        1,
+        5819,
+        0,
+        240,
+        0,
+        0,
+        0,
+        10123,
+        0,
+        74,
+        0,
+        153,
+        0,
+        4096,
+        0,
+        958,
+        0,
+        995,
+        0,
+        952,
+        0,
+        102,
+        0,
+        39,
+        0,
+        989,
+        0,
+        134,
+        0,
+        78,
+        1,
+        1,
+        1,
+        1,
+        1,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "status": 1,
+      "flags": 5819,
+      "age_ms": 10123,
+      "sequence": 74
+    }
+  },
+  "fram_sha256": "371a9d16c6285d0150608751ccfdd5217ff303d42d8e5446d66a8130342e6634",
+  "historical_tail_exact": true,
+  "utc": "2026-10-17T05:47:39.511310+00:00",
+  "write_ranges": [
+    {
+      "at": 188480,
+      "bytes": 52298,
+      "commands": 1635,
+      "stage": 40,
+      "status": 0
+    },
+    {
+      "at": 188416,
+      "bytes": 64,
+      "commands": 2,
+      "stage": 40,
+      "status": 0
+    },
+    {
+      "at": 126976,
+      "bytes": 64,
+      "commands": 2,
+      "stage": 40,
+      "status": 0
+    },
+    {
+      "at": 131136,
+      "bytes": 52298,
+      "commands": 1635,
+      "stage": 41,
+      "status": 0
+    },
+    {
+      "at": 131072,
+      "bytes": 64,
+      "commands": 2,
+      "stage": 41,
+      "status": 0
+    },
+    {
+      "at": 122880,
+      "bytes": 64,
+      "commands": 2,
+      "stage": 41,
+      "status": 0
+    },
+    {
+      "at": 188480,
+      "bytes": 52298,
+      "commands": 1635,
+      "stage": 41,
+      "status": 0
+    },
+    {
+      "at": 188416,
+      "bytes": 64,
+      "commands": 2,
+      "stage": 41,
+      "status": 0
+    },
+    {
+      "at": 126976,
+      "bytes": 64,
+      "commands": 2,
+      "stage": 41,
+      "status": 0
+    },
+    {
+      "at": 131136,
+      "bytes": 52298,
+      "commands": 1635,
+      "stage": 41,
+      "status": 0
+    },
+    {
+      "at": 131072,
+      "bytes": 64,
+      "commands": 2,
+      "stage": 41,
+      "status": 0
+    },
+    {
+      "at": 122880,
+      "bytes": 64,
+      "commands": 2,
+      "stage": 41,
+      "status": 0
+    },
+    {
+      "at": 188480,
+      "bytes": 52298,
+      "commands": 1635,
+      "stage": 42,
+      "status": 0
+    },
+    {
+      "at": 188416,
+      "bytes": 64,
+      "commands": 2,
+      "stage": 42,
+      "status": 0
+    },
+    {
+      "at": 126976,
+      "bytes": 64,
+      "commands": 2,
+      "stage": 42,
+      "status": 0
+    },
+    {
+      "at": 131136,
+      "bytes": 52298,
+      "commands": 1635,
+      "stage": 42,
+      "status": 0
+    },
+    {
+      "at": 131072,
+      "bytes": 64,
+      "commands": 2,
+      "stage": 42,
+      "status": 0
+    },
+    {
+      "at": 122880,
+      "bytes": 64,
+      "commands": 2,
+      "stage": 42,
+      "status": 0
+    },
+    {
+      "at": 188480,
+      "bytes": 52298,
+      "commands": 1635,
+      "stage": 42,
+      "status": 0
+    },
+    {
+      "at": 188416,
+      "bytes": 64,
+      "commands": 2,
+      "stage": 42,
+      "status": 0
+    },
+    {
+      "at": 126976,
+      "bytes": 64,
+      "commands": 2,
+      "stage": 42,
+      "status": 0
+    },
+    {
+      "at": 131136,
+      "bytes": 52298,
+      "commands": 1635,
+      "stage": 42,
+      "status": 0
+    },
+    {
+      "at": 131072,
+      "bytes": 64,
+      "commands": 2,
+      "stage": 42,
+      "status": 0
+    },
+    {
+      "at": 122880,
+      "bytes": 64,
+      "commands": 2,
+      "stage": 42,
+      "status": 0
+    },
+    {
+      "at": 188480,
+      "bytes": 52298,
+      "commands": 1635,
+      "stage": 44,
+      "status": 0
+    },
+    {
+      "at": 188416,
+      "bytes": 64,
+      "commands": 2,
+      "stage": 44,
+      "status": 0
+    },
+    {
+      "at": 126976,
+      "bytes": 64,
+      "commands": 2,
+      "stage": 44,
+      "status": 0
+    },
+    {
+      "at": 131136,
+      "bytes": 52298,
+      "commands": 1635,
+      "stage": 44,
+      "status": 0
+    },
+    {
+      "at": 131072,
+      "bytes": 64,
+      "commands": 2,
+      "stage": 44,
+      "status": 0
+    },
+    {
+      "at": 122880,
+      "bytes": 64,
+      "commands": 2,
+      "stage": 44,
+      "status": 0
+    },
+    {
+      "at": 188480,
+      "bytes": 52298,
+      "commands": 1635,
+      "stage": 44,
+      "status": 0
+    },
+    {
+      "at": 188416,
+      "bytes": 64,
+      "commands": 2,
+      "stage": 44,
+      "status": 0
+    },
+    {
+      "at": 126976,
+      "bytes": 64,
+      "commands": 2,
+      "stage": 44,
+      "status": 0
+    },
+    {
+      "at": 131136,
+      "bytes": 52298,
+      "commands": 1635,
+      "stage": 44,
+      "status": 0
+    },
+    {
+      "at": 131072,
+      "bytes": 64,
+      "commands": 2,
+      "stage": 44,
+      "status": 0
+    },
+    {
+      "at": 122880,
+      "bytes": 64,
+      "commands": 2,
+      "stage": 44,
+      "status": 0
+    }
+  ],
+  "physical_write_calls": 19668,
+  "physical_fram_exact_model": true,
+  "windows": 74,
+  "clock_checks": 1465,
+  "context": {
+    "run": 6,
+    "config_id": 3,
+    "config_generation": 3,
+    "authority": true
+  }
+}

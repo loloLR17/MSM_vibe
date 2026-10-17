@@ -2,10 +2,10 @@ from pathlib import Path
 import json,hashlib,zlib,shutil
 r=Path('/home/lolo/dev/msm/projects/MSM_vibe-R4T-monotonic-recovery');p=Path('/home/lolo/dev/msm/reports/TR2-r4t');q=r/'Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261016-R4T';q.mkdir(exist_ok=True);(q/'hardware').mkdir(exist_ok=True)
 for f in p.iterdir():
- if f.is_file() and f.suffix in {'.json','.py','.log'}:
+ if f.is_file() and f.suffix in {'.json','.py','.log','.c'}:
   if f.name=='initial-state.json':(q/(f.name+'.zlib')).write_bytes(zlib.compress(f.read_bytes(),9))
   else:shutil.copy2(f,q/f.name)
- if f.name in {'model-admitted.bin','model-renew.bin'}:(q/(f.name+'.zlib')).write_bytes(zlib.compress(f.read_bytes(),9))
+ if f.name in {'model-admitted.bin','model-renew.bin','model-final.bin'}:(q/(f.name+'.zlib')).write_bytes(zlib.compress(f.read_bytes(),9))
 for f in (p/'hardware').iterdir():
  if f.suffix in {'.json','.py','.gdb','.log'}:shutil.copy2(f,q/'hardware'/f.name)
  if f.suffix=='.bin' and not f.name.startswith(('flash-','restore-')):(q/'hardware'/(f.name+'.zlib')).write_bytes(zlib.compress(f.read_bytes(),9))
