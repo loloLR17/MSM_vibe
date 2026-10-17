@@ -311,3 +311,9 @@ Publication R3-B vérifiée : code1c5368f, preuves/rapport faf0f94 sur main relu
 - **RESTAURÉ / PRÉSERVÉ** : FlashM0162Mio exacte c5bc…f5b26 ; FRAM371a9d16…6634 entière exacte au modèle, journal38/root51/epoch5/run6/config3,12commits/629112octets uniquement LIVE. Historique/tail,6497fichiers protégés,60autres worktrees/stashes intacts. Restauration22:10:24UTC, capteur arrêté/GDBdétaché, aucun rollback/SD/HP. Prochaine étape : contrôle indépendant ChatGPT puis couverture produit/collecte N supérieurs/RS485/R5/R6 distincte ; ne pas réappliquer la retraite.
 
 - **PUBLICATION R4-T RELUE** : bilan5b2b84fbfa7eb49a9ed439f56e04a28b39d88902,139fichiers/125preuves SHA256 relus depuis GitHub à2026-10-17T05:48:14.796611+00:00. Clôture DONE dans la portée physique bornée N4096 ; aucune qualification globale/R6 ni tag, contrôle indépendant ChatGPT à réaliser. Reprise de session limitée à documentation/publication, aucun essai physique répété.
+
+
+## R4-U — 17/10/2026, composition préparée avant cible
+
+- **PRÉPARÉ / TESTÉ HÔTE** : runtime opt-in propriétaire unique/service FIFO+UART sans réentrée R2, B6 UNAVAILABLE honnête ; B1/B2/B7 non supportés.143anciens tests PASS, nouveau144 PASS ciblé après correction oracle readonly ; sanitizer/cross-build PASS. Aucun firmware produit LIVE annoncé.
+- **PRÉFLIGHT OBSERVÉ09:30:14UTC** : M016 Flash entièrec5bc…f5b26, FRAM371a…6634, journal38/root51/epoch5/run6 terminal, capteur arrêté ; aucune mutation. COM4 FTDI confirmé raccordéTR2 par utilisateur, COM3STLINK exclu. Plan [LIVE_R4U](../05_Firmware/LIVE_R4U.md) : RAM puis UARTreadonly puis vrais B5 seulement si budgets conformes, sans retraite ni rollbackFRAM. Résultats physiques en attente.

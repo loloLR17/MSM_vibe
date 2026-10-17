@@ -53,6 +53,11 @@ Tr2Result live_modbus_server_publish(LiveModbusServer *s,uint64_t now)
  /* Even invalid/held/error images must be published. Owner handles the fault. */
  return metric;
 }
+Tr2Result live_modbus_server_enable_unavailable_inventory(LiveModbusServer *s)
+{
+ if(!s||!s->engine||s->responding||s->owner_busy)return TR2_ERROR_INVALID_STATE;
+ s->unavailable_inventory=true;s->selected_inventory_index=0;return TR2_OK;
+}
 static bool in_range(uint16_t a,uint16_t n,unsigned base,unsigned count)
 { return a>=base&&(unsigned)a<base+count&&n<=base+count-a; }
 static unsigned choose(LiveModbusServer *s)
@@ -130,6 +135,7 @@ static ModbusPduServerOutcome process(LiveModbusServer *s,const uint8_t *q,size_
 {
  uint16_t a=0,count=0;const uint16_t *words=NULL;uint16_t values[123];
  if(q[0]!=3&&q[0]!=16)return exception(q[0],1,o);
+ if(q[0]==16&&s->read_only)return exception(q[0],1,o);
  if((q[0]==3&&n!=5)||(q[0]==16&&n<6))return exception(q[0],3,o);
  a=be(q+1);count=be(q+3);
  if(!count||count>(q[0]==3?125u:123u))return exception(q[0],3,o);
@@ -139,6 +145,7 @@ static ModbusPduServerOutcome process(LiveModbusServer *s,const uint8_t *q,size_
   const LiveModbusImage *image=&s->images[s->published];unsigned offset=0;
   ModbusBlock3Image current;
   ModbusBlock4Image prepared_view;
+  uint16_t inventory[64]={0};
   if(in_range(a,count,0,21)){words=s->identity.registers;offset=a;}
   else if(in_range(a,count,3000,48)) {
    /* Read-time age/freshness from a private immutable RAM copy. No producer,
@@ -162,7 +169,11 @@ static ModbusPduServerOutcome process(LiveModbusServer *s,const uint8_t *q,size_
    words=prepared_view.registers;offset=a-4000u;
   }
   else if(in_range(a,count,5000,29)){words=image->b5;offset=a-5000u;}
-  else return exception(q[0],2,o); /* No synthetic B1/B2/B6/B7 authority. */
+  else if(s->unavailable_inventory&&in_range(a,count,6000,64)) {
+   inventory[0]=2;inventory[3]=s->selected_inventory_index;inventory[9]=4;
+   words=inventory;offset=a-6000u;
+  }
+  else return exception(q[0],2,o); /* B1/B2/B7 have no composed authority. */
   o[0]=3;o[1]=(uint8_t)(2u*count);
   for(unsigned i=0;i<count;i++) {
    uint16_t word=words[offset+i];
@@ -186,7 +197,8 @@ static ModbusPduServerOutcome process(LiveModbusServer *s,const uint8_t *q,size_
   if(w.access_result!=MODBUS_ACCESS_OK)error=2;
   else if(w.operation_result!=TR2_OK)error=4;
   else s->staging=candidate;
- } else error=2;
+ } else if(s->unavailable_inventory&&a==6003u&&count==1u)s->selected_inventory_index=values[0];
+ else error=2;
  if(error)return exception(q[0],error,o);
  o[0]=16;put(o+1,a);put(o+3,count);return outcome(TR2_OK,5);
 }

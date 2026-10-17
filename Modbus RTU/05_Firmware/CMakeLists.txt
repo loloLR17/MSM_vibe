@@ -15,6 +15,7 @@ add_library(tr2_core STATIC
     src/common/cooperative_work.c
     src/domain/acquisition/window_statistics.c
     src/application/live_modbus_server.c
+    src/application/live_runtime.c
     src/application/live_metrology.c
     src/persistence/live_command_store.c
     src/application/live_command_engine.c
@@ -451,3 +452,9 @@ add_test(NAME r4t_maintenance COMMAND ${Python3_EXECUTABLE}
 add_test(NAME r4t_admission_gate COMMAND ${Python3_EXECUTABLE}
     ${CMAKE_CURRENT_SOURCE_DIR}/tests/platform/run_r4t_maintenance.py
     $<TARGET_FILE:test_r4t_maintenance> ${CMAKE_CURRENT_SOURCE_DIR}/tests/fixtures/r4r_started_snapshot.zlib --deny)
+
+add_executable(test_live_runtime tests/platform/test_live_runtime.c platform/stm32/live_fifo_acquisition.c
+    ${ST_REF}/src/fifo_live.c ${ST_REF}/src/fifo_window.c ${ST_REF}/vendor/st/iis3dwb_reg.c)
+target_include_directories(test_live_runtime PRIVATE platform/stm32 ${ST_REF}/src ${ST_REF}/vendor/st)
+target_link_libraries(test_live_runtime PRIVATE tr2_core)
+add_test(NAME live_runtime COMMAND test_live_runtime)

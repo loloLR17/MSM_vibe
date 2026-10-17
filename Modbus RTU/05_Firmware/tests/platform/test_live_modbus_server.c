@@ -275,4 +275,8 @@ static void four_windows(void)
  }
  puts("Four N=4096/8192/16384/32768 windows through B3 PDU;61mg oracle, identity and UTC valid/unavailable: PASS");
 }
-int main(void){lifecycle();transport_and_access();read_time_quality();prepared_apply_and_recovery();four_windows();puts("R4Q actual FIFO -> R3B -> coherent RAM -> RTU and deferred durable R2: PASS (SIMULATION)");return 0;}
+int tr2_live_modbus_regression(void){lifecycle();transport_and_access();read_time_quality();prepared_apply_and_recovery();four_windows();puts("R4Q actual FIFO -> R3B -> coherent RAM -> RTU and deferred durable R2: PASS (SIMULATION)");return 0;}
+
+#ifndef TR2_LIVE_MODBUS_MODEL_LIBRARY
+int main(void){return tr2_live_modbus_regression();}
+#endif

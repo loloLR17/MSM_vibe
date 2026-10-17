@@ -1,0 +1,16 @@
+Internal ctest changing into directory: /home/lolo/dev/msm/reports/TR2-r4u/sanitizers
+Test project /home/lolo/dev/msm/reports/TR2-r4u/sanitizers
+    Start 140: live_modbus_server
+1/2 Test #140: live_modbus_server ...............   Passed    4.05 sec
+    Start 144: live_runtime
+2/2 Test #144: live_runtime .....................Subprocess aborted***Exception:   0.12 sec
+test_live_runtime: /home/lolo/dev/msm/projects/MSM_vibe-R4U-live-runtime/Modbus RTU/05_Firmware/tests/platform/test_live_modbus_server.c:98: write_words: Assertion `expected?(out[0]==0x90&&out[1]==expected&&r.response_length==2):(out[0]==16&&r.response_length==5)' failed.
+
+
+50% tests passed, 1 tests failed out of 2
+
+Total Test time (real) =   4.18 sec
+
+The following tests FAILED:
+	144 - live_runtime (Subprocess aborted)
+Errors while running CTest

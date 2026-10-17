@@ -1,0 +1,9 @@
+0x080028a0 in HAL_Delay (Delay=250) at /home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal.c:419
+419	  while ((HAL_GetTick() - tickstart) < wait)
+0xbfa0700:	0x004a003d	0x38425018	0x20333157
+#1  0x08000f34 in CommissioningReadOnly () at /home/lolo/dev/msm/projects/MSM_vibe-M016-storage/Modbus RTU/05_Firmware/platform/stm32/main.c:1759
+1759	    for (;;) { HAL_Delay(250U); } /* Failed preflight never reaches a write. */
+$1 = {spi = 0x2000004c <hspi1>, cs_port = 0x42020c00, cs_pin = 16384, timeout_ms = 100}
+Note: automatically using hardware breakpoints for read-only addresses.
+$2 = 0
+[Inferior 1 (Remote target) detached]

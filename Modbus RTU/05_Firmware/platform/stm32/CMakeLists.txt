@@ -40,6 +40,10 @@ option(TR2_STM32_R4P_COEXISTENCE "R4P single isolated journal transition and bou
 if(TR2_STM32_R4P_COEXISTENCE AND (NOT TR2_STM32_R4_BENCH OR NOT TR2_STM32_R4M_MAINTENANCE OR TR2_STM32_R4D_DIAGNOSTIC))
  message(FATAL_ERROR "R4P requires R4_BENCH and R4M_MAINTENANCE, without R4D")
 endif()
+option(TR2_STM32_R4U_RUNTIME "R4U opt-in LIVE runtime qualification, NON-PRODUCTION" OFF)
+if(TR2_STM32_R4U_RUNTIME AND (NOT TR2_STM32_R4S_BENCH OR TR2_STM32_R4T_RECOVERY))
+ message(FATAL_ERROR "R4U requires explicit R4S/R4R recipe and forbids R4T retirement")
+endif()
 option(TR2_STM32_R4T_RECOVERY "R4T exact monotone retirement and physical B3; NON-PRODUCTION" OFF)
 if(TR2_STM32_R4T_RECOVERY AND NOT TR2_STM32_R4S_BENCH)
  message(FATAL_ERROR "R4T requires explicit R4S/R4R hardware recipe")
@@ -244,6 +248,10 @@ if(TR2_STM32_R4S_BENCH)
 endif()
 if(TR2_STM32_R4T_RECOVERY)
  set(TR2_ARTIFACT_NAME "tr2-r4t-monotone-recovery-NON-PRODUCTION")
+endif()
+
+if(TR2_STM32_R4U_RUNTIME)
+ set(TR2_ARTIFACT_NAME "tr2-r4u-live-runtime-NON-PRODUCTION")
 endif()
 
 set(profile_description "artifact=${TR2_ARTIFACT_NAME}\nrecipe=${TR2_STM32_BUILD_PROFILE}\nbuild_type=${CMAKE_BUILD_TYPE}\n")
@@ -472,7 +480,15 @@ if(TR2_STM32_ST_FIFO_WINDOW OR TR2_STM32_FIFO_COOPERATIVE)
 endif()
 
 if(TR2_STM32_R4_BENCH)
- if(TR2_STM32_R4T_RECOVERY)
+ if(TR2_STM32_R4U_RUNTIME)
+  target_sources(tr2_stm32_p11c PRIVATE stm32_r4u_runtime.c fifo_event_time.c)
+  target_compile_definitions(tr2_stm32_p11c PRIVATE TR2_FIFO_TIME_PROFILE=1)
+  set_source_files_properties(stm32_r4u_runtime.c fifo_event_time.c
+   "${TR2_FIRMWARE_ROOT}/src/application/live_runtime.c"
+   "${TR2_FIRMWARE_ROOT}/src/application/live_metrology.c"
+   "${TR2_FIRMWARE_ROOT}/src/domain/acquisition/window_statistics.c"
+   "${TR2_FIRMWARE_ROOT}/src/domain/supervision/indicator_calculator.c" PROPERTIES COMPILE_OPTIONS "-O2")
+ elseif(TR2_STM32_R4T_RECOVERY)
   target_sources(tr2_stm32_p11c PRIVATE stm32_r4t_recovery.c r4t_maintenance.c fifo_event_time.c)
   target_compile_definitions(tr2_stm32_p11c PRIVATE TR2_FIFO_TIME_PROFILE=1)
   set_source_files_properties(stm32_r4t_recovery.c r4t_maintenance.c fifo_event_time.c

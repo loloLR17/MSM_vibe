@@ -1,0 +1,8 @@
+Internal ctest changing into directory: /home/lolo/dev/msm/reports/TR2-r4u/sanitizers
+Test project /home/lolo/dev/msm/reports/TR2-r4u/sanitizers
+    Start 144: live_runtime
+1/1 Test #144: live_runtime .....................   Passed    0.62 sec
+
+100% tests passed, 0 tests failed out of 1
+
+Total Test time (real) =   0.62 sec

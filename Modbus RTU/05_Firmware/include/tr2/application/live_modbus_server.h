@@ -42,6 +42,8 @@ typedef struct {
     uint32_t captured, queue_full, owner_calls, transport_errors;
     unsigned published;
     bool image_ready, responding, owner_busy, step_due;
+    bool read_only;
+    bool unavailable_inventory;uint16_t selected_inventory_index;
 } LiveModbusServer;
 Tr2Result live_modbus_server_init(LiveModbusServer *, LiveCommandEngine *,
     LiveMetrology *, SerialTransport *, uint8_t unit_id, const ModbusBlock0Image *,
@@ -50,6 +52,9 @@ Tr2Result live_modbus_server_init(LiveModbusServer *, LiveCommandEngine *,
  * service boundaries. now_ms is observed monotone, not a fabricated sample time. */
 Tr2Result live_modbus_server_publish(LiveModbusServer *, uint64_t now_ms);
 Tr2Result live_modbus_server_poll_once(LiveModbusServer *);
+/* Explicit R0-INV absent authority, not an empty/erased historical inventory.
+ * No media access or schema change. Default remains unsupported (R4Q). */
+Tr2Result live_modbus_server_enable_unavailable_inventory(LiveModbusServer *);
 /* At most one capture/admission OR one durable R2 phase. Refuses reentrancy and
  * entry during an existing cooperative scope. STOP reserve cannot be starved by
  * ordinary ingress; it never preempts an already admitted durable operation. */

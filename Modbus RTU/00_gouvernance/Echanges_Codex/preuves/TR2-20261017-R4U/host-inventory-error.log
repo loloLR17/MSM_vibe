@@ -1,0 +1,5 @@
+Impossible de charger le fichier \\wsl.localhost\Debian\home\lolo\dev\msm\reports\TR2-r4u\inventory.ps1, car 
+l'ex‚cution de scripts est d‚sactiv‚e sur ce systŠme. Pour plus d'informations, consultez about_Execution_Policies … 
+l'adresse https://go.microsoft.com/fwlink/?LinkID=135170.
+    + CategoryInfo          : Erreur de s‚curit‚ÿ: (:) [], ParentContainsErrorRecordException
+    + FullyQualifiedErrorId : UnauthorizedAccess
