@@ -123,3 +123,5 @@ Prévoir collecte de référence bornée/streamée dans une mission séparée, p
 augmentation tacite SRAM ni modificationV1. Température/CPU/RTC/B7, UTC, power-cycle,
 endurance, défauts HAL/CPU/pile, terminaison/CEM et cause du décalage split restent
 non qualifiés. Aucun GO produit LIVE/R4global/R5/R6, contrôle indépendantChatGPT attendu.
+
+Clôture de livraisonR4-U après relecture du bilan941e8de depuisGitHub :259fichiers/245preuves/178artefacts exacts,1632ADUparsées. StatutDONE limité au contrat démontré ; contrôle indépendantChatGPT distinct, pas de tag/R4global/R6 ni nouvel essai à la clôture.

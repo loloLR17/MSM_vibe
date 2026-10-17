@@ -1,6 +1,6 @@
 ---
 mission_id: TR2-20261017-R4U-LIVE-RUNTIME-RTU-PHYSICAL
-status: IN_PROGRESS
+status: DONE
 base_ref: main
 base_sha: fa7ba586114f83fe3fee3c87050620e22ee11930
 initial_head: 70bffe63048ebc5b169852ef9814389db59ea56f
@@ -16,8 +16,7 @@ allow_debug: true
 
 # R4-U — runtime LIVE et Modbus physique : résultat borné, M016 restauré
 
-**Critères techniques de la tranche sélectionnée satisfaits. IN_PROGRESS uniquement
-pour publication/relecture distante finale**, pas pour un obstacle extérieur.
+**DONE dans le périmètre borné démontré, bilan technique publié et relu depuis GitHub.**
 Vraie acquisition FIFO, R3-B/provider observé, R2/FRAM et UART-RS485 concurrentes.
 START5/3/run7 et STOP5/4 COMPLETED4/0, retry identique sans effet, collision27.
 Ce résultat ne qualifie ni produit LIVE complet, ni R4global/R5/R6 industriel.
@@ -181,5 +180,12 @@ ADUhex/UTC/timing, scriptsGDB/commandes, préflight, builds/tests/sanitizers,
 images BIN01..04/ELF04 compressés, XYZpremièrefenêtre, snapshotsFlash/FRAM entiers,
 modèle de métadonnées/audit et restauration. `zlib.decompress` restitue les octets
 originaux ; manifest fournit empreintes brutes et stockées. Externes préservés :
-`/home/lolo/dev/msm/reports/TR2-r4u/`. Dernier push/archivage et relecture finale
-restent à effectuer ; statut provisoire seulement pour cette étape de protocole.
+`/home/lolo/dev/msm/reports/TR2-r4u/`. Bilan technique941e8de6fcd147c0ff88d8987dfb6d17237394d4 publié puis relu
+intégralement depuis la référence GitHub récupérée :259fichiers identiques,
+245preuves vérifiées par manifest,178artefacts décodés/contrôlés,1632ADUparsées,
+restauration et mission_id vérifiés à2026-10-17T10:05:44.626187+00:00.
+Rapport de relecture conservé ; clôtureDONE et archives R4-U publiées dans cette
+mise à jour documentaire, puis dernier SHA distant contrôlé séparément et fourni
+à l'utilisateur. Worktree de mission propre avant cette mise à jour ; dépôt
+historique82169af/stashes/61autres worktrees préservés. Pas de tag ni de
+qualification indépendanteChatGPT prétendue, aucun nouvel essai après restauration.

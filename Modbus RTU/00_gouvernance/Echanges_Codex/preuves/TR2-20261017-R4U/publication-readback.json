@@ -1,0 +1,12 @@
+{
+  "result": "PASS",
+  "mission_id": "TR2-20261017-R4U-LIVE-RUNTIME-RTU-PHYSICAL",
+  "sha": "941e8de6fcd147c0ff88d8987dfb6d17237394d4",
+  "all_changed_files_fully_read_and_equal": 259,
+  "evidence_manifest_files": 245,
+  "bundle_files": 178,
+  "master_adus_parsed": 1632,
+  "restoration_verified_from_remote": true,
+  "report_status": "IN_PROGRESS",
+  "utc": "2026-10-17T10:05:44.626187+00:00"
+}
