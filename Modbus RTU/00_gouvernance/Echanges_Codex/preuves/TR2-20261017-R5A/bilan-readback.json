@@ -1,0 +1,15 @@
+{
+  "result": "PASS",
+  "mission_id": "TR2-20261017-R5A-PC-LIVE-PROFILE-SQLITE-WEB",
+  "report_status": "BLOCKED",
+  "sha": "e8c2834cafd997e5882a21a78f22eabc6de15d83",
+  "evaluated_code": "1efc4f1500f8401a5996951f8798a8c977019ec2",
+  "fully_compared_changed_files": 60,
+  "manifest_files": 41,
+  "bundle_files": 40,
+  "full_suite_passed": 551,
+  "final_service_passed": 201,
+  "nonconforming_B3": 2068,
+  "offline_http_and_quarantine_verified": true,
+  "utc": "2026-10-17T11:27:56.417490+00:00"
+}

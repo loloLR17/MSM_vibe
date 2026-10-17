@@ -66,7 +66,9 @@ Travail dans `MSM_vibe-R5A-pc-live`, branche `codex/r5a-pc-live`, créée depuis
 
 Journal actualisé avec le blocage de conformité, la tranche PC testée et l'absence d'intervention matérielle ; roadmapR3/R5 factualisée. Les décisions normatives et la detteA04 ne sont pas modifiées. L'état matériel M016/FRAM70e273…73587 reste le **dernier état rapporté R4-V**, non une nouvelle observation.
 
-Ce bilan est préparé pour publication normale surmain et relecture distante ; le statutBLOCKED décrit l'obstacle firmware, pas l'attente GitHub. La preuve de publication et les SHA relus seront ajoutés après le push.
+Bilan `e8c2834cafd997e5882a21a78f22eabc6de15d83` publié par push normal versmain puis récupéré et relu à2026-10-17T11:27:56.417490+00:00. Les60fichiers modifiés ont été comparés intégralement aux blobs GitHub ;41preuvesSHA et40artefactsBUNDLE vérifiés, lesTRX distants confirment551PASS puis201ServicePASS. Le rejet des2068B3 et le smoke HTTP/SQLite ont été contrôlés depuis ces fichiers. [Preuve de relecture](preuves/TR2-20261017-R5A/bilan-readback.json). HEADlocal=origin/main etworktreepropre après le bilan.
+
+Le statut **BLOCKED est technique**, pas une attente de publication. Cette mise àjour de traçabilité sera également poussée et relue ; son SHA sera fourni dans la réponse finale. La mission active reste inchangée et reprenable, sans archive de clôture R5-A ni statutDONE artificiel. Les archivesR4-V restent intactes.
 
 ## Reprise attendue de ChatGPT
 
