@@ -200,8 +200,8 @@ Tr2Result live_metrology_project_b3(LiveMetrology *s,uint64_t now,ModbusBlock3Im
     }
     out->registers[1]=flags;
     out->registers[0]=s->boot?0:s->error?5:!s->running?1:!s->has_value?2:!f||!time?4:3;
-    out->registers[2]=!valid||!f?0:alarm?4:exceed?3:!time?2:1;
-    out->registers[3]=(uint16_t)(alarm|(exceed<<4)|(s->latched?256u:0u));
+    out->registers[3]=!valid||!f?0:alarm?4:exceed?3:!time?2:1;
+    out->registers[2]=(uint16_t)(alarm|(exceed<<4)|(s->latched?256u:0u));
     out->registers[30]=(uint16_t)(valid?dominant(s):0);
     for(unsigned i=0;i<4;i++) out->registers[31+i]=(exceed>>i)&1u;
     out->registers[35]=s->latched?1:0;

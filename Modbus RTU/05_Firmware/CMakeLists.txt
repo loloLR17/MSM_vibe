@@ -464,3 +464,5 @@ add_executable(test_live_runtime_pacing tests/platform/test_live_runtime_pacing.
 target_include_directories(test_live_runtime_pacing PRIVATE platform/stm32 ${ST_REF}/src ${ST_REF}/vendor/st)
 target_link_libraries(test_live_runtime_pacing PRIVATE tr2_core)
 add_test(NAME live_runtime_pacing COMMAND test_live_runtime_pacing)
+
+tr2_add_core_test(test_live_b3_wire_order tests/unit/test_live_b3_wire_order.c live_b3_wire_order)

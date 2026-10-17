@@ -90,7 +90,7 @@ static void alarm_lifecycle(void)
  live_metrology_stop(&s);c.payload.axes_enable_mask=7;c.payload.alarm_hold_time_ms=0;c.payload.threshold_hysteresis_mg=65535;
  assert(live_metrology_start(&s,3,&c)==TR2_OK);window(&s,4000,20000);
  assert(s.alarm_count==2&&s.exceed_count==2); /* union, not four axes */
- assert(live_metrology_project_b3(&s,s.last_ms,&b)==TR2_OK&&b.registers[30]==4&&b.registers[2]==4);
+ assert(live_metrology_project_b3(&s,s.last_ms,&b)==TR2_OK&&b.registers[30]==4&&b.registers[3]==4);
  window(&s,0,22000);assert(!s.alarms[0].alarm&&s.latched);
  assert(live_metrology_ack(&s,s.last_ms)==TR2_OK);
  puts("Alarms: equality, hold boundary, cancellation, hysteresis floor, latch ACK, union counters, dominance tie: PASS");
