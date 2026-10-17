@@ -1,0 +1,42 @@
+{
+  "result": "FAILED_SAFE",
+  "requests": 73,
+  "responses": 72,
+  "counts": {
+    "0": 1,
+    "3000": 36,
+    "6000": 35
+  },
+  "crc_lengths_all_ok": true,
+  "latency_ms": {
+    "min": 12.468200000000001,
+    "max": 39.4685,
+    "median": 31.7713
+  },
+  "failure": "FIFO BENCH_TAG9 parity reason1 after131050XYZ; realignment by one bit from word11 reconstructs remaining tags and timestamp+24ticks",
+  "failed_word": 11,
+  "failed_tag": "23",
+  "realigned_tags": [
+    "0x11",
+    "0x12",
+    "0x14",
+    "0x17",
+    "0x21",
+    "0x11",
+    "0x12",
+    "0x14",
+    "0x17",
+    "0x11",
+    "0x12",
+    "0x14"
+  ],
+  "raw_sha256": "8e1b0952bbc3c5e016cecaaab5decbb399cbd4c79361c5b24fee6d320ee669c1",
+  "no_fram_mutation": true,
+  "cause": "Undetermined: bitstream shift observed, no physical capture of SCK/MISO or proof of IRQ causality",
+  "budgets_us": {
+    "work": 338,
+    "service": 1452,
+    "gap": 1386
+  },
+  "stopped": true
+}

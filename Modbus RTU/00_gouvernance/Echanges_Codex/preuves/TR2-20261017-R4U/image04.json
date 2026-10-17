@@ -1,0 +1,10 @@
+{
+  "tr2-r4u-live-runtime-NON-PRODUCTION.elf": {
+    "bytes": 1326232,
+    "sha256": "68e666ba776e654d5a4fb0f4178e91250ac0bd235d4444001ddf20b993aa6383"
+  },
+  "tr2-r4u-live-runtime-NON-PRODUCTION.bin": {
+    "bytes": 147320,
+    "sha256": "89951ff52ee997ff742ce0684fdbaff1cb22baef080aca872f9dd4e802056f63"
+  }
+}
