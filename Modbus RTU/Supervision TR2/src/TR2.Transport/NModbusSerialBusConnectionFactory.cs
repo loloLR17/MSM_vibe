@@ -4,7 +4,7 @@ using NModbus.Serial;
 
 namespace TR2.Transport;
 
-public sealed class NModbusSerialBusConnectionFactory : IModbusBusConnectionFactory
+public sealed class NModbusSerialBusConnectionFactory(Action<SerialStreamTrace>? trace = null) : IModbusBusConnectionFactory
 {
     public ValueTask<IModbusBusConnection> OpenAsync(
         string busId,
@@ -32,7 +32,8 @@ public sealed class NModbusSerialBusConnectionFactory : IModbusBusConnectionFact
             cancellationToken.ThrowIfCancellationRequested();
 
             var modbusFactory = new ModbusFactory();
-            var master = modbusFactory.CreateRtuMaster(serialPort);
+            var master = trace is null ? modbusFactory.CreateRtuMaster(serialPort) :
+                modbusFactory.CreateRtuMaster(new TracedStreamResource(new SerialPortAdapter(serialPort), trace));
 
             try
             {

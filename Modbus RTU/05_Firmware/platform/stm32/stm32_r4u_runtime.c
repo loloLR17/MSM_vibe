@@ -6,6 +6,9 @@
 #include "stm32_serial_transport.h"
 #include "tr2/application/live_runtime.h"
 /* Defaults preserve the historical R4U image; R4V supplies exact new guards. */
+#ifndef R4U_STOP_HOLD_US
+#define R4U_STOP_HOLD_US 2000000
+#endif
 #ifndef R4U_INITIAL_SHA
 #define R4U_INITIAL_SHA 0x37,0x1a,0x9d,0x16,0xc6,0x28,0x5d,0x01,0x50,0x60,0x87,0x51,0xcc,0xfd,0xd5,0x21,0x7f,0xf3,0x03,0xd4,0x2d,0x8e,0x54,0x46,0xd6,0x6a,0x81,0x30,0x34,0x2e,0x66,0x34
 #define R4U_INITIAL_JOURNAL 38
@@ -164,7 +167,7 @@ __attribute__((noreturn)) void stm32_r4_benchmark_run(SPI_HandleTypeDef *spi1,SP
    engine.last.request.epoch==5&&engine.last.request.command.transaction_id==R4U_FINAL_STOP&&
    engine.last.request.command.identity.command_code==14&&engine.last.status==4&&!engine.last.result) {
    if(!stopped_since)stopped_since=now_us(NULL);
-   if(now_us(NULL)-stopped_since>2000000)break;
+   if(now_us(NULL)-stopped_since>R4U_STOP_HOLD_US)break;
   }
  }
  r4_trigger=0;r4u_result.end_us=now_us(NULL);
