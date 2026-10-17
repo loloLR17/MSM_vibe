@@ -14,7 +14,7 @@ typedef struct {
 } LiveRuntime;
 Tr2Result live_runtime_init(LiveRuntime *,LiveModbusServer *,Tr2CooperativeWork *,
                            void *,Tr2Result (*drain)(void *),uint16_t poll_quantum);
-/* Opt-in pacing of the costly sensor callback only. UART and deadline checks
+/* Opt-in minimum gap after the costly sensor callback completes. UART and deadline checks
  * still run at every checkpoint. Configure only stopped; 0 preserves R4U.
  * Maximum one quarter of the existing work limit, never a relaxed budget. */
 Tr2Result live_runtime_set_drain_period(LiveRuntime *,uint32_t period_us);

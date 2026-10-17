@@ -1,0 +1,76 @@
+Start testing: Oct 17 12:32 CEST
+----------------------------------------------------------
+138/145 Testing: live_effect_timing
+138/145 Test: live_effect_timing
+Command: "/home/lolo/dev/msm/reports/TR2-r4v/sanitizers/test_live_effect_timing"
+Directory: /home/lolo/dev/msm/reports/TR2-r4v/sanitizers
+"live_effect_timing" start time: Oct 17 12:32 CEST
+Output:
+----------------------------------------------------------
+R4D effects: 905us START +103us OBSERVE split without budget relaxation; identical durable START/STOP image; service failure at both causal boundaries preserves STARTED9/no writes/no replay; single1100us effect still fails safely: PASS
+<end of output>
+Test time =   0.24 sec
+----------------------------------------------------------
+Test Passed.
+"live_effect_timing" end time: Oct 17 12:32 CEST
+"live_effect_timing" time elapsed: 00:00:00
+----------------------------------------------------------
+
+140/145 Testing: live_modbus_server
+140/145 Test: live_modbus_server
+Command: "/home/lolo/dev/msm/reports/TR2-r4v/sanitizers/test_live_modbus_server"
+Directory: /home/lolo/dev/msm/reports/TR2-r4v/sanitizers
+"live_modbus_server" start time: Oct 17 12:32 CEST
+Output:
+----------------------------------------------------------
+R4Q_MODEL,work_us=484,service_us=498,gap_us=613,FIFOmax=26,XYZ=1554683,RTU=7019,B3=4624,B5=2312,RXmax=6,response_enqueue_us=24874,sequence=12,STOP_reserved=PASS
+RTU CRC/address/framing overflow/UART overrun/disconnect/TX failure and V1 profile isolation: PASS
+Read-time age/freshness on immutable RAM, UTC retained and backward clock invalidation deferred to owner: PASS
+B4 RAM staging -> immutable APPLY -> durable START; lost ACK/reboot retry no effect; FRAM fault invalidation: PASS
+Four N=4096/8192/16384/32768 windows through B3 PDU;61mg oracle, identity and UTC valid/unavailable: PASS
+R4Q actual FIFO -> R3B -> coherent RAM -> RTU and deferred durable R2: PASS (SIMULATION)
+<end of output>
+Test time =   4.87 sec
+----------------------------------------------------------
+Test Passed.
+"live_modbus_server" end time: Oct 17 12:32 CEST
+"live_modbus_server" time elapsed: 00:00:04
+----------------------------------------------------------
+
+144/145 Testing: live_runtime
+144/145 Test: live_runtime
+Command: "/home/lolo/dev/msm/reports/TR2-r4v/sanitizers/test_live_runtime"
+Directory: /home/lolo/dev/msm/reports/TR2-r4v/sanitizers
+"live_runtime" start time: Oct 17 12:32 CEST
+Output:
+----------------------------------------------------------
+R4U MODEL: work484 service498 gap613 XYZ1568139 RTU7040 RXmax6; B6unavailable/selector exact, B1/2/7exception02, START/STOP/retry/collision/held/no reentry: PASS
+<end of output>
+Test time =   0.92 sec
+----------------------------------------------------------
+Test Passed.
+"live_runtime" end time: Oct 17 12:32 CEST
+"live_runtime" time elapsed: 00:00:00
+----------------------------------------------------------
+
+145/145 Testing: live_runtime_pacing
+145/145 Test: live_runtime_pacing
+Command: "/home/lolo/dev/msm/reports/TR2-r4v/sanitizers/test_live_runtime_pacing"
+Directory: /home/lolo/dev/msm/reports/TR2-r4v/sanitizers
+"live_runtime_pacing" start time: Oct 17 12:32 CEST
+Output:
+----------------------------------------------------------
+SIMULATION pacing0: service260403 drain260403 work484 serviceMax498 gap613 XYZ1554789 RTU6991; real R2 retry/collision/STOPbudget refusal/no late effect: PASS
+SIMULATION pacing250: service260405 drain80494 work484 serviceMax767 gap1072 XYZ1002334 RTU5123; real R2 retry/collision/STOPbudget refusal/no late effect: PASS
+Paced FRAM failure: stopped, invalid, no fabricated receipt PASS
+Paced service failure: safety stop, invalid B3, no FIFO wait PASS
+STOP effect immediately withdraws cached FRESH before next periodic publication: PASS
+<end of output>
+Test time =   2.65 sec
+----------------------------------------------------------
+Test Passed.
+"live_runtime_pacing" end time: Oct 17 12:33 CEST
+"live_runtime_pacing" time elapsed: 00:00:02
+----------------------------------------------------------
+
+End testing: Oct 17 12:33 CEST

@@ -29,13 +29,22 @@ Tr2Result live_runtime_service(LiveRuntime *r)
  if(result==TR2_OK&&due) {
   r->last_drain_us=drain_at;r->drain_seen=true;inc(&r->drain_calls);
   result=r->drain(r->context);
+  /* A gap after completion prevents an expensive drain immediately causing
+   * the next drain. UART/publication/deadline service is never paced. */
+  if(r->drain_period_us) {
+   uint64_t end=r->work->now_us(r->work->context);
+   if(end<drain_at)result=TR2_ERROR_INVALID_STATE;
+   r->last_drain_us=end;
+  }
  }
  if(result==TR2_OK) {
   uint64_t now=r->server->now_ms(r->server->time_context);
   if(r->seen&&now<r->last_ms)result=TR2_ERROR_INVALID_STATE;
   else {
    r->seen=true;r->last_ms=now;
-   if(!r->server->image_ready||now>=r->next_publish_ms) {
+   if(!r->server->image_ready||now>=r->next_publish_ms||
+      r->server->images[r->server->published].metric.running!=r->server->metrology->running||
+      r->server->images[r->server->published].metric.error!=r->server->metrology->error) {
     result=live_modbus_server_publish(r->server,now);inc(&r->publications);
     r->next_publish_ms=now>UINT64_MAX-10?UINT64_MAX:now+10;
    }

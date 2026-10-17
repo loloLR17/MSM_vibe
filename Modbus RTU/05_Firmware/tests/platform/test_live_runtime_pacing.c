@@ -66,4 +66,18 @@ static void fault_case(bool storage)
  assert(live_metrology_project_b3(&metric,m->us/1000,&view)==TR2_ERROR_INVALID_STATE);memcpy(b3,view.registers,sizeof(b3));assert(!(b3[1]&6));
  puts(storage?"Paced FRAM failure: stopped, invalid, no fabricated receipt PASS":"Paced service failure: safety stop, invalid B3, no FIFO wait PASS");model_free(m);
 }
-int main(void){scenario(0);scenario(250);fault_case(true);fault_case(false);return 0;}
+static void stopped_snapshot(void)
+{
+ Model *m=live_model();assert(live_runtime_init(&rt,&server,&m->work,m,drain_paced,8)==TR2_OK);m->work.service=service_paced;
+ capture(m,1,1,13,0);for(unsigned i=0;i<12&&(!metric.has_value||m->b->engine.has_active);i++)assert(live_runtime_step(&rt)==TR2_OK);
+ /* Exact effect boundary: publish a current running snapshot, stop the real
+  * model port, then serve again before the periodic 10ms publication. */
+ rt.next_publish_ms=0;assert(live_runtime_service(&rt)==TR2_OK);
+ assert(server.images[server.published].metric.running);
+ LiveAcquisitionPort port=live_fifo_acquisition_port(&m->acquisition);assert(port.stop(port.context)==TR2_OK);
+ assert(m->us/1000<rt.next_publish_ms);
+ assert(live_runtime_service(&rt)==TR2_OK);
+ assert(!server.images[server.published].metric.running&&!(server.images[server.published].b3.registers[1]&4));
+ puts("STOP effect immediately withdraws cached FRESH before next periodic publication: PASS");model_free(m);
+}
+int main(void){scenario(0);scenario(250);fault_case(true);fault_case(false);stopped_snapshot();return 0;}
