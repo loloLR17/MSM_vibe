@@ -1,0 +1,17 @@
+{
+  "command": [
+    "/mnt/c/ST/STM32CubeCLT_1.22.0/STM32CubeProgrammer/bin/STM32_Programmer_CLI.exe",
+    "-c",
+    "port=SWD",
+    "sn=003500463235510B37333439",
+    "freq=8000",
+    "-w",
+    "\\\\wsl.localhost\\Debian\\home\\lolo\\dev\\msm\\reports\\TR2-r4v\\hardware\\restore-pages.bin",
+    "0x08000000",
+    "-v",
+    "-rst"
+  ],
+  "code_sha": "verified M016 full backup; Flash only; NO FRAM rollback",
+  "sha256": "24f79788a3a5294ab60e32fce149a57ec0351ba0fff53dcfa6de67d0e434c880",
+  "normal_programming_only": true
+}

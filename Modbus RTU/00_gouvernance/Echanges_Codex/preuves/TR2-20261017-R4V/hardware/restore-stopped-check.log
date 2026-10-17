@@ -1,0 +1,10 @@
+0x08006c44 in HAL_GetTick () at /home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal.c:344
+344	}
+0xbfa0700:	0x004a003d	0x38425018	0x20333157
+$1 = {stage = 10, error = 0, mode = 1379161347, starts = 1, stops = 2, begin_us = 7557648, end_us = 94599189, max_drain_us = 1736, max_start_us = 808, max_stop_us = 209}
+$2 = 13112
+$3 = false
+$4 = false
+$5 = true
+$6 = 0
+[Inferior 1 (Remote target) detached]

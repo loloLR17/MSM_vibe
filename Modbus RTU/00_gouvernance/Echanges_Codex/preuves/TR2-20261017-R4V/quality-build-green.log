@@ -1,0 +1,6 @@
+[  0%] Building C object CMakeFiles/tr2_core.dir/src/application/live_runtime.c.o
+[  0%] Linking C static library libtr2_core.a
+[ 90%] Built target tr2_core
+[ 95%] Building C object CMakeFiles/test_live_runtime_pacing.dir/tests/platform/test_live_runtime_pacing.c.o
+[ 95%] Linking C executable test_live_runtime_pacing
+[100%] Built target test_live_runtime_pacing

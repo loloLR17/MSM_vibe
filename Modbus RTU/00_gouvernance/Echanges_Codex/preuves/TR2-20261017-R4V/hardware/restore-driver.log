@@ -1,0 +1,5 @@
+restore-stopped-check OK
+restore-M016 verified
+restore-full-readback OK
+restore-final-fram OK
+{'result': 'PASS', 'flash_full_bytes': 2097152, 'flash_sha256': 'c5bc344d64984c48c3e34b05fa9432c9c124e8b67428eb0eef22c0d62ddf5b26', 'flash_exact_initial': True, 'fram_full_bytes': 262144, 'fram_sha256': '70e273972a83e61283a6e572db3187af002fd97ba8de63f8c709d3e30af73587', 'fram_exact_last_physical': True, 'historical_and_tail_exact': True, 'pages': 19, 'bytes': 155648, 'final': 'M016 CommissioningReadOnly WAIT; sensor stopped; GDB detached; new epoch/run preserved', 'mass_erase': False, 'option_bytes_changed': False, 'FRAM_rollback': False, 'utc': '2026-10-17T10:52:16.224513+00:00'}

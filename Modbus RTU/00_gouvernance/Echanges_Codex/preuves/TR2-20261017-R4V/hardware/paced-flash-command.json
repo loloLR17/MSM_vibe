@@ -1,0 +1,17 @@
+{
+  "command": [
+    "/mnt/c/ST/STM32CubeCLT_1.22.0/STM32CubeProgrammer/bin/STM32_Programmer_CLI.exe",
+    "-c",
+    "port=SWD",
+    "sn=003500463235510B37333439",
+    "freq=8000",
+    "-w",
+    "\\\\wsl.localhost\\Debian\\home\\lolo\\dev\\msm\\reports\\TR2-r4v\\probe-250\\tr2-r4v-latency-NON-PRODUCTION.bin",
+    "0x08000000",
+    "-v",
+    "-rst"
+  ],
+  "code_sha": "8db2f673ac46c3e4d2bb64f0bbd39ca16bd39a4e",
+  "sha256": "a4c253386ba488cf9cd54373ac9cc3ca8b3a9d096260693c8a334d19c6663e1f",
+  "normal_programming_only": true
+}
