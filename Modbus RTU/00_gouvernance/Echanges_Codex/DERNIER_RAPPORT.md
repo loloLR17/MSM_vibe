@@ -1,6 +1,6 @@
 ---
 mission_id: TR2-20261016-R4T-MONOTONIC-JOURNAL-RECOVERY-B3
-status: IN_PROGRESS
+status: DONE
 base_ref: main
 base_sha: 1799b97db7d1c5dc0bc3892501569fdcd7a4e0b9
 initial_head: d17c5457e35fd99269bdc0312fb5c48770ff0572
@@ -16,8 +16,7 @@ allow_debug: true
 
 # R4-T — retraite monotone et B3 LIVE physique réussies dans leur portée bornée
 
-**Critères techniques applicables satisfaits ; publication finale en cours de
-relecture distante.** Le vrai RENEW4→5 conserve la monotonie du journal, puis
+**DONE dans la portée bornée du contrat, bilan publié et relu depuis GitHub.** Le vrai RENEW4→5 conserve la monotonie du journal, puis
 le vrai START(run6) et STOP produisent leurs reçus durables4/0. Acquisition réelle,
 provider observé, métrologie N4096 et B3 avec V/F actifs sous charge FRAM/RTU RAM.
 **M016 restauré et relu intégralement ; aucune identité FRAM rembobinée.**
@@ -195,10 +194,17 @@ Aucun reset Git/clean/rebase/merge/force push ni intégration aveugle de l'étud
 Commits logiciels65afffc puis79ba06a, checkpoint physique657cd94, push normaux
 sur `main`. Dernier checkpoint relu depuis GitHub :
 `657cd94e36caf4c9b454def91a46ef1ca1749f61`,101fichiers/88preuves comparés.
-Ce bilan final est IN_PROGRESS uniquement jusqu'à sa relecture distante ; les
-critères techniques bornés ci-dessus sont PASS, aucun blocage technique restant
-pour cette portée. Après relecture, publier DONE et sa preuve, puis communiquer
-le SHA distant final. Contrôle indépendant et éventuelle qualification par
+Bilan final `5b2b84fbfa7eb49a9ed439f56e04a28b39d88902`
+(`R4T: publish physical authoritative B3 PASS, monotone final FRAM and verified M016 restoration`)
+poussé sur main puis relu à2026-10-17T05:48:14.796611+00:00 : **139fichiers comparés intégralement,
+125preuves SHA256 vérifiées**. Preuve durable :
+`preuves/TR2-20261016-R4T/final-report-readback.json`.
+Les critères techniques bornés applicables sont PASS ; aucune phase physique
+restante dans cette portée. Statut DONE publié après cette relecture, avec
+vérification finale du nouveau commit et SHA communiqué dans la réponse Codex,
+sans autoréférence fictive dans le commit. Aucun nouvel essai après reprise de
+session : finalisation documentaire et publication des résultats conservés.
+Contrôle indépendant et éventuelle qualification par
 ChatGPT distincts ; aucun tag créé par Codex.
 
 [Plan R4-T](../../05_Firmware/LIVE_R4T.md), [preuves et manifeste](preuves/TR2-20261016-R4T/README.md),

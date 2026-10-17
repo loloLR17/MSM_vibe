@@ -111,3 +111,7 @@ Les568coupures et sanitizers du helper inchangé sont acquis, pas rejoués.
 -12commits/629112octets/19668appels physiques uniquement LIVE,36plages auditées. FRAM finale entière371a9d16c6285d0150608751ccfdd5217ff303d42d8e5446d66a8130342e6634 exacte au modèle de métadonnées ; journal38/root51/epoch5/run6/config3, historique/tail intacts.
 - M016 restauré22:10:24UTC :18pages normales, Flash2Mio exacte c5bc…f5b26 ; FRAM finale relue après restauration et inchangée, aucune identité rembobinée. Capteur arrêté/GDBdétaché. Pas de reboot LIVE produit ni power-cycle, RS485 électrique, R4global/R6 ou endurance qualifiés.
 - N supérieurs non couverts par ce harness/oracle4096 ; BSS660568 et collecte32768naïve+172032 dépasseraient786432SRAM avant pile. Prévoir collecte adaptée dans une tranche distincte. Rapport final et preuves pour contrôle indépendant ChatGPT.
+
+Clôture de livraison R4-T DONE après relecture du bilan5b2b84f depuis GitHub
+(139fichiers/125preuves SHA256). Qualification indépendante ChatGPT distincte ;
+aucun tag ni qualification R4global/R6, aucun nouvel essai à la reprise.
