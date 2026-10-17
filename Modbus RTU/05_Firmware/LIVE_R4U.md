@@ -81,3 +81,9 @@ Image03 : WAIT accepte01/02/03 et exécute une seule phase par boot.01RAMacquise
 
 73requêtes COM4,72réponses CRC/longueur exactes : B0=1/B3=36/B6=35,12,47..39,47ms (mesure maître, pas WCETIRQ). Puis arrêt sûr à131050XYZ, FIFOerror9/BENCH_TAG,reason1, parité du tag23 au mot11 du burst161octets. Les12tags suivants se réalignent par décalage d'un bit, timestamp+24ticks reconstruit ; analyse seulement, jamais injection/correction de données. HAL complet/OVRabsent ne détectait pas ce défaut ; tous contrôles maintenus. Work338/service1452/gap1386µs, UART584RX/72TX/0erreur/0drop/0failsafe ; FRAM entière371a inchangée, journal38/root51. Aucun STARTB5 durable.
 La cause électrique/ISR/horloge n'est pas établie par ces observations. Essai comparatif image04 : BENCH_DUPLEX=1 uniquementR4U (voie existante command+payload dansHAL_SPI_TransmitReceive, RXpreclose/OVR/parité/config inchangés). Aucun masque IRQ ajouté. RAM5s justifié par nouvelle méthode SPI, puis UARTreadonly10s sur boot distinct. Si cette garde ne passe pas, conserver le défaut sans engager B5. V1 et anciens probes restent BENCH_DUPLEX=0.
+
+## Duplex : garde préalable aux vraies commandes acquise
+
+Image04/code806d967 : RAM132613XYZ/5s, work295/service1483/gap1488µs,0write.
+Puis boot distinct readonlyUART10,000207s,265441XYZ/33181TS,79requêtes/réponsesCRCexactes, V/F0 diagnostic honnête ; work294/service1259/gap1263µs, START804/STOP203µs, maxFIFO38/résidumax10µs. FRAM entière371a exacte, journal38/root51,0mutation. Ce succès borné du duplex n'établit ni la causalité exclusive de l'ISR dans le défaut split ni l'endurance.
+Étape suivante autorisée sur boot neuf : vrai START5/3/run7, retryidentique3, collision3/STOP27 etSTOP5/4. Modèle RAM de métadonnées attendu journal46/root59, effect27 ; aucune de ces écritures n'est encore exécutée.

@@ -4,7 +4,7 @@ status: IN_PROGRESS
 base_ref: main
 base_sha: fa7ba586114f83fe3fee3c87050620e22ee11930
 initial_head: 70bffe63048ebc5b169852ef9814389db59ea56f
-result_sha: 43840fedf6c7e2e40d5a49eeea822d5d91d1ee55
+result_sha: 806d967b912080872a44f51c1f75887448c62ea3
 created_at_utc: 2026-10-17T09:43:42.598482+00:00
 author: Codex
 target_branch: main
@@ -46,3 +46,5 @@ Checkpoint43840fe publié et30fichiers relus depuis origin/main. Phase RAM image
 Image02 RAM PASS132618XYZ/503ADU, work336/service1613/gap1616µs. Transition02 refusée avant START : run diagnostic déjà consommé par ce propriétaire, UARTIRQ0/service0, FRAM exacte. Scénario corrigé image03 : une seule phase par boot, UARTreadonly puis boot neuf avant durable ; aucun run_id abaissé, aucun vieux B5 réutilisé. L'erreur de scénario ne justifie pas de conclure à une panne RS485.
 
 UARTreadonly image03 :72réponses physiques CRC/longueur exactes, puis arrêt sûr sur tagFIFO décalé d'un bit (BENCH_TAG9/parité1),131050XYZ, budgets338/1452/1386µs conformes, FRAM371a entière inchangée. Causalité non prouvée ; essai comparatif limité de la voie SPIduplex existante, uniquementR4U, sans garde supprimée. B5durable toujours non engagé. Canonique final recompilé par bash (scriptnonexécutable), BIN85b1…c0f5 exact.
+
+Garde duplex image04 acquise : RAM5s puis UARTreadonly10,000207s sur boot distinct,265441XYZ/33181TS,79réponsesCOM4exactes, work294/service1259/gap1263µs, FRAM entière371a inchangée. Aucun STARTdurable encore. Prochaine étape sur boot neuf : vrais B5epoch5/tx3START/run7, retry3, collision3/STOP27, tx4STOP ; ensuite audit et restauration M016.
