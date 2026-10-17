@@ -1,0 +1,17 @@
+{
+  "command": [
+    "/mnt/c/ST/STM32CubeCLT_1.22.0/STM32CubeProgrammer/bin/STM32_Programmer_CLI.exe",
+    "-c",
+    "port=SWD",
+    "sn=003500463235510B37333439",
+    "freq=8000",
+    "-w",
+    "\\\\wsl.localhost\\Debian\\home\\lolo\\dev\\msm\\reports\\TR2-r5afix\\probe\\tr2-r5afix-b3-wire-NON-PRODUCTION.bin",
+    "0x08000000",
+    "-v",
+    "-rst"
+  ],
+  "code_sha": "23c6bd321ce66355a85cbd934461d4314e1f2b0a",
+  "sha256": "d50fe6bbdde1b5127ee9cd2c5f3ffcbaae5045453153df71eb6e793a2b13f99b",
+  "normal_programming_only": true
+}

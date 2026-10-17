@@ -1,0 +1,2 @@
+85b1be6044d76349a715ea0627b442bd3301e63daa606399b3d83bd5b9bbc0f5  /home/lolo/dev/msm/projects/MSM_vibe-R5AFIX-b3-wire/Modbus RTU/05_Firmware/build-stm32-cumulative/tr2-cumulative-m014-m015-spi4.bin
+4263e9ab6bb90d23cd51cfae88d2a5bed1e704a28dcd9aaa12bfcf421b4464e5  /home/lolo/dev/msm/projects/MSM_vibe-R5AFIX-b3-wire/Modbus RTU/05_Firmware/build-stm32-cumulative/tr2-cumulative-m014-m015-spi4.elf

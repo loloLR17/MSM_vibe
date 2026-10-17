@@ -1,0 +1,6 @@
+fix-before-programming-identity OK
+fix-flash verified
+fix-image-check OK
+MASTER fix 0
+fix-phase OK
+PHASE fix PASS; full FRAM exact model

@@ -1,0 +1,838 @@
+{
+  "utc": "2026-10-17T11:45:34.871594+00:00",
+  "files": [
+    {
+      "path": "physical-summary.json",
+      "raw_bytes": 4432,
+      "raw_sha256": "58e690158fa6eca2a3ce345142ce769673c5d09e8a059de2de7ecfc11e12027a",
+      "stored_bytes": 4432,
+      "stored_sha256": "58e690158fa6eca2a3ce345142ce769673c5d09e8a059de2de7ecfc11e12027a",
+      "zlib": false
+    },
+    {
+      "path": "final-fram-audit.json",
+      "raw_bytes": 17838,
+      "raw_sha256": "05bd8c60f39497acaa31116c1022d9c40875a41e3c92878d72d6cf6ad0bb5c39",
+      "stored_bytes": 17838,
+      "stored_sha256": "05bd8c60f39497acaa31116c1022d9c40875a41e3c92878d72d6cf6ad0bb5c39",
+      "zlib": false
+    },
+    {
+      "path": "source-provenance.json",
+      "raw_bytes": 667,
+      "raw_sha256": "8ea70f2b452ac7a2d840ce92a1ec4cc80d45f31d5bef83dd10c1834062f2d43f",
+      "stored_bytes": 667,
+      "stored_sha256": "8ea70f2b452ac7a2d840ce92a1ec4cc80d45f31d5bef83dd10c1834062f2d43f",
+      "zlib": false
+    },
+    {
+      "path": "preservation.json",
+      "raw_bytes": 334,
+      "raw_sha256": "6afabe9a5f3d184923200e5af507fb71b9300d27985fa6223ac035d5d33b7f18",
+      "stored_bytes": 334,
+      "stored_sha256": "6afabe9a5f3d184923200e5af507fb71b9300d27985fa6223ac035d5d33b7f18",
+      "zlib": false
+    },
+    {
+      "path": "checkpoint-readback.json",
+      "raw_bytes": 151,
+      "raw_sha256": "981173b42c7e8ecdb44ec387ec044eed7888438b2c6fdd6093ec4c98fc0cae7e",
+      "stored_bytes": 151,
+      "stored_sha256": "981173b42c7e8ecdb44ec387ec044eed7888438b2c6fdd6093ec4c98fc0cae7e",
+      "zlib": false
+    },
+    {
+      "path": "analyze-physical.py",
+      "raw_bytes": 3824,
+      "raw_sha256": "8cbd5e789811a0b12c403b620c30285e52689a1c9be1842026c8ab9ef027f1d4",
+      "stored_bytes": 3824,
+      "stored_sha256": "8cbd5e789811a0b12c403b620c30285e52689a1c9be1842026c8ab9ef027f1d4",
+      "zlib": false
+    },
+    {
+      "path": "check-preservation.py",
+      "raw_bytes": 1282,
+      "raw_sha256": "95075f6af89aaa906334eca5402040d727ebe80033f410a6da97b731cfb70b8d",
+      "stored_bytes": 1282,
+      "stored_sha256": "95075f6af89aaa906334eca5402040d727ebe80033f410a6da97b731cfb70b8d",
+      "zlib": false
+    },
+    {
+      "path": "package-final.py",
+      "raw_bytes": 2951,
+      "raw_sha256": "2b162dd02e400b6a82f67f9ba999179edcc1718cedd32673861c59af668d8e46",
+      "stored_bytes": 2951,
+      "stored_sha256": "2b162dd02e400b6a82f67f9ba999179edcc1718cedd32673861c59af668d8e46",
+      "zlib": false
+    },
+    {
+      "path": "model-final.c",
+      "raw_bytes": 1098,
+      "raw_sha256": "65c46630d6cec755f129ff1e251d4d2421d0781fc7b4eb58ed51659a03e61bdd",
+      "stored_bytes": 1098,
+      "stored_sha256": "65c46630d6cec755f129ff1e251d4d2421d0781fc7b4eb58ed51659a03e61bdd",
+      "zlib": false
+    },
+    {
+      "path": "model-final.log",
+      "raw_bytes": 139,
+      "raw_sha256": "2ac10ac836a09d75363ec8c924cefb2ebd59d4ec365122bcc10c246f559fe002",
+      "stored_bytes": 139,
+      "stored_sha256": "2ac10ac836a09d75363ec8c924cefb2ebd59d4ec365122bcc10c246f559fe002",
+      "zlib": false
+    },
+    {
+      "path": "image.json",
+      "raw_bytes": 194,
+      "raw_sha256": "28255e3909791d83d5ebc2db570a54a382123d2a413de9bd203542533e5ed40f",
+      "stored_bytes": 194,
+      "stored_sha256": "28255e3909791d83d5ebc2db570a54a382123d2a413de9bd203542533e5ed40f",
+      "zlib": false
+    },
+    {
+      "path": "BenchMaster.cs",
+      "raw_bytes": 6319,
+      "raw_sha256": "f8f88bafb2b477295eca1a3999348a82f374f3697b4f61a98f6ed7a7322113bc",
+      "stored_bytes": 6319,
+      "stored_sha256": "f8f88bafb2b477295eca1a3999348a82f374f3697b4f61a98f6ed7a7322113bc",
+      "zlib": false
+    },
+    {
+      "path": "build-probe.py",
+      "raw_bytes": 952,
+      "raw_sha256": "aca4fc8d2c49c1671464c6a3dc26409063af8995e75307032aba4da77f467532",
+      "stored_bytes": 952,
+      "stored_sha256": "aca4fc8d2c49c1671464c6a3dc26409063af8995e75307032aba4da77f467532",
+      "zlib": false
+    },
+    {
+      "path": "sanitizer-build.log",
+      "raw_bytes": 9893,
+      "raw_sha256": "c50a73ceba430b9beeb228b6abc0434df8e8ae381639b39d5c6523e922f2a64e",
+      "stored_bytes": 9893,
+      "stored_sha256": "c50a73ceba430b9beeb228b6abc0434df8e8ae381639b39d5c6523e922f2a64e",
+      "zlib": false
+    },
+    {
+      "path": "sanitizer-configure.log",
+      "raw_bytes": 475,
+      "raw_sha256": "e5b20fc9886f8a55c03629b1a6b2f4f77ddb1b9b3d843c9e14d0a97595f3758a",
+      "stored_bytes": 475,
+      "stored_sha256": "e5b20fc9886f8a55c03629b1a6b2f4f77ddb1b9b3d843c9e14d0a97595f3758a",
+      "zlib": false
+    },
+    {
+      "path": "physical-replay-tests.log",
+      "raw_bytes": 1936,
+      "raw_sha256": "2fe55133e6512e31f61f482ea7283090494dea54f930b5056fac5dbc3c494b90",
+      "stored_bytes": 1936,
+      "stored_sha256": "2fe55133e6512e31f61f482ea7283090494dea54f930b5056fac5dbc3c494b90",
+      "zlib": false
+    },
+    {
+      "path": "dotnet-tests.log",
+      "raw_bytes": 3306,
+      "raw_sha256": "292539c02ea7c5d47667ce95b4b725a0be8ae6e569abb665492b29bf39e197cd",
+      "stored_bytes": 3306,
+      "stored_sha256": "292539c02ea7c5d47667ce95b4b725a0be8ae6e569abb665492b29bf39e197cd",
+      "zlib": false
+    },
+    {
+      "path": "full-validation.log",
+      "raw_bytes": 57,
+      "raw_sha256": "53c5f10ae2993346d0eabe0f5b1e3d5deaed3fc5d5b1a3cee36e21e8bd47481d",
+      "stored_bytes": 57,
+      "stored_sha256": "53c5f10ae2993346d0eabe0f5b1e3d5deaed3fc5d5b1a3cee36e21e8bd47481d",
+      "zlib": false
+    },
+    {
+      "path": "full-validation02.log",
+      "raw_bytes": 96090,
+      "raw_sha256": "97db8da19d80d7cef0bb49529dc9843901fa97b49d82db520ddac2f985cbee31",
+      "stored_bytes": 96090,
+      "stored_sha256": "97db8da19d80d7cef0bb49529dc9843901fa97b49d82db520ddac2f985cbee31",
+      "zlib": false
+    },
+    {
+      "path": "oracle-build-red.log",
+      "raw_bytes": 9516,
+      "raw_sha256": "956c38a85e79bf861efb8b7fb9371018ea5a1d421d7f41bcdd273e8316818792",
+      "stored_bytes": 9516,
+      "stored_sha256": "956c38a85e79bf861efb8b7fb9371018ea5a1d421d7f41bcdd273e8316818792",
+      "zlib": false
+    },
+    {
+      "path": "oracle-build-red02.log",
+      "raw_bytes": 153,
+      "raw_sha256": "8c448057dd4ab224d9a7fd70cab2b5ac90699b1f1b468b7b97274f63f7c0dc81",
+      "stored_bytes": 153,
+      "stored_sha256": "8c448057dd4ab224d9a7fd70cab2b5ac90699b1f1b468b7b97274f63f7c0dc81",
+      "zlib": false
+    },
+    {
+      "path": "oracle-build-green.log",
+      "raw_bytes": 281,
+      "raw_sha256": "edbb19d0c253cd4bb7e94922ee10abfc81fc4768c1ffe0f70e8242a53e9d24f8",
+      "stored_bytes": 281,
+      "stored_sha256": "edbb19d0c253cd4bb7e94922ee10abfc81fc4768c1ffe0f70e8242a53e9d24f8",
+      "zlib": false
+    },
+    {
+      "path": "oracle-configure.log",
+      "raw_bytes": 476,
+      "raw_sha256": "07a36c4a1ca6d26c8bacf8fcca07d346d15f830720a37481bb2e2ea88adbb717",
+      "stored_bytes": 476,
+      "stored_sha256": "07a36c4a1ca6d26c8bacf8fcca07d346d15f830720a37481bb2e2ea88adbb717",
+      "zlib": false
+    },
+    {
+      "path": "oracle-red.log",
+      "raw_bytes": 2972,
+      "raw_sha256": "ff2335479bd24091987d96cbbc57b83388d2e510e728ba869f7020ebf983c49f",
+      "stored_bytes": 2972,
+      "stored_sha256": "ff2335479bd24091987d96cbbc57b83388d2e510e728ba869f7020ebf983c49f",
+      "zlib": false
+    },
+    {
+      "path": "oracle-red02.log",
+      "raw_bytes": 701,
+      "raw_sha256": "3c5ce4348ba02d8fc4224fff16480b94403f03f874cc64cf7430fd0995f09e98",
+      "stored_bytes": 701,
+      "stored_sha256": "3c5ce4348ba02d8fc4224fff16480b94403f03f874cc64cf7430fd0995f09e98",
+      "zlib": false
+    },
+    {
+      "path": "oracle-green.log",
+      "raw_bytes": 339,
+      "raw_sha256": "7f584dc119ee0da143aff249d2632cbbd6b92f83d77a868d6e30b565200ab0b9",
+      "stored_bytes": 339,
+      "stored_sha256": "7f584dc119ee0da143aff249d2632cbbd6b92f83d77a868d6e30b565200ab0b9",
+      "zlib": false
+    },
+    {
+      "path": "sanitizer-test.log",
+      "raw_bytes": 649,
+      "raw_sha256": "75b380bf0db7bdcabed35689f5f97d9004d25f0c375c06997b36535509ee2e9f",
+      "stored_bytes": 649,
+      "stored_sha256": "75b380bf0db7bdcabed35689f5f97d9004d25f0c375c06997b36535509ee2e9f",
+      "zlib": false
+    },
+    {
+      "path": "probe-build.log",
+      "raw_bytes": 27028,
+      "raw_sha256": "964a68b1a1933a1b5e63b9b44e85162201092704f2ca4d178a5ea2cff2ade289",
+      "stored_bytes": 27028,
+      "stored_sha256": "964a68b1a1933a1b5e63b9b44e85162201092704f2ca4d178a5ea2cff2ade289",
+      "zlib": false
+    },
+    {
+      "path": "t1000-inventory.json",
+      "raw_bytes": 650,
+      "raw_sha256": "50ba8c0645475176515fc9937071a49e2737194a36a1aebf87e436a789584980",
+      "stored_bytes": 650,
+      "stored_sha256": "50ba8c0645475176515fc9937071a49e2737194a36a1aebf87e436a789584980",
+      "zlib": false
+    },
+    {
+      "path": "master-selftest.jsonl",
+      "raw_bytes": 82,
+      "raw_sha256": "af4efb54305e312115495099e7ca2886533deaf85df21aac82b7b105b4acee87",
+      "stored_bytes": 82,
+      "stored_sha256": "af4efb54305e312115495099e7ca2886533deaf85df21aac82b7b105b4acee87",
+      "zlib": false
+    },
+    {
+      "path": "hardware/fix-before-programming-identity-invocation.json",
+      "raw_bytes": 805,
+      "raw_sha256": "cb36ec9f35859efef2ab6296a551e07ebca19c3e6c4942842721bf81ddcc964c",
+      "stored_bytes": 805,
+      "stored_sha256": "cb36ec9f35859efef2ab6296a551e07ebca19c3e6c4942842721bf81ddcc964c",
+      "zlib": false
+    },
+    {
+      "path": "hardware/fix-before-programming-identity-server.log",
+      "raw_bytes": 642,
+      "raw_sha256": "8bcc4c71699ee84963384971405c87e1a151e92fe6097483e261a0323be2f087",
+      "stored_bytes": 642,
+      "stored_sha256": "8bcc4c71699ee84963384971405c87e1a151e92fe6097483e261a0323be2f087",
+      "zlib": false
+    },
+    {
+      "path": "hardware/fix-before-programming-identity.gdb",
+      "raw_bytes": 326,
+      "raw_sha256": "1a9024f10bce20686a5fdd29e4bb49c80d6168c457388588412942a48bea2779",
+      "stored_bytes": 326,
+      "stored_sha256": "1a9024f10bce20686a5fdd29e4bb49c80d6168c457388588412942a48bea2779",
+      "zlib": false
+    },
+    {
+      "path": "hardware/fix-before-programming-identity.log",
+      "raw_bytes": 239,
+      "raw_sha256": "fe9e1f38df0339bbdf6373f6961f9606200c852bd5e4a880ef8a59d7fc390e6b",
+      "stored_bytes": 239,
+      "stored_sha256": "fe9e1f38df0339bbdf6373f6961f9606200c852bd5e4a880ef8a59d7fc390e6b",
+      "zlib": false
+    },
+    {
+      "path": "hardware/fix-driver.log",
+      "raw_bytes": 137,
+      "raw_sha256": "be30a74ff7fd46a97e4fb08136cab464ce76d8808a2b560acd823a060be45b5c",
+      "stored_bytes": 137,
+      "stored_sha256": "be30a74ff7fd46a97e4fb08136cab464ce76d8808a2b560acd823a060be45b5c",
+      "zlib": false
+    },
+    {
+      "path": "hardware/fix-flash-command.json",
+      "raw_bytes": 531,
+      "raw_sha256": "35bab531f650adb125d3991b11d356aee093523874f82c5fa0cea7b43085c833",
+      "stored_bytes": 531,
+      "stored_sha256": "35bab531f650adb125d3991b11d356aee093523874f82c5fa0cea7b43085c833",
+      "zlib": false
+    },
+    {
+      "path": "hardware/fix-flash.log",
+      "raw_bytes": 1671,
+      "raw_sha256": "f29c721cb1cf15ea41d566ad99b6c3794b129673fc68cb453455bf030d1700a2",
+      "stored_bytes": 1671,
+      "stored_sha256": "f29c721cb1cf15ea41d566ad99b6c3794b129673fc68cb453455bf030d1700a2",
+      "zlib": false
+    },
+    {
+      "path": "hardware/fix-fram.bin.zlib",
+      "raw_bytes": 262144,
+      "raw_sha256": "4e7fabde5da1100cf9ae8faf262ea079727856826bb2829c1e99b68ad63b84bd",
+      "stored_bytes": 1953,
+      "stored_sha256": "ae4a052290a4fe9f991985aaaf091db030a368bbae6120e470d0439359ee5381",
+      "zlib": true
+    },
+    {
+      "path": "hardware/fix-image-check-invocation.json",
+      "raw_bytes": 727,
+      "raw_sha256": "40765daddc678576469d36f745f522c088e9c6cadaabfaee656d8ec5cd737aa8",
+      "stored_bytes": 727,
+      "stored_sha256": "40765daddc678576469d36f745f522c088e9c6cadaabfaee656d8ec5cd737aa8",
+      "zlib": false
+    },
+    {
+      "path": "hardware/fix-image-check-server.log",
+      "raw_bytes": 642,
+      "raw_sha256": "8bcc4c71699ee84963384971405c87e1a151e92fe6097483e261a0323be2f087",
+      "stored_bytes": 642,
+      "stored_sha256": "8bcc4c71699ee84963384971405c87e1a151e92fe6097483e261a0323be2f087",
+      "zlib": false
+    },
+    {
+      "path": "hardware/fix-image-check.gdb",
+      "raw_bytes": 412,
+      "raw_sha256": "20f2d6c8d7a13cabf171e12b41267a848aca483c35d97993aa973fb126377833",
+      "stored_bytes": 412,
+      "stored_sha256": "20f2d6c8d7a13cabf171e12b41267a848aca483c35d97993aa973fb126377833",
+      "zlib": false
+    },
+    {
+      "path": "hardware/fix-image-check.log",
+      "raw_bytes": 269,
+      "raw_sha256": "b73a4ee7a224085220e1ae79fe5d40ce57a020183146883040c2f6e5f2c92fe1",
+      "stored_bytes": 269,
+      "stored_sha256": "b73a4ee7a224085220e1ae79fe5d40ce57a020183146883040c2f6e5f2c92fe1",
+      "zlib": false
+    },
+    {
+      "path": "hardware/fix-image-readback.bin.zlib",
+      "raw_bytes": 147640,
+      "raw_sha256": "d50fe6bbdde1b5127ee9cd2c5f3ffcbaae5045453153df71eb6e793a2b13f99b",
+      "stored_bytes": 81324,
+      "stored_sha256": "6af1243d380f92964641403afb8f33cad28b71acc85865fc4357c49aefd6d887",
+      "zlib": true
+    },
+    {
+      "path": "hardware/fix-master.jsonl.zlib",
+      "raw_bytes": 523154,
+      "raw_sha256": "3cba399fa6994216b26d77b95d6780922fca62cca6445b09e1e6c1daaf770833",
+      "stored_bytes": 26791,
+      "stored_sha256": "2debcd64aa2981b951cdc2155ce5482a12b62bb5423523cc2349ad1213612d30",
+      "zlib": true
+    },
+    {
+      "path": "hardware/fix-phase-invocation.json",
+      "raw_bytes": 721,
+      "raw_sha256": "001e4d003da189c288acfe4916e3a832c01b54668648f12143b1cac63decf51c",
+      "stored_bytes": 721,
+      "stored_sha256": "001e4d003da189c288acfe4916e3a832c01b54668648f12143b1cac63decf51c",
+      "zlib": false
+    },
+    {
+      "path": "hardware/fix-phase-server.log",
+      "raw_bytes": 642,
+      "raw_sha256": "8bcc4c71699ee84963384971405c87e1a151e92fe6097483e261a0323be2f087",
+      "stored_bytes": 642,
+      "stored_sha256": "8bcc4c71699ee84963384971405c87e1a151e92fe6097483e261a0323be2f087",
+      "zlib": false
+    },
+    {
+      "path": "hardware/fix-phase.gdb",
+      "raw_bytes": 1573,
+      "raw_sha256": "c1d019e03a131a1fdcc7172819412367e3e8de28045913d36498e3f7a9510087",
+      "stored_bytes": 1573,
+      "stored_sha256": "c1d019e03a131a1fdcc7172819412367e3e8de28045913d36498e3f7a9510087",
+      "zlib": false
+    },
+    {
+      "path": "hardware/fix-phase.log",
+      "raw_bytes": 28530,
+      "raw_sha256": "32b15e61ff906da8e47dfe0f9eab239de75b7f74e0e63305148fb5c7f2f3016d",
+      "stored_bytes": 28530,
+      "stored_sha256": "32b15e61ff906da8e47dfe0f9eab239de75b7f74e0e63305148fb5c7f2f3016d",
+      "zlib": false
+    },
+    {
+      "path": "hardware/fix-ready.bin.zlib",
+      "raw_bytes": 64,
+      "raw_sha256": "9d19152b4d87cef21ad35d4ed0dbc721314082e544a8a960fcb2b9c7189a2a85",
+      "stored_bytes": 28,
+      "stored_sha256": "380ebe876b0f3ec31fd57f4b0a7a10b9512ebff535b24ce68dcfe1c2f022bc46",
+      "zlib": true
+    },
+    {
+      "path": "hardware/fix-xyz.bin.zlib",
+      "raw_bytes": 24576,
+      "raw_sha256": "418ce2f56ba563faff1f1a649fe179965497fd69c47816a944141f0c3414fa5d",
+      "stored_bytes": 18093,
+      "stored_sha256": "78f6ae77f118bc8c37a1b20c0ca73569c7ba7d9ba348745632e773a0742050d6",
+      "zlib": true
+    },
+    {
+      "path": "hardware/flash-before.bin.zlib",
+      "raw_bytes": 2097152,
+      "raw_sha256": "c5bc344d64984c48c3e34b05fa9432c9c124e8b67428eb0eef22c0d62ddf5b26",
+      "stored_bytes": 82705,
+      "stored_sha256": "ff2792eac64fbee090edf3e029a37859acb4c0d6d567d8ce70455ab9a06043e3",
+      "zlib": true
+    },
+    {
+      "path": "hardware/flash-fresh-check-invocation.json",
+      "raw_bytes": 791,
+      "raw_sha256": "04a67faccd14935778540083591401ee8bb9823c5498ce253e77e7256e304fa1",
+      "stored_bytes": 791,
+      "stored_sha256": "04a67faccd14935778540083591401ee8bb9823c5498ce253e77e7256e304fa1",
+      "zlib": false
+    },
+    {
+      "path": "hardware/flash-fresh-check-server.log",
+      "raw_bytes": 642,
+      "raw_sha256": "8bcc4c71699ee84963384971405c87e1a151e92fe6097483e261a0323be2f087",
+      "stored_bytes": 642,
+      "stored_sha256": "8bcc4c71699ee84963384971405c87e1a151e92fe6097483e261a0323be2f087",
+      "zlib": false
+    },
+    {
+      "path": "hardware/flash-fresh-check.gdb",
+      "raw_bytes": 545,
+      "raw_sha256": "157b13e178ff57ae6ffb291d286289d780a167022a01b6974dfcb8344ad6b18d",
+      "stored_bytes": 545,
+      "stored_sha256": "157b13e178ff57ae6ffb291d286289d780a167022a01b6974dfcb8344ad6b18d",
+      "zlib": false
+    },
+    {
+      "path": "hardware/flash-fresh-check.log",
+      "raw_bytes": 408,
+      "raw_sha256": "30d1a7ffa0d3de3172d940947ff875d23ce5922fdab6c0f7ab8d82467fc33cda",
+      "stored_bytes": 408,
+      "stored_sha256": "30d1a7ffa0d3de3172d940947ff875d23ce5922fdab6c0f7ab8d82467fc33cda",
+      "zlib": false
+    },
+    {
+      "path": "hardware/flash-restored.bin.zlib",
+      "raw_bytes": 2097152,
+      "raw_sha256": "c5bc344d64984c48c3e34b05fa9432c9c124e8b67428eb0eef22c0d62ddf5b26",
+      "stored_bytes": 82705,
+      "stored_sha256": "ff2792eac64fbee090edf3e029a37859acb4c0d6d567d8ce70455ab9a06043e3",
+      "zlib": true
+    },
+    {
+      "path": "hardware/fram-after-restoration.bin.zlib",
+      "raw_bytes": 262144,
+      "raw_sha256": "4e7fabde5da1100cf9ae8faf262ea079727856826bb2829c1e99b68ad63b84bd",
+      "stored_bytes": 1953,
+      "stored_sha256": "ae4a052290a4fe9f991985aaaf091db030a368bbae6120e470d0439359ee5381",
+      "zlib": true
+    },
+    {
+      "path": "hardware/fram-before.bin.zlib",
+      "raw_bytes": 262144,
+      "raw_sha256": "70e273972a83e61283a6e572db3187af002fd97ba8de63f8c709d3e30af73587",
+      "stored_bytes": 1833,
+      "stored_sha256": "f5c7f8fd14f7370d1df6bd417bba5de7cf03e19bdfe4dba0cee7635f7b51119c",
+      "zlib": true
+    },
+    {
+      "path": "hardware/fram-fresh-check-invocation.json",
+      "raw_bytes": 790,
+      "raw_sha256": "3fea9b7cf9b084bce62a9eda6dbc34a5490d138591369ae34041e27980bab423",
+      "stored_bytes": 790,
+      "stored_sha256": "3fea9b7cf9b084bce62a9eda6dbc34a5490d138591369ae34041e27980bab423",
+      "zlib": false
+    },
+    {
+      "path": "hardware/fram-fresh-check-server.log",
+      "raw_bytes": 642,
+      "raw_sha256": "8bcc4c71699ee84963384971405c87e1a151e92fe6097483e261a0323be2f087",
+      "stored_bytes": 642,
+      "stored_sha256": "8bcc4c71699ee84963384971405c87e1a151e92fe6097483e261a0323be2f087",
+      "zlib": false
+    },
+    {
+      "path": "hardware/fram-fresh-check.gdb",
+      "raw_bytes": 624,
+      "raw_sha256": "3775000a3bcf70f6d5c7a74672a8a2e37ee03f432ec6918971a25ac4c0d15f84",
+      "stored_bytes": 624,
+      "stored_sha256": "3775000a3bcf70f6d5c7a74672a8a2e37ee03f432ec6918971a25ac4c0d15f84",
+      "zlib": false
+    },
+    {
+      "path": "hardware/fram-fresh-check.log",
+      "raw_bytes": 624,
+      "raw_sha256": "460d921240a3b02d85418e58b95be98c1f714300a6e46db8dfc65c3c1942acd4",
+      "stored_bytes": 624,
+      "stored_sha256": "460d921240a3b02d85418e58b95be98c1f714300a6e46db8dfc65c3c1942acd4",
+      "zlib": false
+    },
+    {
+      "path": "hardware/hardware.py",
+      "raw_bytes": 2347,
+      "raw_sha256": "124a5630d45e337f3270558374951e75c690bcf390390ed11f37607224bfb482",
+      "stored_bytes": 2347,
+      "stored_sha256": "124a5630d45e337f3270558374951e75c690bcf390390ed11f37607224bfb482",
+      "zlib": false
+    },
+    {
+      "path": "hardware/preflight-driver.log",
+      "raw_bytes": 756,
+      "raw_sha256": "fe3dc2fb60af8d13dd5f6adfad12a5e101010b66fa6cba2d94a81571bc6c2170",
+      "stored_bytes": 756,
+      "stored_sha256": "fe3dc2fb60af8d13dd5f6adfad12a5e101010b66fa6cba2d94a81571bc6c2170",
+      "zlib": false
+    },
+    {
+      "path": "hardware/preflight-summary.json",
+      "raw_bytes": 701,
+      "raw_sha256": "0ac3c2369ce61310f322d72b52b0ed4b53b66d8bbb6ee775bacc1010d6ae553c",
+      "stored_bytes": 701,
+      "stored_sha256": "0ac3c2369ce61310f322d72b52b0ed4b53b66d8bbb6ee775bacc1010d6ae553c",
+      "zlib": false
+    },
+    {
+      "path": "hardware/preflight.py",
+      "raw_bytes": 2502,
+      "raw_sha256": "c3dd93ba86dabfe7cf9d30eec13e6f16a15aebac3eeb0066e2192efc79298c23",
+      "stored_bytes": 2502,
+      "stored_sha256": "c3dd93ba86dabfe7cf9d30eec13e6f16a15aebac3eeb0066e2192efc79298c23",
+      "zlib": false
+    },
+    {
+      "path": "hardware/restoration-summary.json",
+      "raw_bytes": 620,
+      "raw_sha256": "8b382e4846b473d7a6081f5dbe8a47e40f3a3ac7c8adc4f480fbf83281138ce7",
+      "stored_bytes": 620,
+      "stored_sha256": "8b382e4846b473d7a6081f5dbe8a47e40f3a3ac7c8adc4f480fbf83281138ce7",
+      "zlib": false
+    },
+    {
+      "path": "hardware/restore-M016-command.json",
+      "raw_bytes": 529,
+      "raw_sha256": "2a846d8f99e12a9c81afe402c01c112f14fa2b457071a18f5e0ae8033e188e1d",
+      "stored_bytes": 529,
+      "stored_sha256": "2a846d8f99e12a9c81afe402c01c112f14fa2b457071a18f5e0ae8033e188e1d",
+      "zlib": false
+    },
+    {
+      "path": "hardware/restore-M016.log",
+      "raw_bytes": 1631,
+      "raw_sha256": "f293814913f62fbe48015409ef55090917b9fa95c3da2dad142ada225cd46ebe",
+      "stored_bytes": 1631,
+      "stored_sha256": "f293814913f62fbe48015409ef55090917b9fa95c3da2dad142ada225cd46ebe",
+      "zlib": false
+    },
+    {
+      "path": "hardware/restore-driver.log",
+      "raw_bytes": 682,
+      "raw_sha256": "91dd97a186fa188f30baabf1bc20df2c501cd049abb6d2c1f8d57aabbecd0a4d",
+      "stored_bytes": 682,
+      "stored_sha256": "91dd97a186fa188f30baabf1bc20df2c501cd049abb6d2c1f8d57aabbecd0a4d",
+      "zlib": false
+    },
+    {
+      "path": "hardware/restore-final-fram-invocation.json",
+      "raw_bytes": 792,
+      "raw_sha256": "28c2ef2189443a47ddd3be8d66516f28c0744fbc89bf94ab0f572dabb19e1ca5",
+      "stored_bytes": 792,
+      "stored_sha256": "28c2ef2189443a47ddd3be8d66516f28c0744fbc89bf94ab0f572dabb19e1ca5",
+      "zlib": false
+    },
+    {
+      "path": "hardware/restore-final-fram-server.log",
+      "raw_bytes": 642,
+      "raw_sha256": "8bcc4c71699ee84963384971405c87e1a151e92fe6097483e261a0323be2f087",
+      "stored_bytes": 642,
+      "stored_sha256": "8bcc4c71699ee84963384971405c87e1a151e92fe6097483e261a0323be2f087",
+      "zlib": false
+    },
+    {
+      "path": "hardware/restore-final-fram.gdb",
+      "raw_bytes": 635,
+      "raw_sha256": "ba1b4bd29affa029707480084d18b8442b8941792eb29ef416fd4177b635589b",
+      "stored_bytes": 635,
+      "stored_sha256": "ba1b4bd29affa029707480084d18b8442b8941792eb29ef416fd4177b635589b",
+      "zlib": false
+    },
+    {
+      "path": "hardware/restore-final-fram.log",
+      "raw_bytes": 684,
+      "raw_sha256": "33b6eb4a81dbd9ca9596340810f6b7e9f28b34a066ab392e8cc581beadd87440",
+      "stored_bytes": 684,
+      "stored_sha256": "33b6eb4a81dbd9ca9596340810f6b7e9f28b34a066ab392e8cc581beadd87440",
+      "zlib": false
+    },
+    {
+      "path": "hardware/restore-full-readback-invocation.json",
+      "raw_bytes": 795,
+      "raw_sha256": "95921b1a09b044d39fb2ebf91fec4e494f2dfb983cf1ba62c24e7fda0522c789",
+      "stored_bytes": 795,
+      "stored_sha256": "95921b1a09b044d39fb2ebf91fec4e494f2dfb983cf1ba62c24e7fda0522c789",
+      "zlib": false
+    },
+    {
+      "path": "hardware/restore-full-readback-server.log",
+      "raw_bytes": 642,
+      "raw_sha256": "8bcc4c71699ee84963384971405c87e1a151e92fe6097483e261a0323be2f087",
+      "stored_bytes": 642,
+      "stored_sha256": "8bcc4c71699ee84963384971405c87e1a151e92fe6097483e261a0323be2f087",
+      "zlib": false
+    },
+    {
+      "path": "hardware/restore-full-readback.gdb",
+      "raw_bytes": 415,
+      "raw_sha256": "61863edad333d0c5ac52d74d0d237ed2ef3d7c380879019c7cd0b0ff51972b7c",
+      "stored_bytes": 415,
+      "stored_sha256": "61863edad333d0c5ac52d74d0d237ed2ef3d7c380879019c7cd0b0ff51972b7c",
+      "zlib": false
+    },
+    {
+      "path": "hardware/restore-full-readback.log",
+      "raw_bytes": 283,
+      "raw_sha256": "cdf60ac5d2fe1cee737f839eead88e354f4d73658292ffebeee4a17a8202e23b",
+      "stored_bytes": 283,
+      "stored_sha256": "cdf60ac5d2fe1cee737f839eead88e354f4d73658292ffebeee4a17a8202e23b",
+      "zlib": false
+    },
+    {
+      "path": "hardware/restore-pages.bin.zlib",
+      "raw_bytes": 155648,
+      "raw_sha256": "24f79788a3a5294ab60e32fce149a57ec0351ba0fff53dcfa6de67d0e434c880",
+      "stored_bytes": 72922,
+      "stored_sha256": "d63c2f609a30c303d20c645e532eabc6593776e0fe250f126d9ea1629d6ce55b",
+      "zlib": true
+    },
+    {
+      "path": "hardware/restore-stopped-check-invocation.json",
+      "raw_bytes": 733,
+      "raw_sha256": "997c78dd9ad03690dbf051da1a3b29bcaa30223c36f261a23475e424220ba13f",
+      "stored_bytes": 733,
+      "stored_sha256": "997c78dd9ad03690dbf051da1a3b29bcaa30223c36f261a23475e424220ba13f",
+      "zlib": false
+    },
+    {
+      "path": "hardware/restore-stopped-check-server.log",
+      "raw_bytes": 642,
+      "raw_sha256": "8bcc4c71699ee84963384971405c87e1a151e92fe6097483e261a0323be2f087",
+      "stored_bytes": 642,
+      "stored_sha256": "8bcc4c71699ee84963384971405c87e1a151e92fe6097483e261a0323be2f087",
+      "zlib": false
+    },
+    {
+      "path": "hardware/restore-stopped-check.gdb",
+      "raw_bytes": 527,
+      "raw_sha256": "324f43f1f26ececfcf8cf852dfdf5630c6c8c7e64aa4fc0d2ee3bf709549c750",
+      "stored_bytes": 527,
+      "stored_sha256": "324f43f1f26ececfcf8cf852dfdf5630c6c8c7e64aa4fc0d2ee3bf709549c750",
+      "zlib": false
+    },
+    {
+      "path": "hardware/restore-stopped-check.log",
+      "raw_bytes": 495,
+      "raw_sha256": "d2252289783d9ee8c4349cfb01fe52642632c6a943d643e11b404edca263312b",
+      "stored_bytes": 495,
+      "stored_sha256": "d2252289783d9ee8c4349cfb01fe52642632c6a943d643e11b404edca263312b",
+      "zlib": false
+    },
+    {
+      "path": "hardware/restore.py",
+      "raw_bytes": 2449,
+      "raw_sha256": "2ad11d15670797e2f3d24f53d5ea2d29e0822b8273f9f9f1102cbde619e70bba",
+      "stored_bytes": 2449,
+      "stored_sha256": "2ad11d15670797e2f3d24f53d5ea2d29e0822b8273f9f9f1102cbde619e70bba",
+      "zlib": false
+    },
+    {
+      "path": "hardware/restored-sensor-driver.log",
+      "raw_bytes": 36,
+      "raw_sha256": "520590506f2348aea68eb4f783683a6825782dc3ba075931cc6138df3a50031d",
+      "stored_bytes": 36,
+      "stored_sha256": "520590506f2348aea68eb4f783683a6825782dc3ba075931cc6138df3a50031d",
+      "zlib": false
+    },
+    {
+      "path": "hardware/restored-sensor-stopped-readonly-invocation.json",
+      "raw_bytes": 806,
+      "raw_sha256": "b32cdec30711f030c8f0b9e3cdf6f2d205a11e8f16658264d924898bb7ef7ecd",
+      "stored_bytes": 806,
+      "stored_sha256": "b32cdec30711f030c8f0b9e3cdf6f2d205a11e8f16658264d924898bb7ef7ecd",
+      "zlib": false
+    },
+    {
+      "path": "hardware/restored-sensor-stopped-readonly-server.log",
+      "raw_bytes": 642,
+      "raw_sha256": "8bcc4c71699ee84963384971405c87e1a151e92fe6097483e261a0323be2f087",
+      "stored_bytes": 642,
+      "stored_sha256": "8bcc4c71699ee84963384971405c87e1a151e92fe6097483e261a0323be2f087",
+      "zlib": false
+    },
+    {
+      "path": "hardware/restored-sensor-stopped-readonly.gdb",
+      "raw_bytes": 890,
+      "raw_sha256": "9fc035c3b694dd0a9ba9d2e72b85057ba8200bff8f50b42fd16ae07817876624",
+      "stored_bytes": 890,
+      "stored_sha256": "9fc035c3b694dd0a9ba9d2e72b85057ba8200bff8f50b42fd16ae07817876624",
+      "zlib": false
+    },
+    {
+      "path": "hardware/restored-sensor-stopped-readonly.log",
+      "raw_bytes": 401,
+      "raw_sha256": "6f502d02c85657dc810caa6c33d3ed9f7440bbfc996131bdab07306032e0b77a",
+      "stored_bytes": 401,
+      "stored_sha256": "6f502d02c85657dc810caa6c33d3ed9f7440bbfc996131bdab07306032e0b77a",
+      "zlib": false
+    },
+    {
+      "path": "hardware/restored-sensor.py",
+      "raw_bytes": 362,
+      "raw_sha256": "2a9c02ff52f01d64ca049d179b78921338d67865abf841807a8da3e599b42cad",
+      "stored_bytes": 362,
+      "stored_sha256": "2a9c02ff52f01d64ca049d179b78921338d67865abf841807a8da3e599b42cad",
+      "zlib": false
+    },
+    {
+      "path": "hardware/run.py",
+      "raw_bytes": 3479,
+      "raw_sha256": "29aa88654f15315dcfe89a80dd7f967bd6abda9240b477271b0207f9351d82c1",
+      "stored_bytes": 3479,
+      "stored_sha256": "29aa88654f15315dcfe89a80dd7f967bd6abda9240b477271b0207f9351d82c1",
+      "zlib": false
+    },
+    {
+      "path": "hardware/sensor-stopped-readonly-invocation.json",
+      "raw_bytes": 797,
+      "raw_sha256": "07a026ffec1498058ed14e714fd5a3671c416f7da161b3c0497de69b19fc6b70",
+      "stored_bytes": 797,
+      "stored_sha256": "07a026ffec1498058ed14e714fd5a3671c416f7da161b3c0497de69b19fc6b70",
+      "zlib": false
+    },
+    {
+      "path": "hardware/sensor-stopped-readonly-server.log",
+      "raw_bytes": 642,
+      "raw_sha256": "8bcc4c71699ee84963384971405c87e1a151e92fe6097483e261a0323be2f087",
+      "stored_bytes": 642,
+      "stored_sha256": "8bcc4c71699ee84963384971405c87e1a151e92fe6097483e261a0323be2f087",
+      "zlib": false
+    },
+    {
+      "path": "hardware/sensor-stopped-readonly.gdb",
+      "raw_bytes": 890,
+      "raw_sha256": "9fc035c3b694dd0a9ba9d2e72b85057ba8200bff8f50b42fd16ae07817876624",
+      "stored_bytes": 890,
+      "stored_sha256": "9fc035c3b694dd0a9ba9d2e72b85057ba8200bff8f50b42fd16ae07817876624",
+      "zlib": false
+    },
+    {
+      "path": "hardware/sensor-stopped-readonly.log",
+      "raw_bytes": 450,
+      "raw_sha256": "498a29d2b3fa2d0586489e82cb244080650a37d0aaf552094bc2362f44394a22",
+      "stored_bytes": 450,
+      "stored_sha256": "498a29d2b3fa2d0586489e82cb244080650a37d0aaf552094bc2362f44394a22",
+      "zlib": false
+    },
+    {
+      "path": "image/probe.bin.zlib",
+      "raw_bytes": 147640,
+      "raw_sha256": "d50fe6bbdde1b5127ee9cd2c5f3ffcbaae5045453153df71eb6e793a2b13f99b",
+      "stored_bytes": 81324,
+      "stored_sha256": "6af1243d380f92964641403afb8f33cad28b71acc85865fc4357c49aefd6d887",
+      "zlib": true
+    },
+    {
+      "path": "image/probe.elf.zlib",
+      "raw_bytes": 1327204,
+      "raw_sha256": "9b10196a43d08ee75fd28df68e7a77e12b66f599d47494c411a7d737aa2da040",
+      "stored_bytes": 483112,
+      "stored_sha256": "505a0f3fe80ff13d89ea423d8f1cddff37713531c3ac3e8a58ece931f32bb9fc",
+      "zlib": true
+    },
+    {
+      "path": "image/build-profile.txt",
+      "raw_bytes": 1299,
+      "raw_sha256": "fe3a92294c83632d21b13f79f0fbdeb5b605439208a0c53ed72a32c17a430f2c",
+      "stored_bytes": 1299,
+      "stored_sha256": "fe3a92294c83632d21b13f79f0fbdeb5b605439208a0c53ed72a32c17a430f2c",
+      "zlib": false
+    },
+    {
+      "path": "model-final.bin.zlib",
+      "raw_bytes": 262144,
+      "raw_sha256": "4e7fabde5da1100cf9ae8faf262ea079727856826bb2829c1e99b68ad63b84bd",
+      "stored_bytes": 1953,
+      "stored_sha256": "ae4a052290a4fe9f991985aaaf091db030a368bbae6120e470d0439359ee5381",
+      "zlib": true
+    },
+    {
+      "path": "initial-state.json.zlib",
+      "raw_bytes": 1724138,
+      "raw_sha256": "6c31dd2909a4985f77bf2185ee1a0751edfa21ea562a68e82d74e49d64587449",
+      "stored_bytes": 355225,
+      "stored_sha256": "2cccde066c46b831640e155f762b47a372aca3c7baf569915009a0a69f52e36f",
+      "zlib": true
+    },
+    {
+      "path": "BenchMaster.exe.zlib",
+      "raw_bytes": 26112,
+      "raw_sha256": "c7ab23fdcf3ed6d9589eb7db53864fe2dcb01d5ea0cb935e4f5b68a3b698cc43",
+      "stored_bytes": 10406,
+      "stored_sha256": "34b37ae41e9986a6e68b1e1ae043df91803a8cbaddf2c7cc51853cf4da76257a",
+      "zlib": true
+    },
+    {
+      "path": "service.trx.zlib",
+      "raw_bytes": 364430,
+      "raw_sha256": "e0606674b01f3b747f5e20d3b34f4296b669aeef9bcb0b88177d0ae3d482eed2",
+      "stored_bytes": 52174,
+      "stored_sha256": "9b45976487766adfd6ff9cada2ab530446871b624dab471363865f4e6e8fc253",
+      "zlib": true
+    },
+    {
+      "path": "physical-replay.trx.zlib",
+      "raw_bytes": 4802,
+      "raw_sha256": "98326cb56ac33199cdfd87b8e13e0011a49221597194c2cd4bdf5d4d3a07afa3",
+      "stored_bytes": 1458,
+      "stored_sha256": "52be05e7533b89dcd5c6d2de11b03ba0a00063316fce5c99364b7280ee30a726",
+      "zlib": true
+    },
+    {
+      "path": "canonical-artifact-sha256.txt",
+      "raw_bytes": 396,
+      "raw_sha256": "4b89799b9b6b407fc43d39840070b25beaad5bb16439d847b2ea571c5d0cff81",
+      "stored_bytes": 396,
+      "stored_sha256": "4b89799b9b6b407fc43d39840070b25beaad5bb16439d847b2ea571c5d0cff81",
+      "zlib": false
+    }
+  ],
+  "comment": "Raw bytes retained; zlib only for larger artifacts. One physical START5/10 run10 STOP5/11. Firmware29a6f4e, flashreference23c6bd3; PCtest770aef2. Old corrupt captures untouched. Host fixtures/model are not physical effects."
+}

@@ -1,0 +1,14 @@
+{
+  "initial_head": "5103ea4e87c169c1b154d0df8cdcc50511619a24",
+  "firmware_code": "29a6f4ecf83c97499055b58fc73d631763cf5813",
+  "physical_flash_reference": "23c6bd321ce66355a85cbd934461d4314e1f2b0a",
+  "PC_test_code": "770aef24831d796609c859549ee2e2fb14e21af3",
+  "firmware_sources_unchanged_since_flash": true,
+  "image": {
+    "bin_bytes": 147640,
+    "bin_sha256": "d50fe6bbdde1b5127ee9cd2c5f3ffcbaae5045453153df71eb6e793a2b13f99b",
+    "elf_sha256": "9b10196a43d08ee75fd28df68e7a77e12b66f599d47494c411a7d737aa2da040"
+  },
+  "canonical_bin_sha256": "85b1be6044d76349a715ea0627b442bd3301e63daa606399b3d83bd5b9bbc0f5",
+  "utc": "2026-10-17T11:44:51.663493+00:00"
+}

@@ -1,0 +1,4 @@
+[1/4] Building C object CMakeFiles/tr2_core.dir/src/application/live_metrology.c.o
+[2/4] Building C object CMakeFiles/test_live_b3_wire_order.dir/tests/unit/test_live_b3_wire_order.c.o
+[3/4] Linking C static library libtr2_core.a
+[4/4] Linking C executable test_live_b3_wire_order
