@@ -1,0 +1,4 @@
+{"kind":"opened","utc":"2026-10-17T09:48:51.4547503Z","port":"COM4","baud":115200,"format":"8E1","mode":"ro","exclusive":true}
+{"kind":"request","utc":"2026-10-17T09:48:51.5485186Z","adu":"01 03 00 00 00 15 84 05"}
+{"kind":"failure","utc":"2026-10-17T09:48:53.0613003Z","type":"System.TimeoutException","error":"Le d‚lai d\u0027attente de l\u0027op‚ration a expir‚.","requests":0,"passed":false}
+{"kind":"closed","utc":"2026-10-17T09:48:53.1851265Z","port":"COM4"}

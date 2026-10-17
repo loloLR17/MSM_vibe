@@ -42,3 +42,5 @@ de la retraiteR4T ou du commit étudeR4S86d0f4b. Archives R4T déjà présentes 
 Journal actualisé pour préparation, pas de qualification produit/R4global/R6.
 
 Checkpoint43840fe publié et30fichiers relus depuis origin/main. Phase RAM image01 acquise :132602XYZ,505ADU,0write/FRAM371a exacte, work335/service1673/gap1641µs. Transition UART refusée par second bind_event_metrology interdit ; UART non initialisée, une lectureCOM4 sans réponse. Aucun B5 durable lancé. Nouvelle image02 corrige seulement le harness, garde single-use conservée, contrôleur ready renforcé, journalisation maître avant chaque envoi. Cross-build dédié PASS ; reprise RAM courte nécessaire au code changé, suite143tests sur cœur inchangé acquise.
+
+Image02 RAM PASS132618XYZ/503ADU, work336/service1613/gap1616µs. Transition02 refusée avant START : run diagnostic déjà consommé par ce propriétaire, UARTIRQ0/service0, FRAM exacte. Scénario corrigé image03 : une seule phase par boot, UARTreadonly puis boot neuf avant durable ; aucun run_id abaissé, aucun vieux B5 réutilisé. L'erreur de scénario ne justifie pas de conclure à une panne RS485.

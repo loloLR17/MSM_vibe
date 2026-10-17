@@ -123,14 +123,22 @@ __attribute__((noreturn)) void stm32_r4_benchmark_run(SPI_HandleTypeDef *spi1,SP
  owner.acquisition.fifo.first_data_timeout_ms=20;owner.acquisition.budget=admission;previous_cycles=DWT->CYCCNT;elapsed_cycles=0;
  bounded=stm32_fram_storage_bounded_physical(&fram);
  if(tr2_cooperative_init(&work,NULL,now_us,service,stop,32,1000,2500)!=TR2_OK){r4u_result.error=2;goto end;}
- r4u_result.stage=1;while(r4_trigger!=0x52345501u){(void)now_us(NULL);HAL_Delay(1);}r4_trigger=0;
- r4u_result.stage=2;
- if(u_mount()!=TR2_OK||s_calibrate()!=TR2_OK||u_readonly(false,5000000)!=TR2_OK){r4u_result.error=3;goto end;}
- r4u_result.stage=3;r4u_checkpoint();
- while(r4_trigger!=0x52345502u){(void)now_us(NULL);HAL_Delay(1);}r4_trigger=0;r4u_result.stage=4;
- if(u_readonly(true,10000000)!=TR2_OK){r4u_result.error=4;goto end;}
- r4u_result.stage=5;r4u_checkpoint();
- while(r4_trigger!=0x52345503u){(void)now_us(NULL);HAL_Delay(1);}r4_trigger=0;r4u_result.stage=6;
+ r4u_result.stage=1;
+ while(r4_trigger!=0x52345501u&&r4_trigger!=0x52345502u&&r4_trigger!=0x52345503u){(void)now_us(NULL);HAL_Delay(1);}
+ uint32_t mode=r4_trigger;r4_trigger=0;r4u_result.mode=mode;r4u_result.stage=2;
+ if(u_mount()!=TR2_OK||s_calibrate()!=TR2_OK){r4u_result.error=3;goto end;}
+ /* Each diagnostic has a fresh volatile owner boot. Never clear/lower its
+  * monotone run_id, and never reuse a diagnostic owner for durable run7. */
+ if(mode==0x52345501u) {
+  if(u_readonly(false,5000000)!=TR2_OK){r4u_result.error=3;goto end;}
+  r4u_result.stage=3;goto end;
+ }
+ if(mode==0x52345502u) {
+  r4u_result.stage=4;
+  if(u_readonly(true,10000000)!=TR2_OK){r4u_result.error=4;goto end;}
+  r4u_result.stage=5;goto end;
+ }
+ r4u_result.stage=6;
  r4r_result.first_window_checked=0;memset(&r4r_first_value,0,sizeof(r4r_first_value));memset(r4r_xyz,0,sizeof(r4r_xyz));
  if(u_prepare(true,true)!=TR2_OK){r4u_result.error=5;goto end;}
  r4_result.ownership=1;r4m_enabled=true;r4_result.stage=60;r4u_result.stage=7;r4u_result.begin_us=now_us(NULL);
