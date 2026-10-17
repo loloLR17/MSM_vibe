@@ -16,7 +16,7 @@ Les ISR UART mettent en queue et terminent TX/DE ; aucune FRAM dans une lecture.
 |B1|non supporté, exception02|température/CPU/horloge système non composées, pas de valeurs inventées|
 |B2|non supporté, exception02|autorité RTC/UTC non composée|
 |B3 3000..3047|snapshot R3-B N4096, timestamp FIFO/provider réellement calibré|invalidité avant fenêtre, V/F seulement autoritatif, HELD/F0 après STOP, UTC absente ; grands N non qualifiés|
-|B4 4000..4109|R1 configuration/config3/gen3 et staging existant|écritures seulement selon codec/contrat existant ; pas de campagne mutation configuration ici|
+|B4 4000..4175|R1 configuration/config3/gen3 et staging existant|écritures seulement selon codec/contrat existant ; pas de campagne mutation configuration ici|
 |B5 5000..5028|capture RAM puis moteur R2 différé durable|epoch5, prochaines clés3 START/run7 et4 STOP ; retry sans effet, collision27 ; aucun recyclage/retraite|
 |B6 6000..6063|option explicite R0-INV UNAVAILABLE : schema2,health4, sélection invalide|sélecteur6003 RAM uniquement, aucun stockage/SD ni inventaire vide fabriqué|
 |B7|non supporté, exception02|journal durable fautes non composé|
@@ -58,9 +58,14 @@ pages normales et relire2Mio ; jamais rollback FRAM, SD, mass erase ouOB.
 
 R5 doit lire B0 et refuser le mode produit LIVE faute du bit16 ; un outil de
 qualification explicite peut utiliser le sous-ensemble décrit. Lire une ADU B3
-entière cohérente, contrôler status/flags/âge/run/config/UTCabsente ; aucun timestamp
+entière cohérente, contrôler status/flags/âge/UTCabsente et les autorités B0/B4/B5 ; aucun timestamp
 UTC synthétique. Après STOP conserver HELD mais jamais FRESH. Les écritures B5
 exigent epoch/clé neuves et reçus durables, les réponsesFC10 ne sont que captures.
+Les identités run/config conservées dans LiveModbusImage sont internes : aucun
+registre B3 réservé n'est réaffecté pour les exposer. La corrélation run7/config3
+est démontrée ici par GDB/FRAM et oracle ; ne pas attribuer une preuve causale
+complète sur fil à B3 seul. R5 devra définir cette corrélation observable dans
+son contrat, sans modifier silencieusement les spécifications gelées.
 SQLite/Web/servicePC produit et domaines manquants restent distincts.
 
 Résultats physiques à ajouter après observation, aucun PASS anticipé.
@@ -87,3 +92,34 @@ La cause électrique/ISR/horloge n'est pas établie par ces observations. Essai 
 Image04/code806d967 : RAM132613XYZ/5s, work295/service1483/gap1488µs,0write.
 Puis boot distinct readonlyUART10,000207s,265441XYZ/33181TS,79requêtes/réponsesCRCexactes, V/F0 diagnostic honnête ; work294/service1259/gap1263µs, START804/STOP203µs, maxFIFO38/résidumax10µs. FRAM entière371a exacte, journal38/root51,0mutation. Ce succès borné du duplex n'établit ni la causalité exclusive de l'ISR dans le défaut split ni l'endurance.
 Étape suivante autorisée sur boot neuf : vrai START5/3/run7, retryidentique3, collision3/STOP27 etSTOP5/4. Modèle RAM de métadonnées attendu journal46/root59, effect27 ; aucune de ces écritures n'est encore exécutée.
+
+## Résultat final physique — 17/10/2026 UTC
+
+Image04/code806d967, BIN147320octets SHA89951ff52ee997ff742ce0684fdbaff1cb22baef080aca872f9dd4e802056f63,
+ELF SHA68e666ba776e654d5a4fb0f4178e91250ac0bd235d4444001ddf20b993aa6383,
+text146828/data492/BSS657384. START5/3/run7 COMPLETED4/0, retry3 sans nouvel effet,
+collision3/STOP refus27, STOP5/4 COMPLETED4/0.3045698XYZ/380713TS,58fenêtres4096 ;
+1632réponses physiques CRC/longueur exactes,731V/F,49HELD, avant fenêtre invalide,
+UTCabsente. Oracle première4096 : RMS958/955/75/13mg, crêtes1003/998/107/55mg,
+durée154ms, égalité exacte auxXYZbruts.1141contrôles horloge, résidu≤100µs.
+Work810/service1669/gap1897µs sous1000/2500/5000 ; FIFOmax56/erreurs0,
+UART0drop/0erreur/0failsafe. Coût callbackSTART805/STOP203µs.
+**Latence commande durable distincte : START63,100s, STOP63,249s jusqu'au terminal
+observé ; ACKSTOP→premierHELD55,757s.** Ce délai comprend les barrières R2 et le
+polling/USB ; aucune borne d'arrêt temps réel ou de WCETIRQ isolé prouvée.
+Priorité de file STOP testée sur modèle, aucune campagne physique de concurrence
+de plusieurs maîtres ni préemption des commits. Ne pas assimiler203µs à la latenceB5.
+8commits/419408octets/13112writes bornés LIVE,24plages ; FRAM entière exacte au
+modèle métadonnées, journal46/root59/epoch5/run7/config3/gen3/effect27phase3,
+SHA95dab7909dbbab0a85abf1a3d9f8292bafb48dc98de73f026ce2786251b9af41.
+Historique et tail byte-identiques ; aucune retraite, SD ou ancienneFRAMrestaurée.
+M016 restauré10:00:31UTC via18pages, Flash entière2Mio c5bc…f5b26 exacte, FRAM
+entière finale relue et inchangée ; contrôles capteur WHO7B/ODRoff/FIFObypass/TSoff
+après restauration, GDBdétaché, COM4fermé. Le firmware de qualification n'est pas laissé.
+
+Portée limitée à ce banc/charge/N4096. N8192/16384/32768 physiques non acquis :
+collecte brute32768 naïve ajoute172032octets, BSS829416>SRAM786432 avant pile.
+Prévoir collecte de référence bornée/streamée dans une mission séparée, pas
+augmentation tacite SRAM ni modificationV1. Température/CPU/RTC/B7, UTC, power-cycle,
+endurance, défauts HAL/CPU/pile, terminaison/CEM et cause du décalage split restent
+non qualifiés. Aucun GO produit LIVE/R4global/R5/R6, contrôle indépendantChatGPT attendu.

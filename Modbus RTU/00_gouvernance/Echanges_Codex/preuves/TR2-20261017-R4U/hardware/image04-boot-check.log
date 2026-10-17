@@ -1,0 +1,11 @@
+0x08006c44 in HAL_GetTick () at /home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal.c:344
+344	}
+0xbfa0700:	0x004a003d	0x38425018	0x20333157
+STM32 Successfully completed reset operation (System reset)
+Temporary breakpoint 1 at 0x8012ea2: file /home/lolo/dev/msm/projects/MSM_vibe-R4U-live-runtime/Modbus RTU/05_Firmware/platform/stm32/stm32_r4u_runtime.c, line 127.
+Note: automatically using hardware breakpoints for read-only addresses.
+
+Temporary breakpoint 1, stm32_r4_benchmark_run (spi1=<optimized out>, spi3=<optimized out>) at /home/lolo/dev/msm/projects/MSM_vibe-R4U-live-runtime/Modbus RTU/05_Firmware/platform/stm32/stm32_r4u_runtime.c:127
+127	 while(r4_trigger!=0x52345501u&&r4_trigger!=0x52345502u&&r4_trigger!=0x52345503u){(void)now_us(NULL);HAL_Delay(1);}
+$1 = {stage = 1, error = 0, mode = 0, starts = 0, stops = 0, begin_us = 0, end_us = 0, max_drain_us = 0, max_start_us = 0, max_stop_us = 0}
+[Inferior 1 (Remote target) detached]

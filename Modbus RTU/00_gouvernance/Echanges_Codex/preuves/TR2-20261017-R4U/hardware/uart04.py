@@ -1,0 +1,68 @@
+from hardware import *
+import concurrent.futures,sys
+mode=sys.argv[1];assert mode in ('ro','live')
+elf=P.parent/'probe-build-03/tr2-r4u-live-runtime-NON-PRODUCTION.elf'
+stage=1;token='0x52345502' if mode=='ro' else '0x52345503'
+label=mode+'04';ready=P/(label+'-ready.bin');assert not ready.exists()
+body=IDENTITY+f'''monitor reset
+tbreak stm32_r4u_runtime.c:127
+continue
+p r4u_result
+if r4u_result.stage != {stage} || r4u_result.error || work.error || work.deadline_missed || work.max_work_us > 1000 || work.max_service_us > 2500 || r4_result.max_gap_us > 5000
+ quit 4
+end
+break r4u_uart_checkpoint
+break r4u_checkpoint
+set r4_trigger={token}
+continue
+p r4u_result
+p g_serial
+if r4u_result.error || r4u_result.stage != {4 if mode=="ro" else 7}
+ quit 6
+end
+dump binary memory {win(ready)} &r4u_result &r4u_result+1
+continue
+p r4u_result
+p r4_result
+p work
+p runtime
+p metric
+p event_time
+p r4r_result
+p r4s_result
+p engine
+p live.generation
+p store.generation
+p store.epoch
+p store.effect
+p owner.acquisition.fifo
+p server.captured
+p server.queue_full
+p server.transport_errors
+p tr2_irq_observer
+p g_serial
+p r4m_range_count
+p r4m_ranges
+p r4r_first_value
+set $rr=(unsigned int)stm32_fram_storage_read(&fram,0,baseline,262144)
+p $rr
+dump binary memory {win(P/(label+'-fram.bin'))} baseline baseline+262144
+dump binary memory {win(P/(label+'-first-xyz.bin'))} r4r_xyz r4r_xyz+4096
+if $rr || r4u_result.error || work.error || work.deadline_missed || work.max_work_us > 1000 || work.max_service_us > 2500 || r4_result.max_gap_us > 5000
+ quit 5
+end
+'''
+with concurrent.futures.ThreadPoolExecutor() as pool:
+ future=pool.submit(debug,label+'-phase',elf,body,660)
+ deadline=time.monotonic()+50
+ while not ready.exists():
+  if future.done():future.result();raise RuntimeError('No ready checkpoint')
+  assert time.monotonic()<deadline,'ready deadline'
+  time.sleep(.05)
+ with (P/(label+'-master.jsonl')).open('wb') as log:
+  master=subprocess.run([str(P.parent/'BenchMaster02.exe'),mode],stdout=log,stderr=subprocess.STDOUT,timeout=480)
+ print('MASTER',mode,master.returncode,flush=True)
+ (P/(label+'-master-return.json')).write_text(json.dumps(dict(mode=mode,returncode=master.returncode,utc=datetime.datetime.now(datetime.timezone.utc).isoformat()),indent=2)+'\n')
+ future.result()
+ if mode=='ro':assert (P/'ro04-fram.bin').read_bytes()==(P/'fram-before.bin').read_bytes()
+ master.check_returncode()

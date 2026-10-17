@@ -1,0 +1,14 @@
+0x08006c74 in HAL_Delay (Delay=1) at /home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal.c:419
+419	  while ((HAL_GetTick() - tickstart) < wait)
+0xbfa0700:	0x004a003d	0x38425018	0x20333157
+$1 = {stage = 4, error = 4, mode = 0, starts = 1, stops = 2, begin_us = 11816221, end_us = 16816477, max_drain_us = 1288, max_start_us = 918, max_stop_us = 232}
+$2 = {stage = 0, error = 2, line = 98, command = 0, ownership = 0, read_passes = 0, commands = 0, core_hz = 160000000, spi1_hz = 2500000, spi3_hz = 4000000, tick_start = 0, tick_end = 42359, max_read_us = 130, max_write_us = 0, max_gap_us = 1641, last_poll_us = 16815902, safety_us = 232, first_data_us = 10884, start_us = 8066614, read_bytes = 923428, write_bytes = 0, xyz = 132602, timestamps = 16576, polls = 13368, elapsed_us = 42359101, max_level = 49, fifo_error = 0, stop_error = 0, engine_status = 0, engine_result = 0, protected_equal = 1, baseline_equal = 0}
+$3 = {context = 0x0, now_us = 0x80106bd <now_us>, service = 0x8010a7d <service>, safety_stop = 0x8010c55 <stop>, last_us = 17571012, max_work_us = 335, max_service_us = 1673, checkpoints = 69183, work_limit_us = 1000, service_limit_us = 2500, quantum_bytes = 32, depth = 0, error = TR2_OK, servicing = false, seen = true, deadline_missed = false}
+$4 = false
+$5 = (LiveMetrology *) 0x20042998 <metric>
+$6 = (LiveCommandEngine *) 0x2004fcf8 <engine>
+$7 = false
+$8 = (USART_TypeDef *) 0x0
+Note: automatically using hardware breakpoints for read-only addresses.
+$9 = 0
+[Inferior 1 (Remote target) detached]

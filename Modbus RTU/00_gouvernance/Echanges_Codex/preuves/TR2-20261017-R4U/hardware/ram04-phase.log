@@ -1,0 +1,20 @@
+HAL_GetTick () at /home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal.c:342
+342	{
+0xbfa0700:	0x004a003d	0x38425018	0x20333157
+Breakpoint 1 at 0x8012bb4: file /home/lolo/dev/msm/projects/MSM_vibe-R4U-live-runtime/Modbus RTU/05_Firmware/platform/stm32/stm32_r4u_runtime.c, line 15.
+Note: automatically using hardware breakpoints for read-only addresses.
+
+Breakpoint 1, r4u_checkpoint () at /home/lolo/dev/msm/projects/MSM_vibe-R4U-live-runtime/Modbus RTU/05_Firmware/platform/stm32/stm32_r4u_runtime.c:15
+15	__attribute__((noinline)) void r4u_checkpoint(void){__asm volatile("":::"memory");}
+$1 = {stage = 3, error = 0, mode = 1379161345, starts = 1, stops = 2, begin_us = 12039058, end_us = 17039469, max_drain_us = 1180, max_start_us = 804, max_stop_us = 203}
+$2 = {stage = 0, error = 0, line = 0, command = 0, ownership = 0, read_passes = 0, commands = 0, core_hz = 160000000, spi1_hz = 2500000, spi3_hz = 4000000, tick_start = 0, tick_end = 17791, max_read_us = 130, max_write_us = 0, max_gap_us = 1488, last_poll_us = 17038915, safety_us = 203, first_data_us = 10752, start_us = 8320727, read_bytes = 923428, write_bytes = 0, xyz = 132613, timestamps = 16577, polls = 15149, elapsed_us = 17791606, max_level = 45, fifo_error = 0, stop_error = 0, engine_status = 0, engine_result = 0, protected_equal = 1, baseline_equal = 0}
+$3 = {context = 0x0, now_us = 0x8010b95 <now_us>, service = 0x80126b1 <u_service>, safety_stop = 0x801112d <stop>, last_us = 17791400, max_work_us = 295, max_service_us = 1483, checkpoints = 70079, work_limit_us = 1000, service_limit_us = 2500, quantum_bytes = 32, depth = 0, error = TR2_OK, servicing = false, seen = true, deadline_missed = false}
+$4 = {server = 0x200423a8 <server>, work = 0x20050360 <work>, context = 0x0, drain = 0x80120b1 <u_drain>, next_publish_ms = 17797, last_ms = 17791, service_calls = 12444, publications = 573, polls = 99552, owner_calls = 4045, poll_quantum = 8, seen = true, servicing = false, main_busy = false}
+$5 = 3
+$6 = {fifo = 0x200503a0 <owner>, metric = 0x200434a0 <metric>, base_us = 16954455, span_us = 100439, span_ticks = 8007, ticks = 6720, anchor_ticks = 6720, input_index = 132613, emitted = 132608, max_residual_us = 7, last_event_us = 17038712, first_event_us = 12048835, raw = 35898804, anchor_raw = 35898804, groups = 16576, calibration_raw = 35892142, calibration_us = 16955188, mapping_cycles = 33076767, metrology_cycles = 60434807, counter = 0 '\000', count = 5 '\005', xyz = {{-15606, -1111, -137}, {-15780, -1350, -152}, {-15576, -1111, 32}, {-15629, -1268, -130}, {-15870, -1380, 25}, {-15712, -976, -76}, {-15794, -1171, -222}, {-15772, -1320, 364}}, initialized = true, anchor = true, fault = false}
+$7 = {stage = 3, error = 0, words = 59492, anchors = 6611, counter_mismatch = 0, reserved_nonzero = 0, min_delta = 24, max_delta = 24, raw_words = 2048, brackets = 199, fine = 1, first_ts = 35341524, last_ts = 35500164, first_index = 0, last_index = 52880, begin_us = 8321494, end_us = 10321687, max_poll_us = 314, span_us = 1897913, span_ticks = 151291, calibration_residual_us = 28, live_begin_us = 0, live_end_us = 0, max_publish_us = 0, max_pdu_us = 0, max_event_age_us = 1438, stop_us = 0, responses = 514, valid_responses = 0, held_responses = 499, b3_status = 1, b3_flags = 5688, coherence_checks = 514, b3_sequence = 3, b3_age = 1579, first_window_checked = 1, stop_status = 0, first_event_us = 12048835, first_window_end_us = 12202000, hardware_stop_us = 0}
+$8 = 132613
+$9 = 0
+$10 = 0
+$11 = 0
+[Inferior 1 (Remote target) detached]

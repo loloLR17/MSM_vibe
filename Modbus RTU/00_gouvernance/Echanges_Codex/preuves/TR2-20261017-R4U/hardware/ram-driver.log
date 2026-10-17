@@ -1,0 +1,14 @@
+before-programming-identity OK
+image01-flash verified
+image01-boot-check OK
+Traceback (most recent call last):
+  File "/home/lolo/dev/msm/reports/TR2-r4u/hardware/ram.py", line 52, in <module>
+    debug('ram-phase',elf,body,60)
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/lolo/dev/msm/reports/TR2-r4u/hardware/hardware.py", line 26, in debug
+    proc.wait(timeout=15);z.check_returncode();print(name,'OK',flush=True)
+                          ~~~~~~~~~~~~~~~~~~^^
+  File "/usr/lib/python3.13/subprocess.py", line 508, in check_returncode
+    raise CalledProcessError(self.returncode, self.args, self.stdout,
+                             self.stderr)
+subprocess.CalledProcessError: Command '['/mnt/c/ST/STM32CubeCLT_1.22.0/GNU-tools-for-STM32/bin/arm-none-eabi-gdb.exe', '-nx', '-q', '-batch', '-x', '\\\\wsl.localhost\\Debian\\home\\lolo\\dev\\msm\\reports\\TR2-r4u\\hardware\\ram-phase.gdb', '\\\\wsl.localhost\\Debian\\home\\lolo\\dev\\msm\\reports\\TR2-r4u\\probe-build-01\\tr2-r4u-live-runtime-NON-PRODUCTION.elf']' returned non-zero exit status 1.

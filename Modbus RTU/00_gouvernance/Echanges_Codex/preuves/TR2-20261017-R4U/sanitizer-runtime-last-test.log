@@ -1,0 +1,19 @@
+Start testing: Oct 17 11:37 CEST
+----------------------------------------------------------
+144/144 Testing: live_runtime
+144/144 Test: live_runtime
+Command: "/home/lolo/dev/msm/reports/TR2-r4u/sanitizers/test_live_runtime"
+Directory: /home/lolo/dev/msm/reports/TR2-r4u/sanitizers
+"live_runtime" start time: Oct 17 11:37 CEST
+Output:
+----------------------------------------------------------
+R4U MODEL: work484 service498 gap613 XYZ1568139 RTU7040 RXmax6; B6unavailable/selector exact, B1/2/7exception02, START/STOP/retry/collision/held/no reentry: PASS
+<end of output>
+Test time =   0.62 sec
+----------------------------------------------------------
+Test Passed.
+"live_runtime" end time: Oct 17 11:37 CEST
+"live_runtime" time elapsed: 00:00:00
+----------------------------------------------------------
+
+End testing: Oct 17 11:37 CEST

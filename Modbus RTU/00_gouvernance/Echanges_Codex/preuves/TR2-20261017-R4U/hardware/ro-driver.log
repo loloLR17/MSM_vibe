@@ -1,0 +1,19 @@
+MASTER ro 1
+Traceback (most recent call last):
+  File "/home/lolo/dev/msm/reports/TR2-r4u/hardware/uart.py", line 60, in <module>
+    future.result()
+    ~~~~~~~~~~~~~^^
+  File "/usr/lib/python3.13/concurrent/futures/_base.py", line 456, in result
+    return self.__get_result()
+           ~~~~~~~~~~~~~~~~~^^
+  File "/usr/lib/python3.13/concurrent/futures/_base.py", line 401, in __get_result
+    raise self._exception
+  File "/usr/lib/python3.13/concurrent/futures/thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/home/lolo/dev/msm/reports/TR2-r4u/hardware/hardware.py", line 26, in debug
+    proc.wait(timeout=15);z.check_returncode();print(name,'OK',flush=True)
+                          ~~~~~~~~~~~~~~~~~~^^
+  File "/usr/lib/python3.13/subprocess.py", line 508, in check_returncode
+    raise CalledProcessError(self.returncode, self.args, self.stdout,
+                             self.stderr)
+subprocess.CalledProcessError: Command '['/mnt/c/ST/STM32CubeCLT_1.22.0/GNU-tools-for-STM32/bin/arm-none-eabi-gdb.exe', '-nx', '-q', '-batch', '-x', '\\\\wsl.localhost\\Debian\\home\\lolo\\dev\\msm\\reports\\TR2-r4u\\hardware\\ro-phase.gdb', '\\\\wsl.localhost\\Debian\\home\\lolo\\dev\\msm\\reports\\TR2-r4u\\probe-build-01\\tr2-r4u-live-runtime-NON-PRODUCTION.elf']' returned non-zero exit status 1.

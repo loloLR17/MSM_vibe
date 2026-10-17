@@ -1,0 +1,384 @@
+{
+  "result": "PASS_BOUNDED_NONPRODUCTION",
+  "code_sha": "806d967b912080872a44f51c1f75887448c62ea3",
+  "probe": {
+    "stage": 10,
+    "error": 0,
+    "mode": 1379161347,
+    "starts": 1,
+    "stops": 2,
+    "begin_us": 7458558,
+    "end_us": 139523761,
+    "max_drain_us": 1425,
+    "max_start_us": 805,
+    "max_stop_us": 203
+  },
+  "bench": {
+    "stage": 60,
+    "error": 0,
+    "line": 0,
+    "command": 0,
+    "ownership": 0,
+    "read_passes": 0,
+    "commands": 0,
+    "core_hz": 160000000,
+    "spi1_hz": 2500000,
+    "spi3_hz": 4000000,
+    "tick_start": 0,
+    "tick_end": 140230,
+    "max_read_us": 139,
+    "max_write_us": 170,
+    "max_gap_us": 1897,
+    "last_poll_us": 129982280,
+    "safety_us": 202,
+    "first_data_us": 10752,
+    "start_us": 3740875,
+    "read_bytes": 3850324,
+    "write_bytes": 419408,
+    "xyz": 3045698,
+    "timestamps": 380713,
+    "polls": 161623,
+    "elapsed_us": 140230265,
+    "max_level": 56,
+    "fifo_error": 0,
+    "stop_error": 0,
+    "engine_status": 4,
+    "engine_result": 0,
+    "protected_equal": 1,
+    "baseline_equal": 0
+  },
+  "work": {
+    "last_us": 140230059,
+    "max_work_us": 810,
+    "max_service_us": 1669,
+    "checkpoints": 448748,
+    "work_limit_us": 1000,
+    "service_limit_us": 2500,
+    "quantum_bytes": 32,
+    "depth": 0
+  },
+  "clock": {
+    "base_us": 129897664,
+    "span_us": 100156,
+    "span_ticks": 7986,
+    "ticks": 6744,
+    "anchor_ticks": 6744,
+    "input_index": 3045698,
+    "emitted": 3045696,
+    "max_residual_us": 14,
+    "last_event_us": 129982205,
+    "first_event_us": 15374421,
+    "raw": 46152833,
+    "anchor_raw": 46152833,
+    "groups": 380712,
+    "calibration_raw": 46146154,
+    "calibration_us": 129898475,
+    "mapping_cycles": 761894100,
+    "metrology_cycles": 1376879643
+  },
+  "irq": {
+    "uart_irq": 150232,
+    "timer_irq": 4896,
+    "rx_callback": 13144,
+    "error_callback": 0,
+    "tx_callback": 1632,
+    "timer_callback": 4896,
+    "events_pushed": 16408,
+    "events_dropped": 0,
+    "events_polled": 16408,
+    "bytes_polled": 13144,
+    "errors_polled": 0,
+    "t1_5_polled": 1632,
+    "t3_5_polled": 1632,
+    "poll_count": 0,
+    "frame_count": 0,
+    "crc_valid": 0,
+    "crc_bad": 0,
+    "frame_invalid": 0,
+    "foreign_unit": 0,
+    "broadcast": 0,
+    "accepted_request": 0,
+    "available_status": 0,
+    "tx_attempt": 1632,
+    "tx_started": 1632,
+    "tx_fail_safe": 0,
+    "last_irq_isr": 6422736,
+    "last_hal_error": 0,
+    "last_rx_byte": 223,
+    "last_event": 3,
+    "last_codec_result": 0,
+    "last_frame_length": 0,
+    "last_tx_length": 101,
+    "valid": 0,
+    "cpuid": 0,
+    "vtor": 0,
+    "aircr": 0,
+    "primask": 0,
+    "basepri": 0,
+    "faultmask": 0,
+    "control": 0,
+    "uart_isr": 0,
+    "uart_cr1": 0,
+    "uart_cr3": 0,
+    "hal_rx_state": 0,
+    "hal_error": 0
+  },
+  "oracle": {
+    "N": 4096,
+    "rms_mg": [
+      958,
+      955,
+      75,
+      13
+    ],
+    "peak_mg": [
+      1003,
+      998,
+      107,
+      55
+    ],
+    "duration_ms": 154,
+    "exact": true
+  },
+  "serial": {
+    "summary": {
+      "kind": "summary",
+      "utc": "2026-10-17T09:59:28.2670275Z",
+      "mode": "live",
+      "requests": 1632,
+      "valid_responses": 731,
+      "held_responses": 49,
+      "passed": true
+    },
+    "adu_count": 1632,
+    "counts": {
+      "(3, 0)": 1,
+      "(16, 5020)": 4,
+      "(16, 5000)": 4,
+      "(3, 5000)": 795,
+      "(3, 3000)": 828
+    },
+    "all_crc_length_ok": true,
+    "valid": 731,
+    "held": 49,
+    "before_window": 48,
+    "last_b3": {
+      "utc": "2026-10-17T09:59:28.2670275Z",
+      "status": 1,
+      "flags": 5819,
+      "sequence": 58,
+      "age": 8220
+    },
+    "markers": [
+      {
+        "kind": "completed",
+        "tx": 3,
+        "code": 13,
+        "status": 4,
+        "result": 0,
+        "seconds": 63.1003079
+      },
+      {
+        "kind": "completed",
+        "tx": 3,
+        "code": 13,
+        "status": 4,
+        "result": 0,
+        "seconds": 0.12971169999999999
+      },
+      {
+        "kind": "collision_refused",
+        "tx": 3,
+        "result": 27
+      },
+      {
+        "kind": "completed",
+        "tx": 4,
+        "code": 14,
+        "status": 4,
+        "result": 0,
+        "seconds": 63.248940299999994
+      }
+    ],
+    "latency_ms": {
+      "min": 9.609300000000001,
+      "max": 33.3825,
+      "median": 27.0985
+    }
+  },
+  "fram_sha256": "95dab7909dbbab0a85abf1a3d9f8292bafb48dc98de73f026ce2786251b9af41",
+  "full_fram_exact_metadata_model": true,
+  "historical_and_tail_unchanged": true,
+  "write_ranges": [
+    {
+      "at": 188480,
+      "bytes": 52298,
+      "commands": 1635,
+      "stage": 60,
+      "status": 0
+    },
+    {
+      "at": 188416,
+      "bytes": 64,
+      "commands": 2,
+      "stage": 60,
+      "status": 0
+    },
+    {
+      "at": 126976,
+      "bytes": 64,
+      "commands": 2,
+      "stage": 60,
+      "status": 0
+    },
+    {
+      "at": 131136,
+      "bytes": 52298,
+      "commands": 1635,
+      "stage": 60,
+      "status": 0
+    },
+    {
+      "at": 131072,
+      "bytes": 64,
+      "commands": 2,
+      "stage": 60,
+      "status": 0
+    },
+    {
+      "at": 122880,
+      "bytes": 64,
+      "commands": 2,
+      "stage": 60,
+      "status": 0
+    },
+    {
+      "at": 188480,
+      "bytes": 52298,
+      "commands": 1635,
+      "stage": 60,
+      "status": 0
+    },
+    {
+      "at": 188416,
+      "bytes": 64,
+      "commands": 2,
+      "stage": 60,
+      "status": 0
+    },
+    {
+      "at": 126976,
+      "bytes": 64,
+      "commands": 2,
+      "stage": 60,
+      "status": 0
+    },
+    {
+      "at": 131136,
+      "bytes": 52298,
+      "commands": 1635,
+      "stage": 60,
+      "status": 0
+    },
+    {
+      "at": 131072,
+      "bytes": 64,
+      "commands": 2,
+      "stage": 60,
+      "status": 0
+    },
+    {
+      "at": 122880,
+      "bytes": 64,
+      "commands": 2,
+      "stage": 60,
+      "status": 0
+    },
+    {
+      "at": 188480,
+      "bytes": 52298,
+      "commands": 1635,
+      "stage": 60,
+      "status": 0
+    },
+    {
+      "at": 188416,
+      "bytes": 64,
+      "commands": 2,
+      "stage": 60,
+      "status": 0
+    },
+    {
+      "at": 126976,
+      "bytes": 64,
+      "commands": 2,
+      "stage": 60,
+      "status": 0
+    },
+    {
+      "at": 131136,
+      "bytes": 52298,
+      "commands": 1635,
+      "stage": 60,
+      "status": 0
+    },
+    {
+      "at": 131072,
+      "bytes": 64,
+      "commands": 2,
+      "stage": 60,
+      "status": 0
+    },
+    {
+      "at": 122880,
+      "bytes": 64,
+      "commands": 2,
+      "stage": 60,
+      "status": 0
+    },
+    {
+      "at": 188480,
+      "bytes": 52298,
+      "commands": 1635,
+      "stage": 60,
+      "status": 0
+    },
+    {
+      "at": 188416,
+      "bytes": 64,
+      "commands": 2,
+      "stage": 60,
+      "status": 0
+    },
+    {
+      "at": 126976,
+      "bytes": 64,
+      "commands": 2,
+      "stage": 60,
+      "status": 0
+    },
+    {
+      "at": 131136,
+      "bytes": 52298,
+      "commands": 1635,
+      "stage": 60,
+      "status": 0
+    },
+    {
+      "at": 131072,
+      "bytes": 64,
+      "commands": 2,
+      "stage": 60,
+      "status": 0
+    },
+    {
+      "at": 122880,
+      "bytes": 64,
+      "commands": 2,
+      "stage": 60,
+      "status": 0
+    }
+  ],
+  "physical_fram_calls": 13112,
+  "utc": "2026-10-17T09:59:45.585998+00:00"
+}

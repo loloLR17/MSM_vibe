@@ -1,0 +1,11 @@
+Traceback (most recent call last):
+  File "/home/lolo/dev/msm/reports/TR2-r4u/hardware/fifo-failure.py", line 27, in <module>
+    debug('ro04-failure-observe',elf,body,40)
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/lolo/dev/msm/reports/TR2-r4u/hardware/hardware.py", line 27, in debug
+    proc.wait(timeout=15);z.check_returncode();print(name,'OK',flush=True)
+                          ~~~~~~~~~~~~~~~~~~^^
+  File "/usr/lib/python3.13/subprocess.py", line 508, in check_returncode
+    raise CalledProcessError(self.returncode, self.args, self.stdout,
+                             self.stderr)
+subprocess.CalledProcessError: Command '['/mnt/c/ST/STM32CubeCLT_1.22.0/GNU-tools-for-STM32/bin/arm-none-eabi-gdb.exe', '-nx', '-q', '-batch', '-x', '\\\\wsl.localhost\\Debian\\home\\lolo\\dev\\msm\\reports\\TR2-r4u\\hardware\\ro04-failure-observe.gdb', '\\\\wsl.localhost\\Debian\\home\\lolo\\dev\\msm\\reports\\TR2-r4u\\probe-build-03\\tr2-r4u-live-runtime-NON-PRODUCTION.elf']' returned non-zero exit status 1.

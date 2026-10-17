@@ -1,0 +1,17 @@
+{
+  "command": [
+    "/mnt/c/ST/STM32CubeCLT_1.22.0/STM32CubeProgrammer/bin/STM32_Programmer_CLI.exe",
+    "-c",
+    "port=SWD",
+    "sn=003500463235510B37333439",
+    "freq=8000",
+    "-w",
+    "\\\\wsl.localhost\\Debian\\home\\lolo\\dev\\msm\\reports\\TR2-r4u\\probe-build-04\\tr2-r4u-live-runtime-NON-PRODUCTION.bin",
+    "0x08000000",
+    "-v",
+    "-rst"
+  ],
+  "code_sha": "806d967b912080872a44f51c1f75887448c62ea3",
+  "sha256": "89951ff52ee997ff742ce0684fdbaff1cb22baef080aca872f9dd4e802056f63",
+  "normal_programming_only": true
+}

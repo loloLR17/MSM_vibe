@@ -1,0 +1,15 @@
+{
+  "stage": 3,
+  "error": 0,
+  "work_us": 335,
+  "service_us": 1673,
+  "gap_us": 1641,
+  "start_us": 918,
+  "stop_us": 232,
+  "xyz": 132602,
+  "ram_responses": 505,
+  "fram_unchanged": true,
+  "fram_sha256": "371a9d16c6285d0150608751ccfdd5217ff303d42d8e5446d66a8130342e6634",
+  "gdb_script_exit": 1,
+  "script_error": "assert used nonexistent work.fault after successful dump; work.error=TR2_OK/deadline_missed=false observed; no repeat"
+}

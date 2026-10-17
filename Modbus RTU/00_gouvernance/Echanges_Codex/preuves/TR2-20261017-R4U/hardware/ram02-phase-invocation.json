@@ -1,0 +1,26 @@
+{
+  "server": [
+    "/mnt/c/ST/STM32CubeCLT_1.22.0/STLink-gdb-server/bin/ST-LINK_gdbserver.exe",
+    "-d",
+    "-g",
+    "-i",
+    "003500463235510B37333439",
+    "--frequency",
+    "8000",
+    "-p",
+    "61234",
+    "-cp",
+    "C:\\ST\\STM32CubeCLT_1.22.0\\STM32CubeProgrammer\\bin"
+  ],
+  "gdb": [
+    "/mnt/c/ST/STM32CubeCLT_1.22.0/GNU-tools-for-STM32/bin/arm-none-eabi-gdb.exe",
+    "-nx",
+    "-q",
+    "-batch",
+    "-x",
+    "\\\\wsl.localhost\\Debian\\home\\lolo\\dev\\msm\\reports\\TR2-r4u\\hardware\\ram02-phase.gdb",
+    "\\\\wsl.localhost\\Debian\\home\\lolo\\dev\\msm\\reports\\TR2-r4u\\probe-build-02\\tr2-r4u-live-runtime-NON-PRODUCTION.elf"
+  ],
+  "return_code": 0,
+  "utc": "2026-10-17T09:48:35.597547+00:00"
+}
