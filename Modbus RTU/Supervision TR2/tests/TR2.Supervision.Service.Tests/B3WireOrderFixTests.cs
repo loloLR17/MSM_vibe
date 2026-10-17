@@ -1,4 +1,5 @@
 using System.Text.Json;
+using System.IO.Compression;
 using Microsoft.Data.Sqlite;
 using TR2.Application;
 using TR2.Domain;
@@ -67,6 +68,59 @@ public sealed class B3WireOrderFixTests
             SqliteConnection.ClearAllPools();
             Directory.Delete(Path.GetDirectoryName(path)!, true);
         }
+    }
+
+    [Fact]
+    public async Task NewPhysicalCaptureIsAcceptedByUnmodifiedReaderAndSqliteWhileOldCapturesStayNegative()
+    {
+        var root = new DirectoryInfo(AppContext.BaseDirectory);
+        while (root is not null && !File.Exists(Path.Combine(root.FullName, "AGENTS.md"))) root = root.Parent;
+        var path = Path.Combine(root!.FullName, "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261017-R5AFIX/hardware/fix-master.jsonl.zlib");
+        using var compressed = File.OpenRead(path);
+        using var stream = new ZLibStream(compressed, CompressionMode.Decompress);
+        using var reader = new StreamReader(stream);
+        var text = await reader.ReadToEndAsync();
+        var count = 0;
+        foreach (var line in text.Split('\n', StringSplitOptions.RemoveEmptyEntries))
+        {
+            using var json = JsonDocument.Parse(line);
+            var row = json.RootElement;
+            if (row.GetProperty("kind").GetString() != "adu") continue;
+            var request = Convert.FromHexString(row.GetProperty("request").GetString()!.Replace(" ", ""));
+            if (request[1] == 3 && request[2] == 11 && request[3] == 184) count++;
+        }
+        Assert.True(count > 10);
+        var directory = Path.Combine(Path.GetTempPath(), "tr2-r5afix-physical-replay-" + Guid.NewGuid());
+        Directory.CreateDirectory(directory);
+        var capture = Path.Combine(directory, "capture.jsonl");
+        await File.WriteAllTextAsync(capture, text);
+        try
+        {
+            var database = new SqliteDatabase(new SqlitePersistenceOptions(Path.Combine(directory, "replay.db")));
+            var source = new LiveObservationService(new CapturedLiveTransport(capture), new SqliteLiveObservationSink(database),
+                allowDiagnostic: true, source: "Historical R5AFIX physical B0/B3; offline replay; B4/B6 headers simulated");
+            var endpoint = new TR2Endpoint(new SerialBus("offline"), new ModbusAddress(1));
+            var valid = 0; var held = 0; var nonzeroAlarm = false;
+            for (var i = 0; i < count; i++)
+            {
+                var observation = await source.PollAsync(endpoint);
+                Assert.NotEqual(LiveContinuity.Rejected, observation.Observation.Continuity);
+                Assert.Equal("Persisted", observation.ArchiveState);
+                Assert.Equal(SupervisionProfile.LiveDiagnostic, observation.Observation.Identity!.Profile);
+                var snapshot = observation.Observation.Snapshot!;
+                Assert.Null(snapshot.WindowUtc);
+                if (snapshot.ValuesValid && snapshot.Fresh) valid++;
+                if (snapshot.Held) { held++; Assert.False(observation.IsCurrent); }
+                nonzeroAlarm |= snapshot.Value.AlarmFlags != 0;
+                Assert.Null(observation.Observation.RunId);
+            }
+            Assert.True(valid > 0); Assert.True(held > 0); Assert.True(nonzeroAlarm);
+            using var connection = database.OpenConnection();
+            using var command = connection.CreateCommand();
+            command.CommandText = "SELECT COUNT(*) FROM live_observation"; Assert.Equal((long)count, command.ExecuteScalar());
+            command.CommandText = "SELECT COUNT(*) FROM live_observation WHERE continuity='Rejected'"; Assert.Equal(0L, command.ExecuteScalar());
+        }
+        finally { SqliteConnection.ClearAllPools(); Directory.Delete(directory, true); }
     }
 
     private sealed class FixtureTransport(Queue<ushort[]> frames) : IRegisterTransport
