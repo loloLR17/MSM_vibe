@@ -29,3 +29,9 @@ Mesurebaseline nécessaire pour les jalons absents R4U, pas répétition du simp
 Après probes, restaurer M016 par pages normales couvrant la plus grande image (calculer19pages selon taille réelle), relire2Mio et FRAM entière finale, vérifier capteur arrêté/detach/COM4fermé. Pas de rollbackFRAM/OB/RDP/masserase. RecoveredR2boot ne doit pas autoSTART ; gatesSHAexactes avant stores.
 
 Aucune qualification physique R4V anticipée : objectif quantifié après diagnostic, pas de seuil industriel inventé. Si un arrêt rapide nécessite déplacer une barrière normative, décision humaine séparée obligatoire. R5/SQLite/Web et R6 restent hors qualification.
+
+## Baseline physique instrumentée
+
+Codef8bf7ca/profile0 : START5/5/run8 etSTOP5/6COMPLETED4/0,1655réponsesCRCexactes. FRAMentière fce8…a682 exacte au modèle/journal54/root67/epoch5/run8. Work815/service1624/gap1852µs,0erreurFIFO. DepuiscaptureMCU : STARTeffet7,678s/terminal64,281s ; STOPeffet56,628s/terminal64,319s.82,13–82,14% du temps des spans appartient au service coopératif,6,980s/commande à I/O physique. Sur-service dominant prouvé, pas «FRAM63s». CaptureaprèstraitementRTU et tempsDWTnominal distincts des ACKmaîtreUTC/Stopwatch ; aucune synchronisationSI prétendue.
+
+Candidat : délai250µs après FIN du callbackFIFO (pas après début, qui pourrait rendre un drain lourd immédiatement à nouveau dû). UART/publication/deadlines ne sont pas retardés. TestcacheSTOP reproduit FRESH retenu avant10ms : publication immédiate sur transitionrunning/error corrigée sans changer les barrières. Tests en cours, candidat non flashé à ce checkpoint.

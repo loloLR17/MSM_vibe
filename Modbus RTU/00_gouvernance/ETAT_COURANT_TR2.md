@@ -335,3 +335,5 @@ Publication R3-B vérifiée : code1c5368f, preuves/rapport faf0f94 sur main relu
 
 - **PRÉPARÉ / TESTÉ LOGICIEL** :145tests+ARM/sanitizers PASS ; télémétrie causalitéMCU/service/I/O préparée, baseline0 puis candidatFIFO250µs, UART/deadlines/barrièresR2 inchangés. Contre-test erreur-service puis retraitB3invalide corrigé. Hypothèse de sur-service non encore prouvée matériellement.
 - **PRÉFLIGHT OBSERVÉ10:18:02UTC** : M016 Flash2Mio c5bc…f5b26, FRAM95da…9af41 entière/epoch5/run7/journal46/root59 exacts, capteurarrêté. Aucun flash/Modbus/writeFRAM R4V encore ; nouvelles identités préparées5/5..9 uniquement après gardes. [PlanR4V](../05_Firmware/LIVE_R4V.md), aucune qualification industrielle.
+
+- **R4-V BASELINE OBSERVÉE10:30UTC** : codef8bf7ca, START5/5run8/STOP5/6terminaux, FRAMfce8…a682 exacte au modèle/journal54/root67/epoch5/config3 ; probe0terminal/capteurarrêté/GDBdétaché, M016restaurationfinale àfaire. STOPeffet56,628s/terminal64,319s(DWTnominal),82,14% service/6,980sI/O parcommande ; work815/service1624/gap1852µs. Correctifminimal espacementaprèsdrain et retraitFRESHimmédiat aprèsSTOP enrevalidation, pasencorephysique. AucunrollbackFRAM.
