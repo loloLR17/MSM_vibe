@@ -1,0 +1,147 @@
+{
+  "source_sha": "806d967b912080872a44f51c1f75887448c62ea3",
+  "responses": 1632,
+  "events": [
+    {
+      "event": "FC10 command ACK",
+      "code": 13,
+      "tx": 3,
+      "utc": "2026-10-17T09:57:19.2800879Z"
+    },
+    {
+      "event": "B5 state",
+      "state": [
+        0,
+        0,
+        0,
+        0,
+        14,
+        2,
+        4,
+        0
+      ],
+      "utc": "2026-10-17T09:57:19.3402357Z"
+    },
+    {
+      "event": "B5 state",
+      "state": [
+        13,
+        3,
+        2,
+        0,
+        14,
+        2,
+        4,
+        0
+      ],
+      "utc": "2026-10-17T09:57:23.1358197Z"
+    },
+    {
+      "event": "B5 state",
+      "state": [
+        13,
+        3,
+        3,
+        0,
+        14,
+        2,
+        4,
+        0
+      ],
+      "utc": "2026-10-17T09:57:26.8332409Z"
+    },
+    {
+      "event": "B5 state",
+      "state": [
+        0,
+        0,
+        4,
+        0,
+        13,
+        3,
+        4,
+        0
+      ],
+      "utc": "2026-10-17T09:58:22.3147016Z"
+    },
+    {
+      "event": "FC10 command ACK",
+      "code": 13,
+      "tx": 3,
+      "utc": "2026-10-17T09:58:24.5072783Z"
+    },
+    {
+      "event": "FC10 command ACK",
+      "code": 14,
+      "tx": 3,
+      "utc": "2026-10-17T09:58:24.7332625Z"
+    },
+    {
+      "event": "B5 state",
+      "state": [
+        0,
+        0,
+        5,
+        27,
+        13,
+        3,
+        4,
+        0
+      ],
+      "utc": "2026-10-17T09:58:24.7942853Z"
+    },
+    {
+      "event": "FC10 command ACK",
+      "code": 14,
+      "tx": 4,
+      "utc": "2026-10-17T09:58:24.9545604Z"
+    },
+    {
+      "event": "B5 state",
+      "state": [
+        14,
+        4,
+        2,
+        0,
+        13,
+        3,
+        4,
+        0
+      ],
+      "utc": "2026-10-17T09:58:52.9085382Z"
+    },
+    {
+      "event": "B5 state",
+      "state": [
+        14,
+        4,
+        3,
+        0,
+        13,
+        3,
+        4,
+        0
+      ],
+      "utc": "2026-10-17T09:59:20.6399025Z"
+    },
+    {
+      "event": "B5 state",
+      "state": [
+        0,
+        0,
+        4,
+        0,
+        14,
+        4,
+        4,
+        0
+      ],
+      "utc": "2026-10-17T09:59:28.1387379Z"
+    }
+  ],
+  "unknown": [
+    "Exact MCU capture/admission/effect/publication times",
+    "Cumulative I/O vs service vs CPU time",
+    "Cause of bitshift in split variant"
+  ]
+}

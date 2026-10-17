@@ -1,0 +1,14 @@
+Internal ctest changing into directory: /home/lolo/dev/msm/reports/TR2-r4v/sanitizers
+Test project /home/lolo/dev/msm/reports/TR2-r4v/sanitizers
+    Start 138: live_effect_timing
+1/4 Test #138: live_effect_timing ...............   Passed    0.24 sec
+    Start 140: live_modbus_server
+2/4 Test #140: live_modbus_server ...............   Passed    3.73 sec
+    Start 144: live_runtime
+3/4 Test #144: live_runtime .....................   Passed    0.71 sec
+    Start 145: live_runtime_pacing
+4/4 Test #145: live_runtime_pacing ..............   Passed    1.82 sec
+
+100% tests passed, 0 tests failed out of 4
+
+Total Test time (real) =   6.50 sec

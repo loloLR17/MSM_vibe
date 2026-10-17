@@ -5,6 +5,20 @@
 #include "stm32_r4s_bench.c"
 #include "stm32_serial_transport.h"
 #include "tr2/application/live_runtime.h"
+/* Defaults preserve the historical R4U image; R4V supplies exact new guards. */
+#ifndef R4U_INITIAL_SHA
+#define R4U_INITIAL_SHA 0x37,0x1a,0x9d,0x16,0xc6,0x28,0x5d,0x01,0x50,0x60,0x87,0x51,0xcc,0xfd,0xd5,0x21,0x7f,0xf3,0x03,0xd4,0x2d,0x8e,0x54,0x46,0xd6,0x6a,0x81,0x30,0x34,0x2e,0x66,0x34
+#define R4U_INITIAL_JOURNAL 38
+#define R4U_INITIAL_ROOT 51
+#define R4U_INITIAL_RUN 6
+#define R4U_INITIAL_STOP 2
+#define R4U_FINAL_RUN 7
+#define R4U_FINAL_STOP 4
+#define R4U_EFFECT(code,point,result) ((void)0)
+#define R4U_PORT(p) ((void)0)
+#define R4U_PREPARED() ((void)0)
+#define R4U_BOUNDED_INIT() ((void)0)
+#endif
 static LiveRuntime runtime;
 static SerialTransport uart;
 static LiveAcquisitionPort real_port;
@@ -16,7 +30,7 @@ __attribute__((noinline)) void r4u_checkpoint(void){__asm volatile("":::"memory"
 __attribute__((noinline)) void r4u_uart_checkpoint(void){__asm volatile("":::"memory");}
 static Tr2Result u_mount(void)
 {
- static const uint8_t expected[32]={0x37,0x1a,0x9d,0x16,0xc6,0x28,0x5d,0x01,0x50,0x60,0x87,0x51,0xcc,0xfd,0xd5,0x21,0x7f,0xf3,0x03,0xd4,0x2d,0x8e,0x54,0x46,0xd6,0x6a,0x81,0x30,0x34,0x2e,0x66,0x34};
+ static const uint8_t expected[32]={R4U_INITIAL_SHA};
  uint8_t hash[32];REQUIRE(tr2_cooperative_enter(&work));
  for(uint32_t at=0;at<262144;at+=32){REQUIRE(read_physical(NULL,at,baseline+at,32));REQUIRE(tr2_cooperative_checkpoint(&work));}
  REQUIRE(tr2_cooperative_leave(&work));REQUIRE(tr2_sha256_bytes_cooperative(baseline,262144,hash,&work));
@@ -32,21 +46,21 @@ static Tr2Result u_mount(void)
  real_port=live_fifo_acquisition_port(&owner.acquisition);
  REQUIRE(live_command_engine_init(&engine,&store,&real_port));REQUIRE(live_command_engine_boot(&engine));
  if(engine.indeterminate||engine.has_active||!engine.has_last||engine.last.status!=4||engine.last.result||
-  engine.last.request.epoch!=5||engine.last.request.command.transaction_id!=2||engine.last.request.command.identity.command_code!=14||
-  store.generation!=38||live.generation!=51||store.epoch.current!=5||store.effect.run_id!=6||store.effect.phase!=3||
+  engine.last.request.epoch!=5||engine.last.request.command.transaction_id!=R4U_INITIAL_STOP||engine.last.request.command.identity.command_code!=14||
+  store.generation!=R4U_INITIAL_JOURNAL||live.generation!=R4U_INITIAL_ROOT||store.epoch.current!=5||store.effect.run_id!=R4U_INITIAL_RUN||store.effect.phase!=3||
   configuration.active.config_id!=3||configuration.active.generation!=3)return TR2_ERROR_INVALID_STATE;
  return TR2_OK;
 }
 static Tr2Result u_start(void *ctx,uint64_t run,const ActiveConfigurationSnapshot *cfg)
 {
  (void)ctx;uint64_t t=now_us(NULL);r4_result.last_poll_us=0;memset(&event_time,0,sizeof(event_time));next_check=0;
- Tr2Result result=real_port.start(real_port.context,run,cfg);uint64_t cost=now_us(NULL)-t;
+ R4U_EFFECT(13,1,0);Tr2Result result=real_port.start(real_port.context,run,cfg);R4U_EFFECT(13,2,result);uint64_t cost=now_us(NULL)-t;
  if(cost>r4u_result.max_start_us)r4u_result.max_start_us=cost;
  r4u_result.starts++;return cost>1000?TR2_ERROR_UNAVAILABLE:result;
 }
 static Tr2Result u_stop(void *ctx)
 {
- (void)ctx;uint64_t t=now_us(NULL);Tr2Result result=real_port.stop(real_port.context);
+ (void)ctx;uint64_t t=now_us(NULL);R4U_EFFECT(14,1,0);Tr2Result result=real_port.stop(real_port.context);R4U_EFFECT(14,2,result);
  uint64_t cost=now_us(NULL)-t;if(cost>r4u_result.max_stop_us)r4u_result.max_stop_us=cost;r4u_result.stops++;return result;
 }
 static Tr2Result u_drain(void *ctx)
@@ -76,7 +90,7 @@ static Tr2Result u_prepare(bool physical,bool writable)
  if(!owner.acquisition.metrology) {
   live_metrology_init(&metric);
   REQUIRE(live_fifo_acquisition_bind_event_metrology(&owner.acquisition,&metric,s_consume,&event_time));
-  real_port=live_fifo_acquisition_port(&owner.acquisition);LiveAcquisitionPort port=real_port;port.start=u_start;port.stop=u_stop;
+  real_port=live_fifo_acquisition_port(&owner.acquisition);LiveAcquisitionPort port=real_port;port.start=u_start;port.stop=u_stop;R4U_PORT(port);
   REQUIRE(live_command_engine_init(&engine,&store,&port));REQUIRE(live_fifo_acquisition_bind_engine(&owner.acquisition,&engine));
  } else {
   /* Binding is single-use. Reuse the same stopped composition and callbacks,
@@ -98,7 +112,7 @@ static Tr2Result u_prepare(bool physical,bool writable)
  }
  REQUIRE(live_modbus_server_init(&server,&engine,&metric,transport,1,&b0,r_ms,NULL));
  REQUIRE(live_modbus_server_enable_unavailable_inventory(&server));server.read_only=!writable;
- REQUIRE(live_runtime_init(&runtime,&server,&work,NULL,u_drain,8));
+ REQUIRE(live_runtime_init(&runtime,&server,&work,NULL,u_drain,8));R4U_PREPARED();
  if(physical&&!uart_started){REQUIRE(modbus_rtu_server_runtime_start(&server.rtu));uart_started=true;}
  r4_result.last_poll_us=0;r4_result.max_gap_us=0;r4u_result.max_drain_us=0;
  work.service=u_service;return TR2_OK;
@@ -121,7 +135,7 @@ __attribute__((noreturn)) void stm32_r4_benchmark_run(SPI_HandleTypeDef *spi1,SP
  if(!identity_ok()||r4_result.core_hz!=160000000||r4_result.spi1_hz!=2500000||r4_result.spi3_hz!=4000000||
  stm32_fram_storage_init(&fram,spi1,GPIOD,GPIO_PIN_14,2)!=TR2_OK||stm32_live_acquisition_attach(&owner,spi3,5,consume,NULL)!=TR2_OK){r4u_result.error=1;goto end;}
  owner.acquisition.fifo.first_data_timeout_ms=20;owner.acquisition.budget=admission;previous_cycles=DWT->CYCCNT;elapsed_cycles=0;
- bounded=stm32_fram_storage_bounded_physical(&fram);
+ bounded=stm32_fram_storage_bounded_physical(&fram);R4U_BOUNDED_INIT();
  if(tr2_cooperative_init(&work,NULL,now_us,service,stop,32,1000,2500)!=TR2_OK){r4u_result.error=2;goto end;}
  r4u_result.stage=1;
  while(r4_trigger!=0x52345501u&&r4_trigger!=0x52345502u&&r4_trigger!=0x52345503u){(void)now_us(NULL);HAL_Delay(1);}
@@ -147,14 +161,14 @@ __attribute__((noreturn)) void stm32_r4_benchmark_run(SPI_HandleTypeDef *spi1,SP
   if(live_runtime_step(&runtime)!=TR2_OK){r4u_result.error=6;goto end;}
   if(r4_trigger==0x52345504u&&!owner.acquisition.fifo.running&&!engine.has_active)break;
   if(!owner.acquisition.fifo.running&&!engine.has_active&&engine.has_last&&
-   engine.last.request.epoch==5&&engine.last.request.command.transaction_id==4&&
+   engine.last.request.epoch==5&&engine.last.request.command.transaction_id==R4U_FINAL_STOP&&
    engine.last.request.command.identity.command_code==14&&engine.last.status==4&&!engine.last.result) {
    if(!stopped_since)stopped_since=now_us(NULL);
    if(now_us(NULL)-stopped_since>2000000)break;
   }
  }
  r4_trigger=0;r4u_result.end_us=now_us(NULL);
- if(owner.acquisition.fifo.running||engine.has_active||engine.status!=4||engine.result||store.effect.run_id!=7||!metric.has_value){r4u_result.error=7;goto end;}
+ if(owner.acquisition.fifo.running||engine.has_active||engine.status!=4||engine.result||store.effect.run_id!=R4U_FINAL_RUN||!metric.has_value){r4u_result.error=7;goto end;}
  if(compare_protected()!=TR2_OK){r4u_result.error=8;goto end;}r4u_result.stage=10;
 end:
  if(diag_fifo.running)(void)fifo_live_stop(&diag_fifo);

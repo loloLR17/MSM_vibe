@@ -1,0 +1,18 @@
+{
+    "utc":  "2026-10-17T10:25:59.6169996Z",
+    "ports":  [
+                  {
+                      "Status":  "OK",
+                      "FriendlyName":  "STMicroelectronics STLink Virtual COM Port (COM3)",
+                      "InstanceId":  "USB\\VID_0483\u0026PID_374E\u0026MI_02\\6\u00262EE46FBE\u00260\u00260002"
+                  },
+                  {
+                      "Status":  "OK",
+                      "FriendlyName":  "USB Serial Port (COM4)",
+                      "InstanceId":  "FTDIBUS\\VID_0403+PID_6001+BG04KSSWA\\0000"
+                  }
+              ],
+    "supervision_processes":  [
+
+                              ]
+}

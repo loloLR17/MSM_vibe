@@ -329,3 +329,9 @@ Publication R3-B vérifiée : code1c5368f, preuves/rapport faf0f94 sur main relu
 - **LOGICIEL / LIMITES** :143anciens tests PASS, nouveau144 PASS ciblé après correction oraclereadonly, sanitizers et ARMdédié/canonique PASS ; BINcanonique85b1…c0f5 inchangé. Nsupérieurs physiques nécessitent collecte adaptée, B3run/config internes non exposés dans nouveaux registres réservés. Prochaine étape : contrôle indépendantChatGPT puis contratR5/capabilities/corrélation et décision sur latenceSTOPdurable, sans GO R4global/R6/industriel. Preuves [R4-U](Echanges_Codex/preuves/TR2-20261017-R4U/physical-final-summary.json).
 
 - **PUBLICATION R4-U RELUE** : bilan941e8de6fcd147c0ff88d8987dfb6d17237394d4,259fichiers/245preuves et178artefacts relus/vérifiés depuisGitHub à2026-10-17T10:05:44.626187+00:00,1632ADUparsées. Clôture de livraisonDONE portée bornée N4096, archivesR4U ajoutées ; pas de qualification indépendanteChatGPT ni GO R4global/R6, aucun nouvel essai après restauration.
+
+
+## R4-V — 17/10/2026, diagnostic de latence préparé
+
+- **PRÉPARÉ / TESTÉ LOGICIEL** :145tests+ARM/sanitizers PASS ; télémétrie causalitéMCU/service/I/O préparée, baseline0 puis candidatFIFO250µs, UART/deadlines/barrièresR2 inchangés. Contre-test erreur-service puis retraitB3invalide corrigé. Hypothèse de sur-service non encore prouvée matériellement.
+- **PRÉFLIGHT OBSERVÉ10:18:02UTC** : M016 Flash2Mio c5bc…f5b26, FRAM95da…9af41 entière/epoch5/run7/journal46/root59 exacts, capteurarrêté. Aucun flash/Modbus/writeFRAM R4V encore ; nouvelles identités préparées5/5..9 uniquement après gardes. [PlanR4V](../05_Firmware/LIVE_R4V.md), aucune qualification industrielle.

@@ -1,0 +1,8 @@
+Internal ctest changing into directory: /home/lolo/dev/msm/reports/TR2-r4v/host
+Test project /home/lolo/dev/msm/reports/TR2-r4v/host
+    Start 145: live_runtime_pacing
+1/1 Test #145: live_runtime_pacing ..............   Passed    1.22 sec
+
+100% tests passed, 0 tests failed out of 1
+
+Total Test time (real) =   1.22 sec

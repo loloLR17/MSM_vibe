@@ -1,0 +1,14 @@
+Internal ctest changing into directory: /home/lolo/dev/msm/reports/TR2-r4v/host
+Test project /home/lolo/dev/msm/reports/TR2-r4v/host
+    Start 145: live_runtime_pacing
+1/1 Test #145: live_runtime_pacing ..............Subprocess aborted***Exception:   0.46 sec
+test_live_runtime_pacing: /home/lolo/dev/msm/projects/MSM_vibe-R4V-rtu-latency/Modbus RTU/05_Firmware/tests/platform/test_live_runtime_pacing.c:31: scenario: Assertion `live_runtime_service(&rt)==TR2_OK&&drain_count==calls' failed.
+
+
+0% tests passed, 1 tests failed out of 1
+
+Total Test time (real) =   0.47 sec
+
+The following tests FAILED:
+	145 - live_runtime_pacing (Subprocess aborted)
+Errors while running CTest

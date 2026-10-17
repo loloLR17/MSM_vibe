@@ -1,0 +1,14 @@
+Internal ctest changing into directory: /home/lolo/dev/msm/reports/TR2-r4v/host
+Test project /home/lolo/dev/msm/reports/TR2-r4v/host
+    Start 145: live_runtime_pacing
+1/1 Test #145: live_runtime_pacing ..............Subprocess aborted***Exception:   1.17 sec
+test_live_runtime_pacing: /home/lolo/dev/msm/projects/MSM_vibe-R4V-rtu-latency/Modbus RTU/05_Firmware/tests/platform/test_live_runtime_pacing.c:63: fault_case: Assertion `!m->acquisition.fifo.running&&!m->work.depth&&metric.error' failed.
+
+
+0% tests passed, 1 tests failed out of 1
+
+Total Test time (real) =   1.18 sec
+
+The following tests FAILED:
+	145 - live_runtime_pacing (Subprocess aborted)
+Errors while running CTest
