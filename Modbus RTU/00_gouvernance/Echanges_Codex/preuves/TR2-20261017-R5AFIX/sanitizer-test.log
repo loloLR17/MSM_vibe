@@ -1,0 +1,14 @@
+Internal ctest changing into directory: /home/lolo/dev/msm/reports/TR2-r5afix/sanitizers
+Test project /home/lolo/dev/msm/reports/TR2-r5afix/sanitizers
+    Start 133: live_metrology
+1/4 Test #133: live_metrology ...................   Passed    0.96 sec
+    Start 140: live_modbus_server
+2/4 Test #140: live_modbus_server ...............   Passed    5.43 sec
+    Start 145: live_runtime_pacing
+3/4 Test #145: live_runtime_pacing ..............   Passed    2.37 sec
+    Start 146: live_b3_wire_order
+4/4 Test #146: live_b3_wire_order ...............   Passed    0.02 sec
+
+100% tests passed, 0 tests failed out of 4
+
+Total Test time (real) =   8.80 sec

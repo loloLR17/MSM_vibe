@@ -356,3 +356,9 @@ Publication R3-B vérifiée : code1c5368f, preuves/rapport faf0f94 sur main relu
 - **PRÉSERVÉ / SUITE** : aucunCOM4/flash/debug/reset/FRAM/SD.7855fichiersprotégés/63autresworktrees/2stashes intacts, archivesR4-U/V etdettesA04inchangées. Nouveaucontrat nécessaire pourcorriger/qualifier projecteurSTM32 avant repriseR5-A/R5-B ; R5/R6 nonqualifiés. JournalmatérielR4-V inchangé, nonrelu surcible.
 
 - **PUBLICATION R5-A RELUE** : bilan `e8c2834cafd997e5882a21a78f22eabc6de15d83` récupéré de GitHub à2026-10-17T11:27:56.417490+00:00,60fichiers comparés intégralement/41preuvesSHA/40artefactsBUNDLE. TRX distants551PASS puis201ServicePASS ; diagnostic2068B3 nonconformes etfuméeHTTP/SQLite vérifiés. StatutBLOCKEDfirmware maintenu, pas deDONE/R6/qualificationindépendante ni nouvelaccèsmatériel. Code1efc4f1 reprenable, correctionprojecteur dansnouveaucontrat àautoriser.
+
+
+## R5-AFIX — préparation du17/10/2026UTC
+
+- **VALIDÉ LOGICIEL** : code29a6f4ecf83c97499055b58fc73d631763cf5813, correctif2destinationsB3/3002alarmes3003sévérité, neuforaclesindépendants rouge/vert.146testsfirmware/ARMcanoniqueetprobe,4sanitizersO2,202testsServicePASS ; V1BIN85b1…c0f5inchangé. AnciensADU R5-A restentrefusés, neufADUmodèlepositifsacceptés/SQLite.
+- **PRÉFLIGHT OBSERVÉ11:36:20UTC** : FlashM0162Mio c5bc etFRAM70e R4-V entières conformes, capteurarrêté, COM4FTDIidentifié/exclusifàprendre ; aucunflash/Modbus/writeFRAMencore. Suitepréparée paireuniqueSTART5/10run10/STOP5/11 sousgardes/budgets, restaurationM016 ensuite ; pasdequalificationphysiqueanticipée.

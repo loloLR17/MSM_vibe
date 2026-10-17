@@ -1,0 +1,43 @@
+Internal ctest changing into directory: /home/lolo/dev/msm/reports/TR2-r5afix/oracle-host
+Test project /home/lolo/dev/msm/reports/TR2-r5afix/oracle-host
+    Start 146: live_b3_wire_order
+Could not find executable /home/lolo/dev/msm/reports/TR2-r5afix/oracle-host/test_live_b3_wire_order
+Looked in the following places:
+/home/lolo/dev/msm/reports/TR2-r5afix/oracle-host/test_live_b3_wire_order
+/home/lolo/dev/msm/reports/TR2-r5afix/oracle-host/test_live_b3_wire_order
+/home/lolo/dev/msm/reports/TR2-r5afix/oracle-host/Release/test_live_b3_wire_order
+/home/lolo/dev/msm/reports/TR2-r5afix/oracle-host/Release/test_live_b3_wire_order
+/home/lolo/dev/msm/reports/TR2-r5afix/oracle-host/Debug/test_live_b3_wire_order
+/home/lolo/dev/msm/reports/TR2-r5afix/oracle-host/Debug/test_live_b3_wire_order
+/home/lolo/dev/msm/reports/TR2-r5afix/oracle-host/MinSizeRel/test_live_b3_wire_order
+/home/lolo/dev/msm/reports/TR2-r5afix/oracle-host/MinSizeRel/test_live_b3_wire_order
+/home/lolo/dev/msm/reports/TR2-r5afix/oracle-host/RelWithDebInfo/test_live_b3_wire_order
+/home/lolo/dev/msm/reports/TR2-r5afix/oracle-host/RelWithDebInfo/test_live_b3_wire_order
+/home/lolo/dev/msm/reports/TR2-r5afix/oracle-host/Deployment/test_live_b3_wire_order
+/home/lolo/dev/msm/reports/TR2-r5afix/oracle-host/Deployment/test_live_b3_wire_order
+/home/lolo/dev/msm/reports/TR2-r5afix/oracle-host/Development/test_live_b3_wire_order
+/home/lolo/dev/msm/reports/TR2-r5afix/oracle-host/Development/test_live_b3_wire_order
+home/lolo/dev/msm/reports/TR2-r5afix/oracle-host/test_live_b3_wire_order
+home/lolo/dev/msm/reports/TR2-r5afix/oracle-host/test_live_b3_wire_order
+home/lolo/dev/msm/reports/TR2-r5afix/oracle-host/Release/test_live_b3_wire_order
+home/lolo/dev/msm/reports/TR2-r5afix/oracle-host/Release/test_live_b3_wire_order
+home/lolo/dev/msm/reports/TR2-r5afix/oracle-host/Debug/test_live_b3_wire_order
+home/lolo/dev/msm/reports/TR2-r5afix/oracle-host/Debug/test_live_b3_wire_order
+home/lolo/dev/msm/reports/TR2-r5afix/oracle-host/MinSizeRel/test_live_b3_wire_order
+home/lolo/dev/msm/reports/TR2-r5afix/oracle-host/MinSizeRel/test_live_b3_wire_order
+home/lolo/dev/msm/reports/TR2-r5afix/oracle-host/RelWithDebInfo/test_live_b3_wire_order
+home/lolo/dev/msm/reports/TR2-r5afix/oracle-host/RelWithDebInfo/test_live_b3_wire_order
+home/lolo/dev/msm/reports/TR2-r5afix/oracle-host/Deployment/test_live_b3_wire_order
+home/lolo/dev/msm/reports/TR2-r5afix/oracle-host/Deployment/test_live_b3_wire_order
+home/lolo/dev/msm/reports/TR2-r5afix/oracle-host/Development/test_live_b3_wire_order
+home/lolo/dev/msm/reports/TR2-r5afix/oracle-host/Development/test_live_b3_wire_order
+Unable to find executable: /home/lolo/dev/msm/reports/TR2-r5afix/oracle-host/test_live_b3_wire_order
+1/1 Test #146: live_b3_wire_order ...............***Not Run   0.00 sec
+
+0% tests passed, 1 tests failed out of 1
+
+Total Test time (real) =   0.00 sec
+
+The following tests FAILED:
+	146 - live_b3_wire_order (Not Run)
+Errors while running CTest

@@ -1,0 +1,14 @@
+Internal ctest changing into directory: /home/lolo/dev/msm/reports/TR2-r5afix/oracle-host
+Test project /home/lolo/dev/msm/reports/TR2-r5afix/oracle-host
+    Start 146: live_b3_wire_order
+1/1 Test #146: live_b3_wire_order ...............Subprocess aborted***Exception:   0.12 sec
+test_live_b3_wire_order: /home/lolo/dev/msm/projects/MSM_vibe-R5AFIX-b3-wire/Modbus RTU/05_Firmware/tests/unit/test_live_b3_wire_order.c:11: check: Assertion `b.registers[2]==alarm && b.registers[3]==severity && b.registers[3]<=4' failed.
+
+
+0% tests passed, 1 tests failed out of 1
+
+Total Test time (real) =   0.13 sec
+
+The following tests FAILED:
+	146 - live_b3_wire_order (Subprocess aborted)
+Errors while running CTest

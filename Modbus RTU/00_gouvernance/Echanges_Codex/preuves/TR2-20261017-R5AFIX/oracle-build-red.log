@@ -1,0 +1,100 @@
+[1/90] Building C object CMakeFiles/tr2_core.dir/src/domain/acquisition/window_statistics.c.o
+[2/90] Building C object CMakeFiles/tr2_core.dir/src/application/live_runtime.c.o
+[3/90] Building C object CMakeFiles/tr2_core.dir/src/common/sha256.c.o
+[4/90] Building C object CMakeFiles/tr2_core.dir/src/application/acquisition_service.c.o
+[5/90] Building C object CMakeFiles/tr2_core.dir/src/common/cooperative_work.c.o
+[6/90] Building C object CMakeFiles/tr2_core.dir/src/application/live_metrology.c.o
+[7/90] Building C object CMakeFiles/tr2_core.dir/src/application/campaign_inventory_service.c.o
+[8/90] Building C object CMakeFiles/tr2_core.dir/src/persistence/live_command_store.c.o
+[9/90] Building C object CMakeFiles/tr2_core.dir/src/application/live_modbus_server.c.o
+[10/90] Building C object CMakeFiles/tr2_core.dir/src/application/command_apply_configuration.c.o
+[11/90] Building C object CMakeFiles/tr2_core.dir/src/application/live_configuration.c.o
+[12/90] Building C object CMakeFiles/tr2_core.dir/src/application/command_boot_recovery.c.o
+[13/90] Building C object CMakeFiles/tr2_core.dir/src/application/live_command_engine.c.o
+[14/90] Building C object CMakeFiles/tr2_core.dir/src/application/campaign_service.c.o
+[15/90] Building C object CMakeFiles/tr2_core.dir/src/application/command_policy.c.o
+[16/90] Building C object CMakeFiles/tr2_core.dir/src/application/command_request_mailbox.c.o
+[17/90] Building C object CMakeFiles/tr2_core.dir/src/application/command_selftest.c.o
+[18/90] Building C object CMakeFiles/tr2_core.dir/src/application/command_start_acquisition.c.o
+[19/90] Building C object CMakeFiles/tr2_core.dir/src/application/command_stop_acquisition.c.o
+[20/90] Building C object CMakeFiles/tr2_core.dir/src/application/command_synchronize_time.c.o
+[21/90] Building C object CMakeFiles/tr2_core.dir/src/application/command_engine.c.o
+[22/90] Building C object CMakeFiles/tr2_core.dir/src/application/configuration_activation_adapter.c.o
+[23/90] Building C object CMakeFiles/tr2_core.dir/src/application/configuration_service.c.o
+[24/90] Building C object CMakeFiles/tr2_core.dir/src/application/configuration_workflow.c.o
+[25/90] Building C object CMakeFiles/tr2_core.dir/src/application/supervision_service.c.o
+[26/90] Building C object CMakeFiles/tr2_core.dir/src/application/diagnostic_service.c.o
+[27/90] Building C object CMakeFiles/tr2_core.dir/src/application/system_command_dispatcher.c.o
+[28/90] Building C object CMakeFiles/tr2_core.dir/src/application/production_application.c.o
+[29/90] Building C object CMakeFiles/tr2_core.dir/src/application/production_provisioning.c.o
+[30/90] Building C object CMakeFiles/tr2_core.dir/src/application/persistent_identity.c.o
+[31/90] Building C object CMakeFiles/tr2_core.dir/src/application/modbus_system_server.c.o
+[32/90] Building C object CMakeFiles/tr2_core.dir/src/domain/command/command.c.o
+[33/90] Building C object CMakeFiles/tr2_core.dir/src/application/system_state_aggregator.c.o
+[34/90] Building C object CMakeFiles/tr2_core.dir/src/application/production_commissioning.c.o
+[35/90] Building C object CMakeFiles/tr2_core.dir/src/domain/configuration/configuration_validator.c.o
+[36/90] Building C object CMakeFiles/tr2_core.dir/src/domain/supervision/threshold_evaluator.c.o
+[37/90] Building C object CMakeFiles/tr2_core.dir/src/domain/identity/identity.c.o
+[38/90] Building C object CMakeFiles/tr2_core.dir/src/domain/configuration/configuration_staging.c.o
+[39/90] Building C object CMakeFiles/tr2_core.dir/src/application/system_runtime_acquisition_command.c.o
+[40/90] Building C object CMakeFiles/tr2_core.dir/src/domain/time/time_recovery.c.o
+[41/90] Building C object CMakeFiles/tr2_core.dir/src/domain/system_state/system_state.c.o
+[42/90] Building C object CMakeFiles/tr2_core.dir/src/domain/time/time_service.c.o
+[43/90] Building C object CMakeFiles/tr2_core.dir/src/application/system_runtime.c.o
+[44/90] Building C object CMakeFiles/tr2_core.dir/src/domain/supervision/indicator_calculator.c.o
+[45/90] Building C object CMakeFiles/tr2_core.dir/src/modbus/b4_configuration_codec.c.o
+[46/90] Building C object CMakeFiles/tr2_core.dir/src/modbus/b6_projection.c.o
+[47/90] Building C object CMakeFiles/tr2_core.dir/src/modbus/b5_write_adapter.c.o
+[48/90] Building C object CMakeFiles/tr2_core.dir/src/modbus/b5_projection.c.o
+[49/90] Building C object CMakeFiles/tr2_core.dir/src/modbus/b6_write_adapter.c.o
+[50/90] Building C object CMakeFiles/tr2_core.dir/src/modbus/pdu_server.c.o
+[51/90] Building C object CMakeFiles/tr2_core.dir/src/modbus/codec.c.o
+[52/90] Building C object CMakeFiles/tr2_core.dir/src/modbus/register_model.c.o
+[53/90] Building C object CMakeFiles/tr2_core.dir/src/modbus/read_adapter.c.o
+[54/90] Building C object CMakeFiles/tr2_core.dir/src/modbus/rtu_receiver.c.o
+[55/90] Building C object CMakeFiles/tr2_core.dir/src/modbus/projection.c.o
+[56/90] Building C object CMakeFiles/tr2_core.dir/src/modbus/rtu_server_runtime.c.o
+[57/90] Building C object CMakeFiles/tr2_core.dir/src/persistence/campaign_bulk_aggregator.c.o
+[58/90] Building C object CMakeFiles/tr2_core.dir/src/modbus/write_adapter.c.o
+[59/90] Building C object CMakeFiles/tr2_core.dir/src/persistence/campaign_bulk_checkpoint.c.o
+[60/90] Building C object CMakeFiles/tr2_core.dir/src/persistence/campaign_bulk_media.c.o
+[61/90] Building C object CMakeFiles/tr2_core.dir/src/persistence/campaign_bulk_block.c.o
+[62/90] Building C object CMakeFiles/tr2_core.dir/src/persistence/campaign_bulk_block_stream.c.o
+[63/90] Building C object CMakeFiles/tr2_core.dir/src/persistence/command_journal.c.o
+[64/90] Building C object CMakeFiles/tr2_core.dir/src/persistence/command_journal_bounded_recovery.c.o
+[65/90] Building C object CMakeFiles/tr2_core.dir/src/persistence/command_journal_bounded_reader.c.o
+[66/90] Building C object CMakeFiles/tr2_core.dir/src/persistence/campaign_record.c.o
+[67/90] Building C object CMakeFiles/tr2_core.dir/src/persistence/command_journal_bounded_slot.c.o
+[68/90] Building C object CMakeFiles/tr2_core.dir/src/persistence/command_journal_bounded_record.c.o
+[69/90] Building C object CMakeFiles/tr2_core.dir/src/persistence/campaign_data_store_persistent.c.o
+[70/90] Building C object CMakeFiles/tr2_core.dir/src/persistence/command_journal_bounded_writer.c.o
+[71/90] Building C object CMakeFiles/tr2_core.dir/src/persistence/campaign_data_store_bulk.c.o
+[72/90] Building C object CMakeFiles/tr2_core.dir/src/persistence/campaign_bulk_metadata.c.o
+[73/90] Building C object CMakeFiles/tr2_core.dir/src/persistence/command_journal_context_store.c.o
+[74/90] Building C object CMakeFiles/tr2_core.dir/src/persistence/command_journal_bounded_admission.c.o
+[75/90] Building C object CMakeFiles/tr2_core.dir/src/persistence/command_journal_bounded_store.c.o
+[76/90] Building C object CMakeFiles/tr2_core.dir/src/persistence/campaign_repository_store.c.o
+[77/90] Building C object CMakeFiles/tr2_core.dir/src/persistence/command_journal_record.c.o
+[78/90] Building C object CMakeFiles/tr2_core.dir/src/persistence/configuration_record.c.o
+[79/90] Building C object CMakeFiles/tr2_core.dir/src/persistence/diagnostic_history_record.c.o
+[80/90] Building C object CMakeFiles/tr2_core.dir/src/persistence/diagnostic_history_store.c.o
+[81/90] Building C object CMakeFiles/tr2_core.dir/src/persistence/configuration_store.c.o
+[82/90] Building C object CMakeFiles/tr2_core.dir/src/persistence/command_journal_store.c.o
+[83/90] Building C object CMakeFiles/tr2_core.dir/src/persistence/time_history_record.c.o
+[84/90] Building C object CMakeFiles/tr2_core.dir/src/platform/serial_transport.c.o
+[85/90] Building C object CMakeFiles/tr2_core.dir/src/persistence/time_history_store.c.o
+[86/90] Building C object CMakeFiles/tr2_core.dir/src/persistence/persistent_storage_core.c.o
+[87/90] Building C object CMakeFiles/tr2_core.dir/src/persistence/transactional_image_media.c.o
+[88/90] Building C object CMakeFiles/test_live_b3_wire_order.dir/tests/unit/test_live_b3_wire_order.c.o
+FAILED: CMakeFiles/test_live_b3_wire_order.dir/tests/unit/test_live_b3_wire_order.c.o 
+/usr/bin/cc  -I"/home/lolo/dev/msm/projects/MSM_vibe-R5AFIX-b3-wire/Modbus RTU/05_Firmware/include" -std=c11 -Wall -Wextra -Wpedantic -Werror -MD -MT CMakeFiles/test_live_b3_wire_order.dir/tests/unit/test_live_b3_wire_order.c.o -MF CMakeFiles/test_live_b3_wire_order.dir/tests/unit/test_live_b3_wire_order.c.o.d -o CMakeFiles/test_live_b3_wire_order.dir/tests/unit/test_live_b3_wire_order.c.o -c '/home/lolo/dev/msm/projects/MSM_vibe-R5AFIX-b3-wire/Modbus RTU/05_Firmware/tests/unit/test_live_b3_wire_order.c'
+/home/lolo/dev/msm/projects/MSM_vibe-R5AFIX-b3-wire/Modbus RTU/05_Firmware/tests/unit/test_live_b3_wire_order.c: In function ‘check’:
+/home/lolo/dev/msm/projects/MSM_vibe-R5AFIX-b3-wire/Modbus RTU/05_Firmware/tests/unit/test_live_b3_wire_order.c:19:2: error: this ‘for’ clause does not guard... [-Werror=misleading-indentation]
+   19 |  for(unsigned i=0;i<size;i++)printf("%s%02X",i?" ":"",adu[i]);puts("\"}");
+      |  ^~~
+/home/lolo/dev/msm/projects/MSM_vibe-R5AFIX-b3-wire/Modbus RTU/05_Firmware/tests/unit/test_live_b3_wire_order.c:19:63: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the ‘for’
+   19 |  for(unsigned i=0;i<size;i++)printf("%s%02X",i?" ":"",adu[i]);puts("\"}");
+      |                                                               ^~~~
+cc1: all warnings being treated as errors
+[89/90] Linking C static library libtr2_core.a
+ninja: build stopped: subcommand failed.
