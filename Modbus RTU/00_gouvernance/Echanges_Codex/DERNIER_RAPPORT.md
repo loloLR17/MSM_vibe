@@ -1,6 +1,6 @@
 ---
 mission_id: TR2-20261017-R5AFIX-B3-WIRE-ORDER
-status: IN_PROGRESS
+status: DONE
 base_ref: main
 base_sha: e100770474cf4d43a73f2af2e6e02be91e2cd75c
 initial_head: 5103ea4e87c169c1b154d0df8cdcc50511619a24
@@ -16,7 +16,7 @@ allow_debug: true
 
 # R5-AFIX — correction démontrée et matériel restauré
 
-**Critères techniques A–E satisfaits dans le périmètre ciblé.** Statut IN_PROGRESS uniquement jusqu'à publication et relecture distante de ce bilan ; aucun blocage technique actif. L'inversion3002/3003 est corrigée dans le firmware, démontrée par de nouveaux ADU physiques et acceptée par le décodeur PC inchangé. R5-A historique reste BLOCKED dans son archive ; aucun GO R5-B/R6 ou industriel implicite.
+**DONE : critères A–E satisfaits dans le périmètre ciblé, bilan publié et relu depuis GitHub.** Aucun blocage technique actif. L'inversion3002/3003 est corrigée dans le firmware, démontrée par de nouveaux ADU physiques et acceptée par le décodeur PC inchangé. R5-A historique reste BLOCKED dans son archive ; aucun GO R5-B/R6 ou industriel implicite.
 
 ## Correction et preuves indépendantes
 
@@ -67,4 +67,10 @@ FRAM initiale complète262144octets70e273972a83e61283a6e572db3187af002fd97ba8de6
 
 Worktree isolé `MSM_vibe-R5AFIX-b3-wire`, branche `codex/r5afix-b3-wire` issue du main distant vérifié5103ea4. Ancienmain82169af propre,8077fichiers protégés,64autresworktrees, étude86d0f4b etdeuxstashes6251b988…/f3b829e6… préservés. ArchivesR5-A BLOCKED byte-identiques. Permissions commit/push/flash/debug exercées dans le contrat ; aucune norme/gouvernance/detteA04 modifiée. Journal etroadmap actualisés factuellement avec correctif, nouvellepreuve etétatmatériel.
 
-Critères A mapping/B qualité-V1/C PCpositif+négatif/D portée/E préservation démontrés. Publication de ce bilan et relecture distante restent àfaire avantDONE. R5-A n'est pas réécrite rétroactivement ; contrôle indépendantChatGPT requis. Suite sousnouveaucontrat R5-B : composition maîtreCOM4unique→SQLite→Web, vraisB1/B2/B7/capacités/profil complet, puisR6. Les latencesR4-V restent importantes ; aucun GO industriel, tag ou jalon global qualifié ici.
+Critères A mapping/B qualité-V1/C PCpositif+négatif/D portée/E préservation démontrés. Publication de ce bilan et relecture distante réalisées ; voir preuve ci-dessous. R5-A n'est pas réécrite rétroactivement ; contrôle indépendantChatGPT requis. Suite sousnouveaucontrat R5-B : composition maîtreCOM4unique→SQLite→Web, vraisB1/B2/B7/capacités/profil complet, puisR6. Les latencesR4-V restent importantes ; aucun GO industriel, tag ou jalon global qualifié ici.
+
+## Publication et clôture
+
+Bilan `e127957a3c53e32834ba490c9c6184d7b8168e69` (docs(r5afix): publish corrected physical ADUs and verified M016 restoration) poussé normalement surmain, récupéré et relu à2026-10-17T11:46:30.068667+00:00.119fichiers comparés intégralement aux blobs GitHub,106preuvesSHA et104artefactsBUNDLE vérifiés/décompressés ;1095ADU/563B3 parsées, TRX.NET202puis2PASS et sauvegardesFlash/FRAM vérifiées depuis la référence distante. [Preuve de relecture](preuves/TR2-20261017-R5AFIX/bilan-readback.json). HEADlocal=origin/main etworktreepropre aprèsbilan, travauxhistoriques préservés.
+
+StatutDONE et archiveR5AFIX ajoutés après cette relecture ; cette dernière publication sera elle aussi vérifiée, son SHA fourni dans la réponse finale. Mission active non modifiée, R5-A historiqueBLOCKED conservée, aucune qualification indépendanteChatGPT ni GO R5-B/R6/industriel. Aucun nouvelessai après restauration.

@@ -1,0 +1,14 @@
+{
+  "result": "PASS",
+  "mission_id": "TR2-20261017-R5AFIX-B3-WIRE-ORDER",
+  "sha": "e127957a3c53e32834ba490c9c6184d7b8168e69",
+  "report_status": "IN_PROGRESS",
+  "all_changed_files_fully_compared": 119,
+  "manifest_files": 106,
+  "bundle_files": 104,
+  "physical_ADUs_parsed": 1095,
+  "physical_B3": 563,
+  "PC_SQLite_replay_test_PASS": true,
+  "full_flash_and_fram_restoration_verified": true,
+  "utc": "2026-10-17T11:46:30.068667+00:00"
+}
