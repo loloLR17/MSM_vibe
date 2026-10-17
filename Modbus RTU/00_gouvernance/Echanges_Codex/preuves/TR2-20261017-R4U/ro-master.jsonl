@@ -1,0 +1,3 @@
+{"kind":"opened","utc":"2026-10-17T09:45:20.8510984Z","port":"COM4","baud":115200,"format":"8E1","mode":"ro","exclusive":true}
+{"kind":"failure","utc":"2026-10-17T09:45:22.4694339Z","type":"System.TimeoutException","error":"Le d‚lai d\u0027attente de l\u0027op‚ration a expir‚.","requests":0,"passed":false}
+{"kind":"closed","utc":"2026-10-17T09:45:22.5816833Z","port":"COM4"}

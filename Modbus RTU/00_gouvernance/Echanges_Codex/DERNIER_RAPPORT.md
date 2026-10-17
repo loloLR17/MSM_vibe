@@ -4,7 +4,7 @@ status: IN_PROGRESS
 base_ref: main
 base_sha: fa7ba586114f83fe3fee3c87050620e22ee11930
 initial_head: 70bffe63048ebc5b169852ef9814389db59ea56f
-result_sha: null
+result_sha: 43840fedf6c7e2e40d5a49eeea822d5d91d1ee55
 created_at_utc: 2026-10-17T09:43:42.598482+00:00
 author: Codex
 target_branch: main
@@ -40,3 +40,5 @@ Préservation : dépôt d'origine main82169af et deux stashes historiques intact
 worktree isolé basé sur main70bffe6. Aucun merge/rebase/reset/clean, aucune reprise
 de la retraiteR4T ou du commit étudeR4S86d0f4b. Archives R4T déjà présentes intactes.
 Journal actualisé pour préparation, pas de qualification produit/R4global/R6.
+
+Checkpoint43840fe publié et30fichiers relus depuis origin/main. Phase RAM image01 acquise :132602XYZ,505ADU,0write/FRAM371a exacte, work335/service1673/gap1641µs. Transition UART refusée par second bind_event_metrology interdit ; UART non initialisée, une lectureCOM4 sans réponse. Aucun B5 durable lancé. Nouvelle image02 corrige seulement le harness, garde single-use conservée, contrôleur ready renforcé, journalisation maître avant chaque envoi. Cross-build dédié PASS ; reprise RAM courte nécessaire au code changé, suite143tests sur cœur inchangé acquise.

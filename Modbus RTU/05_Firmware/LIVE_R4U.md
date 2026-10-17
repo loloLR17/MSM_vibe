@@ -64,3 +64,9 @@ exigent epoch/clé neuves et reçus durables, les réponsesFC10 ne sont que capt
 SQLite/Web/servicePC produit et domaines manquants restent distincts.
 
 Résultats physiques à ajouter après observation, aucun PASS anticipé.
+
+## Correction du harness après image01
+
+RAM image01 :132602XYZ/505ADU,0write, FRAM entière371a inchangée ; work335/service1673/gap1641µs. GDB assert final utilisait work.fault inexistant après dump : observations acquises conservées sans refaire cet essai.
+Transition UART refusée avant initialisation (g_serial.uart.Instance=NULL) : tentative de second bind_event_metrology, garde single-use légitime. COM4 ouvert/une requête identité sans réponse, aucune commande B5 et aucune mutation FRAM. Le contrôleur confondait checkpoint d'erreur avec ready ; terminé le seul GDB du test en attente, cible arrêtée auditée.
+Image02 : ne touche aucune garde des API ; réutilise liaison unique arrêtée, conserve callbacks, boot réel R2 puis serveur réinitialisé. Le contrôleur vérifie stage/error avant signal ready, et le maître journalise chaque requête avant envoi, y compris timeout. ARM PASS, BSS654560/text145612/data492. Repassage RAM court justifié par cette correction de composition, pas par un besoin de répéter un acquis inchangé.

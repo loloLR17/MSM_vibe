@@ -72,10 +72,20 @@ static Tr2Result u_service(void *ctx){(void)ctx;return live_runtime_service(&run
 static Tr2Result u_prepare(bool physical,bool writable)
 {
  work.service=service; /* stopped: safely compose before binding the new service */
- live_metrology_init(&metric);memset(&event_time,0,sizeof(event_time));next_check=0;
- REQUIRE(live_fifo_acquisition_bind_event_metrology(&owner.acquisition,&metric,s_consume,&event_time));
- real_port=live_fifo_acquisition_port(&owner.acquisition);LiveAcquisitionPort port=real_port;port.start=u_start;port.stop=u_stop;
- REQUIRE(live_command_engine_init(&engine,&store,&port));REQUIRE(live_fifo_acquisition_bind_engine(&owner.acquisition,&engine));
+ if(owner.acquisition.fifo.running||engine.has_active)return TR2_ERROR_INVALID_STATE;
+ if(!owner.acquisition.metrology) {
+  live_metrology_init(&metric);
+  REQUIRE(live_fifo_acquisition_bind_event_metrology(&owner.acquisition,&metric,s_consume,&event_time));
+  real_port=live_fifo_acquisition_port(&owner.acquisition);LiveAcquisitionPort port=real_port;port.start=u_start;port.stop=u_stop;
+  REQUIRE(live_command_engine_init(&engine,&store,&port));REQUIRE(live_fifo_acquisition_bind_engine(&owner.acquisition,&engine));
+ } else {
+  /* Binding is single-use. Reuse the same stopped composition and callbacks,
+   * never clear acquisition.engine/metrology to bypass the binding guard. */
+  if(owner.acquisition.metrology!=&metric||owner.acquisition.engine!=&engine)return TR2_ERROR_INVALID_STATE;
+  void (*safe_stop)(void *)=metric.safe_stop;void *stop_context=metric.stop_context;
+  live_metrology_init(&metric);metric.safe_stop=safe_stop;metric.stop_context=stop_context;
+ }
+ memset(&event_time,0,sizeof(event_time));next_check=0;
  REQUIRE(live_command_engine_boot(&engine));
  PersistentIdentityRecord id;ModbusBlock0Image b0;REQUIRE(live_configuration_identity(&configuration,&id));REQUIRE(modbus_project_b0(&id.identity.functional,&b0));
  static SerialTransport ram={NULL,r_receive,r_transmit,r_event};SerialTransport *transport=&ram;
