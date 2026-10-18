@@ -1,0 +1,1140 @@
+{
+  "mission_id": "TR2-20261018-R5B2-PHYSICAL-LIVE-RESUME",
+  "status": "PHYSICAL_PASS_PUBLICATION_PENDING",
+  "artifacts": [
+    {
+      "source": "BenchMaster.cs",
+      "path": "BenchMaster.cs",
+      "encoding": "raw",
+      "bytes": 6418,
+      "sha256": "8371d4f5ab909edf658ed9f567cf5463f49c8ed90d2e0f1dd78ecb53731afea6",
+      "stored_bytes": 6418,
+      "stored_sha256": "8371d4f5ab909edf658ed9f567cf5463f49c8ed90d2e0f1dd78ecb53731afea6"
+    },
+    {
+      "source": "HttpProbe.cs",
+      "path": "HttpProbe.cs",
+      "encoding": "raw",
+      "bytes": 1713,
+      "sha256": "0549d9d6973cd756f2dd8bb79c07453a22381f577bbff212c37dfd19d09cd577",
+      "stored_bytes": 1713,
+      "stored_sha256": "0549d9d6973cd756f2dd8bb79c07453a22381f577bbff212c37dfd19d09cd577"
+    },
+    {
+      "source": "HttpProbe01.cs",
+      "path": "HttpProbe01.cs",
+      "encoding": "raw",
+      "bytes": 1700,
+      "sha256": "86e53a54b8cc1b595a9114af7d10a8cfd8082817aa340af6cdf6db955138bdb1",
+      "stored_bytes": 1700,
+      "stored_sha256": "86e53a54b8cc1b595a9114af7d10a8cfd8082817aa340af6cdf6db955138bdb1"
+    },
+    {
+      "source": "analysis.log",
+      "path": "analysis.log.zlib",
+      "encoding": "zlib",
+      "bytes": 1276,
+      "sha256": "c1c0a8c822d69bb467a014f269d8b2996ce4f35899335c8b6bbc5302d1eca75c",
+      "stored_bytes": 618,
+      "stored_sha256": "202d6b78b6aa4c3ddaeaa1472fb5cdad9eb2d753e88d12d6b66af263e833becf"
+    },
+    {
+      "source": "analyze.py",
+      "path": "analyze.py",
+      "encoding": "raw",
+      "bytes": 9265,
+      "sha256": "977ae9618725516ae048bf81c2b2bccd7dbf9d6917c7893ef9098a12d2f27600",
+      "stored_bytes": 9265,
+      "stored_sha256": "977ae9618725516ae048bf81c2b2bccd7dbf9d6917c7893ef9098a12d2f27600"
+    },
+    {
+      "source": "browser-command.json",
+      "path": "browser-command.json",
+      "encoding": "raw",
+      "bytes": 351,
+      "sha256": "4387b280834fe76e70261eeed5ee279c0e8e552dc12dfcc92e227aa51a48327f",
+      "stored_bytes": 351,
+      "stored_sha256": "4387b280834fe76e70261eeed5ee279c0e8e552dc12dfcc92e227aa51a48327f"
+    },
+    {
+      "source": "browser-driver.log",
+      "path": "browser-driver.log.zlib",
+      "encoding": "zlib",
+      "bytes": 17,
+      "sha256": "9fcd6112355cbdfbd816e8e38c636239a934b286d8aff310d838835b153067cb",
+      "stored_bytes": 25,
+      "stored_sha256": "2457dac1d56e2ddbf685f1c37e52035935f494bf94c992ac2bb3f601f41f43a2"
+    },
+    {
+      "source": "browser-result.json",
+      "path": "browser-result.json",
+      "encoding": "raw",
+      "bytes": 168,
+      "sha256": "b18b39e87a6f12c902aec448cf8781a459d4984fe768304d080c45a378437d35",
+      "stored_bytes": 168,
+      "stored_sha256": "b18b39e87a6f12c902aec448cf8781a459d4984fe768304d080c45a378437d35"
+    },
+    {
+      "source": "browser-running-dom.html",
+      "path": "browser-running-dom.html.zlib",
+      "encoding": "zlib",
+      "bytes": 1537,
+      "sha256": "fa2dd415623752b355b37eb5e2c52d5c90bc0a6fdf5b1427cb3142c0af964ffe",
+      "stored_bytes": 957,
+      "stored_sha256": "134aba81aa6c5241df8fd0d80040cf6fe6c27625037bf49d4d3d1d8780e2199c"
+    },
+    {
+      "source": "browser-running-stderr.log",
+      "path": "browser-running-stderr.log.zlib",
+      "encoding": "zlib",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stored_bytes": 8,
+      "stored_sha256": "b171e283c6145acf2b923098dbbc40ffc39b4f1db0212928f9869747376c4ac8"
+    },
+    {
+      "source": "browser.py",
+      "path": "browser.py",
+      "encoding": "raw",
+      "bytes": 1179,
+      "sha256": "6bef0609db4d2d77a500a30a164143eeed13758e53777d695dd0b7f6fe31a1b6",
+      "stored_bytes": 1179,
+      "stored_sha256": "6bef0609db4d2d77a500a30a164143eeed13758e53777d695dd0b7f6fe31a1b6"
+    },
+    {
+      "source": "check-preservation.py",
+      "path": "check-preservation.py",
+      "encoding": "raw",
+      "bytes": 1286,
+      "sha256": "715f8f9db1558fa05b6aaa241318365bbdfd4649bdab4ae463e18952305cc1d3",
+      "stored_bytes": 1286,
+      "stored_sha256": "715f8f9db1558fa05b6aaa241318365bbdfd4649bdab4ae463e18952305cc1d3"
+    },
+    {
+      "source": "common.py",
+      "path": "common.py",
+      "encoding": "raw",
+      "bytes": 1415,
+      "sha256": "6651c1f5e918e437bc91536d4daaf40e0314e28cc8c23c40988520653311f5b7",
+      "stored_bytes": 1415,
+      "stored_sha256": "6651c1f5e918e437bc91536d4daaf40e0314e28cc8c23c40988520653311f5b7"
+    },
+    {
+      "source": "correlated-example.json",
+      "path": "correlated-example.json",
+      "encoding": "raw",
+      "bytes": 9420,
+      "sha256": "9faee9df4c08d876e719dcc552ecbc5cba52ac98550e9b12ae7ffd26a162340d",
+      "stored_bytes": 9420,
+      "stored_sha256": "9faee9df4c08d876e719dcc552ecbc5cba52ac98550e9b12ae7ffd26a162340d"
+    },
+    {
+      "source": "deployment-verification.json",
+      "path": "deployment-verification.json",
+      "encoding": "raw",
+      "bytes": 248,
+      "sha256": "a0f11701115f57ab555f1abb95abd0fe5934f4af9eb583adc68182da7386db4c",
+      "stored_bytes": 248,
+      "stored_sha256": "a0f11701115f57ab555f1abb95abd0fe5934f4af9eb583adc68182da7386db4c"
+    },
+    {
+      "source": "final-process-inventory.json",
+      "path": "final-process-inventory.json.zlib",
+      "encoding": "zlib",
+      "bytes": 95,
+      "sha256": "0ce5830fbb347950b10649d3ef07e47249073904e2a2fb3cc67db22573363722",
+      "stored_bytes": 76,
+      "stored_sha256": "aa6ed5b757bbc1f46969c466efd8cee291ad535cf6e56aab72d2450a65a8632e"
+    },
+    {
+      "source": "hardware/before-programming-identity-invocation.json",
+      "path": "hardware/before-programming-identity-invocation.json",
+      "encoding": "raw",
+      "bytes": 799,
+      "sha256": "ac8d4cf017f3cd6401d734a3654d30b8d5fb27a82fcb75b0567230e2b7375d6f",
+      "stored_bytes": 799,
+      "stored_sha256": "ac8d4cf017f3cd6401d734a3654d30b8d5fb27a82fcb75b0567230e2b7375d6f"
+    },
+    {
+      "source": "hardware/before-programming-identity-server.log",
+      "path": "hardware/before-programming-identity-server.log.zlib",
+      "encoding": "zlib",
+      "bytes": 642,
+      "sha256": "8bcc4c71699ee84963384971405c87e1a151e92fe6097483e261a0323be2f087",
+      "stored_bytes": 327,
+      "stored_sha256": "3159f6122fbbf3033a2d1bed2bef602b9959489b62ed2df82bdd141656a1f619"
+    },
+    {
+      "source": "hardware/before-programming-identity.gdb",
+      "path": "hardware/before-programming-identity.gdb",
+      "encoding": "raw",
+      "bytes": 326,
+      "sha256": "1a9024f10bce20686a5fdd29e4bb49c80d6168c457388588412942a48bea2779",
+      "stored_bytes": 326,
+      "stored_sha256": "1a9024f10bce20686a5fdd29e4bb49c80d6168c457388588412942a48bea2779"
+    },
+    {
+      "source": "hardware/before-programming-identity.log",
+      "path": "hardware/before-programming-identity.log.zlib",
+      "encoding": "zlib",
+      "bytes": 289,
+      "sha256": "c3f7693b7568d5b62723bdc0841a22a5c492b3efe1d3b6de45d28ee40a3784a6",
+      "stored_bytes": 241,
+      "stored_sha256": "80a64e048474ce1267ac34069d87291c2bc3fa33fb2c8939b92f66084cdd928c"
+    },
+    {
+      "source": "hardware/exclusive-check.jsonl",
+      "path": "hardware/exclusive-check.jsonl.zlib",
+      "encoding": "zlib",
+      "bytes": 126,
+      "sha256": "ac2991aac18f21882b404255252645ebb3d37bbdad088aa7ebca081722896315",
+      "stored_bytes": 123,
+      "stored_sha256": "d23db413a250a49490b831375fe9f59e0a8c7eaf0954f7db0c5155db61d9191d"
+    },
+    {
+      "source": "hardware/flash-before.bin",
+      "path": "hardware/flash-before.bin.zlib",
+      "encoding": "zlib",
+      "bytes": 2097152,
+      "sha256": "c5bc344d64984c48c3e34b05fa9432c9c124e8b67428eb0eef22c0d62ddf5b26",
+      "stored_bytes": 82705,
+      "stored_sha256": "ff2792eac64fbee090edf3e029a37859acb4c0d6d567d8ce70455ab9a06043e3"
+    },
+    {
+      "source": "hardware/flash-fresh-check-invocation.json",
+      "path": "hardware/flash-fresh-check-invocation.json",
+      "encoding": "raw",
+      "bytes": 789,
+      "sha256": "91104b0b44f5190ee3fe06bb88dfe4e6373b871b4efd20706a0819e47d91435a",
+      "stored_bytes": 789,
+      "stored_sha256": "91104b0b44f5190ee3fe06bb88dfe4e6373b871b4efd20706a0819e47d91435a"
+    },
+    {
+      "source": "hardware/flash-fresh-check-server.log",
+      "path": "hardware/flash-fresh-check-server.log.zlib",
+      "encoding": "zlib",
+      "bytes": 642,
+      "sha256": "8bcc4c71699ee84963384971405c87e1a151e92fe6097483e261a0323be2f087",
+      "stored_bytes": 327,
+      "stored_sha256": "3159f6122fbbf3033a2d1bed2bef602b9959489b62ed2df82bdd141656a1f619"
+    },
+    {
+      "source": "hardware/flash-fresh-check.gdb",
+      "path": "hardware/flash-fresh-check.gdb",
+      "encoding": "raw",
+      "bytes": 543,
+      "sha256": "6f086390585758a939cc716e845fcaac79c994f840eea73a740fbb3bd9c1d19d",
+      "stored_bytes": 543,
+      "stored_sha256": "6f086390585758a939cc716e845fcaac79c994f840eea73a740fbb3bd9c1d19d"
+    },
+    {
+      "source": "hardware/flash-fresh-check.log",
+      "path": "hardware/flash-fresh-check.log.zlib",
+      "encoding": "zlib",
+      "bytes": 473,
+      "sha256": "14db0632c90fd7e09aed8df2b4ff705f4120d4e6a23b04ded076e46c8d4903a2",
+      "stored_bytes": 313,
+      "stored_sha256": "a7ae5f29d2fb9a569c629f689e29eea6d4a201be04ded01312dea1fb5ae4d895"
+    },
+    {
+      "source": "hardware/flash-restored.bin",
+      "path": "hardware/flash-restored.bin.zlib",
+      "encoding": "zlib",
+      "bytes": 2097152,
+      "sha256": "c5bc344d64984c48c3e34b05fa9432c9c124e8b67428eb0eef22c0d62ddf5b26",
+      "stored_bytes": 82705,
+      "stored_sha256": "ff2792eac64fbee090edf3e029a37859acb4c0d6d567d8ce70455ab9a06043e3"
+    },
+    {
+      "source": "hardware/fram-after-restoration.bin",
+      "path": "hardware/fram-after-restoration.bin.zlib",
+      "encoding": "zlib",
+      "bytes": 262144,
+      "sha256": "2b501a835b9a02c43dc0738bd7af167b7d049fbffb4e9ef677ed2e867f47dd84",
+      "stored_bytes": 2066,
+      "stored_sha256": "97f4bfd88dfd67d771222971ac86c1f4dee1e6e76d3cf1764729369bd3e7b011"
+    },
+    {
+      "source": "hardware/fram-before.bin",
+      "path": "hardware/fram-before.bin.zlib",
+      "encoding": "zlib",
+      "bytes": 262144,
+      "sha256": "4e7fabde5da1100cf9ae8faf262ea079727856826bb2829c1e99b68ad63b84bd",
+      "stored_bytes": 1953,
+      "stored_sha256": "ae4a052290a4fe9f991985aaaf091db030a368bbae6120e470d0439359ee5381"
+    },
+    {
+      "source": "hardware/fram-fresh-check-invocation.json",
+      "path": "hardware/fram-fresh-check-invocation.json",
+      "encoding": "raw",
+      "bytes": 788,
+      "sha256": "fb3badb2711b7a0da3d1eed3312334cf51f17c746c970c23ea8d3adb4106dd38",
+      "stored_bytes": 788,
+      "stored_sha256": "fb3badb2711b7a0da3d1eed3312334cf51f17c746c970c23ea8d3adb4106dd38"
+    },
+    {
+      "source": "hardware/fram-fresh-check-server.log",
+      "path": "hardware/fram-fresh-check-server.log.zlib",
+      "encoding": "zlib",
+      "bytes": 642,
+      "sha256": "8bcc4c71699ee84963384971405c87e1a151e92fe6097483e261a0323be2f087",
+      "stored_bytes": 327,
+      "stored_sha256": "3159f6122fbbf3033a2d1bed2bef602b9959489b62ed2df82bdd141656a1f619"
+    },
+    {
+      "source": "hardware/fram-fresh-check.gdb",
+      "path": "hardware/fram-fresh-check.gdb",
+      "encoding": "raw",
+      "bytes": 622,
+      "sha256": "b470ce6e3440fbf3283e575cb26c2bc718d2cdcc91a0c1083657765c73a51f54",
+      "stored_bytes": 622,
+      "stored_sha256": "b470ce6e3440fbf3283e575cb26c2bc718d2cdcc91a0c1083657765c73a51f54"
+    },
+    {
+      "source": "hardware/fram-fresh-check.log",
+      "path": "hardware/fram-fresh-check.log.zlib",
+      "encoding": "zlib",
+      "bytes": 610,
+      "sha256": "5cdd978635ca9f5c3bc19e7fd0b9ddcf40dfe588a683eec0861fb9fdca3ed128",
+      "stored_bytes": 445,
+      "stored_sha256": "a5f45bef5297a44c001c8864f9b2d2139a93faf6daf9cbfd3f109bef0289a0d5"
+    },
+    {
+      "source": "hardware/hardware.py",
+      "path": "hardware/hardware.py",
+      "encoding": "raw",
+      "bytes": 2345,
+      "sha256": "2d56faca5bd9ecf1d71a748e69266921b7e6bc6458ff243ccd37baab9c21e264",
+      "stored_bytes": 2345,
+      "stored_sha256": "2d56faca5bd9ecf1d71a748e69266921b7e6bc6458ff243ccd37baab9c21e264"
+    },
+    {
+      "source": "hardware/live-driver.log",
+      "path": "hardware/live-driver.log.zlib",
+      "encoding": "zlib",
+      "bytes": 373,
+      "sha256": "ca64972a5c0d2f0895f72cd45dbc6511a469bab210861bb9f9d10d50efc57fd8",
+      "stored_bytes": 220,
+      "stored_sha256": "0094f18036a837eb5366118341dca8cb6164ff3aae159bacaa271492e64c7d56"
+    },
+    {
+      "source": "hardware/live-flash-command.json",
+      "path": "hardware/live-flash-command.json",
+      "encoding": "raw",
+      "bytes": 592,
+      "sha256": "6e42da7e7cfcac8ef6e1e2e49a8380953d80cffe98c3605e6e1d2e488e3914e8",
+      "stored_bytes": 592,
+      "stored_sha256": "6e42da7e7cfcac8ef6e1e2e49a8380953d80cffe98c3605e6e1d2e488e3914e8"
+    },
+    {
+      "source": "hardware/live-flash.log",
+      "path": "hardware/live-flash.log.zlib",
+      "encoding": "zlib",
+      "bytes": 1673,
+      "sha256": "6210b3379a1c9a1200878be3427843ff6daac1c2455689f3a4e6278dfcf51229",
+      "stored_bytes": 665,
+      "stored_sha256": "cf121d1c636d4ce3c42ac654f6a5d89f6a2dad81d3afc1449798934d93e6d2b0"
+    },
+    {
+      "source": "hardware/live-fram.bin",
+      "path": "hardware/live-fram.bin.zlib",
+      "encoding": "zlib",
+      "bytes": 262144,
+      "sha256": "2b501a835b9a02c43dc0738bd7af167b7d049fbffb4e9ef677ed2e867f47dd84",
+      "stored_bytes": 2066,
+      "stored_sha256": "97f4bfd88dfd67d771222971ac86c1f4dee1e6e76d3cf1764729369bd3e7b011"
+    },
+    {
+      "source": "hardware/live-image-check-invocation.json",
+      "path": "hardware/live-image-check-invocation.json",
+      "encoding": "raw",
+      "bytes": 725,
+      "sha256": "27eb03cff7a0549943ebce10688a6c62fda065382b42855e1080566dcd206e9d",
+      "stored_bytes": 725,
+      "stored_sha256": "27eb03cff7a0549943ebce10688a6c62fda065382b42855e1080566dcd206e9d"
+    },
+    {
+      "source": "hardware/live-image-check-server.log",
+      "path": "hardware/live-image-check-server.log.zlib",
+      "encoding": "zlib",
+      "bytes": 642,
+      "sha256": "8bcc4c71699ee84963384971405c87e1a151e92fe6097483e261a0323be2f087",
+      "stored_bytes": 327,
+      "stored_sha256": "3159f6122fbbf3033a2d1bed2bef602b9959489b62ed2df82bdd141656a1f619"
+    },
+    {
+      "source": "hardware/live-image-check.gdb",
+      "path": "hardware/live-image-check.gdb",
+      "encoding": "raw",
+      "bytes": 411,
+      "sha256": "20ab018adef982595d93b1b999b1f4663907dd3b475c1a0a43ea6ec687c4f2b9",
+      "stored_bytes": 411,
+      "stored_sha256": "20ab018adef982595d93b1b999b1f4663907dd3b475c1a0a43ea6ec687c4f2b9"
+    },
+    {
+      "source": "hardware/live-image-check.log",
+      "path": "hardware/live-image-check.log.zlib",
+      "encoding": "zlib",
+      "bytes": 269,
+      "sha256": "5366f2ffa61c2d9ef8c00edf5da4d37ca9f197a6d8e31056aff977258af9a324",
+      "stored_bytes": 227,
+      "stored_sha256": "c06a81d04832e13b27a0dbf9197e36de8069e57ef679bc52f9e826413c9b9395"
+    },
+    {
+      "source": "hardware/live-image-readback.bin",
+      "path": "hardware/live-image-readback.bin.zlib",
+      "encoding": "zlib",
+      "bytes": 147640,
+      "sha256": "2cf491cc8cfa8da76fe97512b3fb6471a753b3ac89ef9b169bf05745075a27ee",
+      "stored_bytes": 81326,
+      "stored_sha256": "fad310a28d9ec6a3ca21ef34d616a39e0a7870ac287f63bfced1eb7e2cdb4f5a"
+    },
+    {
+      "source": "hardware/live-phase-invocation.json",
+      "path": "hardware/live-phase-invocation.json",
+      "encoding": "raw",
+      "bytes": 719,
+      "sha256": "37db9323a37e435cfc0cf66892cd06d153da8a0fcfd9800a8f940ba4eeb9146a",
+      "stored_bytes": 719,
+      "stored_sha256": "37db9323a37e435cfc0cf66892cd06d153da8a0fcfd9800a8f940ba4eeb9146a"
+    },
+    {
+      "source": "hardware/live-phase-server.log",
+      "path": "hardware/live-phase-server.log.zlib",
+      "encoding": "zlib",
+      "bytes": 642,
+      "sha256": "8bcc4c71699ee84963384971405c87e1a151e92fe6097483e261a0323be2f087",
+      "stored_bytes": 327,
+      "stored_sha256": "3159f6122fbbf3033a2d1bed2bef602b9959489b62ed2df82bdd141656a1f619"
+    },
+    {
+      "source": "hardware/live-phase.gdb",
+      "path": "hardware/live-phase.gdb",
+      "encoding": "raw",
+      "bytes": 1570,
+      "sha256": "1921df7770e2a7cf137237d4bb58a05791b1ea03b92850bf4c8f82329295cc9b",
+      "stored_bytes": 1570,
+      "stored_sha256": "1921df7770e2a7cf137237d4bb58a05791b1ea03b92850bf4c8f82329295cc9b"
+    },
+    {
+      "source": "hardware/live-phase.log",
+      "path": "hardware/live-phase.log.zlib",
+      "encoding": "zlib",
+      "bytes": 28626,
+      "sha256": "3ddf803076af13e60a41750d975a6b8d839b4b3c609ca688ea77ec671733138d",
+      "stored_bytes": 5556,
+      "stored_sha256": "882196a5ff82a69278a825afa6eaf615045b2e58763d31f39334bde6caa11a48"
+    },
+    {
+      "source": "hardware/live-ready.bin",
+      "path": "hardware/live-ready.bin.zlib",
+      "encoding": "zlib",
+      "bytes": 64,
+      "sha256": "36727a7c624697d42b69b07cdd91ea6651c8098b3497169f7b20f6c359845164",
+      "stored_bytes": 28,
+      "stored_sha256": "ed5bf55ef8aacde4e8f0d831576c36b95de662c42750d91ff95241aba1983543"
+    },
+    {
+      "source": "hardware/live-xyz.bin",
+      "path": "hardware/live-xyz.bin.zlib",
+      "encoding": "zlib",
+      "bytes": 24576,
+      "sha256": "79dce4ed60920d7d686f07079e9fafc2ff284add726c5a13fda8d7c4c127316f",
+      "stored_bytes": 19367,
+      "stored_sha256": "c426ad6a901dd6d05cd685de8dde975c6bf8bf4f151320fb0ac84e4a914927b6"
+    },
+    {
+      "source": "hardware/preflight-driver.log",
+      "path": "hardware/preflight-driver.log.zlib",
+      "encoding": "zlib",
+      "bytes": 765,
+      "sha256": "9862efe569e403b50b5340b4391d27cce51aed9e2081e4f87a7b10d1b1143aca",
+      "stored_bytes": 500,
+      "stored_sha256": "b9ed3bd49a77de9f3354928c8c240b100877dd6e236c9267197942a7998b2868"
+    },
+    {
+      "source": "hardware/preflight-summary.json",
+      "path": "hardware/preflight-summary.json",
+      "encoding": "raw",
+      "bytes": 710,
+      "sha256": "df6436c0a879739f4b2e997ea9fabf592440eb75c674083312dfab34d4b936ec",
+      "stored_bytes": 710,
+      "stored_sha256": "df6436c0a879739f4b2e997ea9fabf592440eb75c674083312dfab34d4b936ec"
+    },
+    {
+      "source": "hardware/preflight.py",
+      "path": "hardware/preflight.py",
+      "encoding": "raw",
+      "bytes": 2511,
+      "sha256": "910709099e78c4b86ea3d93557781140e4d4fd3c2765b231da6fcca6136e1ace",
+      "stored_bytes": 2511,
+      "stored_sha256": "910709099e78c4b86ea3d93557781140e4d4fd3c2765b231da6fcca6136e1ace"
+    },
+    {
+      "source": "hardware/restoration-summary.json",
+      "path": "hardware/restoration-summary.json",
+      "encoding": "raw",
+      "bytes": 620,
+      "sha256": "5762ba2523dbf9c8a93532b2eca5a73839fbff0129333ffeb50e74347863ed5a",
+      "stored_bytes": 620,
+      "stored_sha256": "5762ba2523dbf9c8a93532b2eca5a73839fbff0129333ffeb50e74347863ed5a"
+    },
+    {
+      "source": "hardware/restore-M016-command.json",
+      "path": "hardware/restore-M016-command.json",
+      "encoding": "raw",
+      "bytes": 527,
+      "sha256": "2007fe9e2424e7451c20584d337a20b8722f612102b3c530a2597d429f9b57f6",
+      "stored_bytes": 527,
+      "stored_sha256": "2007fe9e2424e7451c20584d337a20b8722f612102b3c530a2597d429f9b57f6"
+    },
+    {
+      "source": "hardware/restore-M016.log",
+      "path": "hardware/restore-M016.log.zlib",
+      "encoding": "zlib",
+      "bytes": 1631,
+      "sha256": "174cd9dd556b34cb59c6459d480c92f1420a0a62e84484e67787a01e5d346c17",
+      "stored_bytes": 644,
+      "stored_sha256": "ec9ce66b2f6d318378cc6f2c421ae3280e08432b4e12b5b4cec4b13f6085e99e"
+    },
+    {
+      "source": "hardware/restore-driver.log",
+      "path": "hardware/restore-driver.log.zlib",
+      "encoding": "zlib",
+      "bytes": 682,
+      "sha256": "64837360687d1e0d3e253bd94e1e958804426bdc274c4120379402f10a768647",
+      "stored_bytes": 434,
+      "stored_sha256": "e224d432bac4715f00b9aa378a6ae16b82c5ba807e9b9dab186965631c958d5c"
+    },
+    {
+      "source": "hardware/restore-final-fram-invocation.json",
+      "path": "hardware/restore-final-fram-invocation.json",
+      "encoding": "raw",
+      "bytes": 790,
+      "sha256": "583af8c063c23cac0dae598494e25f7bb008bb1285f80f3a7cde79843da2c455",
+      "stored_bytes": 790,
+      "stored_sha256": "583af8c063c23cac0dae598494e25f7bb008bb1285f80f3a7cde79843da2c455"
+    },
+    {
+      "source": "hardware/restore-final-fram-server.log",
+      "path": "hardware/restore-final-fram-server.log.zlib",
+      "encoding": "zlib",
+      "bytes": 642,
+      "sha256": "8bcc4c71699ee84963384971405c87e1a151e92fe6097483e261a0323be2f087",
+      "stored_bytes": 327,
+      "stored_sha256": "3159f6122fbbf3033a2d1bed2bef602b9959489b62ed2df82bdd141656a1f619"
+    },
+    {
+      "source": "hardware/restore-final-fram.gdb",
+      "path": "hardware/restore-final-fram.gdb",
+      "encoding": "raw",
+      "bytes": 633,
+      "sha256": "7dfb4f082492d546d3a1eb011c1f459523026bec514c5d74b2a000dade172d58",
+      "stored_bytes": 633,
+      "stored_sha256": "7dfb4f082492d546d3a1eb011c1f459523026bec514c5d74b2a000dade172d58"
+    },
+    {
+      "source": "hardware/restore-final-fram.log",
+      "path": "hardware/restore-final-fram.log.zlib",
+      "encoding": "zlib",
+      "bytes": 784,
+      "sha256": "a08982bd0121eb764d30300cc7f5564ef495512ed836b52209310433a32954a2",
+      "stored_bytes": 442,
+      "stored_sha256": "e5a1b50ac8f32a1c9fef09308776c4ed71d24996dfcc9ddd5ebb89bfbbc0c7e7"
+    },
+    {
+      "source": "hardware/restore-full-readback-invocation.json",
+      "path": "hardware/restore-full-readback-invocation.json",
+      "encoding": "raw",
+      "bytes": 793,
+      "sha256": "b4c84fc0ee6b841ce4148260ea023f0a4b96c6fbb34cd32e780cd7160d26ab24",
+      "stored_bytes": 793,
+      "stored_sha256": "b4c84fc0ee6b841ce4148260ea023f0a4b96c6fbb34cd32e780cd7160d26ab24"
+    },
+    {
+      "source": "hardware/restore-full-readback-server.log",
+      "path": "hardware/restore-full-readback-server.log.zlib",
+      "encoding": "zlib",
+      "bytes": 642,
+      "sha256": "8bcc4c71699ee84963384971405c87e1a151e92fe6097483e261a0323be2f087",
+      "stored_bytes": 327,
+      "stored_sha256": "3159f6122fbbf3033a2d1bed2bef602b9959489b62ed2df82bdd141656a1f619"
+    },
+    {
+      "source": "hardware/restore-full-readback.gdb",
+      "path": "hardware/restore-full-readback.gdb",
+      "encoding": "raw",
+      "bytes": 413,
+      "sha256": "3299b4fe5e622763b0ec6fddfb110d9deec58c373fb1829d072a85c37fe8ba92",
+      "stored_bytes": 413,
+      "stored_sha256": "3299b4fe5e622763b0ec6fddfb110d9deec58c373fb1829d072a85c37fe8ba92"
+    },
+    {
+      "source": "hardware/restore-full-readback.log",
+      "path": "hardware/restore-full-readback.log.zlib",
+      "encoding": "zlib",
+      "bytes": 268,
+      "sha256": "2f7becd2001101c1e5bc06f62393663b33a07c594b411370e6766c09b47702ae",
+      "stored_bytes": 225,
+      "stored_sha256": "52b10b4abe795e99e039a98ee76b608ab6901900fc4cd3065a7cb4e4037b0f92"
+    },
+    {
+      "source": "hardware/restore-pages.bin",
+      "path": "hardware/restore-pages.bin.zlib",
+      "encoding": "zlib",
+      "bytes": 155648,
+      "sha256": "24f79788a3a5294ab60e32fce149a57ec0351ba0fff53dcfa6de67d0e434c880",
+      "stored_bytes": 72922,
+      "stored_sha256": "d63c2f609a30c303d20c645e532eabc6593776e0fe250f126d9ea1629d6ce55b"
+    },
+    {
+      "source": "hardware/restore-stopped-check-invocation.json",
+      "path": "hardware/restore-stopped-check-invocation.json",
+      "encoding": "raw",
+      "bytes": 730,
+      "sha256": "6e23433cdccb89acd9e37693b7815e487ef4051ba76d49c483ec7132025b5bc8",
+      "stored_bytes": 730,
+      "stored_sha256": "6e23433cdccb89acd9e37693b7815e487ef4051ba76d49c483ec7132025b5bc8"
+    },
+    {
+      "source": "hardware/restore-stopped-check-server.log",
+      "path": "hardware/restore-stopped-check-server.log.zlib",
+      "encoding": "zlib",
+      "bytes": 642,
+      "sha256": "8bcc4c71699ee84963384971405c87e1a151e92fe6097483e261a0323be2f087",
+      "stored_bytes": 327,
+      "stored_sha256": "3159f6122fbbf3033a2d1bed2bef602b9959489b62ed2df82bdd141656a1f619"
+    },
+    {
+      "source": "hardware/restore-stopped-check.gdb",
+      "path": "hardware/restore-stopped-check.gdb",
+      "encoding": "raw",
+      "bytes": 527,
+      "sha256": "324f43f1f26ececfcf8cf852dfdf5630c6c8c7e64aa4fc0d2ee3bf709549c750",
+      "stored_bytes": 527,
+      "stored_sha256": "324f43f1f26ececfcf8cf852dfdf5630c6c8c7e64aa4fc0d2ee3bf709549c750"
+    },
+    {
+      "source": "hardware/restore-stopped-check.log",
+      "path": "hardware/restore-stopped-check.log.zlib",
+      "encoding": "zlib",
+      "bytes": 434,
+      "sha256": "bc969101a4e6e21b9843f8d6f219005f84af1802c0a83022ade81da65d0bdef7",
+      "stored_bytes": 307,
+      "stored_sha256": "4bb268d76c1bcd0c023f6512edee8218498e50712972615f6d15e32986ed6ad0"
+    },
+    {
+      "source": "hardware/restore.py",
+      "path": "hardware/restore.py",
+      "encoding": "raw",
+      "bytes": 2451,
+      "sha256": "0554f58164bedf58c542c5cf476e5da05058c278038b9610086204423f2e310f",
+      "stored_bytes": 2451,
+      "stored_sha256": "0554f58164bedf58c542c5cf476e5da05058c278038b9610086204423f2e310f"
+    },
+    {
+      "source": "hardware/restored-sensor-driver.log",
+      "path": "hardware/restored-sensor-driver.log.zlib",
+      "encoding": "zlib",
+      "bytes": 36,
+      "sha256": "520590506f2348aea68eb4f783683a6825782dc3ba075931cc6138df3a50031d",
+      "stored_bytes": 41,
+      "stored_sha256": "33f946ff47ed50af753e0fd884aa94cfbed6599aff65c25712a561a1ebbc0b90"
+    },
+    {
+      "source": "hardware/restored-sensor-stopped-readonly-invocation.json",
+      "path": "hardware/restored-sensor-stopped-readonly-invocation.json",
+      "encoding": "raw",
+      "bytes": 804,
+      "sha256": "a30b7e763cdfdfebdcdaaa4cb07f4dba8ba9c4ff0ab93cbb6ee23ccd26c67b49",
+      "stored_bytes": 804,
+      "stored_sha256": "a30b7e763cdfdfebdcdaaa4cb07f4dba8ba9c4ff0ab93cbb6ee23ccd26c67b49"
+    },
+    {
+      "source": "hardware/restored-sensor-stopped-readonly-server.log",
+      "path": "hardware/restored-sensor-stopped-readonly-server.log.zlib",
+      "encoding": "zlib",
+      "bytes": 642,
+      "sha256": "8bcc4c71699ee84963384971405c87e1a151e92fe6097483e261a0323be2f087",
+      "stored_bytes": 327,
+      "stored_sha256": "3159f6122fbbf3033a2d1bed2bef602b9959489b62ed2df82bdd141656a1f619"
+    },
+    {
+      "source": "hardware/restored-sensor-stopped-readonly.gdb",
+      "path": "hardware/restored-sensor-stopped-readonly.gdb",
+      "encoding": "raw",
+      "bytes": 890,
+      "sha256": "9fc035c3b694dd0a9ba9d2e72b85057ba8200bff8f50b42fd16ae07817876624",
+      "stored_bytes": 890,
+      "stored_sha256": "9fc035c3b694dd0a9ba9d2e72b85057ba8200bff8f50b42fd16ae07817876624"
+    },
+    {
+      "source": "hardware/restored-sensor-stopped-readonly.log",
+      "path": "hardware/restored-sensor-stopped-readonly.log.zlib",
+      "encoding": "zlib",
+      "bytes": 400,
+      "sha256": "6f0b4e9b3f8bda20e43b780d2cae2a2acd4841e1be5e01570c2ce487c2ce26ae",
+      "stored_bytes": 307,
+      "stored_sha256": "fe9fdf0deec4057edd707d3aeada97ae1eddd588312b5ad181e9dbfb3fafffe6"
+    },
+    {
+      "source": "hardware/restored-sensor.py",
+      "path": "hardware/restored-sensor.py",
+      "encoding": "raw",
+      "bytes": 362,
+      "sha256": "2a9c02ff52f01d64ca049d179b78921338d67865abf841807a8da3e599b42cad",
+      "stored_bytes": 362,
+      "stored_sha256": "2a9c02ff52f01d64ca049d179b78921338d67865abf841807a8da3e599b42cad"
+    },
+    {
+      "source": "hardware/run.py",
+      "path": "hardware/run.py",
+      "encoding": "raw",
+      "bytes": 4953,
+      "sha256": "29de6e2332ab1c33acce86db73b1fda34a8695da2c4250c9c79809f5fc508eb0",
+      "stored_bytes": 4953,
+      "stored_sha256": "29de6e2332ab1c33acce86db73b1fda34a8695da2c4250c9c79809f5fc508eb0"
+    },
+    {
+      "source": "hardware/sensor-stopped-readonly-invocation.json",
+      "path": "hardware/sensor-stopped-readonly-invocation.json",
+      "encoding": "raw",
+      "bytes": 795,
+      "sha256": "c62889605d16a5792b9d4ff6902bc6edcb0b39204a53b71cd5141793728c5f68",
+      "stored_bytes": 795,
+      "stored_sha256": "c62889605d16a5792b9d4ff6902bc6edcb0b39204a53b71cd5141793728c5f68"
+    },
+    {
+      "source": "hardware/sensor-stopped-readonly-server.log",
+      "path": "hardware/sensor-stopped-readonly-server.log.zlib",
+      "encoding": "zlib",
+      "bytes": 642,
+      "sha256": "8bcc4c71699ee84963384971405c87e1a151e92fe6097483e261a0323be2f087",
+      "stored_bytes": 327,
+      "stored_sha256": "3159f6122fbbf3033a2d1bed2bef602b9959489b62ed2df82bdd141656a1f619"
+    },
+    {
+      "source": "hardware/sensor-stopped-readonly.gdb",
+      "path": "hardware/sensor-stopped-readonly.gdb",
+      "encoding": "raw",
+      "bytes": 890,
+      "sha256": "9fc035c3b694dd0a9ba9d2e72b85057ba8200bff8f50b42fd16ae07817876624",
+      "stored_bytes": 890,
+      "stored_sha256": "9fc035c3b694dd0a9ba9d2e72b85057ba8200bff8f50b42fd16ae07817876624"
+    },
+    {
+      "source": "hardware/sensor-stopped-readonly.log",
+      "path": "hardware/sensor-stopped-readonly.log.zlib",
+      "encoding": "zlib",
+      "bytes": 450,
+      "sha256": "fee3adbf619efe50b6e656f40b8e5103ae00278938c3bb361f14484453e290ad",
+      "stored_bytes": 336,
+      "stored_sha256": "c8df48056ca6d74568cd8f47cf47bf8d8212d9545b9145bb289f89f321d7fb95"
+    },
+    {
+      "source": "hardware/start-master.jsonl",
+      "path": "hardware/start-master.jsonl.zlib",
+      "encoding": "zlib",
+      "bytes": 245811,
+      "sha256": "116e458e53c32d3ee871e454ee0171af9bf1c3f2afa197509b296837e8306a2e",
+      "stored_bytes": 12865,
+      "stored_sha256": "d6e0b92e203260800f48bb9517627e129417cba4d6443c4ce5703783461de586"
+    },
+    {
+      "source": "hardware/stop-master.jsonl",
+      "path": "hardware/stop-master.jsonl.zlib",
+      "encoding": "zlib",
+      "bytes": 246449,
+      "sha256": "4ba6434ee91ff26038e840c6c28bb3a8c39f41980761070119b0a93e9d1dbe74",
+      "stored_bytes": 13388,
+      "stored_sha256": "affaeee97a1feb32e8a3dc1f2add613c779b977d70abf1f0600fe6778758207a"
+    },
+    {
+      "source": "held-http.jsonl",
+      "path": "held-http.jsonl.zlib",
+      "encoding": "zlib",
+      "bytes": 61467,
+      "sha256": "32bd9ddd227ed28a7ece51f839866308faf8b8c41dd14a48c848538680fc126f",
+      "stored_bytes": 4236,
+      "stored_sha256": "d2bc720139a121a2690f6bd6f6a1afd4a33c24036878fb1ecde4d48390113eab"
+    },
+    {
+      "source": "held-serial.jsonl",
+      "path": "held-serial.jsonl.zlib",
+      "encoding": "zlib",
+      "bytes": 90789,
+      "sha256": "2bfb2e3c3d587d2935feb16662a7336b476846e0fb9c01194c8c1019a1475bb6",
+      "stored_bytes": 6574,
+      "stored_sha256": "6b3bbd5ae4dca08fc0ee179e3c0763b3f92c36643ab2fbc12879d38b44acd16a"
+    },
+    {
+      "source": "held-service-command.json",
+      "path": "held-service-command.json",
+      "encoding": "raw",
+      "bytes": 502,
+      "sha256": "574cda91bd8f21d3f24db0c150ea6d1ed4c63091fba20de1d68659a4b138fb4d",
+      "stored_bytes": 502,
+      "stored_sha256": "574cda91bd8f21d3f24db0c150ea6d1ed4c63091fba20de1d68659a4b138fb4d"
+    },
+    {
+      "source": "held-service.log",
+      "path": "held-service.log.zlib",
+      "encoding": "zlib",
+      "bytes": 113553,
+      "sha256": "e5dd2e33a038f12f575907d12cc45c3b41a7e357e6bb7b421bb46eed96267c71",
+      "stored_bytes": 4473,
+      "stored_sha256": "2c77762b55e35f31a56f347c982c1671144155a0e16ab208330bb769a5dd29ea"
+    },
+    {
+      "source": "http-probe-build.log",
+      "path": "http-probe-build.log.zlib",
+      "encoding": "zlib",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stored_bytes": 8,
+      "stored_sha256": "b171e283c6145acf2b923098dbbc40ffc39b4f1db0212928f9869747376c4ac8"
+    },
+    {
+      "source": "http-probe-build02.log",
+      "path": "http-probe-build02.log.zlib",
+      "encoding": "zlib",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stored_bytes": 8,
+      "stored_sha256": "b171e283c6145acf2b923098dbbc40ffc39b4f1db0212928f9869747376c4ac8"
+    },
+    {
+      "source": "image-prepared.json",
+      "path": "image-prepared.json",
+      "encoding": "raw",
+      "bytes": 558,
+      "sha256": "228d7bca8ab74fd9374e6b444cf094e79e206ff0d9056e311be1c9097a5f6b0d",
+      "stored_bytes": 558,
+      "stored_sha256": "228d7bca8ab74fd9374e6b444cf094e79e206ff0d9056e311be1c9097a5f6b0d"
+    },
+    {
+      "source": "image.json",
+      "path": "image.json",
+      "encoding": "raw",
+      "bytes": 746,
+      "sha256": "88bf478c46fb9e0df7363b24d78c92335043f9595b3b0b464fc14e9593adf9f0",
+      "stored_bytes": 746,
+      "stored_sha256": "88bf478c46fb9e0df7363b24d78c92335043f9595b3b0b464fc14e9593adf9f0"
+    },
+    {
+      "source": "initial-http.jsonl",
+      "path": "initial-http.jsonl.zlib",
+      "encoding": "zlib",
+      "bytes": 72981,
+      "sha256": "c56171b7548aa70aed6a3f82cd68cc2f6f52fc16d5ca5caa8d822707eab8f8f4",
+      "stored_bytes": 4449,
+      "stored_sha256": "c79500555b88c92a8896663c3406e4b3cbcfc02c593dcd1ce69d94f7fdb6854e"
+    },
+    {
+      "source": "initial-serial.jsonl",
+      "path": "initial-serial.jsonl.zlib",
+      "encoding": "zlib",
+      "bytes": 107567,
+      "sha256": "ce4a95c8e2b288417489dc0c7c2a97e5b794a98563a335de38c18feb2d417177",
+      "stored_bytes": 7159,
+      "stored_sha256": "d00c37e0d50109fbd2ea764125f713b4ad072f5d9d094528508b0fc3fd9d3ed2"
+    },
+    {
+      "source": "initial-service-command.json",
+      "path": "initial-service-command.json",
+      "encoding": "raw",
+      "bytes": 505,
+      "sha256": "5ca54c71b33efb5571969a49cb01aabfbb075184f2b54a6954c5db8a1a8022f3",
+      "stored_bytes": 505,
+      "stored_sha256": "5ca54c71b33efb5571969a49cb01aabfbb075184f2b54a6954c5db8a1a8022f3"
+    },
+    {
+      "source": "initial-service.log",
+      "path": "initial-service.log.zlib",
+      "encoding": "zlib",
+      "bytes": 133414,
+      "sha256": "7cfacdcb6f54c5d4707d3aa573ebab272ef0c1d814bfe9e79eb40910a7c33ec2",
+      "stored_bytes": 4752,
+      "stored_sha256": "069e0efdf6fdb0da7f0580fd67a032a5167f10fc6f98f34ca7df6266855d0d4e"
+    },
+    {
+      "source": "initial-state.json",
+      "path": "initial-state.json.zlib",
+      "encoding": "zlib",
+      "bytes": 1742647,
+      "sha256": "3d4ebd630e3c947e52e3076c50207662b97791097b1b443c5aa90f6a1ba5f296",
+      "stored_bytes": 358925,
+      "stored_sha256": "5fad195b8a7145a417c6a6c93a73a93e3eb387abafb4674753074f6a8f514b80"
+    },
+    {
+      "source": "live.db",
+      "path": "live.db.zlib",
+      "encoding": "zlib",
+      "bytes": 839680,
+      "sha256": "6efaa77972d41cd749bf16e38e23aa22911d889fe5d9453504c80435cf0f5fd1",
+      "stored_bytes": 59447,
+      "stored_sha256": "6ed2528b74a32f8d1a0f79b05449a31ae1571f60bddc879a996dcc4cedb4ae5d"
+    },
+    {
+      "source": "master-build.log",
+      "path": "master-build.log.zlib",
+      "encoding": "zlib",
+      "bytes": 198,
+      "sha256": "d9175a2f9a87244dd447a7f3a528089e7142047af57dd513cf9193452a15b590",
+      "stored_bytes": 164,
+      "stored_sha256": "2ef79b97c4af5c59a63881e9f65bc86ad505af8847630805e56890d25f9fe8fa"
+    },
+    {
+      "source": "master-selftest.jsonl",
+      "path": "master-selftest.jsonl",
+      "encoding": "raw",
+      "bytes": 82,
+      "sha256": "af4efb54305e312115495099e7ca2886533deaf85df21aac82b7b105b4acee87",
+      "stored_bytes": 82,
+      "stored_sha256": "af4efb54305e312115495099e7ca2886533deaf85df21aac82b7b105b4acee87"
+    },
+    {
+      "source": "model-final.bin",
+      "path": "model-final.bin.zlib",
+      "encoding": "zlib",
+      "bytes": 262144,
+      "sha256": "2b501a835b9a02c43dc0738bd7af167b7d049fbffb4e9ef677ed2e867f47dd84",
+      "stored_bytes": 2066,
+      "stored_sha256": "97f4bfd88dfd67d771222971ac86c1f4dee1e6e76d3cf1764729369bd3e7b011"
+    },
+    {
+      "source": "model-final.c",
+      "path": "model-final.c",
+      "encoding": "raw",
+      "bytes": 1099,
+      "sha256": "bbde0cab87f8b53c20a14a30f414d444dd9b132f41e9983fda0a1b7af56fab48",
+      "stored_bytes": 1099,
+      "stored_sha256": "bbde0cab87f8b53c20a14a30f414d444dd9b132f41e9983fda0a1b7af56fab48"
+    },
+    {
+      "source": "model-final02.log",
+      "path": "model-final02.log.zlib",
+      "encoding": "zlib",
+      "bytes": 139,
+      "sha256": "21277db6682982d98e555789b31d36c2003aee0264dbde35c6ba511c92361a89",
+      "stored_bytes": 135,
+      "stored_sha256": "94fd712cb109617a77c010b01b5ae3d55e81db38934837785eef4774a127cee1"
+    },
+    {
+      "source": "package.py",
+      "path": "package.py",
+      "encoding": "raw",
+      "bytes": 4283,
+      "sha256": "7ab31f15c88351c48daaaac8fefb7a2ccb4f14ade4eac1a3ab9bbc4918f2e326",
+      "stored_bytes": 4283,
+      "stored_sha256": "7ab31f15c88351c48daaaac8fefb7a2ccb4f14ade4eac1a3ab9bbc4918f2e326"
+    },
+    {
+      "source": "physical-service-adus.jsonl",
+      "path": "physical-service-adus.jsonl.zlib",
+      "encoding": "zlib",
+      "bytes": 195984,
+      "sha256": "af17136d5bad4d2d878087dbec42e77a54120d2fa0a182c55abc868b671d2f9f",
+      "stored_bytes": 7567,
+      "stored_sha256": "84ff5809c9f1612da2da6d2a83ceaf0bc934deddee5e4b9cdb6351b283774e13"
+    },
+    {
+      "source": "physical-summary.json",
+      "path": "physical-summary.json",
+      "encoding": "raw",
+      "bytes": 3522,
+      "sha256": "b49a2feefd06e44c2b9a618207eee62ac0b44fb4312e33f44b9f4b59dacee5aa",
+      "stored_bytes": 3522,
+      "stored_sha256": "b49a2feefd06e44c2b9a618207eee62ac0b44fb4312e33f44b9f4b59dacee5aa"
+    },
+    {
+      "source": "prepare-controller.py",
+      "path": "prepare-controller.py",
+      "encoding": "raw",
+      "bytes": 2157,
+      "sha256": "89c8c8a1244ce8073c060d7129657b985c8f57d1c766a89829c30367cf175c46",
+      "stored_bytes": 2157,
+      "stored_sha256": "89c8c8a1244ce8073c060d7129657b985c8f57d1c766a89829c30367cf175c46"
+    },
+    {
+      "source": "preservation.json",
+      "path": "preservation.json",
+      "encoding": "raw",
+      "bytes": 334,
+      "sha256": "842114e1895ea92e4ac8441afaf87efa0157858558c6f3fb49df700d120946f7",
+      "stored_bytes": 334,
+      "stored_sha256": "842114e1895ea92e4ac8441afaf87efa0157858558c6f3fb49df700d120946f7"
+    },
+    {
+      "source": "probe/build-profile.txt",
+      "path": "probe/build-profile.txt",
+      "encoding": "raw",
+      "bytes": 1325,
+      "sha256": "c8c1ba008408db485bcf0580ce0817a79f1c4069ac1d4bbea9f39f36e50c1a03",
+      "stored_bytes": 1325,
+      "stored_sha256": "c8c1ba008408db485bcf0580ce0817a79f1c4069ac1d4bbea9f39f36e50c1a03"
+    },
+    {
+      "source": "probe/tr2-r5b-live-to-web-NON-PRODUCTION.bin",
+      "path": "probe/tr2-r5b-live-to-web-NON-PRODUCTION.bin.zlib",
+      "encoding": "zlib",
+      "bytes": 147640,
+      "sha256": "2cf491cc8cfa8da76fe97512b3fb6471a753b3ac89ef9b169bf05745075a27ee",
+      "stored_bytes": 81326,
+      "stored_sha256": "fad310a28d9ec6a3ca21ef34d616a39e0a7870ac287f63bfced1eb7e2cdb4f5a"
+    },
+    {
+      "source": "probe/tr2-r5b-live-to-web-NON-PRODUCTION.elf",
+      "path": "probe/tr2-r5b-live-to-web-NON-PRODUCTION.elf.zlib",
+      "encoding": "zlib",
+      "bytes": 1327504,
+      "sha256": "4750312506e1ff726240cf180e707d4945e2e43cb28b5a8f62af24677004ccb7",
+      "stored_bytes": 483151,
+      "stored_sha256": "fdd5289ac637a7b46247d9b11118789f981fd04249db099f783a927331bece9a"
+    },
+    {
+      "source": "running-http.jsonl",
+      "path": "running-http.jsonl.zlib",
+      "encoding": "zlib",
+      "bytes": 119944,
+      "sha256": "c589f10c02d11cc27b3b92968b22b5a40617cbc7c24769949056a2dd9a88df56",
+      "stored_bytes": 6633,
+      "stored_sha256": "1ed5d288f63b797da803a788b1c4dd28967328f95eacc84ea8c26e7809c8aca9"
+    },
+    {
+      "source": "running-serial.jsonl",
+      "path": "running-serial.jsonl.zlib",
+      "encoding": "zlib",
+      "bytes": 149784,
+      "sha256": "13d054b597f724260e70340f06e61aaa738251e00cec40fa9958143710e4c0aa",
+      "stored_bytes": 11004,
+      "stored_sha256": "5c847a443793c8ff03b81e223dee344692087f684d610dca21e81d0b857f4127"
+    },
+    {
+      "source": "running-service-command.json",
+      "path": "running-service-command.json",
+      "encoding": "raw",
+      "bytes": 505,
+      "sha256": "c1151572689bef4df74045e5cea7a1b227c8ac300de8339c98a27a5ca8767d8a",
+      "stored_bytes": 505,
+      "stored_sha256": "c1151572689bef4df74045e5cea7a1b227c8ac300de8339c98a27a5ca8767d8a"
+    },
+    {
+      "source": "running-service.log",
+      "path": "running-service.log.zlib",
+      "encoding": "zlib",
+      "bytes": 224943,
+      "sha256": "19b2f6dc3588dff13e54230e96d9fadfe8a56eff17524ab5b7b727522f1959a4",
+      "stored_bytes": 8532,
+      "stored_sha256": "6952faa95d431db4d05fffb9d38b9e631fa68de78fc74b7e2b168e6c7d11b639"
+    },
+    {
+      "source": "setup.py",
+      "path": "setup.py",
+      "encoding": "raw",
+      "bytes": 2372,
+      "sha256": "143668fb274cafccbf32d10f8b6e74ed76fb552ac67e52e32a74bcc437b468e7",
+      "stored_bytes": 2372,
+      "stored_sha256": "143668fb274cafccbf32d10f8b6e74ed76fb552ac67e52e32a74bcc437b468e7"
+    },
+    {
+      "source": "smoke-code-integrity.json",
+      "path": "smoke-code-integrity.json",
+      "encoding": "raw",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stored_bytes": 0,
+      "stored_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "source": "smoke-http.jsonl",
+      "path": "smoke-http.jsonl.zlib",
+      "encoding": "zlib",
+      "bytes": 619,
+      "sha256": "03fbb6398133e0a5c5a347740bd9b07ac8d6b742a20848e047b73afb89551e58",
+      "stored_bytes": 230,
+      "stored_sha256": "240124fbb8ad83bf335307666d8445cc3a7916dee4ea152257a58e33e4e39c73"
+    },
+    {
+      "source": "smoke-serial.jsonl",
+      "path": "smoke-serial.jsonl",
+      "encoding": "raw",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stored_bytes": 0,
+      "stored_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "source": "smoke-service-command.json",
+      "path": "smoke-service-command.json",
+      "encoding": "raw",
+      "bytes": 503,
+      "sha256": "2119e5be34e91e75cbb72965321f53f9d45bf9d039ca80e0ad4e725f36a2e305",
+      "stored_bytes": 503,
+      "stored_sha256": "2119e5be34e91e75cbb72965321f53f9d45bf9d039ca80e0ad4e725f36a2e305"
+    },
+    {
+      "source": "smoke-service.log",
+      "path": "smoke-service.log.zlib",
+      "encoding": "zlib",
+      "bytes": 61899,
+      "sha256": "9a255e8a596d240722284c2f1d946e970a94d12dd4b38d1b4e414352cc0f3534",
+      "stored_bytes": 3682,
+      "stored_sha256": "abd8b400eaf8f7a3ffe483523da78d994e71d06289ecca3f9a2b0afc2fdf89fa"
+    },
+    {
+      "source": "smoke-summary.json",
+      "path": "smoke-summary.json",
+      "encoding": "raw",
+      "bytes": 505,
+      "sha256": "c7b29a2a4e5b1e4cf7c59b6f7a4f63ae91b9ddb529755eaf8898b8a38cde4db2",
+      "stored_bytes": 505,
+      "stored_sha256": "c7b29a2a4e5b1e4cf7c59b6f7a4f63ae91b9ddb529755eaf8898b8a38cde4db2"
+    },
+    {
+      "source": "smoke02-http.jsonl",
+      "path": "smoke02-http.jsonl.zlib",
+      "encoding": "zlib",
+      "bytes": 94912,
+      "sha256": "a30117ff5db3f6b58c1091887890ab1bd78cee9498a03c4724964958b7bd3c6a",
+      "stored_bytes": 6330,
+      "stored_sha256": "c33573aebcf78baf63ae8e92a2a48bc00438e2017b23f493abcbe22178d9a1c1"
+    },
+    {
+      "source": "smoke02-serial.jsonl",
+      "path": "smoke02-serial.jsonl",
+      "encoding": "raw",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stored_bytes": 0,
+      "stored_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "source": "smoke02-service-command.json",
+      "path": "smoke02-service-command.json",
+      "encoding": "raw",
+      "bytes": 506,
+      "sha256": "65e5256a4a7668aed0d196e56eda7464ba0ba13173e47e853628ce584fe1f529",
+      "stored_bytes": 506,
+      "stored_sha256": "65e5256a4a7668aed0d196e56eda7464ba0ba13173e47e853628ce584fe1f529"
+    },
+    {
+      "source": "smoke02-service.log",
+      "path": "smoke02-service.log.zlib",
+      "encoding": "zlib",
+      "bytes": 263998,
+      "sha256": "4d9b72b4e26fb72e80dd2548fd47c732b59904d4ee0d523f9887b12e8b4c357f",
+      "stored_bytes": 10355,
+      "stored_sha256": "fc8221218a799bc03d36d353ef3735c33e09c814c3c3fbb1b438781acec78889"
+    },
+    {
+      "source": "windows-inventory.json",
+      "path": "windows-inventory.json.zlib",
+      "encoding": "zlib",
+      "bytes": 556,
+      "sha256": "498fdafc6d44a7f37afac47178b77f49ea3b0c1a4a6ae91bec7fd434aa67335f",
+      "stored_bytes": 263,
+      "stored_sha256": "7fdc28b3f931869f6b91a0e47d5d62d5ce3128139b20efa0323e2a17418545d1"
+    }
+  ]
+}

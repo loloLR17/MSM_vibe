@@ -136,3 +136,8 @@ Mettre à jour les statuts uniquement après preuves et contrôle indépendant. 
 ## Constat R5-B — checkpoint du17/10/2026, reprise après interruption
 
 Composition directe PC readonly préparée/testée (`dc773733a98d78016e1d0f8a341b155e1851e2c7`,561tests.NET et ARM). La démonstration physique reste **BLOQUÉE au déploiement Windows** : CodeIntegrity3033/3077 refuse la DLL du service, aucune acquisition COM4 R5-B exécutée. HTTP/SQLite Linux prouvés uniquement en CommunicationLost sans mesure ; aucune qualification J4/J5 ajoutée. M016 etFRAM4e7fab conformes au préflight17/10, jamais remplacés. Résoudre la voie de déploiement autorisée puis reprendre le plan [LIVE_R5B](../Supervision%20TR2/LIVE_R5B.md) ; contrôle indépendant ChatGPT et qualification des jalons inchangés.
+
+
+## Constat R5-B2 —18/10/2026, preuve physique diagnostique
+
+Chaîne capteur → STM32 → COM4 → vrai service PC Windows local → SQLite → API/Web/DOM Edge headless observée dans un essai borné :88 courantes,54 HELD,28 pertes logiques honnêtes,141 lignes API corrélées,824 ADU du service CRC exactes. M016 restauré, Flash entière c5bc et FRAM2b501a/run11/journal78 conservée sans rollback. [Bilan R5B2](../Supervision%20TR2/LIVE_R5B2.md). Aucun jalon J4/J5 qualifié unilatéralement : contrôle indépendant ChatGPT à faire. Profil partiel NON-PRODUCTION, B1/B2/B7 et UTC absents, STOP durable≈40s ; pas de qualification R6/endurance/industrie. Windows local fonctionnel désormais observé ; ancien checkpoint R5-B BLOCKED préservé historiquement. Tests/builds acquis réutilisés, seule la nouvelle campagne physique exécutée.

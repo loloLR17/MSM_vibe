@@ -1,0 +1,18 @@
+{
+  "bin": {
+    "path": "/home/lolo/dev/msm/reports/TR2-r5b2/probe/tr2-r5b-live-to-web-NON-PRODUCTION.bin",
+    "bytes": 147640,
+    "sha256": "2cf491cc8cfa8da76fe97512b3fb6471a753b3ac89ef9b169bf05745075a27ee"
+  },
+  "elf": {
+    "path": "/home/lolo/dev/msm/reports/TR2-r5b2/probe/tr2-r5b-live-to-web-NON-PRODUCTION.elf",
+    "bytes": 1327504,
+    "sha256": "4750312506e1ff726240cf180e707d4945e2e43cb28b5a8f62af24677004ccb7"
+  },
+  "flashed": true,
+  "readback_exact": true,
+  "firmware_source_sha": "dc773733a98d78016e1d0f8a341b155e1851e2c7",
+  "controller_commit": "7bf84b127ce3c473e340004b8d34a650594c45ed",
+  "original_build_reused": true,
+  "final_physical_fram_sha256": "2b501a835b9a02c43dc0738bd7af167b7d049fbffb4e9ef677ed2e867f47dd84"
+}

@@ -1,0 +1,11 @@
+[
+  "/mnt/c/Program Files (x86)/Microsoft/Edge/Application/msedge.exe",
+  "--headless=new",
+  "--disable-gpu",
+  "--no-first-run",
+  "--no-default-browser-check",
+  "--user-data-dir=C:\\Users\\lolo\\AppData\\Local\\MSM\\TR2-r5b2-evidence\\edge-diagnostic-profile",
+  "--dump-dom",
+  "--virtual-time-budget=2000",
+  "http://127.0.0.1:5089/live.html"
+]

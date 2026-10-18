@@ -1,0 +1,17 @@
+{
+  "command": [
+    "/mnt/c/ST/STM32CubeCLT_1.22.0/STM32CubeProgrammer/bin/STM32_Programmer_CLI.exe",
+    "-c",
+    "port=SWD",
+    "sn=003500463235510B37333439",
+    "freq=8000",
+    "-w",
+    "\\\\wsl.localhost\\Debian\\home\\lolo\\dev\\msm\\reports\\TR2-r5b2\\probe\\tr2-r5b-live-to-web-NON-PRODUCTION.bin",
+    "0x08000000",
+    "-v",
+    "-rst"
+  ],
+  "code_sha": "dc773733a98d78016e1d0f8a341b155e1851e2c7; unchanged source at 7bf84b127ce3c473e340004b8d34a650594c45ed",
+  "sha256": "2cf491cc8cfa8da76fe97512b3fb6471a753b3ac89ef9b169bf05745075a27ee",
+  "normal_programming_only": true
+}
