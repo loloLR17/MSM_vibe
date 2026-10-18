@@ -31,7 +31,7 @@
       <section aria-label="Parc LIVE">
         <div class="page-head"><h2>Parc LIVE · lecture seule</h2><a href="/live-fleet.html">Ouvrir le parc LIVE</a></div>
         <p id="liveOverviewState" role="status"></p>
-        <div class="table-card"><table><thead><tr><th>Capteur / endpoint</th><th>RMS global</th><th>Crête globale</th><th>Sévérité B3</th><th>Communication / qualité</th><th>Réception PC</th></tr></thead><tbody id="liveFleetRows"></tbody></table></div>
+        <div class="table-card"><fieldset id="liveFleetControls"><legend>Consultation LIVE</legend><label><input type="checkbox" id="fleetAttention"> Attention uniquement (faits reçus, pas état actuel d’une archive)</label> <label>Bus <select id="fleetBus"><option value="">Tous les bus</option></select></label> <label>Identité / endpoint <input id="fleetSearch" type="search"></label> <label>Tri <select id="fleetSort"><option value="name">Nom / identité</option><option value="rms">RMS</option><option value="peak">Crête</option><option value="severity">Sévérité B3</option><option value="age">Ancienneté réception</option></select></label> <label><input id="fleetDescending" type="checkbox">Décroissant</label><p>Affectation équipement/local et nom personnalisé indisponibles. Un arrêt déclaré / HELD ne crée pas une alarme. Couverture du parc bornée à 1000 observations.</p></fieldset><table><thead><tr><th>Capteur / endpoint</th><th>RMS global</th><th>Crête globale</th><th>Sévérité B3</th><th>Communication / qualité</th><th>Réception PC</th></tr></thead><tbody id="liveFleetRows"></tbody></table></div>
       </section>
       <section>
         <div class="page-head">
@@ -62,6 +62,6 @@
     </main>
   </div>
   <script src="/app.js"></script>
-  <script src="/live-overview.js"></script>
+  <script src="/live-trends.js"></script><script src="/live-overview.js"></script>
 </body>
 </html>

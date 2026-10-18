@@ -50,7 +50,17 @@
     const o = row.observation;
     return o.deviceId ? "deviceId=" + o.deviceId.value : "bus=" + encodeURIComponent(o.busId) + "&unit=" + o.modbusAddress;
   }
+  let fleetRows = [];
   function table(devices) {
+    fleetRows = devices;
+    const controls = document.getElementById("liveFleetControls");
+    if (controls) {
+      const bus = document.getElementById("fleetBus");
+      for (const name of new Set(devices.map(r => r.observation.busId)))
+        if (![...bus.options].some(o => o.value === name)) { const option = document.createElement("option"); option.value = option.textContent = name; bus.append(option); }
+      devices = window.LiveTrends.filterFleet(devices, {bus:bus.value, search:document.getElementById("fleetSearch").value,
+        onlyAttention:document.getElementById("fleetAttention").checked, sort:document.getElementById("fleetSort").value, descending:document.getElementById("fleetDescending").checked});
+    }
     fleet.replaceChildren();
     for (const row of devices) {
       const x = present(row), tr = document.createElement("tr"), first = document.createElement("td"), a = document.createElement("a");
@@ -61,7 +71,9 @@
       fleet.append(tr);
     }
   }
+  document.querySelectorAll("#liveFleetControls input, #liveFleetControls select").forEach(c => c.addEventListener("input", () => table(fleetRows)));
   function device(row) {
+    window.showLiveHistory?.(row, tab, query.get("deviceId"));
     detail.replaceChildren();
     document.querySelectorAll("[data-live-tab]").forEach(b => b.classList.toggle("active", b.dataset.liveTab === tab));
     const heading = document.createElement("h2"); heading.textContent = tabs[tab]; detail.append(heading);
@@ -84,7 +96,7 @@
       }
       text(detail, "Acquisition selon dernier B3", !s ? "Inconnue" : s.acquisitionStopped ? "Arrêtée lors de l'observation" : "Non arrêtée lors de l'observation ; état actuel non extrapolé");
       text(detail, "UTC de fenêtre", x.measurement?.snapshot?.windowUtc ?? "Indisponible ; heure PC distincte");
-      text(detail, "Tendance", "Différée UX-L2 : aucune courbe générée ou interpolée");
+      text(detail, "Tendances", "Observations persistées ci-dessous ; réception PC distincte de l’UTC de fenêtre.");
     } else if (tab === "state") {
       text(detail, "B1 / B2 / B7", "Indisponibles dans le profil diagnostique ; aucun état déduit");
       text(detail, "Configuration de fenêtre / run / epoch", "Inconnus sur le fil LIVE ; aucune édition");
@@ -114,10 +126,10 @@
       if (fleet) table(data.devices);
       if (detail) {
         const row = query.has("deviceId") ? selectDevice(data.devices, query.get("deviceId")) : data.devices.find(r => r.observation.busId === query.get("bus") && String(r.observation.modbusAddress) === query.get("unit"));
-        if (row) device(row); else { detail.replaceChildren(); text(detail, "Observation", "Capteur absent de la couverture disponible"); }
+        if (row) device(row); else { window.showLiveHistory?.(null, tab); detail.replaceChildren(); text(detail, "Observation", "Capteur absent de la couverture disponible"); }
       }
     } catch (e) {
-      if (fleet) fleet.replaceChildren(); if (detail) detail.replaceChildren();
+      if (fleet) fleet.replaceChildren(); if (detail) detail.replaceChildren(); window.showLiveHistory?.(null, tab);
       state.textContent = e.message + " — aucune valeur présentée comme courante";
     } finally { pending = false; }
   }

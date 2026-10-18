@@ -1,0 +1,100 @@
+"use strict";
+(function () {
+  if (typeof document === "undefined") return;
+  const root = document.getElementById("liveHistory"); if (!root) return;
+  const T = window.LiveTrends, $ = id => document.getElementById(id);
+  let selected, owner, tab, selectionKey, page, generation = 0, controller, lastLoad = 0;
+  function text(tag, content, parent = root) { const n = document.createElement(tag); n.textContent = content; parent.append(n); return n; }
+  function svgNode(tag, attrs, parent) {
+    const n = document.createElementNS("http://www.w3.org/2000/svg", tag);
+    for (const [k, v] of Object.entries(attrs)) n.setAttribute(k, String(v));
+    parent.append(n); return n;
+  }
+  function graph(container, definitions) {
+    container.replaceChildren(); if (!page) return;
+    const groups = definitions.map(d => ({...d, groups: T.series(page.entries, d.field, owner)}));
+    const pts = groups.flatMap(d => d.groups.flat()), times = page.entries.map(e => Date.parse(e.observation.receivedAt));
+    if (!pts.length) { text("p", "Aucun point B3 V/F exploitable dans ce lot pour cette identité. Les HELD et ruptures restent listés.", container); return; }
+    const xmin = Math.min(...times), xmax = Math.max(...times), max = Math.max(1, ...pts.map(p => p.value));
+    const sx = x => 70 + (x - xmin) / (xmax - xmin || 1) * 760, sy = y => 220 - y / max * 190;
+    const svg = svgNode("svg", {viewBox: "0 0 880 290", role: "img", "aria-label": "Observations archivées : mg selon réception PC, ruptures conservées", "data-real-points": pts.length}, container);
+    svgNode("path", {d: "M70 20V220H830", stroke: "currentColor", fill: "none"}, svg);
+    for (const [y, label] of [[220, "0 mg"], [30, max + " mg"]]) { const n = svgNode("text", {x: 2, y}, svg); n.textContent = label; }
+    for (const [x, time] of [[70, xmin], [450, (xmin+xmax)/2], [830, xmax]]) { const n = svgNode("text", {x, y: 247, "text-anchor": x === 830 ? "end" : "start", "font-size": 10}, svg); n.textContent = new Date(time).toISOString(); }
+    const axis = svgNode("text", {x: 70, y: 276, "font-size": 12}, svg); axis.textContent = "Réception PC (UTC) — pas l’UTC de fenêtre ; chaque point est une observation persistée";
+    for (const d of groups) {
+      for (const group of d.groups) {
+        // Separate SVG paths per uninterrupted run; no resampling or bridging gaps.
+        if (group.length > 1) svgNode("polyline", {points: group.map(p => `${sx(p.time)},${sy(p.value)}`).join(" "), stroke: d.color, fill: "none", "stroke-width": 1}, svg);
+        for (const p of group) {
+          const circle = svgNode("circle", {cx: sx(p.time), cy: sy(p.value), r: 2.5, fill: p.repeated ? "white" : d.color, stroke: d.color, "data-observation-id": p.observation.observationId}, svg);
+          const title = svgNode("title", {}, circle); title.textContent = `${d.name} ${p.value} mg · ${p.observation.receivedAt} · ${p.observation.continuity}`;
+        }
+      }
+      text("span", `${d.name} (mg) · `, container).style.color = d.color;
+    }
+    for (const e of page.entries.filter(e => !T.plottable(e.observation, owner))) {
+      const o = e.observation, mark = svgNode("path", {d: `M${sx(Date.parse(o.receivedAt))} 215v10`, stroke: "#b54708", "data-break": o.continuity}, svg);
+      svgNode("title", {}, mark).textContent = o.receivedAt + " · " + T.quality(o, owner);
+    }
+  }
+  function render() {
+    $("historyError").textContent = "";
+    $("historyCsv").disabled = !page?.entries.length;
+    $("historyOlder").disabled = !page?.nextBefore;
+    $("historyCoverage").textContent = page ? page.coverage + ` ${page.entries.length} observations affichées, ${page.scannedRows} lignes examinées. Historique non courant. UTC fenêtre/run/epoch/config inconnus si absents.` : "";
+    const globals = [{field: "rmsGlobalMg", name: "RMS global", color: "#006dae"}, {field: "peakGlobalMg", name: "Crête globale", color: "#b34400"}];
+    graph($("historyGlobal"), globals);
+    const mode = $("historyMetric").value;
+    graph($("historyAxes"), ["X", "Y", "Z"].filter(a => $("history" + a).checked).map((a) => ({field: mode + a + "Mg", name: mode.toUpperCase() + " " + a, color: {X:"#006dae",Y:"#a12b7c",Z:"#287327"}[a]})));
+    $("historyAxisControls").hidden = tab !== "vibration"; $("historyAxes").hidden = tab !== "vibration";
+    const list = $("historyRows"); list.replaceChildren();
+    for (const e of page?.entries ?? []) {
+      const o = e.observation, v = o.snapshot?.value, tr = document.createElement("tr");
+      for (const s of [e.rowId, o.receivedAt, o.deviceId?.value ?? "Inconnue", T.quality(o, owner), o.continuity + " / " + o.segmentId,
+        v ? `${v.rmsGlobalMg} / ${v.peakGlobalMg} mg · séq ${v.calculationSequence} · sévérité ${v.severityGlobal}` : "Aucune mesure", o.source]) text("td", s, tr);
+      list.append(tr);
+    }
+  }
+  function period() {
+    if ($("historyPeriod").value === "custom") {
+      const from = new Date($("historyFrom").value), to = new Date($("historyTo").value);
+      if (!Number.isFinite(+from) || !Number.isFinite(+to) || +to <= +from || to - from > 7*86400000) throw new Error("Plage personnalisée : début < fin et durée ≤7 jours requis.");
+      return {from: from.toISOString(), to: to.toISOString()};
+    }
+    return T.periodRange(selected.receivedAt, Number($("historyPeriod").value));
+  }
+  async function load(before) {
+    if (!selected || root.hidden) return;
+    const g = ++generation; controller?.abort(); controller = new AbortController();
+    page = null; render(); $("historyError").textContent = "Lecture du lot archivé…";
+    try {
+      const p = period(), q = new URLSearchParams({bus:selected.busId, unit:selected.modbusAddress, ...p, limit:500});
+      if (before) q.set("before", before);
+      const response = await fetch("/api/v2/live/history?" + q, {cache:"no-store", signal:controller.signal});
+      if (!response.ok) { const e = await response.json(); throw new Error(e.error ?? "Historique indisponible"); }
+      const result = await response.json(); if (g !== generation) return;
+      page = {...result, scope: `${selected.busId}/${selected.modbusAddress} · identité ${owner ?? "inconnue (endpoint)"} · ${p.from} → ${p.to} · lot ${before ?? "récent"}`};
+      lastLoad = Date.now(); render();
+    } catch (e) { if (g === generation && e.name !== "AbortError") { page = null; render(); $("historyError").textContent = e.message + " — aucune courbe conservée comme actuelle"; } }
+  }
+  $("historyPeriod").addEventListener("change", () => { $("historyCustom").hidden = $("historyPeriod").value !== "custom"; load(); });
+  $("historyApply").addEventListener("click", () => load());
+  $("historyOlder").addEventListener("click", () => load(page?.nextBefore));
+  $("historyRecent").addEventListener("click", () => load());
+  for (const name of ["historyMetric", "historyX", "historyY", "historyZ"]) $(name).addEventListener("change", render);
+  $("historyCsv").addEventListener("click", () => {
+    if (!page) return; const url = URL.createObjectURL(new Blob(["\ufeff", T.csv(page.entries, page.scope)], {type:"text/csv;charset=utf-8"}));
+    const a = document.createElement("a"); a.href = url; a.download = "tr2-observations-lot.csv"; a.click(); setTimeout(() => URL.revokeObjectURL(url), 1000);
+  });
+  window.showLiveHistory = function (row, nextTab, requestedOwner) {
+    const visible = row && ["summary", "vibration"].includes(nextTab);
+    const tabChanged = tab !== nextTab; root.hidden = !visible; tab = nextTab;
+    if (!visible) { generation++; controller?.abort(); page = null; selectionKey = null; render(); return; }
+    const o = row.observation, key = JSON.stringify([o.busId, o.modbusAddress, requestedOwner ?? o.deviceId?.value]);
+    const changed = key !== selectionKey, newer = selected?.observationId !== o.observationId;
+    selected = o; owner = requestedOwner ?? o.deviceId?.value; selectionKey = key;
+    $("historyAnchor").textContent = "Fin des périodes prédéfinies : dernière réception PC observée " + o.receivedAt + ". Plage personnalisée saisie en heure locale du PC ; axes/export en UTC de réception PC. Pas d’affectation équipement/local disponible.";
+    if (changed || (newer && Date.now()-lastLoad >= 5000)) load(); else if (page && tabChanged) render();
+  };
+})();

@@ -32,6 +32,7 @@ public sealed record DeviceReadResponse(DateTimeOffset ObservedAt, IhmDeviceRead
 public sealed class SupervisionWebHost
 {
     private readonly LiveOverviewProjection _liveOverview;
+    private readonly ILiveHistoryReadSource? _liveHistory;
     private const int MaxRequestIdentityLength = 128;
     private readonly ILiveReadSource? _liveReadSource;
     private readonly SupervisionWebOptions _options;
@@ -56,6 +57,7 @@ public sealed class SupervisionWebHost
         ArgumentNullException.ThrowIfNull(options);
         ArgumentNullException.ThrowIfNull(projection);
         _liveReadSource = liveReadSource;
+        _liveHistory = liveArchiveReadSource as ILiveHistoryReadSource;
         _liveOverview = new(liveReadSource, liveArchiveReadSource, liveDataIsPhysical);
         _options = options;
         _projection = projection;
@@ -82,6 +84,27 @@ public sealed class SupervisionWebHost
 
         application.MapGet("/api/v2/live/overview", async (CancellationToken ct) =>
             Results.Ok(await _liveOverview.ReadAsync(_timeProvider.GetUtcNow(), ct)));
+
+        application.MapGet("/api/v2/live/history", async (HttpRequest request, CancellationToken ct) =>
+        {
+            if (_liveHistory is null) return Results.NotFound();
+            var q = request.Query;
+            if (!byte.TryParse(q["unit"], out var unit) ||
+                !DateTimeOffset.TryParse(q["from"], System.Globalization.CultureInfo.InvariantCulture, System.Globalization.DateTimeStyles.None, out var from) ||
+                !DateTimeOffset.TryParse(q["to"], System.Globalization.CultureInfo.InvariantCulture, System.Globalization.DateTimeStyles.None, out var to) ||
+                !int.TryParse(q["limit"].FirstOrDefault() ?? "500", out var limit) ||
+                !long.TryParse(q["before"].FirstOrDefault() ?? long.MaxValue.ToString(System.Globalization.CultureInfo.InvariantCulture), out var before))
+                return Results.BadRequest(new { error = "Paramètres historiques invalides." });
+            try
+            {
+                var query = new LiveHistoryQuery(q["bus"].ToString(), unit, from, to, limit, before);
+                query.Validate();
+                return Results.Ok(await _liveHistory.ReadHistoryAsync(query, ct));
+            }
+            catch (ArgumentException e) { return Results.BadRequest(new { error = e.Message }); }
+            catch (Exception e) when (e is not OperationCanceledException)
+            { return Results.Json(new { error = "Archive LIVE indisponible : " + e.Message }, statusCode: 503); }
+        });
 
         application.MapGet("/api/v2/live", () => _liveReadSource is null
             ? Results.NotFound()
