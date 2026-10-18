@@ -41,7 +41,7 @@ Code évalué **`e5537ebe2b1898da9d461339a425826754590154`**, `feat(uxl2): add b
 6. CSV réellement produit dans le navigateur, **500 observations comparées intégralement** à l'API : row_id/observation_id, date PC, identité/source/continuité et huit valeurs exactes ;54 HELD,294 snapshots nuls exportés sans zéro substitué. UTC fenêtre/run/epoch/config vides. Copie SQLite byte-identique, SHA-256 **`6efaa77972d41cd749bf16e38e23aa22911d889fe5d9453504c80435cf0f5fd1`**, aucun WAL créé. Source archivée R5-B2 immuable, pas de nouvelle acquisition.
 7. Fixture **synthétique logicielle**50000 lignes/50 endpoints :10000 candidats maximum/lot,200 observations de l'endpoint dans le lot, pagination sans doublon et lot vide tronqué ; trois lectures bornées **178,7ms** dans cet environnement de test. Aucun SLA ou inventaire de50 capteurs réels revendiqué.
 
-Les corrections finales après la suite .NET portent uniquement sur JS/HTML ; builds des assets, tests JS ciblés et scénario navigateur final exécutés ensuite. Ne pas présenter la suite .NET comme rejouée après ces changements UI, ni répéter firmware/essais physiques sans motif. Sorties effectives dans les huit TRX, `validation-summary.json`, `browser-summary.json`, `csv-verification.json` et logs référencés par BUNDLE/SHA256SUMS.
+Les corrections finales après la suite .NET portent uniquement sur JS/HTML ; builds des assets, tests JS ciblés et scénario navigateur final exécutés ensuite. Ne pas présenter la suite .NET comme rejouée après ces changements UI, ni répéter firmware/essais physiques sans motif. Sorties effectives dans les sept TRX, `validation-summary.json`, `browser-summary.json`, `csv-verification.json` et logs référencés par BUNDLE/SHA256SUMS.
 
 ## Erreurs analysées et corrigées
 
