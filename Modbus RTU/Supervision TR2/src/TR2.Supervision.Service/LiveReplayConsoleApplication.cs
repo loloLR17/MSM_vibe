@@ -25,7 +25,7 @@ public static class LiveReplayConsoleApplication
                 allowDiagnostic: true, source: "Offline ADU replay; B4/B6 structure headers simulated; no serial access");
             var host = new SupervisionWebHost(new SupervisionWebOptions(new Uri(args[5]), false),
                 new SupervisionReadProjection(new FleetRegistry(), new DeviceTelemetrySnapshotRegistry(),
-                    new SnapshotFreshnessPolicy(TimeSpan.FromSeconds(5), TimeSpan.FromSeconds(10))), liveReadSource: source);
+                    new SnapshotFreshnessPolicy(TimeSpan.FromSeconds(5), TimeSpan.FromSeconds(10))), liveReadSource: source, liveArchiveReadSource: new SqliteLiveArchiveReadSource(args[3]), liveDataIsPhysical: false);
             await using var app = host.CreateApplication();
             await app.StartAsync(ct);
             await output.WriteLineAsync("OFFLINE replay only: historical B0/B3 ADUs, simulated structure headers, no COM/STM32. Open /live.html.");

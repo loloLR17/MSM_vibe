@@ -31,6 +31,7 @@ public sealed record DeviceReadResponse(DateTimeOffset ObservedAt, IhmDeviceRead
 
 public sealed class SupervisionWebHost
 {
+    private readonly LiveOverviewProjection _liveOverview;
     private const int MaxRequestIdentityLength = 128;
     private readonly ILiveReadSource? _liveReadSource;
     private readonly SupervisionWebOptions _options;
@@ -49,11 +50,13 @@ public sealed class SupervisionWebHost
         ISupervisionCommandSink? commandSink = null,
         ISupervisionCampaignSelectionSink? campaignSelectionSink = null,
         ISupervisionCommandHistoryReadSource? commandHistoryReadSource = null,
-        ILiveReadSource? liveReadSource = null)
+        ILiveReadSource? liveReadSource = null,
+        ILiveArchiveReadSource? liveArchiveReadSource = null, bool liveDataIsPhysical = false)
     {
         ArgumentNullException.ThrowIfNull(options);
         ArgumentNullException.ThrowIfNull(projection);
         _liveReadSource = liveReadSource;
+        _liveOverview = new(liveReadSource, liveArchiveReadSource, liveDataIsPhysical);
         _options = options;
         _projection = projection;
         _timeProvider = timeProvider ?? TimeProvider.System;
@@ -76,6 +79,9 @@ public sealed class SupervisionWebHost
         var application = builder.Build();
         application.UseDefaultFiles();
         application.UseStaticFiles();
+
+        application.MapGet("/api/v2/live/overview", async (CancellationToken ct) =>
+            Results.Ok(await _liveOverview.ReadAsync(_timeProvider.GetUtcNow(), ct)));
 
         application.MapGet("/api/v2/live", () => _liveReadSource is null
             ? Results.NotFound()

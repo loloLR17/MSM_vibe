@@ -34,7 +34,7 @@ public static class LiveDirectConsoleApplication
                 allowDiagnostic: true, source: $"Physical RS485 {args[1]} 115200 8E1 / NModbus; DIAGNOSTIC NON-PRODUCTION; actual B0/B4/B6/B3; no UTC/run/config inference");
             var host = new SupervisionWebHost(new SupervisionWebOptions(listen, false),
                 new SupervisionReadProjection(new FleetRegistry(), new DeviceTelemetrySnapshotRegistry(),
-                    new SnapshotFreshnessPolicy(TimeSpan.FromSeconds(5), TimeSpan.FromSeconds(10))), liveReadSource: source);
+                    new SnapshotFreshnessPolicy(TimeSpan.FromSeconds(5), TimeSpan.FromSeconds(10))), liveReadSource: source, liveArchiveReadSource: new SqliteLiveArchiveReadSource(args[4]), liveDataIsPhysical: true);
             await using var app = host.CreateApplication();
             await app.StartAsync(ct);
             await output.WriteLineAsync("Physical readonly LIVE diagnostic; one exclusive serial owner; no FC10/B5 writes. Open /live.html.");

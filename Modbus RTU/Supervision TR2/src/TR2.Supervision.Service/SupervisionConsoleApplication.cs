@@ -24,6 +24,9 @@ public static class SupervisionConsoleApplication
         ArgumentNullException.ThrowIfNull(output);
         ArgumentNullException.ThrowIfNull(error);
 
+        if (args.Count > 0 && args[0] == "--live-archive")
+            return await LiveArchiveConsoleApplication.RunAsync(args, cancellationToken, error);
+
         if (args.Count > 0 && args[0] == "--live-direct")
             return await LiveDirectConsoleApplication.RunAsync(args, cancellationToken, output, error);
 

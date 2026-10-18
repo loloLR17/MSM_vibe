@@ -12,7 +12,8 @@
       <div class="brand">MSM<span>Supervision vibrations</span></div>
       <nav>
         <a class="nav-link active" href="/">Vue générale</a>
-        <a class="nav-link" href="/live.html">LIVE · lecture seule</a>
+        <a class="nav-link" href="/live-fleet.html">Parc LIVE</a>
+        <a class="nav-link" href="/live.html">Diagnostic LIVE</a>
         <a class="nav-link" href="/vibrations.html">Vibrations</a>
         <a class="nav-link" href="/attention.html">Attention & diagnostic</a>
         <a class="nav-link" href="/campaigns.html">Campagnes</a>
@@ -27,9 +28,14 @@
         <div><span>Heure PC</span><strong id="pcClock">—</strong></div>
       </header>
 
+      <section aria-label="Parc LIVE">
+        <div class="page-head"><h2>Parc LIVE · lecture seule</h2><a href="/live-fleet.html">Ouvrir le parc LIVE</a></div>
+        <p id="liveOverviewState" role="status"></p>
+        <div class="table-card"><table><thead><tr><th>Capteur / endpoint</th><th>RMS global</th><th>Crête globale</th><th>Sévérité B3</th><th>Communication / qualité</th><th>Réception PC</th></tr></thead><tbody id="liveFleetRows"></tbody></table></div>
+      </section>
       <section>
         <div class="page-head">
-          <div><h1>Vue générale</h1><p>Parc TR2 — état réel projeté par la supervision</p></div>
+          <div><h1>Vue générale · profil V1</h1><p>Parc TR2 — état réel projeté par la supervision</p></div>
           <div class="filter-row">
             <button class="chip active" data-filter="all">Tous</button>
             <button class="chip" data-filter="attention">Attention</button>
@@ -56,5 +62,6 @@
     </main>
   </div>
   <script src="/app.js"></script>
+  <script src="/live-overview.js"></script>
 </body>
 </html>
