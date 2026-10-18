@@ -131,3 +131,8 @@ Une roadmap distincte **« TR2 — Qualification industrielle et mise en service
 
 Mettre à jour les statuts uniquement après preuves et contrôle indépendant. Ne pas renuméroter les jalons principaux pour masquer une difficulté ; détailler plutôt les sous-missions. La branche `main` et la gouvernance courante du dépôt restent les seules références de travail.
 
+
+
+## Constat R5-B — checkpoint du17/10/2026, reprise après interruption
+
+Composition directe PC readonly préparée/testée (`dc773733a98d78016e1d0f8a341b155e1851e2c7`,561tests.NET et ARM). La démonstration physique reste **BLOQUÉE au déploiement Windows** : CodeIntegrity3033/3077 refuse la DLL du service, aucune acquisition COM4 R5-B exécutée. HTTP/SQLite Linux prouvés uniquement en CommunicationLost sans mesure ; aucune qualification J4/J5 ajoutée. M016 etFRAM4e7fab conformes au préflight17/10, jamais remplacés. Résoudre la voie de déploiement autorisée puis reprendre le plan [LIVE_R5B](../Supervision%20TR2/LIVE_R5B.md) ; contrôle indépendant ChatGPT et qualification des jalons inchangés.

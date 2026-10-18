@@ -1,0 +1,38 @@
+{
+  "checks": [
+    {
+      "path": "/",
+      "status": 200,
+      "bytes": 2690
+    },
+    {
+      "path": "/live.html",
+      "status": 200,
+      "bytes": 788
+    },
+    {
+      "path": "/live.js",
+      "status": 200,
+      "bytes": 2438
+    },
+    {
+      "path": "/api/v1/fleet",
+      "status": 200,
+      "bytes": 61
+    },
+    {
+      "path": "/api/v2/live",
+      "status": 200,
+      "bytes": 840
+    },
+    {
+      "path": "/api/v1/commands",
+      "method": "POST",
+      "status": 404
+    }
+  ],
+  "return_code": 0,
+  "hardware": false,
+  "port": "intentionally absent",
+  "browser_test": false
+}

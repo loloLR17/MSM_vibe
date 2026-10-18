@@ -1,0 +1,19 @@
+[
+  "dotnet",
+  "/home/lolo/dev/msm/projects/MSM_vibe-R5B-live-to-web/Modbus RTU/Supervision TR2/src/TR2.Supervision.Service/bin/Debug/net10.0/TR2.Supervision.Service.dll",
+  "--live-direct",
+  "/dev/tr2-r5b-intentionally-absent",
+  "--allow-diagnostic",
+  "--database",
+  "/home/lolo/dev/msm/reports/TR2-r5b/linux-smoke.db",
+  "--listen",
+  "http://127.0.0.1:5089",
+  "--trace",
+  "/home/lolo/dev/msm/reports/TR2-r5b/linux-smoke-trace.jsonl",
+  "--seconds",
+  "6",
+  "--unit",
+  "1",
+  "--connection-control",
+  "/home/lolo/dev/msm/reports/TR2-r5b/linux-smoke-control"
+]

@@ -1,0 +1,1 @@
+Host-only assertion failure: initial journal guard accidentally changed to78 instead of70 by preparation script. No target write. Corrected source below; output not used as firmware/FRAM.

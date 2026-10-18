@@ -1,0 +1,9 @@
+{
+  "rows": 54,
+  "all_communication_lost": true,
+  "all_snapshot_null": true,
+  "all_run_epoch_null": true,
+  "integrity": "ok",
+  "real_serial_open": false,
+  "fixture": "Linux intentionally nonexistent serial path; no physical measurement"
+}

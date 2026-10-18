@@ -1,11 +1,11 @@
 ---
-mission_id: TR2-20261017-R5AFIX-B3-WIRE-ORDER
-status: DONE
+mission_id: TR2-20261017-R5B-LIVE-PHYSICAL-TO-WEB-DEMO
+status: BLOCKED
 base_ref: main
-base_sha: e100770474cf4d43a73f2af2e6e02be91e2cd75c
-initial_head: 5103ea4e87c169c1b154d0df8cdcc50511619a24
-result_sha: 770aef24831d796609c859549ee2e2fb14e21af3
-created_at_utc: 2026-10-17T11:44:51.663493+00:00
+base_sha: ae24fa3c5a2773f9379b021f3457513d844545ef
+initial_head: 868a80dcba90f794aa694cc470fca6a421292a2e
+result_sha: dc773733a98d78016e1d0f8a341b155e1851e2c7
+created_at_utc: 2026-10-18T16:22:56.929982+00:00
 author: Codex
 target_branch: main
 allow_commit: true
@@ -14,63 +14,36 @@ allow_flash: true
 allow_debug: true
 ---
 
-# R5-AFIX — correction démontrée et matériel restauré
+# R5-B — checkpoint logiciel préservé, campagne bloquée par Windows
 
-**DONE : critères A–E satisfaits dans le périmètre ciblé, bilan publié et relu depuis GitHub.** Aucun blocage technique actif. L'inversion3002/3003 est corrigée dans le firmware, démontrée par de nouveaux ADU physiques et acceptée par le décodeur PC inchangé. R5-A historique reste BLOCKED dans son archive ; aucun GO R5-B/R6 ou industriel implicite.
+**BLOCKED : la chaîne physique COM4→service→SQLite→Web n'a pas été démontrée.** Le vrai service Windows est refusé au chargement de `TR2.Protocol.dll` par Code Integrity (0x800711C7, événements3033/3077). Une voie de déploiement autorisée/signature adaptée doit être définie par le responsable du poste. Aucune protection n'a été modifiée ni contournée. Le blocage n'est pas un échec technique du capteur ou du Modbus.
 
-## Correction et preuves indépendantes
+## Acquis publiables
 
-Code firmware **`29a6f4ecf83c97499055b58fc73d631763cf5813`**, `fix(r5afix): project LIVE B3 alarms and severity at normative wire offsets`. Deux destinations modifiées dans `live_metrology_project_b3` :3002alarmes,3003sévérité. Les expressions, masques, latch, dépassements et règles de qualité restent identiques. Norme, R2/B5, runtime FIFO et décodeur PC de production inchangés. [Note technique](../../05_Firmware/LIVE_R5AFIX.md).
+Commit logiciel **`dc773733a98d78016e1d0f8a341b155e1851e2c7`**, `feat(r5b): prepare bounded readonly physical LIVE service checkpoint` : mode direct du même service, transport NModbus existant, opt-in diagnostic strict, trace d'octets sous NModbus, connexion unique sérialisée/fermeture/reconnexion, API/Web/SQLite7 réutilisés. Aucun faux header réel, writer de commande ou FC10 automatique ; ancien profilV1 et replay distincts conservés. Probe R5B préparé avec gardes FRAM actuelles, nouvelles identités5/12–5/13/run11 et fenêtreHELD20s ; jamais flashé.
 
-Nouvel oracle indépendant : neuf états avec attentes littérales de mots et d'octets ADU, échec sur l'ancien projecteur puis réussite après correction. Boot/attente, normalUTC, frais sansUTC, dépassement0xF0/3, alarme+latch0x1FF/4, HELD0x1FF/0, latchseul0x100/2 et erreur0x100/0. Une ancienne assertion qui contrôlait la sévérité au mauvais offset est corrigée vers3003 ; son contrôle reste exigé. Revue de table ciblée des offsets0..47 et des chemins de projection/transfert : aucune autre inversion adjacente démontrée, pas de correction opportuniste.
+**Résultats réellement conservés :**561tests.NET PASS/0skip, dont211Service et35Transport ; sept scénarios JS sous DOMsimulé PASS ; build.NET0warning/0error ; publication win-x64 autonome réussie. ARM canonique et probe PASS ; BINcanonique85b1…c0f5 inchangé. ProbeBIN147640octets SHA2cf491cc8cfa8da76fe97512b3fb6471a753b3ac89ef9b169bf05745075a27ee, ELF4750312506e1ff726240cf180e707d4945e2e43cb28b5a8f62af24677004ccb7.146tests firmwareR5AFIX et sanitizers sur cœur inchangé réutilisés, non répétés. Cross-build limité justifié par modifications harness ; suitePC complète par point d'entrée/transport partagés.
 
-La fixture C exportée est explicitement une simulation. L'oracleC# indépendant vérifie le mapping, la qualité et SQLite. Les2068anciensB3 R4-U/V restent refusés ; aucune tolérance de sévérité240 et aucune permutation côtéPC. Le domaine historique sévérité0..5 n'est pas modifié ; le LIVE conserve sa formule0..4 sans critique5 automatique.
+Smoke réel sous Linux sur **chemin série volontairement absent** : HTTP200 sur/,/live.html,/live.js,/api/v1/fleet,/api/v2/live ; POSTcommandes404 ; SQLite54observations exclusivementCommunicationLost/snapshotnull/run-null/epoch-null, integrityok, retour0. **Aucune donnée physique ni test navigateur graphique**. Les tests conservent les vraies captures corrigées positives et les anciennes sévérités240 négatives ; aucune tolérance nouvelle.
 
-## Résultat physique unique
+Échecs documentés : buildMSBuild parallèleMSB4166 puis-m:1 réussi ; script nonexécutable puis invocationbash réussie ; préparation de garde du modèle hôte erronée78 au lieu70, assertion puis correction réussie. Aucun test supprimé, affaibli ou résultat physique inventé. Tous logs conservés. Modèle FRAM prédit2b501a…7dd84 après commandes futures, **pas un snapshot physique ni une image à restaurer**.
 
-Préflight frais11:36:20UTC : cibleTR2-001/SN003500463235510B37333439/UID004A003D/38425018/20333157, FlashM0162Mio c5bc…f5b26 et FRAM70e…73587 entières exactes, WHO7B/capteurarrêté. COM4FTDI0403:6001/BG04KSSW retrouvéT1000 et aucun maître natif concurrent répertorié ; port exclusif1152008E1. Aucune nouvelle manipulation physique nécessaire. Sauvegardes et procédure qualifiées, pas de HOTPLUG.
+## Matériel et permissions effectivement exercées
 
-La lecture readonly initiale0/0 ne distinguant pas les offsets, un seul START/STOP R2 autorisé a été exécuté après publication/relecture23c6bd3. Gardes exactes journal62/root75/epoch5/run9/config3gen3 avant admission ; **START5/10/run10 puisSTOP5/11**, terminaux4/0, sans retry/collision/refus/RENEW supplémentaire. Aucune autorité B3 inventée. GDB aux checkpoints avant START et après STOP, sans pause pendant acquisition.
+Lecture/debugGDB qualifiés seulement ; aucun flash/reset/commandeModbus/writeFRAM/SD/HP/OptionBytes/RDP. Préflight **17/10/2026 11:56:42UTC** : STLINK003500463235510B37333439, UID004A003D/38425018/20333157, M016CommissioningReadOnly, WHO7B/ODRoff/FIFObypass/TSoff. Flash2097152octets SHA `c5bc344d64984c48c3e34b05fa9432c9c124e8b67428eb0eef22c0d62ddf5b26`, FRAM262144octets SHA `4e7fabde5da1100cf9ae8faf262ea079727856826bb2829c1e99b68ad63b84bd`, exactes R5AFIX. Sauvegardes intégrales versionnées compressées ; GDBdétaché. M016 n'ayant jamais été remplacé, aucune restauration supplémentaire nécessaire. Depuis interruption : aucun accès matériel nouveau, ne pas traiter le préflight daté comme télémétrie actuelle.
 
-| Mesure réelle | Résultat |
-|---|---|
-| ADU COM4 |1095 réponses CRCexactes ;563B3,462V/F,51HELD |
-| Première V/F |3002=0x00F0,3003=3 ; statut4/flags1215/séquence1, UTC0 indisponible |
-| HELD après STOP |3002=0x00F0,3003=0 ; statut1/flags5819/séquence34/FRESH0 |
-| FIFO |1784856XYZ/223107TS, niveau max70, erreurs0 |
-| Work/service/gap |809/2116/2344µs sous1000/2500/5000 inchangés |
-| UART |0drop/0erreur/0TXfailsafe |
-| Oracle4096 brut indépendant |RMS954/953/10/27mg, peaks996/996/34/73mg exacts MCU |
-| Terminal maître |START39,893016s ;STOP39,967197s |
+COM4FTDI0403:6001/BG04KSSWA inventorié, COM3STLINK exclu ; aucun processus ciblé concurrent à11:57:40UTC. Cette inspection ne prouve pas tous les propriétaires possibles de handles. L'unique tentativeWindows utilisaitCOM99 et échoue avant toute ouverture série. **Aucun COM4 ouvert, aucune émissionRS485, aucune admissionR2, run11 et clefs5/12–5/13 non consommés par R5B.** Historique/tail/epoch/reçus inchangés ; aucunrollbackFRAM. L'exclusivitéCOM4 et les budgets physiquesR5B restent non démontrés.
 
-Ces temps ne constituent pas une borne d'arrêt industriel. Pas de calibration vibratoire, endurance ou WCET isolé. Les cas alarmeactive/latch/erreur sont démontrés par oracles hôte, sans provoquer un défaut physique supplémentaire. Les valeurs RMS et leur datation observée sont séparées de l'UTC absente ; aucune métadonnée run/config n'est ajoutée aux registres réservés.
+## Reprise précise et critères non satisfaits
 
-## Validation PC et logicielle
+Voir [note R5-B](../../Supervision%20TR2/LIVE_R5B.md), procédures de lancement et ordre du contrôle des maîtres. Après résolution autorisée du déploiement Windows : revérifier état/main/identités ; finaliser le contrôleur R5B séparant les maîtres avec fermeture vérifiée ; flash/readback du bon probe ; readonlyB0/B3, véritableSTART admissible, service directRUNNING/perte-reprise, vraiSTOP puisHELD ; corréler bytesCRC/SQLite/API/renduWeb et valeurs distinctes si observées ; mesurer FIFO/budgets puis restaurerM016 et auditerFRAM complète sansrollback. Ne pas lancer l'ancienne recetteR5AFIX5/10–5/11. Les scripts de restauration hérités archivés dans les preuves sont préparatifs **non exécutés**, pas une qualification du contrôleurR5B.
 
-Code de test PC **`770aef24831d796609c859549ee2e2fb14e21af3`**, `test(r5afix): accept corrected physical B3 capture through PC and SQLite`. La source firmware y est identique à celle du flash23c6bd3. Les563B3 réellement capturés sont décodés et persistés563fois dans SQLite, sans quarantaine ; le contexte non exposé reste null et HELD n'est pas courant. Ce replay utilise des headersB4/B6 **simulés et étiquetés** ; B0/B3 authentiques, pas une connexion PC série de production ni une preuve R5-B.
+Restent non satisfaits : mesureLIVEphysique par le vrai service surCOM4, corrélation et variation réelles SQLite/API/Web, exclusivité matérielle/connexionperte-reprise en acquisition, HELDphysique reçu par le service, budgetsR5B et audit après nouvelles transactions. Aucun statutDONE/R6/production/industrie. Pas de test déjà validé à refaire sur code inchangé.
 
-- `bash ./tr2_validate.sh /home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0` : **146tests complets PASS96,02s et cross-build canoniquePASS**. Pertinent car cœur fonctionnel modifié ;145anciens tests conservés, V1/protocole1 et barrièresR2 couverts. BINcanonique85b1be6044d76349a715ea0627b442bd3301e63daa606399b3d83bd5b9bbc0f5 inchangé et non flashé.
-- Probe dédié NON-PRODUCTION ARM PASS, recette explicite dérivée R4-U/R4-V, pacing250µs inchangé. BIN147640octets SHA **d50fe6bbdde1b5127ee9cd2c5f3ffcbaae5045453153df71eb6e793a2b13f99b**, ELF **9b10196a43d08ee75fd28df68e7a77e12b66f599d47494c411a7d737aa2da040** ; flash normal verify puis readback image conforme.
-- Quatre suites O2/ASan/UBSan PASS8,80s : métrologie, offsetsADU, serveurLIVE et pacing runtime.
-- **202tests Service.NET PASS** avant physique, dont anciens négatifsR5-A et fixtureCpositive/SQLite ; après ajout du testphysique, **2tests R5AFIXPASS** (fixture et capture). Les autres539tests.NET R5-A surcode inchangé ne sont pas tous relancés ; pas de prétention à une nouvelle suite.NETcomplète553.
-- Échecs conservés : premier buildoracle rejeté parWerror pourindentation, corrigé ; essai suivant échoue réellement sur offsetsavantcorrectif ; lancementdirecttr2_validate refusé carfichier nonexécutable, reprisevia bash réussie. Aucun contrôle supprimé/affaibli ni succès déduit d'un code de retour agrégé. Les logs bruts gardent CRLF et espaces des outils.
+## Preuves, préservation et publication
 
-## Persistance et restauration vérifiées
+[Preuves R5-B](preuves/TR2-20261017-R5B/README.md) : BUNDLE76artefacts et SHA256SUMS, événementsWindows, logs/TRX, smokeHTTP/SQLite, imagesARM jamaisflashées et préflightGDB complet. Originaux `/home/lolo/dev/msm/reports/TR2-r5b/` ; worktree `/home/lolo/dev/msm/projects/MSM_vibe-R5B-live-to-web`, branche `codex/r5b-live-to-web`.8079fichiers protégés/65autresworktrees/deuxstashes préservés ; dépôt historique main82169af propre. Aucun reset/clean/merge/rebase/forcepush. Les archivesR5-AFIX/R5-A et dettesA04 ne changent pas.
 
-FRAM initiale complète262144octets70e273972a83e61283a6e572db3187af002fd97ba8de63f8c709d3e30af73587 ; finale **4e7fabde5da1100cf9ae8faf262ea079727856826bb2829c1e99b68ad63b84bd**, entière exacte au modèle utilisant le vrai store/R2. Journal62→70/root75→83/epoch5/run9→10/config3gen3, STOP5/11COMPLETED/effect45phase3.419408octetsécrits/8commits seulementLIVE ; historique/tail inchangés. Aucun recyclage d'identité, retraite, RENEW ou rollbackFRAM.
+Journal `ETAT_COURANT_TR2.md` et roadmap actualisés factuellement : checkpoint logiciel et blocageWindows, dernier préflight daté, aucune nouvelle qualification, prochaines étapes. Mission et gouvernance inchangées. Autorisationscommit/push/debug exercées ; flash autorisé mais non exercé. Le commit logiciel identifie exactement le code évalué ; les commits de rapport/preuves seront indiqués après publication.
 
-**M016 CommissioningReadOnly WAIT restauré11:41:55UTC**,19pagesnormales155648octets. RelectureFlash2097152octets entièrement identique àl'initiale **c5bc344d64984c48c3e34b05fa9432c9c124e8b67428eb0eef22c0d62ddf5b26**. FRAMentière relue après restauration exactement4e7f…84bd. WHO7B/ODRoff/FIFObypass/TSoff lus ensuite, COM4fermé/GDBdétaché. Aucun SD/HP/câblage/OptionBytes/RDP/masserase ni firmwareLIVEproduit laissé sur carte.
-
-## Traçabilité, limites et suite
-
-[Résumé physique](preuves/TR2-20261017-R5AFIX/physical-summary.json), [auditFRAM](preuves/TR2-20261017-R5AFIX/final-fram-audit.json), [restauration](preuves/TR2-20261017-R5AFIX/hardware/restoration-summary.json), [provenance](preuves/TR2-20261017-R5AFIX/source-provenance.json), [manifestes et artefacts](preuves/TR2-20261017-R5AFIX/BUNDLE.json). Les captures brutes, BIN/ELF, snapshots, logs initiaux et finaux et sources de vérification sont conservés avec SHA brut/stocké ; zlib uniquement pour compresser. Répertoire opérationnel `/home/lolo/dev/msm/reports/TR2-r5afix`.
-
-Worktree isolé `MSM_vibe-R5AFIX-b3-wire`, branche `codex/r5afix-b3-wire` issue du main distant vérifié5103ea4. Ancienmain82169af propre,8077fichiers protégés,64autresworktrees, étude86d0f4b etdeuxstashes6251b988…/f3b829e6… préservés. ArchivesR5-A BLOCKED byte-identiques. Permissions commit/push/flash/debug exercées dans le contrat ; aucune norme/gouvernance/detteA04 modifiée. Journal etroadmap actualisés factuellement avec correctif, nouvellepreuve etétatmatériel.
-
-Critères A mapping/B qualité-V1/C PCpositif+négatif/D portée/E préservation démontrés. Publication de ce bilan et relecture distante réalisées ; voir preuve ci-dessous. R5-A n'est pas réécrite rétroactivement ; contrôle indépendantChatGPT requis. Suite sousnouveaucontrat R5-B : composition maîtreCOM4unique→SQLite→Web, vraisB1/B2/B7/capacités/profil complet, puisR6. Les latencesR4-V restent importantes ; aucun GO industriel, tag ou jalon global qualifié ici.
-
-## Publication et clôture
-
-Bilan `e127957a3c53e32834ba490c9c6184d7b8168e69` (docs(r5afix): publish corrected physical ADUs and verified M016 restoration) poussé normalement surmain, récupéré et relu à2026-10-17T11:46:30.068667+00:00.119fichiers comparés intégralement aux blobs GitHub,106preuvesSHA et104artefactsBUNDLE vérifiés/décompressés ;1095ADU/563B3 parsées, TRX.NET202puis2PASS et sauvegardesFlash/FRAM vérifiées depuis la référence distante. [Preuve de relecture](preuves/TR2-20261017-R5AFIX/bilan-readback.json). HEADlocal=origin/main etworktreepropre aprèsbilan, travauxhistoriques préservés.
-
-StatutDONE et archiveR5AFIX ajoutés après cette relecture ; cette dernière publication sera elle aussi vérifiée, son SHA fourni dans la réponse finale. Mission active non modifiée, R5-A historiqueBLOCKED conservée, aucune qualification indépendanteChatGPT ni GO R5-B/R6/industriel. Aucun nouvelessai après restauration.
+**Publication distante : à vérifier après le push de ce bilan.** StatutBLOCKED pour le refusWindows, non pour cette vérification encore en cours. La relecture distante et le SHA final seront consignés ensuite, sans transformer la mission enDONE.

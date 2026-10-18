@@ -1,0 +1,35 @@
+Test run for /home/lolo/dev/msm/projects/MSM_vibe-R5B-live-to-web/Modbus RTU/Supervision TR2/tests/TR2.Domain.Tests/bin/Debug/net10.0/TR2.Domain.Tests.dll (.NETCoreApp,Version=v10.0)
+A total of 1 test files matched the specified pattern.
+Results File: /home/lolo/dev/msm/reports/TR2-r5b/test-results/_PCdeLolo_2026-10-17_13_55_50_net10.0.trx
+
+Passed!  - Failed:     0, Passed:    17, Skipped:     0, Total:    17, Duration: 80 ms - TR2.Domain.Tests.dll (net10.0)
+Test run for /home/lolo/dev/msm/projects/MSM_vibe-R5B-live-to-web/Modbus RTU/Supervision TR2/tests/TR2.Protocol.Tests/bin/Debug/net10.0/TR2.Protocol.Tests.dll (.NETCoreApp,Version=v10.0)
+A total of 1 test files matched the specified pattern.
+Results File: /home/lolo/dev/msm/reports/TR2-r5b/test-results/_PCdeLolo_2026-10-17_13_55_51_net10.0.trx
+
+Passed!  - Failed:     0, Passed:    45, Skipped:     0, Total:    45, Duration: 125 ms - TR2.Protocol.Tests.dll (net10.0)
+Test run for /home/lolo/dev/msm/projects/MSM_vibe-R5B-live-to-web/Modbus RTU/Supervision TR2/tests/TR2.Application.Tests/bin/Debug/net10.0/TR2.Application.Tests.dll (.NETCoreApp,Version=v10.0)
+A total of 1 test files matched the specified pattern.
+Results File: /home/lolo/dev/msm/reports/TR2-r5b/test-results/_PCdeLolo_2026-10-17_13_55_53_net10.0.trx
+
+Passed!  - Failed:     0, Passed:   221, Skipped:     0, Total:   221, Duration: 390 ms - TR2.Application.Tests.dll (net10.0)
+Test run for /home/lolo/dev/msm/projects/MSM_vibe-R5B-live-to-web/Modbus RTU/Supervision TR2/tests/TR2.Persistence.Tests/bin/Debug/net10.0/TR2.Persistence.Tests.dll (.NETCoreApp,Version=v10.0)
+A total of 1 test files matched the specified pattern.
+Results File: /home/lolo/dev/msm/reports/TR2-r5b/test-results/_PCdeLolo_2026-10-17_13_55_56_net10.0.trx
+
+Passed!  - Failed:     0, Passed:    31, Skipped:     0, Total:    31, Duration: 638 ms - TR2.Persistence.Tests.dll (net10.0)
+Test run for /home/lolo/dev/msm/projects/MSM_vibe-R5B-live-to-web/Modbus RTU/Supervision TR2/tests/TR2.Architecture.Tests/bin/Debug/net10.0/TR2.Architecture.Tests.dll (.NETCoreApp,Version=v10.0)
+A total of 1 test files matched the specified pattern.
+Results File: /home/lolo/dev/msm/reports/TR2-r5b/test-results/_PCdeLolo_2026-10-17_13_55_57_net10.0.trx
+
+Passed!  - Failed:     0, Passed:     1, Skipped:     0, Total:     1, Duration: 27 ms - TR2.Architecture.Tests.dll (net10.0)
+Test run for /home/lolo/dev/msm/projects/MSM_vibe-R5B-live-to-web/Modbus RTU/Supervision TR2/tests/TR2.Supervision.Service.Tests/bin/Debug/net10.0/TR2.Supervision.Service.Tests.dll (.NETCoreApp,Version=v10.0)
+A total of 1 test files matched the specified pattern.
+Results File: /home/lolo/dev/msm/reports/TR2-r5b/test-results/_PCdeLolo_2026-10-17_13_55_59_net10.0.trx
+
+Passed!  - Failed:     0, Passed:   211, Skipped:     0, Total:   211, Duration: 1 s - TR2.Supervision.Service.Tests.dll (net10.0)
+Test run for /home/lolo/dev/msm/projects/MSM_vibe-R5B-live-to-web/Modbus RTU/Supervision TR2/tests/TR2.Transport.Tests/bin/Debug/net10.0/TR2.Transport.Tests.dll (.NETCoreApp,Version=v10.0)
+A total of 1 test files matched the specified pattern.
+Results File: /home/lolo/dev/msm/reports/TR2-r5b/test-results/_PCdeLolo_2026-10-17_13_56_01_net10.0.trx
+
+Passed!  - Failed:     0, Passed:    35, Skipped:     0, Total:    35, Duration: 157 ms - TR2.Transport.Tests.dll (net10.0)
