@@ -1,0 +1,3 @@
+# Précision sur les libellés hérités du préflight
+
+Le JSON brut preflight-summary.json et son script portent encore des libellés descriptifs R4V, issus de la préparation héritée : fresh_full_reads_match_verified_R4V_backups, fresh note et FLASH_IDENTICAL_TO_R4_RESTORED. Ces libellés ne constituent pas une comparaison réelle à la FRAM R4V70e273. La garde du script exécuté compare bien les octets à4e7fabde5da1100cf9ae8faf262ea079727856826bb2829c1e99b68ad63b84bd, état R5AFIX, et Flashc5bc344d…f5b26. Les dumps et SHA intégraux, relus depuis GitHub, sont la preuve retenue ; aucun ancien snapshot R4V n'est restauré ni présenté comme courant. Le brut original est préservé sans réécriture.

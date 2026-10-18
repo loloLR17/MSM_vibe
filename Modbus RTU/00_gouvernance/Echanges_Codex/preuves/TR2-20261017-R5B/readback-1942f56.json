@@ -1,0 +1,15 @@
+{
+  "utc": "2026-10-18T16:24:39.916441+00:00",
+  "remote_sha": "1942f56bfd32e001a87fa696e06ada25e52a3903",
+  "ls_remote_sha": "1942f56bfd32e001a87fa696e06ada25e52a3903",
+  "changed_files_full_contents_compared": 93,
+  "manifest_entries_verified": 80,
+  "bundle_artifacts_verified": 76,
+  "dotnet_tests_passed": 561,
+  "hardware_trial": false,
+  "code_integrity_3077_verified": true,
+  "flash_before_sha256": "c5bc344d64984c48c3e34b05fa9432c9c124e8b67428eb0eef22c0d62ddf5b26",
+  "fram_before_sha256": "4e7fabde5da1100cf9ae8faf262ea079727856826bb2829c1e99b68ad63b84bd",
+  "report_status": "BLOCKED",
+  "note": "Full blob reads from freshly fetched GitHub main; delivery verified, physical mission still blocked"
+}
