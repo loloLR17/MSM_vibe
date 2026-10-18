@@ -1,0 +1,56 @@
+{
+  "http": [
+    {
+      "path": "/",
+      "status": 200,
+      "bytes": 3298
+    },
+    {
+      "path": "/live-fleet.html",
+      "status": 200,
+      "bytes": 1160
+    },
+    {
+      "path": "/live-device.html?deviceId=1",
+      "status": 200,
+      "bytes": 1454
+    },
+    {
+      "path": "/live.html",
+      "status": 200,
+      "bytes": 788
+    },
+    {
+      "path": "/api/v2/live/overview",
+      "status": 200,
+      "bytes": 3214
+    },
+    {
+      "path": "/api/v1/fleet",
+      "status": 200,
+      "bytes": 63
+    }
+  ],
+  "browsers": [
+    {
+      "page": "/live-fleet.html",
+      "return_code": 0,
+      "real_headless_DOM": true,
+      "human_observation": false
+    },
+    {
+      "page": "/live-device.html?deviceId=1&view=vibration",
+      "return_code": 0,
+      "real_headless_DOM": true,
+      "human_observation": false
+    }
+  ],
+  "archive_sha256": "6efaa77972d41cd749bf16e38e23aa22911d889fe5d9453504c80435cf0f5fd1",
+  "archive_byte_identical": true,
+  "no_WAL": true,
+  "physical": false,
+  "serial_factory": false,
+  "command_post_status": 404,
+  "history": "Real R5B2 stored observations, HISTORICAL ONLY",
+  "overview_devices": 1
+}

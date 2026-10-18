@@ -4,7 +4,7 @@ status: IN_PROGRESS
 base_ref: main
 base_sha: 9c2b65400cbe11564875a94864ab22a896cd3733
 initial_head: cfabfbf291c83e20878f90181b7d18925f079ddb
-result_sha: 3b4b103d6febe51b14ad6f989d4b9d81ee9bfc74
+result_sha: 8722c02e805e785dacacf0f2602f94a102b94119
 created_at_utc: 2026-10-18T18:12:01.613300+00:00
 author: Codex
 target_branch: main
@@ -18,7 +18,7 @@ allow_debug: false
 
 **Tranche logicielle réalisée et vérifiée ; IN_PROGRESS uniquement pour publication/relecture distante restantes.** Aucun blocage technique. Le parc LIVE et une fiche Synthèse/Vibrations readonly sont intégrés au host S7, avec distinction explicite entre historique et réception physique actuelle. Pas d'acquisition nouvelle, COM4 non ouvert, aucun flash/debug/commande STM32.
 
-Code évalué **`3b4b103d6febe51b14ad6f989d4b9d81ee9bfc74`**, `feat(uxl1): integrate readonly LIVE fleet and sensor views with persisted provenance`.13 fichiers PC/Web/tests,408 lignes ajoutées/5 retirées ; aucune modification du firmware, gouvernance, norme ou archives R5-B2.
+Code évalué **`8722c02e805e785dacacf0f2602f94a102b94119`**, `feat(uxl1): integrate readonly LIVE fleet and sensor views with persisted provenance`.Changements limités aux sources PC/Web et tests ; aucune modification du firmware, gouvernance, norme ou archives R5-B2.
 
 ## Livré
 
@@ -47,3 +47,5 @@ Autorisations exercées : logiciel, compilation/tests, commit/push ; flash/debug
 Dépôt historique main82169af propre, autres worktrees et deux stashes préservés. Worktree `MSM_vibe-UXL1-live-readonly`, branche `codex/uxl1-live-readonly`. Les sources courantes PC explicitement modifiées dans le périmètre sont distinguées des archives/proofs protégés. Aucun reset/clean/merge/rebase/force push.
 
 Publication du bilan puis relecture intégrale depuis GitHub encore à terminer ; le statut IN_PROGRESS concerne uniquement cette étape. Le SHA relu sera consigné avant DONE. Contrôle indépendant ChatGPT distinct de la livraison logicielle.
+
+Dernière correction de sélection : une fiche ouverte par identifiant peut suivre sa dernière mesure lors d'une perte d'identité, sans promouvoir son ancien propriétaire en identité actuelle. Si une observation identifiée existe ailleurs pour ce device_id, elle reste prioritaire. Tests JS ciblés, build des assets et nouveaux DOM headless après correction réussis ; aucun changement du backend couvert par les217 tests Service.

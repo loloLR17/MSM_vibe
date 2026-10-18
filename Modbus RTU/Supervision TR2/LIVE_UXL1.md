@@ -1,6 +1,6 @@
 # UX-L1 — parc et fiche LIVE en lecture seule
 
-Mission `TR2-20261018-UXL1-LIVE-READONLY-INTEGRATION`, code `3b4b103d6febe51b14ad6f989d4b9d81ee9bfc74`, HEAD initial `cfabfbf291c83e20878f90181b7d18925f079ddb`. Aucun accès COM4, commande Modbus, flash ou debug. La conception UX publiée et les interfaces V1/S7 restent inchangées.
+Mission `TR2-20261018-UXL1-LIVE-READONLY-INTEGRATION`, code `8722c02e805e785dacacf0f2602f94a102b94119`, HEAD initial `cfabfbf291c83e20878f90181b7d18925f079ddb`. Aucun accès COM4, commande Modbus, flash ou debug. La conception UX publiée et les interfaces V1/S7 restent inchangées.
 
 ## Pages et source d'autorité
 
@@ -37,3 +37,5 @@ Build .NET sans avertissement ni erreur. Première suite complète :350 tests ho
 L'historique persisté existe, mais tendance, multi-axes graphiques, sélection temporelle, filtres/tri avancés et CSV sont différés à UX-L2 pour garder L1 centré sur les données structurées et leurs qualités. Aucun contrôle factice. Les affectations équipement/local ne sont pas inventées. Seuils, overlays d'événements et finitions relèvent d'UX-L3, seulement avec autorités documentées. Aucun score santé, FFT, mm/s, norme ou profil produit nouveau. Les six onglets sont contextualisés readonly ; les interfaces V1 de commandes ne sont pas copiées vers le diagnostic.
 
 Preuves : [UX-L1](../00_gouvernance/Echanges_Codex/preuves/TR2-20261018-UXL1/README.md). Matériel non touché et non relu ; dernier état matériel connu reste celui de R5-B2, M016 restauré/FRAM2b501a…7dd84. R6 et qualification indépendante ChatGPT restent distincts.
+
+Dernière correction de sélection : une fiche ouverte par identifiant peut suivre sa dernière mesure lors d'une perte d'identité, sans promouvoir son ancien propriétaire en identité actuelle. Si une observation identifiée existe ailleurs pour ce device_id, elle reste prioritaire. Tests JS ciblés, build des assets et nouveaux DOM headless après correction réussis ; aucun changement du backend couvert par les217 tests Service.

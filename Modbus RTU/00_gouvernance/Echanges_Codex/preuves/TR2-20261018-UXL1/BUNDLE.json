@@ -343,6 +343,348 @@
       "sha256": "534689296cc1161eb70bd1d3d60bdd2e9f2fc8e90589c1ed8303b8af2ef9f1bc",
       "stored_bytes": 961,
       "stored_sha256": "80b025af1416777594159a9f23c75ee97a737382fabf812069e5f8aac49a7b05"
+    },
+    {
+      "source": "readback-7bbfdfe.json",
+      "path": "readback-7bbfdfe.json",
+      "encoding": "raw",
+      "bytes": 495,
+      "sha256": "06d56606b876211a300f203a47c656a25fe8b0e1e25c9e0915c38e3f6c96b616",
+      "stored_bytes": 495,
+      "stored_sha256": "06d56606b876211a300f203a47c656a25fe8b0e1e25c9e0915c38e3f6c96b616"
+    },
+    {
+      "source": "readback.py",
+      "path": "readback.py",
+      "encoding": "raw",
+      "bytes": 2752,
+      "sha256": "f88628d24c3059008d9720e0468849017420cd0150f5b821290610eb0194923d",
+      "stored_bytes": 2752,
+      "stored_sha256": "f88628d24c3059008d9720e0468849017420cd0150f5b821290610eb0194923d"
+    },
+    {
+      "source": "selection-build.log",
+      "path": "selection-build.log.zlib",
+      "encoding": "zlib",
+      "bytes": 1372,
+      "sha256": "5e7566c3c390eb4a5d51381d36a9406f565f8c4c9a97a371869d168862f32e94",
+      "stored_bytes": 301,
+      "stored_sha256": "e95b471e83ed05a943fc6e634ce5355f569dd0337c5d261a31aea506f802e750"
+    },
+    {
+      "source": "selection-final-build.log",
+      "path": "selection-final-build.log.zlib",
+      "encoding": "zlib",
+      "bytes": 1372,
+      "sha256": "0434a0f17cb4531c04c38fa9244c33c02e369b370aaf87b051e9cac212124900",
+      "stored_bytes": 302,
+      "stored_sha256": "dfcda34b1dd14d1a3828870cca4b5f3f7f85001ae9f62d4cba1ff4c9239d0747"
+    },
+    {
+      "source": "selection-final-js-tests.log",
+      "path": "selection-final-js-tests.log.zlib",
+      "encoding": "zlib",
+      "bytes": 291,
+      "sha256": "e5bd74168359a54b6f89777690cedca4eda54a225983d278620983d2edeb8502",
+      "stored_bytes": 213,
+      "stored_sha256": "5ad0fb2b7a2287924c8f7381e8cd1edc37c91b43a656823216085297c2ed49c8"
+    },
+    {
+      "source": "selection-final-smoke/detail-browser.log",
+      "path": "selection-final-smoke/detail-browser.log.zlib",
+      "encoding": "zlib",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stored_bytes": 8,
+      "stored_sha256": "b171e283c6145acf2b923098dbbc40ffc39b4f1db0212928f9869747376c4ac8"
+    },
+    {
+      "source": "selection-final-smoke/detail-dom.html",
+      "path": "selection-final-smoke/detail-dom.html.zlib",
+      "encoding": "zlib",
+      "bytes": 2885,
+      "sha256": "16d0603280e92f435a635668132ebfd248fe2cc9879db88fa0e73c694c7f6ac4",
+      "stored_bytes": 1397,
+      "stored_sha256": "fa120d237867f0185ca606f8c04f6f086535fdbd0440bb026f571538bed23c73"
+    },
+    {
+      "source": "selection-final-smoke/driver.log",
+      "path": "selection-final-smoke/driver.log.zlib",
+      "encoding": "zlib",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stored_bytes": 8,
+      "stored_sha256": "b171e283c6145acf2b923098dbbc40ffc39b4f1db0212928f9869747376c4ac8"
+    },
+    {
+      "source": "selection-final-smoke/fleet-browser.log",
+      "path": "selection-final-smoke/fleet-browser.log.zlib",
+      "encoding": "zlib",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stored_bytes": 8,
+      "stored_sha256": "b171e283c6145acf2b923098dbbc40ffc39b4f1db0212928f9869747376c4ac8"
+    },
+    {
+      "source": "selection-final-smoke/fleet-dom.html",
+      "path": "selection-final-smoke/fleet-dom.html.zlib",
+      "encoding": "zlib",
+      "bytes": 1728,
+      "sha256": "db2f8ec79caa8b3585a3b0c5c65e450fc193f1bfac43d2ee78531f9d5e6a234c",
+      "stored_bytes": 929,
+      "stored_sha256": "2abc6d1162ebd2fb7addaa8a187c6873313111edbf68d915a07c6817ae6f0012"
+    },
+    {
+      "source": "selection-final-smoke/historical-r5b2.db",
+      "path": "selection-final-smoke/historical-r5b2.db.zlib",
+      "encoding": "zlib",
+      "bytes": 839680,
+      "sha256": "6efaa77972d41cd749bf16e38e23aa22911d889fe5d9453504c80435cf0f5fd1",
+      "stored_bytes": 59447,
+      "stored_sha256": "6ed2528b74a32f8d1a0f79b05449a31ae1571f60bddc879a996dcc4cedb4ae5d"
+    },
+    {
+      "source": "selection-final-smoke/http-detail.html",
+      "path": "selection-final-smoke/http-detail.html",
+      "encoding": "raw",
+      "bytes": 1454,
+      "sha256": "475fefea88f486cb6a60cd79f8945946abe0be859ccbdb160739d5537b8d0ab9",
+      "stored_bytes": 1454,
+      "stored_sha256": "475fefea88f486cb6a60cd79f8945946abe0be859ccbdb160739d5537b8d0ab9"
+    },
+    {
+      "source": "selection-final-smoke/http-diagnostic.html",
+      "path": "selection-final-smoke/http-diagnostic.html",
+      "encoding": "raw",
+      "bytes": 788,
+      "sha256": "a85d428b1f35d997e9e663389a3eeb0f459bec9642960aa7be6597c80f30f123",
+      "stored_bytes": 788,
+      "stored_sha256": "a85d428b1f35d997e9e663389a3eeb0f459bec9642960aa7be6597c80f30f123"
+    },
+    {
+      "source": "selection-final-smoke/http-fleet.html",
+      "path": "selection-final-smoke/http-fleet.html",
+      "encoding": "raw",
+      "bytes": 1160,
+      "sha256": "94f3325d557b85ff3c964b79d5f59325c547005c461828faa888ea58d6faadef",
+      "stored_bytes": 1160,
+      "stored_sha256": "94f3325d557b85ff3c964b79d5f59325c547005c461828faa888ea58d6faadef"
+    },
+    {
+      "source": "selection-final-smoke/http-index.html",
+      "path": "selection-final-smoke/http-index.html",
+      "encoding": "raw",
+      "bytes": 3298,
+      "sha256": "618f5c1bdf58c213c7bd7efcd509d1482926cbc6dc167b019d37187983067efc",
+      "stored_bytes": 3298,
+      "stored_sha256": "618f5c1bdf58c213c7bd7efcd509d1482926cbc6dc167b019d37187983067efc"
+    },
+    {
+      "source": "selection-final-smoke/http-overview.json",
+      "path": "selection-final-smoke/http-overview.json",
+      "encoding": "raw",
+      "bytes": 3214,
+      "sha256": "5afc321a973a90604d6836286362b2cd918484a97630ddde887cd6e151afac8e",
+      "stored_bytes": 3214,
+      "stored_sha256": "5afc321a973a90604d6836286362b2cd918484a97630ddde887cd6e151afac8e"
+    },
+    {
+      "source": "selection-final-smoke/http-server.log",
+      "path": "selection-final-smoke/http-server.log.zlib",
+      "encoding": "zlib",
+      "bytes": 13150,
+      "sha256": "109ae8f63b9af601fd0da6bbddd5b3b66fbd234b70532d21a114c0b0796873e1",
+      "stored_bytes": 1167,
+      "stored_sha256": "a200d53bba7be5e112f928ee7c09e6481e068f9367c0eea7d6da3c4e92f46b56"
+    },
+    {
+      "source": "selection-final-smoke/http-v1.json",
+      "path": "selection-final-smoke/http-v1.json",
+      "encoding": "raw",
+      "bytes": 63,
+      "sha256": "4220873d8d629b28c7855a3c80d9e6bbdca1eb32eb2a0f5845bddca5ac67d7c7",
+      "stored_bytes": 63,
+      "stored_sha256": "4220873d8d629b28c7855a3c80d9e6bbdca1eb32eb2a0f5845bddca5ac67d7c7"
+    },
+    {
+      "source": "selection-final-smoke/smoke-command.json",
+      "path": "selection-final-smoke/smoke-command.json",
+      "encoding": "raw",
+      "bytes": 320,
+      "sha256": "0c4da628ae950b62f9c5849ddbf5c25746cd165f96a122d055875ab92de0d9b5",
+      "stored_bytes": 320,
+      "stored_sha256": "0c4da628ae950b62f9c5849ddbf5c25746cd165f96a122d055875ab92de0d9b5"
+    },
+    {
+      "source": "selection-final-smoke/smoke-summary.json",
+      "path": "selection-final-smoke/smoke-summary.json",
+      "encoding": "raw",
+      "bytes": 1164,
+      "sha256": "e2ccdb9c65718b04c4960b150da4a77c8b95d29ced6e2416287cc4ee96d9ef6c",
+      "stored_bytes": 1164,
+      "stored_sha256": "e2ccdb9c65718b04c4960b150da4a77c8b95d29ced6e2416287cc4ee96d9ef6c"
+    },
+    {
+      "source": "selection-final-smoke/smoke.py",
+      "path": "selection-final-smoke/smoke.py",
+      "encoding": "raw",
+      "bytes": 3450,
+      "sha256": "85817f13b598704b23732881e0e6d4cf6e97c9627de0d4a06f509fe2368bc213",
+      "stored_bytes": 3450,
+      "stored_sha256": "85817f13b598704b23732881e0e6d4cf6e97c9627de0d4a06f509fe2368bc213"
+    },
+    {
+      "source": "selection-js-tests.log",
+      "path": "selection-js-tests.log.zlib",
+      "encoding": "zlib",
+      "bytes": 213,
+      "sha256": "1275ae3714a1cf1ea1b1f95734233319f0afe6cea77772943d2518ad7d90715b",
+      "stored_bytes": 178,
+      "stored_sha256": "297d4c8880722829a9145c9018ad7128b26c19cedef10922c9a031c1eaa79855"
+    },
+    {
+      "source": "selection-smoke/detail-browser.log",
+      "path": "selection-smoke/detail-browser.log.zlib",
+      "encoding": "zlib",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stored_bytes": 8,
+      "stored_sha256": "b171e283c6145acf2b923098dbbc40ffc39b4f1db0212928f9869747376c4ac8"
+    },
+    {
+      "source": "selection-smoke/detail-dom.html",
+      "path": "selection-smoke/detail-dom.html.zlib",
+      "encoding": "zlib",
+      "bytes": 2885,
+      "sha256": "caa5aa155c0313d3762be5f54b5c5d11133a5727ff9589dcda1b5f7bb4601cc0",
+      "stored_bytes": 1398,
+      "stored_sha256": "73e6b82f20caf73bfa649bd91852667111e4d1469bfada8c899b8f4c4a4777a7"
+    },
+    {
+      "source": "selection-smoke/driver.log",
+      "path": "selection-smoke/driver.log.zlib",
+      "encoding": "zlib",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stored_bytes": 8,
+      "stored_sha256": "b171e283c6145acf2b923098dbbc40ffc39b4f1db0212928f9869747376c4ac8"
+    },
+    {
+      "source": "selection-smoke/fleet-browser.log",
+      "path": "selection-smoke/fleet-browser.log.zlib",
+      "encoding": "zlib",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stored_bytes": 8,
+      "stored_sha256": "b171e283c6145acf2b923098dbbc40ffc39b4f1db0212928f9869747376c4ac8"
+    },
+    {
+      "source": "selection-smoke/fleet-dom.html",
+      "path": "selection-smoke/fleet-dom.html.zlib",
+      "encoding": "zlib",
+      "bytes": 1728,
+      "sha256": "f708594d081eadb14b5b76eadb5f53b5611ee46ac1871f7c0cd4b7e59c465a1b",
+      "stored_bytes": 929,
+      "stored_sha256": "4574ff2602ae203baf81344b4823954922c8cabc7917d9b42ae56261f2d057e4"
+    },
+    {
+      "source": "selection-smoke/historical-r5b2.db",
+      "path": "selection-smoke/historical-r5b2.db.zlib",
+      "encoding": "zlib",
+      "bytes": 839680,
+      "sha256": "6efaa77972d41cd749bf16e38e23aa22911d889fe5d9453504c80435cf0f5fd1",
+      "stored_bytes": 59447,
+      "stored_sha256": "6ed2528b74a32f8d1a0f79b05449a31ae1571f60bddc879a996dcc4cedb4ae5d"
+    },
+    {
+      "source": "selection-smoke/http-detail.html",
+      "path": "selection-smoke/http-detail.html",
+      "encoding": "raw",
+      "bytes": 1454,
+      "sha256": "475fefea88f486cb6a60cd79f8945946abe0be859ccbdb160739d5537b8d0ab9",
+      "stored_bytes": 1454,
+      "stored_sha256": "475fefea88f486cb6a60cd79f8945946abe0be859ccbdb160739d5537b8d0ab9"
+    },
+    {
+      "source": "selection-smoke/http-diagnostic.html",
+      "path": "selection-smoke/http-diagnostic.html",
+      "encoding": "raw",
+      "bytes": 788,
+      "sha256": "a85d428b1f35d997e9e663389a3eeb0f459bec9642960aa7be6597c80f30f123",
+      "stored_bytes": 788,
+      "stored_sha256": "a85d428b1f35d997e9e663389a3eeb0f459bec9642960aa7be6597c80f30f123"
+    },
+    {
+      "source": "selection-smoke/http-fleet.html",
+      "path": "selection-smoke/http-fleet.html",
+      "encoding": "raw",
+      "bytes": 1160,
+      "sha256": "94f3325d557b85ff3c964b79d5f59325c547005c461828faa888ea58d6faadef",
+      "stored_bytes": 1160,
+      "stored_sha256": "94f3325d557b85ff3c964b79d5f59325c547005c461828faa888ea58d6faadef"
+    },
+    {
+      "source": "selection-smoke/http-index.html",
+      "path": "selection-smoke/http-index.html",
+      "encoding": "raw",
+      "bytes": 3298,
+      "sha256": "618f5c1bdf58c213c7bd7efcd509d1482926cbc6dc167b019d37187983067efc",
+      "stored_bytes": 3298,
+      "stored_sha256": "618f5c1bdf58c213c7bd7efcd509d1482926cbc6dc167b019d37187983067efc"
+    },
+    {
+      "source": "selection-smoke/http-overview.json",
+      "path": "selection-smoke/http-overview.json",
+      "encoding": "raw",
+      "bytes": 3214,
+      "sha256": "b15447ef893e09a43dba75b33bd8a22a679834f458f399e430666d1cbdfee053",
+      "stored_bytes": 3214,
+      "stored_sha256": "b15447ef893e09a43dba75b33bd8a22a679834f458f399e430666d1cbdfee053"
+    },
+    {
+      "source": "selection-smoke/http-server.log",
+      "path": "selection-smoke/http-server.log.zlib",
+      "encoding": "zlib",
+      "bytes": 13150,
+      "sha256": "117dd6db46cd2baac9b5d146d20d340c4f7de4f85bff855f4b8416cb5eaf5ed9",
+      "stored_bytes": 1178,
+      "stored_sha256": "749c38b1051097bdc8a7b43e876b7bcf221fcdd29dd15eb14679b58ae1d752bd"
+    },
+    {
+      "source": "selection-smoke/http-v1.json",
+      "path": "selection-smoke/http-v1.json",
+      "encoding": "raw",
+      "bytes": 63,
+      "sha256": "9a1488bfb63ce345e49484572853eecafa53975a2a6d7c8740d6e10b6ed9e011",
+      "stored_bytes": 63,
+      "stored_sha256": "9a1488bfb63ce345e49484572853eecafa53975a2a6d7c8740d6e10b6ed9e011"
+    },
+    {
+      "source": "selection-smoke/smoke-command.json",
+      "path": "selection-smoke/smoke-command.json",
+      "encoding": "raw",
+      "bytes": 314,
+      "sha256": "c1027ded1828314d0f542ae378accebe1ec8d930463b2762b7f096da53a96ab7",
+      "stored_bytes": 314,
+      "stored_sha256": "c1027ded1828314d0f542ae378accebe1ec8d930463b2762b7f096da53a96ab7"
+    },
+    {
+      "source": "selection-smoke/smoke-summary.json",
+      "path": "selection-smoke/smoke-summary.json",
+      "encoding": "raw",
+      "bytes": 1164,
+      "sha256": "e2ccdb9c65718b04c4960b150da4a77c8b95d29ced6e2416287cc4ee96d9ef6c",
+      "stored_bytes": 1164,
+      "stored_sha256": "e2ccdb9c65718b04c4960b150da4a77c8b95d29ced6e2416287cc4ee96d9ef6c"
+    },
+    {
+      "source": "selection-smoke/smoke.py",
+      "path": "selection-smoke/smoke.py",
+      "encoding": "raw",
+      "bytes": 3438,
+      "sha256": "65a5ff5fadb83370ba199212ec4328feed9f0071a8b772fa2a615a45928454cf",
+      "stored_bytes": 3438,
+      "stored_sha256": "65a5ff5fadb83370ba199212ec4328feed9f0071a8b772fa2a615a45928454cf"
     }
   ]
 }
