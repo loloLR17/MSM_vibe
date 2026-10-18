@@ -31,12 +31,12 @@
     },
     {
       "source": "detail-dom.html",
-      "path": "detail-dom.html",
-      "encoding": "raw",
+      "path": "detail-dom.html.zlib",
+      "encoding": "zlib",
       "bytes": 2885,
       "sha256": "8f69c01a5bf1ed25ab97fa19d18241f65c9473d043a393ae5cf5dbdad927a0bf",
-      "stored_bytes": 2885,
-      "stored_sha256": "8f69c01a5bf1ed25ab97fa19d18241f65c9473d043a393ae5cf5dbdad927a0bf"
+      "stored_bytes": 1399,
+      "stored_sha256": "f5dc55f87bf40cb36dbbd387729a71f59aa06cc557e53faf3f545936820c9c27"
     },
     {
       "source": "final-assets-build.log",
@@ -67,12 +67,12 @@
     },
     {
       "source": "fleet-dom.html",
-      "path": "fleet-dom.html",
-      "encoding": "raw",
+      "path": "fleet-dom.html.zlib",
+      "encoding": "zlib",
       "bytes": 1728,
       "sha256": "875d2d1125ade19db84b91c3e3f3bd6e57979f66f3d409a644a934c5405d5e04",
-      "stored_bytes": 1728,
-      "stored_sha256": "875d2d1125ade19db84b91c3e3f3bd6e57979f66f3d409a644a934c5405d5e04"
+      "stored_bytes": 928,
+      "stored_sha256": "fd9c76ec5c2e120d5b465c450f38cdf9c7bfbc4b38ab762a98d9cb3fe4dff9ef"
     },
     {
       "source": "historical-r5b2.db",
