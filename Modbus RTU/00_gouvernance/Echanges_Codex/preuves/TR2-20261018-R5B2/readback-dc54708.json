@@ -1,0 +1,20 @@
+{
+  "utc": "2026-10-18T17:17:28.211572+00:00",
+  "remote_sha": "dc547080f1403fe7cfc053013eda7d3d6949fae1",
+  "ls_remote_sha": "dc547080f1403fe7cfc053013eda7d3d6949fae1",
+  "full_changed_files_compared": 133,
+  "manifest_hashes_verified": 128,
+  "bundle_artifacts_verified": 126,
+  "physical_ADUs_verified": 1857,
+  "service_FC10": 0,
+  "native_FC10": 4,
+  "sqlite_rows": 528,
+  "sqlite_COM4": 234,
+  "api_example_exact": true,
+  "headless_DOM_verified": true,
+  "restored_full_Flash_exact": true,
+  "final_full_FRAM_exact_model_and_restoration": true,
+  "historical_tail_exact": true,
+  "report_status": "IN_PROGRESS",
+  "independent_human_qualification": false
+}

@@ -1,6 +1,6 @@
 ---
 mission_id: TR2-20261018-R5B2-PHYSICAL-LIVE-RESUME
-status: IN_PROGRESS
+status: DONE
 base_ref: main
 base_sha: 9187f4b324647b8eb5b007886151f0bc665c4947
 initial_head: dc47ee0e20dbbdd6047c517571c841eb5502d674
@@ -16,7 +16,7 @@ allow_debug: true
 
 # R5-B2 — démonstration physique réussie, M016 restauré
 
-**Les critères techniques sont satisfaits dans la portée diagnostique bornée. Le statut IN_PROGRESS concerne uniquement la publication et la relecture distante encore à terminer.** Le vrai service Windows reçoit les mesures physiques COM4, les archive dans SQLite et les sert à l'API et au Web. Edge headless a rendu une mesure valide et fraîche. Aucun blocage technique actif ; aucune qualification R6, produit ou industrielle.
+**DONE dans la portée diagnostique bornée : critères techniques satisfaits, bilan et preuves publiés puis relus intégralement depuis GitHub.** Le vrai service Windows reçoit les mesures physiques COM4, les archive dans SQLite et les sert à l'API et au Web. Edge headless a rendu une mesure valide et fraîche. Aucun blocage technique actif ; aucune qualification R6, produit ou industrielle.
 
 ## Versions, modifications et validations réutilisées
 
@@ -70,4 +70,6 @@ Prochaine étape : contrôle indépendant ChatGPT puis contrat R6/couverture pro
 
 Journal et roadmap actualisés factuellement : déblocage Windows désormais observé par Codex, chaîne physique, budgets, FRAM, restauration, limites et suite. Aucun jalon J4/J5 qualifié unilatéralement, aucune dette A04 ou archive historique modifiée. Permissions commit/push/flash/debug exercées. Worktree `codex/r5b2-physical-resume`, checkpoint7bf84b1 publié ; aucun merge/rebase/reset/force push.
 
-**Publication finale : attente du push puis de la relecture intégrale depuis GitHub.** Le statut IN_PROGRESS porte uniquement sur cette vérification ; aucune dépendance technique active. Le SHA relu sera consigné avant DONE.
+**Publication et relecture acquises :** bilan `dc547080f1403fe7cfc053013eda7d3d6949fae1`, push normal puis récupération de main depuis GitHub à2026-10-18T17:17:28.211572+00:00. Comparaison intégrale de133 fichiers, contrôle de128 empreintes et126 artefacts BUNDLE,1857 ADU CRC exacts, SQLite528 lignes/234 COM4, exemple API et DOM réels, Flash2Mio et FRAM complète restaurées vérifiées. [Preuve de relecture](preuves/TR2-20261018-R5B2/readback-dc54708.json). Ce résultat autorise le statut DONE de livraison R5-B2 ; contrôle indépendant ChatGPT et qualifications ultérieures restent distincts.
+
+La mise à jour DONE et les archives sont publiées ensuite par un push normal, puis relues à leur tour. Le SHA final est fourni dans la réponse Codex, sans référence autoréférente dans ce commit. Aucun nouvel essai physique, build ou test acquis répété pendant la clôture.
