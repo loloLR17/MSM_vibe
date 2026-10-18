@@ -445,12 +445,12 @@
       "raw_sha256": "d2da090074f323d5e921b9cbf26abe879d760575df841b194800f330d83547ec"
     },
     {
-      "path": "js-trends.log",
+      "path": "js-trends.log.zlib",
       "raw_name": "js-trends.log",
       "raw_bytes": 2554,
-      "stored_bytes": 2554,
-      "compression": "none",
-      "sha256": "38d8073d29093cd76b2997a5bb3f5b450d97feca28f21e2c4c68f5228fa4ca32",
+      "stored_bytes": 965,
+      "compression": "zlib",
+      "sha256": "8b82f4293453a6c7c7e6831b24c9a3f81ef35c0c2701fca84dc863afd639a0e8",
       "raw_sha256": "38d8073d29093cd76b2997a5bb3f5b450d97feca28f21e2c4c68f5228fa4ca32"
     },
     {
