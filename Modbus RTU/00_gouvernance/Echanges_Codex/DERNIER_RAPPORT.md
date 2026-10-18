@@ -1,6 +1,6 @@
 ---
 mission_id: TR2-20261018-UXL2-LIVE-TRENDS-NAVIGATION
-status: IN_PROGRESS
+status: DONE
 base_ref: main
 base_sha: 8ee37a7ae1d4da30e922ca6f723aa11206ca9488
 initial_head: 81cbeca3cacb90e2c0bc2633bbcc3d2407b93ddb
@@ -16,7 +16,7 @@ allow_debug: false
 
 # UX-L2 — tendances archivées, navigation du parc et CSV
 
-**Tranche logicielle réalisée et vérifiée ; IN_PROGRESS uniquement pour publication/relecture distante du présent bilan. Aucun blocage technique.** Le code a été publié par push normal sur main. Les courbes utilisent les observations réellement persistées R5-B2 et ne présentent jamais une archive comme une acquisition actuelle. Aucun accès COM4/STM32, flash/debug, B5, FRAM ou SD pendant cette mission.
+**DONE : critères logiciels UX-L2 satisfaits, code/bilan/preuves publiés puis relus intégralement depuis GitHub. Aucun blocage technique.** Le code et le bilan ont été publiés par push normal sur main. Les courbes utilisent les observations réellement persistées R5-B2 et ne présentent jamais une archive comme une acquisition actuelle. Aucun accès COM4/STM32, flash/debug, B5, FRAM ou SD pendant cette mission.
 
 Code évalué **`e5537ebe2b1898da9d461339a425826754590154`**, `feat(uxl2): add bounded LIVE archive trends, fleet navigation and CSV`. Référence de contrat8ee37a7 ; mission publiée81cbeca, ancêtre du code. Travail dans le nouveau worktree isolé `MSM_vibe-UXL2-trends-navigation`, branche auxiliaire `codex/uxl2-trends-navigation`, publication explicite `HEAD:refs/heads/main`. Dépôt initial main82169af propre préservé ; aucune fusion, réécriture, restauration Git ou suppression de travaux.
 
@@ -45,7 +45,7 @@ Les corrections finales après la suite .NET portent uniquement sur JS/HTML ; bu
 
 ## Erreurs analysées et corrigées
 
-Premier test JS de rupture : le raccord acceptait trop largement une séquence inchangée en Sequential. Correction : Sequential exige+1, RepeatedSequence exige0 ; assertions conservées, tests finaux PASS. Premier smoke navigateur : une borne reçue à7 décimales convertie en millisecondes faisait dépasser7j de0,6849ms ; précision du timestamp conservée et test dédié ajouté. Deuxième smoke : ancien SVG laissé dans DOM masqué lors de sortie d'onglet ; retrait explicite des tracés et export désactivé, puis campagne finale navigateur réussie. Sorties des deux échecs conservées séparément, aucun échec dissimulé.
+Premier test JS de rupture : le raccord acceptait trop largement une séquence inchangée en Sequential. Correction : Sequential exige+1, RepeatedSequence exige0 ; assertions conservées, tests finaux PASS. Premier smoke navigateur : une borne reçue à7 décimales convertie en millisecondes faisait dépasser7j de0,6849ms ; précision du timestamp conservée et test dédié ajouté. Deuxième smoke : ancien SVG laissé dans DOM masqué lors de sortie d'onglet ; retrait explicite des tracés et export désactivé, puis campagne finale navigateur réussie. Sorties des deux échecs conservées séparément, aucun échec dissimulé. La relecture documentaire a corrigé un décompte de fichiers TRX : sept projets/résultats, pas huit ; le total578 PASS reste inchangé, aucun test relancé ou assoupli.
 
 ## Préservation, limites et suite
 
@@ -59,4 +59,8 @@ Critères logiciels UX-L2 satisfaits par les preuves disponibles. Restent hors m
 
 ## Publication
 
-Code `e5537ebe2b1898da9d461339a425826754590154` publié par push normal explicite sur `main` après contrôle de portée/diff indexé et référence distante. Le présent bilan et les62 artefacts de preuve sont prêts ; relecture intégrale depuis la référence récupérée de GitHub à effectuer, puis mise à jour DONE et archivage neuf de cette mission. `allow_commit/allow_push` exercés, `allow_flash/allow_debug:false` respectés. Pas de force push/merge/rebase, commandes matérielles ou changement de configuration Codex. État attendu après publication : worktree de mission propre et HEAD égal à main distant ; état effectif et SHA du commit de rapport fournis après contrôle distant.
+Code `e5537ebe2b1898da9d461339a425826754590154` et bilan publiés par push normal explicite sur `main`, après contrôle portée/diff indexé et référence distante. **Bilan `ef733f4f40ac2ee8a9fa43602b69a94bfc8bc1d1` récupéré et relu à `2026-10-18T19:11:27.404788+00:00`** : `origin/main` = `ls-remote` = HEAD ; **81 fichiers modifiés comparés intégralement**,64 empreintes de manifeste et62 artefacts BUNDLE contrôlés (octets stockés/bruts, décompression comprise),578 résultats .NET et21 vérifications navigateur relus. Preuve [publication-readback.json](preuves/TR2-20261018-UXL2/publication-readback.json). Pas seulement une présence distante : chaque blob a été comparé aux octets locaux et chaque empreinte recalculée.
+
+Rapport DONE et archive neuve `archives/TR2-20261018-UXL2-LIVE-TRENDS-NAVIGATION/` préparés après cette relecture, sans toucher la mission active ou les anciennes archives. Le manifeste final ajoute la preuve de publication aux64 éléments du bilan. Une nouvelle relecture du commit final suit son push ; son SHA est fourni dans la réponse finale, sans prétendre connaître le hash de son propre commit dans ce document. Worktree de mission propre au contrôle distant du bilan, dépôt d'origine propre et préservé.
+
+`allow_commit/allow_push` exercés, `allow_flash/allow_debug:false` respectés. Pas de force push/merge/rebase, commande matérielle ou changement de configuration Codex. Le contrôle indépendant ChatGPT est distinct de cette livraison logicielle DONE ; aucune qualification physique supplémentaire.
