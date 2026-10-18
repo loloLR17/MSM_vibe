@@ -1,6 +1,6 @@
 ---
 mission_id: TR2-20261018-UXL1-LIVE-READONLY-INTEGRATION
-status: IN_PROGRESS
+status: DONE
 base_ref: main
 base_sha: 9c2b65400cbe11564875a94864ab22a896cd3733
 initial_head: cfabfbf291c83e20878f90181b7d18925f079ddb
@@ -16,9 +16,9 @@ allow_debug: false
 
 # UX-L1 — parc et fiche LIVE raccordés aux observations persistées
 
-**Tranche logicielle réalisée et vérifiée ; IN_PROGRESS uniquement pour publication/relecture distante restantes.** Aucun blocage technique. Le parc LIVE et une fiche Synthèse/Vibrations readonly sont intégrés au host S7, avec distinction explicite entre historique et réception physique actuelle. Pas d'acquisition nouvelle, COM4 non ouvert, aucun flash/debug/commande STM32.
+**DONE : tranche logicielle réalisée, bilan et preuves publiés puis relus intégralement depuis GitHub.** Aucun blocage technique. Le parc LIVE et une fiche Synthèse/Vibrations readonly sont intégrés au host S7, avec distinction explicite entre historique et réception physique actuelle. Pas d'acquisition nouvelle, COM4 non ouvert, aucun flash/debug/commande STM32.
 
-Code évalué **`8722c02e805e785dacacf0f2602f94a102b94119`**, `feat(uxl1): integrate readonly LIVE fleet and sensor views with persisted provenance`.Changements limités aux sources PC/Web et tests ; aucune modification du firmware, gouvernance, norme ou archives R5-B2.
+Code évalué **`8722c02e805e785dacacf0f2602f94a102b94119`**, `fix(uxl1): retain open detail on identity loss without promoting its previous owner` ; socle initial `3b4b103d6febe51b14ad6f989d4b9d81ee9bfc74`, `feat(uxl1): integrate readonly LIVE fleet and sensor views with persisted provenance`.Changements limités aux sources PC/Web et tests ; aucune modification du firmware, gouvernance, norme ou archives R5-B2.
 
 ## Livré
 
@@ -46,6 +46,8 @@ Autorisations exercées : logiciel, compilation/tests, commit/push ; flash/debug
 
 Dépôt historique main82169af propre, autres worktrees et deux stashes préservés. Worktree `MSM_vibe-UXL1-live-readonly`, branche `codex/uxl1-live-readonly`. Les sources courantes PC explicitement modifiées dans le périmètre sont distinguées des archives/proofs protégés. Aucun reset/clean/merge/rebase/force push.
 
-Publication du bilan puis relecture intégrale depuis GitHub encore à terminer ; le statut IN_PROGRESS concerne uniquement cette étape. Le SHA relu sera consigné avant DONE. Contrôle indépendant ChatGPT distinct de la livraison logicielle.
+**Publication vérifiée :** bilan `50d1ca30049d5fcc3a6d9e3dcda53f58ccbd1858` récupéré de GitHub à2026-10-18T18:18:09.573733+00:00,96 fichiers comparés intégralement,78 empreintes/76 artefacts vérifiés. TRX final217 Service PASS,350 autres tests déjà réussis, deux DOM de la version finale et copie SQLite inchangée contrôlés. [Preuve de relecture](preuves/TR2-20261018-UXL1/readback-50d1ca3.json). Livraison DONE, contrôle indépendant ChatGPT distinct. La mise à jour DONE et ses archives sont ensuite poussées normalement et relues ; le SHA final sera fourni dans la réponse Codex.
+
+Préservation vérifiée :8295 fichiers protégés,67 autres worktrees, deux stashes et dépôt historique main82169af inchangés. Le serveur de test a été arrêté et le port HTTP libéré après chaque smoke. Aucun port COM ou accès matériel exécuté. Aucun nouvel essai physique ou test firmware pendant clôture.
 
 Dernière correction de sélection : une fiche ouverte par identifiant peut suivre sa dernière mesure lors d'une perte d'identité, sans promouvoir son ancien propriétaire en identité actuelle. Si une observation identifiée existe ailleurs pour ce device_id, elle reste prioritaire. Tests JS ciblés, build des assets et nouveaux DOM headless après correction réussis ; aucun changement du backend couvert par les217 tests Service.
