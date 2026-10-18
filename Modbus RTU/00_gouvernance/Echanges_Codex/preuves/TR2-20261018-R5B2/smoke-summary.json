@@ -1,0 +1,17 @@
+{
+  "utc": "2026-10-18T17:04:00.100857+00:00",
+  "windows_service_loaded": true,
+  "physical": false,
+  "http_200_paths": [
+    "/api/v2/live",
+    "/live.html",
+    "/live.js"
+  ],
+  "api_responses": 93,
+  "all_snapshot_null": true,
+  "all_communication_lost": true,
+  "service_exit": 0,
+  "new_code_integrity_blocking_events": 0,
+  "policy_changes": false,
+  "initial_helper_failure": "HttpWebRequest timeouts; loopback helper made explicit Proxy=null; second smoke succeeded; service code unchanged"
+}
