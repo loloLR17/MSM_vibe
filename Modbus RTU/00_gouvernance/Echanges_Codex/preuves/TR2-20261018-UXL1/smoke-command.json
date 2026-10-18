@@ -1,0 +1,8 @@
+[
+  "dotnet",
+  "/home/lolo/dev/msm/projects/MSM_vibe-UXL1-live-readonly/Modbus RTU/Supervision TR2/src/TR2.Supervision.Service/bin/Debug/net10.0/TR2.Supervision.Service.dll",
+  "--live-archive",
+  "/home/lolo/dev/msm/reports/TR2-uxl1/historical-r5b2.db",
+  "--listen",
+  "http://127.0.0.1:5093"
+]

@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>MSM — Supervision vibrations</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div class="brand">MSM<span>Supervision vibrations</span></div>
+      <nav>
+        <a class="nav-link active" href="/">Vue générale</a>
+        <a class="nav-link" href="/live-fleet.html">Parc LIVE</a>
+        <a class="nav-link" href="/live.html">Diagnostic LIVE</a>
+        <a class="nav-link" href="/vibrations.html">Vibrations</a>
+        <a class="nav-link" href="/attention.html">Attention & diagnostic</a>
+        <a class="nav-link" href="/campaigns.html">Campagnes</a>
+        <a class="nav-link" href="/system.html">Système</a>
+      </nav>
+      <div class="scope">S7-I1 · vue parc réelle<br>Lecture supervision</div>
+    </aside>
+    <main>
+      <header class="status-band">
+        <div><span>API Web</span><strong id="apiState">Connexion…</strong></div>
+        <div><span>Dernière observation</span><strong id="observedAt">—</strong></div>
+        <div><span>Heure PC</span><strong id="pcClock">—</strong></div>
+      </header>
+
+      <section aria-label="Parc LIVE">
+        <div class="page-head"><h2>Parc LIVE · lecture seule</h2><a href="/live-fleet.html">Ouvrir le parc LIVE</a></div>
+        <p id="liveOverviewState" role="status"></p>
+        <div class="table-card"><table><thead><tr><th>Capteur / endpoint</th><th>RMS global</th><th>Crête globale</th><th>Sévérité B3</th><th>Communication / qualité</th><th>Réception PC</th></tr></thead><tbody id="liveFleetRows"></tbody></table></div>
+      </section>
+      <section>
+        <div class="page-head">
+          <div><h1>Vue générale · profil V1</h1><p>Parc TR2 — état réel projeté par la supervision</p></div>
+          <div class="filter-row">
+            <button class="chip active" data-filter="all">Tous</button>
+            <button class="chip" data-filter="attention">Attention</button>
+          </div>
+        </div>
+
+        <div id="webError" class="error-banner hidden" role="status"></div>
+
+        <div class="kpis">
+          <article><span>Endpoints surveillés</span><strong id="kpiTotal">—</strong></article>
+          <article><span>TR2 compatibles</span><strong id="kpiCompatible">—</strong></article>
+          <article><span>Attention</span><strong id="kpiAttention">—</strong></article>
+          <article><span>Données fraîches</span><strong id="kpiFresh">—</strong></article>
+        </div>
+
+        <div class="table-card">
+          <table>
+            <thead><tr><th>Point</th><th>device_id</th><th>Communication</th><th>Données PC</th><th>Vibration</th><th>État TR2</th><th>Attention</th><th>Dernière réception</th></tr></thead>
+            <tbody id="fleetRows"><tr><td colspan="8" class="empty">Chargement…</td></tr></tbody>
+          </table>
+        </div>
+        <p class="scope-note">RMS global B3 affiché en mg. Aucune vitesse mm/s, FFT, fréquence dominante, seuil ISO ou score santé n'est calculé.</p>
+      </section>
+    </main>
+  </div>
+  <script src="/app.js"></script>
+  <script src="/live-overview.js"></script>
+</body>
+</html>

@@ -141,3 +141,8 @@ Composition directe PC readonly préparée/testée (`dc773733a98d78016e1d0f8a341
 ## Constat R5-B2 —18/10/2026, preuve physique diagnostique
 
 Chaîne capteur → STM32 → COM4 → vrai service PC Windows local → SQLite → API/Web/DOM Edge headless observée dans un essai borné :88 courantes,54 HELD,28 pertes logiques honnêtes,141 lignes API corrélées,824 ADU du service CRC exactes. M016 restauré, Flash entière c5bc et FRAM2b501a/run11/journal78 conservée sans rollback. [Bilan R5B2](../Supervision%20TR2/LIVE_R5B2.md). Aucun jalon J4/J5 qualifié unilatéralement : contrôle indépendant ChatGPT à faire. Profil partiel NON-PRODUCTION, B1/B2/B7 et UTC absents, STOP durable≈40s ; pas de qualification R6/endurance/industrie. Windows local fonctionnel désormais observé ; ancien checkpoint R5-B BLOCKED préservé historiquement. Tests/builds acquis réutilisés, seule la nouvelle campagne physique exécutée.
+
+
+## Constat UX-L1 —18/10/2026, intégration logicielle readonly
+
+Parc et fiche LIVE à six onglets raccordés au modèle R5 et à SQLite, avec API additive, provenance et historique non courant explicites. Tests .NET/JS/HTTP et DOM headless sur archive R5-B2 ; aucun accès matériel ou qualification supplémentaire J4/J5/R6. Tendance, graphiques, filtres avancés et export différés UX-L2 ; overlays documentés UX-L3. [Note UX-L1](../Supervision%20TR2/LIVE_UXL1.md). Gouvernance et acquis physiques inchangés.
