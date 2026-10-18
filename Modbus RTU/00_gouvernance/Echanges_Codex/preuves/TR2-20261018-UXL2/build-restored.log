@@ -1,0 +1,37 @@
+  Determining projects to restore...
+  Restored /home/lolo/dev/msm/projects/MSM_vibe-UXL2-trends-navigation/Modbus RTU/Supervision TR2/src/TR2.Domain/TR2.Domain.csproj (in 191 ms).
+  Restored /home/lolo/dev/msm/projects/MSM_vibe-UXL2-trends-navigation/Modbus RTU/Supervision TR2/tests/TR2.Architecture.Tests/TR2.Architecture.Tests.csproj (in 2.04 sec).
+  Restored /home/lolo/dev/msm/projects/MSM_vibe-UXL2-trends-navigation/Modbus RTU/Supervision TR2/tests/TR2.Transport.Tests/TR2.Transport.Tests.csproj (in 2.04 sec).
+  Restored /home/lolo/dev/msm/projects/MSM_vibe-UXL2-trends-navigation/Modbus RTU/Supervision TR2/src/TR2.Supervision.Web/TR2.Supervision.Web.csproj (in 2.03 sec).
+  Restored /home/lolo/dev/msm/projects/MSM_vibe-UXL2-trends-navigation/Modbus RTU/Supervision TR2/tests/TR2.Protocol.Tests/TR2.Protocol.Tests.csproj (in 2.04 sec).
+  Restored /home/lolo/dev/msm/projects/MSM_vibe-UXL2-trends-navigation/Modbus RTU/Supervision TR2/src/TR2.Persistence/TR2.Persistence.csproj (in 2.03 sec).
+  Restored /home/lolo/dev/msm/projects/MSM_vibe-UXL2-trends-navigation/Modbus RTU/Supervision TR2/src/TR2.Campaigns/TR2.Campaigns.csproj (in 1.77 sec).
+  Restored /home/lolo/dev/msm/projects/MSM_vibe-UXL2-trends-navigation/Modbus RTU/Supervision TR2/src/TR2.Supervision.Service/TR2.Supervision.Service.csproj (in 2.03 sec).
+  Restored /home/lolo/dev/msm/projects/MSM_vibe-UXL2-trends-navigation/Modbus RTU/Supervision TR2/tests/TR2.Supervision.Service.Tests/TR2.Supervision.Service.Tests.csproj (in 2.04 sec).
+  Restored /home/lolo/dev/msm/projects/MSM_vibe-UXL2-trends-navigation/Modbus RTU/Supervision TR2/tests/TR2.Domain.Tests/TR2.Domain.Tests.csproj (in 8 ms).
+  Restored /home/lolo/dev/msm/projects/MSM_vibe-UXL2-trends-navigation/Modbus RTU/Supervision TR2/src/TR2.Transport/TR2.Transport.csproj (in 10 ms).
+  Restored /home/lolo/dev/msm/projects/MSM_vibe-UXL2-trends-navigation/Modbus RTU/Supervision TR2/src/TR2.Application/TR2.Application.csproj (in 11 ms).
+  Restored /home/lolo/dev/msm/projects/MSM_vibe-UXL2-trends-navigation/Modbus RTU/Supervision TR2/src/TR2.Protocol/TR2.Protocol.csproj (in 13 ms).
+  Restored /home/lolo/dev/msm/projects/MSM_vibe-UXL2-trends-navigation/Modbus RTU/Supervision TR2/tests/TR2.Persistence.Tests/TR2.Persistence.Tests.csproj (in 18 ms).
+  Restored /home/lolo/dev/msm/projects/MSM_vibe-UXL2-trends-navigation/Modbus RTU/Supervision TR2/tests/TR2.Application.Tests/TR2.Application.Tests.csproj (in 17 ms).
+  TR2.Domain -> /home/lolo/dev/msm/projects/MSM_vibe-UXL2-trends-navigation/Modbus RTU/Supervision TR2/src/TR2.Domain/bin/Debug/net10.0/TR2.Domain.dll
+  TR2.Transport -> /home/lolo/dev/msm/projects/MSM_vibe-UXL2-trends-navigation/Modbus RTU/Supervision TR2/src/TR2.Transport/bin/Debug/net10.0/TR2.Transport.dll
+  TR2.Protocol -> /home/lolo/dev/msm/projects/MSM_vibe-UXL2-trends-navigation/Modbus RTU/Supervision TR2/src/TR2.Protocol/bin/Debug/net10.0/TR2.Protocol.dll
+  TR2.Application -> /home/lolo/dev/msm/projects/MSM_vibe-UXL2-trends-navigation/Modbus RTU/Supervision TR2/src/TR2.Application/bin/Debug/net10.0/TR2.Application.dll
+  TR2.Persistence -> /home/lolo/dev/msm/projects/MSM_vibe-UXL2-trends-navigation/Modbus RTU/Supervision TR2/src/TR2.Persistence/bin/Debug/net10.0/TR2.Persistence.dll
+  TR2.Campaigns -> /home/lolo/dev/msm/projects/MSM_vibe-UXL2-trends-navigation/Modbus RTU/Supervision TR2/src/TR2.Campaigns/bin/Debug/net10.0/TR2.Campaigns.dll
+  TR2.Supervision.Web -> /home/lolo/dev/msm/projects/MSM_vibe-UXL2-trends-navigation/Modbus RTU/Supervision TR2/src/TR2.Supervision.Web/bin/Debug/net10.0/TR2.Supervision.Web.dll
+  TR2.Supervision.Service -> /home/lolo/dev/msm/projects/MSM_vibe-UXL2-trends-navigation/Modbus RTU/Supervision TR2/src/TR2.Supervision.Service/bin/Debug/net10.0/TR2.Supervision.Service.dll
+  TR2.Domain.Tests -> /home/lolo/dev/msm/projects/MSM_vibe-UXL2-trends-navigation/Modbus RTU/Supervision TR2/tests/TR2.Domain.Tests/bin/Debug/net10.0/TR2.Domain.Tests.dll
+  TR2.Protocol.Tests -> /home/lolo/dev/msm/projects/MSM_vibe-UXL2-trends-navigation/Modbus RTU/Supervision TR2/tests/TR2.Protocol.Tests/bin/Debug/net10.0/TR2.Protocol.Tests.dll
+  TR2.Application.Tests -> /home/lolo/dev/msm/projects/MSM_vibe-UXL2-trends-navigation/Modbus RTU/Supervision TR2/tests/TR2.Application.Tests/bin/Debug/net10.0/TR2.Application.Tests.dll
+  TR2.Persistence.Tests -> /home/lolo/dev/msm/projects/MSM_vibe-UXL2-trends-navigation/Modbus RTU/Supervision TR2/tests/TR2.Persistence.Tests/bin/Debug/net10.0/TR2.Persistence.Tests.dll
+  TR2.Architecture.Tests -> /home/lolo/dev/msm/projects/MSM_vibe-UXL2-trends-navigation/Modbus RTU/Supervision TR2/tests/TR2.Architecture.Tests/bin/Debug/net10.0/TR2.Architecture.Tests.dll
+  TR2.Supervision.Service.Tests -> /home/lolo/dev/msm/projects/MSM_vibe-UXL2-trends-navigation/Modbus RTU/Supervision TR2/tests/TR2.Supervision.Service.Tests/bin/Debug/net10.0/TR2.Supervision.Service.Tests.dll
+  TR2.Transport.Tests -> /home/lolo/dev/msm/projects/MSM_vibe-UXL2-trends-navigation/Modbus RTU/Supervision TR2/tests/TR2.Transport.Tests/bin/Debug/net10.0/TR2.Transport.Tests.dll
+
+Build succeeded.
+    0 Warning(s)
+    0 Error(s)
+
+Time Elapsed 00:00:17.34

@@ -146,3 +146,8 @@ Chaîne capteur → STM32 → COM4 → vrai service PC Windows local → SQLite 
 ## Constat UX-L1 —18/10/2026, intégration logicielle readonly
 
 Parc et fiche LIVE à six onglets raccordés au modèle R5 et à SQLite, avec API additive, provenance et historique non courant explicites. Tests .NET/JS/HTTP et DOM headless sur archive R5-B2 ; aucun accès matériel ou qualification supplémentaire J4/J5/R6. Tendance, graphiques, filtres avancés et export différés UX-L2 ; overlays documentés UX-L3. [Note UX-L1](../Supervision%20TR2/LIVE_UXL1.md). Gouvernance et acquis physiques inchangés.
+
+
+## Constat UX-L2 —18/10/2026, consultation des tendances persistées
+
+Courbes globales/XYZ, périodes bornées, ruptures et HELD explicites, outils Attention/bus/recherche/tri du parc et CSV du lot affiché livrés sur le socle UX-L1. API readonly historique500 observations/lot,10000 candidats et période≤7j ; couverture tronquée et provenance non courante affichées.578 tests.NET,8 tests JS ciblés, HTTP et vrai DOM Edge headless depuis archive R5-B2 :88 observations vibratoires/176 points globaux/264 XYZ ; CSV500 lignes exact, base inchangée. [Note UX-L2](../Supervision%20TR2/LIVE_UXL2.md). Aucun essai matériel ni qualification additionnelle J4/J5/R6. Affectations/noms personnalisés absents, UX-L3 et profil complet distincts ; contrôle indépendant ChatGPT après publication.

@@ -1,0 +1,11 @@
+# Preuves UX-L2 — lecture Web sans matériel
+
+Code évalué `e5537ebe2b1898da9d461339a425826754590154`. Source physique préexistante R5-B2, copie figée de528 observations, aucun nouvel accès COM/STM32. `BUNDLE.json` décrit chaque artefact brut/stocké et son empreinte ; les `.zlib` se décompressent avec `zlib.decompress`. `SHA256SUMS` couvre les octets versionnés.
+
+`validation-summary.json` et huit TRX :578 tests .NET PASS. `js-trends-precision-final.log` :8 tests ciblés PASS ; `js-overview-regression.log` : régression helpers UX-L1. `browser-summary.json`/`smoke-summary.json` : vrais service HTTP et Edge headless, points authentiques, filtres, périodes, pagination, axes, onglets et identité absente. DOM `vibration.html.zlib` et `summary.html.zlib`, plus autres états. Aucune observation humaine ni nouvelle acquisition physique revendiquée. Le503 du navigateur est explicitement simulé, celui du WAL est réellement testé en .NET.
+
+`export-actual-page.csv.zlib` et `csv-verification.json` :500 observations exactement comparées à `history-http.json.zlib`,54 HELD,294 snapshots nuls exportés sans zéro substitué. Identité propriétaire, source, PC received, qualité et huit valeurs exactes ; UTC/run/config restent vides. `source-evidence.json` relie le tout à l'archive R5-B2 immuable ; `preservation.json` :8318 fichiers protégés,68 autres worktrees, deux stashes et dépôt initial inchangés.
+
+Les sorties initiales sont conservées : build sans assets NuGet puis build restauré ; test JS de rupture d'abord échoué puis raccord de séquence corrigé ; `browser-attempt1/` (borne7j trop longue de quelques ticks) et `browser-attempt2/` (ancien SVG dans DOM masqué), suivis du smoke final réussi. Les échecs ne sont pas transformés en succès. Fixture50000 lignes/50 endpoints dans les tests .NET : synthétique uniquement,178,7ms pour trois lectures bornées dans cet environnement, aucune qualification physique/performance industrielle.
+
+Scripts `smoke.py` et `browser.cjs` gardés avec chemins exacts de cette exécution ; utiliser de nouveaux répertoires/ports pour reproduire sans écraser ces preuves. Le navigateur crée son propre profil temporaire, aucun profil personnel utilisé. Build des assets après corrections JS, pas de répétition des tests firmware ou du matériel.

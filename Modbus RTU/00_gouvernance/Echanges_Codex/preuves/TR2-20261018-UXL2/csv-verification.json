@@ -1,0 +1,8 @@
+{
+  "result": "PASS",
+  "rows": 500,
+  "all_values_timestamps_identities_source_continuity_exact": true,
+  "no_window_utc_or_run_config_fabricated": true,
+  "null_snapshots_exported_blank": 294,
+  "held_rows": 54
+}

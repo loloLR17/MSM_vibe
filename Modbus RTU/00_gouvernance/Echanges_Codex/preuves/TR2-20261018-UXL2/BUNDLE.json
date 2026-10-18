@@ -1,0 +1,565 @@
+{
+  "mission_id": "TR2-20261018-UXL2-LIVE-TRENDS-NAVIGATION",
+  "created_at_utc": "2026-10-18T19:07:51.328800+00:00",
+  "code_sha": "e5537ebe2b1898da9d461339a425826754590154",
+  "artifacts": [
+    {
+      "path": "api-error-simulated.html.zlib",
+      "raw_name": "api-error-simulated.html",
+      "raw_bytes": 5141,
+      "stored_bytes": 2191,
+      "compression": "zlib",
+      "sha256": "e651bcb3b01d74481ed485f301901a23f2afdfa1be3a0a2b7f09d16ffd5dca41",
+      "raw_sha256": "76b44990887f12d68a7844b5b3be347bcb61952dbbb903f0292d5517af459a19"
+    },
+    {
+      "path": "browser-attempt1/browser-command.log",
+      "raw_name": "browser-attempt1/browser-command.log",
+      "raw_bytes": 260,
+      "stored_bytes": 260,
+      "compression": "none",
+      "sha256": "a5b1aa004a137745927f478af6493cb282f5938238d5fb34fb4504fd80396d27",
+      "raw_sha256": "a5b1aa004a137745927f478af6493cb282f5938238d5fb34fb4504fd80396d27"
+    },
+    {
+      "path": "browser-attempt1/fleet.html.zlib",
+      "raw_name": "browser-attempt1/fleet.html",
+      "raw_bytes": 2695,
+      "stored_bytes": 1280,
+      "compression": "zlib",
+      "sha256": "da924fda148d4fd6dc17e501bcac9cad7dd1a622fb5edb963fb1fe507c677e92",
+      "raw_sha256": "8b6e3c9f823bbebce94808f9e2253585a44e1543fbcbd3cfdbdaebef77f07f59"
+    },
+    {
+      "path": "browser-attempt1/history-http.json.zlib",
+      "raw_name": "browser-attempt1/history-http.json",
+      "raw_bytes": 503184,
+      "stored_bytes": 21559,
+      "compression": "zlib",
+      "sha256": "7bec65aee59e20900514d273f5e359fff9352b83edb985639d47ceaf41275fac",
+      "raw_sha256": "02a94685a713998628b0469bdebbc60217c39adb8a9a4b1fbf9281c48759ad9f"
+    },
+    {
+      "path": "browser-attempt1/http-server.log.zlib",
+      "raw_name": "browser-attempt1/http-server.log",
+      "raw_bytes": 22371,
+      "stored_bytes": 1383,
+      "compression": "zlib",
+      "sha256": "a4272288af4fec9f95033a3754a07d4f559a4931b1795e0e14f2155e74cb2fa8",
+      "raw_sha256": "c32ae16c86a7c16da49d42ad436ad8e7847934e2b78074b3eb334b78e9e213fe"
+    },
+    {
+      "path": "browser-attempt1/older.html.zlib",
+      "raw_name": "browser-attempt1/older.html",
+      "raw_bytes": 15258,
+      "stored_bytes": 2801,
+      "compression": "zlib",
+      "sha256": "fbb5e2d6207a168eca720549937e14d9d662f504ed420bbf52b0817f8168c431",
+      "raw_sha256": "e19218dc4dcd15757cd46b4219f82f3ab4060f433ea02a01a61b28307946d5d5"
+    },
+    {
+      "path": "browser-attempt1/overview.json",
+      "raw_name": "browser-attempt1/overview.json",
+      "raw_bytes": 3214,
+      "stored_bytes": 3214,
+      "compression": "none",
+      "sha256": "6b78746055706d8ffb2d92650c1e8fa04966a4ca09fe78965e2f74474f340d80",
+      "raw_sha256": "6b78746055706d8ffb2d92650c1e8fa04966a4ca09fe78965e2f74474f340d80"
+    },
+    {
+      "path": "browser-attempt1/smoke-command.json",
+      "raw_name": "browser-attempt1/smoke-command.json",
+      "raw_bytes": 302,
+      "stored_bytes": 302,
+      "compression": "none",
+      "sha256": "2eeeeca1e00078deaed005c32a49171d3f9b2fe57c928942ce8fb8537f0653a2",
+      "raw_sha256": "2eeeeca1e00078deaed005c32a49171d3f9b2fe57c928942ce8fb8537f0653a2"
+    },
+    {
+      "path": "browser-attempt1/v1.json",
+      "raw_name": "browser-attempt1/v1.json",
+      "raw_bytes": 63,
+      "stored_bytes": 63,
+      "compression": "none",
+      "sha256": "6c141763c80e586c8704d3150ee6d8a179d689417b966dae398ab0d0212a8506",
+      "raw_sha256": "6c141763c80e586c8704d3150ee6d8a179d689417b966dae398ab0d0212a8506"
+    },
+    {
+      "path": "browser-attempt1/vibration.html.zlib",
+      "raw_name": "browser-attempt1/vibration.html",
+      "raw_bytes": 460501,
+      "stored_bytes": 38596,
+      "compression": "zlib",
+      "sha256": "a3d0b00e22fbe3aa703e64fb3488f6e3295f2feba4b7a58a6c1953dd4673908d",
+      "raw_sha256": "b06c922d6adcc442f8157bbaeea128b582ffb3b94600c0d8da20aa18f2ffb12b"
+    },
+    {
+      "path": "browser-attempt2/api-error-simulated.html.zlib",
+      "raw_name": "browser-attempt2/api-error-simulated.html",
+      "raw_bytes": 5141,
+      "stored_bytes": 2191,
+      "compression": "zlib",
+      "sha256": "370ba216110231c33a164fc57cfe1120fcd0b1b8370051ed49a065497db1e2a3",
+      "raw_sha256": "b12125412ba9d9ec0d0a07a46e9598406ecf5b5c12dcfc3885a012ae2eabe7e9"
+    },
+    {
+      "path": "browser-attempt2/browser-command.log",
+      "raw_name": "browser-attempt2/browser-command.log",
+      "raw_bytes": 373,
+      "stored_bytes": 373,
+      "compression": "none",
+      "sha256": "8c1a35037c7dc40bc37218c94952cd40ef9121512932782f8b3607a2d888f743",
+      "raw_sha256": "8c1a35037c7dc40bc37218c94952cd40ef9121512932782f8b3607a2d888f743"
+    },
+    {
+      "path": "browser-attempt2/empty.html.zlib",
+      "raw_name": "browser-attempt2/empty.html",
+      "raw_bytes": 5586,
+      "stored_bytes": 2300,
+      "compression": "zlib",
+      "sha256": "553af04dd4faeba43fa1f42965c3956c9362e78781e023e93357f3ef931c410b",
+      "raw_sha256": "7b0a845b1560b2d822ee1e90b91335879ac652f2b34dae8dffa4a494fbd6cd28"
+    },
+    {
+      "path": "browser-attempt2/export-actual-page.csv.zlib",
+      "raw_name": "browser-attempt2/export-actual-page.csv",
+      "raw_bytes": 239943,
+      "stored_bytes": 18599,
+      "compression": "zlib",
+      "sha256": "d18c510399e355856f7c757bba6a5a9a332a173cac985f841faa54d6208b585d",
+      "raw_sha256": "ef767a14771c4962c6dd6d693a8d072b365638759b11b594a1bde895da6ad050"
+    },
+    {
+      "path": "browser-attempt2/fleet.html.zlib",
+      "raw_name": "browser-attempt2/fleet.html",
+      "raw_bytes": 2695,
+      "stored_bytes": 1280,
+      "compression": "zlib",
+      "sha256": "55fb471be447008a6a44ce2af3bce326f41243245c5589892dbdae2862388ba5",
+      "raw_sha256": "5461aa0770dde02de76380c07257a2ca925de03e273370149052e0ad1882baa3"
+    },
+    {
+      "path": "browser-attempt2/history-http.json.zlib",
+      "raw_name": "browser-attempt2/history-http.json",
+      "raw_bytes": 503184,
+      "stored_bytes": 21559,
+      "compression": "zlib",
+      "sha256": "7bec65aee59e20900514d273f5e359fff9352b83edb985639d47ceaf41275fac",
+      "raw_sha256": "02a94685a713998628b0469bdebbc60217c39adb8a9a4b1fbf9281c48759ad9f"
+    },
+    {
+      "path": "browser-attempt2/http-server.log.zlib",
+      "raw_name": "browser-attempt2/http-server.log",
+      "raw_bytes": 19414,
+      "stored_bytes": 1380,
+      "compression": "zlib",
+      "sha256": "4f041ead8c147e5ad1bc1dbac3f7da1bd942a9aff529490114f7d90dcc960f14",
+      "raw_sha256": "f4f828a60e5fafcc0faa76b48a34aa8a43985811fa98f9c448d259888cba85f1"
+    },
+    {
+      "path": "browser-attempt2/older.html.zlib",
+      "raw_name": "browser-attempt2/older.html",
+      "raw_bytes": 15258,
+      "stored_bytes": 2801,
+      "compression": "zlib",
+      "sha256": "679c2b28a5428f8245bd11c5ae92b602caf457141b05934e7d58b161dd1d10bd",
+      "raw_sha256": "267a7d4102e64d9a46b2453556b04264abdcda0060fc47ada53efb7306fa4882"
+    },
+    {
+      "path": "browser-attempt2/overview.json",
+      "raw_name": "browser-attempt2/overview.json",
+      "raw_bytes": 3214,
+      "stored_bytes": 3214,
+      "compression": "none",
+      "sha256": "7f5b53a05fd3de7e868958a2acbc232c11b2077006e5f5b783eacf6f458abf2d",
+      "raw_sha256": "7f5b53a05fd3de7e868958a2acbc232c11b2077006e5f5b783eacf6f458abf2d"
+    },
+    {
+      "path": "browser-attempt2/smoke-command.json",
+      "raw_name": "browser-attempt2/smoke-command.json",
+      "raw_bytes": 302,
+      "stored_bytes": 302,
+      "compression": "none",
+      "sha256": "2eeeeca1e00078deaed005c32a49171d3f9b2fe57c928942ce8fb8537f0653a2",
+      "raw_sha256": "2eeeeca1e00078deaed005c32a49171d3f9b2fe57c928942ce8fb8537f0653a2"
+    },
+    {
+      "path": "browser-attempt2/v1.json",
+      "raw_name": "browser-attempt2/v1.json",
+      "raw_bytes": 63,
+      "stored_bytes": 63,
+      "compression": "none",
+      "sha256": "eb3cbee4a8d0ef0674c87a7a88b2b221525ca8cc21c3056d7f081681862a28e7",
+      "raw_sha256": "eb3cbee4a8d0ef0674c87a7a88b2b221525ca8cc21c3056d7f081681862a28e7"
+    },
+    {
+      "path": "browser-attempt2/vibration.html.zlib",
+      "raw_name": "browser-attempt2/vibration.html",
+      "raw_bytes": 460501,
+      "stored_bytes": 38596,
+      "compression": "zlib",
+      "sha256": "b1ab9b5b80a90da115be8c625c9efa3d27c40043fbfe0e5038aa71ae978b15ef",
+      "raw_sha256": "09eb14ff0482f72ed996ea350aa5e5e217d16ab6be3ca7ce3f13da73bdaa8c3e"
+    },
+    {
+      "path": "browser-command.log",
+      "raw_name": "browser-command.log",
+      "raw_bytes": 0,
+      "stored_bytes": 0,
+      "compression": "none",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "browser-summary.json",
+      "raw_name": "browser-summary.json",
+      "raw_bytes": 2465,
+      "stored_bytes": 2465,
+      "compression": "none",
+      "sha256": "3014bac24457474186f7a20526d1872979357dcbeb7b4acbf162ed07a6638d98",
+      "raw_sha256": "3014bac24457474186f7a20526d1872979357dcbeb7b4acbf162ed07a6638d98"
+    },
+    {
+      "path": "browser.cjs",
+      "raw_name": "browser.cjs",
+      "raw_bytes": 8709,
+      "stored_bytes": 8709,
+      "compression": "none",
+      "sha256": "661d31b6e5f289fc6fb7346b38c846fe08bf1c745cb571dd2be04e54014fc2a2",
+      "raw_sha256": "661d31b6e5f289fc6fb7346b38c846fe08bf1c745cb571dd2be04e54014fc2a2"
+    },
+    {
+      "path": "build-initial.log.zlib",
+      "raw_name": "build-initial.log",
+      "raw_bytes": 13597,
+      "stored_bytes": 594,
+      "compression": "zlib",
+      "sha256": "61853af7abe66e309d1aa907849170293fd37339e955659b7d593a44308eff62",
+      "raw_sha256": "f9050454f054cc8e424bc4a6433e3c5a6da53ee380f6b01ceac258de145ab724"
+    },
+    {
+      "path": "build-navigation-fix.log",
+      "raw_name": "build-navigation-fix.log",
+      "raw_bytes": 1404,
+      "stored_bytes": 1404,
+      "compression": "none",
+      "sha256": "6037c3c41d11aaae60f9dd49b0e1a26ae8214f71a9a0427202f09897fe515220",
+      "raw_sha256": "6037c3c41d11aaae60f9dd49b0e1a26ae8214f71a9a0427202f09897fe515220"
+    },
+    {
+      "path": "build-period-fix.log",
+      "raw_name": "build-period-fix.log",
+      "raw_bytes": 1404,
+      "stored_bytes": 1404,
+      "compression": "none",
+      "sha256": "6037c3c41d11aaae60f9dd49b0e1a26ae8214f71a9a0427202f09897fe515220",
+      "raw_sha256": "6037c3c41d11aaae60f9dd49b0e1a26ae8214f71a9a0427202f09897fe515220"
+    },
+    {
+      "path": "build-restored.log",
+      "raw_name": "build-restored.log",
+      "raw_bytes": 5155,
+      "stored_bytes": 5155,
+      "compression": "none",
+      "sha256": "aa65f2eb5f37bbaf010303be97c685f4d1d14baa9a95f842a65720534dc47473",
+      "raw_sha256": "aa65f2eb5f37bbaf010303be97c685f4d1d14baa9a95f842a65720534dc47473"
+    },
+    {
+      "path": "build-ui-final.log",
+      "raw_name": "build-ui-final.log",
+      "raw_bytes": 1404,
+      "stored_bytes": 1404,
+      "compression": "none",
+      "sha256": "6037c3c41d11aaae60f9dd49b0e1a26ae8214f71a9a0427202f09897fe515220",
+      "raw_sha256": "6037c3c41d11aaae60f9dd49b0e1a26ae8214f71a9a0427202f09897fe515220"
+    },
+    {
+      "path": "check-preservation.py",
+      "raw_name": "check-preservation.py",
+      "raw_bytes": 1480,
+      "stored_bytes": 1480,
+      "compression": "none",
+      "sha256": "bb37364f46fc06369107ed161b009b243b1464f524cc5cb3bf45890a16a299fc",
+      "raw_sha256": "bb37364f46fc06369107ed161b009b243b1464f524cc5cb3bf45890a16a299fc"
+    },
+    {
+      "path": "csv-verification.json",
+      "raw_name": "csv-verification.json",
+      "raw_bytes": 215,
+      "stored_bytes": 215,
+      "compression": "none",
+      "sha256": "0a26b93a4b3550a1b852f1e571e70212614c603056ef7ed0d14bac93d63c5f51",
+      "raw_sha256": "0a26b93a4b3550a1b852f1e571e70212614c603056ef7ed0d14bac93d63c5f51"
+    },
+    {
+      "path": "empty.html.zlib",
+      "raw_name": "empty.html",
+      "raw_bytes": 5586,
+      "stored_bytes": 2300,
+      "compression": "zlib",
+      "sha256": "70715f4bf02149e010bdc13cff1e1a6324e20798ce2fe08a96e2ab878180339b",
+      "raw_sha256": "dca3c6b11d0eaa8eddb08a37d893c9cff7a4521eadf8e18834cc659261cd78ef"
+    },
+    {
+      "path": "export-actual-page.csv.zlib",
+      "raw_name": "export-actual-page.csv",
+      "raw_bytes": 239943,
+      "stored_bytes": 18599,
+      "compression": "zlib",
+      "sha256": "d18c510399e355856f7c757bba6a5a9a332a173cac985f841faa54d6208b585d",
+      "raw_sha256": "ef767a14771c4962c6dd6d693a8d072b365638759b11b594a1bde895da6ad050"
+    },
+    {
+      "path": "fleet.html.zlib",
+      "raw_name": "fleet.html",
+      "raw_bytes": 2695,
+      "stored_bytes": 1280,
+      "compression": "zlib",
+      "sha256": "ea50e580dfc600e75a9b1ebb89e01598673601a4b890d3096789490ff4ca2f07",
+      "raw_sha256": "07a3cc56379a425939f4acf15a519c68b805bc6cf45b04f514cb361948956ce5"
+    },
+    {
+      "path": "full-tests/uxl2-full_net10.0_20261018210039.trx.zlib",
+      "raw_name": "full-tests/uxl2-full_net10.0_20261018210039.trx",
+      "raw_bytes": 26048,
+      "stored_bytes": 3402,
+      "compression": "zlib",
+      "sha256": "6bcf77992bcd098a94ac12ce79e4aaccc4609d8b7bd9e5af3296697fe0e97bff",
+      "raw_sha256": "a1ade6df59c2d2215574f11b92c9be26df16bcfd0812a41222abc323fccac845"
+    },
+    {
+      "path": "full-tests/uxl2-full_net10.0_20261018210041.trx.zlib",
+      "raw_name": "full-tests/uxl2-full_net10.0_20261018210041.trx",
+      "raw_bytes": 66552,
+      "stored_bytes": 7963,
+      "compression": "zlib",
+      "sha256": "bf9e67659f7a20dd684ba9db377bd159ec62fe4cf512e29dc7e8ad95c8c9ef0a",
+      "raw_sha256": "0ae954cff04b89227bb19a02d214ba169b0aa4ee87bd91648b0f3d990ba73597"
+    },
+    {
+      "path": "full-tests/uxl2-full_net10.0_20261018210043.trx.zlib",
+      "raw_name": "full-tests/uxl2-full_net10.0_20261018210043.trx",
+      "raw_bytes": 339863,
+      "stored_bytes": 50987,
+      "compression": "zlib",
+      "sha256": "2c00658de752344d8a56ec664e63b13644824dbe10ec89673b6e61da71c4f5a2",
+      "raw_sha256": "e80f47082fa7bda57603cb5e9302db21695ef3bb6f206d51566d17878d56038f"
+    },
+    {
+      "path": "full-tests/uxl2-full_net10.0_20261018210045.trx.zlib",
+      "raw_name": "full-tests/uxl2-full_net10.0_20261018210045.trx",
+      "raw_bytes": 48197,
+      "stored_bytes": 5757,
+      "compression": "zlib",
+      "sha256": "1dd4a33dd3e9824b209b92fc66e6127ff3ce293bb498b23eb96920006e680e4d",
+      "raw_sha256": "f462dee71c7e7bd74dfd31fdcd4585f04eceb0f38b48d12e734ceeba65f2d27d"
+    },
+    {
+      "path": "full-tests/uxl2-full_net10.0_20261018210046.trx.zlib",
+      "raw_name": "full-tests/uxl2-full_net10.0_20261018210046.trx",
+      "raw_bytes": 3025,
+      "stored_bytes": 1225,
+      "compression": "zlib",
+      "sha256": "062a4e6dfeaa05235f4dd5a59077ef2d00245c107905aa025a3df7bafddaa73f",
+      "raw_sha256": "734563b937f463bdab4babbbdff67957fa732929e83c5a470982e2cecb4683e4"
+    },
+    {
+      "path": "full-tests/uxl2-full_net10.0_20261018210053.trx.zlib",
+      "raw_name": "full-tests/uxl2-full_net10.0_20261018210053.trx",
+      "raw_bytes": 421385,
+      "stored_bytes": 59969,
+      "compression": "zlib",
+      "sha256": "1e786426565682d3a638eed9c97b9f9ca6acf5357a0d39f3625c61e44abd0b98",
+      "raw_sha256": "fd771cd54595b3a3034ed27de8e8890d2961ad9f8ca71f607e511404c4ae3939"
+    },
+    {
+      "path": "full-tests/uxl2-full_net10.0_20261018210054.trx.zlib",
+      "raw_name": "full-tests/uxl2-full_net10.0_20261018210054.trx",
+      "raw_bytes": 55358,
+      "stored_bytes": 6151,
+      "compression": "zlib",
+      "sha256": "1bfe61a3b8e4042cf201da50e683e05700fd6ec899411f2be82da5af2a768c2f",
+      "raw_sha256": "e9d8578a798d14deb8bcd5d866f5d02117476f4e727671638d9d80e6983eada5"
+    },
+    {
+      "path": "full-tests.log",
+      "raw_name": "full-tests.log",
+      "raw_bytes": 5979,
+      "stored_bytes": 5979,
+      "compression": "none",
+      "sha256": "ef005a371ca74a61b7ef64bd50ec8b3f4014a78a18e5e6ff45c998f5a668dbcc",
+      "raw_sha256": "ef005a371ca74a61b7ef64bd50ec8b3f4014a78a18e5e6ff45c998f5a668dbcc"
+    },
+    {
+      "path": "history-http.json.zlib",
+      "raw_name": "history-http.json",
+      "raw_bytes": 503184,
+      "stored_bytes": 21559,
+      "compression": "zlib",
+      "sha256": "7bec65aee59e20900514d273f5e359fff9352b83edb985639d47ceaf41275fac",
+      "raw_sha256": "02a94685a713998628b0469bdebbc60217c39adb8a9a4b1fbf9281c48759ad9f"
+    },
+    {
+      "path": "http-server.log.zlib",
+      "raw_name": "http-server.log",
+      "raw_bytes": 22391,
+      "stored_bytes": 1450,
+      "compression": "zlib",
+      "sha256": "0119523bfd5f7d3b14d946279d0c083bbf3a39e9ebac7fd334b31f98d21dde67",
+      "raw_sha256": "e63b0d21ddd7d252b4997b5f300265094ca68b43e642004d3186af705a44859f"
+    },
+    {
+      "path": "initial-state.json.zlib",
+      "raw_name": "initial-state.json",
+      "raw_bytes": 1779781,
+      "stored_bytes": 362916,
+      "compression": "zlib",
+      "sha256": "78ada4260c113c6a0d9c9c606a8e2ae1eb36877826d85c9f5a2669663a72018c",
+      "raw_sha256": "2d182619683427a584e8bf4f5674563f0f09af442ac0fa3e33955762f78175a4"
+    },
+    {
+      "path": "js-overview-regression.log",
+      "raw_name": "js-overview-regression.log",
+      "raw_bytes": 291,
+      "stored_bytes": 291,
+      "compression": "none",
+      "sha256": "e5bd74168359a54b6f89777690cedca4eda54a225983d278620983d2edeb8502",
+      "raw_sha256": "e5bd74168359a54b6f89777690cedca4eda54a225983d278620983d2edeb8502"
+    },
+    {
+      "path": "js-trends-final.log",
+      "raw_name": "js-trends-final.log",
+      "raw_bytes": 1646,
+      "stored_bytes": 1646,
+      "compression": "none",
+      "sha256": "0422509b252695d92e0f99a8aaaf0667b29434c23b1660cc44ea8283bccf8e5f",
+      "raw_sha256": "0422509b252695d92e0f99a8aaaf0667b29434c23b1660cc44ea8283bccf8e5f"
+    },
+    {
+      "path": "js-trends-precision-final.log",
+      "raw_name": "js-trends-precision-final.log",
+      "raw_bytes": 1835,
+      "stored_bytes": 1835,
+      "compression": "none",
+      "sha256": "d2da090074f323d5e921b9cbf26abe879d760575df841b194800f330d83547ec",
+      "raw_sha256": "d2da090074f323d5e921b9cbf26abe879d760575df841b194800f330d83547ec"
+    },
+    {
+      "path": "js-trends.log",
+      "raw_name": "js-trends.log",
+      "raw_bytes": 2554,
+      "stored_bytes": 2554,
+      "compression": "none",
+      "sha256": "38d8073d29093cd76b2997a5bb3f5b450d97feca28f21e2c4c68f5228fa4ca32",
+      "raw_sha256": "38d8073d29093cd76b2997a5bb3f5b450d97feca28f21e2c4c68f5228fa4ca32"
+    },
+    {
+      "path": "older.html.zlib",
+      "raw_name": "older.html",
+      "raw_bytes": 15258,
+      "stored_bytes": 2801,
+      "compression": "zlib",
+      "sha256": "918b9e16e430348c8be8871e8b54571ec106ba988bb351ed3a90089f870c726b",
+      "raw_sha256": "08cb0caaf8744bcfc801aaa8b7c75a73c4ea955547f5142ea560703de6b81bd0"
+    },
+    {
+      "path": "overview.json",
+      "raw_name": "overview.json",
+      "raw_bytes": 3214,
+      "stored_bytes": 3214,
+      "compression": "none",
+      "sha256": "70070060ec11bb032c5233bb8a4ac7ec0eb82eeb5307b070a948f07d2edaaec1",
+      "raw_sha256": "70070060ec11bb032c5233bb8a4ac7ec0eb82eeb5307b070a948f07d2edaaec1"
+    },
+    {
+      "path": "preservation-policy.json",
+      "raw_name": "preservation-policy.json",
+      "raw_bytes": 155,
+      "stored_bytes": 155,
+      "compression": "none",
+      "sha256": "6c828f3e1a8f05fdc8fa6534e1fc1d823995685fedfca1f359ab6228552f28e9",
+      "raw_sha256": "6c828f3e1a8f05fdc8fa6534e1fc1d823995685fedfca1f359ab6228552f28e9"
+    },
+    {
+      "path": "preservation.json",
+      "raw_name": "preservation.json",
+      "raw_bytes": 448,
+      "stored_bytes": 448,
+      "compression": "none",
+      "sha256": "d1d6dced441ba363940e8a45f5bff603b237061baef974be66c27f1ab9648a18",
+      "raw_sha256": "d1d6dced441ba363940e8a45f5bff603b237061baef974be66c27f1ab9648a18"
+    },
+    {
+      "path": "smoke-command.json",
+      "raw_name": "smoke-command.json",
+      "raw_bytes": 302,
+      "stored_bytes": 302,
+      "compression": "none",
+      "sha256": "2eeeeca1e00078deaed005c32a49171d3f9b2fe57c928942ce8fb8537f0653a2",
+      "raw_sha256": "2eeeeca1e00078deaed005c32a49171d3f9b2fe57c928942ce8fb8537f0653a2"
+    },
+    {
+      "path": "smoke-summary.json",
+      "raw_name": "smoke-summary.json",
+      "raw_bytes": 2952,
+      "stored_bytes": 2952,
+      "compression": "none",
+      "sha256": "1cc9a7835d96803109c9be3fe78ea3f7947679d8122b7d253c0f911c79a7a20a",
+      "raw_sha256": "1cc9a7835d96803109c9be3fe78ea3f7947679d8122b7d253c0f911c79a7a20a"
+    },
+    {
+      "path": "smoke.py",
+      "raw_name": "smoke.py",
+      "raw_bytes": 2572,
+      "stored_bytes": 2572,
+      "compression": "none",
+      "sha256": "0759d95b395654662f1fb01074f4ef89b14a6f414771b6429acf5883ce19831c",
+      "raw_sha256": "0759d95b395654662f1fb01074f4ef89b14a6f414771b6429acf5883ce19831c"
+    },
+    {
+      "path": "source-evidence.json",
+      "raw_name": "source-evidence.json",
+      "raw_bytes": 374,
+      "stored_bytes": 374,
+      "compression": "none",
+      "sha256": "f190cf940fe2ef7945fb953a7010c6f94bcffb78dbabfa5447ce1b65bbc65c70",
+      "raw_sha256": "f190cf940fe2ef7945fb953a7010c6f94bcffb78dbabfa5447ce1b65bbc65c70"
+    },
+    {
+      "path": "summary.html.zlib",
+      "raw_name": "summary.html",
+      "raw_bytes": 411284,
+      "stored_bytes": 35280,
+      "compression": "zlib",
+      "sha256": "9feb9f0335cf48d9ca9b76854926166e12b0c854fe6223f2c6243796dc9e575b",
+      "raw_sha256": "57f5fa2930967b54cfd79f89d44774254a85068bab6d0f17f7effa886f549def"
+    },
+    {
+      "path": "v1.json",
+      "raw_name": "v1.json",
+      "raw_bytes": 63,
+      "stored_bytes": 63,
+      "compression": "none",
+      "sha256": "5a293367646c5270d87500b49169ff8897ee80dd1a5b29ea49ea798ea66d2fe9",
+      "raw_sha256": "5a293367646c5270d87500b49169ff8897ee80dd1a5b29ea49ea798ea66d2fe9"
+    },
+    {
+      "path": "validation-summary.json",
+      "raw_name": "validation-summary.json",
+      "raw_bytes": 3392,
+      "stored_bytes": 3392,
+      "compression": "none",
+      "sha256": "b6aedb5d1446e5337c360ef7b3ef241dea0f34cd44c72b7cf1ace1ad2e359986",
+      "raw_sha256": "b6aedb5d1446e5337c360ef7b3ef241dea0f34cd44c72b7cf1ace1ad2e359986"
+    },
+    {
+      "path": "vibration.html.zlib",
+      "raw_name": "vibration.html",
+      "raw_bytes": 460501,
+      "stored_bytes": 38597,
+      "compression": "zlib",
+      "sha256": "edfd0e17e2ca7934df892ac3a3b5f29bf8c714c2bc6ea1d29b30c95771bb1c0b",
+      "raw_sha256": "add386a0cd38e1a6ec73c86f02a6cc84af8f2fba636be0a317c04ed3dd359985"
+    }
+  ]
+}

@@ -1,0 +1,99 @@
+{
+  "pass": true,
+  "realHeadlessBrowser": true,
+  "humanVisualReview": false,
+  "newPhysicalAcquisition": false,
+  "results": [
+    {
+      "check": "real archive fleet historical, HELD, read-only",
+      "pass": true
+    },
+    {
+      "check": "intentional historical HELD does not trigger Attention",
+      "pass": true
+    },
+    {
+      "check": "search excludes unmatched sensor",
+      "pass": true
+    },
+    {
+      "check": "identity search restores actual sensor",
+      "pass": true
+    },
+    {
+      "check": "actual R5B2 multipoint graph from HTTP and SQLite",
+      "pass": true,
+      "globalPoints": 176,
+      "xyzPoints": 264,
+      "paths": 4,
+      "breaks": 412,
+      "rows": 500,
+      "coverage": "Réception PC ; ≤500 observations et ≤10000 lignes globales examinées par lot, période ≤7 jours. Couverture tronquée : lot antérieur disponible (éventuellement vide). 500 observations affichées, 528 lignes examinées. Historique non courant. UTC fenêtre/run/epoch/config inconnus si absents."
+    },
+    {
+      "check": "X visibility independent",
+      "pass": true
+    },
+    {
+      "check": "all XYZ hidden without fake points",
+      "pass": true
+    },
+    {
+      "check": "peak Y uses actual legend",
+      "pass": true
+    },
+    {
+      "check": "older page empty measurements remain observations",
+      "pass": true
+    },
+    {
+      "check": "period 24h bounded true coverage",
+      "pass": true
+    },
+    {
+      "check": "period 168h bounded true coverage",
+      "pass": true
+    },
+    {
+      "check": "invalid range clears curves/export",
+      "pass": true
+    },
+    {
+      "check": "empty period no invented measurements",
+      "pass": true
+    },
+    {
+      "check": "real browser CSV exactly 500 displayed observations plus header",
+      "pass": true,
+      "lines": 501
+    },
+    {
+      "check": "simulated HTTP failure removes chart and disables CSV",
+      "pass": true
+    },
+    {
+      "check": "tab state hides prior chart",
+      "pass": true
+    },
+    {
+      "check": "tab commands hides prior chart",
+      "pass": true
+    },
+    {
+      "check": "tab campaigns hides prior chart",
+      "pass": true
+    },
+    {
+      "check": "tab diagnostic hides prior chart",
+      "pass": true
+    },
+    {
+      "check": "summary trend returns, XYZ hidden",
+      "pass": true
+    },
+    {
+      "check": "switch to absent identity clears historical chart",
+      "pass": true
+    }
+  ]
+}

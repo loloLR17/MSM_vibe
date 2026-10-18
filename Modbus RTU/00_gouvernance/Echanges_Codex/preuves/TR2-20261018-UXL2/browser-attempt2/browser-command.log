@@ -1,0 +1,10 @@
+AssertionError [ERR_ASSERTION]: summary trend returns, XYZ hidden
+    at check (\\wsl.localhost\Debian\home\lolo\dev\msm\reports\TR2-uxl2\browser.cjs:10:35)
+    at async \\wsl.localhost\Debian\home\lolo\dev\msm\reports\TR2-uxl2\browser.cjs:41:152 {
+  generatedMessage: false,
+  code: 'ERR_ASSERTION',
+  actual: false,
+  expected: true,
+  operator: '==',
+  diff: 'simple'
+}

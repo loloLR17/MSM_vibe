@@ -1,0 +1,8 @@
+{
+  "source_path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261018-R5B2/live.db.zlib",
+  "compressed_sha256": "6ed2528b74a32f8d1a0f79b05449a31ae1571f60bddc879a996dcc4cedb4ae5d",
+  "raw_sha256": "6efaa77972d41cd749bf16e38e23aa22911d889fe5d9453504c80435cf0f5fd1",
+  "rows": 528,
+  "source_is_existing_physical_R5B2": true,
+  "new_physical_acquisition": false
+}

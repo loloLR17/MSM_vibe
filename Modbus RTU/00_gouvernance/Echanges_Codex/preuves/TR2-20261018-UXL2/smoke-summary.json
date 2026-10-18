@@ -1,0 +1,108 @@
+{
+  "pass_result": true,
+  "archive_sha256": "6efaa77972d41cd749bf16e38e23aa22911d889fe5d9453504c80435cf0f5fd1",
+  "archive_unchanged": true,
+  "no_WAL": true,
+  "physical": false,
+  "serial": false,
+  "points_observations": 500,
+  "browsers": {
+    "pass": true,
+    "realHeadlessBrowser": true,
+    "humanVisualReview": false,
+    "newPhysicalAcquisition": false,
+    "results": [
+      {
+        "check": "real archive fleet historical, HELD, read-only",
+        "pass": true
+      },
+      {
+        "check": "intentional historical HELD does not trigger Attention",
+        "pass": true
+      },
+      {
+        "check": "search excludes unmatched sensor",
+        "pass": true
+      },
+      {
+        "check": "identity search restores actual sensor",
+        "pass": true
+      },
+      {
+        "check": "actual R5B2 multipoint graph from HTTP and SQLite",
+        "pass": true,
+        "globalPoints": 176,
+        "xyzPoints": 264,
+        "paths": 4,
+        "breaks": 412,
+        "rows": 500,
+        "coverage": "R\u00e9ception PC ; \u2264500 observations et \u226410000 lignes globales examin\u00e9es par lot, p\u00e9riode \u22647 jours. Couverture tronqu\u00e9e : lot ant\u00e9rieur disponible (\u00e9ventuellement vide). 500 observations affich\u00e9es, 528 lignes examin\u00e9es. Historique non courant. UTC fen\u00eatre/run/epoch/config inconnus si absents."
+      },
+      {
+        "check": "X visibility independent",
+        "pass": true
+      },
+      {
+        "check": "all XYZ hidden without fake points",
+        "pass": true
+      },
+      {
+        "check": "peak Y uses actual legend",
+        "pass": true
+      },
+      {
+        "check": "older page empty measurements remain observations",
+        "pass": true
+      },
+      {
+        "check": "period 24h bounded true coverage",
+        "pass": true
+      },
+      {
+        "check": "period 168h bounded true coverage",
+        "pass": true
+      },
+      {
+        "check": "invalid range clears curves/export",
+        "pass": true
+      },
+      {
+        "check": "empty period no invented measurements",
+        "pass": true
+      },
+      {
+        "check": "real browser CSV exactly 500 displayed observations plus header",
+        "pass": true,
+        "lines": 501
+      },
+      {
+        "check": "simulated HTTP failure removes chart and disables CSV",
+        "pass": true
+      },
+      {
+        "check": "tab state hides prior chart",
+        "pass": true
+      },
+      {
+        "check": "tab commands hides prior chart",
+        "pass": true
+      },
+      {
+        "check": "tab campaigns hides prior chart",
+        "pass": true
+      },
+      {
+        "check": "tab diagnostic hides prior chart",
+        "pass": true
+      },
+      {
+        "check": "summary trend returns, XYZ hidden",
+        "pass": true
+      },
+      {
+        "check": "switch to absent identity clears historical chart",
+        "pass": true
+      }
+    ]
+  }
+}

@@ -1,0 +1,3 @@
+Error: DOM timeout document.querySelectorAll("#historyGlobal circle").length > 2
+    at wait (\\wsl.localhost\Debian\home\lolo\dev\msm\reports\TR2-uxl2\browser.cjs:8:113)
+    at async \\wsl.localhost\Debian\home\lolo\dev\msm\reports\TR2-uxl2\browser.cjs:30:74
