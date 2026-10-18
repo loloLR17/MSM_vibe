@@ -1,7 +1,7 @@
 const assert = require('node:assert/strict');
 const fs = require('node:fs');
 const zlib = require('node:zlib');
-const {present} = require('../src/TR2.Supervision.Web/wwwroot/live-overview.js');
+const {present, matchesDevice, selectDevice} = require('../src/TR2.Supervision.Web/wwwroot/live-overview.js');
 const root = process.argv[2];
 const raw = zlib.inflateSync(fs.readFileSync(root + '/running-service.log.zlib')).toString('utf8');
 // Actual R5-B2 captured fields; historical use only, never a new physical observation.
@@ -18,3 +18,12 @@ x=present({...row,observation:camel(JSON.parse(heldraw)).observation}); assert(x
 assert.equal(good.snapshot.windowUtc,null);
 const source=fs.readFileSync(require.resolve('../src/TR2.Supervision.Web/wwwroot/live-overview.js'),'utf8');assert(!source.includes('innerHTML'));assert(!source.includes('localStorage'));assert(!source.includes('POST'));
 console.log('PASS R5B2 historical V/F mg/severity/XYZ, HELD, loss/retained explicit, null/no zero, UTC absent, no writes/cache/innerHTML');
+
+assert(matchesDevice({observation:lost,lastKnown:good}, String(good.deviceId.value)));
+assert(!matchesDevice({observation:lost,lastKnown:null}, String(good.deviceId.value)));
+assert(present({...row,observation:lost}).label.includes("Non identifié"));
+console.log("PASS open detail follows last known owner after identity loss without promoting identity");
+const previous = {...row,observation:lost};
+assert.equal(selectDevice([previous,row], String(good.deviceId.value)),row);
+assert.equal(selectDevice([previous], String(good.deviceId.value)),previous);
+console.log("PASS durable current identity takes priority over a retained unknown endpoint");

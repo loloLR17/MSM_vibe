@@ -23,7 +23,16 @@
       age: Math.floor(row.receptionAgeSeconds) + " s depuis réception PC",
       rms: value ? value.rmsGlobalMg + " mg" : "—", peak: value ? value.peakGlobalMg + " mg" : "—"};
   }
-  if (typeof module !== "undefined") module.exports = {present};
+  function matchesDevice(row, requestedId) {
+    const observed = row.observation.deviceId?.value;
+    // The page may follow its previous owner on identity loss, but present() still labels it unknown.
+    return String(observed ?? row.lastKnown?.deviceId?.value) === requestedId;
+  }
+  function selectDevice(devices, id) {
+    return devices.find(r => String(r.observation.deviceId?.value) === id) ??
+      devices.find(r => r.observation.deviceId == null && matchesDevice(r, id));
+  }
+  if (typeof module !== "undefined") module.exports = {present, matchesDevice, selectDevice};
   if (typeof document === "undefined") return;
   const fleet = document.getElementById("liveFleetRows"), detail = document.getElementById("liveDeviceContent");
   if (!fleet && !detail) return;
@@ -104,7 +113,7 @@
       state.textContent = (data.devices.length ? "Observations LIVE · " : "Aucune observation LIVE · ") + data.coverage + (data.archiveError ? " Archive indisponible : " + data.archiveError : "");
       if (fleet) table(data.devices);
       if (detail) {
-        const row = data.devices.find(r => query.has("deviceId") ? String(r.observation.deviceId?.value) === query.get("deviceId") : r.observation.busId === query.get("bus") && String(r.observation.modbusAddress) === query.get("unit"));
+        const row = query.has("deviceId") ? selectDevice(data.devices, query.get("deviceId")) : data.devices.find(r => r.observation.busId === query.get("bus") && String(r.observation.modbusAddress) === query.get("unit"));
         if (row) device(row); else { detail.replaceChildren(); text(detail, "Observation", "Capteur absent de la couverture disponible"); }
       }
     } catch (e) {
