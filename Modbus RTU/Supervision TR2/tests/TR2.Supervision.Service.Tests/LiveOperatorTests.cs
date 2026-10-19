@@ -47,4 +47,15 @@ public sealed class LiveOperatorTests
         }
         finally {Directory.Delete(dir,true);}
     }
+    [Theory]
+    [InlineData(1,4097,true)]  // Actual stopped boot without a value.
+    [InlineData(1,5819,true)]  // Actual STOP retained valid HELD value.
+    [InlineData(4,1215,false)] // Actual running V/F.
+    [InlineData(1,4103,false)] // Fresh cannot be restarted as stopped.
+    [InlineData(1,4099,false)] // Valid, neither fresh nor explicitly HELD.
+    [InlineData(1,0,false)]    // Absence of V/F alone does not prove STOP.
+    [InlineData(5,5819,false)] // Fault cannot be bypassed by a stopped flag.
+    public void StartRequiresPositiveStopAndAllowsOnlyBootOrHeld(ushort status,ushort flags,bool allowed)
+    { var b=new ushort[48];b[0]=status;b[1]=flags;Assert.Equal(allowed,LiveOperatorConsoleApplication.CanStart(b)); }
+
 }

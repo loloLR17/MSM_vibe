@@ -3,12 +3,12 @@ using Xunit;
 namespace TR2.Supervision.Service.Tests;
 public sealed class LiveOperatorHandoffTests
 {
-    [Theory] [InlineData(false)] [InlineData(true)]
-    public async Task TokenAcknowledgmentPrecedesOpenLedgerPrecedesWriteAndWriterClosesBeforeResume(bool writeFails)
+    [Theory] [InlineData(false,false)] [InlineData(true,false)] [InlineData(false,true)] [InlineData(true,true)]
+    public async Task TokenAcknowledgmentPrecedesOpenLedgerPrecedesWriteAndWriterClosesBeforeResume(bool writeFails,bool initiallyHeld)
     {
         var dir=Path.Combine(Path.GetTempPath(),"live-handoff-"+Guid.NewGuid());Directory.CreateDirectory(dir);
         var control=Path.Combine(dir,"pause"); var ledger=Path.Combine(dir,"transactions.json");
-        var factory=new Factory(control,ledger,writeFails);
+        var factory=new Factory(control,ledger,writeFails,initiallyHeld);
         var ack=Task.Run(async()=>{for(var i=0;i<100 && !File.Exists(control);i++)await Task.Delay(10);var token=LiveDirectConsoleApplication.ReadControlFile(control);Assert.StartsWith("disconnected:",token);File.WriteAllText(control+".released",token);});
         using var output=new StringWriter();using var error=new StringWriter();
         try
@@ -19,9 +19,9 @@ public sealed class LiveOperatorHandoffTests
         }
         finally{Directory.Delete(dir,true);}
     }
-    private sealed class Factory(string control,string ledger,bool fail):IModbusBusConnectionFactory
+    private sealed class Factory(string control,string ledger,bool fail,bool initiallyHeld):IModbusBusConnectionFactory
     {
-        public bool Closed;public int Writes;
+        public bool Closed;public int Writes;public bool InitiallyHeld=initiallyHeld;
         public ValueTask<IModbusBusConnection> OpenAsync(string bus,ModbusSerialConnectionSettings settings,CancellationToken ct=default)
         {Assert.Equal(LiveDirectConsoleApplication.ReadControlFile(control),LiveDirectConsoleApplication.ReadControlFile(control+".released"));return ValueTask.FromResult<IModbusBusConnection>(new Connection(this,control,ledger,fail));}
         private sealed class Connection(Factory owner,string control,string ledger,bool fail):IModbusBusConnection,IRegisterTransport,IRegisterWriteTransport
@@ -31,7 +31,7 @@ public sealed class LiveOperatorHandoffTests
             {
                 var b=new ushort[count];
                 if(address==0){b[1]=1;b[6]=2;b[7]=12;}
-                if(address==3000){b[0]=(ushort)(owner.Writes==2?4:1);b[1]=(ushort)(owner.Writes==2?6:0);}
+                if(address==3000){b[0]=(ushort)(owner.Writes==2?4:1);b[1]=(ushort)(owner.Writes==2?6:owner.InitiallyHeld?5819:4097);}
                 if(address==5000){b[10]=4;b[14]=(ushort)(owner.Writes==2?13:14);b[15]=(ushort)(owner.Writes==2?14:13);b[16]=4;b[23]=5;b[27]=5;b[28]=1;}
                 return ValueTask.FromResult(b);
             }

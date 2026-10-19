@@ -27,6 +27,11 @@ public static class LiveOperatorConsoleApplication
         b5.Length == 29 && ((uint)b5[26] << 16 | b5[27]) == epoch && b5[14] == code && b5[15] == transaction &&
         b5[16] == 4 && b5[17] == 0 && (b5[13] & 2) == 0 && b5[10] == 4;
 
+    // HELD is a valid last value after STOP, not a running acquisition.
+    // Require the positive stopped flag, never only absence of fresh values.
+    public static bool CanStart(ushort[] b3) => b3.Length == 48 && b3[0] == 1 &&
+        (b3[1] & 4096) != 0 && (b3[1] & 4) == 0 && ((b3[1] & 2) == 0 || (b3[1] & 512) != 0);
+
     public static async Task<int> RunAsync(IReadOnlyList<string> args, CancellationToken ct, TextWriter output, TextWriter error, IModbusBusConnectionFactory? factory = null)
     {
         if (args.Count != 8 || args[0] != "--live-command" || args[1] is not ("start" or "stop") ||
@@ -49,7 +54,7 @@ public static class LiveOperatorConsoleApplication
             var b0 = await Read(0, 21);
             if (b0[0] != 0 || b0[1] != 1 || b0[6] != 2 || b0[7] != 12) throw new InvalidDataException("Profil diagnostique TR2-001 attendu ; aucun write.");
             var initial = await Read(3000, 48); var b5 = await Read(5000, 29);
-            if (args[1] == "start" ? initial[0] != 1 || (initial[1] & 6) != 0 : (initial[1] & 6) != 6)
+            if (args[1] == "start" ? !CanStart(initial) : (initial[1] & 6) != 6)
                 throw new InvalidDataException("État B3 incompatible avec la commande ; aucune écriture.");
             Ledger? previous = File.Exists(args[7]) ? JsonSerializer.Deserialize<Ledger>(File.ReadAllText(args[7])) ?? throw new InvalidDataException("Ledger nul.") : null;
             var (epoch, tx) = Allocate(b5, previous);
