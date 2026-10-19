@@ -14,7 +14,10 @@ def main():
     parser.add_argument('--application', type=Path, required=True)
     parser.add_argument('--evidence', type=Path, required=True)
     parser.add_argument('--port', type=int, default=5102)
+    parser.add_argument('--startup-timeout', type=int, default=60, help='HTTP readiness deadline in seconds; cold Windows startup can exceed 25s')
     args = parser.parse_args()
+    if not 1 <= args.startup_timeout <= 120:
+        parser.error('startup-timeout must be 1..120 seconds')
     if not 1024 <= args.port <= 65535:
         parser.error('port must be 1024..65535')
     app = args.application.resolve()
@@ -36,7 +39,7 @@ def main():
     (evidence/'command.json').write_text(json.dumps(dict(command=cmd, start_utc=start), indent=2)+'\n')
     http_script = r"""
 [Console]::OutputEncoding=New-Object System.Text.UTF8Encoding($false)
-$ErrorActionPreference='Stop';$base='http://127.0.0.1:PORT';$until=(Get-Date).AddSeconds(25);$ready=$false
+$ErrorActionPreference='Stop';$base='http://127.0.0.1:PORT';$until=(Get-Date).AddSeconds(STARTUP_SECONDS);$ready=$false
 while(-not $ready -and (Get-Date) -lt $until) {
  try {$first=Invoke-WebRequest -UseBasicParsing ($base+'/api/v2/live/overview') -TimeoutSec 1;$ready=$first.StatusCode -eq 200} catch {Start-Sleep -Milliseconds 150}
 }
@@ -45,13 +48,13 @@ $result=@();foreach($path in @('/api/v1/fleet','/api/v2/live/overview','/api/v2/
  $r=Invoke-WebRequest -UseBasicParsing ($base+$path) -TimeoutSec 3
  $result += [pscustomobject]@{Path=$path;Status=[int]$r.StatusCode;Body=$r.Content}
 };$result | ConvertTo-Json -Depth 6
-""".replace('PORT', str(args.port))
+""".replace('PORT', str(args.port)).replace('STARTUP_SECONDS', str(args.startup_timeout))
     with (evidence/'console.log').open('wb') as log:
         proc = subprocess.Popen(cmd, stdout=log, stderr=subprocess.STDOUT)
         try:
             with (evidence/'http.json').open('wb') as out:
                 probe = subprocess.run([PS, '-NoProfile', '-Command', http_script], stdout=out,
-                                       stderr=subprocess.STDOUT, timeout=40)
+                                       stderr=subprocess.STDOUT, timeout=args.startup_timeout+15)
             proc.wait(timeout=35)
         finally:
             if proc.poll() is None:
@@ -69,7 +72,7 @@ $events=@(Get-WinEvent -FilterHashtable @{LogName='Microsoft-Windows-CodeIntegri
                                      stderr=subprocess.STDOUT, timeout=20)
     result = dict(start_utc=start, end_utc=datetime.datetime.now(datetime.timezone.utc).isoformat(),
                   service_exit=proc.returncode, http_probe_exit=probe.returncode,
-                  event_probe_exit=event_probe.returncode, physical=False, port='COM99 nonexistent',
+                  event_probe_exit=event_probe.returncode, physical=False, port='COM99 nonexistent', startup_timeout_seconds=args.startup_timeout,
                   security_changes=False, application_files=len(fingerprint), future_builds_not_auto_allowed=True)
     result['files_unchanged'] = all(hashlib.sha256((app/name).read_bytes()).hexdigest()==digest
                                     for name,digest in fingerprint.items())
