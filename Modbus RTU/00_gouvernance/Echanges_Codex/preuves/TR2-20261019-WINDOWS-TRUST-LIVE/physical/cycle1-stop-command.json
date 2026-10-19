@@ -1,0 +1,16 @@
+{
+  "command": [
+    "/mnt/c/Users/lolo/AppData/Local/MSM/TR2-LIVE-DEMO-20261019/app/TR2.Supervision.Service.exe",
+    "--live-command",
+    "stop",
+    "--port",
+    "COM4",
+    "--control",
+    "C:\\Users\\lolo\\AppData\\Local\\MSM\\TR2-LIVE-DEMO-20261019\\data\\connection-control",
+    "--state",
+    "C:\\Users\\lolo\\AppData\\Local\\MSM\\TR2-LIVE-DEMO-20261019\\data\\transactions.json"
+  ],
+  "utc": "2026-10-19T13:39:16.824255+00:00",
+  "tokenized_ack_and_OS_exclusive_required": true,
+  "c36c971_known_ack_oscillation_accepted": true
+}

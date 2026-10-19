@@ -1,0 +1,18 @@
+{
+  "start_utc": "2026-10-19T13:27:42.376926+00:00",
+  "end_utc": "2026-10-19T13:28:09.411957+00:00",
+  "service_exit": 82,
+  "http_probe_exit": 1,
+  "event_probe_exit": 0,
+  "physical": false,
+  "port": "COM99 nonexistent",
+  "security_changes": false,
+  "application_files": 377,
+  "future_builds_not_auto_allowed": true,
+  "files_unchanged": true,
+  "pass": false,
+  "correlated_blocks": 4,
+  "policy_state": 1,
+  "http_evidence_error": true,
+  "analysis": "Completed from retained raw evidence; no repeat execution. Original summary preserved."
+}

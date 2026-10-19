@@ -1,5 +1,7 @@
 # État courant MSM TR2 — synthèse opérationnelle
 
+**19/10/2026 13:41UTC — WINDOWS-TRUST-LIVE, IN_PROGRESS :** qualification limitée c36c971 autorisée explicitement, signature durable séparée. Paquet inchangé smoke Windows PASS sous SAC actif ; rebuild pause8a54 refusé, non utilisé. Firmware LIVE9bbe…0981 flashé/readback exact, boot STOP ; premier START5/14 et STOP5/15 terminaux+effets (~39,85s chacun). Edge réel102→168 points, SQLite vivante. Audit arrêté : work806/service1980/gap2220µs, FIFO0, FRAM historique/queue inchangés, journal86/root99/run12/STOP5/15. LIVE reste installé ; second run prolongé non encore démontré. Rapport/proofs courants font autorité pour la reprise.
+
 **Actualisation logicielle UX-L1 :** parc et fiche LIVE readonly raccordés à SQLite/API, données historiques explicitement non courantes. Aucun accès matériel ; dernier état cible connu reste celui de R5-B2 ci-dessous, non relu.
 
 **Dernière actualisation R5-B2 :**18/10/2026UTC : chaîne physique COM4 → service Windows local → SQLite/API/DOM Edge headless démontrée en diagnostic partiel.88 observations courantes,54 HELD et28 pertes logiques honnêtes ; work810/service2029/gap2330µs. M016 restauré17:09:24UTC, Flash2Mio c5bc…f5b26, FRAM finale2b501a…7dd84/journal78/root91/epoch5/run11/config3gen3/STOP5/13 conservée sans rollback. Capteur arrêté, GDB détaché, COM fermé. R5-B historique BLOCKED préservée ; R6/produit/industrie non qualifiés.

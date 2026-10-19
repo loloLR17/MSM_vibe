@@ -1,0 +1,9 @@
+{
+  "utc": "2026-10-19T13:33:58.836333+00:00",
+  "decision": "User explicitly authorizes limited physical demonstration with checkpoint c36c971 already accepted by Windows; stable pause fix/new signature pipeline deferred.",
+  "pc_source_sha": "c36c9718a75e6b40c45707a482e8db836296cab2",
+  "firmware_bin_sha256": "9bbe397911185b798a0b030aba893a325bfdf6afa6947145bda9157f3bff0981",
+  "no_security_change_authorized": true,
+  "remaining_mission_hardware_guards_apply": true,
+  "explicit_followup": "User confirms physical qualification limited to c36c971, no disabling/bypassing Windows protection; tokenized pause and exclusive COM4 required before START/STOP; durable signing deferred as separate project."
+}

@@ -1,0 +1,34 @@
+{
+  "start_utc": "2026-10-19T13:29:45.586533+00:00",
+  "end_utc": "2026-10-19T13:30:07.697891+00:00",
+  "service_exit": 0,
+  "http_probe_exit": 0,
+  "event_probe_exit": 0,
+  "physical": false,
+  "port": "COM99 nonexistent",
+  "security_changes": false,
+  "application_files": 377,
+  "future_builds_not_auto_allowed": true,
+  "files_unchanged": true,
+  "pass": true,
+  "correlated_blocks": 0,
+  "policy_state": 1,
+  "http": [
+    {
+      "path": "/api/v1/fleet",
+      "status": 200
+    },
+    {
+      "path": "/api/v2/live/overview",
+      "status": 200
+    },
+    {
+      "path": "/api/v2/live/history?bus=live-direct&unit=1&from=2026-10-19T00:00:00Z&to=2026-10-20T00:00:00Z",
+      "status": 200
+    },
+    {
+      "path": "/live-device.html?deviceId=1&view=vibration",
+      "status": 200
+    }
+  ]
+}

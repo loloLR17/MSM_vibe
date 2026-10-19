@@ -1,0 +1,21 @@
+{
+  "command": [
+    "/mnt/c/Users/lolo/AppData/Local/MSM/TR2-LIVE-DEMO-20261019-resume/app/TR2.Supervision.Service.exe",
+    "--live-direct",
+    "COM99",
+    "--allow-diagnostic",
+    "--database",
+    "C:\\Users\\lolo\\AppData\\Local\\MSM\\TR2-Windows-Gates\\rebuild-gate\\smoke.db",
+    "--listen",
+    "http://127.0.0.1:5102",
+    "--trace",
+    "C:\\Users\\lolo\\AppData\\Local\\MSM\\TR2-Windows-Gates\\rebuild-gate\\serial.jsonl",
+    "--seconds",
+    "20",
+    "--unit",
+    "1",
+    "--connection-control",
+    "C:\\Users\\lolo\\AppData\\Local\\MSM\\TR2-Windows-Gates\\rebuild-gate\\control"
+  ],
+  "start_utc": "2026-10-19T13:27:42.376926+00:00"
+}

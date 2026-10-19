@@ -1,0 +1,6 @@
+{
+  "operation": "Optional additional no-transmit handoff .ps1 check",
+  "result": "Refused by Windows ExecutionPolicy before any commands in file",
+  "override": false,
+  "action": "No ExecutionPolicy change or rerun through alternate policy; use accepted native c36c971 operator with mandatory tokenized pause and exclusive serial open."
+}

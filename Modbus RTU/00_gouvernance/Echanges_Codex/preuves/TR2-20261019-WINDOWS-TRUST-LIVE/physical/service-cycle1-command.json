@@ -1,0 +1,23 @@
+{
+  "command": [
+    "/mnt/c/Users/lolo/AppData/Local/MSM/TR2-LIVE-DEMO-20261019/app/TR2.Supervision.Service.exe",
+    "--live-direct",
+    "COM4",
+    "--allow-diagnostic",
+    "--database",
+    "C:\\Users\\lolo\\AppData\\Local\\MSM\\TR2-LIVE-DEMO-20261019\\data\\live.db",
+    "--listen",
+    "http://127.0.0.1:5100",
+    "--trace",
+    "C:\\Users\\lolo\\AppData\\Local\\MSM\\TR2-LIVE-DEMO-20261019\\data\\serial-cycle1.jsonl",
+    "--seconds",
+    "0",
+    "--unit",
+    "1",
+    "--connection-control",
+    "C:\\Users\\lolo\\AppData\\Local\\MSM\\TR2-LIVE-DEMO-20261019\\data\\connection-control"
+  ],
+  "utc": "2026-10-19T13:37:31.509498+00:00",
+  "app_source": "c36c971",
+  "no_security_changes": true
+}

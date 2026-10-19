@@ -1,0 +1,31 @@
+{
+  "result": "PASS",
+  "code": "c36c971",
+  "utc": "2026-10-19T13:26:00.951470+00:00",
+  "application_files_sha_verified": 377,
+  "return_code": 0,
+  "http": [
+    {
+      "path": "/api/v1/fleet",
+      "status": 200
+    },
+    {
+      "path": "/api/v2/live/overview",
+      "status": 200
+    },
+    {
+      "path": "/api/v2/live/history?bus=live-direct&unit=1&from=2026-10-19T00:00:00Z&to=2026-10-20T00:00:00Z",
+      "status": 200
+    },
+    {
+      "path": "/live-device.html?deviceId=1&view=vibration",
+      "status": 200
+    }
+  ],
+  "correlated_code_integrity_blocks": 0,
+  "smart_app_control_state": 1,
+  "security_changes": false,
+  "physical": false,
+  "port": "COM99 nonexistent",
+  "note": "Raw PowerShell HTTP output is OEM CP850, decoded offline without modifying original evidence. Decoder failure was analysis-only, not a service failure. Exact current ISG allow reason not audited; no universal future allow claim."
+}

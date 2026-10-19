@@ -1,0 +1,8 @@
+{
+  "start_utc": "2026-10-19T13:22:44.436328+00:00",
+  "end_utc": "2026-10-19T13:22:49.963572+00:00",
+  "return_code": 0,
+  "serial_port": "COM99 nonexistent",
+  "hardware": false,
+  "exe": "C:\\Users\\lolo\\AppData\\Local\\MSM\\TR2-r5b\\TR2.Supervision.Service.exe"
+}
