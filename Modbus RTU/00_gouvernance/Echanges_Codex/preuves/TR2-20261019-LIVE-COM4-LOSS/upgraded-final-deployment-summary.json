@@ -1,0 +1,16 @@
+{
+  "Utc": "2026-10-19T14:56:12.0234573Z",
+  "SmartAppControlState": 1,
+  "BlockedCount": 0,
+  "Events": [],
+  "Processes": [
+    {
+      "Name": "TR2.Supervision.Service.exe",
+      "ProcessId": 13868,
+      "CommandLine": "app\\TR2.Supervision.Service.exe  --live-direct COM4 --allow-diagnostic --database \"C:\\Users\\lolo\\AppData\\Local\\MSM\\TR2-LIVE-COM4-HELD-20261019\\data\\live.db\" --listen http://127.0.0.1:5100 --trace \"C:\\Users\\lolo\\AppData\\Local\\MSM\\TR2-LIVE-COM4-HELD-20261019\\data\\serial-12977-21261.jsonl\" --seconds 0 --unit 1 --connection-control \"C:\\Users\\lolo\\AppData\\Local\\MSM\\TR2-LIVE-COM4-HELD-20261019\\data\\connection-control\" "
+    }
+  ],
+  "application_files_unchanged": 377,
+  "no_security_change": true,
+  "COM4_owner": "sole native read-only service; STOP confirmed by actual B3"
+}

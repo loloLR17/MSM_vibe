@@ -1,0 +1,21 @@
+{
+  "command": [
+    "/mnt/c/Users/lolo/AppData/Local/MSM/TR2-LIVE-COM4-HELD-20261019/app/TR2.Supervision.Service.exe",
+    "--live-direct",
+    "COM99",
+    "--allow-diagnostic",
+    "--database",
+    "C:\\Users\\lolo\\AppData\\Local\\MSM\\TR2-Windows-Gates\\held-windows-gate\\smoke.db",
+    "--listen",
+    "http://127.0.0.1:5103",
+    "--trace",
+    "C:\\Users\\lolo\\AppData\\Local\\MSM\\TR2-Windows-Gates\\held-windows-gate\\serial.jsonl",
+    "--seconds",
+    "20",
+    "--unit",
+    "1",
+    "--connection-control",
+    "C:\\Users\\lolo\\AppData\\Local\\MSM\\TR2-Windows-Gates\\held-windows-gate\\control"
+  ],
+  "start_utc": "2026-10-19T14:47:33.922854+00:00"
+}

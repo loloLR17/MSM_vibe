@@ -1,0 +1,22 @@
+{
+  "build_head": "b031d01a5ea1f102293d5fd24b34bbfafe45a178",
+  "build_uncommitted_source_patch": "held-build-source.patch",
+  "code_content_equal_commit": "d67741f24569fc93b7e23a570745c4af59a05fde",
+  "files": [
+    {
+      "path": "Modbus RTU/Supervision TR2/src/TR2.Supervision.Service/LiveOperatorConsoleApplication.cs",
+      "sha256": "a44086301549cc327a8c7b9576c145e9ba5b3d19194f9ddcafbcfbc59043a84b"
+    },
+    {
+      "path": "Modbus RTU/Supervision TR2/tests/TR2.Supervision.Service.Tests/LiveOperatorTests.cs",
+      "sha256": "9482f8b0c34d79d9dc0158e864da1c8bdde92659d6648f6d5cb0532d9148044a"
+    },
+    {
+      "path": "Modbus RTU/Supervision TR2/tests/TR2.Supervision.Service.Tests/LiveOperatorHandoffTests.cs",
+      "sha256": "293a707850e255be3be1cdd4022674d3aa58e2b6fba9b9f54209c053d09394f1"
+    }
+  ],
+  "rebuild_not_done_only_to_update_commit_metadata": true,
+  "service_dll_sha256": "63f3ddc1a91d99599a719bc6a013aa52810a9813a9d08c40233ce45b29cb85fa",
+  "trust_gate": "held-windows-gate-confirm/summary.json"
+}

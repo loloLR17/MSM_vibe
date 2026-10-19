@@ -1,0 +1,10 @@
+{
+  "command": [
+    "/mnt/c/Windows/System32/cmd.exe",
+    "/d",
+    "/c",
+    "C:\\Users\\lolo\\AppData\\Local\\MSM\\TR2-LIVE-DEMO-20261019\\STOP.cmd"
+  ],
+  "actual_installed_redirect": true,
+  "utc": "2026-10-19T14:53:51.536136+00:00"
+}

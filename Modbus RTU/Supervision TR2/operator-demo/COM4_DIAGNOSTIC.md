@@ -32,3 +32,7 @@ python3 tools/capture_stopped_fram.py \
 Le chemin de preuve doit être neuf ; les exemples sont à remplacer par des artefacts vérifiés, pas une invitation à utiliser un ancien couple epoch/transaction. Le script ne modifie aucune garde temporelle ni version Windows. Un service actif a été effectivement refusé avant toute connexion GDB ; une lecture à la frontière corrigée a conservé FRAM et disponibilité B0/B3.
 
 La remise en service START/STOP et l’état final sont consignés dans [DERNIER_RAPPORT.md](../../00_gouvernance/Echanges_Codex/DERNIER_RAPPORT.md). Le nouveau correctif de pause Windows reste non déployé et le chantier de signature reste séparé. La durée prolongée11min50s antérieure n’est pas rejouée pour ce diagnostic d’outillage.
+
+## Complément — garde START après STOP/HELD
+
+Le bus rétabli, le garde c36 rejette aussi HELD parce que VALID reste vrai aprèsSTOP. Contrôle natif sansFC10, ledger19 inchangé ; correction d67741f2 exige STOP explicite et refuse FRESH/FAULT/valeurvalidenonHELD. Régressionrouge/vert248tests ; publicationWindowscomplète acceptée sousSAC1 sans changementdeprotection, puis START5/20 depuisHELD sansreset etSTOP5/21 réels. La versionPC active est désormaisd677contenu (provenancebuildb031+patch), firmwarec36inchangé. Les lanceurs sont des redirectionsréversibles vers le nouveaupaquet, jamais une substitution deDLL dans l’ancien. [Reprise](REPRISE.md).

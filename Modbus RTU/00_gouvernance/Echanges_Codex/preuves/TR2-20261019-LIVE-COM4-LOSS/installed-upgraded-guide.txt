@@ -1,0 +1,11 @@
+COM4 et redémarrage après STOP rétablis le 19/10/2026.
+Service déjà lancé sur http://127.0.0.1:5100 ; cible arrêtée/HELD.
+Utiliser OUVRIR_EDGE.cmd puis START.cmd dans le dossier habituel.
+Les lanceurs redirigent vers TR2-LIVE-COM4-HELD-20261019, paquet complet accepté par Windows.
+Ne pas lancer un second service. Attendre terminal_and_effect_observed (~40s).
+STOP.cmd arrête la cible ; après terminal, ARRETER_SERVICE.cmd ferme le service.
+Firmware STM32 conservé ; nouveau contrôleur PC corrige le refus HELD et stabilise la pause.
+L’ancien paquet, ses lanceurs originaux et ses données sont sauvegardés.
+Ne pas recopier l’ancien ledger19 : le ledger actif du nouveau data est21.
+Aucune protection Windows à modifier. Rapport final :
+https://github.com/loloLR17/MSM_vibe/blob/main/Modbus%20RTU/00_gouvernance/Echanges_Codex/DERNIER_RAPPORT.md

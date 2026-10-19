@@ -166,3 +166,6 @@ Paquet c36c971 accepté sous SAC1 inchangé et explicitement autorisé par l'uti
 ## COM4 LOSS DIAG —19/10/2026
 
 Cause d’audit GDB prouvée par reproduction : READ FRAM262144 injecté dans callbackchronométré, dépassement846ms/2,5ms, arrêt sûr du runtime et silenceModbus malgré RXactif. Procédure corrigée horsscope, aucun changement des garde-fous/firmware/Windows ; deux resets nécessaires, aucunflash. NouveauSTART5/18/STOP5/19 et B0/B3aprèsauditfinalsansreset réussis ; LIVEconservé/STOPHELD/serviceWindowsactif. Erratum de disponibilité après ancien audit, cyclesbornés antérieurs préservés. [Diagnostic](../Supervision%20TR2/operator-demo/COM4_DIAGNOSTIC.md), rapportcourant et preuves ; aucunGOindustriel/J4/J5/R6 ajouté.
+
+
+ComplémentCOM4 : gardeHELD supplémentaire corrigéed677/248testsPASS ; nouveaupaquetWindows accepté(4HTTP200/SAC1/aucunCI), START5/20 depuisHELDsansreset puisSTOP5/21 vialanceur. Firmwarec36inchangé, PCqualifiéd677contenu, finaljournal110/root123/run15/FRAM97f43a…455f3, busvérifiéaprèsauditfinalsansreset. Ancienpaquet+DBpréservés, lanceurshabituelsredirectionsréversibles ; servicecorrigéactif5100/COM4unique/cibleSTOPHELD. Signaturedurable séparée, aucunjalonindustriel ajouté.

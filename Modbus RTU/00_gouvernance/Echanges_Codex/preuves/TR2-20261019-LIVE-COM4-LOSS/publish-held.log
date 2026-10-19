@@ -1,0 +1,18 @@
+  Determining projects to restore...
+  Restored /home/lolo/dev/msm/projects/MSM_vibe-LIVE-COM4-loss-diag/Modbus RTU/Supervision TR2/src/TR2.Domain/TR2.Domain.csproj (in 381 ms).
+  Restored /home/lolo/dev/msm/projects/MSM_vibe-LIVE-COM4-loss-diag/Modbus RTU/Supervision TR2/src/TR2.Protocol/TR2.Protocol.csproj (in 449 ms).
+  Restored /home/lolo/dev/msm/projects/MSM_vibe-LIVE-COM4-loss-diag/Modbus RTU/Supervision TR2/src/TR2.Supervision.Web/TR2.Supervision.Web.csproj (in 449 ms).
+  Restored /home/lolo/dev/msm/projects/MSM_vibe-LIVE-COM4-loss-diag/Modbus RTU/Supervision TR2/src/TR2.Application/TR2.Application.csproj (in 449 ms).
+  Restored /home/lolo/dev/msm/projects/MSM_vibe-LIVE-COM4-loss-diag/Modbus RTU/Supervision TR2/src/TR2.Supervision.Service/TR2.Supervision.Service.csproj (in 449 ms).
+  Restored /home/lolo/dev/msm/projects/MSM_vibe-LIVE-COM4-loss-diag/Modbus RTU/Supervision TR2/src/TR2.Transport/TR2.Transport.csproj (in 449 ms).
+  Restored /home/lolo/dev/msm/projects/MSM_vibe-LIVE-COM4-loss-diag/Modbus RTU/Supervision TR2/src/TR2.Campaigns/TR2.Campaigns.csproj (in 449 ms).
+  Restored /home/lolo/dev/msm/projects/MSM_vibe-LIVE-COM4-loss-diag/Modbus RTU/Supervision TR2/src/TR2.Persistence/TR2.Persistence.csproj (in 449 ms).
+  TR2.Domain -> /home/lolo/dev/msm/projects/MSM_vibe-LIVE-COM4-loss-diag/Modbus RTU/Supervision TR2/src/TR2.Domain/bin/Release/net10.0/TR2.Domain.dll
+  TR2.Transport -> /home/lolo/dev/msm/projects/MSM_vibe-LIVE-COM4-loss-diag/Modbus RTU/Supervision TR2/src/TR2.Transport/bin/Release/net10.0/TR2.Transport.dll
+  TR2.Protocol -> /home/lolo/dev/msm/projects/MSM_vibe-LIVE-COM4-loss-diag/Modbus RTU/Supervision TR2/src/TR2.Protocol/bin/Release/net10.0/TR2.Protocol.dll
+  TR2.Application -> /home/lolo/dev/msm/projects/MSM_vibe-LIVE-COM4-loss-diag/Modbus RTU/Supervision TR2/src/TR2.Application/bin/Release/net10.0/TR2.Application.dll
+  TR2.Campaigns -> /home/lolo/dev/msm/projects/MSM_vibe-LIVE-COM4-loss-diag/Modbus RTU/Supervision TR2/src/TR2.Campaigns/bin/Release/net10.0/TR2.Campaigns.dll
+  TR2.Persistence -> /home/lolo/dev/msm/projects/MSM_vibe-LIVE-COM4-loss-diag/Modbus RTU/Supervision TR2/src/TR2.Persistence/bin/Release/net10.0/TR2.Persistence.dll
+  TR2.Supervision.Web -> /home/lolo/dev/msm/projects/MSM_vibe-LIVE-COM4-loss-diag/Modbus RTU/Supervision TR2/src/TR2.Supervision.Web/bin/Release/net10.0/TR2.Supervision.Web.dll
+  TR2.Supervision.Service -> /home/lolo/dev/msm/projects/MSM_vibe-LIVE-COM4-loss-diag/Modbus RTU/Supervision TR2/src/TR2.Supervision.Service/bin/Release/net10.0/win-x64/TR2.Supervision.Service.dll
+  TR2.Supervision.Service -> /home/lolo/dev/msm/reports/TR2-live-com4-loss-diag/windows-held/

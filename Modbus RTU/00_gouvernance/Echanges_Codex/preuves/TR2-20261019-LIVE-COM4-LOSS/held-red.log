@@ -1,0 +1,42 @@
+  Determining projects to restore...
+  Restored /home/lolo/dev/msm/projects/MSM_vibe-LIVE-COM4-loss-diag/Modbus RTU/Supervision TR2/src/TR2.Domain/TR2.Domain.csproj (in 167 ms).
+  Restored /home/lolo/dev/msm/projects/MSM_vibe-LIVE-COM4-loss-diag/Modbus RTU/Supervision TR2/src/TR2.Protocol/TR2.Protocol.csproj (in 897 ms).
+  Restored /home/lolo/dev/msm/projects/MSM_vibe-LIVE-COM4-loss-diag/Modbus RTU/Supervision TR2/src/TR2.Application/TR2.Application.csproj (in 897 ms).
+  Restored /home/lolo/dev/msm/projects/MSM_vibe-LIVE-COM4-loss-diag/Modbus RTU/Supervision TR2/src/TR2.Transport/TR2.Transport.csproj (in 673 ms).
+  Restored /home/lolo/dev/msm/projects/MSM_vibe-LIVE-COM4-loss-diag/Modbus RTU/Supervision TR2/src/TR2.Persistence/TR2.Persistence.csproj (in 898 ms).
+  Restored /home/lolo/dev/msm/projects/MSM_vibe-LIVE-COM4-loss-diag/Modbus RTU/Supervision TR2/src/TR2.Campaigns/TR2.Campaigns.csproj (in 897 ms).
+  Restored /home/lolo/dev/msm/projects/MSM_vibe-LIVE-COM4-loss-diag/Modbus RTU/Supervision TR2/src/TR2.Supervision.Service/TR2.Supervision.Service.csproj (in 898 ms).
+  Restored /home/lolo/dev/msm/projects/MSM_vibe-LIVE-COM4-loss-diag/Modbus RTU/Supervision TR2/src/TR2.Supervision.Web/TR2.Supervision.Web.csproj (in 897 ms).
+  Restored /home/lolo/dev/msm/projects/MSM_vibe-LIVE-COM4-loss-diag/Modbus RTU/Supervision TR2/tests/TR2.Supervision.Service.Tests/TR2.Supervision.Service.Tests.csproj (in 906 ms).
+  TR2.Domain -> /home/lolo/dev/msm/projects/MSM_vibe-LIVE-COM4-loss-diag/Modbus RTU/Supervision TR2/src/TR2.Domain/bin/Debug/net10.0/TR2.Domain.dll
+  TR2.Transport -> /home/lolo/dev/msm/projects/MSM_vibe-LIVE-COM4-loss-diag/Modbus RTU/Supervision TR2/src/TR2.Transport/bin/Debug/net10.0/TR2.Transport.dll
+  TR2.Protocol -> /home/lolo/dev/msm/projects/MSM_vibe-LIVE-COM4-loss-diag/Modbus RTU/Supervision TR2/src/TR2.Protocol/bin/Debug/net10.0/TR2.Protocol.dll
+  TR2.Application -> /home/lolo/dev/msm/projects/MSM_vibe-LIVE-COM4-loss-diag/Modbus RTU/Supervision TR2/src/TR2.Application/bin/Debug/net10.0/TR2.Application.dll
+  TR2.Campaigns -> /home/lolo/dev/msm/projects/MSM_vibe-LIVE-COM4-loss-diag/Modbus RTU/Supervision TR2/src/TR2.Campaigns/bin/Debug/net10.0/TR2.Campaigns.dll
+  TR2.Persistence -> /home/lolo/dev/msm/projects/MSM_vibe-LIVE-COM4-loss-diag/Modbus RTU/Supervision TR2/src/TR2.Persistence/bin/Debug/net10.0/TR2.Persistence.dll
+  TR2.Supervision.Web -> /home/lolo/dev/msm/projects/MSM_vibe-LIVE-COM4-loss-diag/Modbus RTU/Supervision TR2/src/TR2.Supervision.Web/bin/Debug/net10.0/TR2.Supervision.Web.dll
+  TR2.Supervision.Service -> /home/lolo/dev/msm/projects/MSM_vibe-LIVE-COM4-loss-diag/Modbus RTU/Supervision TR2/src/TR2.Supervision.Service/bin/Debug/net10.0/TR2.Supervision.Service.dll
+  TR2.Supervision.Service.Tests -> /home/lolo/dev/msm/projects/MSM_vibe-LIVE-COM4-loss-diag/Modbus RTU/Supervision TR2/tests/TR2.Supervision.Service.Tests/bin/Debug/net10.0/TR2.Supervision.Service.Tests.dll
+Test run for /home/lolo/dev/msm/projects/MSM_vibe-LIVE-COM4-loss-diag/Modbus RTU/Supervision TR2/tests/TR2.Supervision.Service.Tests/bin/Debug/net10.0/TR2.Supervision.Service.Tests.dll (.NETCoreApp,Version=v10.0)
+A total of 1 test files matched the specified pattern.
+[xUnit.net 00:00:00.61]     TR2.Supervision.Service.Tests.LiveOperatorHandoffTests.TokenAcknowledgmentPrecedesOpenLedgerPrecedesWriteAndWriterClosesBeforeResume(writeFails: False, initiallyHeld: True) [FAIL]
+[xUnit.net 00:00:00.83]     TR2.Supervision.Service.Tests.LiveOperatorHandoffTests.TokenAcknowledgmentPrecedesOpenLedgerPrecedesWriteAndWriterClosesBeforeResume(writeFails: True, initiallyHeld: True) [FAIL]
+  Failed TR2.Supervision.Service.Tests.LiveOperatorHandoffTests.TokenAcknowledgmentPrecedesOpenLedgerPrecedesWriteAndWriterClosesBeforeResume(writeFails: False, initiallyHeld: True) [106 ms]
+  Error Message:
+   Assert.Equal() Failure: Values differ
+Expected: 0
+Actual:   1
+  Stack Trace:
+     at TR2.Supervision.Service.Tests.LiveOperatorHandoffTests.TokenAcknowledgmentPrecedesOpenLedgerPrecedesWriteAndWriterClosesBeforeResume(Boolean writeFails, Boolean initiallyHeld) in /home/lolo/dev/msm/projects/MSM_vibe-LIVE-COM4-loss-diag/Modbus RTU/Supervision TR2/tests/TR2.Supervision.Service.Tests/LiveOperatorHandoffTests.cs:line 17
+--- End of stack trace from previous location ---
+  Failed TR2.Supervision.Service.Tests.LiveOperatorHandoffTests.TokenAcknowledgmentPrecedesOpenLedgerPrecedesWriteAndWriterClosesBeforeResume(writeFails: True, initiallyHeld: True) [105 ms]
+  Error Message:
+   Assert.True() Failure
+Expected: True
+Actual:   False
+  Stack Trace:
+     at TR2.Supervision.Service.Tests.LiveOperatorHandoffTests.TokenAcknowledgmentPrecedesOpenLedgerPrecedesWriteAndWriterClosesBeforeResume(Boolean writeFails, Boolean initiallyHeld) in /home/lolo/dev/msm/projects/MSM_vibe-LIVE-COM4-loss-diag/Modbus RTU/Supervision TR2/tests/TR2.Supervision.Service.Tests/LiveOperatorHandoffTests.cs:line 17
+--- End of stack trace from previous location ---
+Results File: /home/lolo/dev/msm/reports/TR2-live-com4-loss-diag/held-tests/held-red.trx
+
+Failed!  - Failed:     2, Passed:     2, Skipped:     0, Total:     4, Duration: 536 ms - TR2.Supervision.Service.Tests.dll (net10.0)

@@ -39,3 +39,7 @@ Le propriétaire de ce canal doit désigner le certificat/profil, les droits d'u
 - [Événements CI et corrélation des décisions](https://learn.microsoft.com/en-us/windows/security/application-security/application-control/app-control-for-business/operations/event-id-explanations).
 - [ISG et attributs d'origine](https://learn.microsoft.com/en-us/windows/security/application-security/application-control/app-control-for-business/design/use-appcontrol-with-intelligent-security-graph).
 - [Artifact Signing, service Microsoft](https://learn.microsoft.com/en-us/azure/artifact-signing/overview).
+
+## Complément COM4 LOSS DIAG —19/10/2026
+
+Une nouvellepublication complète corrigeant HELD et intégrant la pause stable a effectivement passé le contrôleWindows, à son propre emplacement TR2-LIVE-COM4-HELD-20261019/app :377fichiers exacts, Service.dll63f3ddc1…cb85fa, quatreHTTP200/exit0/SAC1/zéroCI corrélé. Le premier chargement a dépassé le délaiHTTP25s (~35s) mais le service s’est exécuté ; échec conservé. Le contrôleur autorise désormais une attente explicite60s (1..120), sans modifier les critères de succès ou la politique. La confirmation et les essaisCOM4 précèdent toute redirection des lanceurs. Raison interne de l’acceptation non établie ; ancienneDLL21a440 encore distincte, aucune confiance universelle des futurescompilations. Aucuneprotection/ADS/EA/certificat/règle modifiée ; signaturedurable toujours séparée.

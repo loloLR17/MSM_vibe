@@ -2,13 +2,13 @@ from pathlib import Path
 import hashlib,json,zlib
 p=Path('/home/lolo/dev/msm/reports/TR2-live-com4-loss-diag');r=Path('/home/lolo/dev/msm/projects/MSM_vibe-LIVE-COM4-loss-diag');o=r/'Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261019-LIVE-COM4-LOSS';o.mkdir(exist_ok=True);m=[]
 for f in sorted(p.rglob('*')):
- if not f.is_file() or '__pycache__' in f.parts or f.name=='model-final' or f.name.startswith('remote-') and f.suffix=='.db':continue
- rel=f.relative_to(p).as_posix();b=f.read_bytes();compressed=len(b)>12000 or f.suffix in ('.db','.bin') or b'\r' in b
+ if not f.is_file() or 'windows-held' in f.relative_to(p).parts or f.name=='model-upgraded' or '__pycache__' in f.parts or f.name=='model-final' or f.name.startswith('remote-') and f.suffix=='.db':continue
+ rel=f.relative_to(p).as_posix();b=f.read_bytes();compressed=len(b)>12000 or f.suffix in ('.db','.bin','.patch') or b'\r' in b
  stored=rel+'.zlib' if compressed else rel;data=zlib.compress(b,9) if compressed else b;dest=o/stored;dest.parent.mkdir(parents=True,exist_ok=True);dest.write_bytes(data);m.append(dict(source=rel,stored=stored,bytes=len(b),sha256=hashlib.sha256(b).hexdigest(),stored_sha256=hashlib.sha256(data).hexdigest(),compression='zlib' if compressed else None))
 (o/'BUNDLE.json').write_text(json.dumps(m,indent=2)+'\n')
 (o/'README.md').write_text('''# Preuves TR2-20261019-LIVE-COM4-LOSS-DIAG
 
-Cause actuelle observée avant reset puis reproduite : GDB injectait un READ FRAM262144octets dans un callback chronométré ;846318µs original,846632µs reproduits, garde2500µs conservée. FIFO et transactions arrêtées, aucune écriture persistante pendant diagnostic causal. Deux resets nécessaires, zéroflash. NouveauSTART5/18/STOP5/19 et B0/B3réels après auditcorrigé sansreset ; serviceWindows laissé actif, cibleSTOP/HELD.
+Cause actuelle observée avant reset puis reproduite : GDB injectait un READ FRAM262144octets dans un callback chronométré ;846318µs original,846632µs reproduits, garde2500µs conservée. FIFO et transactions arrêtées, aucune écriture persistante pendant diagnostic causal. Deux resets nécessaires, zéroflash. Première reprise5/18–19 puis gardeHELDcorrigéd677 et nouvellepublicationcomplète Windows acceptée ; START5/20depuisHELDsansreset/STOP5/21vialanceur. Dernierauditcorrigé et B0/B3réels aprèsdétachement sansreset ; servicecorrigé actif, cibleSTOP/HELD. Ancienpaquet et données conservés.
 
 `BUNDLE.json` contient les empreintes brutes/stockées. `.zlib` = zlib.decompress ; aucun octet CRLF/binaire normalisé. `SHA256SUMS` couvre les fichiers versionnés. Logs/erreurs et état initial sont conservés, archives antérieures inchangées.
 
@@ -21,6 +21,10 @@ Cause actuelle observée avant reset puis reproduite : GDB injectait un READ FRA
 - `live-final.db.zlib` : snapshotcohérent7713lignes via APIbackupSQLiteWindows, connexionreadonly ; anciens6336payloads exacts etjournauxutilisateur inchangés. Source de l’API en commentairedu script ; pas une copie bruteWAL active.
 - `model-final*` : métadonnées simulées par cœurR2 réel, comparaisonFRAMcomplète physique exactecd1486…3406/journal102/root115/run14/config3/STOP5/19 ; préfixehistorique ettail exacts. Modèle≠effetphysique.
 - `preservation.json`, étatGitinitial :8180fichiers/72autresworktrees/deuxstashes/mainhistorique82169af préservés. Firmware/PC inchangés, uniquementoutillage/docs corrigés.
+
+Compléments consolidés : `summary-final.json` fait autorité sur la version active ; `summary.json` décrit la première reprise. `held-tests/` rouge2échecs puis248PASS, `held-build-source.patch` et provenance compilée b031+patch égale d677. `held-windows-gate/` premierHTTPtimeout25s malgréserviceexit0/aucunCI ; confirmation `held-windows-gate-confirm/` quatreHTTP200/SAC1/aucunCI àoctetsidentiques. `release-migration.json` : paquetcomplet séparé,12060payloads copiés exacts aprèsfermeture, originauxdes5lanceurs sauvegardés, redirectionsaprèsqualification au propre emplacement. Pas demélangeDLL/protectionmodifiée.
+
+`physical/upgraded-held-start*` et `upgraded-stop*` : START20du vraiHELDsansreset/STOP21 vialanceurhistorique ; courbes234→298globaux/351→447XYZ. `safe-audit-upgraded-final/` : frontièrehorsscope, FRAM97f43a…455f3/journal110/root123/run15/config3 exacte au modèle ; `upgraded-final-after-audit-B0-B3.json` prouve disponibilité après ce dernieraudit, sansreset. `live-upgraded-final.db.zlib` =13623observations cohérentes,12060migréesexactes (dont6336utilisateur),359mesurescourantes de lanouvelleversion. `upgraded-final-deployment-summary.json` :377nouveauxfichiers inchangés/SAC1/zéroCI/unservice/nodébugger. Les377anciensfichiers app sont préservés. ServiceWindowscourant dansTR2-LIVE-COM4-HELD-20261019, lancementhabituelredirectionréversible.
 
 Rapport courant pour résultats/limites/état laissé ; aucune qualification indépendanteChatGPT ou industrielle déduite de ces preuves. Lire les permissions de la mission active avant tout nouvel accès cible.
 ''')

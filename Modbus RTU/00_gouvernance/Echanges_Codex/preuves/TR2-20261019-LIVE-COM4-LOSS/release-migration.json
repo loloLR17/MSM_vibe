@@ -1,0 +1,105 @@
+{
+  "utc": "2026-10-19T14:51:22.604334+00:00",
+  "previous_package_preserved": true,
+  "old_data_frozen_copied_exact": true,
+  "old_app_unchanged": true,
+  "whole_new_version_separately_accepted_before_switch": true,
+  "files": [
+    {
+      "file": "live.db",
+      "bytes": 22614016,
+      "sha256": "04817fd28f183b5dac07e0175ec6ce82b2a5b0b0e87f1236322711cfbaef5d0a"
+    },
+    {
+      "file": "serial-5512-26404.jsonl",
+      "bytes": 24413,
+      "sha256": "bb475ed0688aac8c3da1321bb6e599670701a8e9d4396af328482089de1cdd4c"
+    },
+    {
+      "file": "serial-8598-25568.jsonl",
+      "bytes": 714039,
+      "sha256": "56f0de7aeefe52a182a51976400524d0f6d3c7ee4de3f6101536dcc80a4f5f66"
+    },
+    {
+      "file": "serial-9300-9947.jsonl",
+      "bytes": 7435328,
+      "sha256": "d8b2552d9d3445f9fea46b9a21c1af2b1245b6447314b2ca8455bac5ca1a79d1"
+    },
+    {
+      "file": "serial-causal-baseline.jsonl",
+      "bytes": 229882,
+      "sha256": "b6582e03685111e2377a31423fa1a8d7cb1e4d3eb8bba3f8e403b254da22eae8"
+    },
+    {
+      "file": "serial-cycle1.jsonl",
+      "bytes": 823916,
+      "sha256": "7b2f7db1adc229093e600c014bdd7a278f9af70b39e252c583c636d11eec9540"
+    },
+    {
+      "file": "serial-cycle2.jsonl",
+      "bytes": 6918880,
+      "sha256": "5dc29c0e8fb349fb4c777d2cd50711e527dd945de7305bd436b909fbabc10963"
+    },
+    {
+      "file": "service-5512-26404.log",
+      "bytes": 320159,
+      "sha256": "bb8c45b59b5e8fdb74514548915e763a989e8deaed0795f1f6415dbf97d4ca6c"
+    },
+    {
+      "file": "service-8598-25568.log",
+      "bytes": 1223191,
+      "sha256": "5a819dcd9c68476512dcae880e60ccee8e1d41574ac3678351933a4399a96681"
+    },
+    {
+      "file": "service-9300-9947.log",
+      "bytes": 6708895,
+      "sha256": "d47b97f3c9e0bc320d2af157e2ebca9852e4f8f4b3064c49ea57732252e25e73"
+    },
+    {
+      "file": "transactions.json",
+      "bytes": 39,
+      "sha256": "0ea12db8ad054dc6784ee52c97827910e7831a7362f5b8d333fa50dd40cd7704"
+    }
+  ],
+  "launchers": [
+    {
+      "name": "ARRETER_SERVICE.cmd",
+      "original_sha256": "56548acf8d57d0dfe7485f6432430567a6f92e60236182b05fb75b8a2837f10c",
+      "backup": "/mnt/c/Users/lolo/AppData/Local/MSM/TR2-LIVE-COM4-HELD-20261019/legacy-c36-launchers/ARRETER_SERVICE.cmd",
+      "redirect_sha256": "999490cbd7246e7ee3545a3d5344edb14f99d1436d6391a3a14d4b56c94c2ab4",
+      "new_target": "C:\\Users\\lolo\\AppData\\Local\\MSM\\TR2-LIVE-COM4-HELD-20261019\\ARRETER_SERVICE.cmd"
+    },
+    {
+      "name": "LANCER_SERVICE.cmd",
+      "original_sha256": "a7bc66bc09880d20f2445efadd5d787db9613299f7340d20377969faa76112a9",
+      "backup": "/mnt/c/Users/lolo/AppData/Local/MSM/TR2-LIVE-COM4-HELD-20261019/legacy-c36-launchers/LANCER_SERVICE.cmd",
+      "redirect_sha256": "6a1e543e510f074df352f7ba05bd852fa82e2b3df816ad7ca09b29dc13016b8c",
+      "new_target": "C:\\Users\\lolo\\AppData\\Local\\MSM\\TR2-LIVE-COM4-HELD-20261019\\LANCER_SERVICE.cmd"
+    },
+    {
+      "name": "OUVRIR_EDGE.cmd",
+      "original_sha256": "c5169faedbcd89ac360ccaaa49ae13e6b607dbb678697dc5340f8d7cab156229",
+      "backup": "/mnt/c/Users/lolo/AppData/Local/MSM/TR2-LIVE-COM4-HELD-20261019/legacy-c36-launchers/OUVRIR_EDGE.cmd",
+      "redirect_sha256": "3d50404396bb93e02e450c2ceb20889fd462f5e187401404ff89e44022eb58f5",
+      "new_target": "C:\\Users\\lolo\\AppData\\Local\\MSM\\TR2-LIVE-COM4-HELD-20261019\\OUVRIR_EDGE.cmd"
+    },
+    {
+      "name": "START.cmd",
+      "original_sha256": "85b50d73282dcbe7857b16cd7df670c6ddca9307b2fa632c807bbdf3945d8a09",
+      "backup": "/mnt/c/Users/lolo/AppData/Local/MSM/TR2-LIVE-COM4-HELD-20261019/legacy-c36-launchers/START.cmd",
+      "redirect_sha256": "0b02aff06d7bfe7edbd879cca4a2f2f2623f0eac833e01485e2300aef08fcfa3",
+      "new_target": "C:\\Users\\lolo\\AppData\\Local\\MSM\\TR2-LIVE-COM4-HELD-20261019\\START.cmd"
+    },
+    {
+      "name": "STOP.cmd",
+      "original_sha256": "39c45e41d593261a484e8e6ee82c3aeeb00c5c1d169c0d97758770d544c257f7",
+      "backup": "/mnt/c/Users/lolo/AppData/Local/MSM/TR2-LIVE-COM4-HELD-20261019/legacy-c36-launchers/STOP.cmd",
+      "redirect_sha256": "76e83f8d2260cf5023d5f32442b73b0481a8efe2a5a9f7a59596426dadf3bc65",
+      "new_target": "C:\\Users\\lolo\\AppData\\Local\\MSM\\TR2-LIVE-COM4-HELD-20261019\\STOP.cmd"
+    }
+  ],
+  "code_commit": "d67741f2",
+  "build_git_head": "b031d01a5ea1f102293d5fd24b34bbfafe45a178",
+  "build_source_patch": "held-build-source.patch",
+  "new_service_dll_sha256": "63f3ddc1a91d99599a719bc6a013aa52810a9813a9d08c40233ce45b29cb85fa"
+}
