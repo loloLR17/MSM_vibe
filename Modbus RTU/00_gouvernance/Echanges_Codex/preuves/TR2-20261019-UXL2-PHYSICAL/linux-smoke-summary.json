@@ -1,0 +1,10 @@
+{
+  "result": "PASS",
+  "seconds_zero_remains_alive": true,
+  "token_pause_ack": true,
+  "resume_clears_ack": true,
+  "ctrl_c_clean_exit": true,
+  "physical": false,
+  "port": "COM99 nonexistent",
+  "not_windows_qualification": true
+}

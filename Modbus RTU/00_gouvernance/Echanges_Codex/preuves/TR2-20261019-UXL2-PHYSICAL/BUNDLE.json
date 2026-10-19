@@ -1,0 +1,522 @@
+{
+  "mission_id": "TR2-20261019-UXL2-PHYSICAL-LIVE-UI",
+  "revision": 2,
+  "code_sha": "c36c9718a75e6b40c45707a482e8db836296cab2",
+  "created_at_utc": "2026-10-19T10:16:21.572418+00:00",
+  "status": "BLOCKED",
+  "artifacts": [
+    {
+      "path": "build-firmware.py",
+      "raw_name": "build-firmware.py",
+      "compression": "none",
+      "raw_bytes": 984,
+      "stored_bytes": 984,
+      "raw_sha256": "d4df9b705143d06c9f434d14699e07c718df4af64aa5e45ed500c8f5d0da8a6d",
+      "sha256": "d4df9b705143d06c9f434d14699e07c718df4af64aa5e45ed500c8f5d0da8a6d"
+    },
+    {
+      "path": "canonical-cross-build-bash.log.zlib",
+      "raw_name": "canonical-cross-build-bash.log",
+      "compression": "zlib",
+      "raw_bytes": 28474,
+      "stored_bytes": 2863,
+      "raw_sha256": "938b0a489bc57f77e919a76d42960ce5a929a8a1c264caae46082ea89af9aaa2",
+      "sha256": "91b48fd83795ec06e73340708e6b4400ccf05f719b1654fe645521110522dc80"
+    },
+    {
+      "path": "canonical-cross-build.log",
+      "raw_name": "canonical-cross-build.log",
+      "compression": "none",
+      "raw_bytes": 58,
+      "stored_bytes": 58,
+      "raw_sha256": "7da98002f9465e39dc1887c0ad3e895a547f2668c002c1e3c34a4ebeec78a6f7",
+      "sha256": "7da98002f9465e39dc1887c0ad3e895a547f2668c002c1e3c34a4ebeec78a6f7"
+    },
+    {
+      "path": "check-preservation.py",
+      "raw_name": "check-preservation.py",
+      "compression": "none",
+      "raw_bytes": 1392,
+      "stored_bytes": 1392,
+      "raw_sha256": "3fc295e322e3d82de17b4f039bab9208770122f1ddf05c9f285bb8ca5c2f2604",
+      "sha256": "3fc295e322e3d82de17b4f039bab9208770122f1ddf05c9f285bb8ca5c2f2604"
+    },
+    {
+      "path": "com-inventory.log.zlib",
+      "raw_name": "com-inventory.log",
+      "compression": "zlib",
+      "raw_bytes": 339,
+      "stored_bytes": 174,
+      "raw_sha256": "790349a45aaba46242ec5d13c7a83e73a4ce4293128694f54bf73383ebf77d06",
+      "sha256": "ba7044a27c34059b9f71522a01692c4abdd216401bd069153daf0e1bb98fb0e1"
+    },
+    {
+      "path": "dotnet-tests/physical_net10.0_20261019120731.trx.zlib",
+      "raw_name": "dotnet-tests/physical_net10.0_20261019120731.trx",
+      "compression": "zlib",
+      "raw_bytes": 26014,
+      "stored_bytes": 3409,
+      "raw_sha256": "c85260dc45e381fa35f9bbb91edbfccd154bf7ea6e0b683a5b3648100de1ec8c",
+      "sha256": "05c221b622d6d66491a77d51e48affdf6216db6e626ea1b242601d1eb277271a"
+    },
+    {
+      "path": "dotnet-tests/physical_net10.0_20261019120733.trx.zlib",
+      "raw_name": "dotnet-tests/physical_net10.0_20261019120733.trx",
+      "compression": "zlib",
+      "raw_bytes": 66462,
+      "stored_bytes": 8140,
+      "raw_sha256": "59eca15b8aca017a021cf9c1ff8bfba44fa7691b5a0619f07e6f69443e95caf3",
+      "sha256": "02d5c019da6b6391f772eabf9b1ef6e367c92dd8e9d1ab0174774d23fd901b40"
+    },
+    {
+      "path": "dotnet-tests/physical_net10.0_20261019120737.trx.zlib",
+      "raw_name": "dotnet-tests/physical_net10.0_20261019120737.trx",
+      "compression": "zlib",
+      "raw_bytes": 339421,
+      "stored_bytes": 51170,
+      "raw_sha256": "f4f39bfe4ec2e0835bd4566748be8f8d4f9b0ea10917a8c12c835a587372e52e",
+      "sha256": "d0ca6bd083caef069b165dcb1096d52bb7fce1d44fa3af230b06d68774e1201e"
+    },
+    {
+      "path": "dotnet-tests/physical_net10.0_20261019120739.trx.zlib",
+      "raw_name": "dotnet-tests/physical_net10.0_20261019120739.trx",
+      "compression": "zlib",
+      "raw_bytes": 48135,
+      "stored_bytes": 5766,
+      "raw_sha256": "f56e22c994b3afc1811988b91d9e7d4a54eeb3b4bec2a4f3f225078efdc25849",
+      "sha256": "e1f0a7015a179940e8ab45c6eeb9863aeea4fa7c11cfbf0eabc1a7c69562cc0e"
+    },
+    {
+      "path": "dotnet-tests/physical_net10.0_20261019120741.trx.zlib",
+      "raw_name": "dotnet-tests/physical_net10.0_20261019120741.trx",
+      "compression": "zlib",
+      "raw_bytes": 3023,
+      "stored_bytes": 1226,
+      "raw_sha256": "b9a45298e4696a3e3eb9e6c0d8fa476e0cd51b5af5a6439e130210a82ef49a5f",
+      "sha256": "66fc36b56d602ff63169c96a52f6d7f0bbb195ef51b512d20104c434a1fe1d6e"
+    },
+    {
+      "path": "dotnet-tests/physical_net10.0_20261019120747.trx.zlib",
+      "raw_name": "dotnet-tests/physical_net10.0_20261019120747.trx",
+      "compression": "zlib",
+      "raw_bytes": 433055,
+      "stored_bytes": 62009,
+      "raw_sha256": "628191ce1e67ca7b6b6895abc3d2c0dd8fec46b6210a004d41dccb04794b944e",
+      "sha256": "364632aa717fbafefe18360ef6c4de62dcd0bef4ad610df3f2b1c1ba76a47880"
+    },
+    {
+      "path": "dotnet-tests/physical_net10.0_20261019120748.trx.zlib",
+      "raw_name": "dotnet-tests/physical_net10.0_20261019120748.trx",
+      "compression": "zlib",
+      "raw_bytes": 55288,
+      "stored_bytes": 6188,
+      "raw_sha256": "1e09ea4f790277daccdaa474fd4243bb68df9e90c3dc22c079f70e7113b56497",
+      "sha256": "45808e69718bd58af0154a6a4783c92ebe92325186f55728794185cccbf461a6"
+    },
+    {
+      "path": "dotnet-tests.log",
+      "raw_name": "dotnet-tests.log",
+      "compression": "none",
+      "raw_bytes": 8447,
+      "stored_bytes": 8447,
+      "raw_sha256": "7fa69ef0cb4a9a97c2de71a1c00157ddb34d93f10304be8b9b597c72b89ad2f3",
+      "sha256": "7fa69ef0cb4a9a97c2de71a1c00157ddb34d93f10304be8b9b597c72b89ad2f3"
+    },
+    {
+      "path": "final-windows-processes.json",
+      "raw_name": "final-windows-processes.json",
+      "compression": "none",
+      "raw_bytes": 0,
+      "stored_bytes": 0,
+      "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "firmware/build-profile.txt",
+      "raw_name": "firmware/build-profile.txt",
+      "compression": "none",
+      "raw_bytes": 1362,
+      "stored_bytes": 1362,
+      "raw_sha256": "8f6da90738a0010c9987f08e0285e90b57ef7a056c2b3d4d19b7053684de022b",
+      "sha256": "8f6da90738a0010c9987f08e0285e90b57ef7a056c2b3d4d19b7053684de022b"
+    },
+    {
+      "path": "firmware/tr2-live-operator-NON-PRODUCTION.bin.zlib",
+      "raw_name": "firmware/tr2-live-operator-NON-PRODUCTION.bin",
+      "compression": "zlib",
+      "raw_bytes": 147024,
+      "stored_bytes": 80883,
+      "raw_sha256": "9bbe397911185b798a0b030aba893a325bfdf6afa6947145bda9157f3bff0981",
+      "sha256": "3f2d3969c92370f3ab472ddf0f5568d82932049e3a08e021a229f9c12bc834a8"
+    },
+    {
+      "path": "firmware/tr2-live-operator-NON-PRODUCTION.elf.zlib",
+      "raw_name": "firmware/tr2-live-operator-NON-PRODUCTION.elf",
+      "compression": "zlib",
+      "raw_bytes": 1327744,
+      "stored_bytes": 481792,
+      "raw_sha256": "ba999ab4a8aa674a977ca8e3ab95469eba46c0d12ff2cdbf98c89bcfb1a1cbe3",
+      "sha256": "01503b4fd8a11ab8fa83730bf4723d0352b6556fbe816d35410480bea77655d0"
+    },
+    {
+      "path": "firmware-image.json",
+      "raw_name": "firmware-image.json",
+      "compression": "none",
+      "raw_bytes": 452,
+      "stored_bytes": 452,
+      "raw_sha256": "e7ed408b364635f802e545413a373a58c826cda9a2b30f37205633521d0dc4c8",
+      "sha256": "e7ed408b364635f802e545413a373a58c826cda9a2b30f37205633521d0dc4c8"
+    },
+    {
+      "path": "hardware/flash-before.bin.zlib",
+      "raw_name": "hardware/flash-before.bin",
+      "compression": "zlib",
+      "raw_bytes": 2097152,
+      "stored_bytes": 82705,
+      "raw_sha256": "c5bc344d64984c48c3e34b05fa9432c9c124e8b67428eb0eef22c0d62ddf5b26",
+      "sha256": "ff2792eac64fbee090edf3e029a37859acb4c0d6d567d8ce70455ab9a06043e3"
+    },
+    {
+      "path": "hardware/flash-fresh-check-invocation.json",
+      "raw_name": "hardware/flash-fresh-check-invocation.json",
+      "compression": "none",
+      "raw_bytes": 798,
+      "stored_bytes": 798,
+      "raw_sha256": "04cfcf304341fd398400f690bce9099a823ef2a68046e6c2553adc089e50ac60",
+      "sha256": "04cfcf304341fd398400f690bce9099a823ef2a68046e6c2553adc089e50ac60"
+    },
+    {
+      "path": "hardware/flash-fresh-check-server.log.zlib",
+      "raw_name": "hardware/flash-fresh-check-server.log",
+      "compression": "zlib",
+      "raw_bytes": 642,
+      "stored_bytes": 327,
+      "raw_sha256": "8bcc4c71699ee84963384971405c87e1a151e92fe6097483e261a0323be2f087",
+      "sha256": "3159f6122fbbf3033a2d1bed2bef602b9959489b62ed2df82bdd141656a1f619"
+    },
+    {
+      "path": "hardware/flash-fresh-check.gdb",
+      "raw_name": "hardware/flash-fresh-check.gdb",
+      "compression": "none",
+      "raw_bytes": 552,
+      "stored_bytes": 552,
+      "raw_sha256": "458175c96a1ac09aefcbcc93c617e7a831fc1e517538887d6fd54412246150ca",
+      "sha256": "458175c96a1ac09aefcbcc93c617e7a831fc1e517538887d6fd54412246150ca"
+    },
+    {
+      "path": "hardware/flash-fresh-check.log.zlib",
+      "raw_name": "hardware/flash-fresh-check.log",
+      "compression": "zlib",
+      "raw_bytes": 408,
+      "stored_bytes": 271,
+      "raw_sha256": "e098e6876ab17ed3b20b1caa13a88901365f627d0463c6860bfba2e7b7fb8aa7",
+      "sha256": "f95abdd5ba77c71eb6ac8bb78ac6d7583b1a35742dd6cbe46ca7d09920ebec0f"
+    },
+    {
+      "path": "hardware/fram-before.bin.zlib",
+      "raw_name": "hardware/fram-before.bin",
+      "compression": "zlib",
+      "raw_bytes": 262144,
+      "stored_bytes": 2066,
+      "raw_sha256": "2b501a835b9a02c43dc0738bd7af167b7d049fbffb4e9ef677ed2e867f47dd84",
+      "sha256": "97f4bfd88dfd67d771222971ac86c1f4dee1e6e76d3cf1764729369bd3e7b011"
+    },
+    {
+      "path": "hardware/fram-fresh-check-invocation.json",
+      "raw_name": "hardware/fram-fresh-check-invocation.json",
+      "compression": "none",
+      "raw_bytes": 797,
+      "stored_bytes": 797,
+      "raw_sha256": "bc16a4de7cb0600b0f9b41134e9e17553f66964af11d217349aabaabd5882551",
+      "sha256": "bc16a4de7cb0600b0f9b41134e9e17553f66964af11d217349aabaabd5882551"
+    },
+    {
+      "path": "hardware/fram-fresh-check-server.log.zlib",
+      "raw_name": "hardware/fram-fresh-check-server.log",
+      "compression": "zlib",
+      "raw_bytes": 642,
+      "stored_bytes": 327,
+      "raw_sha256": "8bcc4c71699ee84963384971405c87e1a151e92fe6097483e261a0323be2f087",
+      "sha256": "3159f6122fbbf3033a2d1bed2bef602b9959489b62ed2df82bdd141656a1f619"
+    },
+    {
+      "path": "hardware/fram-fresh-check.gdb",
+      "raw_name": "hardware/fram-fresh-check.gdb",
+      "compression": "none",
+      "raw_bytes": 631,
+      "stored_bytes": 631,
+      "raw_sha256": "dcdcc97c78c2c5a300ecf2d9043e2b2afdfaa883558ae2e1ad9f850f99609985",
+      "sha256": "dcdcc97c78c2c5a300ecf2d9043e2b2afdfaa883558ae2e1ad9f850f99609985"
+    },
+    {
+      "path": "hardware/fram-fresh-check.log.zlib",
+      "raw_name": "hardware/fram-fresh-check.log",
+      "compression": "zlib",
+      "raw_bytes": 624,
+      "stored_bytes": 453,
+      "raw_sha256": "460d921240a3b02d85418e58b95be98c1f714300a6e46db8dfc65c3c1942acd4",
+      "sha256": "80a07691a951d20494dfd315749ca14efeb3caaeac0b4b308ec964f544d49b03"
+    },
+    {
+      "path": "hardware/hardware.py",
+      "raw_name": "hardware/hardware.py",
+      "compression": "none",
+      "raw_bytes": 2354,
+      "stored_bytes": 2354,
+      "raw_sha256": "8c4c63620b64526a04a42d30367f2c03a25a4ff5bffd3244096e87a61e2d70b5",
+      "sha256": "8c4c63620b64526a04a42d30367f2c03a25a4ff5bffd3244096e87a61e2d70b5"
+    },
+    {
+      "path": "hardware/preflight-summary.json",
+      "raw_name": "hardware/preflight-summary.json",
+      "compression": "none",
+      "raw_bytes": 704,
+      "stored_bytes": 704,
+      "raw_sha256": "0edccf25fc3c93fc43afe1bc82dff112f199bd535228f6f074814ef244c60334",
+      "sha256": "0edccf25fc3c93fc43afe1bc82dff112f199bd535228f6f074814ef244c60334"
+    },
+    {
+      "path": "hardware/preflight.py",
+      "raw_name": "hardware/preflight.py",
+      "compression": "none",
+      "raw_bytes": 2508,
+      "stored_bytes": 2508,
+      "raw_sha256": "1b285620518366ea5d15fa62c25d649282365a2405166cbe10ffdc5877541b28",
+      "sha256": "1b285620518366ea5d15fa62c25d649282365a2405166cbe10ffdc5877541b28"
+    },
+    {
+      "path": "hardware/sensor-stopped-readonly-invocation.json",
+      "raw_name": "hardware/sensor-stopped-readonly-invocation.json",
+      "compression": "none",
+      "raw_bytes": 804,
+      "stored_bytes": 804,
+      "raw_sha256": "492e0a920d3d1a623ab52b04b52cfff29d4b891be5b89cf552c1401c1e9d7db9",
+      "sha256": "492e0a920d3d1a623ab52b04b52cfff29d4b891be5b89cf552c1401c1e9d7db9"
+    },
+    {
+      "path": "hardware/sensor-stopped-readonly-server.log.zlib",
+      "raw_name": "hardware/sensor-stopped-readonly-server.log",
+      "compression": "zlib",
+      "raw_bytes": 642,
+      "stored_bytes": 327,
+      "raw_sha256": "8bcc4c71699ee84963384971405c87e1a151e92fe6097483e261a0323be2f087",
+      "sha256": "3159f6122fbbf3033a2d1bed2bef602b9959489b62ed2df82bdd141656a1f619"
+    },
+    {
+      "path": "hardware/sensor-stopped-readonly.gdb",
+      "raw_name": "hardware/sensor-stopped-readonly.gdb",
+      "compression": "none",
+      "raw_bytes": 890,
+      "stored_bytes": 890,
+      "raw_sha256": "9fc035c3b694dd0a9ba9d2e72b85057ba8200bff8f50b42fd16ae07817876624",
+      "sha256": "9fc035c3b694dd0a9ba9d2e72b85057ba8200bff8f50b42fd16ae07817876624"
+    },
+    {
+      "path": "hardware/sensor-stopped-readonly.log.zlib",
+      "raw_name": "hardware/sensor-stopped-readonly.log",
+      "compression": "zlib",
+      "raw_bytes": 450,
+      "stored_bytes": 336,
+      "raw_sha256": "22b48281d0edb9b3c4e2bb7555122edb72f3840151101ba5acc040e7b06528b6",
+      "sha256": "bf16e6293503969f0e2d6df9a8f97662d651f6db9481e3b98bc67c864ff2e275"
+    },
+    {
+      "path": "initial-state.json.zlib",
+      "raw_name": "initial-state.json",
+      "compression": "zlib",
+      "raw_bytes": 1713134,
+      "stored_bytes": 343612,
+      "raw_sha256": "f4a52733a9ae610c8e1def764cc43b855631163169e87b04c063d702d4c8325c",
+      "sha256": "259c48444ad0ee16c5711f756ef9f01c810a280948c946a662e410def21d6068"
+    },
+    {
+      "path": "linux-indefinite-smoke.py",
+      "raw_name": "linux-indefinite-smoke.py",
+      "compression": "none",
+      "raw_bytes": 1985,
+      "stored_bytes": 1985,
+      "raw_sha256": "59f950bdabe9e3aa635829f839d2d96b18d46ef971aafc2bae2eda0517f78134",
+      "sha256": "59f950bdabe9e3aa635829f839d2d96b18d46ef971aafc2bae2eda0517f78134"
+    },
+    {
+      "path": "linux-smoke/console.log.zlib",
+      "raw_name": "linux-smoke/console.log",
+      "compression": "zlib",
+      "raw_bytes": 19562,
+      "stored_bytes": 1929,
+      "raw_sha256": "0056a408fbd242befbf5b7892ed147db261351d81afd9f8fb57b6716e4cbea68",
+      "sha256": "750e8230a5ca315bb30eccd4355373f9c6019ffa19c08dd3776210326b271087"
+    },
+    {
+      "path": "linux-smoke/paused-overview.json",
+      "raw_name": "linux-smoke/paused-overview.json",
+      "compression": "none",
+      "raw_bytes": 1366,
+      "stored_bytes": 1366,
+      "raw_sha256": "b26599e019a7bc079aaf42b1c357244127a4ac36f3e7a36682ed432999ba1576",
+      "sha256": "b26599e019a7bc079aaf42b1c357244127a4ac36f3e7a36682ed432999ba1576"
+    },
+    {
+      "path": "linux-smoke/serial.jsonl",
+      "raw_name": "linux-smoke/serial.jsonl",
+      "compression": "none",
+      "raw_bytes": 0,
+      "stored_bytes": 0,
+      "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "linux-smoke-command.json",
+      "raw_name": "linux-smoke-command.json",
+      "compression": "none",
+      "raw_bytes": 586,
+      "stored_bytes": 586,
+      "raw_sha256": "80bad62f5783d0cc08fff5ad1f61254e40b896cb419a2f57b0ba2703926dd3aa",
+      "sha256": "80bad62f5783d0cc08fff5ad1f61254e40b896cb419a2f57b0ba2703926dd3aa"
+    },
+    {
+      "path": "linux-smoke-summary.json",
+      "raw_name": "linux-smoke-summary.json",
+      "compression": "none",
+      "raw_bytes": 235,
+      "stored_bytes": 235,
+      "raw_sha256": "2f555c9269429f27ffbfc8df62c64368680bac2d21cc36fdadbe489d511341f9",
+      "sha256": "2f555c9269429f27ffbfc8df62c64368680bac2d21cc36fdadbe489d511341f9"
+    },
+    {
+      "path": "preservation.json",
+      "raw_name": "preservation.json",
+      "compression": "none",
+      "raw_bytes": 370,
+      "stored_bytes": 370,
+      "raw_sha256": "3675a9d2f0aefb42ee1598da256d6b9a18f9797d2ac44983f3a32290d9b086f2",
+      "sha256": "3675a9d2f0aefb42ee1598da256d6b9a18f9797d2ac44983f3a32290d9b086f2"
+    },
+    {
+      "path": "probe-build.log",
+      "raw_name": "probe-build.log",
+      "compression": "none",
+      "raw_bytes": 6159,
+      "stored_bytes": 6159,
+      "raw_sha256": "c9401c395b9aa87c6da6d736c1fb25b80548401c3fa152e77f2970540931871a",
+      "sha256": "c9401c395b9aa87c6da6d736c1fb25b80548401c3fa152e77f2970540931871a"
+    },
+    {
+      "path": "publish-windows.log",
+      "raw_name": "publish-windows.log",
+      "compression": "none",
+      "raw_bytes": 2688,
+      "stored_bytes": 2688,
+      "raw_sha256": "32cda7d51a1362cf0c6c6bb954ddcc0c978034a1c8b3e6efa13fc3144c931ed6",
+      "sha256": "32cda7d51a1362cf0c6c6bb954ddcc0c978034a1c8b3e6efa13fc3144c931ed6"
+    },
+    {
+      "path": "service-final.log",
+      "raw_name": "service-final.log",
+      "compression": "none",
+      "raw_bytes": 1712,
+      "stored_bytes": 1712,
+      "raw_sha256": "76b80b085bcf66219c3385b2e4cf00ef851777627d590e67d3529df4c8c064dc",
+      "sha256": "76b80b085bcf66219c3385b2e4cf00ef851777627d590e67d3529df4c8c064dc"
+    },
+    {
+      "path": "service-final02/service-final.trx.zlib",
+      "raw_name": "service-final02/service-final.trx",
+      "compression": "zlib",
+      "raw_bytes": 436379,
+      "stored_bytes": 62139,
+      "raw_sha256": "4e0e05a2ede503487519aa54fff8fa508733b511a01896661ca16691458ad36e",
+      "sha256": "b95d9f1e20bd78f2449ca6ff1a682a1728fea44758f395b37e0159b6afe0b0f2"
+    },
+    {
+      "path": "service-final02.log",
+      "raw_name": "service-final02.log",
+      "compression": "none",
+      "raw_bytes": 2024,
+      "stored_bytes": 2024,
+      "raw_sha256": "2b7a8536c26329425638603fec7cd268781212fb1f818d44d54b4e8b855a8ed8",
+      "sha256": "2b7a8536c26329425638603fec7cd268781212fb1f818d44d54b4e8b855a8ed8"
+    },
+    {
+      "path": "stlink-inventory.log.zlib",
+      "raw_name": "stlink-inventory.log",
+      "compression": "zlib",
+      "raw_bytes": 506,
+      "stored_bytes": 218,
+      "raw_sha256": "944d661571428454b8cbf1577533a917ff49105319364f2cd50c8384d7cf6155",
+      "sha256": "e2ad643216a4dcf9483cb1e369dcc763c0c73acc565d7e96f8b3b7d9ed95d55e"
+    },
+    {
+      "path": "validation-summary.json",
+      "raw_name": "validation-summary.json",
+      "compression": "none",
+      "raw_bytes": 3658,
+      "stored_bytes": 3658,
+      "raw_sha256": "2c82e442dd3eda3cde33fbb873ad9af7f8294903ceb4144880bf6173ed98fdee",
+      "sha256": "2c82e442dd3eda3cde33fbb873ad9af7f8294903ceb4144880bf6173ed98fdee"
+    },
+    {
+      "path": "windows-blocked-artifact.json.zlib",
+      "raw_name": "windows-blocked-artifact.json",
+      "compression": "zlib",
+      "raw_bytes": 746,
+      "stored_bytes": 420,
+      "raw_sha256": "a6b086b2249a41d24d4545db86da7979385e0193b0d03fbbd929bb0592e061c8",
+      "sha256": "2ffc148a48e964222fc7f419b717e009b78b4b58f05acc43bd6276a2c94a481f"
+    },
+    {
+      "path": "windows-code-integrity.json.zlib",
+      "raw_name": "windows-code-integrity.json",
+      "compression": "zlib",
+      "raw_bytes": 2743,
+      "stored_bytes": 444,
+      "raw_sha256": "c4dccadabf1f97a8fb1bade44777abfe5885d32f502d7a0ae46340a05d5e402d",
+      "sha256": "172d210852b69d19976b590991595c2c5add83bd6aebb51802266b2795aba2ca"
+    },
+    {
+      "path": "windows-deployment.json.zlib",
+      "raw_name": "windows-deployment.json",
+      "compression": "zlib",
+      "raw_bytes": 65822,
+      "stored_bytes": 20607,
+      "raw_sha256": "e4d66651b98062ecccb27bc55a42b9b4de7911e414a4c48d50486db7a7f4a5cf",
+      "sha256": "22386bbf42a3b5179bdb863f3f96ab96fbd5e12800a945fce6a4a08304c710e5"
+    },
+    {
+      "path": "windows-domain-provenance.json",
+      "raw_name": "windows-domain-provenance.json",
+      "compression": "none",
+      "raw_bytes": 504,
+      "stored_bytes": 504,
+      "raw_sha256": "501cb2f527316c79131c4d21ac20413e4d82c12cded84f3b9d07a892f383b8bb",
+      "sha256": "501cb2f527316c79131c4d21ac20413e4d82c12cded84f3b9d07a892f383b8bb"
+    },
+    {
+      "path": "windows-inventory.log.zlib",
+      "raw_name": "windows-inventory.log",
+      "compression": "zlib",
+      "raw_bytes": 195,
+      "stored_bytes": 150,
+      "raw_sha256": "48b1ec23847a9788cf49d13f865298e8b38fa80492d6d631cb2ca1bd96ce1089",
+      "sha256": "ffb7f0ff3bd831377263a4e0dd031b34f7eafa9d08fd882e5a2e8731b9d93b1b"
+    },
+    {
+      "path": "windows-smoke-command.json",
+      "raw_name": "windows-smoke-command.json",
+      "compression": "none",
+      "raw_bytes": 541,
+      "stored_bytes": 541,
+      "raw_sha256": "ab0a7cea54921ad9d83b767a8722a61a70e71d09f5df5d01ad0d4c697e8b34d2",
+      "sha256": "ab0a7cea54921ad9d83b767a8722a61a70e71d09f5df5d01ad0d4c697e8b34d2"
+    },
+    {
+      "path": "windows-smoke.log.zlib",
+      "raw_name": "windows-smoke.log",
+      "compression": "zlib",
+      "raw_bytes": 1547,
+      "stored_bytes": 549,
+      "raw_sha256": "5a368d59f34d2c8e8ba81430d50cad91614d929c30289dca9e92e265c4077fda",
+      "sha256": "05d418b4b7a2ee37ea599fcf05caeff8b532b3541f43e53b6dafcb16c93f60b6"
+    }
+  ]
+}

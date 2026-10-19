@@ -1,0 +1,9 @@
+  TR2.Domain -> /home/lolo/dev/msm/projects/MSM_vibe-UXL2-physical-live-ui/Modbus RTU/Supervision TR2/src/TR2.Domain/bin/Debug/net10.0/TR2.Domain.dll
+  TR2.Transport -> /home/lolo/dev/msm/projects/MSM_vibe-UXL2-physical-live-ui/Modbus RTU/Supervision TR2/src/TR2.Transport/bin/Debug/net10.0/TR2.Transport.dll
+  TR2.Protocol -> /home/lolo/dev/msm/projects/MSM_vibe-UXL2-physical-live-ui/Modbus RTU/Supervision TR2/src/TR2.Protocol/bin/Debug/net10.0/TR2.Protocol.dll
+  TR2.Application -> /home/lolo/dev/msm/projects/MSM_vibe-UXL2-physical-live-ui/Modbus RTU/Supervision TR2/src/TR2.Application/bin/Debug/net10.0/TR2.Application.dll
+  TR2.Persistence -> /home/lolo/dev/msm/projects/MSM_vibe-UXL2-physical-live-ui/Modbus RTU/Supervision TR2/src/TR2.Persistence/bin/Debug/net10.0/TR2.Persistence.dll
+  TR2.Campaigns -> /home/lolo/dev/msm/projects/MSM_vibe-UXL2-physical-live-ui/Modbus RTU/Supervision TR2/src/TR2.Campaigns/bin/Debug/net10.0/TR2.Campaigns.dll
+  TR2.Supervision.Web -> /home/lolo/dev/msm/projects/MSM_vibe-UXL2-physical-live-ui/Modbus RTU/Supervision TR2/src/TR2.Supervision.Web/bin/Debug/net10.0/TR2.Supervision.Web.dll
+  TR2.Supervision.Service -> /home/lolo/dev/msm/projects/MSM_vibe-UXL2-physical-live-ui/Modbus RTU/Supervision TR2/src/TR2.Supervision.Service/bin/Debug/net10.0/TR2.Supervision.Service.dll
+/home/lolo/dev/msm/projects/MSM_vibe-UXL2-physical-live-ui/Modbus RTU/Supervision TR2/tests/TR2.Supervision.Service.Tests/LiveOperatorHandoffTests.cs(10,9): error CS0819: Implicitly-typed variables cannot have multiple declarators [/home/lolo/dev/msm/projects/MSM_vibe-UXL2-physical-live-ui/Modbus RTU/Supervision TR2/tests/TR2.Supervision.Service.Tests/TR2.Supervision.Service.Tests.csproj]

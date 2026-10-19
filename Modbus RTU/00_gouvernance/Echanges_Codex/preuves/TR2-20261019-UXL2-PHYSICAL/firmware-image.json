@@ -1,0 +1,12 @@
+{
+  "bin": {
+    "path": "/home/lolo/dev/msm/reports/TR2-uxl2-physical/firmware/tr2-live-operator-NON-PRODUCTION.bin",
+    "bytes": 147024,
+    "sha256": "9bbe397911185b798a0b030aba893a325bfdf6afa6947145bda9157f3bff0981"
+  },
+  "elf": {
+    "path": "/home/lolo/dev/msm/reports/TR2-uxl2-physical/firmware/tr2-live-operator-NON-PRODUCTION.elf",
+    "bytes": 1327744,
+    "sha256": "ba999ab4a8aa674a977ca8e3ab95469eba46c0d12ff2cdbf98c89bcfb1a1cbe3"
+  }
+}

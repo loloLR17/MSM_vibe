@@ -1,0 +1,19 @@
+[
+  "dotnet",
+  "/home/lolo/dev/msm/projects/MSM_vibe-UXL2-physical-live-ui/Modbus RTU/Supervision TR2/src/TR2.Supervision.Service/bin/Debug/net10.0/TR2.Supervision.Service.dll",
+  "--live-direct",
+  "COM99",
+  "--allow-diagnostic",
+  "--database",
+  "/home/lolo/dev/msm/reports/TR2-uxl2-physical/linux-smoke/live.db",
+  "--listen",
+  "http://127.0.0.1:5101",
+  "--trace",
+  "/home/lolo/dev/msm/reports/TR2-uxl2-physical/linux-smoke/serial.jsonl",
+  "--seconds",
+  "0",
+  "--unit",
+  "1",
+  "--connection-control",
+  "/home/lolo/dev/msm/reports/TR2-uxl2-physical/linux-smoke/control"
+]

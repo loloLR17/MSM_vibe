@@ -20,3 +20,13 @@ Ordre opérateur prévu, à qualifier sur le matériel avant statut final :
 En cas d'erreur : aucune répétition aveugle ; conserver les journaux, l'identité affichée et la base. Si cible en acquisition, contrôle STOP/diagnostic prioritaire ; la fermeture du service seule ne commande pas STOP. Une coupure au milieu d'une transaction n'est pas qualifiée : l'image échoue de manière fermée si recovery actif/indéterminé, sans rejouer un effet. La restauration M016 est une récupération conditionnelle, pas la fin normale de cette démo.
 
 Les chemins, lanceurs et résultats effectifs seront consignés dans le rapport physique. Ce document préparatoire ne vaut pas preuve d'exécution sur carte ni d'endurance.
+
+## Résultat effectif du 19/10 — BLOCKED Windows
+
+Code préparé `c36c9718a75e6b40c45707a482e8db836296cab2`. Cross-build canonique et image spéciale réussis ;350 tests .NET hors Service réussis, puis238 Service finaux (dont allocation/terminalité/handoff simulé). Smoke Linux sans matériel : durée0 jusqu'à annulation, pause tokenisée/acquittement et reprise/fermeture propres. Ces résultats ne qualifient pas le fonctionnement physique.
+
+Le smoke **Windows sur COM99 inexistant** échoue avant ouverture série : FileLoadException0x800711C7, Code Integrity3033/3077, politique `{0283ac0f-fff1-49ae-ada1-8a933130cad6}`, DLL `app\TR2.Domain.dll`, SHA-256 `43feefed9b8c7dfd2917051fa9363aea27b760e7ad2a897cd1005412762f0514`. Package local vérifié382 fichiers, publication win-x64 autonome ; aucune politique de sécurité, ADS ou protection modifiée, aucun essai de reconditionnement pour éviter le contrôle. La source Domain est inchangée depuis R5-B2 ; cela n'autorise ni ne prouve la confiance Windows de ce nouveau binaire.
+
+L'utilisateur demande de publier le blocage et les acquis. **Aucun flash, reset, START/STOP physique ou ouverture COM4 n'a été réalisé**. Préflight frais10:04:25UTC : bonne NUCLEO/UID/ST-LINK, Flash2Mio M016 c5bc…f5b26 et FRAM262144o2b501a…7dd84 exactes, WHO7B/capteur arrêté. L'image LIVE n'est donc pas sur la carte ; elle ne peut pas encore être utilisée pour la démo. M016 n'a pas été restauré : il n'avait pas été remplacé.
+
+Reprise : faire autoriser **cette publication Windows** par le mécanisme de confiance prévu sur le T1000. Aucun geste sur la carte ne lève ce blocage. Reprendre ensuite un smoke Windows non matériel, vérifier état cible/FRAM selon temps écoulé, flasher l'image LIVE identifiée, qualifier premier START/STOP, boot autonome, second cycle prolongé surveillé et Edge vivant ; laisser LIVE flashé et STOP final si sain. Ne pas relancer les tests réussis sur code inchangé ou les scripts R5-B2 à clés consommées.

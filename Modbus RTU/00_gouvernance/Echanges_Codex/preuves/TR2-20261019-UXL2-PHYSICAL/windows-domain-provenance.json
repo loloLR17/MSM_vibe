@@ -1,0 +1,8 @@
+{
+  "current_published_source": "c36c9718a75e6b40c45707a482e8db836296cab2",
+  "old_binary_sha256": "548788a654211b9e65fe7830e786af1fbc4c8eb0da7b463e7ddb3c20eb553539",
+  "new_binary_sha256": "43feefed9b8c7dfd2917051fa9363aea27b760e7ad2a897cd1005412762f0514",
+  "domain_source_unchanged_since_R5B2": true,
+  "new_execution": "BLOCKED 3033/3077; no policy changed; no alternate packing attempted",
+  "note": "Source equality is diagnostic context only and not an authorization or proof of Windows trust."
+}

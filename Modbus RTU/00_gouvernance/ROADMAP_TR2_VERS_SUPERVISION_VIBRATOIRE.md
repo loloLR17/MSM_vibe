@@ -151,3 +151,8 @@ Parc et fiche LIVE à six onglets raccordés au modèle R5 et à SQLite, avec AP
 ## Constat UX-L2 —18/10/2026, consultation des tendances persistées
 
 Courbes globales/XYZ, périodes bornées, ruptures et HELD explicites, outils Attention/bus/recherche/tri du parc et CSV du lot affiché livrés sur le socle UX-L1. API readonly historique500 observations/lot,10000 candidats et période≤7j ; couverture tronquée et provenance non courante affichées.578 tests.NET,8 tests JS ciblés, HTTP et vrai DOM Edge headless depuis archive R5-B2 :88 observations vibratoires/176 points globaux/264 XYZ ; CSV500 lignes exact, base inchangée. [Note UX-L2](../Supervision%20TR2/LIVE_UXL2.md). Aucun essai matériel ni qualification additionnelle J4/J5/R6. Affectations/noms personnalisés absents, UX-L3 et profil complet distincts ; contrôle indépendant ChatGPT après publication.
+
+
+## Constat UX-L2 physique révision2 —19/10/2026
+
+**BLOCKED Windows**, pas d'essai STM32 réalisé : Code Integrity3033/3077 refuse la nouvelle Domain.dll avant ouverture COM, malgré publication autonome locale vérifiée. Image LIVE opérateur persistante et commandes START/STOP à partage COM explicite préparées/testées logiciellement,350 tests hors Service+238 Service finaux/cross-build PASS. M016/FRAM2b501a relus conformes, jamais remplacés, aucun reset/commande physique/restauration. L'utilisateur demande publication du blocage. Lever la confiance Windows puis reprendre [le plan](../Supervision%20TR2/operator-demo/REPRISE.md) : flash LIVE, cycles START/STOP, run prolongé surveillé, vrai Edge/SQLite et firmware conservé si sain. Démonstration du20/10 NON VALIDÉE à ce checkpoint ; aucun jalon physique additionnel qualifié, lot2 ergonomique différé.

@@ -1,0 +1,37 @@
+{
+  "observedAt": "2026-10-19T10:13:34.7852087+00:00",
+  "devices": [
+    {
+      "observation": {
+        "observationId": "36a6e123-98fa-4e9c-b25c-58dc5e99a4bf",
+        "deviceId": null,
+        "segmentId": "a3a97307-1287-4653-8664-697a64b25817",
+        "busId": "live-direct",
+        "modbusAddress": 1,
+        "receivedAt": "2026-10-19T10:13:34.6857412+00:00",
+        "identity": null,
+        "snapshot": null,
+        "continuity": "CommunicationLost",
+        "source": "Physical RS485 COM99 115200 8E1 / NModbus; DIAGNOSTIC NON-PRODUCTION; actual B0/B4/B6/B3; no UTC/run/config inference",
+        "detail": "Operator logical disconnect: serial handle closed; no target read.",
+        "rejectedB3Registers": null,
+        "rejectedB3Value": null,
+        "runId": null,
+        "epoch": null,
+        "configurationId": null,
+        "configurationGeneration": null,
+        "eventMonotonicMicroseconds": null,
+        "mode": "LIVE_READONLY"
+      },
+      "lastKnown": null,
+      "historical": false,
+      "transportConnected": false,
+      "isCurrent": false,
+      "receptionAgeSeconds": 0.0994675,
+      "archiveState": "Persisted",
+      "archiveError": null
+    }
+  ],
+  "coverage": "Derni\u00e8res 1000 observations SQLite ; couverture born\u00e9e, aucun inventaire exhaustif ni affectation \u00e9quipement/local.",
+  "archiveError": null
+}

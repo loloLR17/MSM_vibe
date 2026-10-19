@@ -1,0 +1,14 @@
+# Preuves — LIVE opérateur révision2, BLOCKED Windows
+
+Code `c36c9718a75e6b40c45707a482e8db836296cab2`, mission TR2-20261019-UXL2-PHYSICAL-LIVE-UI révision2. L'utilisateur a demandé de publier le blocage et les acquis après diagnostic Code Integrity. Aucun flash/reset/commande COM4 ou acquisition physique dans cette mission ; trois sessions GDB de préflight uniquement. L'image LIVE autonome est préparée, pas installée.
+
+`BUNDLE.json` donne les empreintes brutes/stockées et types de compression. `.zlib` se décompresse avec Python zlib.decompress ; les octets binaires/CRLF et les échecs sont conservés. `SHA256SUMS` couvre les octets versionnés.
+
+- `hardware/preflight-summary.json`, GDB/logs/invocations et dumps complets Flash/FRAM : identité et état actuels exacts aux références M016/R5-B2 ; capteur arrêté. UID et SN, aucune écriture non volatile/reset. Les dumps constituent des sauvegardes récupérables, jamais des instructions de rollback FRAM.
+- `firmware-image.json`, image spéciale ELF/BIN et build-profile, commandes CMake, `probe-build.log` : mode persistant sans trigger GDB ni durée fixe compilé, pas qualifié physiquement. Les warnings newlib de stubs système au link restent visibles. `canonical-cross-build.log` conserve le premier refus exécutable du script ; `canonical-cross-build-bash.log` donne le cross-build canonique réussi par bash.
+- `validation-summary.json`, TRX initiaux et Service final02 :350 tests hors Service et238 Service finaux,10 nouveaux cas ; suite initiale586, puis validation ciblée après ajout de2 tests et correction de leur déclaration C#. Premier échec CS0819 conservé, aucune assertion affaiblie. Tests handoff simulés, pas d'effet capteur réel.
+- `linux-smoke-summary.json` et scripts : vrai service Linux sans matériel (COM99 inexistant), durée0, pause tokenisée/acquittement, reprise et Ctrl+C. Aucun test d'endurance ni service Windows réussi.
+- `windows-deployment.json`/publish log : publication win-x64 autonome copiée et hash-vérifiée. `windows-smoke.log` : Windows échoue82 avant toute transmission, DLL Domain bloquée. `windows-code-integrity.json` événements3033/3077 et politique0283ac0f-fff1-49ae-ada1-8a933130cad6, `windows-blocked-artifact.json` empreinte. `windows-domain-provenance.json` : source Domain inchangée, pas une autorisation de contourner Windows. Aucune politique/ADS/protection modifiée, aucun reconditionnement tenté pour éviter le contrôle.
+- `preservation.json` :7929 fichiers protégés,70 autres worktrees dont TEST-IHM,2 stashes et main historique82169af préservés. Inventaires Windows avant/après, aucun processus TR2/GDB restant.
+
+La démo réelle Edge/SQLite vivant, START/STOP cible, second run prolongé et firmware LIVE laissé en Flash restent NON VÉRIFIÉS. Lever d'abord le blocage de confiance Windows via le mécanisme prévu sur T1000, puis suivre `operator-demo/REPRISE.md` sans rejouer les validations logicielles acquises. Pas de nouvelle mission nécessaire pour reprendre.
