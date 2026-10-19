@@ -1,0 +1,12 @@
+{
+  "command": [
+    "git",
+    "-c",
+    "http.postBuffer=8388608",
+    "push",
+    "origin",
+    "HEAD:refs/heads/main"
+  ],
+  "reason": "Observed RPC rewind failure explicitly advised increasing http.postBuffer; per-command transport setting only, no persistent config change.",
+  "prior_result": "curl65 connection reset; remote still c36c971"
+}
