@@ -1,6 +1,9 @@
 /* R4U board qualification adapter. The reusable runtime is live_runtime.c.
  * Shared, already observed board/calibration helpers only; NO retirement call.
  * Every boot WAIT. New authority is the full R4T final snapshot371a...6634. */
+#ifndef TR2_LIVE_OPERATOR
+#define TR2_LIVE_OPERATOR 0
+#endif
 #define TR2_R4S_ENTRY unused_r4s_entry
 #include "stm32_r4s_bench.c"
 #include "stm32_serial_transport.h"
@@ -33,11 +36,17 @@ __attribute__((noinline)) void r4u_checkpoint(void){__asm volatile("":::"memory"
 __attribute__((noinline)) void r4u_uart_checkpoint(void){__asm volatile("":::"memory");}
 static Tr2Result u_mount(void)
 {
+#if !TR2_LIVE_OPERATOR
  static const uint8_t expected[32]={R4U_INITIAL_SHA};
- uint8_t hash[32];REQUIRE(tr2_cooperative_enter(&work));
+ uint8_t hash[32];
+#endif
+ REQUIRE(tr2_cooperative_enter(&work));
  for(uint32_t at=0;at<262144;at+=32){REQUIRE(read_physical(NULL,at,baseline+at,32));REQUIRE(tr2_cooperative_checkpoint(&work));}
- REQUIRE(tr2_cooperative_leave(&work));REQUIRE(tr2_sha256_bytes_cooperative(baseline,262144,hash,&work));
+ REQUIRE(tr2_cooperative_leave(&work));
+#if !TR2_LIVE_OPERATOR
+ REQUIRE(tr2_sha256_bytes_cooperative(baseline,262144,hash,&work));
  if(memcmp(hash,expected,32))return TR2_ERROR_INVALID_STATE;
+#endif
  TransactionalImagePhysicalStorage storage={NULL,read_physical,write_physical};
  TransactionalImageGeometry geometry=transactional_image_geometry_qualification_profile();
  static const PersistentIdentityAssignment assignment={{0x004A003D,0x38425018,0x20333157},1};
@@ -48,10 +57,19 @@ static Tr2Result u_mount(void)
  REQUIRE(live_command_store_init(&store,&configuration));
  real_port=live_fifo_acquisition_port(&owner.acquisition);
  REQUIRE(live_command_engine_init(&engine,&store,&real_port));REQUIRE(live_command_engine_boot(&engine));
+#if TR2_LIVE_OPERATOR
+ /* Fixed snapshot/one-shot IDs belong to the historical bench, not rebootable
+  * operation. Real codecs validate CRC/identity/journal/effects at every mount;
+  * any active or indeterminate recovery fails closed, never replays an effect. */
+ if(engine.indeterminate||engine.has_active||!engine.has_last||engine.last.status!=4||engine.last.result||
+    !store.epoch.current||configuration.active.config_id!=3||configuration.active.generation!=3)
+  return TR2_ERROR_INVALID_STATE;
+#else
  if(engine.indeterminate||engine.has_active||!engine.has_last||engine.last.status!=4||engine.last.result||
   engine.last.request.epoch!=5||engine.last.request.command.transaction_id!=R4U_INITIAL_STOP||engine.last.request.command.identity.command_code!=14||
   store.generation!=R4U_INITIAL_JOURNAL||live.generation!=R4U_INITIAL_ROOT||store.epoch.current!=5||store.effect.run_id!=R4U_INITIAL_RUN||store.effect.phase!=3||
   configuration.active.config_id!=3||configuration.active.generation!=3)return TR2_ERROR_INVALID_STATE;
+#endif
  return TR2_OK;
 }
 static Tr2Result u_start(void *ctx,uint64_t run,const ActiveConfigurationSnapshot *cfg)
@@ -141,7 +159,11 @@ __attribute__((noreturn)) void stm32_r4_benchmark_run(SPI_HandleTypeDef *spi1,SP
  bounded=stm32_fram_storage_bounded_physical(&fram);R4U_BOUNDED_INIT();
  if(tr2_cooperative_init(&work,NULL,now_us,service,stop,32,1000,2500)!=TR2_OK){r4u_result.error=2;goto end;}
  r4u_result.stage=1;
+#if !TR2_LIVE_OPERATOR
  while(r4_trigger!=0x52345501u&&r4_trigger!=0x52345502u&&r4_trigger!=0x52345503u){(void)now_us(NULL);HAL_Delay(1);}
+#else
+ r4_trigger=0x52345503u; /* boot stopped, explicit B5 START remains mandatory */
+#endif
  uint32_t mode=r4_trigger;r4_trigger=0;r4u_result.mode=mode;r4u_result.stage=2;
  if(u_mount()!=TR2_OK||s_calibrate()!=TR2_OK){r4u_result.error=3;goto end;}
  /* Each diagnostic has a fresh volatile owner boot. Never clear/lower its
@@ -159,6 +181,15 @@ __attribute__((noreturn)) void stm32_r4_benchmark_run(SPI_HandleTypeDef *spi1,SP
  r4r_result.first_window_checked=0;memset(&r4r_first_value,0,sizeof(r4r_first_value));memset(r4r_xyz,0,sizeof(r4r_xyz));
  if(u_prepare(true,true)!=TR2_OK){r4u_result.error=5;goto end;}
  r4_result.ownership=1;r4m_enabled=true;r4_result.stage=60;r4u_result.stage=7;r4u_result.begin_us=now_us(NULL);
+#if TR2_LIVE_OPERATOR
+ /* Keep the real R2/FIFO/FRAM budgets and ownership guard. Finite bench trace
+  * arrays are not an admission authority in this persistent diagnostic mode. */
+ r4m_enabled=false;
+ r4u_uart_checkpoint();
+ for(;;) {
+  if(live_runtime_step(&runtime)!=TR2_OK){r4u_result.error=6;goto end;}
+ }
+#else
  r4u_uart_checkpoint();uint64_t stopped_since=0;
  while(now_us(NULL)-r4u_result.begin_us<600000000) {
   if(live_runtime_step(&runtime)!=TR2_OK){r4u_result.error=6;goto end;}
@@ -173,6 +204,7 @@ __attribute__((noreturn)) void stm32_r4_benchmark_run(SPI_HandleTypeDef *spi1,SP
  r4_trigger=0;r4u_result.end_us=now_us(NULL);
  if(owner.acquisition.fifo.running||engine.has_active||engine.status!=4||engine.result||store.effect.run_id!=R4U_FINAL_RUN||!metric.has_value){r4u_result.error=7;goto end;}
  if(compare_protected()!=TR2_OK){r4u_result.error=8;goto end;}r4u_result.stage=10;
+#endif
 end:
  if(diag_fifo.running)(void)fifo_live_stop(&diag_fifo);
  stop(NULL);r4_result.ownership=0;snapshot();r4u_checkpoint();

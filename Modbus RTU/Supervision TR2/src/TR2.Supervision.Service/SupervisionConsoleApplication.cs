@@ -27,6 +27,9 @@ public static class SupervisionConsoleApplication
         if (args.Count > 0 && args[0] == "--live-archive")
             return await LiveArchiveConsoleApplication.RunAsync(args, cancellationToken, error);
 
+        if (args.Count > 0 && args[0] == "--live-command")
+            return await LiveOperatorConsoleApplication.RunAsync(args, cancellationToken, output, error);
+
         if (args.Count > 0 && args[0] == "--live-direct")
             return await LiveDirectConsoleApplication.RunAsync(args, cancellationToken, output, error);
 

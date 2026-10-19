@@ -11,16 +11,25 @@ namespace TR2.Supervision.Service;
 // No command capability is passed to the observation service or the Web host.
 public static class LiveDirectConsoleApplication
 {
+    public static string ReadControlFile(string path)
+    {
+        try
+        {
+            using var stream = new FileStream(path, FileMode.Open, FileAccess.Read, FileShare.ReadWrite | FileShare.Delete);
+            using var reader = new StreamReader(stream); return reader.ReadToEnd().Trim();
+        }
+        catch (FileNotFoundException) { return ""; }
+    }
     public static async Task<int> RunAsync(IReadOnlyList<string> args, CancellationToken ct, TextWriter output, TextWriter error)
     {
         if (args.Count != 15 || args[0] != "--live-direct" || args[2] != "--allow-diagnostic" ||
             args[3] != "--database" || args[5] != "--listen" || args[7] != "--trace" ||
             args[9] != "--seconds" || args[11] != "--unit" || args[13] != "--connection-control" ||
-            !int.TryParse(args[10], out var seconds) || seconds is < 1 or > 600 ||
+            !int.TryParse(args[10], out var seconds) || seconds is < 0 or > 600 ||
             !byte.TryParse(args[12], out var unit) || unit is < 1 or > 247 ||
             !Uri.TryCreate(args[6], UriKind.Absolute, out var listen) || listen.Scheme != "http" || !listen.IsLoopback)
         {
-            await error.WriteLineAsync("Usage: --live-direct COM4 --allow-diagnostic --database <new.db> --listen http://127.0.0.1:port --trace <new.jsonl> --seconds 30 --unit 1 --connection-control <path> (file content disconnected closes COM; absent reconnects). 115200 8E1, readonly, NON-PRODUCTION.");
+            await error.WriteLineAsync("Usage: --live-direct COM4 --allow-diagnostic --database <new.db> --listen http://127.0.0.1:port --trace <new.jsonl> --seconds 0 --unit 1 --connection-control <path> (file content disconnected closes COM; absent reconnects). seconds=0 runs until Ctrl+C; pause acknowledgment <path>.released. 115200 8E1, readonly, NON-PRODUCTION.");
             return 2;
         }
         try
@@ -40,12 +49,18 @@ public static class LiveDirectConsoleApplication
             await output.WriteLineAsync("Physical readonly LIVE diagnostic; one exclusive serial owner; no FC10/B5 writes. Open /live.html.");
             var endpoint = new TR2Endpoint(new SerialBus("live-direct"), new ModbusAddress(unit));
             var elapsed = System.Diagnostics.Stopwatch.StartNew();
-            while (!ct.IsCancellationRequested && elapsed.Elapsed < TimeSpan.FromSeconds(seconds))
+            while (!ct.IsCancellationRequested && (seconds == 0 || elapsed.Elapsed < TimeSpan.FromSeconds(seconds)))
             {
-                var disconnected = File.Exists(args[14]) && File.ReadAllText(args[14]).Trim() == "disconnected";
+                var pause = ReadControlFile(args[14]);
+                var disconnected = pause == "disconnected" || pause.StartsWith("disconnected:", StringComparison.Ordinal);
                 await transport.SetConnectedAsync(!disconnected, ct);
+                // Acknowledge only after the serial handle is actually closed, with request token.
+                if (disconnected && ReadControlFile(args[14] + ".released") != pause) File.WriteAllText(args[14] + ".released", pause);
+                else if (File.Exists(args[14] + ".released")) File.Delete(args[14] + ".released");
                 var view = await source.PollAsync(endpoint, ct);
                 await output.WriteLineAsync(JsonSerializer.Serialize(view));
+                if (File.Exists(args[14] + ".shutdown") && view.TransportConnected && view.Observation.Snapshot?.AcquisitionStopped == true)
+                { File.Delete(args[14] + ".shutdown"); break; }
                 await Task.Delay(TimeSpan.FromMilliseconds(100), ct);
             }
             await app.StopAsync(CancellationToken.None);
