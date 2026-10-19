@@ -1,0 +1,12 @@
+{
+  "result": "PASS",
+  "sha": "615206e7a1387fdb158df93cd70355aca1b94e07",
+  "changed_deliverables_reread_byte_exact": 254,
+  "raw_and_stored_evidence_verified": 239,
+  "remote_SQLite_integrity": "ok",
+  "remote_SQLite_rows": 13623,
+  "report_status": "IN_PROGRESS",
+  "utc": "2026-10-19T15:04:22.669645+00:00",
+  "physical_PC_source": "d67741f2 (build b031d01a plus preserved patch)",
+  "firmware_source": "c36c9718a75e6b40c45707a482e8db836296cab2"
+}
