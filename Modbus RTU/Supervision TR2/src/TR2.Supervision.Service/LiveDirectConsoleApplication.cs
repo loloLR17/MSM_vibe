@@ -20,6 +20,15 @@ public static class LiveDirectConsoleApplication
         }
         catch (FileNotFoundException) { return ""; }
     }
+    // Called only after SetConnectedAsync has completed closing/releasing the handle.
+    public static void UpdatePauseAcknowledgment(string path, string token, bool disconnected)
+    {
+        if (disconnected)
+        {
+            if (ReadControlFile(path + ".released") != token) File.WriteAllText(path + ".released", token);
+        }
+        else if (File.Exists(path + ".released")) File.Delete(path + ".released");
+    }
     public static async Task<int> RunAsync(IReadOnlyList<string> args, CancellationToken ct, TextWriter output, TextWriter error)
     {
         if (args.Count != 15 || args[0] != "--live-direct" || args[2] != "--allow-diagnostic" ||
@@ -55,8 +64,7 @@ public static class LiveDirectConsoleApplication
                 var disconnected = pause == "disconnected" || pause.StartsWith("disconnected:", StringComparison.Ordinal);
                 await transport.SetConnectedAsync(!disconnected, ct);
                 // Acknowledge only after the serial handle is actually closed, with request token.
-                if (disconnected && ReadControlFile(args[14] + ".released") != pause) File.WriteAllText(args[14] + ".released", pause);
-                else if (File.Exists(args[14] + ".released")) File.Delete(args[14] + ".released");
+                UpdatePauseAcknowledgment(args[14], pause, disconnected);
                 var view = await source.PollAsync(endpoint, ct);
                 await output.WriteLineAsync(JsonSerializer.Serialize(view));
                 if (File.Exists(args[14] + ".shutdown") && view.TransportConnected && view.Observation.Snapshot?.AcquisitionStopped == true)

@@ -28,4 +28,23 @@ public sealed class LiveOperatorTests
     }
     [Fact] public async Task InvalidCliCannotTouchSerialOrFiles()
     { using var output=new StringWriter();using var error=new StringWriter();Assert.Equal(2,await LiveOperatorConsoleApplication.RunAsync(["--live-command","start"],default,output,error)); }
+    [Fact] public void ReleaseAcknowledgmentRemainsStableAcrossPausedPollsAndClearsOnlyOnResume()
+    {
+        var dir=Path.Combine(Path.GetTempPath(),"pause-stable-"+Guid.NewGuid());Directory.CreateDirectory(dir);
+        var control=Path.Combine(dir,"control");var token="disconnected:"+Guid.NewGuid();
+        try
+        {
+            for(var poll=0;poll<20;poll++)
+            {
+                LiveDirectConsoleApplication.UpdatePauseAcknowledgment(control,token,true);
+                Assert.Equal(token,LiveDirectConsoleApplication.ReadControlFile(control+".released"));
+            }
+            var next="disconnected:"+Guid.NewGuid();
+            LiveDirectConsoleApplication.UpdatePauseAcknowledgment(control,next,true);
+            Assert.Equal(next,LiveDirectConsoleApplication.ReadControlFile(control+".released"));
+            LiveDirectConsoleApplication.UpdatePauseAcknowledgment(control,"",false);
+            Assert.False(File.Exists(control+".released"));
+        }
+        finally {Directory.Delete(dir,true);}
+    }
 }
