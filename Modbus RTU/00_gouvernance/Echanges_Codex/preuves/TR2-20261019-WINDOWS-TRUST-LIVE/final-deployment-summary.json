@@ -1,0 +1,11 @@
+{
+  "Utc": "2026-10-19T13:56:21.8288714Z",
+  "SmartAppControlState": 1,
+  "BlockedCount": 0,
+  "Events": [],
+  "Processes": [],
+  "COM4ExclusiveOpenWithoutTransmission": true,
+  "application_files_unchanged": 377,
+  "no_security_change": true,
+  "no_serial_transmission_in_final_open_check": true
+}

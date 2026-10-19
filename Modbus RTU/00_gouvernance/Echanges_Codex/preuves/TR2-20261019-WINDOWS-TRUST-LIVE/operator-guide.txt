@@ -1,0 +1,21 @@
+TR2 LIVE - qualification limitée c36c971 du 19/10/2026
+
+Firmware LIVE conservé sur TR2-001, arrêté en fin d’essai.
+Deux START/STOP réussis. Second run : au moins 11 min 50,7 s.
+1. LANCER_SERVICE.cmd : garder la fenêtre ouverte.
+2. OUVRIR_EDGE.cmd : page LIVE, http://127.0.0.1:5100
+3. START.cmd : attendre terminal_and_effect_observed, code retour 0 (~40 s).
+4. STOP.cmd : attendre terminal ET HELD (~40 s). La demande seule ne prouve pas l’arrêt.
+5. ARRETER_SERVICE.cmd seulement après STOP confirmé.
+
+Ne pas lancer deux commandes simultanées ou un autre maître COM4.
+La pause de lecture crée une interruption visible, sans mesures inventées.
+Limite connue : l’acquittement de pause peut osciller ; si timeout/refus COM,
+ne rien forcer ni modifier les fichiers de contrôle, conserver les journaux.
+Ne pas fermer le service seul pour arrêter une acquisition.
+Ne pas supprimer/modifier data/transactions.json ou remplacer des DLL.
+Les données/logs physiques sont dans data/. Le profil est diagnostique partiel.
+La prochaine version compilée n’est pas automatiquement acceptée par Windows.
+La signature durable est un chantier distinct ; aucune protection à désactiver.
+
+Rapport et preuves : https://github.com/loloLR17/MSM_vibe/blob/main/Modbus%20RTU/00_gouvernance/Echanges_Codex/DERNIER_RAPPORT.md

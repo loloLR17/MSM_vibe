@@ -1,0 +1,44 @@
+{
+  "path": "/mnt/c/Users/lolo/AppData/Local/MSM/TR2-LIVE-DEMO-20261019/LIRE_AVANT_DEMO.txt",
+  "sha256": "2036fce226a0294b91fa9682d3b94b9701ba5bc94b15021c70a54f9bf594019d",
+  "launchers": [
+    {
+      "name": "ARRETER_SERVICE.cmd",
+      "installed_sha256": "56548acf8d57d0dfe7485f6432430567a6f92e60236182b05fb75b8a2837f10c",
+      "source_sha256": "571fcd4d7653cfcc1bbccaf8db86d1e69b00057b826b9a0b926cd099ccc37e39",
+      "difference": "CRLF on Windows vs LF in Git only",
+      "content_equal_after_CRLF_normalization": true
+    },
+    {
+      "name": "LANCER_SERVICE.cmd",
+      "installed_sha256": "a7bc66bc09880d20f2445efadd5d787db9613299f7340d20377969faa76112a9",
+      "source_sha256": "fdcd30755ca709480e86d427df362bad7a7859f23bab3976b6fce4d61c0aa611",
+      "difference": "CRLF on Windows vs LF in Git only",
+      "content_equal_after_CRLF_normalization": true
+    },
+    {
+      "name": "OUVRIR_EDGE.cmd",
+      "installed_sha256": "c5169faedbcd89ac360ccaaa49ae13e6b607dbb678697dc5340f8d7cab156229",
+      "source_sha256": "81d0d64f72ff410f97afd620310bb3e2b151b1c5f6d114ca75df3cfe8d776a9c",
+      "difference": "CRLF on Windows vs LF in Git only",
+      "content_equal_after_CRLF_normalization": true
+    },
+    {
+      "name": "START.cmd",
+      "installed_sha256": "85b50d73282dcbe7857b16cd7df670c6ddca9307b2fa632c807bbdf3945d8a09",
+      "source_sha256": "ee3b568845935036fccedfb7e9a20fa22632c4930496a86e8478d00b6aef914e",
+      "difference": "CRLF on Windows vs LF in Git only",
+      "content_equal_after_CRLF_normalization": true
+    },
+    {
+      "name": "STOP.cmd",
+      "installed_sha256": "39c45e41d593261a484e8e6ee82c3aeeb00c5c1d169c0d97758770d544c257f7",
+      "source_sha256": "a43555ebb9bd94f09e581a6b94e2b89a14bc6a30d863e4a025602fcba46aa568",
+      "difference": "CRLF on Windows vs LF in Git only",
+      "content_equal_after_CRLF_normalization": true
+    }
+  ],
+  "application_files_unchanged": 377,
+  "new_document_only": true,
+  "initial_byte_comparison_rejected_due_only_to_documented_Windows_CRLF": true
+}

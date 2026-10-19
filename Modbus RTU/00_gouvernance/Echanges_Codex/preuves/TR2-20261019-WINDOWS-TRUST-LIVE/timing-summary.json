@@ -1,0 +1,22 @@
+[
+  {
+    "cycle": "cycle1",
+    "work_us": 806,
+    "service_us": 1980,
+    "gap_us": 2220,
+    "drain_us": 1640,
+    "UART_error": 0,
+    "FIFO_error": 0,
+    "sha256": "87722e50f3e78b9556c1ecfb0ea53cf35f3b520ea760b4f2ec4960ef7a40ad87"
+  },
+  {
+    "cycle": "cycle2",
+    "work_us": 806,
+    "service_us": 2057,
+    "gap_us": 2211,
+    "drain_us": 1652,
+    "UART_error": 0,
+    "FIFO_error": 0,
+    "sha256": "e18e07adbf12176fa02f1385fa6b4713e5b35e6f101c49959229cf2f1067ec15"
+  }
+]

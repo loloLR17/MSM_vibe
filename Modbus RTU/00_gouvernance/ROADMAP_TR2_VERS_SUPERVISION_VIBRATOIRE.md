@@ -156,3 +156,8 @@ Courbes globales/XYZ, périodes bornées, ruptures et HELD explicites, outils At
 ## Constat UX-L2 physique révision2 —19/10/2026
 
 **BLOCKED Windows**, pas d'essai STM32 réalisé : Code Integrity3033/3077 refuse la nouvelle Domain.dll avant ouverture COM, malgré publication autonome locale vérifiée. Image LIVE opérateur persistante et commandes START/STOP à partage COM explicite préparées/testées logiciellement,350 tests hors Service+238 Service finaux/cross-build PASS. M016/FRAM2b501a relus conformes, jamais remplacés, aucun reset/commande physique/restauration. L'utilisateur demande publication du blocage. Lever la confiance Windows puis reprendre [le plan](../Supervision%20TR2/operator-demo/REPRISE.md) : flash LIVE, cycles START/STOP, run prolongé surveillé, vrai Edge/SQLite et firmware conservé si sain. Démonstration du20/10 NON VALIDÉE à ce checkpoint ; aucun jalon physique additionnel qualifié, lot2 ergonomique différé.
+
+
+## Constat WINDOWS-TRUST-LIVE —19/10/2026, portée limitée autorisée
+
+Paquet c36c971 accepté sous SAC1 inchangé et explicitement autorisé par l'utilisateur ; signature durable reportée à un chantier séparé. LIVE9bbe…0981 flashé/conservé, boot autonomeSTOP, deux START/STOP5/14–5/17 terminaux+effets et second run surveillé≥11.85min. Chaîne COM4/SQLite/API/Edge/CSV réelle corrélée ; FRAM finale journal94/root107/run13/historique+queue exacts. FinalSTOP/HELD, service fermé/COM libre/GDB détaché. Acquittement c36 oscillant, quatre handoffs exclusifs réussis ; correctif8a54 publié/testé mais nouvelle DLL refusée, non déployée. [Rapport courant](Echanges_Codex/DERNIER_RAPPORT.md). Aucun jalon J4/J5/R6 ni GO industriel prononcé ; contrôle indépendant ChatGPT requis.

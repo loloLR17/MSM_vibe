@@ -1,4 +1,4 @@
-# Démonstration opérateur LIVE — préparation révision2
+# Démonstration opérateur LIVE — qualification limitée c36c971
 
 Composition diagnostique TR2-001, protocole2 partiel NON-PRODUCTION ; pas de qualification industrielle. Firmware autonome `TR2_STM32_LIVE_OPERATOR=ON` avec recette R5B : montage réel R2/CRC/identité, acquisition arrêtée au boot, calibration capteur2s, START/STOP explicites. Aucun trigger GDB ni sortie à10min dans ce mode. Les recettes historiques conservent leurs gardes et bornes. Les limites normales des compteurs/journal R2 et garde-fous FIFO/FRAM restent actifs ; pas de RENEW automatique. Le buffer fini de traces de maintenance du banc ne constitue pas une autorité d'admission pour ce mode persistant ; l'ownership et les bornes physiques d'écriture LIVE restent inchangés.
 
@@ -6,9 +6,9 @@ Service Windows portable, même lecteur strict et SQLite vivante que UX-L2. `--s
 
 Le writer S7 Web existant cible un autre profil complet et n'est pas raccordé implicitement au profil diagnostique V1.1 partiel. Ce lot privilégie les lanceurs explicites éprouvables sans modifier cette autorité ; une commande Web intégrée et l'ergonomie relèvent du lot2 à cadrer. La fiche LIVE reste clairement readonly, aucun faux bouton START/STOP.
 
-Répertoire préparé : `C:\Users\lolo\AppData\Local\MSM\TR2-LIVE-DEMO-20261019\`. `app\` contient la publication win-x64 autonome, pas besoin de compiler ou d'utiliser Git. `data\live.db` est la base de démo ; chaque lancement crée une nouvelle trace série et un journal service. `data\transactions.json` est le ledger opérateur ; ne pas le supprimer, le recopier en arrière ou le modifier. `connection-control` est réservé au partage COM ; ne pas l'éditer pendant une commande.
+Répertoire installé et évalué : `C:\Users\lolo\AppData\Local\MSM\TR2-LIVE-DEMO-20261019\`. `app\` contient la publication win-x64 autonome, pas besoin de compiler ou d'utiliser Git. `data\live.db` est la base de démo ; chaque lancement crée une nouvelle trace série et un journal service. `data\transactions.json` est le ledger opérateur ; ne pas le supprimer, le recopier en arrière ou le modifier. `connection-control` est réservé au partage COM ; ne pas l'éditer pendant une commande.
 
-Ordre opérateur prévu, à qualifier sur le matériel avant statut final :
+Ordre opérateur (commandes natives réellement qualifiées sur COM4) :
 
 1. Double-cliquer `LANCER_SERVICE.cmd`, garder sa fenêtre ouverte. Port COM4/1152008E1, écoute locale5100, aucun autre maître.
 2. Double-cliquer `OUVRIR_EDGE.cmd` : `http://127.0.0.1:5100/live-device.html?deviceId=1&view=vibration` ; parc `/live-fleet.html`.
@@ -19,14 +19,12 @@ Ordre opérateur prévu, à qualifier sur le matériel avant statut final :
 
 En cas d'erreur : aucune répétition aveugle ; conserver les journaux, l'identité affichée et la base. Si cible en acquisition, contrôle STOP/diagnostic prioritaire ; la fermeture du service seule ne commande pas STOP. Une coupure au milieu d'une transaction n'est pas qualifiée : l'image échoue de manière fermée si recovery actif/indéterminé, sans rejouer un effet. La restauration M016 est une récupération conditionnelle, pas la fin normale de cette démo.
 
-Les chemins, lanceurs et résultats effectifs seront consignés dans le rapport physique. Ce document préparatoire ne vaut pas preuve d'exécution sur carte ni d'endurance.
+Les essais utilisent exactement les arguments des lanceurs ; le double-clic humain lui-même n'est pas une preuve automatisée. La validation reste bornée et diagnostique.
 
-## Résultat effectif du 19/10 — BLOCKED Windows
+## Résultat physique du 19/10/2026
 
-Code préparé `c36c9718a75e6b40c45707a482e8db836296cab2`. Cross-build canonique et image spéciale réussis ;350 tests .NET hors Service réussis, puis238 Service finaux (dont allocation/terminalité/handoff simulé). Smoke Linux sans matériel : durée0 jusqu'à annulation, pause tokenisée/acquittement et reprise/fermeture propres. Ces résultats ne qualifient pas le fonctionnement physique.
+Paquet **c36c971** accepté réellement sous Smart App Control actif, sans changement de protections, et explicitement autorisé par l'utilisateur. Firmware LIVE9bbe…0981 installé et conservé, bootSTOP autonome vérifié, deux cycles START/STOP terminaux avec effets (~40s par commande), second run surveillé au moins **11.85min** avant STOP volontaire. COM4/SQLite/API/Edge et CSV réellement corrélés. État final : STOP/HELD, service fermé, COM libre, GDB détaché. Prochaine identité dérivée du B5 et ledger courant ;5/14–5/17 sont consommées, ne pas les rejouer. [Rapport final](../../00_gouvernance/Echanges_Codex/DERNIER_RAPPORT.md).
 
-Le smoke **Windows sur COM99 inexistant** échoue avant ouverture série : FileLoadException0x800711C7, Code Integrity3033/3077, politique `{0283ac0f-fff1-49ae-ada1-8a933130cad6}`, DLL `app\TR2.Domain.dll`, SHA-256 `43feefed9b8c7dfd2917051fa9363aea27b760e7ad2a897cd1005412762f0514`. Package local vérifié382 fichiers, publication win-x64 autonome ; aucune politique de sécurité, ADS ou protection modifiée, aucun essai de reconditionnement pour éviter le contrôle. La source Domain est inchangée depuis R5-B2 ; cela n'autorise ni ne prouve la confiance Windows de ce nouveau binaire.
+**Réserve connue :** l'acquittement de pause c36c971 oscille entre présent/absent, mais la pause garde le handle fermé. Les quatre partages ont réussi. Attendre le token et l'ouverture exclusive ; en cas de timeout/conflit, ne rien forcer et conserver les journaux. Le correctif stable8a54 est testé/publié mais sa DLL est bloquée par Windows et **n'est pas celle installée ici**. Aucune substitution de DLL. Signature durable des prochaines versions : chantier séparé approuvé par l'utilisateur ; voir [WINDOWS_TRUST.md](WINDOWS_TRUST.md).
 
-L'utilisateur demande de publier le blocage et les acquis. **Aucun flash, reset, START/STOP physique ou ouverture COM4 n'a été réalisé**. Préflight frais10:04:25UTC : bonne NUCLEO/UID/ST-LINK, Flash2Mio M016 c5bc…f5b26 et FRAM262144o2b501a…7dd84 exactes, WHO7B/capteur arrêté. L'image LIVE n'est donc pas sur la carte ; elle ne peut pas encore être utilisée pour la démo. M016 n'a pas été restauré : il n'avait pas été remplacé.
-
-Reprise : faire autoriser **cette publication Windows** par le mécanisme de confiance prévu sur le T1000. Aucun geste sur la carte ne lève ce blocage. Reprendre ensuite un smoke Windows non matériel, vérifier état cible/FRAM selon temps écoulé, flasher l'image LIVE identifiée, qualifier premier START/STOP, boot autonome, second cycle prolongé surveillé et Edge vivant ; laisser LIVE flashé et STOP final si sain. Ne pas relancer les tests réussis sur code inchangé ou les scripts R5-B2 à clés consommées.
+L'overview peut brièvement classer non courante une réception plus récente que le temps de sa requête asynchrone ; les mesures archivées restent conservées. UTC fenêtre/run/config absents restent inconnus. Profil partiel NON-PRODUCTION, pas de calibration ni endurance illimitée qualifiée.

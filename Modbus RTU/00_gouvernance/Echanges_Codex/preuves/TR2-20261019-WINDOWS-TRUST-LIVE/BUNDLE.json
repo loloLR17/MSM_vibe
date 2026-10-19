@@ -1,10 +1,50 @@
 [
   {
+    "source": "COM4-exclusive-negative-check.json",
+    "stored": "COM4-exclusive-negative-check.json.zlib",
+    "bytes": 213,
+    "sha256": "bbca67c904025a6a3b9b345cddae4ec8b9c3f12162c5d6cb5ca60e471bb23c66",
+    "stored_sha256": "7f9812768aa063376d0ac668d961665859faec776aae89f5673f25442dfeabf5",
+    "compression": "zlib"
+  },
+  {
+    "source": "analysis.log",
+    "stored": "analysis.log",
+    "bytes": 1508,
+    "sha256": "d0fbc40885a0324efdcc3f6ed2eeeebdbc29403ec26470f06e06b555442f6223",
+    "stored_sha256": "d0fbc40885a0324efdcc3f6ed2eeeebdbc29403ec26470f06e06b555442f6223",
+    "compression": null
+  },
+  {
+    "source": "analyze-physical.py",
+    "stored": "analyze-physical.py",
+    "bytes": 9725,
+    "sha256": "154b8a295afe7771eefda373dad6209852344d7f6de1bdcafe0f3141ddcd0517",
+    "stored_sha256": "154b8a295afe7771eefda373dad6209852344d7f6de1bdcafe0f3141ddcd0517",
+    "compression": null
+  },
+  {
     "source": "browser-live.cjs",
     "stored": "browser-live.cjs",
     "bytes": 3170,
     "sha256": "ae37eb076bfadee22fd1126e6f5f32356d31f8334f6fdeb043160fe4d05c1b9b",
     "stored_sha256": "ae37eb076bfadee22fd1126e6f5f32356d31f8334f6fdeb043160fe4d05c1b9b",
+    "compression": null
+  },
+  {
+    "source": "build-model.py",
+    "stored": "build-model.py",
+    "bytes": 1600,
+    "sha256": "ecc102f2408041d5a1fb7a36725785fff74c0cba5101bbc9a37bf901d3fa9f28",
+    "stored_sha256": "ecc102f2408041d5a1fb7a36725785fff74c0cba5101bbc9a37bf901d3fa9f28",
+    "compression": null
+  },
+  {
+    "source": "check-preservation.py",
+    "stored": "check-preservation.py",
+    "bytes": 1236,
+    "sha256": "957620fa186bc81105581b80dbe95909f75fea69a71ec1ff522dcdcd9086f522",
+    "stored_sha256": "957620fa186bc81105581b80dbe95909f75fea69a71ec1ff522dcdcd9086f522",
     "compression": null
   },
   {
@@ -56,6 +96,14 @@
     "compression": null
   },
   {
+    "source": "checkpoint-remote-readback.json",
+    "stored": "checkpoint-remote-readback.json",
+    "bytes": 152,
+    "sha256": "2f8e74d313a814aa3ed1767a8e75b2ffd5135196289046cc9d7ddda2ccd4a226",
+    "stored_sha256": "2f8e74d313a814aa3ed1767a8e75b2ffd5135196289046cc9d7ddda2ccd4a226",
+    "compression": null
+  },
+  {
     "source": "command.py",
     "stored": "command.py",
     "bytes": 1082,
@@ -72,6 +120,46 @@
     "compression": null
   },
   {
+    "source": "currentness-conservative-observation.json",
+    "stored": "currentness-conservative-observation.json",
+    "bytes": 4948,
+    "sha256": "6c3062a477904f1c02379fd51a97425e82582103f21ee638f82ed991c4242c5d",
+    "stored_sha256": "6c3062a477904f1c02379fd51a97425e82582103f21ee638f82ed991c4242c5d",
+    "compression": null
+  },
+  {
+    "source": "final-deployment-summary.json",
+    "stored": "final-deployment-summary.json",
+    "bytes": 299,
+    "sha256": "1a54ffda243e679f993c7a45f19096d2aee90d920848346db0011665798dba95",
+    "stored_sha256": "1a54ffda243e679f993c7a45f19096d2aee90d920848346db0011665798dba95",
+    "compression": null
+  },
+  {
+    "source": "final-docs.py",
+    "stored": "final-docs.py.zlib",
+    "bytes": 21256,
+    "sha256": "cec856a30bf397fd8231f090feb050e88864cc4f1ea4f97d3bc80347784def93",
+    "stored_sha256": "da3c341425e6fd41f63aa8265709a4063c3ed28fe2f57df62429e4e2dd589855",
+    "compression": "zlib"
+  },
+  {
+    "source": "final-windows-check.json",
+    "stored": "final-windows-check.json.zlib",
+    "bytes": 244,
+    "sha256": "f5fc24283bace725e2b29d07b645b9c2b6334c044b5a0c4051c07cd23e4bad90",
+    "stored_sha256": "b59f91bfc69575ab5e5cbd6838afff75ae9b3cb162b1033732acf62a7b65ad43",
+    "compression": "zlib"
+  },
+  {
+    "source": "final-windows-check.py",
+    "stored": "final-windows-check.py",
+    "bytes": 2300,
+    "sha256": "74d127fc7f3e5d87df3eca10f28c943117bdf13620edb28f61cac4ffe0d77282",
+    "stored_sha256": "74d127fc7f3e5d87df3eca10f28c943117bdf13620edb28f61cac4ffe0d77282",
+    "compression": null
+  },
+  {
     "source": "handoff-check.ps1",
     "stored": "handoff-check.ps1",
     "bytes": 1106,
@@ -82,9 +170,9 @@
   {
     "source": "hardware/audit-stopped.py",
     "stored": "hardware/audit-stopped.py",
-    "bytes": 1371,
-    "sha256": "754b2d5af36abe45e5547379015fcd77ef459c225795ba14a39d5bf8913a44f3",
-    "stored_sha256": "754b2d5af36abe45e5547379015fcd77ef459c225795ba14a39d5bf8913a44f3",
+    "bytes": 1960,
+    "sha256": "dd21685567830c273bd75120ae37e428499f1517be9c77bfd656470d045b096b",
+    "stored_sha256": "dd21685567830c273bd75120ae37e428499f1517be9c77bfd656470d045b096b",
     "compression": null
   },
   {
@@ -173,6 +261,62 @@
     "bytes": 28004,
     "sha256": "bebae5737c5ca9b88f95f69f20b980de1b63829815fa72ff9b00c6bc8ad36f35",
     "stored_sha256": "3084e7b31626acee09861ba58c4a0d3a2c6808f0b66b3a4414eb8fc77d79b414",
+    "compression": "zlib"
+  },
+  {
+    "source": "hardware/cycle2-audit-fram.bin",
+    "stored": "hardware/cycle2-audit-fram.bin.zlib",
+    "bytes": 262144,
+    "sha256": "e18e07adbf12176fa02f1385fa6b4713e5b35e6f101c49959229cf2f1067ec15",
+    "stored_sha256": "01bc969580ebd8a231afa07dcb2574eed708f31fa6a322b68bdc85dcca2042cd",
+    "compression": "zlib"
+  },
+  {
+    "source": "hardware/cycle2-audit-invocation.json",
+    "stored": "hardware/cycle2-audit-invocation.json",
+    "bytes": 752,
+    "sha256": "2cfa3ae3d902eb20d7a8b06c5a5a3acf129374bb88985c8fe6f1b9ba9a90593e",
+    "stored_sha256": "2cfa3ae3d902eb20d7a8b06c5a5a3acf129374bb88985c8fe6f1b9ba9a90593e",
+    "compression": null
+  },
+  {
+    "source": "hardware/cycle2-audit-server.log",
+    "stored": "hardware/cycle2-audit-server.log.zlib",
+    "bytes": 642,
+    "sha256": "8bcc4c71699ee84963384971405c87e1a151e92fe6097483e261a0323be2f087",
+    "stored_sha256": "3159f6122fbbf3033a2d1bed2bef602b9959489b62ed2df82bdd141656a1f619",
+    "compression": "zlib"
+  },
+  {
+    "source": "hardware/cycle2-audit-summary.json",
+    "stored": "hardware/cycle2-audit-summary.json",
+    "bytes": 296,
+    "sha256": "3921e892530e3b1a9b3071f1572ebaf3bf8ae6a8d1b310c896a5c944fc48b1c3",
+    "stored_sha256": "3921e892530e3b1a9b3071f1572ebaf3bf8ae6a8d1b310c896a5c944fc48b1c3",
+    "compression": null
+  },
+  {
+    "source": "hardware/cycle2-audit-xyz.bin",
+    "stored": "hardware/cycle2-audit-xyz.bin.zlib",
+    "bytes": 24576,
+    "sha256": "fe541499d90a70cb2abaf8b509da5d74c47a77f4c3a11a0081069747e89504c3",
+    "stored_sha256": "1cf1cdcf077512f81426df1a826e8d6bc6299ec4442490efb0ee2c8ab4606f27",
+    "compression": "zlib"
+  },
+  {
+    "source": "hardware/cycle2-audit.gdb",
+    "stored": "hardware/cycle2-audit.gdb",
+    "bytes": 1646,
+    "sha256": "9d45fe1280409b9850724aaf628b6ce3981ceb9d598a18474ecbf00a9d2fbb3b",
+    "stored_sha256": "9d45fe1280409b9850724aaf628b6ce3981ceb9d598a18474ecbf00a9d2fbb3b",
+    "compression": null
+  },
+  {
+    "source": "hardware/cycle2-audit.log",
+    "stored": "hardware/cycle2-audit.log.zlib",
+    "bytes": 11767,
+    "sha256": "83ceaca35227801921e990a58fc0b886c781412512c977b8af89660f82f9c4dd",
+    "stored_sha256": "5b103f553eb86eae35944b40b417a57514880ba5997d34adc6d9f41a6c423673",
     "compression": "zlib"
   },
   {
@@ -416,6 +560,182 @@
     "compression": "zlib"
   },
   {
+    "source": "initial-state.json",
+    "stored": "initial-state.json.zlib",
+    "bytes": 1727649,
+    "sha256": "35b5b93023e318bc6e048ea2f3ba0a0d32c41f8e68b751c47860e5310207703d",
+    "stored_sha256": "6d5639ebb005cf7c0b840f80cb2e7f752ba3b8d20e3916100db9426a3c788517",
+    "compression": "zlib"
+  },
+  {
+    "source": "inspect-currentness.cjs",
+    "stored": "inspect-currentness.cjs",
+    "bytes": 564,
+    "sha256": "d9273004966ba4698e66dee0a2d2708149d3a447b0d8e3ec97cfa76ad81ec2f8",
+    "stored_sha256": "d9273004966ba4698e66dee0a2d2708149d3a447b0d8e3ec97cfa76ad81ec2f8",
+    "compression": null
+  },
+  {
+    "source": "install-guide.py",
+    "stored": "install-guide.py",
+    "bytes": 2470,
+    "sha256": "4dc65a652679b49c5fa385268c32fe57ce1c13d4a62f2a8c9361782203ee12e9",
+    "stored_sha256": "4dc65a652679b49c5fa385268c32fe57ce1c13d4a62f2a8c9361782203ee12e9",
+    "compression": null
+  },
+  {
+    "source": "installed-operator-guide.json",
+    "stored": "installed-operator-guide.json",
+    "bytes": 2041,
+    "sha256": "eb6bd1c7b26ca4aaebd6ac26ef642e21af2478cd70de8b5a21674118429e3367",
+    "stored_sha256": "eb6bd1c7b26ca4aaebd6ac26ef642e21af2478cd70de8b5a21674118429e3367",
+    "compression": null
+  },
+  {
+    "source": "live-final.db",
+    "stored": "live-final.db.zlib",
+    "bytes": 11153408,
+    "sha256": "b7876633f4986e2b840763f82521bba241acda431c64532b6b83de9670c105a9",
+    "stored_sha256": "3be8fdb331e98703ff1df56ed92823cfb24d20b856af4fd6703a66e6514837f3",
+    "compression": "zlib"
+  },
+  {
+    "source": "live-final.db-shm",
+    "stored": "live-final.db-shm.zlib",
+    "bytes": 32768,
+    "sha256": "fd4c9fda9cd3f9ae7c962b0ddf37232294d55580e1aa165aa06129b8549389eb",
+    "stored_sha256": "25c0b4adb162012c8edc5fc86a23b0af4d894774ba4402e21c43580fc764744c",
+    "compression": "zlib"
+  },
+  {
+    "source": "live-final.db-wal",
+    "stored": "live-final.db-wal",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stored_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "compression": null
+  },
+  {
+    "source": "model-build-command.json",
+    "stored": "model-build-command.json",
+    "bytes": 11945,
+    "sha256": "002d33ed69560975a81dfd7c06db212b4d4b85b1084211c3d243b4f2f8f3c270",
+    "stored_sha256": "002d33ed69560975a81dfd7c06db212b4d4b85b1084211c3d243b4f2f8f3c270",
+    "compression": null
+  },
+  {
+    "source": "model-build.log",
+    "stored": "model-build.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stored_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "compression": null
+  },
+  {
+    "source": "model-cycle1",
+    "stored": "model-cycle1.zlib",
+    "bytes": 241968,
+    "sha256": "f8c6ec47bdb949b6567bb82b804e6e767c67c5482931ece9cdf3d5397fcfc79c",
+    "stored_sha256": "3d65cb90b7bd5745e15c0a143f5ceddddb7fa6f2286050472b09729149d7b200",
+    "compression": "zlib"
+  },
+  {
+    "source": "model-cycle1.bin",
+    "stored": "model-cycle1.bin.zlib",
+    "bytes": 262144,
+    "sha256": "87722e50f3e78b9556c1ecfb0ea53cf35f3b520ea760b4f2ec4960ef7a40ad87",
+    "stored_sha256": "3e1d9b76afe1864fe604618c89bfddd7222bef54810b2d9e6482470b10d242ac",
+    "compression": "zlib"
+  },
+  {
+    "source": "model-cycle1.c",
+    "stored": "model-cycle1.c",
+    "bytes": 1099,
+    "sha256": "11c644eb8c4db6a60c678d0e92331637ba75819ad5e960f8b22e57d08a5225ef",
+    "stored_sha256": "11c644eb8c4db6a60c678d0e92331637ba75819ad5e960f8b22e57d08a5225ef",
+    "compression": null
+  },
+  {
+    "source": "model-cycle1.c.attempt1",
+    "stored": "model-cycle1.c.attempt1",
+    "bytes": 1099,
+    "sha256": "266bb48ecbfb9b22be4160343758738f46c6deafa19e5f99918c9994e1c3b15c",
+    "stored_sha256": "266bb48ecbfb9b22be4160343758738f46c6deafa19e5f99918c9994e1c3b15c",
+    "compression": null
+  },
+  {
+    "source": "model-cycle1.log",
+    "stored": "model-cycle1.log",
+    "bytes": 139,
+    "sha256": "f28ddae5bd193e353287224c8741b555eeeb69b8906a43491c2397b739d3f827",
+    "stored_sha256": "f28ddae5bd193e353287224c8741b555eeeb69b8906a43491c2397b739d3f827",
+    "compression": null
+  },
+  {
+    "source": "model-cycle1.log.attempt1",
+    "stored": "model-cycle1.log.attempt1",
+    "bytes": 212,
+    "sha256": "37fe98f57bde0db9be7079b1cb7c2c4e1b223e8a4b18d71ebfe6f1a56db9a9cd",
+    "stored_sha256": "37fe98f57bde0db9be7079b1cb7c2c4e1b223e8a4b18d71ebfe6f1a56db9a9cd",
+    "compression": null
+  },
+  {
+    "source": "model-final",
+    "stored": "model-final.zlib",
+    "bytes": 241960,
+    "sha256": "36d650f1bef7eea0459e5977ddbe3b1e315010c122b713bdf5b46f6c0db7f90f",
+    "stored_sha256": "c7b7a23b69738ca521adaf911f00d498f4fad1afc920332c440eca3cdb17e033",
+    "compression": "zlib"
+  },
+  {
+    "source": "model-final-build-command.json",
+    "stored": "model-final-build-command.json",
+    "bytes": 11943,
+    "sha256": "505e1313e84a256053f94461064bf74fc243b7a78e920dcb323548a8223e36e9",
+    "stored_sha256": "505e1313e84a256053f94461064bf74fc243b7a78e920dcb323548a8223e36e9",
+    "compression": null
+  },
+  {
+    "source": "model-final-build.log",
+    "stored": "model-final-build.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stored_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "compression": null
+  },
+  {
+    "source": "model-final.bin",
+    "stored": "model-final.bin.zlib",
+    "bytes": 262144,
+    "sha256": "e18e07adbf12176fa02f1385fa6b4713e5b35e6f101c49959229cf2f1067ec15",
+    "stored_sha256": "01bc969580ebd8a231afa07dcb2574eed708f31fa6a322b68bdc85dcca2042cd",
+    "compression": "zlib"
+  },
+  {
+    "source": "model-final.c",
+    "stored": "model-final.c",
+    "bytes": 1517,
+    "sha256": "7999a85fd08e803fca7db4fdbdfa270e558f90ed49fc2edc2855d595b266256a",
+    "stored_sha256": "7999a85fd08e803fca7db4fdbdfa270e558f90ed49fc2edc2855d595b266256a",
+    "compression": null
+  },
+  {
+    "source": "model-final.log",
+    "stored": "model-final.log",
+    "bytes": 140,
+    "sha256": "f6b8251310a5097b9ded1f65e904770f2c2c02cd135e3a3e69364f582dd5ca74",
+    "stored_sha256": "f6b8251310a5097b9ded1f65e904770f2c2c02cd135e3a3e69364f582dd5ca74",
+    "compression": null
+  },
+  {
+    "source": "monitor-stop.log",
+    "stored": "monitor-stop.log.zlib",
+    "bytes": 366,
+    "sha256": "22cf89c0d6c647595394ee1d3e0fb4ea21fd15d3467a3fe3781eb4551e3a5501",
+    "stored_sha256": "569230db2e05a4618c7d8efef1ac546d550369251b7ba7ba781dfd62e93f0196",
+    "compression": "zlib"
+  },
+  {
     "source": "monitor.cjs",
     "stored": "monitor.cjs",
     "bytes": 1501,
@@ -461,6 +781,14 @@
     "bytes": 709,
     "sha256": "d7f85f28b3d51d47326d658d26e7372e3313db3d65e326a57d363f5ad5df6085",
     "stored_sha256": "d7f85f28b3d51d47326d658d26e7372e3313db3d65e326a57d363f5ad5df6085",
+    "compression": null
+  },
+  {
+    "source": "operator-guide.txt",
+    "stored": "operator-guide.txt",
+    "bytes": 1327,
+    "sha256": "2036fce226a0294b91fa9682d3b94b9701ba5bc94b15021c70a54f9bf594019d",
+    "stored_sha256": "2036fce226a0294b91fa9682d3b94b9701ba5bc94b15021c70a54f9bf594019d",
     "compression": null
   },
   {
@@ -576,12 +904,140 @@
     "compression": "zlib"
   },
   {
+    "source": "physical/cycle2-held-0.json",
+    "stored": "physical/cycle2-held-0.json.zlib",
+    "bytes": 1376553,
+    "sha256": "b65354da02670f9ba61ab1b71af6eeb63fad4366b90a821d8a0ba49b6872b2f2",
+    "stored_sha256": "88a428ce71d4f3c0c4ce7e1425c0af067da6e3a96dee98f4e2333498247f7248",
+    "compression": "zlib"
+  },
+  {
+    "source": "physical/cycle2-held-1.json",
+    "stored": "physical/cycle2-held-1.json.zlib",
+    "bytes": 1332870,
+    "sha256": "0913e12b5d3905612f7dfa84db880c320789b7a9e5e0cd70a3a395ab541065bf",
+    "stored_sha256": "ea9187f1834e1a4319ea4e9f99dd69b2b59de4800cfbac6518cc2e5d652f2d32",
+    "compression": "zlib"
+  },
+  {
+    "source": "physical/cycle2-held-export.csv",
+    "stored": "physical/cycle2-held-export.csv.zlib",
+    "bytes": 238071,
+    "sha256": "fbae1ba58011544d810b462097ebfd2b1481562e46ec1a47f1da0c137a3adb2f",
+    "stored_sha256": "cb0d17ceaed447d8ec501549f164d732d0dabe8c59722188335016bc23065ee8",
+    "compression": "zlib"
+  },
+  {
+    "source": "physical/cycle2-held.png",
+    "stored": "physical/cycle2-held.png.zlib",
+    "bytes": 146847,
+    "sha256": "99cb1891728d3ec4ff05e6091aa7b11ef0f34c2b04a90b6b1a1ee4167dfbb0ad",
+    "stored_sha256": "be03c07f8e4795a923703934dafbe18afb831154357db155a545ccc9330825b4",
+    "compression": "zlib"
+  },
+  {
+    "source": "physical/cycle2-running-0.json",
+    "stored": "physical/cycle2-running-0.json.zlib",
+    "bytes": 2486824,
+    "sha256": "9ecc244dc79e3f80fb5c5dd163aff7a89a2950a914b9db656ea97ed3f9b8d9b6",
+    "stored_sha256": "656149b43c2cb5039f5b6330b2b2b67f615987ae32606d20f8e007a0de669515",
+    "compression": "zlib"
+  },
+  {
+    "source": "physical/cycle2-running-1.json",
+    "stored": "physical/cycle2-running-1.json.zlib",
+    "bytes": 2487692,
+    "sha256": "3208ff25234a641ceaf2a6a3449411825cb1f0b1c0f714032f7a17daa017ddb8",
+    "stored_sha256": "baca86b0492c7eac3ca18ab79f05e6ab7d35502976276a4f969893ee1e529647",
+    "compression": "zlib"
+  },
+  {
+    "source": "physical/cycle2-running-export.csv",
+    "stored": "physical/cycle2-running-export.csv.zlib",
+    "bytes": 255396,
+    "sha256": "a69a8c806d9e3ea496519a82e42f9bf3ed7ef7a34717e25f58e09862d1e7e753",
+    "stored_sha256": "43c08a85d970f2c5fae18e03b70a86856f8d39874183c8fdc6e72dec78551733",
+    "compression": "zlib"
+  },
+  {
+    "source": "physical/cycle2-running.png",
+    "stored": "physical/cycle2-running.png.zlib",
+    "bytes": 171414,
+    "sha256": "f3e62fefda6ef58be3a114a3bb06660a4f94c82b58c7154941bd596a5c0352a3",
+    "stored_sha256": "7109989731c7b094444bc83f4d669225dc5555b4455ba858809491c664f58d1d",
+    "compression": "zlib"
+  },
+  {
+    "source": "physical/cycle2-start-command.json",
+    "stored": "physical/cycle2-start-command.json",
+    "bytes": 545,
+    "sha256": "8626f610cde14bc4765b947ef91c7f1e90911948746f0efd00c43528c89aa018",
+    "stored_sha256": "8626f610cde14bc4765b947ef91c7f1e90911948746f0efd00c43528c89aa018",
+    "compression": null
+  },
+  {
+    "source": "physical/cycle2-start-exit.json",
+    "stored": "physical/cycle2-start-exit.json",
+    "bytes": 54,
+    "sha256": "09d935a14ac2a0aaf3a19075601b78f4a7e6cf7bcbb8eec5554ffe5f5aa558ad",
+    "stored_sha256": "09d935a14ac2a0aaf3a19075601b78f4a7e6cf7bcbb8eec5554ffe5f5aa558ad",
+    "compression": null
+  },
+  {
+    "source": "physical/cycle2-start.jsonl",
+    "stored": "physical/cycle2-start.jsonl.zlib",
+    "bytes": 178468,
+    "sha256": "a3b7f3a7d7325d1fada1e5a5d9d0ffce8a3f3a7b87c8eb410ba081f0b74976d7",
+    "stored_sha256": "4759fb57ac9846eddac7802b80970cd5de0ab38133dca78b585ffa3bffa67fc9",
+    "compression": "zlib"
+  },
+  {
+    "source": "physical/cycle2-stop-command.json",
+    "stored": "physical/cycle2-stop-command.json",
+    "bytes": 544,
+    "sha256": "8efe084beb3f7ca600b1de4abfca512446528e81343212f80b6b60de7d69c571",
+    "stored_sha256": "8efe084beb3f7ca600b1de4abfca512446528e81343212f80b6b60de7d69c571",
+    "compression": null
+  },
+  {
+    "source": "physical/cycle2-stop-exit.json",
+    "stored": "physical/cycle2-stop-exit.json",
+    "bytes": 54,
+    "sha256": "7d2df144bd2c2801a8d137a2a01221eb2ae584309198c24542699035f7e280e5",
+    "stored_sha256": "7d2df144bd2c2801a8d137a2a01221eb2ae584309198c24542699035f7e280e5",
+    "compression": null
+  },
+  {
+    "source": "physical/cycle2-stop.jsonl",
+    "stored": "physical/cycle2-stop.jsonl.zlib",
+    "bytes": 178413,
+    "sha256": "1b8743536f25d932048eeeb712790d02cda93c23daaa03deb56b1de804afdc22",
+    "stored_sha256": "9f6fe2b2ad78fb3ed10f03c9932264ccfcaf6a52c13d97d777e31282e6ead0e6",
+    "compression": "zlib"
+  },
+  {
     "source": "physical/handoff-without-transmission.json",
     "stored": "physical/handoff-without-transmission.json",
     "bytes": 0,
     "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
     "stored_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
     "compression": null
+  },
+  {
+    "source": "physical/monitor-errors.jsonl",
+    "stored": "physical/monitor-errors.jsonl",
+    "bytes": 3105,
+    "sha256": "02a1a8d766762aace4aee56b79f7ed54a9eb0deffb03183be08fa5c19809ad88",
+    "stored_sha256": "02a1a8d766762aace4aee56b79f7ed54a9eb0deffb03183be08fa5c19809ad88",
+    "compression": null
+  },
+  {
+    "source": "physical/monitor.jsonl",
+    "stored": "physical/monitor.jsonl.zlib",
+    "bytes": 2063076,
+    "sha256": "9f0b931beca04a408daaa63c868f7525b75c2452c147dc53f7bb0060b22e6c19",
+    "stored_sha256": "65d6ba3bc60d9a7d969042a988597af8c1b414936fdfdf33a0ce428a528cd882",
+    "compression": "zlib"
   },
   {
     "source": "physical/service-cycle1-command.json",
@@ -608,11 +1064,35 @@
     "compression": "zlib"
   },
   {
+    "source": "physical/service-cycle2-command.json",
+    "stored": "physical/service-cycle2-command.json",
+    "bytes": 708,
+    "sha256": "da84d6f7d506beb5d37033fca833ef5cf9b59b3ec6aa90c99db3c418ce7496d5",
+    "stored_sha256": "da84d6f7d506beb5d37033fca833ef5cf9b59b3ec6aa90c99db3c418ce7496d5",
+    "compression": null
+  },
+  {
+    "source": "physical/service-cycle2-exit.json",
+    "stored": "physical/service-cycle2-exit.json",
+    "bytes": 54,
+    "sha256": "8488c8af0258ae7668b4981d18851be8771d82d4c0a088c7173637335af59bec",
+    "stored_sha256": "8488c8af0258ae7668b4981d18851be8771d82d4c0a088c7173637335af59bec",
+    "compression": null
+  },
+  {
+    "source": "physical/service-cycle2.log",
+    "stored": "physical/service-cycle2.log.zlib",
+    "bytes": 7160258,
+    "sha256": "2e13134740313532e8d08987ffa8d629f56a35b1a4acc1f7aa845331ca049eac",
+    "stored_sha256": "0aa9236c88b4ed0c38f9347fd5384dd3dad90c12d01d4053c4d8be158f62be0a",
+    "compression": "zlib"
+  },
+  {
     "source": "physical/service-pid.json",
     "stored": "physical/service-pid.json",
     "bytes": 32,
-    "sha256": "d8c27bd89736230b51a14c8a4c251de3cda9268179529da59c7b08389c6056b3",
-    "stored_sha256": "d8c27bd89736230b51a14c8a4c251de3cda9268179529da59c7b08389c6056b3",
+    "sha256": "ce3b5f6f70c32c1d60df204cb12701340df11a42a5fad1ed6ed1ceb6f9eae5c7",
+    "stored_sha256": "ce3b5f6f70c32c1d60df204cb12701340df11a42a5fad1ed6ed1ceb6f9eae5c7",
     "compression": null
   },
   {
@@ -622,6 +1102,14 @@
     "sha256": "eebbc7557b7d8cebb7350d9c434716d0d74b145f8a9f76a2daf5ff2a3a44572e",
     "stored_sha256": "ecdafa0de345169f23fb40ce1889521d2515181604b7efd5960198921e26e7e9",
     "compression": "zlib"
+  },
+  {
+    "source": "physical-summary.json",
+    "stored": "physical-summary.json",
+    "bytes": 8857,
+    "sha256": "64c07f766d5d5e0142a7ec1f4aa8a7338552d2167b8dfc06f57e77b2dd1cfc8b",
+    "stored_sha256": "64c07f766d5d5e0142a7ec1f4aa8a7338552d2167b8dfc06f57e77b2dd1cfc8b",
+    "compression": null
   },
   {
     "source": "policy-events.log",
@@ -669,6 +1157,14 @@
     "bytes": 342,
     "sha256": "bccd2c2b08b11324abe0fb79fdd079fb9f03edebc0d9f76b2ad677195e4dbbc9",
     "stored_sha256": "bccd2c2b08b11324abe0fb79fdd079fb9f03edebc0d9f76b2ad677195e4dbbc9",
+    "compression": null
+  },
+  {
+    "source": "preservation.json",
+    "stored": "preservation.json",
+    "bytes": 334,
+    "sha256": "fb94cfd43f0109ee8af53c080fac893a4fcc45218da117861b94c9b1d020e899",
+    "stored_sha256": "fb94cfd43f0109ee8af53c080fac893a4fcc45218da117861b94c9b1d020e899",
     "compression": null
   },
   {
@@ -792,6 +1288,30 @@
     "compression": null
   },
   {
+    "source": "serial-cycle1.jsonl",
+    "stored": "serial-cycle1.jsonl.zlib",
+    "bytes": 823916,
+    "sha256": "7b2f7db1adc229093e600c014bdd7a278f9af70b39e252c583c636d11eec9540",
+    "stored_sha256": "8eb06abeea392672380f6fa3a9c4fd66bfbdfb0e39399a66f888441e62dfea3c",
+    "compression": "zlib"
+  },
+  {
+    "source": "serial-cycle2.jsonl",
+    "stored": "serial-cycle2.jsonl.zlib",
+    "bytes": 6918880,
+    "sha256": "5dc29c0e8fb349fb4c777d2cd50711e527dd945de7305bd436b909fbabc10963",
+    "stored_sha256": "db3e5d93c7b643f79d7778b8df19e369a425068989ca13db3252744f48b74f5b",
+    "compression": "zlib"
+  },
+  {
+    "source": "service-ADUs.jsonl",
+    "stored": "service-ADUs.jsonl.zlib",
+    "bytes": 4792917,
+    "sha256": "b6901e86989088dbcbc89937765d4a24b46986b58582dade6f3aaf9f7c7288f9",
+    "stored_sha256": "1c6b7e1abc72b2699f5218e89db5f13894536f2faf7b5d244d9742927e0473d4",
+    "compression": "zlib"
+  },
+  {
     "source": "service-tests/service-pause-fix.trx",
     "stored": "service-tests/service-pause-fix.trx.zlib",
     "bytes": 440079,
@@ -829,6 +1349,22 @@
     "bytes": 610,
     "sha256": "499fa3947d2730a87b339b79bcd695b7711380131e781f909b1343a49a724d09",
     "stored_sha256": "499fa3947d2730a87b339b79bcd695b7711380131e781f909b1343a49a724d09",
+    "compression": null
+  },
+  {
+    "source": "timing-summary.json",
+    "stored": "timing-summary.json",
+    "bytes": 485,
+    "sha256": "702ad34283449571293e53a1ee6eaf05e4663bd90779217a2642b6df6197649b",
+    "stored_sha256": "702ad34283449571293e53a1ee6eaf05e4663bd90779217a2642b6df6197649b",
+    "compression": null
+  },
+  {
+    "source": "transactions.json",
+    "stored": "transactions.json",
+    "bytes": 39,
+    "sha256": "007cc748c76cc33cb58e8a414beb433190fced0232473bfe476f4de088bb072f",
+    "stored_sha256": "007cc748c76cc33cb58e8a414beb433190fced0232473bfe476f4de088bb072f",
     "compression": null
   },
   {

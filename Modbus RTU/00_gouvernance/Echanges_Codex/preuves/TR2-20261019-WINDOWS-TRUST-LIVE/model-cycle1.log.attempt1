@@ -1,0 +1,1 @@
+model-cycle1: /home/lolo/dev/msm/reports/TR2-windows-trust-live-resume/model-cycle1.c:9: main: Assertion `live_command_engine_boot(&b->engine)==TR2_OK&&b->store.generation==86&&b->store.epoch.current==5' failed.

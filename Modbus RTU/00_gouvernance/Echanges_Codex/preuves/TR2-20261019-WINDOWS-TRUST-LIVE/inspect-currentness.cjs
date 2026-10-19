@@ -1,0 +1,2 @@
+const fs=require('node:fs');
+(async()=>{for(let i=0;i<30;i++){const x=await(await fetch('http://127.0.0.1:5100/api/v2/live/overview')).json(),d=x.devices[0];if(d?.observation?.snapshot?.fresh&&!d.isCurrent){fs.writeFileSync(process.argv[2],JSON.stringify(x,null,2));console.log(JSON.stringify({observedAt:x.observedAt,receivedAt:d.observation.receivedAt,current:d.isCurrent,age:d.receptionAgeSeconds}));return}await new Promise(r=>setTimeout(r,200))}console.log('No transient false in bounded HTTP inspection')})().catch(e=>{console.error(e);process.exitCode=1});

@@ -1,7 +1,10 @@
 from hardware import *
 import sys
 n=sys.argv[1];e=Path('/home/lolo/dev/msm/reports/TR2-uxl2-physical/firmware/tr2-live-operator-NON-PRODUCTION.elf')
-debug(n,e,IDENTITY+'''p r4u_result
+debug(n,e,IDENTITY+'''if owner.acquisition.fifo.running || engine.has_active
+ quit 9
+end
+p r4u_result
 p r4_result
 p work
 p owner.acquisition.fifo.running
@@ -17,10 +20,20 @@ p store.epoch
 p live.generation
 p metric
 p event_time
-p server
+p server.captured
+p server.queue_full
+p server.transport_errors
 p tr2_irq_observer
 p r4r_first_value
-'''+f'dump binary memory {win(P/(n+"-xyz.bin"))} r4r_xyz r4r_xyz+4096\n'+'''set $rr=(unsigned int)stm32_fram_storage_read(&fram,0,baseline,262144)
+'''+f'dump binary memory {win(P/(n+"-xyz.bin"))} r4r_xyz r4r_xyz+4096\n'+'''set $a=(int)iis3dwb_read_reg(&owner.acquisition.fifo.ctx,15,baseline,1)
+set $b=(int)iis3dwb_read_reg(&owner.acquisition.fifo.ctx,16,baseline+1,1)
+set $c=(int)iis3dwb_read_reg(&owner.acquisition.fifo.ctx,10,baseline+2,1)
+set $d=(int)iis3dwb_read_reg(&owner.acquisition.fifo.ctx,25,baseline+3,1)
+x/4bx baseline
+if $a != 0 || $b != 0 || $c != 0 || $d != 0 || baseline[0] != 0x7B || (baseline[1]&0xE0) != 0 || (baseline[2]&7) != 0 || (baseline[3]&0x20) != 0
+ quit 10
+end
+set $rr=(unsigned int)stm32_fram_storage_read(&fram,0,baseline,262144)
 p $rr
 if $rr != 0
  quit 4

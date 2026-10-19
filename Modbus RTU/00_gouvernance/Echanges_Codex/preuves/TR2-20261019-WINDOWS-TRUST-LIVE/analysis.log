@@ -1,0 +1,62 @@
+{
+  "result": "PASS_LIMITED_C36C971_PHYSICAL",
+  "pc_and_firmware_source": "c36c9718a75e6b40c45707a482e8db836296cab2",
+  "code_fix_source": "8a54a289dae2dad312cf2245c0db03fc76cc67ef",
+  "new_fix_deployment_blocked_deferred": true,
+  "security_modified": false,
+  "service_FC10": 0,
+  "raw_service_ADUs": 18468,
+  "B3_counts": {
+    "cycle1": 491,
+    "cycle2": 4126
+  },
+  "SQLite_observations": 6060,
+  "current_observations": 4062,
+  "held_observations": 314,
+  "intentional_pause_lost_observations": 1443,
+  "unintentional_transport_errors": 0,
+  "API_monitor_snapshots_correlated": 467,
+  "all_raw_B3_service_SQLite_API_correlated": true,
+  "HTTP_failures_during_intentional_stopped_host_interval": 45,
+  "first4096_oracles": [
+    {
+      "cycle": "cycle1",
+      "rms_mg": [
+        962,
+        955,
+        102,
+        61
+      ],
+      "peak_mg": [
+        1000,
+        991,
+        135,
+        103
+      ],
+      "first4096_exact": true
+    },
+    {
+      "cycle": "cycle2",
+      "rms_mg": [
+        962,
+        955,
+        101,
+        62
+      ],
+      "peak_mg": [
+        1002,
+        992,
+        145,
+        106
+      ],
+      "first4096_exact": true
+    }
+  ],
+  "CSV_rows_correlated": 2000,
+  "full_FRAM_exact_to_genuine_core_metadata_model": true,
+  "second_run_conservative_running_seconds": 710.709343,
+  "firmware_has_no_duration_cutoff": true,
+  "final_firmware": "LIVE retained",
+  "final_command": "STOP5/17 terminal+HELD",
+  "metrology_or_industrial_qualification": false
+}

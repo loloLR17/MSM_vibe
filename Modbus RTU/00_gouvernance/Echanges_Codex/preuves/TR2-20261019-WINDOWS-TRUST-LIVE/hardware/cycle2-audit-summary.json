@@ -1,0 +1,8 @@
+{
+  "utc": "2026-10-19T13:56:04.857056+00:00",
+  "sha256": "e18e07adbf12176fa02f1385fa6b4713e5b35e6f101c49959229cf2f1067ec15",
+  "historical_prefix_122880_unchanged": true,
+  "tail_16384_unchanged": true,
+  "changed_bytes": 375,
+  "scope": "Only LIVE ownership range [122880,245760) may change"
+}
