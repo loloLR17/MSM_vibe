@@ -1,0 +1,15 @@
+{
+  "utc": "2026-10-19T14:28:29.444189+00:00",
+  "flash_prefix_exact_c36c971": true,
+  "fram_fresh_exact_last_terminal": true,
+  "fram_sha256": "e18e07adbf12176fa02f1385fa6b4713e5b35e6f101c49959229cf2f1067ec15",
+  "initial_GDB_snapshot_before_any_reset_or_target_function_call": true,
+  "owner_stopped": true,
+  "engine_has_active": false,
+  "journal": 94,
+  "root": 107,
+  "epoch": 5,
+  "run": 13,
+  "terminal": "STOP5/17",
+  "reset_or_flash": false
+}

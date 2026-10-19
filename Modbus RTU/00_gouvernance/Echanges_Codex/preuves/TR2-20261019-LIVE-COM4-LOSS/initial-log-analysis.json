@@ -1,0 +1,14 @@
+{
+  "observations": 276,
+  "all_CommunicationLost": true,
+  "first": "2026-10-19T14:17:51.479653+00:00",
+  "last": "2026-10-19T14:25:26.241857+00:00",
+  "trace_frames": 260,
+  "RX": 0,
+  "all_requests_read_B0_no_FC10": true,
+  "ledger": {
+    "Device": 1,
+    "Epoch": 5,
+    "Transaction": 17
+  }
+}

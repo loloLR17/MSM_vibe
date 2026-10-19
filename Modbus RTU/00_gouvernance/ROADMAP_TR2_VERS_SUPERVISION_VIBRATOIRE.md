@@ -161,3 +161,8 @@ Courbes globales/XYZ, périodes bornées, ruptures et HELD explicites, outils At
 ## Constat WINDOWS-TRUST-LIVE —19/10/2026, portée limitée autorisée
 
 Paquet c36c971 accepté sous SAC1 inchangé et explicitement autorisé par l'utilisateur ; signature durable reportée à un chantier séparé. LIVE9bbe…0981 flashé/conservé, boot autonomeSTOP, deux START/STOP5/14–5/17 terminaux+effets et second run surveillé≥11.85min. Chaîne COM4/SQLite/API/Edge/CSV réelle corrélée ; FRAM finale journal94/root107/run13/historique+queue exacts. FinalSTOP/HELD, service fermé/COM libre/GDB détaché. Acquittement c36 oscillant, quatre handoffs exclusifs réussis ; correctif8a54 publié/testé mais nouvelle DLL refusée, non déployée. [Rapport courant](Echanges_Codex/DERNIER_RAPPORT.md). Aucun jalon J4/J5/R6 ni GO industriel prononcé ; contrôle indépendant ChatGPT requis.
+
+
+## COM4 LOSS DIAG —19/10/2026
+
+Cause d’audit GDB prouvée par reproduction : READ FRAM262144 injecté dans callbackchronométré, dépassement846ms/2,5ms, arrêt sûr du runtime et silenceModbus malgré RXactif. Procédure corrigée horsscope, aucun changement des garde-fous/firmware/Windows ; deux resets nécessaires, aucunflash. NouveauSTART5/18/STOP5/19 et B0/B3aprèsauditfinalsansreset réussis ; LIVEconservé/STOPHELD/serviceWindowsactif. Erratum de disponibilité après ancien audit, cyclesbornés antérieurs préservés. [Diagnostic](../Supervision%20TR2/operator-demo/COM4_DIAGNOSTIC.md), rapportcourant et preuves ; aucunGOindustriel/J4/J5/R6 ajouté.

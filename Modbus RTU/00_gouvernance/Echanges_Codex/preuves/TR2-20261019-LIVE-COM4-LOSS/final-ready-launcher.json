@@ -1,0 +1,21 @@
+{
+  "command": [
+    "/mnt/c/Windows/System32/cmd.exe",
+    "/d",
+    "/c",
+    "C:\\Users\\lolo\\AppData\\Local\\MSM\\TR2-LIVE-DEMO-20261019\\LANCER_SERVICE.cmd"
+  ],
+  "utc": "2026-10-19T14:37:09.415392+00:00",
+  "existing_files": [
+    "connection-control.command.lock",
+    "live.db",
+    "serial-5512-26404.jsonl",
+    "serial-8598-25568.jsonl",
+    "serial-causal-baseline.jsonl",
+    "serial-cycle1.jsonl",
+    "serial-cycle2.jsonl",
+    "service-5512-26404.log",
+    "service-8598-25568.log",
+    "transactions.json"
+  ]
+}

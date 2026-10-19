@@ -1,0 +1,9 @@
+COM4 rétabli le 19/10/2026 - firmware et application c36c971 conservés.
+Le service est actuellement déjà lancé sur http://127.0.0.1:5100 ; cible arrêtée/HELD.
+Ouvrir OUVRIR_EDGE.cmd puis START.cmd. Ne pas lancer un second service.
+Attendre terminal_and_effect_observed et code0 (~40s) ; STOP.cmd pour arrêter.
+Après STOP terminal, ARRETER_SERVICE.cmd ferme volontairement le service.
+Ne pas modifier le ledger, les fichiers de pause, les DLL ou les protections Windows.
+L’incident venait d’une lecture FRAM par GDB pendant un callback chronométré.
+Procédure d’audit corrigée ; disponibilité après audit vérifiée sans reset.
+Rapport : https://github.com/loloLR17/MSM_vibe/blob/main/Modbus%20RTU/00_gouvernance/Echanges_Codex/DERNIER_RAPPORT.md

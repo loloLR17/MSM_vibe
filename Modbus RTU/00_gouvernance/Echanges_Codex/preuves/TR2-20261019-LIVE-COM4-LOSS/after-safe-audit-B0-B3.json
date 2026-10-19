@@ -1,0 +1,155 @@
+{
+  "observedAt": "2026-10-19T14:33:45.972821+00:00",
+  "devices": [
+    {
+      "observation": {
+        "observationId": "b8d875fa-908b-47c6-9116-b8f7c6202175",
+        "deviceId": {
+          "value": 1
+        },
+        "segmentId": "f6c3d8fd-e7e5-4fe5-ac27-c36bea040108",
+        "busId": "live-direct",
+        "modbusAddress": 1,
+        "receivedAt": "2026-10-19T14:33:45.8509181+00:00",
+        "identity": {
+          "deviceId": {
+            "value": 1
+          },
+          "profile": "LiveDiagnostic",
+          "protocolVersion": 2,
+          "capabilities": 12,
+          "configurationStructureVersion": 2,
+          "inventoryStructureVersion": 2,
+          "diagnosticStructureVersion": null,
+          "hardwareVersion": 1,
+          "firmwareMajor": 0,
+          "firmwareMinor": 14,
+          "firmwarePatch": 8
+        },
+        "snapshot": {
+          "value": {
+            "statusGlobal": 1,
+            "validityFlags": 4097,
+            "alarmFlags": 0,
+            "severityGlobal": 0,
+            "lastUpdateTr2Seconds": 0,
+            "valueAgeMilliseconds": 0,
+            "calculationSequence": 0,
+            "windowDurationMilliseconds": 0,
+            "validSampleCount": 0,
+            "rmsGlobalMg": 0,
+            "peakGlobalMg": 0,
+            "rmsXMg": 0,
+            "rmsYMg": 0,
+            "rmsZMg": 0,
+            "peakXMg": 0,
+            "peakYMg": 0,
+            "peakZMg": 0,
+            "dominantAxis": 0,
+            "exceedGlobal": 0,
+            "exceedX": 0,
+            "exceedY": 0,
+            "exceedZ": 0,
+            "alarmLatched": 0,
+            "exceedCount": 0,
+            "alarmCount": 0
+          },
+          "valuesValid": false,
+          "fresh": false,
+          "held": false,
+          "acquisitionStopped": true,
+          "windowUtc": null
+        },
+        "continuity": "RepeatedSequence",
+        "source": "Physical RS485 COM4 115200 8E1 / NModbus; DIAGNOSTIC NON-PRODUCTION; actual B0/B4/B6/B3; no UTC/run/config inference",
+        "detail": null,
+        "rejectedB3Registers": null,
+        "rejectedB3Value": null,
+        "runId": null,
+        "epoch": null,
+        "configurationId": null,
+        "configurationGeneration": null,
+        "eventMonotonicMicroseconds": null,
+        "mode": "LIVE_READONLY"
+      },
+      "lastKnown": {
+        "observationId": "77c5b166-b9b1-4320-ac0e-1a305365a536",
+        "deviceId": {
+          "value": 1
+        },
+        "segmentId": "5b655b7d-cc28-47e1-ba54-322ab15c03ab",
+        "busId": "live-direct",
+        "modbusAddress": 1,
+        "receivedAt": "2026-10-19T13:55:45.7583163+00:00",
+        "identity": {
+          "deviceId": {
+            "value": 1
+          },
+          "profile": "LiveDiagnostic",
+          "protocolVersion": 2,
+          "capabilities": 12,
+          "configurationStructureVersion": 2,
+          "inventoryStructureVersion": 2,
+          "diagnosticStructureVersion": null,
+          "hardwareVersion": 1,
+          "firmwareMajor": 0,
+          "firmwareMinor": 14,
+          "firmwarePatch": 8
+        },
+        "snapshot": {
+          "value": {
+            "statusGlobal": 1,
+            "validityFlags": 5819,
+            "alarmFlags": 240,
+            "severityGlobal": 0,
+            "lastUpdateTr2Seconds": 0,
+            "valueAgeMilliseconds": 41296,
+            "calculationSequence": 391,
+            "windowDurationMilliseconds": 154,
+            "validSampleCount": 4096,
+            "rmsGlobalMg": 962,
+            "peakGlobalMg": 1002,
+            "rmsXMg": 955,
+            "rmsYMg": 100,
+            "rmsZMg": 61,
+            "peakXMg": 995,
+            "peakYMg": 139,
+            "peakZMg": 105,
+            "dominantAxis": 1,
+            "exceedGlobal": 1,
+            "exceedX": 1,
+            "exceedY": 1,
+            "exceedZ": 1,
+            "alarmLatched": 0,
+            "exceedCount": 1,
+            "alarmCount": 0
+          },
+          "valuesValid": true,
+          "fresh": false,
+          "held": true,
+          "acquisitionStopped": true,
+          "windowUtc": null
+        },
+        "continuity": "RepeatedSequence",
+        "source": "Physical RS485 COM4 115200 8E1 / NModbus; DIAGNOSTIC NON-PRODUCTION; actual B0/B4/B6/B3; no UTC/run/config inference",
+        "detail": null,
+        "rejectedB3Registers": null,
+        "rejectedB3Value": null,
+        "runId": null,
+        "epoch": null,
+        "configurationId": null,
+        "configurationGeneration": null,
+        "eventMonotonicMicroseconds": null,
+        "mode": "LIVE_READONLY"
+      },
+      "historical": false,
+      "transportConnected": true,
+      "isCurrent": false,
+      "receptionAgeSeconds": 0.1219029,
+      "archiveState": "Persisted",
+      "archiveError": null
+    }
+  ],
+  "coverage": "Dernières 1000 observations SQLite ; couverture bornée, aucun inventaire exhaustif ni affectation équipement/local.",
+  "archiveError": null
+}

@@ -1,0 +1,51 @@
+[
+  {
+    "name": "connection-control.command.lock",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "initial_stat_size": 0,
+    "prefix_snapshot_not_consistent_active_SQLite": false
+  },
+  {
+    "name": "live.db",
+    "bytes": 11386880,
+    "sha256": "5d17986276aa5238591aa5d7658a17c8685b75866ae6a76900dea7255fda5d3b",
+    "initial_stat_size": 11386880,
+    "prefix_snapshot_not_consistent_active_SQLite": true
+  },
+  {
+    "name": "serial-5512-26404.jsonl",
+    "bytes": 24413,
+    "sha256": "bb475ed0688aac8c3da1321bb6e599670701a8e9d4396af328482089de1cdd4c",
+    "initial_stat_size": 24413,
+    "prefix_snapshot_not_consistent_active_SQLite": false
+  },
+  {
+    "name": "serial-cycle1.jsonl",
+    "bytes": 823916,
+    "sha256": "7b2f7db1adc229093e600c014bdd7a278f9af70b39e252c583c636d11eec9540",
+    "initial_stat_size": 823916,
+    "prefix_snapshot_not_consistent_active_SQLite": false
+  },
+  {
+    "name": "serial-cycle2.jsonl",
+    "bytes": 6918880,
+    "sha256": "5dc29c0e8fb349fb4c777d2cd50711e527dd945de7305bd436b909fbabc10963",
+    "initial_stat_size": 6918880,
+    "prefix_snapshot_not_consistent_active_SQLite": false
+  },
+  {
+    "name": "service-5512-26404.log",
+    "bytes": 320159,
+    "sha256": "bb8c45b59b5e8fdb74514548915e763a989e8deaed0795f1f6415dbf97d4ca6c",
+    "initial_stat_size": 320159,
+    "prefix_snapshot_not_consistent_active_SQLite": false
+  },
+  {
+    "name": "transactions.json",
+    "bytes": 39,
+    "sha256": "007cc748c76cc33cb58e8a414beb433190fced0232473bfe476f4de088bb072f",
+    "initial_stat_size": 39,
+    "prefix_snapshot_not_consistent_active_SQLite": false
+  }
+]

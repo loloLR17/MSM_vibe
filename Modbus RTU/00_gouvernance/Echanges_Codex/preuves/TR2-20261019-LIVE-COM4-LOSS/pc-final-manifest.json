@@ -1,0 +1,68 @@
+[
+  {
+    "file": "connection-control.command.lock",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "note": "point-in-time prefix if final service still writing"
+  },
+  {
+    "file": "serial-5512-26404.jsonl",
+    "bytes": 24413,
+    "sha256": "bb475ed0688aac8c3da1321bb6e599670701a8e9d4396af328482089de1cdd4c",
+    "note": "point-in-time prefix if final service still writing"
+  },
+  {
+    "file": "serial-8598-25568.jsonl",
+    "bytes": 714039,
+    "sha256": "56f0de7aeefe52a182a51976400524d0f6d3c7ee4de3f6101536dcc80a4f5f66",
+    "note": "point-in-time prefix if final service still writing"
+  },
+  {
+    "file": "serial-9300-9947.jsonl",
+    "bytes": 1201914,
+    "sha256": "77d692fa404309b7ec6c6ad1cbe28cdec558531073d09f5ec8722ef563bdb9de",
+    "note": "point-in-time prefix if final service still writing"
+  },
+  {
+    "file": "serial-causal-baseline.jsonl",
+    "bytes": 229882,
+    "sha256": "b6582e03685111e2377a31423fa1a8d7cb1e4d3eb8bba3f8e403b254da22eae8",
+    "note": "point-in-time prefix if final service still writing"
+  },
+  {
+    "file": "serial-cycle1.jsonl",
+    "bytes": 823916,
+    "sha256": "7b2f7db1adc229093e600c014bdd7a278f9af70b39e252c583c636d11eec9540",
+    "note": "point-in-time prefix if final service still writing"
+  },
+  {
+    "file": "serial-cycle2.jsonl",
+    "bytes": 6918880,
+    "sha256": "5dc29c0e8fb349fb4c777d2cd50711e527dd945de7305bd436b909fbabc10963",
+    "note": "point-in-time prefix if final service still writing"
+  },
+  {
+    "file": "service-5512-26404.log",
+    "bytes": 320159,
+    "sha256": "bb8c45b59b5e8fdb74514548915e763a989e8deaed0795f1f6415dbf97d4ca6c",
+    "note": "point-in-time prefix if final service still writing"
+  },
+  {
+    "file": "service-8598-25568.log",
+    "bytes": 1223191,
+    "sha256": "5a819dcd9c68476512dcae880e60ccee8e1d41574ac3678351933a4399a96681",
+    "note": "point-in-time prefix if final service still writing"
+  },
+  {
+    "file": "service-9300-9947.log",
+    "bytes": 1087424,
+    "sha256": "dfd407bbb8b03e379d904a89ab2c5e1b3152158d3bc0e45908815884b36928fd",
+    "note": "point-in-time prefix if final service still writing"
+  },
+  {
+    "file": "transactions.json",
+    "bytes": 39,
+    "sha256": "0ea12db8ad054dc6784ee52c97827910e7831a7362f5b8d333fa50dd40cd7704",
+    "note": "point-in-time prefix if final service still writing"
+  }
+]

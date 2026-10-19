@@ -1,0 +1,14 @@
+{
+  "cause": "Out-of-band 262144-byte target function called by GDB inside timed cooperative service; normal deadline enforcement latches fault and ends UART service",
+  "original_max_service_us": 846318,
+  "reproduced_max_service_us": 846632,
+  "limit_us": 2500,
+  "initial_UART_receives_B0_in_event_ring": true,
+  "IRQ_still_enabled": true,
+  "hardfault_observed": false,
+  "reproduction_count": 1,
+  "FRAM_unchanged": true,
+  "Windows_SAC_change": false,
+  "firmware_changes": false,
+  "previous_report_ready_state_superseded": "Initial bounded acquisition results remain factual; post-final-audit runnable state was not checked and was wrong"
+}

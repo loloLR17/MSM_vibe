@@ -1,0 +1,14 @@
+{
+  "utc": "2026-10-19T14:32:53.369663+00:00",
+  "target": "003500463235510B37333439",
+  "elf_sha256": "ba999ab4a8aa674a977ca8e3ab95469eba46c0d12ff2cdbf98c89bcfb1a1cbe3",
+  "flash_prefix_sha256": "9bbe397911185b798a0b030aba893a325bfdf6afa6947145bda9157f3bff0981",
+  "fram_sha256": "e18e07adbf12176fa02f1385fa6b4713e5b35e6f101c49959229cf2f1067ec15",
+  "epoch": 5,
+  "stop_transaction": 17,
+  "idle_scope_guard": true,
+  "flash_reset_persistent_write": false,
+  "deadline_guards_modified": false,
+  "post_detach_COM4_health_verified": false,
+  "next_action": "Start observation service and prove fresh B0/B3 after detach before claiming ready"
+}
