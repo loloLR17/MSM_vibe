@@ -1430,5 +1430,21 @@
     "sha256": "cac171e5b48124ccc448231474d54868e62cb4b5eb682076a1eae8aa35169112",
     "stored_sha256": "cac171e5b48124ccc448231474d54868e62cb4b5eb682076a1eae8aa35169112",
     "compression": null
+  },
+  {
+    "source": "remote-readback-cc66d2ef.json",
+    "stored": "remote-readback-cc66d2ef.json",
+    "bytes": 393,
+    "sha256": "f965c3f0e470d241e6c8fcc22609fd91898281395228896cb28df069dd1ac225",
+    "stored_sha256": "f965c3f0e470d241e6c8fcc22609fd91898281395228896cb28df069dd1ac225",
+    "compression": null
+  },
+  {
+    "source": "read-remote.py",
+    "stored": "read-remote.py",
+    "bytes": 2186,
+    "sha256": "a2e78ad325570db20c3032dc384685e7757349a7c5097589bcfff726ed8b4208",
+    "stored_sha256": "a2e78ad325570db20c3032dc384685e7757349a7c5097589bcfff726ed8b4208",
+    "compression": null
   }
 ]

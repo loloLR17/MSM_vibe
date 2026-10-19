@@ -1,0 +1,11 @@
+{
+  "result": "PASS",
+  "sha": "cc66d2ef1a4924d6b9827965da807e75fb3d2617",
+  "changed_deliverables_reread_byte_exact": 191,
+  "raw_and_stored_evidence_verified": 179,
+  "remote_SQLite_integrity": "ok",
+  "remote_SQLite_rows": 6060,
+  "report_status": "IN_PROGRESS",
+  "utc": "2026-10-19T13:58:40.252764+00:00",
+  "physical_PC_and_firmware_source": "c36c9718a75e6b40c45707a482e8db836296cab2"
+}
