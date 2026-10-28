@@ -28,9 +28,17 @@ Aucun échantillon à −32768 ou +32767 dans ces fenêtres. Ces deux diagnostic
 
 Le snapshot SQLite natif Windows du début de mission contient 24 337 observations, intégrité `ok` ; les 5 569 observations V/F historiques ont des RMS globaux 951–2100 mg. Ce maximum vectoriel n’est pas une preuve de saturation d’un axe. Ni la conversion, ni B3, ni le graphe existant (`0..max(points)`) ne montrent de plafond à 2 mg. Sans période/capture originale du constat utilisateur, son origine précise n’est pas rétrodéduite. Une variation de quelques mg autour d’environ 1 g est distincte de la plage matérielle. Les observations physiques nouvelles et le FS relu sont consignés dans le rapport de mission.
 
+## Confirmation physique du 28 octobre
+
+Un seul nouveau cycle utile à cette mission : START5/24/run17 (40,012s) puis STOP5/25 (40,060s), terminaux4/0 et effets B3 réels. La première fenêtre brute4096, extraite après STOP, reproduit exactement le premier B3 reçu par le contrôleur : RMS G/X/Y/Z **954/950/88/12 mg**, crêtes **1002/996/126/43 mg**, zéro échantillon aux rails. MoyenneXYZ −950,281/−87,388/+2,639mg, norme954,294mg ; diagnostic RMS centré global19,391mg, toujours hors mapping normatif.
+
+Au point d’arrêt sûr `live_runtime_step`, FIFO inactive et scopes depth0/servicingfalse, WHO_AM_I=7B et CTRL1_XL=00 sont relus : FS00=±2g, ODRoff. Le calibre pendant l’acquisition est étayé par la configuration autoritative3/gen3, `fifo.full_scale=0` et les gardes de readback physiques inchangées exécutées au START/poll ; aucune lecture GDB n’a interrompu le FIFO. Flash147024octets exactement9bbe…0981, zéro reset/flash, FRAM finale3c56ea55…3a2b5/journal126/root139/run17, préfixe historique et queue exacts à la référence97f43a du19/10. B0/B3 physiques reçus après détachement sans reset.
+
+Le service était pausé pendant la commande START : le premier B3seq1 est dans la trace du contrôleur, **pas** réinjecté artificiellement dans SQLite. La suite SQLite/API/DOM/CSV porte sur les fenêtres réelles ultérieures du même run ; le rapport distingue ces deux correspondances.
+
 ## Présentation et données inchangées
 
-Les six onglets LIVE et le parc mettent les valeurs absolues en mg, leur qualité et leur ancienneté avant les diagnostics. L’âge d’une dernière mesure connue est calculé depuis **sa propre réception**, distincte de l’âge du dernier échange, qui peut contenir une mesure invalide ou aucune mesure. Une valeur absente reste « — ». STOP/HELD reste distinct d’une panne ou de la sévérité B3 transmise.
+Les six onglets LIVE et le parc mettent les valeurs absolues en mg, leur qualité et leur ancienneté avant les diagnostics. L’âge d’une dernière mesure connue est calculé depuis **sa propre réception**, distincte de l’âge du dernier échange, qui peut contenir une mesure invalide ou aucune mesure. L’âge B3 transmis est également affiché séparément : une nouvelle réception HELD ne rajeunit pas la mesure sous-jacente. Une valeur absente reste « — ». STOP/HELD reste distinct d’une panne ou de la sévérité B3 transmise.
 
 Les courbes gardent les observations réelles, ruptures, identités, séquences répétées et CSV brut. Par défaut, l’axe Y commence à zéro avec des graduations réelles. Le mode « Détail variation » autorise une origine non nulle **annoncée explicitement** ; il ne soustrait rien aux mesures. Le texte min/max/variation décrit les valeurs du lot, jamais le calibre du capteur. Les boutons et contrôles persistent pendant le polling ; aucune nouvelle source Modbus, API d’écriture ou cache métier n’est ajoutée.
 

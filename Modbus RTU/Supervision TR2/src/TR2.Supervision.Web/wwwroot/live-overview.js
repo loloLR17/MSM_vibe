@@ -20,7 +20,7 @@
     const measurementAgeSeconds = measurement ? Math.max(0, (Date.now() - Date.parse(measurement.receivedAt))/1000) : null;
     const acquisition = historical ? "Historique" : !current ? "Inconnue" : current.acquisitionStopped ? (current.held ? "STOP · HELD" : "STOP") : row.isCurrent ? "RUNNING" : "Non arrêtée · qualité à vérifier";
     return {o, measurement, value, label, endpoint, state, quality, prefix, acquisition, measurementAgeSeconds,
-      measurementAge: measurementAgeSeconds == null ? "Aucune mesure valide" : Math.floor(measurementAgeSeconds) + " s · réception de cette mesure",
+      measurementAge: measurementAgeSeconds == null ? "Aucune mesure valide" : "B3 : " + (Number.isFinite(value?.valueAgeMilliseconds) ? Math.floor(value.valueAgeMilliseconds/1000) + " s" : "âge indisponible") + " · réception PC : " + Math.floor(measurementAgeSeconds) + " s",
       retained: !!retained,
       severity: value ? (severityNames[value.severityGlobal] ?? "Inconnue") + " (" + value.severityGlobal + ")" : "Indisponible",
       owner: owner == null ? "inconnu" : "TR2 " + owner,
@@ -90,7 +90,7 @@
       }
       put(n.a,x.o.deviceId ? "TR2 · " + x.o.deviceId.value : "Capteur non identifié"); n.a.href = "/live-device.html?" + target(row);
       put(n.endpoint,x.endpoint); put(n.rms,x.rms); put(n.peak,x.peak);
-      put(n.rmsNote,x.value ? (x.retained ? "Dernière connue · " + x.measurementAge : "Courante · B3 V/F") : "Aucune mesure valide");
+      put(n.rmsNote,x.value ? (x.retained ? "Dernière connue · " + x.owner + " · " + x.measurementAge : "Courante · B3 V/F") : "Aucune mesure valide");
       put(n.peakNote,x.measurement?.receivedAt ?? "—");
       put(n.severity,x.severity); n.severity.className = "badge " + (x.retained ? "muted" : x.value?.severityGlobal >= 3 ? "caution" : "muted");
       put(n.severityNote,x.retained ? "Sévérité de la dernière mesure" : "Sévérité transmise par B3");
@@ -137,7 +137,7 @@
     put(document.getElementById("liveDeviceTitle"),o.deviceId ? "TR2 · "+o.deviceId.value : "Capteur non identifié");
     const subtitle=document.getElementById("liveDeviceSubtitle");if(subtitle)put(subtitle,x.endpoint+" · Équipement / emplacement non renseignés");
     const values={transport:x.state,acquisition:x.acquisition,quality:x.quality,rms:x.rms,peak:x.peak,
-      rmsNote:x.value ? x.prefix : "Aucune mesure valide",peakNote:x.value ? x.measurementAge : "En attente d’une mesure valide",
+      rmsNote:x.value ? x.prefix + (x.retained ? " · " + x.owner : "") : "Aucune mesure valide",peakNote:x.value ? x.measurementAge : "En attente d’une mesure valide",
       severity:x.severity,severityNote:x.retained ? "Dernière mesure connue · non courante" : "Transmise par le capteur",
       measureLabel:row.isCurrent ? "Courante" : x.value ? "Dernière connue" : "En attente",
       measureLabelNote:x.value ? x.measurementAge : "STOP · aucune valeur valide",

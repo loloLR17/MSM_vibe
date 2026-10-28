@@ -23,3 +23,9 @@ test('intentional STOP/HELD is distinct from live acquisition and transport loss
  assert.equal(present(row).acquisition,'STOP · HELD');assert(!T.attention(row));
  assert.equal(present({...row,isCurrent:true,observation:{...o,snapshot:{...o.snapshot,held:false,fresh:true,acquisitionStopped:false}}}).acquisition,'RUNNING');
 });
+
+test('a freshly received HELD frame does not reset the displayed age of the underlying B3 value',()=>{
+ const receivedAt=new Date().toISOString(),o={observationId:'held',deviceId:{value:1},busId:'b',modbusAddress:1,receivedAt,snapshot:{valuesValid:true,fresh:false,held:true,acquisitionStopped:true,value:{rmsGlobalMg:955,peakGlobalMg:992,severityGlobal:0,valueAgeMilliseconds:120000}}};
+ const x=present({observation:o,lastKnown:o,isCurrent:false,transportConnected:true,receptionAgeSeconds:0});
+ assert(x.measurementAge.includes('B3 : 120 s'));assert(x.measurementAge.includes('réception PC : 0 s'));assert(x.retained);
+});
