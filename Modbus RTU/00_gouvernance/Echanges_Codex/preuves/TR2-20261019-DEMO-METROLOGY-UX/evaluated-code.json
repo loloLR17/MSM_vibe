@@ -1,0 +1,17 @@
+{
+  "frontend_sha": "f8dbfefdd89827069acad4bdae7ebdeef7426689",
+  "static_files": [
+    "wwwroot/live-device.html",
+    "wwwroot/live-fleet.html",
+    "wwwroot/live-history.js",
+    "wwwroot/live-overview.js",
+    "wwwroot/live-trends.js",
+    "wwwroot/live-ui.css",
+    "wwwroot/live.html",
+    "wwwroot/live.js"
+  ],
+  "source_bytes_equal_deployed": true,
+  "stm32_code_sha": "c36c9718a75e6b40c45707a482e8db836296cab2",
+  "service_content_sha": "d67741f24569fc93b7e23a570745c4af59a05fde",
+  "service_binary_sha256": "63f3ddc1a91d99599a719bc6a013aa52810a9813a9d08c40233ce45b29cb85fa"
+}

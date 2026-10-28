@@ -1,0 +1,111 @@
+{
+  "raw_oracles": [
+    {
+      "source": "/home/lolo/dev/msm/reports/TR2-windows-trust-live-resume/hardware/cycle1-audit-xyz.bin",
+      "sha256": "2b96a0c69f01eaab835a5aff50b8f7822582b6c7b183b5ea0c6fb4a2db8a752f",
+      "historical": true,
+      "xyz": 4096,
+      "full_scale_code": 0,
+      "sensitivity_ug_lsb": 61,
+      "rms_mg": [
+        962,
+        955,
+        102,
+        61
+      ],
+      "peak_mg": [
+        1000,
+        991,
+        135,
+        103
+      ],
+      "raw_minmax": [
+        [
+          -16254,
+          -15094
+        ],
+        [
+          -2213,
+          -1137
+        ],
+        [
+          -1692,
+          -378
+        ]
+      ],
+      "raw_saturation_count": 0,
+      "mean_axis_mg": [
+        -955.088134765625,
+        -101.76904296875,
+        -60.603271484375
+      ],
+      "dc_norm_mg": 962.4048211597159,
+      "offline_centered_rms_axis_mg": [
+        10.7759631891406,
+        10.18255625167208,
+        12.528778553065937
+      ],
+      "offline_centered_rms_global_mg": 19.410721947005072,
+      "centered_diagnostic_only_not_B3": true
+    },
+    {
+      "source": "/home/lolo/dev/msm/reports/TR2-windows-trust-live-resume/hardware/cycle2-audit-xyz.bin",
+      "sha256": "fe541499d90a70cb2abaf8b509da5d74c47a77f4c3a11a0081069747e89504c3",
+      "historical": true,
+      "xyz": 4096,
+      "full_scale_code": 0,
+      "sensitivity_ug_lsb": 61,
+      "rms_mg": [
+        962,
+        955,
+        101,
+        62
+      ],
+      "peak_mg": [
+        1002,
+        992,
+        145,
+        106
+      ],
+      "raw_minmax": [
+        [
+          -16269,
+          -15004
+        ],
+        [
+          -2377,
+          -1025
+        ],
+        [
+          -1744,
+          -239
+        ]
+      ],
+      "raw_saturation_count": 0,
+      "mean_axis_mg": [
+        -955.4228515625,
+        -101.105224609375,
+        -61.0908203125
+      ],
+      "dc_norm_mg": 962.6978654061643,
+      "offline_centered_rms_axis_mg": [
+        11.13933877889937,
+        10.689962803242436,
+        12.56044190662046
+      ],
+      "offline_centered_rms_global_mg": 19.902886073516715,
+      "centered_diagnostic_only_not_B3": true
+    }
+  ],
+  "sqlite_integrity": "ok",
+  "sqlite_valid_fresh_observations": 5569,
+  "by_day": {
+    "2026-10-19": {
+      "count": 5569,
+      "rms_min_mg": 951,
+      "rms_max_mg": 2100,
+      "span_mg": 1149
+    }
+  },
+  "conclusion": "No 2 mg cap in conversion/B3 or graph domain. Existing Y scale 0..max. 2mg user observation not exactly reproducible without its original time/graph; small variation is not FS. DC not removed; startup calibration is time only. No normative change."
+}

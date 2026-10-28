@@ -1,0 +1,13 @@
+{
+  "changed": [
+    "wwwroot/live-device.html",
+    "wwwroot/live-fleet.html",
+    "wwwroot/live-history.js",
+    "wwwroot/live-overview.js",
+    "wwwroot/live-trends.js",
+    "wwwroot/live-ui.css",
+    "wwwroot/live.html",
+    "wwwroot/live.js"
+  ],
+  "binaries_unchanged": true
+}

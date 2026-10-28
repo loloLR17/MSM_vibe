@@ -1,0 +1,119 @@
+{
+  "utc": "2026-10-28T21:17:26.099Z",
+  "/api/v2/live/overview": {
+    "status": 200,
+    "body": {
+      "observedAt": "2026-10-28T21:17:26.147419+00:00",
+      "devices": [
+        {
+          "observation": {
+            "observationId": "979e8224-8225-4a33-939b-2f7244880f22",
+            "deviceId": null,
+            "segmentId": "9d33909d-b900-4200-81d7-72bb8f29fbcf",
+            "busId": "live-direct",
+            "modbusAddress": 1,
+            "receivedAt": "2026-10-28T21:17:26.0554469+00:00",
+            "identity": null,
+            "snapshot": null,
+            "continuity": "CommunicationLost",
+            "source": "Physical RS485 COM4 115200 8E1 / NModbus; DIAGNOSTIC NON-PRODUCTION; actual B0/B4/B6/B3; no UTC/run/config inference",
+            "detail": "Operator logical disconnect: serial handle closed; no target read.",
+            "rejectedB3Registers": null,
+            "rejectedB3Value": null,
+            "runId": null,
+            "epoch": null,
+            "configurationId": null,
+            "configurationGeneration": null,
+            "eventMonotonicMicroseconds": null,
+            "mode": "LIVE_READONLY"
+          },
+          "lastKnown": {
+            "observationId": "31e9706b-623a-4cf6-ba30-4aeb5bf17919",
+            "deviceId": {
+              "value": 1
+            },
+            "segmentId": "9d33909d-b900-4200-81d7-72bb8f29fbcf",
+            "busId": "live-direct",
+            "modbusAddress": 1,
+            "receivedAt": "2026-10-28T21:17:25.7068432+00:00",
+            "identity": {
+              "deviceId": {
+                "value": 1
+              },
+              "profile": "LiveDiagnostic",
+              "protocolVersion": 2,
+              "capabilities": 12,
+              "configurationStructureVersion": 2,
+              "inventoryStructureVersion": 2,
+              "diagnosticStructureVersion": null,
+              "hardwareVersion": 1,
+              "firmwareMajor": 0,
+              "firmwareMinor": 14,
+              "firmwarePatch": 8
+            },
+            "snapshot": {
+              "value": {
+                "statusGlobal": 1,
+                "validityFlags": 5819,
+                "alarmFlags": 240,
+                "severityGlobal": 0,
+                "lastUpdateTr2Seconds": 0,
+                "valueAgeMilliseconds": 178271,
+                "calculationSequence": 78,
+                "windowDurationMilliseconds": 153,
+                "validSampleCount": 4096,
+                "rmsGlobalMg": 955,
+                "peakGlobalMg": 992,
+                "rmsXMg": 950,
+                "rmsYMg": 98,
+                "rmsZMg": 12,
+                "peakXMg": 987,
+                "peakYMg": 134,
+                "peakZMg": 52,
+                "dominantAxis": 1,
+                "exceedGlobal": 1,
+                "exceedX": 1,
+                "exceedY": 1,
+                "exceedZ": 1,
+                "alarmLatched": 0,
+                "exceedCount": 1,
+                "alarmCount": 0
+              },
+              "valuesValid": true,
+              "fresh": false,
+              "held": true,
+              "acquisitionStopped": true,
+              "windowUtc": null
+            },
+            "continuity": "RepeatedSequence",
+            "source": "Physical RS485 COM4 115200 8E1 / NModbus; DIAGNOSTIC NON-PRODUCTION; actual B0/B4/B6/B3; no UTC/run/config inference",
+            "detail": null,
+            "rejectedB3Registers": null,
+            "rejectedB3Value": null,
+            "runId": null,
+            "epoch": null,
+            "configurationId": null,
+            "configurationGeneration": null,
+            "eventMonotonicMicroseconds": null,
+            "mode": "LIVE_READONLY"
+          },
+          "historical": false,
+          "transportConnected": false,
+          "isCurrent": false,
+          "receptionAgeSeconds": 0.0919721,
+          "archiveState": "Persisted",
+          "archiveError": null
+        }
+      ],
+      "coverage": "Dernières 1000 observations SQLite ; couverture bornée, aucun inventaire exhaustif ni affectation équipement/local.",
+      "archiveError": null
+    }
+  },
+  "/api/v1/fleet": {
+    "status": 200,
+    "body": {
+      "observedAt": "2026-10-28T21:17:26.1647469+00:00",
+      "devices": []
+    }
+  }
+}

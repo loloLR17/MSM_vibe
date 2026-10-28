@@ -1,0 +1,30 @@
+TAP version 13
+# Subtest: mg scale covers actual near-gravity values and high acceleration without a 2 mg cap
+ok 1 - mg scale covers actual near-gravity values and high acceleration without a 2 mg cap
+  ---
+  duration_ms: 2.031141
+  ...
+# Subtest: variation scale never changes values or CSV and keeps an explicit nonzero origin
+ok 2 - variation scale never changes values or CSV and keeps an explicit nonzero origin
+  ---
+  duration_ms: 1.055782
+  ...
+# Subtest: last-known measurement age is independent of a new reception containing no valid value
+ok 3 - last-known measurement age is independent of a new reception containing no valid value
+  ---
+  duration_ms: 0.748325
+  ...
+# Subtest: intentional STOP/HELD is distinct from live acquisition and transport loss
+ok 4 - intentional STOP/HELD is distinct from live acquisition and transport loss
+  ---
+  duration_ms: 0.318377
+  ...
+1..4
+# tests 4
+# suites 0
+# pass 4
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 159.078361

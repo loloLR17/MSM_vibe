@@ -1,0 +1,28 @@
+{
+  "utc": "2026-10-28T21:11:12.861268+00:00",
+  "path": "/mnt/c/Users/lolo/AppData/Local/MSM/TR2-LIVE-COM4-HELD-20261019/app",
+  "backup": "/mnt/c/Users/lolo/AppData/Local/MSM/TR2-DEMO-METROLOGY-UX/static-rollback",
+  "previous": {
+    "wwwroot/live-device.html": "7931d536b981f014c1502c5cf8ae14a0f8a6125aedfb3e36638f9add467d98c9",
+    "wwwroot/live-fleet.html": "c3a81245cc33f4d718ddd95977b1f6227b9931ee852f8bf3fddab14dec8a5781",
+    "wwwroot/live-history.js": "8c975553f5085db04873926963214512188665a12f14e2eeaf479189526afcd0",
+    "wwwroot/live-overview.js": "9d2b5dc06f903662a1e5b0be339c9ff7a0049ca71699e1b0a260a2f9147b3ebb",
+    "wwwroot/live-trends.js": "57ae40b2e17d9f4f684e81bb477f14dd1d6443b3be0c42f779897b9cd1fd3fea",
+    "wwwroot/live-ui.css": null,
+    "wwwroot/live.html": "a85d428b1f35d997e9e663389a3eeb0f459bec9642960aa7be6597c80f30f123",
+    "wwwroot/live.js": "054d532dd9936d3969d87c3ca3304eb744f8461474df233cd305600a20a14e85"
+  },
+  "changes": [
+    "wwwroot/live-device.html",
+    "wwwroot/live-fleet.html",
+    "wwwroot/live-history.js",
+    "wwwroot/live-overview.js",
+    "wwwroot/live-trends.js",
+    "wwwroot/live-ui.css",
+    "wwwroot/live.html",
+    "wwwroot/live.js"
+  ],
+  "binaries_all_unchanged": true,
+  "no_service_restart": true,
+  "security_unchanged": true
+}

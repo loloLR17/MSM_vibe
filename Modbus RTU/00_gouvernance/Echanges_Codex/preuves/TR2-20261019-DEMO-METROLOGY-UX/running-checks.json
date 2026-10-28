@@ -1,0 +1,12 @@
+{
+  "detailsRetained": true,
+  "focusRetained": true,
+  "axisBefore": 804,
+  "axisAfter": 536,
+  "variationLabel": "Accélération absolue en mg, réception PC UTC ; domaine 940 à 1020 mg, détail de variation, origine non nulle possible",
+  "yMin": "940",
+  "csvRows": 500,
+  "globalPoints": 536,
+  "exceptions": [],
+  "utc": "2026-10-28T21:13:23.754Z"
+}

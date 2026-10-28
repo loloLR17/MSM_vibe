@@ -1,0 +1,21 @@
+{
+  "command": [
+    "/mnt/c/Users/lolo/AppData/Local/MSM/TR2-DEMO-METROLOGY-UX/app/TR2.Supervision.Service.exe",
+    "--live-direct",
+    "COM99",
+    "--allow-diagnostic",
+    "--database",
+    "C:\\Users\\lolo\\AppData\\Local\\MSM\\TR2-Windows-Gates\\windows-held-age-gate\\smoke.db",
+    "--listen",
+    "http://127.0.0.1:5102",
+    "--trace",
+    "C:\\Users\\lolo\\AppData\\Local\\MSM\\TR2-Windows-Gates\\windows-held-age-gate\\serial.jsonl",
+    "--seconds",
+    "20",
+    "--unit",
+    "1",
+    "--connection-control",
+    "C:\\Users\\lolo\\AppData\\Local\\MSM\\TR2-Windows-Gates\\windows-held-age-gate\\control"
+  ],
+  "start_utc": "2026-10-28T21:16:43.677130+00:00"
+}

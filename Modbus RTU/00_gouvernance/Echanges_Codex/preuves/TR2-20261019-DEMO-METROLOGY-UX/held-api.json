@@ -1,0 +1,168 @@
+{
+  "utc": "2026-10-28T21:15:55.754Z",
+  "/api/v2/live/overview": {
+    "status": 200,
+    "body": {
+      "observedAt": "2026-10-28T21:15:55.7982699+00:00",
+      "devices": [
+        {
+          "observation": {
+            "observationId": "be5fec42-31db-4923-b118-19062733c901",
+            "deviceId": {
+              "value": 1
+            },
+            "segmentId": "9d33909d-b900-4200-81d7-72bb8f29fbcf",
+            "busId": "live-direct",
+            "modbusAddress": 1,
+            "receivedAt": "2026-10-28T21:15:55.6264831+00:00",
+            "identity": {
+              "deviceId": {
+                "value": 1
+              },
+              "profile": "LiveDiagnostic",
+              "protocolVersion": 2,
+              "capabilities": 12,
+              "configurationStructureVersion": 2,
+              "inventoryStructureVersion": 2,
+              "diagnosticStructureVersion": null,
+              "hardwareVersion": 1,
+              "firmwareMajor": 0,
+              "firmwareMinor": 14,
+              "firmwarePatch": 8
+            },
+            "snapshot": {
+              "value": {
+                "statusGlobal": 1,
+                "validityFlags": 5819,
+                "alarmFlags": 240,
+                "severityGlobal": 0,
+                "lastUpdateTr2Seconds": 0,
+                "valueAgeMilliseconds": 87586,
+                "calculationSequence": 78,
+                "windowDurationMilliseconds": 153,
+                "validSampleCount": 4096,
+                "rmsGlobalMg": 955,
+                "peakGlobalMg": 992,
+                "rmsXMg": 950,
+                "rmsYMg": 98,
+                "rmsZMg": 12,
+                "peakXMg": 987,
+                "peakYMg": 134,
+                "peakZMg": 52,
+                "dominantAxis": 1,
+                "exceedGlobal": 1,
+                "exceedX": 1,
+                "exceedY": 1,
+                "exceedZ": 1,
+                "alarmLatched": 0,
+                "exceedCount": 1,
+                "alarmCount": 0
+              },
+              "valuesValid": true,
+              "fresh": false,
+              "held": true,
+              "acquisitionStopped": true,
+              "windowUtc": null
+            },
+            "continuity": "RepeatedSequence",
+            "source": "Physical RS485 COM4 115200 8E1 / NModbus; DIAGNOSTIC NON-PRODUCTION; actual B0/B4/B6/B3; no UTC/run/config inference",
+            "detail": null,
+            "rejectedB3Registers": null,
+            "rejectedB3Value": null,
+            "runId": null,
+            "epoch": null,
+            "configurationId": null,
+            "configurationGeneration": null,
+            "eventMonotonicMicroseconds": null,
+            "mode": "LIVE_READONLY"
+          },
+          "lastKnown": {
+            "observationId": "be5fec42-31db-4923-b118-19062733c901",
+            "deviceId": {
+              "value": 1
+            },
+            "segmentId": "9d33909d-b900-4200-81d7-72bb8f29fbcf",
+            "busId": "live-direct",
+            "modbusAddress": 1,
+            "receivedAt": "2026-10-28T21:15:55.6264831+00:00",
+            "identity": {
+              "deviceId": {
+                "value": 1
+              },
+              "profile": "LiveDiagnostic",
+              "protocolVersion": 2,
+              "capabilities": 12,
+              "configurationStructureVersion": 2,
+              "inventoryStructureVersion": 2,
+              "diagnosticStructureVersion": null,
+              "hardwareVersion": 1,
+              "firmwareMajor": 0,
+              "firmwareMinor": 14,
+              "firmwarePatch": 8
+            },
+            "snapshot": {
+              "value": {
+                "statusGlobal": 1,
+                "validityFlags": 5819,
+                "alarmFlags": 240,
+                "severityGlobal": 0,
+                "lastUpdateTr2Seconds": 0,
+                "valueAgeMilliseconds": 87586,
+                "calculationSequence": 78,
+                "windowDurationMilliseconds": 153,
+                "validSampleCount": 4096,
+                "rmsGlobalMg": 955,
+                "peakGlobalMg": 992,
+                "rmsXMg": 950,
+                "rmsYMg": 98,
+                "rmsZMg": 12,
+                "peakXMg": 987,
+                "peakYMg": 134,
+                "peakZMg": 52,
+                "dominantAxis": 1,
+                "exceedGlobal": 1,
+                "exceedX": 1,
+                "exceedY": 1,
+                "exceedZ": 1,
+                "alarmLatched": 0,
+                "exceedCount": 1,
+                "alarmCount": 0
+              },
+              "valuesValid": true,
+              "fresh": false,
+              "held": true,
+              "acquisitionStopped": true,
+              "windowUtc": null
+            },
+            "continuity": "RepeatedSequence",
+            "source": "Physical RS485 COM4 115200 8E1 / NModbus; DIAGNOSTIC NON-PRODUCTION; actual B0/B4/B6/B3; no UTC/run/config inference",
+            "detail": null,
+            "rejectedB3Registers": null,
+            "rejectedB3Value": null,
+            "runId": null,
+            "epoch": null,
+            "configurationId": null,
+            "configurationGeneration": null,
+            "eventMonotonicMicroseconds": null,
+            "mode": "LIVE_READONLY"
+          },
+          "historical": false,
+          "transportConnected": true,
+          "isCurrent": false,
+          "receptionAgeSeconds": 0.1717868,
+          "archiveState": "Persisted",
+          "archiveError": null
+        }
+      ],
+      "coverage": "Dernières 1000 observations SQLite ; couverture bornée, aucun inventaire exhaustif ni affectation équipement/local.",
+      "archiveError": null
+    }
+  },
+  "/api/v1/fleet": {
+    "status": 200,
+    "body": {
+      "observedAt": "2026-10-28T21:15:55.8177762+00:00",
+      "devices": []
+    }
+  }
+}

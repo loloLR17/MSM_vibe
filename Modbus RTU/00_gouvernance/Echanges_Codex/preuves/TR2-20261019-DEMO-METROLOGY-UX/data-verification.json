@@ -1,0 +1,38 @@
+{
+  "snapshot_rows": 29306,
+  "initial_rows_preserved_exact": 24337,
+  "snapshot_integrity": "ok",
+  "snapshot_sha256": "bc3c25a42c508037a2c57009a096aebc6fd46fa4d7d99befda549bebd1f726fc",
+  "new_rows": 4969,
+  "new_fresh": 464,
+  "new_held": 1705,
+  "new_snapshot_null": 757,
+  "new_rms_global_range_mg": [
+    952,
+    959
+  ],
+  "csv": [
+    {
+      "file": "running-export.csv",
+      "rows": 500,
+      "exact_against_snapshot": true
+    },
+    {
+      "file": "logical-loss-export.csv",
+      "rows": 500,
+      "exact_against_snapshot": true
+    },
+    {
+      "file": "final-export.csv",
+      "rows": 375,
+      "exact_against_snapshot": true
+    }
+  ],
+  "api_exact_against_sqlite": [
+    "baseline-api.json",
+    "held-api.json",
+    "logical-loss-api.json",
+    "post-audit-api.json"
+  ],
+  "note": "First raw window seq1 equals actual controller B3; service released during START, therefore no manufactured seq1 SQLite entry. Service observations are later actual windows; API/CSV correspond exactly to their original rows."
+}

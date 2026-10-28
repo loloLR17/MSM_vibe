@@ -1,0 +1,9 @@
+{
+  "utc": "2026-10-28T21:04:34.231Z",
+  "/api/v2/live/overview": {
+    "error": "fetch failed"
+  },
+  "/api/v1/fleet": {
+    "error": "fetch failed"
+  }
+}

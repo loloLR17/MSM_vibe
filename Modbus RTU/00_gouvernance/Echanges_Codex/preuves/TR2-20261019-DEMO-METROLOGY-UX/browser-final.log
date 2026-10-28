@@ -1,0 +1,5 @@
+summary {"width":1920,"overflow":false,"points":0,"chartTop":623.390625}
+vibration {"width":1920,"overflow":false,"points":0,"chartTop":623.390625}
+fleet {"width":1920,"overflow":false,"points":0}
+interaction {"width":1920,"overflow":false,"points":0,"chartTop":623.390625}
+{"detailsRetained":true,"focusRetained":true,"axisBefore":1125,"axisAfter":750,"variationLabel":"Accélération absolue en mg, réception PC UTC ; domaine 940 à 1020 mg, détail de variation, origine non nulle possible","yMin":"940","csvRows":375,"globalPoints":750,"exceptions":[],"utc":"2026-10-28T21:25:23.852Z"}
