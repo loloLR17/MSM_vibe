@@ -1,0 +1,10 @@
+{
+  "utc": "2026-10-28T21:56:55.820143+00:00",
+  "source": "/mnt/c/Users/lolo/AppData/Local/MSM/TR2-LIVE-COM4-HELD-20261019/data/service-6750-3377.log",
+  "read_prefix_bytes": 15426892,
+  "read_prefix_sha256": "5d1fab09daa67c4369dceb1bc76765de44c643e3018d0115519bd64c07154941",
+  "excerpt_rows": 35,
+  "excerpt_raw_sha256": "252aed796f90e06e067f6a4afd7656ed33ce494b50102cee2058e905e27166ac",
+  "source_modified": false,
+  "notice": "Append-only log prefix, not definitive end. Same PID7920 as 21:25 inventory; late initial comparison to pre-audit process corrected. Cause of sequence restart not observed, no flash/reset by Codex."
+}

@@ -1665,6 +1665,51 @@
       "stored_bytes": 3078,
       "raw_sha256": "2d7c5cd24b957736149dfd1facaa7b52c72a5117ed219853649f4850283ba1b5",
       "stored_sha256": "c8029449d09dc165d48df3cd82351bd885c68f2f35a464c44867c28c39e6f7c8"
+    },
+    {
+      "source": "late-service-change.json",
+      "stored": "late-service-change.json",
+      "compression": "none",
+      "raw_bytes": 625,
+      "stored_bytes": 625,
+      "raw_sha256": "2f93132539ff1d7c5127465ff08ad00768af8687489992d4f5cdc97317813d8e",
+      "stored_sha256": "2f93132539ff1d7c5127465ff08ad00768af8687489992d4f5cdc97317813d8e"
+    },
+    {
+      "source": "late-state-transitions.json",
+      "stored": "late-state-transitions.json",
+      "compression": "none",
+      "raw_bytes": 684,
+      "stored_bytes": 684,
+      "raw_sha256": "a287bb40737ffa8bf4f770bba2a071ab247ba13f17ccffeec9450c87588d9235",
+      "stored_sha256": "a287bb40737ffa8bf4f770bba2a071ab247ba13f17ccffeec9450c87588d9235"
+    },
+    {
+      "source": "late-service-excerpt.jsonl.zlib",
+      "stored": "late-service-excerpt.jsonl.zlib",
+      "compression": "none",
+      "raw_bytes": 2480,
+      "stored_bytes": 2480,
+      "raw_sha256": "065ebb69e3f9de72bc542e04cda325544f6beaf44783751570ed2a6f1d15e7f5",
+      "stored_sha256": "065ebb69e3f9de72bc542e04cda325544f6beaf44783751570ed2a6f1d15e7f5"
+    },
+    {
+      "source": "late-excerpt-manifest.json",
+      "stored": "late-excerpt-manifest.json",
+      "compression": "none",
+      "raw_bytes": 633,
+      "stored_bytes": 633,
+      "raw_sha256": "dd2550f1ed08733f7591d44b5f664c6b7a428679514175bc268dd0dfe08f609b",
+      "stored_sha256": "dd2550f1ed08733f7591d44b5f664c6b7a428679514175bc268dd0dfe08f609b"
+    },
+    {
+      "source": "late-preservation.json",
+      "stored": "late-preservation.json",
+      "compression": "none",
+      "raw_bytes": 1154,
+      "stored_bytes": 1154,
+      "raw_sha256": "3aff49ede39140cbf2338702bd671246a7f564adaa8600d19cc1a68c73358e1a",
+      "stored_sha256": "3aff49ede39140cbf2338702bd671246a7f564adaa8600d19cc1a68c73358e1a"
     }
   ]
 }

@@ -1,11 +1,11 @@
 ---
 mission_id: TR2-20261019-DEMO-METROLOGY-UX
-status: IN_PROGRESS
+status: DONE
 base_ref: main
 base_sha: cc7c9632f01a01a42442cb7c752ff7b3bcc3176e
 initial_head: 69e18c23c39aa642e6c0e6db530288cf53dddd9b
 result_sha: f8dbfefdd89827069acad4bdae7ebdeef7426689
-created_at_utc: 2026-10-28T21:30:00Z
+created_at_utc: 2026-10-28T21:57:58.701707+00:00
 author: Codex
 target_branch: main
 allow_commit: true
@@ -16,9 +16,9 @@ allow_debug: true
 
 # Accélération comprise, écrans LIVE refondus et déployés sans remplacer le firmware ni les exécutables
 
-**P1-A et P1-B réalisés ; attente de publication/relecture distante de ce bilan.** L’utilisateur confirme que la date passée du20/10 ne change pas l’objectif. La chaîne testée n’a pas de plafond2mg : le calibre est **±2g**, la conversion enmg est correcte, et les indicateurs B3 absolus conservent une forte composante constante compatible avec la pesanteur. Le démarrage calibre le **temps FIFO**, pas l’accélération. Aucune compensation ni évolution normative appliquée. La présentation est réellement déployée sur le service Windows fonctionnel, testée dans Edge sur données physiques. P2Web est documentée et différée conformément au contrat ; les lanceurs START/STOP restent utilisables.
+**P1-A et P1-B livrés et relus sur GitHub.** L’utilisateur confirme que la date passée du20/10 ne change pas l’objectif. La chaîne testée n’a pas de plafond2mg : le calibre est **±2g**, la conversion enmg est correcte, et les indicateurs B3 absolus conservent une forte composante constante compatible avec la pesanteur. Le démarrage calibre le **temps FIFO**, pas l’accélération. Aucune compensation ni évolution normative appliquée. La présentation est réellement déployée sur le service Windows fonctionnel, testée dans Edge sur données physiques. P2Web est documentée et différée conformément au contrat ; les lanceurs START/STOP restent utilisables.
 
-**État laissé : TR2-001 STOP5/25/HELD, firmwareLIVEc36 conservé, zéroflash/reset ; service Windows d677/63f3 inchangé actif localhost5100/COM4unique, GDB détaché.** URL : `http://127.0.0.1:5100/live-fleet.html` et `/live-device.html?deviceId=1&view=vibration`. Recharger la page pour prendre les assets actualisés. STOPreste une commande lente (~40s), pas un arrêt de sécurité industriel.
+**Dernier état observé à21:54:57UTC : TR2-001 connecté, STOP sans mesure valide / séquence0, service Windows d677/63f3 inchangé actif localhost5100/COM4unique, GDB détaché. DernierSTOPdurable observé5/25 ; firmwareLIVEc36 vérifié21:18, zéroflash/reset de Codex. La transition tardive est détaillée ci-dessous, sans cause inventée.** URL : `http://127.0.0.1:5100/live-fleet.html` et `/live-device.html?deviceId=1&view=vibration`. Recharger la page pour prendre les assets actualisés. STOPreste une commande lente (~40s), pas un arrêt de sécurité industriel.
 
 ## 1. Référence réelle et préservation
 
@@ -80,7 +80,7 @@ Validationproportionnée, sorties effectives conservées :
 - `node .../tests/live-ui.test.cjs .../wwwroot/live.js` : **7scénariosDOMsimuléPASS** ; cette preuve est distincte du vraiEdge décrit plushaut.
 - ChecksJavaScript/diff, troisgatesWindows pour révisionsdistinctes, vraiechaîneCOM4/Edge, auditphysique4096 et assertionsarithmétiques indépendantes. Aucun testC/crossbuild/ancienneendurance répété surfirmwareinchangé ; aucun assemblage.NET modifié justifiant un rebuild.
 
-**Snapshotfinal29306lignes/intégritéok**, backupAPI natifSQLiteWindows sourceouverte readonly, pas rawcopyWAL. Les**24337lignesinitiales sonttoutesidentiques** ;4969nouvelles, dont464V/F et1705HELD. API comparée aux payloadsoriginaux. CSVréels500+500+375lignes comparés champàchamp àSQLite, conservantnulls/HELD/identité/source ; aucun zéro substituéàuneabsence. Base etjournaux Windowsoriginaux conservés, pas réécrits. Snapshot/publiables compressés avec SHA256bruts/stockés.
+**Snapshot de21:25:45UTC :29306lignes/intégritéok**, backupAPI natifSQLiteWindows sourceouverte readonly, pas rawcopyWAL. Les**24337lignesinitiales sonttoutesidentiques** ;4969nouvelles, dont464V/F et1705HELD. API comparée aux payloadsoriginaux. CSVréels500+500+375lignes comparés champàchamp àSQLite, conservantnulls/HELD/identité/source ; aucun zéro substituéàuneabsence. Base etjournaux Windowsoriginaux conservés, pas réécrits. Snapshot/publiables compressés avec SHA256bruts/stockés.
 
 [Note métrologique et propositionAC/P2](../../Supervision%20TR2/LIVE_METROLOGY_UX.md), [repriseopérateur](../../Supervision%20TR2/operator-demo/REPRISE.md), [preuves/manifeste](preuves/TR2-20261019-DEMO-METROLOGY-UX/README.md). Local : `/home/lolo/dev/msm/reports/TR2-demo-metrology-ux/`. **JournalETAT_COURANT_TR2 actualisé** : sensphysique, interface, étatSTOP25, versionsconservées et limites. Gouvernance/contrat/specifications/archives/dettesA04 nonmodifiés.
 
@@ -88,4 +88,14 @@ CodeUI réellement évalué **f8dbfefdd89827069acad4bdae7ebdeef7426689** ; sourc
 
 **Limites et suite :** observationd’origine2mg nonlocalisée, pasd’étalonnagezéro/sensibilitéSI ou vibrationAC qualifiée. ProfilLiveDiagnosticpartiel/UTCfenêtreabsente ; aucunproduitR6/industriequalifié. CompensationDC et sécurité/autoritéWeb demandent décisions distinctes ; conception/detteP2publiée, aucuneactivationrisquée. Aucun blocageempêchantP1. Cette livraison demeure soumiseaucontrôleindépendantChatGPT.
 
-Ce bilan est provisoirement IN_PROGRESS pour la publication/relecture distante. Le SHA relu et la clôture seront consignés après contrôle byteàbyte des livrables/preuves ; le SHA propre du dernier commit sera donné dans la réponse finale.
+Publication intermédiaire **30c6f8d421f920435f33903966b2cae70ba7fc8e** récupérée depuis GitHub et relue intégralement à **2026-10-28T21:53:47UTC** : **201livrables byte-identiques**,185preuves avec SHA256bruts/stockés vérifiés, snapshot distant29306lignes/intégritéok. Aucune source protégée/gouvernance/archives modifiée. Preuve [PUBLICATION.json](preuves/TR2-20261019-DEMO-METROLOGY-UX/PUBLICATION.json). Un premier contrôle lancé avant la fin du push a refusé l’écart de SHA ; il n’a jamais été présenté comme réussi. Le contrôle ci-dessus suit le succès réel du push.
+
+## Contrôle tardif de clôture — état plus récent conservé honnêtement
+
+À21:54:57UTC, le même service natifPID7920 répondHTTP200 avec un vraiB0/B3 : transportconnecté, **STOP/flags4097/Vfalse/Ffalse/HELDfalse/séquence0**. Ce n’est plus le HELDseq78 vérifié21:23 et21:25. Analyse readonly du journal existant : perte à**21:45:25.452UTC**, retour à**21:45:30.905UTC** avec séquence0. **Cause de cette transition non observée** ; état compatible avec une réinitialisation de la mesure, sans prétendre prouver sa cause matérielle ou logicielle. Aucun flash/reset/commande de Codex entre les deux. Le premier commentaire qui évoquait aussi un nouveau processusService était erroné : comparaison avec le processus pré-audit ; inventaires21:25 et21:55 donnent le mêmePID7920. Rectification publiée immédiatement.
+
+Le ledger est toujours25. Le contrôle tardif confirme378fichiers exacts au gatefinal, toutesDLL/EXEinchangées, SAC1/zérorefuscorrélé, serviceunique/aucunGDB. Preuves : [FINAL_AVAILABILITY.json](preuves/TR2-20261019-DEMO-METROLOGY-UX/FINAL_AVAILABILITY.json), `late-state-transitions.json`, extraitreadonly35observations compressé et son manifeste, `late-preservation.json`. Le snapshot29306lignes est antérieur à cette transition ; les757pertes logiques classifiées portent uniquement sur ce snapshot et ne prétendent pas expliquer cette interruption tardive. Le journalWindows vivant est conservé, aucune ligne historique effacée.
+
+La carte répond et reste arrêtée, sans mesure nonvalide présentée comme actuelle. **Aucun nouveau START/reset/audit pour masquer ou qualifier cette transition.** DernierhashFRAM et Flash sont ceux de21:18, pas des relectures tardives inventées. Si cette interruption se reproduit, l’investigation de stabilité/alimentation/reset reste distincte ; la livraison bornée métrologie/présentation et ses preuves acquises ne sont pas effacées. Firmware/service fonctionnels conservés pendant les actions de cette mission ; état actuel rapporté avec sa limite.
+
+Journal et reprise opérateur mis à jour avec cet étatplusrécent. Gitpropre après le premierpush, mainhistorique/stashes/autresworktrees conservés. ClôtureDONE de livraison, distincte d’une qualificationindépendanteChatGPT ou d’une garantie d’endurance. Cette miseàjour est poussée normalement et relue également ; sonSHA et l’étatGit final sont fournis dans la réponse finale sans auto-référence du commit.

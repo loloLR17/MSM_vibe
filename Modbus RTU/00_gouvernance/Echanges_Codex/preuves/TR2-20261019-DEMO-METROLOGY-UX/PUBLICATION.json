@@ -1,0 +1,12 @@
+{
+  "utc": "2026-10-28T21:53:47.404060+00:00",
+  "remote_sha": "30c6f8d421f920435f33903966b2cae70ba7fc8e",
+  "local_sha": "30c6f8d421f920435f33903966b2cae70ba7fc8e",
+  "remote_report_mission": "TR2-20261019-DEMO-METROLOGY-UX",
+  "remote_report_status": "IN_PROGRESS",
+  "all_changed_files_read_integrally_equal": 201,
+  "bundle_raw_stored_sha256_verified": 185,
+  "remote_sqlite_integrity": "ok",
+  "remote_sqlite_rows": 29306,
+  "protected_sources_not_modified": true
+}

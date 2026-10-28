@@ -1,0 +1,25 @@
+{
+  "utc": "2026-10-28T21:55:42.661224+00:00",
+  "ledger": {
+    "Device": 1,
+    "Epoch": 5,
+    "Transaction": 25
+  },
+  "service_logs": {
+    "service-6750-3377.log": {
+      "bytes": 14821056,
+      "modified_utc": "2026-10-28T21:55:42.482178+00:00"
+    },
+    "service-3158-9378.log": {
+      "bytes": 6047584,
+      "modified_utc": "2026-10-28T21:17:52.862837+00:00"
+    },
+    "service-3041-15651.log": {
+      "bytes": 2042,
+      "modified_utc": "2026-10-28T21:04:28.131302+00:00"
+    }
+  },
+  "reset_by_this_mission": 0,
+  "flash_by_this_mission": 0,
+  "cause_of_late_state_change": "not observed; no attribution"
+}
