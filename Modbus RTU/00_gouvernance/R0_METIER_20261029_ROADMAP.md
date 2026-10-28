@@ -1,6 +1,6 @@
 # MSM TR2 — R0-MÉTIER — Roadmap vers l'enregistreur autonome
 
-**Statut : trajectoire R0–R6 VALIDÉE DANS SON PRINCIPE, détails techniques en revue.** Date 29/10/2026. Les noms `R0-MÉTIER` etc. **ne remplacent pas** les lots R0–R7 du [LIVE historique](ROADMAP_TR2_VERS_SUPERVISION_VIBRATOIRE.md). Aucun changement logiciel/firmware décidé par la présente publication.
+**Statut : trajectoire R0–R6 VALIDÉE DANS SON PRINCIPE, détails techniques en revue.** Date 29/10/2026. Les noms `R0-MÉTIER` etc. **ne remplacent pas** les lots R0–R7 du [LIVE historique](ROADMAP_TR2_VERS_SUPERVISION_VIBRATOIRE.md). Aucun changement logiciel/firmware décidé par la présente publication. **D2 arbitré métier : contrôles locaux V1, pas de déphasage intercapteurs ni de propagation structurelle (V2 éventuelle).**
 
 | Lot | Résultat attendu | Porte de validation |
 |---|---|---|
@@ -8,7 +8,7 @@
 | **R1-MÉTIER — acquisition** | Un flux XYZ continu, filtré anti-repliement et décimé/ré-échantillonné vers **2kHz réels** ; **cœur métier 2–25 Hz et bande cible élargie 2–700 Hz** ; indices/timestamps/qualité ; sortie RAM/test | Rejeu multiton/impulsions/DC validé, notamment 2–25 Hz et 333/667 Hz ; réponse du filtre et alias qualifiés selon tolérances encore à définir ; aucune perte silencieuse ; coûts CPU/RAM et cadence de sortie exacts caractérisés |
 | **R2-MÉTIER — stockage alternatif isolé** | Qualification physique d'un chemin **distinct des essais SDMMC répétés** : SPI microSD ou mémoire flash appropriée ; choix selon capacité, endurance, latences et extraction | Débit et latences mesurés sous charge réaliste, écriture et relecture exactes, gestion de pause/backpressure, erreurs et reprise ; pas de GO sur débit de pointe |
 | **R3-MÉTIER — enregistreur seul** | Pipeline R1 vers stockage R2 avec métadonnées, formats versionnés, FRAM et commandes conservées | **10 min → 1 h → 8 h** de XYZ récupérés, comptés et vérifiés ; défauts, coupures, pleins/absences et préfixes durables documentés ; pas de PC nécessaire pendant capture |
-| **R4-MÉTIER — multi-capteurs** | Réutilisation Modbus/centrale, synchronisation et identité des points ; 2 puis 6 appareils | Campagnes temporellement comparables selon la précision métier validée ; perte d'un appareil n'invalide pas les autres |
+| **R4-MÉTIER — multi-capteurs et repérage temporel** | Réutilisation Modbus/centrale, identité et localisation des points ; 2 puis jusqu'à 6 appareils, mesures **ponctuelles simultanées ou successives** | Campagnes et phases de fonctionnement comparables par leurs horodatages et contextes ; aucune synchronisation de **phase vibratoire** exigée ; perte d'un appareil n'invalide pas les autres |
 | **R5-MÉTIER — analyse PC** | Export/import et contrôle d'intégrité, graphiques XYZ, RMS/crêtes/spectres, annotations régimes et comparaison de campagnes | 8h de données importées et analysées hors ligne ; filtres transparents, aucun retrait DC irréversible ni changement silencieux des historiques |
 | **R6-MÉTIER — essais navire** | Mesures au PC machine, moteurs/propulseurs et locaux représentatifs, montage et orientation documentés | Au moins une traversée exploitable multi-points, transitions annotées et comparables ; qualification industrielle finale distincte |
 
@@ -27,6 +27,6 @@
 
 ## Décisions encore ouvertes avant clôture R0
 
-**D1 ARBITRÉ MÉTIER (29/10/2026)** : cœur prioritaire **2–25 Hz**, bande cible élargie **2–700 Hz** validée par l'utilisateur, sans priorité diagnostic TS/roulements ; **performance physique et tolérances du filtre encore à qualifier en R1**. **D2 OUVERT. Synchronisation** (simple comparaison temporelle des phases de conduite, ou corrélation de phase instantanée). **D3 OUVERT. Récupération des archives** (support amovible ou transfert via interface dédiée). **D4 OUVERT. Format compact et politique de pertes**, à finaliser par audit/essais : 8h minimum obligatoire et 24h secondaire, aucune perte silencieuse.
+**D1 ARBITRÉ MÉTIER (29/10/2026)** : cœur prioritaire **2–25 Hz**, bande cible élargie **2–700 Hz** validée par l'utilisateur, sans priorité diagnostic TS/roulements ; **performance physique et tolérances du filtre encore à qualifier en R1**. **D2 ARBITRÉ MÉTIER (29/10/2026)** : **V1 = contrôles ponctuels locaux**, sans analyse du déphasage ni propagation des harmoniques ; **V2 seulement si besoin confirmé**. Garder une chronologie exacte par capteur et un horodatage commun suffisant pour identifier les événements, sans précision numérique arbitraire ni synchronisation sub-milliseconde imposée. **D3 OUVERT. Récupération des archives** (support amovible ou transfert via interface dédiée). **D4 OUVERT. Format compact et politique de pertes**, à finaliser par audit/essais : 8h minimum obligatoire et 24h secondaire, aucune perte silencieuse.
 
-Les valeurs physiques et la faisabilité de D1–D4 ne seront pas annoncées comme qualifiées avant essais correspondants.
+La précision événementielle de D2, les performances et la faisabilité des paramètres D1–D4 restent à qualifier, sans rouvrir la décision d'exclure l'analyse intercapteurs de phase de la V1.
