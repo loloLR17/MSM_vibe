@@ -1,0 +1,11 @@
+  Determining projects to restore...
+  All projects are up-to-date for restore.
+  TR2.Domain -> /home/lolo/dev/msm/projects/MSM_vibe-accel-fs8g-vibration-ac/Modbus RTU/Supervision TR2/src/TR2.Domain/bin/Release/net10.0/TR2.Domain.dll
+  TR2.Transport -> /home/lolo/dev/msm/projects/MSM_vibe-accel-fs8g-vibration-ac/Modbus RTU/Supervision TR2/src/TR2.Transport/bin/Release/net10.0/TR2.Transport.dll
+  TR2.Protocol -> /home/lolo/dev/msm/projects/MSM_vibe-accel-fs8g-vibration-ac/Modbus RTU/Supervision TR2/src/TR2.Protocol/bin/Release/net10.0/TR2.Protocol.dll
+  TR2.Protocol.Tests -> /home/lolo/dev/msm/projects/MSM_vibe-accel-fs8g-vibration-ac/Modbus RTU/Supervision TR2/tests/TR2.Protocol.Tests/bin/Release/net10.0/TR2.Protocol.Tests.dll
+Test run for /home/lolo/dev/msm/projects/MSM_vibe-accel-fs8g-vibration-ac/Modbus RTU/Supervision TR2/tests/TR2.Protocol.Tests/bin/Release/net10.0/TR2.Protocol.Tests.dll (.NETCoreApp,Version=v10.0)
+A total of 1 test files matched the specified pattern.
+Results File: /home/lolo/dev/msm/reports/TR2-accel-fs8g-ac/dotnet-tests/ac1-protocol-final.trx
+
+Passed!  - Failed:     0, Passed:    52, Skipped:     0, Total:    52, Duration: 193 ms - TR2.Protocol.Tests.dll (net10.0)

@@ -1,0 +1,3 @@
+PASS R5B2 historical V/F mg/severity/XYZ, HELD, loss/retained explicit, null/no zero, UTC absent, no writes/cache/innerHTML
+PASS open detail follows last known owner after identity loss without promoting identity
+PASS durable current identity takes priority over a retained unknown endpoint

@@ -1,0 +1,1 @@
+test_live_ac1_wire: /home/lolo/dev/msm/projects/MSM_vibe-accel-fs8g-vibration-ac/Modbus RTU/05_Firmware/tests/platform/test_live_ac1_wire.c:18: main: Assertion `out[13]==0xA0' failed.

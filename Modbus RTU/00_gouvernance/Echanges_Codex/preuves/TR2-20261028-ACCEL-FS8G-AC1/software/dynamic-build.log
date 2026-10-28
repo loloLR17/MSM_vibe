@@ -1,0 +1,4 @@
+[100%] Built target tr2_core
+[100%] Building C object CMakeFiles/test_live_dynamic.dir/tests/unit/test_live_dynamic.c.o
+[100%] Linking C executable test_live_dynamic
+[100%] Built target test_live_dynamic

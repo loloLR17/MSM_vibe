@@ -1,0 +1,8 @@
+[ 90%] Built target tr2_core
+[ 90%] Building C object CMakeFiles/test_live_ac1_wire.dir/home/lolo/dev/msm/projects/MSM_vibe-accel-fs8g-vibration-ac/experiments/iis3dwb_st_reference/src/fifo_window.c.o
+[ 95%] Building C object CMakeFiles/test_live_ac1_wire.dir/tests/platform/test_live_ac1_wire.c.o
+[ 95%] Building C object CMakeFiles/test_live_ac1_wire.dir/platform/stm32/live_fifo_acquisition.c.o
+[ 95%] Building C object CMakeFiles/test_live_ac1_wire.dir/home/lolo/dev/msm/projects/MSM_vibe-accel-fs8g-vibration-ac/experiments/iis3dwb_st_reference/src/fifo_live.c.o
+[100%] Building C object CMakeFiles/test_live_ac1_wire.dir/home/lolo/dev/msm/projects/MSM_vibe-accel-fs8g-vibration-ac/experiments/iis3dwb_st_reference/vendor/st/iis3dwb_reg.c.o
+[100%] Linking C executable test_live_ac1_wire
+[100%] Built target test_live_ac1_wire

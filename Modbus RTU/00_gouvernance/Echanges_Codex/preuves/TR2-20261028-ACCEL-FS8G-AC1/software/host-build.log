@@ -1,0 +1,25 @@
+[  0%] Building C object CMakeFiles/test_stm32_register_probe.dir/tests/platform/test_stm32_register_probe.c.o
+[  0%] Building C object CMakeFiles/test_stm32_active_readback.dir/tests/platform/test_stm32_active_readback.c.o
+[  0%] Building C object CMakeFiles/tr2_core.dir/src/common/cooperative_work.c.o
+[  0%] Building C object CMakeFiles/test_stm32_rs485_rx_gpio.dir/tests/platform/test_stm32_rs485_rx_gpio.c.o
+[  0%] Building C object CMakeFiles/test_stm32_rs485_rx_gpio.dir/platform/stm32/stm32_rs485_rx_gpio.c.o
+[  0%] Building C object CMakeFiles/test_stm32_register_probe.dir/platform/stm32/stm32_iis3dwb_register_probe.c.o
+[  0%] Building C object CMakeFiles/tr2_core.dir/src/domain/acquisition/window_statistics.c.o
+[  1%] Building C object CMakeFiles/test_stm32_active_readback.dir/platform/stm32/stm32_iis3dwb_active_readback.c.o
+[  1%] Linking C executable test_stm32_rs485_rx_gpio
+[  2%] Linking C executable test_stm32_register_probe
+[  3%] Building C object CMakeFiles/tr2_core.dir/src/application/live_modbus_server.c.o
+[  3%] Linking C executable test_stm32_active_readback
+[  3%] Built target test_stm32_register_probe
+[  3%] Building C object CMakeFiles/tr2_core.dir/src/application/live_runtime.c.o
+[  3%] Built target test_stm32_rs485_rx_gpio
+[  3%] Building C object CMakeFiles/test_st_fifo_window.dir/home/lolo/dev/msm/projects/MSM_vibe-accel-fs8g-vibration-ac/experiments/iis3dwb_st_reference/tests/test_fifo_window.c.o
+[  3%] Built target test_stm32_active_readback
+[  3%] Building C object CMakeFiles/test_st_fifo_admission.dir/tests/platform/test_st_fifo_admission.c.o
+[  3%] Building C object CMakeFiles/test_st_fifo_window.dir/home/lolo/dev/msm/projects/MSM_vibe-accel-fs8g-vibration-ac/experiments/iis3dwb_st_reference/src/fifo_window.c.o
+[  3%] Building C object CMakeFiles/tr2_core.dir/src/application/live_dynamic.c.o
+[  4%] Building C object CMakeFiles/test_st_fifo_window.dir/home/lolo/dev/msm/projects/MSM_vibe-accel-fs8g-vibration-ac/experiments/iis3dwb_st_reference/vendor/st/iis3dwb_reg.c.o
+[  4%] Linking C executable test_st_fifo_admission
+[  4%] Built target test_st_fifo_admission
+[  4%] Linking C executable test_st_fifo_window
+[  4%] Built target test_st_fifo_window

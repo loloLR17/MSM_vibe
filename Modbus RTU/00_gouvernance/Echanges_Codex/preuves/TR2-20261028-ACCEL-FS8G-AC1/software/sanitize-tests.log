@@ -1,0 +1,12 @@
+Internal ctest changing into directory: /home/lolo/dev/msm/reports/TR2-accel-fs8g-ac/sanitize
+Test project /home/lolo/dev/msm/reports/TR2-accel-fs8g-ac/sanitize
+    Start 133: live_metrology
+1/3 Test #133: live_metrology ...................   Passed    0.57 sec
+    Start 147: live_dynamic
+2/3 Test #147: live_dynamic .....................   Passed    0.08 sec
+    Start 148: live_ac1_wire
+3/3 Test #148: live_ac1_wire ....................   Passed    1.61 sec
+
+100% tests passed, 0 tests failed out of 3
+
+Total Test time (real) =   2.27 sec

@@ -1,0 +1,1 @@
+test_live_dynamic: /home/lolo/dev/msm/projects/MSM_vibe-accel-fs8g-vibration-ac/Modbus RTU/05_Firmware/tests/unit/test_live_dynamic.c:18: feed: Assertion `live_metrology_sample(m,m->run_id,4,4,i,xyz,i*1000/26667,false,0)==TR2_OK' failed.

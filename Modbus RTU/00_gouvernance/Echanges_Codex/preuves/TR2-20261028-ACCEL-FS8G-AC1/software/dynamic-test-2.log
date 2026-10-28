@@ -1,0 +1,5 @@
+AC1 deterministic 20Hz 500mg: RMS348 expected348.525 peak498 gain0.994803 PASS
+AC1 deterministic 50Hz 500mg: RMS351 expected351.982 peak500 gain0.998966 PASS
+AC1 deterministic 1000Hz 500mg: RMS353 expected353.370 peak500 gain0.999762 PASS
+AC1 deterministic 100Hz 6500mg: RMS4606 expected4606.094 peak6497 gain0.999565 PASS
+AC1 DC rejection, warmup, stop/restart/fault, signed FS rails and analytic sine oracles: PASS

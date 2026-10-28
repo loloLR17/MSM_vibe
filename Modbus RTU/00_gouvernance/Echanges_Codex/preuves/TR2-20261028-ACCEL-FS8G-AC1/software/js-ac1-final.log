@@ -1,0 +1,35 @@
+TAP version 13
+# Subtest: dynamic display is independently sourced; no subtraction from absolute RMS
+ok 1 - dynamic display is independently sourced; no subtraction from absolute RMS
+  ---
+  duration_ms: 2.865489
+  ...
+# Subtest: old archives and warmup never become a fabricated dynamic zero
+ok 2 - old archives and warmup never become a fabricated dynamic zero
+  ---
+  duration_ms: 0.316689
+  ...
+# Subtest: HELD and communication loss retain AC only with explicit non-current quality
+ok 3 - HELD and communication loss retain AC only with explicit non-current quality
+  ---
+  duration_ms: 0.246696
+  ...
+# Subtest: AC curves break at run/config/FS/filter/segment changes and missing dynamic values
+ok 4 - AC curves break at run/config/FS/filter/segment changes and missing dynamic values
+  ---
+  duration_ms: 0.786393
+  ...
+# Subtest: CSV preserves separate typed AC and B3 fields, absent AC remains absent
+ok 5 - CSV preserves separate typed AC and B3 fields, absent AC remains absent
+  ---
+  duration_ms: 0.844158
+  ...
+1..5
+# tests 5
+# suites 0
+# pass 5
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 190.00275

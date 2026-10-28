@@ -1,0 +1,50 @@
+TAP version 13
+# Subtest: real R5B2 multi-point global/XYZ, historical V/F and HELD/loss stay explicit
+ok 1 - real R5B2 multi-point global/XYZ, historical V/F and HELD/loss stay explicit
+  ---
+  duration_ms: 4.492065
+  ...
+# Subtest: segment, missing snapshot, identity, stale, HELD, gap, clock reversal break paths
+ok 2 - segment, missing snapshot, identity, stale, HELD, gap, clock reversal break paths
+  ---
+  duration_ms: 1.083939
+  ...
+# Subtest: repeated sequences are distinct observations and repeated markers; no invented interpolation points
+ok 3 - repeated sequences are distinct observations and repeated markers; no invented interpolation points
+  ---
+  duration_ms: 0.182064
+  ...
+# Subtest: Attention is not triggered by historical state or intentional HELD/STOP
+ok 4 - Attention is not triggered by historical state or intentional HELD/STOP
+  ---
+  duration_ms: 0.341517
+  ...
+# Subtest: fleet search/bus and stable sort preserve null last; no equipment assignment invented
+ok 5 - fleet search/bus and stable sort preserve null last; no equipment assignment invented
+  ---
+  duration_ms: 2.29415
+  ...
+# Subtest: CSV matches selected actual observations and retains nulls, raw owners, provenance and HELD
+ok 6 - CSV matches selected actual observations and retains nulls, raw owners, provenance and HELD
+  ---
+  duration_ms: 1.492266
+  ...
+# Subtest: browser scripts are read-only, safe DOM, no persistent model cache
+ok 7 - browser scripts are read-only, safe DOM, no persistent model cache
+  ---
+  duration_ms: 1.766354
+  ...
+# Subtest: 7-day bounds preserve captured sub-millisecond reception precision
+ok 8 - 7-day bounds preserve captured sub-millisecond reception precision
+  ---
+  duration_ms: 0.461114
+  ...
+1..8
+# tests 8
+# suites 0
+# pass 8
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 28.044065
