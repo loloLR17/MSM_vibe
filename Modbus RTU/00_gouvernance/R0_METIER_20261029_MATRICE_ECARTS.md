@@ -15,11 +15,11 @@
 | RAM et temps réel | Checkpoint AC1 indique BSS **659 176 octets** (donnée du checkpoint logiciel, non budget SRAM disponible), restant et stack/heap/IRQ non qualifiés pour buffer SD + DSP | **AUDITER** les maxima et le backpressure avant intégration | P1 |
 | FRAM/config/identité | Autorités durables et prepared/active déjà construites | **CONSERVER**, évolution de schéma minimale/versionnée | P1 préservation |
 | Modbus RTU/B5 | Communication, commandes transactionnelles et STOP physique observés (~40 s) | **CONSERVER**, revoir arrêt/flush de campagne et statut sans revendiquer sécurité machine | P1/P2 |
-| Horloge/synchronisation | Bloc2 + horodatage disponibles, synchronisation multicapteur non prouvée | **ADAPTER ET QUALIFIER** dérive et corrélation du temps | P1 |
+| Horloge/synchronisation | Bloc2 + horodatage disponibles ; V1 = **contrôles ponctuels locaux**, simultanés ou successifs, **sans analyse du déphasage intercapteurs** ; temps événementiel à qualifier | **CONSERVER/ADAPTER** chronologie interne, horodatage des campagnes et repère commun pour rapprocher les phases de conduite ; **DIFFÉRER V2** synchronisation de phase/propagation | P1 chronologie ; V2 phase |
 | PC, SQLite, interface | LIVE réel/mesures synthétiques, mais pas d'import de fichier XYZ 8h | **CONSERVER le socle**, ajouter import/contrôle de fichiers et analyse hors ligne | P2 |
 | Extraction bulk | Plusieurs centaines de Mo par capteur à récupérer | **DÉFINIR** support et méthode d'extraction dédiée ou amovible | P1 |
 | FFT embarquée/UX/alertes évoluées | Non indispensables à la première mesure 8h | **DIFFÉRER**, préserver le code existant | P3 |
-| Fixation/qualification bord | Six emplacements, orientations et conditions réelles non qualifiés | **QUALIFIER PLUS TARD** montage, vibrations fortes, comparaison métier | P2 |
+| Fixation/qualification bord | Jusqu'à six appareils de mesure ponctuelle, site/orientation et conditions réelles non qualifiés ; pas de cartographie structurelle en V1 | **QUALIFIER PLUS TARD** fixation, vibrations fortes, comparaison entre conditions et emplacements ; déphasage/propagation reportés V2 | P2 |
 
 ## Contradictions et trous avérés
 
