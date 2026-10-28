@@ -12,7 +12,7 @@
 | Fréquence et traitement | B4 n'accepte que 26667 Hz ; objectif d'archive 2000 Hz ; pas de filtre décimateur qualifié | **ADAPTER** filtre anti-repliement, cadence exacte, timestamps, mémoire/CPU | P1 |
 | Bulk logique | Blocs/CRC, metadata, checkpoint, recovery, `CampaignDataStore` existent, tests hôte ; record historiquement16B/sample | **CONSERVER/ADAPTER** codec, format, budgets et version ; pas de réécriture générale | P1 |
 | SDMMC matériel | C2c 512Kio à1,20Mo/s relus ; M017 overflow après0,402315s ; autres CRC/NoMedia sur SDMMC1 | **REMPLACER le chemin matériel non qualifié** ou garder comme archive expérimentale ; pas de reprise aveugle des mêmes essais | P1 bloquant |
-| RAM et temps réel | Checkpoint AC1 indique BSS ≈659Kio? **659176 octets**, restant et stack/heap/IRQ non qualifiés pour buffer SD + DSP | **AUDITER** les maxima et le backpressure avant intégration | P1 |
+| RAM et temps réel | Checkpoint AC1 indique BSS **659 176 octets** (donnée du checkpoint logiciel, non budget SRAM disponible), restant et stack/heap/IRQ non qualifiés pour buffer SD + DSP | **AUDITER** les maxima et le backpressure avant intégration | P1 |
 | FRAM/config/identité | Autorités durables et prepared/active déjà construites | **CONSERVER**, évolution de schéma minimale/versionnée | P1 préservation |
 | Modbus RTU/B5 | Communication, commandes transactionnelles et STOP physique observés (~40 s) | **CONSERVER**, revoir arrêt/flush de campagne et statut sans revendiquer sécurité machine | P1/P2 |
 | Horloge/synchronisation | Bloc2 + horodatage disponibles, synchronisation multicapteur non prouvée | **ADAPTER ET QUALIFIER** dérive et corrélation du temps | P1 |
