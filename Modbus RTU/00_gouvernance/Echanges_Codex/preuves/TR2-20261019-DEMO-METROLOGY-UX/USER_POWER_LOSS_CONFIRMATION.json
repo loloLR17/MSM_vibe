@@ -1,0 +1,8 @@
+{
+  "recorded_at_utc": "2026-10-28T21:58:49.071676+00:00",
+  "source": "User message in current session",
+  "statement": "Je te confirme une perte d’alimentation accidentelle du TR2 pendant la période d’interruption",
+  "scope": "Reported physical event, consistent with PC log loss 21:45:25 and return STOP sequence0 21:45:30; no voltage measurement or independently measured cut duration.",
+  "additional_tests": false,
+  "reset_or_flash_by_codex": false
+}

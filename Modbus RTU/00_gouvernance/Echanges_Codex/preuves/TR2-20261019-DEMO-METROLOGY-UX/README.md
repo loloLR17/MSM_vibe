@@ -12,3 +12,5 @@ Le contrat conserve son identifiant du19/10. `BUNDLE.json` donne les SHA256 brut
 Le code effectivement exécuté est identifié dans `evaluated-code.json` : frontendf8dbfefd, firmwarec36c971, contenuServiced67741f2. Les commits ultérieurs documentaires ne requalifient pas le matériel. ProfilLiveDiagnostic partiel ; pas de qualificationindustrielle, métrologieAC calibrée ou START/STOPWeb. ContrôleindépendantChatGPT distinct.
 
 Les5preuves `late-*` ajoutées au bundle concernent la transition seq78→perte21:45:25→STOPseq0 à21:45:30, cause nonobservée. `PUBLICATION.json` et `FINAL_AVAILABILITY.json` sont les constats supplémentaires de clôture, relus byteàbyte depuis GitHub. Le snapshot29306lignes reste daté21:25, antérieur à cette transition.
+
+Complément ultérieur : l’utilisateur confirme une perte d’alimentation accidentelle du TR2 pendant cette interruption (`USER_POWER_LOSS_CONFIRMATION.json`). Ce témoignage physique est distingué des observations PC ; aucune mesure électrique inventée ni nouvel essai.
