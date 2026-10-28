@@ -11,7 +11,7 @@ La chaîne exécutée c36c971 utilise `live_consume` → `fifo_event_time_consum
 - RMS global = `isqrt((Σx² + Σy² + Σz²) / N)` ; RMS axe = `isqrt(Σaxe² / N)`.
 - Crête globale = `isqrt(max(x²+y²+z²))` ; crête axe = `max(abs(axe))`.
 
-**Aucune moyenne par axe n’est soustraite.** Un capteur immobile peut donc montrer un RMS proche de 1 000 mg, avec une répartition XYZ dépendant de l’orientation. Cette composante constante est compatible avec la gravité ; sa mesure n’est pas, à elle seule, un étalonnage SI ni une mesure de vibration pure.
+**Aucune moyenne par axe n’est soustraite.** Un capteur immobile peut donc montrer un RMS proche de 1 000 mg, avec une répartition XYZ dépendant de l’orientation. Cette composante constante est compatible avec la gravité ; sa mesure n’est pas, à elle seule, un étalonnage SI ni une mesure de vibration pure. L’orientation redistribue les axes, mais ne suffit pas à expliquer un écart de la norme idéale à 1g : l’écart observé vers954–962mg n’est ni normalisé à1g ni attribué sans preuve à un biais précis. Un étalonnage de biais/sensibilité demanderait des orientations et une référence connues, dans une campagne distincte.
 
 `s_calibrate` observe pendant deux secondes le compteur du capteur et des brackets DWT. Il construit une correspondance temporelle et en contrôle le résidu ≤100 µs. Il ne calcule aucun biais d’accélération, aucune orientation ni compensation de pesanteur. Les alarmes existantes sont appliquées aux grandeurs absolues : des seuils de démonstration à zéro peuvent donc expliquer un avertissement B3 sans démontrer une anomalie vibratoire. Ils ne sont pas modifiés ici.
 
