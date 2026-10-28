@@ -69,7 +69,20 @@
     const from = new Date(Date.parse(receivedAt) - hours*3600000).toISOString().replace(/\.\d{3}Z$/, "." + fraction + "Z");
     return {from, to: receivedAt}; // Preserve .NET's sub-ms ticks: 7 days must not become 7 days + 1 ms.
   }
-  const api = {periodRange, attention, filterFleet, quality, plottable, connected, series, csv};
+  // Presentation scale only. Values, CSV and B3 semantics are never transformed.
+  function domain(values, variation = false) {
+    const finite = values.filter(Number.isFinite);
+    if (!finite.length) return {min:0,max:1,ticks:[0,0.25,0.5,0.75,1]};
+    const low = Math.min(...finite), high = Math.max(...finite);
+    const span = variation ? Math.max(1,high-low) : Math.max(1,high);
+    const stepBase = span / 4, power = Math.pow(10,Math.floor(Math.log10(stepBase)));
+    const step = [1,2,2.5,5,10].map(x=>x*power).find(x=>x>=stepBase);
+    const min = variation ? Math.max(0,Math.floor((low-step*0.25)/step)*step) : 0;
+    const max = Math.max(min+step,Math.ceil((high+step*0.15)/step)*step);
+    const ticks=[];for(let y=min;y<=max+step/10;y+=step)ticks.push(Number(y.toPrecision(8)));
+    return {min,max,ticks};
+  }
+  const api = {domain, periodRange, attention, filterFleet, quality, plottable, connected, series, csv};
   if (typeof module !== "undefined") module.exports = api;
   if (typeof window !== "undefined") window.LiveTrends = api;
 })();
