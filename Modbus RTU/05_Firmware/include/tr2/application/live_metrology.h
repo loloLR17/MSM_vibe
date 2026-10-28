@@ -2,6 +2,7 @@
 #define TR2_LIVE_METROLOGY_H
 #include "tr2/application/live_configuration.h"
 #include "tr2/modbus/projection.h"
+#include "tr2/application/live_dynamic.h"
 
 typedef struct {
     bool warning, alarm, pending;
@@ -14,6 +15,7 @@ typedef struct {
     AcquisitionWindow window;
     SupervisionSnapshot value;
     LiveMetricAlarm alarms[4];
+    LiveDynamic dynamic; /* explicit diagnostic opt-in, default off */
     uint64_t run_id, next_index, last_ms, last_read_ms, next_window_ms;
     uint32_t sequence, exceed_count, alarm_count;
     bool boot, authority, running, has_value, value_valid, error, calc_error, latched;

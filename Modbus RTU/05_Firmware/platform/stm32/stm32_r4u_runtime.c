@@ -62,7 +62,7 @@ static Tr2Result u_mount(void)
   * operation. Real codecs validate CRC/identity/journal/effects at every mount;
   * any active or indeterminate recovery fails closed, never replays an effect. */
  if(engine.indeterminate||engine.has_active||!engine.has_last||engine.last.status!=4||engine.last.result||
-    !store.epoch.current||configuration.active.config_id!=3||configuration.active.generation!=3)
+    !store.epoch.current||!configuration.has_active||!configuration.active.config_id||!configuration.active.generation)
   return TR2_ERROR_INVALID_STATE;
 #else
  if(engine.indeterminate||engine.has_active||!engine.has_last||engine.last.status!=4||engine.last.result||
@@ -104,6 +104,13 @@ static Tr2Result u_drain(void *ctx)
  uint64_t cost=now_us(NULL)-t;if(cost>r4u_result.max_drain_us)r4u_result.max_drain_us=cost;return TR2_OK;
 }
 static Tr2Result u_service(void *ctx){(void)ctx;return live_runtime_service(&runtime);}
+#if TR2_LIVE_OPERATOR
+static void u_ac1_hardware(void *context,LiveAc1Hardware *out)
+{
+ const FifoLive *f=context;out->run_id=f->run_id;out->full_scale=f->full_scale;
+ out->ctrl1=f->ctrl1_verified;out->valid=f->readback_valid;out->sequence=f->readback_sequence;
+}
+#endif
 static Tr2Result u_prepare(bool physical,bool writable)
 {
  work.service=service; /* stopped: safely compose before binding the new service */
@@ -120,6 +127,9 @@ static Tr2Result u_prepare(bool physical,bool writable)
   void (*safe_stop)(void *)=metric.safe_stop;void *stop_context=metric.stop_context;
   live_metrology_init(&metric);metric.safe_stop=safe_stop;metric.stop_context=stop_context;
  }
+#if TR2_LIVE_OPERATOR
+ metric.dynamic.enabled=true;
+#endif
  memset(&event_time,0,sizeof(event_time));next_check=0;
  REQUIRE(live_command_engine_boot(&engine));
  PersistentIdentityRecord id;ModbusBlock0Image b0;REQUIRE(live_configuration_identity(&configuration,&id));REQUIRE(modbus_project_b0(&id.identity.functional,&b0));
@@ -133,6 +143,9 @@ static Tr2Result u_prepare(bool physical,bool writable)
  }
  REQUIRE(live_modbus_server_init(&server,&engine,&metric,transport,1,&b0,r_ms,NULL));
  REQUIRE(live_modbus_server_enable_unavailable_inventory(&server));server.read_only=!writable;
+#if TR2_LIVE_OPERATOR
+ REQUIRE(live_modbus_server_enable_ac1(&server,u_ac1_hardware,&owner.acquisition.fifo));
+#endif
  REQUIRE(live_runtime_init(&runtime,&server,&work,NULL,u_drain,8));R4U_PREPARED();
  if(physical&&!uart_started){REQUIRE(modbus_rtu_server_runtime_start(&server.rtu));uart_started=true;}
  r4_result.last_poll_us=0;r4_result.max_gap_us=0;r4u_result.max_drain_us=0;

@@ -17,6 +17,7 @@ public sealed record LiveObservation(Guid ObservationId, DeviceId? DeviceId, Gui
     public ulong? ConfigurationId => null;
     public uint? ConfigurationGeneration => null;
     public ulong? EventMonotonicMicroseconds => null;
+    public LiveAc1Snapshot? DynamicAcceleration { get; init; }
     public string Mode => "LIVE_READONLY";
 }
 public interface ILiveObservationSink
@@ -34,6 +35,8 @@ public interface ILiveReadSource
 public sealed class LiveObservationService : ILiveReadSource
 {
     private readonly LiveProfileReader _reader;
+    private readonly IRegisterTransport _transport;
+    private readonly bool _ac1Enabled;
     private readonly ILiveObservationSink _sink;
     private readonly TimeProvider _clock;
     private readonly TimeSpan _staleAfter;
@@ -44,9 +47,10 @@ public sealed class LiveObservationService : ILiveReadSource
 
     public LiveObservationService(IRegisterTransport transport, ILiveObservationSink sink,
         bool allowDiagnostic = false, TimeProvider? clock = null, TimeSpan? staleAfter = null,
-        string source = "RegisterTransport")
+        string source = "RegisterTransport", bool ac1Enabled = false)
     {
         _reader = new LiveProfileReader(transport, allowDiagnostic);
+        _transport = transport; _ac1Enabled = ac1Enabled;
         _sink = sink ?? throw new ArgumentNullException(nameof(sink));
         _clock = clock ?? TimeProvider.System;
         _staleAfter = staleAfter ?? TimeSpan.FromSeconds(5);
@@ -64,6 +68,7 @@ public sealed class LiveObservationService : ILiveReadSource
             lock (_gate) _latest.TryGetValue(endpoint, out previous);
             LiveProfileIdentity? identity = null;
             LiveB3Snapshot? snapshot = null;
+            LiveAc1Snapshot? dynamic = null;
             string? error = null;
             LiveB3ReadException? rejectedB3 = null;
             var continuity = LiveContinuity.SegmentStart;
@@ -74,6 +79,11 @@ public sealed class LiveObservationService : ILiveReadSource
                 // Re-identify on each cycle, never carry identity across a changed endpoint.
                 identity = await _reader.IdentifyAsync(endpoint, ct);
                 snapshot = await _reader.ReadAsync(endpoint, identity, ct);
+                if (_ac1Enabled)
+                {
+                    if (identity.Profile != SupervisionProfile.LiveDiagnostic) throw new NotSupportedException("AC1 operator diagnostic profile required.");
+                    dynamic = LiveAc1Snapshot.Parse(await _transport.ReadRegistersAsync(endpoint.Bus.Id, endpoint.Address.Value, LiveAc1Snapshot.StartAddress, LiveAc1Snapshot.RegisterCount, ct));
+                }
                 if (previous?.TransportConnected == true && previous.Observation.Identity == identity && previous.Observation.Snapshot is { } old)
                 {
                     var before = old.Value.CalculationSequence;
@@ -109,7 +119,7 @@ public sealed class LiveObservationService : ILiveReadSource
             }
             var observation = new LiveObservation(Guid.NewGuid(), identity?.DeviceId, segment, endpoint.Bus.Id, endpoint.Address.Value,
                 _clock.GetUtcNow(), identity, snapshot, continuity, _source, error)
-            { RejectedB3Registers = rejectedB3?.Registers, RejectedB3Value = rejectedB3?.Decoded };
+            { RejectedB3Registers = rejectedB3?.Registers, RejectedB3Value = rejectedB3?.Decoded, DynamicAcceleration = dynamic };
             var archiveState = "Persisted";
             string? archiveError = null;
             try { await _sink.AppendAsync(observation, ct); }

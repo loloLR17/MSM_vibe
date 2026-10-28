@@ -34,9 +34,9 @@ public static class LiveOperatorConsoleApplication
 
     public static async Task<int> RunAsync(IReadOnlyList<string> args, CancellationToken ct, TextWriter output, TextWriter error, IModbusBusConnectionFactory? factory = null)
     {
-        if (args.Count != 8 || args[0] != "--live-command" || args[1] is not ("start" or "stop") ||
+        if (args.Count != 8 || args[0] != "--live-command" || args[1] is not ("start" or "stop" or "apply8g") ||
             args[2] != "--port" || args[3] != "COM4" || args[4] != "--control" || args[6] != "--state")
-        { await error.WriteLineAsync("Usage: --live-command start|stop --port COM4 --control <service-control> --state <persistent-ledger.json>. Diagnostic TR2-001 only; service must be running."); return 2; }
+        { await error.WriteLineAsync("Usage: --live-command start|stop|apply8g --port COM4 --control <service-control> --state <persistent-ledger.json>. Diagnostic TR2-001 only; service must be running."); return 2; }
         var control = args[5]; var token = "disconnected:" + Guid.NewGuid(); var ownsPause = false;
         void Log(object value) { output.WriteLine(JsonSerializer.Serialize(value)); output.Flush(); }
         try
@@ -54,8 +54,19 @@ public static class LiveOperatorConsoleApplication
             var b0 = await Read(0, 21);
             if (b0[0] != 0 || b0[1] != 1 || b0[6] != 2 || b0[7] != 12) throw new InvalidDataException("Profil diagnostique TR2-001 attendu ; aucun write.");
             var initial = await Read(3000, 48); var b5 = await Read(5000, 29);
-            if (args[1] == "start" ? !CanStart(initial) : (initial[1] & 6) != 6)
+            if (args[1] is "start" or "apply8g" ? !CanStart(initial) : (initial[1] & 6) != 6)
                 throw new InvalidDataException("État B3 incompatible avec la commande ; aucune écriture.");
+            ushort[]? prepared = null; uint newConfigId = 0;
+            if (args[1] == "apply8g")
+            {
+                var header = await Read(4000, 16); var active = await Read(4100, 76);
+                var activeId = ((uint)header[4] << 16) | header[5];
+                if (header[0] != 2 || activeId == 0 || activeId == uint.MaxValue || header[2] != 0 || header[3] != 0 ||
+                    LiveOperatorConfiguration.Crc(active) != (((uint)header[10] << 16) | header[11]))
+                    throw new InvalidDataException("Active B4/CRC invalid or existing prepared configuration; preserving state, no write.");
+                prepared = LiveOperatorConfiguration.Prepare8G(active); newConfigId = activeId + 1;
+                Log(new { state = "configuration_before", header, active, proposedConfigId = newConfigId, prepared, crc = LiveOperatorConfiguration.Crc(prepared), utc = DateTimeOffset.UtcNow });
+            }
             Ledger? previous = File.Exists(args[7]) ? JsonSerializer.Deserialize<Ledger>(File.ReadAllText(args[7])) ?? throw new InvalidDataException("Ledger nul.") : null;
             var (epoch, tx) = Allocate(b5, previous);
             // Persist the identity BEFORE submit. A failed/uncertain request is never silently reused.
@@ -63,7 +74,20 @@ public static class LiveOperatorConsoleApplication
             using (var f = new FileStream(temporary, FileMode.CreateNew, FileAccess.Write, FileShare.None))
             { JsonSerializer.Serialize(f, new Ledger(1, epoch, tx)); f.Flush(true); }
             File.Move(temporary, args[7], true);
-            var code = (ushort)(args[1] == "start" ? 13 : 14); var watch = Stopwatch.StartNew();
+            if (prepared is not null)
+            {
+                async ValueTask Stage(ushort address, ushort[] words) => await connection.RegisterWriteTransport.WriteRegistersAsync("operator", 1, address, words, ct);
+                // Only writable ranges, no reserved fields. R2 captures an immutable staged snapshot.
+                await Stage(4016, [prepared[0]]); await Stage(4018, prepared[2..12]);
+                await Stage(4040, prepared[24..31]); await Stage(4056, prepared[40..80]);
+                await Stage(4002, [(ushort)(newConfigId >> 16), (ushort)newConfigId]);
+                var crc = LiveOperatorConfiguration.Crc(prepared); await Stage(4008, [(ushort)(crc >> 16), (ushort)crc]);
+                var readback = await Read(4016, 84); var ids = await Read(4002, 2);
+                if (!readback.SequenceEqual(prepared) || (((uint)ids[0] << 16) | ids[1]) != newConfigId)
+                    throw new InvalidDataException("Staging readback mismatch; APPLY not submitted, no retry.");
+                Log(new { state = "staging_verified_not_active", newConfigId, prepared, crc, epoch, transaction = tx, utc = DateTimeOffset.UtcNow });
+            }
+            var code = (ushort)(args[1] == "start" ? 13 : args[1] == "stop" ? 14 : 1); var watch = Stopwatch.StartNew();
             Log(new { state = "requested_not_terminal", command = args[1], epoch, transaction = tx, utc = DateTimeOffset.UtcNow, message = "Demande en cours ; l'acceptation ne prouve pas l'effet. STOP peut prendre 30–60 s." });
             await connection.RegisterWriteTransport.WriteRegistersAsync("operator", 1, 5020, [(ushort)(epoch >> 16), (ushort)epoch], ct);
             await connection.RegisterWriteTransport.WriteRegistersAsync("operator", 1, 5000, [code, tx, 0, 0, 0, 0, 0, 1], ct);
@@ -73,6 +97,15 @@ public static class LiveOperatorConsoleApplication
                 Log(new { state = "in_progress", command = args[1], epoch, transaction = tx, b5, b3, utc = DateTimeOffset.UtcNow });
                 if (IsTerminal(b5, epoch, tx, code))
                 {
+                    if (code == 1)
+                    {
+                        var header = await Read(4000, 16); var active = await Read(4100, 76);
+                        if ((((uint)header[4] << 16) | header[5]) != newConfigId || active[2] != 2 ||
+                            LiveOperatorConfiguration.Crc(active) != (((uint)header[10] << 16) | header[11]) || !CanStart(b3))
+                            throw new InvalidDataException("APPLY terminal but active B4/CRC/stopped effect not proved.");
+                        Log(new { state = "terminal_and_effect_observed", command = "apply8g", epoch, transaction = tx, seconds = watch.Elapsed.TotalSeconds, b5, b3, header, active, utc = DateTimeOffset.UtcNow });
+                        return 0;
+                    }
                     var effect = code == 13 ? (b3[1] & 6) == 6 : b3[0] == 1 && (b3[1] & 4) == 0 && (b3[1] & 512) != 0;
                     if (!effect) throw new InvalidDataException("Terminal observé mais effet B3 attendu absent ; diagnostic requis.");
                     Log(new { state = "terminal_and_effect_observed", command = args[1], epoch, transaction = tx, seconds = watch.Elapsed.TotalSeconds, b5, b3, utc = DateTimeOffset.UtcNow });

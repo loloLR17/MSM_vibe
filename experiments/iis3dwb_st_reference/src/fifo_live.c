@@ -3,11 +3,14 @@
 static const iis3dwb_fs_xl_t scales[4]={IIS3DWB_2g,IIS3DWB_4g,IIS3DWB_8g,IIS3DWB_16g};
 static int controls(FifoLive *s,bool on)
 {
+ if(on)s->readback_valid=false;
  uint8_t r[14],ts;static const uint8_t expected[14]={0,1,0x0A,0x86,0x7B,0,0,0x44,0,0,0,0,0,0};
  if(s->ctx.read_reg(s->ctx.handle,7,r,4)||s->ctx.read_reg(s->ctx.handle,15,r+4,10)||s->ctx.read_reg(s->ctx.handle,25,&ts,1))return BENCH_IO;
  if(!on)return !(r[5]&0xE0)&&!(r[3]&7)&&!(ts&0x20)?BENCH_OK:BENCH_CONFIG;
  for(unsigned i=0;i<14;i++)if(i!=5&&i!=6&&i!=13&&r[i]!=expected[i])return BENCH_CONFIG;
- return r[5]==(uint8_t)(0xA0u|((unsigned)scales[s->full_scale]<<2))&&ts==0x20?BENCH_OK:BENCH_CONFIG;
+ if(r[5]!=(uint8_t)(0xA0u|((unsigned)scales[s->full_scale]<<2))||ts!=0x20)return BENCH_CONFIG;
+ s->ctrl1_verified=r[5];s->readback_valid=true;if(s->readback_sequence<UINT32_MAX)s->readback_sequence++;
+ return BENCH_OK;
 }
 int fifo_live_init(FifoLive *s,const stmdev_ctx_t *ctx,uint32_t max_gap_ms,FifoLiveConsume consume,void *consumer)
 {

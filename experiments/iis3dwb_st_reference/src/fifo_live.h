@@ -16,6 +16,7 @@ typedef struct {
   * polling-gap, status/overrun and steady-state no-data guards stay unchanged. */
  uint32_t first_data_timeout_ms;
  uint16_t axes,full_scale;
+ uint32_t readback_sequence;uint8_t ctrl1_verified;bool readback_valid;
  void (*cleanup_begin)(void);
  FifoLiveConsume consume;void *consumer;
  uint32_t error,stop_error;

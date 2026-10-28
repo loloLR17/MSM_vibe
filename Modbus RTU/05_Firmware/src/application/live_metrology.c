@@ -18,6 +18,7 @@ void live_metrology_init(LiveMetrology *s)
 void live_metrology_invalidate(LiveMetrology *s, bool calc, bool authority_lost)
 {
     if(!s) return;
+    live_dynamic_invalidate(&s->dynamic);
     s->boot=false; s->value_valid=false; s->error=true; s->calc_error|=calc;
     s->running=false; s->window_active=false;
     if(authority_lost) s->authority=false;
@@ -32,6 +33,7 @@ Tr2Result live_metrology_start(LiveMetrology *s,uint64_t run,const ActiveConfigu
     if(s->running || run<=s->run_id ||
        configuration_validate_live(&p,NULL).status!=CONFIGURATION_VALIDATION_VALID)
         return TR2_ERROR_INVALID_STATE;
+    live_dynamic_start(&s->dynamic,run,c);
     s->active=*c; s->run_id=run; s->next_index=0;
     s->boot=false; s->authority=true; s->running=true; s->value_valid=false;
     s->error=s->calc_error=s->window_active=false; cancel_timers(s);
@@ -40,6 +42,7 @@ Tr2Result live_metrology_start(LiveMetrology *s,uint64_t run,const ActiveConfigu
 void live_metrology_stop(LiveMetrology *s)
 {
     if(!s) return;
+    live_dynamic_stop(&s->dynamic);
     s->boot=false; s->running=false; s->window_active=false; cancel_timers(s);
 }
 static unsigned alarm_bits(const LiveMetrology *s,bool exceed)
@@ -129,6 +132,9 @@ Tr2Result live_metrology_sample(LiveMetrology *s,uint64_t run,uint32_t id,uint32
     }
     if(index==0) s->next_window_ms=now;
     s->time_seen=true; s->last_ms=now; s->next_index++;
+    if(s->dynamic.enabled&&live_dynamic_sample(&s->dynamic,xyz,now)!=TR2_OK) {
+        live_metrology_invalidate(s,true,false);return TR2_ERROR_INVALID_STATE;
+    }
     if(!s->window_active) {
         if(now<s->next_window_ms) return TR2_OK;
         if(now>UINT64_MAX-s->active.payload.indicator_period_ms) {

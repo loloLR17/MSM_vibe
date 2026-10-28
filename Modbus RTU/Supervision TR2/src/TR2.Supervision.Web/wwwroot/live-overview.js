@@ -27,6 +27,18 @@
       age: Math.floor(row.receptionAgeSeconds) + " s depuis réception PC",
       rms: value ? value.rmsGlobalMg + " mg" : "—", peak: value ? value.peakGlobalMg + " mg" : "—"};
   }
+  function dynamicPresent(row) {
+    const o=row.observation,current=o.dynamicAcceleration;
+    const measurement=current?.valuesValid ? o : row.lastKnown?.dynamicAcceleration?.valuesValid ? row.lastKnown : null;
+    const d=measurement?.dynamicAcceleration,meta=current ?? d;
+    const live=!!(row.isCurrent && measurement===o && d?.fresh && d.running && !d.held && d.fullScaleProved);
+    return {value:d,meta,current:live,
+      rms:d ? d.rmsGlobalMg+" mg" : "—",peak:d ? d.peakGlobalMg+" mg" : "—",
+      quality:live ? "Dynamique courante" : d ? "Dernière connue AC1" : current?.warmingUp ? "Préparation du filtre" : "AC1 indisponible / en attente",
+      fs:meta ? "±"+[2,4,8,16][meta.fullScaleCode]+" g"+(meta.fullScaleProved ? " · registre vérifié" : " · readback non prouvé") : "Plage indisponible",
+      note:d ? `AC1 : ${Math.floor(d.valueAgeMilliseconds/1000)} s · réception ${measurement.receivedAt}` : "Aucune mesure dynamique valide",
+      provenance:meta ? `AC1-v1 expérimental · TR2 ${measurement?.deviceId?.value ?? o.deviceId?.value ?? "inconnu"} · HP 1 pôle ${meta.cutoffMillihertz/1000} Hz · ${meta.samplingFrequencyHz} Hz · préparation ${meta.warmupSamples} échantillons · registre ${meta.verifiedCtrl1Xl.toString(16).toUpperCase()} · run ${meta.runId} / config ${meta.configurationId} génération ${meta.configurationGeneration}` : "Canal expérimental AC1 non disponible ; B3 absolu reste distinct."};
+  }
   function matchesDevice(row, requestedId) {
     const observed = row.observation.deviceId?.value;
     // The page may follow its previous owner on identity loss, but present() still labels it unknown.
@@ -36,7 +48,7 @@
     return devices.find(r => String(r.observation.deviceId?.value) === id) ??
       devices.find(r => r.observation.deviceId == null && matchesDevice(r, id));
   }
-  if (typeof module !== "undefined") module.exports = {present, matchesDevice, selectDevice};
+  if (typeof module !== "undefined") module.exports = {present, dynamicPresent, matchesDevice, selectDevice};
   if (typeof document === "undefined") return;
   const fleet = document.getElementById("liveFleetRows"), detail = document.getElementById("liveDeviceContent");
   if (!fleet && !detail) return;
@@ -75,11 +87,11 @@
       for (const name of new Set(devices.map(r => r.observation.busId)))
         if (![...bus.options].some(o => o.value === name)) { const option = document.createElement("option"); option.value = option.textContent = name; bus.append(option); }
       devices = window.LiveTrends.filterFleet(devices, {bus:bus.value, search:document.getElementById("fleetSearch").value,
-        onlyAttention:document.getElementById("fleetAttention").checked, sort:document.getElementById("fleetSort").value, descending:document.getElementById("fleetDescending").checked});
+        onlyAttention:document.getElementById("fleetAttention").checked, sort:document.getElementById("fleetSort").value, descending:document.getElementById("fleetDescending").checked, dynamic:true});
     }
     const keep = new Set(); let position=0;
     for (const row of devices) {
-      const x = present(row), key = x.o.busId + "/" + x.o.modbusAddress;
+      const x = present(row), ac=dynamicPresent(row), key = x.o.busId + "/" + x.o.modbusAddress;
       keep.add(key); let n = fleetNodes.get(key);
       if (!n) {
         const tr = node("tr"), cells = Array.from({length:6}, () => node("td", "", null, tr));
@@ -89,11 +101,11 @@
         fleetNodes.set(key,n);
       }
       put(n.a,x.o.deviceId ? "TR2 · " + x.o.deviceId.value : "Capteur non identifié"); n.a.href = "/live-device.html?" + target(row);
-      put(n.endpoint,x.endpoint); put(n.rms,x.rms); put(n.peak,x.peak);
-      put(n.rmsNote,x.value ? (x.retained ? "Dernière connue · " + x.owner + " · " + x.measurementAge : "Courante · B3 V/F") : "Aucune mesure valide");
-      put(n.peakNote,x.measurement?.receivedAt ?? "—");
+      put(n.endpoint,x.endpoint); put(n.rms,ac.rms); put(n.peak,ac.peak);
+      put(n.rmsNote,ac.quality+" · "+ac.fs);
+      put(n.peakNote,ac.note);
       put(n.severity,x.severity); n.severity.className = "badge " + (x.retained ? "muted" : x.value?.severityGlobal >= 3 ? "caution" : "muted");
-      put(n.severityNote,x.retained ? "Sévérité de la dernière mesure" : "Sévérité transmise par B3");
+      put(n.severityNote,x.retained ? "Sévérité de la dernière mesure" : "Sévérité absolue B3, pas AC1");
       put(n.transport,row.historical ? "Historique" : row.transportConnected ? "Connecté" : "Communication perdue");
       n.transport.className = "badge " + (row.historical ? "muted" : row.transportConnected ? "good" : "danger");
       put(n.acquisition,x.acquisition); put(n.quality,x.quality); put(n.date,x.o.receivedAt); put(n.age,x.age);
@@ -113,12 +125,18 @@
     const strip=node("div","status-strip",null,detail);
     for (const k of ["transport","acquisition","quality"]) field(k,"span","badge",strip);
     if (["summary","vibration"].includes(tab)) {
-      const kpis=node("div","live-kpis",null,detail);
+      const dynamic=node("div","live-kpis",null,detail);
+      for(const [key,label,cls] of [["acRms","RMS dynamique · AC1","rms"],["acPeak","Crête dynamique · AC1","peak"],["acQuality","Qualité dynamique","compact"],["acFs","Plage de la mesure","compact"]]) {
+        const a=node("article","live-kpi "+cls,null,dynamic);node("span","kpi-label",label,a);field(key,"strong","kpi-value",a);field(key+"Note","span","kpi-note",a);
+      }
+      const dynamicAxes=node("div","axis-values",null,detail);for(const a of ["X","Y","Z"]) {const n=node("span","",null,dynamicAxes);node("span","","AC1 "+a+" · RMS / crête ",n);field("acAxis"+a,"strong","",n);}
+      field("acProvenance","p","data-provenance",detail);
+      const kpis=node("div","live-kpis absolute-kpis",null,detail);
       for (const [key,label,cls] of [["rms","RMS global · absolu","rms"],["peak","Crête globale · absolue","peak"],["severity","Sévérité B3","compact"],["measureLabel","Qualité de la mesure","compact"]]) {
         const a=node("article","live-kpi "+cls,null,kpis);node("span","kpi-label",label,a);field(key,"strong","kpi-value",a);field(key+"Note","span","kpi-note",a);
       }
       const axes=node("div","axis-values",null,detail);for(const a of ["X","Y","Z"]) {const v=node("span","",null,axes);node("span","",a+" · RMS / crête ",v);field("axis"+a,"strong","",v);}
-      const note=node("aside","metrology-note",null,detail);node("strong","","Composante statique conservée",note);node("span","","RMS et crête incluent la pesanteur. La calibration de démarrage règle le temps FIFO, sans compensation de gravité. 1 g = 1 000 mg.",note);
+      const note=node("aside","metrology-note",null,detail);node("strong","","Vibrations dynamiques AC1",note);node("span","","Passe-haut continu par axe : retrait DC à 2 Hz, préparation après START. Les mouvements lents restent une limite ; ce traitement n’est pas un étalonnage. B3 absolu conserve la pesanteur.",note);
       const d=node("details","technical",null,technical);node("summary","","Détails B3 et provenance de la mesure",d);const f=node("div","facts",null,d);
       for(const [k,l] of [["measureTime","Réception PC de la mesure affichée"],["sequence","Séquence / âge STM32"],["flags","V / F / HELD de la dernière observation"],["alarms","Flags alarmes / dépassements G X Y Z"],["utc","UTC de fenêtre"],["archive","Archivage"]]) fact(k,l,f);
     } else {
@@ -133,10 +151,13 @@
     selectedRow=row;window.showLiveHistory?.(row,tab,query.get("deviceId"));
     document.querySelectorAll("[data-live-tab]").forEach(b => {b.classList.toggle("active",b.dataset.liveTab===tab);b.setAttribute("aria-current",b.dataset.liveTab===tab ? "page" : "false");});
     if (detailTab!==tab || !detail.childNodes.length) buildDetail();
-    const x=present(row),o=x.o,v=x.value,s=o.snapshot;
+    const x=present(row),ac=dynamicPresent(row),o=x.o,v=x.value,s=o.snapshot;
     put(document.getElementById("liveDeviceTitle"),o.deviceId ? "TR2 · "+o.deviceId.value : "Capteur non identifié");
     const subtitle=document.getElementById("liveDeviceSubtitle");if(subtitle)put(subtitle,x.endpoint+" · Équipement / emplacement non renseignés");
-    const values={transport:x.state,acquisition:x.acquisition,quality:x.quality,rms:x.rms,peak:x.peak,
+    const values={acRms:ac.rms,acPeak:ac.peak,acQuality:ac.quality,acFs:ac.fs,
+      acRmsNote:ac.current ? "Courante · canal AC1" : ac.quality,acPeakNote:ac.note,
+      acQualityNote:ac.meta?.held ? "HELD · non courante" : "Qualité propre au canal dynamique",acFsNote:"Plage / provenance distinctes du filtrage",acProvenance:ac.provenance,
+      transport:x.state,acquisition:x.acquisition,quality:x.quality,rms:x.rms,peak:x.peak,
       rmsNote:x.value ? x.prefix + (x.retained ? " · " + x.owner : "") : "Aucune mesure valide",peakNote:x.value ? x.measurementAge : "En attente d’une mesure valide",
       severity:x.severity,severityNote:x.retained ? "Dernière mesure connue · non courante" : "Transmise par le capteur",
       measureLabel:row.isCurrent ? "Courante" : x.value ? "Dernière connue" : "En attente",
@@ -147,7 +168,7 @@
       identity:o.deviceId?.value ?? "Inconnue",continuity:o.continuity+" / "+o.segmentId,readError:o.detail ?? "Aucune dans cette observation",
       source:o.source,context:row.historical ? "Historique / relecture : aucune acquisition actuelle démontrée." : "Réponse du service physique ; cette page n’ouvre aucun COM.",
       reception:"Dernière réception PC : "+o.receivedAt+" · "+x.age};
-    for(const a of ["X","Y","Z"]) values["axis"+a]=v ? `${v["rms"+a+"Mg"]} / ${v["peak"+a+"Mg"]} mg` : "—";
+    for(const a of ["X","Y","Z"]) {values["acAxis"+a]=ac.value ? `${ac.value["rms"+a+"Mg"]} / ${ac.value["peak"+a+"Mg"]} mg` : "—"; values["axis"+a]=v ? `${v["rms"+a+"Mg"]} / ${v["peak"+a+"Mg"]} mg` : "—";}
     for(const [k,n] of fields)put(n,values[k] ?? "Indisponible");
     fields.get("transport").className="badge "+(row.historical ? "muted" : row.transportConnected ? "good" : "danger");
     fields.get("acquisition").className="badge "+(row.isCurrent ? "good" : "muted");

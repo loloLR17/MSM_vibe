@@ -81,7 +81,11 @@ static Tr2Result s_calibrate(void)
  if(fifo_live_init(&diag_fifo,&owner.acquisition.fifo.ctx,5,r_consume,NULL)){r4r_result.error=5;return TR2_ERROR_UNAVAILABLE;}
  diag_fifo.cleanup_begin=owner.acquisition.fifo.cleanup_begin;diag_fifo.first_data_timeout_ms=20;
  r4_result.start_us=now_us(NULL);
- if(fifo_live_start(&diag_fifo,UINT64_MAX-1,3,3,7,0,r_ms(NULL))){r4r_result.error=5;return TR2_ERROR_UNAVAILABLE;}
+ uint16_t calibration_fs=0;
+#if defined(TR2_LIVE_OPERATOR) && TR2_LIVE_OPERATOR
+ calibration_fs=configuration.active.payload.full_scale_code;
+#endif
+ if(fifo_live_start(&diag_fifo,UINT64_MAX-1,3,3,7,calibration_fs,r_ms(NULL))){r4r_result.error=5;return TR2_ERROR_UNAVAILABLE;}
  r4r_result.begin_us=now_us(NULL);uint64_t next_bracket=r4r_result.begin_us;
  while(now_us(NULL)-r4r_result.begin_us<2000000u){
   if(diag_service()!=TR2_OK){r4r_result.error=6;break;}

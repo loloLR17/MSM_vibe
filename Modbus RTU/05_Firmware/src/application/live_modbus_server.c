@@ -25,6 +25,35 @@ Tr2Result live_modbus_server_init(LiveModbusServer *s,LiveCommandEngine *e,
  if(r!=TR2_OK)return r;
  s->rtu.process_context=s;s->rtu.process_pdu=live_modbus_server_process_pdu;return TR2_OK;
 }
+static void ac1_u32(uint16_t *r,unsigned at,uint32_t n){r[at]=(uint16_t)(n>>16);r[at+1]=(uint16_t)n;}
+static void ac1_publish(LiveModbusServer *s,LiveModbusImage *image,uint64_t now)
+{
+ uint16_t *r=image->ac1;const LiveDynamic *d=&image->metric.dynamic;LiveAc1Hardware h={0};
+ bool valid=d->valid&&d->has_value&&image->metric.authority&&!image->metric.error;
+ uint64_t age=now>=d->value_ms?now-d->value_ms:UINT64_MAX;
+ s->ac1_hardware(s->ac1_context,&h); /* bounded RAM copy only, never SPI/FRAM */
+ uint16_t fs=image->metric.active.payload.full_scale_code;
+ bool proved=h.valid&&h.run_id==d->run_id&&h.run_id&&h.full_scale==fs;
+ r[0]=0x4143;r[1]=1;r[2]=(valid?1:0)|(d->running?2:0)|
+   ((valid&&d->running&&age<=2u*(uint64_t)d->config.payload.indicator_period_ms)?4:0)|
+   ((valid&&!d->running)?8:0)|(proved?16:0)|((d->running&&d->samples<TR2_AC1_WARMUP_SAMPLES)?32:0);
+ r[3]=1;r[4]=fs;r[5]=proved?h.ctrl1:0;
+ ac1_u32(r,6,image->metric.active.payload.sampling_frequency_hz);
+ ac1_u32(r,8,TR2_AC1_CUTOFF_MILLIHZ);ac1_u32(r,10,TR2_AC1_WARMUP_SAMPLES);
+ ac1_u32(r,12,(uint32_t)(d->run_id>>32));ac1_u32(r,14,(uint32_t)d->run_id);
+ ac1_u32(r,16,d->config.config_id);ac1_u32(r,18,d->config.generation);ac1_u32(r,20,d->sequence);
+ ac1_u32(r,22,d->value.valid_sample_count);ac1_u32(r,24,d->value.window_duration_ms);
+ ac1_u32(r,26,d->has_value?(age>UINT32_MAX?UINT32_MAX:(uint32_t)age):0);
+ for(unsigned i=0;i<3;i++)ac1_u32(r,28+2*i,(uint32_t)d->value_dc_ug[i]);
+ ac1_u32(r,34,d->value.rms_global_mg);ac1_u32(r,36,d->value.rms_x_mg);ac1_u32(r,38,d->value.rms_y_mg);ac1_u32(r,40,d->value.rms_z_mg);
+ ac1_u32(r,42,d->value.peak_global_mg);ac1_u32(r,44,d->value.peak_x_mg);ac1_u32(r,46,d->value.peak_y_mg);ac1_u32(r,48,d->value.peak_z_mg);
+ ac1_u32(r,50,proved?h.sequence:0);r[52]=image->metric.active.payload.axes_enable_mask;
+}
+Tr2Result live_modbus_server_enable_ac1(LiveModbusServer *s,void (*copy)(void *,LiveAc1Hardware *),void *ctx)
+{
+ if(!s||!copy||s->responding||s->owner_busy||s->metrology->running)return TR2_ERROR_INVALID_STATE;
+ s->ac1_enabled=true;s->ac1_hardware=copy;s->ac1_context=ctx;return TR2_OK;
+}
 Tr2Result live_modbus_server_publish(LiveModbusServer *s,uint64_t now)
 {
  if(!s||!s->engine||s->responding)return TR2_ERROR_INVALID_STATE;
@@ -49,6 +78,7 @@ Tr2Result live_modbus_server_publish(LiveModbusServer *s,uint64_t now)
   i->run_id=s->value_run;i->config_id=i->metric.value.configuration.config_id;
   i->config_generation=i->metric.value.configuration.generation;
  }
+ if(s->ac1_enabled)ac1_publish(s,i,now);
  s->published=next;s->image_ready=true;
  /* Even invalid/held/error images must be published. Owner handles the fault. */
  return metric;
@@ -158,6 +188,7 @@ static ModbusPduServerOutcome process(LiveModbusServer *s,const uint8_t *q,size_
     now<image->metric.last_read_ms||(image->metric.has_value&&now<image->metric.value.value_monotonic_ms);
    words=current.registers;offset=a-3000u;
   }
+  else if(s->ac1_enabled&&in_range(a,count,TR2_AC1_ADDRESS,TR2_AC1_REGISTERS)) {words=image->ac1;offset=a-TR2_AC1_ADDRESS;}
   else if(in_range(a,count,4000,176)) {
    prepared_view=image->b4;
    if(s->staging.has_prepared) {

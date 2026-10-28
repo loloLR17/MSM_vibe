@@ -4,12 +4,18 @@
 #include "tr2/application/live_metrology.h"
 #include "tr2/modbus/rtu_server_runtime.h"
 
+/* User-authorized experimental operator channel AC1 v1; NOT LIVE R0/B3.
+ * Deliberately disabled at server init and absent from the canonical V1 server. */
+#define TR2_AC1_ADDRESS 8000u
+#define TR2_AC1_REGISTERS 64u
+typedef struct {uint64_t run_id;uint32_t sequence;uint16_t full_scale,ctrl1;bool valid;} LiveAc1Hardware;
 #define TR2_LIVE_INGRESS_SLOTS 4u /* three normal captures, one STOP reserve */
 typedef struct {
     ModbusBlock3Image b3;
     LiveMetrology metric; /* immutable RAM state; callbacks stripped at publication */
     ModbusBlock4Image b4;
     uint16_t b5[29];
+    uint16_t ac1[TR2_AC1_REGISTERS];
     uint64_t run_id;
     uint32_t config_id, config_generation;
 } LiveModbusImage;
@@ -43,6 +49,8 @@ typedef struct {
     unsigned published;
     bool image_ready, responding, owner_busy, step_due;
     bool read_only;
+    bool ac1_enabled;void *ac1_context;
+    void (*ac1_hardware)(void *,LiveAc1Hardware *);
     bool unavailable_inventory;uint16_t selected_inventory_index;
 } LiveModbusServer;
 Tr2Result live_modbus_server_init(LiveModbusServer *, LiveCommandEngine *,
@@ -55,6 +63,7 @@ Tr2Result live_modbus_server_poll_once(LiveModbusServer *);
 /* Explicit R0-INV absent authority, not an empty/erased historical inventory.
  * No media access or schema change. Default remains unsupported (R4Q). */
 Tr2Result live_modbus_server_enable_unavailable_inventory(LiveModbusServer *);
+Tr2Result live_modbus_server_enable_ac1(LiveModbusServer *,void (*)(void *,LiveAc1Hardware *),void *);
 /* At most one capture/admission OR one durable R2 phase. Refuses reentrancy and
  * entry during an existing cooperative scope. STOP reserve cannot be starved by
  * ordinary ingress; it never preempts an already admitted durable operation. */

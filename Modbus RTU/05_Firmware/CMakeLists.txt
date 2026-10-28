@@ -16,6 +16,7 @@ add_library(tr2_core STATIC
     src/domain/acquisition/window_statistics.c
     src/application/live_modbus_server.c
     src/application/live_runtime.c
+    src/application/live_dynamic.c
     src/application/live_metrology.c
     src/persistence/live_command_store.c
     src/application/live_command_engine.c
@@ -466,3 +467,13 @@ target_link_libraries(test_live_runtime_pacing PRIVATE tr2_core)
 add_test(NAME live_runtime_pacing COMMAND test_live_runtime_pacing)
 
 tr2_add_core_test(test_live_b3_wire_order tests/unit/test_live_b3_wire_order.c live_b3_wire_order)
+
+# Experimental dynamic channel, absolute B3 remains covered by its old oracles.
+add_executable(test_live_dynamic tests/unit/test_live_dynamic.c)
+target_link_libraries(test_live_dynamic PRIVATE tr2_core m)
+add_test(NAME live_dynamic COMMAND test_live_dynamic)
+add_executable(test_live_ac1_wire tests/platform/test_live_ac1_wire.c platform/stm32/live_fifo_acquisition.c
+    ${ST_REF}/src/fifo_live.c ${ST_REF}/src/fifo_window.c ${ST_REF}/vendor/st/iis3dwb_reg.c)
+target_include_directories(test_live_ac1_wire PRIVATE platform/stm32 ${ST_REF}/src ${ST_REF}/vendor/st)
+target_link_libraries(test_live_ac1_wire PRIVATE tr2_core)
+add_test(NAME live_ac1_wire COMMAND test_live_ac1_wire)

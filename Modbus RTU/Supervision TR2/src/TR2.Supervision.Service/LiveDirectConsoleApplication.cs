@@ -31,7 +31,7 @@ public static class LiveDirectConsoleApplication
     }
     public static async Task<int> RunAsync(IReadOnlyList<string> args, CancellationToken ct, TextWriter output, TextWriter error)
     {
-        if (args.Count != 15 || args[0] != "--live-direct" || args[2] != "--allow-diagnostic" ||
+        if ((args.Count != 15 && !(args.Count == 16 && args[15] == "--ac1-experimental")) || args[0] != "--live-direct" || args[2] != "--allow-diagnostic" ||
             args[3] != "--database" || args[5] != "--listen" || args[7] != "--trace" ||
             args[9] != "--seconds" || args[11] != "--unit" || args[13] != "--connection-control" ||
             !int.TryParse(args[10], out var seconds) || seconds is < 0 or > 600 ||
@@ -49,7 +49,7 @@ public static class LiveDirectConsoleApplication
                 row => writer.WriteLine(JsonSerializer.Serialize(row))), args[1]);
             var source = new LiveObservationService(transport,
                 new SqliteLiveObservationSink(new SqliteDatabase(new SqlitePersistenceOptions(args[4]))),
-                allowDiagnostic: true, source: $"Physical RS485 {args[1]} 115200 8E1 / NModbus; DIAGNOSTIC NON-PRODUCTION; actual B0/B4/B6/B3; no UTC/run/config inference");
+                allowDiagnostic: true, source: $"Physical RS485 {args[1]} 115200 8E1 / NModbus; DIAGNOSTIC NON-PRODUCTION; actual B0/B4/B6/B3; no UTC/run/config inference", ac1Enabled: args.Count == 16);
             var host = new SupervisionWebHost(new SupervisionWebOptions(listen, false),
                 new SupervisionReadProjection(new FleetRegistry(), new DeviceTelemetrySnapshotRegistry(),
                     new SnapshotFreshnessPolicy(TimeSpan.FromSeconds(5), TimeSpan.FromSeconds(10))), liveReadSource: source, liveArchiveReadSource: new SqliteLiveArchiveReadSource(args[4]), liveDataIsPhysical: true);
