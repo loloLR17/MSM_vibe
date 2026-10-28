@@ -11,13 +11,14 @@
 | AC1 expérimental | Passe-haut 2 Hz et indicateurs séparés, checkpoint Codex `IN_PROGRESS`, tests logiciels | **CONSERVER comme banc**, pas comme norme ni comme contenu de l'archive | P2 |
 | Fréquence et traitement | B4 n'accepte que 26667 Hz ; objectif d'archive 2000 Hz ; **2–25 Hz cible prioritaire et 2–700 Hz bande étendue métier validées**, sans filtre décimateur qualifié | **ADAPTER** filtre anti-repliement jusqu'à la bande utile cible, cadence exacte, timestamps, mémoire/CPU ; préserver le DC dans les archives | P1 |
 | Bulk logique | Blocs/CRC, metadata, checkpoint, recovery, `CampaignDataStore` existent, tests hôte ; record historiquement16B/sample | **CONSERVER/ADAPTER** codec, format, budgets et version ; pas de réécriture générale | P1 |
-| SDMMC matériel | C2c 512Kio à1,20Mo/s relus ; M017 overflow après0,402315s ; autres CRC/NoMedia sur SDMMC1 | **REMPLACER le chemin matériel non qualifié** ou garder comme archive expérimentale ; pas de reprise aveugle des mêmes essais | P1 bloquant |
+| Accès microSD / SDMMC | Carte microSD **amovible maintenant exigée en V1** ; SDMMC C2c 512Kio à1,20Mo/s relus mais M017 overflow après0,402315s, et CRC/NoMedia SDMMC1 | **GARDER LE SUPPORT microSD, REMETTRE EN CAUSE le transport SDMMC** : qualifier un backend microSD SPI et sa coexistence SPI/temps réel ; pas de répétition aveugle SDMMC | P1 bloquant |
 | RAM et temps réel | Checkpoint AC1 indique BSS **659 176 octets** (donnée du checkpoint logiciel, non budget SRAM disponible), restant et stack/heap/IRQ non qualifiés pour buffer SD + DSP | **AUDITER** les maxima et le backpressure avant intégration | P1 |
 | FRAM/config/identité | Autorités durables et prepared/active déjà construites | **CONSERVER**, évolution de schéma minimale/versionnée | P1 préservation |
 | Modbus RTU/B5 | Communication, commandes transactionnelles et STOP physique observés (~40 s) | **CONSERVER**, revoir arrêt/flush de campagne et statut sans revendiquer sécurité machine | P1/P2 |
 | Horloge/synchronisation | Bloc2 + horodatage disponibles ; V1 = **contrôles ponctuels locaux**, simultanés ou successifs, **sans analyse du déphasage intercapteurs** ; temps événementiel à qualifier | **CONSERVER/ADAPTER** chronologie interne, horodatage des campagnes et repère commun pour rapprocher les phases de conduite ; **DIFFÉRER V2** synchronisation de phase/propagation | P1 chronologie ; V2 phase |
 | PC, SQLite, interface | LIVE réel/mesures synthétiques, mais pas d'import de fichier XYZ 8h | **CONSERVER le socle**, ajouter import/contrôle de fichiers et analyse hors ligne | P2 |
-| Extraction bulk | Plusieurs centaines de Mo par capteur à récupérer | **DÉFINIR** support et méthode d'extraction dédiée ou amovible | P1 |
+| Extraction et format de campagne | Plusieurs centaines de Mo/capteur ; D3 résolu : **retrait manuel de microSD en V1** ; code bulk historique à secteurs bruts sans lisibilité PC ordinaire démontrée | **ADAPTER** pour retrait sûr + fichiers/outil d'import PC, système de fichiers standard à privilégier ; format indépendant du transport pour futur téléchargement IP | P1 |
+| Extension réseau V1.5 | STM32U575 sans MAC Ethernet intégré ; SPI1 FRAM et SPI3 IIS3DWB déjà occupés ; IP/Modbus TCP et téléchargement de fichiers demandés pour V1.5 | **PRÉSERVER LES FRONTIÈRES LOGICIELLES ET ÉTUDIER L'EXTENSIBILITÉ MATÉRIELLE** avant PCB final, sans implémenter réseau/Modbus TCP en V1 ; contrôler arbitages bus/pins/IRQ et impact CPU/SD | V1.5, réserve R0 |
 | FFT embarquée/UX/alertes évoluées | Non indispensables à la première mesure 8h | **DIFFÉRER**, préserver le code existant | P3 |
 | Fixation/qualification bord | Jusqu'à six appareils de mesure ponctuelle, site/orientation et conditions réelles non qualifiés ; pas de cartographie structurelle en V1 | **QUALIFIER PLUS TARD** fixation, vibrations fortes, comparaison entre conditions et emplacements ; déphasage/propagation reportés V2 | P2 |
 
@@ -28,7 +29,8 @@
 3. **Vibratoire vs pesanteur** : contrat B3 absolu. Séparer données archivées (DC préservé) et indicateurs dynamiques (DC soustrait).
 4. **26667Hz vs 2000Hz enregistrés** : la cible de fréquence ne se satisfait pas d'un changement d'étiquette ; DSP et horodatage doivent être caractérisés.
 5. **Stockage physique non qualifié**, malgré infrastructure logique riche : nouveau backend à prouver avant assemblage final.
-6. **Importation / récupération de l'archive** : un flux stocké sans moyen raisonnable de récupération ne satisfait pas l'objectif.
+6. **Importation / récupération de l'archive** : V1 impose un support microSD retiré manuellement puis lisible sur PC, pas une zone brute illisible sans outil dédié ; la V1.5 IP ne doit pas imposer une nouvelle conversion du format des campagnes.
+7. **Ethernet futur non natif** : le STM32U575 ne dispose pas d'un MAC Ethernet, alors qu'une interface IP V1.5 est souhaitée. Anticiper l'interface matériel avant PCB final, mais aucune réservation de broches non vérifiées ni réseau dans R1/R2.
 
 ## Références factuelles
 
