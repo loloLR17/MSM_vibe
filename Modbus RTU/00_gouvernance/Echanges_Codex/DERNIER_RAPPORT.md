@@ -90,3 +90,10 @@ Ce refus interdit de poursuivre la qualification avec R2. Décision attendue : f
 5. Prouver COM4→SQLite/API→Edge/CSV en RUNNING puis STOP/HELD, conservation intégrale des historiques, budgets temporels/FIFO/UART. Audit final horsscope/FIFOoff si nécessaire, puis vraie réponse bus après detach sans reset. Conserver firmware cumulatif si sain. START/STOPWeb reste P2 distinct.
 
 Journal `ETAT_COURANT_TR2.md` et document opérateur `REPRISE.md` actualisés pour remplacer les états périmés et rendre le blocage explicite. Aucun changement normatif ni qualification indépendante revendiquée. Le présent rapport sera relu intégralement depuis GitHub après push ; SHA et état Git fournis ensuite. Preuves locales : `/home/lolo/dev/msm/reports/TR2-accel-fs8g-ac/`.
+
+
+## Publication distante vérifiée
+
+Push normal du bilan **3c59d32fdb7c6be30ba8397cb9b3a68a38004332** sur main réussi. Référence récupérée de GitHub le29/10/2026 à06:22:45UTC : **34 fichiers relus intégralement et byte-identiques**, dont rapport/code/tests/journal/reprise ; **26 artefacts** des bundles de reprise et de blocage vérifiés après décompression avec empreintes brutes et stockées. [Trace de relecture](preuves/TR2-20261028-ACCEL-FS8G-AC1/windows-r2-block/remote-readback-resume.json). Cette publication ne lève pas le blocage Windows et ne qualifie pas AC1/±8g.
+
+État Git au bilan : worktree de publication propre, HEAD égal à main distant ; dépôt historique propre82169af et ancien worktree avec les deux changements initiaux préservés. Le SHA de la mise à jour documentaire consignant cette relecture sera fourni dans la réponse finale après contrôle distant. Statut BLOCKED maintenu, mission reprenable sous le même identifiant.
