@@ -5,6 +5,7 @@
 #include "tr2/domain/acquisition/fir_decimator10.h"
 #include <string.h>
 #include "sd_writer.h"
+#include "sd_group.h"
 #include "stream_hash.h"
 #include "capture_queue.h"
 #define HIST_BINS 5001u
@@ -15,7 +16,7 @@
 typedef struct {uint32_t service,work,gap,xyz,sd_step,queue;} Record;
 typedef struct {uint64_t sum;uint32_t count,max;uint32_t hist[HIST_BINS];} Distribution;
 typedef struct {uint32_t before,after,raw;} Bracket;
-typedef struct {uint32_t write_us,busy_us,queue_at_begin,lba;} SdWriteRecord;
+typedef struct {uint32_t write_us,busy_us,queue_at_begin,lba,blocks;} SdWriteRecord;
 typedef struct {uint64_t sum;uint32_t count,max;uint32_t hist_ms[1001];} SdDistribution;
 typedef struct {
  uint32_t version,stage,error,uid[3],clock,who,run,mode,duration_us,records;
@@ -33,12 +34,14 @@ Result r3_result;
 Record r3_records[TRACE_COUNT];
 SdWriteRecord r3_sd_records[2048];
 SdDistribution r3_sd_distributions[2];
+SdDistribution durable_busy_distributions[2]; /* actual per-sector and FD-stop busy, ceil1ms */
 static uint32_t writer_queue;
 Distribution r3_distributions[4]; /* service/work/gap/SD quantum, rawcycles histogramceil1us */
-SdSpi r3_card;SdWriter r3_writer;
+SdSpi r3_card;SdGroup r3_writer;
+uint32_t durable_single_busy_max;
 R3Hash source_hash;
 uint8_t r3_source_sha[32],r3_header[512],r3_media_header[512],r3_return[512];
-static CaptureQueue q;static uint8_t last_sector[512];
+static CaptureQueue q;
 static uint32_t next_lba;
 static uint8_t frame[512],durable_footer[512];
 uint32_t durable_frame_count,durable_frame_seq,durable_frame_flags,durable_first_output;
@@ -112,23 +115,27 @@ static Tr2Result sink(void *unused,uint64_t index,const int16_t xyz[3],uint64_t 
 static int writer_step(bool final)
 {
  if(!writer_enabled)return 0;
- if(!r3_writer.active&&(q.count>=512||(final&&q.count))){
-  const uint8_t *b=capture_queue_acquire(&q,final,last_sector);if(!b)return -3;
-  writer_queue=q.count;
-  if(next_lba>=durable_status.first_lba+durable_status.sectors-1)return -5;
-  if(sd_writer_begin(&r3_writer,&r3_card,next_lba,b))return -1;
+ if(!r3_writer.active&&(q.count>=4096||(final&&q.count))){
+  if(q.borrowed||q.tail%512||q.count%512)return -3;
+  uint32_t blocks=q.count/512;if(blocks>8)blocks=8;
+  uint32_t contiguous=(R3_QUEUE_CAPACITY-q.tail)/512;if(blocks>contiguous)blocks=contiguous;
+  q.borrowed=blocks*512;writer_queue=q.count;
+  if(next_lba>=durable_status.first_lba+durable_status.sectors-1||blocks>durable_status.first_lba+durable_status.sectors-1-next_lba)return -5;
+  if(sd_group_begin(&r3_writer,&r3_card,next_lba,q.data+q.tail,blocks))return -1;
  }
  if(r3_writer.active){
-  if(sd_writer_step(&r3_writer))return -2;
+  if(sd_group_step(&r3_writer))return -2;
   r3_result.sd_steps++;if(q.count>=512)r3_result.sd_pending_polls++;
   if(r3_writer.done){
-   uint32_t n=q.borrowed;if(!capture_queue_commit(&q))return -4;next_lba++;r3_result.sd_completed++;r3_result.sd_written+=n;
+   uint32_t n=q.borrowed;if(!capture_queue_commit(&q))return -4;next_lba+=r3_writer.blocks;r3_result.sd_completed++;r3_result.sd_written+=n;
    uint32_t total=(uint32_t)(r3_writer.complete_us-r3_writer.begin_us);
    uint32_t id=r3_result.sd_completed-1,slot=id<256?id:256+(id-256)%1792;
-   r3_sd_records[slot]=(SdWriteRecord){total,(uint32_t)r3_writer.busy_us,writer_queue,r3_writer.lba};
-   for(unsigned k=0;k<2;k++){uint32_t value=k?(uint32_t)r3_writer.busy_us:total;SdDistribution *d=&r3_sd_distributions[k];d->sum+=value;d->count++;if(value>d->max)d->max=value;uint32_t bin=(value+999u)/1000u;if(bin>1000)bin=1000;d->hist_ms[bin]++;}
+   r3_sd_records[slot]=(SdWriteRecord){total,(uint32_t)r3_writer.busy_sum_us,writer_queue,r3_writer.lba,r3_writer.blocks};
+   for(unsigned k=0;k<2;k++){uint32_t value=k?(uint32_t)r3_writer.busy_sum_us:total;SdDistribution *d=&r3_sd_distributions[k];d->sum+=value;d->count++;if(value>d->max)d->max=value;uint32_t bin=(value+9999u)/10000u;if(bin>1000)bin=1000;d->hist_ms[bin]++;}
+   for(unsigned j=0;j<=r3_writer.blocks;j++){unsigned k=j==r3_writer.blocks?1:0;uint32_t value=r3_writer.block_busy_us[k?8:j];SdDistribution *d=&durable_busy_distributions[k];d->sum+=value;d->count++;if(value>d->max)d->max=value;uint32_t bin=(value+999u)/1000u;if(bin>1000)bin=1000;d->hist_ms[bin]++;}
    if(total>r3_result.sd_write_max_us)r3_result.sd_write_max_us=total;
-   if(r3_writer.busy_us>r3_result.sd_busy_max_us)r3_result.sd_busy_max_us=(uint32_t)r3_writer.busy_us;
+   if(r3_writer.busy_sum_us>r3_result.sd_busy_max_us)r3_result.sd_busy_max_us=(uint32_t)r3_writer.busy_sum_us;
+   if(r3_writer.max_busy_us>durable_single_busy_max)durable_single_busy_max=r3_writer.max_busy_us;
   }
  }
  return 0;
@@ -224,8 +231,8 @@ static int session(uint32_t run,uint32_t duration)
  r3_result.trace_count=r3_result.queue_overflows=r3_result.sd_pending_polls=0;r3_source_count=r3_output_count=0;
  r3_result.first_us=r3_result.last_us=r3_result.residual=r3_result.stop_us=0;
  r3_result.source_hash=r3_result.output_hash=2166136261u;capture_queue_init(&q);
- memset(r3_distributions,0,sizeof r3_distributions);memset(r3_sd_distributions,0,sizeof r3_sd_distributions);memset(&r3_writer,0,sizeof r3_writer);r3_hash_init(&source_hash);
- durable_frame_count=durable_frame_seq=durable_frame_flags=durable_first_output=0;durable_first_time=durable_last_time=0;
+ memset(r3_distributions,0,sizeof r3_distributions);memset(r3_sd_distributions,0,sizeof r3_sd_distributions);memset(durable_busy_distributions,0,sizeof durable_busy_distributions);memset(&r3_writer,0,sizeof r3_writer);r3_hash_init(&source_hash);
+ durable_single_busy_max=0;durable_frame_count=durable_frame_seq=durable_frame_flags=durable_first_output=0;durable_first_time=durable_last_time=0;
  durable_session=((uint64_t)r3_result.uid[0]<<32)^now()^((uint64_t)run<<48);
  if(writer_enabled){
   memset(r3_header,0,512);memcpy(r3_header,"TR2DUR01",8);
@@ -275,7 +282,7 @@ static void stack_paint(void){stack_begin=(uintptr_t)&_estack-4096u;stack_end=(_
 static void stack_scan(void){uintptr_t p=stack_begin;while(p<stack_end&&*(volatile uint32_t *)p==0xA53CC35Au)p+=4;r3_result.stack_floor=(uint32_t)(p-stack_begin);r3_result.stack_deepest=p<stack_end?(uint32_t)((uintptr_t)&_estack-p):0;if(p==stack_begin)r3_result.error=91;}
 int main(void)
 {
- r3_result.version=1;r3_result.stage=1;r3_result.uid[0]=HAL_GetUIDw0();r3_result.uid[1]=HAL_GetUIDw1();r3_result.uid[2]=HAL_GetUIDw2();
+ r3_result.version=2;r3_result.stage=1;r3_result.uid[0]=HAL_GetUIDw0();r3_result.uid[1]=HAL_GetUIDw1();r3_result.uid[2]=HAL_GetUIDw2();
  if(r3_result.uid[0]!=0x001b0046||r3_result.uid[1]!=0x38425018||r3_result.uid[2]!=0x20333157)Error_Handler();
  stmdev_ctx_t ctx;BenchClock clock;
  if(HAL_Init()!=HAL_OK)Error_Handler();
@@ -302,6 +309,7 @@ int main(void)
   }
   if(fifo.running){if(!r)reset_trace();if(fifo_live_stop(&fifo))r=-93;}
   if(r3_writer.active){while(r3_writer.active){if(writer_step(false))break;}}
+  if(r3_writer.needs_power_cycle){r3_result.error=95;r3_result.stage=98;for(;;){(void)now();__WFI();}}
   if((r3_writer.uncertain||r3_card.failed)&&sd_spi_quiesce(&r3_card)){r3_result.error=94;r3_result.stage=98;for(;;){(void)now();__WFI();}}
   if(r3_result.run>=2)r3_hash_finish(&source_hash,r3_source_sha);
   r3_sd_deselect();r3_result.stopped=fifo.stopped;r3_result.fifo_error=fifo.error;r3_result.stop_error=fifo.stop_error;

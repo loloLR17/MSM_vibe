@@ -4,6 +4,9 @@
 #include "ff.h"
 #include "diskio.h"
 #include <string.h>
+#ifndef R3_FILE_PREFIX
+#define R3_FILE_PREFIX "RUN"
+#endif
 DurableStatus durable_status;
 static SdSpi *card;static FATFS fs;static FIL file;static uint8_t work[4096];
 static int failure(uint32_t n){durable_status.error=n;return -1;}
@@ -40,7 +43,7 @@ int durable_format(void)
 int durable_prepare(uint32_t run,uint32_t bytes,uint64_t session,const uint8_t header[512])
 {
  if(!durable_status.mounted||fs.fs_type!=FS_FAT32||run<3||run>5||bytes%512||bytes<2048)return failure(7);
- char name[]="0:/RUN0000.TR2";name[9]=(char)('0'+run);
+ char name[]="0:/" R3_FILE_PREFIX "0000.TR2";name[9]=(char)('0'+run);
  if(f_open(&file,name,FA_WRITE|FA_CREATE_NEW)!=FR_OK)return failure(8);
  if(f_expand(&file,bytes,1)!=FR_OK||f_sync(&file)!=FR_OK)return failure(9);
  uint32_t first=file.obj.sclust;uint32_t lba=(uint32_t)fs.database+(first-2u)*fs.csize;
@@ -60,7 +63,7 @@ int durable_prepare(uint32_t run,uint32_t bytes,uint64_t session,const uint8_t h
 static uint32_t get32(const uint8_t *p){return (uint32_t)p[0]|(uint32_t)p[1]<<8|(uint32_t)p[2]<<16|(uint32_t)p[3]<<24;}
 int durable_verify_last(const uint8_t expected[32])
 {
- char name[]="0:/RUN0000.TR2";name[9]=(char)('0'+durable_status.run);UINT n;
+ char name[]="0:/" R3_FILE_PREFIX "0000.TR2";name[9]=(char)('0'+durable_status.run);UINT n;
  uint8_t footer[512];
  if(!durable_status.run||f_open(&file,name,FA_READ)!=FR_OK)return failure(20);
  if(f_size(&file)!=durable_status.sectors*512u||f_lseek(&file,f_size(&file)-512)!=FR_OK||f_read(&file,footer,512,&n)!=FR_OK||n!=512)return failure(21);

@@ -139,3 +139,37 @@ XYZ counts, nominal g, output/source indices, explicit interpolated timestamps,
 block endpoints and quality. CSV is created exclusively (no overwrite). Warmup is
 derived from known causal phase; block-level quality is not invented per sample.
 No CSV is written to the qualification card; retain the original binary.
+
+## Correction candidate R2 after the measured265s failure
+
+Initial CMD24 imagefd73 ran2/60s successfully, then overflowed64KiB after265.121081s
+in a cluster of30busy>100ms; no FIFO OVR or SD error. Real PC extraction validated
+both complete files and8857records/690846XYZ/4145076B of the incomplete file, no
+false complete footer. All original RUN0003/4/5 files and negative traces preserved.
+
+Candidate uses **ACMD23 + CMD25 groups of1..8sectors**, FC data tokens, four128B
+quanta per sector, one-byte cooperative busy polling, FD stop, stop-busy polling,
+separateCMD13. No CMD38/erase or guessed fallback. The whole group stays borrowed
+and charged until final status acknowledgment. Source STOP completes only the
+already-borrowed group, no new one. Ambiguous CMD25 data position on I/O failure
+requires source STOP and a physical power cycle (stage98/error95), not a guessed
+command or retry. No such fault is deliberately injected on hardware.
+
+SPI3/SPI2/quanta/64KiB capacity and timing references unchanged. Nibble CRC32 is
+byte-identical to IEEECRC32 verified by independent Python zlib, reducing measured
+callback risk (old peak995.538us just below1000us); no FIR or payload change.
+Capture file names are R2N0003/4/5.TR2, **no reformat or deletion** of prior files.
+Format v1 unchanged; diagnostic RAM telemetry is **version2**: sd_completed counts
+GROUPS, sd_written bytes equals sum(blocks)*512, each SD raw record has5uint32
+(write_us, cumulative_busy_us, queue_at_begin, first_lba, blocks). Group histograms
+use ceil10ms bins up to10s; separate actual per-data-sector and FD-stop busy
+histograms use ceil1ms, full count/sum/exact maxima. First256/last1792 raw groups
+are retained; bounded trace never causes a source failure.
+
+Host models cover all10STOPstates, exact8sector bytes, uncertain dataIO refusal,
+framed20000XYZ150/500ms pauses and19×151054us holds, plus explicit19×500ms overflow.
+This does not prove a real card improvement; fresh2/60/600s qualification and PC
+extraction are required. Corrected new image must carry its own committed GitSHA.
+Protocol reference: [official ST Adafruit tokens/commands](https://github.com/STMicroelectronics/STM32CubeG4/blob/master/Drivers/BSP/Adafruit_Shield/adafruit_802_sd.c),
+SD Association Physical Layer Simplified3.01 SPI§7: FC/FD tokens and ACMD23 hint;
+[SDA original specification mirrored by NXP](https://community.nxp.com/pwmxy87654/attachments/pwmxy87654/kinetis/28816/1/Simplified_Physical_Layer_Spec_3.01.pdf).

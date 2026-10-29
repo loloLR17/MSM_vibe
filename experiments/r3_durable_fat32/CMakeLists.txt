@@ -9,7 +9,7 @@ set(SDREF "${CMAKE_CURRENT_SOURCE_DIR}/../spi2_microsd_isolated")
 if(R3_HOST_TESTS)
  enable_testing()
  find_package(Python3 REQUIRED COMPONENTS Interpreter)
- add_executable(test_fat_model ../r3_coex_fifo_fir_sd/src/capture_queue.c tests/test_fat_model.c src/archive_format.c src/fat_volume.c vendor/fatfs/ff.c ../r3_coex_fifo_fir_sd/src/sd_writer.c ../r3_coex_fifo_fir_sd/src/stream_hash.c "${SDREF}/src/sd_spi.c" "${FW}/src/common/cooperative_work.c")
+ add_executable(test_fat_model src/sd_group.c ../r3_coex_fifo_fir_sd/src/capture_queue.c tests/test_fat_model.c src/archive_format.c src/fat_volume.c vendor/fatfs/ff.c ../r3_coex_fifo_fir_sd/src/sd_writer.c ../r3_coex_fifo_fir_sd/src/stream_hash.c "${SDREF}/src/sd_spi.c" "${FW}/src/common/cooperative_work.c")
  target_include_directories(test_fat_model PRIVATE src vendor/fatfs ../r3_coex_fifo_fir_sd/src "${SDREF}/src" "${FW}/include" "${FW}/platform/stm32" "${STREF}/src" "${STREF}/vendor/st")
  target_compile_definitions(test_fat_model PRIVATE R3_DURABLE_CARD_PROFILE=1 _FILE_OFFSET_BITS=64)
  target_compile_options(test_fat_model PRIVATE -O2 -g -Wall -Wextra -Werror -UNDEBUG)
@@ -34,7 +34,7 @@ execute_process(COMMAND ${Python3_EXECUTABLE} -B "${STREF}/tools/instrument_hal.
 if(NOT OBS_RESULT EQUAL 0)
  message(FATAL_ERROR "Qualified HAL SPI fingerprint refused")
 endif()
-add_executable(r3_coex src/main.c ../r3_coex_fifo_fir_sd/src/board_sd.c ../r3_coex_fifo_fir_sd/src/sd_writer.c ../r3_coex_fifo_fir_sd/src/stream_hash.c ../r3_coex_fifo_fir_sd/src/capture_queue.c src/archive_format.c src/fat_volume.c vendor/fatfs/ff.c
+add_executable(r3_coex src/sd_group.c src/main.c ../r3_coex_fifo_fir_sd/src/board_sd.c ../r3_coex_fifo_fir_sd/src/sd_writer.c ../r3_coex_fifo_fir_sd/src/stream_hash.c ../r3_coex_fifo_fir_sd/src/capture_queue.c src/archive_format.c src/fat_volume.c vendor/fatfs/ff.c
  "${SDREF}/src/sd_spi.c" "${FW}/platform/stm32/fifo_event_time.c"
  "${FW}/src/domain/acquisition/fir_decimator10.c" "${FW}/src/application/live_metrology.c"
  "${FW}/src/application/live_dynamic.c" "${FW}/src/domain/acquisition/window_statistics.c"
@@ -42,7 +42,7 @@ add_executable(r3_coex src/main.c ../r3_coex_fifo_fir_sd/src/board_sd.c ../r3_co
  "${STREF}/src/platform.c" "${STREF}/src/spi_diagnostic.c" "${STREF}/src/fifo_live.c" "${STREF}/src/fifo_window.c" "${STREF}/vendor/st/iis3dwb_reg.c"
  "${OBSERVED}" ${SDK} "${DEV}/Source/Templates/gcc/startup_stm32u575xx.s" "${DEV}/Source/Templates/system_stm32u5xx.c")
 target_include_directories(r3_coex PRIVATE src vendor/fatfs ../r3_coex_fifo_fir_sd/src "${SDREF}/src" "${STREF}/src" "${STREF}/vendor/st" "${FW}/include" "${FW}/platform/stm32" "${HAL}/Inc" "${DEV}/Include" "${STM32CUBE_U5_ROOT}/Drivers/CMSIS/Include")
-target_compile_definitions(r3_coex PRIVATE STM32U575xx USE_HAL_DRIVER BENCH_CORE_MHZ=160 BENCH_SPI_DIVIDER=2 BENCH_SPI_MODE3=1 BENCH_DUPLEX=0 BENCH_SECOND_SPI_OBSERVER=1 R3_DURABLE_CARD_PROFILE=1)
+target_compile_definitions(r3_coex PRIVATE STM32U575xx USE_HAL_DRIVER BENCH_CORE_MHZ=160 BENCH_SPI_DIVIDER=2 BENCH_SPI_MODE3=1 BENCH_DUPLEX=0 BENCH_SECOND_SPI_OBSERVER=1 R3_DURABLE_CARD_PROFILE=1 R3_FILE_PREFIX="R2N")
 target_compile_options(r3_coex PRIVATE -mcpu=cortex-m33 -mthumb -O2 -g3 -Wall -Wextra -Werror -ffunction-sections -fdata-sections -fstack-usage)
 target_link_options(r3_coex PRIVATE -mcpu=cortex-m33 -mthumb --specs=nano.specs --specs=nosys.specs -Wl,--gc-sections -Wl,--build-id=none "-Wl,-Map=${CMAKE_CURRENT_BINARY_DIR}/r3_coex.map" "-T${FW}/platform/stm32/linker/STM32U575ZITXQ_FLASH.ld")
 set_target_properties(r3_coex PROPERTIES SUFFIX .elf)
