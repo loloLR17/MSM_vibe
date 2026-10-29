@@ -4,7 +4,7 @@ status: IN_PROGRESS
 base_ref: main
 base_sha: ffecc3ee372814f9ed5f3ad18d851b62582f7da0
 initial_head: 181441dca87403ac1886c62068390584efa9496e
-result_sha: fd73fa1dc74c29093e3f094cca0fff2fd319a9b6
+result_sha: 6fdae042333f671629d2c4626d7120b0bd848ae3
 created_at_utc: 2026-10-29T20:25:12.340680+00:00
 author: Codex
 target_branch: main
@@ -16,12 +16,48 @@ allow_debug: true
 
 # R3-DURABLE — checkpoint FAT32 : fichiers PC courts validés, arrêt long sur grappe SD
 
-**IN_PROGRESS — essai600s réellement exécuté, interrompu à265,121081s surfile64KiB pleine.**
-Les fichiers2s et60s sont maintenant extraits physiquement du lecteurPC et vérifiés
-intégralement. Le600s est INCOMPLETE, avec8857blocs/690846XYZ récupérés ; aucun
-footer de succès ni comparaison mensongère de ce préfixe au digest de toute la
-source. La correction d’ordonnancement/transport reste à étudier avant toute
-répétition ; pas de campagne sur codeinchangé, pas de qualification10min.
+**IN_PROGRESS — correctiongroupée effectivement chargée et paliers2s/60s sains.**
+L’anciennégatif265s et les fichiersPC complets/incomplet sont conservés ; le nouvel
+essai600s est en cours. Ne pas le perturber ni revendiquer10min avant terminal et
+extractionPC. Codephysiqueactuel **6fdae042333f671629d2c4626d7120b0bd848ae3**, BIN
+**27f5d59fc58803d6a7fd66714014ca7d24da60023736386b3375b9272fbf9ef6** ; secondeprogrammationR3-DURABLE
+standard verify/readback exact, pas de resetlogiciel supplémentaire.
+
+## Correction minimale et résultats intermédiaires nouveaux
+
+ACMD23+CMD25 par1..8secteurs, quanta128B, busy coopératif, stopFD+CMD13,
+charge/emprunt du groupe entier jusqu’àACK. **64KiB inchangés** ; aucuneinflation de
+file pour cacher lesgrappes. NouvelleCRC32 nibble identique àzlib réduit lecoûtdu
+callback ; FIR/protocoleV1 inchangés. FichiersR2N0003/4/5 distincts, pasreformatage
+ni effacement desRUN0003/4/5. UnepositionCMD25 incertaine exige arrêt et powercycle,
+aucun retry/commande devinée.80cas STOP(8tailles×10états) et modèlesframing/busy
+150/500ms,19×151054µs(peak47616B),19×500ms(refus65536B) PASS,29caslecteur dont
+28négatifs+CSV/reconstructionPASS, ARM/canoniquecrossPASS ; ce sont des modèles.
+BSS543104B incluant télémétrie accrue, pas empilement de bancs.
+
+Calibrationnouvelle30µs/193brackets/6577ancres, UID/CID/mount/Flash vérifiésaprès
+réinsertionconfirméeutilisateur, aucunformat. Baseline2s saine.
+
+| Nouveau fichier | SourceXYZ | Sorties | PayloadB | Groupes / secteurs512 | FIFO/file pic | Maxwork/service/gap µs |
+|---|---:|---:|---:|---|---|---|
+| group-file-2s | 52592 | 5260 | 31560 | 9 / 68 | 48 / 5120B | 661.812 / 1362.787 / 1619.000 |
+| group-file-60s | 1585488 | 158549 | 951294 | 255 / 2033 | 49 / 5120B | 704.256 / 1387.606 / 1644.000 |
+
+ZéroflagsOVR/SD/source/temps/queuefaute,103sortiespréfixe indépendantes exactes.
+2s/60s footercomplet et relectureFatFsdufichierprécédent avantpalierlong.
+Sur60s busyparsecteur max5462µs/FDstop5384µs, STOP152µs/drainpayload14025µs.
+Les statistiquesSD RAM version2 comptent desGROUPES ; leshistogrammesbusy réels
+parsecteur etstop sont séparés. Ne pas comparer abusivement leurs sommes aux
+anciennes latences unitairesCMD24. Références1000/2500/5000µs inchangées.
+
+Le600s est lancé sansdebugpendantcapture, timeoutoutil750s. Encasd’interruption,
+vérifier logs/processus avant toutattachement ; pas de répétitioncodeinchangé.
+Àl’arrêt normal : analyserbruts puis retraitphysiquesûr pourcopierles3R2N*.TR2
+depuislecteurPC et confronter touslesoctets auSHAproducteur. Lesanciensfichiers
+seront égalementhachés pourvérifier leurpréservation.
+[Preuves groupées](preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-group-short/BUNDLE.json).
+
+Les sections suivantes conservent l’historique initial fd73 et sonnégatif :
 
 ## Acquisition physique courte acquise / échec long conservé
 
