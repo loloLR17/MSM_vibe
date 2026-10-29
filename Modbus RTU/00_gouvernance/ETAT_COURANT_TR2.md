@@ -1,5 +1,8 @@
 # État courant MSM TR2 — synthèse opérationnelle
 
+**29/10/2026, AC1/±8g — BLOCKED Windows :** correctif ae6e2d5e publié/253ServicePASS acquis ; paquet R2 complet378fichiers vérifiés mais gate06:16UTC échoueHTTP503/SAC1/296événements3033-3077 corrélés sur NModbus.Serial et SQLitePCLRaw.batteries_v2. Aucun contournement. R1 fermé avec STOP frais/verrou/token COMlibéré, backup75006observations intègre/52824originales intégralement identiques. Ancien service accepté B3 relancé seulPID8312 ; réponse réelle06:18:59UTC STOP4097/seq0, zéroCI corrélé. Image e184 conservée, zéro nouveauflash/reset/B5 à la reprise ; ±8g et AC1 physique **NON QUALIFIÉS**, pasAPPLY. Reprise requiert un déploiement Windows approuvé puis essais bornés. Rapport/preuves et REPRISE opérateur actualisés ; anciennes observations R1 conservées séparément, pas fusionnées dans anciennebase.
+
+
 **29/10/2026 — AC1/±8g, IN_PROGRESS :** logiciel72a7b573 et correctif transportPC ae6e2d5e publiés ; 148testsC/ARM et 253Service acquis, non rejoués sur code inchangé. Image opérateur e1846c…aa7b80 flashée une fois le28/10, sauvegardes Flash doublées/FRAM3c56…2b5 vérifiées. Premier boot interrompu par GDB pendant calibration (échec conservé), puis un reset logiciel justifié ; B0/B3 répondent STOP. À06:14:59UTC le29/10, service R1 lit STOP4097/seq0 puis rejette localement AC1 par whitelist PC ; correctif livré, R2 Windows complet séparé en préparation. Aucune commande B5 nouvelle/ledger5-25, pas encore de preuve ±8g/dynamique physique. Ancien paquet/données/worktrees/stashes préservés ; B3 absolu inchangé, extension AC1v1 NON-PRODUCTION autorisée par utilisateur.
 
 

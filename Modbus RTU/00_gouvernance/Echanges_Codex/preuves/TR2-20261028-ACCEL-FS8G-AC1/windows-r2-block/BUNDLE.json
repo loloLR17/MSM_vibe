@@ -1,0 +1,135 @@
+[
+  {
+    "source": "windows-publish-r2.log",
+    "file": "windows-publish-r2.log.zlib",
+    "sha256": "20a88a2860ea4766a4c1e807cf9504728c35c613a5cd51677626d2b850a4447a",
+    "stored_sha256": "43545b3a62f835dde4c63dd09d19e8338166c04a7967d4a286afcb493906c119",
+    "bytes": 2679
+  },
+  {
+    "source": "windows-candidate-r2.json",
+    "file": "windows-candidate-r2.json.zlib",
+    "sha256": "b7780261c2c36e0418bd0825e661725656ad76fb1a09843a03b366962f82279e",
+    "stored_sha256": "6a8d95358cd0ed183b3db8220da1aada4c29ef29be8ba86c86a77f8a7192d739",
+    "bytes": 41015
+  },
+  {
+    "source": "windows-gate-r2/summary.json",
+    "file": "windows-gate-r2--summary.json.zlib",
+    "sha256": "e7515508ee069344a0b9ef7733a92e91c3aee2db0b26bddcb2c9df953edfef10",
+    "stored_sha256": "38e719aaae35918ee75b868b86e1c0ee3760fe2579d4abe42e607b356c8e448d",
+    "bytes": 481
+  },
+  {
+    "source": "windows-gate-r2/console.log",
+    "file": "windows-gate-r2--console.log.zlib",
+    "sha256": "714c762dbbf6548539d363301e796a26d753d6861d031cd9df1edac0fa060720",
+    "stored_sha256": "94a919308f595bce865e3fde229323de509ebcbf68e29114ba25b800e47ff941",
+    "bytes": 135940
+  },
+  {
+    "source": "windows-gate-r2/http.json",
+    "file": "windows-gate-r2--http.json.zlib",
+    "sha256": "4c77d8205bd1f2acb07ecd0f1ea59c4a5b3adb9979c8942f610cd6339ad281bb",
+    "stored_sha256": "6ad74502b2ef4209b839302822f747f2ef22a5411289b35c11d0709b13d09a2e",
+    "bytes": 514
+  },
+  {
+    "source": "windows-gate-r2/events-summary.json",
+    "file": "windows-gate-r2--events-summary.json.zlib",
+    "sha256": "f34c773e1d947b15b251c381ade7aba701d0ba44e177b11bc832300b9ca3f8bf",
+    "stored_sha256": "7f46c1cddf1ca305a26c2addf2c43fa1a4b66036a3bc51c04884ac57933e8413",
+    "bytes": 77062
+  },
+  {
+    "source": "close-r1-for-safe-b3.json",
+    "file": "close-r1-for-safe-b3.json.zlib",
+    "sha256": "149e52e08380eb720c3b94477341223391ed5fcb637295f7be4c75d9ae705edf",
+    "stored_sha256": "0ca68fa465eb3c981165b09711d314246a67f59268b5ccc56069905ddd118c46",
+    "bytes": 562
+  },
+  {
+    "source": "backup-r1-native.json",
+    "file": "backup-r1-native.json.zlib",
+    "sha256": "e34e7242d136373f76139373d7d1d24ee008112f587be549afadef5757954e0e",
+    "stored_sha256": "4eae69ff42de135c6b49b65a6d7af5b2777bab5f0ffa274f13cef000ac87bd32",
+    "bytes": 297
+  },
+  {
+    "source": "history-preservation-resume.json",
+    "file": "history-preservation-resume.json.zlib",
+    "sha256": "313d09a202e5fac1c9a14e642bf56b9dbe49643999300b09e77a7531a4614af8",
+    "stored_sha256": "54c9d77afaa07454bd538bd19360e64efb03d4f62d1ccf0df28cd5d11fe5c043",
+    "bytes": 302
+  },
+  {
+    "source": "final-b3-api.json",
+    "file": "final-b3-api.json.zlib",
+    "sha256": "a25056cff6da5116e0fd9f646de08e3b13cec085c234cfbfa5e2af1f2d2d4931",
+    "stored_sha256": "788449af498d5740266d677609679096c245972eb74a18e97c5b0630677d63b4",
+    "bytes": 2937
+  },
+  {
+    "source": "final-windows-state.json",
+    "file": "final-windows-state.json.zlib",
+    "sha256": "7425b10941fa07c83d3234254b4eba30268e1f2174186adfa04be105d4740d20",
+    "stored_sha256": "b80ca5a0b7029dc617aa1854cbcb03ffc91c1e3d9b8cf07c000e9e5529ba82e3",
+    "bytes": 1112
+  },
+  {
+    "source": "firmware/tr2-live-operator-NON-PRODUCTION.bin",
+    "file": "firmware--tr2-live-operator-NON-PRODUCTION.bin.zlib",
+    "sha256": "e1846c87017fd7667daf1b79cb440af1024346c5deae8d5065f8525c00aa7b80",
+    "stored_sha256": "23a843afe84d4d8f8d89a2ba8d4f42cbaf05fd25fa398a8bdd945840c61c1763",
+    "bytes": 150976
+  },
+  {
+    "source": "hardware/flash-ac1-command.json",
+    "file": "hardware--flash-ac1-command.json.zlib",
+    "sha256": "066a425ce80767e0c2313805dc8f08732eea49a7788662b58f50e114a7a8fa97",
+    "stored_sha256": "71862b94cd713cc279cea2135cf7c4b6ed7d73b194f90dff00d69e765b24a625",
+    "bytes": 540
+  },
+  {
+    "source": "hardware/new-image-readonly.log",
+    "file": "hardware--new-image-readonly.log.zlib",
+    "sha256": "c320dea515d4d83afec0024e1c5cb10ca35a9c4b2c99d9f222164fe45c4526a2",
+    "stored_sha256": "25348bcd64d9e0f4b8631f5eb681b86a7af63c4a42d0ce9501e5458275162bad",
+    "bytes": 1644
+  },
+  {
+    "source": "candidate-firmware.json",
+    "file": "candidate-firmware.json.zlib",
+    "sha256": "dd304aab156cb2492b081c8c7501c55a518c995b664de107f3df25cd3d029329",
+    "stored_sha256": "27c1b3ec338e8db49a2f02c236ec92bf21af3c62643a3c50fc7c7e1e052d771b",
+    "bytes": 467
+  },
+  {
+    "source": "firmware-build-command.json",
+    "file": "firmware-build-command.json.zlib",
+    "sha256": "760d4bc6656ffcf73278ed44eb9590ce761fdc2153cf4951f677a91c658e963f",
+    "stored_sha256": "d1c1281d7a1f76d41f441974083ac3dea57b1912f74690a3e760948e0e44cdaa",
+    "bytes": 2228
+  },
+  {
+    "source": "initial-api.json",
+    "file": "initial-api.json.zlib",
+    "sha256": "61c9523f221eccd939cbe83bffe26835b3b335cb7c985eb83eb8d9fcb27f91bf",
+    "stored_sha256": "d148023a1b1569dc4d87580e0914f2fbc14a9544b080a47e6c44f017de7de058",
+    "bytes": 3281
+  },
+  {
+    "source": "new-initial-api.json",
+    "file": "new-initial-api.json.zlib",
+    "sha256": "d20456aa1820aaf0b9eeb7a45f63d0d23386f8422129ef8820f82475f8c39589",
+    "stored_sha256": "1cbd683b28a93814687debbc503ccdd280c96cf42791582020a0266e576c4f10",
+    "bytes": 1542
+  },
+  {
+    "source": "old-post-audit-api.json",
+    "file": "old-post-audit-api.json.zlib",
+    "sha256": "21f08ef5d4edbe4bf09f0e82c5f6d48bfc2e53377d5591760e548d477a02dc57",
+    "stored_sha256": "0532eac3b3b870f72c3fea200c8dc94295f75394f82e83a6f80a789b06e6964e",
+    "bytes": 2927
+  }
+]

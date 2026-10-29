@@ -1,3 +1,17 @@
+# Reprise — AC1 / ±8 g bloqués par le déploiement Windows
+
+État du29/10/2026UTC, mission `TR2-20261028-ACCEL-FS8G-VIBRATION-AC`. [Rapport complet](../../00_gouvernance/Echanges_Codex/DERNIER_RAPPORT.md).
+
+- **Carte :** firmware opérateur72a7b573, BIN SHA256e1846c87017fd7667daf1b79cb440af1024346c5deae8d5065f8525c00aa7b80 installé. B3 STOP4097/seq0 réellement reçu à06:18:59UTC. Aucun APPLY8g/START nouveau dans cette mission ; ni±8g ni AC1 physique qualifiés. Ne pas restaurer M016 par routine. Sauvegardes originales Flash/FRAM vérifiées dans les preuves locales.
+- **Service actif :** ancien paquet complet `C:\Users\lolo\AppData\Local\MSM\TR2-LIVE-COM4-HELD-20261019\app`, DLL63f3…85fa, seulPID8312 à06:19:12UTC/COM4/5100/SAC1 sansCIcorrélé. Il observe **B3 absolu uniquement**. Les lanceurs habituels restent inchangés ; ne pas lancer un second maître. Pas de START pour contourner le blocageAC1. P2Web reste distinct.
+- **Acquis :** code72a7b573/AC1v1NON-PRODUCTION8000–8063 distinct de B3, correctif transport PC ae6e2d5e,148C/ARM et253Service acquis ; ne pas rejouer les tests sur code identique. Nouveau paquet completR2 `TR2-AC1-FS8G-20261028-R2\app` refusé parWindows au gateCOM99 (HTTP503,296CI3033/3077, SAC1). Jamais lancé surCOM4. Aucune protection à désactiver/contourner ; mécanisme de confiance approuvé requis avant nouvel essai.
+- **Données :** ancien paquet378fichiers exact avant relance, anciennebase52824lignes préservée et de nouveau active. R1 `TR2-AC1-FS8G-20261028` fermé sous verrou/token aprèsSTOP ; base75006lignes sauvegardée par API native dans `backup\resume-r1.db`, intégritéok/52824originales inchangées. Observations supplémentaires R1 conservées séparément. Ledger5/25 relu, aucun nonce nouveau consommé ; toujours le revérifier avant toute commande. Ne jamais restaurer un ancien ledger.
+- **Suite après levée Windows :** gate complet, état cible frais/handoff exclusif, baseline AC1 courte±2g, APPLYtransactionnel8g/readbackB4, persistance par reset gardé, START8g/readbackCTRL1_XL=AC, mesures DC/AC/B3 séparées, API/SQLite/Edge/CSV et STOPHELD/budgets. Audits GDB seulement horsscope etFIFOoff ; **attendre fin de calibration aprèsflash/reset avant tout halt**, même readonly. Premier boot perturbé et reset de récupération du28/10 conservés, pas de reflash supplémentaire justifié.
+
+L’état ci-dessous est historique et remplacé par les observations ci-dessus ; il est conservé pour la traçabilité de la version démontrée antérieure.
+
+---
+
 # Reprise — LIVE conservé et présentation actualisée
 
 Mission `TR2-20261019-DEMO-METROLOGY-UX`, résultats du 28/10/2026. [Rapport et preuves](../../00_gouvernance/Echanges_Codex/DERNIER_RAPPORT.md), [sens physique des mg et limites](../LIVE_METROLOGY_UX.md).
