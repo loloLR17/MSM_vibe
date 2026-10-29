@@ -282,7 +282,7 @@ int main(void)
   }else if(cmd==(MAGIC|0x10u)&&!fifo.running)r=read_return();
   if(fifo.running){if(!r)reset_trace();if(fifo_live_stop(&fifo))r=-93;}
   if(r3_writer.active){while(r3_writer.active){if(sd_writer_step(&r3_writer))break;}}
-  if(r3_writer.uncertain&&sd_spi_quiesce(&r3_card)){r3_result.error=94;r3_result.stage=98;for(;;){(void)now();__WFI();}}
+  if((r3_writer.uncertain||r3_card.failed)&&sd_spi_quiesce(&r3_card)){r3_result.error=94;r3_result.stage=98;for(;;){(void)now();__WFI();}}
   r3_sd_deselect();r3_result.stopped=fifo.stopped;r3_result.fifo_error=fifo.error;r3_result.stop_error=fifo.stop_error;
   r3_result.trace_refused=bench_log_refused;r3_result.preclose_overflow=bench_preclose_overflow;r3_result.sd_error=r3_card.error;
   if(r)r3_result.error=(uint32_t)(r<0?-r:r);

@@ -115,6 +115,9 @@ int main(void)
  io_fail=true;assert(sd_writer_step(&w)==SD_IO&&!w.active&&!selected&&s.failed);
  assert(sd_writer_begin(&w,&s,8192,b)==SD_REFUSED);
  start();memset(&w,0,sizeof w);assert(!sd_writer_r3_gate(&s));assert(!sd_writer_begin(&w,&s,8192,b));
+ while(w.state!=4){assert(!sd_writer_step(&w));clock_us+=500;}
+ io_fail=true;assert(sd_writer_step(&w)==SD_IO&&w.uncertain&&!w.active&&s.failed);
+ start();memset(&w,0,sizeof w);assert(!sd_writer_r3_gate(&s));assert(!sd_writer_begin(&w,&s,8192,b));
  busy_forever=true;for(unsigned i=0;i<2000&&w.active;i++){clock_us+=1000;(void)sd_writer_step(&w);}
  assert(w.error==SD_TIMEOUT&&!w.active&&!selected&&s.failed);
  /* A full queue explicitly refuses before overwriting its oldest bytes. */

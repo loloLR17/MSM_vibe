@@ -54,6 +54,7 @@ int sd_writer_step(SdWriter *w)
   if(transfer(w,w->data+w->offset,rx,128))return w->error;
   w->offset+=128;if(w->offset==512)w->state=4;return 0;
  case 4:{
+  w->uncertain=true; /* CRC I/O can fail after the card actually accepted data. */
   uint8_t crc[2]={(uint8_t)(w->crc>>8),(uint8_t)w->crc};
   if(transfer(w,crc,rx,2))return w->error;
   for(unsigned i=0;i<8;i++){if(byte(w,255,&r))return w->error;if(r!=255)break;}
