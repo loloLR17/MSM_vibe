@@ -34,6 +34,7 @@ def analyze(d,media=None):
  rows=list(struct.iter_unpack('<5I',raw));out=dict(result=r,physical_pass=r['stage']==4 and not any(r[k] for k in ['error','timeouts','crc_errors','preclose_error','overflows']) and r['cs_high']==1)
  out['latencies_by_kind']={str(kind):{key:stats([x[i] for x in rows if x[0]==kind]) for key,i in [('write_us',1),('busy_us',2),('backlog_bytes',3),('read_us',4)] if kind or key!='read_us'} for kind in sorted({x[0] for x in rows})}
  out['all_write_us']=stats([x[1] for x in rows]);out['phase_busy_us']=stats([x[2] for x in rows])
+ if r['producer_us'] and rows:out['backlog_peak_with_deferred_arrivals_bound_B']=max(x[3]+math.ceil(x[1]*16000/1000000) for x in rows)
  if r['elapsed_us']:out['payload_rate_including_final_flush_Bps']=r['written']*1e6/r['elapsed_us'];out['sum_write_time_us']=sum(x[1] for x in rows)
  if media is not None:out['independent_integrity']=integrity(media.read_bytes(),r['written'],r['seed'])
  out['raw_sha256']={p.name:hashlib.sha256(p.read_bytes()).hexdigest() for p in sorted(d.glob('*.bin'))}
