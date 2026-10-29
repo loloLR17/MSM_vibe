@@ -99,6 +99,15 @@ int main(int argc,char **argv)
  durable_record(data,123456,0,0,5000000,5028875,78,1);assert(durable_record_valid(data,123456,0,0));assert(!durable_record_valid(data,123457,0,0));assert(!durable_record_valid(data,123456,1,0));data[55]^=1;assert(!durable_record_valid(data,123456,0,0));data[55]^=1;
  assert(!durable_sector(base+1,data));uint8_t footer[512]={0};memcpy(footer,"TR2END01",8);durable_put32(footer+8,1);durable_put32(footer+12,1);durable_put64(footer+16,123456);durable_put32(footer+24,3);durable_put32(footer+28,78);durable_put32(footer+32,780);durable_put32(footer+36,1);durable_put32(footer+40,468);durable_put32(footer+44,2000000);durable_put32(footer+48,1);durable_put64(footer+56,5000000);durable_put64(footer+64,5028875);r3_hash_finish(&hash,footer+96);durable_put32(footer+508,durable_crc(footer,508));assert(!durable_sector(base+255,footer));assert(!durable_verify_last(footer+96));
  FATFS check;FIL f;assert(f_mount(&check,"0:",1)==FR_OK);assert(f_open(&f,"0:/RUN0003.TR2",FA_READ)==FR_OK&&f_size(&f)==131072);FILE *out=fopen(argv[2],"wb");assert(out);UINT n;
- do{assert(f_read(&f,data,512,&n)==FR_OK);assert(fwrite(data,1,n,out)==n);}while(n);assert(!fclose(out));assert(f_close(&f)==FR_OK);writer_stop_states();framed_busy(150000,1,false);framed_busy(500000,1,false);framed_busy(151054,19,false);framed_busy(500000,19,true);assert(!fclose(image));
+ do{assert(f_read(&f,data,512,&n)==FR_OK);assert(fwrite(data,1,n,out)==n);}while(n);assert(!fclose(out));assert(f_close(&f)==FR_OK);writer_stop_states();framed_busy(150000,1,false);framed_busy(500000,1,false);framed_busy(151054,19,false);framed_busy(500000,19,true);
+ /* Existing name is refused, preserving its original file and all media bytes. */
+ assert(!durable_mount(&s));unsigned writes=s.writes;assert(durable_prepare(3,131072,123456,header)==-1&&durable_status.error==8&&s.writes==writes);
+ /* Allocate actual model FAT chains until full, without fabricating a result. */
+ for(unsigned i=0;i<7;i++){char name[]="0:/FULL0000.BIN";name[10]=(char)('0'+i);assert(f_open(&f,name,FA_WRITE|FA_CREATE_NEW)==FR_OK);assert(f_expand(&f,0xffff0000u,1)==FR_OK);assert(f_close(&f)==FR_OK);}
+ DWORD free_clusters;FATFS *full;assert(f_getfree("0:",&free_clusters,&full)==FR_OK);assert(free_clusters&&free_clusters<(0xffffffffu/(full->csize*512u)));
+ assert(f_open(&f,"0:/LAST.BIN",FA_WRITE|FA_CREATE_NEW)==FR_OK);assert(f_expand(&f,free_clusters*full->csize*512u,1)==FR_OK);assert(f_close(&f)==FR_OK);
+ assert(durable_prepare(4,2097152,123457,header)==-1&&durable_status.error==9);assert(s.writes>=writes);writes=s.writes;
+ s.cid[0]^=1;assert(durable_mount(&s)==-1&&durable_status.error==1&&!s.write_enabled&&s.writes==writes);
+ puts("Real FAT allocation full / duplicate name / wrong CID refuse before capture PASS (MODEL)");assert(!fclose(image));
  puts("ST FatFs format/mount/contiguous expand/sync/close/remount/standard-file-read exact fixture PASS (HOST MODEL ONLY)");return 0;
 }
