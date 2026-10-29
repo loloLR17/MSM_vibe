@@ -1,0 +1,45 @@
+cmake_minimum_required(VERSION 3.20)
+project(r1_dsp_arm_bench LANGUAGES C ASM)
+set(CMAKE_C_STANDARD 11)
+set(CMAKE_C_EXTENSIONS OFF)
+option(R1_HOST_TESTS "Only simulated control/statistics tests, never cycles proof" OFF)
+get_filename_component(FW "${CMAKE_CURRENT_SOURCE_DIR}/../../Modbus RTU/05_Firmware" ABSOLUTE)
+set(COMMON src/micro_bench.c "${FW}/src/domain/acquisition/fir_decimator10.c")
+if(R1_HOST_TESTS)
+ enable_testing()
+ add_executable(test_micro_bench tests/test_micro_bench.c ${COMMON})
+ target_include_directories(test_micro_bench PRIVATE src "${FW}/include")
+ target_compile_options(test_micro_bench PRIVATE -Wall -Wextra -Wpedantic -Werror -UNDEBUG)
+ add_test(NAME micro_bench_control_only COMMAND test_micro_bench)
+ return()
+endif()
+if(NOT CMAKE_CROSSCOMPILING)
+ message(FATAL_ERROR "ARM toolchain required, or R1_HOST_TESTS")
+endif()
+set(STM32CUBE_U5_ROOT "" CACHE PATH "Qualified CubeU5 v1.9.0 recursive checkout")
+set(HAL "${STM32CUBE_U5_ROOT}/Drivers/STM32U5xx_HAL_Driver")
+set(DEV "${STM32CUBE_U5_ROOT}/Drivers/CMSIS/Device/ST/STM32U5xx")
+set(SDK)
+foreach(module hal hal_cortex hal_dma hal_flash hal_flash_ex hal_gpio hal_pwr hal_pwr_ex hal_rcc hal_rcc_ex)
+ if(NOT EXISTS "${HAL}/Src/stm32u5xx_${module}.c")
+  message(FATAL_ERROR "Missing CubeU5 source ${module}")
+ endif()
+ list(APPEND SDK "${HAL}/Src/stm32u5xx_${module}.c")
+endforeach()
+# Reuse the existing ST reference clock routine/config/license. No GPIO main.
+add_executable(r1_dsp_micro src/main.c ${COMMON}
+ "${CMAKE_CURRENT_SOURCE_DIR}/../gpio_dat123_st_reference/src/clock.c" ${SDK}
+ "${DEV}/Source/Templates/gcc/startup_stm32u575xx.s"
+ "${DEV}/Source/Templates/system_stm32u5xx.c")
+target_include_directories(r1_dsp_micro PRIVATE src "${FW}/include"
+ "${CMAKE_CURRENT_SOURCE_DIR}/../gpio_dat123_st_reference/src"
+ "${HAL}/Inc" "${DEV}/Include" "${STM32CUBE_U5_ROOT}/Drivers/CMSIS/Include")
+target_compile_definitions(r1_dsp_micro PRIVATE STM32U575xx USE_HAL_DRIVER)
+target_compile_options(r1_dsp_micro PRIVATE -mcpu=cortex-m33 -mthumb -O2 -g3 -Wall -Wextra -Werror -ffunction-sections -fdata-sections -fstack-usage)
+target_link_options(r1_dsp_micro PRIVATE -mcpu=cortex-m33 -mthumb --specs=nano.specs --specs=nosys.specs -Wl,--gc-sections -Wl,--build-id=none
+ "-Wl,-Map=${CMAKE_CURRENT_BINARY_DIR}/r1_dsp_micro.map"
+ "-T${FW}/platform/stm32/linker/STM32U575ZITXQ_FLASH.ld")
+set_target_properties(r1_dsp_micro PROPERTIES SUFFIX .elf)
+find_program(OBJCOPY arm-none-eabi-objcopy REQUIRED)
+find_program(SIZE arm-none-eabi-size REQUIRED)
+add_custom_command(TARGET r1_dsp_micro POST_BUILD COMMAND ${OBJCOPY} -O binary $<TARGET_FILE:r1_dsp_micro> ${CMAKE_CURRENT_BINARY_DIR}/r1_dsp_micro.bin COMMAND ${SIZE} $<TARGET_FILE:r1_dsp_micro>)
