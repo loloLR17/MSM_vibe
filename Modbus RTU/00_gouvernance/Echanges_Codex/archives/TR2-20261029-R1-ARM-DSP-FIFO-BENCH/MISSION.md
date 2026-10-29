@@ -1,0 +1,49 @@
+---
+mission_id: TR2-20261029-R1-ARM-DSP-FIFO-BENCH
+status: READY
+base_ref: main
+base_sha: 8ab7aeccf3a623cefc9fe92a3d88c44c5e6d1ea8
+created_at_utc: 2026-10-29T13:48:00Z
+author: ChatGPT
+target_branch: main
+allow_commit: true
+allow_push: true
+allow_flash: true
+allow_debug: true
+---
+
+# MSM TR2 — R1-ARM — mesure du coût du FIR /10 en conditions de banc et coexistence FIFO
+
+## Contexte et responsabilités
+
+La mission précédente **`TR2-20261029-R1-DSP-DECIM10-HOST` est `DONE` dans sa portée logicielle**, revue indépendamment par ChatGPT dans [la fiche R1-DSP-A](../../02_Validation/Qualifications/REVUE_R1_DSP_DECIM10_HOST_20261029.md) ; mission/rapport copiés à l'identique dans `Echanges_Codex/archives/TR2-20261029-R1-DSP-DECIM10-HOST/`. Le précédent `DERNIER_RAPPORT.md` encore présent pendant l'ouverture de cette mission relève de R1-DSP-A ; **ne pas le prendre comme résultat de R1-ARM**. Le code source retenu est `0ad417d621c0023a2c326383040a5d4e73016329` (FIR 107 taps Q15, exact-DC, `/10`, XYZ), sans raccordement au runtime STM32 à ce stade.
+
+Le lot AC1/±8g/dynamique LIVE est **en attente externe, `BLOCKED` Windows** : archives conservées, service/STM32 principal TR2-001 **à préserver**, aucun prérequis Windows pour R1-ARM. La signature Windows ne doit **pas** bloquer un banc ARM autonome. La gouvernance du dépôt (`AGENTS.md`, `GOUVERNANCE_CHATGPT_CODEX.md`, `PROTOCOLE_ECHANGE_V2.md`) et l'architecture R0 font autorité ; vérifier **HEAD réel `origin/main`** avant toute action, sans réexécuter la mission précédente.
+
+Références : [revue R1-ARM des ressources](../R0_METIER_20261029_REVUE_R1_ARM_FIFO_CPU_RAM.md), [plan déterministe D10 prioritaire §0](../R0_METIER_20261029_PLAN_ESSAIS_DETERMINISTES_DSP.md), [roadmap](../R0_METIER_20261029_ROADMAP.md), [historique de la seconde carte et microSD SPI2](../R0_METIER_20261029_ETUDE_MICROSD_SPI2.md) et [note code R1-DSP](../../05_Firmware/R1_DSP_DECIM10.md).
+
+## Objectif et portée impérative
+
+**Mesurer sur le STM32U575 physique** le temps et le coût réels du FIR /10 Q15, en comparaison directe avec un chemin sans FIR, puis vérifier s'il est compatible avec l'acquisition IIS3DWB FIFO et la chaîne coopérative existante — **sans** encore écrire sur microSD ni intégrer une archive complète. Travail incrémental A-06, profil de banc **isolé et NON-PRODUCTION**. Pas de migration MCU, de RTOS, de refonte des drivers, ni de changement aux contrats gelés B3/B4/B5. Réutiliser **un seul propriétaire FIFO** ; pas de deuxième SPI3. Le canal LIVE historique reste distinct de l'archive XYZ DC conservé.
+
+**Cible autorisée unique : TR2-002**, seconde NUCLEO-U575ZI-Q historique M017. Identifiants **indicatifs historiques seulement** : ST-LINK `0032001F3235510C37333439`, UID `001B0046/38425018/20333157`. **Relire sur le matériel réel avant flash/debug**. TR2-002 était rapporté **non monté / non câblé** lors de l'étude R0 : ne pas déduire de cette mission qu'il est désormais raccordé. **TR2-001 est exclu de toute reprogrammation et expérience** ; préserver son firmware AC1 actuel, la FRAM, la microSD, le service COM4 et les historiques.
+
+## Permissions d'exécution explicites
+
+`target_branch: main` ; `allow_commit: true` ; `allow_push: true` ; **`allow_flash: true` ; `allow_debug: true`**. Codex peut créer, compiler, tester, committer, pousser, flasher et déboguer **de manière autonome dans ce périmètre**, avec les gardes `AGENTS.md`, sans demander de validation répétitive pour les opérations ordinaires. Pas de flash d'ELF `tests/dsp/arm` de la mission précédente : **ils ne possèdent pas de vecteur/startup**. Avant un flash, contrôler identité/montage/bank power, sauvegarde/reprise de l'image initiale et preuve de récupération, hash ELF/BIN, absence de session d'acquisition en cours ; programmer seulement les pages nécessaires par la voie qualifiée, sans mass erase/OptionBytes/RDP/retire/RENEW/rollback FRAM. Aucun flash sur cible inconnue, aucune modification cachée des paramètres persistants. Le debug n'interrompt **jamais** le MCU pendant la calibration de démarrage ni pendant le service FIFO chronométré ; collecte de compteurs en RAM après STOP, hors fenêtre testée. Aucune intervention physique n'est exécutée par Codex si elle nécessite manipulation de câbles, insertion de média ou alimentation à la main : demander **uniquement** cette action précise si nécessaire.
+
+## Travaux attendus
+
+1. **Préflight sûr et inventaire reproductible.** Contrôler état Git, branche de protection `archive/tr2/point-retour-pre-spi2-20261029` -> `a3f5ac33a728a5afd028192654c17e5b04ee8d7b`, outils ARM/ST-LINK sur T1000, état matériel réellement présent, correspondance UID/SN de TR2-002, pinout sensor SPI3/FRAM SPI1, éventuelle présence de l'IIS3DWB et état mémoire/flash. Ne pas débrancher ou interrompre le service PC relié à TR2-001. Si TR2-002 non accessible, **poursuivre la préparation logicielle/mesures possibles sur émulation hôte**, publier un checkpoint honnête et indiquer la seule action physique minimale requise ; ne pas choisir TR2-001 à sa place.
+2. **Banc de mesures minimales reproductibles.** Préparer un profil spécial NON-PRODUCTION, isolé des recettes cumulatives et du profil LIVE/AC1, avec mesure DWT sur le firmware complet du STM32 (startup et vector table réels) ; le même chemin source doit se mesurer **sans FIR** et **avec FIR** sous une excitation déterministe de comparaison, avec code/hashes/clock identiques hors activation FIR. D'abord micro-benchmark sur un jeu XYZ statique ou synthétique en RAM et cycles **par émission XYZ, par bloc** (moyenne, P95, P99, maximum), sans UART `printf` ou GDB dans la fenêtre. Contrôler le type d'arithmétique Q15 réellement produit, le linker MAP, flags, stack/pile high-water si mesurable, SRAM, interruptions et invariants segmentation/WARMUP/flags/temps. Aucun résultat inventé depuis le nombre de MAC ou les essais hôte.
+3. **Intégration FIFO seulement après la porte précédente.** Si IIS3DWB correctement connecté, réutiliser **le propriétaire unique** et ses validations tags/compteurs/horloge. Introduire une dérivation **bornée et optionnelle** de chaque XYZ validé vers le FIR, dans le foreground, en gardant le temps/index effectif fourni par l'autorité FIFO ; ne pas créer un nouveau lecteur SPI, ne pas perdre la granularité microsecondes à cause d'un chemin LIVE qui arrondit en millisecondes. Comparer scénarios appariés sans/avec FIR sur le **même banc** : cycles/temps FIFO drain, service et work, distribution/maxima des tailles de burst, FIFO peak/watermark/OVR/gap, IRQ/UART et cas d'erreur. Deux sessions courtes et contrôlées d'abord (durée à choisir par Codex), puis une fenêtre plus longue seulement après absence de faute. Conserver les limites work `1000µs`, service `2500µs`, gap `5000µs` comme **références historiques** à comparer et non certificat de production de TR2-002. En présence de FRAM et RTU accessibles sans risque, qualifier ensuite leur coexistence sans mutation de journal/commandes B5 ; sinon marquer ce sous-test NON EXÉCUTÉ, pas PASS.
+4. **Priorité temps réel et échecs sûrs.** Interdire toute écriture sur SD/SPI2, FRAM historique, anciens fichiers, EEPROM/OptionBytes ou émission non vérifiée. Aucune mise en file archive définitive dans ce lot. Les interruptions FIFO/tag/sequence/timestamp doivent invalider la sortie DSP sans masquer l'événement, et l'arrêt doit être borné et réel. Si le budget service/gap est dépassé, mesurer l'origine avant toute optimisation ; proposer/appuyer une correction ciblée dans le périmètre seulement, pas refondre le runtime pour masquer la mesure. Si les sondes de mesure modifient trop le temps observé, faire un second essai contrôlé minimal.
+5. **Comparaison et verdict.** Fournir chiffres appariés sans/avec Q15 (cycles moyens, P95/P99/max, charge CPU déduite des mesures, worst service/gap, FIFO max, flags, stack, RAM), code image SHA, source/code/toolchain/options exacts, état capteur/FRAM/RTU réellement contrôlé, captures et limites. Option de comparaison Q31 **uniquement si** Q15 montre une contrainte significative ou si la marge anti-alias impose un compromis : pas d'exploration gratuite. Prouver l'absence de régression du FIR hors banque par tests appropriés, canonique build toujours compatible, pas de nouveau service Windows.
+
+## Conditions de sortie et d'arrêt
+
+**`DONE`** seulement si les mesures **sur le STM32 réel** sans/avec FIR, et la coexistence capteur FIFO **si physiquement disponible et effectivement testée**, sont acquises dans une portée explicitement nommée, avec résultats favorables, preuve de sécurité et artefacts publiés. Si TR2-002 non raccordé ou si les témoins manquent, rendre un rapport **`BLOCKED`** pour la partie physique restant indispensable ; le benchmark sans FIFO peut être distingué comme *sous-tranche réussie* sans qualifier la coexistence. **Ne pas convertir un résultat hôte ou un ELF link-only en mesure ARM physique.**
+
+Le rapport Codex est `Modbus RTU/00_gouvernance/Echanges_Codex/DERNIER_RAPPORT.md`, **mission_id `TR2-20261029-R1-ARM-DSP-FIFO-BENCH`**, avec résultats/commandes/preuves/commits, sauvegarde et état final TR2-002, état TR2-001 inchangé vérifié dans la mesure où cela peut l'être sans intrusion, restrictions et étapes restantes. Codex publie ses commits sur `main` par push normal, puis relit la branche/fichiers. ChatGPT effectue ensuite la qualification indépendante A-01. Tout problème matériel non maîtrisé, opération destructive atypique ou geste physique relève du seul niveau d'escalade autorisé.
+
+**Suite après succès R1-ARM :** qualification isolée microSD SPI2 sur la **même TR2-002**, puis intégration producteur XYZ à **16 000 B/s** et comparaison de coexistence, avant épreuve 10 min → 1 h → 8 h. AC1 Windows demeure en attente d'une identité de signature reconnue et ne bloque pas cette mission.

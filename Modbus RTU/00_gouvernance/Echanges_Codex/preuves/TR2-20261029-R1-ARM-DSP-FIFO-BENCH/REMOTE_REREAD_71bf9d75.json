@@ -1,0 +1,739 @@
+{
+  "mission_id": "TR2-20261029-R1-ARM-DSP-FIFO-BENCH",
+  "remote_sha": "71bf9d75ae52dadb0c25296bc841fbd545c9d939",
+  "utc": "2026-10-29T16:09:47.159206+00:00",
+  "all_bytes_equal": true,
+  "all_raw_hashes_valid": true,
+  "files": [
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/DERNIER_RAPPORT.md",
+      "sha256": "ec3a04da58210dbda67a7bfa93d64a2986637394dee0b67922acd3c408b6e090",
+      "bytes": 12327
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/MISSION_EN_COURS.md",
+      "sha256": "7faa36b19f1395cdadfc493e688e1051e87ccfaf375b16eb8b7accb416c4f7ef",
+      "bytes": 10072
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/ETAT_COURANT_TR2.md",
+      "sha256": "5354ba4dfea7a69f8fdc5f6ae59742556328d0073d37bd1b66f2d94603e63046",
+      "bytes": 92171
+    },
+    {
+      "path": "experiments/r1_dsp_arm_bench/README.md",
+      "sha256": "e5ab82aff4ab2a1b9e8b92c8e587b59371f36ef90bcd526965e63cd359e1ba32",
+      "bytes": 7108
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R1-ARM-DSP-FIFO-BENCH/micro/BUNDLE.json",
+      "sha256": "28f46574d6bf830bff1be14018aa8aec8c66c49c5e0d99d02594f18047a3ba7c",
+      "bytes": 10966
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R1-ARM-DSP-FIFO-BENCH/micro/README.md",
+      "sha256": "c87cefd598a021d1a78b619f1e1db11097ee880a43e24bc2f0d79c914d3d6915",
+      "bytes": 1277
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R1-ARM-DSP-FIFO-BENCH/micro/initial-state.json.zlib",
+      "raw_sha256": "26520a6e9fa13c3c805e23aca615a023ad94a3b5c0cb9bdba4231d68d6eb3763",
+      "bytes": 325
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R1-ARM-DSP-FIFO-BENCH/micro/stlink-initial.log.zlib",
+      "raw_sha256": "944d661571428454b8cbf1577533a917ff49105319364f2cd50c8384d7cf6155",
+      "bytes": 506
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R1-ARM-DSP-FIFO-BENCH/micro/stlink-after-user-confirmation.log.zlib",
+      "raw_sha256": "a811f52d2c09b9827bc2d5f356a1202f12b45e8b7f159fa0944db690cf2ddb3d",
+      "bytes": 506
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R1-ARM-DSP-FIFO-BENCH/micro/user-physical-confirmation.json.zlib",
+      "raw_sha256": "b1c1b81e65bd4f95dc5f6bb6630a3029ed6535200c9ce6b45c0ff5cf19a922c8",
+      "bytes": 279
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R1-ARM-DSP-FIFO-BENCH/micro/artifact.json.zlib",
+      "raw_sha256": "90e9b0911ab4a482dda8d439fb39a8136eb3611298f38bc7fce59d92a0d0e76d",
+      "bytes": 41579
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R1-ARM-DSP-FIFO-BENCH/micro/backup-verification.json.zlib",
+      "raw_sha256": "c33f0bb505284ca20a83ca82c17c90ab59799180232233909aacd5939a888e1f",
+      "bytes": 426
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R1-ARM-DSP-FIFO-BENCH/micro/programmed-readback.json.zlib",
+      "raw_sha256": "153c4ccbb54f272fa11413451956d7521791bbf0425502ffaaa04c1b8ea06ba3",
+      "bytes": 235
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R1-ARM-DSP-FIFO-BENCH/micro/control-red.log.zlib",
+      "raw_sha256": "806d43147eadf43780290d70a3b8f25fbf9182d313e4e90e50e541609ce6da1d",
+      "bytes": 678
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R1-ARM-DSP-FIFO-BENCH/micro/control-green.log.zlib",
+      "raw_sha256": "4bddde811fc4cf0925b3a6dcdd00519d63998df86f0595d064464afc012cfe18",
+      "bytes": 357
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R1-ARM-DSP-FIFO-BENCH/micro/tools-test.log.zlib",
+      "raw_sha256": "c950dad0cad04b545f8ab6c569da8d512de72a4cdaa333acdf4a0afe17289071",
+      "bytes": 460
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R1-ARM-DSP-FIFO-BENCH/micro/canonical-cross-build.log.zlib",
+      "raw_sha256": "35164065871d691bf796ed3dfdc619ca3eb71f0a692468e05abfd8f61b42fd3e",
+      "bytes": 7105
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R1-ARM-DSP-FIFO-BENCH/micro/arm-build-schema.log.zlib",
+      "raw_sha256": "f99cfdce39a355f9245c640a7bf34a63335019b5cca30d01a9d67df7d9ca4090",
+      "bytes": 2967
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R1-ARM-DSP-FIFO-BENCH/micro/compile-commands.json.zlib",
+      "raw_sha256": "4a01daeebe6f42144d61bb3af5a01db6b490a8e02a38367dd05c55db3d1af591",
+      "bytes": 20765
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R1-ARM-DSP-FIFO-BENCH/micro/size.txt.zlib",
+      "raw_sha256": "25229a0e1c206f9ea5ce43e3bed7f81155212a3573597781d8bc237e8ad5aa50",
+      "bytes": 163
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R1-ARM-DSP-FIFO-BENCH/micro/attributes.txt.zlib",
+      "raw_sha256": "5eb0e596016ae2c814f314244a9d7953684d98194938c1b1a0563508cbb9dd64",
+      "bytes": 404
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R1-ARM-DSP-FIFO-BENCH/micro/sections.txt.zlib",
+      "raw_sha256": "8bb2db1ad2bcc1639a622ad455d71f5c8ca981e6ae9a959ea8ccc19144f78d60",
+      "bytes": 2208
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R1-ARM-DSP-FIFO-BENCH/micro/symbols.txt.zlib",
+      "raw_sha256": "3028020c23432144bf5a238f903d5e32a4254ac5bfdb3431877bce90c3d4924a",
+      "bytes": 8917
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R1-ARM-DSP-FIFO-BENCH/micro/hardware--preflight-002-backup.gdb.zlib",
+      "raw_sha256": "7eabbe5eba060e7e291ebeeba57ab44d636447f76858ab7ce70b65f68f3bf6ec",
+      "bytes": 441
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R1-ARM-DSP-FIFO-BENCH/micro/hardware--preflight-002-backup.log.zlib",
+      "raw_sha256": "24360b78f5a010ffa4a44c1c8237b9e2305d9550037abdc0cc72e27ba44a66c6",
+      "bytes": 339
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R1-ARM-DSP-FIFO-BENCH/micro/hardware--preflight-002-backup-invocation.json.zlib",
+      "raw_sha256": "30e842749046b3c96831f9c4a37f34d467df426791b366cb21e3123e6e1d4870",
+      "bytes": 625
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R1-ARM-DSP-FIFO-BENCH/micro/hardware--flash-micro-002-command.json.zlib",
+      "raw_sha256": "630cbaa2d30d73ae0316eb3d637eca62be95c53363d6ac4f9ff3577466386f36",
+      "bytes": 523
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R1-ARM-DSP-FIFO-BENCH/micro/hardware--flash-micro-002.log.zlib",
+      "raw_sha256": "397545fe153f49bff28c0ceb9ba60b9c747be522cc74938f26b2a8251a60defe",
+      "bytes": 1672
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R1-ARM-DSP-FIFO-BENCH/micro/hardware--wait-readback-002.log.zlib",
+      "raw_sha256": "98f9646acd432bf7f50b338e0a513b931ef50cbb670365a8ca1c6032a8a5a14d",
+      "bytes": 4294
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R1-ARM-DSP-FIFO-BENCH/micro/hardware--micro-run-002.gdb.zlib",
+      "raw_sha256": "4a43401f5f78519c85b25cd849268b25e054fca4fe4280d9d2d05a6eb4b85101",
+      "bytes": 1328
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R1-ARM-DSP-FIFO-BENCH/micro/hardware--micro-run-002.log.zlib",
+      "raw_sha256": "054650ce6f621ce6ddb9897d195899438bb7a72cc250a4512f7dd292567a1c9e",
+      "bytes": 9550
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R1-ARM-DSP-FIFO-BENCH/micro/hardware--micro-run-002-invocation.json.zlib",
+      "raw_sha256": "49c1ba4040b7121f30c684704bcef954edf170c30ce27b3e840d225701a59577",
+      "bytes": 732
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R1-ARM-DSP-FIFO-BENCH/micro/hardware--micro-done-capture-only-002.gdb.zlib",
+      "raw_sha256": "6b72674a4b2978056ad4dc6cd2cfce89068d77bc95bda1a7b79faabdcd41b02a",
+      "bytes": 1133
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R1-ARM-DSP-FIFO-BENCH/micro/hardware--micro-done-capture-only-002.log.zlib",
+      "raw_sha256": "59d6d5ae41d800f21c00f7228396858cfd52a8b30175abcfcda9cc3d0c4f157b",
+      "bytes": 251
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R1-ARM-DSP-FIFO-BENCH/micro/hardware--micro-done-capture-only-002-invocation.json.zlib",
+      "raw_sha256": "f8fc680273b0878820c4d2745b382b7e37e76fadb167fe431c219f406b2b9af7",
+      "bytes": 746
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R1-ARM-DSP-FIFO-BENCH/micro/physical-pending--result.bin.zlib",
+      "raw_sha256": "078b1f209ea9dcc7b466eadd21aab1cbaabb028692592d09647a7eb8751ec515",
+      "bytes": 1136
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R1-ARM-DSP-FIFO-BENCH/micro/physical-pending--blocks.bin.zlib",
+      "raw_sha256": "d46b1523f8c64776c734d1e4118907c607efa704d894fea1f218091ffc33f301",
+      "bytes": 8192
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R1-ARM-DSP-FIFO-BENCH/micro/physical-pending--emissions.bin.zlib",
+      "raw_sha256": "e38f77e517e30a0efdf9195f77192ff37c4159905245f4692be1aa3b3c94e1ef",
+      "bytes": 131072
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R1-ARM-DSP-FIFO-BENCH/micro/physical-pending--overhead.bin.zlib",
+      "raw_sha256": "f7c4ff1f9d319cf396b2e96f7cab39a6ff59ab30e543519661be6fba5fabb090",
+      "bytes": 1024
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R1-ARM-DSP-FIFO-BENCH/micro/micro-physical-analysis.json.zlib",
+      "raw_sha256": "ac8e6d2a29f509035d93b774fadb61286ce9733768f13c758e0e0efe7e653312",
+      "bytes": 8377
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R1-ARM-DSP-FIFO-BENCH/micro/primary-readonly-api.json.zlib",
+      "raw_sha256": "d1c9fbf6b108f0df1de957d2125d2b9a6fd9c7b84e2022449db292f24d201e04",
+      "bytes": 1528
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R1-ARM-DSP-FIFO-BENCH/micro/arm--r1_dsp_micro.bin.zlib",
+      "raw_sha256": "9ffe22d574053bea653ba21e86dc92344f874ccbd824ba531ee86400cf5507e6",
+      "bytes": 13260
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R1-ARM-DSP-FIFO-BENCH/micro/arm--r1_dsp_micro.elf.zlib",
+      "raw_sha256": "1b796822b1cf80aabbbd30add7272df55d0a4eb230e1e83024ecdf17bdd62846",
+      "bytes": 1661392
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R1-ARM-DSP-FIFO-BENCH/micro/arm--r1_dsp_micro.map.zlib",
+      "raw_sha256": "4e2d92c2146da50e1cb2283106bc092072dde78ff7ae4678c277428a101e9287",
+      "bytes": 383918
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R1-ARM-DSP-FIFO-BENCH/fifo/BUNDLE.json",
+      "sha256": "d9ace8707ec6012da3503f79709b053fede1d5da11eda1de67eb9fbad64c72c6",
+      "bytes": 34159
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R1-ARM-DSP-FIFO-BENCH/fifo/README.md",
+      "sha256": "74868c6335742eaf62f22c66385c417a33195d5a09014832e5cbecb830090e2a",
+      "bytes": 1828
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R1-ARM-DSP-FIFO-BENCH/fifo/fifo-artifact.json.zlib",
+      "raw_sha256": "502aab887fc8076c6d39f795bd23e15c04e2ab554681c61d492ccaeaa5d83f42",
+      "bytes": 809
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R1-ARM-DSP-FIFO-BENCH/fifo/fifo-readback.json.zlib",
+      "raw_sha256": "47f32aebdf524ecb0357bacd38b35c38c3cb3d4e68053c003758efad248bef48",
+      "bytes": 118
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R1-ARM-DSP-FIFO-BENCH/fifo/fifo-connection-events.json.zlib",
+      "raw_sha256": "4808ce9456c1600090c92d6dd1083ab04b1a900e2bae0d689e6b3ca83a3c339b",
+      "bytes": 709
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R1-ARM-DSP-FIFO-BENCH/fifo/calibration-independent.json.zlib",
+      "raw_sha256": "bf30de7f91b2353ab595e1a974dbfea5dc37468d3e11160c98c65d1e24805238",
+      "bytes": 137
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R1-ARM-DSP-FIFO-BENCH/fifo/final-stop-independent.json.zlib",
+      "raw_sha256": "d9b52a693a910d3520bf5dc309ac67634ff3a4e2e1ea08c4536223a63e6aced0",
+      "bytes": 1415
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R1-ARM-DSP-FIFO-BENCH/fifo/fifo-comparison.json.zlib",
+      "raw_sha256": "e97ad4eebc017d33f583a3315b4bd51e8f3577af07dbff697d798ec4a8c854a2",
+      "bytes": 7902
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R1-ARM-DSP-FIFO-BENCH/fifo/fifo-calibration-analysis.json.zlib",
+      "raw_sha256": "98c288537eb52655bd7a162d6e32cb42f7d4d73cefe68b18b3e89d47e87303e1",
+      "bytes": 1705
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R1-ARM-DSP-FIFO-BENCH/fifo/fifo-bypass-analysis.json.zlib",
+      "raw_sha256": "efb8e3a236aba31c25e5110da722708b631739d20eb8151e1ef4f1325cee6d5f",
+      "bytes": 2338
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R1-ARM-DSP-FIFO-BENCH/fifo/fifo-fir-short-analysis.json.zlib",
+      "raw_sha256": "8326c19de2fa2099abaefa5de705bc10fdd76764d4c159d8257146d101bec4ac",
+      "bytes": 2341
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R1-ARM-DSP-FIFO-BENCH/fifo/fifo-fir-long-analysis.json.zlib",
+      "raw_sha256": "df76bf893afff9ef4c7fddc600ec2732dd355807aedd618096946b657c4c011b",
+      "bytes": 2348
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R1-ARM-DSP-FIFO-BENCH/fifo/fifo-stlink-list.log.zlib",
+      "raw_sha256": "a811f52d2c09b9827bc2d5f356a1202f12b45e8b7f159fa0944db690cf2ddb3d",
+      "bytes": 506
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R1-ARM-DSP-FIFO-BENCH/fifo/fifo-connect-check.log.zlib",
+      "raw_sha256": "cbf460fbd927c04d28c32edbbc921fffe46cf00f3184d76e591a8d71a041ba93",
+      "bytes": 255
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R1-ARM-DSP-FIFO-BENCH/fifo/fifo-full-validation.log.zlib",
+      "raw_sha256": "06827cde5e94ee9c6270a3809eaf6722c4266ab44ef099941ebcb4072569f13c",
+      "bytes": 56
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R1-ARM-DSP-FIFO-BENCH/fifo/fifo-full-validation-run.log.zlib",
+      "raw_sha256": "db765a41cce7d852ee46706556a2dcfc1c37c8b31c8844dd4c98ea8b2495f8d5",
+      "bytes": 78781
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R1-ARM-DSP-FIFO-BENCH/fifo/quantum-test-build.log.zlib",
+      "raw_sha256": "b6deb8cba976fa8f2a45e24f379983f1d468c173e94a46180a0e63d367ae404c",
+      "bytes": 196
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R1-ARM-DSP-FIFO-BENCH/fifo/quantum-test.log.zlib",
+      "raw_sha256": "368b414ea74e1bb03dc00011ee7143f7ef14e2bc6da329f02210e4c91b01241e",
+      "bytes": 453
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R1-ARM-DSP-FIFO-BENCH/fifo/sink-test.log.zlib",
+      "raw_sha256": "a8e697318e0df5f6f51fa5351afa89136f736fa31d42bd8b655f7ebccea0b108",
+      "bytes": 462
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R1-ARM-DSP-FIFO-BENCH/fifo/fifo-tools-test.log.zlib",
+      "raw_sha256": "6f283ee6225d2cef4c0127d95456a6f954c45141c92b97dd89016cb1c630e8f4",
+      "bytes": 100
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R1-ARM-DSP-FIFO-BENCH/fifo/fifo-configure.log.zlib",
+      "raw_sha256": "a4a56ac20af81366db3e260ebca9e302bdc3f2de2783c7678d6f7142be5982d2",
+      "bytes": 237
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R1-ARM-DSP-FIFO-BENCH/fifo/fifo-build.log.zlib",
+      "raw_sha256": "4a2e9dd3798bf74b09b2a2b6cecb8028bf463f3ba433a74d92a7c717a47880e1",
+      "bytes": 4811
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R1-ARM-DSP-FIFO-BENCH/fifo/fifo-build-fix1.log.zlib",
+      "raw_sha256": "626ca34c21aaa78989e6386b9c4fb0f0d0546822d2802b476e266c78772d261b",
+      "bytes": 13457
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R1-ARM-DSP-FIFO-BENCH/fifo/fifo-build-fix2.log.zlib",
+      "raw_sha256": "b93cc95f21e1b1b1079b655905707ada12d3810f5b676aa73e5fc1f91a269387",
+      "bytes": 3510
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R1-ARM-DSP-FIFO-BENCH/fifo/fifo-build-ready.log.zlib",
+      "raw_sha256": "62645314305ed51351b101c95c2c3aa9dfba9b778747b4db3f01a68cc7d5c93a",
+      "bytes": 2958
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R1-ARM-DSP-FIFO-BENCH/fifo/fifo-symbols.txt.zlib",
+      "raw_sha256": "7973a2145b0bc30b1d5812eb8c1f6ec7ce1a795cbdac6ab6da71c6211e44693c",
+      "bytes": 11872
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R1-ARM-DSP-FIFO-BENCH/fifo/fifo-attributes.txt.zlib",
+      "raw_sha256": "5eb0e596016ae2c814f314244a9d7953684d98194938c1b1a0563508cbb9dd64",
+      "bytes": 404
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R1-ARM-DSP-FIFO-BENCH/fifo/fifo-size.txt.zlib",
+      "raw_sha256": "0c43d858d7b7a96cbf5961e1e09bbc53221284102fe66c1d97a72d96883ea39f",
+      "bytes": 162
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R1-ARM-DSP-FIFO-BENCH/fifo/fifo-stack-usage.txt.zlib",
+      "raw_sha256": "b4be12c074bf4f8dabb2f4036289a8e664dddbf92619f9c8f49b0f4d0f8f2475",
+      "bytes": 67336
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R1-ARM-DSP-FIFO-BENCH/fifo/checkpoint-remote-reread.md.zlib",
+      "raw_sha256": "9955b1b472fcf97062c8a30d5994c5a8e97e87f0c82f1dbb8acacaf80b3a20b0",
+      "bytes": 7424
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R1-ARM-DSP-FIFO-BENCH/fifo/arm--r1_dsp_fifo.bin.zlib",
+      "raw_sha256": "d30c8bd9b2ad0fc1c5b02982b8384b4866d7760a8e3d2c67c2391bfb5b2f868d",
+      "bytes": 34192
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R1-ARM-DSP-FIFO-BENCH/fifo/arm--r1_dsp_fifo.elf.zlib",
+      "raw_sha256": "898fc69da26543b13189b43ecd86df1a510e5df9c6b14743fc8387157cd76c9e",
+      "bytes": 1931252
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R1-ARM-DSP-FIFO-BENCH/fifo/arm--r1_dsp_fifo.map.zlib",
+      "raw_sha256": "3fd3a73bec33bc91ac94d2e58ab4fdc6398f8fa4f0b791b153c0066e2ab5c3f6",
+      "bytes": 563477
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R1-ARM-DSP-FIFO-BENCH/fifo/arm--build.ninja.zlib",
+      "raw_sha256": "ebd179dd9875f797edaedfb5c0e60aa03970ec3f90b5fd1a1ab10152195ca5e1",
+      "bytes": 75406
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R1-ARM-DSP-FIFO-BENCH/fifo/arm--CMakeFiles--rules.ninja.zlib",
+      "raw_sha256": "197ed078da597564a4a98b3b53fcee09e7ec8d771655d0cd3b9fb9fab0187666",
+      "bytes": 3362
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R1-ARM-DSP-FIFO-BENCH/fifo/hardware_second.py.zlib",
+      "raw_sha256": "7d33dd176f5fb2d4eecc76cf4c422582d77d450c8c14fa7666dd1fcb03e01aa7",
+      "bytes": 2399
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R1-ARM-DSP-FIFO-BENCH/fifo/hardware--fifo-final-stopped-ram-only-invocation.json.zlib",
+      "raw_sha256": "c6bc1718152aefcede6aa6b76be152926730b34304fbed7f4e7a4109e79b1f07",
+      "bytes": 745
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R1-ARM-DSP-FIFO-BENCH/fifo/hardware--fifo-final-stopped-ram-only-server.log.zlib",
+      "raw_sha256": "030ed83bdd9e560371dd4df01fbb2f25a71828a2bd725448cff4a24e6cf46bf2",
+      "bytes": 674
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R1-ARM-DSP-FIFO-BENCH/fifo/hardware--fifo-final-stopped-ram-only.gdb.zlib",
+      "raw_sha256": "f0d2f0274b10bd4f9671348252327daa6701d37630433edf252250ee6ace750e",
+      "bytes": 1099
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R1-ARM-DSP-FIFO-BENCH/fifo/hardware--fifo-final-stopped-ram-only.log.zlib",
+      "raw_sha256": "327c5c506f2a68483758b272a387860ba12e41716f92a92cd1c95f0c155c7344",
+      "bytes": 339
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R1-ARM-DSP-FIFO-BENCH/fifo/hardware--fifo-preflash-identity-after-user-recheck-invocation.json.zlib",
+      "raw_sha256": "b82dac1c41f92adee201c9b129775b79835397ef263b9275aee3e44b3c5cee8c",
+      "bytes": 760
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R1-ARM-DSP-FIFO-BENCH/fifo/hardware--fifo-preflash-identity-after-user-recheck-server.log.zlib",
+      "raw_sha256": "030ed83bdd9e560371dd4df01fbb2f25a71828a2bd725448cff4a24e6cf46bf2",
+      "bytes": 674
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R1-ARM-DSP-FIFO-BENCH/fifo/hardware--fifo-preflash-identity-after-user-recheck.gdb.zlib",
+      "raw_sha256": "fb775c2fcfde571005c85f3d19e4925c9bde7f1b75802ad0d86e7df21c737e77",
+      "bytes": 324
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R1-ARM-DSP-FIFO-BENCH/fifo/hardware--fifo-preflash-identity-after-user-recheck.log.zlib",
+      "raw_sha256": "822caf5c4a153687a1d05f3d59057bd8a186b3e3a62e2233e2400219adb87134",
+      "bytes": 370
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R1-ARM-DSP-FIFO-BENCH/fifo/hardware--fifo-preflash-identity-server.log.zlib",
+      "raw_sha256": "42b99cb103fac5f9713d12c1981f92a71e84ae2a06fb989cdc1522f93d794d3b",
+      "bytes": 747
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R1-ARM-DSP-FIFO-BENCH/fifo/hardware--fifo-preflash-identity.gdb.zlib",
+      "raw_sha256": "fb775c2fcfde571005c85f3d19e4925c9bde7f1b75802ad0d86e7df21c737e77",
+      "bytes": 324
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R1-ARM-DSP-FIFO-BENCH/fifo/hardware--fifo-preflash-identity.log.zlib",
+      "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R1-ARM-DSP-FIFO-BENCH/fifo/hardware--fifo-programmed-prefix.bin.zlib",
+      "raw_sha256": "d30c8bd9b2ad0fc1c5b02982b8384b4866d7760a8e3d2c67c2391bfb5b2f868d",
+      "bytes": 34192
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R1-ARM-DSP-FIFO-BENCH/fifo/hardware--fifo-run1-who-calibration-invocation.json.zlib",
+      "raw_sha256": "f8053e9642330d0cf1935804c5a1ead6240a5ef23175f72355574b619eb24912",
+      "bytes": 743
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R1-ARM-DSP-FIFO-BENCH/fifo/hardware--fifo-run1-who-calibration-server.log.zlib",
+      "raw_sha256": "030ed83bdd9e560371dd4df01fbb2f25a71828a2bd725448cff4a24e6cf46bf2",
+      "bytes": 674
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R1-ARM-DSP-FIFO-BENCH/fifo/hardware--fifo-run1-who-calibration.gdb.zlib",
+      "raw_sha256": "2716d9f32417f1e1640215af6f3bdff2338ecf48178ec49e3139154918372734",
+      "bytes": 1879
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R1-ARM-DSP-FIFO-BENCH/fifo/hardware--fifo-run1-who-calibration.log.zlib",
+      "raw_sha256": "11b92705410c6f6a73e8b8b5b1cc54204f81feb04cae1c4a2b2fe508a5b5a739",
+      "bytes": 3850
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R1-ARM-DSP-FIFO-BENCH/fifo/hardware--fifo-run2-bypass-short-invocation.json.zlib",
+      "raw_sha256": "9339f534c2b649885baa8ceb7ea2782b8bbea7e230432a39eee6eea5025b89c0",
+      "bytes": 740
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R1-ARM-DSP-FIFO-BENCH/fifo/hardware--fifo-run2-bypass-short-server.log.zlib",
+      "raw_sha256": "030ed83bdd9e560371dd4df01fbb2f25a71828a2bd725448cff4a24e6cf46bf2",
+      "bytes": 674
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R1-ARM-DSP-FIFO-BENCH/fifo/hardware--fifo-run2-bypass-short.gdb.zlib",
+      "raw_sha256": "0c7f6b7e885ce3881772845254d013db8cdaeab4585e43b1f0074d3b80936609",
+      "bytes": 1896
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R1-ARM-DSP-FIFO-BENCH/fifo/hardware--fifo-run2-bypass-short.log.zlib",
+      "raw_sha256": "3bdb1150afcf302a99c471b99d533cfed5f708e18ed5426cfd1bb430aa7b3b7d",
+      "bytes": 4037
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R1-ARM-DSP-FIFO-BENCH/fifo/hardware--fifo-run3-fir-short-invocation.json.zlib",
+      "raw_sha256": "e8065bd2eaf8a0844e6b804b14a0a3b586bb08595b59e54b1259d2ec491b158e",
+      "bytes": 737
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R1-ARM-DSP-FIFO-BENCH/fifo/hardware--fifo-run3-fir-short-server.log.zlib",
+      "raw_sha256": "030ed83bdd9e560371dd4df01fbb2f25a71828a2bd725448cff4a24e6cf46bf2",
+      "bytes": 674
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R1-ARM-DSP-FIFO-BENCH/fifo/hardware--fifo-run3-fir-short.gdb.zlib",
+      "raw_sha256": "2fa41c69704384f9987724dd61d4f5a838ac2ed257cf45108dc51f77676a8ce0",
+      "bytes": 1896
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R1-ARM-DSP-FIFO-BENCH/fifo/hardware--fifo-run3-fir-short.log.zlib",
+      "raw_sha256": "4d11b510d7e9ff39c1d9bfcb5d5cd8575a68e56e04f0d96b63afa0a77a56c671",
+      "bytes": 6065
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R1-ARM-DSP-FIFO-BENCH/fifo/hardware--fifo-run4-fir-long-invocation.json.zlib",
+      "raw_sha256": "8e29f63ba372f683881103129ce7f31d7bf56050edb9e852a7ac58e02c80d5fa",
+      "bytes": 736
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R1-ARM-DSP-FIFO-BENCH/fifo/hardware--fifo-run4-fir-long-server.log.zlib",
+      "raw_sha256": "030ed83bdd9e560371dd4df01fbb2f25a71828a2bd725448cff4a24e6cf46bf2",
+      "bytes": 674
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R1-ARM-DSP-FIFO-BENCH/fifo/hardware--fifo-run4-fir-long.gdb.zlib",
+      "raw_sha256": "d67b1ce4f7316fea2f5a21f42e5ea6248a8277f3f57243561f34e81b0fc07296",
+      "bytes": 1896
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R1-ARM-DSP-FIFO-BENCH/fifo/hardware--fifo-run4-fir-long.log.zlib",
+      "raw_sha256": "e932644446087f953b4aea538b5cae2cd781241bf889292ced4aadd758c1876b",
+      "bytes": 6102
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R1-ARM-DSP-FIFO-BENCH/fifo/hardware--fifo-wait-readback-002-invocation.json.zlib",
+      "raw_sha256": "5f8073ea049981c22f5db2967a14ee64942fc88413126a14245e5f3b4e1bf2e8",
+      "bytes": 740
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R1-ARM-DSP-FIFO-BENCH/fifo/hardware--fifo-wait-readback-002-server.log.zlib",
+      "raw_sha256": "aba6686847910134d76be16aaeb48ea8cff54b4318c7e8947f73d76ce3bbcd45",
+      "bytes": 642
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R1-ARM-DSP-FIFO-BENCH/fifo/hardware--fifo-wait-readback-002.gdb.zlib",
+      "raw_sha256": "ada5139418a3065e094a634c5a742a31f35e3ae13b3d7fa7a3d4c496d08b0076",
+      "bytes": 520
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R1-ARM-DSP-FIFO-BENCH/fifo/hardware--fifo-wait-readback-002.log.zlib",
+      "raw_sha256": "6a214eff54049ae9b2f305c2dea452e93c2681633feedc45ea8f50c0afa2f360",
+      "bytes": 971
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R1-ARM-DSP-FIFO-BENCH/fifo/hardware--flash-fifo-002-command.json.zlib",
+      "raw_sha256": "9ac78c53b9e112085cfe05c4893b1fed893a30d5d60db8c086803b10e836fc88",
+      "bytes": 522
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R1-ARM-DSP-FIFO-BENCH/fifo/hardware--flash-fifo-002.log.zlib",
+      "raw_sha256": "c8468b14d7d4f9e39b8d98ec73b6682469f8d96ef81a886200f3777658564572",
+      "bytes": 1625
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R1-ARM-DSP-FIFO-BENCH/fifo/hardware--final-stop-payload.bin.zlib",
+      "raw_sha256": "aa447f6b853c0f8a1a88bb148357a7db3894cf51955c2fe110773183232aaad6",
+      "bytes": 21
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R1-ARM-DSP-FIFO-BENCH/fifo/hardware--final-stop-preclose.bin.zlib",
+      "raw_sha256": "f5d3739a1b0e12c818a5fec7e20fd02060b6c1c046a9378d6a8d021cd4984ab8",
+      "bytes": 1368
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R1-ARM-DSP-FIFO-BENCH/fifo/hardware--final-stop-trace.bin.zlib",
+      "raw_sha256": "1b151d7efed8115b41afedb72bbf45d8bfc06a09482eabf8618a3a414ca081c7",
+      "bytes": 360
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R1-ARM-DSP-FIFO-BENCH/fifo/fifo-captures--manifest.json.zlib",
+      "raw_sha256": "fe5b5be429bb0471464b2707e6d0743bc3532995d2d691a7ddd068e2c804ba77",
+      "bytes": 241
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R1-ARM-DSP-FIFO-BENCH/fifo/fifo-captures--run1--body.gdb.zlib",
+      "raw_sha256": "3b0296a4bc768ec793e79c255fe421ff9f554ae4f64cdadc5f7b238a42262784",
+      "bytes": 1771
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R1-ARM-DSP-FIFO-BENCH/fifo/fifo-captures--run1--brackets.bin.zlib",
+      "raw_sha256": "0236c08ae4968d62a8cbe4a6dd5cc3e8d5182d153ffbc3168eda7d1e909b3a0f",
+      "bytes": 2316
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R1-ARM-DSP-FIFO-BENCH/fifo/fifo-captures--run1--outputs.bin.zlib",
+      "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R1-ARM-DSP-FIFO-BENCH/fifo/fifo-captures--run1--raw.bin.zlib",
+      "raw_sha256": "65964bd31514d7dbcbe4982a224d8bf5962faeb49df2d860c7a1ed307cab4d1c",
+      "bytes": 14336
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R1-ARM-DSP-FIFO-BENCH/fifo/fifo-captures--run1--records.bin.zlib",
+      "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R1-ARM-DSP-FIFO-BENCH/fifo/fifo-captures--run1--result.bin.zlib",
+      "raw_sha256": "122d2e3895826520badb4e7739970902770103e6619ca98a4a2c369879491a0f",
+      "bytes": 192
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R1-ARM-DSP-FIFO-BENCH/fifo/fifo-captures--run1--sources.bin.zlib",
+      "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R1-ARM-DSP-FIFO-BENCH/fifo/fifo-captures--run2--body.gdb.zlib",
+      "raw_sha256": "b3fa986eeb74a5fd82e728e61f25eacf8a998b77a056e9acd35de32e952563c2",
+      "bytes": 1788
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R1-ARM-DSP-FIFO-BENCH/fifo/fifo-captures--run2--brackets.bin.zlib",
+      "raw_sha256": "0236c08ae4968d62a8cbe4a6dd5cc3e8d5182d153ffbc3168eda7d1e909b3a0f",
+      "bytes": 2316
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R1-ARM-DSP-FIFO-BENCH/fifo/fifo-captures--run2--outputs.bin.zlib",
+      "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R1-ARM-DSP-FIFO-BENCH/fifo/fifo-captures--run2--raw.bin.zlib",
+      "raw_sha256": "cbeb083829980c36986634c11c28d645eca58a7401513a39893c4eccbe4b3e17",
+      "bytes": 14336
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R1-ARM-DSP-FIFO-BENCH/fifo/fifo-captures--run2--records.bin.zlib",
+      "raw_sha256": "36d4e65ed821989baf6227225ab8fc8bdd1b3f8357d07dde142028fa0242eb72",
+      "bytes": 36080
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R1-ARM-DSP-FIFO-BENCH/fifo/fifo-captures--run2--result.bin.zlib",
+      "raw_sha256": "6070034ea334678a1dc1d1eb4391ca7633696e4accf6a75e993041bd343ebda0",
+      "bytes": 192
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R1-ARM-DSP-FIFO-BENCH/fifo/fifo-captures--run2--sources.bin.zlib",
+      "raw_sha256": "72561d00027cfda8491e4c7095dda96f5bffafc65e37fd9535c1c138789ed6e2",
+      "bytes": 24576
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R1-ARM-DSP-FIFO-BENCH/fifo/fifo-captures--run3--body.gdb.zlib",
+      "raw_sha256": "03bf11f4a73091b28649e22bda1cc1917fcde55daf81870053afcf91deff73e0",
+      "bytes": 1788
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R1-ARM-DSP-FIFO-BENCH/fifo/fifo-captures--run3--brackets.bin.zlib",
+      "raw_sha256": "0236c08ae4968d62a8cbe4a6dd5cc3e8d5182d153ffbc3168eda7d1e909b3a0f",
+      "bytes": 2316
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R1-ARM-DSP-FIFO-BENCH/fifo/fifo-captures--run3--outputs.bin.zlib",
+      "raw_sha256": "1fc3b71664e8982e540e5bb9bdcfbd5dfbb3484907c384966c69f50f5ff9c54b",
+      "bytes": 6144
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R1-ARM-DSP-FIFO-BENCH/fifo/fifo-captures--run3--raw.bin.zlib",
+      "raw_sha256": "0d572d3f5b71144d51f617814c6f6928b108a01c3f3a96ca042d9b374f2db5bb",
+      "bytes": 14336
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R1-ARM-DSP-FIFO-BENCH/fifo/fifo-captures--run3--records.bin.zlib",
+      "raw_sha256": "08f53bc7806ac71bd80c0a77df344dc215ff613e1de262ad5071b893d31c666c",
+      "bytes": 20816
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R1-ARM-DSP-FIFO-BENCH/fifo/fifo-captures--run3--result.bin.zlib",
+      "raw_sha256": "894baf52c595e38fb985c9824ec42545255340612a491d2605920dbe9e9af1b0",
+      "bytes": 192
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R1-ARM-DSP-FIFO-BENCH/fifo/fifo-captures--run3--sources.bin.zlib",
+      "raw_sha256": "c73e2845c7a985d9fc63549757a2cff36106d6481ae2887d395aee69156795ea",
+      "bytes": 24576
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R1-ARM-DSP-FIFO-BENCH/fifo/fifo-captures--run4--body.gdb.zlib",
+      "raw_sha256": "f12792c7f6a77d36ed4d1954b53851c33bba6b7a9355eb2ed3e666677c213ad7",
+      "bytes": 1788
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R1-ARM-DSP-FIFO-BENCH/fifo/fifo-captures--run4--brackets.bin.zlib",
+      "raw_sha256": "0236c08ae4968d62a8cbe4a6dd5cc3e8d5182d153ffbc3168eda7d1e909b3a0f",
+      "bytes": 2316
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R1-ARM-DSP-FIFO-BENCH/fifo/fifo-captures--run4--outputs.bin.zlib",
+      "raw_sha256": "8c8c1d4c63fc1081211127c8a137b44c8b87839d9d82eb76ffc6c12ddbb9254a",
+      "bytes": 6144
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R1-ARM-DSP-FIFO-BENCH/fifo/fifo-captures--run4--raw.bin.zlib",
+      "raw_sha256": "c0a38194d921c27ded24e9d1c2d16fc7c4e6f67ada68b60548d32bb7bc7609db",
+      "bytes": 14336
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R1-ARM-DSP-FIFO-BENCH/fifo/fifo-captures--run4--records.bin.zlib",
+      "raw_sha256": "4ba6c2449b3655aa291294cc4871f96cc688987cd0d1dd6c9871e684cbb19d3c",
+      "bytes": 102096
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R1-ARM-DSP-FIFO-BENCH/fifo/fifo-captures--run4--result.bin.zlib",
+      "raw_sha256": "ea0a8be1b24eb14af26d1718e8a760481ae7ed5b56ded4e73f10126821077871",
+      "bytes": 192
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R1-ARM-DSP-FIFO-BENCH/fifo/fifo-captures--run4--sources.bin.zlib",
+      "raw_sha256": "fb6da5a76033f0331cfed239c8278de0353afc29e82c32c17a526bfe58410f48",
+      "bytes": 24576
+    }
+  ]
+}

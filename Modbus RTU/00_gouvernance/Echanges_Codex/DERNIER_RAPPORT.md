@@ -1,6 +1,6 @@
 ---
 mission_id: TR2-20261029-R1-ARM-DSP-FIFO-BENCH
-status: IN_PROGRESS
+status: DONE
 base_ref: main
 base_sha: 8ab7aeccf3a623cefc9fe92a3d88c44c5e6d1ea8
 initial_head: c4c0d1820487f3394a98a46960375ede6feb79cd
@@ -14,12 +14,12 @@ allow_flash: true
 allow_debug: true
 ---
 
-# R1-ARM — résultats physiques acquis, publication finale en cours
+# R1-ARM — DONE dans la portée du banc isolé TR2-002
 
 **Critères techniques atteints dans la portée du banc isolé TR2-002 : micro-benchmark
 apparié réel, FIFO sans/avec Q15, puis dix secondes avec FIR, sans faute observée et
-avec arrêt effectif.** IN_PROGRESS porte uniquement sur la publication/relecture de
-ce bilan. Pas de qualification de production, d'endurance ou de coexistence FRAM/RTU.
+avec arrêt effectif.** Bilan71bf9d75 publié et relu intégralement depuis origin/main ;
+146fichiers relus àl’identique et tous les SHA bruts contrôlés. Pas de qualification de production, d'endurance ou de coexistence FRAM/RTU.
 Les preuves micro du checkpoint962f9028 ont été relues depuis origin/main ; elles
 n'ont pas été rejouées. Les preuves FIFO complètent ces acquis.
 
@@ -184,6 +184,11 @@ explicite `refs/heads/main`. Commit logiciel8c14f103 : `feat(bench): prepare bou
 single-owner FIFO FIR measurements with exact event times`, déjà poussé normalement
 surmain et référence récupérée. Dépôt propre après ce commit ; seuls ce bilan,
 le journal et les preuves/README de mission sont ajoutés ensuite. Stashes6251b988 /
-f3b829e6 relus inchangés ; worktrees et ancien dépôt principal préservés. Bilan présent
-àpublier puis relire intégralement depuis GitHub ; verdict DONE seulement après cette
-relecture. Aucun blocage technique restant dans la portée capteur FIFO mesurée.
+f3b829e6 relus inchangés ; worktrees et ancien dépôt principal préservés. Bilan71bf9d75ae52dadb0c25296bc841fbd545c9d939 publié puis relu depuis GitHub :
+146fichiers exacts,100pièces FIFO et38pièces micro décompressées et hachées.
+[Trace de relecture](preuves/TR2-20261029-R1-ARM-DSP-FIFO-BENCH/REMOTE_REREAD_71bf9d75.json).
+État Git propre après publication de71bf9d75, puis cette clôture documentaire/archives
+seulement. Le SHA final sera donné àl’utilisateur après push/relecture de cette clôture.
+Aucun blocage technique restant dans la portée capteur FIFO mesurée ; DONE Codex ne
+remplace pas la qualification indépendante ChatGPT. Aucun test physique supplémentaire
+n'a été relancé pour clôturer.
