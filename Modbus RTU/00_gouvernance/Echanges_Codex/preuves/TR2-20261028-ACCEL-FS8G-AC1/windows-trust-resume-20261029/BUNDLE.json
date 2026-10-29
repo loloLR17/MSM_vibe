@@ -1,0 +1,128 @@
+[
+  {
+    "file": "initial-state.json.zlib",
+    "source": "initial-state.json",
+    "bytes": 1004,
+    "sha256": "23471fb186a6683e9e21c36148ce05dc3071841cda8a3c4cc42400debd7b2dfc",
+    "stored_sha256": "9b616550d48227ef906c9ab7c3b43a5b25fc88b0a9239e31c915656eb32453e5"
+  },
+  {
+    "file": "TR2-AC1-FS8G-20261028-manifest.json.zlib",
+    "source": "TR2-AC1-FS8G-20261028-manifest.json",
+    "bytes": 40025,
+    "sha256": "c554532c3b70dcf878458d9a5de59860f8f96b1006bc2a727dd4d6cfabba6e77",
+    "stored_sha256": "b68e76cefbc7ad09576f29213a0417dbe8139dc60d84fcf6b11c7b8cfedacba2"
+  },
+  {
+    "file": "TR2-AC1-FS8G-20261028-R2-manifest.json.zlib",
+    "source": "TR2-AC1-FS8G-20261028-R2-manifest.json",
+    "bytes": 40025,
+    "sha256": "da6457f9eb8f1f24ab0bf78a5344f1f27af0e1ac84587479a7b2d7336214a7c6",
+    "stored_sha256": "1ea7dfcda12d6d3c1851b571dce2441af47b1ee11c288478a7c2e7d5c35ed465"
+  },
+  {
+    "file": "windows-trust-inspection-bounded.json.zlib",
+    "source": "windows-trust-inspection-bounded.json",
+    "bytes": 1473277,
+    "sha256": "601aa516210280913315da0e5117ab26ff727ad52d230627d92a129020316a09",
+    "stored_sha256": "ade44b8ac258ea237247a6b8b46c850c025cea867dcd5d9a724ee7a31000bf35"
+  },
+  {
+    "file": "inspect-trust-command-bounded.txt.zlib",
+    "source": "inspect-trust-command-bounded.txt",
+    "bytes": 4725,
+    "sha256": "713400b0def6972f1728020943fcb0fb06bfbe5fa3218e87521f0066a4b9fb00",
+    "stored_sha256": "8f4708e0c00186858ffaf771fe7c2737e17bb9b51792af85a2b6f0a842a3be9a"
+  },
+  {
+    "file": "event-retention.json.zlib",
+    "source": "event-retention.json",
+    "bytes": 2767,
+    "sha256": "c75d9eec7590bfb5019c3ab0c868ffb36a7ed35f3b9db604b4fa58725f7324ad",
+    "stored_sha256": "ed6260fa680f2bcda1e3d3fed44cd1ce9ca8fe2602668753e6a55851674a9103"
+  },
+  {
+    "file": "event-retention-command.txt.zlib",
+    "source": "event-retention-command.txt",
+    "bytes": 962,
+    "sha256": "65af801701119e9d59dbaf59c4215d25a3901e1b75bf524a0e387768dcdec0d4",
+    "stored_sha256": "76bade61f2338cea02834563edd86672f891d7ab2ef7aef0f598ae123b9233a3"
+  },
+  {
+    "file": "event-retention-errors.log.zlib",
+    "source": "event-retention-errors.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stored_sha256": "b171e283c6145acf2b923098dbbc40ffc39b4f1db0212928f9869747376c4ac8"
+  },
+  {
+    "file": "correlation-summary.json.zlib",
+    "source": "correlation-summary.json",
+    "bytes": 143505,
+    "sha256": "2d88f6f56890475cf87a1ed42d734eed84e3584da70a76546b77f81748d3c02f",
+    "stored_sha256": "0b4fbd8e2438b1d0e228b47048e8b85c644dbdff4ba46fa7813cdfd634e38b66"
+  },
+  {
+    "file": "nuget-provenance.json.zlib",
+    "source": "nuget-provenance.json",
+    "bytes": 7178,
+    "sha256": "a397d2c14ffceca8d6eeb42be6ad1ac3d943ce1978463a4d5a68c300383e3c72",
+    "stored_sha256": "e96e84794d259fb8e2946ec9efcd886259f75aeef184c7cacaca6daaf256a7e6"
+  },
+  {
+    "file": "nuget-verify.log.zlib",
+    "source": "nuget-verify.log",
+    "bytes": 5510,
+    "sha256": "d5b3b9bc1ec6720539ac981466033899f40db5b57108d1d7d62f3c8d2b0bec0f",
+    "stored_sha256": "d737718d448fb37982f00d80726ba9551c12e727882e15e86c2f4c19e7bf5ddc"
+  },
+  {
+    "file": "package-context.json.zlib",
+    "source": "package-context.json",
+    "bytes": 1034,
+    "sha256": "c004108f2993c499753c99c4d32cc2ca21c3c44be85c06d972f227858e7ef07a",
+    "stored_sha256": "0804dbd5241a5b97db1abb2fdeba3069ff8435fd642b108b5c592a80dc4e53f0"
+  },
+  {
+    "file": "final-readonly.json.zlib",
+    "source": "final-readonly.json",
+    "bytes": 3198,
+    "sha256": "6493167eacb3f1ac739112e8626882f77f61c6bb4abac32308f409d713f97f21",
+    "stored_sha256": "022142f0ccb3063697ba44bee62b47e6ac0abb53041df382d2ecbeaf1945e703"
+  },
+  {
+    "file": "final-readonly.cjs.zlib",
+    "source": "final-readonly.cjs",
+    "bytes": 1056,
+    "sha256": "15367c2b2f217c5ef5a95fdfad1b1e6e6df68266e27bcbde25195f44d7b548bb",
+    "stored_sha256": "b37502444ff3cea9f046ed780b829055b5b085066622b84aac9ce9bed09914a8"
+  },
+  {
+    "file": "previous-report-e81df0e4.md.zlib",
+    "source": "previous-report-e81df0e4.md",
+    "bytes": 14888,
+    "sha256": "3432c4aacd3cdfe68fdfc5baacaa76ff05b30cd15553a2b66c9a826916c1bd90",
+    "stored_sha256": "3516ed334ec86dd5a49afdd7842c8239b2ee71961a3364fddb6131bdb07bc19d"
+  },
+  {
+    "file": "NModbus-3.0.83.nuspec.zlib",
+    "source": "NModbus-3.0.83.nuspec",
+    "bytes": 1148,
+    "sha256": "29c191aff97b5c7a13eb369216a7de5380caccae4c7646a5864f4519b0ea1a70",
+    "stored_sha256": "01a9f9bb6fa5c15569012b5b5e6323e9a0d62ba9bbc4c2c660884f3551702ce6"
+  },
+  {
+    "file": "NModbus.Serial-3.0.83.nuspec.zlib",
+    "source": "NModbus.Serial-3.0.83.nuspec",
+    "bytes": 1377,
+    "sha256": "db2654a8239389874138a90f1a0ed05cd207ad8daa7024467189919518ff8357",
+    "stored_sha256": "922a1c66275f050271ce72852853b066a0e5c80329f428b04b4cca3ad9084e74"
+  },
+  {
+    "file": "SQLitePCLRaw.bundle_e_sqlite3-2.1.12.nuspec.zlib",
+    "source": "SQLitePCLRaw.bundle_e_sqlite3-2.1.12.nuspec",
+    "bytes": 2765,
+    "sha256": "2faa9f418c3b8831efdf92df6aca8322ffa9f7a556e915b46e5daa8e1f8e3233",
+    "stored_sha256": "b1bfdd0d1fd0326f540891973b43f2a79b91bbe590897c645eedd7211c5d44a0"
+  }
+]

@@ -1,5 +1,8 @@
 # État courant MSM TR2 — synthèse opérationnelle
 
+**29/10/2026 — AC1-R2 Windows, BLOCKED précisé :** révision778776be exécutée en lecture seule. R1/R2 :378fichiers chacun inchangés ; DLL refusées AuthenticodeNotSigned, mais archives NuGet3.0.83/SQLitebundle2.1.12 vérifiées.148ActivityID corrélés :296refus3033/3077 et296informations3089, toutesTotalSignatureCount0 ; pas de révocation/expiration démontrée, différence R1/R2 non attribuée à une cause unique. Aucun certificatcodeSigning disponible dans magasinsMy utilisateur/machine ; canaléditeur approuvé nécessaire avant nouveaugate. Aucun gate/build/test/restart/COMdirect/flash/debug/reset/B5 ; service8312 conservé, API10:25:28UTC STOP4097/seq0, SQLite133758lignes/ledger5-25. AC1 et±8gphysiques restent NONQUALIFIÉS ; journal/noteopérateur/rapport misàjour, DSP/ARM suivant nonlancé.
+
+
 **29/10/2026, AC1/±8g — BLOCKED Windows :** correctif ae6e2d5e publié/253ServicePASS acquis ; paquet R2 complet378fichiers vérifiés mais gate06:16UTC échoueHTTP503/SAC1/296événements3033-3077 corrélés sur NModbus.Serial et SQLitePCLRaw.batteries_v2. Aucun contournement. R1 fermé avec STOP frais/verrou/token COMlibéré, backup75006observations intègre/52824originales intégralement identiques. Ancien service accepté B3 relancé seulPID8312 ; réponse réelle06:18:59UTC STOP4097/seq0, zéroCI corrélé. Image e184 conservée, zéro nouveauflash/reset/B5 à la reprise ; ±8g et AC1 physique **NON QUALIFIÉS**, pasAPPLY. Reprise requiert un déploiement Windows approuvé puis essais bornés. Rapport/preuves et REPRISE opérateur actualisés ; anciennes observations R1 conservées séparément, pas fusionnées dans anciennebase.
 
 

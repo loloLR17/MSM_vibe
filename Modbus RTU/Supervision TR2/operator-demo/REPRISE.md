@@ -1,5 +1,8 @@
 # Reprise — AC1 / ±8 g bloqués par le déploiement Windows
 
+**Révision AC1-R2 du29/10 exécutée sans mutation :** signatures Authenticode des deux DLL absentes,148groupes de refus corrélés avec296événements3089 sans signature ; packagesNuGet intègres/vérifiés. Pas de certificatcodeSigning dans magasinsMy inspectés. Prochaine action : fournir un canaléditeur légitime/approuvé pour paquetcomplet, puis gateCOM99 seulement après changement attesté. Aucun nouveaugate/restart/testmatériel ; service8312 conservé, STOP réellement lu10:25:28UTC/ledger5-25/SQLite133758lignes. [Diagnostic et moyen concret nécessaire](AC1_WINDOWS_TRUST.md). Les états précédents ci-dessous sont datés ; ils ne qualifient pas AC1/±8g.
+
+
 État du29/10/2026UTC, mission `TR2-20261028-ACCEL-FS8G-VIBRATION-AC`. [Rapport complet](../../00_gouvernance/Echanges_Codex/DERNIER_RAPPORT.md).
 
 - **Carte :** firmware opérateur72a7b573, BIN SHA256e1846c87017fd7667daf1b79cb440af1024346c5deae8d5065f8525c00aa7b80 installé. B3 STOP4097/seq0 réellement reçu à06:18:59UTC. Aucun APPLY8g/START nouveau dans cette mission ; ni±8g ni AC1 physique qualifiés. Ne pas restaurer M016 par routine. Sauvegardes originales Flash/FRAM vérifiées dans les preuves locales.

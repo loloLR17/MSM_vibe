@@ -3,97 +3,88 @@ mission_id: TR2-20261028-ACCEL-FS8G-VIBRATION-AC
 status: BLOCKED
 base_ref: main
 base_sha: e7f17f2cd2b8470244a99f7c9e73e9d0f43b3dea
-initial_head: afa7d707b50d56b771c3dcb7bf719ab66aa9cbb6
+initial_head: e81df0e41207db087485f1e0c49db0fef60af2d0
 result_sha: ae6e2d5e9cd2d161abeda1659d99296a0c274ab8
-created_at_utc: 2026-10-29T06:20:00Z
+created_at_utc: 2026-10-29T10:26:00Z
 author: Codex
 target_branch: main
 allow_commit: true
 allow_push: true
 allow_flash: true
 allow_debug: true
+revision: AC1-R2-20261029
 ---
 
-# AC1 / ±8 g — logiciel publié, qualification physique bloquée par Windows
+# AC1-R2 — investigation Windows exécutée, moyen de signature externe requis
 
-La mission reste **BLOCKED**, sans clôture technique : le nouveau paquet Windows complet R2 échoue au contrôle de confiance. Le correctif de lecture AC1 est publié et testé ; **ni ±8 g effectifs ni le retrait du DC en fonctionnement LIVE ne sont physiquement qualifiés**. L’addendum impératif36fd068 et l’autorisation utilisateur AC1 sont pris en compte : ces deux objectifs sont prioritaires et ne sont pas remplacés par une étude hors ligne.
+**BLOCKED, motif précisé par des preuves nouvelles.** La révision de reprise Windows publiée au **778776be6377ad80734aa72f7f2053146a4d70bf** a été lue depuis `origin/main` et exécutée sans redéployer ni redémarrer le service. Les refus correspondent à deux DLL sans signature Authenticode. Leurs packages NuGet d’origine sont cryptographiquement vérifiés ; cela ne signe pas les DLL pour Windows. Aucun certificat de signature de code n’est disponible dans les magasins personnels utilisateur/machine inspectés.
 
-L’ancien service accepté fonctionne de nouveau en observation B3 sur COM4, seul propriétaire. Le STM32 répond STOP, sans mesure valide après démarrage ; aucun nouveau START/APPLY n’a été envoyé. Le nouveau firmware reste installé, arrêté, sans restauration automatique de M016. Les historiques et les paquets Windows précédents sont préservés.
+La voie concrète identifiée est un **canal de signature éditeur approuvé**, local ou distant, pour une publication complète et vérifiable. Ce canal n’est pas disponible dans les ressources inspectées ; aucun gate identique n’est répété, aucune protection contournée. Le service démontré reste actif et le TR2 répond STOP. **Les critères ±8g et dynamique AC1 LIVE demeurent non qualifiés** ; aucun objectif n’est transformé en étude hors ligne et aucun lot R1-DSP/ARM n’est démarré.
 
-## 1. Reprise et état Git
+## Contrat, Git et préservation
 
-- Reprise après interruption de session, sans refaire l’investigation ni les validations réussies. Worktree `MSM_vibe-accel-fs8g-vibration-ac`, branche `codex/accel-fs8g-vibration-ac`, HEADf953efbc : les deux modifications non committées y restent intactes, également sauvegardées dans `resume-transport.patch` sous les preuves locales.
-- `origin/main` vérifié à bdaa33353264e81c973c185555f2e5d8e94ab364 : descendant du checkpoint, changements limités à trois documents R0 métier. Worktree neuf `MSM_vibe-accel-fs8g-ac-resume`, sans merge/rebase/reset ni perte de travail ; réapplication du seul correctif vérifié.
-- Code72a7b57381f61e9f24c6bdcd20dd70a38dbc70de et checkpointf953efbc déjà publiés. Correctif de frontière PC **ae6e2d5e9cd2d161abeda1659d99296a0c274ab8**, puis preuves de reprise **d5a89e22**, publiés par push normal et références distantes contrôlées.
-- Main a ensuite reçu9011c6a4/ef3b33a33830bd28a85b2f92385cf8d71749e023, deux documents métier sans changement du contrat ou du code testé. Le worktree propre passe sur une nouvelle branche `codex/accel-fs8g-ac-report` basée sur ce descendant ; l’ancienne branche est préservée. Aucun historique divergent n’est fusionné.
-- Ancien dépôt principal maintenu propre à82169af ; 76 worktrees après l’ajout, aucun nettoyage. Stashes6251b988e8b20f97997a8f98fd26d4d35a45a1b2 et f3b829e6188f491920edf74a5f9ed0f559d08b87 conservés.
+- Même `mission_id`, permissions inchangées. `READY` de la révision autorise l’investigation, pas la présomption de déblocage. L’addendum prioritaire du28/10 et l’autorisation expérimentale AC1v1 restent applicables ; B3 absolu et LIVE R0 gelé ne changent pas.
+- Ancien worktree de publication propre àe81df0e4 ; dépôt historique principal propre à82169af. Un premier fetch a échoué réseau (RPC/earlyEOF), puis un fetch HTTP/1.1 a effectivement récupéré778776be. Aucune conclusion tirée de la référence locale périmée. Nouvelle branche locale `codex/ac1-r2-windows-trust` basée sur ce HEAD, sans merge/rebase/reset, dans le worktree `MSM_vibe-accel-fs8g-ac-resume`.
+- `AGENTS.md`, gouvernance, protocole, journal et précédent rapport vérifiés : aucun changement depuis la relecture précédente, hors révision de mission et documents métier explicitement examinés. Le rapport BLOCKED précédent est conservé comme [snapshot de preuve](preuves/TR2-20261028-ACCEL-FS8G-AC1/windows-trust-resume-20261029/README.md), sans réécriture historique.
+- Deux stashes6251b988… et f3b829e6… inchangés ; ancien worktree AC1 et ses deux modifications initiales conservés. Aucun nettoyage ou changement de référence d’archive demandé. La branche de retour pré-SPI2 n’est pas modifiée.
 
-## 2. Modifications et validations logicielles acquises
+## Opérations réellement effectuées
 
-Le code firmware72a7b573 ajoute un traitement XYZ continu distinct : passe-haut complémentaire du premier ordre, coupure nominale2Hz à26667Hz, estimateurDC en Q16µg initialisé au premier sample après START, préparation26667samples, fenêtres N/P. RMS/crêtes XYZ et global sont calculés sur le signal dynamique ; la crête globale correspond à un vecteur effectivement échantillonné. Filtrage maintenu entre fenêtres, validité réinitialisée au START, HELD après STOP, invalidation en cas de faute/rail/perte d’autorité. Sensibilités ±2/4/8/16g :61/122/244/488µg/LSB. Le retraitDC n’est pas un étalonnage et atténue les accélérations lentes ; une rotation rapide peut laisser une composante transitoire.
+Lecture des manifestes complets, empreintes des fichiers présents, Authenticode et chaînes des signataires trouvés, flux NTFS exposés, magasins de certificats personnels, provenance NuGet et signatures d’archives. Collecte du journal CodeIntegrity existant, y compris3089 et ActivityID, sans activation d’un journal ni modification de configuration. Lecture de l’API déjà active, inventaire du processus et de deux modules chargés, SELECT SQLite natif Windows en lecture seule et lecture du ledger.
 
-L’extension **AC1v1, FC03 8000–8063**, autorisée explicitement par l’utilisateur, est opt-in et exclusivement opérateur NON-PRODUCTION. Absence de collision vérifiée ; modèle canonique, LIVE R0 gelé et sens de B3 absolu inchangés. Métadonnées méthode/FS/DC/run/config/séquence/qualité, RMS/crêtes dynamiques séparées dans le protocole expérimental, SQLite JSON, API, UI et CSV. Pas de retrait arbitraire1000mg du RMS ni de reconstruction depuis B3.
+**Aucune modification du firmware, des binaires Windows, des packages NuGet ou du service.** Aucun nouveau build, test fonctionnel, gate COM99, lancement R1/R2, ouverture directe COM4 par Codex, START/STOP/APPLY, reset, GDB, flash, FRAM, microSD, OptionBytes ou politique Windows. Le poller démontré continue ses lectures habituelles indépendamment des seules lectures API effectuées ici. Aucune acquisition n’est déclenchée pour contourner le blocage.
 
-Le chemin préparé `apply8g` copie l’active B4, change seulement FS=2, crée un nouvelID/CRC, relit le staging puis soumet le vrai APPLY transactionnel. Ledger persistant avant écriture et handoff tokenisé/exclusif conservés ; aucune écriture FRAM brute. La calibration temporelle de boot reprend le FS configuré, sans imposer ±2g ; elle n’assure toujours aucun étalonnage physique.
+## 1. Paquets exacts et contexte
 
-**Défaut trouvé sur le vrai transport PC :** R1 lisait B0/B3, puis refusait AC1 localement avant émission, avec «Outside bounded readonly LIVE registers.». Le lecteur applicatif possédait son option mais la liste du transport série n’avait pas été étendue. ae6e2d5e transmet l’opt-in au transport et autorise uniquement le tuple8000/64 sur `live-direct`, sans writer ni intervalle arbitraire. Les refus sur8000/65,8001/63, autre bus et mode sans opt-in sont testés.
+R1 `TR2-AC1-FS8G-20261028\app` et R2 `TR2-AC1-FS8G-20261028-R2\app` : **378 fichiers chacun**, tous égaux à leurs manifestes de publication antérieurs. Entre les deux,361fichiers identiques et17différents (binaires/PDB des projets et hôte). Les deux DLL refusées sont exactement identiques :
 
-Résultats conservés et vérifiables, **non relancés à la reprise sur code inchangé** :
+| DLL | SHA-256, R1 = R2 | Authenticode |
+|---|---|---|
+| `NModbus.Serial.dll` | `1714c12265bf336cff5fd776f97f922fea9b3f0291ccd06e5ccc6c23d41be1c0` | NotSigned |
+| `SQLitePCLRaw.batteries_v2.dll` | `815ce410c9eab531dd219318e3ba16c5e38e83d361cfbbdbb4bbca222c497b0b` | NotSigned |
 
-- 148 tests C et cross-build canonique PASS via `STM32CUBE_U5_ROOT=… bash ./tr2_validate.sh` ; invocation initiale directe refusée126 car script non exécutable, sans chmod ni résultat masqué.
-- Image opérateur ARM compilée : text150484/data492/bss659176. ASan/UBSan O2,3 suites PASS ;448 oracles B3 inchangés. Rejeux déterministes DC,20/50/1000Hz à500mg et100Hz à6500mg, quatre FS/rails/STOP/restart/faute. Ce sont des preuves logicielles, pas une excitation physique ±6g.
-- .NET :305 autres tests PASS, puis Protocol52 et Service252 PASS ; après correctif de frontière, **Service253/253 PASS**, rouge/vert conservé. Suites séparées, aucune nouvelle exécution globale verte prétendue.
-- Tests JS AC1 et non-régressions tendances/métrologie/overview PASS. Nouvelle compilation Windows complète R2 réussie ; aucune compilation C supplémentaire nécessaire pour le seul correctif PC.
+Les14composants ciblés de chaque paquet donnent13NotSigned et1Valid. `Microsoft.Data.Sqlite.dll` est signé par Microsoft ; chaîne inspectée avec révocation désactivée pour ce diagnostic hors ligne, **pas une nouvelle validation de révocation**. Aucun signataire/chaîne de certificat n’existe dans les deux DLL NotSigned. Les fichiers ciblés n’exposent actuellement que `:$DATA`, sans Zone.Identifier observé ; aucune métadonnée retirée/modifiée.
 
-[Conception AC1 et décision](../../Supervision%20TR2/operator-demo/AC1_V1.md), [preuves logicielles](preuves/TR2-20261028-ACCEL-FS8G-AC1/software/README.md), [rouge/vert et preuves de démarrage](preuves/TR2-20261028-ACCEL-FS8G-AC1/resume/BUNDLE.json).
+Les deux publications étaient complètes, réalisées par `dotnet publish` puis copie intégrale vers deux répertoires NTFS distincts. Chemin, heure et binaires parents diffèrent. **Aucune cause unique de différence d’acceptation R1/R2 n’est démontrée** : une égalité de hash ne reconstitue pas la réputation cloud ou le contexte historique de chargement. Les gates conservés restent : R1 PASS28/10 ; R2 FAILED29/10, HTTP503/296refus3033-3077/SAC1. Le résultat n’est pas déduit du seul retour0 du processus.
 
-## 3. Opérations matérielles effectivement réalisées avant l’interruption
+## 2. Corrélation CodeIntegrity 3033 / 3077 / 3089
 
-Cible TR2-001, ST-LINK003500463235510B37333439, UID004A003D/38425018/20333157. COM4 FTDI est le port RS485 ; COM3 ST-LINK n’est pas utilisé comme Modbus.
+Le journal est actif, circulaire, contient874records lors du relevé ; records1–874 conservés, derniers événements datés du gate R2. La première requête filtrée temporellement n’a renvoyé aucun événement. Le contrôle de rétention a contredit ce résultat ; une lecture bornée aux2000derniersrecords, sans modification du journal, permet la corrélation correcte. Aucun «3089 absent» ou «logs perdus» n’est conclu de la première requête.
 
-1. B3 STOP et dernier terminal5/25 vérifiés avant intervention. Sauvegarde sûre hors scope chronométré : deux lectures Flash complètes2097152octets égales, SHA256 **6832166a31ae8c5ed1e41cea3da141e6db9120f91ea0e6b6d9f40ba8daada51f** ; FRAM entière SHA256 **3c56ea55bbe01cc31fdd71e13bcc5a5af510ab2c8205f893d6c2dad22473a2b5**, historique/queue conservés. Puis vraie réponse B0/B3 après detach, sans reset, à22:40:49UTC le28/10.
-2. **Un flash standard** qualifié de l’image72a7b573, BIN150976octets SHA256 **e1846c87017fd7667daf1b79cb440af1024346c5deae8d5065f8525c00aa7b80**, à0x08000000, vérification et reset de programmation. Aucun mass erase/OptionBytes/SD. ELF SHA2566dddfaafb604e0a19edc0f4c3d4c66bafd4049c6e5476069982934c5ca35b012.
-3. **Erreur opérateur conservée :** un contrôle GDB de lecture trop tôt après flash a halté le CPU pendant la calibration FIFO. Le premier démarrage est invalide, pas qualifié : diagnostic ultérieur r4u.error3/r4r.error8/diagFIFOerror7, FIFO arrêté, aucune acquisition active, journal126/STOP5-25/config3gen3 inchangés dans cette lecture. La causalité avec l’interruption GDB est cohérente avec les observations, pas une preuve de panne spontanée du capteur.
-4. **Un reset logiciel de récupération**, justifié par cet état terminal arrêté et gardé par UID/noactive/FIFOoff, sans reflash ni patchFRAM. Après detach et fin du boot sans GDB, B0/B3 répondent ; le nouveau refus AC1 est local au PC, distinct du premier échec de démarrage.
+Résultat vérifié : **592 événements pertinents dans148ActivityID**. Chaque groupe possède1ID3033,1ID3077 et2ID3089, soit296refus et296informations de signature.146groupes visentNModbus.Serial,2SQLitePCLRaw.batteries_v2. Exemple dernier groupe `{7a590bd0-5d41-0004-862b-a77a415ddd01}` : records871/873 de refus et872/874 de signature.
 
-Ces audits sont datés. La FRAM complète n’est pas déclarée relue après le reset sur la seule absence de commande. Aucun nouveau debug/flash/reset n’a eu lieu pendant la reprise du29/10 ; aucune nouvelle commande B5 dans toute cette mission à ce checkpoint.
+Dans **tous les3089 corrélés**, `TotalSignatureCount=0`, publisher/issuer`Unknown`, aucun hash de certificat, dates sentinelles1601. Ces valeurs prouvent l’absence de signature trouvée dans ces observations ; **elles ne prouvent ni certificat révoqué ni certificat expiré**. `VerificationError=0` sans signature ne vaut pas autorisation. Le3077 indique`0xc0e90002`, niveau demandé2/validé1, politique`0283ac0f-fff1-49ae-ada1-8a933130cad6`.
 
-## 4. Blocage Windows effectivement observé
+La [documentation Microsoft sur les événements](https://learn.microsoft.com/fr-fr/windows/security/application-security/application-control/app-control-for-business/operations/event-id-explanations) définit la corrélation par ActivityID et les3089 sans signature. Aucun groupeR1 pertinent n’est trouvé dans les records conservés ; son gate réussi reste établi par ses preuves HTTP/SAC antérieures, **pas expliqué** par cette absence d’événements. `CacheState=3` est conservé brut sans lui attribuer une signification non vérifiée. HTTP503 concerne le chargement/stockage PC, pas le firmware ou le RS485.
 
-R1 complet `TR2-AC1-FS8G-20261028\app`, code72a7b573 : gate28/10 PASS,378fichiers égaux,4HTTP200/SAC1/zéro refus corrélé. Cela ne garantissait pas une future publication.
+## 3. Provenance NuGet et signatures distinctes
 
-R2 complet séparé `C:\Users\lolo\AppData\Local\MSM\TR2-AC1-FS8G-20261028-R2\app`, codeae6e2d5e : publication et copie des378fichiers vérifiées, aucun mélange DLL. **Gate29/10 06:16:08–06:16:40UTC FAILED** sur COM99 absent, sans accès au TR2 :
+Source de restore enregistrée : `https://api.nuget.org/v3/index.json`. Versions réellement sélectionnées : NModbus3.0.83, NModbus.Serial3.0.83 ; Microsoft.Data.Sqlite10.0.12 et bundle transitif SQLitePCLRaw.bundle_e_sqlite3 **2.1.12**, pas2.1.11 présumé.
 
-- HTTP503 lié au stockage SQLite indisponible ;4HTTP200 non obtenus, malgré code retour0 du processus. Le retour0 seul n’est donc pas une validation.
-- **296 événements3033/3077 corrélés** :292 visant `NModbus.Serial.dll`,4 visant `SQLitePCLRaw.batteries_v2.dll` ; deux composants distincts, pas296DLL.
-- Politique0283ac0f-fff1-49ae-ada1-8a933130cad6, SAC1 ; `NModbus.Serial.dll` SHA2561714c12265bf336cff5fd776f97f922fea9b3f0291ccd06e5ccc6c23d41be1c0. Les deux DLL tierces sont byte-identiques à R1 ; aucune cause unique de réputation/signature n’est déduite de cette égalité.
-- Aucune protection modifiée, aucun déblocage ADS/EA, exception, mélange de fichiers ou tentative de contournement. R2 n’a pas été lancé sur COM4.
+**Commande nouvelle appropriée à ce diagnostic :** `dotnet nuget verify <les trois .nupkg locaux> --all --verbosity normal`, retour0 ; NModbus, NModbus.Serial et SQLitePCLRaw.bundle_e_sqlite3 sont tous **Successfully verified**, signatures de dépôt NuGet.org/Microsoft et horodatage inspectés. Il s’agit d’une vérification de provenance, pas d’une répétition des tests logiciels déjà verts. Les deux DLL déployées correspondent intégralement aux membres `lib/net6.0/NModbus.Serial.dll` et `lib/netstandard2.0/SQLitePCLRaw.batteries_v2.dll` des archives vérifiées ; NModbus.dll net6.0 est également identique.
 
-Ce refus interdit de poursuivre la qualification avec R2. Décision attendue : fournir une voie de confiance/signature/déploiement approuvée pour le paquet complet, sans désactivation ni contournement de SAC. Ne pas répéter le gate tant qu’aucun changement pertinent n’est apporté. L’ancien paquet accepté est utilisable pour observer B3, **pas pour prétendre qualifier le canal AC1 absent de ce service**.
+Le hash de contenu NuGet/metadata est distingué du SHA512 de l’archive signée complète ; ce dernier correspond au fichier`.nupkg.sha512` du cache. Une première comparaison directe de ces deux notions différentes a été refusée par assertion ; aucune corruption n’en a été déduite et la vérification NuGet réelle a tranché sur les archives. Microsoft.Data.Sqlite métapackage n’est pas inclus dans la commande de vérification de ces trois archives ; sa DLL runtime a été inspectée séparément par Authenticode.
 
-[Manifestes, gate, événements structurés, état final](preuves/TR2-20261028-ACCEL-FS8G-AC1/windows-r2-block/README.md). XML intégraux conservés localement ; extrait public sans SID ni nom du PC, avec ID/record/UTC/composant/statut/politique/hash.
+Une [signature NuGet](https://learn.microsoft.com/en-us/nuget/reference/signed-packages-reference) garantit l’intégrité/provenance du package, **sans fournir une signature PE Authenticode à chaque DLL extraite**. Réutiliser/télécharger les mêmes packages intègres ne constitue donc pas un changement pertinent permettant de rejouer le gate.
 
-## 5. État final et conservation des données
+## 4. Chemin conforme et plus petit arbitrage nécessaire
 
-- R1 a été arrêté le29/10 à06:17:36UTC après preuve B3 STOP fraîche, ledger5/25, verrou opérateur exclusif et acquittement tokenisé de fermeture réelle COM4. Arrêt limité à son propre processus readonly ; `.shutdown` seul ne pouvait satisfaire le critère de transport sain à cause du refus AC1 local. Aucun FC10 pour effectuer cette transition.
-- Sauvegarde SQLite R1 par API native Windows, intégrité `ok`, **75006observations**. Comparaison SQL intégrale : les **52824lignes originales sont présentes et identiques**, zéro ligne perdue/modifiée. SHA256 du snapshotR1 **7842166e89c99db49d7ea81f3db37d26b577932fefbfdeb63f30be51f28ab4df**. Les nouvelles observations R1, notamment Rejected/CommunicationLost, restent conservées dans sa base et sa sauvegarde ; elles ne sont pas fusionnées silencieusement dans l’ancienne base.
-- Les378fichiers de l’ancien paquet et tous ses fichiers de données gelés étaient exacts avant relance. Ancien service `TR2-LIVE-COM4-HELD-20261019` relancé ; preuve réelle API à **06:18:59UTC** : transport connecté, TR2 STOP/flags4097/seq0, aucune mesure valide. Processus unique8312 à06:19:12UTC, SAC1/zéro refus corrélé à cette relance. Les lanceurs habituels pointent toujours sur ce paquet, inchangés. Son archivage reprend dans sa base initiale préservée.
-- Firmware e184 installé conservé ; pas de restauration M016. Dernier FS persistant matériel lu avant nouvelle image :config3/gen3/±2g ; aucune commande APPLY n’a été envoyée. **Ne pas annoncer ±8g actif.** L’état STOP final est observé par B3 ; aucun audit FRAM long supplémentaire n’est présenté comme effectué.
-- FRAM/identité/journal/epoch, microSD, OptionBytes, anciens paquets/bases/archives/worktrees/stashes préservés. La confirmation finale de FRAM intégrale et les marges temporelles AC1 sous acquisition restent à faire, sans transformer l’absence d’écriture volontaire en une relecture physique.
+**Aucun certificat codeSigning** dans`Cert:\CurrentUser\My` ou`Cert:\LocalMachine\My` au relevé. Aucune chaîne de signature configurée trouvée dans les projets/scripts inspectés. Cela borne la conclusion aux ressources de cette session : aucun service de signature distant non configuré n’est présumé disponible. Les certificats Microsoft publics examinés ne donnent aucun droit ni clé de signature pour notre publication.
 
-## 6. Point de reprise, sans répétition des acquis
+La voie légitime identifiée est de **fournir/désigner un canal de signature éditeur approuvé et utilisable** : certificat codeSigning déjà légitime avec accès autorisé à sa clé, ou profil distant Artifact Signing équivalent déjà approuvé. Alternative à faire fournir par les éditeurs : une distribution reconnue des dépendances, avec mêmes garanties fonctionnelles/provenance. Aucun artefact alternatif Authenticode n’est disponible dans les paquets/cache inspectés ; pas de remplacement ou mise à niveau spéculative.
 
-1. Lever le refus Windows par un mécanisme approuvé, puis gate complet4HTTP200/SAC1/zéroCI sur le paquet effectivement utilisé. Réutiliser le codeae6e2d5e, firmwaree184 et tests conservés ; ne pas recompiler/reflasher sans motif.
-2. Relever état cible/ledger/propriétaire frais. Handoff exclusif vers R2 accepté ; sauvegarde SQLite native et ledger courant, jamais recopier un ancien ledger après une commande. Conserver aussi les observations R1 intermédiaires.
-3. Qualifier une baseline courte du nouveau traitement à±2g, START/STOP terminaux et AC1 réel. Puis vraiAPPLY8g, activeB4/CRC/ID relus, reset logiciel prévu pour persistance **seulement à STOP/noactive**. Après reset, attendre le boot via le bus : aucun halt GDB pendant calibration.
-4. START±8g, preuve physique CTRL1_XL=0xAC par cache matériel contrôlé, AC1 valide/frais et B3 absolu séparé. Capteur immobile : quantifier DC, bruit résiduel dynamique, comparaison2g/8g. Vérifier conversion et marge avec les rejeux déjà acquis ; **aucune excitation machine±6g n’a été réalisée**.
-5. Prouver COM4→SQLite/API→Edge/CSV en RUNNING puis STOP/HELD, conservation intégrale des historiques, budgets temporels/FIFO/UART. Audit final horsscope/FIFOoff si nécessaire, puis vraie réponse bus après detach sans reset. Conserver firmware cumulatif si sain. START/STOPWeb reste P2 distinct.
+Le livrable de ce canal doit être un **paquet complet vérifiable**, composants concernés signés et horodatés, provenances/licences préservées, sans mélange avec R1/R2. L’[orientation Microsoft pour la signature SAC](https://learn.microsoft.com/en-us/windows/apps/develop/smart-app-control/code-signing-for-smart-app-control) est référencée dans la [note opérateur](../../Supervision%20TR2/operator-demo/AC1_WINDOWS_TRUST.md). Aucune clé privée ne doit être mise dans GitHub ; aucun achat, auto-certificat, import de racine, modification de stratégie, suppression ADS/EA ou changement d’empreinte destiné à faire passer le refus n’a été effectué.
 
-Journal `ETAT_COURANT_TR2.md` et document opérateur `REPRISE.md` actualisés pour remplacer les états périmés et rendre le blocage explicite. Aucun changement normatif ni qualification indépendante revendiquée. Le présent rapport sera relu intégralement depuis GitHub après push ; SHA et état Git fournis ensuite. Preuves locales : `/home/lolo/dev/msm/reports/TR2-accel-fs8g-ac/`.
+La [FAQ Microsoft](https://support.microsoft.com/fr-fr/windows/security/threat-malware-protection/smart-app-control-frequently-asked-questions) ne propose pas d’exception individuelle SAC. Certificat valide ou nouvelle signature ne sont pas une promesse de réussite : **après changement pertinent attesté seulement**, gate complet sur COM99,4HTTP200/SACactif/zéroCIcorrélé/SHAs, puis qualification physique si la cible est sûre. L’absence de cette ressource est le blocage externe concret, sans besoin de décision sur le firmware à ce stade.
 
+## 5. État final, acquis conservés et prochaine action
 
-## Publication distante vérifiée
+- Service démontré **PID8312**, même processus et ancien paquet `TR2-LIVE-COM4-HELD-20261019`, sans redémarrage. Les deux modules concernés sont effectivement chargés depuis ce paquet historique ; cela ne prédit pas le résultat d’un nouveau chargement de R1/R2.
+- À **10:25:28UTC selon le relevé Windows**, API réelle HTTP200, transport connecté, B3STOP/flags4097/seq0 sans mesure valide ; SQLite **133758observations**, lecture native `readOnly:true`, SELECT uniquement ; ledger **Device1/Epoch5/Transaction25** inchangé. Ces observations sont datées et ne remplacent pas un audit physique de mémoire.
+- STM32 : image e1846c…aa7b80 installée au lot précédent, aucune opération de cible ici ; pas de nouvelle lecture Flash/FRAM prétendue. Configuration8g non appliquée ; dynamique AC1 non qualifiée. Les preuves du premier boot perturbé par GDB et du reset de récupération précédent restent inchangées. SD, FRAM, identités, journaux, OptionBytes, lanceurs et sauvegardes préservés ; aucun rollback/restaurationM016.
+- Tests acquis **148C/ARM, Protocol52/Service253 et autres suites**, builds et preuves précédentes réutilisés. Pas de compilation/tests fonctionnels nouveaux requis : uniquement documentation et collecte readonly, aucune modification du code applicatif/firmware. `result_sha` reste celui du correctif PC effectivement évalué, ae6e2d5e ; image physique issue de72a7b573, non confondue avec le SHA documentaire.
+- Après fourniture du canal conforme : signer/publier une version complète séparée, gateCOM99, état/ledger frais et handoff contrôlé, baselineAC1±2g, vraiAPPLY8g/B4/registreCTRL1_XL, persistance et START/STOP, preuve dynamique séparée B3 et chaîne SQLite/API/Edge/CSV, budgets et audit sûr. Ne jamais halter pendant la calibration de boot. Aucun essai machine±6g inventé, aucune qualification indépendante ou DONE revendiqué.
 
-Push normal du bilan **3c59d32fdb7c6be30ba8397cb9b3a68a38004332** sur main réussi. Référence récupérée de GitHub le29/10/2026 à06:22:45UTC : **34 fichiers relus intégralement et byte-identiques**, dont rapport/code/tests/journal/reprise ; **26 artefacts** des bundles de reprise et de blocage vérifiés après décompression avec empreintes brutes et stockées. [Trace de relecture](preuves/TR2-20261028-ACCEL-FS8G-AC1/windows-r2-block/remote-readback-resume.json). Cette publication ne lève pas le blocage Windows et ne qualifie pas AC1/±8g.
+Journal `ETAT_COURANT_TR2.md`, note opérateur `AC1_WINDOWS_TRUST.md` et document `REPRISE.md` actualisés. Gouvernance et contrat de mission inchangés par Codex. [Preuves structurées et commandes](preuves/TR2-20261028-ACCEL-FS8G-AC1/windows-trust-resume-20261029/README.md). Preuves locales : `/home/lolo/dev/msm/reports/TR2-accel-fs8g-ac/windows-trust-resume/`.
 
-État Git au bilan : worktree de publication propre, HEAD égal à main distant ; dépôt historique propre82169af et ancien worktree avec les deux changements initiaux préservés. Le SHA de la mise à jour documentaire consignant cette relecture sera fourni dans la réponse finale après contrôle distant. Statut BLOCKED maintenu, mission reprenable sous le même identifiant.
+Publication normale surmain et relecture intégrale distante à consigner après push. Le statutBLOCKED désigne la ressource externe manquante, pas une interruption de quota. La mission conserve son identifiant et son objectif ; R1-DSP/ARM reste en attente.
