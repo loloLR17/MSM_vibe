@@ -1,0 +1,163 @@
+[
+  {
+    "source": "negative-queue-8mhz-analysis.json",
+    "file": "negative-queue-8mhz-analysis.json.zlib",
+    "bytes": 2072,
+    "sha256": "487648abe53c6f9530d7f68286d36bb44785146e6ecd36bab51d8410b3fad806",
+    "stored_sha256": "35390d8a58d4eda1123f1102882e11f1fd0cb4621fb96bfad0efa055f2de0801"
+  },
+  {
+    "source": "c4-coexistence-60s-8mhz/outputs.bin",
+    "file": "c4-coexistence-60s-8mhz--outputs.bin.zlib",
+    "bytes": 6144,
+    "sha256": "8f242ff1c52e57f04d2db87f6a67c2763c254edd344364a6337ac634e2aec67b",
+    "stored_sha256": "ca178389bd296f53ca7159532989c534fe90747391bd414e2900fbb21283bbae"
+  },
+  {
+    "source": "c4-coexistence-60s-8mhz/source-sha.bin",
+    "file": "c4-coexistence-60s-8mhz--source-sha.bin.zlib",
+    "bytes": 32,
+    "sha256": "261dc71b895dc72c6d7c22c18333415359c5652f49ad656887df8ecf5dd2c401",
+    "stored_sha256": "a09d540558ed6d026ff393cbb3c70d7bc045e02614e640b3ce30647c677c1ac4"
+  },
+  {
+    "source": "c4-coexistence-60s-8mhz/distributions.bin",
+    "file": "c4-coexistence-60s-8mhz--distributions.bin.zlib",
+    "bytes": 80096,
+    "sha256": "5f550fcb65fd4e1c6470577aba75a27ad35d60c5f73c19c31526f0115ad3295c",
+    "stored_sha256": "05c597cc9d96a2cab67fcb888111cd73ff2b693244712d12c806bc5d9bd3d18b"
+  },
+  {
+    "source": "c4-coexistence-60s-8mhz/result.json",
+    "file": "c4-coexistence-60s-8mhz--result.json.zlib",
+    "bytes": 1440,
+    "sha256": "3d287c829da1bfec4e59bbdfdbfc645ecc0c049b2d615839d2c03b6a43153414",
+    "stored_sha256": "0851ce42419de31d5d9d4ac696557dc1ce3e3474c1cf2c0f0e5b5e4b1f2b3c7b"
+  },
+  {
+    "source": "c4-coexistence-60s-8mhz/spi2-config.bin",
+    "file": "c4-coexistence-60s-8mhz--spi2-config.bin.zlib",
+    "bytes": 8,
+    "sha256": "3b94b11cca9c930ed8faedbbf7c18e4fe7caaa1dea53f2d82f702b3b48c847b3",
+    "stored_sha256": "cb0ffce66135084fd53223be33e6c2145c824cd0f5870bef19a65919b5b48dbf"
+  },
+  {
+    "source": "c4-coexistence-60s-8mhz/header.bin",
+    "file": "c4-coexistence-60s-8mhz--header.bin.zlib",
+    "bytes": 512,
+    "sha256": "3c06c82a5650b500553dc3c6513eafbfa698c052aef54f20e6d6ff29339fbeb8",
+    "stored_sha256": "624dccb8fdff38c3c407c2e79bd7e692df55ec368b35e0ccb935bf11b4b907d8"
+  },
+  {
+    "source": "c4-coexistence-60s-8mhz/records.bin",
+    "file": "c4-coexistence-60s-8mhz--records.bin.zlib",
+    "bytes": 12288,
+    "sha256": "2c6130a7d9e97c9ecaaa1d19070335f12f546e84008550856d6bfe3a3923284b",
+    "stored_sha256": "a0be0c5d64d3fd16a2b69e4a2be01b461b08ff2422c715f66dd5d6c9913260c6"
+  },
+  {
+    "source": "c4-coexistence-60s-8mhz/body.gdb",
+    "file": "c4-coexistence-60s-8mhz--body.gdb.zlib",
+    "bytes": 4190,
+    "sha256": "685840841ab33146104413b0ef84713716806babf7a6588724526a1c967c352d",
+    "stored_sha256": "f14d55958082ac28c309059beedebb5cc29d9fb9f1d394bcb990793379655ea5"
+  },
+  {
+    "source": "c4-coexistence-60s-8mhz/raw.bin",
+    "file": "c4-coexistence-60s-8mhz--raw.bin.zlib",
+    "bytes": 14336,
+    "sha256": "0517723d30adc1defa23e6b2823ac6cd293bfb216f76bec1ae2c789db6de79dd",
+    "stored_sha256": "3ea98a2c57f8c1a10606e91cb642ecb149d699ceed1dfba48fa1a42ed8ffa859"
+  },
+  {
+    "source": "c4-coexistence-60s-8mhz/fifo-stop-payload.bin",
+    "file": "c4-coexistence-60s-8mhz--fifo-stop-payload.bin.zlib",
+    "bytes": 243,
+    "sha256": "4edae1f10d0ed516013ed938ef1776c259391596a241a028e4aa914e0826c0f8",
+    "stored_sha256": "8fd2bbfe907085ef8b5c6582a57ccc1645e19b3a9d35a96c24682b2ff5cce566"
+  },
+  {
+    "source": "c4-coexistence-60s-8mhz/card.bin",
+    "file": "c4-coexistence-60s-8mhz--card.bin.zlib",
+    "bytes": 5228,
+    "sha256": "642237ffd3c1b52ef28f15c02698d26cab500d263480855b53b9e65a0340565e",
+    "stored_sha256": "3c5a20316d2c581cab321bb47319d8dabd90f690974ebf484681bf320482de6b"
+  },
+  {
+    "source": "c4-coexistence-60s-8mhz/brackets.bin",
+    "file": "c4-coexistence-60s-8mhz--brackets.bin.zlib",
+    "bytes": 2316,
+    "sha256": "efc90887969f0695748f26be373a838d90307aed2e44133eee86024f14d9b3d6",
+    "stored_sha256": "3bed9ec63fdf0e15e82a728dcf96f7e8db4188d5ad40d17ff76357140804eb43"
+  },
+  {
+    "source": "c4-coexistence-60s-8mhz/result.bin",
+    "file": "c4-coexistence-60s-8mhz--result.bin.zlib",
+    "bytes": 276,
+    "sha256": "ea129a10fbfa9060bd5907ee431744aaf068c52dd8c24c72fe72058ed446e681",
+    "stored_sha256": "1ec23411edd04ce9dea28ad3ea4e448798d4b657cb9cf937c6ec3216f96e3d2a"
+  },
+  {
+    "source": "c4-coexistence-60s-8mhz/spi3-config.bin",
+    "file": "c4-coexistence-60s-8mhz--spi3-config.bin.zlib",
+    "bytes": 8,
+    "sha256": "f07474c9a6c35e3d662c0cb2a2c4cbc568f000d35bd733c56d99999577ae3691",
+    "stored_sha256": "f3e8f68cb9560f75ad334ed4ba11ed27fdb090d555a83fbd1762e13749265e75"
+  },
+  {
+    "source": "c4-coexistence-60s-8mhz/sd-records.bin",
+    "file": "c4-coexistence-60s-8mhz--sd-records.bin.zlib",
+    "bytes": 6560,
+    "sha256": "96588f7ed2c07385f3d8b4fbf485634fe566d30559b68f04b11a0f662192b386",
+    "stored_sha256": "e7aeee10e69c15d6995a958cc201a80b8986d58e70998baf6ddca6bda22bd59c"
+  },
+  {
+    "source": "c4-coexistence-60s-8mhz/fifo-stop-trace.bin",
+    "file": "c4-coexistence-60s-8mhz--fifo-stop-trace.bin.zlib",
+    "bytes": 960,
+    "sha256": "39a7ffd3e50d0bc86d481e05d9247065c69c5183571f243118e3fa8e12d257d4",
+    "stored_sha256": "4a00ae2bf77be3ea5e16d088a22152690e4951eb8ae0e6dff5555bc7f6e30b13"
+  },
+  {
+    "source": "c4-coexistence-60s-8mhz/sd-distributions.bin",
+    "file": "c4-coexistence-60s-8mhz--sd-distributions.bin.zlib",
+    "bytes": 8048,
+    "sha256": "83100b2e3a3ff47d0fdc47f5b3bb56dd3fb3bc93e1e7d18d1ec59ad1e21c88f6",
+    "stored_sha256": "9e34a00adee010574a1fcd326ef194b10d8a4cbe16371aa48baf2a2bf23ec880"
+  },
+  {
+    "source": "c4-coexistence-60s-8mhz/sources.bin",
+    "file": "c4-coexistence-60s-8mhz--sources.bin.zlib",
+    "bytes": 24576,
+    "sha256": "a1a2e3a73e100a9af6abfd641af0841580ccb7e1b72cfe672ae5b6260b75517b",
+    "stored_sha256": "638ca9f7870bad88ebc3c35782e480368213dda1028a3fd2048b461a3f7dff96"
+  },
+  {
+    "source": "hardware/c4-coexistence-60s-8mhz-invocation.json",
+    "file": "hardware--c4-coexistence-60s-8mhz-invocation.json.zlib",
+    "bytes": 737,
+    "sha256": "98ed437ff77acc60383cf9a016679f69e9420e4b54564cacdf3812895df7e603",
+    "stored_sha256": "170b737a19272c147a32adec0b3a85edbfc03a1950fb0274f3ef1a9c65b19b9d"
+  },
+  {
+    "source": "hardware/c4-coexistence-60s-8mhz.gdb",
+    "file": "hardware--c4-coexistence-60s-8mhz.gdb.zlib",
+    "bytes": 4298,
+    "sha256": "aa738b60fd6e4cea6d248f1652a888b8104f10123f9236ad437f0c5dc9ae28f4",
+    "stored_sha256": "f2cf5c467e2c5bd101b96020bd897d6cc6ea417c3597c6646c53327bdd083c35"
+  },
+  {
+    "source": "hardware/c4-coexistence-60s-8mhz-server.log",
+    "file": "hardware--c4-coexistence-60s-8mhz-server.log.zlib",
+    "bytes": 674,
+    "sha256": "030ed83bdd9e560371dd4df01fbb2f25a71828a2bd725448cff4a24e6cf46bf2",
+    "stored_sha256": "e10983747cbbc75b0f14ab0523f2c631430b41b31c5be4e954db1768d202b7b5"
+  },
+  {
+    "source": "hardware/c4-coexistence-60s-8mhz.log",
+    "file": "hardware--c4-coexistence-60s-8mhz.log.zlib",
+    "bytes": 15662,
+    "sha256": "ff315d4b6bbcec0637e6c53a789a263807aca84dadb2bdf7f56a2cffcef82f9d",
+    "stored_sha256": "792d4885b6f9ff262704e13525b9b289b8e7ab8e21f1f61280c4f045a123e27e"
+  }
+]

@@ -14,7 +14,7 @@ allow_flash: true
 allow_debug: true
 ---
 
-# R3 — checkpoint8MHz, coexistence2s et10s acquise ;60s en cours
+# R3 — checkpoint :C3 acquis, C4 arrêté sur file32KiB pleine
 **MISE ÀJOUR :** correction **932f9e9589e27d2635ae43b47ee52ed560f56d4f**, SPI3=8MHz,
 SPI2=4MHz, mêmesquanta64mots/128B etlimites. Deuxièmeflash R3 verify/readback exact,
 BIN **029dc929e1e487413524c4afe9234667a7bf8e8e8e2da757bf896fdae83e121a**. Nouvellecalibration nécessaire40µs,
@@ -34,12 +34,28 @@ modes3/0 relus aprèsSTOP. SourceR1/FIR inchangés.
   complètes utilisent le digestproducteur **avant file/TX**, pas le bufferémetteur ;
   touslesXYZnatifs du run ne sontpas conservés pour rejouer numériquement chaque sortie.
 
-**C4 de60s lancé après vérification de10s**, sansGDB danslafenêtre ; résultat pas
-encore collecté au moment de cecheckpoint. Aucune répétition d'anciens testsR1/R2.
-C0/C1 et échec4MHz ci-dessous restent historiques et conservés, pas la description
-de l'état matériel actuel. TR2-002 porte désormais le8MHz, source932f9e95 ; priorité
-àrelecture/intégrité C4 puis clôture. Toujours IN_PROGRESS, pasBLOCKED niDONE.
+**C4 négatif :** l'essai prévu60s s'est arrêté à15,284988s sur queue pleine,
+**pas sur overrun capteur** (flagsFIFO0, pic45mots, aucunSDerror).403621XYZ reçus par
+le sink/40363sorties produites,242178octets de digestamont ; un dernier paquet6B a
+été explicitement refusé par la file, pas archivécommevalide.410secteurs confirmés,
+209920B, queueaupic32764B etoverflow1. FIFOerror10 découle du refusconsommateur,
+STOP151µs, SDquiescente, pas de header de succès. Zone16385..16794 préservée.
 
+Trace410writes :19writes>100ms, dont17busy>100ms essentiellementconsécutifs
+(LBA16777..16794). Busymax142090µs, writemax151054µs. Moyennesglobales write17,068ms /
+busy8,225ms ne révèlentpas la **grappe de pauses** ; la file32Kio ne couvre pas ce
+retard transitoire. FIFOcontinue servi sansOVR, SD128B borné ; il ne s'agit plus de
+l'ancien manque de drainage4MHz. Les compteurs de cleanup sont corrigés et le digest
+amont figé en défaut, mais capturelongue **NON QUALIFIÉE**, pas de pleineintégrité
+réclamée pour un run échoué.
+
+**Poursuite :** rejouer une grappe conservatrice issue des19outliers dans le modèle,
+vérifier le budget mémoire puis adapter la réserve bornée seulement si démontré.
+Pas d'agrandissement aveugle ni de60sPASS anticipé. Préserver les zones négatives et
+les2s/10s acquises ; aucune nouvelletranche physique sur codeinchangé sans cause.
+Toujours IN_PROGRESS : analyse/correction réalisables dans le périmètre, pasBLOCKED.
+
+[Preuve file32KiB](preuves/TR2-20261029-R3-COEX-FIFO-FIR-SPI2/checkpoint-queue32/BUNDLE.json).
 [Preuves8MHz](preuves/TR2-20261029-R3-COEX-FIFO-FIR-SPI2/checkpoint-8mhz/BUNDLE.json).
 
 
