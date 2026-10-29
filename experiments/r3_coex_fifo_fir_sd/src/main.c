@@ -208,7 +208,7 @@ static int session(uint32_t run,uint32_t duration)
  r3_result.first_us=r3_result.last_us=r3_result.residual=r3_result.stop_us=0;
  r3_result.source_hash=r3_result.output_hash=2166136261u;capture_queue_init(&q);
  memset(r3_distributions,0,sizeof r3_distributions);memset(r3_sd_distributions,0,sizeof r3_sd_distributions);memset(&r3_writer,0,sizeof r3_writer);r3_hash_init(&source_hash);
- r3_result.sd_lba=run==3?8192:run==4?12288:16384;next_lba=r3_result.sd_lba+1;
+ r3_result.sd_lba=run==3?24576:run==4?12288:16384;next_lba=r3_result.sd_lba+1;
  memset(&mapper,0,sizeof mapper);fir_decimator10_init(&fir);next_clock=0;
  if(fir_decimator10_start(&fir,run,0,(FirDecimator10Clock){cal_num,cal_den,true})!=TR2_OK)return -1;
  reset_trace();if(fifo_live_start(&fifo,run,1,1,7,2,now()/1000u))return -2;
@@ -281,8 +281,9 @@ int main(void)
    uint32_t run=cmd&255;r=session(run,run==4?10000000u:run==5?60000000u:2000000u);
   }else if(cmd==(MAGIC|0x10u)&&!fifo.running)r=read_return();
   if(fifo.running){if(!r)reset_trace();if(fifo_live_stop(&fifo))r=-93;}
-  if(r3_writer.active){while(r3_writer.active){if(sd_writer_step(&r3_writer))break;}}
+  if(r3_writer.active){while(r3_writer.active){if(writer_step(false))break;}}
   if((r3_writer.uncertain||r3_card.failed)&&sd_spi_quiesce(&r3_card)){r3_result.error=94;r3_result.stage=98;for(;;){(void)now();__WFI();}}
+  if(r3_result.run>=2)r3_hash_finish(&source_hash,r3_source_sha);
   r3_sd_deselect();r3_result.stopped=fifo.stopped;r3_result.fifo_error=fifo.error;r3_result.stop_error=fifo.stop_error;
   r3_result.trace_refused=bench_log_refused;r3_result.preclose_overflow=bench_preclose_overflow;r3_result.sd_error=r3_card.error;
   if(r)r3_result.error=(uint32_t)(r<0?-r:r);

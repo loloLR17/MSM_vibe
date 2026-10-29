@@ -2,7 +2,7 @@
 
 Experimental NON-PRODUCTION, mission TR2-20261029-R3-COEX-FIFO-FIR-SPI2, TR2-002 only.
 UID001B0046/38425018/20333157, explicit STLINK0032001F3235510C37333439.
-Real U575 startup/vector/linker, CubeU5v1.9.0/O2/160MHz, SPI3mode3/4MHz and
+Real U575 startup/vector/linker, CubeU5v1.9.0/O2/160MHz, SPI3mode3/**8MHz** and
 SPI2mode0/250kHzinit→4MHz. No FRAM, UART/RTU, Windows or TR2-001 access.
 
 ## Reused qualified paths and board
@@ -54,7 +54,7 @@ replayable). Later source waveform is not claimed to be archived in native26kHz.
 strict exact test-card authorization, then2s actual sensor/MCU clock calibration.
 No writes during calibration; no debugger interactions through this window.
 52334302:2s FIFO+FIR baseline, no SD writer (same capture instrumentation).
-52334303:2s real coexistence. HeaderLBA8192, payload8193onward.
+52334303:2s real coexistence. HeaderLBA24576, payload24577onward (preserve failed4MHz zone8192).
 52334304:10s coexistence. Header12288, payload12289onward.
 52334305:60s coexistence. Header16384, payload16385onward.
 52334310:readback64KiB windows after STOP with contiguous r3_return_offset.
@@ -88,3 +88,16 @@ CID/region/SD faults/timeout, incremental SHA known vector +one-shot agreement.
 Simulation is not DWT or a card observation. Production/shared core unchanged;
 new ARM +canonical and targeted tests required. Only after physical C3 success,
 60sC4; optional10min not required and not silently attempted from fixed trace RAM.
+
+## Measured4MHz failure and bounded correction
+
+First imageebd433e3, bothbuses4MHz, FIFO64words and250µs pacing: baseline2s healthy,
+then coupled2s stopped on actualFIFOoverrun after1.067492s. Per-turn maxservice2367µs,
+work838µs,gap2624µs stayed below references, but sustained drainage did not keep up.
+Negative image/captures/zone8193..8224 preserved. SPI3now8MHz, within IIS3DWB10MHz
+maximum (ST DS12569Rev8table5), sameSPI2/FIR/quantum/limits. This requires fresh
+baseline and short coexistence before longer tests; not a revalidation of old R1.
+https://www.st.com/resource/en/datasheet/iis3dwb.pdf
+Cleanup now commits only the already-in-flight acknowledged sector to diagnostics,
+without pulling new queue blocks on source failure, and freezes producer digest
+on fault. Old firstfailure had31counted/32hardwareacknowledged, no valid successheader.

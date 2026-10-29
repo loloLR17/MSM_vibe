@@ -40,7 +40,7 @@ add_executable(r3_coex src/main.c src/board_sd.c src/sd_writer.c src/stream_hash
  "${STREF}/src/platform.c" "${STREF}/src/spi_diagnostic.c" "${STREF}/src/fifo_live.c" "${STREF}/src/fifo_window.c" "${STREF}/vendor/st/iis3dwb_reg.c"
  "${OBSERVED}" ${SDK} "${DEV}/Source/Templates/gcc/startup_stm32u575xx.s" "${DEV}/Source/Templates/system_stm32u5xx.c")
 target_include_directories(r3_coex PRIVATE src "${SDREF}/src" "${STREF}/src" "${STREF}/vendor/st" "${FW}/include" "${FW}/platform/stm32" "${HAL}/Inc" "${DEV}/Include" "${STM32CUBE_U5_ROOT}/Drivers/CMSIS/Include")
-target_compile_definitions(r3_coex PRIVATE STM32U575xx USE_HAL_DRIVER BENCH_CORE_MHZ=160 BENCH_SPI_DIVIDER=4 BENCH_SPI_MODE3=1 BENCH_DUPLEX=0 BENCH_SECOND_SPI_OBSERVER=1)
+target_compile_definitions(r3_coex PRIVATE STM32U575xx USE_HAL_DRIVER BENCH_CORE_MHZ=160 BENCH_SPI_DIVIDER=2 BENCH_SPI_MODE3=1 BENCH_DUPLEX=0 BENCH_SECOND_SPI_OBSERVER=1)
 target_compile_options(r3_coex PRIVATE -mcpu=cortex-m33 -mthumb -O2 -g3 -Wall -Wextra -Werror -ffunction-sections -fdata-sections -fstack-usage)
 target_link_options(r3_coex PRIVATE -mcpu=cortex-m33 -mthumb --specs=nano.specs --specs=nosys.specs -Wl,--gc-sections -Wl,--build-id=none "-Wl,-Map=${CMAKE_CURRENT_BINARY_DIR}/r3_coex.map" "-T${FW}/platform/stm32/linker/STM32U575ZITXQ_FLASH.ld")
 set_target_properties(r3_coex PROPERTIES SUFFIX .elf)
