@@ -22,7 +22,7 @@ La préparation V1 se limite à **préserver le format de fichier, le modèle lo
 
 ## Porte d'architecture matérielle ajoutée à R0 (29/10/2026)
 
-Après le recentrage fonctionnel, l'utilisateur demande explicitement de **réévaluer STM32U575, IIS3DWB, FRAM et l'hypothèse Ethernet/PoE**, tout en **conservant intégralement la méthodologie ChatGPT → GitHub → Codex → GitHub → ChatGPT**. [Étude comparative matérielle R0](R0_METIER_20261029_REVUE_ARCHITECTURE_MATERIELLE.md) publiée comme **étude préliminaire non arbitrée**, distincte d'une migration et sans modification firmware.
+Après le recentrage fonctionnel, l'utilisateur demande explicitement de **réévaluer STM32U575, IIS3DWB, FRAM et l'hypothèse Ethernet/PoE**, tout en **conservant intégralement la méthodologie ChatGPT → GitHub → Codex → GitHub → ChatGPT**. [Étude comparative matérielle R0](R0_METIER_20261029_REVUE_ARCHITECTURE_MATERIELLE.md) et [analyse technique approfondie](R0_METIER_20261029_ANALYSE_MATERIELLE_DETAILLEE.md) publiées comme **études préliminaires non arbitrées**, distincte d'une migration et sans modification firmware.
 
 **Nouvelle porte de décision avant le PCB définitif** : comparer (1) U575 + Ethernet SPI externe, (2) MCU avec Ethernet MAC intégré mais réserve SRAM qualifiée, (3) capteur IIS3DWB versus alternative basse fréquence, (4) maintien de la FRAM, et (5) PoE/coupures/ISO/CEM. Vérifier l'impact sur le filtrage 2 kHz et les buffers SD. **R1 de qualification sur le banc actuel peut se poursuivre avec interfaces portables** ; aucun choix de composant final ou suppression du RS-485 n'est implicite. La récupération microSD physique reste la fonction minimale V1 tant que le périmètre IP/PoE n'est pas arbitré.
 
