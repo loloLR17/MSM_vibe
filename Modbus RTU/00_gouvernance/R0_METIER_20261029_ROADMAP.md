@@ -20,6 +20,12 @@
 
 La préparation V1 se limite à **préserver le format de fichier, le modèle logique de commandes et la couche de stockage indépendants du futur transport**. Après R6, une étude V1.5 séparée traitera hardware, Modbus TCP standard, transfert des fichiers (HTTP(S) ou équivalent), débit, sécurité/segmentation réseau, reprise et coexistence pendant l'acquisition.
 
+## Porte d'architecture matérielle ajoutée à R0 (29/10/2026)
+
+Après le recentrage fonctionnel, l'utilisateur demande explicitement de **réévaluer STM32U575, IIS3DWB, FRAM et l'hypothèse Ethernet/PoE**, tout en **conservant intégralement la méthodologie ChatGPT → GitHub → Codex → GitHub → ChatGPT**. [Étude comparative matérielle R0](R0_METIER_20261029_REVUE_ARCHITECTURE_MATERIELLE.md) publiée comme **étude préliminaire non arbitrée**, distincte d'une migration et sans modification firmware.
+
+**Nouvelle porte de décision avant le PCB définitif** : comparer (1) U575 + Ethernet SPI externe, (2) MCU avec Ethernet MAC intégré mais réserve SRAM qualifiée, (3) capteur IIS3DWB versus alternative basse fréquence, (4) maintien de la FRAM, et (5) PoE/coupures/ISO/CEM. Vérifier l'impact sur le filtrage 2 kHz et les buffers SD. **R1 de qualification sur le banc actuel peut se poursuivre avec interfaces portables** ; aucun choix de composant final ou suppression du RS-485 n'est implicite. La récupération microSD physique reste la fonction minimale V1 tant que le périmètre IP/PoE n'est pas arbitré.
+
 ## Ordonnancement
 
 **Chemin critique : R0 → R1 et R2 (possibles en parallèle après cadrage) → R3 → R4/R5 → R6.** R3 est le **premier GO produit** : un enregistreur autonome d'une vraie campagne 8h. Un démonstrateur LIVE et des tests C/.NET verts n'en tiennent pas lieu. R4/R5 peuvent ensuite progresser en parallèle, sans surdévelopper l'UX.
