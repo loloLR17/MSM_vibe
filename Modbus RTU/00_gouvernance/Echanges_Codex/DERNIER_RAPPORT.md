@@ -17,9 +17,29 @@ allow_debug: true
 # R3-DURABLE — checkpoint logiciel + première lecture FAT32 réelle sur PC
 
 **IN_PROGRESS, pas DONE.** D0/D1 préparés et validés sur les portes ci-dessous ;
-D2 tests ciblés réussis ; première preuve PC standard acquise. Les acquisitions
-physiques2s/60s/600s du nouveau profil **ne sont pas encore exécutées**. Réinsertion
-physique demandée ; poursuite autonome à réception de la confirmation.
+D2 tests ciblés réussis ; première preuve PC standard acquise. Les acquisitions2s et60s ont maintenant réussi ; la fenêtre600s est en cours, sans
+debugger interrompant la capture. **Extraction PC des campagnes encore à faire**.
+La première lecturePC du fichier témoin ne qualifie pas seule les trois campagnes.
+
+
+## Acquisition physique courte acquise / 600 s en cours
+
+Réinsertion confirmée utilisateur ; UID/imageFD73 de nouveau contrôlés, aucunflash
+oureset logiciel supplémentaire. MountFAT32 réel au reboot, pasnouveauformat ;
+calibration63µs/193brackets/6576ancres puisbaseline2s saine.
+
+| Capture réelle | XYZ sources | Sorties | Payload B | Records512B | FIFO/file pic | Max work/service/gap µs | STOP/drain payload µs |
+|---|---:|---:|---:|---:|---|---|---|
+| d3-file-2s | 52592 | 5260 | 31560 | 68 | 57 / 512B | 841.013 / 1646.894 / 1903.000 | 151 / 3042 |
+| d3-file-60s | 1585704 | 158571 | 951426 | 2033 | 57 / 1024B | 841.850 / 1681.744 / 1938.000 | 152 / 3040 |
+
+ZéroOVR/flags/source/temps/SD/overflow/rail/clip, footer completacknowledged aprèsSTOP,
+103sorties de chaquepréfixe recalculées indépendamment. SD60s write/busy max32711/23186µs ;
+pileobservée2264B/plancher1832B. Le digest et tous les records du2s ont été relus
+parFatFs avant60s ; même garde relit le60s avant600s. Ces relectures cible ne sont
+pas présentées comme les extractionsPC finales. Le drain mesuré porte sur les
+records, pas sur la latence de toute l’écriture dufooter (noninstrumentée séparément).
+[Preuves courtes](preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-short/BUNDLE.json).
 
 ## Acquis et architecture
 
@@ -109,20 +129,19 @@ présentées comme une vraie horlogeUTC.
 
 ## Point de reprise et critères non acquis
 
-Dernière confirmation physique : TR2-002 hors tension, cartePC F:. Réinsertion
-propre demandée après éjection Windows, puis ST-LINK seul/USBnatifdébranché,
-câblageinchangé. **Attendre sa confirmation**, ne pas démarrer sur une carte retirée.
-Aprèsretour : contrôlerUID/image et CID, commande0x44335201 (mount/calibration,
-aucunformat automatique), baseline0x44335202, puis2s0x44335203,60s0x44335204,
-600s0x44335205 seulement si les portes sont saines. Aucune manipulation de la stage
-RAM pour simuler unrun ; au reboot nouveauWAIT, pasd’autowrite. Ne pas relancer
-format0x20 sur le volume déjà créé. Helperhardware journalisé avecSN002 explicite.
+Dernière confirmation physique : carte réinsérée TR2-002/ST-LINK connecté/USBnatif
+débranché. Contrôles frais passés ; commande600s soumise après60s sain. Aucune
+lecture/halt supplémentaire pendantcapture. Attendre le terminal STOP/SDquiescente
+et analyser les bruts, puis demander le retrait sûr verslecteurPC et copier/importer
+RUN0003/4/5.TR2. Aucune répétition des courtes captures, aucunformat/reflash gratuit.
+Le helperGDB600s a timeout750s ; preuve/local log dans d3-file-600s.log.
+Si interruption : vérifier processus/logs avant toute action ; ne jamais attacher
+un nouveau debug pendant une capture encore active. Images/recovery conservés.
 
-MesuresFIFO/work/service/gap, distributionsSD/file/pile/IRQ, intégrité réelle des
-campagnes et10min restent **NON VÉRIFIÉES**. La limite de trace2048pairesSD n’estpas
-une borne d’acquisition ; pour600s utiliser les histogrammes complets et traces
-premières/dernières, pas des quantiles bruts prétendument exhaustifs. Pas de retrait
-àchaud/coupureprovoquée, pasqualification8h/FRAM/RTU/Windows/AC1/amplitude.
+600s et intégritéPC intégrale des campagnes restent NONQUALIFIÉS tant que non
+observés. SDlong : quantiles sur histogrammes complets, pas sur seulement2048traces
+(premières256/dernières1792). Ne pas confondre BSS de banc et futur budgetproduction.
+Pas de retraitàchaud/coupureprovoquée, pasqualification8h/FRAM/RTU/Windows/AC1/amplitude.
 
 Sources/worktree : `/home/lolo/dev/msm/projects/MSM_vibe-R3-durable`, branche
 `codex/r3-durable-fat32-10min`, pushnormal explicite surmain. Dépôthistorique82169af,
