@@ -14,15 +14,16 @@ allow_flash: true
 allow_debug: true
 ---
 
-# R3-DURABLE — checkpoint logiciel + première lecture FAT32 réelle sur PC
+# R3-DURABLE — checkpoint FAT32 : fichiers PC courts validés, arrêt long sur grappe SD
 
-**IN_PROGRESS, pas DONE.** D0/D1 préparés et validés sur les portes ci-dessous ;
-D2 tests ciblés réussis ; première preuve PC standard acquise. Les acquisitions2s et60s ont maintenant réussi ; la fenêtre600s est en cours, sans
-debugger interrompant la capture. **Extraction PC des campagnes encore à faire**.
-La première lecturePC du fichier témoin ne qualifie pas seule les trois campagnes.
+**IN_PROGRESS — essai600s réellement exécuté, interrompu à265,121081s surfile64KiB pleine.**
+Les fichiers2s et60s sont maintenant extraits physiquement du lecteurPC et vérifiés
+intégralement. Le600s est INCOMPLETE, avec8857blocs/690846XYZ récupérés ; aucun
+footer de succès ni comparaison mensongère de ce préfixe au digest de toute la
+source. La correction d’ordonnancement/transport reste à étudier avant toute
+répétition ; pas de campagne sur codeinchangé, pas de qualification10min.
 
-
-## Acquisition physique courte acquise / 600 s en cours
+## Acquisition physique courte acquise / échec long conservé
 
 Réinsertion confirmée utilisateur ; UID/imageFD73 de nouveau contrôlés, aucunflash
 oureset logiciel supplémentaire. MountFAT32 réel au reboot, pasnouveauformat ;
@@ -129,19 +130,47 @@ présentées comme une vraie horlogeUTC.
 
 ## Point de reprise et critères non acquis
 
-Dernière confirmation physique : carte réinsérée TR2-002/ST-LINK connecté/USBnatif
-débranché. Contrôles frais passés ; commande600s soumise après60s sain. Aucune
-lecture/halt supplémentaire pendantcapture. Attendre le terminal STOP/SDquiescente
-et analyser les bruts, puis demander le retrait sûr verslecteurPC et copier/importer
-RUN0003/4/5.TR2. Aucune répétition des courtes captures, aucunformat/reflash gratuit.
-Le helperGDB600s a timeout750s ; preuve/local log dans d3-file-600s.log.
-Si interruption : vérifier processus/logs avant toute action ; ne jamais attacher
-un nouveau debug pendant une capture encore active. Images/recovery conservés.
+Dernière confirmation physique : carte dans le lecteurPC, TR2-002 hors tension,
+après arrêt logique source/SDquiescence/sessiondebugfermée. Imagefd73 conservée,
+aucun nouveauflash/reset depuis le préflight. Ne pas relancer les captures courtes
+validées sur codeinchangé et ne pas reformater ; conserver RUN0003/4/5.TR2.
 
-600s et intégritéPC intégrale des campagnes restent NONQUALIFIÉS tant que non
-observés. SDlong : quantiles sur histogrammes complets, pas sur seulement2048traces
-(premières256/dernières1792). Ne pas confondre BSS de banc et futur budgetproduction.
-Pas de retraitàchaud/coupureprovoquée, pasqualification8h/FRAM/RTU/Windows/AC1/amplitude.
+## Première anomalie longue et intégrité PC obtenue
+
+À265,121081s, queue65536B/overflow1, FIFOerror10(refusconsommateur), FIFOOVR0/flags0/
+pic58, SDerror0, STOP150µs, writer terminé sansincertitude ; pas de footercomplet.
+7008291XYZ reçus/700830sorties/4204980B produits ;8857secteurs512 confirmés,
+4534784B encadrés. Le dernier bloc refusé demeure explicitement nonpersisté.
+Trente busy>100ms dans la trace conservée sont groupés en fin, LBA29880..29913 ;
+busymax155539µs/write164448µs. La file augmente par pas de≈2048B entre ceswrites.
+MoyenneSDglobale ne suffit pas à expliquer cette grappe ; leshistogrammes couvrent
+les8857writes, la tracebrute conserve seulementpremiers256/derniers1792.
+Workmax995,538µs/service1704,669/gap1961 sousréférences1000/2500/5000, margework
+faible mais nonfranchie. La cause d’arrêt est le backlogSD, pas un timeoutFIFO.
+
+L’utilisateur a transféré la carte aulecteurPC après misehors tension. Depuis le
+volumeFAT32 F: réel, les fichiers entiers128KiB/2MiB/12MiB ont été copiés en lecture
+seule, parsés parPython et tous leurs blocs valides contrôlés.
+
+| Fichier PC réel | Statut | XYZ validés | Payload B | SHA256 payload |
+|---|---|---:|---:|---|
+| RUN0003.TR2 | COMPLETE | 5260 | 31560 | dc885198cadde6f264fb4a4ea1e98b5026d2512efef7d9fce4365807c61ae7fe |
+| RUN0004.TR2 | COMPLETE | 158571 | 951426 | 6286345f03e82fb9a56d1b875e20465af57bd0402ac059c0f683ca36ed8dc4b9 |
+| RUN0005.TR2 | INCOMPLETE | 690846 | 4145076 | 29b367b99f39fd35a462c75cc3d2d10adf41f5cbbd7e64dfc64b3766b4514900 |
+
+Les2s/60s correspondent intégralement au digest producteur amont capturé avantTX ;
+103sorties indépendamment recalculées et128sorties préfixes réelles identiques au
+fichier pourchacun des3runs. Pourlepréfixe incomplet seulement CRC/session/index et
+cescontrôlespréfixes sont prouvés : son SHA est celui du préfixe effectivementrelu,
+**pas le digest de l’intégralité des700830sorties**. Les9984sorties restantes ne
+sont pas présentées commearchivées. Cela prouve la récupération après cetarrêt
+contrôlé surbackpressure, pas la survie à une coupureélectrique.
+
+Poursuite : examiner une méthode d’écriture groupée préallouée/cooperative avec
+hints SD (CMD25/ACMD23) plutôt qu’augmenter sansborne les buffers ; conserver
+64KiB, lescontrôles et leslimites. Aucun correctifphysique nouveau encoreévalué,
+aucune garantie future de file bornée face à despauses arbitraires.
+[Preuves du négatif et fichiers PC](preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-negative-265s/BUNDLE.json).
 
 Sources/worktree : `/home/lolo/dev/msm/projects/MSM_vibe-R3-durable`, branche
 `codex/r3-durable-fat32-10min`, pushnormal explicite surmain. Dépôthistorique82169af,
