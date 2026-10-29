@@ -1,5 +1,8 @@
 # État courant MSM TR2 — synthèse opérationnelle
 
+**29/10/2026 — R1-DSP-A, VALIDÉ LOGICIEL / publication en cours :** code0ad417d6, FIR causal107XYZ /10 avec DCexactQ15, phase/segments/temps causal, rails source et clippingFIR distincts.149testsC/canoniqueARM,59rejeuxC vsSciPy/3témoinsSHA exacts, ciblésASan/UBSan PASS. Q15 :gain0–700Hz erreurmax0,002766dB, bornecontinue rejet−66,538dB (arrondis ton12000comptes inclus−63,412dB), écartmaxfloat64 observé25comptes/borné27. LinkageARMsoft ABI/MLA, état744B/coeff214B ; pascyclesDWT/CPUphysique/pilemesurée. CanoniqueBIN85b1…c0f5 inchangé, FIR nonraccordé auFIFO. AucunWindows/COM4/flash/debug/reset/FRAM/SD ; AC1archivé resteBLOCKEDenattenteexterne. Pointretoura3f5ac33 conservé. Suite :revueChatGPT puis missionphysiqueR1-ARM avec autorisations/target/mesuresbornées, pas GOstockage ou8h.
+
+
 **29/10/2026 — AC1-R2 Windows, BLOCKED précisé :** révision778776be exécutée en lecture seule. R1/R2 :378fichiers chacun inchangés ; DLL refusées AuthenticodeNotSigned, mais archives NuGet3.0.83/SQLitebundle2.1.12 vérifiées.148ActivityID corrélés :296refus3033/3077 et296informations3089, toutesTotalSignatureCount0 ; pas de révocation/expiration démontrée, différence R1/R2 non attribuée à une cause unique. Aucun certificatcodeSigning disponible dans magasinsMy utilisateur/machine ; canaléditeur approuvé nécessaire avant nouveaugate. Aucun gate/build/test/restart/COMdirect/flash/debug/reset/B5 ; service8312 conservé, API10:25:28UTC STOP4097/seq0, SQLite133758lignes/ledger5-25. AC1 et±8gphysiques restent NONQUALIFIÉS ; journal/noteopérateur/rapport misàjour, DSP/ARM suivant nonlancé.
 
 

@@ -1,97 +1,116 @@
 ---
-mission_id: TR2-20261028-ACCEL-FS8G-VIBRATION-AC
-status: BLOCKED
+mission_id: TR2-20261029-R1-DSP-DECIM10-HOST
+status: IN_PROGRESS
 base_ref: main
-base_sha: e7f17f2cd2b8470244a99f7c9e73e9d0f43b3dea
-initial_head: e81df0e41207db087485f1e0c49db0fef60af2d0
-result_sha: ae6e2d5e9cd2d161abeda1659d99296a0c274ab8
-created_at_utc: 2026-10-29T10:26:00Z
+base_sha: a94fa2a87de7d93220e3e18f2dbd2f41c412bb83
+initial_head: 545b96e1b8bec628219b0dd91c46fc51328d76cc
+result_sha: 0ad417d621c0023a2c326383040a5d4e73016329
+created_at_utc: 2026-10-29T12:34:45.701841+00:00
 author: Codex
 target_branch: main
 allow_commit: true
 allow_push: true
-allow_flash: true
-allow_debug: true
-revision: AC1-R2-20261029
+allow_flash: false
+allow_debug: false
 ---
 
-# AC1-R2 — investigation Windows exécutée, moyen de signature externe requis
+# R1-DSP-A — FIR XYZ /10 livré et validé en logiciel, relecture distante en cours
 
-**BLOCKED, motif précisé par des preuves nouvelles.** La révision de reprise Windows publiée au **778776be6377ad80734aa72f7f2053146a4d70bf** a été lue depuis `origin/main` et exécutée sans redéployer ni redémarrer le service. Les refus correspondent à deux DLL sans signature Authenticode. Leurs packages NuGet d’origine sont cryptographiquement vérifiés ; cela ne signe pas les DLL pour Windows. Aucun certificat de signature de code n’est disponible dans les magasins personnels utilisateur/machine inspectés.
+La brique portable **FIR 107 taps / décimation 10**, avec conservation du DC, passe les portes hôte et cross-compilation de cette mission. **149 tests C**, 59 rejeux C comparés à SciPy et linkage ARM réussis. Les trois témoins float64 externes sont reproduits. Le statut provisoire `IN_PROGRESS` porte uniquement sur la publication/relecture distante restant à consigner avant `DONE`.
 
-La voie concrète identifiée est un **canal de signature éditeur approuvé**, local ou distant, pour une publication complète et vérifiable. Ce canal n’est pas disponible dans les ressources inspectées ; aucun gate identique n’est répété, aucune protection contournée. Le service démontré reste actif et le TR2 répond STOP. **Les critères ±8g et dynamique AC1 LIVE demeurent non qualifiés** ; aucun objectif n’est transformé en étude hors ligne et aucun lot R1-DSP/ARM n’est démarré.
+Ce résultat ne qualifie ni CPU/FIFO sur carte, ni stockage, ni AC1, ni la chaîne industrielle. **Aucun flash/debug, accès STM32 ou intervention Windows/COM4** : ces opérations sont exclues du contrat et n’ont pas été utilisées. La mission AC1 archivée reste BLOCKED en attente externe ; aucun nouveau travail AC1 n’est entrepris.
 
-## Contrat, Git et préservation
+## Références, Git et modifications
 
-- Même `mission_id`, permissions inchangées. `READY` de la révision autorise l’investigation, pas la présomption de déblocage. L’addendum prioritaire du28/10 et l’autorisation expérimentale AC1v1 restent applicables ; B3 absolu et LIVE R0 gelé ne changent pas.
-- Ancien worktree de publication propre àe81df0e4 ; dépôt historique principal propre à82169af. Un premier fetch a échoué réseau (RPC/earlyEOF), puis un fetch HTTP/1.1 a effectivement récupéré778776be. Aucune conclusion tirée de la référence locale périmée. Nouvelle branche locale `codex/ac1-r2-windows-trust` basée sur ce HEAD, sans merge/rebase/reset, dans le worktree `MSM_vibe-accel-fs8g-ac-resume`.
-- `AGENTS.md`, gouvernance, protocole, journal et précédent rapport vérifiés : aucun changement depuis la relecture précédente, hors révision de mission et documents métier explicitement examinés. Le rapport BLOCKED précédent est conservé comme [snapshot de preuve](preuves/TR2-20261028-ACCEL-FS8G-AC1/windows-trust-resume-20261029/README.md), sans réécriture historique.
-- Deux stashes6251b988… et f3b829e6… inchangés ; ancien worktree AC1 et ses deux modifications initiales conservés. Aucun nettoyage ou changement de référence d’archive demandé. La branche de retour pré-SPI2 n’est pas modifiée.
+Mission récupérée depuis GitHub à **545b96e1b8bec628219b0dd91c46fc51328d76cc**. `AGENTS.md` relu avec son ajout Windows du29/10 ; celui-ci n’étend pas le périmètre de cette tranche. Gouvernance/protocole/journal et les trois références R0 /10 sont consultés. Le §0 prioritaire du plan D10 est appliqué ; l’ancienne cascade2kHz A225+B69 demeure historique, sans dégel des spécifications V1.
 
-## Opérations réellement effectuées
+Dépôt historique propre à82169af ; worktree de publication propre àfec0d55e au déclenchement, puis branche locale isolée `codex/r1-dsp-decim10-host` basée sur la nouvelle référence. Aucun reset/merge/rebase/nettoyage. Les deux modifications préexistantes de l’ancien worktree AC1 et les deux stashes6251b988…/f3b829e6… sont conservés. Le rapport AC1 courant était byte-identique à son archive avant remplacement par le présent rapport ; aucune archive n’a été réécrite.
 
-Lecture des manifestes complets, empreintes des fichiers présents, Authenticode et chaînes des signataires trouvés, flux NTFS exposés, magasins de certificats personnels, provenance NuGet et signatures d’archives. Collecte du journal CodeIntegrity existant, y compris3089 et ActivityID, sans activation d’un journal ni modification de configuration. Lecture de l’API déjà active, inventaire du processus et de deux modules chargés, SELECT SQLite natif Windows en lecture seule et lecture du ledger.
+La branche distante `archive/tr2/point-retour-pre-spi2-20261029` est vérifiée à **a3f5ac33a728a5afd028192654c17e5b04ee8d7b**, inchangée.
 
-**Aucune modification du firmware, des binaires Windows, des packages NuGet ou du service.** Aucun nouveau build, test fonctionnel, gate COM99, lancement R1/R2, ouverture directe COM4 par Codex, START/STOP/APPLY, reset, GDB, flash, FRAM, microSD, OptionBytes ou politique Windows. Le poller démontré continue ses lectures habituelles indépendamment des seules lectures API effectuées ici. Aucune acquisition n’est déclenchée pour contourner le blocage.
+Commit logiciel **0ad417d621c0023a2c326383040a5d4e73016329** — `feat(dsp): add causal exact-DC Q15 XYZ decimator with independent host qualification`, poussé normalement surmain. Le diff est limité à :
 
-## 1. Paquets exacts et contexte
+- `05_Firmware/include/tr2/domain/acquisition/fir_decimator10.h`, son implémentation et son header de coefficients généré ;
+- CMake hôte : source portable, test de lifecycle et outil de replay ; aucun profil produit modifié ;
+- `tests/dsp/` : génération déterministe, oracles SciPy, comparaison C float32/Q15/Q31, contrôle de dérive et projet de linkage ARM isolé ;
+- [note technique R1-DSP](../../05_Firmware/R1_DSP_DECIM10.md), preuves et présent rapport/journal.
 
-R1 `TR2-AC1-FS8G-20261028\app` et R2 `TR2-AC1-FS8G-20261028-R2\app` : **378 fichiers chacun**, tous égaux à leurs manifestes de publication antérieurs. Entre les deux,361fichiers identiques et17différents (binaires/PDB des projets et hôte). Les deux DLL refusées sont exactement identiques :
+## Architecture et sémantique vérifiées
 
-| DLL | SHA-256, R1 = R2 | Authenticode |
-|---|---|---|
-| `NModbus.Serial.dll` | `1714c12265bf336cff5fd776f97f922fea9b3f0291ccd06e5ccc6c23d41be1c0` | NotSigned |
-| `SQLitePCLRaw.batteries_v2.dll` | `815ce410c9eab531dd219318e3ba16c5e38e83d361cfbbdbb4bbca222c497b0b` | NotSigned |
+Audit ciblé : XYZ source `int16`, callback unique `FifoLiveConsume`, temps/index reconstruits par `fifo_event_time_consume`, puis appel direct au calcul LIVE. Aucun second lecteur FIFO n’est ajouté. La future intégration devra dispatcher les mêmes XYZ validés dans le foreground ; elle n’est pas faite sous ce contrat.
 
-Les14composants ciblés de chaque paquet donnent13NotSigned et1Valid. `Microsoft.Data.Sqlite.dll` est signé par Microsoft ; chaîne inspectée avec révocation désactivée pour ce diagnostic hors ligne, **pas une nouvelle validation de révocation**. Aucun signataire/chaîne de certificat n’existe dans les deux DLL NotSigned. Les fichiers ciblés n’exposent actuellement que `:$DATA`, sans Zone.Identifier observé ; aucune métadonnée retirée/modifiée.
+Le composant est sans allocation dynamique ni I/O. Il garde107XYZ en anneau et calcule321MAC seulement aux index relatifs0,10,20… d’un segment explicitement identifié. État/phase conservés entre chunks arbitraires ; `ceil(N/10)` sorties, aucune queue après STOP. Les11premières sorties portent WARMUP pour le zéro initial du FIR. Un nouveau segment remet l’état à zéro, avec ID strictement croissant.
 
-Les deux publications étaient complètes, réalisées par `dotnet publish` puis copie intégrale vers deux répertoires NTFS distincts. Chemin, heure et binaires parents diffèrent. **Aucune cause unique de différence d’acceptation R1/R2 n’est démontrée** : une égalité de hash ne reconstitue pas la réputation cloud ou le contexte historique de chargement. Les gates conservés restent : R1 PASS28/10 ; R2 FAILED29/10, HTTP503/296refus3033-3077/SAC1. Le résultat n’est pas déduit du seul retour0 du processus.
+Rupture d’index, entrée invalide, disponibilité temporelle changée ou timestamp non croissant : fermeture explicite avant consommation du fautif ; aucun trou interpolé ni reprise automatique. Le batch donne les comptes de préfixe exacts et arrête avant consommation si la capacité de sortie manque. Les fautes FIFO/tag/anchor devront être relayées par le futur propriétaire source, sans prétendre les détecter ici depuis un simple XYZ.
 
-## 2. Corrélation CodeIntegrity 3033 / 3077 / 3089
+Le timestamp de sortie est **l’extrémité causale fournie**, pas l’instant du centre du filtre ni un UTC inventé. Le délai de groupe est53sources, soit1,9875ms à la cadence nominale seulement. L’autorité fournit des microsecondes déjà déroulées ; un rollover32bits brut est refusé, des temps64bits continus le traversent correctement. La fréquence rationnelle externe est conservée et divisée par10, avec provenance nominale/mesurée explicite ; le composant ne mesure pas l’ODR.
 
-Le journal est actif, circulaire, contient874records lors du relevé ; records1–874 conservés, derniers événements datés du gate R2. La première requête filtrée temporellement n’a renvoyé aucun événement. Le contrôle de rétention a contredit ce résultat ; une lecture bornée aux2000derniersrecords, sans modification du journal, permet la corrélation correcte. Aucun «3089 absent» ou «logs perdus» n’est conclu de la première requête.
+B3, AC1, B4/B5, FRAM, stockage et services PC sont inchangés. La sortie little-endian de l’outil hôte est un format de **preuve**, pas une nouvelle sérialisation normative d’archive.
 
-Résultat vérifié : **592 événements pertinents dans148ActivityID**. Chaque groupe possède1ID3033,1ID3077 et2ID3089, soit296refus et296informations de signature.146groupes visentNModbus.Serial,2SQLitePCLRaw.batteries_v2. Exemple dernier groupe `{7a590bd0-5d41-0004-862b-a77a415ddd01}` : records871/873 de refus et872/874 de signature.
+## Arithmétiques : choix et marges observés
 
-Dans **tous les3089 corrélés**, `TotalSignatureCount=0`, publisher/issuer`Unknown`, aucun hash de certificat, dates sentinelles1601. Ces valeurs prouvent l’absence de signature trouvée dans ces observations ; **elles ne prouvent ni certificat révoqué ni certificat expiré**. `VerificationError=0` sans signature ne vaut pas autorisation. Le3077 indique`0xc0e90002`, niveau demandé2/validé1, politique`0283ac0f-fff1-49ae-ada1-8a933130cad6`.
+Coefficients générés depuis le `firwin`107/Kaiser7,85726 prescrit. Q15 arrondi nearest-even, puis correction du tap central de−5unités pour rendre la somme exactement32768 ; symétrie conservée. Ce choix versionné diffère du Q15 simplement arrondi du tableau R0, et sa réponse complète est donc recalculée et testée.
 
-La [documentation Microsoft sur les événements](https://learn.microsoft.com/fr-fr/windows/security/application-security/application-control/app-control-for-business/operations/event-id-explanations) définit la corrélation par ActivityID et les3089 sans signature. Aucun groupeR1 pertinent n’est trouvé dans les records conservés ; son gate réussi reste établi par ses preuves HTTP/SAC antérieures, **pas expliqué** par cette absence d’événements. `CacheState=3` est conservé brut sans lui attribuer une signification non vérifiée. HTTP503 concerne le chargement/stockage PC, pas le firmware ou le RS485.
+| Grandeur numérique | Résultat Q15 retenu |
+|---|---:|
+| Gain DC après transitoire | Exactement1 ; constantes±1 et rails conservées |
+| Somme des valeurs absolues des coefficients entiers |47468|
+| Borne absolue de tout accumulateur et somme partielle |1555431424 < INT32_MAX|
+| Erreur maximale de gain0–700Hz |0,002766dB|
+| Pic stopband observé, grille inclusive262145points |−67,468dB|
+| Borne continue, coefficients Q15 exactDC |−66,538dB|
+| Borne tonale ajoutant arrondis entrée/sortie, A=12000comptes |−63,412dB|
+| Écart maximal Q15/float64 observé |25comptes, cas adversarial ; MIX3comptes |
+| Tolérance générale fixée avant les rejeux |27comptes, dérivée de la normeL1 d’erreur des coefficients et des arrondis |
 
-## 3. Provenance NuGet et signatures distinctes
+L’arrondi signé nearest-even est implémenté sans décalage signé dépendant de l’implémentation, puis clamp explicite int16. La borne d’accumulateur couvre **tous les historiques int16**, pas seulement les sinusoïdes. Q31 donne0compte d’écart aux jeux float64 testés, float32 au plus1compte. Les alternatives sont de vrais kernels C de test, pas des seules simulations de coefficients.
 
-Source de restore enregistrée : `https://api.nuget.org/v3/index.json`. Versions réellement sélectionnées : NModbus3.0.83, NModbus.Serial3.0.83 ; Microsoft.Data.Sqlite10.0.12 et bundle transitif SQLitePCLRaw.bundle_e_sqlite3 **2.1.12**, pas2.1.11 présumé.
+Le choix Q15 est le plus petit en coefficients (214B contre428B), satisfait les tolérances numériques et évite les accumulateurs64bits. **Aucune vitesse relative Q15/Q31 n’est prétendue** : Q31 utilise aussi une instruction entière `smlal`. L’ABI actuelle soft-float fait utiliser au float32 des routines logicielles. Un choix de rendement définitif attend les cycles DWT du lot physique.
 
-**Commande nouvelle appropriée à ce diagnostic :** `dotnet nuget verify <les trois .nupkg locaux> --all --verbosity normal`, retour0 ; NModbus, NModbus.Serial et SQLitePCLRaw.bundle_e_sqlite3 sont tous **Successfully verified**, signatures de dépôt NuGet.org/Microsoft et horodatage inspectés. Il s’agit d’une vérification de provenance, pas d’une répétition des tests logiciels déjà verts. Les deux DLL déployées correspondent intégralement aux membres `lib/net6.0/NModbus.Serial.dll` et `lib/netstandard2.0/SQLitePCLRaw.batteries_v2.dll` des archives vérifiées ; NModbus.dll net6.0 est également identique.
+Deux qualités sont séparées : codes source aux rails (axes et compteur deXYZ) et sortie FIR écrêtée (axes et compteur de sortiesXYZ). L’échelon32760→−32760 génère6sorties écrêtées **sans source aux rails**, sans wrap. Les compteurs diagnostiques saturent avec flag explicite ; les index/comptes structurants ne peuvent pas boucler.
 
-Le hash de contenu NuGet/metadata est distingué du SHA512 de l’archive signée complète ; ce dernier correspond au fichier`.nupkg.sha512` du cache. Une première comparaison directe de ces deux notions différentes a été refusée par assertion ; aucune corruption n’en a été déduite et la vérification NuGet réelle a tranché sur les archives. Microsoft.Data.Sqlite métapackage n’est pas inclus dans la commande de vérification de ces trois archives ; sa DLL runtime a été inspectée séparément par Authenticode.
+## Tests exécutés et portée
 
-Une [signature NuGet](https://learn.microsoft.com/en-us/nuget/reference/signed-packages-reference) garantit l’intégrité/provenance du package, **sans fournir une signature PE Authenticode à chaque DLL extraite**. Réutiliser/télécharger les mêmes packages intègres ne constitue donc pas un changement pertinent permettant de rejouer le gate.
+**Validation complète appropriée au nouveau cœur portable :** `STM32CUBE_U5_ROOT=/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0 bash ./tr2_validate.sh` : **149/149 PASS et cross-build canonique PASS**, nouveaux et anciens tests. Le testR1 a ensuite été enrichi pour vérifier les timestamps exacts à5taux rationnels et revalidé seul, normalement et sousASan/UBSan. Le cœur n’a pas changé après la suite complète ; pas de répétition inutile de toutes les validations.
 
-## 4. Chemin conforme et plus petit arbitrage nécessaire
+**Oracle indépendant :** Python NumPy2.3.5/SciPy1.17.0, `upfirdn` puis troncature causale et nearest-even/clamp. **59rejeux C** ; Q15/Q31 exacts à leur convolution quantifiée indépendante, float32 dans1compte. Les métadonnées qualité des modes candidats restent explicitement celles de l’état Q15 de référence ; seuls leurs XYZ numériques sont comparés séparément.
 
-**Aucun certificat codeSigning** dans`Cert:\CurrentUser\My` ou`Cert:\LocalMachine\My` au relevé. Aucune chaîne de signature configurée trouvée dans les projets/scripts inspectés. Cela borne la conclusion aux ressources de cette session : aucun service de signature distant non configuré n’est présumé disponible. Les certificats Microsoft publics examinés ne donnent aucun droit ni clé de signature pour notre publication.
+D10-00..D10-11 couvrent cette couche : constantes/impulsion et axes, tons sinus/cosinus2/5/25/100/333⅓/666⅔/700Hz, fréquences hors bande et repliements affichés, grille et borne continue, toutes les découpes prescrites/pattern mixte, multitonDC, plein format aléatoire/adversarial, rails/ringing, STOP et segments courts/restart/perte/invalidité, horloges et rollover. Les sorties Q15 sont byte-identiques entre partitions. Le2Hz reçoit8s nominales, plus de12périodes. D10-12 (coexistence physique) etD10-13 (fichiers/stockage/coupure) sont explicitement différés.
 
-La voie légitime identifiée est de **fournir/désigner un canal de signature éditeur approuvé et utilisable** : certificat codeSigning déjà légitime avec accès autorisé à sa clé, ou profil distant Artifact Signing équivalent déjà approuvé. Alternative à faire fournir par les éditeurs : une distribution reconnue des dépendances, avec mêmes garanties fonctionnelles/provenance. Aucun artefact alternatif Authenticode n’est disponible dans les paquets/cache inspectés ; pas de remplacement ou mise à niveau spéculative.
+Les trois témoins float64 publiés sont **reproduits exactement**, chacun160000sources→16000XYZ/96000octets :
 
-Le livrable de ce canal doit être un **paquet complet vérifiable**, composants concernés signés et horodatés, provenances/licences préservées, sans mélange avec R1/R2. L’[orientation Microsoft pour la signature SAC](https://learn.microsoft.com/en-us/windows/apps/develop/smart-app-control/code-signing-for-smart-app-control) est référencée dans la [note opérateur](../../Supervision%20TR2/operator-demo/AC1_WINDOWS_TRUST.md). Aucune clé privée ne doit être mise dans GitHub ; aucun achat, auto-certificat, import de racine, modification de stratégie, suppression ADS/EA ou changement d’empreinte destiné à faire passer le refus n’a été effectué.
+- DC : `7a90f77cc609e017be51c46ae4d9cac3d8476bdf2abe396742da5c504341a828` ;
+- impulsion : `27f14a2cb1ff2d01bc9df168a1cabb756f1419b1ad78903a72aa416b28e14995` ;
+- MIX : `56696f8d06264bcb24152ec8b705aa209056309b194c1853c9c48dbb5e4e093d`.
 
-La [FAQ Microsoft](https://support.microsoft.com/fr-fr/windows/security/threat-malware-protection/smart-app-control-frequently-asked-questions) ne propose pas d’exception individuelle SAC. Certificat valide ou nouvelle signature ne sont pas une promesse de réussite : **après changement pertinent attesté seulement**, gate complet sur COM99,4HTTP200/SACactif/zéroCIcorrélé/SHAs, puis qualification physique si la cible est sûre. L’absence de cette ressource est le blocage externe concret, sans besoin de décision sur le firmware à ce stade.
+Aucune égalité bit à bit Q15/float64 n’est exigée ou inventée. Le rejet continu des coefficients utilise la grille plus le majorant de Lipschitz centré et une marge numérique ; ce n’est pas une certification formelle des opérationsIEEE ni une preuve du filtre analogique capteur. Le plancher de quantification doit être distingué d’un rejet relatif universel à très petite amplitude. La bande de sortie700–1333Hz n’est pas garantie :1600Hz se replie vers1066⅔Hz, hors critère−60dB.
 
-## 5. État final, acquis conservés et prochaine action
+**ASan/UBSan :** testR1 PASS, puis9rejeux RANDOM/STEP/ADVERSARIAL×3arithmétiques PASS. Aucun échec de compilation ou de résultat numérique n’est masqué. Environnement Python : `venv` initialement incomplet fauteensurepip ; installation dans le nouvel environnement via le pip existant, sans modification de Python système. Aucun critère n’est affaibli pour obtenir les témoins.
 
-- Service démontré **PID8312**, même processus et ancien paquet `TR2-LIVE-COM4-HELD-20261019`, sans redémarrage. Les deux modules concernés sont effectivement chargés depuis ce paquet historique ; cela ne prédit pas le résultat d’un nouveau chargement de R1/R2.
-- À **10:25:28UTC selon le relevé Windows**, API réelle HTTP200, transport connecté, B3STOP/flags4097/seq0 sans mesure valide ; SQLite **133758observations**, lecture native `readOnly:true`, SELECT uniquement ; ledger **Device1/Epoch5/Transaction25** inchangé. Ces observations sont datées et ne remplacent pas un audit physique de mémoire.
-- STM32 : image e1846c…aa7b80 installée au lot précédent, aucune opération de cible ici ; pas de nouvelle lecture Flash/FRAM prétendue. Configuration8g non appliquée ; dynamique AC1 non qualifiée. Les preuves du premier boot perturbé par GDB et du reset de récupération précédent restent inchangées. SD, FRAM, identités, journaux, OptionBytes, lanceurs et sauvegardes préservés ; aucun rollback/restaurationM016.
-- Tests acquis **148C/ARM, Protocol52/Service253 et autres suites**, builds et preuves précédentes réutilisés. Pas de compilation/tests fonctionnels nouveaux requis : uniquement documentation et collecte readonly, aucune modification du code applicatif/firmware. `result_sha` reste celui du correctif PC effectivement évalué, ae6e2d5e ; image physique issue de72a7b573, non confondue avec le SHA documentaire.
-- Après fourniture du canal conforme : signer/publier une version complète séparée, gateCOM99, état/ledger frais et handoff contrôlé, baselineAC1±2g, vraiAPPLY8g/B4/registreCTRL1_XL, persistance et START/STOP, preuve dynamique séparée B3 et chaîne SQLite/API/Edge/CSV, budgets et audit sûr. Ne jamais halter pendant la calibration de boot. Aucun essai machine±6g inventé, aucune qualification indépendante ou DONE revendiqué.
+## Cross-build ARM, SRAM et limites CPU
 
-Journal `ETAT_COURANT_TR2.md`, note opérateur `AC1_WINDOWS_TRUST.md` et document `REPRISE.md` actualisés. Gouvernance et contrat de mission inchangés par Codex. [Preuves structurées et commandes](preuves/TR2-20261028-ACCEL-FS8G-AC1/windows-trust-resume-20261029/README.md). Preuves locales : `/home/lolo/dev/msm/reports/TR2-accel-fs8g-ac/windows-trust-resume/`.
+GCC14.2.1, `-mcpu=cortex-m33 -mthumb`, export des commandes/attributs/désassemblages. Le projet isolé est optimiséO2, sans modification du profil produit ; ABIsoft observée, pas d’argumentsVFP. Q15 utilise`mla`, Q31`smlal`, float32`__aeabi_i2f/__aeabi_fmul/__addsf3`. Ni activationFPU ni conversion en pourcentageCPU présumées.
 
-Publication normale surmain et relecture intégrale distante à consigner après push. Le statutBLOCKED désigne la ressource externe manquante, pas une interruption de quota. La mission conserve son identifiant et son objectif ; R1-DSP/ARM reste en attente.
+| ELF uniquement linké | text | data | bss |
+|---|---:|---:|---:|
+| Baseline |16|0|2568|
+| Q15 |2008|0|3384|
+| Q15+alternatives |4000|0|3416|
 
+Le BSS inclut la réserve heap/pile2560B du linker réutilisé. Delta Q15 :1992Btext et816Bbss, dont **744B d’état**,32B d’entrée et40B de sortie. Coefficients214B enFlash. `.su` donne80B pour le corpspush et104B pourprocess ; leur imbrication représente184B **hors caller/libc/IRQ**, sans high-water physique. Aucun bufferarchive/SD n’est alloué et aucune RAM libre garantie n’est annoncée.
 
-## Publication et relecture distante
+Les avertissements newlib de stubs système non implémentés du canonique sont conservés dans le log ; aucun échec de compilation/linkage et aucune suppression de contrôle. Ils ne constituent pas une exécution de ces appels sur cible.
 
-Le bilan **a13e29d5c0580326eec939cb63a0ef3761406394** est publié par push normal surmain. À **10:30:55UTC le29/10**, référence effectivement récupérée de GitHub : **24fichiers relus intégralement et byte-identiques**, **18artefacts décompressés** avec vérification de leurs empreintes brutes et stockées. [Trace de relecture](preuves/TR2-20261028-ACCEL-FS8G-AC1/windows-trust-resume-20261029/remote-readback.json). StatutBLOCKED maintenu : cette publication vérifie les preuves, pas le déblocage Windows ou la qualification physique.
+Ces ELF de linkage **n’ont pas de table de vecteurs ni de startup appareil** ; ils n’ont jamais été flashés/exécutés. Le canonique cumulatif compile le nouveau module en archive puis le retire au linkage, car il n’est pas raccordé au runtime : BIN inchangé **85b1be6044d76349a715ea0627b442bd3301e63daa606399b3d83bd5b9bbc0f5**, text172652/data480/bss602240. Ce profil n’est pas l’image AC1 historiquement installée ; ne pas mélanger leurs budgets mémoire.
 
-Worktree de publication propre/HEAD égal àmain distant au bilan ; ancienmain propre82169af, ancien worktree avec ses deux modifications préexistantes et deux stashes conservés. Le SHA de la mise à jour documentaire enregistrant cette relecture est fourni dans la réponse finale après vérification distante. Aucun changement matériel, service ou données pendant la publication.
+**856000MAC/s reste un calcul idéal**, pas une mesure STM32. Les cycles moyens/P95/P99/max, le WCET, les maximaFIFO/work/service/gap, les IRQ, la pile réelle et les marges sous FRAM/RTU seront mesurés dans une mission R1-ARM physique distincte et explicitement autorisée. Aucun DWT n’est lu ici.
+
+## État final et suite
+
+Aucun accèsWindows/COM4/STM32 : leur état opérationnel n’est pas relu ni transformé en validation fraîche. Aucun changement de service, DLL, lanceur, SQLite, firmware, FRAM, microSD, identité ou OptionBytes par cette mission. Les travaux AC1 et ses preuves restent archivés et non qualifiés ; les autorisations de cette tranche ne permettent pas de les reprendre.
+
+La brique est prête **pour qualification ARM physique suivante**, pas pour une annonce d’enregistrement8h ni un branchementSPI2. Cette future intégration devra conserver un lecteurFIFO unique, le dispatch temporel existant et les budgets coopératifs, avec comparaison appariée sans/avecFIR. Ne pas flasher les ELF de linkage fournis comme preuves.
+
+Journal `ETAT_COURANT_TR2.md` actualisé pour les faits logiciels et les limites ; gouvernance, contrat, normes, archives et branche de retour inchangés. [Commandes, matrice D10, logs, manifestes et artefacts hachés](preuves/TR2-20261029-R1-DSP-DECIM10-HOST/README.md). Preuves locales `/home/lolo/dev/msm/reports/TR2-r1-dsp-decim10-host/`.
+
+Le SHA du commit contenant le rapport et l’état Git final seront indiqués après push et relecture distante. `DONE` concernera uniquement cette tranche hôte/cross-compilation ; la revue indépendante ChatGPT et la qualification matérielle restent distinctes.
