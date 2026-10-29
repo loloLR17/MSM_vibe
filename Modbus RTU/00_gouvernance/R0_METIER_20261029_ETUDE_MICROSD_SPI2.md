@@ -3,6 +3,16 @@
 **Statut : ANALYSE DE FAISABILITÉ DOCUMENTAIRE — PINOUT CANDIDAT, PAS UN ESSAI NI UNE QUALIFICATION.**
 Rédaction : ChatGPT, 29 octobre 2026. Référence : `loloLR17/MSM_vibe/main` et [R0 matériel](R0_METIER_20261029_ANALYSE_MATERIELLE_DETAILLEE.md). Déclencheur : l'utilisateur souhaite étudier puis tester la microSD en mode **SPI**, distinct des expériences antérieures SDMMC 1/4 bits, en **conservant FRAM et accéléromètre** sur leurs SPI actuels. Ne pas supposer qu'un test SDMMC réussi ou échoué qualifie SPI.
 
+## Confirmation matérielle utilisateur — 29/10/2026 (complément R0, non-qualification)
+
+L'utilisateur confirme explicitement :
+- **TR2-002 est la seconde NUCLEO historique** des essais SDMMC, et non un troisième banc à identifier. Les archives M017 l'associent à ST-LINK **SN0032001F3235510C37333439**, UID STM32 **001B0046/38425018/20333157**. Ces identifiants historiques guident le contrôle avant intervention ; ils devront être relus réellement avant flash, debug ou écriture.
+- **La microSD de test 32 Go associée à TR2-002 est intégralement disponible pour les écritures et essais**, y compris les opérations destructives usuelles nécessaires à sa qualification (initialisation, tests étendus, formatage ou repartitionnement si effectivement utile). Son contenu n'a plus à être préservé comme donnée utilisateur ; la carte et son CID devront néanmoins être vérifiés sur le banc avant toute opération. Le CID historiquement rapporté en M017 est **03534453/44333247/858BF092/3C01927A**, sans présomption de relecture actuelle.
+- **TR2-002 n'est pas monté** : ce banc pourra être câblé, instrumenté et reconfiguré librement pour les tests utiles. Les opérations physiques demeurent exécutées par l'utilisateur ; ne pas les déduire déjà réalisées.
+- **TR2-001 est exclu de ces expériences** : préserver sa FRAM, sa microSD, son firmware, son câblage, ses autorités et ses historiques.
+
+Conséquence : le préflight porte désormais sur la **vérification d'identité réelle et de sécurité électrique**, non sur la recherche d'une zone non destructive sur une carte déclarée libre. Les premiers essais d'écriture resteront bornés pour leur valeur diagnostique, puis pourront être étendus à tout le média si les résultats l'exigent. Cette confirmation **ne vaut ni autorisation de publier une mission Codex maintenant, ni essai SPI exécuté**, la revue R0 restant en cours.
+
 ## 1. Conclusion : SPI2 dédié recommandé comme **premier candidat de banc**
 
 | Périphérique | Ressource STM32U575 actuelle/candidate | Décision d'étude |
@@ -52,7 +62,7 @@ https://learn.adafruit.com/adafruit-microsd-spi-sdio/pinouts
 - `PB3` peut servir de **SWO/trace** : si son ancien fil DAT2 est resté raccordé, l'absence de pilotage et l'état haute impédance réel sont impératifs. **Préférer le débranchement de DAT1 et DAT2 côté breakout** pour éviter des comportements de debug variables.
 - Les anciens profils SDMMC configurent explicitement PD6/PD7 en AF11 et PB3/PB4/PB14/PB15 en AF12, **incompatibles** avec le câblage SPI ci-dessus. Créer un **profil de banc SPI séparé**, jamais lancer une image SDMMC sur une carte recâblée SPI.
 - `PB13` est nouveau dans ce câblage ; le fait qu'un fil soit soudé ou non sur CN12-30 doit être vérifié, sans présumer l'accessibilité physique.
-- **Interventions de fils/carte physiques : utilisateur seulement, alimentation retirée avant modification.** Préserver les configurations et données du banc principal. Le second banc et la microSD sacrifiable antérieurs constituent un candidat d'essai, **pas une autorisation de détruire leurs données**.
+- **Interventions de fils/carte physiques : utilisateur seulement, alimentation retirée avant modification.** Préserver les configurations et données du banc principal. **Le banc identifié comme TR2-002 et sa microSD 32 Go sont désormais explicitement disponibles pour les essais destructifs usuels de stockage**, après relecture de l'identité de la cible et du média. TR2-001 demeure intégralement protégé.
 
 Références constructeur officielles : DS13737 (notamment AF5 SPI2) https://www.st.com/resource/en/datasheet/stm32u575zi.pdf ; UM2861 table 19 https://www.st.com/resource/en/user_manual/um2861-stm32u5-nucleo144-board-mb1549-stmicroelectronics.pdf .
 
@@ -86,8 +96,8 @@ Les valeurs sont des **maximums physiques idéaux**, pas des débits mesurés ni
 
 ### P0 — préflight sans écriture ni recâblage
 
-- Documenter la cible/banc et le profil firmware actifs (STM32 principal vs second banc), vérifier état STOP, empreinte image, zones et historiques FRAM/SD conservés.
-- Contrôler l'implantation réelle des broches (CN12-30 PB13, CN11-39 PD4), les fils DAT1/DAT2, niveaux 3,3 V et présence d'une **microSD sacrifiable** pour les essais de write ; **l'utilisateur fait les manipulations physiques**.
+- Relever l'identité effective de **TR2-002 = seconde NUCLEO historique**, la confronter au SN/UID de M017 et vérifier le profil firmware et la carte 32 Go avant toute intervention ; les identités rapportées en 2026 ne valent pas relecture actuelle. Documenter l'état initial du banc, tout en préservant uniquement les données et historiques **TR2-001** ainsi que les preuves d'essais déjà publiées.
+- Contrôler l'implantation réelle des broches (CN12-30 PB13, CN11-39 PD4), les fils DAT1/DAT2, niveaux 3,3 V et l'identité de la **microSD 32 Go librement inscriptible** ; **l'utilisateur effectue les manipulations physiques** sur TR2-002 non monté.
 - Identifier un code de référence SPI SD existant (ST/HAL/protocoles tiers sous licence vérifiée) ; partir d'un exemple minimal connu puis adapter. Le fait qu'un exemple communautaire fonctionne sur une autre famille STM32 n'est pas une qualification du STM32U575.
 
 ### P1 — driver SPI2 isolé, première lecture uniquement
@@ -96,9 +106,9 @@ Les valeurs sont des **maximums physiques idéaux**, pas des débits mesurés ni
 - Read-only : état init, CID/CSD/OCR, capacité, quelques secteurs existants et double relecture CRC/conformité ; timings de commande et détails des refus.
 - Si initialisation SPI fail, comparer signaux de commande et forme d'onde aux documents Adafruit/protocole, pas une série de clocks/pinouts aléatoires.
 
-### P2 — écriture bornée **sur carte sacrifiable clairement désignée**
+### P2 — premières écritures bornées sur la **microSD 32 Go TR2-002 autorisée**
 
-- Une fois P1 reçu, effectuer quelques écritures **seulement dans une zone sûre explicitement identifiée** et relire bit à bit avec CRC + SHA et oracle PC ; conserver les partitions et données existantes hors zone.
+- Une fois P1 reçu et l'identité TR2-002/microSD confirmée, effectuer d'abord des écritures **bornées pour diagnostiquer** puis relire bit à bit avec CRC + SHA et oracle PC. Les partitions et données antérieures **de cette microSD de test** ne sont pas à conserver ; un effacement, formatage ou repartitionnement de la seule carte identifiée pourra être effectué **si utile au protocole d'essai**, sans opération sur TR2-001.
 - Caractériser tailles 512 B, 4 Kio, 16 Kio et transferts séquentiels (par exemple 64 Kio), débit et surtout latences d'écriture et busy ; documenter horloge, identité carte, répétabilité et erreurs.
 - Tester juste assez de variantes pour attribuer la cause d'un échec ; ne pas lancer de longue campagne si le premier test échoue.
 
@@ -117,7 +127,7 @@ Les valeurs sont des **maximums physiques idéaux**, pas des débits mesurés ni
 
 ## 7. Gouvernance et statut
 
-La mission Codex `TR2-20261028-ACCEL-FS8G-VIBRATION-AC` reste active et son rapport est actuellement `BLOCKED` (refus Windows/SAC du nouveau paquet R2), non clôturée/qualifiée. **Ne pas écraser `MISSION_EN_COURS.md` ni déclencher un flash supplémentaire sur le banc principal** dans ce document. L'étude prépare un futur contrat technique SPI2 distinct, qui sera publié par ChatGPT après traitement gouverné de la mission bloquée. **Autorisations futures si flash/debug STM32 : `allow_flash: true`, `allow_debug: true`, avec sauvegardes et garde-fous AGENTS.md, sans validation répétitive.**
+La mission Codex `TR2-20261028-ACCEL-FS8G-VIBRATION-AC` demeure le contrat actif et son dernier rapport consulté le 29/10 est `BLOCKED` (refus Windows/SAC du nouveau paquet R2), non clôturée/qualifiée. **Ne pas écraser `MISSION_EN_COURS.md` ni déclencher un flash supplémentaire sur le banc principal** dans ce document. L'étude prépare un futur contrat technique SPI2 distinct, qui sera publié par ChatGPT après traitement gouverné de la mission bloquée. **Autorisations futures si flash/debug STM32 : `allow_flash: true`, `allow_debug: true`, avec sauvegardes et garde-fous AGENTS.md, sans validation répétitive.**
 
 **Aucune intervention physique n'a été réalisée ici**. Aucun chemin SPI2, aucun filesystem ni write SD n'est encore qualifié.
 
