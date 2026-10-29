@@ -5,7 +5,7 @@ base_ref: main
 base_sha: ffecc3ee372814f9ed5f3ad18d851b62582f7da0
 initial_head: 181441dca87403ac1886c62068390584efa9496e
 result_sha: 6fdae042333f671629d2c4626d7120b0bd848ae3
-created_at_utc: 2026-10-29T20:25:12.340680+00:00
+created_at_utc: 2026-10-29T22:45:50.679104+00:00
 author: Codex
 target_branch: main
 allow_commit: true
@@ -14,221 +14,202 @@ allow_flash: true
 allow_debug: true
 ---
 
-# R3-DURABLE — checkpoint FAT32 : fichiers PC courts validés, arrêt long sur grappe SD
+# R3-DURABLE — 10 minutes réelles et fichiers FAT32 intégralement vérifiés sur PC
 
-**IN_PROGRESS — 600secondes réelles réussies sur imagegroupée6fdae042.**
-15856920XYZ sources →1585692sorties/9514152B utiles,20330records512/2542groupes,
-zéroOVR/SD/file/source/temps/rail/clip. Capture600,000520s, STOP151µs etdrainpayload
-11733µs, footercompletacknowledged/SDquiescente/debugdétaché.
-Work704,331/service1396,881/gap1653µs sous1000/2500/5000, filepeak5632B/FIFO49,
-pile2264B/plancher1832B,600000SysTick/5968contrôleshorloge/résidu42µs.
-**La vraie extractionPC finale desR2N reste à effectuer avantDONE.** Retrait vers
-lecteurPC aprèsarrêtsûr demandé àl’utilisateur ; attendre sa confirmation.
-Aucune répétition du600s réussi, aucunformat/reset/reflash supplémentaire.
-[Preuves600s](preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-group-600s/BUNDLE.json).
+**D0–D4 satisfaits dans la portée de cette mission expérimentale.** Les trois
+fichiers R2N de 2 s, 60 s et 600 s sont réellement présents sur la microSD retirée du banc,
+montés dans le lecteur natif du T1000, copiés et validés indépendamment en Python.
+Tout le payload de chacun correspond au digest producteur **avant framing/file/TX**,
+avec CRC/séquences/comptes/temps/footer vérifiés. L’ancien essai interrompu à 265 s et
+son préfixe incomplet restent conservés. Statut provisoire IN_PROGRESS uniquement
+pour publication/relecture distante finale, pas pour un blocage technique restant.
 
-## Correction minimale et résultats intermédiaires nouveaux
+**Portée bornée** : profil candidat XYZ/DC/FIR Q15 à 107 coefficients, /10 ≈ 2 667 Hz, pas adoption V1-05/2000Hz,
+qualification 8 h, FAT tolérante aux coupures, amplitude calibrée, FRAM/RTU ou AC1 Windows.
 
-ACMD23+CMD25 par1..8secteurs, quanta128B, busy coopératif, stopFD+CMD13,
-charge/emprunt du groupe entier jusqu’àACK. **64KiB inchangés** ; aucuneinflation de
-file pour cacher lesgrappes. NouvelleCRC32 nibble identique àzlib réduit lecoûtdu
-callback ; FIR/protocoleV1 inchangés. FichiersR2N0003/4/5 distincts, pasreformatage
-ni effacement desRUN0003/4/5. UnepositionCMD25 incertaine exige arrêt et powercycle,
-aucun retry/commande devinée.80cas STOP(8tailles×10états) et modèlesframing/busy
-150/500ms,19×151054µs(peak47616B),19×500ms(refus65536B) PASS,29caslecteur dont
-28négatifs+CSV/reconstructionPASS, ARM/canoniquecrossPASS ; ce sont des modèles.
-BSS543104B incluant télémétrie accrue, pas empilement de bancs.
+## Résultats physiques et extraction PC
 
-Calibrationnouvelle30µs/193brackets/6577ancres, UID/CID/mount/Flash vérifiésaprès
-réinsertionconfirméeutilisateur, aucunformat. Baseline2s saine.
+| Fichier réel | Durée observée µs | XYZ source | SortiesXYZ / payloadB | Records512 / groupes | FIFO/file pic | STOP/drain payload µs |
+|---|---:|---:|---|---|---|---|
+| R2N0003.TR2 | 2000427 | 52592 | 5260 / 31560 | 68 / 9 | 48 / 5120B | 152 / 9224 |
+| R2N0004.TR2 | 60000258 | 1585488 | 158549 / 951294 | 2033 / 255 | 49 / 5120B | 152 / 14025 |
+| R2N0005.TR2 | 600000520 | 15856920 | 1585692 / 9514152 | 20330 / 2542 | 49 / 5632B | 151 / 11733 |
 
-| Nouveau fichier | SourceXYZ | Sorties | PayloadB | Groupes / secteurs512 | FIFO/file pic | Maxwork/service/gap µs |
-|---|---:|---:|---:|---|---|---|
-| group-file-2s | 52592 | 5260 | 31560 | 9 / 68 | 48 / 5120B | 661.812 / 1362.787 / 1619.000 |
-| group-file-60s | 1585488 | 158549 | 951294 | 255 / 2033 | 49 / 5120B | 704.256 / 1387.606 / 1644.000 |
+Toutes les captures groupées : aucune erreur source/temps/STOP/SD/overflow,
+flags FIFO/OVR à 0, rails/clipping0 et 11 sorties WARMUP.1/7/8XYZ en attente sans ancre
+future au STOP (2 s / 60 s / 600 s) ne sont pas extrapolés. Un seul propriétaire FIFO, FifoLive,
+ancres DEC8 et index validés, même FIR causal107tap Q15/10 que R1 ; aucun signal
+nominal fabriqué ni suppression DC. Index de sortie i→source10*i, segment/run explicites.
 
-ZéroflagsOVR/SD/source/temps/queuefaute,103sortiespréfixe indépendantes exactes.
-2s/60s footercomplet et relectureFatFsdufichierprécédent avantpalierlong.
-Sur60s busyparsecteur max5462µs/FDstop5384µs, STOP152µs/drainpayload14025µs.
-Les statistiquesSD RAM version2 comptent desGROUPES ; leshistogrammesbusy réels
-parsecteur etstop sont séparés. Ne pas comparer abusivement leurs sommes aux
-anciennes latences unitairesCMD24. Références1000/2500/5000µs inchangées.
+PC : volume F: FAT32, lecteur RealtekPCIECardReader/MBR, capacité physique31914983424B
+(62333952×512), clusters32768B. TR2INFO.TXT (343 octets) lu intégralement avant la première
+capture (SHA71e626c7e69644ff7aec1047fbb0417bc9ff80b6ec21a47659d68e70fbd11553),
+puis de nouveau à l’extraction finale. **Ce sont des accès à un volume et des
+fichiers ordinaires réellement montés**, pas une image simulée ni un header RAW.
+Les commandes Codex PC sont de lecture/copie, sans rawdisk/format PC/élévation/SAC.
 
-Le600s a terminé normalement aprèsune fenêtre sansdebughalt. Encasd’interruptionfuture,
-vérifier logs/processus avant toutattachement ; pas de répétitioncodeinchangé.
-Retraitphysiquesûr demandé pourcopierles3R2N*.TR2
-depuislecteurPC et confronter touslesoctets auSHAproducteur. Lesanciensfichiers
-seront égalementhachés pourvérifier leurpréservation.
-[Preuves groupées](preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-group-short/BUNDLE.json).
+- **R2N0003.TR2** : fichier entier 131072B copié ; SHA fichier `99f3309864fd4304e6fca88c292c9b388cd6b4395eccac7b320f17644923ae79`. Payload **31560B**, SHA **`eef352a6d5c79da7b995baa84f7b37486ae358505fbe9cc5a739ef51dbd57122`**, tous les octets conformes au contrôle amont.
+- **R2N0004.TR2** : fichier entier 2097152B copié ; SHA fichier `95244f0f06f8f21428c25d807af384ec498a1c0a6c4e3da80b2ad369b0f94085`. Payload **951294B**, SHA **`ae0ca9be38047a1448ecb2c90cafbb8500e6ab537d74c7a4584fc5e5526e4d6b`**, tous les octets conformes au contrôle amont.
+- **R2N0005.TR2** : fichier entier 12582912B copié ; SHA fichier `2aec9e516f9eec4b838180f880782643bf599d9a606af86cb299a37ab3b4e425`. Payload **9514152B**, SHA **`65d349911b489ec05438bcbd3478f380505863722405c3904cc074bb122a74fc`**, tous les octets conformes au contrôle amont.
 
-Les sections suivantes conservent l’historique initial fd73 et sonnégatif :
+Header/version/provenance/CRC32, chaque bloc et son ordre/CRC32, compte du footer,
+SHA256 complet et identité de session sont vérifiés. Les 128 sorties préfixes du
+fichier PC correspondent aux sorties capturées  ; 103 sorties de chaque préfixe sont
+indépendamment recalculées par convolution entière Python depuis 1 024 entrées réelles.
+La totalité des sources natives à environ 26 kHz n’est pas conservée : **le rejeu FIR numérique
+indépendant porte sur le préfixe**, la comparaison de tous les octets persistés sur
+le digest producteur séparé en amont de la file/TX. Aucun de ces niveaux n’est
+présenté comme l’autre. Les trois anciens RUN0003/4/5 ont été re-hachés sur la carte
+et restent byte-identiques aux copies PC du premier cycle, y compris l’incomplet.
 
-## Acquisition physique courte acquise / échec long conservé
+## Distributions, marges, mémoire et IRQ sur600s
 
-Réinsertion confirmée utilisateur ; UID/imageFD73 de nouveau contrôlés, aucunflash
-oureset logiciel supplémentaire. MountFAT32 réel au reboot, pasnouveauformat ;
-calibration63µs/193brackets/6576ancres puisbaseline2s saine.
+| Mesure | Moyenne µs | P95 µs | P99 µs | Maximum µs | Référence µs |
+|---|---:|---:|---:|---:|---:|
+| work | 308.654 | 497 | 511 | 704.331 | 1000 |
+| service | 706.817 | 1192 | 1226 | 1396.881 | 2500 |
+| gap | 962.799 | 1447 | 1481 | 1653.000 | 5000 |
+| sd_step | 51.647 | 265 | 431 | 430.600 | 1000 |
+| per_sector_busy | 1187.156 | 2000 | 3000 | 5495 | — |
+| FD_stop_busy | 2796.905 | 3000 | 6000 | 20387 | — |
+| Groupe write | 82266.044 | 90000 | 90000 | 103280 | — |
 
-| Capture réelle | XYZ sources | Sorties | Payload B | Records512B | FIFO/file pic | Max work/service/gap µs | STOP/drain payload µs |
-|---|---:|---:|---:|---:|---|---|---|
-| d3-file-2s | 52592 | 5260 | 31560 | 68 | 57 / 512B | 841.013 / 1646.894 / 1903.000 | 151 / 3042 |
-| d3-file-60s | 1585704 | 158571 | 951426 | 2033 | 57 / 1024B | 841.850 / 1681.744 / 1938.000 | 152 / 3040 |
+623 182 services : sommes et maxima en cycles exacts ; quantiles work/service/gap/
+SD step via histogrammes ceil1µs couvrant **toutes** les observations. Busy observé de
+20 330 secteurs et 2 542 stops FD : histogrammes ceil1ms, moyenne/max exacts. Durée de
+2 542 groupes : moyenne/max exacts, quantiles ceil10ms ; seulement premiers 256 et
+derniers 1 792 groupes bruts conservés. La trace bornée n’est ni un plafond de durée ni
+un faux journal exhaustif. Les durées groupées incluent les tours FIFO coopératifs,
+**pas un blocage du CPU** pendant toute cette durée. Télémétrie RAM version 2 compte
+des groupes, pas des secteurs ; les tableaux de busy par secteur et de stop sont séparés.
 
-ZéroOVR/flags/source/temps/SD/overflow/rail/clip, footer completacknowledged aprèsSTOP,
-103sorties de chaquepréfixe recalculées indépendamment. SD60s write/busy max32711/23186µs ;
-pileobservée2264B/plancher1832B. Le digest et tous les records du2s ont été relus
-parFatFs avant60s ; même garde relit le60s avant600s. Ces relectures cible ne sont
-pas présentées comme les extractionsPC finales. Le drain mesuré porte sur les
-records, pas sur la latence de toute l’écriture dufooter (noninstrumentée séparément).
-[Preuves courtes](preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-short/BUNDLE.json).
+Références 1 000 / 2 500 / 5 000 µs inchangées ; marges maximales observées work295,669µs,
+service1103,119µs etgap3347µs, non sommables et **pas WCET industriel**. Drain mesuré
+porte sur les records ; latence de toute l’écriture du footer non instrumentée
+séparément. Son acquittement complet et la quiescence sont vérifiés.
 
-## Acquis et architecture
+600 000 SysTick observés en 600,000520 s ; masques PRIMASK/BASEPRI/FAULTMASK0 au boot.
+5 968 contrôles temporels, résidu maximal 42 µs sous la garde de 100 µs. Calibration initiale : 193 brackets /
+6 577 ancres / résidu de 30 µs. Temps DWT au CPU configuré à 160 MHz, **pas calibration SI ni UTC**.
+Le lecteur distingue la fraction de cadence issue de la calibration initiale du
+débit observé entre les extrémités temporelles du fichier ; les temps par échantillon internes à un
+bloc sont **interpolés approximativement** entre ses extrémités temporelles DEC8 exactes.
+Pour le fichier de dix minutes : fréquence issue de la calibration initiale
+2 643,984952 Hz, fréquence observée entre les sorties extrêmes **2 642,868094 Hz**.
+Aucune de ces valeurs n’est présentée comme 2 000 Hz normatifs ou 2 666,7 Hz exacts.
 
-Projet isolé `experiments/r3_durable_fat32` : FatFs officiel ST R0.16/ST4.1.0,
-commit upstream dd9126e957ae841a13ccbe2115d39a1fb7414126, fichiers/licences/hashes
-conservés dans PROVENANCE.json. Aucun FAT/SDMMC/USB de l’ancien PoC copié comme
-pilote. Nouveau diskio SPI2 utilise le writer coopératif R3 et ses contrôles CRC,
-IO incertaine/no retry. Opt-in `R3_DURABLE_CARD_PROFILE` pour la seule carte test,
-préprocesseur par défaut SdWriter byte-identique18438B ; production/FIR inchangés.
+Image 6fdae042 : text57428/data20/BSSsize543104B (réserveslinker incluses), file de 64 Kio,
+pile de 4 Kio peinte : profondeur empirique2264B/plancher1832B, hors démarrage et garde de 256 octets.
+ELF/MAP publiés ; pas addition aveugle des grosbuffers de deux anciens bancs. Source
+câblage SPI3 PC9..12, SPI2 PB13SCK/PD3MISO/PD4MOSI/PF12CS,3V3, USB natif débranché.
+SPI3mode3/8MHz etSPI2mode0/4MHz relus parCFG/MBR, quanta64motsFIFO/128B SD,
+attente de 250 µs inchangés. La fraction du temps dans service ne constitue pas une
+mesure exhaustive de chargeCPU, notamment l’attente250µs est active.
 
-Préallocation **contiguë**, vérifiée via FatFs, f_sync/f_close et header/footer
-initialisés **avant le FIFO**. Aucune opération FAT pendant l’acquisition ; écriture
-directe dans les seuls secteurs du fichier réservé. File64KiB inchangée ; bloc512
-contient78vraisXYZ/468B plus identifiant session, séquence, index, timestamps et CRC.
-Header versionné avec UID/CID/GitSHA/coeffSHA/config±8g/244µg par compte/cadence
-rationnelle réelle/UTC inconnu. Footer complet uniquement après STOP/drain/succès,
-avec digest producteur calculé avant framing/file/TX. Données XYZ/DC conservées.
-Format **candidat NON-PRODUCTION**, aucune adoption implicite du /10 en V1-05 2000Hz.
+## Échec initial, cause et correction conservés
 
-Lecteur Python portable indépendant : versions inconnues, CRC, index, compte,
-temps, digest final, complète/incomplète/corrompue. Les temps internes au bloc sont
-une **interpolation approximative** des endpoints DEC8 exacts, pas une datation
-exacte revendiquée pour chaque sample ni une UTC. Le préfixe récupérable correspond
-aux blocs CRC/séquence/session valides ; un bloc de queue déchiré sans footer ne
-fabrique pas un succès. La survie physique après perte d’alimentation et la perte
-maximale restent **inconnues** (FTL/cache/FAT non journalisée), même après CMD13/sync.
-La préparation FAT interrompue peut ne laisser aucun fichier ou une allocation
-orpheline ; aucune source n’est capturée pendant cette phase.
+Image initiale fd73fa1d (CMD24/secteur) :2 s et 60 s réussis, puis essai de 600 s interrompu à
+265,121081s par **file de 64 Kio pleine**, aucuneOVR niSDerror.700830sorties produites,
+8857records confirmés ; trente attentes busy>100ms groupés, busy155539µs/write164448µs. Le
+backlog augmente sur la grappe, pas à cause d’un blocageFIFO ; work995,538/service
+1704,669/gap1961µs sousréférences. Le dernier bloc est refusé avant écrasement,
+STOP150µs, SD quiescente, **aucun footer de succès**. Fichier extrait physiquement sur PC :
+INCOMPLETE,690846XYZ/4145076B préfixeCRC/session/index valides.9984sorties restantes
+ne sont pas prétendues archivées ; le SHA de ce préfixe **n’est pas** comparé au
+SHA de toutesles700830sorties. Contrôles numériques103 et préfixePC128 obtenus.
 
-Fichiers préparés par commandes RAM explicites : RUN0003.TR2 128KiB/2s,
-RUN0004.TR2 2MiB/60s, RUN0005.TR2 12MiB/600s. Noms existants refusés, pas d’autorun.
-Avant60s puis600s : relecture complète du fichier précédent via FatFs, CRC/index/
-comptes/digest confrontés au producteur, FIFO arrêté. Après le600s, retrait sûr et
-**relecture PC indépendante des trois fichiers** obligatoire pour DONE.
+Correction minimale : ACMD23/CMD25 coopératif par1..8secteurs préalloués, tokenFC,
+4quanta128B/secteur, busy par unbyte/tour, tokenFD/stopbusy puis CMD13. Groupe entier
+emprunté/chargé jusqu’àACK ; STOP du capteur termine seulement le groupe déjà emprunté.
+PositionCMD25 ambiguë surI/O : sourcearrêtée/powercycle exigé, **pas de retry ni
+commande devinée**. CRC32 nibble exactementidentique à IEEE/zlib réduit le coût du
+callback. Aucunagrandissement de file ni assouplissement des contrôles. Les nouveaux
+nomsR2N préservent tous les anciens fichiers et le formatversion1 reste indépendant
+du transport. Pas de reformatage pendant cette correction.
 
-## Résultats logiciels réellement obtenus
+La nouvelleméthode est démontrée jusqu’à 600 s sur ce média et ces régions. Son succès
+ne prouve ni une borne universelle des pausesSD ni un effet isolé de chaque
+modification (histoireFTL et zones différentes). Une grappe arbitrairement longue
+peut encore saturer64KiB et doit rester un défaut explicite, jamais une perte masquée.
 
-- Deux tests ciblés C/Python PASS. Le modèle C utilise le vrai FatFs et vrai writer
-  sur un fichier disque sparse32Go **hôte, pas un disque physique PC** : format,
-  mount, expansion contiguë, sync/close, remount et lecture standard du fichier.
-- Fixture produite en C,78XYZ vérifiés séparément en Python,28cas négatifs de
-  troncature/header/footer/CRC/version/index/temps/empreinte. Complète et préfixe
-  incomplet distingués. Ce n’est pas une coupure électrique réelle.
-- STOP aux6états writer, CRC potentiellement accepté→latchincertain/refus sansretry.
-  Modèle encadré78XYZ par bloc,20000sorties exactes : busy150ms pic3072B,
-  busy500ms pic9216B ;19×151054µs pic42496B sansperte ;19×500ms file65536B/refus
-  explicite, jamais un PASS d’acquisition sans perte. Ce sont des simulations.
-- Allocation FAT réellement saturée dans le modèle, puis refus de préallocation ;
-  doublon de nom et mauvaisCID refusés avantcapture. Défauts source/temps restent
-  failclosed par les propriétaires DEC8/FIR R3 réutilisés ; anciennes preuves R3
-  ne deviennent pas des essais physiques du nouveau format.
-- ARM dédié +canonique `tr2_validate.sh --cross-build-only` PASS. Validation ciblée
-  justifiée : banc isolé, cœur scientifique/protocoleinchangés ; anciens150tests
-  et captures R3 non rejoués. Image text55352/data20/BSSsize527312B,
-  `_ebss=0x200801dc`, pile peinte4KiB ; pas de garantie WCET à ce stade.
-- Erreurs d’assemblage hôte initiales (objets cooperative_work/queue manquants),
-  puis préparation du test remount invalide ont été corrigées d’après les sorties ;
-  seuls logs finaux réussis sont retenus. Whitespace upstream conservé via attribut
-  vendor local, empreintes originales contrôlées ; pas d’erreur de test masquée.
+## D0/D1/D2/D4, format et récupération
 
-## Observations physiques D0 et véritable PC
+FatFs officiel ST R0.16/ST4.1.0, upstream dd9126e957ae841a13ccbe2115d39a1fb7414126,
+licences originales et empreintes PROVENANCE conservés. SDKCubeU5v1.9.0 sans middleware FatFs peuplé,
+pas de reprise du driverSDMMC/USB communautaire. FAT32 deuxFATs/32KiBclusters : une
+seule initialisation autorisée sur carte test exacte, après lectureCID/capacité/
+ancienmarqueur et protection des preuvesRAW GitHub. TR2-001 jamais sollicité.
 
-TR2-002 uniquement : SN0032001F3235510C37333439 et UID001B0046/38425018/20333157
-relus avantflash/debug. Préfixe43768B de l’ancienne image R3 exact192db2…f127,
-retours R1/R2/R3 et backup initial préservés. **Unflash standard** de
-`fd73fa1dc74c29093e3f094cca0fff2fd319a9b6`, verify puis readback55372B exact :
-BIN **cf47853f6b4fcf7e43641fda72c8e578ddfeaac431974f2438f7c3c51982d697**,
-ELF **d56fd3bc813edc9381da6b4b2b026341e56d88ebaaf6a0a150580dfc9c764437**.
-Aucun mass erase/OB/RDP/reset supplémentaire ni accès TR2-001/FRAM/COM4/serviceWindows.
+f_expand réserve une chaîne contiguë, chaque cluster vérifié, f_sync/f_close
+persistent métadonnées et taille **avant capture**. Aucune opération FAT pendant le FIFO,
+seuls secteurs du fichier fermé écrit via writercoop ; footer réservé horspayload.
+Header magic/version/UID/CID/GitSHA/coeffSHA/FS±8g logique/244µg parcompte/fraction
+de cadence/session/UTCunknown. Blocs78XYZint16/DC avecCRC/index/temps/qualité ;
+footer complet contient compte/digest producteur/raisonSTOP et n’est écrit qu’après
+succès. File taille préallouée128KiB/2MiB/12MiB **ne signifie pas donnéesvalides**.
+FlagsWARMUP/rail/clip/temps et pendingSTOP explicités. FATdatesfixes2025 ne sont pas
+une vraie UTC. Sémantique B0–B7/FRAM/LIVE R0 inchangée.
 
-WHO7B, CID03534453/44333247/858BF092/3C01927B, CSD400E0032/5B590000/EDC87F80/0A4040C3,
-capacité62333952secteurs512 et ancienmarqueurR2 réellement relus. Nouvellecalibration
-2s sanswriter :193brackets/6576ancres/résidu48µs<100. Aucun GDB pendantcalibration.
-Formatage autorisé effectué : **FAT32, deuxFATs, clusters64secteurs/32768B**,
-TR2INFO.TXT créé,15294écritures de secteur comptées, error/IO/incertain0 ; FIFOarrêté,
-SDquiescente/CS haute, GDBdétaché. Les anciens secteursRAW ne sont plus considérés
-comme protégés surcarte ; **toutes leurs preuves GitHub R3 sont conservées**.
+Tests hôte réels FatFs+writer sur un **fichier disque modèle**, pas disquePC :
+format/mount/expand/sync/close/remount/f_read, C→Python indépendant,28négatifs+
+reconstruction/CSV ;80STOP(8tailles×10états), I/O potentiellement acceptée sansretry,
+framing20000XYZ etbusy150/500ms,19×151054µs (pic47616B) ;19×500ms déborde64KiB
+explicitement. Allocation FAT effectivement pleine, nomdéjàprésent, CIDerroné
+refusés. Métadonnées/header/footer tronqués et pertes simulées ne créent pas de
+faussecomplète. Les défauts source/temps gardent les chemins DEC8/FIR failclosed.
+Les erreurs de compilation/setup intermédiaires ont été corrigées d’après les
+sorties et leurs logs gardés ; seuls résultats finauxréussis sont retenus.
 
-L’utilisateur a confirmé la carte dans le lecteur PC et le banc hors tension.
-**Windows monte réellement F: en FAT32** (Healthy, allocationunit32768B), disque1
-RealtekPCIECardReader/MBR, taillephysique **31914983424B** exacte. Le fichier
-TR2INFO.TXT est lu intégralement par File.ReadAllBytes Windows, **343B**
-identiques au textefirmware ; SHA256 **71e626c7e69644ff7aec1047fbb0417bc9ff80b6ec21a47659d68e70fbd11553**.
-Pas seulement une image FAT simulée ni une lecture de secteurs GDB. Opérations PC
-lectureseule, aucunformat/écriture/élévation/SAC modifié. FATdatesfixes2025 ne sontpas
-présentées comme une vraie horlogeUTC.
+ARM dédié etcanonique cross-buildPASS ; ciblésproportionnés à ce harness isolé.
+Cœur scientifique inchangé/anciens150tests non rejoués ; brancheSdWriter par défaut
+préprocesseuridentique18438B, aucunevalidation affaiblie. Lecteur Python portable,
+CRC/indices/compte/hash/version/corruption/troncature et préfixes, extractionCSV
+optionnelle surPC avec temps interpolés et valeurs g nominales explicites ; pas de nouvelle DLL .NET.
 
-## Point de reprise et critères non acquis
+Récupération garantie dans le modèle de lecture : préfixe de blocs CRC/séquence/
+session valides ; footer absent →INCOMPLETE, une complète corrompue n’est pas
+artificiellement tronquée pourréussir. **L’arrêtcontrôlé265s fournit une preuve
+physique de préfixe**, pas de panne d’énergie en écriture. Une préparation FAT
+interrompue peut laisseraucunfichier ou allocationorpheline. CMD13/sync/CRC ne
+qualifient pas le cacheFTL : survie après disparition d’énergie/perte maximale
+physique restent inconnues. Aucun retrait à chaud ou coupure volontaire en écriture.
 
-Dernière confirmation physique : carte dans le lecteurPC, TR2-002 hors tension,
-après arrêt logique source/SDquiescence/sessiondebugfermée. Imagefd73 conservée,
-aucun nouveauflash/reset depuis le préflight. Ne pas relancer les captures courtes
-validées sur codeinchangé et ne pas reformater ; conserver RUN0003/4/5.TR2.
+[Format, procédures, références ST/SDA](../../../experiments/r3_durable_fat32/README.md).
+[FatFs officiel et provenance](https://github.com/STMicroelectronics/stm32-mw-fatfs/tree/dd9126e957ae841a13ccbe2115d39a1fb7414126).
 
-## Première anomalie longue et intégrité PC obtenue
+## Traçabilité, état final et publication
 
-À265,121081s, queue65536B/overflow1, FIFOerror10(refusconsommateur), FIFOOVR0/flags0/
-pic58, SDerror0, STOP150µs, writer terminé sansincertitude ; pas de footercomplet.
-7008291XYZ reçus/700830sorties/4204980B produits ;8857secteurs512 confirmés,
-4534784B encadrés. Le dernier bloc refusé demeure explicitement nonpersisté.
-Trente busy>100ms dans la trace conservée sont groupés en fin, LBA29880..29913 ;
-busymax155539µs/write164448µs. La file augmente par pas de≈2048B entre ceswrites.
-MoyenneSDglobale ne suffit pas à expliquer cette grappe ; leshistogrammes couvrent
-les8857writes, la tracebrute conserve seulementpremiers256/derniers1792.
-Workmax995,538µs/service1704,669/gap1961 sousréférences1000/2500/5000, margework
-faible mais nonfranchie. La cause d’arrêt est le backlogSD, pas un timeoutFIFO.
+Code réellement flashé/évalué : **6fdae042333f671629d2c4626d7120b0bd848ae3**. BIN57448B SHA256
+**27f5d59fc58803d6a7fd66714014ca7d24da60023736386b3375b9272fbf9ef6** ; ELF
+a00c0b0ae76b23e5fc5719b1d3163791d1882772663014ec3fa674ecf5ac9b50. Tests tailles/STOP ajoutés e9cccacb,
+lecteur/extraction améliorés séparément ; aucunemodificationfirmware après ces
+qualifications. Deuxflashsstandards mission, verify/readbackexacts, zéroresetlogiciel
+supplémentaire ; pas de mass erase/OptionBytes/RDP/FRAM, imagesR1/R2/R3 etbackupFlash
+initial conservés, pas de sauvegardes/restaurations répétitives.
 
-L’utilisateur a transféré la carte aulecteurPC après misehors tension. Depuis le
-volumeFAT32 F: réel, les fichiers entiers128KiB/2MiB/12MiB ont été copiés en lecture
-seule, parsés parPython et tous leurs blocs valides contrôlés.
+CibleTR2-002 exclusivement, SN0032001F3235510C37333439/UID001B0046-38425018-20333157,
+WHO7B/CTRL1AC dans le profil±8g ; CIDSPI03534453-44333247-858BF092-3C01927B, CSD et
+capacité relus aux transitions. Aucun accès à TR2-001, COM4, serviceWindows ou média
+production ; leur état actuel n’est pas supposé RUNNING. Interventions physiques
+par l’utilisateur, à chaquefois après STOP du capteur/SDquiescence etdebugdétaché.
 
-| Fichier PC réel | Statut | XYZ validés | Payload B | SHA256 payload |
-|---|---|---:|---:|---|
-| RUN0003.TR2 | COMPLETE | 5260 | 31560 | dc885198cadde6f264fb4a4ea1e98b5026d2512efef7d9fce4365807c61ae7fe |
-| RUN0004.TR2 | COMPLETE | 158571 | 951426 | 6286345f03e82fb9a56d1b875e20465af57bd0402ac059c0f683ca36ed8dc4b9 |
-| RUN0005.TR2 | INCOMPLETE | 690846 | 4145076 | 29b367b99f39fd35a462c75cc3d2d10adf41f5cbbd7e64dfc64b3766b4514900 |
+Dernier état logique avant retrait : run5/stage4/error0, FIFOarrêté/SDwriterdone,
+CShaute, aucun démarrage ni écriture automatiques. L’utilisateur a ensuite confirmé la carte au lecteur
+PC après la demande de retrait hors alimentation ; l’alimentation du banc n’a pas
+été recontrôlée après ce geste. Image groupée conservée enFlash ; ne pas réinsérer
+àchaud ou relancer les campagnes acquises. Aucun flash ou restauration supplémentaire
+nécessaire. Carte FAT32 enétat test, anciens fichiers conservés, pas média production.
 
-Les2s/60s correspondent intégralement au digest producteur amont capturé avantTX ;
-103sorties indépendamment recalculées et128sorties préfixes réelles identiques au
-fichier pourchacun des3runs. Pourlepréfixe incomplet seulement CRC/session/index et
-cescontrôlespréfixes sont prouvés : son SHA est celui du préfixe effectivementrelu,
-**pas le digest de l’intégralité des700830sorties**. Les9984sorties restantes ne
-sont pas présentées commearchivées. Cela prouve la récupération après cetarrêt
-contrôlé surbackpressure, pas la survie à une coupureélectrique.
+Worktree `MSM_vibe-R3-durable`, branche `codex/r3-durable-fat32-10min`, publication
+normale `HEAD:refs/heads/main` avec contrôle distant. Main historique 82169af et autres
+worktrees/stashes6251b988/f3b829e6 préservés ; aucunreset/clean/merge/rebase/forcepush.
+Journal technique actualisé : fichiersPC, échec265s, correctiongroupée,600s etlimites.
+Les preuves sont en `preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN` : checkpoint-d0-pc,checkpoint-short,
+checkpoint-negative-265s,checkpoint-group-short,checkpoint-group-600s et
+[final-PC](preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/final-pc/BUNDLE.json). Chaquezlib porte taille/SHAoriginal et
+stocké ; vraisfichiersPC complets, imagesELF/BIN/MAP, bruts et outils inclus. Preuves
+locales `/home/lolo/dev/msm/reports/TR2-r3-durable-fat32-10min/`.
 
-Poursuite : examiner une méthode d’écriture groupée préallouée/cooperative avec
-hints SD (CMD25/ACMD23) plutôt qu’augmenter sansborne les buffers ; conserver
-64KiB, lescontrôles et leslimites. Aucun correctifphysique nouveau encoreévalué,
-aucune garantie future de file bornée face à despauses arbitraires.
-[Preuves du négatif et fichiers PC](preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-negative-265s/BUNDLE.json).
-
-Sources/worktree : `/home/lolo/dev/msm/projects/MSM_vibe-R3-durable`, branche
-`codex/r3-durable-fat32-10min`, pushnormal explicite surmain. Dépôthistorique82169af,
-anciensworktrees etstashes6251b988/f3b829e6préservés ; aucunmerge/rebase/reset/clean.
-Preuveslocales `/home/lolo/dev/msm/reports/TR2-r3-durable-fat32-10min`.
-[Format et workflow](../../../experiments/r3_durable_fat32/README.md).
-[Manifeste des preuves](preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-d0-pc/BUNDLE.json) : 103artefacts
-zlib, tailles/SHAoriginaux etstockés ; l’image sparse32Go du modèle n’estpas publiée.
-Journal technique actualisé. Publication et relecture distantes du checkpoint à
-faire ; mission continue, aucun DONE physique anticipé.
-
-## Relecture du checkpoint et reprise finale
-
-Le checkpoint9e5cfc5d8ee45a8e52d7bbc27640fba8f78419b7 a été récupéré et relu
-intégralement à2026-10-29T22:40:23UTC :466fichiers exacts,433artefacts décompressés
-et hachés, empreintesvendorpristines conformes. Aucune qualificationPCfinale
-déduite de cette publication. L’unique dépendance restante est le transfert
-physique de la carte verslecteurPC, demandé àl’utilisateur aprèsquiescence.
-[Point de reprise et outils](preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/await-final-pc/REPRISE.md).
-Les scripts de finalisation **ne sont pas encore exécutés** et exigent les preuves
-PC des troisR2N. Ne pas rejouer les validations/acquisitions acquises.
+Suite : publication/relecture intégrale depuisGitHub, puis DONE dans cette portée
+et revue indépendanteA-01 ChatGPT. Aucunequalification1h/8h/coupure/FATjournalisée/
+FRAM/RTU/AC1 Windows, calibration amplitude±8g ni gelnormatif2000Hz revendiqués.
