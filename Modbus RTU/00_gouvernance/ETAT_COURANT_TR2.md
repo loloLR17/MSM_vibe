@@ -1,5 +1,8 @@
 # État courant MSM TR2 — synthèse opérationnelle
 
+**29/10/2026 — AC1/±8g, IN_PROGRESS :** logiciel72a7b573 et correctif transportPC ae6e2d5e publiés ; 148testsC/ARM et 253Service acquis, non rejoués sur code inchangé. Image opérateur e1846c…aa7b80 flashée une fois le28/10, sauvegardes Flash doublées/FRAM3c56…2b5 vérifiées. Premier boot interrompu par GDB pendant calibration (échec conservé), puis un reset logiciel justifié ; B0/B3 répondent STOP. À06:14:59UTC le29/10, service R1 lit STOP4097/seq0 puis rejette localement AC1 par whitelist PC ; correctif livré, R2 Windows complet séparé en préparation. Aucune commande B5 nouvelle/ledger5-25, pas encore de preuve ±8g/dynamique physique. Ancien paquet/données/worktrees/stashes préservés ; B3 absolu inchangé, extension AC1v1 NON-PRODUCTION autorisée par utilisateur.
+
+
 
 **28/10/2026, contrôle tardif21:54:57UTC :** serviceuniquePID7920 inchangé/SAC1/378fichiers exacts, mais TR2désormaisSTOPsansmesurevalide/flags4097/seq0. Journalreadonly : perte21:45:25.452→retour21:45:30.905 avecseq0 ; **perte d’alimentation accidentelle ensuite confirmée par l’utilisateur**, zéroreset/flash/commandeCodex dansl’intervalle, ledger25. Rectification : leprocessusService n’avaitpaschangé ; comparaisoninitiale avecpré-audit corrigée. DernierFlash/FRAM relus21:18, HELDseq78physique21:23/21:25 historiques, pasunelectureactuelle. Lespreuves métrologie/UI etsnapshot21:25 sont conservés ; aucun nouveauSTART pourmasquerlatransition. RetourSTOPsansautoSTART cohérent avec cette coupure rapportée ; pasde défautspontané de stabilité déduit.
 

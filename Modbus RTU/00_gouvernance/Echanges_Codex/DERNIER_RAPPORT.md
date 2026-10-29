@@ -4,7 +4,7 @@ status: IN_PROGRESS
 base_ref: main
 base_sha: e7f17f2cd2b8470244a99f7c9e73e9d0f43b3dea
 initial_head: afa7d707b50d56b771c3dcb7bf719ab66aa9cbb6
-result_sha: 72a7b57381f61e9f24c6bdcd20dd70a38dbc70de
+result_sha: ae6e2d5e9cd2d161abeda1659d99296a0c274ab8
 created_at_utc: 2026-10-28T22:30:00Z
 author: Codex
 target_branch: main
@@ -29,3 +29,12 @@ Le cheminB4préexistant sert à préparer/copierl’active avecFS=2etnouvelID/CR
 **Prochaine tranche autorisée, sans demande intermédiaire :** paquetWindowscomplet/gateCOM99 avant modificationdesversionsfonctionnelles ; préflightSTOPetbackupvérifiéFlash/FRAMhorsscope ; qualificationbornéeAC1/FS, vraiAPPLY±8gdurable/resetetreadbackCTRL1_XL ; START/STOPphysiques, chaînemesuredynamiqueCOM4→SQLite/API→Edge etconservationdeshistoriques. B3absolurestedistinct. Aucunessaimachine±6ginventé. SiWindowsrefuse le nouveaupaquet, conserverl’ancienetnecontourneraucuneprotection ; rendrecompteavecsolution/livraisonpartiellefranche. StatutIN_PROGRESS, pasBLOCKEDenl’absenced’obstacle.
 
 [ExtensionAC1v1etdécision](../../Supervision%20TR2/operator-demo/AC1_V1.md), [preuveslogicielles](preuves/TR2-20261028-ACCEL-FS8G-AC1/software/README.md). Preuveslocales`/home/lolo/dev/msm/reports/TR2-accel-fs8g-ac/`. LesSHA/étatsdepublicationserontvérifiésaprèschaquepush ; unecompilationoucecheckpointneconstituepaslaqualificationLIVErequiseparl’addendum.
+
+
+## Reprise du 29 octobre 2026 — checkpoint intermédiaire
+
+Le worktree précédent et ses deux fichiers non committés sont préservés. Main a avancé par trois documents R0 métier uniquement ; le correctif est réappliqué dans un nouveau worktree `MSM_vibe-accel-fs8g-ac-resume` basé sur bdaa3335, sans merge/rebase ni abandon de travail. Le commit ae6e2d5e autorise uniquement la lecture exacte AC1 8000/64 lorsque l’option expérimentale est présente. Test rouge/vert conservé, 253 tests Service réussis ; aucun besoin de répéter les tests C sur code inchangé. Push normal et SHA distant ae6e2d5e vérifiés.
+
+**Rectification de l’état matériel décrit plus haut :** la tranche précédente a effectivement sauvegardé deux lectures Flash complètes identiques et la FRAM, puis flashé une fois l’image e1846c87017fd7667daf1b79cb440af1024346c5deae8d5065f8525c00aa7b80. Un contrôle GDB trop précoce a interrompu la calibration au premier démarrage, conservé comme échec. Après diagnostic FIFO arrêté/aucune acquisition active, un reset logiciel de récupération a été effectué, sans reflash ni écriture FRAM brute. B0/B3 répondent ensuite. Le refus AC1 provient de la liste de lectures autorisées du transport PC, corrigée ci-dessus. Ne pas attribuer ce refus local au STM32.
+
+À la reprise, le 29/10 à 06:14:59 UTC, l’API reçoit réellement B3 STOP, flags4097/seq0, puis refuse AC1 localement. Ledger relu : epoch5/transaction25 ; aucune nouvelle commande B5 soumise par cette mission à ce point. Le paquet Windows R1 est préservé ; publication complète R2 séparée en cours, gate de confiance requis avant usage COM4. Plage ±8g persistante, mesures dynamiques physiques et chaîne Edge restent **non qualifiées**, mission IN_PROGRESS. Aucun nouveau flash/reset à la reprise. [Preuves de reprise](preuves/TR2-20261028-ACCEL-FS8G-AC1/resume/BUNDLE.json).

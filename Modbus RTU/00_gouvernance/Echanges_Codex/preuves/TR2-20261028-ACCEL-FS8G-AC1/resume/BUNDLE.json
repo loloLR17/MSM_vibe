@@ -1,0 +1,51 @@
+[
+  {
+    "source": "ac1-boundary-green.log",
+    "file": "ac1-boundary-green.log.zlib",
+    "sha256": "bdef08b4532a35d3f5d1832aa912612fb60cf9721110ed244ad4b93e3e60ea88",
+    "stored_sha256": "5bf94f7436226b5c30e5f7b0f3f52ae10be7d42e23d84b3ea46b31126bc39d6b",
+    "bytes": 2154
+  },
+  {
+    "source": "ac1-boundary-red-runtime.log",
+    "file": "ac1-boundary-red-runtime.log.zlib",
+    "sha256": "cd7e574e60f64bb3b5ba6263d8ba35642424cc8b4c2cc8359391170054848938",
+    "stored_sha256": "be115b69b51d33814142fdea65eb4a113521b38f2b3c9209fe7125189f7d1956",
+    "bytes": 3380
+  },
+  {
+    "source": "backup-verification.json",
+    "file": "backup-verification.json.zlib",
+    "sha256": "0596ff8d68b8ed7421ecf334e0cebd7734a3bdc359ce515e8116b06a1495e654",
+    "stored_sha256": "2d066f12784f12afc76d145d10662be0d59f7345e6f5b2c141c1e426f62000ca",
+    "bytes": 371
+  },
+  {
+    "source": "hardware/flash-ac1.log",
+    "file": "hardware--flash-ac1.log.zlib",
+    "sha256": "e2b66c979a808df66e3ea3308799e712c6f7611f3ff4bfd66107f77ff0cd2b47",
+    "stored_sha256": "03110a43f48ff6fb17b75a1cea5d5365c35e6ad4d81bcc113b3ee1283b8f62a7",
+    "bytes": 1669
+  },
+  {
+    "source": "hardware/startup-failure-readonly.log",
+    "file": "hardware--startup-failure-readonly.log.zlib",
+    "sha256": "68f34dbfcdd4c6fb37083985e65b022727e0bd2eebf4b697a1c4ae911bc6e45c",
+    "stored_sha256": "213becb532603f9324193543f56e1c1027c7154590d30d2183ad77e389c74506",
+    "bytes": 1863
+  },
+  {
+    "source": "hardware/recover-startup-interruption.log",
+    "file": "hardware--recover-startup-interruption.log.zlib",
+    "sha256": "dcb6c1d9cf0f1dafc8cc62071be0c60c1f2e381bd36b64a7de42be4e680e6ac3",
+    "stored_sha256": "2f73861c694575780f853e2c52d7727fe0be4963dd6252e3d006487b2ba94793",
+    "bytes": 608
+  },
+  {
+    "source": "new-recovered-api.json",
+    "file": "new-recovered-api.json.zlib",
+    "sha256": "61ee0bef514dea4e11cf57b822a198066a550e87c72da253c55d35130890a4d1",
+    "stored_sha256": "839a7f288feabe6fbb5c65937e7eee824e974d84d89596caab462762ea314941",
+    "bytes": 3007
+  }
+]
