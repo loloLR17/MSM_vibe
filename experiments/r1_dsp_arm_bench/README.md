@@ -80,7 +80,7 @@ callers), selected only while stopped. This bound addresses the microbenchmark's
 The loop services FIFO, validates the complete burst, maps DEC8 authority to exact
 microseconds, then dispatches each accepted XYZ to either unfiltered /10 or Q15.
 The mapper's default LiveMetrology path is unchanged; this bench uses its exclusive
-optional sink. Errors close the mapper/DSP and stop the sensor. Pending <8 XYZ
+optional sink. Errors close the mapper/DSP and stop the sensor. Pending ≤8 XYZ
 without a future anchor are recorded and **not extrapolated or padded at STOP**.
 Source rails are already refused by the existing FIFO parser, before DSP.
 

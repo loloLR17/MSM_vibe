@@ -1,0 +1,807 @@
+{
+  "mission_id": "TR2-20261029-R1-ARM-DSP-FIFO-BENCH",
+  "code_sha": "8c14f1037af2e82d252852cdbfcb184614135216",
+  "utc": "2026-10-29T16:05:41.633060+00:00",
+  "files": [
+    {
+      "source": "fifo-artifact.json",
+      "file": "fifo-artifact.json.zlib",
+      "bytes": 809,
+      "sha256": "502aab887fc8076c6d39f795bd23e15c04e2ab554681c61d492ccaeaa5d83f42",
+      "stored_bytes": 464,
+      "stored_sha256": "67730fa55cee04b400721379d5a546772dc22040d449cbb9b20c8e94ed6104f4"
+    },
+    {
+      "source": "fifo-readback.json",
+      "file": "fifo-readback.json.zlib",
+      "bytes": 118,
+      "sha256": "47f32aebdf524ecb0357bacd38b35c38c3cb3d4e68053c003758efad248bef48",
+      "stored_bytes": 104,
+      "stored_sha256": "aba7c7985dadb9a5156c69d332543458051f8d08f9df74594c3f300a2195cf14"
+    },
+    {
+      "source": "fifo-connection-events.json",
+      "file": "fifo-connection-events.json.zlib",
+      "bytes": 709,
+      "sha256": "4808ce9456c1600090c92d6dd1083ab04b1a900e2bae0d689e6b3ca83a3c339b",
+      "stored_bytes": 406,
+      "stored_sha256": "8127be15a355c3d8bfffb0b2991957ff9a39d99da2f0eeb8ea7ea9066e24e622"
+    },
+    {
+      "source": "calibration-independent.json",
+      "file": "calibration-independent.json.zlib",
+      "bytes": 137,
+      "sha256": "bf30de7f91b2353ab595e1a974dbfea5dc37468d3e11160c98c65d1e24805238",
+      "stored_bytes": 106,
+      "stored_sha256": "678d2f71451cafa2091617a4e1af1375bde1b6b731f2ce9a8aeb26ccd209a7e7"
+    },
+    {
+      "source": "final-stop-independent.json",
+      "file": "final-stop-independent.json.zlib",
+      "bytes": 1415,
+      "sha256": "d9b52a693a910d3520bf5dc309ac67634ff3a4e2e1ea08c4536223a63e6aced0",
+      "stored_bytes": 266,
+      "stored_sha256": "98df08e8c9a1e348dc553b621c66367695d037436251e815de5e175fa05c8cf4"
+    },
+    {
+      "source": "fifo-comparison.json",
+      "file": "fifo-comparison.json.zlib",
+      "bytes": 7902,
+      "sha256": "e97ad4eebc017d33f583a3315b4bd51e8f3577af07dbff697d798ec4a8c854a2",
+      "stored_bytes": 2007,
+      "stored_sha256": "0656f12dfea7d71b2bc490a532801e04f19eede653e4b85d0050ec8815375cb9"
+    },
+    {
+      "source": "fifo-calibration-analysis.json",
+      "file": "fifo-calibration-analysis.json.zlib",
+      "bytes": 1705,
+      "sha256": "98c288537eb52655bd7a162d6e32cb42f7d4d73cefe68b18b3e89d47e87303e1",
+      "stored_bytes": 688,
+      "stored_sha256": "a5233ce3c340fe06325cc48ecaccce49902b256346564fe045d014e9e9236936"
+    },
+    {
+      "source": "fifo-bypass-analysis.json",
+      "file": "fifo-bypass-analysis.json.zlib",
+      "bytes": 2338,
+      "sha256": "efb8e3a236aba31c25e5110da722708b631739d20eb8151e1ef4f1325cee6d5f",
+      "stored_bytes": 1003,
+      "stored_sha256": "53a616f734b94a3b06486a5cd3ec90dc51f20a6b8c40ec8b761020250c90ac43"
+    },
+    {
+      "source": "fifo-fir-short-analysis.json",
+      "file": "fifo-fir-short-analysis.json.zlib",
+      "bytes": 2341,
+      "sha256": "8326c19de2fa2099abaefa5de705bc10fdd76764d4c159d8257146d101bec4ac",
+      "stored_bytes": 1009,
+      "stored_sha256": "02b603cb5196766b9e8e47b81e4c198f82f1bb59926b7973e13bad4a1690bedb"
+    },
+    {
+      "source": "fifo-fir-long-analysis.json",
+      "file": "fifo-fir-long-analysis.json.zlib",
+      "bytes": 2348,
+      "sha256": "df76bf893afff9ef4c7fddc600ec2732dd355807aedd618096946b657c4c011b",
+      "stored_bytes": 1009,
+      "stored_sha256": "c708b45a8343c340c7d622ed9971c9ef6f145d753be2c71e260a93630ae5763b"
+    },
+    {
+      "source": "fifo-stlink-list.log",
+      "file": "fifo-stlink-list.log.zlib",
+      "bytes": 506,
+      "sha256": "a811f52d2c09b9827bc2d5f356a1202f12b45e8b7f159fa0944db690cf2ddb3d",
+      "stored_bytes": 217,
+      "stored_sha256": "9b91d769fc5dc4b814b5c87843000771602d8f9248e095eff5abcfd35d7bc525"
+    },
+    {
+      "source": "fifo-connect-check.log",
+      "file": "fifo-connect-check.log.zlib",
+      "bytes": 255,
+      "sha256": "cbf460fbd927c04d28c32edbbc921fffe46cf00f3184d76e591a8d71a041ba93",
+      "stored_bytes": 88,
+      "stored_sha256": "34524c81534cbfe3ac1d96c025e1aa540334176145e9732742846e08309899f2"
+    },
+    {
+      "source": "fifo-full-validation.log",
+      "file": "fifo-full-validation.log.zlib",
+      "bytes": 56,
+      "sha256": "06827cde5e94ee9c6270a3809eaf6722c4266ab44ef099941ebcb4072569f13c",
+      "stored_bytes": 62,
+      "stored_sha256": "39025ce742e5907de96b50bb28864afc2790cfe46a9adbef137faa27419bc731"
+    },
+    {
+      "source": "fifo-full-validation-run.log",
+      "file": "fifo-full-validation-run.log.zlib",
+      "bytes": 78781,
+      "sha256": "db765a41cce7d852ee46706556a2dcfc1c37c8b31c8844dd4c98ea8b2495f8d5",
+      "stored_bytes": 9114,
+      "stored_sha256": "5102eb87accdc79e8e0d36bf7a0fa8abee49c63f0a22970f35c487d1ad95e237"
+    },
+    {
+      "source": "quantum-test-build.log",
+      "file": "quantum-test-build.log.zlib",
+      "bytes": 196,
+      "sha256": "b6deb8cba976fa8f2a45e24f379983f1d468c173e94a46180a0e63d367ae404c",
+      "stored_bytes": 129,
+      "stored_sha256": "b89d06dcd9ecb44c37964a5a8c92a050fcbfe75fc411487a9d8add320dd84a9d"
+    },
+    {
+      "source": "quantum-test.log",
+      "file": "quantum-test.log.zlib",
+      "bytes": 453,
+      "sha256": "368b414ea74e1bb03dc00011ee7143f7ef14e2bc6da329f02210e4c91b01241e",
+      "stored_bytes": 246,
+      "stored_sha256": "3b9cb0cb2798689e3d1b3d2d1ca914f8e230eb6129b8b6ddc012338f5bf916cc"
+    },
+    {
+      "source": "sink-test.log",
+      "file": "sink-test.log.zlib",
+      "bytes": 462,
+      "sha256": "a8e697318e0df5f6f51fa5351afa89136f736fa31d42bd8b655f7ebccea0b108",
+      "stored_bytes": 232,
+      "stored_sha256": "f6e595bb6708799494e1295fc1a79478fe0e14b4cc7a2f1e6f1ae1621a4d11d5"
+    },
+    {
+      "source": "fifo-tools-test.log",
+      "file": "fifo-tools-test.log.zlib",
+      "bytes": 100,
+      "sha256": "6f283ee6225d2cef4c0127d95456a6f954c45141c92b97dd89016cb1c630e8f4",
+      "stored_bytes": 41,
+      "stored_sha256": "04e25cda138702bf0f0415c251175c0c8feaebb0b0498b069ea35854aa6378f2"
+    },
+    {
+      "source": "fifo-configure.log",
+      "file": "fifo-configure.log.zlib",
+      "bytes": 237,
+      "sha256": "a4a56ac20af81366db3e260ebca9e302bdc3f2de2783c7678d6f7142be5982d2",
+      "stored_bytes": 185,
+      "stored_sha256": "e79e9880dbf0e1198f347038fac3e163fe77eac7773b95e58291c075f9070e66"
+    },
+    {
+      "source": "fifo-build.log",
+      "file": "fifo-build.log.zlib",
+      "bytes": 4811,
+      "sha256": "4a2e9dd3798bf74b09b2a2b6cecb8028bf463f3ba433a74d92a7c717a47880e1",
+      "stored_bytes": 974,
+      "stored_sha256": "6177a51f5b2df4216aff1eb7bd4404d984c8d24a32a01fd7f6e5422a513f0040"
+    },
+    {
+      "source": "fifo-build-fix1.log",
+      "file": "fifo-build-fix1.log.zlib",
+      "bytes": 13457,
+      "sha256": "626ca34c21aaa78989e6386b9c4fb0f0d0546822d2802b476e266c78772d261b",
+      "stored_bytes": 1388,
+      "stored_sha256": "2405112dbdc56d9f49e765d968d0048235fddd737f1d55df0850697f9b22475e"
+    },
+    {
+      "source": "fifo-build-fix2.log",
+      "file": "fifo-build-fix2.log.zlib",
+      "bytes": 3510,
+      "sha256": "b93cc95f21e1b1b1079b655905707ada12d3810f5b676aa73e5fc1f91a269387",
+      "stored_bytes": 679,
+      "stored_sha256": "a6791910fdcec7b9eb3421784bc148d087df31bc9b0d349544c160181054b8f2"
+    },
+    {
+      "source": "fifo-build-ready.log",
+      "file": "fifo-build-ready.log.zlib",
+      "bytes": 2958,
+      "sha256": "62645314305ed51351b101c95c2c3aa9dfba9b778747b4db3f01a68cc7d5c93a",
+      "stored_bytes": 536,
+      "stored_sha256": "9b4097da51ce0fa426f936263507ec3ab9615c35cd5ed1e8f7b9dacb205b8dfb"
+    },
+    {
+      "source": "fifo-symbols.txt",
+      "file": "fifo-symbols.txt.zlib",
+      "bytes": 11872,
+      "sha256": "7973a2145b0bc30b1d5812eb8c1f6ec7ce1a795cbdac6ab6da71c6211e44693c",
+      "stored_bytes": 2883,
+      "stored_sha256": "fbb878d19881a429c00d507bf3c86afba3d2d6706997e831e792fa3ed51d622f"
+    },
+    {
+      "source": "fifo-attributes.txt",
+      "file": "fifo-attributes.txt.zlib",
+      "bytes": 404,
+      "sha256": "5eb0e596016ae2c814f314244a9d7953684d98194938c1b1a0563508cbb9dd64",
+      "stored_bytes": 243,
+      "stored_sha256": "2ad6c23e3bf908031b301f38db73279be8470d1c7c9c81c69195612a8bca5028"
+    },
+    {
+      "source": "fifo-size.txt",
+      "file": "fifo-size.txt.zlib",
+      "bytes": 162,
+      "sha256": "0c43d858d7b7a96cbf5961e1e09bbc53221284102fe66c1d97a72d96883ea39f",
+      "stored_bytes": 131,
+      "stored_sha256": "e6b7d3de6ebe7951a87751bce799aed010fae08bcd9dc52f523bccd359e65db2"
+    },
+    {
+      "source": "fifo-stack-usage.txt",
+      "file": "fifo-stack-usage.txt.zlib",
+      "bytes": 67336,
+      "sha256": "b4be12c074bf4f8dabb2f4036289a8e664dddbf92619f9c8f49b0f4d0f8f2475",
+      "stored_bytes": 5702,
+      "stored_sha256": "452ff55c2facf3df6a4fd21a0968f9d341e4a5b6d5d65e57544b03206aa491a3"
+    },
+    {
+      "source": "checkpoint-remote-reread.md",
+      "file": "checkpoint-remote-reread.md.zlib",
+      "bytes": 7424,
+      "sha256": "9955b1b472fcf97062c8a30d5994c5a8e97e87f0c82f1dbb8acacaf80b3a20b0",
+      "stored_bytes": 4097,
+      "stored_sha256": "7f35a7e2e1069a6daee484b237c7d9e90fd92c2067bb005dd5fb10134657320c"
+    },
+    {
+      "source": "arm/r1_dsp_fifo.bin",
+      "file": "arm--r1_dsp_fifo.bin.zlib",
+      "bytes": 34192,
+      "sha256": "d30c8bd9b2ad0fc1c5b02982b8384b4866d7760a8e3d2c67c2391bfb5b2f868d",
+      "stored_bytes": 24077,
+      "stored_sha256": "7db97da461950bb282169527f5921650ea7f9cee2fd6f5df92712f215c0db89a"
+    },
+    {
+      "source": "arm/r1_dsp_fifo.elf",
+      "file": "arm--r1_dsp_fifo.elf.zlib",
+      "bytes": 1931252,
+      "sha256": "898fc69da26543b13189b43ecd86df1a510e5df9c6b14743fc8387157cd76c9e",
+      "stored_bytes": 630309,
+      "stored_sha256": "849bcfd524bcaa95d9f8232d285b071601d780fe9264623ca1a0e44179091c3b"
+    },
+    {
+      "source": "arm/r1_dsp_fifo.map",
+      "file": "arm--r1_dsp_fifo.map.zlib",
+      "bytes": 563477,
+      "sha256": "3fd3a73bec33bc91ac94d2e58ab4fdc6398f8fa4f0b791b153c0066e2ab5c3f6",
+      "stored_bytes": 22652,
+      "stored_sha256": "5ae78253a866a62ed19c07e24f33cc8b5227d65327b158a8c55b3e42a892d519"
+    },
+    {
+      "source": "arm/build.ninja",
+      "file": "arm--build.ninja.zlib",
+      "bytes": 75406,
+      "sha256": "ebd179dd9875f797edaedfb5c0e60aa03970ec3f90b5fd1a1ab10152195ca5e1",
+      "stored_bytes": 3592,
+      "stored_sha256": "ad3a8f063961e3d626fda1c178d9dba3db93339093ca1ab3327d008e8b93ada3"
+    },
+    {
+      "source": "arm/CMakeFiles/rules.ninja",
+      "file": "arm--CMakeFiles--rules.ninja.zlib",
+      "bytes": 3362,
+      "sha256": "197ed078da597564a4a98b3b53fcee09e7ec8d771655d0cd3b9fb9fab0187666",
+      "stored_bytes": 808,
+      "stored_sha256": "14acbf1c79aa111b78399fb22bb654c2c7b4ffaaa000fc85d7d6ffc2f8af5989"
+    },
+    {
+      "source": "hardware_second.py",
+      "file": "hardware_second.py.zlib",
+      "bytes": 2399,
+      "sha256": "7d33dd176f5fb2d4eecc76cf4c422582d77d450c8c14fa7666dd1fcb03e01aa7",
+      "stored_bytes": 1200,
+      "stored_sha256": "11c07ccffec851ca4b6e570dbb06363e8c8972eef84a21eb2b6e6e5b201b3b22"
+    },
+    {
+      "source": "hardware/fifo-final-stopped-ram-only-invocation.json",
+      "file": "hardware--fifo-final-stopped-ram-only-invocation.json.zlib",
+      "bytes": 745,
+      "sha256": "c6bc1718152aefcede6aa6b76be152926730b34304fbed7f4e7a4109e79b1f07",
+      "stored_bytes": 382,
+      "stored_sha256": "714284282184545841764975516eff562c9ef45dfdbc28283f31bcb857a94bd6"
+    },
+    {
+      "source": "hardware/fifo-final-stopped-ram-only-server.log",
+      "file": "hardware--fifo-final-stopped-ram-only-server.log.zlib",
+      "bytes": 674,
+      "sha256": "030ed83bdd9e560371dd4df01fbb2f25a71828a2bd725448cff4a24e6cf46bf2",
+      "stored_bytes": 345,
+      "stored_sha256": "e10983747cbbc75b0f14ab0523f2c631430b41b31c5be4e954db1768d202b7b5"
+    },
+    {
+      "source": "hardware/fifo-final-stopped-ram-only.gdb",
+      "file": "hardware--fifo-final-stopped-ram-only.gdb.zlib",
+      "bytes": 1099,
+      "sha256": "f0d2f0274b10bd4f9671348252327daa6701d37630433edf252250ee6ace750e",
+      "stored_bytes": 412,
+      "stored_sha256": "76c65303ef854faf9898f4cb9c3bb73ad363fae4dd2fc9a68ba0d0f746a43637"
+    },
+    {
+      "source": "hardware/fifo-final-stopped-ram-only.log",
+      "file": "hardware--fifo-final-stopped-ram-only.log.zlib",
+      "bytes": 339,
+      "sha256": "327c5c506f2a68483758b272a387860ba12e41716f92a92cd1c95f0c155c7344",
+      "stored_bytes": 259,
+      "stored_sha256": "bf207601e74faaa6a5feeb806107565b7f903831aad80f1a3b10036842745f1a"
+    },
+    {
+      "source": "hardware/fifo-preflash-identity-after-user-recheck-invocation.json",
+      "file": "hardware--fifo-preflash-identity-after-user-recheck-invocation.json.zlib",
+      "bytes": 760,
+      "sha256": "b82dac1c41f92adee201c9b129775b79835397ef263b9275aee3e44b3c5cee8c",
+      "stored_bytes": 393,
+      "stored_sha256": "64037fb93e554c698ffc1233fe096e8a8311939ac0dd474c0b30f476abbd89d7"
+    },
+    {
+      "source": "hardware/fifo-preflash-identity-after-user-recheck-server.log",
+      "file": "hardware--fifo-preflash-identity-after-user-recheck-server.log.zlib",
+      "bytes": 674,
+      "sha256": "030ed83bdd9e560371dd4df01fbb2f25a71828a2bd725448cff4a24e6cf46bf2",
+      "stored_bytes": 345,
+      "stored_sha256": "e10983747cbbc75b0f14ab0523f2c631430b41b31c5be4e954db1768d202b7b5"
+    },
+    {
+      "source": "hardware/fifo-preflash-identity-after-user-recheck.gdb",
+      "file": "hardware--fifo-preflash-identity-after-user-recheck.gdb.zlib",
+      "bytes": 324,
+      "sha256": "fb775c2fcfde571005c85f3d19e4925c9bde7f1b75802ad0d86e7df21c737e77",
+      "stored_bytes": 198,
+      "stored_sha256": "3d249d12a61be8ff14450eeff55474a88dba6a6984ef6b5217d3e8355606e235"
+    },
+    {
+      "source": "hardware/fifo-preflash-identity-after-user-recheck.log",
+      "file": "hardware--fifo-preflash-identity-after-user-recheck.log.zlib",
+      "bytes": 370,
+      "sha256": "822caf5c4a153687a1d05f3d59057bd8a186b3e3a62e2233e2400219adb87134",
+      "stored_bytes": 296,
+      "stored_sha256": "e1d1e9686bdc47f11a2a9c4d97e5ec89dc15758f35b6dfbed38abbf9f14cf831"
+    },
+    {
+      "source": "hardware/fifo-preflash-identity-server.log",
+      "file": "hardware--fifo-preflash-identity-server.log.zlib",
+      "bytes": 747,
+      "sha256": "42b99cb103fac5f9713d12c1981f92a71e84ae2a06fb989cdc1522f93d794d3b",
+      "stored_bytes": 372,
+      "stored_sha256": "446d6b63aae36552592aa6c268bb36d21dff5e29a4830b9139fafe0a88cf4451"
+    },
+    {
+      "source": "hardware/fifo-preflash-identity.gdb",
+      "file": "hardware--fifo-preflash-identity.gdb.zlib",
+      "bytes": 324,
+      "sha256": "fb775c2fcfde571005c85f3d19e4925c9bde7f1b75802ad0d86e7df21c737e77",
+      "stored_bytes": 198,
+      "stored_sha256": "3d249d12a61be8ff14450eeff55474a88dba6a6984ef6b5217d3e8355606e235"
+    },
+    {
+      "source": "hardware/fifo-preflash-identity.log",
+      "file": "hardware--fifo-preflash-identity.log.zlib",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stored_bytes": 8,
+      "stored_sha256": "b171e283c6145acf2b923098dbbc40ffc39b4f1db0212928f9869747376c4ac8"
+    },
+    {
+      "source": "hardware/fifo-programmed-prefix.bin",
+      "file": "hardware--fifo-programmed-prefix.bin.zlib",
+      "bytes": 34192,
+      "sha256": "d30c8bd9b2ad0fc1c5b02982b8384b4866d7760a8e3d2c67c2391bfb5b2f868d",
+      "stored_bytes": 24077,
+      "stored_sha256": "7db97da461950bb282169527f5921650ea7f9cee2fd6f5df92712f215c0db89a"
+    },
+    {
+      "source": "hardware/fifo-run1-who-calibration-invocation.json",
+      "file": "hardware--fifo-run1-who-calibration-invocation.json.zlib",
+      "bytes": 743,
+      "sha256": "f8053e9642330d0cf1935804c5a1ead6240a5ef23175f72355574b619eb24912",
+      "stored_bytes": 382,
+      "stored_sha256": "f4fc75dd44331febe2dea8fef12ae067358173d81adf02d050a4f9805f330d80"
+    },
+    {
+      "source": "hardware/fifo-run1-who-calibration-server.log",
+      "file": "hardware--fifo-run1-who-calibration-server.log.zlib",
+      "bytes": 674,
+      "sha256": "030ed83bdd9e560371dd4df01fbb2f25a71828a2bd725448cff4a24e6cf46bf2",
+      "stored_bytes": 345,
+      "stored_sha256": "e10983747cbbc75b0f14ab0523f2c631430b41b31c5be4e954db1768d202b7b5"
+    },
+    {
+      "source": "hardware/fifo-run1-who-calibration.gdb",
+      "file": "hardware--fifo-run1-who-calibration.gdb.zlib",
+      "bytes": 1879,
+      "sha256": "2716d9f32417f1e1640215af6f3bdff2338ecf48178ec49e3139154918372734",
+      "stored_bytes": 538,
+      "stored_sha256": "b5d38dab8edc32be4eb68e0f86ef5ac6a6d12c6191da980d5eedf441b6c9693c"
+    },
+    {
+      "source": "hardware/fifo-run1-who-calibration.log",
+      "file": "hardware--fifo-run1-who-calibration.log.zlib",
+      "bytes": 3850,
+      "sha256": "11b92705410c6f6a73e8b8b5b1cc54204f81feb04cae1c4a2b2fe508a5b5a739",
+      "stored_bytes": 1616,
+      "stored_sha256": "9e501ebc52ec04978c3f70d4582a69542293cd54675a629e20d68a4bfd194a7e"
+    },
+    {
+      "source": "hardware/fifo-run2-bypass-short-invocation.json",
+      "file": "hardware--fifo-run2-bypass-short-invocation.json.zlib",
+      "bytes": 740,
+      "sha256": "9339f534c2b649885baa8ceb7ea2782b8bbea7e230432a39eee6eea5025b89c0",
+      "stored_bytes": 380,
+      "stored_sha256": "063289c0c21fe7dfef8ad5e8d9b65b12a303f1e77d1083497617d0d4ea179a2d"
+    },
+    {
+      "source": "hardware/fifo-run2-bypass-short-server.log",
+      "file": "hardware--fifo-run2-bypass-short-server.log.zlib",
+      "bytes": 674,
+      "sha256": "030ed83bdd9e560371dd4df01fbb2f25a71828a2bd725448cff4a24e6cf46bf2",
+      "stored_bytes": 345,
+      "stored_sha256": "e10983747cbbc75b0f14ab0523f2c631430b41b31c5be4e954db1768d202b7b5"
+    },
+    {
+      "source": "hardware/fifo-run2-bypass-short.gdb",
+      "file": "hardware--fifo-run2-bypass-short.gdb.zlib",
+      "bytes": 1896,
+      "sha256": "0c7f6b7e885ce3881772845254d013db8cdaeab4585e43b1f0074d3b80936609",
+      "stored_bytes": 538,
+      "stored_sha256": "7299b05f9fdc91382ec3d3034ded4c76b50916f59e3bd8c660ba48103a60830a"
+    },
+    {
+      "source": "hardware/fifo-run2-bypass-short.log",
+      "file": "hardware--fifo-run2-bypass-short.log.zlib",
+      "bytes": 4037,
+      "sha256": "3bdb1150afcf302a99c471b99d533cfed5f708e18ed5426cfd1bb430aa7b3b7d",
+      "stored_bytes": 1733,
+      "stored_sha256": "23119c5e7ffba4eb3df147a70840d9164475eb29fd686cb5cfc4b096601fc90b"
+    },
+    {
+      "source": "hardware/fifo-run3-fir-short-invocation.json",
+      "file": "hardware--fifo-run3-fir-short-invocation.json.zlib",
+      "bytes": 737,
+      "sha256": "e8065bd2eaf8a0844e6b804b14a0a3b586bb08595b59e54b1259d2ec491b158e",
+      "stored_bytes": 376,
+      "stored_sha256": "bd9d57acab162b2c04032481cbc8d269e4caa3b9dfc699017f42eb5cf37815f2"
+    },
+    {
+      "source": "hardware/fifo-run3-fir-short-server.log",
+      "file": "hardware--fifo-run3-fir-short-server.log.zlib",
+      "bytes": 674,
+      "sha256": "030ed83bdd9e560371dd4df01fbb2f25a71828a2bd725448cff4a24e6cf46bf2",
+      "stored_bytes": 345,
+      "stored_sha256": "e10983747cbbc75b0f14ab0523f2c631430b41b31c5be4e954db1768d202b7b5"
+    },
+    {
+      "source": "hardware/fifo-run3-fir-short.gdb",
+      "file": "hardware--fifo-run3-fir-short.gdb.zlib",
+      "bytes": 1896,
+      "sha256": "2fa41c69704384f9987724dd61d4f5a838ac2ed257cf45108dc51f77676a8ce0",
+      "stored_bytes": 538,
+      "stored_sha256": "de81ba1ffa62ac9a1b257f0d3eee5b9866280b6b37361ed11d4f719a5edb7af5"
+    },
+    {
+      "source": "hardware/fifo-run3-fir-short.log",
+      "file": "hardware--fifo-run3-fir-short.log.zlib",
+      "bytes": 6065,
+      "sha256": "4d11b510d7e9ff39c1d9bfcb5d5cd8575a68e56e04f0d96b63afa0a77a56c671",
+      "stored_bytes": 2454,
+      "stored_sha256": "a6f3e0a9c2f4a3623370b82b177588e1e62b41fd68c5c90d1119c853173f830c"
+    },
+    {
+      "source": "hardware/fifo-run4-fir-long-invocation.json",
+      "file": "hardware--fifo-run4-fir-long-invocation.json.zlib",
+      "bytes": 736,
+      "sha256": "8e29f63ba372f683881103129ce7f31d7bf56050edb9e852a7ac58e02c80d5fa",
+      "stored_bytes": 376,
+      "stored_sha256": "0ae5cc8e3fe1061301a79a9629fe48374f68b40552a240e407011f187941102e"
+    },
+    {
+      "source": "hardware/fifo-run4-fir-long-server.log",
+      "file": "hardware--fifo-run4-fir-long-server.log.zlib",
+      "bytes": 674,
+      "sha256": "030ed83bdd9e560371dd4df01fbb2f25a71828a2bd725448cff4a24e6cf46bf2",
+      "stored_bytes": 345,
+      "stored_sha256": "e10983747cbbc75b0f14ab0523f2c631430b41b31c5be4e954db1768d202b7b5"
+    },
+    {
+      "source": "hardware/fifo-run4-fir-long.gdb",
+      "file": "hardware--fifo-run4-fir-long.gdb.zlib",
+      "bytes": 1896,
+      "sha256": "d67b1ce4f7316fea2f5a21f42e5ea6248a8277f3f57243561f34e81b0fc07296",
+      "stored_bytes": 538,
+      "stored_sha256": "5fd594d3da6b27ed908f9f76444af36754d125a44dad719a314e47c806db49d1"
+    },
+    {
+      "source": "hardware/fifo-run4-fir-long.log",
+      "file": "hardware--fifo-run4-fir-long.log.zlib",
+      "bytes": 6102,
+      "sha256": "e932644446087f953b4aea538b5cae2cd781241bf889292ced4aadd758c1876b",
+      "stored_bytes": 2472,
+      "stored_sha256": "4ce19115effc118b7dbdbe2c21be818c2d093617e36829192d86202bf1b82063"
+    },
+    {
+      "source": "hardware/fifo-wait-readback-002-invocation.json",
+      "file": "hardware--fifo-wait-readback-002-invocation.json.zlib",
+      "bytes": 740,
+      "sha256": "5f8073ea049981c22f5db2967a14ee64942fc88413126a14245e5f3b4e1bf2e8",
+      "stored_bytes": 376,
+      "stored_sha256": "6f154cb5dea300d8df72a7957a63ef3a62fd9ec49f55e2e539f1cd565959ca15"
+    },
+    {
+      "source": "hardware/fifo-wait-readback-002-server.log",
+      "file": "hardware--fifo-wait-readback-002-server.log.zlib",
+      "bytes": 642,
+      "sha256": "aba6686847910134d76be16aaeb48ea8cff54b4318c7e8947f73d76ce3bbcd45",
+      "stored_bytes": 327,
+      "stored_sha256": "2d8b05226ecf2e462974c0ceca6a42996407464d239f05eea268fe9f85ded0de"
+    },
+    {
+      "source": "hardware/fifo-wait-readback-002.gdb",
+      "file": "hardware--fifo-wait-readback-002.gdb.zlib",
+      "bytes": 520,
+      "sha256": "ada5139418a3065e094a634c5a742a31f35e3ae13b3d7fa7a3d4c496d08b0076",
+      "stored_bytes": 318,
+      "stored_sha256": "e27d53aedf36600a560fdad3493e32b9fcae23271ccdc273f0d63af16232f55d"
+    },
+    {
+      "source": "hardware/fifo-wait-readback-002.log",
+      "file": "hardware--fifo-wait-readback-002.log.zlib",
+      "bytes": 971,
+      "sha256": "6a214eff54049ae9b2f305c2dea452e93c2681633feedc45ea8f50c0afa2f360",
+      "stored_bytes": 544,
+      "stored_sha256": "c4078d5b2fb71d1da8c153e51088830cd777d5991e949b695687dcc2d479f1e2"
+    },
+    {
+      "source": "hardware/flash-fifo-002-command.json",
+      "file": "hardware--flash-fifo-002-command.json.zlib",
+      "bytes": 522,
+      "sha256": "9ac78c53b9e112085cfe05c4893b1fed893a30d5d60db8c086803b10e836fc88",
+      "stored_bytes": 352,
+      "stored_sha256": "61b514c91fee18249255a5496c6cc2694e3668c55a3bec576e9ef4b6fd7b9c0a"
+    },
+    {
+      "source": "hardware/flash-fifo-002.log",
+      "file": "hardware--flash-fifo-002.log.zlib",
+      "bytes": 1625,
+      "sha256": "c8468b14d7d4f9e39b8d98ec73b6682469f8d96ef81a886200f3777658564572",
+      "stored_bytes": 641,
+      "stored_sha256": "5d8382639342bfde5aedcd13cb96e1e811d2186b8f5232ba3862a158bf96124f"
+    },
+    {
+      "source": "hardware/final-stop-payload.bin",
+      "file": "hardware--final-stop-payload.bin.zlib",
+      "bytes": 21,
+      "sha256": "aa447f6b853c0f8a1a88bb148357a7db3894cf51955c2fe110773183232aaad6",
+      "stored_bytes": 26,
+      "stored_sha256": "bd8b07ea63c0ff5ed624b737278f9a154dd049ac7a54a15673c93802d14c1dbc"
+    },
+    {
+      "source": "hardware/final-stop-preclose.bin",
+      "file": "hardware--final-stop-preclose.bin.zlib",
+      "bytes": 1368,
+      "sha256": "f5d3739a1b0e12c818a5fec7e20fd02060b6c1c046a9378d6a8d021cd4984ab8",
+      "stored_bytes": 282,
+      "stored_sha256": "7d397fd546d6844edaa7c7ec7d2be98740840641b468bfc17251254d8192f9aa"
+    },
+    {
+      "source": "hardware/final-stop-trace.bin",
+      "file": "hardware--final-stop-trace.bin.zlib",
+      "bytes": 360,
+      "sha256": "1b151d7efed8115b41afedb72bbf45d8bfc06a09482eabf8618a3a414ca081c7",
+      "stored_bytes": 74,
+      "stored_sha256": "88a87a171e4662544cf09a981a519b6c4ee6e7e11a43f9b65922169156038b64"
+    },
+    {
+      "source": "fifo-captures/manifest.json",
+      "file": "fifo-captures--manifest.json.zlib",
+      "bytes": 241,
+      "sha256": "fe5b5be429bb0471464b2707e6d0743bc3532995d2d691a7ddd068e2c804ba77",
+      "stored_bytes": 175,
+      "stored_sha256": "23d41b55c89aa5a4eb7eae36a48e5d916eb3b14f7fc2acfea2b263cb4cf8fb47"
+    },
+    {
+      "source": "fifo-captures/run1/body.gdb",
+      "file": "fifo-captures--run1--body.gdb.zlib",
+      "bytes": 1771,
+      "sha256": "3b0296a4bc768ec793e79c255fe421ff9f554ae4f64cdadc5f7b238a42262784",
+      "stored_bytes": 480,
+      "stored_sha256": "023e69bc6ef50df63723e63811a99d709f6850df245357ca9ff6abe4ebfb2377"
+    },
+    {
+      "source": "fifo-captures/run1/brackets.bin",
+      "file": "fifo-captures--run1--brackets.bin.zlib",
+      "bytes": 2316,
+      "sha256": "0236c08ae4968d62a8cbe4a6dd5cc3e8d5182d153ffbc3168eda7d1e909b3a0f",
+      "stored_bytes": 1685,
+      "stored_sha256": "ca7c3166815eb202beb53c2f425d2b4ac8f64055d4b5c746940c95f399e04c3a"
+    },
+    {
+      "source": "fifo-captures/run1/outputs.bin",
+      "file": "fifo-captures--run1--outputs.bin.zlib",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stored_bytes": 8,
+      "stored_sha256": "b171e283c6145acf2b923098dbbc40ffc39b4f1db0212928f9869747376c4ac8"
+    },
+    {
+      "source": "fifo-captures/run1/raw.bin",
+      "file": "fifo-captures--run1--raw.bin.zlib",
+      "bytes": 14336,
+      "sha256": "65964bd31514d7dbcbe4982a224d8bf5962faeb49df2d860c7a1ed307cab4d1c",
+      "stored_bytes": 9439,
+      "stored_sha256": "2166f0f37ef86bc0f1c3b9ab8c4ae983963ca87ccd4b233c0d7a3eac09253108"
+    },
+    {
+      "source": "fifo-captures/run1/records.bin",
+      "file": "fifo-captures--run1--records.bin.zlib",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stored_bytes": 8,
+      "stored_sha256": "b171e283c6145acf2b923098dbbc40ffc39b4f1db0212928f9869747376c4ac8"
+    },
+    {
+      "source": "fifo-captures/run1/result.bin",
+      "file": "fifo-captures--run1--result.bin.zlib",
+      "bytes": 192,
+      "sha256": "122d2e3895826520badb4e7739970902770103e6619ca98a4a2c369879491a0f",
+      "stored_bytes": 80,
+      "stored_sha256": "db2c6ea0b7e7916638062cb2d35af85f7a4f1a643e48ebacc2763478e5dc0ff1"
+    },
+    {
+      "source": "fifo-captures/run1/sources.bin",
+      "file": "fifo-captures--run1--sources.bin.zlib",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stored_bytes": 8,
+      "stored_sha256": "b171e283c6145acf2b923098dbbc40ffc39b4f1db0212928f9869747376c4ac8"
+    },
+    {
+      "source": "fifo-captures/run2/body.gdb",
+      "file": "fifo-captures--run2--body.gdb.zlib",
+      "bytes": 1788,
+      "sha256": "b3fa986eeb74a5fd82e728e61f25eacf8a998b77a056e9acd35de32e952563c2",
+      "stored_bytes": 480,
+      "stored_sha256": "9d8f3b8de1a59403b000810da6644c3a11b4a7796dce13825a873ce6446651f3"
+    },
+    {
+      "source": "fifo-captures/run2/brackets.bin",
+      "file": "fifo-captures--run2--brackets.bin.zlib",
+      "bytes": 2316,
+      "sha256": "0236c08ae4968d62a8cbe4a6dd5cc3e8d5182d153ffbc3168eda7d1e909b3a0f",
+      "stored_bytes": 1685,
+      "stored_sha256": "ca7c3166815eb202beb53c2f425d2b4ac8f64055d4b5c746940c95f399e04c3a"
+    },
+    {
+      "source": "fifo-captures/run2/outputs.bin",
+      "file": "fifo-captures--run2--outputs.bin.zlib",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stored_bytes": 8,
+      "stored_sha256": "b171e283c6145acf2b923098dbbc40ffc39b4f1db0212928f9869747376c4ac8"
+    },
+    {
+      "source": "fifo-captures/run2/raw.bin",
+      "file": "fifo-captures--run2--raw.bin.zlib",
+      "bytes": 14336,
+      "sha256": "cbeb083829980c36986634c11c28d645eca58a7401513a39893c4eccbe4b3e17",
+      "stored_bytes": 9177,
+      "stored_sha256": "7b688d65218a5e9999d63adffca7cc6a95318a727eec33a88f3ae797c59063b2"
+    },
+    {
+      "source": "fifo-captures/run2/records.bin",
+      "file": "fifo-captures--run2--records.bin.zlib",
+      "bytes": 36080,
+      "sha256": "36d4e65ed821989baf6227225ab8fc8bdd1b3f8357d07dde142028fa0242eb72",
+      "stored_bytes": 7023,
+      "stored_sha256": "d5d9b7a689647751bce6f78e828c5cea1dc6bb1de5c256ba5c1a6ff7fff1ee95"
+    },
+    {
+      "source": "fifo-captures/run2/result.bin",
+      "file": "fifo-captures--run2--result.bin.zlib",
+      "bytes": 192,
+      "sha256": "6070034ea334678a1dc1d1eb4391ca7633696e4accf6a75e993041bd343ebda0",
+      "stored_bytes": 128,
+      "stored_sha256": "58b91785ac4b070cb2fbda27e2f86c7dad16520a72e374c4afc3c81d5a76d0a0"
+    },
+    {
+      "source": "fifo-captures/run2/sources.bin",
+      "file": "fifo-captures--run2--sources.bin.zlib",
+      "bytes": 24576,
+      "sha256": "72561d00027cfda8491e4c7095dda96f5bffafc65e37fd9535c1c138789ed6e2",
+      "stored_bytes": 9996,
+      "stored_sha256": "4c4a37fb5c4d30e494a11d4b5580028035f62f9b1e5844ac97661cac449f5c5e"
+    },
+    {
+      "source": "fifo-captures/run3/body.gdb",
+      "file": "fifo-captures--run3--body.gdb.zlib",
+      "bytes": 1788,
+      "sha256": "03bf11f4a73091b28649e22bda1cc1917fcde55daf81870053afcf91deff73e0",
+      "stored_bytes": 480,
+      "stored_sha256": "66d83f693040ecd252c390faa9ec53667b4652de956f084333bcb52be739663a"
+    },
+    {
+      "source": "fifo-captures/run3/brackets.bin",
+      "file": "fifo-captures--run3--brackets.bin.zlib",
+      "bytes": 2316,
+      "sha256": "0236c08ae4968d62a8cbe4a6dd5cc3e8d5182d153ffbc3168eda7d1e909b3a0f",
+      "stored_bytes": 1685,
+      "stored_sha256": "ca7c3166815eb202beb53c2f425d2b4ac8f64055d4b5c746940c95f399e04c3a"
+    },
+    {
+      "source": "fifo-captures/run3/outputs.bin",
+      "file": "fifo-captures--run3--outputs.bin.zlib",
+      "bytes": 6144,
+      "sha256": "1fc3b71664e8982e540e5bb9bdcfbd5dfbb3484907c384966c69f50f5ff9c54b",
+      "stored_bytes": 1720,
+      "stored_sha256": "7f5355c78ee5f2142e3f83b24c434856face1b6a605155bc492e5b6f85cef16d"
+    },
+    {
+      "source": "fifo-captures/run3/raw.bin",
+      "file": "fifo-captures--run3--raw.bin.zlib",
+      "bytes": 14336,
+      "sha256": "0d572d3f5b71144d51f617814c6f6928b108a01c3f3a96ca042d9b374f2db5bb",
+      "stored_bytes": 9132,
+      "stored_sha256": "095ac677611fa0469765a427ea002bdd8d329c0261f392c19c5dd8fe3980fc2c"
+    },
+    {
+      "source": "fifo-captures/run3/records.bin",
+      "file": "fifo-captures--run3--records.bin.zlib",
+      "bytes": 20816,
+      "sha256": "08f53bc7806ac71bd80c0a77df344dc215ff613e1de262ad5071b893d31c666c",
+      "stored_bytes": 6487,
+      "stored_sha256": "bb7caae18cc277dfdb727c0101a5a2b1cf1be889471e664b4aa96e03d3ed2486"
+    },
+    {
+      "source": "fifo-captures/run3/result.bin",
+      "file": "fifo-captures--run3--result.bin.zlib",
+      "bytes": 192,
+      "sha256": "894baf52c595e38fb985c9824ec42545255340612a491d2605920dbe9e9af1b0",
+      "stored_bytes": 132,
+      "stored_sha256": "9f9ed240992fd6c72cbcf613a65030bf2b72b21d15d1d5d61001660c56bfd48a"
+    },
+    {
+      "source": "fifo-captures/run3/sources.bin",
+      "file": "fifo-captures--run3--sources.bin.zlib",
+      "bytes": 24576,
+      "sha256": "c73e2845c7a985d9fc63549757a2cff36106d6481ae2887d395aee69156795ea",
+      "stored_bytes": 9891,
+      "stored_sha256": "528551716bad90185c2cc92ef579041eba9401f42e798226e5b1cc702acc3c5a"
+    },
+    {
+      "source": "fifo-captures/run4/body.gdb",
+      "file": "fifo-captures--run4--body.gdb.zlib",
+      "bytes": 1788,
+      "sha256": "f12792c7f6a77d36ed4d1954b53851c33bba6b7a9355eb2ed3e666677c213ad7",
+      "stored_bytes": 480,
+      "stored_sha256": "43d7863eca0e34f17b0116c9a0b8b7a4f77a65575af2769e46a03752f4633516"
+    },
+    {
+      "source": "fifo-captures/run4/brackets.bin",
+      "file": "fifo-captures--run4--brackets.bin.zlib",
+      "bytes": 2316,
+      "sha256": "0236c08ae4968d62a8cbe4a6dd5cc3e8d5182d153ffbc3168eda7d1e909b3a0f",
+      "stored_bytes": 1685,
+      "stored_sha256": "ca7c3166815eb202beb53c2f425d2b4ac8f64055d4b5c746940c95f399e04c3a"
+    },
+    {
+      "source": "fifo-captures/run4/outputs.bin",
+      "file": "fifo-captures--run4--outputs.bin.zlib",
+      "bytes": 6144,
+      "sha256": "8c8c1d4c63fc1081211127c8a137b44c8b87839d9d82eb76ffc6c12ddbb9254a",
+      "stored_bytes": 1747,
+      "stored_sha256": "660ceb4aab280c4b14df731b2d25689749325b646a8bca91c3df39f789bc2857"
+    },
+    {
+      "source": "fifo-captures/run4/raw.bin",
+      "file": "fifo-captures--run4--raw.bin.zlib",
+      "bytes": 14336,
+      "sha256": "c0a38194d921c27ded24e9d1c2d16fc7c4e6f67ada68b60548d32bb7bc7609db",
+      "stored_bytes": 9090,
+      "stored_sha256": "0d088956f9bbbc720f1d28f466e8d3069590b26433d843f5fd8f28b9628e36a5"
+    },
+    {
+      "source": "fifo-captures/run4/records.bin",
+      "file": "fifo-captures--run4--records.bin.zlib",
+      "bytes": 102096,
+      "sha256": "4ba6c2449b3655aa291294cc4871f96cc688987cd0d1dd6c9871e684cbb19d3c",
+      "stored_bytes": 27611,
+      "stored_sha256": "74a983fb4a88cb5c2bb483fd30076768ad9e0cf023e0367c90061981430bc379"
+    },
+    {
+      "source": "fifo-captures/run4/result.bin",
+      "file": "fifo-captures--run4--result.bin.zlib",
+      "bytes": 192,
+      "sha256": "ea0a8be1b24eb14af26d1718e8a760481ae7ed5b56ded4e73f10126821077871",
+      "stored_bytes": 130,
+      "stored_sha256": "f74d6aea93de2282321a6981f1e259370f20fce9a1103a0b24a6210de721fb49"
+    },
+    {
+      "source": "fifo-captures/run4/sources.bin",
+      "file": "fifo-captures--run4--sources.bin.zlib",
+      "bytes": 24576,
+      "sha256": "fb6da5a76033f0331cfed239c8278de0353afc29e82c32c17a526bfe58410f48",
+      "stored_bytes": 9931,
+      "stored_sha256": "bbeb4038160f5838dfa693e35be6ccd814d525e32bb5e140c68f3f3827c4ece8"
+    }
+  ]
+}
