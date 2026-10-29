@@ -1,0 +1,2 @@
+# Pristine upstream files retain their original whitespace; hashes in PROVENANCE.json.
+vendor/fatfs/* -whitespace

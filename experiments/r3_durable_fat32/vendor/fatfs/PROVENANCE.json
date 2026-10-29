@@ -1,0 +1,35 @@
+{
+  "repository": "https://github.com/STMicroelectronics/stm32-mw-fatfs",
+  "commit": "dd9126e957ae841a13ccbe2115d39a1fb7414126",
+  "version": "ST4.1.0 FatFs R0.16 security-patched",
+  "files": [
+    {
+      "source": "source/ff.c",
+      "sha256": "4b5694046ff712e5a20de9b5760e85f3bec121ecbfa791f0cf2ef0cf205387ed"
+    },
+    {
+      "source": "source/ff.h",
+      "sha256": "9cf28c0a40260123c3f290692cbc46326a73f00290a740bdd68d1b82fff3bb05"
+    },
+    {
+      "source": "source/diskio.h",
+      "sha256": "9ad9ea857ea7752cb7dcf2f065899eee3abfeec5039598d28cc3cf2acebcbb86"
+    },
+    {
+      "source": "source/ffconf_template.h",
+      "sha256": "add5829629dd40c9c8b76bd5f53e1491475aaa53f0d80c29d262185853d358dc"
+    },
+    {
+      "source": "source/st_readme.txt",
+      "sha256": "3128906b950cc839c1fe831337669963915b8fca275dd4723acfc2dd829cb9c3"
+    },
+    {
+      "source": "LICENSE.md",
+      "sha256": "504402e7f729e3115f0f24a813d080c77a72bbb722967c2508c0cf7b6496ba85"
+    },
+    {
+      "source": "st_license.txt",
+      "sha256": "d5a162f3eaf2b7b6762f00700017cae5695ebbdce7932fead8316448baafd9c1"
+    }
+  ]
+}

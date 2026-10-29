@@ -30,7 +30,11 @@ int sd_writer_r3_gate(SdSpi *s)
 int sd_writer_begin(SdWriter *w,SdSpi *s,uint32_t lba,const uint8_t b[512])
 {
  if(!w||!s||!b||w->active||!s->initialized||s->failed||!s->write_enabled)return SD_REFUSED;
+#ifdef R3_DURABLE_CARD_PROFILE
+ if(s->begin_lba!=0||s->limit_lba!=62333952u||s->sectors!=62333952u||lba>=s->limit_lba)return SD_RANGE;
+#else
  if(s->begin_lba!=8192||s->limit_lba!=40960||lba<s->begin_lba||lba>=s->limit_lba)return SD_RANGE;
+#endif
  memset(w,0,sizeof *w);w->card=s;w->data=b;w->lba=lba;w->crc=sd_crc16(b,512);w->active=true;w->state=1;w->begin_us=s->io.us(s->io.context);return 0;
 }
 int sd_writer_step(SdWriter *w)
