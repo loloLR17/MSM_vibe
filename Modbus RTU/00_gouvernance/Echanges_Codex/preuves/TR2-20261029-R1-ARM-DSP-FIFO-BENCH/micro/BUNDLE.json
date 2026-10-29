@@ -1,0 +1,268 @@
+[
+  {
+    "file": "initial-state.json.zlib",
+    "source": "initial-state.json",
+    "bytes": 325,
+    "sha256": "26520a6e9fa13c3c805e23aca615a023ad94a3b5c0cb9bdba4231d68d6eb3763",
+    "stored_sha256": "8dd633ee4b8ce78f20f2d3e16ae2e29c0c775a1af9c15e9f7eb57ac3d21a0dd8"
+  },
+  {
+    "file": "stlink-initial.log.zlib",
+    "source": "stlink-initial.log",
+    "bytes": 506,
+    "sha256": "944d661571428454b8cbf1577533a917ff49105319364f2cd50c8384d7cf6155",
+    "stored_sha256": "e2ad643216a4dcf9483cb1e369dcc763c0c73acc565d7e96f8b3b7d9ed95d55e"
+  },
+  {
+    "file": "stlink-after-user-confirmation.log.zlib",
+    "source": "stlink-after-user-confirmation.log",
+    "bytes": 506,
+    "sha256": "a811f52d2c09b9827bc2d5f356a1202f12b45e8b7f159fa0944db690cf2ddb3d",
+    "stored_sha256": "9b91d769fc5dc4b814b5c87843000771602d8f9248e095eff5abcfd35d7bc525"
+  },
+  {
+    "file": "user-physical-confirmation.json.zlib",
+    "source": "user-physical-confirmation.json",
+    "bytes": 279,
+    "sha256": "b1c1b81e65bd4f95dc5f6bb6630a3029ed6535200c9ce6b45c0ff5cf19a922c8",
+    "stored_sha256": "7d4e83c3a7b5f434e407d2ae5d6ac3d4fa6736746f1b8c7aca7e7a0ad25c7058"
+  },
+  {
+    "file": "artifact.json.zlib",
+    "source": "artifact.json",
+    "bytes": 41579,
+    "sha256": "90e9b0911ab4a482dda8d439fb39a8136eb3611298f38bc7fce59d92a0d0e76d",
+    "stored_sha256": "10d3d2d56a04e4a1dac8843cd4c08c0dcb6280d7d6ec878ac194e7dca06b5466"
+  },
+  {
+    "file": "backup-verification.json.zlib",
+    "source": "backup-verification.json",
+    "bytes": 426,
+    "sha256": "c33f0bb505284ca20a83ca82c17c90ab59799180232233909aacd5939a888e1f",
+    "stored_sha256": "fcef7cf37abebd71008a071aded2f422e7e0e6e357bc15aafa3702814a4237f9"
+  },
+  {
+    "file": "programmed-readback.json.zlib",
+    "source": "programmed-readback.json",
+    "bytes": 235,
+    "sha256": "153c4ccbb54f272fa11413451956d7521791bbf0425502ffaaa04c1b8ea06ba3",
+    "stored_sha256": "ed08297539abebce0b7720a984a3eccd7139b5e41a9d163a4598580ba4211602"
+  },
+  {
+    "file": "control-red.log.zlib",
+    "source": "control-red.log",
+    "bytes": 678,
+    "sha256": "806d43147eadf43780290d70a3b8f25fbf9182d313e4e90e50e541609ce6da1d",
+    "stored_sha256": "97b8c04e3d7abc79c569430f7c0480c8f1e40e58590c387532c06327ba079e12"
+  },
+  {
+    "file": "control-green.log.zlib",
+    "source": "control-green.log",
+    "bytes": 357,
+    "sha256": "4bddde811fc4cf0925b3a6dcdd00519d63998df86f0595d064464afc012cfe18",
+    "stored_sha256": "5324ff87cfb1309a884a392f8cc0788c2d251f5483934acef68fe9d68b679c28"
+  },
+  {
+    "file": "tools-test.log.zlib",
+    "source": "tools-test.log",
+    "bytes": 460,
+    "sha256": "c950dad0cad04b545f8ab6c569da8d512de72a4cdaa333acdf4a0afe17289071",
+    "stored_sha256": "d75bcbe6b3441e205a8f82bcf208671d13b0d1971f3da098ba22a08d6541da08"
+  },
+  {
+    "file": "canonical-cross-build.log.zlib",
+    "source": "canonical-cross-build.log",
+    "bytes": 7105,
+    "sha256": "35164065871d691bf796ed3dfdc619ca3eb71f0a692468e05abfd8f61b42fd3e",
+    "stored_sha256": "8fe9c1e06d4164c0aaaafc8accc9e63f999f5fb562092539150916c269a9045e"
+  },
+  {
+    "file": "arm-build-schema.log.zlib",
+    "source": "arm-build-schema.log",
+    "bytes": 2967,
+    "sha256": "f99cfdce39a355f9245c640a7bf34a63335019b5cca30d01a9d67df7d9ca4090",
+    "stored_sha256": "feac691ea7715a54a0a99a6831d608cae2714dad352d72b7c11dc56ad58ff92e"
+  },
+  {
+    "file": "compile-commands.json.zlib",
+    "source": "compile-commands.json",
+    "bytes": 20765,
+    "sha256": "4a01daeebe6f42144d61bb3af5a01db6b490a8e02a38367dd05c55db3d1af591",
+    "stored_sha256": "9d509b31b8ade0502a9e0c4b245f08e01bdbefff348bfacf3af20883c488ab8d"
+  },
+  {
+    "file": "size.txt.zlib",
+    "source": "size.txt",
+    "bytes": 163,
+    "sha256": "25229a0e1c206f9ea5ce43e3bed7f81155212a3573597781d8bc237e8ad5aa50",
+    "stored_sha256": "94f64712de584c9f437ac0467ef2526421eb3e02917f5402f68a460234467262"
+  },
+  {
+    "file": "attributes.txt.zlib",
+    "source": "attributes.txt",
+    "bytes": 404,
+    "sha256": "5eb0e596016ae2c814f314244a9d7953684d98194938c1b1a0563508cbb9dd64",
+    "stored_sha256": "2ad6c23e3bf908031b301f38db73279be8470d1c7c9c81c69195612a8bca5028"
+  },
+  {
+    "file": "sections.txt.zlib",
+    "source": "sections.txt",
+    "bytes": 2208,
+    "sha256": "8bb2db1ad2bcc1639a622ad455d71f5c8ca981e6ae9a959ea8ccc19144f78d60",
+    "stored_sha256": "3dc82b14d4717abc1de57c3222b17a05851b3e71e3eae564f71fcd0eddd0c887"
+  },
+  {
+    "file": "symbols.txt.zlib",
+    "source": "symbols.txt",
+    "bytes": 8917,
+    "sha256": "3028020c23432144bf5a238f903d5e32a4254ac5bfdb3431877bce90c3d4924a",
+    "stored_sha256": "7b2afde99873662d402b91bc1fd7739ee48dc1c1cf887124989ec749442ef3af"
+  },
+  {
+    "file": "hardware--preflight-002-backup.gdb.zlib",
+    "source": "hardware/preflight-002-backup.gdb",
+    "bytes": 441,
+    "sha256": "7eabbe5eba060e7e291ebeeba57ab44d636447f76858ab7ce70b65f68f3bf6ec",
+    "stored_sha256": "d98cb03aaaa804ea0ffc35a8710e63cc4b31d5431bd0a16c5805847111ffaae6"
+  },
+  {
+    "file": "hardware--preflight-002-backup.log.zlib",
+    "source": "hardware/preflight-002-backup.log",
+    "bytes": 339,
+    "sha256": "24360b78f5a010ffa4a44c1c8237b9e2305d9550037abdc0cc72e27ba44a66c6",
+    "stored_sha256": "539c1f869a86d35b466bf8fac913ec39165b9c9ce8217c692380331b5d84b148"
+  },
+  {
+    "file": "hardware--preflight-002-backup-invocation.json.zlib",
+    "source": "hardware/preflight-002-backup-invocation.json",
+    "bytes": 625,
+    "sha256": "30e842749046b3c96831f9c4a37f34d467df426791b366cb21e3123e6e1d4870",
+    "stored_sha256": "72310e0dc90276b0326a46ecad9032cb59411a00ca9db7cf01f8c5cf9398d34d"
+  },
+  {
+    "file": "hardware--flash-micro-002-command.json.zlib",
+    "source": "hardware/flash-micro-002-command.json",
+    "bytes": 523,
+    "sha256": "630cbaa2d30d73ae0316eb3d637eca62be95c53363d6ac4f9ff3577466386f36",
+    "stored_sha256": "d689f4557f293618ffe582e62bdc7e21745bde8b54d4f9189b8859d06431e934"
+  },
+  {
+    "file": "hardware--flash-micro-002.log.zlib",
+    "source": "hardware/flash-micro-002.log",
+    "bytes": 1672,
+    "sha256": "397545fe153f49bff28c0ceb9ba60b9c747be522cc74938f26b2a8251a60defe",
+    "stored_sha256": "4d1c3be18a3a7765c26a7c308a0264bdf2ec6428b57e58209c3cd79a6436ca5d"
+  },
+  {
+    "file": "hardware--wait-readback-002.log.zlib",
+    "source": "hardware/wait-readback-002.log",
+    "bytes": 4294,
+    "sha256": "98f9646acd432bf7f50b338e0a513b931ef50cbb670365a8ca1c6032a8a5a14d",
+    "stored_sha256": "e152dee04fa91c7b3b105fe7a1c74f1905a800830994202f065ea61553aa2673"
+  },
+  {
+    "file": "hardware--micro-run-002.gdb.zlib",
+    "source": "hardware/micro-run-002.gdb",
+    "bytes": 1328,
+    "sha256": "4a43401f5f78519c85b25cd849268b25e054fca4fe4280d9d2d05a6eb4b85101",
+    "stored_sha256": "ada33b7222f84310d87f158a6f551cf747b32e4f00b8bfdaf889715f3482fad9"
+  },
+  {
+    "file": "hardware--micro-run-002.log.zlib",
+    "source": "hardware/micro-run-002.log",
+    "bytes": 9550,
+    "sha256": "054650ce6f621ce6ddb9897d195899438bb7a72cc250a4512f7dd292567a1c9e",
+    "stored_sha256": "3dc5434083266e4d605522ac6b8cfb53022d72f1be6367aad491ae9a0c866910"
+  },
+  {
+    "file": "hardware--micro-run-002-invocation.json.zlib",
+    "source": "hardware/micro-run-002-invocation.json",
+    "bytes": 732,
+    "sha256": "49c1ba4040b7121f30c684704bcef954edf170c30ce27b3e840d225701a59577",
+    "stored_sha256": "adad7a259d09d4fa877286af4319357438d277d7d6a9c833b1c5e4f56a393971"
+  },
+  {
+    "file": "hardware--micro-done-capture-only-002.gdb.zlib",
+    "source": "hardware/micro-done-capture-only-002.gdb",
+    "bytes": 1133,
+    "sha256": "6b72674a4b2978056ad4dc6cd2cfce89068d77bc95bda1a7b79faabdcd41b02a",
+    "stored_sha256": "274cec8753de35dc0b346bcd056d3942e2af40a4e02ba524d8e9407d949074e6"
+  },
+  {
+    "file": "hardware--micro-done-capture-only-002.log.zlib",
+    "source": "hardware/micro-done-capture-only-002.log",
+    "bytes": 251,
+    "sha256": "59d6d5ae41d800f21c00f7228396858cfd52a8b30175abcfcda9cc3d0c4f157b",
+    "stored_sha256": "cb956e341c8e3195ab62af3a835c2dfdaed549f3a5af00a6ec1e123513c49a70"
+  },
+  {
+    "file": "hardware--micro-done-capture-only-002-invocation.json.zlib",
+    "source": "hardware/micro-done-capture-only-002-invocation.json",
+    "bytes": 746,
+    "sha256": "f8fc680273b0878820c4d2745b382b7e37e76fadb167fe431c219f406b2b9af7",
+    "stored_sha256": "70503e96fc9a3eb8304271433dedb6d96490b12f07148bd563ab0f6b2634e578"
+  },
+  {
+    "file": "physical-pending--result.bin.zlib",
+    "source": "physical-pending/result.bin",
+    "bytes": 1136,
+    "sha256": "078b1f209ea9dcc7b466eadd21aab1cbaabb028692592d09647a7eb8751ec515",
+    "stored_sha256": "17d1adc62621a621facce47b7fd0d2b9bedb89ed63e9f46834e5ef0aa0fe319a"
+  },
+  {
+    "file": "physical-pending--blocks.bin.zlib",
+    "source": "physical-pending/blocks.bin",
+    "bytes": 8192,
+    "sha256": "d46b1523f8c64776c734d1e4118907c607efa704d894fea1f218091ffc33f301",
+    "stored_sha256": "1ab4830998772c8800bd86681f36ebfc73c95ea5b41786a716ac0c3421912e38"
+  },
+  {
+    "file": "physical-pending--emissions.bin.zlib",
+    "source": "physical-pending/emissions.bin",
+    "bytes": 131072,
+    "sha256": "e38f77e517e30a0efdf9195f77192ff37c4159905245f4692be1aa3b3c94e1ef",
+    "stored_sha256": "64d06d28173c5af430e6be5a58fb921334e487502581ba4f8ebacca9bd3a0891"
+  },
+  {
+    "file": "physical-pending--overhead.bin.zlib",
+    "source": "physical-pending/overhead.bin",
+    "bytes": 1024,
+    "sha256": "f7c4ff1f9d319cf396b2e96f7cab39a6ff59ab30e543519661be6fba5fabb090",
+    "stored_sha256": "384c66546431512b2947e9b82d4cb547e368595bc97102cc0fbd840c1be63ea4"
+  },
+  {
+    "file": "micro-physical-analysis.json.zlib",
+    "source": "micro-physical-analysis.json",
+    "bytes": 8377,
+    "sha256": "ac8e6d2a29f509035d93b774fadb61286ce9733768f13c758e0e0efe7e653312",
+    "stored_sha256": "4952b79f6f0ec3d132a07f1ccc42855af0f9e14d444b1c9a6a2feac732f4e9ae"
+  },
+  {
+    "file": "primary-readonly-api.json.zlib",
+    "source": "primary-readonly-api.json",
+    "bytes": 1528,
+    "sha256": "d1c9fbf6b108f0df1de957d2125d2b9a6fd9c7b84e2022449db292f24d201e04",
+    "stored_sha256": "5bad01fa30be72421731a570d39fb958b3965100b0f7eb034877719ffdab3be0"
+  },
+  {
+    "file": "arm--r1_dsp_micro.bin.zlib",
+    "source": "arm/r1_dsp_micro.bin",
+    "bytes": 13260,
+    "sha256": "9ffe22d574053bea653ba21e86dc92344f874ccbd824ba531ee86400cf5507e6",
+    "stored_sha256": "8bb26de56b71928b73acc06bc5841f7c1fa7cf39925b32258929ff74513ac962"
+  },
+  {
+    "file": "arm--r1_dsp_micro.elf.zlib",
+    "source": "arm/r1_dsp_micro.elf",
+    "bytes": 1661392,
+    "sha256": "1b796822b1cf80aabbbd30add7272df55d0a4eb230e1e83024ecdf17bdd62846",
+    "stored_sha256": "e09811381f7ea7ecf21e0ff8e47eed773c4ad4611c5b4c87471630e5c31271b2"
+  },
+  {
+    "file": "arm--r1_dsp_micro.map.zlib",
+    "source": "arm/r1_dsp_micro.map",
+    "bytes": 383918,
+    "sha256": "4e2d92c2146da50e1cb2283106bc092072dde78ff7ae4678c277428a101e9287",
+    "stored_sha256": "d1e1bc09b0e9928fad2e1cb5295525821207945ff955c5c16502d161983b0c16"
+  }
+]

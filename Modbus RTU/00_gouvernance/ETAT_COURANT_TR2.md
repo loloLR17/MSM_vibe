@@ -1,5 +1,8 @@
 # État courant MSM TR2 — synthèse opérationnelle
 
+**29/10/2026 — R1-ARM IN_PROGRESS, microphysique acquis :** TR2-002 SN003200…3439/UID001B0046-38425018-20333157 relus ; backupFlashdd1a…fb1f1/probeBfdb7 préfixe vérifiés. Source0c4b8699/BIN9ffe…507e6, unflashverify/readback et unRAMtrigger, 8caspairedDWT validés, pasFIFOencore. Q15émissionmoy~9364cycles/max9492, burst60max543µs/burst128max1168µs (référencework1ms dépasséeen128). Chargeinstrumentée nominale~24,06% vs3,62%, delta~20,45points ; pas de WCET/rendementFIFO déduit. CollecteGDB corrigée aprèsDONE sansrejouer ; pilemarqueur464B/plancher1584B intact. Capteuràraccorder parutilisateur ; phaseFIFO àpréparer/qualifier. Utilisateur nepeutalimenter001/002 simultanément :001off accepté, serviceinchangé/CommunicationLost, aucunflash/debug/commandesprimaire. SD/FRAM/RTU nonexécutés ; garder002microDONE sansautostart.
+
+
 **29/10/2026 — R1-DSP-A, DONE logiciel / publication relue :** code0ad417d6, FIR causal107XYZ /10 avec DCexactQ15, phase/segments/temps causal, rails source et clippingFIR distincts.149testsC/canoniqueARM,59rejeuxC vsSciPy/3témoinsSHA exacts, ciblésASan/UBSan PASS. Q15 :gain0–700Hz erreurmax0,002766dB, bornecontinue rejet−66,538dB (arrondis ton12000comptes inclus−63,412dB), écartmaxfloat64 observé25comptes/borné27. LinkageARMsoft ABI/MLA, état744B/coeff214B ; pascyclesDWT/CPUphysique/pilemesurée. CanoniqueBIN85b1…c0f5 inchangé, FIR nonraccordé auFIFO. AucunWindows/COM4/flash/debug/reset/FRAM/SD ; AC1archivé resteBLOCKEDenattenteexterne. Pointretoura3f5ac33 conservé. Bilan45fb24d8 relu12:36:05UTC :64fichiers/45artefacts/3témoins contrôlés depuisGitHub. Suite :revueChatGPT puis missionphysiqueR1-ARM avec autorisations/target/mesuresbornées, pas GOstockage ou8h.
 
 

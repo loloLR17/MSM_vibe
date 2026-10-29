@@ -9,8 +9,8 @@ if not a.image.is_file():ap.error('Missing firmware image')
 a.scripts.mkdir(parents=True,exist_ok=False);a.capture.mkdir(parents=True,exist_ok=False)
 def target(n):
  s=subprocess.check_output(['wslpath','-w',str((a.capture/n).resolve())],text=True).strip().replace('\\','/')
- if any(c in s for c in '\n\r"'):raise ValueError('Unsafe debugger path')
- return '"'+s+'"'
+ if any(c.isspace() or c=='"' for c in s):raise ValueError('GDB dump path must have no whitespace or quotes')
+ return s
 pre='set pagination off\nset confirm off\nset remotetimeout 10\ntarget extended-remote localhost:61236\n'
 identity='''x/3wx 0x0BFA0700
 if *(unsigned int*)0x0BFA0700 != 0x001B0046 || *(unsigned int*)0x0BFA0704 != 0x38425018 || *(unsigned int*)0x0BFA0708 != 0x20333157
