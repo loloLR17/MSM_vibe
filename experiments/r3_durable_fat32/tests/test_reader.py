@@ -31,6 +31,7 @@ with tempfile.TemporaryDirectory() as d:
  c=bytearray(b);c[-512:]=bytes(512);c[512+100]^=1;p.write_bytes(c);r=m.verify(p);assert r['status']=='INCOMPLETE' and r['valid_xyz']==0 and 'tail' in r['stop_reason'];count+=1
  # Clock/quality reconstruction and portable XYZ extraction from C fixture.
  export=Path(d)/'export.csv';m.write_csv(fixture,export);rows=list(csv.DictReader(export.open()))
+ assert m.verify(fixture)['observed_duration_us']==28875 and abs(m.verify(fixture)['observed_output_hz_between_endpoints']-8000/3)<1e-9
  assert len(rows)==78 and int(rows[0]['time_us_interpolated'])==5000000 and int(rows[-1]['time_us_interpolated'])==5028875
  assert [int(x['source_index']) for x in rows]==list(range(0,780,10))
  assert [int(x['x_count']) for x in rows]==list(range(1000,1078)) and sum(int(x['warmup']) for x in rows)==11

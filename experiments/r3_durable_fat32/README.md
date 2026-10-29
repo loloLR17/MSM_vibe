@@ -173,3 +173,7 @@ extraction are required. Corrected new image must carry its own committed GitSHA
 Protocol reference: [official ST Adafruit tokens/commands](https://github.com/STMicroelectronics/STM32CubeG4/blob/master/Drivers/BSP/Adafruit_Shield/adafruit_802_sd.c),
 SD Association Physical Layer Simplified3.01 SPI§7: FC/FD tokens and ACMD23 hint;
 [SDA original specification mirrored by NXP](https://community.nxp.com/pwmxy87654/attachments/pwmxy87654/kinetis/28816/1/Simplified_Physical_Layer_Spec_3.01.pdf).
+
+The importer distinguishes the initial calibration's rational rate from the
+observed whole-file rate computed using actual first/last output endpoints.
+Neither is UTC or an SI calibration; local tracking remains active during capture.

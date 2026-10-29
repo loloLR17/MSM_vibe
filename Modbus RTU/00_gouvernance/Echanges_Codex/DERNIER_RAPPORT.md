@@ -16,12 +16,16 @@ allow_debug: true
 
 # R3-DURABLE — checkpoint FAT32 : fichiers PC courts validés, arrêt long sur grappe SD
 
-**IN_PROGRESS — correctiongroupée effectivement chargée et paliers2s/60s sains.**
-L’anciennégatif265s et les fichiersPC complets/incomplet sont conservés ; le nouvel
-essai600s est en cours. Ne pas le perturber ni revendiquer10min avant terminal et
-extractionPC. Codephysiqueactuel **6fdae042333f671629d2c4626d7120b0bd848ae3**, BIN
-**27f5d59fc58803d6a7fd66714014ca7d24da60023736386b3375b9272fbf9ef6** ; secondeprogrammationR3-DURABLE
-standard verify/readback exact, pas de resetlogiciel supplémentaire.
+**IN_PROGRESS — 600secondes réelles réussies sur imagegroupée6fdae042.**
+15856920XYZ sources →1585692sorties/9514152B utiles,20330records512/2542groupes,
+zéroOVR/SD/file/source/temps/rail/clip. Capture600,000520s, STOP151µs etdrainpayload
+11733µs, footercompletacknowledged/SDquiescente/debugdétaché.
+Work704,331/service1396,881/gap1653µs sous1000/2500/5000, filepeak5632B/FIFO49,
+pile2264B/plancher1832B,600000SysTick/5968contrôleshorloge/résidu42µs.
+**La vraie extractionPC finale desR2N reste à effectuer avantDONE.** Retrait vers
+lecteurPC aprèsarrêtsûr demandé àl’utilisateur ; attendre sa confirmation.
+Aucune répétition du600s réussi, aucunformat/reset/reflash supplémentaire.
+[Preuves600s](preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-group-600s/BUNDLE.json).
 
 ## Correction minimale et résultats intermédiaires nouveaux
 
@@ -50,9 +54,9 @@ Les statistiquesSD RAM version2 comptent desGROUPES ; leshistogrammesbusy réels
 parsecteur etstop sont séparés. Ne pas comparer abusivement leurs sommes aux
 anciennes latences unitairesCMD24. Références1000/2500/5000µs inchangées.
 
-Le600s est lancé sansdebugpendantcapture, timeoutoutil750s. Encasd’interruption,
+Le600s a terminé normalement aprèsune fenêtre sansdebughalt. Encasd’interruptionfuture,
 vérifier logs/processus avant toutattachement ; pas de répétitioncodeinchangé.
-Àl’arrêt normal : analyserbruts puis retraitphysiquesûr pourcopierles3R2N*.TR2
+Retraitphysiquesûr demandé pourcopierles3R2N*.TR2
 depuislecteurPC et confronter touslesoctets auSHAproducteur. Lesanciensfichiers
 seront égalementhachés pourvérifier leurpréservation.
 [Preuves groupées](preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-group-short/BUNDLE.json).
