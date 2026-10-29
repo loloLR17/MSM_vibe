@@ -1,0 +1,20 @@
+{
+  "st_commit": "1d9f03564da407b0a70bfa53e54681c8dc923bc2",
+  "urls": {
+    "stm32u575zi.pdf": "https://www.st.com/resource/en/datasheet/stm32u575zi.pdf",
+    "um2861.pdf": "https://www.st.com/resource/en/user_manual/um2861-stm32u5-nucleo144-board-mb1549-stmicroelectronics.pdf",
+    "adafruit-pinouts.html": "https://learn.adafruit.com/adafruit-microsd-spi-sdio/pinouts",
+    "adafruit_802_sd.c": "https://raw.githubusercontent.com/STMicroelectronics/STM32CubeG4/1d9f03564da407b0a70bfa53e54681c8dc923bc2/Drivers/BSP/Adafruit_Shield/adafruit_802_sd.c",
+    "adafruit_802_sd.h": "https://raw.githubusercontent.com/STMicroelectronics/STM32CubeG4/1d9f03564da407b0a70bfa53e54681c8dc923bc2/Drivers/BSP/Adafruit_Shield/adafruit_802_sd.h"
+  },
+  "local_reference_hashes": {
+    "adafruit_802_sd.c": "fa3869f212217eaf2fcf3641de7abeefaaffc4fc6c608110d4b390b145d94088",
+    "adafruit_802_sd.h": "bfdc2d688ed8c7447624d7f8410ee9649896a2b7639690b1e36751312ebec617"
+  },
+  "additional_urls": [
+    "https://www.st.com/resource/en/datasheet/stm32u575zi.pdf",
+    "https://www.st.com/resource/en/user_manual/um2861-stm32u5-nucleo144-board-mb1549-stmicroelectronics.pdf",
+    "https://learn.adafruit.com/adafruit-microsd-spi-sdio/pinouts"
+  ],
+  "reference_adaptation": "Independent bounded SDHC-only transport; no BSP source copied; installed HAL/startup reused with existing license"
+}
