@@ -70,3 +70,64 @@ Cette note ne remplace **pas** le cahier métier préexistant qui définit toujo
 5. **Échanges Codex :** `TR2-20261028-ACCEL-FS8G-VIBRATION-AC` demeure actif avec rapport `BLOCKED`. Aucune nouvelle mission ni évolution firmware dans cette étude ; une mission R1/R2 nécessite le traitement gouverné de la précédente.
 
 **Nature des preuves :** chiffres de bande passante issus du protocole et du code actuel ; coût de FIR et fréquence comme modèles numériques, non résultats d'essais physiques, Ethernet et durabilité non qualifiés.
+
+## 5. Vérification numérique indépendante du FIR /10 et risques (29/10/2026)
+
+**Nature de la preuve : expérience numérique exécutée par ChatGPT hors dépôt/hors matériel, reproduite sous Python / NumPy 2.3.5 / SciPy 1.17.0.** Aucune compilation ARM, aucune mesure physique du STM32 ou de l'IIS3DWB, aucune publication de code DSP opérationnel. Les constats suivants portent exclusivement sur la sortie **~2 666,666… Hz** et le FIR A107 **sans second étage B**.
+
+### 5.1 Coefficients et réponse fréquentielle
+
+```python
+import numpy as np
+from scipy import signal
+FS = 80000/3
+BETA = 7.85726
+H = signal.firwin(107, 1333.3333333333333,
+                  fs=FS, window=("kaiser", BETA))
+w, gain = signal.freqz(H, worN=2**20, fs=FS)
+pb = 20*np.log10(abs(gain[w <= 700]))
+sb = 20*np.log10(abs(gain[w >= FS/10 - 700]))
+print(np.max(abs(pb)), np.max(sb))
+# env. 0.00097964 dB, -80.60020 dB
+```
+
+- Gain DC `sum(H)=1,0000000000000002`, bande 0–700 Hz **max |erreur gain| 0,00097964 dB**, stopband `[f_out-700 ; FS/2]` **max −80,6002 dB**, avec extrémum observé vers **2 011,27 Hz**. Le rejet de la bande utile pour une décimation /10 commence à **1 966,6667 Hz**, **pas** à 1 300 Hz (cette dernière fréquence était une contrainte du deuxième étage 2 kHz).
+- Contrôle supplémentaire sur une grille inclusive de **262 145 points** entre `FS/10−700` et `FS/2` : maximum d'amplitude relevé `9,33233×10^-5` vers `2 011,28 Hz`. En majorant l'interpolation du module de la réponse complexe centrée par `L×(pas/2)`, avec `L=(2π/FS)∑|n−53|·|H[n]|=0,00220611/Hz` et pas `≈0,04336 Hz`, on obtient **une borne conservatrice ≈−77,0 dB** *pour les coefficients flottants étudiés*, sur le continuum de fréquences couvert. Ce majorant mathématique tient compte de la finesse de grille, mais reste limité aux **coefficients numériques exacts utilisés dans ce calcul** ; ni erreur de quantification firmware, ni capteur physique inclus.
+- Exemple de repliement d'une sinusoïde : entrée **2 000 Hz** → sortie repliée **666,667 Hz** et **−81,37 dB** après FIR. Une entrée **1 600 Hz** → repliée **1 066,667 Hz** mais avec seulement **−18,72 dB** d'atténuation ; elle demeure **hors bande métier 0–700 Hz**, et n'est pas annoncée comme correctement supprimée. **Ne pas prétendre garantir la bande 700–1 333 Hz**.
+- Délai de groupe du filtre seul : `53/(80 000/3)=1,9875 ms`. Ce n'est pas la latence de publication/writer ni un modèle complet d'horodatage.
+
+### 5.2 Causalité, chunks, témoins de reproductibilité
+
+Oracle de référence : `signal.upfirdn(H, x, down=10)[:(len(x)+9)//10]` pour chaque axe, **état initial nul, sans émettre la queue de convolution après STOP**, phase d'émission globale `n_source mod 10 == 0`, résultat en comptes signés int16 après `np.rint` / saturation / entrelacement **X,Y,Z little-endian**. Une version `signal.lfilter` avec état `zi=zeros(106)`, index d'entrée global conservé entre chunks et émission sur `n_source%10=0` doit produire le **même nombre et la même séquence**. Après une perte FIFO, ce maintien de phase ne peut être prolongé sans créer un nouveau segment explicite.
+
+**Test exécuté** à 160 000 échantillons source = 6 s nominales → **16 000 XYZ enregistrés**, 96 000 octets en format int16 × XYZ. Comparaison exacte, pour un signal déterministe contenant **X = 1000+12000 sin(2π·25t)**, **Y = −2000+11000 cos(2π·700t)**, **Z = 500+7000 sin(2π·1600t)**, arrondis nearest-even int16 à l'entrée : chunks répétés de taille 1, 7, 13, 31, 255, 512, 1024 et cycle variable `[1,7,10,13,31,255,512,1024]` → **16 000 sorties identiques à l'oracle batch, écart maximum 0 compte**. Ce résultat valide uniquement l'indépendance des partitions de cet oracle Python, pas la reprise de pertes ni le temps réel ARM.
+
+| Vecteur 6 s, phase globale n=0, version float64 SciPy ci-dessus | SHA256 des 96 000 octets sortie `<i2` entrelacés |
+|---|---|
+| DC constant `[16384,−8192,4096]` | `7a90f77cc609e017be51c46ae4d9cac3d8476bdf2abe396742da5c504341a828` |
+| Impulsion `X[0]=16384`, Y=Z=0 | `27f14a2cb1ff2d01bc9df168a1cabb756f1419b1ad78903a72aa416b28e14995` |
+| Multisinusoïdes X25 / Y700 / Z1600 Hz et DC, quantifiées à l'entrée | `56696f8d06264bcb24152ec8b705aa209056309b194c1853c9c48dbb5e4e093d` |
+
+Ces témoins servent à reproduire **exactement le même oracle et les mêmes options de format** ; des variantes `float32`/CMSIS/Q15 peuvent différer de quelques comptes et exigent des tolérances métier indépendantes, pas un faux échec SHA.
+
+### 5.3 Quantification et pleine échelle : points de vigilance
+
+En recalculant la réponse des **107 coefficients** quantifiés, pour une quantification indépendante de chaque tap et le même intervalle continu de fréquence :
+
+| Représentation des coefficients FIR (simulation de quantification) | Plus forte erreur de gain en 0–700 Hz | Pic d'atténuation stopband ≥1 966,667 Hz observé | Borne de grille conservative approximative |
+|---|---:|---:|---:|
+| `float64` référence | ~0,000980 dB | **−80,60 dB** | **−77,01 dB** |
+| `float32` coefficients | ~0,000980 dB | −80,60 dB | −77,01 dB |
+| `Q15` arrondi coefficients `round(H·32768)/32768` | ~0,00144 dB | **−71,35 dB** | **−69,94 dB** |
+| `Q31` arrondi coefficients | ~0,000980 dB | −80,60 dB | −77,01 dB |
+
+**Attention** : ce tableau **ne simule pas** l'accumulateur, les arrondis intermédiaires, les décalages, les saturations d'état ou les erreurs temporelles du STM32. En Q15, `sum(|coeffs_Q15|)=47 473` unités Q15 et un calcul de somme des produits int16 pondérés a une borne absolue conservatrice de `47 473×32 768=1 555 595 264`, sous `INT32_MAX` pour le **FIR direct avec ces coefficients**, mais cela **ne qualifie pas automatiquement** la variante accélérée CMSIS-DSP ou son gain/décalage. Toute transformation de kernel exige une preuve de marge.
+
+**Risque confirmé en simulation** : pour une inversion brusque `+32760 → −32760` de l'entrée après préconditionnement à +32760, le FIR flottant présente du ringing et les valeurs de sortie ont atteint **−35 674 à +36 382 comptes** : **six échantillons** dépassent les bornes int16 dans cet essai. Ne jamais caster directement le float calculé vers int16 en laissant déborder : **saturation explicite et indicateur de qualité** pour la sortie ; définir si des dépassements causés par le filtre sur données capteur valides doivent déclencher un avertissement distinct de la saturation physique du capteur. Ce défaut de confiance doit être traité avant le format final.
+
+### 5.4 Portée et conclusion
+
+- **Option de conception R1 privilégiée** : sortie ≈2 666,7 Hz par un seul FIR A107 et décimation /10, sur **les trois axes avec DC conservé**, sans deuxième filtre obligatoire.
+- **Pas une qualification de production** : acquisition IIS3DWB, fréquence native réelle, stabilité d'horloge, full scale ±8g, exactitude filtre LPF capteur, bruit/alias physique pré-ADC, performance ARM/cycles et SPI2/microSD **non testés par cette analyse**.
+- Le transport intégral LIVE Modbus RTU a été **examiné par principe**, puis **écarté du périmètre V1 à la demande expresse de l'utilisateur**. Ne pas rouvrir cette alternative sans nouveau besoin métier : préserver l'archive microSD et Modbus RTU pour les commandes/états/indicateurs.
+- **Avant développement firmware** : reporter ces vecteurs et pièges dans le protocole R1-DSP, définir la sémantique des indicateurs de dépassement transitoire, qualifier un codec de fichier compatible PC et le temps réel du STM32. Garder le point de retour Git `a3f5ac33a728a5afd028192654c17e5b04ee8d7b` ; TR2-002 seul banc SPI2 futur, TR2-001 préservé ; contrat Codex AC1 bloqué inchangé.
