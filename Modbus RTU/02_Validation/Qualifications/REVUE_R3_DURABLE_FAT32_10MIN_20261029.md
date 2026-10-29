@@ -17,7 +17,7 @@
 | `R2N0003.TR2` | 2,000427 s | 52 592 | 5 260 | 31 560 B | COMPLETE |
 | `R2N0004.TR2` | 60,000258 s | 1 585 488 | 158 549 | 951 294 B | COMPLETE |
 | `R2N0005.TR2` | 600,000520 s | 15 856 920 | 1 585 692 | 9 514 152 B | COMPLETE |
-| Tentative négative initiale, CMD24, 265,121081 s | INTERROMPUE | 700 830 sorties produites | 690 846 sorties récupérables | 4 145 076 B valides | INCOMPLETE |
+| Tentative négative initiale, CMD24 | 265,121081 s | Non précisé dans ce rapport | 690 846 récupérables (700 830 produites) | 4 145 076 B valides | INCOMPLETE |
 
 **Recalculs ChatGPT** : `52592/10 = 5259,2 → 5260`, `1585488/10=158548,8 → 158549`, `15856920/10=1585692`. Les volumes de payload = **6×sorties**, soit 31 560 / 951 294 / 9 514 152 B, concordent. Pour la fenêtre 600 s, débit de payload utile `9514152/600,000520 ≈ 15 856,906 B/s` ; le flux est **réel** et sa cadence mesurée diffère de la nominale. Les tailles des **fichiers préalloués** sont supérieures aux données valides (respectivement 128 KiB, 2 MiB et 12 MiB) et **ne constituent pas le total de mesures** ; le footer/CRC/compte définissent le contenu valide.
 - Sur **600 s** : work max **704,331 µs**, service max **1396,881 µs**, gap max **1653 µs** ; marges calculées aux références historiques 1000/2500/5000 µs : **295,669 / 1103,119 / 3347 µs**, indépendantes et non additionnables. FIFO max **49 mots**, file max **5632 B** dans le test final, 5 968 contrôles d'horloge et résidu max **42 µs** sous garde 100 µs. Pic busy par secteur **5495 µs** et arrêt CMD25 busy **20387 µs**, par groupe write **103280 µs** ; aucune perte FIFO/error/clip signalée dans les trois captures finales. Aucune affirmation de WCET universel.
