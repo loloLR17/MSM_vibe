@@ -18,7 +18,12 @@ static uintptr_t active_data;
 /* Passive snapshot at HAL close entry; no hook inside the RX service loop. */
 void bench_spi_preclose(SPI_HandleTypeDef *handle)
 {
+#if defined(BENCH_SECOND_SPI_OBSERVER) && BENCH_SECOND_SPI_OBSERVER
+  extern void r3_sd_preclose(SPI_HandleTypeDef *);
+  if(handle!=&spi){r3_sd_preclose(handle);return;}
+#else
   if(handle!=&spi)return;
+#endif
   if(bench_preclose_count>=PRECLOSE_RECORDS){bench_preclose_overflow=1;return;}
   BenchPreclose *r=&bench_preclose[bench_preclose_count++];
   r->sr=handle->Instance->SR;r->end_cycles=DWT->CYCCNT;
