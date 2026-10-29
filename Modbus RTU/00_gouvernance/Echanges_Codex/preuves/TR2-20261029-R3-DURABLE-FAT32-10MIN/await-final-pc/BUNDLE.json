@@ -1,0 +1,30 @@
+[
+  {
+    "source": "extract_group_pc.py",
+    "file": "extract_group_pc.py.zlib",
+    "bytes": 3895,
+    "sha256": "8c72fc51d0302fa4f8ef7ec0e8a99f99cbcd44d07dbe35b06a0f620755aae098",
+    "stored_sha256": "25c00a23837159f44171678725c4c08c9d00d54705ef9e12b3e25eeaea07b1d4"
+  },
+  {
+    "source": "make_final_report.py",
+    "file": "make_final_report.py.zlib",
+    "bytes": 16417,
+    "sha256": "9d67041f1016f66c4abd809950a5b310ca04e471f15fc6841bb2080339d8983d",
+    "stored_sha256": "0476159d9bbbbd11ed02e72a1de2684eceae5800218af1d6a4004adaea54c9fc"
+  },
+  {
+    "source": "verify_published.py",
+    "file": "verify_published.py.zlib",
+    "bytes": 1922,
+    "sha256": "01135dcac88710e3f7268f768d00fba5072f18dfca89372223a9db679a2d02b2",
+    "stored_sha256": "44f1669e9c3f2669945f6e2c0849ae22799de57ca53081a833ce9597ca5c8499"
+  },
+  {
+    "source": "remote-ten-minute-checkpoint.json",
+    "file": "remote-ten-minute-checkpoint.json.zlib",
+    "bytes": 115567,
+    "sha256": "411c7b5c2784071c3bfbee6d67795c024b00ea01f0767a86e38491c3ba6ad622",
+    "stored_sha256": "bf6ef934ecc76943238e3cd932998129db9cfa8b329cc0370b7605ed1abd17f4"
+  }
+]

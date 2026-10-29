@@ -221,3 +221,14 @@ Preuveslocales `/home/lolo/dev/msm/reports/TR2-r3-durable-fat32-10min`.
 zlib, tailles/SHAoriginaux etstockés ; l’image sparse32Go du modèle n’estpas publiée.
 Journal technique actualisé. Publication et relecture distantes du checkpoint à
 faire ; mission continue, aucun DONE physique anticipé.
+
+## Relecture du checkpoint et reprise finale
+
+Le checkpoint9e5cfc5d8ee45a8e52d7bbc27640fba8f78419b7 a été récupéré et relu
+intégralement à2026-10-29T22:40:23UTC :466fichiers exacts,433artefacts décompressés
+et hachés, empreintesvendorpristines conformes. Aucune qualificationPCfinale
+déduite de cette publication. L’unique dépendance restante est le transfert
+physique de la carte verslecteurPC, demandé àl’utilisateur aprèsquiescence.
+[Point de reprise et outils](preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/await-final-pc/REPRISE.md).
+Les scripts de finalisation **ne sont pas encore exécutés** et exigent les preuves
+PC des troisR2N. Ne pas rejouer les validations/acquisitions acquises.
