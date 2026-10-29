@@ -88,3 +88,10 @@ La [FAQ Microsoft](https://support.microsoft.com/fr-fr/windows/security/threat-m
 Journal `ETAT_COURANT_TR2.md`, note opérateur `AC1_WINDOWS_TRUST.md` et document `REPRISE.md` actualisés. Gouvernance et contrat de mission inchangés par Codex. [Preuves structurées et commandes](preuves/TR2-20261028-ACCEL-FS8G-AC1/windows-trust-resume-20261029/README.md). Preuves locales : `/home/lolo/dev/msm/reports/TR2-accel-fs8g-ac/windows-trust-resume/`.
 
 Publication normale surmain et relecture intégrale distante à consigner après push. Le statutBLOCKED désigne la ressource externe manquante, pas une interruption de quota. La mission conserve son identifiant et son objectif ; R1-DSP/ARM reste en attente.
+
+
+## Publication et relecture distante
+
+Le bilan **a13e29d5c0580326eec939cb63a0ef3761406394** est publié par push normal surmain. À **10:30:55UTC le29/10**, référence effectivement récupérée de GitHub : **24fichiers relus intégralement et byte-identiques**, **18artefacts décompressés** avec vérification de leurs empreintes brutes et stockées. [Trace de relecture](preuves/TR2-20261028-ACCEL-FS8G-AC1/windows-trust-resume-20261029/remote-readback.json). StatutBLOCKED maintenu : cette publication vérifie les preuves, pas le déblocage Windows ou la qualification physique.
+
+Worktree de publication propre/HEAD égal àmain distant au bilan ; ancienmain propre82169af, ancien worktree avec ses deux modifications préexistantes et deux stashes conservés. Le SHA de la mise à jour documentaire enregistrant cette relecture est fourni dans la réponse finale après vérification distante. Aucun changement matériel, service ou données pendant la publication.

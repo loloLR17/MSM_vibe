@@ -1,0 +1,105 @@
+{
+  "utc": "2026-10-29T10:30:55.097749+00:00",
+  "remote_sha": "a13e29d5c0580326eec939cb63a0ef3761406394",
+  "files_read_integrally": 24,
+  "bundles_decompressed_and_verified": 18,
+  "technical_status": "BLOCKED",
+  "files": [
+    {
+      "file": "Modbus RTU/00_gouvernance/ETAT_COURANT_TR2.md",
+      "sha256": "0effe0faa47b8cbc77e8b7ea50ae2e33ca2c040c9bf18159e8f0ecb1567f857c"
+    },
+    {
+      "file": "Modbus RTU/00_gouvernance/Echanges_Codex/DERNIER_RAPPORT.md",
+      "sha256": "f49506cc59211dfdeaa1dd657065074ed32c8de49ff6d9d908023458b7aa0714"
+    },
+    {
+      "file": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261028-ACCEL-FS8G-AC1/windows-trust-resume-20261029/BUNDLE.json",
+      "sha256": "98ba866a787b65b70e417bb550b49d3ee762a116e68f1cda784d2114149bc6cb"
+    },
+    {
+      "file": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261028-ACCEL-FS8G-AC1/windows-trust-resume-20261029/NModbus-3.0.83.nuspec.zlib",
+      "sha256": "01a9f9bb6fa5c15569012b5b5e6323e9a0d62ba9bbc4c2c660884f3551702ce6"
+    },
+    {
+      "file": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261028-ACCEL-FS8G-AC1/windows-trust-resume-20261029/NModbus.Serial-3.0.83.nuspec.zlib",
+      "sha256": "922a1c66275f050271ce72852853b066a0e5c80329f428b04b4cca3ad9084e74"
+    },
+    {
+      "file": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261028-ACCEL-FS8G-AC1/windows-trust-resume-20261029/README.md",
+      "sha256": "bccf97d700f2e35669f9e57eb56af64b9a7934542402438668d42282baf73678"
+    },
+    {
+      "file": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261028-ACCEL-FS8G-AC1/windows-trust-resume-20261029/SQLitePCLRaw.bundle_e_sqlite3-2.1.12.nuspec.zlib",
+      "sha256": "b1bfdd0d1fd0326f540891973b43f2a79b91bbe590897c645eedd7211c5d44a0"
+    },
+    {
+      "file": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261028-ACCEL-FS8G-AC1/windows-trust-resume-20261029/TR2-AC1-FS8G-20261028-R2-manifest.json.zlib",
+      "sha256": "1ea7dfcda12d6d3c1851b571dce2441af47b1ee11c288478a7c2e7d5c35ed465"
+    },
+    {
+      "file": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261028-ACCEL-FS8G-AC1/windows-trust-resume-20261029/TR2-AC1-FS8G-20261028-manifest.json.zlib",
+      "sha256": "b68e76cefbc7ad09576f29213a0417dbe8139dc60d84fcf6b11c7b8cfedacba2"
+    },
+    {
+      "file": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261028-ACCEL-FS8G-AC1/windows-trust-resume-20261029/correlation-summary.json.zlib",
+      "sha256": "0b4fbd8e2438b1d0e228b47048e8b85c644dbdff4ba46fa7813cdfd634e38b66"
+    },
+    {
+      "file": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261028-ACCEL-FS8G-AC1/windows-trust-resume-20261029/event-retention-command.txt.zlib",
+      "sha256": "76bade61f2338cea02834563edd86672f891d7ab2ef7aef0f598ae123b9233a3"
+    },
+    {
+      "file": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261028-ACCEL-FS8G-AC1/windows-trust-resume-20261029/event-retention-errors.log.zlib",
+      "sha256": "b171e283c6145acf2b923098dbbc40ffc39b4f1db0212928f9869747376c4ac8"
+    },
+    {
+      "file": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261028-ACCEL-FS8G-AC1/windows-trust-resume-20261029/event-retention.json.zlib",
+      "sha256": "ed6260fa680f2bcda1e3d3fed44cd1ce9ca8fe2602668753e6a55851674a9103"
+    },
+    {
+      "file": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261028-ACCEL-FS8G-AC1/windows-trust-resume-20261029/final-readonly.cjs.zlib",
+      "sha256": "b37502444ff3cea9f046ed780b829055b5b085066622b84aac9ce9bed09914a8"
+    },
+    {
+      "file": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261028-ACCEL-FS8G-AC1/windows-trust-resume-20261029/final-readonly.json.zlib",
+      "sha256": "022142f0ccb3063697ba44bee62b47e6ac0abb53041df382d2ecbeaf1945e703"
+    },
+    {
+      "file": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261028-ACCEL-FS8G-AC1/windows-trust-resume-20261029/initial-state.json.zlib",
+      "sha256": "9b616550d48227ef906c9ab7c3b43a5b25fc88b0a9239e31c915656eb32453e5"
+    },
+    {
+      "file": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261028-ACCEL-FS8G-AC1/windows-trust-resume-20261029/inspect-trust-command-bounded.txt.zlib",
+      "sha256": "8f4708e0c00186858ffaf771fe7c2737e17bb9b51792af85a2b6f0a842a3be9a"
+    },
+    {
+      "file": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261028-ACCEL-FS8G-AC1/windows-trust-resume-20261029/nuget-provenance.json.zlib",
+      "sha256": "e96e84794d259fb8e2946ec9efcd886259f75aeef184c7cacaca6daaf256a7e6"
+    },
+    {
+      "file": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261028-ACCEL-FS8G-AC1/windows-trust-resume-20261029/nuget-verify.log.zlib",
+      "sha256": "d737718d448fb37982f00d80726ba9551c12e727882e15e86c2f4c19e7bf5ddc"
+    },
+    {
+      "file": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261028-ACCEL-FS8G-AC1/windows-trust-resume-20261029/package-context.json.zlib",
+      "sha256": "0804dbd5241a5b97db1abb2fdeba3069ff8435fd642b108b5c592a80dc4e53f0"
+    },
+    {
+      "file": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261028-ACCEL-FS8G-AC1/windows-trust-resume-20261029/previous-report-e81df0e4.md.zlib",
+      "sha256": "3516ed334ec86dd5a49afdd7842c8239b2ee71961a3364fddb6131bdb07bc19d"
+    },
+    {
+      "file": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261028-ACCEL-FS8G-AC1/windows-trust-resume-20261029/windows-trust-inspection-bounded.json.zlib",
+      "sha256": "ade44b8ac258ea237247a6b8b46c850c025cea867dcd5d9a724ee7a31000bf35"
+    },
+    {
+      "file": "Modbus RTU/Supervision TR2/operator-demo/AC1_WINDOWS_TRUST.md",
+      "sha256": "d1f6f0746f32e9fb4bdafc035cf073d15b70f6b0e8aa72fdca3cda7098b33be3"
+    },
+    {
+      "file": "Modbus RTU/Supervision TR2/operator-demo/REPRISE.md",
+      "sha256": "2300ac315072fe4fda847815d4da3a2cd5a5ce8fc657ba22a876f66519e3dad4"
+    }
+  ]
+}
