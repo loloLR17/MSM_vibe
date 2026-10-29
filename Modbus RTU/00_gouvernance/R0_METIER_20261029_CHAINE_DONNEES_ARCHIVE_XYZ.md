@@ -55,7 +55,9 @@ La « donnée brute archivée » au sens métier signifie XYZ non amputés du DC
 
 Implémentation de référence *hôte* indépendante et comparaison bit à bit ou à tolérance définie avec le calcul embarqué à quantification identique ; signaux tests DC/gravité/échelon, 2/5/25/100/500/700/800/1000/1500/3000/6000 Hz, multisinusoïdes, bruit, amplitudes proches ±8g, filtres à saturation, début/fin de campagne, pertes/timestamps anormaux et dérive d'ODR. Relever en particulier réponse en amplitude/phase/délai, gain DC, rejet d'alias, sensibilité numérique et CPU/RAM/CYCLES worst-case. **Aucune fréquence de coupure ni longueur FIR ne sont présentées comme qualifiées** à ce jour.
 
-### 3.4 Pré-dimensionnement chiffré : candidat FIR à deux étages /10 puis ×3/4
+### 3.4 Pré-dimensionnement initial : candidat FIR à deux étages /10 puis ×3/4 — **REJETÉ POUR LE REJET HORS BANDE**
+
+> **Contre-essai indépendant du 29/10/2026 :** le FIR A à **107 coefficients** satisfait ses critères de réponse *étage par étage*, mais la cascade **ne garantit pas −60 dB pour toutes les excitations ≥1 300 Hz**. À l'entrée 1 500 Hz, on mesure **−38,54 dB** résiduel, et à 1 600 Hz **−30,26 dB** ; ces signaux peuvent se replier dans la bande archivée. Les nombres de 3.4 documentent uniquement un **premier candidat historique non retenu**. **Ne pas reprendre ses coefficients comme référence R1.** Le candidat correctif est en §3.5 et sera soumis à de nouveaux critères complets.
 
 **Nature des résultats : calculs de conception et simulation numérique hôte non versée au dépôt, PAS firmware testé, PAS métrologie physique qualifiée.** Cet exemple sert à établir qu'un filtrage 2–700 Hz est plausiblement réalisable sans refonte du MCU, et à donner une référence reproductible à R1-DSP.
 
@@ -83,6 +85,36 @@ Implémentation de référence *hôte* indépendante et comparaison bit à bit o
 - **Critères proposés à confirmer en R1 avant la qualification :** gain DC dans ±0,5 % ; déviation d'amplitude du traitement numérique seul ≤0,1 dB de 2 à 25 Hz et ≤0,5 dB de 25 à 700 Hz ; contribution de tonalités repliées **dans 0–700 Hz** sous −60 dB pour des tonalités hors bande ≥1 300 Hz, avec tests d'alias et de quantification ; politique des fréquences 700–1 300 Hz explicitement déclarée non qualifiée ; compte, continuité, horloge et anomalies vérifiés sans compensation de pertes. Les mesures en chaîne complète (filtre IIS3DWB, fixation, amplitude ±8 g, bruit, CEM) restent une qualification physique distincte.
 
 **Références indépendantes :** [SciPy `resample_poly`](https://docs.scipy.org/doc/scipy/reference/generated/scipy.signal.resample_poly.html), [CMSIS-DSP FIR decimation](https://arm-software.github.io/CMSIS-DSP/latest/group__FIR__decimate.html), [CMSIS-DSP FIR interpolation](https://arm-software.github.io/CMSIS-DSP/main/group__FIR__Interpolate.html), [ST AN5444 Rev3](https://www.st.com/resource/en/application_note/dm00683267-iis3dwb-ultrawide-bandwidth-lownoise-3axis-digital-vibration-sensor-stmicroelectronics.pdf).
+
+### 3.5 Contre-essai complet et deuxième candidat FIR A225 / B69 — **NON QUALIFIÉ**
+
+Reproduction sur **NumPy 2.3.5 / SciPy 1.17.0**, calcul `float64`, phase source nominale `f_s=80 000/3 Hz`, synthèse de sinusoïdes complexes unitaires, filtrage **causal** `upfirdn` + division par 10, puis interpolation filtrée ×3 / décimation par 4 ; amplitudes mesurées sur la section centrale (transitoires exclus). Aucune compilation du firmware ni lecture matérielle réalisée.
+
+**Modification minimale de conception :** premier étage FIR A passe-bas Kaiser **225 coefficients**, `fs=80000/3`, `cutoff=1000 Hz`, `beta=7.85726`. **B reste FIR 69 coefficients**, `fs=8000`, `cutoff=1000 Hz`, même fenêtre. Le passage utile d'A reste 0–700 Hz mais la **bande d'arrêt débute maintenant à 1 300 Hz**, et non plus à 1 966,667 Hz. On bloque ainsi avant le repliement les composantes 1 300–1 966 Hz qui traversaient la transition de l'étage B.
+
+| Tonalité injectée dans l'horloge native nominale | Cascade initiale A107+B69 (dB) | Candidat A225+B69 (dB) |
+|---|---:|---:|
+| 700 Hz | ~0 | ~0 |
+| 1 300 Hz | −87,50 | −165,63 |
+| 1 400 Hz | −64,30 | −141,46 |
+| **1 500 Hz** | **−38,54 — ÉCHEC** | **−120,02** |
+| **1 600 Hz** | **−30,26 — ÉCHEC** | **−107,92** |
+| 1 700 Hz | −30,86 | −97,75 |
+| 1 966,67 Hz | −82,22 | −90,97 |
+| 2 000 Hz | −81,37 | −88,71 |
+
+**Contre-essai exploratoire plus large :** 605 tonalités complexes testées entre **1 300 et 13 200 Hz**, grille 25 Hz sur l'intervalle et grille 5 Hz autour de la transition 1 300–2 100 Hz. **Pire amplitude relevée −87,85 dB à 1 880 Hz** pour A225+B69 sur ce jeu. **Ce maillage borné est une observation et non une preuve universelle** : vérifier maxima analytiques ou sur grilles plus denses, conjugaisons de fréquences, signaux réels, quantification, CEM et l'anti-repliement analogique du capteur. Les réponses calculées séparément pour A225 (passband 0–700 Hz : **≈0,0013 dB max** ; bande arrêt ≥1 300 Hz : **−79,94 dB au pire sur le maillage**) ne remplacent pas le contre-essai de la chaîne entière.
+
+**Budget candidat corrigé :**
+- Étape A : `(80000/3)/10 × 225 × 3 ≈ 1 800 000 MAC/s` pour XYZ ;
+- Étape B **si polyphasage rationnel ×3/4 fusionné** : `2000 × (69/3) × 3 = 138 000 MAC/s` ;
+- **Total idéal ≈ 1 938 000 MAC/s** sur les trois axes (contre ≈994 000 pour A107+B69), **hors décodage, index, mémoire, communication, gestion des interruptions et stockage**. Une implémentation CMSIS « interpolation ×3 puis prendre un sur quatre » sans fusion consomme plus d'opérations (~2,352 millions MAC/s au total).
+- Coefficients partagés `225+69=294` : **1 176 B float32**, **588 B Q15** avant mémoire de contexte par axe. Délai linéaire théorique `112/(80000/3)+34/8000=8,45 ms`; les bornes startup/STOP, phase polyphasée et durée d'attente FIFO/SD restent à gérer.
+- **Critère −60 dB ≥1 300 Hz : proposé uniquement comme filtre numérique nominal de la bande 0–700 Hz**, à valider après conversion en arithmétique STM32 et en présence d'un signal analogique réel. La performance à 700–1 300 Hz est volontairement non spécifiée. L'enveloppe hors bande en entrée ne peut être jugée sur des essais de quelques seules tonalités.
+
+**Erreur d'oracle à prévenir :** la première recette §3.4 calculait A avec `upfirdn()` (qui garde la **queue convolutionnelle**) et B via `resample_poly()` (qui **recentre** la sortie), alors que l'implantation STM32 sera nécessairement **causale**. Pour les futurs vecteurs de référence, **tronquer l'étage A à ses seuls événements de sortie réellement produits**, réaliser B par `upfirdn(3*h_B,...,up=3,down=4)` avec un choix explicite de phase et tronquer à la durée déclarée ; ne pas comparer naïvement les index et les préfixes de ces deux oracles. Choisir des règles de startup/fin de flux qui signalent les échantillons affectés par le padding, sans en faire des mesures physiques nouvelles.
+
+**Suite :** [Plan d'essais déterministes R1-DSP](R0_METIER_20261029_PLAN_ESSAIS_DETERMINISTES_DSP.md) à utiliser avant toute implémentation STM32. Candidat **retenu pour essais seulement**, ni gel de coefficients ni validation en conditions réelles.
 
 ## 4. Branches archive et LIVE : priorité et absence de double acquisition
 
