@@ -131,6 +131,57 @@ La mission Codex `TR2-20261028-ACCEL-FS8G-VIBRATION-AC` demeure le contrat actif
 
 **Aucune intervention physique n'a été réalisée ici**. Aucun chemin SPI2, aucun filesystem ni write SD n'est encore qualifié.
 
+## 8. Revue des ressources vérifiée sur `main` — SPI2, DMA, IRQ, SRAM (29/10/2026)
+
+**Nature : inspection documentaire et lecture du code GitHub, sans compilation ni essai physique.** Cette section complète, sans remplacer, le protocole P0–P4 précédent.
+
+### 8.1 SPI2 : nouveau périphérique ; SPI1/SPI3 déjà structurés
+
+- `platform/stm32/main.c` ne déclare que `hspi1`, `hspi3`, et `hsd2` pour le stockage historique ; `FramSpi_Init()` configure SPI1, `Iis3dwbSpi_Init()` configure SPI3. **Aucune initialisation SPI2, SPI2 DMA ou gestion d'interruption SPI2 ne figure dans la composition examinée.**
+- `platform/stm32/stm32u5xx_it.c` expose `SysTick_Handler`, `LPUART1_IRQHandler`, `TIM6_IRQHandler` : aucun handler SPI2 ni GPDMA n'y est aujourd'hui implémenté.
+- Le pilote FRAM `stm32_fram_storage.c` appelle `HAL_SPI_Transmit` et `HAL_SPI_Receive` **bloquants**, en fragments de 256 octets ; son API « bounded » limite le quantum (et réduit les timeouts) mais n'implique **pas** de préemption en cours de transfert.
+- La voie capteur historique FIFO `stm32_iis3dwb_fifo_capture.c` emploie `HAL_SPI_TransmitReceive` synchrone. Le runtime LIVE `stm32_r4u_runtime.c` draine le FIFO depuis les itérations `live_runtime_step()` : le délai maximal entre services doit rester mesuré en coexistence avec la carte SD.
+
+**Conséquence :** monter SPI2 en profil de test dédié est réalisable conceptuellement avec peu de perturbations initiales, mais les premiers tests SPI2 seuls **ne démontreront pas** l'absence de perte FIFO. Aucun simple changement d'instance SPI ou augmentation de fréquence n'est une preuve de coexistence.
+
+### 8.2 DMA et arbitrage des interruptions
+
+- L'architecture STM32U5 prévoit **GPDMA1 (16 canaux)** et **LPDMA1 (4 canaux)**. L'en-tête HAL STM32U5 expose notamment les requêtes **`GPDMA1_REQUEST_SPI2_RX=8`** et **`GPDMA1_REQUEST_SPI2_TX=9`**, ainsi que les requêtes SPI3 RX/TX. Ce sont des **identifiants de requête**, **pas** des numéros de canal assignés ou une réservation confirmée pour notre projet.
+- `stm32/CMakeLists.txt` compile `stm32u5xx_hal_dma.c`, mais **la présence du HAL DMA ne prouve pas qu'un canal DMA ou son IRQ est configuré**.
+- Les périphériques LPUART1 et TIM6 de la voie RTU actuelle disposent chacun d'un IRQ au niveau **5** dans `stm32_serial_transport.c`; la configuration réelle des priorités du futur SPI2/GPDMA et de l'éventuelle IRQ FIFO capteur reste à définir et mesurer. Les temporisations Modbus ne doivent pas être sacrifiées.
+- **P1/P2 carte seule :** voie SPI2 bloquante courte acceptable pour établir l'échange, l'intégrité et les latences sur banc avec capteur arrêté. **P3 coexistence :** éviter d'attendre synchrone une carte busy ou une fin DMA au sein du chemin qui draine le FIFO. Une machine d'état SPI SD avec périodes busy coopératives, transactions bornées, IRQ/DMA éventuels et priorités validées est le candidat technique. Ne pas imposer DMA pour les essais lecture/écriture élémentaires si une méthode plus simple les valide.
+- Le FIFO IIS3DWB reste à protéger contre toute latence de service supérieure au budget réel (ordre théorique 16–19 ms au débit natif, à confirmer par mesures selon la configuration). Instrumenter **max gap de service**, surcharge/perte FIFO, interruptions UART manquées, erreurs transport, temps busy SD, profondeur maximale de queue, latences P95/P99 et pire cas observé ; aucune perte silencieuse.
+
+Sources constructeur : [ST AN5372, migration des DMA](https://www.st.com/content/st_com/en/technical-documents/an5372-migrating-from-stm32l4-and-stm32l4--to-stm32u5-mcus-stmicroelectronics_asset/chunk-007-topic-an5372-dma.html) ; en-tête `stm32u5xx_hal_dma.h` de STM32CubeU5 v1.9.0 à vérifier localement pour l'image retenue (les identifiants cités sont visibles dans une copie publique du HAL STM32U5, non relevés directement du SDK T1000).
+
+### 8.3 SRAM : marge dépendante du *profil compilé*
+
+- Le linker `STM32U575ZITXQ_FLASH.ld` réserve **768 Kio de `RAM`** à partir de `0x20000000`, avec minimums `stack = 2 Kio` et `heap = 512 octets`. Cela ne représente pas automatiquement toute la SRAM physique du MCU ; il faut vérifier zones, restrictions et allocation DMA avant toute optimisation.
+- Le rapport ARM AC1 mentionne **`.bss = 659 176 octets`** (et `.data = 492 octets`), soit **126 764 octets** entre BSS/data et borne de 768 Kio, avant pile, tas, alignement et réserves effectives. C'est une **photographie de ce profil**, ni la marge garantie du futur SPI2 ni une autorisation de réserver arbitrairement 128 Kio.
+- `stm32_production_board.c` déclare des tampons de fabrication **262 144 + 51 914 + 51 914 = 365 972 octets** ; le `CMakeLists.txt` inclut ce fichier seulement en modes `TR2_STM32_PRODUCTION` ou `TR2_STM32_MANUFACTURING`. **Il ne faut pas attribuer ces tampons au profil LIVE AC1 `TR2_STM32_LIVE_OPERATOR` sans preuve**. On pourra examiner la séparation des tampons de fabrication du profil production si une MAP correspondante démontre un gaspillage ; pas de refonte préventive.
+- **P0 logiciel à ajouter** : produire les fichiers MAP et l'analyse des principaux symboles BSS pour chacun des profils concernés (test SD isolé, coexistence, LIVE/production de référence), démontrer l'espace restant effectif avec marge pile et DMA ; tester 16/32/64 Kio de file de manière conditionnelle, selon mesures et ressources réelles.
+
+### 8.4 Décisions et questions réservées à la qualification
+
+1. **Premier essai** : conserver U575 + IIS3DWB SPI3 + FRAM SPI1 + microSD SPI2 comme hypothèse matérielle prioritaire.
+2. **Ordre obligatoire des preuves** : init SPI SD seule → lectures cohérentes → écritures relues et chronométrées → producteur 12 kB/s → coexistence avec acquisition FIFO native (26,7 kHz) → média exploitable sur PC → endurance et coupures.
+3. **Conditions de passage P3** : perte FIFO et échantillons silencieux **zéro** sur la fenêtre qualifiée, backlog borné et intégralement drainé, CRC/hash du fichier reçu conforme à la génération attendue, commandes Modbus sans violation du contrat de temps, arrêt/flush cohérent et indicateurs d'erreur explicites.
+4. **Piste d'optimisation** : isoler les services de carte des boucles capteur, exploiter si utile le GPDMA, et réduire les allocations de banc uniquement sur preuve MAP. Aucune migration MCU ou ajout RTOS décidé.
+5. **Attention structurante** : l'archivage final des mesures brutes XYZ avec composante DC conservée nécessite un autre flux que les métriques LIVE dynamiques AC1, qui retirent DC/gravité. La coexistence temps réel doit traiter cette distinction dès le plan de données.
+
+### 8.5 Point de retour Git demandé par l'utilisateur — **référence immuable de R0**
+
+L'utilisateur demande expressément de pouvoir revenir **à l'état Git actuel avant les expériences SPI2**. Après intégration des confirmations matérielles TR2-002, `main` a été vérifié à :
+
+```text
+a3f5ac33a728a5afd028192654c17e5b04ee8d7b
+R0: confirmer TR2-002 historique et microSD 32 Go libre pour essais SPI
+```
+
+**Ce SHA, et non les commits documentaires futurs, est le point de retour R0 souhaité.** Il est directement consultable sur GitHub. À la mise en route gouvernée des essais, prévoir un **tag annoté explicite de sauvegarde d'état**, distinct de la nomenclature `tr2/Mnnn` réservée aux qualifications indépendantes A-01, et **vérifier à distance sa référence et son SHA cible**. Un tag de sauvegarde **n'affirme pas la qualification physique**. Prévoir la reprise via branche/worktree à partir du tag sans `reset --hard` ni `push --force` sur `main`. Le commit Git préserve le contenu suivi du dépôt mais **ne constitue pas** la sauvegarde des images flash, données FRAM/SD, binaires Windows ou fichiers locaux non suivis ; ceux-ci nécessitent un inventaire séparé si une restauration complète du banc est recherchée.
+
+**État au 29/10/2026 : SHA Git distant vérifié, tag non créé, aucune restauration ni mission nouvelle engagée.**
+
 ## Sources exactes
 
 - [P12/H3h-B2 occupation connecteurs](CONCEPTION_FIRMWARE_P12H3H_B2_NUCLEO_PHYSICAL_OCCUPANCY.md)
