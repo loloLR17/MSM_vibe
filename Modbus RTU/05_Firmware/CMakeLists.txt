@@ -13,6 +13,7 @@ endif()
 
 add_library(tr2_core STATIC
     src/common/cooperative_work.c
+    src/domain/acquisition/fir_decimator10.c
     src/domain/acquisition/window_statistics.c
     src/application/live_modbus_server.c
     src/application/live_runtime.c
@@ -477,3 +478,11 @@ add_executable(test_live_ac1_wire tests/platform/test_live_ac1_wire.c platform/s
 target_include_directories(test_live_ac1_wire PRIVATE platform/stm32 ${ST_REF}/src ${ST_REF}/vendor/st)
 target_link_libraries(test_live_ac1_wire PRIVATE tr2_core)
 add_test(NAME live_ac1_wire COMMAND test_live_ac1_wire)
+
+# R1-DSP-A: portable /10 component only; no FIFO binding or product profile change.
+tr2_add_core_test(test_fir_decimator10 tests/unit/test_fir_decimator10.c fir_decimator10)
+add_executable(decim10_replay tests/dsp/decim10_replay.c tests/dsp/decim10_candidates.c)
+target_link_libraries(decim10_replay PRIVATE tr2_core m)
+if(NOT MSVC)
+    target_compile_options(decim10_replay PRIVATE -ffp-contract=off)
+endif()
