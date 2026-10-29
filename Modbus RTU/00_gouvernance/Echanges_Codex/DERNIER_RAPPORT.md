@@ -1,6 +1,6 @@
 ---
 mission_id: TR2-20261029-R1-DSP-DECIM10-HOST
-status: IN_PROGRESS
+status: DONE
 base_ref: main
 base_sha: a94fa2a87de7d93220e3e18f2dbd2f41c412bb83
 initial_head: 545b96e1b8bec628219b0dd91c46fc51328d76cc
@@ -14,9 +14,9 @@ allow_flash: false
 allow_debug: false
 ---
 
-# R1-DSP-A — FIR XYZ /10 livré et validé en logiciel, relecture distante en cours
+# R1-DSP-A — FIR XYZ /10 livré, validé en logiciel et relu sur GitHub
 
-La brique portable **FIR 107 taps / décimation 10**, avec conservation du DC, passe les portes hôte et cross-compilation de cette mission. **149 tests C**, 59 rejeux C comparés à SciPy et linkage ARM réussis. Les trois témoins float64 externes sont reproduits. Le statut provisoire `IN_PROGRESS` porte uniquement sur la publication/relecture distante restant à consigner avant `DONE`.
+La brique portable **FIR 107 taps / décimation 10**, avec conservation du DC, passe les portes hôte et cross-compilation de cette mission. **149 tests C**, 59 rejeux C comparés à SciPy et linkage ARM réussis. Les trois témoins float64 externes sont reproduits. Les portes logicielles et la relecture distante de cette tranche sont satisfaites ; statut `DONE` limité à ce périmètre.
 
 Ce résultat ne qualifie ni CPU/FIFO sur carte, ni stockage, ni AC1, ni la chaîne industrielle. **Aucun flash/debug, accès STM32 ou intervention Windows/COM4** : ces opérations sont exclues du contrat et n’ont pas été utilisées. La mission AC1 archivée reste BLOCKED en attente externe ; aucun nouveau travail AC1 n’est entrepris.
 
@@ -113,4 +113,11 @@ La brique est prête **pour qualification ARM physique suivante**, pas pour une 
 
 Journal `ETAT_COURANT_TR2.md` actualisé pour les faits logiciels et les limites ; gouvernance, contrat, normes, archives et branche de retour inchangés. [Commandes, matrice D10, logs, manifestes et artefacts hachés](preuves/TR2-20261029-R1-DSP-DECIM10-HOST/README.md). Preuves locales `/home/lolo/dev/msm/reports/TR2-r1-dsp-decim10-host/`.
 
-Le SHA du commit contenant le rapport et l’état Git final seront indiqués après push et relecture distante. `DONE` concernera uniquement cette tranche hôte/cross-compilation ; la revue indépendante ChatGPT et la qualification matérielle restent distinctes.
+Le SHA du commit final contenant le rapport est fourni dans la réponse finale après contrôle distant. `DONE` concerne uniquement cette tranche hôte/cross-compilation ; la revue indépendante ChatGPT et la qualification matérielle restent distinctes.
+
+
+## Publication finale et état Git
+
+Code **0ad417d621c0023a2c326383040a5d4e73016329**, puis bilan/preuves **45fb24d835aeac12d501b956bee8a75c94c4f1bd** publiés par push normal surmain. À **12:36:05UTC le29/10/2026**, référence récupérée de GitHub : **64fichiers relus intégralement et byte-identiques**, **45artefacts** décompressés avec SHA256 bruts/stockés vérifiés, trois témoins numériques recalculés depuis les octets distants,149tests et59rejeux contrôlés dans leurs sorties conservées. [Trace de relecture](preuves/TR2-20261029-R1-DSP-DECIM10-HOST/remote-readback.json).
+
+Worktree de publication propre/HEAD égal au distant au bilan ; ancienmain propre82169af, deux modifications préexistantes du worktreeAC1 et deux stashes intacts, branche de retoura3f5ac33 inchangée. Cette mise à jour consigneDONE ; sa publication finale est à son tour contrôlée avant réponse. Aucun test ou build supplémentaire après obtention des preuves, aucune opération matérielle ou Windows.

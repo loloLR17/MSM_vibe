@@ -1,0 +1,268 @@
+{
+  "utc": "2026-10-29T12:36:05.125108+00:00",
+  "remote_sha": "45fb24d835aeac12d501b956bee8a75c94c4f1bd",
+  "files_compared_integrally": 64,
+  "artifacts_decompressed_verified": 45,
+  "witnesses_verified": 3,
+  "host_full_tests": 149,
+  "c_replays": 59,
+  "physical": false,
+  "files": [
+    {
+      "file": "Modbus RTU/00_gouvernance/ETAT_COURANT_TR2.md",
+      "sha256": "21c451dfa6047634d9643131d9b0294dceb2165e295cd0b345807d68893a0190"
+    },
+    {
+      "file": "Modbus RTU/00_gouvernance/Echanges_Codex/DERNIER_RAPPORT.md",
+      "sha256": "d970e224185c0b059ffd6f69480e4c6722d2da62752e6e759a565aaaa29d2c2c"
+    },
+    {
+      "file": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R1-DSP-DECIM10-HOST/BUNDLE.json",
+      "sha256": "70b7d278bb1470ee5aaceb21982202fabb1bc715a24a006f2140f9e37ba3cfb7"
+    },
+    {
+      "file": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R1-DSP-DECIM10-HOST/README.md",
+      "sha256": "547b8d6d1224ab17944a7a0464c0c86cd5a6336d1a65e69712cf0a2428e26cd1"
+    },
+    {
+      "file": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R1-DSP-DECIM10-HOST/arm--d10_baseline.map.zlib",
+      "sha256": "b49df86f5ddff6dfe2d502430208da775ffab1bef5fa34a9659e5dc113706a72"
+    },
+    {
+      "file": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R1-DSP-DECIM10-HOST/arm--d10_baseline.zlib",
+      "sha256": "2592d5aa6edd70a62808486bb9a07114b3eed9fb0a46c22b7ceea59bf79da362"
+    },
+    {
+      "file": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R1-DSP-DECIM10-HOST/arm--d10_candidates.map.zlib",
+      "sha256": "9cb2c0066fd758138480a9854700739d2b8f0fba604e402d768878348185ecd0"
+    },
+    {
+      "file": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R1-DSP-DECIM10-HOST/arm--d10_candidates.zlib",
+      "sha256": "ee1052f8e1d6b547f38f667c80ba87bacb43e259fd4c208b551a024b8fe928d2"
+    },
+    {
+      "file": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R1-DSP-DECIM10-HOST/arm--d10_q15.map.zlib",
+      "sha256": "006f22597cdc478baa7385e341a78567d3dcd4f4a6aa8b0d60188777508197b6"
+    },
+    {
+      "file": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R1-DSP-DECIM10-HOST/arm--d10_q15.zlib",
+      "sha256": "9ccb5e73583cd75185d4a5f9242e50286654c842a94dbf4b9a74c97b37e4559e"
+    },
+    {
+      "file": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R1-DSP-DECIM10-HOST/arm-audit.json.zlib",
+      "sha256": "4debbc756dd02049811b777ab0505c87e095c90d357f2344107e7e5559cf51c6"
+    },
+    {
+      "file": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R1-DSP-DECIM10-HOST/arm-baseline-attributes.txt.zlib",
+      "sha256": "6d0fda02a30a66fbf97c45b8b8ecdb7f83e16b117c9d47f9c0bf762598461459"
+    },
+    {
+      "file": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R1-DSP-DECIM10-HOST/arm-baseline-disassembly.txt.zlib",
+      "sha256": "96240a4a8730a41adf31b91b8e932e125e65ca39062dd851149a23271144de99"
+    },
+    {
+      "file": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R1-DSP-DECIM10-HOST/arm-baseline-size.txt.zlib",
+      "sha256": "4bdf6d49ff8d2b72f3ec370d37ebc3f90685790000450015cb070a9ace510a09"
+    },
+    {
+      "file": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R1-DSP-DECIM10-HOST/arm-baseline-symbols.txt.zlib",
+      "sha256": "eeb7c3c04254d8f45a029f25a873049a3416cebf84f3026106ddc21eb62f1d23"
+    },
+    {
+      "file": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R1-DSP-DECIM10-HOST/arm-build.log.zlib",
+      "sha256": "bedd7397b45de3dafbf9e099710e4afb23f209332233f60bca0a2a82a4c6e581"
+    },
+    {
+      "file": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R1-DSP-DECIM10-HOST/arm-candidates-attributes.txt.zlib",
+      "sha256": "6d0fda02a30a66fbf97c45b8b8ecdb7f83e16b117c9d47f9c0bf762598461459"
+    },
+    {
+      "file": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R1-DSP-DECIM10-HOST/arm-candidates-disassembly.txt.zlib",
+      "sha256": "9d23eb3fb0c8a78bcce6d24c95ab3ca13251a05af59df7ef09ee9239312cf3bb"
+    },
+    {
+      "file": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R1-DSP-DECIM10-HOST/arm-candidates-size.txt.zlib",
+      "sha256": "48a958d99770564355df7d5473288412fd5c932f5160d2dbcd68ad758a138bc3"
+    },
+    {
+      "file": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R1-DSP-DECIM10-HOST/arm-candidates-symbols.txt.zlib",
+      "sha256": "28b3f881d3946b9b73cdcb43e9d91502d0ee8f685a6d88bcb147732e25466159"
+    },
+    {
+      "file": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R1-DSP-DECIM10-HOST/arm-compile-commands.json.zlib",
+      "sha256": "a19a370bf273320ab4519e164e3739f1e4f493dfde3a537abe7248a8f1abbd05"
+    },
+    {
+      "file": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R1-DSP-DECIM10-HOST/arm-configure.log.zlib",
+      "sha256": "7fe55080e7202706624875a35ae92065b144439384e5ecff48b9dd9a90f7ff53"
+    },
+    {
+      "file": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R1-DSP-DECIM10-HOST/arm-q15-attributes.txt.zlib",
+      "sha256": "6d0fda02a30a66fbf97c45b8b8ecdb7f83e16b117c9d47f9c0bf762598461459"
+    },
+    {
+      "file": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R1-DSP-DECIM10-HOST/arm-q15-disassembly.txt.zlib",
+      "sha256": "992ea73d260e1dddd101db1298cd3844e2a27da40c5792b0deee97086003f2d5"
+    },
+    {
+      "file": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R1-DSP-DECIM10-HOST/arm-q15-size.txt.zlib",
+      "sha256": "191c40539b1a0680c8bcaf615e8058cc73039a32353f8a245ced91d6a96a5aa4"
+    },
+    {
+      "file": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R1-DSP-DECIM10-HOST/arm-q15-symbols.txt.zlib",
+      "sha256": "fc43d9241f2bd6b6fc54894f20eae0bb86059ec2b0d800b057cd7ab2b1830d05"
+    },
+    {
+      "file": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R1-DSP-DECIM10-HOST/canonical-attributes.txt.zlib",
+      "sha256": "2ad6c23e3bf908031b301f38db73279be8470d1c7c9c81c69195612a8bca5028"
+    },
+    {
+      "file": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R1-DSP-DECIM10-HOST/canonical-build-profile.txt.zlib",
+      "sha256": "9c51e0a3af3dfbc1a3fe22d593dcb6f5beaf5b900746b2b89fdb2e533e699e6e"
+    },
+    {
+      "file": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R1-DSP-DECIM10-HOST/canonical-fir-command.txt.zlib",
+      "sha256": "7e804b925d21c87abb21a7b5d5620de7943e747d173c502e00ef5cd2e95f1556"
+    },
+    {
+      "file": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R1-DSP-DECIM10-HOST/canonical-sha256.txt.zlib",
+      "sha256": "3ee6e7165bb21c5747e168388126cdc4c16fb0e5beba647cbecc242cde5e995b"
+    },
+    {
+      "file": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R1-DSP-DECIM10-HOST/checks.json.zlib",
+      "sha256": "85e8eb04fe565e98c9614118da617d3cf003079abfc57efd2a56b8cb70366b78"
+    },
+    {
+      "file": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R1-DSP-DECIM10-HOST/clock-response.json.zlib",
+      "sha256": "fdb2a055ad25ab305564dbf7750c1d37ac44f919025a23749e5fc9039d1392a2"
+    },
+    {
+      "file": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R1-DSP-DECIM10-HOST/coefficient-generation.log.zlib",
+      "sha256": "d33b6750aa3410310e4eb2914940eea84fedb41c80557603b1c37636a46cc681"
+    },
+    {
+      "file": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R1-DSP-DECIM10-HOST/commands.json.zlib",
+      "sha256": "b7ae046eedfec08344dafe854e3bb2e1498dd8ee8557a0b4c95766567fb109bc"
+    },
+    {
+      "file": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R1-DSP-DECIM10-HOST/full-validation.log.zlib",
+      "sha256": "f7b938a1bef7bfa09c9acc3bbb94035901bb8d67b1ccc2f869d6c6b70df541f3"
+    },
+    {
+      "file": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R1-DSP-DECIM10-HOST/host-build.log.zlib",
+      "sha256": "3158143295be7d0a225ce559b76bca2805a4c3d80bd7160a5ea1a917a2dabbec"
+    },
+    {
+      "file": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R1-DSP-DECIM10-HOST/host-configure.log.zlib",
+      "sha256": "27d746d2925dd30a5aa36ed0a5df9c2d0c2743d722edcd634f549cb26db236c5"
+    },
+    {
+      "file": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R1-DSP-DECIM10-HOST/mission-state.json.zlib",
+      "sha256": "637426fb41f0bcb431c7c8e3f658986a6efd31a13053a9b5959927ab490022b0"
+    },
+    {
+      "file": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R1-DSP-DECIM10-HOST/oracle--DC-float64.out.zlib",
+      "sha256": "5f13501b7135e48bc8462133681197dc25d1ec677b58af85ce6e7d6cf4c30e0f"
+    },
+    {
+      "file": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R1-DSP-DECIM10-HOST/oracle--IMP-float64.out.zlib",
+      "sha256": "bfc7961b2aea9a0284ad0b71adab54ea9090d8aed725256a3e6b5520daae8294"
+    },
+    {
+      "file": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R1-DSP-DECIM10-HOST/oracle--MIX-float64.out.zlib",
+      "sha256": "745e1289555bd2fb8edd3b238895c4c47b125329584f2bc96fcd1ef76d9536fd"
+    },
+    {
+      "file": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R1-DSP-DECIM10-HOST/oracle--MIX-q15-1024.out.zlib",
+      "sha256": "52215ae3c67e2a0a97aa4730ce64712015de86b6d995b09c06aa0ff4abada784"
+    },
+    {
+      "file": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R1-DSP-DECIM10-HOST/oracle--summary.json.zlib",
+      "sha256": "926b0a5e4cc7d63afe5fb957cb6d79ffcf27b75479e03b5bb41a32858bd4e218"
+    },
+    {
+      "file": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R1-DSP-DECIM10-HOST/oracle.log.zlib",
+      "sha256": "eed06893b259977767cfcf44abb6935f6746564f2e210923037dcc22a07c4cb1"
+    },
+    {
+      "file": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R1-DSP-DECIM10-HOST/sanitize-clock.log.zlib",
+      "sha256": "388bd3dceda9434cc881d3b3f2b10e86cb4a46bbdd5cd65ae94d44f70ea11845"
+    },
+    {
+      "file": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R1-DSP-DECIM10-HOST/sanitize-replay.log.zlib",
+      "sha256": "483188596b98d7aec436af50fde6e96f94de72d493d3efd8f02a93ea31878314"
+    },
+    {
+      "file": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R1-DSP-DECIM10-HOST/sanitize-test.log.zlib",
+      "sha256": "340331572005e20646a21e65392bd147a795712f8e5133e6bf3506923a0e436c"
+    },
+    {
+      "file": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R1-DSP-DECIM10-HOST/unit-clock.log.zlib",
+      "sha256": "7e4a9c17a3be438efc0a06b4efd434b75d33f40228d829333aed88bac8547a45"
+    },
+    {
+      "file": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R1-DSP-DECIM10-HOST/unit.log.zlib",
+      "sha256": "7e4a9c17a3be438efc0a06b4efd434b75d33f40228d829333aed88bac8547a45"
+    },
+    {
+      "file": "Modbus RTU/05_Firmware/CMakeLists.txt",
+      "sha256": "e25af25f3be9dd6b9a6b230398a8dd7189a913db407cdeae3ee6fc8e1ed827ae"
+    },
+    {
+      "file": "Modbus RTU/05_Firmware/R1_DSP_DECIM10.md",
+      "sha256": "3481db0a71a270818ab8b4b53543ac2e4f8a007a0a62952c1bb34fd79ae97e3c"
+    },
+    {
+      "file": "Modbus RTU/05_Firmware/include/tr2/domain/acquisition/fir_decimator10.h",
+      "sha256": "b20ea1a56b45a53457d02963d4bb75f71052f237f782b9431e0112479f554584"
+    },
+    {
+      "file": "Modbus RTU/05_Firmware/src/domain/acquisition/fir_decimator10.c",
+      "sha256": "4d3e1fcec6792002eb8431a4d1d765c62f42de6ff80a0fd7431a81d6b9ec7bea"
+    },
+    {
+      "file": "Modbus RTU/05_Firmware/src/domain/acquisition/fir_decimator10_coefficients.h",
+      "sha256": "58587735a4a5b2847a2e2604cd7ab01d65222ba1ca0d2dcb6495cef730e61819"
+    },
+    {
+      "file": "Modbus RTU/05_Firmware/tests/dsp/arm/CMakeLists.txt",
+      "sha256": "3161e1f81c928a93fdd05899657d829c69ba9bce33ab4b2acc881550b51f6409"
+    },
+    {
+      "file": "Modbus RTU/05_Firmware/tests/dsp/arm/arm_link_probe.c",
+      "sha256": "927cdcb6fd54df580d7b69cd48b415d5e20c62d438bdab85a16af0a795fe9d87"
+    },
+    {
+      "file": "Modbus RTU/05_Firmware/tests/dsp/check_decim10_clock.py",
+      "sha256": "066070b088be03b5e7bd0a8d7cc5e1390fdce7890b06fd866b746615cb9c09ce"
+    },
+    {
+      "file": "Modbus RTU/05_Firmware/tests/dsp/decim10_candidates.c",
+      "sha256": "52827ef13023848548186edfc206f15a29249be4e084359cd280bf346045f498"
+    },
+    {
+      "file": "Modbus RTU/05_Firmware/tests/dsp/decim10_candidates_coefficients.h",
+      "sha256": "0db58201f8f6602653be377e45671b0460bc8ce9a9829b424b7efc0ba7266c8d"
+    },
+    {
+      "file": "Modbus RTU/05_Firmware/tests/dsp/decim10_coefficients.json",
+      "sha256": "87cd4c232a8ae9ebaba3073719ae15047a03e580b7bbc0a630f009d87b9cf9aa"
+    },
+    {
+      "file": "Modbus RTU/05_Firmware/tests/dsp/decim10_replay.c",
+      "sha256": "6331867174ccd2292bb933f0b284e23cda66a292a87e1fdc25980ab3513cda46"
+    },
+    {
+      "file": "Modbus RTU/05_Firmware/tests/dsp/generate_decim10.py",
+      "sha256": "93170285e1927464334cafc291bb7ad52392d63ee50be687420a26dc0296878a"
+    },
+    {
+      "file": "Modbus RTU/05_Firmware/tests/dsp/qualify_decim10.py",
+      "sha256": "b15052facafe38e07ef58213103daa8d576cc7f8ede849d745520e85d8c0a059"
+    },
+    {
+      "file": "Modbus RTU/05_Firmware/tests/unit/test_fir_decimator10.c",
+      "sha256": "4f78b212ed6bcfe7b32d89bf0246a1bdad72c3d1e22aa84d1b107d16251b5b31"
+    }
+  ]
+}
