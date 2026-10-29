@@ -1,6 +1,6 @@
 ---
 mission_id: TR2-20261029-R3-DURABLE-FAT32-10MIN
-status: IN_PROGRESS
+status: DONE
 base_ref: main
 base_sha: ffecc3ee372814f9ed5f3ad18d851b62582f7da0
 initial_head: 181441dca87403ac1886c62068390584efa9496e
@@ -21,8 +21,9 @@ fichiers R2N de 2 s, 60 s et 600 s sont réellement présents sur la microSD ret
 montés dans le lecteur natif du T1000, copiés et validés indépendamment en Python.
 Tout le payload de chacun correspond au digest producteur **avant framing/file/TX**,
 avec CRC/séquences/comptes/temps/footer vérifiés. L’ancien essai interrompu à 265 s et
-son préfixe incomplet restent conservés. Statut provisoire IN_PROGRESS uniquement
-pour publication/relecture distante finale, pas pour un blocage technique restant.
+son préfixe incomplet restent conservés. **Livraison DONE dans la portée de cette
+mission**, après publication et relecture distante complète. La revue indépendante
+A-01 par ChatGPT reste distincte.
 
 **Portée bornée** : profil candidat XYZ/DC/FIR Q15 à 107 coefficients, /10 ≈ 2 667 Hz, pas adoption V1-05/2000Hz,
 qualification 8 h, FAT tolérante aux coupures, amplitude calibrée, FRAM/RTU ou AC1 Windows.
@@ -210,6 +211,22 @@ checkpoint-negative-265s,checkpoint-group-short,checkpoint-group-600s et
 stocké ; vraisfichiersPC complets, imagesELF/BIN/MAP, bruts et outils inclus. Preuves
 locales `/home/lolo/dev/msm/reports/TR2-r3-durable-fat32-10min/`.
 
-Suite : publication/relecture intégrale depuisGitHub, puis DONE dans cette portée
-et revue indépendanteA-01 ChatGPT. Aucunequalification1h/8h/coupure/FATjournalisée/
+Suite : revue indépendante A-01 ChatGPT, puis décision sur l’endurance progressive.
+Aucune qualification 1 h / 8 h / coupure / FAT journalisée /
 FRAM/RTU/AC1 Windows, calibration amplitude±8g ni gelnormatif2000Hz revendiqués.
+
+## Publication et relecture distante obtenues
+
+Le bilan **`f4236b40d98cc7778e8824cd5270dfe3aef4f3d8`** a été récupéré depuis GitHub
+et relu intégralement à **2026-10-29T22:48:55.782868+00:00** : **489 fichiers
+byte-identiques, 453 artefacts décompressés et hachés**, y compris les fichiersPC
+entiers, images et traces ; empreintes du middleware ST original conformes. Les
+conclusions d’intégrité PC reposent sur les lectures effectives décrites plus haut,
+et ces mêmes octets ont été vérifiés après publication. Aucun nouvel essai, flash,
+reset ou validation déjà acquise n’a été rejoué pendant cette clôture documentaire.
+
+[Preuve de relecture distante](preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/REMOTE_REREAD_f4236b40.json).
+Archives MISSION/RAPPORT créées à l’identique sans écrasement d’une archive.
+Worktree propre après le bilan provisoire ; le commit de clôture porte uniquement
+statut, journal, preuve de relecture et archives. Son SHA final sera fourni après
+push et dernière relecture, distinct du SHA firmware évalué **6fdae042**.

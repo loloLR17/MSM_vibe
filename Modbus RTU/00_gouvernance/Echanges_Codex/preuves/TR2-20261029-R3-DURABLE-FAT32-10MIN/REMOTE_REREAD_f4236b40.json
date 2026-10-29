@@ -1,0 +1,1967 @@
+{
+  "sha": "f4236b40d98cc7778e8824cd5270dfe3aef4f3d8",
+  "utc": "2026-10-29T22:48:55.782868+00:00",
+  "source": "GitHub origin/main fetched; all selected objects completely re-read and compared",
+  "all_equal": true,
+  "files_count": 489,
+  "decompressed_artifacts": 453,
+  "upstream_vendor_hashes_exact": true,
+  "files": [
+    {
+      "path": "Modbus RTU/00_gouvernance/ETAT_COURANT_TR2.md",
+      "sha256": "9ace8c9e537f9108a85cf4ec28676b85850e4dcf9b2a19badbd57ab9d2f681e7"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/DERNIER_RAPPORT.md",
+      "sha256": "5c00678bf5c0dfb98c66effbe0741768855eac8c51ccf961ee21e7624dbb1a60"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/MISSION_EN_COURS.md",
+      "sha256": "56a937526b19bf0e00e07658308b54842ad7eb4955895c6ab0212ca270038b35"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/.gitattributes",
+      "sha256": "4fe517180c8e8a392d6f23114aecd3a1ec0e6f96ce0f671fe7d1ee7b95a323a1"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/await-final-pc/BUNDLE.json",
+      "sha256": "4544c8b403acb6752153c74b56dcf98efcb149b4f75e1f2f2557fa705d29f4ad"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/await-final-pc/REPRISE.md",
+      "sha256": "1e0e4620305c40853dbf1754577076c092dfaa9f36f655c7137cdc983dc18e9d"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/await-final-pc/extract_group_pc.py.zlib",
+      "sha256": "25c00a23837159f44171678725c4c08c9d00d54705ef9e12b3e25eeaea07b1d4"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/await-final-pc/make_final_report.py.zlib",
+      "sha256": "0476159d9bbbbd11ed02e72a1de2684eceae5800218af1d6a4004adaea54c9fc"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/await-final-pc/remote-ten-minute-checkpoint.json.zlib",
+      "sha256": "bf6ef934ecc76943238e3cd932998129db9cfa8b329cc0370b7605ed1abd17f4"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/await-final-pc/verify_published.py.zlib",
+      "sha256": "44f1669e9c3f2669945f6e2c0849ae22799de57ca53081a833ce9597ca5c8499"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-d0-pc/BUNDLE.json",
+      "sha256": "f87308318ea122dadf3bea90901d6adab9a9a0bf0c237c037e01b9220f6896ea"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-d0-pc/TR2INFO-PC-before.txt.zlib",
+      "sha256": "7c034461c9779be0f6f8042dc6dfa8c03f22ffaa5abea2725a0a0744f6218b8d"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-d0-pc/arm--CMakeCache.txt.zlib",
+      "sha256": "84205a12eab118e87ab2d95736b5f64a5e9817226644cc1f11026345378c5070"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-d0-pc/arm--r3_coex.bin.zlib",
+      "sha256": "dc2e3127e924210f8a0e4ee843c3f071aaef2d98b5f011f1f205e6ed5ee82492"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-d0-pc/arm--r3_coex.elf.zlib",
+      "sha256": "02fc435845f1d56a2d3a64553846b3390feeb1c0ce289c602e67825e0ef88eed"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-d0-pc/arm--r3_coex.map.zlib",
+      "sha256": "b84eb2a61ed5f69bae8bfa44e238e38b7c475a02e23cb2e9ffe052e9243ee7cc"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-d0-pc/arm-build-final.log.zlib",
+      "sha256": "e18c4f8d409ba4d94c73648e06514fc9df3982bec69e53ea1581710a34dbd39c"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-d0-pc/arm-build-preflight.log.zlib",
+      "sha256": "23be1341a34fcba69b5d2e755d9eb32782ade4c7ad227d5ed86c9be2e284b824"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-d0-pc/artifact.json.zlib",
+      "sha256": "bc61c36639e3dc9c25ea8d64347c70ce996c18c1e644e948c94964f53d716c29"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-d0-pc/build-first.log.zlib",
+      "sha256": "e6327d67b5caae0874831b67075f692e21f7a3e6579866e88da2fb92367eaf71"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-d0-pc/build-source-provenance.log.zlib",
+      "sha256": "6f7e9c1daa50bd4d36bdbff799f3bc0cb742f9e7bb3f0fceb6fcb84e89dcc686"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-d0-pc/canonical-cross.log.zlib",
+      "sha256": "ff93ccab19b0603104f575f63517b44e710a46497796123ea0cb4dd9bbd76139"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-d0-pc/configure-source-provenance.log.zlib",
+      "sha256": "082fef694c28ce3baebf4000661b50b120487f59ab9796d577f9b40e27054f91"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-d0-pc/configure.log.zlib",
+      "sha256": "cd74467ff3ffa121031b726250051edfa4fa7161db4ca4f7c3b10565b386695c"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-d0-pc/d0-format-card--body.gdb.zlib",
+      "sha256": "b7aed62f37c756be862b5e6309f4a48d0688491cc41190f6e2b8de6675630174"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-d0-pc/d0-format-card--brackets.bin.zlib",
+      "sha256": "cf44647a327b17070f876a0a64457ba355c20591170a097f1b2a2d301f5fb4c2"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-d0-pc/d0-format-card--card.bin.zlib",
+      "sha256": "ee4cd3367bc611bba37a1cf542fa587b5534b52ff686cffafbd2bcb9ca3a964d"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-d0-pc/d0-format-card--distributions.bin.zlib",
+      "sha256": "7e66fff221b41c64713e9ded334c1d15503d0f127ea47b6d0f59a0facd82621b"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-d0-pc/d0-format-card--durable-footer.bin.zlib",
+      "sha256": "f7191fd8edb8005d6ddcac4a03b8e62415cbbcbfadbe85d545d35d8124e697a3"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-d0-pc/d0-format-card--durable-status.bin.zlib",
+      "sha256": "83db1ad50da7d216cffdae91dde523e73bfa0016f7f69a3d0d68cd2716977d0e"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-d0-pc/d0-format-card--fifo-stop-payload.bin.zlib",
+      "sha256": "bd8b07ea63c0ff5ed624b737278f9a154dd049ac7a54a15673c93802d14c1dbc"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-d0-pc/d0-format-card--fifo-stop-trace.bin.zlib",
+      "sha256": "c3152300c3c7c75b16ad47181bac69ee52c4c9fc4b4d434fe05b352034acfcb0"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-d0-pc/d0-format-card--header.bin.zlib",
+      "sha256": "f7191fd8edb8005d6ddcac4a03b8e62415cbbcbfadbe85d545d35d8124e697a3"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-d0-pc/d0-format-card--outputs.bin.zlib",
+      "sha256": "b171e283c6145acf2b923098dbbc40ffc39b4f1db0212928f9869747376c4ac8"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-d0-pc/d0-format-card--raw.bin.zlib",
+      "sha256": "c8caf07fa2419e7ea22bd36c9c02f2b0d0e11017890b612c66996b35fce21fde"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-d0-pc/d0-format-card--records.bin.zlib",
+      "sha256": "b171e283c6145acf2b923098dbbc40ffc39b4f1db0212928f9869747376c4ac8"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-d0-pc/d0-format-card--result.bin.zlib",
+      "sha256": "ebd96345ebc9fb0a6454365b44a11606b7ee5a1fc8fd63f83a70d2c8ac4b7491"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-d0-pc/d0-format-card--result.json.zlib",
+      "sha256": "661b27e4ff3725460eef9fb68ff86ec52e29fe4cc149c627f29d244b2d5e3d80"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-d0-pc/d0-format-card--sd-distributions.bin.zlib",
+      "sha256": "62ad0d01b7a6547ef708c84cf09cf5584442db88a309fc183a85edd3e0b3d054"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-d0-pc/d0-format-card--sd-records.bin.zlib",
+      "sha256": "b171e283c6145acf2b923098dbbc40ffc39b4f1db0212928f9869747376c4ac8"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-d0-pc/d0-format-card--source-sha.bin.zlib",
+      "sha256": "97dad41c6e855ad9a44c8acb242698e7cff4a28d8acf92370d3983fc1bd7b6f0"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-d0-pc/d0-format-card--sources.bin.zlib",
+      "sha256": "b171e283c6145acf2b923098dbbc40ffc39b4f1db0212928f9869747376c4ac8"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-d0-pc/d0-format-card--spi2-config.bin.zlib",
+      "sha256": "cb0ffce66135084fd53223be33e6c2145c824cd0f5870bef19a65919b5b48dbf"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-d0-pc/d0-format-card--spi3-config.bin.zlib",
+      "sha256": "f3e8f68cb9560f75ad334ed4ba11ed27fdb090d555a83fbd1762e13749265e75"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-d0-pc/d0-format-card.log.zlib",
+      "sha256": "372c7df1e8390ef079cb8dcd645ffe3fa8333ba264a6c11fc12aa460c4ee3f4f"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-d0-pc/d0-format-result.json.zlib",
+      "sha256": "35e876e931995a7d679cca54f91fe64d1fe76c6d4288ae69d8651a7e1e231b07"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-d0-pc/d0-init-card--body.gdb.zlib",
+      "sha256": "5fe58c98c0bac8875e59c5e953c919235526f44d6d14bc01c4b21f1cfeda83fd"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-d0-pc/d0-init-card--brackets.bin.zlib",
+      "sha256": "cf44647a327b17070f876a0a64457ba355c20591170a097f1b2a2d301f5fb4c2"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-d0-pc/d0-init-card--card.bin.zlib",
+      "sha256": "8251b5e7f88079f9e980713855cda2d3b2cba3db76b7598174828d1e92e912cf"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-d0-pc/d0-init-card--distributions.bin.zlib",
+      "sha256": "7e66fff221b41c64713e9ded334c1d15503d0f127ea47b6d0f59a0facd82621b"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-d0-pc/d0-init-card--durable-footer.bin.zlib",
+      "sha256": "f7191fd8edb8005d6ddcac4a03b8e62415cbbcbfadbe85d545d35d8124e697a3"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-d0-pc/d0-init-card--durable-status.bin.zlib",
+      "sha256": "0599d613e984f0d4077673ed9697246483462d564c295511a2c3e44c2db84c00"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-d0-pc/d0-init-card--fifo-stop-payload.bin.zlib",
+      "sha256": "bd8b07ea63c0ff5ed624b737278f9a154dd049ac7a54a15673c93802d14c1dbc"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-d0-pc/d0-init-card--fifo-stop-trace.bin.zlib",
+      "sha256": "c3152300c3c7c75b16ad47181bac69ee52c4c9fc4b4d434fe05b352034acfcb0"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-d0-pc/d0-init-card--header.bin.zlib",
+      "sha256": "f7191fd8edb8005d6ddcac4a03b8e62415cbbcbfadbe85d545d35d8124e697a3"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-d0-pc/d0-init-card--outputs.bin.zlib",
+      "sha256": "b171e283c6145acf2b923098dbbc40ffc39b4f1db0212928f9869747376c4ac8"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-d0-pc/d0-init-card--raw.bin.zlib",
+      "sha256": "c8caf07fa2419e7ea22bd36c9c02f2b0d0e11017890b612c66996b35fce21fde"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-d0-pc/d0-init-card--records.bin.zlib",
+      "sha256": "b171e283c6145acf2b923098dbbc40ffc39b4f1db0212928f9869747376c4ac8"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-d0-pc/d0-init-card--result.bin.zlib",
+      "sha256": "cf9040300e0a9093b1a58717a713f9f3178ebbc4b580948719b50a632a7d2f7e"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-d0-pc/d0-init-card--result.json.zlib",
+      "sha256": "750fbc79588732e172be65b3f8f2ec837e2d10478aee12c506bcaeee145b1949"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-d0-pc/d0-init-card--sd-distributions.bin.zlib",
+      "sha256": "62ad0d01b7a6547ef708c84cf09cf5584442db88a309fc183a85edd3e0b3d054"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-d0-pc/d0-init-card--sd-records.bin.zlib",
+      "sha256": "b171e283c6145acf2b923098dbbc40ffc39b4f1db0212928f9869747376c4ac8"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-d0-pc/d0-init-card--source-sha.bin.zlib",
+      "sha256": "97dad41c6e855ad9a44c8acb242698e7cff4a28d8acf92370d3983fc1bd7b6f0"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-d0-pc/d0-init-card--sources.bin.zlib",
+      "sha256": "b171e283c6145acf2b923098dbbc40ffc39b4f1db0212928f9869747376c4ac8"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-d0-pc/d0-init-card--spi2-config.bin.zlib",
+      "sha256": "cb0ffce66135084fd53223be33e6c2145c824cd0f5870bef19a65919b5b48dbf"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-d0-pc/d0-init-card--spi3-config.bin.zlib",
+      "sha256": "f3e8f68cb9560f75ad334ed4ba11ed27fdb090d555a83fbd1762e13749265e75"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-d0-pc/d0-init-card.log.zlib",
+      "sha256": "b7816d643528ad5ff5d6cdf73f23c941f9f0be857e873d3503264c46234d41dc"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-d0-pc/default-writer-identical.txt.zlib",
+      "sha256": "1161d82c31e4ee66768c766fcfa27bea82d0e792710ddaf33ced8815f84975b1"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-d0-pc/hardware--d0-format-card-invocation.json.zlib",
+      "sha256": "9903b597156c32aea38fe088e86460fe23f89f02b8b5f1e9429cb7c6f9129722"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-d0-pc/hardware--d0-format-card-server.log.zlib",
+      "sha256": "e10983747cbbc75b0f14ab0523f2c631430b41b31c5be4e954db1768d202b7b5"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-d0-pc/hardware--d0-format-card.gdb.zlib",
+      "sha256": "10459659e464d65dd04f3fb434b7c2e173925f0d4ffa633752edd87ec35badf4"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-d0-pc/hardware--d0-format-card.log.zlib",
+      "sha256": "93932d86121dbc54fd0447ddc0131a45d03d16ff3e5cf772b029f41b6d5799b4"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-d0-pc/hardware--d0-init-card-invocation.json.zlib",
+      "sha256": "d7cfe8fe6d6bd50fce3f8c723474f034499f0e20cd3b7b366f90ea39efe4a0e8"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-d0-pc/hardware--d0-init-card-server.log.zlib",
+      "sha256": "e10983747cbbc75b0f14ab0523f2c631430b41b31c5be4e954db1768d202b7b5"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-d0-pc/hardware--d0-init-card.gdb.zlib",
+      "sha256": "26f46ec71d1776e9bbb4ee6f6e9140987664c13964cf8579bb5189855272fb8a"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-d0-pc/hardware--d0-init-card.log.zlib",
+      "sha256": "641858a656f599686975441d844a36b6d86db67d58d1548a2133056d37bc642e"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-d0-pc/hardware--flash-durable-command.json.zlib",
+      "sha256": "b32c107f2f2b524246969cefcf1ee6c035d5896df9605d5e144cd53b7a9908b7"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-d0-pc/hardware--flash-durable.log.zlib",
+      "sha256": "ceea4593d6e91d20faa51455ac1191dc33c438f52c183484c93c821e21fbed8f"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-d0-pc/hardware--preflight-r3-prefix.bin.zlib",
+      "sha256": "bb6c3575296cf93e1e9139cbb82b31dc39d49b9fc4b8d952a05d5f195e43534a"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-d0-pc/hardware--preflight-r3-safe-invocation.json.zlib",
+      "sha256": "5963d2dd35c5827a1d20d7fb1f58dcc3b19eed23e45a0a85e17612c5fddf4595"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-d0-pc/hardware--preflight-r3-safe-server.log.zlib",
+      "sha256": "e10983747cbbc75b0f14ab0523f2c631430b41b31c5be4e954db1768d202b7b5"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-d0-pc/hardware--preflight-r3-safe.gdb.zlib",
+      "sha256": "ad2c99954b717ecf605079404db4256bd7163f4bf0e28a9a43154e719e80a037"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-d0-pc/hardware--preflight-r3-safe.log.zlib",
+      "sha256": "6605a80138e66aa20f7a8bd36e29409d4455f43ce24ce1de01460483bea55612"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-d0-pc/hardware--readback-durable-invocation.json.zlib",
+      "sha256": "ba2b9d28724194b6c5964304b253cf818d5d1243cd2d8bcd148721d306a758c0"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-d0-pc/hardware--readback-durable-server.log.zlib",
+      "sha256": "2d8b05226ecf2e462974c0ceca6a42996407464d239f05eea268fe9f85ded0de"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-d0-pc/hardware--readback-durable.bin.zlib",
+      "sha256": "dc2e3127e924210f8a0e4ee843c3f071aaef2d98b5f011f1f205e6ed5ee82492"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-d0-pc/hardware--readback-durable.gdb.zlib",
+      "sha256": "c695cf0aed09c9b8cc5e2e8c23143acb2a0e69d46ea9c8c037983b0e1664eb4c"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-d0-pc/hardware--readback-durable.log.zlib",
+      "sha256": "7d923d19982d53e6d53ae65e86e35dff4d128c88b7198c57cf09f2f643bdf771"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-d0-pc/hardware_second.py.zlib",
+      "sha256": "d7b6cef9c8a86a3ce252434ec4af11131ee3f08c2ffad0e61a3faa61d9cac292"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-d0-pc/host--fixture.TR2.zlib",
+      "sha256": "719d35e99d6d4287dc14abd8ac4ad03bf64ee35257f49f412739dd5188a309b2"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-d0-pc/host-build-faults-v2.log.zlib",
+      "sha256": "3c7165b9efe7ad5299af074e8c64cb86b353897216bef7a3bc53cc276d43d0df"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-d0-pc/host-build-faults.log.zlib",
+      "sha256": "2b4f9c9db9ec6800cda63becaf852dd3796fc9a40d5a5bf0572fd4599dbe5614"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-d0-pc/host-build-first.log.zlib",
+      "sha256": "0b903d24a49114cce89c706299f960718a60ea5af9f6b153ccbaa17221a95729"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-d0-pc/host-build-full-v2.log.zlib",
+      "sha256": "b62563a049eff029051681316baa723f257d3b292e0c30fdb732077d3e225dbd"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-d0-pc/host-build-full.log.zlib",
+      "sha256": "b62563a049eff029051681316baa723f257d3b292e0c30fdb732077d3e225dbd"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-d0-pc/host-build-preflight.log.zlib",
+      "sha256": "bf0a54927f1a39f5941b4ae132bda5aa6d800bfc10ad8fcded1494fd3d5c96ec"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-d0-pc/host-build-v2.log.zlib",
+      "sha256": "9ec2fe7094e56de4b556a0bf8a535738ba3dd05deec1aa45d963148504274dcf"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-d0-pc/host-configure.log.zlib",
+      "sha256": "fbaff98b0f0432afebdd65a142564cb2d6b360e874e3c9509712d22c5c5d261f"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-d0-pc/host-model-first.log.zlib",
+      "sha256": "147829b798cbdaefaef12d475bbb8167c891b9962c026f04b0a4ee3cfb00dafe"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-d0-pc/host-test-faults-v2.log.zlib",
+      "sha256": "39fcc59994953870ba0c4d27e634983921f12faf069cf257c07eaa7ce9e27bbd"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-d0-pc/host-test-first.log.zlib",
+      "sha256": "6e0e2f58b426bc298ea5bd005bcc62a1f43837a2a0d10ef2aedc1367fb143efd"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-d0-pc/host-test-full-v2.log.zlib",
+      "sha256": "a172a37aa1a0a3040626a6b9276a677c85d5a30233a11eec3cbbceb380ccf32b"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-d0-pc/host-test-full.log.zlib",
+      "sha256": "fe2a70fc2a40ce5634cb465cb66ba1135b9fe0e5b777884966c872484be44831"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-d0-pc/host-test-preflight.log.zlib",
+      "sha256": "a79f6e46ca84ee881ea97bb0aa7246b2238b51bc5d8ae060f0cbab8082762cb3"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-d0-pc/pc-mount-proof.json.zlib",
+      "sha256": "e9fba661b943a037a53453f70346b1014de0618a922b554483b84e030b445f0d"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-d0-pc/pc-test-card-identity.json.zlib",
+      "sha256": "7d042a383b5cfe83550433705efbf53e65b2fff266117d6187eabb2f2885c15d"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-d0-pc/pc-volumes-before-capture.json.zlib",
+      "sha256": "9aae780b10e44c0f64655fb0b035586f48e217bb6a7be0068150193c00da6bdd"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-d0-pc/preflight-r3-image.json.zlib",
+      "sha256": "3b1232fc3e180b2ca76ec8e244e2be5cc5ebece2750ed616bb1db5929cd7d6a3"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-d0-pc/prepare_main.py.zlib",
+      "sha256": "54aa2e45123e62957a5ba511d9c83ed73e2bc7b4c5e4cff83a181b6a971dc876"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-d0-pc/publish_checkpoint.py.zlib",
+      "sha256": "dd1d0615b7fd402ce7392fbead30ba3b2c21f833a64d79e91f0310f7d93c6ae5"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-d0-pc/readback.json.zlib",
+      "sha256": "33c4323e45382d07f4b81174ee8b42551d8cd47d8b0e2feaf1a599e210293475"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-d0-pc/reader-torn-tail-test.log.zlib",
+      "sha256": "e2a8616d76f850db27fdc081de00e0ff327a0e7acfc128c9583aca6d4ffa1d16"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-d0-pc/run_capture.py.zlib",
+      "sha256": "ff7d511a4c853bfb3cebabc9a53f03ec738ae302dc92e8d9afab955ce11645af"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-d0-pc/staged-check.log.zlib",
+      "sha256": "e80d76c8926f024eb109f4a3582136d5c6d08869a26fc8390b922eb14edd95de"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-group-600s/BUNDLE.json",
+      "sha256": "ec166e87f6d8bab3476e0df34387900c396a4ee24b34ad81379e320a1e4ff35b"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-group-600s/analyze_capture.py.zlib",
+      "sha256": "36290fc79c704f2063b2adacdc0bf91b0e722a52d4979388e06118d4ec70dff8"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-group-600s/extract_group_pc.py.zlib",
+      "sha256": "25c00a23837159f44171678725c4c08c9d00d54705ef9e12b3e25eeaea07b1d4"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-group-600s/group-file-600s--analysis.json.zlib",
+      "sha256": "6a2f71f3fc3ca8baf87be1eb9e1a040d78f1acc2be4c11250ac9ed2365218773"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-group-600s/group-file-600s--body.gdb.zlib",
+      "sha256": "98aef64006f4c2cc8e77d8e36df9cbed4e56085660f4e4c3ec0b40fc8e7de72c"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-group-600s/group-file-600s--brackets.bin.zlib",
+      "sha256": "386b45d49af09fcb470a76ac0ba5aaf3774358373be3b13929f35777e5eaa31f"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-group-600s/group-file-600s--busy-distributions.bin.zlib",
+      "sha256": "7a4f9ed843413e2be5dc82bb0740b2efd6396b7cd3297277fdde0e93be9f86c0"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-group-600s/group-file-600s--card.bin.zlib",
+      "sha256": "9bc6826934f276543406e6346aa6d42f28e4c3ec94262e7649893217bac42b27"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-group-600s/group-file-600s--distributions.bin.zlib",
+      "sha256": "e97547ec7e8fa73e30da0a98b53a16fe6024e139475bc5bcf7358b93a5570568"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-group-600s/group-file-600s--durable-footer.bin.zlib",
+      "sha256": "90d20cdb7fe1568a1c571684c49bf15af3e3c1dbb4e81b77f9a3fc2f22a8f84e"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-group-600s/group-file-600s--durable-status.bin.zlib",
+      "sha256": "4f458ee54b415ddbe8dec508724d324be86f5c28725c2f88b17756ee9ffa776e"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-group-600s/group-file-600s--fifo-stop-payload.bin.zlib",
+      "sha256": "bd8b07ea63c0ff5ed624b737278f9a154dd049ac7a54a15673c93802d14c1dbc"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-group-600s/group-file-600s--fifo-stop-trace.bin.zlib",
+      "sha256": "2ae704d1812f220ecacdd561dd9f910004f1ced0f8fdf9216fb4dc87f82c49fe"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-group-600s/group-file-600s--header.bin.zlib",
+      "sha256": "af33756c8424b6cf42fc1d0dcbf49f031713d837b15163a13feac15b8963101a"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-group-600s/group-file-600s--outputs.bin.zlib",
+      "sha256": "64da369ed4d2caa9ad6e4b97ad56993639475da4a5e56b135d6757235c8a1760"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-group-600s/group-file-600s--raw.bin.zlib",
+      "sha256": "609a532ef5026ca1f18af09bbef05a56b329b4cd21df42899195a65c69815810"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-group-600s/group-file-600s--records.bin.zlib",
+      "sha256": "4f9fe8c96fcf9f6e7c95a504d12a52cf4607b6cd2ae07780b1d2ac5053663360"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-group-600s/group-file-600s--result.bin.zlib",
+      "sha256": "2598c9b048e238657c55c8e162aa71fae45ddc16a127ec07b653f04d27ed3f5c"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-group-600s/group-file-600s--result.json.zlib",
+      "sha256": "668339c154ff86d46b586a2f8d41a51b647190eb921fb20661d3ccad53e155f0"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-group-600s/group-file-600s--sd-distributions.bin.zlib",
+      "sha256": "a6cc03dba4d68ad185f2bc9fb1dcec3db3badcaf975f2ee3bb386c31a0932895"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-group-600s/group-file-600s--sd-records.bin.zlib",
+      "sha256": "55027fe7d17a9d76f0ba00eff9d3583daa94a772cd478c3728bba9030f0ab57f"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-group-600s/group-file-600s--single-busy-max.bin.zlib",
+      "sha256": "1ed915b09b84f0f09c12bfdf7d726c98b305638ee71f88993c422a4969f6dd6d"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-group-600s/group-file-600s--source-sha.bin.zlib",
+      "sha256": "5fd02d9c103ae3044ac4f18e43c8b725460ac71687ea6ee07b23db6b5f5e20aa"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-group-600s/group-file-600s--sources.bin.zlib",
+      "sha256": "b2670000b03a9c5122bf8c29ce8595deef2f0c5ec236b12a92a0d06d02ed816e"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-group-600s/group-file-600s--spi2-config.bin.zlib",
+      "sha256": "cb0ffce66135084fd53223be33e6c2145c824cd0f5870bef19a65919b5b48dbf"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-group-600s/group-file-600s--spi3-config.bin.zlib",
+      "sha256": "f3e8f68cb9560f75ad334ed4ba11ed27fdb090d555a83fbd1762e13749265e75"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-group-600s/group-file-600s.log.zlib",
+      "sha256": "c3a4e76af87ff6d9ecbd578355dcb31059e21ac983eb56cf500d59ce7c2921fa"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-group-600s/hardware--group-file-600s-invocation.json.zlib",
+      "sha256": "3fa518a014e48c9d5870ebfd5d40f18adb8c9f4dc650880ce6518b31551cfa93"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-group-600s/hardware--group-file-600s-server.log.zlib",
+      "sha256": "e10983747cbbc75b0f14ab0523f2c631430b41b31c5be4e954db1768d202b7b5"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-group-600s/hardware--group-file-600s.gdb.zlib",
+      "sha256": "3ace0b5af9a3994e46731c68c923cb0ecca4a59b1ee40311ade78ec530b7951e"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-group-600s/hardware--group-file-600s.log.zlib",
+      "sha256": "5b91ee2dff54cbb36e5a3edb9be0fa19a2753271aae463497b806bdc16922af8"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-group-600s/reader-rate-test.log.zlib",
+      "sha256": "884ac602533bbd5ae1717cda2a9f6062a561bc4e14554d063cd1cca813f72675"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-group-short/BUNDLE.json",
+      "sha256": "ededfeb22b9359aafd39a18bf551e62c1ee34364cec7af5aeb69fb24e0094eff"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-group-short/analyze_capture.py.zlib",
+      "sha256": "36290fc79c704f2063b2adacdc0bf91b0e722a52d4979388e06118d4ec70dff8"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-group-short/arm--CMakeCache.txt.zlib",
+      "sha256": "84205a12eab118e87ab2d95736b5f64a5e9817226644cc1f11026345378c5070"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-group-short/arm--r3_coex.bin.zlib",
+      "sha256": "1b28540e8316ab5805a0ed952fac28b3e4de0226c4d2ac4f87ac47b6dd6c5839"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-group-short/arm--r3_coex.elf.zlib",
+      "sha256": "2e5b16e42785cc74074bd078a4187e7ba2e33a0d7d75e77b096ce7d46506d7fc"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-group-short/arm--r3_coex.map.zlib",
+      "sha256": "d91a8f49ae27048a69120a8e8fe86b66ab3906dd5d85ca2c8376e4e06a4536c5"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-group-short/artifact-group-before-clockgap.json.zlib",
+      "sha256": "acb45425965bd7a32266adeb6f83a83c8f6473fdde65cd53b97b4a184d709af8"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-group-short/artifact-group.json.zlib",
+      "sha256": "26c20e746d3a506f25a9d5ed939733c9e7c03f4ab076e628f1a371985c1ff991"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-group-short/extract_group_pc.py.zlib",
+      "sha256": "25c00a23837159f44171678725c4c08c9d00d54705ef9e12b3e25eeaea07b1d4"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-group-short/group-all-sizes-build-v2.log.zlib",
+      "sha256": "b62563a049eff029051681316baa723f257d3b292e0c30fdb732077d3e225dbd"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-group-short/group-all-sizes-build.log.zlib",
+      "sha256": "62322504f6dd285a9cce630eace68eabd39d7ed39e6a357829912b5c54d847c3"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-group-short/group-all-sizes-test-v2.log.zlib",
+      "sha256": "9a31fe6c561949dc0d35179e9c4b7661563c250b4a00da7a41cf505cb183e716"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-group-short/group-arm-build-v2.log.zlib",
+      "sha256": "5b002b5915840fc9ed09cedc338e15b5bfdafa474fde36c36db86c5b80c03eb2"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-group-short/group-arm-build.log.zlib",
+      "sha256": "352d8f05d3596aa706dbed79b1d276ae1e25e0a011cb442632fa76116ae7a4bc"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-group-short/group-baseline--analysis.json.zlib",
+      "sha256": "e5716dcbbefe38ac66327a430b7fcdc50fc1435cac75c8b4d4f21451b874f394"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-group-short/group-baseline--body.gdb.zlib",
+      "sha256": "0a46c9beb2128c1d968572c73b30073bac2db94ab18a3c21beb78ee29ceb1617"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-group-short/group-baseline--brackets.bin.zlib",
+      "sha256": "386b45d49af09fcb470a76ac0ba5aaf3774358373be3b13929f35777e5eaa31f"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-group-short/group-baseline--busy-distributions.bin.zlib",
+      "sha256": "62ad0d01b7a6547ef708c84cf09cf5584442db88a309fc183a85edd3e0b3d054"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-group-short/group-baseline--card.bin.zlib",
+      "sha256": "452999958c8bf39e9c8f352ad4f853d2ba1cff05bd8b75387e19af8022f07843"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-group-short/group-baseline--distributions.bin.zlib",
+      "sha256": "fe56b5f95df95dde352f36dfc52fb09cc4a5d64bcf27ce848e45217d4ba64522"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-group-short/group-baseline--durable-footer.bin.zlib",
+      "sha256": "f7191fd8edb8005d6ddcac4a03b8e62415cbbcbfadbe85d545d35d8124e697a3"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-group-short/group-baseline--durable-status.bin.zlib",
+      "sha256": "2716d18e321ebb4439cb7536b7b541ae0318e32c514e1bb3655bb6ed50a78e5d"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-group-short/group-baseline--fifo-stop-payload.bin.zlib",
+      "sha256": "bd8b07ea63c0ff5ed624b737278f9a154dd049ac7a54a15673c93802d14c1dbc"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-group-short/group-baseline--fifo-stop-trace.bin.zlib",
+      "sha256": "7b785e7502caaff37d5f4065dcb1f476af787ae44915bf9b9979885a65f45a99"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-group-short/group-baseline--header.bin.zlib",
+      "sha256": "f7191fd8edb8005d6ddcac4a03b8e62415cbbcbfadbe85d545d35d8124e697a3"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-group-short/group-baseline--outputs.bin.zlib",
+      "sha256": "a903aa8ebbb93eea9e07a040442540567fcf8a3f7a128cffc32a4ced81aba181"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-group-short/group-baseline--raw.bin.zlib",
+      "sha256": "149282f2c82f65702ec80121084400ea2305f424b4aad45c5da7c5216f1e2a03"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-group-short/group-baseline--records.bin.zlib",
+      "sha256": "a4090539b61dae12ebfaa3554956e88e3eccd11d6488bc56f36e6504f2e68f5b"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-group-short/group-baseline--result.bin.zlib",
+      "sha256": "de4465af753ce0dcfaf512c3c22e12ec05dfe7e51e14fcd2edc36e52ab8bbe70"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-group-short/group-baseline--result.json.zlib",
+      "sha256": "05ab0a2431f2e8f90081dd49318b69c41da9c67e8f5b5ed6124f0da4dcdeacec"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-group-short/group-baseline--sd-distributions.bin.zlib",
+      "sha256": "62ad0d01b7a6547ef708c84cf09cf5584442db88a309fc183a85edd3e0b3d054"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-group-short/group-baseline--sd-records.bin.zlib",
+      "sha256": "b171e283c6145acf2b923098dbbc40ffc39b4f1db0212928f9869747376c4ac8"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-group-short/group-baseline--single-busy-max.bin.zlib",
+      "sha256": "611d417cb007ca0eeb6d26c0defe71b887ffbba045a6ec5a0df38861b439baa2"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-group-short/group-baseline--source-sha.bin.zlib",
+      "sha256": "5e28c59910250f4a166d20222857686e4de1c9dc04a6a068e75c85e604e424cf"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-group-short/group-baseline--sources.bin.zlib",
+      "sha256": "baa2ecab5bdd05fd2e8f0f731ec580161799bb46cc9d028ee0541742d195d74c"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-group-short/group-baseline--spi2-config.bin.zlib",
+      "sha256": "cb0ffce66135084fd53223be33e6c2145c824cd0f5870bef19a65919b5b48dbf"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-group-short/group-baseline--spi3-config.bin.zlib",
+      "sha256": "f3e8f68cb9560f75ad334ed4ba11ed27fdb090d555a83fbd1762e13749265e75"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-group-short/group-build-source.log.zlib",
+      "sha256": "ab704ed0ae705f8ef693d974cdccb9cb5931bbfa0ba95dae88add4fae5b69fc0"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-group-short/group-busy-build.log.zlib",
+      "sha256": "d6da34bf7d03b675550e5ea93920561b7dd5320a7c56bfb39d988d827b042042"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-group-short/group-busy-test.log.zlib",
+      "sha256": "ef65af518c01c129d02480f072b6b2262fca87cc5579a102958f4cbed895b4e9"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-group-short/group-canonical-cross.log.zlib",
+      "sha256": "4493cfc8a1364caf12ecdaf736f577799a4f51ff5206223f1843976ae7960120"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-group-short/group-configure-source.log.zlib",
+      "sha256": "082fef694c28ce3baebf4000661b50b120487f59ab9796d577f9b40e27054f91"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-group-short/group-file-2s--analysis.json.zlib",
+      "sha256": "71f80411061aa2e031430c11e04a1ce8e9d00e2621641eee4d57af882e012019"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-group-short/group-file-2s--body.gdb.zlib",
+      "sha256": "1deab4e9c61d5c17be7efbd74e81be4c882418aa3c54b7a7f515d22e4d6aaacc"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-group-short/group-file-2s--brackets.bin.zlib",
+      "sha256": "386b45d49af09fcb470a76ac0ba5aaf3774358373be3b13929f35777e5eaa31f"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-group-short/group-file-2s--busy-distributions.bin.zlib",
+      "sha256": "d695023366f5ff9d8623daab88ad919b7e339bbc46d13cb00657b4ee5b1c7f54"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-group-short/group-file-2s--card.bin.zlib",
+      "sha256": "28a1563aab71ee352f9ce7129670e047997cde29264a9801cd3e3c41f8611976"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-group-short/group-file-2s--distributions.bin.zlib",
+      "sha256": "9c6cd27e6900a6321f8440187bb6917378e1d401ec9be89d2619aa5a5b0955af"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-group-short/group-file-2s--durable-footer.bin.zlib",
+      "sha256": "90dfa56786443026b2dfa489396a8e18b940bf72c6462d9c3bdad3c80fecac5b"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-group-short/group-file-2s--durable-status.bin.zlib",
+      "sha256": "22d5dccbab8d6f3088c6989c94c3517855407cac6cabf0f3d7ffa770658ca4e0"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-group-short/group-file-2s--fifo-stop-payload.bin.zlib",
+      "sha256": "bd8b07ea63c0ff5ed624b737278f9a154dd049ac7a54a15673c93802d14c1dbc"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-group-short/group-file-2s--fifo-stop-trace.bin.zlib",
+      "sha256": "5b496ccb62f83ba39622a7bc5150778e5d152f72661e1cef4b86ad2b6471e468"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-group-short/group-file-2s--header.bin.zlib",
+      "sha256": "0088d60a833070d11c00b908e8349c074ff3a91dfab40c21483a2228911da5b8"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-group-short/group-file-2s--outputs.bin.zlib",
+      "sha256": "527b63a6fabfb096a146b9d1a555f0fe7824ab4017653d93c84cf85d6168cfc4"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-group-short/group-file-2s--raw.bin.zlib",
+      "sha256": "f9e620624bc85135070a886ad6acd36b5ac7dbe8db54a9c7b1d2c5fb7ec118fa"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-group-short/group-file-2s--records.bin.zlib",
+      "sha256": "795acecac20d3c3f12be7eec9edb63accd42dcf5b704ae3ad237d4efd71df755"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-group-short/group-file-2s--result.bin.zlib",
+      "sha256": "1505ddf78102342c9a58b9d6bbf93660374ac797d1865d4fada86610283550f6"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-group-short/group-file-2s--result.json.zlib",
+      "sha256": "62546f1cca852c4dfc0e4f1f1292ea92c12cfa00f63627491db4533c9c1a7c63"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-group-short/group-file-2s--sd-distributions.bin.zlib",
+      "sha256": "2c6ef500fe428e5fca1bae6adf0ce50f407b91c2d616b671c6678c17ec43a453"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-group-short/group-file-2s--sd-records.bin.zlib",
+      "sha256": "a368f9602d7964ebb11dd69b922449ed14b8c680689ac2ec1e6b320329e2da11"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-group-short/group-file-2s--single-busy-max.bin.zlib",
+      "sha256": "a8e4d96558789fe97598b815c4045e9ef407a1b04fc60198c531e152bb25f084"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-group-short/group-file-2s--source-sha.bin.zlib",
+      "sha256": "02bfa6d0b2173804efd0b069db00a5238a89f773c2e1516b5694ffd706a3b9e0"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-group-short/group-file-2s--sources.bin.zlib",
+      "sha256": "7f0142d2ac8b8a50a437062b6c20dab6e33691f63d3fc1ddf0376134f154b31c"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-group-short/group-file-2s--spi2-config.bin.zlib",
+      "sha256": "cb0ffce66135084fd53223be33e6c2145c824cd0f5870bef19a65919b5b48dbf"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-group-short/group-file-2s--spi3-config.bin.zlib",
+      "sha256": "f3e8f68cb9560f75ad334ed4ba11ed27fdb090d555a83fbd1762e13749265e75"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-group-short/group-file-60s--analysis.json.zlib",
+      "sha256": "b20eedeac42267128b41ff70c419f4143f4fd31b4af82c15eb0423f5d55ab079"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-group-short/group-file-60s--body.gdb.zlib",
+      "sha256": "23e02feaf0743cbe62210f18a4ff4471ba682486475e42ce15a01342b1670958"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-group-short/group-file-60s--brackets.bin.zlib",
+      "sha256": "386b45d49af09fcb470a76ac0ba5aaf3774358373be3b13929f35777e5eaa31f"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-group-short/group-file-60s--busy-distributions.bin.zlib",
+      "sha256": "1379061c7c127a83ff79def85ac7eeb73f5503840121c1bf38704a830da90ba3"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-group-short/group-file-60s--card.bin.zlib",
+      "sha256": "d33616a5cbc93d68c590732b14014a8fd3347ca10d109f72a32ea1659bf53671"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-group-short/group-file-60s--distributions.bin.zlib",
+      "sha256": "01f6c3b0e00ee0e0d372c20b6aae3675d512c9e00c4dca7d080549b51f3c4352"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-group-short/group-file-60s--durable-footer.bin.zlib",
+      "sha256": "cc504d545a7a1f0b9d27f428e0bd5252def92f3d459102e0742939c6e4a72643"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-group-short/group-file-60s--durable-status.bin.zlib",
+      "sha256": "1c0c56980dc461688de619dfa761060eca0b5a4f5b9fadf8fbb424ff9adca8eb"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-group-short/group-file-60s--fifo-stop-payload.bin.zlib",
+      "sha256": "bd8b07ea63c0ff5ed624b737278f9a154dd049ac7a54a15673c93802d14c1dbc"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-group-short/group-file-60s--fifo-stop-trace.bin.zlib",
+      "sha256": "3f6edf314753f2bf946a893988a1242a046c91310e92af443e4b9bc41e86cf4b"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-group-short/group-file-60s--header.bin.zlib",
+      "sha256": "feff7ca2a84a389162415347d317a7d9e3bb0741c6a8d2fa1c06416c9f80170c"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-group-short/group-file-60s--outputs.bin.zlib",
+      "sha256": "ce03cf7a4a36a34310a47b81b9fe471fd5da5bf4144d3eaa908a79add335d066"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-group-short/group-file-60s--raw.bin.zlib",
+      "sha256": "41684aed022ebb769be321249fb2719f96d530bc36950eda3c78166c791ee342"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-group-short/group-file-60s--records.bin.zlib",
+      "sha256": "79e101467726c00115730ee896cb9a791d5412e16c71d698259194baf49d1d7f"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-group-short/group-file-60s--result.bin.zlib",
+      "sha256": "cb23f05cc3734ec345d3a06bc2d485e5803d65c75de705691acdbc2e561c628a"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-group-short/group-file-60s--result.json.zlib",
+      "sha256": "687033717ebfcaa39d778bd62db2bac98885cec516e6ed51b18a878fb6fbecbd"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-group-short/group-file-60s--sd-distributions.bin.zlib",
+      "sha256": "5b0831cf1eabb70b53b3ba01fb090b5219fe33642ca0abb3f70473a3c120521e"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-group-short/group-file-60s--sd-records.bin.zlib",
+      "sha256": "1880681f4efd69bbfe927cc4833a6a721a942d9e663781d98275ab726066a235"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-group-short/group-file-60s--single-busy-max.bin.zlib",
+      "sha256": "b996c720fe975694b5ea02a88e8a73e7a25f8e72a7bfe6327dd0f43579c9a64b"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-group-short/group-file-60s--source-sha.bin.zlib",
+      "sha256": "a05c196645410d130dcb8364ed14b7d7a40eefecae30503a8e36d063a1a29913"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-group-short/group-file-60s--sources.bin.zlib",
+      "sha256": "1bf579c5b32707c5194413ea6548193b12490676fd47b88eb02a117115610b37"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-group-short/group-file-60s--spi2-config.bin.zlib",
+      "sha256": "cb0ffce66135084fd53223be33e6c2145c824cd0f5870bef19a65919b5b48dbf"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-group-short/group-file-60s--spi3-config.bin.zlib",
+      "sha256": "f3e8f68cb9560f75ad334ed4ba11ed27fdb090d555a83fbd1762e13749265e75"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-group-short/group-file-60s.log.zlib",
+      "sha256": "c70e850631da4f872b1edf2d4b0d1fcd74057180b3e0d499f5ad82246a80073d"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-group-short/group-final-build.log.zlib",
+      "sha256": "fcf45baa1e68d935dd3689d2bfd8dba3d41c16a10f126e4e849f9059e4ffd369"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-group-short/group-final-configure-source.log.zlib",
+      "sha256": "082fef694c28ce3baebf4000661b50b120487f59ab9796d577f9b40e27054f91"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-group-short/group-final-source.log.zlib",
+      "sha256": "542fdbc095d3dc92f3170a3d65b36594ec3f1c7e84c8d3b7c508254e20a97502"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-group-short/group-gap-arm.log.zlib",
+      "sha256": "73c220a2947eb12bcfee19a9634e49d4c8ac085dbe167ac465533f394d731538"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-group-short/group-gap-build.log.zlib",
+      "sha256": "88d6be2696f2f854863be27b98a437d84f6b1615cfb26433bdb8fe487993912d"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-group-short/group-gap-test.log.zlib",
+      "sha256": "00b38f8ebfd8c2f98f2fff853eb7f1aca78c9b51d4bb14bb0e38c803bd8e2728"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-group-short/group-host-build-v2.log.zlib",
+      "sha256": "88d6be2696f2f854863be27b98a437d84f6b1615cfb26433bdb8fe487993912d"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-group-short/group-host-build.log.zlib",
+      "sha256": "4b407f3c2497217f7fcf2fe008f40e76a18b4d85696efbd3e010ed244f1c92ba"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-group-short/group-host-test-v2.log.zlib",
+      "sha256": "a9c74bdf9d13bd7540174b89f02e1e6aeccb14dbfc874d8486e042838dbf91b2"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-group-short/group-init-mount-cal--body.gdb.zlib",
+      "sha256": "f9ccb36e99fa4a80097eaef03bddeae5df46a0569a0a366cc2531e0e95eab91a"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-group-short/group-init-mount-cal--brackets.bin.zlib",
+      "sha256": "386b45d49af09fcb470a76ac0ba5aaf3774358373be3b13929f35777e5eaa31f"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-group-short/group-init-mount-cal--busy-distributions.bin.zlib",
+      "sha256": "62ad0d01b7a6547ef708c84cf09cf5584442db88a309fc183a85edd3e0b3d054"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-group-short/group-init-mount-cal--card.bin.zlib",
+      "sha256": "452999958c8bf39e9c8f352ad4f853d2ba1cff05bd8b75387e19af8022f07843"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-group-short/group-init-mount-cal--distributions.bin.zlib",
+      "sha256": "7e66fff221b41c64713e9ded334c1d15503d0f127ea47b6d0f59a0facd82621b"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-group-short/group-init-mount-cal--durable-footer.bin.zlib",
+      "sha256": "f7191fd8edb8005d6ddcac4a03b8e62415cbbcbfadbe85d545d35d8124e697a3"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-group-short/group-init-mount-cal--durable-status.bin.zlib",
+      "sha256": "2716d18e321ebb4439cb7536b7b541ae0318e32c514e1bb3655bb6ed50a78e5d"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-group-short/group-init-mount-cal--fifo-stop-payload.bin.zlib",
+      "sha256": "bd8b07ea63c0ff5ed624b737278f9a154dd049ac7a54a15673c93802d14c1dbc"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-group-short/group-init-mount-cal--fifo-stop-trace.bin.zlib",
+      "sha256": "99cc7c552c57201a9513ec16c6bcfe649d5d7f76f21c65de1fb038c49b16fc40"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-group-short/group-init-mount-cal--header.bin.zlib",
+      "sha256": "f7191fd8edb8005d6ddcac4a03b8e62415cbbcbfadbe85d545d35d8124e697a3"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-group-short/group-init-mount-cal--outputs.bin.zlib",
+      "sha256": "b171e283c6145acf2b923098dbbc40ffc39b4f1db0212928f9869747376c4ac8"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-group-short/group-init-mount-cal--raw.bin.zlib",
+      "sha256": "78d3bae4a47e629234d288a49b504b3f0b3e2ee78fee042ca6e9f83e8563ae5a"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-group-short/group-init-mount-cal--records.bin.zlib",
+      "sha256": "b171e283c6145acf2b923098dbbc40ffc39b4f1db0212928f9869747376c4ac8"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-group-short/group-init-mount-cal--result.bin.zlib",
+      "sha256": "3518469c8fa2163dfac66fdd577b6fd0a4fb3b5bc79c332aa69d47eed47a9777"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-group-short/group-init-mount-cal--result.json.zlib",
+      "sha256": "c2654615dc61d9c363de6ecc4490c926dec0e5dfa4208ba171bab9417167c0bf"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-group-short/group-init-mount-cal--sd-distributions.bin.zlib",
+      "sha256": "62ad0d01b7a6547ef708c84cf09cf5584442db88a309fc183a85edd3e0b3d054"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-group-short/group-init-mount-cal--sd-records.bin.zlib",
+      "sha256": "b171e283c6145acf2b923098dbbc40ffc39b4f1db0212928f9869747376c4ac8"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-group-short/group-init-mount-cal--single-busy-max.bin.zlib",
+      "sha256": "611d417cb007ca0eeb6d26c0defe71b887ffbba045a6ec5a0df38861b439baa2"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-group-short/group-init-mount-cal--source-sha.bin.zlib",
+      "sha256": "97dad41c6e855ad9a44c8acb242698e7cff4a28d8acf92370d3983fc1bd7b6f0"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-group-short/group-init-mount-cal--sources.bin.zlib",
+      "sha256": "b171e283c6145acf2b923098dbbc40ffc39b4f1db0212928f9869747376c4ac8"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-group-short/group-init-mount-cal--spi2-config.bin.zlib",
+      "sha256": "cb0ffce66135084fd53223be33e6c2145c824cd0f5870bef19a65919b5b48dbf"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-group-short/group-init-mount-cal--spi3-config.bin.zlib",
+      "sha256": "f3e8f68cb9560f75ad334ed4ba11ed27fdb090d555a83fbd1762e13749265e75"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-group-short/group-model-build.log.zlib",
+      "sha256": "d6da34bf7d03b675550e5ea93920561b7dd5320a7c56bfb39d988d827b042042"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-group-short/group-model-test.log.zlib",
+      "sha256": "eef2471eae0def712acf8bad962266c22edd12f359001bdc3b1cbde5cf36ff32"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-group-short/hardware--flash-group-command.json.zlib",
+      "sha256": "3a6ab829696d87dfa86dad65c233446ecad1d2cb74705e48b866dac316175c9e"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-group-short/hardware--flash-group.log.zlib",
+      "sha256": "ac4bc2a827eb33b57d8c595a93f016efad578783f99a6563face87a6a0c4417f"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-group-short/hardware--group-baseline-invocation.json.zlib",
+      "sha256": "5d637b506adb66e46a61fe1e6603d5c78632904d1e0a55b20993b75475257d6c"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-group-short/hardware--group-baseline-server.log.zlib",
+      "sha256": "e10983747cbbc75b0f14ab0523f2c631430b41b31c5be4e954db1768d202b7b5"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-group-short/hardware--group-baseline.gdb.zlib",
+      "sha256": "100a169df1dc0bde148f7cfee7fd89055915588aac95e1c70a2b70c346cf355b"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-group-short/hardware--group-baseline.log.zlib",
+      "sha256": "6e0a0afe8b713ff3e66bfcac791138de5ce39789a84a277074bee0e3f3fcdbb2"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-group-short/hardware--group-file-2s-invocation.json.zlib",
+      "sha256": "5e527bda44f1a0c6c4788ac3518f8a3f3095f50929b20490baaacffb4a70b82c"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-group-short/hardware--group-file-2s-server.log.zlib",
+      "sha256": "e10983747cbbc75b0f14ab0523f2c631430b41b31c5be4e954db1768d202b7b5"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-group-short/hardware--group-file-2s.gdb.zlib",
+      "sha256": "a6b836f055e8d4ab49005e81ce6ecfc6d9683afc6ca0d18a9cf9f9813171a3b1"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-group-short/hardware--group-file-2s.log.zlib",
+      "sha256": "74187bad61b6cbe941ad4c1ecfdd9eaec3b511cf877cb5034ceaed557ed121ca"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-group-short/hardware--group-file-60s-invocation.json.zlib",
+      "sha256": "33435c0b171a2ae83de4b42f8504b074b61a31729249ddeb2dfdd2f977e9b686"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-group-short/hardware--group-file-60s-server.log.zlib",
+      "sha256": "e10983747cbbc75b0f14ab0523f2c631430b41b31c5be4e954db1768d202b7b5"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-group-short/hardware--group-file-60s.gdb.zlib",
+      "sha256": "abb4845dbc62b40cd497219636d4ef447992ae2ab3210eda4c10ea13b422e78e"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-group-short/hardware--group-file-60s.log.zlib",
+      "sha256": "dfe58e34d723e47a9fb26b7a8bc81c49c2c8611fdade007283714a93340355db"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-group-short/hardware--group-init-mount-cal-invocation.json.zlib",
+      "sha256": "6c91974f100688bca3ea450317ee2f17738ea34d572bc0ed56c022d0e16de048"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-group-short/hardware--group-init-mount-cal-server.log.zlib",
+      "sha256": "e10983747cbbc75b0f14ab0523f2c631430b41b31c5be4e954db1768d202b7b5"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-group-short/hardware--group-init-mount-cal.gdb.zlib",
+      "sha256": "6a370e26fdb41c899ef1e45256535949d94aee32328f438f080704898fbae98a"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-group-short/hardware--group-init-mount-cal.log.zlib",
+      "sha256": "fc084967a2fd386f12005cab5e72f3b1b04787f6edd48b09085826f9170c4e2a"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-group-short/hardware--group-preflash-fd73.bin.zlib",
+      "sha256": "dc2e3127e924210f8a0e4ee843c3f071aaef2d98b5f011f1f205e6ed5ee82492"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-group-short/hardware--group-preflash-identity-invocation.json.zlib",
+      "sha256": "c3a8b692218af389a14bbb1e355807f201efb425206d4764b3c541493167aded"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-group-short/hardware--group-preflash-identity-server.log.zlib",
+      "sha256": "e10983747cbbc75b0f14ab0523f2c631430b41b31c5be4e954db1768d202b7b5"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-group-short/hardware--group-preflash-identity.gdb.zlib",
+      "sha256": "03585d5afba2eac01aa622038c4b3e7c7e0d9a543851be56cec20675a82f570b"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-group-short/hardware--group-preflash-identity.log.zlib",
+      "sha256": "f51aae0a9fec73ab57fc27d8ab139946b8343fd5479867a8ed0cc3626d030eaf"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-group-short/hardware--readback-group-invocation.json.zlib",
+      "sha256": "aab2c47cce3d767232954b55ab46be78ea6ce7278cb9953a24b18d68124b1a34"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-group-short/hardware--readback-group-server.log.zlib",
+      "sha256": "2d8b05226ecf2e462974c0ceca6a42996407464d239f05eea268fe9f85ded0de"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-group-short/hardware--readback-group.bin.zlib",
+      "sha256": "1b28540e8316ab5805a0ed952fac28b3e4de0226c4d2ac4f87ac47b6dd6c5839"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-group-short/hardware--readback-group.gdb.zlib",
+      "sha256": "e276cf6877c6bd6e1edb73a419650f792180224de5e99aca9e971132791c61dd"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-group-short/hardware--readback-group.log.zlib",
+      "sha256": "49a3a59eee8666a9611734e95b1de0084212e91bb0e0deebd280284871491192"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-group-short/readback-group.json.zlib",
+      "sha256": "683fdb987c650a911c4aba8ba427c68f5658a46a971340caea29b4344270f97f"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-group-short/run_capture.py.zlib",
+      "sha256": "85372333fd17a02c5da6be57df3525716ba18eb34a17d0746dc1a94d781595fb"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-negative-265s/BUNDLE.json",
+      "sha256": "d05526af7c90ce32b18c998923d26c33c1cc8797bacc44bb49ca2d8dc195d545"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-negative-265s/analyze_capture.py.zlib",
+      "sha256": "fb3bf790df78aad453c075a49a7740973497398ea8505f2020b13eef33b09ecf"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-negative-265s/d3-file-600s--analysis.json.zlib",
+      "sha256": "b3890e1d26c9e59b1cae51bb940845e97dfc41178c6e5fb9946c391b2e3a7589"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-negative-265s/d3-file-600s--body.gdb.zlib",
+      "sha256": "467c6f6fe48b994c5e5127452726adf7f4ae26a00a0eb095c217166390c52c60"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-negative-265s/d3-file-600s--brackets.bin.zlib",
+      "sha256": "733830c6a444ea7a637d5344f9f2769bffb2c42bc4e30ae7a4cc1decd7b467a3"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-negative-265s/d3-file-600s--card.bin.zlib",
+      "sha256": "e0fab134f59414993b793bfd40b8900b7a6d941a7edcdefcb5fcaf0885a1b51f"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-negative-265s/d3-file-600s--distributions.bin.zlib",
+      "sha256": "815a0df559d2ca3d5e3362fd408f63c466a8c2943e14a65a2406248b7fa20ecf"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-negative-265s/d3-file-600s--durable-footer.bin.zlib",
+      "sha256": "2890f1c1efb65a47d66685a05a90af8d932926a7cbe384e42979b43e90c209a3"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-negative-265s/d3-file-600s--durable-status.bin.zlib",
+      "sha256": "5b0511fe7922e22c950f1638cd0e9778432fa5ccff6bd153ca396ecf8829bbf1"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-negative-265s/d3-file-600s--fifo-stop-payload.bin.zlib",
+      "sha256": "2709f8912b663c97dd6ca756d54c8ca26f69236fd3beaaeb6249532e50b2db76"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-negative-265s/d3-file-600s--fifo-stop-trace.bin.zlib",
+      "sha256": "34e90bf70b70966027664cd2602b67e31338645b4fa777cb968ec7f2921d68b5"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-negative-265s/d3-file-600s--header.bin.zlib",
+      "sha256": "11b4e779591430b3c37bdf635df77d66e2ac9644a661e755b95b8ae667b1db16"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-negative-265s/d3-file-600s--outputs.bin.zlib",
+      "sha256": "7d373fe12211b9434ce5051f809487feb3bae196a6746d8200111dde712f17e9"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-negative-265s/d3-file-600s--raw.bin.zlib",
+      "sha256": "91822535fe1caa6333a2ab4fa29d8d13176d4939c9f0ac7ce1d84182fd16338e"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-negative-265s/d3-file-600s--records.bin.zlib",
+      "sha256": "6225f8d589d80d69fe7e3d7b08cbb9fb13b1386e622d93d31d179364f0928797"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-negative-265s/d3-file-600s--result.bin.zlib",
+      "sha256": "4ef6c2d865bee8c8c523a9e763b00ef123725f3c05a974b1e2d2b2e04d53a6e3"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-negative-265s/d3-file-600s--result.json.zlib",
+      "sha256": "82fe3897a8f8861a4cb541180182baa20278b0343e3e8e87c5cc46ad73e2686c"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-negative-265s/d3-file-600s--sd-distributions.bin.zlib",
+      "sha256": "496fa3e0fa1fe517e4ee91e80f643dfe3f44cebeea870a59fbfe96be711f8cd8"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-negative-265s/d3-file-600s--sd-records.bin.zlib",
+      "sha256": "8d64b0b01fc23b02b28326f7fe5c6bf0d0beaa956fd59cebb9d5d5cd8f72d24e"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-negative-265s/d3-file-600s--source-sha.bin.zlib",
+      "sha256": "c26e97846ef57ee71489fc2b90ea96ab8cc5e83e54439bf550565f9a06339852"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-negative-265s/d3-file-600s--sources.bin.zlib",
+      "sha256": "1fc5e84afacca330b6437c0a2a1d6ef995526e1a169a2953b3c33194927b4367"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-negative-265s/d3-file-600s--spi2-config.bin.zlib",
+      "sha256": "cb0ffce66135084fd53223be33e6c2145c824cd0f5870bef19a65919b5b48dbf"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-negative-265s/d3-file-600s--spi3-config.bin.zlib",
+      "sha256": "f3e8f68cb9560f75ad334ed4ba11ed27fdb090d555a83fbd1762e13749265e75"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-negative-265s/d3-file-600s.log.zlib",
+      "sha256": "7db5463b201520ff7bf88d6d0337ea21dd7a1edf8dfdaf39317b9abce9bd661d"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-negative-265s/extract_pc.py.zlib",
+      "sha256": "21c9843632363d962fbb459af3cc2ae29b67d4085d5fa37326b5e1b6f54fa1bd"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-negative-265s/hardware--d3-file-600s-invocation.json.zlib",
+      "sha256": "2480e8de10faa2470cb6ff424812cfc9028c2a679e93c2bedda5f3a467872589"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-negative-265s/hardware--d3-file-600s-server.log.zlib",
+      "sha256": "e10983747cbbc75b0f14ab0523f2c631430b41b31c5be4e954db1768d202b7b5"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-negative-265s/hardware--d3-file-600s.gdb.zlib",
+      "sha256": "7e3359095e020ae40c8677f57282d80b3217c7e571b0e9ae7c4cc14365a5e02a"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-negative-265s/hardware--d3-file-600s.log.zlib",
+      "sha256": "a14523dba002815397d0d7e469e36edee73ebb9d0bcc7fb14f9403d9dda4579f"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-negative-265s/negative-queue64-analysis.json.zlib",
+      "sha256": "4b4b6839f459e4389c749b0b5b2e2a5e2f8f76c42b5a7ea53165c78db2bf3ad8"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-negative-265s/pc-first-negative--INTEGRITY.json.zlib",
+      "sha256": "25eb4abb461d42648e2199093cfdde68517f8821eee2c5f4190ee2fd0f06b4e5"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-negative-265s/pc-first-negative--RUN0003.TR2.json.zlib",
+      "sha256": "ec7c2178af87d8695aeb68e5b068d398bcc0a892bccd076284547bda7ea2d042"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-negative-265s/pc-first-negative--RUN0003.TR2.zlib",
+      "sha256": "2471fe1d32ca8ba04bd9530db6ac927af12b4e8b6210ad5421fae7bc274ccc02"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-negative-265s/pc-first-negative--RUN0004.TR2.json.zlib",
+      "sha256": "a81f4abe9922c95bf8f8da86a3cb52d5f7f059b13a3631cb398cae3c9276bdcc"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-negative-265s/pc-first-negative--RUN0004.TR2.zlib",
+      "sha256": "8d41185f93f2e16dfd9b217c42ce4c1ad2f814bbbf534f6a005e5d04ff36e427"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-negative-265s/pc-first-negative--RUN0005.TR2.json.zlib",
+      "sha256": "7f9386997b7ab5acc808acbc8283deb1877ab609ea52f5f826813d67151c7aec"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-negative-265s/pc-first-negative--RUN0005.TR2.zlib",
+      "sha256": "6cd942b78b3ae23072ff918f5b73d466e8aa1f27b6178a1fcd745e374463a4e3"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-negative-265s/pc-first-negative--TR2INFO.TXT.zlib",
+      "sha256": "7c034461c9779be0f6f8042dc6dfa8c03f22ffaa5abea2725a0a0744f6218b8d"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-negative-265s/pc-first-negative--physical-disk.json.zlib",
+      "sha256": "7d042a383b5cfe83550433705efbf53e65b2fff266117d6187eabb2f2885c15d"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-negative-265s/pc-first-negative--volume.json.zlib",
+      "sha256": "3475dde1ab968b7bc5fbec3a501cfc22bb620849445a822a21f9cc35477b1cfc"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-negative-265s/pc-first-negative-extraction.log.zlib",
+      "sha256": "6aacce1e79d438e57a4fe89258adb27c825068ceb5db4c7511c443ef15d1dc7f"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-short/BUNDLE.json",
+      "sha256": "0c2e805bf07bd27a8183f7502b50b693f18901366492bd4092744c3354c7e159"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-short/analyze_capture.py.zlib",
+      "sha256": "fb3bf790df78aad453c075a49a7740973497398ea8505f2020b13eef33b09ecf"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-short/checkpoint-remote.json.zlib",
+      "sha256": "ffb7190ce465f55530fa53576a52197d0d7324b780c68a1a2f563a2ede8046a6"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-short/d3-baseline--analysis.json.zlib",
+      "sha256": "05f0d62345c712e52cf04ae8848d8556dab06b3bed611dfbe025e5061ac33ffe"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-short/d3-baseline--body.gdb.zlib",
+      "sha256": "f324b373d8261f83c202e5cddc2605de64f97fb1fc098071e9a01b1782019c84"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-short/d3-baseline--brackets.bin.zlib",
+      "sha256": "733830c6a444ea7a637d5344f9f2769bffb2c42bc4e30ae7a4cc1decd7b467a3"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-short/d3-baseline--card.bin.zlib",
+      "sha256": "755d674e0edf2c7745b80cda58cf44787108ded15ee77752ba3f809b767fbcef"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-short/d3-baseline--distributions.bin.zlib",
+      "sha256": "66c30de930fd04618040375f2b1a2fd85d1df7cd54aeb3ba03147104256b009a"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-short/d3-baseline--durable-footer.bin.zlib",
+      "sha256": "f7191fd8edb8005d6ddcac4a03b8e62415cbbcbfadbe85d545d35d8124e697a3"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-short/d3-baseline--durable-status.bin.zlib",
+      "sha256": "2716d18e321ebb4439cb7536b7b541ae0318e32c514e1bb3655bb6ed50a78e5d"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-short/d3-baseline--fifo-stop-payload.bin.zlib",
+      "sha256": "bd8b07ea63c0ff5ed624b737278f9a154dd049ac7a54a15673c93802d14c1dbc"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-short/d3-baseline--fifo-stop-trace.bin.zlib",
+      "sha256": "8d3eefa0e3d21d10f4c2ca70904526af7d9c7d62082fe4dbc21503eda3f6e11b"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-short/d3-baseline--header.bin.zlib",
+      "sha256": "f7191fd8edb8005d6ddcac4a03b8e62415cbbcbfadbe85d545d35d8124e697a3"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-short/d3-baseline--outputs.bin.zlib",
+      "sha256": "bcb510af7588a8c724819d3dd57fba3de208f863c0d6cfbc6bdfa03227d72569"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-short/d3-baseline--raw.bin.zlib",
+      "sha256": "4114a4fbf61c4678c6a5686ecac0842ed45d50c2ff6330a0d2398f9139cfb0e7"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-short/d3-baseline--records.bin.zlib",
+      "sha256": "2ed0695209f80f2a797b91cda572a54f09d16d1c0106e206d770406a36fcd62a"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-short/d3-baseline--result.bin.zlib",
+      "sha256": "e9b55ec729132fff2037b9ab732d8e39ed01c2c4ec3e4e751c3ad4ae7ee23933"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-short/d3-baseline--result.json.zlib",
+      "sha256": "1328bcdf2007b5536193af5e8ec65b1c99242badb61c473b3887df4ef1c8dc2f"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-short/d3-baseline--sd-distributions.bin.zlib",
+      "sha256": "62ad0d01b7a6547ef708c84cf09cf5584442db88a309fc183a85edd3e0b3d054"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-short/d3-baseline--sd-records.bin.zlib",
+      "sha256": "b171e283c6145acf2b923098dbbc40ffc39b4f1db0212928f9869747376c4ac8"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-short/d3-baseline--source-sha.bin.zlib",
+      "sha256": "f3655216ada3585d933b6d665b3a7e1186e315eb6513002dfea2c10639b833c7"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-short/d3-baseline--sources.bin.zlib",
+      "sha256": "6269b7acafa43f44cb3811b53835ea3da2e0a6ba0f3ea9b320a45d28a0fc73fb"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-short/d3-baseline--spi2-config.bin.zlib",
+      "sha256": "cb0ffce66135084fd53223be33e6c2145c824cd0f5870bef19a65919b5b48dbf"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-short/d3-baseline--spi3-config.bin.zlib",
+      "sha256": "f3e8f68cb9560f75ad334ed4ba11ed27fdb090d555a83fbd1762e13749265e75"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-short/d3-file-2s--analysis.json.zlib",
+      "sha256": "d4b01774c12b91a110521cf7e46925d904c6df32e9705ed6931fb2364f58b92f"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-short/d3-file-2s--body.gdb.zlib",
+      "sha256": "fb8f25efdcf5378c985bcfa1bf594af1e1b5655e34ad4eaa2ed9bfe43a1f82e2"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-short/d3-file-2s--brackets.bin.zlib",
+      "sha256": "733830c6a444ea7a637d5344f9f2769bffb2c42bc4e30ae7a4cc1decd7b467a3"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-short/d3-file-2s--card.bin.zlib",
+      "sha256": "4bc4956784182281289ce32510f06ffee972ac7842c2e692acd433776957942d"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-short/d3-file-2s--distributions.bin.zlib",
+      "sha256": "611d9e2c978cb5d8bb46da57bfaf965ee0ff75550175f2766f19fdc5f6100373"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-short/d3-file-2s--durable-footer.bin.zlib",
+      "sha256": "3d310e6ca15c79f35b5f0c4e5b9e2328ed8a7c23de5fcb3620aa16264b4161d7"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-short/d3-file-2s--durable-status.bin.zlib",
+      "sha256": "2311040511ba11b319d49776551528963b7a793843757df4822b757321aede58"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-short/d3-file-2s--fifo-stop-payload.bin.zlib",
+      "sha256": "bd8b07ea63c0ff5ed624b737278f9a154dd049ac7a54a15673c93802d14c1dbc"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-short/d3-file-2s--fifo-stop-trace.bin.zlib",
+      "sha256": "25eff6130783504c12ea16637da9d416e89fe44ddb1dc05b25a19a05fba198e0"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-short/d3-file-2s--header.bin.zlib",
+      "sha256": "2689785dfb2f80d86703345bdbfafc82906c609f33c8d95e80d0931119480afc"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-short/d3-file-2s--outputs.bin.zlib",
+      "sha256": "c1786ffc9412927f7e2e99979c3de7129b07ac3c9df68ec0cd9419a2a55974cc"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-short/d3-file-2s--raw.bin.zlib",
+      "sha256": "5dd8564cd86b0969b1e44a31e707e714a5ed86a554f84ac823a35522033905fa"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-short/d3-file-2s--records.bin.zlib",
+      "sha256": "b8bf178ea1b75e386f26c58e0c3c7452fbaad9810019715bcc518e86a31078dc"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-short/d3-file-2s--result.bin.zlib",
+      "sha256": "12baa3ccb29e2fc6ef4453a67fdfc8cfdcff0d34e6e030f0c14482bf8bd56a1a"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-short/d3-file-2s--result.json.zlib",
+      "sha256": "214da8bc4dc66a9c0e8697d6aca4aa36cca369fc017ebf767e74c908a82e9c5d"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-short/d3-file-2s--sd-distributions.bin.zlib",
+      "sha256": "dd6f3a0af70b801701b11f7646222a8b1602dd05c6549180462f28ff8802bb71"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-short/d3-file-2s--sd-records.bin.zlib",
+      "sha256": "26a26e8343839ab49739b1910df88a1080f4df9af4c740cdf8a2d289ef36c65e"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-short/d3-file-2s--source-sha.bin.zlib",
+      "sha256": "bf9a7ea48b4063a25fa9d7c5c12362811c4f9d0f74552a04c55db89937823139"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-short/d3-file-2s--sources.bin.zlib",
+      "sha256": "084e6000ce74c55f2d54f604f4940328ba7ef9a98810bf85f89652777b5cf490"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-short/d3-file-2s--spi2-config.bin.zlib",
+      "sha256": "cb0ffce66135084fd53223be33e6c2145c824cd0f5870bef19a65919b5b48dbf"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-short/d3-file-2s--spi3-config.bin.zlib",
+      "sha256": "f3e8f68cb9560f75ad334ed4ba11ed27fdb090d555a83fbd1762e13749265e75"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-short/d3-file-60s--analysis.json.zlib",
+      "sha256": "5299326268fe78234fcd61d0ab438f1cc555509e80426ca54bd57077f86c8fde"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-short/d3-file-60s--body.gdb.zlib",
+      "sha256": "cce6023fe20f6161881936ad8b1abc8c824e67df40d583540199212ad72aa1d1"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-short/d3-file-60s--brackets.bin.zlib",
+      "sha256": "733830c6a444ea7a637d5344f9f2769bffb2c42bc4e30ae7a4cc1decd7b467a3"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-short/d3-file-60s--card.bin.zlib",
+      "sha256": "6010a67dc9a84a64a25e8e8f88ac9e3745ad6e07882bd1c199b88913b0238182"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-short/d3-file-60s--distributions.bin.zlib",
+      "sha256": "3a21ed5ab684488e9298777ac121badd000da23c5badbc0e28e92b8ea942dabc"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-short/d3-file-60s--durable-footer.bin.zlib",
+      "sha256": "2890f1c1efb65a47d66685a05a90af8d932926a7cbe384e42979b43e90c209a3"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-short/d3-file-60s--durable-status.bin.zlib",
+      "sha256": "0122a723f875df95627458f0e6949dd3bd0a8683318c1d78e444b67d59999f29"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-short/d3-file-60s--fifo-stop-payload.bin.zlib",
+      "sha256": "bd8b07ea63c0ff5ed624b737278f9a154dd049ac7a54a15673c93802d14c1dbc"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-short/d3-file-60s--fifo-stop-trace.bin.zlib",
+      "sha256": "6e085e0bc893ea831f928b170585192d03d51454b6036978a12af9f1b01301e9"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-short/d3-file-60s--header.bin.zlib",
+      "sha256": "f8704cabe4939881ef42ac91f7c25cc48e30abee4593fea893491648f2931c42"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-short/d3-file-60s--outputs.bin.zlib",
+      "sha256": "9611f6b3ec1d2d6a73459367c142bf944f0e5e276ab79069c03c992d16a9ee44"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-short/d3-file-60s--raw.bin.zlib",
+      "sha256": "016a85dfdaac7787af8289219627571a202ebb7c38e5a5bf550620f20eeeec56"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-short/d3-file-60s--records.bin.zlib",
+      "sha256": "54b48f6140f731cfaf074e424b2cd1528d497965b002335705aa2c7b7c9dceab"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-short/d3-file-60s--result.bin.zlib",
+      "sha256": "89f5f4ff898f304901e888b49480944b46480e15860daf373c96ad471ac5b54e"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-short/d3-file-60s--result.json.zlib",
+      "sha256": "8629309416fea6101f996ac9e351536f2b71f4a3e401194af85b29fdab2984cc"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-short/d3-file-60s--sd-distributions.bin.zlib",
+      "sha256": "abcd724b73eb42cc3d1dfe32a3ecb922b7a27ddbd740ceab2449447d90b512c5"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-short/d3-file-60s--sd-records.bin.zlib",
+      "sha256": "5037074f470ece1880b01928cc4d43c047451486863f35324ffd20c67ac7037c"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-short/d3-file-60s--source-sha.bin.zlib",
+      "sha256": "0c161f02c73edf2d7b1c96961a81e0b8e6bdf42218d64b35d4dc9a672b0ec82e"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-short/d3-file-60s--sources.bin.zlib",
+      "sha256": "e2024ddb165406c4132ff684dc785a882b6c2c857b10dfa23a38b65eae3da78a"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-short/d3-file-60s--spi2-config.bin.zlib",
+      "sha256": "cb0ffce66135084fd53223be33e6c2145c824cd0f5870bef19a65919b5b48dbf"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-short/d3-file-60s--spi3-config.bin.zlib",
+      "sha256": "f3e8f68cb9560f75ad334ed4ba11ed27fdb090d555a83fbd1762e13749265e75"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-short/d3-reinsert-mount-cal--body.gdb.zlib",
+      "sha256": "80c9eb35ed276dbdc455dfea1b4c8cb5d1f83479ce3d132e2fee3ec920289dac"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-short/d3-reinsert-mount-cal--brackets.bin.zlib",
+      "sha256": "733830c6a444ea7a637d5344f9f2769bffb2c42bc4e30ae7a4cc1decd7b467a3"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-short/d3-reinsert-mount-cal--card.bin.zlib",
+      "sha256": "755d674e0edf2c7745b80cda58cf44787108ded15ee77752ba3f809b767fbcef"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-short/d3-reinsert-mount-cal--distributions.bin.zlib",
+      "sha256": "7e66fff221b41c64713e9ded334c1d15503d0f127ea47b6d0f59a0facd82621b"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-short/d3-reinsert-mount-cal--durable-footer.bin.zlib",
+      "sha256": "f7191fd8edb8005d6ddcac4a03b8e62415cbbcbfadbe85d545d35d8124e697a3"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-short/d3-reinsert-mount-cal--durable-status.bin.zlib",
+      "sha256": "2716d18e321ebb4439cb7536b7b541ae0318e32c514e1bb3655bb6ed50a78e5d"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-short/d3-reinsert-mount-cal--fifo-stop-payload.bin.zlib",
+      "sha256": "bd8b07ea63c0ff5ed624b737278f9a154dd049ac7a54a15673c93802d14c1dbc"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-short/d3-reinsert-mount-cal--fifo-stop-trace.bin.zlib",
+      "sha256": "3687bdaf3870b4ae9658ae4b0cc716f1e90213e2366c4aaad07d3336ef09eb64"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-short/d3-reinsert-mount-cal--header.bin.zlib",
+      "sha256": "f7191fd8edb8005d6ddcac4a03b8e62415cbbcbfadbe85d545d35d8124e697a3"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-short/d3-reinsert-mount-cal--outputs.bin.zlib",
+      "sha256": "b171e283c6145acf2b923098dbbc40ffc39b4f1db0212928f9869747376c4ac8"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-short/d3-reinsert-mount-cal--raw.bin.zlib",
+      "sha256": "1cab3c137130f0af6b970373826c970e814f8504e4f27487fd24dcdc3f324a65"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-short/d3-reinsert-mount-cal--records.bin.zlib",
+      "sha256": "b171e283c6145acf2b923098dbbc40ffc39b4f1db0212928f9869747376c4ac8"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-short/d3-reinsert-mount-cal--result.bin.zlib",
+      "sha256": "de349704aaa593bfc42546b1902178cd17718f1a47d9b461e40477a8d5259552"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-short/d3-reinsert-mount-cal--result.json.zlib",
+      "sha256": "045fa8c1284c56134ea22bfde2aabb71f448932c82b6a92055fa5bb8a1e8f0e4"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-short/d3-reinsert-mount-cal--sd-distributions.bin.zlib",
+      "sha256": "62ad0d01b7a6547ef708c84cf09cf5584442db88a309fc183a85edd3e0b3d054"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-short/d3-reinsert-mount-cal--sd-records.bin.zlib",
+      "sha256": "b171e283c6145acf2b923098dbbc40ffc39b4f1db0212928f9869747376c4ac8"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-short/d3-reinsert-mount-cal--source-sha.bin.zlib",
+      "sha256": "97dad41c6e855ad9a44c8acb242698e7cff4a28d8acf92370d3983fc1bd7b6f0"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-short/d3-reinsert-mount-cal--sources.bin.zlib",
+      "sha256": "b171e283c6145acf2b923098dbbc40ffc39b4f1db0212928f9869747376c4ac8"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-short/d3-reinsert-mount-cal--spi2-config.bin.zlib",
+      "sha256": "cb0ffce66135084fd53223be33e6c2145c824cd0f5870bef19a65919b5b48dbf"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-short/d3-reinsert-mount-cal--spi3-config.bin.zlib",
+      "sha256": "f3e8f68cb9560f75ad334ed4ba11ed27fdb090d555a83fbd1762e13749265e75"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-short/extract_pc.py.zlib",
+      "sha256": "1def6c5da3fef904e4f98057807f6bc6c558206cb034f765dbcfca21c83160a8"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-short/hardware--d3-baseline-invocation.json.zlib",
+      "sha256": "f79d925d57b189eebf59564fb5f6e0770e6307519983288d09d8de365e2b6424"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-short/hardware--d3-baseline-server.log.zlib",
+      "sha256": "e10983747cbbc75b0f14ab0523f2c631430b41b31c5be4e954db1768d202b7b5"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-short/hardware--d3-baseline.gdb.zlib",
+      "sha256": "be67cb0ccac957789a60eefc53fc98b470189b6c76955947b92ce3f1e14073bb"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-short/hardware--d3-baseline.log.zlib",
+      "sha256": "b30172d97dff726fb339fe86dba2b55cad3cf7d95de03c0e75f856c88c8a6653"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-short/hardware--d3-file-2s-invocation.json.zlib",
+      "sha256": "4321a9a772fb439cbe342bf00170fae917ea3aea5c6e17a7bfd0ae4488b6faea"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-short/hardware--d3-file-2s-server.log.zlib",
+      "sha256": "e10983747cbbc75b0f14ab0523f2c631430b41b31c5be4e954db1768d202b7b5"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-short/hardware--d3-file-2s.gdb.zlib",
+      "sha256": "f95a1b5e58078987f6417494d61bdec71b4940d97a1f3808167254092e6d26e5"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-short/hardware--d3-file-2s.log.zlib",
+      "sha256": "556c8a9b3a7e5788fd1a9e0f5ae48f8e5e4acd72674c780633f7a3930d45b63f"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-short/hardware--d3-file-60s-invocation.json.zlib",
+      "sha256": "ce21ca38aa92c69a2549388c18bdc00a2d5840f40a8c2b9564e60f5363b56d66"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-short/hardware--d3-file-60s-server.log.zlib",
+      "sha256": "e10983747cbbc75b0f14ab0523f2c631430b41b31c5be4e954db1768d202b7b5"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-short/hardware--d3-file-60s.gdb.zlib",
+      "sha256": "af1afb43c07b79c6c55da00cca1d12be3db22b470a2a7656d4737c8a0e834963"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-short/hardware--d3-file-60s.log.zlib",
+      "sha256": "381f06b3c1deeb220bdae0d43065390f102d3c639ad022c2b5f1c02174b225f7"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-short/hardware--d3-reinsert-mount-cal-invocation.json.zlib",
+      "sha256": "c39bb94a002280be8f0fbb8a9e32504bf8d1a3d57181c4735cd3714d1b5c00ef"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-short/hardware--d3-reinsert-mount-cal-server.log.zlib",
+      "sha256": "e10983747cbbc75b0f14ab0523f2c631430b41b31c5be4e954db1768d202b7b5"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-short/hardware--d3-reinsert-mount-cal.gdb.zlib",
+      "sha256": "01559047f892bbdfe8d72580e2c6e0a31d29aa422fd4c12efe91ab28c86aeacb"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-short/hardware--d3-reinsert-mount-cal.log.zlib",
+      "sha256": "9188621eae7f984c9933148ff97cdb2e3196293dc336699c8fe06a1a15dd048b"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-short/hardware--reinsert-identity-safe-invocation.json.zlib",
+      "sha256": "e92f95e6d8cae75ea13175c9fd787e258e98bb0b3d1b581668e115f84049b26c"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-short/hardware--reinsert-identity-safe-server.log.zlib",
+      "sha256": "e10983747cbbc75b0f14ab0523f2c631430b41b31c5be4e954db1768d202b7b5"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-short/hardware--reinsert-identity-safe.gdb.zlib",
+      "sha256": "4fa3845cbcad482cbab864651d3936c939b595ca57b84d177e688e48029fd6da"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-short/hardware--reinsert-identity-safe.log.zlib",
+      "sha256": "7d923d19982d53e6d53ae65e86e35dff4d128c88b7198c57cf09f2f643bdf771"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-short/hardware--reinsert-image.bin.zlib",
+      "sha256": "dc2e3127e924210f8a0e4ee843c3f071aaef2d98b5f011f1f205e6ed5ee82492"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/checkpoint-short/run_capture.py.zlib",
+      "sha256": "ff7d511a4c853bfb3cebabc9a53f03ec738ae302dc92e8d9afab955ce11645af"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/final-pc/BUNDLE.json",
+      "sha256": "d53c0531f44a8d6c5d8721bbffc41ec5c0408e70d790e282cba6306b6b5c06a2"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/final-pc/extract_group_pc.py.zlib",
+      "sha256": "25c00a23837159f44171678725c4c08c9d00d54705ef9e12b3e25eeaea07b1d4"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/final-pc/pc-group-final--INTEGRITY.json.zlib",
+      "sha256": "d8ef679b1d72c08dac37c3fa0cd90d25a5675d971b570d4055efd9151e90c038"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/final-pc/pc-group-final--R2N0003.TR2.json.zlib",
+      "sha256": "a56dbc18a5809fb84e37a5355573440568d83e28abb1ed55cd50df2f73c25a29"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/final-pc/pc-group-final--R2N0003.TR2.prefix128.csv.zlib",
+      "sha256": "d83aa3a47946926d0a0682072cabc5cbe4c7de9a95d423273ae113b7b50a0e11"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/final-pc/pc-group-final--R2N0003.TR2.zlib",
+      "sha256": "cb5cb08639c2a86bbad537085e40edb7fc1245dbf632485b5889a3147741d2b4"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/final-pc/pc-group-final--R2N0004.TR2.json.zlib",
+      "sha256": "382de75af9553b94a1930fa212674ee4e8d2a14edcd687182f4126c3c48474f5"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/final-pc/pc-group-final--R2N0004.TR2.prefix128.csv.zlib",
+      "sha256": "51dd7e12d90c1f6c5cf3651bea36d64dca392cc0980dba4e8c884dbfadbeb395"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/final-pc/pc-group-final--R2N0004.TR2.zlib",
+      "sha256": "3d7b9275d7be2ebf39a2ad60a0d936d84f7c0d2ab721f1ad4fd05eadaddb9278"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/final-pc/pc-group-final--R2N0005.TR2.json.zlib",
+      "sha256": "9b4a07d37d3ec827c08aad6f901fc80718028cfb63c77ecd804fa68a190a2663"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/final-pc/pc-group-final--R2N0005.TR2.prefix128.csv.zlib",
+      "sha256": "6fc48344cc195c108d93b203bd1c6621c033020677de93b84bc50a2e6c3ffb2a"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/final-pc/pc-group-final--R2N0005.TR2.zlib",
+      "sha256": "9a1a1cab1345261293d5e4fac39b04bd96193297bb9b116729747eb0c3dbf21c"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/final-pc/pc-group-final--TR2INFO.TXT.zlib",
+      "sha256": "7c034461c9779be0f6f8042dc6dfa8c03f22ffaa5abea2725a0a0744f6218b8d"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/final-pc/pc-group-final--physical-disk.json.zlib",
+      "sha256": "7a5d0d5ca81b050ae8bc631758d535f8097d0088a465a9fef0f97e22a3242fb4"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/final-pc/pc-group-final--volume.json.zlib",
+      "sha256": "bca01b38ec7a6920bcc6016d34ad45e50f13f7bb4a756f1ee48895326794314c"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/final-pc/reader-rate-test.log.zlib",
+      "sha256": "884ac602533bbd5ae1717cda2a9f6062a561bc4e14554d063cd1cca813f72675"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/final-pc/verify_published.py.zlib",
+      "sha256": "44f1669e9c3f2669945f6e2c0849ae22799de57ca53081a833ce9597ca5c8499"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-DURABLE-FAT32-10MIN/reader-csv-test.log",
+      "sha256": "06de01ef88bc7fa1ab22e086e8b3654d1d3d6495063f9d36a8d513f00c2f52b3"
+    },
+    {
+      "path": "experiments/r3_coex_fifo_fir_sd/src/sd_writer.c",
+      "sha256": "99526ff8890aaa44d0300cc2284ba17d05bfa76cc29a8bd9fa32940587de46f4"
+    },
+    {
+      "path": "experiments/r3_durable_fat32/.gitattributes",
+      "sha256": "9febf1605faeeb639c5f64a597da5a5fdbcdd8f87de86d889d9e9b8c6cc938fe"
+    },
+    {
+      "path": "experiments/r3_durable_fat32/CMakeLists.txt",
+      "sha256": "0583c1bc435486d0bb55ac8c6274bbcd88355705af6a1acb68dc1f9fb48f0a45"
+    },
+    {
+      "path": "experiments/r3_durable_fat32/README.md",
+      "sha256": "0d729f0e75a198e1b3b2bf47402126eb9206d818b320a1486dca1cacb1c1e344"
+    },
+    {
+      "path": "experiments/r3_durable_fat32/src/archive_format.c",
+      "sha256": "7bf651781a16b65fa1ccbedd7f5406329794a3ca1d062dba71421c927734f184"
+    },
+    {
+      "path": "experiments/r3_durable_fat32/src/archive_format.h",
+      "sha256": "231dc4d1ebc71945f742ce6a6c3adf7b89282fd9b10cfe6e5b8a826003db46bd"
+    },
+    {
+      "path": "experiments/r3_durable_fat32/src/fat_volume.c",
+      "sha256": "96dee2f942f0e6324b16f3e9356894b07fd4c298c3731092766b5d97007f49b0"
+    },
+    {
+      "path": "experiments/r3_durable_fat32/src/fat_volume.h",
+      "sha256": "607e0e5460c52c57bf86eed329fccf2476e7523aa84c7daf0e923e64f939e3f4"
+    },
+    {
+      "path": "experiments/r3_durable_fat32/src/ffconf.h",
+      "sha256": "8e2599b6fe7296ab2269df6315fa29a2fe36645a98666b2675c86d53e0f58a08"
+    },
+    {
+      "path": "experiments/r3_durable_fat32/src/main.c",
+      "sha256": "f4f8fc7275525a280ba266ef16ebb2b2c8fc6d0e80b09cc033b86e1e126967f0"
+    },
+    {
+      "path": "experiments/r3_durable_fat32/src/sd_group.c",
+      "sha256": "2af9204e0f8c9872d31d9ba0fdd4fd86d1f50124bfb4fb3cfb36ce2b3bcada1a"
+    },
+    {
+      "path": "experiments/r3_durable_fat32/src/sd_group.h",
+      "sha256": "ce4e5e0438e6589b54ecafac3afccb7860d19286cf03bcdb798fc86b391beb16"
+    },
+    {
+      "path": "experiments/r3_durable_fat32/tests/test_fat_model.c",
+      "sha256": "6efd3d93e68a29b8ee94d121b66f52484dec243e854b1f4969d2f057e0aac167"
+    },
+    {
+      "path": "experiments/r3_durable_fat32/tests/test_reader.py",
+      "sha256": "e80a9c9aa85d4d3bf316cb328b3cf4f3c81fcecd206046130c41d759e7a129f4"
+    },
+    {
+      "path": "experiments/r3_durable_fat32/tools/read_campaign.py",
+      "sha256": "65c4362e66a5dd1e80a8a0d82e5f842e0770d18a354212b193bc474497b63b18"
+    },
+    {
+      "path": "experiments/r3_durable_fat32/vendor/fatfs/LICENSE.md",
+      "sha256": "504402e7f729e3115f0f24a813d080c77a72bbb722967c2508c0cf7b6496ba85"
+    },
+    {
+      "path": "experiments/r3_durable_fat32/vendor/fatfs/PROVENANCE.json",
+      "sha256": "9d6630addf7786c9e77aea58da5bc2570283d438e9f43eb6de0afdb1ed3b4ae3"
+    },
+    {
+      "path": "experiments/r3_durable_fat32/vendor/fatfs/diskio.h",
+      "sha256": "9ad9ea857ea7752cb7dcf2f065899eee3abfeec5039598d28cc3cf2acebcbb86"
+    },
+    {
+      "path": "experiments/r3_durable_fat32/vendor/fatfs/ff.c",
+      "sha256": "4b5694046ff712e5a20de9b5760e85f3bec121ecbfa791f0cf2ef0cf205387ed"
+    },
+    {
+      "path": "experiments/r3_durable_fat32/vendor/fatfs/ff.h",
+      "sha256": "9cf28c0a40260123c3f290692cbc46326a73f00290a740bdd68d1b82fff3bb05"
+    },
+    {
+      "path": "experiments/r3_durable_fat32/vendor/fatfs/ffconf_template.h",
+      "sha256": "add5829629dd40c9c8b76bd5f53e1491475aaa53f0d80c29d262185853d358dc"
+    },
+    {
+      "path": "experiments/r3_durable_fat32/vendor/fatfs/st_license.txt",
+      "sha256": "d5a162f3eaf2b7b6762f00700017cae5695ebbdce7932fead8316448baafd9c1"
+    },
+    {
+      "path": "experiments/r3_durable_fat32/vendor/fatfs/st_readme.txt",
+      "sha256": "3128906b950cc839c1fe831337669963915b8fca275dd4723acfc2dd829cb9c3"
+    }
+  ]
+}
