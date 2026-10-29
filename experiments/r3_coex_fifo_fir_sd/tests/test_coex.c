@@ -106,9 +106,38 @@ static void scenario(uint32_t injected)
  fir_decimator10_invalidate(&dsp,TR2_D10_SOURCE_FAULT);assert(!dsp.active);
  printf("Injected busy%u us: polls%u maxgap%u us peakqueue%u exact31998bytes from FIFO DEC8 + real Q15, no retry (MODEL ONLY)\n",injected,polls,maxgap,maxback);
 }
+/* Conservative replay of the measured C4 cluster: 19 consecutive writes each
+ * held busy for the entire observed maximum WRITE duration (151054 us). This
+ * is deliberately stronger than the 17 actual busy outliers, not a claim that
+ * the physical card repeated this synthetic schedule. Same real writer/queue.
+ * Synthetic 16 kB/s payload is independently compared after full drain. */
+static void cluster(void)
+{
+ start();assert(!sd_writer_r3_gate(&s));SdWriter w={0};capture_queue_init(&cq);
+ static uint8_t expected[64000];for(unsigned i=0;i<sizeof expected;i++)expected[i]=(uint8_t)(i*17u+i/251u);
+ uint32_t made=0,committed=0,writes=0;bool overflow=false;uint64_t begin=clock_us;
+ while(made<sizeof expected||committed<made){
+  clock_us+=400;uint64_t due=(clock_us-begin)*16000/1000000;
+  if(due>sizeof expected)due=sizeof expected;
+  if(due>made){uint32_t n=(uint32_t)due-made;
+   if(!capture_queue_push(&cq,expected+made,n)){overflow=true;break;}made+=(uint32_t)n;
+  }
+  if(!w.active&&cq.count&&(cq.count>=512||made==sizeof expected)){
+   static uint8_t scratch[512];const uint8_t *data=capture_queue_acquire(&cq,made==sizeof expected,scratch);assert(data);
+   inject_busy_us=writes++<19?151054:0;
+   assert(!sd_writer_begin(&w,&s,8192+committed/512,data));
+  }
+  if(w.active){assert(!sd_writer_step(&w));if(w.done){unsigned n=cq.borrowed;assert(capture_queue_commit(&cq));committed+=n;}}
+  assert(clock_us-begin<10000000);
+ }
+ if(R3_QUEUE_CAPACITY==32768){assert(overflow&&cq.overflows==1);}
+ else {assert(!overflow&&!cq.overflows&&!s.failed&&made==sizeof expected&&committed==made&&!selected);
+  assert(!memcmp(expected,memory[1],sizeof expected));}
+ printf("Cluster MODEL: capacity%u overflow%u peak%u produced%u committed%u elapsed%llu us; 19x151054us conservative holds\n",R3_QUEUE_CAPACITY,overflow,cq.peak,made,committed,(unsigned long long)(clock_us-begin));
+}
 int main(void)
 {
- scenario(150000);scenario(500000);
+ scenario(150000);scenario(500000);cluster();
  start();SdWriter w={0};uint8_t b[512]={0};assert(sd_writer_begin(&w,&s,8192,b)==SD_REFUSED);
  s.cid[0]^=1;assert(sd_writer_r3_gate(&s)==SD_IDENTITY&&!s.write_enabled);s.cid[0]^=1;assert(!sd_writer_r3_gate(&s));
  assert(sd_writer_begin(&w,&s,2048,b)==SD_RANGE);assert(!sd_writer_begin(&w,&s,8192,b));
@@ -121,10 +150,10 @@ int main(void)
  busy_forever=true;for(unsigned i=0;i<2000&&w.active;i++){clock_us+=1000;(void)sd_writer_step(&w);}
  assert(w.error==SD_TIMEOUT&&!w.active&&!selected&&s.failed);
  /* A full queue explicitly refuses before overwriting its oldest bytes. */
- capture_queue_init(&cq);uint8_t sector[512]={0};for(unsigned i=0;i<64;i++)assert(capture_queue_push(&cq,sector,512));
- assert(cq.count==32768&&capture_queue_acquire(&cq,false,sector));
- assert(!capture_queue_push(&cq,sector,1)&&cq.overflows==1&&cq.count==32768);
- assert(capture_queue_commit(&cq)&&cq.count==32256);assert(capture_queue_push(&cq,sector,512)&&cq.count==32768);
+ capture_queue_init(&cq);uint8_t sector[512]={0};for(unsigned i=0;i<R3_QUEUE_CAPACITY/512;i++)assert(capture_queue_push(&cq,sector,512));
+ assert(cq.count==R3_QUEUE_CAPACITY&&capture_queue_acquire(&cq,false,sector));
+ assert(!capture_queue_push(&cq,sector,1)&&cq.overflows==1&&cq.count==R3_QUEUE_CAPACITY);
+ assert(capture_queue_commit(&cq)&&cq.count==R3_QUEUE_CAPACITY-512);assert(capture_queue_push(&cq,sector,512)&&cq.count==R3_QUEUE_CAPACITY);
  R3Hash h;r3_hash_init(&h);uint8_t digest[32];r3_hash_update(&h,(const uint8_t *)"abc",3);r3_hash_finish(&h,digest);
  static const uint8_t abc[32]={0xba,0x78,0x16,0xbf,0x8f,0x01,0xcf,0xea,0x41,0x41,0x40,0xde,0x5d,0xae,0x22,0x23,0xb0,0x03,0x61,0xa3,0x96,0x17,0x7a,0x9c,0xb4,0x10,0xff,0x61,0xf2,0x00,0x15,0xad};assert(!memcmp(digest,abc,32));
  puts("R3 cooperative SD quanta/CID/region/fault latch and streaming SHA known vector PASS; simulation only");return 0;

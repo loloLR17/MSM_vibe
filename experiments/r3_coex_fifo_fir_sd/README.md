@@ -40,7 +40,7 @@ queue overflow or SD error; STOP FIFO before any debugger terminal point. Source
 fault does not create a successful archive header. In-flight uncertain SD write is
 never retried and must quiesce before a terminal halt; no new source after STOP.
 
-Borrowed sector remains charged to a true32KiB queue until status-acknowledged;
+Borrowed sector remains charged to a true64KiB queue until status-acknowledged;
 push refuses atomically before overwrite and counts overflow. Source is real checked
 XYZ, not a nominal16kB/s simulator. Every output is packed signed int16XYZ/6bytes.
 A separate producer SHA256 is updated **before queue and transmit buffers**; the
@@ -54,9 +54,9 @@ replayable). Later source waveform is not claimed to be archived in native26kHz.
 strict exact test-card authorization, then2s actual sensor/MCU clock calibration.
 No writes during calibration; no debugger interactions through this window.
 52334302:2s FIFO+FIR baseline, no SD writer (same capture instrumentation).
-52334303:2s real coexistence. HeaderLBA24576, payload24577onward (preserve failed4MHz zone8192).
-52334304:10s coexistence. Header12288, payload12289onward.
-52334305:60s coexistence. Header16384, payload16385onward.
+52334303:2s real coexistence. HeaderLBA28672, payload28673onward.
+52334304:10s coexistence. Header20480, payload20481onward.
+52334305:60s coexistence. Header32768, payload32769onward.
 52334310:readback64KiB windows after STOP with contiguous r3_return_offset.
 Later capture gates require full return of the previous run; host orchestration
 must additionally verify all bytes/hash/indices before proceeding. No autorun/retry.
@@ -101,3 +101,15 @@ https://www.st.com/resource/en/datasheet/iis3dwb.pdf
 Cleanup now commits only the already-in-flight acknowledged sector to diagnostics,
 without pulling new queue blocks on source failure, and freezes producer digest
 on fault. Old firstfailure had31counted/32hardwareacknowledged, no valid successheader.
+
+## Measured clustered-busy correction
+
+The first 8MHz 60s attempt stopped at15.284988s on explicit32KiB queue overflow,
+not FIFO overrun.19writes exceeded100ms, including17busy holds>100ms grouped at
+the end; maximum write151054us/busy142090us. Same128B steps/64wordFIFO quanta,
+clocks and all timing guards retained.64KiB reserve is justified by a conservative
+model of19consecutive151054us holds at16kB/s; the same model must overflow32KiB
+and recover byte-exact with64KiB. This is finite transient tolerance, not a claim
+of sustainable arbitrary SD pauses. Physical60s remains required. New distinct
+RAW zones preserve all previous positive/negative runs:8193..8224,12288..12598,
+16385..16794,24576..24638 and original R2 data. No trace-buffer inflation.

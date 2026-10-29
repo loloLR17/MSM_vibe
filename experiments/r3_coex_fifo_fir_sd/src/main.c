@@ -208,7 +208,7 @@ static int session(uint32_t run,uint32_t duration)
  r3_result.first_us=r3_result.last_us=r3_result.residual=r3_result.stop_us=0;
  r3_result.source_hash=r3_result.output_hash=2166136261u;capture_queue_init(&q);
  memset(r3_distributions,0,sizeof r3_distributions);memset(r3_sd_distributions,0,sizeof r3_sd_distributions);memset(&r3_writer,0,sizeof r3_writer);r3_hash_init(&source_hash);
- r3_result.sd_lba=run==3?24576:run==4?12288:16384;next_lba=r3_result.sd_lba+1;
+ r3_result.sd_lba=run==3?28672:run==4?20480:32768;next_lba=r3_result.sd_lba+1;
  memset(&mapper,0,sizeof mapper);fir_decimator10_init(&fir);next_clock=0;
  if(fir_decimator10_start(&fir,run,0,(FirDecimator10Clock){cal_num,cal_den,true})!=TR2_OK)return -1;
  reset_trace();if(fifo_live_start(&fifo,run,1,1,7,2,now()/1000u))return -2;
