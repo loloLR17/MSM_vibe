@@ -1,6 +1,6 @@
 ---
 mission_id: TR2-20261029-R3-COEX-FIFO-FIR-SPI2
-status: IN_PROGRESS
+status: DONE
 base_ref: main
 base_sha: c7fb2386f749159cd83b0ac091aad6e05a50e61a
 initial_head: 00ebf0ffe5587524585c93ba7e2eee7084ce364f
@@ -21,8 +21,8 @@ SPI3 → propriétaire FIFO unique → datation DEC8 → FIR Q15 causal 107 coef
 inchangé → file bornée → SD SPI2 coopérative. Les trois captures finales 2/10/60 s
 ont été arrêtées proprement, puis tous les octets persistés ont été relus depuis
 la microSD et comparés au SHA-256 producteur calculé **avant la file et le TX**.
-Statut provisoire `IN_PROGRESS` uniquement pour publication et relecture distante
-finales à effectuer ; aucun blocage technique restant pour cette portée 60 s.
+**Livraison DONE dans cette portée 60 s**, après publication et relecture distante
+des preuves. La revue indépendante A-01 ChatGPT reste distincte.
 
 ## Identités, code et opérations
 
@@ -203,5 +203,15 @@ V1/B3/B4/B5 ou décision normative modifié implicitement.
 
 Les checkpoints antérieurs et le code ont été relus depuis la référence GitHub
 récupérée `96c6dfe8` (208fichiers exacts et artefacts BUNDLE décompressés/hachés).
-La relecture de cette publication finale est encore à faire ; son SHA et le statut
-final seront consignés après vérification distante, sans SHA autoréférent fictif.
+Le bilan **`8f4e33875578a963e8995bd43646a3e75320dd51`** a ensuite été récupéré de GitHub et relu
+intégralement à **2026-10-29T19:35:49.278886+00:00** : **826 fichiers byte-identiques,
+806 artefacts décompressés et hachés**, dont616 dans le manifeste final. Depuis ces
+objets distants, les trois payloads complets ont été recomparés au digest amont,
+au header/CRC et aux128 sorties préfixes, tous conformes. Aucun nouvel essai
+physique ni validation logicielle répétée pendant cette clôture.
+
+[Preuve de relecture distante](preuves/TR2-20261029-R3-COEX-FIFO-FIR-SPI2/REMOTE_REREAD_8f4e3387.json).
+Worktree propre après le bilan8f4e3387 ; dépôt historique/stashes préservés.
+Ce commit de clôture porte uniquement statut/documentation/preuve de relecture et
+archives exactes mission/rapport. Son SHA distant sera donné après push et dernière
+relecture ; le code réellement évalué reste96c6dfe8, aucun SHA autoréférent inventé.
