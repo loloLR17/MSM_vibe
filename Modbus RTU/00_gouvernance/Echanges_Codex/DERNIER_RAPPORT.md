@@ -4,7 +4,7 @@ status: IN_PROGRESS
 base_ref: main
 base_sha: c7fb2386f749159cd83b0ac091aad6e05a50e61a
 initial_head: 00ebf0ffe5587524585c93ba7e2eee7084ce364f
-result_sha: ebd433e34dbb413649817be5b19b35116b9f06a2
+result_sha: 932f9e9589e27d2635ae43b47ee52ed560f56d4f
 created_at_utc: 2026-10-29T18:50:00.942565+00:00
 author: Codex
 target_branch: main
@@ -14,7 +14,34 @@ allow_flash: true
 allow_debug: true
 ---
 
-# R3 — checkpoint4MHz, premier échec FIFO conservé et correction en cours
+# R3 — checkpoint8MHz, coexistence2s et10s acquise ;60s en cours
+**MISE ÀJOUR :** correction **932f9e9589e27d2635ae43b47ee52ed560f56d4f**, SPI3=8MHz,
+SPI2=4MHz, mêmesquanta64mots/128B etlimites. Deuxièmeflash R3 verify/readback exact,
+BIN **029dc929e1e487413524c4afe9234667a7bf8e8e8e2da757bf896fdae83e121a**. Nouvellecalibration nécessaire40µs,
+WHO/CID/markerOK ; nouvellebaseline2s saine. RegistresSPI3MBR0(/2) etSPI2MBR1(/4),
+modes3/0 relus aprèsSTOP. SourceR1/FIR inchangés.
+
+- C3 corrigé2,000604s :52584XYZ/5259sorties,31554B réellement persistés,sourceSHA
+  **819eae6579c211e3b27ce899728d682ff2cf4fe76ac5d35a87230984c75bcd66** ; relecturePC
+  complète etpadding/CRCheader contrôlés,103sorties indépendamment rejouées et128
+  sortiescapturées identiques au début du média. Maxservice1237,938µs/work529,425µs/
+  gap1494µs/FIFO44/queue732B, zérofaute. Données en24577..24638, anciennezone négative
+ 8193..8224 etR2 intactes par séparation.
+- C3 corrigé10,000731s :264000XYZ/26400sorties,158400B persistés et intégralement
+  relus surPC, SHA **f839e614350fcda3a35fb4bbbea084aadb2dce6f452d27f50fdff5139829dace**,
+  queue762B/FIFO44/SDerror0/OVR0/overflow0, STOP151µs, drainpayload2564µs. Données
+  LBA12289..12598 ; même contrôle numérique préfixe etmédiacomplet. Les comparaisons
+  complètes utilisent le digestproducteur **avant file/TX**, pas le bufferémetteur ;
+  touslesXYZnatifs du run ne sontpas conservés pour rejouer numériquement chaque sortie.
+
+**C4 de60s lancé après vérification de10s**, sansGDB danslafenêtre ; résultat pas
+encore collecté au moment de cecheckpoint. Aucune répétition d'anciens testsR1/R2.
+C0/C1 et échec4MHz ci-dessous restent historiques et conservés, pas la description
+de l'état matériel actuel. TR2-002 porte désormais le8MHz, source932f9e95 ; priorité
+àrelecture/intégrité C4 puis clôture. Toujours IN_PROGRESS, pasBLOCKED niDONE.
+
+[Preuves8MHz](preuves/TR2-20261029-R3-COEX-FIFO-FIR-SPI2/checkpoint-8mhz/BUNDLE.json).
+
 
 C0/C1 préparés et testés :un seul propriétaireFIFO/DEC8/FIR Q15 inchangés, writer
 SPI2 coopératif128B,32KiB de file empruntée jusqu'àacquittement, digestSHA256 producteur
@@ -54,7 +81,7 @@ succès écrit. DigestRAM source encore hérité de baseline sur ce cheminfaute,
 archivées avant modification. Données négativesLBA8193..8224 conservées surcarte ;
 le nouvel essai2s utilisera une autrezone. DonnéesR2/marker0 jamais écrasés.
 
-**Poursuite autonome :** SPI3 à8MHz (profilprévu par le bancST), SPI2 toujours4MHz,
+**Poursuite décidée àcepoint historique (maintenant exécutée) :** SPI3 à8MHz (profilprévu par le bancST), SPI2 toujours4MHz,
 quantum64 et références1000/2500/5000µs inchangés ; nouvellebaseline puiscouplecourt
 nécessaires car image/horloge changées. Pas de10s/60s avant un2s sain avec relecture
 complète. Corriger aussi le comptage du bloc confirmé pendantcleanup et figer le
