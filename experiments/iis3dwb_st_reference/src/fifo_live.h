@@ -15,6 +15,7 @@ typedef struct {
   * bounded startup allowance after checking sensor turn-on specifications;
   * polling-gap, status/overrun and steady-state no-data guards stay unchanged. */
  uint32_t first_data_timeout_ms;
+ uint16_t poll_word_limit; /* default128, opt-in bound only while stopped */
  uint16_t axes,full_scale;
  uint32_t readback_sequence;uint8_t ctrl1_verified;bool readback_valid;
  void (*cleanup_begin)(void);
@@ -23,6 +24,7 @@ typedef struct {
  bool initialized,running,stopped;
 } FifoLive;
 int fifo_live_init(FifoLive *,const stmdev_ctx_t *,uint32_t,FifoLiveConsume,void *);
+int fifo_live_set_poll_limit(FifoLive *,uint16_t);
 int fifo_live_start(FifoLive *,uint64_t,uint32_t,uint32_t,uint16_t,uint16_t,uint64_t);
 int fifo_live_stop(FifoLive *);
 int fifo_live_observe(FifoLive *);

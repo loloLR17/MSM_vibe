@@ -7,8 +7,10 @@
  * DEC8 anchor steps must stay within [23,25] sensor ticks (24 observed;
  * one tick quantization allowance). This gate never generates sample instants.
  * No nominal ODR, dequeue time, extrapolation, UTC, media or allocation. */
+typedef Tr2Result (*FifoTimedSink)(void *,uint64_t,const int16_t [3],uint64_t);
 typedef struct {
  FifoLive *fifo;LiveMetrology *metric;
+ FifoTimedSink sink;void *sink_context;
  uint64_t base_us,span_us,span_ticks,ticks,anchor_ticks,input_index,emitted;
  uint64_t max_residual_us,last_event_us,first_event_us;
  uint32_t raw,anchor_raw,groups,calibration_raw;
@@ -18,6 +20,11 @@ typedef struct {
  bool initialized,anchor,fault;
 } FifoEventTime;
 Tr2Result fifo_event_time_init(FifoEventTime *,FifoLive *,LiveMetrology *,
+ uint32_t,uint64_t,uint64_t,uint64_t);
+/* Optional isolated sink uses the SAME validated DEC8 mapper, preserving exact
+ * microseconds/index. Exclusive of LiveMetrology, default constructor unchanged.
+ * Sink failure closes the mapper; caller must invalidate its DSP and stop FIFO. */
+Tr2Result fifo_event_time_init_sink(FifoEventTime *,FifoLive *,FifoTimedSink,void *,
  uint32_t,uint64_t,uint64_t,uint64_t);
 /* MCU clock bracketing of a live counter read. A violated empirical envelope
  * fails closed; it does not silently move an old window or claim UTC. */

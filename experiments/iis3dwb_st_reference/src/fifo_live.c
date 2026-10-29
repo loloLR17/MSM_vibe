@@ -15,9 +15,14 @@ static int controls(FifoLive *s,bool on)
 int fifo_live_init(FifoLive *s,const stmdev_ctx_t *ctx,uint32_t max_gap_ms,FifoLiveConsume consume,void *consumer)
 {
  if(!s||!ctx||!ctx->read_reg||!ctx->write_reg||!max_gap_ms||!consume)return BENCH_CONFIG;
- memset(s,0,sizeof(*s));s->ctx=*ctx;s->max_gap_ms=max_gap_ms;s->first_data_timeout_ms=max_gap_ms;s->consume=consume;s->consumer=consumer;s->initialized=true;
+ memset(s,0,sizeof(*s));s->ctx=*ctx;s->max_gap_ms=max_gap_ms;s->first_data_timeout_ms=max_gap_ms;s->poll_word_limit=128;s->consume=consume;s->consumer=consumer;s->initialized=true;
  /* No observation or write at init, and no claim that unknown hardware is off. */
  return BENCH_OK;
+}
+int fifo_live_set_poll_limit(FifoLive *s,uint16_t words)
+{
+ if(!s||!s->initialized||s->running||!words||words>128)return BENCH_CONFIG;
+ s->poll_word_limit=words;return BENCH_OK;
 }
 int fifo_live_stop(FifoLive *s)
 {
@@ -72,7 +77,8 @@ int fifo_live_poll(FifoLive *s,uint64_t now)
  if(now<s->last_ms||now-s->last_ms>s->max_gap_ms)return fault(s,BENCH_TIMEOUT);
  s->last_ms=now;
  error=fifo_window_read_status(&s->ctx,&s->parser);if(error)return fault(s,error);
- n=s->parser.last_level;if(n>128)n=128;
+ if(!s->poll_word_limit||s->poll_word_limit>128)return fault(s,BENCH_CONFIG);
+ n=s->parser.last_level;if(n>s->poll_word_limit)n=s->poll_word_limit;
  if(!n) {
   uint32_t allowance=(s->total_xyz||s->total_ts)?s->max_gap_ms:s->first_data_timeout_ms;
   return !allowance||now-s->last_data_ms>allowance?fault(s,BENCH_TIMEOUT):BENCH_OK;

@@ -486,3 +486,9 @@ target_link_libraries(decim10_replay PRIVATE tr2_core m)
 if(NOT MSVC)
     target_compile_options(decim10_replay PRIVATE -ffp-contract=off)
 endif()
+
+add_executable(test_fifo_dsp_sink tests/platform/test_fifo_dsp_sink.c platform/stm32/fifo_event_time.c
+    ${ST_REF}/src/fifo_live.c ${ST_REF}/src/fifo_window.c ${ST_REF}/vendor/st/iis3dwb_reg.c)
+target_include_directories(test_fifo_dsp_sink PRIVATE platform/stm32 ${ST_REF}/src ${ST_REF}/vendor/st)
+target_link_libraries(test_fifo_dsp_sink PRIVATE tr2_core)
+add_test(NAME fifo_dsp_sink COMMAND test_fifo_dsp_sink)

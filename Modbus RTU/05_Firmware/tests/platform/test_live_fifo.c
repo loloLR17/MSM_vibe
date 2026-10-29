@@ -7,10 +7,10 @@
 #include "../unit/test_live_configuration.c"
 #undef main
 static uint64_t time64,delivered;
-static unsigned consumer_fail;
+static unsigned consumer_fail,consumer_limit=128;
 static int consume(void *ctx,const uint8_t *b,uint32_t n,uint64_t first)
 {
- (void)ctx;(void)first;assert(n<=128u);
+ (void)ctx;(void)first;assert(n<=consumer_limit);
  if(consumer_fail)return -1;
  for(uint32_t i=0;i<n;i++)if((b[i*7u]>>3)==2u)delivered++;
  return 0;
@@ -26,7 +26,7 @@ static ActiveConfigurationSnapshot configuration(void)
 }
 static void setup(void)
 {
- reset(4096);time64=0;delivered=consumer_fail=0;
+ reset(4096);time64=0;delivered=consumer_fail=0;consumer_limit=128;
  assert(live_fifo_acquisition_init(&acquisition,&ctx,ms,NULL,5,consume,NULL)==TR2_OK);
  assert(io_count==0);assert(!acquisition.fifo.running&&!acquisition.fifo.stopped);
 }
@@ -112,8 +112,23 @@ static void first_data_policy(void)
  time64=11;assert(live_fifo_acquisition_poll(&acquisition)!=TR2_OK&&!acquisition.fifo.running);
  puts("Explicit first-data allowance: delayed startup, finite timeout and unchanged service-gap guard: PASS");
 }
+static void bounded_poll_quantum(void)
+{
+ ActiveConfigurationSnapshot c=configuration();setup();
+ assert(acquisition.fifo.poll_word_limit==128);
+ assert(!fifo_live_set_poll_limit(&acquisition.fifo,8));consumer_limit=8;
+ LiveAcquisitionPort p=live_fifo_acquisition_port(&acquisition);
+ assert(p.start(p.context,1,&c)==TR2_OK);
+ assert(fifo_live_set_poll_limit(&acquisition.fifo,64)==BENCH_CONFIG);
+ for(unsigned i=0;i<100;i++){time64++;assert(live_fifo_acquisition_poll(&acquisition)==TR2_OK);}
+ assert(delivered==acquisition.fifo.total_xyz&&delivered>600&&delivered<800);
+ assert(p.stop(p.context)==TR2_OK);
+ assert(!fifo_live_set_poll_limit(&acquisition.fifo,128));
+ puts("Opt-in poll quantum:8 words across continuous parser boundaries, unchanged128 default and no mutation while running: PASS");
+}
 int main(void)
 {
+ bounded_poll_quantum();
  first_data_policy();real_engine_port();metrology_stream();
  ActiveConfigurationSnapshot c=configuration();LiveAcquisitionObservation o;
  LiveAcquisitionPort p;

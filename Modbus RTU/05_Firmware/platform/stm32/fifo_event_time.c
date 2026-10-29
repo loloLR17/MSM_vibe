@@ -11,14 +11,20 @@ static bool scale(const FifoEventTime *t,uint64_t eighths,uint64_t *us)
  if(delta>UINT64_MAX-t->base_us)return false;
  *us=t->base_us+delta;return true;
 }
-Tr2Result fifo_event_time_init(FifoEventTime *t,FifoLive *f,LiveMetrology *m,
- uint32_t raw,uint64_t base_us,uint64_t span_us,uint64_t span_ticks)
+static Tr2Result init(FifoEventTime *t,FifoLive *f,LiveMetrology *m,
+ FifoTimedSink sink,void *context,uint32_t raw,uint64_t base_us,uint64_t span_us,uint64_t span_ticks)
 {
- if(!t||!f||!m||!span_us||!span_ticks||span_ticks>UINT32_MAX||span_us>UINT32_MAX)
+ if(!t||!f||(!m&&!sink)||(m&&sink)||!span_us||!span_ticks||span_ticks>UINT32_MAX||span_us>UINT32_MAX)
   return TR2_ERROR_INVALID_ARGUMENT;
- memset(t,0,sizeof(*t));t->fifo=f;t->metric=m;t->raw=raw;t->base_us=base_us;
+ memset(t,0,sizeof(*t));t->fifo=f;t->metric=m;t->sink=sink;t->sink_context=context;t->raw=raw;t->base_us=base_us;
  t->span_us=span_us;t->span_ticks=span_ticks;t->calibration_raw=raw;t->calibration_us=base_us;t->initialized=true;return TR2_OK;
 }
+Tr2Result fifo_event_time_init(FifoEventTime *t,FifoLive *f,LiveMetrology *m,
+ uint32_t raw,uint64_t base_us,uint64_t span_us,uint64_t span_ticks)
+{return init(t,f,m,NULL,NULL,raw,base_us,span_us,span_ticks);}
+Tr2Result fifo_event_time_init_sink(FifoEventTime *t,FifoLive *f,FifoTimedSink sink,void *context,
+ uint32_t raw,uint64_t base_us,uint64_t span_us,uint64_t span_ticks)
+{return init(t,f,NULL,sink,context,raw,base_us,span_us,span_ticks);}
 static Tr2Result failed(FifoEventTime *t)
 {
  t->fault=true;return TR2_ERROR_INVALID_STATE;
@@ -59,8 +65,10 @@ int fifo_event_time_consume(void *context,const uint8_t *words,uint32_t n,uint64
      t->mapping_cycles+=(uint32_t)(fifo_event_time_cycles()-started);
      started=fifo_event_time_cycles();
 #endif
-     if(live_metrology_sample(t->metric,t->fifo->run_id,t->fifo->config_id,t->fifo->config_generation,
-       t->emitted,t->xyz[j],us/1000u,false,0)!=TR2_OK)goto error;
+     Tr2Result result=t->sink?t->sink(t->sink_context,t->emitted,t->xyz[j],us):
+       live_metrology_sample(t->metric,t->fifo->run_id,t->fifo->config_id,t->fifo->config_generation,
+         t->emitted,t->xyz[j],us/1000u,false,0);
+     if(result!=TR2_OK)goto error;
 #if TR2_FIFO_TIME_PROFILE
      t->metrology_cycles+=(uint32_t)(fifo_event_time_cycles()-started);
 #endif

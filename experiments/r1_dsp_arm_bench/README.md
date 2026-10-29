@@ -58,3 +58,47 @@ may a separate sensor stage use one qualified FIFO owner and actual unwrapped
 microsecond anchors, then short paired sessions and a longer session if healthy.
 FRAM/RTU are optional only when present and safe, readonly, no B5/SD mutation.
 Absent hardware or user action is reported as BLOCKED, never replaced by TR2-001.
+
+## Optional sensor image, after the physical micro gate
+
+`r1_dsp_fifo.elf/.bin` is a **different image**. It reuses the qualified second-bank
+SPI3 platform (PC9–PC12, mode3, HSI16/4 =4MHz), pinned observed HAL and a single
+`FifoLive` instance. No FRAM/SPI1, UART/RTU, SD/SPI2 or production startup is linked.
+This sensor target does initialize SPI3 at boot with CS high, but sends **no sensor
+command** before a guarded RAM trigger. It never targets TR2-001.
+
+`0x52314601` performs one WHO_AM_I and2s actual sensor/MCU calibration; then STOP.
+`…602` performs2s bypass; `…603` performs2s FIR, then `…604` performs10s FIR **only
+following all successful earlier gates**. Every stage returns to a no-acquisition
+WAIT. GDB scripts prepared by `tools/prepare_fifo_gdb.py` assert the previous state
+and exact UID, run to the terminal hardware breakpoint without intervening debug,
+and capture immutable RAM only after STOP. No auto-retry, reset or load command.
+
+The opt-in FIFO quantum is64 words (default128 remains unchanged for existing
+callers), selected only while stopped. This bound addresses the microbenchmark's
+128-source work >1ms, without relaxing work1000µs/service2500µs/gap5000µs references.
+The loop services FIFO, validates the complete burst, maps DEC8 authority to exact
+microseconds, then dispatches each accepted XYZ to either unfiltered /10 or Q15.
+The mapper's default LiveMetrology path is unchanged; this bench uses its exclusive
+optional sink. Errors close the mapper/DSP and stop the sensor. Pending <8 XYZ
+without a future anchor are recorded and **not extrapolated or padded at STOP**.
+Source rails are already refused by the existing FIFO parser, before DSP.
+
+Clock calibration requires ≥100 actual anchors/brackets, DEC8 widths23–25 ticks
+and residual≤100µs. Measured XYZ/anchor counts and clock ratios label DSP frequency;
+events never come from nominal ODR or dequeue times. A live bracket every100ms
+checks the same100µs gate **before** clock discipline. No debugger during calibration.
+
+Per-poll raw DWT service (clock check plus SPI/parser/consumer) and consumer work
+cycles, gap (MCU microseconds×160, resolution1µs), XYZ/burst, level/flags, stop
+readback, SysTick and an empirical4KiB stack marker are retained. The post-drain
+250µs interval is fixed for both scenarios. 26000 records is a **bench RAM ceiling**,
+not a production duration limit; capacity exhaustion stops/fails visibly. Trace
+counts reset only between checked windows; sticky transfer errors remain latched.
+First2048 raw sensor words, first1024 exact mapped inputs and first128 FIR outputs
+permit independent integer replay with `tools/analyze_fifo_capture.py`; later
+outputs have counts/hashes but not a claim of complete raw archival integrity.
+The analyzer has synthetic corruption tests; such fixtures are not target evidence.
+
+Build and host tests prove preparation only. A failed SWD preflight must never
+be treated as a successful sensor run or bypassed by programming an unknown board.
