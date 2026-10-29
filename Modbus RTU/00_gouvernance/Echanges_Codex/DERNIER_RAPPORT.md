@@ -1,6 +1,6 @@
 ---
 mission_id: TR2-20261029-R2-SPI2-MICROSD-ISOLATED
-status: IN_PROGRESS
+status: DONE
 base_ref: main
 base_sha: bc090a048fc75968d9869b5d7a49f694dee0f7e2
 initial_head: 8aeccd5d48fc84b8582d9ff6d0b2c095f212d0ff
@@ -14,11 +14,12 @@ allow_flash: true
 allow_debug: true
 ---
 
-# R2 — qualification physique bornée de la microSD en SPI2 isolé
+# R2 — DONE, essais physiques bornés de la microSD en SPI2 isolé
 
 **P0–P3 réussis sur TR2-002 dans cette portée : lecture seule, écritures contrôlées,
 charge synthétique à16 000B/s pendant10s puis60s, chaque octet relu et confirmé sur PC.**
-Le statut IN_PROGRESS porte uniquement sur la publication/relecture de ce bilan.
+Bilan ce0cc827 publié et relu depuis GitHub :319 fichiers exacts,303 pièces
+de preuve décompressées et hachées. Clôture DONE dans cette portée isolée seulement.
 Aucune qualification de coexistence FIFO/SD, filesystem, endurance ou production.
 
 ## P0 — sources, montage et récupérabilité
@@ -211,8 +212,12 @@ locale `codex/r2-spi2-microsd-isolated`, destination autorisée explicite
 `refs/heads/main`, push normal uniquement.
 
 Code7c2f07a5 publié ; checkpoint **212e0a7e1afaaa76c0b30bc372ca38fd6e5a4a33** poussé
-et relu depuis GitHub (20fichiers exacts). Présent bilan et preuves finales àpublier,
-puis relire avant clôture DONE. Journal actualisé :montage réel, carte, charges et
+et relu depuis GitHub (20fichiers exacts). Bilan **ce0cc827b42b12bdcd775d9a4136d10c8eddbf1f** et preuves finales publiés puis
+relus intégralement depuis origin/main :319fichiers identiques,303pièces décompressées
+et leurs empreintes brutes/stockées contrôlées. [Trace de relecture](preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/REMOTE_REREAD_ce0cc827.json).
+État Git propre après cette publication ; seule cette clôture documentaire/archives
+suit, sans nouveau test, flash ou accès matériel. Son SHA final sera communiqué après
+push normal et relecture. Aucun blocage restant dans la portée SPI2 isolée mesurée. Journal actualisé :montage réel, carte, charges et
 intégrité, busy/borne de backlog, état sûr et prochaine étape. **Suite àChatGPT :**
 revue indépendante A-01, puis mission distincte de coexistence FIFO/FIR/SPI2 avec
 ordonnancement borné, avant endurance ou format de campagne.

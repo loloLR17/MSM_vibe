@@ -1,0 +1,1601 @@
+{
+  "mission_id": "TR2-20261029-R2-SPI2-MICROSD-ISOLATED",
+  "sha": "ce0cc827b42b12bdcd775d9a4136d10c8eddbf1f",
+  "utc": "2026-10-29T17:16:18.374766+00:00",
+  "all_bytes_equal": true,
+  "all_raw_hashes_valid": true,
+  "files": [
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/DERNIER_RAPPORT.md",
+      "bytes": 14177,
+      "sha256": "0cfabd6ac39114ec1c594649a75859977cb4f02d038ec676bf0650419b0ea1a1"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/MISSION_EN_COURS.md",
+      "bytes": 9658,
+      "sha256": "91195677027d7d7ac8feb1bd3b9d3b6811ff76f49097c6c9197c64beabc37cb3"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/ETAT_COURANT_TR2.md",
+      "bytes": 93559,
+      "sha256": "d461dbd9f00ac293c7b2b8ee54ee1ebe62ff721dbc7e2ec656332bc4f8a463b0"
+    },
+    {
+      "path": "experiments/spi2_microsd_isolated/CMakeLists.txt",
+      "bytes": 2896,
+      "sha256": "7ae23ce47e5208736396edd1ac562b9450fbf90f46739843462d59b70b198ff6"
+    },
+    {
+      "path": "experiments/spi2_microsd_isolated/README.md",
+      "bytes": 5149,
+      "sha256": "69bfb013151ca5605cd885c7a5ffc2424a53050dd554ae7d6820f36abee16f9c"
+    },
+    {
+      "path": "experiments/spi2_microsd_isolated/SOURCES.json",
+      "bytes": 1372,
+      "sha256": "2aec26b34aea5951f039a5ff27560ed042c12fd6cb03aea23f09157380636360"
+    },
+    {
+      "path": "experiments/spi2_microsd_isolated/src/main.c",
+      "bytes": 13141,
+      "sha256": "74422551e0a896d8fcbbc153d40de10bc733282ca7a5e34b77e0b871ebece094"
+    },
+    {
+      "path": "experiments/spi2_microsd_isolated/src/pattern.h",
+      "bytes": 502,
+      "sha256": "664124be150f802f5b7f19060d02b0d7ea6475e2c8d0634ee59bad732955eb1b"
+    },
+    {
+      "path": "experiments/spi2_microsd_isolated/src/sd_spi.c",
+      "bytes": 7300,
+      "sha256": "6399b9493626755dc656c111d5a7f30b2179b850200022b5ce8eed46e6a4cf8e"
+    },
+    {
+      "path": "experiments/spi2_microsd_isolated/src/sd_spi.h",
+      "bytes": 1158,
+      "sha256": "cb9138325fdf1e4d485c421d868936f444bb99970a22f882305be27970d6ef49"
+    },
+    {
+      "path": "experiments/spi2_microsd_isolated/tests/test_capture.py",
+      "bytes": 852,
+      "sha256": "6aee682ff40b12d644446707a3ce4c5c744f2be6d0305a6f844ca758ecc4634f"
+    },
+    {
+      "path": "experiments/spi2_microsd_isolated/tests/test_sd_spi.c",
+      "bytes": 4762,
+      "sha256": "c90ff919bba4af5bb5c2115dfe8bdd7537cd67b1e62377d40b277f120978f8f7"
+    },
+    {
+      "path": "experiments/spi2_microsd_isolated/tools/analyze_capture.py",
+      "bytes": 3130,
+      "sha256": "b2b5058794e5b65636ca924fadef206d62c4fe56dc25d2033e4d2fd7a3242995"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/checkpoint-short/BUNDLE.json",
+      "sha256": "f99c6a2db971c42b57778f8a65e094d2a21ac3af4432eb899b67e3784dccb585"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/checkpoint-short/artifact.json.zlib",
+      "raw_bytes": 805,
+      "raw_sha256": "4006a188e8c4b71e473a19bb582676451a629fdd84011189d8d6b2603b389014"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/checkpoint-short/readback.json.zlib",
+      "raw_bytes": 118,
+      "raw_sha256": "f5cb67ff354b01a9e9cf86f0bd81aebabf5c1bf6bacf8cd1662db8616b75c6da"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/checkpoint-short/recovery-fifo.json.zlib",
+      "raw_bytes": 283,
+      "raw_sha256": "e3cb2ca127697bd3a9a4298d8f7f2c37bbfbd35ceb598a9523b76fc9750bf6e4"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/checkpoint-short/p1-independent.json.zlib",
+      "raw_bytes": 521,
+      "raw_sha256": "b97837fe120a12da8a8cc2ff234315df1aa5717d2ce339e015b334de3fa6bf12"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/checkpoint-short/p1-mbr-layout.json.zlib",
+      "raw_bytes": 767,
+      "raw_sha256": "d4530e9733f567311f137cb96226755025cc71abddbfab5dadd50c4732f1db5d"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/checkpoint-short/p1-readonly--result.json.zlib",
+      "raw_bytes": 1212,
+      "raw_sha256": "f6013276c6a6b632e18d672b8f286de7119b2f23f665bbd67d5a225a412125c7"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/checkpoint-short/p2-bounded-write-read--result.json.zlib",
+      "raw_bytes": 1247,
+      "raw_sha256": "3b19c072991027305ee7db4ab635c4b485343f4e8a3d476e6bd5e8473cd1feb5"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/checkpoint-short/p2-latencies.json.zlib",
+      "raw_bytes": 1970,
+      "raw_sha256": "c027756f71a558b18875c27e4e3e986a054cc637d2b1ce107802cc8f704ca362"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/checkpoint-short/p3-short-load--result.json.zlib",
+      "raw_bytes": 1276,
+      "raw_sha256": "542430485e607f3404558b3f86f78ebea2e0d583cdc7970bc78262dd8561e1dd"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/checkpoint-short/p3-short-load-independent-integrity.json.zlib",
+      "raw_bytes": 1232,
+      "raw_sha256": "0741e2b4780ed7b00588944e521952f087b7ef36014864bf7ad6fce3ef0f8b3b"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/checkpoint-short/short-analysis.json.zlib",
+      "raw_bytes": 3271,
+      "raw_sha256": "ecac8e32971359c4ed933920eef9cc3d65ede11b028764e917ba1d2d1608a55c"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/checkpoint-short/p1-readonly--witness.bin.zlib",
+      "raw_bytes": 1536,
+      "raw_sha256": "cd0aa7cba62523f764cbd874f9f4a14abc93af397e34da27e410fd33f047f00c"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/checkpoint-short/p3-short-load-media-full.bin.zlib",
+      "raw_bytes": 160256,
+      "raw_sha256": "4d622f9bc7aad08a4695c56147c4e49bb9e98417f7b212c3d74e6d5f13352b63"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/checkpoint-short/capture-tools-test.log.zlib",
+      "raw_bytes": 100,
+      "raw_sha256": "fe008aab760eb03ccac7578e2b84665b1b50b0d7f855b17a0c7a8d039435b658"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/checkpoint-short/host-ctest-busy.log.zlib",
+      "raw_bytes": 377,
+      "raw_sha256": "935eb33c2397e0a3154622d174a7abdb196fb219042e67c258a692aacddcf26f"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/checkpoint-short/canonical-cross.log.zlib",
+      "raw_bytes": 7105,
+      "raw_sha256": "35164065871d691bf796ed3dfdc619ca3eb71f0a692468e05abfd8f61b42fd3e"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/BUNDLE.json",
+      "sha256": "8ada03b4a8dec3f09a38132902288b5fc99a0659ff5a9bb4a09c8bf9a31ccfce"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/README.md",
+      "sha256": "c7e4d304b03ff9c94001c4280f913d6a814daec2c161d5ac63d066382de2a8b7"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/artifact.json.zlib",
+      "raw_bytes": 805,
+      "raw_sha256": "4006a188e8c4b71e473a19bb582676451a629fdd84011189d8d6b2603b389014"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/readback.json.zlib",
+      "raw_bytes": 118,
+      "raw_sha256": "f5cb67ff354b01a9e9cf86f0bd81aebabf5c1bf6bacf8cd1662db8616b75c6da"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/recovery-fifo.json.zlib",
+      "raw_bytes": 283,
+      "raw_sha256": "e3cb2ca127697bd3a9a4298d8f7f2c37bbfbd35ceb598a9523b76fc9750bf6e4"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/registers-independent.json.zlib",
+      "raw_bytes": 301,
+      "raw_sha256": "51744f92a9235d567b24747a7f284dce96a5dfde6b017977d2a20b61be7c9a57"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/load-comparison.json.zlib",
+      "raw_bytes": 7713,
+      "raw_sha256": "762a465d5d05b0f46b9e18b6c31af9b9bc34a4f95d068a041062a6bafae56782"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/long-analysis-final.json.zlib",
+      "raw_bytes": 3334,
+      "raw_sha256": "a4aa1c6c4a2aa0e564f66c6fdb4f38f203c5286ac0a4b357b867299eb6a1a92e"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/p2-analysis.json.zlib",
+      "raw_bytes": 4869,
+      "raw_sha256": "db8c0b53b266e419ef8487b0fddafce5d88d1beb92b6b715c9420e62440ad321"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/final-state.json.zlib",
+      "raw_bytes": 1860,
+      "raw_sha256": "f502368343234a9397c4f5d101c10ff6d7e6bd5de1cfa29a4f38697b0c1ca86a"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/p3-long-load-independent-integrity.json.zlib",
+      "raw_bytes": 3507,
+      "raw_sha256": "8e6f7f253aad4c05939df9ca794451af13cc8cd1b6c913d84c403f808c2efe01"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/p3-long-load-media-full.bin.zlib",
+      "raw_bytes": 960000,
+      "raw_sha256": "107febd4f8e2ac302e28f6907e0e83a3516aaf598291440eaeb62728130d2b90"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/p3-short-return.log.zlib",
+      "raw_bytes": 3705,
+      "raw_sha256": "1824ac65d4c3c9ce8f7f89723c7fc03a4313d50e5468dce054434ad00492495a"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/p3-long-return.log.zlib",
+      "raw_bytes": 18183,
+      "raw_sha256": "79395435a3317fa68dd84563930032ae57bef079d78ed23f31b7dcc889649e97"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/symbols.txt.zlib",
+      "raw_bytes": 9319,
+      "raw_sha256": "e78500fc113f09e26413ba0363aad1ac507bee944a34ff69f3f3df57544e6946"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/attributes.txt.zlib",
+      "raw_bytes": 404,
+      "raw_sha256": "5eb0e596016ae2c814f314244a9d7953684d98194938c1b1a0563508cbb9dd64"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/size.txt.zlib",
+      "raw_bytes": 164,
+      "raw_sha256": "5e921cc313a7380c5828f982bb39114c27bc62d50450e5510696eba9a4884731"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/stack-usage.txt.zlib",
+      "raw_bytes": 45270,
+      "raw_sha256": "2ba8257fa1408ba303f710036ae38d72c4b37b74adb7a3b0981237c01e5533d2"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/host-ctest-busy.log.zlib",
+      "raw_bytes": 377,
+      "raw_sha256": "935eb33c2397e0a3154622d174a7abdb196fb219042e67c258a692aacddcf26f"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/host-build-busy.log.zlib",
+      "raw_bytes": 178,
+      "raw_sha256": "5874152609a2bf43d8ff9751e6ef8670668406640464fbdcdce72875ef902f1d"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/canonical-cross.log.zlib",
+      "raw_bytes": 7105,
+      "raw_sha256": "35164065871d691bf796ed3dfdc619ca3eb71f0a692468e05abfd8f61b42fd3e"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/capture-tools-test.log.zlib",
+      "raw_bytes": 100,
+      "raw_sha256": "fe008aab760eb03ccac7578e2b84665b1b50b0d7f855b17a0c7a8d039435b658"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/arm-build-ready.log.zlib",
+      "raw_bytes": 2957,
+      "raw_sha256": "415414a1a8fa687065ec7faf432d90d51fce6a5e591ad5f866e198d44417bf08"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/arm-configure.log.zlib",
+      "raw_bytes": 590,
+      "raw_sha256": "19f169dabed951981f522913df43839ceeef4744a6b9a6d494af44bf7ffb666a"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/stlink-list.log.zlib",
+      "raw_bytes": 506,
+      "raw_sha256": "a811f52d2c09b9827bc2d5f356a1202f12b45e8b7f159fa0944db690cf2ddb3d"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/checkpoint-remote.json.zlib",
+      "raw_bytes": 4795,
+      "raw_sha256": "3ccebfc53be28dc0394f77b84595ebbc8d77ac6e3aa83a45e5237b13878666ea"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/hardware_second.py.zlib",
+      "raw_bytes": 2402,
+      "raw_sha256": "3149b4c724549ae4ea164db00a7a93215a5af64a582fe42d44f2ef1317dd9446"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/run_capture.py.zlib",
+      "raw_bytes": 2442,
+      "raw_sha256": "c13a8feee251070e519f84597fb8fa7e6af5a6e85044f5256717bf984f0bc391"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/return_media.py.zlib",
+      "raw_bytes": 1979,
+      "raw_sha256": "535053f215edc9c6e762453492db39dd3adf8f76b9c5f0d0b37bcd04f552105b"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/arm--r2_spi2_sd.bin.zlib",
+      "raw_bytes": 25556,
+      "raw_sha256": "6fb2bafb3cda869ef4248421d88b9afbaaed8ac96199339005cab1de910737d4"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/arm--r2_spi2_sd.elf.zlib",
+      "raw_bytes": 1787168,
+      "raw_sha256": "313c4910515cbf7d0146085673bf370e63dfe0583b562f936295708c9fea856b"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/arm--r2_spi2_sd.map.zlib",
+      "raw_bytes": 407301,
+      "raw_sha256": "5cb9d38046384d304730166ba74a44c368c3484faee140701efc6330c3ab57e1"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/arm--build.ninja.zlib",
+      "raw_bytes": 39309,
+      "raw_sha256": "eaef8d2c2b41a116526dae0963de6b0768c5093dbbfdcd0f84a9f72c74909d9a"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/arm--CMakeFiles--rules.ninja.zlib",
+      "raw_bytes": 2381,
+      "raw_sha256": "0371104feff15d93428995837b10695bf04bcdd411d162d35fd98164fc0cc606"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/arm--generated--stm32u5xx_hal_spi_observed.json.zlib",
+      "raw_bytes": 521,
+      "raw_sha256": "71828141444d3ce736c58d0c50458f373eb0009cab0cde07514be4b0e7850c9f"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/references--sources.json.zlib",
+      "raw_bytes": 739,
+      "raw_sha256": "8d2b5132bceecb47140aeb7aa80e5098537416177b035f75bcb55ebb9e667b66"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/hardware--flash-spi2-sd-002-command.json.zlib",
+      "raw_bytes": 524,
+      "raw_sha256": "6ce240d3c3471e8fd090e3674bcfa95cec38e76830635c58fc49dd1e597e13b9"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/hardware--flash-spi2-sd-002.log.zlib",
+      "raw_bytes": 1668,
+      "raw_sha256": "5384e0ef06e6bf196d2fcf20231e68057b96b41052cf0208a2baf21a56809e5b"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/hardware--p1-readonly-invocation.json.zlib",
+      "raw_bytes": 734,
+      "raw_sha256": "651db2fc0dbb00bc8ddd82c40b071aad57bc9a42dd3046ded1d4d52e7a6ba531"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/hardware--p1-readonly-server.log.zlib",
+      "raw_bytes": 674,
+      "raw_sha256": "030ed83bdd9e560371dd4df01fbb2f25a71828a2bd725448cff4a24e6cf46bf2"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/hardware--p1-readonly.gdb.zlib",
+      "raw_bytes": 1594,
+      "raw_sha256": "afa2b4cb82adcd34f0229a5121c7a10a33b85e7061596ee538c9b0b8f74358f5"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/hardware--p1-readonly.log.zlib",
+      "raw_bytes": 15503,
+      "raw_sha256": "b00490b7fdc304213e8f887b48ee5d0c81c74af7e06913751cbbeb14ac1df145"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/hardware--p2-bounded-write-read-invocation.json.zlib",
+      "raw_bytes": 744,
+      "raw_sha256": "bee57d55398d772427e06a952b52de522451ea0ed3a39ef6121d7decdd8e074c"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/hardware--p2-bounded-write-read-server.log.zlib",
+      "raw_bytes": 674,
+      "raw_sha256": "030ed83bdd9e560371dd4df01fbb2f25a71828a2bd725448cff4a24e6cf46bf2"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/hardware--p2-bounded-write-read.gdb.zlib",
+      "raw_bytes": 1614,
+      "raw_sha256": "ed056d7e3753d3c9dc76041d264dac25f024e6218a5951402995f983037b387a"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/hardware--p2-bounded-write-read.log.zlib",
+      "raw_bytes": 15128,
+      "raw_sha256": "8de5d9e442beffbc544b1519e4de89370ea85934d6760edacc9cb1484d1cfa09"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/hardware--p3-long-load-invocation.json.zlib",
+      "raw_bytes": 735,
+      "raw_sha256": "5b8560317c88c4025738ec2ae39e17040399fca02c7a0fb0c607e9eb5070693a"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/hardware--p3-long-load-return-0000000-invocation.json.zlib",
+      "raw_bytes": 750,
+      "raw_sha256": "8516cacd7b5dfda2861af66f6c191b7358c50fd308afcb92d414614fe9b70efa"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/hardware--p3-long-load-return-0000000-server.log.zlib",
+      "raw_bytes": 674,
+      "raw_sha256": "030ed83bdd9e560371dd4df01fbb2f25a71828a2bd725448cff4a24e6cf46bf2"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/hardware--p3-long-load-return-0000000.gdb.zlib",
+      "raw_bytes": 1906,
+      "raw_sha256": "8769f36ec01ba20591d20a1e6b39776e0d8f9180633ec66852294c26acd0b51c"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/hardware--p3-long-load-return-0000000.log.zlib",
+      "raw_bytes": 15385,
+      "raw_sha256": "f7d619c3aea942bd5e58d3a3a7b14a2bc6fb2184f120ec3064f4d24e72a4b494"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/hardware--p3-long-load-return-0065536-invocation.json.zlib",
+      "raw_bytes": 750,
+      "raw_sha256": "668e4970ac0c6de88f00de025f2825fc1635df8b6a1936a9e213d01603be9c7e"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/hardware--p3-long-load-return-0065536-server.log.zlib",
+      "raw_bytes": 674,
+      "raw_sha256": "030ed83bdd9e560371dd4df01fbb2f25a71828a2bd725448cff4a24e6cf46bf2"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/hardware--p3-long-load-return-0065536.gdb.zlib",
+      "raw_bytes": 1910,
+      "raw_sha256": "10e3e50dc24aa6e0662ccdf60a4c6a7488b8f1be551cea259597d7b72a5db837"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/hardware--p3-long-load-return-0065536.log.zlib",
+      "raw_bytes": 15389,
+      "raw_sha256": "64e46057f3dfb9474a371cdc647135dca885399d1dfa8df5ccdb7edfea4d4caa"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/hardware--p3-long-load-return-0131072-invocation.json.zlib",
+      "raw_bytes": 750,
+      "raw_sha256": "1c8b8af7672d6ade759faeef255ff9166367326f92f79b3923173821d01864d6"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/hardware--p3-long-load-return-0131072-server.log.zlib",
+      "raw_bytes": 674,
+      "raw_sha256": "030ed83bdd9e560371dd4df01fbb2f25a71828a2bd725448cff4a24e6cf46bf2"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/hardware--p3-long-load-return-0131072.gdb.zlib",
+      "raw_bytes": 1911,
+      "raw_sha256": "3b4be5b41aa382753304ddd8d73045b6814ef69afadda97e3fa601605202bfdd"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/hardware--p3-long-load-return-0131072.log.zlib",
+      "raw_bytes": 15395,
+      "raw_sha256": "0a211992faef4a3f4374c6cc0151671e62297bb6499ebef296b4ddd11847a587"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/hardware--p3-long-load-return-0196608-invocation.json.zlib",
+      "raw_bytes": 750,
+      "raw_sha256": "f48ce2ad6bd3a4fa1c7bb1c9df521966d5755f99126ea7f51c5079bc6d9f3002"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/hardware--p3-long-load-return-0196608-server.log.zlib",
+      "raw_bytes": 674,
+      "raw_sha256": "030ed83bdd9e560371dd4df01fbb2f25a71828a2bd725448cff4a24e6cf46bf2"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/hardware--p3-long-load-return-0196608.gdb.zlib",
+      "raw_bytes": 1911,
+      "raw_sha256": "e5e5c646c5b914966921061061e04887d42f5f43222ebbb0fa625d7fcf1315aa"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/hardware--p3-long-load-return-0196608.log.zlib",
+      "raw_bytes": 15396,
+      "raw_sha256": "f98e2b38ed2a258894f119c0668ee527a6a1c3b03184b95214d951cf0d4b41c8"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/hardware--p3-long-load-return-0262144-invocation.json.zlib",
+      "raw_bytes": 750,
+      "raw_sha256": "31ae796f6ca9400bddbfc9bb763b40f999a78cba824a6355afef4ac3b1b4084d"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/hardware--p3-long-load-return-0262144-server.log.zlib",
+      "raw_bytes": 674,
+      "raw_sha256": "030ed83bdd9e560371dd4df01fbb2f25a71828a2bd725448cff4a24e6cf46bf2"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/hardware--p3-long-load-return-0262144.gdb.zlib",
+      "raw_bytes": 1911,
+      "raw_sha256": "9843690f0bf80395beb48abe2cf3ec771509290f3974f43ee57c96d578246dac"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/hardware--p3-long-load-return-0262144.log.zlib",
+      "raw_bytes": 15396,
+      "raw_sha256": "72bc2bad212960c65400f652c3cb2a6c3d3cb25145039ab321b56d898832de8f"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/hardware--p3-long-load-return-0327680-invocation.json.zlib",
+      "raw_bytes": 750,
+      "raw_sha256": "cae9e649b50d8364016d2213c8a27429e2d86c2562727e81c2092b69957e53ce"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/hardware--p3-long-load-return-0327680-server.log.zlib",
+      "raw_bytes": 674,
+      "raw_sha256": "030ed83bdd9e560371dd4df01fbb2f25a71828a2bd725448cff4a24e6cf46bf2"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/hardware--p3-long-load-return-0327680.gdb.zlib",
+      "raw_bytes": 1911,
+      "raw_sha256": "643f07baf3edfe1ede42a8d6abe96c1f7ad60d2d7e3a824bf6ff83b6f0d4105e"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/hardware--p3-long-load-return-0327680.log.zlib",
+      "raw_bytes": 15396,
+      "raw_sha256": "b6300bd5d5ba732058a27aaa7c055b934f35253aa451e4a04c9b73253864f04a"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/hardware--p3-long-load-return-0393216-invocation.json.zlib",
+      "raw_bytes": 750,
+      "raw_sha256": "b1283bc35374bc9f597b1f7b45848902e39c84403dc5ccfe35ae8e0ecd9a7400"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/hardware--p3-long-load-return-0393216-server.log.zlib",
+      "raw_bytes": 674,
+      "raw_sha256": "030ed83bdd9e560371dd4df01fbb2f25a71828a2bd725448cff4a24e6cf46bf2"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/hardware--p3-long-load-return-0393216.gdb.zlib",
+      "raw_bytes": 1911,
+      "raw_sha256": "4c7bf7431c1e50c9f01d29c81b332089a7a44a2ff3a65139f5470abb74b33980"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/hardware--p3-long-load-return-0393216.log.zlib",
+      "raw_bytes": 15396,
+      "raw_sha256": "45387012b80b71534cc7a8a2f52a8be25593d2a17a110252afb1f0342f5c50f8"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/hardware--p3-long-load-return-0458752-invocation.json.zlib",
+      "raw_bytes": 750,
+      "raw_sha256": "7cce4183f8718728aae8476821e437d55232358b74e726de1ad8f922c50379d2"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/hardware--p3-long-load-return-0458752-server.log.zlib",
+      "raw_bytes": 674,
+      "raw_sha256": "030ed83bdd9e560371dd4df01fbb2f25a71828a2bd725448cff4a24e6cf46bf2"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/hardware--p3-long-load-return-0458752.gdb.zlib",
+      "raw_bytes": 1911,
+      "raw_sha256": "efc8a4578c8f44fd6d8c649fa91ed7fb9d83db3280a533eaa23bd81fa5ed9fcf"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/hardware--p3-long-load-return-0458752.log.zlib",
+      "raw_bytes": 15396,
+      "raw_sha256": "fa7e4963b4cb3051367db2dc2e2b1eebdebc4082c0ed4652517826332c42eaa5"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/hardware--p3-long-load-return-0524288-invocation.json.zlib",
+      "raw_bytes": 750,
+      "raw_sha256": "5c3b2853ab9af217ec19389923a0ea3fb0f62fd132550df7d4cee1050bad2994"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/hardware--p3-long-load-return-0524288-server.log.zlib",
+      "raw_bytes": 674,
+      "raw_sha256": "030ed83bdd9e560371dd4df01fbb2f25a71828a2bd725448cff4a24e6cf46bf2"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/hardware--p3-long-load-return-0524288.gdb.zlib",
+      "raw_bytes": 1911,
+      "raw_sha256": "849f8970bc722e2f64679c8c262ca21be7dbbc9674e0eae3cbcb48cdfd4fa4bd"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/hardware--p3-long-load-return-0524288.log.zlib",
+      "raw_bytes": 15396,
+      "raw_sha256": "9e9070c85606ad84a27f59bd2ab0f00fc1bce41514e37222c2f85eb46e42af50"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/hardware--p3-long-load-return-0589824-invocation.json.zlib",
+      "raw_bytes": 750,
+      "raw_sha256": "12a5a2cb4a949232973998965337d7e128aa7b3e1202fd4d74ca6b94903a7ac6"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/hardware--p3-long-load-return-0589824-server.log.zlib",
+      "raw_bytes": 674,
+      "raw_sha256": "030ed83bdd9e560371dd4df01fbb2f25a71828a2bd725448cff4a24e6cf46bf2"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/hardware--p3-long-load-return-0589824.gdb.zlib",
+      "raw_bytes": 1911,
+      "raw_sha256": "55a336b18e6e5b83333bb67d11aaf0fd02ba92b96159ef42ae45bf19c78bca1c"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/hardware--p3-long-load-return-0589824.log.zlib",
+      "raw_bytes": 15396,
+      "raw_sha256": "f545d9253cd126fb80dc16457ee7bef6f3c9ad8ab582be1ad1898b045375769f"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/hardware--p3-long-load-return-0655360-invocation.json.zlib",
+      "raw_bytes": 750,
+      "raw_sha256": "cc991d2f555206995dd4687be5e5c92e506c9d7f688f19b84567085ca9d2f0ff"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/hardware--p3-long-load-return-0655360-server.log.zlib",
+      "raw_bytes": 674,
+      "raw_sha256": "030ed83bdd9e560371dd4df01fbb2f25a71828a2bd725448cff4a24e6cf46bf2"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/hardware--p3-long-load-return-0655360.gdb.zlib",
+      "raw_bytes": 1911,
+      "raw_sha256": "f6741ec7894c02a771dc355933683f30881e7c936b6e85c81d2fea5a345a6d3a"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/hardware--p3-long-load-return-0655360.log.zlib",
+      "raw_bytes": 15396,
+      "raw_sha256": "f944e6f67fd0b29e8a929fe67b693fb71836d33f66951168d483883623c4820f"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/hardware--p3-long-load-return-0720896-invocation.json.zlib",
+      "raw_bytes": 750,
+      "raw_sha256": "445163095b34f10d800cc463f1ed5008ab4477a55a2e04ae40a3124ca59203ba"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/hardware--p3-long-load-return-0720896-server.log.zlib",
+      "raw_bytes": 674,
+      "raw_sha256": "030ed83bdd9e560371dd4df01fbb2f25a71828a2bd725448cff4a24e6cf46bf2"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/hardware--p3-long-load-return-0720896.gdb.zlib",
+      "raw_bytes": 1911,
+      "raw_sha256": "c4ecadf33f1b4734fc78676653f2df4a99ca2695edaeceeb853ffc097d8da11e"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/hardware--p3-long-load-return-0720896.log.zlib",
+      "raw_bytes": 15396,
+      "raw_sha256": "bf644998fc21ae92b9ed36213130b494dc0ad04ba85f551700e95fcb6f14259b"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/hardware--p3-long-load-return-0786432-invocation.json.zlib",
+      "raw_bytes": 750,
+      "raw_sha256": "632f6b77a46a0165c699418fc487af659eecbe4299c25a428651aa4a9ad5e9dc"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/hardware--p3-long-load-return-0786432-server.log.zlib",
+      "raw_bytes": 674,
+      "raw_sha256": "030ed83bdd9e560371dd4df01fbb2f25a71828a2bd725448cff4a24e6cf46bf2"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/hardware--p3-long-load-return-0786432.gdb.zlib",
+      "raw_bytes": 1911,
+      "raw_sha256": "0aed6e5d177b95277289e2b62fb6c9ead1e280c720ae4d9b552c30ad0eeb921a"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/hardware--p3-long-load-return-0786432.log.zlib",
+      "raw_bytes": 15396,
+      "raw_sha256": "53135c63ff77ce88f4c4ba736852508700b1fa8465404974e861683bcd5d9a45"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/hardware--p3-long-load-return-0851968-invocation.json.zlib",
+      "raw_bytes": 750,
+      "raw_sha256": "61f41b0fd3cc10a048973ea42a819f2570b9686375bf71f3693cbd79c5b52a64"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/hardware--p3-long-load-return-0851968-server.log.zlib",
+      "raw_bytes": 674,
+      "raw_sha256": "030ed83bdd9e560371dd4df01fbb2f25a71828a2bd725448cff4a24e6cf46bf2"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/hardware--p3-long-load-return-0851968.gdb.zlib",
+      "raw_bytes": 1911,
+      "raw_sha256": "ac1358f19c299e72e361f53dfe7e04b1c98e6b0d7a3be38622090215b944689d"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/hardware--p3-long-load-return-0851968.log.zlib",
+      "raw_bytes": 15396,
+      "raw_sha256": "36d30f37aa156d7b0979d285f462e603d0116f79770b502888aa7da0701fbc9a"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/hardware--p3-long-load-return-0917504-invocation.json.zlib",
+      "raw_bytes": 750,
+      "raw_sha256": "61d535bdeb578179195904ec2767d8bd1c2c42119efe695f7de7a5128412508b"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/hardware--p3-long-load-return-0917504-server.log.zlib",
+      "raw_bytes": 674,
+      "raw_sha256": "030ed83bdd9e560371dd4df01fbb2f25a71828a2bd725448cff4a24e6cf46bf2"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/hardware--p3-long-load-return-0917504.gdb.zlib",
+      "raw_bytes": 1911,
+      "raw_sha256": "db4d5ae92cf51366e5928077095d8d1fa26c3ebef0d0d484c6680b4dac407dae"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/hardware--p3-long-load-return-0917504.log.zlib",
+      "raw_bytes": 15396,
+      "raw_sha256": "7167ae3503089f6f97eb9890e7fb6427db1e2ac378fafdc66e22aac72a27d4b5"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/hardware--p3-long-load-server.log.zlib",
+      "raw_bytes": 674,
+      "raw_sha256": "030ed83bdd9e560371dd4df01fbb2f25a71828a2bd725448cff4a24e6cf46bf2"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/hardware--p3-long-load.gdb.zlib",
+      "raw_bytes": 1569,
+      "raw_sha256": "5cd634842f14b9164947823a054d288fbf90c768c0246b82bd62fb36e4e1b9ef"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/hardware--p3-long-load.log.zlib",
+      "raw_bytes": 15388,
+      "raw_sha256": "ecddaca517b5f4d53dcaf5282b708237cfa29c63770bff50762557433585c4f8"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/hardware--p3-short-load-invocation.json.zlib",
+      "raw_bytes": 736,
+      "raw_sha256": "9fbfd044b889a0f559370336f6443ecdc6640ffc4687cf02d8b44b9f184088b0"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/hardware--p3-short-load-return-0000000-invocation.json.zlib",
+      "raw_bytes": 751,
+      "raw_sha256": "0941a8a8caeab27eb86ccf78dcd68a81281b3c53fde4a07dc31889e4b0d03279"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/hardware--p3-short-load-return-0000000-server.log.zlib",
+      "raw_bytes": 674,
+      "raw_sha256": "030ed83bdd9e560371dd4df01fbb2f25a71828a2bd725448cff4a24e6cf46bf2"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/hardware--p3-short-load-return-0000000.gdb.zlib",
+      "raw_bytes": 1912,
+      "raw_sha256": "886e364e7b136941aedecd2251214bdcb5ecdc23cdbb7235774014212f06d9c7"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/hardware--p3-short-load-return-0000000.log.zlib",
+      "raw_bytes": 15368,
+      "raw_sha256": "1a0beb211356427b5926876dbe74e6008783e620feddbb23161eb9f711319165"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/hardware--p3-short-load-return-0065536-invocation.json.zlib",
+      "raw_bytes": 751,
+      "raw_sha256": "5c98cb9df8b022d4266e36a36ae6d5cd02bdf2f34572900a237a005a3dc30486"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/hardware--p3-short-load-return-0065536-server.log.zlib",
+      "raw_bytes": 674,
+      "raw_sha256": "030ed83bdd9e560371dd4df01fbb2f25a71828a2bd725448cff4a24e6cf46bf2"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/hardware--p3-short-load-return-0065536.gdb.zlib",
+      "raw_bytes": 1916,
+      "raw_sha256": "ed254b22cd7763db12153df4a14bf1d5c665e806586f95c9341989c7b0da56b6"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/hardware--p3-short-load-return-0065536.log.zlib",
+      "raw_bytes": 15381,
+      "raw_sha256": "3057ca031fc0d77fd8d0b3e2d334420744cfd6505a346324ae87093a2f518dcc"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/hardware--p3-short-load-return-0131072-invocation.json.zlib",
+      "raw_bytes": 751,
+      "raw_sha256": "308385eea9225defcece47b2e2fafb35ac4d859c7503ce77771d9bfd390f72af"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/hardware--p3-short-load-return-0131072-server.log.zlib",
+      "raw_bytes": 674,
+      "raw_sha256": "030ed83bdd9e560371dd4df01fbb2f25a71828a2bd725448cff4a24e6cf46bf2"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/hardware--p3-short-load-return-0131072.gdb.zlib",
+      "raw_bytes": 1917,
+      "raw_sha256": "d993b7800824965285a3f99d73f9bbed0564461b9f1190783fce8bc90769bedc"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/hardware--p3-short-load-return-0131072.log.zlib",
+      "raw_bytes": 15387,
+      "raw_sha256": "bc56317d712ded2e7f8a14698f523bb31f3a79b02a2e4f8cff9badffe5cd2b4d"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/hardware--p3-short-load-server.log.zlib",
+      "raw_bytes": 674,
+      "raw_sha256": "030ed83bdd9e560371dd4df01fbb2f25a71828a2bd725448cff4a24e6cf46bf2"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/hardware--p3-short-load.gdb.zlib",
+      "raw_bytes": 1574,
+      "raw_sha256": "7e01144c99ef8e2559f69590db8fa0f89f3c87ea529e6f90853fc218db4791ee"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/hardware--p3-short-load.log.zlib",
+      "raw_bytes": 15331,
+      "raw_sha256": "b83914ce895633b5da03e75d7e10cbf6843ea8f26c6ec38b92496bd3f80c8108"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/hardware--preflight-fifo-identity-invocation.json.zlib",
+      "raw_bytes": 744,
+      "raw_sha256": "e94bb157e9fc470f779339f188c19bda0c86dbe03ae88a9289d2d2b0b7085254"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/hardware--preflight-fifo-identity-server.log.zlib",
+      "raw_bytes": 674,
+      "raw_sha256": "030ed83bdd9e560371dd4df01fbb2f25a71828a2bd725448cff4a24e6cf46bf2"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/hardware--preflight-fifo-identity.gdb.zlib",
+      "raw_bytes": 481,
+      "raw_sha256": "1b9a93f478a40c82ea62c5dde9ab1737bee627e00fd0fa145a967f39fca2244d"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/hardware--preflight-fifo-identity.log.zlib",
+      "raw_bytes": 983,
+      "raw_sha256": "a2c7369ba7b3317344fc64840f4b5dc8b903ed99a66d7a4781d5d01f5bb8b2de"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/hardware--preflight-fifo-prefix.bin.zlib",
+      "raw_bytes": 34192,
+      "raw_sha256": "d30c8bd9b2ad0fc1c5b02982b8384b4866d7760a8e3d2c67c2391bfb5b2f868d"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/hardware--wait-readback-invocation.json.zlib",
+      "raw_bytes": 736,
+      "raw_sha256": "50d7d8a1659ef9a9911b3b97ac605633558bf08992c28342f070d2dac15325bd"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/hardware--wait-readback-server.log.zlib",
+      "raw_bytes": 642,
+      "raw_sha256": "aba6686847910134d76be16aaeb48ea8cff54b4318c7e8947f73d76ce3bbcd45"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/hardware--wait-readback.gdb.zlib",
+      "raw_bytes": 560,
+      "raw_sha256": "9aa5207c45277922b0d74c3ef7d049cfae7400ff0197a1af45be75bee341136a"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/hardware--wait-readback.log.zlib",
+      "raw_bytes": 1044,
+      "raw_sha256": "019891d0f4917b584b915e2e42722574d2e69de7d7a796b95ae6524b80e261ab"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/p1-readonly--body.gdb.zlib",
+      "raw_bytes": 1486,
+      "raw_sha256": "640e6c90a4d75f7d88b7ce1c8571e8d187e67c87baa916fd444ef0c840392e8d"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/p1-readonly--card.bin.zlib",
+      "raw_bytes": 5228,
+      "raw_sha256": "046516ad0dd5fd62be22f179cf4248263783a20620e644177017b33f12b7adae"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/p1-readonly--latencies.bin.zlib",
+      "raw_bytes": 0,
+      "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/p1-readonly--result.bin.zlib",
+      "raw_bytes": 232,
+      "raw_sha256": "dbccac4447f9850721ba6eed09675c41f41a463a8a9765d28af0f0272e11d0b8"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/p1-readonly--result.json.zlib",
+      "raw_bytes": 1212,
+      "raw_sha256": "f6013276c6a6b632e18d672b8f286de7119b2f23f665bbd67d5a225a412125c7"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/p1-readonly--trace.bin.zlib",
+      "raw_bytes": 5120,
+      "raw_sha256": "c3f8ef9064702533bfb5b3c4b425db19473655e79420076407a069c0a51ab21d"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/p1-readonly--witness.bin.zlib",
+      "raw_bytes": 1536,
+      "raw_sha256": "cd0aa7cba62523f764cbd874f9f4a14abc93af397e34da27e410fd33f047f00c"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/p2-bounded-write-read--body.gdb.zlib",
+      "raw_bytes": 1506,
+      "raw_sha256": "3c1ec2281e19ef2cdadbf3d1d173ea7eef7182a9a4398be94987ca7d82f75bfd"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/p2-bounded-write-read--card.bin.zlib",
+      "raw_bytes": 5228,
+      "raw_sha256": "f1c76b5891595d50919e2da304eecc681f5a39c01515f18d440f1bac156be9cd"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/p2-bounded-write-read--latencies.bin.zlib",
+      "raw_bytes": 3400,
+      "raw_sha256": "0b3224280d634069c73850fd26584b8d174a02ad6e21dabcdb2d0bae3865eecd"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/p2-bounded-write-read--result.bin.zlib",
+      "raw_bytes": 232,
+      "raw_sha256": "81375fc165d674b63f590dee1d521d41f247e8ad9eda01bb6afebe80e18cd7ba"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/p2-bounded-write-read--result.json.zlib",
+      "raw_bytes": 1247,
+      "raw_sha256": "3b19c072991027305ee7db4ab635c4b485343f4e8a3d476e6bd5e8473cd1feb5"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/p2-bounded-write-read--trace.bin.zlib",
+      "raw_bytes": 5120,
+      "raw_sha256": "6b05a8a78db145785a00fc4ae706796fd47ce30176dc26aca3c1da1ccda4f88e"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/p2-bounded-write-read--witness.bin.zlib",
+      "raw_bytes": 1536,
+      "raw_sha256": "cd0aa7cba62523f764cbd874f9f4a14abc93af397e34da27e410fd33f047f00c"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/p3-short-load--body.gdb.zlib",
+      "raw_bytes": 1466,
+      "raw_sha256": "f7736319ea1c8f222c6179c6cea5cf8d4a32d4f98460ce30437846fdc75ad9b1"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/p3-short-load--card.bin.zlib",
+      "raw_bytes": 5228,
+      "raw_sha256": "fa2112ee4867ebd934b13fa55501d08bd64a1dd66adc5f1ae26ee4ddcf844663"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/p3-short-load--latencies.bin.zlib",
+      "raw_bytes": 6260,
+      "raw_sha256": "fde11b8fbaa5a035b627df0d4d461aac6cf015f99b52c1e1d0addf3fea336f61"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/p3-short-load--result.bin.zlib",
+      "raw_bytes": 232,
+      "raw_sha256": "36c978d94e4dc5bb79ccda03f42e1e4d053689bb58aa6f560b15bde28e6125c8"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/p3-short-load--result.json.zlib",
+      "raw_bytes": 1276,
+      "raw_sha256": "542430485e607f3404558b3f86f78ebea2e0d583cdc7970bc78262dd8561e1dd"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/p3-short-load--trace.bin.zlib",
+      "raw_bytes": 5120,
+      "raw_sha256": "01e041e82abe6ae0da695a538fb8e4ce898afc4c7f1b327668e3af35fea5afb2"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/p3-short-load--witness.bin.zlib",
+      "raw_bytes": 1536,
+      "raw_sha256": "cd0aa7cba62523f764cbd874f9f4a14abc93af397e34da27e410fd33f047f00c"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/p3-long-load--body.gdb.zlib",
+      "raw_bytes": 1461,
+      "raw_sha256": "7f1ff9a4965f95ea6ee64aacc9455ba73d8c1ea96e11e06db88e2ce1547eeedd"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/p3-long-load--card.bin.zlib",
+      "raw_bytes": 5228,
+      "raw_sha256": "4e51e44dc0bfea929bb9acf8d4d164ba8fa7eb263304eefcaf8f9d93a5061305"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/p3-long-load--latencies.bin.zlib",
+      "raw_bytes": 37500,
+      "raw_sha256": "1efa198c4b4942bd8255130a52052677c2b196d102c5e2815d08a99da9f28ad6"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/p3-long-load--result.bin.zlib",
+      "raw_bytes": 232,
+      "raw_sha256": "8c075bf0e48b9636a24faad03591192451235341f28a581f662be7dfcb9efcc7"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/p3-long-load--result.json.zlib",
+      "raw_bytes": 1288,
+      "raw_sha256": "162b802137aca72cfe079f30c54dbe9a592995c4fe0411b259054f1fafa21da3"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/p3-long-load--trace.bin.zlib",
+      "raw_bytes": 5120,
+      "raw_sha256": "ef03cb1048f255cf9e9894230b219cae40efd31c65a74cc3f08aa6a1dd986264"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/p3-long-load--witness.bin.zlib",
+      "raw_bytes": 1536,
+      "raw_sha256": "cd0aa7cba62523f764cbd874f9f4a14abc93af397e34da27e410fd33f047f00c"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/p3-long-load-return-0000000--body.gdb.zlib",
+      "raw_bytes": 1798,
+      "raw_sha256": "c25daedd352fdd7519f28e28b9f1a22d2d9782d61eeb28741924fc4dee0ac7d4"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/p3-long-load-return-0000000--card.bin.zlib",
+      "raw_bytes": 5228,
+      "raw_sha256": "62015f885eb065db5bcda15cb88bf56136597afa1cc878fe507451f427148665"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/p3-long-load-return-0000000--latencies.bin.zlib",
+      "raw_bytes": 37500,
+      "raw_sha256": "1efa198c4b4942bd8255130a52052677c2b196d102c5e2815d08a99da9f28ad6"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/p3-long-load-return-0000000--result.bin.zlib",
+      "raw_bytes": 232,
+      "raw_sha256": "c9224c2235f83c7b2dac88295b4fce32b2c88e47b0e7c6abe77a037a1a41a8db"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/p3-long-load-return-0000000--result.json.zlib",
+      "raw_bytes": 1287,
+      "raw_sha256": "7778ac0b1fa0159b447a06577d4f11d3bb580414dc9ade9d2648476b7735e05f"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/p3-long-load-return-0000000--trace.bin.zlib",
+      "raw_bytes": 5120,
+      "raw_sha256": "c9c1dbd4de003501a21a23cb6a978a9ace3f2811aa767f8264e07e533fe0670c"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/p3-long-load-return-0000000--witness.bin.zlib",
+      "raw_bytes": 1536,
+      "raw_sha256": "cd0aa7cba62523f764cbd874f9f4a14abc93af397e34da27e410fd33f047f00c"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/p3-long-load-return-0065536--body.gdb.zlib",
+      "raw_bytes": 1802,
+      "raw_sha256": "af571e05a31a8bb07b4339eb76ad4d36dc1edbfe5b34cfc9c508d316a6063309"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/p3-long-load-return-0065536--card.bin.zlib",
+      "raw_bytes": 5228,
+      "raw_sha256": "266db158861798f41ba9fcb9e706622514595a621f0a7ff0ed0a80bda21aec0b"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/p3-long-load-return-0065536--latencies.bin.zlib",
+      "raw_bytes": 37500,
+      "raw_sha256": "1efa198c4b4942bd8255130a52052677c2b196d102c5e2815d08a99da9f28ad6"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/p3-long-load-return-0065536--result.bin.zlib",
+      "raw_bytes": 232,
+      "raw_sha256": "bca77b97e5787af0b193b4a35969ca087c199d4f99ef04ef84a3de976859b956"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/p3-long-load-return-0065536--result.json.zlib",
+      "raw_bytes": 1292,
+      "raw_sha256": "cbf1c6b436837223a785f7ba272e5eae94e10a9a5fff5bd131952901638925c5"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/p3-long-load-return-0065536--trace.bin.zlib",
+      "raw_bytes": 5120,
+      "raw_sha256": "38ae2899fbabdef2e5ea0e8cf535f821ca5a10c75c2a557453aa114cfe304458"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/p3-long-load-return-0065536--witness.bin.zlib",
+      "raw_bytes": 1536,
+      "raw_sha256": "cd0aa7cba62523f764cbd874f9f4a14abc93af397e34da27e410fd33f047f00c"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/p3-long-load-return-0131072--body.gdb.zlib",
+      "raw_bytes": 1803,
+      "raw_sha256": "1d6c0c702d5cb2f25eb189434e37b319e3570d8a4c25c6c8e93e1b7cbfdabe48"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/p3-long-load-return-0131072--card.bin.zlib",
+      "raw_bytes": 5228,
+      "raw_sha256": "914f4de627bc05ef6d68e7c679ea7b528f80fddb071319519f756ac151c48c09"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/p3-long-load-return-0131072--latencies.bin.zlib",
+      "raw_bytes": 37500,
+      "raw_sha256": "1efa198c4b4942bd8255130a52052677c2b196d102c5e2815d08a99da9f28ad6"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/p3-long-load-return-0131072--result.bin.zlib",
+      "raw_bytes": 232,
+      "raw_sha256": "a4d08fa7350c6ba4d46cb535944114dfe65331bb70229393d7e440e900a757fe"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/p3-long-load-return-0131072--result.json.zlib",
+      "raw_bytes": 1293,
+      "raw_sha256": "3ceba0995425af36941d35ada58290ec5085a4d5445cdad2931f77f65d86d0ef"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/p3-long-load-return-0131072--trace.bin.zlib",
+      "raw_bytes": 5120,
+      "raw_sha256": "6d9b822bd8b1e50d427705ef16dac47ddabe3708ddc2d4498e96a143130c16da"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/p3-long-load-return-0131072--witness.bin.zlib",
+      "raw_bytes": 1536,
+      "raw_sha256": "cd0aa7cba62523f764cbd874f9f4a14abc93af397e34da27e410fd33f047f00c"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/p3-long-load-return-0196608--body.gdb.zlib",
+      "raw_bytes": 1803,
+      "raw_sha256": "303aeed0cd63d8be052243be1906aff7ed7da0930c6b92da40bdb57dbb8afb98"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/p3-long-load-return-0196608--card.bin.zlib",
+      "raw_bytes": 5228,
+      "raw_sha256": "ddcd84b9bf0b909124bbd0a66461d02c1e1a9984479db8443ef185b3acd1738b"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/p3-long-load-return-0196608--latencies.bin.zlib",
+      "raw_bytes": 37500,
+      "raw_sha256": "1efa198c4b4942bd8255130a52052677c2b196d102c5e2815d08a99da9f28ad6"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/p3-long-load-return-0196608--result.bin.zlib",
+      "raw_bytes": 232,
+      "raw_sha256": "90e348acb3ee9122ff6ed4dd3b607edcec764e81bc696df4ea28cadf5e6efd35"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/p3-long-load-return-0196608--result.json.zlib",
+      "raw_bytes": 1293,
+      "raw_sha256": "95fe2e7da0818317ce88c363de5081b9e5d11b54788a74178161e310530dea59"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/p3-long-load-return-0196608--trace.bin.zlib",
+      "raw_bytes": 5120,
+      "raw_sha256": "328420e8abb70902ee7ef9de086ebe0a7d3e605695d283c5a0d967671e26ebe2"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/p3-long-load-return-0196608--witness.bin.zlib",
+      "raw_bytes": 1536,
+      "raw_sha256": "cd0aa7cba62523f764cbd874f9f4a14abc93af397e34da27e410fd33f047f00c"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/p3-long-load-return-0262144--body.gdb.zlib",
+      "raw_bytes": 1803,
+      "raw_sha256": "cb98c4c646d4a8882e89e0470ce20de3a1acc97d5888ea37afbff5bb03ade9ef"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/p3-long-load-return-0262144--card.bin.zlib",
+      "raw_bytes": 5228,
+      "raw_sha256": "1d48940a77b4d5eb4bd6b539877b48d80293aab63d3cc9dd49ee6ed0068f35e6"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/p3-long-load-return-0262144--latencies.bin.zlib",
+      "raw_bytes": 37500,
+      "raw_sha256": "1efa198c4b4942bd8255130a52052677c2b196d102c5e2815d08a99da9f28ad6"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/p3-long-load-return-0262144--result.bin.zlib",
+      "raw_bytes": 232,
+      "raw_sha256": "575795e0143f8ae65b7f705496b57126d67c2bf960ce4172cea6550de238cd24"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/p3-long-load-return-0262144--result.json.zlib",
+      "raw_bytes": 1293,
+      "raw_sha256": "bd161e61236584d0b615e83f214d31e1e1743133a0cd7a8bccb7efb655cc8288"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/p3-long-load-return-0262144--trace.bin.zlib",
+      "raw_bytes": 5120,
+      "raw_sha256": "879cb7b421262ffa4cda6b06a8dd208fb8f9f88cd0bf5cc76feaa70eddb7ee5d"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/p3-long-load-return-0262144--witness.bin.zlib",
+      "raw_bytes": 1536,
+      "raw_sha256": "cd0aa7cba62523f764cbd874f9f4a14abc93af397e34da27e410fd33f047f00c"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/p3-long-load-return-0327680--body.gdb.zlib",
+      "raw_bytes": 1803,
+      "raw_sha256": "725b53fa04bf6ae50ad107b6964d9c8b01c3a7aa645e1f92dfcf8ef220eb9321"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/p3-long-load-return-0327680--card.bin.zlib",
+      "raw_bytes": 5228,
+      "raw_sha256": "87c2f0cf80c85a16ed56f1a4608b65b39c5963240ab0cdd0b30c1180db95b2c5"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/p3-long-load-return-0327680--latencies.bin.zlib",
+      "raw_bytes": 37500,
+      "raw_sha256": "1efa198c4b4942bd8255130a52052677c2b196d102c5e2815d08a99da9f28ad6"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/p3-long-load-return-0327680--result.bin.zlib",
+      "raw_bytes": 232,
+      "raw_sha256": "94cd16f068454545871d61ce41d7d33f3eece0389a90bbe596b52a94df52dc80"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/p3-long-load-return-0327680--result.json.zlib",
+      "raw_bytes": 1293,
+      "raw_sha256": "9bc5ae975e8fa7162dbfbbaf68ad2342f278b845489bb3ba0cc081fa987c0578"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/p3-long-load-return-0327680--trace.bin.zlib",
+      "raw_bytes": 5120,
+      "raw_sha256": "8aeee3bce4e478afae233753dec71a9c81d6395f57af2769cabf7cd5b2a94534"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/p3-long-load-return-0327680--witness.bin.zlib",
+      "raw_bytes": 1536,
+      "raw_sha256": "cd0aa7cba62523f764cbd874f9f4a14abc93af397e34da27e410fd33f047f00c"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/p3-long-load-return-0393216--body.gdb.zlib",
+      "raw_bytes": 1803,
+      "raw_sha256": "c8db3b03214a8b43f87c50d65268c9b91ffdb2eefff781bd6795f2324dbdd462"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/p3-long-load-return-0393216--card.bin.zlib",
+      "raw_bytes": 5228,
+      "raw_sha256": "54fc2e714b24f0c5f4e297d597afadc6371ef9e5ab2f31c687d3f04fde240994"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/p3-long-load-return-0393216--latencies.bin.zlib",
+      "raw_bytes": 37500,
+      "raw_sha256": "1efa198c4b4942bd8255130a52052677c2b196d102c5e2815d08a99da9f28ad6"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/p3-long-load-return-0393216--result.bin.zlib",
+      "raw_bytes": 232,
+      "raw_sha256": "5b114382acd2856c61ab23a1463540610db573c6c874de626b4f4889f64d3c6e"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/p3-long-load-return-0393216--result.json.zlib",
+      "raw_bytes": 1293,
+      "raw_sha256": "683b9e198b1ae755f75b20edfff4249d9e79e0fc272740f85036e8cc40c5bd59"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/p3-long-load-return-0393216--trace.bin.zlib",
+      "raw_bytes": 5120,
+      "raw_sha256": "34d9a0c7fb1beff30ffb40f3101377af9cbca026df3216fa75bb2672b5847d56"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/p3-long-load-return-0393216--witness.bin.zlib",
+      "raw_bytes": 1536,
+      "raw_sha256": "cd0aa7cba62523f764cbd874f9f4a14abc93af397e34da27e410fd33f047f00c"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/p3-long-load-return-0458752--body.gdb.zlib",
+      "raw_bytes": 1803,
+      "raw_sha256": "8574e4a1fbaf181c1644ba9c4df5f6fa07a31d9acfbb0f2ef1c3fee2530e6588"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/p3-long-load-return-0458752--card.bin.zlib",
+      "raw_bytes": 5228,
+      "raw_sha256": "a124809534b2364d043f694502747a6e047cc072bd07283f81a0eee2bc2e5d16"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/p3-long-load-return-0458752--latencies.bin.zlib",
+      "raw_bytes": 37500,
+      "raw_sha256": "1efa198c4b4942bd8255130a52052677c2b196d102c5e2815d08a99da9f28ad6"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/p3-long-load-return-0458752--result.bin.zlib",
+      "raw_bytes": 232,
+      "raw_sha256": "7ec8e72b2130dfaa0508368122cffa1e2e9fae87742f489830e6d7ee08bf96e7"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/p3-long-load-return-0458752--result.json.zlib",
+      "raw_bytes": 1293,
+      "raw_sha256": "01197886f922b582e0830088ff2ff10503d9bf5c4469a27f96be383a328046f7"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/p3-long-load-return-0458752--trace.bin.zlib",
+      "raw_bytes": 5120,
+      "raw_sha256": "671cb944805a314bdda5ce408570a15558c40f408f40e6699be946043feb14bf"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/p3-long-load-return-0458752--witness.bin.zlib",
+      "raw_bytes": 1536,
+      "raw_sha256": "cd0aa7cba62523f764cbd874f9f4a14abc93af397e34da27e410fd33f047f00c"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/p3-long-load-return-0524288--body.gdb.zlib",
+      "raw_bytes": 1803,
+      "raw_sha256": "3d3845e48ab98f6a0088265e8dadb4dc665b25880cbab36ab5072a419f63d933"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/p3-long-load-return-0524288--card.bin.zlib",
+      "raw_bytes": 5228,
+      "raw_sha256": "12313688c7d69eba4e7965a966971c10d0c85b5016683fd8e016e1da7e4da323"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/p3-long-load-return-0524288--latencies.bin.zlib",
+      "raw_bytes": 37500,
+      "raw_sha256": "1efa198c4b4942bd8255130a52052677c2b196d102c5e2815d08a99da9f28ad6"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/p3-long-load-return-0524288--result.bin.zlib",
+      "raw_bytes": 232,
+      "raw_sha256": "4e54e7ba796f8f45520f559be7b049d58b9a79a58ff39155df39cd16742cb2c9"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/p3-long-load-return-0524288--result.json.zlib",
+      "raw_bytes": 1293,
+      "raw_sha256": "75a4462dbcaf638b6032eac27c3a24fe6571ee3b84353f19489b71d7bb202cbe"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/p3-long-load-return-0524288--trace.bin.zlib",
+      "raw_bytes": 5120,
+      "raw_sha256": "e65eb703db5b5679f9df7d0f31ecb7e9285e8738884241c66e15ec8d2438e82c"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/p3-long-load-return-0524288--witness.bin.zlib",
+      "raw_bytes": 1536,
+      "raw_sha256": "cd0aa7cba62523f764cbd874f9f4a14abc93af397e34da27e410fd33f047f00c"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/p3-long-load-return-0589824--body.gdb.zlib",
+      "raw_bytes": 1803,
+      "raw_sha256": "d09920ad7b68891498d5d1f06aedf0c2e67a68249dfbe1a937a95cd6c12a1f6d"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/p3-long-load-return-0589824--card.bin.zlib",
+      "raw_bytes": 5228,
+      "raw_sha256": "5630ec8c399a86f8de1dc1de29a5a851ed88367ab0b63d96261baafe780c057f"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/p3-long-load-return-0589824--latencies.bin.zlib",
+      "raw_bytes": 37500,
+      "raw_sha256": "1efa198c4b4942bd8255130a52052677c2b196d102c5e2815d08a99da9f28ad6"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/p3-long-load-return-0589824--result.bin.zlib",
+      "raw_bytes": 232,
+      "raw_sha256": "bdf98002a6ab0479b86ee5490f77b14813fa04165b24f8ef5540a3e37102f01b"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/p3-long-load-return-0589824--result.json.zlib",
+      "raw_bytes": 1293,
+      "raw_sha256": "81674ae7470d958fc7d31373b3846a645ac5a800c806322dcf205db1818319bb"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/p3-long-load-return-0589824--trace.bin.zlib",
+      "raw_bytes": 5120,
+      "raw_sha256": "b8354f3fea7fcd7daea934d596b78f1395f5d76a1e477473f7915532f77ae542"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/p3-long-load-return-0589824--witness.bin.zlib",
+      "raw_bytes": 1536,
+      "raw_sha256": "cd0aa7cba62523f764cbd874f9f4a14abc93af397e34da27e410fd33f047f00c"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/p3-long-load-return-0655360--body.gdb.zlib",
+      "raw_bytes": 1803,
+      "raw_sha256": "4717a354c9f6d4ca445b71c208caa28c7aaedf5fd97143d46aff2fbb1ede495c"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/p3-long-load-return-0655360--card.bin.zlib",
+      "raw_bytes": 5228,
+      "raw_sha256": "2177bd1cec84aead61cf758d0af0fed4529e8cce36f3de7e286b60a16f951de1"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/p3-long-load-return-0655360--latencies.bin.zlib",
+      "raw_bytes": 37500,
+      "raw_sha256": "1efa198c4b4942bd8255130a52052677c2b196d102c5e2815d08a99da9f28ad6"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/p3-long-load-return-0655360--result.bin.zlib",
+      "raw_bytes": 232,
+      "raw_sha256": "df8f12d6451d2a760b1972062513bb79fdded6fcff5cd3ade8983ccb1ceec9a3"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/p3-long-load-return-0655360--result.json.zlib",
+      "raw_bytes": 1293,
+      "raw_sha256": "ed3c2b85b2e24a27d7df6279c2bf8acec1b051b306656be0b4af14d1892b915a"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/p3-long-load-return-0655360--trace.bin.zlib",
+      "raw_bytes": 5120,
+      "raw_sha256": "44ec815b1552d0a765fbc07b94e3ad035a9bb7eb4e1e74c14bdbecc43414b7a7"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/p3-long-load-return-0655360--witness.bin.zlib",
+      "raw_bytes": 1536,
+      "raw_sha256": "cd0aa7cba62523f764cbd874f9f4a14abc93af397e34da27e410fd33f047f00c"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/p3-long-load-return-0720896--body.gdb.zlib",
+      "raw_bytes": 1803,
+      "raw_sha256": "f9e0a2543ba70e93d82bf6a7260b3c38995ff2dcc78dc33931c44bab0f3d30d8"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/p3-long-load-return-0720896--card.bin.zlib",
+      "raw_bytes": 5228,
+      "raw_sha256": "128c6c05098381089dd14907797b715f162a903c524c27a9c1d9e71b15405b1c"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/p3-long-load-return-0720896--latencies.bin.zlib",
+      "raw_bytes": 37500,
+      "raw_sha256": "1efa198c4b4942bd8255130a52052677c2b196d102c5e2815d08a99da9f28ad6"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/p3-long-load-return-0720896--result.bin.zlib",
+      "raw_bytes": 232,
+      "raw_sha256": "a85ce8991b6b31f45553f41d52f0a7ce785285f017a4071703986554fdaa6ef2"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/p3-long-load-return-0720896--result.json.zlib",
+      "raw_bytes": 1293,
+      "raw_sha256": "68584c800466666c385d415a1603331f8d7044cdb823d25927b9fc8e5da3c812"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/p3-long-load-return-0720896--trace.bin.zlib",
+      "raw_bytes": 5120,
+      "raw_sha256": "130e7716f9d022a6a4ef3e44a22c8dbfe4a075b3fb1c09b75a3ee31878f8d836"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/p3-long-load-return-0720896--witness.bin.zlib",
+      "raw_bytes": 1536,
+      "raw_sha256": "cd0aa7cba62523f764cbd874f9f4a14abc93af397e34da27e410fd33f047f00c"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/p3-long-load-return-0786432--body.gdb.zlib",
+      "raw_bytes": 1803,
+      "raw_sha256": "d900abe3bb4641a8bb09026981c00da61ddb930f86d113b3386e7e8152da1678"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/p3-long-load-return-0786432--card.bin.zlib",
+      "raw_bytes": 5228,
+      "raw_sha256": "6a072500b3caca7e9dd339149706de567dd6d6c3e3028551e570294ee91eb3d6"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/p3-long-load-return-0786432--latencies.bin.zlib",
+      "raw_bytes": 37500,
+      "raw_sha256": "1efa198c4b4942bd8255130a52052677c2b196d102c5e2815d08a99da9f28ad6"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/p3-long-load-return-0786432--result.bin.zlib",
+      "raw_bytes": 232,
+      "raw_sha256": "8606028102c1d9d3c5aa2050cebd525dc7246a90b94e2e7ea630367b7cd569b6"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/p3-long-load-return-0786432--result.json.zlib",
+      "raw_bytes": 1293,
+      "raw_sha256": "83d7051a0ad056139b8bb31c228a48d8f430ad49e7a5028515798366c1cd07c1"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/p3-long-load-return-0786432--trace.bin.zlib",
+      "raw_bytes": 5120,
+      "raw_sha256": "64c0106e39ad0d6c79ec4741ca8153df167f20889342be4734b855ef138c35eb"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/p3-long-load-return-0786432--witness.bin.zlib",
+      "raw_bytes": 1536,
+      "raw_sha256": "cd0aa7cba62523f764cbd874f9f4a14abc93af397e34da27e410fd33f047f00c"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/p3-long-load-return-0851968--body.gdb.zlib",
+      "raw_bytes": 1803,
+      "raw_sha256": "0dccb3d31500a4cba618d1b7373016b367221a56b4a0088ca3c4f3929e647648"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/p3-long-load-return-0851968--card.bin.zlib",
+      "raw_bytes": 5228,
+      "raw_sha256": "0ca765d3df67536407aa0b19bd7a1a901cd7d324377d2ac3ffd0de9bb1062bc8"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/p3-long-load-return-0851968--latencies.bin.zlib",
+      "raw_bytes": 37500,
+      "raw_sha256": "1efa198c4b4942bd8255130a52052677c2b196d102c5e2815d08a99da9f28ad6"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/p3-long-load-return-0851968--result.bin.zlib",
+      "raw_bytes": 232,
+      "raw_sha256": "532fe292e4fd1336d5f30aab60b2ac311924a96e43152170cc225105ef507b86"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/p3-long-load-return-0851968--result.json.zlib",
+      "raw_bytes": 1293,
+      "raw_sha256": "1429e86c91956ce0fc41c794849eb1b2ede27a748e2d38753ff8a54b5d9dfc92"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/p3-long-load-return-0851968--trace.bin.zlib",
+      "raw_bytes": 5120,
+      "raw_sha256": "f257694a9201d1f95af0046617fd355c5d89db3e84504e4d8f95ca5f6efb5255"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/p3-long-load-return-0851968--witness.bin.zlib",
+      "raw_bytes": 1536,
+      "raw_sha256": "cd0aa7cba62523f764cbd874f9f4a14abc93af397e34da27e410fd33f047f00c"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/p3-long-load-return-0917504--body.gdb.zlib",
+      "raw_bytes": 1803,
+      "raw_sha256": "3b442038b370ec15ed9bcdc33d419f7d527aa1607b1497ede7c43cadeb8e969e"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/p3-long-load-return-0917504--card.bin.zlib",
+      "raw_bytes": 5228,
+      "raw_sha256": "9148c619da451bb43d052ee35d3845e71668c512b9336e30ebb37222e98eacd8"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/p3-long-load-return-0917504--latencies.bin.zlib",
+      "raw_bytes": 37500,
+      "raw_sha256": "1efa198c4b4942bd8255130a52052677c2b196d102c5e2815d08a99da9f28ad6"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/p3-long-load-return-0917504--result.bin.zlib",
+      "raw_bytes": 232,
+      "raw_sha256": "44978b01ed3c5fa3c3d6280ea5951be0622d8b728fa99f7c9bb819987f3d43eb"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/p3-long-load-return-0917504--result.json.zlib",
+      "raw_bytes": 1293,
+      "raw_sha256": "fff304b88a938487f204bf9d12f2bac6410639d905c7a63007cf422e738d4f9c"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/p3-long-load-return-0917504--trace.bin.zlib",
+      "raw_bytes": 5120,
+      "raw_sha256": "67be722064f7ae7a618a913bfb6f885b34a10511b7cd9b11d0b73b51406b9be7"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/p3-long-load-return-0917504--witness.bin.zlib",
+      "raw_bytes": 1536,
+      "raw_sha256": "cd0aa7cba62523f764cbd874f9f4a14abc93af397e34da27e410fd33f047f00c"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/p3-short-load-return-0000000--body.gdb.zlib",
+      "raw_bytes": 1804,
+      "raw_sha256": "de5da8dd39169660bee22bbb8bfb935205a1051e55e5f7a3896cf4d67139acde"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/p3-short-load-return-0000000--card.bin.zlib",
+      "raw_bytes": 5228,
+      "raw_sha256": "6b0463398780cba6a90fb93df570c7cdfd83b6bef9b746e06a4e7d4a755ae336"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/p3-short-load-return-0000000--latencies.bin.zlib",
+      "raw_bytes": 6260,
+      "raw_sha256": "fde11b8fbaa5a035b627df0d4d461aac6cf015f99b52c1e1d0addf3fea336f61"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/p3-short-load-return-0000000--result.bin.zlib",
+      "raw_bytes": 232,
+      "raw_sha256": "e37ffbba68f03c1a5060a2d89a26959ec8540e13436496eb1e752de43d3b178f"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/p3-short-load-return-0000000--result.json.zlib",
+      "raw_bytes": 1284,
+      "raw_sha256": "339ae4a0f9d11e5ffa1e8d43ace4c82d5a91b61027d19b0947708efa926b5dc2"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/p3-short-load-return-0000000--trace.bin.zlib",
+      "raw_bytes": 5120,
+      "raw_sha256": "389d4c0c202f97cd37e71430341e7a8b48848e8d72ae3d24070f96985fd206c6"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/p3-short-load-return-0000000--witness.bin.zlib",
+      "raw_bytes": 1536,
+      "raw_sha256": "cd0aa7cba62523f764cbd874f9f4a14abc93af397e34da27e410fd33f047f00c"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/p3-short-load-return-0065536--body.gdb.zlib",
+      "raw_bytes": 1808,
+      "raw_sha256": "1a649aff98329a18a81ecba0417a8a3e377e917e9369fbb2c2ed5e8061461b67"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/p3-short-load-return-0065536--card.bin.zlib",
+      "raw_bytes": 5228,
+      "raw_sha256": "c2cd6f3cc5ae788d844ec17bcfbbcdc466a6bcefb819123bf2d6be85592d9301"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/p3-short-load-return-0065536--latencies.bin.zlib",
+      "raw_bytes": 6260,
+      "raw_sha256": "fde11b8fbaa5a035b627df0d4d461aac6cf015f99b52c1e1d0addf3fea336f61"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/p3-short-load-return-0065536--result.bin.zlib",
+      "raw_bytes": 232,
+      "raw_sha256": "2db7f68ace4a638b9027674f5abef6a4d1a496667adf3f5aa73cd4a111ed538f"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/p3-short-load-return-0065536--result.json.zlib",
+      "raw_bytes": 1289,
+      "raw_sha256": "20810f56e71d3ba936fe4407754fcfb41fb76175c9f09777c78979b4bd9ba301"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/p3-short-load-return-0065536--trace.bin.zlib",
+      "raw_bytes": 5120,
+      "raw_sha256": "7aebf7c6c361856ef407c0bf5a4047f75b0fa5040a00e54644079d1e25d6508a"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/p3-short-load-return-0065536--witness.bin.zlib",
+      "raw_bytes": 1536,
+      "raw_sha256": "cd0aa7cba62523f764cbd874f9f4a14abc93af397e34da27e410fd33f047f00c"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/p3-short-load-return-0131072--body.gdb.zlib",
+      "raw_bytes": 1809,
+      "raw_sha256": "78e2f3a6bef33699737130fbcbc02a70413a54a1f6ebd292a07d7a075a372b39"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/p3-short-load-return-0131072--card.bin.zlib",
+      "raw_bytes": 5228,
+      "raw_sha256": "c6c28c5907e27e363ae34e5cfd3046c691ca22e9a41bc0ccd254a28ed02f4e75"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/p3-short-load-return-0131072--latencies.bin.zlib",
+      "raw_bytes": 6260,
+      "raw_sha256": "fde11b8fbaa5a035b627df0d4d461aac6cf015f99b52c1e1d0addf3fea336f61"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/p3-short-load-return-0131072--result.bin.zlib",
+      "raw_bytes": 232,
+      "raw_sha256": "0411802f8460bc4562d66466799733be5851009f2952e70f18b0dc73e39a6b52"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/p3-short-load-return-0131072--result.json.zlib",
+      "raw_bytes": 1290,
+      "raw_sha256": "67a8299323922bc8d4ac77e288b967e580464f1c02e1228f0b00b215ceea12f7"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/p3-short-load-return-0131072--trace.bin.zlib",
+      "raw_bytes": 5120,
+      "raw_sha256": "baa20f41bea842183040bbb82ad90316649da0f33c8cec8184832c4f1044651b"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R2-SPI2-MICROSD-ISOLATED/final/p3-short-load-return-0131072--witness.bin.zlib",
+      "raw_bytes": 1536,
+      "raw_sha256": "cd0aa7cba62523f764cbd874f9f4a14abc93af397e34da27e410fd33f047f00c"
+    }
+  ]
+}
