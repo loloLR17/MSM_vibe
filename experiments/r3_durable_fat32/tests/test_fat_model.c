@@ -117,16 +117,16 @@ static void framed_group_busy(uint32_t hold,unsigned holds,bool expect_overflow)
 static void group_cases(void)
 {
  static uint8_t data[4096],read[512];for(unsigned i=0;i<sizeof data;i++)data[i]=(uint8_t)(i*19+i/137);
- for(unsigned stop_state=1;stop_state<=10;stop_state++){
+ for(unsigned blocks=1;blocks<=8;blocks++)for(unsigned stop_state=1;stop_state<=10;stop_state++){
   start();assert(!sd_writer_r3_gate(&s));s.begin_lba=0;s.limit_lba=s.sectors;SdGroup w={0};inject_busy_us=150000;
-  assert(!sd_group_begin(&w,&s,61000,data,8));while(w.state!=stop_state){assert(!sd_group_step(&w));clock_us+=400;}
+  assert(!sd_group_begin(&w,&s,61000,data,blocks));while(w.state!=stop_state){assert(!sd_group_step(&w));clock_us+=400;}
   /* Stop source only; finish the already borrowed8sectors and explicit FD. */
   while(w.active){assert(!sd_group_step(&w));clock_us+=400;}
-  assert(w.done&&!w.uncertain&&!multi&&!selected&&s.writes==8&&w.block==8);
-  for(unsigned j=0;j<8;j++){assert(!sd_spi_read(&s,61000+j,read));assert(!memcmp(read,data+512*j,512));}
+  assert(w.done&&!w.uncertain&&!multi&&!selected&&s.writes==blocks&&w.block==blocks);
+  for(unsigned j=0;j<blocks;j++){assert(!sd_spi_read(&s,61000+j,read));assert(!memcmp(read,data+512*j,512));}
  }
  start();assert(!sd_writer_r3_gate(&s));s.begin_lba=0;s.limit_lba=s.sectors;SdGroup w={0};assert(!sd_group_begin(&w,&s,61000,data,8));while(w.state!=5)assert(!sd_group_step(&w));io_fail=true;assert(sd_group_step(&w)==SD_IO&&w.needs_power_cycle&&w.uncertain&&!w.active&&s.failed);assert(sd_group_begin(&w,&s,61000,data,8)==SD_REFUSED);
- puts("Cooperative ACMD23/CMD25/FC/FD/CMD13 all10STOPstates/8sectors exact +uncertaindataIO no retry PASS (MODEL)");
+ puts("Cooperative ACMD23/CMD25/FC/FD/CMD13 8sizes/all10STOPstates exact +uncertaindataIO no retry PASS (MODEL)");
 }
 int main(int argc,char **argv)
 {
