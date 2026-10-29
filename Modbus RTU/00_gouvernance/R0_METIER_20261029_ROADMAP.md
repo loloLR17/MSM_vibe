@@ -32,6 +32,10 @@ Après revue du pinout réel et des résultats SDMMC, la [fiche technique microS
 
 **Porte R2-MÉTIER à tester** : lecture seule isolée → écritures bornées sur microSD sacrifiable et comparaison → producteur 12 kB/s → coexistence SPI3+SPI2+SPI1+RTU → fichiers PC et 10 min / 1 h / 8 h. Ne pas répliquer les essais SDMMC historiques et ne pas écraser la mission Codex en statut `BLOCKED`.
 
+## Architecture du flux XYZ à qualifier — R0 (29/10/2026)
+
+La [note de conception chaîne de données XYZ / archive 2 kHz](R0_METIER_20261029_CHAINE_DONNEES_ARCHIVE_XYZ.md), publiée par ChatGPT sans développement ni nouvelle mission, précise le chemin **FIFO natif ~26,667 kHz → décodage et reconstruction de temps → filtre anti-repliement sans retrait du DC → ré-échantillonnage à cible 2 000 Hz → blocs XYZ int16 compacts + CRC/indices → fichier FAT32 candidat sur microSD SPI2 → contrôle et import PC**. La branche LIVE AC1 demeure indépendante, secondaire, non physiquement qualifiée. Le format de fichier v2 candidat, le ratio nominal 3/40, l'horloge effective, la réponse filtre, le dimensionnement SRAM, les durées d'attente SD et les états de durabilité restent **ouverts à la preuve**, pas gelés. Le point de retour Git demandé avant les expériences SPI2 reste le commit **`a3f5ac33a728a5afd028192654c17e5b04ee8d7b`**, à protéger par une référence Git explicite au moment convenu ; aucun tag de sauvegarde ni tag de qualification n'est créé par cette étude.
+
 ## Ordonnancement
 
 **Chemin critique : R0 → R1 et R2 (possibles en parallèle après cadrage) → R3 → R4/R5 → R6.** R3 est le **premier GO produit** : un enregistreur autonome d'une vraie campagne 8h. Un démonstrateur LIVE et des tests C/.NET verts n'en tiennent pas lieu. R4/R5 peuvent ensuite progresser en parallèle, sans surdévelopper l'UX.
