@@ -1,0 +1,25 @@
+Internal ctest changing into directory: /home/lolo/dev/msm/reports/TR2-r3-durable-fat32-10min/host
+UpdateCTestConfiguration  from :/home/lolo/dev/msm/reports/TR2-r3-durable-fat32-10min/host/DartConfiguration.tcl
+UpdateCTestConfiguration  from :/home/lolo/dev/msm/reports/TR2-r3-durable-fat32-10min/host/DartConfiguration.tcl
+Test project /home/lolo/dev/msm/reports/TR2-r3-durable-fat32-10min/host
+Constructing a list of tests
+Done constructing a list of tests
+Updating test list for fixtures
+Added 0 tests to meet fixture requirements
+Checking test dependency graph...
+Checking test dependency graph end
+test 2
+    Start 2: durable_python
+
+2: Test command: /usr/bin/python3 "/home/lolo/dev/msm/projects/MSM_vibe-R3-durable/experiments/r3_durable_fat32/tests/test_reader.py" "/home/lolo/dev/msm/reports/TR2-r3-durable-fat32-10min/host/fixture.TR2"
+2: Working Directory: /home/lolo/dev/msm/reports/TR2-r3-durable-fat32-10min/host
+2: Test timeout computed to be: 10000000
+2: {"independent_C_to_Python": true, "corruption_truncation_version_index_time_cases": 29, "exact_xyz": 78, "host_only": true}
+1/1 Test #2: durable_python ...................   Passed    0.04 sec
+
+The following tests passed:
+	durable_python
+
+100% tests passed, 0 tests failed out of 1
+
+Total Test time (real) =   0.05 sec

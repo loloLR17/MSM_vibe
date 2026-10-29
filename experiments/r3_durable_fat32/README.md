@@ -133,3 +133,9 @@ D3 requires actual PC mount/read `TR2INFO.TXT`, then physical2s/60s/600s capture
 full extraction from a removed card and upstream digest comparison, timing/memory/
 quiescence proofs. None is implied by host tests or successful flash. If a physical
 move is necessary, only the user performs it after confirmed stopped/idle status.
+
+The reader also exposes `samples(path)` and optional `--csv <new-PC-path>` for
+XYZ counts, nominal g, output/source indices, explicit interpolated timestamps,
+block endpoints and quality. CSV is created exclusively (no overwrite). Warmup is
+derived from known causal phase; block-level quality is not invented per sample.
+No CSV is written to the qualification card; retain the original binary.

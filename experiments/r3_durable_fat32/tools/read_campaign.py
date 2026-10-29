@@ -4,7 +4,7 @@ No raw disk I/O and no writes. Exit0 COMPLETE,2 INCOMPLETE,3 CORRUPT/unsupported
 Within-block times are linear interpolations of actual endpoints, not asserted
 exact per-sample event timestamps. UTC is unknown; original XYZ/DC is retained.
 """
-import argparse, hashlib, json, struct, zlib
+import argparse, csv, hashlib, json, struct, zlib
 from pathlib import Path
 class Invalid(ValueError): pass
 def require(ok, message):
@@ -55,10 +55,32 @@ def verify(path):
             require(not u32(footer,76) and not u32(footer,80) and not flags&6,'rail or clipping in completed capture')
             complete=True;stop_reason='controlled STOP and full producer digest matched'
         return dict(status='COMPLETE' if complete else 'INCOMPLETE',path=str(path),file_bytes=size,run=run,session=session,valid_records=seq,valid_xyz=count,payload_bytes=count*6,sha256=digest.hexdigest(),first_output_source_index=0 if count else None,last_output_source_index=(count-1)*10 if count else None,first_time_us=first,last_time_us=last,source_rate_num=num,source_rate_den=den,source_hz=num/den,output_hz=num/den/10,logical_fs_g=8,sensitivity_ug_per_count=244,dc_preserved=True,quality_or=flags,utc=None,firmware_sha=h[52:92].decode('ascii'),coefficient_sha256=h[92:124].hex(),cid=h[36:52].hex(),uid=[u32(h,24+i*4) for i in range(3)],time_method='Actual DEC8 block endpoints; within-block interpolation approximate, not UTC',stop_reason=stop_reason,durability='CRC-valid sequential matching-session prefix only; physical survival after power loss and maximum lost tail are NOT guaranteed')
+def samples(path):
+    """Yield verified-prefix XYZ with approximate block-interpolated event time.
+    Call verify first; quality is an aggregate per block except FIR warmup, whose
+    causal phase is known (output indices0..10). No UTC or physical calibration.
+    """
+    result=verify(path)
+    with path.open('rb') as stream:
+        stream.seek(512)
+        for _ in range(result['valid_records']):
+            b=stream.read(512);n,quality=struct.unpack_from('<HH',b,36);first,last=u64(b,16),u64(b,24);index=u32(b,32)
+            for j in range(n):
+                x,y,z=struct.unpack_from('<hhh',b,44+j*6);i=index+j
+                yield dict(output_index=i,source_index=10*i,time_us_interpolated=first+(last-first)*j//max(n-1,1),block_first_time_us=first,block_last_time_us=last,x_count=x,y_count=y,z_count=z,x_nominal_g=format(x*.000244,'.6f'),y_nominal_g=format(y*.000244,'.6f'),z_nominal_g=format(z*.000244,'.6f'),warmup=int(i<11),block_quality_flags=quality)
+def write_csv(path,destination):
+    rows=iter(samples(path));first=next(rows,None)
+    if first is None: raise Invalid('no valid samples to export')
+    # Exclusive creation preserves existing exports. The caller chooses a PC
+    # destination; qualification uses an external report directory, never F:.
+    with destination.open('x',newline='',encoding='utf-8') as output:
+        writer=csv.DictWriter(output,fieldnames=list(first));writer.writeheader();writer.writerow(first);writer.writerows(rows)
 def main():
-    ap=argparse.ArgumentParser(description=__doc__);ap.add_argument('file',type=Path);args=ap.parse_args()
+    ap=argparse.ArgumentParser(description=__doc__);ap.add_argument('file',type=Path);ap.add_argument('--csv',type=Path,help='new CSV on PC; times interpolated, g values nominal');args=ap.parse_args()
     try:
-        result=verify(args.file);print(json.dumps(result,indent=2));return 0 if result['status']=='COMPLETE' else 2
+        result=verify(args.file)
+        if args.csv: write_csv(args.file,args.csv)
+        print(json.dumps(result,indent=2));return 0 if result['status']=='COMPLETE' else 2
     except (Invalid,OSError,UnicodeError,struct.error) as e:
         print(json.dumps(dict(status='CORRUPT_OR_UNSUPPORTED',error=str(e)),indent=2));return 3
 if __name__=='__main__':raise SystemExit(main())

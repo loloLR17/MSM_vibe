@@ -1,4 +1,4 @@
-import hashlib, importlib.util, json, struct, sys, tempfile, zlib
+import csv, hashlib, importlib.util, json, struct, sys, tempfile, zlib
 from pathlib import Path
 spec=importlib.util.spec_from_file_location('reader',Path(__file__).parents[1]/'tools/read_campaign.py');m=importlib.util.module_from_spec(spec);spec.loader.exec_module(m)
 fixture=Path(sys.argv[1]);b=fixture.read_bytes();r=m.verify(fixture);assert r['status']=='COMPLETE' and r['valid_xyz']==78
@@ -29,4 +29,10 @@ with tempfile.TemporaryDirectory() as d:
  c=bytearray(b);c[-512:]=bytes(512);p.write_bytes(c);r=m.verify(p);assert r['status']=='INCOMPLETE' and r['valid_xyz']==78 and r['sha256']==hashlib.sha256(expected).hexdigest();count+=1
  # A torn data sector without commit is incomplete, not a fake success.
  c=bytearray(b);c[-512:]=bytes(512);c[512+100]^=1;p.write_bytes(c);r=m.verify(p);assert r['status']=='INCOMPLETE' and r['valid_xyz']==0 and 'tail' in r['stop_reason'];count+=1
+ # Clock/quality reconstruction and portable XYZ extraction from C fixture.
+ export=Path(d)/'export.csv';m.write_csv(fixture,export);rows=list(csv.DictReader(export.open()))
+ assert len(rows)==78 and int(rows[0]['time_us_interpolated'])==5000000 and int(rows[-1]['time_us_interpolated'])==5028875
+ assert [int(x['source_index']) for x in rows]==list(range(0,780,10))
+ assert [int(x['x_count']) for x in rows]==list(range(1000,1078)) and sum(int(x['warmup']) for x in rows)==11
+ assert rows[0]['x_nominal_g']=='0.244000' and rows[0]['y_count']=='-500';count+=1
 print(json.dumps(dict(independent_C_to_Python=True,corruption_truncation_version_index_time_cases=count,exact_xyz=78,host_only=True)))
