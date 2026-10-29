@@ -26,6 +26,12 @@ Après le recentrage fonctionnel, l'utilisateur demande explicitement de **réé
 
 **Nouvelle porte de décision avant le PCB définitif** : comparer (1) U575 + Ethernet SPI externe, (2) MCU avec Ethernet MAC intégré mais réserve SRAM qualifiée, (3) capteur IIS3DWB versus alternative basse fréquence, (4) maintien de la FRAM, et (5) PoE/coupures/ISO/CEM. Vérifier l'impact sur le filtrage 2 kHz et les buffers SD. **R1 de qualification sur le banc actuel peut se poursuivre avec interfaces portables** ; aucun choix de composant final ou suppression du RS-485 n'est implicite. La récupération microSD physique reste la fonction minimale V1 tant que le périmètre IP/PoE n'est pas arbitré.
 
+## Décision de banc proposée : microSD SPI2 dédiée (étude du 29/10/2026)
+
+Après revue du pinout réel et des résultats SDMMC, la [fiche technique microSD SPI2](R0_METIER_20261029_ETUDE_MICROSD_SPI2.md) recommande de **tester SPI2 réservé à la microSD** sur l'Adafruit 4682 déjà présent, tout en préservant **SPI1 FRAM**, **SPI3 IIS3DWB** et LPUART1 RS-485. Le brochage candidat réutilise PB14/D0 et PB4/D3-CS ; il exige un nouveau raccordement PB13/SCK et PD4/MOSI ainsi que la neutralisation des anciennes DAT1/DAT2. **Aucun câblage/flash/essai SPI réellement exécuté**, et aucun GO matériel ou stockage attribué. Les risques de priorité CPU pendant les écritures SD, de FIFO et de SRAM restent à qualifier.
+
+**Porte R2-MÉTIER à tester** : lecture seule isolée → écritures bornées sur microSD sacrifiable et comparaison → producteur 12 kB/s → coexistence SPI3+SPI2+SPI1+RTU → fichiers PC et 10 min / 1 h / 8 h. Ne pas répliquer les essais SDMMC historiques et ne pas écraser la mission Codex en statut `BLOCKED`.
+
 ## Ordonnancement
 
 **Chemin critique : R0 → R1 et R2 (possibles en parallèle après cadrage) → R3 → R4/R5 → R6.** R3 est le **premier GO produit** : un enregistreur autonome d'une vraie campagne 8h. Un démonstrateur LIVE et des tests C/.NET verts n'en tiennent pas lieu. R4/R5 peuvent ensuite progresser en parallèle, sans surdévelopper l'UX.
