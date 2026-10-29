@@ -7,6 +7,23 @@ namespace TR2.Supervision.Service.Tests;
 public sealed class LiveDirectTests
 {
     [Fact]
+    public async Task Ac1UsesExactExplicitReadonlyOptInAndRetainsAllOtherRangeGuards()
+    {
+        var factory=new Factory();
+        await using(var old=new LiveDirectTransport(factory,"test-only"))
+            await Assert.ThrowsAsync<InvalidDataException>(async()=>await old.ReadRegistersAsync("live-direct",1,8000,64));
+        Assert.Equal(0,factory.Opens);
+        await using(var enabled=new LiveDirectTransport(factory,"test-only",ac1Enabled:true))
+        {
+            var r=await enabled.ReadRegistersAsync("live-direct",1,8000,64);Assert.Equal(64,r.Length);
+            await Assert.ThrowsAsync<InvalidDataException>(async()=>await enabled.ReadRegistersAsync("live-direct",1,8000,65));
+            await Assert.ThrowsAsync<InvalidDataException>(async()=>await enabled.ReadRegistersAsync("other",1,8000,64));
+            await Assert.ThrowsAsync<InvalidDataException>(async()=>await enabled.ReadRegistersAsync("live-direct",1,8001,63));
+            Assert.Equal(0,factory.WriterAccesses);
+        }
+    }
+
+    [Fact]
     public async Task ConcurrentReadsOpenOneExclusiveConnectionAndNeverObtainWriter()
     {
         var factory = new Factory();

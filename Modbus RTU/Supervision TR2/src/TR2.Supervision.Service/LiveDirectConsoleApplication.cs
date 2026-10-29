@@ -46,7 +46,7 @@ public static class LiveDirectConsoleApplication
             await using var trace = new FileStream(args[8], FileMode.CreateNew, FileAccess.Write, FileShare.Read);
             using var writer = new StreamWriter(trace) { AutoFlush = true };
             await using var transport = new LiveDirectTransport(new NModbusSerialBusConnectionFactory(
-                row => writer.WriteLine(JsonSerializer.Serialize(row))), args[1]);
+                row => writer.WriteLine(JsonSerializer.Serialize(row))), args[1], ac1Enabled: args.Count == 16);
             var source = new LiveObservationService(transport,
                 new SqliteLiveObservationSink(new SqliteDatabase(new SqlitePersistenceOptions(args[4]))),
                 allowDiagnostic: true, source: $"Physical RS485 {args[1]} 115200 8E1 / NModbus; DIAGNOSTIC NON-PRODUCTION; actual B0/B4/B6/B3; no UTC/run/config inference", ac1Enabled: args.Count == 16);
@@ -85,7 +85,7 @@ public static class LiveDirectConsoleApplication
 
 // Sole owner within this composition. Reconnect happens between complete observation cycles.
 // Explicit logical disconnect closes the actual serial handle; no synthetic measurement is supplied.
-public sealed class LiveDirectTransport(IModbusBusConnectionFactory factory, string port) : IRegisterTransport, IAsyncDisposable
+public sealed class LiveDirectTransport(IModbusBusConnectionFactory factory, string port, bool ac1Enabled = false) : IRegisterTransport, IAsyncDisposable
 {
     private IModbusBusConnection? _connection;
     private readonly SemaphoreSlim _gate = new(1, 1);
@@ -113,7 +113,8 @@ public sealed class LiveDirectTransport(IModbusBusConnectionFactory factory, str
         {
             ObjectDisposedException.ThrowIf(_disposed, this);
             if (!_enabled) throw new IOException("Operator logical disconnect: serial handle closed; no target read.");
-            if (busId != "live-direct" || !((startAddress, registerCount) is (0, 21) or (3000, 48) or (4000, 2) or (6000, 1) or (7000, 1)))
+            var ac1Read = ac1Enabled && startAddress == 8000 && registerCount == 64;
+            if (busId != "live-direct" || !(((startAddress, registerCount) is (0, 21) or (3000, 48) or (4000, 2) or (6000, 1) or (7000, 1)) || ac1Read))
                 throw new InvalidDataException("Outside bounded readonly LIVE registers.");
             try
             {
