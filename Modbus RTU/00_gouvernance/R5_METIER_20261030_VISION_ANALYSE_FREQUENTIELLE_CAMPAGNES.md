@@ -1,8 +1,18 @@
-# MSM TR2 — R5-MÉTIER — Vision d'analyse fréquentielle et campagnes de référence
+# MSM TR2 — R5-MÉTIER — Niveaux vibratoires, confort, analyse fréquentielle et campagnes de référence
 
 **Date :** 30/10/2026. **Statut :** cadrage fonctionnel de ChatGPT issu des échanges utilisateur, non spécification normative gelée, non ordre d'exécution.  
-**Référence :** `loloLR17/MSM_vibe/main`, gouvernance `AGENTS.md` / `GOUVERNANCE_CHATGPT_CODEX.md`, roadmap R0-MÉTIER (R4–R6), cahier des charges métier V1-01 à V1-11 et D1–D4.  
+**Référence :** `loloLR17/MSM_vibe/main`, gouvernance `AGENTS.md` / `GOUVERNANCE_CHATGPT_CODEX.md`, roadmap R0-MÉTIER (R4–R6), cahier des charges métier V1-01 à V1-12 et D1–D4.  
 **Périmètre :** analyse PC, exports et campagnes d'observation à bord ; aucune modification du firmware, du matériel, des contrats Modbus historiques, ni de `MISSION_EN_COURS.md`.
+
+## 0. Hiérarchie fonctionnelle impérative — clarification du 30/10/2026
+
+**Priorité 1 : combien ça vibre, où et pendant combien de temps ?** L'objectif premier de TR2 est de **mesurer et comparer l'intensité vibratoire** pour objectiver les désagréments potentiels aux passagers et à l'équipage. Produire des séries RMS X/Y/Z/global, crêtes, enveloppes, temps de persistance, répartition des niveaux et comparaison entre locaux, manœuvres et régimes, avec bandes/algorithmes/unités/qualité explicites. L'analyse temporelle et son exploitation précèdent les visualisations sophistiquées.
+
+**Priorité 2 : pourquoi cela vibre-t-il ?** FFT/PSD, spectrogrammes, fréquences caractéristiques, intensité et suivi des raies, familles harmoniques et corrélations machines sont des diagnostics complémentaires **attendus et conservés dans le périmètre**, jamais un remplacement des indicateurs d'intensité.
+
+**Séparation des grandeurs obligatoire** : le **RMS technique 2–25 Hz (mg, non pondéré pour le confort)** mesure une intensité dans une bande et ne permet **pas à lui seul** de noter le confort humain. Étudier ensuite un **RMS accélération pondéré pour le confort** adapté au lieu, aux axes et aux personnes exposées, en conservant les deux mesures distinctes et une dénomination non équivoque. Les seuils, classes et notes de gêne ne sont **pas gelés** : pas de conformité, d'alarme confort ou de diagnostic sanitaire automatique avant qualification de la chaîne, des filtres, du montage et du protocole.
+
+**Références à étudier, sans revendication de conformité** : [ISO 20283-5:2016](https://www.iso.org/standard/68125.html) remplace ISO 6954:2000 et traite l'habitabilité des navires avec RMS pondéré 1–80 Hz, mais annonce un champ d'application pour les voyages prévus de **24 h ou plus**, pas une applicabilité directe automatiquement acquise pour les traversées courtes du MSM. [ISO 2631-1:1997 amendée](https://www.iso.org/standard/7612.html) traite les vibrations du corps entier et le confort selon les surfaces de contact. Le texte complet en vigueur, les pondérations et les conditions d'essai devront être étudiés avant toute revendication normative. Un capteur fixé dans un local ou à une structure ne reproduit pas nécessairement l'exposition sur le siège, le plancher ou une surface de contact humain.
 
 ## 1. Décisions métier exprimées par l'utilisateur
 
@@ -18,6 +28,7 @@
 ### Tableau de bord principal
 
 - Bandeau : campagne, capteur/UID, point de mesure, orientation, statut d'intégrité, couverture valide, durée **effective** et statut temporel UTC.
+- **Vue de tête et KPI métier en premier** : intensité RMS X/Y/Z/global 2–25 Hz sur 1/10/60 s ou fenêtres qualifiées, crêtes distinctes, durée/persistance des niveaux élevés, quantiles, comparaison au même point et couverture valide. Ajouter **ultérieurement** un indice de confort humain pondéré et explicitement distinct, seulement après étude normative et qualification du site de mesure.
 - Chronologie synchronisée : **RMS 2–25 Hz** et, si qualifiée, 2–700 Hz ; composantes XYZ/global, **crêtes et enveloppes**, annotations d'événements, tracé explicite des lacunes et anomalies de qualité.
 - **Spectrogramme principal** : abscisse = durée écoulée ou UTC qualifiée, ordonnée = fréquence (zoom 2–25 Hz / vue 2–700 Hz), couleur = densité spectrale/intensité avec unités et référence documentées. Une raie horizontale indique une fréquence stable ; une diagonale indique une évolution ; l'amplitude change dans la couleur.
 - **Suivi des raies** : courbes `f_i(t)` pour plusieurs raies candidates, et **courbes distinctes d'intensité** `A_i(t)` / puissance, persistance et interruptions. Ne pas raccorder arbitrairement deux pics dominants successifs : plusieurs sources peuvent coexister et échanger leur rang.
@@ -63,4 +74,4 @@ Les données de la première campagne de terrain demeurent **observatoires**, no
 - **R5-E** — Exploitation locale, annotations, rapprochements de campagnes, format d'export publiable, métadonnées UTC.
 - **R5-F (évolution)** — Grafana local ; BigQuery/Grafana MSM plus tard, sans requalifier ou recalculer autrement le signal.
 
-**Gates :** reproductibilité sur fichiers originaux, interprétation scientifique honnête, gestion de défauts, performances sur archive longue, absence de régression de l'existant. La présente note est **fonctionnelle** et ne constitue **ni code implémenté, ni mesure à bord qualifiée, ni mission Codex**.
+**Gates :** d'abord fidélité et reproductibilité des mesures d'intensité RMS/crêtes, conventions XYZ/global, qualité et comparabilité ; contrôle séparé du calcul pondéré confort et de son protocole d'implantation **avant tout jugement de gêne** ; ensuite FFT/PSD/spectrogrammes sans régression ; gestion de défauts, performance sur archive longue et absence de régression de l'existant. La présente note est **fonctionnelle** et ne constitue **ni code implémenté, ni mesure à bord qualifiée, ni mission Codex**.
