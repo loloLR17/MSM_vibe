@@ -34,7 +34,8 @@ Bracket is24bytes instead of12 (AAPCS padding). Poll/group/busy histograms
 have exact full counts/sum/max, bounded raw first/last traces; no hour trace
 array expansion. Native samples~96M, outputs~9.6M, sector~123k, groups~15.4k,
 polls<15M, SysTick3.6M, all under u32; cycle sums5.76e11 fitu64.
-The sensor raw32 DEC8 counter period~29.8h, longer than this run. Its mapper
+The sensor raw32 counter period from this new calibration is~15.04h
+(1885853us/149565ticks, not an assumed25us/tick), longer than this run. Its mapper
 already extends modular deltas. DWT cycles wrap every26.8435456s; r3_now
 accumulates modular32-bit deltas into64bits. It is sampled each poll/idle
 1ms SysTick wake; no debugger halt during capture/calibration/allocation.

@@ -1,0 +1,51 @@
+[
+  {
+    "source": "clock-audit.json",
+    "file": "000-clock-audit.json.zlib",
+    "bytes": 361,
+    "sha256": "05d74dbae97d675589c653be29c9bf2fec0671191c9381844a2da460e28b0018",
+    "stored_sha256": "bfc1543db3f10074ed12b76e486b2aa06109ad134da49a67a94c3f84cf684f09"
+  },
+  {
+    "source": "reader-backward-compatibility.json",
+    "file": "001-reader-backward-compatibility.json.zlib",
+    "bytes": 1141,
+    "sha256": "7415a222eda93f3e69f80e5eaf97c3759efe9a320249dd1a72d53892e5220ce1",
+    "stored_sha256": "a87b6830ef11e6a1ad91c56e008ebef7d4119e55a1939f5114d3bdfdbfe4c1d3"
+  },
+  {
+    "source": "baseline-unchanged.json",
+    "file": "002-baseline-unchanged.json.zlib",
+    "bytes": 1802,
+    "sha256": "d54ce1e9d20a2e678a35121642fb8d5782444259bd9a0b3406f9edf1b5efe8af",
+    "stored_sha256": "7a88bab5ce8b3f892fcfe50931fc9923e18429b4536e7a91f591e26e107a41f7"
+  },
+  {
+    "source": "git-preservation.json",
+    "file": "003-git-preservation.json.zlib",
+    "bytes": 12931,
+    "sha256": "664ca7cc6b6727d22ff01931970558488eb63a194ac64dc8586f537b84a161bc",
+    "stored_sha256": "5a92ec22f17c5e5d8b5795f4c354aa08f301a281b5aec10b1f0791062139ce4e"
+  },
+  {
+    "source": "extract_hour_pc.py",
+    "file": "004-extract_hour_pc.py.zlib",
+    "bytes": 4940,
+    "sha256": "cb4e8a5d435d8d455f6920a83b7e973020262259ba014cb151508d19e991cf48",
+    "stored_sha256": "f9d34a0daad1cd92a1552a5cc80337cee70727142c105a270043311290434b17"
+  },
+  {
+    "source": "final_metrics.py",
+    "file": "005-final_metrics.py.zlib",
+    "bytes": 2522,
+    "sha256": "3df4fa8bc01d8655b27fdfa141c4b390b3b159815280fb06f936d152aae50e77",
+    "stored_sha256": "d78a334a72a12ed55a65a8d25955124bd5aa8a3b34b1174135f6aa7399d4aab0"
+  },
+  {
+    "source": "remote-gate.json",
+    "file": "006-remote-gate.json.zlib",
+    "bytes": 30008,
+    "sha256": "d690e4e7672ddfb2de1cd8113f4c6ddaec4dda5681d26a5db533526940b1c865",
+    "stored_sha256": "a7c25a798b408a1398c046d7da8b5472cf7553d0a960a429d13122372c90f076"
+  }
+]
