@@ -1,6 +1,6 @@
 ---
 mission_id: TR2-20261030-R3-8H-FAT32-AUTONOME
-status: IN_PROGRESS
+status: BLOCKED
 base_ref: main
 base_sha: 7dcceb510862be2d6a25c2c9fa82d2a2e8741f70
 initial_head: 395f9ccd5c31edeea6761455cf92ba340f984578
@@ -39,3 +39,9 @@ Outil distinct `inspect_quality_failure.py` : accepteseulementlecasréellementre
 LecturecopiePCexclusivepréparée : `/home/lolo/dev/msm/reports/TR2-r3-8h-autonomous/copy_and_inspect_e8.py`, àexécuteraprèsconfirmationuser. ElleconserveSHAoriginal=copie, E8N3strictCOMPLETE etE8N5forensiquerejeté, comparaisonauSHAproducteurRAM,10anciensfichiers+Infoinchangés ; aucunécrituresurcarte. Enattentedutransfertphysiquedemandé, aucunscan/copiePCde8h encoreexécuté. Lesanalysesterminalesetlogicielssontpubliéespourpréserverlesacquis, missionreprenablesousmêmeID.
 
 PourlasuiteaprèslecturePC : déterminerrecord/indice/axe/tempsrelatifduclip ; sansbrutscompletsaucunecauseélectrique/mouvement/mesuremétrologiqueuniqueàaffirmer. DécisionChatGPTrequiseavantnouvellecampagnelongue ouchangementdepolitiquequalitéCOMPLETE. Aucune relance automatique etaucun déplacementduterrainR5 avantclôtureR3/protectiondesacquis.
+
+## Point de reprise — transfert physique indispensable
+
+**BLOCKED sur le gestephysique, pas sur une limite dequota.** La demande de coupureSTLINK002/transfertmicroSDverslecteurnatifT1000 reste sansconfirmation àcepoint. Dernierétatobservé : FIFOstoppé/filevide/SDquiescente/CShaute, GDBdétaché, digestproducteurRAMetdiagnostics déjàsauvegardés. Aucunelecture/copiePCdunouveau8h n'estdonc annoncée ; nepasinventerl'emplacementactueldelacarte niunSHAfichierentier. L'anomaliequalitéclip1 resteégalementuncritère nonconformeàélucider ; pasDONE8h.
+
+**Acquispubliés etrelus** : checkpointterminaled7f89ec, correctiflogiciel/outils **bc0f02f0** surmain ;231fichiers/169artefactsdécompressésethachésaucontrôledistant (reçulocal remote-quality-software.json). Lecorrectif n'a **pas** étéflashé, l'imagephysique reste1d3a5763 ; aucunreset/nouveauRUN/émissionModbus. RepriseautoriséesouslemêmeID dèsconfirmationutilisateur : `python3 /home/lolo/dev/msm/reports/TR2-r3-8h-autonomous/copy_and_inspect_e8.py` ; inspecterlecteurréel, conservercopiesexclusives et10historiques, refuserqualité, localiserrecordclippé, publierpreuves/limites. Aucunecommandedecaptureautomatique.
