@@ -1,6 +1,6 @@
 ---
 mission_id: TR2-20261030-R3-8H-FAT32-AUTONOME
-status: IN_PROGRESS
+status: BLOCKED
 base_ref: main
 base_sha: 7dcceb510862be2d6a25c2c9fa82d2a2e8741f70
 initial_head: 395f9ccd5c31edeea6761455cf92ba340f984578
@@ -16,7 +16,7 @@ allow_debug: true
 
 # R3-8H — durée acquise et stockage intègre, qualification refusée pour saturation
 
-**IN_PROGRESS — P0 extraction PC réalisée ; premier essai non qualifié pour clipping, reprise selon l’addendum ChatGPT 6bc4f24b.** Une seule campagne longue a été exécutée. La borne intérieure indépendante atteint **28 801,0888096 s QPC**, mais une sortie FIR porte OUTPUT_CLIP dans cet intervalle. Le fichier annonce COMPLETE ; le lecteur strict le refuse correctement. Aucun contrôle n'a été affaibli, aucun second essai lancé. Ce résultat ne clôture pas R3 en succès et n'autorise aucun GO produit.
+**BLOCKED — P0 réalisé et publié/relu ; décision structurante P1-6 nécessaire avant modification de représentation/format ou politique qualité.** Une seule campagne longue a été exécutée. La borne intérieure indépendante atteint **28 801,0888096 s QPC**, mais une sortie FIR porte OUTPUT_CLIP dans cet intervalle. Le fichier annonce COMPLETE ; le lecteur strict le refuse correctement. Aucun contrôle n'a été affaibli, aucun second essai lancé. Ce résultat ne clôture pas R3 en succès et n'autorise aucun GO produit.
 
 ## Périmètre, reprise et image réellement exécutée
 
@@ -100,7 +100,7 @@ Les logs effectifs sont dans `software/`, `gate/`, `quality-software/`, `termina
 
 ## Livraison et suite à décider par ChatGPT
 
-Preuves et checkpoints antérieurs préservés ; **ETAT_COURANT_TR2.md actualisé** avec fin réelle, transfert PC confirmé, intégrité complète et saturation localisée. Addendum ChatGPT reçu sur main à6bc4f24b/7f867faa : P0 avant nouvelle acquisition, puis P1 correction justifiée et P2 unique second8H conditionnel sous le même identifiant. Pas de clôture ni d’archive finale prématurée. Le premier essai reste REJECTED_QUALITY ; la mission active reste IN_PROGRESS à ce checkpoint. Publication et relecture complète des nouveaux extents en cours. SHA final et état Git fournis dans la réponse de clôture, sans auto-référence de commit.
+Preuves et checkpoints antérieurs préservés ; **ETAT_COURANT_TR2.md actualisé** avec fin réelle, transfert PC confirmé, intégrité complète et saturation localisée. Addendum ChatGPT reçu sur main à6bc4f24b/7f867faa : P0 avant nouvelle acquisition, puis P1 correction justifiée et P2 unique second8H conditionnel sous le même identifiant. Pas de clôture ni d’archive finale prématurée. Le premier essai reste REJECTED_QUALITY ; la mission active poursuit le même ID mais est BLOCKED sur le choix structurant P1. Les nouveaux extents ont été publiés et relus intégralement au commit1991132b. SHA final et état Git fournis dans la réponse de clôture, sans auto-référence de commit.
 
 **État matériel final rapporté par l'utilisateur :** microSD dans le lecteur PC, TR2-002 hors tension ; dernière observation avant coupure FIFO arrêté, writer inactif, queue vide, SD quiescente, CS haute, GDB détaché. Pas de nouvelle transmission/capture, pas de reset/flash à la reprise ; TR2-001 et données persistantes de production préservés.
 
@@ -119,3 +119,15 @@ Lecture du code réel : accumulateurFIR **int32 déjà suffisant** (borneL1 1555
 Les valeurs réelles du record sont identiques aux octets hachés **avant framing/file/writerSD** ; la concordance SHA amont et compteurRAM rend l’hypothèse d’une altération introduite par le stockage incompatible avec ces observations. La cause d’entrée/mouvement/SPI reste indéterminée. LesX/Y à−32768 correspondent à−7,995392g nominaux à244µg/compte, Z30863 à+7,530572g nominaux ; ces nombres sont des conversions d’une représentation saturée, **pas des amplitudes physiques étalonnées ni des valeurs de crête récupérables**.
 
 Conséquence : conserver simultanément FIR107/gain1/précision244µg et toute entréeint16 ne permet pas de garantir une sortieint16 sans saturation (L1>1). Réduire le gain, modifier les coefficients/bande ou passer le capteur à±16g serait un changement métrologique interdit implicitement. Une sortie plus large pourrait préserver le résultat FIR horsint16, mais exige un nouveau format expérimental et une décision explicite sur le signalement du dépassement ; elle ne réparerait ni le premier fichier déjà clippé ni une éventuelle entrée capteur erronée. Aucune évolution de format/sensibilité/qualité/API implémentée sans cette revue structurante. Pas de second8H lancé avant les portesP1/P2.
+
+## Publication P0 vérifiée et décision de reprise
+
+**Main1991132b9504a8ab064f306f6a125f630776b3f4**, push normal7f867faa→1991132b réussi, puis fetch/relecture complète : **293 fichiers /224 artefacts** comparés/décompressés/hachés, vendor pristine. Deux reconstructions depuis les objets de la référence GitHub : courtCOMPLETE, longREJECTED_QUALITY ; tousCRC/index/temps/comptes/SHAutile contre les digestsRAM exacts. Reçus dans `P1-decision/BUNDLE.json`. Les reconstructions à queue nulle ne sont pas les originaux PC ; leurs queues inutilisées ne sont pas prétendument connues.
+
+Pour éviter un second transfert de295Mo, seul le processus de push appartenant à cette session a été arrêté ; origin/main était encore7f8. Les objets214 déjà conservés par GitHub ont été réutilisés via l’API Git : petits blobs/arbre/commit uniquement, **aucune mise à jour de référence par API**. Arbre serveur **b757ff1607294f07b7c77959c941d275094e594d**, strictement identique à l’arbre local415c0585 contrôlé ; parent unique7f8. Commit1991 récupéré dans un nouveau worktreeP0pub, puis **push Git normal avec négociation**,0objet retransmis. OriginalE4/214 et P0/4f701c66+415c0585 conservés, pas de merge/rebase/reset/force. Mécanismes documentés par [GitHub Git trees](https://docs.github.com/en/rest/git/trees) et [Git commits](https://docs.github.com/en/rest/git/commits) ; reçus/commandes exacts archivés. Aucun mécanisme de sécurité Windows modifié.
+
+Le premier contrôle distant lancé avant confirmation du push a été refusé par gardeHEAD≠origin/main, sans preuve acceptée ; logs d’échec préservés. Les contrôles réussis ci-dessus ont été exécutés **après** le push1991. Validation documentaire/forensique proportionnée, aucun test acquis ni build rejoué sur source inchangée.
+
+**Choix concret à soumettre à ChatGPT/utilisateur :** voir `P1-decision/CHOIX_REPRESENTATION.md` : garder v3/rejet et définir une instrumentation causale, ou autoriser explicitement une représentation expérimentale élargie (par exempleint32, gain/FIR/sensibilité244µg et capteur±8g inchangés), avec définition versionnée du signalement des dépassements. Cela change format et politique de qualité expérimentale : l’addendumP1-6 interdit l’intégration implicite. Pas de correction du FIR ni second8H lancés faute de cette décision ; le manque de bruts empêche une cause physique certaine. Le gardebc0f demeure compilé/nonflashé.
+
+Journal actualisé : P0 pleinement acquis, copies historiques et publication vérifiées, blocage déplacé du geste physique au choix structurant. Mission **non clôturée** : aucune archive finale sous cetID tant que la reprise conditionnelle n’est pas tranchée. Le firmware1d reste surTR2-002 éteint, cartePC ; TR2-001/FRAM/COM4 intacts. SHA final de ce checkpoint et étatGit après son push/relecture seront fournis dans la réponse utilisateur.
