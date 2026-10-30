@@ -8,8 +8,9 @@ typedef struct {uint32_t stage,error,uid[3],core_nominal,sequence,uart_errors;ui
 volatile Probe time_probe;
 static uint32_t previous;static uint64_t accumulated;
 static uint64_t sample(void){uint32_t c=DWT->CYCCNT;accumulated=durable_elapsed_cycles(accumulated,c,previous);previous=c;return accumulated;}
+void HAL_MspInit(void){__HAL_RCC_PWR_CLK_ENABLE();}
 void SysTick_Handler(void){HAL_IncTick();}
-void Error_Handler(void){time_probe.stage=99;for(;;)__WFI();}
+void Error_Handler(void){if(!time_probe.error)time_probe.error=13;time_probe.stage=99;for(;;)__WFI();}
 static void fail(uint32_t e){time_probe.error=e;Error_Handler();}
 static void uart_init(void)
 {
@@ -37,7 +38,9 @@ int main(void)
  time_probe.uid[0]=HAL_GetUIDw0();time_probe.uid[1]=HAL_GetUIDw1();time_probe.uid[2]=HAL_GetUIDw2();
  if(time_probe.uid[0]!=0x001b0046||time_probe.uid[1]!=0x38425018||time_probe.uid[2]!=0x20333157)fail(1);
  if(HAL_Init()!=HAL_OK)fail(2);
- HAL_PWREx_DisableUCPDDeadBattery();SystemClock_Config();
+ HAL_PWREx_DisableUCPDDeadBattery();
+ if(HAL_PWREx_ConfigSupply(PWR_SMPS_SUPPLY)!=HAL_OK)fail(12);
+ SystemClock_Config();
  time_probe.core_nominal=HAL_RCC_GetHCLKFreq();if(time_probe.core_nominal!=160000000u)fail(7);
  CoreDebug->DEMCR|=CoreDebug_DEMCR_TRCENA_Msk;if(DWT->CTRL&DWT_CTRL_NOCYCCNT_Msk)fail(8);DWT->CYCCNT=0;DWT->CTRL|=DWT_CTRL_CYCCNTENA_Msk;previous=DWT->CYCCNT;
  uart_init();time_probe.stage=2;
