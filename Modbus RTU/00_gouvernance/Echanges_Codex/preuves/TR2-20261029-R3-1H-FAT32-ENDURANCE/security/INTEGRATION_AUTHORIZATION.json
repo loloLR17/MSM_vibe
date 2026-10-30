@@ -1,0 +1,9 @@
+{
+  "utc": "2026-10-30T11:28:38.507285+00:00",
+  "user_explicit_answer": "Oui, int\u00e9gration isol\u00e9e et publication",
+  "preserved_commit": "bf1ce5c21a6972e1d9fb39672ede421ad4a4f6a0",
+  "isolated_base": "e7810f71a34de1be536636caa7e41f200eee55d7",
+  "method": "Apply exact scoped patch in new worktree; no merge/rebase/reset/force push",
+  "security_protection_changes": false,
+  "blocked_command_rerun": false
+}

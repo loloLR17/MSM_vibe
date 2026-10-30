@@ -4,7 +4,7 @@ status: IN_PROGRESS
 base_ref: main
 base_sha: c9d7333e5ea1747bd5744daabd0c87a247608b09
 initial_head: d6bd8e45ba43a5736d6f7642ad1113cf49042d6d
-result_sha: f76c3431c169d9580d23ec57b12dac3ffcf046e6
+result_sha: 24aaf06a4f975e54b8a6199d6c625fab612cf005
 created_at_utc: 2026-10-30T10:52:35.826923+00:00
 author: Codex
 target_branch: main
@@ -59,3 +59,37 @@ Prochaine action autonome : publier cecheckpoint, charger candidat auWAIT après
 Références primaires consultées : [MicrosoftQPC](https://learn.microsoft.com/en-us/windows/win32/sysinfo/acquiring-high-resolution-time-stamps), [STUM2861Rev10](https://www.st.com/resource/en/user_manual/dm00789949.pdf). Méthode/commandes dans `experiments/r3_time_reference/README.md` ; aucune précisionSI/UTC/ppm certifiée revendiquée.
 
 ÉtatGit : nouveauworktreeMSM_vibe-R3-1h-time basé39287c8c ; dépôt historique82169af, worktrees E4/préparations etdeuxstashes préservés. Commitd379e701 déjàpoussé ; correctiff76/candidat24 àpublier normalement aveccecheckpoint. Contrat inchangé/propriétéChatGPT respectée, pasforcepush/merge/rebase. Relecture distante aprèspublication ; statutIN_PROGRESS logiciel/qualificationpartielle, pasA01autoproclamée.
+
+## Avancement suivant — nouveau gate QPC2 physique PASS, avant répétition longue
+
+Checkpoint c565c4cd03720717ab83000fd5887a071fe23c63 récupéré/119fichiers relus/77artefacts décompressés-hachés à10:53:28UTC. Candidat24aaf06a désormais réellement flashé (troisièmeflash standard de cette reprise temporelle), UID/probeprécédentf76etreadback exact55324B SHA6cb4c7…93f7d8 ; bootWAIT/SDnoninitialisée/detach, QPC2surCOM5répondsequence1/flags0/session0/accepted0. PasSTARTautomatique.
+
+HuitanciensfichiersRUN/R2N/H1N+Info re-hachés conformes avantnouveauwrite, Q1N3/5absents. User confirme ensuite réinsertionSD/TR2-002STLINK/CN15débranché. Nouvelleidentité/WHO7B/CID/CSD/OCR/capacité etFAT32existante conformes ; calibration193brackets/6577ancres/résidu38µs, aucunformat. Ce contrôle est nécessaire après changement de firmware et cycle physique, pas un rejeu de l'ancien essai acquis.
+
+**Q1N0003.TR2 nouveau gate** : triggerRAM parGDB puisdetach immédiat ; aucune sessionGDB pendantcapture. DeuxsnapshotsactifsQPC2, mêmeUID/session/sourcecroissante, intervalleintérieur **1,0547623sQPC** (minimum1s), puis terminalUARTflags772=run3/COMPLETE, SDquiet avantGDB. Capture **2,000336sMCUnominales**,52600XYZ/5260sorties/31560B, aucunFIFO/SD/queue/temps/clip/rail/UARTfaute. FIFO47/file5120B, maxwork682,331/service1341,569/gap1597/SDquantum429,981µs sousgardesinchangées.103sortiespréfixe indépendantes exactes. Métadonnées/dumps etwitnessbruts dans qpc-gate/BUNDLE.json. IntégritéPC finale de ce nouveau gate encoreàfaire ; relectureFatFs+SHA avantlong parfirmware.
+
+**Heurelongue pasencorelancée àcepoint.** Méthode désormaistestée surcourt, cohérente avecleplanjustifié : Q1N0005 gardeautonome4000sMCU, deuxsnapshotsactifs séparés≥3601sQPC (marge1s), terminal etfichierPCconforme ensuite. Les4000s ne sontpas présentéescomme3600sSI ; onmesurera un intervalleindépendantcontenu danscapture. ContrôleurWindows neSTART/STOPpas leMCU ; son journalQPC incrémental surPC préserve chaquerelevé avantl'attente longue. Si défaillance témoin, nepas conclureSTOPMCU et nepasflasher/reset/retirercarte avantterminal réel. Pas8h.
+
+État actuel : recorder24aaf06a/run3/stage4/error0, FIFOstoppé/SDquiescente/CShaute/GDBdétaché ; microSDdansbanc selonconfirmationutilisateur. Donnéesantérieures/backups/worktrees/stashes inchangés. RapportIN_PROGRESS ; prochaineactionautonomeessailongjustifié aprèspublicationdecespreuves. Aucunevalidationintermédiairesoftrequise.
+
+## Évolution distante, incident Defender et intégration isolée —30/10/2026
+
+**L'essai long QPC2 n'a pas été lancé.** Lors de la publication du gate, main avait avancé de c565c4cd àe7810f71 avec trois ajouts sur `ALERTE_DEFENDER_QPC_T1000_20261030.md`. Le push de bf1ce5c2 a été refusé non-fast-forward. Commit bf1ce5c21a6972e1d9fb39672ede421ad4a4f6a0 et worktreeR3-1h-time conservés. AGENTS§7 appliqué : escalade, puis utilisateur **«Oui, intégration isolée et publication»**. Nouveau worktreeR3-1h-security basé e7810f71 ; réapplication exacte de la seule tranche gate, aucun merge/rebase/reset/force. La note ChatGPT est préservée sans modification.
+
+### Collecte de sécurité réellement effectuée en lecture seule
+
+Événement Defender1116/Record1061 **10:47:04.8466455UTC**, détection **Trojan:Win32/Injuke.C!MTB**, ThreatID2147957028 ; puis1117/Record1063 **10:47:22.9389433UTC**, action **Supprimer**, opération réussie. Get-MpThreatDetection : ActionSuccess=True, statut4, ProcessNameUnknown ; PID et parent non exposés, aucun PID du service journaliseur n'est attribué à la commande détectée. Les ressources d'événements sont tronquées à1023caractères ; **Get-MpThreatDetection restitue la ressource complète5159caractères**.
+
+Commande complète conservée comme texte non exécutable, comparée **sans la rejouer** à la génération du diagnostic et au script Git. Identité littérale exacte : SHA256 **953ec00740ab88198f1863fcd946d6aa183c42793613bb39df93e72db34df9e2** pour la commande réelle **et** reconstruite. La chaîne littérale passée à ParseInput correspond exactement au blob Git **2e5e6f8e16b3d41ad0e11724e7ff85279a62eb10**, fichier witness_capture.ps1 au commit24aaf06a. **Cette commande est bien issue de notre diagnostic de validation**, et non un script d'origine inconnue.
+
+Le flux réellement exécutable configure l'encodage de sa console, construit l'AST d'un texte détenu dans une chaîne, vérifie l'absence d'erreurs de syntaxe, définit une fonctionCRC32, décode une constante **48octets de données QPC2** et compare CRC IEEE **0x51D01B2D**, puis écrit du JSON. Le script COM contenu dans la chaîne **n'est pas invoqué** ; aucune ouverture COM ou attente3601s n'est exécutée par cette commande. Aucun Invoke-Expression/Add-Type/téléchargement/réseau externe/registre/persistance/élévation/injection/credential-access/modification de protections dans les instructions hors chaîne. Comparaison/CRC reproductibles par `audit_defender.py` Python, sans PowerShell incriminé.
+
+État Defender lu : AMService/Antivirus/Antispyware/RealTimeProtection/BehaviorMonitor/IoavProtection/IsTamperProtected **True**, moteur1.1.26100.4, plateforme4.18.26100.4, signatures1.463.13.0. La fenêtre d'événements1116 consultée du30/10à09:30UTC jusqu'à la collecte contient **une seule détection**, celle ci-dessus ; ce n'est **pas** un audit complet ni une garantie d'absence de compromission. Aucun scan complet du PC n'est revendiqué. L'état Supprimé est conservé ; aucune restauration, exclusion, allow-list, modification de Defender/SAC/ASR/politique, ni signalement externe envoyé.
+
+**Conclusion circonscrite : faux positif probable pour cette commande déterministe inoffensive, sans annuler le verdict du produit ni déclarer le PC globalement sain.** Le diagnostic ParseInput+fixture n'a pas été relancé, aucune réécriture/encodage d'évasion entrepris. Le témoin réel QPC2 est une commande distincte, sans ParseInput ni fixtureBase64 : son gate court a déjà fonctionné sous protections actives, sans autre détection1116 dans la fenêtre consultée. Le journal incrémental préparé avant lecture de l'alerte vise uniquement la conservation des relevés, pas l'évasion d'une signature. Toute nouvelle détection lors d'une commande de qualification impose l'arrêt Windows et un nouveau checkpoint, pas un contournement.
+
+### Preuves et suite autorisée
+
+Preuves publiques ciblées dans `security/BUNDLE.json` : commande contrôlée/publique en texte, comparaison littérale, événements expurgés des identifiants utilisateur/machine, état protection et résumé de fenêtre, script d'audit sans exécution. Les journaux bruts complets restent dans le répertoire local security ; ils ne sont pas publiés avec les identifiants personnels. Dossier prêt pour un éventuel signalement officiel Microsoft sans fichier, **aucune soumission effectuée**. Références : [processusMicrosoft](https://learn.microsoft.com/en-us/defender-endpoint/defender-endpoint-false-positives-negatives), [ParserSDK](https://learn.microsoft.com/de-de/dotnet/api/system.management.automation.language.parser.parseinput?view=powershellsdk-7.5.0).
+
+Le gate physique court reste acquis, aucune donnée historique n'est altérée. État matériel dernier observé : recorder24aaf06a/run3/stage4/error0/FIFOstoppé/SDquiet/CShaute, témoinCOM5 fermé etGDBdétaché. Aucune nouvelle manipulation physique demandée pour cet incident. Publication/relecture de ces constats **avant toute nouvelle qualification temporelle**, conformément à la note. La seule réexécution interdite concerne le diagnostic détecté ; la suite contractuelle restera sous protections intactes, avec code explicable déjà testé, sans toucher au diagnostic incriminé. StatutIN_PROGRESS à cette publication, heureindépendante/extractionfinale toujoursnonexécutées.

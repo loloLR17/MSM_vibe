@@ -1,0 +1,58 @@
+[
+  {
+    "source": "COMMAND_COMPARISON.json",
+    "file": "000-COMMAND_COMPARISON.json.zlib",
+    "bytes": 1441,
+    "sha256": "53570cb547ead505ca16b594a39c1732e318e8a0873f1f244e7a4fd17bf9db37",
+    "stored_sha256": "b4d8ba163d9e204940625a071be2a11210dfd5bf9617fbcf6c0e111a077b4e4f"
+  },
+  {
+    "source": "EVENTS_PUBLIC.json",
+    "file": "001-EVENTS_PUBLIC.json.zlib",
+    "bytes": 1168,
+    "sha256": "2dab06dc8518726caaf7b54b4abcde27a83fea1165652875a2db490403564068",
+    "stored_sha256": "2321e6a2cd9fd9ebc91de737c60e35b4f8e969db827ec52b3b4d926f5d1c99c2"
+  },
+  {
+    "source": "DEFENDER_STATUS.json",
+    "file": "002-DEFENDER_STATUS.json.zlib",
+    "bytes": 457,
+    "sha256": "b52a25b1034203868b9b46380226234c15dd72bcc7931b15538cdfe40e1d721e",
+    "stored_sha256": "587f8f6a1e97da87a1fa7c305f517b5f470efa4c8c192f85600407742589ff05"
+  },
+  {
+    "source": "detections-window-summary.json",
+    "file": "003-detections-window-summary.json.zlib",
+    "bytes": 123,
+    "sha256": "0701f2c95a12d857853196b8b1985b5839c3c631312420a991218c66db3e7672",
+    "stored_sha256": "3fe3f58df733459e5a6afe810c960d54563c45ef17feb565bb113ee62a2cf754"
+  },
+  {
+    "source": "detected-command.txt",
+    "file": "004-detected-command.txt.zlib",
+    "bytes": 5056,
+    "sha256": "953ec00740ab88198f1863fcd946d6aa183c42793613bb39df93e72db34df9e2",
+    "stored_sha256": "9dc744381cd82f7e7e1cb30e06cbe09d3435de651ea0bfadca63e1546aef8932"
+  },
+  {
+    "source": "reconstructed-command.txt",
+    "file": "005-reconstructed-command.txt.zlib",
+    "bytes": 5056,
+    "sha256": "953ec00740ab88198f1863fcd946d6aa183c42793613bb39df93e72db34df9e2",
+    "stored_sha256": "9dc744381cd82f7e7e1cb30e06cbe09d3435de651ea0bfadca63e1546aef8932"
+  },
+  {
+    "source": "audit_defender.py",
+    "file": "006-audit_defender.py.zlib",
+    "bytes": 3631,
+    "sha256": "aadff414295802c1a1e23949514d1db5bb664ed443c0e5f78b219bac61b3df93",
+    "stored_sha256": "4eda9f4efae0106c0c587268847fc18daa0a0475c3a3b4cdf24e13ea714bf475"
+  },
+  {
+    "source": "INTEGRATION_PLAN.json",
+    "file": "007-INTEGRATION_PLAN.json.zlib",
+    "bytes": 440,
+    "sha256": "11d5e23b65f7dac0fc271d83d0f71bd96e8d3dd57d15fc7058ab0c26cc85d3a2",
+    "stored_sha256": "f0d7d93db0a3c4394d507aa2eecca9b1ff7ebbaaea27dc55fcd754577a5b6f56"
+  }
+]
