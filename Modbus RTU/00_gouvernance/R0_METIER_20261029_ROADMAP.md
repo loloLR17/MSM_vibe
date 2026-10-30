@@ -14,6 +14,8 @@
 
 **Précision fonctionnelle R5 (30/10/2026) :** [vision d'analyse fréquentielle, spectrogrammes temporels, suivi des raies, exports et préparation des campagnes de référence](R5_METIER_20261030_VISION_ANALYSE_FREQUENTIELLE_CAMPAGNES.md). Cette note de cadrage n'est pas une mission Codex, ne modifie pas le gel historique et ne perturbe pas R3-8H.
 
+**Priorité confort ISO/BV désormais explicite (V1-13, 30/10/2026) :** [étude de faisabilité et plan de qualification du RMS de vitesse vibratoire pondérée 1–80 Hz en mm/s](R5_METIER_20261030_METROLOGIE_VITESSE_CONFORT_ISO_BV.md). Garder le RMS d'accélération 2–25 Hz comme métrique principale, puis intégrer la vitesse et les comparaisons de confort avant le raffinement des diagnostics, sans attribuer une notation au MSM ni prétendre à une conformité acquise.
+
 ## Réserve explicite V1.5 — réseau IP après la V1
 
 **Décision utilisateur D3 du 29/10/2026 :** V1 = microSD amovible, copie manuelle sur PC. **V1.5 souhaitée** = connectivité IP, supervision/commandes par **Modbus TCP** et téléchargement des mêmes fichiers de campagnes par un transport de fichiers adapté, sans utilisation de Modbus pour véhiculer des centaines de Mo. **V1.5 ne bloque aucun GO V1.**
