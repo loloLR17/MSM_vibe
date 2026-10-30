@@ -1,0 +1,244 @@
+[
+  {
+    "name": "E8N0003.TR2",
+    "original_file_bytes": 131072,
+    "original_whole_SHA256": "0e2f5092b58f862ecde6b54bb3027c65bfc94134cd545ef5737d5ff8286d662b",
+    "actual_header_records_bytes": 35328,
+    "footer_offset": 130560,
+    "unused_tail_bytes": 95232,
+    "unused_tail_not_published": true,
+    "parts": [
+      {
+        "file": "E8N0003.TR2.data-000.zlib",
+        "offset": 0,
+        "bytes": 35328,
+        "sha256": "5ea712eeb8314ab68c9b2daff2ba3982ed65143b1e664f8d9b7848510736a074"
+      },
+      {
+        "file": "E8N0003.TR2.footer.zlib",
+        "offset": 130560,
+        "bytes": 512,
+        "sha256": "89d69bb2e5ac82911586d49c8fda7f14400c2337c62e2d993d09a8737cfdc59e"
+      }
+    ],
+    "all_committed_bytes_preserved": true,
+    "payload_SHA256": "9c6c3a6a1ee2ba88754e3324f6205e727fd13f06fd4c801d1ac5b4779321f29a",
+    "measurement_status": "COMPLETE",
+    "reconstruction_is_not_original_PC_file": true,
+    "zero_tail_reconstruction_only": true
+  },
+  {
+    "name": "E8N0005.TR2",
+    "original_file_bytes": 671088640,
+    "original_whole_SHA256": "41c3f4454c9f224d2d470486692c2f77b23c4518f348797da0b4329e015b0432",
+    "actual_header_records_bytes": 530826240,
+    "footer_offset": 671088128,
+    "unused_tail_bytes": 140261888,
+    "unused_tail_not_published": true,
+    "parts": [
+      {
+        "file": "E8N0005.TR2.data-000.zlib",
+        "offset": 0,
+        "bytes": 16777216,
+        "sha256": "852dcd5204917d1a52e8b3862170dfb0b3c3e088cd5cbe2156fe1808c02b6dc3"
+      },
+      {
+        "file": "E8N0005.TR2.data-001.zlib",
+        "offset": 16777216,
+        "bytes": 16777216,
+        "sha256": "818a8a5c46f53e86738429473415a9974ca0d15f34d48c0ce3098c459f366218"
+      },
+      {
+        "file": "E8N0005.TR2.data-002.zlib",
+        "offset": 33554432,
+        "bytes": 16777216,
+        "sha256": "ab5ba851d6a10ee070c4ae1f6ff4491327bae25e62f13262285c3a03dd44edf4"
+      },
+      {
+        "file": "E8N0005.TR2.data-003.zlib",
+        "offset": 50331648,
+        "bytes": 16777216,
+        "sha256": "96ad54c3eb0223504c383c01ef1558d4c6bc1156f2db395bec22932057377a4c"
+      },
+      {
+        "file": "E8N0005.TR2.data-004.zlib",
+        "offset": 67108864,
+        "bytes": 16777216,
+        "sha256": "073562bb0b368207761e27b9dcd61b1ddfff9e7c68a2583b634544f68bb04a6f"
+      },
+      {
+        "file": "E8N0005.TR2.data-005.zlib",
+        "offset": 83886080,
+        "bytes": 16777216,
+        "sha256": "a55f16e012e033a440edc211a70a83668c01f5a705334ce812beead970e13865"
+      },
+      {
+        "file": "E8N0005.TR2.data-006.zlib",
+        "offset": 100663296,
+        "bytes": 16777216,
+        "sha256": "6b59f2466564787726e524a14780d33a1a3bb48eab0b0f4fbb7cbfd4fdd07abd"
+      },
+      {
+        "file": "E8N0005.TR2.data-007.zlib",
+        "offset": 117440512,
+        "bytes": 16777216,
+        "sha256": "af428e16bdf7482e50dd3a8ba753f262b673913b15c70e32f03d445be8499811"
+      },
+      {
+        "file": "E8N0005.TR2.data-008.zlib",
+        "offset": 134217728,
+        "bytes": 16777216,
+        "sha256": "597d45191d626bb20d6660527e9d92ebda7b4133a76f1e095dc85788c542d47e"
+      },
+      {
+        "file": "E8N0005.TR2.data-009.zlib",
+        "offset": 150994944,
+        "bytes": 16777216,
+        "sha256": "54bafc90c59c5481343362cc844104b20e7a6d1d61084879f1cd1d0836d9a92e"
+      },
+      {
+        "file": "E8N0005.TR2.data-010.zlib",
+        "offset": 167772160,
+        "bytes": 16777216,
+        "sha256": "28cc6def710dbdadf21d2d92309edbc7502c71afe5c918edf9d6948a28d1a07d"
+      },
+      {
+        "file": "E8N0005.TR2.data-011.zlib",
+        "offset": 184549376,
+        "bytes": 16777216,
+        "sha256": "d0985f2bd2dec1c262bfbabc0ec8ea3912a7f51405e98bf5db9f997791fa48a9"
+      },
+      {
+        "file": "E8N0005.TR2.data-012.zlib",
+        "offset": 201326592,
+        "bytes": 16777216,
+        "sha256": "46443caf2df336f1b414d92fdf4e626e60216e3f50f092119238455f7c2fe492"
+      },
+      {
+        "file": "E8N0005.TR2.data-013.zlib",
+        "offset": 218103808,
+        "bytes": 16777216,
+        "sha256": "dbf4e0f24045f92b1202421175b56ef3fa2c86709b448619d15a2e1d333aa4c9"
+      },
+      {
+        "file": "E8N0005.TR2.data-014.zlib",
+        "offset": 234881024,
+        "bytes": 16777216,
+        "sha256": "ff5bbcc9bb8bef76433404805098de242ce75a6e13eb6534ad46b8cd2f2bd6c5"
+      },
+      {
+        "file": "E8N0005.TR2.data-015.zlib",
+        "offset": 251658240,
+        "bytes": 16777216,
+        "sha256": "6bcaef87aa5835ee5e212f32910ddcb064abc64941800ee86f2598c084089b12"
+      },
+      {
+        "file": "E8N0005.TR2.data-016.zlib",
+        "offset": 268435456,
+        "bytes": 16777216,
+        "sha256": "de6358f05b025c78649b9542c27b4b816a86701ec8cb610fe059a7d66b27d5cd"
+      },
+      {
+        "file": "E8N0005.TR2.data-017.zlib",
+        "offset": 285212672,
+        "bytes": 16777216,
+        "sha256": "377df67f48055e9dc8120a173afcbf78a81af8c7149965bd569db1cf76ed214f"
+      },
+      {
+        "file": "E8N0005.TR2.data-018.zlib",
+        "offset": 301989888,
+        "bytes": 16777216,
+        "sha256": "cb55775aaee7e1fa58e059d8227f72775a9a6593423661c2be1b2cb98c3f81a1"
+      },
+      {
+        "file": "E8N0005.TR2.data-019.zlib",
+        "offset": 318767104,
+        "bytes": 16777216,
+        "sha256": "381d3dcb86dc16024325f2f59f06e32c5d77daeedb2d3989ed68f874317d0424"
+      },
+      {
+        "file": "E8N0005.TR2.data-020.zlib",
+        "offset": 335544320,
+        "bytes": 16777216,
+        "sha256": "154fbf02de2b2bdc6d0eab649c4c8a9342b6b991adbdaf09918c1bdc617f9bc2"
+      },
+      {
+        "file": "E8N0005.TR2.data-021.zlib",
+        "offset": 352321536,
+        "bytes": 16777216,
+        "sha256": "de064a5f92c00cfedfaadc6c4ddd3ae8e632839d0472092fca74f1d16e2644b5"
+      },
+      {
+        "file": "E8N0005.TR2.data-022.zlib",
+        "offset": 369098752,
+        "bytes": 16777216,
+        "sha256": "fe2e94033fc3407c2a9ebea45c103a80df4a6234d583e0c8205c0141ac7f5d39"
+      },
+      {
+        "file": "E8N0005.TR2.data-023.zlib",
+        "offset": 385875968,
+        "bytes": 16777216,
+        "sha256": "b6ff672ad3d5c5ba43aacc3933601c4ac49ede7da534ec7526e66da50d542840"
+      },
+      {
+        "file": "E8N0005.TR2.data-024.zlib",
+        "offset": 402653184,
+        "bytes": 16777216,
+        "sha256": "75442a44bc7135f93e0999cd059bebbadd838cad471190cc7803b8d3641c0141"
+      },
+      {
+        "file": "E8N0005.TR2.data-025.zlib",
+        "offset": 419430400,
+        "bytes": 16777216,
+        "sha256": "2a16019d7d3fa25c2169c890fd2fe097f40e008cc045e8cd689c8eef4995bda5"
+      },
+      {
+        "file": "E8N0005.TR2.data-026.zlib",
+        "offset": 436207616,
+        "bytes": 16777216,
+        "sha256": "0324c3bf3dc2c83fef555e35dab22b99dd2cb2aeec3871f4f9757821844665cb"
+      },
+      {
+        "file": "E8N0005.TR2.data-027.zlib",
+        "offset": 452984832,
+        "bytes": 16777216,
+        "sha256": "0bba4209c9ec9439d87ec71dc724c5b833be48322b4a271d2533f8cc357b92e1"
+      },
+      {
+        "file": "E8N0005.TR2.data-028.zlib",
+        "offset": 469762048,
+        "bytes": 16777216,
+        "sha256": "93d575937e321892ea2ffe9c0dacf7d33b0c840faeb2ad0e92d0ef9c15ffb9aa"
+      },
+      {
+        "file": "E8N0005.TR2.data-029.zlib",
+        "offset": 486539264,
+        "bytes": 16777216,
+        "sha256": "8f94e686a9b5f1c49c20dbd05400fe636d7a8a67bf4020c6f489b35bc6c2f716"
+      },
+      {
+        "file": "E8N0005.TR2.data-030.zlib",
+        "offset": 503316480,
+        "bytes": 16777216,
+        "sha256": "60f342e2b6044f36ad80847bc09f3de39a9f36c0a578289a1788e45486d086b0"
+      },
+      {
+        "file": "E8N0005.TR2.data-031.zlib",
+        "offset": 520093696,
+        "bytes": 10732544,
+        "sha256": "267267a7bee7366c7708b80ea9a34b0390cf1f1db95b748690c7f68894e5cd96"
+      },
+      {
+        "file": "E8N0005.TR2.footer.zlib",
+        "offset": 671088128,
+        "bytes": 512,
+        "sha256": "abd8a702b7001b0e7e55e01d126bddf7b74f1cce87119ace18b88753f6f04b1b"
+      }
+    ],
+    "all_committed_bytes_preserved": true,
+    "payload_SHA256": "1645c336a60f590d8cf03b69dc9b871be561e6cc9965ab779c8e13db54076a14",
+    "measurement_status": "REJECTED_QUALITY",
+    "reconstruction_is_not_original_PC_file": true,
+    "zero_tail_reconstruction_only": true
+  }
+]

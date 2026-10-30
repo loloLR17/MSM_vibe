@@ -1,0 +1,37 @@
+[
+  {
+    "source": "pc-historical-preserved/COPIES.json",
+    "file": "COPIES.json.zlib",
+    "bytes": 2045,
+    "sha256": "d3373e51b48b3e5ed64d1fc611021f7d48437892f9927fa1034d6254f9273976",
+    "stored_sha256": "71044a3d211ba5e11284fb79c06a9b52829b881cf1be5729fe3827a5f2bdba0d"
+  },
+  {
+    "source": "preserve_historical_pc.py",
+    "file": "preserve_historical_pc.py.zlib",
+    "bytes": 1293,
+    "sha256": "35666269d68a5557455a7fd066324935325598f146853556dd5abb44a096b266",
+    "stored_sha256": "8495917487e7c747785427d03f7c758fdfbfa6730690e558ce3fff943fa88d83"
+  },
+  {
+    "source": "preserve-historical-PC.log",
+    "file": "preserve-historical-PC.log.zlib",
+    "bytes": 242,
+    "sha256": "213b92001865a1442fb9ca13a51d5e8b6a81811c424211d1ac6a6410be57535f",
+    "stored_sha256": "fd3f6e8695be5c24380178fa5cf724114995d6ab13cc86a4377220bee9d18f3c"
+  },
+  {
+    "source": "push-PC.log",
+    "file": "push-PC.log.zlib",
+    "bytes": 8505,
+    "sha256": "ded430b93e81475fe088321eb1032d8118ec8ebcdfdbfcf570b02545318f4cdb",
+    "stored_sha256": "651069370f872b4c9ee58d751c2668ae897948b2ccb071a1bf3a9729af6aba09"
+  },
+  {
+    "source": "GIT_PC_PRESERVED.json",
+    "file": "GIT_PC_PRESERVED.json.zlib",
+    "bytes": 772,
+    "sha256": "b7f5f88b156622eca64f3628aab34d7a4644cbe2779406aba70f8092d9363904",
+    "stored_sha256": "373f75cc2c07de602539045f15b4b1b1e91471c8aa1c3b6d5abc91c729340a66"
+  }
+]
