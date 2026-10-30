@@ -1,0 +1,72 @@
+[
+  {
+    "source": "qpc-long-launched.json",
+    "file": "000-qpc-long-launched.json.zlib",
+    "bytes": 299,
+    "sha256": "e76d4cf1f80e2717894cf73938e328438ec4fe7ae888278fc4e22ceee1ffa266",
+    "stored_sha256": "decdedeb7d795b1d7e89c71e12d6096b34639ca1692c0d3ba0ed1f7d09923f55"
+  },
+  {
+    "source": "qpc-long.actual.ps1",
+    "file": "001-qpc-long.actual.ps1.zlib",
+    "bytes": 4631,
+    "sha256": "eb6d8ef36cbcb840ea2bf728132808833f4557326df807d88ed5c727ea23df52",
+    "stored_sha256": "63432cc5f599ee7fa4f09b55d0e51cdaf7c4a8a251c144fefa674ac318fabd54"
+  },
+  {
+    "source": "qpc-long.ready",
+    "file": "002-qpc-long.ready.zlib",
+    "bytes": 21,
+    "sha256": "761c64040ced422027e35f2ade189fd6f4f111b77a4b676e93b3d16c190d850e",
+    "stored_sha256": "8482e367552b04df463bc0e2873a8d888e62d9ebf3c39f81388565722de15ed0"
+  },
+  {
+    "source": "launch_capture.py",
+    "file": "003-launch_capture.py.zlib",
+    "bytes": 3436,
+    "sha256": "fb5f35b37b11184d3d3e9cf281f921fba3ae92fa51355a207d604073b250b31b",
+    "stored_sha256": "412514ba18cb732f83698e31afc3466bf9095c32ceebf445cf09f69c6f885a87"
+  },
+  {
+    "source": "remote-security-api.json",
+    "file": "004-remote-security-api.json.zlib",
+    "bytes": 330,
+    "sha256": "42def5b499ba2945bf248a347691b957fb0b26a76ce27a67a627492e32e7fcf3",
+    "stored_sha256": "3838ce4025bdafc5a10e9516caf4daec8816492dc1a182e95ad3f9ed1519f423"
+  },
+  {
+    "source": "remote-security-integration.json",
+    "file": "005-remote-security-integration.json.zlib",
+    "bytes": 97977,
+    "sha256": "78671f6fc13457a7fab4f9286b3360fa003e77b40aed883a8667b9d7935a430a",
+    "stored_sha256": "1b67be4bf88323d127aec2355dbaba7041e5559ad9d21b34f20f1ce0c801f84c"
+  },
+  {
+    "source": "hardware/qpc-long-trigger-detach.gdb",
+    "file": "006-qpc-long-trigger-detach.gdb.zlib",
+    "bytes": 478,
+    "sha256": "20fc1602a85cfe7fcc053b930b93d5c5c2cd448f640f312a405fc1b683e5caaf",
+    "stored_sha256": "53e8c0dc9dfa957b1b8f370f376acdcb4dd3837e475e482ffbb71f5f295e03cd"
+  },
+  {
+    "source": "hardware/qpc-long-trigger-detach.log",
+    "file": "007-qpc-long-trigger-detach.log.zlib",
+    "bytes": 1420,
+    "sha256": "d75fba39ad55c24047ea7f4a0117952da59ec27dd3a40b2e94f9dd6bdb5b2717",
+    "stored_sha256": "b0f49ab50a1e1b7bc4ae0a0cd19cec34af180f1b205fc6d8057f9f3a4bd79b73"
+  },
+  {
+    "source": "hardware/qpc-long-trigger-detach-server.log",
+    "file": "008-qpc-long-trigger-detach-server.log.zlib",
+    "bytes": 674,
+    "sha256": "030ed83bdd9e560371dd4df01fbb2f25a71828a2bd725448cff4a24e6cf46bf2",
+    "stored_sha256": "e10983747cbbc75b0f14ab0523f2c631430b41b31c5be4e954db1768d202b7b5"
+  },
+  {
+    "source": "hardware/qpc-long-trigger-detach-invocation.json",
+    "file": "009-qpc-long-trigger-detach-invocation.json.zlib",
+    "bytes": 751,
+    "sha256": "549d781123adc2c541c19d09586eebf8f9218726654128f40ed29f635c273435",
+    "stored_sha256": "de37061494f0d05ba4d6c67df93e3ae8fe64d554688a6d4035bbe6550edff4ba"
+  }
+]

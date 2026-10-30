@@ -14,7 +14,19 @@ allow_flash: true
 allow_debug: true
 ---
 
-# R3-1H — audit temporel et référence indépendante, checkpoint avant nouveau gate
+# R3-1H — capture QPC2 longue réellement lancée, qualification en cours
+
+## État actuel — essai long lancé le 30/10/2026 à 11:44 UTC
+
+Intégration isolée autorisée publiée à **a6e4cad14404075a15695c483b322147bb608529**. Relecture par connecteur GitHub : HEAD distant et rapport intégral/blob f5fe18211f4a9445b82470faa5a5466009062fd5 conformes. 426 objets locaux de cette identité contrôlés,356 artefacts décompressés/hachés. Le fetch Git après push a temporisé ; la confirmation distante a donc été obtenue par API GitHub, sans prétendre que ce fetch avait réussi. Les preuves sécurité ont été publiées et relues avant l'essai.
+
+**Q1N0005.TR2 est maintenant réellement en acquisition**, déclenchement RAM puis GDB détaché à11:44:05.370713UTC (annotation seulement). UID attendu lu, run3/stage4/error0/SDquiet/CS haute contrôlés avant trigger5. Première trame QPC2 active run5/CRC conforme sauvegardée immédiatement : même UID, session nouvelle, source déjà croissante. Port exclusif COM5/STLINK002 ; COM4 exclu. Firmware24aaf06a/BIN6cb4…f7d8 inchangé, aucun flash/reset/test court supplémentaire. Le firmware relit l'intégrité du court puis préalloue le nouveau fichier sans toucher aux anciens.
+
+Le témoin attend maintenant3601s QPC avant seconde trame active, puis terminal autonome ; aucune inspection GDB pendant capture. Garde4000sMCU nominales, pas d'affirmation préalable de durée physique ni de succès long. Protections Windows intactes, commande AST/fixture détectée jamais rejouée ; contrôleur de mesure distinct déjà qualifié sur court. Journal incrémental local `qpc-long.journal.jsonl`, lancement/commande exacte/preuves dans `qpc-long-start`. L'acquisition continue et s'arrête sans dépendre du PC. **Ne pas retirer la carte ni couper le banc avant STOP/SDquiet réellement observés.**
+
+À faire : seconde borne QPC, STOP/flush et métriques terminales, puis retrait physique indispensable par l'utilisateur et contrôle PC intégral des deux Q1N face au SHA producteur RAM et empreintes historiques. Statut **IN_PROGRESS**, aucune heure indépendante/DONE/8h revendiquée. TR2-001/FRAM/COM4/service Windows préservés.
+
+## Historique des checkpoints conservé
 
 Même contrat/mission, reprise de l'instruction `REPRISE_R3_1H_QUALIFICATION_TEMPS_20261030.md` sur main39287c8c. Revue A-01 ChatGPT E4 acceptée pour l'intégrité ; réserve horaire maintenue. **Pas DONE et aucune nouvelle heure lancée.**
 
