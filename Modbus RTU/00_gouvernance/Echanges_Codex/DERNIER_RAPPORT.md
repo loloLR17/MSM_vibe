@@ -42,3 +42,13 @@ Après terminal, contrôler STOP/FIFOoff/SDquiescente/CS haute/detach, demander 
 Audit8h documenté : élargir durée session/Result/header/footer et scripts ; préallocation~0,5Go framed+marge, DWTmonotone et compteurs, autonomie sans hôte selon roadmap9e2dec54. Aucune8h exécutée. Risques de grappes SD>100ms, file pleine, power-loss/FAT orpheline et métrologie restent distincts. /10candidat~2643Hz, DC préservée, UTC inconnue, pasV1-05modifiée.
 
 Les preuves sont compressées sans modification avec SHA bruts/stored dans [BUNDLE](preuves/TR2-20261029-R3-1H-FAT32-ENDURANCE/software/BUNDLE.json). Publication/relecture distante à effectuer ; aucune qualification indépendante ChatGPT annoncée.
+
+## Checkpoint physique — 30/10/2026 06:36 UTC
+
+Rapport logiciel publié01057a5e01da2ad5100cfe81ac9890baa9f09a50, récupéré et69fichiers relus/39artefacts décompressés/hachés à06:34:10UTC. Code évalué a7ca102f inchangé. Un seul flash standard exécuté,54212B relus exactement SHAe616…9239 ; Resultv3/288B, Bracket24B observés. Image précédente et backup2MiB réutilisés/vérifiés, aucun reset logiciel supplémentaire.
+
+WHO7B/CID/CSD/OCRC0FF8000/capacité62333952secteurs exacts, FAT32 montée sansformat. Calibration193brackets/6576ancres/résidu42µs. Gate nouveauH1N0003.TR2 :2,000162s,52584XYZ/5259sorties/31554B,68records/9groupes, FIFO46/file5120B ; zérofaute. Maxwork691,175/service1282,706/gap1538µs ; STOP151/drain9368µs, pile1112B/plancher2984B.103sortiespréfixe indépendantes conformes. Allocation4clusters etfree972803observés. Le lecteur d'analyse a été invoqué une fois trop tôt alors que GDB finissait ses dumps : buffer encorevide refusé, puis analyse effectuée après retour0 ; aucune capture répétée.
+
+**E3 en cours** : commande5 lancée30/10/2026 à06:35:32.530364UTC, après gate réussi. Le firmware vérifie le fichiercourt puis préalloue72MiB/2304clusters avant la capture3600s. HôteGDB encontinue avec unique breakpointterminal, timeout4200s ; aucun sondage/halt durantFIFO/SDbusy. L'horodatagehôte est celui du lancement, pas l'UTC des échantillons. Résultats de l'heure NONENCOREOBSERVÉS. Ne pas flasher/reset/rejouer ou retirer la carte pendant cet état. Processus de pilotage externe `run_hour.py`, sortie `hour-console.log` ; session outil98700 au lancement, preuves terminales prévues dans physical-hour et HOUR-TERMINAL.json.
+
+Après terminaison, analyser distributions/compteurs/pile etquiescence, puis demander retraitversPC. Aucun DONE avant fichier effectivement extrait et validé. Preuves supplémentaires : `preuves/TR2-20261029-R3-1H-FAT32-ENDURANCE/gate/BUNDLE.json`.
