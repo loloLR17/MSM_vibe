@@ -64,7 +64,11 @@ E8 advertises ACTIVE only once the first SDgroup has completed, so the initial
 witness also proves data were actually acknowledged on the extent. OnebyteUART
 perpoll, no periodicMCUTX, observer only sendsQ; all journal files use native local
 Windows storage. No network, START, STOP, debugger or execution-policy changes.
-`launch_observer.py` uses native `Start-Process` withoutWait/NoNewWindow, then exits.
+`launch_observer.py` uses local `Win32_Process.Create` through CIM, then exits. Initial Start-Process
+trial left a WSL standard-handle wait despite a surviving native child; no capture
+was triggered. Native CIM creation returns before the child finishes, verified
+by a host-only delay/file smoke and the single physical short gate. No elevation,
+new service, scheduled task or Windows policy change.
 This is a passive instrument explicitly allowed by the mission, not a background
 Codex/WSL monitor. It uses the readable command transport already accepted for1h;
 no ParseInput/fixture/EncodedCommand/Add-Type or retry of a blocked diagnostic.
@@ -80,9 +84,9 @@ confirm terminal/SDquiet, dumpRAM/histograms/producerhash, detach, then request
 physical poweroff/SD→PC. Compare every usefulbyte against that separate producer
 SHA, not only the footer. Preserve historical10files+Info, noformat.
 
-Windows source: [Start-Process](https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.management/start-process)
-creates a process independent of its calling shell on Windows. This must also be
-observed on the short gate; documentation alone is not physical proof. Read power
+Windows source: [Win32_Process.Create](https://learn.microsoft.com/en-us/windows/win32/cimwin32prov/create-method-in-class-win32-process).
+Native detached lifetime is also observed on the short gate; documentation alone
+is not physical proof. Read power
 state/ACsleep/hibernate/USB state without modifying protections; user retains
 physical power and must confirm sector power/no manual sleep/reboot duringrun.
 No software power-policy or security exceptions implicit in this profile.

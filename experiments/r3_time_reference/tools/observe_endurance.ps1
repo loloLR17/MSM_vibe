@@ -10,6 +10,7 @@ if([IO.Directory]::Exists($OutputDirectory)){throw 'Evidence directory exists; n
 $journal=[IO.Path]::Combine($OutputDirectory,'queries.jsonl')
 $ready=[IO.Path]::Combine($OutputDirectory,'ready.json')
 $summary=[IO.Path]::Combine($OutputDirectory,'summary.json')
+trap {if([IO.Directory]::Exists($OutputDirectory)){[IO.File]::WriteAllText([IO.Path]::Combine($OutputDirectory,'instrument-error.txt'),$_.Exception.Message)};exit 1}
 [Console]::OutputEncoding=[Text.UTF8Encoding]::new($false)
 $frequency=[Diagnostics.Stopwatch]::Frequency
 if(-not [Diagnostics.Stopwatch]::IsHighResolution -or $frequency -le 0){throw 'QPC unavailable'}
