@@ -145,6 +145,15 @@ int main(int argc,char **argv)
  assert(!durable_sector(base+1,data));uint8_t footer[512]={0};memcpy(footer,"TR2END01",8);durable_put32(footer+8,1);durable_put32(footer+12,1);durable_put64(footer+16,123456);durable_put32(footer+24,3);durable_put32(footer+28,78);durable_put32(footer+32,780);durable_put32(footer+36,1);durable_put32(footer+40,468);durable_put32(footer+44,2000000);durable_put32(footer+48,1);durable_put64(footer+56,5000000);durable_put64(footer+64,5028875);r3_hash_finish(&hash,footer+96);durable_put32(footer+508,durable_crc(footer,508));assert(!durable_sector(base+72u*1024u*1024u/512u-1,footer));assert(!durable_verify_last(footer+96));
  FATFS check;FIL f;assert(f_mount(&check,"0:",1)==FR_OK);assert(f_open(&f,"0:/RUN0003.TR2",FA_READ)==FR_OK&&f_size(&f)==72u*1024u*1024u);FILE *out=fopen(argv[2],"wb");assert(out);UINT n;
  do{assert(f_read(&f,data,512,&n)==FR_OK);assert(fwrite(data,1,n,out)==n);}while(n);assert(!fclose(out));assert(f_close(&f)==FR_OK);group_cases();framed_group_busy(150000,1,false);framed_group_busy(500000,1,false);framed_group_busy(151054,19,false);framed_group_busy(500000,19,true);writer_stop_states();framed_busy(150000,1,false);framed_busy(500000,1,false);framed_busy(151054,19,false);framed_busy(500000,19,true);
+ /* Real640MiB FAT32 contiguous chain; metadata persisted before capture.
+  * This is allocation only, no synthetic8h declared a physical run. */
+ assert(!durable_mount(&s));assert(!durable_prepare(4,640u*1024u*1024u,123457,header));
+ assert(durable_status.required_clusters==20480&&durable_status.sectors==1310720);
+ assert(f_open(&f,"0:/RUN0004.TR2",FA_READ)==FR_OK&&f_size(&f)==640u*1024u*1024u);
+ assert(f_lseek(&f,f_size(&f)-512)==FR_OK&&f_read(&f,data,512,&n)==FR_OK&&n==512);
+ for(unsigned i=0;i<512;i++)assert(data[i]==0);
+ assert(f_close(&f)==FR_OK);
+ puts("Real640MiB FAT32 preallocation/all20480contiguous clusters/invalid footer PASS (MODEL)");
  /* Existing name is refused, preserving its original file and all media bytes. */
  assert(!durable_mount(&s));unsigned writes=s.writes;assert(durable_prepare(3,131072,123456,header)==-1&&durable_status.error==8&&s.writes==writes);
  /* Allocate actual model FAT chains until full, without fabricating a result. */

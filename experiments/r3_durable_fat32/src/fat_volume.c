@@ -71,7 +71,7 @@ int durable_verify_last(const uint8_t expected[32])
  uint8_t footer[512];
  if(!durable_status.run||f_open(&file,name,FA_READ)!=FR_OK)return failure(20);
  if(f_size(&file)!=durable_status.sectors*512u||f_lseek(&file,f_size(&file)-512)!=FR_OK||f_read(&file,footer,512,&n)!=FR_OK||n!=512)return failure(21);
- if(memcmp(footer,"TR2END01",8)||(get32(footer+8)!=1&&get32(footer+8)!=2)||get32(footer+12)!=1||get32(footer+24)!=durable_status.run||get32(footer+508)!=durable_crc(footer,508)||memcmp(expected,footer+96,32))return failure(22);
+ if(memcmp(footer,"TR2END01",8)||(get32(footer+8)!=1&&get32(footer+8)!=2&&get32(footer+8)!=3)||get32(footer+12)!=1||get32(footer+24)!=durable_status.run||get32(footer+508)!=durable_crc(footer,508)||memcmp(expected,footer+96,32))return failure(22);
  uint8_t id[8];durable_put64(id,durable_status.session);if(memcmp(id,footer+16,8))return failure(23);
  uint32_t records=get32(footer+36),samples=0;R3Hash h;r3_hash_init(&h);
  if(records>durable_status.sectors-2||f_lseek(&file,512)!=FR_OK)return failure(24);

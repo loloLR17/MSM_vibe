@@ -17,6 +17,12 @@
 #if R3_QPC_WITNESS
 #include "witness_uart.h"
 #endif
+#if R3_ENDURANCE_8H
+#define LONG_DURATION_US 30600000000ull
+#define LONG_FILE_BYTES (640u*1024u*1024u)
+#define ARCHIVE_VERSION 3u
+#else
+#define ARCHIVE_VERSION 2u
 #if R3_ENDURANCE_1H
 #if R3_QPC_WITNESS
 #define LONG_DURATION_US 4000000000u
@@ -28,13 +34,20 @@
 #define LONG_DURATION_US 600000000u
 #define LONG_FILE_BYTES 12582912u
 #endif
+#endif
 typedef struct {uint32_t service,work,gap,xyz,sd_step,queue;} Record;
 typedef struct {uint64_t sum;uint32_t count,max;uint32_t hist[HIST_BINS];} Distribution;
 typedef struct {uint64_t before,after;uint32_t raw;} Bracket;
 typedef struct {uint32_t write_us,busy_us,queue_at_begin,lba,blocks;} SdWriteRecord;
 typedef struct {uint64_t sum;uint32_t count,max;uint32_t hist_ms[1001];} SdDistribution;
 typedef struct {
- uint32_t version,stage,error,uid[3],clock,who,run,mode,duration_us,records;
+ uint32_t version,stage,error,uid[3],clock,who,run,mode;
+#if R3_ENDURANCE_8H
+ uint64_t duration_us;
+#else
+ uint32_t duration_us;
+#endif
+ uint32_t records;
  uint32_t span_us,span_ticks,cal_residual,cal_brackets,cal_anchors;
  uint32_t accepted,outputs,warmup,rails,clips,source_hash,output_hash;
  uint64_t first_us,last_us;
@@ -91,7 +104,14 @@ static bool calibration;
 extern volatile uint32_t bench_cleanup_mode,bench_log_refused;
 extern uint32_t _estack,_ebss;
 static uintptr_t stack_begin,stack_end;
-uint64_t r3_now(void *unused){(void)unused;uint32_t c=DWT->CYCCNT;elapsed=durable_elapsed_cycles(elapsed,c,last_cycles);last_cycles=c;return elapsed/160u;}
+uint32_t r3_clock_fault;
+static uint32_t last_irq_tick;
+static bool clock_observed;
+uint64_t r3_now(void *unused){
+ (void)unused;uint32_t c=DWT->CYCCNT,tick=r3_irqs;
+ if(R3_ENDURANCE_8H&&clock_observed&&!durable_clock_gap_ok((uint32_t)(c-last_cycles),(uint32_t)(tick-last_irq_tick)))r3_clock_fault=1;
+ clock_observed=true;last_irq_tick=tick;elapsed=durable_elapsed_cycles(elapsed,c,last_cycles);last_cycles=c;return elapsed/160u;
+}
 #define now() r3_now(NULL)
 static uint32_t cyc(void){__DSB();__ISB();return DWT->CYCCNT;}
 void SysTick_Handler(void){HAL_IncTick();r3_irqs++;}
@@ -178,7 +198,7 @@ static int consume(void *unused,const uint8_t *b,uint32_t n,uint64_t index)
 static int bracket(Bracket *b){b->before=now();if(iis3dwb_timestamp_raw_get(&fifo.ctx,&b->raw))return -1;b->after=now();return 0;}
 static int poll(uint64_t *previous,bool keep)
 {
- if(bench_log_refused||bench_preclose_overflow)return -1;
+ if(r3_clock_fault||bench_log_refused||bench_preclose_overflow)return -1;
  reset_trace();uint64_t at=now();uint32_t start=cyc(),gap=*previous?(uint32_t)((at-*previous)*160u):0;*previous=at;
  if(!calibration&&(!mapper.initialized||at>=next_clock)){
   Bracket b;if(bracket(&b))return -2;
@@ -191,7 +211,7 @@ static int poll(uint64_t *previous,bool keep)
  if(!r&&keep&&writer_step(false))r=-10;
  uint32_t sd_cycles=cyc()-sd_start;
 #if R3_QPC_WITNESS
- uint32_t active=(!r&&!calibration&&keep&&writer_enabled&&fifo.running&&r3_result.accepted)?1u:0u;
+ uint32_t active=(!r&&!calibration&&keep&&writer_enabled&&fifo.running&&r3_result.accepted&&(!R3_ENDURANCE_8H||r3_result.sd_written))?1u:0u;
  if(witness_uart_step(r3_result.uid,active|(r3_result.run<<8),now(),durable_session,r3_result.accepted))r=-11;
 #endif
  uint32_t service=cyc()-start;
@@ -204,7 +224,7 @@ static int poll(uint64_t *previous,bool keep)
  }
  if(fifo.parser.max_level>r3_result.level)r3_result.level=fifo.parser.max_level;
  r3_result.flags|=fifo.parser.flags_or;
- if(r||bench_log_refused||bench_preclose_overflow)return -5;
+ if(r||r3_clock_fault||bench_log_refused||bench_preclose_overflow)return -5;
  if(service>2500u*160u||gap>5000u*160u||consumer_cycles>1000u*160u||sd_cycles>1000u*160u)return -6;
  uint64_t end=now();while(now()-end<250u){}
  return 0;
@@ -237,12 +257,12 @@ static int calibrate(void)
  if(!r3_result.cal_xyz_span||!r3_result.cal_tick_span)return -8;
  cal_num=(uint64_t)r3_result.cal_xyz_span*1000000ull*r3_result.span_ticks;
  cal_den=(uint64_t)r3_result.cal_tick_span*r3_result.span_us;
- return r3_result.cal_residual>100?-7:0;
+ return r3_clock_fault?-9:r3_result.cal_residual>100?-7:0;
 }
 static uint32_t crc32(const uint8_t *b,uint32_t n){uint32_t c=~0u;for(uint32_t i=0;i<n;i++){c^=b[i];for(unsigned j=0;j<8;j++)c=(c>>1)^((c&1)?0xedb88320u:0);}return ~c;}
 static void put32(uint8_t *b,uint32_t v){for(unsigned i=0;i<4;i++)b[i]=(uint8_t)(v>>(8*i));}
 static const uint8_t durable_coeff_sha[32]={0xe,0x52,0x8c,0x6d,0x98,0x52,0x7,0xc2,0x65,0xcc,0xaa,0x4a,0x5d,0xf7,0x97,0xcc,0xdf,0xa5,0xcc,0xfe,0x93,0x8a,0xd9,0xa5,0x1a,0x6a,0x6a,0xd8,0xc9,0x4c,0xc1,0xb4};
-static int session(uint32_t run,uint32_t duration)
+static int session(uint32_t run,uint64_t duration)
 {
  calibration=false;mode=1;writer_enabled=run>=3;r3_result.mode=writer_enabled;r3_result.run=run;
  r3_result.accepted=r3_result.outputs=r3_result.warmup=r3_result.rails=r3_result.clips=0;
@@ -257,7 +277,8 @@ static int session(uint32_t run,uint32_t duration)
  durable_session=((uint64_t)r3_result.uid[0]<<32)^now()^((uint64_t)run<<48);
  if(writer_enabled){
   memset(r3_header,0,512);memcpy(r3_header,"TR2DUR01",8);
-  put32(r3_header+8,2);put32(r3_header+12,512);put32(r3_header+16,run);put32(r3_header+20,duration);
+  put32(r3_header+8,ARCHIVE_VERSION);put32(r3_header+12,512);put32(r3_header+16,run);put32(r3_header+20,ARCHIVE_VERSION==3?0:(uint32_t)duration);
+  if(ARCHIVE_VERSION==3)durable_put64(r3_header+168,duration);
   for(unsigned j=0;j<3;j++)put32(r3_header+24+j*4,r3_result.uid[j]);
   memcpy(r3_header+36,r3_card.cid,16);memcpy(r3_header+52,R3_CODE_SHA,40);
   memcpy(r3_header+92,durable_coeff_sha,32);put32(r3_header+124,8);put32(r3_header+128,244);put32(r3_header+132,10);
@@ -271,8 +292,8 @@ static int session(uint32_t run,uint32_t duration)
  if(fir_decimator10_start(&fir,run,0,(FirDecimator10Clock){cal_num,cal_den,true})!=TR2_OK)return -1;
  reset_trace();if(fifo_live_start(&fifo,run,1,1,7,2,now()/1000u))return -2;
  begin_us=now();uint64_t previous=0;uint32_t irq_start=r3_irqs;int error=0;
- while(now()-begin_us<duration){if((error=poll(&previous,true)))break;}
- r3_result.duration_us=(uint32_t)(now()-begin_us);r3_result.irqs=r3_irqs-irq_start;
+ while(now()-begin_us<duration){if(r3_clock_fault){error=-12;break;}if((error=poll(&previous,true)))break;}
+ r3_result.duration_us=now()-begin_us;if(r3_clock_fault&&!error)error=-12;r3_result.irqs=r3_irqs-irq_start;
  if(!error)reset_trace();
  uint64_t stop=now();int stopped=fifo_live_stop(&fifo);r3_result.stop_us=(uint32_t)(now()-stop);
  r3_result.stopped=fifo.stopped;r3_result.fifo_error=fifo.error;r3_result.stop_error=fifo.stop_error;
@@ -283,13 +304,15 @@ static int session(uint32_t run,uint32_t duration)
  uint64_t drain=now();
  if(writer_enabled){
   if(frame_flush())return -24;
-  while(q.count||r3_writer.active){if(writer_step(true))return -20;}
+  while(q.count||r3_writer.active){if(writer_step(true)||(R3_ENDURANCE_8H&&now()-drain>30000000ull))return -20;}
   r3_result.drain_us=(uint32_t)(now()-drain);
   if(r3_result.sd_written!=durable_frame_seq*512u)return -21;
-  memset(durable_footer,0,512);memcpy(durable_footer,"TR2END01",8);put32(durable_footer+8,2);put32(durable_footer+12,1);
+  memset(durable_footer,0,512);memcpy(durable_footer,"TR2END01",8);put32(durable_footer+8,ARCHIVE_VERSION);put32(durable_footer+12,1);
   durable_put64(durable_footer+16,durable_session);put32(durable_footer+24,r3_result.run);put32(durable_footer+28,r3_result.outputs);
   put32(durable_footer+32,r3_result.accepted);put32(durable_footer+36,durable_frame_seq);put32(durable_footer+40,r3_result.sd_total_bytes);
-  put32(durable_footer+44,r3_result.duration_us);put32(durable_footer+48,1);put32(durable_footer+52,0);
+  put32(durable_footer+44,ARCHIVE_VERSION==3?0:(uint32_t)r3_result.duration_us);
+  if(ARCHIVE_VERSION==3)durable_put64(durable_footer+144,r3_result.duration_us);
+  put32(durable_footer+48,1);put32(durable_footer+52,0);
   durable_put64(durable_footer+56,durable_first_time);durable_put64(durable_footer+64,durable_last_time);
   put32(durable_footer+72,r3_result.warmup);put32(durable_footer+76,r3_result.rails);put32(durable_footer+80,r3_result.clips);
   put32(durable_footer+84,r3_result.pending_xyz);put32(durable_footer+88,r3_result.first_us);put32(durable_footer+92,r3_result.last_us);
@@ -304,7 +327,7 @@ static void stack_paint(void){stack_begin=(uintptr_t)&_estack-4096u;stack_end=(_
 static void stack_scan(void){uintptr_t p=stack_begin;while(p<stack_end&&*(volatile uint32_t *)p==0xA53CC35Au)p+=4;r3_result.stack_floor=(uint32_t)(p-stack_begin);r3_result.stack_deepest=p<stack_end?(uint32_t)((uintptr_t)&_estack-p):0;if(p==stack_begin)r3_result.error=91;}
 int main(void)
 {
- r3_result.version=3;r3_result.stage=1;r3_result.uid[0]=HAL_GetUIDw0();r3_result.uid[1]=HAL_GetUIDw1();r3_result.uid[2]=HAL_GetUIDw2();
+ r3_result.version=R3_ENDURANCE_8H?4:3;r3_result.stage=1;r3_result.uid[0]=HAL_GetUIDw0();r3_result.uid[1]=HAL_GetUIDw1();r3_result.uid[2]=HAL_GetUIDw2();
  if(r3_result.uid[0]!=0x001b0046||r3_result.uid[1]!=0x38425018||r3_result.uid[2]!=0x20333157)Error_Handler();
  stmdev_ctx_t ctx;BenchClock clock;
  if(HAL_Init()!=HAL_OK)Error_Handler();
@@ -326,7 +349,8 @@ int main(void)
 #endif
    __WFI();}
   uint32_t cmd=r3_command;r3_command=0;r3_result.stage=3;int r=-90;
-  if(cmd==(MAGIC|1u)&&r3_result.run==0){
+  if(r3_clock_fault){r=-12;
+  }else if(cmd==(MAGIC|1u)&&r3_result.run==0){
    uint8_t who=0;reset_trace();r=iis3dwb_device_id_get(&ctx,&who);r3_result.who=who;
    if(!r&&who==0x7b){r3_result.who_ok=1;r=r3_sd_init(&r3_card);}else r=-91;
    if(!r){r3_result.sd_sectors=r3_card.sectors;r=durable_mount(&r3_card);if(r==1&&!R3_ENDURANCE_1H){uint8_t marker[512];r=sd_spi_read(&r3_card,0,marker);if(!r&&memcmp(marker,"TR2 R2 SPI2 RAW TEST V1",23))r=-92;else if(!r)r3_result.marker_ok=1;}}
@@ -347,6 +371,11 @@ int main(void)
   r3_result.trace_refused=bench_log_refused;r3_result.preclose_overflow=bench_preclose_overflow;r3_result.sd_error=r3_card.error;
   if(r)r3_result.error=(uint32_t)(r<0?-r:r);
   stack_scan();r3_result.stage=r3_result.error?99:4;r3_finished();
-  if(r3_result.error)for(;;){(void)now();__WFI();}
+  if(r3_result.error)for(;;){(void)now();
+#if R3_ENDURANCE_8H
+   /* Only reached after FIFO STOP and SD quiesce/deselect. Error is never COMPLETE. */
+   (void)witness_uart_step(r3_result.uid,2u|(r3_result.run<<8),now(),durable_session,r3_result.accepted);
+#endif
+   __WFI();}
  }
 }

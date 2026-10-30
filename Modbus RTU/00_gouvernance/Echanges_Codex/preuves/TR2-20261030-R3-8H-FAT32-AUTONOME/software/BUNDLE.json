@@ -1,0 +1,72 @@
+[
+  {
+    "source": "CAPACITY_AUDIT.json",
+    "file": "000-CAPACITY_AUDIT.json.zlib",
+    "bytes": 811,
+    "sha256": "4564c004d8a2ca78e529f8190132f7c9d2717040d05419e2b5065ee7256151ed",
+    "stored_sha256": "566593e247fa80b67504ebc1eddc0046c56379bbc5cc9f0769619886d303c0d5"
+  },
+  {
+    "source": "configure-host.log",
+    "file": "001-configure-host.log.zlib",
+    "bytes": 553,
+    "sha256": "54bf09d8754ed32c9531eb4f93e1888f9d1eb30d2077ca2c194d8f7bb392d33e",
+    "stored_sha256": "c856aea369f76b7a256679bc1274e63838da708931c32dd847be07ddd990befe"
+  },
+  {
+    "source": "build-host.log",
+    "file": "002-build-host.log.zlib",
+    "bytes": 1473,
+    "sha256": "bc60076f0a4653916674bf0070f4dae64562a8947dc1935151d87ab72d49a884",
+    "stored_sha256": "b4625acae2c5ffb1650b6060704127e1493d4b8f3440f8c25a0c51d89a5dbb99"
+  },
+  {
+    "source": "test-host.log",
+    "file": "003-test-host.log.zlib",
+    "bytes": 638,
+    "sha256": "f20eb6416d4988c140778f2a3ea209cd8ecb1d591bd089af9764213919fcd43b",
+    "stored_sha256": "92da08f3f2bea38a2eb7ed1071cff7b62157f138c0a0e3478c3f53e2ca076ae3"
+  },
+  {
+    "source": "configure-arm.log",
+    "file": "004-configure-arm.log.zlib",
+    "bytes": 582,
+    "sha256": "77384963cb091c5a39584e357103da518d1899929f293c6f531f9a0df278f954",
+    "stored_sha256": "0e41d1614b4799efb5c79e3c89e5ede45a9a4e5bdd950089a781be8f46c0ab3a"
+  },
+  {
+    "source": "build-arm.log",
+    "file": "005-build-arm.log.zlib",
+    "bytes": 7978,
+    "sha256": "9c90f780043f8afd26d54137ba9f5f476c2537d4f0f0e79ccece9573ea2a5cd5",
+    "stored_sha256": "c19942bef895aed09ac7b6bb07008ea60cfb4cf50edb03cac4eeebfe0867a108"
+  },
+  {
+    "source": "build-arm-final-software.log",
+    "file": "006-build-arm-final-software.log.zlib",
+    "bytes": 2970,
+    "sha256": "9a5829f3dbc9e61aa47ed3b1125a4253152f3b12308da8316156845dc1d8d7bc",
+    "stored_sha256": "f4ba66ef6eaaa5bb71f309c4f69ef723441a340ffefcedc42f3168b5b660a91a"
+  },
+  {
+    "source": "canonical-cross.log",
+    "file": "007-canonical-cross.log.zlib",
+    "bytes": 56,
+    "sha256": "df4a6455cb8be267cd2a1a27698394b10309d73c1342961af66db42dd6876ffc",
+    "stored_sha256": "ea8acb55d001b53bb0c689e515f211fba1509a35a1c79e287fc7f6c6f70f227e"
+  },
+  {
+    "source": "canonical-cross-bash.log",
+    "file": "008-canonical-cross-bash.log.zlib",
+    "bytes": 27252,
+    "sha256": "72cf9ee940b65767ae2e140b04378f0c9bf87f88e292dad11c86b136852176d6",
+    "stored_sha256": "ef1c9116bf37512a331b8da2e8f4dff0f8f7c86e32f4b7de6641f41c53568dad"
+  },
+  {
+    "source": "stlink-list.log",
+    "file": "009-stlink-list.log.zlib",
+    "bytes": 506,
+    "sha256": "a811f52d2c09b9827bc2d5f356a1202f12b45e8b7f159fa0944db690cf2ddb3d",
+    "stored_sha256": "9b91d769fc5dc4b814b5c87843000771602d8f9248e095eff5abcfd35d7bc525"
+  }
+]
