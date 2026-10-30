@@ -1,0 +1,30 @@
+[
+  {
+    "source": "MCU-SUMMARY.csv",
+    "file": "000-MCU-SUMMARY.csv.zlib",
+    "bytes": 438,
+    "sha256": "64e5567729ecc01522578b712662fff14903333ca252d4d59f9237bc0b3fa359",
+    "stored_sha256": "4ebb67031aedc18c718ab983992209062e51587d7ce17d87a73c06b9842ee27d"
+  },
+  {
+    "source": "MCU-SUMMARY.json",
+    "file": "001-MCU-SUMMARY.json.zlib",
+    "bytes": 787,
+    "sha256": "9e4e5df7c293ac1cd18900bee6049bf84c0541967bfab042f7724c325898397a",
+    "stored_sha256": "e32b556aa5d6e31cd18db0a3137ca41e7b0ea432956da75164f2e717e9674b8f"
+  },
+  {
+    "source": "remote-terminal.json",
+    "file": "002-remote-terminal.json.zlib",
+    "bytes": 42698,
+    "sha256": "cf58ca3956cc92a775d64d450b82d6016f1c762d2f69f1e77f96b1a9bd9a7bf7",
+    "stored_sha256": "65f205aa6fd9f5cd13624da29d5c64df7d37944341daf7e1c4af39b746cf6fde"
+  },
+  {
+    "source": "report_waiting_pc.py",
+    "file": "003-report_waiting_pc.py.zlib",
+    "bytes": 14843,
+    "sha256": "8e6bfb17e996d8fd39e0c1dc98c14d01ec2df73558968d98377d6bd8a6475235",
+    "stored_sha256": "b11add03ff0dd14d7cd6504b3e373123ae8af62beac26fe1140776c2d3749e40"
+  }
+]

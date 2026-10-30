@@ -1,11 +1,11 @@
 ---
 mission_id: TR2-20261029-R3-1H-FAT32-ENDURANCE
-status: IN_PROGRESS
+status: BLOCKED
 base_ref: main
 base_sha: c9d7333e5ea1747bd5744daabd0c87a247608b09
 initial_head: d6bd8e45ba43a5736d6f7642ad1113cf49042d6d
 result_sha: a7ca102f857310e139d26f52c6332032ca8e9381
-created_at_utc: 2026-10-30T06:34:02.250544+00:00
+created_at_utc: 2026-10-30T07:42:40.088546+00:00
 author: Codex
 target_branch: main
 allow_commit: true
@@ -14,53 +14,99 @@ allow_flash: true
 allow_debug: true
 ---
 
-# R3-1H — checkpoint E0/E1, avant flash et heure physique
+# R3-1H — capture terminée, reprise au transfert physique vers PC
 
-Mission distincte de R3-DURABLE 10min, non réexécutée. E0/E1 réalisés ; E2 physique en préparation, E3/E4 non exécutés. Aucun DONE/endurance anticipé.
+**Point de reprise, pas une clôture DONE.** Le seul essai long a terminé sans faute signalée. Les deux nouveaux fichiers ne sont **pas encore extraits ni vérifiés sur PC** : le transfert physique demandé à l'utilisateur reste à confirmer. C'est le blocage externe immédiat selon AGENTS.md §9. La même mission reprend après ce geste, sans refaire les essais acquis.
 
-## Acquis logiciels vérifiés
+Une réserve temporelle distincte reste ouverte : **3600,000743 s en unités MCU nominales** observées, mais **3600 s physiques indépendamment mesurées non établies**. Ne pas transformer cette réserve en succès du critère strict, ni en panne de stockage démontrée.
 
-- Code `a7ca102f857310e139d26f52c6332032ca8e9381` : profil explicite `R3_ENDURANCE_1H=ON`, nouveaux noms H1N0003.TR2 (gate2s des chemins modifiés) puis H1N0005.TR2 (3600s,72MiB). Formatage et anciens paliers bypass/60s/600s refusés dans ce profil. Lecture FatFs+CRC/SHA du gate court avant heure.
-- Cause préventive E0 : ancien refus source us>UINT32_MAX et brackets tronqués ; sources/brackets désormaisu64, Resultv3 et fichier version2 avec endpoints sourceu64 footer128/136, lecteur rétrocompatiblev1. FIR/DEC8/coefficients/bus/quanta/file64KiB et références1000/2500/5000us inchangés. [Audit détaillé](../../../../experiments/r3_durable_fat32/ENDURANCE_1H.md).
-- Modèle réel FatFs72MiB+lecteurPython PASS2/2 (`host-tests-gate.log`), dont rolloutDWT5400s et temps absolus>u32 ; cas de corruption/troncature/versions/indices, STOP80états et busy150/500ms/groupes saturants conservés. Première assertion de non-écriture du disque plein placée avant les allocations du test : échec conservé puis point de mesure corrigé juste avant le refus, sans affaiblir la garde.
-- Cross-build canonique PASS via `bash tr2_validate.sh --cross-build-only` (lanceur sans bit exécutable, premierexit126 conservé). ARM candidat final PASS, text54192/data20/BSS546200B (réserves du linker incluses), warnings newlib stubs non utilisés identiques au contexte de banc. Aucun changement du cœur scientifique, anciens150tests non rejoués. Pile physique à mesurer pendant nouveaux gates.
-- BIN54212B SHA256 `e6168e5c999e27d38cc718bdc6cdf98c05b23766da0270f226b7c42b6d9b9239`, ELF `e9991679d9df514477b6a48709a9c4e9dc8f175209fad585e070857f414057e6`. Image non encore flashée à ce checkpoint.
+## 1. Référence, périmètre et préservation
 
-## Préservation et préflight observés
+Code réellement évalué **a7ca102f857310e139d26f52c6332032ca8e9381**. Image BIN54212B SHA256 **e6168e5c999e27d38cc718bdc6cdf98c05b23766da0270f226b7c42b6d9b9239**, ELF **e9991679d9df514477b6a48709a9c4e9dc8f175209fad585e070857f414057e6** ; GCC ARM14.2.1/CubeU5v1.9.0, profil `R3_ENDURANCE_1H=ON`, Cortex-M33/O2, paramètres exacts archivés. Un seul flash normal : programmation ciblée à0x08000000, vérification outil puis readback de **tous les54212octets du BIN**, pas une empreinte de l'intégralité2MiB Flash. Aucun mass erase/OptionBytes/RDP ni reset logiciel supplémentaire. Backup initial2MiB et images R1/R2/R3 vérifiés/réutilisés, non multipliés.
 
-- PC natif : F: FAT32/Realtek/capacité31914983424B,31876808704B libres ; six anciens RUN/R2N re-hachés intégralement et identiques, TR2INFO343B SHA71e626…11553 exact ; deux noms H1N absents. Preuves `pc-before/PRESERVATION.json`.
-- Utilisateur confirme ensuite SD réinsérée dans TR2-002 sous ST-LINK en réponse à la demande hors tension/USB natif débranché/câblage inchangé. Pas de mesure électrique nouvelle prétendue.
-- GDB qualifié, SN0032001F3235510C37333439/UID001B0046/38425018/20333157 et WAIT2/run0/FIFO arrêté/CS haute observés ; ancienne image6fdae042 intégralement relue sur ses57448octets exacts SHA27f5…f9ef6. WHO7B par lecture ST ciblée, sans commande SD ni reset. Débogueur détaché. Zéro flash à ce point.
-- TR2-001/FRAM/COM4/serviceWindows/microSDproduction non accédés. Sauvegardes/images R1/R2/R3 et branche archivea3f5 conservées.
-- Dépôt historique main82169af propre et divergent préservé ; deux stashes6251b98/f3b829e intacts. Préparation dans MSM_vibe-R3-1h préservée avec ses modifications ; arrivée distante9e2dec54 ajoutant uniquement roadmap8h, sans modifier cette mission. Intégration sans merge/rebase dans nouveau worktree MSM_vibe-R3-1h-publish basé9e2dec54 ; branche codex/r3-1h-publication destinée par push normal explicite à main. Aucun travail existant supprimé.
+Cible exclusive TR2-002 : ST-LINK **0032001F3235510C37333439**, UID **001B0046/38425018/20333157**, WHO7B. Câblage acquis SPI3 PC9/10/11/12 ; SPI2 PB13/PD3/PD4/PF12,3,3V/GND CN8-7/11, USB natif débranché demandé, réinsertion sous ST-LINK confirmée par l'utilisateur. Aucun changement de câblage demandé dans ce lot.
 
-## Reprise E2→E4
+MicroSD test seule : CID **0353445344333247858bf0923c01927b**, CSD **400e00325b590000edc87f800a4040c3**, OCR C0FF8000,62333952×512B. Avant transfert sur banc : véritable lecteur PC Realtek/FAT32,31876808704B libres ; **six anciens RUN/R2N re-hachés intégralement identiques** et TR2INFO.TXT343B SHA71e626c7e69644ff7aec1047fbb0417bc9ff80b6ec21a47659d68e70fbd11553 exact. Les deux noms H1N absents. Recontrôle après nouvelles écritures encore à faire. Aucun formatage/effacement/nom réutilisé.
 
-Répertoire externe `/home/lolo/dev/msm/reports/TR2-r3-1h-fat32-endurance` ; helpers `hardware_second.py`, `run_capture.py`, `analyze_capture.py` préparent uniquement SN002. Conserver image précédente/backups ; flash normal vérifié/readback candidat, cmd1 WHO/CID/mount/cal puis cmd3 gate2s nouveau et analyse. Si conforme, cmd5 après relecture du gate vers3600s, timeout hôte4200s ; aucune interruption GDB pendant FIFO/SDbusy. Un seul essai long, pas de répétition silencieuse ; en cas de faute conserver état/fichier/causalité.
-Après terminal, contrôler STOP/FIFOoff/SDquiescente/CS haute/detach, demander retrait physique vers lecteurPC. Copier fichier entier, vérifier chaque record/CRC/index/time/compte/footer/SHA face au digest producteur RAM, 128préfixes et oracle107coeff ; re-hacher six historiques. Rapport final après observation réelle seulement.
+TR2-001/FRAM/COM4/service Windows et carte de production **non accédés** ; état actuel non prétendu observé. Les seuls événements Windows lus concernent l'horloge système. Branche distante archive/tr2/point-retour-pre-spi2-20261029 toujours a3f5ac33a728a5afd028192654c17e5b04ee8d7b.
 
-Audit8h documenté : élargir durée session/Result/header/footer et scripts ; préallocation~0,5Go framed+marge, DWTmonotone et compteurs, autonomie sans hôte selon roadmap9e2dec54. Aucune8h exécutée. Risques de grappes SD>100ms, file pleine, power-loss/FAT orpheline et métrologie restent distincts. /10candidat~2643Hz, DC préservée, UTC inconnue, pasV1-05modifiée.
+## 2. E0/E1 — adaptations minimales et validations
 
-Les preuves sont compressées sans modification avec SHA bruts/stored dans [BUNDLE](preuves/TR2-20261029-R3-1H-FAT32-ENDURANCE/software/BUNDLE.json). Publication/relecture distante à effectuer ; aucune qualification indépendante ChatGPT annoncée.
+- Risque trouvé : ancien sink refusait les temps absolus>UINT32_MAX et brackets tronqués à32bits. Sources/brackets désormaisu64, diagnostic Resultv3 (288B)/Bracket24B ; monotonicité et indices toujours contrôlés.
+- Fichier candidat version2, même framing78XYZ/512B/CRC/SHA producteur. Footer128/136 : temps sourceu64 ;88/92 : low32 recoupés. Lecteur v1/v2, version inconnue refusée, durée demandée contrôlée en unités déclarées. UTC inconnue ; interpolation interne aux records explicitement approximative.
+- Profil explicite : H1N0003.TR2 gate2s/128KiB puis H1N0005.TR2/3600s/72MiB ; commande5 relit intégralement le gate via FatFs avant l'heure. Anciens paliers bypass/60s/600s et commande format refusés dans ce profil. Aucun ancien essai rejoué.
+- Calcul conservateur :9600000sorties/h,57600000B utiles,123077records,63016448B avec header/footer ;72MiB=75497472B, marge calculée12481024B. Avant création : f_getfree, f_expand contigu, validation de chaque cluster, sync/close ; aucun appel FatFs pendant FIFO.
+- FIR, coefficients, mapper FIFO, queue, bus et writer identiques octet pour octet à la baseline physique6fdae042 (dix fichiers comparés). File **64KiB**, SPI3 **8MHz**, SPI2 **4MHz**, FIFO64mots/SD128B/groupes1..8 ; gardes work/service/gap **1000/2500/5000µs** inchangés.
+- Tests hôte ciblés C/FatFs et Python **2/2 PASS** : allocation/lecture fichier réel du modèle72MiB, DWT5400s/rollovers, temps>u32, corruption/troncature/indices/versions, disque plein/nom existant/CID,80états STOP et busy150/500ms/grappes/file saturée. Nouvelle version du lecteur relit aussi les six anciennes copies PC, dont le préfixe INCOMPLETE, sans altération des résultats.
+- Cross-build canonique PASS via `bash tr2_validate.sh --cross-build-only` ; ARM candidat PASS. Modification limitée au banc, cœur scientifique inchangé : anciens150tests non rejoués. Text54192/data20/BSS546200B (réserves linker incluses), RAM budget768KiB. Empreintes/binaire/MAP/flags exacts publiés.
+- Incidents d'outillage conservés : premier lancement direct du script sans bit exécutable (126), relancé avec bash ; assertion disque plein mesurée trop tôt dans le test, déplacée immédiatement avant le refus sans affaiblir l'égalité ; première analyse du gate invoquée avant fin des dumps refusée sur buffer vide, puis effectuée après retour0 sans nouvelle capture. Référence archive non suivie localement vérifiée directement par ls-remote. Aucun de ces incidents n'a déclenché de répétition physique.
 
-## Checkpoint physique — 30/10/2026 06:36 UTC
+## 3. E2/E3 — résultats matériels réellement observés
 
-Rapport logiciel publié01057a5e01da2ad5100cfe81ac9890baa9f09a50, récupéré et69fichiers relus/39artefacts décompressés/hachés à06:34:10UTC. Code évalué a7ca102f inchangé. Un seul flash standard exécuté,54212B relus exactement SHAe616…9239 ; Resultv3/288B, Bracket24B observés. Image précédente et backup2MiB réutilisés/vérifiés, aucun reset logiciel supplémentaire.
+Préflight avant flash : UID/SN, image précédente6fdae04257448B relue exactement, WHO7B par lecture ST ciblée, WAIT/SDinactive/CShaute, puis detach. Après flash candidat : readback exact et boot WAIT sans autostart. Cmd1 : CID/CSD/OCR/capacité exacts, **FAT32 existante montée sans format**,193brackets/6576ancres, résidu calibration42µs.
 
-WHO7B/CID/CSD/OCRC0FF8000/capacité62333952secteurs exacts, FAT32 montée sansformat. Calibration193brackets/6576ancres/résidu42µs. Gate nouveauH1N0003.TR2 :2,000162s,52584XYZ/5259sorties/31554B,68records/9groupes, FIFO46/file5120B ; zérofaute. Maxwork691,175/service1282,706/gap1538µs ; STOP151/drain9368µs, pile1112B/plancher2984B.103sortiespréfixe indépendantes conformes. Allocation4clusters etfree972803observés. Le lecteur d'analyse a été invoqué une fois trop tôt alors que GDB finissait ses dumps : buffer encorevide refusé, puis analyse effectuée après retour0 ; aucune capture répétée.
+| Observation | Gate nouveau2s | Capture longue |
+|---|---:|---:|
+| Fichier prévu sur carte, pas encore copié PC | H1N0003.TR2 | H1N0005.TR2 |
+| Durée MCU nominale, s | 2,000162 | 3600,000743 |
+| XYZ natifs datés acceptés | 52584 | 95148112 |
+| XYZ natifs en attente d'ancre au STOP, non publiés | 2 | 5 |
+| Sorties FIR /10 | 5259 | 9514812 |
+| Octets utiles produits avant queue/TX | 31554 | 57088872 |
+| Records512B acquittés / groupes | 68 /9 | 121985 /15249 |
+| Pic FIFO / file | 46mots /5120B | 50mots /8192B |
+| STOP / drain, µs MCU | 151 /9368 | 152 /13599 |
+| Pile peinte4KiB : profondeur / plancher intact | 1112 /2984B | 1776 /2320B |
 
-**E3 en cours** : commande5 lancée30/10/2026 à06:35:32.530364UTC, après gate réussi. Le firmware vérifie le fichiercourt puis préalloue72MiB/2304clusters avant la capture3600s. HôteGDB encontinue avec unique breakpointterminal, timeout4200s ; aucun sondage/halt durantFIFO/SDbusy. L'horodatagehôte est celui du lancement, pas l'UTC des échantillons. Résultats de l'heure NONENCOREOBSERVÉS. Ne pas flasher/reset/rejouer ou retirer la carte pendant cet état. Processus de pilotage externe `run_hour.py`, sortie `hour-console.log` ; session outil98700 au lancement, preuves terminales prévues dans physical-hour et HOUR-TERMINAL.json.
+Les deux runs : stage4/error0, STOP avec contrôles ODRoff/FIFObypass/TSoff, writer terminé/SDquiescente/CShaute/débogueur détaché. Zéro OVR/FULL/source/temps/SD/queuefaute/rail/clip signalé,11sortieswarmup. **103 sorties de chaque préfixe** recalculées indépendamment avec les107coefficients ; pas une contre-vérification scientifique de toutes les95M sources. Les5XYZ finaux sans ancre future sont explicitement hors sorties, pas des octets implicitement archivés.
 
-Après terminaison, analyser distributions/compteurs/pile etquiescence, puis demander retraitversPC. Aucun DONE avant fichier effectivement extrait et validé. Preuves supplémentaires : `preuves/TR2-20261029-R3-1H-FAT32-ENDURANCE/gate/BUNDLE.json`.
+Sur **3764662polls** du run long :
 
-## Terminal observé le30/10/2026 à07:35:17UTC — extractionPC attendue
+| µs MCU nominales | Moyenne | P95 plafond1µs | P99 plafond1µs | Maximum |
+|---|---:|---:|---:|---:|
+| work |304,138|493|502|694,044|
+| service |700,490|1187|1222|1420|
+| gap |956,261|1442|1477|1676|
 
-**Capture terminée et sûr retrait, PASDONE** : stage4/run5/error0, ODRoff/FIFObypass/TSoff contrôlés par le propriétaire STOP, SDterminée/CShaute/GDBdétaché. Un seul essai long, aucun nouveauflash/reset. H1N0005.TR2 préalloué72MiB/2304clusters, free972799clusters avantcréation, fermé etchaincontigu vérifié horsFIFO ; noformat. UID/WHO/CID/CSD conformes.
+SDquantummax430,519µs ; marges work/service/gap305,956/1080/3324µs aux gardes inchangées.35815checks horloge/résidu48µs et3600001SysTick. Temps de service instrumenté73,253%/work31,805%/SD5,373% de la durée MCU ; le pacing est busy-wait : **pas un budget CPUidle ni un WCET industriel**.
 
-Durée **3600,000743s en unités MCU160MHz nominales** ;95148112XYZ datésacceptés/9514812sorties/57088872B utiles,121985records512B/15249groupes,62456320B framed. Cinq XYZ natifs en attente d'ancrefuture auSTOP nonpubliés, explicitement horsoutputs ;11sortieswarmup,0rail/clip/OVR/source/SD/queueerreur. FIFO50mots/file8192B sur65536. STOP152µs/drain13599µs, pile1776B/plancher2320B.35815checks/résidu48µs,3600001SysTick ; mêmehorloge DWT/SysTick, PASune référence SI indépendante.
+SD :121985busy secteurs, mean1316,214µs/P95ceil2ms/P99ceil2ms/max**159929µs** ;15249busyFDstop, mean2787,515µs/P95ceil4ms/P99ceil6ms/max24506µs. Groupe write mean82946,454µs/P95ceil90ms/P99ceil110ms/max240026µs. Cette longue pause a été absorbée ; aucun résultat ne garantit des grappes arbitraires. Histogrammes complets, comptes/sommes/extrêmes complets ; raw groupes **premiers256+derniers1792 seulement**, pas15249traces intégrales.
 
-Sur3764662polls, mean/P95/P99/max(µs) : work304,138/493/502/694,044 ; service700,490/1187/1222/1420 ; gap956,261/1442/1477/1676. SDquantummax430,519. Marges305,956/1080/3324µs inchangées auxgarde1000/2500/5000. Tempsserviceinstrumenté73,253%/work31,805%/SD5,373% ; pacingbusywait, pas un budgetCPUidle/WCET.103sortiespréfixe recalculéesexactes,1024sourcescontrôlées. Carte : busysecteurmean1316,214/P95ceil2ms/P99ceil2ms/max159929µs (121985) ; FDbusymean2787,515/P95ceil4ms/P99ceil6ms/max24506µs (15249) ; groupemax240026µs, P95ceil90ms/P99ceil110ms. Histogramescomplets ; rawgroupesfirst256+last1792seulement. La longuepause159,929ms a été absorbée sansperte/filepleine ; aucunegarantie de grappesarbitraires.
+Fichier long :147456secteurs/2304clusters, free972799clusters avant allocation ;62456320B de records acquittés,13040128B de marge préallouée après records+header/footer. Les CRC des header/footer **RAM** sont conformes ; ce n'est pas la lecture du média.
 
-**Écarttemporel à nepasmasquer** : UTC WSLLAUNCH06:35:32.530364→retourpostdump07:35:17.256454 =3584,726090s, incluantconnexion/préallocation/STOP/dumps. Ce n'est pas3600s UTC. WindowsSystem/Kernel-General1 contient correction−1915,1119ms à06:46:12UTC puis+1,7727/+0,1729ms ; pasdechronoPCmonotone indépendant enregistré. SourceclockMSIcalibrationpar défaut→PLLnominale160MHz ; écartde cadence interne et ajustementWSL/PC pasdépartagés. Uneheure **nominaleembarqué** observée, mais3600sphysiquesexactes nonétablies. Ne pastransformerSysTick/DWT en preuveindépendante, ni extrapoler±8g/SI/UTC/8h. Aucun nouveauRUNpourmasquerl'écart ; instructionstructurelle potentiellementnécessaire si critère3600sréelstrict malgréhorlogesnonétalonnées.
+SHA producteur sauvegardé **avant framing/queue/TX**, à comparer au fichier réel :
 
-Retrait sûr verslecteurPC demandé selonAGENTS§9 aprèsterminal/detach ; réponseutilisateur encoreattendue. Ne pasdéduire disponibilitéF: niétatélectriqueoff sansretour. VérificationcomplètePC+SHAamont/tousCRC/indices/footer ethashessixhistoriquesresteobligatoire. Preuves35artefacts terminales dans `preuves/TR2-20261029-R3-1H-FAT32-ENDURANCE/physical-terminal/BUNDLE.json`. Suite : extractionPC, verdict strict etrapport final proportionné ; statutIN_PROGRESS jusqu'àcescontrôles, pasqualificationA01 anticipée.
+- Gate31554B : `dc2a19be588e2d7d6006e7fd88e3c7824931f7adbcb95148a58551c1b4886a88`.
+- Run long57088872B : `e99b50584536231ff881d15637fb5fd0e6b0170908fb2a3c04f6e457338c7ce1`.
+
+**Aucune de ces empreintes seules ne prouve la conservation du contenu sur la carte.**
+
+## 4. Réserve temporelle — critère strict non déclaré satisfait
+
+Lancement hôte WSL06:35:32.530364UTC, retour après dumps07:35:17.256454UTC : intervalle **3584,726090s**, incluant connexion/préallocation/STOP/dumps. Il ne faut pas annoncer3600s UTC. Les événements Windows Kernel-General1 montrent à06:46:12UTC un saut−1915,1119ms puis+1,7727/+0,1729ms. **Aucun chronomètre PC monotone indépendant n'a été enregistré.** Le MCU utilise MSI avec calibration par défaut→PLL nominale160MHz ; SysTick et DWT ont la même référence et ne se qualifient pas mutuellement en SI.
+
+Fait :3600,000743s nominales MCU sans faute de rollover observée ; réserve : **durée physique indépendante exacte non démontrée**. Une erreur de cadence interne et/ou les ajustements de temps hôte/WSL restent à départager ; ne pas attribuer tout l'écart à−1,915s ni affirmer une fréquence MCU étalonnée. Les cadences sont également données dans ce repère : calibration initiale2643,631290sorties/s, moyenne source26430,109235Hz entre endpoints. /10 reste candidat, pasV1-05=2000Hz ni métrologie/SI/UTC.
+
+Action recommandée après préservation/extraction : définir et enregistrer une référence monotone indépendante et les bornes début/fin de capture pour résoudre le critère d'heure physique. Une nouvelle exécution serait une reprise **justifiée par ce défaut de preuve temporelle**, avec nouveau nom, jamais une relance silencieuse de la capture actuelle. Ne pas relâcher le critère par convenance ; revue indépendante ChatGPT requise pour toute qualification.
+
+## 5. Blocage immédiat et reprise exacte E4
+
+L'utilisateur a reçu après STOP/detach : couper **uniquement TR2-002/ST-LINK**, transférer sa carte au lecteur natif T1000 et laisser le banc hors tension. **Retour encore attendu à ce point**. État électrique et présenceF: non présumés. Aucun nouveau diagnostic/flash/reset/write depuis le terminal.
+
+Après confirmation «carte dans le lecteur PC, TR2-002 hors tension», exécuter :
+
+`python3 /home/lolo/dev/msm/reports/TR2-r3-1h-fat32-endurance/extract_hour_pc.py`
+
+Le script vérifie lecteur/volume/capacité/Info, copie **sans écraser** H1N0003 etH1N0005 entiers vers `pc-final`, lit chaque record/CRC/index/temps/compte/session/footer/identité/version, compare tous les octets utiles au SHA producteur RAM ci-dessus, compare128sortiescapturées du préfixe, écrit CSV/manifeste et re-hache les six anciens fichiers. Si un contrôle échoue, conserver copies/logs et diagnostiquer ; aucun faux COMPLETE. Aucun fichier `pc-final` créé à ce checkpoint.
+
+Puis publier preuves PC, résultats réellement obtenus, actualiser journal et verdict strict en gardant la réserve temporelle si non résolue ; ne pas clore DONE au seul succès des écritures ou de la copie.
+
+## 6. E5, Git et publication
+
+[Audit complet et préparation8h](https://github.com/loloLR17/MSM_vibe/blob/8d4e2f3e61f1be6d87c8bee9a5ab8c73153c66ae/experiments/r3_durable_fat32/ENDURANCE_1H.md) : durée8h=28800000000µs à élargir dans session/Result/header/footer et lecteur versionné, allocation~0,5Go framed+marge, tous compteurs et produits à borner ; DWT doit être échantillonné avant un rollover(~26,84s nominales). Les sources/brackets sont déjàu64. Période raw capteur déduite de la calibration~15,043h, pas25µs/tick supposées.8h **non exécutées** ; future autonomie sans session Codex selon roadmap9e2dec54, aucune modification de cette mission. Power-loss/retrait à chaud/FRAM/RTU/multi-capteurs/métrologie/production demeurent distincts.
+
+Dépôt historique main82169af propre préservé avec ses divergences, deux stashes6251b98/f3b829e intacts. Préparation `MSM_vibe-R3-1h` conserve ses modifications non commitées ; publication dans `MSM_vibe-R3-1h-publish`/codex/r3-1h-publication basé9e2dec54 après arrivée documentaire seulement, **sans merge/rebase/reset ni travail perdu**. Push normaux explicites vers main ; pas de force push. Les commits de documentation ultérieurs ne changent pas le code physiquea7ca102f.
+
+Publications effectivement relues :01057a5e (69fichiers/39artefacts),01b80c5e (137/105),8d4e2f3e (153/117), puis **9919c0266b655fda1733c17d1e33be94c89b0f36** à07:40:18UTC : **190fichiers entièrement comparés,152artefacts décompressés/re-hachés**, FatFs officiel pristine. Preuves `[software,gate,audit-followup,build-provenance,physical-terminal]` sous `preuves/TR2-20261029-R3-1H-FAT32-ENDURANCE/`, chaque BUNDLE fournit SHA du brut et du zlib. Bilan de ce nouveau point de reprise encore à relire après push ; résultat fourni dans la réponse opérateur, pas un SHA autoréférent.
+
+Journal ETAT_COURANT_TR2 actualisé : adaptations, gate, terminal sûr, compteurs, réserve temporelle, attente retraitPC. Mission/anciennes archives/dettes/gels préservés ; pas d'archive DONE ni tag prématuré. **BLOCKED signifie attente de l'intervention physique indispensable, pas échec du stockage ni clôture de la mission.**
