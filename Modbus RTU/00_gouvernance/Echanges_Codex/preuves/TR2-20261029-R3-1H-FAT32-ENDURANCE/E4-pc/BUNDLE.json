@@ -1,0 +1,156 @@
+[
+  {
+    "source": "E4-reader-discovery.json",
+    "file": "000-E4-reader-discovery.json.zlib",
+    "bytes": 587,
+    "sha256": "3acfac9ca187c1a8ce1d0aeca389e9373f4a54878d3e2d4ea159a5bfa67742af",
+    "stored_sha256": "a66c199196deb2e30db28ada39b1caef59d401071781802f74df40a0f3d635f8"
+  },
+  {
+    "source": "E4-reader-discovery.stderr",
+    "file": "001-E4-reader-discovery.stderr.zlib",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stored_sha256": "b171e283c6145acf2b923098dbbc40ffc39b4f1db0212928f9869747376c4ac8"
+  },
+  {
+    "source": "E4-drive.json",
+    "file": "002-E4-drive.json.zlib",
+    "bytes": 128,
+    "sha256": "7729d2d16ce95667782ef64d1ace70e72e6ba8017ae3417771ff87e8e72197a4",
+    "stored_sha256": "433c58dee77a0d94e983e6d5fd38b1e5a9e8cda2e72a80f1b668635fc3c92a30"
+  },
+  {
+    "source": "E4-extract.log",
+    "file": "003-E4-extract.log.zlib",
+    "bytes": 5446,
+    "sha256": "48c4b96d077e2a822357311cb396f896e53b847b206bac14da9e562c772e70c8",
+    "stored_sha256": "8cda8e1abd2337b1d6e09e8cad607856b9c352eb1a41f4ef4e57201d441f988d"
+  },
+  {
+    "source": "E4-copy-exact.json",
+    "file": "004-E4-copy-exact.json.zlib",
+    "bytes": 721,
+    "sha256": "d727d826123b84cb2825869fe2e6214adfa38498abde40255d034ab910846348",
+    "stored_sha256": "0db638f6736d41d13c0c19cd6114108716f184774ee21fdc0ef474f85a4ada02"
+  },
+  {
+    "source": "extract_hour_pc_E4.py",
+    "file": "005-extract_hour_pc_E4.py.zlib",
+    "bytes": 5245,
+    "sha256": "09550b80da38c07988a5897d066487a703cc3885706bafb4c2b4ed5748203b58",
+    "stored_sha256": "3177304c136da20bb39c49f7767c4a381a9fb6b643da36e33317c1a7c3f9e28d"
+  },
+  {
+    "source": "package_E4.py",
+    "file": "006-package_E4.py.zlib",
+    "bytes": 2032,
+    "sha256": "f2de6c205fe19f0d13c1188cba1ff4e94180c88ef8af6ec78281bb49d7dd0852",
+    "stored_sha256": "0ec85188b1814b0886b76060fca7b3161d8980cf65d7b749929b675a5c81c86a"
+  },
+  {
+    "source": "pc-final/INTEGRITY.json",
+    "file": "007-INTEGRITY.json.zlib",
+    "bytes": 5446,
+    "sha256": "48c4b96d077e2a822357311cb396f896e53b847b206bac14da9e562c772e70c8",
+    "stored_sha256": "8cda8e1abd2337b1d6e09e8cad607856b9c352eb1a41f4ef4e57201d441f988d"
+  },
+  {
+    "source": "pc-final/SUMMARY.csv",
+    "file": "008-SUMMARY.csv.zlib",
+    "bytes": 514,
+    "sha256": "9a5b7de5eeaea0641c55be9e10b4beddeb1a8592b3836c872c097b5131f17b99",
+    "stored_sha256": "0245f37630c114a54b1756cb54dee5f4d4f0eb132209b31004cd981e215cf906"
+  },
+  {
+    "source": "pc-final/TR2INFO.TXT",
+    "file": "009-TR2INFO.TXT.zlib",
+    "bytes": 343,
+    "sha256": "71e626c7e69644ff7aec1047fbb0417bc9ff80b6ec21a47659d68e70fbd11553",
+    "stored_sha256": "7c034461c9779be0f6f8042dc6dfa8c03f22ffaa5abea2725a0a0744f6218b8d"
+  },
+  {
+    "source": "pc-final/volume.json",
+    "file": "010-volume.json.zlib",
+    "bytes": 191,
+    "sha256": "f505808510bcb0e560f36838a457a63887bf3e09d5d13d5c1933ac8bd1f0626e",
+    "stored_sha256": "da99858ff4889b99d639984ddeaa50e730cbc0c4b20f3954fb0915b8e7a9e1bd"
+  },
+  {
+    "source": "pc-final/physical-disk.json",
+    "file": "011-physical-disk.json.zlib",
+    "bytes": 184,
+    "sha256": "27acb049a67621b220b33aa494e6e2523f78253e080f9d24b2c77c7309a2c0a1",
+    "stored_sha256": "7a5d0d5ca81b050ae8bc631758d535f8097d0088a465a9fef0f97e22a3242fb4"
+  },
+  {
+    "source": "pc-final/files.json",
+    "file": "012-files.json.zlib",
+    "bytes": 685,
+    "sha256": "930952984e4ad13730a8bd65b8ee5b6fac678140996fc81523653d4fd51f50e2",
+    "stored_sha256": "d3b80b81705802735dc71f64a34109e3da8f9f1ff218522e45e3ac14fc992742"
+  },
+  {
+    "source": "pc-final/H1N0003.TR2.json",
+    "file": "013-H1N0003.TR2.json.zlib",
+    "bytes": 1601,
+    "sha256": "74bc26c9cfa7aa765118092bd1b04f153d3e1ee76cbef23f51300f805957069c",
+    "stored_sha256": "101a097012545683e56fd44d7a78e63cd0137988a2cb8e6718774fb72b18268a"
+  },
+  {
+    "source": "pc-final/H1N0005.TR2.json",
+    "file": "014-H1N0005.TR2.json.zlib",
+    "bytes": 1628,
+    "sha256": "8a3f9781ac1d949f3aec0be2095cca09562c4f273685f4b2087bc17116d7c861",
+    "stored_sha256": "29e2b4e6bdcc7fac6aad6446ea397878d410018117ed2b6074a576c156a0851c"
+  },
+  {
+    "source": "pc-final/H1N0003.TR2.prefix128.csv",
+    "file": "015-H1N0003.TR2.prefix128.csv.zlib",
+    "bytes": 10429,
+    "sha256": "64c064c9ce4706abe0972b97a9c2062d70003638ff1819edd5aa759e172a7c3d",
+    "stored_sha256": "7845c849690d95a7d7cfd7d3e38a10456ed80af813fdb894708e366aad5b083d"
+  },
+  {
+    "source": "pc-final/H1N0005.TR2.prefix128.csv",
+    "file": "016-H1N0005.TR2.prefix128.csv.zlib",
+    "bytes": 10429,
+    "sha256": "1e8e1186c1fc6f85269fcc6b5ad4a61233e0f13b559ef6ee40f39971d4f28498",
+    "stored_sha256": "885d29ab0b8ca8f1847282dcecd419bab04f427cb0b1987dc1d92eca9b4f45c2"
+  },
+  {
+    "source": "pc-extents/EXTENTS.json",
+    "file": "017-EXTENTS.json.zlib",
+    "bytes": 1741,
+    "sha256": "081ac37194503479bf03fb2e7ab76b7424bbb6359a90be3554e732beb17d43a5",
+    "stored_sha256": "6ed7a6095b670495c8ae956f6cceb7a7ff82cf4cd3b4fdeeeac30bf533d01237"
+  },
+  {
+    "source": "pc-extents/H1N0003.TR2.header-records.bin",
+    "file": "018-H1N0003.TR2.header-records.bin.zlib",
+    "bytes": 35328,
+    "sha256": "241fdc0ac517e28899300195ae0c7c81cd6d9661c4eca55853c320038255e4fb",
+    "stored_sha256": "14dd0a239fa7a1a60b08d833cd0a40c5cbde1f03b7c1a31578158c48603b8051"
+  },
+  {
+    "source": "pc-extents/H1N0003.TR2.footer.bin",
+    "file": "019-H1N0003.TR2.footer.bin.zlib",
+    "bytes": 512,
+    "sha256": "249fde746e7e32abbd67e96e07b0e8fa0b8a11c6be151982119f016d1b5d3bb9",
+    "stored_sha256": "70d0752a6847f76bc563fb9d17945dad0a5b215ac3f9c26e06a85f90d3f5a527"
+  },
+  {
+    "source": "pc-extents/H1N0005.TR2.header-records.bin",
+    "file": "020-H1N0005.TR2.header-records.bin.zlib",
+    "bytes": 62456832,
+    "sha256": "b3a4f8d5dbab81b95c6041349bb93a5a91a5a77fb9b1f2adaaa24a1bceab313c",
+    "stored_sha256": "f1f7b8623c643d22b942db3df445c92d330037b7b499d3b4ed437cf9c155b1de"
+  },
+  {
+    "source": "pc-extents/H1N0005.TR2.footer.bin",
+    "file": "021-H1N0005.TR2.footer.bin.zlib",
+    "bytes": 512,
+    "sha256": "2f763ba3ebe0d0d6200b2ba8f2e5398699365859aad038e8d8eb00d79fdee4ac",
+    "stored_sha256": "f2d81762ac0149f28cd1fe0c49f917c05c1aee6e0de8db6e409147812897da2b"
+  }
+]
