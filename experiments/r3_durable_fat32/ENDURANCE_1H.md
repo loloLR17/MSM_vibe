@@ -68,3 +68,12 @@ boot+run through existing modular mapper. Audit all scripts/GDB timeouts,
 CPU/stack and extraction/copy time. More rare SD wait clusters can still
 fill64KiB; neither a good mean rate nor one good hour proves arbitrary
 pauses, power-loss tolerance, industrial8h, metrology, FRAM or RTU.
+
+## Independent witness continuation (same mission)
+
+Opt-in R3_QPC_WITNESS=ON adds a nonblocking USART1 VCP snapshot, newQ1N
+filenames and4000nominal-second autonomous guard, preserving72MiB/64KiB
+and filev2/guards. Two active snapshots enclose an inner3601QPCsecond interval;
+PC cannot control capture progression or STOP. This is a new qualification
+candidate, not a retroactive proof for H1N. See ../r3_time_reference/README.md
+and the current mission report for actual short/long execution status.

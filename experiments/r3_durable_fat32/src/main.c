@@ -14,8 +14,15 @@
 #include "archive_format.h"
 #include "fat_volume.h"
 #include "endurance_clock.h"
+#if R3_QPC_WITNESS
+#include "witness_uart.h"
+#endif
 #if R3_ENDURANCE_1H
+#if R3_QPC_WITNESS
+#define LONG_DURATION_US 4000000000u
+#else
 #define LONG_DURATION_US 3600000000u
+#endif
 #define LONG_FILE_BYTES (72u*1024u*1024u)
 #else
 #define LONG_DURATION_US 600000000u
@@ -182,7 +189,12 @@ static int poll(uint64_t *previous,bool keep)
  consumer_cycles=0;uint64_t before=fifo.total_xyz;
  int r=fifo_live_poll(&fifo,now()/1000u);uint32_t sd_start=cyc();
  if(!r&&keep&&writer_step(false))r=-10;
- uint32_t sd_cycles=cyc()-sd_start,service=cyc()-start;
+ uint32_t sd_cycles=cyc()-sd_start;
+#if R3_QPC_WITNESS
+ uint32_t active=(!r&&!calibration&&keep&&writer_enabled&&fifo.running&&r3_result.accepted)?1u:0u;
+ if(witness_uart_step(r3_result.uid,active|(r3_result.run<<8),now(),durable_session,r3_result.accepted))r=-11;
+#endif
+ uint32_t service=cyc()-start;
  if(keep){
   distribution(0,service);distribution(1,consumer_cycles);distribution(2,gap);distribution(3,sd_cycles);
   if(sd_cycles>r3_result.sd_step_max)r3_result.sd_step_max=sd_cycles;
@@ -298,12 +310,21 @@ int main(void)
  if(HAL_Init()!=HAL_OK)Error_Handler();
  HAL_PWREx_DisableUCPDDeadBattery();
  if(platform_init(&ctx,&clock)||bench_core_hz!=160000000u||r3_sd_prepare())Error_Handler();
- r3_result.clock=bench_core_hz;last_cycles=DWT->CYCCNT;r3_result.primask=__get_PRIMASK();r3_result.basepri=__get_BASEPRI();r3_result.faultmask=__get_FAULTMASK();
+ r3_result.clock=bench_core_hz;last_cycles=DWT->CYCCNT;
+#if R3_QPC_WITNESS
+ if(witness_uart_init())Error_Handler();
+#endif
+ r3_result.primask=__get_PRIMASK();r3_result.basepri=__get_BASEPRI();r3_result.faultmask=__get_FAULTMASK();
  if(r3_result.primask||r3_result.basepri||r3_result.faultmask)Error_Handler();
  if(fifo_live_init(&fifo,&ctx,5,consume,NULL)||fifo_live_set_poll_limit(&fifo,64))Error_Handler();
  fifo.cleanup_begin=clock.cleanup_begin;fifo.first_data_timeout_ms=20;stack_paint();r3_result.stage=2;
  for(;;){
-  while(!r3_command){(void)now();__WFI();}
+  while(!r3_command){(void)now();
+#if R3_QPC_WITNESS
+   uint32_t flags=(r3_result.error?2u:0u)|((r3_result.stage==4&&r3_result.header_written)?4u:0u)|(r3_result.run<<8);
+   if(witness_uart_step(r3_result.uid,flags,now(),durable_session,r3_result.accepted))Error_Handler();
+#endif
+   __WFI();}
   uint32_t cmd=r3_command;r3_command=0;r3_result.stage=3;int r=-90;
   if(cmd==(MAGIC|1u)&&r3_result.run==0){
    uint8_t who=0;reset_trace();r=iis3dwb_device_id_get(&ctx,&who);r3_result.who=who;

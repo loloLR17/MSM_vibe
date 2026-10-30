@@ -1,8 +1,6 @@
 # R3-1H — time qualification, same mission, TR2-002 only
 
-Status: offline audit complete; short idle probe SOFTWARE PREPARED. Physical
-clock calibration and the independent hour gate remain unqualified until actual
-observations. Existing E4 integrity/150coretests/science/buses are not replayed.
+Status: offline audit complete; short idle probe SOFTWARE PREPARED. A first idle physical calibration is now preserved in the report:160.962..161.174MHz relative to QPC, current setup only. The independent hour gate remains unqualified. Existing E4 integrity/150coretests/science/buses are not replayed.
 No change to MISSION_EN_COURS, production, AC1/Modbus/FRAM or persistent storage.
 
 ## Existing evidence cannot retrospectively qualify the hour
@@ -59,7 +57,7 @@ and scheduling delays widen the interval; no arbitrary latency bound is assumed.
 Windows QPC is independent of the STM32 and system UTC adjustments. Its100ns
 resolution on this host is not SI traceability or an absolute drift certificate.
 
-## Correct next hour methodology (design, not yet integrated)
+## Next hour methodology (QPC2 implementation prepared, not yet physically qualified)
 
 Use a versioned diagnostic snapshot on the same qualified VCP, nonblocking in
 the FIFO polling budget, with UID, session, sequence, active flag, emitted source
@@ -72,7 +70,7 @@ source count. Consequently START < snapshotA <= receiveA < sendB <= snapshotB
 capture. A late USB/OS delivery cannot lengthen this claimed lower bound.
 Both samples plus a successful continuous file/quality/footer are required.
 
-An autonomous capture guard of4000nominal MCU seconds with72MiB would keep the
+The opt-in R3_QPC_WITNESS=ON capture guard of4000nominal MCU seconds with72MiB keeps the
 existingu32 duration and unchanged filev2 semantics; the active-snapshot test
 fails if actual capture ends too soon, regardless of the MCU oscillator. At
 conservative2666.7outputs/s,4000s produce64MB payload/~70.02MB framed, fitting
@@ -106,3 +104,18 @@ First finish documentary audit, then identify board/image, preserve verified
 A7 image/backups, program probe normally only under existing qualified chain.
 Keep SD in PC and nativeUSB off. User alone connects power. After calibration,
 preserve result and determine next candidate; no automatic hour or8h start.
+
+Implementation: enable both R3_ENDURANCE_1H and R3_QPC_WITNESS. Q1N0003/5
+names, header/footer v2 still express requested/actual MCU nominal duration.
+QPC2 is a distinct48byte witness packet: magic4, UID12, seq4, MCUus8,
+flags4 (active1/error2/complete4 plus run<<8), session8, accepted4, CRC4.
+USART service sends at most one byte per poll and never waits during FIFO;
+its cost is included in the unchanged service/gap limits. It also works in
+WAIT/after terminal. Host records every query, waits for the first active
+packet, then3601QPCseconds (1s explicit observation margin over3600), takes
+second active packet and observes a successful terminal. It cannot stop or
+start acquisition; GDB only triggers RAM and detaches before capture, then
+is permitted again only after successful terminal packet (SD already quiet).
+Short gate uses1QPCsecond within2nominal MCU seconds, with newfile; no replay
+of H1N. Inactive/error/changed session/too-short interval fail verification.
+No changes to DSP, sample units, archive DC, queues, SPI clocks or guards.
