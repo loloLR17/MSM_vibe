@@ -307,6 +307,10 @@ static int session(uint32_t run,uint64_t duration)
   while(q.count||r3_writer.active){if(writer_step(true)||(R3_ENDURANCE_8H&&now()-drain>30000000ull))return -20;}
   r3_result.drain_us=(uint32_t)(now()-drain);
   if(r3_result.sd_written!=durable_frame_seq*512u)return -21;
+  /* E8 quality gate: data were drained and producer digest preserved, but a
+   * clipped/railed capture must remain INCOMPLETE for the unchanged PC reader.
+   * Do not emit a success footer merely because storage transactions succeeded. */
+  if(R3_ENDURANCE_8H&&(r3_result.rails||r3_result.clips))return -26;
   memset(durable_footer,0,512);memcpy(durable_footer,"TR2END01",8);put32(durable_footer+8,ARCHIVE_VERSION);put32(durable_footer+12,1);
   durable_put64(durable_footer+16,durable_session);put32(durable_footer+24,r3_result.run);put32(durable_footer+28,r3_result.outputs);
   put32(durable_footer+32,r3_result.accepted);put32(durable_footer+36,durable_frame_seq);put32(durable_footer+40,r3_result.sd_total_bytes);

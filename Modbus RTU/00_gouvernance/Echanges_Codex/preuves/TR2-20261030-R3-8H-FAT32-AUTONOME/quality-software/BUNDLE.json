@@ -1,0 +1,44 @@
+[
+  {
+    "source": "configure-quality-guard.log",
+    "file": "000-configure-quality-guard.log.zlib",
+    "bytes": 596,
+    "sha256": "91cd9d836b2430e9c2750765da248e7873a0ea960ca50cb573b7bbe3fff2ccd1",
+    "stored_sha256": "3aa87d34e0c1f9b567be05e67e75b0166347203855c07679202cf6acb775dfd7"
+  },
+  {
+    "source": "build-quality-guard.log",
+    "file": "001-build-quality-guard.log.zlib",
+    "bytes": 8049,
+    "sha256": "6b021f0d337486b5c24a88f5b5d3443d7c5a6a2cfa232a309288b31363234282",
+    "stored_sha256": "215278f475fdf2bbbcdb609acb9fa05c57bfe74919d574ff951422c97728839d"
+  },
+  {
+    "source": "test-quality-forensics.log",
+    "file": "002-test-quality-forensics.log.zlib",
+    "bytes": 155,
+    "sha256": "601ad71934e510f5fdfb783a944442889a276412b53e0b39e96aafd3b72553b9",
+    "stored_sha256": "1bc144732d377624cc49feb74dfe059f6a8f9ca8a02ca7ba0e1b40fe325ea667"
+  },
+  {
+    "source": "reproduce_clip_without_source_rail.c",
+    "file": "003-reproduce_clip_without_source_rail.c.zlib",
+    "bytes": 1185,
+    "sha256": "dcc2635d1ce24c412546abc0a2f841db3efd9af7a7d8279ec48a98dd84a4ea5f",
+    "stored_sha256": "3d9df913f21f166020f54132eb71808c66aacc720999240ce5f75a1d26a18d7b"
+  },
+  {
+    "source": "reproduce-clip.json",
+    "file": "004-reproduce-clip.json.zlib",
+    "bytes": 157,
+    "sha256": "4fe52741c02baa0add7039a39a35b76742eb484b681911cced79cac5ccdf13a6",
+    "stored_sha256": "63136b46ea2b96d5c3468af89b07aa6c98eaa8c514eeb2a5b96f5ea1097ffdb6"
+  },
+  {
+    "source": "copy_and_inspect_e8.py",
+    "file": "005-copy_and_inspect_e8.py.zlib",
+    "bytes": 4542,
+    "sha256": "78f790d6cd2fc4b9ad66ce0209721c499bcfc6f3d27603157dbca0328969b6cd",
+    "stored_sha256": "22b1009d6a0b61ab51882cc8c89a623781375b9fc4b6cfa978ca81524c431258"
+  }
+]
