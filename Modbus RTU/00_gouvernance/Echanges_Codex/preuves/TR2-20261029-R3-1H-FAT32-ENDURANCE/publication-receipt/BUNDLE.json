@@ -1,0 +1,44 @@
+[
+  {
+    "source": "remote-technical-delivery.json",
+    "file": "000-remote-technical-delivery.json.zlib",
+    "bytes": 117491,
+    "sha256": "a51e01cb34c3a3325ff38d553780377ca984a1197d0e33e8665e5548834f68ee",
+    "stored_sha256": "93a82d51a4761c616692366ab5d882b58b07d50ed66574ad2fef41f0cb3305ea"
+  },
+  {
+    "source": "remote-qpc-extents-technical-delivery-checked.json",
+    "file": "001-remote-qpc-extents-technical-delivery-checked.json.zlib",
+    "bytes": 1294,
+    "sha256": "29ea0a686e765e8d9c49b34722e202fb3b4a4c1b15539be9d72f197f0e9b9ba3",
+    "stored_sha256": "7bb0aa877a2daf908f05641484e60bd1a5136c7ad40df25ef9a4290a786436b2"
+  },
+  {
+    "source": "verify_qpc_extents_remote.py",
+    "file": "002-verify_qpc_extents_remote.py.zlib",
+    "bytes": 3124,
+    "sha256": "9445a206c16f2695df84eae360b775360eb1d8a4fdaae8e2c1f0f1cbc53fca72",
+    "stored_sha256": "25a80ca5c866590acb337900834c0c21fe668f083e7fcff109208f1d2ba8153b"
+  },
+  {
+    "source": "push-technical-retry.json",
+    "file": "003-push-technical-retry.json.zlib",
+    "bytes": 439,
+    "sha256": "499c93272de911383b9c5623b1589fd1ca0283cadefb42d0ac65d2f74369baa4",
+    "stored_sha256": "160c76e87c7def217c6a2a1956dc5a4d3722d9a509e2d8f96745565a52c5a1b7"
+  },
+  {
+    "source": "push-technical-retry.log",
+    "file": "004-push-technical-retry.log.zlib",
+    "bytes": 20314,
+    "sha256": "d61ebedfd484459fe374f62cea97c7ef3a57ec2e68adf667a064170c3f9ab17f",
+    "stored_sha256": "94393ba2db5b00beefae8dc498cdb732c3aaafbfb11cf8b5eda1f614b32c8b82"
+  },
+  {
+    "source": "close_delivery.py",
+    "file": "005-close_delivery.py.zlib",
+    "bytes": 4604,
+    "sha256": "ebecd66b66cb77ad13f5072e1462a250d455b700b2bd2652d34574a12fe817d0",
+    "stored_sha256": "0af3285bbda86fe3937efbc35bc103b21f36d50345fa271746c804d4b9236686"
+  }
+]

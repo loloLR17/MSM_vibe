@@ -1,6 +1,6 @@
 ---
 mission_id: TR2-20261029-R3-1H-FAT32-ENDURANCE
-status: IN_PROGRESS
+status: DONE
 base_ref: main
 base_sha: c9d7333e5ea1747bd5744daabd0c87a247608b09
 initial_head: d6bd8e45ba43a5736d6f7642ad1113cf49042d6d
@@ -15,9 +15,9 @@ allow_flash: true
 allow_debug: true
 ---
 
-# R3-1H — critères techniques satisfaits, relecture de publication en attente
+# R3-1H — mission exécutée, preuve indépendante et fichier PC conformes
 
-**Une capture continue contient un intervalle indépendant de 3 601,0368139 secondes QPC, puis son fichier FAT32 réellement retiré et copié sur PC est intégralement conforme.** Zéro faute FIFO/SD/file/temps/clipping observée. Ce rapport reste IN_PROGRESS uniquement jusqu'à publication et relecture distante de cette livraison ; aucun blocage technique ou physique restant. La revue indépendante A-01 appartient à ChatGPT.
+**Une capture continue contient un intervalle indépendant de 3 601,0368139 secondes QPC, puis son fichier FAT32 réellement retiré et copié sur PC est intégralement conforme.** Zéro faute FIFO/SD/file/temps/clipping observée. Livraison technique publiée et relue depuis GitHub ; aucun blocage technique ou physique restant. Statut DONE au sens du protocole, dans le périmètre expérimental de cette mission. La revue indépendante A-01 appartient à ChatGPT.
 
 ## Preuve temporelle et intégrité finale
 
@@ -79,4 +79,12 @@ Dans `preuves/TR2-20261029-R3-1H-FAT32-ENDURANCE/` : `time-reference/`, `qpc-gat
 
 **Limites :** une capture expérimentale≥1h, pas8h/production/V1/FRAM/RTU/AC1/essaiarbitrairepower-loss. DC conservée dansceflux, /10candidat ; UTCinconnue, interpolationintrarecord approximative, amplitude±8g nonétalonnée. Pas garantie contrepausesSD arbitrairementlongues malgréla grappe réelle absorbée ; pas auditglobalWindows. Prochaineétape : revueindépendanteA-01 parChatGPT puismission8h distincte. Pour8h : duréesµs28,8milliards→u64, nouveauformatversionné/header/footer/outils, préallocationenviron0,5Go+ marge, capture/STOP autonomes sansCodex/GDB/PC et qualificationdes fautes séparée. Aucun essai8h lancé.
 
-Journal `ETAT_COURANT_TR2.md` actualisé : borneQPC réelle+fichierPC conforme, marges, état final hors tension et limites ; décisionsnormatives inchangées. Rapport finalprotocolaire àmettreDONE aprèsrelecture de cettepublication, avec son SHA confirmé.
+Journal `ETAT_COURANT_TR2.md` actualisé : borneQPC réelle+fichierPC conforme, marges, état final hors tension et limites ; décisionsnormatives inchangées. Rapport protocolaire DONE après relecture de la livraison technique ; contrôle indépendant ChatGPT distinct.
+
+Le contrôleur de relecture ajoutant le rapprochement RAM cherchait initialement les preuves courtes dans le bundle final (KeyError). Il a été corrigé pour lire aussi qpc-gate, puis la reconstruction distante complète a réussi ; aucune donnée ni règle d’acceptation modifiée.
+
+## Clôture protocolaire et état Git
+
+Livraison technique **6d42a8744ab8f6264ed5b9fbb69b00c27261347d** publiée par push normal puis récupérée sur origin/main ; **509 fichiers complètement relus/comparés, 433 artefacts décompressés et hachés, FatFs fournisseur exact**. Les deux fichiers ont aussi été reconstruits depuis les extents réellement commités sur GitHub et parsés intégralement : CRC/index/footer, SHA utile face au dumpRAM producteur indépendant et sessionUART conformes. Ces reconstructions àqueue zéro ne sont pas les originauxPC. Reçus exacts et script de contrôle dans `publication-receipt/`. Le premier upload avait figé (aucunACK≥71s) ; client arrêté sansperte et pushnormal repris enHTTP1.1, aucunforcepush/historique/protectionchangé.
+
+Ce rapport DONE et sa copie d'archive exacte sont publiés ensuite ; leur SHA final est donné dans la réponse Codex après vérification distante, jamais auto-inscrit dans son propre commit. Mission originale copiée àl'identique dans archives/TR2-20261029-R3-1H-FAT32-ENDURANCE/MISSION.md, sans modifier le contrat actif. Deuxstashes et tousworktrees historiques conservés ; worktree depublication propre aprèscommit/push. État final de main àrelire indépendamment parChatGPT pour A-01 ; aucun passage8h automatique.
