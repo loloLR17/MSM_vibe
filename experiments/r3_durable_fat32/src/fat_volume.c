@@ -43,6 +43,10 @@ int durable_format(void)
 int durable_prepare(uint32_t run,uint32_t bytes,uint64_t session,const uint8_t header[512])
 {
  if(!durable_status.mounted||fs.fs_type!=FS_FAT32||run<3||run>5||bytes%512||bytes<2048)return failure(7);
+ DWORD free_clusters;FATFS *available;
+ if(f_getfree("0:",&free_clusters,&available)!=FR_OK||available!=&fs)return failure(29);
+ durable_status.free_clusters=free_clusters;durable_status.required_clusters=(bytes/512+fs.csize-1u)/fs.csize;
+ if(free_clusters<durable_status.required_clusters)return failure(30);
  char name[]="0:/" R3_FILE_PREFIX "0000.TR2";name[9]=(char)('0'+run);
  if(f_open(&file,name,FA_WRITE|FA_CREATE_NEW)!=FR_OK)return failure(8);
  if(f_expand(&file,bytes,1)!=FR_OK||f_sync(&file)!=FR_OK)return failure(9);
@@ -67,7 +71,7 @@ int durable_verify_last(const uint8_t expected[32])
  uint8_t footer[512];
  if(!durable_status.run||f_open(&file,name,FA_READ)!=FR_OK)return failure(20);
  if(f_size(&file)!=durable_status.sectors*512u||f_lseek(&file,f_size(&file)-512)!=FR_OK||f_read(&file,footer,512,&n)!=FR_OK||n!=512)return failure(21);
- if(memcmp(footer,"TR2END01",8)||get32(footer+8)!=1||get32(footer+12)!=1||get32(footer+24)!=durable_status.run||get32(footer+508)!=durable_crc(footer,508)||memcmp(expected,footer+96,32))return failure(22);
+ if(memcmp(footer,"TR2END01",8)||(get32(footer+8)!=1&&get32(footer+8)!=2)||get32(footer+12)!=1||get32(footer+24)!=durable_status.run||get32(footer+508)!=durable_crc(footer,508)||memcmp(expected,footer+96,32))return failure(22);
  uint8_t id[8];durable_put64(id,durable_status.session);if(memcmp(id,footer+16,8))return failure(23);
  uint32_t records=get32(footer+36),samples=0;R3Hash h;r3_hash_init(&h);
  if(records>durable_status.sectors-2||f_lseek(&file,512)!=FR_OK)return failure(24);

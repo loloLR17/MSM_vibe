@@ -13,16 +13,25 @@
 #define MAGIC 0x44335200u
 #include "archive_format.h"
 #include "fat_volume.h"
+#include "endurance_clock.h"
+#if R3_ENDURANCE_1H
+#define LONG_DURATION_US 3600000000u
+#define LONG_FILE_BYTES (72u*1024u*1024u)
+#else
+#define LONG_DURATION_US 600000000u
+#define LONG_FILE_BYTES 12582912u
+#endif
 typedef struct {uint32_t service,work,gap,xyz,sd_step,queue;} Record;
 typedef struct {uint64_t sum;uint32_t count,max;uint32_t hist[HIST_BINS];} Distribution;
-typedef struct {uint32_t before,after,raw;} Bracket;
+typedef struct {uint64_t before,after;uint32_t raw;} Bracket;
 typedef struct {uint32_t write_us,busy_us,queue_at_begin,lba,blocks;} SdWriteRecord;
 typedef struct {uint64_t sum;uint32_t count,max;uint32_t hist_ms[1001];} SdDistribution;
 typedef struct {
  uint32_t version,stage,error,uid[3],clock,who,run,mode,duration_us,records;
  uint32_t span_us,span_ticks,cal_residual,cal_brackets,cal_anchors;
  uint32_t accepted,outputs,warmup,rails,clips,source_hash,output_hash;
- uint32_t first_us,last_us,residual,clock_checks,level,flags,stop_us,stopped;
+ uint64_t first_us,last_us;
+ uint32_t residual,clock_checks,level,flags,stop_us,stopped;
  uint32_t fifo_error,stop_error,trace_refused,preclose_overflow,irqs;
  uint32_t stack_deepest,stack_floor,primask,basepri,faultmask,max_words;
  uint32_t raw_words,pending_xyz,ctrl1,cal_xyz_span,cal_tick_span;
@@ -75,7 +84,7 @@ static bool calibration;
 extern volatile uint32_t bench_cleanup_mode,bench_log_refused;
 extern uint32_t _estack,_ebss;
 static uintptr_t stack_begin,stack_end;
-uint64_t r3_now(void *unused){(void)unused;uint32_t c=DWT->CYCCNT;elapsed+=(uint32_t)(c-last_cycles);last_cycles=c;return elapsed/160u;}
+uint64_t r3_now(void *unused){(void)unused;uint32_t c=DWT->CYCCNT;elapsed=durable_elapsed_cycles(elapsed,c,last_cycles);last_cycles=c;return elapsed/160u;}
 #define now() r3_now(NULL)
 static uint32_t cyc(void){__DSB();__ISB();return DWT->CYCCNT;}
 void SysTick_Handler(void){HAL_IncTick();r3_irqs++;}
@@ -86,10 +95,10 @@ static uint32_t hash(uint32_t h,const int16_t xyz[3]){for(unsigned j=0;j<3;j++){
 static Tr2Result sink(void *unused,uint64_t index,const int16_t xyz[3],uint64_t us)
 {
  (void)unused;
- if(index!=r3_result.accepted||us>UINT32_MAX||(index&&us<=r3_result.last_us))return TR2_ERROR_INVALID_STATE;
+ if(index!=r3_result.accepted||(index&&us<=r3_result.last_us))return TR2_ERROR_INVALID_STATE;
  if(r3_source_count<1024)r3_sources[r3_source_count++]=(FirDecimator10Input){.source_index=index,.time_us=us,.xyz={xyz[0],xyz[1],xyz[2]},.valid=true,.time_valid=true};
- if(!index)r3_result.first_us=(uint32_t)us;
- r3_result.last_us=(uint32_t)us;r3_result.accepted++;r3_result.source_hash=hash(r3_result.source_hash,xyz);
+ if(!index)r3_result.first_us=us;
+ r3_result.last_us=us;r3_result.accepted++;r3_result.source_hash=hash(r3_result.source_hash,xyz);
  FirDecimator10Input in={.source_index=index,.time_us=us,.xyz={xyz[0],xyz[1],xyz[2]},.valid=true,.time_valid=true};
  FirDecimator10Output out;bool produced=false;
  if(fir_decimator10_push(&fir,&in,&out,&produced)!=TR2_OK)return TR2_ERROR_INVALID_STATE;
@@ -159,7 +168,7 @@ static int consume(void *unused,const uint8_t *b,uint32_t n,uint64_t index)
  int r=calibration?0:fifo_event_time_consume(&mapper,b,n,index);
  consumer_cycles=(uint32_t)(cyc()-start);return r;
 }
-static int bracket(Bracket *b){b->before=(uint32_t)now();if(iis3dwb_timestamp_raw_get(&fifo.ctx,&b->raw))return -1;b->after=(uint32_t)now();return 0;}
+static int bracket(Bracket *b){b->before=now();if(iis3dwb_timestamp_raw_get(&fifo.ctx,&b->raw))return -1;b->after=now();return 0;}
 static int poll(uint64_t *previous,bool keep)
 {
  if(bench_log_refused||bench_preclose_overflow)return -1;
@@ -236,14 +245,14 @@ static int session(uint32_t run,uint32_t duration)
  durable_session=((uint64_t)r3_result.uid[0]<<32)^now()^((uint64_t)run<<48);
  if(writer_enabled){
   memset(r3_header,0,512);memcpy(r3_header,"TR2DUR01",8);
-  put32(r3_header+8,1);put32(r3_header+12,512);put32(r3_header+16,run);put32(r3_header+20,duration);
+  put32(r3_header+8,2);put32(r3_header+12,512);put32(r3_header+16,run);put32(r3_header+20,duration);
   for(unsigned j=0;j<3;j++)put32(r3_header+24+j*4,r3_result.uid[j]);
   memcpy(r3_header+36,r3_card.cid,16);memcpy(r3_header+52,R3_CODE_SHA,40);
   memcpy(r3_header+92,durable_coeff_sha,32);put32(r3_header+124,8);put32(r3_header+128,244);put32(r3_header+132,10);
   durable_put64(r3_header+136,cal_num);durable_put64(r3_header+144,cal_den);durable_put64(r3_header+152,durable_session);
   put32(r3_header+160,DURABLE_SAMPLES);put32(r3_header+164,0);/* UTC unknown; preserve DC. */
   put32(r3_header+508,crc32(r3_header,508));
-  if(durable_prepare(run,run==3?131072u:run==4?2097152u:12582912u,durable_session,r3_header))return -40;
+  if(durable_prepare(run,run==3?131072u:run==4?2097152u:LONG_FILE_BYTES,durable_session,r3_header))return -40;
   r3_result.sd_lba=durable_status.first_lba;next_lba=r3_result.sd_lba+1;
  }
  memset(&mapper,0,sizeof mapper);fir_decimator10_init(&fir);next_clock=0;
@@ -265,13 +274,14 @@ static int session(uint32_t run,uint32_t duration)
   while(q.count||r3_writer.active){if(writer_step(true))return -20;}
   r3_result.drain_us=(uint32_t)(now()-drain);
   if(r3_result.sd_written!=durable_frame_seq*512u)return -21;
-  memset(durable_footer,0,512);memcpy(durable_footer,"TR2END01",8);put32(durable_footer+8,1);put32(durable_footer+12,1);
+  memset(durable_footer,0,512);memcpy(durable_footer,"TR2END01",8);put32(durable_footer+8,2);put32(durable_footer+12,1);
   durable_put64(durable_footer+16,durable_session);put32(durable_footer+24,r3_result.run);put32(durable_footer+28,r3_result.outputs);
   put32(durable_footer+32,r3_result.accepted);put32(durable_footer+36,durable_frame_seq);put32(durable_footer+40,r3_result.sd_total_bytes);
   put32(durable_footer+44,r3_result.duration_us);put32(durable_footer+48,1);put32(durable_footer+52,0);
   durable_put64(durable_footer+56,durable_first_time);durable_put64(durable_footer+64,durable_last_time);
   put32(durable_footer+72,r3_result.warmup);put32(durable_footer+76,r3_result.rails);put32(durable_footer+80,r3_result.clips);
   put32(durable_footer+84,r3_result.pending_xyz);put32(durable_footer+88,r3_result.first_us);put32(durable_footer+92,r3_result.last_us);
+  durable_put64(durable_footer+128,r3_result.first_us);durable_put64(durable_footer+136,r3_result.last_us);
   memcpy(durable_footer+96,r3_source_sha,32);put32(durable_footer+508,crc32(durable_footer,508));
   if(durable_sector(durable_status.first_lba+durable_status.sectors-1,durable_footer))return -23;
   r3_result.header_written=1;
@@ -282,7 +292,7 @@ static void stack_paint(void){stack_begin=(uintptr_t)&_estack-4096u;stack_end=(_
 static void stack_scan(void){uintptr_t p=stack_begin;while(p<stack_end&&*(volatile uint32_t *)p==0xA53CC35Au)p+=4;r3_result.stack_floor=(uint32_t)(p-stack_begin);r3_result.stack_deepest=p<stack_end?(uint32_t)((uintptr_t)&_estack-p):0;if(p==stack_begin)r3_result.error=91;}
 int main(void)
 {
- r3_result.version=2;r3_result.stage=1;r3_result.uid[0]=HAL_GetUIDw0();r3_result.uid[1]=HAL_GetUIDw1();r3_result.uid[2]=HAL_GetUIDw2();
+ r3_result.version=3;r3_result.stage=1;r3_result.uid[0]=HAL_GetUIDw0();r3_result.uid[1]=HAL_GetUIDw1();r3_result.uid[2]=HAL_GetUIDw2();
  if(r3_result.uid[0]!=0x001b0046||r3_result.uid[1]!=0x38425018||r3_result.uid[2]!=0x20333157)Error_Handler();
  stmdev_ctx_t ctx;BenchClock clock;
  if(HAL_Init()!=HAL_OK)Error_Handler();
@@ -298,14 +308,14 @@ int main(void)
   if(cmd==(MAGIC|1u)&&r3_result.run==0){
    uint8_t who=0;reset_trace();r=iis3dwb_device_id_get(&ctx,&who);r3_result.who=who;
    if(!r&&who==0x7b){r3_result.who_ok=1;r=r3_sd_init(&r3_card);}else r=-91;
-   if(!r){r3_result.sd_sectors=r3_card.sectors;r=durable_mount(&r3_card);if(r==1){uint8_t marker[512];r=sd_spi_read(&r3_card,0,marker);if(!r&&memcmp(marker,"TR2 R2 SPI2 RAW TEST V1",23))r=-92;else if(!r)r3_result.marker_ok=1;}}
+   if(!r){r3_result.sd_sectors=r3_card.sectors;r=durable_mount(&r3_card);if(r==1&&!R3_ENDURANCE_1H){uint8_t marker[512];r=sd_spi_read(&r3_card,0,marker);if(!r&&memcmp(marker,"TR2 R2 SPI2 RAW TEST V1",23))r=-92;else if(!r)r3_result.marker_ok=1;}}
    if(!r){r=calibrate();r3_result.run=1;}
-  }else if(cmd==(MAGIC|0x20u)&&r3_result.run==1&&r3_result.marker_ok&&!durable_status.mounted){r=durable_format();
-  }else if((cmd==(MAGIC|2u)&&r3_result.run==1)||(cmd==(MAGIC|3u)&&r3_result.run==2)||
-    (cmd==(MAGIC|4u)&&r3_result.run==3&&r3_result.header_written)||
-    (cmd==(MAGIC|5u)&&r3_result.run==4&&r3_result.header_written)){
+  }else if(cmd==(MAGIC|0x20u)&&r3_result.run==1&&!R3_ENDURANCE_1H&&r3_result.marker_ok&&!durable_status.mounted){r=durable_format();
+  }else if((cmd==(MAGIC|2u)&&!R3_ENDURANCE_1H&&r3_result.run==1)||(cmd==(MAGIC|3u)&&r3_result.run==(R3_ENDURANCE_1H?1u:2u))||
+    (cmd==(MAGIC|4u)&&!R3_ENDURANCE_1H&&r3_result.run==3&&r3_result.header_written)||
+    (cmd==(MAGIC|5u)&&r3_result.run==(R3_ENDURANCE_1H?3u:4u)&&r3_result.header_written)){
    uint32_t run=cmd&255;
-   if(run>=4&&durable_verify_last(r3_source_sha))r=-41;else r=session(run,run==4?60000000u:run==5?600000000u:2000000u);
+   if(run>=4&&durable_verify_last(r3_source_sha))r=-41;else r=session(run,run==4?60000000u:run==5?LONG_DURATION_US:2000000u);
   }
   if(fifo.running){if(!r)reset_trace();if(fifo_live_stop(&fifo))r=-93;}
   if(r3_writer.active){while(r3_writer.active){if(writer_step(false))break;}}

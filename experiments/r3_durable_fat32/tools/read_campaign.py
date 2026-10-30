@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Read a real .TR2 file using ordinary PC file I/O. Experimental format v1.
+"""Read a real .TR2 file using ordinary PC file I/O. Experimental formats v1/v2 (v2 has full 64-bit source endpoints).
 No raw disk I/O and no writes. Exit0 COMPLETE,2 INCOMPLETE,3 CORRUPT/unsupported.
 Within-block times are linear interpolations of actual endpoints, not asserted
 exact per-sample event timestamps. UTC is unknown; original XYZ/DC is retained.
@@ -16,7 +16,7 @@ def verify(path):
     with path.open('rb') as stream:
         h=stream.read(512)
         require(len(h)==512 and h[:8]==b'TR2DUR01','header missing/unknown magic')
-        require(u32(h,8)==1 and u32(h,12)==512,'unsupported version/header')
+        require(u32(h,8) in (1,2) and u32(h,12)==512,'unsupported version/header')
         require(u32(h,508)==zlib.crc32(h[:508]),'header CRC')
         run=u32(h,16);session=u64(h,152);num=u64(h,136);den=u64(h,144)
         require(3<=run<=5 and num and den and u32(h,124)==8 and u32(h,128)==244 and u32(h,132)==10 and u32(h,160)==78 and u32(h,164)==0,'unsupported profile')
@@ -46,15 +46,19 @@ def verify(path):
         complete=False
         if footer[:8]==b'TR2END01':
             require(len(footer)==512 and u32(footer,508)==zlib.crc32(footer[:508]),'footer CRC')
-            require(u32(footer,8)==1 and u64(footer,16)==session and u32(footer,24)==run,'footer identity/version')
+            require(u32(footer,8)==u32(h,8) and u64(footer,16)==session and u32(footer,24)==run,'footer identity/version')
             require(u32(footer,12)==1 and u32(footer,48)==1 and u32(footer,52)==0,'footer not successful')
             require(u32(footer,28)==count and u32(footer,36)==seq and u32(footer,40)==count*6,'footer counts')
             require(count==(u32(footer,32)+9)//10,'source to output count')
             require((u64(footer,56),u64(footer,64))==(first,last),'footer time endpoints')
             require(footer[96:128]==digest.digest(),'upstream producer SHA mismatch')
             require(not u32(footer,76) and not u32(footer,80) and not flags&6,'rail or clipping in completed capture')
+            if u32(h,8)==2:
+                require(u32(h,20)<=u32(footer,44)<=u32(h,20)+5000,'requested duration not completed')
+                require(u64(footer,128)==u32(footer,88)+((u64(footer,128)>>32)<<32) and u64(footer,136)==u32(footer,92)+((u64(footer,136)>>32)<<32),'source endpoint low word')
+                require(u64(footer,128)==first and u64(footer,136)>=last and u64(footer,136)>=u64(footer,128),'source endpoints')
             complete=True;stop_reason='controlled STOP and full producer digest matched'
-        return dict(status='COMPLETE' if complete else 'INCOMPLETE',path=str(path),file_bytes=size,run=run,session=session,valid_records=seq,valid_xyz=count,payload_bytes=count*6,sha256=digest.hexdigest(),first_output_source_index=0 if count else None,last_output_source_index=(count-1)*10 if count else None,first_time_us=first,last_time_us=last,source_rate_num=num,source_rate_den=den,source_hz=num/den,output_hz=num/den/10,clock_ratio_scope='initial sensor/MCU calibration',observed_duration_us=(last-first if first is not None else None),observed_output_hz_between_endpoints=((count-1)*1000000/(last-first) if count>1 and last>first else None),logical_fs_g=8,sensitivity_ug_per_count=244,dc_preserved=True,quality_or=flags,utc=None,firmware_sha=h[52:92].decode('ascii'),coefficient_sha256=h[92:124].hex(),cid=h[36:52].hex(),uid=[u32(h,24+i*4) for i in range(3)],time_method='Actual DEC8 block endpoints; within-block interpolation approximate, not UTC',stop_reason=stop_reason,durability='CRC-valid sequential matching-session prefix only; physical survival after power loss and maximum lost tail are NOT guaranteed')
+        return dict(format_version=u32(h,8),requested_duration_us=u32(h,20),actual_duration_us=u32(footer,44) if complete else None,first_source_time_us=(u64(footer,128) if u32(h,8)==2 else u32(footer,88)) if complete else None,last_source_time_us=(u64(footer,136) if u32(h,8)==2 else u32(footer,92)) if complete else None,status='COMPLETE' if complete else 'INCOMPLETE',path=str(path),file_bytes=size,run=run,session=session,valid_records=seq,valid_xyz=count,payload_bytes=count*6,sha256=digest.hexdigest(),first_output_source_index=0 if count else None,last_output_source_index=(count-1)*10 if count else None,first_time_us=first,last_time_us=last,source_rate_num=num,source_rate_den=den,source_hz=num/den,output_hz=num/den/10,clock_ratio_scope='initial sensor/MCU calibration',observed_duration_us=(last-first if first is not None else None),observed_output_hz_between_endpoints=((count-1)*1000000/(last-first) if count>1 and last>first else None),logical_fs_g=8,sensitivity_ug_per_count=244,dc_preserved=True,quality_or=flags,utc=None,firmware_sha=h[52:92].decode('ascii'),coefficient_sha256=h[92:124].hex(),cid=h[36:52].hex(),uid=[u32(h,24+i*4) for i in range(3)],time_method='Actual DEC8 block endpoints; within-block interpolation approximate, not UTC',stop_reason=stop_reason,durability='CRC-valid sequential matching-session prefix only; physical survival after power loss and maximum lost tail are NOT guaranteed')
 def samples(path):
     """Yield verified-prefix XYZ with approximate block-interpolated event time.
     Call verify first; quality is an aggregate per block except FIR warmup, whose

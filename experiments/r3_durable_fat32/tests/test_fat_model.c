@@ -5,6 +5,7 @@
 #include "fat_volume.h"
 #include "archive_format.h"
 #include "ff.h"
+#include "endurance_clock.h"
 #include <stdlib.h>
 #include "tr2/common/sha256.h"
 #include "fifo_event_time.h"
@@ -130,13 +131,19 @@ static void group_cases(void)
 }
 int main(int argc,char **argv)
 {
+ /* Exact actual clock accumulator across many DWT wraps, including boot
+  * offset beyond absolute u32 micros and one-hour duration near its bound. */
+ uint64_t elapsed=0;uint32_t previous=0xfffffff0u;
+ for(uint64_t i=1;i<=5400000;i++){uint32_t current=previous+160000u;elapsed=durable_elapsed_cycles(elapsed,current,previous);previous=current;assert(elapsed==i*160000u);}
+ assert(elapsed/160u==5400000000ull&&3600000000ull<UINT32_MAX);
+ assert(((9600000ull+77)/78)*512+1024<72ull*1024*1024);
  assert(argc==3);image=fopen(argv[1],"w+b");assert(image);assert(!fseek(image,62333952L*512-1,SEEK_SET));assert(fputc(0,image)==0);assert(!fflush(image));start();assert(durable_mount(&s)==1);assert(!durable_format());assert(durable_status.mounted&&durable_status.fs_type==FS_FAT32);
- uint8_t header[512];make_header(header);assert(!durable_prepare(3,131072,123456,header));uint32_t base=durable_status.first_lba;
+ uint8_t header[512];make_header(header);assert(!durable_prepare(3,72u*1024u*1024u,123456,header));uint32_t base=durable_status.first_lba;
  uint8_t data[512]={0},packed[6];R3Hash hash;r3_hash_init(&hash);
  for(unsigned i=0;i<78;i++){int16_t xyz[3]={(int16_t)(1000+i),-500,23};for(unsigned a=0;a<3;a++){packed[2*a]=(uint8_t)xyz[a];packed[2*a+1]=(uint8_t)((uint16_t)xyz[a]>>8);}memcpy(data+44+i*6,packed,6);r3_hash_update(&hash,packed,6);}
  durable_record(data,123456,0,0,5000000,5028875,78,1);assert(durable_record_valid(data,123456,0,0));assert(!durable_record_valid(data,123457,0,0));assert(!durable_record_valid(data,123456,1,0));data[55]^=1;assert(!durable_record_valid(data,123456,0,0));data[55]^=1;
- assert(!durable_sector(base+1,data));uint8_t footer[512]={0};memcpy(footer,"TR2END01",8);durable_put32(footer+8,1);durable_put32(footer+12,1);durable_put64(footer+16,123456);durable_put32(footer+24,3);durable_put32(footer+28,78);durable_put32(footer+32,780);durable_put32(footer+36,1);durable_put32(footer+40,468);durable_put32(footer+44,2000000);durable_put32(footer+48,1);durable_put64(footer+56,5000000);durable_put64(footer+64,5028875);r3_hash_finish(&hash,footer+96);durable_put32(footer+508,durable_crc(footer,508));assert(!durable_sector(base+255,footer));assert(!durable_verify_last(footer+96));
- FATFS check;FIL f;assert(f_mount(&check,"0:",1)==FR_OK);assert(f_open(&f,"0:/RUN0003.TR2",FA_READ)==FR_OK&&f_size(&f)==131072);FILE *out=fopen(argv[2],"wb");assert(out);UINT n;
+ assert(!durable_sector(base+1,data));uint8_t footer[512]={0};memcpy(footer,"TR2END01",8);durable_put32(footer+8,1);durable_put32(footer+12,1);durable_put64(footer+16,123456);durable_put32(footer+24,3);durable_put32(footer+28,78);durable_put32(footer+32,780);durable_put32(footer+36,1);durable_put32(footer+40,468);durable_put32(footer+44,2000000);durable_put32(footer+48,1);durable_put64(footer+56,5000000);durable_put64(footer+64,5028875);r3_hash_finish(&hash,footer+96);durable_put32(footer+508,durable_crc(footer,508));assert(!durable_sector(base+72u*1024u*1024u/512u-1,footer));assert(!durable_verify_last(footer+96));
+ FATFS check;FIL f;assert(f_mount(&check,"0:",1)==FR_OK);assert(f_open(&f,"0:/RUN0003.TR2",FA_READ)==FR_OK&&f_size(&f)==72u*1024u*1024u);FILE *out=fopen(argv[2],"wb");assert(out);UINT n;
  do{assert(f_read(&f,data,512,&n)==FR_OK);assert(fwrite(data,1,n,out)==n);}while(n);assert(!fclose(out));assert(f_close(&f)==FR_OK);group_cases();framed_group_busy(150000,1,false);framed_group_busy(500000,1,false);framed_group_busy(151054,19,false);framed_group_busy(500000,19,true);writer_stop_states();framed_busy(150000,1,false);framed_busy(500000,1,false);framed_busy(151054,19,false);framed_busy(500000,19,true);
  /* Existing name is refused, preserving its original file and all media bytes. */
  assert(!durable_mount(&s));unsigned writes=s.writes;assert(durable_prepare(3,131072,123456,header)==-1&&durable_status.error==8&&s.writes==writes);
@@ -144,7 +151,7 @@ int main(int argc,char **argv)
  for(unsigned i=0;i<7;i++){char name[]="0:/FULL0000.BIN";name[10]=(char)('0'+i);assert(f_open(&f,name,FA_WRITE|FA_CREATE_NEW)==FR_OK);assert(f_expand(&f,0xffff0000u,1)==FR_OK);assert(f_close(&f)==FR_OK);}
  DWORD free_clusters;FATFS *full;assert(f_getfree("0:",&free_clusters,&full)==FR_OK);assert(free_clusters&&free_clusters<(0xffffffffu/(full->csize*512u)));
  assert(f_open(&f,"0:/LAST.BIN",FA_WRITE|FA_CREATE_NEW)==FR_OK);assert(f_expand(&f,free_clusters*full->csize*512u,1)==FR_OK);assert(f_close(&f)==FR_OK);
- assert(durable_prepare(4,2097152,123457,header)==-1&&durable_status.error==9);assert(s.writes>=writes);writes=s.writes;
+ writes=s.writes;assert(durable_prepare(4,2097152,123457,header)==-1&&durable_status.error==30);assert(s.writes==writes);writes=s.writes;
  s.cid[0]^=1;assert(durable_mount(&s)==-1&&durable_status.error==1&&!s.write_enabled&&s.writes==writes);
  puts("Real FAT allocation full / duplicate name / wrong CID refuse before capture PASS (MODEL)");assert(!fclose(image));
  puts("ST FatFs format/mount/contiguous expand/sync/close/remount/standard-file-read exact fixture PASS (HOST MODEL ONLY)");return 0;

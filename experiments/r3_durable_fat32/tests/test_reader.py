@@ -20,11 +20,20 @@ with tempfile.TemporaryDirectory() as d:
  for n in [512,513,700,1023,1024,1536,len(b)-512]:check(b[:n],'INCOMPLETE')
  for off in [0,8,124,152,508,512+44,512+40,len(b)-512+96,len(b)-1]:
   c=bytearray(b);c[off]^=1;check(c,'CORRUPT')
- c=bytearray(b);struct.pack_into('<I',c,8,2);crc(c,508);check(c,'CORRUPT')
+ c=bytearray(b);struct.pack_into('<I',c,8,99);crc(c,508);check(c,'CORRUPT')
  # Known CRC but invalid index/timestamp/version are still refused.
  for off,value,fmt in [(516,9,'I'),(544,1,'I'),(528,5029000,'Q'),(550,8,'H')]:
   c=bytearray(b);struct.pack_into('<'+fmt,c,off,value);struct.pack_into('<I',c,552,0);struct.pack_into('<I',c,552,zlib.crc32(c[512:1024]));check(c,'CORRUPT')
  c=bytearray(b);struct.pack_into('<I',c,len(c)-512+40,467);crc(c,len(c)-4,len(c)-512);check(c,'CORRUPT')
+ # Format2 beyond the absolute uint32 microsecond boundary; source/output
+ # endpoints remain exact, with low32 fields explicitly cross-checked.
+ c=bytearray(b);struct.pack_into('<I',c,8,2);struct.pack_into('<I',c,20,3600000000);crc(c,508)
+ t=(1<<32)+5000000
+ struct.pack_into('<QQ',c,528,t,t+28875);struct.pack_into('<I',c,552,0);struct.pack_into('<I',c,552,zlib.crc32(c[512:1024]))
+ f=len(c)-512;struct.pack_into('<I',c,f+8,2);struct.pack_into('<I',c,f+44,3600000000);struct.pack_into('<QQ',c,f+56,t,t+28875)
+ struct.pack_into('<II',c,f+88,t&0xffffffff,(t+29212)&0xffffffff);struct.pack_into('<QQ',c,f+128,t,t+29212);crc(c,len(c)-4,f)
+ check(c,'COMPLETE');p.write_bytes(c);v=m.verify(p);assert v['last_source_time_us']==t+29212 and v['requested_duration_us']==3600000000
+ c[f+136]^=1;crc(c,len(c)-4,f);check(c,'CORRUPT')
  # Missing footer with valid header/data retains exact prefix, never COMPLETE.
  c=bytearray(b);c[-512:]=bytes(512);p.write_bytes(c);r=m.verify(p);assert r['status']=='INCOMPLETE' and r['valid_xyz']==78 and r['sha256']==hashlib.sha256(expected).hexdigest();count+=1
  # A torn data sector without commit is incomplete, not a fake success.
