@@ -1,0 +1,135 @@
+[
+  {
+    "source": "public/START.json",
+    "file": "000-START.json.zlib",
+    "bytes": 688,
+    "sha256": "440711a6db370fc72976c77923ef27e783a275fab4fe1788966a06d0fc4d031d",
+    "stored_sha256": "70f3cd2e038c59c5e4c7f2db02a4933852e048f4d7d1605d90961a7a968f4294"
+  },
+  {
+    "source": "public/OBSERVER.json",
+    "file": "001-OBSERVER.json.zlib",
+    "bytes": 315,
+    "sha256": "345374de12a1569c62deb78772de1510a192ca7beadd0a1bd7fa66adc51789be",
+    "stored_sha256": "2286a7b9da213076989e94425a4b7d5b3aa117db985a7521cddbd8255d6f7e7c"
+  },
+  {
+    "source": "e8-long-initial-ready.json",
+    "file": "002-e8-long-initial-ready.json.zlib",
+    "bytes": 359,
+    "sha256": "e47c93d18ca2c95c835b0246d85ad53d6d40242602baf9e84910c652ea9641ef",
+    "stored_sha256": "f3cea940a3a2540545b3ea323221466896960ad062d3838705453a830073fd8f"
+  },
+  {
+    "source": "e8-long-initial-queries.jsonl",
+    "file": "003-e8-long-initial-queries.jsonl.zlib",
+    "bytes": 3663,
+    "sha256": "171e4458c2a6983a90b8d8c5dfd9a742b05141ce8ef90ace84736b79493aff5d",
+    "stored_sha256": "35b1a8c658ec31c988271f0e6200e017cd4b08ddc5c78908104faae2e1626438"
+  },
+  {
+    "source": "native-long-owner.json",
+    "file": "004-native-long-owner.json.zlib",
+    "bytes": 297,
+    "sha256": "50d94416370424d441f8ec1a36f169dafd2764e0a770753797214e121299176f",
+    "stored_sha256": "ff9151b052649b1e1461b91fad546bccea6e0a041ac2207e647d4356a5ed8840"
+  },
+  {
+    "source": "USB_POWER_POLICY.json",
+    "file": "005-USB_POWER_POLICY.json.zlib",
+    "bytes": 234,
+    "sha256": "0a12acee740ceac0a3e01297bf20449848f95a115a6b7d9e9613bc56386268b1",
+    "stored_sha256": "da45b7deec4a689eae70fb6c2413e96ed9edb83ed01668729bc729a1e5fd5198"
+  },
+  {
+    "source": "power-scheme-before-long.txt",
+    "file": "006-power-scheme-before-long.txt.zlib",
+    "bytes": 16569,
+    "sha256": "f7eba517e730df1eab075c7b323f4d380fbf6963416f833c696ab4bf4e30e411",
+    "stored_sha256": "35ef8245a05c6cf841dc59d03f5d7ad161d568cf852dc9dc22f01c7ebdf2a548"
+  },
+  {
+    "source": "remote-gate.json",
+    "file": "007-remote-gate.json.zlib",
+    "bytes": 34727,
+    "sha256": "d09f7234200922a7f6f74390f12d261168a3f9d6267f5b199da0899bf25d4ac8",
+    "stored_sha256": "4031c1045d131c5bf8e5a78f591be710bae857e0f4190ecf0a303d520070c3d5"
+  },
+  {
+    "source": "read_native_after_run.py",
+    "file": "008-read_native_after_run.py.zlib",
+    "bytes": 1458,
+    "sha256": "c6af83e8980b305cd8cbd0162044028ec90fab4f5d71d5a6339cdd5665484899",
+    "stored_sha256": "90e7217b92d12b4c8af3ff44ad28c476cff9b66a7a925afe3e2f85ef230d6e31"
+  },
+  {
+    "source": "collect_after_terminal.py",
+    "file": "009-collect_after_terminal.py.zlib",
+    "bytes": 1483,
+    "sha256": "38968abd0868cddaef41d72be6ad1384c0142b7fe0f9bad9872490265a40f29e",
+    "stored_sha256": "b5c9bdbc9240fab583b6015aa94e1d56dedc92a718e090261e45a010cf3ffd9f"
+  },
+  {
+    "source": "extract_e8_pc.py",
+    "file": "010-extract_e8_pc.py.zlib",
+    "bytes": 6151,
+    "sha256": "164adbb6f66996716d39ce137718c5967ad3fad9af1fe0bb1e36fc134b1ba12b",
+    "stored_sha256": "6b0d9fd7ece7ce804cce976969a1cf1a6d71f2abe14d9141b195b47a96c390d8"
+  },
+  {
+    "source": "e8_metrics.py",
+    "file": "011-e8_metrics.py.zlib",
+    "bytes": 2548,
+    "sha256": "98c09407124c2042f4d3b867e72f615719832346efc5c668d13661258a44baaa",
+    "stored_sha256": "ab0448b3e2d13aa0bfee28c5eae00815ec2b88d1dbacc714d29a853c28c7349f"
+  },
+  {
+    "source": "package_e8.py",
+    "file": "012-package_e8.py.zlib",
+    "bytes": 2029,
+    "sha256": "f09056b77744ef7aa11a01585a23dde052df60eee5ef5b284acd94b59f47f273",
+    "stored_sha256": "799dabe91b6d9a2fa27052370685575537b5724951cc38c7cfd25e82022311ef"
+  },
+  {
+    "source": "start_detached.py",
+    "file": "013-start_detached.py.zlib",
+    "bytes": 3962,
+    "sha256": "7f541a9b9feca4a984e02f8f85fa1397c539717cb4907d36c614128c24c448e2",
+    "stored_sha256": "ec7fdb26b8992c2a79a5e7846ef3850e6f2c30c9beb8ceb3c43cdd830292d7c6"
+  },
+  {
+    "source": "publish_start.py",
+    "file": "014-publish_start.py.zlib",
+    "bytes": 11447,
+    "sha256": "81f256e09c82e14868c4ff8f35b267436a951009b8082695aa1fa186d1c6e519",
+    "stored_sha256": "26d93c20c111c6d35ac8402b596e24fc504533e2d4c26f73e0b4bad877afadb4"
+  },
+  {
+    "source": "hardware/e8-long-trigger-detach.gdb",
+    "file": "015-e8-long-trigger-detach.gdb.zlib",
+    "bytes": 537,
+    "sha256": "8c912a3b5006db722dc912154d1ad0d6c659e3f9dbaf1bbb5ddd6f2d061d4fd1",
+    "stored_sha256": "aadfaf5f383bd0ac0181db57b5bd403b4336abccb70db4fe2eb2591f0323abeb"
+  },
+  {
+    "source": "hardware/e8-long-trigger-detach.log",
+    "file": "016-e8-long-trigger-detach.log.zlib",
+    "bytes": 1426,
+    "sha256": "6eac141b38ecd4bd8f5304c4f994febb866d52722a24c5c69cb824e1cec226df",
+    "stored_sha256": "92773409620bec378c5c1ead5698f60039b45a9f9832a5246707e310bdf526c4"
+  },
+  {
+    "source": "hardware/e8-long-trigger-detach-server.log",
+    "file": "017-e8-long-trigger-detach-server.log.zlib",
+    "bytes": 674,
+    "sha256": "030ed83bdd9e560371dd4df01fbb2f25a71828a2bd725448cff4a24e6cf46bf2",
+    "stored_sha256": "e10983747cbbc75b0f14ab0523f2c631430b41b31c5be4e954db1768d202b7b5"
+  },
+  {
+    "source": "hardware/e8-long-trigger-detach-invocation.json",
+    "file": "018-e8-long-trigger-detach-invocation.json.zlib",
+    "bytes": 726,
+    "sha256": "f68f72b40bd3faadc1d4d0c11765670e95d913ca1f8af1faf28395ecd3c7e4e6",
+    "stored_sha256": "adc8196af7f4c916b83efabf65d87f532d6e268fe18aeb8b94218cea8ad291a7"
+  }
+]
