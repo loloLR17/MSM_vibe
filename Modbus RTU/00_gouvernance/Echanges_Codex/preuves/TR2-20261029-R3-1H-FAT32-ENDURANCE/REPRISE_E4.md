@@ -20,7 +20,7 @@ allow_debug: true
 
 Les deux fichiers ont été réellement copiés et entièrement vérifiés sur PC : **57 088 872 octets utiles** du run long et **31 554 octets** du gate correspondent exactement aux SHA producteurs sauvegardés avant framing/queue/TX. Six fichiers historiques et TR2INFO.TXT inchangés. Cette preuve d'intégrité ne constitue pas une référence temporelle indépendante : **3600,000743 s nominales MCU observées, 3600 s physiques indépendantes non établies**.
 
-Reprise limitée à E4 selon la note : **aucun accès STM32, aucun flash/debug/reset/START, aucune nouvelle capture, aucun formatage et aucun test/build déjà acquis rejoué.** Publication normale sur main et relecture distante prévues ci-dessous. Aucun geste physique ou accord logiciel supplémentaire demandé pour cette extraction.
+Reprise limitée à E4 selon la note : **aucun accès STM32, aucun flash/debug/reset/START, aucune nouvelle capture, aucun formatage et aucun test/build déjà acquis rejoué.** Publication normale sur main et relecture distante E4 effectivement réalisées, reçus ci-dessous. Aucun geste physique ou accord logiciel supplémentaire demandé pour cette extraction.
 
 ## 1. Référence, périmètre et préservation
 
@@ -133,7 +133,7 @@ Plan minimal : revue A-01 des preuves d'intégrité et de la réserve ; définir
 
 Dépôt historique main82169af propre préservé avec ses divergences, deux stashes6251b98/f3b829e intacts. Préparation `MSM_vibe-R3-1h` conserve ses modifications non commitées ; publication dans `MSM_vibe-R3-1h-publish`/codex/r3-1h-publication basé9e2dec54 après arrivée documentaire seulement, **sans merge/rebase/reset ni travail perdu**. Push normaux explicites vers main ; pas de force push. Les commits de documentation ultérieurs ne changent pas le code physiquea7ca102f.
 
-Publications effectivement relues :01057a5e (69fichiers/39artefacts),01b80c5e (137/105),8d4e2f3e (153/117), puis **9919c0266b655fda1733c17d1e33be94c89b0f36** à07:40:18UTC : **190fichiers entièrement comparés,152artefacts décompressés/re-hachés**, FatFs officiel pristine. Preuves `[software,gate,audit-followup,build-provenance,physical-terminal]` sous `preuves/TR2-20261029-R3-1H-FAT32-ENDURANCE/`, chaque BUNDLE fournit SHA du brut et du zlib. Bilan de ce nouveau point de reprise encore à relire après push ; résultat fourni dans la réponse opérateur, pas un SHA autoréférent.
+Publications effectivement relues :01057a5e (69fichiers/39artefacts),01b80c5e (137/105),8d4e2f3e (153/117), puis **9919c0266b655fda1733c17d1e33be94c89b0f36** à07:40:18UTC : **190fichiers entièrement comparés,152artefacts décompressés/re-hachés**, FatFs officiel pristine. Preuves `[software,gate,audit-followup,build-provenance,physical-terminal]` sous `preuves/TR2-20261029-R3-1H-FAT32-ENDURANCE/`, chaque BUNDLE fournit SHA du brut et du zlib. Le nouveau bilan E4 est relu depuis GitHub ; reçu et portée ci-dessous, sans SHA autoréférent.
 
 Journal ETAT_COURANT_TR2 actualisé : adaptations, gate, terminal sûr, compteurs ; ajout E4 réelle conforme, blocage physique levé, état électrique inconnu et réserve temporelle maintenue. Mission/anciennes archives/dettes/gels préservés ; pas d'archive DONE ni tag prématuré. **BLOCKED signifie désormais réserve de qualification temporelle indépendante, pas attente de transfert ni échec du stockage.**
 
@@ -143,4 +143,10 @@ Journal ETAT_COURANT_TR2 actualisé : adaptations, gate, terminal sûr, compteur
 
 HEAD initial de cette reprise **b1c25830f3d29c26a1d4d6a75ddd8b4ec257f143**, worktree propre neuf `MSM_vibe-R3-1h-E4`/codex/r3-1h-e4 basé sur origin/main. Dépôt historique, préparation et précédent worktree de publication préservés ; aucun merge/rebase/reset. Tous les fichiers firmware/lecteur restent inchangés ; seules preuves et documentation sont publiées. Deux stashes historiques conservés. Aucun test/build rejoué : nouvelles preuves obtenues par extraction réelle, contrôle de copie complète et contrôle des extents publiables.
 
-Rapport et preuves E4 à publier par push normal explicite vers main puis à relire intégralement depuis origin/main récupérée. Le reçu de relecture consigne SHA/heure/fichiers/artefacts ; SHA final communiqué après publication, sans autoréférence. Aucune notification automatique ou qualification indépendante ChatGPT prétendue.
+Rapport et preuves E4 publiés par push normal explicite vers main puis relus intégralement depuis origin/main récupérée. Le reçu de relecture consigne SHA/heure/fichiers/artefacts ; SHA de cette dernière mise à jour communiqué après publication, sans autoréférence. Aucune notification automatique ou qualification indépendante ChatGPT prétendue.
+
+## Publication E4 effectivement contrôlée
+
+**a49ce9e37aab043b6548fe37b684ae61d7263653**, récupéré depuis GitHub et relu le30/10/2026 à08:45:57UTC : **223fichiers intégralement comparés,178artefacts décompressés et re-hachés**, FatFs officiel inchangé. À08:45:58UTC, les header+records/footer provenant des **objets GitHub** ont été reconstruits avec zone inutilisée nulle, puis tous CRC/indices/footer/comptes/SHA utiles réanalysés : gate31554B et capture57088872B conformes aux producteurs. Les limites de la reconstruction vs copiePC originale sont maintenues explicitement.
+
+Reçus publics : `REMOTE_REREAD_a49ce9e3.json` et `REMOTE_E4_CONTENT_a49ce9e3.json` sous le dossier de preuves ; script de contre-vérification distant conservé. Cette mise à jour de rapport/reçus sera à son tour publiée et vérifiée. Statut **BLOCKED sur la seule réserve de qualification temporelle indépendante** maintenu ; blocage du transfert physique levé, intégritéE4 conforme, aucune nouvelle capture. Contrôle indépendant A-01 par ChatGPT distinct de cette relecture opérateur.

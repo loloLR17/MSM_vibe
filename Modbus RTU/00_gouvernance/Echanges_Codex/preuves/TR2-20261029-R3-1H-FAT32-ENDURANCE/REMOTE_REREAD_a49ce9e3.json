@@ -1,0 +1,903 @@
+{
+  "sha": "a49ce9e37aab043b6548fe37b684ae61d7263653",
+  "utc": "2026-10-30T08:45:57.918005+00:00",
+  "source": "GitHub origin/main fetched; all selected objects completely re-read and compared",
+  "all_equal": true,
+  "files_count": 223,
+  "decompressed_artifacts": 178,
+  "upstream_vendor_hashes_exact": true,
+  "files": [
+    {
+      "path": "Modbus RTU/00_gouvernance/ETAT_COURANT_TR2.md",
+      "sha256": "4abf4b48fb7b0bf16891745e757bb02e46cfde731104e42a66cdc37a2f2239c1"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/DERNIER_RAPPORT.md",
+      "sha256": "bd983427665ffa2b3a534754ae3012073f36cafe008daa832468985949b59649"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/MISSION_EN_COURS.md",
+      "sha256": "92d885c079e684eabb06d869a99c5d03bb6cf7a65eec91e37186e683b26df5bc"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-1H-FAT32-ENDURANCE/E4-pc/.gitattributes",
+      "sha256": "4fe517180c8e8a392d6f23114aecd3a1ec0e6f96ce0f671fe7d1ee7b95a323a1"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-1H-FAT32-ENDURANCE/E4-pc/000-E4-reader-discovery.json.zlib",
+      "sha256": "a66c199196deb2e30db28ada39b1caef59d401071781802f74df40a0f3d635f8"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-1H-FAT32-ENDURANCE/E4-pc/001-E4-reader-discovery.stderr.zlib",
+      "sha256": "b171e283c6145acf2b923098dbbc40ffc39b4f1db0212928f9869747376c4ac8"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-1H-FAT32-ENDURANCE/E4-pc/002-E4-drive.json.zlib",
+      "sha256": "433c58dee77a0d94e983e6d5fd38b1e5a9e8cda2e72a80f1b668635fc3c92a30"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-1H-FAT32-ENDURANCE/E4-pc/003-E4-extract.log.zlib",
+      "sha256": "8cda8e1abd2337b1d6e09e8cad607856b9c352eb1a41f4ef4e57201d441f988d"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-1H-FAT32-ENDURANCE/E4-pc/004-E4-copy-exact.json.zlib",
+      "sha256": "0db638f6736d41d13c0c19cd6114108716f184774ee21fdc0ef474f85a4ada02"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-1H-FAT32-ENDURANCE/E4-pc/005-extract_hour_pc_E4.py.zlib",
+      "sha256": "3177304c136da20bb39c49f7767c4a381a9fb6b643da36e33317c1a7c3f9e28d"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-1H-FAT32-ENDURANCE/E4-pc/006-package_E4.py.zlib",
+      "sha256": "0ec85188b1814b0886b76060fca7b3161d8980cf65d7b749929b675a5c81c86a"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-1H-FAT32-ENDURANCE/E4-pc/007-INTEGRITY.json.zlib",
+      "sha256": "8cda8e1abd2337b1d6e09e8cad607856b9c352eb1a41f4ef4e57201d441f988d"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-1H-FAT32-ENDURANCE/E4-pc/008-SUMMARY.csv.zlib",
+      "sha256": "0245f37630c114a54b1756cb54dee5f4d4f0eb132209b31004cd981e215cf906"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-1H-FAT32-ENDURANCE/E4-pc/009-TR2INFO.TXT.zlib",
+      "sha256": "7c034461c9779be0f6f8042dc6dfa8c03f22ffaa5abea2725a0a0744f6218b8d"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-1H-FAT32-ENDURANCE/E4-pc/010-volume.json.zlib",
+      "sha256": "da99858ff4889b99d639984ddeaa50e730cbc0c4b20f3954fb0915b8e7a9e1bd"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-1H-FAT32-ENDURANCE/E4-pc/011-physical-disk.json.zlib",
+      "sha256": "7a5d0d5ca81b050ae8bc631758d535f8097d0088a465a9fef0f97e22a3242fb4"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-1H-FAT32-ENDURANCE/E4-pc/012-files.json.zlib",
+      "sha256": "d3b80b81705802735dc71f64a34109e3da8f9f1ff218522e45e3ac14fc992742"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-1H-FAT32-ENDURANCE/E4-pc/013-H1N0003.TR2.json.zlib",
+      "sha256": "101a097012545683e56fd44d7a78e63cd0137988a2cb8e6718774fb72b18268a"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-1H-FAT32-ENDURANCE/E4-pc/014-H1N0005.TR2.json.zlib",
+      "sha256": "29e2b4e6bdcc7fac6aad6446ea397878d410018117ed2b6074a576c156a0851c"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-1H-FAT32-ENDURANCE/E4-pc/015-H1N0003.TR2.prefix128.csv.zlib",
+      "sha256": "7845c849690d95a7d7cfd7d3e38a10456ed80af813fdb894708e366aad5b083d"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-1H-FAT32-ENDURANCE/E4-pc/016-H1N0005.TR2.prefix128.csv.zlib",
+      "sha256": "885d29ab0b8ca8f1847282dcecd419bab04f427cb0b1987dc1d92eca9b4f45c2"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-1H-FAT32-ENDURANCE/E4-pc/017-EXTENTS.json.zlib",
+      "sha256": "6ed7a6095b670495c8ae956f6cceb7a7ff82cf4cd3b4fdeeeac30bf533d01237"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-1H-FAT32-ENDURANCE/E4-pc/018-H1N0003.TR2.header-records.bin.zlib",
+      "sha256": "14dd0a239fa7a1a60b08d833cd0a40c5cbde1f03b7c1a31578158c48603b8051"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-1H-FAT32-ENDURANCE/E4-pc/019-H1N0003.TR2.footer.bin.zlib",
+      "sha256": "70d0752a6847f76bc563fb9d17945dad0a5b215ac3f9c26e06a85f90d3f5a527"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-1H-FAT32-ENDURANCE/E4-pc/020-H1N0005.TR2.header-records.bin.zlib",
+      "sha256": "f1f7b8623c643d22b942db3df445c92d330037b7b499d3b4ed437cf9c155b1de"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-1H-FAT32-ENDURANCE/E4-pc/021-H1N0005.TR2.footer.bin.zlib",
+      "sha256": "f2d81762ac0149f28cd1fe0c49f917c05c1aee6e0de8db6e409147812897da2b"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-1H-FAT32-ENDURANCE/E4-pc/BUNDLE.json",
+      "sha256": "a97f92bbbad013ff9dad2475ec00be9077b4d357b47364c35d32f0f824e38fed"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-1H-FAT32-ENDURANCE/REMOTE_REREAD_fe0fee13.json",
+      "sha256": "8be124b0f846e4f3f6762838c58ac4835c6e8fe000e397ec5e9d07d346aeb847"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-1H-FAT32-ENDURANCE/REPRISE.md",
+      "sha256": "d1eff25fe0de4e6b9eb1b0e01dcf564b084c818be70919cb150281b910950167"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-1H-FAT32-ENDURANCE/REPRISE_E4.md",
+      "sha256": "bd983427665ffa2b3a534754ae3012073f36cafe008daa832468985949b59649"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-1H-FAT32-ENDURANCE/audit-followup/.gitattributes",
+      "sha256": "4fe517180c8e8a392d6f23114aecd3a1ec0e6f96ce0f671fe7d1ee7b95a323a1"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-1H-FAT32-ENDURANCE/audit-followup/000-clock-audit.json.zlib",
+      "sha256": "bfc1543db3f10074ed12b76e486b2aa06109ad134da49a67a94c3f84cf684f09"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-1H-FAT32-ENDURANCE/audit-followup/001-reader-backward-compatibility.json.zlib",
+      "sha256": "a87b6830ef11e6a1ad91c56e008ebef7d4119e55a1939f5114d3bdfdbfe4c1d3"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-1H-FAT32-ENDURANCE/audit-followup/002-baseline-unchanged.json.zlib",
+      "sha256": "7a88bab5ce8b3f892fcfe50931fc9923e18429b4536e7a91f591e26e107a41f7"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-1H-FAT32-ENDURANCE/audit-followup/003-git-preservation.json.zlib",
+      "sha256": "5a92ec22f17c5e5d8b5795f4c354aa08f301a281b5aec10b1f0791062139ce4e"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-1H-FAT32-ENDURANCE/audit-followup/004-extract_hour_pc.py.zlib",
+      "sha256": "f9d34a0daad1cd92a1552a5cc80337cee70727142c105a270043311290434b17"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-1H-FAT32-ENDURANCE/audit-followup/005-final_metrics.py.zlib",
+      "sha256": "d78a334a72a12ed55a65a8d25955124bd5aa8a3b34b1174135f6aa7399d4aab0"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-1H-FAT32-ENDURANCE/audit-followup/006-remote-gate.json.zlib",
+      "sha256": "a7c25a798b408a1398c046d7da8b5472cf7553d0a960a429d13122372c90f076"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-1H-FAT32-ENDURANCE/audit-followup/BUNDLE.json",
+      "sha256": "a3dda45abf5345646c5f071e3f0737a00bccbcbfcf6a41f603ad5f67f8efb041"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-1H-FAT32-ENDURANCE/build-provenance/.gitattributes",
+      "sha256": "4fe517180c8e8a392d6f23114aecd3a1ec0e6f96ce0f671fe7d1ee7b95a323a1"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-1H-FAT32-ENDURANCE/build-provenance/000-CMakeCache.txt.zlib",
+      "sha256": "d013b618754d3fe120a8bbbacd386ae8e0141d2b88ecf7efaac1b053e824b0c4"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-1H-FAT32-ENDURANCE/build-provenance/001-flags.make.zlib",
+      "sha256": "d653ec76890287ee36e07a7b4171655abfea495a8fe5ad153bb2147a3e9df397"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-1H-FAT32-ENDURANCE/build-provenance/002-link.txt.zlib",
+      "sha256": "90add134d66daa0c79090fd1433464c182f0b6d9df2a3feb6362bf2a01273a18"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-1H-FAT32-ENDURANCE/build-provenance/003-LastTest.log.zlib",
+      "sha256": "267f51a7a0f5e645afa1f8e3e85cc84e36faf85ed6b738450169ca4fae7529cc"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-1H-FAT32-ENDURANCE/build-provenance/004-remote-audit-followup.json.zlib",
+      "sha256": "4193d1735eee64e3f16b399ed00be6685908a0a9313d5e3be8585daf6584c275"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-1H-FAT32-ENDURANCE/build-provenance/BUNDLE.json",
+      "sha256": "79b6e94f2b1d6f5aa2d47a55b675ca08414090bcf8640ca63a2677137dd10fea"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-1H-FAT32-ENDURANCE/gate/.gitattributes",
+      "sha256": "4fe517180c8e8a392d6f23114aecd3a1ec0e6f96ce0f671fe7d1ee7b95a323a1"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-1H-FAT32-ENDURANCE/gate/000-analysis.json.zlib",
+      "sha256": "88b879429eefd721da64da444ed3e1d6352a1bc5fd445eff3522b70c4d5567fd"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-1H-FAT32-ENDURANCE/gate/001-body.gdb.zlib",
+      "sha256": "24b6d1df0c2f7a13b2a013d9b5786d3b351f83fa64b7808f1978403974a50162"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-1H-FAT32-ENDURANCE/gate/002-brackets.bin.zlib",
+      "sha256": "6f70bea6b2f8081af3936a9630f0b97888c99c5c13fc067a296a7ba24fd4a9e3"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-1H-FAT32-ENDURANCE/gate/003-busy-distributions.bin.zlib",
+      "sha256": "7d85d8abf3cc5bd19a8e60311e0f000c3b10d9808f43f30c6437f77c36e949c9"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-1H-FAT32-ENDURANCE/gate/004-card.bin.zlib",
+      "sha256": "dcf4509966fc8478984888db7f61139501cd1ada932c1846c9d35c3d008b138d"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-1H-FAT32-ENDURANCE/gate/005-distributions.bin.zlib",
+      "sha256": "920cfbc1cbda484f5d49cc7727e221f550c7aba4737e27a2b7781757ff032c37"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-1H-FAT32-ENDURANCE/gate/006-durable-footer.bin.zlib",
+      "sha256": "70d0752a6847f76bc563fb9d17945dad0a5b215ac3f9c26e06a85f90d3f5a527"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-1H-FAT32-ENDURANCE/gate/007-durable-status.bin.zlib",
+      "sha256": "d1a797fe4da1f7b83d9789b0cd6d9c2a8650b91e7763064b9bcdbe9066a32e21"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-1H-FAT32-ENDURANCE/gate/008-fifo-stop-payload.bin.zlib",
+      "sha256": "bd8b07ea63c0ff5ed624b737278f9a154dd049ac7a54a15673c93802d14c1dbc"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-1H-FAT32-ENDURANCE/gate/009-fifo-stop-trace.bin.zlib",
+      "sha256": "64d6530608bda85d3033c0845cb10645c842a205c1ae17634a6cad174faa8ee0"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-1H-FAT32-ENDURANCE/gate/010-header.bin.zlib",
+      "sha256": "b3d6a37cd45d4b4bfde0e4e77f773e1920328651cf603ef13154d86b9568d33c"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-1H-FAT32-ENDURANCE/gate/011-outputs.bin.zlib",
+      "sha256": "580fcb16e41dfe5b0812da18a5400f2302726328ba5d81251029bb21a2450fa0"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-1H-FAT32-ENDURANCE/gate/012-raw.bin.zlib",
+      "sha256": "2a7b5d272fec9c191b5d2c8e741ea3c04cf57cec2cc4cc30c4685b55ab7c7f3e"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-1H-FAT32-ENDURANCE/gate/013-records.bin.zlib",
+      "sha256": "54d570b2530f72858ec0703d0eb3a5fbd1810f11c3d40bad3bf6c8e89cdf33b2"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-1H-FAT32-ENDURANCE/gate/014-result.bin.zlib",
+      "sha256": "0ddf479c709c3016f12dc46f94a021b46c94ec9611f5ffbe5ca09e34945f9e0c"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-1H-FAT32-ENDURANCE/gate/015-result.json.zlib",
+      "sha256": "3fcd66c2e2e3a0178ceee3e0d0f6536f329f45264a7fd82f0e4854b28cc425fc"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-1H-FAT32-ENDURANCE/gate/016-sd-distributions.bin.zlib",
+      "sha256": "6f065d82b01dcf2784c859d2145eeb45c0e6b6ba613a02c762cdf7f8c6af6f8e"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-1H-FAT32-ENDURANCE/gate/017-sd-records.bin.zlib",
+      "sha256": "3df6eb5b3e78062db433389087052b6297eb55235face3f678a1bdb55567e0a3"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-1H-FAT32-ENDURANCE/gate/018-single-busy-max.bin.zlib",
+      "sha256": "135aa48e9f6eb6925901d578917614ff691db1c6042144363bcf10158646c1de"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-1H-FAT32-ENDURANCE/gate/019-source-sha.bin.zlib",
+      "sha256": "c0dede402b4a7c95559bef0fa13943820b0223af1ea35ed9323397a718e80b6e"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-1H-FAT32-ENDURANCE/gate/020-sources.bin.zlib",
+      "sha256": "1697907f13fc12108c6c4ced4ed73cafed821eeec32a57ec9a0d237355a1bc95"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-1H-FAT32-ENDURANCE/gate/021-spi2-config.bin.zlib",
+      "sha256": "cb0ffce66135084fd53223be33e6c2145c824cd0f5870bef19a65919b5b48dbf"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-1H-FAT32-ENDURANCE/gate/022-spi3-config.bin.zlib",
+      "sha256": "f3e8f68cb9560f75ad334ed4ba11ed27fdb090d555a83fbd1762e13749265e75"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-1H-FAT32-ENDURANCE/gate/023-body.gdb.zlib",
+      "sha256": "d3ce296ac6988930560d81a6ad2607b029b544ff24409af5806ddb9e25a358a3"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-1H-FAT32-ENDURANCE/gate/024-brackets.bin.zlib",
+      "sha256": "6f70bea6b2f8081af3936a9630f0b97888c99c5c13fc067a296a7ba24fd4a9e3"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-1H-FAT32-ENDURANCE/gate/025-busy-distributions.bin.zlib",
+      "sha256": "62ad0d01b7a6547ef708c84cf09cf5584442db88a309fc183a85edd3e0b3d054"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-1H-FAT32-ENDURANCE/gate/026-card.bin.zlib",
+      "sha256": "3f1d0260cb79899072751690da9a53331952260bd96de9e70ed49b242cd51a62"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-1H-FAT32-ENDURANCE/gate/027-distributions.bin.zlib",
+      "sha256": "7e66fff221b41c64713e9ded334c1d15503d0f127ea47b6d0f59a0facd82621b"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-1H-FAT32-ENDURANCE/gate/028-durable-footer.bin.zlib",
+      "sha256": "f7191fd8edb8005d6ddcac4a03b8e62415cbbcbfadbe85d545d35d8124e697a3"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-1H-FAT32-ENDURANCE/gate/029-durable-status.bin.zlib",
+      "sha256": "97a6a809731a15bcc5c8474da3fcefe67446c0015140705c20275b256b33dfa6"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-1H-FAT32-ENDURANCE/gate/030-fifo-stop-payload.bin.zlib",
+      "sha256": "bd8b07ea63c0ff5ed624b737278f9a154dd049ac7a54a15673c93802d14c1dbc"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-1H-FAT32-ENDURANCE/gate/031-fifo-stop-trace.bin.zlib",
+      "sha256": "4505f75cedd83691912b03a7d8ae3d76aba0414a6554a0616f62cc3af102c68c"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-1H-FAT32-ENDURANCE/gate/032-header.bin.zlib",
+      "sha256": "f7191fd8edb8005d6ddcac4a03b8e62415cbbcbfadbe85d545d35d8124e697a3"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-1H-FAT32-ENDURANCE/gate/033-outputs.bin.zlib",
+      "sha256": "b171e283c6145acf2b923098dbbc40ffc39b4f1db0212928f9869747376c4ac8"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-1H-FAT32-ENDURANCE/gate/034-raw.bin.zlib",
+      "sha256": "78395adc59c2cad2debc7124fc580218eb4a1656349bd522d042df97cc900356"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-1H-FAT32-ENDURANCE/gate/035-records.bin.zlib",
+      "sha256": "b171e283c6145acf2b923098dbbc40ffc39b4f1db0212928f9869747376c4ac8"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-1H-FAT32-ENDURANCE/gate/036-result.bin.zlib",
+      "sha256": "e67884d71e69baffc4902e7c81ce6f0e586bd679dc914512672b7f99c2370fb4"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-1H-FAT32-ENDURANCE/gate/037-result.json.zlib",
+      "sha256": "14b1e938c021663e9019027b3582b246db3bb532ebea262ea999c4e7a9acec42"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-1H-FAT32-ENDURANCE/gate/038-sd-distributions.bin.zlib",
+      "sha256": "62ad0d01b7a6547ef708c84cf09cf5584442db88a309fc183a85edd3e0b3d054"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-1H-FAT32-ENDURANCE/gate/039-sd-records.bin.zlib",
+      "sha256": "b171e283c6145acf2b923098dbbc40ffc39b4f1db0212928f9869747376c4ac8"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-1H-FAT32-ENDURANCE/gate/040-single-busy-max.bin.zlib",
+      "sha256": "611d417cb007ca0eeb6d26c0defe71b887ffbba045a6ec5a0df38861b439baa2"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-1H-FAT32-ENDURANCE/gate/041-source-sha.bin.zlib",
+      "sha256": "97dad41c6e855ad9a44c8acb242698e7cff4a28d8acf92370d3983fc1bd7b6f0"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-1H-FAT32-ENDURANCE/gate/042-sources.bin.zlib",
+      "sha256": "b171e283c6145acf2b923098dbbc40ffc39b4f1db0212928f9869747376c4ac8"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-1H-FAT32-ENDURANCE/gate/043-spi2-config.bin.zlib",
+      "sha256": "cb0ffce66135084fd53223be33e6c2145c824cd0f5870bef19a65919b5b48dbf"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-1H-FAT32-ENDURANCE/gate/044-spi3-config.bin.zlib",
+      "sha256": "f3e8f68cb9560f75ad334ed4ba11ed27fdb090d555a83fbd1762e13749265e75"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-1H-FAT32-ENDURANCE/gate/045-flash_candidate.py.zlib",
+      "sha256": "ba4af1c54baebd04f7ac2cbd4b7b35b87d61268c61e14e96a4bde106202b0de3"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-1H-FAT32-ENDURANCE/gate/046-run_hour.py.zlib",
+      "sha256": "2f9a39902c49291b4f232db6ee4a20c2757b09aaf03bb9f457dec8e090299f76"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-1H-FAT32-ENDURANCE/gate/047-extract_hour_pc.py.zlib",
+      "sha256": "f9d34a0daad1cd92a1552a5cc80337cee70727142c105a270043311290434b17"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-1H-FAT32-ENDURANCE/gate/048-HOUR-LAUNCH.json.zlib",
+      "sha256": "2609c80bc0089c5533674925b1f7e0f0a949b4563181aba316c1859a8ce95cc7"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-1H-FAT32-ENDURANCE/gate/049-remote-software.json.zlib",
+      "sha256": "5edc2813d592bded8606f1e060e47e11366e536987f1650b86bddb13a0bcc38b"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-1H-FAT32-ENDURANCE/gate/050-flash-hour-profile-command.json.zlib",
+      "sha256": "5ca8c533a3af6008846e3a0cce49042c20c58ea8065ad59f9c6b243e951347a8"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-1H-FAT32-ENDURANCE/gate/051-flash-hour-profile.log.zlib",
+      "sha256": "dc77bf4db32f8a722461461bd7e0da208cac7691c52924637ed350c49e6d0cc2"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-1H-FAT32-ENDURANCE/gate/052-qualified-readback-wait.gdb.zlib",
+      "sha256": "b935cf2e94ac7a746eaa3be7f09d06b2d20d24e31367c14228c29b6658a2926a"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-1H-FAT32-ENDURANCE/gate/053-qualified-readback-wait.log.zlib",
+      "sha256": "3d6a4deb3c395b614b842fb17e20d5854bb67346de877928ab3d775fcac99db0"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-1H-FAT32-ENDURANCE/gate/054-qualified-readback-wait-invocation.json.zlib",
+      "sha256": "c2cca2697a5977bd3aee330843465e5ec0f0a4954c699bc7a9145710160142b2"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-1H-FAT32-ENDURANCE/gate/055-qualified-readback-wait-server.log.zlib",
+      "sha256": "2d8b05226ecf2e462974c0ceca6a42996407464d239f05eea268fe9f85ded0de"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-1H-FAT32-ENDURANCE/gate/056-qualified-readback.bin.zlib",
+      "sha256": "d224965b0ed4b82e0c38457f2a54fe434b1f98a277ee5cd77ade63a03ff05f7f"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-1H-FAT32-ENDURANCE/gate/057-identify-calibrate.gdb.zlib",
+      "sha256": "95a3fa2d09f18cdb05d900ac7a41cd5ae16995370dc5e72d76b2402b324e035e"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-1H-FAT32-ENDURANCE/gate/058-identify-calibrate.log.zlib",
+      "sha256": "ae891b4ea479708c8142ca17cd13d949a544a3b7604098c402e5ec8f4a5a1829"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-1H-FAT32-ENDURANCE/gate/059-identify-calibrate-invocation.json.zlib",
+      "sha256": "72e2b943090f19157d493a1b4b2c181a162a2c3b6e7e153040eb863ab86fca8c"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-1H-FAT32-ENDURANCE/gate/060-identify-calibrate-server.log.zlib",
+      "sha256": "e10983747cbbc75b0f14ab0523f2c631430b41b31c5be4e954db1768d202b7b5"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-1H-FAT32-ENDURANCE/gate/061-new-format-gate-2s.gdb.zlib",
+      "sha256": "e4c06df4fc725a2a40f6a76d12bf6cbd9c5e2982a2490a6197257a6c36ec46a4"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-1H-FAT32-ENDURANCE/gate/062-new-format-gate-2s.log.zlib",
+      "sha256": "ea1a62862915af4d5c986283bb4a72f3a75f8eae0c0124848a104ed2942ad675"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-1H-FAT32-ENDURANCE/gate/063-new-format-gate-2s-invocation.json.zlib",
+      "sha256": "212ae6da59bf1dcc323c1ac132de6ee1acf2671757a9a829a64ff83bb22e7ccd"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-1H-FAT32-ENDURANCE/gate/064-new-format-gate-2s-server.log.zlib",
+      "sha256": "e10983747cbbc75b0f14ab0523f2c631430b41b31c5be4e954db1768d202b7b5"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-1H-FAT32-ENDURANCE/gate/065-physical-hour.gdb.zlib",
+      "sha256": "ba50743a935b41ba8853d78843d9423bb30eaf49aef7b2c5dbd4ac826593e874"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-1H-FAT32-ENDURANCE/gate/BUNDLE.json",
+      "sha256": "4dc9e11426cdc04313c9b8bea2b28d956c2e16a3c9410500c56305870d1e4954"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-1H-FAT32-ENDURANCE/physical-terminal/.gitattributes",
+      "sha256": "4fe517180c8e8a392d6f23114aecd3a1ec0e6f96ce0f671fe7d1ee7b95a323a1"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-1H-FAT32-ENDURANCE/physical-terminal/000-analysis.json.zlib",
+      "sha256": "2f833ba061adb295adeacdc4b82b4b498cc085d60c5209ec7b5c4256df1d97c9"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-1H-FAT32-ENDURANCE/physical-terminal/001-body.gdb.zlib",
+      "sha256": "179f7911abcef59723abe77ed8aa04984004892adc77afec240664cc5af7dbd5"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-1H-FAT32-ENDURANCE/physical-terminal/002-brackets.bin.zlib",
+      "sha256": "6f70bea6b2f8081af3936a9630f0b97888c99c5c13fc067a296a7ba24fd4a9e3"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-1H-FAT32-ENDURANCE/physical-terminal/003-busy-distributions.bin.zlib",
+      "sha256": "500a230db9d01982d77578521c819ed90db154b344eaea36857c39b2dc9d8052"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-1H-FAT32-ENDURANCE/physical-terminal/004-card.bin.zlib",
+      "sha256": "57108a5bb1a5b4e9c3284da6bdcfe77523304dc4e156dd6908e73faa82c1e481"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-1H-FAT32-ENDURANCE/physical-terminal/005-distributions.bin.zlib",
+      "sha256": "36e5c1afe62285883230da461916abd50e9cbe012f0a58c5e27c6d31e1a2dc0c"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-1H-FAT32-ENDURANCE/physical-terminal/006-durable-footer.bin.zlib",
+      "sha256": "f2d81762ac0149f28cd1fe0c49f917c05c1aee6e0de8db6e409147812897da2b"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-1H-FAT32-ENDURANCE/physical-terminal/007-durable-status.bin.zlib",
+      "sha256": "52d24c7a631a061a70607f94ccf103c88ede6ed2dcb53685dfa8dd420d4f5bde"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-1H-FAT32-ENDURANCE/physical-terminal/008-fifo-stop-payload.bin.zlib",
+      "sha256": "bd8b07ea63c0ff5ed624b737278f9a154dd049ac7a54a15673c93802d14c1dbc"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-1H-FAT32-ENDURANCE/physical-terminal/009-fifo-stop-trace.bin.zlib",
+      "sha256": "31c52d96a93245fefca7da0f61e64a82c29f3f4f52f9e990b208ee9ee6b75128"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-1H-FAT32-ENDURANCE/physical-terminal/010-header.bin.zlib",
+      "sha256": "0ea57e96d4dac1c78efbeed5b97637a767aa554a8c292b2bbe2b54c0c1dd087a"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-1H-FAT32-ENDURANCE/physical-terminal/011-metrics.json.zlib",
+      "sha256": "da85fadd61c7b95f505321c4c29984e95b56988719915066ad9f3cebba0cdb74"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-1H-FAT32-ENDURANCE/physical-terminal/012-outputs.bin.zlib",
+      "sha256": "4abd1f748018333a2090cb040f415832a5c5c56ecd5e0f759af9bc8bb24cc731"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-1H-FAT32-ENDURANCE/physical-terminal/013-raw.bin.zlib",
+      "sha256": "2284afd155c508ad6a290342bbadded8f98ee76e27907dcf89d1984768e7ac32"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-1H-FAT32-ENDURANCE/physical-terminal/014-records.bin.zlib",
+      "sha256": "6afb84b006acdae654866082205e424ad78a70eec0d3a20e55818d344b2d4c1e"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-1H-FAT32-ENDURANCE/physical-terminal/015-result.bin.zlib",
+      "sha256": "6ac9e2f2557a16875d8954d6daadce6da73881601cf67a056adf8e4c058e6303"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-1H-FAT32-ENDURANCE/physical-terminal/016-result.json.zlib",
+      "sha256": "4d67ddcde2e206c28367949eacab1d19579b96de876a1ee7091a5b0bb3016f65"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-1H-FAT32-ENDURANCE/physical-terminal/017-sd-distributions.bin.zlib",
+      "sha256": "b2f0c7a5a7e21b6bb578b4db6618da772af4d906172d1db71faf75e15df627cb"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-1H-FAT32-ENDURANCE/physical-terminal/018-sd-records.bin.zlib",
+      "sha256": "f9ff62f397f0f664bbc963551bc9834ce0454df45ce0c25f3c9bf22c4db063f9"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-1H-FAT32-ENDURANCE/physical-terminal/019-single-busy-max.bin.zlib",
+      "sha256": "7daaaeebcab4a10b6d951ccbea2862b1c7bc4967c0513e0cc62bd9685c944d26"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-1H-FAT32-ENDURANCE/physical-terminal/020-source-sha.bin.zlib",
+      "sha256": "3abe363cebf90dba65136ac874891726678df42ec75d15726e4d070fabfcc6db"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-1H-FAT32-ENDURANCE/physical-terminal/021-sources.bin.zlib",
+      "sha256": "b7a052439da5c2250786906e3dd970a38c44f6062d9db76eca2a4a9720bcf2e7"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-1H-FAT32-ENDURANCE/physical-terminal/022-spi2-config.bin.zlib",
+      "sha256": "cb0ffce66135084fd53223be33e6c2145c824cd0f5870bef19a65919b5b48dbf"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-1H-FAT32-ENDURANCE/physical-terminal/023-spi3-config.bin.zlib",
+      "sha256": "f3e8f68cb9560f75ad334ed4ba11ed27fdb090d555a83fbd1762e13749265e75"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-1H-FAT32-ENDURANCE/physical-terminal/024-HOUR-TERMINAL.json.zlib",
+      "sha256": "aa6546941faf6dd6428df9dfeed98b17ba43bd1f7ce4f473fa525f393022d4d5"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-1H-FAT32-ENDURANCE/physical-terminal/025-hour-console.log.zlib",
+      "sha256": "fbd1603e91a87809a233f3820735e28d0f1ae9e2f196e716833d206ac64c40ad"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-1H-FAT32-ENDURANCE/physical-terminal/026-wall-clock-discrepancy.json.zlib",
+      "sha256": "8c4419345706b8ef701a2a8200deb6989ef0b55179abfa45d4f9da92820a01e0"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-1H-FAT32-ENDURANCE/physical-terminal/027-host-clock-events.json.zlib",
+      "sha256": "cec01283ed17e3f61d63e88a983cd3c40ed90e3376c9c925dbc3062e314c25d0"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-1H-FAT32-ENDURANCE/physical-terminal/028-host-clock-events.stderr.zlib",
+      "sha256": "b171e283c6145acf2b923098dbbc40ffc39b4f1db0212928f9869747376c4ac8"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-1H-FAT32-ENDURANCE/physical-terminal/029-physical-hour.gdb.zlib",
+      "sha256": "ba50743a935b41ba8853d78843d9423bb30eaf49aef7b2c5dbd4ac826593e874"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-1H-FAT32-ENDURANCE/physical-terminal/030-physical-hour.log.zlib",
+      "sha256": "e7e2c5620103e264e2bbba5cc267965780ab2598dbd878e103dcb67b8cca6a14"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-1H-FAT32-ENDURANCE/physical-terminal/031-physical-hour-server.log.zlib",
+      "sha256": "e10983747cbbc75b0f14ab0523f2c631430b41b31c5be4e954db1768d202b7b5"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-1H-FAT32-ENDURANCE/physical-terminal/032-physical-hour-invocation.json.zlib",
+      "sha256": "610ec7dc969e1e55500f2789812d4df7abc2d4240de9a1ce12ac6248495cc9d8"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-1H-FAT32-ENDURANCE/physical-terminal/033-extract_hour_pc.py.zlib",
+      "sha256": "b2acdac749ebbecf6eb8c5449528fda48c9f42f72107ef3191d75569a804f877"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-1H-FAT32-ENDURANCE/physical-terminal/034-final_metrics.py.zlib",
+      "sha256": "5f27cf2f0780c459d27357059a13f6e583eb02de026fe0db0d9b4581531a8225"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-1H-FAT32-ENDURANCE/physical-terminal/BUNDLE.json",
+      "sha256": "48f164c91379cb776748a5f748b155bd7d52e5a444483a9c73be1e1fa8eeb226"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-1H-FAT32-ENDURANCE/resume/.gitattributes",
+      "sha256": "4fe517180c8e8a392d6f23114aecd3a1ec0e6f96ce0f671fe7d1ee7b95a323a1"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-1H-FAT32-ENDURANCE/resume/000-MCU-SUMMARY.csv.zlib",
+      "sha256": "4ebb67031aedc18c718ab983992209062e51587d7ce17d87a73c06b9842ee27d"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-1H-FAT32-ENDURANCE/resume/001-MCU-SUMMARY.json.zlib",
+      "sha256": "e32b556aa5d6e31cd18db0a3137ca41e7b0ea432956da75164f2e717e9674b8f"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-1H-FAT32-ENDURANCE/resume/002-remote-terminal.json.zlib",
+      "sha256": "65f205aa6fd9f5cd13624da29d5c64df7d37944341daf7e1c4af39b746cf6fde"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-1H-FAT32-ENDURANCE/resume/003-report_waiting_pc.py.zlib",
+      "sha256": "b11add03ff0dd14d7cd6504b3e373123ae8af62beac26fe1140776c2d3749e40"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-1H-FAT32-ENDURANCE/resume/BUNDLE.json",
+      "sha256": "969009780b7c2382dd9ab4742ec4f3e88a7ce8fef2493bcf17f396708a47088b"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-1H-FAT32-ENDURANCE/software/.gitattributes",
+      "sha256": "4fe517180c8e8a392d6f23114aecd3a1ec0e6f96ce0f671fe7d1ee7b95a323a1"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-1H-FAT32-ENDURANCE/software/000-verify_published.py.zlib",
+      "sha256": "e1bca8e185a0dcb374f029a4b11f0af55a865b5726d4f00921409a270b430f3f"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-1H-FAT32-ENDURANCE/software/001-run_capture.py.zlib",
+      "sha256": "89f12897a4fd054f689cf0f1dcca68b7158befd62327c43796ce16f63a1f8f2f"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-1H-FAT32-ENDURANCE/software/002-analyze_capture.py.zlib",
+      "sha256": "07e5b90844c7a8a90f0c3053d5f3adcfdeaf43a687d247fc4b4ff1f40d653081"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-1H-FAT32-ENDURANCE/software/003-preflight_target.py.zlib",
+      "sha256": "fe3bb4e254d621894989297033bfe085e43b6bd5682d4b360442cae37b7b74ad"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-1H-FAT32-ENDURANCE/software/004-hardware_second.py.zlib",
+      "sha256": "60e27958ff3eb880e563b0d50b457f1c33d3c5c3684e7a924af00c35e3da5178"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-1H-FAT32-ENDURANCE/software/005-checkpoint.py.zlib",
+      "sha256": "cb91d9f9492bab2fab9577260a11693df500fc3952f1254ed5d7892d0552ddee"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-1H-FAT32-ENDURANCE/software/006-preflight_pc.py.zlib",
+      "sha256": "024ed8e034787fe9e507ded8eeb9bb46f6713c2c1cc152c0cbae75e9eeb69da6"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-1H-FAT32-ENDURANCE/software/007-host-tests-2.log.zlib",
+      "sha256": "eecc0d0e3b8c6db861d9881343ce5d11bc7fc4123c26c6cb2ecf137987c02156"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-1H-FAT32-ENDURANCE/software/008-host-build.log.zlib",
+      "sha256": "3df8d5cdc3b208c42fca3ffb63d8cec602ebb5efe6fe15e9bdd674a7781e79b3"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-1H-FAT32-ENDURANCE/software/009-host-build-final.log.zlib",
+      "sha256": "bf884e2252b669c49b9bbc83111121acee05b9d54a609b8bfaa626412c3a191f"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-1H-FAT32-ENDURANCE/software/010-arm-build-gate.log.zlib",
+      "sha256": "580e3b24602c31f0333d418375bbd1e2f8061493b33be7366fbb855d61baf108"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-1H-FAT32-ENDURANCE/software/011-arm-build.log.zlib",
+      "sha256": "acb06447438e23019997c5c34b82c72995baf5f813f7e002ecc6056dac4621db"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-1H-FAT32-ENDURANCE/software/012-host-tests-final.log.zlib",
+      "sha256": "74d3db89c1d927245e0d8920ed6e54de7f065bd813fd781667afbe94f106a53b"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-1H-FAT32-ENDURANCE/software/013-host-build-gate.log.zlib",
+      "sha256": "3563b66ba6fd8093f548e4d9d82980c9e75f16c66d848e64f09126a86fc2245b"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-1H-FAT32-ENDURANCE/software/014-host-tests-gate.log.zlib",
+      "sha256": "91311f5bd8a5cc4e55fe966a0e7be9d152a76a440023e564a0896e1ed328187f"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-1H-FAT32-ENDURANCE/software/015-arm-qualified-config.log.zlib",
+      "sha256": "5b0a26fdb3bc117c6d4d0066ed10259a6ed2f24d2cb921cb542ed3cef6750ad0"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-1H-FAT32-ENDURANCE/software/016-canonical-build-2.log.zlib",
+      "sha256": "3f4cd582b32e24506cbec6f8b7f7638b03e1483391e0fcc712968fb2d868fd50"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-1H-FAT32-ENDURANCE/software/017-canonical-build.log.zlib",
+      "sha256": "d99e710ab80bab76ef1e4f6a31753f62129c9c8d47ee1399445f46beb463b04e"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-1H-FAT32-ENDURANCE/software/018-arm-config.log.zlib",
+      "sha256": "0c33af6c7656dd17e237926ee6b6b100823ff75b0cda1efffbc77d261e7ed0dc"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-1H-FAT32-ENDURANCE/software/019-host-build-2.log.zlib",
+      "sha256": "bf884e2252b669c49b9bbc83111121acee05b9d54a609b8bfaa626412c3a191f"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-1H-FAT32-ENDURANCE/software/020-arm-qualified-build.log.zlib",
+      "sha256": "75a6307c157dab5deba3034346b14d929fc0c8c72132ac3d48f2e338ab9ef6f3"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-1H-FAT32-ENDURANCE/software/021-host-tests.log.zlib",
+      "sha256": "4016b527af94ac4a224c01a424381e4ad8b648bf3819d617b294ebdbc2ac1728"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-1H-FAT32-ENDURANCE/software/022-host-config.log.zlib",
+      "sha256": "32d768b22997a0b6856fe7800b0bda64f7ee641814507d21cb6398995a205b3c"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-1H-FAT32-ENDURANCE/software/023-artifact.json.zlib",
+      "sha256": "d4083bc7f312791b9855b7e11ad7d7fac7f7a7d05efd29021cc96d9e397a8808"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-1H-FAT32-ENDURANCE/software/024-disk.json.zlib",
+      "sha256": "7a5d0d5ca81b050ae8bc631758d535f8097d0088a465a9fef0f97e22a3242fb4"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-1H-FAT32-ENDURANCE/software/025-PRESERVATION.json.zlib",
+      "sha256": "96081c6b5cd53553b4c3190575fed30bf58e2f137813981d0888c92618984144"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-1H-FAT32-ENDURANCE/software/026-TR2INFO.TXT.zlib",
+      "sha256": "7c034461c9779be0f6f8042dc6dfa8c03f22ffaa5abea2725a0a0744f6218b8d"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-1H-FAT32-ENDURANCE/software/027-files.json.zlib",
+      "sha256": "9a0dfe24d87d8110cbcfa40c21df9b30c9a163747bf9f8602dba3e92ac00f705"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-1H-FAT32-ENDURANCE/software/028-volume.json.zlib",
+      "sha256": "b59b93edd614f64b517e13dea0eee57b7996177935685902abad53175595b62b"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-1H-FAT32-ENDURANCE/software/029-volumes.json.zlib",
+      "sha256": "e4502a7799cc79bce2838019db68ee097782af98e7ae0a24e802a6d45221d0d8"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-1H-FAT32-ENDURANCE/software/030-preflight-identity-image-who.gdb.zlib",
+      "sha256": "d2d44edd932567ab5ceba657bfeb9a9aaef3b4de179280627b61a237a301b0e2"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-1H-FAT32-ENDURANCE/software/031-preflight-identity-image-who.log.zlib",
+      "sha256": "8c78765f0c487f8d8b177e8ab914a3aec5ad668fb64bf7ed118642bacc8d547f"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-1H-FAT32-ENDURANCE/software/032-preflight-identity-image-who-server.log.zlib",
+      "sha256": "e10983747cbbc75b0f14ab0523f2c631430b41b31c5be4e954db1768d202b7b5"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-1H-FAT32-ENDURANCE/software/033-preflight-flash.bin.zlib",
+      "sha256": "1b28540e8316ab5805a0ed952fac28b3e4de0226c4d2ac4f87ac47b6dd6c5839"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-1H-FAT32-ENDURANCE/software/034-preflight-identity-image-who-invocation.json.zlib",
+      "sha256": "58eb768d7bbe9abdb2ff16e88793cd07f951e767d293f573c33321ed0ef0d7be"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-1H-FAT32-ENDURANCE/software/035-r3_coex.elf.zlib",
+      "sha256": "dad8f67b2765a475c4b7529382cdb8b12e47c035dcbfd45226f39f1983bf44be"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-1H-FAT32-ENDURANCE/software/036-r3_coex.bin.zlib",
+      "sha256": "d224965b0ed4b82e0c38457f2a54fe434b1f98a277ee5cd77ade63a03ff05f7f"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-1H-FAT32-ENDURANCE/software/037-r3_coex.map.zlib",
+      "sha256": "6f468efdf4eb14ed1a5d9e9feee882a948b17d4c2ae2b075b9768208ed053632"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-1H-FAT32-ENDURANCE/software/038-fixture.TR2.zlib",
+      "sha256": "92a75f1a1870af6435e0e8c250147eab671e0c7cc560d0d661ed8448e93d7415"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261029-R3-1H-FAT32-ENDURANCE/software/BUNDLE.json",
+      "sha256": "e8a967aff9036b9542780eb280dc15b5afad52107c1e0532112d2aa96c013bd0"
+    },
+    {
+      "path": "experiments/r3_coex_fifo_fir_sd/src/sd_writer.c",
+      "sha256": "99526ff8890aaa44d0300cc2284ba17d05bfa76cc29a8bd9fa32940587de46f4"
+    },
+    {
+      "path": "experiments/r3_durable_fat32/.gitattributes",
+      "sha256": "9febf1605faeeb639c5f64a597da5a5fdbcdd8f87de86d889d9e9b8c6cc938fe"
+    },
+    {
+      "path": "experiments/r3_durable_fat32/CMakeLists.txt",
+      "sha256": "660876ca1e663e42bb3eb8b54dd8a8678d2c6786472eead87bf32633779908bd"
+    },
+    {
+      "path": "experiments/r3_durable_fat32/ENDURANCE_1H.md",
+      "sha256": "c068c74041fa8688fd597bef9bca8423c780bb4b8f31ef60f317b1d2a57ed470"
+    },
+    {
+      "path": "experiments/r3_durable_fat32/README.md",
+      "sha256": "0d729f0e75a198e1b3b2bf47402126eb9206d818b320a1486dca1cacb1c1e344"
+    },
+    {
+      "path": "experiments/r3_durable_fat32/src/archive_format.c",
+      "sha256": "7bf651781a16b65fa1ccbedd7f5406329794a3ca1d062dba71421c927734f184"
+    },
+    {
+      "path": "experiments/r3_durable_fat32/src/archive_format.h",
+      "sha256": "231dc4d1ebc71945f742ce6a6c3adf7b89282fd9b10cfe6e5b8a826003db46bd"
+    },
+    {
+      "path": "experiments/r3_durable_fat32/src/endurance_clock.h",
+      "sha256": "44cd9bc8d03ddfec64b14b1c1006f8c581300d9e2ae0be6f6e47a89f265b14a3"
+    },
+    {
+      "path": "experiments/r3_durable_fat32/src/fat_volume.c",
+      "sha256": "72da0bcc8a86ed10ab9c77ffdc298e5d9b0f60f5135afbfcbf755ebb1fbdf2f1"
+    },
+    {
+      "path": "experiments/r3_durable_fat32/src/fat_volume.h",
+      "sha256": "e906fe95faeac25f6208c6f7cd8c55e6e468cff117a5d68d56b8b8c2591d47a2"
+    },
+    {
+      "path": "experiments/r3_durable_fat32/src/ffconf.h",
+      "sha256": "8e2599b6fe7296ab2269df6315fa29a2fe36645a98666b2675c86d53e0f58a08"
+    },
+    {
+      "path": "experiments/r3_durable_fat32/src/main.c",
+      "sha256": "0bc733a167c52330b410a90675ef766ad3b936f040ce23e32077ca029205a586"
+    },
+    {
+      "path": "experiments/r3_durable_fat32/src/sd_group.c",
+      "sha256": "2af9204e0f8c9872d31d9ba0fdd4fd86d1f50124bfb4fb3cfb36ce2b3bcada1a"
+    },
+    {
+      "path": "experiments/r3_durable_fat32/src/sd_group.h",
+      "sha256": "ce4e5e0438e6589b54ecafac3afccb7860d19286cf03bcdb798fc86b391beb16"
+    },
+    {
+      "path": "experiments/r3_durable_fat32/tests/test_fat_model.c",
+      "sha256": "f0e3e20020bde15d20b0aa4abb1182a04e344dff83fdea1bdd26232f4f88ef11"
+    },
+    {
+      "path": "experiments/r3_durable_fat32/tests/test_reader.py",
+      "sha256": "76a1d1673203040cb6fc7dec48a8a510c5b2098117119a4f028acb4ec578cc43"
+    },
+    {
+      "path": "experiments/r3_durable_fat32/tools/read_campaign.py",
+      "sha256": "b3c5b68ebac01d86e48a1cea09f10a6c8a3fac9ed3f49dc783449089915a079c"
+    },
+    {
+      "path": "experiments/r3_durable_fat32/vendor/fatfs/LICENSE.md",
+      "sha256": "504402e7f729e3115f0f24a813d080c77a72bbb722967c2508c0cf7b6496ba85"
+    },
+    {
+      "path": "experiments/r3_durable_fat32/vendor/fatfs/PROVENANCE.json",
+      "sha256": "9d6630addf7786c9e77aea58da5bc2570283d438e9f43eb6de0afdb1ed3b4ae3"
+    },
+    {
+      "path": "experiments/r3_durable_fat32/vendor/fatfs/diskio.h",
+      "sha256": "9ad9ea857ea7752cb7dcf2f065899eee3abfeec5039598d28cc3cf2acebcbb86"
+    },
+    {
+      "path": "experiments/r3_durable_fat32/vendor/fatfs/ff.c",
+      "sha256": "4b5694046ff712e5a20de9b5760e85f3bec121ecbfa791f0cf2ef0cf205387ed"
+    },
+    {
+      "path": "experiments/r3_durable_fat32/vendor/fatfs/ff.h",
+      "sha256": "9cf28c0a40260123c3f290692cbc46326a73f00290a740bdd68d1b82fff3bb05"
+    },
+    {
+      "path": "experiments/r3_durable_fat32/vendor/fatfs/ffconf_template.h",
+      "sha256": "add5829629dd40c9c8b76bd5f53e1491475aaa53f0d80c29d262185853d358dc"
+    },
+    {
+      "path": "experiments/r3_durable_fat32/vendor/fatfs/st_license.txt",
+      "sha256": "d5a162f3eaf2b7b6762f00700017cae5695ebbdce7932fead8316448baafd9c1"
+    },
+    {
+      "path": "experiments/r3_durable_fat32/vendor/fatfs/st_readme.txt",
+      "sha256": "3128906b950cc839c1fe831337669963915b8fca275dd4723acfc2dd829cb9c3"
+    }
+  ]
+}

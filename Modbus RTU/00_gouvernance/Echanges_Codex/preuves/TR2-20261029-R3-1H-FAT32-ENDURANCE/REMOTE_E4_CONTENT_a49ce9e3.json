@@ -1,0 +1,28 @@
+{
+  "sha": "a49ce9e37aab043b6548fe37b684ae61d7263653",
+  "utc": "2026-10-30T08:45:58.937847+00:00",
+  "source": "Fetched GitHub objects, actual compressed extents reconstructed and parsed",
+  "all_pass": true,
+  "files": [
+    {
+      "name": "H1N0003.TR2",
+      "all_committed_records_CRC_indices_footer_verified": true,
+      "payload_bytes": 31554,
+      "payload_sha256": "dc2a19be588e2d7d6006e7fd88e3c7824931f7adbcb95148a58551c1b4886a88",
+      "valid_xyz": 5259,
+      "source_firmware_sha": "a7ca102f857310e139d26f52c6332032ca8e9381",
+      "unused_original_tail_not_in_GitHub": true,
+      "reconstructed_is_not_original_PC_file": true
+    },
+    {
+      "name": "H1N0005.TR2",
+      "all_committed_records_CRC_indices_footer_verified": true,
+      "payload_bytes": 57088872,
+      "payload_sha256": "e99b50584536231ff881d15637fb5fd0e6b0170908fb2a3c04f6e457338c7ce1",
+      "valid_xyz": 9514812,
+      "source_firmware_sha": "a7ca102f857310e139d26f52c6332032ca8e9381",
+      "unused_original_tail_not_in_GitHub": true,
+      "reconstructed_is_not_original_PC_file": true
+    }
+  ]
+}
