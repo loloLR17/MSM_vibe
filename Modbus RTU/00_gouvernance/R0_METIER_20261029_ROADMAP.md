@@ -10,9 +10,9 @@
 | **R3-MÉTIER — enregistreur seul** | Pipeline R1 vers microSD R2 avec fichiers versionnés, métadonnées, FRAM et commandes conservées ; contrôle d'arrêt/flush avant retrait physique | **10 min → 1 h → 8 h** de XYZ récupérés après **retrait manuel de carte puis lecture sur PC**, comptés et vérifiés ; défauts/coupures/pleins/absences et préfixes durables documentés ; pas de PC nécessaire pendant capture |
 | **R4-MÉTIER — multi-capteurs et repérage temporel** | Réutilisation Modbus/centrale, identité et localisation des points ; 2 puis jusqu'à 6 appareils, mesures **ponctuelles simultanées ou successives** | Campagnes et phases de fonctionnement comparables par leurs horodatages et contextes ; aucune synchronisation de **phase vibratoire** exigée ; perte d'un appareil n'invalide pas les autres |
 | **R5-MÉTIER — analyse PC** | **Import de fichiers de la microSD retirée**, contrôle d'intégrité, graphiques XYZ, RMS/crêtes/spectres, annotations régimes et comparaison de campagnes | 8h de données importées depuis SD et analysées hors ligne ; format de campagne indépendant du transport en vue de V1.5 ; filtres transparents, anciens historiques inchangés |
+| **R6-MÉTIER — essais navire** | Mesures au PC machine, moteurs/propulseurs et locaux représentatifs, montage et orientation documentés | Au moins une traversée exploitable multi-points, transitions annotées et comparables ; qualification industrielle finale distincte |
 
 **Précision fonctionnelle R5 (30/10/2026) :** [vision d'analyse fréquentielle, spectrogrammes temporels, suivi des raies, exports et préparation des campagnes de référence](R5_METIER_20261030_VISION_ANALYSE_FREQUENTIELLE_CAMPAGNES.md). Cette note de cadrage n'est pas une mission Codex, ne modifie pas le gel historique et ne perturbe pas R3-8H.
-| **R6-MÉTIER — essais navire** | Mesures au PC machine, moteurs/propulseurs et locaux représentatifs, montage et orientation documentés | Au moins une traversée exploitable multi-points, transitions annotées et comparables ; qualification industrielle finale distincte |
 
 ## Réserve explicite V1.5 — réseau IP après la V1
 
