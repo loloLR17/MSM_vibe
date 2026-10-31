@@ -4,7 +4,7 @@ status: IN_PROGRESS
 base_ref: main
 base_sha: 7dcceb510862be2d6a25c2c9fa82d2a2e8741f70
 initial_head: ec42b9e55e30b3dacd8167b9cc085d90794f185a
-result_sha: null
+result_sha: c3cd40ce9e96cef2241fb5bc6e8c83acd2a3824e
 created_at_utc: 2026-10-31T00:15:00.781018+00:00
 author: Codex
 target_branch: main
@@ -42,3 +42,15 @@ Si saturation en fin de campagne : ne pas modifierlesflags ni l'importeur, relev
 ## Préservation et preuves
 
 Répertoire local `/home/lolo/dev/msm/reports/TR2-r3-6h-data-20261031/`, worktreeMSM_vibe-R3-6h-data basé surmainec42, autresworktrees et deuxstashes préservés. OriginauxE8 et onze historiques/Info déjà sauvegardés/contrôlés dans les répertoiresPC antérieurs, **pas de nouveau transfert des530Mo surGitHub**. Preuves compactes soussix-hour/prepare. Journal actualisé avec décision6H et préparation ; contratChatGPT non modifié. Rapport et publication à relire, aucun START revendiqué à ce checkpoint.
+
+## Gate physique et image désormais acquis — avant STARTlong
+
+Préparationlogicielle **c3cd40ce9e96cef2241fb5bc6e8c83acd2a3824e** publiée/relecture72fichiers18artefacts. Reconstruction explicite au SHAcommité, BIN **54552B / b70438c7930ee2d928ec441a71a66ee23305d0fe5a102b2bc29e1453b6925330**, ELF **778e901d6f7989e99c2ced9c78341c21b7817112588f548695b522234061a7fc**. **Un seul flashstandard**, vérificationoutil + readbackBINentierexact, WAIT/UID/SN/clock_fault0/GDBdétaché. Aucunmass-erase niOB/RDP, aucuneFlashTR2-001.
+
+Init réelle : WHO7B/CID0353445344333247858bf0923c01927b/CSD400e00325b590000edc87f800a4040c3,62333952secteurs, FAT32/cluster32768B. Calibration192brackets/6619ancres/résidu39µs. NomsE6N3/E6N5 **absents viaf_openFA_READ/FR_NO_FILE4** ; freeclusters **947703**, suffisants pour20480+4 demandés. Zéroformatage et zéroécriture dans cette vérification. PremieressaiGDB arrêté AVANTI/O car symbole `r3_return` éliminé parlinker ; correction du seulscript versscratchr3_header (réinitialisé parsession), pasderelancecalibration/flash/reset. Logs négatif et positif préservés.
+
+**GateE6N0003 surcible : PASS**, 2000809µsnominalesMCU/52952natifs/5296sorties/31776B utiles,68records/34816B écrits ; rails0/clips0/FIFO-SD-file-tempsfaute0. QPC intérieur **1,0763139s**, même session6755700272993600, séquences20/21 actives puisterminal22/772. SDgroupe déjàacquitté avantACTIVE. Maxwork/service/gap **713,29375 /1319,025 /1577µs**, SDquantum491,6125µs, file5120B, pile1104B, drain9696µs ;103sortiesoracle/préfixe128conservés. DumpRAMaprèsseulementterminal, FIFOoff/filevide/writeroff/CShaute/GDBdétaché ; COM5observateurcourt fermé. Le fichier court doit encore être relu réellement parFatFs+SHA àl'entrée de la commande5, puis auPC après long ; aucunelecturePC actuelle inventée.
+
+Helpers postrun préparés : `read_six_after.py` conserve le résumé natif même en `Terminal error`, calcule séparément la borneQPC sans effacerl'erreur ni assouplir `active_bounds`; `recover_terminal.py` garde le stage/error réel et n'autorise recoveryque stage4/error0 oustage99/error26, FIFOoff/queue0/writeroff/SDsafe/CShaute. Digestproducteur32B àconserver avant toutretrait. En erreur26, le bufferRAMdurable_footer peutencore contenir le pied du **gatecourt** : nepasleconfondreavecunfooterlong ; le secteurfin du nouveaufichier aétéinvalidé avantcapture.
+
+Prochaineaction : publiercegate puisuniqueSTARTlong. Observateur natifWindows passif21601s, contrôleimmédiatd'uneACTIVE/SDack, checkpointléger puis fin effectiveCodex. Durée6H pasencoreacquise, aucun STARTlong encoreannoncé àcecheckpoint.
