@@ -90,3 +90,24 @@ is not physical proof. Read power
 state/ACsleep/hibernate/USB state without modifying protections; user retains
 physical power and must confirm sector power/no manual sleep/reboot duringrun.
 No software power-policy or security exceptions implicit in this profile.
+
+## FASTSTART differential SPI transport, 31/10/2026
+
+After relocation and connector reseat, the unchanged split command/payload
+transport failed FIFO tag checks during calibration, before any SD capture.
+User reports VDD=VDDIO=3.3V; this is a static measurement, not signal integrity.
+The failed burst shows initially valid tags then an apparent one-bit shift.
+This resembles the documented R4-U split failure; it does not establish its cause.
+
+Opt-in **R3_SPI_DUPLEX=ON**, restricted to the explicit 8h profile, selects the
+existing `platform.c` BENCH_DUPLEX path: one HAL_SPI_TransmitReceive frame,
+command then payload with CS low, command RX excluded. Default remains OFF,
+so previous profiles retain their existing transport. No new SPI implementation.
+SPI3 stays8MHz/mode3, SPI2 stays4MHz; quantum64, RXpreclose/OVR/tag/counter/
+timestamp/configuration and1000/2500/5000us guards are unchanged. FIR/gain/FS/
+archivev3/int16/duration/footer quality gate/importer unchanged.
+
+Build and physical calibration/short gate are required for this new combination;
+a previous R4-U success is not R3/FIFO+SD/endurance evidence. Fresh N8D filenames
+preserve N8A/B/C artifacts. Never repair shifted data or relax parity to start.
+No long START without the explicit user signal and a successful current gate.
