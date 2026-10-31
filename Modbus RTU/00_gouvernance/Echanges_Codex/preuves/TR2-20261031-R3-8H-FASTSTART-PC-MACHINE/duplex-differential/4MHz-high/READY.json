@@ -1,0 +1,15 @@
+{
+  "prepared": false,
+  "long_never_started": true,
+  "prefix": "N8D",
+  "reason": "8MHz duplex timestamp incoherence; medium slew no improvement; 4MHz duplex config refusal",
+  "final_stage": 99,
+  "final_error": 1,
+  "final_run": 1,
+  "clock_fault": 0,
+  "volatile_SPI3_restored_to_image_8MHz": true,
+  "SCK_drive_restored_HIGH": true,
+  "FIFO_stopped": true,
+  "SD_CS_high": true,
+  "GDB_detached": true
+}

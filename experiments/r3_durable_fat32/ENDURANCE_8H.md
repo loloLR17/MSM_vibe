@@ -111,3 +111,9 @@ Build and physical calibration/short gate are required for this new combination;
 a previous R4-U success is not R3/FIFO+SD/endurance evidence. Fresh N8D filenames
 preserve N8A/B/C artifacts. Never repair shifted data or relax parity to start.
 No long START without the explicit user signal and a successful current gate.
+
+Differential results (31/10): duplex8MHz passed FIFO timestamp continuity during
+the calibration interval but direct timestamp reads were incoherent, so the
+unchanged100us calibration guard rejected it. SCKMEDIUM8MHz also rejected;
+duplex4MHz rejected configuration before calibration. No8h/gate capture.
+This opt-in remains experimental/unqualified; defaultOFF is retained.

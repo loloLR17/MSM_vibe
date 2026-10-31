@@ -1,0 +1,794 @@
+[
+  {
+    "file": "8MHz-high/OPERATOR_VOLTAGES.json",
+    "original_bytes": 223,
+    "sha256": "3c6954814d31f731a6cced8d9c3f7027f4b5abf4c688cdd345e475764579a360",
+    "zlib": false
+  },
+  {
+    "file": "8MHz-high/PREFLIGHT.json",
+    "original_bytes": 176,
+    "sha256": "4a13766dab2c7abb235765d949660c73bede555bccf47bcc5fbe2f0baa5525aa",
+    "zlib": false
+  },
+  {
+    "file": "8MHz-high/arm/CMakeFiles/r3_coex.dir/flags.make",
+    "original_bytes": 3527,
+    "sha256": "f3bf9ec8c30926be0f33b587d1e5ebd7f6aa3fc0541397ab358015e51e8ac791",
+    "zlib": false
+  },
+  {
+    "file": "8MHz-high/arm/r3_coex.bin",
+    "original_bytes": 53032,
+    "sha256": "889c551f625b9d5d5594b637a535446ed71455fbf46722b469d71cfdd6e43cfe",
+    "zlib": false
+  },
+  {
+    "file": "8MHz-high/artifact.json",
+    "original_bytes": 718,
+    "sha256": "5f9c01a6dd6a637f087625e481e5048fec7e97da259058b6f605b14f5d62ef9c",
+    "zlib": false
+  },
+  {
+    "file": "8MHz-high/build-before-commit.log.zlib",
+    "original_bytes": 8180,
+    "sha256": "6becbb6e2e481e38c65b68b7dec6ab3ec7ff82b2e280e45666b8a7baec1727f5",
+    "zlib": true
+  },
+  {
+    "file": "8MHz-high/build.log.zlib",
+    "original_bytes": 8180,
+    "sha256": "74e74b23c2f1bbd573162188e62e4936015d380980e19a9aa1b337c2ab35bde1",
+    "zlib": true
+  },
+  {
+    "file": "8MHz-high/configure-before-commit.log.zlib",
+    "original_bytes": 594,
+    "sha256": "6dae092d1d6a9b1c42db626b864cc13e5ea0bd718f6ee0dc1c1ef32d23bb5ff4",
+    "zlib": true
+  },
+  {
+    "file": "8MHz-high/configure.log.zlib",
+    "original_bytes": 154,
+    "sha256": "97ef37f50a686a6f015eeb096ea4d71e6321bce0b44065a5620444b8ff1bd2e1",
+    "zlib": true
+  },
+  {
+    "file": "8MHz-high/hardware/N8D-readback-WAIT-invocation.json",
+    "original_bytes": 745,
+    "sha256": "8117627ecb3f5804161cbfd8995237b89dcd41af54b389a09ce0d96cb43327b7",
+    "zlib": false
+  },
+  {
+    "file": "8MHz-high/hardware/N8D-readback-WAIT-server.log.zlib",
+    "original_bytes": 642,
+    "sha256": "aba6686847910134d76be16aaeb48ea8cff54b4318c7e8947f73d76ce3bbcd45",
+    "zlib": true
+  },
+  {
+    "file": "8MHz-high/hardware/N8D-readback-WAIT.gdb",
+    "original_bytes": 655,
+    "sha256": "cb89c579ba0bfc64081877f98c7c5fe77b06180e6271e08d7f49affcb3db3921",
+    "zlib": false
+  },
+  {
+    "file": "8MHz-high/hardware/N8D-readback-WAIT.log.zlib",
+    "original_bytes": 1290,
+    "sha256": "491cc7b8b9f92f3163be035cb86718eb1e4bc5eba38d90adddcf5792c1598372",
+    "zlib": true
+  },
+  {
+    "file": "8MHz-high/hardware/flash-N8D-prepared-command.json",
+    "original_bytes": 525,
+    "sha256": "8341668f893cfe806efbaf0b73f60094bd15fe4a182af47e3fe0c42654d0ee9e",
+    "zlib": false
+  },
+  {
+    "file": "8MHz-high/hardware/flash-N8D-prepared.log.zlib",
+    "original_bytes": 1617,
+    "sha256": "d225b12ca882c7bc22808eaeef7cea06fdd1ee968934051bd96fce440fb01a0f",
+    "zlib": true
+  },
+  {
+    "file": "8MHz-high/hardware/n8d-card-calibrate-invocation.json",
+    "original_bytes": 746,
+    "sha256": "53ccc4db344b44b995332e48698a1ed803ce5d1c9d33a4bf47ab47828c4980eb",
+    "zlib": false
+  },
+  {
+    "file": "8MHz-high/hardware/n8d-card-calibrate-server.log.zlib",
+    "original_bytes": 674,
+    "sha256": "030ed83bdd9e560371dd4df01fbb2f25a71828a2bd725448cff4a24e6cf46bf2",
+    "zlib": true
+  },
+  {
+    "file": "8MHz-high/hardware/n8d-card-calibrate.gdb",
+    "original_bytes": 5312,
+    "sha256": "a05420aeb5e932525f9a44ec6ef30631cfd8ad4dc88a00a4fa31522594d5a807",
+    "zlib": false
+  },
+  {
+    "file": "8MHz-high/hardware/n8d-card-calibrate.log.zlib",
+    "original_bytes": 6126,
+    "sha256": "adec21f8c507ca9a5bce6bd256dd82c5459b13c437b2b3738c5267618db16d5e",
+    "zlib": true
+  },
+  {
+    "file": "8MHz-high/hardware/preflash-identity-safe-N8C-invocation.json",
+    "original_bytes": 754,
+    "sha256": "b86c48f131327c3a59ef8e6200fe6175b8222396a3b66df9839e7ec5a1b3928a",
+    "zlib": false
+  },
+  {
+    "file": "8MHz-high/hardware/preflash-identity-safe-N8C-server.log.zlib",
+    "original_bytes": 674,
+    "sha256": "030ed83bdd9e560371dd4df01fbb2f25a71828a2bd725448cff4a24e6cf46bf2",
+    "zlib": true
+  },
+  {
+    "file": "8MHz-high/hardware/preflash-identity-safe-N8C.gdb",
+    "original_bytes": 631,
+    "sha256": "ca5c3fe0589f2a0241f6f13ac0a93f5c128943c1d1d4897351c736469c481307",
+    "zlib": false
+  },
+  {
+    "file": "8MHz-high/hardware/preflash-identity-safe-N8C.log.zlib",
+    "original_bytes": 257,
+    "sha256": "4726588946838ae68ba02e6c7f2fb05683a38466ce5d6c994b33ac8e08896cf9",
+    "zlib": true
+  },
+  {
+    "file": "8MHz-high/hibernate-policy.txt.zlib",
+    "original_bytes": 718,
+    "sha256": "3812849455c26df899b4a486e02f1fcd8767f9708b102f557dfdd402a710c1e4",
+    "zlib": true
+  },
+  {
+    "file": "8MHz-high/init-card.log.zlib",
+    "original_bytes": 2442,
+    "sha256": "a06ebadee9b9b8418acdc40866cbde7fae4b2cd145ac65285b88dba76cc000c9",
+    "zlib": true
+  },
+  {
+    "file": "8MHz-high/n8d-card-calibrate/brackets.bin.zlib",
+    "original_bytes": 4728,
+    "sha256": "f93ac72c98af808af5de6465d3a33680d3ac23c5f80f147114094befb4274866",
+    "zlib": true
+  },
+  {
+    "file": "8MHz-high/n8d-card-calibrate/busy-distributions.bin.zlib",
+    "original_bytes": 8048,
+    "sha256": "7e6740c91f7c21b361fbb73984f22afef3896b669f9e2a87d31f6e18e9a48432",
+    "zlib": true
+  },
+  {
+    "file": "8MHz-high/n8d-card-calibrate/card.bin.zlib",
+    "original_bytes": 5228,
+    "sha256": "547f7b7326828687a58f16bd0df09c85501d03526d51c410dd49ff9afef1fed4",
+    "zlib": true
+  },
+  {
+    "file": "8MHz-high/n8d-card-calibrate/distributions.bin.zlib",
+    "original_bytes": 80096,
+    "sha256": "ca61cc292aca487b0a45370be2db7dbf6ded99bcc597c934f15ce76b598cb8d3",
+    "zlib": true
+  },
+  {
+    "file": "8MHz-high/n8d-card-calibrate/durable-footer.bin.zlib",
+    "original_bytes": 512,
+    "sha256": "076a27c79e5ace2a3d47f9dd2e83e4ff6ea8872b3c2218f66c92b89b55f36560",
+    "zlib": true
+  },
+  {
+    "file": "8MHz-high/n8d-card-calibrate/durable-status.bin.zlib",
+    "original_bytes": 64,
+    "sha256": "a567e57e1a7f01b45c9bfdee65b727d767193ca4f2b885969262e1fb35519b79",
+    "zlib": true
+  },
+  {
+    "file": "8MHz-high/n8d-card-calibrate/fifo-stop-payload.bin.zlib",
+    "original_bytes": 21,
+    "sha256": "aa447f6b853c0f8a1a88bb148357a7db3894cf51955c2fe110773183232aaad6",
+    "zlib": true
+  },
+  {
+    "file": "8MHz-high/n8d-card-calibrate/fifo-stop-trace.bin.zlib",
+    "original_bytes": 360,
+    "sha256": "ff5a90c26adba9fa1a288e0a735167f87d6c5bd6ade1c5d2af8e4013e8bb68c8",
+    "zlib": true
+  },
+  {
+    "file": "8MHz-high/n8d-card-calibrate/header.bin.zlib",
+    "original_bytes": 512,
+    "sha256": "076a27c79e5ace2a3d47f9dd2e83e4ff6ea8872b3c2218f66c92b89b55f36560",
+    "zlib": true
+  },
+  {
+    "file": "8MHz-high/n8d-card-calibrate/outputs.bin.zlib",
+    "original_bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "zlib": true
+  },
+  {
+    "file": "8MHz-high/n8d-card-calibrate/raw.bin.zlib",
+    "original_bytes": 14336,
+    "sha256": "db37facaa7d52ba78902f7b705c36a5fc0faf3946c0e431e58460a662c7606ec",
+    "zlib": true
+  },
+  {
+    "file": "8MHz-high/n8d-card-calibrate/records.bin.zlib",
+    "original_bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "zlib": true
+  },
+  {
+    "file": "8MHz-high/n8d-card-calibrate/result.bin.zlib",
+    "original_bytes": 296,
+    "sha256": "74fadb5ea6d111139904ec4beb3b28716ea61398922f7678d219357f83a939a4",
+    "zlib": true
+  },
+  {
+    "file": "8MHz-high/n8d-card-calibrate/result.json",
+    "original_bytes": 1330,
+    "sha256": "6a922a71ee35b2c3573b141841cc96ac2b7eb255d45ca50542dd4f7ec5a46719",
+    "zlib": false
+  },
+  {
+    "file": "8MHz-high/n8d-card-calibrate/sd-distributions.bin.zlib",
+    "original_bytes": 8048,
+    "sha256": "7e6740c91f7c21b361fbb73984f22afef3896b669f9e2a87d31f6e18e9a48432",
+    "zlib": true
+  },
+  {
+    "file": "8MHz-high/n8d-card-calibrate/sd-records.bin.zlib",
+    "original_bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "zlib": true
+  },
+  {
+    "file": "8MHz-high/n8d-card-calibrate/single-busy-max.bin.zlib",
+    "original_bytes": 4,
+    "sha256": "df3f619804a92fdb4057192dc43dd748ea778adc52bc498ce80524c014b81119",
+    "zlib": true
+  },
+  {
+    "file": "8MHz-high/n8d-card-calibrate/source-sha.bin.zlib",
+    "original_bytes": 32,
+    "sha256": "66687aadf862bd776c8fc18b8e9f8e20089714856ee233b3902a591d0d5f2925",
+    "zlib": true
+  },
+  {
+    "file": "8MHz-high/n8d-card-calibrate/sources.bin.zlib",
+    "original_bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "zlib": true
+  },
+  {
+    "file": "8MHz-high/n8d-card-calibrate/spi2-config.bin.zlib",
+    "original_bytes": 8,
+    "sha256": "3b94b11cca9c930ed8faedbbf7c18e4fe7caaa1dea53f2d82f702b3b48c847b3",
+    "zlib": true
+  },
+  {
+    "file": "8MHz-high/n8d-card-calibrate/spi3-config.bin.zlib",
+    "original_bytes": 8,
+    "sha256": "7300bf9d3b35a3adf9e9d7736b2afa29919d858ce0131d2a589826cf8d86b315",
+    "zlib": true
+  },
+  {
+    "file": "8MHz-high/native-host.json.zlib",
+    "original_bytes": 794,
+    "sha256": "f24450258808b01d42fa67366f5256fbfeae3dc02d6ea2e306fc2e352a0308e1",
+    "zlib": true
+  },
+  {
+    "file": "8MHz-high/read-host.log.zlib",
+    "original_bytes": 456,
+    "sha256": "b9772072ae30fe1867b903bf39dd821d0a8889fd4168eb9e798cc2f93bf7509b",
+    "zlib": true
+  },
+  {
+    "file": "8MHz-high/sleep-policy.txt.zlib",
+    "original_bytes": 696,
+    "sha256": "6e59cdbc1c2b85c92bb010a1db10695f1b0c7cf61c8d8d83247827fcb1af8466",
+    "zlib": true
+  },
+  {
+    "file": "8MHz-medium/artifact.json",
+    "original_bytes": 718,
+    "sha256": "5f9c01a6dd6a637f087625e481e5048fec7e97da259058b6f605b14f5d62ef9c",
+    "zlib": false
+  },
+  {
+    "file": "8MHz-medium/hardware/D-WAIT-SCK-only-medium-volatile-invocation.json",
+    "original_bytes": 766,
+    "sha256": "e860dc55ecbed01f8775d4866006fee69380ed7364554cabaf97d8f3d03320b1",
+    "zlib": false
+  },
+  {
+    "file": "8MHz-medium/hardware/D-WAIT-SCK-only-medium-volatile-server.log.zlib",
+    "original_bytes": 674,
+    "sha256": "030ed83bdd9e560371dd4df01fbb2f25a71828a2bd725448cff4a24e6cf46bf2",
+    "zlib": true
+  },
+  {
+    "file": "8MHz-medium/hardware/D-WAIT-SCK-only-medium-volatile.gdb",
+    "original_bytes": 634,
+    "sha256": "6ab8e277b84fd9db3eec6b853eeb6fdbb14d36f7c6dc011f345cd6e2a41d0bfa",
+    "zlib": false
+  },
+  {
+    "file": "8MHz-medium/hardware/D-WAIT-SCK-only-medium-volatile.log.zlib",
+    "original_bytes": 279,
+    "sha256": "c8c6c36aa94d6b52040399a34d652384e0579ea1cd8494f7a51ba2fcddf28f13",
+    "zlib": true
+  },
+  {
+    "file": "8MHz-medium/hardware/D-failed-safe-single-software-reset-invocation.json",
+    "original_bytes": 770,
+    "sha256": "930c2508fec588edfaa9eadd8193e49a1f35a45bb77b16dcc607ae573b169245",
+    "zlib": false
+  },
+  {
+    "file": "8MHz-medium/hardware/D-failed-safe-single-software-reset-server.log.zlib",
+    "original_bytes": 674,
+    "sha256": "030ed83bdd9e560371dd4df01fbb2f25a71828a2bd725448cff4a24e6cf46bf2",
+    "zlib": true
+  },
+  {
+    "file": "8MHz-medium/hardware/D-failed-safe-single-software-reset.gdb",
+    "original_bytes": 456,
+    "sha256": "6da043d73cec312c2c46c75080f0bc0c2690bb8cc7ee91cd8e74970f2ac7099c",
+    "zlib": false
+  },
+  {
+    "file": "8MHz-medium/hardware/D-failed-safe-single-software-reset.log.zlib",
+    "original_bytes": 318,
+    "sha256": "da4d21c96aa22b89617d2ea298dde45255328b6b21102005ff26019dec692ffc",
+    "zlib": true
+  },
+  {
+    "file": "8MHz-medium/hardware/n8d-card-calibrate-invocation.json",
+    "original_bytes": 753,
+    "sha256": "7b44612bb014779ae636d6435cf6c5ab8c1896ff3be4710e30cafff8a0067415",
+    "zlib": false
+  },
+  {
+    "file": "8MHz-medium/hardware/n8d-card-calibrate-server.log.zlib",
+    "original_bytes": 674,
+    "sha256": "030ed83bdd9e560371dd4df01fbb2f25a71828a2bd725448cff4a24e6cf46bf2",
+    "zlib": true
+  },
+  {
+    "file": "8MHz-medium/hardware/n8d-card-calibrate.gdb",
+    "original_bytes": 5452,
+    "sha256": "0d9d5dc61bd6d207ef7a322c12ffbc3367bc9d81f9f0da3dfca25465989ed316",
+    "zlib": false
+  },
+  {
+    "file": "8MHz-medium/hardware/n8d-card-calibrate.log.zlib",
+    "original_bytes": 6126,
+    "sha256": "19f1c3c0ecf2403af23726561f568b5a57468466e024101ece811b77f4eeaff7",
+    "zlib": true
+  },
+  {
+    "file": "8MHz-medium/hibernate-policy.txt.zlib",
+    "original_bytes": 718,
+    "sha256": "3812849455c26df899b4a486e02f1fcd8767f9708b102f557dfdd402a710c1e4",
+    "zlib": true
+  },
+  {
+    "file": "8MHz-medium/init-card.log.zlib",
+    "original_bytes": 2470,
+    "sha256": "e449596c55add4489aadd56e7514343006627d0b01a1cbd792aeea571479f12e",
+    "zlib": true
+  },
+  {
+    "file": "8MHz-medium/n8d-card-calibrate/brackets.bin.zlib",
+    "original_bytes": 4728,
+    "sha256": "1393d495ce6c742b37ea1fb68162a2d849a4e688906a990f849ff53ebcd3f388",
+    "zlib": true
+  },
+  {
+    "file": "8MHz-medium/n8d-card-calibrate/busy-distributions.bin.zlib",
+    "original_bytes": 8048,
+    "sha256": "7e6740c91f7c21b361fbb73984f22afef3896b669f9e2a87d31f6e18e9a48432",
+    "zlib": true
+  },
+  {
+    "file": "8MHz-medium/n8d-card-calibrate/card.bin.zlib",
+    "original_bytes": 5228,
+    "sha256": "749aa869889a6391c689578aadfdcbe83fadb0a6b6ce8a65cc0f67799fe2d15c",
+    "zlib": true
+  },
+  {
+    "file": "8MHz-medium/n8d-card-calibrate/distributions.bin.zlib",
+    "original_bytes": 80096,
+    "sha256": "ca61cc292aca487b0a45370be2db7dbf6ded99bcc597c934f15ce76b598cb8d3",
+    "zlib": true
+  },
+  {
+    "file": "8MHz-medium/n8d-card-calibrate/durable-footer.bin.zlib",
+    "original_bytes": 512,
+    "sha256": "076a27c79e5ace2a3d47f9dd2e83e4ff6ea8872b3c2218f66c92b89b55f36560",
+    "zlib": true
+  },
+  {
+    "file": "8MHz-medium/n8d-card-calibrate/durable-status.bin.zlib",
+    "original_bytes": 64,
+    "sha256": "a567e57e1a7f01b45c9bfdee65b727d767193ca4f2b885969262e1fb35519b79",
+    "zlib": true
+  },
+  {
+    "file": "8MHz-medium/n8d-card-calibrate/fifo-stop-payload.bin.zlib",
+    "original_bytes": 21,
+    "sha256": "46717eed0bcacb12fea1cddedca20f4940d3a675f759b2ed2148050b4767ef2b",
+    "zlib": true
+  },
+  {
+    "file": "8MHz-medium/n8d-card-calibrate/fifo-stop-trace.bin.zlib",
+    "original_bytes": 360,
+    "sha256": "a7581267142898fe1bed877dc5255a97b11ebb21cb6105350b3fb215dce12692",
+    "zlib": true
+  },
+  {
+    "file": "8MHz-medium/n8d-card-calibrate/header.bin.zlib",
+    "original_bytes": 512,
+    "sha256": "076a27c79e5ace2a3d47f9dd2e83e4ff6ea8872b3c2218f66c92b89b55f36560",
+    "zlib": true
+  },
+  {
+    "file": "8MHz-medium/n8d-card-calibrate/outputs.bin.zlib",
+    "original_bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "zlib": true
+  },
+  {
+    "file": "8MHz-medium/n8d-card-calibrate/raw.bin.zlib",
+    "original_bytes": 14336,
+    "sha256": "e8bce9bffc103c2d6979cbce05eaef7dd635625d01d66cf081750519d7929d95",
+    "zlib": true
+  },
+  {
+    "file": "8MHz-medium/n8d-card-calibrate/records.bin.zlib",
+    "original_bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "zlib": true
+  },
+  {
+    "file": "8MHz-medium/n8d-card-calibrate/result.bin.zlib",
+    "original_bytes": 296,
+    "sha256": "c6e9413d87e4ac27f188751eb4f17d20a8c9e083aaaad6b6aa7870c55cd2055f",
+    "zlib": true
+  },
+  {
+    "file": "8MHz-medium/n8d-card-calibrate/result.json",
+    "original_bytes": 1330,
+    "sha256": "b5aa077c0563e3b7e2ebcc5eaac389d20ae56411b9c5cf14aa7b6e57e6d54069",
+    "zlib": false
+  },
+  {
+    "file": "8MHz-medium/n8d-card-calibrate/sd-distributions.bin.zlib",
+    "original_bytes": 8048,
+    "sha256": "7e6740c91f7c21b361fbb73984f22afef3896b669f9e2a87d31f6e18e9a48432",
+    "zlib": true
+  },
+  {
+    "file": "8MHz-medium/n8d-card-calibrate/sd-records.bin.zlib",
+    "original_bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "zlib": true
+  },
+  {
+    "file": "8MHz-medium/n8d-card-calibrate/single-busy-max.bin.zlib",
+    "original_bytes": 4,
+    "sha256": "df3f619804a92fdb4057192dc43dd748ea778adc52bc498ce80524c014b81119",
+    "zlib": true
+  },
+  {
+    "file": "8MHz-medium/n8d-card-calibrate/source-sha.bin.zlib",
+    "original_bytes": 32,
+    "sha256": "66687aadf862bd776c8fc18b8e9f8e20089714856ee233b3902a591d0d5f2925",
+    "zlib": true
+  },
+  {
+    "file": "8MHz-medium/n8d-card-calibrate/sources.bin.zlib",
+    "original_bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "zlib": true
+  },
+  {
+    "file": "8MHz-medium/n8d-card-calibrate/spi2-config.bin.zlib",
+    "original_bytes": 8,
+    "sha256": "3b94b11cca9c930ed8faedbbf7c18e4fe7caaa1dea53f2d82f702b3b48c847b3",
+    "zlib": true
+  },
+  {
+    "file": "8MHz-medium/n8d-card-calibrate/spi3-config.bin.zlib",
+    "original_bytes": 8,
+    "sha256": "7300bf9d3b35a3adf9e9d7736b2afa29919d858ce0131d2a589826cf8d86b315",
+    "zlib": true
+  },
+  {
+    "file": "8MHz-medium/native-host.json.zlib",
+    "original_bytes": 794,
+    "sha256": "f24450258808b01d42fa67366f5256fbfeae3dc02d6ea2e306fc2e352a0308e1",
+    "zlib": true
+  },
+  {
+    "file": "8MHz-medium/read-host.log.zlib",
+    "original_bytes": 456,
+    "sha256": "b9772072ae30fe1867b903bf39dd821d0a8889fd4168eb9e798cc2f93bf7509b",
+    "zlib": true
+  },
+  {
+    "file": "8MHz-medium/sleep-policy.txt.zlib",
+    "original_bytes": 696,
+    "sha256": "6e59cdbc1c2b85c92bb010a1db10695f1b0c7cf61c8d8d83247827fcb1af8466",
+    "zlib": true
+  },
+  {
+    "file": "4MHz-high/READY.json",
+    "original_bytes": 410,
+    "sha256": "f1cc3c69d04f5a34f1a6a79150d901297131c38f91e072a0fb9f97886c840653",
+    "zlib": false
+  },
+  {
+    "file": "4MHz-high/artifact.json",
+    "original_bytes": 718,
+    "sha256": "5f9c01a6dd6a637f087625e481e5048fec7e97da259058b6f605b14f5d62ef9c",
+    "zlib": false
+  },
+  {
+    "file": "4MHz-high/hardware/D-WAIT-4MHz-volatile-prescaler-invocation.json",
+    "original_bytes": 763,
+    "sha256": "532a3e9a44fca031b1952d01e52b3aca0a1ca81429b8f69f334c07213ba52999",
+    "zlib": false
+  },
+  {
+    "file": "4MHz-high/hardware/D-WAIT-4MHz-volatile-prescaler-server.log.zlib",
+    "original_bytes": 674,
+    "sha256": "030ed83bdd9e560371dd4df01fbb2f25a71828a2bd725448cff4a24e6cf46bf2",
+    "zlib": true
+  },
+  {
+    "file": "4MHz-high/hardware/D-WAIT-4MHz-volatile-prescaler.gdb",
+    "original_bytes": 758,
+    "sha256": "cc27c77844511e8c9e8ce891a035a1b5a8be4fe2069a3a75496ff27400c78543",
+    "zlib": false
+  },
+  {
+    "file": "4MHz-high/hardware/D-WAIT-4MHz-volatile-prescaler.log.zlib",
+    "original_bytes": 293,
+    "sha256": "1f85c1979b9487c4f581f0a5f3abd6a7687918496c79fb4fa2e1b5e5de49acde",
+    "zlib": true
+  },
+  {
+    "file": "4MHz-high/hardware/D-final-stop-restore-image-SPI-config-invocation.json",
+    "original_bytes": 770,
+    "sha256": "744cbd244717bea1efb4dd5c25aa2cc355a3e0e4c082b85e45e26fefecd09349",
+    "zlib": false
+  },
+  {
+    "file": "4MHz-high/hardware/D-final-stop-restore-image-SPI-config-server.log.zlib",
+    "original_bytes": 674,
+    "sha256": "030ed83bdd9e560371dd4df01fbb2f25a71828a2bd725448cff4a24e6cf46bf2",
+    "zlib": true
+  },
+  {
+    "file": "4MHz-high/hardware/D-final-stop-restore-image-SPI-config.gdb",
+    "original_bytes": 829,
+    "sha256": "acf9c30f2c254ce53f7a070a16f79431466d250dfc92ae45fbc31491739f85d5",
+    "zlib": false
+  },
+  {
+    "file": "4MHz-high/hardware/D-final-stop-restore-image-SPI-config.log.zlib",
+    "original_bytes": 623,
+    "sha256": "0e87b7427f37228488597f55fc64032ef43de59011e2ba4fe47a46b474438f2b",
+    "zlib": true
+  },
+  {
+    "file": "4MHz-high/hardware/D-medium-failed-safe-reset-invocation.json",
+    "original_bytes": 759,
+    "sha256": "8a3ac2eadf3bca0e60b22527f0a69ce93df9547bb1d9e93090d912a5482a3909",
+    "zlib": false
+  },
+  {
+    "file": "4MHz-high/hardware/D-medium-failed-safe-reset-server.log.zlib",
+    "original_bytes": 674,
+    "sha256": "030ed83bdd9e560371dd4df01fbb2f25a71828a2bd725448cff4a24e6cf46bf2",
+    "zlib": true
+  },
+  {
+    "file": "4MHz-high/hardware/D-medium-failed-safe-reset.gdb",
+    "original_bytes": 456,
+    "sha256": "6da043d73cec312c2c46c75080f0bc0c2690bb8cc7ee91cd8e74970f2ac7099c",
+    "zlib": false
+  },
+  {
+    "file": "4MHz-high/hardware/D-medium-failed-safe-reset.log.zlib",
+    "original_bytes": 318,
+    "sha256": "da4d21c96aa22b89617d2ea298dde45255328b6b21102005ff26019dec692ffc",
+    "zlib": true
+  },
+  {
+    "file": "4MHz-high/hardware/n8d-card-calibrate-invocation.json",
+    "original_bytes": 751,
+    "sha256": "9b19de87fa1bf98657e3725956486ac8c45ec730acfb2a34054658c64a3e18f0",
+    "zlib": false
+  },
+  {
+    "file": "4MHz-high/hardware/n8d-card-calibrate-server.log.zlib",
+    "original_bytes": 674,
+    "sha256": "030ed83bdd9e560371dd4df01fbb2f25a71828a2bd725448cff4a24e6cf46bf2",
+    "zlib": true
+  },
+  {
+    "file": "4MHz-high/hardware/n8d-card-calibrate.gdb",
+    "original_bytes": 5412,
+    "sha256": "13c231b8f416233220ef7b20ffef2144dd34afc4507a9fe67267b4c05e140037",
+    "zlib": false
+  },
+  {
+    "file": "4MHz-high/hardware/n8d-card-calibrate.log.zlib",
+    "original_bytes": 6178,
+    "sha256": "b76bf7117eb5f7743153422a92513e41d6d30f5ef5f20ad5867b76e49204887d",
+    "zlib": true
+  },
+  {
+    "file": "4MHz-high/hibernate-policy.txt.zlib",
+    "original_bytes": 718,
+    "sha256": "3812849455c26df899b4a486e02f1fcd8767f9708b102f557dfdd402a710c1e4",
+    "zlib": true
+  },
+  {
+    "file": "4MHz-high/init-card.log.zlib",
+    "original_bytes": 2424,
+    "sha256": "062d2229b0b5a4c03c9b74f26de85eecb6fd9907960e1728410940000c51ddb9",
+    "zlib": true
+  },
+  {
+    "file": "4MHz-high/n8d-card-calibrate/brackets.bin.zlib",
+    "original_bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "zlib": true
+  },
+  {
+    "file": "4MHz-high/n8d-card-calibrate/busy-distributions.bin.zlib",
+    "original_bytes": 8048,
+    "sha256": "7e6740c91f7c21b361fbb73984f22afef3896b669f9e2a87d31f6e18e9a48432",
+    "zlib": true
+  },
+  {
+    "file": "4MHz-high/n8d-card-calibrate/card.bin.zlib",
+    "original_bytes": 5228,
+    "sha256": "fe2c854a59ff8aa470d2d83b6288320d7b745c788e8348f013f77284bd7fdfce",
+    "zlib": true
+  },
+  {
+    "file": "4MHz-high/n8d-card-calibrate/distributions.bin.zlib",
+    "original_bytes": 80096,
+    "sha256": "ca61cc292aca487b0a45370be2db7dbf6ded99bcc597c934f15ce76b598cb8d3",
+    "zlib": true
+  },
+  {
+    "file": "4MHz-high/n8d-card-calibrate/durable-footer.bin.zlib",
+    "original_bytes": 512,
+    "sha256": "076a27c79e5ace2a3d47f9dd2e83e4ff6ea8872b3c2218f66c92b89b55f36560",
+    "zlib": true
+  },
+  {
+    "file": "4MHz-high/n8d-card-calibrate/durable-status.bin.zlib",
+    "original_bytes": 64,
+    "sha256": "a567e57e1a7f01b45c9bfdee65b727d767193ca4f2b885969262e1fb35519b79",
+    "zlib": true
+  },
+  {
+    "file": "4MHz-high/n8d-card-calibrate/fifo-stop-payload.bin.zlib",
+    "original_bytes": 81,
+    "sha256": "fb5be52100fd1641d57f4ebc54c252e27525cbaa00a70591702d15a26fa33f84",
+    "zlib": true
+  },
+  {
+    "file": "4MHz-high/n8d-card-calibrate/fifo-stop-trace.bin.zlib",
+    "original_bytes": 1800,
+    "sha256": "ecf8ea6efbe247cf3c1857f038663270d8de363780b1e88417dffa120e35fb27",
+    "zlib": true
+  },
+  {
+    "file": "4MHz-high/n8d-card-calibrate/header.bin.zlib",
+    "original_bytes": 512,
+    "sha256": "076a27c79e5ace2a3d47f9dd2e83e4ff6ea8872b3c2218f66c92b89b55f36560",
+    "zlib": true
+  },
+  {
+    "file": "4MHz-high/n8d-card-calibrate/outputs.bin.zlib",
+    "original_bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "zlib": true
+  },
+  {
+    "file": "4MHz-high/n8d-card-calibrate/raw.bin.zlib",
+    "original_bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "zlib": true
+  },
+  {
+    "file": "4MHz-high/n8d-card-calibrate/records.bin.zlib",
+    "original_bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "zlib": true
+  },
+  {
+    "file": "4MHz-high/n8d-card-calibrate/result.bin.zlib",
+    "original_bytes": 296,
+    "sha256": "0e8f65ca54865f5f1a4441d36fc55836a14777d87dd6c65ead46744fad4640d5",
+    "zlib": true
+  },
+  {
+    "file": "4MHz-high/n8d-card-calibrate/result.json",
+    "original_bytes": 1292,
+    "sha256": "f5ffba7f7f0530798734680471931304a856b63bc239fbf3609b26ddf90f640b",
+    "zlib": false
+  },
+  {
+    "file": "4MHz-high/n8d-card-calibrate/sd-distributions.bin.zlib",
+    "original_bytes": 8048,
+    "sha256": "7e6740c91f7c21b361fbb73984f22afef3896b669f9e2a87d31f6e18e9a48432",
+    "zlib": true
+  },
+  {
+    "file": "4MHz-high/n8d-card-calibrate/sd-records.bin.zlib",
+    "original_bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "zlib": true
+  },
+  {
+    "file": "4MHz-high/n8d-card-calibrate/single-busy-max.bin.zlib",
+    "original_bytes": 4,
+    "sha256": "df3f619804a92fdb4057192dc43dd748ea778adc52bc498ce80524c014b81119",
+    "zlib": true
+  },
+  {
+    "file": "4MHz-high/n8d-card-calibrate/source-sha.bin.zlib",
+    "original_bytes": 32,
+    "sha256": "66687aadf862bd776c8fc18b8e9f8e20089714856ee233b3902a591d0d5f2925",
+    "zlib": true
+  },
+  {
+    "file": "4MHz-high/n8d-card-calibrate/sources.bin.zlib",
+    "original_bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "zlib": true
+  },
+  {
+    "file": "4MHz-high/n8d-card-calibrate/spi2-config.bin.zlib",
+    "original_bytes": 8,
+    "sha256": "3b94b11cca9c930ed8faedbbf7c18e4fe7caaa1dea53f2d82f702b3b48c847b3",
+    "zlib": true
+  },
+  {
+    "file": "4MHz-high/n8d-card-calibrate/spi3-config.bin.zlib",
+    "original_bytes": 8,
+    "sha256": "017c103191c616491b1e99ff6eb19d31f3ebc9c3d478968b5b13cac0e44f19eb",
+    "zlib": true
+  },
+  {
+    "file": "4MHz-high/native-host.json.zlib",
+    "original_bytes": 794,
+    "sha256": "f24450258808b01d42fa67366f5256fbfeae3dc02d6ea2e306fc2e352a0308e1",
+    "zlib": true
+  },
+  {
+    "file": "4MHz-high/read-host.log.zlib",
+    "original_bytes": 456,
+    "sha256": "b9772072ae30fe1867b903bf39dd821d0a8889fd4168eb9e798cc2f93bf7509b",
+    "zlib": true
+  },
+  {
+    "file": "4MHz-high/sleep-policy.txt.zlib",
+    "original_bytes": 696,
+    "sha256": "6e59cdbc1c2b85c92bb010a1db10695f1b0c7cf61c8d8d83247827fcb1af8466",
+    "zlib": true
+  }
+]

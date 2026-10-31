@@ -1,0 +1,54 @@
+{
+  "operator_static_voltages": {
+    "VDD_V": 3.3,
+    "VDDIO_V": 3.3,
+    "source": "user multimeter report"
+  },
+  "experiments": [
+    {
+      "profile": "8MHz-high",
+      "source": "98457b5aa5c82dc44fe2305225790234654ea2c1",
+      "stage": 99,
+      "error": 7,
+      "fifo_error": 0,
+      "cal_residual_us": 1842816,
+      "cal_brackets": 197,
+      "cal_anchors": 6625,
+      "capture_outputs": 0,
+      "sd_error": 0,
+      "calibration_pass": false
+    },
+    {
+      "profile": "8MHz-medium",
+      "source": "98457b5aa5c82dc44fe2305225790234654ea2c1",
+      "stage": 99,
+      "error": 7,
+      "fifo_error": 0,
+      "cal_residual_us": 214061379,
+      "cal_brackets": 197,
+      "cal_anchors": 6625,
+      "capture_outputs": 0,
+      "sd_error": 0,
+      "calibration_pass": false
+    },
+    {
+      "profile": "4MHz-high",
+      "source": "98457b5aa5c82dc44fe2305225790234654ea2c1",
+      "stage": 99,
+      "error": 1,
+      "fifo_error": 6,
+      "cal_residual_us": 0,
+      "cal_brackets": 0,
+      "cal_anchors": 0,
+      "capture_outputs": 0,
+      "sd_error": 0,
+      "calibration_pass": false
+    }
+  ],
+  "threshold_us_unchanged": 100,
+  "all_rejected": true,
+  "no_SD_capture": true,
+  "no_long_START": true,
+  "final_SPI3_restored_8MHz": true,
+  "final_SCK_slew_HIGH": true
+}

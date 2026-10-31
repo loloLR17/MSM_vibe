@@ -4,7 +4,7 @@ status: BLOCKED
 base_ref: main
 base_sha: f5850ad2de81a6b7639d947d54751305cde3e75b
 initial_head: d5af0828e370780320bda67fac5d537bf3fd5016
-result_sha: 75ea886cdd3ad8d37db3f5573b2e2f07299714e9
+result_sha: 98457b5aa5c82dc44fe2305225790234654ea2c1
 created_at_utc: 2026-10-31T18:24:20.286731+00:00
 author: Codex
 target_branch: main
@@ -13,6 +13,26 @@ allow_push: true
 allow_flash: true
 allow_debug: true
 ---
+
+# 3,3V rapportés et comparaisons SPI — tous refusés, capteur de référence proposé
+
+L'utilisateur rapporte **VDD=3,3V/VDDIO=3,3V** au multimètre. Mesurestatiqueutilisateur, pasqualificationdesfrontsSPI. Investigation ciblée surtracesdéjàsauvées etcode : précédentR4-Udebitshiftapparent avecvoieHALduplexexistante. Ajoutminimum **R3_SPI_DUPLEX** opt-in OFFpardéfaut, limitéauprofil8H ; aucun nouveaupilote, algorithme/gain/FS/ODR/FIR/v3/importeur/contrôleschangés. Codeévalué **98457b5aa5c82dc44fe2305225790234654ea2c1** ; buildsARMciblésréussis, configurationprécommitpuisrebuildSHAcommitépourimageexacte, aucunancienPASSrépété. Validationcanoniqueancienne réutilisée car cibleinchangée ; physique requise avanttouteadoptiondevariante.
+
+[Traces, images et résultats distincts](preuves/TR2-20261031-R3-8H-FASTSTART-PC-MACHINE/duplex-differential/README.md), [synthèse](preuves/TR2-20261031-R3-8H-FASTSTART-PC-MACHINE/duplex-differential/SUMMARY.json).
+
+| Comparaison | Observation réelle | Issue |
+|---|---|---|
+| Duplex8MHz, HIGH, nouveauN8D | BIN53032B/SHA889c551f625b9d5d5594b637a535446ed71455fbf46722b469d71cfdd6e43cfe ; flashstandardunique/readbackexact.6625ancresFIFO/197brackets pendant2s, aucuneerreurFIFO, mais timestampsdirectsincohérents/résidu1842816µs | error7, garde100µsconservée, calibrationrefusée |
+| Mêmeimage8MHz, SCKMEDIUMvolatile | Aprèsunresetlogicieljustifié, PC10OSPEEDR seulHIGH→MEDIUM ; calrésidu214061379µs | error7, garde100µsconservée, aucunbénéficeétabli |
+| Mêmeimageduplex4MHzvolatile/HIGH | Aprèsunsecondresetlogicieljustifié, SPI3désactivéauWAIT/prescalerMBR1(HSI16/4), ODRinchangé | error1/FIFOconfig6 avantcalibration, refus |
+
+AucunSTARTlong ni gateSD ni nouvellecréationfichierN8D pendantcescomparaisons, calibrationscommand1/seulementlecturesSD ; contrôleabsencedesnomsnonatteint. Aucunefaussequalification. Le duplexnepeutpasêtreprésentécommecorrectionphysiquementvalidée. Lesrésultats n'isolentpasune causeexclusivecapteur/nappe/électrique/transport ; pasdepreuveCEM. Touslesrefus etbrutspréservés, pasdebitcorrigé/mesureignorée pourforcerPASS.
+
+**Étatfinalréel : imageDduplex conservée, stage99/run1/error1, FIFOoff/writeroff/SDCShaute, card.failedfalse/clockfault0/GDBdétaché.** Overridesvolatilesrestaurésàl'image (SPI3=8MHz/HIGH) sansreset/flashsupplémentaire ; bootWAITsansautostart. Unflashstandard+deuxresetslogiciels danscettetranche ; pasmass-erase/OptionBytes/format/FRAM/COM4/TR2-001logiciel. READYfalse, BLOCKEDjustifié : aucuneconfigurationtestée n'admetcalibrationetcapturedepréparation.
+
+**Dernièreinstructionutilisateur : emprunterlecapteurdeTR2-001 pourcomparer.** Décisionexpliciteconsignéecommeexceptionlimitéeauprêtphysiquedumodule ; aucuneautorisationdéduitepourflash/debug/FRAMdeTR2-001. Interventiondemandée : deuxbancshorstensionavantretrait, mêmeréférence/connecteursconfirmés, moduleuniquement surTR2-002/nappe/brochage/3,3Vinchangés ; sicompatibilitéincertaine, préciserréférencesavantrecâblage/retoursoustension. ReconnecterSTLINK002seul/CN15off/SDenplace puisconfirmation. Pasdenouvelessaid'ici-là. Reprendresansbuild/flashsiimageDintacte, mêmecondition8MHz/HIGH pourcomparaisonnechangeantquelecapteur. Toutchangementcapteur/pose seratracédansprovenance, pasdéclaréidentiqueaux6h.
+
+Checkpointàpublieretrelirependantlapréparationphysiqueutilisateur. MissionBLOCKEDsurinterventioncomparative, pasDONE niSTART8h. Rubriquessuivanteshistoriquespréservées.
 
 # Après réenfichage utilisateur — défaut reproduit, mesures électriques attendues
 

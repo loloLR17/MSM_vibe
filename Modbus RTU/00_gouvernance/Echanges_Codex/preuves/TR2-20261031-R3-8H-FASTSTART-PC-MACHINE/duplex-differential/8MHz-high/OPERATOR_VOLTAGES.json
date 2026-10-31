@@ -1,0 +1,8 @@
+{
+  "utc_recorded": "2026-10-31T21:59:49.096423+00:00",
+  "source": "user reported multimeter readings",
+  "VDD_V": 3.3,
+  "VDDIO_V": 3.3,
+  "static_only": true,
+  "no_dynamic_signal_integrity_or_scope_measurement": true
+}
