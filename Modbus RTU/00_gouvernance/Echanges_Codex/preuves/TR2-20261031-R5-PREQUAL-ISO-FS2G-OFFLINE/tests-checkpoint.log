@@ -1,0 +1,10 @@
+test_frequency_response_against_closed_form (test_prequal.NumericalTests.test_frequency_response_against_closed_form) ... ok
+test_histogram_quantiles_exact_and_null (test_prequal.NumericalTests.test_histogram_quantiles_exact_and_null) ... ok
+test_offset_gravity_and_quality (test_prequal.NumericalTests.test_offset_gravity_and_quality) ... ok
+test_sines_multitone_am_fm_parseval_independent (test_prequal.NumericalTests.test_sines_multitone_am_fm_parseval_independent) ... ok
+test_stream_chunk_invariance_and_energy_pooling (test_prequal.NumericalTests.test_stream_chunk_invariance_and_energy_pooling) ... ok
+
+----------------------------------------------------------------------
+Ran 5 tests in 0.323s
+
+OK
