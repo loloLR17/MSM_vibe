@@ -1,0 +1,8 @@
+{
+  "reason": "Normalize generated text preview to repository LF after git diff --check reported CRLF trailing-whitespace. Original view preserved compressed; no binary dataset changes.",
+  "original_CRLF_file": "PREVIEW_ORIGINAL_CRLF.csv.zlib",
+  "original_CRLF_SHA256": "4c198361711791016cfcbfce1edefdf8904dc2e9292b28b640946844139630bf",
+  "canonical_LF_SHA256": "647a4ffcdcd98f99c64d72acf6e7d2180f4dcae4c3cc3ba2dd83429aafa845e4",
+  "rows_and_values_identical": true,
+  "rows_including_header": 501
+}
