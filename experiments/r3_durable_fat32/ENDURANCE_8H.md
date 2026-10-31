@@ -117,3 +117,22 @@ the calibration interval but direct timestamp reads were incoherent, so the
 unchanged100us calibration guard rejected it. SCKMEDIUM8MHz also rejected;
 duplex4MHz rejected configuration before calibration. No8h/gate capture.
 This opt-in remains experimental/unqualified; defaultOFF is retained.
+
+## Rewired sensor, 01/11 local: guarded4MHz duplex candidate
+
+User replaced the sensor leads only; SD leads are unchanged and the sensor is
+still borrowed from TR2-001. ExactN8A now refuses WHO0x7A at8MHz. Read-only
+comparisons show16/16 WHO0x7B at1MHz and4MHz, with wrong reads recurring on
+return8MHz. This establishes a rate-dependent read failure in the observed
+setup, not a unique electrical/software cause or continuous4MHz qualification.
+
+`R3_SPI3_DIVIDER=4` selects existing platform prescaler4 from HSI16MHz. It
+requires the explicit8H+duplex flags; default2 keeps8MHz and older profiles.
+No new transport, signal-processing change, frame-format change or guard
+relaxation. SensorODR remains26.7kXYZ/s, FIR107/Q15/10/244ug nominal/FS8g
+unchanged. New namesN8E0003/5, absence/CID/free checked before any newwrite.
+
+Build, calibration, boundedFIFO+SD gate with1000/2500/5000us limits and full
+file readback are mandatory before READY. Earlier4MHz split overflow remains
+a negative reference; WHO success cannot qualify acquisition throughput.
+No automatic long START or gain/band/sample-rate reduction is permitted.
