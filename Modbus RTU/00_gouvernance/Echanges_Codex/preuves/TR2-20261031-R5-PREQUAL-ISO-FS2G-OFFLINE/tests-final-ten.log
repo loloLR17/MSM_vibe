@@ -1,0 +1,15 @@
+test_artifact_audit_idempotence_and_refusal (test_catalog.CatalogTests.test_artifact_audit_idempotence_and_refusal) ... ok
+test_inplace_existing_foreign_and_conflict_refused (test_catalog.CatalogTests.test_inplace_existing_foreign_and_conflict_refused) ... ok
+test_safe_copy_history_and_double_import (test_catalog.CatalogTests.test_safe_copy_history_and_double_import) ... ok
+test_frequency_response_against_closed_form (test_prequal.NumericalTests.test_frequency_response_against_closed_form) ... ok
+test_histogram_quantiles_exact_and_null (test_prequal.NumericalTests.test_histogram_quantiles_exact_and_null) ... ok
+test_offset_gravity_and_quality (test_prequal.NumericalTests.test_offset_gravity_and_quality) ... ok
+test_sines_multitone_am_fm_parseval_independent (test_prequal.NumericalTests.test_sines_multitone_am_fm_parseval_independent) ... ok
+test_stream_chunk_invariance_and_energy_pooling (test_prequal.NumericalTests.test_stream_chunk_invariance_and_energy_pooling) ... ok
+test_quantizer_known_analogue_bound_and_clip (test_resolution.ResolutionTests.test_quantizer_known_analogue_bound_and_clip) ... ok
+test_requantization_cannot_create_information (test_resolution.ResolutionTests.test_requantization_cannot_create_information) ... ok
+
+----------------------------------------------------------------------
+Ran 10 tests in 0.331s
+
+OK

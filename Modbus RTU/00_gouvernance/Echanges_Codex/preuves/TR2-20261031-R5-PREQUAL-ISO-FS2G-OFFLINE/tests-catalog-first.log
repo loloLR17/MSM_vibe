@@ -1,0 +1,26 @@
+test_catalog (unittest.loader._FailedTest.test_catalog) ... ERROR
+test_frequency_response_against_closed_form (test_prequal.NumericalTests.test_frequency_response_against_closed_form) ... ok
+test_histogram_quantiles_exact_and_null (test_prequal.NumericalTests.test_histogram_quantiles_exact_and_null) ... ok
+test_offset_gravity_and_quality (test_prequal.NumericalTests.test_offset_gravity_and_quality) ... ok
+test_sines_multitone_am_fm_parseval_independent (test_prequal.NumericalTests.test_sines_multitone_am_fm_parseval_independent) ... ok
+test_stream_chunk_invariance_and_energy_pooling (test_prequal.NumericalTests.test_stream_chunk_invariance_and_energy_pooling) ... ok
+
+======================================================================
+ERROR: test_catalog (unittest.loader._FailedTest.test_catalog)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: test_catalog
+Traceback (most recent call last):
+  File "/usr/lib/python3.13/unittest/loader.py", line 396, in _find_test_path
+    module = self._get_module_from_name(name)
+  File "/usr/lib/python3.13/unittest/loader.py", line 339, in _get_module_from_name
+    __import__(name)
+    ~~~~~~~~~~^^^^^^
+  File "/home/lolo/dev/msm/projects/MSM_vibe-R5-prequal/experiments/r5_prequal_offline/test_catalog.py", line 3, in <module>
+    from catalog import create_copy,import_results,readonly,fingerprints
+ImportError: cannot import name 'create_copy' from 'catalog' (/home/lolo/dev/msm/projects/MSM_vibe-R5-prequal/experiments/r5_campaign_analysis/catalog.py)
+
+
+----------------------------------------------------------------------
+Ran 6 tests in 0.352s
+
+FAILED (errors=1)

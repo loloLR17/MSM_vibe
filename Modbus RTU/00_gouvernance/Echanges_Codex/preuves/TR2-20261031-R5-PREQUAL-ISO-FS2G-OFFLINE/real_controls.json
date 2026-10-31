@@ -1,0 +1,3170 @@
+[
+  {
+    "method_id": "9976afda2529c6e57f4f6147ae728158ab4b9fceba98bbbf21daa357f5f57303",
+    "name": "BAND_1_2",
+    "clock": "MCU",
+    "start_mcu_s": 19800,
+    "width_s": 120,
+    "causal_rms": [
+      0.11970940847577813,
+      0.09446434213941562,
+      0.22803414314391712
+    ],
+    "independent_fft_rms": [
+      0.11970940847642227,
+      0.09446434214203062,
+      0.22803414316892287
+    ],
+    "relative_error": 1.0965783836525134e-10,
+    "limit_relative": 0.001,
+    "parseval_relative_error": 6.816769371198461e-14,
+    "parseval_limit": 1e-12,
+    "passed": true
+  },
+  {
+    "method_id": "9976afda2529c6e57f4f6147ae728158ab4b9fceba98bbbf21daa357f5f57303",
+    "name": "BAND_1_2",
+    "clock": "MCU",
+    "start_mcu_s": 19800,
+    "width_s": 60,
+    "causal_rms": [
+      0.12028154436588116,
+      0.0909538464107422,
+      0.2513951953770348
+    ],
+    "independent_fft_rms": [
+      0.12028154436653005,
+      0.09095384640826132,
+      0.2513951953814699
+    ],
+    "relative_error": 2.727618131359577e-11,
+    "limit_relative": 0.001,
+    "parseval_relative_error": 6.816769371198461e-14,
+    "parseval_limit": 1e-12,
+    "passed": true
+  },
+  {
+    "method_id": "9976afda2529c6e57f4f6147ae728158ab4b9fceba98bbbf21daa357f5f57303",
+    "name": "BAND_1_2",
+    "clock": "MCU",
+    "start_mcu_s": 19860,
+    "width_s": 60,
+    "causal_rms": [
+      0.11913456105273675,
+      0.09784876565548725,
+      0.20199083609798782
+    ],
+    "independent_fft_rms": [
+      0.1191345610533739,
+      0.09784876566284126,
+      0.20199083614893076
+    ],
+    "relative_error": 2.5220425747818354e-10,
+    "limit_relative": 0.001,
+    "parseval_relative_error": 6.816769371198461e-14,
+    "parseval_limit": 1e-12,
+    "passed": true
+  },
+  {
+    "method_id": "e733902308e1876d8edc67df90cf2a54e902080657a5829866e0d8a3a7685aab",
+    "name": "BAND_2_5",
+    "clock": "MCU",
+    "start_mcu_s": 19800,
+    "width_s": 120,
+    "causal_rms": [
+      0.16021368612353018,
+      0.17106572268979633,
+      0.2303688158965072
+    ],
+    "independent_fft_rms": [
+      0.16021368612427322,
+      0.17106572269014314,
+      0.2303688158891797
+    ],
+    "relative_error": 3.180766761090581e-11,
+    "limit_relative": 0.001,
+    "parseval_relative_error": 2.6845192735436285e-13,
+    "parseval_limit": 1e-12,
+    "passed": true
+  },
+  {
+    "method_id": "e733902308e1876d8edc67df90cf2a54e902080657a5829866e0d8a3a7685aab",
+    "name": "BAND_2_5",
+    "clock": "MCU",
+    "start_mcu_s": 19800,
+    "width_s": 60,
+    "causal_rms": [
+      0.16239124689361453,
+      0.16749999398612947,
+      0.22400254830701932
+    ],
+    "independent_fft_rms": [
+      0.16239124689443102,
+      0.1674999939858972,
+      0.22400254830550337
+    ],
+    "relative_error": 6.767586491207567e-12,
+    "limit_relative": 0.001,
+    "parseval_relative_error": 2.6845192735436285e-13,
+    "parseval_limit": 1e-12,
+    "passed": true
+  },
+  {
+    "method_id": "e733902308e1876d8edc67df90cf2a54e902080657a5829866e0d8a3a7685aab",
+    "name": "BAND_2_5",
+    "clock": "MCU",
+    "start_mcu_s": 19860,
+    "width_s": 60,
+    "causal_rms": [
+      0.15800625734129095,
+      0.17455841253482726,
+      0.23656343739865138
+    ],
+    "independent_fft_rms": [
+      0.15800625734195867,
+      0.17455841253573265,
+      0.23656343738581545
+    ],
+    "relative_error": 5.4259929882505276e-11,
+    "limit_relative": 0.001,
+    "parseval_relative_error": 2.6845192735436285e-13,
+    "parseval_limit": 1e-12,
+    "passed": true
+  },
+  {
+    "method_id": "fa730a4d4531628d1cdee2d85dedb7ba6fd27080aca9e1d7430d6430bb0d1966",
+    "name": "BAND_5_25",
+    "clock": "MCU",
+    "start_mcu_s": 19800,
+    "width_s": 120,
+    "causal_rms": [
+      1.2942054736072828,
+      0.9871074868078027,
+      1.4358154834496992
+    ],
+    "independent_fft_rms": [
+      1.2942054736072655,
+      0.9871074868076825,
+      1.4358154834470196
+    ],
+    "relative_error": 1.866284904394888e-12,
+    "limit_relative": 0.001,
+    "parseval_relative_error": 8.304468224196171e-13,
+    "parseval_limit": 1e-12,
+    "passed": true
+  },
+  {
+    "method_id": "fa730a4d4531628d1cdee2d85dedb7ba6fd27080aca9e1d7430d6430bb0d1966",
+    "name": "BAND_5_25",
+    "clock": "MCU",
+    "start_mcu_s": 19800,
+    "width_s": 60,
+    "causal_rms": [
+      1.3273284428655616,
+      1.005785625640812,
+      1.5124436273582789
+    ],
+    "independent_fft_rms": [
+      1.3273284428655234,
+      1.0057856256406912,
+      1.5124436273553499
+    ],
+    "relative_error": 1.9365620218536606e-12,
+    "limit_relative": 0.001,
+    "parseval_relative_error": 8.304468224196171e-13,
+    "parseval_limit": 1e-12,
+    "passed": true
+  },
+  {
+    "method_id": "fa730a4d4531628d1cdee2d85dedb7ba6fd27080aca9e1d7430d6430bb0d1966",
+    "name": "BAND_5_25",
+    "clock": "MCU",
+    "start_mcu_s": 19860,
+    "width_s": 60,
+    "causal_rms": [
+      1.2602143695959416,
+      0.9680702386194212,
+      1.354865537337072
+    ],
+    "independent_fft_rms": [
+      1.2602143695959533,
+      0.968070238619312,
+      1.35486553733467
+    ],
+    "relative_error": 1.77280412572145e-12,
+    "limit_relative": 0.001,
+    "parseval_relative_error": 8.304468224196171e-13,
+    "parseval_limit": 1e-12,
+    "passed": true
+  },
+  {
+    "method_id": "508fbe8251e1d20c7700ae9477a9729f8738ad6fa3b0faf1105eefdb5750f5af",
+    "name": "BAND_25_80",
+    "clock": "MCU",
+    "start_mcu_s": 19800,
+    "width_s": 120,
+    "causal_rms": [
+      1.3979036369795925,
+      1.3858221435034843,
+      2.6137293847978365
+    ],
+    "independent_fft_rms": [
+      1.3979036369795903,
+      1.3858221435034823,
+      2.6137293847977894
+    ],
+    "relative_error": 1.7985612998927536e-14,
+    "limit_relative": 0.001,
+    "parseval_relative_error": 6.918909889463976e-13,
+    "parseval_limit": 1e-12,
+    "passed": true
+  },
+  {
+    "method_id": "508fbe8251e1d20c7700ae9477a9729f8738ad6fa3b0faf1105eefdb5750f5af",
+    "name": "BAND_25_80",
+    "clock": "MCU",
+    "start_mcu_s": 19800,
+    "width_s": 60,
+    "causal_rms": [
+      1.4308101147949592,
+      1.3928324205701945,
+      2.5807402138751323
+    ],
+    "independent_fft_rms": [
+      1.4308101147949823,
+      1.3928324205702016,
+      2.580740213875186
+    ],
+    "relative_error": 2.0872192862952943e-14,
+    "limit_relative": 0.001,
+    "parseval_relative_error": 6.918909889463976e-13,
+    "parseval_limit": 1e-12,
+    "passed": true
+  },
+  {
+    "method_id": "508fbe8251e1d20c7700ae9477a9729f8738ad6fa3b0faf1105eefdb5750f5af",
+    "name": "BAND_25_80",
+    "clock": "MCU",
+    "start_mcu_s": 19860,
+    "width_s": 60,
+    "causal_rms": [
+      1.3642057762783166,
+      1.3787766659892202,
+      2.6463053136797887
+    ],
+    "independent_fft_rms": [
+      1.3642057762782909,
+      1.3787766659892222,
+      2.646305313679655
+    ],
+    "relative_error": 5.051514762044462e-14,
+    "limit_relative": 0.001,
+    "parseval_relative_error": 6.918909889463976e-13,
+    "parseval_limit": 1e-12,
+    "passed": true
+  },
+  {
+    "method_id": "facdbad45dafea380cf099bb1ad76b84e190dde976b374e28c39bfb77ed8d719",
+    "name": "FLAT_1_80",
+    "clock": "MCU",
+    "start_mcu_s": 19800,
+    "width_s": 120,
+    "causal_rms": [
+      1.918922625016776,
+      1.7036816232002987,
+      2.918527857687473
+    ],
+    "independent_fft_rms": [
+      1.9189226250166818,
+      1.7036816232001963,
+      2.9185278576871654
+    ],
+    "relative_error": 1.0547118733938987e-13,
+    "limit_relative": 0.001,
+    "parseval_relative_error": 6.485922909860165e-13,
+    "parseval_limit": 1e-12,
+    "passed": true
+  },
+  {
+    "method_id": "facdbad45dafea380cf099bb1ad76b84e190dde976b374e28c39bfb77ed8d719",
+    "name": "FLAT_1_80",
+    "clock": "MCU",
+    "start_mcu_s": 19800,
+    "width_s": 60,
+    "causal_rms": [
+      1.9672903258096688,
+      1.7252516244424099,
+      2.952290081570549
+    ],
+    "independent_fft_rms": [
+      1.9672903258095962,
+      1.7252516244423477,
+      2.952290081569314
+    ],
+    "relative_error": 4.18332035678759e-13,
+    "limit_relative": 0.001,
+    "parseval_relative_error": 6.485922909860165e-13,
+    "parseval_limit": 1e-12,
+    "passed": true
+  },
+  {
+    "method_id": "facdbad45dafea380cf099bb1ad76b84e190dde976b374e28c39bfb77ed8d719",
+    "name": "FLAT_1_80",
+    "clock": "MCU",
+    "start_mcu_s": 19860,
+    "width_s": 60,
+    "causal_rms": [
+      1.8693069904354098,
+      1.6818363801806915,
+      2.8843726175381024
+    ],
+    "independent_fft_rms": [
+      1.869306990435301,
+      1.6818363801805667,
+      2.8843726175387405
+    ],
+    "relative_error": 2.2115642650533118e-13,
+    "limit_relative": 0.001,
+    "parseval_relative_error": 6.485922909860165e-13,
+    "parseval_limit": 1e-12,
+    "passed": true
+  },
+  {
+    "method_id": "d12146eda111623ff0bd50dda5554eec1f1628cd104ae31f4012454746ec87e7",
+    "name": "TEST_LP10",
+    "clock": "MCU",
+    "start_mcu_s": 19800,
+    "width_s": 120,
+    "causal_rms": [
+      0.7565721958146775,
+      0.6041560754477887,
+      0.9118859185399776
+    ],
+    "independent_fft_rms": [
+      0.7565721958144923,
+      0.6041560754476092,
+      0.9118859185392364
+    ],
+    "relative_error": 8.127942763280771e-13,
+    "limit_relative": 0.001,
+    "parseval_relative_error": 7.158718062783009e-13,
+    "parseval_limit": 1e-12,
+    "passed": true
+  },
+  {
+    "method_id": "d12146eda111623ff0bd50dda5554eec1f1628cd104ae31f4012454746ec87e7",
+    "name": "TEST_LP10",
+    "clock": "MCU",
+    "start_mcu_s": 19800,
+    "width_s": 60,
+    "causal_rms": [
+      0.7683366669451664,
+      0.6123365345093493,
+      0.951662772706095
+    ],
+    "independent_fft_rms": [
+      0.7683366669450332,
+      0.6123365345092799,
+      0.9516627727026342
+    ],
+    "relative_error": 3.6365355171597002e-12,
+    "limit_relative": 0.001,
+    "parseval_relative_error": 7.158718062783009e-13,
+    "parseval_limit": 1e-12,
+    "passed": true
+  },
+  {
+    "method_id": "d12146eda111623ff0bd50dda5554eec1f1628cd104ae31f4012454746ec87e7",
+    "name": "TEST_LP10",
+    "clock": "MCU",
+    "start_mcu_s": 19860,
+    "width_s": 60,
+    "causal_rms": [
+      0.7446226322253329,
+      0.5958638423185566,
+      0.8702956193483475
+    ],
+    "independent_fft_rms": [
+      0.7446226322250878,
+      0.5958638423182807,
+      0.8702956193505719
+    ],
+    "relative_error": 2.5557334026871104e-12,
+    "limit_relative": 0.001,
+    "parseval_relative_error": 7.158718062783009e-13,
+    "parseval_limit": 1e-12,
+    "passed": true
+  },
+  {
+    "method_id": "ec3384fee549e9bba68cb0fda4ee2cd9da75a044536bf1f0bf655d635811ecac",
+    "name": "EDGE_08",
+    "clock": "MCU",
+    "start_mcu_s": 19800,
+    "width_s": 120,
+    "causal_rms": [
+      1.9204680992141436,
+      1.704246984210831,
+      2.9192334317677138
+    ],
+    "independent_fft_rms": [
+      1.9204680992141887,
+      1.7042469842109222,
+      2.9192334317688466
+    ],
+    "relative_error": 3.8813396940895473e-13,
+    "limit_relative": 0.001,
+    "parseval_relative_error": 6.612488334667432e-13,
+    "parseval_limit": 1e-12,
+    "passed": true
+  },
+  {
+    "method_id": "ec3384fee549e9bba68cb0fda4ee2cd9da75a044536bf1f0bf655d635811ecac",
+    "name": "EDGE_08",
+    "clock": "MCU",
+    "start_mcu_s": 19800,
+    "width_s": 60,
+    "causal_rms": [
+      1.969143526747895,
+      1.725821186075409,
+      2.953173417913003
+    ],
+    "independent_fft_rms": [
+      1.9691435267478787,
+      1.7258211860756252,
+      2.9531734179122586
+    ],
+    "relative_error": 2.5202062658991053e-13,
+    "limit_relative": 0.001,
+    "parseval_relative_error": 6.612488334667432e-13,
+    "parseval_limit": 1e-12,
+    "passed": true
+  },
+  {
+    "method_id": "ec3384fee549e9bba68cb0fda4ee2cd9da75a044536bf1f0bf655d635811ecac",
+    "name": "EDGE_08",
+    "clock": "MCU",
+    "start_mcu_s": 19860,
+    "width_s": 60,
+    "causal_rms": [
+      1.870529621634535,
+      1.6823975253759824,
+      2.884896341482466
+    ],
+    "independent_fft_rms": [
+      1.8705296216346197,
+      1.6823975253759178,
+      2.884896341485552
+    ],
+    "relative_error": 1.0698109065288008e-12,
+    "limit_relative": 0.001,
+    "parseval_relative_error": 6.612488334667432e-13,
+    "parseval_limit": 1e-12,
+    "passed": true
+  },
+  {
+    "method_id": "41a9a3cb96759a47f799b3c532f1488ed082b9a0d437bd425fcd3740c45b61e6",
+    "name": "EDGE_12",
+    "clock": "MCU",
+    "start_mcu_s": 19800,
+    "width_s": 120,
+    "causal_rms": [
+      1.9179494554014498,
+      1.7031434399001109,
+      2.917323475829947
+    ],
+    "independent_fft_rms": [
+      1.9179494554014178,
+      1.7031434399001026,
+      2.9173234758307287
+    ],
+    "relative_error": 2.680078381445128e-13,
+    "limit_relative": 0.001,
+    "parseval_relative_error": 7.738254481637341e-13,
+    "parseval_limit": 1e-12,
+    "passed": true
+  },
+  {
+    "method_id": "41a9a3cb96759a47f799b3c532f1488ed082b9a0d437bd425fcd3740c45b61e6",
+    "name": "EDGE_12",
+    "clock": "MCU",
+    "start_mcu_s": 19800,
+    "width_s": 60,
+    "causal_rms": [
+      1.9662431628350479,
+      1.724735053686909,
+      2.950558294222564
+    ],
+    "independent_fft_rms": [
+      1.9662431628350963,
+      1.724735053686808,
+      2.950558294223235
+    ],
+    "relative_error": 2.2737367544323206e-13,
+    "limit_relative": 0.001,
+    "parseval_relative_error": 7.738254481637341e-13,
+    "parseval_limit": 1e-12,
+    "passed": true
+  },
+  {
+    "method_id": "41a9a3cb96759a47f799b3c532f1488ed082b9a0d437bd425fcd3740c45b61e6",
+    "name": "EDGE_12",
+    "clock": "MCU",
+    "start_mcu_s": 19860,
+    "width_s": 60,
+    "causal_rms": [
+      1.8684110351721752,
+      1.681275938811634,
+      2.8837077674454585
+    ],
+    "independent_fft_rms": [
+      1.8684110351721224,
+      1.6812759388116842,
+      2.883707767446429
+    ],
+    "relative_error": 3.3639757646142243e-13,
+    "limit_relative": 0.001,
+    "parseval_relative_error": 7.738254481637341e-13,
+    "parseval_limit": 1e-12,
+    "passed": true
+  },
+  {
+    "method_id": "1dde808c6d3da76a67eec4b4d46c4282e1be05c77977c7e5899b81b47321d444",
+    "name": "BAND_1_2",
+    "clock": "QPC_ESTIMATE",
+    "start_mcu_s": 19800,
+    "width_s": 120,
+    "causal_rms": [
+      0.11946584368831423,
+      0.09438442569401274,
+      0.22729096490856626
+    ],
+    "independent_fft_rms": [
+      0.11946584369312423,
+      0.09438442569093254,
+      0.22729096489646042
+    ],
+    "relative_error": 5.326139529415741e-11,
+    "limit_relative": 0.001,
+    "parseval_relative_error": 9.836575998178887e-14,
+    "parseval_limit": 1e-12,
+    "passed": true
+  },
+  {
+    "method_id": "1dde808c6d3da76a67eec4b4d46c4282e1be05c77977c7e5899b81b47321d444",
+    "name": "BAND_1_2",
+    "clock": "QPC_ESTIMATE",
+    "start_mcu_s": 19800,
+    "width_s": 60,
+    "causal_rms": [
+      0.12014404141446042,
+      0.09087831307031641,
+      0.2506961874651408
+    ],
+    "independent_fft_rms": [
+      0.1201440414167532,
+      0.09087831306959797,
+      0.25069618748812145
+    ],
+    "relative_error": 9.166734038501545e-11,
+    "limit_relative": 0.001,
+    "parseval_relative_error": 9.836575998178887e-14,
+    "parseval_limit": 1e-12,
+    "passed": true
+  },
+  {
+    "method_id": "1dde808c6d3da76a67eec4b4d46c4282e1be05c77977c7e5899b81b47321d444",
+    "name": "BAND_1_2",
+    "clock": "QPC_ESTIMATE",
+    "start_mcu_s": 19860,
+    "width_s": 60,
+    "causal_rms": [
+      0.11878381667329627,
+      0.09776467240893637,
+      0.20118272169473567
+    ],
+    "independent_fft_rms": [
+      0.11878381668065047,
+      0.09776467240365982,
+      0.2011827216387555
+    ],
+    "relative_error": 2.7825530768410545e-10,
+    "limit_relative": 0.001,
+    "parseval_relative_error": 9.836575998178887e-14,
+    "parseval_limit": 1e-12,
+    "passed": true
+  },
+  {
+    "method_id": "cbb82395d06e90c107d85fa820f27cdaf50a8691a06178d6dc25577d4ebfe3ff",
+    "name": "BAND_2_5",
+    "clock": "QPC_ESTIMATE",
+    "start_mcu_s": 19800,
+    "width_s": 120,
+    "causal_rms": [
+      0.15991884966583775,
+      0.17073886601734606,
+      0.23031276288816196
+    ],
+    "independent_fft_rms": [
+      0.15991884966666067,
+      0.17073886601447535,
+      0.23031276287704133
+    ],
+    "relative_error": 4.828493160857761e-11,
+    "limit_relative": 0.001,
+    "parseval_relative_error": 3.019806626980426e-13,
+    "parseval_limit": 1e-12,
+    "passed": true
+  },
+  {
+    "method_id": "cbb82395d06e90c107d85fa820f27cdaf50a8691a06178d6dc25577d4ebfe3ff",
+    "name": "BAND_2_5",
+    "clock": "QPC_ESTIMATE",
+    "start_mcu_s": 19800,
+    "width_s": 60,
+    "causal_rms": [
+      0.16214746329206287,
+      0.16706202356393735,
+      0.22385835411278873
+    ],
+    "independent_fft_rms": [
+      0.16214746329290086,
+      0.16706202356085517,
+      0.22385835408928975
+    ],
+    "relative_error": 1.0497258617903071e-10,
+    "limit_relative": 0.001,
+    "parseval_relative_error": 3.019806626980426e-13,
+    "parseval_limit": 1e-12,
+    "passed": true
+  },
+  {
+    "method_id": "cbb82395d06e90c107d85fa820f27cdaf50a8691a06178d6dc25577d4ebfe3ff",
+    "name": "BAND_2_5",
+    "clock": "QPC_ESTIMATE",
+    "start_mcu_s": 19860,
+    "width_s": 60,
+    "causal_rms": [
+      0.1576588787381612,
+      0.17433795701005392,
+      0.23659076747088578
+    ],
+    "independent_fft_rms": [
+      0.1576588787389703,
+      0.1743379570073818,
+      0.23659076747146948
+    ],
+    "relative_error": 1.53271839664626e-11,
+    "limit_relative": 0.001,
+    "parseval_relative_error": 3.019806626980426e-13,
+    "parseval_limit": 1e-12,
+    "passed": true
+  },
+  {
+    "method_id": "29bad5b67736e522365e8c94e0687f3f5580263fd343ab1365549f3063167950",
+    "name": "BAND_5_25",
+    "clock": "QPC_ESTIMATE",
+    "start_mcu_s": 19800,
+    "width_s": 120,
+    "causal_rms": [
+      1.2747015983737653,
+      0.9733504778539475,
+      1.4310210649540052
+    ],
+    "independent_fft_rms": [
+      1.2747015983736096,
+      0.9733504778538841,
+      1.4310210649562607
+    ],
+    "relative_error": 1.5760726057578722e-12,
+    "limit_relative": 0.001,
+    "parseval_relative_error": 8.599787548746463e-13,
+    "parseval_limit": 1e-12,
+    "passed": true
+  },
+  {
+    "method_id": "29bad5b67736e522365e8c94e0687f3f5580263fd343ab1365549f3063167950",
+    "name": "BAND_5_25",
+    "clock": "QPC_ESTIMATE",
+    "start_mcu_s": 19800,
+    "width_s": 60,
+    "causal_rms": [
+      1.3067833231958124,
+      0.9917406915789,
+      1.5073297046028138
+    ],
+    "independent_fft_rms": [
+      1.3067833231956498,
+      0.9917406915788135,
+      1.5073297046051106
+    ],
+    "relative_error": 1.5236700789955648e-12,
+    "limit_relative": 0.001,
+    "parseval_relative_error": 8.599787548746463e-13,
+    "parseval_limit": 1e-12,
+    "passed": true
+  },
+  {
+    "method_id": "29bad5b67736e522365e8c94e0687f3f5580263fd343ab1365549f3063167950",
+    "name": "BAND_5_25",
+    "clock": "QPC_ESTIMATE",
+    "start_mcu_s": 19860,
+    "width_s": 60,
+    "causal_rms": [
+      1.241793405282299,
+      0.9546072327543608,
+      1.3504124470545176
+    ],
+    "independent_fft_rms": [
+      1.2417934052821498,
+      0.9546072327543106,
+      1.3504124470567167
+    ],
+    "relative_error": 1.6284751325201796e-12,
+    "limit_relative": 0.001,
+    "parseval_relative_error": 8.599787548746463e-13,
+    "parseval_limit": 1e-12,
+    "passed": true
+  },
+  {
+    "method_id": "3c62a8629812ca7e00085f3b5db9970b64c220c8b5d4191c318c166be4830631",
+    "name": "BAND_25_80",
+    "clock": "QPC_ESTIMATE",
+    "start_mcu_s": 19800,
+    "width_s": 120,
+    "causal_rms": [
+      1.416573909837825,
+      1.3909602872486502,
+      2.593394133994904
+    ],
+    "independent_fft_rms": [
+      1.4165739098378305,
+      1.3909602872486335,
+      2.593394133994918
+    ],
+    "relative_error": 1.199040866595169e-14,
+    "limit_relative": 0.001,
+    "parseval_relative_error": 7.16537940093076e-13,
+    "parseval_limit": 1e-12,
+    "passed": true
+  },
+  {
+    "method_id": "3c62a8629812ca7e00085f3b5db9970b64c220c8b5d4191c318c166be4830631",
+    "name": "BAND_25_80",
+    "clock": "QPC_ESTIMATE",
+    "start_mcu_s": 19800,
+    "width_s": 60,
+    "causal_rms": [
+      1.4507762678816676,
+      1.3983579310403291,
+      2.5648523169702937
+    ],
+    "independent_fft_rms": [
+      1.4507762678816676,
+      1.3983579310403,
+      2.5648523169702355
+    ],
+    "relative_error": 2.2648549702353193e-14,
+    "limit_relative": 0.001,
+    "parseval_relative_error": 7.16537940093076e-13,
+    "parseval_limit": 1e-12,
+    "passed": true
+  },
+  {
+    "method_id": "3c62a8629812ca7e00085f3b5db9970b64c220c8b5d4191c318c166be4830631",
+    "name": "BAND_25_80",
+    "clock": "QPC_ESTIMATE",
+    "start_mcu_s": 19860,
+    "width_s": 60,
+    "causal_rms": [
+      1.3815272870771753,
+      1.383523556016486,
+      2.621623474601753
+    ],
+    "independent_fft_rms": [
+      1.3815272870771755,
+      1.3835235560164714,
+      2.6216234746017806
+    ],
+    "relative_error": 1.0547118733938987e-14,
+    "limit_relative": 0.001,
+    "parseval_relative_error": 7.16537940093076e-13,
+    "parseval_limit": 1e-12,
+    "passed": true
+  },
+  {
+    "method_id": "a91aac1dd79d2a4791de1f1e4eea8bef8a2c34adc94a9e9f61abaaac74f2e468",
+    "name": "FLAT_1_80",
+    "clock": "QPC_ESTIMATE",
+    "start_mcu_s": 19800,
+    "width_s": 120,
+    "causal_rms": [
+      1.9165973160742567,
+      1.699070559669666,
+      2.9033500199631397
+    ],
+    "independent_fft_rms": [
+      1.9165973160740135,
+      1.699070559669543,
+      2.903350019964125
+    ],
+    "relative_error": 3.3950620093037287e-13,
+    "limit_relative": 0.001,
+    "parseval_relative_error": 6.532552276894421e-13,
+    "parseval_limit": 1e-12,
+    "passed": true
+  },
+  {
+    "method_id": "a91aac1dd79d2a4791de1f1e4eea8bef8a2c34adc94a9e9f61abaaac74f2e468",
+    "name": "FLAT_1_80",
+    "clock": "QPC_ESTIMATE",
+    "start_mcu_s": 19800,
+    "width_s": 60,
+    "causal_rms": [
+      1.9649391643865952,
+      1.7204566053604595,
+      2.9388518775816888
+    ],
+    "independent_fft_rms": [
+      1.9649391643864056,
+      1.7204566053601895,
+      2.938851877582992
+    ],
+    "relative_error": 4.434230760352875e-13,
+    "limit_relative": 0.001,
+    "parseval_relative_error": 6.532552276894421e-13,
+    "parseval_limit": 1e-12,
+    "passed": true
+  },
+  {
+    "method_id": "a91aac1dd79d2a4791de1f1e4eea8bef8a2c34adc94a9e9f61abaaac74f2e468",
+    "name": "FLAT_1_80",
+    "clock": "QPC_ESTIMATE",
+    "start_mcu_s": 19860,
+    "width_s": 60,
+    "causal_rms": [
+      1.8670073306479646,
+      1.6774132410754305,
+      2.867410906143366
+    ],
+    "independent_fft_rms": [
+      1.8670073306477353,
+      1.6774132410754556,
+      2.8674109061440523
+    ],
+    "relative_error": 2.3936408410918375e-13,
+    "limit_relative": 0.001,
+    "parseval_relative_error": 6.532552276894421e-13,
+    "parseval_limit": 1e-12,
+    "passed": true
+  },
+  {
+    "method_id": "0fb53d2f5ed162c3b6f35c1d46b0d8501fce607d003b8fcf8e4624316e3dcf19",
+    "name": "TEST_LP10",
+    "clock": "QPC_ESTIMATE",
+    "start_mcu_s": 19800,
+    "width_s": 120,
+    "causal_rms": [
+      0.752961125597464,
+      0.6011423186358653,
+      0.9069776240303388
+    ],
+    "independent_fft_rms": [
+      0.75296112559707,
+      0.6011423186355902,
+      0.9069776240333854
+    ],
+    "relative_error": 3.3590907833058736e-12,
+    "limit_relative": 0.001,
+    "parseval_relative_error": 7.107647803650252e-13,
+    "parseval_limit": 1e-12,
+    "passed": true
+  },
+  {
+    "method_id": "0fb53d2f5ed162c3b6f35c1d46b0d8501fce607d003b8fcf8e4624316e3dcf19",
+    "name": "TEST_LP10",
+    "clock": "QPC_ESTIMATE",
+    "start_mcu_s": 19800,
+    "width_s": 60,
+    "causal_rms": [
+      0.7646256363752125,
+      0.6092600649415822,
+      0.9466895786088686
+    ],
+    "independent_fft_rms": [
+      0.7646256363748511,
+      0.609260064940903,
+      0.946689578612824
+    ],
+    "relative_error": 4.178213330874314e-12,
+    "limit_relative": 0.001,
+    "parseval_relative_error": 7.107647803650252e-13,
+    "parseval_limit": 1e-12,
+    "passed": true
+  },
+  {
+    "method_id": "0fb53d2f5ed162c3b6f35c1d46b0d8501fce607d003b8fcf8e4624316e3dcf19",
+    "name": "TEST_LP10",
+    "clock": "QPC_ESTIMATE",
+    "start_mcu_s": 19860,
+    "width_s": 60,
+    "causal_rms": [
+      0.7411137954884083,
+      0.5929139591726086,
+      0.8654480179325199
+    ],
+    "independent_fft_rms": [
+      0.7411137954879728,
+      0.5929139591727445,
+      0.8654480179345914
+    ],
+    "relative_error": 2.3934187964869125e-12,
+    "limit_relative": 0.001,
+    "parseval_relative_error": 7.107647803650252e-13,
+    "parseval_limit": 1e-12,
+    "passed": true
+  },
+  {
+    "method_id": "0f6f13cd77287277b17a9810e09869d634ae8bbf2641c678fd27a5db12431b60",
+    "name": "EDGE_08",
+    "clock": "QPC_ESTIMATE",
+    "start_mcu_s": 19800,
+    "width_s": 120,
+    "causal_rms": [
+      1.918163077248789,
+      1.69963954956214,
+      2.9040864050532287
+    ],
+    "independent_fft_rms": [
+      1.9181630772487634,
+      1.699639549562212,
+      2.9040864050563324
+    ],
+    "relative_error": 1.0687006835041757e-12,
+    "limit_relative": 0.001,
+    "parseval_relative_error": 6.790124018607457e-13,
+    "parseval_limit": 1e-12,
+    "passed": true
+  },
+  {
+    "method_id": "0f6f13cd77287277b17a9810e09869d634ae8bbf2641c678fd27a5db12431b60",
+    "name": "EDGE_08",
+    "clock": "QPC_ESTIMATE",
+    "start_mcu_s": 19800,
+    "width_s": 60,
+    "causal_rms": [
+      1.9668214026600928,
+      1.7210305288425667,
+      2.9397430896872327
+    ],
+    "independent_fft_rms": [
+      1.9668214026600939,
+      1.721030528842519,
+      2.9397430896894763
+    ],
+    "relative_error": 7.631673071273326e-13,
+    "limit_relative": 0.001,
+    "parseval_relative_error": 6.790124018607457e-13,
+    "parseval_limit": 1e-12,
+    "passed": true
+  },
+  {
+    "method_id": "0f6f13cd77287277b17a9810e09869d634ae8bbf2641c678fd27a5db12431b60",
+    "name": "EDGE_08",
+    "clock": "QPC_ESTIMATE",
+    "start_mcu_s": 19860,
+    "width_s": 60,
+    "causal_rms": [
+      1.8682410411305024,
+      1.677977263565188,
+      2.8679887219320146
+    ],
+    "independent_fft_rms": [
+      1.8682410411304509,
+      1.677977263565355,
+      2.867988721935983
+    ],
+    "relative_error": 1.3837819778927951e-12,
+    "limit_relative": 0.001,
+    "parseval_relative_error": 6.790124018607457e-13,
+    "parseval_limit": 1e-12,
+    "passed": true
+  },
+  {
+    "method_id": "df2c617bb8d8cd9fcec085bab62040f32b79b2d2de9c60a4cb1e8675d833b515",
+    "name": "EDGE_12",
+    "clock": "QPC_ESTIMATE",
+    "start_mcu_s": 19800,
+    "width_s": 120,
+    "causal_rms": [
+      1.915619332730467,
+      1.6985246346508822,
+      2.9021331631685245
+    ],
+    "independent_fft_rms": [
+      1.915619332730418,
+      1.6985246346508511,
+      2.9021331631687954
+    ],
+    "relative_error": 9.325873406851315e-14,
+    "limit_relative": 0.001,
+    "parseval_relative_error": 7.787104294720848e-13,
+    "parseval_limit": 1e-12,
+    "passed": true
+  },
+  {
+    "method_id": "df2c617bb8d8cd9fcec085bab62040f32b79b2d2de9c60a4cb1e8675d833b515",
+    "name": "EDGE_12",
+    "clock": "QPC_ESTIMATE",
+    "start_mcu_s": 19800,
+    "width_s": 60,
+    "causal_rms": [
+      1.9638838942213688,
+      1.7199337775500048,
+      2.9371394864575184
+    ],
+    "independent_fft_rms": [
+      1.9638838942213415,
+      1.719933777549906,
+      2.9371394864577782
+    ],
+    "relative_error": 8.837375276016246e-14,
+    "limit_relative": 0.001,
+    "parseval_relative_error": 7.787104294720848e-13,
+    "parseval_limit": 1e-12,
+    "passed": true
+  },
+  {
+    "method_id": "df2c617bb8d8cd9fcec085bab62040f32b79b2d2de9c60a4cb1e8675d833b515",
+    "name": "EDGE_12",
+    "clock": "QPC_ESTIMATE",
+    "start_mcu_s": 19860,
+    "width_s": 60,
+    "causal_rms": [
+      1.8661100260755088,
+      1.676843538371473,
+      2.866701628898819
+    ],
+    "independent_fft_rms": [
+      1.8661100260754209,
+      1.6768435383715028,
+      2.8667016288990825
+    ],
+    "relative_error": 9.192646643896296e-14,
+    "limit_relative": 0.001,
+    "parseval_relative_error": 7.787104294720848e-13,
+    "parseval_limit": 1e-12,
+    "passed": true
+  },
+  {
+    "method_id": "9976afda2529c6e57f4f6147ae728158ab4b9fceba98bbbf21daa357f5f57303",
+    "name": "BAND_1_2",
+    "clock": "MCU",
+    "start_mcu_s": 1560,
+    "width_s": 120,
+    "causal_rms": [
+      0.1624056944753557,
+      0.1955165122998081,
+      0.76778331591873
+    ],
+    "independent_fft_rms": [
+      0.16240569447476086,
+      0.19551651230354508,
+      0.7677833159421396
+    ],
+    "relative_error": 3.048983288067575e-11,
+    "limit_relative": 0.001,
+    "parseval_relative_error": 4.3853809472693683e-14,
+    "parseval_limit": 1e-12,
+    "passed": true
+  },
+  {
+    "method_id": "9976afda2529c6e57f4f6147ae728158ab4b9fceba98bbbf21daa357f5f57303",
+    "name": "BAND_1_2",
+    "clock": "MCU",
+    "start_mcu_s": 1560,
+    "width_s": 60,
+    "causal_rms": [
+      0.14878054597351817,
+      0.19788855990139367,
+      0.7222126567628752
+    ],
+    "independent_fft_rms": [
+      0.1487805459763503,
+      0.19788855990668694,
+      0.7222126567762841
+    ],
+    "relative_error": 2.674882537689882e-11,
+    "limit_relative": 0.001,
+    "parseval_relative_error": 4.3853809472693683e-14,
+    "parseval_limit": 1e-12,
+    "passed": true
+  },
+  {
+    "method_id": "9976afda2529c6e57f4f6147ae728158ab4b9fceba98bbbf21daa357f5f57303",
+    "name": "BAND_1_2",
+    "clock": "MCU",
+    "start_mcu_s": 1620,
+    "width_s": 60,
+    "causal_rms": [
+      0.17497289854388776,
+      0.19311536115274838,
+      0.8107961940466105
+    ],
+    "independent_fft_rms": [
+      0.1749728985403771,
+      0.1931153611548937,
+      0.8107961940790152
+    ],
+    "relative_error": 3.996647457427116e-11,
+    "limit_relative": 0.001,
+    "parseval_relative_error": 4.3853809472693683e-14,
+    "parseval_limit": 1e-12,
+    "passed": true
+  },
+  {
+    "method_id": "e733902308e1876d8edc67df90cf2a54e902080657a5829866e0d8a3a7685aab",
+    "name": "BAND_2_5",
+    "clock": "MCU",
+    "start_mcu_s": 1560,
+    "width_s": 120,
+    "causal_rms": [
+      0.30187926792791425,
+      0.6246640663546333,
+      0.633360896332195
+    ],
+    "independent_fft_rms": [
+      0.3018792679266696,
+      0.624664066353719,
+      0.6333608963268946
+    ],
+    "relative_error": 8.368528092717042e-12,
+    "limit_relative": 0.001,
+    "parseval_relative_error": 1.9828583219805296e-13,
+    "parseval_limit": 1e-12,
+    "passed": true
+  },
+  {
+    "method_id": "e733902308e1876d8edc67df90cf2a54e902080657a5829866e0d8a3a7685aab",
+    "name": "BAND_2_5",
+    "clock": "MCU",
+    "start_mcu_s": 1560,
+    "width_s": 60,
+    "causal_rms": [
+      0.3003882596013385,
+      0.6168795378965235,
+      0.6343879596339476
+    ],
+    "independent_fft_rms": [
+      0.3003882596002034,
+      0.616879537895789,
+      0.6343879596125855
+    ],
+    "relative_error": 3.3673397403788385e-11,
+    "limit_relative": 0.001,
+    "parseval_relative_error": 1.9828583219805296e-13,
+    "parseval_limit": 1e-12,
+    "passed": true
+  },
+  {
+    "method_id": "e733902308e1876d8edc67df90cf2a54e902080657a5829866e0d8a3a7685aab",
+    "name": "BAND_2_5",
+    "clock": "MCU",
+    "start_mcu_s": 1620,
+    "width_s": 60,
+    "causal_rms": [
+      0.30336292959855904,
+      0.6323526755295286,
+      0.6323321777253627
+    ],
+    "independent_fft_rms": [
+      0.30336292959720546,
+      0.6323526755284441,
+      0.6323321777361769
+    ],
+    "relative_error": 1.7102097515930836e-11,
+    "limit_relative": 0.001,
+    "parseval_relative_error": 1.9828583219805296e-13,
+    "parseval_limit": 1e-12,
+    "passed": true
+  },
+  {
+    "method_id": "fa730a4d4531628d1cdee2d85dedb7ba6fd27080aca9e1d7430d6430bb0d1966",
+    "name": "BAND_5_25",
+    "clock": "MCU",
+    "start_mcu_s": 1560,
+    "width_s": 120,
+    "causal_rms": [
+      6.715471118106385,
+      3.7103689880080637,
+      9.058596316424277
+    ],
+    "independent_fft_rms": [
+      6.71547111810631,
+      3.710368988008095,
+      9.058596316424453
+    ],
+    "relative_error": 1.9317880628477724e-14,
+    "limit_relative": 0.001,
+    "parseval_relative_error": 6.146194664324867e-13,
+    "parseval_limit": 1e-12,
+    "passed": true
+  },
+  {
+    "method_id": "fa730a4d4531628d1cdee2d85dedb7ba6fd27080aca9e1d7430d6430bb0d1966",
+    "name": "BAND_5_25",
+    "clock": "MCU",
+    "start_mcu_s": 1560,
+    "width_s": 60,
+    "causal_rms": [
+      7.111355026539586,
+      3.9627206571066296,
+      9.31431550101838
+    ],
+    "independent_fft_rms": [
+      7.111355026539556,
+      3.9627206571066926,
+      9.314315501018527
+    ],
+    "relative_error": 1.5987211554602254e-14,
+    "limit_relative": 0.001,
+    "parseval_relative_error": 6.146194664324867e-13,
+    "parseval_limit": 1e-12,
+    "passed": true
+  },
+  {
+    "method_id": "fa730a4d4531628d1cdee2d85dedb7ba6fd27080aca9e1d7430d6430bb0d1966",
+    "name": "BAND_5_25",
+    "clock": "MCU",
+    "start_mcu_s": 1620,
+    "width_s": 60,
+    "causal_rms": [
+      6.294744071800455,
+      3.4395559746836364,
+      8.795448825828908
+    ],
+    "independent_fft_rms": [
+      6.29474407180048,
+      3.439555974683611,
+      8.795448825829036
+    ],
+    "relative_error": 1.4432899320127035e-14,
+    "limit_relative": 0.001,
+    "parseval_relative_error": 6.146194664324867e-13,
+    "parseval_limit": 1e-12,
+    "passed": true
+  },
+  {
+    "method_id": "508fbe8251e1d20c7700ae9477a9729f8738ad6fa3b0faf1105eefdb5750f5af",
+    "name": "BAND_25_80",
+    "clock": "MCU",
+    "start_mcu_s": 1560,
+    "width_s": 120,
+    "causal_rms": [
+      10.52795896790868,
+      8.895066299439517,
+      30.29543881042754
+    ],
+    "independent_fft_rms": [
+      10.527958967908607,
+      8.895066299439499,
+      30.295438810427843
+    ],
+    "relative_error": 9.992007221626409e-15,
+    "limit_relative": 0.001,
+    "parseval_relative_error": 7.329692408575283e-13,
+    "parseval_limit": 1e-12,
+    "passed": true
+  },
+  {
+    "method_id": "508fbe8251e1d20c7700ae9477a9729f8738ad6fa3b0faf1105eefdb5750f5af",
+    "name": "BAND_25_80",
+    "clock": "MCU",
+    "start_mcu_s": 1560,
+    "width_s": 60,
+    "causal_rms": [
+      10.952573808513796,
+      9.219256036873334,
+      31.09417385146038
+    ],
+    "independent_fft_rms": [
+      10.952573808513748,
+      9.219256036873318,
+      31.094173851460216
+    ],
+    "relative_error": 5.218048215738236e-15,
+    "limit_relative": 0.001,
+    "parseval_relative_error": 7.329692408575283e-13,
+    "parseval_limit": 1e-12,
+    "passed": true
+  },
+  {
+    "method_id": "508fbe8251e1d20c7700ae9477a9729f8738ad6fa3b0faf1105eefdb5750f5af",
+    "name": "BAND_25_80",
+    "clock": "MCU",
+    "start_mcu_s": 1620,
+    "width_s": 60,
+    "causal_rms": [
+      10.085488648589942,
+      8.558609736976457,
+      29.475077474761004
+    ],
+    "independent_fft_rms": [
+      10.085488648589951,
+      8.558609736976418,
+      29.47507747476118
+    ],
+    "relative_error": 5.995204332975845e-15,
+    "limit_relative": 0.001,
+    "parseval_relative_error": 7.329692408575283e-13,
+    "parseval_limit": 1e-12,
+    "passed": true
+  },
+  {
+    "method_id": "facdbad45dafea380cf099bb1ad76b84e190dde976b374e28c39bfb77ed8d719",
+    "name": "FLAT_1_80",
+    "clock": "MCU",
+    "start_mcu_s": 1560,
+    "width_s": 120,
+    "causal_rms": [
+      12.434331202976965,
+      9.604268329252383,
+      31.46143123361103
+    ],
+    "independent_fft_rms": [
+      12.434331202977056,
+      9.604268329252273,
+      31.461431233611243
+    ],
+    "relative_error": 1.1435297153639112e-14,
+    "limit_relative": 0.001,
+    "parseval_relative_error": 6.392664175791651e-13,
+    "parseval_limit": 1e-12,
+    "passed": true
+  },
+  {
+    "method_id": "facdbad45dafea380cf099bb1ad76b84e190dde976b374e28c39bfb77ed8d719",
+    "name": "FLAT_1_80",
+    "clock": "MCU",
+    "start_mcu_s": 1560,
+    "width_s": 60,
+    "causal_rms": [
+      12.994099355453981,
+      9.997242025476888,
+      32.248783921240936
+    ],
+    "independent_fft_rms": [
+      12.994099355454118,
+      9.99724202547689,
+      32.24878392124126
+    ],
+    "relative_error": 1.0436096431476471e-14,
+    "limit_relative": 0.001,
+    "parseval_relative_error": 6.392664175791651e-13,
+    "parseval_limit": 1e-12,
+    "passed": true
+  },
+  {
+    "method_id": "facdbad45dafea380cf099bb1ad76b84e190dde976b374e28c39bfb77ed8d719",
+    "name": "FLAT_1_80",
+    "clock": "MCU",
+    "start_mcu_s": 1620,
+    "width_s": 60,
+    "causal_rms": [
+      11.848153660844925,
+      9.194519490065819,
+      30.653872096119148
+    ],
+    "independent_fft_rms": [
+      11.848153660844908,
+      9.194519490065602,
+      30.653872096118977
+    ],
+    "relative_error": 2.353672812205332e-14,
+    "limit_relative": 0.001,
+    "parseval_relative_error": 6.392664175791651e-13,
+    "parseval_limit": 1e-12,
+    "passed": true
+  },
+  {
+    "method_id": "d12146eda111623ff0bd50dda5554eec1f1628cd104ae31f4012454746ec87e7",
+    "name": "TEST_LP10",
+    "clock": "MCU",
+    "start_mcu_s": 1560,
+    "width_s": 120,
+    "causal_rms": [
+      3.945649813873762,
+      2.7163707448306647,
+      7.182480141976419
+    ],
+    "independent_fft_rms": [
+      3.9456498138737857,
+      2.716370744830311,
+      7.182480141976516
+    ],
+    "relative_error": 1.3011813848606835e-13,
+    "limit_relative": 0.001,
+    "parseval_relative_error": 5.551115123125783e-13,
+    "parseval_limit": 1e-12,
+    "passed": true
+  },
+  {
+    "method_id": "d12146eda111623ff0bd50dda5554eec1f1628cd104ae31f4012454746ec87e7",
+    "name": "TEST_LP10",
+    "clock": "MCU",
+    "start_mcu_s": 1560,
+    "width_s": 60,
+    "causal_rms": [
+      4.164099319624982,
+      2.8531617495254356,
+      7.38954383338772
+    ],
+    "independent_fft_rms": [
+      4.164099319624961,
+      2.8531617495253356,
+      7.3895438333890375
+    ],
+    "relative_error": 1.7830181775480014e-13,
+    "limit_relative": 0.001,
+    "parseval_relative_error": 5.551115123125783e-13,
+    "parseval_limit": 1e-12,
+    "passed": true
+  },
+  {
+    "method_id": "d12146eda111623ff0bd50dda5554eec1f1628cd104ae31f4012454746ec87e7",
+    "name": "TEST_LP10",
+    "clock": "MCU",
+    "start_mcu_s": 1620,
+    "width_s": 60,
+    "causal_rms": [
+      3.7143780037818006,
+      2.5723175583710574,
+      6.96926981184528
+    ],
+    "independent_fft_rms": [
+      3.7143780037819156,
+      2.572317558370419,
+      6.969269811844086
+    ],
+    "relative_error": 2.481348460037225e-13,
+    "limit_relative": 0.001,
+    "parseval_relative_error": 5.551115123125783e-13,
+    "parseval_limit": 1e-12,
+    "passed": true
+  },
+  {
+    "method_id": "ec3384fee549e9bba68cb0fda4ee2cd9da75a044536bf1f0bf655d635811ecac",
+    "name": "EDGE_08",
+    "clock": "MCU",
+    "start_mcu_s": 1560,
+    "width_s": 120,
+    "causal_rms": [
+      12.43359042914567,
+      9.605110656898852,
+      31.457973380054895
+    ],
+    "independent_fft_rms": [
+      12.433590429145692,
+      9.60511065689876,
+      31.457973380054923
+    ],
+    "relative_error": 9.658940314238862e-15,
+    "limit_relative": 0.001,
+    "parseval_relative_error": 6.09956529729061e-13,
+    "parseval_limit": 1e-12,
+    "passed": true
+  },
+  {
+    "method_id": "ec3384fee549e9bba68cb0fda4ee2cd9da75a044536bf1f0bf655d635811ecac",
+    "name": "EDGE_08",
+    "clock": "MCU",
+    "start_mcu_s": 1560,
+    "width_s": 60,
+    "causal_rms": [
+      12.993261696961014,
+      9.998123860729896,
+      32.244740775304415
+    ],
+    "independent_fft_rms": [
+      12.993261696960914,
+      9.99812386072985,
+      32.244740775304685
+    ],
+    "relative_error": 8.43769498715119e-15,
+    "limit_relative": 0.001,
+    "parseval_relative_error": 6.09956529729061e-13,
+    "parseval_limit": 1e-12,
+    "passed": true
+  },
+  {
+    "method_id": "ec3384fee549e9bba68cb0fda4ee2cd9da75a044536bf1f0bf655d635811ecac",
+    "name": "EDGE_08",
+    "clock": "MCU",
+    "start_mcu_s": 1620,
+    "width_s": 60,
+    "causal_rms": [
+      11.847517488976118,
+      9.195320398704801,
+      30.651027690805655
+    ],
+    "independent_fft_rms": [
+      11.84751748897612,
+      9.19532039870471,
+      30.651027690806554
+    ],
+    "relative_error": 2.930988785010413e-14,
+    "limit_relative": 0.001,
+    "parseval_relative_error": 6.09956529729061e-13,
+    "parseval_limit": 1e-12,
+    "passed": true
+  },
+  {
+    "method_id": "41a9a3cb96759a47f799b3c532f1488ed082b9a0d437bd425fcd3740c45b61e6",
+    "name": "EDGE_12",
+    "clock": "MCU",
+    "start_mcu_s": 1560,
+    "width_s": 120,
+    "causal_rms": [
+      12.435098559292168,
+      9.604381327462894,
+      31.464512037446
+    ],
+    "independent_fft_rms": [
+      12.435098559292067,
+      9.60438132746292,
+      31.46451203744643
+    ],
+    "relative_error": 1.3766765505351941e-14,
+    "limit_relative": 0.001,
+    "parseval_relative_error": 6.334932578511143e-13,
+    "parseval_limit": 1e-12,
+    "passed": true
+  },
+  {
+    "method_id": "41a9a3cb96759a47f799b3c532f1488ed082b9a0d437bd425fcd3740c45b61e6",
+    "name": "EDGE_12",
+    "clock": "MCU",
+    "start_mcu_s": 1560,
+    "width_s": 60,
+    "causal_rms": [
+      12.994949695408593,
+      9.997356123693592,
+      32.25259425666402
+    ],
+    "independent_fft_rms": [
+      12.994949695408625,
+      9.99735612369364,
+      32.25259425666447
+    ],
+    "relative_error": 1.3988810110276972e-14,
+    "limit_relative": 0.001,
+    "parseval_relative_error": 6.334932578511143e-13,
+    "parseval_limit": 1e-12,
+    "passed": true
+  },
+  {
+    "method_id": "41a9a3cb96759a47f799b3c532f1488ed082b9a0d437bd425fcd3740c45b61e6",
+    "name": "EDGE_12",
+    "clock": "MCU",
+    "start_mcu_s": 1620,
+    "width_s": 60,
+    "causal_rms": [
+      11.848831719201133,
+      9.194631498470766,
+      30.65618743784122
+    ],
+    "independent_fft_rms": [
+      11.848831719201227,
+      9.194631498470896,
+      30.656187437842053
+    ],
+    "relative_error": 2.731148640577885e-14,
+    "limit_relative": 0.001,
+    "parseval_relative_error": 6.334932578511143e-13,
+    "parseval_limit": 1e-12,
+    "passed": true
+  },
+  {
+    "method_id": "1dde808c6d3da76a67eec4b4d46c4282e1be05c77977c7e5899b81b47321d444",
+    "name": "BAND_1_2",
+    "clock": "QPC_ESTIMATE",
+    "start_mcu_s": 1560,
+    "width_s": 120,
+    "causal_rms": [
+      0.16237957846498824,
+      0.19505648353734278,
+      0.7681878306157541
+    ],
+    "independent_fft_rms": [
+      0.1623795784603651,
+      0.19505648353767865,
+      0.7681878305373262
+    ],
+    "relative_error": 1.0209477707689985e-10,
+    "limit_relative": 0.001,
+    "parseval_relative_error": 3.3306690738754696e-14,
+    "parseval_limit": 1e-12,
+    "passed": true
+  },
+  {
+    "method_id": "1dde808c6d3da76a67eec4b4d46c4282e1be05c77977c7e5899b81b47321d444",
+    "name": "BAND_1_2",
+    "clock": "QPC_ESTIMATE",
+    "start_mcu_s": 1560,
+    "width_s": 60,
+    "causal_rms": [
+      0.14877767490953595,
+      0.19738883285279524,
+      0.7224561980556798
+    ],
+    "independent_fft_rms": [
+      0.1487776749014072,
+      0.19738883285393946,
+      0.7224561979920018
+    ],
+    "relative_error": 8.814105001420103e-11,
+    "limit_relative": 0.001,
+    "parseval_relative_error": 3.3306690738754696e-14,
+    "parseval_limit": 1e-12,
+    "passed": true
+  },
+  {
+    "method_id": "1dde808c6d3da76a67eec4b4d46c4282e1be05c77977c7e5899b81b47321d444",
+    "name": "BAND_1_2",
+    "clock": "QPC_ESTIMATE",
+    "start_mcu_s": 1620,
+    "width_s": 60,
+    "causal_rms": [
+      0.17492685739467684,
+      0.19269593579131578,
+      0.8113453482889882
+    ],
+    "independent_fft_rms": [
+      0.17492685739300728,
+      0.1926959357908251,
+      0.8113453481971742
+    ],
+    "relative_error": 1.1316270143169049e-10,
+    "limit_relative": 0.001,
+    "parseval_relative_error": 3.3306690738754696e-14,
+    "parseval_limit": 1e-12,
+    "passed": true
+  },
+  {
+    "method_id": "cbb82395d06e90c107d85fa820f27cdaf50a8691a06178d6dc25577d4ebfe3ff",
+    "name": "BAND_2_5",
+    "clock": "QPC_ESTIMATE",
+    "start_mcu_s": 1560,
+    "width_s": 120,
+    "causal_rms": [
+      0.29646214018769246,
+      0.6229785699564754,
+      0.6254469517483545
+    ],
+    "independent_fft_rms": [
+      0.2964621401884613,
+      0.6229785699568723,
+      0.625446951762737
+    ],
+    "relative_error": 2.2995605419851017e-11,
+    "limit_relative": 0.001,
+    "parseval_relative_error": 1.616484723854228e-13,
+    "parseval_limit": 1e-12,
+    "passed": true
+  },
+  {
+    "method_id": "cbb82395d06e90c107d85fa820f27cdaf50a8691a06178d6dc25577d4ebfe3ff",
+    "name": "BAND_2_5",
+    "clock": "QPC_ESTIMATE",
+    "start_mcu_s": 1560,
+    "width_s": 60,
+    "causal_rms": [
+      0.2941647028490903,
+      0.6150889105490115,
+      0.6248963225512829
+    ],
+    "independent_fft_rms": [
+      0.2941647028493235,
+      0.6150889105495411,
+      0.6248963225535394
+    ],
+    "relative_error": 3.611111409895784e-12,
+    "limit_relative": 0.001,
+    "parseval_relative_error": 1.616484723854228e-13,
+    "parseval_limit": 1e-12,
+    "passed": true
+  },
+  {
+    "method_id": "cbb82395d06e90c107d85fa820f27cdaf50a8691a06178d6dc25577d4ebfe3ff",
+    "name": "BAND_2_5",
+    "clock": "QPC_ESTIMATE",
+    "start_mcu_s": 1620,
+    "width_s": 60,
+    "causal_rms": [
+      0.2987418814457459,
+      0.6307694563099724,
+      0.6259970897220255
+    ],
+    "independent_fft_rms": [
+      0.2987418814470437,
+      0.630769456310241,
+      0.6259970897485232
+    ],
+    "relative_error": 4.232880712606857e-11,
+    "limit_relative": 0.001,
+    "parseval_relative_error": 1.616484723854228e-13,
+    "parseval_limit": 1e-12,
+    "passed": true
+  },
+  {
+    "method_id": "29bad5b67736e522365e8c94e0687f3f5580263fd343ab1365549f3063167950",
+    "name": "BAND_5_25",
+    "clock": "QPC_ESTIMATE",
+    "start_mcu_s": 1560,
+    "width_s": 120,
+    "causal_rms": [
+      6.58777436546825,
+      3.653405767121278,
+      8.932009323770469
+    ],
+    "independent_fft_rms": [
+      6.587774365468196,
+      3.653405767121309,
+      8.932009323770842
+    ],
+    "relative_error": 4.1744385725905886e-14,
+    "limit_relative": 0.001,
+    "parseval_relative_error": 3.801403636316536e-13,
+    "parseval_limit": 1e-12,
+    "passed": true
+  },
+  {
+    "method_id": "29bad5b67736e522365e8c94e0687f3f5580263fd343ab1365549f3063167950",
+    "name": "BAND_5_25",
+    "clock": "QPC_ESTIMATE",
+    "start_mcu_s": 1560,
+    "width_s": 60,
+    "causal_rms": [
+      6.974642713633442,
+      3.9000834561260547,
+      9.186683139930858
+    ],
+    "independent_fft_rms": [
+      6.974642713633273,
+      3.9000834561260724,
+      9.186683139931255
+    ],
+    "relative_error": 4.3076653355456074e-14,
+    "limit_relative": 0.001,
+    "parseval_relative_error": 3.801403636316536e-13,
+    "parseval_limit": 1e-12,
+    "passed": true
+  },
+  {
+    "method_id": "29bad5b67736e522365e8c94e0687f3f5580263fd343ab1365549f3063167950",
+    "name": "BAND_5_25",
+    "clock": "QPC_ESTIMATE",
+    "start_mcu_s": 1620,
+    "width_s": 60,
+    "causal_rms": [
+      6.176727849087654,
+      3.3888227710669154,
+      8.669861118102988
+    ],
+    "independent_fft_rms": [
+      6.176727849087647,
+      3.388822771066852,
+      8.669861118103693
+    ],
+    "relative_error": 8.126832540256146e-14,
+    "limit_relative": 0.001,
+    "parseval_relative_error": 3.801403636316536e-13,
+    "parseval_limit": 1e-12,
+    "passed": true
+  },
+  {
+    "method_id": "3c62a8629812ca7e00085f3b5db9970b64c220c8b5d4191c318c166be4830631",
+    "name": "BAND_25_80",
+    "clock": "QPC_ESTIMATE",
+    "start_mcu_s": 1560,
+    "width_s": 120,
+    "causal_rms": [
+      10.609811199600578,
+      8.90099938103538,
+      30.21673308206763
+    ],
+    "independent_fft_rms": [
+      10.60981119960069,
+      8.900999381035316,
+      30.216733082067694
+    ],
+    "relative_error": 1.0658141036401503e-14,
+    "limit_relative": 0.001,
+    "parseval_relative_error": 6.872280522429719e-13,
+    "parseval_limit": 1e-12,
+    "passed": true
+  },
+  {
+    "method_id": "3c62a8629812ca7e00085f3b5db9970b64c220c8b5d4191c318c166be4830631",
+    "name": "BAND_25_80",
+    "clock": "QPC_ESTIMATE",
+    "start_mcu_s": 1560,
+    "width_s": 60,
+    "causal_rms": [
+      11.044689610634768,
+      9.229655847486098,
+      31.012964262344713
+    ],
+    "independent_fft_rms": [
+      11.044689610634755,
+      9.229655847486045,
+      31.012964262344443
+    ],
+    "relative_error": 8.659739592076221e-15,
+    "limit_relative": 0.001,
+    "parseval_relative_error": 6.872280522429719e-13,
+    "parseval_limit": 1e-12,
+    "passed": true
+  },
+  {
+    "method_id": "3c62a8629812ca7e00085f3b5db9970b64c220c8b5d4191c318c166be4830631",
+    "name": "BAND_25_80",
+    "clock": "QPC_ESTIMATE",
+    "start_mcu_s": 1620,
+    "width_s": 60,
+    "causal_rms": [
+      10.156334808789577,
+      8.55973758596373,
+      29.398955332855916
+    ],
+    "independent_fft_rms": [
+      10.15633480878953,
+      8.559737585963715,
+      29.398955332855515
+    ],
+    "relative_error": 1.3655743202889425e-14,
+    "limit_relative": 0.001,
+    "parseval_relative_error": 6.872280522429719e-13,
+    "parseval_limit": 1e-12,
+    "passed": true
+  },
+  {
+    "method_id": "a91aac1dd79d2a4791de1f1e4eea8bef8a2c34adc94a9e9f61abaaac74f2e468",
+    "name": "FLAT_1_80",
+    "clock": "QPC_ESTIMATE",
+    "start_mcu_s": 1560,
+    "width_s": 120,
+    "causal_rms": [
+      12.414173975059095,
+      9.58359515949926,
+      31.340669853229166
+    ],
+    "independent_fft_rms": [
+      12.414173975058977,
+      9.583595159499227,
+      31.340669853230175
+    ],
+    "relative_error": 3.219646771412954e-14,
+    "limit_relative": 0.001,
+    "parseval_relative_error": 6.348255254806645e-13,
+    "parseval_limit": 1e-12,
+    "passed": true
+  },
+  {
+    "method_id": "a91aac1dd79d2a4791de1f1e4eea8bef8a2c34adc94a9e9f61abaaac74f2e468",
+    "name": "FLAT_1_80",
+    "clock": "QPC_ESTIMATE",
+    "start_mcu_s": 1560,
+    "width_s": 60,
+    "causal_rms": [
+      12.97542985183994,
+      9.977148299983686,
+      32.12794852402649
+    ],
+    "independent_fft_rms": [
+      12.975429851839856,
+      9.977148299983545,
+      32.12794852402705
+    ],
+    "relative_error": 1.7319479184152442e-14,
+    "limit_relative": 0.001,
+    "parseval_relative_error": 6.348255254806645e-13,
+    "parseval_limit": 1e-12,
+    "passed": true
+  },
+  {
+    "method_id": "a91aac1dd79d2a4791de1f1e4eea8bef8a2c34adc94a9e9f61abaaac74f2e468",
+    "name": "FLAT_1_80",
+    "clock": "QPC_ESTIMATE",
+    "start_mcu_s": 1620,
+    "width_s": 60,
+    "causal_rms": [
+      11.826319360929919,
+      9.173178325552763,
+      30.53310864035539
+    ],
+    "independent_fft_rms": [
+      11.826319360929942,
+      9.173178325552744,
+      30.533108640356442
+    ],
+    "relative_error": 3.441691376337985e-14,
+    "limit_relative": 0.001,
+    "parseval_relative_error": 6.348255254806645e-13,
+    "parseval_limit": 1e-12,
+    "passed": true
+  },
+  {
+    "method_id": "0fb53d2f5ed162c3b6f35c1d46b0d8501fce607d003b8fcf8e4624316e3dcf19",
+    "name": "TEST_LP10",
+    "clock": "QPC_ESTIMATE",
+    "start_mcu_s": 1560,
+    "width_s": 120,
+    "causal_rms": [
+      3.922142110596982,
+      2.7004979485510154,
+      7.131426943820598
+    ],
+    "independent_fft_rms": [
+      3.922142110597042,
+      2.700497948550832,
+      7.131426943823873
+    ],
+    "relative_error": 4.591882429849647e-13,
+    "limit_relative": 0.001,
+    "parseval_relative_error": 5.382361223382759e-13,
+    "parseval_limit": 1e-12,
+    "passed": true
+  },
+  {
+    "method_id": "0fb53d2f5ed162c3b6f35c1d46b0d8501fce607d003b8fcf8e4624316e3dcf19",
+    "name": "TEST_LP10",
+    "clock": "QPC_ESTIMATE",
+    "start_mcu_s": 1560,
+    "width_s": 60,
+    "causal_rms": [
+      4.139367515074886,
+      2.8364778577566905,
+      7.3371265037716435
+    ],
+    "independent_fft_rms": [
+      4.139367515075007,
+      2.8364778577564524,
+      7.337126503773221
+    ],
+    "relative_error": 2.149391775674303e-13,
+    "limit_relative": 0.001,
+    "parseval_relative_error": 5.382361223382759e-13,
+    "parseval_limit": 1e-12,
+    "passed": true
+  },
+  {
+    "method_id": "0fb53d2f5ed162c3b6f35c1d46b0d8501fce607d003b8fcf8e4624316e3dcf19",
+    "name": "TEST_LP10",
+    "clock": "QPC_ESTIMATE",
+    "start_mcu_s": 1620,
+    "width_s": 60,
+    "causal_rms": [
+      3.692161424179945,
+      2.557299578458988,
+      6.919617941637384
+    ],
+    "independent_fft_rms": [
+      3.692161424179884,
+      2.557299578458854,
+      6.919617941642455
+    ],
+    "relative_error": 7.329692408575283e-13,
+    "limit_relative": 0.001,
+    "parseval_relative_error": 5.382361223382759e-13,
+    "parseval_limit": 1e-12,
+    "passed": true
+  },
+  {
+    "method_id": "0f6f13cd77287277b17a9810e09869d634ae8bbf2641c678fd27a5db12431b60",
+    "name": "EDGE_08",
+    "clock": "QPC_ESTIMATE",
+    "start_mcu_s": 1560,
+    "width_s": 120,
+    "causal_rms": [
+      12.413416435826928,
+      9.584471854014787,
+      31.33717856617833
+    ],
+    "independent_fft_rms": [
+      12.413416435826948,
+      9.584471854014634,
+      31.33717856617771
+    ],
+    "relative_error": 1.9872992140790302e-14,
+    "limit_relative": 0.001,
+    "parseval_relative_error": 6.288303211476887e-13,
+    "parseval_limit": 1e-12,
+    "passed": true
+  },
+  {
+    "method_id": "0f6f13cd77287277b17a9810e09869d634ae8bbf2641c678fd27a5db12431b60",
+    "name": "EDGE_08",
+    "clock": "QPC_ESTIMATE",
+    "start_mcu_s": 1560,
+    "width_s": 60,
+    "causal_rms": [
+      12.974575587016163,
+      9.978061348509238,
+      32.12388887122817
+    ],
+    "independent_fft_rms": [
+      12.974575587016208,
+      9.97806134850905,
+      32.12388887122799
+    ],
+    "relative_error": 1.887379141862766e-14,
+    "limit_relative": 0.001,
+    "parseval_relative_error": 6.288303211476887e-13,
+    "parseval_limit": 1e-12,
+    "passed": true
+  },
+  {
+    "method_id": "0f6f13cd77287277b17a9810e09869d634ae8bbf2641c678fd27a5db12431b60",
+    "name": "EDGE_08",
+    "clock": "QPC_ESTIMATE",
+    "start_mcu_s": 1620,
+    "width_s": 60,
+    "causal_rms": [
+      11.825666239746669,
+      9.174017092518618,
+      30.530213070789795
+    ],
+    "independent_fft_rms": [
+      11.825666239746827,
+      9.174017092518584,
+      30.530213070788808
+    ],
+    "relative_error": 3.2307490016592055e-14,
+    "limit_relative": 0.001,
+    "parseval_relative_error": 6.288303211476887e-13,
+    "parseval_limit": 1e-12,
+    "passed": true
+  },
+  {
+    "method_id": "df2c617bb8d8cd9fcec085bab62040f32b79b2d2de9c60a4cb1e8675d833b515",
+    "name": "EDGE_12",
+    "clock": "QPC_ESTIMATE",
+    "start_mcu_s": 1560,
+    "width_s": 120,
+    "causal_rms": [
+      12.414960698370407,
+      9.583699009490898,
+      31.343817034904077
+    ],
+    "independent_fft_rms": [
+      12.414960698370482,
+      9.583699009490651,
+      31.343817034904568
+    ],
+    "relative_error": 2.5757174171303632e-14,
+    "limit_relative": 0.001,
+    "parseval_relative_error": 6.856737400084967e-13,
+    "parseval_limit": 1e-12,
+    "passed": true
+  },
+  {
+    "method_id": "df2c617bb8d8cd9fcec085bab62040f32b79b2d2de9c60a4cb1e8675d833b515",
+    "name": "EDGE_12",
+    "clock": "QPC_ESTIMATE",
+    "start_mcu_s": 1560,
+    "width_s": 60,
+    "causal_rms": [
+      12.97629821313335,
+      9.977253188733764,
+      32.13180859787791
+    ],
+    "independent_fft_rms": [
+      12.976298213133427,
+      9.977253188733634,
+      32.13180859787881
+    ],
+    "relative_error": 2.7977620220553945e-14,
+    "limit_relative": 0.001,
+    "parseval_relative_error": 6.856737400084967e-13,
+    "parseval_limit": 1e-12,
+    "passed": true
+  },
+  {
+    "method_id": "df2c617bb8d8cd9fcec085bab62040f32b79b2d2de9c60a4cb1e8675d833b515",
+    "name": "EDGE_12",
+    "clock": "QPC_ESTIMATE",
+    "start_mcu_s": 1620,
+    "width_s": 60,
+    "causal_rms": [
+      11.827018284684156,
+      9.173281236728881,
+      30.53550778042483
+    ],
+    "independent_fft_rms": [
+      11.827018284684089,
+      9.173281236728897,
+      30.53550778042463
+    ],
+    "relative_error": 6.5503158452884236e-15,
+    "limit_relative": 0.001,
+    "parseval_relative_error": 6.856737400084967e-13,
+    "parseval_limit": 1e-12,
+    "passed": true
+  },
+  {
+    "method_id": "9976afda2529c6e57f4f6147ae728158ab4b9fceba98bbbf21daa357f5f57303",
+    "name": "BAND_1_2",
+    "clock": "MCU",
+    "start_mcu_s": 11640,
+    "width_s": 120,
+    "causal_rms": [
+      0.125109722440351,
+      0.1560799123727929,
+      0.5386951229847242
+    ],
+    "independent_fft_rms": [
+      0.1251097224409947,
+      0.15607991237188698,
+      0.5386951230265348
+    ],
+    "relative_error": 7.761458142852007e-11,
+    "limit_relative": 0.001,
+    "parseval_relative_error": 1.3000711618360583e-13,
+    "parseval_limit": 1e-12,
+    "passed": true
+  },
+  {
+    "method_id": "9976afda2529c6e57f4f6147ae728158ab4b9fceba98bbbf21daa357f5f57303",
+    "name": "BAND_1_2",
+    "clock": "MCU",
+    "start_mcu_s": 11640,
+    "width_s": 60,
+    "causal_rms": [
+      0.12935144057987502,
+      0.1536005482239006,
+      0.6567855157478826
+    ],
+    "independent_fft_rms": [
+      0.12935144058399672,
+      0.15360054822045058,
+      0.6567855157528201
+    ],
+    "relative_error": 3.186428898516169e-11,
+    "limit_relative": 0.001,
+    "parseval_relative_error": 1.3000711618360583e-13,
+    "parseval_limit": 1e-12,
+    "passed": true
+  },
+  {
+    "method_id": "9976afda2529c6e57f4f6147ae728158ab4b9fceba98bbbf21daa357f5f57303",
+    "name": "BAND_1_2",
+    "clock": "MCU",
+    "start_mcu_s": 11700,
+    "width_s": 60,
+    "causal_rms": [
+      0.12071933447731999,
+      0.15852035071520354,
+      0.38603950440729
+    ],
+    "independent_fft_rms": [
+      0.120719334474237,
+      0.15852035071676207,
+      0.386039504515585
+    ],
+    "relative_error": 2.8052826728242053e-10,
+    "limit_relative": 0.001,
+    "parseval_relative_error": 1.3000711618360583e-13,
+    "parseval_limit": 1e-12,
+    "passed": true
+  },
+  {
+    "method_id": "e733902308e1876d8edc67df90cf2a54e902080657a5829866e0d8a3a7685aab",
+    "name": "BAND_2_5",
+    "clock": "MCU",
+    "start_mcu_s": 11640,
+    "width_s": 120,
+    "causal_rms": [
+      0.2021631236726477,
+      0.46850145982772634,
+      0.4053894066466761
+    ],
+    "independent_fft_rms": [
+      0.20216312367386866,
+      0.4685014598288126,
+      0.4053894066603881
+    ],
+    "relative_error": 3.3824276712834944e-11,
+    "limit_relative": 0.001,
+    "parseval_relative_error": 2.1649348980190553e-13,
+    "parseval_limit": 1e-12,
+    "passed": true
+  },
+  {
+    "method_id": "e733902308e1876d8edc67df90cf2a54e902080657a5829866e0d8a3a7685aab",
+    "name": "BAND_2_5",
+    "clock": "MCU",
+    "start_mcu_s": 11640,
+    "width_s": 60,
+    "causal_rms": [
+      0.21291154662267436,
+      0.5391585602122172,
+      0.46246200550200417
+    ],
+    "independent_fft_rms": [
+      0.21291154662321862,
+      0.5391585602146837,
+      0.46246200551736283
+    ],
+    "relative_error": 3.321054542482216e-11,
+    "limit_relative": 0.001,
+    "parseval_relative_error": 2.1649348980190553e-13,
+    "parseval_limit": 1e-12,
+    "passed": true
+  },
+  {
+    "method_id": "e733902308e1876d8edc67df90cf2a54e902080657a5829866e0d8a3a7685aab",
+    "name": "BAND_2_5",
+    "clock": "MCU",
+    "start_mcu_s": 11700,
+    "width_s": 60,
+    "causal_rms": [
+      0.19081092702680327,
+      0.38509705495655505,
+      0.3388408734889958
+    ],
+    "independent_fft_rms": [
+      0.19081092702878388,
+      0.38509705495574725,
+      0.33884087350085035
+    ],
+    "relative_error": 3.498556999659286e-11,
+    "limit_relative": 0.001,
+    "parseval_relative_error": 2.1649348980190553e-13,
+    "parseval_limit": 1e-12,
+    "passed": true
+  },
+  {
+    "method_id": "fa730a4d4531628d1cdee2d85dedb7ba6fd27080aca9e1d7430d6430bb0d1966",
+    "name": "BAND_5_25",
+    "clock": "MCU",
+    "start_mcu_s": 11640,
+    "width_s": 120,
+    "causal_rms": [
+      9.43117559987334,
+      9.06261062933136,
+      19.538102441072304
+    ],
+    "independent_fft_rms": [
+      9.431175599873304,
+      9.062610629331347,
+      19.538102441072095
+    ],
+    "relative_error": 1.0769163338864018e-14,
+    "limit_relative": 0.001,
+    "parseval_relative_error": 6.632472349110685e-13,
+    "parseval_limit": 1e-12,
+    "passed": true
+  },
+  {
+    "method_id": "fa730a4d4531628d1cdee2d85dedb7ba6fd27080aca9e1d7430d6430bb0d1966",
+    "name": "BAND_5_25",
+    "clock": "MCU",
+    "start_mcu_s": 11640,
+    "width_s": 60,
+    "causal_rms": [
+      6.906493659511905,
+      6.866071536106881,
+      12.801888307541216
+    ],
+    "independent_fft_rms": [
+      6.906493659511911,
+      6.866071536106758,
+      12.801888307540917
+    ],
+    "relative_error": 2.3314683517128287e-14,
+    "limit_relative": 0.001,
+    "parseval_relative_error": 6.632472349110685e-13,
+    "parseval_limit": 1e-12,
+    "passed": true
+  },
+  {
+    "method_id": "fa730a4d4531628d1cdee2d85dedb7ba6fd27080aca9e1d7430d6430bb0d1966",
+    "name": "BAND_5_25",
+    "clock": "MCU",
+    "start_mcu_s": 11700,
+    "width_s": 60,
+    "causal_rms": [
+      11.410166889528663,
+      10.822046629206449,
+      24.486177858810205
+    ],
+    "independent_fft_rms": [
+      11.410166889528595,
+      10.82204662920645,
+      24.486177858810066
+    ],
+    "relative_error": 5.88418203051333e-15,
+    "limit_relative": 0.001,
+    "parseval_relative_error": 6.632472349110685e-13,
+    "parseval_limit": 1e-12,
+    "passed": true
+  },
+  {
+    "method_id": "508fbe8251e1d20c7700ae9477a9729f8738ad6fa3b0faf1105eefdb5750f5af",
+    "name": "BAND_25_80",
+    "clock": "MCU",
+    "start_mcu_s": 11640,
+    "width_s": 120,
+    "causal_rms": [
+      21.157153471759237,
+      20.128306190955264,
+      47.113173649108006
+    ],
+    "independent_fft_rms": [
+      21.15715347175935,
+      20.128306190955435,
+      47.11317364910751
+    ],
+    "relative_error": 1.0547118733938987e-14,
+    "limit_relative": 0.001,
+    "parseval_relative_error": 8.921752225887758e-13,
+    "parseval_limit": 1e-12,
+    "passed": true
+  },
+  {
+    "method_id": "508fbe8251e1d20c7700ae9477a9729f8738ad6fa3b0faf1105eefdb5750f5af",
+    "name": "BAND_25_80",
+    "clock": "MCU",
+    "start_mcu_s": 11640,
+    "width_s": 60,
+    "causal_rms": [
+      18.143985613132585,
+      18.724928430476233,
+      48.25686251886522
+    ],
+    "independent_fft_rms": [
+      18.14398561313255,
+      18.724928430476186,
+      48.25686251886528
+    ],
+    "relative_error": 2.4424906541753444e-15,
+    "limit_relative": 0.001,
+    "parseval_relative_error": 8.921752225887758e-13,
+    "parseval_limit": 1e-12,
+    "passed": true
+  },
+  {
+    "method_id": "508fbe8251e1d20c7700ae9477a9729f8738ad6fa3b0faf1105eefdb5750f5af",
+    "name": "BAND_25_80",
+    "clock": "MCU",
+    "start_mcu_s": 11700,
+    "width_s": 60,
+    "causal_rms": [
+      23.791566900211063,
+      21.43994077942032,
+      45.941096129358485
+    ],
+    "independent_fft_rms": [
+      23.79156690021115,
+      21.439940779420247,
+      45.941096129358534
+    ],
+    "relative_error": 3.774758283725532e-15,
+    "limit_relative": 0.001,
+    "parseval_relative_error": 8.921752225887758e-13,
+    "parseval_limit": 1e-12,
+    "passed": true
+  },
+  {
+    "method_id": "facdbad45dafea380cf099bb1ad76b84e190dde976b374e28c39bfb77ed8d719",
+    "name": "FLAT_1_80",
+    "clock": "MCU",
+    "start_mcu_s": 11640,
+    "width_s": 120,
+    "causal_rms": [
+      22.78253297064227,
+      21.791897656385242,
+      50.30942910738006
+    ],
+    "independent_fft_rms": [
+      22.78253297064235,
+      21.791897656385167,
+      50.30942910738061
+    ],
+    "relative_error": 1.0880185641326534e-14,
+    "limit_relative": 0.001,
+    "parseval_relative_error": 8.690825836765725e-13,
+    "parseval_limit": 1e-12,
+    "passed": true
+  },
+  {
+    "method_id": "facdbad45dafea380cf099bb1ad76b84e190dde976b374e28c39bfb77ed8d719",
+    "name": "FLAT_1_80",
+    "clock": "MCU",
+    "start_mcu_s": 11640,
+    "width_s": 60,
+    "causal_rms": [
+      19.22322828582963,
+      19.76398765019895,
+      49.1838420986235
+    ],
+    "independent_fft_rms": [
+      19.22322828582969,
+      19.76398765019899,
+      49.18384209862334
+    ],
+    "relative_error": 3.3306690738754696e-15,
+    "limit_relative": 0.001,
+    "parseval_relative_error": 8.690825836765725e-13,
+    "parseval_limit": 1e-12,
+    "passed": true
+  },
+  {
+    "method_id": "facdbad45dafea380cf099bb1ad76b84e190dde976b374e28c39bfb77ed8d719",
+    "name": "FLAT_1_80",
+    "clock": "MCU",
+    "start_mcu_s": 11700,
+    "width_s": 60,
+    "causal_rms": [
+      25.856251616913216,
+      23.64641878315323,
+      51.410310025771295
+    ],
+    "independent_fft_rms": [
+      25.85625161691318,
+      23.646418783153244,
+      51.41031002577123
+    ],
+    "relative_error": 1.3322676295501878e-15,
+    "limit_relative": 0.001,
+    "parseval_relative_error": 8.690825836765725e-13,
+    "parseval_limit": 1e-12,
+    "passed": true
+  },
+  {
+    "method_id": "d12146eda111623ff0bd50dda5554eec1f1628cd104ae31f4012454746ec87e7",
+    "name": "TEST_LP10",
+    "clock": "MCU",
+    "start_mcu_s": 11640,
+    "width_s": 120,
+    "causal_rms": [
+      6.811955323528552,
+      6.621077443443638,
+      14.180396574321632
+    ],
+    "independent_fft_rms": [
+      6.811955323528627,
+      6.621077443443654,
+      14.180396574321522
+    ],
+    "relative_error": 1.1102230246251565e-14,
+    "limit_relative": 0.001,
+    "parseval_relative_error": 4.4875214655348827e-13,
+    "parseval_limit": 1e-12,
+    "passed": true
+  },
+  {
+    "method_id": "d12146eda111623ff0bd50dda5554eec1f1628cd104ae31f4012454746ec87e7",
+    "name": "TEST_LP10",
+    "clock": "MCU",
+    "start_mcu_s": 11640,
+    "width_s": 60,
+    "causal_rms": [
+      5.320880290826056,
+      5.701330312690254,
+      12.700274911011467
+    ],
+    "independent_fft_rms": [
+      5.320880290826076,
+      5.701330312690193,
+      12.700274911011077
+    ],
+    "relative_error": 3.0753177782116836e-14,
+    "limit_relative": 0.001,
+    "parseval_relative_error": 4.4875214655348827e-13,
+    "parseval_limit": 1e-12,
+    "passed": true
+  },
+  {
+    "method_id": "d12146eda111623ff0bd50dda5554eec1f1628cd104ae31f4012454746ec87e7",
+    "name": "TEST_LP10",
+    "clock": "MCU",
+    "start_mcu_s": 11700,
+    "width_s": 60,
+    "causal_rms": [
+      8.030726652982146,
+      7.42774904574219,
+      15.519916862037064
+    ],
+    "independent_fft_rms": [
+      8.03072665298216,
+      7.427749045742125,
+      15.51991686203739
+    ],
+    "relative_error": 2.0872192862952943e-14,
+    "limit_relative": 0.001,
+    "parseval_relative_error": 4.4875214655348827e-13,
+    "parseval_limit": 1e-12,
+    "passed": true
+  },
+  {
+    "method_id": "ec3384fee549e9bba68cb0fda4ee2cd9da75a044536bf1f0bf655d635811ecac",
+    "name": "EDGE_08",
+    "clock": "MCU",
+    "start_mcu_s": 11640,
+    "width_s": 120,
+    "causal_rms": [
+      22.781237617165075,
+      21.791955831682742,
+      50.30420425566569
+    ],
+    "independent_fft_rms": [
+      22.781237617165083,
+      21.791955831682724,
+      50.304204255665475
+    ],
+    "relative_error": 4.218847493575595e-15,
+    "limit_relative": 0.001,
+    "parseval_relative_error": 8.852918398360998e-13,
+    "parseval_limit": 1e-12,
+    "passed": true
+  },
+  {
+    "method_id": "ec3384fee549e9bba68cb0fda4ee2cd9da75a044536bf1f0bf655d635811ecac",
+    "name": "EDGE_08",
+    "clock": "MCU",
+    "start_mcu_s": 11640,
+    "width_s": 60,
+    "causal_rms": [
+      19.221570512767777,
+      19.763933401935837,
+      49.17787781247452
+    ],
+    "independent_fft_rms": [
+      19.221570512767656,
+      19.76393340193596,
+      49.17787781247393
+    ],
+    "relative_error": 1.199040866595169e-14,
+    "limit_relative": 0.001,
+    "parseval_relative_error": 8.852918398360998e-13,
+    "parseval_limit": 1e-12,
+    "passed": true
+  },
+  {
+    "method_id": "ec3384fee549e9bba68cb0fda4ee2cd9da75a044536bf1f0bf655d635811ecac",
+    "name": "EDGE_08",
+    "clock": "MCU",
+    "start_mcu_s": 11700,
+    "width_s": 60,
+    "causal_rms": [
+      25.855201367549515,
+      23.646571343505947,
+      51.40579002351592
+    ],
+    "independent_fft_rms": [
+      25.855201367549597,
+      23.646571343506118,
+      51.40579002351637
+    ],
+    "relative_error": 8.659739592076221e-15,
+    "limit_relative": 0.001,
+    "parseval_relative_error": 8.852918398360998e-13,
+    "parseval_limit": 1e-12,
+    "passed": true
+  },
+  {
+    "method_id": "41a9a3cb96759a47f799b3c532f1488ed082b9a0d437bd425fcd3740c45b61e6",
+    "name": "EDGE_12",
+    "clock": "MCU",
+    "start_mcu_s": 11640,
+    "width_s": 120,
+    "causal_rms": [
+      22.783789441276237,
+      21.79196803272564,
+      50.31440194910967
+    ],
+    "independent_fft_rms": [
+      22.783789441276134,
+      21.7919680327257,
+      50.314401949109914
+    ],
+    "relative_error": 4.884981308350689e-15,
+    "limit_relative": 0.001,
+    "parseval_relative_error": 8.79296635503124e-13,
+    "parseval_limit": 1e-12,
+    "passed": true
+  },
+  {
+    "method_id": "41a9a3cb96759a47f799b3c532f1488ed082b9a0d437bd425fcd3740c45b61e6",
+    "name": "EDGE_12",
+    "clock": "MCU",
+    "start_mcu_s": 11640,
+    "width_s": 60,
+    "causal_rms": [
+      19.22485219154017,
+      19.764209255308806,
+      49.18948498638553
+    ],
+    "independent_fft_rms": [
+      19.22485219154018,
+      19.764209255308895,
+      49.18948498638527
+    ],
+    "relative_error": 5.329070518200751e-15,
+    "limit_relative": 0.001,
+    "parseval_relative_error": 8.79296635503124e-13,
+    "parseval_limit": 1e-12,
+    "passed": true
+  },
+  {
+    "method_id": "41a9a3cb96759a47f799b3c532f1488ed082b9a0d437bd425fcd3740c45b61e6",
+    "name": "EDGE_12",
+    "clock": "MCU",
+    "start_mcu_s": 11700,
+    "width_s": 60,
+    "causal_rms": [
+      25.85725850581074,
+      23.646363283183437,
+      51.414644251436705
+    ],
+    "independent_fft_rms": [
+      25.857258505810766,
+      23.64636328318348,
+      51.41464425143717
+    ],
+    "relative_error": 8.881784197001252e-15,
+    "limit_relative": 0.001,
+    "parseval_relative_error": 8.79296635503124e-13,
+    "parseval_limit": 1e-12,
+    "passed": true
+  },
+  {
+    "method_id": "1dde808c6d3da76a67eec4b4d46c4282e1be05c77977c7e5899b81b47321d444",
+    "name": "BAND_1_2",
+    "clock": "QPC_ESTIMATE",
+    "start_mcu_s": 11640,
+    "width_s": 120,
+    "causal_rms": [
+      0.12491075986529089,
+      0.15559388950568276,
+      0.5391974377721708
+    ],
+    "independent_fft_rms": [
+      0.12491075986373343,
+      0.1555938895085412,
+      0.5391974378601747
+    ],
+    "relative_error": 1.6321277662711964e-10,
+    "limit_relative": 0.001,
+    "parseval_relative_error": 7.438494264988549e-14,
+    "parseval_limit": 1e-12,
+    "passed": true
+  },
+  {
+    "method_id": "1dde808c6d3da76a67eec4b4d46c4282e1be05c77977c7e5899b81b47321d444",
+    "name": "BAND_1_2",
+    "clock": "QPC_ESTIMATE",
+    "start_mcu_s": 11640,
+    "width_s": 60,
+    "causal_rms": [
+      0.1291949584509295,
+      0.15247242631251157,
+      0.6572041275712599
+    ],
+    "independent_fft_rms": [
+      0.12919495844395554,
+      0.1524724263141948,
+      0.6572041277087833
+    ],
+    "relative_error": 2.0925527977055935e-10,
+    "limit_relative": 0.001,
+    "parseval_relative_error": 7.438494264988549e-14,
+    "parseval_limit": 1e-12,
+    "passed": true
+  },
+  {
+    "method_id": "1dde808c6d3da76a67eec4b4d46c4282e1be05c77977c7e5899b81b47321d444",
+    "name": "BAND_1_2",
+    "clock": "QPC_ESTIMATE",
+    "start_mcu_s": 11700,
+    "width_s": 60,
+    "causal_rms": [
+      0.12047458964971292,
+      0.15865376104097664,
+      0.3867290144880254
+    ],
+    "independent_fft_rms": [
+      0.12047458965396206,
+      0.15865376104496642,
+      0.3867290144996997
+    ],
+    "relative_error": 3.527000913550182e-11,
+    "limit_relative": 0.001,
+    "parseval_relative_error": 7.438494264988549e-14,
+    "parseval_limit": 1e-12,
+    "passed": true
+  },
+  {
+    "method_id": "cbb82395d06e90c107d85fa820f27cdaf50a8691a06178d6dc25577d4ebfe3ff",
+    "name": "BAND_2_5",
+    "clock": "QPC_ESTIMATE",
+    "start_mcu_s": 11640,
+    "width_s": 120,
+    "causal_rms": [
+      0.20172628380140967,
+      0.46777670760540974,
+      0.4048507660562076
+    ],
+    "independent_fft_rms": [
+      0.20172628380185956,
+      0.4677767076067119,
+      0.4048507660686356
+    ],
+    "relative_error": 3.069766663088558e-11,
+    "limit_relative": 0.001,
+    "parseval_relative_error": 1.7341683644644945e-13,
+    "parseval_limit": 1e-12,
+    "passed": true
+  },
+  {
+    "method_id": "cbb82395d06e90c107d85fa820f27cdaf50a8691a06178d6dc25577d4ebfe3ff",
+    "name": "BAND_2_5",
+    "clock": "QPC_ESTIMATE",
+    "start_mcu_s": 11640,
+    "width_s": 60,
+    "causal_rms": [
+      0.2124901169485503,
+      0.5383133270984337,
+      0.4618479448328584
+    ],
+    "independent_fft_rms": [
+      0.21249011694926626,
+      0.5383133270996926,
+      0.4618479448506014
+    ],
+    "relative_error": 3.841726936570922e-11,
+    "limit_relative": 0.001,
+    "parseval_relative_error": 1.7341683644644945e-13,
+    "parseval_limit": 1e-12,
+    "passed": true
+  },
+  {
+    "method_id": "cbb82395d06e90c107d85fa820f27cdaf50a8691a06178d6dc25577d4ebfe3ff",
+    "name": "BAND_2_5",
+    "clock": "QPC_ESTIMATE",
+    "start_mcu_s": 11700,
+    "width_s": 60,
+    "causal_rms": [
+      0.19035550053986877,
+      0.384516973293062,
+      0.3383900932788525
+    ],
+    "independent_fft_rms": [
+      0.19035550054002415,
+      0.38451697329445994,
+      0.3383900932843818
+    ],
+    "relative_error": 1.634004043182813e-11,
+    "limit_relative": 0.001,
+    "parseval_relative_error": 1.7341683644644945e-13,
+    "parseval_limit": 1e-12,
+    "passed": true
+  },
+  {
+    "method_id": "29bad5b67736e522365e8c94e0687f3f5580263fd343ab1365549f3063167950",
+    "name": "BAND_5_25",
+    "clock": "QPC_ESTIMATE",
+    "start_mcu_s": 11640,
+    "width_s": 120,
+    "causal_rms": [
+      9.251869539095406,
+      8.891971265932568,
+      19.276837799940996
+    ],
+    "independent_fft_rms": [
+      9.251869539095356,
+      8.891971265932538,
+      19.27683779994141
+    ],
+    "relative_error": 2.1538326677728037e-14,
+    "limit_relative": 0.001,
+    "parseval_relative_error": 6.983302824892235e-13,
+    "parseval_limit": 1e-12,
+    "passed": true
+  },
+  {
+    "method_id": "29bad5b67736e522365e8c94e0687f3f5580263fd343ab1365549f3063167950",
+    "name": "BAND_5_25",
+    "clock": "QPC_ESTIMATE",
+    "start_mcu_s": 11640,
+    "width_s": 60,
+    "causal_rms": [
+      6.785688998615186,
+      6.744458115399831,
+      12.604656207021877
+    ],
+    "independent_fft_rms": [
+      6.785688998615202,
+      6.744458115399838,
+      12.604656207022332
+    ],
+    "relative_error": 3.597122599785507e-14,
+    "limit_relative": 0.001,
+    "parseval_relative_error": 6.983302824892235e-13,
+    "parseval_limit": 1e-12,
+    "passed": true
+  },
+  {
+    "method_id": "29bad5b67736e522365e8c94e0687f3f5580263fd343ab1365549f3063167950",
+    "name": "BAND_5_25",
+    "clock": "QPC_ESTIMATE",
+    "start_mcu_s": 11700,
+    "width_s": 60,
+    "causal_rms": [
+      11.186873007584417,
+      10.613410746726336,
+      24.172345163313214
+    ],
+    "independent_fft_rms": [
+      11.186873007584444,
+      10.613410746726242,
+      24.172345163313572
+    ],
+    "relative_error": 1.4876988529977098e-14,
+    "limit_relative": 0.001,
+    "parseval_relative_error": 6.983302824892235e-13,
+    "parseval_limit": 1e-12,
+    "passed": true
+  },
+  {
+    "method_id": "3c62a8629812ca7e00085f3b5db9970b64c220c8b5d4191c318c166be4830631",
+    "name": "BAND_25_80",
+    "clock": "QPC_ESTIMATE",
+    "start_mcu_s": 11640,
+    "width_s": 120,
+    "causal_rms": [
+      21.20628179813626,
+      20.176261876067848,
+      47.13749189007487
+    ],
+    "independent_fft_rms": [
+      21.206281798135883,
+      20.17626187606769,
+      47.13749189007499
+    ],
+    "relative_error": 1.7763568394002505e-14,
+    "limit_relative": 0.001,
+    "parseval_relative_error": 9.29478716216181e-13,
+    "parseval_limit": 1e-12,
+    "passed": true
+  },
+  {
+    "method_id": "3c62a8629812ca7e00085f3b5db9970b64c220c8b5d4191c318c166be4830631",
+    "name": "BAND_25_80",
+    "clock": "QPC_ESTIMATE",
+    "start_mcu_s": 11640,
+    "width_s": 60,
+    "causal_rms": [
+      18.15552633457843,
+      18.737737504714367,
+      48.20852116567627
+    ],
+    "independent_fft_rms": [
+      18.155526334578393,
+      18.737737504714342,
+      48.20852116567661
+    ],
+    "relative_error": 7.105427357601002e-15,
+    "limit_relative": 0.001,
+    "parseval_relative_error": 9.29478716216181e-13,
+    "parseval_limit": 1e-12,
+    "passed": true
+  },
+  {
+    "method_id": "3c62a8629812ca7e00085f3b5db9970b64c220c8b5d4191c318c166be4830631",
+    "name": "BAND_25_80",
+    "clock": "QPC_ESTIMATE",
+    "start_mcu_s": 11700,
+    "width_s": 60,
+    "causal_rms": [
+      23.870109305379938,
+      21.51875400453664,
+      46.041624275663246
+    ],
+    "independent_fft_rms": [
+      23.87010930538007,
+      21.518754004536344,
+      46.04162427566319
+    ],
+    "relative_error": 1.3655743202889425e-14,
+    "limit_relative": 0.001,
+    "parseval_relative_error": 9.29478716216181e-13,
+    "parseval_limit": 1e-12,
+    "passed": true
+  },
+  {
+    "method_id": "a91aac1dd79d2a4791de1f1e4eea8bef8a2c34adc94a9e9f61abaaac74f2e468",
+    "name": "FLAT_1_80",
+    "clock": "QPC_ESTIMATE",
+    "start_mcu_s": 11640,
+    "width_s": 120,
+    "causal_rms": [
+      22.756539802372007,
+      21.769513891591707,
+      50.23450733305174
+    ],
+    "independent_fft_rms": [
+      22.756539802372096,
+      21.76951389159165,
+      50.23450733305253
+    ],
+    "relative_error": 1.5765166949677223e-14,
+    "limit_relative": 0.001,
+    "parseval_relative_error": 8.613110225041964e-13,
+    "parseval_limit": 1e-12,
+    "passed": true
+  },
+  {
+    "method_id": "a91aac1dd79d2a4791de1f1e4eea8bef8a2c34adc94a9e9f61abaaac74f2e468",
+    "name": "FLAT_1_80",
+    "clock": "QPC_ESTIMATE",
+    "start_mcu_s": 11640,
+    "width_s": 60,
+    "causal_rms": [
+      19.191441028718934,
+      19.742122714337075,
+      49.100964981905165
+    ],
+    "independent_fft_rms": [
+      19.191441028718895,
+      19.742122714337157,
+      49.100964981905136
+    ],
+    "relative_error": 4.218847493575595e-15,
+    "limit_relative": 0.001,
+    "parseval_relative_error": 8.613110225041964e-13,
+    "parseval_limit": 1e-12,
+    "passed": true
+  },
+  {
+    "method_id": "a91aac1dd79d2a4791de1f1e4eea8bef8a2c34adc94a9e9f61abaaac74f2e468",
+    "name": "FLAT_1_80",
+    "clock": "QPC_ESTIMATE",
+    "start_mcu_s": 11700,
+    "width_s": 60,
+    "causal_rms": [
+      25.83407503168446,
+      23.623437303362497,
+      51.34296095642981
+    ],
+    "independent_fft_rms": [
+      25.834075031684474,
+      23.62343730336231,
+      51.342960956429756
+    ],
+    "relative_error": 7.993605777301127e-15,
+    "limit_relative": 0.001,
+    "parseval_relative_error": 8.613110225041964e-13,
+    "parseval_limit": 1e-12,
+    "passed": true
+  },
+  {
+    "method_id": "0fb53d2f5ed162c3b6f35c1d46b0d8501fce607d003b8fcf8e4624316e3dcf19",
+    "name": "TEST_LP10",
+    "clock": "QPC_ESTIMATE",
+    "start_mcu_s": 11640,
+    "width_s": 120,
+    "causal_rms": [
+      6.769767935235679,
+      6.580541028377048,
+      14.090770507032461
+    ],
+    "independent_fft_rms": [
+      6.7697679352357225,
+      6.5805410283770165,
+      14.090770507032307
+    ],
+    "relative_error": 1.099120794378905e-14,
+    "limit_relative": 0.001,
+    "parseval_relative_error": 4.549693954913892e-13,
+    "parseval_limit": 1e-12,
+    "passed": true
+  },
+  {
+    "method_id": "0fb53d2f5ed162c3b6f35c1d46b0d8501fce607d003b8fcf8e4624316e3dcf19",
+    "name": "TEST_LP10",
+    "clock": "QPC_ESTIMATE",
+    "start_mcu_s": 11640,
+    "width_s": 60,
+    "causal_rms": [
+      5.287008995144048,
+      5.666033621546857,
+      12.616898477387524
+    ],
+    "independent_fft_rms": [
+      5.28700899514408,
+      5.666033621546807,
+      12.616898477386572
+    ],
+    "relative_error": 7.549516567451064e-14,
+    "limit_relative": 0.001,
+    "parseval_relative_error": 4.549693954913892e-13,
+    "parseval_limit": 1e-12,
+    "passed": true
+  },
+  {
+    "method_id": "0fb53d2f5ed162c3b6f35c1d46b0d8501fce607d003b8fcf8e4624316e3dcf19",
+    "name": "TEST_LP10",
+    "clock": "QPC_ESTIMATE",
+    "start_mcu_s": 11700,
+    "width_s": 60,
+    "causal_rms": [
+      7.981599591939529,
+      7.382574214701073,
+      15.424364961817464
+    ],
+    "independent_fft_rms": [
+      7.981599591939483,
+      7.382574214700996,
+      15.424364961817803
+    ],
+    "relative_error": 2.19824158875781e-14,
+    "limit_relative": 0.001,
+    "parseval_relative_error": 4.549693954913892e-13,
+    "parseval_limit": 1e-12,
+    "passed": true
+  },
+  {
+    "method_id": "0f6f13cd77287277b17a9810e09869d634ae8bbf2641c678fd27a5db12431b60",
+    "name": "EDGE_08",
+    "clock": "QPC_ESTIMATE",
+    "start_mcu_s": 11640,
+    "width_s": 120,
+    "causal_rms": [
+      22.755219909302106,
+      21.76957374897415,
+      50.22924941129331
+    ],
+    "independent_fft_rms": [
+      22.755219909302294,
+      21.769573748974402,
+      50.22924941129253
+    ],
+    "relative_error": 1.554312234475219e-14,
+    "limit_relative": 0.001,
+    "parseval_relative_error": 8.755218772193984e-13,
+    "parseval_limit": 1e-12,
+    "passed": true
+  },
+  {
+    "method_id": "0f6f13cd77287277b17a9810e09869d634ae8bbf2641c678fd27a5db12431b60",
+    "name": "EDGE_08",
+    "clock": "QPC_ESTIMATE",
+    "start_mcu_s": 11640,
+    "width_s": 60,
+    "causal_rms": [
+      19.189756089620886,
+      19.742070053362703,
+      49.094963447699975
+    ],
+    "independent_fft_rms": [
+      19.189756089620932,
+      19.742070053363015,
+      49.094963447699186
+    ],
+    "relative_error": 1.609823385706477e-14,
+    "limit_relative": 0.001,
+    "parseval_relative_error": 8.755218772193984e-13,
+    "parseval_limit": 1e-12,
+    "passed": true
+  },
+  {
+    "method_id": "0f6f13cd77287277b17a9810e09869d634ae8bbf2641c678fd27a5db12431b60",
+    "name": "EDGE_08",
+    "clock": "QPC_ESTIMATE",
+    "start_mcu_s": 11700,
+    "width_s": 60,
+    "causal_rms": [
+      25.833001395924207,
+      23.62359162532575,
+      51.338411555339086
+    ],
+    "independent_fft_rms": [
+      25.833001395924185,
+      23.62359162532587,
+      51.338411555338666
+    ],
+    "relative_error": 8.215650382226158e-15,
+    "limit_relative": 0.001,
+    "parseval_relative_error": 8.755218772193984e-13,
+    "parseval_limit": 1e-12,
+    "passed": true
+  },
+  {
+    "method_id": "df2c617bb8d8cd9fcec085bab62040f32b79b2d2de9c60a4cb1e8675d833b515",
+    "name": "EDGE_12",
+    "clock": "QPC_ESTIMATE",
+    "start_mcu_s": 11640,
+    "width_s": 120,
+    "causal_rms": [
+      22.757820453349364,
+      21.76958638104587,
+      50.23951958421229
+    ],
+    "independent_fft_rms": [
+      22.75782045334918,
+      21.769586381045773,
+      50.239519584212225
+    ],
+    "relative_error": 8.104628079763643e-15,
+    "limit_relative": 0.001,
+    "parseval_relative_error": 8.608669332943464e-13,
+    "parseval_limit": 1e-12,
+    "passed": true
+  },
+  {
+    "method_id": "df2c617bb8d8cd9fcec085bab62040f32b79b2d2de9c60a4cb1e8675d833b515",
+    "name": "EDGE_12",
+    "clock": "QPC_ESTIMATE",
+    "start_mcu_s": 11640,
+    "width_s": 60,
+    "causal_rms": [
+      19.193092489068867,
+      19.742348664063,
+      49.10665735401486
+    ],
+    "independent_fft_rms": [
+      19.193092489068963,
+      19.742348664062803,
+      49.106657354014956
+    ],
+    "relative_error": 1.0103029524088925e-14,
+    "limit_relative": 0.001,
+    "parseval_relative_error": 8.608669332943464e-13,
+    "parseval_limit": 1e-12,
+    "passed": true
+  },
+  {
+    "method_id": "df2c617bb8d8cd9fcec085bab62040f32b79b2d2de9c60a4cb1e8675d833b515",
+    "name": "EDGE_12",
+    "clock": "QPC_ESTIMATE",
+    "start_mcu_s": 11700,
+    "width_s": 60,
+    "causal_rms": [
+      25.83510438428695,
+      23.623382084975002,
+      51.34732525683196
+    ],
+    "independent_fft_rms": [
+      25.835104384287234,
+      23.623382084975013,
+      51.347325256831695
+    ],
+    "relative_error": 1.1102230246251565e-14,
+    "limit_relative": 0.001,
+    "parseval_relative_error": 8.608669332943464e-13,
+    "parseval_limit": 1e-12,
+    "passed": true
+  }
+]

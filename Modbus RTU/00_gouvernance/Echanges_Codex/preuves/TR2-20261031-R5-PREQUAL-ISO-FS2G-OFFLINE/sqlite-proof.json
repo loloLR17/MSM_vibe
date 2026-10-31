@@ -1,0 +1,181 @@
+{
+  "path": "/home/lolo/dev/msm/reports/TR2-R5-prequal-20261031/analysis-unified-v4.sqlite",
+  "bytes": 54837248,
+  "sha256": "87f79f2e6cc77845baa3b5a24118ab0756613d1e66e612976648059553d6aa79",
+  "copy": {
+    "source_sha256": "5fccabd3775ad9ee5f7fd8dec6ff064805916d6740b8bb8c29bb425a10132799",
+    "legacy_tables": 12,
+    "legacy_fingerprints": {
+      "analysis_runs": {
+        "rows": 4,
+        "sha256": "175bc8d4383e2a8064d254c945baaf1b5f3c6000ec5ee3202844851f86a5e8dc",
+        "schema_sql": "CREATE TABLE analysis_runs(\n analysis_id TEXT PRIMARY KEY,campaign_id TEXT NOT NULL REFERENCES campaigns(campaign_id),\n metric_definition_id TEXT NOT NULL REFERENCES metric_definitions(metric_definition_id),\n code_sha256 TEXT NOT NULL,results_digest TEXT NOT NULL, status TEXT NOT NULL,\n UNIQUE(campaign_id,metric_definition_id,code_sha256)\n)"
+      },
+      "artifact_refs": {
+        "rows": 24,
+        "sha256": "be41fa9194ba2029f920ec9e9214855bb6db102a5f119d339b66e52984961700",
+        "schema_sql": "CREATE TABLE artifact_refs(\n analysis_id TEXT NOT NULL REFERENCES analysis_runs(analysis_id),kind TEXT NOT NULL,\n path TEXT NOT NULL,sha256 TEXT NOT NULL,PRIMARY KEY(analysis_id,kind)\n)"
+      },
+      "campaigns": {
+        "rows": 1,
+        "sha256": "8966e5ac4e5e9d9d5fc4e4b68ff8ee7624be06ae6c98f1c22fbbde69c20f9ea4",
+        "schema_sql": "CREATE TABLE campaigns(campaign_id TEXT PRIMARY KEY, source_path TEXT NOT NULL, manifest_json TEXT NOT NULL)"
+      },
+      "metric_definitions": {
+        "rows": 4,
+        "sha256": "9be40556171cd740d604a6d62771f88f19a032769c816041bb1ebd353e215b26",
+        "schema_sql": "CREATE TABLE metric_definitions(\n metric_definition_id TEXT PRIMARY KEY, version TEXT NOT NULL, normative_edition TEXT NOT NULL,\n unit TEXT NOT NULL CHECK(unit IN ('mg','mm/s')), band_low_hz REAL NOT NULL,band_high_hz REAL NOT NULL,\n axes_status TEXT NOT NULL,definition_json TEXT NOT NULL\n)"
+      },
+      "pk_analysis_runs": {
+        "rows": 4,
+        "sha256": "628a06b5b845b5d19d91ae4b10b4579194e6aad0ed0c8b64ec72a29e133eaa30",
+        "schema_sql": "CREATE TABLE pk_analysis_runs(analysis_id TEXT PRIMARY KEY,campaign_sha TEXT NOT NULL REFERENCES campaigns(campaign_id),\n method_id TEXT NOT NULL REFERENCES pk_methods(method_id),runner_sha256 TEXT NOT NULL,results_sha256 TEXT NOT NULL,manifest_json TEXT NOT NULL,\n UNIQUE(campaign_sha,method_id,runner_sha256))"
+      },
+      "pk_artifacts": {
+        "rows": 24,
+        "sha256": "ebaefb394f1a64899a29ba040595065da307055768c8093d16716a2cdcc0aa0e",
+        "schema_sql": "CREATE TABLE pk_artifacts(analysis_id TEXT NOT NULL REFERENCES pk_analysis_runs(analysis_id),kind TEXT NOT NULL,path TEXT NOT NULL,\n sha256 TEXT NOT NULL,PRIMARY KEY(analysis_id,kind))"
+      },
+      "pk_components": {
+        "rows": 30804,
+        "sha256": "c72ec2d66a882f184826f5c1bd4db371e6a2f9ec8800db70935a9606bbfb3368",
+        "schema_sql": "CREATE TABLE pk_components(analysis_id TEXT NOT NULL REFERENCES pk_analysis_runs(analysis_id),start_mcu_s REAL NOT NULL,\n end_mcu_s REAL NOT NULL,window_mcu_s INTEGER NOT NULL CHECK(window_mcu_s IN (10,60)),axis TEXT NOT NULL CHECK(axis IN ('X','Y','Z')),\n sample_n INTEGER NOT NULL,valid_input_n INTEGER NOT NULL,frame_status TEXT NOT NULL,status TEXT NOT NULL,frequency_Hz REAL,\n component_pk REAL,component_rms REAL,reported_pk REAL,contrast_dB REAL,shape_error REAL,comparison_eligible INTEGER NOT NULL CHECK(comparison_eligible IN (0,1)),\n comparison_zone TEXT NOT NULL,row_json TEXT NOT NULL,PRIMARY KEY(analysis_id,start_mcu_s,window_mcu_s,axis))"
+      },
+      "pk_controls": {
+        "rows": 18,
+        "sha256": "f934278525442730c5ad42a57b752d5696aa6a44d5811b091262f0305b82ea24",
+        "schema_sql": "CREATE TABLE pk_controls(control_id TEXT PRIMARY KEY,definition_json TEXT NOT NULL)"
+      },
+      "pk_methods": {
+        "rows": 4,
+        "sha256": "c4cfd2f8c31945d8ac7bcd967d0c3a7d41931af69cbd52461c0a8482647547fb",
+        "schema_sql": "CREATE TABLE pk_methods(method_id TEXT PRIMARY KEY,band TEXT NOT NULL,unit TEXT NOT NULL,clock TEXT NOT NULL,\n edition TEXT NOT NULL,derived_version TEXT NOT NULL,reference_id TEXT NOT NULL REFERENCES pk_reference(reference_id),definition_json TEXT NOT NULL)"
+      },
+      "pk_migration_audit": {
+        "rows": 1,
+        "sha256": "ad9f3ab870b79253846d2582b0990b307f1798d9cafa67b9e501a8e8d8cb3c93",
+        "schema_sql": "CREATE TABLE pk_migration_audit(singleton INTEGER PRIMARY KEY CHECK(singleton=1),source_path TEXT NOT NULL,source_sha256 TEXT NOT NULL,\n source_snapshot_json TEXT NOT NULL)"
+      },
+      "pk_reference": {
+        "rows": 1,
+        "sha256": "b2bfed7aeb6d60a3c23dae05a8c1e1e512e103a32f954913e05fe029f23428d0",
+        "schema_sql": "CREATE TABLE pk_reference(reference_id TEXT PRIMARY KEY,definition_json TEXT NOT NULL)"
+      },
+      "window_metrics": {
+        "rows": 2204,
+        "sha256": "a429c4eaae462cb2fc3f4e9d20a022226a088984af92c6e9f33c656f565e1c1e",
+        "schema_sql": "CREATE TABLE window_metrics(\n analysis_id TEXT NOT NULL REFERENCES analysis_runs(analysis_id),window_mcu_s INTEGER NOT NULL CHECK(window_mcu_s IN (60,120)),\n start_mcu_s REAL NOT NULL,end_mcu_s REAL NOT NULL, observed_n INTEGER NOT NULL,\n valid_n INTEGER NOT NULL,coverage_observed REAL NOT NULL,quality TEXT NOT NULL,\n rms_x REAL,rms_y REAL,rms_z REAL,direction_max REAL,vector_technical REAL,peak_vector REAL,\n PRIMARY KEY(analysis_id,window_mcu_s,start_mcu_s)\n)"
+      }
+    }
+  },
+  "first": {
+    "analysis_id": "34616bee3cd41118471a1164c19631d942f3f8f29177c41db0671c3d205040f5",
+    "idempotent": false,
+    "rows": 8816,
+    "methods": 16,
+    "integrity": "ok",
+    "FK_errors": [],
+    "historical_tables_preserved": true
+  },
+  "second": {
+    "analysis_id": "34616bee3cd41118471a1164c19631d942f3f8f29177c41db0671c3d205040f5",
+    "idempotent": true,
+    "rows": 8816,
+    "methods": 16,
+    "integrity": "ok",
+    "FK_errors": [],
+    "historical_tables_preserved": true
+  },
+  "byte_identical_second_import": true,
+  "originals_before": {
+    "/home/lolo/dev/msm/reports/TR2-R5-analysis-6h-20261031/r5-catalog-v1.sqlite": "e436de69e55e2126c029acc5afea9cb058b0a6fc6ce857e41bc70a26693646c5",
+    "/home/lolo/dev/msm/reports/TR2-R5-comfort-20261031/comfort-secondary-v2.sqlite": "471ca360f35ef5e72fb1c510ce8e6118c31f4a04de0e88e367e2dcad86407a84",
+    "/home/lolo/dev/msm/reports/TR2-R5-BV-PK-20261031/analysis-unified-v3.sqlite": "5fccabd3775ad9ee5f7fd8dec6ff064805916d6740b8bb8c29bb425a10132799"
+  },
+  "originals_after": {
+    "/home/lolo/dev/msm/reports/TR2-R5-analysis-6h-20261031/r5-catalog-v1.sqlite": "e436de69e55e2126c029acc5afea9cb058b0a6fc6ce857e41bc70a26693646c5",
+    "/home/lolo/dev/msm/reports/TR2-R5-comfort-20261031/comfort-secondary-v2.sqlite": "471ca360f35ef5e72fb1c510ce8e6118c31f4a04de0e88e367e2dcad86407a84",
+    "/home/lolo/dev/msm/reports/TR2-R5-BV-PK-20261031/analysis-unified-v3.sqlite": "5fccabd3775ad9ee5f7fd8dec6ff064805916d6740b8bb8c29bb425a10132799"
+  },
+  "old_tables_preserved": true,
+  "legacy_logical_fingerprints_final": {
+    "analysis_runs": {
+      "rows": 4,
+      "sha256": "175bc8d4383e2a8064d254c945baaf1b5f3c6000ec5ee3202844851f86a5e8dc",
+      "schema_sql": "CREATE TABLE analysis_runs(\n analysis_id TEXT PRIMARY KEY,campaign_id TEXT NOT NULL REFERENCES campaigns(campaign_id),\n metric_definition_id TEXT NOT NULL REFERENCES metric_definitions(metric_definition_id),\n code_sha256 TEXT NOT NULL,results_digest TEXT NOT NULL, status TEXT NOT NULL,\n UNIQUE(campaign_id,metric_definition_id,code_sha256)\n)"
+    },
+    "artifact_refs": {
+      "rows": 24,
+      "sha256": "be41fa9194ba2029f920ec9e9214855bb6db102a5f119d339b66e52984961700",
+      "schema_sql": "CREATE TABLE artifact_refs(\n analysis_id TEXT NOT NULL REFERENCES analysis_runs(analysis_id),kind TEXT NOT NULL,\n path TEXT NOT NULL,sha256 TEXT NOT NULL,PRIMARY KEY(analysis_id,kind)\n)"
+    },
+    "campaigns": {
+      "rows": 1,
+      "sha256": "8966e5ac4e5e9d9d5fc4e4b68ff8ee7624be06ae6c98f1c22fbbde69c20f9ea4",
+      "schema_sql": "CREATE TABLE campaigns(campaign_id TEXT PRIMARY KEY, source_path TEXT NOT NULL, manifest_json TEXT NOT NULL)"
+    },
+    "metric_definitions": {
+      "rows": 4,
+      "sha256": "9be40556171cd740d604a6d62771f88f19a032769c816041bb1ebd353e215b26",
+      "schema_sql": "CREATE TABLE metric_definitions(\n metric_definition_id TEXT PRIMARY KEY, version TEXT NOT NULL, normative_edition TEXT NOT NULL,\n unit TEXT NOT NULL CHECK(unit IN ('mg','mm/s')), band_low_hz REAL NOT NULL,band_high_hz REAL NOT NULL,\n axes_status TEXT NOT NULL,definition_json TEXT NOT NULL\n)"
+    },
+    "pk_analysis_runs": {
+      "rows": 4,
+      "sha256": "628a06b5b845b5d19d91ae4b10b4579194e6aad0ed0c8b64ec72a29e133eaa30",
+      "schema_sql": "CREATE TABLE pk_analysis_runs(analysis_id TEXT PRIMARY KEY,campaign_sha TEXT NOT NULL REFERENCES campaigns(campaign_id),\n method_id TEXT NOT NULL REFERENCES pk_methods(method_id),runner_sha256 TEXT NOT NULL,results_sha256 TEXT NOT NULL,manifest_json TEXT NOT NULL,\n UNIQUE(campaign_sha,method_id,runner_sha256))"
+    },
+    "pk_artifacts": {
+      "rows": 24,
+      "sha256": "ebaefb394f1a64899a29ba040595065da307055768c8093d16716a2cdcc0aa0e",
+      "schema_sql": "CREATE TABLE pk_artifacts(analysis_id TEXT NOT NULL REFERENCES pk_analysis_runs(analysis_id),kind TEXT NOT NULL,path TEXT NOT NULL,\n sha256 TEXT NOT NULL,PRIMARY KEY(analysis_id,kind))"
+    },
+    "pk_components": {
+      "rows": 30804,
+      "sha256": "c72ec2d66a882f184826f5c1bd4db371e6a2f9ec8800db70935a9606bbfb3368",
+      "schema_sql": "CREATE TABLE pk_components(analysis_id TEXT NOT NULL REFERENCES pk_analysis_runs(analysis_id),start_mcu_s REAL NOT NULL,\n end_mcu_s REAL NOT NULL,window_mcu_s INTEGER NOT NULL CHECK(window_mcu_s IN (10,60)),axis TEXT NOT NULL CHECK(axis IN ('X','Y','Z')),\n sample_n INTEGER NOT NULL,valid_input_n INTEGER NOT NULL,frame_status TEXT NOT NULL,status TEXT NOT NULL,frequency_Hz REAL,\n component_pk REAL,component_rms REAL,reported_pk REAL,contrast_dB REAL,shape_error REAL,comparison_eligible INTEGER NOT NULL CHECK(comparison_eligible IN (0,1)),\n comparison_zone TEXT NOT NULL,row_json TEXT NOT NULL,PRIMARY KEY(analysis_id,start_mcu_s,window_mcu_s,axis))"
+    },
+    "pk_controls": {
+      "rows": 18,
+      "sha256": "f934278525442730c5ad42a57b752d5696aa6a44d5811b091262f0305b82ea24",
+      "schema_sql": "CREATE TABLE pk_controls(control_id TEXT PRIMARY KEY,definition_json TEXT NOT NULL)"
+    },
+    "pk_methods": {
+      "rows": 4,
+      "sha256": "c4cfd2f8c31945d8ac7bcd967d0c3a7d41931af69cbd52461c0a8482647547fb",
+      "schema_sql": "CREATE TABLE pk_methods(method_id TEXT PRIMARY KEY,band TEXT NOT NULL,unit TEXT NOT NULL,clock TEXT NOT NULL,\n edition TEXT NOT NULL,derived_version TEXT NOT NULL,reference_id TEXT NOT NULL REFERENCES pk_reference(reference_id),definition_json TEXT NOT NULL)"
+    },
+    "pk_migration_audit": {
+      "rows": 1,
+      "sha256": "ad9f3ab870b79253846d2582b0990b307f1798d9cafa67b9e501a8e8d8cb3c93",
+      "schema_sql": "CREATE TABLE pk_migration_audit(singleton INTEGER PRIMARY KEY CHECK(singleton=1),source_path TEXT NOT NULL,source_sha256 TEXT NOT NULL,\n source_snapshot_json TEXT NOT NULL)"
+    },
+    "pk_reference": {
+      "rows": 1,
+      "sha256": "b2bfed7aeb6d60a3c23dae05a8c1e1e512e103a32f954913e05fe029f23428d0",
+      "schema_sql": "CREATE TABLE pk_reference(reference_id TEXT PRIMARY KEY,definition_json TEXT NOT NULL)"
+    },
+    "window_metrics": {
+      "rows": 2204,
+      "sha256": "a429c4eaae462cb2fc3f4e9d20a022226a088984af92c6e9f33c656f565e1c1e",
+      "schema_sql": "CREATE TABLE window_metrics(\n analysis_id TEXT NOT NULL REFERENCES analysis_runs(analysis_id),window_mcu_s INTEGER NOT NULL CHECK(window_mcu_s IN (60,120)),\n start_mcu_s REAL NOT NULL,end_mcu_s REAL NOT NULL, observed_n INTEGER NOT NULL,\n valid_n INTEGER NOT NULL,coverage_observed REAL NOT NULL,quality TEXT NOT NULL,\n rms_x REAL,rms_y REAL,rms_z REAL,direction_max REAL,vector_technical REAL,peak_vector REAL,\n PRIMARY KEY(analysis_id,window_mcu_s,start_mcu_s)\n)"
+    }
+  },
+  "artifact_registration": {
+    "first": {
+      "artifact_audits": 13,
+      "integrity": "ok"
+    },
+    "second": {
+      "artifact_audits": 13,
+      "integrity": "ok"
+    },
+    "byte_idempotent": true
+  },
+  "query_counts": [
+    1,
+    16,
+    32,
+    8816,
+    1
+  ]
+}

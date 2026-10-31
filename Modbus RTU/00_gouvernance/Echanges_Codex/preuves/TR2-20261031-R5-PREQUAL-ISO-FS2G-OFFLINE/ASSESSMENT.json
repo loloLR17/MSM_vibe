@@ -1,0 +1,11 @@
+{
+  "feasibility": "LIMITEE",
+  "numeric_global_energy_reproducible": true,
+  "normative_comfort": false,
+  "physical_repeatability_demonstrated": false,
+  "FS_change_recommended_now": false,
+  "recommended_current_FS_g": 8,
+  "FS2_and_FS4_risk": "archived transient and conditional native lower bound exceed4g; source cause unknown",
+  "physical_FS_status": "initial firmware guard8g and historical short readback0xAC; long continuous FS not independently verified",
+  "next_step": "independent review, instrument noise/pose/clock/transient qualification before reduced FS; norm purchase a user decision"
+}

@@ -1,0 +1,898 @@
+{
+  "9976afda2529c6e57f4f6147ae728158ab4b9fceba98bbbf21daa357f5f57303": {
+    "version": "prequal-global-energy-v1",
+    "name": "BAND_1_2",
+    "unit": "mg RMS nominal",
+    "normative": false,
+    "template": "flat",
+    "band": [
+      1.0,
+      2.0
+    ],
+    "sos": [
+      [
+        1.9354395298515975e-12,
+        3.870879059703195e-12,
+        1.9354395298515975e-12,
+        1.0,
+        -1.9974984814573293,
+        0.9975132854954853
+      ],
+      [
+        1.0,
+        2.0,
+        1.0,
+        1.0,
+        -1.9981209921310639,
+        0.9981293668639011
+      ],
+      [
+        1.0,
+        -2.0,
+        1.0,
+        1.0,
+        -1.9987933499754968,
+        0.9988146335324986
+      ],
+      [
+        1.0,
+        -2.0,
+        1.0,
+        1.0,
+        -1.9993735510826376,
+        0.9993793836662167
+      ]
+    ],
+    "filter_sha256": "260ba839fc491fd9611c840372beba960cfabbe09f6fc6c9c873528fdde1037c",
+    "clock": "MCU",
+    "fs_est_Hz": 2661.462021501383,
+    "physical_clock_verified": false,
+    "sensitivity_mg_count": 0.244,
+    "sensitivity_calibrated": false,
+    "window": "60/120 nominal MCU seconds, identical samples under two clock scenarios",
+    "quality": "strict COMPLETE; warmup11 invalid; gaps/nonfinite/rails reset filter; 10s settling invalid; FULL requires every observed sample and full duration",
+    "source": "XYZ already FIR107 Q15 /10; DC preserved in archive, suppressed by bandpass",
+    "normative_comfort_threshold": null
+  },
+  "e733902308e1876d8edc67df90cf2a54e902080657a5829866e0d8a3a7685aab": {
+    "version": "prequal-global-energy-v1",
+    "name": "BAND_2_5",
+    "unit": "mg RMS nominal",
+    "normative": false,
+    "template": "flat",
+    "band": [
+      2.0,
+      5.0
+    ],
+    "sos": [
+      [
+        1.5580876187289044e-10,
+        3.1161752374578087e-10,
+        1.5580876187289044e-10,
+        1.0,
+        -1.992114954235254,
+        0.9921977238623111
+      ],
+      [
+        1.0,
+        2.0,
+        1.0,
+        1.0,
+        -1.9947227073988087,
+        0.9947599919653003
+      ],
+      [
+        1.0,
+        -2.0,
+        1.0,
+        1.0,
+        -1.9960646182590907,
+        0.9961963191534767
+      ],
+      [
+        1.0,
+        -2.0,
+        1.0,
+        1.0,
+        -1.9983680991736665,
+        0.9983916208533657
+      ]
+    ],
+    "filter_sha256": "fe66df785db2c66d990eba377c78c8df2b59a40b60a02e41b00d64ac08b4f921",
+    "clock": "MCU",
+    "fs_est_Hz": 2661.462021501383,
+    "physical_clock_verified": false,
+    "sensitivity_mg_count": 0.244,
+    "sensitivity_calibrated": false,
+    "window": "60/120 nominal MCU seconds, identical samples under two clock scenarios",
+    "quality": "strict COMPLETE; warmup11 invalid; gaps/nonfinite/rails reset filter; 10s settling invalid; FULL requires every observed sample and full duration",
+    "source": "XYZ already FIR107 Q15 /10; DC preserved in archive, suppressed by bandpass",
+    "normative_comfort_threshold": null
+  },
+  "fa730a4d4531628d1cdee2d85dedb7ba6fd27080aca9e1d7430d6430bb0d1966": {
+    "version": "prequal-global-energy-v1",
+    "name": "BAND_5_25",
+    "unit": "mg RMS nominal",
+    "normative": false,
+    "template": "flat",
+    "band": [
+      5.0,
+      25.0
+    ],
+    "sos": [
+      [
+        2.922579226283678e-07,
+        5.845158452567356e-07,
+        2.922579226283678e-07,
+        1.0,
+        -1.9368217444384037,
+        0.9386107885437859
+      ],
+      [
+        1.0,
+        2.0,
+        1.0,
+        1.0,
+        -1.967395310599068,
+        0.9706328489414926
+      ],
+      [
+        1.0,
+        -2.0,
+        1.0,
+        1.0,
+        -1.976111340825776,
+        0.9763712189901871
+      ],
+      [
+        1.0,
+        -2.0,
+        1.0,
+        1.0,
+        -1.9935516260481334,
+        0.9936988363179923
+      ]
+    ],
+    "filter_sha256": "66daad410bb163354eb0b39b782e32dc602230ccb5b521b58a1ddf0801f62c65",
+    "clock": "MCU",
+    "fs_est_Hz": 2661.462021501383,
+    "physical_clock_verified": false,
+    "sensitivity_mg_count": 0.244,
+    "sensitivity_calibrated": false,
+    "window": "60/120 nominal MCU seconds, identical samples under two clock scenarios",
+    "quality": "strict COMPLETE; warmup11 invalid; gaps/nonfinite/rails reset filter; 10s settling invalid; FULL requires every observed sample and full duration",
+    "source": "XYZ already FIR107 Q15 /10; DC preserved in archive, suppressed by bandpass",
+    "normative_comfort_threshold": null
+  },
+  "508fbe8251e1d20c7700ae9477a9729f8738ad6fa3b0faf1105eefdb5750f5af": {
+    "version": "prequal-global-energy-v1",
+    "name": "BAND_25_80",
+    "unit": "mg RMS nominal",
+    "normative": false,
+    "template": "flat",
+    "band": [
+      25.0,
+      80.0
+    ],
+    "sos": [
+      [
+        1.5075566206267275e-05,
+        3.015113241253455e-05,
+        1.5075566206267275e-05,
+        1.0,
+        -1.8403200112796623,
+        0.858368144836773
+      ],
+      [
+        1.0,
+        2.0,
+        1.0,
+        1.0,
+        -1.9099288577809572,
+        0.9160576750806029
+      ],
+      [
+        1.0,
+        -2.0,
+        1.0,
+        1.0,
+        -1.8959797099132123,
+        0.9283033213868972
+      ],
+      [
+        1.0,
+        -2.0,
+        1.0,
+        1.0,
+        -1.9718701959760987,
+        0.9755207443377985
+      ]
+    ],
+    "filter_sha256": "6a32537e2ba5336abf2ae4e2ea947c7db4aacdb837b756d9c1927b0254a89871",
+    "clock": "MCU",
+    "fs_est_Hz": 2661.462021501383,
+    "physical_clock_verified": false,
+    "sensitivity_mg_count": 0.244,
+    "sensitivity_calibrated": false,
+    "window": "60/120 nominal MCU seconds, identical samples under two clock scenarios",
+    "quality": "strict COMPLETE; warmup11 invalid; gaps/nonfinite/rails reset filter; 10s settling invalid; FULL requires every observed sample and full duration",
+    "source": "XYZ already FIR107 Q15 /10; DC preserved in archive, suppressed by bandpass",
+    "normative_comfort_threshold": null
+  },
+  "facdbad45dafea380cf099bb1ad76b84e190dde976b374e28c39bfb77ed8d719": {
+    "version": "prequal-global-energy-v1",
+    "name": "FLAT_1_80",
+    "unit": "mg RMS nominal",
+    "normative": false,
+    "template": "flat",
+    "band": [
+      1.0,
+      80.0
+    ],
+    "sos": [
+      [
+        5.993271249480254e-05,
+        0.00011986542498960508,
+        5.993271249480254e-05,
+        1.0,
+        -1.6814940507911251,
+        0.7106388966010837
+      ],
+      [
+        1.0,
+        2.0,
+        1.0,
+        1.0,
+        -1.8360220687150428,
+        0.8690264846625714
+      ],
+      [
+        1.0,
+        -2.0,
+        1.0,
+        1.0,
+        -1.9955640512593957,
+        0.9955698574785004
+      ],
+      [
+        1.0,
+        -2.0,
+        1.0,
+        1.0,
+        -1.9982213111029365,
+        0.9982269187679391
+      ]
+    ],
+    "filter_sha256": "7da3ecb3418b3a4a4d532a595641d886e9347fa4f833bf02b487fb7d823b2adc",
+    "clock": "MCU",
+    "fs_est_Hz": 2661.462021501383,
+    "physical_clock_verified": false,
+    "sensitivity_mg_count": 0.244,
+    "sensitivity_calibrated": false,
+    "window": "60/120 nominal MCU seconds, identical samples under two clock scenarios",
+    "quality": "strict COMPLETE; warmup11 invalid; gaps/nonfinite/rails reset filter; 10s settling invalid; FULL requires every observed sample and full duration",
+    "source": "XYZ already FIR107 Q15 /10; DC preserved in archive, suppressed by bandpass",
+    "normative_comfort_threshold": null
+  },
+  "d12146eda111623ff0bd50dda5554eec1f1628cd104ae31f4012454746ec87e7": {
+    "version": "prequal-global-energy-v1",
+    "name": "TEST_LP10",
+    "unit": "mg RMS nominal",
+    "normative": false,
+    "template": "sensitivity-test RC lowpass10Hz; NOT a comfort model",
+    "band": [
+      1.0,
+      80.0
+    ],
+    "sos": [
+      [
+        5.993271249480254e-05,
+        0.00011986542498960508,
+        5.993271249480254e-05,
+        1.0,
+        -1.6814940507911251,
+        0.7106388966010837
+      ],
+      [
+        1.0,
+        2.0,
+        1.0,
+        1.0,
+        -1.8360220687150428,
+        0.8690264846625714
+      ],
+      [
+        1.0,
+        -2.0,
+        1.0,
+        1.0,
+        -1.9955640512593957,
+        0.9955698574785004
+      ],
+      [
+        1.0,
+        -2.0,
+        1.0,
+        1.0,
+        -1.9982213111029365,
+        0.9982269187679391
+      ],
+      [
+        0.011666301682479003,
+        0.011666301682479003,
+        0.0,
+        1.0,
+        -0.9766673966350421,
+        0.0
+      ]
+    ],
+    "filter_sha256": "acf4c6a62465ba3bba64cd493ea6dafe3936cf69f006e04779f1ab7077f6e91f",
+    "clock": "MCU",
+    "fs_est_Hz": 2661.462021501383,
+    "physical_clock_verified": false,
+    "sensitivity_mg_count": 0.244,
+    "sensitivity_calibrated": false,
+    "window": "60/120 nominal MCU seconds, identical samples under two clock scenarios",
+    "quality": "strict COMPLETE; warmup11 invalid; gaps/nonfinite/rails reset filter; 10s settling invalid; FULL requires every observed sample and full duration",
+    "source": "XYZ already FIR107 Q15 /10; DC preserved in archive, suppressed by bandpass",
+    "normative_comfort_threshold": null
+  },
+  "ec3384fee549e9bba68cb0fda4ee2cd9da75a044536bf1f0bf655d635811ecac": {
+    "version": "prequal-global-energy-v1",
+    "name": "EDGE_08",
+    "unit": "mg RMS nominal",
+    "normative": false,
+    "template": "flat",
+    "band": [
+      0.8,
+      80.0
+    ],
+    "sos": [
+      [
+        6.0507976819298404e-05,
+        0.00012101595363859681,
+        6.0507976819298404e-05,
+        1.0,
+        -1.6799961296993422,
+        0.70937238141357
+      ],
+      [
+        1.0,
+        2.0,
+        1.0,
+        1.0,
+        -1.8353745780329012,
+        0.8684126270319302
+      ],
+      [
+        1.0,
+        -2.0,
+        1.0,
+        1.0,
+        -1.9964631398846655,
+        0.9964668252449312
+      ],
+      [
+        1.0,
+        -2.0,
+        1.0,
+        1.0,
+        -1.9985725037012065,
+        0.998576088359592
+      ]
+    ],
+    "filter_sha256": "411667a62e0d1a9b0e465c452c43756ac3a3d267d480826e4efdec8aaebb82d0",
+    "clock": "MCU",
+    "fs_est_Hz": 2661.462021501383,
+    "physical_clock_verified": false,
+    "sensitivity_mg_count": 0.244,
+    "sensitivity_calibrated": false,
+    "window": "60/120 nominal MCU seconds, identical samples under two clock scenarios",
+    "quality": "strict COMPLETE; warmup11 invalid; gaps/nonfinite/rails reset filter; 10s settling invalid; FULL requires every observed sample and full duration",
+    "source": "XYZ already FIR107 Q15 /10; DC preserved in archive, suppressed by bandpass",
+    "normative_comfort_threshold": null
+  },
+  "41a9a3cb96759a47f799b3c532f1488ed082b9a0d437bd425fcd3740c45b61e6": {
+    "version": "prequal-global-energy-v1",
+    "name": "EDGE_12",
+    "unit": "mg RMS nominal",
+    "normative": false,
+    "template": "flat",
+    "band": [
+      1.2,
+      80.0
+    ],
+    "sos": [
+      [
+        5.9361403458369595e-05,
+        0.00011872280691673919,
+        5.9361403458369595e-05,
+        1.0,
+        -1.6829981657245028,
+        0.711912156645297
+      ],
+      [
+        1.0,
+        2.0,
+        1.0,
+        1.0,
+        -1.836667001825718,
+        0.8696385056208492
+      ],
+      [
+        1.0,
+        -2.0,
+        1.0,
+        1.0,
+        -1.9946589472204745,
+        0.9946673780152344
+      ],
+      [
+        1.0,
+        -2.0,
+        1.0,
+        1.0,
+        -1.9978724149639508,
+        0.9978804994007858
+      ]
+    ],
+    "filter_sha256": "13203b8d6cbfc04e10f1e65f59a0b60c5d9dcac0a81941bd592d535ee8cb613a",
+    "clock": "MCU",
+    "fs_est_Hz": 2661.462021501383,
+    "physical_clock_verified": false,
+    "sensitivity_mg_count": 0.244,
+    "sensitivity_calibrated": false,
+    "window": "60/120 nominal MCU seconds, identical samples under two clock scenarios",
+    "quality": "strict COMPLETE; warmup11 invalid; gaps/nonfinite/rails reset filter; 10s settling invalid; FULL requires every observed sample and full duration",
+    "source": "XYZ already FIR107 Q15 /10; DC preserved in archive, suppressed by bandpass",
+    "normative_comfort_threshold": null
+  },
+  "1dde808c6d3da76a67eec4b4d46c4282e1be05c77977c7e5899b81b47321d444": {
+    "version": "prequal-global-energy-v1",
+    "name": "BAND_1_2",
+    "unit": "mg RMS nominal",
+    "normative": false,
+    "template": "flat",
+    "band": [
+      1.0,
+      2.0
+    ],
+    "sos": [
+      [
+        1.8838406050256777e-12,
+        3.767681210051355e-12,
+        1.8838406050256777e-12,
+        1.0,
+        -1.9975154145880794,
+        0.9975300199258145
+      ],
+      [
+        1.0,
+        2.0,
+        1.0,
+        1.0,
+        -1.9981336969241066,
+        0.9981419592337474
+      ],
+      [
+        1.0,
+        -2.0,
+        1.0,
+        1.0,
+        -1.9988016178393055,
+        0.9988226156357223
+      ],
+      [
+        1.0,
+        -2.0,
+        1.0,
+        1.0,
+        -1.9993778097473192,
+        0.999383564009521
+      ]
+    ],
+    "filter_sha256": "a6651ca12d9ed576ade77faec658e5f879a125eb5e9d87830ec901f85b6d17ad",
+    "clock": "QPC_ESTIMATE",
+    "fs_est_Hz": 2679.5162204534963,
+    "physical_clock_verified": false,
+    "sensitivity_mg_count": 0.244,
+    "sensitivity_calibrated": false,
+    "window": "60/120 nominal MCU seconds, identical samples under two clock scenarios",
+    "quality": "strict COMPLETE; warmup11 invalid; gaps/nonfinite/rails reset filter; 10s settling invalid; FULL requires every observed sample and full duration",
+    "source": "XYZ already FIR107 Q15 /10; DC preserved in archive, suppressed by bandpass",
+    "normative_comfort_threshold": null
+  },
+  "cbb82395d06e90c107d85fa820f27cdaf50a8691a06178d6dc25577d4ebfe3ff": {
+    "version": "prequal-global-energy-v1",
+    "name": "BAND_2_5",
+    "unit": "mg RMS nominal",
+    "normative": false,
+    "template": "flat",
+    "band": [
+      2.0,
+      5.0
+    ],
+    "sos": [
+      [
+        1.5166116533401842e-10,
+        3.0332233066803683e-10,
+        1.5166116533401842e-10,
+        1.0,
+        -1.9921684305776446,
+        0.9922500907308939
+      ],
+      [
+        1.0,
+        2.0,
+        1.0,
+        1.0,
+        -1.9947584224231398,
+        0.9947952068961254
+      ],
+      [
+        1.0,
+        -2.0,
+        1.0,
+        1.0,
+        -1.996091964996575,
+        0.9962218987887773
+      ],
+      [
+        1.0,
+        -2.0,
+        1.0,
+        1.0,
+        -1.9983792434439667,
+        0.9984024493463871
+      ]
+    ],
+    "filter_sha256": "19d66e58e8749fd4351bdd77428c713273639277b487e695148dd1a8bbf034e2",
+    "clock": "QPC_ESTIMATE",
+    "fs_est_Hz": 2679.5162204534963,
+    "physical_clock_verified": false,
+    "sensitivity_mg_count": 0.244,
+    "sensitivity_calibrated": false,
+    "window": "60/120 nominal MCU seconds, identical samples under two clock scenarios",
+    "quality": "strict COMPLETE; warmup11 invalid; gaps/nonfinite/rails reset filter; 10s settling invalid; FULL requires every observed sample and full duration",
+    "source": "XYZ already FIR107 Q15 /10; DC preserved in archive, suppressed by bandpass",
+    "normative_comfort_threshold": null
+  },
+  "29bad5b67736e522365e8c94e0687f3f5580263fd343ab1365549f3063167950": {
+    "version": "prequal-global-energy-v1",
+    "name": "BAND_5_25",
+    "unit": "mg RMS nominal",
+    "normative": false,
+    "template": "flat",
+    "band": [
+      5.0,
+      25.0
+    ],
+    "sos": [
+      [
+        2.845758671235299e-07,
+        5.691517342470598e-07,
+        2.845758671235299e-07,
+        1.0,
+        -1.9372464210643814,
+        0.9390117987327637
+      ],
+      [
+        1.0,
+        2.0,
+        1.0,
+        1.0,
+        -1.967633292119491,
+        0.9708276752430671
+      ],
+      [
+        1.0,
+        -2.0,
+        1.0,
+        1.0,
+        -1.976272165642871,
+        0.976528574307672
+      ],
+      [
+        1.0,
+        -2.0,
+        1.0,
+        1.0,
+        -1.9935959310052467,
+        0.993741167313051
+      ]
+    ],
+    "filter_sha256": "86b4c9af90a6e381394ec8655adebdb2864c438aaba7e346a1ad0971ac301a42",
+    "clock": "QPC_ESTIMATE",
+    "fs_est_Hz": 2679.5162204534963,
+    "physical_clock_verified": false,
+    "sensitivity_mg_count": 0.244,
+    "sensitivity_calibrated": false,
+    "window": "60/120 nominal MCU seconds, identical samples under two clock scenarios",
+    "quality": "strict COMPLETE; warmup11 invalid; gaps/nonfinite/rails reset filter; 10s settling invalid; FULL requires every observed sample and full duration",
+    "source": "XYZ already FIR107 Q15 /10; DC preserved in archive, suppressed by bandpass",
+    "normative_comfort_threshold": null
+  },
+  "3c62a8629812ca7e00085f3b5db9970b64c220c8b5d4191c318c166be4830631": {
+    "version": "prequal-global-energy-v1",
+    "name": "BAND_25_80",
+    "unit": "mg RMS nominal",
+    "normative": false,
+    "template": "flat",
+    "band": [
+      25.0,
+      80.0
+    ],
+    "sos": [
+      [
+        1.4689058907362042e-05,
+        2.9378117814724084e-05,
+        1.4689058907362042e-05,
+        1.0,
+        -1.8414411682061658,
+        0.8592553321734071
+      ],
+      [
+        1.0,
+        2.0,
+        1.0,
+        1.0,
+        -1.9105529162172938,
+        0.916601157567486
+      ],
+      [
+        1.0,
+        -2.0,
+        1.0,
+        1.0,
+        -1.8968676978827308,
+        0.9287659102724904
+      ],
+      [
+        1.0,
+        -2.0,
+        1.0,
+        1.0,
+        -1.9720822556775126,
+        0.9756840889987074
+      ]
+    ],
+    "filter_sha256": "8627e214f5c3952bb6ec14deee6af44e1350fba50c2acbc355affd037eb8c40b",
+    "clock": "QPC_ESTIMATE",
+    "fs_est_Hz": 2679.5162204534963,
+    "physical_clock_verified": false,
+    "sensitivity_mg_count": 0.244,
+    "sensitivity_calibrated": false,
+    "window": "60/120 nominal MCU seconds, identical samples under two clock scenarios",
+    "quality": "strict COMPLETE; warmup11 invalid; gaps/nonfinite/rails reset filter; 10s settling invalid; FULL requires every observed sample and full duration",
+    "source": "XYZ already FIR107 Q15 /10; DC preserved in archive, suppressed by bandpass",
+    "normative_comfort_threshold": null
+  },
+  "a91aac1dd79d2a4791de1f1e4eea8bef8a2c34adc94a9e9f61abaaac74f2e468": {
+    "version": "prequal-global-energy-v1",
+    "name": "FLAT_1_80",
+    "unit": "mg RMS nominal",
+    "normative": false,
+    "template": "flat",
+    "band": [
+      1.0,
+      80.0
+    ],
+    "sos": [
+      [
+        5.842090066251833e-05,
+        0.00011684180132503665,
+        5.842090066251833e-05,
+        1.0,
+        -1.683507769787391,
+        0.7122898969656614
+      ],
+      [
+        1.0,
+        2.0,
+        1.0,
+        1.0,
+        -1.8372653942825254,
+        0.8698420237399735
+      ],
+      [
+        1.0,
+        -2.0,
+        1.0,
+        1.0,
+        -1.9955939099633395,
+        0.9955996382986507
+      ],
+      [
+        1.0,
+        -2.0,
+        1.0,
+        1.0,
+        -1.9982333239027021,
+        0.9982388562895685
+      ]
+    ],
+    "filter_sha256": "0a83c5ade0cfe6d65ccf59a4c92639b915487ad8ddd8da0d2266037875c435eb",
+    "clock": "QPC_ESTIMATE",
+    "fs_est_Hz": 2679.5162204534963,
+    "physical_clock_verified": false,
+    "sensitivity_mg_count": 0.244,
+    "sensitivity_calibrated": false,
+    "window": "60/120 nominal MCU seconds, identical samples under two clock scenarios",
+    "quality": "strict COMPLETE; warmup11 invalid; gaps/nonfinite/rails reset filter; 10s settling invalid; FULL requires every observed sample and full duration",
+    "source": "XYZ already FIR107 Q15 /10; DC preserved in archive, suppressed by bandpass",
+    "normative_comfort_threshold": null
+  },
+  "0fb53d2f5ed162c3b6f35c1d46b0d8501fce607d003b8fcf8e4624316e3dcf19": {
+    "version": "prequal-global-energy-v1",
+    "name": "TEST_LP10",
+    "unit": "mg RMS nominal",
+    "normative": false,
+    "template": "sensitivity-test RC lowpass10Hz; NOT a comfort model",
+    "band": [
+      1.0,
+      80.0
+    ],
+    "sos": [
+      [
+        5.842090066251833e-05,
+        0.00011684180132503665,
+        5.842090066251833e-05,
+        1.0,
+        -1.683507769787391,
+        0.7122898969656614
+      ],
+      [
+        1.0,
+        2.0,
+        1.0,
+        1.0,
+        -1.8372653942825254,
+        0.8698420237399735
+      ],
+      [
+        1.0,
+        -2.0,
+        1.0,
+        1.0,
+        -1.9955939099633395,
+        0.9955996382986507
+      ],
+      [
+        1.0,
+        -2.0,
+        1.0,
+        1.0,
+        -1.9982333239027021,
+        0.9982388562895685
+      ],
+      [
+        0.011588606734693327,
+        0.011588606734693327,
+        0.0,
+        1.0,
+        -0.9768227865306134,
+        0.0
+      ]
+    ],
+    "filter_sha256": "61fc9bdea919e6d19d6d7489609aba97d7c3d57a0d1faee622debba563cfaf1b",
+    "clock": "QPC_ESTIMATE",
+    "fs_est_Hz": 2679.5162204534963,
+    "physical_clock_verified": false,
+    "sensitivity_mg_count": 0.244,
+    "sensitivity_calibrated": false,
+    "window": "60/120 nominal MCU seconds, identical samples under two clock scenarios",
+    "quality": "strict COMPLETE; warmup11 invalid; gaps/nonfinite/rails reset filter; 10s settling invalid; FULL requires every observed sample and full duration",
+    "source": "XYZ already FIR107 Q15 /10; DC preserved in archive, suppressed by bandpass",
+    "normative_comfort_threshold": null
+  },
+  "0f6f13cd77287277b17a9810e09869d634ae8bbf2641c678fd27a5db12431b60": {
+    "version": "prequal-global-energy-v1",
+    "name": "EDGE_08",
+    "unit": "mg RMS nominal",
+    "normative": false,
+    "template": "flat",
+    "band": [
+      0.8,
+      80.0
+    ],
+    "sos": [
+      [
+        5.898185584739909e-05,
+        0.00011796371169479818,
+        5.898185584739909e-05,
+        1.0,
+        -1.6820182776478383,
+        0.7110290875737927
+      ],
+      [
+        1.0,
+        2.0,
+        1.0,
+        1.0,
+        -1.8366217773323497,
+        0.8692316766987584
+      ],
+      [
+        1.0,
+        -2.0,
+        1.0,
+        1.0,
+        -1.996486951570066,
+        0.996490587483139
+      ],
+      [
+        1.0,
+        -2.0,
+        1.0,
+        1.0,
+        -1.9985821399700718,
+        0.9985856765031179
+      ]
+    ],
+    "filter_sha256": "6f1baf83372b4205f4a25f7322a328c5af810d3b8923b3c27eb0e55f9b9170ac",
+    "clock": "QPC_ESTIMATE",
+    "fs_est_Hz": 2679.5162204534963,
+    "physical_clock_verified": false,
+    "sensitivity_mg_count": 0.244,
+    "sensitivity_calibrated": false,
+    "window": "60/120 nominal MCU seconds, identical samples under two clock scenarios",
+    "quality": "strict COMPLETE; warmup11 invalid; gaps/nonfinite/rails reset filter; 10s settling invalid; FULL requires every observed sample and full duration",
+    "source": "XYZ already FIR107 Q15 /10; DC preserved in archive, suppressed by bandpass",
+    "normative_comfort_threshold": null
+  },
+  "df2c617bb8d8cd9fcec085bab62040f32b79b2d2de9c60a4cb1e8675d833b515": {
+    "version": "prequal-global-energy-v1",
+    "name": "EDGE_12",
+    "unit": "mg RMS nominal",
+    "normative": false,
+    "template": "flat",
+    "band": [
+      1.2,
+      80.0
+    ],
+    "sos": [
+      [
+        5.786380472170209e-05,
+        0.00011572760944340417,
+        5.786380472170209e-05,
+        1.0,
+        -1.6850034160948977,
+        0.7135574064537219
+      ],
+      [
+        1.0,
+        2.0,
+        1.0,
+        1.0,
+        -1.837906470004875,
+        0.8704505415911193
+      ],
+      [
+        1.0,
+        -2.0,
+        1.0,
+        1.0,
+        -1.994694890968418,
+        0.9947032087020221
+      ],
+      [
+        1.0,
+        -2.0,
+        1.0,
+        1.0,
+        -1.9978867911750904,
+        0.9978947670949542
+      ]
+    ],
+    "filter_sha256": "f78e4d90eef4f40d0c0ec6d100e92a2523636aab401c789ce80778cbe0a8d181",
+    "clock": "QPC_ESTIMATE",
+    "fs_est_Hz": 2679.5162204534963,
+    "physical_clock_verified": false,
+    "sensitivity_mg_count": 0.244,
+    "sensitivity_calibrated": false,
+    "window": "60/120 nominal MCU seconds, identical samples under two clock scenarios",
+    "quality": "strict COMPLETE; warmup11 invalid; gaps/nonfinite/rails reset filter; 10s settling invalid; FULL requires every observed sample and full duration",
+    "source": "XYZ already FIR107 Q15 /10; DC preserved in archive, suppressed by bandpass",
+    "normative_comfort_threshold": null
+  }
+}

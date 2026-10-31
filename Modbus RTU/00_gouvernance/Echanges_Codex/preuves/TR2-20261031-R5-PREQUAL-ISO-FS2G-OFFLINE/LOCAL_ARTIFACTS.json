@@ -1,0 +1,162 @@
+[
+  {
+    "path": "/home/lolo/dev/msm/reports/TR2-R5-prequal-20261031/additional-stats.json",
+    "bytes": 8445,
+    "sha256": "d4ad80abe477bf6963e6b35f2e0c6cd497056284cece76b289363320169c8e9b"
+  },
+  {
+    "path": "/home/lolo/dev/msm/reports/TR2-R5-prequal-20261031/analysis-unified-v4.sqlite",
+    "bytes": 54837248,
+    "sha256": "87f79f2e6cc77845baa3b5a24118ab0756613d1e66e612976648059553d6aa79"
+  },
+  {
+    "path": "/home/lolo/dev/msm/reports/TR2-R5-prequal-20261031/extreme-audit.json",
+    "bytes": 2243,
+    "sha256": "23a298d9b313eab59af433088162e9deb4a49cecd7d1cc85e1eddd52c65decfa"
+  },
+  {
+    "path": "/home/lolo/dev/msm/reports/TR2-R5-prequal-20261031/full-v1/MANIFEST.json",
+    "bytes": 2458,
+    "sha256": "d82da3c81a55d7b0f239caaba44e956af0530e641249952eeb6e55a4f435c860"
+  },
+  {
+    "path": "/home/lolo/dev/msm/reports/TR2-R5-prequal-20261031/full-v1/aligned_pairs.csv",
+    "bytes": 584351,
+    "sha256": "8affec0c49570412ba53beaef2941e57f966fa2a8b6471afe0553178dc173b3a"
+  },
+  {
+    "path": "/home/lolo/dev/msm/reports/TR2-R5-prequal-20261031/full-v1/band_shares.csv",
+    "bytes": 129840,
+    "sha256": "25bc85a867812ed148e0bdcc164d6b65cf0c3f5c539dce26d8d12278ef80e9f2"
+  },
+  {
+    "path": "/home/lolo/dev/msm/reports/TR2-R5-prequal-20261031/full-v1/definitions.json",
+    "bytes": 24172,
+    "sha256": "b4d75791b57c9a3354b38c3b391440a5d5211164d645dbeb2aa23cfabdce6b95"
+  },
+  {
+    "path": "/home/lolo/dev/msm/reports/TR2-R5-prequal-20261031/full-v1/duration_sensitivity.json",
+    "bytes": 8994,
+    "sha256": "775dba4bf51863d75f62869c7ef4827da4bb62469740dac0c38f8009986c3df1"
+  },
+  {
+    "path": "/home/lolo/dev/msm/reports/TR2-R5-prequal-20261031/full-v1/metrics.csv",
+    "bytes": 1797757,
+    "sha256": "547ef15af06d702a6b3ceadf94c76548e7e402074514a0e45bf3fb56e5da22c6"
+  },
+  {
+    "path": "/home/lolo/dev/msm/reports/TR2-R5-prequal-20261031/full-v1/raw_1s.csv.gz",
+    "bytes": 367432,
+    "sha256": "8d065f74a60f7712988144a735c6a18dc86745a0bf1cf8a87090a58f5de61207"
+  },
+  {
+    "path": "/home/lolo/dev/msm/reports/TR2-R5-prequal-20261031/full-v1/raw_distribution.json",
+    "bytes": 1784,
+    "sha256": "a9434c68ce8032d23f7a07c003c02be4a0617e9e448e91ad35724c400651cf6f"
+  },
+  {
+    "path": "/home/lolo/dev/msm/reports/TR2-R5-prequal-20261031/full-v1/real_controls.json",
+    "bytes": 83504,
+    "sha256": "a20e48e49930b97a830e51e64b9fe1a9283fac9def604ca02ef1f0fabf2c2c21"
+  },
+  {
+    "path": "/home/lolo/dev/msm/reports/TR2-R5-prequal-20261031/full-v1/sufficient_statistics.npz",
+    "bytes": 8393746,
+    "sha256": "9ea7c3c1a69c6eb45b03e2dafccec1600fcd0b81d4de2639a3ae0799dc04f8ea"
+  },
+  {
+    "path": "/home/lolo/dev/msm/reports/TR2-R5-prequal-20261031/full-v1/summary.json",
+    "bytes": 16230,
+    "sha256": "f9ea158fe514599190e362cc95a129f7b6a5325369dc35c0361225546301c195"
+  },
+  {
+    "path": "/home/lolo/dev/msm/reports/TR2-R5-prequal-20261031/full-v1.log",
+    "bytes": 138,
+    "sha256": "d290834c1acadf89b280196793c1e211bc6c041c6a907f37864b4afcfccd3a83"
+  },
+  {
+    "path": "/home/lolo/dev/msm/reports/TR2-R5-prequal-20261031/presentation-v1/band_energy.png",
+    "bytes": 91699,
+    "sha256": "649aef260b7afcf8412f3b142526a84fea6ef7a021fbded2d3de37636e8573b3"
+  },
+  {
+    "path": "/home/lolo/dev/msm/reports/TR2-R5-prequal-20261031/presentation-v1/filter_response.csv",
+    "bytes": 427338,
+    "sha256": "10996faa6de98e47a3d4a4d6dc9cedf98869106004ae79556b545e29f10b305d"
+  },
+  {
+    "path": "/home/lolo/dev/msm/reports/TR2-R5-prequal-20261031/presentation-v1/filter_responses.png",
+    "bytes": 172433,
+    "sha256": "3abb2ebb472ca3aa92a9c9a3acaf7d5fc510cc06cdf5e1f1a8bb8b7972a8d49f"
+  },
+  {
+    "path": "/home/lolo/dev/msm/reports/TR2-R5-prequal-20261031/presentation-v1/global_60_120.png",
+    "bytes": 237655,
+    "sha256": "e848545d7c7596752620fea2c6044b0e6459beb677119e7c0f2bcbc79c94b38c"
+  },
+  {
+    "path": "/home/lolo/dev/msm/reports/TR2-R5-prequal-20261031/presentation-v1/index.html",
+    "bytes": 1547,
+    "sha256": "78d71e0562a06bc82e88ec511842169faf58bcc45e40af3ea6185bc0a8721db9"
+  },
+  {
+    "path": "/home/lolo/dev/msm/reports/TR2-R5-prequal-20261031/presentation-v1/method_sensitivity.csv",
+    "bytes": 56667,
+    "sha256": "63fc8d1ccc83f62a68705c73716f32fad5878ed6c05d195e623bb9e2433e6ae4"
+  },
+  {
+    "path": "/home/lolo/dev/msm/reports/TR2-R5-prequal-20261031/presentation-v1/render_manifest.json",
+    "bytes": 1012,
+    "sha256": "9d29f2090c0e0950805f6353019acaf288f7ca629df4c32fe07a2bc43d2fb4e2"
+  },
+  {
+    "path": "/home/lolo/dev/msm/reports/TR2-R5-prequal-20261031/presentation-v1/sensitivity_summary.json",
+    "bytes": 945,
+    "sha256": "53d450b97a646f6bf69ba0e225cb6b677e895b13dc46967bb1d0cb29d18b3906"
+  },
+  {
+    "path": "/home/lolo/dev/msm/reports/TR2-R5-prequal-20261031/resolution-simulation.json",
+    "bytes": 18695,
+    "sha256": "c37389cc8be336c6cca408d42cec15b145274f8f25e64d9d6b4408479a9c9261"
+  },
+  {
+    "path": "/home/lolo/dev/msm/reports/TR2-R5-prequal-20261031/sqlite-proof.json",
+    "bytes": 12393,
+    "sha256": "4973b43e8b849bb424fae81518c92400c2baa0ebfc5c1007a9cd5fc4d7977013"
+  },
+  {
+    "path": "/home/lolo/dev/msm/reports/TR2-R5-prequal-20261031/start-analysis.sh",
+    "bytes": 324,
+    "sha256": "c3e5f570d31b38a0a2466eea383e7924958dc248a87c148c6702e2df2dff3ca4"
+  },
+  {
+    "path": "/home/lolo/dev/msm/reports/TR2-R5-prequal-20261031/tests-catalog-first.log",
+    "bytes": 1689,
+    "sha256": "462dee1aea5f8f14781addc456264b1aa68e2bedd9169576871cef5ba000eaa6"
+  },
+  {
+    "path": "/home/lolo/dev/msm/reports/TR2-R5-prequal-20261031/tests-catalog-fixed.log",
+    "bytes": 4382,
+    "sha256": "e4c08034fa776fa7a8e283bb00176ccd01bfe624d0163ba728fe17d2073e1d2a"
+  },
+  {
+    "path": "/home/lolo/dev/msm/reports/TR2-R5-prequal-20261031/tests-final-nine.log",
+    "bytes": 1225,
+    "sha256": "661550cb7de9a99db6462e2ca61ae281260b11d0ba0ceefe5c5bb3fbd7325a75"
+  },
+  {
+    "path": "/home/lolo/dev/msm/reports/TR2-R5-prequal-20261031/tests-final-ten.log",
+    "bytes": 1349,
+    "sha256": "23849dbc2d3038d4c2d66cc4f8c1e2385aae5ceced01c269d03c11dba7b67d1d"
+  },
+  {
+    "path": "/home/lolo/dev/msm/reports/TR2-R5-prequal-20261031/tests-final.log",
+    "bytes": 961,
+    "sha256": "aef8a57e4203e067304ae5b33a1d5c14ca886994e06ae1e17056a043bc92a267"
+  },
+  {
+    "path": "/home/lolo/dev/msm/reports/TR2-R5-prequal-20261031/tests-first.log",
+    "bytes": 707,
+    "sha256": "c1d6ffda641056412baa58e4d0cd47fa50ccbdb5ce52a50a3fc295b6a4a01d02"
+  }
+]

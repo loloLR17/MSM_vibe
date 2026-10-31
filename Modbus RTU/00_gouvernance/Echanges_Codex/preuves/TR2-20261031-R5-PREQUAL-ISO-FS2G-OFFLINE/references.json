@@ -1,0 +1,21 @@
+{
+  "ST_datasheet": {
+    "url": "https://www.st.com/resource/en/datasheet/iis3dwb.pdf",
+    "revision": "DS12569 Rev8 July2025",
+    "consulted": "2026-10-31",
+    "locations": [
+      "Table3 pp5\u20136 note6",
+      "CTRL1_XL Table30 p32"
+    ],
+    "scope": "manufacturer sensitivities and noise characterization, not lowfrequency physical qualification"
+  },
+  "ST_appnote": {
+    "url": "https://www.st.com/resource/en/application_note/an5444-iis3dwb-ultrawide-bandwidth-lownoise-3axis-digital-vibration-sensor-stmicroelectronics.pdf",
+    "revision": "AN5444 Rev3",
+    "scope": "startup, filtering, FIFO, temperature"
+  },
+  "experimental_weighting": {
+    "normative": false,
+    "formula": "H(s)=1/(1+s/(2*pi*10)); bilinear plus Butterworth1\u201380; sensitivity test only"
+  }
+}

@@ -1,0 +1,546 @@
+[
+  {
+    "method_id": "0f6f13cd77287277b17a9810e09869d634ae8bbf2641c678fd27a5db12431b60",
+    "name": "EDGE_08",
+    "clock": "QPC_ESTIMATE",
+    "width_s": 60,
+    "full_windows": 365,
+    "P50": 30.999389107153576,
+    "P95": 36.691654253501156,
+    "maximum": 51.338411555339086,
+    "period_rms_xyz": [
+      12.357599230818963,
+      9.449384834714552,
+      27.570920737618074
+    ],
+    "period_direction": 27.570920737618074,
+    "scope": "only FULL windows; 60/120 FULL populations differ at edges"
+  },
+  {
+    "method_id": "0f6f13cd77287277b17a9810e09869d634ae8bbf2641c678fd27a5db12431b60",
+    "name": "EDGE_08",
+    "clock": "QPC_ESTIMATE",
+    "width_s": 120,
+    "full_windows": 182,
+    "P50": 31.313190021205287,
+    "P95": 36.39310520417263,
+    "maximum": 50.22924941129331,
+    "period_rms_xyz": [
+      12.353196526109638,
+      9.442429740075633,
+      27.571936530719142
+    ],
+    "period_direction": 27.571936530719142,
+    "scope": "only FULL windows; 60/120 FULL populations differ at edges"
+  },
+  {
+    "method_id": "0fb53d2f5ed162c3b6f35c1d46b0d8501fce607d003b8fcf8e4624316e3dcf19",
+    "name": "TEST_LP10",
+    "clock": "QPC_ESTIMATE",
+    "width_s": 60,
+    "full_windows": 365,
+    "P50": 7.192442767044572,
+    "P95": 12.432362040694406,
+    "maximum": 16.08365502260303,
+    "period_rms_xyz": [
+      3.903124656046384,
+      2.9451760732421444,
+      7.273118257689113
+    ],
+    "period_direction": 7.273118257689113,
+    "scope": "only FULL windows; 60/120 FULL populations differ at edges"
+  },
+  {
+    "method_id": "0fb53d2f5ed162c3b6f35c1d46b0d8501fce607d003b8fcf8e4624316e3dcf19",
+    "name": "TEST_LP10",
+    "clock": "QPC_ESTIMATE",
+    "width_s": 120,
+    "full_windows": 182,
+    "P50": 7.228725134620407,
+    "P95": 12.37706310520971,
+    "maximum": 14.279797895524997,
+    "period_rms_xyz": [
+      3.9025081757085505,
+      2.94461856088862,
+      7.274943649398281
+    ],
+    "period_direction": 7.274943649398281,
+    "scope": "only FULL windows; 60/120 FULL populations differ at edges"
+  },
+  {
+    "method_id": "1dde808c6d3da76a67eec4b4d46c4282e1be05c77977c7e5899b81b47321d444",
+    "name": "BAND_1_2",
+    "clock": "QPC_ESTIMATE",
+    "width_s": 60,
+    "full_windows": 365,
+    "P50": 0.5695883368694709,
+    "P95": 0.7943291557989981,
+    "maximum": 0.9583242251406714,
+    "period_rms_xyz": [
+      0.1370644456117296,
+      0.18616373176824028,
+      0.5525296718258059
+    ],
+    "period_direction": 0.5525296718258059,
+    "scope": "only FULL windows; 60/120 FULL populations differ at edges"
+  },
+  {
+    "method_id": "1dde808c6d3da76a67eec4b4d46c4282e1be05c77977c7e5899b81b47321d444",
+    "name": "BAND_1_2",
+    "clock": "QPC_ESTIMATE",
+    "width_s": 120,
+    "full_windows": 182,
+    "P50": 0.5759651073933829,
+    "P95": 0.7416111782093181,
+    "maximum": 0.8806459658956909,
+    "period_rms_xyz": [
+      0.13707391800121255,
+      0.18601973086455845,
+      0.5521077414508371
+    ],
+    "period_direction": 0.5521077414508371,
+    "scope": "only FULL windows; 60/120 FULL populations differ at edges"
+  },
+  {
+    "method_id": "29bad5b67736e522365e8c94e0687f3f5580263fd343ab1365549f3063167950",
+    "name": "BAND_5_25",
+    "clock": "QPC_ESTIMATE",
+    "width_s": 60,
+    "full_windows": 365,
+    "P50": 10.34475366632195,
+    "P95": 22.778989092125236,
+    "maximum": 29.819927155661823,
+    "period_rms_xyz": [
+      6.669869579407271,
+      4.553680898749982,
+      11.55185003643702
+    ],
+    "period_direction": 11.55185003643702,
+    "scope": "only FULL windows; 60/120 FULL populations differ at edges"
+  },
+  {
+    "method_id": "29bad5b67736e522365e8c94e0687f3f5580263fd343ab1365549f3063167950",
+    "name": "BAND_5_25",
+    "clock": "QPC_ESTIMATE",
+    "width_s": 120,
+    "full_windows": 182,
+    "P50": 10.299412225697191,
+    "P95": 23.6157234935583,
+    "maximum": 27.337820472686698,
+    "period_rms_xyz": [
+      6.669761207521317,
+      4.554669475351205,
+      11.558208160708022
+    ],
+    "period_direction": 11.558208160708022,
+    "scope": "only FULL windows; 60/120 FULL populations differ at edges"
+  },
+  {
+    "method_id": "3c62a8629812ca7e00085f3b5db9970b64c220c8b5d4191c318c166be4830631",
+    "name": "BAND_25_80",
+    "clock": "QPC_ESTIMATE",
+    "width_s": 60,
+    "full_windows": 365,
+    "P50": 28.555468098079796,
+    "P95": 34.56321787603971,
+    "maximum": 48.20852116567627,
+    "period_rms_xyz": [
+      10.435547599829043,
+      8.287784618892962,
+      25.233073516990636
+    ],
+    "period_direction": 25.233073516990636,
+    "scope": "only FULL windows; 60/120 FULL populations differ at edges"
+  },
+  {
+    "method_id": "3c62a8629812ca7e00085f3b5db9970b64c220c8b5d4191c318c166be4830631",
+    "name": "BAND_25_80",
+    "clock": "QPC_ESTIMATE",
+    "width_s": 120,
+    "full_windows": 182,
+    "P50": 28.713983782286164,
+    "P95": 34.395208142766045,
+    "maximum": 47.13749189007487,
+    "period_rms_xyz": [
+      10.430176345441977,
+      8.27918040732331,
+      25.23095528206123
+    ],
+    "period_direction": 25.23095528206123,
+    "scope": "only FULL windows; 60/120 FULL populations differ at edges"
+  },
+  {
+    "method_id": "41a9a3cb96759a47f799b3c532f1488ed082b9a0d437bd425fcd3740c45b61e6",
+    "name": "EDGE_12",
+    "clock": "MCU",
+    "width_s": 60,
+    "full_windows": 365,
+    "P50": 31.140707052531653,
+    "P95": 36.79405467918523,
+    "maximum": 51.414644251436705,
+    "period_rms_xyz": [
+      12.383708149903883,
+      9.471741915755683,
+      27.672229983015256
+    ],
+    "period_direction": 27.672229983015256,
+    "scope": "only FULL windows; 60/120 FULL populations differ at edges"
+  },
+  {
+    "method_id": "41a9a3cb96759a47f799b3c532f1488ed082b9a0d437bd425fcd3740c45b61e6",
+    "name": "EDGE_12",
+    "clock": "MCU",
+    "width_s": 120,
+    "full_windows": 182,
+    "P50": 31.43855091392889,
+    "P95": 36.55946748008847,
+    "maximum": 50.31440194910967,
+    "period_rms_xyz": [
+      12.379290634751305,
+      9.46474494478773,
+      27.6732802028001
+    ],
+    "period_direction": 27.6732802028001,
+    "scope": "only FULL windows; 60/120 FULL populations differ at edges"
+  },
+  {
+    "method_id": "508fbe8251e1d20c7700ae9477a9729f8738ad6fa3b0faf1105eefdb5750f5af",
+    "name": "BAND_25_80",
+    "clock": "MCU",
+    "width_s": 60,
+    "full_windows": 365,
+    "P50": 28.66061825003352,
+    "P95": 34.66961117283477,
+    "maximum": 48.25686251886522,
+    "period_rms_xyz": [
+      10.369010869919803,
+      8.275810702523534,
+      25.280104174974984
+    ],
+    "period_direction": 25.280104174974984,
+    "scope": "only FULL windows; 60/120 FULL populations differ at edges"
+  },
+  {
+    "method_id": "508fbe8251e1d20c7700ae9477a9729f8738ad6fa3b0faf1105eefdb5750f5af",
+    "name": "BAND_25_80",
+    "clock": "MCU",
+    "width_s": 120,
+    "full_windows": 182,
+    "P50": 28.764705564189214,
+    "P95": 34.524936979891564,
+    "maximum": 47.113173649108006,
+    "period_rms_xyz": [
+      10.363632154923534,
+      8.267116938024136,
+      25.278067489383872
+    ],
+    "period_direction": 25.278067489383872,
+    "scope": "only FULL windows; 60/120 FULL populations differ at edges"
+  },
+  {
+    "method_id": "9976afda2529c6e57f4f6147ae728158ab4b9fceba98bbbf21daa357f5f57303",
+    "name": "BAND_1_2",
+    "clock": "MCU",
+    "width_s": 60,
+    "full_windows": 365,
+    "P50": 0.5694669571879568,
+    "P95": 0.7941173549915319,
+    "maximum": 0.9580057923223164,
+    "period_rms_xyz": [
+      0.13731667672557013,
+      0.18661476573600555,
+      0.5523617243934377
+    ],
+    "period_direction": 0.5523617243934377,
+    "scope": "only FULL windows; 60/120 FULL populations differ at edges"
+  },
+  {
+    "method_id": "9976afda2529c6e57f4f6147ae728158ab4b9fceba98bbbf21daa357f5f57303",
+    "name": "BAND_1_2",
+    "clock": "MCU",
+    "width_s": 120,
+    "full_windows": 182,
+    "P50": 0.5757251210357484,
+    "P95": 0.7412231627737538,
+    "maximum": 0.8803312247155933,
+    "period_rms_xyz": [
+      0.13732620999273212,
+      0.1864695248162291,
+      0.5519395090593576
+    ],
+    "period_direction": 0.5519395090593576,
+    "scope": "only FULL windows; 60/120 FULL populations differ at edges"
+  },
+  {
+    "method_id": "a91aac1dd79d2a4791de1f1e4eea8bef8a2c34adc94a9e9f61abaaac74f2e468",
+    "name": "FLAT_1_80",
+    "clock": "QPC_ESTIMATE",
+    "width_s": 60,
+    "full_windows": 365,
+    "P50": 31.0028871044361,
+    "P95": 36.696825164493006,
+    "maximum": 51.34296095642981,
+    "period_rms_xyz": [
+      12.358071316974463,
+      9.448790998330633,
+      27.57383250654351
+    ],
+    "period_direction": 27.57383250654351,
+    "scope": "only FULL windows; 60/120 FULL populations differ at edges"
+  },
+  {
+    "method_id": "a91aac1dd79d2a4791de1f1e4eea8bef8a2c34adc94a9e9f61abaaac74f2e468",
+    "name": "FLAT_1_80",
+    "clock": "QPC_ESTIMATE",
+    "width_s": 120,
+    "full_windows": 182,
+    "P50": 31.316367940987917,
+    "P95": 36.39679541215545,
+    "maximum": 50.23450733305174,
+    "period_rms_xyz": [
+      12.353667067365766,
+      9.441834497364267,
+      27.574844927313897
+    ],
+    "period_direction": 27.574844927313897,
+    "scope": "only FULL windows; 60/120 FULL populations differ at edges"
+  },
+  {
+    "method_id": "cbb82395d06e90c107d85fa820f27cdaf50a8691a06178d6dc25577d4ebfe3ff",
+    "name": "BAND_2_5",
+    "clock": "QPC_ESTIMATE",
+    "width_s": 60,
+    "full_windows": 365,
+    "P50": 0.6039850914628557,
+    "P95": 0.726382333261943,
+    "maximum": 0.8219731734138004,
+    "period_rms_xyz": [
+      0.2512841310970248,
+      0.5701341373135573,
+      0.4895627004384139
+    ],
+    "period_direction": 0.5701341373135573,
+    "scope": "only FULL windows; 60/120 FULL populations differ at edges"
+  },
+  {
+    "method_id": "cbb82395d06e90c107d85fa820f27cdaf50a8691a06178d6dc25577d4ebfe3ff",
+    "name": "BAND_2_5",
+    "clock": "QPC_ESTIMATE",
+    "width_s": 120,
+    "full_windows": 182,
+    "P50": 0.6090270424746536,
+    "P95": 0.7044012866791644,
+    "maximum": 0.739742427822234,
+    "period_rms_xyz": [
+      0.2512215999864282,
+      0.5697083235029053,
+      0.48951284891101576
+    ],
+    "period_direction": 0.5697083235029053,
+    "scope": "only FULL windows; 60/120 FULL populations differ at edges"
+  },
+  {
+    "method_id": "d12146eda111623ff0bd50dda5554eec1f1628cd104ae31f4012454746ec87e7",
+    "name": "TEST_LP10",
+    "clock": "MCU",
+    "width_s": 60,
+    "full_windows": 365,
+    "P50": 7.244852934112942,
+    "P95": 12.506826632395953,
+    "maximum": 16.17287676378673,
+    "period_rms_xyz": [
+      3.926682884631401,
+      2.9619798798949386,
+      7.321072250563019
+    ],
+    "period_direction": 7.321072250563019,
+    "scope": "only FULL windows; 60/120 FULL populations differ at edges"
+  },
+  {
+    "method_id": "d12146eda111623ff0bd50dda5554eec1f1628cd104ae31f4012454746ec87e7",
+    "name": "TEST_LP10",
+    "clock": "MCU",
+    "width_s": 120,
+    "full_windows": 182,
+    "P50": 7.281886463053041,
+    "P95": 12.447664751323652,
+    "maximum": 14.358051717204608,
+    "period_rms_xyz": [
+      3.9260599952333677,
+      2.961413903258631,
+      7.32290615653292
+    ],
+    "period_direction": 7.32290615653292,
+    "scope": "only FULL windows; 60/120 FULL populations differ at edges"
+  },
+  {
+    "method_id": "df2c617bb8d8cd9fcec085bab62040f32b79b2d2de9c60a4cb1e8675d833b515",
+    "name": "EDGE_12",
+    "clock": "QPC_ESTIMATE",
+    "width_s": 60,
+    "full_windows": 365,
+    "P50": 31.006071197150806,
+    "P95": 36.701851715291426,
+    "maximum": 51.34732525683196,
+    "period_rms_xyz": [
+      12.358576037105923,
+      9.448630120512952,
+      27.576496562419933
+    ],
+    "period_direction": 27.576496562419933,
+    "scope": "only FULL windows; 60/120 FULL populations differ at edges"
+  },
+  {
+    "method_id": "df2c617bb8d8cd9fcec085bab62040f32b79b2d2de9c60a4cb1e8675d833b515",
+    "name": "EDGE_12",
+    "clock": "QPC_ESTIMATE",
+    "width_s": 120,
+    "full_windows": 182,
+    "P50": 31.3193506558508,
+    "P95": 36.400169606101656,
+    "maximum": 50.23951958421229,
+    "period_rms_xyz": [
+      12.354170205359981,
+      9.441672089988536,
+      27.5775058531208
+    ],
+    "period_direction": 27.5775058531208,
+    "scope": "only FULL windows; 60/120 FULL populations differ at edges"
+  },
+  {
+    "method_id": "e733902308e1876d8edc67df90cf2a54e902080657a5829866e0d8a3a7685aab",
+    "name": "BAND_2_5",
+    "clock": "MCU",
+    "width_s": 60,
+    "full_windows": 365,
+    "P50": 0.6059879891723868,
+    "P95": 0.7277865707044725,
+    "maximum": 0.8232790866109686,
+    "period_rms_xyz": [
+      0.2533903790201984,
+      0.5713752674145688,
+      0.49272263226234697
+    ],
+    "period_direction": 0.5713752674145688,
+    "scope": "only FULL windows; 60/120 FULL populations differ at edges"
+  },
+  {
+    "method_id": "e733902308e1876d8edc67df90cf2a54e902080657a5829866e0d8a3a7685aab",
+    "name": "BAND_2_5",
+    "clock": "MCU",
+    "width_s": 120,
+    "full_windows": 182,
+    "P50": 0.6104406761882879,
+    "P95": 0.7057474595939035,
+    "maximum": 0.7413665163586581,
+    "period_rms_xyz": [
+      0.2533334762238705,
+      0.5709531232166591,
+      0.4926810897554178
+    ],
+    "period_direction": 0.5709531232166591,
+    "scope": "only FULL windows; 60/120 FULL populations differ at edges"
+  },
+  {
+    "method_id": "ec3384fee549e9bba68cb0fda4ee2cd9da75a044536bf1f0bf655d635811ecac",
+    "name": "EDGE_08",
+    "clock": "MCU",
+    "width_s": 60,
+    "full_windows": 365,
+    "P50": 31.133815400740747,
+    "P95": 36.78376299840211,
+    "maximum": 51.40579002351592,
+    "period_rms_xyz": [
+      12.38274330058231,
+      9.472444097056492,
+      27.666646215728342
+    ],
+    "period_direction": 27.666646215728342,
+    "scope": "only FULL windows; 60/120 FULL populations differ at edges"
+  },
+  {
+    "method_id": "ec3384fee549e9bba68cb0fda4ee2cd9da75a044536bf1f0bf655d635811ecac",
+    "name": "EDGE_08",
+    "clock": "MCU",
+    "width_s": 120,
+    "full_windows": 182,
+    "P50": 31.43241080376011,
+    "P95": 36.55230101188685,
+    "maximum": 50.30420425566569,
+    "period_rms_xyz": [
+      12.37832886679512,
+      9.46545022896484,
+      27.66770229150024
+    ],
+    "period_direction": 27.66770229150024,
+    "scope": "only FULL windows; 60/120 FULL populations differ at edges"
+  },
+  {
+    "method_id": "fa730a4d4531628d1cdee2d85dedb7ba6fd27080aca9e1d7430d6430bb0d1966",
+    "name": "BAND_5_25",
+    "clock": "MCU",
+    "width_s": 60,
+    "full_windows": 365,
+    "P50": 10.49353676761819,
+    "P95": 22.933058515016757,
+    "maximum": 29.944974624762615,
+    "period_rms_xyz": [
+      6.789488321639078,
+      4.616713809993906,
+      11.669946264155994
+    ],
+    "period_direction": 11.669946264155994,
+    "scope": "only FULL windows; 60/120 FULL populations differ at edges"
+  },
+  {
+    "method_id": "fa730a4d4531628d1cdee2d85dedb7ba6fd27080aca9e1d7430d6430bb0d1966",
+    "name": "BAND_5_25",
+    "clock": "MCU",
+    "width_s": 120,
+    "full_windows": 182,
+    "P50": 10.428664296198182,
+    "P95": 23.77560305025257,
+    "maximum": 27.45074049323752,
+    "period_rms_xyz": [
+      6.789338606303994,
+      4.617687229368236,
+      11.67628520325435
+    ],
+    "period_direction": 11.67628520325435,
+    "scope": "only FULL windows; 60/120 FULL populations differ at edges"
+  },
+  {
+    "method_id": "facdbad45dafea380cf099bb1ad76b84e190dde976b374e28c39bfb77ed8d719",
+    "name": "FLAT_1_80",
+    "clock": "MCU",
+    "width_s": 60,
+    "full_windows": 365,
+    "P50": 31.13742653953257,
+    "P95": 36.78898338339011,
+    "maximum": 51.410310025771295,
+    "period_rms_xyz": [
+      12.383210125146514,
+      9.47188151145049,
+      27.66957107085068
+    ],
+    "period_direction": 27.66957107085068,
+    "scope": "only FULL windows; 60/120 FULL populations differ at edges"
+  },
+  {
+    "method_id": "facdbad45dafea380cf099bb1ad76b84e190dde976b374e28c39bfb77ed8d719",
+    "name": "FLAT_1_80",
+    "clock": "MCU",
+    "width_s": 120,
+    "full_windows": 182,
+    "P50": 31.43557636004998,
+    "P95": 36.55604929891403,
+    "maximum": 50.30942910738006,
+    "period_rms_xyz": [
+      12.378794168826904,
+      9.464886149683366,
+      27.67062407607303
+    ],
+    "period_direction": 27.67062407607303,
+    "scope": "only FULL windows; 60/120 FULL populations differ at edges"
+  }
+]

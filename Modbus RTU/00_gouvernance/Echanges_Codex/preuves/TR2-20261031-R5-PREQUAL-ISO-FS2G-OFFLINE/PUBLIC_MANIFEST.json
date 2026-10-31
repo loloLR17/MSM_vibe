@@ -1,0 +1,240 @@
+{
+  "scope": "listed immutable delivery artifacts and sources; excludes this manifest, report/journal and subsequent remote readback",
+  "files": [
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R5-PREQUAL-ISO-FS2G-OFFLINE/ASSESSMENT.json",
+      "bytes": 608,
+      "sha256": "333150e927e2aca27341d3395d78115607a68aea37e4091d2fdf8ae0636e0a8e"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R5-PREQUAL-ISO-FS2G-OFFLINE/LOCAL_ARTIFACTS.json",
+      "bytes": 6459,
+      "sha256": "06180619a1e4c16dc939201578ef37b0a78ca3277fc130343751213d0ec65aa3"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R5-PREQUAL-ISO-FS2G-OFFLINE/MANIFEST.json",
+      "bytes": 2458,
+      "sha256": "d82da3c81a55d7b0f239caaba44e956af0530e641249952eeb6e55a4f435c860"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R5-PREQUAL-ISO-FS2G-OFFLINE/NOTE_DECISION.md",
+      "bytes": 4205,
+      "sha256": "16091c4eed1af1405e783b8191a44aa591be541e50a55d7bc4d816a19edd9dab"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R5-PREQUAL-ISO-FS2G-OFFLINE/README.md",
+      "bytes": 3816,
+      "sha256": "f8955020818b716cf751d9574d44dcf11c272abf16a638a3dc0382d86f9c6185"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R5-PREQUAL-ISO-FS2G-OFFLINE/additional-stats.json",
+      "bytes": 8445,
+      "sha256": "d4ad80abe477bf6963e6b35f2e0c6cd497056284cece76b289363320169c8e9b"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R5-PREQUAL-ISO-FS2G-OFFLINE/aligned_pairs.csv",
+      "bytes": 584351,
+      "sha256": "8affec0c49570412ba53beaef2941e57f966fa2a8b6471afe0553178dc173b3a"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R5-PREQUAL-ISO-FS2G-OFFLINE/band_energy.png",
+      "bytes": 91699,
+      "sha256": "649aef260b7afcf8412f3b142526a84fea6ef7a021fbded2d3de37636e8573b3"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R5-PREQUAL-ISO-FS2G-OFFLINE/band_shares.csv",
+      "bytes": 129840,
+      "sha256": "25bc85a867812ed148e0bdcc164d6b65cf0c3f5c539dce26d8d12278ef80e9f2"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R5-PREQUAL-ISO-FS2G-OFFLINE/definitions.json",
+      "bytes": 24172,
+      "sha256": "b4d75791b57c9a3354b38c3b391440a5d5211164d645dbeb2aa23cfabdce6b95"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R5-PREQUAL-ISO-FS2G-OFFLINE/duration_sensitivity.json",
+      "bytes": 8994,
+      "sha256": "775dba4bf51863d75f62869c7ef4827da4bb62469740dac0c38f8009986c3df1"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R5-PREQUAL-ISO-FS2G-OFFLINE/extreme-audit.json",
+      "bytes": 2243,
+      "sha256": "23a298d9b313eab59af433088162e9deb4a49cecd7d1cc85e1eddd52c65decfa"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R5-PREQUAL-ISO-FS2G-OFFLINE/filter_response.csv",
+      "bytes": 427338,
+      "sha256": "10996faa6de98e47a3d4a4d6dc9cedf98869106004ae79556b545e29f10b305d"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R5-PREQUAL-ISO-FS2G-OFFLINE/filter_responses.png",
+      "bytes": 172433,
+      "sha256": "3abb2ebb472ca3aa92a9c9a3acaf7d5fc510cc06cdf5e1f1a8bb8b7972a8d49f"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R5-PREQUAL-ISO-FS2G-OFFLINE/fir_response_reused.json",
+      "bytes": 3412,
+      "sha256": "a384164bcf05fb2d896ed9e1f4286192ab5003f8dcfa93866d79d9b3cb916c6d"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R5-PREQUAL-ISO-FS2G-OFFLINE/full-v1.log",
+      "bytes": 138,
+      "sha256": "d290834c1acadf89b280196793c1e211bc6c041c6a907f37864b4afcfccd3a83"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R5-PREQUAL-ISO-FS2G-OFFLINE/global_60_120.png",
+      "bytes": 237655,
+      "sha256": "e848545d7c7596752620fea2c6044b0e6459beb677119e7c0f2bcbc79c94b38c"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R5-PREQUAL-ISO-FS2G-OFFLINE/index.html",
+      "bytes": 1547,
+      "sha256": "78d71e0562a06bc82e88ec511842169faf58bcc45e40af3ea6185bc0a8721db9"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R5-PREQUAL-ISO-FS2G-OFFLINE/method_sensitivity.csv",
+      "bytes": 56667,
+      "sha256": "63fc8d1ccc83f62a68705c73716f32fad5878ed6c05d195e623bb9e2433e6ae4"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R5-PREQUAL-ISO-FS2G-OFFLINE/metrics.csv",
+      "bytes": 1797757,
+      "sha256": "547ef15af06d702a6b3ceadf94c76548e7e402074514a0e45bf3fb56e5da22c6"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R5-PREQUAL-ISO-FS2G-OFFLINE/raw_1s.csv.gz",
+      "bytes": 367432,
+      "sha256": "8d065f74a60f7712988144a735c6a18dc86745a0bf1cf8a87090a58f5de61207"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R5-PREQUAL-ISO-FS2G-OFFLINE/raw_distribution.json",
+      "bytes": 1784,
+      "sha256": "a9434c68ce8032d23f7a07c003c02be4a0617e9e448e91ad35724c400651cf6f"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R5-PREQUAL-ISO-FS2G-OFFLINE/real_controls.json",
+      "bytes": 83504,
+      "sha256": "a20e48e49930b97a830e51e64b9fe1a9283fac9def604ca02ef1f0fabf2c2c21"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R5-PREQUAL-ISO-FS2G-OFFLINE/references.json",
+      "bytes": 790,
+      "sha256": "be95c4860bf016eb6c5e26e459e2ee85b9306acdf867ac4460784b4dd8f23612"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R5-PREQUAL-ISO-FS2G-OFFLINE/render_manifest.json",
+      "bytes": 1012,
+      "sha256": "9d29f2090c0e0950805f6353019acaf288f7ca629df4c32fe07a2bc43d2fb4e2"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R5-PREQUAL-ISO-FS2G-OFFLINE/resolution-simulation.json",
+      "bytes": 18695,
+      "sha256": "c37389cc8be336c6cca408d42cec15b145274f8f25e64d9d6b4408479a9c9261"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R5-PREQUAL-ISO-FS2G-OFFLINE/sensitivity_summary.json",
+      "bytes": 945,
+      "sha256": "53d450b97a646f6bf69ba0e225cb6b677e895b13dc46967bb1d0cb29d18b3906"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R5-PREQUAL-ISO-FS2G-OFFLINE/sqlite-proof.json",
+      "bytes": 12393,
+      "sha256": "4973b43e8b849bb424fae81518c92400c2baa0ebfc5c1007a9cd5fc4d7977013"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R5-PREQUAL-ISO-FS2G-OFFLINE/summary.json",
+      "bytes": 16230,
+      "sha256": "f9ea158fe514599190e362cc95a129f7b6a5325369dc35c0361225546301c195"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R5-PREQUAL-ISO-FS2G-OFFLINE/tests-catalog-first.log",
+      "bytes": 1689,
+      "sha256": "462dee1aea5f8f14781addc456264b1aa68e2bedd9169576871cef5ba000eaa6"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R5-PREQUAL-ISO-FS2G-OFFLINE/tests-catalog-fixed.log",
+      "bytes": 4382,
+      "sha256": "e4c08034fa776fa7a8e283bb00176ccd01bfe624d0163ba728fe17d2073e1d2a"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R5-PREQUAL-ISO-FS2G-OFFLINE/tests-checkpoint.log",
+      "bytes": 707,
+      "sha256": "c1d6ffda641056412baa58e4d0cd47fa50ccbdb5ce52a50a3fc295b6a4a01d02"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R5-PREQUAL-ISO-FS2G-OFFLINE/tests-final-ten.log",
+      "bytes": 1349,
+      "sha256": "23849dbc2d3038d4c2d66cc4f8c1e2385aae5ceced01c269d03c11dba7b67d1d"
+    },
+    {
+      "path": "experiments/r5_prequal_offline/FS_AUDIT.md",
+      "bytes": 6289,
+      "sha256": "7f6c53e4f2c274addd381b993bd7a3e5ae8a106501cb43d1d5b47f449e72ae2b"
+    },
+    {
+      "path": "experiments/r5_prequal_offline/METHOD.md",
+      "bytes": 5470,
+      "sha256": "567896f60ea11eebd2fcc91a23317ffa0c96e404288984825b4dffeedb1a5716"
+    },
+    {
+      "path": "experiments/r5_prequal_offline/README.md",
+      "bytes": 2404,
+      "sha256": "3ba4502b0d706cb55323d4addf112f9ed2647f50fa0167f4a9f83a00573c899f"
+    },
+    {
+      "path": "experiments/r5_prequal_offline/additional_stats.py",
+      "bytes": 1541,
+      "sha256": "71abf8abb3440a6e955fed732869e52b0a436a5c35ea9c84684d1d76aea3a60b"
+    },
+    {
+      "path": "experiments/r5_prequal_offline/deliver.py",
+      "bytes": 6940,
+      "sha256": "8ac2bd31b685505e295946e94eed984c29d69baa04d35f46864a54ae44acdef9"
+    },
+    {
+      "path": "experiments/r5_prequal_offline/extreme_audit.py",
+      "bytes": 2313,
+      "sha256": "b4df337eac2a26a448b34cde4f797674cf66af78c42c70045b63a312d152d1a6"
+    },
+    {
+      "path": "experiments/r5_prequal_offline/prequal.py",
+      "bytes": 3601,
+      "sha256": "21a2e6ccfc82687dd8b8e534e996a26d4fa75c7f7283f23138852e03a0cedbef"
+    },
+    {
+      "path": "experiments/r5_prequal_offline/prequal_catalog.py",
+      "bytes": 5968,
+      "sha256": "941761aaf4bfeadf2840453c767c37fb0a69561f9ec6bd73367c55a6db45591f"
+    },
+    {
+      "path": "experiments/r5_prequal_offline/queries.sql",
+      "bytes": 1233,
+      "sha256": "2f738f625639eddb87075635dc42f6efa278cd2a80bdbe8621a8e1c82f0d3cbe"
+    },
+    {
+      "path": "experiments/r5_prequal_offline/resolution.py",
+      "bytes": 3349,
+      "sha256": "ab46dc9ba51960e468ec2c7179887403a59a1ce3ecd547892fe69131b0c437b8"
+    },
+    {
+      "path": "experiments/r5_prequal_offline/run.py",
+      "bytes": 10674,
+      "sha256": "f1156e94f856309d100a8372e3fe12fd260aad076124488d1e8c9fc8cdf20ce8"
+    },
+    {
+      "path": "experiments/r5_prequal_offline/test_catalog.py",
+      "bytes": 2874,
+      "sha256": "3c8e2e615125eb3de7348dd4d72168e021e54524103db29a0ba26da2e62f09d9"
+    },
+    {
+      "path": "experiments/r5_prequal_offline/test_prequal.py",
+      "bytes": 3808,
+      "sha256": "8e549ae96b05ae38d9ac3ed69ba9de5cd6870d506fcbb1b3ae5db6878a66ebce"
+    },
+    {
+      "path": "experiments/r5_prequal_offline/test_resolution.py",
+      "bytes": 672,
+      "sha256": "b975fd537cc4ce04ac8ac95ccf3ab4e814e6023a82fee787ac9d22f4c733fb0a"
+    }
+  ]
+}

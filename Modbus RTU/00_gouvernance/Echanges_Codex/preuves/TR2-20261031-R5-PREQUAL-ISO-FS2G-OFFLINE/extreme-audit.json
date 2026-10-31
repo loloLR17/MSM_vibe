@@ -1,0 +1,111 @@
+{
+  "scope": "ARCHIVED_POST_FIR; nominal244ug/count; not native waveform or physical shock attribution",
+  "counts_per_axis": {
+    "2000": [
+      0,
+      0,
+      41
+    ],
+    "4000": [
+      0,
+      0,
+      5
+    ],
+    "6000": [
+      0,
+      0,
+      2
+    ],
+    "7000": [
+      0,
+      0,
+      1
+    ]
+  },
+  "episodes": {
+    "2000": [
+      {
+        "start_mcu_s": 17613.441565,
+        "end_mcu_s": 17614.769104,
+        "count": 41,
+        "max_abs_nominal_mg": 7676.728
+      }
+    ],
+    "4000": [
+      {
+        "start_mcu_s": 17613.445322,
+        "end_mcu_s": 17614.089365,
+        "count": 5,
+        "max_abs_nominal_mg": 7676.728
+      }
+    ],
+    "6000": [
+      {
+        "start_mcu_s": 17613.446073,
+        "end_mcu_s": 17613.446449,
+        "count": 2,
+        "max_abs_nominal_mg": 7676.728
+      }
+    ],
+    "7000": [
+      {
+        "start_mcu_s": 17613.446449,
+        "end_mcu_s": 17613.446449,
+        "count": 1,
+        "max_abs_nominal_mg": 7676.728
+      }
+    ]
+  },
+  "strongest_block_extremes": [
+    {
+      "index": 46876121,
+      "time_mcu_s": 17613.446449,
+      "xyz_nominal_mg": [
+        -509.472,
+        -368.928,
+        7676.728
+      ]
+    },
+    {
+      "index": 49125985,
+      "time_mcu_s": 18458.758788,
+      "xyz_nominal_mg": [
+        166.164,
+        -73.688,
+        1814.628
+      ]
+    },
+    {
+      "index": 46626820,
+      "time_mcu_s": 17519.773498,
+      "xyz_nominal_mg": [
+        47.336,
+        -104.92,
+        1749.2359999999999
+      ]
+    },
+    {
+      "index": 38074884,
+      "time_mcu_s": 14306.171976,
+      "xyz_nominal_mg": [
+        22.936,
+        162.504,
+        1744.356
+      ]
+    },
+    {
+      "index": 35521442,
+      "time_mcu_s": 13346.499092999999,
+      "xyz_nominal_mg": [
+        142.252,
+        -294.264,
+        1678.232
+      ]
+    }
+  ],
+  "FIR_L1": 1.4486083984375,
+  "rounding_bound_mg": 0.122,
+  "lower_bound_max_native_mg_if_chain_correct": 5299.296903345412,
+  "conclusion": "Under correct documented chain, output peak implies some contributing native code magnitude >4g nominal, despite possible FIR overshoot. This does not isolate sensor motion vs input corruption, nor reconstruct peaks.",
+  "source_unchanged": true
+}

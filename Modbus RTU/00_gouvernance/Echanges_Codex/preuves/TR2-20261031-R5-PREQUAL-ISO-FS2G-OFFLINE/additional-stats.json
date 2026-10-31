@@ -1,0 +1,243 @@
+{
+  "whole_period": [
+    {
+      "method_id": "9976afda2529c6e57f4f6147ae728158ab4b9fceba98bbbf21daa357f5f57303",
+      "name": "BAND_1_2",
+      "clock": "MCU",
+      "valid_samples": 58525510,
+      "rms_xyz_mg": [
+        0.13729588790894875,
+        0.18653292593785903,
+        0.5519059585710818
+      ],
+      "direction_max_mg": 0.5519059585710818,
+      "vector_technical_mg": 0.59853561331128,
+      "scope": "all valid samples incl partial final window; 11warmup +10s settling excluded, no fill"
+    },
+    {
+      "method_id": "e733902308e1876d8edc67df90cf2a54e902080657a5829866e0d8a3a7685aab",
+      "name": "BAND_2_5",
+      "clock": "MCU",
+      "valid_samples": 58525510,
+      "rms_xyz_mg": [
+        0.25327309366661765,
+        0.5709916570577829,
+        0.4925040993120818
+      ],
+      "direction_max_mg": 0.5709916570577829,
+      "vector_technical_mg": 0.795448942575359,
+      "scope": "all valid samples incl partial final window; 11warmup +10s settling excluded, no fill"
+    },
+    {
+      "method_id": "fa730a4d4531628d1cdee2d85dedb7ba6fd27080aca9e1d7430d6430bb0d1966",
+      "name": "BAND_5_25",
+      "clock": "MCU",
+      "valid_samples": 58525510,
+      "rms_xyz_mg": [
+        6.784382689107443,
+        4.6120843941895675,
+        11.65447312560212
+      ],
+      "direction_max_mg": 11.65447312560212,
+      "vector_technical_mg": 14.252224905844342,
+      "scope": "all valid samples incl partial final window; 11warmup +10s settling excluded, no fill"
+    },
+    {
+      "method_id": "508fbe8251e1d20c7700ae9477a9729f8738ad6fa3b0faf1105eefdb5750f5af",
+      "name": "BAND_25_80",
+      "clock": "MCU",
+      "valid_samples": 58525510,
+      "rms_xyz_mg": [
+        10.363677783487951,
+        8.275940785575898,
+        25.258181881158254
+      ],
+      "direction_max_mg": 25.258181881158254,
+      "vector_technical_mg": 28.52845535650312,
+      "scope": "all valid samples incl partial final window; 11warmup +10s settling excluded, no fill"
+    },
+    {
+      "method_id": "facdbad45dafea380cf099bb1ad76b84e190dde976b374e28c39bfb77ed8d719",
+      "name": "FLAT_1_80",
+      "clock": "MCU",
+      "valid_samples": 58525510,
+      "rms_xyz_mg": [
+        12.375849152140479,
+        9.469602959433285,
+        27.642989113323306
+      ],
+      "direction_max_mg": 27.642989113323306,
+      "vector_technical_mg": 31.73278855639943,
+      "scope": "all valid samples incl partial final window; 11warmup +10s settling excluded, no fill"
+    },
+    {
+      "method_id": "d12146eda111623ff0bd50dda5554eec1f1628cd104ae31f4012454746ec87e7",
+      "name": "TEST_LP10",
+      "clock": "MCU",
+      "valid_samples": 58525510,
+      "rms_xyz_mg": [
+        3.924071717254978,
+        2.959823724300739,
+        7.312878643093827
+      ],
+      "direction_max_mg": 7.312878643093827,
+      "vector_technical_mg": 8.811191143637263,
+      "scope": "all valid samples incl partial final window; 11warmup +10s settling excluded, no fill"
+    },
+    {
+      "method_id": "ec3384fee549e9bba68cb0fda4ee2cd9da75a044536bf1f0bf655d635811ecac",
+      "name": "EDGE_08",
+      "clock": "MCU",
+      "valid_samples": 58525510,
+      "rms_xyz_mg": [
+        12.37538255927698,
+        9.470162532866045,
+        27.640063873505877
+      ],
+      "direction_max_mg": 27.640063873505877,
+      "vector_technical_mg": 31.730225382414815,
+      "scope": "all valid samples incl partial final window; 11warmup +10s settling excluded, no fill"
+    },
+    {
+      "method_id": "41a9a3cb96759a47f799b3c532f1488ed082b9a0d437bd425fcd3740c45b61e6",
+      "name": "EDGE_12",
+      "clock": "MCU",
+      "valid_samples": 58525510,
+      "rms_xyz_mg": [
+        12.376347074906283,
+        9.469465579980533,
+        27.645648811910554
+      ],
+      "direction_max_mg": 27.645648811910554,
+      "vector_technical_mg": 31.735258680534947,
+      "scope": "all valid samples incl partial final window; 11warmup +10s settling excluded, no fill"
+    },
+    {
+      "method_id": "1dde808c6d3da76a67eec4b4d46c4282e1be05c77977c7e5899b81b47321d444",
+      "name": "BAND_1_2",
+      "clock": "QPC_ESTIMATE",
+      "valid_samples": 58525329,
+      "rms_xyz_mg": [
+        0.13704390651429246,
+        0.18608099711762227,
+        0.5520738567086182
+      ],
+      "direction_max_mg": 0.5520738567086182,
+      "vector_technical_mg": 0.5984920325803131,
+      "scope": "all valid samples incl partial final window; 11warmup +10s settling excluded, no fill"
+    },
+    {
+      "method_id": "cbb82395d06e90c107d85fa820f27cdaf50a8691a06178d6dc25577d4ebfe3ff",
+      "name": "BAND_2_5",
+      "clock": "QPC_ESTIMATE",
+      "valid_samples": 58525329,
+      "rms_xyz_mg": [
+        0.25117443240084386,
+        0.5697544922997577,
+        0.4893556586800404
+      ],
+      "direction_max_mg": 0.5697544922997577,
+      "vector_technical_mg": 0.791945539585783,
+      "scope": "all valid samples incl partial final window; 11warmup +10s settling excluded, no fill"
+    },
+    {
+      "method_id": "29bad5b67736e522365e8c94e0687f3f5580263fd343ab1365549f3063167950",
+      "name": "BAND_5_25",
+      "clock": "QPC_ESTIMATE",
+      "valid_samples": 58525329,
+      "rms_xyz_mg": [
+        6.664821128394543,
+        4.549086600517385,
+        11.536453146920296
+      ],
+      "direction_max_mg": 11.536453146920296,
+      "vector_technical_mg": 14.078486452157716,
+      "scope": "all valid samples incl partial final window; 11warmup +10s settling excluded, no fill"
+    },
+    {
+      "method_id": "3c62a8629812ca7e00085f3b5db9970b64c220c8b5d4191c318c166be4830631",
+      "name": "BAND_25_80",
+      "clock": "QPC_ESTIMATE",
+      "valid_samples": 58525329,
+      "rms_xyz_mg": [
+        10.430189331656912,
+        8.287847021450068,
+        25.211263005966565
+      ],
+      "direction_max_mg": 25.211263005966565,
+      "vector_technical_mg": 28.514646063053046,
+      "scope": "all valid samples incl partial final window; 11warmup +10s settling excluded, no fill"
+    },
+    {
+      "method_id": "a91aac1dd79d2a4791de1f1e4eea8bef8a2c34adc94a9e9f61abaaac74f2e468",
+      "name": "FLAT_1_80",
+      "clock": "QPC_ESTIMATE",
+      "valid_samples": 58525329,
+      "rms_xyz_mg": [
+        12.350734405149236,
+        9.446501129882025,
+        27.54737865812263
+      ],
+      "direction_max_mg": 27.54737865812263,
+      "vector_technical_mg": 31.632816739541067,
+      "scope": "all valid samples incl partial final window; 11warmup +10s settling excluded, no fill"
+    },
+    {
+      "method_id": "0fb53d2f5ed162c3b6f35c1d46b0d8501fce607d003b8fcf8e4624316e3dcf19",
+      "name": "TEST_LP10",
+      "clock": "QPC_ESTIMATE",
+      "valid_samples": 58525329,
+      "rms_xyz_mg": [
+        3.9005302878652532,
+        2.9430296923216615,
+        7.264978487331524
+      ],
+      "direction_max_mg": 7.264978487331524,
+      "vector_technical_mg": 8.755311114850857,
+      "scope": "all valid samples incl partial final window; 11warmup +10s settling excluded, no fill"
+    },
+    {
+      "method_id": "0f6f13cd77287277b17a9810e09869d634ae8bbf2641c678fd27a5db12431b60",
+      "name": "EDGE_08",
+      "clock": "QPC_ESTIMATE",
+      "valid_samples": 58525329,
+      "rms_xyz_mg": [
+        12.35026257225458,
+        9.4470918627888,
+        27.54446636052595
+      ],
+      "direction_max_mg": 27.54446636052595,
+      "vector_technical_mg": 31.630272799230617,
+      "scope": "all valid samples incl partial final window; 11warmup +10s settling excluded, no fill"
+    },
+    {
+      "method_id": "df2c617bb8d8cd9fcec085bab62040f32b79b2d2de9c60a4cb1e8675d833b515",
+      "name": "EDGE_12",
+      "clock": "QPC_ESTIMATE",
+      "valid_samples": 58525329,
+      "rms_xyz_mg": [
+        12.351238964917993,
+        9.446342540689706,
+        27.55004364181359
+      ],
+      "direction_max_mg": 27.55004364181359,
+      "vector_technical_mg": 31.63528719690065,
+      "scope": "all valid samples incl partial final window; 11warmup +10s settling excluded, no fill"
+    }
+  ],
+  "clock": [
+    {
+      "name": "FLAT_1_80",
+      "clock_relative_min": -0.008726134921115958,
+      "clock_relative_median": -0.0038150281935537267,
+      "clock_relative_max": -0.0006933697509442505
+    },
+    {
+      "name": "TEST_LP10",
+      "clock_relative_min": -0.008511421822075094,
+      "clock_relative_median": -0.006863374644245357,
+      "clock_relative_max": -0.0051880725987075715
+    }
+  ],
+  "source": "saved sufficient_statistics.npz, no new full-stream filter"
+}

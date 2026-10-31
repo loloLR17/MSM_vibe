@@ -1,0 +1,45 @@
+test_inplace_existing_foreign_and_conflict_refused (test_catalog.CatalogTests.test_inplace_existing_foreign_and_conflict_refused) ... ok
+test_safe_copy_history_and_double_import (test_catalog.CatalogTests.test_safe_copy_history_and_double_import) ... ok
+test_frequency_response_against_closed_form (test_prequal.NumericalTests.test_frequency_response_against_closed_form) ... ok
+test_histogram_quantiles_exact_and_null (test_prequal.NumericalTests.test_histogram_quantiles_exact_and_null) ... ok
+test_offset_gravity_and_quality (test_prequal.NumericalTests.test_offset_gravity_and_quality) ... ok
+test_sines_multitone_am_fm_parseval_independent (test_prequal.NumericalTests.test_sines_multitone_am_fm_parseval_independent) ... /home/lolo/dev/msm/cache/r5-analysis-venv/lib/python3.13/site-packages/numpy/_core/_ufunc_config.py:462: ResourceWarning: unclosed database in <sqlite3.Connection object at 0x7615e8122020>
+  self._token = _extobj_contextvar.set(extobj)
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/lolo/dev/msm/cache/r5-analysis-venv/lib/python3.13/site-packages/numpy/_core/_ufunc_config.py:462: ResourceWarning: unclosed database in <sqlite3.Connection object at 0x7615e81223e0>
+  self._token = _extobj_contextvar.set(extobj)
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/lolo/dev/msm/cache/r5-analysis-venv/lib/python3.13/site-packages/numpy/_core/_ufunc_config.py:462: ResourceWarning: unclosed database in <sqlite3.Connection object at 0x7615e81222f0>
+  self._token = _extobj_contextvar.set(extobj)
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/lolo/dev/msm/cache/r5-analysis-venv/lib/python3.13/site-packages/numpy/_core/_ufunc_config.py:462: ResourceWarning: unclosed database in <sqlite3.Connection object at 0x7615e81224d0>
+  self._token = _extobj_contextvar.set(extobj)
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/lolo/dev/msm/cache/r5-analysis-venv/lib/python3.13/site-packages/numpy/_core/_ufunc_config.py:462: ResourceWarning: unclosed database in <sqlite3.Connection object at 0x7615e81225c0>
+  self._token = _extobj_contextvar.set(extobj)
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/lolo/dev/msm/cache/r5-analysis-venv/lib/python3.13/site-packages/numpy/_core/_ufunc_config.py:462: ResourceWarning: unclosed database in <sqlite3.Connection object at 0x7615e81226b0>
+  self._token = _extobj_contextvar.set(extobj)
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/lolo/dev/msm/cache/r5-analysis-venv/lib/python3.13/site-packages/numpy/_core/_ufunc_config.py:462: ResourceWarning: unclosed database in <sqlite3.Connection object at 0x7615e81227a0>
+  self._token = _extobj_contextvar.set(extobj)
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/lolo/dev/msm/cache/r5-analysis-venv/lib/python3.13/site-packages/numpy/_core/_ufunc_config.py:462: ResourceWarning: unclosed database in <sqlite3.Connection object at 0x7615e8122890>
+  self._token = _extobj_contextvar.set(extobj)
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/lolo/dev/msm/cache/r5-analysis-venv/lib/python3.13/site-packages/numpy/_core/_ufunc_config.py:462: ResourceWarning: unclosed database in <sqlite3.Connection object at 0x7615e8122a70>
+  self._token = _extobj_contextvar.set(extobj)
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/lolo/dev/msm/cache/r5-analysis-venv/lib/python3.13/site-packages/numpy/_core/_ufunc_config.py:462: ResourceWarning: unclosed database in <sqlite3.Connection object at 0x7615e8122980>
+  self._token = _extobj_contextvar.set(extobj)
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/home/lolo/dev/msm/cache/r5-analysis-venv/lib/python3.13/site-packages/numpy/_core/_ufunc_config.py:462: ResourceWarning: unclosed database in <sqlite3.Connection object at 0x7615e8122b60>
+  self._token = _extobj_contextvar.set(extobj)
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+ok
+test_stream_chunk_invariance_and_energy_pooling (test_prequal.NumericalTests.test_stream_chunk_invariance_and_energy_pooling) ... ok
+
+----------------------------------------------------------------------
+Ran 7 tests in 0.370s
+
+OK
