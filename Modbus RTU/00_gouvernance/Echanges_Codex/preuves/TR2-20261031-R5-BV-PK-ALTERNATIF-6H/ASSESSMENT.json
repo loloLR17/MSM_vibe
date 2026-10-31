@@ -9,5 +9,7 @@
   "Wm_route": "BLOCKED, separate historical mission",
   "reason": "single-tone extraction not reliable over much of real nonstationary/multisource campaign; failures explicitly retained",
   "next_action": "independent review; define/admit repetitive-envelope extraction for modulated signals before global PK interpretation; do not weaken existing gates",
-  "mission_outcome": "scientific comparison blocked; candidate delivery complete, remote verification pending"
+  "mission_outcome": "BLOCKED: global PK methodology insufficiently reconstructible on this campaign; candidate delivery complete",
+  "results_remote_sha": "23fee5637ff1a9585dd39caacbbf7dfb6a08b7ca",
+  "results_remote_readback": "50 files / 5808771 bytes, all exact"
 }

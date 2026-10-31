@@ -1,6 +1,6 @@
 ---
 mission_id: TR2-20261031-R5-BV-PK-ALTERNATIF-6H
-status: IN_PROGRESS
+status: BLOCKED
 base_ref: main
 base_sha: 95ef8c8bc03b35e0ad9d7ad889ca370070292de3
 initial_head: e0887972f12fd12e520e2947d3f7e85716be0265
@@ -20,9 +20,9 @@ Les six heures réelles sont traitées et les livrables candidats sont terminés
 **Aucun grade BV ni jugement favorable n'est attribué.** La comparaison globale
 de la paire accélération/vitesse est `METHODOLOGY_INDETERMINATE` : aucune
 fenêtre-axe recevable en accélération, 11 en vitesse par hypothèse de cadence,
-et aucune minute recevable sur les trois axes. Le statut provisoire porte sur
-la publication/relecture encore à effectuer ; le bilan scientifique demeure
-réservé, indépendamment de cette publication.
+et aucune minute recevable sur les trois axes. Le statut `BLOCKED` porte sur
+l'objectif scientifique de comparaison PK globale, pas sur une attente de
+publication : les résultats candidats et leurs preuves sont publiés et relus.
 
 ## Résultats exploitables et limites
 
@@ -138,8 +138,9 @@ sanitaire, structurelle ou de causalité machine.
 ## Logiciel, tests et persistance
 
 Code numérique réellement évalué : `7ed32c4e5df217bab554f548291e97e12d23afa8`
-(core/run inchangés ensuite). Les ajouts suivants portent sur rendu, requêtes,
-contrôles supplémentaires et enregistrement de leur audit SQLite.
+(core/run inchangés ensuite). Les ajouts évalués ensuite, publiés dans `23fee5637ff1a9585dd39caacbbf7dfb6a08b7ca`,
+portent sur rendu, requêtes, contrôles supplémentaires et enregistrement de
+leur audit SQLite ; les 11 tests conservés couvrent cette version.
 
 Commandes effectivement exécutées avec succès, dans le venv R5 existant :
 
@@ -212,9 +213,34 @@ signaux modulés/multisources. Réutiliser les agrégats et les segments archiv�
 aucune nouvelle campagne physique ni relance automatique n'est nécessaire pour
 relire ces résultats. Ne pas assouplir les gardes pour obtenir une classe.
 
-Publication intégrale et relecture distante à consigner après push, avant la
-clôture du rapport. G0 référence satisfait ; G1 estimateur synthétique testé
-mais compatibilité globale sur réel indéterminée ; G2 calcul intégral satisfait
-avec réserves ; G3 persistance satisfait ; G4 présentation candidate satisfaite ;
-G5 publication en cours. Le statut final sera BLOCKED sur la comparaison PK,
-avec tous les acquis publiés, si cette réserve subsiste après relecture.
+## Publication vérifiée et bilan des gates
+
+Le push normal des résultats a réussi sur main :
+`23fee5637ff1a9585dd39caacbbf7dfb6a08b7ca`, message
+`R5 PK: publish six-hour candidates, independent controls and safe SQLite cohort`.
+Après `git fetch origin main`, **50 fichiers / 5 808 771 octets** ont été relus
+intégralement par `git show` depuis cette référence distante et comparés octet
+par octet aux fichiers locaux, tous identiques. La mission a aussi été relue
+et n'a pas été modifiée. Preuve :
+[remote-readback.json](preuves/TR2-20261031-R5-BV-PK-ALTERNATIF-6H/remote-readback.json).
+Cette relecture ne remplace pas la revue indépendante ChatGPT.
+
+| Gate | Bilan observé |
+|---|---|
+| G0 référence | Satisfait : clauses, valeurs, CF et distinction des grandeurs vérifiés |
+| G1 scientifique | Estimateur testé ; **comparaison globale indéterminée** sur le signal réel, aucune ACC recevable |
+| G2 opérationnel | Archive entière traitée ; métriques et réserves explicites |
+| G3 persistance | Migration sans perte, idempotence et requêtes satisfaites |
+| G4 lisibilité | Deux figures, HTML, synthèse et données candidates livrés ; aucune classe globale |
+| G5 publication | Résultats publiés et relus ; bilan final à publier puis vérifier aussi |
+
+**Statut final scientifique : BLOCKED — méthode PK globale insuffisamment
+reconstructible sur cette campagne.** Les tranches de calcul, persistance et
+présentation sont terminées ; le livrable candidat est utilisable pour la revue.
+La condition de reprise est une méthode répétitive justifiée et contrôlée pour
+les composantes modulées/non résolues, pas l'achat Wm ni une manipulation physique.
+Aucun test supplémentaire n'est lancé pour masquer cette limite.
+
+Ce bilan final et la preuve de relecture font l'objet d'un dernier commit normal,
+également contrôlé après push. Son SHA et l'état Git final sont fournis dans la
+réponse utilisateur, sans tenter d'inscrire le SHA d'un commit dans lui-même.

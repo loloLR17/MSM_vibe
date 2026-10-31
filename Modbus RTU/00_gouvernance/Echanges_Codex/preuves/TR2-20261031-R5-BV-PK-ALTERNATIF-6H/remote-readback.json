@@ -1,0 +1,262 @@
+{
+  "remote": "https://github.com/loloLR17/MSM_vibe",
+  "ref": "refs/heads/main",
+  "sha": "23fee5637ff1a9585dd39caacbbf7dfb6a08b7ca",
+  "verified_at_utc": "2026-10-31T11:19:01.770982+00:00",
+  "verification": "git fetch origin main; complete git show of fetched blobs; byte comparison to workspace",
+  "file_count": 50,
+  "total_bytes": 5808771,
+  "all_exact": true,
+  "files": [
+    {
+      "path": "Modbus RTU/00_gouvernance/ETAT_COURANT_TR2.md",
+      "bytes": 120866,
+      "sha256": "cae28af675554e1a21a6512b9e521e1116d50af9981d8e3dd873a875f1c0bd47"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/DERNIER_RAPPORT.md",
+      "bytes": 13062,
+      "sha256": "3f50d07bd2d9c8abcc0832fa28742f8803e0de2863add3037d9463ca838a1fbe"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/MISSION_EN_COURS.md",
+      "bytes": 15766,
+      "sha256": "784bb288e0da074f3f4a1049a62095904a21c07fc362d248a32ebe5d574ea5d3"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R5-BV-PK-ALTERNATIF-6H/ASSESSMENT.json",
+      "bytes": 851,
+      "sha256": "c4ec0da723ea8a54717439ad596bfb4ac3d452767f898ab86d442ad7358afa72"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R5-BV-PK-ALTERNATIF-6H/BV_PK_ACC_1_5.png",
+      "bytes": 229544,
+      "sha256": "80c42ace9cb0829175f749cd32b49943ea9fd9d97ad9d64063eb51ec4f5bac0f"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R5-BV-PK-ALTERNATIF-6H/BV_PK_VEL_5_100.png",
+      "bytes": 228263,
+      "sha256": "0718b6623a07bff61666f503cb0d31001d56b8bf785b72745381de5287eb673b"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R5-BV-PK-ALTERNATIF-6H/LOCAL_ARTIFACTS.json",
+      "bytes": 13426,
+      "sha256": "e1928f3642f3ff87362800a02cf9d392854c0baef886efca1a174b94ce0d2f7f"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R5-BV-PK-ALTERNATIF-6H/README.md",
+      "bytes": 4512,
+      "sha256": "4cf4ff6bf73b0b8c311f6f6cdd2c10a55eaf69ce06df2bc2e5dd98be539f8049"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R5-BV-PK-ALTERNATIF-6H/SYNTHESE_POC.md",
+      "bytes": 2724,
+      "sha256": "95daf7a7460b560da61a5b28361649941d5baedaf848b779555a64d7cbb9eef9"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R5-BV-PK-ALTERNATIF-6H/artifacts.json",
+      "bytes": 1004,
+      "sha256": "9c4c6a2205ef139b326b6e6a53455effb787c1b04d6da927af6458a1141d1bbe"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R5-BV-PK-ALTERNATIF-6H/candidate_statistics.json",
+      "bytes": 2162,
+      "sha256": "ba3ec5cc5ec6def59ddbd0365b0e138a868ba68d7e86479d32979ec30a8b6986"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R5-BV-PK-ALTERNATIF-6H/catalog-fixture-syntax-failure.log",
+      "bytes": 2298,
+      "sha256": "4565e8a39af487c56785629cdca8c196162d04c8d6bb5ac4a68414e72e5a10bd"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R5-BV-PK-ALTERNATIF-6H/checkpoint-check.json",
+      "bytes": 343,
+      "sha256": "0ae92e37b358dd29ad822af047ed5757e5c991fddd568088353735166a7a7913"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R5-BV-PK-ALTERNATIF-6H/checkpoint-remote.json",
+      "bytes": 1765,
+      "sha256": "f77afec7a12d8ba05d993d57e3576f3ccd18e56996f540eb984c618f1006d475"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R5-BV-PK-ALTERNATIF-6H/clock_sensitivity.csv",
+      "bytes": 2013809,
+      "sha256": "b8133f04f09744a89c047213e10b1ee12be8ca952275655fd1777d4eaf8ac49f"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R5-BV-PK-ALTERNATIF-6H/components.csv.gz",
+      "bytes": 2218566,
+      "sha256": "fe7f447da1267c47fa8bbefbe0a24690f9233e29f70ee3cdb2f8a4f7c311fd3a"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R5-BV-PK-ALTERNATIF-6H/extra-controls-registration.json",
+      "bytes": 426,
+      "sha256": "815ad51066e5911b78ecaddcac65cd53a3a7550f8ec62f5e7819d2910aedc4a4"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R5-BV-PK-ALTERNATIF-6H/extra-controls.log",
+      "bytes": 56,
+      "sha256": "fd9ae37539490ca267ac6150ca70317a538c3c909c815dc765f563c8325fb6b2"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R5-BV-PK-ALTERNATIF-6H/extra_independent_real.json",
+      "bytes": 5189,
+      "sha256": "a53aaec64aa79715040e3784ccea8ed7c9ab32c69980cd17ad881f70ee7765be"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R5-BV-PK-ALTERNATIF-6H/fir_response.json",
+      "bytes": 3412,
+      "sha256": "a384164bcf05fb2d896ed9e1f4286192ab5003f8dcfa93866d79d9b3cb916c6d"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R5-BV-PK-ALTERNATIF-6H/first-export-failure.log",
+      "bytes": 1770,
+      "sha256": "850829eb0b44a6cff668e8db7073c356589601062304c7ebdc3591c168869b52"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R5-BV-PK-ALTERNATIF-6H/full-components-fixed-v1.log",
+      "bytes": 4573,
+      "sha256": "04f78101f86b81536ab28a892a95ff83add2a04807f9c037b8ef0fcefd6d2cc2"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R5-BV-PK-ALTERNATIF-6H/independent_real.json",
+      "bytes": 12328,
+      "sha256": "d3b743ca86566f2ebd81735595ee45928dd5259496c36221851f74845c108345"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R5-BV-PK-ALTERNATIF-6H/index.html",
+      "bytes": 4944,
+      "sha256": "1f327382266a9c176680d18066689756ff37a47433ec233e270f5fa0230e98de"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R5-BV-PK-ALTERNATIF-6H/manifest.json",
+      "bytes": 3284,
+      "sha256": "c734bc8d8294022fc00af23c05321ff40c80fa7c08ab44f40cdb0d4a6026d587"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R5-BV-PK-ALTERNATIF-6H/methods.json",
+      "bytes": 5367,
+      "sha256": "c8a4817c9a1be99e7b0ca9f4f4f5243f96e6aa800fc4d04803987a84d3823008"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R5-BV-PK-ALTERNATIF-6H/queries-checked.json",
+      "bytes": 241,
+      "sha256": "8c22be0e5704c2200a1ede2d9326042722a6a8e30a4d5122c044b09f0d4a44e5"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R5-BV-PK-ALTERNATIF-6H/references.json",
+      "bytes": 1381,
+      "sha256": "9f7c9045e501b4d3e58c9495cd9740eff76761af163598382ba7b74ad761ba69"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R5-BV-PK-ALTERNATIF-6H/render_manifest.json",
+      "bytes": 1027,
+      "sha256": "450bceaf1258169823836c1c2e8b78476f3a03130a52aaf5410eee3923d854f5"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R5-BV-PK-ALTERNATIF-6H/sensitivity_statistics.json",
+      "bytes": 937,
+      "sha256": "b615df9983bf7249d2bffe92fbd97a404e2f843c9ef2e67784bc4a9df121524c"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R5-BV-PK-ALTERNATIF-6H/software-fixed-remote.json",
+      "bytes": 2753,
+      "sha256": "9ec31addac3818321bf810f49dd2987c2014e7ccf5aa0f261bb847654f9a6eee"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R5-BV-PK-ALTERNATIF-6H/sqlite-first.json",
+      "bytes": 2577,
+      "sha256": "ddb6abb21d8e6b2cb01b7ac7908fb317f33f546bc614b1c0660c8a4ed646fbd0"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R5-BV-PK-ALTERNATIF-6H/sqlite-proof.json",
+      "bytes": 8338,
+      "sha256": "3e73f060246c2b13cc853c1297d369fabb7703fcbc0245d3b4203dbb8bf1b15d"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R5-BV-PK-ALTERNATIF-6H/sqlite-second.json",
+      "bytes": 2576,
+      "sha256": "1bb37c6e4640b19e2e39903b203c30aa9be1e9535d54730270a395891f8eb036"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R5-BV-PK-ALTERNATIF-6H/summary.json",
+      "bytes": 3737,
+      "sha256": "72096e040e65d23d55e522e2bfced5763a6630be11ba0d6391dbd49f8efed1b5"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R5-BV-PK-ALTERNATIF-6H/tests-checkpoint.log",
+      "bytes": 764,
+      "sha256": "064fc97c27f028f23d22d32ad1dd25e989e2333e86b3bcbb05d7e976a9cad154"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R5-BV-PK-ALTERNATIF-6H/tests-final.log",
+      "bytes": 1446,
+      "sha256": "d4b0aa0266d55e597776b0fa81208b2cf1467eb03ae671540d965fcfa6ee849b"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R5-BV-PK-ALTERNATIF-6H/tests-software-fixed.log",
+      "bytes": 1305,
+      "sha256": "a19ae6a26e5257a66b181fca334e9eedcc0140bd0e047b2bb42b351c0aedcd70"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R5-BV-PK-ALTERNATIF-6H/window_sensitivity.csv",
+      "bytes": 796968,
+      "sha256": "af6ea495b3800d130c5b76c098f205d75f85cca75f1ea19260e18730e3f57011"
+    },
+    {
+      "path": "experiments/r5_bv_pk/METHOD.md",
+      "bytes": 7698,
+      "sha256": "3674582ed1885f8b59aed41e2787dfa72d7b1473a359ee72173a23a3d88810ed"
+    },
+    {
+      "path": "experiments/r5_bv_pk/README.md",
+      "bytes": 3897,
+      "sha256": "12a80a9739c3c8593fda2e8a383f957073e116de412f39c905067ad7ca42c161"
+    },
+    {
+      "path": "experiments/r5_bv_pk/core.py",
+      "bytes": 8423,
+      "sha256": "066c9ecbd731625ea050c9d8385727017cf859dd199f3fe5646b6df72b3d3506"
+    },
+    {
+      "path": "experiments/r5_bv_pk/extra_controls.py",
+      "bytes": 3004,
+      "sha256": "88e19a04290ca02419e4fcce8d6460db98af8b805a2aa22cd8282ad01ed01bc4"
+    },
+    {
+      "path": "experiments/r5_bv_pk/pk_catalog.py",
+      "bytes": 10554,
+      "sha256": "ddbd1367cbb22f6b981d9e9e451967fb087429b8ba903e7114faab9ccac9afce"
+    },
+    {
+      "path": "experiments/r5_bv_pk/queries.sql",
+      "bytes": 1421,
+      "sha256": "769e2dad86d9ba2289a292a293bea9c7bc213d5f873f02ebcbb15df35fd15838"
+    },
+    {
+      "path": "experiments/r5_bv_pk/render.py",
+      "bytes": 11922,
+      "sha256": "b47af747ee86ba3f396aa5fe36f2f9954418725a0a8f76f8c61de3f7db98a0ad"
+    },
+    {
+      "path": "experiments/r5_bv_pk/run.py",
+      "bytes": 14246,
+      "sha256": "24f6b5b03fc4cd58fa5cc33c612fc7ea6eda30597edcd4f1ff1f6458bff4127d"
+    },
+    {
+      "path": "experiments/r5_bv_pk/schema_v3.sql",
+      "bytes": 2055,
+      "sha256": "12e2dd30c666c8c6caf3f82790b977a55a54a411daa0ff280fff5cb270245f7a"
+    },
+    {
+      "path": "experiments/r5_bv_pk/test_catalog.py",
+      "bytes": 5490,
+      "sha256": "05f74c325e6e967a2a5bbc64cb01387d740a5de7a52b553e27592f995996e2c6"
+    },
+    {
+      "path": "experiments/r5_bv_pk/test_core.py",
+      "bytes": 5701,
+      "sha256": "040bb42f4bd1382b54ee4147a8c942a2ca0ebcacbed3adb2f3177fc241717590"
+    }
+  ]
+}
