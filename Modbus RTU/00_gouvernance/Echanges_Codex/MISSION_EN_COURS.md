@@ -1,23 +1,67 @@
 ---
-mission_id: null
-status: IDLE
+mission_id: TR2-20261031-R5-PREQUAl-ISO-FS2G-OFFLINE
+status: READY
 base_ref: main
+base_sha: f99e85cc3857aa6dd9db60b16c4a37ba1c7550b0
+created_on: 2026-10-31
 author: ChatGPT
 target_branch: main
-allow_commit: false
-allow_push: false
+allow_commit: true
+allow_push: true
 allow_flash: false
 allow_debug: false
 ---
 
-# MSM TR2 — aucune mission Codex active
+# MSM TR2 — Préqualification gratuite de faisabilité d'un KPI de confort pondéré + choix de pleine échelle ±2 g
 
-La mission `TR2-20261031-R5-BV-PK-ALTERNATIF-6H` est **clôturée documentairement, avec réserves** après le rapport Codex `BLOCKED` et la [revue indépendante A-01](../../02_Validation/Qualifications/REVUE_R5_BV_PK_ALTERNATIF_20261031.md) : **acquis partiels acceptés pour la chaîne PC / données dérivées / SQLite ; comparaison de confort BV-PK globale non démontrée**.
+## Décision utilisateur (31 octobre 2026)
 
-- [Mission archivée à l'identique](archives/TR2-20261031-R5-BV-PK-ALTERNATIF-6H/MISSION.md) et [rapport Codex `BLOCKED` archivé à l'identique](archives/TR2-20261031-R5-BV-PK-ALTERNATIF-6H/RAPPORT.md).
-- Livrables R5-PK : [méthode, preuves, figures et CSV](preuves/TR2-20261031-R5-BV-PK-ALTERNATIF-6H/README.md).
-- `DERNIER_RAPPORT.md` conserve le dernier rapport Codex authentique, status `BLOCKED`.
-- Les métriques BV-PK sont des **candidats** ; aucune conclusion de confort ni note BV attribuée au MSM. Le blocage distinct de méthode ISO Wm persiste.
-- Fichiers TR2 bruts et catalogues précédents protégés ; aucune nouvelle campagne physique, opération STM32, ou action destructive.
+Avant tout achat personnel de normes ISO 20283-5/ISO 2631-2, vérifier de façon **gratuite, reproductible et expérimentale** si les données **réellement acquises pendant six heures** se prêtent à un indicateur de confort global **pondéré**, malgré la modulation qui a conduit au résultat `BLOCKED` de la voie spectrale BV-PK.
 
-**Aucune mission technique nouvelle commandée par ce marqueur `IDLE`.** La suite nécessitera un nouveau contrat explicite ChatGPT, après examen de la méthode PK modulée ou disponibilité des définitions ISO.
+L'utilisateur propose aussi de **challenger la pleine échelle ±8 g** retenue comme configuration logique de campagne et d'étudier **±2 g** (ou ±4 g intermédiaire) pour améliorer la finesse de mesure des vibrations de confort à basse fréquence. Il prévoit une **nouvelle acquisition pendant la traversée du soir 31/10 → matin 01/11**, qu'il organisera physiquement, mais **cette mission n'est pas autorisée à lancer, reconfigurer ou flasher cette acquisition**, ni à modifier sa plage aujourd'hui. **Ne pas bloquer le traitement gratuit en attendant cette nouvelle campagne**, qui sera exploitée ultérieurement sous un autre ordre de travail.
+
+Cette mission doit pouvoir être lancée par Codex **plus tard, après renouvellement des quotas** : la publication de `READY` n'est pas un ordre d'exécution immédiat. Aucun suivi asynchrone n'est promis. Faire le meilleur travail sans achats ni dépendances privées.
+
+## Sources obligatoires et état exact
+
+1. Avant action, consulter l'état **réel** de `loloLR17/MSM_vibe` branche `main`, `AGENTS.md`, `Modbus RTU/00_gouvernance/GOUVERNANCE_CHATGPT_CODEX.md`, `PROTOCOLE_ECHANGE_V2.md`, `ETAT_COURANT_TR2.md`, présent `MISSION_EN_COURS.md`, et rapport R5 BV-PK précédent (archivé sans modification dans `Echanges_Codex/archives/TR2-20261031-R5-BV-PK-ALTERNATIF-6H/`). Vérifier HEAD distant, worktrees, stashes et non-régression A-06 avant commit.
+2. [Revue indépendante A-01 PK](../../02_Validation/Qualifications/REVUE_R5_BV_PK_ALTERNATIF_20261031.md), revues R5 précédentes, chaîne `experiments/r5_campaign_analysis/`, `experiments/r5_comfort_analysis/`, `experiments/r5_bv_pk/`, notes R5-MÉTIER et firmware réel `Modbus RTU/05_Firmware/` constituent les références de reprise. **Ne pas réécrire ni refaire une mission historique**.
+3. Source unique existante `/home/lolo/dev/msm/reports/TR2-r3-6h-data-20261031/pc-recovery-after-powercut/E6N0005.TR2`, SHA256 physique `91861cef14f824ae5b7422c55b092255654e2665062747205c7e034a0d1aeee5`, 58 552 136 triplets XYZ int16, fichier v3 `COMPLETE` dans la portée déjà démontrée. **Lecture seule**, SHA/CRC/indices avant/après, ne pas interpréter la queue de préallocation. R3 reste `CLOSED_WITH_RESERVATIONS` (digest producteur RAM indépendant perdu après coupure).
+4. Documentation ST **gratuite** IIS3DWB `DS12569 Rev 8` : https://www.st.com/resource/en/datasheet/iis3dwb.pdf ; `FS=±2/±4/±8/±16g`, sensibilités `61/122/244/488 µg/LSB`. Selon la **note (6) du tableau des caractéristiques**, la densité de bruit intrinsèque est **indépendante du FS sélectionné**, spécifiée principalement dans la bande **100Hz–6.3kHz** ; **ne pas annoncer une amélioration physique de bruit à 1Hz à partir de la seule résolution 4×**. Lire la note de bas de page de la révision officielle actuelle et les ressources ST pertinentes.
+5. Archive précédente : champ `logical_fs_g=8`, `sensitivity_ug_per_count=244`; la qualification d'un changement dynamique vers 8g via `CTRL1_XL` avait historiquement été `BLOCKED` (ancienne mission AC1). **Ne pas confondre une métadonnée logique avec la lecture effective du registre**. Identifier la vraie configuration source/registre appliquée lors de E6N0005 ou qualifier `FS_PHYSIQUE_NON_VÉRIFIÉ`; aucun changement de registres sur un STM32 actif.
+6. Situation temporelle : `UTC_UNKNOWN`, orientation navire inconnue, pose double-face non qualifiée, différence ~0,68 % entre estimateurs d'horloge MCU/QPC ; analyse d'un **POC**, pas conformité ni certification ISO/BV, pas déduction sanitaire, structurelle ou source de vibrations attribuée.
+
+## Lot A — Préqualification de calcul pondéré sans achat normatif
+
+**Ne pas produire un faux « Wm ISO » à partir d'une formule conjecturale.** La formule/édition exacte de la grandeur équivalente reste bloquée tant que l'on n'a pas accès à une source autorisée. Cette mission **ne demande pas** de lever ce verrou normatif, mais de déterminer **avant dépense** si le signal capturé peut supporter une opération de pondération robuste et comparer plusieurs campagnes par le même algorithme.
+
+A1. Réutiliser les décodeurs stricts et routines de streaming déjà validés, sans refaire le pipeline, et traiter **tout le fichier 6h**. Analyser séparément l'énergie/RMS XYZ et directionnel par fenêtres de **60/120s**, sur au minimum les bandes **1–2, 2–5, 5–25, 25–80Hz** et le total 1–80Hz. Tester sensibilité au 1Hz et aux filtres de transition, effets de bord, DC/gravité et dérives, FIR107 coefficients et température si disponible. Documenter explicitement comment les bandes se recombinent (réponses réelles des filtres et éventuels chevauchements), avec comparaisons temporelles vs PSD/Parseval sur segments et fenêtres longues. **Pas de gabarit « confort » fabriqué à partir d'une courbe brute arbitraire.**
+A2. Mettre en place une **preuve de concept de pondération expérimentale**, avec fonction(s) de transfert **publique(s) vérifiable(s)** ou gabarits tests **explicitement non normatifs** utilisés exclusivement comme test de sensibilité de calcul : réponse fréquentielle publiée, amplitude/phase si pertinente, coefficients/hash, spécification de la bande et de la coupure. Donner une comparaison à poids plat et un cas variant avec la fréquence. **N'utiliser l'appellation `Wm` ou `BV/ISO` dans aucune métrique tant que la définition n'est pas légalement vérifiée et reproduite intégralement**. Pas d'impression de seuils « bon / mauvais », pas de grade. Ne pas reproduire sur GitHub de tables/coefficient normatifs couverts sans droit.
+A3. Quantifier **stabilité des distributions**, pas seulement P50/P95 sur deux regroupements : même contenu temporel avec fenêtres 60/120 s alignées ; vérifier P50/P95, maximums, RMS énergétique de période entière, rang des segments vibrants et **écarts fenêtre par fenêtre sur des paires de périodes comparables**. Démontrer, par oracles synthétiques indépendants, une stabilité suffisante pour **comparer un même point de mesure à méthode figée**, tout en séparant reproductibilité numérique et répétabilité physique entre deux poses/campagnes. En cas de résultats instables, localiser cause (fuite basse fréquence, calibration, FIR, fenêtre, cadence, bruit, montage).
+A4. Contrôles numériques : sinusoïdes 0.3/0.5/0.8/1/1.2/2/5/10/20/40/80/100Hz, multitons, modulation AM/FM, marche d'offset, inclinaison gravité, impulsions, clipping, gaps et fenêtres invalides ; validation fréquence/amplitude/métriques par références analytiques et seconde chaîne indépendante. Vérifier le traitement d'énergie large bande **sans rechercher une raie quasi stationnaire**. Critères de performance/RAM bornés et export agrégé sans fichiers gigantesques sur GitHub.
+A5. Résultat métier attendu : **`FAISABILITÉ_ÉTABLIE`, `LIMITÉE` ou `NON_ÉTABLIE`** pour un KPI global pondéré sur l'existant, avec justification, conditions préalables à acheter les normes ISO, zones d'incertitude quantifiées, et liste minimale de contrôles instrumentaux à faire sur une autre campagne. Ce statut n'est **pas** un verdict de confort ISO/BV.
+
+## Lot B — Revue ±8 / ±4 / ±2 g et risque de saturation
+
+B1. **Réexaminer firmware réellement utilisé** et historique Git (`CTRL1_XL`, `full_scale_code`, métadonnées d'archive, gestion de sensibilités sur firmware/PC, calibration, FIR-Q15/clip flags). Donner un verdict séparant (i) cible logique documentée ; (ii) registre capteur effectivement mesuré ; (iii) conversion d'unités ; (iv) saturation réelle **au capteur avant FIR**, (v) saturation **après FIR**, (vi) état du matériel aujourd'hui. Ne pas prétendre à une preuve de `±8g réel` seulement depuis le manifeste d'archive.
+B2. Sur l'archive E6N0005 **±8g logique**, reconstituer la **distribution et les valeurs extrêmes des trois axes bruts conservés** incluant gravité, ainsi que crêtes 1s, quantiles, minimum/marge à `±2g` et `±4g` et épisodes de chocs pertinents, en tenant compte de la **limite fondamentale : sortie déjà décimée/filtrée** et possible crête perdue entre échantillons. Reconstituer les `SOURCE_RAIL` et `OUTPUT_CLIP` fidèlement ; ne pas inférer l'absence de saturation du signal natif non archivé à partir d'un RMS 2–25 Hz ou de flags à portée insuffisante. La moyenne Z ≈1.019g n'est qu'une moyenne, pas la borne extrême.
+B3. Calculer un **budget de résolution nominal** ±8g/±4g/±2g, quantification ±0.5LSB (0.122/0.061/0.0305mg) et bruit intrinsèque documenté ST (75µg/√Hz XY typ, 110µg/√Hz Z typ en mode 3axes à fréquence de caractérisation) ; distinguer bruit analogique, bruit quantification, source HF et bande 1–80Hz (bruit spectral **1Hz non garanti**). Le gain de quatre sur le pas numérique n'est pas nécessairement un gain de quatre sur SNR ou RMS. Evaluer **par simulation honnête de quantification** des mêmes signaux *si cela peut informer* ; impossible de recréer les informations perdues par quantification ±8g en requantifiant l'archive. Tester le biais en RMS/spectre/vitesse et signaler limites.
+B4. Décider, sur éléments démontrés, si **±2g est raisonnable** pour une future campagne *confort*, et si **±4g** est le compromis préférable compte tenu de la gravité et des manoeuvres/chocs, tout en préservant **±8g pour monitoring machines et événements forts** si nécessaire. Définir un protocole différentiel (même emplacement/orientation/fixation, conditions comparables, même chaîne/horloge, images et readback register FS; de préférence deux capteurs synchrones ou alternance explicitement non simultanée). **Ne pas conclure à la supériorité en 1Hz sans mesure de PSD de bruit ou répétition physique sur deux FS**. Formaliser une procédure de courte qualification physique future, à autoriser dans une mission STM32 dédiée avec `allow_flash:true`, `allow_debug:true` et gardes matérielles.
+B5. **Ne pas modifier** firmware, registre capteur, FRAM, configuration Modbus, microSD, Windows, registre de démarrage, firmware BIN, source d'archive, app de supervision ; aucun flash/debug/USB/COM ; aucune intervention sur TR2 dans cette tranche. Le nouveau voyage utilisateur n'est pas une preuve ±2g tant qu'un changement physique de FS n'est pas réalisé et vérifié.
+
+## Lot C — Restitution/traçabilité, sans nouvel outillage complexe
+
+C1. Code/tests/documentation non normative en réutilisant les projets Python R5 ; figures simples (proportions énergie par bande et comparaison d'une métrique globale expérimentale par fenêtres de 60/120s), tableaux clairs de bruit/quantification et de marge ±2/4/8g. Rapport POC de **1–2 pages non normatives** pour décider si l'achat ISO serait techniquement pertinent ; séparer `ESTIMÉ`, `MESURÉ`, `SPÉCIFICATION_FABRICANT` et `HYPOTHÈSE` dans les figures/tableaux.
+C2. Enregistrer les nouvelles analyses versionnées de manière **non destructive**, idéalement dans la cohorte migrée SQLite v3 avec identités et méthode distinctes ; ne pas multiplier les bases par habitude, utiliser une **copie de sécurité / nouvelle base dérivée** seulement si démontrée nécessaire, ne pas modifier v1/v2/v3 existantes ni la base de supervision LIVE. Pas de duplication des 58.55M XYZ bruts en SQLite.
+C3. Preuves compactes `README`, `MANIFEST`, `SHA`, tests, comparaisons temporel/spectral, méthodes, graphiques et CSV agrégés publiés sur `main` ; source TR2 et bases locales ne sont pas publiées. Ne pas divulguer PDF ISO acquis. Respecter l'autonomie de développement, commit/push autorisés sans revalidation ; publier rapport `DERNIER_RAPPORT.md` avec identifiant exact et status `DONE` **si tous les gates de cette préqualification sont satisfaits**, ou `BLOCKED` si les éléments indispensables ne sont pas accessibles. `DONE` ne veut **pas dire** calcul ISO certifié.
+
+## Gates d'acceptation
+
+- **G0** : source E6N0005 intacte SHA/CRC, références projet actuelles, coûts bornés et aucun droit d'achat/flash/mise en route exercé.
+- **G1** : chaînes globales (RMS bande 1–80Hz et pondération(s) **non normatives**) analysées sur six heures, valides face à oracles synthétiques et contre-calculs indépendants ; comportement 1Hz/60–120s clairement défini, pas de faux score de confort.
+- **G2** : rapport technique ±8/4/2g comparant quantification vs bruit constructeur, preuves des extrêmes/flags et distinction `FS_logique ≠ FS_lu`, recommandation justifiée et garde sur transitoires.
+- **G3** : résultats reproductibles et versionnés, SQLite cohérent et idempotent lorsque pertinente ; figures/exports/provenance complets ; aucune régression des analyses antérieures.
+- **G4** : note de décision simple : quel niveau de confiance avons-nous pour acheter la/les norme(s), quels tests ±2g restent nécessaires, et quelles limites auraient nos campagnes de confort ; aucune affirmation réglementaire, métrologique, ISO/BV ou structurelle.
+- **G5** : publication vérifiée GitHub et rapport final Codex avec preuves, commits, tests, limites, coûts, et readback distant indépendant de ses fichiers. ChatGPT réalisera la revue A-01 avant toute autre qualification.
+
+Autorisations : `allow_commit: true`, `allow_push: true`, `allow_flash:false`, `allow_debug:false` **uniquement parce que mission strictement hors intervention STM32**. Les droits permanents de firmware/flash/debug définis dans AGENTS.md restent intacts pour futures missions matérielles, avec `allow_flash:true`, `allow_debug:true` et gardes physiques. Ne pas proposer Work. Les décisions physiques et les achats restent à l'utilisateur.
