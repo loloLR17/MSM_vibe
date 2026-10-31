@@ -1,0 +1,291 @@
+{
+  "remote_sha": "60030c5f902773247b61f817d35d81958036f141",
+  "read_at_utc": "2026-10-31T18:25:34.541738+00:00",
+  "files": 56,
+  "bytes": 327333,
+  "all_local_identical": true,
+  "raw_artifacts_decompressed_verified": 17,
+  "long_not_started": true,
+  "entries": [
+    {
+      "path": "Modbus RTU/00_gouvernance/ETAT_COURANT_TR2.md",
+      "bytes": 125734,
+      "sha256": "b10c729e362e02e1fb4994a939bf95319310bac4df97ac55f24861c45f0c4ce0"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/DERNIER_RAPPORT.md",
+      "bytes": 6529,
+      "sha256": "86dd88e11680a265961068a8acee21bacc01f983b40d8fe3e4342ee3bf5e8701"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R3-8H-FASTSTART-PC-MACHINE/CARD_PREFLIGHT.json",
+      "bytes": 307,
+      "sha256": "67f99e899129bf9316d1e99a2d3dfec10aee821bf1dc68034164ce365b8e34fe"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R3-8H-FASTSTART-PC-MACHINE/GATE_RE_READ.json",
+      "bytes": 232,
+      "sha256": "a77b9d19105ba6a1ad2a4cae2b58ab0a06b79e9a9469ba85c0d31543cb7c4b39"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R3-8H-FASTSTART-PC-MACHINE/MANIFEST.json",
+      "bytes": 13076,
+      "sha256": "a0253d339552344b68177a2fade1a9419a45d4033bfdcf3c906a656efe5e9dc9"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R3-8H-FASTSTART-PC-MACHINE/PREFLIGHT.json",
+      "bytes": 243,
+      "sha256": "333bc2efd14fda0fc3bf65b1214e2eca82b81bdd310437d663e310e421b22b52"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R3-8H-FASTSTART-PC-MACHINE/PRET_8H.md",
+      "bytes": 5800,
+      "sha256": "2d5fba066b3a6e183e0bbcae4b4c772c725e2af3b1df64d86e9600bcada06a12"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R3-8H-FASTSTART-PC-MACHINE/RAW_LOGS.json",
+      "bytes": 3877,
+      "sha256": "39c10a7b4262591266fcd5336ee47a94ddd2e58e8b6dd2066459fdbfdb316953"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R3-8H-FASTSTART-PC-MACHINE/README.md",
+      "bytes": 1711,
+      "sha256": "13c9bd762db6ae137c2bcf31acb5a84c872822e01b85f2ec5cdb987c74dd15b6"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R3-8H-FASTSTART-PC-MACHINE/READY.json",
+      "bytes": 397,
+      "sha256": "0de9b3bb3d8d7fdf715466e67e61cd9ba902704de78be9fddb1aef642072c90c"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R3-8H-FASTSTART-PC-MACHINE/arm/r3_coex.bin",
+      "bytes": 54556,
+      "sha256": "c31904feca48fd06d6102eee40b54b373bbfe5e9896d0ddc007434cf253ddc17"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R3-8H-FASTSTART-PC-MACHINE/artifact.json",
+      "bytes": 644,
+      "sha256": "b53c2cf44fc49a4e800389f9cb58064b92604fcd7dddf136dd7646378fa48bb0"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R3-8H-FASTSTART-PC-MACHINE/build.log.zlib",
+      "bytes": 1198,
+      "sha256": "afeaec12c7ba93195c67fcc39e0599792461a0ddb536cb8797ac86c675667383"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R3-8H-FASTSTART-PC-MACHINE/configure.log.zlib",
+      "bytes": 308,
+      "sha256": "7e6d5c62eacbe3e3b8d8ea12ba82913904835fcc2fe9a7cbef66e03cda334157"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R3-8H-FASTSTART-PC-MACHINE/hardware/N8A-readback-WAIT.log.zlib",
+      "bytes": 635,
+      "sha256": "28927392f81d550d412ebfa78b4a8c6f803c84e3fb7864c32d2c72205941a5d6"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R3-8H-FASTSTART-PC-MACHINE/hardware/flash-N8A-prepared-command.json",
+      "bytes": 521,
+      "sha256": "14eebdf852932fb70279b5d872dc1f2f5287d508afffb6579ecf9ecb20627b67"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R3-8H-FASTSTART-PC-MACHINE/hardware/flash-N8A-prepared.log.zlib",
+      "bytes": 638,
+      "sha256": "6c2ac3b41971bcfae1560f850a416580c5748fe57a933cb4bd5f6811103eec6c"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R3-8H-FASTSTART-PC-MACHINE/hardware/gate-complete-file-reread-SHA.log.zlib",
+      "bytes": 1012,
+      "sha256": "1551b2bccb5d66b566dfdf0bef028e23c2739923495cd2d36d5688751e5355a6"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R3-8H-FASTSTART-PC-MACHINE/hardware/n8a-card-names-and-free-readonly.log.zlib",
+      "bytes": 1215,
+      "sha256": "3d3ed58c583e2b8bc0cebf04fb7ac70630305bd787f0d2abf5293ad71435c663"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R3-8H-FASTSTART-PC-MACHINE/hardware/preflight-identity-existing-E6-WAIT.log.zlib",
+      "bytes": 631,
+      "sha256": "e32979067dbd8e4ecf08fdcdd226f2271dee6aa6fa7900ca28aa3327f26d3d49"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R3-8H-FASTSTART-PC-MACHINE/hardware/prepare-final-preflight-invocation.json",
+      "bytes": 743,
+      "sha256": "ad486b19e8fcbf982d6253cd34018352bce352060544d96d80fd02c8ca8677b1"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R3-8H-FASTSTART-PC-MACHINE/hardware/prepare-final-preflight.gdb",
+      "bytes": 2084,
+      "sha256": "51c0267abf52c3ad659b64042446817481d27ac93ca3bd37223e09f62a07f32b"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R3-8H-FASTSTART-PC-MACHINE/hardware/prepare-final-preflight.log.zlib",
+      "bytes": 1837,
+      "sha256": "4113dcfa3b7e1620b0b06592063cb9f6946abd5ea4b69ba2de36e6ff3941eea9"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R3-8H-FASTSTART-PC-MACHINE/helpers/analyze_capture.py",
+      "bytes": 4581,
+      "sha256": "6b646258ae967a7e080be09c016573ac6df9107fa7f99e7d6a4f42871b9ffeaf"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R3-8H-FASTSTART-PC-MACHINE/helpers/collect_after_terminal.py",
+      "bytes": 1483,
+      "sha256": "38968abd0868cddaef41d72be6ad1384c0142b7fe0f9bad9872490265a40f29e"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R3-8H-FASTSTART-PC-MACHINE/helpers/flash_prepared.py",
+      "bytes": 1603,
+      "sha256": "87a6f396d7bb490595597f30cbe0358e68d968ab38b5a7ffc92ba6ad4bb4a270"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R3-8H-FASTSTART-PC-MACHINE/helpers/hardware_second.py",
+      "bytes": 2402,
+      "sha256": "17d111a597a0206743149e7f4cce5c6b41cb74cb2c961934ccb7154dbf2ff04e"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R3-8H-FASTSTART-PC-MACHINE/helpers/init_card.py",
+      "bytes": 2007,
+      "sha256": "4d1cf16260aff9a9230366ac9dab0ed761334ea72188325ff8f8903051ee4bd2"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R3-8H-FASTSTART-PC-MACHINE/helpers/launch_8h.py",
+      "bytes": 4458,
+      "sha256": "aea2475059ad2b4a4fa0d4386ec25229894d17bcb7ba71a9b0d1f8aa8679079b"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R3-8H-FASTSTART-PC-MACHINE/helpers/preflight.py",
+      "bytes": 1145,
+      "sha256": "9a25fbfa611233b3149e965574e6081b27c0e54a66ae493da0f583cd076d51f2"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R3-8H-FASTSTART-PC-MACHINE/helpers/read_host.py",
+      "bytes": 1440,
+      "sha256": "8d1c488c2726d7766066104c7c05fc7a81ac20a8ee73be65fe86425391d20687"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R3-8H-FASTSTART-PC-MACHINE/helpers/run_capture.py",
+      "bytes": 4162,
+      "sha256": "edf0050a61afbc30c840d74d61fdc61d3fa816ce50eefefc6e1bf81a7166196c"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R3-8H-FASTSTART-PC-MACHINE/helpers/start_detached.py",
+      "bytes": 3973,
+      "sha256": "78f4e8ef387fe802aaeec250f096cd9ef5622dc5a005fc652a24a6879e009cd6"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R3-8H-FASTSTART-PC-MACHINE/helpers/test_launcher_guards.py",
+      "bytes": 1312,
+      "sha256": "54927d94bd1f1952371e9d71c2630e6e1cc42710c642591e10a0dbd3706c7ee3"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R3-8H-FASTSTART-PC-MACHINE/helpers/verify_gate.py",
+      "bytes": 830,
+      "sha256": "c8c871f50139968c41416ed2252b0b56956516e81789841400a54ae672469a4a"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R3-8H-FASTSTART-PC-MACHINE/hibernate-policy.txt.zlib",
+      "bytes": 379,
+      "sha256": "c6f64a9cd02f433219625d997da7a44603f2ff06c4ab68ea61d9c5d817a965ec"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R3-8H-FASTSTART-PC-MACHINE/launcher-guards.log.zlib",
+      "bytes": 130,
+      "sha256": "b6befc874bc3082f2437f2c101a7b3ff40a88a9d5c7b34acacd024b65de54006"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R3-8H-FASTSTART-PC-MACHINE/n8a-short-analysis.json",
+      "bytes": 676,
+      "sha256": "10083045d163bcebe2021f41102305f9911d4fae72d3040f926eec705c1dcd1e"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R3-8H-FASTSTART-PC-MACHINE/n8a-short-data/analysis.json",
+      "bytes": 5026,
+      "sha256": "07afeac18a258951ae15cab829db9a3a63f9f1b65ee5b4a382386b9ef4f60bda"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R3-8H-FASTSTART-PC-MACHINE/n8a-short-data/durable-footer.bin",
+      "bytes": 512,
+      "sha256": "03ec011d9252f48e869ceb0d31bd7fa3ede98b938f3fd55f9147c53fadee7256"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R3-8H-FASTSTART-PC-MACHINE/n8a-short-data/header.bin",
+      "bytes": 512,
+      "sha256": "b27cbe4488bd2b076275ec1bc87922fd138125a4a530ab118039f24217030310"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R3-8H-FASTSTART-PC-MACHINE/n8a-short-data/outputs.bin",
+      "bytes": 6144,
+      "sha256": "8f308297ad6edb3b34336f3d709c422c01c9b53db3337fdef8450fd29c0c21fe"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R3-8H-FASTSTART-PC-MACHINE/n8a-short-data/raw.bin",
+      "bytes": 14336,
+      "sha256": "2e5a89778e7343dc3868c8054da6d17cafb598c5e543237d2728d2902245c798"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R3-8H-FASTSTART-PC-MACHINE/n8a-short-data/result.json",
+      "bytes": 1418,
+      "sha256": "4750c9bc94312861d1a10576ae52e59baa427afc0a62c4cdaf30644ba9cf462f"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R3-8H-FASTSTART-PC-MACHINE/n8a-short-data/source-sha.bin",
+      "bytes": 32,
+      "sha256": "96ed922ce15705e6617e075136bf3f1d8dace92a376327d36449481e172915a5"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R3-8H-FASTSTART-PC-MACHINE/n8a-short-data/sources.bin",
+      "bytes": 24576,
+      "sha256": "4d7a7e11ea64aceb120e2f43b93d0de877d58a732a4546405afbb1705a024915"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R3-8H-FASTSTART-PC-MACHINE/n8a-short-launched.json",
+      "bytes": 1074,
+      "sha256": "1d1fef98acd0cb99c4aec60b7f46ced785c38a4508091f94c71a24bae9b0bbfe"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R3-8H-FASTSTART-PC-MACHINE/n8a-short-native-ready.json.zlib",
+      "bytes": 213,
+      "sha256": "77f64394b87157460988dfa9c913f316df9aec0e03cf4c85e7985cfd735a4c8d"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R3-8H-FASTSTART-PC-MACHINE/n8a-short-native-summary.json.zlib",
+      "bytes": 1309,
+      "sha256": "aa0ad9d47052b079474bf8f7d604131a76a1946fe57c712d25fdf40947723fe2"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R3-8H-FASTSTART-PC-MACHINE/native-host.json.zlib",
+      "bytes": 267,
+      "sha256": "7c72ffe50e914badd82afc15eeb63ba8101feb718ce57615c9cd9b58a4021f42"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R3-8H-FASTSTART-PC-MACHINE/prepared-launch-check.log.zlib",
+      "bytes": 306,
+      "sha256": "670c38a780112cfdc8fd867beb51f92303d88bae262f62a946ca25223b0e52ff"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R3-8H-FASTSTART-PC-MACHINE/reused-canonical-cross-only.log.zlib",
+      "bytes": 2897,
+      "sha256": "62dbd957366430f217a88906ec4b1a5ee4bbc6a90679696636339e6589148dcf"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R3-8H-FASTSTART-PC-MACHINE/reused-test-six-hour-salvage.log.zlib",
+      "bytes": 137,
+      "sha256": "7c8a8d0321df12344161dce79618f77268efee9eb900e6317da92df58c686d50"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R3-8H-FASTSTART-PC-MACHINE/sleep-policy.txt.zlib",
+      "bytes": 365,
+      "sha256": "a61ed4f4916d8933a88cadefa2d33642cb3a7a5855ee3e6ab6dcdbb5f7795edb"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R3-8H-FASTSTART-PC-MACHINE/validation-reuse.json",
+      "bytes": 1654,
+      "sha256": "9b693ac71511eac097dd44f9cb21bdb93cd3d1b8fa7eac003a03fcf493c671e0"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/MISSION_EN_COURS.md",
+      "bytes": 12046,
+      "sha256": "74cc26ddf18468a806ed631695132c6eeb694f5a6046ddf3d7c7cc05600c85fe"
+    }
+  ]
+}
