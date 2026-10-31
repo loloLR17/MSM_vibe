@@ -12,10 +12,10 @@
     "zlib": false
   },
   {
-    "file": "8MHz-high/arm/CMakeFiles/r3_coex.dir/flags.make",
+    "file": "8MHz-high/arm/CMakeFiles/r3_coex.dir/flags.make.zlib",
     "original_bytes": 3527,
     "sha256": "f3bf9ec8c30926be0f33b587d1e5ebd7f6aa3fc0541397ab358015e51e8ac791",
-    "zlib": false
+    "zlib": true
   },
   {
     "file": "8MHz-high/arm/r3_coex.bin",

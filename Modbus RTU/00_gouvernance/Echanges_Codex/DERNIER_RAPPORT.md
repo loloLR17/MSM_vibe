@@ -32,7 +32,7 @@ AucunSTARTlong ni gateSD ni nouvellecréationfichierN8D pendantcescomparaisons, 
 
 **Dernièreinstructionutilisateur : emprunterlecapteurdeTR2-001 pourcomparer.** Décisionexpliciteconsignéecommeexceptionlimitéeauprêtphysiquedumodule ; aucuneautorisationdéduitepourflash/debug/FRAMdeTR2-001. Interventiondemandée : deuxbancshorstensionavantretrait, mêmeréférence/connecteursconfirmés, moduleuniquement surTR2-002/nappe/brochage/3,3Vinchangés ; sicompatibilitéincertaine, préciserréférencesavantrecâblage/retoursoustension. ReconnecterSTLINK002seul/CN15off/SDenplace puisconfirmation. Pasdenouvelessaid'ici-là. Reprendresansbuild/flashsiimageDintacte, mêmecondition8MHz/HIGH pourcomparaisonnechangeantquelecapteur. Toutchangementcapteur/pose seratracédansprovenance, pasdéclaréidentiqueaux6h.
 
-Checkpointàpublieretrelirependantlapréparationphysiqueutilisateur. MissionBLOCKEDsurinterventioncomparative, pasDONE niSTART8h. Rubriquessuivanteshistoriquespréservées.
+Code98457b5a etpreuves05b01525 publiés, 139fichiers relusintégralement/132artefactsbrutsconformes aprèsdécompression siapplicable ; preuve remote-readback.json. Bilanpublication final àvérifierpendantlapréparationphysiqueutilisateur. MissionBLOCKEDsurinterventioncomparative, pasDONE niSTART8h. Rubriquessuivanteshistoriquespréservées.
 
 # Après réenfichage utilisateur — défaut reproduit, mesures électriques attendues
 
