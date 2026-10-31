@@ -1,0 +1,34 @@
+{
+  "utc_annotation": "2026-10-31T18:20:35.101478+00:00",
+  "code_sha": "d5af0828e370780320bda67fac5d537bf3fd5016",
+  "run": 3,
+  "native_observer": {
+    "native_process": {
+      "ProcessId": 12668,
+      "ReturnValue": 0
+    },
+    "observer_sha256": "ff4cb076a1bdb40486ae704c6a721932c07e11f7f61b11e406ff5502e7a77251",
+    "output": "C:\\Users\\lolo\\AppData\\Local\\Temp\\TR2-R3-N8A-20261031-n8a-short",
+    "expected_run": 3,
+    "minimum_QPC_s": 1,
+    "parent_has_exited": true,
+    "STM32_control": false
+  },
+  "initial_active_with_SD_group_ack": {
+    "sequence": 20,
+    "mcu_us": 61235773,
+    "flags": 769,
+    "session": 6755700148813124,
+    "accepted": 12376
+  },
+  "first_QPC_bracket": {
+    "receive_tick": 13345156505167,
+    "flags": 769,
+    "send_tick": 13345155896679,
+    "frame_hex": "5150433246001b001850423857313320140000003d62a6030000000001030000443d940346001800583000001f194656"
+  },
+  "GDB_detached": true,
+  "Codex_must_end_after_launch_checkpoint": false,
+  "no_Codex_WSL_monitor": true,
+  "no_poweroff_until_postrun_RAM_digest_dump": true
+}

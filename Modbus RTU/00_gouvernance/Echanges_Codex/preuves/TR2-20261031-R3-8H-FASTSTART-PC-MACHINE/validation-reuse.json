@@ -1,0 +1,42 @@
+{
+  "reference_source": "c3cd40ce9e96cef2241fb5bc6e8c83acd2a3824e",
+  "evaluated_source": "d5af0828e370780320bda67fac5d537bf3fd5016",
+  "command": [
+    "git",
+    "diff",
+    "--exit-code",
+    "c3cd40ce9e96cef2241fb5bc6e8c83acd2a3824e",
+    "d5af0828e370780320bda67fac5d537bf3fd5016",
+    "--",
+    "experiments/r3_durable_fat32/src",
+    "experiments/r3_durable_fat32/CMakeLists.txt",
+    "experiments/r3_coex_fifo_fir_sd",
+    "experiments/r3_time_reference",
+    "experiments/spi2_microsd_isolated",
+    "experiments/iis3dwb_st_reference",
+    "Modbus RTU/05_Firmware"
+  ],
+  "return_code": 0,
+  "scientific_sources_and_firmware_unchanged": true,
+  "reused_logs": [
+    {
+      "path": "/home/lolo/dev/msm/reports/TR2-r3-6h-data-20261031/test-six-hour-salvage.log",
+      "sha256": "6dbb52b589c34a6e5d0dd4701a876ee0da79c4a54c2686c85a62e2fc629a85c3",
+      "last_lines": [
+        "{\"six_hour_u64_metadata\": true, \"clipped_prefix_salvaged\": true, \"source_digest_external\": true, \"false_COMPLETE\": false, \"torn_record_not_counted\": true, \"host_fixture_only\": true}"
+      ]
+    },
+    {
+      "path": "/home/lolo/dev/msm/reports/TR2-r3-6h-data-20261031/canonical-cross-only.log",
+      "sha256": "f4a3243a1e383b45399896cdb4adcc61500b31dd462f630e3d96dd8d1a6509b2",
+      "last_lines": [
+        "============================================================",
+        "TR2 VALIDATION RESULT",
+        "============================================================",
+        "CROSS-BUILD VALIDATED",
+        "MODE: CROSS-BUILD ONLY",
+        "HARDWARE PENDING: no NUCLEO-U575ZI-Q runtime or RS-485 hardware claim is made."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "prepared": true,
+  "long_never_started": true,
+  "bin_sha256": "c31904feca48fd06d6102eee40b54b373bbfe5e9896d0ddc007434cf253ddc17",
+  "code_sha": "d5af0828e370780320bda67fac5d537bf3fd5016",
+  "run": 3,
+  "long_name": "N8A0005.TR2",
+  "gate_name": "N8A0003.TR2",
+  "gate_ram_digest": "f97020deec3c8ca2d3433af7320f79d349d5b50c11cf33c782207adc3a1f6b7a",
+  "same_powered_session_required": true
+}

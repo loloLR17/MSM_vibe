@@ -1,0 +1,30 @@
+{
+  "reference": "Windows QPC, not UTC/SI traceability",
+  "independent_inner_interval_s": 1.0422059,
+  "minimum_required_s": 1,
+  "run": 3,
+  "session": 6755700148813124,
+  "first": {
+    "sequence": 20,
+    "mcu_us": 61235773,
+    "flags": 769,
+    "session": 6755700148813124,
+    "accepted": 12376
+  },
+  "second": {
+    "sequence": 21,
+    "mcu_us": 62346484,
+    "flags": 769,
+    "session": 6755700148813124,
+    "accepted": 41928
+  },
+  "continuous_successful_file_still_required": true,
+  "physical_hour_gate_qualified": false,
+  "terminal": {
+    "sequence": 22,
+    "mcu_us": 63393954,
+    "flags": 772,
+    "session": 6755700148813124,
+    "accepted": 52936
+  }
+}

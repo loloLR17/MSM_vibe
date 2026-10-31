@@ -1,0 +1,104 @@
+[
+  {
+    "path": "build.log.zlib",
+    "original_name": "build.log",
+    "original_bytes": 8176,
+    "original_sha256": "52dc1fb4ceaad073293673c98a76c25e09cb8a18c4958d9932b7afb2a314e07c"
+  },
+  {
+    "path": "configure.log.zlib",
+    "original_name": "configure.log",
+    "original_bytes": 590,
+    "original_sha256": "df4a650b6c4f7ef13d0530bc8fcbc6479e3a3220c974dc487aa8b9ba3044ed7e"
+  },
+  {
+    "path": "hardware/N8A-readback-WAIT.log.zlib",
+    "original_name": "hardware/N8A-readback-WAIT.log",
+    "original_bytes": 1290,
+    "original_sha256": "491cc7b8b9f92f3163be035cb86718eb1e4bc5eba38d90adddcf5792c1598372"
+  },
+  {
+    "path": "hardware/flash-N8A-prepared.log.zlib",
+    "original_name": "hardware/flash-N8A-prepared.log",
+    "original_bytes": 1617,
+    "original_sha256": "8be4b632cff3f968be3ca02d35cb96f537ea608de2dd26f152b558e1bead3833"
+  },
+  {
+    "path": "hardware/gate-complete-file-reread-SHA.log.zlib",
+    "original_name": "hardware/gate-complete-file-reread-SHA.log",
+    "original_bytes": 1804,
+    "original_sha256": "0a2714af72b1fbe90959deeb4655993e36b07e3229a693877679144947ada2f4"
+  },
+  {
+    "path": "hardware/n8a-card-names-and-free-readonly.log.zlib",
+    "original_name": "hardware/n8a-card-names-and-free-readonly.log",
+    "original_bytes": 13207,
+    "original_sha256": "00fd2be82a052a28137de92798bc8e7a94e790c6e721edbf9ced8d041b10b79c"
+  },
+  {
+    "path": "hardware/preflight-identity-existing-E6-WAIT.log.zlib",
+    "original_name": "hardware/preflight-identity-existing-E6-WAIT.log",
+    "original_bytes": 1285,
+    "original_sha256": "af0fed1bdc65e5f4b034fb0e5b5cbac02de6875db508bde91ffdbabead75fb5a"
+  },
+  {
+    "path": "hardware/prepare-final-preflight.log.zlib",
+    "original_name": "hardware/prepare-final-preflight.log",
+    "original_bytes": 14445,
+    "original_sha256": "6e40f960fa07f1b46cbaf4c6c36e52e9d8bcf8364fa887066d963f6e1aa03014"
+  },
+  {
+    "path": "hibernate-policy.txt.zlib",
+    "original_name": "hibernate-policy.txt",
+    "original_bytes": 718,
+    "original_sha256": "3812849455c26df899b4a486e02f1fcd8767f9708b102f557dfdd402a710c1e4"
+  },
+  {
+    "path": "launcher-guards.log.zlib",
+    "original_name": "launcher-guards.log",
+    "original_bytes": 157,
+    "original_sha256": "db10a7d7343ce1a2be0c99d7b5c4f9425533689c6a1a2d7f8e5d545fa0ef56bc"
+  },
+  {
+    "path": "prepared-launch-check.log.zlib",
+    "original_name": "prepared-launch-check.log",
+    "original_bytes": 539,
+    "original_sha256": "ab5157d51e89e25279dbffb96e601773f82cde68d7b105f2068f88fcaf8a2105"
+  },
+  {
+    "path": "reused-canonical-cross-only.log.zlib",
+    "original_name": "reused-canonical-cross-only.log",
+    "original_bytes": 27742,
+    "original_sha256": "f4a3243a1e383b45399896cdb4adcc61500b31dd462f630e3d96dd8d1a6509b2"
+  },
+  {
+    "path": "reused-test-six-hour-salvage.log.zlib",
+    "original_name": "reused-test-six-hour-salvage.log",
+    "original_bytes": 182,
+    "original_sha256": "6dbb52b589c34a6e5d0dd4701a876ee0da79c4a54c2686c85a62e2fc629a85c3"
+  },
+  {
+    "path": "sleep-policy.txt.zlib",
+    "original_name": "sleep-policy.txt",
+    "original_bytes": 696,
+    "original_sha256": "6e59cdbc1c2b85c92bb010a1db10695f1b0c7cf61c8d8d83247827fcb1af8466"
+  },
+  {
+    "path": "n8a-short-native-ready.json.zlib",
+    "original_name": "n8a-short-native-ready.json",
+    "original_bytes": 360,
+    "original_sha256": "8a31c3cb0007bca6c6850fe97bcf953e9611ddd4cb8ad6cb32cbda2df5e30bef"
+  },
+  {
+    "path": "n8a-short-native-summary.json.zlib",
+    "original_name": "n8a-short-native-summary.json",
+    "original_bytes": 9580,
+    "original_sha256": "f9ef2d3743e0686a72faaf4c8bd95a67c56c3dd1d4d3107b7752bb6dcbe9a003"
+  },
+  {
+    "path": "native-host.json.zlib",
+    "original_name": "native-host.json",
+    "original_bytes": 794,
+    "original_sha256": "f24450258808b01d42fa67366f5256fbfeae3dc02d6ea2e306fc2e352a0308e1"
+  }
+]
