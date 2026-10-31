@@ -1,0 +1,16 @@
+test_chunk_invariance_and_impulse (test_analysis.AnalysisTests.test_chunk_invariance_and_impulse) ... ok
+test_dc_gravity (test_analysis.AnalysisTests.test_dc_gravity) ... ok
+test_gap_invalid_and_empty (test_analysis.AnalysisTests.test_gap_invalid_and_empty) ... ok
+test_multitone_energy (test_analysis.AnalysisTests.test_multitone_energy) ... ok
+test_psd_parseval_and_peak (test_analysis.AnalysisTests.test_psd_parseval_and_peak) ... ok
+test_sinusoids_edges_and_stopband (test_analysis.AnalysisTests.test_sinusoids_edges_and_stopband) ... ok
+test_velocity_seven_frequencies_offset_multitone (test_analysis.AnalysisTests.test_velocity_seven_frequencies_offset_multitone) ... ok
+test_windows_weighting_vector_peak_boundaries (test_analysis.AnalysisTests.test_windows_weighting_vector_peak_boundaries) ... ok
+test_import_queries_idempotent_and_versioned (test_catalog.CatalogTests.test_import_queries_idempotent_and_versioned) ... ok
+test_missing_corrupt_and_foreign_db_preserved (test_catalog.CatalogTests.test_missing_corrupt_and_foreign_db_preserved) ... ok
+test_tampered_export_rejected (test_catalog.CatalogTests.test_tampered_export_rejected) ... ok
+
+----------------------------------------------------------------------
+Ran 11 tests in 0.083s
+
+OK
