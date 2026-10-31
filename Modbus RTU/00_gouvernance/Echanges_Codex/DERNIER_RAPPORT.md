@@ -36,3 +36,17 @@ worktrees/catalogues/stashes6251b988/f3b829e6 conservés. AucunSTM32/SD/COM/.NET
 Windowssecurity. Journalactualisé. Prochaines tranches : calculintégral, contrôle
 indépendant3plages, cohorteSQLversionnéepréservantv2, affichageconditionnel puis
 rapportetpublicationvérifiée. Pasdevalidationintermédiaire demandéepourlogiciel.
+
+## Checkpoint logiciel suivant — export et reprise
+
+Le premiercalcul a parcouru les sixheures et atteint lescontre-calculs mais a
+échoué àl'exportJSON d'un booléenNumPy. AucunCSV/checkpointscientifique n'avait
+encoreété sauvegardé : reprisePC nécessaire, sansessaimatériel. Conversion
+explicite des scalairesNumPy testée, cachecompressé d'agrégats ajouté **avant**
+contrôles/export ; reprise vérifieSHA source/core/méthodes. Échec conservé.
+
+**10tests ciblésPASS**, dontcopieSQLitev2→v3 avecpréservationlogique complète,
+refusd'écrasement/de migrationinplace, réimportidempotent etséparationdescohortes.
+Uneerreurd'espace `else20` danslafixture aété corrigée sansaffaiblirletest.
+La v3 seraune nouvellecopiemigrée, originauxv1/v2 inchangés, aucunRMSancien recalculé.
+Lesdonnéesréellesréussies/publication finale restentàobtenir ; statusIN_PROGRESS.

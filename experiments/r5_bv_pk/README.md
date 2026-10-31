@@ -30,3 +30,24 @@ pourlecture desformules/tableaux ; outilPDF installé uniquement dansunrépertoi
 cacheprivé séparé, sans toucherle venvscientifique R5 oulesparamètresglobaux.
 AucunPDFcomplet/capture de pagesprotégées nefigure dansleslivrablespublics.
 Aucunbuildfirmware/.NET ni reprise desancienstestsinchangés : validationcibléePC.
+
+Le calcul enregistre uncheckpointcompressé **d'agrégats** spectral_checkpoint.json.gz
+avantlescontre-calculs/export ; pourreprise après une interruption d'export :
+`run.py SOURCE NOUVEAU_DOSSIER --resume-spectral CHEMIN_CHECKPOINT`. LesSHA source
+etcore/méthode doivent correspondre. PasdeXYZbrut danscecache niuploaddecelui-ci.
+
+Schéma3 : copier parAPI SQLitebackup lecataloguev2 enlectureseule, dansunfichier
+**nouveau**, puisajouter les tablespk_* sansmodifierlescinq tablesprécédentes.
+L'originalv2etv1 sontpréservés ; la v3unifie les2204RMS antérieurs etla cohortePK
+pourunseulcampaign_sha. Unecompatibilité decolonnesRMS nepermettraitpas de
+représenterfreq/axe/crête/statut sanschangerlesens : copie migréev3justifiée,
+pasdefichiersDBparcampagne/métrique. Empreinte logique de **toutesleslignes**
+antérieures comparée avant/aprèscopie/migration/import, etSHAoriginaux inchangés.
+
+```sh
+/home/lolo/dev/msm/cache/r5-analysis-venv/bin/python experiments/r5_bv_pk/pk_catalog.py RESULTATS NOUVELLE_V3.sqlite --copy-v2 /home/lolo/dev/msm/reports/TR2-R5-comfort-20261031/comfort-secondary-v2.sqlite
+/home/lolo/dev/msm/cache/r5-analysis-venv/bin/python experiments/r5_bv_pk/pk_catalog.py RESULTATS V3_EXISTANTE.sqlite
+```
+
+Secondimportidempotent ; requêtesgroupées paranalyse (jamaiscohortesmélangées),
+valeursnonarrondies, références versionnéesauxrepères ; pasdeDBLIVEouverte.

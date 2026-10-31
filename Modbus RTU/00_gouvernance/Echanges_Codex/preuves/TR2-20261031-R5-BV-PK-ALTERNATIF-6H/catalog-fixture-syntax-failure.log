@@ -1,0 +1,28 @@
+test_catalog (unittest.loader._FailedTest.test_catalog) ... ERROR
+test_analytic_on_off_bins_units_and_boundary (test_core.PKTests.test_analytic_on_off_bins_units_and_boundary) ... ok
+test_close_lines_AM_FM_impulse_noise (test_core.PKTests.test_close_lines_AM_FM_impulse_noise) ... ok
+test_independent_time_frequency_fit (test_core.PKTests.test_independent_time_frequency_fit) ... ok
+test_multitone_not_broadband_and_pruning (test_core.PKTests.test_multitone_not_broadband_and_pruning) ... ok
+test_quality_gravity_missing_clip_and_stationarity (test_core.PKTests.test_quality_gravity_missing_clip_and_stationarity) ... ok
+test_reference_values_and_component_sqrt2 (test_core.PKTests.test_reference_values_and_component_sqrt2) ... ok
+
+======================================================================
+ERROR: test_catalog (unittest.loader._FailedTest.test_catalog)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: test_catalog
+Traceback (most recent call last):
+  File "/usr/lib/python3.13/unittest/loader.py", line 396, in _find_test_path
+    module = self._get_module_from_name(name)
+  File "/usr/lib/python3.13/unittest/loader.py", line 339, in _get_module_from_name
+    __import__(name)
+    ~~~~~~~~~~^^^^^^
+  File "/home/lolo/dev/msm/projects/MSM_vibe-R5-BV-PK/experiments/r5_bv_pk/test_catalog.py", line 32
+    r={k:None for k in FIELDS};r.update(method_id=mid,clock=d['clock'],band=d['band'],unit=d['unit'],axis=axis,start_mcu_s=60,end_mcu_s=119.999,window_mcu_s=60,sample_n=100,valid_input_n=100,frame_status='COMPLETE',status='QUASI_STATIONARY_COMPONENT',frequency_Hz=2 if d['band'].endswith('1_5') else20,component_pk=2,component_rms=2/2**.5,reported_pk=2,contrast_dB=30,shape_error=.01,comparison_eligible=True,comparison_zone='SOUS_REPERE_1PK');w.writerow(r)
+                                                                                                                                                                                                                                                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+SyntaxError: expected 'else' after 'if' expression
+
+
+----------------------------------------------------------------------
+Ran 7 tests in 0.423s
+
+FAILED (errors=1)

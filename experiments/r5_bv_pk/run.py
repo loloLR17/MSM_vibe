@@ -13,7 +13,11 @@ MISSION='TR2-20261031-R5-BV-PK-ALTERNATIF-6H'
 def sha(p):
     with Path(p).open('rb') as f:return hashlib.file_digest(f,'sha256').hexdigest()
 
-def dump(p,x):p.write_text(json.dumps(x,ensure_ascii=False,indent=2,allow_nan=False)+'\n')
+def json_scalar(x):
+    if isinstance(x,np.generic):return x.item()
+    raise TypeError(f'Unsupported JSON value {type(x).__name__}')
+
+def dump(p,x):p.write_text(json.dumps(x,ensure_ascii=False,indent=2,allow_nan=False,default=json_scalar)+'\n')
 
 def minutes(path,info):
     ts=[];xs=[];current=0;first_index=0
@@ -27,7 +31,7 @@ def minutes(path,info):
             ts.append(t[a:b]);xs.append(x[a:b])
     if ts:yield current*60,np.concatenate(ts),np.concatenate(xs),first_index
 
-FIELDS=['method_id','clock','band','unit','axis','start_mcu_s','end_mcu_s','window_mcu_s','sample_n','valid_input_n','frame_status','status','frequency_Hz','component_pk','component_rms','reported_pk','reported_frequency_Hz','reported_subwindow_start','component_mg_pk','psd_peak_mg2_per_Hz','contrast_dB','shape_error','bin_spacing_Hz','short_pk_min','short_pk_max','short_frequency_spread_Hz','median_short_vs_60_ratio','comparison_eligible','comparison_zone']
+FIELDS=['method_id','clock','band','unit','axis','start_mcu_s','end_mcu_s','window_mcu_s','sample_n','valid_input_n','frame_status','status','frequency_Hz','component_pk','component_rms','reported_pk','reported_frequency_Hz','reported_subwindow_start','component_mg_pk','psd_peak_mg2_per_Hz','fixed_frequency_rounding_bound_pk','contrast_dB','shape_error','bin_spacing_Hz','short_pk_min','short_pk_max','short_frequency_spread_Hz','median_short_vs_60_ratio','comparison_eligible','comparison_zone']
 
 def row(frame,clock,method_id,q=None):
     c=frame['candidates'][0] if frame['candidates'] else {}
@@ -87,7 +91,7 @@ def independent(path,info,clocks,allrows,out):
 
 
 def main():
-    ap=argparse.ArgumentParser(description=__doc__);ap.add_argument('source',type=Path);ap.add_argument('output',type=Path);a=ap.parse_args();a.output.mkdir(parents=True,exist_ok=False);out=a.output;started=time.perf_counter()
+    ap=argparse.ArgumentParser(description=__doc__);ap.add_argument('source',type=Path);ap.add_argument('output',type=Path);ap.add_argument('--resume-spectral',type=Path);a=ap.parse_args();a.output.mkdir(parents=True,exist_ok=False);out=a.output;started=time.perf_counter()
     if sha(a.source)!=EXPECTED:raise ValueError('source whole SHA')
     info=reader.verify(a.source)
     if info['status']!='COMPLETE' or info['sha256']!=PAYLOAD:raise ValueError('not expected COMPLETE')
@@ -96,26 +100,37 @@ def main():
     methods={};ids={}
     for clock,fs in clocks.items():
         for band in BANDS:
-            method=dict(edition='BV_NR467_F_2026_07_PK',derived_method_version=VERSION,clock=clock,fs_est_Hz=fs,band=band,range_Hz=BANDS[band][:2],unit=BANDS[band][2],CF=1,window_mcu_s=[10,60],mean_subtracted=True,Hann='periodic; coherent sum correction and exact DTFT',frequency_estimator='three-complex-bin Hann interpolation',selection='max individual component; max6 matched10s in a quasi-stationary60s frame; NOT ISO MRA',contrast_min_dB=12,shape_limit=.15,frequency_spread_max_Hz=.1,amplitude_ratio_max=1.25,clock_fraction_for_bandedge=CLOCK_FRAC,near_reference_method_margin=.05,sensitivity_mg_per_count=.244,axis='XYZ sensor, ship orientation unknown',site='PC machine plancher, continuous occupation unconfirmed',mount='double-face experimental, uncalibrated',UTC='UTC_UNKNOWN',formal_ISO6954_compliance=False,reference_document_sha256='5ae75d30f6b38a1331431e16bcc3dce11bc42c90b393f344be89b42cb050ceef',code_sha256=sha(Path(__file__).with_name('core.py')))
+            method=dict(edition='BV_NR467_F_2026_07_PK',derived_method_version=VERSION,clock=clock,fs_est_Hz=fs,band=band,range_Hz=list(BANDS[band][:2]),unit=BANDS[band][2],CF=1,window_mcu_s=[10,60],mean_subtracted=True,Hann='periodic; coherent sum correction and exact DTFT',frequency_estimator='three-complex-bin Hann interpolation',selection='max individual component; max6 matched10s in a quasi-stationary60s frame; NOT ISO MRA',contrast_min_dB=12,shape_limit=.15,frequency_spread_max_Hz=.1,amplitude_ratio_max=1.25,clock_fraction_for_bandedge=CLOCK_FRAC,near_reference_method_margin=.05,sensitivity_mg_per_count=.244,axis='XYZ sensor, ship orientation unknown',site='PC machine plancher, continuous occupation unconfirmed',mount='double-face experimental, uncalibrated',UTC='UTC_UNKNOWN',formal_ISO6954_compliance=False,reference_document_sha256='5ae75d30f6b38a1331431e16bcc3dce11bc42c90b393f344be89b42cb050ceef',code_sha256=sha(Path(__file__).with_name('core.py')))
             mid=hashlib.sha256(json.dumps(method,sort_keys=True,separators=(',',':')).encode()).hexdigest();methods[mid]=method;ids[clock,band]=mid
     allrows=[]
     print('Strict COMPLETE; streaming 60s +6x10s spectral components, two clock interpretations',flush=True)
-    for start,t,x,index in minutes(a.source,info):
-        # Mean/Hann transform computed once per frame, reused for the two clock hypotheses.
-        frames=[(start,60,t,x,index)]
-        for k in range(6):
-            m=(t>=start+10*k)&(t<start+10*(k+1))
-            if m.any():frames.append((start+10*k,10,t[m],x[m],index+int(np.flatnonzero(m)[0])))
-        prepared=[spectrum(xx) if np.isfinite(xx).all() else None for _,_,_,xx,_ in frames]
-        for clock,fs in clocks.items():
-            found=[]
-            for frame_idx,(s,w,tt,xx,idx) in enumerate(frames):found.append(analyse_frame(tt,xx,s,w,fs,idx,prepared=prepared[frame_idx]))
-            for axis in range(3):
-                for band in BANDS:
-                    mainframe=found[0][axis,band];short=[ff[axis,band] for ff in found[1:]]
-                    q=qualify_minute(mainframe,short);allrows.append(row(mainframe,clock,ids[clock,band],q))
-                    for f in short:allrows.append(row(f,clock,ids[clock,band]))
-        if start%3600==0:print('processed through nominal MCU hour',start/3600,flush=True)
+    if a.resume_spectral:
+        with gzip.open(a.resume_spectral,'rt') as f:checkpoint=json.load(f)
+        if checkpoint['source_sha256']!=EXPECTED or checkpoint['core_sha256']!=sha(Path(__file__).with_name('core.py')):raise ValueError('spectral checkpoint identity')
+        if checkpoint['methods']!=methods:raise ValueError('spectral method changed')
+        allrows=checkpoint['rows']
+        print('resumed verified aggregate spectral checkpoint, no FFT extraction repeated',flush=True)
+    else:
+        for start,t,x,index in minutes(a.source,info):
+            # Mean/Hann transform computed once per frame, reused for the two clock hypotheses.
+            frames=[(start,60,t,x,index)]
+            for k in range(6):
+                m=(t>=start+10*k)&(t<start+10*(k+1))
+                if m.any():frames.append((start+10*k,10,t[m],x[m],index+int(np.flatnonzero(m)[0])))
+            prepared=[spectrum(xx) if np.isfinite(xx).all() else None for _,_,_,xx,_ in frames]
+            for clock,fs in clocks.items():
+                found=[]
+                for frame_idx,(s,w,tt,xx,idx) in enumerate(frames):found.append(analyse_frame(tt,xx,s,w,fs,idx,prepared=prepared[frame_idx]))
+                for axis in range(3):
+                    for band in BANDS:
+                        mainframe=found[0][axis,band];short=[ff[axis,band] for ff in found[1:]]
+                        q=qualify_minute(mainframe,short);allrows.append(row(mainframe,clock,ids[clock,band],q))
+                        for f in short:allrows.append(row(f,clock,ids[clock,band]))
+            if start%3600==0:print('processed through nominal MCU hour',start/3600,flush=True)
+        checkpoint=dict(source_sha256=EXPECTED,core_sha256=sha(Path(__file__).with_name('core.py')),methods=methods,rows=allrows)
+        with gzip.open(out/'spectral_checkpoint.json.gz','wt',encoding='utf-8') as f:
+            json.dump(checkpoint,f,allow_nan=False,default=json_scalar)
+        print('spectral aggregate checkpoint saved before independent controls/export',flush=True)
     controls=independent(a.source,info,clocks,allrows,out)
     # One gzip, deterministic container header, only aggregate component rows.
     with (out/'components.csv.gz').open('wb') as binary:
@@ -132,7 +147,7 @@ def main():
             eligible=[max(rs,key=lambda r:r['reported_pk']) for rs in minutes_by.values() if len(rs)==3 and all(r['comparison_eligible'] for r in rs)]
             values=np.array([r['reported_pk'] for r in eligible])
             allcandidate=[max([r['reported_pk'] for r in rs if r['reported_pk'] is not None],default=np.nan) for rs in minutes_by.values()]
-            summary.append(dict(clock=clock,band=band,unit=BANDS[band][2],total_minutes=len(minutes_by),comparable_all_axes_minutes=len(eligible),candidate_finite_minutes=int(np.isfinite(allcandidate).sum()),eligible_peak_P50=float(np.median(values)) if len(values) else None,eligible_peak_P95=float(np.quantile(values,.95)) if len(values) else None,eligible_peak_max=float(values.max()) if len(values) else None,axis_status_counts=dict(Counter(r['status'] for r in rows)),indicative_minute_zone_counts=dict(Counter(compare(r['reported_pk'],band,True) for r in eligible))))
+            summary.append(dict(clock=clock,band=band,unit=BANDS[band][2],total_minutes=len(minutes_by),comparable_all_axes_minutes=len(eligible),candidate_finite_minutes=int(np.isfinite(allcandidate).sum()),eligible_axis_windows=sum(bool(r['comparison_eligible']) for r in rows),by_axis={axis:dict(eligible=sum(bool(r['comparison_eligible']) for r in rows if r['axis']==axis),total=sum(r['axis']==axis for r in rows)) for axis in 'XYZ'},eligible_peak_P50=float(np.median(values)) if len(values) else None,eligible_peak_P95=float(np.quantile(values,.95)) if len(values) else None,eligible_peak_max=float(values.max()) if len(values) else None,axis_status_counts=dict(Counter(r['status'] for r in rows)),indicative_minute_zone_counts=dict(Counter(compare(r['reported_pk'],band,True) for r in eligible))))
     coeffpath=ROOT/'Modbus RTU/05_Firmware/src/domain/acquisition/fir_decimator10_coefficients.h';q=list(map(int,re.findall(r'-?\d+',coeffpath.read_text().split('= {',1)[1].split('}',1)[0])))
     assert hashlib.sha256(struct.pack('<107h',*q)).hexdigest()==info['coefficient_sha256']
     response=[]

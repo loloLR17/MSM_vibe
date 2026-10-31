@@ -73,4 +73,13 @@ class PKTests(unittest.TestCase):
         self.assertEqual(compare(4.04,'BV_PK_VEL_5_100',True),'ENTRE_1PK_2PK')
         self.assertEqual(round(4.04,1),4.0)
 
+class ExportTests(unittest.TestCase):
+    def test_numpy_scalars_preserve_numeric_and_bool_types(self):
+        import tempfile,json
+        from pathlib import Path
+        from run import dump
+        with tempfile.TemporaryDirectory() as d:
+            p=Path(d)/'out.json';dump(p,dict(agreement=np.bool_(True),value=np.float64(1.25),count=np.int64(3)))
+            self.assertEqual(json.loads(p.read_text()),dict(agreement=True,value=1.25,count=3))
+
 if __name__=='__main__':unittest.main(verbosity=2)

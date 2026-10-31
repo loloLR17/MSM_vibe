@@ -70,7 +70,7 @@ def candidates(X,cg,n,fs,axis,band,top=3,prune=True):
         elif close or shape>SHAPE_LIMIT:status='UNRESOLVED_OR_NON_SINUSOIDAL'
         elif sidebands:status='MODULATION_OR_MULTISOURCE'
         elif edge:status='BAND_EDGE_UNCERTAIN'
-        records.append(dict(frequency_Hz=float(f),component_pk=scalar(amp,f,band),component_mg_pk=amp,psd_peak_mg2_per_Hz=float(2*mag[k]**2/(fs*3*n/8)),component_rms=scalar(amp,f,band)/np.sqrt(2),contrast_dB=contrast,shape_error=shape,bin_index=int(k),delta_bin=delta,bin_spacing_Hz=1/T,status=status,band_edge_uncertain=edge,sidebands_possible=sidebands))
+        records.append(dict(frequency_Hz=float(f),component_pk=scalar(amp,f,band),component_mg_pk=amp,psd_peak_mg2_per_Hz=float(2*mag[k]**2/(fs*3*n/8)),fixed_frequency_rounding_bound_pk=scalar(.244/max(factor,1e-20),f,band),component_rms=scalar(amp,f,band)/np.sqrt(2),contrast_dB=contrast,shape_error=shape,bin_index=int(k),delta_bin=delta,bin_spacing_Hz=1/T,status=status,band_edge_uncertain=edge,sidebands_possible=sidebands))
     return sorted(records,key=lambda r:r['component_pk'],reverse=True)[:top]
 
 

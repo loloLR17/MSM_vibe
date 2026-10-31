@@ -111,3 +111,9 @@ Le FIR107Q15 est vérifié numériquement jusque100Hz, sans qualifier le MEMS,
 lebruit ou l'ensemble anti-alias. L'intégritéinterne .TR2 est démontrée mais
 le digestproducteurRAM indépendant reste perdu. Aucuneincidence structurelle,
 expositionA(8), santé, causalitémachine, conformité ou gradedeclasse n'est déduite.
+
+ArrondiFIR : ±0.122mg/échantillon nominal. Pour une fréquence **fixée**, la
+majorationamplitude de l'effetdeserreurs d'arrondi est2×0.122/|W(δ)|mg
+(≤environ0.288mg àδ=0.5), convertie dansl'unitédelacomposante etexportée.
+Ce n'est pas uneincertitudetotale, ni unbruitblanc constaté, ni une borne de
+l'erreur de fréquenceestimée. Les petitescomposantes/1Hz gardent cette réserve.
