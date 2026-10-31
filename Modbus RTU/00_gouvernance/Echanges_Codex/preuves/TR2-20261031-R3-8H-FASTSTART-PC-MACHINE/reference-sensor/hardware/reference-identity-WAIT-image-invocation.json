@@ -1,0 +1,26 @@
+{
+  "server": [
+    "/mnt/c/ST/STM32CubeCLT_1.22.0/STLink-gdb-server/bin/ST-LINK_gdbserver.exe",
+    "-d",
+    "-g",
+    "-i",
+    "0032001F3235510C37333439",
+    "--frequency",
+    "8000",
+    "-p",
+    "61236",
+    "-cp",
+    "C:\\ST\\STM32CubeCLT_1.22.0\\STM32CubeProgrammer\\bin"
+  ],
+  "gdb": [
+    "/mnt/c/ST/STM32CubeCLT_1.22.0/GNU-tools-for-STM32/bin/arm-none-eabi-gdb.exe",
+    "-nx",
+    "-q",
+    "-batch",
+    "-x",
+    "\\\\wsl.localhost\\Debian\\home\\lolo\\dev\\msm\\reports\\TR2-r3-N8D-reference-20261031\\hardware\\reference-identity-WAIT-image.gdb",
+    "\\\\wsl.localhost\\Debian\\home\\lolo\\dev\\msm\\reports\\TR2-r3-8h-faststart-N8D-20261031\\arm\\r3_coex.elf"
+  ],
+  "return_code": 8,
+  "utc": "2026-10-31T22:11:59.846818+00:00"
+}

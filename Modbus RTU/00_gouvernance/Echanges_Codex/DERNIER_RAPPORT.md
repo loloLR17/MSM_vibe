@@ -14,6 +14,16 @@ allow_flash: true
 allow_debug: true
 ---
 
+# Comparatif capteur de TR2-001 — toujours refusé, réponse immédiate avant départ
+
+L'utilisateur confirmecapteuréchangé etdépartdans5minutes. Contrôle effectuéimmédiatement avecimageDexistante, **aucunbuild/flash**. IdentitéUID002 etimageBIN889c551f…43cfe/53032B entièrementconformes ; RAMd'abordencore99/run1/error1 antérieur. Deuxgardespréflight/refusavantcommande ontpréservécetétat, puis **unresetlogiciel nécessaireàréarmement**, aprèsvérificationarrêtsûr/image, sansforcervariablesmétier. Repriseinit/calibrationunefoisdepuisWAIT.
+
+**Résultat : error7/stage99/run1, résidutemporel1875862µs > seuil100µs.** WHO7B,6577ancresFIFO/198brackets,0FIFOerror/0SDError ; calibrationnonvalide. **AucungateSD, aucunSTART8h, aucuneécriturefichiernouveau.** Le même symptôme persiste avec lecapteurderéférence rapporté paruser : onnepeutpasconclureàundéfautpropredupremiermodule. Liaison/transport/configuration/conditionscommunes restentàdépartager ; remplacerlecapteur n'apasrétablilapréparation.
+
+[Preuves](preuves/TR2-20261031-R3-8H-FASTSTART-PC-MACHINE/reference-sensor/README.md). Étatfinalcontrôlé : FIFOoff/stoperror0/writeroff/clockfault0/SDCShaute/GDBdétaché. ImageDduplex8MHz/HIGH conservée/bootWAITsansautostart, READYfalse. Pasd'accèslogiciel001/FRAM/COM4, donnéeshistoriquespréservées. Capteur001emprunté suivantautorisationuser, référencephysiqueexactenonfournie/WHO7B neconstituepasunidentifiantunique. Pasdequalification8h ni miseàjourV1 ; BLOCKEDdemeureunobstacleconcret avantacquisition, pasuncheckpointlogicielprésentéprêt.
+
+Réponseimmédiateuser : **NONPRÊT**, recueilliesetpréservées, aucunessaisupplémentaireaveugleavantappareillage. Pourpoursuivre, ilfautuncontrôlediscriminantduSPI(SCK/MISO/CS, références/liaisons/transport) ouuneautrevoieexplicitementprévueetqualifiée, sansignorerlesrefusdelacalibration. Checkpointàpublierpuisrelire, SHAfinaldansréponse.
+
 # 3,3V rapportés et comparaisons SPI — tous refusés, capteur de référence proposé
 
 L'utilisateur rapporte **VDD=3,3V/VDDIO=3,3V** au multimètre. Mesurestatiqueutilisateur, pasqualificationdesfrontsSPI. Investigation ciblée surtracesdéjàsauvées etcode : précédentR4-Udebitshiftapparent avecvoieHALduplexexistante. Ajoutminimum **R3_SPI_DUPLEX** opt-in OFFpardéfaut, limitéauprofil8H ; aucun nouveaupilote, algorithme/gain/FS/ODR/FIR/v3/importeur/contrôleschangés. Codeévalué **98457b5aa5c82dc44fe2305225790234654ea2c1** ; buildsARMciblésréussis, configurationprécommitpuisrebuildSHAcommitépourimageexacte, aucunancienPASSrépété. Validationcanoniqueancienne réutilisée car cibleinchangée ; physique requise avanttouteadoptiondevariante.

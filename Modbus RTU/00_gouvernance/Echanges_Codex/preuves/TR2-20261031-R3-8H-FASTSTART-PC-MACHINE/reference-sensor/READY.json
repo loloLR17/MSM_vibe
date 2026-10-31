@@ -1,0 +1,17 @@
+{
+  "prepared": false,
+  "long_never_started": true,
+  "operator_reports_reference_sensor_from_TR2_001": true,
+  "WHO": 123,
+  "image_source": "98457b5aa5c82dc44fe2305225790234654ea2c1",
+  "error": 7,
+  "cal_residual_us": 1875862,
+  "limit_us": 100,
+  "stage": 99,
+  "run": 1,
+  "FIFO_stopped": true,
+  "SD_quiescent": true,
+  "GDB_detached": true,
+  "no_flash": true,
+  "one_safe_software_reset": true
+}
