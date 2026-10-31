@@ -1,11 +1,11 @@
 ---
 mission_id: TR2-20261031-R5-WM-CONFORT-INDICATIF-OFFLINE
 mission_revision: R1-20261031-PREFERENCE-BV
-status: IN_PROGRESS
+status: DONE
 base_ref: main
 base_sha: 4192f4cbe0436a30cfe57a0033bbd869612931d5
 initial_head: 62e92d9e8b9e3cd71e68f4297549d33ca239f800
-result_sha: e7da10987dac8c5f8f8bc75f90ae6d5111eee938
+result_sha: 07948452e3548e842431e9066b3239a6182455e1
 created_at_utc: 2026-10-31T14:38:47.293484+00:00
 author: Codex
 target_branch: main
@@ -17,8 +17,8 @@ allow_debug: false
 
 # TR2-Wm : calcul local livré, comparabilité BV non établie
 
-Le traitement des six heures et les tranches logicielles sont terminés ; le statut
-provisoire IN_PROGRESS porte sur la publication/relecture finale. **TR2_WM_A_MAX**
+Le traitement des six heures et les tranches logicielles sont terminés, publiés
+et relus intégralement. **TR2_WM_A_MAX**
 est calculé sur XYZ nominaux : RMS Wm de chaque axe, puis maximum sur la même
 fenêtre, en **mm/s²**. Ce n'est ni une norme vectorielle ni un pic. Instrument
 non étalonné, campagne **NON_CLASSÉE**, **COMPARABILITE_BV_NON_ETABLIE**. Aucun
@@ -190,6 +190,28 @@ avant comparaison/documentation BV future. Aucune intervention physique requise 
 G0 source/préservation satisfait ; G1 calcul local original et oracles satisfaits,
 avec réserve explicite d'identité normative exhaustive ; G2 six heures/contrôles/
 influence satisfaits ; G3 étude BV avec issue NON_ETABLIE satisfaite seloncontrat ;
-G4 persistance/exports réalisés ; G5 publication/relecture en cours. Une clôture
-DONE qualifiera seulement la livraison logicielle locale, aucune conformité ou
-certification ni levée automatique des réserves physiques/historiques.
+G4 persistance/exports réalisés et publiés ; G5 publication/relecture satisfaite.
+**DONE clôt la livraison logicielle locale prévue**, avec son issue comparative
+NON_ETABLIE explicitement autorisée par le contrat. Aucune conformité, certification
+ou levée automatique des réserves physiques/historiques. Revue indépendante
+ChatGPT distincte, aucune qualification de jalon attribuée par Codex.
+
+## Publication et relecture distante
+
+- Checkpoint e7da10987dac8c5f8f8bc75f90ae6d5111eee938 :
+  `R5 Wm: checkpoint original tested weighting chain before real archive analysis`.
+- Code corrigé, résultats, preuves et bilan07948452e3548e842431e9066b3239a6182455e1 :
+  `R5 Wm: publish verified six-hour metric, event audit and explicit BV limits`.
+
+Les deux push normaux ont réussi sur main. Après `git fetch origin main`,
+**49fichiers/2 350 412octets** ont été relus intégralement par `git show` depuis
+la référence récupérée de GitHub et comparés aux fichiers publiés, tous identiques,
+mission comprise. [Preuve de relecture](preuves/TR2-20261031-R5-WM-CONFORT-INDICATIF-OFFLINE/remote-readback.json).
+Le SHA de résultat désigne la version corrigée testée et publiée ; le filtrage
+initial réutilisé provenait du checkpoint e7da1098, core mathématique identique.
+
+Le présent statut DONE, le journal final et la preuve sont publiés dans un dernier
+commit normal, vérifié également après push. Son SHA et l'état Git final sont
+fournis dans la réponse utilisateur, sans inscrire un SHA dans son propre commit.
+Les deux stashes et worktrees historiques sont préservés ; le worktree de mission
+sera contrôlé propre après publication. Aucun reset/rebase/force push/effacement.
