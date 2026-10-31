@@ -1,0 +1,101 @@
+{
+  "binary_comparisons": [
+    {
+      "pair": [
+        "N8A",
+        "N8B"
+      ],
+      "different_bytes": 36,
+      "offsets": [
+        53364,
+        53366,
+        53367,
+        53368,
+        53370,
+        53371,
+        53372,
+        53373,
+        53374,
+        53375,
+        53376,
+        53378,
+        53380,
+        53381,
+        53383,
+        53384,
+        53385,
+        53386,
+        53387,
+        53388,
+        53389,
+        53390,
+        53391,
+        53392,
+        53393,
+        53394,
+        53395,
+        53396,
+        53397,
+        53398,
+        53399,
+        53400,
+        53401,
+        53402,
+        53403,
+        53473
+      ],
+      "allowed_fields": [
+        {
+          "field": "source",
+          "offset": 53364,
+          "length": 40,
+          "old": "d5af0828e370780320bda67fac5d537bf3fd5016",
+          "new": "75ea886cdd3ad8d37db3f5573b2e2f07299714e9"
+        },
+        {
+          "field": "prefix",
+          "offset": 53471,
+          "length": 3,
+          "old": "N8A",
+          "new": "N8B"
+        }
+      ],
+      "all_other_image_bytes_identical": true,
+      "normalized_image_sha256": "a86b38f65e953e943ac8f66bf82c94452ba2e21aa75c12fc48b1c4b28bb2f391",
+      "normalized_build_definitions_identical": true,
+      "compiler_flags_identical": true
+    },
+    {
+      "pair": [
+        "N8B",
+        "N8C"
+      ],
+      "different_bytes": 1,
+      "offsets": [
+        53473
+      ],
+      "allowed_fields": [
+        {
+          "field": "source",
+          "offset": 53364,
+          "length": 40,
+          "old": "75ea886cdd3ad8d37db3f5573b2e2f07299714e9",
+          "new": "75ea886cdd3ad8d37db3f5573b2e2f07299714e9"
+        },
+        {
+          "field": "prefix",
+          "offset": 53471,
+          "length": 3,
+          "old": "N8B",
+          "new": "N8C"
+        }
+      ],
+      "all_other_image_bytes_identical": true,
+      "normalized_image_sha256": "a86b38f65e953e943ac8f66bf82c94452ba2e21aa75c12fc48b1c4b28bb2f391",
+      "normalized_build_definitions_identical": true,
+      "compiler_flags_identical": true
+    }
+  ],
+  "SPI_snapshots_all_identical": true,
+  "offline_only": true
+}

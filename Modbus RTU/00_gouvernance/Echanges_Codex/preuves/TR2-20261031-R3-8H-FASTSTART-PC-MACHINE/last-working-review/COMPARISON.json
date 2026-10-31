@@ -1,0 +1,547 @@
+{
+  "created_utc": "2026-10-31T22:26:50.675089+00:00",
+  "analysis_head": "97fa3d0ae242eb8db7b3dc2bfa8c9005f04d548f",
+  "method": "offline byte comparison, exact compiler defines, existing observations only",
+  "images": {
+    "E6": {
+      "source": "c3cd40ce9e96cef2241fb5bc6e8c83acd2a3824e",
+      "BIN_bytes": 54552,
+      "BIN_sha256": "b70438c7930ee2d928ec441a71a66ee23305d0fe5a102b2bc29e1453b6925330",
+      "prefix": "E6N",
+      "guard_us": 22000000000,
+      "definitions": "C_DEFINES = -DBENCH_CORE_MHZ=160 -DBENCH_DUPLEX=0 -DBENCH_SECOND_SPI_OBSERVER=1 -DBENCH_SPI_DIVIDER=2 -DBENCH_SPI_MODE3=1 -DR3_CAPTURE_DURATION_US=22000000000ull -DR3_CODE_SHA=\\\"c3cd40ce9e96cef2241fb5bc6e8c83acd2a3824e\\\" -DR3_DURABLE_CARD_PROFILE=1 -DR3_ENDURANCE_1H=1 -DR3_ENDURANCE_8H=1 -DR3_FILE_PREFIX=\\\"E6N\\\" -DR3_QPC_WITNESS=1 -DSTM32U575xx -DUSE_HAL_DRIVER",
+      "compiler_flags": "C_FLAGS = -std=c11 -mcpu=cortex-m33 -mthumb -O2 -g3 -Wall -Wextra -Werror -ffunction-sections -fdata-sections -fstack-usage",
+      "source_path": "/home/lolo/dev/msm/reports/TR2-r3-6h-data-20261031/artifact.json"
+    },
+    "N8A": {
+      "source": "d5af0828e370780320bda67fac5d537bf3fd5016",
+      "BIN_bytes": 54556,
+      "BIN_sha256": "c31904feca48fd06d6102eee40b54b373bbfe5e9896d0ddc007434cf253ddc17",
+      "prefix": "N8A",
+      "guard_us": 30600000000,
+      "definitions": "C_DEFINES = -DBENCH_CORE_MHZ=160 -DBENCH_DUPLEX=0 -DBENCH_SECOND_SPI_OBSERVER=1 -DBENCH_SPI_DIVIDER=2 -DBENCH_SPI_MODE3=1 -DR3_CAPTURE_DURATION_US=30600000000ull -DR3_CODE_SHA=\\\"d5af0828e370780320bda67fac5d537bf3fd5016\\\" -DR3_DURABLE_CARD_PROFILE=1 -DR3_ENDURANCE_1H=1 -DR3_ENDURANCE_8H=1 -DR3_FILE_PREFIX=\\\"N8A\\\" -DR3_QPC_WITNESS=1 -DSTM32U575xx -DUSE_HAL_DRIVER",
+      "compiler_flags": "C_FLAGS = -std=c11 -mcpu=cortex-m33 -mthumb -O2 -g3 -Wall -Wextra -Werror -ffunction-sections -fdata-sections -fstack-usage",
+      "source_path": "/home/lolo/dev/msm/reports/TR2-r3-8h-faststart-20261031/artifact.json",
+      "published_BIN_identical": true,
+      "published_path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R3-8H-FASTSTART-PC-MACHINE/arm/r3_coex.bin"
+    },
+    "N8B": {
+      "source": "75ea886cdd3ad8d37db3f5573b2e2f07299714e9",
+      "BIN_bytes": 54556,
+      "BIN_sha256": "91b191228bf23b35bfad3aa41ae8863f45deefca69f269188f4bafc622a225c3",
+      "prefix": "N8B",
+      "guard_us": 30600000000,
+      "definitions": "C_DEFINES = -DBENCH_CORE_MHZ=160 -DBENCH_DUPLEX=0 -DBENCH_SECOND_SPI_OBSERVER=1 -DBENCH_SPI_DIVIDER=2 -DBENCH_SPI_MODE3=1 -DR3_CAPTURE_DURATION_US=30600000000ull -DR3_CODE_SHA=\\\"75ea886cdd3ad8d37db3f5573b2e2f07299714e9\\\" -DR3_DURABLE_CARD_PROFILE=1 -DR3_ENDURANCE_1H=1 -DR3_ENDURANCE_8H=1 -DR3_FILE_PREFIX=\\\"N8B\\\" -DR3_QPC_WITNESS=1 -DSTM32U575xx -DUSE_HAL_DRIVER",
+      "compiler_flags": "C_FLAGS = -std=c11 -mcpu=cortex-m33 -mthumb -O2 -g3 -Wall -Wextra -Werror -ffunction-sections -fdata-sections -fstack-usage",
+      "source_path": "/home/lolo/dev/msm/reports/TR2-r3-8h-faststart-N8B-20261031/artifact.json",
+      "published_BIN_identical": true,
+      "published_path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R3-8H-FASTSTART-PC-MACHINE/rearm-after-reboot/N8B/arm/r3_coex.bin"
+    },
+    "N8C": {
+      "source": "75ea886cdd3ad8d37db3f5573b2e2f07299714e9",
+      "BIN_bytes": 54556,
+      "BIN_sha256": "0844bc7abdaffc163010e59526a92294ce492e31a805b0ddba4ca937a732009a",
+      "prefix": "N8C",
+      "guard_us": 30600000000,
+      "definitions": "C_DEFINES = -DBENCH_CORE_MHZ=160 -DBENCH_DUPLEX=0 -DBENCH_SECOND_SPI_OBSERVER=1 -DBENCH_SPI_DIVIDER=2 -DBENCH_SPI_MODE3=1 -DR3_CAPTURE_DURATION_US=30600000000ull -DR3_CODE_SHA=\\\"75ea886cdd3ad8d37db3f5573b2e2f07299714e9\\\" -DR3_DURABLE_CARD_PROFILE=1 -DR3_ENDURANCE_1H=1 -DR3_ENDURANCE_8H=1 -DR3_FILE_PREFIX=\\\"N8C\\\" -DR3_QPC_WITNESS=1 -DSTM32U575xx -DUSE_HAL_DRIVER",
+      "compiler_flags": "C_FLAGS = -std=c11 -mcpu=cortex-m33 -mthumb -O2 -g3 -Wall -Wextra -Werror -ffunction-sections -fdata-sections -fstack-usage",
+      "source_path": "/home/lolo/dev/msm/reports/TR2-r3-8h-faststart-N8C-20261031/artifact.json",
+      "published_BIN_identical": true,
+      "published_path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R3-8H-FASTSTART-PC-MACHINE/rearm-after-reboot/N8C/arm/r3_coex.bin"
+    },
+    "N8D": {
+      "source": "98457b5aa5c82dc44fe2305225790234654ea2c1",
+      "BIN_bytes": 53032,
+      "BIN_sha256": "889c551f625b9d5d5594b637a535446ed71455fbf46722b469d71cfdd6e43cfe",
+      "prefix": "N8D",
+      "guard_us": 30600000000,
+      "definitions": "C_DEFINES = -DBENCH_CORE_MHZ=160 -DBENCH_DUPLEX=1 -DBENCH_SECOND_SPI_OBSERVER=1 -DBENCH_SPI_DIVIDER=2 -DBENCH_SPI_MODE3=1 -DR3_CAPTURE_DURATION_US=30600000000ull -DR3_CODE_SHA=\\\"98457b5aa5c82dc44fe2305225790234654ea2c1\\\" -DR3_DURABLE_CARD_PROFILE=1 -DR3_ENDURANCE_1H=1 -DR3_ENDURANCE_8H=1 -DR3_FILE_PREFIX=\\\"N8D\\\" -DR3_QPC_WITNESS=1 -DSTM32U575xx -DUSE_HAL_DRIVER",
+      "compiler_flags": "C_FLAGS = -std=c11 -mcpu=cortex-m33 -mthumb -O2 -g3 -Wall -Wextra -Werror -ffunction-sections -fdata-sections -fstack-usage",
+      "source_path": "/home/lolo/dev/msm/reports/TR2-r3-8h-faststart-N8D-20261031/artifact.json",
+      "published_BIN_identical": true,
+      "published_path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R3-8H-FASTSTART-PC-MACHINE/duplex-differential/8MHz-high/arm/r3_coex.bin"
+    }
+  },
+  "binary_comparisons": [
+    {
+      "pair": [
+        "N8A",
+        "N8B"
+      ],
+      "different_bytes": 36,
+      "offsets": [
+        53364,
+        53366,
+        53367,
+        53368,
+        53370,
+        53371,
+        53372,
+        53373,
+        53374,
+        53375,
+        53376,
+        53378,
+        53380,
+        53381,
+        53383,
+        53384,
+        53385,
+        53386,
+        53387,
+        53388,
+        53389,
+        53390,
+        53391,
+        53392,
+        53393,
+        53394,
+        53395,
+        53396,
+        53397,
+        53398,
+        53399,
+        53400,
+        53401,
+        53402,
+        53403,
+        53473
+      ],
+      "allowed_fields": [
+        {
+          "field": "source",
+          "offset": 53364,
+          "length": 40,
+          "old": "d5af0828e370780320bda67fac5d537bf3fd5016",
+          "new": "75ea886cdd3ad8d37db3f5573b2e2f07299714e9"
+        },
+        {
+          "field": "prefix",
+          "offset": 53471,
+          "length": 3,
+          "old": "N8A",
+          "new": "N8B"
+        }
+      ],
+      "all_other_image_bytes_identical": true,
+      "normalized_image_sha256": "a86b38f65e953e943ac8f66bf82c94452ba2e21aa75c12fc48b1c4b28bb2f391",
+      "normalized_build_definitions_identical": true,
+      "compiler_flags_identical": true
+    },
+    {
+      "pair": [
+        "N8B",
+        "N8C"
+      ],
+      "different_bytes": 1,
+      "offsets": [
+        53473
+      ],
+      "allowed_fields": [
+        {
+          "field": "source",
+          "offset": 53364,
+          "length": 40,
+          "old": "75ea886cdd3ad8d37db3f5573b2e2f07299714e9",
+          "new": "75ea886cdd3ad8d37db3f5573b2e2f07299714e9"
+        },
+        {
+          "field": "prefix",
+          "offset": 53471,
+          "length": 3,
+          "old": "N8B",
+          "new": "N8C"
+        }
+      ],
+      "all_other_image_bytes_identical": true,
+      "normalized_image_sha256": "a86b38f65e953e943ac8f66bf82c94452ba2e21aa75c12fc48b1c4b28bb2f391",
+      "normalized_build_definitions_identical": true,
+      "compiler_flags_identical": true
+    }
+  ],
+  "observations": [
+    {
+      "image": "N8A",
+      "step": "n8a-card-calibrate",
+      "result_file_sha256": "f81d7c0c45c0f4030c9f9b502f959c43d5013b7712d24a8504610364b0408116",
+      "observation": {
+        "stage": 4,
+        "error": 0,
+        "clock": 160000000,
+        "who": 123,
+        "uid_0": 1769542,
+        "uid_1": 943869976,
+        "uid_2": 540225879,
+        "cal_residual": 16,
+        "cal_brackets": 199,
+        "cal_anchors": 6621,
+        "duration_us": 0,
+        "accepted": 0,
+        "outputs": 0,
+        "fifo_error": 0,
+        "sd_error": 0,
+        "rails": 0,
+        "clips": 0,
+        "primask": 0,
+        "basepri": 0,
+        "faultmask": 0,
+        "sd_steps": 0,
+        "sd_written": 0,
+        "sd_completed": 0,
+        "sd_pending_polls": 0,
+        "sd_peak_queue": 0
+      },
+      "SPI3_CFG1_CFG2": [
+        "0x70007",
+        "0x87440000"
+      ],
+      "SPI2_CFG1_CFG2": [
+        "0x10070007",
+        "0x84400000"
+      ],
+      "CID": "0353445344333247858bf0923c01927b"
+    },
+    {
+      "image": "N8A",
+      "step": "n8a-short-data",
+      "result_file_sha256": "4750c9bc94312861d1a10576ae52e59baa427afc0a62c4cdaf30644ba9cf462f",
+      "observation": {
+        "stage": 4,
+        "error": 0,
+        "clock": 160000000,
+        "who": 123,
+        "uid_0": 1769542,
+        "uid_1": 943869976,
+        "uid_2": 540225879,
+        "cal_residual": 16,
+        "cal_brackets": 199,
+        "cal_anchors": 6621,
+        "duration_us": 2000357,
+        "accepted": 52936,
+        "outputs": 5294,
+        "fifo_error": 0,
+        "sd_error": 0,
+        "rails": 0,
+        "clips": 0,
+        "primask": 0,
+        "basepri": 0,
+        "faultmask": 0,
+        "sd_steps": 766,
+        "sd_written": 34816,
+        "sd_completed": 9,
+        "sd_pending_polls": 766,
+        "sd_peak_queue": 5120
+      },
+      "SPI3_CFG1_CFG2": [
+        "0x70007",
+        "0x87440000"
+      ],
+      "SPI2_CFG1_CFG2": [
+        "0x10070007",
+        "0x84400000"
+      ],
+      "CID": "0353445344333247858bf0923c01927b"
+    },
+    {
+      "image": "N8B",
+      "step": "n8b-card-calibrate",
+      "result_file_sha256": "551c2055c9f905cf6fe50ecc0b1909d96cbe3c0ea414403dc4047ac7942af3f4",
+      "observation": {
+        "stage": 4,
+        "error": 0,
+        "clock": 160000000,
+        "who": 123,
+        "uid_0": 1769542,
+        "uid_1": 943869976,
+        "uid_2": 540225879,
+        "cal_residual": 40,
+        "cal_brackets": 200,
+        "cal_anchors": 6623,
+        "duration_us": 0,
+        "accepted": 0,
+        "outputs": 0,
+        "fifo_error": 0,
+        "sd_error": 0,
+        "rails": 0,
+        "clips": 0,
+        "primask": 0,
+        "basepri": 0,
+        "faultmask": 0,
+        "sd_steps": 0,
+        "sd_written": 0,
+        "sd_completed": 0,
+        "sd_pending_polls": 0,
+        "sd_peak_queue": 0
+      },
+      "SPI3_CFG1_CFG2": [
+        "0x70007",
+        "0x87440000"
+      ],
+      "SPI2_CFG1_CFG2": [
+        "0x10070007",
+        "0x84400000"
+      ],
+      "CID": "0353445344333247858bf0923c01927b"
+    },
+    {
+      "image": "N8B",
+      "step": "n8b-failed-gate",
+      "result_file_sha256": "dcfe38308d5bf3f0cb715606824336d89237cd7ef57322d0e64268155f2f7a50",
+      "observation": {
+        "stage": 99,
+        "error": 5,
+        "clock": 160000000,
+        "who": 123,
+        "uid_0": 1769542,
+        "uid_1": 943869976,
+        "uid_2": 540225879,
+        "cal_residual": 40,
+        "cal_brackets": 200,
+        "cal_anchors": 6623,
+        "duration_us": 205253,
+        "accepted": 5168,
+        "outputs": 517,
+        "fifo_error": 9,
+        "sd_error": 0,
+        "rails": 0,
+        "clips": 0,
+        "primask": 0,
+        "basepri": 0,
+        "faultmask": 0,
+        "sd_steps": 0,
+        "sd_written": 0,
+        "sd_completed": 0,
+        "sd_pending_polls": 0,
+        "sd_peak_queue": 3072
+      },
+      "SPI3_CFG1_CFG2": [
+        "0x70007",
+        "0x87440000"
+      ],
+      "SPI2_CFG1_CFG2": [
+        "0x10070007",
+        "0x84400000"
+      ],
+      "CID": "0353445344333247858bf0923c01927b"
+    },
+    {
+      "image": "N8C",
+      "step": "n8c-card-calibrate",
+      "result_file_sha256": "3150a86660855b2ddbae3e71fd11dd17a42b6e7b9eba363cb4e361391052f9e9",
+      "observation": {
+        "stage": 99,
+        "error": 2,
+        "clock": 160000000,
+        "who": 123,
+        "uid_0": 1769542,
+        "uid_1": 943869976,
+        "uid_2": 540225879,
+        "cal_residual": 0,
+        "cal_brackets": 4,
+        "cal_anchors": 0,
+        "duration_us": 0,
+        "accepted": 0,
+        "outputs": 0,
+        "fifo_error": 9,
+        "sd_error": 0,
+        "rails": 0,
+        "clips": 0,
+        "primask": 0,
+        "basepri": 0,
+        "faultmask": 0,
+        "sd_steps": 0,
+        "sd_written": 0,
+        "sd_completed": 0,
+        "sd_pending_polls": 0,
+        "sd_peak_queue": 0
+      },
+      "SPI3_CFG1_CFG2": [
+        "0x70007",
+        "0x87440000"
+      ],
+      "SPI2_CFG1_CFG2": [
+        "0x10070007",
+        "0x84400000"
+      ],
+      "CID": "0353445344333247858bf0923c01927b"
+    }
+  ],
+  "git_source_comparisons": [
+    {
+      "command": [
+        "git",
+        "diff",
+        "--exit-code",
+        "c3cd40ce",
+        "d5af0828",
+        "--",
+        "experiments/r3_durable_fat32/src",
+        "experiments/r3_durable_fat32/CMakeLists.txt",
+        "experiments/iis3dwb_st_reference",
+        "experiments/r3_coex_fifo_fir_sd",
+        "experiments/r3_time_reference",
+        "experiments/spi2_microsd_isolated",
+        "Modbus RTU/05_Firmware"
+      ],
+      "return_code": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "runtime_sources_unchanged": true
+    },
+    {
+      "command": [
+        "git",
+        "diff",
+        "--exit-code",
+        "d5af0828",
+        "75ea886c",
+        "--",
+        "experiments/r3_durable_fat32/src",
+        "experiments/r3_durable_fat32/CMakeLists.txt",
+        "experiments/iis3dwb_st_reference",
+        "experiments/r3_coex_fifo_fir_sd",
+        "experiments/r3_time_reference",
+        "experiments/spi2_microsd_isolated",
+        "Modbus RTU/05_Firmware"
+      ],
+      "return_code": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "runtime_sources_unchanged": true
+    }
+  ],
+  "host_events": [
+    {
+      "image": "N8A",
+      "file": "preflight-identity-existing-E6-WAIT-invocation.json",
+      "host_UTC_annotation": "2026-10-31T18:19:21.629587+00:00",
+      "return_code": 0
+    },
+    {
+      "image": "N8A",
+      "file": "N8A-readback-WAIT-invocation.json",
+      "host_UTC_annotation": "2026-10-31T18:19:36.031794+00:00",
+      "return_code": 0
+    },
+    {
+      "image": "N8A",
+      "file": "n8a-card-calibrate-invocation.json",
+      "host_UTC_annotation": "2026-10-31T18:19:57.018894+00:00",
+      "return_code": 0
+    },
+    {
+      "image": "N8A",
+      "file": "n8a-card-names-and-free-readonly-invocation.json",
+      "host_UTC_annotation": "2026-10-31T18:20:15.452631+00:00",
+      "return_code": 0
+    },
+    {
+      "image": "N8A",
+      "file": "n8a-short-trigger-detach-invocation.json",
+      "host_UTC_annotation": "2026-10-31T18:20:33.693692+00:00",
+      "return_code": 0
+    },
+    {
+      "image": "N8A",
+      "file": "n8a-short-data-collect-after-terminal-invocation.json",
+      "host_UTC_annotation": "2026-10-31T18:20:51.883178+00:00",
+      "return_code": 0
+    },
+    {
+      "image": "N8A",
+      "file": "prepare-final-preflight-invocation.json",
+      "host_UTC_annotation": "2026-10-31T18:21:24.817814+00:00",
+      "return_code": 0
+    },
+    {
+      "image": "N8A",
+      "file": "gate-complete-file-reread-SHA-invocation.json",
+      "host_UTC_annotation": "2026-10-31T18:22:07.952448+00:00",
+      "return_code": 0
+    },
+    {
+      "image": "N8A",
+      "file": "post-install-RAM-20261031T211607Z-invocation.json",
+      "host_UTC_annotation": "2026-10-31T21:16:12.108993+00:00",
+      "return_code": 7
+    },
+    {
+      "image": "N8A",
+      "file": "post-install-confirm-WAIT-20261031T211640Z-invocation.json",
+      "host_UTC_annotation": "2026-10-31T21:16:45.609894+00:00",
+      "return_code": 0
+    },
+    {
+      "image": "N8B",
+      "file": "preflash-confirm-N8A-WAIT-invocation.json",
+      "host_UTC_annotation": "2026-10-31T21:29:56.601009+00:00",
+      "return_code": 0
+    },
+    {
+      "image": "N8B",
+      "file": "N8B-readback-WAIT-invocation.json",
+      "host_UTC_annotation": "2026-10-31T21:30:05.079149+00:00",
+      "return_code": 0
+    },
+    {
+      "image": "N8B",
+      "file": "n8b-card-calibrate-invocation.json",
+      "host_UTC_annotation": "2026-10-31T21:30:20.103319+00:00",
+      "return_code": 0
+    },
+    {
+      "image": "N8B",
+      "file": "n8b-card-names-and-free-readonly-invocation.json",
+      "host_UTC_annotation": "2026-10-31T21:30:38.585967+00:00",
+      "return_code": 0
+    },
+    {
+      "image": "N8B",
+      "file": "n8b-short-trigger-detach-invocation.json",
+      "host_UTC_annotation": "2026-10-31T21:30:54.006484+00:00",
+      "return_code": 0
+    },
+    {
+      "image": "N8B",
+      "file": "n8b-failure-state-invocation.json",
+      "host_UTC_annotation": "2026-10-31T21:31:13.823131+00:00",
+      "return_code": 0
+    },
+    {
+      "image": "N8B",
+      "file": "n8b-failing-burst-readonly-invocation.json",
+      "host_UTC_annotation": "2026-10-31T21:31:44.665952+00:00",
+      "return_code": 0
+    },
+    {
+      "image": "N8C",
+      "file": "preflash-confirm-N8B-safe-failed-invocation.json",
+      "host_UTC_annotation": "2026-10-31T21:32:20.212830+00:00",
+      "return_code": 0
+    },
+    {
+      "image": "N8C",
+      "file": "N8C-readback-WAIT-invocation.json",
+      "host_UTC_annotation": "2026-10-31T21:32:29.978071+00:00",
+      "return_code": 0
+    },
+    {
+      "image": "N8C",
+      "file": "n8c-card-calibrate-invocation.json",
+      "host_UTC_annotation": "2026-10-31T21:32:42.462805+00:00",
+      "return_code": 6
+    },
+    {
+      "image": "N8C",
+      "file": "n8c-stop-quiescence-confirm-invocation.json",
+      "host_UTC_annotation": "2026-10-31T21:33:12.680278+00:00",
+      "return_code": 0
+    }
+  ],
+  "limitations": [
+    "Host UTC annotations are not sample UTC or an independent physical clock measurement.",
+    "No first-post-move reset-cause RCC flags were saved; later resets prevent reliable retrospective attribution.",
+    "No successful N8A calibration was replayed after relocation with the exact saved N8A image.",
+    "Identical code does not exclude a pre-existing state/timing/data-dependent firmware defect.",
+    "Static 3.3V does not characterize SPI or supply transients.",
+    "Later duplex/slew/sensor trials are separate conditions; shared causal origin is not proved."
+  ]
+}

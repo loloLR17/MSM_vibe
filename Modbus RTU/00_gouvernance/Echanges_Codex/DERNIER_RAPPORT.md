@@ -14,6 +14,22 @@ allow_flash: true
 allow_debug: true
 ---
 
+# Étude demandée : repartir du dernier succès, sans nouvel essai matériel
+
+Analyse hors ligne sur HEAD97fa3d0a. [Différentiel complet](preuves/TR2-20261031-R3-8H-FASTSTART-PC-MACHINE/last-working-review/ANALYSE_DIFFERENTIELLE.md), [comparaisons exactes](preuves/TR2-20261031-R3-8H-FASTSTART-PC-MACHINE/last-working-review/COMPARISON.json). Aucun build, flash, reset, debugger, Windows/COM/SD ni répétition d'essai réussi ; seul un script de lecture/comparaison des preuves conservées a été exécuté, code0/assertions satisfaites.
+
+**Référence la plus récente : N8A a encore réussi avant le déplacement**, à18:19–18:22UTC hôte : calibration16µs, gate2s et relectureFatFs/SHAamont conformes. La6hE6N reste le dernier succèslong, avec ses réserves historiques et le lieuPCmachine rapporté par utilisateur. Le profil8h30600sMCU était donc déjà actif et fonctionnel lors du gateA.
+
+**Preuve binaire : A→B ne change que36octets de provenanceSHAASCII/préfixe ; B→C ne change qu'un octet du nom.** Tous les autres octets des imagesA/B/C, options compilateur et définitions hors ces champs sont identiques ; BINlocaux identiques aux copies déjà publiées dansGit. Les snapshots SPI3(00070007/87440000), SPI2(10070007/84400000), UID/CID et masquesIRQ sont identiques. Cela écarte une modification de code exécutable comme différence entre dernier succèsA et premier défautB, **pas un défaut latent de transport/état/timing**.
+
+Chronologie importante : déplacement rapporté → RAMreset observée21:16 avec FlashA intacte → nouveauflashB21:30 → **calibrationB réussie40µs** → erreur de parité au gateB0,205253s → Ctaginconnu. Duplex, fronts,4MHz et capteur001 sont tous ultérieurs au premier défaut. La réussite6h déjà auPCmachine interdit aussi de traiter le seul lieu «machine» comme cause démontrée. Cheminement réel, contraintes, masses et conditions électriques environnantes non caractérisés comparativement.
+
+Limites : **les flags RCC de cause du premier reset n'ont pas été sauvegardés avant les reflashes** ; sa cause exacte reste inconnue. L'imageAexacte n'a pas été réessayée après déplacement. Le chemin de démarrage n'inclut pas un reset global explicite du capteur ; resetMCU et coupure globale ne prouvent donc pas le même état capteur. Les erreurs de tags et de timestamps/configuration des variantes ultérieures ne prouvent pas une cause unique.
+
+Suite proposée, **non exécutée** : revenir à la référenceAexacte et aux conditions matérielles identifiées, relever les états initiaux pertinents puis contrôler seulement l'initialisation/calibration, sans écrire de fichier ni écraserN8A0003 ; toute modification d'état capteur doit ensuite être isolée comme un facteur. L'étude ne conclut ni «câblage fautif» ni «capteurinitial défectueux» ; elle recentre le diagnostic sur le changement d'état/conditions et les défauts préexistants possibles. **BLOCKED de préparation8h reste exact**, étude documentaire terminée mais aucune réparation/qualification physique nouvelle. Matériel laissé dans l'état sûr précédent, sans intervention lors de cette étude.
+
+Journal actualisé avec ces preuves et lacunes. Étude/rapport à publier et relire surmain, SHA final dans la réponse. Les rubriques suivantes restent l'historique des essais antérieurs.
+
 # Comparatif capteur de TR2-001 — toujours refusé, réponse immédiate avant départ
 
 L'utilisateur confirmecapteuréchangé etdépartdans5minutes. Contrôle effectuéimmédiatement avecimageDexistante, **aucunbuild/flash**. IdentitéUID002 etimageBIN889c551f…43cfe/53032B entièrementconformes ; RAMd'abordencore99/run1/error1 antérieur. Deuxgardespréflight/refusavantcommande ontpréservécetétat, puis **unresetlogiciel nécessaireàréarmement**, aprèsvérificationarrêtsûr/image, sansforcervariablesmétier. Repriseinit/calibrationunefoisdepuisWAIT.
