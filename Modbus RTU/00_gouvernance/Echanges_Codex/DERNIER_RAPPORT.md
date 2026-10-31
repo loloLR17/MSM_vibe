@@ -28,7 +28,7 @@ Limites : **les flags RCC de cause du premier reset n'ont pas été sauvegardés
 
 Suite proposée, **non exécutée** : revenir à la référenceAexacte et aux conditions matérielles identifiées, relever les états initiaux pertinents puis contrôler seulement l'initialisation/calibration, sans écrire de fichier ni écraserN8A0003 ; toute modification d'état capteur doit ensuite être isolée comme un facteur. L'étude ne conclut ni «câblage fautif» ni «capteurinitial défectueux» ; elle recentre le diagnostic sur le changement d'état/conditions et les défauts préexistants possibles. **BLOCKED de préparation8h reste exact**, étude documentaire terminée mais aucune réparation/qualification physique nouvelle. Matériel laissé dans l'état sûr précédent, sans intervention lors de cette étude.
 
-Journal actualisé avec ces preuves et lacunes. Étude/rapport à publier et relire surmain, SHA final dans la réponse. Les rubriques suivantes restent l'historique des essais antérieurs.
+Journal actualisé avec ces preuves et lacunes. Étude et rapport publiés au commit a3d6535be4b1973fe59f63904fd87ac9dafd785d, puis six fichiers relus intégralement depuis origin/main et comparés aux fichiers locaux : tous identiques. Preuve last-working-review/remote-readback.json ; publication finale de cette preuve à vérifier, SHA final dans la réponse. Les rubriques suivantes restent l'historique des essais antérieurs.
 
 # Comparatif capteur de TR2-001 — toujours refusé, réponse immédiate avant départ
 
