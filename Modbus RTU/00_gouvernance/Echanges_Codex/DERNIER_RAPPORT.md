@@ -26,7 +26,7 @@ RCC_CSR/sélections horloges/GPIO conservés avantflash etCSR après/final sansc
 
 **Étatfinalvérifié : N8A conservé enFlash, stage99/run1/error2, FIFOoff/writeroff/stoperror0/clockfault0/SDCShaute, GDBdétaché/serveurfermé.** READYfalse, préparation8hBLOCKED, aucunSTARTlong niqualification. Pasd'accèslogiciel001/FRAM/COM4/format/politiquesWindows, anciencapteur etfichierspréservés. Le `result_sha` désigne désormais le codeN8A réellement évalué surcarte ; HEAD documentaire120842b0 avantcettetranche. LesversionsdiagnostiquesetleurcodeGit nesontpasécrasés ourebasés.
 
-Restaurationphysique réalisée selonordreuser ; contrôlecourtréitéréjustifiéparchangementd'image/deconditions, aucun ancienbuild/testhôte/canonique relancé. Pasd'autrevarianteouessaipendantcettetranche. Rapport/journal/preuvesàpublier puisrelire, SHAfinaldansréponse ; rubriquessuivanteshistoriques.
+Restaurationphysique réalisée selonordreuser ; contrôlecourtréitéréjustifiéparchangementd'image/deconditions, aucun ancienbuild/testhôte/canonique relancé. Pasd'autrevarianteouessaipendantcettetranche. Rapport/journal/preuves publiés91501661 puis50fichiers relusintégralement/46artefactsbruts conformes aprèsdécompression siapplicable ; preuve restored-exact-N8A/remote-readback.json, bilanfinalàvérifieretSHAfinaldansréponse ; rubriquessuivanteshistoriques.
 
 # Étude demandée : repartir du dernier succès, sans nouvel essai matériel
 
