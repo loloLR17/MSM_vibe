@@ -14,6 +14,16 @@ allow_flash: true
 allow_debug: true
 ---
 
+# Après réenfichage utilisateur — défaut reproduit, mesures électriques attendues
+
+**Retour utilisateur : nappe etSTLINKdébranchés/rebranchés, contrôlevisuel sansanomalie.** Le firmwareN8C est intact : relectureintégrale54556B identiqueauBIN0844bc7a…2009a, UID002 etWAITinitial corrects. Réutilisation de l'image/ELFexistants, **aucunbuild/flash/resetCodex** lorsdecettevérification.
+
+Une seule nouvelleinitialisation/calibration aprèsintervention : WHO7B/carteinitialisée/montageFAT32, mais de nouveau stage99/error2/FIFO9/**reason6 tagnonreconnu**. Quinze brackets avantéchec, aucun résultatdecalibrationvalide, **aucun gateSD ni STARTlong ni nouvelleécritureSD** (writes0). La récidive intervientpendantcalibration, sanswriteractif ; elle ne démontre pasunproblèmedechargeSD. Causeexacteinconnue, défautSPI/banc à départager, contrôlevisuel nequalifiepasl'électrique. [Preuves](preuves/TR2-20261031-R3-8H-FASTSTART-PC-MACHINE/after-user-replug/README.md).
+
+Étatfinal vérifié : FIFOoff/writeroff/card.failedfalse/clockfault0/CShaute, GDBdétaché/serveurfermé. READYopérationnelfalse, statutBLOCKED conservé, aucunlong. L'utilisateur dispose d'unmultimètre et prépare lesmesuresVDD/GND etVDDIO/GND au modulecapteur (attendu≈3,3V chacun), bancalimentémaisarrêté, sansdéplacerlesfils. Attendrecesvaleurs avanttouteopérationdépendante. Aucune calibration/acquisition ne sera relancée pendantmesures. Lesréserves, échecs et fichiersprécédents restentpréservés.
+
+Checkpointdocumentaire àpublier/relectureensuite, sansattendrelesmesures pourpréservercesconstats. Lesrubriquessuivantes décriventlesétapeshistoriques.
+
 # Réarmement demandé — BLOCKED sur défaut de tags FIFO, intervention physique attendue
 
 **Aucun long lancé. La préparation n'est pas rétablie.** À la demande explicite de réarmement, deuximages à nouveauxpréfixes ont été construites/flashées par procédurestandard et relues intégralement conformes ; aucune garde, fréquenceSPI, FIR/gain/FS/format/importeur modifiés. Images/source75ea886c, sourcefonctionnelleidentiqueauprofilacquis. Deuxflashsstandardsavecresetdeprogrammation danscettetranche, aucunresetsupplémentaire. N8A/précédentgate/donnéeshistoriques intacts ; pasdesuppression/formatage.

@@ -1,0 +1,10 @@
+{
+  "prepared": false,
+  "long_never_started": true,
+  "prefix": "N8C",
+  "stage": 99,
+  "run": 1,
+  "error": 2,
+  "reason": "FIFO tag error recurs after user replug; no new flash or capture",
+  "GDB_detached": true
+}

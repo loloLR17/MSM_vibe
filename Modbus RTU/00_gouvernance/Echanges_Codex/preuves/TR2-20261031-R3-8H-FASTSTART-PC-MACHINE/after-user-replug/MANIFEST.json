@@ -1,0 +1,254 @@
+[
+  {
+    "file": "PREFLIGHT.json",
+    "original_bytes": 169,
+    "sha256": "4873eeddca5433c254c32d14ab32ccbd08184e1a84a58d268abf3b457abfd6f3",
+    "zlib": false
+  },
+  {
+    "file": "READY.json",
+    "original_bytes": 218,
+    "sha256": "12ef3e616701eba7f2eba1fc7186ca42d5eb2bbbad16193932e43d1e205c771f",
+    "zlib": false
+  },
+  {
+    "file": "artifact.json",
+    "original_bytes": 644,
+    "sha256": "b378fa15362faa025b454ae3b9e2644d2d8ae4b86368fae8db0c18c6c545bc5a",
+    "zlib": false
+  },
+  {
+    "file": "hardware/after-replug-identity-image-WAIT-invocation.json",
+    "original_bytes": 767,
+    "sha256": "24c15433a8e9056306d1f9d5836dcb55b1d21102f6645c2f1db8999bf0753a68",
+    "zlib": false
+  },
+  {
+    "file": "hardware/after-replug-identity-image-WAIT-server.log.zlib",
+    "original_bytes": 674,
+    "sha256": "030ed83bdd9e560371dd4df01fbb2f25a71828a2bd725448cff4a24e6cf46bf2",
+    "zlib": true
+  },
+  {
+    "file": "hardware/after-replug-identity-image-WAIT.gdb",
+    "original_bytes": 644,
+    "sha256": "00bb06e8bd12e2a6c264f958f89d4965027dfe2e66b1f883816d69aa19d332ee",
+    "zlib": false
+  },
+  {
+    "file": "hardware/after-replug-identity-image-WAIT.log.zlib",
+    "original_bytes": 1290,
+    "sha256": "491cc7b8b9f92f3163be035cb86718eb1e4bc5eba38d90adddcf5792c1598372",
+    "zlib": true
+  },
+  {
+    "file": "hardware/n8c-card-calibrate-invocation.json",
+    "original_bytes": 753,
+    "sha256": "da5f298d824359a925a4ac68a2a17391778023de135aa3561d91bdb384c5c48b",
+    "zlib": false
+  },
+  {
+    "file": "hardware/n8c-card-calibrate-server.log.zlib",
+    "original_bytes": 674,
+    "sha256": "030ed83bdd9e560371dd4df01fbb2f25a71828a2bd725448cff4a24e6cf46bf2",
+    "zlib": true
+  },
+  {
+    "file": "hardware/n8c-card-calibrate.gdb",
+    "original_bytes": 5452,
+    "sha256": "baf46f2fad9dccc7cb31c95997d2360a4934d6d0a9fefef7d5175b5b7bab38d4",
+    "zlib": false
+  },
+  {
+    "file": "hardware/n8c-card-calibrate.log.zlib",
+    "original_bytes": 16340,
+    "sha256": "065dd73b8e030d3a41aa777fe7da5d5f68f498f3cc2b150aba0b78c911df6523",
+    "zlib": true
+  },
+  {
+    "file": "hardware/post-replug-failure-stop-confirm-invocation.json",
+    "original_bytes": 767,
+    "sha256": "856b655821d43cc732f0d0e2cba1fb45aef6cc0df0729652dd4de765e8aa2994",
+    "zlib": false
+  },
+  {
+    "file": "hardware/post-replug-failure-stop-confirm-server.log.zlib",
+    "original_bytes": 674,
+    "sha256": "030ed83bdd9e560371dd4df01fbb2f25a71828a2bd725448cff4a24e6cf46bf2",
+    "zlib": true
+  },
+  {
+    "file": "hardware/post-replug-failure-stop-confirm.gdb",
+    "original_bytes": 689,
+    "sha256": "3fd9a66823926be57ba88967f13251e6c1e158b636bed4dc392531efe5989e46",
+    "zlib": false
+  },
+  {
+    "file": "hardware/post-replug-failure-stop-confirm.log.zlib",
+    "original_bytes": 579,
+    "sha256": "1f888be3c48f9667bd920c196eae930adb2f26ebe8cd440e06bd3c540d44effb",
+    "zlib": true
+  },
+  {
+    "file": "hibernate-policy.txt.zlib",
+    "original_bytes": 718,
+    "sha256": "3812849455c26df899b4a486e02f1fcd8767f9708b102f557dfdd402a710c1e4",
+    "zlib": true
+  },
+  {
+    "file": "init-card.log.zlib",
+    "original_bytes": 2438,
+    "sha256": "4aee52b134f034d45f3ca280b68c93af0779da005a0882e14200437ff30d28ba",
+    "zlib": true
+  },
+  {
+    "file": "n8c-card-calibrate/brackets.bin.zlib",
+    "original_bytes": 360,
+    "sha256": "ba16758aee5963163ba750c5b2870a3cbb2dcc62a84b0c7548fc5a3d78940964",
+    "zlib": true
+  },
+  {
+    "file": "n8c-card-calibrate/busy-distributions.bin.zlib",
+    "original_bytes": 8048,
+    "sha256": "7e6740c91f7c21b361fbb73984f22afef3896b669f9e2a87d31f6e18e9a48432",
+    "zlib": true
+  },
+  {
+    "file": "n8c-card-calibrate/card.bin.zlib",
+    "original_bytes": 5228,
+    "sha256": "48eec84d44a13f513012246235b200439579c8df4331511a68e51382a49aa554",
+    "zlib": true
+  },
+  {
+    "file": "n8c-card-calibrate/distributions.bin.zlib",
+    "original_bytes": 80096,
+    "sha256": "ca61cc292aca487b0a45370be2db7dbf6ded99bcc597c934f15ce76b598cb8d3",
+    "zlib": true
+  },
+  {
+    "file": "n8c-card-calibrate/durable-footer.bin.zlib",
+    "original_bytes": 512,
+    "sha256": "076a27c79e5ace2a3d47f9dd2e83e4ff6ea8872b3c2218f66c92b89b55f36560",
+    "zlib": true
+  },
+  {
+    "file": "n8c-card-calibrate/durable-status.bin.zlib",
+    "original_bytes": 64,
+    "sha256": "a567e57e1a7f01b45c9bfdee65b727d767193ca4f2b885969262e1fb35519b79",
+    "zlib": true
+  },
+  {
+    "file": "n8c-card-calibrate/failing-fifo-words.bin.zlib",
+    "original_bytes": 448,
+    "sha256": "5b510e15afd643d3f1df957cf7f97ea4230f50d33d50d3696e16fe7bb05c64a6",
+    "zlib": true
+  },
+  {
+    "file": "n8c-card-calibrate/fifo-stop-payload.bin.zlib",
+    "original_bytes": 135,
+    "sha256": "686be0080e1bae9eaa9497e63bdbe0b21417ed0c4e579970a3f91f72763ca337",
+    "zlib": true
+  },
+  {
+    "file": "n8c-card-calibrate/fifo-stop-trace.bin.zlib",
+    "original_bytes": 440,
+    "sha256": "c69ba7b00a119ab21292b1758ebd2887caa5ce3b2967e2dd124cdf6c40a211b6",
+    "zlib": true
+  },
+  {
+    "file": "n8c-card-calibrate/header.bin.zlib",
+    "original_bytes": 512,
+    "sha256": "076a27c79e5ace2a3d47f9dd2e83e4ff6ea8872b3c2218f66c92b89b55f36560",
+    "zlib": true
+  },
+  {
+    "file": "n8c-card-calibrate/outputs.bin.zlib",
+    "original_bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "zlib": true
+  },
+  {
+    "file": "n8c-card-calibrate/raw.bin.zlib",
+    "original_bytes": 14336,
+    "sha256": "aeae2f0f1ce5cc54eef8a9c4ac49f2d0fe040edac7c5303e4446dc69725baa80",
+    "zlib": true
+  },
+  {
+    "file": "n8c-card-calibrate/records.bin.zlib",
+    "original_bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "zlib": true
+  },
+  {
+    "file": "n8c-card-calibrate/result.bin.zlib",
+    "original_bytes": 296,
+    "sha256": "bff4207d859e2b85d6d9502d077f220b657f7855d9720b2b449fe028443bd391",
+    "zlib": true
+  },
+  {
+    "file": "n8c-card-calibrate/result.json",
+    "original_bytes": 1298,
+    "sha256": "5875c9374e8fa329fd653fe598f0292a45429332177fcdf15ddb1b6086f7a6ba",
+    "zlib": false
+  },
+  {
+    "file": "n8c-card-calibrate/sd-distributions.bin.zlib",
+    "original_bytes": 8048,
+    "sha256": "7e6740c91f7c21b361fbb73984f22afef3896b669f9e2a87d31f6e18e9a48432",
+    "zlib": true
+  },
+  {
+    "file": "n8c-card-calibrate/sd-records.bin.zlib",
+    "original_bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "zlib": true
+  },
+  {
+    "file": "n8c-card-calibrate/single-busy-max.bin.zlib",
+    "original_bytes": 4,
+    "sha256": "df3f619804a92fdb4057192dc43dd748ea778adc52bc498ce80524c014b81119",
+    "zlib": true
+  },
+  {
+    "file": "n8c-card-calibrate/source-sha.bin.zlib",
+    "original_bytes": 32,
+    "sha256": "66687aadf862bd776c8fc18b8e9f8e20089714856ee233b3902a591d0d5f2925",
+    "zlib": true
+  },
+  {
+    "file": "n8c-card-calibrate/sources.bin.zlib",
+    "original_bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "zlib": true
+  },
+  {
+    "file": "n8c-card-calibrate/spi2-config.bin.zlib",
+    "original_bytes": 8,
+    "sha256": "3b94b11cca9c930ed8faedbbf7c18e4fe7caaa1dea53f2d82f702b3b48c847b3",
+    "zlib": true
+  },
+  {
+    "file": "n8c-card-calibrate/spi3-config.bin.zlib",
+    "original_bytes": 8,
+    "sha256": "f07474c9a6c35e3d662c0cb2a2c4cbc568f000d35bd733c56d99999577ae3691",
+    "zlib": true
+  },
+  {
+    "file": "native-host.json.zlib",
+    "original_bytes": 794,
+    "sha256": "f24450258808b01d42fa67366f5256fbfeae3dc02d6ea2e306fc2e352a0308e1",
+    "zlib": true
+  },
+  {
+    "file": "read-host.log.zlib",
+    "original_bytes": 456,
+    "sha256": "b9772072ae30fe1867b903bf39dd821d0a8889fd4168eb9e798cc2f93bf7509b",
+    "zlib": true
+  },
+  {
+    "file": "sleep-policy.txt.zlib",
+    "original_bytes": 696,
+    "sha256": "6e59cdbc1c2b85c92bb010a1db10695f1b0c7cf61c8d8d83247827fcb1af8466",
+    "zlib": true
+  }
+]
