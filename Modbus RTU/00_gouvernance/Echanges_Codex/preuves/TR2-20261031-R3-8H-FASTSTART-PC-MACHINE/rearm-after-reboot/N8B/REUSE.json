@@ -1,0 +1,47 @@
+{
+  "previous_gate_kept": true,
+  "prior_launcher_guards_pass_log": "/home/lolo/dev/msm/reports/TR2-r3-8h-faststart-20261031/launcher-guards.log",
+  "new_guard_tests_not_repeated": true,
+  "helpers": [
+    {
+      "file": "launch_8h.py",
+      "logic_unchanged_except_path_and_prefix": true,
+      "sha256": "dd9a36b13f906ed1b45fa9e9655cadd7b316d1eef208b9d221b3fd7af31f806a"
+    },
+    {
+      "file": "start_detached.py",
+      "logic_unchanged_except_path_and_prefix": true,
+      "sha256": "d6a6789173168ab0e4d4daf88f4dfd98254cfac46570fbbb3c6f0f7725c1b6df"
+    },
+    {
+      "file": "test_launcher_guards.py",
+      "logic_unchanged_except_path_and_prefix": true,
+      "sha256": "53f1bfc78b6439070e955772dcb71682187f662c3c7e053d82a3a97a87dd7546"
+    },
+    {
+      "file": "read_host.py",
+      "logic_unchanged_except_path_and_prefix": true,
+      "sha256": "8d1c488c2726d7766066104c7c05fc7a81ac20a8ee73be65fe86425391d20687"
+    },
+    {
+      "file": "hardware_second.py",
+      "logic_unchanged_except_path_and_prefix": true,
+      "sha256": "919ee7c3952e129978410d59637a48938a9cbdca81afd6e5d798d3cc3a989cf9"
+    },
+    {
+      "file": "run_capture.py",
+      "logic_unchanged_except_path_and_prefix": true,
+      "sha256": "dc0925a8176e2bb0b6b720cfc492f928c46d45d01ea418761712ffcd69bd3dea"
+    },
+    {
+      "file": "analyze_capture.py",
+      "logic_unchanged_except_path_and_prefix": true,
+      "sha256": "c9f1b00a962a111da1b5b7ccec181c45dd3a461298610aab1077c6db87174e5e"
+    },
+    {
+      "file": "collect_after_terminal.py",
+      "logic_unchanged_except_path_and_prefix": true,
+      "sha256": "38968abd0868cddaef41d72be6ad1384c0142b7fe0f9bad9872490265a40f29e"
+    }
+  ]
+}

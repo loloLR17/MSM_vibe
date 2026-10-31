@@ -1,0 +1,24 @@
+{
+  "code_sha": "75ea886cdd3ad8d37db3f5573b2e2f07299714e9",
+  "profile": "v3/int16/8H exploratory",
+  "nominal_guard_us": 30600000000,
+  "file_bytes": 671088640,
+  "prefix": "N8C",
+  "images": [
+    {
+      "file": "r3_coex.bin",
+      "bytes": 54556,
+      "sha256": "0844bc7abdaffc163010e59526a92294ce492e31a805b0ddba4ca937a732009a"
+    },
+    {
+      "file": "r3_coex.elf",
+      "bytes": 2156476,
+      "sha256": "849a59d83713fc18dd6ac0143e96ac3f2823f96c6553e208739a223cf79b49c8"
+    },
+    {
+      "file": "r3_coex.map",
+      "bytes": 690165,
+      "sha256": "babfd8c6552925832bee96c358f267cde7d93c3e596a4b7f391e1b7942323fd7"
+    }
+  ]
+}

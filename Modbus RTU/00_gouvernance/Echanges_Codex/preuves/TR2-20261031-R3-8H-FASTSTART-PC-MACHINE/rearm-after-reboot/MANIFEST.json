@@ -1,0 +1,991 @@
+{
+  "files": [
+    {
+      "file": "N8B/CARD_PREFLIGHT.json",
+      "original_file": "CARD_PREFLIGHT.json",
+      "bytes": 307,
+      "sha256": "b33cedca47f426d3dc56c3eb6e04a6fb6a5bc1b443c50cb853d05c7445ac833a",
+      "zlib": false
+    },
+    {
+      "file": "N8B/PREFLIGHT.json",
+      "original_file": "PREFLIGHT.json",
+      "bytes": 176,
+      "sha256": "258767bd578acce85df32f36b7c6033c06fa291b512bc2b5c51207492dbefe4e",
+      "zlib": false
+    },
+    {
+      "file": "N8B/REUSE.json",
+      "original_file": "REUSE.json",
+      "bytes": 1690,
+      "sha256": "c22f0582287c6863493d35749cd83a94444ed5794751117fbb4903671cddfe83",
+      "zlib": false
+    },
+    {
+      "file": "N8B/analyze_capture.py",
+      "original_file": "analyze_capture.py",
+      "bytes": 4585,
+      "sha256": "c9f1b00a962a111da1b5b7ccec181c45dd3a461298610aab1077c6db87174e5e",
+      "zlib": false
+    },
+    {
+      "file": "N8B/arm/r3_coex.bin",
+      "original_file": "arm/r3_coex.bin",
+      "bytes": 54556,
+      "sha256": "91b191228bf23b35bfad3aa41ae8863f45deefca69f269188f4bafc622a225c3",
+      "zlib": false
+    },
+    {
+      "file": "N8B/artifact.json",
+      "original_file": "artifact.json",
+      "bytes": 644,
+      "sha256": "5968e2166234e312a3514942f585202698d062b3978d853db047c8dbf7d86214",
+      "zlib": false
+    },
+    {
+      "file": "N8B/build.log.zlib",
+      "original_file": "build.log",
+      "bytes": 8180,
+      "sha256": "71aed929d59fc28707fdf1a8737e19ef21caab699205c906bc845b8222e38b73",
+      "zlib": true
+    },
+    {
+      "file": "N8B/collect_after_terminal.py",
+      "original_file": "collect_after_terminal.py",
+      "bytes": 1483,
+      "sha256": "38968abd0868cddaef41d72be6ad1384c0142b7fe0f9bad9872490265a40f29e",
+      "zlib": false
+    },
+    {
+      "file": "N8B/collect_failure.py",
+      "original_file": "collect_failure.py",
+      "bytes": 813,
+      "sha256": "1b8df30dbda9561287a22898953b13c57caf0f3a73440ceed939971576e09285",
+      "zlib": false
+    },
+    {
+      "file": "N8B/configure.log.zlib",
+      "original_file": "configure.log",
+      "bytes": 594,
+      "sha256": "febebb890a760c0ec260ac04c30198705dfa4a03106429402bb0924e898d0cbc",
+      "zlib": true
+    },
+    {
+      "file": "N8B/failure-analysis.log.zlib",
+      "original_file": "failure-analysis.log",
+      "bytes": 4837,
+      "sha256": "06391f6abe4cc5b6ecf2162ca17b93fcc47ede8a4a6e46aafc421d602ff45831",
+      "zlib": true
+    },
+    {
+      "file": "N8B/flash_prepared.py",
+      "original_file": "flash_prepared.py",
+      "bytes": 1618,
+      "sha256": "40c175c1d8511b03c1f893b27979fe50590a98de22b23a8aa23f010b07135340",
+      "zlib": false
+    },
+    {
+      "file": "N8B/hardware/N8B-readback-WAIT-invocation.json",
+      "original_file": "hardware/N8B-readback-WAIT-invocation.json",
+      "bytes": 745,
+      "sha256": "31a9ec3145e91622f870d644cb36db9f11c46c2eff52668c5c7cd7c32e10ac34",
+      "zlib": false
+    },
+    {
+      "file": "N8B/hardware/N8B-readback-WAIT-server.log.zlib",
+      "original_file": "hardware/N8B-readback-WAIT-server.log",
+      "bytes": 642,
+      "sha256": "aba6686847910134d76be16aaeb48ea8cff54b4318c7e8947f73d76ce3bbcd45",
+      "zlib": true
+    },
+    {
+      "file": "N8B/hardware/N8B-readback-WAIT.gdb",
+      "original_file": "hardware/N8B-readback-WAIT.gdb",
+      "bytes": 655,
+      "sha256": "96b4983ed1459558a80ff1401868d13b0a3e9ef807abd43be5bfc8890f4f2c68",
+      "zlib": false
+    },
+    {
+      "file": "N8B/hardware/N8B-readback-WAIT.log.zlib",
+      "original_file": "hardware/N8B-readback-WAIT.log",
+      "bytes": 1290,
+      "sha256": "491cc7b8b9f92f3163be035cb86718eb1e4bc5eba38d90adddcf5792c1598372",
+      "zlib": true
+    },
+    {
+      "file": "N8B/hardware/flash-N8B-prepared-command.json",
+      "original_file": "hardware/flash-N8B-prepared-command.json",
+      "bytes": 525,
+      "sha256": "0f90d054a2560c40cbc6eedc28935d79b550171a3c52fe92e7af36ea06e17418",
+      "zlib": false
+    },
+    {
+      "file": "N8B/hardware/flash-N8B-prepared.log.zlib",
+      "original_file": "hardware/flash-N8B-prepared.log",
+      "bytes": 1617,
+      "sha256": "794544aaa97eb1d76d903b6a119f148548993847a248a30a814c84338c52e6c3",
+      "zlib": true
+    },
+    {
+      "file": "N8B/hardware/n8b-card-calibrate-invocation.json",
+      "original_file": "hardware/n8b-card-calibrate-invocation.json",
+      "bytes": 746,
+      "sha256": "992d89e4fc377d5d82d9ff88cd5365bb017e22849e1e67ea297d5b941bdaba00",
+      "zlib": false
+    },
+    {
+      "file": "N8B/hardware/n8b-card-calibrate-server.log.zlib",
+      "original_file": "hardware/n8b-card-calibrate-server.log",
+      "bytes": 674,
+      "sha256": "030ed83bdd9e560371dd4df01fbb2f25a71828a2bd725448cff4a24e6cf46bf2",
+      "zlib": true
+    },
+    {
+      "file": "N8B/hardware/n8b-card-calibrate.gdb",
+      "original_file": "hardware/n8b-card-calibrate.gdb",
+      "bytes": 5312,
+      "sha256": "c36003d6ef15dac0553a5051fbbc23d1e9433ff5ce9fe2d7eb2f9db2df394498",
+      "zlib": false
+    },
+    {
+      "file": "N8B/hardware/n8b-card-calibrate.log.zlib",
+      "original_file": "hardware/n8b-card-calibrate.log",
+      "bytes": 6157,
+      "sha256": "5cd3dd5a66d3999676e81fad044cf62d9377b363186af83b4006f3ef8853add1",
+      "zlib": true
+    },
+    {
+      "file": "N8B/hardware/n8b-card-names-and-free-readonly-invocation.json",
+      "original_file": "hardware/n8b-card-names-and-free-readonly-invocation.json",
+      "bytes": 760,
+      "sha256": "8969392ee4ddb8c97fca9bf391264e905382a64b2647cffd62ba4e8841deffe1",
+      "zlib": false
+    },
+    {
+      "file": "N8B/hardware/n8b-card-names-and-free-readonly-server.log.zlib",
+      "original_file": "hardware/n8b-card-names-and-free-readonly-server.log",
+      "bytes": 674,
+      "sha256": "030ed83bdd9e560371dd4df01fbb2f25a71828a2bd725448cff4a24e6cf46bf2",
+      "zlib": true
+    },
+    {
+      "file": "N8B/hardware/n8b-card-names-and-free-readonly.gdb",
+      "original_file": "hardware/n8b-card-names-and-free-readonly.gdb",
+      "bytes": 1180,
+      "sha256": "30f989729afaabd765d6c4d4d80de747710c0b8bd6b0fee552b3e8b4f7b1b8c5",
+      "zlib": false
+    },
+    {
+      "file": "N8B/hardware/n8b-card-names-and-free-readonly.log.zlib",
+      "original_file": "hardware/n8b-card-names-and-free-readonly.log",
+      "bytes": 13114,
+      "sha256": "a9734233b000b8c969cd4832ae640fafb6310c947f47cfc6f063a34a6c8fe47f",
+      "zlib": true
+    },
+    {
+      "file": "N8B/hardware/n8b-failing-burst-readonly-invocation.json",
+      "original_file": "hardware/n8b-failing-burst-readonly-invocation.json",
+      "bytes": 754,
+      "sha256": "d282d07e9db6975227e959fbab33554e20fd1d2c7f0d2227d05ccbc7e68f5aaf",
+      "zlib": false
+    },
+    {
+      "file": "N8B/hardware/n8b-failing-burst-readonly-server.log.zlib",
+      "original_file": "hardware/n8b-failing-burst-readonly-server.log",
+      "bytes": 674,
+      "sha256": "030ed83bdd9e560371dd4df01fbb2f25a71828a2bd725448cff4a24e6cf46bf2",
+      "zlib": true
+    },
+    {
+      "file": "N8B/hardware/n8b-failing-burst-readonly.gdb",
+      "original_file": "hardware/n8b-failing-burst-readonly.gdb",
+      "bytes": 539,
+      "sha256": "7a612edc63fd9742780620120546cec355eb662d56b0b3e1872ef33bcfb93b7b",
+      "zlib": false
+    },
+    {
+      "file": "N8B/hardware/n8b-failing-burst-readonly.log.zlib",
+      "original_file": "hardware/n8b-failing-burst-readonly.log",
+      "bytes": 523,
+      "sha256": "203dab3b9ec31012b9a4b7e51fccebc4e8606b1940f9f1bceeef2cedaad7b00a",
+      "zlib": true
+    },
+    {
+      "file": "N8B/hardware/n8b-failure-state-invocation.json",
+      "original_file": "hardware/n8b-failure-state-invocation.json",
+      "bytes": 745,
+      "sha256": "38ecc47f6ac68a7b5e7ed1ebdab95c5176ed84a831597fd66dd1a86baeafab62",
+      "zlib": false
+    },
+    {
+      "file": "N8B/hardware/n8b-failure-state-server.log.zlib",
+      "original_file": "hardware/n8b-failure-state-server.log",
+      "bytes": 674,
+      "sha256": "030ed83bdd9e560371dd4df01fbb2f25a71828a2bd725448cff4a24e6cf46bf2",
+      "zlib": true
+    },
+    {
+      "file": "N8B/hardware/n8b-failure-state.gdb",
+      "original_file": "hardware/n8b-failure-state.gdb",
+      "bytes": 4882,
+      "sha256": "b8774eda7f9155f458f3170cb9065511b6e694617ab22218f0d13db77484cd83",
+      "zlib": false
+    },
+    {
+      "file": "N8B/hardware/n8b-failure-state.log.zlib",
+      "original_file": "hardware/n8b-failure-state.log",
+      "bytes": 3296,
+      "sha256": "eb786d76e4ffa537f7d8d6de110906a76a1f8ff033dc03c6aed7300a0ba0a1f9",
+      "zlib": true
+    },
+    {
+      "file": "N8B/hardware/n8b-short-trigger-detach-invocation.json",
+      "original_file": "hardware/n8b-short-trigger-detach-invocation.json",
+      "bytes": 752,
+      "sha256": "963438ba13330960ee64676bcea45fee6b96e084b6187a79d974e4ef0fea2c53",
+      "zlib": false
+    },
+    {
+      "file": "N8B/hardware/n8b-short-trigger-detach-server.log.zlib",
+      "original_file": "hardware/n8b-short-trigger-detach-server.log",
+      "bytes": 674,
+      "sha256": "030ed83bdd9e560371dd4df01fbb2f25a71828a2bd725448cff4a24e6cf46bf2",
+      "zlib": true
+    },
+    {
+      "file": "N8B/hardware/n8b-short-trigger-detach.gdb",
+      "original_file": "hardware/n8b-short-trigger-detach.gdb",
+      "bytes": 537,
+      "sha256": "b1f22a79cfb003453ef411c4c022c25c10d432496bb31a3b30f1e96dc6069f6a",
+      "zlib": false
+    },
+    {
+      "file": "N8B/hardware/n8b-short-trigger-detach.log.zlib",
+      "original_file": "hardware/n8b-short-trigger-detach.log",
+      "bytes": 1336,
+      "sha256": "d079ef261d6e18c898dac1155db56fc9eac6186a16bceaabee026d18059bc2c1",
+      "zlib": true
+    },
+    {
+      "file": "N8B/hardware/preflash-confirm-N8A-WAIT-invocation.json",
+      "original_file": "hardware/preflash-confirm-N8A-WAIT-invocation.json",
+      "bytes": 749,
+      "sha256": "4f9d4e320220b6bffae30edf993a2119117585b64dc1bd2f2fafdf6683a1e878",
+      "zlib": false
+    },
+    {
+      "file": "N8B/hardware/preflash-confirm-N8A-WAIT-server.log.zlib",
+      "original_file": "hardware/preflash-confirm-N8A-WAIT-server.log",
+      "bytes": 674,
+      "sha256": "030ed83bdd9e560371dd4df01fbb2f25a71828a2bd725448cff4a24e6cf46bf2",
+      "zlib": true
+    },
+    {
+      "file": "N8B/hardware/preflash-confirm-N8A-WAIT.gdb",
+      "original_file": "hardware/preflash-confirm-N8A-WAIT.gdb",
+      "bytes": 615,
+      "sha256": "9ab268bcec47f252263bf77fbaa427af697e1b77fe1650c1b60f23ed442c6c86",
+      "zlib": false
+    },
+    {
+      "file": "N8B/hardware/preflash-confirm-N8A-WAIT.log.zlib",
+      "original_file": "hardware/preflash-confirm-N8A-WAIT.log",
+      "bytes": 1282,
+      "sha256": "d48eba6aeb03e3c4018717a92f96bddfd93f93da01dbb752010ccaeeb74fc752",
+      "zlib": true
+    },
+    {
+      "file": "N8B/hardware_second.py",
+      "original_file": "hardware_second.py",
+      "bytes": 2406,
+      "sha256": "919ee7c3952e129978410d59637a48938a9cbdca81afd6e5d798d3cc3a989cf9",
+      "zlib": false
+    },
+    {
+      "file": "N8B/hibernate-policy.txt.zlib",
+      "original_file": "hibernate-policy.txt",
+      "bytes": 718,
+      "sha256": "3812849455c26df899b4a486e02f1fcd8767f9708b102f557dfdd402a710c1e4",
+      "zlib": true
+    },
+    {
+      "file": "N8B/init-card.log.zlib",
+      "original_file": "init-card.log",
+      "bytes": 1336,
+      "sha256": "2f6e19f14611990a6bd47eae6b038091421ce2f49c27461a559f6a0df137e122",
+      "zlib": true
+    },
+    {
+      "file": "N8B/init_card.py",
+      "original_file": "init_card.py",
+      "bytes": 2007,
+      "sha256": "c13342ba70b36c7f14ab276aa88b632025e895f8273cf6f7fc3bf10e65b6c7be",
+      "zlib": false
+    },
+    {
+      "file": "N8B/launch_8h.py",
+      "original_file": "launch_8h.py",
+      "bytes": 4458,
+      "sha256": "dd9a36b13f906ed1b45fa9e9655cadd7b316d1eef208b9d221b3fd7af31f806a",
+      "zlib": false
+    },
+    {
+      "file": "N8B/n8b-failed-gate/analysis.json",
+      "original_file": "n8b-failed-gate/analysis.json",
+      "bytes": 4837,
+      "sha256": "06391f6abe4cc5b6ecf2162ca17b93fcc47ede8a4a6e46aafc421d602ff45831",
+      "zlib": false
+    },
+    {
+      "file": "N8B/n8b-failed-gate/brackets.bin.zlib",
+      "original_file": "n8b-failed-gate/brackets.bin",
+      "bytes": 4800,
+      "sha256": "22dd1ce093f964c65ea5e886b0564ee7f3acd40c013cb543d9ad5cf02e87cecd",
+      "zlib": true
+    },
+    {
+      "file": "N8B/n8b-failed-gate/busy-distributions.bin.zlib",
+      "original_file": "n8b-failed-gate/busy-distributions.bin",
+      "bytes": 8048,
+      "sha256": "7e6740c91f7c21b361fbb73984f22afef3896b669f9e2a87d31f6e18e9a48432",
+      "zlib": true
+    },
+    {
+      "file": "N8B/n8b-failed-gate/card.bin.zlib",
+      "original_file": "n8b-failed-gate/card.bin",
+      "bytes": 5228,
+      "sha256": "ae8e7b6408fe9182a14b8a8bcc6577b186dbef4a4727794d60f6a31882aad0b9",
+      "zlib": true
+    },
+    {
+      "file": "N8B/n8b-failed-gate/distributions.bin.zlib",
+      "original_file": "n8b-failed-gate/distributions.bin",
+      "bytes": 80096,
+      "sha256": "734ab1f0e6ec2ed49c3c5da08e405ba35bf5464dec5888a6249021b84cee1cb6",
+      "zlib": true
+    },
+    {
+      "file": "N8B/n8b-failed-gate/durable-footer.bin.zlib",
+      "original_file": "n8b-failed-gate/durable-footer.bin",
+      "bytes": 512,
+      "sha256": "076a27c79e5ace2a3d47f9dd2e83e4ff6ea8872b3c2218f66c92b89b55f36560",
+      "zlib": true
+    },
+    {
+      "file": "N8B/n8b-failed-gate/durable-status.bin.zlib",
+      "original_file": "n8b-failed-gate/durable-status.bin",
+      "bytes": 64,
+      "sha256": "398191883a3cf9de4aa707b998c0936397cca03d585010419bc1466755c20901",
+      "zlib": true
+    },
+    {
+      "file": "N8B/n8b-failed-gate/failing-fifo-words.bin.zlib",
+      "original_file": "n8b-failed-gate/failing-fifo-words.bin",
+      "bytes": 448,
+      "sha256": "cd3b012d2ede4db4a471c2e7513e684f80a8571362cd9c1297e61b48729a3665",
+      "zlib": true
+    },
+    {
+      "file": "N8B/n8b-failed-gate/fifo-stop-payload.bin.zlib",
+      "original_file": "n8b-failed-gate/fifo-stop-payload.bin",
+      "bytes": 226,
+      "sha256": "2d2bbf57f96e4a883fdeb9dc12980ee8d4d1b515806a6cf12a73431638f1a4b6",
+      "zlib": true
+    },
+    {
+      "file": "N8B/n8b-failed-gate/fifo-stop-trace.bin.zlib",
+      "original_file": "n8b-failed-gate/fifo-stop-trace.bin",
+      "bytes": 800,
+      "sha256": "aef9d20e3d503d302e1e8552c1b5dfc1c8bdaa021988b4377e49b7f8caae679f",
+      "zlib": true
+    },
+    {
+      "file": "N8B/n8b-failed-gate/header.bin.zlib",
+      "original_file": "n8b-failed-gate/header.bin",
+      "bytes": 512,
+      "sha256": "dcb2f80694f093206cb081a7f73a05618e9711cfeffd6bc68fa746e35efc5c0d",
+      "zlib": true
+    },
+    {
+      "file": "N8B/n8b-failed-gate/outputs.bin.zlib",
+      "original_file": "n8b-failed-gate/outputs.bin",
+      "bytes": 6144,
+      "sha256": "b1b88f08294cce489b9d9de270c0de24ce0a258741d61c7b459f38a462af7e14",
+      "zlib": true
+    },
+    {
+      "file": "N8B/n8b-failed-gate/raw.bin.zlib",
+      "original_file": "n8b-failed-gate/raw.bin",
+      "bytes": 14336,
+      "sha256": "e6914cffacfcc6ee8d1390215521a1aceda3f9b52881e5a3037e0d2b01e32a64",
+      "zlib": true
+    },
+    {
+      "file": "N8B/n8b-failed-gate/records.bin.zlib",
+      "original_file": "n8b-failed-gate/records.bin",
+      "bytes": 6264,
+      "sha256": "89d667b2d3a291d98a0a23d71e3d686464254fdd5d011f1aa5b15a7a82fab2da",
+      "zlib": true
+    },
+    {
+      "file": "N8B/n8b-failed-gate/result.bin.zlib",
+      "original_file": "n8b-failed-gate/result.bin",
+      "bytes": 296,
+      "sha256": "3b6c0342f1b76fdf14909d4387af40b760d19abd62b8c1aaffae65295052ca09",
+      "zlib": true
+    },
+    {
+      "file": "N8B/n8b-failed-gate/result.json",
+      "original_file": "n8b-failed-gate/result.json",
+      "bytes": 1389,
+      "sha256": "dcfe38308d5bf3f0cb715606824336d89237cd7ef57322d0e64268155f2f7a50",
+      "zlib": false
+    },
+    {
+      "file": "N8B/n8b-failed-gate/sd-distributions.bin.zlib",
+      "original_file": "n8b-failed-gate/sd-distributions.bin",
+      "bytes": 8048,
+      "sha256": "7e6740c91f7c21b361fbb73984f22afef3896b669f9e2a87d31f6e18e9a48432",
+      "zlib": true
+    },
+    {
+      "file": "N8B/n8b-failed-gate/sd-records.bin.zlib",
+      "original_file": "n8b-failed-gate/sd-records.bin",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "zlib": true
+    },
+    {
+      "file": "N8B/n8b-failed-gate/single-busy-max.bin.zlib",
+      "original_file": "n8b-failed-gate/single-busy-max.bin",
+      "bytes": 4,
+      "sha256": "df3f619804a92fdb4057192dc43dd748ea778adc52bc498ce80524c014b81119",
+      "zlib": true
+    },
+    {
+      "file": "N8B/n8b-failed-gate/source-sha.bin.zlib",
+      "original_file": "n8b-failed-gate/source-sha.bin",
+      "bytes": 32,
+      "sha256": "532f31ee62c14f8037cd8d7871e3c92e28532fe698481042193c30b456bcd555",
+      "zlib": true
+    },
+    {
+      "file": "N8B/n8b-failed-gate/sources.bin.zlib",
+      "original_file": "n8b-failed-gate/sources.bin",
+      "bytes": 24576,
+      "sha256": "01aa3cba3eafd4883834b8b46f7d97b324746b34ccc18826ac5edd87b896c9b0",
+      "zlib": true
+    },
+    {
+      "file": "N8B/n8b-failed-gate/spi2-config.bin.zlib",
+      "original_file": "n8b-failed-gate/spi2-config.bin",
+      "bytes": 8,
+      "sha256": "3b94b11cca9c930ed8faedbbf7c18e4fe7caaa1dea53f2d82f702b3b48c847b3",
+      "zlib": true
+    },
+    {
+      "file": "N8B/n8b-failed-gate/spi3-config.bin.zlib",
+      "original_file": "n8b-failed-gate/spi3-config.bin",
+      "bytes": 8,
+      "sha256": "f07474c9a6c35e3d662c0cb2a2c4cbc568f000d35bd733c56d99999577ae3691",
+      "zlib": true
+    },
+    {
+      "file": "N8B/n8b-short-observer-launch.json",
+      "original_file": "n8b-short-observer-launch.json",
+      "bytes": 345,
+      "sha256": "b8b5b52942c5f9b7edf24d348268fea9be31eb90c39a55b585c010be003ca222",
+      "zlib": false
+    },
+    {
+      "file": "N8B/native-host.json.zlib",
+      "original_file": "native-host.json",
+      "bytes": 794,
+      "sha256": "f24450258808b01d42fa67366f5256fbfeae3dc02d6ea2e306fc2e352a0308e1",
+      "zlib": true
+    },
+    {
+      "file": "N8B/read_host.py",
+      "original_file": "read_host.py",
+      "bytes": 1440,
+      "sha256": "8d1c488c2726d7766066104c7c05fc7a81ac20a8ee73be65fe86425391d20687",
+      "zlib": false
+    },
+    {
+      "file": "N8B/run_capture.py",
+      "original_file": "run_capture.py",
+      "bytes": 4166,
+      "sha256": "dc0925a8176e2bb0b6b720cfc492f928c46d45d01ea418761712ffcd69bd3dea",
+      "zlib": false
+    },
+    {
+      "file": "N8B/sleep-policy.txt.zlib",
+      "original_file": "sleep-policy.txt",
+      "bytes": 696,
+      "sha256": "6e59cdbc1c2b85c92bb010a1db10695f1b0c7cf61c8d8d83247827fcb1af8466",
+      "zlib": true
+    },
+    {
+      "file": "N8B/start-short-after-host.log.zlib",
+      "original_file": "start-short-after-host.log",
+      "bytes": 655,
+      "sha256": "f72a99448cf8d462b6d30043ab1e902201a5bbf05dd5649ef6f0f5716fa09ac5",
+      "zlib": true
+    },
+    {
+      "file": "N8B/start-short.log.zlib",
+      "original_file": "start-short.log",
+      "bytes": 1432,
+      "sha256": "77d1fd01489d235331033c2d2a048ab72fbef2a24375d17ab5e6ca3337967f3d",
+      "zlib": true
+    },
+    {
+      "file": "N8B/start_detached.py",
+      "original_file": "start_detached.py",
+      "bytes": 3973,
+      "sha256": "d6a6789173168ab0e4d4daf88f4dfd98254cfac46570fbbb3c6f0f7725c1b6df",
+      "zlib": false
+    },
+    {
+      "file": "N8B/test_launcher_guards.py",
+      "original_file": "test_launcher_guards.py",
+      "bytes": 1312,
+      "sha256": "53f1bfc78b6439070e955772dcb71682187f662c3c7e053d82a3a97a87dd7546",
+      "zlib": false
+    },
+    {
+      "file": "N8B/verify_gate.py",
+      "original_file": "verify_gate.py",
+      "bytes": 830,
+      "sha256": "c8c871f50139968c41416ed2252b0b56956516e81789841400a54ae672469a4a",
+      "zlib": false
+    },
+    {
+      "file": "N8C/PREFLIGHT.json",
+      "original_file": "PREFLIGHT.json",
+      "bytes": 225,
+      "sha256": "61379dc07248051068529dc8924ddb504a6a73e75078623255219bc0f8c3ad45",
+      "zlib": false
+    },
+    {
+      "file": "N8C/READY.json",
+      "original_file": "READY.json",
+      "bytes": 242,
+      "sha256": "06ea58e163e0f9c4d5a049722d46ebf4e539e50023b22ec8e2075e833ca71020",
+      "zlib": false
+    },
+    {
+      "file": "N8C/analyze_capture.py",
+      "original_file": "analyze_capture.py",
+      "bytes": 4585,
+      "sha256": "452d37d8a84805dcd6d5445b4a27cb5c9b2a8ea42c4753d0193573439b0841e6",
+      "zlib": false
+    },
+    {
+      "file": "N8C/arm/r3_coex.bin",
+      "original_file": "arm/r3_coex.bin",
+      "bytes": 54556,
+      "sha256": "0844bc7abdaffc163010e59526a92294ce492e31a805b0ddba4ca937a732009a",
+      "zlib": false
+    },
+    {
+      "file": "N8C/artifact.json",
+      "original_file": "artifact.json",
+      "bytes": 644,
+      "sha256": "b378fa15362faa025b454ae3b9e2644d2d8ae4b86368fae8db0c18c6c545bc5a",
+      "zlib": false
+    },
+    {
+      "file": "N8C/build.log.zlib",
+      "original_file": "build.log",
+      "bytes": 8180,
+      "sha256": "f1d7d7354576bcef2c077beaa531f7a7a0f33ad6012ebc1d412c1707e04a3706",
+      "zlib": true
+    },
+    {
+      "file": "N8C/collect_after_terminal.py",
+      "original_file": "collect_after_terminal.py",
+      "bytes": 1483,
+      "sha256": "38968abd0868cddaef41d72be6ad1384c0142b7fe0f9bad9872490265a40f29e",
+      "zlib": false
+    },
+    {
+      "file": "N8C/configure.log.zlib",
+      "original_file": "configure.log",
+      "bytes": 594,
+      "sha256": "599b52c87667442d390ab72e1acba46db7a30be30c4233ef978b42fe5f994f45",
+      "zlib": true
+    },
+    {
+      "file": "N8C/flash_prepared.py",
+      "original_file": "flash_prepared.py",
+      "bytes": 1618,
+      "sha256": "685058f5539d4ba104a7245546c84aa04da16dafcd8c3fc6b323d2b81ab8d0a2",
+      "zlib": false
+    },
+    {
+      "file": "N8C/hardware/N8C-readback-WAIT-invocation.json",
+      "original_file": "hardware/N8C-readback-WAIT-invocation.json",
+      "bytes": 745,
+      "sha256": "2a748b79bfdcc90d249d28202314d6ac2381f11a106b96f696300573cb245e02",
+      "zlib": false
+    },
+    {
+      "file": "N8C/hardware/N8C-readback-WAIT-server.log.zlib",
+      "original_file": "hardware/N8C-readback-WAIT-server.log",
+      "bytes": 642,
+      "sha256": "aba6686847910134d76be16aaeb48ea8cff54b4318c7e8947f73d76ce3bbcd45",
+      "zlib": true
+    },
+    {
+      "file": "N8C/hardware/N8C-readback-WAIT.gdb",
+      "original_file": "hardware/N8C-readback-WAIT.gdb",
+      "bytes": 655,
+      "sha256": "6e6e2244c033ff1dae5db0fae7430c44313c9718d9db0a173f6943a4f9cde8a6",
+      "zlib": false
+    },
+    {
+      "file": "N8C/hardware/N8C-readback-WAIT.log.zlib",
+      "original_file": "hardware/N8C-readback-WAIT.log",
+      "bytes": 1290,
+      "sha256": "491cc7b8b9f92f3163be035cb86718eb1e4bc5eba38d90adddcf5792c1598372",
+      "zlib": true
+    },
+    {
+      "file": "N8C/hardware/flash-N8C-prepared-command.json",
+      "original_file": "hardware/flash-N8C-prepared-command.json",
+      "bytes": 525,
+      "sha256": "12a160ccab71d1c4b9db1b7b707d07c4d7b08c63e0f29df3cccfeb4f0bd505d4",
+      "zlib": false
+    },
+    {
+      "file": "N8C/hardware/flash-N8C-prepared.log.zlib",
+      "original_file": "hardware/flash-N8C-prepared.log",
+      "bytes": 1617,
+      "sha256": "635c7b691a48d03c6442376f373583830b78f68eb45cd765fff5c5d67ace5c86",
+      "zlib": true
+    },
+    {
+      "file": "N8C/hardware/n8c-card-calibrate-invocation.json",
+      "original_file": "hardware/n8c-card-calibrate-invocation.json",
+      "bytes": 746,
+      "sha256": "bd782434f66fe1830e26e69b92395b126934d57bc189a70dd8927f5b30cc73d7",
+      "zlib": false
+    },
+    {
+      "file": "N8C/hardware/n8c-card-calibrate-server.log.zlib",
+      "original_file": "hardware/n8c-card-calibrate-server.log",
+      "bytes": 674,
+      "sha256": "030ed83bdd9e560371dd4df01fbb2f25a71828a2bd725448cff4a24e6cf46bf2",
+      "zlib": true
+    },
+    {
+      "file": "N8C/hardware/n8c-card-calibrate.gdb",
+      "original_file": "hardware/n8c-card-calibrate.gdb",
+      "bytes": 5312,
+      "sha256": "d7f929da7f5ec983cd5c3d47b86ddae8b9a74a37e22d7d180612195eba333e2b",
+      "zlib": false
+    },
+    {
+      "file": "N8C/hardware/n8c-card-calibrate.log.zlib",
+      "original_file": "hardware/n8c-card-calibrate.log",
+      "bytes": 6092,
+      "sha256": "223291224b0385b2a8af5c72ca352b0cb2e28fe6ec53bc4c509f5042df1bab47",
+      "zlib": true
+    },
+    {
+      "file": "N8C/hardware/n8c-stop-quiescence-confirm-invocation.json",
+      "original_file": "hardware/n8c-stop-quiescence-confirm-invocation.json",
+      "bytes": 755,
+      "sha256": "041321defcecd450ea9653c40cce1b1d7f445b07c0bd77fb2f4fe500cbbe620a",
+      "zlib": false
+    },
+    {
+      "file": "N8C/hardware/n8c-stop-quiescence-confirm-server.log.zlib",
+      "original_file": "hardware/n8c-stop-quiescence-confirm-server.log",
+      "bytes": 674,
+      "sha256": "030ed83bdd9e560371dd4df01fbb2f25a71828a2bd725448cff4a24e6cf46bf2",
+      "zlib": true
+    },
+    {
+      "file": "N8C/hardware/n8c-stop-quiescence-confirm.gdb",
+      "original_file": "hardware/n8c-stop-quiescence-confirm.gdb",
+      "bytes": 471,
+      "sha256": "f6e19db2d01fb5e6ed07a163d3dfe4ff7f35dc78bda6680e75b1b980d561be88",
+      "zlib": false
+    },
+    {
+      "file": "N8C/hardware/n8c-stop-quiescence-confirm.log.zlib",
+      "original_file": "hardware/n8c-stop-quiescence-confirm.log",
+      "bytes": 1628,
+      "sha256": "08e4d6ff547f05a58a1d884443706efb66f75047c9728d0cf05489604ee6e80f",
+      "zlib": true
+    },
+    {
+      "file": "N8C/hardware/preflash-confirm-N8B-safe-failed-invocation.json",
+      "original_file": "hardware/preflash-confirm-N8B-safe-failed-invocation.json",
+      "bytes": 760,
+      "sha256": "558fac8dd8cdb5f43f83a1ad7608c5fa4249e5959e769f198d3b6e3f9db72029",
+      "zlib": false
+    },
+    {
+      "file": "N8C/hardware/preflash-confirm-N8B-safe-failed-server.log.zlib",
+      "original_file": "hardware/preflash-confirm-N8B-safe-failed-server.log",
+      "bytes": 674,
+      "sha256": "030ed83bdd9e560371dd4df01fbb2f25a71828a2bd725448cff4a24e6cf46bf2",
+      "zlib": true
+    },
+    {
+      "file": "N8C/hardware/preflash-confirm-N8B-safe-failed.gdb",
+      "original_file": "hardware/preflash-confirm-N8B-safe-failed.gdb",
+      "bytes": 649,
+      "sha256": "10a746899b883cecf88d331143457b32c6a5ce698fbec2b0ca4bd6ee13b98c29",
+      "zlib": false
+    },
+    {
+      "file": "N8C/hardware/preflash-confirm-N8B-safe-failed.log.zlib",
+      "original_file": "hardware/preflash-confirm-N8B-safe-failed.log",
+      "bytes": 257,
+      "sha256": "cf34bf04f97185852f7a6f0d932507d29fe1b60ffefd510b833034e7bc74bdb1",
+      "zlib": true
+    },
+    {
+      "file": "N8C/hardware_second.py",
+      "original_file": "hardware_second.py",
+      "bytes": 2406,
+      "sha256": "e2cd6c1461c59d0ced8fb1b01ece36f3846d69118f41c813393a0af1e26caec9",
+      "zlib": false
+    },
+    {
+      "file": "N8C/hibernate-policy.txt.zlib",
+      "original_file": "hibernate-policy.txt",
+      "bytes": 718,
+      "sha256": "3812849455c26df899b4a486e02f1fcd8767f9708b102f557dfdd402a710c1e4",
+      "zlib": true
+    },
+    {
+      "file": "N8C/init-card.log.zlib",
+      "original_file": "init-card.log",
+      "bytes": 2408,
+      "sha256": "ed05613cc69049e94445e1d2ce48265de0042ae8decad7a044df2dbd4fac56c3",
+      "zlib": true
+    },
+    {
+      "file": "N8C/init_card.py",
+      "original_file": "init_card.py",
+      "bytes": 2007,
+      "sha256": "4bd930bf2de75d377a88913a0722c3642290d7f51d2e80d02cd58ad938bf4e40",
+      "zlib": false
+    },
+    {
+      "file": "N8C/launch_8h.py",
+      "original_file": "launch_8h.py",
+      "bytes": 4458,
+      "sha256": "fd6f75d66812f353e003bd1bbe6267af25d834647ed3ba31c92ba389c4369a8a",
+      "zlib": false
+    },
+    {
+      "file": "N8C/n8c-card-calibrate/brackets.bin.zlib",
+      "original_file": "n8c-card-calibrate/brackets.bin",
+      "bytes": 96,
+      "sha256": "228d25121dd6320b7eae27e18a018bd70a91b51170e597235a6821d7f98f4bec",
+      "zlib": true
+    },
+    {
+      "file": "N8C/n8c-card-calibrate/busy-distributions.bin.zlib",
+      "original_file": "n8c-card-calibrate/busy-distributions.bin",
+      "bytes": 8048,
+      "sha256": "7e6740c91f7c21b361fbb73984f22afef3896b669f9e2a87d31f6e18e9a48432",
+      "zlib": true
+    },
+    {
+      "file": "N8C/n8c-card-calibrate/card.bin.zlib",
+      "original_file": "n8c-card-calibrate/card.bin",
+      "bytes": 5228,
+      "sha256": "ede68e3afc953eae46f512d6b08d795f0eea0ab8469b01491fdbbb89f2cc8ef0",
+      "zlib": true
+    },
+    {
+      "file": "N8C/n8c-card-calibrate/distributions.bin.zlib",
+      "original_file": "n8c-card-calibrate/distributions.bin",
+      "bytes": 80096,
+      "sha256": "ca61cc292aca487b0a45370be2db7dbf6ded99bcc597c934f15ce76b598cb8d3",
+      "zlib": true
+    },
+    {
+      "file": "N8C/n8c-card-calibrate/durable-footer.bin.zlib",
+      "original_file": "n8c-card-calibrate/durable-footer.bin",
+      "bytes": 512,
+      "sha256": "076a27c79e5ace2a3d47f9dd2e83e4ff6ea8872b3c2218f66c92b89b55f36560",
+      "zlib": true
+    },
+    {
+      "file": "N8C/n8c-card-calibrate/durable-status.bin.zlib",
+      "original_file": "n8c-card-calibrate/durable-status.bin",
+      "bytes": 64,
+      "sha256": "a567e57e1a7f01b45c9bfdee65b727d767193ca4f2b885969262e1fb35519b79",
+      "zlib": true
+    },
+    {
+      "file": "N8C/n8c-card-calibrate/fifo-stop-payload.bin.zlib",
+      "original_file": "n8c-card-calibrate/fifo-stop-payload.bin",
+      "bytes": 128,
+      "sha256": "f4b49ae5cdba55c0e63ed9d3ecae30f9bbec546eb40a54f1ba1a8cad4fea8177",
+      "zlib": true
+    },
+    {
+      "file": "N8C/n8c-card-calibrate/fifo-stop-trace.bin.zlib",
+      "original_file": "n8c-card-calibrate/fifo-stop-trace.bin",
+      "bytes": 440,
+      "sha256": "242873aeb3a1c10806215cb90d377f36e5819fb0f3d1feac7dc0e0f32055d00b",
+      "zlib": true
+    },
+    {
+      "file": "N8C/n8c-card-calibrate/header.bin.zlib",
+      "original_file": "n8c-card-calibrate/header.bin",
+      "bytes": 512,
+      "sha256": "076a27c79e5ace2a3d47f9dd2e83e4ff6ea8872b3c2218f66c92b89b55f36560",
+      "zlib": true
+    },
+    {
+      "file": "N8C/n8c-card-calibrate/outputs.bin.zlib",
+      "original_file": "n8c-card-calibrate/outputs.bin",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "zlib": true
+    },
+    {
+      "file": "N8C/n8c-card-calibrate/raw.bin.zlib",
+      "original_file": "n8c-card-calibrate/raw.bin",
+      "bytes": 4956,
+      "sha256": "bdcdb49537fde93024df0336fea64d34d0a62fccbee307a64bc43e629730ad39",
+      "zlib": true
+    },
+    {
+      "file": "N8C/n8c-card-calibrate/records.bin.zlib",
+      "original_file": "n8c-card-calibrate/records.bin",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "zlib": true
+    },
+    {
+      "file": "N8C/n8c-card-calibrate/result.bin.zlib",
+      "original_file": "n8c-card-calibrate/result.bin",
+      "bytes": 296,
+      "sha256": "8b071fdad50b22009ca9c4101f64697be02e939bd06fa327cecfcd3add39b915",
+      "zlib": true
+    },
+    {
+      "file": "N8C/n8c-card-calibrate/result.json",
+      "original_file": "n8c-card-calibrate/result.json",
+      "bytes": 1296,
+      "sha256": "3150a86660855b2ddbae3e71fd11dd17a42b6e7b9eba363cb4e361391052f9e9",
+      "zlib": false
+    },
+    {
+      "file": "N8C/n8c-card-calibrate/sd-distributions.bin.zlib",
+      "original_file": "n8c-card-calibrate/sd-distributions.bin",
+      "bytes": 8048,
+      "sha256": "7e6740c91f7c21b361fbb73984f22afef3896b669f9e2a87d31f6e18e9a48432",
+      "zlib": true
+    },
+    {
+      "file": "N8C/n8c-card-calibrate/sd-records.bin.zlib",
+      "original_file": "n8c-card-calibrate/sd-records.bin",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "zlib": true
+    },
+    {
+      "file": "N8C/n8c-card-calibrate/single-busy-max.bin.zlib",
+      "original_file": "n8c-card-calibrate/single-busy-max.bin",
+      "bytes": 4,
+      "sha256": "df3f619804a92fdb4057192dc43dd748ea778adc52bc498ce80524c014b81119",
+      "zlib": true
+    },
+    {
+      "file": "N8C/n8c-card-calibrate/source-sha.bin.zlib",
+      "original_file": "n8c-card-calibrate/source-sha.bin",
+      "bytes": 32,
+      "sha256": "66687aadf862bd776c8fc18b8e9f8e20089714856ee233b3902a591d0d5f2925",
+      "zlib": true
+    },
+    {
+      "file": "N8C/n8c-card-calibrate/sources.bin.zlib",
+      "original_file": "n8c-card-calibrate/sources.bin",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "zlib": true
+    },
+    {
+      "file": "N8C/n8c-card-calibrate/spi2-config.bin.zlib",
+      "original_file": "n8c-card-calibrate/spi2-config.bin",
+      "bytes": 8,
+      "sha256": "3b94b11cca9c930ed8faedbbf7c18e4fe7caaa1dea53f2d82f702b3b48c847b3",
+      "zlib": true
+    },
+    {
+      "file": "N8C/n8c-card-calibrate/spi3-config.bin.zlib",
+      "original_file": "n8c-card-calibrate/spi3-config.bin",
+      "bytes": 8,
+      "sha256": "f07474c9a6c35e3d662c0cb2a2c4cbc568f000d35bd733c56d99999577ae3691",
+      "zlib": true
+    },
+    {
+      "file": "N8C/native-host.json.zlib",
+      "original_file": "native-host.json",
+      "bytes": 794,
+      "sha256": "f24450258808b01d42fa67366f5256fbfeae3dc02d6ea2e306fc2e352a0308e1",
+      "zlib": true
+    },
+    {
+      "file": "N8C/read-host.log.zlib",
+      "original_file": "read-host.log",
+      "bytes": 456,
+      "sha256": "b9772072ae30fe1867b903bf39dd821d0a8889fd4168eb9e798cc2f93bf7509b",
+      "zlib": true
+    },
+    {
+      "file": "N8C/read_host.py",
+      "original_file": "read_host.py",
+      "bytes": 1440,
+      "sha256": "8d1c488c2726d7766066104c7c05fc7a81ac20a8ee73be65fe86425391d20687",
+      "zlib": false
+    },
+    {
+      "file": "N8C/run_capture.py",
+      "original_file": "run_capture.py",
+      "bytes": 4166,
+      "sha256": "b80d2db4d009c8fd1ae27828a514b8fca089d46e905afeef9dd371be13601c3c",
+      "zlib": false
+    },
+    {
+      "file": "N8C/sleep-policy.txt.zlib",
+      "original_file": "sleep-policy.txt",
+      "bytes": 696,
+      "sha256": "6e59cdbc1c2b85c92bb010a1db10695f1b0c7cf61c8d8d83247827fcb1af8466",
+      "zlib": true
+    },
+    {
+      "file": "N8C/start_detached.py",
+      "original_file": "start_detached.py",
+      "bytes": 3973,
+      "sha256": "83f7a26b21a92ef6e0240852bc0b2a4008c0269b416c04f0d23483e3a80d859d",
+      "zlib": false
+    },
+    {
+      "file": "N8C/test_launcher_guards.py",
+      "original_file": "test_launcher_guards.py",
+      "bytes": 1312,
+      "sha256": "5c1e5d408aee73e2c69b9aafe82b1b4b785fa567cf0c227c533d1b5963916f67",
+      "zlib": false
+    },
+    {
+      "file": "N8C/verify_gate.py",
+      "original_file": "verify_gate.py",
+      "bytes": 830,
+      "sha256": "c8c871f50139968c41416ed2252b0b56956516e81789841400a54ae672469a4a",
+      "zlib": false
+    }
+  ]
+}

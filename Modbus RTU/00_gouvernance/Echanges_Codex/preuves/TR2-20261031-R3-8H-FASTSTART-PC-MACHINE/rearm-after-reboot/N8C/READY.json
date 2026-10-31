@@ -1,0 +1,10 @@
+{
+  "prepared": false,
+  "long_never_started": true,
+  "reason": "Repeated FIFO tag parity failures after installation; hardware inspection needed",
+  "current_prefix": "N8C",
+  "stage": 99,
+  "run": 1,
+  "error": 2,
+  "GDB_detached": true
+}

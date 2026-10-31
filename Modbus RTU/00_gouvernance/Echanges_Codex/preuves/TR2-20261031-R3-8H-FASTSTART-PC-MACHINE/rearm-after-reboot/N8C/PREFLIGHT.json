@@ -1,0 +1,10 @@
+{
+  "UID": "001B0046/38425018/20333157",
+  "SN": "0032001F3235510C37333439",
+  "actual_previous_prefix": "N8B",
+  "stage": 99,
+  "run": 3,
+  "error": 5,
+  "safe_STOP_preserved": true,
+  "old_N8B_entire_BIN_identical": true
+}

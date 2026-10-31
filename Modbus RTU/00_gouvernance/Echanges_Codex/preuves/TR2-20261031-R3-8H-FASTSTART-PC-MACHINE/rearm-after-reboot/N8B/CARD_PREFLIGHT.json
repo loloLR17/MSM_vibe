@@ -1,0 +1,12 @@
+{
+  "CID": "0353445344333247858bf0923c01927b",
+  "CSD": "400e00325b590000edc87f800a4040c3",
+  "sectors": 62333952,
+  "FAT32": true,
+  "cluster_bytes": 32768,
+  "both_N8B_names_absent": true,
+  "free_clusters_at_least": 20484,
+  "names_checked_via_FatFs_read_only": true,
+  "no_format": true,
+  "WHO": 123
+}

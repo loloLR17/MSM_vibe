@@ -1,10 +1,10 @@
 ---
 mission_id: TR2-20261031-R3-8H-FASTSTART-PC-MACHINE
-status: IN_PROGRESS
+status: BLOCKED
 base_ref: main
 base_sha: f5850ad2de81a6b7639d947d54751305cde3e75b
 initial_head: d5af0828e370780320bda67fac5d537bf3fd5016
-result_sha: d5af0828e370780320bda67fac5d537bf3fd5016
+result_sha: 75ea886cdd3ad8d37db3f5573b2e2f07299714e9
 created_at_utc: 2026-10-31T18:24:20.286731+00:00
 author: Codex
 target_branch: main
@@ -13,6 +13,22 @@ allow_push: true
 allow_flash: true
 allow_debug: true
 ---
+
+# Réarmement demandé — BLOCKED sur défaut de tags FIFO, intervention physique attendue
+
+**Aucun long lancé. La préparation n'est pas rétablie.** À la demande explicite de réarmement, deuximages à nouveauxpréfixes ont été construites/flashées par procédurestandard et relues intégralement conformes ; aucune garde, fréquenceSPI, FIR/gain/FS/format/importeur modifiés. Images/source75ea886c, sourcefonctionnelleidentiqueauprofilacquis. Deuxflashsstandardsavecresetdeprogrammation danscettetranche, aucunresetsupplémentaire. N8A/précédentgate/donnéeshistoriques intacts ; pasdesuppression/formatage.
+
+- **N8B** : BIN91b191228bf23b35bfad3aa41ae8863f45deefca69f269188f4bafc622a225c3,54556B. UID/SN/WHO7B/CID/FAT32 conformes, calibration40µs, nomsN8B0003/5absents vérifiés/libresuffisant. Un seulgatephysique tenté, arrêté0,205253s : error5/FIFO9/parserreason1 (paritétag),5168natifs/517sorties,0rails/clips/FULL-OVR, SDerror0 mais0groupeacquitté. STOP153µs, FIFOoff/SDquiescente. FichierN8B0003préalloué/header/invalidfooter àpréserver, pasCOMPLETE ; aucunevalidationcourte.
+- La rafale fautive a été extraite enlectureseule : tagsvalides au début puis tagsincohérents avecdécalageapparent, causeexactenonisolée. Pas de correctionspéculative/filtrage des erreurs.
+- **N8C**, uniquereprisebornéejustifiéeparéchecB : BIN0844bc7abdaffc163010e59526a92294ce492e31a805b0ddba4ca937a732009a,54556B. WHO7B/carteinitialisée, mais nouvelleerreur dès calibration : error2/FIFO9/parserreason6 (tag nonreconnu),0sortie/0écriturecapture. PasdegateC niSTARTlong ; absence desnomsCnonvérifiée (contrôlenonatteint).
+
+[Preuves séparées, manifestes, builds, images, GDB et dumps](preuves/TR2-20261031-R3-8H-FASTSTART-PC-MACHINE/rearm-after-reboot/README.md). PremièreinvocationhelperB stoppéeavanttrigger pournative-host.jsonmanquant : lecturehôte effectuée ensuite ; ce n'estpasunpremieressaiphysique caché. Leséchecs sont conservés, pastransformés enPASS. Validationsantérieuresréussies nonrejouées ; contrôledecode parlecture etcompilationciblée dechaquenouveauprofil uniquement, sansnouvellecampagneannexe.
+
+**ÉtatfinalN8C vérifié : stage99/run1/error2, FIFOarrêté/writerinactif/card.failedfalse/clockfault0/CShaute, GDBdétaché/serveurfermé.** READYlocauxfalse, aucunverrouSTARTlong. Défaut de liaison/lectureSPI suspecté, pasdecausalitématérielleaffirmée. Leserreurs ne viennentpasd'unclip ou d'unSDerror observé ; ilestinterdit delesignorerpourpartir.
+
+**Interventiondemandée selonAGENTS.md§9 :** utilisateurcoupe uniquementSTLINKTR2-002, vérifie/réenfichelesconnecteurs de lanappecapteur auxdeuxextrémités etcontacts3,3V/GND, sanschangerbroches/pose ; SDresteenplace/USBnatifdefbranché, puisSTLINKreconnectéetretourutilisateur. Arrêtsûrconfirméavantcetteaction. Aucun nouvelessai avantconfirmation. Aprèsretour, vérifierétat/imageCconservée, réutilisersansflashsiconforme, relirecarte/noms puisvalidationcourteadaptée ; pasderelanceautomatique du longni de nouveauflashaveugle.
+
+Rapport/journal/preuves sontpubliés commecheckpointBLOCKEDréel surinterventionphysique, pasDONE niREADY fictif ; publicationàvérifieretSHAfinaldansréponse. AucunTR2-001/COM4/FRAM/serviceWindows/OptionBytes ni donnéespersistantes anciennes modifiés. Lesbilanssuivants sonthistorique et ne décriventpasunétatprêtactuel.
 
 # Actualisation après installation — 31/10/2026 21:16 UTC
 
