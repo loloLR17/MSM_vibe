@@ -14,6 +14,14 @@ allow_flash: true
 allow_debug: true
 ---
 
+# Actualisation après installation — 31/10/2026 21:16 UTC
+
+**L'état PRÊT antérieur est invalidé.** À la demande de vérification RAM de l'utilisateur, observation GDB sur UID002 conforme : WAIT initial stage2/run0/error0, compteurs0, FIFOoff/writeroff/file0, montageFATnoninitialisé, digestproducteurRAM32octets nuls. Un redémarrage a donc eu lieu depuis la préparation ; sa cause n'est pas démontrée (pas d'attribution certaine à une coupure). Le firmwareN8A préparé a été relu entièrement :54556octets strictement identiques auBINc31904fe…3ddc17. Aucun reset/flash/START/commandeSD exécuté pendantcecontrôle ; debuggerdétaché.
+
+Le READY.json opérationnel local est passé à prepared=false, ancienne version conservée ; le lanceur refuse donc un départ prématuré. Le dossierpreuves historique et le gateSD ne sont pas réécrits ; la carte et ses fichiers n'ont pas été relus lors du contrôleRAM. [Observation et traces](preuves/TR2-20261031-R3-8H-FASTSTART-PC-MACHINE/post-install/POST_INSTALL_RAM.json). MissionIN_PROGRESS, pasblocageextérieur identifié. **Àfaire avantLANCE8H : réarmer une voie de départ compatible avec le reboot et le gateN8A0003 déjàcréé, sans l'écraser ni forcer run3 enRAM.** L'estimation antérieure20–30s suppose un étatpréparé conservé et n'est plus applicable àl'étatactuel. Cette tranche répond seulement au contrôleRAM demandé, aucunecapture nouvelle.
+
+Le bilan ci-dessous décrit la préparation historique avant déplacement ; ses mentions PRÊT ne décrivent plus l'état courant. Actualisation àpublier puis vérifier surmain, SHAfinal dansréponseutilisateur.
+
 # Phase A préparée — attente du signal LANCE 8H
 
 **Préparation matérielle et logicielle acquise ; aucun long START ni auto-start.** La mission reste IN_PROGRESS : phaseB attend uniquement le signal explicite `LANCE 8H`, puis phaseC différée. Aucun blocage technique identifié. [Note PRÊT_8H et commande exacte](preuves/TR2-20261031-R3-8H-FASTSTART-PC-MACHINE/PRET_8H.md).

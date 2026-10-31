@@ -1,0 +1,42 @@
+[
+  {
+    "file": "post-install-RAM-20261031T211607Z-invocation.json.zlib",
+    "bytes": 753,
+    "sha256": "39d0ff125038951db29f91d629a7f8d1df8a3e2a510e85d126a2d86c2dbcd1b0"
+  },
+  {
+    "file": "post-install-RAM-20261031T211607Z-server.log.zlib",
+    "bytes": 674,
+    "sha256": "030ed83bdd9e560371dd4df01fbb2f25a71828a2bd725448cff4a24e6cf46bf2"
+  },
+  {
+    "file": "post-install-RAM-20261031T211607Z.gdb.zlib",
+    "bytes": 848,
+    "sha256": "1ed207a9a5837def04ed1ecddd3e2e91ad3fefc340ed09b4481ded5140c0d47e"
+  },
+  {
+    "file": "post-install-RAM-20261031T211607Z.log.zlib",
+    "bytes": 1531,
+    "sha256": "14d752104ab227313d0ccf7e4f0c848d9075c1824602212008c351597115b855"
+  },
+  {
+    "file": "post-install-confirm-WAIT-20261031T211640Z-invocation.json.zlib",
+    "bytes": 762,
+    "sha256": "640ecec4aebef24d63775e0116e5b01afacb08698fd0e65f70e500c6c19fa3db"
+  },
+  {
+    "file": "post-install-confirm-WAIT-20261031T211640Z-server.log.zlib",
+    "bytes": 674,
+    "sha256": "030ed83bdd9e560371dd4df01fbb2f25a71828a2bd725448cff4a24e6cf46bf2"
+  },
+  {
+    "file": "post-install-confirm-WAIT-20261031T211640Z.gdb.zlib",
+    "bytes": 849,
+    "sha256": "b159a7bb9ec149835e67384c99b1a6fc3be2723d51729888fd97ba71bcf45cfa"
+  },
+  {
+    "file": "post-install-confirm-WAIT-20261031T211640Z.log.zlib",
+    "bytes": 257,
+    "sha256": "3d5a739f71d0e52b3e73b18870cd39eab08c0c9e78973b00a997b7f1530934a8"
+  }
+]

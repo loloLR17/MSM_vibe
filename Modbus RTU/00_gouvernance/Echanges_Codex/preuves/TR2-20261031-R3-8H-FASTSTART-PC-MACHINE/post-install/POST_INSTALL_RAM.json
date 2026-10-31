@@ -1,0 +1,15 @@
+{
+  "observed_utc": "2026-10-31T21:16:45.877927+00:00",
+  "UID": "001B0046/38425018/20333157",
+  "stage": 2,
+  "run": 0,
+  "error": 0,
+  "clock_fault": 0,
+  "producer_digest_zero": true,
+  "prepared_image_entire_readback_identical": true,
+  "reboot_cause_unknown": true,
+  "no_reset_flash_START_or_SD_command": true,
+  "GDB_detached": true,
+  "preparation_ready": false,
+  "confirmation_log": "/home/lolo/dev/msm/reports/TR2-r3-8h-faststart-20261031/hardware/post-install-confirm-WAIT-20261031T211640Z.log"
+}
