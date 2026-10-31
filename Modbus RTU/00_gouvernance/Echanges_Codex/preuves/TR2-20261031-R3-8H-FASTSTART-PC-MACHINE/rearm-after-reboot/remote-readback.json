@@ -1,0 +1,734 @@
+{
+  "remote_sha": "8446c221d19c712fd1a013c30acfaef0b30eb8e0",
+  "utc": "2026-10-31T21:35:04.395216+00:00",
+  "files": 145,
+  "all_identical": true,
+  "raw_artifacts_verified": 141,
+  "records": [
+    {
+      "file": "Modbus RTU/00_gouvernance/ETAT_COURANT_TR2.md",
+      "bytes": 127452,
+      "sha256": "657f2dde57d95ac185ca26102530ff78ae6a22d4f1cdc0a884c39093ff92a344"
+    },
+    {
+      "file": "Modbus RTU/00_gouvernance/Echanges_Codex/DERNIER_RAPPORT.md",
+      "bytes": 11970,
+      "sha256": "82f47e7a6fa907a7b673de0b01a6b7da9c557caec6f9d21847302e9e1280a2c2"
+    },
+    {
+      "file": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R3-8H-FASTSTART-PC-MACHINE/rearm-after-reboot/MANIFEST.json",
+      "bytes": 34863,
+      "sha256": "7c4a1b402d4ab41c546b8df42e0aab55fd4088008e64648e3b4973bedfbfecb2"
+    },
+    {
+      "file": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R3-8H-FASTSTART-PC-MACHINE/rearm-after-reboot/N8B/CARD_PREFLIGHT.json",
+      "bytes": 307,
+      "sha256": "b33cedca47f426d3dc56c3eb6e04a6fb6a5bc1b443c50cb853d05c7445ac833a"
+    },
+    {
+      "file": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R3-8H-FASTSTART-PC-MACHINE/rearm-after-reboot/N8B/PREFLIGHT.json",
+      "bytes": 176,
+      "sha256": "258767bd578acce85df32f36b7c6033c06fa291b512bc2b5c51207492dbefe4e"
+    },
+    {
+      "file": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R3-8H-FASTSTART-PC-MACHINE/rearm-after-reboot/N8B/REUSE.json",
+      "bytes": 1690,
+      "sha256": "c22f0582287c6863493d35749cd83a94444ed5794751117fbb4903671cddfe83"
+    },
+    {
+      "file": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R3-8H-FASTSTART-PC-MACHINE/rearm-after-reboot/N8B/analyze_capture.py",
+      "bytes": 4585,
+      "sha256": "c9f1b00a962a111da1b5b7ccec181c45dd3a461298610aab1077c6db87174e5e"
+    },
+    {
+      "file": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R3-8H-FASTSTART-PC-MACHINE/rearm-after-reboot/N8B/arm/r3_coex.bin",
+      "bytes": 54556,
+      "sha256": "91b191228bf23b35bfad3aa41ae8863f45deefca69f269188f4bafc622a225c3"
+    },
+    {
+      "file": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R3-8H-FASTSTART-PC-MACHINE/rearm-after-reboot/N8B/artifact.json",
+      "bytes": 644,
+      "sha256": "5968e2166234e312a3514942f585202698d062b3978d853db047c8dbf7d86214"
+    },
+    {
+      "file": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R3-8H-FASTSTART-PC-MACHINE/rearm-after-reboot/N8B/build.log.zlib",
+      "bytes": 1203,
+      "sha256": "96e337a8a49d83fae47189403186236bfc98a1622e75e0fa110fe69f5c510dc8"
+    },
+    {
+      "file": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R3-8H-FASTSTART-PC-MACHINE/rearm-after-reboot/N8B/collect_after_terminal.py",
+      "bytes": 1483,
+      "sha256": "38968abd0868cddaef41d72be6ad1384c0142b7fe0f9bad9872490265a40f29e"
+    },
+    {
+      "file": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R3-8H-FASTSTART-PC-MACHINE/rearm-after-reboot/N8B/collect_failure.py",
+      "bytes": 813,
+      "sha256": "1b8df30dbda9561287a22898953b13c57caf0f3a73440ceed939971576e09285"
+    },
+    {
+      "file": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R3-8H-FASTSTART-PC-MACHINE/rearm-after-reboot/N8B/configure.log.zlib",
+      "bytes": 312,
+      "sha256": "5309307e13526c3eed33677d1dd891eeff34148a8e2494705af42d9aeb72c631"
+    },
+    {
+      "file": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R3-8H-FASTSTART-PC-MACHINE/rearm-after-reboot/N8B/failure-analysis.log.zlib",
+      "bytes": 2006,
+      "sha256": "c860246e13bfad0872f8ea8ec0dae919c1132d2dde1dfc3678e89c9eea5d49a2"
+    },
+    {
+      "file": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R3-8H-FASTSTART-PC-MACHINE/rearm-after-reboot/N8B/flash_prepared.py",
+      "bytes": 1618,
+      "sha256": "40c175c1d8511b03c1f893b27979fe50590a98de22b23a8aa23f010b07135340"
+    },
+    {
+      "file": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R3-8H-FASTSTART-PC-MACHINE/rearm-after-reboot/N8B/hardware/N8B-readback-WAIT-invocation.json",
+      "bytes": 745,
+      "sha256": "31a9ec3145e91622f870d644cb36db9f11c46c2eff52668c5c7cd7c32e10ac34"
+    },
+    {
+      "file": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R3-8H-FASTSTART-PC-MACHINE/rearm-after-reboot/N8B/hardware/N8B-readback-WAIT-server.log.zlib",
+      "bytes": 327,
+      "sha256": "2d8b05226ecf2e462974c0ceca6a42996407464d239f05eea268fe9f85ded0de"
+    },
+    {
+      "file": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R3-8H-FASTSTART-PC-MACHINE/rearm-after-reboot/N8B/hardware/N8B-readback-WAIT.gdb",
+      "bytes": 655,
+      "sha256": "96b4983ed1459558a80ff1401868d13b0a3e9ef807abd43be5bfc8890f4f2c68"
+    },
+    {
+      "file": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R3-8H-FASTSTART-PC-MACHINE/rearm-after-reboot/N8B/hardware/N8B-readback-WAIT.log.zlib",
+      "bytes": 635,
+      "sha256": "28927392f81d550d412ebfa78b4a8c6f803c84e3fb7864c32d2c72205941a5d6"
+    },
+    {
+      "file": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R3-8H-FASTSTART-PC-MACHINE/rearm-after-reboot/N8B/hardware/flash-N8B-prepared-command.json",
+      "bytes": 525,
+      "sha256": "0f90d054a2560c40cbc6eedc28935d79b550171a3c52fe92e7af36ea06e17418"
+    },
+    {
+      "file": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R3-8H-FASTSTART-PC-MACHINE/rearm-after-reboot/N8B/hardware/flash-N8B-prepared.log.zlib",
+      "bytes": 638,
+      "sha256": "5f9df8d97b0500e379f670385dff6f35131b153ad7b8be1839743258fd36ad0a"
+    },
+    {
+      "file": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R3-8H-FASTSTART-PC-MACHINE/rearm-after-reboot/N8B/hardware/n8b-card-calibrate-invocation.json",
+      "bytes": 746,
+      "sha256": "992d89e4fc377d5d82d9ff88cd5365bb017e22849e1e67ea297d5b941bdaba00"
+    },
+    {
+      "file": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R3-8H-FASTSTART-PC-MACHINE/rearm-after-reboot/N8B/hardware/n8b-card-calibrate-server.log.zlib",
+      "bytes": 345,
+      "sha256": "e10983747cbbc75b0f14ab0523f2c631430b41b31c5be4e954db1768d202b7b5"
+    },
+    {
+      "file": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R3-8H-FASTSTART-PC-MACHINE/rearm-after-reboot/N8B/hardware/n8b-card-calibrate.gdb",
+      "bytes": 5312,
+      "sha256": "c36003d6ef15dac0553a5051fbbc23d1e9433ff5ce9fe2d7eb2f9db2df394498"
+    },
+    {
+      "file": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R3-8H-FASTSTART-PC-MACHINE/rearm-after-reboot/N8B/hardware/n8b-card-calibrate.log.zlib",
+      "bytes": 1580,
+      "sha256": "310375f162a4f8dc488e25c010e536581d94c7503cd70b1f2664406b6988a201"
+    },
+    {
+      "file": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R3-8H-FASTSTART-PC-MACHINE/rearm-after-reboot/N8B/hardware/n8b-card-names-and-free-readonly-invocation.json",
+      "bytes": 760,
+      "sha256": "8969392ee4ddb8c97fca9bf391264e905382a64b2647cffd62ba4e8841deffe1"
+    },
+    {
+      "file": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R3-8H-FASTSTART-PC-MACHINE/rearm-after-reboot/N8B/hardware/n8b-card-names-and-free-readonly-server.log.zlib",
+      "bytes": 345,
+      "sha256": "e10983747cbbc75b0f14ab0523f2c631430b41b31c5be4e954db1768d202b7b5"
+    },
+    {
+      "file": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R3-8H-FASTSTART-PC-MACHINE/rearm-after-reboot/N8B/hardware/n8b-card-names-and-free-readonly.gdb",
+      "bytes": 1180,
+      "sha256": "30f989729afaabd765d6c4d4d80de747710c0b8bd6b0fee552b3e8b4f7b1b8c5"
+    },
+    {
+      "file": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R3-8H-FASTSTART-PC-MACHINE/rearm-after-reboot/N8B/hardware/n8b-card-names-and-free-readonly.log.zlib",
+      "bytes": 1339,
+      "sha256": "fb64129ccf961fdbcc791d3e46f3d7723761e29c819c1238c7df023f206d8406"
+    },
+    {
+      "file": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R3-8H-FASTSTART-PC-MACHINE/rearm-after-reboot/N8B/hardware/n8b-failing-burst-readonly-invocation.json",
+      "bytes": 754,
+      "sha256": "d282d07e9db6975227e959fbab33554e20fd1d2c7f0d2227d05ccbc7e68f5aaf"
+    },
+    {
+      "file": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R3-8H-FASTSTART-PC-MACHINE/rearm-after-reboot/N8B/hardware/n8b-failing-burst-readonly-server.log.zlib",
+      "bytes": 345,
+      "sha256": "e10983747cbbc75b0f14ab0523f2c631430b41b31c5be4e954db1768d202b7b5"
+    },
+    {
+      "file": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R3-8H-FASTSTART-PC-MACHINE/rearm-after-reboot/N8B/hardware/n8b-failing-burst-readonly.gdb",
+      "bytes": 539,
+      "sha256": "7a612edc63fd9742780620120546cec355eb662d56b0b3e1872ef33bcfb93b7b"
+    },
+    {
+      "file": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R3-8H-FASTSTART-PC-MACHINE/rearm-after-reboot/N8B/hardware/n8b-failing-burst-readonly.log.zlib",
+      "bytes": 350,
+      "sha256": "70726411efe05fba999c5115d00e7756c435e9b4f7f1c8a974ce60375ce5196e"
+    },
+    {
+      "file": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R3-8H-FASTSTART-PC-MACHINE/rearm-after-reboot/N8B/hardware/n8b-failure-state-invocation.json",
+      "bytes": 745,
+      "sha256": "38ecc47f6ac68a7b5e7ed1ebdab95c5176ed84a831597fd66dd1a86baeafab62"
+    },
+    {
+      "file": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R3-8H-FASTSTART-PC-MACHINE/rearm-after-reboot/N8B/hardware/n8b-failure-state-server.log.zlib",
+      "bytes": 345,
+      "sha256": "e10983747cbbc75b0f14ab0523f2c631430b41b31c5be4e954db1768d202b7b5"
+    },
+    {
+      "file": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R3-8H-FASTSTART-PC-MACHINE/rearm-after-reboot/N8B/hardware/n8b-failure-state.gdb",
+      "bytes": 4882,
+      "sha256": "b8774eda7f9155f458f3170cb9065511b6e694617ab22218f0d13db77484cd83"
+    },
+    {
+      "file": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R3-8H-FASTSTART-PC-MACHINE/rearm-after-reboot/N8B/hardware/n8b-failure-state.log.zlib",
+      "bytes": 1657,
+      "sha256": "4ef90195b0d68f5ba4efc460b5a378be57ac0859a9a0f29e9d71c6a1af587309"
+    },
+    {
+      "file": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R3-8H-FASTSTART-PC-MACHINE/rearm-after-reboot/N8B/hardware/n8b-short-trigger-detach-invocation.json",
+      "bytes": 752,
+      "sha256": "963438ba13330960ee64676bcea45fee6b96e084b6187a79d974e4ef0fea2c53"
+    },
+    {
+      "file": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R3-8H-FASTSTART-PC-MACHINE/rearm-after-reboot/N8B/hardware/n8b-short-trigger-detach-server.log.zlib",
+      "bytes": 345,
+      "sha256": "e10983747cbbc75b0f14ab0523f2c631430b41b31c5be4e954db1768d202b7b5"
+    },
+    {
+      "file": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R3-8H-FASTSTART-PC-MACHINE/rearm-after-reboot/N8B/hardware/n8b-short-trigger-detach.gdb",
+      "bytes": 537,
+      "sha256": "b1f22a79cfb003453ef411c4c022c25c10d432496bb31a3b30f1e96dc6069f6a"
+    },
+    {
+      "file": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R3-8H-FASTSTART-PC-MACHINE/rearm-after-reboot/N8B/hardware/n8b-short-trigger-detach.log.zlib",
+      "bytes": 697,
+      "sha256": "64e4fcdf5c0fdeec80fcb3868ce05d95d7874d120be75876291ece95e54861b2"
+    },
+    {
+      "file": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R3-8H-FASTSTART-PC-MACHINE/rearm-after-reboot/N8B/hardware/preflash-confirm-N8A-WAIT-invocation.json",
+      "bytes": 749,
+      "sha256": "4f9d4e320220b6bffae30edf993a2119117585b64dc1bd2f2fafdf6683a1e878"
+    },
+    {
+      "file": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R3-8H-FASTSTART-PC-MACHINE/rearm-after-reboot/N8B/hardware/preflash-confirm-N8A-WAIT-server.log.zlib",
+      "bytes": 345,
+      "sha256": "e10983747cbbc75b0f14ab0523f2c631430b41b31c5be4e954db1768d202b7b5"
+    },
+    {
+      "file": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R3-8H-FASTSTART-PC-MACHINE/rearm-after-reboot/N8B/hardware/preflash-confirm-N8A-WAIT.gdb",
+      "bytes": 615,
+      "sha256": "9ab268bcec47f252263bf77fbaa427af697e1b77fe1650c1b60f23ed442c6c86"
+    },
+    {
+      "file": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R3-8H-FASTSTART-PC-MACHINE/rearm-after-reboot/N8B/hardware/preflash-confirm-N8A-WAIT.log.zlib",
+      "bytes": 630,
+      "sha256": "2039ec11daf5558346ef7b5436272fa307f9aed51a69120a65224c2bfd842ee0"
+    },
+    {
+      "file": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R3-8H-FASTSTART-PC-MACHINE/rearm-after-reboot/N8B/hardware_second.py",
+      "bytes": 2406,
+      "sha256": "919ee7c3952e129978410d59637a48938a9cbdca81afd6e5d798d3cc3a989cf9"
+    },
+    {
+      "file": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R3-8H-FASTSTART-PC-MACHINE/rearm-after-reboot/N8B/hibernate-policy.txt.zlib",
+      "bytes": 379,
+      "sha256": "c6f64a9cd02f433219625d997da7a44603f2ff06c4ab68ea61d9c5d817a965ec"
+    },
+    {
+      "file": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R3-8H-FASTSTART-PC-MACHINE/rearm-after-reboot/N8B/init-card.log.zlib",
+      "bytes": 631,
+      "sha256": "1e70744a9e94efb38b06c734c8cf22d88ff1241dbb2f061ce60c3c6f866928fd"
+    },
+    {
+      "file": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R3-8H-FASTSTART-PC-MACHINE/rearm-after-reboot/N8B/init_card.py",
+      "bytes": 2007,
+      "sha256": "c13342ba70b36c7f14ab276aa88b632025e895f8273cf6f7fc3bf10e65b6c7be"
+    },
+    {
+      "file": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R3-8H-FASTSTART-PC-MACHINE/rearm-after-reboot/N8B/launch_8h.py",
+      "bytes": 4458,
+      "sha256": "dd9a36b13f906ed1b45fa9e9655cadd7b316d1eef208b9d221b3fd7af31f806a"
+    },
+    {
+      "file": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R3-8H-FASTSTART-PC-MACHINE/rearm-after-reboot/N8B/n8b-failed-gate/analysis.json",
+      "bytes": 4837,
+      "sha256": "06391f6abe4cc5b6ecf2162ca17b93fcc47ede8a4a6e46aafc421d602ff45831"
+    },
+    {
+      "file": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R3-8H-FASTSTART-PC-MACHINE/rearm-after-reboot/N8B/n8b-failed-gate/brackets.bin.zlib",
+      "bytes": 1716,
+      "sha256": "b4ba78a2ddde52220b4bff11df31227d038597075919917286ca71db4c5ad671"
+    },
+    {
+      "file": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R3-8H-FASTSTART-PC-MACHINE/rearm-after-reboot/N8B/n8b-failed-gate/busy-distributions.bin.zlib",
+      "bytes": 31,
+      "sha256": "62ad0d01b7a6547ef708c84cf09cf5584442db88a309fc183a85edd3e0b3d054"
+    },
+    {
+      "file": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R3-8H-FASTSTART-PC-MACHINE/rearm-after-reboot/N8B/n8b-failed-gate/card.bin.zlib",
+      "bytes": 778,
+      "sha256": "b8985742ac5a3bf04b425cbc4e2134df79333221d68a1b306c3cb1f5066f5ece"
+    },
+    {
+      "file": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R3-8H-FASTSTART-PC-MACHINE/rearm-after-reboot/N8B/n8b-failed-gate/distributions.bin.zlib",
+      "bytes": 573,
+      "sha256": "ce26817e7cf4f9e98737d86be7e59d2e840d011ae383db4dbc7e0ef24048d8bb"
+    },
+    {
+      "file": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R3-8H-FASTSTART-PC-MACHINE/rearm-after-reboot/N8B/n8b-failed-gate/durable-footer.bin.zlib",
+      "bytes": 14,
+      "sha256": "f7191fd8edb8005d6ddcac4a03b8e62415cbbcbfadbe85d545d35d8124e697a3"
+    },
+    {
+      "file": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R3-8H-FASTSTART-PC-MACHINE/rearm-after-reboot/N8B/n8b-failed-gate/durable-status.bin.zlib",
+      "bytes": 43,
+      "sha256": "aca17c84ad5795f0b8dcf19d4c06cd191822b09849fb898e69e3a9e2f338ad9f"
+    },
+    {
+      "file": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R3-8H-FASTSTART-PC-MACHINE/rearm-after-reboot/N8B/n8b-failed-gate/failing-fifo-words.bin.zlib",
+      "bytes": 239,
+      "sha256": "60ac809e3a96d66c3bf56ecb86e5377101baeb1655b1b7351648611973fb0c4d"
+    },
+    {
+      "file": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R3-8H-FASTSTART-PC-MACHINE/rearm-after-reboot/N8B/n8b-failed-gate/fifo-stop-payload.bin.zlib",
+      "bytes": 214,
+      "sha256": "b9595480ff2b659195dfa5ed8c94d815765acccc296e7f9c056ca7ce9b48a0ec"
+    },
+    {
+      "file": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R3-8H-FASTSTART-PC-MACHINE/rearm-after-reboot/N8B/n8b-failed-gate/fifo-stop-trace.bin.zlib",
+      "bytes": 140,
+      "sha256": "1ececf7f6714c51537a50f4f1e53d52a9044b0f40d088886173bbd72721cc075"
+    },
+    {
+      "file": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R3-8H-FASTSTART-PC-MACHINE/rearm-after-reboot/N8B/n8b-failed-gate/header.bin.zlib",
+      "bytes": 174,
+      "sha256": "6c32bb677df939af531e74cfc05c3e7e82f40bd65fb52b0f9998215a475de39c"
+    },
+    {
+      "file": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R3-8H-FASTSTART-PC-MACHINE/rearm-after-reboot/N8B/n8b-failed-gate/outputs.bin.zlib",
+      "bytes": 1735,
+      "sha256": "b20b2f5552c564c4485281f9af0efcd7dc2b3b3ec14c2cec78f1ceedcdfaaef1"
+    },
+    {
+      "file": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R3-8H-FASTSTART-PC-MACHINE/rearm-after-reboot/N8B/n8b-failed-gate/raw.bin.zlib",
+      "bytes": 9308,
+      "sha256": "a164c23db2ed3c79654b4247c9af394ee63eb81a82856d88af08346593b836ac"
+    },
+    {
+      "file": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R3-8H-FASTSTART-PC-MACHINE/rearm-after-reboot/N8B/n8b-failed-gate/records.bin.zlib",
+      "bytes": 2075,
+      "sha256": "3dae455722fca100349506af5418becb7ec52236e7619c72d0a905597de03ba0"
+    },
+    {
+      "file": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R3-8H-FASTSTART-PC-MACHINE/rearm-after-reboot/N8B/n8b-failed-gate/result.bin.zlib",
+      "bytes": 159,
+      "sha256": "29adb1f20a9b0d51096e9e09078b7e2fdf24385ae426caf6e308afb6d4ea125a"
+    },
+    {
+      "file": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R3-8H-FASTSTART-PC-MACHINE/rearm-after-reboot/N8B/n8b-failed-gate/result.json",
+      "bytes": 1389,
+      "sha256": "dcfe38308d5bf3f0cb715606824336d89237cd7ef57322d0e64268155f2f7a50"
+    },
+    {
+      "file": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R3-8H-FASTSTART-PC-MACHINE/rearm-after-reboot/N8B/n8b-failed-gate/sd-distributions.bin.zlib",
+      "bytes": 31,
+      "sha256": "62ad0d01b7a6547ef708c84cf09cf5584442db88a309fc183a85edd3e0b3d054"
+    },
+    {
+      "file": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R3-8H-FASTSTART-PC-MACHINE/rearm-after-reboot/N8B/n8b-failed-gate/sd-records.bin.zlib",
+      "bytes": 8,
+      "sha256": "b171e283c6145acf2b923098dbbc40ffc39b4f1db0212928f9869747376c4ac8"
+    },
+    {
+      "file": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R3-8H-FASTSTART-PC-MACHINE/rearm-after-reboot/N8B/n8b-failed-gate/single-busy-max.bin.zlib",
+      "bytes": 12,
+      "sha256": "611d417cb007ca0eeb6d26c0defe71b887ffbba045a6ec5a0df38861b439baa2"
+    },
+    {
+      "file": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R3-8H-FASTSTART-PC-MACHINE/rearm-after-reboot/N8B/n8b-failed-gate/source-sha.bin.zlib",
+      "bytes": 41,
+      "sha256": "c21cb0564cc40804e62b3bd4bdb47b4d7d64d89a92d43dc34f3cfdf3677b6f07"
+    },
+    {
+      "file": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R3-8H-FASTSTART-PC-MACHINE/rearm-after-reboot/N8B/n8b-failed-gate/sources.bin.zlib",
+      "bytes": 10022,
+      "sha256": "b026c9be6b8ac176be190f4d91d601581902c16e540bc7f6922a79292a9ee71b"
+    },
+    {
+      "file": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R3-8H-FASTSTART-PC-MACHINE/rearm-after-reboot/N8B/n8b-failed-gate/spi2-config.bin.zlib",
+      "bytes": 16,
+      "sha256": "cb0ffce66135084fd53223be33e6c2145c824cd0f5870bef19a65919b5b48dbf"
+    },
+    {
+      "file": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R3-8H-FASTSTART-PC-MACHINE/rearm-after-reboot/N8B/n8b-failed-gate/spi3-config.bin.zlib",
+      "bytes": 16,
+      "sha256": "f3e8f68cb9560f75ad334ed4ba11ed27fdb090d555a83fbd1762e13749265e75"
+    },
+    {
+      "file": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R3-8H-FASTSTART-PC-MACHINE/rearm-after-reboot/N8B/n8b-short-observer-launch.json",
+      "bytes": 345,
+      "sha256": "b8b5b52942c5f9b7edf24d348268fea9be31eb90c39a55b585c010be003ca222"
+    },
+    {
+      "file": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R3-8H-FASTSTART-PC-MACHINE/rearm-after-reboot/N8B/native-host.json.zlib",
+      "bytes": 267,
+      "sha256": "7c72ffe50e914badd82afc15eeb63ba8101feb718ce57615c9cd9b58a4021f42"
+    },
+    {
+      "file": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R3-8H-FASTSTART-PC-MACHINE/rearm-after-reboot/N8B/read_host.py",
+      "bytes": 1440,
+      "sha256": "8d1c488c2726d7766066104c7c05fc7a81ac20a8ee73be65fe86425391d20687"
+    },
+    {
+      "file": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R3-8H-FASTSTART-PC-MACHINE/rearm-after-reboot/N8B/run_capture.py",
+      "bytes": 4166,
+      "sha256": "dc0925a8176e2bb0b6b720cfc492f928c46d45d01ea418761712ffcd69bd3dea"
+    },
+    {
+      "file": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R3-8H-FASTSTART-PC-MACHINE/rearm-after-reboot/N8B/sleep-policy.txt.zlib",
+      "bytes": 365,
+      "sha256": "a61ed4f4916d8933a88cadefa2d33642cb3a7a5855ee3e6ab6dcdbb5f7795edb"
+    },
+    {
+      "file": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R3-8H-FASTSTART-PC-MACHINE/rearm-after-reboot/N8B/start-short-after-host.log.zlib",
+      "bytes": 298,
+      "sha256": "eef695d3e70fc4fa03128a943fd4baaecd392a5eaf139582455239e961641c8a"
+    },
+    {
+      "file": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R3-8H-FASTSTART-PC-MACHINE/rearm-after-reboot/N8B/start-short.log.zlib",
+      "bytes": 502,
+      "sha256": "f1199a766ff8244450cabf38ac7f448fe3df35c4d2caa35fae4fd0f16e80aca8"
+    },
+    {
+      "file": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R3-8H-FASTSTART-PC-MACHINE/rearm-after-reboot/N8B/start_detached.py",
+      "bytes": 3973,
+      "sha256": "d6a6789173168ab0e4d4daf88f4dfd98254cfac46570fbbb3c6f0f7725c1b6df"
+    },
+    {
+      "file": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R3-8H-FASTSTART-PC-MACHINE/rearm-after-reboot/N8B/test_launcher_guards.py",
+      "bytes": 1312,
+      "sha256": "53f1bfc78b6439070e955772dcb71682187f662c3c7e053d82a3a97a87dd7546"
+    },
+    {
+      "file": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R3-8H-FASTSTART-PC-MACHINE/rearm-after-reboot/N8B/verify_gate.py",
+      "bytes": 830,
+      "sha256": "c8c871f50139968c41416ed2252b0b56956516e81789841400a54ae672469a4a"
+    },
+    {
+      "file": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R3-8H-FASTSTART-PC-MACHINE/rearm-after-reboot/N8C/PREFLIGHT.json",
+      "bytes": 225,
+      "sha256": "61379dc07248051068529dc8924ddb504a6a73e75078623255219bc0f8c3ad45"
+    },
+    {
+      "file": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R3-8H-FASTSTART-PC-MACHINE/rearm-after-reboot/N8C/READY.json",
+      "bytes": 242,
+      "sha256": "06ea58e163e0f9c4d5a049722d46ebf4e539e50023b22ec8e2075e833ca71020"
+    },
+    {
+      "file": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R3-8H-FASTSTART-PC-MACHINE/rearm-after-reboot/N8C/analyze_capture.py",
+      "bytes": 4585,
+      "sha256": "452d37d8a84805dcd6d5445b4a27cb5c9b2a8ea42c4753d0193573439b0841e6"
+    },
+    {
+      "file": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R3-8H-FASTSTART-PC-MACHINE/rearm-after-reboot/N8C/arm/r3_coex.bin",
+      "bytes": 54556,
+      "sha256": "0844bc7abdaffc163010e59526a92294ce492e31a805b0ddba4ca937a732009a"
+    },
+    {
+      "file": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R3-8H-FASTSTART-PC-MACHINE/rearm-after-reboot/N8C/artifact.json",
+      "bytes": 644,
+      "sha256": "b378fa15362faa025b454ae3b9e2644d2d8ae4b86368fae8db0c18c6c545bc5a"
+    },
+    {
+      "file": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R3-8H-FASTSTART-PC-MACHINE/rearm-after-reboot/N8C/build.log.zlib",
+      "bytes": 1202,
+      "sha256": "d3811d5e96cdd3d392f0352ab70f1ca8910aded879f773cb4521be28ee1fafe0"
+    },
+    {
+      "file": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R3-8H-FASTSTART-PC-MACHINE/rearm-after-reboot/N8C/collect_after_terminal.py",
+      "bytes": 1483,
+      "sha256": "38968abd0868cddaef41d72be6ad1384c0142b7fe0f9bad9872490265a40f29e"
+    },
+    {
+      "file": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R3-8H-FASTSTART-PC-MACHINE/rearm-after-reboot/N8C/configure.log.zlib",
+      "bytes": 312,
+      "sha256": "68dc40137d10c7e355ede4f1c2634c2306756551f7349e868f0eec6e0e16855e"
+    },
+    {
+      "file": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R3-8H-FASTSTART-PC-MACHINE/rearm-after-reboot/N8C/flash_prepared.py",
+      "bytes": 1618,
+      "sha256": "685058f5539d4ba104a7245546c84aa04da16dafcd8c3fc6b323d2b81ab8d0a2"
+    },
+    {
+      "file": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R3-8H-FASTSTART-PC-MACHINE/rearm-after-reboot/N8C/hardware/N8C-readback-WAIT-invocation.json",
+      "bytes": 745,
+      "sha256": "2a748b79bfdcc90d249d28202314d6ac2381f11a106b96f696300573cb245e02"
+    },
+    {
+      "file": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R3-8H-FASTSTART-PC-MACHINE/rearm-after-reboot/N8C/hardware/N8C-readback-WAIT-server.log.zlib",
+      "bytes": 327,
+      "sha256": "2d8b05226ecf2e462974c0ceca6a42996407464d239f05eea268fe9f85ded0de"
+    },
+    {
+      "file": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R3-8H-FASTSTART-PC-MACHINE/rearm-after-reboot/N8C/hardware/N8C-readback-WAIT.gdb",
+      "bytes": 655,
+      "sha256": "6e6e2244c033ff1dae5db0fae7430c44313c9718d9db0a173f6943a4f9cde8a6"
+    },
+    {
+      "file": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R3-8H-FASTSTART-PC-MACHINE/rearm-after-reboot/N8C/hardware/N8C-readback-WAIT.log.zlib",
+      "bytes": 635,
+      "sha256": "28927392f81d550d412ebfa78b4a8c6f803c84e3fb7864c32d2c72205941a5d6"
+    },
+    {
+      "file": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R3-8H-FASTSTART-PC-MACHINE/rearm-after-reboot/N8C/hardware/flash-N8C-prepared-command.json",
+      "bytes": 525,
+      "sha256": "12a160ccab71d1c4b9db1b7b707d07c4d7b08c63e0f29df3cccfeb4f0bd505d4"
+    },
+    {
+      "file": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R3-8H-FASTSTART-PC-MACHINE/rearm-after-reboot/N8C/hardware/flash-N8C-prepared.log.zlib",
+      "bytes": 637,
+      "sha256": "f48b185ada7efee2965fcdd79664f0a70b7c6ec31ec3d1802d1f96afec374c85"
+    },
+    {
+      "file": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R3-8H-FASTSTART-PC-MACHINE/rearm-after-reboot/N8C/hardware/n8c-card-calibrate-invocation.json",
+      "bytes": 746,
+      "sha256": "bd782434f66fe1830e26e69b92395b126934d57bc189a70dd8927f5b30cc73d7"
+    },
+    {
+      "file": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R3-8H-FASTSTART-PC-MACHINE/rearm-after-reboot/N8C/hardware/n8c-card-calibrate-server.log.zlib",
+      "bytes": 345,
+      "sha256": "e10983747cbbc75b0f14ab0523f2c631430b41b31c5be4e954db1768d202b7b5"
+    },
+    {
+      "file": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R3-8H-FASTSTART-PC-MACHINE/rearm-after-reboot/N8C/hardware/n8c-card-calibrate.gdb",
+      "bytes": 5312,
+      "sha256": "d7f929da7f5ec983cd5c3d47b86ddae8b9a74a37e22d7d180612195eba333e2b"
+    },
+    {
+      "file": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R3-8H-FASTSTART-PC-MACHINE/rearm-after-reboot/N8C/hardware/n8c-card-calibrate.log.zlib",
+      "bytes": 1512,
+      "sha256": "3e7a1f045f479080ddee68bfc2534a76a80320a6d677091b1dbd1d7a5c3ab2d5"
+    },
+    {
+      "file": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R3-8H-FASTSTART-PC-MACHINE/rearm-after-reboot/N8C/hardware/n8c-stop-quiescence-confirm-invocation.json",
+      "bytes": 755,
+      "sha256": "041321defcecd450ea9653c40cce1b1d7f445b07c0bd77fb2f4fe500cbbe620a"
+    },
+    {
+      "file": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R3-8H-FASTSTART-PC-MACHINE/rearm-after-reboot/N8C/hardware/n8c-stop-quiescence-confirm-server.log.zlib",
+      "bytes": 345,
+      "sha256": "e10983747cbbc75b0f14ab0523f2c631430b41b31c5be4e954db1768d202b7b5"
+    },
+    {
+      "file": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R3-8H-FASTSTART-PC-MACHINE/rearm-after-reboot/N8C/hardware/n8c-stop-quiescence-confirm.gdb",
+      "bytes": 471,
+      "sha256": "f6e19db2d01fb5e6ed07a163d3dfe4ff7f35dc78bda6680e75b1b980d561be88"
+    },
+    {
+      "file": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R3-8H-FASTSTART-PC-MACHINE/rearm-after-reboot/N8C/hardware/n8c-stop-quiescence-confirm.log.zlib",
+      "bytes": 791,
+      "sha256": "e5dc51543eade740f252c89470a1b17583ee567c228de3cf6318157e85735cc2"
+    },
+    {
+      "file": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R3-8H-FASTSTART-PC-MACHINE/rearm-after-reboot/N8C/hardware/preflash-confirm-N8B-safe-failed-invocation.json",
+      "bytes": 760,
+      "sha256": "558fac8dd8cdb5f43f83a1ad7608c5fa4249e5959e769f198d3b6e3f9db72029"
+    },
+    {
+      "file": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R3-8H-FASTSTART-PC-MACHINE/rearm-after-reboot/N8C/hardware/preflash-confirm-N8B-safe-failed-server.log.zlib",
+      "bytes": 345,
+      "sha256": "e10983747cbbc75b0f14ab0523f2c631430b41b31c5be4e954db1768d202b7b5"
+    },
+    {
+      "file": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R3-8H-FASTSTART-PC-MACHINE/rearm-after-reboot/N8C/hardware/preflash-confirm-N8B-safe-failed.gdb",
+      "bytes": 649,
+      "sha256": "10a746899b883cecf88d331143457b32c6a5ce698fbec2b0ca4bd6ee13b98c29"
+    },
+    {
+      "file": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R3-8H-FASTSTART-PC-MACHINE/rearm-after-reboot/N8C/hardware/preflash-confirm-N8B-safe-failed.log.zlib",
+      "bytes": 221,
+      "sha256": "e8cef196cd403b29037a9e7c7669a3b8f2ffd30086995f499f1759572758f8d9"
+    },
+    {
+      "file": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R3-8H-FASTSTART-PC-MACHINE/rearm-after-reboot/N8C/hardware_second.py",
+      "bytes": 2406,
+      "sha256": "e2cd6c1461c59d0ced8fb1b01ece36f3846d69118f41c813393a0af1e26caec9"
+    },
+    {
+      "file": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R3-8H-FASTSTART-PC-MACHINE/rearm-after-reboot/N8C/hibernate-policy.txt.zlib",
+      "bytes": 379,
+      "sha256": "c6f64a9cd02f433219625d997da7a44603f2ff06c4ab68ea61d9c5d817a965ec"
+    },
+    {
+      "file": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R3-8H-FASTSTART-PC-MACHINE/rearm-after-reboot/N8C/init-card.log.zlib",
+      "bytes": 1038,
+      "sha256": "3a8547eead368208492d224b18bba68da1a5f08d0023330aaba8631422e857dc"
+    },
+    {
+      "file": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R3-8H-FASTSTART-PC-MACHINE/rearm-after-reboot/N8C/init_card.py",
+      "bytes": 2007,
+      "sha256": "4bd930bf2de75d377a88913a0722c3642290d7f51d2e80d02cd58ad938bf4e40"
+    },
+    {
+      "file": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R3-8H-FASTSTART-PC-MACHINE/rearm-after-reboot/N8C/launch_8h.py",
+      "bytes": 4458,
+      "sha256": "fd6f75d66812f353e003bd1bbe6267af25d834647ed3ba31c92ba389c4369a8a"
+    },
+    {
+      "file": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R3-8H-FASTSTART-PC-MACHINE/rearm-after-reboot/N8C/n8c-card-calibrate/brackets.bin.zlib",
+      "bytes": 53,
+      "sha256": "df8a48953e6797c831e12da1f2d86f8bb0f6244d9e0acf26c4a6dd16b9bc9854"
+    },
+    {
+      "file": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R3-8H-FASTSTART-PC-MACHINE/rearm-after-reboot/N8C/n8c-card-calibrate/busy-distributions.bin.zlib",
+      "bytes": 31,
+      "sha256": "62ad0d01b7a6547ef708c84cf09cf5584442db88a309fc183a85edd3e0b3d054"
+    },
+    {
+      "file": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R3-8H-FASTSTART-PC-MACHINE/rearm-after-reboot/N8C/n8c-card-calibrate/card.bin.zlib",
+      "bytes": 208,
+      "sha256": "cbeba991b84d1d3c26106b2cc0ec32df1fffe94eeecb91d70c9f5e1d055c725e"
+    },
+    {
+      "file": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R3-8H-FASTSTART-PC-MACHINE/rearm-after-reboot/N8C/n8c-card-calibrate/distributions.bin.zlib",
+      "bytes": 100,
+      "sha256": "7e66fff221b41c64713e9ded334c1d15503d0f127ea47b6d0f59a0facd82621b"
+    },
+    {
+      "file": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R3-8H-FASTSTART-PC-MACHINE/rearm-after-reboot/N8C/n8c-card-calibrate/durable-footer.bin.zlib",
+      "bytes": 14,
+      "sha256": "f7191fd8edb8005d6ddcac4a03b8e62415cbbcbfadbe85d545d35d8124e697a3"
+    },
+    {
+      "file": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R3-8H-FASTSTART-PC-MACHINE/rearm-after-reboot/N8C/n8c-card-calibrate/durable-status.bin.zlib",
+      "bytes": 17,
+      "sha256": "97a6a809731a15bcc5c8474da3fcefe67446c0015140705c20275b256b33dfa6"
+    },
+    {
+      "file": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R3-8H-FASTSTART-PC-MACHINE/rearm-after-reboot/N8C/n8c-card-calibrate/fifo-stop-payload.bin.zlib",
+      "bytes": 132,
+      "sha256": "68669b836f35f81143b336461de6c8621b5a827724d57d723a777250df5bf8f3"
+    },
+    {
+      "file": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R3-8H-FASTSTART-PC-MACHINE/rearm-after-reboot/N8C/n8c-card-calibrate/fifo-stop-trace.bin.zlib",
+      "bytes": 98,
+      "sha256": "abe90acb87e0318908f993f3ae5e4124789570bf551cd33c7bf9353c009dbc2c"
+    },
+    {
+      "file": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R3-8H-FASTSTART-PC-MACHINE/rearm-after-reboot/N8C/n8c-card-calibrate/header.bin.zlib",
+      "bytes": 14,
+      "sha256": "f7191fd8edb8005d6ddcac4a03b8e62415cbbcbfadbe85d545d35d8124e697a3"
+    },
+    {
+      "file": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R3-8H-FASTSTART-PC-MACHINE/rearm-after-reboot/N8C/n8c-card-calibrate/outputs.bin.zlib",
+      "bytes": 8,
+      "sha256": "b171e283c6145acf2b923098dbbc40ffc39b4f1db0212928f9869747376c4ac8"
+    },
+    {
+      "file": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R3-8H-FASTSTART-PC-MACHINE/rearm-after-reboot/N8C/n8c-card-calibrate/raw.bin.zlib",
+      "bytes": 3381,
+      "sha256": "5613ff6f7f6a22cfb60f43606bcff6603fabcdbfbfd2ddce468be3db7c93dd42"
+    },
+    {
+      "file": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R3-8H-FASTSTART-PC-MACHINE/rearm-after-reboot/N8C/n8c-card-calibrate/records.bin.zlib",
+      "bytes": 8,
+      "sha256": "b171e283c6145acf2b923098dbbc40ffc39b4f1db0212928f9869747376c4ac8"
+    },
+    {
+      "file": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R3-8H-FASTSTART-PC-MACHINE/rearm-after-reboot/N8C/n8c-card-calibrate/result.bin.zlib",
+      "bytes": 70,
+      "sha256": "bb5fc422bf39069881b4983a87a3e397245509b74270c974c9266e0a5538b0f9"
+    },
+    {
+      "file": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R3-8H-FASTSTART-PC-MACHINE/rearm-after-reboot/N8C/n8c-card-calibrate/result.json",
+      "bytes": 1296,
+      "sha256": "3150a86660855b2ddbae3e71fd11dd17a42b6e7b9eba363cb4e361391052f9e9"
+    },
+    {
+      "file": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R3-8H-FASTSTART-PC-MACHINE/rearm-after-reboot/N8C/n8c-card-calibrate/sd-distributions.bin.zlib",
+      "bytes": 31,
+      "sha256": "62ad0d01b7a6547ef708c84cf09cf5584442db88a309fc183a85edd3e0b3d054"
+    },
+    {
+      "file": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R3-8H-FASTSTART-PC-MACHINE/rearm-after-reboot/N8C/n8c-card-calibrate/sd-records.bin.zlib",
+      "bytes": 8,
+      "sha256": "b171e283c6145acf2b923098dbbc40ffc39b4f1db0212928f9869747376c4ac8"
+    },
+    {
+      "file": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R3-8H-FASTSTART-PC-MACHINE/rearm-after-reboot/N8C/n8c-card-calibrate/single-busy-max.bin.zlib",
+      "bytes": 12,
+      "sha256": "611d417cb007ca0eeb6d26c0defe71b887ffbba045a6ec5a0df38861b439baa2"
+    },
+    {
+      "file": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R3-8H-FASTSTART-PC-MACHINE/rearm-after-reboot/N8C/n8c-card-calibrate/source-sha.bin.zlib",
+      "bytes": 11,
+      "sha256": "97dad41c6e855ad9a44c8acb242698e7cff4a28d8acf92370d3983fc1bd7b6f0"
+    },
+    {
+      "file": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R3-8H-FASTSTART-PC-MACHINE/rearm-after-reboot/N8C/n8c-card-calibrate/sources.bin.zlib",
+      "bytes": 8,
+      "sha256": "b171e283c6145acf2b923098dbbc40ffc39b4f1db0212928f9869747376c4ac8"
+    },
+    {
+      "file": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R3-8H-FASTSTART-PC-MACHINE/rearm-after-reboot/N8C/n8c-card-calibrate/spi2-config.bin.zlib",
+      "bytes": 16,
+      "sha256": "cb0ffce66135084fd53223be33e6c2145c824cd0f5870bef19a65919b5b48dbf"
+    },
+    {
+      "file": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R3-8H-FASTSTART-PC-MACHINE/rearm-after-reboot/N8C/n8c-card-calibrate/spi3-config.bin.zlib",
+      "bytes": 16,
+      "sha256": "f3e8f68cb9560f75ad334ed4ba11ed27fdb090d555a83fbd1762e13749265e75"
+    },
+    {
+      "file": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R3-8H-FASTSTART-PC-MACHINE/rearm-after-reboot/N8C/native-host.json.zlib",
+      "bytes": 267,
+      "sha256": "7c72ffe50e914badd82afc15eeb63ba8101feb718ce57615c9cd9b58a4021f42"
+    },
+    {
+      "file": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R3-8H-FASTSTART-PC-MACHINE/rearm-after-reboot/N8C/read-host.log.zlib",
+      "bytes": 242,
+      "sha256": "c86962213e20a2282183f21a37b6c0b00395fe3bb16d72396b04128a595718c4"
+    },
+    {
+      "file": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R3-8H-FASTSTART-PC-MACHINE/rearm-after-reboot/N8C/read_host.py",
+      "bytes": 1440,
+      "sha256": "8d1c488c2726d7766066104c7c05fc7a81ac20a8ee73be65fe86425391d20687"
+    },
+    {
+      "file": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R3-8H-FASTSTART-PC-MACHINE/rearm-after-reboot/N8C/run_capture.py",
+      "bytes": 4166,
+      "sha256": "b80d2db4d009c8fd1ae27828a514b8fca089d46e905afeef9dd371be13601c3c"
+    },
+    {
+      "file": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R3-8H-FASTSTART-PC-MACHINE/rearm-after-reboot/N8C/sleep-policy.txt.zlib",
+      "bytes": 365,
+      "sha256": "a61ed4f4916d8933a88cadefa2d33642cb3a7a5855ee3e6ab6dcdbb5f7795edb"
+    },
+    {
+      "file": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R3-8H-FASTSTART-PC-MACHINE/rearm-after-reboot/N8C/start_detached.py",
+      "bytes": 3973,
+      "sha256": "83f7a26b21a92ef6e0240852bc0b2a4008c0269b416c04f0d23483e3a80d859d"
+    },
+    {
+      "file": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R3-8H-FASTSTART-PC-MACHINE/rearm-after-reboot/N8C/test_launcher_guards.py",
+      "bytes": 1312,
+      "sha256": "5c1e5d408aee73e2c69b9aafe82b1b4b785fa567cf0c227c533d1b5963916f67"
+    },
+    {
+      "file": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R3-8H-FASTSTART-PC-MACHINE/rearm-after-reboot/N8C/verify_gate.py",
+      "bytes": 830,
+      "sha256": "c8c871f50139968c41416ed2252b0b56956516e81789841400a54ae672469a4a"
+    },
+    {
+      "file": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R3-8H-FASTSTART-PC-MACHINE/rearm-after-reboot/README.md",
+      "bytes": 2358,
+      "sha256": "9018f144f1f70098ea8943943371de5116403c800c399b2f0192178aeba5647c"
+    }
+  ]
+}

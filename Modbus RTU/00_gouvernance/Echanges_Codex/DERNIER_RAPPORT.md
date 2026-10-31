@@ -28,7 +28,7 @@ allow_debug: true
 
 **Interventiondemandée selonAGENTS.md§9 :** utilisateurcoupe uniquementSTLINKTR2-002, vérifie/réenfichelesconnecteurs de lanappecapteur auxdeuxextrémités etcontacts3,3V/GND, sanschangerbroches/pose ; SDresteenplace/USBnatifdefbranché, puisSTLINKreconnectéetretourutilisateur. Arrêtsûrconfirméavantcetteaction. Aucun nouvelessai avantconfirmation. Aprèsretour, vérifierétat/imageCconservée, réutilisersansflashsiconforme, relirecarte/noms puisvalidationcourteadaptée ; pasderelanceautomatique du longni de nouveauflashaveugle.
 
-Rapport/journal/preuves sontpubliés commecheckpointBLOCKEDréel surinterventionphysique, pasDONE niREADY fictif ; publicationàvérifieretSHAfinaldansréponse. AucunTR2-001/COM4/FRAM/serviceWindows/OptionBytes ni donnéespersistantes anciennes modifiés. Lesbilanssuivants sonthistorique et ne décriventpasunétatprêtactuel.
+Rapport/journal/preuves sontpubliés commecheckpointBLOCKEDréel surinterventionphysique, pasDONE niREADY fictif ; checkpoint8446c221 publié/relu intégralement (145fichiers/141artefacts conformes aprèsdécompression siapplicable), preuve remote-readback.json ; bilanfinalvérifiéetSHAfinaldansréponse. AucunTR2-001/COM4/FRAM/serviceWindows/OptionBytes ni donnéespersistantes anciennes modifiés. Lesbilanssuivants sonthistorique et ne décriventpasunétatprêtactuel.
 
 # Actualisation après installation — 31/10/2026 21:16 UTC
 
