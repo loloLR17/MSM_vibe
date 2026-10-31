@@ -1,0 +1,57 @@
+{
+  "source_ref": "a9077dcf",
+  "source_pdf_sha256": "e6912dcda53f8f0a48f89a350ec9ac28e431ad5b24517f07f811da0990fef803",
+  "output_path": "Modbus RTU/02_Validation/Rapports/MSM_TR2_Rapport_capacites_vibratoires_31-10-2026.pdf",
+  "output_sha256": "4e8756c5dbb4ef0bd3e0caf3d95d47b28ca0b59c1610034a50815dde11bd80c0",
+  "bytes": 1588432,
+  "pages": 10,
+  "original_figures": [
+    {
+      "page": 4,
+      "file": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R5-ANALYSE-PC-MACHINE-6H/02_spectrogram.png",
+      "source_sha256": "bc6a4fac9030989cbcc6bf0c66f6ba0b31a650ab730a1d7bf0763dd097ce35d8",
+      "width": 1950,
+      "height": 825,
+      "xref": 86,
+      "rect": [
+        24.0,
+        137.75,
+        817.0,
+        473.25
+      ],
+      "effective_dpi": 177.04918032786884
+    },
+    {
+      "page": 5,
+      "file": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R5-ANALYSE-PC-MACHINE-6H/03_spectra_ridges.png",
+      "source_sha256": "7e6e64d5e0d7dbc824d47096008b567040b217eb220ef1ee72ccfe3637182c18",
+      "width": 1950,
+      "height": 1200,
+      "xref": 99,
+      "rect": [
+        29.6875,
+        65.0,
+        811.3125,
+        546.0
+      ],
+      "effective_dpi": 179.62577962577961
+    },
+    {
+      "page": 6,
+      "file": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R5-ANALYSE-PC-MACHINE-6H/04_ridge_power.png",
+      "source_sha256": "1797dd176e89b9b26623b8485fc42a8a7eace3fb609283edd2c85eef2d157b77",
+      "width": 1950,
+      "height": 1050,
+      "xref": 110,
+      "rect": [
+        24.0,
+        92.0,
+        817.0,
+        519.0
+      ],
+      "effective_dpi": 177.04918032786884
+    }
+  ],
+  "method": "original PDF vector pages reused;3 full lossless PNG native dimensions; no recomputed series",
+  "pymupdf": "1.26.7"
+}

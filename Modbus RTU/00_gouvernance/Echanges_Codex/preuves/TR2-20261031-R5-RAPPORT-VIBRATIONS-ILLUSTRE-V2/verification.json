@@ -1,0 +1,169 @@
+{
+  "pdf_sha256": "4e8756c5dbb4ef0bd3e0caf3d95d47b28ca0b59c1610034a50815dde11bd80c0",
+  "bytes": 1588432,
+  "pages": 10,
+  "embedded_original_figures": 3,
+  "figures": [
+    {
+      "page": 4,
+      "source": "02_spectrogram.png",
+      "source_png_sha256": "bc6a4fac9030989cbcc6bf0c66f6ba0b31a650ab730a1d7bf0763dd097ce35d8",
+      "native_width": 1950,
+      "native_height": 825,
+      "source_RGB_sha256": "003a8b5ea879ff0d703e830d42a5ebe746b0454f1432505e5c5d05c160da561f",
+      "extracted_pixels_identical": true,
+      "occurrences": [
+        {
+          "xref": 26,
+          "rect": [
+            24.0,
+            137.75,
+            817.0,
+            473.25
+          ],
+          "dpi": 177.04918032786884
+        }
+      ]
+    },
+    {
+      "page": 5,
+      "source": "03_spectra_ridges.png",
+      "source_png_sha256": "7e6e64d5e0d7dbc824d47096008b567040b217eb220ef1ee72ccfe3637182c18",
+      "native_width": 1950,
+      "native_height": 1200,
+      "source_RGB_sha256": "f1c78ce892d586f8d84d60c6fa6f5e2441e10a8bd11325efdad50a9d480ff8b9",
+      "extracted_pixels_identical": true,
+      "occurrences": [
+        {
+          "xref": 37,
+          "rect": [
+            29.6875,
+            65.0,
+            811.3125,
+            546.0
+          ],
+          "dpi": 179.62577962577961
+        }
+      ]
+    },
+    {
+      "page": 6,
+      "source": "04_ridge_power.png",
+      "source_png_sha256": "1797dd176e89b9b26623b8485fc42a8a7eace3fb609283edd2c85eef2d157b77",
+      "native_width": 1950,
+      "native_height": 1050,
+      "source_RGB_sha256": "0648ba0f211938849ee931c2eabe62151cfe40988ff40ac87c8b1f9ab023fde4",
+      "extracted_pixels_identical": true,
+      "occurrences": [
+        {
+          "xref": 45,
+          "rect": [
+            24.0,
+            92.0,
+            817.0,
+            519.0
+          ],
+          "dpi": 177.04918032786884
+        }
+      ]
+    }
+  ],
+  "first_page_required_text": true,
+  "no_page_blank": true,
+  "text_bounds_ok": true,
+  "all_pages_rendered": true,
+  "page_details": [
+    {
+      "page": 1,
+      "width": 595.2760009765625,
+      "height": 841.8900146484375,
+      "text_chars": 1529,
+      "image_count": 0,
+      "links": 1,
+      "render_rgb_sha256": "6d9112971c356541f70ca616e08a6ab6f2dd825945c3c6b7f86764e2a00a2020"
+    },
+    {
+      "page": 2,
+      "width": 595.2760009765625,
+      "height": 841.8900146484375,
+      "text_chars": 1111,
+      "image_count": 0,
+      "links": 0,
+      "render_rgb_sha256": "4efd96e6c6c8d63d8d27787c9979e0358df8e2bd6981edb590dc788562685ebb"
+    },
+    {
+      "page": 3,
+      "width": 595.2760009765625,
+      "height": 841.8900146484375,
+      "text_chars": 1176,
+      "image_count": 0,
+      "links": 0,
+      "render_rgb_sha256": "49d5d01b13714ea533343b507c6449d39fca8be3d1faa7420d1903ba17a565c5"
+    },
+    {
+      "page": 4,
+      "width": 841.8900146484375,
+      "height": 595.2760009765625,
+      "text_chars": 264,
+      "image_count": 1,
+      "links": 1,
+      "render_rgb_sha256": "a7a51105be95313c1df38c88900114d672f5ded5e5d61c214d90ad762c1b880e"
+    },
+    {
+      "page": 5,
+      "width": 841.8900146484375,
+      "height": 595.2760009765625,
+      "text_chars": 273,
+      "image_count": 1,
+      "links": 1,
+      "render_rgb_sha256": "2af3e0b00469476dbc88f5acb22c461104ceea52db9e99bcbf058689bbd6addc"
+    },
+    {
+      "page": 6,
+      "width": 841.8900146484375,
+      "height": 595.2760009765625,
+      "text_chars": 256,
+      "image_count": 1,
+      "links": 1,
+      "render_rgb_sha256": "4bd3480eede741d1781e93516fef234acfadcc8114b49ff62d5a5e656a7be204"
+    },
+    {
+      "page": 7,
+      "width": 595.2760009765625,
+      "height": 841.8900146484375,
+      "text_chars": 1237,
+      "image_count": 0,
+      "links": 0,
+      "render_rgb_sha256": "8ce8fc4f907894cc0d595cb3da103bef9ee3a97d905508b356829bc717ffd571"
+    },
+    {
+      "page": 8,
+      "width": 595.2760009765625,
+      "height": 841.8900146484375,
+      "text_chars": 1963,
+      "image_count": 0,
+      "links": 0,
+      "render_rgb_sha256": "b1be26076197362124f88c2e4136df2dd7e010198bbbb83e07ec6722b33a92ff"
+    },
+    {
+      "page": 9,
+      "width": 595.2760009765625,
+      "height": 841.8900146484375,
+      "text_chars": 1751,
+      "image_count": 0,
+      "links": 0,
+      "render_rgb_sha256": "b2dfd285651c0e7e6ae1314c3c86763d16bd206952ab259d41a82955325563f2"
+    },
+    {
+      "page": 10,
+      "width": 595.2760009765625,
+      "height": 841.8900146484375,
+      "text_chars": 1459,
+      "image_count": 0,
+      "links": 6,
+      "render_rgb_sha256": "840eb9b16a5090f21b0f44a4f09b987cf36bec3b5cd60258f75636ce92c6f360"
+    }
+  ],
+  "pymupdf": "1.26.7",
+  "checks": "No signal computation, only published summaries/display rounding and original images/vector pages"
+}

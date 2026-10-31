@@ -1,12 +1,11 @@
 ---
-mission_id: TR2-20261031-R5-WM-CONFORT-INDICATIF-OFFLINE
-mission_revision: R1-20261031-PREFERENCE-BV
-status: DONE
+mission_id: TR2-20261031-R5-RAPPORT-VIBRATIONS-ILLUSTRE-V2
+status: IN_PROGRESS
 base_ref: main
-base_sha: 4192f4cbe0436a30cfe57a0033bbd869612931d5
-initial_head: 62e92d9e8b9e3cd71e68f4297549d33ca239f800
-result_sha: 07948452e3548e842431e9066b3239a6182455e1
-created_at_utc: 2026-10-31T14:38:47.293484+00:00
+base_sha: d89f11ef1afff9331d60278b6000e5505dfbcdbd
+initial_head: a9077dcf41d0653d4664cd2ab1a9d94203726075
+result_sha: null
+created_at_utc: 2026-10-31T16:29:19.219601+00:00
 author: Codex
 target_branch: main
 allow_commit: true
@@ -15,203 +14,40 @@ allow_flash: false
 allow_debug: false
 ---
 
-# TR2-Wm : calcul local livré, comparabilité BV non établie
+# Rapport vibratoire illustré V2 — document terminé, publication à vérifier
 
-Le traitement des six heures et les tranches logicielles sont terminés, publiés
-et relus intégralement. **TR2_WM_A_MAX**
-est calculé sur XYZ nominaux : RMS Wm de chaque axe, puis maximum sur la même
-fenêtre, en **mm/s²**. Ce n'est ni une norme vectorielle ni un pic. Instrument
-non étalonné, campagne **NON_CLASSÉE**, **COMPARABILITE_BV_NON_ETABLIE**. Aucun
-seuil/ratio/classe BV ni substitution GOST, aucune conformité ou santé déduite.
+Le PDF demandé est remplacé **au même chemin**, avec **10 pages et trois figures R5 originales incorporées**. Les critères éditoriaux et contrôles locaux sont satisfaits ; IN_PROGRESS porte uniquement sur la publication/relecture encore à effectuer.
 
-## Résultats mesurés sur codes archivés, gain nominal
+[Ouvrir le PDF](../../02_Validation/Rapports/MSM_TR2_Rapport_capacites_vibratoires_31-10-2026.pdf) · [Preuves et reproduction](preuves/TR2-20261031-R5-RAPPORT-VIBRATIONS-ILLUSTRE-V2/README.md)
 
-| Fenêtres FULL | P50 a_max mm/s² | P95 | Maximum |
-|---|---:|---:|---:|
-| MCU60s,365 | 43,728 | 74,344 | 99,102 |
-| MCU120s,182 | 43,893 | 74,218 | 87,776 |
-| QPC estimé60s,365 | 43,436 | 73,867 | 98,492 |
-| QPC estimé120s,182 | 43,600 | 73,744 | 87,233 |
+- Binaire PDF réel, **1 588 432 octets**, SHA-256 **`4e8756c5dbb4ef0bd3e0caf3d95d47b28ca0b59c1610034a50815dde11bd80c0`**.
+- Couverture : plancher du PC machine, occupation permanente en navigation fournie par le contrat ; environ6h06 en temps relatif MCU/58,55MXYZ. Wm médiane1,224/P952,082/maximum2,775mm/s sur365fenêtres complètes60s. Le maximum est un RMS de fenêtre, pas une crête instantanée. Aucun «tout va bien95%du temps».
+- Repères BV documentaires4,0/4,5/5,0mm/s explicitement attribués aux grades1/2/3 et à «Engine control room or switchboard room (if continuously manned at sea)», source NR467F juillet2026 ch6§3 tableau4 vérifiée. Pas de verdict BV ni d'alerte sanitaire. Mention de portée unique et sobre en couverture.
+- Pages2–3 : courbes temporelles vectorielles de l'édition existante conservées, regroupement énergétique5min identifié ; tableau60/120s ajouté sans nouvelle analyse. Valeurs120s1,229/2,078/2,458mm/s issues de la synthèse publiée. RMS2–25Hz/crêtes/énergie inchangés.
+- **Page4 `02_spectrogram.png` ; page5 `03_spectra_ridges.png` ; page6 `04_ridge_power.png`** : images natives1950pixels en largeur, trois pagesA4 paysage, légendes/couleurs/échelles/unités/proportions intactes et sources cliquables. Le schéma de trois fréquences remplacé par ces figures réelles. Pas d'identification de machine inventée.
+- Pages7–10 : électronique STM32U575/IIS3DWB/STEVAL-MKI208V1/microSD, FIR107Q15/décimation, méthodeWm/RMS, qualité/bases de temps et référencesST/BV/ISO/GOST préservées. Correspondance axes capteur/navire explicitement non documentée. Ancien texte sur figures absentes supprimé.
 
-Période entière valide MCU :58 525 510XYZ, RMS XYZ23,379/18,643/43,874mm/s²,
-axe gagnantZ/max43,874mm/s². Elle inclut la dernière fenêtre partielle et ne
-moyenne pas les RMS. Premier/dernier segments incomplets restent PARTIAL, pas0.
-3306résultats au total (deux horloges×trois variantes×551fenêtres60/120s).
-L'axe gagnant et les valeurs non arrondies sont conservés pour chaque fenêtre.
-Secondaire dépendant : équivalent v_w=0,028a_w, soit1,22847mm/s sur la période.
-**Pas une deuxième mesure indépendante**, ni la vitesse non pondérée antérieure.
+## Validation réellement exécutée
 
-182paires120s par méthode reconstruites par somme d'énergie des deux60s : erreur
-max4,44e−16, rang max60/RMS120 Spearman0,98296 pour MCU principal. Rapport max60/
-RMS120 : médiane1,01687/P951,09822/max1,30128. La variation de durée lisse les
-niveaux variables ; elle ne traduit pas une erreur de pondération. Les distributions
-FULL60/120 ont des populations de bord légèrement différentes, séparées des
-comparaisons alignées sur le même contenu.
+Outillage existant Python3/PyMuPDF1.26.7, aucune dépendance globale installée. Construction réussie :
 
-Cadence QPC alternative : écart principal60s −0,7224% à−0,4022% par rapport àMCU.
-Variante diagnostique du coin bas×0,8 :+0,004% à+3,748% ; ×1,2 :−1,515% à−0,004%.
-Ce ne sont pas d'autres KPI principaux ni une qualification physique de1Hz.
-Les filtres ont des raccordements lisses : diagnostic PSD Hann16s par blocs,
-fractions pondérées médianes≈1,26% sous1Hz et2,49% au-dessus80Hz (fuite de fenêtre
-incluse). Pas de découpage rectangulaire ou second passe-bande qui modifierait Wm.
-
-**L'épisode extrême reste dans le principal.** Le diagnostic séparé exclut
-17600–17630s des sommes d'énergie, sans changer source/filtre ni interpoler.
-Variation du RMS global directionnel de période :−0,03608% ; part de l'énergieZ
-sur ces30s0,2085%. Les fenêtres affectées du diagnostic gardent leur couverture
-réduite ; aucune promotion FULL. Ces chiffres ne démontrent pas la cause du pic
-source+7,676728g nominal, ni l'absence de défaut natif. Recommandation antérieure
-±8g maintenue ; aucun registre ou acquisition modifié.
-
-## Définition originale et validation numérique
-
-Fonction analogique : Hh Butterworth2 à10^−0,1Hz × Hl Butterworth2 à100Hz ×
-Ht ordre1 à1/(0,028×2π)Hz. Bilinéaire sans préwarping, SOS float64 : les limitations
-sont incluses **une seule fois**. Pas de facteur appliqué au RMS large bande,
-pas de réemploi de TEST_LP10. 1mg=9,80665mm/s². La vitesse équivalente est aussi
-vérifiée par le transfert de pondération vitesse, distinct mathématiquement,
-combiné à une intégration ; elle reste une grandeur dépendante.
-
-Quatre oracles publics sélectionnés, aux centres réels tiers d'octave :
-1/3,981…/10/79,4328…Hz avec gains arrondis0,833/0,818/0,494/0,0604. L'étiquette
-nominale80Hz n'est pas la fréquence ponctuelle80Hz. Formule complète vérifiée
-contre SOS complexe, phase et fréquence bilinéaire équivalente. Déformation
-numérique maximale sur1–80 :0,4692% en module/0,00418rad en phase pourMCU.
-Il ne s'agit pas de l'incertitude physique ni d'une tolérance ISO d'instrument.
-
-**9 tests ciblés PASS** : réponse/phase, sinus0,5/0,8/1/2/4/10/25/80/100Hz,
-multitons, AM/FM/bruit/chocs, offsets/inclinaison, DC/gaps/clips/vides,
-chunking/causalité, unités/axe/vitesse, accumulation Parseval et SQLite.
-Commande effectivement exécutée :
-
-```sh
-OPENBLAS_NUM_THREADS=1 /home/lolo/dev/msm/cache/r5-analysis-venv/bin/python -W error::ResourceWarning -m unittest discover -s experiments/r5_wm_offline -p 'test_*.py' -v
+```bash
+python3 'Modbus RTU/02_Validation/Rapports/outils/illustrate_report_v2.py' /home/lolo/dev/msm/reports/TR2-R5-rapport-V2-20261031/build-v4
+python3 'Modbus RTU/02_Validation/Rapports/outils/verify_report_v2.py' /home/lolo/dev/msm/reports/TR2-R5-rapport-V2-20261031/verification-v2
 ```
 
-**72 contre-calculs réels PASS** : trois périodes faibles/médianes/fortes plus
-période de l'épisode, chacune120s et ses deux60s, six variantes/horloges. Oracle
-FFT fondé sur la fonction rationnelle indépendante, contexte±30s/padding60s et
-Parseval. Écart RMS max9,024e−11 sous limite0,001 ; Parseval max2,586e−16 sous
-limite1e−12. Aucun seuil de test affaibli.
+Les deux commandes ont terminé avec code0. Vérificateur séparé du constructeur : signaturePDF/non chiffré,10pagesA4, texte attendu, pagination, bornes de tous les blocs, aucune page vide, **rendu des dix pages** et **comparaison RGB native de chacune des trois images extraites** : PASS. Revue visuelle effective de toutes les pages, dont couverture/confort/spectrogramme/PSD/annexes : lisibilité et absence de débordement/chevauchement observées. Pixels et proportions des PNG originaux strictement identiques ; détails et SHA dans [verification.json](preuves/TR2-20261031-R5-RAPPORT-VIBRATIONS-ILLUSTRE-V2/verification.json).
 
-Premier parcours arrivé au55econtrôle : RMS concordant mais somme float64
-Parseval1,03895e−12>1e−12. Agrégats déjà sauvegardés : **pas de nouveau filtrage6h**.
-Sommation long-double corrigée, test de dynamique ajouté, limite inchangée.
-Reprise vérifie tous RMS/comptes/qualités contre moments sauvegardés, définitions,
-SHA source et identité du core du checkpointe7da1098 ; seuls contrôles repris.
-Échec, données intermédiaires et correctif sont conservés. Aucun ancien test ou
-traitement PK/RMS/PREQUAL répété. Pas de tr2_validate/ARM/.NET : aucun impact.
+Lors de la préparation, des boîtes de texte trop petites et une ressource de police après redaction ont arrêté la construction avant livraison ; dimensions/police corrigées. Le contrôleA4 strict a ensuite révélé l'arrondi595×842 des anciennes pages : MediaBox normalisée sans changer le contenu, tolérance de contrôle conservée. La version finale passe les contrôles. Aucun nouveau test algorithmique/hôte/ARM ni calcul sur les6h : mission éditoriale, données et code scientifique inchangés, ces tests ne valideraient pas la mise en page.
 
-Coût mesuré de reprise des contrôles12,304s/RSS333728KiB≈325,9MiB. Le coût total
-initial n'a pas été enregistré après l'arrêt ; observation intermédiaire
-RSS200208KiB, **pas un pic**. Pas de WCET/benchmark global inventé. Mémoire
-structurellement bornée par blocs4096records, moments par seconde et quatre
-contextes courts, aucune mise en RAM des58,55MXYZ ; NPZ local≈5,8MiB.
-Le futur parcours sans arrêt consigne durée/pic global dans son manifeste.
+## Préservation et traçabilité
 
-Le code du filtrage évalué est le checkpoint e7da1098 (core inchangé) ; les SHA
-runner corrigé/reprise et artefacts cache sont dans MANIFEST.json. Le reste des
-modules assure contrôle, copie SQL, rendu et requêtes ; aucune application LIVE.
+HEAD initial réel main récupéré **a9077dcf41d0653d4664cd2ab1a9d94203726075**, distinct du base_sha documentaire du contrat. Worktree isolé `MSM_vibe-R5-rapport-V2`, branche locale `codex/r5-rapport-illustre-v2`, destination autorisée explicite main. Ancien dépôt/branches/worktrees et stashes6251b988/f3b829e6 préservés ; aucun reset/clean/restore/rebase/merge/forcepush.
 
-## Sources et comparaison BV, après validation du calcul
+Ancien PDF8pages : SHA`e6912dcda53f8f0a48f89a350ec9ac28e431ad5b24517f07f811da0990fef803`, conservé dans Git et copie locale `reports/TR2-R5-rapport-V2-20261031/original-main.pdf`. Deux dossiers R5/Wm comparés intégralement àa9077dcf, identiques : [source-preservation.json](preuves/TR2-20261031-R5-RAPPORT-VIBRATIONS-ILLUSTRE-V2/source-preservation.json). Archives précédentes, mesures/CSV/PNG/JSON, bases et algorithmes ne sont pas modifiés. Le contexte d'occupation nouvellement fourni est présenté dans ce PDF sans transformer rétroactivement le manifesteWm antérieur.
 
-[Références/éditions effectivement accessibles](../../../experiments/r5_wm_offline/REFERENCES.md)
-et [méthode/tolérances](../../../experiments/r5_wm_offline/METHOD.md).
-Le registre officiel Rosstandart et le texte GOST2023 déclaréIDT à20283-5:2016
-fournissent les définitions de grandeur/points. Relations historiques contrôlées
-sur annexeA d'une adoption nationale **MOD** de2631-2:2003 et projetFDIS2026.
-ISO confirme l'édition2026 ; son annexe normative finale n'est pas intégralement
-visible surOBP. Le contenu public final décrit le même produit mais ses formules
-ne sont pas intégralement récupérées en texte. **Concordance mathématique des
-relations accessibles, pas preuve exhaustive d'identité des exigences finales
-2003/2026/8041**. Algorithme local explicitement versionné, pas de coefficient
-conjectural ni de norme achetée/PDF/table intégrale publiés. Téléchargement local
-du PDF national expiré, consultation web utilisée sans annoncer un succès local.
+Permissions exercées : édition documentaire/outillage local, commit et push normaux seulement. Aucun STM32/flash/debug/reset/SD/FRAM/COM/Windows. Journal technique actualisé avec ce livrable et la prochaine revue indépendante, sans changer les réserves historiques R3/Wm/PK. `result_sha: null` : aucun code de mesure évalué dans cette mission ; la source du document et les versions des outils sont tracées dans les preuves. Pas de qualification métrologique ou normative nouvelle.
 
-**Étude LotB effectuée après les72contrôles validés**, trace dans
-[BV_COMPARABILITY.json](preuves/TR2-20261031-R5-WM-CONFORT-INDICATIF-OFFLINE/BV_COMPARABILITY.json).
-[BV NR467F juillet2026](https://rulesexplorer-docs.bureauveritas.com/documents/nr467/jul2026/467-NR_PartF_2026-07.pdf),
-ch6 sec1§2.1.3(b), sec3§3.1/3.2.1/tableau4 : voie RMS globale pondérée1–80Hz
-renvoyant àISO20283-5. Les tableaux5/6PK sont distincts et l'ancien blocage PK
-n'est pas levé. Pont dimensionnel documenté avec0,028a_w, mais comparaison BV
-**NON ÉTABLIE pour cette campagne** : identité exhaustive des références finales,
-catégorie/occupation du local, axes/pose, conditions et couverture de mesure
-non démontrés. Le mot «PC machine» ne désigne pas automatiquement une catégorie
-BV ou un compartiment machines. Référence ISO20283-5 prévue pour voyages≥24h,
-notre traversée≈8h sans garantie d'applicabilité. Aucune application réglementaire.
+## Publication
 
-Tableau d'alignement point par point conservé ; catégorie NON_CLASSÉE,
-seuil/ratio/classe nuls. Pas de ligne de seuil sur les figures ni de repère GOST
-substitué. Une proportion de locaux n'est jamais une proportion des minutes.
-L'absence d'étalonnage ne bloque pas le développement numérique local ; elle
-limite son interprétation physique avec les autres réserves précises ci-dessus.
-
-## Provenance, préservation et livraison
-
-Archive locale :
-`/home/lolo/dev/msm/reports/TR2-r3-6h-data-20261031/pc-recovery-after-powercut/E6N0005.TR2`.
-Entier640MiB SHA91861cef14f824ae5b7422c55b092255654e2665062747205c7e034a0d1aeee5,
-58 552 136XYZ/351 312 816B utiles,
-SHApayload5077a1f6e290b563c254300fde4ab7fb1bb7409717e65831e73a20a277bb7e41.
-SHA/CRC/index/session/qualité stricts avant/après reprise, queue préallouée exclue.
-R3 CLOSED_WITH_RESERVATIONS maintenue : digest producteurRAM indépendant perdu ;
-intégrité interne seulement. Gain nominal244µg/count/FSlogique8g, FS physique
-continu non vérifié, pose/axes/cadence/bruit1Hz non qualifiés, UTC_UNKNOWN,
-température absente. FIR107Q15 et son SHA/réponse déjà documentés inchangés,
-pas de requalification physique ni de nouveau test FIR.
-
-Copie unique cumulative **v5**,16tables historiques v4 intégralement conservées
-(dont12anciennes v3),2204RMS/30804PK/8816PREQUAL intacts. Six méthodes et3306résultats
-Wm ajoutés, une campagne, double import et audit idempotents aussi en octets,
-integrity_check=ok/FKvide, cinq requêtes exécutées : comptes1/6/12/3306/1.
-Les quatre anciens catalogues ont des SHA identiques avant/après ; preuve complète
-[sqlite-proof.json](preuves/TR2-20261031-R5-WM-CONFORT-INDICATIF-OFFLINE/sqlite-proof.json).
-DB locale `/home/lolo/dev/msm/reports/TR2-R5-WM-20261031/analysis-unified-v5.sqlite`,
-57 704 448B, SHA48f02e019fc2e6d47a041690f93bd80a3f7241513aeec92c519aa9aa48f8c465.
-Aucun XYZbrut ajouté en SQL, aucune DBLIVE ouverte ni base/TR2/NPZ/PDF publiée.
-
-[Page/figures](preuves/TR2-20261031-R5-WM-CONFORT-INDICATIF-OFFLINE/index.html),
-[note de résultats](preuves/TR2-20261031-R5-WM-CONFORT-INDICATIF-OFFLINE/NOTE_RESULTATS.md),
-[preuves/CSV/chemins](preuves/TR2-20261031-R5-WM-CONFORT-INDICATIF-OFFLINE/README.md),
-[CLI et limites pour futures archives](../../../experiments/r5_wm_offline/README.md).
-Deux figures inspectées visuellement. Exports et identités non arrondis pour
-reproduction ; valeurs invalides explicites. Champs BV du manifeste de calcul
-portent l'état avant étude, sidecar final distinct et versionné, sans réécrire
-les résultats de calcul. La CLI exige un SHA attendu et le profil strict connu.
-
-Travail isolé MSM_vibe-R5-WM/codex/r5-wm-offline depuis62e92d9e. Dépôt principal
-historique82169af, anciens worktrees et deux stashes6251b988/f3b829e6 préservés.
-Mission/gouvernance/archives précédentes, code d'analyse antérieur, firmware,
-Windows/service/FS/COM/SD/FRAM inchangés. Permissions exercées : logiciel, commit,
-push normaux versmain seulement. Journal actualisé avec résultats/étude BV,
-réserves et suite : revue indépendante ChatGPT, catégorie et contrôles instrumentaux
-avant comparaison/documentation BV future. Aucune intervention physique requise ici.
-
-G0 source/préservation satisfait ; G1 calcul local original et oracles satisfaits,
-avec réserve explicite d'identité normative exhaustive ; G2 six heures/contrôles/
-influence satisfaits ; G3 étude BV avec issue NON_ETABLIE satisfaite seloncontrat ;
-G4 persistance/exports réalisés et publiés ; G5 publication/relecture satisfaite.
-**DONE clôt la livraison logicielle locale prévue**, avec son issue comparative
-NON_ETABLIE explicitement autorisée par le contrat. Aucune conformité, certification
-ou levée automatique des réserves physiques/historiques. Revue indépendante
-ChatGPT distincte, aucune qualification de jalon attribuée par Codex.
-
-## Publication et relecture distante
-
-- Checkpoint e7da10987dac8c5f8f8bc75f90ae6d5111eee938 :
-  `R5 Wm: checkpoint original tested weighting chain before real archive analysis`.
-- Code corrigé, résultats, preuves et bilan07948452e3548e842431e9066b3239a6182455e1 :
-  `R5 Wm: publish verified six-hour metric, event audit and explicit BV limits`.
-
-Les deux push normaux ont réussi sur main. Après `git fetch origin main`,
-**49fichiers/2 350 412octets** ont été relus intégralement par `git show` depuis
-la référence récupérée de GitHub et comparés aux fichiers publiés, tous identiques,
-mission comprise. [Preuve de relecture](preuves/TR2-20261031-R5-WM-CONFORT-INDICATIF-OFFLINE/remote-readback.json).
-Le SHA de résultat désigne la version corrigée testée et publiée ; le filtrage
-initial réutilisé provenait du checkpoint e7da1098, core mathématique identique.
-
-Le présent statut DONE, le journal final et la preuve sont publiés dans un dernier
-commit normal, vérifié également après push. Son SHA et l'état Git final sont
-fournis dans la réponse utilisateur, sans inscrire un SHA dans son propre commit.
-Les deux stashes et worktrees historiques sont préservés ; le worktree de mission
-sera contrôlé propre après publication. Aucun reset/rebase/force push/effacement.
+À effectuer : commit atomique du PDF/outils/preuves/rapport/journal, push normal `HEAD:refs/heads/main`, récupération de la référence GitHub et comparaison intégrale des livrables, puis rapportDONE consignant le SHA relu. Aucun critère technique restant hors publication. Le SHA final documentaire sera donné après vérification distante, sans auto-référence dans son propre commit.
