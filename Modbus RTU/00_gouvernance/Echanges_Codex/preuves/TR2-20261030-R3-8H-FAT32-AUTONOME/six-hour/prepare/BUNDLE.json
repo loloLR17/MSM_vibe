@@ -1,0 +1,128 @@
+[
+  {
+    "source": "test-six-hour-salvage.log",
+    "file": "000-test-six-hour-salvage.log.zlib",
+    "bytes": 182,
+    "sha256": "6dbb52b589c34a6e5d0dd4701a876ee0da79c4a54c2686c85a62e2fc629a85c3",
+    "stored_sha256": "5a6dc04d21152d8982eee56790343202559deed5d71681d2a13df2d89bd327ed"
+  },
+  {
+    "source": "configure-arm.log",
+    "file": "001-configure-arm.log.zlib",
+    "bytes": 585,
+    "sha256": "8a0500ead42aa91336b8d64b342db46ee4db56d879954ee95fd1873269d70848",
+    "stored_sha256": "5dee2a2ac259a7831219ced9a2667dd5ecb5b52f6befa691ce9311352a1322c9"
+  },
+  {
+    "source": "build-arm.log",
+    "file": "002-build-arm.log.zlib",
+    "bytes": 8076,
+    "sha256": "94ebeebab071a79100d9629b1dab16d131cb71bfb129a667dff239dfee97078a",
+    "stored_sha256": "411a797f56c2481a84fd8e0741b0723b7766b3f5fe7649c215cb5c7f0ed34fbe"
+  },
+  {
+    "source": "canonical-cross-only.log",
+    "file": "003-canonical-cross-only.log.zlib",
+    "bytes": 27742,
+    "sha256": "f4a3243a1e383b45399896cdb4adcc61500b31dd462f630e3d96dd8d1a6509b2",
+    "stored_sha256": "05a8c93651b7c4f72142906cfd05f79feba261c3c862329d849f880c474355c5"
+  },
+  {
+    "source": "PREFLIGHT.json",
+    "file": "004-PREFLIGHT.json.zlib",
+    "bytes": 243,
+    "sha256": "34486022d6da0447f78c8adf0bec1bd9d38cd73748065479b4b5dabd5ae13424",
+    "stored_sha256": "e649ad2cacd16950962428d716cc2c893dc5dcedeacd4cf63492d981adc2d173"
+  },
+  {
+    "source": "preflight.py",
+    "file": "005-preflight.py.zlib",
+    "bytes": 1216,
+    "sha256": "44fd0f2e28224f4f1ee47cfd2cf4081fcd8ce3a80af77f681bc6a4c09fe3b40b",
+    "stored_sha256": "d6b9d5a0edb4e4a7f43dba5ed932ad4c0d0fac2d504092c9cd8a04f4993466d0"
+  },
+  {
+    "source": "preflight.log",
+    "file": "006-preflight.log.zlib",
+    "bytes": 117,
+    "sha256": "73f51a864d8d9ef78abb7cfb4144fbfa271492ba68331fc0244d3dcc8823eb4a",
+    "stored_sha256": "121e940bce9e8f1e1d9c1a3d0729e0b3873991e8d829576e8589f4e4de2ff04c"
+  },
+  {
+    "source": "stlink-list.log",
+    "file": "007-stlink-list.log.zlib",
+    "bytes": 506,
+    "sha256": "a811f52d2c09b9827bc2d5f356a1202f12b45e8b7f159fa0944db690cf2ddb3d",
+    "stored_sha256": "2fe6558baaaea351827ece09b18a14757f102be9bfd25018369fb31d83fcf643"
+  },
+  {
+    "source": "read_host.py",
+    "file": "008-read_host.py.zlib",
+    "bytes": 1440,
+    "sha256": "8d1c488c2726d7766066104c7c05fc7a81ac20a8ee73be65fe86425391d20687",
+    "stored_sha256": "de9da3d03beec549760cd5791381d7b6664d912a55cb700a4bf335370e2bca81"
+  },
+  {
+    "source": "read-host.ps1",
+    "file": "009-read-host.ps1.zlib",
+    "bytes": 534,
+    "sha256": "5c91ff326fcdaa7a1a72c1d8e3042366a6e20a82c1609456d7c1f9464885945c",
+    "stored_sha256": "303d671869ed027eecf9072892105e7941036fa1a48c982d61c24aeecafdd454"
+  },
+  {
+    "source": "native-host.json",
+    "file": "010-native-host.json.zlib",
+    "bytes": 793,
+    "sha256": "5261870133c99888fa2d787e1440daf1c997c69b0fd23848f0e4eb448e76c1b8",
+    "stored_sha256": "e1be39f58df8c3be8456549ee98973cd2c9af07162bb807ad14de708233a3d45"
+  },
+  {
+    "source": "read-host.log",
+    "file": "011-read-host.log.zlib",
+    "bytes": 455,
+    "sha256": "8aa4449ed09fbc5ccb15e58f8f30b52699add08db0034db019c5bc7954fd1c16",
+    "stored_sha256": "b4da743d3fd0156bad22af0db7f23638783f2d1337a44e0421bbe24c16619d34"
+  },
+  {
+    "source": "sleep-policy.txt",
+    "file": "012-sleep-policy.txt.zlib",
+    "bytes": 696,
+    "sha256": "6e59cdbc1c2b85c92bb010a1db10695f1b0c7cf61c8d8d83247827fcb1af8466",
+    "stored_sha256": "08ec041c9759972d6bdd6ebbe16a992fb41564d6ec56ebaca9690d816e509014"
+  },
+  {
+    "source": "hibernate-policy.txt",
+    "file": "013-hibernate-policy.txt.zlib",
+    "bytes": 718,
+    "sha256": "3812849455c26df899b4a486e02f1fcd8767f9708b102f557dfdd402a710c1e4",
+    "stored_sha256": "8f00acfd613e6394c3f45c445eeee6bf3291f4348067345281a57a8c5d27fd0e"
+  },
+  {
+    "source": "hardware/six-hour-preflight-identity-existing-Flash-invocation.json",
+    "file": "014-six-hour-preflight-identity-existing-Flash-invocation.json.zlib",
+    "bytes": 749,
+    "sha256": "09775f89f3d35a269738a48736a0ac419c08a67dd5370204676f047e09982973",
+    "stored_sha256": "ba1ea38d741e3f2d3c9d934335fa4e140bec718f693eb210fce67c2d72796a0a"
+  },
+  {
+    "source": "hardware/six-hour-preflight-identity-existing-Flash-server.log",
+    "file": "015-six-hour-preflight-identity-existing-Flash-server.log.zlib",
+    "bytes": 674,
+    "sha256": "030ed83bdd9e560371dd4df01fbb2f25a71828a2bd725448cff4a24e6cf46bf2",
+    "stored_sha256": "2d268c592b37f482447bf871fbb4574f414e955cd4bc83bc77d430df670acc39"
+  },
+  {
+    "source": "hardware/six-hour-preflight-identity-existing-Flash.gdb",
+    "file": "016-six-hour-preflight-identity-existing-Flash.gdb.zlib",
+    "bytes": 654,
+    "sha256": "fcf7aed484da091136985069102924ecf67fc89604bb379de17604194a453840",
+    "stored_sha256": "0af4367898f84313cd74077468fb1ad76c508439244dd08df3c8d330912b9cda"
+  },
+  {
+    "source": "hardware/six-hour-preflight-identity-existing-Flash.log",
+    "file": "017-six-hour-preflight-identity-existing-Flash.log.zlib",
+    "bytes": 1280,
+    "sha256": "188197444b35882a83039b27c971c9043924c758379d0bfd415b3ac5197019f3",
+    "stored_sha256": "09be9384018e8a891ee937d037c57814c0737858159d9b93667321d23be64df2"
+  }
+]

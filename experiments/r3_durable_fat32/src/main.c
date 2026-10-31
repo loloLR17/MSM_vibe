@@ -18,7 +18,7 @@
 #include "witness_uart.h"
 #endif
 #if R3_ENDURANCE_8H
-#define LONG_DURATION_US 30600000000ull
+#define LONG_DURATION_US R3_CAPTURE_DURATION_US
 #define LONG_FILE_BYTES (640u*1024u*1024u)
 #define ARCHIVE_VERSION 3u
 #else
