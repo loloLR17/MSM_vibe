@@ -1,22 +1,69 @@
 ---
-mission_id: null
-status: IDLE
+mission_id: TR2-20261031-R5-CONFORT-BV-ISO-INDICATIF
+status: READY
 base_ref: main
+base_sha: ec5f295678fbf1d60470069ea2f55aa548b7fc11
+created_at_utc: 2026-10-31T09:30:00Z
 author: ChatGPT
 target_branch: main
-allow_commit: false
-allow_push: false
+allow_commit: true
+allow_push: true
 allow_flash: false
 allow_debug: false
 ---
 
-# MSM TR2 — aucune mission Codex active
+# MSM TR2 — R5 confort : indicateur reproductible, inspiré méthodologiquement de BV/ISO
 
-La mission `TR2-20261031-R5-ANALYSE-PC-MACHINE-6H` est **clôturée après rapport Codex `DONE` et revue indépendante A-01 `ACCEPTÉE dans une portée exploratoire bornée`**, sans certification métrologique ni tag produit.
+## Décision métier — portée et priorité
 
-- Mission historique et dernier rapport `DONE` conservés **textuellement** dans [les archives R5](archives/TR2-20261031-R5-ANALYSE-PC-MACHINE-6H/MISSION.md) et [le rapport](archives/TR2-20261031-R5-ANALYSE-PC-MACHINE-6H/RAPPORT.md).
-- [Revue indépendante ChatGPT A-01 R5](../../02_Validation/Qualifications/REVUE_R5_ANALYSE_SQLITE_6H_20261031.md).
-- Livrables publiés : [figures, SQLite et résultats](preuves/TR2-20261031-R5-ANALYSE-PC-MACHINE-6H/README.md).
-- Le `DERNIER_RAPPORT.md` reste au dernier résultat `DONE` de Codex ; ne pas l'effacer ni le réinterpréter comme une mission active.
+**Décision utilisateur du 31/10/2026 :** fournir en priorité **une mesure quantifiée du confort vibratoire à bord, compréhensible, reproductible et comparable entre campagnes**, en s'appuyant sur les **grandeurs, filtres et modes de calcul des référentiels ISO 20283-5 / Bureau Veritas NR467** plutôt que sur un score ad hoc. L'enjeu n'est **ni** d'attribuer une notation réglementaire au ferry, **ni** de qualifier une expertise de structure, **ni** de réaliser une campagne de conformité. Les mesures fréquentielles FFT/PSD/spectrogrammes sont conservées comme **outil technique complémentaire d'investigation des sources vibratoires**, sans attribution causale automatique.
 
-**Aucune reprise ni nouvelle mission technique n'est commandée par ce marqueur `IDLE`.** Les travaux futurs feront l'objet d'un contrat distinct écrit par ChatGPT et vérifié sur GitHub. R3 conserve sa réserve sur le SHA RAM indépendant, R5 reste une chaîne d'analyse exploratoire avec des axes/cadences/montage non étalonnés et aucune prétention ISO/BV.
+**Travail demandé à Codex : développer et exécuter la prochaine tranche d'analyse PC sur la campagne réelle déjà acquise, avec une méthodologie de confort défendable, des indicateurs comparables entre campagnes, des tests indépendants et une présentation claire pour non-spécialistes.** Proposer les arbitrages techniques de détail en préservant les acquis ; ne demander une décision humaine que pour une vraie option structurante ou une source normative indispensable non disponible.
+
+Avant toute intervention, consulter sur `main` courant : `AGENTS.md`, `Modbus RTU/00_gouvernance/GOUVERNANCE_CHATGPT_CODEX.md`, `PROTOCOLE_ECHANGE_V2.md`, `MISSION_EN_COURS.md`, `DERNIER_RAPPORT.md`, `ETAT_COURANT_TR2.md`, la revue A-01 `REVUE_R5_ANALYSE_SQLITE_6H_20261031.md`, la note `R5_METIER_20261030_METROLOGIE_VITESSE_CONFORT_ISO_BV.md` et les méthodes/code/tests de `experiments/r5_campaign_analysis/`. Vérifier HEAD, `git status`, worktrees/stashes, traces et sauvegardes réellement présents. **Ne pas réexécuter l'ancienne mission R5-DONE**, archivée ; la présente mission est distincte.
+
+## Références de méthode et point de vigilance scientifique P0
+
+- **BV NR467 Partie F, édition juillet 2026**, chapitre 6 (confort et habitabilité), en particulier **section 1 §2.1.3, section 2 tableau 4 (PC machine / locaux équipage) et section 4 (passagers)** : <https://rulesexplorer-docs.bureauveritas.com/documents/nr467/jul2026/467-NR_PartF_2026-07.pdf>. L'édition n'est **pas présumée applicable contractuellement** au MSM. Exemple de trois repères **pour un PC machine effectivement occupé de façon continue à la mer**, suivant la classe de local du tableau 4 : **4,0 / 4,5 / 5,0 mm/s** (grades de référence 1/2/3). **Ces niveaux n'ont de sens face à une mesure calculée suivant la même grandeur et la même méthode ; ne pas leur comparer un RMS en mg, une vitesse non pondérée, ou un RMS vectoriel technique.**
+- **ISO 20283-5:2016**, section 7/8, ISO confirmée en 2026 : <https://www.iso.org/standard/68125.html> ; son périmètre formel annonce les voyages prévus d'au moins **24 h**, ce qui **n'inclut pas automatiquement** les traversées du MSM. Méthode de **niveau global RMS pondéré 1–80 Hz** dans les directions requises ; examiner **exactement** les deux modes de présentation vitesse/accélération et **la relation d'équivalence normative entre grandeurs** dans le texte (ne pas supposer que la grandeur ISO appelée `vitesse équivalente` provient obligatoirement de l'intégrale physique du signal). Les directions requises et la sélection de valeur pour évaluation ne sont **pas** le simple vecteur RMS global du traitement R5 technique.
+- **ISO 2631-2, pondération Wm** : édition 2026, <https://www.iso.org/standard/87847.html>, publiée en juin 2026, remplace l'édition 2003 ; **identifier précisément l'édition et l'implémentation appropriées aux renvois d'ISO 20283-5:2016 et BV NR467 juillet 2026**. Lire les coefficients/tolérances/table de filtrage exacts depuis **une source techniquement autorisée et traçable** ; garder la version explicite. **Ne pas improviser la Wm, ne pas mélanger Wm appliquée à l'accélération et à la vitesse physique, ni fabriquer une conversion entre mg RMS et mm/s indépendamment du spectre.** Vérifier également ISO 8041 pertinente.
+- **Porte P0 impérative** : avant tout KPI nommé `BV`, `ISO` ou présenté face aux repères 4/4,5/5, produire une fiche de méthode avec référence exacte (édition, clause, unité, correction/filtre, directions, fenêtre, équivalence éventuelle vitesse/accélération), coefficients ou source de la fonction de transfert Wm, formule mathématique, référence de validation numérique et limites. Les documents existants sont des **notes d'étude**, non un substitut automatique au texte de méthode. Vérifier les sources publiques/licites accessibles et indiquer précisément ce qui manque. Si la méthode **n'est pas reconstructible de façon défendable**, ne pas attribuer son nom à une courbe et ne pas afficher de classe BV : produire les sorties préliminaires clairement `EXPLORATOIRE_NON_NORMATIF` et publier un `BLOCKED` explicite sur P0, avec acquis logiciels et preuves conservés, sans acheter de norme ni demander d'approbations répétitives.
+
+## Entrée R5 immuable et contrôle du signal
+
+- Campagne réelle PC machine au plancher : `/home/lolo/dev/msm/reports/TR2-r3-6h-data-20261031/pc-recovery-after-powercut/E6N0005.TR2`, **SHA256 de l'original entier** `91861cef14f824ae5b7422c55b092255654e2665062747205c7e034a0d1aeee5`, 58 552 136 XYZ int16 et 351 312 816 octets utiles. Conserver les octets **strictement inchangés** ; vérifier SHA, session, format, flags, intégrité interne selon lecteur R3 et notes A-01. Ne pas relire/interpréter la queue préallouée comme signal.
+- **Repartir des XYZ archivés avant le passe-bande PC 2–25 Hz** : celui-ci atténue fortement 1 Hz et 80 Hz ; **ne pas** convertir les RMS 13,36 mg publiés par un coefficient constant en un niveau 1–80 Hz mm/s. Vérifier **réponse du FIR embarqué**, fréquence échantillonnage/aliasing, bruit/DC/gravité, dérives et limites physiques à **1 Hz**, 2, 5, 10, 20, 40, 80 Hz. Les archives R5 et leurs résultats doivent demeurer reproductibles à l'identique.
+- Sensibilité `0,244 mg/count` et bande ±8g **nominales, non étalonnées** ; axes XYZ du capteur, **orientation bateau inconnue**, adhésif/couplage non qualifié ; source `UTC_UNKNOWN` ; cadence estimée `2661,46 Hz` d'après endpoints MCU vs `2679,5 Hz` depuis témoin QPC, écart ~0,68 % non résolu. **Afficher l'incertitude liée aux hypothèses et, quand possible, quantifier la sensibilité des calculs à ces deux bases de temps** ; ni correction d'horloge arbitraire, ni axe vertical navire deviné. Éviter une fausse précision des spectres 1 Hz.
+- Aucun accès à la carte ni au STM32 requis : TR2-002 hors tension/microSD au T1000 selon dernier état. Pas de flash/debug, de nouvelle campagne, de changement de firmware ni de manipulation physique. Aucune modification globale de l'environnement, des protections Windows ou de la base actuelle de supervision.
+
+## Livrables prioritaires — ordre de réalisation
+
+### A. Moteur scientifique versionné et comparaison entre campagnes
+
+1. S'appuyer sur le lecteur strict v3 et la chaîne Python/NumPy/SciPy R5 existants ; mettre en oeuvre la méthode P0 vérifiée sur **les données réelles**, fenêtres de **60s / 120s** adaptées aux exigences et transitions, en mode mémoire bornée. Calculs par direction capteur, avec statut explicite des axes inconnus. Également conserver des agrégats plus fins si nécessaires pour séries temporelles, sans confondre « fenêtre chronologique » et « pourcentage de locaux conformes » selon BV.
+2. Produire au minimum un indicateur principal **RMS pondéré 1–80 Hz et sa grandeur équivalente mm/s selon la définition normative démontrée**, par direction, avec sélection de la direction déterminante selon la règle vérifiée ; et, pour contrôle scientifique, un **RMS de vitesse physique non pondérée 1–80 Hz** calculé séparément par intégration fréquentielle si faisable. **Les deux mesures doivent porter des noms et unités distincts ; aucune confusion des deux sous un même label BV.**
+3. Livrer P50/P95/max par fenêtres valides, écart/type, temps relatif et **proportion de fenêtres franchissant des repères indicatifs** dans le PC machine **uniquement si** la méthode et la correspondance locale sont vérifiées ; ne jamais nommer ce pourcentage `conformité BV` ni appliquer la règle des 20 % de points de locaux à des minutes successives du même capteur. En cas de P0 incomplet, fournir un indicateur **non pondéré, non normatif**, en précisant explicitement qu'aucun jugement « bien/mal/acceptable » n'est encore calculable.
+4. Définir une **signature comparable entre campagnes** : algorithme + version, edition/méthode, coefficients/filter SHA, unité, séquence fenêtre/limites, sensibilité/étalonnage, fréquence/horloge, site, support/fixation/orientation, firmware et campagne SHA, état qualité/UTC. **Refuser toute comparaison numérique présentée comme équivalente** lorsque version ou hypothèses de capteur/montage/bande ne sont pas compatibles. Ne pas jeter les données des anciennes versions quand une méthode évolue.
+
+### B. Validation numérique et mécanique du sens
+
+5. Tests synthétiques indépendants à tolérances définies **avant** l'exécution : sinusoïdes 1/2/5/10/20/40/80Hz et hors bande, multitons, bruit de fond, DC=1g, inclinaison lente, impacts/transitoires, clipping, lacunes, fenêtres partielles et durée; cas d'une direction dominante vs somme XYZ. Tester gain/phase/normalisation Wm à des fréquences et points de référence **issus de la source vérifiée**, et fidélité de l'équivalence entre unités. Seconde voie indépendante FFT/PSD vs temporel (ou bande tiers d'octave selon méthode réelle), en distinguant les hypothèses. Aucun « PASS » sans oracle indépendant de la même bibliothèque.
+6. Sur **plusieurs segments réels** et sur la totalité du long, vérifier l'intégrité et la distribution des résultats ; quantifier le budget temps/RAM et signaler explicitement risques de fuite 1Hz, bruit et effet transitoire. En cas de limites instrumentales non quantifiables, statut `NUMERIQUEMENT_VALIDÉ / PHYSIQUEMENT_NON_ÉTALONNÉ`, sans fausse confiance.
+
+### C. SQLite, restitution POC et diagnostic
+
+7. **Étendre de façon versionnée** le catalogue SQLite R5 en préservant le schéma v1 et la base locale existante. Nouvelle analyse/cohorte référencée séparément : indicateur, `metric_definition_id`, version normative exacte, unité, bande, axes, échelle/calibration, qualité, toutes les hypothèses de fréquence et de pose ; migration v2 seulement si elle peut être démontrée sûre, sinon base secondaire isolée et passerelle documentée. **Vérifier l'idempotence et l'intégrité ; aucune duplication des 58,55M XYZ ni altération de la base de supervision live.**
+8. Proposer une **page de lecture non spécialiste** locale/offline : « PC machine — confort vibratoire exploratoire », grandeur et unité, médiane/P95, évolution temporelle, repères BV adaptés **si P0 passée** avec étiquettes `COMPARAISON INDICATIVE NON NORMATIVE`, explication simple de la place du local, incertitudes/état méthode ; ne pas inventer de note ou badge `conforme/non conforme`. Ajouter une courte légende sur l'effet d'une valeur plus élevée et la prudence face à un cas isolé.
+9. **Ne pas régresser le diagnostic** : conserver l'accès aux courbes actuelles RMS accélération 2–25Hz, spectrogrammes, PSD/raies, sans remplacer ces séries par les indices de confort. Les deux familles sont distinctes et interrogeables. Préparer les comparaisons multi-sites futures ; ne pas installer Grafana ni BigQuery pour cette mission.
+10. Fournir une **synthèse POC vulgarisée** fondée uniquement sur les résultats effectivement calculés, exploitable pour le rapport armement : un paragraphe sur la méthode, la lecture du KPI, et ce que les données du PC machine disent **réellement**. **Ne pas attribuer** de causalité machine, de niveau sanitaire, d'exposition A(8), de grade BV au navire, d'inconfort avéré d'un passager ou de dommage structurel.
+
+## Gates et retour de mission
+
+- **G0** : méthode BV/ISO traçable, compatible avec la grandeur comparée, Wm réelle/édition correcte, équivalence vitesse-accélération **vérifiées avant** tout rendu de « seuils » ; sinon bloquer les noms/repères normatifs et publier les acquis préliminaires sans fausse conformité.
+- **G1** : import complet original inchangé avec SHA et contrôles qualité ; tests numériques sourcés, oracles indépendants et signalétique des limites 1Hz/cadence/pose.
+- **G2** : résultats réellement calculés sur les six heures, en sorties versionnées par axe et par fenêtre, agrégats et contre-calculs contrôlés. Pas de graphiques synthétiques prétendus réels.
+- **G3** : persistance SQLite réelle, requêtes testées et réimport idempotent ; isolation des anciennes analyses et de la supervision LIVE.
+- **G4** : au moins un graphique/écran compréhensible non-spécialiste + annexe de méthodes et spectres techniques intacts ; source, précision, unités et statut affichés.
+- **G5** : code, tests, manifestes, exports agrégés, graphiques et rapport Codex livrés/publiés sur `main`, preuves compactes, **aucun upload de la microSD, du `.TR2` entier ou d'une DB privée volumineuse**. `DERNIER_RAPPORT.md` doit rendre compte des méthodes réellement implémentées, des SHA et des limites. `DONE` uniquement si G0–G5 démontrés ; `BLOCKED` si une définition normative fondamentale reste indisponible, après publication des avancées vérifiables. Pour une interruption non bloquante, `IN_PROGRESS` avec checkpoint reprenable.
+
+Autorisations permanentes `allow_commit: true`, `allow_push: true`, sans validation répétitive ni opérations Git déléguées à l'utilisateur. **Aucune opération STM32 dans cette tranche** : `allow_flash: false`, `allow_debug: false`. Respecter les restrictions matérielles et de données de `AGENTS.md` ; le futur étalonnage/essai physique sera une mission distincte. **ChatGPT contrôlera indépendamment le rapport et les résultats avant tout verdict.**
