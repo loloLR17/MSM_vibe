@@ -1,6 +1,6 @@
 ---
 mission_id: TR2-20261031-R5-PREQUAL-ISO-FS2G-OFFLINE
-status: IN_PROGRESS
+status: DONE
 base_ref: main
 base_sha: f99e85cc3857aa6dd9db60b16c4a37ba1c7550b0
 initial_head: 44e0569e4241c54daab30bf9abd8b06de2ce2320
@@ -16,8 +16,8 @@ allow_debug: false
 
 # Préqualification hors ligne — faisabilité limitée, conserver ±8g
 
-**Les calculs, tests, revue FS, figures et persistance sont terminés.** Publication
-et relecture finale restent à effectuer, d'où IN_PROGRESS provisoire. Le verdict
+**Les calculs, tests, revue FS, figures et persistance sont terminés et les
+livrables ont été publiés puis relus intégralement.** Le verdict
 métier est **FAISABILITÉ LIMITÉE** : l'énergie globale est calculable et reproductible
 sur les six heures modulées, sans rechercher une raie stationnaire ; la chaîne
 physique et la définition humaine/normative de la pondération restent à qualifier.
@@ -199,6 +199,26 @@ prochaine qualification et réserves historiques. Checkpoint729416af déjà publ
 
 G0 source/préservation satisfait ; G1 calcul non normatif et contrôles satisfaits ;
 G2 revue FS et recommandation conditionnelle satisfaites ; G3 persistance et
-exports satisfaits ; G4 note de décision satisfaite ; **G5 publication/relecture
-finale en cours**. Une clôture DONE de la préqualification ne signifie ni calcul
-ISO certifié ni autorisation de réduire le FS ou de lancer une acquisition.
+exports satisfaits ; G4 note de décision satisfaite ; **G5 résultats publiés et
+relus intégralement**. DONE clôt uniquement cette préqualification à faisabilité
+LIMITÉE : ni calcul ISO certifié, ni autorisation de réduire le FS ou de lancer
+une acquisition. La revue indépendante ChatGPT demeure distincte.
+
+## Publication vérifiée
+
+Checkpoint code : `729416af1a01772783026c3961e79371b35cb031`, message
+`R5 prequalification: checkpoint tested global energy method and FS source audit`.
+Code supplémentaire, résultats, figures et bilan :
+`e211909bb552ce10c358bf7049e5fed292980cd9`, message
+`R5 prequalification: publish six-hour energy feasibility and evidence against blind FS reduction`.
+Les deux push normaux ont réussi sur main. Après récupération de main depuis
+GitHub, **51 fichiers /4 292 315 octets** ont été relus intégralement depuis
+la référence e211909b et comparés octet par octet aux fichiers publiés : tous
+identiques, mission comprise, sans modifier celle-ci. Preuve :
+[remote-readback.json](preuves/TR2-20261031-R5-PREQUAL-ISO-FS2G-OFFLINE/remote-readback.json).
+
+Le présent statut DONE, le journal final et cette preuve sont publiés dans un
+dernier commit normal, vérifié lui aussi après push. Son SHA est fourni dans la
+réponse finale avec l'état Git, sans tenter de l'inscrire dans son propre contenu.
+Travail local propre après publication attendu et à contrôler ; deux stashes et
+worktrees historiques préservés. Aucun effacement/reset/rebase/force push.
