@@ -1,6 +1,6 @@
 ---
 mission_id: TR2-20261031-R3-8H-FASTSTART-PC-MACHINE
-status: BLOCKED
+status: IN_PROGRESS
 base_ref: main
 base_sha: f5850ad2de81a6b7639d947d54751305cde3e75b
 initial_head: d5af0828e370780320bda67fac5d537bf3fd5016
@@ -13,6 +13,18 @@ allow_push: true
 allow_flash: true
 allow_debug: true
 ---
+
+# Reprise après remplacement des fils : dépendance SPI observée, profil4MHz à qualifier
+
+**IN_PROGRESS**, nouvelle piste testable en autonomie ; pasPRÊT8h. L'utilisateur confirme lesfils du **capteur seulement** remplacés, lecteurSD inchangé, mêmebrochage, VDD/VDDIO3,3V, STLINK/SDenplace, capteur encoreemprunté001. Aucunbuild/flash/resetagent danscettetranche. UID002/N8A54556B c319…3ddc17 exacts etWAITinitialobservés. **Initialisation refusée avantcalibration/SDinit : WHO0x7A, error91/run0/99.**
+
+[Preuves et séquences exactes](preuves/TR2-20261031-R3-8H-FASTSTART-PC-MACHINE/new-sensor-wires-20261101/README.md). Contrôlehôte distinct : portsGDB61236/61237 dansplageTCPWindows exclue61235–61334 ; pasdeconnexioncibleinitialement. Ports23336/23337 libres utilisés, sansmodifierpolitique/protection/exclusions niSTLINKfirmware ; mêmesSN/attach/SWD. L'accèsGDBfonctionneensuite.
+
+**Résultat discriminant enlectureseule, sansregistre-capteurécrit :**16WHO à8MHz tous0x7A ;16à1MHz tous0x7B puisretour8MHz16×0x7A ;16à4MHz tous0x7B puisretour8MHz13×0x7B/3×0x7A. RetoursHALtous0. PrescalerSPI3/handle seulsmodifiésvolatils, **retour8MHzeffectifavantdetach** ; WHO/error91 initiauxnonremplacés pardeslecturesfavorables. Pasdecalibration/gate/écritureSD/STARTlong. Cesrésultatsoriententversunproblèmedemarge/transportdépendantfréquence ; neprouventpasl'originecâblage/électrique/HAL exclusive ni la stabilitéencontinu4MHz.
+
+**Suite annoncée :** checkpointpreuves puispréparerduplex4MHzdepuisvoieexistante, gardes etODR/FIR/gain/FS/v3inchangés, calibrationetgateFIFO/SDobligatoiresavantREADY. SPI4MHz désigneletransport, paslacadencemesure. Leséchecs4MHzsplit antérieurs restentacquis ; l'identificationcorrecte à4MHz nesuffitpas. SignalLANCE8Htoujoursrequispourlong, aucunenouvellemiseàlamasseoumodification physique demandéeàcestade. Données/prêtsensor001 etFRAM/logiciel001préservés.
+
+Checkpointàpublieretrelireavantmodificationlogicielleversionnée ; rubriquessuivanteshistoriques.
 
 # N8A exact remis sur TR2-002 — restauration vérifiée, calibration toujours refusée
 

@@ -1,0 +1,18 @@
+{
+  "previous_ports": [
+    61236,
+    61237
+  ],
+  "observed_Windows_excluded_range": [
+    61235,
+    61334
+  ],
+  "selected_ports": [
+    23336,
+    23337
+  ],
+  "no_listener_observed_on_selected_ports": true,
+  "method_identity_address_frequency_unchanged": true,
+  "no_Windows_policy_or_exclusion_change": true,
+  "initial_attempt_did_not_connect_MCU": true
+}

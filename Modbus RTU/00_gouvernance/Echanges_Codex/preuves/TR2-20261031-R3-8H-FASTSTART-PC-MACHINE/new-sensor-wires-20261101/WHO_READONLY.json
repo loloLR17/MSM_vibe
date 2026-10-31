@@ -1,0 +1,43 @@
+{
+  "initial_WHO": 122,
+  "expected_WHO": 123,
+  "WHO_values": [
+    122,
+    122,
+    122,
+    122,
+    122,
+    122,
+    122,
+    122,
+    122,
+    122,
+    122,
+    122,
+    122,
+    122,
+    122,
+    122
+  ],
+  "return_codes": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "no_write_sensor": true,
+  "no_calibration_retry": true,
+  "no_START": true
+}

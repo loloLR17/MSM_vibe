@@ -1,0 +1,362 @@
+[
+  {
+    "file": "DEBUG_PORT_CHANGE.json",
+    "bytes": 365,
+    "sha256": "2626f2f655eb6543aa94e20e9c67dabc29736aae47225687e8a1e8c0b7b4e023",
+    "zlib": false
+  },
+  {
+    "file": "WHO_4MHz_COMPARISON.json",
+    "bytes": 688,
+    "sha256": "ac5bc3b6a3c5838a33b59124d6cc184660892996c8fbf18d89994f4cdd489bc7",
+    "zlib": false
+  },
+  {
+    "file": "WHO_FREQUENCY_COMPARISON.json",
+    "bytes": 779,
+    "sha256": "9594bdaa1add5d54ef62fe8e7c292fdb79772204367bd9afbaf04f13d0439d44",
+    "zlib": false
+  },
+  {
+    "file": "WHO_READONLY.json",
+    "bytes": 429,
+    "sha256": "948e9d1013ea45bb2ee2ebfeb13d0b3336541697934762170c0b47cb841037fe",
+    "zlib": false
+  },
+  {
+    "file": "artifact.json",
+    "bytes": 644,
+    "sha256": "b53c2cf44fc49a4e800389f9cb58064b92604fcd7dddf136dd7646378fa48bb0",
+    "zlib": false
+  },
+  {
+    "file": "calibration-only.log.zlib",
+    "bytes": 2400,
+    "sha256": "492a4398e35ad419736dec32be4c47dbb25bbcce30a7a2312d6219e63e945c2a",
+    "zlib": true
+  },
+  {
+    "file": "calibration_only.py",
+    "bytes": 485,
+    "sha256": "050a8cd2c211a24b48743755796f6e7ed1c8e534209e287ec650c777420c0db6",
+    "zlib": false
+  },
+  {
+    "file": "hardware/WHO-1MHz-then-8MHz-rc.bin.zlib",
+    "bytes": 128,
+    "sha256": "38723a2e5e8a17aa7950dc008209944e898f69a7bd10a23c839d341e935fd5ca",
+    "zlib": true
+  },
+  {
+    "file": "hardware/WHO-1MHz-then-8MHz.bin.zlib",
+    "bytes": 32,
+    "sha256": "bdef1398e8a6165a231911055e0a22036d4eab78503e57ad6f7767a1ebe20aec",
+    "zlib": true
+  },
+  {
+    "file": "hardware/WHO-4MHz-then-8MHz-rc.bin.zlib",
+    "bytes": 128,
+    "sha256": "38723a2e5e8a17aa7950dc008209944e898f69a7bd10a23c839d341e935fd5ca",
+    "zlib": true
+  },
+  {
+    "file": "hardware/WHO-4MHz-then-8MHz.bin.zlib",
+    "bytes": 32,
+    "sha256": "29745f76b01ca88aa68cfab8626c8e702688a69254f4e0dde34a055e20947aa0",
+    "zlib": true
+  },
+  {
+    "file": "hardware/WHO-readonly-16.bin.zlib",
+    "bytes": 16,
+    "sha256": "a0d139df7200d6d3412f6240f3486bbece5f88f137d449a65be14a18db801847",
+    "zlib": true
+  },
+  {
+    "file": "hardware/WHO-readonly-rc.bin.zlib",
+    "bytes": 64,
+    "sha256": "f5a5fd42d16a20302798ef6ed309979b43003d2320d9f0e8ea9831a92759fb4b",
+    "zlib": true
+  },
+  {
+    "file": "hardware/new-wires-N8A-calibration-invocation.json",
+    "bytes": 746,
+    "sha256": "3c858c1998cc9e4414f51052637e4c76b73c5fd693773c8434a5dc3790443a87",
+    "zlib": false
+  },
+  {
+    "file": "hardware/new-wires-N8A-calibration-server.log.zlib",
+    "bytes": 674,
+    "sha256": "eb6b6e5f1edf9b507b71ef15f388ab33cc058c15926d679a1ed075e3a4e91818",
+    "zlib": true
+  },
+  {
+    "file": "hardware/new-wires-N8A-calibration.gdb",
+    "bytes": 5392,
+    "sha256": "ba32c7374c4976c37a9782c8ec407f945ba8c7a3522f6f6533988bacaf484a25",
+    "zlib": false
+  },
+  {
+    "file": "hardware/new-wires-N8A-calibration.log.zlib",
+    "bytes": 3836,
+    "sha256": "ec323542affeca59234fda74d29ee73007a784bcb6f9657eb6cefe25c7a6424b",
+    "zlib": true
+  },
+  {
+    "file": "hardware/new-wires-WHO-1MHz-then-restore-8MHz-invocation.json",
+    "bytes": 757,
+    "sha256": "354de647a9580d68200b355511cb43045a743fa0cbdd3b13e43e8d63f24f0aa6",
+    "zlib": false
+  },
+  {
+    "file": "hardware/new-wires-WHO-1MHz-then-restore-8MHz-server.log.zlib",
+    "bytes": 674,
+    "sha256": "eb6b6e5f1edf9b507b71ef15f388ab33cc058c15926d679a1ed075e3a4e91818",
+    "zlib": true
+  },
+  {
+    "file": "hardware/new-wires-WHO-1MHz-then-restore-8MHz.gdb",
+    "bytes": 1451,
+    "sha256": "23188692dd1eec0379f318e358e11179c96dfe189276c199aa1d1a18f25b1493",
+    "zlib": false
+  },
+  {
+    "file": "hardware/new-wires-WHO-1MHz-then-restore-8MHz.log.zlib",
+    "bytes": 667,
+    "sha256": "e7e70cdbcb545bd4e3b51a9759b5cc2268dd908c9476ad5acdbef34d52b9861e",
+    "zlib": true
+  },
+  {
+    "file": "hardware/new-wires-WHO-4MHz-then-restore-8MHz-invocation.json",
+    "bytes": 757,
+    "sha256": "925563abbf12e249b46030692c147ab6d547dc0a4a42c90447f913a28fb6cbcb",
+    "zlib": false
+  },
+  {
+    "file": "hardware/new-wires-WHO-4MHz-then-restore-8MHz-server.log.zlib",
+    "bytes": 674,
+    "sha256": "eb6b6e5f1edf9b507b71ef15f388ab33cc058c15926d679a1ed075e3a4e91818",
+    "zlib": true
+  },
+  {
+    "file": "hardware/new-wires-WHO-4MHz-then-restore-8MHz.gdb",
+    "bytes": 1353,
+    "sha256": "16d2f4f5fdedba74fc15c51f9b99d1f6c1e268e6356578f9ba4da985960d9d21",
+    "zlib": false
+  },
+  {
+    "file": "hardware/new-wires-WHO-4MHz-then-restore-8MHz.log.zlib",
+    "bytes": 618,
+    "sha256": "9877f934ac7b04a58941d8063ac5ec510e0c3eb2845132c82d7c92a4be946b57",
+    "zlib": true
+  },
+  {
+    "file": "hardware/new-wires-WHO-readonly-16-invocation.json",
+    "bytes": 746,
+    "sha256": "11b26690faf236afe8670d9b50648e136e42a16183aa6705f6503cd21697421b",
+    "zlib": false
+  },
+  {
+    "file": "hardware/new-wires-WHO-readonly-16-server.log.zlib",
+    "bytes": 674,
+    "sha256": "eb6b6e5f1edf9b507b71ef15f388ab33cc058c15926d679a1ed075e3a4e91818",
+    "zlib": true
+  },
+  {
+    "file": "hardware/new-wires-WHO-readonly-16.gdb",
+    "bytes": 981,
+    "sha256": "0d5051cb866b65799d669e41ac6e9ea8009d317a4638d584d20ddeb8688e8857",
+    "zlib": false
+  },
+  {
+    "file": "hardware/new-wires-WHO-readonly-16.log.zlib",
+    "bytes": 672,
+    "sha256": "8eb06da62bac3805af5df36f1430ec8e0ff1ea733c07215b608df39d95b03ee8",
+    "zlib": true
+  },
+  {
+    "file": "hardware/new-wires-identity-image-free-port-invocation.json",
+    "bytes": 755,
+    "sha256": "e9d515d581f49c79227a26fe411aa80102ddcd2a32d7cfa0c739f8b84272c90b",
+    "zlib": false
+  },
+  {
+    "file": "hardware/new-wires-identity-image-free-port-server.log.zlib",
+    "bytes": 674,
+    "sha256": "eb6b6e5f1edf9b507b71ef15f388ab33cc058c15926d679a1ed075e3a4e91818",
+    "zlib": true
+  },
+  {
+    "file": "hardware/new-wires-identity-image-free-port.gdb",
+    "bytes": 603,
+    "sha256": "bec4a1a6b3779ca221c9d562d835d2e604e994840282ed24b59f49f97e99525c",
+    "zlib": false
+  },
+  {
+    "file": "hardware/new-wires-identity-image-free-port.log.zlib",
+    "bytes": 1314,
+    "sha256": "59b6f61161772f40fd1fe707ccf966fcc4a7315a30501403b3df369ad4f74d6b",
+    "zlib": true
+  },
+  {
+    "file": "hardware/new-wires-identity-image-state-invocation.json",
+    "bytes": 751,
+    "sha256": "b1b528705f7b5bfc069f0fe5eb1af5a5bdce8e7d3cb6c4db9f1533cc9107a107",
+    "zlib": false
+  },
+  {
+    "file": "hardware/new-wires-identity-image-state-server.log.zlib",
+    "bytes": 800,
+    "sha256": "c493e7949169580461f9bfb9f1dc37668f53814bd5d60211cb558f801a28594c",
+    "zlib": true
+  },
+  {
+    "file": "hardware/new-wires-identity-image-state.gdb",
+    "bytes": 593,
+    "sha256": "814e53c838a30e510ee31f2f22a43ee6ca40076f035368dcb860c6e327945f91",
+    "zlib": false
+  },
+  {
+    "file": "hardware/new-wires-identity-image-state.log.zlib",
+    "bytes": 276,
+    "sha256": "7c2d358c63b4ae22666b2b6513a135ae9956d526abeae487cf9d8669c94f76c6",
+    "zlib": true
+  },
+  {
+    "file": "hardware_second.py",
+    "bytes": 2403,
+    "sha256": "5f9ae720c791b1c82fea11062d87adba004fc3768ef9f597c66adfe1e21f47e1",
+    "zlib": false
+  },
+  {
+    "file": "new-wires-N8A-calibration/brackets.bin.zlib",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "zlib": true
+  },
+  {
+    "file": "new-wires-N8A-calibration/busy-distributions.bin.zlib",
+    "bytes": 8048,
+    "sha256": "7e6740c91f7c21b361fbb73984f22afef3896b669f9e2a87d31f6e18e9a48432",
+    "zlib": true
+  },
+  {
+    "file": "new-wires-N8A-calibration/card.bin.zlib",
+    "bytes": 5228,
+    "sha256": "ef75c016bb9251ab4cff9dafaf81b3b37688b8b2eaf4fd70a6608af992d88504",
+    "zlib": true
+  },
+  {
+    "file": "new-wires-N8A-calibration/distributions.bin.zlib",
+    "bytes": 80096,
+    "sha256": "ca61cc292aca487b0a45370be2db7dbf6ded99bcc597c934f15ce76b598cb8d3",
+    "zlib": true
+  },
+  {
+    "file": "new-wires-N8A-calibration/durable-footer.bin.zlib",
+    "bytes": 512,
+    "sha256": "076a27c79e5ace2a3d47f9dd2e83e4ff6ea8872b3c2218f66c92b89b55f36560",
+    "zlib": true
+  },
+  {
+    "file": "new-wires-N8A-calibration/durable-status.bin.zlib",
+    "bytes": 64,
+    "sha256": "f5a5fd42d16a20302798ef6ed309979b43003d2320d9f0e8ea9831a92759fb4b",
+    "zlib": true
+  },
+  {
+    "file": "new-wires-N8A-calibration/fifo-stop-payload.bin.zlib",
+    "bytes": 1,
+    "sha256": "594e519ae499312b29433b7dd8a97ff068defcba9755b6d5d00e84c524d67b06",
+    "zlib": true
+  },
+  {
+    "file": "new-wires-N8A-calibration/fifo-stop-trace.bin.zlib",
+    "bytes": 40,
+    "sha256": "9355842819a0de2f463a5cf218ccbba151ecec625e60e9696c70e0455260d7c3",
+    "zlib": true
+  },
+  {
+    "file": "new-wires-N8A-calibration/header.bin.zlib",
+    "bytes": 512,
+    "sha256": "076a27c79e5ace2a3d47f9dd2e83e4ff6ea8872b3c2218f66c92b89b55f36560",
+    "zlib": true
+  },
+  {
+    "file": "new-wires-N8A-calibration/outputs.bin.zlib",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "zlib": true
+  },
+  {
+    "file": "new-wires-N8A-calibration/raw.bin.zlib",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "zlib": true
+  },
+  {
+    "file": "new-wires-N8A-calibration/records.bin.zlib",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "zlib": true
+  },
+  {
+    "file": "new-wires-N8A-calibration/result.bin.zlib",
+    "bytes": 296,
+    "sha256": "c66af9003121362b1a9f4ece32df2598d95e13c83b56a3440ef3059d8fa09a7b",
+    "zlib": true
+  },
+  {
+    "file": "new-wires-N8A-calibration/result.json",
+    "bytes": 1283,
+    "sha256": "1b7ec459d1fcbd7d69f6ca7b8f076f2308043fe340178224c295f7711a9ec0d0",
+    "zlib": false
+  },
+  {
+    "file": "new-wires-N8A-calibration/sd-distributions.bin.zlib",
+    "bytes": 8048,
+    "sha256": "7e6740c91f7c21b361fbb73984f22afef3896b669f9e2a87d31f6e18e9a48432",
+    "zlib": true
+  },
+  {
+    "file": "new-wires-N8A-calibration/sd-records.bin.zlib",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "zlib": true
+  },
+  {
+    "file": "new-wires-N8A-calibration/single-busy-max.bin.zlib",
+    "bytes": 4,
+    "sha256": "df3f619804a92fdb4057192dc43dd748ea778adc52bc498ce80524c014b81119",
+    "zlib": true
+  },
+  {
+    "file": "new-wires-N8A-calibration/source-sha.bin.zlib",
+    "bytes": 32,
+    "sha256": "66687aadf862bd776c8fc18b8e9f8e20089714856ee233b3902a591d0d5f2925",
+    "zlib": true
+  },
+  {
+    "file": "new-wires-N8A-calibration/sources.bin.zlib",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "zlib": true
+  },
+  {
+    "file": "new-wires-N8A-calibration/spi2-config.bin.zlib",
+    "bytes": 8,
+    "sha256": "787a9b7718dad7abe73a7e5fabc5fcc259569671f12955796164a7170c539421",
+    "zlib": true
+  },
+  {
+    "file": "new-wires-N8A-calibration/spi3-config.bin.zlib",
+    "bytes": 8,
+    "sha256": "f07474c9a6c35e3d662c0cb2a2c4cbc568f000d35bd733c56d99999577ae3691",
+    "zlib": true
+  },
+  {
+    "file": "run_capture.py",
+    "bytes": 4163,
+    "sha256": "8c485371de6188d1b67f7192f64c0db5f90739eb13f04ec0733aa700ab188cea",
+    "zlib": false
+  }
+]
