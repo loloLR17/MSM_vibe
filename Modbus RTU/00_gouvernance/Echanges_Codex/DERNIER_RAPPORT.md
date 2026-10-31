@@ -1,6 +1,6 @@
 ---
 mission_id: TR2-20261031-R5-RAPPORT-VIBRATIONS-ILLUSTRE-V2
-status: IN_PROGRESS
+status: DONE
 base_ref: main
 base_sha: d89f11ef1afff9331d60278b6000e5505dfbcdbd
 initial_head: a9077dcf41d0653d4664cd2ab1a9d94203726075
@@ -14,9 +14,9 @@ allow_flash: false
 allow_debug: false
 ---
 
-# Rapport vibratoire illustré V2 — document terminé, publication à vérifier
+# Rapport vibratoire illustré V2 — publié et relu sur main
 
-Le PDF demandé est remplacé **au même chemin**, avec **10 pages et trois figures R5 originales incorporées**. Les critères éditoriaux et contrôles locaux sont satisfaits ; IN_PROGRESS porte uniquement sur la publication/relecture encore à effectuer.
+Le PDF demandé est remplacé **au même chemin**, avec **10 pages et trois figures R5 originales incorporées**. Les critères éditoriaux, contrôles locaux et publication/relecture distante sont satisfaits.
 
 [Ouvrir le PDF](../../02_Validation/Rapports/MSM_TR2_Rapport_capacites_vibratoires_31-10-2026.pdf) · [Preuves et reproduction](preuves/TR2-20261031-R5-RAPPORT-VIBRATIONS-ILLUSTRE-V2/README.md)
 
@@ -24,7 +24,7 @@ Le PDF demandé est remplacé **au même chemin**, avec **10 pages et trois figu
 - Couverture : plancher du PC machine, occupation permanente en navigation fournie par le contrat ; environ6h06 en temps relatif MCU/58,55MXYZ. Wm médiane1,224/P952,082/maximum2,775mm/s sur365fenêtres complètes60s. Le maximum est un RMS de fenêtre, pas une crête instantanée. Aucun «tout va bien95%du temps».
 - Repères BV documentaires4,0/4,5/5,0mm/s explicitement attribués aux grades1/2/3 et à «Engine control room or switchboard room (if continuously manned at sea)», source NR467F juillet2026 ch6§3 tableau4 vérifiée. Pas de verdict BV ni d'alerte sanitaire. Mention de portée unique et sobre en couverture.
 - Pages2–3 : courbes temporelles vectorielles de l'édition existante conservées, regroupement énergétique5min identifié ; tableau60/120s ajouté sans nouvelle analyse. Valeurs120s1,229/2,078/2,458mm/s issues de la synthèse publiée. RMS2–25Hz/crêtes/énergie inchangés.
-- **Page4 `02_spectrogram.png` ; page5 `03_spectra_ridges.png` ; page6 `04_ridge_power.png`** : images natives1950pixels en largeur, trois pagesA4 paysage, légendes/couleurs/échelles/unités/proportions intactes et sources cliquables. Le schéma de trois fréquences remplacé par ces figures réelles. Pas d'identification de machine inventée.
+- **Page4 `02_spectrogram.png` ; page5 `03_spectra_ridges.png` ; page6 `04_ridge_power.png`** : images natives1950pixels en largeur, trois pagesA4 paysage, légendes/couleurs/échelles/unités/proportions intactes et sources cliquables. Le schéma de trois fréquences est remplacé par ces figures réelles. Pas d'identification de machine inventée.
 - Pages7–10 : électronique STM32U575/IIS3DWB/STEVAL-MKI208V1/microSD, FIR107Q15/décimation, méthodeWm/RMS, qualité/bases de temps et référencesST/BV/ISO/GOST préservées. Correspondance axes capteur/navire explicitement non documentée. Ancien texte sur figures absentes supprimé.
 
 ## Validation réellement exécutée
@@ -50,4 +50,6 @@ Permissions exercées : édition documentaire/outillage local, commit et push no
 
 ## Publication
 
-À effectuer : commit atomique du PDF/outils/preuves/rapport/journal, push normal `HEAD:refs/heads/main`, récupération de la référence GitHub et comparaison intégrale des livrables, puis rapportDONE consignant le SHA relu. Aucun critère technique restant hors publication. Le SHA final documentaire sera donné après vérification distante, sans auto-référence dans son propre commit.
+Premier commit publié et relu : **`de63a838ad95b0c0c90b651181a3c38f300d1ad9`**, `R5 report V2: embed original spectra and verify illustrated PDF`. Push normal `HEAD:refs/heads/main` réussi, puis `git fetch origin main`. **80 fichiers / 11,441,259 octets** relus intégralement avec `git show origin/main:<chemin>` et comparés aux fichiers locaux : tous identiques, mission et70sourcesR5/Wm comprises. BinairePDF récupéré rouvert indépendamment en mémoire :10pages/3images, SHA final exact. [Preuve de relecture](preuves/TR2-20261031-R5-RAPPORT-VIBRATIONS-ILLUSTRE-V2/remote-readback.json).
+
+État Git propre après ce premier push, HEAD=origin/main. Les deux stashes historiques sont inchangés. Le présent rapportDONE, la preuve de relecture et le journal final sont publiés dans un dernier commit normal, dont le SHA sera fourni après contrôle distant. Aucun SHA auto-référent. La source documentaire reste a9077dcf et les algorithmes n'ont pas été réévalués ; revue indépendante ChatGPT à effectuer.
