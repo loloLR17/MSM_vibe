@@ -1,5 +1,5 @@
 ---
-mission_id: TR2-20261031-R5-PREQUAl-ISO-FS2G-OFFLINE
+mission_id: TR2-20261031-R5-PREQUAL-ISO-FS2G-OFFLINE
 status: READY
 base_ref: main
 base_sha: f99e85cc3857aa6dd9db60b16c4a37ba1c7550b0
