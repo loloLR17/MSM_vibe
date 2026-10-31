@@ -1,0 +1,12 @@
+Strict COMPLETE; six Wm streams; smooth band limits once; primary event retained
+Traceback (most recent call last):
+  File "/home/lolo/dev/msm/projects/MSM_vibe-R5-WM/experiments/r5_wm_offline/run_wm.py", line 80, in <module>
+    if __name__=='__main__':main()
+                            ~~~~^^
+  File "/home/lolo/dev/msm/projects/MSM_vibe-R5-WM/experiments/r5_wm_offline/run_wm.py", line 76, in main
+    controls(a.source,info,rows,defs,out,event)
+    ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/lolo/dev/msm/projects/MSM_vibe-R5-WM/experiments/r5_wm_offline/run_wm.py", line 28, in controls
+    if not record['passed']:dump(out/'failed_controls.json',records);raise ValueError('independent real control failed')
+                                                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: independent real control failed

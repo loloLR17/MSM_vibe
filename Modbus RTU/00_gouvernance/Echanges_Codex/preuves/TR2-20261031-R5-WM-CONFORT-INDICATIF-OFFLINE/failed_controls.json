@@ -1,0 +1,1212 @@
+[
+  {
+    "method_id": "16076171f52ef52d94005c80558df667e3090e1b7e0ef4d8df2f0cb174a21cd8",
+    "clock": "MCU",
+    "variant": "MAIN",
+    "start_mcu_s": 3360,
+    "width_s": 120,
+    "time_rms_mm_s2": [
+      24.786427150523664,
+      17.537287349991402,
+      43.93399267805998
+    ],
+    "FFT_rms_mm_s2": [
+      24.786427150523746,
+      17.537287349993917,
+      43.933992678071945
+    ],
+    "relative_error": 2.724487302430134e-13,
+    "limit": 0.001,
+    "Parseval_relative_error": 7.867040352493859e-13,
+    "Parseval_limit": 1e-12,
+    "passed": true
+  },
+  {
+    "method_id": "16076171f52ef52d94005c80558df667e3090e1b7e0ef4d8df2f0cb174a21cd8",
+    "clock": "MCU",
+    "variant": "MAIN",
+    "start_mcu_s": 3360,
+    "width_s": 60,
+    "time_rms_mm_s2": [
+      24.282896999415744,
+      17.434301317214672,
+      43.72539732981524
+    ],
+    "FFT_rms_mm_s2": [
+      24.282896999416376,
+      17.43430131720885,
+      43.72539732977127
+    ],
+    "relative_error": 1.0055289934030043e-12,
+    "limit": 0.001,
+    "Parseval_relative_error": 7.867040352493859e-13,
+    "Parseval_limit": 1e-12,
+    "passed": true
+  },
+  {
+    "method_id": "16076171f52ef52d94005c80558df667e3090e1b7e0ef4d8df2f0cb174a21cd8",
+    "clock": "MCU",
+    "variant": "MAIN",
+    "start_mcu_s": 3420,
+    "width_s": 60,
+    "time_rms_mm_s2": [
+      25.279942128559114,
+      17.639674684993718,
+      44.141607488493186
+    ],
+    "FFT_rms_mm_s2": [
+      25.279942128558957,
+      17.639674685004668,
+      44.14160748856133
+    ],
+    "relative_error": 1.5436540934388177e-12,
+    "limit": 0.001,
+    "Parseval_relative_error": 7.867040352493859e-13,
+    "Parseval_limit": 1e-12,
+    "passed": true
+  },
+  {
+    "method_id": "a66de363d625289a9076389ff3a5609b6fb666b68528ee4007a67d5044cc33db",
+    "clock": "MCU",
+    "variant": "LOW08",
+    "start_mcu_s": 3360,
+    "width_s": 120,
+    "time_rms_mm_s2": [
+      24.811260163280533,
+      18.245438767919087,
+      44.455538739231564
+    ],
+    "FFT_rms_mm_s2": [
+      24.811260163280604,
+      18.245438767887983,
+      44.45553873905782
+    ],
+    "relative_error": 3.908207091285476e-12,
+    "limit": 0.001,
+    "Parseval_relative_error": 6.608047442568932e-13,
+    "Parseval_limit": 1e-12,
+    "passed": true
+  },
+  {
+    "method_id": "a66de363d625289a9076389ff3a5609b6fb666b68528ee4007a67d5044cc33db",
+    "clock": "MCU",
+    "variant": "LOW08",
+    "start_mcu_s": 3360,
+    "width_s": 60,
+    "time_rms_mm_s2": [
+      24.30759578549075,
+      18.02450745689598,
+      44.18982221277781
+    ],
+    "FFT_rms_mm_s2": [
+      24.307595785488864,
+      18.024507456849335,
+      44.18982221276142
+    ],
+    "relative_error": 2.5878188480987774e-12,
+    "limit": 0.001,
+    "Parseval_relative_error": 6.608047442568932e-13,
+    "Parseval_limit": 1e-12,
+    "passed": true
+  },
+  {
+    "method_id": "a66de363d625289a9076389ff3a5609b6fb666b68528ee4007a67d5044cc33db",
+    "clock": "MCU",
+    "variant": "LOW08",
+    "start_mcu_s": 3420,
+    "width_s": 60,
+    "time_rms_mm_s2": [
+      25.304913922599983,
+      18.46373210738945,
+      44.71968304934139
+    ],
+    "FFT_rms_mm_s2": [
+      25.30491392260158,
+      18.463732107373406,
+      44.71968304901097
+    ],
+    "relative_error": 7.388756273485342e-12,
+    "limit": 0.001,
+    "Parseval_relative_error": 6.608047442568932e-13,
+    "Parseval_limit": 1e-12,
+    "passed": true
+  },
+  {
+    "method_id": "c37cbbd5b68e23c67a8da90847de797b222690facfeaceb11c69164742b0a4d3",
+    "clock": "MCU",
+    "variant": "LOW12",
+    "start_mcu_s": 3360,
+    "width_s": 120,
+    "time_rms_mm_s2": [
+      24.770869603003906,
+      17.234485039902587,
+      43.704356671654416
+    ],
+    "FFT_rms_mm_s2": [
+      24.77086960300308,
+      17.234485039896423,
+      43.70435667169185
+    ],
+    "relative_error": 8.564260411958458e-13,
+    "limit": 0.001,
+    "Parseval_relative_error": 4.438671652451376e-13,
+    "Parseval_limit": 1e-12,
+    "passed": true
+  },
+  {
+    "method_id": "c37cbbd5b68e23c67a8da90847de797b222690facfeaceb11c69164742b0a4d3",
+    "clock": "MCU",
+    "variant": "LOW12",
+    "start_mcu_s": 3360,
+    "width_s": 60,
+    "time_rms_mm_s2": [
+      24.267834745388736,
+      17.17262039098216,
+      43.5230143737803
+    ],
+    "FFT_rms_mm_s2": [
+      24.267834745388605,
+      17.172620390978988,
+      43.52301437382512
+    ],
+    "relative_error": 1.0298428776422952e-12,
+    "limit": 0.001,
+    "Parseval_relative_error": 4.438671652451376e-13,
+    "Parseval_limit": 1e-12,
+    "passed": true
+  },
+  {
+    "method_id": "c37cbbd5b68e23c67a8da90847de797b222690facfeaceb11c69164742b0a4d3",
+    "clock": "MCU",
+    "variant": "LOW12",
+    "start_mcu_s": 3420,
+    "width_s": 60,
+    "time_rms_mm_s2": [
+      25.263902637656777,
+      17.296129954685576,
+      43.884954144061545
+    ],
+    "FFT_rms_mm_s2": [
+      25.26390263765602,
+      17.29612995467686,
+      43.88495414409088
+    ],
+    "relative_error": 6.683542608243442e-13,
+    "limit": 0.001,
+    "Parseval_relative_error": 4.438671652451376e-13,
+    "Parseval_limit": 1e-12,
+    "passed": true
+  },
+  {
+    "method_id": "8127486594f057cfcefb697817ec34d1223453462c16c5e8fedfe10ba74bbe74",
+    "clock": "QPC_ESTIMATE",
+    "variant": "MAIN",
+    "start_mcu_s": 3360,
+    "width_s": 120,
+    "time_rms_mm_s2": [
+      24.623452923591547,
+      17.452371363488705,
+      43.63566174536246
+    ],
+    "FFT_rms_mm_s2": [
+      24.623452923592005,
+      17.452371363504124,
+      43.63566174536134
+    ],
+    "relative_error": 8.835154829966996e-13,
+    "limit": 0.001,
+    "Parseval_relative_error": 7.844835892001356e-13,
+    "Parseval_limit": 1e-12,
+    "passed": true
+  },
+  {
+    "method_id": "8127486594f057cfcefb697817ec34d1223453462c16c5e8fedfe10ba74bbe74",
+    "clock": "QPC_ESTIMATE",
+    "variant": "MAIN",
+    "start_mcu_s": 3360,
+    "width_s": 60,
+    "time_rms_mm_s2": [
+      24.123030223774887,
+      17.34601030508207,
+      43.426089743905315
+    ],
+    "FFT_rms_mm_s2": [
+      24.12303022377517,
+      17.346010305079737,
+      43.42608974392762
+    ],
+    "relative_error": 5.135891711915974e-13,
+    "limit": 0.001,
+    "Parseval_relative_error": 7.844835892001356e-13,
+    "Parseval_limit": 1e-12,
+    "passed": true
+  },
+  {
+    "method_id": "8127486594f057cfcefb697817ec34d1223453462c16c5e8fedfe10ba74bbe74",
+    "clock": "QPC_ESTIMATE",
+    "variant": "MAIN",
+    "start_mcu_s": 3420,
+    "width_s": 60,
+    "time_rms_mm_s2": [
+      25.113918285444406,
+      17.55809077402482,
+      43.84423723272591
+    ],
+    "FFT_rms_mm_s2": [
+      25.11391828544461,
+      17.55809077405742,
+      43.84423723270227
+    ],
+    "relative_error": 1.856736986383112e-12,
+    "limit": 0.001,
+    "Parseval_relative_error": 7.844835892001356e-13,
+    "Parseval_limit": 1e-12,
+    "passed": true
+  },
+  {
+    "method_id": "0655d20c11a4f03f4e8e6d0016736c6890638360ffaf0f271fa398903a88b3f1",
+    "clock": "QPC_ESTIMATE",
+    "variant": "LOW08",
+    "start_mcu_s": 3360,
+    "width_s": 120,
+    "time_rms_mm_s2": [
+      24.64870931999183,
+      18.17989320810516,
+      44.17258821559068
+    ],
+    "FFT_rms_mm_s2": [
+      24.64870931999164,
+      18.17989320808705,
+      44.17258821567573
+    ],
+    "relative_error": 1.9253487693049465e-12,
+    "limit": 0.001,
+    "Parseval_relative_error": 6.532552276894421e-13,
+    "Parseval_limit": 1e-12,
+    "passed": true
+  },
+  {
+    "method_id": "0655d20c11a4f03f4e8e6d0016736c6890638360ffaf0f271fa398903a88b3f1",
+    "clock": "QPC_ESTIMATE",
+    "variant": "LOW08",
+    "start_mcu_s": 3360,
+    "width_s": 60,
+    "time_rms_mm_s2": [
+      24.148162195577264,
+      17.951911005768398,
+      43.90420969467222
+    ],
+    "FFT_rms_mm_s2": [
+      24.14816219557671,
+      17.951911005721666,
+      43.90420969497012
+    ],
+    "relative_error": 6.785239037299107e-12,
+    "limit": 0.001,
+    "Parseval_relative_error": 6.532552276894421e-13,
+    "Parseval_limit": 1e-12,
+    "passed": true
+  },
+  {
+    "method_id": "0655d20c11a4f03f4e8e6d0016736c6890638360ffaf0f271fa398903a88b3f1",
+    "clock": "QPC_ESTIMATE",
+    "variant": "LOW08",
+    "start_mcu_s": 3420,
+    "width_s": 60,
+    "time_rms_mm_s2": [
+      25.13930422082546,
+      18.405057231744724,
+      44.43935263415869
+    ],
+    "FFT_rms_mm_s2": [
+      25.139304220826205,
+      18.40505723175513,
+      44.439352634033455
+    ],
+    "relative_error": 2.818079103406035e-12,
+    "limit": 0.001,
+    "Parseval_relative_error": 6.532552276894421e-13,
+    "Parseval_limit": 1e-12,
+    "passed": true
+  },
+  {
+    "method_id": "a84808efefc3d1512a9455209349c7cf0c208a9ea47eaab125d88d1d5ea94292",
+    "clock": "QPC_ESTIMATE",
+    "variant": "LOW12",
+    "start_mcu_s": 3360,
+    "width_s": 120,
+    "time_rms_mm_s2": [
+      24.607691017045845,
+      17.14144706072325,
+      43.40025650775629
+    ],
+    "FFT_rms_mm_s2": [
+      24.607691017044164,
+      17.141447060722754,
+      43.40025650776411
+    ],
+    "relative_error": 1.8030021919912542e-13,
+    "limit": 0.001,
+    "Parseval_relative_error": 4.014566457044566e-13,
+    "Parseval_limit": 1e-12,
+    "passed": true
+  },
+  {
+    "method_id": "a84808efefc3d1512a9455209349c7cf0c208a9ea47eaab125d88d1d5ea94292",
+    "clock": "QPC_ESTIMATE",
+    "variant": "LOW12",
+    "start_mcu_s": 3360,
+    "width_s": 60,
+    "time_rms_mm_s2": [
+      24.107750722061816,
+      17.077688022979082,
+      43.21844914515023
+    ],
+    "FFT_rms_mm_s2": [
+      24.107750722060565,
+      17.077688022973224,
+      43.21844914512641
+    ],
+    "relative_error": 5.512257317263902e-13,
+    "limit": 0.001,
+    "Parseval_relative_error": 4.014566457044566e-13,
+    "Parseval_limit": 1e-12,
+    "passed": true
+  },
+  {
+    "method_id": "a84808efefc3d1512a9455209349c7cf0c208a9ea47eaab125d88d1d5ea94292",
+    "clock": "QPC_ESTIMATE",
+    "variant": "LOW12",
+    "start_mcu_s": 3420,
+    "width_s": 60,
+    "time_rms_mm_s2": [
+      25.097686737832902,
+      17.204971406962468,
+      43.58130996024111
+    ],
+    "FFT_rms_mm_s2": [
+      25.097686737829658,
+      17.204971406967246,
+      43.581309960280805
+    ],
+    "relative_error": 9.108269694024784e-13,
+    "limit": 0.001,
+    "Parseval_relative_error": 4.014566457044566e-13,
+    "Parseval_limit": 1e-12,
+    "passed": true
+  },
+  {
+    "method_id": "16076171f52ef52d94005c80558df667e3090e1b7e0ef4d8df2f0cb174a21cd8",
+    "clock": "MCU",
+    "variant": "MAIN",
+    "start_mcu_s": 17520,
+    "width_s": 120,
+    "time_rms_mm_s2": [
+      15.464506195469848,
+      18.309599515596005,
+      44.468273264774105
+    ],
+    "FFT_rms_mm_s2": [
+      15.464506195469246,
+      18.309599515595643,
+      44.46827326476712
+    ],
+    "relative_error": 1.5709655798445965e-13,
+    "limit": 0.001,
+    "Parseval_relative_error": 3.7903014060702844e-13,
+    "Parseval_limit": 1e-12,
+    "passed": true
+  },
+  {
+    "method_id": "16076171f52ef52d94005c80558df667e3090e1b7e0ef4d8df2f0cb174a21cd8",
+    "clock": "MCU",
+    "variant": "MAIN",
+    "start_mcu_s": 17520,
+    "width_s": 60,
+    "time_rms_mm_s2": [
+      17.646735421276006,
+      18.228830544584138,
+      36.482756927306816
+    ],
+    "FFT_rms_mm_s2": [
+      17.64673542127627,
+      18.228830544583214,
+      36.48275692727334
+    ],
+    "relative_error": 9.174883075502294e-13,
+    "limit": 0.001,
+    "Parseval_relative_error": 3.7903014060702844e-13,
+    "Parseval_limit": 1e-12,
+    "passed": true
+  },
+  {
+    "method_id": "16076171f52ef52d94005c80558df667e3090e1b7e0ef4d8df2f0cb174a21cd8",
+    "clock": "MCU",
+    "variant": "MAIN",
+    "start_mcu_s": 17580,
+    "width_s": 60,
+    "time_rms_mm_s2": [
+      12.918858120855615,
+      18.390011240208366,
+      51.22346006050798
+    ],
+    "FFT_rms_mm_s2": [
+      12.918858120854091,
+      18.39001124020868,
+      51.22346006052027
+    ],
+    "relative_error": 2.398081733190338e-13,
+    "limit": 0.001,
+    "Parseval_relative_error": 3.7903014060702844e-13,
+    "Parseval_limit": 1e-12,
+    "passed": true
+  },
+  {
+    "method_id": "a66de363d625289a9076389ff3a5609b6fb666b68528ee4007a67d5044cc33db",
+    "clock": "MCU",
+    "variant": "LOW08",
+    "start_mcu_s": 17520,
+    "width_s": 120,
+    "time_rms_mm_s2": [
+      15.473672662946683,
+      18.363717772980483,
+      44.48018112859263
+    ],
+    "FFT_rms_mm_s2": [
+      15.47367266294612,
+      18.363717772977527,
+      44.48018112858943
+    ],
+    "relative_error": 1.609823385706477e-13,
+    "limit": 0.001,
+    "Parseval_relative_error": 6.648015471455437e-13,
+    "Parseval_limit": 1e-12,
+    "passed": true
+  },
+  {
+    "method_id": "a66de363d625289a9076389ff3a5609b6fb666b68528ee4007a67d5044cc33db",
+    "clock": "MCU",
+    "variant": "LOW08",
+    "start_mcu_s": 17520,
+    "width_s": 60,
+    "time_rms_mm_s2": [
+      17.654742652354514,
+      18.297096263797393,
+      36.49712338584262
+    ],
+    "FFT_rms_mm_s2": [
+      17.654742652356965,
+      18.29709626378844,
+      36.49712338584599
+    ],
+    "relative_error": 4.892752869523065e-13,
+    "limit": 0.001,
+    "Parseval_relative_error": 6.648015471455437e-13,
+    "Parseval_limit": 1e-12,
+    "passed": true
+  },
+  {
+    "method_id": "a66de363d625289a9076389ff3a5609b6fb666b68528ee4007a67d5044cc33db",
+    "clock": "MCU",
+    "variant": "LOW08",
+    "start_mcu_s": 17580,
+    "width_s": 60,
+    "time_rms_mm_s2": [
+      12.929865260165254,
+      18.43009638417894,
+      51.23390254483634
+    ],
+    "FFT_rms_mm_s2": [
+      12.92986526016124,
+      18.430096384181553,
+      51.233902544828325
+    ],
+    "relative_error": 3.105293799876563e-13,
+    "limit": 0.001,
+    "Parseval_relative_error": 6.648015471455437e-13,
+    "Parseval_limit": 1e-12,
+    "passed": true
+  },
+  {
+    "method_id": "c37cbbd5b68e23c67a8da90847de797b222690facfeaceb11c69164742b0a4d3",
+    "clock": "MCU",
+    "variant": "LOW12",
+    "start_mcu_s": 17520,
+    "width_s": 120,
+    "time_rms_mm_s2": [
+      15.456377920749764,
+      18.279186589878773,
+      44.45653170609147
+    ],
+    "FFT_rms_mm_s2": [
+      15.456377920750782,
+      18.279186589881643,
+      44.45653170609131
+    ],
+    "relative_error": 1.5698553568199713e-13,
+    "limit": 0.001,
+    "Parseval_relative_error": 4.298783551348606e-13,
+    "Parseval_limit": 1e-12,
+    "passed": true
+  },
+  {
+    "method_id": "c37cbbd5b68e23c67a8da90847de797b222690facfeaceb11c69164742b0a4d3",
+    "clock": "MCU",
+    "variant": "LOW12",
+    "start_mcu_s": 17520,
+    "width_s": 60,
+    "time_rms_mm_s2": [
+      17.639773582573337,
+      18.190957755037353,
+      36.46848330035721
+    ],
+    "FFT_rms_mm_s2": [
+      17.63977358257399,
+      18.190957755042295,
+      36.4684833003516
+    ],
+    "relative_error": 2.715605518233133e-13,
+    "limit": 0.001,
+    "Parseval_relative_error": 4.298783551348606e-13,
+    "Parseval_limit": 1e-12,
+    "passed": true
+  },
+  {
+    "method_id": "c37cbbd5b68e23c67a8da90847de797b222690facfeaceb11c69164742b0a4d3",
+    "clock": "MCU",
+    "variant": "LOW12",
+    "start_mcu_s": 17580,
+    "width_s": 60,
+    "time_rms_mm_s2": [
+      12.908907290207319,
+      18.366988865322007,
+      51.2132395754847
+    ],
+    "FFT_rms_mm_s2": [
+      12.908907290208544,
+      18.366988865322284,
+      51.21323957548881
+    ],
+    "relative_error": 9.50350909079134e-14,
+    "limit": 0.001,
+    "Parseval_relative_error": 4.298783551348606e-13,
+    "Parseval_limit": 1e-12,
+    "passed": true
+  },
+  {
+    "method_id": "8127486594f057cfcefb697817ec34d1223453462c16c5e8fedfe10ba74bbe74",
+    "clock": "QPC_ESTIMATE",
+    "variant": "MAIN",
+    "start_mcu_s": 17520,
+    "width_s": 120,
+    "time_rms_mm_s2": [
+      15.369386482311858,
+      18.20084128035987,
+      44.183266799927104
+    ],
+    "FFT_rms_mm_s2": [
+      15.369386482309642,
+      18.20084128035683,
+      44.1832667999259
+    ],
+    "relative_error": 1.6708856520608606e-13,
+    "limit": 0.001,
+    "Parseval_relative_error": 4.496403249731884e-13,
+    "Parseval_limit": 1e-12,
+    "passed": true
+  },
+  {
+    "method_id": "8127486594f057cfcefb697817ec34d1223453462c16c5e8fedfe10ba74bbe74",
+    "clock": "QPC_ESTIMATE",
+    "variant": "MAIN",
+    "start_mcu_s": 17520,
+    "width_s": 60,
+    "time_rms_mm_s2": [
+      17.538763600080124,
+      18.126291364979043,
+      36.25259371294092
+    ],
+    "FFT_rms_mm_s2": [
+      17.53876360007676,
+      18.12629136497851,
+      36.25259371294973
+    ],
+    "relative_error": 2.431388423929093e-13,
+    "limit": 0.001,
+    "Parseval_relative_error": 4.496403249731884e-13,
+    "Parseval_limit": 1e-12,
+    "passed": true
+  },
+  {
+    "method_id": "8127486594f057cfcefb697817ec34d1223453462c16c5e8fedfe10ba74bbe74",
+    "clock": "QPC_ESTIMATE",
+    "variant": "MAIN",
+    "start_mcu_s": 17580,
+    "width_s": 60,
+    "time_rms_mm_s2": [
+      12.838617074360105,
+      18.275084765355704,
+      50.89254960732708
+    ],
+    "FFT_rms_mm_s2": [
+      12.838617074358941,
+      18.2750847653501,
+      50.892549607318465
+    ],
+    "relative_error": 3.065325770990057e-13,
+    "limit": 0.001,
+    "Parseval_relative_error": 4.496403249731884e-13,
+    "Parseval_limit": 1e-12,
+    "passed": true
+  },
+  {
+    "method_id": "0655d20c11a4f03f4e8e6d0016736c6890638360ffaf0f271fa398903a88b3f1",
+    "clock": "QPC_ESTIMATE",
+    "variant": "LOW08",
+    "start_mcu_s": 17520,
+    "width_s": 120,
+    "time_rms_mm_s2": [
+      15.378587842699202,
+      18.256022030174865,
+      44.19518446377287
+    ],
+    "FFT_rms_mm_s2": [
+      15.378587842699561,
+      18.256022030170264,
+      44.19518446379936
+    ],
+    "relative_error": 5.992983886926595e-13,
+    "limit": 0.001,
+    "Parseval_relative_error": 6.439293542825908e-13,
+    "Parseval_limit": 1e-12,
+    "passed": true
+  },
+  {
+    "method_id": "0655d20c11a4f03f4e8e6d0016736c6890638360ffaf0f271fa398903a88b3f1",
+    "clock": "QPC_ESTIMATE",
+    "variant": "LOW08",
+    "start_mcu_s": 17520,
+    "width_s": 60,
+    "time_rms_mm_s2": [
+      17.546807773847142,
+      18.19588905924033,
+      36.26695995850759
+    ],
+    "FFT_rms_mm_s2": [
+      17.546807773846655,
+      18.195889059243004,
+      36.2669599585422
+    ],
+    "relative_error": 9.543477119677846e-13,
+    "limit": 0.001,
+    "Parseval_relative_error": 6.439293542825908e-13,
+    "Parseval_limit": 1e-12,
+    "passed": true
+  },
+  {
+    "method_id": "0655d20c11a4f03f4e8e6d0016736c6890638360ffaf0f271fa398903a88b3f1",
+    "clock": "QPC_ESTIMATE",
+    "variant": "LOW08",
+    "start_mcu_s": 17580,
+    "width_s": 60,
+    "time_rms_mm_s2": [
+      12.849657595186283,
+      18.31595570652024,
+      50.903008759862516
+    ],
+    "FFT_rms_mm_s2": [
+      12.849657595187908,
+      18.315955706508003,
+      50.90300875988493
+    ],
+    "relative_error": 6.680211939169567e-13,
+    "limit": 0.001,
+    "Parseval_relative_error": 6.439293542825908e-13,
+    "Parseval_limit": 1e-12,
+    "passed": true
+  },
+  {
+    "method_id": "a84808efefc3d1512a9455209349c7cf0c208a9ea47eaab125d88d1d5ea94292",
+    "clock": "QPC_ESTIMATE",
+    "variant": "LOW12",
+    "start_mcu_s": 17520,
+    "width_s": 120,
+    "time_rms_mm_s2": [
+      15.361241444952705,
+      18.169931008845555,
+      44.171541388072704
+    ],
+    "FFT_rms_mm_s2": [
+      15.361241444952118,
+      18.169931008841488,
+      44.17154138808478
+    ],
+    "relative_error": 2.7355895326763857e-13,
+    "limit": 0.001,
+    "Parseval_relative_error": 4.740652315149418e-13,
+    "Parseval_limit": 1e-12,
+    "passed": true
+  },
+  {
+    "method_id": "a84808efefc3d1512a9455209349c7cf0c208a9ea47eaab125d88d1d5ea94292",
+    "clock": "QPC_ESTIMATE",
+    "variant": "LOW12",
+    "start_mcu_s": 17520,
+    "width_s": 60,
+    "time_rms_mm_s2": [
+      17.531784071903527,
+      18.087782575404987,
+      36.23833990379417
+    ],
+    "FFT_rms_mm_s2": [
+      17.531784071903527,
+      18.087782575403082,
+      36.23833990382171
+    ],
+    "relative_error": 7.600586826583822e-13,
+    "limit": 0.001,
+    "Parseval_relative_error": 4.740652315149418e-13,
+    "Parseval_limit": 1e-12,
+    "passed": true
+  },
+  {
+    "method_id": "a84808efefc3d1512a9455209349c7cf0c208a9ea47eaab125d88d1d5ea94292",
+    "clock": "QPC_ESTIMATE",
+    "variant": "LOW12",
+    "start_mcu_s": 17580,
+    "width_s": 60,
+    "time_rms_mm_s2": [
+      12.828649975958259,
+      18.25170715238096,
+      50.8823435439206
+    ],
+    "FFT_rms_mm_s2": [
+      12.828649975957465,
+      18.251707152375335,
+      50.882343543923305
+    ],
+    "relative_error": 3.0808688933348094e-13,
+    "limit": 0.001,
+    "Parseval_relative_error": 4.740652315149418e-13,
+    "Parseval_limit": 1e-12,
+    "passed": true
+  },
+  {
+    "method_id": "16076171f52ef52d94005c80558df667e3090e1b7e0ef4d8df2f0cb174a21cd8",
+    "clock": "MCU",
+    "variant": "MAIN",
+    "start_mcu_s": 18480,
+    "width_s": 120,
+    "time_rms_mm_s2": [
+      43.26443140578524,
+      44.35866077412819,
+      87.77594830764532
+    ],
+    "FFT_rms_mm_s2": [
+      43.264431405784265,
+      44.35866077412632,
+      87.77594830765865
+    ],
+    "relative_error": 1.5187850976872141e-13,
+    "limit": 0.001,
+    "Parseval_relative_error": 8.86846152070575e-13,
+    "Parseval_limit": 1e-12,
+    "passed": true
+  },
+  {
+    "method_id": "16076171f52ef52d94005c80558df667e3090e1b7e0ef4d8df2f0cb174a21cd8",
+    "clock": "MCU",
+    "variant": "MAIN",
+    "start_mcu_s": 18480,
+    "width_s": 60,
+    "time_rms_mm_s2": [
+      35.4116928677314,
+      38.03118275209806,
+      74.7534327293026
+    ],
+    "FFT_rms_mm_s2": [
+      35.41169286773058,
+      38.03118275209562,
+      74.75343272931187
+    ],
+    "relative_error": 1.2390088954816747e-13,
+    "limit": 0.001,
+    "Parseval_relative_error": 8.86846152070575e-13,
+    "Parseval_limit": 1e-12,
+    "passed": true
+  },
+  {
+    "method_id": "16076171f52ef52d94005c80558df667e3090e1b7e0ef4d8df2f0cb174a21cd8",
+    "clock": "MCU",
+    "variant": "MAIN",
+    "start_mcu_s": 18540,
+    "width_s": 60,
+    "time_rms_mm_s2": [
+      49.89658182445555,
+      49.89028052449338,
+      99.1023601314458
+    ],
+    "FFT_rms_mm_s2": [
+      49.89658182445481,
+      49.890280524491686,
+      99.10236013146152
+    ],
+    "relative_error": 1.5853984791647235e-13,
+    "limit": 0.001,
+    "Parseval_relative_error": 8.86846152070575e-13,
+    "Parseval_limit": 1e-12,
+    "passed": true
+  },
+  {
+    "method_id": "a66de363d625289a9076389ff3a5609b6fb666b68528ee4007a67d5044cc33db",
+    "clock": "MCU",
+    "variant": "LOW08",
+    "start_mcu_s": 18480,
+    "width_s": 120,
+    "time_rms_mm_s2": [
+      43.268316868638,
+      44.36364690417461,
+      87.78363439831972
+    ],
+    "FFT_rms_mm_s2": [
+      43.268316868636475,
+      44.363646904173855,
+      87.78363439830522
+    ],
+    "relative_error": 1.6509016376176078e-13,
+    "limit": 0.001,
+    "Parseval_relative_error": 8.733014311701481e-13,
+    "Parseval_limit": 1e-12,
+    "passed": true
+  },
+  {
+    "method_id": "a66de363d625289a9076389ff3a5609b6fb666b68528ee4007a67d5044cc33db",
+    "clock": "MCU",
+    "variant": "LOW08",
+    "start_mcu_s": 18480,
+    "width_s": 60,
+    "time_rms_mm_s2": [
+      35.416490754025816,
+      38.03709929505054,
+      74.76122205707216
+    ],
+    "FFT_rms_mm_s2": [
+      35.4164907540223,
+      38.03709929504931,
+      74.76122205704067
+    ],
+    "relative_error": 4.212186155427844e-13,
+    "limit": 0.001,
+    "Parseval_relative_error": 8.733014311701481e-13,
+    "Parseval_limit": 1e-12,
+    "passed": true
+  },
+  {
+    "method_id": "a66de363d625289a9076389ff3a5609b6fb666b68528ee4007a67d5044cc33db",
+    "clock": "MCU",
+    "variant": "LOW08",
+    "start_mcu_s": 18540,
+    "width_s": 60,
+    "time_rms_mm_s2": [
+      49.89991474489558,
+      49.89463689666398,
+      99.11009993499837
+    ],
+    "FFT_rms_mm_s2": [
+      49.899914744894694,
+      49.89463689666445,
+      99.11009993499518
+    ],
+    "relative_error": 3.2307490016592055e-14,
+    "limit": 0.001,
+    "Parseval_relative_error": 8.733014311701481e-13,
+    "Parseval_limit": 1e-12,
+    "passed": true
+  },
+  {
+    "method_id": "c37cbbd5b68e23c67a8da90847de797b222690facfeaceb11c69164742b0a4d3",
+    "clock": "MCU",
+    "variant": "LOW12",
+    "start_mcu_s": 18480,
+    "width_s": 120,
+    "time_rms_mm_s2": [
+      43.26107008937615,
+      44.354431295057346,
+      87.7667016841762
+    ],
+    "FFT_rms_mm_s2": [
+      43.26107008937745,
+      44.35443129505868,
+      87.76670168417131
+    ],
+    "relative_error": 5.573319583618286e-14,
+    "limit": 0.001,
+    "Parseval_relative_error": 7.382983113757291e-13,
+    "Parseval_limit": 1e-12,
+    "passed": true
+  },
+  {
+    "method_id": "c37cbbd5b68e23c67a8da90847de797b222690facfeaceb11c69164742b0a4d3",
+    "clock": "MCU",
+    "variant": "LOW12",
+    "start_mcu_s": 18480,
+    "width_s": 60,
+    "time_rms_mm_s2": [
+      35.40788053957914,
+      38.026117297187334,
+      74.74465887273205
+    ],
+    "FFT_rms_mm_s2": [
+      35.40788053957904,
+      38.02611729718857,
+      74.74465887272083
+    ],
+    "relative_error": 1.4999113062685865e-13,
+    "limit": 0.001,
+    "Parseval_relative_error": 7.382983113757291e-13,
+    "Parseval_limit": 1e-12,
+    "passed": true
+  },
+  {
+    "method_id": "c37cbbd5b68e23c67a8da90847de797b222690facfeaceb11c69164742b0a4d3",
+    "clock": "MCU",
+    "variant": "LOW12",
+    "start_mcu_s": 18540,
+    "width_s": 60,
+    "time_rms_mm_s2": [
+      49.89345833740988,
+      49.88662081030253,
+      99.09259854956717
+    ],
+    "FFT_rms_mm_s2": [
+      49.89345833741219,
+      49.88662081030356,
+      99.09259854956663
+    ],
+    "relative_error": 4.618527782440651e-14,
+    "limit": 0.001,
+    "Parseval_relative_error": 7.382983113757291e-13,
+    "Parseval_limit": 1e-12,
+    "passed": true
+  },
+  {
+    "method_id": "8127486594f057cfcefb697817ec34d1223453462c16c5e8fedfe10ba74bbe74",
+    "clock": "QPC_ESTIMATE",
+    "variant": "MAIN",
+    "start_mcu_s": 18480,
+    "width_s": 120,
+    "time_rms_mm_s2": [
+      43.00005682012387,
+      44.08497677035725,
+      87.23312083818993
+    ],
+    "FFT_rms_mm_s2": [
+      43.000056820121536,
+      44.08497677035362,
+      87.23312083817672
+    ],
+    "relative_error": 1.5154544286133387e-13,
+    "limit": 0.001,
+    "Parseval_relative_error": 7.59170504238682e-13,
+    "Parseval_limit": 1e-12,
+    "passed": true
+  },
+  {
+    "method_id": "8127486594f057cfcefb697817ec34d1223453462c16c5e8fedfe10ba74bbe74",
+    "clock": "QPC_ESTIMATE",
+    "variant": "MAIN",
+    "start_mcu_s": 18480,
+    "width_s": 60,
+    "time_rms_mm_s2": [
+      35.19247383098493,
+      37.79808592884266,
+      74.28811675207311
+    ],
+    "FFT_rms_mm_s2": [
+      35.1924738309831,
+      37.798085928838795,
+      74.28811675205554
+    ],
+    "relative_error": 2.3647750424515834e-13,
+    "limit": 0.001,
+    "Parseval_relative_error": 7.59170504238682e-13,
+    "Parseval_limit": 1e-12,
+    "passed": true
+  },
+  {
+    "method_id": "8127486594f057cfcefb697817ec34d1223453462c16c5e8fedfe10ba74bbe74",
+    "clock": "QPC_ESTIMATE",
+    "variant": "MAIN",
+    "start_mcu_s": 18540,
+    "width_s": 60,
+    "time_rms_mm_s2": [
+      49.59368876678357,
+      49.58128746577246,
+      98.49176763611128
+    ],
+    "FFT_rms_mm_s2": [
+      49.59368876677992,
+      49.581287465769016,
+      98.4917676361027
+    ],
+    "relative_error": 8.715250743307479e-14,
+    "limit": 0.001,
+    "Parseval_relative_error": 7.59170504238682e-13,
+    "Parseval_limit": 1e-12,
+    "passed": true
+  },
+  {
+    "method_id": "0655d20c11a4f03f4e8e6d0016736c6890638360ffaf0f271fa398903a88b3f1",
+    "clock": "QPC_ESTIMATE",
+    "variant": "LOW08",
+    "start_mcu_s": 18480,
+    "width_s": 120,
+    "time_rms_mm_s2": [
+      43.00395756347205,
+      44.08999148120217,
+      87.24075451657684
+    ],
+    "FFT_rms_mm_s2": [
+      43.003957563475346,
+      44.08999148120408,
+      87.24075451657853
+    ],
+    "relative_error": 7.66053886991358e-14,
+    "limit": 0.001,
+    "Parseval_relative_error": 8.806289031326742e-13,
+    "Parseval_limit": 1e-12,
+    "passed": true
+  },
+  {
+    "method_id": "0655d20c11a4f03f4e8e6d0016736c6890638360ffaf0f271fa398903a88b3f1",
+    "clock": "QPC_ESTIMATE",
+    "variant": "LOW08",
+    "start_mcu_s": 18480,
+    "width_s": 60,
+    "time_rms_mm_s2": [
+      35.197306451603566,
+      37.80403166959886,
+      74.29587297768074
+    ],
+    "FFT_rms_mm_s2": [
+      35.197306451604724,
+      37.80403166960112,
+      74.29587297768374
+    ],
+    "relative_error": 5.995204332975845e-14,
+    "limit": 0.001,
+    "Parseval_relative_error": 8.806289031326742e-13,
+    "Parseval_limit": 1e-12,
+    "passed": true
+  },
+  {
+    "method_id": "0655d20c11a4f03f4e8e6d0016736c6890638360ffaf0f271fa398903a88b3f1",
+    "clock": "QPC_ESTIMATE",
+    "variant": "LOW08",
+    "start_mcu_s": 18540,
+    "width_s": 60,
+    "time_rms_mm_s2": [
+      49.597023673834755,
+      49.5856723227304,
+      98.49943962355694
+    ],
+    "FFT_rms_mm_s2": [
+      49.59702367383907,
+      49.58567232273289,
+      98.49943962355594
+    ],
+    "relative_error": 8.704148513061227e-14,
+    "limit": 0.001,
+    "Parseval_relative_error": 8.806289031326742e-13,
+    "Parseval_limit": 1e-12,
+    "passed": true
+  },
+  {
+    "method_id": "a84808efefc3d1512a9455209349c7cf0c208a9ea47eaab125d88d1d5ea94292",
+    "clock": "QPC_ESTIMATE",
+    "variant": "LOW12",
+    "start_mcu_s": 18480,
+    "width_s": 120,
+    "time_rms_mm_s2": [
+      42.99668989102636,
+      44.08073750129068,
+      87.22395237275205
+    ],
+    "FFT_rms_mm_s2": [
+      42.99668989102385,
+      44.08073750128924,
+      87.22395237274834
+    ],
+    "relative_error": 5.828670879282072e-14,
+    "limit": 0.001,
+    "Parseval_relative_error": 7.949196856316121e-13,
+    "Parseval_limit": 1e-12,
+    "passed": true
+  },
+  {
+    "method_id": "a84808efefc3d1512a9455209349c7cf0c208a9ea47eaab125d88d1d5ea94292",
+    "clock": "QPC_ESTIMATE",
+    "variant": "LOW12",
+    "start_mcu_s": 18480,
+    "width_s": 60,
+    "time_rms_mm_s2": [
+      35.18864173329568,
+      37.793011552317274,
+      74.27939784301883
+    ],
+    "FFT_rms_mm_s2": [
+      35.1886417332942,
+      37.79301155231634,
+      74.27939784301843
+    ],
+    "relative_error": 4.218847493575595e-14,
+    "limit": 0.001,
+    "Parseval_relative_error": 7.949196856316121e-13,
+    "Parseval_limit": 1e-12,
+    "passed": true
+  },
+  {
+    "method_id": "a84808efefc3d1512a9455209349c7cf0c208a9ea47eaab125d88d1d5ea94292",
+    "clock": "QPC_ESTIMATE",
+    "variant": "LOW12",
+    "start_mcu_s": 18540,
+    "width_s": 60,
+    "time_rms_mm_s2": [
+      49.59056948444231,
+      49.577617214193346,
+      98.48210301521652
+    ],
+    "FFT_rms_mm_s2": [
+      49.59056948443871,
+      49.57761721419193,
+      98.48210301520976
+    ],
+    "relative_error": 7.260858581048524e-14,
+    "limit": 0.001,
+    "Parseval_relative_error": 7.949196856316121e-13,
+    "Parseval_limit": 1e-12,
+    "passed": true
+  },
+  {
+    "method_id": "16076171f52ef52d94005c80558df667e3090e1b7e0ef4d8df2f0cb174a21cd8",
+    "clock": "MCU",
+    "variant": "MAIN",
+    "start_mcu_s": 19560,
+    "width_s": 120,
+    "time_rms_mm_s2": [
+      4.457603202636588,
+      4.119306507882159,
+      5.072675159697183
+    ],
+    "FFT_rms_mm_s2": [
+      4.457603202634692,
+      4.119306507886461,
+      5.072675159895686
+    ],
+    "relative_error": 3.913180890435797e-11,
+    "limit": 0.001,
+    "Parseval_relative_error": 1.0389467064442215e-12,
+    "Parseval_limit": 1e-12,
+    "passed": false
+  }
+]

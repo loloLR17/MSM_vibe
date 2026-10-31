@@ -1,0 +1,16 @@
+{
+  "numeric_status": "TR2_WM_EXPERIMENTAL_NUMERICALLY_VALIDATED",
+  "primary_metric": "TR2_WM_A_MAX",
+  "unit": "mm/s2",
+  "main_source_keeps_extreme_event": true,
+  "mission_revision": "R1-20261031-PREFERENCE-BV",
+  "BV_comparison": "COMPARABILITE_BV_NON_ETABLIE",
+  "category": "NON_CLASSEE",
+  "selected_threshold": null,
+  "grade": null,
+  "instrument_calibrated": false,
+  "full_final_ISO_edition_equivalence_proved": false,
+  "old_R3_reservation_retained": true,
+  "old_PK_blocked_retained": true,
+  "hardware_operations": false
+}

@@ -1,0 +1,15 @@
+usage: run_wm.py [-h] [--source SOURCE] [--expected-sha256 EXPECTED_SHA256]
+                 [--qpc-rate QPC_RATE]
+                 output
+
+Reusable archive-only TR2-Wm CLI; outputs nominal acceleration, not
+conformity.
+
+positional arguments:
+  output
+
+options:
+  -h, --help            show this help message and exit
+  --source SOURCE
+  --expected-sha256 EXPECTED_SHA256
+  --qpc-rate QPC_RATE

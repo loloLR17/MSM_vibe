@@ -1,0 +1,73 @@
+{
+  "study_after_numeric_validation": true,
+  "reviewed_at_utc": "2026-10-31T14:31:32.645389+00:00",
+  "status": "COMPARABILITE_BV_NON_ETABLIE",
+  "campaign_category": "NON_CLASSEE",
+  "selected_threshold": null,
+  "ratio_to_threshold": null,
+  "grade": null,
+  "source": {
+    "url": "https://rulesexplorer-docs.bureauveritas.com/documents/nr467/jul2026/467-NR_PartF_2026-07.pdf",
+    "edition": "July2026 NR467 PartF",
+    "chapter": "6",
+    "clauses": [
+      "Sec1 1.3 references ISO20283-5:2016",
+      "Sec1 2.1.3(b) overall weighted RMS velocity1–80",
+      "Sec3 3.1.1–3.1.2 positions/conditions",
+      "Sec3 3.2.1 Table4 weighted RMS"
+    ],
+    "pdf_zero_based_pages": [
+      236,
+      238,
+      239,
+      246
+    ],
+    "document_sha256": "5ae75d30f6b38a1331431e16bcc3dce11bc42c90b393f344be89b42cb050ceef"
+  },
+  "alignment": [
+    {
+      "item": "Quantity",
+      "assessment": "RMS weighted acceleration;0.028-dependent equivalent velocity available; not peak nor independent integration",
+      "status": "DIMENSIONAL_BRIDGE_DOCUMENTED"
+    },
+    {
+      "item": "Weighting/band",
+      "assessment": "smooth Wm Hh/Hl/Ht numerical definition corroborated by historical national AnnexA and2026FDIS; exact complete final normative identity not proved",
+      "status": "PARTIAL_DOCUMENTARY"
+    },
+    {
+      "item": "Window",
+      "assessment": "60/120 MCU-second windows; recommended120 if significant below2Hz; nominal duration/clock uncalibrated",
+      "status": "NUMERIC_ONLY"
+    },
+    {
+      "item": "Axes/position",
+      "assessment": "BV vertical floor plus prescribed transverse/longitudinal points; TR2 sensor XYZ not mapped to ship, adhesive mount unqualified",
+      "status": "NOT_ESTABLISHED"
+    },
+    {
+      "item": "Local category",
+      "assessment": "PC machine label insufficient; engine control/switchboard continuously manned condition not confirmed; not machinery compartment by assumption",
+      "status": "NOT_SELECTED"
+    },
+    {
+      "item": "Operating conditions",
+      "assessment": "steady propulsion, sea conditions and spatial coverage required; current6h prototype recording not a controlled BV survey",
+      "status": "NOT_ESTABLISHED"
+    },
+    {
+      "item": "Scope",
+      "assessment": "ISO20283-5 officialscope intended voyages>=24h; current~8h crossing not automatically covered; BV documentary rule not vessel certification",
+      "status": "REGULATORY_APPLICABILITY_NOT_CLAIMED"
+    }
+  ],
+  "PK_route": "distinct Sec3 Tables5/6, previous blocked mission unchanged",
+  "GOST_thresholds_selected": false,
+  "display_policy": "numeric TR2-Wm only, no threshold lines, no favorable/adverse class or percentage of minutes mapped to room tolerances",
+  "next_requirements": [
+    "explicit local category/occupation",
+    "validated final reference definition/velocity correspondence",
+    "ship axes and mounting/reference checks",
+    "scope and controlled measurement conditions"
+  ]
+}

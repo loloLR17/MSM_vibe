@@ -1,0 +1,230 @@
+{
+  "scope": "listed source files and immutable compact results; excludes this manifest and subsequent remote readback/report/journal",
+  "files": [
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R5-WM-CONFORT-INDICATIF-OFFLINE/ASSESSMENT.json",
+      "bytes": 538,
+      "sha256": "c852ddea4470a0d457d4afb751cd1fa9b87544c2f15d693ae80f122437d483be"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R5-WM-CONFORT-INDICATIF-OFFLINE/BV_COMPARABILITY.json",
+      "bytes": 2969,
+      "sha256": "b0a90821167aa4147d098c15bdf5de8bc3aa631fa2e665ef32d31921bc27f42e"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R5-WM-CONFORT-INDICATIF-OFFLINE/LOCAL_ARTIFACTS.json",
+      "bytes": 8784,
+      "sha256": "d9a67566e73c9ba4db5e6ebf32b164c414ce22b5460cb8263df489924109e909"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R5-WM-CONFORT-INDICATIF-OFFLINE/MANIFEST.json",
+      "bytes": 3272,
+      "sha256": "0079e95bf9221a663f1ba09e37b6f249d86e3ef5fd4c4748a20b798f7337c9d5"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R5-WM-CONFORT-INDICATIF-OFFLINE/NOTE_RESULTATS.md",
+      "bytes": 4200,
+      "sha256": "c4e4cd1ee444a31b99e0968b102b09fb868dcec298c5f9915bceb3d9fc528c66"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R5-WM-CONFORT-INDICATIF-OFFLINE/README.md",
+      "bytes": 3917,
+      "sha256": "e450d2c7ce051b708c5568f9983a2183767286dd5bed4298aa16dfceb63250e3"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R5-WM-CONFORT-INDICATIF-OFFLINE/aligned_pairs.csv",
+      "bytes": 212937,
+      "sha256": "32b6fac311dfcd7b237dadbf5ca98695cdfd00769d7109f55fe5bf3d84fcf654"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R5-WM-CONFORT-INDICATIF-OFFLINE/cli-help.log",
+      "bytes": 394,
+      "sha256": "74eb8bac8d7164f9e8ef0fa8bd1a2b0750f1fb6cc2268b5ac04a25ae61ca8fb9"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R5-WM-CONFORT-INDICATIF-OFFLINE/controls-resumed-v1.log",
+      "bytes": 76,
+      "sha256": "9ecfec4a97227bcd68bc18e1c6a874bd64f3186ce972233aea5f8c83565b5d77"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R5-WM-CONFORT-INDICATIF-OFFLINE/definitions.json",
+      "bytes": 10197,
+      "sha256": "1857ff8d84fd0d76501741f113cfd15f48c3e30aa04f6c1187e494e73ed4f74d"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R5-WM-CONFORT-INDICATIF-OFFLINE/duration_sensitivity.json",
+      "bytes": 3347,
+      "sha256": "f5c3fcc9aea56d1ecb3cbdaab6bc60ddfe1356e44eb07c0c844615a948f1c93b"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R5-WM-CONFORT-INDICATIF-OFFLINE/event_influence.json",
+      "bytes": 21745,
+      "sha256": "61c981ad88920a92097f2c1e84f61b1c94a2b7a6d5e1b57ca5f63f42d4f45ea4"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R5-WM-CONFORT-INDICATIF-OFFLINE/failed_controls.json",
+      "bytes": 31111,
+      "sha256": "6b2e8d20a7397110726a67daa22187097ce0877a42db856b745434be485a8cb8"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R5-WM-CONFORT-INDICATIF-OFFLINE/frequency_response.csv",
+      "bytes": 302731,
+      "sha256": "291b1342efecfbb05620b0c0009c633aeefc692d3ef22f1d17fa23abd9a0a614"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R5-WM-CONFORT-INDICATIF-OFFLINE/full-v1.log",
+      "bytes": 894,
+      "sha256": "536407a3b64900498cab3342fc7ea47ed20c2eea441688474e124e5b0d37b5c8"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R5-WM-CONFORT-INDICATIF-OFFLINE/governance-reference.json",
+      "bytes": 631,
+      "sha256": "318f9d9c83e645a01ec72fb265fd9c4f86d9f56f78e62e550513d8ddde76236d"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R5-WM-CONFORT-INDICATIF-OFFLINE/index.html",
+      "bytes": 1417,
+      "sha256": "3630c64d54a69cf31aaa05e6d9f47916d98bbdab3c2d3eac951dba90694ba285"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R5-WM-CONFORT-INDICATIF-OFFLINE/metrics.csv",
+      "bytes": 875152,
+      "sha256": "449e9ba31b9ccd5b7e04049c6e986375550ceed953868dccefe0f54c28602208"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R5-WM-CONFORT-INDICATIF-OFFLINE/out_of_band_diagnostic.json",
+      "bytes": 130671,
+      "sha256": "3e2bf8cd47496f7c6fc18e45153b8137909995b70a41df51cd1f07f42ad99c79"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R5-WM-CONFORT-INDICATIF-OFFLINE/real_controls.json",
+      "bytes": 40750,
+      "sha256": "1240ca5699e7f0664fd70cea99666cebfd3994c8fcc5432ba49bd5574eedbc9b"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R5-WM-CONFORT-INDICATIF-OFFLINE/render_manifest.json",
+      "bytes": 994,
+      "sha256": "74dc929b0e08b4ec21c149cdd82342b71938d7e9770550641765ce7cc45e9af7"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R5-WM-CONFORT-INDICATIF-OFFLINE/sensitivity.csv",
+      "bytes": 45730,
+      "sha256": "e24b904684da2dd0b4ab198ea77de10f37d9af96ca65eacd1de71a706447c5a9"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R5-WM-CONFORT-INDICATIF-OFFLINE/sensitivity_summary.json",
+      "bytes": 477,
+      "sha256": "2b1b5b0cbf990d1055a516b0c8d3e23f9007f0aa5624feb08a3b1969ca36b320"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R5-WM-CONFORT-INDICATIF-OFFLINE/sqlite-proof.json",
+      "bytes": 8868,
+      "sha256": "22225f49d7563477fead85c65f25cf6b8fea34297013da0db90a755ca3ae5456"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R5-WM-CONFORT-INDICATIF-OFFLINE/summary.json",
+      "bytes": 6011,
+      "sha256": "21d38c45eff0dc804b67b4ebda6fc4dbf8d4e32b1d2af96d53b5b8b26a20a698"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R5-WM-CONFORT-INDICATIF-OFFLINE/tests-catalog.log",
+      "bytes": 975,
+      "sha256": "5c1b766545f82d2016ffc11833e73472a38da91b4a8ed4016d37a933d243a8f2"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R5-WM-CONFORT-INDICATIF-OFFLINE/tests-checkpoint.log",
+      "bytes": 699,
+      "sha256": "e25c353e268d27c2a14b9fa91714a2d38ab519411f2b27670cdae453b4bfa7b6"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R5-WM-CONFORT-INDICATIF-OFFLINE/tests-final.log",
+      "bytes": 1231,
+      "sha256": "79b07a2784ef6627de58f37ad7775e5265e2f52cf6f1362b1b8e720a58f5e573"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R5-WM-CONFORT-INDICATIF-OFFLINE/tests-first.log",
+      "bytes": 699,
+      "sha256": "e25c353e268d27c2a14b9fa91714a2d38ab519411f2b27670cdae453b4bfa7b6"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R5-WM-CONFORT-INDICATIF-OFFLINE/tests-fixed.log",
+      "bytes": 1092,
+      "sha256": "92fa5e6202041e489d0b166ab3d84a98437feaef4cdcdc063c5c5551b881317e"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R5-WM-CONFORT-INDICATIF-OFFLINE/warping.json",
+      "bytes": 370,
+      "sha256": "31b372f3f7066909522b0ec5b0afbac6b0c9090ab70a1e067cbcbe1beea498bc"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R5-WM-CONFORT-INDICATIF-OFFLINE/whole_period.json",
+      "bytes": 2852,
+      "sha256": "36c8d4dcce22049787a39789415896ed363c028244794fe1ea946b7e22e874c0"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R5-WM-CONFORT-INDICATIF-OFFLINE/wm_response.png",
+      "bytes": 115741,
+      "sha256": "b14b5ec41fd26612c642c587f47ec048ee9489cec5535f489ed4d510424a0a83"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R5-WM-CONFORT-INDICATIF-OFFLINE/wm_trends.png",
+      "bytes": 302182,
+      "sha256": "2ecc94fbb9a1a5a3baf2582f565900aa05209082aad692e95a5b548d09a924a4"
+    },
+    {
+      "path": "experiments/r5_wm_offline/METHOD.md",
+      "bytes": 4869,
+      "sha256": "b8626c11b3c3ca97a4e1aa75182154661d5424409eee2bfd71116414d0a08855"
+    },
+    {
+      "path": "experiments/r5_wm_offline/README.md",
+      "bytes": 2076,
+      "sha256": "358c483b47c3116a07c918d42b789fcdd22710cda860f67463b8f2cea8143ff8"
+    },
+    {
+      "path": "experiments/r5_wm_offline/REFERENCES.md",
+      "bytes": 3779,
+      "sha256": "317f7b281beaa82382674c63b8f7a6cfc60e7187aeeb406d77945bbec821d2bb"
+    },
+    {
+      "path": "experiments/r5_wm_offline/queries.sql",
+      "bytes": 1355,
+      "sha256": "394583ead5185e2a9ad9c6be4783e47d2da8d9c5f7d39ee448cf5556b422b15c"
+    },
+    {
+      "path": "experiments/r5_wm_offline/render.py",
+      "bytes": 6308,
+      "sha256": "fd50adece043549706b08f6d0e252ad5b3ed4eed636c10f8fe42b400373df773"
+    },
+    {
+      "path": "experiments/r5_wm_offline/resume_controls.py",
+      "bytes": 3752,
+      "sha256": "02fb5d26ad0940e5179759185bbfa649e8510b27bfceafcb224432c8aa558332"
+    },
+    {
+      "path": "experiments/r5_wm_offline/run_wm.py",
+      "bytes": 8992,
+      "sha256": "5675ec005946d020c871a872026526aceaec071fcd18d1a424446a39db2b7764"
+    },
+    {
+      "path": "experiments/r5_wm_offline/test_catalog.py",
+      "bytes": 2759,
+      "sha256": "1b7adcd291a677c4e026d9a828879f114dbfa1185732f8a06fcc4546fc356bfb"
+    },
+    {
+      "path": "experiments/r5_wm_offline/test_wm.py",
+      "bytes": 4011,
+      "sha256": "8c1abc26f238ae72aad9599669976038abf5f6ff1af238dc0526fc0bd5a8e684"
+    },
+    {
+      "path": "experiments/r5_wm_offline/wm.py",
+      "bytes": 3130,
+      "sha256": "2062cbf37e1304ded6082ca43d76f9c83b9b1c2630bedb5f307b9c0161072c79"
+    },
+    {
+      "path": "experiments/r5_wm_offline/wm_catalog.py",
+      "bytes": 5304,
+      "sha256": "5133111f9604fb5da17b473b399243b0b9eea4edecca2dfefa25de153c3bbde8"
+    }
+  ]
+}

@@ -1,0 +1,92 @@
+[
+  {
+    "method_id": "16076171f52ef52d94005c80558df667e3090e1b7e0ef4d8df2f0cb174a21cd8",
+    "variant": "MAIN",
+    "clock": "MCU",
+    "valid_samples": 58525510,
+    "rms_xyz_mm_s2": [
+      23.379041174172155,
+      18.64252564018556,
+      43.8738544474337
+    ],
+    "max_direction_mm_s2": 43.8738544474337,
+    "winning_axis": "Z",
+    "equivalent_v_mm_s": 1.2284679245281436,
+    "scope": "all valid samples including partial final window, not mean of RMS"
+  },
+  {
+    "method_id": "a66de363d625289a9076389ff3a5609b6fb666b68528ee4007a67d5044cc33db",
+    "variant": "LOW08",
+    "clock": "MCU",
+    "valid_samples": 58525510,
+    "rms_xyz_mm_s2": [
+      23.39730535187607,
+      19.07239399589927,
+      44.13351924045079
+    ],
+    "max_direction_mm_s2": 44.13351924045079,
+    "winning_axis": "Z",
+    "equivalent_v_mm_s": 1.235738538732622,
+    "scope": "all valid samples including partial final window, not mean of RMS"
+  },
+  {
+    "method_id": "c37cbbd5b68e23c67a8da90847de797b222690facfeaceb11c69164742b0a4d3",
+    "variant": "LOW12",
+    "clock": "MCU",
+    "valid_samples": 58525510,
+    "rms_xyz_mm_s2": [
+      23.366799631053986,
+      18.45868571702948,
+      43.75131847394879
+    ],
+    "max_direction_mm_s2": 43.75131847394879,
+    "winning_axis": "Z",
+    "equivalent_v_mm_s": 1.2250369172705662,
+    "scope": "all valid samples including partial final window, not mean of RMS"
+  },
+  {
+    "method_id": "8127486594f057cfcefb697817ec34d1223453462c16c5e8fedfe10ba74bbe74",
+    "variant": "MAIN",
+    "clock": "QPC_ESTIMATE",
+    "valid_samples": 58525329,
+    "rms_xyz_mm_s2": [
+      23.22833788988356,
+      18.544106117946132,
+      43.58640345342142
+    ],
+    "max_direction_mm_s2": 43.58640345342142,
+    "winning_axis": "Z",
+    "equivalent_v_mm_s": 1.2204192966957998,
+    "scope": "all valid samples including partial final window, not mean of RMS"
+  },
+  {
+    "method_id": "0655d20c11a4f03f4e8e6d0016736c6890638360ffaf0f271fa398903a88b3f1",
+    "variant": "LOW08",
+    "clock": "QPC_ESTIMATE",
+    "valid_samples": 58525329,
+    "rms_xyz_mm_s2": [
+      23.246871928735892,
+      18.985949121132585,
+      43.853214459218364
+    ],
+    "max_direction_mm_s2": 43.853214459218364,
+    "winning_axis": "Z",
+    "equivalent_v_mm_s": 1.2278900048581143,
+    "scope": "all valid samples including partial final window, not mean of RMS"
+  },
+  {
+    "method_id": "a84808efefc3d1512a9455209349c7cf0c208a9ea47eaab125d88d1d5ea94292",
+    "variant": "LOW12",
+    "clock": "QPC_ESTIMATE",
+    "valid_samples": 58525329,
+    "rms_xyz_mm_s2": [
+      23.215965275099926,
+      18.35540173682238,
+      43.46121446650375
+    ],
+    "max_direction_mm_s2": 43.46121446650375,
+    "winning_axis": "Z",
+    "equivalent_v_mm_s": 1.216914005062105,
+    "scope": "all valid samples including partial final window, not mean of RMS"
+  }
+]

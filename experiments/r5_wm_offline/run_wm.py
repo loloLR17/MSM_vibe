@@ -9,6 +9,14 @@ csvwrite=helpers.csvwrite;groups=helpers.groups;comparison=helpers.comparison
 SOURCE=Path('/home/lolo/dev/msm/reports/TR2-r3-6h-data-20261031/pc-recovery-after-powercut/E6N0005.TR2')
 EVENT=(17600.,17630.) # Diagnostic only, fixed BEFORE inspecting Wm results.
 
+def parseval_error(Y,y,nfft):
+ # Long-double accumulation avoids reduction-order error of float64 axis0 sums.
+ weights=np.full(len(Y),2.,dtype=np.longdouble);weights[0]=1
+ if nfft%2==0:weights[-1]=1
+ spectral=np.sum(weights[:,None]*(np.asarray(Y.real,dtype=np.longdouble)**2+np.asarray(Y.imag,dtype=np.longdouble)**2),axis=0)/nfft
+ temporal=np.sum(np.asarray(y,dtype=np.longdouble)**2,axis=0)
+ return float(max(abs(temporal/spectral-1)))
+
 def controls(source,info,rows,defs,out,event):
  rr=sorted([r for r in rows if r['name']=='MAIN' and r['clock']=='MCU' and r['width_s']==120 and r['quality']=='FULL'],key=lambda r:r['direction_max']);starts=sorted(set([rr[j]['start_mcu_s'] for j in [0,len(rr)//2,len(rr)-1]]+([int(event[0]//120)*120] if event is not None else [])))
  pieces={s:([],[]) for s in starts}
@@ -22,7 +30,7 @@ def controls(source,info,rows,defs,out,event):
   for mid,d in defs.items():
    fs=d['fs_est_Hz'];f=fft.rfftfreq(nfft,1/fs);H=oracle_digital(f,fs,d['variant']);Y=X*H[:,None];y=fft.irfft(Y,n=nfft,axis=0);weight=np.full(len(Y),2.);weight[0]=1
    if nfft%2==0:weight[-1]=1
-   spectral=np.sum(weight[:,None]*abs(Y)**2,axis=0)/nfft;errP=max(abs(np.sum(y*y,axis=0)/spectral-1))
+   errP=parseval_error(Y,y,nfft)
    for width,start in [(120,s),(60,s),(60,s+60)]:
     take=(t>=start)&(t<start+width);r=np.sqrt(np.mean(y[:len(x)][take]**2,axis=0));target=next(a for a in rows if a['method_id']==mid and a['width_s']==width and a['start_mcu_s']==start);z=np.array([target['rms_'+a] for a in 'xyz']);err=max(abs(r/z-1));record=dict(method_id=mid,clock=d['clock'],variant=d['variant'],start_mcu_s=start,width_s=width,time_rms_mm_s2=z,FFT_rms_mm_s2=r,relative_error=err,limit=.001,Parseval_relative_error=errP,Parseval_limit=1e-12,passed=err<.001 and errP<1e-12);records.append(record)
     if not record['passed']:dump(out/'failed_controls.json',records);raise ValueError('independent real control failed')

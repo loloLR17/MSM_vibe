@@ -31,6 +31,17 @@ class WmTests(unittest.TestCase):
   for x in [(1+.8*np.sin(2*np.pi*.3*t))*np.sin(2*np.pi*10*t),signal.chirp(t,1,t[-1],40),rng.standard_normal(len(t)),np.where((t>80)&(t<80.03),100.,0)]:
    impulse=signal.sosfilt(sos,np.r_[1.,np.zeros(len(x)-1)]);ind=signal.fftconvolve(x,impulse)[:len(x)];y=signal.sosfilt(sos,x)
    np.testing.assert_allclose(y,ind,rtol=1e-6,atol=1e-8)
+ def test_velocity_equivalent_from_distinct_continuous_weight(self):
+  f=np.array([.5,.8,1,2,4,10,25,80,100]);p=2j*np.pi*f
+  w1,w2,w3=2*np.pi*PARAMS['f1_Hz'],2*np.pi*100,2*np.pi*PARAMS['f3_Hz']
+  band=p*p/(p*p+np.sqrt(2)*w1*p+w1*w1)*w2*w2/(p*p+np.sqrt(2)*w2*p+w2*w2)
+  velocity_weight=band*p/(p+w3)
+  np.testing.assert_allclose(velocity_weight/p,.028*analogue(f),rtol=1e-14)
+ def test_parseval_accumulation_high_dynamic_range(self):
+  from run_wm import parseval_error
+  rng=np.random.default_rng(67);x=rng.standard_normal((300001,3))*np.array([1e-3,1e3,1e5])
+  Y=np.fft.rfft(x,axis=0)
+  self.assertLess(parseval_error(Y,x,len(x)),1e-12)
  def test_offsets_tilt_quality_chunks_and_invalid_windows(self):
   fs=500.;t=np.arange(100000)/fs;x=np.column_stack([np.ones(len(t))*1019,np.zeros(len(t)),np.ones(len(t))*80]);v=np.ones(len(t),bool)
   a=Stream(fs,design(fs));y=a.apply(x,t,v);self.assertLess(np.nanmax(abs(y)),1e-5);self.assertTrue(np.isnan(y[:5000]).all())

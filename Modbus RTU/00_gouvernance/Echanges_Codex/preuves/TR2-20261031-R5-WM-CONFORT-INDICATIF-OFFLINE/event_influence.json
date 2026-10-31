@@ -1,0 +1,674 @@
+[
+  {
+    "method_id": "16076171f52ef52d94005c80558df667e3090e1b7e0ef4d8df2f0cb174a21cd8",
+    "variant": "MAIN",
+    "clock": "MCU",
+    "excluded_mcu_s": [
+      17600.0,
+      17630.0
+    ],
+    "main_valid_n": 58525510,
+    "diagnostic_retained_n": 58445668,
+    "main_rms_xyz": [
+      23.379041174172155,
+      18.64252564018556,
+      43.8738544474337
+    ],
+    "diagnostic_excluding_event_rms_xyz": [
+      23.389081148464154,
+      18.641109575700927,
+      43.85802607959047
+    ],
+    "relative_change_max_direction": -0.00036076994015177277,
+    "main_energy_fraction_in_excluded_interval": [
+      0.0005063264170815635,
+      0.0015159302705582362,
+      0.0020846511768971327
+    ],
+    "policy": "DIAGNOSTIC ONLY; no source edit/reset/inpainting; primary always retains event"
+  },
+  {
+    "method_id": "16076171f52ef52d94005c80558df667e3090e1b7e0ef4d8df2f0cb174a21cd8",
+    "width_s": 60,
+    "start_mcu_s": 17580,
+    "main": {
+      "method_id": "16076171f52ef52d94005c80558df667e3090e1b7e0ef4d8df2f0cb174a21cd8",
+      "name": "MAIN",
+      "clock": "MCU",
+      "width_s": 60,
+      "start_mcu_s": 17580,
+      "observed_n": 159687,
+      "valid_n": 159687,
+      "quality": "FULL",
+      "rms_x": 12.918858120855615,
+      "rms_y": 18.390011240208366,
+      "rms_z": 51.22346006050798,
+      "direction_max": 51.22346006050798,
+      "vector_technical": 55.9368596645561,
+      "TR2_WM_A_MAX": 51.22346006050798,
+      "metric": "TR2_WM_A_MAX",
+      "unit": "mm/s2",
+      "winning_axis": "Z",
+      "equivalent_velocity_mm_s": 1.4342568816942236,
+      "classification": "NON_CLASSEE"
+    },
+    "diagnostic": {
+      "method_id": "16076171f52ef52d94005c80558df667e3090e1b7e0ef4d8df2f0cb174a21cd8",
+      "name": "MAIN",
+      "clock": "MCU",
+      "width_s": 60,
+      "start_mcu_s": 17580,
+      "observed_n": 159687,
+      "valid_n": 79845,
+      "quality": "PARTIAL_OR_INVALID",
+      "rms_x": 11.442661740182192,
+      "rms_y": 17.035125398322332,
+      "rms_z": 48.02359742094493,
+      "direction_max": 48.02359742094493,
+      "vector_technical": 52.224476199247654
+    },
+    "policy": "remaining sample RMS, reduced coverage; never a replacement FULL window"
+  },
+  {
+    "method_id": "16076171f52ef52d94005c80558df667e3090e1b7e0ef4d8df2f0cb174a21cd8",
+    "width_s": 120,
+    "start_mcu_s": 17520,
+    "main": {
+      "method_id": "16076171f52ef52d94005c80558df667e3090e1b7e0ef4d8df2f0cb174a21cd8",
+      "name": "MAIN",
+      "clock": "MCU",
+      "width_s": 120,
+      "start_mcu_s": 17520,
+      "observed_n": 319369,
+      "valid_n": 319369,
+      "quality": "FULL",
+      "rms_x": 15.464506195469848,
+      "rms_y": 18.309599515596005,
+      "rms_z": 44.468273264774105,
+      "direction_max": 44.468273264774105,
+      "vector_technical": 50.51553932644749,
+      "TR2_WM_A_MAX": 44.468273264774105,
+      "metric": "TR2_WM_A_MAX",
+      "unit": "mm/s2",
+      "winning_axis": "Z",
+      "equivalent_velocity_mm_s": 1.2451116514136749,
+      "classification": "NON_CLASSEE"
+    },
+    "diagnostic": {
+      "method_id": "16076171f52ef52d94005c80558df667e3090e1b7e0ef4d8df2f0cb174a21cd8",
+      "name": "MAIN",
+      "clock": "MCU",
+      "width_s": 120,
+      "start_mcu_s": 17520,
+      "observed_n": 319369,
+      "valid_n": 239527,
+      "quality": "PARTIAL_OR_INVALID",
+      "rms_x": 15.850794113850322,
+      "rms_y": 17.839792762746104,
+      "rms_z": 40.69513315956726,
+      "direction_max": 40.69513315956726,
+      "vector_technical": 47.17626249219316
+    },
+    "policy": "remaining sample RMS, reduced coverage; never a replacement FULL window"
+  },
+  {
+    "method_id": "a66de363d625289a9076389ff3a5609b6fb666b68528ee4007a67d5044cc33db",
+    "variant": "LOW08",
+    "clock": "MCU",
+    "excluded_mcu_s": [
+      17600.0,
+      17630.0
+    ],
+    "main_valid_n": 58525510,
+    "diagnostic_retained_n": 58445668,
+    "main_rms_xyz": [
+      23.39730535187607,
+      19.07239399589927,
+      44.13351924045079
+    ],
+    "diagnostic_excluding_event_rms_xyz": [
+      23.407354205551975,
+      19.07152982660756,
+      44.11811589929774
+    ],
+    "relative_change_max_direction": -0.0003490168338745603,
+    "main_energy_fraction_in_excluded_interval": [
+      0.0005062379466496165,
+      0.0014547198486749276,
+      0.002061185362938696
+    ],
+    "policy": "DIAGNOSTIC ONLY; no source edit/reset/inpainting; primary always retains event"
+  },
+  {
+    "method_id": "a66de363d625289a9076389ff3a5609b6fb666b68528ee4007a67d5044cc33db",
+    "width_s": 60,
+    "start_mcu_s": 17580,
+    "main": {
+      "method_id": "a66de363d625289a9076389ff3a5609b6fb666b68528ee4007a67d5044cc33db",
+      "name": "LOW08",
+      "clock": "MCU",
+      "width_s": 60,
+      "start_mcu_s": 17580,
+      "observed_n": 159687,
+      "valid_n": 159687,
+      "quality": "FULL",
+      "rms_x": 12.929865260165254,
+      "rms_y": 18.43009638417894,
+      "rms_z": 51.23390254483634,
+      "direction_max": 51.23390254483634,
+      "vector_technical": 55.96215362501645,
+      "TR2_WM_A_MAX": null,
+      "metric": "TR2_WM_DIAGNOSTIC_LOW08",
+      "unit": "mm/s2",
+      "winning_axis": "Z",
+      "equivalent_velocity_mm_s": 1.4345492712554175,
+      "classification": "NON_CLASSEE"
+    },
+    "diagnostic": {
+      "method_id": "a66de363d625289a9076389ff3a5609b6fb666b68528ee4007a67d5044cc33db",
+      "name": "LOW08",
+      "clock": "MCU",
+      "width_s": 60,
+      "start_mcu_s": 17580,
+      "observed_n": 159687,
+      "valid_n": 79845,
+      "quality": "PARTIAL_OR_INVALID",
+      "rms_x": 11.455215773037272,
+      "rms_y": 17.071999958262854,
+      "rms_z": 48.03112065430734,
+      "direction_max": 48.03112065430734,
+      "vector_technical": 52.24618361459904
+    },
+    "policy": "remaining sample RMS, reduced coverage; never a replacement FULL window"
+  },
+  {
+    "method_id": "a66de363d625289a9076389ff3a5609b6fb666b68528ee4007a67d5044cc33db",
+    "width_s": 120,
+    "start_mcu_s": 17520,
+    "main": {
+      "method_id": "a66de363d625289a9076389ff3a5609b6fb666b68528ee4007a67d5044cc33db",
+      "name": "LOW08",
+      "clock": "MCU",
+      "width_s": 120,
+      "start_mcu_s": 17520,
+      "observed_n": 319369,
+      "valid_n": 319369,
+      "quality": "FULL",
+      "rms_x": 15.473672662946683,
+      "rms_y": 18.363717772980483,
+      "rms_z": 44.48018112859263,
+      "direction_max": 44.48018112859263,
+      "vector_technical": 50.54846376852724,
+      "TR2_WM_A_MAX": null,
+      "metric": "TR2_WM_DIAGNOSTIC_LOW08",
+      "unit": "mm/s2",
+      "winning_axis": "Z",
+      "equivalent_velocity_mm_s": 1.2454450716005938,
+      "classification": "NON_CLASSEE"
+    },
+    "diagnostic": {
+      "method_id": "a66de363d625289a9076389ff3a5609b6fb666b68528ee4007a67d5044cc33db",
+      "name": "LOW08",
+      "clock": "MCU",
+      "width_s": 120,
+      "start_mcu_s": 17520,
+      "observed_n": 319369,
+      "valid_n": 239527,
+      "quality": "PARTIAL_OR_INVALID",
+      "rms_x": 15.859758480405976,
+      "rms_y": 17.898037124634918,
+      "rms_z": 40.70667899600416,
+      "direction_max": 40.70667899600416,
+      "vector_technical": 47.21128452875801
+    },
+    "policy": "remaining sample RMS, reduced coverage; never a replacement FULL window"
+  },
+  {
+    "method_id": "c37cbbd5b68e23c67a8da90847de797b222690facfeaceb11c69164742b0a4d3",
+    "variant": "LOW12",
+    "clock": "MCU",
+    "excluded_mcu_s": [
+      17600.0,
+      17630.0
+    ],
+    "main_valid_n": 58525510,
+    "diagnostic_retained_n": 58445668,
+    "main_rms_xyz": [
+      23.366799631053986,
+      18.45868571702948,
+      43.75131847394879
+    ],
+    "diagnostic_excluding_event_rms_xyz": [
+      23.37683548591056,
+      18.457038353786434,
+      43.73529967068823
+    ],
+    "relative_change_max_direction": -0.0003661330405414498,
+    "main_energy_fraction_in_excluded_interval": [
+      0.0005062291380277486,
+      0.0015424660924846475,
+      0.0020953588515833636
+    ],
+    "policy": "DIAGNOSTIC ONLY; no source edit/reset/inpainting; primary always retains event"
+  },
+  {
+    "method_id": "c37cbbd5b68e23c67a8da90847de797b222690facfeaceb11c69164742b0a4d3",
+    "width_s": 60,
+    "start_mcu_s": 17580,
+    "main": {
+      "method_id": "c37cbbd5b68e23c67a8da90847de797b222690facfeaceb11c69164742b0a4d3",
+      "name": "LOW12",
+      "clock": "MCU",
+      "width_s": 60,
+      "start_mcu_s": 17580,
+      "observed_n": 159687,
+      "valid_n": 159687,
+      "quality": "FULL",
+      "rms_x": 12.908907290207319,
+      "rms_y": 18.366988865322007,
+      "rms_z": 51.2132395754847,
+      "direction_max": 51.2132395754847,
+      "vector_technical": 55.91763653108045,
+      "TR2_WM_A_MAX": null,
+      "metric": "TR2_WM_DIAGNOSTIC_LOW12",
+      "unit": "mm/s2",
+      "winning_axis": "Z",
+      "equivalent_velocity_mm_s": 1.4339707081135715,
+      "classification": "NON_CLASSEE"
+    },
+    "diagnostic": {
+      "method_id": "c37cbbd5b68e23c67a8da90847de797b222690facfeaceb11c69164742b0a4d3",
+      "name": "LOW12",
+      "clock": "MCU",
+      "width_s": 60,
+      "start_mcu_s": 17580,
+      "observed_n": 159687,
+      "valid_n": 79845,
+      "quality": "PARTIAL_OR_INVALID",
+      "rms_x": 11.431177172691552,
+      "rms_y": 17.013368635273693,
+      "rms_z": 48.01619717918598,
+      "direction_max": 48.01619717918598,
+      "vector_technical": 52.208061785740014
+    },
+    "policy": "remaining sample RMS, reduced coverage; never a replacement FULL window"
+  },
+  {
+    "method_id": "c37cbbd5b68e23c67a8da90847de797b222690facfeaceb11c69164742b0a4d3",
+    "width_s": 120,
+    "start_mcu_s": 17520,
+    "main": {
+      "method_id": "c37cbbd5b68e23c67a8da90847de797b222690facfeaceb11c69164742b0a4d3",
+      "name": "LOW12",
+      "clock": "MCU",
+      "width_s": 120,
+      "start_mcu_s": 17520,
+      "observed_n": 319369,
+      "valid_n": 319369,
+      "quality": "FULL",
+      "rms_x": 15.456377920749764,
+      "rms_y": 18.279186589878773,
+      "rms_z": 44.45653170609147,
+      "direction_max": 44.45653170609147,
+      "vector_technical": 50.49169725956299,
+      "TR2_WM_A_MAX": null,
+      "metric": "TR2_WM_DIAGNOSTIC_LOW12",
+      "unit": "mm/s2",
+      "winning_axis": "Z",
+      "equivalent_velocity_mm_s": 1.2447828877705611,
+      "classification": "NON_CLASSEE"
+    },
+    "diagnostic": {
+      "method_id": "c37cbbd5b68e23c67a8da90847de797b222690facfeaceb11c69164742b0a4d3",
+      "name": "LOW12",
+      "clock": "MCU",
+      "width_s": 120,
+      "start_mcu_s": 17520,
+      "observed_n": 319369,
+      "valid_n": 239527,
+      "quality": "PARTIAL_OR_INVALID",
+      "rms_x": 15.842863876575409,
+      "rms_y": 17.8070699050275,
+      "rms_z": 40.683691754762656,
+      "direction_max": 40.683691754762656,
+      "vector_technical": 47.15136105364062
+    },
+    "policy": "remaining sample RMS, reduced coverage; never a replacement FULL window"
+  },
+  {
+    "method_id": "8127486594f057cfcefb697817ec34d1223453462c16c5e8fedfe10ba74bbe74",
+    "variant": "MAIN",
+    "clock": "QPC_ESTIMATE",
+    "excluded_mcu_s": [
+      17600.0,
+      17630.0
+    ],
+    "main_valid_n": 58525329,
+    "diagnostic_retained_n": 58445487,
+    "main_rms_xyz": [
+      23.22833788988356,
+      18.544106117946132,
+      43.58640345342142
+    ],
+    "diagnostic_excluding_event_rms_xyz": [
+      23.238313348348516,
+      18.542733655295653,
+      43.57067849810718
+    ],
+    "relative_change_max_direction": -0.0003607766199623663,
+    "main_energy_fraction_in_excluded_interval": [
+      0.0005063132033529244,
+      0.001512043871434091,
+      0.0020846687295465707
+    ],
+    "policy": "DIAGNOSTIC ONLY; no source edit/reset/inpainting; primary always retains event"
+  },
+  {
+    "method_id": "8127486594f057cfcefb697817ec34d1223453462c16c5e8fedfe10ba74bbe74",
+    "width_s": 60,
+    "start_mcu_s": 17580,
+    "main": {
+      "method_id": "8127486594f057cfcefb697817ec34d1223453462c16c5e8fedfe10ba74bbe74",
+      "name": "MAIN",
+      "clock": "QPC_ESTIMATE",
+      "width_s": 60,
+      "start_mcu_s": 17580,
+      "observed_n": 159687,
+      "valid_n": 159687,
+      "quality": "FULL",
+      "rms_x": 12.838617074360105,
+      "rms_y": 18.275084765355704,
+      "rms_z": 50.89254960732708,
+      "direction_max": 50.89254960732708,
+      "vector_technical": 55.57751719083208,
+      "TR2_WM_A_MAX": 50.89254960732708,
+      "metric": "TR2_WM_A_MAX",
+      "unit": "mm/s2",
+      "winning_axis": "Z",
+      "equivalent_velocity_mm_s": 1.4249913890051584,
+      "classification": "NON_CLASSEE"
+    },
+    "diagnostic": {
+      "method_id": "8127486594f057cfcefb697817ec34d1223453462c16c5e8fedfe10ba74bbe74",
+      "name": "MAIN",
+      "clock": "QPC_ESTIMATE",
+      "width_s": 60,
+      "start_mcu_s": 17580,
+      "observed_n": 159687,
+      "valid_n": 79845,
+      "quality": "PARTIAL_OR_INVALID",
+      "rms_x": 11.376009999297802,
+      "rms_y": 16.93563098092858,
+      "rms_z": 47.718807737407744,
+      "direction_max": 47.718807737407744,
+      "vector_technical": 51.89714647363569
+    },
+    "policy": "remaining sample RMS, reduced coverage; never a replacement FULL window"
+  },
+  {
+    "method_id": "8127486594f057cfcefb697817ec34d1223453462c16c5e8fedfe10ba74bbe74",
+    "width_s": 120,
+    "start_mcu_s": 17520,
+    "main": {
+      "method_id": "8127486594f057cfcefb697817ec34d1223453462c16c5e8fedfe10ba74bbe74",
+      "name": "MAIN",
+      "clock": "QPC_ESTIMATE",
+      "width_s": 120,
+      "start_mcu_s": 17520,
+      "observed_n": 319369,
+      "valid_n": 319369,
+      "quality": "FULL",
+      "rms_x": 15.369386482311858,
+      "rms_y": 18.20084128035987,
+      "rms_z": 44.183266799927104,
+      "direction_max": 44.183266799927104,
+      "vector_technical": 50.19611269081564,
+      "TR2_WM_A_MAX": 44.183266799927104,
+      "metric": "TR2_WM_A_MAX",
+      "unit": "mm/s2",
+      "winning_axis": "Z",
+      "equivalent_velocity_mm_s": 1.237131470397959,
+      "classification": "NON_CLASSEE"
+    },
+    "diagnostic": {
+      "method_id": "8127486594f057cfcefb697817ec34d1223453462c16c5e8fedfe10ba74bbe74",
+      "name": "MAIN",
+      "clock": "QPC_ESTIMATE",
+      "width_s": 120,
+      "start_mcu_s": 17520,
+      "observed_n": 319369,
+      "valid_n": 239527,
+      "quality": "PARTIAL_OR_INVALID",
+      "rms_x": 15.754619525637166,
+      "rms_y": 17.738273870448104,
+      "rms_z": 40.43767991843444,
+      "direction_max": 40.43767991843444,
+      "vector_technical": 46.883476337472736
+    },
+    "policy": "remaining sample RMS, reduced coverage; never a replacement FULL window"
+  },
+  {
+    "method_id": "0655d20c11a4f03f4e8e6d0016736c6890638360ffaf0f271fa398903a88b3f1",
+    "variant": "LOW08",
+    "clock": "QPC_ESTIMATE",
+    "excluded_mcu_s": [
+      17600.0,
+      17630.0
+    ],
+    "main_valid_n": 58525329,
+    "diagnostic_retained_n": 58445487,
+    "main_rms_xyz": [
+      23.246871928735892,
+      18.985949121132585,
+      43.853214459218364
+    ],
+    "diagnostic_excluding_event_rms_xyz": [
+      23.25685648725678,
+      18.985143371566224,
+      43.8379267453053
+    ],
+    "relative_change_max_direction": -0.0003486110220558558,
+    "main_energy_fraction_in_excluded_interval": [
+      0.0005062151680368807,
+      0.0014489907570283131,
+      0.002060379345428004
+    ],
+    "policy": "DIAGNOSTIC ONLY; no source edit/reset/inpainting; primary always retains event"
+  },
+  {
+    "method_id": "0655d20c11a4f03f4e8e6d0016736c6890638360ffaf0f271fa398903a88b3f1",
+    "width_s": 60,
+    "start_mcu_s": 17580,
+    "main": {
+      "method_id": "0655d20c11a4f03f4e8e6d0016736c6890638360ffaf0f271fa398903a88b3f1",
+      "name": "LOW08",
+      "clock": "QPC_ESTIMATE",
+      "width_s": 60,
+      "start_mcu_s": 17580,
+      "observed_n": 159687,
+      "valid_n": 159687,
+      "quality": "FULL",
+      "rms_x": 12.849657595186283,
+      "rms_y": 18.31595570652024,
+      "rms_z": 50.903008759862516,
+      "direction_max": 50.903008759862516,
+      "vector_technical": 55.60309554838993,
+      "TR2_WM_A_MAX": null,
+      "metric": "TR2_WM_DIAGNOSTIC_LOW08",
+      "unit": "mm/s2",
+      "winning_axis": "Z",
+      "equivalent_velocity_mm_s": 1.4252842452761505,
+      "classification": "NON_CLASSEE"
+    },
+    "diagnostic": {
+      "method_id": "0655d20c11a4f03f4e8e6d0016736c6890638360ffaf0f271fa398903a88b3f1",
+      "name": "LOW08",
+      "clock": "QPC_ESTIMATE",
+      "width_s": 60,
+      "start_mcu_s": 17580,
+      "observed_n": 159687,
+      "valid_n": 79845,
+      "quality": "PARTIAL_OR_INVALID",
+      "rms_x": 11.388589758324406,
+      "rms_y": 16.973151308126692,
+      "rms_z": 47.7263418024267,
+      "direction_max": 47.7263418024267,
+      "vector_technical": 51.91908650827783
+    },
+    "policy": "remaining sample RMS, reduced coverage; never a replacement FULL window"
+  },
+  {
+    "method_id": "0655d20c11a4f03f4e8e6d0016736c6890638360ffaf0f271fa398903a88b3f1",
+    "width_s": 120,
+    "start_mcu_s": 17520,
+    "main": {
+      "method_id": "0655d20c11a4f03f4e8e6d0016736c6890638360ffaf0f271fa398903a88b3f1",
+      "name": "LOW08",
+      "clock": "QPC_ESTIMATE",
+      "width_s": 120,
+      "start_mcu_s": 17520,
+      "observed_n": 319369,
+      "valid_n": 319369,
+      "quality": "FULL",
+      "rms_x": 15.378587842699202,
+      "rms_y": 18.256022030174865,
+      "rms_z": 44.19518446377287,
+      "direction_max": 44.19518446377287,
+      "vector_technical": 50.229449869461604,
+      "TR2_WM_A_MAX": null,
+      "metric": "TR2_WM_DIAGNOSTIC_LOW08",
+      "unit": "mm/s2",
+      "winning_axis": "Z",
+      "equivalent_velocity_mm_s": 1.2374651649856403,
+      "classification": "NON_CLASSEE"
+    },
+    "diagnostic": {
+      "method_id": "0655d20c11a4f03f4e8e6d0016736c6890638360ffaf0f271fa398903a88b3f1",
+      "name": "LOW08",
+      "clock": "QPC_ESTIMATE",
+      "width_s": 120,
+      "start_mcu_s": 17520,
+      "observed_n": 319369,
+      "valid_n": 239527,
+      "quality": "PARTIAL_OR_INVALID",
+      "rms_x": 15.76361793683984,
+      "rms_y": 17.797632673974842,
+      "rms_z": 40.449229981023265,
+      "direction_max": 40.449229981023265,
+      "vector_technical": 46.91894697575924
+    },
+    "policy": "remaining sample RMS, reduced coverage; never a replacement FULL window"
+  },
+  {
+    "method_id": "a84808efefc3d1512a9455209349c7cf0c208a9ea47eaab125d88d1d5ea94292",
+    "variant": "LOW12",
+    "clock": "QPC_ESTIMATE",
+    "excluded_mcu_s": [
+      17600.0,
+      17630.0
+    ],
+    "main_valid_n": 58525329,
+    "diagnostic_retained_n": 58445487,
+    "main_rms_xyz": [
+      23.215965275099926,
+      18.35540173682238,
+      43.46121446650375
+    ],
+    "diagnostic_excluding_event_rms_xyz": [
+      23.225936507429246,
+      18.353791777262085,
+      43.445294438543165
+    ],
+    "relative_change_max_direction": -0.000366304259004413,
+    "main_energy_fraction_in_excluded_interval": [
+      0.0005062196218254792,
+      0.0015394036319528134,
+      0.0020957049121323717
+    ],
+    "policy": "DIAGNOSTIC ONLY; no source edit/reset/inpainting; primary always retains event"
+  },
+  {
+    "method_id": "a84808efefc3d1512a9455209349c7cf0c208a9ea47eaab125d88d1d5ea94292",
+    "width_s": 60,
+    "start_mcu_s": 17580,
+    "main": {
+      "method_id": "a84808efefc3d1512a9455209349c7cf0c208a9ea47eaab125d88d1d5ea94292",
+      "name": "LOW12",
+      "clock": "QPC_ESTIMATE",
+      "width_s": 60,
+      "start_mcu_s": 17580,
+      "observed_n": 159687,
+      "valid_n": 159687,
+      "quality": "FULL",
+      "rms_x": 12.828649975958259,
+      "rms_y": 18.25170715238096,
+      "rms_z": 50.8823435439206,
+      "direction_max": 50.8823435439206,
+      "vector_technical": 55.55818534386707,
+      "TR2_WM_A_MAX": null,
+      "metric": "TR2_WM_DIAGNOSTIC_LOW12",
+      "unit": "mm/s2",
+      "winning_axis": "Z",
+      "equivalent_velocity_mm_s": 1.4247056192297767,
+      "classification": "NON_CLASSEE"
+    },
+    "diagnostic": {
+      "method_id": "a84808efefc3d1512a9455209349c7cf0c208a9ea47eaab125d88d1d5ea94292",
+      "name": "LOW12",
+      "clock": "QPC_ESTIMATE",
+      "width_s": 60,
+      "start_mcu_s": 17580,
+      "observed_n": 159687,
+      "valid_n": 79845,
+      "quality": "PARTIAL_OR_INVALID",
+      "rms_x": 11.36451440257091,
+      "rms_y": 16.91355506673675,
+      "rms_z": 47.71141352551333,
+      "direction_max": 47.71141352551333,
+      "vector_technical": 51.88062753286928
+    },
+    "policy": "remaining sample RMS, reduced coverage; never a replacement FULL window"
+  },
+  {
+    "method_id": "a84808efefc3d1512a9455209349c7cf0c208a9ea47eaab125d88d1d5ea94292",
+    "width_s": 120,
+    "start_mcu_s": 17520,
+    "main": {
+      "method_id": "a84808efefc3d1512a9455209349c7cf0c208a9ea47eaab125d88d1d5ea94292",
+      "name": "LOW12",
+      "clock": "QPC_ESTIMATE",
+      "width_s": 120,
+      "start_mcu_s": 17520,
+      "observed_n": 319369,
+      "valid_n": 319369,
+      "quality": "FULL",
+      "rms_x": 15.361241444952705,
+      "rms_y": 18.169931008845555,
+      "rms_z": 44.171541388072704,
+      "direction_max": 44.171541388072704,
+      "vector_technical": 50.172095832191026,
+      "TR2_WM_A_MAX": null,
+      "metric": "TR2_WM_DIAGNOSTIC_LOW12",
+      "unit": "mm/s2",
+      "winning_axis": "Z",
+      "equivalent_velocity_mm_s": 1.2368031588660358,
+      "classification": "NON_CLASSEE"
+    },
+    "diagnostic": {
+      "method_id": "a84808efefc3d1512a9455209349c7cf0c208a9ea47eaab125d88d1d5ea94292",
+      "name": "LOW12",
+      "clock": "QPC_ESTIMATE",
+      "width_s": 120,
+      "start_mcu_s": 17520,
+      "observed_n": 319369,
+      "valid_n": 239527,
+      "quality": "PARTIAL_OR_INVALID",
+      "rms_x": 15.746673098232828,
+      "rms_y": 17.705015572769128,
+      "rms_z": 40.42625263925145,
+      "direction_max": 40.42625263925145,
+      "vector_technical": 46.85837377190113
+    },
+    "policy": "remaining sample RMS, reduced coverage; never a replacement FULL window"
+  }
+]

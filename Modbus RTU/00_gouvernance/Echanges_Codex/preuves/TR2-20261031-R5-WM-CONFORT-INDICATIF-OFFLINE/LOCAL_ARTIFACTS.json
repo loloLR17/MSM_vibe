@@ -1,0 +1,222 @@
+[
+  {
+    "path": "/home/lolo/dev/msm/reports/TR2-R5-WM-20261031/BV_COMPARABILITY.json",
+    "bytes": 2969,
+    "sha256": "b0a90821167aa4147d098c15bdf5de8bc3aa631fa2e665ef32d31921bc27f42e"
+  },
+  {
+    "path": "/home/lolo/dev/msm/reports/TR2-R5-WM-20261031/analysis-final/MANIFEST.json",
+    "bytes": 3272,
+    "sha256": "0079e95bf9221a663f1ba09e37b6f249d86e3ef5fd4c4748a20b798f7337c9d5"
+  },
+  {
+    "path": "/home/lolo/dev/msm/reports/TR2-R5-WM-20261031/analysis-final/aligned_pairs.csv",
+    "bytes": 212937,
+    "sha256": "32b6fac311dfcd7b237dadbf5ca98695cdfd00769d7109f55fe5bf3d84fcf654"
+  },
+  {
+    "path": "/home/lolo/dev/msm/reports/TR2-R5-WM-20261031/analysis-final/definitions.json",
+    "bytes": 10197,
+    "sha256": "1857ff8d84fd0d76501741f113cfd15f48c3e30aa04f6c1187e494e73ed4f74d"
+  },
+  {
+    "path": "/home/lolo/dev/msm/reports/TR2-R5-WM-20261031/analysis-final/duration_sensitivity.json",
+    "bytes": 3347,
+    "sha256": "f5c3fcc9aea56d1ecb3cbdaab6bc60ddfe1356e44eb07c0c844615a948f1c93b"
+  },
+  {
+    "path": "/home/lolo/dev/msm/reports/TR2-R5-WM-20261031/analysis-final/event_influence.json",
+    "bytes": 21745,
+    "sha256": "61c981ad88920a92097f2c1e84f61b1c94a2b7a6d5e1b57ca5f63f42d4f45ea4"
+  },
+  {
+    "path": "/home/lolo/dev/msm/reports/TR2-R5-WM-20261031/analysis-final/failed_controls.json",
+    "bytes": 31111,
+    "sha256": "6b2e8d20a7397110726a67daa22187097ce0877a42db856b745434be485a8cb8"
+  },
+  {
+    "path": "/home/lolo/dev/msm/reports/TR2-R5-WM-20261031/analysis-final/metrics.csv",
+    "bytes": 875152,
+    "sha256": "449e9ba31b9ccd5b7e04049c6e986375550ceed953868dccefe0f54c28602208"
+  },
+  {
+    "path": "/home/lolo/dev/msm/reports/TR2-R5-WM-20261031/analysis-final/out_of_band_diagnostic.json",
+    "bytes": 130671,
+    "sha256": "3e2bf8cd47496f7c6fc18e45153b8137909995b70a41df51cd1f07f42ad99c79"
+  },
+  {
+    "path": "/home/lolo/dev/msm/reports/TR2-R5-WM-20261031/analysis-final/real_controls.json",
+    "bytes": 40750,
+    "sha256": "1240ca5699e7f0664fd70cea99666cebfd3994c8fcc5432ba49bd5574eedbc9b"
+  },
+  {
+    "path": "/home/lolo/dev/msm/reports/TR2-R5-WM-20261031/analysis-final/summary.json",
+    "bytes": 6011,
+    "sha256": "21d38c45eff0dc804b67b4ebda6fc4dbf8d4e32b1d2af96d53b5b8b26a20a698"
+  },
+  {
+    "path": "/home/lolo/dev/msm/reports/TR2-R5-WM-20261031/analysis-final/whole_period.json",
+    "bytes": 2852,
+    "sha256": "36c8d4dcce22049787a39789415896ed363c028244794fe1ea946b7e22e874c0"
+  },
+  {
+    "path": "/home/lolo/dev/msm/reports/TR2-R5-WM-20261031/analysis-unified-v5.sqlite",
+    "bytes": 57704448,
+    "sha256": "48f02e019fc2e6d47a041690f93bd80a3f7241513aeec92c519aa9aa48f8c465"
+  },
+  {
+    "path": "/home/lolo/dev/msm/reports/TR2-R5-WM-20261031/cli-help.log",
+    "bytes": 394,
+    "sha256": "74eb8bac8d7164f9e8ef0fa8bd1a2b0750f1fb6cc2268b5ac04a25ae61ca8fb9"
+  },
+  {
+    "path": "/home/lolo/dev/msm/reports/TR2-R5-WM-20261031/controls-resumed-v1/MANIFEST.json",
+    "bytes": 3272,
+    "sha256": "0079e95bf9221a663f1ba09e37b6f249d86e3ef5fd4c4748a20b798f7337c9d5"
+  },
+  {
+    "path": "/home/lolo/dev/msm/reports/TR2-R5-WM-20261031/controls-resumed-v1/real_controls.json",
+    "bytes": 40750,
+    "sha256": "1240ca5699e7f0664fd70cea99666cebfd3994c8fcc5432ba49bd5574eedbc9b"
+  },
+  {
+    "path": "/home/lolo/dev/msm/reports/TR2-R5-WM-20261031/controls-resumed-v1.log",
+    "bytes": 76,
+    "sha256": "9ecfec4a97227bcd68bc18e1c6a874bd64f3186ce972233aea5f8c83565b5d77"
+  },
+  {
+    "path": "/home/lolo/dev/msm/reports/TR2-R5-WM-20261031/full-v1/aligned_pairs.csv",
+    "bytes": 212937,
+    "sha256": "32b6fac311dfcd7b237dadbf5ca98695cdfd00769d7109f55fe5bf3d84fcf654"
+  },
+  {
+    "path": "/home/lolo/dev/msm/reports/TR2-R5-WM-20261031/full-v1/definitions.json",
+    "bytes": 10197,
+    "sha256": "1857ff8d84fd0d76501741f113cfd15f48c3e30aa04f6c1187e494e73ed4f74d"
+  },
+  {
+    "path": "/home/lolo/dev/msm/reports/TR2-R5-WM-20261031/full-v1/duration_sensitivity.json",
+    "bytes": 3347,
+    "sha256": "f5c3fcc9aea56d1ecb3cbdaab6bc60ddfe1356e44eb07c0c844615a948f1c93b"
+  },
+  {
+    "path": "/home/lolo/dev/msm/reports/TR2-R5-WM-20261031/full-v1/event_influence.json",
+    "bytes": 21745,
+    "sha256": "61c981ad88920a92097f2c1e84f61b1c94a2b7a6d5e1b57ca5f63f42d4f45ea4"
+  },
+  {
+    "path": "/home/lolo/dev/msm/reports/TR2-R5-WM-20261031/full-v1/failed_controls.json",
+    "bytes": 31111,
+    "sha256": "6b2e8d20a7397110726a67daa22187097ce0877a42db856b745434be485a8cb8"
+  },
+  {
+    "path": "/home/lolo/dev/msm/reports/TR2-R5-WM-20261031/full-v1/metrics.csv",
+    "bytes": 875152,
+    "sha256": "449e9ba31b9ccd5b7e04049c6e986375550ceed953868dccefe0f54c28602208"
+  },
+  {
+    "path": "/home/lolo/dev/msm/reports/TR2-R5-WM-20261031/full-v1/out_of_band_diagnostic.json",
+    "bytes": 130671,
+    "sha256": "3e2bf8cd47496f7c6fc18e45153b8137909995b70a41df51cd1f07f42ad99c79"
+  },
+  {
+    "path": "/home/lolo/dev/msm/reports/TR2-R5-WM-20261031/full-v1/sufficient_statistics.npz",
+    "bytes": 6044725,
+    "sha256": "4c03becb60c6a4718eca6bd02a4f633b5085c399c5b0246fa3756553f533c7bd"
+  },
+  {
+    "path": "/home/lolo/dev/msm/reports/TR2-R5-WM-20261031/full-v1/summary.json",
+    "bytes": 6011,
+    "sha256": "21d38c45eff0dc804b67b4ebda6fc4dbf8d4e32b1d2af96d53b5b8b26a20a698"
+  },
+  {
+    "path": "/home/lolo/dev/msm/reports/TR2-R5-WM-20261031/full-v1/whole_period.json",
+    "bytes": 2852,
+    "sha256": "36c8d4dcce22049787a39789415896ed363c028244794fe1ea946b7e22e874c0"
+  },
+  {
+    "path": "/home/lolo/dev/msm/reports/TR2-R5-WM-20261031/full-v1.log",
+    "bytes": 894,
+    "sha256": "536407a3b64900498cab3342fc7ea47ed20c2eea441688474e124e5b0d37b5c8"
+  },
+  {
+    "path": "/home/lolo/dev/msm/reports/TR2-R5-WM-20261031/governance-reference.json",
+    "bytes": 631,
+    "sha256": "318f9d9c83e645a01ec72fb265fd9c4f86d9f56f78e62e550513d8ddde76236d"
+  },
+  {
+    "path": "/home/lolo/dev/msm/reports/TR2-R5-WM-20261031/iso2026-distributor-preview-decoded.html",
+    "bytes": 187526,
+    "sha256": "e352f7009c70ceed2ab26cf412542a1f742168b6ea42c8a2dee65bf58d934316"
+  },
+  {
+    "path": "/home/lolo/dev/msm/reports/TR2-R5-WM-20261031/iso2026-distributor-preview.html",
+    "bytes": 31326,
+    "sha256": "4a9d66588faaf532acba71a364314de3b077a53a8156868eedf58d927f0a707a"
+  },
+  {
+    "path": "/home/lolo/dev/msm/reports/TR2-R5-WM-20261031/presentation-v1/frequency_response.csv",
+    "bytes": 302731,
+    "sha256": "291b1342efecfbb05620b0c0009c633aeefc692d3ef22f1d17fa23abd9a0a614"
+  },
+  {
+    "path": "/home/lolo/dev/msm/reports/TR2-R5-WM-20261031/presentation-v1/index.html",
+    "bytes": 1417,
+    "sha256": "3630c64d54a69cf31aaa05e6d9f47916d98bbdab3c2d3eac951dba90694ba285"
+  },
+  {
+    "path": "/home/lolo/dev/msm/reports/TR2-R5-WM-20261031/presentation-v1/render_manifest.json",
+    "bytes": 994,
+    "sha256": "74dc929b0e08b4ec21c149cdd82342b71938d7e9770550641765ce7cc45e9af7"
+  },
+  {
+    "path": "/home/lolo/dev/msm/reports/TR2-R5-WM-20261031/presentation-v1/sensitivity.csv",
+    "bytes": 45730,
+    "sha256": "e24b904684da2dd0b4ab198ea77de10f37d9af96ca65eacd1de71a706447c5a9"
+  },
+  {
+    "path": "/home/lolo/dev/msm/reports/TR2-R5-WM-20261031/presentation-v1/sensitivity_summary.json",
+    "bytes": 477,
+    "sha256": "2b1b5b0cbf990d1055a516b0c8d3e23f9007f0aa5624feb08a3b1969ca36b320"
+  },
+  {
+    "path": "/home/lolo/dev/msm/reports/TR2-R5-WM-20261031/presentation-v1/warping.json",
+    "bytes": 370,
+    "sha256": "31b372f3f7066909522b0ec5b0afbac6b0c9090ab70a1e067cbcbe1beea498bc"
+  },
+  {
+    "path": "/home/lolo/dev/msm/reports/TR2-R5-WM-20261031/presentation-v1/wm_response.png",
+    "bytes": 115741,
+    "sha256": "b14b5ec41fd26612c642c587f47ec048ee9489cec5535f489ed4d510424a0a83"
+  },
+  {
+    "path": "/home/lolo/dev/msm/reports/TR2-R5-WM-20261031/presentation-v1/wm_trends.png",
+    "bytes": 302182,
+    "sha256": "2ecc94fbb9a1a5a3baf2582f565900aa05209082aad692e95a5b548d09a924a4"
+  },
+  {
+    "path": "/home/lolo/dev/msm/reports/TR2-R5-WM-20261031/sqlite-proof.json",
+    "bytes": 8868,
+    "sha256": "22225f49d7563477fead85c65f25cf6b8fea34297013da0db90a755ca3ae5456"
+  },
+  {
+    "path": "/home/lolo/dev/msm/reports/TR2-R5-WM-20261031/tests-catalog.log",
+    "bytes": 975,
+    "sha256": "5c1b766545f82d2016ffc11833e73472a38da91b4a8ed4016d37a933d243a8f2"
+  },
+  {
+    "path": "/home/lolo/dev/msm/reports/TR2-R5-WM-20261031/tests-final.log",
+    "bytes": 1231,
+    "sha256": "79b07a2784ef6627de58f37ad7775e5265e2f52cf6f1362b1b8e720a58f5e573"
+  },
+  {
+    "path": "/home/lolo/dev/msm/reports/TR2-R5-WM-20261031/tests-first.log",
+    "bytes": 699,
+    "sha256": "e25c353e268d27c2a14b9fa91714a2d38ab519411f2b27670cdae453b4bfa7b6"
+  },
+  {
+    "path": "/home/lolo/dev/msm/reports/TR2-R5-WM-20261031/tests-fixed.log",
+    "bytes": 1092,
+    "sha256": "92fa5e6202041e489d0b166ab3d84a98437feaef4cdcdc063c5c5551b881317e"
+  }
+]

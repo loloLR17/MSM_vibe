@@ -1,0 +1,20 @@
+[
+  {
+    "clock": "MCU",
+    "band": [
+      1,
+      80
+    ],
+    "max_relative_magnitude_error": 0.004691125523571427,
+    "max_phase_difference_rad": 0.004176442176156646
+  },
+  {
+    "clock": "QPC_ESTIMATE",
+    "band": [
+      1,
+      80
+    ],
+    "max_relative_magnitude_error": 0.004628041249049697,
+    "max_phase_difference_rad": 0.004120193073126419
+  }
+]

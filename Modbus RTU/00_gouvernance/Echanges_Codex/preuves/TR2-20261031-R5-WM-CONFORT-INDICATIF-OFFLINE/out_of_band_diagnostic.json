@@ -1,0 +1,2946 @@
+[
+  {
+    "method_id": "16076171f52ef52d94005c80558df667e3090e1b7e0ef4d8df2f0cb174a21cd8",
+    "start_mcu_s": 0.0,
+    "end_mcu_s": 120.074663,
+    "below1_fraction": 0.03330946753694308,
+    "above80_fraction": 0.02387498126685989,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "8127486594f057cfcefb697817ec34d1223453462c16c5e8fedfe10ba74bbe74",
+    "start_mcu_s": 0.0,
+    "end_mcu_s": 120.074663,
+    "below1_fraction": 0.03465110895368397,
+    "above80_fraction": 0.02460273600998205,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "16076171f52ef52d94005c80558df667e3090e1b7e0ef4d8df2f0cb174a21cd8",
+    "start_mcu_s": 120.07503799999999,
+    "end_mcu_s": 240.149743,
+    "below1_fraction": 0.02736022018029993,
+    "above80_fraction": 0.02338191304330552,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "8127486594f057cfcefb697817ec34d1223453462c16c5e8fedfe10ba74bbe74",
+    "start_mcu_s": 120.07503799999999,
+    "end_mcu_s": 240.149743,
+    "below1_fraction": 0.02902158624319759,
+    "above80_fraction": 0.02447456623173688,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "16076171f52ef52d94005c80558df667e3090e1b7e0ef4d8df2f0cb174a21cd8",
+    "start_mcu_s": 240.150119,
+    "end_mcu_s": 360.233953,
+    "below1_fraction": 0.040873872928687986,
+    "above80_fraction": 0.03528561212818521,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "8127486594f057cfcefb697817ec34d1223453462c16c5e8fedfe10ba74bbe74",
+    "start_mcu_s": 240.150119,
+    "end_mcu_s": 360.233953,
+    "below1_fraction": 0.042970975683412974,
+    "above80_fraction": 0.03635408290872036,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "16076171f52ef52d94005c80558df667e3090e1b7e0ef4d8df2f0cb174a21cd8",
+    "start_mcu_s": 360.234329,
+    "end_mcu_s": 480.31839299999996,
+    "below1_fraction": 0.02088172731907526,
+    "above80_fraction": 0.03773459307359301,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "8127486594f057cfcefb697817ec34d1223453462c16c5e8fedfe10ba74bbe74",
+    "start_mcu_s": 360.234329,
+    "end_mcu_s": 480.31839299999996,
+    "below1_fraction": 0.021310763687752338,
+    "above80_fraction": 0.040890232693346004,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "16076171f52ef52d94005c80558df667e3090e1b7e0ef4d8df2f0cb174a21cd8",
+    "start_mcu_s": 480.318769,
+    "end_mcu_s": 600.400267,
+    "below1_fraction": 0.03244883477514236,
+    "above80_fraction": 0.04561805060353425,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "8127486594f057cfcefb697817ec34d1223453462c16c5e8fedfe10ba74bbe74",
+    "start_mcu_s": 480.318769,
+    "end_mcu_s": 600.400267,
+    "below1_fraction": 0.027536156140526534,
+    "above80_fraction": 0.04659951316542366,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "16076171f52ef52d94005c80558df667e3090e1b7e0ef4d8df2f0cb174a21cd8",
+    "start_mcu_s": 600.400643,
+    "end_mcu_s": 720.481369,
+    "below1_fraction": 0.033562974654959665,
+    "above80_fraction": 0.038885633679997166,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "8127486594f057cfcefb697817ec34d1223453462c16c5e8fedfe10ba74bbe74",
+    "start_mcu_s": 600.400643,
+    "end_mcu_s": 720.481369,
+    "below1_fraction": 0.03369797865575919,
+    "above80_fraction": 0.04090550458085066,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "16076171f52ef52d94005c80558df667e3090e1b7e0ef4d8df2f0cb174a21cd8",
+    "start_mcu_s": 720.4817449999999,
+    "end_mcu_s": 840.56152,
+    "below1_fraction": 0.02824145607681949,
+    "above80_fraction": 0.02368044164368731,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "8127486594f057cfcefb697817ec34d1223453462c16c5e8fedfe10ba74bbe74",
+    "start_mcu_s": 720.4817449999999,
+    "end_mcu_s": 840.56152,
+    "below1_fraction": 0.029371350807572413,
+    "above80_fraction": 0.024149972942103897,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "16076171f52ef52d94005c80558df667e3090e1b7e0ef4d8df2f0cb174a21cd8",
+    "start_mcu_s": 840.5618949999999,
+    "end_mcu_s": 960.638379,
+    "below1_fraction": 0.02694970275679749,
+    "above80_fraction": 0.03174141611683244,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "8127486594f057cfcefb697817ec34d1223453462c16c5e8fedfe10ba74bbe74",
+    "start_mcu_s": 840.5618949999999,
+    "end_mcu_s": 960.638379,
+    "below1_fraction": 0.028969016539848465,
+    "above80_fraction": 0.03257493049220703,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "16076171f52ef52d94005c80558df667e3090e1b7e0ef4d8df2f0cb174a21cd8",
+    "start_mcu_s": 960.638755,
+    "end_mcu_s": 1080.714957,
+    "below1_fraction": 0.025967691852464062,
+    "above80_fraction": 0.027938160228684287,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "8127486594f057cfcefb697817ec34d1223453462c16c5e8fedfe10ba74bbe74",
+    "start_mcu_s": 960.638755,
+    "end_mcu_s": 1080.714957,
+    "below1_fraction": 0.023771082806083997,
+    "above80_fraction": 0.02884938665997821,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "16076171f52ef52d94005c80558df667e3090e1b7e0ef4d8df2f0cb174a21cd8",
+    "start_mcu_s": 1080.7153329999999,
+    "end_mcu_s": 1200.788431,
+    "below1_fraction": 0.02134509612193042,
+    "above80_fraction": 0.028831659692067694,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "8127486594f057cfcefb697817ec34d1223453462c16c5e8fedfe10ba74bbe74",
+    "start_mcu_s": 1080.7153329999999,
+    "end_mcu_s": 1200.788431,
+    "below1_fraction": 0.021514485251246496,
+    "above80_fraction": 0.029863092514922796,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "16076171f52ef52d94005c80558df667e3090e1b7e0ef4d8df2f0cb174a21cd8",
+    "start_mcu_s": 1200.788807,
+    "end_mcu_s": 1320.861085,
+    "below1_fraction": 0.024630936551262195,
+    "above80_fraction": 0.03408901326587923,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "8127486594f057cfcefb697817ec34d1223453462c16c5e8fedfe10ba74bbe74",
+    "start_mcu_s": 1200.788807,
+    "end_mcu_s": 1320.861085,
+    "below1_fraction": 0.023310506436630435,
+    "above80_fraction": 0.03541202027953652,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "16076171f52ef52d94005c80558df667e3090e1b7e0ef4d8df2f0cb174a21cd8",
+    "start_mcu_s": 1320.861461,
+    "end_mcu_s": 1440.924458,
+    "below1_fraction": 0.022544778635822296,
+    "above80_fraction": 0.02472411405813156,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "8127486594f057cfcefb697817ec34d1223453462c16c5e8fedfe10ba74bbe74",
+    "start_mcu_s": 1320.861461,
+    "end_mcu_s": 1440.924458,
+    "below1_fraction": 0.023580259762766877,
+    "above80_fraction": 0.025238921686967238,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "16076171f52ef52d94005c80558df667e3090e1b7e0ef4d8df2f0cb174a21cd8",
+    "start_mcu_s": 1440.924833,
+    "end_mcu_s": 1560.9938869999999,
+    "below1_fraction": 0.036935518547054305,
+    "above80_fraction": 0.025039070128577708,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "8127486594f057cfcefb697817ec34d1223453462c16c5e8fedfe10ba74bbe74",
+    "start_mcu_s": 1440.924833,
+    "end_mcu_s": 1560.9938869999999,
+    "below1_fraction": 0.03984871755633143,
+    "above80_fraction": 0.026301343176696204,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "16076171f52ef52d94005c80558df667e3090e1b7e0ef4d8df2f0cb174a21cd8",
+    "start_mcu_s": 1560.9942629999998,
+    "end_mcu_s": 1681.054528,
+    "below1_fraction": 0.034770155073915524,
+    "above80_fraction": 0.03618853018413671,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "8127486594f057cfcefb697817ec34d1223453462c16c5e8fedfe10ba74bbe74",
+    "start_mcu_s": 1560.9942629999998,
+    "end_mcu_s": 1681.054528,
+    "below1_fraction": 0.03587329964868309,
+    "above80_fraction": 0.037617258324400764,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "16076171f52ef52d94005c80558df667e3090e1b7e0ef4d8df2f0cb174a21cd8",
+    "start_mcu_s": 1681.0549039999999,
+    "end_mcu_s": 1801.1083919999999,
+    "below1_fraction": 0.030539135068049363,
+    "above80_fraction": 0.029175194904145014,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "8127486594f057cfcefb697817ec34d1223453462c16c5e8fedfe10ba74bbe74",
+    "start_mcu_s": 1681.0549039999999,
+    "end_mcu_s": 1801.1083919999999,
+    "below1_fraction": 0.032170220595754535,
+    "above80_fraction": 0.029631849217506084,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "16076171f52ef52d94005c80558df667e3090e1b7e0ef4d8df2f0cb174a21cd8",
+    "start_mcu_s": 1801.1087679999998,
+    "end_mcu_s": 1921.162564,
+    "below1_fraction": 0.04084113673693099,
+    "above80_fraction": 0.025144588408715616,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "8127486594f057cfcefb697817ec34d1223453462c16c5e8fedfe10ba74bbe74",
+    "start_mcu_s": 1801.1087679999998,
+    "end_mcu_s": 1921.162564,
+    "below1_fraction": 0.0443319060299209,
+    "above80_fraction": 0.025281763752651964,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "16076171f52ef52d94005c80558df667e3090e1b7e0ef4d8df2f0cb174a21cd8",
+    "start_mcu_s": 1921.16294,
+    "end_mcu_s": 2041.2094989999998,
+    "below1_fraction": 0.024455303245945616,
+    "above80_fraction": 0.024762242352711305,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "8127486594f057cfcefb697817ec34d1223453462c16c5e8fedfe10ba74bbe74",
+    "start_mcu_s": 1921.16294,
+    "end_mcu_s": 2041.2094989999998,
+    "below1_fraction": 0.026094390082550805,
+    "above80_fraction": 0.0255531139015944,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "16076171f52ef52d94005c80558df667e3090e1b7e0ef4d8df2f0cb174a21cd8",
+    "start_mcu_s": 2041.209874,
+    "end_mcu_s": 2161.2551829999998,
+    "below1_fraction": 0.032725266026285116,
+    "above80_fraction": 0.025234964527990733,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "8127486594f057cfcefb697817ec34d1223453462c16c5e8fedfe10ba74bbe74",
+    "start_mcu_s": 2041.209874,
+    "end_mcu_s": 2161.2551829999998,
+    "below1_fraction": 0.03519231663026326,
+    "above80_fraction": 0.025183263588697487,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "16076171f52ef52d94005c80558df667e3090e1b7e0ef4d8df2f0cb174a21cd8",
+    "start_mcu_s": 2161.2555589999997,
+    "end_mcu_s": 2281.292695,
+    "below1_fraction": 0.01799013164240249,
+    "above80_fraction": 0.03824767693271918,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "8127486594f057cfcefb697817ec34d1223453462c16c5e8fedfe10ba74bbe74",
+    "start_mcu_s": 2161.2555589999997,
+    "end_mcu_s": 2281.292695,
+    "below1_fraction": 0.019501790074890626,
+    "above80_fraction": 0.0389921109478691,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "16076171f52ef52d94005c80558df667e3090e1b7e0ef4d8df2f0cb174a21cd8",
+    "start_mcu_s": 2281.293071,
+    "end_mcu_s": 2401.342124,
+    "below1_fraction": 0.0186943249340125,
+    "above80_fraction": 0.04346904863740929,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "8127486594f057cfcefb697817ec34d1223453462c16c5e8fedfe10ba74bbe74",
+    "start_mcu_s": 2281.293071,
+    "end_mcu_s": 2401.342124,
+    "below1_fraction": 0.019625826663119846,
+    "above80_fraction": 0.04458136389702977,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "16076171f52ef52d94005c80558df667e3090e1b7e0ef4d8df2f0cb174a21cd8",
+    "start_mcu_s": 2401.342499,
+    "end_mcu_s": 2521.390495,
+    "below1_fraction": 0.02201858194550596,
+    "above80_fraction": 0.042600358798785966,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "8127486594f057cfcefb697817ec34d1223453462c16c5e8fedfe10ba74bbe74",
+    "start_mcu_s": 2401.342499,
+    "end_mcu_s": 2521.390495,
+    "below1_fraction": 0.02165768106220433,
+    "above80_fraction": 0.04387531937794419,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "16076171f52ef52d94005c80558df667e3090e1b7e0ef4d8df2f0cb174a21cd8",
+    "start_mcu_s": 2521.390871,
+    "end_mcu_s": 2641.432323,
+    "below1_fraction": 0.027602960070351266,
+    "above80_fraction": 0.04071941872774401,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "8127486594f057cfcefb697817ec34d1223453462c16c5e8fedfe10ba74bbe74",
+    "start_mcu_s": 2521.390871,
+    "end_mcu_s": 2641.432323,
+    "below1_fraction": 0.028709496201478002,
+    "above80_fraction": 0.04210850294651061,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "16076171f52ef52d94005c80558df667e3090e1b7e0ef4d8df2f0cb174a21cd8",
+    "start_mcu_s": 2641.432699,
+    "end_mcu_s": 2761.4797599999997,
+    "below1_fraction": 0.028760624013576114,
+    "above80_fraction": 0.04942037173959626,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "8127486594f057cfcefb697817ec34d1223453462c16c5e8fedfe10ba74bbe74",
+    "start_mcu_s": 2641.432699,
+    "end_mcu_s": 2761.4797599999997,
+    "below1_fraction": 0.029465097864482696,
+    "above80_fraction": 0.0501581326988088,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "16076171f52ef52d94005c80558df667e3090e1b7e0ef4d8df2f0cb174a21cd8",
+    "start_mcu_s": 2761.4801359999997,
+    "end_mcu_s": 2881.517364,
+    "below1_fraction": 0.02788923929551265,
+    "above80_fraction": 0.044962345524346366,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "8127486594f057cfcefb697817ec34d1223453462c16c5e8fedfe10ba74bbe74",
+    "start_mcu_s": 2761.4801359999997,
+    "end_mcu_s": 2881.517364,
+    "below1_fraction": 0.027956628360205054,
+    "above80_fraction": 0.04644522558555731,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "16076171f52ef52d94005c80558df667e3090e1b7e0ef4d8df2f0cb174a21cd8",
+    "start_mcu_s": 2881.517739,
+    "end_mcu_s": 3001.550299,
+    "below1_fraction": 0.019503730322737146,
+    "above80_fraction": 0.04512044739788358,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "8127486594f057cfcefb697817ec34d1223453462c16c5e8fedfe10ba74bbe74",
+    "start_mcu_s": 2881.517739,
+    "end_mcu_s": 3001.550299,
+    "below1_fraction": 0.02066273019498555,
+    "above80_fraction": 0.04714542566788455,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "16076171f52ef52d94005c80558df667e3090e1b7e0ef4d8df2f0cb174a21cd8",
+    "start_mcu_s": 3001.550675,
+    "end_mcu_s": 3121.5795439999997,
+    "below1_fraction": 0.032532803940232745,
+    "above80_fraction": 0.026406478190593448,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "8127486594f057cfcefb697817ec34d1223453462c16c5e8fedfe10ba74bbe74",
+    "start_mcu_s": 3001.550675,
+    "end_mcu_s": 3121.5795439999997,
+    "below1_fraction": 0.03409074030343621,
+    "above80_fraction": 0.027789570799157656,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "16076171f52ef52d94005c80558df667e3090e1b7e0ef4d8df2f0cb174a21cd8",
+    "start_mcu_s": 3121.5799199999997,
+    "end_mcu_s": 3241.616651,
+    "below1_fraction": 0.029499410401698546,
+    "above80_fraction": 0.025860137625123285,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "8127486594f057cfcefb697817ec34d1223453462c16c5e8fedfe10ba74bbe74",
+    "start_mcu_s": 3121.5799199999997,
+    "end_mcu_s": 3241.616651,
+    "below1_fraction": 0.031939916744240814,
+    "above80_fraction": 0.026592309335117584,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "16076171f52ef52d94005c80558df667e3090e1b7e0ef4d8df2f0cb174a21cd8",
+    "start_mcu_s": 3241.617027,
+    "end_mcu_s": 3361.660356,
+    "below1_fraction": 0.017601621920226424,
+    "above80_fraction": 0.04235377140233178,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "8127486594f057cfcefb697817ec34d1223453462c16c5e8fedfe10ba74bbe74",
+    "start_mcu_s": 3241.617027,
+    "end_mcu_s": 3361.660356,
+    "below1_fraction": 0.017824840068652772,
+    "above80_fraction": 0.044162125451273286,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "16076171f52ef52d94005c80558df667e3090e1b7e0ef4d8df2f0cb174a21cd8",
+    "start_mcu_s": 3361.660732,
+    "end_mcu_s": 3481.7058739999998,
+    "below1_fraction": 0.02031065656948126,
+    "above80_fraction": 0.048634264514396265,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "8127486594f057cfcefb697817ec34d1223453462c16c5e8fedfe10ba74bbe74",
+    "start_mcu_s": 3361.660732,
+    "end_mcu_s": 3481.7058739999998,
+    "below1_fraction": 0.021384228100651034,
+    "above80_fraction": 0.05024459782127051,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "16076171f52ef52d94005c80558df667e3090e1b7e0ef4d8df2f0cb174a21cd8",
+    "start_mcu_s": 3481.706249,
+    "end_mcu_s": 3601.7462189999997,
+    "below1_fraction": 0.02086988584557544,
+    "above80_fraction": 0.04692362682941864,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "8127486594f057cfcefb697817ec34d1223453462c16c5e8fedfe10ba74bbe74",
+    "start_mcu_s": 3481.706249,
+    "end_mcu_s": 3601.7462189999997,
+    "below1_fraction": 0.022511202923938864,
+    "above80_fraction": 0.04858084710482517,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "16076171f52ef52d94005c80558df667e3090e1b7e0ef4d8df2f0cb174a21cd8",
+    "start_mcu_s": 3601.7465939999997,
+    "end_mcu_s": 3721.7862059999998,
+    "below1_fraction": 0.02491110858989288,
+    "above80_fraction": 0.035682990663616326,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "8127486594f057cfcefb697817ec34d1223453462c16c5e8fedfe10ba74bbe74",
+    "start_mcu_s": 3601.7465939999997,
+    "end_mcu_s": 3721.7862059999998,
+    "below1_fraction": 0.026437073814074088,
+    "above80_fraction": 0.03715209217668259,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "16076171f52ef52d94005c80558df667e3090e1b7e0ef4d8df2f0cb174a21cd8",
+    "start_mcu_s": 3721.7865819999997,
+    "end_mcu_s": 3841.823732,
+    "below1_fraction": 0.016822608070923766,
+    "above80_fraction": 0.02911598038292419,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "8127486594f057cfcefb697817ec34d1223453462c16c5e8fedfe10ba74bbe74",
+    "start_mcu_s": 3721.7865819999997,
+    "end_mcu_s": 3841.823732,
+    "below1_fraction": 0.017699609339178038,
+    "above80_fraction": 0.030727148519423948,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "16076171f52ef52d94005c80558df667e3090e1b7e0ef4d8df2f0cb174a21cd8",
+    "start_mcu_s": 3841.824107,
+    "end_mcu_s": 3961.865563,
+    "below1_fraction": 0.014762235041134334,
+    "above80_fraction": 0.029708164462845233,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "8127486594f057cfcefb697817ec34d1223453462c16c5e8fedfe10ba74bbe74",
+    "start_mcu_s": 3841.824107,
+    "end_mcu_s": 3961.865563,
+    "below1_fraction": 0.014702092213375846,
+    "above80_fraction": 0.03131904585573517,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "16076171f52ef52d94005c80558df667e3090e1b7e0ef4d8df2f0cb174a21cd8",
+    "start_mcu_s": 3961.865939,
+    "end_mcu_s": 4081.901047,
+    "below1_fraction": 0.019680829630571446,
+    "above80_fraction": 0.03999015729955858,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "8127486594f057cfcefb697817ec34d1223453462c16c5e8fedfe10ba74bbe74",
+    "start_mcu_s": 3961.865939,
+    "end_mcu_s": 4081.901047,
+    "below1_fraction": 0.021097844573598416,
+    "above80_fraction": 0.04157055366492332,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "16076171f52ef52d94005c80558df667e3090e1b7e0ef4d8df2f0cb174a21cd8",
+    "start_mcu_s": 4081.901423,
+    "end_mcu_s": 4201.9322839999995,
+    "below1_fraction": 0.01869687304933361,
+    "above80_fraction": 0.04730647231069695,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "8127486594f057cfcefb697817ec34d1223453462c16c5e8fedfe10ba74bbe74",
+    "start_mcu_s": 4081.901423,
+    "end_mcu_s": 4201.9322839999995,
+    "below1_fraction": 0.019586460044408466,
+    "above80_fraction": 0.049994629051366396,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "16076171f52ef52d94005c80558df667e3090e1b7e0ef4d8df2f0cb174a21cd8",
+    "start_mcu_s": 4201.932659,
+    "end_mcu_s": 4321.962109,
+    "below1_fraction": 0.020644002762163275,
+    "above80_fraction": 0.043913819837249436,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "8127486594f057cfcefb697817ec34d1223453462c16c5e8fedfe10ba74bbe74",
+    "start_mcu_s": 4201.932659,
+    "end_mcu_s": 4321.962109,
+    "below1_fraction": 0.021736147834913275,
+    "above80_fraction": 0.044914683860990456,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "16076171f52ef52d94005c80558df667e3090e1b7e0ef4d8df2f0cb174a21cd8",
+    "start_mcu_s": 4321.962484,
+    "end_mcu_s": 4441.99863,
+    "below1_fraction": 0.02127537420501831,
+    "above80_fraction": 0.04021251165331858,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "8127486594f057cfcefb697817ec34d1223453462c16c5e8fedfe10ba74bbe74",
+    "start_mcu_s": 4321.962484,
+    "end_mcu_s": 4441.99863,
+    "below1_fraction": 0.022437937558095984,
+    "above80_fraction": 0.042397337452329195,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "16076171f52ef52d94005c80558df667e3090e1b7e0ef4d8df2f0cb174a21cd8",
+    "start_mcu_s": 4441.999005,
+    "end_mcu_s": 4562.034084,
+    "below1_fraction": 0.020712471860741318,
+    "above80_fraction": 0.025554116209397917,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "8127486594f057cfcefb697817ec34d1223453462c16c5e8fedfe10ba74bbe74",
+    "start_mcu_s": 4441.999005,
+    "end_mcu_s": 4562.034084,
+    "below1_fraction": 0.021178422433997816,
+    "above80_fraction": 0.026182457945327163,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "16076171f52ef52d94005c80558df667e3090e1b7e0ef4d8df2f0cb174a21cd8",
+    "start_mcu_s": 4562.0344589999995,
+    "end_mcu_s": 4682.069278999999,
+    "below1_fraction": 0.024686509466860324,
+    "above80_fraction": 0.029208357488036036,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "8127486594f057cfcefb697817ec34d1223453462c16c5e8fedfe10ba74bbe74",
+    "start_mcu_s": 4562.0344589999995,
+    "end_mcu_s": 4682.069278999999,
+    "below1_fraction": 0.02460878736243752,
+    "above80_fraction": 0.03050916494104727,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "16076171f52ef52d94005c80558df667e3090e1b7e0ef4d8df2f0cb174a21cd8",
+    "start_mcu_s": 4682.069655,
+    "end_mcu_s": 4802.0974639999995,
+    "below1_fraction": 0.01659951544723872,
+    "above80_fraction": 0.042013746195292204,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "8127486594f057cfcefb697817ec34d1223453462c16c5e8fedfe10ba74bbe74",
+    "start_mcu_s": 4682.069655,
+    "end_mcu_s": 4802.0974639999995,
+    "below1_fraction": 0.01724442567027995,
+    "above80_fraction": 0.0436143602948103,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "16076171f52ef52d94005c80558df667e3090e1b7e0ef4d8df2f0cb174a21cd8",
+    "start_mcu_s": 4802.097839999999,
+    "end_mcu_s": 4922.1302909999995,
+    "below1_fraction": 0.01915175724827544,
+    "above80_fraction": 0.04543313427304783,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "8127486594f057cfcefb697817ec34d1223453462c16c5e8fedfe10ba74bbe74",
+    "start_mcu_s": 4802.097839999999,
+    "end_mcu_s": 4922.1302909999995,
+    "below1_fraction": 0.019499088851420543,
+    "above80_fraction": 0.046631741940141004,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "16076171f52ef52d94005c80558df667e3090e1b7e0ef4d8df2f0cb174a21cd8",
+    "start_mcu_s": 4922.130666999999,
+    "end_mcu_s": 5042.16006,
+    "below1_fraction": 0.015018599220702335,
+    "above80_fraction": 0.04777268831468899,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "8127486594f057cfcefb697817ec34d1223453462c16c5e8fedfe10ba74bbe74",
+    "start_mcu_s": 4922.130666999999,
+    "end_mcu_s": 5042.16006,
+    "below1_fraction": 0.015994582147401258,
+    "above80_fraction": 0.04984657169576484,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "16076171f52ef52d94005c80558df667e3090e1b7e0ef4d8df2f0cb174a21cd8",
+    "start_mcu_s": 5042.160436,
+    "end_mcu_s": 5162.187755999999,
+    "below1_fraction": 0.016769182732857612,
+    "above80_fraction": 0.04362674195734677,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "8127486594f057cfcefb697817ec34d1223453462c16c5e8fedfe10ba74bbe74",
+    "start_mcu_s": 5042.160436,
+    "end_mcu_s": 5162.187755999999,
+    "below1_fraction": 0.016147636489947128,
+    "above80_fraction": 0.04544925867400578,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "16076171f52ef52d94005c80558df667e3090e1b7e0ef4d8df2f0cb174a21cd8",
+    "start_mcu_s": 5162.188131,
+    "end_mcu_s": 5282.215806,
+    "below1_fraction": 0.02195789374595034,
+    "above80_fraction": 0.04650609749378067,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "8127486594f057cfcefb697817ec34d1223453462c16c5e8fedfe10ba74bbe74",
+    "start_mcu_s": 5162.188131,
+    "end_mcu_s": 5282.215806,
+    "below1_fraction": 0.021594327702007237,
+    "above80_fraction": 0.04835339700722532,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "16076171f52ef52d94005c80558df667e3090e1b7e0ef4d8df2f0cb174a21cd8",
+    "start_mcu_s": 5282.216182,
+    "end_mcu_s": 5402.253823,
+    "below1_fraction": 0.016668632886010018,
+    "above80_fraction": 0.044520563082673395,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "8127486594f057cfcefb697817ec34d1223453462c16c5e8fedfe10ba74bbe74",
+    "start_mcu_s": 5282.216182,
+    "end_mcu_s": 5402.253823,
+    "below1_fraction": 0.016608225394452347,
+    "above80_fraction": 0.04641657815418496,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "16076171f52ef52d94005c80558df667e3090e1b7e0ef4d8df2f0cb174a21cd8",
+    "start_mcu_s": 5402.254198,
+    "end_mcu_s": 5522.288181999999,
+    "below1_fraction": 0.01908698577942858,
+    "above80_fraction": 0.047692262971751206,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "8127486594f057cfcefb697817ec34d1223453462c16c5e8fedfe10ba74bbe74",
+    "start_mcu_s": 5402.254198,
+    "end_mcu_s": 5522.288181999999,
+    "below1_fraction": 0.01940268952494993,
+    "above80_fraction": 0.049651583707240224,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "16076171f52ef52d94005c80558df667e3090e1b7e0ef4d8df2f0cb174a21cd8",
+    "start_mcu_s": 5522.288558,
+    "end_mcu_s": 5642.319042,
+    "below1_fraction": 0.015839193407327805,
+    "above80_fraction": 0.04704921402600586,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "8127486594f057cfcefb697817ec34d1223453462c16c5e8fedfe10ba74bbe74",
+    "start_mcu_s": 5522.288558,
+    "end_mcu_s": 5642.319042,
+    "below1_fraction": 0.016497873461140386,
+    "above80_fraction": 0.049213399618429805,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "16076171f52ef52d94005c80558df667e3090e1b7e0ef4d8df2f0cb174a21cd8",
+    "start_mcu_s": 5642.319417,
+    "end_mcu_s": 5762.351853,
+    "below1_fraction": 0.018980661881887354,
+    "above80_fraction": 0.047334761536378535,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "8127486594f057cfcefb697817ec34d1223453462c16c5e8fedfe10ba74bbe74",
+    "start_mcu_s": 5642.319417,
+    "end_mcu_s": 5762.351853,
+    "below1_fraction": 0.020199733875376647,
+    "above80_fraction": 0.04916969099440225,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "16076171f52ef52d94005c80558df667e3090e1b7e0ef4d8df2f0cb174a21cd8",
+    "start_mcu_s": 5762.352228,
+    "end_mcu_s": 5882.376131999999,
+    "below1_fraction": 0.017932094227578146,
+    "above80_fraction": 0.04233818640821803,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "8127486594f057cfcefb697817ec34d1223453462c16c5e8fedfe10ba74bbe74",
+    "start_mcu_s": 5762.352228,
+    "end_mcu_s": 5882.376131999999,
+    "below1_fraction": 0.017913585230571228,
+    "above80_fraction": 0.04353272551975589,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "16076171f52ef52d94005c80558df667e3090e1b7e0ef4d8df2f0cb174a21cd8",
+    "start_mcu_s": 5882.376507,
+    "end_mcu_s": 6002.3990969999995,
+    "below1_fraction": 0.015639988662580106,
+    "above80_fraction": 0.04761078023397947,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "8127486594f057cfcefb697817ec34d1223453462c16c5e8fedfe10ba74bbe74",
+    "start_mcu_s": 5882.376507,
+    "end_mcu_s": 6002.3990969999995,
+    "below1_fraction": 0.016067926672475103,
+    "above80_fraction": 0.049671895379852546,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "16076171f52ef52d94005c80558df667e3090e1b7e0ef4d8df2f0cb174a21cd8",
+    "start_mcu_s": 6002.399472,
+    "end_mcu_s": 6122.415245,
+    "below1_fraction": 0.01376899754021782,
+    "above80_fraction": 0.04345616612518447,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "8127486594f057cfcefb697817ec34d1223453462c16c5e8fedfe10ba74bbe74",
+    "start_mcu_s": 6002.399472,
+    "end_mcu_s": 6122.415245,
+    "below1_fraction": 0.014570311615635996,
+    "above80_fraction": 0.0457265381238779,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "16076171f52ef52d94005c80558df667e3090e1b7e0ef4d8df2f0cb174a21cd8",
+    "start_mcu_s": 6122.415621,
+    "end_mcu_s": 6242.433642999999,
+    "below1_fraction": 0.01254507527564889,
+    "above80_fraction": 0.04502692245215735,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "8127486594f057cfcefb697817ec34d1223453462c16c5e8fedfe10ba74bbe74",
+    "start_mcu_s": 6122.415621,
+    "end_mcu_s": 6242.433642999999,
+    "below1_fraction": 0.01319992326246281,
+    "above80_fraction": 0.047055489456944724,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "16076171f52ef52d94005c80558df667e3090e1b7e0ef4d8df2f0cb174a21cd8",
+    "start_mcu_s": 6242.434018999999,
+    "end_mcu_s": 6362.455061,
+    "below1_fraction": 0.018488152773399023,
+    "above80_fraction": 0.042685854415413484,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "8127486594f057cfcefb697817ec34d1223453462c16c5e8fedfe10ba74bbe74",
+    "start_mcu_s": 6242.434018999999,
+    "end_mcu_s": 6362.455061,
+    "below1_fraction": 0.019501543723507812,
+    "above80_fraction": 0.04539805863182694,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "16076171f52ef52d94005c80558df667e3090e1b7e0ef4d8df2f0cb174a21cd8",
+    "start_mcu_s": 6362.455437,
+    "end_mcu_s": 6482.480740999999,
+    "below1_fraction": 0.014872809493623709,
+    "above80_fraction": 0.05100546501219485,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "8127486594f057cfcefb697817ec34d1223453462c16c5e8fedfe10ba74bbe74",
+    "start_mcu_s": 6362.455437,
+    "end_mcu_s": 6482.480740999999,
+    "below1_fraction": 0.01616029987312503,
+    "above80_fraction": 0.05350457423496753,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "16076171f52ef52d94005c80558df667e3090e1b7e0ef4d8df2f0cb174a21cd8",
+    "start_mcu_s": 6482.481116,
+    "end_mcu_s": 6602.507514999999,
+    "below1_fraction": 0.01826565755953998,
+    "above80_fraction": 0.047870351919905796,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "8127486594f057cfcefb697817ec34d1223453462c16c5e8fedfe10ba74bbe74",
+    "start_mcu_s": 6482.481116,
+    "end_mcu_s": 6602.507514999999,
+    "below1_fraction": 0.01976692321891155,
+    "above80_fraction": 0.05049805656713288,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "16076171f52ef52d94005c80558df667e3090e1b7e0ef4d8df2f0cb174a21cd8",
+    "start_mcu_s": 6602.507890999999,
+    "end_mcu_s": 6722.526021,
+    "below1_fraction": 0.01250446527187766,
+    "above80_fraction": 0.05126114601067741,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "8127486594f057cfcefb697817ec34d1223453462c16c5e8fedfe10ba74bbe74",
+    "start_mcu_s": 6602.507890999999,
+    "end_mcu_s": 6722.526021,
+    "below1_fraction": 0.012863738842011864,
+    "above80_fraction": 0.05416615161645808,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "16076171f52ef52d94005c80558df667e3090e1b7e0ef4d8df2f0cb174a21cd8",
+    "start_mcu_s": 6722.526397,
+    "end_mcu_s": 6842.542367,
+    "below1_fraction": 0.019199179572046882,
+    "above80_fraction": 0.027580378344941193,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "8127486594f057cfcefb697817ec34d1223453462c16c5e8fedfe10ba74bbe74",
+    "start_mcu_s": 6722.526397,
+    "end_mcu_s": 6842.542367,
+    "below1_fraction": 0.02066767164762933,
+    "above80_fraction": 0.028958120538173416,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "16076171f52ef52d94005c80558df667e3090e1b7e0ef4d8df2f0cb174a21cd8",
+    "start_mcu_s": 6842.542743,
+    "end_mcu_s": 6962.559126,
+    "below1_fraction": 0.015146935513881752,
+    "above80_fraction": 0.030018621343720832,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "8127486594f057cfcefb697817ec34d1223453462c16c5e8fedfe10ba74bbe74",
+    "start_mcu_s": 6842.542743,
+    "end_mcu_s": 6962.559126,
+    "below1_fraction": 0.0163333970901996,
+    "above80_fraction": 0.03164662999544546,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "16076171f52ef52d94005c80558df667e3090e1b7e0ef4d8df2f0cb174a21cd8",
+    "start_mcu_s": 6962.559502,
+    "end_mcu_s": 7082.5604889999995,
+    "below1_fraction": 0.01249767272382655,
+    "above80_fraction": 0.031063472659418567,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "8127486594f057cfcefb697817ec34d1223453462c16c5e8fedfe10ba74bbe74",
+    "start_mcu_s": 6962.559502,
+    "end_mcu_s": 7082.5604889999995,
+    "below1_fraction": 0.013097864500112254,
+    "above80_fraction": 0.03310360258970121,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "16076171f52ef52d94005c80558df667e3090e1b7e0ef4d8df2f0cb174a21cd8",
+    "start_mcu_s": 7082.5608649999995,
+    "end_mcu_s": 7202.564689,
+    "below1_fraction": 0.01928164682742583,
+    "above80_fraction": 0.030859495668090292,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "8127486594f057cfcefb697817ec34d1223453462c16c5e8fedfe10ba74bbe74",
+    "start_mcu_s": 7082.5608649999995,
+    "end_mcu_s": 7202.564689,
+    "below1_fraction": 0.019851140041069196,
+    "above80_fraction": 0.03180685947760887,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "16076171f52ef52d94005c80558df667e3090e1b7e0ef4d8df2f0cb174a21cd8",
+    "start_mcu_s": 7202.565065,
+    "end_mcu_s": 7322.581588,
+    "below1_fraction": 0.01268082196151932,
+    "above80_fraction": 0.04263027652947732,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "8127486594f057cfcefb697817ec34d1223453462c16c5e8fedfe10ba74bbe74",
+    "start_mcu_s": 7202.565065,
+    "end_mcu_s": 7322.581588,
+    "below1_fraction": 0.013508439704575551,
+    "above80_fraction": 0.0452541659089938,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "16076171f52ef52d94005c80558df667e3090e1b7e0ef4d8df2f0cb174a21cd8",
+    "start_mcu_s": 7322.581964,
+    "end_mcu_s": 7442.599244999999,
+    "below1_fraction": 0.010926256734580154,
+    "above80_fraction": 0.04832194113198167,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "8127486594f057cfcefb697817ec34d1223453462c16c5e8fedfe10ba74bbe74",
+    "start_mcu_s": 7322.581964,
+    "end_mcu_s": 7442.599244999999,
+    "below1_fraction": 0.011531569113737658,
+    "above80_fraction": 0.050509956124452186,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "16076171f52ef52d94005c80558df667e3090e1b7e0ef4d8df2f0cb174a21cd8",
+    "start_mcu_s": 7442.599620999999,
+    "end_mcu_s": 7562.617902,
+    "below1_fraction": 0.013600379614899268,
+    "above80_fraction": 0.047956394503134554,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "8127486594f057cfcefb697817ec34d1223453462c16c5e8fedfe10ba74bbe74",
+    "start_mcu_s": 7442.599620999999,
+    "end_mcu_s": 7562.617902,
+    "below1_fraction": 0.01371340132245261,
+    "above80_fraction": 0.05023020714238144,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "16076171f52ef52d94005c80558df667e3090e1b7e0ef4d8df2f0cb174a21cd8",
+    "start_mcu_s": 7562.618278,
+    "end_mcu_s": 7682.62543,
+    "below1_fraction": 0.01427835450776067,
+    "above80_fraction": 0.04747223934853938,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "8127486594f057cfcefb697817ec34d1223453462c16c5e8fedfe10ba74bbe74",
+    "start_mcu_s": 7562.618278,
+    "end_mcu_s": 7682.62543,
+    "below1_fraction": 0.014876081320070499,
+    "above80_fraction": 0.04963175879931443,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "16076171f52ef52d94005c80558df667e3090e1b7e0ef4d8df2f0cb174a21cd8",
+    "start_mcu_s": 7682.625806,
+    "end_mcu_s": 7802.627708,
+    "below1_fraction": 0.012814632328350332,
+    "above80_fraction": 0.04755928001026871,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "8127486594f057cfcefb697817ec34d1223453462c16c5e8fedfe10ba74bbe74",
+    "start_mcu_s": 7682.625806,
+    "end_mcu_s": 7802.627708,
+    "below1_fraction": 0.012623099083392443,
+    "above80_fraction": 0.049512660047182855,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "16076171f52ef52d94005c80558df667e3090e1b7e0ef4d8df2f0cb174a21cd8",
+    "start_mcu_s": 7802.628084,
+    "end_mcu_s": 7922.6329129999995,
+    "below1_fraction": 0.01744366649603488,
+    "above80_fraction": 0.04001176758999187,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "8127486594f057cfcefb697817ec34d1223453462c16c5e8fedfe10ba74bbe74",
+    "start_mcu_s": 7802.628084,
+    "end_mcu_s": 7922.6329129999995,
+    "below1_fraction": 0.018338842592906857,
+    "above80_fraction": 0.04223595418150849,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "16076171f52ef52d94005c80558df667e3090e1b7e0ef4d8df2f0cb174a21cd8",
+    "start_mcu_s": 7922.633288999999,
+    "end_mcu_s": 8042.643636999999,
+    "below1_fraction": 0.015897908676978788,
+    "above80_fraction": 0.03568688052568454,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "8127486594f057cfcefb697817ec34d1223453462c16c5e8fedfe10ba74bbe74",
+    "start_mcu_s": 7922.633288999999,
+    "end_mcu_s": 8042.643636999999,
+    "below1_fraction": 0.01633965887557926,
+    "above80_fraction": 0.037744030570916985,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "16076171f52ef52d94005c80558df667e3090e1b7e0ef4d8df2f0cb174a21cd8",
+    "start_mcu_s": 8042.644013,
+    "end_mcu_s": 8162.653456999999,
+    "below1_fraction": 0.01126013631161774,
+    "above80_fraction": 0.033995183496164795,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "8127486594f057cfcefb697817ec34d1223453462c16c5e8fedfe10ba74bbe74",
+    "start_mcu_s": 8042.644013,
+    "end_mcu_s": 8162.653456999999,
+    "below1_fraction": 0.011468351560109464,
+    "above80_fraction": 0.03581603085157585,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "16076171f52ef52d94005c80558df667e3090e1b7e0ef4d8df2f0cb174a21cd8",
+    "start_mcu_s": 8162.653832,
+    "end_mcu_s": 8282.660834999999,
+    "below1_fraction": 0.013932102567521809,
+    "above80_fraction": 0.03478673233455073,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "8127486594f057cfcefb697817ec34d1223453462c16c5e8fedfe10ba74bbe74",
+    "start_mcu_s": 8162.653832,
+    "end_mcu_s": 8282.660834999999,
+    "below1_fraction": 0.014203975767180308,
+    "above80_fraction": 0.037141980993451645,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "16076171f52ef52d94005c80558df667e3090e1b7e0ef4d8df2f0cb174a21cd8",
+    "start_mcu_s": 8282.66121,
+    "end_mcu_s": 8402.671342,
+    "below1_fraction": 0.016009628978084653,
+    "above80_fraction": 0.03330816723739428,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "8127486594f057cfcefb697817ec34d1223453462c16c5e8fedfe10ba74bbe74",
+    "start_mcu_s": 8282.66121,
+    "end_mcu_s": 8402.671342,
+    "below1_fraction": 0.01593308731337239,
+    "above80_fraction": 0.03583622193145165,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "16076171f52ef52d94005c80558df667e3090e1b7e0ef4d8df2f0cb174a21cd8",
+    "start_mcu_s": 8402.671718,
+    "end_mcu_s": 8522.683539,
+    "below1_fraction": 0.012591536590888883,
+    "above80_fraction": 0.03573247719185987,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "8127486594f057cfcefb697817ec34d1223453462c16c5e8fedfe10ba74bbe74",
+    "start_mcu_s": 8402.671718,
+    "end_mcu_s": 8522.683539,
+    "below1_fraction": 0.012803659767041575,
+    "above80_fraction": 0.03768542166556754,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "16076171f52ef52d94005c80558df667e3090e1b7e0ef4d8df2f0cb174a21cd8",
+    "start_mcu_s": 8522.683914,
+    "end_mcu_s": 8642.692235,
+    "below1_fraction": 0.014756783833593504,
+    "above80_fraction": 0.040786854477960086,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "8127486594f057cfcefb697817ec34d1223453462c16c5e8fedfe10ba74bbe74",
+    "start_mcu_s": 8522.683914,
+    "end_mcu_s": 8642.692235,
+    "below1_fraction": 0.015710212040964802,
+    "above80_fraction": 0.04293755050116528,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "16076171f52ef52d94005c80558df667e3090e1b7e0ef4d8df2f0cb174a21cd8",
+    "start_mcu_s": 8642.69261,
+    "end_mcu_s": 8762.720867,
+    "below1_fraction": 0.009528356458771687,
+    "above80_fraction": 0.03876187051207811,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "8127486594f057cfcefb697817ec34d1223453462c16c5e8fedfe10ba74bbe74",
+    "start_mcu_s": 8642.69261,
+    "end_mcu_s": 8762.720867,
+    "below1_fraction": 0.009590405981271833,
+    "above80_fraction": 0.04079280577489938,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "16076171f52ef52d94005c80558df667e3090e1b7e0ef4d8df2f0cb174a21cd8",
+    "start_mcu_s": 8762.721242,
+    "end_mcu_s": 8882.751849,
+    "below1_fraction": 0.007815393759084039,
+    "above80_fraction": 0.03165642933355118,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "8127486594f057cfcefb697817ec34d1223453462c16c5e8fedfe10ba74bbe74",
+    "start_mcu_s": 8762.721242,
+    "end_mcu_s": 8882.751849,
+    "below1_fraction": 0.008278260286408518,
+    "above80_fraction": 0.0329545883925239,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "16076171f52ef52d94005c80558df667e3090e1b7e0ef4d8df2f0cb174a21cd8",
+    "start_mcu_s": 8882.752224,
+    "end_mcu_s": 9002.77486,
+    "below1_fraction": 0.011657390939305918,
+    "above80_fraction": 0.03208084170191644,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "8127486594f057cfcefb697817ec34d1223453462c16c5e8fedfe10ba74bbe74",
+    "start_mcu_s": 8882.752224,
+    "end_mcu_s": 9002.77486,
+    "below1_fraction": 0.012253395393156808,
+    "above80_fraction": 0.03334648062278794,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "16076171f52ef52d94005c80558df667e3090e1b7e0ef4d8df2f0cb174a21cd8",
+    "start_mcu_s": 9002.775235,
+    "end_mcu_s": 9122.799503999999,
+    "below1_fraction": 0.009125839412632156,
+    "above80_fraction": 0.034264561789624934,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "8127486594f057cfcefb697817ec34d1223453462c16c5e8fedfe10ba74bbe74",
+    "start_mcu_s": 9002.775235,
+    "end_mcu_s": 9122.799503999999,
+    "below1_fraction": 0.00962883377712911,
+    "above80_fraction": 0.035418365155237254,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "16076171f52ef52d94005c80558df667e3090e1b7e0ef4d8df2f0cb174a21cd8",
+    "start_mcu_s": 9122.799879,
+    "end_mcu_s": 9242.822586999999,
+    "below1_fraction": 0.009487584325245782,
+    "above80_fraction": 0.0326875969244722,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "8127486594f057cfcefb697817ec34d1223453462c16c5e8fedfe10ba74bbe74",
+    "start_mcu_s": 9122.799879,
+    "end_mcu_s": 9242.822586999999,
+    "below1_fraction": 0.009677314528402549,
+    "above80_fraction": 0.03572590773886067,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "16076171f52ef52d94005c80558df667e3090e1b7e0ef4d8df2f0cb174a21cd8",
+    "start_mcu_s": 9242.822962,
+    "end_mcu_s": 9362.842891999999,
+    "below1_fraction": 0.009065087439901167,
+    "above80_fraction": 0.03247601613611088,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "8127486594f057cfcefb697817ec34d1223453462c16c5e8fedfe10ba74bbe74",
+    "start_mcu_s": 9242.822962,
+    "end_mcu_s": 9362.842891999999,
+    "below1_fraction": 0.009521832629949828,
+    "above80_fraction": 0.03558944607999829,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "16076171f52ef52d94005c80558df667e3090e1b7e0ef4d8df2f0cb174a21cd8",
+    "start_mcu_s": 9362.843267999999,
+    "end_mcu_s": 9482.852433,
+    "below1_fraction": 0.008271711063255353,
+    "above80_fraction": 0.04194504119565147,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "8127486594f057cfcefb697817ec34d1223453462c16c5e8fedfe10ba74bbe74",
+    "start_mcu_s": 9362.843267999999,
+    "end_mcu_s": 9482.852433,
+    "below1_fraction": 0.00852125553690637,
+    "above80_fraction": 0.04393827811455506,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "16076171f52ef52d94005c80558df667e3090e1b7e0ef4d8df2f0cb174a21cd8",
+    "start_mcu_s": 9482.852809,
+    "end_mcu_s": 9602.872104,
+    "below1_fraction": 0.009681352839840621,
+    "above80_fraction": 0.040585287076082416,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "8127486594f057cfcefb697817ec34d1223453462c16c5e8fedfe10ba74bbe74",
+    "start_mcu_s": 9482.852809,
+    "end_mcu_s": 9602.872104,
+    "below1_fraction": 0.010183726382385017,
+    "above80_fraction": 0.042538762473614655,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "16076171f52ef52d94005c80558df667e3090e1b7e0ef4d8df2f0cb174a21cd8",
+    "start_mcu_s": 9602.87248,
+    "end_mcu_s": 9722.894551,
+    "below1_fraction": 0.011297645278207183,
+    "above80_fraction": 0.03944912896006077,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "8127486594f057cfcefb697817ec34d1223453462c16c5e8fedfe10ba74bbe74",
+    "start_mcu_s": 9602.87248,
+    "end_mcu_s": 9722.894551,
+    "below1_fraction": 0.011515049980111661,
+    "above80_fraction": 0.04072313668343316,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "16076171f52ef52d94005c80558df667e3090e1b7e0ef4d8df2f0cb174a21cd8",
+    "start_mcu_s": 9722.894927,
+    "end_mcu_s": 9842.915734999999,
+    "below1_fraction": 0.009345533456082045,
+    "above80_fraction": 0.051996943994776626,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "8127486594f057cfcefb697817ec34d1223453462c16c5e8fedfe10ba74bbe74",
+    "start_mcu_s": 9722.894927,
+    "end_mcu_s": 9842.915734999999,
+    "below1_fraction": 0.009747803525632382,
+    "above80_fraction": 0.056150032966577224,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "16076171f52ef52d94005c80558df667e3090e1b7e0ef4d8df2f0cb174a21cd8",
+    "start_mcu_s": 9842.916111,
+    "end_mcu_s": 9962.935956,
+    "below1_fraction": 0.007690486888037309,
+    "above80_fraction": 0.05119112437066251,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "8127486594f057cfcefb697817ec34d1223453462c16c5e8fedfe10ba74bbe74",
+    "start_mcu_s": 9842.916111,
+    "end_mcu_s": 9962.935956,
+    "below1_fraction": 0.008061352885739973,
+    "above80_fraction": 0.05465422489501516,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "16076171f52ef52d94005c80558df667e3090e1b7e0ef4d8df2f0cb174a21cd8",
+    "start_mcu_s": 9962.936330999999,
+    "end_mcu_s": 10082.968388,
+    "below1_fraction": 0.007529893527174962,
+    "above80_fraction": 0.05204891559055065,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "8127486594f057cfcefb697817ec34d1223453462c16c5e8fedfe10ba74bbe74",
+    "start_mcu_s": 9962.936330999999,
+    "end_mcu_s": 10082.968388,
+    "below1_fraction": 0.008103113357650883,
+    "above80_fraction": 0.05555117871886544,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "16076171f52ef52d94005c80558df667e3090e1b7e0ef4d8df2f0cb174a21cd8",
+    "start_mcu_s": 10082.968764,
+    "end_mcu_s": 10202.999968,
+    "below1_fraction": 0.008664346578650865,
+    "above80_fraction": 0.05395332642594933,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "8127486594f057cfcefb697817ec34d1223453462c16c5e8fedfe10ba74bbe74",
+    "start_mcu_s": 10082.968764,
+    "end_mcu_s": 10202.999968,
+    "below1_fraction": 0.009048838689049757,
+    "above80_fraction": 0.05749041054451874,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "16076171f52ef52d94005c80558df667e3090e1b7e0ef4d8df2f0cb174a21cd8",
+    "start_mcu_s": 10203.000343,
+    "end_mcu_s": 10323.038996,
+    "below1_fraction": 0.006685769571860702,
+    "above80_fraction": 0.05596428381186298,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "8127486594f057cfcefb697817ec34d1223453462c16c5e8fedfe10ba74bbe74",
+    "start_mcu_s": 10203.000343,
+    "end_mcu_s": 10323.038996,
+    "below1_fraction": 0.007010323634164551,
+    "above80_fraction": 0.06067775807637017,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "16076171f52ef52d94005c80558df667e3090e1b7e0ef4d8df2f0cb174a21cd8",
+    "start_mcu_s": 10323.039372,
+    "end_mcu_s": 10443.078021,
+    "below1_fraction": 0.006882561519690829,
+    "above80_fraction": 0.05205918746273803,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "8127486594f057cfcefb697817ec34d1223453462c16c5e8fedfe10ba74bbe74",
+    "start_mcu_s": 10323.039372,
+    "end_mcu_s": 10443.078021,
+    "below1_fraction": 0.007301366109817076,
+    "above80_fraction": 0.055590698188035845,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "16076171f52ef52d94005c80558df667e3090e1b7e0ef4d8df2f0cb174a21cd8",
+    "start_mcu_s": 10443.078395999999,
+    "end_mcu_s": 10563.117126,
+    "below1_fraction": 0.006536358789890805,
+    "above80_fraction": 0.05705919414489733,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "8127486594f057cfcefb697817ec34d1223453462c16c5e8fedfe10ba74bbe74",
+    "start_mcu_s": 10443.078395999999,
+    "end_mcu_s": 10563.117126,
+    "below1_fraction": 0.006786412884347078,
+    "above80_fraction": 0.06135697331289565,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "16076171f52ef52d94005c80558df667e3090e1b7e0ef4d8df2f0cb174a21cd8",
+    "start_mcu_s": 10563.117500999999,
+    "end_mcu_s": 10683.163322999999,
+    "below1_fraction": 0.007812101297944327,
+    "above80_fraction": 0.05381793085379054,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "8127486594f057cfcefb697817ec34d1223453462c16c5e8fedfe10ba74bbe74",
+    "start_mcu_s": 10563.117500999999,
+    "end_mcu_s": 10683.163322999999,
+    "below1_fraction": 0.008206469224964211,
+    "above80_fraction": 0.057564186674459956,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "16076171f52ef52d94005c80558df667e3090e1b7e0ef4d8df2f0cb174a21cd8",
+    "start_mcu_s": 10683.163698,
+    "end_mcu_s": 10803.213471,
+    "below1_fraction": 0.008708038200604033,
+    "above80_fraction": 0.05642909136271571,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "8127486594f057cfcefb697817ec34d1223453462c16c5e8fedfe10ba74bbe74",
+    "start_mcu_s": 10683.163698,
+    "end_mcu_s": 10803.213471,
+    "below1_fraction": 0.008991861989891268,
+    "above80_fraction": 0.06010320617901439,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "16076171f52ef52d94005c80558df667e3090e1b7e0ef4d8df2f0cb174a21cd8",
+    "start_mcu_s": 10803.213846999999,
+    "end_mcu_s": 10923.270771,
+    "below1_fraction": 0.007489088067430835,
+    "above80_fraction": 0.05089862277683386,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "8127486594f057cfcefb697817ec34d1223453462c16c5e8fedfe10ba74bbe74",
+    "start_mcu_s": 10803.213846999999,
+    "end_mcu_s": 10923.270771,
+    "below1_fraction": 0.00779025009331983,
+    "above80_fraction": 0.055902456434719125,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "16076171f52ef52d94005c80558df667e3090e1b7e0ef4d8df2f0cb174a21cd8",
+    "start_mcu_s": 10923.271147,
+    "end_mcu_s": 11043.325427,
+    "below1_fraction": 0.007194314640010674,
+    "above80_fraction": 0.05306872749096489,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "8127486594f057cfcefb697817ec34d1223453462c16c5e8fedfe10ba74bbe74",
+    "start_mcu_s": 10923.271147,
+    "end_mcu_s": 11043.325427,
+    "below1_fraction": 0.007614584766668,
+    "above80_fraction": 0.057718366024222215,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "16076171f52ef52d94005c80558df667e3090e1b7e0ef4d8df2f0cb174a21cd8",
+    "start_mcu_s": 11043.325802,
+    "end_mcu_s": 11163.384954,
+    "below1_fraction": 0.007541140561074941,
+    "above80_fraction": 0.05113891962929351,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "8127486594f057cfcefb697817ec34d1223453462c16c5e8fedfe10ba74bbe74",
+    "start_mcu_s": 11043.325802,
+    "end_mcu_s": 11163.384954,
+    "below1_fraction": 0.007678043072887372,
+    "above80_fraction": 0.05597501515374148,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "16076171f52ef52d94005c80558df667e3090e1b7e0ef4d8df2f0cb174a21cd8",
+    "start_mcu_s": 11163.38533,
+    "end_mcu_s": 11283.448702,
+    "below1_fraction": 0.009199163373224411,
+    "above80_fraction": 0.04558174014140554,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "8127486594f057cfcefb697817ec34d1223453462c16c5e8fedfe10ba74bbe74",
+    "start_mcu_s": 11163.38533,
+    "end_mcu_s": 11283.448702,
+    "below1_fraction": 0.009904940256991606,
+    "above80_fraction": 0.048501920162547354,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "16076171f52ef52d94005c80558df667e3090e1b7e0ef4d8df2f0cb174a21cd8",
+    "start_mcu_s": 11283.449077,
+    "end_mcu_s": 11403.516453999999,
+    "below1_fraction": 0.008473606456324811,
+    "above80_fraction": 0.04420046325334213,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "8127486594f057cfcefb697817ec34d1223453462c16c5e8fedfe10ba74bbe74",
+    "start_mcu_s": 11283.449077,
+    "end_mcu_s": 11403.516453999999,
+    "below1_fraction": 0.008421389327195768,
+    "above80_fraction": 0.04793758138240589,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "16076171f52ef52d94005c80558df667e3090e1b7e0ef4d8df2f0cb174a21cd8",
+    "start_mcu_s": 11403.516829999999,
+    "end_mcu_s": 11523.576755,
+    "below1_fraction": 0.008135572609206748,
+    "above80_fraction": 0.04268538532603865,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "8127486594f057cfcefb697817ec34d1223453462c16c5e8fedfe10ba74bbe74",
+    "start_mcu_s": 11403.516829999999,
+    "end_mcu_s": 11523.576755,
+    "below1_fraction": 0.00872224670475288,
+    "above80_fraction": 0.04640950688692503,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "16076171f52ef52d94005c80558df667e3090e1b7e0ef4d8df2f0cb174a21cd8",
+    "start_mcu_s": 11523.577131,
+    "end_mcu_s": 11643.637284999999,
+    "below1_fraction": 0.0037522867323932832,
+    "above80_fraction": 0.021513498294989972,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "8127486594f057cfcefb697817ec34d1223453462c16c5e8fedfe10ba74bbe74",
+    "start_mcu_s": 11523.577131,
+    "end_mcu_s": 11643.637284999999,
+    "below1_fraction": 0.0038966869139307326,
+    "above80_fraction": 0.023347603091700114,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "16076171f52ef52d94005c80558df667e3090e1b7e0ef4d8df2f0cb174a21cd8",
+    "start_mcu_s": 11643.637660999999,
+    "end_mcu_s": 11763.696253999999,
+    "below1_fraction": 0.002151618952199761,
+    "above80_fraction": 0.009845075939181836,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "8127486594f057cfcefb697817ec34d1223453462c16c5e8fedfe10ba74bbe74",
+    "start_mcu_s": 11643.637660999999,
+    "end_mcu_s": 11763.696253999999,
+    "below1_fraction": 0.0023422344954067255,
+    "above80_fraction": 0.010718746411735265,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "16076171f52ef52d94005c80558df667e3090e1b7e0ef4d8df2f0cb174a21cd8",
+    "start_mcu_s": 11763.69663,
+    "end_mcu_s": 11883.764412999999,
+    "below1_fraction": 0.009606404005821818,
+    "above80_fraction": 0.004416629959562519,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "8127486594f057cfcefb697817ec34d1223453462c16c5e8fedfe10ba74bbe74",
+    "start_mcu_s": 11763.69663,
+    "end_mcu_s": 11883.764412999999,
+    "below1_fraction": 0.010232196213325169,
+    "above80_fraction": 0.00457237149284482,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "16076171f52ef52d94005c80558df667e3090e1b7e0ef4d8df2f0cb174a21cd8",
+    "start_mcu_s": 11883.764787999999,
+    "end_mcu_s": 12003.830383999999,
+    "below1_fraction": 0.012984499033797638,
+    "above80_fraction": 0.0036254704997643354,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "8127486594f057cfcefb697817ec34d1223453462c16c5e8fedfe10ba74bbe74",
+    "start_mcu_s": 11883.764787999999,
+    "end_mcu_s": 12003.830383999999,
+    "below1_fraction": 0.01378065249336971,
+    "above80_fraction": 0.0037738019815803277,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "16076171f52ef52d94005c80558df667e3090e1b7e0ef4d8df2f0cb174a21cd8",
+    "start_mcu_s": 12003.830758999999,
+    "end_mcu_s": 12123.902692,
+    "below1_fraction": 0.012125355755281913,
+    "above80_fraction": 0.003443556827806738,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "8127486594f057cfcefb697817ec34d1223453462c16c5e8fedfe10ba74bbe74",
+    "start_mcu_s": 12003.830758999999,
+    "end_mcu_s": 12123.902692,
+    "below1_fraction": 0.012040478054495388,
+    "above80_fraction": 0.0035101994025850754,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "16076171f52ef52d94005c80558df667e3090e1b7e0ef4d8df2f0cb174a21cd8",
+    "start_mcu_s": 12123.903068,
+    "end_mcu_s": 12243.973999,
+    "below1_fraction": 0.008430217176579666,
+    "above80_fraction": 0.0038203448265888965,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "8127486594f057cfcefb697817ec34d1223453462c16c5e8fedfe10ba74bbe74",
+    "start_mcu_s": 12123.903068,
+    "end_mcu_s": 12243.973999,
+    "below1_fraction": 0.008640568352264627,
+    "above80_fraction": 0.003990919787825578,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "16076171f52ef52d94005c80558df667e3090e1b7e0ef4d8df2f0cb174a21cd8",
+    "start_mcu_s": 12243.974375,
+    "end_mcu_s": 12364.04475,
+    "below1_fraction": 0.010755916709292926,
+    "above80_fraction": 0.003675438482115624,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "8127486594f057cfcefb697817ec34d1223453462c16c5e8fedfe10ba74bbe74",
+    "start_mcu_s": 12243.974375,
+    "end_mcu_s": 12364.04475,
+    "below1_fraction": 0.011202910803980497,
+    "above80_fraction": 0.003763180526414921,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "16076171f52ef52d94005c80558df667e3090e1b7e0ef4d8df2f0cb174a21cd8",
+    "start_mcu_s": 12364.045125999999,
+    "end_mcu_s": 12484.106643,
+    "below1_fraction": 0.008999911637443013,
+    "above80_fraction": 0.0035574771835901434,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "8127486594f057cfcefb697817ec34d1223453462c16c5e8fedfe10ba74bbe74",
+    "start_mcu_s": 12364.045125999999,
+    "end_mcu_s": 12484.106643,
+    "below1_fraction": 0.009140776822821479,
+    "above80_fraction": 0.0036778152569935632,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "16076171f52ef52d94005c80558df667e3090e1b7e0ef4d8df2f0cb174a21cd8",
+    "start_mcu_s": 12484.107019,
+    "end_mcu_s": 12604.178047,
+    "below1_fraction": 0.010166854470410621,
+    "above80_fraction": 0.003515559402118362,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "8127486594f057cfcefb697817ec34d1223453462c16c5e8fedfe10ba74bbe74",
+    "start_mcu_s": 12484.107019,
+    "end_mcu_s": 12604.178047,
+    "below1_fraction": 0.010785957444153838,
+    "above80_fraction": 0.003665902091435347,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "16076171f52ef52d94005c80558df667e3090e1b7e0ef4d8df2f0cb174a21cd8",
+    "start_mcu_s": 12604.178423,
+    "end_mcu_s": 12724.241361999999,
+    "below1_fraction": 0.011668932564412737,
+    "above80_fraction": 0.002589406164168359,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "8127486594f057cfcefb697817ec34d1223453462c16c5e8fedfe10ba74bbe74",
+    "start_mcu_s": 12604.178423,
+    "end_mcu_s": 12724.241361999999,
+    "below1_fraction": 0.012286768222768505,
+    "above80_fraction": 0.002736644619862706,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "16076171f52ef52d94005c80558df667e3090e1b7e0ef4d8df2f0cb174a21cd8",
+    "start_mcu_s": 12724.241737999999,
+    "end_mcu_s": 12844.309248,
+    "below1_fraction": 0.008564053762761646,
+    "above80_fraction": 0.0027281897336849993,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "8127486594f057cfcefb697817ec34d1223453462c16c5e8fedfe10ba74bbe74",
+    "start_mcu_s": 12724.241737999999,
+    "end_mcu_s": 12844.309248,
+    "below1_fraction": 0.009091670313980954,
+    "above80_fraction": 0.002829751667517896,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "16076171f52ef52d94005c80558df667e3090e1b7e0ef4d8df2f0cb174a21cd8",
+    "start_mcu_s": 12844.309624,
+    "end_mcu_s": 12964.381349,
+    "below1_fraction": 0.00802734742091293,
+    "above80_fraction": 0.002839698638300189,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "8127486594f057cfcefb697817ec34d1223453462c16c5e8fedfe10ba74bbe74",
+    "start_mcu_s": 12844.309624,
+    "end_mcu_s": 12964.381349,
+    "below1_fraction": 0.008242181704611336,
+    "above80_fraction": 0.0028797949473912563,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "16076171f52ef52d94005c80558df667e3090e1b7e0ef4d8df2f0cb174a21cd8",
+    "start_mcu_s": 12964.381725,
+    "end_mcu_s": 13084.450589,
+    "below1_fraction": 0.007725830370720753,
+    "above80_fraction": 0.0026574457239033574,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "8127486594f057cfcefb697817ec34d1223453462c16c5e8fedfe10ba74bbe74",
+    "start_mcu_s": 12964.381725,
+    "end_mcu_s": 13084.450589,
+    "below1_fraction": 0.008086457514957013,
+    "above80_fraction": 0.002761757048621009,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "16076171f52ef52d94005c80558df667e3090e1b7e0ef4d8df2f0cb174a21cd8",
+    "start_mcu_s": 13084.450965,
+    "end_mcu_s": 13204.52081,
+    "below1_fraction": 0.00891762851450479,
+    "above80_fraction": 0.003098199051554902,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "8127486594f057cfcefb697817ec34d1223453462c16c5e8fedfe10ba74bbe74",
+    "start_mcu_s": 13084.450965,
+    "end_mcu_s": 13204.52081,
+    "below1_fraction": 0.009173322198920388,
+    "above80_fraction": 0.0031654001039610824,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "16076171f52ef52d94005c80558df667e3090e1b7e0ef4d8df2f0cb174a21cd8",
+    "start_mcu_s": 13204.521185,
+    "end_mcu_s": 13324.595718999999,
+    "below1_fraction": 0.007240427345658774,
+    "above80_fraction": 0.002296466594660715,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "8127486594f057cfcefb697817ec34d1223453462c16c5e8fedfe10ba74bbe74",
+    "start_mcu_s": 13204.521185,
+    "end_mcu_s": 13324.595718999999,
+    "below1_fraction": 0.007441699686988179,
+    "above80_fraction": 0.0023518484479502734,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "16076171f52ef52d94005c80558df667e3090e1b7e0ef4d8df2f0cb174a21cd8",
+    "start_mcu_s": 13324.596094999999,
+    "end_mcu_s": 13444.672242999999,
+    "below1_fraction": 0.00873170574736033,
+    "above80_fraction": 0.004335075312074142,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "8127486594f057cfcefb697817ec34d1223453462c16c5e8fedfe10ba74bbe74",
+    "start_mcu_s": 13324.596094999999,
+    "end_mcu_s": 13444.672242999999,
+    "below1_fraction": 0.008903592183730547,
+    "above80_fraction": 0.004465508485905757,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "16076171f52ef52d94005c80558df667e3090e1b7e0ef4d8df2f0cb174a21cd8",
+    "start_mcu_s": 13444.672618999999,
+    "end_mcu_s": 13564.741917,
+    "below1_fraction": 0.008418295203721884,
+    "above80_fraction": 0.003052823935569037,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "8127486594f057cfcefb697817ec34d1223453462c16c5e8fedfe10ba74bbe74",
+    "start_mcu_s": 13444.672618999999,
+    "end_mcu_s": 13564.741917,
+    "below1_fraction": 0.008649773911958909,
+    "above80_fraction": 0.003202767652316925,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "16076171f52ef52d94005c80558df667e3090e1b7e0ef4d8df2f0cb174a21cd8",
+    "start_mcu_s": 13564.742291999999,
+    "end_mcu_s": 13684.818546999999,
+    "below1_fraction": 0.0074404869854967,
+    "above80_fraction": 0.00279601952545987,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "8127486594f057cfcefb697817ec34d1223453462c16c5e8fedfe10ba74bbe74",
+    "start_mcu_s": 13564.742291999999,
+    "end_mcu_s": 13684.818546999999,
+    "below1_fraction": 0.007524812987614256,
+    "above80_fraction": 0.0028486899389496383,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "16076171f52ef52d94005c80558df667e3090e1b7e0ef4d8df2f0cb174a21cd8",
+    "start_mcu_s": 13684.818922999999,
+    "end_mcu_s": 13804.899447,
+    "below1_fraction": 0.008433044428967711,
+    "above80_fraction": 0.002828860978600237,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "8127486594f057cfcefb697817ec34d1223453462c16c5e8fedfe10ba74bbe74",
+    "start_mcu_s": 13684.818922999999,
+    "end_mcu_s": 13804.899447,
+    "below1_fraction": 0.008853972311857531,
+    "above80_fraction": 0.0029477044198815243,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "16076171f52ef52d94005c80558df667e3090e1b7e0ef4d8df2f0cb174a21cd8",
+    "start_mcu_s": 13804.899823,
+    "end_mcu_s": 13924.981506999999,
+    "below1_fraction": 0.005882995651463239,
+    "above80_fraction": 0.0024893260500595685,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "8127486594f057cfcefb697817ec34d1223453462c16c5e8fedfe10ba74bbe74",
+    "start_mcu_s": 13804.899823,
+    "end_mcu_s": 13924.981506999999,
+    "below1_fraction": 0.005675908880497688,
+    "above80_fraction": 0.0025598961546264443,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "16076171f52ef52d94005c80558df667e3090e1b7e0ef4d8df2f0cb174a21cd8",
+    "start_mcu_s": 13924.981882999999,
+    "end_mcu_s": 14045.056326,
+    "below1_fraction": 0.0072316018652287236,
+    "above80_fraction": 0.0032268363409653587,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "8127486594f057cfcefb697817ec34d1223453462c16c5e8fedfe10ba74bbe74",
+    "start_mcu_s": 13924.981882999999,
+    "end_mcu_s": 14045.056326,
+    "below1_fraction": 0.0074006571206413525,
+    "above80_fraction": 0.0033040166168520563,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "16076171f52ef52d94005c80558df667e3090e1b7e0ef4d8df2f0cb174a21cd8",
+    "start_mcu_s": 14045.056702,
+    "end_mcu_s": 14165.127053,
+    "below1_fraction": 0.005148445836756335,
+    "above80_fraction": 0.002324368299503618,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "8127486594f057cfcefb697817ec34d1223453462c16c5e8fedfe10ba74bbe74",
+    "start_mcu_s": 14045.056702,
+    "end_mcu_s": 14165.127053,
+    "below1_fraction": 0.005412091455502925,
+    "above80_fraction": 0.002355617558983012,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "16076171f52ef52d94005c80558df667e3090e1b7e0ef4d8df2f0cb174a21cd8",
+    "start_mcu_s": 14165.127429,
+    "end_mcu_s": 14285.196334,
+    "below1_fraction": 0.005780293467739104,
+    "above80_fraction": 0.0032209177716090906,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "8127486594f057cfcefb697817ec34d1223453462c16c5e8fedfe10ba74bbe74",
+    "start_mcu_s": 14165.127429,
+    "end_mcu_s": 14285.196334,
+    "below1_fraction": 0.005603044614493203,
+    "above80_fraction": 0.003391040985148927,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "16076171f52ef52d94005c80558df667e3090e1b7e0ef4d8df2f0cb174a21cd8",
+    "start_mcu_s": 14285.19671,
+    "end_mcu_s": 14405.254625,
+    "below1_fraction": 0.004658380501552349,
+    "above80_fraction": 0.003971417630929454,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "8127486594f057cfcefb697817ec34d1223453462c16c5e8fedfe10ba74bbe74",
+    "start_mcu_s": 14285.19671,
+    "end_mcu_s": 14405.254625,
+    "below1_fraction": 0.004932455964303797,
+    "above80_fraction": 0.004089139060812846,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "16076171f52ef52d94005c80558df667e3090e1b7e0ef4d8df2f0cb174a21cd8",
+    "start_mcu_s": 14405.255001,
+    "end_mcu_s": 14525.310988,
+    "below1_fraction": 0.004452899573254631,
+    "above80_fraction": 0.0029653319143395137,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "8127486594f057cfcefb697817ec34d1223453462c16c5e8fedfe10ba74bbe74",
+    "start_mcu_s": 14405.255001,
+    "end_mcu_s": 14525.310988,
+    "below1_fraction": 0.004528713470108808,
+    "above80_fraction": 0.0030941963890535784,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "16076171f52ef52d94005c80558df667e3090e1b7e0ef4d8df2f0cb174a21cd8",
+    "start_mcu_s": 14525.311364,
+    "end_mcu_s": 14645.37357,
+    "below1_fraction": 0.004226438954586538,
+    "above80_fraction": 0.0032321316033920343,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "8127486594f057cfcefb697817ec34d1223453462c16c5e8fedfe10ba74bbe74",
+    "start_mcu_s": 14525.311364,
+    "end_mcu_s": 14645.37357,
+    "below1_fraction": 0.004111337210716503,
+    "above80_fraction": 0.003358842661417883,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "16076171f52ef52d94005c80558df667e3090e1b7e0ef4d8df2f0cb174a21cd8",
+    "start_mcu_s": 14645.373945,
+    "end_mcu_s": 14765.433310999999,
+    "below1_fraction": 0.0033513701453958375,
+    "above80_fraction": 0.002990331466451046,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "8127486594f057cfcefb697817ec34d1223453462c16c5e8fedfe10ba74bbe74",
+    "start_mcu_s": 14645.373945,
+    "end_mcu_s": 14765.433310999999,
+    "below1_fraction": 0.003432266801206441,
+    "above80_fraction": 0.003064907295697802,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "16076171f52ef52d94005c80558df667e3090e1b7e0ef4d8df2f0cb174a21cd8",
+    "start_mcu_s": 14765.433686999999,
+    "end_mcu_s": 14885.492788,
+    "below1_fraction": 0.0030975441743553373,
+    "above80_fraction": 0.002606493866139745,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "8127486594f057cfcefb697817ec34d1223453462c16c5e8fedfe10ba74bbe74",
+    "start_mcu_s": 14765.433686999999,
+    "end_mcu_s": 14885.492788,
+    "below1_fraction": 0.0032440457360406487,
+    "above80_fraction": 0.0027561978444259638,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "16076171f52ef52d94005c80558df667e3090e1b7e0ef4d8df2f0cb174a21cd8",
+    "start_mcu_s": 14885.493164,
+    "end_mcu_s": 15005.562519,
+    "below1_fraction": 0.0032642170672686883,
+    "above80_fraction": 0.003154786049489427,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "8127486594f057cfcefb697817ec34d1223453462c16c5e8fedfe10ba74bbe74",
+    "start_mcu_s": 14885.493164,
+    "end_mcu_s": 15005.562519,
+    "below1_fraction": 0.003435088737543084,
+    "above80_fraction": 0.0032601619560754906,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "16076171f52ef52d94005c80558df667e3090e1b7e0ef4d8df2f0cb174a21cd8",
+    "start_mcu_s": 15005.562895,
+    "end_mcu_s": 15125.632575,
+    "below1_fraction": 0.002367209977784896,
+    "above80_fraction": 0.0032175832357116737,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "8127486594f057cfcefb697817ec34d1223453462c16c5e8fedfe10ba74bbe74",
+    "start_mcu_s": 15005.562895,
+    "end_mcu_s": 15125.632575,
+    "below1_fraction": 0.002471992984047835,
+    "above80_fraction": 0.0032809352962241563,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "16076171f52ef52d94005c80558df667e3090e1b7e0ef4d8df2f0cb174a21cd8",
+    "start_mcu_s": 15125.632951,
+    "end_mcu_s": 15245.700411,
+    "below1_fraction": 0.0025590249994665035,
+    "above80_fraction": 0.002957149490279303,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "8127486594f057cfcefb697817ec34d1223453462c16c5e8fedfe10ba74bbe74",
+    "start_mcu_s": 15125.632951,
+    "end_mcu_s": 15245.700411,
+    "below1_fraction": 0.002569528694296019,
+    "above80_fraction": 0.0030470962068121976,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "16076171f52ef52d94005c80558df667e3090e1b7e0ef4d8df2f0cb174a21cd8",
+    "start_mcu_s": 15245.700787,
+    "end_mcu_s": 15365.770707,
+    "below1_fraction": 0.002750070962969468,
+    "above80_fraction": 0.0030792351154798362,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "8127486594f057cfcefb697817ec34d1223453462c16c5e8fedfe10ba74bbe74",
+    "start_mcu_s": 15245.700787,
+    "end_mcu_s": 15365.770707,
+    "below1_fraction": 0.002836385900724957,
+    "above80_fraction": 0.0031437808969695985,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "16076171f52ef52d94005c80558df667e3090e1b7e0ef4d8df2f0cb174a21cd8",
+    "start_mcu_s": 15365.771082,
+    "end_mcu_s": 15485.834264,
+    "below1_fraction": 0.0024400391205474875,
+    "above80_fraction": 0.0035082808833530902,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "8127486594f057cfcefb697817ec34d1223453462c16c5e8fedfe10ba74bbe74",
+    "start_mcu_s": 15365.771082,
+    "end_mcu_s": 15485.834264,
+    "below1_fraction": 0.002562974416657793,
+    "above80_fraction": 0.0036098213209709825,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "16076171f52ef52d94005c80558df667e3090e1b7e0ef4d8df2f0cb174a21cd8",
+    "start_mcu_s": 15485.83464,
+    "end_mcu_s": 15605.892447999999,
+    "below1_fraction": 0.0028262331130741274,
+    "above80_fraction": 0.0043442601205240005,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "8127486594f057cfcefb697817ec34d1223453462c16c5e8fedfe10ba74bbe74",
+    "start_mcu_s": 15485.83464,
+    "end_mcu_s": 15605.892447999999,
+    "below1_fraction": 0.002978137769492837,
+    "above80_fraction": 0.004397302509018816,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "16076171f52ef52d94005c80558df667e3090e1b7e0ef4d8df2f0cb174a21cd8",
+    "start_mcu_s": 15605.892823999999,
+    "end_mcu_s": 15725.941141,
+    "below1_fraction": 0.0019921919208530166,
+    "above80_fraction": 0.004230085982805045,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "8127486594f057cfcefb697817ec34d1223453462c16c5e8fedfe10ba74bbe74",
+    "start_mcu_s": 15605.892823999999,
+    "end_mcu_s": 15725.941141,
+    "below1_fraction": 0.0020440287015232946,
+    "above80_fraction": 0.0043334215241059,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "16076171f52ef52d94005c80558df667e3090e1b7e0ef4d8df2f0cb174a21cd8",
+    "start_mcu_s": 15725.941517,
+    "end_mcu_s": 15845.978624,
+    "below1_fraction": 0.00311016981145351,
+    "above80_fraction": 0.003266812372483164,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "8127486594f057cfcefb697817ec34d1223453462c16c5e8fedfe10ba74bbe74",
+    "start_mcu_s": 15725.941517,
+    "end_mcu_s": 15845.978624,
+    "below1_fraction": 0.0032024086141330026,
+    "above80_fraction": 0.0034329121733083917,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "16076171f52ef52d94005c80558df667e3090e1b7e0ef4d8df2f0cb174a21cd8",
+    "start_mcu_s": 15845.978998999999,
+    "end_mcu_s": 15966.016748,
+    "below1_fraction": 0.002544678063330204,
+    "above80_fraction": 0.0018333496505809602,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "8127486594f057cfcefb697817ec34d1223453462c16c5e8fedfe10ba74bbe74",
+    "start_mcu_s": 15845.978998999999,
+    "end_mcu_s": 15966.016748,
+    "below1_fraction": 0.0026308733240471907,
+    "above80_fraction": 0.001885138986220232,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "16076171f52ef52d94005c80558df667e3090e1b7e0ef4d8df2f0cb174a21cd8",
+    "start_mcu_s": 15966.017124,
+    "end_mcu_s": 16086.065669,
+    "below1_fraction": 0.0025019573084426087,
+    "above80_fraction": 0.0029592824099725964,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "8127486594f057cfcefb697817ec34d1223453462c16c5e8fedfe10ba74bbe74",
+    "start_mcu_s": 15966.017124,
+    "end_mcu_s": 16086.065669,
+    "below1_fraction": 0.0025566449099464865,
+    "above80_fraction": 0.0030787076503188825,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "16076171f52ef52d94005c80558df667e3090e1b7e0ef4d8df2f0cb174a21cd8",
+    "start_mcu_s": 16086.066045,
+    "end_mcu_s": 16206.11934,
+    "below1_fraction": 0.0029764002086732516,
+    "above80_fraction": 0.00321160928765774,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "8127486594f057cfcefb697817ec34d1223453462c16c5e8fedfe10ba74bbe74",
+    "start_mcu_s": 16086.066045,
+    "end_mcu_s": 16206.11934,
+    "below1_fraction": 0.0028880592738089084,
+    "above80_fraction": 0.003280037233141101,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "16076171f52ef52d94005c80558df667e3090e1b7e0ef4d8df2f0cb174a21cd8",
+    "start_mcu_s": 16206.119714999999,
+    "end_mcu_s": 16326.17457,
+    "below1_fraction": 0.0028363587422922344,
+    "above80_fraction": 0.0015943372790272652,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "8127486594f057cfcefb697817ec34d1223453462c16c5e8fedfe10ba74bbe74",
+    "start_mcu_s": 16206.119714999999,
+    "end_mcu_s": 16326.17457,
+    "below1_fraction": 0.0028375314995796254,
+    "above80_fraction": 0.001529333873984929,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "16076171f52ef52d94005c80558df667e3090e1b7e0ef4d8df2f0cb174a21cd8",
+    "start_mcu_s": 16326.174946,
+    "end_mcu_s": 16446.230384,
+    "below1_fraction": 0.0027438490708180884,
+    "above80_fraction": 0.0027850123794741174,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "8127486594f057cfcefb697817ec34d1223453462c16c5e8fedfe10ba74bbe74",
+    "start_mcu_s": 16326.174946,
+    "end_mcu_s": 16446.230384,
+    "below1_fraction": 0.0027555734918778565,
+    "above80_fraction": 0.0028166833670524023,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "16076171f52ef52d94005c80558df667e3090e1b7e0ef4d8df2f0cb174a21cd8",
+    "start_mcu_s": 16446.230759,
+    "end_mcu_s": 16566.282053,
+    "below1_fraction": 0.003435608511552519,
+    "above80_fraction": 0.0027217936450083537,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "8127486594f057cfcefb697817ec34d1223453462c16c5e8fedfe10ba74bbe74",
+    "start_mcu_s": 16446.230759,
+    "end_mcu_s": 16566.282053,
+    "below1_fraction": 0.0035655641787665686,
+    "above80_fraction": 0.002791002306724663,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "16076171f52ef52d94005c80558df667e3090e1b7e0ef4d8df2f0cb174a21cd8",
+    "start_mcu_s": 16566.282429,
+    "end_mcu_s": 16686.340548,
+    "below1_fraction": 0.0024358234837776557,
+    "above80_fraction": 0.0032289805375533154,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "8127486594f057cfcefb697817ec34d1223453462c16c5e8fedfe10ba74bbe74",
+    "start_mcu_s": 16566.282429,
+    "end_mcu_s": 16686.340548,
+    "below1_fraction": 0.002543724883167074,
+    "above80_fraction": 0.0032861215960451324,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "16076171f52ef52d94005c80558df667e3090e1b7e0ef4d8df2f0cb174a21cd8",
+    "start_mcu_s": 16686.340924,
+    "end_mcu_s": 16806.396843,
+    "below1_fraction": 0.0026162399461779847,
+    "above80_fraction": 0.0034436392354265976,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "8127486594f057cfcefb697817ec34d1223453462c16c5e8fedfe10ba74bbe74",
+    "start_mcu_s": 16686.340924,
+    "end_mcu_s": 16806.396843,
+    "below1_fraction": 0.0026982825900154464,
+    "above80_fraction": 0.0034252669935120783,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "16076171f52ef52d94005c80558df667e3090e1b7e0ef4d8df2f0cb174a21cd8",
+    "start_mcu_s": 16806.397219,
+    "end_mcu_s": 16926.448597,
+    "below1_fraction": 0.002066726293231547,
+    "above80_fraction": 0.003465757016475325,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "8127486594f057cfcefb697817ec34d1223453462c16c5e8fedfe10ba74bbe74",
+    "start_mcu_s": 16806.397219,
+    "end_mcu_s": 16926.448597,
+    "below1_fraction": 0.002169184520747438,
+    "above80_fraction": 0.003527968014205495,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "16076171f52ef52d94005c80558df667e3090e1b7e0ef4d8df2f0cb174a21cd8",
+    "start_mcu_s": 16926.448973,
+    "end_mcu_s": 17046.49906,
+    "below1_fraction": 0.0018533933409869735,
+    "above80_fraction": 0.003915903930346335,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "8127486594f057cfcefb697817ec34d1223453462c16c5e8fedfe10ba74bbe74",
+    "start_mcu_s": 16926.448973,
+    "end_mcu_s": 17046.49906,
+    "below1_fraction": 0.0019637088300903344,
+    "above80_fraction": 0.004144466728176396,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "16076171f52ef52d94005c80558df667e3090e1b7e0ef4d8df2f0cb174a21cd8",
+    "start_mcu_s": 17046.499436,
+    "end_mcu_s": 17166.55215,
+    "below1_fraction": 0.001284878122182024,
+    "above80_fraction": 0.002568430625953823,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "8127486594f057cfcefb697817ec34d1223453462c16c5e8fedfe10ba74bbe74",
+    "start_mcu_s": 17046.499436,
+    "end_mcu_s": 17166.55215,
+    "below1_fraction": 0.001294529127611984,
+    "above80_fraction": 0.0025914757314219592,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "16076171f52ef52d94005c80558df667e3090e1b7e0ef4d8df2f0cb174a21cd8",
+    "start_mcu_s": 17166.552526,
+    "end_mcu_s": 17286.604371999998,
+    "below1_fraction": 0.0009833110679097776,
+    "above80_fraction": 0.0035193777537824438,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "8127486594f057cfcefb697817ec34d1223453462c16c5e8fedfe10ba74bbe74",
+    "start_mcu_s": 17166.552526,
+    "end_mcu_s": 17286.604371999998,
+    "below1_fraction": 0.000996144938273501,
+    "above80_fraction": 0.0035668728352089003,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "16076171f52ef52d94005c80558df667e3090e1b7e0ef4d8df2f0cb174a21cd8",
+    "start_mcu_s": 17286.604747999998,
+    "end_mcu_s": 17406.649902,
+    "below1_fraction": 0.0014530741849999597,
+    "above80_fraction": 0.004135748535786064,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "8127486594f057cfcefb697817ec34d1223453462c16c5e8fedfe10ba74bbe74",
+    "start_mcu_s": 17286.604747999998,
+    "end_mcu_s": 17406.649902,
+    "below1_fraction": 0.0015580576577047542,
+    "above80_fraction": 0.004305105696347665,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "16076171f52ef52d94005c80558df667e3090e1b7e0ef4d8df2f0cb174a21cd8",
+    "start_mcu_s": 17406.650278,
+    "end_mcu_s": 17526.697752,
+    "below1_fraction": 0.0013227742071399821,
+    "above80_fraction": 0.003999189669462516,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "8127486594f057cfcefb697817ec34d1223453462c16c5e8fedfe10ba74bbe74",
+    "start_mcu_s": 17406.650278,
+    "end_mcu_s": 17526.697752,
+    "below1_fraction": 0.0012882105438424577,
+    "above80_fraction": 0.003941664268972759,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "16076171f52ef52d94005c80558df667e3090e1b7e0ef4d8df2f0cb174a21cd8",
+    "start_mcu_s": 17526.698128,
+    "end_mcu_s": 17646.741528,
+    "below1_fraction": 0.0010652640071663027,
+    "above80_fraction": 0.013406661959704847,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "8127486594f057cfcefb697817ec34d1223453462c16c5e8fedfe10ba74bbe74",
+    "start_mcu_s": 17526.698128,
+    "end_mcu_s": 17646.741528,
+    "below1_fraction": 0.0011487590150804864,
+    "above80_fraction": 0.013799172364934111,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "16076171f52ef52d94005c80558df667e3090e1b7e0ef4d8df2f0cb174a21cd8",
+    "start_mcu_s": 17646.741904,
+    "end_mcu_s": 17766.78986,
+    "below1_fraction": 0.0004955114333427824,
+    "above80_fraction": 0.005620792178013069,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "8127486594f057cfcefb697817ec34d1223453462c16c5e8fedfe10ba74bbe74",
+    "start_mcu_s": 17646.741904,
+    "end_mcu_s": 17766.78986,
+    "below1_fraction": 0.0005272841870022934,
+    "above80_fraction": 0.00584796264139441,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "16076171f52ef52d94005c80558df667e3090e1b7e0ef4d8df2f0cb174a21cd8",
+    "start_mcu_s": 17766.790236,
+    "end_mcu_s": 17886.829378,
+    "below1_fraction": 0.00036205566265699857,
+    "above80_fraction": 0.006892149207817354,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "8127486594f057cfcefb697817ec34d1223453462c16c5e8fedfe10ba74bbe74",
+    "start_mcu_s": 17766.790236,
+    "end_mcu_s": 17886.829378,
+    "below1_fraction": 0.00037009637198206395,
+    "above80_fraction": 0.007498687439548123,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "16076171f52ef52d94005c80558df667e3090e1b7e0ef4d8df2f0cb174a21cd8",
+    "start_mcu_s": 17886.829754,
+    "end_mcu_s": 18006.870511,
+    "below1_fraction": 0.0003861440629860934,
+    "above80_fraction": 0.004529390002606816,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "8127486594f057cfcefb697817ec34d1223453462c16c5e8fedfe10ba74bbe74",
+    "start_mcu_s": 17886.829754,
+    "end_mcu_s": 18006.870511,
+    "below1_fraction": 0.00040406961507010337,
+    "above80_fraction": 0.004813939201899013,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "16076171f52ef52d94005c80558df667e3090e1b7e0ef4d8df2f0cb174a21cd8",
+    "start_mcu_s": 18006.870886,
+    "end_mcu_s": 18126.904393,
+    "below1_fraction": 0.0003691646331287714,
+    "above80_fraction": 0.006429428239574008,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "8127486594f057cfcefb697817ec34d1223453462c16c5e8fedfe10ba74bbe74",
+    "start_mcu_s": 18006.870886,
+    "end_mcu_s": 18126.904393,
+    "below1_fraction": 0.0003845622856330417,
+    "above80_fraction": 0.006375191659520733,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "16076171f52ef52d94005c80558df667e3090e1b7e0ef4d8df2f0cb174a21cd8",
+    "start_mcu_s": 18126.904769,
+    "end_mcu_s": 18246.940596,
+    "below1_fraction": 0.00047438285243370666,
+    "above80_fraction": 0.011470622285655842,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "8127486594f057cfcefb697817ec34d1223453462c16c5e8fedfe10ba74bbe74",
+    "start_mcu_s": 18126.904769,
+    "end_mcu_s": 18246.940596,
+    "below1_fraction": 0.00047476811528757265,
+    "above80_fraction": 0.01150258289536375,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "16076171f52ef52d94005c80558df667e3090e1b7e0ef4d8df2f0cb174a21cd8",
+    "start_mcu_s": 18246.940972,
+    "end_mcu_s": 18366.971559999998,
+    "below1_fraction": 0.0004442661110783288,
+    "above80_fraction": 0.011085136405218588,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "8127486594f057cfcefb697817ec34d1223453462c16c5e8fedfe10ba74bbe74",
+    "start_mcu_s": 18246.940972,
+    "end_mcu_s": 18366.971559999998,
+    "below1_fraction": 0.00045010864206953606,
+    "above80_fraction": 0.011622094286354029,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "16076171f52ef52d94005c80558df667e3090e1b7e0ef4d8df2f0cb174a21cd8",
+    "start_mcu_s": 18366.971935999998,
+    "end_mcu_s": 18486.998510999998,
+    "below1_fraction": 0.0005199804552826559,
+    "above80_fraction": 0.009081399259824534,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "8127486594f057cfcefb697817ec34d1223453462c16c5e8fedfe10ba74bbe74",
+    "start_mcu_s": 18366.971935999998,
+    "end_mcu_s": 18486.998510999998,
+    "below1_fraction": 0.0005300328054303341,
+    "above80_fraction": 0.009902366527211381,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "16076171f52ef52d94005c80558df667e3090e1b7e0ef4d8df2f0cb174a21cd8",
+    "start_mcu_s": 18486.998885999998,
+    "end_mcu_s": 18607.035547,
+    "below1_fraction": 0.00014422184864829,
+    "above80_fraction": 0.005970567401592375,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "8127486594f057cfcefb697817ec34d1223453462c16c5e8fedfe10ba74bbe74",
+    "start_mcu_s": 18486.998885999998,
+    "end_mcu_s": 18607.035547,
+    "below1_fraction": 0.00014554929009055048,
+    "above80_fraction": 0.006146287854856993,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "16076171f52ef52d94005c80558df667e3090e1b7e0ef4d8df2f0cb174a21cd8",
+    "start_mcu_s": 18607.035923,
+    "end_mcu_s": 18727.074697,
+    "below1_fraction": 0.0001527814725394698,
+    "above80_fraction": 0.00782225939644482,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "8127486594f057cfcefb697817ec34d1223453462c16c5e8fedfe10ba74bbe74",
+    "start_mcu_s": 18607.035923,
+    "end_mcu_s": 18727.074697,
+    "below1_fraction": 0.0001563155788622997,
+    "above80_fraction": 0.008169102305509384,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "16076171f52ef52d94005c80558df667e3090e1b7e0ef4d8df2f0cb174a21cd8",
+    "start_mcu_s": 18727.075073,
+    "end_mcu_s": 18847.109469,
+    "below1_fraction": 0.00020257934686113502,
+    "above80_fraction": 0.014531510366206384,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "8127486594f057cfcefb697817ec34d1223453462c16c5e8fedfe10ba74bbe74",
+    "start_mcu_s": 18727.075073,
+    "end_mcu_s": 18847.109469,
+    "below1_fraction": 0.00018062746849543647,
+    "above80_fraction": 0.015293745145874123,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "16076171f52ef52d94005c80558df667e3090e1b7e0ef4d8df2f0cb174a21cd8",
+    "start_mcu_s": 18847.109845,
+    "end_mcu_s": 18967.145387,
+    "below1_fraction": 0.0001583585079695712,
+    "above80_fraction": 0.008052422171995702,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "8127486594f057cfcefb697817ec34d1223453462c16c5e8fedfe10ba74bbe74",
+    "start_mcu_s": 18847.109845,
+    "end_mcu_s": 18967.145387,
+    "below1_fraction": 0.000153597644991574,
+    "above80_fraction": 0.008192403498022196,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "16076171f52ef52d94005c80558df667e3090e1b7e0ef4d8df2f0cb174a21cd8",
+    "start_mcu_s": 18967.145763,
+    "end_mcu_s": 19087.186974,
+    "below1_fraction": 0.00041547816010064845,
+    "above80_fraction": 0.010197860448239874,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "8127486594f057cfcefb697817ec34d1223453462c16c5e8fedfe10ba74bbe74",
+    "start_mcu_s": 18967.145763,
+    "end_mcu_s": 19087.186974,
+    "below1_fraction": 0.0004430291369399356,
+    "above80_fraction": 0.010631403266573101,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "16076171f52ef52d94005c80558df667e3090e1b7e0ef4d8df2f0cb174a21cd8",
+    "start_mcu_s": 19087.18735,
+    "end_mcu_s": 19207.222994,
+    "below1_fraction": 0.00021689845524009034,
+    "above80_fraction": 0.008125146052770512,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "8127486594f057cfcefb697817ec34d1223453462c16c5e8fedfe10ba74bbe74",
+    "start_mcu_s": 19087.18735,
+    "end_mcu_s": 19207.222994,
+    "below1_fraction": 0.00022679879403083325,
+    "above80_fraction": 0.008961197202194873,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "16076171f52ef52d94005c80558df667e3090e1b7e0ef4d8df2f0cb174a21cd8",
+    "start_mcu_s": 19207.22337,
+    "end_mcu_s": 19327.249456999998,
+    "below1_fraction": 0.0004081773736009851,
+    "above80_fraction": 0.0079945583218776,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "8127486594f057cfcefb697817ec34d1223453462c16c5e8fedfe10ba74bbe74",
+    "start_mcu_s": 19207.22337,
+    "end_mcu_s": 19327.249456999998,
+    "below1_fraction": 0.0003861802567804344,
+    "above80_fraction": 0.008286424186624997,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "16076171f52ef52d94005c80558df667e3090e1b7e0ef4d8df2f0cb174a21cd8",
+    "start_mcu_s": 19327.249831999998,
+    "end_mcu_s": 19447.271407,
+    "below1_fraction": 0.021327321714313573,
+    "above80_fraction": 0.021076112782498203,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "8127486594f057cfcefb697817ec34d1223453462c16c5e8fedfe10ba74bbe74",
+    "start_mcu_s": 19327.249831999998,
+    "end_mcu_s": 19447.271407,
+    "below1_fraction": 0.021318471304504406,
+    "above80_fraction": 0.021676288953593324,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "16076171f52ef52d94005c80558df667e3090e1b7e0ef4d8df2f0cb174a21cd8",
+    "start_mcu_s": 19447.271782,
+    "end_mcu_s": 19567.29378,
+    "below1_fraction": 0.017748040823553773,
+    "above80_fraction": 0.01571086608528032,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "8127486594f057cfcefb697817ec34d1223453462c16c5e8fedfe10ba74bbe74",
+    "start_mcu_s": 19447.271782,
+    "end_mcu_s": 19567.29378,
+    "below1_fraction": 0.017823377548153142,
+    "above80_fraction": 0.016245401096942197,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "16076171f52ef52d94005c80558df667e3090e1b7e0ef4d8df2f0cb174a21cd8",
+    "start_mcu_s": 19567.294156,
+    "end_mcu_s": 19687.329014,
+    "below1_fraction": 0.019865106912789185,
+    "above80_fraction": 0.014239763454052744,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "8127486594f057cfcefb697817ec34d1223453462c16c5e8fedfe10ba74bbe74",
+    "start_mcu_s": 19567.294156,
+    "end_mcu_s": 19687.329014,
+    "below1_fraction": 0.020515050308241203,
+    "above80_fraction": 0.014397385387537686,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "16076171f52ef52d94005c80558df667e3090e1b7e0ef4d8df2f0cb174a21cd8",
+    "start_mcu_s": 19687.32939,
+    "end_mcu_s": 19807.357365,
+    "below1_fraction": 0.022973090985489757,
+    "above80_fraction": 0.010355126978440236,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "8127486594f057cfcefb697817ec34d1223453462c16c5e8fedfe10ba74bbe74",
+    "start_mcu_s": 19687.32939,
+    "end_mcu_s": 19807.357365,
+    "below1_fraction": 0.02291185310355962,
+    "above80_fraction": 0.009947238861866287,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "16076171f52ef52d94005c80558df667e3090e1b7e0ef4d8df2f0cb174a21cd8",
+    "start_mcu_s": 19807.357741,
+    "end_mcu_s": 19927.382744,
+    "below1_fraction": 0.023559093123275563,
+    "above80_fraction": 0.008399030874199867,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "8127486594f057cfcefb697817ec34d1223453462c16c5e8fedfe10ba74bbe74",
+    "start_mcu_s": 19807.357741,
+    "end_mcu_s": 19927.382744,
+    "below1_fraction": 0.021630710814842753,
+    "above80_fraction": 0.008082598352016279,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "16076171f52ef52d94005c80558df667e3090e1b7e0ef4d8df2f0cb174a21cd8",
+    "start_mcu_s": 19927.38312,
+    "end_mcu_s": 20047.406705999998,
+    "below1_fraction": 0.02476651058449126,
+    "above80_fraction": 0.011950624215395647,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "8127486594f057cfcefb697817ec34d1223453462c16c5e8fedfe10ba74bbe74",
+    "start_mcu_s": 19927.38312,
+    "end_mcu_s": 20047.406705999998,
+    "below1_fraction": 0.0258502755559437,
+    "above80_fraction": 0.011183107431259725,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "16076171f52ef52d94005c80558df667e3090e1b7e0ef4d8df2f0cb174a21cd8",
+    "start_mcu_s": 20047.407080999998,
+    "end_mcu_s": 20167.432593999998,
+    "below1_fraction": 0.015818653265673405,
+    "above80_fraction": 0.010713297901714193,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "8127486594f057cfcefb697817ec34d1223453462c16c5e8fedfe10ba74bbe74",
+    "start_mcu_s": 20047.407080999998,
+    "end_mcu_s": 20167.432593999998,
+    "below1_fraction": 0.0156726126776827,
+    "above80_fraction": 0.01045036723326345,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "16076171f52ef52d94005c80558df667e3090e1b7e0ef4d8df2f0cb174a21cd8",
+    "start_mcu_s": 20167.432969999998,
+    "end_mcu_s": 20287.456355,
+    "below1_fraction": 0.023830374499613376,
+    "above80_fraction": 0.008379522623501374,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "8127486594f057cfcefb697817ec34d1223453462c16c5e8fedfe10ba74bbe74",
+    "start_mcu_s": 20167.432969999998,
+    "end_mcu_s": 20287.456355,
+    "below1_fraction": 0.02484850418742415,
+    "above80_fraction": 0.008200810797288629,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "16076171f52ef52d94005c80558df667e3090e1b7e0ef4d8df2f0cb174a21cd8",
+    "start_mcu_s": 20287.456729999998,
+    "end_mcu_s": 20407.482868,
+    "below1_fraction": 0.024622016805332023,
+    "above80_fraction": 0.01298353479103785,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "8127486594f057cfcefb697817ec34d1223453462c16c5e8fedfe10ba74bbe74",
+    "start_mcu_s": 20287.456729999998,
+    "end_mcu_s": 20407.482868,
+    "below1_fraction": 0.02522905751484353,
+    "above80_fraction": 0.01330923553616656,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "16076171f52ef52d94005c80558df667e3090e1b7e0ef4d8df2f0cb174a21cd8",
+    "start_mcu_s": 20407.483244,
+    "end_mcu_s": 20527.508876,
+    "below1_fraction": 0.02686068492281834,
+    "above80_fraction": 0.016877223825084154,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "8127486594f057cfcefb697817ec34d1223453462c16c5e8fedfe10ba74bbe74",
+    "start_mcu_s": 20407.483244,
+    "end_mcu_s": 20527.508876,
+    "below1_fraction": 0.025965543823765022,
+    "above80_fraction": 0.017353903059078333,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "16076171f52ef52d94005c80558df667e3090e1b7e0ef4d8df2f0cb174a21cd8",
+    "start_mcu_s": 20527.509251,
+    "end_mcu_s": 20647.531906,
+    "below1_fraction": 0.0197782089019267,
+    "above80_fraction": 0.011268119432622084,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "8127486594f057cfcefb697817ec34d1223453462c16c5e8fedfe10ba74bbe74",
+    "start_mcu_s": 20527.509251,
+    "end_mcu_s": 20647.531906,
+    "below1_fraction": 0.01977230193170274,
+    "above80_fraction": 0.01139085592863747,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "16076171f52ef52d94005c80558df667e3090e1b7e0ef4d8df2f0cb174a21cd8",
+    "start_mcu_s": 20647.532281,
+    "end_mcu_s": 20767.561454,
+    "below1_fraction": 0.019442662780743934,
+    "above80_fraction": 0.010685754217906242,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "8127486594f057cfcefb697817ec34d1223453462c16c5e8fedfe10ba74bbe74",
+    "start_mcu_s": 20647.532281,
+    "end_mcu_s": 20767.561454,
+    "below1_fraction": 0.01941387176779614,
+    "above80_fraction": 0.010777793947293918,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "16076171f52ef52d94005c80558df667e3090e1b7e0ef4d8df2f0cb174a21cd8",
+    "start_mcu_s": 20767.561829,
+    "end_mcu_s": 20887.59234,
+    "below1_fraction": 0.02187652129112187,
+    "above80_fraction": 0.010461013480466469,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "8127486594f057cfcefb697817ec34d1223453462c16c5e8fedfe10ba74bbe74",
+    "start_mcu_s": 20767.561829,
+    "end_mcu_s": 20887.59234,
+    "below1_fraction": 0.02219446998937243,
+    "above80_fraction": 0.009767947174677764,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "16076171f52ef52d94005c80558df667e3090e1b7e0ef4d8df2f0cb174a21cd8",
+    "start_mcu_s": 20887.592716,
+    "end_mcu_s": 21007.629309,
+    "below1_fraction": 0.023230403861944974,
+    "above80_fraction": 0.00842145730135136,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "8127486594f057cfcefb697817ec34d1223453462c16c5e8fedfe10ba74bbe74",
+    "start_mcu_s": 20887.592716,
+    "end_mcu_s": 21007.629309,
+    "below1_fraction": 0.023458633377462824,
+    "above80_fraction": 0.008432020673569643,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "16076171f52ef52d94005c80558df667e3090e1b7e0ef4d8df2f0cb174a21cd8",
+    "start_mcu_s": 21007.629685,
+    "end_mcu_s": 21127.660047999998,
+    "below1_fraction": 0.023449682751790588,
+    "above80_fraction": 0.013277707515879521,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "8127486594f057cfcefb697817ec34d1223453462c16c5e8fedfe10ba74bbe74",
+    "start_mcu_s": 21007.629685,
+    "end_mcu_s": 21127.660047999998,
+    "below1_fraction": 0.02264568577597385,
+    "above80_fraction": 0.013697050705928237,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "16076171f52ef52d94005c80558df667e3090e1b7e0ef4d8df2f0cb174a21cd8",
+    "start_mcu_s": 21127.660423999998,
+    "end_mcu_s": 21247.681645999997,
+    "below1_fraction": 0.025410494225592113,
+    "above80_fraction": 0.009535180078738688,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "8127486594f057cfcefb697817ec34d1223453462c16c5e8fedfe10ba74bbe74",
+    "start_mcu_s": 21127.660423999998,
+    "end_mcu_s": 21247.681645999997,
+    "below1_fraction": 0.0255353761337683,
+    "above80_fraction": 0.009621782729434477,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "16076171f52ef52d94005c80558df667e3090e1b7e0ef4d8df2f0cb174a21cd8",
+    "start_mcu_s": 21247.682021999997,
+    "end_mcu_s": 21367.689135,
+    "below1_fraction": 0.025476463580011724,
+    "above80_fraction": 0.014079866175351419,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "8127486594f057cfcefb697817ec34d1223453462c16c5e8fedfe10ba74bbe74",
+    "start_mcu_s": 21247.682021999997,
+    "end_mcu_s": 21367.689135,
+    "below1_fraction": 0.025279411791065003,
+    "above80_fraction": 0.013383044494131904,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "16076171f52ef52d94005c80558df667e3090e1b7e0ef4d8df2f0cb174a21cd8",
+    "start_mcu_s": 21367.68951,
+    "end_mcu_s": 21487.698091,
+    "below1_fraction": 0.022170148516302845,
+    "above80_fraction": 0.011746282133066308,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "8127486594f057cfcefb697817ec34d1223453462c16c5e8fedfe10ba74bbe74",
+    "start_mcu_s": 21367.68951,
+    "end_mcu_s": 21487.698091,
+    "below1_fraction": 0.022255829618980212,
+    "above80_fraction": 0.011971284172409417,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "16076171f52ef52d94005c80558df667e3090e1b7e0ef4d8df2f0cb174a21cd8",
+    "start_mcu_s": 21487.698467,
+    "end_mcu_s": 21607.70566,
+    "below1_fraction": 0.017843972565335656,
+    "above80_fraction": 0.014603099122361489,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "8127486594f057cfcefb697817ec34d1223453462c16c5e8fedfe10ba74bbe74",
+    "start_mcu_s": 21487.698467,
+    "end_mcu_s": 21607.70566,
+    "below1_fraction": 0.01775604890168174,
+    "above80_fraction": 0.015152348231169375,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "16076171f52ef52d94005c80558df667e3090e1b7e0ef4d8df2f0cb174a21cd8",
+    "start_mcu_s": 21607.706036,
+    "end_mcu_s": 21727.721833,
+    "below1_fraction": 0.02717550705035546,
+    "above80_fraction": 0.007934723243225549,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "8127486594f057cfcefb697817ec34d1223453462c16c5e8fedfe10ba74bbe74",
+    "start_mcu_s": 21607.706036,
+    "end_mcu_s": 21727.721833,
+    "below1_fraction": 0.02347206371976675,
+    "above80_fraction": 0.008262484277662293,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "16076171f52ef52d94005c80558df667e3090e1b7e0ef4d8df2f0cb174a21cd8",
+    "start_mcu_s": 21727.722209,
+    "end_mcu_s": 21847.735925999998,
+    "below1_fraction": 0.021882137701807088,
+    "above80_fraction": 0.011470736523029806,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "8127486594f057cfcefb697817ec34d1223453462c16c5e8fedfe10ba74bbe74",
+    "start_mcu_s": 21727.722209,
+    "end_mcu_s": 21847.735925999998,
+    "below1_fraction": 0.021958322009995382,
+    "above80_fraction": 0.011830609599677251,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "16076171f52ef52d94005c80558df667e3090e1b7e0ef4d8df2f0cb174a21cd8",
+    "start_mcu_s": 21847.736301999998,
+    "end_mcu_s": 21967.749723999998,
+    "below1_fraction": 0.023953105459204906,
+    "above80_fraction": 0.010463093373119148,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "8127486594f057cfcefb697817ec34d1223453462c16c5e8fedfe10ba74bbe74",
+    "start_mcu_s": 21847.736301999998,
+    "end_mcu_s": 21967.749723999998,
+    "below1_fraction": 0.02524763759004098,
+    "above80_fraction": 0.010550642665957828,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "16076171f52ef52d94005c80558df667e3090e1b7e0ef4d8df2f0cb174a21cd8",
+    "start_mcu_s": 21967.750099,
+    "end_mcu_s": 21999.988925999998,
+    "below1_fraction": 0.02758257458498584,
+    "above80_fraction": 0.011989119599545637,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  },
+  {
+    "method_id": "8127486594f057cfcefb697817ec34d1223453462c16c5e8fedfe10ba74bbe74",
+    "start_mcu_s": 21967.750099,
+    "end_mcu_s": 21999.988925999998,
+    "below1_fraction": 0.02766301722892571,
+    "above80_fraction": 0.011921174251920935,
+    "interpretation": "16s Hann Welch approximate diagnostic including leakage; not a brickwall metric"
+  }
+]

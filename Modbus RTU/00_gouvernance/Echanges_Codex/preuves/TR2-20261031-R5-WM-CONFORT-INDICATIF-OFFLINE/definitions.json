@@ -1,0 +1,338 @@
+{
+  "16076171f52ef52d94005c80558df667e3090e1b7e0ef4d8df2f0cb174a21cd8": {
+    "metric": "TR2_WM_A_MAX",
+    "version": "TR2-Wm.v1",
+    "variant": "MAIN",
+    "unit": "mm/s2",
+    "axis_rule": "max of X/Y/Z RMS on same window; axis winner exported; NOT vector norm",
+    "parameters": {
+      "f1_Hz": 0.7943282347242815,
+      "f2_Hz": 100.0,
+      "f3_Hz": 5.6841051104248335
+    },
+    "sos": [
+      [
+        7.853616968181486e-05,
+        0.00015707233936362972,
+        7.853616968181486e-05,
+        1.0,
+        -1.6700715791848837,
+        0.7172689776500366
+      ],
+      [
+        1.0,
+        1.0,
+        0.0,
+        1.0,
+        -0.9866703876905102,
+        0.0
+      ],
+      [
+        1.0,
+        -2.0,
+        1.0,
+        1.0,
+        -1.9973479957749785,
+        0.9973515076844672
+      ]
+    ],
+    "filter_sha256": "7402f949e9981576ad49c4a2e028d5bc62140ef46a819e6b00a995f7a19637eb",
+    "clock": "MCU",
+    "fs_est_Hz": 2661.462021501383,
+    "window": "aligned60/120 MCU seconds; 10ssettling +11FIRwarmups excluded; partial never FULL",
+    "useful_band_Hz": [
+      1,
+      80
+    ],
+    "band_policy": "published smooth Hh/Hl included once, no extra brickwall; out-of-band leakage diagnostic separate",
+    "secondary_velocity": "0.028 * acceleration_mm_s2; dependent equivalent, NOT independent physical integration",
+    "sensitivity_mg_count": 0.244,
+    "mg_to_mm_s2": 9.80665,
+    "source_status": "FS_PHYSIQUE_NON_VERIFIE_CONTINUOUS; nominal8g; uncalibrated",
+    "normative_compliance": false,
+    "local_category": "NON_CLASSEE",
+    "BV_comparison": "PENDING_LOT_B",
+    "orientation": "sensor XYZ; ship axes unknown",
+    "time": "UTC_UNKNOWN"
+  },
+  "a66de363d625289a9076389ff3a5609b6fb666b68528ee4007a67d5044cc33db": {
+    "metric": "TR2_WM_DIAGNOSTIC_LOW08",
+    "version": "TR2-Wm.v1",
+    "variant": "LOW08",
+    "unit": "mm/s2",
+    "axis_rule": "max of X/Y/Z RMS on same window; axis winner exported; NOT vector norm",
+    "parameters": {
+      "f1_Hz": 0.7943282347242815,
+      "f2_Hz": 100.0,
+      "f3_Hz": 5.6841051104248335
+    },
+    "sos": [
+      [
+        7.855700027262692e-05,
+        0.00015711400054525384,
+        7.855700027262692e-05,
+        1.0,
+        -1.6700715791848837,
+        0.7172689776500366
+      ],
+      [
+        1.0,
+        1.0,
+        0.0,
+        1.0,
+        -0.9866703876905102,
+        0.0
+      ],
+      [
+        1.0,
+        -2.0,
+        1.0,
+        1.0,
+        -1.9978783959497193,
+        0.9978806441679415
+      ]
+    ],
+    "filter_sha256": "b723f25253f0d262806a42f256c55152ffc9af68ada4fedd0e8ed4c246449d8d",
+    "clock": "MCU",
+    "fs_est_Hz": 2661.462021501383,
+    "window": "aligned60/120 MCU seconds; 10ssettling +11FIRwarmups excluded; partial never FULL",
+    "useful_band_Hz": [
+      1,
+      80
+    ],
+    "band_policy": "published smooth Hh/Hl included once, no extra brickwall; out-of-band leakage diagnostic separate",
+    "secondary_velocity": "0.028 * acceleration_mm_s2; dependent equivalent, NOT independent physical integration",
+    "sensitivity_mg_count": 0.244,
+    "mg_to_mm_s2": 9.80665,
+    "source_status": "FS_PHYSIQUE_NON_VERIFIE_CONTINUOUS; nominal8g; uncalibrated",
+    "normative_compliance": false,
+    "local_category": "NON_CLASSEE",
+    "BV_comparison": "PENDING_LOT_B",
+    "orientation": "sensor XYZ; ship axes unknown",
+    "time": "UTC_UNKNOWN"
+  },
+  "c37cbbd5b68e23c67a8da90847de797b222690facfeaceb11c69164742b0a4d3": {
+    "metric": "TR2_WM_DIAGNOSTIC_LOW12",
+    "version": "TR2-Wm.v1",
+    "variant": "LOW12",
+    "unit": "mm/s2",
+    "axis_rule": "max of X/Y/Z RMS on same window; axis winner exported; NOT vector norm",
+    "parameters": {
+      "f1_Hz": 0.7943282347242815,
+      "f2_Hz": 100.0,
+      "f3_Hz": 5.6841051104248335
+    },
+    "sos": [
+      [
+        7.851534462186043e-05,
+        0.00015703068924372086,
+        7.851534462186043e-05,
+        1.0,
+        -1.6700715791848837,
+        0.7172689776500366
+      ],
+      [
+        1.0,
+        1.0,
+        0.0,
+        1.0,
+        -0.9866703876905102,
+        0.0
+      ],
+      [
+        1.0,
+        -2.0,
+        1.0,
+        1.0,
+        -1.9968175961583043,
+        0.9968226519669879
+      ]
+    ],
+    "filter_sha256": "7b3f44057235f67b10ba6ad531ee8adde0d432e5441975ebd5aa4becb6606121",
+    "clock": "MCU",
+    "fs_est_Hz": 2661.462021501383,
+    "window": "aligned60/120 MCU seconds; 10ssettling +11FIRwarmups excluded; partial never FULL",
+    "useful_band_Hz": [
+      1,
+      80
+    ],
+    "band_policy": "published smooth Hh/Hl included once, no extra brickwall; out-of-band leakage diagnostic separate",
+    "secondary_velocity": "0.028 * acceleration_mm_s2; dependent equivalent, NOT independent physical integration",
+    "sensitivity_mg_count": 0.244,
+    "mg_to_mm_s2": 9.80665,
+    "source_status": "FS_PHYSIQUE_NON_VERIFIE_CONTINUOUS; nominal8g; uncalibrated",
+    "normative_compliance": false,
+    "local_category": "NON_CLASSEE",
+    "BV_comparison": "PENDING_LOT_B",
+    "orientation": "sensor XYZ; ship axes unknown",
+    "time": "UTC_UNKNOWN"
+  },
+  "8127486594f057cfcefb697817ec34d1223453462c16c5e8fedfe10ba74bbe74": {
+    "metric": "TR2_WM_A_MAX",
+    "version": "TR2-Wm.v1",
+    "variant": "MAIN",
+    "unit": "mm/s2",
+    "axis_rule": "max of X/Y/Z RMS on same window; axis winner exported; NOT vector norm",
+    "parameters": {
+      "f1_Hz": 0.7943282347242815,
+      "f2_Hz": 100.0,
+      "f3_Hz": 5.6841051104248335
+    },
+    "sos": [
+      [
+        7.70490883358788e-05,
+        0.0001540981766717576,
+        7.70490883358788e-05,
+        1.0,
+        -1.6722463321888972,
+        0.7188616428456646
+      ],
+      [
+        1.0,
+        1.0,
+        0.0,
+        1.0,
+        -0.986759606141268,
+        0.0
+      ],
+      [
+        1.0,
+        -2.0,
+        1.0,
+        1.0,
+        -1.9973658645709804,
+        0.9973693293453684
+      ]
+    ],
+    "filter_sha256": "a49729d79e21132226f866160e84ce8c69f6b9574eb5e99c9e84e48a35ff35fc",
+    "clock": "QPC_ESTIMATE",
+    "fs_est_Hz": 2679.5162204534963,
+    "window": "aligned60/120 MCU seconds; 10ssettling +11FIRwarmups excluded; partial never FULL",
+    "useful_band_Hz": [
+      1,
+      80
+    ],
+    "band_policy": "published smooth Hh/Hl included once, no extra brickwall; out-of-band leakage diagnostic separate",
+    "secondary_velocity": "0.028 * acceleration_mm_s2; dependent equivalent, NOT independent physical integration",
+    "sensitivity_mg_count": 0.244,
+    "mg_to_mm_s2": 9.80665,
+    "source_status": "FS_PHYSIQUE_NON_VERIFIE_CONTINUOUS; nominal8g; uncalibrated",
+    "normative_compliance": false,
+    "local_category": "NON_CLASSEE",
+    "BV_comparison": "PENDING_LOT_B",
+    "orientation": "sensor XYZ; ship axes unknown",
+    "time": "UTC_UNKNOWN"
+  },
+  "0655d20c11a4f03f4e8e6d0016736c6890638360ffaf0f271fa398903a88b3f1": {
+    "metric": "TR2_WM_DIAGNOSTIC_LOW08",
+    "version": "TR2-Wm.v1",
+    "variant": "LOW08",
+    "unit": "mm/s2",
+    "axis_rule": "max of X/Y/Z RMS on same window; axis winner exported; NOT vector norm",
+    "parameters": {
+      "f1_Hz": 0.7943282347242815,
+      "f2_Hz": 100.0,
+      "f3_Hz": 5.6841051104248335
+    },
+    "sos": [
+      [
+        7.706938678582097e-05,
+        0.00015413877357164194,
+        7.706938678582097e-05,
+        1.0,
+        -1.6722463321888972,
+        0.7188616428456646
+      ],
+      [
+        1.0,
+        1.0,
+        0.0,
+        1.0,
+        -0.986759606141268,
+        0.0
+      ],
+      [
+        1.0,
+        -2.0,
+        1.0,
+        1.0,
+        -1.9978926909999708,
+        0.9978949090397639
+      ]
+    ],
+    "filter_sha256": "e268185c437ef2641fe561f5d1c1ebce2b191c39367e96a3999a4ed3c94bbe89",
+    "clock": "QPC_ESTIMATE",
+    "fs_est_Hz": 2679.5162204534963,
+    "window": "aligned60/120 MCU seconds; 10ssettling +11FIRwarmups excluded; partial never FULL",
+    "useful_band_Hz": [
+      1,
+      80
+    ],
+    "band_policy": "published smooth Hh/Hl included once, no extra brickwall; out-of-band leakage diagnostic separate",
+    "secondary_velocity": "0.028 * acceleration_mm_s2; dependent equivalent, NOT independent physical integration",
+    "sensitivity_mg_count": 0.244,
+    "mg_to_mm_s2": 9.80665,
+    "source_status": "FS_PHYSIQUE_NON_VERIFIE_CONTINUOUS; nominal8g; uncalibrated",
+    "normative_compliance": false,
+    "local_category": "NON_CLASSEE",
+    "BV_comparison": "PENDING_LOT_B",
+    "orientation": "sensor XYZ; ship axes unknown",
+    "time": "UTC_UNKNOWN"
+  },
+  "a84808efefc3d1512a9455209349c7cf0c208a9ea47eaab125d88d1d5ea94292": {
+    "metric": "TR2_WM_DIAGNOSTIC_LOW12",
+    "version": "TR2-Wm.v1",
+    "variant": "LOW12",
+    "unit": "mm/s2",
+    "axis_rule": "max of X/Y/Z RMS on same window; axis winner exported; NOT vector norm",
+    "parameters": {
+      "f1_Hz": 0.7943282347242815,
+      "f2_Hz": 100.0,
+      "f3_Hz": 5.6841051104248335
+    },
+    "sos": [
+      [
+        7.702879523914546e-05,
+        0.00015405759047829092,
+        7.702879523914546e-05,
+        1.0,
+        -1.6722463321888972,
+        0.7188616428456646
+      ],
+      [
+        1.0,
+        1.0,
+        0.0,
+        1.0,
+        -0.986759606141268,
+        0.0
+      ],
+      [
+        1.0,
+        -2.0,
+        1.0,
+        1.0,
+        -1.9968390386888626,
+        0.9968440266499119
+      ]
+    ],
+    "filter_sha256": "2521fa4a5e6cccc3b0a27a5d785a02626867fc7720b64223e1ae5886dd68b6aa",
+    "clock": "QPC_ESTIMATE",
+    "fs_est_Hz": 2679.5162204534963,
+    "window": "aligned60/120 MCU seconds; 10ssettling +11FIRwarmups excluded; partial never FULL",
+    "useful_band_Hz": [
+      1,
+      80
+    ],
+    "band_policy": "published smooth Hh/Hl included once, no extra brickwall; out-of-band leakage diagnostic separate",
+    "secondary_velocity": "0.028 * acceleration_mm_s2; dependent equivalent, NOT independent physical integration",
+    "sensitivity_mg_count": 0.244,
+    "mg_to_mm_s2": 9.80665,
+    "source_status": "FS_PHYSIQUE_NON_VERIFIE_CONTINUOUS; nominal8g; uncalibrated",
+    "normative_compliance": false,
+    "local_category": "NON_CLASSEE",
+    "BV_comparison": "PENDING_LOT_B",
+    "orientation": "sensor XYZ; ship axes unknown",
+    "time": "UTC_UNKNOWN"
+  }
+}

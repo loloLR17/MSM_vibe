@@ -1,0 +1,18 @@
+{
+  "AGENTS.md": {
+    "bytes": 43078,
+    "sha256": "57b42773e80d76b35fb4c57a2765a7b14feceb38529a3a8e1286472ea62c9e69"
+  },
+  "Modbus RTU/00_gouvernance/GOUVERNANCE_CHATGPT_CODEX.md": {
+    "bytes": 11964,
+    "sha256": "253aa83ebc23a26532d999e38d64178d60d7536d01c7a771bfb2e33625a9b33e"
+  },
+  "Modbus RTU/00_gouvernance/ETAT_COURANT_TR2.md": {
+    "bytes": 122295,
+    "sha256": "79c47715551781b7627ec774173a385149afd8a39e2d782a1d88434146fb3cf6"
+  },
+  "Modbus RTU/00_gouvernance/Echanges_Codex/PROTOCOLE_ECHANGE_V2.md": {
+    "bytes": 8938,
+    "sha256": "229a37582728b6daa7e751ffb6fc79edcf752ce1afae90e91512cc4b7bbdd3a2"
+  }
+}

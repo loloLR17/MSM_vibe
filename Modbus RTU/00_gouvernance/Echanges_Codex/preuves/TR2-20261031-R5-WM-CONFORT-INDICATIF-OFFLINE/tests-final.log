@@ -1,0 +1,14 @@
+test_full_cumulative_preservation_and_idempotence (test_catalog.CatalogTests.test_full_cumulative_preservation_and_idempotence) ... ok
+test_no_overwrite_inplace_old_catalogue_or_conflicts (test_catalog.CatalogTests.test_no_overwrite_inplace_old_catalogue_or_conflicts) ... ok
+test_complex_response_phase_warp_and_limits (test_wm.WmTests.test_complex_response_phase_warp_and_limits) ... ok
+test_known_sinusoids_units_and_axis_max (test_wm.WmTests.test_known_sinusoids_units_and_axis_max) ... ok
+test_multitone_and_broadband_causal_convolution (test_wm.WmTests.test_multitone_and_broadband_causal_convolution) ... ok
+test_offsets_tilt_quality_chunks_and_invalid_windows (test_wm.WmTests.test_offsets_tilt_quality_chunks_and_invalid_windows) ... ok
+test_parseval_accumulation_high_dynamic_range (test_wm.WmTests.test_parseval_accumulation_high_dynamic_range) ... ok
+test_selected_true_centres_and_continuous_definition (test_wm.WmTests.test_selected_true_centres_and_continuous_definition) ... ok
+test_velocity_equivalent_from_distinct_continuous_weight (test_wm.WmTests.test_velocity_equivalent_from_distinct_continuous_weight) ... ok
+
+----------------------------------------------------------------------
+Ran 9 tests in 0.437s
+
+OK

@@ -1,0 +1,206 @@
+[
+  {
+    "method_id": "0655d20c11a4f03f4e8e6d0016736c6890638360ffaf0f271fa398903a88b3f1",
+    "name": "LOW08",
+    "clock": "QPC_ESTIMATE",
+    "width_s": 60,
+    "full_windows": 365,
+    "P50": 43.90420969467222,
+    "P95": 73.87209072245055,
+    "maximum": 98.49943962355694,
+    "period_rms_xyz": [
+      23.262810276484394,
+      18.998368734553274,
+      43.90058467757583
+    ],
+    "period_direction": 43.90058467757583,
+    "scope": "only FULL windows; 60/120 FULL populations differ at edges"
+  },
+  {
+    "method_id": "0655d20c11a4f03f4e8e6d0016736c6890638360ffaf0f271fa398903a88b3f1",
+    "name": "LOW08",
+    "clock": "QPC_ESTIMATE",
+    "width_s": 120,
+    "full_windows": 182,
+    "P50": 44.19920881354783,
+    "P95": 73.74904398118044,
+    "maximum": 87.24075451657684,
+    "period_rms_xyz": [
+      23.25985290248279,
+      18.992182234227037,
+      43.90885387158587
+    ],
+    "period_direction": 43.90885387158587,
+    "scope": "only FULL windows; 60/120 FULL populations differ at edges"
+  },
+  {
+    "method_id": "16076171f52ef52d94005c80558df667e3090e1b7e0ef4d8df2f0cb174a21cd8",
+    "name": "MAIN",
+    "clock": "MCU",
+    "width_s": 60,
+    "full_windows": 365,
+    "P50": 43.72814409844108,
+    "P95": 74.3441792728762,
+    "maximum": 99.1023601314458,
+    "period_rms_xyz": [
+      23.395122174883547,
+      18.656153711493328,
+      43.92267754543534
+    ],
+    "period_direction": 43.92267754543534,
+    "scope": "only FULL windows; 60/120 FULL populations differ at edges"
+  },
+  {
+    "method_id": "16076171f52ef52d94005c80558df667e3090e1b7e0ef4d8df2f0cb174a21cd8",
+    "name": "MAIN",
+    "clock": "MCU",
+    "width_s": 120,
+    "full_windows": 182,
+    "P50": 43.89293658063151,
+    "P95": 74.21806243465738,
+    "maximum": 87.77594830764532,
+    "period_rms_xyz": [
+      23.39216272328137,
+      18.651968110020448,
+      43.93305944339
+    ],
+    "period_direction": 43.93305944339,
+    "scope": "only FULL windows; 60/120 FULL populations differ at edges"
+  },
+  {
+    "method_id": "8127486594f057cfcefb697817ec34d1223453462c16c5e8fedfe10ba74bbe74",
+    "name": "MAIN",
+    "clock": "QPC_ESTIMATE",
+    "width_s": 60,
+    "full_windows": 365,
+    "P50": 43.4361394937849,
+    "P95": 73.86697585059603,
+    "maximum": 98.49176763611128,
+    "period_rms_xyz": [
+      23.244305563445604,
+      18.557626825594674,
+      43.63485677497366
+    ],
+    "period_direction": 43.63485677497366,
+    "scope": "only FULL windows; 60/120 FULL populations differ at edges"
+  },
+  {
+    "method_id": "8127486594f057cfcefb697817ec34d1223453462c16c5e8fedfe10ba74bbe74",
+    "name": "MAIN",
+    "clock": "QPC_ESTIMATE",
+    "width_s": 120,
+    "full_windows": 182,
+    "P50": 43.59997818364998,
+    "P95": 73.74433490304247,
+    "maximum": 87.23312083818993,
+    "period_rms_xyz": [
+      23.24137519950886,
+      18.55342185034275,
+      43.645121727372874
+    ],
+    "period_direction": 43.645121727372874,
+    "scope": "only FULL windows; 60/120 FULL populations differ at edges"
+  },
+  {
+    "method_id": "a66de363d625289a9076389ff3a5609b6fb666b68528ee4007a67d5044cc33db",
+    "name": "LOW08",
+    "clock": "MCU",
+    "width_s": 60,
+    "full_windows": 365,
+    "P50": 44.18982221277781,
+    "P95": 74.34929296635978,
+    "maximum": 99.11009993499837,
+    "period_rms_xyz": [
+      23.413357711871708,
+      19.084957275280654,
+      44.181294480187994
+    ],
+    "period_direction": 44.181294480187994,
+    "scope": "only FULL windows; 60/120 FULL populations differ at edges"
+  },
+  {
+    "method_id": "a66de363d625289a9076389ff3a5609b6fb666b68528ee4007a67d5044cc33db",
+    "name": "LOW08",
+    "clock": "MCU",
+    "width_s": 120,
+    "full_windows": 182,
+    "P50": 44.467859933912095,
+    "P95": 74.2227621480106,
+    "maximum": 87.78363439831972,
+    "period_rms_xyz": [
+      23.410372068401767,
+      19.07884830501688,
+      44.189742190847184
+    ],
+    "period_direction": 44.189742190847184,
+    "scope": "only FULL windows; 60/120 FULL populations differ at edges"
+  },
+  {
+    "method_id": "a84808efefc3d1512a9455209349c7cf0c208a9ea47eaab125d88d1d5ea94292",
+    "name": "LOW12",
+    "clock": "QPC_ESTIMATE",
+    "width_s": 60,
+    "full_windows": 365,
+    "P50": 43.21844914515023,
+    "P95": 73.86197031431603,
+    "maximum": 98.48210301521652,
+    "period_rms_xyz": [
+      23.2319481082551,
+      18.369323797146098,
+      43.51006311306688
+    ],
+    "period_direction": 43.51006311306688,
+    "scope": "only FULL windows; 60/120 FULL populations differ at edges"
+  },
+  {
+    "method_id": "a84808efefc3d1512a9455209349c7cf0c208a9ea47eaab125d88d1d5ea94292",
+    "name": "LOW12",
+    "clock": "QPC_ESTIMATE",
+    "width_s": 120,
+    "full_windows": 182,
+    "P50": 43.29332273980839,
+    "P95": 73.73994097024553,
+    "maximum": 87.22395237275205,
+    "period_rms_xyz": [
+      23.229028238072917,
+      18.36588867862126,
+      43.521106083143415
+    ],
+    "period_direction": 43.521106083143415,
+    "scope": "only FULL windows; 60/120 FULL populations differ at edges"
+  },
+  {
+    "method_id": "c37cbbd5b68e23c67a8da90847de797b222690facfeaceb11c69164742b0a4d3",
+    "name": "LOW12",
+    "clock": "MCU",
+    "width_s": 60,
+    "full_windows": 365,
+    "P50": 43.515130815875864,
+    "P95": 74.33917065070422,
+    "maximum": 99.09259854956717,
+    "period_rms_xyz": [
+      23.38289560537744,
+      18.472701231761658,
+      43.8005230220907
+    ],
+    "period_direction": 43.8005230220907,
+    "scope": "only FULL windows; 60/120 FULL populations differ at edges"
+  },
+  {
+    "method_id": "c37cbbd5b68e23c67a8da90847de797b222690facfeaceb11c69164742b0a4d3",
+    "name": "LOW12",
+    "clock": "MCU",
+    "width_s": 120,
+    "full_windows": 182,
+    "P50": 43.588005112768315,
+    "P95": 74.2136709043888,
+    "maximum": 87.7667016841762,
+    "period_rms_xyz": [
+      23.379946319012433,
+      18.469262616194165,
+      43.81165985697835
+    ],
+    "period_direction": 43.81165985697835,
+    "scope": "only FULL windows; 60/120 FULL populations differ at edges"
+  }
+]
