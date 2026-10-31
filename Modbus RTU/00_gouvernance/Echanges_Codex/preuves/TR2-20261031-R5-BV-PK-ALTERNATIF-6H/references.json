@@ -1,0 +1,44 @@
+{
+  "BV": {
+    "url": "https://rulesexplorer-docs.bureauveritas.com/documents/nr467/jul2026/467-NR_PartF_2026-07.pdf",
+    "edition": "2026-07",
+    "bytes": 8415354,
+    "sha256": "5ae75d30f6b38a1331431e16bcc3dce11bc42c90b393f344be89b42cb050ceef",
+    "pages0based_visually_read": [
+      238,
+      246,
+      247
+    ],
+    "printed_pages": [
+      237,
+      245,
+      246
+    ],
+    "CF": 1,
+    "section": "Ch6Sec1 2.1.3(b), Ch6Sec3 3.1.2/Table5/Table6",
+    "velocity_pk_5_100_mm_s": [
+      4,
+      4.5,
+      5
+    ],
+    "acceleration_pk_1_5_mm_s2": [
+      125,
+      141,
+      157
+    ],
+    "formal_local_correspondence_confirmed": false
+  },
+  "ABS": {
+    "url": "https://ww2.eagle.org/content/dam/eagle/rules-and-guides/current/conventional_ocean_service/147-guidance-notes-on-ship-vibration/147-ship-vibration-gn-sep-23.pdf",
+    "scope": "modulation/MRA/peak-hold distinctions only, NOT substituted CF"
+  },
+  "LR": {
+    "url": "https://www.imorules.com/GUID-B6CCBEB7-2799-4E1F-9EAE-0A2181CEF867.html",
+    "retrieval": "HTTP urllib, browser decoding failure; primary narrative only, no substituted factor"
+  },
+  "ISO6954": {
+    "url": "https://www.iso.org/standard/13502.html",
+    "status": "Withdrawn, still referenced by selected BV2026 route"
+  },
+  "copyright": "full PDF and page images remain local, only references and own paraphrase published"
+}

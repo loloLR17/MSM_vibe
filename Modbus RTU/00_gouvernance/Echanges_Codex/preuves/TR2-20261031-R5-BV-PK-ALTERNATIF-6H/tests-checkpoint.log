@@ -1,0 +1,11 @@
+test_analytic_on_off_bins_units_and_boundary (test_core.PKTests.test_analytic_on_off_bins_units_and_boundary) ... ok
+test_close_lines_AM_FM_impulse_noise (test_core.PKTests.test_close_lines_AM_FM_impulse_noise) ... ok
+test_independent_time_frequency_fit (test_core.PKTests.test_independent_time_frequency_fit) ... ok
+test_multitone_not_broadband_and_pruning (test_core.PKTests.test_multitone_not_broadband_and_pruning) ... ok
+test_quality_gravity_missing_clip_and_stationarity (test_core.PKTests.test_quality_gravity_missing_clip_and_stationarity) ... ok
+test_reference_values_and_component_sqrt2 (test_core.PKTests.test_reference_values_and_component_sqrt2) ... ok
+
+----------------------------------------------------------------------
+Ran 6 tests in 0.442s
+
+OK
