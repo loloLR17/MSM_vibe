@@ -1,0 +1,205 @@
+[
+  {
+    "source": "read-six-after.log",
+    "file": "000-read-six-after.log.zlib",
+    "bytes": 818,
+    "sha256": "1d98b466eb5443089ec1529729425b210db08ad973e280b7a1cd503484fe461b",
+    "stored_sha256": "929ad7c9100fc727c837fdafd7f13233c843a2c0fe657da18140d0204e5c8563"
+  },
+  {
+    "source": "six-long.json",
+    "file": "001-six-long.json.zlib",
+    "bytes": 11528,
+    "sha256": "ee4c3a65aa448c03bee1b97227600fceae3637fa86390ac7efed527f821479eb",
+    "stored_sha256": "d10f91d26cb7f2b1ddaa4b105f9c6f63d73244a96343879d98f0ddcaa0f8b2cb"
+  },
+  {
+    "source": "six-long-analysis.json",
+    "file": "002-six-long-analysis.json.zlib",
+    "bytes": 730,
+    "sha256": "cc1a15113cdfe3bb1b2ef278e8c20bd68fc6ea407c405a410ee3bf031d18e61a",
+    "stored_sha256": "3cebf384ee349ca6f177f1d396f99507b55ddf9648a750bcfca7089b42dcf75d"
+  },
+  {
+    "source": "recover-terminal.log",
+    "file": "003-recover-terminal.log.zlib",
+    "bytes": 1105,
+    "sha256": "6bd996f923c45b69216551843714ac8dfb177f5b4c04a1ae39a75a79fdb46b83",
+    "stored_sha256": "643989914508e690a1ed9d46f5ca5c6fa1d029ab513af6041655e71d6ba77366"
+  },
+  {
+    "source": "read_restart_state.py",
+    "file": "004-read_restart_state.py.zlib",
+    "bytes": 985,
+    "sha256": "0c80abcd67131a7b8d1f297afe947296219ce13f64eeb3b858c9e4a7b88cff9b",
+    "stored_sha256": "bf8f71ee5e1b062c31bfbe31f46e7dd0dd28a275905efc45a11feacbdb52afe2"
+  },
+  {
+    "source": "read-restart-state.log",
+    "file": "005-read-restart-state.log.zlib",
+    "bytes": 144,
+    "sha256": "78aff7fbd6a28c2a01ae74893de1f8929edb61b013b3e9cc0e34059e00acf929",
+    "stored_sha256": "2816c1160773fece34bc7e81c1dcbd67e1d3dffca9f804c730fae8f1e67b37ef"
+  },
+  {
+    "source": "copy_after_powercut.py",
+    "file": "006-copy_after_powercut.py.zlib",
+    "bytes": 5639,
+    "sha256": "ec2b872b2088f1ae856c8f5124578df07e8c5e8bb63cf84b666217b4c7662332",
+    "stored_sha256": "0235ac41e3eb64b694755845490b034542dbea2cff8b702ee757f5c0f141245a"
+  },
+  {
+    "source": "copy-after-powercut.log",
+    "file": "007-copy-after-powercut.log.zlib",
+    "bytes": 836,
+    "sha256": "ec862789bf70e169feda2d555bf37ed36b9be6955fa99b54816eb33d17a3df9d",
+    "stored_sha256": "9f6dddad4a3c2897e88ca754685d1bd244c35422c09036d7fdc098b51f9f178f"
+  },
+  {
+    "source": "six-long-native-queries.jsonl",
+    "file": "008-six-long-native-queries.jsonl.zlib",
+    "bytes": 8447,
+    "sha256": "90daee6cb16e55b965b900bed73221e7eb1715b803fadd5053e8656ded35b570",
+    "stored_sha256": "75e49cc9fbba76d0777f0bbb8f6ea8dd16cddc4579d7f12dfb20e572fab66297"
+  },
+  {
+    "source": "six-long-native-ready.json",
+    "file": "009-six-long-native-ready.json.zlib",
+    "bytes": 359,
+    "sha256": "606f21dd84dcc4d3255a50823a77dba215d7e9b741da085a81b509cb561dfe02",
+    "stored_sha256": "67bcb7d36ade4774dc64ec914a4df9936f9dde1f61ceaf0a214f500c43b788dd"
+  },
+  {
+    "source": "six-long-native-summary.json",
+    "file": "010-six-long-native-summary.json.zlib",
+    "bytes": 18304,
+    "sha256": "8f293e82c51046c5c4fd239b48e5d04f6d5e8421b3d9ba153a55088365887da2",
+    "stored_sha256": "f88498bf6046a387ed0dc64f9fec3d6f2baf28ca2ce218c2dc95431578e69a7a"
+  },
+  {
+    "source": "post-reset-state/current-footer.bin",
+    "file": "011-current-footer.bin.zlib",
+    "bytes": 512,
+    "sha256": "076a27c79e5ace2a3d47f9dd2e83e4ff6ea8872b3c2218f66c92b89b55f36560",
+    "stored_sha256": "8fcbd3ba77d0af716d0b3f342b877539512ba665a6c5ad7999a531bff05a6a91"
+  },
+  {
+    "source": "post-reset-state/current-header.bin",
+    "file": "012-current-header.bin.zlib",
+    "bytes": 512,
+    "sha256": "076a27c79e5ace2a3d47f9dd2e83e4ff6ea8872b3c2218f66c92b89b55f36560",
+    "stored_sha256": "8fcbd3ba77d0af716d0b3f342b877539512ba665a6c5ad7999a531bff05a6a91"
+  },
+  {
+    "source": "post-reset-state/current-result.bin",
+    "file": "013-current-result.bin.zlib",
+    "bytes": 296,
+    "sha256": "acf99881839176d13816acc76dd1517eb4ee7ab82bd68fc8ccba25f9dc9bbd9e",
+    "stored_sha256": "3c3bb852e6424fd6ee03768feb7fb9053c88181d7e50d084ef7bd1ab70b54641"
+  },
+  {
+    "source": "post-reset-state/current-source-SHA.bin",
+    "file": "014-current-source-SHA.bin.zlib",
+    "bytes": 32,
+    "sha256": "66687aadf862bd776c8fc18b8e9f8e20089714856ee233b3902a591d0d5f2925",
+    "stored_sha256": "9c9fe05556068b480989d2f90a0c964b3c2007adc3dfc47918a96cdfee9ea14a"
+  },
+  {
+    "source": "hardware/six-long-safe-terminal-recovery.log",
+    "file": "015-six-long-safe-terminal-recovery.log.zlib",
+    "bytes": 1590,
+    "sha256": "9734e2180549da12ca021cdbb346b046f16c4d1aa2c14afdfcb4774e0eb161af",
+    "stored_sha256": "e6b12928faa4181c21f2304f4e6b5611583c0214184965fb0c9c0bccb94c11af"
+  },
+  {
+    "source": "hardware/six-long-safe-terminal-recovery-invocation.json",
+    "file": "016-six-long-safe-terminal-recovery-invocation.json.zlib",
+    "bytes": 741,
+    "sha256": "f690dfa3b0404c2bd38f0ed68db38547e73df19e8640b91c030d616537582153",
+    "stored_sha256": "57164fd22a9a1481e275fb235ad51beeb8c91bcdbb23cff6e3bb8911b3cd1b90"
+  },
+  {
+    "source": "hardware/read-restarted-WAIT-state-only-server.log",
+    "file": "017-read-restarted-WAIT-state-only-server.log.zlib",
+    "bytes": 674,
+    "sha256": "030ed83bdd9e560371dd4df01fbb2f25a71828a2bd725448cff4a24e6cf46bf2",
+    "stored_sha256": "2d268c592b37f482447bf871fbb4574f414e955cd4bc83bc77d430df670acc39"
+  },
+  {
+    "source": "hardware/six-long-safe-terminal-recovery.gdb",
+    "file": "018-six-long-safe-terminal-recovery.gdb.zlib",
+    "bytes": 4914,
+    "sha256": "f6ca53891cb1a89a3f53ab1c19eabc48d76b8df09ebbba16f5b9cbec000a7ff1",
+    "stored_sha256": "4f208c3d5863fcb66a5601351cf08802d84c72c16de2fb17190b43ac7f55e47a"
+  },
+  {
+    "source": "hardware/read-restarted-WAIT-state-only.log",
+    "file": "019-read-restarted-WAIT-state-only.log.zlib",
+    "bytes": 1377,
+    "sha256": "2ce26d78fbe92fb364317fbc5bb351f6945aa2e62125abccacf4c1fc2e0dbf78",
+    "stored_sha256": "a4cffa8b0cd84a15cf8007286b8d70839d14220ccad7acc7558468f54d19f0f9"
+  },
+  {
+    "source": "hardware/six-long-safe-terminal-recovery-server.log",
+    "file": "020-six-long-safe-terminal-recovery-server.log.zlib",
+    "bytes": 674,
+    "sha256": "030ed83bdd9e560371dd4df01fbb2f25a71828a2bd725448cff4a24e6cf46bf2",
+    "stored_sha256": "2d268c592b37f482447bf871fbb4574f414e955cd4bc83bc77d430df670acc39"
+  },
+  {
+    "source": "hardware/read-restarted-WAIT-state-only-invocation.json",
+    "file": "021-read-restarted-WAIT-state-only-invocation.json.zlib",
+    "bytes": 740,
+    "sha256": "44ed103b2aaec6b89fce8bc963b226694fb10a5ae2d2bdd48e4870b89d84c994",
+    "stored_sha256": "2bb851a6e4eb16d4bca94dd23b707226670e504520c43e0a0be2ab468b1cf0ca"
+  },
+  {
+    "source": "hardware/read-restarted-WAIT-state-only.gdb",
+    "file": "022-read-restarted-WAIT-state-only.gdb.zlib",
+    "bytes": 1235,
+    "sha256": "ce44aa934fb33c649be46e168c96adf73cadf403d05e67c1ac51777b98c4668d",
+    "stored_sha256": "5c70b31fc995b368af9d12157ada00d218373e3a93640c4ba9dc92c90839a2ca"
+  },
+  {
+    "source": "pc-recovery-after-powercut/VOLUME.json",
+    "file": "023-VOLUME.json.zlib",
+    "bytes": 191,
+    "sha256": "5af28086360da1a3634d07f0679222a54cea39a4bcf5e557ad5e5a3da359f2d4",
+    "stored_sha256": "55de97c3616543ced132504975e3b56e6d456ec3dc9129655ef008bf91405c65"
+  },
+  {
+    "source": "pc-recovery-after-powercut/DISK.json",
+    "file": "024-DISK.json.zlib",
+    "bytes": 125,
+    "sha256": "332260f60642012b88e475beb214593b21bf2acc95a58de5332e08f36f5f345b",
+    "stored_sha256": "81060c4eb712410e14f4190112a80579ab043dd4beb84b37774d8264d643c5ff"
+  },
+  {
+    "source": "pc-recovery-after-powercut/FILES.json",
+    "file": "025-FILES.json.zlib",
+    "bytes": 1143,
+    "sha256": "06ce1f8ab9c3cd79dd3be38a950d8659a50639a945d15e0148bc13c54abb669c",
+    "stored_sha256": "679b971f43eafc028255834611bfabf9ae9c1ae1100acebba6b1362c9b6c63c6"
+  },
+  {
+    "source": "pc-recovery-after-powercut/E6N0003.TR2.json",
+    "file": "026-E6N0003.TR2.json.zlib",
+    "bytes": 2163,
+    "sha256": "7247ed042934a9fd800e56bf6bd446376ec0c10c9cc37f1d59d68bc29b46f47d",
+    "stored_sha256": "21a524727570597542c26ebe9d1e833e7d3f165e7d831fe18ed72f971c59f6c2"
+  },
+  {
+    "source": "pc-recovery-after-powercut/E6N0005.TR2.json",
+    "file": "027-E6N0005.TR2.json.zlib",
+    "bytes": 2515,
+    "sha256": "8e91cdb6eb99e1a4106d3966c73615215be9e7d7245789af5503a34f18f68411",
+    "stored_sha256": "6a8c3ffd814935927621ec1cf323cec965e861a44b6c953ab8283fcd20aeee54"
+  },
+  {
+    "source": "publish_recovery.py",
+    "file": "028-publish_recovery.py.zlib",
+    "bytes": 14965,
+    "sha256": "6128e9a9fe34d3b9babb542f1853e92fb3c1430bb55d0b6661b4022433cab932",
+    "stored_sha256": "ba5aa65dd3c5a1ad5df1f5ddc365151a93577e589cee875763f892044e982f73"
+  }
+]

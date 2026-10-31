@@ -1,14 +1,25 @@
-# Reprise campagne6H — ne pas redéclencher
+# État après récupération des6h — données disponibles, pas de relance
 
-MissionTR2-20261030-R3-8H-FAT32-AUTONOME/addendumexploratoireec42 + décision utilisateur6h. Carte002 en acquisition autonome, montage définitif et alimentation durable confirmés. Sourcec3cd40ce9e96cef2241fb5bc6e8c83acd2a3824e, BINb70438c7930ee2d928ec441a71a66ee23305d0fe5a102b2bc29e1453b6925330. FichierE6N0005.TR2 neuf, garde22000000000µsMCU, témoin21601sQPC, pas qualification8H. Aucun nouveauSTART/reset/flash à la reprise.
+Récupération effectuée le31/10/2026, missionTR2-20261030-R3-8H-FAT32-AUTONOME / instruction utilisateur6h exploratoires. Relire main courant et DERNIER_RAPPORT.md avant toute suite.
 
-Répertoirelocal : `/home/lolo/dev/msm/reports/TR2-r3-6h-data-20261031/`. WorktreeMSM_vibe-R3-6h-data. D'abord relire maincourant/AGENTS/mission/rapport et préserver tousles acquis. **Les anciens helpers8H et les anciennes recettes de clôtureFAILED ne concernent pas cette campagne.**
+## Fichiers originaux complets préservés
 
-1. Après durée et retourdeCodex, exécuter `python3 /home/lolo/dev/msm/reports/TR2-r3-6h-data-20261031/read_six_after.py`. Lecture des journauxWindows existants uniquement ; pas de requêteMCU, pas de nouveau témoin. Résuméabsent/terminalinconnu : nepas supposerSTOP, examinerle journal/procès propre sansrestart/reset.
-2. Terminal1284 succès ou1282erreur constaté : `python3 /home/lolo/dev/msm/reports/TR2-r3-6h-data-20261031/recover_terminal.py`. GDB qualifié cibléSN0032001F3235510C37333439/UID001B0046,38425018,20333157 ; garde stage4/error0 oustage99/error26 seulement, FIFOoff/queue0/writeroff/SDsafe/CShaute. Dumpdigest producteur32B et touscompteurs **avant toute coupure**. Le code ne modifie pas erreur/flags, ne reprendpas uneacquisition. Si autreerreur/garde échouée, analyserfaits avant touteintervention physique.
-3. En erreurqualité26, le compteur/sourceSHA ont étéfinalisés et les écrituresvidées mais le fichierlong n'a **pas** de footerdesuccès. Le bufferdurable_footerRAM peut encoreêtre celuideE6N0003 : nepasleprésentercommeunfooterlong. Conserversaturation et statutdégradé ; l'observateurpeutdireTerminalerror, cela n'effacepas la duréeQPC ni les données, et n'estpasunPASS.
-4. Seulementaprès constatFIFOoff/SDquiet/GDBdétaché etSHAamont sauvegardé, demanderàl'utilisateurdecouperSTLINK002 ettransférerlacarteverslecteurPC, attendreconfirmation. TR2-001/FRAM/COM4intouchés. Pasderetrait àchaud.
-5. Copier exclusivement E6N0003/5 enlocal et calculerSHAoriginaux/copies. Lecteurstrict inchangé : COMPLETEsi conforme, sinonINCOMPLETE/REJECTED_QUALITY. Vérifier intégralement tousCRC/index/session/temps/count et chaqueoctetutile auSHAproducteurRAM. Si erreur26, lepréfixe doit représenter **tous** r3_result.outputs/sd_total_bytes/sd_written, sanspertemasquée ; aucunfooterfabriqué. Conserverles flags et extrairelesrecordsaffectés. OriginauxE8/historiques+Info re-hachés inchangés ; copieancienne déjàpréservée, aucunreformatage.
-6. Rapport factuel/provescompactesGitHub : manifestesSHA/logs/extraits ciblés, pasnouveluploadautomatiquedescentainesdeMo. Originauxcomplets conservéslocalement. Distinguer donnéesrécupérées, qualité etqualification. Mission6H nequalifiepas8H/R3industriel/SI/powerloss/FRAMRTU. Relecture distante effective obligatoire.
+Répertoire `/home/lolo/dev/msm/reports/TR2-r3-6h-data-20261031/pc-recovery-after-powercut/` :
 
-Àlancement : premièreactivitéobservéeUTC2026-10-31T00:25:17.363316+00:00, session8444550407367521, séq42/flags1281 et12464XYZ natifs, premiergroupeSD déjàacquitté. ObservateurWindowsnatifPID7032, dossier `%TEMP%\TR2-R3-6H-20261031-six-long\`, ready/queries/summary. Fin civile estimée2026-10-31T07:29:29.858970+01:00 : **estimation seulement**, pas preuve terminale. LaisserSTLINK/T1000secteur sansveille jusqu'à récupérationRAM ; aucunmoniteurCodex/WSL/GDB pendantles6h.
+- `E6N0005.TR2`,671088640B ; SHAentier `91861cef14f824ae5b7422c55b092255654e2665062747205c7e034a0d1aeee5`.
+- `E6N0003.TR2`,131072B ; SHAentier `325c9e6093975ed9bfe5340a3bd07c20c677ca498f5fb52c439ce07c0dec8c67`.
+- `RECOVERY_RESULTS.json`, `COPIES.json`, `HISTORICAL_HASHES.json`, métadonnées natives duvolume.
+
+Origine carteT1000nativeRealtek/FAT32/capacité31914983424B, originauxencoresurSD ; copiesexclusives, SHAcarte=copie. Lecteurstrictv3 inchangé **COMPLETE pour les deux**. Long :750669records/58552136XYZ/351312816Butiles SHA `5077a1f6e290b563c254300fde4ab7fb1bb7409717e65831e73a20a277bb7e41`, égal aufooter ; rails0/clips0,11warmup. Session8444550407367521/585521360natifs identiques au terminalQPC1284, duréeintérieure21601,0193586s. Sourcecode c3cd40ce9e96cef2241fb5bc6e8c83acd2a3824e/BINb704…5330, v3int16/FIR107 /10/DCconservée/±8glogique/244µgcompte nominal. TempsMCU etinterpolationintra-record, pasUTC deséchantillons ni cadence2000HzV1 qualifiée.
+
+## Réserve indépendante après coupure
+
+L'utilisateur a confirmé une coupure pour déplacer lebanc versl'atelier. Au retourGDB : WAIT/run0/compteurs0/digestRAM32B0. Le digest amont indépendant du long et ses statistiques latence/file/pile n'ont pas été récupérés. **Le digest dufooter n'est pas une référenceRAM externe indépendante** ; comparaisonperdue, qualificationcomplèteBLOCKED même si récupérationdesdonnéesachevée. Le gatecourt dispose de sa référenceRAM antérieure et comparaisonPASS.
+
+Les snapshots `post-reset-state/current-*` décrivent le bootaprèscoupure, jamaislescompteursfinaux. `six-long-data/` est resté vide lorsque la garde de recovery a refusé l'étatreset. **Ne pas relancerrecover_terminal.py ni créer une acquisition pour remplacer la preuve perdue.** Aucun reset/flash/START/Modbus n'a été réalisé pendant la récupération.
+
+## État physique et suite
+
+Dernièreconfirmationuser : microSD danslecteurPC, TR2-002 hors tension/CN15off. GDBdétaché ; TR2-001/FRAM/COM4intouchés. Treizeanciensfichiers etinformation re-hachésinchangés. Donnéescomplèteslocales, preuvesGitHubcompactes soussix-hour/recovery-powercut (manifestes/extraitsréels, nepermettentpasde recalculerleSHAdatasetentier). AucuneimportationPSD/vitesse/RMSnormative exécutée ; suiteanalytique sousmissionR5àdéfinir, montageprototype/orientation/horlogeàborner. Ne pas adopter implicitementv4 ni modifierFIR/gain/plage. Le fichier réellementretrouvéestE6N5 ; E9N5dansl'ajoutR5ae144étaituneattente sousréserve.
+
+Les procédures ethelpers de lancement antérieurs sont des archives de cettecapture déjàexécutée. Ne pas les rejouer àl'ouverture decesnotes. Repartir des copies etrésultatsprésents ; nouvellecapture uniquement sousinstruction/contrat explicite.

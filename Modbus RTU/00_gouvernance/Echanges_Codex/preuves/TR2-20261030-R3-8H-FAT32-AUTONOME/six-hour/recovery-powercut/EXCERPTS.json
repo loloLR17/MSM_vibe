@@ -1,0 +1,71 @@
+{
+  "file": "E6N0005.TR2",
+  "original_file_bytes": 671088640,
+  "original_whole_SHA256": "91861cef14f824ae5b7422c55b092255654e2665062747205c7e034a0d1aeee5",
+  "all_payload_bytes": 351312816,
+  "all_payload_SHA256": "5077a1f6e290b563c254300fde4ab7fb1bb7409717e65831e73a20a277bb7e41",
+  "header_records_bytes": 384343040,
+  "footer_offset": 671088128,
+  "unused_tail_bytes": 286745088,
+  "local_original": "/home/lolo/dev/msm/reports/TR2-r3-6h-data-20261031/pc-recovery-after-powercut/E6N0005.TR2",
+  "all_data_locally_preserved": true,
+  "only_bounded_excerpts_published": true,
+  "public_excerpts_allow_full_dataset_SHA_reproduction": false,
+  "independent_RAM_reference_lost": true,
+  "parts": [
+    {
+      "file": "header.bin",
+      "offset": 0,
+      "bytes": 512,
+      "SHA256": "92a432740f3b6fecc96e0f02cdb5c56c0b93c848e7aa0bb2882a6688e0556b7e"
+    },
+    {
+      "file": "footer.bin",
+      "offset": 671088128,
+      "bytes": 512,
+      "SHA256": "c959b89aa12dbcea86a26ce36e59dda0e652667052612c81fc11317681ffafa5"
+    },
+    {
+      "file": "record-0000000.bin",
+      "offset": 512,
+      "bytes": 512,
+      "SHA256": "7c48ed92e4d357958e0ef987850bd0212d5977ceb8a7fa7ee57928dbda87c3a1"
+    },
+    {
+      "file": "record-0000001.bin",
+      "offset": 1024,
+      "bytes": 512,
+      "SHA256": "043a04eb78ebdc4584a294a7ba01327ae6506238be72e4c335b45c11701ef31f"
+    },
+    {
+      "file": "record-0187667.bin",
+      "offset": 96086016,
+      "bytes": 512,
+      "SHA256": "8d92a032ff662a1f8bd13e9b89c1a89c8157eada2d43b60e0718755387fd5e74"
+    },
+    {
+      "file": "record-0375334.bin",
+      "offset": 192171520,
+      "bytes": 512,
+      "SHA256": "26e65adc26b4e95302069e867ad6cd6fa8d290dd738795fe0e5239f1f7de1cec"
+    },
+    {
+      "file": "record-0563001.bin",
+      "offset": 288257024,
+      "bytes": 512,
+      "SHA256": "ed77f7a4da570c2b09f813aa7a413c73ca2cdaf1bd171dc1182042059eb42ac8"
+    },
+    {
+      "file": "record-0750667.bin",
+      "offset": 384342016,
+      "bytes": 512,
+      "SHA256": "d3734b0c20afb97f9cf8b088da66e99af05950576629f054b369e07e60e78082"
+    },
+    {
+      "file": "record-0750668.bin",
+      "offset": 384342528,
+      "bytes": 512,
+      "SHA256": "5abcce4595f888efd702d86f05bcb63dbe99ea48edcd660b39c5bddccbacf47b"
+    }
+  ]
+}

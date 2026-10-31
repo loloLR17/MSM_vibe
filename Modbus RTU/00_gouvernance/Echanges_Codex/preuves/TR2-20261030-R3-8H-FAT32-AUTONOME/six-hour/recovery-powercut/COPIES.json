@@ -1,0 +1,14 @@
+[
+  {
+    "name": "E6N0003.TR2",
+    "bytes": 131072,
+    "whole_file_SHA256": "325c9e6093975ed9bfe5340a3bd07c20c677ca498f5fb52c439ce07c0dec8c67",
+    "original_card_equals_PC_copy": true
+  },
+  {
+    "name": "E6N0005.TR2",
+    "bytes": 671088640,
+    "whole_file_SHA256": "91861cef14f824ae5b7422c55b092255654e2665062747205c7e034a0d1aeee5",
+    "original_card_equals_PC_copy": true
+  }
+]

@@ -1,0 +1,67 @@
+[
+  {
+    "name": "RUN0003.TR2",
+    "SHA256": "875a7d0d7297e054206714db64e7be059df981d0e3111ccfa600ef50f11d496d",
+    "unchanged": true
+  },
+  {
+    "name": "RUN0004.TR2",
+    "SHA256": "402a8d381d5c70c7411b9a7bc1ba54aa606e60a7e0496c1265af24e21f08203e",
+    "unchanged": true
+  },
+  {
+    "name": "RUN0005.TR2",
+    "SHA256": "28526843ff3c430a3768b3a7fc9a778a7d5f05dcbd42bc0d1932a8676f61349c",
+    "unchanged": true
+  },
+  {
+    "name": "R2N0003.TR2",
+    "SHA256": "99f3309864fd4304e6fca88c292c9b388cd6b4395eccac7b320f17644923ae79",
+    "unchanged": true
+  },
+  {
+    "name": "R2N0004.TR2",
+    "SHA256": "95244f0f06f8f21428c25d807af384ec498a1c0a6c4e3da80b2ad369b0f94085",
+    "unchanged": true
+  },
+  {
+    "name": "R2N0005.TR2",
+    "SHA256": "2aec9e516f9eec4b838180f880782643bf599d9a606af86cb299a37ab3b4e425",
+    "unchanged": true
+  },
+  {
+    "name": "H1N0003.TR2",
+    "SHA256": "46e71e947bbcdf7039fcaeeb1e2c283666b89ef1fe8228d01db1f7b4a116a025",
+    "unchanged": true
+  },
+  {
+    "name": "H1N0005.TR2",
+    "SHA256": "894d4f3bc3542694fc2a662f96a2a85b454a7c91aa176e09b85eb17b3631f601",
+    "unchanged": true
+  },
+  {
+    "name": "Q1N0003.TR2",
+    "SHA256": "39ea1685e9fe5d6617b029de752920175c2588326264b744e265f1153bcc9049",
+    "unchanged": true
+  },
+  {
+    "name": "Q1N0005.TR2",
+    "SHA256": "c6098f96bf1fc8f76d2645cd5b6c97223217ba35138cd666bc6358ef4c08575e",
+    "unchanged": true
+  },
+  {
+    "name": "E8N0003.TR2",
+    "SHA256": "0e2f5092b58f862ecde6b54bb3027c65bfc94134cd545ef5737d5ff8286d662b",
+    "unchanged": true
+  },
+  {
+    "name": "E8N0005.TR2",
+    "SHA256": "41c3f4454c9f224d2d470486692c2f77b23c4518f348797da0b4329e015b0432",
+    "unchanged": true
+  },
+  {
+    "name": "TR2INFO.TXT",
+    "SHA256": "71e626c7e69644ff7aec1047fbb0417bc9ff80b6ec21a47659d68e70fbd11553",
+    "unchanged": true
+  }
+]
