@@ -1,11 +1,11 @@
 ---
 mission_id: TR2-20261031-R5-ANALYSE-PC-MACHINE-6H
-status: IN_PROGRESS
+status: DONE
 base_ref: main
 base_sha: d053d70155aecfe5af9bf7059e3b0dd6ea24a7af
 initial_head: ecbff71f735cc8e4c195d3882b887aaf3f6e5aec
-result_sha: bb16202f1cfae5765961e64dc6125a9bae52ae5a
-created_at_utc: 2026-10-31T09:14:59.556207+00:00
+result_sha: a5c8f3672a30cb5f1394befbfebbcb66d15634f9
+created_at_utc: 2026-10-31T09:18:02.521620+00:00
 author: Codex
 target_branch: main
 allow_commit: true
@@ -16,10 +16,12 @@ allow_debug: false
 
 # R5 — six heures analysées, catalogue SQLite rempli
 
-**G1/G2/G3/G3b/G4 exécutés et satisfaits dans la portée exploratoire du contrat.**
-Le calcul intégral, les contre-calculs réels et la persistance sont faits.
-**IN_PROGRESS porte sur la publication/relecture de ce lot**, pas un blocage
-matériel ni un arrêt au simple logiciel préparé. Aucun essai physique relancé.
+**DONE — G1/G2/G3/G3b/G4/G5 satisfaits dans la portée exploratoire du contrat.**
+Calcul intégral, contre-calculs réels, persistance et publication effectués.
+Le lot distant **a5c8f3672a30cb5f1394befbfebbcb66d15634f9** a été récupéré de
+GitHub et relu intégralement : **48fichiers/7701220octets identiques** aux
+livrables locaux, mission comprise (preuve results-remote.json). Cette clôture
+R5 ne lève aucune réserve R3 ni qualification métrologique. Aucun essai physique relancé.
 
 [Paquet local navigable](preuves/TR2-20261031-R5-ANALYSE-PC-MACHINE-6H/index.html),
 [synthèse métier](preuves/TR2-20261031-R5-ANALYSE-PC-MACHINE-6H/SYNTHESE_POC.md),
@@ -187,5 +189,25 @@ Permissions exercées : développementPC/commit/pushnormal surmain seulement.
 
 JournalETAT_COURANT_TR2 actualisé : analyse réelle acquise, catalogue, limites,
 suite de qualification ; décisions normatives/architecture inchangées.
-Prochaine action immédiate : commit de ce lot, pushnormalmain, relecture complète
-GitHub puis rapportDONE siG5 satisfait. Revue indépendanteChatGPT ensuite.
+Publications réussies par pushnormalmain :
+- bb16202f — `R5: checkpoint strict import and tested PC analysis/catalogue tools` ;
+ 12fichiers relus byte-exact depuisGitHub.
+- a5c8f367 — `R5: deliver full six-hour metrics, spectra, SQLite catalogue and evidence` ;
+ 48fichiers relus byte-exact depuisGitHub, dontcode, rapport, journal, mission,
+ HTML/PNG/CSV, preuves et étude. SHAcodecomplet de cette tranche dansresult_sha ;
+ SHAdu calcul numérique original dansmanifest.json(bb16202f), différences ultérieures
+ de rendu/persistance documentées sans répétition du filtrage.
+
+Le worktree était propre et égal au SHA distant a5c8f367 avant cette seule mise
+àjour de clôture. Les CSV scientifiques gardent leurs octetsCRLF de production ;
+le contrôle de diff a été effectué avec reconnaissance CR-at-EOL, sans modifier
+les exports ni la configuration Git permanente. Contrôles complémentaires PASS :
+liensHTML locaux, JSON, comptesCSV/coverage, SHA4PNG etDB, quatre requêtes du
+fichierqueries.sql (comptes1/367/1/60). RapportDONE et preuve de relecture sont
+publiés ensuite par pushnormal ; la dernière publication est vérifiée également
+et son SHA est donné dans la réponse finale, sans référence circulaire dans ce commit.
+
+**À transmettre à ChatGPT :** revue indépendante des résultats/limites R5, du
+catalogue et de la méthode ; décider le petit jalon de qualification cadence,
+fixation/axes, réponse1Hz et vitesse/Wm/éditions. Aucun chantier normatif ni test
+matériel supplémentaire n'a été lancé implicitement.
