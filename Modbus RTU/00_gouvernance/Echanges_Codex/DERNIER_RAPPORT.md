@@ -1,11 +1,11 @@
 ---
 mission_id: TR2-20261031-R5-CONFORT-BV-ISO-INDICATIF
-status: IN_PROGRESS
+status: BLOCKED
 base_ref: main
 base_sha: ec5f295678fbf1d60470069ea2f55aa548b7fc11
 initial_head: 7575a051092714c3296476327fb4ace8b069cfe0
-result_sha: 45e70a789feb70ed3ed753c13f542252af3bf26e
-created_at_utc: 2026-10-31T10:08:19.359021+00:00
+result_sha: c2c1437b080a44589836fff37b30c706adc4c1cc
+created_at_utc: 2026-10-31T10:10:05.842480+00:00
 author: Codex
 target_branch: main
 allow_commit: true
@@ -24,9 +24,11 @@ n'est pas livré : P0 reste bloquée par les définitions normatives indisponibl
 L'utilisateur a répondu «Aucun accès disponible actuellement». Aucun achat de
 norme ni substitution d'une formule non vérifiée n'a été effectué.
 
-`IN_PROGRESS` concerne uniquement la publication/relecture de ce lot ; le retour
-final sera **BLOCKED surP0**, pasDONE ni simple checkpoint logiciel. Aucun essai
-physique n'a été relancé et aucune opérationSTM32/SD/COM n'a été réalisée.
+**BLOCKED surP0 après exécution et publication des travaux réalisables.**
+Le lot **c2c1437b080a44589836fff37b30c706adc4c1cc** a été récupéré depuisGitHub
+et relu intégralement : **36fichiers/1232919octets byte-exact** (results-remote.json).
+Il ne reste pas un test physique relançable dans ce contrat : la définition
+normative fondamentale manque. Aucun essai physique ni accèsSTM32/SD/COM effectué.
 
 [Page locale non spécialiste](preuves/TR2-20261031-R5-CONFORT-BV-ISO-INDICATIF/index.html),
 [synthèse POC](preuves/TR2-20261031-R5-CONFORT-BV-ISO-INDICATIF/SYNTHESE_POC.md),
@@ -196,13 +198,15 @@ Les deuxhypothèses de ce mêmefichier restent des scénarios de sensibilité ex
 |G2|Sixheures préliminairesnonpondérées calculées/contrôlées ; indicateurprincipalpondéré absent|
 |G3|PASS pourcohortepréliminaire isolée, requêtes etréimport réel|
 |G4|Page/figure/synthèse explicites, diagnosticancien intact ; aucunseuil affiché|
-|G5|Code etpreuves prêts ; push/relecture du lot àeffectuer immédiatement|
+|G5|PASS : code/preuves publiés et36fichiers relus byte-exact surc2c1437b ; cette clôtureBLOCKED est également publiée/vérifiée|
 
 Preuves≈1.03MB : code/tests/méthode/P0/manifeste/CSV/PNG/HTML/sourcesetSHA ;
 pas .TR2/DB/SDbrute dansGit. LOCAL_ARTIFACTS.json donne chemins/empreintes réels.
 Numériqueévalué45e70a789feb70ed3ed753c13f542252af3bf26e, checkpoint publié et
 8fichiers relus byte-exact depuisorigin/main. Code de persistance/page ajouté
-et effectivement exercé ensuite, àinclure dans leprochaincommit.
+et effectivement exercé ensuite, publié dansc2c1437b. Les calculs anciens n'ont
+pas été relancés pour cette publication ; résultatnumérique45e70a78 etcodecomplet
+c2c1437b distingués explicitement.
 
 WorktreeisoléMSM_vibe-R5-comfort sur7575a051 ; dépôthistorique82169af7,
 worktreesR5antérieurs, archives déjà clôturées et stashes6251b988/f3b829e6 préservés.
@@ -210,6 +214,19 @@ Aucune résolution de divergence/merge/rebase/reset/clean/forcepush, aucun accè
 STM32/SD/COM/serviceWindows ; dernierétatphysiquedéclaréoff/SDauPC nonrevérifié.
 Permissions exercées : logicielPC/commits/pushnormaux versmain uniquement.
 JournalETAT_COURANT_TR2 actualisé pour acquis/blocage/reprise ; gouvernance et
-spécifications non modifiées. Après publication/relecture, arrêter surP0 avec
-rapportBLOCKED exploitable ; revue indépendanteChatGPT puis accèslicite aux
-sources manquantes pour reprendre, sans répéter l'anciennecampagne ni ces résultats.
+spécifications non modifiées. Deuxpushnormaux réussis :
+-45e70a78 : `R5 comfort: checkpoint P0 source limits and tested unweighted fallback`,
+ 8fichiers récupérés/relus byte-exact ;
+-c2c1437b : `R5 comfort: publish real unweighted six-hour results and isolated schema2 catalogue`,
+ 36fichiers récupérés/relus byte-exact, dontcode/tests/page/CSV/preuves/rapport/journal/mission.
+La dernière miseàjourBLOCKED est ensuite commitée/poussée/vérifiée ; sonSHA et
+l'étatGitpropre sont fournis dans la réponse finale, sans référence circulaire.
+
+**Point de reprise :** worktreeMSM_vibe-R5-comfort, codepubliéc2c1437b,
+sourceE6N5inchangée, résultatslocauxTR2-R5-comfort-20261031/real-unweighted-v1,
+basecomfort-secondary-v2.sqlite/SHAci-dessus, anciencataloguev1intact.
+Commencer par revue indépendanteChatGPT des limites etpreliminaires, puis obtenir
+un accèslicite auxclauses précisesP0_METHOD.md. Unefoiscelui-cidisponible,
+implémenter/versionnerWm etl'équivalencevérifiée, testercontreoracle ettraiter
+la même archive ; pas de nouvelle acquisition ni répétition de la tranche nonpondérée.
+Aucune conclusiondeconfort acceptable/inacceptable n'est disponible actuellement.
