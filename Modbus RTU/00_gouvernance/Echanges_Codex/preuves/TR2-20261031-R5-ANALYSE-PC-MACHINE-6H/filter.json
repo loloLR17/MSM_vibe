@@ -1,0 +1,99 @@
+{
+  "method": "Butterworth order4 prototype bandpass, total order8, causal SOS float64",
+  "fs_est_Hz": 2661.462021501383,
+  "sos": [
+    [
+      5.065723203991807e-07,
+      1.0131446407983614e-06,
+      5.065723203991807e-07,
+      1.0,
+      -1.9108716021264438,
+      0.9133532162329012
+    ],
+    [
+      1.0,
+      2.0,
+      1.0,
+      1.0,
+      -1.959068831759231,
+      0.9623651905697839
+    ],
+    [
+      1.0,
+      -2.0,
+      1.0,
+      1.0,
+      -1.9902846943432837,
+      0.9903144842965099
+    ],
+    [
+      1.0,
+      -2.0,
+      1.0,
+      1.0,
+      -1.9967994808423073,
+      0.9968225530737331
+    ]
+  ],
+  "initialization": "constant first valid XYZ; suppress 5s after each valid run restart",
+  "phase": "causal, frequency-dependent delay; no zero-phase compensation",
+  "band_Hz": [
+    2,
+    25
+  ],
+  "edge_gain": "-3.0103 dB at both edges, NOT a rectangular flat-band RMS",
+  "response": [
+    {
+      "frequency_est_Hz": 0.0,
+      "amplitude_gain": 0.0,
+      "gain_dB": null
+    },
+    {
+      "frequency_est_Hz": 1.0,
+      "amplitude_gain": 0.048489386287919246,
+      "gain_dB": -26.287066251060036
+    },
+    {
+      "frequency_est_Hz": 2.0,
+      "amplitude_gain": 0.7071067811853124,
+      "gain_dB": -3.010299956654983
+    },
+    {
+      "frequency_est_Hz": 5.0,
+      "amplitude_gain": 0.9999975012723743,
+      "gain_dB": -2.170369950823698e-05
+    },
+    {
+      "frequency_est_Hz": 10.0,
+      "amplitude_gain": 0.9999975152727782,
+      "gain_dB": -2.1582093241652922e-05
+    },
+    {
+      "frequency_est_Hz": 20.0,
+      "amplitude_gain": 0.9482102026442795,
+      "gain_dB": -0.4619075205590662
+    },
+    {
+      "frequency_est_Hz": 25.0,
+      "amplitude_gain": 0.7071067811865636,
+      "gain_dB": -3.010299956639615
+    },
+    {
+      "frequency_est_Hz": 40.0,
+      "amplitude_gain": 0.12294380972120232,
+      "gain_dB": -18.20586666613494
+    },
+    {
+      "frequency_est_Hz": 80.0,
+      "amplitude_gain": 0.006973680023199654,
+      "gain_dB": -43.13075966901661
+    },
+    {
+      "frequency_est_Hz": 141.34137634383643,
+      "amplitude_gain": 0.0006830176868048754,
+      "gain_dB": -63.31136100155807
+    }
+  ],
+  "decimation": 16,
+  "alias_scope": "ONLY after 2–25Hz filtering; attenuation quantified at fs_decimated−25 Hz; no 2–700 claim"
+}

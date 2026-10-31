@@ -13,8 +13,8 @@ from analysis import reader, verified_blocks, BandStream, Moments, design, veloc
 EXPECTED = '91861cef14f824ae5b7422c55b092255654e2665062747205c7e034a0d1aeee5'
 PAYLOAD = '5077a1f6e290b563c254300fde4ab7fb1bb7409717e65831e73a20a277bb7e41'
 MISSION = 'TR2-20261031-R5-ANALYSE-PC-MACHINE-6H'
-LIMITS = ('EXPLORATOIRE — mg nominaux / XYZ capteur / UTC inconnue / horloges non étalonnées. '
-          'Couplage mécanique non qualifié ; aucune conclusion ISO/BV.')
+LIMITS = ('EXPLORATOIRE · mg nominaux · XYZ capteur · UTC inconnue · horloges non étalonnées\n'
+          'Couplage mécanique non qualifié · aucune conclusion ISO/BV')
 
 
 def sha(path):
@@ -165,6 +165,10 @@ def plots(out,r10,b10,r60,b60,times,freq,psd,spectra,ridges):
     ax[2].plot((b10['start_s']+5)/3600,b10['vector_peak'],color='#8c3d85',lw=.8,label='Crête vectorielle réelle · 10 s')
     ax[2].set_ylabel('Crête 2–25 Hz (mg)');ax[2].set_xlabel('Temps relatif MCU nominal (h) — aucune UTC');ax[2].legend()
     fig.suptitle('E6N0005 · Intensité des vibrations sur toute la campagne\n'+LIMITS,fontsize=11)
+    for axis in ax:
+        axis.axvspan(0,60/3600,color='#9da4ad',alpha=.18)
+        axis.axvspan(21960/3600,21999.988926/3600,color='#9da4ad',alpha=.18)
+    ax[2].text(.01,.95,'Gris : fenêtres de bord incomplètes ; 5 s initiales exclues',transform=ax[2].transAxes,va='top',fontsize=8)
     fig.savefig(out/'01_intensity.png',dpi=150);plt.close(fig)
     power=psd.sum(axis=2).T
     db=10*np.log10(np.maximum(power,1e-12))
@@ -188,6 +192,21 @@ def plots(out,r10,b10,r60,b60,times,freq,psd,spectra,ridges):
     ax[1].legend(ncol=3,fontsize=8)
     fig.suptitle('E6N0005 · Spectres et raies exploratoires\n'+LIMITS,fontsize=10)
     fig.savefig(out/'03_spectra_ridges.png',dpi=150);plt.close(fig)
+    fig,ax=plt.subplots(2,1,figsize=(13,7),sharex=True,layout='constrained')
+    for center in centers:
+        rows=[r for r in ridges if r[1]==center]
+        time_h=np.array([r[0] for r in rows])/3600
+        accepted=np.array([r[4]=='OBSERVED_FIXED_BAND' for r in rows])
+        observed=np.array([float(r[2]) if r[2]!='' else np.nan for r in rows])
+        power=np.array([float(r[3]) if r[3]!='' else np.nan for r in rows])
+        power[~accepted]=np.nan
+        ax[0].plot(time_h,observed,lw=.65,label=f'{center:.2f} ± 0,30 Hz')
+        ax[1].plot(time_h,10*np.log10(np.maximum(power,1e-12)),lw=.65)
+    ax[0].set(ylabel='Maximum local estimé (Hz)',title='Bandes fixes candidates — interruptions conservées, aucune source attribuée')
+    ax[0].legend(ncol=3)
+    ax[1].set(ylabel='PSD au pic (dB réf. 1 mg²/Hz)',xlabel='Temps relatif MCU nominal (h)')
+    fig.suptitle('E6N0005 · Fréquence et puissance des raies candidates\n'+LIMITS,fontsize=10)
+    fig.savefig(out/'04_ridge_power.png',dpi=150);plt.close(fig)
 
 
 def main():

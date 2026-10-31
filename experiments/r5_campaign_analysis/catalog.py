@@ -42,7 +42,12 @@ def import_results(directory, dbpath):
     filt=json.loads((directory/'filter.json').read_text())
     params=dict(filter=filt,sensitivity_mg_per_count=.244,time_windows='archived block interpolation / nominal MCU seconds',fir_warmup_outputs=11,algorithm_code_sha256=manifest['algorithm_code_sha256'])
     analysis_id=hashlib.sha256(canonical(dict(source=manifest['whole_file_sha256'],version=VERSION,parameters=params)).encode()).hexdigest()
-    results_digest=hashlib.sha256(''.join(digest(p) for p in csv_files).encode()).hexdigest()
+    # Gzip container mtime/name is not a different numerical result.
+    csv_digests=[]
+    for path in csv_files:
+        opener=gzip.open if path.suffix=='.gz' else open
+        with opener(path,'rb') as stream:csv_digests.append(hashlib.file_digest(stream,'sha256').hexdigest())
+    results_digest=hashlib.sha256(''.join(csv_digests).encode()).hexdigest()
     # Refuse ALL existing databases without OUR application marker before any write.
     if dbpath.exists():
         with sqlite3.connect(dbpath.as_uri()+'?mode=ro',uri=True) as check:

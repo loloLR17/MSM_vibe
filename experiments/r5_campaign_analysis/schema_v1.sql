@@ -1,5 +1,5 @@
 -- Isolated R5 analysis catalogue, NEVER a migration of TR2 supervision schema7.
-PRAGMA application_id = 1380270913; -- 0x52455341: RESA, reserved catalogue marker
+PRAGMA application_id = 1380270913; -- 0x52454341: RECA, reserved catalogue marker
 PRAGMA user_version = 1;
 CREATE TABLE campaigns (
  campaign_id TEXT PRIMARY KEY CHECK(length(campaign_id)=64), source_path TEXT NOT NULL,

@@ -1,0 +1,84 @@
+{
+  "analysis_id": "d7d3284803baec695110313113f7267c374f5d1d3c3a0583d469eb1d1fd8e044",
+  "idempotent": false,
+  "counts": {
+    "campaigns": 1,
+    "analysis_runs": 1,
+    "window_metrics": 49134,
+    "artifact_refs": 7
+  },
+  "queries": {
+    "campaigns": {
+      "count": 1,
+      "first_rows": [
+        {
+          "campaign_id": "91861cef14f824ae5b7422c55b092255654e2665062747205c7e034a0d1aeee5",
+          "source_path": "/home/lolo/dev/msm/reports/TR2-r3-6h-data-20261031/pc-recovery-after-powercut/E6N0005.TR2",
+          "site": "plancher PC machine, double-face mince annonc\u00e9 ; pose exploratoire",
+          "utc_status": "UTC_UNKNOWN",
+          "duration_mcu_s": 21999.988926
+        }
+      ]
+    },
+    "global_per_minute": {
+      "count": 367,
+      "first_rows": [
+        {
+          "start_mcu_s": 0.0,
+          "rms_global": 12.617515246767809,
+          "quality": "PARTIAL_OR_INVALID",
+          "coverage_est": 0.9162946206377292
+        },
+        {
+          "start_mcu_s": 60.0,
+          "rms_global": 12.250670377622267,
+          "quality": "VALID_ESTIMATED",
+          "coverage_est": 0.9997575186760125
+        },
+        {
+          "start_mcu_s": 120.0,
+          "rms_global": 13.002351442730813,
+          "quality": "VALID_ESTIMATED",
+          "coverage_est": 0.9997512564537707
+        }
+      ]
+    },
+    "worst_10s": {
+      "count": 1,
+      "first_rows": [
+        {
+          "start_mcu_s": 18610.0,
+          "rms_global": 44.57987773417742,
+          "peak_vector": 145.63618575690037,
+          "quality": "VALID_ESTIMATED"
+        }
+      ]
+    },
+    "axes_600_660s": {
+      "count": 60,
+      "first_rows": [
+        {
+          "start_mcu_s": 600.0,
+          "rms_x": 7.488585279327257,
+          "rms_y": 6.441433320204554,
+          "rms_z": 6.349724345953602,
+          "quality": "VALID_ESTIMATED"
+        },
+        {
+          "start_mcu_s": 601.0,
+          "rms_x": 6.367500562364635,
+          "rms_y": 6.848253988476229,
+          "rms_z": 8.045051438430933,
+          "quality": "VALID_ESTIMATED"
+        },
+        {
+          "start_mcu_s": 602.0,
+          "rms_x": 7.21399019197679,
+          "rms_y": 6.035579419333424,
+          "rms_z": 14.976162116721415,
+          "quality": "VALID_ESTIMATED"
+        }
+      ]
+    }
+  }
+}

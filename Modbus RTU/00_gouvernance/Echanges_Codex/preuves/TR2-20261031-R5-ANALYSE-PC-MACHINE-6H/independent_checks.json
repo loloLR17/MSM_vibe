@@ -1,0 +1,86 @@
+[
+  {
+    "label": "low",
+    "start_mcu_s": 19500,
+    "duration_s": 60,
+    "n": 159717,
+    "method": "raw Parseval + FFT algebraic causal transfer / SOS streaming",
+    "band_rms_xyz_fft_mg": [
+      1.0491047203764996,
+      0.9873404868456032,
+      1.0367872858485216
+    ],
+    "band_rms_xyz_stream_mg": [
+      1.04910472037646,
+      0.9873404868456775,
+      1.036787285847395
+    ],
+    "relative_error_xyz": [
+      3.7673969918344115e-14,
+      7.53386938355258e-14,
+      1.0866783772997015e-12
+    ],
+    "raw_parseval_max_abs_error_mg": 5.4569682106375694e-12,
+    "pass_limits": {
+      "relative_band": 0.001,
+      "absolute_raw_mg": 1e-08
+    },
+    "passed": true
+  },
+  {
+    "label": "median",
+    "start_mcu_s": 12420,
+    "duration_s": 60,
+    "n": 159658,
+    "method": "raw Parseval + FFT algebraic causal transfer / SOS streaming",
+    "band_rms_xyz_fft_mg": [
+      7.238911002820714,
+      5.3980715748985855,
+      9.847762015770176
+    ],
+    "band_rms_xyz_stream_mg": [
+      7.238911002820559,
+      5.3980715748986965,
+      9.84776201577071
+    ],
+    "relative_error_xyz": [
+      2.1471630661982157e-14,
+      2.056703045190711e-14,
+      5.4294915718231816e-14
+    ],
+    "raw_parseval_max_abs_error_mg": 5.229594535194337e-12,
+    "pass_limits": {
+      "relative_band": 0.001,
+      "absolute_raw_mg": 1e-08
+    },
+    "passed": true
+  },
+  {
+    "label": "high",
+    "start_mcu_s": 18540,
+    "duration_s": 60,
+    "n": 159691,
+    "method": "raw Parseval + FFT algebraic causal transfer / SOS streaming",
+    "band_rms_xyz_fft_mg": [
+      13.794895246099243,
+      14.333265450347348,
+      28.07066751263794
+    ],
+    "band_rms_xyz_stream_mg": [
+      13.794895246099095,
+      14.333265450347335,
+      28.070667512637797
+    ],
+    "relative_error_xyz": [
+      1.0687838873724904e-14,
+      8.675272162422995e-16,
+      5.0625282454733514e-15
+    ],
+    "raw_parseval_max_abs_error_mg": 6.536993168992922e-13,
+    "pass_limits": {
+      "relative_band": 0.001,
+      "absolute_raw_mg": 1e-08
+    },
+    "passed": true
+  }
+]

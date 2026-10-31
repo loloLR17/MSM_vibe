@@ -1,0 +1,67 @@
+G1 whole hash then strict reader
+G3 complete bounded streaming pass
+Spectrogram and independent actual-data FFT cross-checks
+{
+  "summary": {
+    "windows": {
+      "1": {
+        "valid_full_windows": 21994,
+        "total_windows": 22000,
+        "rms_global_quantiles_mg": {
+          "p50": 13.0318073336718,
+          "p90": 17.525634919679785,
+          "p95": 22.911968836569113,
+          "p99": 33.323035181634125
+        },
+        "max_window_rms_global_mg": 58.39824489143177,
+        "max_vector_peak_mg": 145.63618575690037
+      },
+      "10": {
+        "valid_full_windows": 2198,
+        "total_windows": 2200,
+        "rms_global_quantiles_mg": {
+          "p50": 13.31848620208547,
+          "p90": 16.078865035290043,
+          "p95": 24.499633349649898,
+          "p99": 29.883749692031124
+        },
+        "max_window_rms_global_mg": 44.57987773417742,
+        "max_vector_peak_mg": 145.63618575690037
+      },
+      "60": {
+        "valid_full_windows": 365,
+        "total_windows": 367,
+        "rms_global_quantiles_mg": {
+          "p50": 13.36111619415617,
+          "p90": 15.345238314274717,
+          "p95": 25.643309426355483,
+          "p99": 28.909264312653594
+        },
+        "max_window_rms_global_mg": 34.404999751867855,
+        "max_vector_peak_mg": 145.63618575690037
+      }
+    },
+    "selected_segment_starts_mcu_s": [
+      19500,
+      12420,
+      18540
+    ],
+    "relative_episode_threshold_p90_mg": 15.345238314274717,
+    "episode_count": 5,
+    "raw_mean_xyz_mg": [
+      51.33223830813942,
+      -88.07089591696082,
+      1018.617569127405
+    ],
+    "raw_n": 58552125,
+    "band_valid_n": 58538817,
+    "excluded_fir_warmup_n": 11,
+    "band_invalid_including_settling_n": 13319,
+    "timestamp_gaps_gt_10_periods": 0,
+    "max_adjacent_timestamp_interval_s": 0.0003770000002987217,
+    "max_uniform_grid_error_vs_archived_endpoints_s": 0.605750838009044
+  },
+  "output": "/home/lolo/dev/msm/reports/TR2-R5-analysis-6h-20261031/full-analysis-v1",
+  "elapsed_s": 24.519680983998114,
+  "peak_RSS_KiB": 397320
+}

@@ -1,0 +1,146 @@
+{
+  "mission_id": "TR2-20261031-R5-ANALYSE-PC-MACHINE-6H",
+  "source": {
+    "format_version": 3,
+    "requested_duration_us": 22000000000,
+    "actual_duration_us": 22000000014,
+    "first_source_time_us": 497374174,
+    "last_source_time_us": 22497363438,
+    "status": "COMPLETE",
+    "path": "/home/lolo/dev/msm/reports/TR2-r3-6h-data-20261031/pc-recovery-after-powercut/E6N0005.TR2",
+    "file_bytes": 671088640,
+    "run": 5,
+    "session": 8444550407367521,
+    "valid_records": 750669,
+    "valid_xyz": 58552136,
+    "payload_bytes": 351312816,
+    "sha256": "5077a1f6e290b563c254300fde4ab7fb1bb7409717e65831e73a20a277bb7e41",
+    "first_output_source_index": 0,
+    "last_output_source_index": 585521350,
+    "first_time_us": 497374174,
+    "last_time_us": 22497363100,
+    "source_rate_num": 8022180768000000,
+    "source_rate_den": 301474730736,
+    "source_hz": 26609.794951686967,
+    "output_hz": 2660.9794951686968,
+    "clock_ratio_scope": "initial sensor/MCU calibration",
+    "observed_duration_us": 21999988926,
+    "observed_output_hz_between_endpoints": 2661.462021501383,
+    "logical_fs_g": 8,
+    "sensitivity_ug_per_count": 244,
+    "dc_preserved": true,
+    "quality_or": 1,
+    "utc": null,
+    "firmware_sha": "c3cd40ce9e96cef2241fb5bc6e8c83acd2a3824e",
+    "coefficient_sha256": "0e528c6d985207c265ccaa4a5df797ccdfa5ccfe938ad9a51a6a6ad8c94cc1b4",
+    "cid": "0353445344333247858bf0923c01927b",
+    "uid": [
+      1769542,
+      943869976,
+      540225879
+    ],
+    "time_method": "Actual DEC8 block endpoints; within-block interpolation approximate, not UTC",
+    "stop_reason": "controlled STOP and full producer digest matched",
+    "durability": "CRC-valid sequential matching-session prefix only; physical survival after power loss and maximum lost tail are NOT guaranteed"
+  },
+  "whole_file_sha256": "91861cef14f824ae5b7422c55b092255654e2665062747205c7e034a0d1aeee5",
+  "whole_file_sha256_after": "91861cef14f824ae5b7422c55b092255654e2665062747205c7e034a0d1aeee5",
+  "payload_sha256": "5077a1f6e290b563c254300fde4ab7fb1bb7409717e65831e73a20a277bb7e41",
+  "algorithm_code_sha256": "a62bd1857281bfb0fe5de3c6d28551a0e854b56e864026379a85f545551bf628",
+  "processing_git_sha": "bb16202f1cfae5765961e64dc6125a9bae52ae5a",
+  "python": "3.13.5",
+  "numpy": "2.3.5",
+  "scipy": "1.17.0",
+  "matplotlib": "3.10.8",
+  "output_fs_est_Hz": 2661.462021501383,
+  "fs_method": "sample endpoints against nominal MCU microseconds, NOT calibrated SI; uniform DSP approximation",
+  "header_initial_fs_est_Hz": 2660.9794951686968,
+  "QPC": {
+    "reference": "Windows QPC, not UTC/SI traceability",
+    "independent_inner_interval_s": 21601.0193586,
+    "minimum_required_s": 21601,
+    "run": 5,
+    "session": 8444550407367521,
+    "first": {
+      "sequence": 42,
+      "mcu_us": 497843243,
+      "flags": 1281,
+      "session": 8444550407367521,
+      "accepted": 12464
+    },
+    "second": {
+      "sequence": 43,
+      "mcu_us": 22245520874,
+      "flags": 1281,
+      "session": 8444550407367521,
+      "accepted": 578816960
+    },
+    "continuous_successful_file_still_required": true,
+    "physical_hour_gate_qualified": false,
+    "path": "/home/lolo/dev/msm/reports/TR2-r3-6h-data-20261031/six-long.json",
+    "sha256": "ee4c3a65aa448c03bee1b97227600fceae3637fa86390ac7efed527f821479eb",
+    "elapsed_s_bounds": [
+      21601.0193586,
+      21601.144643
+    ],
+    "output_rate_est_Hz_bounds": [
+      2679.50840367881,
+      2679.524037228183
+    ],
+    "scope": "same-session active snapshots; accepted count phase ±1 output; QPC not SI-traceable; not UTC"
+  },
+  "UTC": "UTC_UNKNOWN",
+  "site": "plancher PC machine, double-face mince annoncé ; pose exploratoire",
+  "axes": "XYZ capteur, orientation navire inconnue",
+  "quality": "R3 CLOSED_WITH_RESERVATIONS; file/footer digest agrees internally, independent RAM digest lost after power cut",
+  "limits": "EXPLORATOIRE — mg nominaux / XYZ capteur / UTC inconnue / horloges non étalonnées. Couplage mécanique non qualifié ; aucune conclusion ISO/BV.",
+  "spectrogram": {
+    "nperseg": 2048,
+    "hop": 1024,
+    "fs_est_Hz": 166.34137634383643,
+    "resolution_Hz": 0.08122137516788888,
+    "window_s": 12.312029905095143,
+    "hop_s": 6.156014952547571,
+    "window": "periodic Hann",
+    "detrend": false,
+    "scaling": "one-sided density; XYZ power SUM; mg²/Hz",
+    "dB_reference": "1 mg²/Hz",
+    "invalid_frames": 1,
+    "frames": 3572,
+    "candidate_bands_Hz": [
+      [
+        19.27435141546122,
+        19.87435141546122
+      ],
+      [
+        20.330229292643775,
+        20.930229292643777
+      ],
+      [
+        24.066412550366664,
+        24.666412550366665
+      ]
+    ]
+  },
+  "velocity_study": {
+    "status": "EXPLORATOIRE_NON_NORMATIF_SYNTHETIQUE",
+    "frequencies_Hz": [
+      1,
+      2,
+      5,
+      10,
+      20,
+      40,
+      80
+    ],
+    "max_spectral_relative_error": 8.881784197001252e-16,
+    "max_trapezoid_relative_error": 0.00125530020789677,
+    "Wm_implemented": false,
+    "real_velocity_published": false
+  },
+  "performance": {
+    "elapsed_s": 24.466678512020735,
+    "peak_RSS_KiB": 397320,
+    "method": "resource.RUSAGE_SELF; Linux KiB includes mapped pages; bounded 4096-record batches, derived decimated file only"
+  }
+}

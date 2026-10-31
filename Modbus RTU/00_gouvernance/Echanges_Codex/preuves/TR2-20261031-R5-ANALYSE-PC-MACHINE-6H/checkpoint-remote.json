@@ -1,0 +1,65 @@
+{
+  "remote_sha": "bb16202f1cfae5765961e64dc6125a9bae52ae5a",
+  "checked_full_contents": [
+    {
+      "path": "Modbus RTU/00_gouvernance/ETAT_COURANT_TR2.md",
+      "sha256": "9416e4fbd4bada1ad11c8bf8ec0049e1da9822c583ddc9f9ecafb2a63c24bd87",
+      "bytes": 117557
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/DERNIER_RAPPORT.md",
+      "sha256": "0ab941d922b20c876f7f64471127fdacb67260d476f68b4dc26798ab1b9db362",
+      "bytes": 2355
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R5-ANALYSE-PC-MACHINE-6H/strict-import-initial.json",
+      "sha256": "739fca0753dd8d5fbfd764a4c777fbe0e2afe9486505d551488a467b2b7a832d",
+      "bytes": 1657
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R5-ANALYSE-PC-MACHINE-6H/tests-checkpoint.log",
+      "sha256": "eb1025010794277a818b3a64556dcd0b199d81f87b7c7dc3cb034aadcb0e1644",
+      "bytes": 1252
+    },
+    {
+      "path": "experiments/r5_campaign_analysis/README.md",
+      "sha256": "3d892fa89ac2b751c0399b7e1a50f5a4e034d167a29d306a2a615c4e82c4b95f",
+      "bytes": 6928
+    },
+    {
+      "path": "experiments/r5_campaign_analysis/analysis.py",
+      "sha256": "03104573ac350c9701521113879e64bafa7b242fa17feaae976ab306e053983f",
+      "bytes": 5550
+    },
+    {
+      "path": "experiments/r5_campaign_analysis/catalog.py",
+      "sha256": "25ba999dfc838c343c9ab058fe900589a159c770a923ca5d59c6e28ea53a8f4c",
+      "bytes": 7851
+    },
+    {
+      "path": "experiments/r5_campaign_analysis/requirements.txt",
+      "sha256": "06b12df1bfb1e533934a17f87299031fe3f683e664a66291aff6fe0274a5ca21",
+      "bytes": 212
+    },
+    {
+      "path": "experiments/r5_campaign_analysis/run_analysis.py",
+      "sha256": "f5b6311b7f349a50694d6320864c4906d8464fbf0d90c9e81d755652c2b55c84",
+      "bytes": 19561
+    },
+    {
+      "path": "experiments/r5_campaign_analysis/schema_v1.sql",
+      "sha256": "2711e982979631d41d6ef9681f6d206dd6b06bab1ca8557d169f948ee26c8fb5",
+      "bytes": 1921
+    },
+    {
+      "path": "experiments/r5_campaign_analysis/test_analysis.py",
+      "sha256": "966acddd8160408a7ac511559553a4fe94e2774b1084c10f96a7d9648cba0213",
+      "bytes": 5121
+    },
+    {
+      "path": "experiments/r5_campaign_analysis/test_catalog.py",
+      "sha256": "c1e1b608b2eef3ac13d2ae3fc5541d5cca48827cfb02d9005c7d1766e23dfe65",
+      "bytes": 4024
+    }
+  ]
+}

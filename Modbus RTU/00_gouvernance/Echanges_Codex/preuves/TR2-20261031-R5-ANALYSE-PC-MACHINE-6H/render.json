@@ -1,0 +1,27 @@
+{
+  "metric_source": "/home/lolo/dev/msm/reports/TR2-R5-analysis-6h-20261031/full-analysis-v1",
+  "metric_processing_git_sha": "bb16202f1cfae5765961e64dc6125a9bae52ae5a",
+  "render_only": true,
+  "files": [
+    {
+      "name": "01_intensity.png",
+      "bytes": 371647,
+      "sha256": "e67653f1fa350bde228ed016d343e10ec51c82a1bd4a853cb19d389fe8c7a303"
+    },
+    {
+      "name": "02_spectrogram.png",
+      "bytes": 1404708,
+      "sha256": "bc6a4fac9030989cbcc6bf0c66f6ba0b31a650ab730a1d7bf0763dd097ce35d8"
+    },
+    {
+      "name": "03_spectra_ridges.png",
+      "bytes": 379648,
+      "sha256": "7e6e64d5e0d7dbc824d47096008b567040b217eb220ef1ee72ccfe3637182c18"
+    },
+    {
+      "name": "04_ridge_power.png",
+      "bytes": 413278,
+      "sha256": "1797dd176e89b9b26623b8485fc42a8a7eace3fb609283edd2c85eef2d157b77"
+    }
+  ]
+}

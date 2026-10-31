@@ -18,6 +18,8 @@ OPENBLAS_NUM_THREADS=1 /home/lolo/dev/msm/cache/r5-analysis-venv/bin/python expe
 
 Le dossier de calcul doit être nouveau : aucun écrasement d'un résultat existant.
 Le catalogue accepte un second import identique sans écriture de série ni doublon.
+La signature des séries porte sur le CSV décompressé : un changement du nom
+ou de la date du conteneur gzip ne crée pas de fausse divergence numérique.
 Les erreurs d'import sont explicites et journalisées dans `r5.sqlite.errors.jsonl`.
 Les premières tentatives d'installation/test de dépendances absentes sont tracées
 localement ; aucune modification de la sécurité Windows n'est nécessaire.
@@ -39,6 +41,9 @@ localement ; aucune modification de la sécurité Windows n'est nécessaire.
   11 warmups FIR puis de 5s de stabilisation. Un trou de temps supérieur à dix
   périodes attendues réinitialise l'état et ouvre une nouvelle stabilisation.
   Les invalides restent NaN, les absences SQL NULL ; jamais remplacées par zéro.
+  VALID_ESTIMATED signifie durée nominale entière et couverture estimée99–101%,
+  pas un certificat de présence de chaque point. La fenêtre1s démarrant à5s
+  garde environ995ms valides après stabilisation ; sa couverture reste explicite.
 - Fenêtres 1/10/60s ancrées à la première sortie, temps MCU interpolé par bloc
   selon la convention du lecteur strict. Statistiques regroupées par somme des
   carrés et nombre de points, pas moyenne non pondérée des RMS. Fenêtres

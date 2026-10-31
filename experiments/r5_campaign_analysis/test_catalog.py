@@ -1,5 +1,5 @@
 """Persistence contract fixtures ONLY. Not a .TR2 parser/physical qualification."""
-import csv,gzip,json,sqlite3,tempfile,unittest
+import csv,gzip,json,shutil,sqlite3,tempfile,unittest
 from pathlib import Path
 from catalog import digest,run_import,query_summary
 
@@ -30,6 +30,15 @@ class CatalogTests(unittest.TestCase):
         q=query_summary(self.db,a['analysis_id']);self.assertEqual(len(q),4);self.assertEqual(q['global_per_minute']['count'],2);self.assertEqual(q['worst_10s']['first_rows'][0]['rms_global'],3)
         m=json.loads((self.a/'manifest.json').read_text());m['algorithm_code_sha256']='b'*64;(self.a/'manifest.json').write_text(json.dumps(m))
         c=run_import(self.a,self.db);self.assertNotEqual(a['analysis_id'],c['analysis_id']);self.assertEqual(c['counts']['campaigns'],1);self.assertEqual(c['counts']['analysis_runs'],2)
+    def test_same_series_in_another_gzip_container_is_idempotent(self):
+        a=run_import(self.a,self.db);before=digest(self.db)
+        original=self.a;copy=self.root/'analysis_copy';shutil.copytree(original,copy)
+        p=copy/'windows_01s.csv.gz'
+        content=gzip.decompress(p.read_bytes());p.write_bytes(gzip.compress(content,mtime=123))
+        self.a=copy;self.refresh()
+        b=run_import(copy,self.db)
+        self.assertEqual(a['analysis_id'],b['analysis_id']);self.assertTrue(b['idempotent'])
+        self.assertEqual(before,digest(self.db))
     def test_missing_corrupt_and_foreign_db_preserved(self):
         a=run_import(self.a,self.db);before=digest(self.db)
         source=self.root/'opaque_source_fixture';source.write_bytes(b'changed')

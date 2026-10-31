@@ -1,0 +1,197 @@
+[
+  {
+    "path": "/home/lolo/dev/msm/reports/TR2-R5-analysis-6h-20261031/checkpoint-remote.json",
+    "bytes": 2410,
+    "sha256": "eec143456004dc81943aa05a0ca890535c176c96a359b73a3d8b3fe22f7ffa31"
+  },
+  {
+    "path": "/home/lolo/dev/msm/reports/TR2-R5-analysis-6h-20261031/full-analysis-v1/01_intensity.png",
+    "bytes": 360994,
+    "sha256": "db61fb92537c770414c1b8dedf85cd0a379299b1c84a40362b2d0ac1b90afa62"
+  },
+  {
+    "path": "/home/lolo/dev/msm/reports/TR2-R5-analysis-6h-20261031/full-analysis-v1/02_spectrogram.png",
+    "bytes": 1396243,
+    "sha256": "b2bc0456f262b3b2e2cc9c4323b5b6d9ad2fb54504d1126a270adeada4236532"
+  },
+  {
+    "path": "/home/lolo/dev/msm/reports/TR2-R5-analysis-6h-20261031/full-analysis-v1/03_spectra_ridges.png",
+    "bytes": 378118,
+    "sha256": "a8e251c750fbc09435ea14d9357adc6c28cd8bd47f602c45a2c62b9c45b9492f"
+  },
+  {
+    "path": "/home/lolo/dev/msm/reports/TR2-R5-analysis-6h-20261031/full-analysis-v1/artifacts.json",
+    "bytes": 2448,
+    "sha256": "b2bc4af9fda05fd02203f039315b83a149da2cadae5d40edffea5315bc27a04e"
+  },
+  {
+    "path": "/home/lolo/dev/msm/reports/TR2-R5-analysis-6h-20261031/full-analysis-v1/derived_band_xyz_mg.f32",
+    "bytes": 43914108,
+    "sha256": "007b006d3fb47999d17b6260eafb2ad877a214da1f05b2f864c1038ce1fdc362"
+  },
+  {
+    "path": "/home/lolo/dev/msm/reports/TR2-R5-analysis-6h-20261031/full-analysis-v1/elevated_episodes.csv",
+    "bytes": 505,
+    "sha256": "78fe3ba103398e0bf2cc825dca5f39d2b64b1e71394ff4eafab46a24e6fa4753"
+  },
+  {
+    "path": "/home/lolo/dev/msm/reports/TR2-R5-analysis-6h-20261031/full-analysis-v1/filter.json",
+    "bytes": 2313,
+    "sha256": "b8f53f2023ad3105b58738b1ac142f787f47aaf31734e19adb56fec4c6c29af7"
+  },
+  {
+    "path": "/home/lolo/dev/msm/reports/TR2-R5-analysis-6h-20261031/full-analysis-v1/independent_checks.json",
+    "bytes": 2074,
+    "sha256": "89349119a08e8b3dd44982f7b10abdec649a0b12db5cbe6314d6395baf05b77c"
+  },
+  {
+    "path": "/home/lolo/dev/msm/reports/TR2-R5-analysis-6h-20261031/full-analysis-v1/manifest.json",
+    "bytes": 5266,
+    "sha256": "0d4ccc711ab4aa8cbfe3afcbc53c2fbc0148dd7694d76b6c60b36b5d6aa07262"
+  },
+  {
+    "path": "/home/lolo/dev/msm/reports/TR2-R5-analysis-6h-20261031/full-analysis-v1/ridge_candidates.csv",
+    "bytes": 981627,
+    "sha256": "dd77593e4ad27174f5be9a9590bcb8f5f731e9ef448b421a6a2dc9c0f5d643a8"
+  },
+  {
+    "path": "/home/lolo/dev/msm/reports/TR2-R5-analysis-6h-20261031/full-analysis-v1/segments_psd.csv",
+    "bytes": 42537,
+    "sha256": "5b1e82ca04f776cacc56fe97c32d6eb322ec3db4d86262102954d874c0aeb074"
+  },
+  {
+    "path": "/home/lolo/dev/msm/reports/TR2-R5-analysis-6h-20261031/full-analysis-v1/spectrogram.npz",
+    "bytes": 11262627,
+    "sha256": "1f4f80a94bbbebb96c35c905360fb228e861834606024979d91194f5d467e213"
+  },
+  {
+    "path": "/home/lolo/dev/msm/reports/TR2-R5-analysis-6h-20261031/full-analysis-v1/strict-import.json",
+    "bytes": 1657,
+    "sha256": "739fca0753dd8d5fbfd764a4c777fbe0e2afe9486505d551488a467b2b7a832d"
+  },
+  {
+    "path": "/home/lolo/dev/msm/reports/TR2-R5-analysis-6h-20261031/full-analysis-v1/summary.json",
+    "bytes": 1661,
+    "sha256": "b5902aefbe27ff20a26e156fc870ba905f50b2f708dd6b202f12fac8f127c13d"
+  },
+  {
+    "path": "/home/lolo/dev/msm/reports/TR2-R5-analysis-6h-20261031/full-analysis-v1/velocity_synthetic.csv",
+    "bytes": 917,
+    "sha256": "b9babcd541afecdccc4d5767fade4d1c09c51e5cb68798e87bc9f36ee3aac0ea"
+  },
+  {
+    "path": "/home/lolo/dev/msm/reports/TR2-R5-analysis-6h-20261031/full-analysis-v1/windows_01s.csv.gz",
+    "bytes": 2939088,
+    "sha256": "524ea334193cf2fd4b0aa6c84cd90956e0c2f2dc63803572d9d7c5a1c1c65091"
+  },
+  {
+    "path": "/home/lolo/dev/msm/reports/TR2-R5-analysis-6h-20261031/full-analysis-v1/windows_10s.csv",
+    "bytes": 764456,
+    "sha256": "30166e3487872d58f6dc2674f0bf5aa22e662a3cf4f8a39f5200ba5e8f1a218e"
+  },
+  {
+    "path": "/home/lolo/dev/msm/reports/TR2-R5-analysis-6h-20261031/full-analysis-v1/windows_60s.csv",
+    "bytes": 128524,
+    "sha256": "0b88e9c79119bce37e5d702accc9d41a215942d4f634b01e4e0b94ca317d4744"
+  },
+  {
+    "path": "/home/lolo/dev/msm/reports/TR2-R5-analysis-6h-20261031/full-analysis-v1.log",
+    "bytes": 2067,
+    "sha256": "fa8a9246e121956f1e4ac5f0032b98d8683933b454db463a07ef862cfe082ac5"
+  },
+  {
+    "path": "/home/lolo/dev/msm/reports/TR2-R5-analysis-6h-20261031/plots-v2/01_intensity.png",
+    "bytes": 371647,
+    "sha256": "e67653f1fa350bde228ed016d343e10ec51c82a1bd4a853cb19d389fe8c7a303"
+  },
+  {
+    "path": "/home/lolo/dev/msm/reports/TR2-R5-analysis-6h-20261031/plots-v2/02_spectrogram.png",
+    "bytes": 1404708,
+    "sha256": "bc6a4fac9030989cbcc6bf0c66f6ba0b31a650ab730a1d7bf0763dd097ce35d8"
+  },
+  {
+    "path": "/home/lolo/dev/msm/reports/TR2-R5-analysis-6h-20261031/plots-v2/03_spectra_ridges.png",
+    "bytes": 379648,
+    "sha256": "7e6e64d5e0d7dbc824d47096008b567040b217eb220ef1ee72ccfe3637182c18"
+  },
+  {
+    "path": "/home/lolo/dev/msm/reports/TR2-R5-analysis-6h-20261031/plots-v2/04_ridge_power.png",
+    "bytes": 413278,
+    "sha256": "1797dd176e89b9b26623b8485fc42a8a7eace3fb609283edd2c85eef2d157b77"
+  },
+  {
+    "path": "/home/lolo/dev/msm/reports/TR2-R5-analysis-6h-20261031/plots-v2/render.json",
+    "bytes": 834,
+    "sha256": "bb2128a20d2c9a9660d0c4c47a343bde04fdb91053411fe61b747eef78e341a4"
+  },
+  {
+    "path": "/home/lolo/dev/msm/reports/TR2-R5-analysis-6h-20261031/prepare_delivery.py",
+    "bytes": 15131,
+    "sha256": "0d659fe59bb8af8abea64ad29f78888f4d602d70468d9b268d618dafa6ff3b2a"
+  },
+  {
+    "path": "/home/lolo/dev/msm/reports/TR2-R5-analysis-6h-20261031/r5-analysis.sqlite",
+    "bytes": 19292160,
+    "sha256": "19b4d80f30a13139474afc08430cd82c7adf791c6c0dc2f1aaa3d4d7572054a9"
+  },
+  {
+    "path": "/home/lolo/dev/msm/reports/TR2-R5-analysis-6h-20261031/r5-catalog-v1.sqlite",
+    "bytes": 19292160,
+    "sha256": "e436de69e55e2126c029acc5afea9cb058b0a6fc6ce857e41bc70a26693646c5"
+  },
+  {
+    "path": "/home/lolo/dev/msm/reports/TR2-R5-analysis-6h-20261031/requirements.txt",
+    "bytes": 212,
+    "sha256": "06b12df1bfb1e533934a17f87299031fe3f683e664a66291aff6fe0274a5ca21"
+  },
+  {
+    "path": "/home/lolo/dev/msm/reports/TR2-R5-analysis-6h-20261031/sqlite-final-first-import.json",
+    "bytes": 2303,
+    "sha256": "e0cbcaa9d379aebab44798a481eab1403d69db58be11a890c24ad56ec664a3fa"
+  },
+  {
+    "path": "/home/lolo/dev/msm/reports/TR2-R5-analysis-6h-20261031/sqlite-final-second-import.json",
+    "bytes": 2302,
+    "sha256": "a9f8fc482bc02fae21b133c16ae8db56a3fa5d2cd9ea1b8dccb8e760a2eaf551"
+  },
+  {
+    "path": "/home/lolo/dev/msm/reports/TR2-R5-analysis-6h-20261031/sqlite-first-import.json",
+    "bytes": 2303,
+    "sha256": "e0cbcaa9d379aebab44798a481eab1403d69db58be11a890c24ad56ec664a3fa"
+  },
+  {
+    "path": "/home/lolo/dev/msm/reports/TR2-R5-analysis-6h-20261031/sqlite-second-import.json",
+    "bytes": 2302,
+    "sha256": "a9f8fc482bc02fae21b133c16ae8db56a3fa5d2cd9ea1b8dccb8e760a2eaf551"
+  },
+  {
+    "path": "/home/lolo/dev/msm/reports/TR2-R5-analysis-6h-20261031/strict-import.json",
+    "bytes": 1657,
+    "sha256": "739fca0753dd8d5fbfd764a4c777fbe0e2afe9486505d551488a467b2b7a832d"
+  },
+  {
+    "path": "/home/lolo/dev/msm/reports/TR2-R5-analysis-6h-20261031/tests-final.log",
+    "bytes": 1643,
+    "sha256": "c0f6ae64c459f0a427f7593dad761580be26d2ebd7bb5bf7d826ccfee4da79b8"
+  },
+  {
+    "path": "/home/lolo/dev/msm/reports/TR2-R5-analysis-6h-20261031/tests-first.log",
+    "bytes": 931,
+    "sha256": "72cf16b149d2433c3b707436e1725aed6496a3c1d2bf40291b83c3e58518e0b9"
+  },
+  {
+    "path": "/home/lolo/dev/msm/reports/TR2-R5-analysis-6h-20261031/tests-with-catalog-final.log",
+    "bytes": 1252,
+    "sha256": "eb1025010794277a818b3a64556dcd0b199d81f87b7c7dc3cb034aadcb0e1644"
+  },
+  {
+    "path": "/home/lolo/dev/msm/reports/TR2-R5-analysis-6h-20261031/tests-with-catalog.log",
+    "bytes": 4739,
+    "sha256": "53ecc5f9aa36a508421fd943fbe9e8759771eeba034634c04a8dedab0783d3e2"
+  },
+  {
+    "path": "/home/lolo/dev/msm/reports/TR2-R5-analysis-6h-20261031/tests.log",
+    "bytes": 904,
+    "sha256": "6e09aa73f491c547690ca5abdf9ba52c442b4fee73d611d4546f6a0a327ea6da"
+  }
+]
