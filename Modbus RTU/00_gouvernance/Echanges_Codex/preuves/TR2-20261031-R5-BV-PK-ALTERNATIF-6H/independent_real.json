@@ -1,0 +1,344 @@
+[
+  {
+    "selection": "low",
+    "start_mcu_s": 19320,
+    "band": "BV_PK_ACC_1_5",
+    "clock": "MCU",
+    "axis": "Z",
+    "spectral_pk": 0.5924532723045315,
+    "spectral_frequency_Hz": 4.637333560585819,
+    "temporal": {
+      "frequency_Hz": 4.638492200779012,
+      "component_mg_pk": 0.05346737259017581,
+      "component_pk": 0.5243358094114475,
+      "method": "time-domain unweighted sinusoid+offset+linear-drift LS; frequency independently optimized",
+      "frequency_search_halfwidth_Hz": 0.0166639243992473
+    },
+    "relative_amplitude_discrepancy": 0.11497524965660144,
+    "frequency_discrepancy_Hz": 0.0011586401931937829,
+    "limits": {
+      "relative_amplitude": 0.05,
+      "frequency_Hz": 0.02
+    },
+    "agreement": false,
+    "initial_status": "LOW_CONTRAST"
+  },
+  {
+    "selection": "low",
+    "start_mcu_s": 19320,
+    "band": "BV_PK_ACC_1_5",
+    "clock": "QPC_ESTIMATE",
+    "axis": "Z",
+    "spectral_pk": 0.5924532723045315,
+    "spectral_frequency_Hz": 4.66879121131829,
+    "temporal": {
+      "frequency_Hz": 4.6699577112192445,
+      "component_mg_pk": 0.05346737259045514,
+      "component_pk": 0.5243358094141869,
+      "method": "time-domain unweighted sinusoid+offset+linear-drift LS; frequency independently optimized",
+      "frequency_search_halfwidth_Hz": 0.016776965203134958
+    },
+    "relative_amplitude_discrepancy": 0.11497524965197758,
+    "frequency_discrepancy_Hz": 0.0011664999009548538,
+    "limits": {
+      "relative_amplitude": 0.05,
+      "frequency_Hz": 0.02
+    },
+    "agreement": false,
+    "initial_status": "LOW_CONTRAST"
+  },
+  {
+    "selection": "median",
+    "start_mcu_s": 4140,
+    "band": "BV_PK_ACC_1_5",
+    "clock": "MCU",
+    "axis": "Y",
+    "spectral_pk": 4.822492471049484,
+    "spectral_frequency_Hz": 2.5567378039443542,
+    "temporal": {
+      "frequency_Hz": 2.556091593892462,
+      "component_mg_pk": 0.48973898325761445,
+      "component_pk": 4.802698800163284,
+      "method": "time-domain unweighted sinusoid+offset+linear-drift LS; frequency independently optimized",
+      "frequency_search_halfwidth_Hz": 0.01666528087802445
+    },
+    "relative_amplitude_discrepancy": 0.004104448271309069,
+    "frequency_discrepancy_Hz": 0.0006462100518920266,
+    "limits": {
+      "relative_amplitude": 0.05,
+      "frequency_Hz": 0.02
+    },
+    "agreement": true,
+    "initial_status": "UNRESOLVED_OR_NON_SINUSOIDAL"
+  },
+  {
+    "selection": "median",
+    "start_mcu_s": 4140,
+    "band": "BV_PK_ACC_1_5",
+    "clock": "QPC_ESTIMATE",
+    "axis": "Y",
+    "spectral_pk": 4.822492471049484,
+    "spectral_frequency_Hz": 2.574081599425141,
+    "temporal": {
+      "frequency_Hz": 2.5734310057673784,
+      "component_mg_pk": 0.4897389832577429,
+      "component_pk": 4.802698800164544,
+      "method": "time-domain unweighted sinusoid+offset+linear-drift LS; frequency independently optimized",
+      "frequency_search_halfwidth_Hz": 0.016778330883673215
+    },
+    "relative_amplitude_discrepancy": 0.004104448271047834,
+    "frequency_discrepancy_Hz": 0.0006505936577627658,
+    "limits": {
+      "relative_amplitude": 0.05,
+      "frequency_Hz": 0.02
+    },
+    "agreement": true,
+    "initial_status": "UNRESOLVED_OR_NON_SINUSOIDAL"
+  },
+  {
+    "selection": "high",
+    "start_mcu_s": 1800,
+    "band": "BV_PK_ACC_1_5",
+    "clock": "MCU",
+    "axis": "Z",
+    "spectral_pk": 11.54108835923872,
+    "spectral_frequency_Hz": 1.4866474911269238,
+    "temporal": {
+      "frequency_Hz": 1.4791616081435153,
+      "component_mg_pk": 0.8120418865749252,
+      "component_pk": 7.96341056697999,
+      "method": "time-domain unweighted sinusoid+offset+linear-drift LS; frequency independently optimized",
+      "frequency_search_halfwidth_Hz": 0.016668307665097092
+    },
+    "relative_amplitude_discrepancy": 0.3099948359198529,
+    "frequency_discrepancy_Hz": 0.007485882983408576,
+    "limits": {
+      "relative_amplitude": 0.05,
+      "frequency_Hz": 0.02
+    },
+    "agreement": false,
+    "initial_status": "UNRESOLVED_OR_NON_SINUSOIDAL"
+  },
+  {
+    "selection": "high",
+    "start_mcu_s": 1800,
+    "band": "BV_PK_ACC_1_5",
+    "clock": "QPC_ESTIMATE",
+    "axis": "Z",
+    "spectral_pk": 11.54108835923872,
+    "spectral_frequency_Hz": 1.496732260084598,
+    "temporal": {
+      "frequency_Hz": 1.4891955961641152,
+      "component_mg_pk": 0.8120418865756082,
+      "component_pk": 7.9634105669866875,
+      "method": "time-domain unweighted sinusoid+offset+linear-drift LS; frequency independently optimized",
+      "frequency_search_halfwidth_Hz": 0.01678137820315081
+    },
+    "relative_amplitude_discrepancy": 0.30999483591927257,
+    "frequency_discrepancy_Hz": 0.0075366639204828,
+    "limits": {
+      "relative_amplitude": 0.05,
+      "frequency_Hz": 0.02
+    },
+    "agreement": false,
+    "initial_status": "UNRESOLVED_OR_NON_SINUSOIDAL"
+  },
+  {
+    "selection": "low",
+    "start_mcu_s": 21420,
+    "band": "BV_PK_VEL_5_100",
+    "clock": "MCU",
+    "axis": "Z",
+    "spectral_pk": 0.14505925359414104,
+    "spectral_frequency_Hz": 16.564312075441382,
+    "temporal": {
+      "frequency_Hz": 16.562190759476504,
+      "component_mg_pk": 1.524809447288547,
+      "component_pk": 0.1436939882459545,
+      "method": "time-domain unweighted sinusoid+offset+linear-drift LS; frequency independently optimized",
+      "frequency_search_halfwidth_Hz": 0.016662568141274692
+    },
+    "relative_amplitude_discrepancy": 0.009411777010837175,
+    "frequency_discrepancy_Hz": 0.002121315964878079,
+    "limits": {
+      "relative_amplitude": 0.05,
+      "frequency_Hz": 0.02
+    },
+    "agreement": true,
+    "initial_status": "QUASI_STATIONARY_COMPONENT",
+    "short_window_start_mcu_s": 21420,
+    "short_temporal": {
+      "frequency_Hz": 16.562417498124155,
+      "component_mg_pk": 1.5888910403940224,
+      "component_pk": 0.149730817368858,
+      "method": "time-domain unweighted sinusoid+offset+linear-drift LS; frequency independently optimized",
+      "frequency_search_halfwidth_Hz": 0.09996476943740171
+    },
+    "short_relative_amplitude_discrepancy": 0.017021207016047257
+  },
+  {
+    "selection": "low",
+    "start_mcu_s": 21420,
+    "band": "BV_PK_VEL_5_100",
+    "clock": "QPC_ESTIMATE",
+    "axis": "Z",
+    "spectral_pk": 0.14408186498785358,
+    "spectral_frequency_Hz": 16.676677152718046,
+    "temporal": {
+      "frequency_Hz": 16.67454144666976,
+      "component_mg_pk": 1.5248094472889555,
+      "component_pk": 0.14272579860332063,
+      "method": "time-domain unweighted sinusoid+offset+linear-drift LS; frequency independently optimized",
+      "frequency_search_halfwidth_Hz": 0.016775599744899086
+    },
+    "relative_amplitude_discrepancy": 0.009411777010571498,
+    "frequency_discrepancy_Hz": 0.0021357060482856127,
+    "limits": {
+      "relative_amplitude": 0.05,
+      "frequency_Hz": 0.02
+    },
+    "agreement": true,
+    "initial_status": "QUASI_STATIONARY_COMPONENT",
+    "short_window_start_mcu_s": 21420,
+    "short_temporal": {
+      "frequency_Hz": 16.67476972341364,
+      "component_mg_pk": 1.5888910403941934,
+      "component_pk": 0.14872195243071634,
+      "method": "time-domain unweighted sinusoid+offset+linear-drift LS; frequency independently optimized",
+      "frequency_search_halfwidth_Hz": 0.10064288688602376
+    },
+    "short_relative_amplitude_discrepancy": 0.01702120701594223
+  },
+  {
+    "selection": "median",
+    "start_mcu_s": 21600,
+    "band": "BV_PK_VEL_5_100",
+    "clock": "MCU",
+    "axis": "Z",
+    "spectral_pk": 0.17731236101551665,
+    "spectral_frequency_Hz": 16.56519868820922,
+    "temporal": {
+      "frequency_Hz": 16.563736724291154,
+      "component_mg_pk": 1.858176712204754,
+      "component_pk": 0.17509328922048567,
+      "method": "time-domain unweighted sinusoid+offset+linear-drift LS; frequency independently optimized",
+      "frequency_search_halfwidth_Hz": 0.016662985427905706
+    },
+    "relative_amplitude_discrepancy": 0.012515042844851498,
+    "frequency_discrepancy_Hz": 0.0014619639180679656,
+    "limits": {
+      "relative_amplitude": 0.05,
+      "frequency_Hz": 0.02
+    },
+    "agreement": true,
+    "initial_status": "QUASI_STATIONARY_COMPONENT",
+    "short_window_start_mcu_s": 21620,
+    "short_temporal": {
+      "frequency_Hz": 16.572081988886378,
+      "component_mg_pk": 1.944640916843279,
+      "component_pk": 0.1831484102881173,
+      "method": "time-domain unweighted sinusoid+offset+linear-drift LS; frequency independently optimized",
+      "frequency_search_halfwidth_Hz": 0.0999797904395711
+    },
+    "short_relative_amplitude_discrepancy": 0.020550905807742104
+  },
+  {
+    "selection": "median",
+    "start_mcu_s": 21600,
+    "band": "BV_PK_VEL_5_100",
+    "clock": "QPC_ESTIMATE",
+    "axis": "Z",
+    "spectral_pk": 0.17611765556159656,
+    "spectral_frequency_Hz": 16.677569779880674,
+    "temporal": {
+      "frequency_Hz": 16.676097898636257,
+      "component_mg_pk": 1.8581767122049047,
+      "component_pk": 0.17391353555652245,
+      "method": "time-domain unweighted sinusoid+offset+linear-drift LS; frequency independently optimized",
+      "frequency_search_halfwidth_Hz": 0.016776019862220822
+    },
+    "relative_amplitude_discrepancy": 0.012515042844771673,
+    "frequency_discrepancy_Hz": 0.0014718812444165508,
+    "limits": {
+      "relative_amplitude": 0.05,
+      "frequency_Hz": 0.02
+    },
+    "agreement": true,
+    "initial_status": "QUASI_STATIONARY_COMPONENT",
+    "short_window_start_mcu_s": 21620,
+    "short_temporal": {
+      "frequency_Hz": 16.68449977387094,
+      "component_mg_pk": 1.9446409168435,
+      "component_pk": 0.18191438236479093,
+      "method": "time-domain unweighted sinusoid+offset+linear-drift LS; frequency independently optimized",
+      "frequency_search_halfwidth_Hz": 0.10065800978412834
+    },
+    "short_relative_amplitude_discrepancy": 0.02055090580762242
+  },
+  {
+    "selection": "high",
+    "start_mcu_s": 15660,
+    "band": "BV_PK_VEL_5_100",
+    "clock": "MCU",
+    "axis": "Z",
+    "spectral_pk": 0.699606005194795,
+    "spectral_frequency_Hz": 8.068547877819952,
+    "temporal": {
+      "frequency_Hz": 8.067936151272967,
+      "component_mg_pk": 3.5864601333375132,
+      "component_pk": 0.6938160821547407,
+      "method": "time-domain unweighted sinusoid+offset+linear-drift LS; frequency independently optimized",
+      "frequency_search_halfwidth_Hz": 0.016667263821228333
+    },
+    "relative_amplitude_discrepancy": 0.008275976759865245,
+    "frequency_discrepancy_Hz": 0.0006117265469853805,
+    "limits": {
+      "relative_amplitude": 0.05,
+      "frequency_Hz": 0.02
+    },
+    "agreement": true,
+    "initial_status": "QUASI_STATIONARY_COMPONENT",
+    "short_window_start_mcu_s": 15660,
+    "short_temporal": {
+      "frequency_Hz": 8.060992554898469,
+      "component_mg_pk": 3.6683929652761114,
+      "component_pk": 0.710277633636715,
+      "method": "time-domain unweighted sinusoid+offset+linear-drift LS; frequency independently optimized",
+      "frequency_search_halfwidth_Hz": 0.10000608805851963
+    },
+    "short_relative_amplitude_discrepancy": 0.02370738866322486
+  },
+  {
+    "selection": "high",
+    "start_mcu_s": 15660,
+    "band": "BV_PK_VEL_5_100",
+    "clock": "QPC_ESTIMATE",
+    "axis": "Z",
+    "spectral_pk": 0.694892159497775,
+    "spectral_frequency_Hz": 8.123281391754762,
+    "temporal": {
+      "frequency_Hz": 8.122665515521364,
+      "component_mg_pk": 3.5864601333374515,
+      "component_pk": 0.6891412481351471,
+      "method": "time-domain unweighted sinusoid+offset+linear-drift LS; frequency independently optimized",
+      "frequency_search_halfwidth_Hz": 0.016780327278299974
+    },
+    "relative_amplitude_discrepancy": 0.008275976759882231,
+    "frequency_discrepancy_Hz": 0.0006158762333985379,
+    "limits": {
+      "relative_amplitude": 0.05,
+      "frequency_Hz": 0.02
+    },
+    "agreement": true,
+    "initial_status": "QUASI_STATIONARY_COMPONENT",
+    "short_window_start_mcu_s": 15660,
+    "short_temporal": {
+      "frequency_Hz": 8.115674816813804,
+      "component_mg_pk": 3.668392965276091,
+      "component_pk": 0.7054918840260119,
+      "method": "time-domain unweighted sinusoid+offset+linear-drift LS; frequency independently optimized",
+      "frequency_search_halfwidth_Hz": 0.10068448579466789
+    },
+    "short_relative_amplitude_discrepancy": 0.02370738866322175
+  }
+]

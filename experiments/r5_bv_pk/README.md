@@ -51,3 +51,9 @@ antérieures comparée avant/aprèscopie/migration/import, etSHAoriginaux inchan
 
 Secondimportidempotent ; requêtesgroupées paranalyse (jamaiscohortesmélangées),
 valeursnonarrondies, références versionnéesauxrepères ; pasdeDBLIVEouverte.
+
+Le rendu (`render.py RESULTATS NOUVEAU_DOSSIER`) lit seulement lesagrégatssauvegardés :
+comparaison10/60s etdes2horloges, statistiquescandidates,2PNG, HTMLlocal.
+La comparaison est paraxe lorsque recevable. Unefenêtreentière exigeraitles3axes
+recevables ; aucune ne l'estdanscettecampagne. L'indéterminationdescasrejetés
+estunrésultat àconserver, pas uneclassefavorableetpasunevalidationdeconfort.

@@ -1,0 +1,84 @@
+{
+  "mission_id": "TR2-20261031-R5-BV-PK-ALTERNATIF-6H",
+  "source": {
+    "format_version": 3,
+    "requested_duration_us": 22000000000,
+    "actual_duration_us": 22000000014,
+    "first_source_time_us": 497374174,
+    "last_source_time_us": 22497363438,
+    "status": "COMPLETE",
+    "path": "/home/lolo/dev/msm/reports/TR2-r3-6h-data-20261031/pc-recovery-after-powercut/E6N0005.TR2",
+    "file_bytes": 671088640,
+    "run": 5,
+    "session": 8444550407367521,
+    "valid_records": 750669,
+    "valid_xyz": 58552136,
+    "payload_bytes": 351312816,
+    "sha256": "5077a1f6e290b563c254300fde4ab7fb1bb7409717e65831e73a20a277bb7e41",
+    "first_output_source_index": 0,
+    "last_output_source_index": 585521350,
+    "first_time_us": 497374174,
+    "last_time_us": 22497363100,
+    "source_rate_num": 8022180768000000,
+    "source_rate_den": 301474730736,
+    "source_hz": 26609.794951686967,
+    "output_hz": 2660.9794951686968,
+    "clock_ratio_scope": "initial sensor/MCU calibration",
+    "observed_duration_us": 21999988926,
+    "observed_output_hz_between_endpoints": 2661.462021501383,
+    "logical_fs_g": 8,
+    "sensitivity_ug_per_count": 244,
+    "dc_preserved": true,
+    "quality_or": 1,
+    "utc": null,
+    "firmware_sha": "c3cd40ce9e96cef2241fb5bc6e8c83acd2a3824e",
+    "coefficient_sha256": "0e528c6d985207c265ccaa4a5df797ccdfa5ccfe938ad9a51a6a6ad8c94cc1b4",
+    "cid": "0353445344333247858bf0923c01927b",
+    "uid": [
+      1769542,
+      943869976,
+      540225879
+    ],
+    "time_method": "Actual DEC8 block endpoints; within-block interpolation approximate, not UTC",
+    "stop_reason": "controlled STOP and full producer digest matched",
+    "durability": "CRC-valid sequential matching-session prefix only; physical survival after power loss and maximum lost tail are NOT guaranteed"
+  },
+  "whole_file_sha256": "91861cef14f824ae5b7422c55b092255654e2665062747205c7e034a0d1aeee5",
+  "whole_file_sha256_after": "91861cef14f824ae5b7422c55b092255654e2665062747205c7e034a0d1aeee5",
+  "processing_git_sha": "7ed32c4e5df217bab554f548291e97e12d23afa8",
+  "runner_sha256": "24f6b5b03fc4cd58fa5cc33c612fc7ea6eda30597edcd4f1ff1f6458bff4127d",
+  "core_sha256": "066c9ecbd731625ea050c9d8385727017cf859dd199f3fe5646b6df72b3d3506",
+  "clocks": {
+    "MCU": 2661.462021501383,
+    "QPC_ESTIMATE": 2679.5162204534963
+  },
+  "component_rows": 30804,
+  "sample_n": 58552136,
+  "methods": [
+    "d699b10a7a2595aececec77f894ea7a952fe1b405b4ea40f74d5bb328023290e",
+    "e0799c67a9d78d3a2c865a97a00561882e96333772387bbd14e3cb2bd5d33c3d",
+    "5834ea0cb2db7c34fcf860f8030e2f7ac4ccdb291e055f89db55a363ed4a6bf3",
+    "b01fcdfc25cdfccf71384447e4ff9e7b0bc3f316b5e75d327edc1fa5888eead5"
+  ],
+  "quality": "exploratory, uncalibrated; orientation/mount unknown; RAM producer digest lost, internal integrity only",
+  "time": "same archived MCU windows, no UTC/SI correction",
+  "references": {
+    "velocity": [
+      4.0,
+      4.5,
+      5.0
+    ],
+    "acceleration": [
+      125.0,
+      141.0,
+      157.0
+    ],
+    "label": "Référence BV : PC machine occupé en permanence, correspondance à confirmer",
+    "formal_grade_awarded": false
+  },
+  "Wm_status": "BLOCKED_UNCHANGED_SEPARATE_MISSION",
+  "performance": {
+    "elapsed_s": 100.44718561199261,
+    "peak_RSS_KiB": 375256
+  }
+}

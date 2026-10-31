@@ -50,6 +50,13 @@ class CatalogTests(unittest.TestCase):
         self.assertEqual(self.new.read_bytes(),b'USER EXISTING FILE');self.assertEqual(sha(self.old),original)
         with self.assertRaises(ValueError):import_results(self.out,self.old)
         self.assertEqual(sha(self.old),original)
+    def test_supplemental_control_registration_is_idempotent(self):
+        from pk_catalog import register_extra_controls
+        create_migrated_copy(self.old,self.new);import_results(self.out,self.new)
+        audit=self.root/'additional.json';audit.write_text(json.dumps([dict(selection='audit_fixture',agreement=False)]))
+        a=register_extra_controls(self.new,audit);before=sha(self.new);b=register_extra_controls(self.new,audit)
+        self.assertEqual(a,b);self.assertEqual(before,sha(self.new));self.assertEqual(a['controls'],1)
+        self.assertTrue(import_results(self.out,self.new)['legacy_logically_preserved'])
     def test_tampered_source_or_export_refused(self):
         create_migrated_copy(self.old,self.new);before=sha(self.new)
         Path(self.m['source']['path']).write_bytes(b'corrupt')

@@ -1,0 +1,16 @@
+test_no_overwrite_no_inplace_no_foreign_db (test_catalog.CatalogTests.test_no_overwrite_no_inplace_no_foreign_db) ... ok
+test_safe_copy_full_preservation_idempotent_queries_and_new_analysis (test_catalog.CatalogTests.test_safe_copy_full_preservation_idempotent_queries_and_new_analysis) ... ok
+test_supplemental_control_registration_is_idempotent (test_catalog.CatalogTests.test_supplemental_control_registration_is_idempotent) ... ok
+test_tampered_source_or_export_refused (test_catalog.CatalogTests.test_tampered_source_or_export_refused) ... ok
+test_numpy_scalars_preserve_numeric_and_bool_types (test_core.ExportTests.test_numpy_scalars_preserve_numeric_and_bool_types) ... ok
+test_analytic_on_off_bins_units_and_boundary (test_core.PKTests.test_analytic_on_off_bins_units_and_boundary) ... ok
+test_close_lines_AM_FM_impulse_noise (test_core.PKTests.test_close_lines_AM_FM_impulse_noise) ... ok
+test_independent_time_frequency_fit (test_core.PKTests.test_independent_time_frequency_fit) ... ok
+test_multitone_not_broadband_and_pruning (test_core.PKTests.test_multitone_not_broadband_and_pruning) ... ok
+test_quality_gravity_missing_clip_and_stationarity (test_core.PKTests.test_quality_gravity_missing_clip_and_stationarity) ... ok
+test_reference_values_and_component_sqrt2 (test_core.PKTests.test_reference_values_and_component_sqrt2) ... ok
+
+----------------------------------------------------------------------
+Ran 11 tests in 0.440s
+
+OK

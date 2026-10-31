@@ -114,6 +114,27 @@ def query_summary(db):
             rows=[dict(r) for r in c.execute(sql)];result[name]=dict(count=len(rows),first_rows=rows[:3])
         return result
 
+
+def register_extra_controls(database,extra_json):
+    """Append supplemental audit, preserve original controls/cohorts and artifacts."""
+    database,extra_json=Path(database).resolve(),Path(extra_json).resolve()
+    data=json.loads(extra_json.read_text());artifact_sha=sha(extra_json)
+    with ro(database) as check:
+        if (check.execute('PRAGMA application_id').fetchone()[0],check.execute('PRAGMA user_version').fetchone()[0])!=(APP3,3):raise ValueError('expected isolated PK v3')
+    c=sqlite3.connect(database)
+    try:
+        c.execute('PRAGMA foreign_keys=ON');c.execute('PRAGMA synchronous=FULL')
+        with c:
+            c.execute('BEGIN IMMEDIATE')
+            for row in data:c.execute('INSERT OR IGNORE INTO pk_controls VALUES(?,?)',(signature(row),canonical(row)))
+            for aid, in c.execute('SELECT analysis_id FROM pk_analysis_runs').fetchall():
+                existing=c.execute("SELECT sha256 FROM pk_artifacts WHERE analysis_id=? AND kind='extra_independent_real.json'",(aid,)).fetchone()
+                if existing and existing[0]!=artifact_sha:raise ValueError('supplemental audit changed, refuse overwriting reference')
+                c.execute('INSERT OR IGNORE INTO pk_artifacts VALUES(?,?,?,?)',(aid,'extra_independent_real.json',str(extra_json),artifact_sha))
+        return dict(controls=c.execute('SELECT count(*) FROM pk_controls').fetchone()[0],artifact_sha256=artifact_sha,integrity=c.execute('PRAGMA integrity_check').fetchone()[0])
+    finally:c.close()
+
+
 if __name__=='__main__':
     ap=argparse.ArgumentParser(description=__doc__);ap.add_argument('results',type=Path);ap.add_argument('database',type=Path);ap.add_argument('--copy-v2',type=Path);a=ap.parse_args()
     if a.copy_v2:create_migrated_copy(a.copy_v2,a.database)

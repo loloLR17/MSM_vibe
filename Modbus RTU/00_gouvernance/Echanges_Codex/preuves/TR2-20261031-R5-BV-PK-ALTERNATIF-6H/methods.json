@@ -1,0 +1,142 @@
+{
+  "d699b10a7a2595aececec77f894ea7a952fe1b405b4ea40f74d5bb328023290e": {
+    "edition": "BV_NR467_F_2026_07_PK",
+    "derived_method_version": "pk-hann-idft-10s-60s.v1",
+    "clock": "MCU",
+    "fs_est_Hz": 2661.462021501383,
+    "band": "BV_PK_ACC_1_5",
+    "range_Hz": [
+      1.0,
+      5.0
+    ],
+    "unit": "mm/s² peak",
+    "CF": 1,
+    "window_mcu_s": [
+      10,
+      60
+    ],
+    "mean_subtracted": true,
+    "Hann": "periodic; coherent sum correction and exact DTFT",
+    "frequency_estimator": "three-complex-bin Hann interpolation",
+    "selection": "max individual component; max6 matched10s in a quasi-stationary60s frame; NOT ISO MRA",
+    "contrast_min_dB": 12,
+    "shape_limit": 0.15,
+    "frequency_spread_max_Hz": 0.1,
+    "amplitude_ratio_max": 1.25,
+    "clock_fraction_for_bandedge": 0.00679,
+    "near_reference_method_margin": 0.05,
+    "sensitivity_mg_per_count": 0.244,
+    "axis": "XYZ sensor, ship orientation unknown",
+    "site": "PC machine plancher, continuous occupation unconfirmed",
+    "mount": "double-face experimental, uncalibrated",
+    "UTC": "UTC_UNKNOWN",
+    "formal_ISO6954_compliance": false,
+    "reference_document_sha256": "5ae75d30f6b38a1331431e16bcc3dce11bc42c90b393f344be89b42cb050ceef",
+    "code_sha256": "066c9ecbd731625ea050c9d8385727017cf859dd199f3fe5646b6df72b3d3506"
+  },
+  "e0799c67a9d78d3a2c865a97a00561882e96333772387bbd14e3cb2bd5d33c3d": {
+    "edition": "BV_NR467_F_2026_07_PK",
+    "derived_method_version": "pk-hann-idft-10s-60s.v1",
+    "clock": "MCU",
+    "fs_est_Hz": 2661.462021501383,
+    "band": "BV_PK_VEL_5_100",
+    "range_Hz": [
+      5.0,
+      100.0
+    ],
+    "unit": "mm/s peak",
+    "CF": 1,
+    "window_mcu_s": [
+      10,
+      60
+    ],
+    "mean_subtracted": true,
+    "Hann": "periodic; coherent sum correction and exact DTFT",
+    "frequency_estimator": "three-complex-bin Hann interpolation",
+    "selection": "max individual component; max6 matched10s in a quasi-stationary60s frame; NOT ISO MRA",
+    "contrast_min_dB": 12,
+    "shape_limit": 0.15,
+    "frequency_spread_max_Hz": 0.1,
+    "amplitude_ratio_max": 1.25,
+    "clock_fraction_for_bandedge": 0.00679,
+    "near_reference_method_margin": 0.05,
+    "sensitivity_mg_per_count": 0.244,
+    "axis": "XYZ sensor, ship orientation unknown",
+    "site": "PC machine plancher, continuous occupation unconfirmed",
+    "mount": "double-face experimental, uncalibrated",
+    "UTC": "UTC_UNKNOWN",
+    "formal_ISO6954_compliance": false,
+    "reference_document_sha256": "5ae75d30f6b38a1331431e16bcc3dce11bc42c90b393f344be89b42cb050ceef",
+    "code_sha256": "066c9ecbd731625ea050c9d8385727017cf859dd199f3fe5646b6df72b3d3506"
+  },
+  "5834ea0cb2db7c34fcf860f8030e2f7ac4ccdb291e055f89db55a363ed4a6bf3": {
+    "edition": "BV_NR467_F_2026_07_PK",
+    "derived_method_version": "pk-hann-idft-10s-60s.v1",
+    "clock": "QPC_ESTIMATE",
+    "fs_est_Hz": 2679.5162204534963,
+    "band": "BV_PK_ACC_1_5",
+    "range_Hz": [
+      1.0,
+      5.0
+    ],
+    "unit": "mm/s² peak",
+    "CF": 1,
+    "window_mcu_s": [
+      10,
+      60
+    ],
+    "mean_subtracted": true,
+    "Hann": "periodic; coherent sum correction and exact DTFT",
+    "frequency_estimator": "three-complex-bin Hann interpolation",
+    "selection": "max individual component; max6 matched10s in a quasi-stationary60s frame; NOT ISO MRA",
+    "contrast_min_dB": 12,
+    "shape_limit": 0.15,
+    "frequency_spread_max_Hz": 0.1,
+    "amplitude_ratio_max": 1.25,
+    "clock_fraction_for_bandedge": 0.00679,
+    "near_reference_method_margin": 0.05,
+    "sensitivity_mg_per_count": 0.244,
+    "axis": "XYZ sensor, ship orientation unknown",
+    "site": "PC machine plancher, continuous occupation unconfirmed",
+    "mount": "double-face experimental, uncalibrated",
+    "UTC": "UTC_UNKNOWN",
+    "formal_ISO6954_compliance": false,
+    "reference_document_sha256": "5ae75d30f6b38a1331431e16bcc3dce11bc42c90b393f344be89b42cb050ceef",
+    "code_sha256": "066c9ecbd731625ea050c9d8385727017cf859dd199f3fe5646b6df72b3d3506"
+  },
+  "b01fcdfc25cdfccf71384447e4ff9e7b0bc3f316b5e75d327edc1fa5888eead5": {
+    "edition": "BV_NR467_F_2026_07_PK",
+    "derived_method_version": "pk-hann-idft-10s-60s.v1",
+    "clock": "QPC_ESTIMATE",
+    "fs_est_Hz": 2679.5162204534963,
+    "band": "BV_PK_VEL_5_100",
+    "range_Hz": [
+      5.0,
+      100.0
+    ],
+    "unit": "mm/s peak",
+    "CF": 1,
+    "window_mcu_s": [
+      10,
+      60
+    ],
+    "mean_subtracted": true,
+    "Hann": "periodic; coherent sum correction and exact DTFT",
+    "frequency_estimator": "three-complex-bin Hann interpolation",
+    "selection": "max individual component; max6 matched10s in a quasi-stationary60s frame; NOT ISO MRA",
+    "contrast_min_dB": 12,
+    "shape_limit": 0.15,
+    "frequency_spread_max_Hz": 0.1,
+    "amplitude_ratio_max": 1.25,
+    "clock_fraction_for_bandedge": 0.00679,
+    "near_reference_method_margin": 0.05,
+    "sensitivity_mg_per_count": 0.244,
+    "axis": "XYZ sensor, ship orientation unknown",
+    "site": "PC machine plancher, continuous occupation unconfirmed",
+    "mount": "double-face experimental, uncalibrated",
+    "UTC": "UTC_UNKNOWN",
+    "formal_ISO6954_compliance": false,
+    "reference_document_sha256": "5ae75d30f6b38a1331431e16bcc3dce11bc42c90b393f344be89b42cb050ceef",
+    "code_sha256": "066c9ecbd731625ea050c9d8385727017cf859dd199f3fe5646b6df72b3d3506"
+  }
+}

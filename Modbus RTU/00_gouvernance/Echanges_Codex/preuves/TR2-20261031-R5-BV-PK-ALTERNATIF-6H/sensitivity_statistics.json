@@ -1,0 +1,34 @@
+[
+  {
+    "band": "BV_PK_ACC_1_5",
+    "clock": "MCU",
+    "ratios_compared": 1095,
+    "ratio_max10_to60_P50": 2.23310588361977,
+    "ratio_max10_to60_P95": 3.4129581792462966,
+    "ratio_max10_to60_max": 6.063367933514747
+  },
+  {
+    "band": "BV_PK_ACC_1_5",
+    "clock": "QPC_ESTIMATE",
+    "ratios_compared": 1095,
+    "ratio_max10_to60_P50": 2.232860904088729,
+    "ratio_max10_to60_P95": 3.4129581792462966,
+    "ratio_max10_to60_max": 6.063367933514747
+  },
+  {
+    "band": "BV_PK_VEL_5_100",
+    "clock": "MCU",
+    "ratios_compared": 1095,
+    "ratio_max10_to60_P50": 1.7736003612532154,
+    "ratio_max10_to60_P95": 2.9398129122780263,
+    "ratio_max10_to60_max": 5.448289383830658
+  },
+  {
+    "band": "BV_PK_VEL_5_100",
+    "clock": "QPC_ESTIMATE",
+    "ratios_compared": 1095,
+    "ratio_max10_to60_P50": 1.773600361253215,
+    "ratio_max10_to60_P95": 2.9398129122780268,
+    "ratio_max10_to60_max": 5.448289383830659
+  }
+]

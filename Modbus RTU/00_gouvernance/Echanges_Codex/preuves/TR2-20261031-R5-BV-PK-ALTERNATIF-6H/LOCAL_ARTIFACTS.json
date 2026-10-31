@@ -1,0 +1,332 @@
+[
+  {
+    "path": "/home/lolo/dev/msm/reports/TR2-R5-BV-PK-20261031/BV-NR467-F-2026-07.pdf",
+    "bytes": 8415354,
+    "sha256": "5ae75d30f6b38a1331431e16bcc3dce11bc42c90b393f344be89b42cb050ceef"
+  },
+  {
+    "path": "/home/lolo/dev/msm/reports/TR2-R5-BV-PK-20261031/BV-index-238.png",
+    "bytes": 204279,
+    "sha256": "993f372f7eb042b643fbd96da4f5783104b9b2dea6edfa334ccaaa2900a1ba0f"
+  },
+  {
+    "path": "/home/lolo/dev/msm/reports/TR2-R5-BV-PK-20261031/BV-index-246.png",
+    "bytes": 152134,
+    "sha256": "1148508f8581f58fa82df9ffbfd403fe057b0436f27eab528e055d7bd4dcef0b"
+  },
+  {
+    "path": "/home/lolo/dev/msm/reports/TR2-R5-BV-PK-20261031/BV-index-247.png",
+    "bytes": 55136,
+    "sha256": "f026357175160961baa2f6b52cb6db5ff1f64d186cee2d84ec6222ec4a5cdac8"
+  },
+  {
+    "path": "/home/lolo/dev/msm/reports/TR2-R5-BV-PK-20261031/BV-page-238.png",
+    "bytes": 188950,
+    "sha256": "ef335e03cba3a578c85901c444ae9f6ba6f4219ddd8e60b32651669d9f74d6d0"
+  },
+  {
+    "path": "/home/lolo/dev/msm/reports/TR2-R5-BV-PK-20261031/BV-page-238.txt",
+    "bytes": 3464,
+    "sha256": "5eef0ef66f8eb3c581a68e85530f45f8deb1535bd0eb9c47c5e08a3a227951e2"
+  },
+  {
+    "path": "/home/lolo/dev/msm/reports/TR2-R5-BV-PK-20261031/BV-page-246.png",
+    "bytes": 142453,
+    "sha256": "284fb551602d615eeb92fd3b693afe01825b9b8ffb1c8ae5286f8ad8487145ac"
+  },
+  {
+    "path": "/home/lolo/dev/msm/reports/TR2-R5-BV-PK-20261031/BV-page-246.txt",
+    "bytes": 2147,
+    "sha256": "0ab09a828bd9c03e2515b1abaa1bf3606292985891b73a637d985476f80fe28e"
+  },
+  {
+    "path": "/home/lolo/dev/msm/reports/TR2-R5-BV-PK-20261031/BV-page-247.png",
+    "bytes": 152134,
+    "sha256": "1148508f8581f58fa82df9ffbfd403fe057b0436f27eab528e055d7bd4dcef0b"
+  },
+  {
+    "path": "/home/lolo/dev/msm/reports/TR2-R5-BV-PK-20261031/BV-page-247.txt",
+    "bytes": 2502,
+    "sha256": "a12de01d0fbd10f523d10c18a9fb4a31fe57f318dbac227e195d0d06b6d6fa08"
+  },
+  {
+    "path": "/home/lolo/dev/msm/reports/TR2-R5-BV-PK-20261031/LR-reference.html",
+    "bytes": 21082,
+    "sha256": "ac1c1261ec498b358c3b37dfc8a47748d07270d06d99021f804524b2424b9cfe"
+  },
+  {
+    "path": "/home/lolo/dev/msm/reports/TR2-R5-BV-PK-20261031/LR-reference.txt",
+    "bytes": 15259,
+    "sha256": "6d60f9c7f6e4a281b320d747434ca5761413dd1d130d5b3355b868b227076132"
+  },
+  {
+    "path": "/home/lolo/dev/msm/reports/TR2-R5-BV-PK-20261031/analysis-unified-v3.sqlite",
+    "bytes": 48439296,
+    "sha256": "5fccabd3775ad9ee5f7fd8dec6ff064805916d6740b8bb8c29bb425a10132799"
+  },
+  {
+    "path": "/home/lolo/dev/msm/reports/TR2-R5-BV-PK-20261031/checkpoint-remote.json",
+    "bytes": 1765,
+    "sha256": "f77afec7a12d8ba05d993d57e3576f3ccd18e56996f540eb984c618f1006d475"
+  },
+  {
+    "path": "/home/lolo/dev/msm/reports/TR2-R5-BV-PK-20261031/extra-controls-registration.json",
+    "bytes": 426,
+    "sha256": "815ad51066e5911b78ecaddcac65cd53a3a7550f8ec62f5e7819d2910aedc4a4"
+  },
+  {
+    "path": "/home/lolo/dev/msm/reports/TR2-R5-BV-PK-20261031/extra-controls.log",
+    "bytes": 56,
+    "sha256": "fd9ae37539490ca267ac6150ca70317a538c3c909c815dc765f563c8325fb6b2"
+  },
+  {
+    "path": "/home/lolo/dev/msm/reports/TR2-R5-BV-PK-20261031/extra_independent_real.json",
+    "bytes": 5189,
+    "sha256": "a53aaec64aa79715040e3784ccea8ed7c9ab32c69980cd17ad881f70ee7765be"
+  },
+  {
+    "path": "/home/lolo/dev/msm/reports/TR2-R5-BV-PK-20261031/full-components-fixed-v1/artifacts.json",
+    "bytes": 1004,
+    "sha256": "9c4c6a2205ef139b326b6e6a53455effb787c1b04d6da927af6458a1141d1bbe"
+  },
+  {
+    "path": "/home/lolo/dev/msm/reports/TR2-R5-BV-PK-20261031/full-components-fixed-v1/components.csv.gz",
+    "bytes": 2218566,
+    "sha256": "fe7f447da1267c47fa8bbefbe0a24690f9233e29f70ee3cdb2f8a4f7c311fd3a"
+  },
+  {
+    "path": "/home/lolo/dev/msm/reports/TR2-R5-BV-PK-20261031/full-components-fixed-v1/fir_response.json",
+    "bytes": 3412,
+    "sha256": "a384164bcf05fb2d896ed9e1f4286192ab5003f8dcfa93866d79d9b3cb916c6d"
+  },
+  {
+    "path": "/home/lolo/dev/msm/reports/TR2-R5-BV-PK-20261031/full-components-fixed-v1/independent_real.json",
+    "bytes": 12328,
+    "sha256": "d3b743ca86566f2ebd81735595ee45928dd5259496c36221851f74845c108345"
+  },
+  {
+    "path": "/home/lolo/dev/msm/reports/TR2-R5-BV-PK-20261031/full-components-fixed-v1/manifest.json",
+    "bytes": 3284,
+    "sha256": "c734bc8d8294022fc00af23c05321ff40c80fa7c08ab44f40cdb0d4a6026d587"
+  },
+  {
+    "path": "/home/lolo/dev/msm/reports/TR2-R5-BV-PK-20261031/full-components-fixed-v1/methods.json",
+    "bytes": 5367,
+    "sha256": "c8a4817c9a1be99e7b0ca9f4f4f5243f96e6aa800fc4d04803987a84d3823008"
+  },
+  {
+    "path": "/home/lolo/dev/msm/reports/TR2-R5-BV-PK-20261031/full-components-fixed-v1/spectral_checkpoint.json.gz",
+    "bytes": 3366703,
+    "sha256": "4901fb71ca9df8c33efdeb5a190fdca95e76470931b656dc9169d2514b665615"
+  },
+  {
+    "path": "/home/lolo/dev/msm/reports/TR2-R5-BV-PK-20261031/full-components-fixed-v1/summary.json",
+    "bytes": 3737,
+    "sha256": "72096e040e65d23d55e522e2bfced5763a6630be11ba0d6391dbd49f8efed1b5"
+  },
+  {
+    "path": "/home/lolo/dev/msm/reports/TR2-R5-BV-PK-20261031/full-components-fixed-v1.log",
+    "bytes": 4573,
+    "sha256": "04f78101f86b81536ab28a892a95ff83add2a04807f9c037b8ef0fcefd6d2cc2"
+  },
+  {
+    "path": "/home/lolo/dev/msm/reports/TR2-R5-BV-PK-20261031/full-components-v1.log",
+    "bytes": 1770,
+    "sha256": "850829eb0b44a6cff668e8db7073c356589601062304c7ebdc3591c168869b52"
+  },
+  {
+    "path": "/home/lolo/dev/msm/reports/TR2-R5-BV-PK-20261031/pdf-tool-install.log",
+    "bytes": 417,
+    "sha256": "94e3a2bd4fca464ffebc52e82c84f652802db61766d090c05b8080e821f58fde"
+  },
+  {
+    "path": "/home/lolo/dev/msm/reports/TR2-R5-BV-PK-20261031/prepare_delivery.py",
+    "bytes": 10923,
+    "sha256": "820f2e691511bd65e04cdcbbaa504348794dd8c324b568a2ead0bff489a59c3b"
+  },
+  {
+    "path": "/home/lolo/dev/msm/reports/TR2-R5-BV-PK-20261031/presentation-final/BV_PK_ACC_1_5.png",
+    "bytes": 229544,
+    "sha256": "80c42ace9cb0829175f749cd32b49943ea9fd9d97ad9d64063eb51ec4f5bac0f"
+  },
+  {
+    "path": "/home/lolo/dev/msm/reports/TR2-R5-BV-PK-20261031/presentation-final/BV_PK_VEL_5_100.png",
+    "bytes": 228263,
+    "sha256": "0718b6623a07bff61666f503cb0d31001d56b8bf785b72745381de5287eb673b"
+  },
+  {
+    "path": "/home/lolo/dev/msm/reports/TR2-R5-BV-PK-20261031/presentation-final/candidate_statistics.json",
+    "bytes": 2162,
+    "sha256": "ba3ec5cc5ec6def59ddbd0365b0e138a868ba68d7e86479d32979ec30a8b6986"
+  },
+  {
+    "path": "/home/lolo/dev/msm/reports/TR2-R5-BV-PK-20261031/presentation-final/clock_sensitivity.csv",
+    "bytes": 2013809,
+    "sha256": "b8133f04f09744a89c047213e10b1ee12be8ca952275655fd1777d4eaf8ac49f"
+  },
+  {
+    "path": "/home/lolo/dev/msm/reports/TR2-R5-BV-PK-20261031/presentation-final/index.html",
+    "bytes": 4944,
+    "sha256": "1f327382266a9c176680d18066689756ff37a47433ec233e270f5fa0230e98de"
+  },
+  {
+    "path": "/home/lolo/dev/msm/reports/TR2-R5-BV-PK-20261031/presentation-final/render_manifest.json",
+    "bytes": 1027,
+    "sha256": "450bceaf1258169823836c1c2e8b78476f3a03130a52aaf5410eee3923d854f5"
+  },
+  {
+    "path": "/home/lolo/dev/msm/reports/TR2-R5-BV-PK-20261031/presentation-final/sensitivity_statistics.json",
+    "bytes": 937,
+    "sha256": "b615df9983bf7249d2bffe92fbd97a404e2f843c9ef2e67784bc4a9df121524c"
+  },
+  {
+    "path": "/home/lolo/dev/msm/reports/TR2-R5-BV-PK-20261031/presentation-final/window_sensitivity.csv",
+    "bytes": 796968,
+    "sha256": "af6ea495b3800d130c5b76c098f205d75f85cca75f1ea19260e18730e3f57011"
+  },
+  {
+    "path": "/home/lolo/dev/msm/reports/TR2-R5-BV-PK-20261031/presentation-final.log",
+    "bytes": 2162,
+    "sha256": "ba3ec5cc5ec6def59ddbd0365b0e138a868ba68d7e86479d32979ec30a8b6986"
+  },
+  {
+    "path": "/home/lolo/dev/msm/reports/TR2-R5-BV-PK-20261031/presentation-v1/BV_PK_ACC_1_5.png",
+    "bytes": 229544,
+    "sha256": "80c42ace9cb0829175f749cd32b49943ea9fd9d97ad9d64063eb51ec4f5bac0f"
+  },
+  {
+    "path": "/home/lolo/dev/msm/reports/TR2-R5-BV-PK-20261031/presentation-v1/BV_PK_VEL_5_100.png",
+    "bytes": 228256,
+    "sha256": "0c0c1c741d4b588f4f41701bb49f4b56718f8a2f1728af46b7fc24041f6d6635"
+  },
+  {
+    "path": "/home/lolo/dev/msm/reports/TR2-R5-BV-PK-20261031/presentation-v1/candidate_statistics.json",
+    "bytes": 2162,
+    "sha256": "ba3ec5cc5ec6def59ddbd0365b0e138a868ba68d7e86479d32979ec30a8b6986"
+  },
+  {
+    "path": "/home/lolo/dev/msm/reports/TR2-R5-BV-PK-20261031/presentation-v1/clock_sensitivity.csv",
+    "bytes": 2013809,
+    "sha256": "b8133f04f09744a89c047213e10b1ee12be8ca952275655fd1777d4eaf8ac49f"
+  },
+  {
+    "path": "/home/lolo/dev/msm/reports/TR2-R5-BV-PK-20261031/presentation-v1/index.html",
+    "bytes": 4912,
+    "sha256": "6890756fd6df6598fc8ef8d0bb0ea78768e8ab9215a03e202060d5329889d76f"
+  },
+  {
+    "path": "/home/lolo/dev/msm/reports/TR2-R5-BV-PK-20261031/presentation-v1/render_manifest.json",
+    "bytes": 1027,
+    "sha256": "ba4cc51bacf04a55aa64e5a6d6cdbf1f4b52ca8fff30980ccc9a4a613fb8f60c"
+  },
+  {
+    "path": "/home/lolo/dev/msm/reports/TR2-R5-BV-PK-20261031/presentation-v1/sensitivity_statistics.json",
+    "bytes": 937,
+    "sha256": "b615df9983bf7249d2bffe92fbd97a404e2f843c9ef2e67784bc4a9df121524c"
+  },
+  {
+    "path": "/home/lolo/dev/msm/reports/TR2-R5-BV-PK-20261031/presentation-v1/window_sensitivity.csv",
+    "bytes": 796968,
+    "sha256": "af6ea495b3800d130c5b76c098f205d75f85cca75f1ea19260e18730e3f57011"
+  },
+  {
+    "path": "/home/lolo/dev/msm/reports/TR2-R5-BV-PK-20261031/presentation-v1.log",
+    "bytes": 2162,
+    "sha256": "ba3ec5cc5ec6def59ddbd0365b0e138a868ba68d7e86479d32979ec30a8b6986"
+  },
+  {
+    "path": "/home/lolo/dev/msm/reports/TR2-R5-BV-PK-20261031/presentation-v2/BV_PK_ACC_1_5.png",
+    "bytes": 229544,
+    "sha256": "80c42ace9cb0829175f749cd32b49943ea9fd9d97ad9d64063eb51ec4f5bac0f"
+  },
+  {
+    "path": "/home/lolo/dev/msm/reports/TR2-R5-BV-PK-20261031/presentation-v2/BV_PK_VEL_5_100.png",
+    "bytes": 228256,
+    "sha256": "0c0c1c741d4b588f4f41701bb49f4b56718f8a2f1728af46b7fc24041f6d6635"
+  },
+  {
+    "path": "/home/lolo/dev/msm/reports/TR2-R5-BV-PK-20261031/presentation-v2/candidate_statistics.json",
+    "bytes": 2162,
+    "sha256": "ba3ec5cc5ec6def59ddbd0365b0e138a868ba68d7e86479d32979ec30a8b6986"
+  },
+  {
+    "path": "/home/lolo/dev/msm/reports/TR2-R5-BV-PK-20261031/presentation-v2/clock_sensitivity.csv",
+    "bytes": 2013809,
+    "sha256": "b8133f04f09744a89c047213e10b1ee12be8ca952275655fd1777d4eaf8ac49f"
+  },
+  {
+    "path": "/home/lolo/dev/msm/reports/TR2-R5-BV-PK-20261031/presentation-v2/index.html",
+    "bytes": 4910,
+    "sha256": "1fd6dc9021d3b7d5eb6ae6dbd20f4d0ea9ba866d2ff216699eb9e24f604a2a28"
+  },
+  {
+    "path": "/home/lolo/dev/msm/reports/TR2-R5-BV-PK-20261031/presentation-v2/render_manifest.json",
+    "bytes": 1027,
+    "sha256": "2fafdbf672b3cacc15ce45bb66c46c9d58019effb8a994ef6ca256cb8f807101"
+  },
+  {
+    "path": "/home/lolo/dev/msm/reports/TR2-R5-BV-PK-20261031/presentation-v2/sensitivity_statistics.json",
+    "bytes": 937,
+    "sha256": "b615df9983bf7249d2bffe92fbd97a404e2f843c9ef2e67784bc4a9df121524c"
+  },
+  {
+    "path": "/home/lolo/dev/msm/reports/TR2-R5-BV-PK-20261031/presentation-v2/window_sensitivity.csv",
+    "bytes": 796968,
+    "sha256": "af6ea495b3800d130c5b76c098f205d75f85cca75f1ea19260e18730e3f57011"
+  },
+  {
+    "path": "/home/lolo/dev/msm/reports/TR2-R5-BV-PK-20261031/presentation-v2.log",
+    "bytes": 2162,
+    "sha256": "ba3ec5cc5ec6def59ddbd0365b0e138a868ba68d7e86479d32979ec30a8b6986"
+  },
+  {
+    "path": "/home/lolo/dev/msm/reports/TR2-R5-BV-PK-20261031/software-fixed-remote.json",
+    "bytes": 2753,
+    "sha256": "9ec31addac3818321bf810f49dd2987c2014e7ccf5aa0f261bb847654f9a6eee"
+  },
+  {
+    "path": "/home/lolo/dev/msm/reports/TR2-R5-BV-PK-20261031/sqlite-first.json",
+    "bytes": 2577,
+    "sha256": "ddb6abb21d8e6b2cb01b7ac7908fb317f33f546bc614b1c0660c8a4ed646fbd0"
+  },
+  {
+    "path": "/home/lolo/dev/msm/reports/TR2-R5-BV-PK-20261031/sqlite-second.json",
+    "bytes": 2576,
+    "sha256": "1bb37c6e4640b19e2e39903b203c30aa9be1e9535d54730270a395891f8eb036"
+  },
+  {
+    "path": "/home/lolo/dev/msm/reports/TR2-R5-BV-PK-20261031/tests-checkpoint.log",
+    "bytes": 764,
+    "sha256": "064fc97c27f028f23d22d32ad1dd25e989e2333e86b3bcbb05d7e976a9cad154"
+  },
+  {
+    "path": "/home/lolo/dev/msm/reports/TR2-R5-BV-PK-20261031/tests-final-all.log",
+    "bytes": 1446,
+    "sha256": "d4b0aa0266d55e597776b0fa81208b2cf1467eb03ae671540d965fcfa6ee849b"
+  },
+  {
+    "path": "/home/lolo/dev/msm/reports/TR2-R5-BV-PK-20261031/tests-final.log",
+    "bytes": 1305,
+    "sha256": "a19ae6a26e5257a66b181fca334e9eedcc0140bd0e047b2bb42b351c0aedcd70"
+  },
+  {
+    "path": "/home/lolo/dev/msm/reports/TR2-R5-BV-PK-20261031/tests-first.log",
+    "bytes": 764,
+    "sha256": "05f6c5bbb3180194ff0faf788a9c578769ea4304d806afff2af2f9a6b06af7a1"
+  },
+  {
+    "path": "/home/lolo/dev/msm/reports/TR2-R5-BV-PK-20261031/tests-with-catalog-fixed.log",
+    "bytes": 1305,
+    "sha256": "b5ea696b3d0617595143cd8eff803d55f0f668323dc92f61b4b5dc9a1ce9e273"
+  },
+  {
+    "path": "/home/lolo/dev/msm/reports/TR2-R5-BV-PK-20261031/tests-with-catalog.log",
+    "bytes": 2298,
+    "sha256": "4565e8a39af487c56785629cdca8c196162d04c8d6bb5ac4a68414e72e5a10bd"
+  },
+  {
+    "path": "/home/lolo/dev/msm/reports/TR2-R5-BV-PK-20261031/worktrees-initial.txt",
+    "bytes": 13524,
+    "sha256": "9bdd482a3cb5a363d3d05f47464ae0443594a8fe74bb94172db2ede273e42feb"
+  }
+]

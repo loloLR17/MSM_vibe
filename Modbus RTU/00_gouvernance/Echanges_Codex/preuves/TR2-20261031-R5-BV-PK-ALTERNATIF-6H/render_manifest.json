@@ -1,0 +1,37 @@
+[
+  {
+    "name": "BV_PK_ACC_1_5.png",
+    "bytes": 229544,
+    "sha256": "80c42ace9cb0829175f749cd32b49943ea9fd9d97ad9d64063eb51ec4f5bac0f"
+  },
+  {
+    "name": "BV_PK_VEL_5_100.png",
+    "bytes": 228263,
+    "sha256": "0718b6623a07bff61666f503cb0d31001d56b8bf785b72745381de5287eb673b"
+  },
+  {
+    "name": "candidate_statistics.json",
+    "bytes": 2162,
+    "sha256": "ba3ec5cc5ec6def59ddbd0365b0e138a868ba68d7e86479d32979ec30a8b6986"
+  },
+  {
+    "name": "clock_sensitivity.csv",
+    "bytes": 2013809,
+    "sha256": "b8133f04f09744a89c047213e10b1ee12be8ca952275655fd1777d4eaf8ac49f"
+  },
+  {
+    "name": "index.html",
+    "bytes": 4944,
+    "sha256": "1f327382266a9c176680d18066689756ff37a47433ec233e270f5fa0230e98de"
+  },
+  {
+    "name": "sensitivity_statistics.json",
+    "bytes": 937,
+    "sha256": "b615df9983bf7249d2bffe92fbd97a404e2f843c9ef2e67784bc4a9df121524c"
+  },
+  {
+    "name": "window_sensitivity.csv",
+    "bytes": 796968,
+    "sha256": "af6ea495b3800d130c5b76c098f205d75f85cca75f1ea19260e18730e3f57011"
+  }
+]

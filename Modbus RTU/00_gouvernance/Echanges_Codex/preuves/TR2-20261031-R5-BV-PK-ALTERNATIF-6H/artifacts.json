@@ -1,0 +1,37 @@
+[
+  {
+    "name": "components.csv.gz",
+    "bytes": 2218566,
+    "sha256": "fe7f447da1267c47fa8bbefbe0a24690f9233e29f70ee3cdb2f8a4f7c311fd3a"
+  },
+  {
+    "name": "fir_response.json",
+    "bytes": 3412,
+    "sha256": "a384164bcf05fb2d896ed9e1f4286192ab5003f8dcfa93866d79d9b3cb916c6d"
+  },
+  {
+    "name": "independent_real.json",
+    "bytes": 12328,
+    "sha256": "d3b743ca86566f2ebd81735595ee45928dd5259496c36221851f74845c108345"
+  },
+  {
+    "name": "manifest.json",
+    "bytes": 3284,
+    "sha256": "c734bc8d8294022fc00af23c05321ff40c80fa7c08ab44f40cdb0d4a6026d587"
+  },
+  {
+    "name": "methods.json",
+    "bytes": 5367,
+    "sha256": "c8a4817c9a1be99e7b0ca9f4f4f5243f96e6aa800fc4d04803987a84d3823008"
+  },
+  {
+    "name": "spectral_checkpoint.json.gz",
+    "bytes": 3366703,
+    "sha256": "4901fb71ca9df8c33efdeb5a190fdca95e76470931b656dc9169d2514b665615"
+  },
+  {
+    "name": "summary.json",
+    "bytes": 3737,
+    "sha256": "72096e040e65d23d55e522e2bfced5763a6630be11ba0d6391dbd49f8efed1b5"
+  }
+]

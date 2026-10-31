@@ -1,0 +1,7 @@
+{
+  "path": "/home/lolo/dev/msm/reports/TR2-R5-BV-PK-20261031/full-components-fixed-v1/spectral_checkpoint.json.gz",
+  "sha256": "4901fb71ca9df8c33efdeb5a190fdca95e76470931b656dc9169d2514b665615",
+  "aggregate_rows": 30804,
+  "source_and_methods_match": true,
+  "scope": "checkpoint JSON read and identity checked; resume did NOT rerun FFT"
+}

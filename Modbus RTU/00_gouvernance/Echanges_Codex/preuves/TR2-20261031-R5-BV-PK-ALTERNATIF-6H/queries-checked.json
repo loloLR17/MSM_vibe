@@ -1,0 +1,15 @@
+{
+  "query_file": "experiments/r5_bv_pk/queries.sql",
+  "result_counts": [
+    4,
+    7701,
+    1101,
+    1,
+    0,
+    1
+  ],
+  "readonly": true,
+  "one_analysis_rows": 7701,
+  "one_analysis_60s_rows": 1101,
+  "whole_minutes_all_axes": 0
+}

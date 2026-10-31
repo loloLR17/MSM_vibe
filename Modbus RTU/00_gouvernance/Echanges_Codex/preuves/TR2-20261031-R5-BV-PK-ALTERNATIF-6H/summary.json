@@ -1,0 +1,148 @@
+[
+  {
+    "clock": "MCU",
+    "band": "BV_PK_ACC_1_5",
+    "unit": "mm/s² peak",
+    "total_minutes": 367,
+    "comparable_all_axes_minutes": 0,
+    "candidate_finite_minutes": 365,
+    "eligible_axis_windows": 0,
+    "by_axis": {
+      "X": {
+        "eligible": 0,
+        "total": 367
+      },
+      "Y": {
+        "eligible": 0,
+        "total": 367
+      },
+      "Z": {
+        "eligible": 0,
+        "total": 367
+      }
+    },
+    "eligible_peak_P50": null,
+    "eligible_peak_P95": null,
+    "eligible_peak_max": null,
+    "axis_status_counts": {
+      "INVALID_FIR_WARMUP": 3,
+      "UNRESOLVED_OR_NON_SINUSOIDAL": 937,
+      "MODULATION_OR_MULTISOURCE": 8,
+      "LOW_CONTRAST": 150,
+      "PARTIAL_WINDOW": 3
+    },
+    "indicative_minute_zone_counts": {}
+  },
+  {
+    "clock": "MCU",
+    "band": "BV_PK_VEL_5_100",
+    "unit": "mm/s peak",
+    "total_minutes": 367,
+    "comparable_all_axes_minutes": 0,
+    "candidate_finite_minutes": 365,
+    "eligible_axis_windows": 11,
+    "by_axis": {
+      "X": {
+        "eligible": 0,
+        "total": 367
+      },
+      "Y": {
+        "eligible": 1,
+        "total": 367
+      },
+      "Z": {
+        "eligible": 10,
+        "total": 367
+      }
+    },
+    "eligible_peak_P50": null,
+    "eligible_peak_P95": null,
+    "eligible_peak_max": null,
+    "axis_status_counts": {
+      "INVALID_FIR_WARMUP": 3,
+      "UNRESOLVED_OR_NON_SINUSOIDAL": 951,
+      "MODULATION_OR_MULTISOURCE": 58,
+      "METHODOLOGY_INDETERMINATE_SHORT_UNRESOLVED_OR_NON_SINUSOIDAL": 39,
+      "METHODOLOGY_INDETERMINATE_MODULATED": 12,
+      "METHODOLOGY_INDETERMINATE_SHORT_MODULATION_OR_MULTISOURCE": 20,
+      "METHODOLOGY_INDETERMINATE_NO_MATCH": 1,
+      "QUASI_STATIONARY_COMPONENT": 11,
+      "METHODOLOGY_INDETERMINATE_SHORT_LOW_CONTRAST": 3,
+      "PARTIAL_WINDOW": 3
+    },
+    "indicative_minute_zone_counts": {}
+  },
+  {
+    "clock": "QPC_ESTIMATE",
+    "band": "BV_PK_ACC_1_5",
+    "unit": "mm/s² peak",
+    "total_minutes": 367,
+    "comparable_all_axes_minutes": 0,
+    "candidate_finite_minutes": 365,
+    "eligible_axis_windows": 0,
+    "by_axis": {
+      "X": {
+        "eligible": 0,
+        "total": 367
+      },
+      "Y": {
+        "eligible": 0,
+        "total": 367
+      },
+      "Z": {
+        "eligible": 0,
+        "total": 367
+      }
+    },
+    "eligible_peak_P50": null,
+    "eligible_peak_P95": null,
+    "eligible_peak_max": null,
+    "axis_status_counts": {
+      "INVALID_FIR_WARMUP": 3,
+      "UNRESOLVED_OR_NON_SINUSOIDAL": 934,
+      "MODULATION_OR_MULTISOURCE": 8,
+      "LOW_CONTRAST": 153,
+      "PARTIAL_WINDOW": 3
+    },
+    "indicative_minute_zone_counts": {}
+  },
+  {
+    "clock": "QPC_ESTIMATE",
+    "band": "BV_PK_VEL_5_100",
+    "unit": "mm/s peak",
+    "total_minutes": 367,
+    "comparable_all_axes_minutes": 0,
+    "candidate_finite_minutes": 365,
+    "eligible_axis_windows": 11,
+    "by_axis": {
+      "X": {
+        "eligible": 0,
+        "total": 367
+      },
+      "Y": {
+        "eligible": 1,
+        "total": 367
+      },
+      "Z": {
+        "eligible": 10,
+        "total": 367
+      }
+    },
+    "eligible_peak_P50": null,
+    "eligible_peak_P95": null,
+    "eligible_peak_max": null,
+    "axis_status_counts": {
+      "INVALID_FIR_WARMUP": 3,
+      "UNRESOLVED_OR_NON_SINUSOIDAL": 951,
+      "MODULATION_OR_MULTISOURCE": 58,
+      "METHODOLOGY_INDETERMINATE_SHORT_UNRESOLVED_OR_NON_SINUSOIDAL": 39,
+      "METHODOLOGY_INDETERMINATE_MODULATED": 13,
+      "METHODOLOGY_INDETERMINATE_SHORT_MODULATION_OR_MULTISOURCE": 19,
+      "METHODOLOGY_INDETERMINATE_NO_MATCH": 1,
+      "QUASI_STATIONARY_COMPONENT": 11,
+      "METHODOLOGY_INDETERMINATE_SHORT_LOW_CONTRAST": 3,
+      "PARTIAL_WINDOW": 3
+    },
+    "indicative_minute_zone_counts": {}
+  }
+]

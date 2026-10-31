@@ -1,0 +1,13 @@
+{
+  "delivery_scope": "BV_PK_CANDIDATE; no campaign grade",
+  "reference_gate": "PASS source BV CF1/Tables5/6 verified",
+  "paired_comparison_status": "METHODOLOGY_INDETERMINATE",
+  "acceleration_comparison_eligible_axis_windows_per_clock": 0,
+  "velocity_comparison_eligible_axis_windows_per_clock": 11,
+  "all_axes_eligible_minutes_per_clock": 0,
+  "formal_grade_awarded": false,
+  "Wm_route": "BLOCKED, separate historical mission",
+  "reason": "single-tone extraction not reliable over much of real nonstationary/multisource campaign; failures explicitly retained",
+  "next_action": "independent review; define/admit repetitive-envelope extraction for modulated signals before global PK interpretation; do not weaken existing gates",
+  "mission_outcome": "scientific comparison blocked; candidate delivery complete, remote verification pending"
+}

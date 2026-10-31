@@ -1,0 +1,14 @@
+{
+  "first": {
+    "controls": 18,
+    "artifact_sha256": "a53aaec64aa79715040e3784ccea8ed7c9ab32c69980cd17ad881f70ee7765be",
+    "integrity": "ok"
+  },
+  "second": {
+    "controls": 18,
+    "artifact_sha256": "a53aaec64aa79715040e3784ccea8ed7c9ab32c69980cd17ad881f70ee7765be",
+    "integrity": "ok"
+  },
+  "idempotent_byte_identical": true,
+  "db_sha256": "5fccabd3775ad9ee5f7fd8dec6ff064805916d6740b8bb8c29bb425a10132799"
+}

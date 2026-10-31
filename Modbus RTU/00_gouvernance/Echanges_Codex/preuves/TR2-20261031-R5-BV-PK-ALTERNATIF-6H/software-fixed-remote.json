@@ -1,0 +1,65 @@
+{
+  "sha": "7ed32c4e5df217bab554f548291e97e12d23afa8",
+  "full_blobs_read": [
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/DERNIER_RAPPORT.md",
+      "sha256": "552915d6ed64b73d2de86046f4fe6e69760487f0a882e61a1558d0ddce5baac7"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R5-BV-PK-ALTERNATIF-6H/catalog-fixture-syntax-failure.log",
+      "sha256": "4565e8a39af487c56785629cdca8c196162d04c8d6bb5ac4a68414e72e5a10bd"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R5-BV-PK-ALTERNATIF-6H/checkpoint-remote.json",
+      "sha256": "f77afec7a12d8ba05d993d57e3576f3ccd18e56996f540eb984c618f1006d475"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R5-BV-PK-ALTERNATIF-6H/first-export-failure.log",
+      "sha256": "850829eb0b44a6cff668e8db7073c356589601062304c7ebdc3591c168869b52"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R5-BV-PK-ALTERNATIF-6H/references.json",
+      "sha256": "9f7c9045e501b4d3e58c9495cd9740eff76761af163598382ba7b74ad761ba69"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R5-BV-PK-ALTERNATIF-6H/tests-checkpoint.log",
+      "sha256": "064fc97c27f028f23d22d32ad1dd25e989e2333e86b3bcbb05d7e976a9cad154"
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R5-BV-PK-ALTERNATIF-6H/tests-software-fixed.log",
+      "sha256": "a19ae6a26e5257a66b181fca334e9eedcc0140bd0e047b2bb42b351c0aedcd70"
+    },
+    {
+      "path": "experiments/r5_bv_pk/METHOD.md",
+      "sha256": "3674582ed1885f8b59aed41e2787dfa72d7b1473a359ee72173a23a3d88810ed"
+    },
+    {
+      "path": "experiments/r5_bv_pk/README.md",
+      "sha256": "b848c459ef7cda82ece44524b7163e3e8bd53d16b8d6b669f464da4b8df7e712"
+    },
+    {
+      "path": "experiments/r5_bv_pk/core.py",
+      "sha256": "066c9ecbd731625ea050c9d8385727017cf859dd199f3fe5646b6df72b3d3506"
+    },
+    {
+      "path": "experiments/r5_bv_pk/pk_catalog.py",
+      "sha256": "5c27d5d06eaf8296aadea177af9c294dafec4b5a6ca991887b99ea59a662eb31"
+    },
+    {
+      "path": "experiments/r5_bv_pk/run.py",
+      "sha256": "24f6b5b03fc4cd58fa5cc33c612fc7ea6eda30597edcd4f1ff1f6458bff4127d"
+    },
+    {
+      "path": "experiments/r5_bv_pk/schema_v3.sql",
+      "sha256": "12e2dd30c666c8c6caf3f82790b977a55a54a411daa0ff280fff5cb270245f7a"
+    },
+    {
+      "path": "experiments/r5_bv_pk/test_catalog.py",
+      "sha256": "4861796f38e5c274486e7717d9da759f1b43410560373623898ea52a75fa51b6"
+    },
+    {
+      "path": "experiments/r5_bv_pk/test_core.py",
+      "sha256": "040bb42f4bd1382b54ee4147a8c942a2ca0ebcacbed3adb2f3177fc241717590"
+    }
+  ]
+}

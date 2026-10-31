@@ -1,0 +1,222 @@
+{
+  "database_path": "/home/lolo/dev/msm/reports/TR2-R5-BV-PK-20261031/analysis-unified-v3.sqlite",
+  "bytes": 48439296,
+  "sha256": "5fccabd3775ad9ee5f7fd8dec6ff064805916d6740b8bb8c29bb425a10132799",
+  "schema": 3,
+  "old_v1": {
+    "path": "/home/lolo/dev/msm/reports/TR2-R5-analysis-6h-20261031/r5-catalog-v1.sqlite",
+    "sha256": "e436de69e55e2126c029acc5afea9cb058b0a6fc6ce857e41bc70a26693646c5"
+  },
+  "old_v2": {
+    "path": "/home/lolo/dev/msm/reports/TR2-R5-comfort-20261031/comfort-secondary-v2.sqlite",
+    "sha256_before": "471ca360f35ef5e72fb1c510ce8e6118c31f4a04de0e88e367e2dcad86407a84",
+    "sha256_after": "471ca360f35ef5e72fb1c510ce8e6118c31f4a04de0e88e367e2dcad86407a84"
+  },
+  "legacy_all_rows_fingerprints_before": {
+    "analysis_runs": {
+      "ordered_content_sha256": "9e44ea4067bd99d92fcc0930460a18dafe588a73450e14783ed317427e353656",
+      "rows": 4
+    },
+    "artifact_refs": {
+      "ordered_content_sha256": "991ec5f1af87c1f02fd8e2045c20652961acd5802c3579828f7fc30dacc8ec33",
+      "rows": 24
+    },
+    "campaigns": {
+      "ordered_content_sha256": "747fb5ac5b03088e1893d370ff616e187866c4382dc66fa2b3913b2fbd425b55",
+      "rows": 1
+    },
+    "metric_definitions": {
+      "ordered_content_sha256": "493fbdd92bffa25d7d65ff3c46cbcadf7bc516687bf7acc936351fe92dc546f1",
+      "rows": 4
+    },
+    "window_metrics": {
+      "ordered_content_sha256": "947795404987137b33d2faa494f6c46719d4df892006c9cc6220791767e35a3c",
+      "rows": 2204
+    }
+  },
+  "legacy_all_rows_fingerprints_after": {
+    "campaigns": {
+      "rows": 1,
+      "ordered_content_sha256": "747fb5ac5b03088e1893d370ff616e187866c4382dc66fa2b3913b2fbd425b55"
+    },
+    "metric_definitions": {
+      "rows": 4,
+      "ordered_content_sha256": "493fbdd92bffa25d7d65ff3c46cbcadf7bc516687bf7acc936351fe92dc546f1"
+    },
+    "analysis_runs": {
+      "rows": 4,
+      "ordered_content_sha256": "9e44ea4067bd99d92fcc0930460a18dafe588a73450e14783ed317427e353656"
+    },
+    "window_metrics": {
+      "rows": 2204,
+      "ordered_content_sha256": "947795404987137b33d2faa494f6c46719d4df892006c9cc6220791767e35a3c"
+    },
+    "artifact_refs": {
+      "rows": 24,
+      "ordered_content_sha256": "991ec5f1af87c1f02fd8e2045c20652961acd5802c3579828f7fc30dacc8ec33"
+    }
+  },
+  "first": {
+    "idempotent": false,
+    "analysis_ids": {
+      "d699b10a7a2595aececec77f894ea7a952fe1b405b4ea40f74d5bb328023290e": "d135044c57e71575b66cee03096dddb14b66f454dfdea8c288c5a66bf2cb9f1b",
+      "e0799c67a9d78d3a2c865a97a00561882e96333772387bbd14e3cb2bd5d33c3d": "92df371ec0cff07992cf76f5fa30ee25fdc39a2f9e54ca22c05d0b5aa8bab297",
+      "5834ea0cb2db7c34fcf860f8030e2f7ac4ccdb291e055f89db55a363ed4a6bf3": "ad4d2533fe22a04229d9bbc84d9a74788511a77fb2bd8401056d298134775f74",
+      "b01fcdfc25cdfccf71384447e4ff9e7b0bc3f316b5e75d327edc1fa5888eead5": "f723a22b94c29760bc3c43da887e4fa68dad007d758425e188665d27b87456e5"
+    },
+    "counts": {
+      "campaigns": 1,
+      "window_metrics": 2204,
+      "pk_reference": 1,
+      "pk_methods": 4,
+      "pk_analysis_runs": 4,
+      "pk_components": 30804,
+      "pk_controls": 12
+    },
+    "integrity": "ok",
+    "foreign_key_errors": [],
+    "legacy_logically_preserved": true,
+    "queries": {
+      "pk_inventory": {
+        "count": 8,
+        "first_rows": [
+          {
+            "analysis_id": "d135044c57e71575b66cee03096dddb14b66f454dfdea8c288c5a66bf2cb9f1b",
+            "band": "BV_PK_ACC_1_5",
+            "clock": "MCU",
+            "window_mcu_s": 10,
+            "components": 6600
+          },
+          {
+            "analysis_id": "d135044c57e71575b66cee03096dddb14b66f454dfdea8c288c5a66bf2cb9f1b",
+            "band": "BV_PK_ACC_1_5",
+            "clock": "MCU",
+            "window_mcu_s": 60,
+            "components": 1101
+          },
+          {
+            "analysis_id": "ad4d2533fe22a04229d9bbc84d9a74788511a77fb2bd8401056d298134775f74",
+            "band": "BV_PK_ACC_1_5",
+            "clock": "QPC_ESTIMATE",
+            "window_mcu_s": 10,
+            "components": 6600
+          }
+        ]
+      },
+      "eligible_minutes": {
+        "count": 0,
+        "first_rows": []
+      },
+      "reference": {
+        "count": 1,
+        "first_rows": [
+          {
+            "definition_json": "{\"CF\":1,\"clauses\":\"Ch6Sec1 2.1.3(b), Sec3 Tables5/6\",\"document_sha256\":\"5ae75d30f6b38a1331431e16bcc3dce11bc42c90b393f344be89b42cb050ceef\",\"document_url\":\"https://rulesexplorer-docs.bureauveritas.com/documents/nr467/jul2026/467-NR_PartF_2026-07.pdf\",\"edition\":\"BV_NR467_F_2026_07_PK\",\"formal_grade_awarded\":false,\"local_correspondence_confirmed\":false,\"values\":{\"BV_PK_ACC_1_5\":[125.0,141.0,157.0],\"BV_PK_VEL_5_100\":[4.0,4.5,5.0]}}"
+          }
+        ]
+      },
+      "legacy_preserved": {
+        "count": 1,
+        "first_rows": [
+          {
+            "campaigns": 1,
+            "previous_analyses": 4,
+            "previous_rms_windows": 2204,
+            "pk_analyses": 4
+          }
+        ]
+      }
+    }
+  },
+  "second": {
+    "idempotent": true,
+    "analysis_ids": {
+      "d699b10a7a2595aececec77f894ea7a952fe1b405b4ea40f74d5bb328023290e": "d135044c57e71575b66cee03096dddb14b66f454dfdea8c288c5a66bf2cb9f1b",
+      "e0799c67a9d78d3a2c865a97a00561882e96333772387bbd14e3cb2bd5d33c3d": "92df371ec0cff07992cf76f5fa30ee25fdc39a2f9e54ca22c05d0b5aa8bab297",
+      "5834ea0cb2db7c34fcf860f8030e2f7ac4ccdb291e055f89db55a363ed4a6bf3": "ad4d2533fe22a04229d9bbc84d9a74788511a77fb2bd8401056d298134775f74",
+      "b01fcdfc25cdfccf71384447e4ff9e7b0bc3f316b5e75d327edc1fa5888eead5": "f723a22b94c29760bc3c43da887e4fa68dad007d758425e188665d27b87456e5"
+    },
+    "counts": {
+      "campaigns": 1,
+      "window_metrics": 2204,
+      "pk_reference": 1,
+      "pk_methods": 4,
+      "pk_analysis_runs": 4,
+      "pk_components": 30804,
+      "pk_controls": 12
+    },
+    "integrity": "ok",
+    "foreign_key_errors": [],
+    "legacy_logically_preserved": true,
+    "queries": {
+      "pk_inventory": {
+        "count": 8,
+        "first_rows": [
+          {
+            "analysis_id": "d135044c57e71575b66cee03096dddb14b66f454dfdea8c288c5a66bf2cb9f1b",
+            "band": "BV_PK_ACC_1_5",
+            "clock": "MCU",
+            "window_mcu_s": 10,
+            "components": 6600
+          },
+          {
+            "analysis_id": "d135044c57e71575b66cee03096dddb14b66f454dfdea8c288c5a66bf2cb9f1b",
+            "band": "BV_PK_ACC_1_5",
+            "clock": "MCU",
+            "window_mcu_s": 60,
+            "components": 1101
+          },
+          {
+            "analysis_id": "ad4d2533fe22a04229d9bbc84d9a74788511a77fb2bd8401056d298134775f74",
+            "band": "BV_PK_ACC_1_5",
+            "clock": "QPC_ESTIMATE",
+            "window_mcu_s": 10,
+            "components": 6600
+          }
+        ]
+      },
+      "eligible_minutes": {
+        "count": 0,
+        "first_rows": []
+      },
+      "reference": {
+        "count": 1,
+        "first_rows": [
+          {
+            "definition_json": "{\"CF\":1,\"clauses\":\"Ch6Sec1 2.1.3(b), Sec3 Tables5/6\",\"document_sha256\":\"5ae75d30f6b38a1331431e16bcc3dce11bc42c90b393f344be89b42cb050ceef\",\"document_url\":\"https://rulesexplorer-docs.bureauveritas.com/documents/nr467/jul2026/467-NR_PartF_2026-07.pdf\",\"edition\":\"BV_NR467_F_2026_07_PK\",\"formal_grade_awarded\":false,\"local_correspondence_confirmed\":false,\"values\":{\"BV_PK_ACC_1_5\":[125.0,141.0,157.0],\"BV_PK_VEL_5_100\":[4.0,4.5,5.0]}}"
+          }
+        ]
+      },
+      "legacy_preserved": {
+        "count": 1,
+        "first_rows": [
+          {
+            "campaigns": 1,
+            "previous_analyses": 4,
+            "previous_rms_windows": 2204,
+            "pk_analyses": 4
+          }
+        ]
+      }
+    }
+  },
+  "integrity": "ok",
+  "FK_errors": [],
+  "raw_XYZ_stored": false,
+  "supplemental_control_registration": {
+    "first": {
+      "controls": 18,
+      "artifact_sha256": "a53aaec64aa79715040e3784ccea8ed7c9ab32c69980cd17ad881f70ee7765be",
+      "integrity": "ok"
+    },
+    "second": {
+      "controls": 18,
+      "artifact_sha256": "a53aaec64aa79715040e3784ccea8ed7c9ab32c69980cd17ad881f70ee7765be",
+      "integrity": "ok"
+    },
+    "idempotent_byte_identical": true,
+    "db_sha256": "5fccabd3775ad9ee5f7fd8dec6ff064805916d6740b8bb8c29bb425a10132799"
+  },
+  "final_pk_controls": 18,
+  "final_pk_artifacts": 24
+}

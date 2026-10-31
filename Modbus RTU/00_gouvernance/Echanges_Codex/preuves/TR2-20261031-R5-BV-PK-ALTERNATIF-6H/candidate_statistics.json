@@ -1,0 +1,68 @@
+[
+  {
+    "clock": "MCU",
+    "band": "BV_PK_ACC_1_5",
+    "unit": "mm/s² peak",
+    "candidate_minutes": 365,
+    "candidate_max_axis_P50": 4.822492471049484,
+    "candidate_max_axis_P95": 7.772313426136633,
+    "candidate_max_axis_max": 11.54108835923872,
+    "robust_axis_windows": 0,
+    "robust_axis_zone_counts": {},
+    "robust_axis_peak_range": null,
+    "all_axes_minutes": 0,
+    "interpretation": "Candidate statistics include unresolved cases; NOT a comfort classification"
+  },
+  {
+    "clock": "MCU",
+    "band": "BV_PK_VEL_5_100",
+    "unit": "mm/s peak",
+    "candidate_minutes": 365,
+    "candidate_max_axis_P50": 0.5433096787859603,
+    "candidate_max_axis_P95": 0.8415139949443445,
+    "candidate_max_axis_max": 2.757813351197388,
+    "robust_axis_windows": 11,
+    "robust_axis_zone_counts": {
+      "SOUS_REPERE_1PK": 11
+    },
+    "robust_axis_peak_range": [
+      0.15232354801300618,
+      0.7428611106710559
+    ],
+    "all_axes_minutes": 0,
+    "interpretation": "Candidate statistics include unresolved cases; NOT a comfort classification"
+  },
+  {
+    "clock": "QPC_ESTIMATE",
+    "band": "BV_PK_ACC_1_5",
+    "unit": "mm/s² peak",
+    "candidate_minutes": 365,
+    "candidate_max_axis_P50": 4.822492471049484,
+    "candidate_max_axis_P95": 7.772313426136633,
+    "candidate_max_axis_max": 11.54108835923872,
+    "robust_axis_windows": 0,
+    "robust_axis_zone_counts": {},
+    "robust_axis_peak_range": null,
+    "all_axes_minutes": 0,
+    "interpretation": "Candidate statistics include unresolved cases; NOT a comfort classification"
+  },
+  {
+    "clock": "QPC_ESTIMATE",
+    "band": "BV_PK_VEL_5_100",
+    "unit": "mm/s peak",
+    "candidate_minutes": 365,
+    "candidate_max_axis_P50": 0.5396489354926242,
+    "candidate_max_axis_P95": 0.8358439934083427,
+    "candidate_max_axis_max": 2.739231597321353,
+    "robust_axis_windows": 11,
+    "robust_axis_zone_counts": {
+      "SOUS_REPERE_1PK": 11
+    },
+    "robust_axis_peak_range": [
+      0.1512972136247586,
+      0.7378558182292831
+    ],
+    "all_axes_minutes": 0,
+    "interpretation": "Candidate statistics include unresolved cases; NOT a comfort classification"
+  }
+]
