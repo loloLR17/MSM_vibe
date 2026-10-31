@@ -72,7 +72,9 @@
 
 ## 3. Contrat de données préparées, indépendant de Grafana
 
-Conserver les fichiers `.TR2` originaux intacts, avec empreinte SHA-256. Index de lecture et traitements en cache, résultats/métadonnées catalogue local (SQLite possible), exports ouverts (CSV V1, Parquet candidat). **Ne pas** transcrire systématiquement chaque échantillon XYZ dans SQLite.
+Conserver les fichiers `.TR2` originaux intacts, avec empreinte SHA-256. Index de lecture et traitements en cache, **catalogue local SQLite obligatoire pour les campagnes, la provenance, les analyses versionnées et les résultats agrégés RMS/crêtes par fenêtres (1/10/60 s)**, exports ouverts (CSV V1, Parquet candidat). Le catalogue SQLite de R5 doit être réellement renseigné dès la première exploitation PC machine, avec import idempotent et requêtes testées, en réutilisant si adapté le socle `TR2.Persistence/Sqlite` de la supervision actuelle ; aucun risque de migration sur une base de service existante. **Ne pas** transcrire systématiquement chaque échantillon XYZ dans SQLite. Les PSD/spectrogrammes volumineux peuvent être conservés en fichiers dérivés avec références SHA dans le catalogue.
+
+**Décision d'intégration métier du 31/10/2026 :** la mission `TR2-20261031-R5-ANALYSE-PC-MACHINE-6H` intègre un socle SQLite local dès R5-A/B, en plus des CSV/PNG. Cette étape n'oblige ni à installer Grafana, ni à stocker les échantillons bruts en base, ni à réécrire l'architecture de supervision ; elle vise des campagnes multi-sessions consultables, le zoom et les comparaisons futures, à partir de résultats traçables.
 
 Pour toute série, fenêtre ou raie exportée : `campaign_id`, fichier source + SHA, UID/session, format/firmware/filtre, point de mesure/orientation, `elapsed_start/end`, indices source début/fin, fréquence d'échantillonnage estimée/qualifiée, conversion nominale/étalonnée, algorithme/version/paramètres/bande, indicateurs avec unités, qualité + couverture/validité. Temps UTC **si prouvé** : `utc_start/end`, `utc_status`, `utc_source`, `utc_uncertainty_s` et méthode/version de rattachement. Aucun transfert BigQuery requis pour V1.
 
