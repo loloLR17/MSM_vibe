@@ -1,0 +1,11 @@
+# Retour à N8A exact — demandé par utilisateur
+
+Commande exécutée : `python3 /home/lolo/dev/msm/reports/TR2-r3-N8A-restored-20261031/restore_N8A.py`. ImageN8A existante, aucun rebuild. BIN54556B/SHA c31904feca48fd06d6102eee40b54b373bbfe5e9896d0ddc007434cf253ddc17, source d5af0828e370780320bda67fac5d537bf3fd5016, comparé aussi aux octets publiés. Identité002/ancienD arrêté/CShaute, entierBIND sauvegardé et comparé avant programmation. Un flash standard qualifié à0x08000000/verification/reset de programmation, aucun reset supplémentaire. Les54556octets relus sont strictement identiques à N8A initial. Il ne s'agit pas d'une affirmation d'identité de tousles2Mio de Flash.
+
+ÉtatWAIT2/run0/error0 confirmé puis unique contrôle **init/calibration, commande1** : lectureCID/montage puis FIFO ; aucunecréationfichier ou gateSD ni commande5. Résultat99/run1/error2/FIFO9/**parserreason4** : intervalle de5XYZ entre timestamps alors que8 attendus. Troisbrackets avantéchec, WHO7B/SDError0/stoperror0. Lesrefus ettraces brutes sont conservés sansperte ; le script appelant a levé CalledProcessError(code6) au garde final, ce n'estpasunPASS. Pasdecalibration complète, pas de capture8h.
+
+Les snapshots SPI3 CFG1/2=00070007/87440000 etSPI2=10070007/84400000 sontidentiques aux anciens snapshotsA ; masquesIRQ0. Capteur actuellementemprunté001 selonutilisateur, donc **le firmware est identique mais l'ensemble des conditions matérielles du succès initial n'est pas restauré àl'identique**. Le résultat écarte lesmodificationsrécentesduBIN commeexplication suffisante ; n'exclut pasun défautlatent/étatcapteur/timing/liaison/conditionsélectriques.
+
+RCC_CSR etsélections horloges/GPIO lus avantflash, puisCSRaprès etfinal, **sansclearflags** : CSR0x1c004400. Flagscumulés aprèsplusieursresets/flashs, nepermettantpasd'attribuerle premierreset21:16. Aucun nouveau diagnostic de causehistorique inventé.
+
+Final : N8A installé,99/run1/error2/FIFOoff/writeroff/stoperror0/clockfault0/CShaute/GDBdétaché. READYfalse ; ancienfichierN8A0003 préservé, aucunfichierSD créé/modifié durantcontrôle. PasdeTR2-001logiciel/FRAM/COM4/format/OptionBytes. Leshelpersjointssontarchivés, spécifiquesauxcheminsT1000 ; nepaslesrelancerdepuispreuves.

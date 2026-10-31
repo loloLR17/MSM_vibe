@@ -1,0 +1,17 @@
+{
+  "prepared": false,
+  "exact_N8A_restored": true,
+  "BIN_sha256": "c31904feca48fd06d6102eee40b54b373bbfe5e9896d0ddc007434cf253ddc17",
+  "source_sha": "d5af0828e370780320bda67fac5d537bf3fd5016",
+  "stage": 99,
+  "run": 1,
+  "error": 2,
+  "fifo_error": 9,
+  "calibration_pass": false,
+  "current_sensor_reported_from_TR2_001": true,
+  "no_new_SD_file": true,
+  "no_long_START": true,
+  "FIFO_stopped": true,
+  "SD_CS_high": true,
+  "GDB_detached": true
+}

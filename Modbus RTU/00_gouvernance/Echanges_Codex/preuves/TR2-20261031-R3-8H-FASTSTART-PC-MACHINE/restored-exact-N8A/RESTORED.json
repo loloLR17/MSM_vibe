@@ -1,0 +1,15 @@
+{
+  "exact_original_N8A_BIN": true,
+  "sha256": "c31904feca48fd06d6102eee40b54b373bbfe5e9896d0ddc007434cf253ddc17",
+  "bytes": 54556,
+  "source_sha": "d5af0828e370780320bda67fac5d537bf3fd5016",
+  "UID": "001B0046/38425018/20333157",
+  "SN": "0032001F3235510C37333439",
+  "one_standard_flash_with_programming_reset": true,
+  "no_extra_reset": true,
+  "stage": 2,
+  "run": 0,
+  "old_image_preserved": true,
+  "GDB_detached": true,
+  "no_SD_command_or_START_yet": true
+}

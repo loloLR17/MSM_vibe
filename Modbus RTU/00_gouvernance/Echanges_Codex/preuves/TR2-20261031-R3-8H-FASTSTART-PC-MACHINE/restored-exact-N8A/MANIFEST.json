@@ -1,0 +1,278 @@
+[
+  {
+    "file": "READY.json",
+    "bytes": 456,
+    "sha256": "59a67179f57c8c00dea166054a307c361a6577d043564453c9b560b3de5b17d2",
+    "zlib": false
+  },
+  {
+    "file": "RESTORED.json",
+    "bytes": 468,
+    "sha256": "ba6d28b08a39ccb9d6f7d6e2abb53181ad615645d38657d7a9c04355778e3504",
+    "zlib": false
+  },
+  {
+    "file": "artifact.json",
+    "bytes": 644,
+    "sha256": "b53c2cf44fc49a4e800389f9cb58064b92604fcd7dddf136dd7646378fa48bb0",
+    "zlib": false
+  },
+  {
+    "file": "hardware/before-restore-identity-idle-reset-flags-invocation.json",
+    "bytes": 764,
+    "sha256": "a0b58d31dbae342bf3842fc5c916fe16c8310d8fc87fd2416f58b5a5092f5933",
+    "zlib": false
+  },
+  {
+    "file": "hardware/before-restore-identity-idle-reset-flags-server.log.zlib",
+    "bytes": 674,
+    "sha256": "030ed83bdd9e560371dd4df01fbb2f25a71828a2bd725448cff4a24e6cf46bf2",
+    "zlib": true
+  },
+  {
+    "file": "hardware/before-restore-identity-idle-reset-flags.gdb",
+    "bytes": 660,
+    "sha256": "a4b44c73c9b006726091e31540ada5fb8e37d19c1f31aff6d266154d2c70e907",
+    "zlib": false
+  },
+  {
+    "file": "hardware/before-restore-identity-idle-reset-flags.log.zlib",
+    "bytes": 1526,
+    "sha256": "cc3d350c47944cd8bd438be7d020bfd9cbc3c7bfb9ad3057a03a20b6b5ea6ec2",
+    "zlib": true
+  },
+  {
+    "file": "hardware/restore-exact-N8A-command.json",
+    "bytes": 521,
+    "sha256": "14eebdf852932fb70279b5d872dc1f2f5287d508afffb6579ecf9ecb20627b67",
+    "zlib": false
+  },
+  {
+    "file": "hardware/restore-exact-N8A.log.zlib",
+    "bytes": 1617,
+    "sha256": "eba43cad85be4cd9cef71dce38b72f434aaa5ba4220d2cb8c8e228b9a28e4567",
+    "zlib": true
+  },
+  {
+    "file": "hardware/restored-N8A-calibration-invocation.json",
+    "bytes": 744,
+    "sha256": "95ac69680d23dd6af667568b6a22e5f02e42cb1057c8c63c44fedb5ba7ff37a3",
+    "zlib": false
+  },
+  {
+    "file": "hardware/restored-N8A-calibration-server.log.zlib",
+    "bytes": 674,
+    "sha256": "030ed83bdd9e560371dd4df01fbb2f25a71828a2bd725448cff4a24e6cf46bf2",
+    "zlib": true
+  },
+  {
+    "file": "hardware/restored-N8A-calibration.gdb",
+    "bytes": 5352,
+    "sha256": "881e0d0967567de784aacc2a1959f56dfc7bb7036c8658a70fcf75c9db6b9acb",
+    "zlib": false
+  },
+  {
+    "file": "hardware/restored-N8A-calibration.log.zlib",
+    "bytes": 6092,
+    "sha256": "5eb94e65802f372013c52618404451fa156ca569c231de1c48f47e64d127812d",
+    "zlib": true
+  },
+  {
+    "file": "hardware/restored-N8A-entire-readback-WAIT-invocation.json",
+    "bytes": 753,
+    "sha256": "8bfb26c5c9d816b7c5e4df61b8405c0f91d953c4dd3c12572ba3c74951f0fc28",
+    "zlib": false
+  },
+  {
+    "file": "hardware/restored-N8A-entire-readback-WAIT-server.log.zlib",
+    "bytes": 642,
+    "sha256": "aba6686847910134d76be16aaeb48ea8cff54b4318c7e8947f73d76ce3bbcd45",
+    "zlib": true
+  },
+  {
+    "file": "hardware/restored-N8A-entire-readback-WAIT.gdb",
+    "bytes": 664,
+    "sha256": "e78a6f52b62221c8a9cf0b9ef8e1a7ef9aee00901f7e30b824f89ab2f5754695",
+    "zlib": false
+  },
+  {
+    "file": "hardware/restored-N8A-entire-readback-WAIT.log.zlib",
+    "bytes": 1307,
+    "sha256": "9c6630bce2f0046d1b2f73fc050e7bab30fe2bcd38f516bf1ab97da9bfe3c54f",
+    "zlib": true
+  },
+  {
+    "file": "hardware/restored-N8A-final-safe-state-invocation.json",
+    "bytes": 749,
+    "sha256": "f33cfbebb9f01345b2344304a3d1fa1033fe382cff5c26ffd7c42c1faf00f992",
+    "zlib": false
+  },
+  {
+    "file": "hardware/restored-N8A-final-safe-state-server.log.zlib",
+    "bytes": 674,
+    "sha256": "030ed83bdd9e560371dd4df01fbb2f25a71828a2bd725448cff4a24e6cf46bf2",
+    "zlib": true
+  },
+  {
+    "file": "hardware/restored-N8A-final-safe-state.gdb",
+    "bytes": 787,
+    "sha256": "09017f136e9d07b89360e2ea7ec74ebc6772973c487a42444fa24ac0feccb4c9",
+    "zlib": false
+  },
+  {
+    "file": "hardware/restored-N8A-final-safe-state.log.zlib",
+    "bytes": 663,
+    "sha256": "1b6253a5b87b6dcebbb2fb11b16735fee3f6fc40170a811e10b578146f3d2c83",
+    "zlib": true
+  },
+  {
+    "file": "hardware_second.py",
+    "bytes": 2402,
+    "sha256": "e55cdc2a840f763d50c3e9868e1d73f160ddb3e44b5f007071317415eba267be",
+    "zlib": false
+  },
+  {
+    "file": "restore_N8A.py",
+    "bytes": 2215,
+    "sha256": "1d4185bea9fab0eff4f9219a007a343b713df8a4e1457cb8aef59dbf26d8d0e6",
+    "zlib": false
+  },
+  {
+    "file": "restored-N8A-calibration/brackets.bin.zlib",
+    "bytes": 72,
+    "sha256": "6ee8ef9e3269cb948710c45e50f539149d5001fc0af51b243e17e5f500944068",
+    "zlib": true
+  },
+  {
+    "file": "restored-N8A-calibration/busy-distributions.bin.zlib",
+    "bytes": 8048,
+    "sha256": "7e6740c91f7c21b361fbb73984f22afef3896b669f9e2a87d31f6e18e9a48432",
+    "zlib": true
+  },
+  {
+    "file": "restored-N8A-calibration/card.bin.zlib",
+    "bytes": 5228,
+    "sha256": "434c9edc7ff3420b6b55a6fff4b535bd2fbb3c1831b8de164ced1a32e38081a2",
+    "zlib": true
+  },
+  {
+    "file": "restored-N8A-calibration/distributions.bin.zlib",
+    "bytes": 80096,
+    "sha256": "ca61cc292aca487b0a45370be2db7dbf6ded99bcc597c934f15ce76b598cb8d3",
+    "zlib": true
+  },
+  {
+    "file": "restored-N8A-calibration/durable-footer.bin.zlib",
+    "bytes": 512,
+    "sha256": "076a27c79e5ace2a3d47f9dd2e83e4ff6ea8872b3c2218f66c92b89b55f36560",
+    "zlib": true
+  },
+  {
+    "file": "restored-N8A-calibration/durable-status.bin.zlib",
+    "bytes": 64,
+    "sha256": "a567e57e1a7f01b45c9bfdee65b727d767193ca4f2b885969262e1fb35519b79",
+    "zlib": true
+  },
+  {
+    "file": "restored-N8A-calibration/failing-fifo-words.bin.zlib",
+    "bytes": 448,
+    "sha256": "ce69fb24670ec9bc0e2ca5741cc7ec08f378dfb7d76a604acc4b9626d4337efc",
+    "zlib": true
+  },
+  {
+    "file": "restored-N8A-calibration/fifo-stop-payload.bin.zlib",
+    "bytes": 128,
+    "sha256": "c654a5538f84c09bed18a16010e02d557e95054bd88c835f77bfb760f41a3086",
+    "zlib": true
+  },
+  {
+    "file": "restored-N8A-calibration/fifo-stop-trace.bin.zlib",
+    "bytes": 440,
+    "sha256": "9a36c52ac7899ea3545e880443eb8a25ac6d15b4e393784cd2f1bcfab47ebcfb",
+    "zlib": true
+  },
+  {
+    "file": "restored-N8A-calibration/header.bin.zlib",
+    "bytes": 512,
+    "sha256": "076a27c79e5ace2a3d47f9dd2e83e4ff6ea8872b3c2218f66c92b89b55f36560",
+    "zlib": true
+  },
+  {
+    "file": "restored-N8A-calibration/outputs.bin.zlib",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "zlib": true
+  },
+  {
+    "file": "restored-N8A-calibration/raw.bin.zlib",
+    "bytes": 2765,
+    "sha256": "e1a227b4014cb1a4f5fae466b9f41c8e22a4066bd567c3804d09807a0b7e313f",
+    "zlib": true
+  },
+  {
+    "file": "restored-N8A-calibration/records.bin.zlib",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "zlib": true
+  },
+  {
+    "file": "restored-N8A-calibration/result.bin.zlib",
+    "bytes": 296,
+    "sha256": "8a926efc5e660443b150a3acfc12a973818086323b17ee2af3a7186573b1829c",
+    "zlib": true
+  },
+  {
+    "file": "restored-N8A-calibration/result.json",
+    "bytes": 1296,
+    "sha256": "6ffa7f6d5252cf4ec510d6e9baf2b98fa6f5f3a982a7eedb52ca970cfe3c9a86",
+    "zlib": false
+  },
+  {
+    "file": "restored-N8A-calibration/sd-distributions.bin.zlib",
+    "bytes": 8048,
+    "sha256": "7e6740c91f7c21b361fbb73984f22afef3896b669f9e2a87d31f6e18e9a48432",
+    "zlib": true
+  },
+  {
+    "file": "restored-N8A-calibration/sd-records.bin.zlib",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "zlib": true
+  },
+  {
+    "file": "restored-N8A-calibration/single-busy-max.bin.zlib",
+    "bytes": 4,
+    "sha256": "df3f619804a92fdb4057192dc43dd748ea778adc52bc498ce80524c014b81119",
+    "zlib": true
+  },
+  {
+    "file": "restored-N8A-calibration/source-sha.bin.zlib",
+    "bytes": 32,
+    "sha256": "66687aadf862bd776c8fc18b8e9f8e20089714856ee233b3902a591d0d5f2925",
+    "zlib": true
+  },
+  {
+    "file": "restored-N8A-calibration/sources.bin.zlib",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "zlib": true
+  },
+  {
+    "file": "restored-N8A-calibration/spi2-config.bin.zlib",
+    "bytes": 8,
+    "sha256": "3b94b11cca9c930ed8faedbbf7c18e4fe7caaa1dea53f2d82f702b3b48c847b3",
+    "zlib": true
+  },
+  {
+    "file": "restored-N8A-calibration/spi3-config.bin.zlib",
+    "bytes": 8,
+    "sha256": "f07474c9a6c35e3d662c0cb2a2c4cbc568f000d35bd733c56d99999577ae3691",
+    "zlib": true
+  },
+  {
+    "file": "run_capture.py",
+    "bytes": 4162,
+    "sha256": "0160b838d2c6420d6c641b0e841a5938f452895bf15a5087bcd1eb686850441c",
+    "zlib": false
+  }
+]

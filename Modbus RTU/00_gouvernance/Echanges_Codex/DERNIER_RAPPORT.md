@@ -4,7 +4,7 @@ status: BLOCKED
 base_ref: main
 base_sha: f5850ad2de81a6b7639d947d54751305cde3e75b
 initial_head: d5af0828e370780320bda67fac5d537bf3fd5016
-result_sha: 98457b5aa5c82dc44fe2305225790234654ea2c1
+result_sha: d5af0828e370780320bda67fac5d537bf3fd5016
 created_at_utc: 2026-10-31T18:24:20.286731+00:00
 author: Codex
 target_branch: main
@@ -13,6 +13,20 @@ allow_push: true
 allow_flash: true
 allow_debug: true
 ---
+
+# N8A exact remis sur TR2-002 — restauration vérifiée, calibration toujours refusée
+
+À la demande de l'utilisateur, **l'image N8A sauvegardée a été reprogrammée sans reconstruction** : source `d5af0828e370780320bda67fac5d537bf3fd5016`, BIN **54556octets/SHA`c31904feca48fd06d6102eee40b54b373bbfe5e9896d0ddc007434cf253ddc17`**. IdentitéUID002/STLINK003200…3439 vérifiés ; ancienBIN D entier préservé/comparé, état sûr avantflash. Un flashstandard qualifié avecresetdeprogrammation, aucunmass-erase/OptionBytes ni resetsupplémentaire. **Les54556octets relus sont strictement identiques à N8A initial**, WAIT2/run0/error0 confirmé. Pasdepreuveprétendue surtousles2Mio deFlash.
+
+Le contrôle prévu s'est limité à **une initialisation/calibration, commande1**, sans gateSD ni long. Il échoue de nouveau : **stage99/run1/error2/FIFO9, parserreason4** (5XYZ entre timestamps pour8 attendus),3brackets avantarrêt, WHO7B/SDerror0/stoperror0. AucunfichierSD créé, aucun ancienN8A0003 écrasé. [Preuves de restauration, GDB, résultats et bruts](preuves/TR2-20261031-R3-8H-FASTSTART-PC-MACHINE/restored-exact-N8A/README.md).
+
+Les configurations SPI3(00070007/87440000) etSPI2(10070007/84400000) correspondent aux snapshots du succèsinitial. Les mesures etétats ne sontpasforcés pouradmettrelecapture. **Le capteur actuellement installé reste celui emprunté àTR2-001 suivantdéclarationutilisateur** : le mêmeBIN a doncétérestauré, pas l'ensemble des conditions physiques initiales. Ce résultat renforce que les modificationsrécentes du firmware nesuffisentpasàexpliquer lepremierdéfaut ; il n'exclutpasunproblème latent de transport/étatinitial/liaison/conditionscommunes.
+
+RCC_CSR/sélections horloges/GPIO conservés avantflash etCSR après/final sansclearflags ; CSR0x1c004400 reflète desflagscumulés après lesresets antérieurs, **pasuneidentification rétrospective de lacause dupremierreset**. Cette collecte ne comblepasla lacunehistorique21:16.
+
+**Étatfinalvérifié : N8A conservé enFlash, stage99/run1/error2, FIFOoff/writeroff/stoperror0/clockfault0/SDCShaute, GDBdétaché/serveurfermé.** READYfalse, préparation8hBLOCKED, aucunSTARTlong niqualification. Pasd'accèslogiciel001/FRAM/COM4/format/politiquesWindows, anciencapteur etfichierspréservés. Le `result_sha` désigne désormais le codeN8A réellement évalué surcarte ; HEAD documentaire120842b0 avantcettetranche. LesversionsdiagnostiquesetleurcodeGit nesontpasécrasés ourebasés.
+
+Restaurationphysique réalisée selonordreuser ; contrôlecourtréitéréjustifiéparchangementd'image/deconditions, aucun ancienbuild/testhôte/canonique relancé. Pasd'autrevarianteouessaipendantcettetranche. Rapport/journal/preuvesàpublier puisrelire, SHAfinaldansréponse ; rubriquessuivanteshistoriques.
 
 # Étude demandée : repartir du dernier succès, sans nouvel essai matériel
 
