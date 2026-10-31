@@ -130,6 +130,14 @@ Les données de la première campagne de terrain demeurent **observatoires**, no
 - **Priorité de traitement après transfert** : contrôle intégrité, durée, lacunes/clip/rail/qualité et temps ; tendances RMS accélération XYZ/global 1/10/60s, crêtes et périodes intenses ; PSD/spectrogramme 2–25Hz et raies ; vitesse et RMS pondérée 1–80Hz **seulement en mode exploratoire si bande/qualité permettent**, sous méthode documentée ; rapprocher du contexte machines connu et arrivée éventuelle sans inventer de synchronisation UTC.
 - Ne pas déplacer, débrancher ni manipuler pendant l'acquisition ; si risque matériel/sécurité immédiat, la sécurité du bord prime. La reprise après STOP/SD quiet, récupération du digest producteur RAM puis copie des fichiers est exclusivement régie par la **mission active**. Ne déclencher aucun outil Codex ni demande d'upload de centaines de Mo depuis ce document.
 
+## 4 quater. Livrable de communication technique — rapport POC Commandants / Armement
+
+**Objectif utilisateur du 31/10/2026 :** après production/contrôle des premiers résultats R5 sur `E6N0005.TR2`, établir un **rapport-type destiné à démontrer la valeur du TR2** et à motiver une contribution budgétaire de la compagnie, plutôt qu'à proclamer une qualification métrologique ou réglementaire. Le POC est actuellement développé sur temps libre et fonds personnels selon l'utilisateur ; cet élément financier n'est pas à mettre de manière prescriptive dans le rapport technique, sauf volonté expresse.
+
+Le [modèle de rapport POC confort, diagnostic fréquentiel et suivi des structures](R5_METIER_20261031_MODELE_RAPPORT_POC_CONFORT_VIBRATIONS.md) fixe une synthèse de **3 à 5 pages** + annexes de traçabilité : (1) besoin métier et faisabilité démontrée ; (2) RMS et crêtes du PC machine sur 6h ; (3) spectrogramme/raies et hypothèses de corrélation ; (4) perspective de confort ISO/BV **non certifiée** ; (5) phase pilote et besoins matériels/qualification **à chiffrer**.
+
+**Garde scientifique** : ne pas inventer de valeurs RMS ni de conclusions avant résultat Codex vérifié indépendamment ; séparer nettement POC opérationnel, plausibilité de confort et preuve de dommage sur structures ; l'objectif « préserver les structures » consiste d'abord en suivi de tendances/anomalies, pas en diagnostic de fatigue ou de contrainte mécaniques. La présente note **ne modifie pas** la mission Codex R5 active ni sa portée et n'autorise aucune communication externe automatique.
+
 ## 5. Roadmap d'analyse PC (découpage interne à R5-MÉTIER)
 
 - **R5-A** — Import réel versionné v1/v2/v3, intégrité complète/préfixe récupérable, provenance, catalogue, aucune date UTC déduite de FAT32.
