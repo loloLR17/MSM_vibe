@@ -1,0 +1,135 @@
+[
+  {
+    "source": "six-long-launched.json",
+    "file": "000-six-long-launched.json.zlib",
+    "bytes": 1077,
+    "sha256": "7ba0d6451a82eded74dbc8daebc0d42a68536b95d1943af75b52b9bc3eeb55d1",
+    "stored_sha256": "369690521073170bdaf9bfe502112ea6488dbee3cd88913fd003e57140a4f000"
+  },
+  {
+    "source": "six-long-observer-launch.json",
+    "file": "001-six-long-observer-launch.json.zlib",
+    "bytes": 347,
+    "sha256": "af055ac6d40c85654fd537072f07cb0062543570441e6f2ef4f4d9b8cbf3ed92",
+    "stored_sha256": "b0d8609e6b8607c9af6a88ac6569280eae1ad050502923dd2a17a64d5aeb32e3"
+  },
+  {
+    "source": "start-long.log",
+    "file": "002-start-long.log.zlib",
+    "bytes": 1104,
+    "sha256": "b956b4d079382254f44491fdb0cb9d387df2e0672146b9808a55d2d0d32a59e0",
+    "stored_sha256": "629669de448a2f39d21a1ae47e879afaf4cdd05820ccbf2ee264cdcaf493e380"
+  },
+  {
+    "source": "long-native-owner.json",
+    "file": "003-long-native-owner.json.zlib",
+    "bytes": 471,
+    "sha256": "7a4d9eb2c84cb5bc1bf9800a8a82a77575f2db7d03fc6a73f0736c7203f4a2b4",
+    "stored_sha256": "31e01cd38908387eb1f736789f3d2be3be9111c222a630447c2783d9c4790246"
+  },
+  {
+    "source": "record_owner.py",
+    "file": "004-record_owner.py.zlib",
+    "bytes": 1200,
+    "sha256": "efe0cae2dbbc057441c8eba5d26abd0fcd7c9599503726659d563031370cd22e",
+    "stored_sha256": "cb2ff32ed7016dc2a1b71f21da245c99fb06b2a252c85d0eb1da5611a311a6f5"
+  },
+  {
+    "source": "record-owner.log",
+    "file": "005-record-owner.log.zlib",
+    "bytes": 307,
+    "sha256": "3fc31507c486995a9b9c14bbd5cfceb31b8ebdb4661cd38632886cad9aaa2c64",
+    "stored_sha256": "51a5ea6350125ffbe73a8adc59c114c3411f48842fb9e962293654c270cfae6e"
+  },
+  {
+    "source": "remote-gate.json",
+    "file": "006-remote-gate.json.zlib",
+    "bytes": 38601,
+    "sha256": "cab2e9fe5d141c72cb0f8012dee863ca9904ebd357345833289a730a29e81c65",
+    "stored_sha256": "ef3ea94a7e9a7b8e63678925d6e0b3393a596c81224967f57e1c8e95971085d9"
+  },
+  {
+    "source": "verify-gate.log",
+    "file": "007-verify-gate.log.zlib",
+    "bytes": 284,
+    "sha256": "87516b82419f623cd51f904d8d67f5463f9f0715afcf292a225bff50bb6f13d9",
+    "stored_sha256": "d158bb3eb8a40062f6f09d875aea4c885d324407f606e8052a220b401a23a8e5"
+  },
+  {
+    "source": "read_six_after.py",
+    "file": "008-read_six_after.py.zlib",
+    "bytes": 2649,
+    "sha256": "c9c47035e558927e9f82197091229eb08aae1bf4cbf86036e24019a584ee0cae",
+    "stored_sha256": "37cf84c8229c1fbe7e23eee0c7eb4179c07bee51d0d7ffd5e96d877f5c261403"
+  },
+  {
+    "source": "recover_terminal.py",
+    "file": "009-recover_terminal.py.zlib",
+    "bytes": 2067,
+    "sha256": "da71f2242d9253028ab7685ff01565881007d3f213fdc094e177b98876520a56",
+    "stored_sha256": "80d97e5c403bc071666ee01a5c3f08fa9fd1b7d0d68fa47e4cd9fc981f0c23c3"
+  },
+  {
+    "source": "verify_publication.py",
+    "file": "010-verify_publication.py.zlib",
+    "bytes": 2166,
+    "sha256": "4d9c0e7c1b4b67a181ab9a8c9f78a7046bba74e1212724688ecaacb1f3ba28bd",
+    "stored_sha256": "19f9f7eb33a0ed411d38172fd231bf2298e5e638c1cebbe7732fd8fb4c9e86a0"
+  },
+  {
+    "source": "PUBLISH_PARENT_GUARD_NOTE.json",
+    "file": "011-PUBLISH_PARENT_GUARD_NOTE.json.zlib",
+    "bytes": 533,
+    "sha256": "bca957340ffb6d6482566ca0d42f1cf6103830a4ebb909638957b79cd5c9c4b5",
+    "stored_sha256": "e0117878fbffeb57ac7658b21446559b28cb845f08d7135ab6cde58f119dd12b"
+  },
+  {
+    "source": "publish_start_parent_guard_failed.py",
+    "file": "012-publish_start_parent_guard_failed.py.zlib",
+    "bytes": 14068,
+    "sha256": "04352f8cd2b2c4cf61e3598ce07496c4af4a2b8fc8ff04064f9b8f8e2ae1cfcf",
+    "stored_sha256": "f50a0cf8f09264c665f908f285157c532a16dd5be6e101b3166c4efd9654533e"
+  },
+  {
+    "source": "hardware/six-long-trigger-detach.gdb",
+    "file": "013-six-long-trigger-detach.gdb.zlib",
+    "bytes": 537,
+    "sha256": "8c912a3b5006db722dc912154d1ad0d6c659e3f9dbaf1bbb5ddd6f2d061d4fd1",
+    "stored_sha256": "e83a7e6016e3ee97896773a2059bc5328a7b1f2a5c747cf1b4df7cd4893ce774"
+  },
+  {
+    "source": "hardware/six-long-trigger-detach.log",
+    "file": "014-six-long-trigger-detach.log.zlib",
+    "bytes": 1428,
+    "sha256": "aa9f3251256aa576f2f79e0e3f0490eba4444193d21abf7669c191553840d774",
+    "stored_sha256": "250102382dd9d7b5a805a36ae10a72484a016e47c356883124361cebb4be7668"
+  },
+  {
+    "source": "hardware/six-long-trigger-detach-server.log",
+    "file": "015-six-long-trigger-detach-server.log.zlib",
+    "bytes": 674,
+    "sha256": "030ed83bdd9e560371dd4df01fbb2f25a71828a2bd725448cff4a24e6cf46bf2",
+    "stored_sha256": "2d268c592b37f482447bf871fbb4574f414e955cd4bc83bc77d430df670acc39"
+  },
+  {
+    "source": "hardware/six-long-trigger-detach-invocation.json",
+    "file": "016-six-long-trigger-detach-invocation.json.zlib",
+    "bytes": 733,
+    "sha256": "836c2c6d95ff9ef4db2a9eb6363fe4caf6808d4d08fef4f6137851eeecb3a3d7",
+    "stored_sha256": "1897922589c76f7a87149fa78d75e9870c6e4a0edf0437993533be70e9388d59"
+  },
+  {
+    "source": "six-long-initial-ready.json",
+    "file": "017-six-long-initial-ready.json.zlib",
+    "bytes": 359,
+    "sha256": "606f21dd84dcc4d3255a50823a77dba215d7e9b741da085a81b509cb561dfe02",
+    "stored_sha256": "67bcb7d36ade4774dc64ec914a4df9936f9dde1f61ceaf0a214f500c43b788dd"
+  },
+  {
+    "source": "six-long-initial-queries.jsonl",
+    "file": "018-six-long-initial-queries.jsonl.zlib",
+    "bytes": 3663,
+    "sha256": "2ee3a18bb6ab12446c31c09353aae9f8626cc3198173af6d170720cb59f1f840",
+    "stored_sha256": "928b051c0002b069ac516b5d64bef2cd3f29d13526b9a9b55f49942633fe61b8"
+  }
+]
