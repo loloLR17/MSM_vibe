@@ -1,0 +1,89 @@
+{
+  "idempotent": true,
+  "analysis_ids": {
+    "db54472574a749490b0e6b41546b8721d7e9bb98ddf25d67012fe67681169529": "e55611a0b9918a677c52bd910ad503406f054e308e032ea659cdbbfc299d61c5",
+    "2784738f161c684dc4bc023f9e67ebcbc355674c743b2ce34d1f1347bc60b800": "6d4b38105075d829bb4a50b7abdb45c58d232025238eb93bb36bbf86b5bac3cd",
+    "9a63575b62e44d72bcfdaea7c4aa4d394431113d516db786112c774d28f7721e": "55b10a7db21ef4ad18e7c7c3c45766f9fda54493030102bd6a216bc1d35308f9",
+    "e0c47c5325f7b5f3bfad626cdc0363f57259bcc43fa0f1dc5e915ebfea4eba37": "2cd3961aa36cd0a855331d97c5074f1e4b4902307fcaa59674b1fe9324ed0f4d"
+  },
+  "counts": {
+    "campaigns": 1,
+    "metric_definitions": 4,
+    "analysis_runs": 4,
+    "window_metrics": 2204,
+    "artifact_refs": 24
+  },
+  "integrity": "ok",
+  "foreign_key_errors": [],
+  "queries": {
+    "catalogue": {
+      "count": 8,
+      "first_rows": [
+        {
+          "unit": "mg",
+          "clock": "MCU",
+          "window_mcu_s": 60,
+          "windows": 367
+        },
+        {
+          "unit": "mg",
+          "clock": "MCU",
+          "window_mcu_s": 120,
+          "windows": 184
+        },
+        {
+          "unit": "mg",
+          "clock": "QPC_ESTIMATE",
+          "window_mcu_s": 60,
+          "windows": 367
+        }
+      ]
+    },
+    "worst_60s_velocity": {
+      "count": 1,
+      "first_rows": [
+        {
+          "start_mcu_s": 18540.0,
+          "direction_max": 2.990163279255228,
+          "quality": "FULL"
+        }
+      ]
+    },
+    "axes_120s": {
+      "count": 184,
+      "first_rows": [
+        {
+          "start_mcu_s": 0.0,
+          "rms_x": 0.7470038343910852,
+          "rms_y": 0.7166172163638569,
+          "rms_z": 1.3313456628445737,
+          "quality": "PARTIAL_OR_INVALID"
+        },
+        {
+          "start_mcu_s": 120.0,
+          "rms_x": 0.7406714309487663,
+          "rms_y": 0.7183283283601523,
+          "rms_z": 1.4088060797092004,
+          "quality": "FULL"
+        },
+        {
+          "start_mcu_s": 240.0,
+          "rms_x": 0.773527120601992,
+          "rms_y": 0.7415337008095854,
+          "rms_z": 1.4973468716362501,
+          "quality": "FULL"
+        }
+      ]
+    },
+    "method_status": {
+      "count": 1,
+      "first_rows": [
+        {
+          "normative_edition": "NONE_NON_NORMATIVE",
+          "axes_status": "XYZ capteur; correspondance navire inconnue",
+          "methods": 4
+        }
+      ]
+    }
+  }
+}

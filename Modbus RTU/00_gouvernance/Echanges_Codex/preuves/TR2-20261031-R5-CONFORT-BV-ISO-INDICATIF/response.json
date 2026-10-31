@@ -1,0 +1,162 @@
+[
+  {
+    "clock": "MCU",
+    "frequency_Hz": 0.1,
+    "acceleration_gain": 9.51545416358286e-05,
+    "velocity_gain_mm_s_per_mg": 0.0014851500257415569,
+    "velocity_phase_minus_accel_rad": -1.5707963267947838,
+    "trapezoid_vs_ideal_ratio": 0.999999995355511
+  },
+  {
+    "clock": "MCU",
+    "frequency_Hz": 0.25,
+    "acceleration_gain": 0.0037266939738218804,
+    "velocity_gain_mm_s_per_mg": 0.02326614964071806,
+    "velocity_phase_minus_accel_rad": -1.5707963267948737,
+    "trapezoid_vs_ideal_ratio": 0.9999999709719432
+  },
+  {
+    "clock": "MCU",
+    "frequency_Hz": 1,
+    "acceleration_gain": 0.7071067811587339,
+    "velocity_gain_mm_s_per_mg": 1.1036353626261235,
+    "velocity_phase_minus_accel_rad": -1.5707963267948575,
+    "trapezoid_vs_ideal_ratio": 0.9999995355510509
+  },
+  {
+    "clock": "MCU",
+    "frequency_Hz": 2,
+    "acceleration_gain": 0.9985688124465562,
+    "velocity_gain_mm_s_per_mg": 0.7792700814280339,
+    "velocity_phase_minus_accel_rad": -1.5707963267948712,
+    "trapezoid_vs_ideal_ratio": 0.9999981422036861
+  },
+  {
+    "clock": "MCU",
+    "frequency_Hz": 5,
+    "acceleration_gain": 0.9999999286201847,
+    "velocity_gain_mm_s_per_mg": 0.31215171773922396,
+    "velocity_phase_minus_accel_rad": -1.5707963267948761,
+    "trapezoid_vs_ideal_ratio": 0.9999883887503885
+  },
+  {
+    "clock": "MCU",
+    "frequency_Hz": 10,
+    "acceleration_gain": 0.9999999999989938,
+    "velocity_gain_mm_s_per_mg": 0.15607043318887157,
+    "velocity_phase_minus_accel_rad": -1.5707963267948821,
+    "trapezoid_vs_ideal_ratio": 0.9999535546779794
+  },
+  {
+    "clock": "MCU",
+    "frequency_Hz": 20,
+    "acceleration_gain": 0.9999986233944582,
+    "velocity_gain_mm_s_per_mg": 0.07802423516439497,
+    "velocity_phase_minus_accel_rad": -1.570796326794894,
+    "trapezoid_vs_ideal_ratio": 0.9998142135344676
+  },
+  {
+    "clock": "MCU",
+    "frequency_Hz": 40,
+    "acceleration_gain": 0.9985967419620533,
+    "velocity_gain_mm_s_per_mg": 0.03893570659231809,
+    "velocity_phase_minus_accel_rad": -1.5707963267948946,
+    "trapezoid_vs_ideal_ratio": 0.9992567712821716
+  },
+  {
+    "clock": "MCU",
+    "frequency_Hz": 80,
+    "acceleration_gain": 0.7071067811865525,
+    "velocity_gain_mm_s_per_mg": 0.013754417443474632,
+    "velocity_phase_minus_accel_rad": -1.5707963267948952,
+    "trapezoid_vs_ideal_ratio": 0.9970257583810328
+  },
+  {
+    "clock": "MCU",
+    "frequency_Hz": 160,
+    "acceleration_gain": 0.057947330191668554,
+    "velocity_gain_mm_s_per_mg": 0.0005585308018217503,
+    "velocity_phase_minus_accel_rad": -1.5707963267948968,
+    "trapezoid_vs_ideal_ratio": 0.9880817377093866
+  },
+  {
+    "clock": "QPC_ESTIMATE",
+    "frequency_Hz": 0.1,
+    "acceleration_gain": 9.51543540908838e-05,
+    "velocity_gain_mm_s_per_mg": 0.0014851470929499733,
+    "velocity_phase_minus_accel_rad": -1.5707963267952907,
+    "trapezoid_vs_ideal_ratio": 0.999999995417888
+  },
+  {
+    "clock": "QPC_ESTIMATE",
+    "frequency_Hz": 0.25,
+    "acceleration_gain": 0.003726686987105466,
+    "velocity_gain_mm_s_per_mg": 0.02326610602961165,
+    "velocity_phase_minus_accel_rad": -1.570796326795061,
+    "trapezoid_vs_ideal_ratio": 0.9999999713617992
+  },
+  {
+    "clock": "QPC_ESTIMATE",
+    "frequency_Hz": 1,
+    "acceleration_gain": 0.7071067811732519,
+    "velocity_gain_mm_s_per_mg": 1.1036353695215497,
+    "velocity_phase_minus_accel_rad": -1.5707963267948468,
+    "trapezoid_vs_ideal_ratio": 0.9999995417887481
+  },
+  {
+    "clock": "QPC_ESTIMATE",
+    "frequency_Hz": 2,
+    "acceleration_gain": 0.9985688304723199,
+    "velocity_gain_mm_s_per_mg": 0.7792701149353712,
+    "velocity_phase_minus_accel_rad": -1.5707963267948943,
+    "trapezoid_vs_ideal_ratio": 0.999998167154488
+  },
+  {
+    "clock": "QPC_ESTIMATE",
+    "frequency_Hz": 5,
+    "acceleration_gain": 0.9999999286261798,
+    "velocity_gain_mm_s_per_mg": 0.3121517664200284,
+    "velocity_phase_minus_accel_rad": -1.570796326794897,
+    "trapezoid_vs_ideal_ratio": 0.9999885446935047
+  },
+  {
+    "clock": "QPC_ESTIMATE",
+    "frequency_Hz": 10,
+    "acceleration_gain": 0.9999999999997088,
+    "velocity_gain_mm_s_per_mg": 0.1560705305472755,
+    "velocity_phase_minus_accel_rad": -1.570796326794892,
+    "trapezoid_vs_ideal_ratio": 0.9999541784590772
+  },
+  {
+    "clock": "QPC_ESTIMATE",
+    "frequency_Hz": 20,
+    "acceleration_gain": 0.9999986228779395,
+    "velocity_gain_mm_s_per_mg": 0.07802442985122107,
+    "velocity_phase_minus_accel_rad": -1.5707963267948986,
+    "trapezoid_vs_ideal_ratio": 0.9998167087969985
+  },
+  {
+    "clock": "QPC_ESTIMATE",
+    "frequency_Hz": 40,
+    "acceleration_gain": 0.998596387222608,
+    "velocity_gain_mm_s_per_mg": 0.03893608175517402,
+    "velocity_phase_minus_accel_rad": -1.5707963267948957,
+    "trapezoid_vs_ideal_ratio": 0.9992667545431942
+  },
+  {
+    "clock": "QPC_ESTIMATE",
+    "frequency_Hz": 80,
+    "acceleration_gain": 0.7071067811865498,
+    "velocity_gain_mm_s_per_mg": 0.013754968826310526,
+    "velocity_phase_minus_accel_rad": -1.570796326794896,
+    "trapezoid_vs_ideal_ratio": 0.9970657268415218
+  },
+  {
+    "clock": "QPC_ESTIMATE",
+    "frequency_Hz": 160,
+    "acceleration_gain": 0.05797566973468065,
+    "velocity_gain_mm_s_per_mg": 0.0005588946929112623,
+    "velocity_phase_minus_accel_rad": -1.5707963267948966,
+    "trapezoid_vs_ideal_ratio": 0.9882421809151074
+  }
+]

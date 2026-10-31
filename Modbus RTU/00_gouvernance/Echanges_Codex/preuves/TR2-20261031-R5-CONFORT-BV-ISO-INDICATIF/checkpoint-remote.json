@@ -1,0 +1,45 @@
+{
+  "remote_sha": "45e70a789feb70ed3ed753c13f542252af3bf26e",
+  "full_files_read": [
+    {
+      "path": "Modbus RTU/00_gouvernance/ETAT_COURANT_TR2.md",
+      "sha256": "b5d2655181deaba7089b1d9bfc63e1c8bff79ff41be06a4b2e9c24ecf46b6df9",
+      "bytes": 118947
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/DERNIER_RAPPORT.md",
+      "sha256": "b6cb6ef0c3e00a153f6e644603b8d4dcc41e6178c2f7f0eed98c9d9c01a38e7b",
+      "bytes": 2015
+    },
+    {
+      "path": "Modbus RTU/00_gouvernance/Echanges_Codex/preuves/TR2-20261031-R5-CONFORT-BV-ISO-INDICATIF/tests-checkpoint.log",
+      "sha256": "069b19699684308dedd251619847276e94e80d4148d13099c56315c0dd084a38",
+      "bytes": 1040
+    },
+    {
+      "path": "experiments/r5_comfort_analysis/P0_METHOD.md",
+      "sha256": "adf0bb52dddb3171a06bcd7ed418ca330b672c9e97fa2fbcc6aa2e4add51e59e",
+      "bytes": 4374
+    },
+    {
+      "path": "experiments/r5_comfort_analysis/README.md",
+      "sha256": "b6fc327e17696b04467110d2690cf127569cbe884d1e1553fe65a31c8368d2b2",
+      "bytes": 5390
+    },
+    {
+      "path": "experiments/r5_comfort_analysis/core.py",
+      "sha256": "cc02124c57e2eb007bd8b9b35913d80ee1f4114d93d7ff76c1c0e160c695f7ba",
+      "bytes": 4367
+    },
+    {
+      "path": "experiments/r5_comfort_analysis/run.py",
+      "sha256": "b8ed080d1d9a3bfe4ffa2880f66b6413592a0566334bdfc51bb1f8fad7ec9b08",
+      "bytes": 13872
+    },
+    {
+      "path": "experiments/r5_comfort_analysis/test_core.py",
+      "sha256": "f33140e2b0be358c460856bede7c3b524975cad34b3a0aa9d01f8de9735d4964",
+      "bytes": 5706
+    }
+  ]
+}

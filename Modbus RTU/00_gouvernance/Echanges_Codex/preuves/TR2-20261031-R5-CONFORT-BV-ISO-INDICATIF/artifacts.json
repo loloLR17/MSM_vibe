@@ -1,0 +1,47 @@
+[
+  {
+    "name": "clock_sensitivity.csv",
+    "bytes": 76985,
+    "sha256": "18f0163d8913e1870b960d6ef356c1bd3b798d0a209c97b862aa61887e3f66e0"
+  },
+  {
+    "name": "definitions.json",
+    "bytes": 7651,
+    "sha256": "81763ed457a2ccfa5d3399414758ad043df5fea2cf08a4bcef8b1949dc3aebba"
+  },
+  {
+    "name": "fir_response.csv",
+    "bytes": 1669,
+    "sha256": "3514ff786470b4012a7cd575b9b4e30899625b52161b9ba1ad600d9fbc75ea1b"
+  },
+  {
+    "name": "manifest.json",
+    "bytes": 5248,
+    "sha256": "eaee3a974ea1cfbdd1bcc6a831a155a0cc9159ab60aad70af40e8b6b2e3f7fc5"
+  },
+  {
+    "name": "metrics.csv",
+    "bytes": 504073,
+    "sha256": "2e7cfa0483959de5eba6ceaccfe129c66d1ef09687699759efa4c09c0f84efe2"
+  },
+  {
+    "name": "real_crosschecks.json",
+    "bytes": 7279,
+    "sha256": "074dd7846cb97ab2fd34990016d795a249a55f91dc90a169cb720a4095499574"
+  },
+  {
+    "name": "response.json",
+    "bytes": 5342,
+    "sha256": "a46c226efe9a2071a581fe2a0ac5d886727f2e957de92703b8ef236a99e1f96f"
+  },
+  {
+    "name": "summary.json",
+    "bytes": 3663,
+    "sha256": "91303514b9a8bff474426e59466b75557d15ab1652635ad31fda0468fa3e53ca"
+  },
+  {
+    "name": "unweighted_trends.png",
+    "bytes": 379152,
+    "sha256": "837f0e5a98c2c207069768a2cf954babd941f2ce4acede3f4c5f8c695d4c19ea"
+  }
+]

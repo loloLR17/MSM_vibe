@@ -1,0 +1,102 @@
+[
+  {
+    "path": "/home/lolo/dev/msm/reports/TR2-R5-comfort-20261031/checkpoint-remote.json",
+    "bytes": 1593,
+    "sha256": "6608408eba12205ce3e811b17a7b808307f12c414c4783ffa6f499181dffd4c3"
+  },
+  {
+    "path": "/home/lolo/dev/msm/reports/TR2-R5-comfort-20261031/comfort-secondary-v2.sqlite",
+    "bytes": 626688,
+    "sha256": "471ca360f35ef5e72fb1c510ce8e6118c31f4a04de0e88e367e2dcad86407a84"
+  },
+  {
+    "path": "/home/lolo/dev/msm/reports/TR2-R5-comfort-20261031/prepare_proofs.py",
+    "bytes": 10666,
+    "sha256": "35bbe6d72fc7d8542de1cab24a6acb93ec37554cc4efc9ecea080c81a6655c00"
+  },
+  {
+    "path": "/home/lolo/dev/msm/reports/TR2-R5-comfort-20261031/real-unweighted-v1/artifacts.json",
+    "bytes": 1277,
+    "sha256": "80c14007da3ffdba73af5ec39b436cf2020f084ea684ac71bc0e9ef7a28b987d"
+  },
+  {
+    "path": "/home/lolo/dev/msm/reports/TR2-R5-comfort-20261031/real-unweighted-v1/clock_sensitivity.csv",
+    "bytes": 76985,
+    "sha256": "18f0163d8913e1870b960d6ef356c1bd3b798d0a209c97b862aa61887e3f66e0"
+  },
+  {
+    "path": "/home/lolo/dev/msm/reports/TR2-R5-comfort-20261031/real-unweighted-v1/definitions.json",
+    "bytes": 7651,
+    "sha256": "81763ed457a2ccfa5d3399414758ad043df5fea2cf08a4bcef8b1949dc3aebba"
+  },
+  {
+    "path": "/home/lolo/dev/msm/reports/TR2-R5-comfort-20261031/real-unweighted-v1/fir_response.csv",
+    "bytes": 1669,
+    "sha256": "3514ff786470b4012a7cd575b9b4e30899625b52161b9ba1ad600d9fbc75ea1b"
+  },
+  {
+    "path": "/home/lolo/dev/msm/reports/TR2-R5-comfort-20261031/real-unweighted-v1/manifest.json",
+    "bytes": 5248,
+    "sha256": "eaee3a974ea1cfbdd1bcc6a831a155a0cc9159ab60aad70af40e8b6b2e3f7fc5"
+  },
+  {
+    "path": "/home/lolo/dev/msm/reports/TR2-R5-comfort-20261031/real-unweighted-v1/metrics.csv",
+    "bytes": 504073,
+    "sha256": "2e7cfa0483959de5eba6ceaccfe129c66d1ef09687699759efa4c09c0f84efe2"
+  },
+  {
+    "path": "/home/lolo/dev/msm/reports/TR2-R5-comfort-20261031/real-unweighted-v1/real_crosschecks.json",
+    "bytes": 7279,
+    "sha256": "074dd7846cb97ab2fd34990016d795a249a55f91dc90a169cb720a4095499574"
+  },
+  {
+    "path": "/home/lolo/dev/msm/reports/TR2-R5-comfort-20261031/real-unweighted-v1/response.json",
+    "bytes": 5342,
+    "sha256": "a46c226efe9a2071a581fe2a0ac5d886727f2e957de92703b8ef236a99e1f96f"
+  },
+  {
+    "path": "/home/lolo/dev/msm/reports/TR2-R5-comfort-20261031/real-unweighted-v1/summary.json",
+    "bytes": 3663,
+    "sha256": "91303514b9a8bff474426e59466b75557d15ab1652635ad31fda0468fa3e53ca"
+  },
+  {
+    "path": "/home/lolo/dev/msm/reports/TR2-R5-comfort-20261031/real-unweighted-v1/unweighted_trends.png",
+    "bytes": 379152,
+    "sha256": "837f0e5a98c2c207069768a2cf954babd941f2ce4acede3f4c5f8c695d4c19ea"
+  },
+  {
+    "path": "/home/lolo/dev/msm/reports/TR2-R5-comfort-20261031/real-unweighted-v1.log",
+    "bytes": 4140,
+    "sha256": "bde0daae77f8fcc73638a9e87d09789a2907d78d413af0242963d1d5d774e8ef"
+  },
+  {
+    "path": "/home/lolo/dev/msm/reports/TR2-R5-comfort-20261031/sqlite-first.json",
+    "bytes": 2420,
+    "sha256": "890b6d7dc2457a660d7d596974a2c29dc060d4a9892b2487fcff635092f95bdf"
+  },
+  {
+    "path": "/home/lolo/dev/msm/reports/TR2-R5-comfort-20261031/sqlite-second.json",
+    "bytes": 2419,
+    "sha256": "f307099c26da7924442c5c895eaa732de5685758492e37dc1dde920214ebaf4d"
+  },
+  {
+    "path": "/home/lolo/dev/msm/reports/TR2-R5-comfort-20261031/tests-checkpoint.log",
+    "bytes": 1040,
+    "sha256": "069b19699684308dedd251619847276e94e80d4148d13099c56315c0dd084a38"
+  },
+  {
+    "path": "/home/lolo/dev/msm/reports/TR2-R5-comfort-20261031/tests-final.log",
+    "bytes": 1402,
+    "sha256": "f7959a8db0769ae752ae5640067fcc57f5c2338010fe14d8ce8704002c0738b1"
+  },
+  {
+    "path": "/home/lolo/dev/msm/reports/TR2-R5-comfort-20261031/tests-first.log",
+    "bytes": 830,
+    "sha256": "0c4f291580c735ddd0c479119b9db7d12929e71f00e68da28819871bb22b8385"
+  },
+  {
+    "path": "/home/lolo/dev/msm/reports/TR2-R5-comfort-20261031/worktrees-initial.txt",
+    "bytes": 13389,
+    "sha256": "38bb1c7453add8b2443bb83608dc95649a1521ab0c97d694f0c981817d589788"
+  }
+]

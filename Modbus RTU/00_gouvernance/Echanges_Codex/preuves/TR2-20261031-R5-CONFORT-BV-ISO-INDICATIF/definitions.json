@@ -1,0 +1,278 @@
+{
+  "db54472574a749490b0e6b41546b8721d7e9bb98ddf25d67012fe67681169529": {
+    "algorithm": "causal_Butterworth_unweighted_acceleration",
+    "version": "r5-unweighted-1-80.v1",
+    "edition": "NONE_NON_NORMATIVE",
+    "filter_sha256": "c268cd1e78400c759ea7f174de62cf171bbd5999c649d5227424b8d318c680e9",
+    "sos": [
+      [
+        5.9932712494802525e-05,
+        0.00011986542498960505,
+        5.9932712494802525e-05,
+        1.0,
+        -1.6814940507911247,
+        0.7106388966010834
+      ],
+      [
+        1.0,
+        2.0,
+        1.0,
+        1.0,
+        -1.836022068715043,
+        0.8690264846625716
+      ],
+      [
+        1.0,
+        -1.9999999999999998,
+        0.9999999999999998,
+        1.0,
+        -1.995564051259396,
+        0.9955698574785006
+      ],
+      [
+        1.0,
+        -1.9999999999999998,
+        0.9999999999999998,
+        1.0,
+        -1.9982213111029359,
+        0.9982269187679385
+      ]
+    ],
+    "unit": "mg",
+    "band": [
+      1,
+      80
+    ],
+    "window_policy": "nonoverlap60/120 nominal MCU seconds; same archived samples for both clock scenarios; exclude FIR11 and settling10s",
+    "sensitivity": {
+      "mg_per_count": 0.244,
+      "qualified": false
+    },
+    "clock": {
+      "scenario": "MCU",
+      "fs_est_Hz": 2661.462021501383,
+      "qualified": false
+    },
+    "site": "PC machine plancher",
+    "support": {
+      "description": "double-face mince annoncé",
+      "qualified": false
+    },
+    "orientation": {
+      "description": "XYZ capteur; correspondance navire inconnue",
+      "qualified": false
+    },
+    "firmware": "c3cd40ce9e96cef2241fb5bc6e8c83acd2a3824e",
+    "quality_policy": "no gap filling; clipped/nonfinite/warmup invalid; 10s settle after restart; all observed points required for FULL",
+    "UTC": "UTC_UNKNOWN",
+    "qualification": "NUMERICALLY_VALIDATED_PHYSICALLY_UNCALIBRATED",
+    "normative_equivalence_implemented": false
+  },
+  "2784738f161c684dc4bc023f9e67ebcbc355674c743b2ce34d1f1347bc60b800": {
+    "algorithm": "causal_Butterworth_unweighted_physical_velocity_trapezoid",
+    "version": "r5-unweighted-1-80.v1",
+    "edition": "NONE_NON_NORMATIVE",
+    "filter_sha256": "6a090385724ae16ffdee7d771b9b18b1d14c979ab32e1e77ee30a42ef8b77f71",
+    "sos": [
+      [
+        1.1041659250422067e-07,
+        2.2083318500844133e-07,
+        1.1041659250422067e-07,
+        1.0,
+        -1.6814940507911247,
+        0.7106388966010834
+      ],
+      [
+        1.0,
+        2.0,
+        1.0,
+        1.0,
+        -1.836022068715043,
+        0.8690264846625716
+      ],
+      [
+        1.0,
+        1.1102230246251565e-16,
+        -0.9999999999999999,
+        1.0,
+        -1.995564051259396,
+        0.9955698574785006
+      ],
+      [
+        1.0,
+        -1.9999999999999998,
+        0.9999999999999998,
+        1.0,
+        -1.9982213111029359,
+        0.9982269187679385
+      ]
+    ],
+    "unit": "mm/s",
+    "band": [
+      1,
+      80
+    ],
+    "window_policy": "nonoverlap60/120 nominal MCU seconds; same archived samples for both clock scenarios; exclude FIR11 and settling10s",
+    "sensitivity": {
+      "mg_per_count": 0.244,
+      "qualified": false
+    },
+    "clock": {
+      "scenario": "MCU",
+      "fs_est_Hz": 2661.462021501383,
+      "qualified": false
+    },
+    "site": "PC machine plancher",
+    "support": {
+      "description": "double-face mince annoncé",
+      "qualified": false
+    },
+    "orientation": {
+      "description": "XYZ capteur; correspondance navire inconnue",
+      "qualified": false
+    },
+    "firmware": "c3cd40ce9e96cef2241fb5bc6e8c83acd2a3824e",
+    "quality_policy": "no gap filling; clipped/nonfinite/warmup invalid; 10s settle after restart; all observed points required for FULL",
+    "UTC": "UTC_UNKNOWN",
+    "qualification": "NUMERICALLY_VALIDATED_PHYSICALLY_UNCALIBRATED",
+    "normative_equivalence_implemented": false
+  },
+  "9a63575b62e44d72bcfdaea7c4aa4d394431113d516db786112c774d28f7721e": {
+    "algorithm": "causal_Butterworth_unweighted_acceleration",
+    "version": "r5-unweighted-1-80.v1",
+    "edition": "NONE_NON_NORMATIVE",
+    "filter_sha256": "4610342347d88fff1915f5e373ca89c64b4fe9a76a780718616bd21307d6d1f5",
+    "sos": [
+      [
+        5.84209006625183e-05,
+        0.0001168418013250366,
+        5.84209006625183e-05,
+        1.0,
+        -1.6835077697873908,
+        0.7122898969656613
+      ],
+      [
+        1.0,
+        2.0,
+        1.0,
+        1.0,
+        -1.8372653942825254,
+        0.8698420237399735
+      ],
+      [
+        1.0,
+        -2.0,
+        1.0,
+        1.0,
+        -1.9955939099633397,
+        0.995599638298651
+      ],
+      [
+        1.0,
+        -2.0,
+        1.0,
+        1.0,
+        -1.998233323902702,
+        0.9982388562895683
+      ]
+    ],
+    "unit": "mg",
+    "band": [
+      1,
+      80
+    ],
+    "window_policy": "nonoverlap60/120 nominal MCU seconds; same archived samples for both clock scenarios; exclude FIR11 and settling10s",
+    "sensitivity": {
+      "mg_per_count": 0.244,
+      "qualified": false
+    },
+    "clock": {
+      "scenario": "QPC_ESTIMATE",
+      "fs_est_Hz": 2679.5162204534963,
+      "qualified": false
+    },
+    "site": "PC machine plancher",
+    "support": {
+      "description": "double-face mince annoncé",
+      "qualified": false
+    },
+    "orientation": {
+      "description": "XYZ capteur; correspondance navire inconnue",
+      "qualified": false
+    },
+    "firmware": "c3cd40ce9e96cef2241fb5bc6e8c83acd2a3824e",
+    "quality_policy": "no gap filling; clipped/nonfinite/warmup invalid; 10s settle after restart; all observed points required for FULL",
+    "UTC": "UTC_UNKNOWN",
+    "qualification": "NUMERICALLY_VALIDATED_PHYSICALLY_UNCALIBRATED",
+    "normative_equivalence_implemented": false
+  },
+  "e0c47c5325f7b5f3bfad626cdc0363f57259bcc43fa0f1dc5e915ebfea4eba37": {
+    "algorithm": "causal_Butterworth_unweighted_physical_velocity_trapezoid",
+    "version": "r5-unweighted-1-80.v1",
+    "edition": "NONE_NON_NORMATIVE",
+    "filter_sha256": "e5d309e7d47b5df0060c56c6ed8bd06628d305bed033047515e055f6b8a52b85",
+    "sos": [
+      [
+        1.0690611258645824e-07,
+        2.138122251729165e-07,
+        1.0690611258645824e-07,
+        1.0,
+        -1.6835077697873908,
+        0.7122898969656613
+      ],
+      [
+        1.0,
+        2.0,
+        1.0,
+        1.0,
+        -1.8372653942825254,
+        0.8698420237399735
+      ],
+      [
+        1.0,
+        0.0,
+        -1.0,
+        1.0,
+        -1.9955939099633397,
+        0.995599638298651
+      ],
+      [
+        1.0,
+        -2.0,
+        1.0,
+        1.0,
+        -1.998233323902702,
+        0.9982388562895683
+      ]
+    ],
+    "unit": "mm/s",
+    "band": [
+      1,
+      80
+    ],
+    "window_policy": "nonoverlap60/120 nominal MCU seconds; same archived samples for both clock scenarios; exclude FIR11 and settling10s",
+    "sensitivity": {
+      "mg_per_count": 0.244,
+      "qualified": false
+    },
+    "clock": {
+      "scenario": "QPC_ESTIMATE",
+      "fs_est_Hz": 2679.5162204534963,
+      "qualified": false
+    },
+    "site": "PC machine plancher",
+    "support": {
+      "description": "double-face mince annoncé",
+      "qualified": false
+    },
+    "orientation": {
+      "description": "XYZ capteur; correspondance navire inconnue",
+      "qualified": false
+    },
+    "firmware": "c3cd40ce9e96cef2241fb5bc6e8c83acd2a3824e",
+    "quality_policy": "no gap filling; clipped/nonfinite/warmup invalid; 10s settle after restart; all observed points required for FULL",
+    "UTC": "UTC_UNKNOWN",
+    "qualification": "NUMERICALLY_VALIDATED_PHYSICALLY_UNCALIBRATED",
+    "normative_equivalence_implemented": false
+  }
+}

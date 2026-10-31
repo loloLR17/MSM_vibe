@@ -1,0 +1,136 @@
+{
+  "mission_id": "TR2-20261031-R5-CONFORT-BV-ISO-INDICATIF",
+  "status": "PRELIMINARY_P0_BLOCKED",
+  "normative_names_enabled": false,
+  "normative_thresholds_enabled": false,
+  "source": {
+    "format_version": 3,
+    "requested_duration_us": 22000000000,
+    "actual_duration_us": 22000000014,
+    "first_source_time_us": 497374174,
+    "last_source_time_us": 22497363438,
+    "status": "COMPLETE",
+    "path": "/home/lolo/dev/msm/reports/TR2-r3-6h-data-20261031/pc-recovery-after-powercut/E6N0005.TR2",
+    "file_bytes": 671088640,
+    "run": 5,
+    "session": 8444550407367521,
+    "valid_records": 750669,
+    "valid_xyz": 58552136,
+    "payload_bytes": 351312816,
+    "sha256": "5077a1f6e290b563c254300fde4ab7fb1bb7409717e65831e73a20a277bb7e41",
+    "first_output_source_index": 0,
+    "last_output_source_index": 585521350,
+    "first_time_us": 497374174,
+    "last_time_us": 22497363100,
+    "source_rate_num": 8022180768000000,
+    "source_rate_den": 301474730736,
+    "source_hz": 26609.794951686967,
+    "output_hz": 2660.9794951686968,
+    "clock_ratio_scope": "initial sensor/MCU calibration",
+    "observed_duration_us": 21999988926,
+    "observed_output_hz_between_endpoints": 2661.462021501383,
+    "logical_fs_g": 8,
+    "sensitivity_ug_per_count": 244,
+    "dc_preserved": true,
+    "quality_or": 1,
+    "utc": null,
+    "firmware_sha": "c3cd40ce9e96cef2241fb5bc6e8c83acd2a3824e",
+    "coefficient_sha256": "0e528c6d985207c265ccaa4a5df797ccdfa5ccfe938ad9a51a6a6ad8c94cc1b4",
+    "cid": "0353445344333247858bf0923c01927b",
+    "uid": [
+      1769542,
+      943869976,
+      540225879
+    ],
+    "time_method": "Actual DEC8 block endpoints; within-block interpolation approximate, not UTC",
+    "stop_reason": "controlled STOP and full producer digest matched",
+    "durability": "CRC-valid sequential matching-session prefix only; physical survival after power loss and maximum lost tail are NOT guaranteed"
+  },
+  "whole_file_sha256": "91861cef14f824ae5b7422c55b092255654e2665062747205c7e034a0d1aeee5",
+  "whole_file_sha256_after": "91861cef14f824ae5b7422c55b092255654e2665062747205c7e034a0d1aeee5",
+  "processing_git_sha": "45e70a789feb70ed3ed753c13f542252af3bf26e",
+  "algorithm_code_sha256": "b8ed080d1d9a3bfe4ffa2880f66b6413592a0566334bdfc51bb1f8fad7ec9b08",
+  "core_code_sha256": "cc02124c57e2eb007bd8b9b35913d80ee1f4114d93d7ff76c1c0e160c695f7ba",
+  "clocks": {
+    "MCU": 2661.462021501383,
+    "QPC_ESTIMATE": 2679.5162204534963
+  },
+  "QPC_scope": "same-session active snapshots; accepted count phase ±1 output; QPC not SI-traceable; not UTC",
+  "time": "UTC_UNKNOWN; windows use SAME archived nominal MCU intervals in both clock scenarios; QPC changes frequency/integration interpretation ONLY",
+  "FIR": {
+    "coefficient_sha256": "0e528c6d985207c265ccaa4a5df797ccdfa5ccfe938ad9a51a6a6ad8c94cc1b4",
+    "header_file_sha256": "58587735a4a5b2847a2e2604cd7ab01d65222ba1ca0d2dcb6495cef730e61819",
+    "count": 107,
+    "dc_sum_q15": 32768,
+    "rounding_bound_mg_per_axis": 0.122,
+    "scope": "linear response computed only; IIS3DWB/mounting/noise/clock physical response NOT calibrated; finite stopband, no alias-free claim"
+  },
+  "selected_real_segment_starts_mcu_s": [
+    19500,
+    9180,
+    18540
+  ],
+  "legacy_database": {
+    "path": "/home/lolo/dev/msm/reports/TR2-R5-analysis-6h-20261031/r5-catalog-v1.sqlite",
+    "sha256": "e436de69e55e2126c029acc5afea9cb058b0a6fc6ce857e41bc70a26693646c5"
+  },
+  "legacy_results_preserved": true,
+  "comparability": {
+    "db54472574a749490b0e6b41546b8721d7e9bb98ddf25d67012fe67681169529": {
+      "equivalent_comparison_allowed": false,
+      "missing": [],
+      "mismatch": [],
+      "unqualified": [
+        "support",
+        "orientation",
+        "sensitivity",
+        "clock"
+      ]
+    },
+    "2784738f161c684dc4bc023f9e67ebcbc355674c743b2ce34d1f1347bc60b800": {
+      "equivalent_comparison_allowed": false,
+      "missing": [],
+      "mismatch": [],
+      "unqualified": [
+        "support",
+        "orientation",
+        "sensitivity",
+        "clock"
+      ]
+    },
+    "9a63575b62e44d72bcfdaea7c4aa4d394431113d516db786112c774d28f7721e": {
+      "equivalent_comparison_allowed": false,
+      "missing": [],
+      "mismatch": [],
+      "unqualified": [
+        "support",
+        "orientation",
+        "sensitivity",
+        "clock"
+      ]
+    },
+    "e0c47c5325f7b5f3bfad626cdc0363f57259bcc43fa0f1dc5e915ebfea4eba37": {
+      "equivalent_comparison_allowed": false,
+      "missing": [],
+      "mismatch": [],
+      "unqualified": [
+        "support",
+        "orientation",
+        "sensitivity",
+        "clock"
+      ]
+    }
+  },
+  "performance": {
+    "elapsed_s": 43.17861656998866,
+    "peak_RSS_KiB": 274232
+  },
+  "limits": [
+    "NO Wm/ISO equivalent velocity/BV comparisons",
+    "sensor axes unknown, sensitivity .244mg/count nominal, mounting/clock uncalibrated",
+    "R3 independent RAM producer digest lost; internal integrity only",
+    "Butterworth1–80Hz -3dB edges, finite rolloff; not ideal brickwall",
+    "stable trapezoidal physical integration: tan frequency warping quantified separately, not normative equivalence",
+    "10s settling invalid; all observed points required for FULL; partial/empty -> NaN, never zero filled"
+  ]
+}

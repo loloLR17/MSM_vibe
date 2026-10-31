@@ -1,0 +1,7 @@
+{
+  "python": "3.13.5 (main, Aug 10 2026, 12:06:59) [GCC 14.2.0]",
+  "numpy": "2.3.5",
+  "scipy": "1.17.0",
+  "matplotlib": "3.10.8",
+  "private_interpreter": "/home/lolo/dev/msm/cache/r5-analysis-venv/bin/python"
+}

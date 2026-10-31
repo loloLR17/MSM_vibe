@@ -1,0 +1,41 @@
+{
+  "P0": "BLOCKED",
+  "user_answer": "Aucun acc\u00e8s disponible actuellement",
+  "normative_equivalence_implemented": false,
+  "Wm_implemented": false,
+  "BV_thresholds_rendered": false,
+  "sources": [
+    {
+      "url": "https://www.iso.org/obp/ui?_escaped_fragment_=iso:std:iso:20283:-5:ed-1:v1:en",
+      "available": "definitions and undated-reference rule",
+      "missing": "clauses7/8.1/equivalence/AnnexA"
+    },
+    {
+      "url": "https://preview.sist.si/sist-preview/68125/1e17a626b1f04c9d9674b2f1943ddfc6/ISO-20283-5-2016.pdf",
+      "available": "10 PDF preview pages",
+      "missing": "required method/equivalence pages"
+    },
+    {
+      "url": "https://www.iso.org/obp/ui?_escaped_fragment_=iso:std:iso:2631:-2:ed-3:v1:en",
+      "available": "edition2026/foreword/scope/definitions",
+      "missing": "AnnexA Wm parameters/table"
+    },
+    {
+      "url": "https://cdn.standards.iteh.ai/samples/23012/96ddf9d86d084af4af8f733ed04178c4/ISO-2631-2-2003.pdf",
+      "available": "9 PDF preview pages through main body",
+      "missing": "AnnexA and justification for using old edition"
+    },
+    {
+      "url": "https://www.iso.org/standard/70648.html",
+      "available": "ISO8041-1:2017 catalogue scope",
+      "missing": "full narrowband weighting tolerances/validation oracle"
+    },
+    {
+      "url": "https://rulesexplorer-docs.bureauveritas.com/documents/nr467/jul2026/467-NR_PartF_2026-07.pdf",
+      "available": "official BV text; method refers to ISO; ECR inCh6Sec3Tab4",
+      "missing": "does not itself substitute ISO full method"
+    }
+  ],
+  "no_purchase": true,
+  "no_unlicensed_mirror_used": true
+}

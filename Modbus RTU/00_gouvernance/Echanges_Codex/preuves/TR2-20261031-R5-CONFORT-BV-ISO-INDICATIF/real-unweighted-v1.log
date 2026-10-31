@@ -1,0 +1,114 @@
+strict import COMPLETE; full original XYZ -> four isolated unweighted streams
+{
+  "output": "/home/lolo/dev/msm/reports/TR2-R5-comfort-20261031/real-unweighted-v1",
+  "summary": [
+    {
+      "metric_definition_id": "db54472574a749490b0e6b41546b8721d7e9bb98ddf25d67012fe67681169529",
+      "unit": "mg",
+      "clock": "MCU",
+      "window_mcu_s": 60,
+      "full_windows": 365,
+      "P50": 31.137426539518156,
+      "P95": 36.7889833833705,
+      "maximum": 51.410310025753056,
+      "population_std": 11.246376038704843,
+      "selected_direction": "max RMS among sensor XYZ; NOT ship-axis normative selection",
+      "threshold_comparison": null
+    },
+    {
+      "metric_definition_id": "db54472574a749490b0e6b41546b8721d7e9bb98ddf25d67012fe67681169529",
+      "unit": "mg",
+      "clock": "MCU",
+      "window_mcu_s": 120,
+      "full_windows": 182,
+      "P50": 31.43557636003668,
+      "P95": 36.556049298903254,
+      "maximum": 50.30942910736378,
+      "population_std": 11.175354098636392,
+      "selected_direction": "max RMS among sensor XYZ; NOT ship-axis normative selection",
+      "threshold_comparison": null
+    },
+    {
+      "metric_definition_id": "2784738f161c684dc4bc023f9e67ebcbc355674c743b2ce34d1f1347bc60b800",
+      "unit": "mm/s",
+      "clock": "MCU",
+      "window_mcu_s": 60,
+      "full_windows": 365,
+      "P50": 1.4244190403211543,
+      "P95": 2.1965901527880893,
+      "maximum": 2.990163279255228,
+      "population_std": 0.47091302066013485,
+      "selected_direction": "max RMS among sensor XYZ; NOT ship-axis normative selection",
+      "threshold_comparison": null
+    },
+    {
+      "metric_definition_id": "2784738f161c684dc4bc023f9e67ebcbc355674c743b2ce34d1f1347bc60b800",
+      "unit": "mm/s",
+      "clock": "MCU",
+      "window_mcu_s": 120,
+      "full_windows": 182,
+      "P50": 1.4300578818799647,
+      "P95": 2.1690088343522804,
+      "maximum": 2.6408729970427234,
+      "population_std": 0.4654807198788984,
+      "selected_direction": "max RMS among sensor XYZ; NOT ship-axis normative selection",
+      "threshold_comparison": null
+    },
+    {
+      "metric_definition_id": "9a63575b62e44d72bcfdaea7c4aa4d394431113d516db786112c774d28f7721e",
+      "unit": "mg",
+      "clock": "QPC_ESTIMATE",
+      "window_mcu_s": 60,
+      "full_windows": 365,
+      "P50": 31.002887104436745,
+      "P95": 36.69682516449279,
+      "maximum": 51.34296095642945,
+      "population_std": 11.200650906145922,
+      "selected_direction": "max RMS among sensor XYZ; NOT ship-axis normative selection",
+      "threshold_comparison": null
+    },
+    {
+      "metric_definition_id": "9a63575b62e44d72bcfdaea7c4aa4d394431113d516db786112c774d28f7721e",
+      "unit": "mg",
+      "clock": "QPC_ESTIMATE",
+      "window_mcu_s": 120,
+      "full_windows": 182,
+      "P50": 31.316367940988428,
+      "P95": 36.39679541215498,
+      "maximum": 50.2345073330515,
+      "population_std": 11.12960794877734,
+      "selected_direction": "max RMS among sensor XYZ; NOT ship-axis normative selection",
+      "threshold_comparison": null
+    },
+    {
+      "metric_definition_id": "e0c47c5325f7b5f3bfad626cdc0363f57259bcc43fa0f1dc5e915ebfea4eba37",
+      "unit": "mm/s",
+      "clock": "QPC_ESTIMATE",
+      "window_mcu_s": 60,
+      "full_windows": 365,
+      "P50": 1.4148519461793416,
+      "P95": 2.1815841727315433,
+      "maximum": 2.969632365841568,
+      "population_std": 0.4674920039879072,
+      "selected_direction": "max RMS among sensor XYZ; NOT ship-axis normative selection",
+      "threshold_comparison": null
+    },
+    {
+      "metric_definition_id": "e0c47c5325f7b5f3bfad626cdc0363f57259bcc43fa0f1dc5e915ebfea4eba37",
+      "unit": "mm/s",
+      "clock": "QPC_ESTIMATE",
+      "window_mcu_s": 120,
+      "full_windows": 182,
+      "P50": 1.4203814749608086,
+      "P95": 2.154259559470898,
+      "maximum": 2.622819672350545,
+      "population_std": 0.46209213154056294,
+      "selected_direction": "max RMS among sensor XYZ; NOT ship-axis normative selection",
+      "threshold_comparison": null
+    }
+  ],
+  "performance": {
+    "elapsed_s": 43.17861656998866,
+    "peak_RSS_KiB": 274232
+  }
+}

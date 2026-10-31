@@ -77,3 +77,26 @@ IIS3DWB/pose/bruit. Aucune compensation silencieuse de la sensibilité ou du FIR
 
 Validation exclusivement PC : aucune compilation STM32/.NET ni répétition des
 14tests R5 inchangés n'apporterait de preuve supplémentaire ici.
+
+## Catalogue secondaire et restitution
+
+```sh
+/home/lolo/dev/msm/cache/r5-analysis-venv/bin/python experiments/r5_comfort_analysis/comfort_catalog.py /chemin/PC/nouveau-dossier /chemin/PC/comfort-secondary-v2.sqlite
+/home/lolo/dev/msm/cache/r5-analysis-venv/bin/python experiments/r5_comfort_analysis/render_page.py /chemin/PC/nouveau-dossier /chemin/PC/nouveau-index.html
+```
+
+`schema_v2.sql` crée uniquement une base secondaire marquée application_id différent,
+user_version2. Une DBv1/live/étrangère est refusée **avant toute écriture**. Il ne
+s'agit pas d'une migration de la base existante. La passerelle est une lecture
+séparée **mode=ro**, pour comparer les inventaires/provenances des deux catalogues ;
+aucune égalité entre les indicateurs 2–25 et1–80Hz n'est présumée.
+
+Tables campaigns, metric_definitions, analysis_runs, window_metrics, artifact_refs ;
+les définitions portent éditionNONE_NON_NORMATIVE, unité, bande, paramètresSOS et
+hypothèses complètes. Identité d'analyse = campagneSHA + définitionSHA + codeSHA ;
+une nouvelle cohorte ne remplace pas l'ancienne. Transactions/clés/index/FK/FULL,
+échec explicite journalisé, contrôle intégrité et réimport idempotent. Les données
+brutes restent exclusivement dans .TR2 ; seuls les agrégats60/120s sont en SQL.
+Les imports qui prétendent activer le nom normatif ou un seuil sont refusés par
+cette voie préliminaire. Quatre requêtes documentées/exécutées : inventaire des
+séries, pire60s de vitesse MCU, axes120s, édition/statut des définitions.

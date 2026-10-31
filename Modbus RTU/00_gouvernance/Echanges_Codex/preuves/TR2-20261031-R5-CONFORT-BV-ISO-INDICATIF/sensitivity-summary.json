@@ -1,0 +1,30 @@
+[
+  {
+    "unit": "mg",
+    "window_mcu_s": 60,
+    "minimum_percent": -0.8726134919748607,
+    "median_percent": -0.3815028193177583,
+    "maximum_percent": -0.06933697492880198
+  },
+  {
+    "unit": "mg",
+    "window_mcu_s": 120,
+    "minimum_percent": -0.8545916962054756,
+    "median_percent": -0.38328324321435514,
+    "maximum_percent": -0.08827089997763826
+  },
+  {
+    "unit": "mm/s",
+    "window_mcu_s": 60,
+    "minimum_percent": -0.7216480131593817,
+    "median_percent": -0.6322778180831823,
+    "maximum_percent": -0.3143949000801394
+  },
+  {
+    "unit": "mm/s",
+    "window_mcu_s": 120,
+    "minimum_percent": -0.7198354593128342,
+    "median_percent": -0.6299417359619697,
+    "maximum_percent": -0.35539031907462215
+  }
+]
