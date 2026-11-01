@@ -1,0 +1,39 @@
+{
+  "utc": "2026-11-01T17:28:30.322176+00:00",
+  "source_sha": "56fa3b18e0ed9def3f67d19dfbe06f596b248e94",
+  "user_change": "CLK Dupont replaced; user reconnected ST-LINK with test SD inserted/CN15 off",
+  "cid_spi_hex": "03534453443531328562e43cf80195eb",
+  "csd_hex": "400e00325b59000ee5b77f800a4040b5",
+  "sectors": 999743488,
+  "capacity_bytes": 511868665856,
+  "capacity_GiB": 476.71484375,
+  "mbr_sha256": "4528167ab450015a130d650df39dc3b067167a0825f720cf890ad82d79c1e04c",
+  "mbr_signature": "55aa",
+  "partitions": [
+    {
+      "index": 1,
+      "type": "0xc",
+      "start_lba": 2048,
+      "sectors": 999741376,
+      "in_capacity": true
+    }
+  ],
+  "initialized": true,
+  "sd_error": 0,
+  "crc_errors": 0,
+  "read_sectors": 1,
+  "write_sectors": 0,
+  "write_enabled": false,
+  "discovery_terminal_code": 96,
+  "terminal_meaning": "intentional stop before write gate, as coded; not SD failure",
+  "qualified": "SPI initialization, CID/CSD and sector0 CRC-valid read only",
+  "not_qualified": [
+    "BPB/FAT32 mount",
+    "free space/preallocation",
+    "write performance/integrity",
+    "recording",
+    "endurance"
+  ],
+  "initial_attempt": "No ST-LINK available; no target connected; preserved separately",
+  "debugger": "detached"
+}

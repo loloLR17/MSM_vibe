@@ -16,6 +16,37 @@ allow_debug: true
 
 # TR2-001 autonome ±16 g — checkpoint logiciel ; carte SD non initialisée
 
+## Dernière vérification — SD répond après remplacement du CLK, lecture seule
+
+**Blocage de réponse SD levé dans la portée demandée : initialisation et lecture.**
+L'utilisateur a remplacé le fil CLK puis confirmé ST-LINK reconnecté, SD insérée et
+CN15 débranché. Première tentative avant cette reconnexion : aucun ST-LINK détecté,
+pas d'accès cible ; seconde lectureGDB réussie, identité001 vérifiée. Aucun nouveau
+flash/reset logiciel, aucun test hôte/build répété, aucune acquisition ou écritureSD.
+
+Firmware de découverte56fa3b18 conservé, mêmes contrôles. Résultats observés :
+
+- SD initialisée, CMD0 répond1, ACMD41 aboutit0 ; CID/CSD lus avec CRC, CMD59 actif.
+- CID SPI **03534453443531328562e43cf80195eb**, CSD **400e00325b59000ee5b77f800a4040b5**.
+- **999743488secteurs512octets =511868665856octets =476,71484375Gio**.
+- Secteur0 lu avec contrôleCRC16 réussi, signatureMBR55AA, partitionunique type0C
+  (déclaration FAT32LBA), début2048/longueur999741376secteurs, dans la capacitéCSD.
+  **Le type de partition ne démontre pas encore le BPB ou le montageFAT32.**
+- SDerror0/CRCerrors0/reads1/writes0, initializedtrue/failedfalse/write_enabledfalse.
+  Stage99/error96 = arrêt **volontaire du probe avant gate d'écriture**, conforme au
+  code, pas un défautSD ; diagnosticdistinct des précédents refus2/CMD0 sans réponse.
+- WHO7B/CTRL1=04 conservés (FS16/ODRoff), GDB détaché. Pas de campagne démarrée.
+
+Le retour de communication suit le remplacement du CLK et la reconnexion ; cela
+étaye cette piste sans démontrer une causalité électrique exclusive ni qualifier
+l'écriture, la capacité intégrale, le montageFAT32 ou l'endurance de la carte.
+Conformément à « vérifie juste la SD card », aucune préallocation ni capture n'est
+entreprise dans cette vérification. Contrôle de continuité demandé auparavant n'est
+plus le verrou immédiat. Suite de mission : binding exact de ce CID/capacité, BPB et
+montage/libre/noms, puis gatecourt/PC/powerbank/imageWAIT restent à réaliser.
+Preuves : `15-clk-replaced-reconnected.log`, `sd512-restored-readonly.json` et MBR512B
+exact dans `preuves/TR2-20261101-001-AUTONOME` ; les refus historiques restent intacts.
+
 ## Dernière reprise — alimentation lecteur mesurée, silence SPI persistant
 
 **État actuel : pas prêt pour la campagne, contrôle de continuité utilisateur attendu.**
