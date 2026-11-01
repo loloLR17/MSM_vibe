@@ -1,0 +1,12 @@
+{
+  "native_process": {
+    "ProcessId": 22000,
+    "ReturnValue": 0
+  },
+  "observer_sha256": "ff4cb076a1bdb40486ae704c6a721932c07e11f7f61b11e406ff5502e7a77251",
+  "output": "C:\\Users\\lolo\\AppData\\Local\\Temp\\TR2-R3-N8E-20261031-breadboard-n8e-gate",
+  "expected_run": 3,
+  "minimum_QPC_s": 1,
+  "parent_has_exited": true,
+  "STM32_control": false
+}

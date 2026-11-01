@@ -1,0 +1,13 @@
+{
+  "raw_flags": 129,
+  "watermark": true,
+  "level_bit8": true,
+  "FULL": false,
+  "OVR": false,
+  "OVR_latched": false,
+  "original_verifier_pass_references": false,
+  "original_assertion_failure_preserved": true,
+  "no_verifier_modified": true,
+  "reference": "https://www.st.com/resource/en/datasheet/iis3dwb.pdf section9.27 tables68-69",
+  "decision": "file integrity verified, conservative 4MHz gate not promoted to operational READY; investigate margin using baseline8MHz"
+}

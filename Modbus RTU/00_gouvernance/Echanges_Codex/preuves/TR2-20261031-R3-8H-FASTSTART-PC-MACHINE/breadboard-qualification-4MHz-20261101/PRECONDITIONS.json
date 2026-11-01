@@ -1,0 +1,11 @@
+{
+  "user_authorizes": "fait le n\u00e9cessaire pour valider ce nouveau montage sur TR2-002",
+  "hardware_report": "all Dupont wires through breadboard; ST-LINK002 present, 001 disconnected; sensor borrowed from001",
+  "reuse_existing_N8E": true,
+  "code_sha": "4307b95cf1f85266266574a04beab96e2fc14b20",
+  "no_rebuild": true,
+  "no_flash": true,
+  "no_reset": true,
+  "no_long": true,
+  "init_then_short_FIFO_SD_gate_only_if_all_guards_pass": true
+}

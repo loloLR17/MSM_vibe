@@ -1,6 +1,6 @@
 ---
 mission_id: TR2-20261031-R3-8H-FASTSTART-PC-MACHINE
-status: BLOCKED
+status: IN_PROGRESS
 base_ref: main
 base_sha: f5850ad2de81a6b7639d947d54751305cde3e75b
 initial_head: d5af0828e370780320bda67fac5d537bf3fd5016
@@ -13,6 +13,16 @@ allow_push: true
 allow_flash: true
 allow_debug: true
 ---
+
+# Qualification du nouveau montage — calibration et fichier2s rétablis, marge4MHz à traiter
+
+**IN_PROGRESS : reprise fonctionnelle réelle, pasREADY8h ni long lancé.** Après autorisation utilisateur de qualifier le montage, UID/SN002/imageN8E/source4307b95c exacts, réutilisés sans reconstruction de N8E ni flash/reset. Une init1 : WHO7B/bonCID/CSD/FAT32, calibration**18µs/199brackets/6577ancres**, zéroerreur ; contre-calcul18µs exact. Ancien refusFIFO86 absent dans cet essai, ±8g/ODR/FIR/gain/v3/gardes inchangés. NomsN8Eneufs/libre vérifiés. [Preuves, refus du collecteur et analyse](preuves/TR2-20261031-R3-8H-FASTSTART-PC-MACHINE/breadboard-qualification-4MHz-20261101/README.md).
+
+Un seul gate2s : N8E0003 créé sans remplacer les anciens, **52312XYZ/5232sorties/31392octets utiles**, duréeMCUnominale2001484µs, intervalleQPCintérieur1,0451505s,0rail/clip/FULL/OVR/SD/filefaute ; STOP167µs/drain13844µs. Les31392octets utiles relus parFatFs etSHAproducteur/CRC/index/session/footer conformes ; 103sorties préfixe vérifiées indépendamment. Ce n'est pas une extraction lecteurPC ni une qualification SI.
+
+**Réserve explicite : le collecteur échoue en AssertionError/pass_references=false**, flagsbruts0x81 au lieu0 requis par son prédicat. Il reste inchangé et l'échec est archivé. Décodage ST : watermark+bitniveau, aucunFULL/OVR/latch (masque68h=0) ; pas de fauxoverrun annoncé. NiveauFIFOmax399 élevé, work983,775µs sur1000/service2349,4375sur2500/gap2607sur5000 ; faiblemarge, pasdequalificationlong4MHz. IntégritéfichierPASS distincte duverdictglobal. Champbytes du seul JSON de relecture corrigé d'une ancienne constante vers la mesure31392, pasdecontrôleCRC/SHA modifié.
+
+Contrôlelectures8MHz justifié :16WHO7B/16retours0 après arrêt, aucunregistre-capteurécrit ; prescaler/handle rétablis4MHz. **Suiteautonome : préparerprofilN8Fduplex8MHz de référence pour retrouver la marge**, nouveaupréfixe/gardes strictes ; build ARM ciblé N8F déjà réussi (53032B/c2dd380d…94c61/source7b815b10), aucun ancienPASS rejoué, puis flashstandard si préflight/étatsûr etcheckpointpublié. Aucunalgorithme ou contratnormatif changé, aucun long8h autorisé sansLANCE8H. FirmwareN8E laissé sûr àcecheckpoint ; fichiersN8Eacquis intacts, T1000secteur observé, aucune001/FRAM/COM4/protectiontouchée. La breadboard n'est pas déclarée causeexclusive : recâblage/cyclealimentation/étatinitial concomitants. Journalactualisé ; rapport/preuves àpublier-relire avantflash8MHz.
 
 # TR2-002 recâblé par breadboard — contrôle rapide en lecture positif
 

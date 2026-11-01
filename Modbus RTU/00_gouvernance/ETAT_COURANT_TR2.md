@@ -1,5 +1,8 @@
 # État courant MSM TR2 — synthèse opérationnelle
 
+**01/11/2026 — Breadboard002, reprisefonctionnelle4MHz / IN_PROGRESS marge8MHz.** N8E/source4307 inchangés sansflash/reset ; inituniqueWHO/CID/FAT32/FS8g conforme/cal18µs199brackets6577ancres (contre-calcul18). UniquegateN8E0003 :52312XYZ/5232sorties31392B,2001484µsMCU/QPCintérieur1,045s,0rail/clip/FULL/OVR/SD/filefaute, SHAamontFatFs complet conforme/103sortiespréfixe exactes. Collecteurglobal **FAILpass_references=false/AssertionError** flags81≠0 conservé, STdécodewatermark+niveau, masque68nul ; aucunegarde/vérificateurassoupli. FIFO399/work983,775µs/1000/service2349,4375/2500/gap2607/5000 : faiblemarge4, pasREADYlong. AprèsSTOPlecture16WHO8MHztoutes7B/HAL0 puisretour4 avantdetach ; prépareprofilN8F8MHzréférence/nouveaupréfixe sanschangercœur/gardes, checkpointavantflash. E4sûr/filevide/SDquiet, ancienfichierpréservé ;001/FRAM/COM4horsopérations, secteuractuelobservé. Pascausalitéexclusivebreadboard ni8h anticipé. Rapport/preuves àpublier-relire.
+
+
 **01/11/2026 06:48UTC — TR2-002 breadboard, vérification rapide positive limitée.** User tousfilsDupont via breadboard/capteur emprunté001 confirmé/001débranché. UID/SN002/N8E53036B59e65cd6…bc186 exacts, aucunflash/reset. Lecturesseulesduplex4MHz/mode3 :8WHO7B/8HAL0, CTRL1/FIFO4/CTRL10=00/00/00. FinalWAIT2/error0/run0/FIFOoff/writeroff/SDwrites0/CShaute/GDBdétaché. Aucuninit/calibration/START/SD/FRAM/COM4/001, pasdepreuvebit80/config86 réparé ni bénéficebreadboard (WHOdéjàbonà4). READYfalse/8hBLOCKED ; comparatifcapteurinitial002sur001 nonexécuté/suspendu. Sourcecontrôlée4307b95c ; résultats001positifsconservés. Rapport/preuves àpublier-relire ; pasrejeuPASS.
 
 

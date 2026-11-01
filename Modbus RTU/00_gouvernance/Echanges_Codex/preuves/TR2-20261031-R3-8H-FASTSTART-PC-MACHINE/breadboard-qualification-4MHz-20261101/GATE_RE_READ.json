@@ -1,0 +1,9 @@
+{
+  "complete_gate_reread_through_FatFs": true,
+  "CRC_index_count_session_footer_checked": true,
+  "all_useful_bytes_SHA_matches_RAM_producer": true,
+  "bytes": 31392,
+  "run": 3,
+  "no_new_capture": true,
+  "GDB_detached": true
+}

@@ -1,0 +1,650 @@
+[
+  {
+    "file": "CALIBRATION_RECOMPUTED.json",
+    "bytes": 123,
+    "sha256": "b2b77797b6adcc214a9aa908d435663fb84dce35ac93f02547056a534a5abcb5",
+    "zlib": false
+  },
+  {
+    "file": "CARD_PREFLIGHT.json",
+    "bytes": 307,
+    "sha256": "36a487677773d17f3b5d61e7faa3a8ceb7aa008a9708cbdc4304bb1b96fa96e6",
+    "zlib": false
+  },
+  {
+    "file": "FLAGS_INTERPRETATION.json",
+    "bytes": 482,
+    "sha256": "666f07cab4734d82e3185f157bc94ed1ba34df3be84e7fd36aeabca5d0928303",
+    "zlib": false
+  },
+  {
+    "file": "GATE_RE_READ.json",
+    "bytes": 232,
+    "sha256": "b99f74b81bad2056bdd00d8a328ca42284b89fca5a3699d033197822dd62e7bf",
+    "zlib": false
+  },
+  {
+    "file": "PRECONDITIONS.json",
+    "bytes": 451,
+    "sha256": "71b98d55db53c90eed641ad4244d4a3f78cf1ebcb342440bf901fb8964f67348",
+    "zlib": false
+  },
+  {
+    "file": "WHO-8MHz-candidate.bin.zlib",
+    "bytes": 116,
+    "sha256": "5d281448d358890587c58e6de3a09a1b538a59370d9f5a0462774196f76c0d0e",
+    "zlib": true
+  },
+  {
+    "file": "WHO8MHz.json",
+    "bytes": 504,
+    "sha256": "0d97d011e561cdd34cf6a4445e2c00d5f321e922ca4766e39160df6fa744b4df",
+    "zlib": false
+  },
+  {
+    "file": "analyze_capture.py",
+    "bytes": 4591,
+    "sha256": "ed174dd0885ec5e232d1ce84f1658ff58809eaddec9fcea16fe2f8364e1b057d",
+    "zlib": false
+  },
+  {
+    "file": "arm/r3_coex.bin.zlib",
+    "bytes": 53036,
+    "sha256": "59e65cd66ecdfe76b7ace5f2ad0affb3c05ed871c804ec2549d11f6228fbc186",
+    "zlib": true
+  },
+  {
+    "file": "arm/r3_coex.elf.zlib",
+    "bytes": 2156016,
+    "sha256": "6deb0c73d4df409476fd7f319d8db4d685b2727d2417c0dca785cb56ac9a7ed1",
+    "zlib": true
+  },
+  {
+    "file": "artifact.json",
+    "bytes": 718,
+    "sha256": "9c811cd66f1f94357ad48a114ee88c559d55a6e2eed13d0d09b8c641e85f7278",
+    "zlib": false
+  },
+  {
+    "file": "breadboard-gate-collected/analysis.json",
+    "bytes": 5044,
+    "sha256": "46a56aa2bf0d752b1b4977a320aa286fb498fbbbc508f2906d4ccb38b8a5b541",
+    "zlib": false
+  },
+  {
+    "file": "breadboard-gate-collected/brackets.bin.zlib",
+    "bytes": 4776,
+    "sha256": "b66f918e8d8741df7f1fa06f8219ccfb72990243480a655f310124be04f02c23",
+    "zlib": true
+  },
+  {
+    "file": "breadboard-gate-collected/busy-distributions.bin.zlib",
+    "bytes": 8048,
+    "sha256": "f9f34b6a655849a034b35eab45083f42049f841a0e0e0491a603e357f60bb20c",
+    "zlib": true
+  },
+  {
+    "file": "breadboard-gate-collected/card.bin.zlib",
+    "bytes": 5228,
+    "sha256": "7074270f8d36e771b4cc5f80f8321ac41e5a266ca4ef1d206d8dcaa57ecb70e6",
+    "zlib": true
+  },
+  {
+    "file": "breadboard-gate-collected/distributions.bin.zlib",
+    "bytes": 80096,
+    "sha256": "63121fc390e5b5f51e574ae651780e2712ede9e9103c552808c2aba6e39fccc0",
+    "zlib": true
+  },
+  {
+    "file": "breadboard-gate-collected/durable-footer.bin.zlib",
+    "bytes": 512,
+    "sha256": "68fea18468441d558751d880b9b8a47d7cd722145dbdde1761f3a9bf059f24d4",
+    "zlib": true
+  },
+  {
+    "file": "breadboard-gate-collected/durable-status.bin.zlib",
+    "bytes": 64,
+    "sha256": "8f7dcfa95029ff99b9f98a6f5689a53602fc365aec2716399d58115778571216",
+    "zlib": true
+  },
+  {
+    "file": "breadboard-gate-collected/fifo-stop-payload.bin.zlib",
+    "bytes": 21,
+    "sha256": "aa447f6b853c0f8a1a88bb148357a7db3894cf51955c2fe110773183232aaad6",
+    "zlib": true
+  },
+  {
+    "file": "breadboard-gate-collected/fifo-stop-trace.bin.zlib",
+    "bytes": 360,
+    "sha256": "e2d38d1aca17b313186fb0cf02bcdced75a1e7789c9b108c863048b7273af1fc",
+    "zlib": true
+  },
+  {
+    "file": "breadboard-gate-collected/header.bin.zlib",
+    "bytes": 512,
+    "sha256": "831a6d96161804967daa7e2a477d3314e87ffecd6669efd916dbda3054d8a829",
+    "zlib": true
+  },
+  {
+    "file": "breadboard-gate-collected/outputs.bin.zlib",
+    "bytes": 6144,
+    "sha256": "8c3c13dee69a47f5eb6dd069cdd66384fdb4e32fc638fd788b10929a22199bd9",
+    "zlib": true
+  },
+  {
+    "file": "breadboard-gate-collected/raw.bin.zlib",
+    "bytes": 14336,
+    "sha256": "d1bba71cf53b07afeab08408903b1faf648034fdc95251c719795c2ca29f0020",
+    "zlib": true
+  },
+  {
+    "file": "breadboard-gate-collected/records.bin.zlib",
+    "bytes": 12288,
+    "sha256": "dfe50a9f36f416eead53f08009f9ab0d34589fab0e5bb8bf04927767b4f09637",
+    "zlib": true
+  },
+  {
+    "file": "breadboard-gate-collected/result.bin.zlib",
+    "bytes": 296,
+    "sha256": "7f0ed9f63bb8c6251c219fc365ab48dd592661cd13f6077d38f8172156acd632",
+    "zlib": true
+  },
+  {
+    "file": "breadboard-gate-collected/result.json",
+    "bytes": 1423,
+    "sha256": "56e6f77327feca73f65be0dc15bc0f96af1d5e58f4a405dcc7e1b473aadac098",
+    "zlib": false
+  },
+  {
+    "file": "breadboard-gate-collected/sd-distributions.bin.zlib",
+    "bytes": 8048,
+    "sha256": "7fab4bf2b8836962d47f58b4bfec732143d88801df3b032415015d1340227fb2",
+    "zlib": true
+  },
+  {
+    "file": "breadboard-gate-collected/sd-records.bin.zlib",
+    "bytes": 180,
+    "sha256": "9c28429218d40641b73ef1f4b785e80f00cb4a27afd820c50c864e7b374a751f",
+    "zlib": true
+  },
+  {
+    "file": "breadboard-gate-collected/single-busy-max.bin.zlib",
+    "bytes": 4,
+    "sha256": "72289264579b80b66b6ca01fbb77f222f4764c4cf07191e8b88fa0af61b7c9c7",
+    "zlib": true
+  },
+  {
+    "file": "breadboard-gate-collected/source-sha.bin.zlib",
+    "bytes": 32,
+    "sha256": "9af242580a4ac7a1ad188fbdfe6475ad2d2ce25e0eb48a7a832c930dc02da0c7",
+    "zlib": true
+  },
+  {
+    "file": "breadboard-gate-collected/sources.bin.zlib",
+    "bytes": 24576,
+    "sha256": "e42f76f22142a21113e5bfb91390f70a220a337fde8e7e304e3c5a7eb06547c8",
+    "zlib": true
+  },
+  {
+    "file": "breadboard-gate-collected/spi2-config.bin.zlib",
+    "bytes": 8,
+    "sha256": "3b94b11cca9c930ed8faedbbf7c18e4fe7caaa1dea53f2d82f702b3b48c847b3",
+    "zlib": true
+  },
+  {
+    "file": "breadboard-gate-collected/spi3-config.bin.zlib",
+    "bytes": 8,
+    "sha256": "017c103191c616491b1e99ff6eb19d31f3ebc9c3d478968b5b13cac0e44f19eb",
+    "zlib": true
+  },
+  {
+    "file": "breadboard-n8e-gate-analysis.json",
+    "bytes": 679,
+    "sha256": "3fe7b74820aca3b71c1d2b0962891d4d0327cb1eed60313f0eaf601ebbabc455",
+    "zlib": false
+  },
+  {
+    "file": "breadboard-n8e-gate-launched.json",
+    "bytes": 1085,
+    "sha256": "1d3409fba8aa6e8160a1abc9f8d3f27d774728ccd2c6ae0d5688bb7be8855799",
+    "zlib": false
+  },
+  {
+    "file": "breadboard-n8e-gate-native-queries.jsonl.zlib",
+    "bytes": 4026,
+    "sha256": "e4abcfd1f7372861129ae375d76a58754e63acccf71b940de2da6605f2dac2b1",
+    "zlib": true
+  },
+  {
+    "file": "breadboard-n8e-gate-native-ready.json",
+    "bytes": 360,
+    "sha256": "3696fc8bad731547fe4e3f1d1d8ee9b728ecd6911e2cd73a3dff0e320dddfa8b",
+    "zlib": false
+  },
+  {
+    "file": "breadboard-n8e-gate-native-summary.json",
+    "bytes": 9580,
+    "sha256": "aa0a6e125d5ec7fa912772e9b39b8d2c45027b8c97e6bdaa4f9ef4a3ca0a4640",
+    "zlib": false
+  },
+  {
+    "file": "breadboard-n8e-gate-observer-launch.json",
+    "bytes": 356,
+    "sha256": "61bf92616f19535eb2a60559a5b26a8eabad5108802f6e0e42e23c1784a6ff27",
+    "zlib": false
+  },
+  {
+    "file": "breadboard-n8e-gate.json",
+    "bytes": 6116,
+    "sha256": "5976dbfa229bb888b6c55cb17f9b37b1405fb065943a8cdaf9964eef02e10e42",
+    "zlib": false
+  },
+  {
+    "file": "check_8MHz_readonly.py",
+    "bytes": 1464,
+    "sha256": "b1f313a22f4dbbb6d229a9bcb2316d962f82dbec3855dba83a9b5bd90608b60f",
+    "zlib": false
+  },
+  {
+    "file": "collect-gate.log.zlib",
+    "bytes": 725,
+    "sha256": "e5bbebac96486e951ac9784ee1cb0d674a79ad90a5c76ac8f4daaccb6cc70871",
+    "zlib": true
+  },
+  {
+    "file": "collect_after_terminal.py",
+    "bytes": 1483,
+    "sha256": "38968abd0868cddaef41d72be6ad1384c0142b7fe0f9bad9872490265a40f29e",
+    "zlib": false
+  },
+  {
+    "file": "hardware/breadboard-WHO8MHz-restored4MHz-invocation.json",
+    "bytes": 771,
+    "sha256": "bf09f526c7a8ead438fd92b438c108f3a6062ec30c96a51e58a0135e2ee4b523",
+    "zlib": false
+  },
+  {
+    "file": "hardware/breadboard-WHO8MHz-restored4MHz-server.log.zlib",
+    "bytes": 674,
+    "sha256": "eb6b6e5f1edf9b507b71ef15f388ab33cc058c15926d679a1ed075e3a4e91818",
+    "zlib": true
+  },
+  {
+    "file": "hardware/breadboard-WHO8MHz-restored4MHz.gdb",
+    "bytes": 2589,
+    "sha256": "18bc08cbb986e422fb2beefd9aa3d6c6946e4124ff65b52b1848fbc08e8cae3e",
+    "zlib": false
+  },
+  {
+    "file": "hardware/breadboard-WHO8MHz-restored4MHz.log.zlib",
+    "bytes": 641,
+    "sha256": "7a42fa42aaab1a22ac32bcc5147d5389cf3b581781797e2b1ceb92c9a18f2548",
+    "zlib": true
+  },
+  {
+    "file": "hardware/breadboard-before-init-image-and-idle-invocation.json",
+    "bytes": 777,
+    "sha256": "541cd82300fbad7e72a14f3849131bb1aea544ababcd11f4ea4a431b86110291",
+    "zlib": false
+  },
+  {
+    "file": "hardware/breadboard-before-init-image-and-idle-server.log.zlib",
+    "bytes": 674,
+    "sha256": "eb6b6e5f1edf9b507b71ef15f388ab33cc058c15926d679a1ed075e3a4e91818",
+    "zlib": true
+  },
+  {
+    "file": "hardware/breadboard-before-init-image-and-idle.gdb",
+    "bytes": 690,
+    "sha256": "e631ba77366f46cacb00ee3ae9886feedcb0d7a008a7a8aa399b986825f4a304",
+    "zlib": false
+  },
+  {
+    "file": "hardware/breadboard-before-init-image-and-idle.log.zlib",
+    "bytes": 273,
+    "sha256": "02b28fcbcb0141477624f9e7709e89715750a09d1b3deaf37a0143bed08433da",
+    "zlib": true
+  },
+  {
+    "file": "hardware/breadboard-gate-collected-collect-after-terminal-invocation.json",
+    "bytes": 788,
+    "sha256": "120d2fd4bddf701676d4bc6b8bc019e822f79733521f41cc4cf468ce6137d456",
+    "zlib": false
+  },
+  {
+    "file": "hardware/breadboard-gate-collected-collect-after-terminal-server.log.zlib",
+    "bytes": 674,
+    "sha256": "eb6b6e5f1edf9b507b71ef15f388ab33cc058c15926d679a1ed075e3a4e91818",
+    "zlib": true
+  },
+  {
+    "file": "hardware/breadboard-gate-collected-collect-after-terminal.gdb",
+    "bytes": 5319,
+    "sha256": "cdf544c1cfabc4a538b98691fb54ba0184f269a76acd877afe8720cfe0dca89e",
+    "zlib": false
+  },
+  {
+    "file": "hardware/breadboard-gate-collected-collect-after-terminal.log.zlib",
+    "bytes": 1873,
+    "sha256": "0175847f6b86400aa151dd27472c18246663ec7534e7a754abd548499ab235eb",
+    "zlib": true
+  },
+  {
+    "file": "hardware/breadboard-n8e-gate-trigger-detach-invocation.json",
+    "bytes": 774,
+    "sha256": "84697dbe5d3de95bfda355c77cdffb907870dd27c8f44a7b0106c63c43dc3010",
+    "zlib": false
+  },
+  {
+    "file": "hardware/breadboard-n8e-gate-trigger-detach-server.log.zlib",
+    "bytes": 674,
+    "sha256": "eb6b6e5f1edf9b507b71ef15f388ab33cc058c15926d679a1ed075e3a4e91818",
+    "zlib": true
+  },
+  {
+    "file": "hardware/breadboard-n8e-gate-trigger-detach.gdb",
+    "bytes": 537,
+    "sha256": "4677a1a9e221d133279ce478e783fdd142dafc58a1751c64c18ba3a66778c6f7",
+    "zlib": false
+  },
+  {
+    "file": "hardware/breadboard-n8e-gate-trigger-detach.log.zlib",
+    "bytes": 1336,
+    "sha256": "0aaf415953eccd78a2902410f6e1f766ecce65a9dd3f20e1982a04fb747aea92",
+    "zlib": true
+  },
+  {
+    "file": "hardware/current-N8E.bin.zlib",
+    "bytes": 53036,
+    "sha256": "59e65cd66ecdfe76b7ace5f2ad0affb3c05ed871c804ec2549d11f6228fbc186",
+    "zlib": true
+  },
+  {
+    "file": "hardware/gate-complete-file-reread-SHA-invocation.json",
+    "bytes": 769,
+    "sha256": "ba2667430bc5069efdc01cd4b29270e261f82afd8e14e82a2e1b6b0de0d848ff",
+    "zlib": false
+  },
+  {
+    "file": "hardware/gate-complete-file-reread-SHA-server.log.zlib",
+    "bytes": 674,
+    "sha256": "eb6b6e5f1edf9b507b71ef15f388ab33cc058c15926d679a1ed075e3a4e91818",
+    "zlib": true
+  },
+  {
+    "file": "hardware/gate-complete-file-reread-SHA.gdb",
+    "bytes": 658,
+    "sha256": "2c65624aaa0c03959f1e286ccf3f28412603e4d317450b39e918782d9181ac25",
+    "zlib": false
+  },
+  {
+    "file": "hardware/gate-complete-file-reread-SHA.log.zlib",
+    "bytes": 1811,
+    "sha256": "71a46ee8f47d796405c8ebb3ccfc2bdf6824515b982a245ed44a1a3484bdf088",
+    "zlib": true
+  },
+  {
+    "file": "hardware/n8e-card-calibrate-invocation.json",
+    "bytes": 758,
+    "sha256": "8ef6c3aaa35126a32777ce33b26cfd99407a58b550d615db26f2f887e64921ae",
+    "zlib": false
+  },
+  {
+    "file": "hardware/n8e-card-calibrate-server.log.zlib",
+    "bytes": 674,
+    "sha256": "eb6b6e5f1edf9b507b71ef15f388ab33cc058c15926d679a1ed075e3a4e91818",
+    "zlib": true
+  },
+  {
+    "file": "hardware/n8e-card-calibrate.gdb",
+    "bytes": 5432,
+    "sha256": "b123f377e670023e34873d2eabf874749a0217ecaab85722dc93bfdbbc156f50",
+    "zlib": false
+  },
+  {
+    "file": "hardware/n8e-card-calibrate.log.zlib",
+    "bytes": 16403,
+    "sha256": "c322b274f065a8732336f4e120e2b5a89f60d91d200311c7a07b733ab7aa0a2e",
+    "zlib": true
+  },
+  {
+    "file": "hardware/n8e-card-names-and-free-readonly-invocation.json",
+    "bytes": 772,
+    "sha256": "b26cbc9ef9ea499e019cc26e3b33173ee61d9655349d0f7afec90e6e57e4fee8",
+    "zlib": false
+  },
+  {
+    "file": "hardware/n8e-card-names-and-free-readonly-server.log.zlib",
+    "bytes": 674,
+    "sha256": "eb6b6e5f1edf9b507b71ef15f388ab33cc058c15926d679a1ed075e3a4e91818",
+    "zlib": true
+  },
+  {
+    "file": "hardware/n8e-card-names-and-free-readonly.gdb",
+    "bytes": 1180,
+    "sha256": "62f60f9ff8250b7f13f6503169ee2e6cce49bb75eee07e1f92a435f2ef2838ea",
+    "zlib": false
+  },
+  {
+    "file": "hardware/n8e-card-names-and-free-readonly.log.zlib",
+    "bytes": 13207,
+    "sha256": "56082ff603222d4d30d4c59ffae5fa408b8e61c8ba2f726e5fa2f5f376f82e0a",
+    "zlib": true
+  },
+  {
+    "file": "hardware_second.py",
+    "bytes": 2412,
+    "sha256": "b05a39aeef30364c64779dfa419508ad90a03092c7257b4afc9ce893d003272a",
+    "zlib": false
+  },
+  {
+    "file": "host-snapshot-short.ps1.zlib",
+    "bytes": 534,
+    "sha256": "5c91ff326fcdaa7a1a72c1d8e3042366a6e20a82c1609456d7c1f9464885945c",
+    "zlib": true
+  },
+  {
+    "file": "host-snapshot-short.stderr.zlib",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "zlib": true
+  },
+  {
+    "file": "host_snapshot_short.py",
+    "bytes": 766,
+    "sha256": "eafdcce13d1a5c52f0f173bb32f7eea3d855cf16afaa1c5ffd2f4a34e2f6cabd",
+    "zlib": false
+  },
+  {
+    "file": "init-card.log.zlib",
+    "bytes": 1336,
+    "sha256": "8697bcc201ad589376b55cade587098bafecb46ba31d15237b6479add043bbfb",
+    "zlib": true
+  },
+  {
+    "file": "init_card.py",
+    "bytes": 2007,
+    "sha256": "782940d7ec0ca26ba88346a031fb17bb86216ce692fe5ecf4d19be57916b9e90",
+    "zlib": false
+  },
+  {
+    "file": "n8e-card-calibrate/body.gdb",
+    "bytes": 5324,
+    "sha256": "9cf4b43dc6c121c91cc3ba0e263c8735d5d84eac454addd6fc98e0234f4c79a4",
+    "zlib": false
+  },
+  {
+    "file": "n8e-card-calibrate/brackets.bin.zlib",
+    "bytes": 4776,
+    "sha256": "b66f918e8d8741df7f1fa06f8219ccfb72990243480a655f310124be04f02c23",
+    "zlib": true
+  },
+  {
+    "file": "n8e-card-calibrate/busy-distributions.bin.zlib",
+    "bytes": 8048,
+    "sha256": "7e6740c91f7c21b361fbb73984f22afef3896b669f9e2a87d31f6e18e9a48432",
+    "zlib": true
+  },
+  {
+    "file": "n8e-card-calibrate/card.bin.zlib",
+    "bytes": 5228,
+    "sha256": "36b2926c81f0c11cb26455d6b3402d76996a865e3fd419cdc7addcb78f0156b5",
+    "zlib": true
+  },
+  {
+    "file": "n8e-card-calibrate/distributions.bin.zlib",
+    "bytes": 80096,
+    "sha256": "ca61cc292aca487b0a45370be2db7dbf6ded99bcc597c934f15ce76b598cb8d3",
+    "zlib": true
+  },
+  {
+    "file": "n8e-card-calibrate/durable-footer.bin.zlib",
+    "bytes": 512,
+    "sha256": "076a27c79e5ace2a3d47f9dd2e83e4ff6ea8872b3c2218f66c92b89b55f36560",
+    "zlib": true
+  },
+  {
+    "file": "n8e-card-calibrate/durable-status.bin.zlib",
+    "bytes": 64,
+    "sha256": "a567e57e1a7f01b45c9bfdee65b727d767193ca4f2b885969262e1fb35519b79",
+    "zlib": true
+  },
+  {
+    "file": "n8e-card-calibrate/fifo-stop-payload.bin.zlib",
+    "bytes": 21,
+    "sha256": "aa447f6b853c0f8a1a88bb148357a7db3894cf51955c2fe110773183232aaad6",
+    "zlib": true
+  },
+  {
+    "file": "n8e-card-calibrate/fifo-stop-trace.bin.zlib",
+    "bytes": 360,
+    "sha256": "d78e13699a3a048e2021537befc780795b139ce09cceed59aca20243159c3b1b",
+    "zlib": true
+  },
+  {
+    "file": "n8e-card-calibrate/header.bin.zlib",
+    "bytes": 512,
+    "sha256": "f4908d81541fc80b91bd803efdcd65cbbc3dc42d57c5b6bce15517e7764144c6",
+    "zlib": true
+  },
+  {
+    "file": "n8e-card-calibrate/outputs.bin.zlib",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "zlib": true
+  },
+  {
+    "file": "n8e-card-calibrate/raw.bin.zlib",
+    "bytes": 14336,
+    "sha256": "6d134fbc1700ef35e3447cd3a5dd81538e51c8ca5b4a96a845b5e1bf79535cc6",
+    "zlib": true
+  },
+  {
+    "file": "n8e-card-calibrate/records.bin.zlib",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "zlib": true
+  },
+  {
+    "file": "n8e-card-calibrate/result.bin.zlib",
+    "bytes": 296,
+    "sha256": "ea171cf791e19ff0401c41ea990150acdb1cf14c1c63b989c189a7d017dadee2",
+    "zlib": true
+  },
+  {
+    "file": "n8e-card-calibrate/result.json",
+    "bytes": 1322,
+    "sha256": "29bb0ba1fa5beebe9732f2d4a897f1fa191072619461da06f4c96cb651470d78",
+    "zlib": false
+  },
+  {
+    "file": "n8e-card-calibrate/sd-distributions.bin.zlib",
+    "bytes": 8048,
+    "sha256": "7e6740c91f7c21b361fbb73984f22afef3896b669f9e2a87d31f6e18e9a48432",
+    "zlib": true
+  },
+  {
+    "file": "n8e-card-calibrate/sd-records.bin.zlib",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "zlib": true
+  },
+  {
+    "file": "n8e-card-calibrate/single-busy-max.bin.zlib",
+    "bytes": 4,
+    "sha256": "df3f619804a92fdb4057192dc43dd748ea778adc52bc498ce80524c014b81119",
+    "zlib": true
+  },
+  {
+    "file": "n8e-card-calibrate/source-sha.bin.zlib",
+    "bytes": 32,
+    "sha256": "66687aadf862bd776c8fc18b8e9f8e20089714856ee233b3902a591d0d5f2925",
+    "zlib": true
+  },
+  {
+    "file": "n8e-card-calibrate/sources.bin.zlib",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "zlib": true
+  },
+  {
+    "file": "n8e-card-calibrate/spi2-config.bin.zlib",
+    "bytes": 8,
+    "sha256": "3b94b11cca9c930ed8faedbbf7c18e4fe7caaa1dea53f2d82f702b3b48c847b3",
+    "zlib": true
+  },
+  {
+    "file": "n8e-card-calibrate/spi3-config.bin.zlib",
+    "bytes": 8,
+    "sha256": "017c103191c616491b1e99ff6eb19d31f3ebc9c3d478968b5b13cac0e44f19eb",
+    "zlib": true
+  },
+  {
+    "file": "native-host.json",
+    "bytes": 794,
+    "sha256": "f24450258808b01d42fa67366f5256fbfeae3dc02d6ea2e306fc2e352a0308e1",
+    "zlib": false
+  },
+  {
+    "file": "preflight.py",
+    "bytes": 729,
+    "sha256": "ba0a68b9583d58f97efb42e0c264e3b6c24ad18ef19d8e1cc930b1b9765c0bfd",
+    "zlib": false
+  },
+  {
+    "file": "run_capture.py",
+    "bytes": 4172,
+    "sha256": "7315f5ec2b0e9475a308c418f6d0ea6133190c91a2778d8bc46d3985552a5be5",
+    "zlib": false
+  },
+  {
+    "file": "start-gate.log.zlib",
+    "bytes": 1719,
+    "sha256": "5dc3c8328b29322724967895ff2fa63788879da53f639dd5df209a0e5473cd63",
+    "zlib": true
+  },
+  {
+    "file": "start_detached.py",
+    "bytes": 3973,
+    "sha256": "3e48e476cc604e08b8ba9cf27cdcb0d53d9c27ef56b341403a8ac3988196a06a",
+    "zlib": false
+  },
+  {
+    "file": "verify-file.log.zlib",
+    "bytes": 33,
+    "sha256": "389bc6c3b9385255d820eb99323a97eacc4d0ae13205a60044ff23da03ce21fe",
+    "zlib": true
+  },
+  {
+    "file": "verify_gate.py",
+    "bytes": 969,
+    "sha256": "34a4a182bdf4fa50dfffa14dd0ee525cc134cb4a38448717f8bd77b908def184",
+    "zlib": false
+  },
+  {
+    "file": "PREPARED_N8F8MHz.json",
+    "bytes": 853,
+    "sha256": "914a4631082ec49b015e1d3ddf98003e2349439105d66e141f2b5cd281a9b55c",
+    "zlib": false
+  }
+]

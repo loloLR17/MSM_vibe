@@ -1,0 +1,28 @@
+{
+  "code_sha": "7b815b103a49b7fb1a8ec681a65206312b0ec16b",
+  "profile": "existing v3/int16/8H duplex, baseline8MHz; qualification short only",
+  "SPI3_Hz": 8000000,
+  "prefix": "N8F",
+  "nominal_guard_us": 30600000000,
+  "file_bytes": 671088640,
+  "images": [
+    {
+      "file": "r3_coex.bin",
+      "bytes": 53032,
+      "sha256": "c2dd380de58f3581337b22f2957ce2265f0eb7f98c06cbeaab2d17bf64494c61"
+    },
+    {
+      "file": "r3_coex.elf",
+      "bytes": 2156036,
+      "sha256": "2f503c2325398f8b840c4e3b1c02bfdf8a50490f6594be7a52de9b763987fa11"
+    },
+    {
+      "file": "r3_coex.map",
+      "bytes": 690608,
+      "sha256": "a1966123deaa4013bb91b4bb637dff1303ea3f65dfaadea3fa41c838f468329b"
+    }
+  ],
+  "no_functional_source_change": true,
+  "no_flash_yet": true,
+  "reason": "4MHz gate FIFO399/work983.775us;16WHO8MHz correct after rewiring"
+}
