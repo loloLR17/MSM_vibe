@@ -1,0 +1,38 @@
+{
+  "utc": "2026-11-01T17:17:12.783281+00:00",
+  "user_reported": [
+    "TR2-001 cut and reconnected",
+    "Disconnected power Dupont wire found and reconnected; polarity unspecified"
+  ],
+  "observed": {
+    "who": 123,
+    "sd_cmd": 0,
+    "sd_r1": 255,
+    "sd_error": 2,
+    "sd_writes": 0,
+    "cid_obtained": false,
+    "reset": {
+      "kind": "GDB monitor reset (System reset)",
+      "count": 1,
+      "justification": "Discovery failure latched; reinitialize only after user wiring correction"
+    },
+    "spi_fault_valid": 0,
+    "gpio_b": {
+      "moder": 201325631,
+      "afr_high": 5242880,
+      "idr": 16384
+    },
+    "gpio_d": {
+      "moder": 4294966975,
+      "afr_low": 348160,
+      "idr": 24
+    },
+    "gpio_f": {
+      "moder": 4261412863,
+      "odr": 4096,
+      "idr": 4096
+    }
+  },
+  "data_symbol_limit": "Retained BSS layout, matching observed result UID and original media-header address; newer discovery ELF supplies data types only. PC/source-line/function labels do not describe the original flashed image and are not used as evidence. No inferior function calls.",
+  "next": "Physical voltage 3V-to-GND at Adafruit reader; identify corrected supply wire; no new writes/flash/acquisition"
+}

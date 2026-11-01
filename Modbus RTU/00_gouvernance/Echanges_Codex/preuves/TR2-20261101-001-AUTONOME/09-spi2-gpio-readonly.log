@@ -1,0 +1,10 @@
+0x0800216a in __get_FAULTMASK () at /home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/CMSIS/Include/cmsis_gcc.h:1353
+1353	  __ASM volatile ("MRS %0, faultmask" : "=r" (result) );
+0xbfa0700:	0x004a003d	0x38425018	0x20333157
+$1 = {MODER = 201325631, OTYPER = 0, OSPEEDR = 134217920, PUPDR = 0, IDR = 16384, ODR = 0, BSRR = 0, LCKR = 0, AFR = {0, 5242880}, BRR = 0, HSLVR = 0, SECCFGR = 65535}
+$2 = {MODER = 4294966975, OTYPER = 0, OSPEEDR = 640, PUPDR = 0, IDR = 24, ODR = 0, BSRR = 0, LCKR = 0, AFR = {348160, 0}, BRR = 0, HSLVR = 0, SECCFGR = 65535}
+$3 = {MODER = 4261412863, OTYPER = 0, OSPEEDR = 0, PUPDR = 16777216, IDR = 4096, ODR = 4096, BSRR = 0, LCKR = 0, AFR = {0, 0}, BRR = 0, HSLVR = 0, SECCFGR = 65535}
+0x40003800:	0x00001000	0x00000001	0x50070007	0x84400000
+0x40003810:	0x00000000	0x0000e007	0x00000000	0x00000000
+$4 = {valid = 0, length = 0, status = 0, error = 0, rx_left = 0, tx_left = 0, sr = 0, cr1 = 0, cr2 = 0, cfg1 = 0, cfg2 = 0}
+[Inferior 1 (Remote target) detached]

@@ -1,0 +1,8 @@
+{
+  "remote_sha": "8c5157a0a5dc0799550110d46e7a1e7fa24c1f60",
+  "utc": "2026-11-01T16:59:01.939646+00:00",
+  "full_files_compared": 44,
+  "proof_hashes_checked": 27,
+  "method": "git fetch origin main; full git show fetched reference against workspace; remote SHA256SUMS against fetched blobs",
+  "physical_qualification": false
+}
