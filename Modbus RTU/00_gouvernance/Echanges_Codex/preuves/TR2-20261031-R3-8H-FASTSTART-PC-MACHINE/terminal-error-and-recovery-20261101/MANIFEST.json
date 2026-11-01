@@ -1,0 +1,440 @@
+[
+  {
+    "file": "READY.json",
+    "bytes": 766,
+    "sha256": "711569ca30f1e999e151e7bd4263a13f26678f4c105c9426442b269f6bc8eba8",
+    "zlib": false
+  },
+  {
+    "file": "REPRISE_APRES_N8G.md",
+    "bytes": 4373,
+    "sha256": "08a140232538bd0d4615e2d1f536e49f25f4bacc38dd5a69d5143bd436052e01",
+    "zlib": false
+  },
+  {
+    "file": "arm/CMakeCache.txt.zlib",
+    "bytes": 16259,
+    "sha256": "3058aeccb917091f097fd8428a08d3b1a700c8c6e5bb180f7303e3800e9efa9f",
+    "zlib": true
+  },
+  {
+    "file": "arm/r3_coex.bin.zlib",
+    "bytes": 53032,
+    "sha256": "61afdfa92f84f7d9a194490a1cda49647e3be1b4d75d023bcff57015d89c75f0",
+    "zlib": true
+  },
+  {
+    "file": "arm/r3_coex.elf.zlib",
+    "bytes": 2156048,
+    "sha256": "ac1c2f0e5aa03eb1e76db822ecb80dadb06c10cd61079e6bda0e88cce1381320",
+    "zlib": true
+  },
+  {
+    "file": "arm/r3_coex.map.zlib",
+    "bytes": 690608,
+    "sha256": "28f464d5232dbb8160aab560c2abc9b2781a3767d54d28fe1130506b7f1327d9",
+    "zlib": true
+  },
+  {
+    "file": "artifact.json",
+    "bytes": 564,
+    "sha256": "850f878639fca35fd152864c9fccb7ce9405a879e8378e5508f77c223c764b33",
+    "zlib": false
+  },
+  {
+    "file": "build.log.zlib",
+    "bytes": 8186,
+    "sha256": "a5c4cb55d91f121c2d949bc916859926964305ec67db7c9ace442d05f51e6fbf",
+    "zlib": true
+  },
+  {
+    "file": "collect-error-terminal.log.zlib",
+    "bytes": 1992,
+    "sha256": "34b665372e5bd30d401ec202cd85c24408a587d3c74433fe7b3a1b052da69a66",
+    "zlib": true
+  },
+  {
+    "file": "collect_error_terminal.py",
+    "bytes": 1962,
+    "sha256": "f5766e1c02ec1a29f7cf3fbfffb8b1435a839dc896470e34c6694c3fa6f2cd8e",
+    "zlib": false
+  },
+  {
+    "file": "configure.log.zlib",
+    "bytes": 600,
+    "sha256": "94b1097f400c52123b0995bec26ff1b72f6ed0be8bd25c6c1b12cc95913bc55a",
+    "zlib": true
+  },
+  {
+    "file": "hardware/long-error-terminal-readonly-collect-invocation.json",
+    "bytes": 776,
+    "sha256": "53fd10fa6b1be75b19ae8a971bd9b54bd587a4940a4852694d5a36b3d3ef09c1",
+    "zlib": false
+  },
+  {
+    "file": "hardware/long-error-terminal-readonly-collect-server.log.zlib",
+    "bytes": 674,
+    "sha256": "eb6b6e5f1edf9b507b71ef15f388ab33cc058c15926d679a1ed075e3a4e91818",
+    "zlib": true
+  },
+  {
+    "file": "hardware/long-error-terminal-readonly-collect.gdb",
+    "bytes": 5424,
+    "sha256": "0ccb350f0ecc7961f702167ec0ceac16d298bfa1a072abbf805f2fa914592480",
+    "zlib": false
+  },
+  {
+    "file": "hardware/long-error-terminal-readonly-collect.log.zlib",
+    "bytes": 2041,
+    "sha256": "83e98c024b9e2c270ec3974ffc2d77f7a30eefe66ee87f78a2606a5188f188b5",
+    "zlib": true
+  },
+  {
+    "file": "hardware/preserve-volatile-tail-and-parser-readonly-invocation.json",
+    "bytes": 782,
+    "sha256": "190feda7e31f65813c946806ddef4f878cc8ef057377ff07fa423bcd5c8768ef",
+    "zlib": false
+  },
+  {
+    "file": "hardware/preserve-volatile-tail-and-parser-readonly-server.log.zlib",
+    "bytes": 674,
+    "sha256": "eb6b6e5f1edf9b507b71ef15f388ab33cc058c15926d679a1ed075e3a4e91818",
+    "zlib": true
+  },
+  {
+    "file": "hardware/preserve-volatile-tail-and-parser-readonly.gdb",
+    "bytes": 1609,
+    "sha256": "69d8cb07bfb2dd203ff8d98fcdfc1ebbbca45ce58dafd5c60b7032e7a7c93dcf",
+    "zlib": false
+  },
+  {
+    "file": "hardware/preserve-volatile-tail-and-parser-readonly.log.zlib",
+    "bytes": 1092,
+    "sha256": "c495e0586a1dc34fcae1f6f9e71049e1bac095c3870484a0f536a58c48eddb03",
+    "zlib": true
+  },
+  {
+    "file": "hardware_second.py",
+    "bytes": 2412,
+    "sha256": "68ee6c14f3aa47da7a4e439fed41fd8fa6c802689c7dfca2b06e1bec4ea5f7d2",
+    "zlib": false
+  },
+  {
+    "file": "long-error-terminal/ERROR_TRANSACTIONS.json",
+    "bytes": 4706,
+    "sha256": "908a96da455f4fc0a2940a9b3527ef1ee10ce2c137124e19d7bf5283012f5d19",
+    "zlib": false
+  },
+  {
+    "file": "long-error-terminal/SD-first-two-records.bin.zlib",
+    "bytes": 1024,
+    "sha256": "7347d29d81cc82c65de3a301741ff8e34ab7a595911ad17e88b0d7b9732356cf",
+    "zlib": true
+  },
+  {
+    "file": "long-error-terminal/SD-footer-location.bin.zlib",
+    "bytes": 512,
+    "sha256": "076a27c79e5ace2a3d47f9dd2e83e4ff6ea8872b3c2218f66c92b89b55f36560",
+    "zlib": true
+  },
+  {
+    "file": "long-error-terminal/SD-header.bin.zlib",
+    "bytes": 512,
+    "sha256": "73a96913fb5dd49e080c43c7c6adb86c112f1c4b467751f5e7be30c4e3105b0b",
+    "zlib": true
+  },
+  {
+    "file": "long-error-terminal/SD-last-two-confirmed-records.bin.zlib",
+    "bytes": 1024,
+    "sha256": "950947f4d0ba0a5050824fd32e2d126534a0b7011657eeaa372257a0848c445e",
+    "zlib": true
+  },
+  {
+    "file": "long-error-terminal/STATUS.json",
+    "bytes": 2177,
+    "sha256": "11c49275ad31c9c8764093622896f16e5f779fda299bde8d3b53ba046a8aeef5",
+    "zlib": false
+  },
+  {
+    "file": "long-error-terminal/VOLATILE_SUFFIX.json",
+    "bytes": 836,
+    "sha256": "22a880359be42463c4e90898ee35b7af287c47213f5ae41cba0345415f02a697",
+    "zlib": false
+  },
+  {
+    "file": "long-error-terminal/brackets.bin.zlib",
+    "bytes": 4752,
+    "sha256": "42a5b2d482e26f6652536943c2d1f77618b55f3f9900020ce9b15396a008e773",
+    "zlib": true
+  },
+  {
+    "file": "long-error-terminal/busy-distributions.bin.zlib",
+    "bytes": 8048,
+    "sha256": "409c02ef1a5a24fc8cbfbb5c3ed79a2351ef21d51b39c6abb39d0923e3a48515",
+    "zlib": true
+  },
+  {
+    "file": "long-error-terminal/card.bin.zlib",
+    "bytes": 5228,
+    "sha256": "e080c409bb7b073301cdf6fa8b9f440bc34fe8cd3a9516d64fc05ae02fbb3f1f",
+    "zlib": true
+  },
+  {
+    "file": "long-error-terminal/current-image.bin.zlib",
+    "bytes": 53032,
+    "sha256": "61afdfa92f84f7d9a194490a1cda49647e3be1b4d75d023bcff57015d89c75f0",
+    "zlib": true
+  },
+  {
+    "file": "long-error-terminal/distributions.bin.zlib",
+    "bytes": 80096,
+    "sha256": "f5717024237044b0eb4be87d98b9cef09af3b0abf420298decba5a75b50ba78a",
+    "zlib": true
+  },
+  {
+    "file": "long-error-terminal/durable-footer.bin.zlib",
+    "bytes": 512,
+    "sha256": "1075f44ce2b5739e254d80c969987dd3594b8facdcd26b78fe41678208bc81cd",
+    "zlib": true
+  },
+  {
+    "file": "long-error-terminal/durable-frame-count.bin.zlib",
+    "bytes": 4,
+    "sha256": "b01099398ce27bbcb7ed256854acc338ba75af739e9d73d741dcb13dc4cbfb56",
+    "zlib": true
+  },
+  {
+    "file": "long-error-terminal/durable-status.bin.zlib",
+    "bytes": 64,
+    "sha256": "88be339322e5941a9fac7eef19fc1ac0f435244ce424a3f775efc3c8eeac8f3f",
+    "zlib": true
+  },
+  {
+    "file": "long-error-terminal/fifo-state.bin.zlib",
+    "bytes": 1080,
+    "sha256": "63be5bed91b1f40e6471ae6daae02ea31d3b857068f6ef5d39451bbfc11804e4",
+    "zlib": true
+  },
+  {
+    "file": "long-error-terminal/fifo-stop-payload.bin.zlib",
+    "bytes": 205,
+    "sha256": "f966fb1279e91aa7964fae9b7de14cc238d9508906e95d4635af9284543a9b6f",
+    "zlib": true
+  },
+  {
+    "file": "long-error-terminal/fifo-stop-trace.bin.zlib",
+    "bytes": 800,
+    "sha256": "c01cc571ef09af9317cf7bd30e7c57e229f22a40350da2676a072408f2f733c0",
+    "zlib": true
+  },
+  {
+    "file": "long-error-terminal/frame-metadata.bin.zlib",
+    "bytes": 8,
+    "sha256": "b32684e41f5029ed11b65fc4db5ce8c3d3645d03e8d22332451539d5ffc9d797",
+    "zlib": true
+  },
+  {
+    "file": "long-error-terminal/header.bin.zlib",
+    "bytes": 512,
+    "sha256": "73a96913fb5dd49e080c43c7c6adb86c112f1c4b467751f5e7be30c4e3105b0b",
+    "zlib": true
+  },
+  {
+    "file": "long-error-terminal/outputs.bin.zlib",
+    "bytes": 6144,
+    "sha256": "c2a555021b10d227a4956aa281be895417538bfa0f66c2385a662f3e058f8336",
+    "zlib": true
+  },
+  {
+    "file": "long-error-terminal/partial-frame.bin.zlib",
+    "bytes": 512,
+    "sha256": "89b55a85b9c6173f12dd9ef9829a63dc2bfa11e77c7e69cbbf1afff16eaa06aa",
+    "zlib": true
+  },
+  {
+    "file": "long-error-terminal/pending-records.bin.zlib",
+    "bytes": 1536,
+    "sha256": "ae04903fe1396693b9d3d6b7251a784d7646e1ca6cfa4b7b511e982cbd9fe0b8",
+    "zlib": true
+  },
+  {
+    "file": "long-error-terminal/queue-full.bin.zlib",
+    "bytes": 65560,
+    "sha256": "0c6fb20c65ad724ad96495f694f5727c599dfc820e0857ef4f0ccb39b32768b8",
+    "zlib": true
+  },
+  {
+    "file": "long-error-terminal/raw.bin.zlib",
+    "bytes": 14336,
+    "sha256": "da50380b805624fa185aa461c88fceaa1397277cad2df71f4eb22469b418ca1d",
+    "zlib": true
+  },
+  {
+    "file": "long-error-terminal/records.bin.zlib",
+    "bytes": 12288,
+    "sha256": "445d7a312603c4854cf935779b0aabadf527e44f0f85f05dc41764b833ef551c",
+    "zlib": true
+  },
+  {
+    "file": "long-error-terminal/result.bin.zlib",
+    "bytes": 296,
+    "sha256": "438e052dede051352d1499af2d72bd908eaf197b1fbf0ce3b1ded4f97fe704e1",
+    "zlib": true
+  },
+  {
+    "file": "long-error-terminal/result.json",
+    "bytes": 1463,
+    "sha256": "dfdda1a47289bb570f51f6476139972efa103094c683230c941f0abf58fb4990",
+    "zlib": false
+  },
+  {
+    "file": "long-error-terminal/sd-distributions.bin.zlib",
+    "bytes": 8048,
+    "sha256": "2554404184a27bf93b5eb585a6ac8f32ca81c7438d92727308d367581dafef77",
+    "zlib": true
+  },
+  {
+    "file": "long-error-terminal/sd-records.bin.zlib",
+    "bytes": 40960,
+    "sha256": "72b3435f735d6cf397aaf2677c42cde7a176ac20f8d365c377ff35ca065f9f66",
+    "zlib": true
+  },
+  {
+    "file": "long-error-terminal/single-busy-max.bin.zlib",
+    "bytes": 4,
+    "sha256": "eab8812a03095f55dbf2ee9acdc47970e087aff0be5fe3421ad2c4f50a2ce49e",
+    "zlib": true
+  },
+  {
+    "file": "long-error-terminal/source-sha.bin.zlib",
+    "bytes": 32,
+    "sha256": "f2c4d8ab8b8ed849d4dcb87545e6f4bb02beed2a5fb7b395f781da4890d15dd8",
+    "zlib": true
+  },
+  {
+    "file": "long-error-terminal/sources.bin.zlib",
+    "bytes": 24576,
+    "sha256": "0df03abe6456820ccc72087927d02c9f0a5391ee816dc30b31d520b02c9c0b81",
+    "zlib": true
+  },
+  {
+    "file": "long-error-terminal/spi2-config.bin.zlib",
+    "bytes": 8,
+    "sha256": "3b94b11cca9c930ed8faedbbf7c18e4fe7caaa1dea53f2d82f702b3b48c847b3",
+    "zlib": true
+  },
+  {
+    "file": "long-error-terminal/spi3-config.bin.zlib",
+    "bytes": 8,
+    "sha256": "7300bf9d3b35a3adf9e9d7736b2afa29919d858ce0131d2a589826cf8d86b315",
+    "zlib": true
+  },
+  {
+    "file": "long-error-terminal/volatile-suffix-XYZ.bin.zlib",
+    "bytes": 1572,
+    "sha256": "02fe49cbfb8bb540873acacff92f77789e300d6c73831401fb32463a6132bca8",
+    "zlib": true
+  },
+  {
+    "file": "long-error-terminal/witness-queries.jsonl.zlib",
+    "bytes": 3847,
+    "sha256": "a38092ec6fa1a69fcdf0da4ff4d95e5ea17692e1412d93069478eb9575a40c1b",
+    "zlib": true
+  },
+  {
+    "file": "long-error-terminal/witness-ready.json.zlib",
+    "bytes": 360,
+    "sha256": "3f0ac3bef5e51271303325fd235c121c1e14bd85433cee701e954d21900fd69a",
+    "zlib": true
+  },
+  {
+    "file": "long-error-terminal/witness-summary.json.zlib",
+    "bytes": 8966,
+    "sha256": "6d144a06de3ddf58ef03ddf559c80caa89ece5b6e957ce75098899c866eddedd",
+    "zlib": true
+  },
+  {
+    "file": "pc-recovery/N8E0003.TR2.json",
+    "bytes": 1866,
+    "sha256": "18750ae4a8580bb5e16f66d1fed8685cb2b9b8e7da7557fee63e10f071c12879",
+    "zlib": false
+  },
+  {
+    "file": "pc-recovery/N8F0003.TR2.json",
+    "bytes": 1865,
+    "sha256": "5150f401a155ce9e70557772be672e166f7990d6c05045c47cc83bd39b0959ef",
+    "zlib": false
+  },
+  {
+    "file": "pc-recovery/N8G0003.TR2.json",
+    "bytes": 1865,
+    "sha256": "cce2029370aff0aacbac4cabeabd6514c131ee6196bf9a7900b5159db5bbd57c",
+    "zlib": false
+  },
+  {
+    "file": "pc-recovery/N8G0005.TR2.json",
+    "bytes": 1870,
+    "sha256": "96a3fdff48fb27bcbbd2a876ff5d50c38e6a0c7d5354719334bb323d8634dd82",
+    "zlib": false
+  },
+  {
+    "file": "pc-recovery/RECOVERY.json",
+    "bytes": 8923,
+    "sha256": "677c5389c7499d62bb5d41b9b2821f4abbadb8c4c0513a883e04bbe02b891f30",
+    "zlib": false
+  },
+  {
+    "file": "pc-recovery/discovery.json.zlib",
+    "bytes": 56,
+    "sha256": "8d6ec098d621568d1bf41a40b88297147098b2054c4ede2f22e057ef819dbd9d",
+    "zlib": true
+  },
+  {
+    "file": "pc-recovery/files.json.zlib",
+    "bytes": 1596,
+    "sha256": "c90ad1c3503be2a471e213cd2b20cbb61d0a3b2a06b013fdd44a7914f8fd8623",
+    "zlib": true
+  },
+  {
+    "file": "pc-recovery/physical-disk.json.zlib",
+    "bytes": 184,
+    "sha256": "adb17de4b85ee9b0de8e58459be0163d77de461ff3da5cd28c89095e695837fe",
+    "zlib": true
+  },
+  {
+    "file": "pc-recovery/volume.json.zlib",
+    "bytes": 191,
+    "sha256": "e82373da6a1aae273f136ea090529952d985bf6e8b19fd40f34ad344ef96a693",
+    "zlib": true
+  },
+  {
+    "file": "recover-pc.log.zlib",
+    "bytes": 879,
+    "sha256": "a7024f1a47dd43beed64465563918995af9d711dc4f1cc9b817769fdca3fe7b4",
+    "zlib": true
+  },
+  {
+    "file": "recover_pc.py",
+    "bytes": 4937,
+    "sha256": "cbd2b9f5b999f23d9200162e05a888104807797d6e13e9d9d8d04b17bf63a535",
+    "zlib": false
+  },
+  {
+    "file": "run_capture.py",
+    "bytes": 4172,
+    "sha256": "f71fa52c15b94d00fdff729e23f3c75c6fc505c78384d315d0ffdfa3c7235a2e",
+    "zlib": false
+  },
+  {
+    "file": "save-volatile-tail.log.zlib",
+    "bytes": 1116,
+    "sha256": "57abc383518c07b47db52110fb6186e9eceeb30d507d80e3d123ad3bb7db3aa7",
+    "zlib": true
+  },
+  {
+    "file": "save_volatile_tail.py",
+    "bytes": 1522,
+    "sha256": "5b3b54eb6ceec24bf74827e93cec60b033d1fa5402c14b21e073dbab09e3b10c",
+    "zlib": false
+  }
+]

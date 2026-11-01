@@ -1,3 +1,9 @@
+# ARRÊT EN ERREUR — campagne N8G terminée, ne pas relancer
+
+Campagne8h nonvalidée, arrêtaprès≈3h30m33MCUnominales surtagFIFOinconnu. OriginalN8G5 INCOMPLETE ; touteslessortiesproduites récupérées grâceaupréfixeSD+262XYZRAM/SHAproducteurexact. Voir [bilan/reprise](terminal-error-and-recovery-20261101/README.md). CarteauPCselonutilisateur, READYinvalidé/verrouspréservés ; aucunSTART/reset/flash/reformatageautomatique. Analyse reportée àlademandeutilisateur ; prochaine missiondistincte àpublier parChatGPT.
+
+---
+
 # DÉJÀ DÉMARRÉ — N8G0005.TR2, ne pas relancer
 
 ACTIVE confirmé le01/11/2026 à08:08:03UTC (09:08:03Paris), run5/session8444550061762804, premiergroupeSD acquitté. La préparationN8F ci-dessous esthistorique etinvalidée aprèsreboot. Les verrousF etG sontconservés, aucun nouveaudépart autorisé surcesfichiers. Voir [checkpointactif](launch-N8G-20261101T080803Z/README.md). Conserveralimentation/STLINK ; aucunreset/flash/GDBpendantlong. Attendreterminal/SDquiet avantrelevéRAMpuistransfertPC, pasde8hqualifiéeanticipée.

@@ -1,0 +1,243 @@
+{
+  "parser_reason": 6,
+  "meaning": "unknown FIFO tag",
+  "transactions": [
+    {
+      "index": 0,
+      "register": "0x3a",
+      "length": 2,
+      "write": false,
+      "valid": true,
+      "status": 0,
+      "error": 0,
+      "payload": "1700"
+    },
+    {
+      "index": 1,
+      "register": "0x78",
+      "length": 161,
+      "write": false,
+      "valid": true,
+      "status": 0,
+      "error": 0,
+      "payload": "217ff4ba3b000a11ef00eafe7f10122c0106ffff0f149200bffec01017f10021ff271011e60067fe941012e60002fffd0f14b80091fe4b1017c300cffed3102197f4ba3b000a111201cdfe8110129300a5fef61014c700cffeca10173101eafeea1011c9007dfedd1012f500a3fe3a11140001abfefd10179b007fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff"
+    },
+    {
+      "index": 2,
+      "register": "0x10",
+      "length": 1,
+      "write": false,
+      "valid": true,
+      "status": 0,
+      "error": 0,
+      "payload": "00"
+    },
+    {
+      "index": 3,
+      "register": "0x10",
+      "length": 1,
+      "write": true,
+      "valid": true,
+      "status": 0,
+      "error": 0,
+      "payload": "00"
+    },
+    {
+      "index": 4,
+      "register": "0xa",
+      "length": 1,
+      "write": false,
+      "valid": true,
+      "status": 0,
+      "error": 0,
+      "payload": "00"
+    },
+    {
+      "index": 5,
+      "register": "0xa",
+      "length": 1,
+      "write": true,
+      "valid": true,
+      "status": 0,
+      "error": 0,
+      "payload": "00"
+    },
+    {
+      "index": 6,
+      "register": "0x19",
+      "length": 1,
+      "write": false,
+      "valid": true,
+      "status": 0,
+      "error": 0,
+      "payload": "20"
+    },
+    {
+      "index": 7,
+      "register": "0x19",
+      "length": 1,
+      "write": true,
+      "valid": true,
+      "status": 0,
+      "error": 0,
+      "payload": "00"
+    },
+    {
+      "index": 8,
+      "register": "0x7",
+      "length": 4,
+      "write": false,
+      "valid": true,
+      "status": 0,
+      "error": 0,
+      "payload": "00000000"
+    },
+    {
+      "index": 9,
+      "register": "0xf",
+      "length": 10,
+      "write": false,
+      "valid": true,
+      "status": 0,
+      "error": 0,
+      "payload": "7b7b7b7b7b7b7b7b7b7b"
+    },
+    {
+      "index": 10,
+      "register": "0x19",
+      "length": 1,
+      "write": false,
+      "valid": true,
+      "status": 0,
+      "error": 0,
+      "payload": "00"
+    },
+    {
+      "index": 11,
+      "register": "0x10",
+      "length": 1,
+      "write": false,
+      "valid": true,
+      "status": 0,
+      "error": 0,
+      "payload": "00"
+    },
+    {
+      "index": 12,
+      "register": "0x10",
+      "length": 1,
+      "write": true,
+      "valid": true,
+      "status": 0,
+      "error": 0,
+      "payload": "00"
+    },
+    {
+      "index": 13,
+      "register": "0xa",
+      "length": 1,
+      "write": false,
+      "valid": true,
+      "status": 0,
+      "error": 0,
+      "payload": "00"
+    },
+    {
+      "index": 14,
+      "register": "0xa",
+      "length": 1,
+      "write": true,
+      "valid": true,
+      "status": 0,
+      "error": 0,
+      "payload": "00"
+    },
+    {
+      "index": 15,
+      "register": "0x19",
+      "length": 1,
+      "write": false,
+      "valid": true,
+      "status": 0,
+      "error": 0,
+      "payload": "00"
+    },
+    {
+      "index": 16,
+      "register": "0x19",
+      "length": 1,
+      "write": true,
+      "valid": true,
+      "status": 0,
+      "error": 0,
+      "payload": "00"
+    },
+    {
+      "index": 17,
+      "register": "0x7",
+      "length": 4,
+      "write": false,
+      "valid": true,
+      "status": 0,
+      "error": 0,
+      "payload": "00000000"
+    },
+    {
+      "index": 18,
+      "register": "0xf",
+      "length": 10,
+      "write": false,
+      "valid": true,
+      "status": 0,
+      "error": 0,
+      "payload": "7b7b7b7b7b7b7b7b7b7b"
+    },
+    {
+      "index": 19,
+      "register": "0x19",
+      "length": 1,
+      "write": false,
+      "valid": true,
+      "status": 0,
+      "error": 0,
+      "payload": "00"
+    }
+  ],
+  "unknown_tag_words": [
+    {
+      "transaction": 1,
+      "word": 18,
+      "tag_byte": "0xff",
+      "tag": 31,
+      "raw_word": "ffffffffffffff"
+    },
+    {
+      "transaction": 1,
+      "word": 19,
+      "tag_byte": "0xff",
+      "tag": 31,
+      "raw_word": "ffffffffffffff"
+    },
+    {
+      "transaction": 1,
+      "word": 20,
+      "tag_byte": "0xff",
+      "tag": 31,
+      "raw_word": "ffffffffffffff"
+    },
+    {
+      "transaction": 1,
+      "word": 21,
+      "tag_byte": "0xff",
+      "tag": 31,
+      "raw_word": "ffffffffffffff"
+    },
+    {
+      "transaction": 1,
+      "word": 22,
+      "tag_byte": "0xff",
+      "tag": 31,
+      "raw_word": "ffffffffffffff"
+    }
+  ]
+}

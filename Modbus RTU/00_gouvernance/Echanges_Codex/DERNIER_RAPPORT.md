@@ -1,6 +1,6 @@
 ---
 mission_id: TR2-20261031-R3-8H-FASTSTART-PC-MACHINE
-status: IN_PROGRESS
+status: FAILED
 base_ref: main
 base_sha: f5850ad2de81a6b7639d947d54751305cde3e75b
 initial_head: d5af0828e370780320bda67fac5d537bf3fd5016
@@ -13,6 +13,20 @@ allow_push: true
 allow_flash: true
 allow_debug: true
 ---
+
+# Bilan N8G — campagne8h en échec, toutes les sorties produites récupérées
+
+**FAILED pour l'objectif8h. RÉCUPÉRATION VÉRIFIÉE des données produites. Analyse ultérieure explicitement reportée par utilisateur pourlibérer la prochaine mission.** [Reprise etpreuves](preuves/TR2-20261031-R3-8H-FASTSTART-PC-MACHINE/terminal-error-and-recovery-20261101/README.md), [rapportdelecturePC](preuves/TR2-20261031-R3-8H-FASTSTART-PC-MACHINE/terminal-error-and-recovery-20261101/pc-recovery/RECOVERY.json). Aucunredémarrage/acquisitionnouvelle.
+
+**Faitobservé :** témoinde08:08:03UTC ACTIVE puis16:08:04UTC erreur1282, failure «Capture not active at second witness» etterminalnull. Pasdepreuve8hactive ni definnormale. Le codeévaluéfbbdde5d328de47922cba688b6e406a327eb13f9/BIN53032B61afdfa92f84f7d9a194490a1cda49647e3be1b4d75d023bcff57015d89c75f0 estentièrementreluconforme. RelevésRAM aprèsindicateurerreurpostcleanup :99/error5/FIFO9/parserreason6 **taginconnu**, durée12632641618µsMCUnominales≈3h30min32,642s,333929976natifsacceptés/33392998sorties. Tracesfinburst :5motsFFFFFFF/tag31 rejetés, statutsHAL sansfaute ; sourcephysique du défautnonétablie. FIFOflags0/rails0/clips0/SDerror0/fileoverflow0. **Arrêtcapteurnonvérifié : stoppedfalse/stop_error6/config**, bienque fifo.runningfalse ; pasdeconclusionODRoffinventée.
+
+SDwriterinactif/done/uncertainfalse/card.failedfalse/CShaute, GDBdétaché etRAMdigest+queue+framepartielle sauvésavantretrait. UtilisateurconfirmecarteaulecteurT1000 ; coupure002demandée maisétatélectriquefinalnonreconfirméséparément. Aucunaccèsmatérieldepuis. NativeRealtek/FAT32/capacitéexacte/TR2INFOcontrôlés enlecture, aucuneformat/réparation/suppression. **OriginalN8G0005.TR2 copié640MiB, hashcarte=copie8cd35a40702236f4124492e14ef4e5d7f6ef919af2022443276db46b9d86e7cb**. Lecteurstrictinchangé : **INCOMPLETE**,428112records/33392736sorties/200356416B de préfixevalide, tousCRC/index/session/tempsvérifiés. SHAdupréfixeSDfa85e260c7c0479be01218218ebe49d6308c600cf63770ec9f3a6c819bfe7a7d, paségalauproducteurentiercar262sortiesn'étaientpasécrites.
+
+**Conservation des acquis :**3recordsRAMenfile+framepartielle28XYZ = **262sorties/1572B**, sauvéesavantcoupure. PréfixeSD+suffixeRAM assemblés uniquementdansnouveauRAWdérivélocal, aucunwriteback ou fauxfooter. **33392998XYZfiltrés/200357988B/SHAf4b91ba13c014e6a7fe0e540da9054be0072cc1019d22765660a5363413d2202**, strictementégalauSHAproducteurRAMindépendant. **Toutes les sortiesfiltrées effectivementproduites sont récupérées octetpourOctet** ; pas8h, pasl'intégralitédesnatifs,8natifs sansancrefuture nonémis. Les3gatesE/F/G sontextraitsPC/CRC/SHAconformes, F3entierinchangé ; autresgrosanciensfichiersnonre-hachés, aucunancienfichierremplacé. LeurlecturePC n'estpas une répétition d'essaiphysique.
+
+Originaux intacts : `/home/lolo/dev/msm/reports/TR2-N8G-launch-recovery-20261101T0802Z/pc-recovery/N8G0005.TR2`. RAWrécupéré : même dossier `RECOVERED_PRODUCER_XYZ_INT16.bin`. **Fichiersvolumineuxlocalementconservés**, Gitseulementmanifestes/hashes/traces/extraits etscripts ; unhashseulnepermetpasderevérificationintégraleindépendantesansaccèsauxdonnées. Reprise locale `REPRISE_APRES_N8G.md`, tousbrutsRAM/SD/witness conservés. AucuneFFT/RMS/métrologienouvelle, analysecausale arrêtée àlademandeutilisateur. Pasdechangementnormatif/importeur/seuil/firmware/FRAM/COM4/001/protectionWindows ; aucunflash/reset/STARTpendantcetterécupération, lesopérationsprélaunchrestentdansl'historique.
+
+Gitinitialdecetterécupérationb05cb47f, worktreeisolé propre/synchronisé avantmodification, deuxstasheshistoriques préservés. Validation proportionnée : inspectionsRAM, copiescartehashées/lecteurstrictentier etcomparaisonSHAproducteur, pasdenouveaubuild/testsPASSinchangés. Journal/PRET/rapportactualisés pourinvaliderSTART/READY ; verrousconservés. Résultattechnique8hFAILED, bilanprêtpourrevueChatGPT etnouvellemission ; publication/relecturedistanteàeffectueravantclôture, SHAfinaldansréponse. Lesrubriquesci-dessous sont l'historique et ne décriventpas unrunencoreactif.
 
 # ACQUISITION8H DÉMARRÉE — N8G0005.TR2
 

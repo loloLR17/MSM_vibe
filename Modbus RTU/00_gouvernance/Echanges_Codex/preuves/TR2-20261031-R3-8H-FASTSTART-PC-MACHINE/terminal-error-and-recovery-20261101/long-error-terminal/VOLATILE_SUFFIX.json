@@ -1,0 +1,34 @@
+{
+  "head": 42496,
+  "tail": 40960,
+  "bytes_pending_queue": 1536,
+  "complete_queued_records": [
+    {
+      "sequence": 428112,
+      "first_output": 33392736,
+      "count": 78,
+      "quality": 0
+    },
+    {
+      "sequence": 428113,
+      "first_output": 33392814,
+      "count": 78,
+      "quality": 0
+    },
+    {
+      "sequence": 428114,
+      "first_output": 33392892,
+      "count": 78,
+      "quality": 0
+    }
+  ],
+  "partial_frame_XYZ": 28,
+  "recovered_volatile_suffix_XYZ": 262,
+  "suffix_bytes": 1572,
+  "suffix_sha256": "02fe49cbfb8bb540873acacff92f77789e300d6c73831401fb32463a6132bca8",
+  "first_output": 33392736,
+  "last_output": 33392997,
+  "full_producer_sha256": "f4b91ba13c014e6a7fe0e540da9054be0072cc1019d22765660a5363413d2202",
+  "comparison_to_SD_prefix_pending": true,
+  "not_written_back_to_card": true
+}
