@@ -1,6 +1,9 @@
 # État courant MSM TR2 — synthèse opérationnelle
 
 
+**02/11/2026 — A1F flashé/rétentionRAM synthétiquePASS, essai court demandé.** UserCN15+STLINK/JP2off/lecteurvide ; identité46, huitièmeflash47/source2a159954/BIN52940Bd4c7b699…2819d-v/-rst/readback48exact. FixtureexplicitementsynthétiqueRAM67224B→unmonitorresetlogiciel→lecture49CRCbootvalid/67224Boctetsexacts/SHA31c35115…2932e ; magic/availableeffacésensuite,0SDwrite/pasFRAM. QualifieNOLOADsurresetlogicieltesté,pasBOR/coupureni captureterminaleréelle. Détaché/SDabsenterefusattendu ; userdemandééjectionPC+carteremisehorstension/CN15seul/JP2off/WAIT→USERuniqueA1F60s, résultatattendu. Paslong/READY. Acquiscode+Epublic9b627669, nouveauxlogsàpublier-relire.
+
+
 **02/11/2026 — A1E échoue, donnéespréfixe sauvées ; A1F préparé/IN_PROGRESS.** UserJP2off/CN15seul→WAIT→USER→rouge~10s. ReconnexionSTLINKsuivieBOOT43/run0/error0/CSR1c004400 : RAMterminaleperdue, token/causeinconnus. GDB44/45sanscâblechangé :CSRclear4400puis4400/IRQcroissants, pasresetattachdanscecomparatif. SDauPC/bancoffconfirmés : copieA1E2Miohash53ea1529…14067exact, strictINCOMPLETE352records/27456XYZ/10,303861sMCU/SHA36f6c401…9f681 ; A/B/C/Dinchangés. Pastoutesproduites/digestRAM,2MHznonrésolu/JP2pasfixcomplet. Source2a159954 snapshotRAMNOLOADCRCaprèsSTOP/file/header/digest/token, gardéauresetquandSRAMpréservée, aucuneFRAM/commandeSDextra. HosttestCRC/commitPARTIELPASS/ARM001etdéfaut002compilePASS/layoutNOLOADhorsBSS vérifié ; A1F60s52940Bd4c7b699…2819dpréparéNONFLASHÉ. DemanderCN15puisSTLINKlecteurvide/JP2offpourqualifierrétentionavantgate ; paslongREADY/START.
 
 

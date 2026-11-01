@@ -1,0 +1,13 @@
+{
+  "test": "SYNTHETIC RAM fixture; not a capture",
+  "software_reset_count": 1,
+  "bytes_retained_identically": 67224,
+  "fixture_sha256": "31c351154fd3b40fc1381e436b1b29d7c66355c980f87ec16ff56a6e6192932e",
+  "boot_CRC_validation": true,
+  "flash_readback_exact": true,
+  "flash_sha256": "d4c7b699fe94fd59ae89810dac46f0a0908f6138b1098dee3e092be41772819d",
+  "synthetic_guard_cleared_after_read": true,
+  "SD_present": false,
+  "SD_writes": 0,
+  "limits": "Warm software reset only, not power loss or every external reset. Actual terminal-snapshot call still requires acquisition evidence."
+}

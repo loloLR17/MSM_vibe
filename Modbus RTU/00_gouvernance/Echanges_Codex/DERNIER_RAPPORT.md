@@ -4,7 +4,7 @@ status: IN_PROGRESS
 base_ref: main
 base_sha: a8817bf293c6e60a93ad824d279ee870b6a0ecf7
 initial_head: 79b952dbb949cb8eb2f208e3b2c5994f4ed1279f
-result_sha: 0751b0604108ccae780074feaf7513cebf2975bc
+result_sha: 2a159954a7df0bc0e986985a7c93ff8793dfb435
 created_at_utc: 2026-11-01T16:57:14.405923+00:00
 author: Codex
 target_branch: main
@@ -15,6 +15,28 @@ allow_debug: true
 ---
 
 # TR2-001 autonome ±16 g — checkpoint ; qualification sans ST-LINK en cours
+
+## A1F flashé — conservation RAM démontrée sur reset synthétique ; essai demandé
+
+Utilisateur confirme CN15 puisST-LINK/JP2retiré/lecteurTR2vide, SD512 auPC.
+Identité001/état précédent sûrs vérifiés46, **huitième flash standard**47 A1F/source2a159954,
+BIN52940B/d4c7b699…2819d vérifié-v/-rst, readback48 entier exact. Pas de carte SD cible.
+
+Pour qualifier le mécanisme nécessaire de conservation avant tout nouvel essai :
+fixture **explicitement synthétique, pas des données acquises**, guard/version/taille/CRC
+écrits seulement en RAM à20085ae0 ; **un reset logiciel** monitor reset, puis lecture49.
+Les67224octets sont identiques avant/après, SHA
+**31c351154fd3b40fc1381e436b1b29d7c66355c980f87ec16ff56a6e6192932e**,
+validation CRC au boot/r3_retained_available=1, marqueurSYNTHETIC eterror52535431
+conformes. Fixture invalidée après sauvegarde (magic0/available0), aucune écriture SD
+ni FRAM. Preuve physique limitée au reset logiciel testé ; pas garantie coupure/BOR
+ni preuve d'exécution du snapshot terminal réel avant prochaine capture.
+
+GDB détaché, firmware arrêté au refus attendu SDabsente sans écriture. Demande utilisateur
+de remise carte hors tension puis **CN15 seul/JP2retiré/WAIT→USER pour A1F60s**, fichier
+neuf A1F0005.TR2 ; résultat en attente, pas encore essai réussi ni départ long.
+Checkpoint9b627669 a préservé code préparé/préfixeA1E, nouvelle preuve à publier/relire.
+
 
 ## A1E sans JP2 — préfixe récupéré ; diagnostic A1F préparé
 
