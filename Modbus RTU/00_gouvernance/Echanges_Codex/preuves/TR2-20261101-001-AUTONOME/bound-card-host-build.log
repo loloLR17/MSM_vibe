@@ -1,0 +1,4 @@
+[ 50%] Built target test_standalone
+[ 75%] Building C object CMakeFiles/test_card512.dir/tests/test_card512.c.o
+[100%] Linking C executable test_card512
+[100%] Built target test_card512

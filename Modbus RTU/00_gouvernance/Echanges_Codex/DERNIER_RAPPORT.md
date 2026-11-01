@@ -4,7 +4,7 @@ status: IN_PROGRESS
 base_ref: main
 base_sha: a8817bf293c6e60a93ad824d279ee870b6a0ecf7
 initial_head: 79b952dbb949cb8eb2f208e3b2c5994f4ed1279f
-result_sha: 56fa3b18e0ed9def3f67d19dfbe06f596b248e94
+result_sha: 94cb3b9570554c16b93c9d2272dcdee7db55ec7c
 created_at_utc: 2026-11-01T16:57:14.405923+00:00
 author: Codex
 target_branch: main
@@ -15,6 +15,33 @@ allow_debug: true
 ---
 
 # TR2-001 autonome ±16 g — checkpoint logiciel ; carte SD non initialisée
+
+## Reprise de qualification — FAT32 monté, gate USER3s en préparation
+
+Utilisateur demande de terminer la mission. Binding exactCID/capacité ajouté au commit
+**94cb3b9570554c16b93c9d2272dcdee7db55ec7c** ; contre-tests mauvaisecapacité/CID et
+ancien32GoPASS, les autres tests déjà acquis non répétés. BuildARM3s/A1APASS,
+BIN52420B **f343a813fdad6fe568402954bb2ac69d37d0b70583d1a16c954cda8c1730d5c6**.
+Troisièmeflashstandard de mission, UID001 contrôlé/CLI-v/rst réussi ; pas de resetextra.
+
+Relevé `18-gate-boot-status.log` : **FAT32 réellement monté** (fs_type3), deuxFAT,
+secteur512/clusters64secteurs=32768B, volbase2048/fatbase3790/database247808,
+122009secteurs parFAT/n_fatent15617121. Calibration sûre±16gPASS :198brackets,
+6623ancres/résidu57µs sous100, FIFOoff ; WHO7B/FSreadback04.
+
+Au relevé : standalone_state1/initialisation, f_getfree encore en cours vers96768
+lectures (~79%de la premièreFAT), aucunefautelogicielle/SD/horloge et zéroécriture.
+LD2bleuefixe rapportée paruser, conforme au fait que le comptage bloque encore
+l'entréeWAIT ; ne pas confondre LD5alimentation et LD1verte. Le boutonUSER ne sera
+pris en compte qu'après le contrôle intégral libre/nom. **Aucun START à ce relevé.**
+Appui physique USER2s demandé seulement après LD1verteclignotante, puis observation
+bleu→vertefixe/rouge et collecte après arrêt ; aucun autre test pendant la capture.
+
+JP6 repéré par l'utilisateur sur **5V-STLK**, aucun changement autorisé en activité.
+Après gate/récupérationRAM : préparer variante60s neuve pour CN15/powerbank et suivre
+UM2861/JP6USB[7–8] hors tension, après contrôle des bornes paruser. NativePCcardread et
+imagefinaleWAIT restent à faire, aucunecampagnelongue lancée. État en préparation,
+pas un résultat de capture ni une qualificationendurance. Historique conservé dessous.
 
 ## Dernière vérification — SD répond après remplacement du CLK, lecture seule
 
