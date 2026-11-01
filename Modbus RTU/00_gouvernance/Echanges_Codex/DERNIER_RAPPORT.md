@@ -4,7 +4,7 @@ status: IN_PROGRESS
 base_ref: main
 base_sha: a8817bf293c6e60a93ad824d279ee870b6a0ecf7
 initial_head: 79b952dbb949cb8eb2f208e3b2c5994f4ed1279f
-result_sha: 2a159954a7df0bc0e986985a7c93ff8793dfb435
+result_sha: e5277e9faf30ea603fb3987f87936f232a590512
 created_at_utc: 2026-11-01T16:57:14.405923+00:00
 author: Codex
 target_branch: main
@@ -15,6 +15,19 @@ allow_debug: true
 ---
 
 # TR2-001 autonome ±16 g — checkpoint ; qualification sans ST-LINK en cours
+
+## A1G chargé — essai discriminant court en attente
+
+Utilisateur confirme CN15 puisSTLINK/lecteurTR2vide/JP2retiré. Identité et arrêt sûr
+51 vérifiés ; **neuvième flash standard**52-v/-rst, source
+**e5277e9faf30ea603fb3987f87936f232a590512**, BIN53052B/SHA
+**7cc861f89349d3b7399624dcfb41c2aa5b4a10615adb7fcccffc41f7e4235979**.
+Readback53 entier strictement identique, WHO7B/FS04, zéro écriture/ODRoff, refusSDabsente
+attendu. Snapshot étendu67440B NOLOAD20085b00–20096270, magicinvalide/available0.
+GDBdétaché. Remise carte hors tension puis CN15seul/JP2off/WAIT→USER A1G60s demandée,
+**résultat non encore observé**, pas de longSTART ni modification du mapper partagé.
+Preuves A1F/codepréparé publiés3be1e1ae et29fichiers relus identiques.
+
 
 ## A1F réel — diagnostic conservé, premier refus localisé dans le suivi d'horloge
 

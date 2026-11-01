@@ -1,6 +1,9 @@
 # État courant MSM TR2 — synthèse opérationnelle
 
 
+**02/11/2026 — A1G chargé/essai court demandé, IN_PROGRESS.** UserCN15puisSTLINK/lecteurvide/JP2off. Identité51 ; neuvièmeflash52sourcee5277e9f/BIN53052B7cc861f8…35979-v/-rst/readback53exact, WHO7B/FS04/0write/refusSDabsenteattendu. Snapshot67440BNOLOAD20085b00–20096270/available0 ; ajoutebracket+mapperseulement,garde100µsinchangée. Détaché ; userdemandécarteremisehorstension/CN15seul/JP2off/WAIT→USERA1G60s/résultatattendu. A1F/29fichierspub3be1e1ae relusidentiques,toutes29999sortiessauvées ; aucunlong ni002/FRAM/COM4.
+
+
 **02/11/2026 — A1F premierrefushorloge identifié, toutes sortiesrécupérées/IN_PROGRESS.** Snapshotréel50CRCcd3c60eb/SHA701eb198…78c9/source2a159954survitreconnexionreset ; ancien99/error3 à11,271195sMCU/113clockchecks/maxresidual223259509µs→fifo_event_time_track,garde100inchangée. SD0/writer0/tokenE5accepté/done/nonincertain/FIFO0/stoppedtrue/file0/rails-clips0/clockgap0. PasmêmecauseSD_RESPONSEA1D. 299984natifs→29999sorties179994B. CarteauPC/001offuser ; nativeF2MioSHA41247c94…bf726exact,A–Einchangés, strictINCOMPLETE384records29952XYZ. +47XYZRAM282B→SHAamontb37ea743…efc7exact :toutesfiltréesproduites sauvées,pas60s/fullnatifs. Mapper/dernierbrutnonretenusdonccausetimestamptransport/calculinconnue ; codee5277e9fajouteuniquementces2diagnostics/profile001/ARMcibléPASS/A1GpréparéNONFLASHÉ,pasalgorithme/seuilchangé. Prochaineflash/gatecourtaprèspréservationpreuves, paslongREADY.
 
 
