@@ -1,10 +1,10 @@
 ---
 mission_id: TR2-20261031-R3-8H-FASTSTART-PC-MACHINE
-status: IN_PROGRESS
+status: BLOCKED
 base_ref: main
 base_sha: f5850ad2de81a6b7639d947d54751305cde3e75b
 initial_head: d5af0828e370780320bda67fac5d537bf3fd5016
-result_sha: d5af0828e370780320bda67fac5d537bf3fd5016
+result_sha: 4307b95cf1f85266266574a04beab96e2fc14b20
 created_at_utc: 2026-10-31T18:24:20.286731+00:00
 author: Codex
 target_branch: main
@@ -13,6 +13,22 @@ allow_push: true
 allow_flash: true
 allow_debug: true
 ---
+
+# N8E duplex 4 MHz — premier refus identifié, préparation 8h bloquée
+
+**BLOCKED sur configuration SPI/FIFO non conforme ; aucune acquisition longue lancée.** Le profil 4 MHz reconnaît WHO=0x7B, mais ne passe pas l'initialisation : FIFO_CTRL4 relu `0x06` au lieu de `0x86`. La calibration n'a pas commencé, aucun gate SD ni fichier N8E créé. [Preuves, décodage et limites](preuves/TR2-20261031-R3-8H-FASTSTART-PC-MACHINE/duplex4-new-wires-20261101/README.md).
+
+Le changement logiciel minimal est publié séparément au code évalué **4307b95cf1f85266266574a04beab96e2fc14b20** : paramètre CMake du diviseur SPI3 existant, défaut 8 MHz préservé, 4 MHz uniquement pour le profil 8H duplex explicite. Mode SPI3 conservé. Aucun changement ODR, ±8 g, gain244µg/compte, FIR107 Q15 /10, format v3, importeur ou seuil. Build ARM ciblé réussi ; anciens PASS sur code inchangé réutilisés, pas de nouvelle campagne hôte/canonique. Avertissements nosys conservés. BIN **53036 octets / SHA-256 59e65cd66ecdfe76b7ace5f2ad0affb3c05ed871c804ec2549d11f6228fbc186** ; ELF/MAP/options inclus dans les preuves.
+
+Un flash standard qualifié après UID/SN/N8A entier/état sûr vérifiés, reset normal de programmation, readback BIN entier exact et WAIT2. Une seule init/calibration commande1 : stage99/error1/run1/FIFOerror6/stop_error0, zéro bracket/anchor/sortie. Carte CID/CSD attendus/FAT32 montée, **trois secteurs lus, zéro écrit**. Script arrêté explicitement en erreur GDB6 ; contrôles noms/libre non atteints, aucune prétention READY. Aucun reset supplémentaire. Le relevé Windows de cette tranche indique aussi PowerOnline=false/Discharging=true : le secteur reste à confirmer pour tout futur long, indépendamment du défaut SPI.
+
+Les traces montrent l'écriture demandée `0x80` à FIFO_CTRL4, puis sa relecture `0x00` ; le RMW suivant écrit `0x06`, ce que la garde refuse correctement. Un contrôle borné du seul champ volatile, FIFO bypass / ODR et timestamps off, ne retrouve pas davantage `0x80` avec écritures/lectures croisées à 1 et 4 MHz. Valeur originale restaurée et SPI3 remis à 4 MHz avant detach. Les codes HAL zéro n'établissent pas la validité physique du bus. La cause exacte reste inconnue : transport, état du capteur ou conditions électriques à départager, pas de défaut exclusif du câblage ou du capteur affirmé.
+
+**État final vérifié à 23:41:29 UTC le31/10 (01/11 local)** : N8E en Flash, stage99/error1/run1, FIFO off/writer inactif/clock_fault0/SD_CS haute/SD writes0/failed=false, GDB détaché et serveur fermé. READY=false, boot WAIT sans auto-start. Les anciens fichiers et preuves, les worktrees et les deux stashes historiques sont préservés. Aucun accès FRAM/COM4/logiciel TR2-001 ni changement Windows de sécurité ; seul le capteur emprunté suivant décision utilisateur reste installé.
+
+Le checkpoint précédent **ae098d301fd2e182e8d874f47425b715629ca3ab** a été relu intégralement : 64 fichiers identiques, 60 artefacts vérifiés ; preuve `new-sensor-wires-20261101/remote-readback.json` ajoutée. Départ de cette tranche : HEAD ae098d30, puis commit logiciel 4307b95c ; branche locale isolée codex/r3-8h-faststart, destination autorisée main. Rapport et preuves courantes à publier puis relire ; SHA final fourni dans la réponse après vérification.
+
+**Prochaine action utile :** distinguer les trames réellement envoyées et reçues sur SCK/CS/MOSI/MISO, avant nouvelle calibration ou gate. Aucun relevé de forme d'onde disponible ; une instrumentation physique relève d'AGENTS.md §9. Pas de nouveau flash identique ou garde abaissée pour partir. Après correction démontrée seulement : calibration, gate FIFO+SD et relecture complète, puis READY et signal LANCE8H. La mission n'est pas clôturée comme acquise. Journal technique actualisé ; rubriques suivantes historiques, leurs états READY/IN_PROGRESS antérieurs ne décrivent pas l'état actuel.
 
 # Reprise après remplacement des fils : dépendance SPI observée, profil4MHz à qualifier
 

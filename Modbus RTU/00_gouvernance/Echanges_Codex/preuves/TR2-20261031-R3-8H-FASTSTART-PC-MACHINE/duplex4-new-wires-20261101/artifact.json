@@ -1,0 +1,26 @@
+{
+  "code_sha": "4307b95cf1f85266266574a04beab96e2fc14b20",
+  "profile": "v3/int16/8H exploratory",
+  "nominal_guard_us": 30600000000,
+  "file_bytes": 671088640,
+  "prefix": "N8E",
+  "SPI3_transport": "existing single-frame duplex",
+  "SPI3_Hz": 4000000,
+  "images": [
+    {
+      "file": "r3_coex.bin",
+      "bytes": 53036,
+      "sha256": "59e65cd66ecdfe76b7ace5f2ad0affb3c05ed871c804ec2549d11f6228fbc186"
+    },
+    {
+      "file": "r3_coex.elf",
+      "bytes": 2156016,
+      "sha256": "6deb0c73d4df409476fd7f319d8db4d685b2727d2417c0dca785cb56ac9a7ed1"
+    },
+    {
+      "file": "r3_coex.map",
+      "bytes": 690608,
+      "sha256": "8f77a0b028554e67b5c8f3c911d6066c099e8683e6c6d03252c82db8823fc79c"
+    }
+  ]
+}

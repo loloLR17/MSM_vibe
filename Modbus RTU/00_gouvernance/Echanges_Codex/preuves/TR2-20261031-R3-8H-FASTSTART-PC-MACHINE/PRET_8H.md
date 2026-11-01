@@ -1,3 +1,11 @@
+# Préparation 8h INVALIDÉE — état actuel BLOCKED au 01/11/2026 local
+
+**Ne pas exécuter le lanceur historique ci-dessous.** La session N8A préparée a été perdue après redémarrage observé. Les reprises ont échoué et le firmware actuellement laissé est N8E duplex4MHz, code4307b95c/BIN59e65cd6…bc186, stage99/error1/run1 après refus FIFO_CTRL4=06 au lieu86. FIFO arrêté, writer inactif, SD au repos ; READY=false. Aucun long n'a démarré. Voir [état et preuves actuels](duplex4-new-wires-20261101/README.md) et DERNIER_RAPPORT.md.
+
+La remise en préparation exige d'abord la résolution du défaut SPI/configuration puis une calibration et un gate FIFO/SD conformes. L'identité WHO7B seule ne suffit pas. Les instructions ci-dessous sont **l'instantané historique de la préparation initiale réussie**, conservé pour traçabilité ; leurs états, image et commande ne décrivent plus le banc actuel.
+
+---
+
 # PRÊT 8H — préparation acquise, attendre LANCE 8H
 
 Mission `TR2-20261031-R3-8H-FASTSTART-PC-MACHINE`, préparation du31/10/2026. **Aucun long n'a démarré.** Image source `d5af0828e370780320bda67fac5d537bf3fd5016`, BIN54556B/SHA`c31904feca48fd06d6102eee40b54b373bbfe5e9896d0ddc007434cf253ddc17`, ELF/SHA`45831eccc8744bce99c5f2c51b5d79564ee9c6416c6986d7a47f6e733376fbcf`. Build isolé `arm/`, v3/int16, FIR107Q15/décimation10/244µg nominal/±8g logique inchangés ; garde30600000000µsMCU, préallocation640MiB, prefixN8A. RelectureFlash entière identique. Un seul flash normal avec reset de programmation, aucun reset supplémentaire.

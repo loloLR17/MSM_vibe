@@ -1,0 +1,10 @@
+{
+  "previous_N8A_entire_BIN_identical": true,
+  "UID": "001B0046/38425018/20333157",
+  "SN": "0032001F3235510C37333439",
+  "MCU_idle": true,
+  "ODR_FIFO_TS_off_masks_read": true,
+  "temporary_read_4MHz_only": true,
+  "restored_8MHz": true,
+  "GDB_detached": true
+}

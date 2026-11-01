@@ -1,0 +1,26 @@
+{
+  "initial_controls_at_1MHz": [
+    24,
+    0,
+    0
+  ],
+  "written_value": 128,
+  "write4_read4": 0,
+  "write4_read1": 0,
+  "write1_read1": 0,
+  "write1_read4": 0,
+  "restored_CTRL4_read1": 0,
+  "return_codes": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "restored_SPI3_Hz": 4000000,
+  "no_FIFO_or_ODR_or_TS_start": true,
+  "no_calibration_retry": true
+}
