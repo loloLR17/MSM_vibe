@@ -1,0 +1,11 @@
+# TR2-002 — vérification rapide après câblage par breadboard
+
+Demande utilisateur : tous les fils Dupont repris par la breadboard, TR2-002 connecté en ST-LINK, TR2-001 débranché ; contrôle rapide seulement. Il confirme que le module installé est **le capteur emprunté à TR2-001**. Étendue exacte des changements aux fils SD non précisée ; aucune inspection ou intervention physique de Codex.
+
+Deux sessions GDB qualifiées, SN002/UID002 vérifiés. Première : firmware N8E53036octets relu intégralement identique au BIN59e65cd66ecdfe76b7ace5f2ad0affb3c05ed871c804ec2549d11f6228fbc186/source4307b95c, WAITstage2/error0/run0/FIFOoff/writeroff/clockfault0/SDCShaute. SPI3CFG1=10070007/CFG2=87400000, profilduplex4MHznominal/mode3. Seconde : **huit lectures WHO à la fréquence présente, toutes0x7B**, huit retoursHAL0 ; puis lectures CTRL1_XL10h=00/FIFO_CTRL40Ah=00/CTRL10_C19h=00, retoursHAL0. Données scratch RAM seulement ; aucun registre capteur écrit, prescaler inchangé, état métier initial non forcé.
+
+**Aucun build, flash, reset, commande init/calibration, START, essaiFIFO, fonctionSD, accèsCOM4/TR2-001/FRAM ou changement Windows de sécurité.** La remise sous tension utilisateur a laissé le firmware WAIT, sans auto-acquisition. Résultat positif limité à ces lectures : WHO était déjà correct à4MHz avant cette modification, donc aucune amélioration chiffrée ni causalité de la breadboard déduite. L'ancienne disparition du bit80 à l'écriture n'est pas retestée ; ne pas déclarer la configuration réparée ou READY8h.
+
+Final stage2/error0/run0, FIFOoff/writeroff/SDwrites0/CShaute ; GDB détaché, serveurs terminés. Capteur ODRoff/FIFObypass/TSoff selon les lectures. Carte SD non identifiée ni noms/libre vérifiés dans cette tranche. Prochaine étape distincte possible : initialisation/calibration bornée, si demandée, avant tout gate ou long ; ne pas la lancer au titre de ce simple contrôle. Le comparatif capteurinitial002 sur001 demandé précédemment **n'a pas été effectué** et est suspendu par ce changement de montage.
+
+Preuves originales `/home/lolo/dev/msm/reports/TR2-002-breadboard-quick-20261101`, scripts/commandes/logs/bruts/manifestSHA inclus (zlib sans perte). Publication/relecture Git distincte du résultat matériel. Aucun ancien test validé répété ; pas de requalification métrologique/±8g/SD/8h.

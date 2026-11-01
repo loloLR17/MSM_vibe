@@ -4,7 +4,7 @@ status: BLOCKED
 base_ref: main
 base_sha: f5850ad2de81a6b7639d947d54751305cde3e75b
 initial_head: d5af0828e370780320bda67fac5d537bf3fd5016
-result_sha: 72a7b57381f61e9f24c6bdcd20dd70a38dbc70de
+result_sha: 4307b95cf1f85266266574a04beab96e2fc14b20
 created_at_utc: 2026-10-31T18:24:20.286731+00:00
 author: Codex
 target_branch: main
@@ -13,6 +13,18 @@ allow_push: true
 allow_flash: true
 allow_debug: true
 ---
+
+# TR2-002 recâblé par breadboard — contrôle rapide en lecture positif
+
+À la demande utilisateur, **contrôle rapide uniquement**, sans nouvelle acquisition : tous les fils Dupont repris par breadboard selon utilisateur ; capteur confirmé **emprunté àTR2-001**, TR2-002 connecté et001 débranché. Le comparatif prévu avec le capteur initial002 sur001 n'a donc pas eu lieu et reste suspendu. [Preuves](preuves/TR2-20261031-R3-8H-FASTSTART-PC-MACHINE/TR2-002-breadboard-quick-20261101/README.md).
+
+SN/UID002 et firmwareN8E/source4307b95c vérifiés ;53036octetsFlash strictementidentiques au BIN59e65cd66ecdfe76b7ace5f2ad0affb3c05ed871c804ec2549d11f6228fbc186, aucunflash. SPIduplex4MHznominal/mode3 inchangé. **Huit lectures WHO :8×0x7B, huit retoursHAL0**. Lectures CTRL1_XL/FIFO_CTRL4/CTRL10_C=00/00/00 : ODRoff/FIFObypass/TSoff observés, retours0. Aucune écriture registre-capteur ni changement de fréquence ; scratchRAM seulement.
+
+**Limite : le défaut d'écriture80/config86 n'a pas été retesté.** WHO était déjà correct à4MHz avant recâblage ; pas de réparation ou effet causal de la breadboard déclaré. Mission8h demeureBLOCKED/READYfalse jusqu'à configuration/calibration/gate conformes. Une éventuelle init/calibration serait une étape distincte, non lancée ici au titre d'une vérification rapide.
+
+État vérifié06:48:25UTC01/11 : WAITstage2/error0/run0, FIFOoff/writeroff/clockfault0/SDwrites0/CShaute, GDBdétaché/serveursfermés. Aucunbuild/reset/flash/init/calibration/START/SD/COM4/001/FRAM ni protectionWindows touchés. Étendue des changements physiques sur les filsSD non précisée, carte non interrogée ici. Les états99 précédents décrivent l'ancien boot, pas l'état WAIT actuel ; leurs échecs restent acquis. Le result_sha correspond de nouveau au firmware002 réellement contrôlé, les preuves positives001/source72a7 restent ci-dessous.
+
+DépartGit5c78bf84 propre/synchronisé, modifications limitées au rapport/journal/preuves ; anciens testsPASS nonrejoués. Checkpoint à publier puis relire, SHA final dans réponse. Journal actualisé avec nouveau montage/résultat et limites.
 
 # Extension humaine TR2-001 — capteur fonctionnel sur son banc de référence
 

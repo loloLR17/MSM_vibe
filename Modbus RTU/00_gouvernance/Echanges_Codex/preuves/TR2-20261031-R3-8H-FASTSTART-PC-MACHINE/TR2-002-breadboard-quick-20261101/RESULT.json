@@ -1,0 +1,59 @@
+{
+  "utc": "2026-11-01T06:48:25.189697+00:00",
+  "UID": "001B0046/38425018/20333157",
+  "SN": "0032001F3235510C37333439",
+  "code_sha": "4307b95cf1f85266266574a04beab96e2fc14b20",
+  "BIN_sha256": "59e65cd66ecdfe76b7ace5f2ad0affb3c05ed871c804ec2549d11f6228fbc186",
+  "entire_BIN_identical": true,
+  "SPI_nominal_Hz": 4000000,
+  "WHO_reads": [
+    123,
+    123,
+    123,
+    123,
+    123,
+    123,
+    123,
+    123
+  ],
+  "WHO_return_codes": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "WHO_all_expected": true,
+  "controls_read_only": [
+    0,
+    0,
+    0
+  ],
+  "control_return_codes": [
+    0,
+    0,
+    0
+  ],
+  "no_flash": true,
+  "no_reset": true,
+  "no_calibration_trigger": true,
+  "no_acquisition_START": true,
+  "no_SD_access": true,
+  "no_sensor_register_write": true,
+  "GDB_detached": true,
+  "user_reports": "All Dupont wires through breadboard; TR2-002 ST-LINK connected; TR2-001 disconnected",
+  "sensor_module_identity_not_yet_confirmed": false,
+  "sensor_module_reported_by_user": "capteur emprunt\u00e9 \u00e0 TR2-001",
+  "stage": 2,
+  "error": 0,
+  "run": 0,
+  "FIFO_running": false,
+  "writer_active": false,
+  "SD_writes": 0,
+  "clock_fault": 0,
+  "SD_CS_high": true,
+  "prepared_for_8h": false
+}

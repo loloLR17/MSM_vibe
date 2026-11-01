@@ -1,0 +1,86 @@
+[
+  {
+    "file": "RESULT.json",
+    "bytes": 1239,
+    "sha256": "1736d8099dd6421b8c16af617d27d6d2f7c5e52729f97e2941e71d7c5b116cc4",
+    "zlib": false
+  },
+  {
+    "file": "STLINK_LIST.log.zlib",
+    "bytes": 506,
+    "sha256": "a811f52d2c09b9827bc2d5f356a1202f12b45e8b7f159fa0944db690cf2ddb3d",
+    "zlib": true
+  },
+  {
+    "file": "hardware/WHO-eight-readonly-current-4MHz-invocation.json",
+    "bytes": 755,
+    "sha256": "559381545c8b835104df7d89946af47f049027327b45db76ec7a96b10aaa7b1d",
+    "zlib": false
+  },
+  {
+    "file": "hardware/WHO-eight-readonly-current-4MHz-server.log.zlib",
+    "bytes": 674,
+    "sha256": "eb6b6e5f1edf9b507b71ef15f388ab33cc058c15926d679a1ed075e3a4e91818",
+    "zlib": true
+  },
+  {
+    "file": "hardware/WHO-eight-readonly-current-4MHz.gdb",
+    "bytes": 2017,
+    "sha256": "10268c72c7f2edad035ba13c8c673132878005f17cc51420dd4c40058e770a83",
+    "zlib": false
+  },
+  {
+    "file": "hardware/WHO-eight-readonly-current-4MHz.log.zlib",
+    "bytes": 589,
+    "sha256": "0b2948fba5d5df248b61b6a6edd6a9ac8090c6e067e363ea04e90da385146b85",
+    "zlib": true
+  },
+  {
+    "file": "hardware/flash-prefix.bin.zlib",
+    "bytes": 53036,
+    "sha256": "59e65cd66ecdfe76b7ace5f2ad0affb3c05ed871c804ec2549d11f6228fbc186",
+    "zlib": true
+  },
+  {
+    "file": "hardware/identity-image-idle-invocation.json",
+    "bytes": 743,
+    "sha256": "6466da625600fbdb0f872372ee5ed308b474d8ad1202cbfe03a0f58c2fa16382",
+    "zlib": false
+  },
+  {
+    "file": "hardware/identity-image-idle-server.log.zlib",
+    "bytes": 674,
+    "sha256": "eb6b6e5f1edf9b507b71ef15f388ab33cc058c15926d679a1ed075e3a4e91818",
+    "zlib": true
+  },
+  {
+    "file": "hardware/identity-image-idle.gdb",
+    "bytes": 707,
+    "sha256": "a3f7ce7c42798cda611bfa61a17e902b70255231a6f888f1e1dc65e8bf245615",
+    "zlib": false
+  },
+  {
+    "file": "hardware/identity-image-idle.log.zlib",
+    "bytes": 315,
+    "sha256": "3f1d7a3f5b21ba1098865d43f3f2d6eeda05fff5dfb6bb2a6dc3f8f5ddd571af",
+    "zlib": true
+  },
+  {
+    "file": "qualified_helper_reference.py",
+    "bytes": 2401,
+    "sha256": "d82af0539d984e5c05c9a9d4b4364b68b5387ab29c705df01001d57580bc7bb9",
+    "zlib": false
+  },
+  {
+    "file": "quick_read.py",
+    "bytes": 3283,
+    "sha256": "9b65c03a17f21e46d7c115ca94fce9d11b564e26cda66457d59779084eabe9dc",
+    "zlib": false
+  },
+  {
+    "file": "who-and-controls.bin.zlib",
+    "bytes": 96,
+    "sha256": "d013a0da49f57ae94cfed40e4e0e320de31045bcf67ca0ffc8650ee7b1771014",
+    "zlib": true
+  }
+]
