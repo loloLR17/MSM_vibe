@@ -4,7 +4,7 @@ status: IN_PROGRESS
 base_ref: main
 base_sha: a8817bf293c6e60a93ad824d279ee870b6a0ecf7
 initial_head: 79b952dbb949cb8eb2f208e3b2c5994f4ed1279f
-result_sha: 94cb3b9570554c16b93c9d2272dcdee7db55ec7c
+result_sha: c4f152ebcdcba1ec156809c6212b2e5165e01b4c
 created_at_utc: 2026-11-01T16:57:14.405923+00:00
 author: Codex
 target_branch: main
@@ -15,6 +15,40 @@ allow_debug: true
 ---
 
 # TR2-001 autonome ±16 g — checkpoint logiciel ; carte SD non initialisée
+
+## Reprise22UTC — 60s STLINK intégralement relues, alimentation autonome encore à résoudre
+
+**A1C PASS cible etPC, sans répétition de l'essai réussi.** SurSTLINK/JP6STLK :
+60000418µsMCU/1596856natifs→159686filtrés/958116B utiles,0rails/clips/FIFO/SD/filefaute,
+FIFO52/file5120B/work735,5125/service1461,8125/gap1721µs, seuils inchangés.
+STOP134µs/drain14840µs, FIFOoff/queue0/writeroff/nonincertain ; observermatérielarrêtfinal
+uniquement/detach. Relecture native WindowsUSB (disque1/D: à22:07) :copie2Mio entière
+source=destination **3560b45ce97627a31ac68b29ac19bcc198e076d828378f6808b2ef4ec8044950**,
+**2048records/159686XYZ COMPLETE** etSHAamontRAM
+**d29e04f2219dac04ff6d6523f49d0ce49a02ac82f898b639e2f1983d4620bd07** exact.
+A1A/A1B re-hachés inchangés. Extents utilesC lossless publiés, queuepréallouée exclue.
+Cette relecture achève la preuve du fichier C ; pas d'autonomieénergétique8h implicitement.
+
+**ComparaisonB/C** : BIN52416B strictement identiques après remplacement des seules
+constantesSHA40octets/préfixeA1B→A1C ; aucun algorithme ou garde modifié. Cela ne
+sépare pas à lui seul sourcephysique/debugger/montage ; échecB conservé sanscauseinventée.
+
+**A1D diagnostique60s préparée/non démarrée**, nouveaupréfixe/codeC4f152eb,
+sixièmeflashstandard de mission-v/rst, effectué SDabsente après sauvegarde C.
+UserSDremise/JP6USB4epaire[7–8]/CN15bankA→C+STLINK confirmé, aucunUSER.
+GDB30 :STLINK détecté maisMCUabsent. UserLD4rougeseule/**0Vlecteur**, JP6sur4epaire
+confirmé. Réveilbankuser :LEDs5/7/2 annoncées transitoires, ne restentpas ; pas d'acquisitionD.
+Ce sont des faits d'alimentation au repos ; ni code d'erreur initial B ni causeélectrique
+exclusive n'est établi. Aucun changementGPIO/câblage/OptionBytes/protection.
+
+À la propositionuser, mêmeCN15 alimenté USB-A T1000 (JP6USB/STLINKprésents) :MCU
+accessible, maisbootSDrefus3/CMD0R1=0,0write/0cal/0capture ; snapshot31 sauvegardé,
+aucune attente protocole assouplie. Changementde source sans coupurefroide prolongée
+n'est pas une preuve de défaut du firmware ; un démarragefroid complet reste nécessaire.
+User propose désormais une **alimentationsecteurUSB-C5V**. Vérificationautonome sur
+sourceconstanteprévue, banque actuelle nonqualifiée ; utilisationsecteur pourcampagne
+soumiseàla confirmation de disponibilité au réducteur. Pasd'imageprodlongueflashée,
+pasREADY8h niSTARTlong. Tousfichiersdéjàacquis sauvegardés, SDsansécriture àl'état31.
 
 ## Relecture PC acquise — 3s COMPLETE ; essai powerbank INCOMPLETE ; diagnostic A1C en cours
 

@@ -1,0 +1,2 @@
+\\wsl.localhost\Debian\home\lolo\dev\msm\reports\TR2-001-autonome-reducteur-20261101\hardware\30-bank-d-terminal-observer.gdb:4: Error in sourced command file:
+could not connect (error 138): Le système a tenté de joindre un lecteur à un répertoire stocké sur un lecteur joint.

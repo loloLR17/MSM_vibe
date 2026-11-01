@@ -1,0 +1,9 @@
+{
+  "source_sha": "c4f152ebcdcba1ec156809c6212b2e5165e01b4c",
+  "sha256": "eb0a8040ceeddf418caf0833c27fee4d8b88a0b79a9f52af23f476a459698a88",
+  "bytes": 52416,
+  "duration_us": 60000000,
+  "prefix": "A1D",
+  "start": "USER only",
+  "power": "CN15 bank plus ST-LINK debugger; diagnostic, not pure autonomous qualification"
+}

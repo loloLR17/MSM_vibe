@@ -1,0 +1,11 @@
+{
+  "B_source": "50e47473b7460e728759886e6926b0c177c72ad3",
+  "C_source": "c885e50588b48105d2e12853cda0a9f06f1eb10e",
+  "bytes_each": 52416,
+  "only_changed": {
+    "firmware_source_SHA_string": 40,
+    "file_prefix": "A1B -> A1C"
+  },
+  "binary_equivalent_after_only_these_constant_replacements": true,
+  "limit": "Power path, external conditions and debugger presence differ; does not isolate physical root cause"
+}
