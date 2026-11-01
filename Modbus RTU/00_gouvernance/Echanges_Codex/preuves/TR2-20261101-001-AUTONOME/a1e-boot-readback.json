@@ -1,0 +1,6 @@
+{
+  "bytes": 52448,
+  "sha256": "c88e8c69622a33ab27de1e6b7c5cf3c94774adb998c616b8b58bfc7a169a99f0",
+  "exact_expected_image": true,
+  "no_reset_flash_or_sd_commands": true
+}

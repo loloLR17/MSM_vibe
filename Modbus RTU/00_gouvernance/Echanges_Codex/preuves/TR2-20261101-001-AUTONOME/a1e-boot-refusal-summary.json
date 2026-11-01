@@ -1,0 +1,7 @@
+{
+  "reported_by": "user",
+  "observation": "On reconnecting ST-LINK, blue approximately one second then red blinking again.",
+  "target_observation": "38: stage99/error2/SD_TIMEOUT at ACMD41, no calibration or capture, SD writes0; 39: exact flash52448B, CFSR/HFSR0, PG2 high, CSR0x0c004400 cumulative BOR/PIN;40: flags cleared by HAL-equivalent volatile RMVF, readback0x4400, no reset.",
+  "limits": "Reset occurred since36 (new SD init/calibration cleared); temporal cause and electrical cause not established. Raw 0x46020c94 in38 is AHB3ENR, not reset CSR; correct CSR0x46020cf4 read in39/40.",
+  "next": "User asked disconnect ST-LINK only keeping CN15, measure reader3V/GND, reconnect; compare flags/counters without reset/flash/SD retry."
+}

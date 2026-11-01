@@ -1,0 +1,13 @@
+Error_Handler () at /home/lolo/dev/msm/projects/MSM_vibe-TR2-001-autonome/experiments/r3_durable_fat32/src/main.c:140
+140	 for(;;){
+0xbfa0700:	0x004a003d	0x38425018	0x20333157
+$1 = 0xc004400
+$2 = 0x0
+$3 = 0x0
+$4 = 0x30003
+$5 = 0xffffffdf
+$6 = 0x4
+$7 = 0x4
+$8 = 79923
+$9 = {valid = 0, length = 0, status = 0, error = 0, rx_left = 0, tx_left = 0, sr = 0, cr1 = 0, cr2 = 0, cfg1 = 0, cfg2 = 0}
+[Inferior 1 (Remote target) detached]

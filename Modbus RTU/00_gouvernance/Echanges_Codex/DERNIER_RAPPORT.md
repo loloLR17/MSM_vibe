@@ -16,6 +16,29 @@ allow_debug: true
 
 # TR2-001 autonome ±16 g — checkpoint ; qualification sans ST-LINK en cours
 
+## Reprise — rouge après reconnexion : refus SD avant acquisition
+
+Utilisateur : bleu environ une seconde à la reconnexion ST-LINK puis rouge clignotant
+à nouveau. Lecture38 sans reset/flash : **Error_Handler/stage99/error2=SD_TIMEOUT**,
+WHO7B/FS04 conformes, **aucune calibration ni capture ni écriture**, FAT non monté.
+CMD0 et CMD8 ont répondu correctement (idle1/echo01AA), puis ACMD41 reste idle1
+sur plusieurs centaines de commandes et finit sans réponse (R1FF). Ce n'est ni une
+preuve de besoin logiciel du ST-LINK, ni le précédent refus d'écriture A1D.
+Le retour aux variables initiales depuis36 montre un nouveau démarrage entre relevés ;
+son instant et sa cause ne sont pas déterminés.
+
+Lecture39 : Flash52 448 octets exactement identique au BIN A1E attendu,
+CFSR/HFSR=0, LD3/PG2 effectivement haute à cette phase de clignotement ; aucun
+HardFault signalé. RCC_CSR réel **0x46020CF4=0x0C004400**, BOR/PIN cumulés, non
+attribuables au dernier branchement. L'adresse0x46020C94 dans38 est AHB3ENR,
+**pas CSR** ; aucune interprétation reset de cette adresse. Après sauvegarde, lecture40
+remet uniquement les flags volatils à zéro via RMVF (équivalent HAL documenté),
+CSR relu0x4400, IRQ103846, erreur2 inchangée, SDwrite0 ; aucun reset effectué.
+Débogueur détaché. Une seule transition physique ST-LINK seul retiré/réinséré avec
+CN15 conservé et mesure3V/GND du lecteur est demandée à l'utilisateur pour comparer
+les nouveaux flags et la continuité du compteur. Pas de retry SD ni d'essai A1E lancé.
+
+
 ## Checkpoint A1D / A1E — refus SD reproduit sur secteur, données récupérées
 
 **IN_PROGRESS**, pas de firmware longue campagne déclaré prêt. A1A 3 s et A1C 60 s
