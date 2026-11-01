@@ -16,6 +16,45 @@ allow_debug: true
 
 # TR2-001 autonome ±16 g — checkpoint ; qualification sans ST-LINK en cours
 
+## A1E sans JP2 — préfixe récupéré ; diagnostic A1F préparé
+
+Utilisateur confirme JP2 retiré/CN15 seul, puis WAIT vert clignotant, USER pour60s,
+erreur après environ10s. **Ce test n'est pas réussi.** À la reconnexion ST-LINK,
+bleu observé : relevé43 montre un **nouveau BOOT** (run0/error0/writes0, calibration22µs,
+lecturesFAT5825/CSR1c004400), **pas l'état terminal de l'essai**. RAM terminale perdue,
+aucun token ni cause exacte déductible de ce snapshot. Le retrait de JP2 n'est donc
+pas une correction complète du problème de reconnexion/diagnostic. Relevés44/45
+sans toucher aux câbles : flags remis4400 puis toujours4400, IRQ78246→82820,
+lectures26292→27875 ; les deux attachements GDB préservent ici l'exécution.
+
+Transfert SD512 au PC effectué utilisateur, banc hors tension. Copie native complète
+A1E2Mio : **53ea152900a9ded7a1be9a3880752c6bd6f937ba64e94caf30dd2bcca7114067**,
+source=destination ; anciens A/B/C/D re-hachés inchangés. Lecteur strict : **INCOMPLETE,
+352records CRC/séquence valides,27456XYZ/164736B, préfixe10,303861s MCU nominales**,
+SHApayload **36f6c401ed932a38d2bab67aaa4e55a9382dbdc9db69f6f7cb92b5dc90e9f681**.
+Pas de footer ni preuve de toutes les sorties produites, puisque digest RAM perdu.
+La baisse SD2MHz n'a pas résolu le défaut. Extents utiles lossless publiés ; original
+entier local, aucun formatage/réparation/writeback.
+
+**Diagnostic A1F préparé, non flashé à ce checkpoint**, source
+**2a159954a7df0bc0e986985a7c93ff8793dfb435** : snapshot après STOP en RAM NOLOAD,
+avec version/taille/CRC et publication du magic en dernier. Contient result/writer/token,
+file entière/partiel/header/digest et provenance. Conservé à travers le zéro BSS si la
+SRAM survit au reset ; **aucune garantie après coupure**, pas de FRAM ni nouvelle commande
+SD. Invalidation seulement avant USER suivant, pas de remplacement par un refus au boot.
+Ajout strictement profil001 ; script de lien partagé inchangé.
+
+Test hôte ciblé CRC/commit incomplet/taille/version/corruptions **PASS** ; ARM001 et
+compilation profil défaut002 **PASS**, pas de tests réussis inchangés rejoués. Tentative
+build avant finconfiguration refusée sanscache, puis warning indentation traité en erreur
+et corrigé sans désactiver contrôle ; logs négatifs conservés. Linker : .bss finit
+20085adc, **.tr2_retained NOLOAD 20085ae0–20096178**, hors zéro startup et zone peinte
+de pile (guard étendu),67224octets retenus. BIN52940B/SHA
+**d4c7b699fe94fd59ae89810dac46f0a0908f6138b1098dee3e092be41772819d**,
+A1F0005.TR2/60s/SD2MHz/SPI3 8MHz/FS16/gardes inchangés. Conservation réelle au reset
+et prochain refus à qualifier ; pas de solution SD ni firmware longue campagne déclaré prêt.
+
+
 ## Transition contrôlée — reset NRST démontré, couplage JP2 à vérifier
 
 Utilisateur : **3,23 V** au lecteur SD pendant le retrait du ST-LINK, CN15 conservé ;

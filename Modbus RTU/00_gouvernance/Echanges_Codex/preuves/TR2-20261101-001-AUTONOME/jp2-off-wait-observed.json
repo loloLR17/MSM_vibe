@@ -1,0 +1,8 @@
+{
+  "reported_at_utc": "2026-11-01T23:15:31.418279+00:00",
+  "reported_by": "user",
+  "observation": "WAIT attained, LD1 green blinking, after JP2 removal and CN15-only cold boot",
+  "qualification": "Autonomous boot and WAIT observed; acquisition not yet qualified",
+  "requested_next": "USER hold approximately2seconds for A1E60seconds; retain power through terminal result",
+  "no_flash_or_reset_by_agent": true
+}

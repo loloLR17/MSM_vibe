@@ -1,0 +1,12 @@
+HAL_SPI_TransmitReceive (hspi=hspi@entry=0x20043570 <spi>, pTxData=<optimized out>, pRxData=0x20044894 <fs+48> "", Size=Size@entry=512, Timeout=<optimized out>, Timeout@entry=30) at /home/lolo/dev/msm/cache/tr2-001-sd2mhz60/generated/stm32u5xx_hal_spi_observed.c:1667
+1667	          if ((((HAL_GetTick() - tickstart) >=  Timeout) && (Timeout != HAL_MAX_DELAY)) || (Timeout == 0U))
+0xbfa0700:	0x004a003d	0x38425018	0x20333157
+$1 = 0x4400
+$2 = 82820
+$3 = 2
+$4 = 0
+$5 = 27875
+$6 = 0
+$7 = 1
+$8 = {mounted = 1, formatted = 0, error = 0, io_error = 0, io_uncertain = 0, io_writes = 0, first_lba = 0, sectors = 0, run = 0, fs_type = 3, cluster_sectors = 64, free_clusters = 0, required_clusters = 0, session = 0}
+[Inferior 1 (Remote target) detached]

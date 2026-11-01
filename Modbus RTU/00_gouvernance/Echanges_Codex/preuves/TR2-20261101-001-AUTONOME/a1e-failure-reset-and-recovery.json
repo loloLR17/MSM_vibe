@@ -1,0 +1,10 @@
+{
+  "reported_by": "user",
+  "reported_result": "A1E error after approximately10seconds with JP2removed/CN15only",
+  "readback43": "After physical ST-LINK reconnection: fresh BOOT, run0/error0, writes0/reads5825, CSR0x1c004400. This is NOT the failed-capture state; volatile terminal data lost.",
+  "continuity44_45": "With cables unchanged: clear flags0x4400 then unchanged0x4400; IRQ78246 to82820 and reads26292 to27875; GDB attach did not reset in this comparison.",
+  "PC": "A1E copied entirely with source/destination SHA53ea152900a9ded7a1be9a3880752c6bd6f937ba64e94caf30dd2bcca7114067; INCOMPLETE352records/27456XYZ/164736bytes. SHA payload36f6c401ed932a38d2bab67aaa4e55a9382dbdc9db69f6f7cb92b5dc90e9f681.",
+  "limits": "No original terminal token/error/digest available after reset; all-produced recovery NOT proved, JP2 removal not a complete fix; 2MHz did not resolve recording fault.",
+  "state": "SD512 in PC; user confirmed TR2-001 powered off before preparation request. No new capture.",
+  "next": "CRC-guarded NOLOAD RAM snapshot A1F prepared source2a159954; target retention and acquisition still pending."
+}

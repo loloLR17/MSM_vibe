@@ -1,0 +1,4 @@
+[ 33%] Building C object CMakeFiles/test_retained_guard.dir/tests/test_retained_guard.c.o
+[ 66%] Building C object CMakeFiles/test_retained_guard.dir/src/archive_format.c.o
+[100%] Linking C executable test_retained_guard
+[100%] Built target test_retained_guard

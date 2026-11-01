@@ -1,0 +1,11 @@
+{
+  "source_sha": "2a159954a7df0bc0e986985a7c93ff8793dfb435",
+  "bytes": 52940,
+  "sha256": "d4c7b699fe94fd59ae89810dac46f0a0908f6138b1098dee3e092be41772819d",
+  "prefix": "A1F",
+  "duration_us": 60000000,
+  "SPI2_Hz": 2000000,
+  "SPI3_Hz": 8000000,
+  "retained": "CRC-guarded RAM NOLOAD; not power-loss durable; needs target evidence",
+  "flashed": false
+}

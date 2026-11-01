@@ -1,6 +1,9 @@
 # État courant MSM TR2 — synthèse opérationnelle
 
 
+**02/11/2026 — A1E échoue, donnéespréfixe sauvées ; A1F préparé/IN_PROGRESS.** UserJP2off/CN15seul→WAIT→USER→rouge~10s. ReconnexionSTLINKsuivieBOOT43/run0/error0/CSR1c004400 : RAMterminaleperdue, token/causeinconnus. GDB44/45sanscâblechangé :CSRclear4400puis4400/IRQcroissants, pasresetattachdanscecomparatif. SDauPC/bancoffconfirmés : copieA1E2Miohash53ea1529…14067exact, strictINCOMPLETE352records/27456XYZ/10,303861sMCU/SHA36f6c401…9f681 ; A/B/C/Dinchangés. Pastoutesproduites/digestRAM,2MHznonrésolu/JP2pasfixcomplet. Source2a159954 snapshotRAMNOLOADCRCaprèsSTOP/file/header/digest/token, gardéauresetquandSRAMpréservée, aucuneFRAM/commandeSDextra. HosttestCRC/commitPARTIELPASS/ARM001etdéfaut002compilePASS/layoutNOLOADhorsBSS vérifié ; A1F60s52940Bd4c7b699…2819dpréparéNONFLASHÉ. DemanderCN15puisSTLINKlecteurvide/JP2offpourqualifierrétentionavantgate ; paslongREADY/START.
+
+
 **02/11/2026 — TransitionSTLINK : resetNRST démontré, pisteJP2 àqualifier.** User3,23VlecteurSTLINKoff/CN15maintenu puisreconnexionbleu. Relevé42 CSR04004400 contre4400en40 :nouveauPINRSTFseul/pasBOR/software/watchdog, IRQ38478<103846, nouveau bootSD/FAT32OK/cal27µs/WHO7B/FS16/error0/write0/f_getfreeencours. PasHardFaultniimagecorrompue ; frontretrait/reconnexionnonattribué. STUM2861Rev10Table5confirmeJP2T_NRST liaisonresetSTLINK↔MCU, pistehypothèse avantisolationphysique. RepérageJP2demandé sansmanipalimentée ; finSDpuisisolationhorstension/CN15seul/60scourt/PCrestants. Aucunflash/reset/STARTagent ni002/FRAM/COM4.
 
 
