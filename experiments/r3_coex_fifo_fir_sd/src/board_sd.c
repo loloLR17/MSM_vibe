@@ -3,6 +3,11 @@
 extern uint64_t r3_now(void *);
 typedef struct {uint32_t valid,length,status,error,rx_left,tx_left,sr,cr1,cr2,cfg1,cfg2;} SpiFault;
 SpiFault r3_spi_fault;
+#if R3_TR2_001_DISCOVERY
+/* Read-only boot diagnostics, outside the HAL RX loop; bounded first64 calls. */
+typedef struct {uint32_t length,status,cs_odr;uint8_t tx[16],rx[16];} R3SdIoRecord;
+R3SdIoRecord r3_sd_io[64];uint32_t r3_sd_io_count;
+#endif
 static uint32_t active_length,preclose_seen,preclose_error;
 static SPI_HandleTypeDef spi;
 static void select_card(void *unused,bool on){(void)unused;HAL_GPIO_WritePin(GPIOF,GPIO_PIN_12,on?GPIO_PIN_RESET:GPIO_PIN_SET);}
@@ -18,7 +23,14 @@ void r3_sd_preclose(SPI_HandleTypeDef *h)
 static int exchange(void *unused,const uint8_t *tx,uint8_t *rx,uint16_t n)
 {
  (void)unused;uint32_t seen=preclose_seen;active_length=n;
+#if R3_TR2_001_DISCOVERY
+ uint32_t slot=r3_sd_io_count;
+ if(slot<64){r3_sd_io[slot].length=n;r3_sd_io[slot].cs_odr=GPIOF->ODR;for(unsigned j=0;j<n&&j<16;j++)r3_sd_io[slot].tx[j]=tx[j];}
+#endif
  HAL_StatusTypeDef result=HAL_SPI_TransmitReceive(&spi,(uint8_t *)tx,rx,n,n<=128?2u:30u);
+#if R3_TR2_001_DISCOVERY
+ if(slot<64){r3_sd_io[slot].status=result;for(unsigned j=0;j<n&&j<16;j++)r3_sd_io[slot].rx[j]=rx[j];r3_sd_io_count++;}
+#endif
  bool failed=result!=HAL_OK||spi.ErrorCode||spi.RxXferCount||spi.TxXferCount||preclose_error||preclose_seen!=seen+1u;
  if(failed&&!r3_spi_fault.valid)r3_spi_fault=(SpiFault){1,n,result,spi.ErrorCode,spi.RxXferCount,spi.TxXferCount,SPI2->SR,SPI2->CR1,SPI2->CR2,SPI2->CFG1,SPI2->CFG2};
  return failed?-1:0;

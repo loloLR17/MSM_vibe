@@ -430,12 +430,18 @@ int main(void)
   if(r3_clock_fault){r=-12;
   }else if(cmd==(MAGIC|1u)&&r3_result.run==0){
    uint8_t who=0;reset_trace();r=iis3dwb_device_id_get(&ctx,&who);r3_result.who=who;
-   if(!r&&who==0x7b){r3_result.who_ok=1;r=r3_sd_init(&r3_card);}else r=-91;
+   if(!r&&who==0x7b){r3_result.who_ok=1;
+#if R3_TR2_001_DISCOVERY
+    /* FS readback independent of SD response. Sensor ODR remains OFF. */
+    uint8_t ctrl=0;r=iis3dwb_xl_full_scale_set(&ctx,IIS3DWB_16g);
+    if(!r)r=iis3dwb_read_reg(&ctx,IIS3DWB_CTRL1_XL,&ctrl,1);
+    r3_result.ctrl1=ctrl;if(!r&&((ctrl&12u)!=4u||(ctrl&0xf0u)))r=-97;
+#endif
+    if(!r)r=r3_sd_init(&r3_card);
+   }else r=-91;
    if(!r){r3_result.sd_sectors=r3_card.sectors;
 #if R3_TR2_001_DISCOVERY
  r=sd_spi_read(&r3_card,0,r3_media_header);
- if(!r)r=iis3dwb_xl_full_scale_set(&ctx,IIS3DWB_16g);
- uint8_t ctrl=0;if(!r)r=iis3dwb_read_reg(&ctx,IIS3DWB_CTRL1_XL,&ctrl,1);r3_result.ctrl1=ctrl;
  if(!r)r=-96; /* Read-only discovery deliberately stops before write gate. */
 #else
  r=durable_mount(&r3_card);if(r==1&&!R3_ENDURANCE_1H){uint8_t marker[512];r=sd_spi_read(&r3_card,0,marker);if(!r&&memcmp(marker,"TR2 R2 SPI2 RAW TEST V1",23))r=-92;else if(!r)r3_result.marker_ok=1;}
