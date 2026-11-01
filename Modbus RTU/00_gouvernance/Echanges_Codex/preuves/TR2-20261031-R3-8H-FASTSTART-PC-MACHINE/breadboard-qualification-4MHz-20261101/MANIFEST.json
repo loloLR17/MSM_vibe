@@ -216,16 +216,16 @@
     "zlib": true
   },
   {
-    "file": "breadboard-n8e-gate-native-ready.json",
+    "file": "breadboard-n8e-gate-native-ready.json.zlib",
     "bytes": 360,
     "sha256": "3696fc8bad731547fe4e3f1d1d8ee9b728ecd6911e2cd73a3dff0e320dddfa8b",
-    "zlib": false
+    "zlib": true
   },
   {
-    "file": "breadboard-n8e-gate-native-summary.json",
+    "file": "breadboard-n8e-gate-native-summary.json.zlib",
     "bytes": 9580,
     "sha256": "aa0a6e125d5ec7fa912772e9b39b8d2c45027b8c97e6bdaa4f9ef4a3ca0a4640",
-    "zlib": false
+    "zlib": true
   },
   {
     "file": "breadboard-n8e-gate-observer-launch.json",
@@ -600,10 +600,10 @@
     "zlib": true
   },
   {
-    "file": "native-host.json",
+    "file": "native-host.json.zlib",
     "bytes": 794,
     "sha256": "f24450258808b01d42fa67366f5256fbfeae3dc02d6ea2e306fc2e352a0308e1",
-    "zlib": false
+    "zlib": true
   },
   {
     "file": "preflight.py",
