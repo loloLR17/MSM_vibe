@@ -51,7 +51,11 @@ int sd_group_step(SdGroup *w)
  case 4:w->crc=sd_crc16(w->data+w->block*512,512);if(byte(w,255,&r)||byte(w,0xfc,&r))return w->error;w->state=5;w->uncertain=true;return 0;
  case 5:if(tx(w,w->data+w->block*512+w->offset,rx,128))return w->error;w->offset+=128;if(w->offset==512)w->state=6;return 0;
  case 6:{uint8_t crc[2]={(uint8_t)(w->crc>>8),(uint8_t)w->crc};if(tx(w,crc,rx,2))return w->error;
-  for(unsigned i=0;i<8;i++){if(byte(w,255,&r))return w->error;if(r!=255)break;}if((r&31)!=5)return fault(w,SD_RESPONSE);
+  for(unsigned i=0;i<8;i++){if(byte(w,255,&r))return w->error;if(r!=255)break;}
+#if R3_TR2_001_AUTONOMOUS
+  w->data_response=r;w->data_response_seen=1;
+#endif
+  if((r&31)!=5)return fault(w,SD_RESPONSE);
   if(byte(w,255,&r))return w->error;
   w->busy_begin_us=w->card->io.us(w->card->io.context);w->state=7;return 0;}
  case 7:ready=wait_ready(w);if(ready<0)return w->error;if(!ready)return 0;w->block++;w->offset=0;w->deadline_us=w->card->io.us(w->card->io.context)+1000000;w->state=w->block<w->blocks?4:8;return 0;

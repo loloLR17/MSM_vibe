@@ -37,7 +37,11 @@ static int exchange(void *unused,const uint8_t *tx,uint8_t *rx,uint16_t n)
 }
 static int frequency(bool fast)
 {
+#if R3_TR2_001_AUTONOMOUS && R3_SPI2_DIVIDER == 8
+ spi.Init.BaudRatePrescaler=fast?SPI_BAUDRATEPRESCALER_8:SPI_BAUDRATEPRESCALER_64;
+#else
  spi.Init.BaudRatePrescaler=fast?SPI_BAUDRATEPRESCALER_4:SPI_BAUDRATEPRESCALER_64;
+#endif
  if(HAL_SPI_Init(&spi)!=HAL_OK)return -1;
  return 0;
 }
