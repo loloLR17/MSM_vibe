@@ -1,0 +1,36 @@
+{
+    "Utc":  "2026-11-01T22:36:59.1535886Z",
+    "Disk":  {
+                 "Number":  1,
+                 "FriendlyName":  "Generic STORAGE DEVICE",
+                 "SerialNumber":  "000000000819",
+                 "Size":  511868665856,
+                 "PartitionStyle":  "MBR",
+                 "BusType":  "USB"
+             },
+    "Partition":  {
+                      "PartitionNumber":  1,
+                      "DriveLetter":  "D",
+                      "Offset":  1048576,
+                      "Size":  511867584512
+                  },
+    "Volume":  {
+                   "DriveLetter":  "D",
+                   "FileSystemLabel":  "512 GO",
+                   "FileSystem":  "FAT32",
+                   "Size":  511741755392,
+                   "SizeRemaining":  511735103488,
+                   "AllocationUnitSize":  32768
+               },
+    "Files":  [
+                  {
+                      "Name":  "A1D0005.TR2",
+                      "Length":  2097152,
+                      "Source":  "D:\\A1D0005.TR2",
+                      "SourceSHA256":  "A51DFBEFD5F07C00874355AA0CCC46F1A72C8CE787D7BF97A27791E19A8F2D0D",
+                      "Destination":  "\\\\wsl.localhost\\Debian\\home\\lolo\\dev\\msm\\reports\\TR2-001-autonome-reducteur-20261101\\native-pc-files-D\\A1D0005.TR2",
+                      "DestinationSHA256":  "A51DFBEFD5F07C00874355AA0CCC46F1A72C8CE787D7BF97A27791E19A8F2D0D"
+                  }
+              ],
+    "CardOperations":  "File reads only; no formatting, repair or source-file writes"
+}

@@ -1,0 +1,17 @@
+{
+  "sha256": "be5cbd92b83411106b18eacc99a2ac0ea91f8362f844ffbaaa8a5f4c434d327c",
+  "bytes": 172548,
+  "outputs": 28758,
+  "hash_state_bytes": 112,
+  "host_finalizer_crosscheck": "C state -> d29e...bd07 equals independent native-PC complete payload digest",
+  "queue": {
+    "head": 57344,
+    "tail": 53248,
+    "count": 4096,
+    "peak": 5120,
+    "overflows": 0,
+    "borrowed": 4096
+  },
+  "partial_xyz": 54,
+  "complete_RAM_frames": 8
+}

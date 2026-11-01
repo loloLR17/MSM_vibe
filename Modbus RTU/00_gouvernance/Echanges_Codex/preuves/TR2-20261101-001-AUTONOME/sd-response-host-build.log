@@ -1,0 +1,7 @@
+[ 25%] Building C object CMakeFiles/test_sd_response.dir/tests/test_sd_response.c.o
+[ 25%] Building C object CMakeFiles/test_sd_response.dir/src/sd_group.c.o
+[ 50%] Built target test_standalone
+[ 75%] Built target test_card512
+[ 87%] Building C object CMakeFiles/test_sd_response.dir/home/lolo/dev/msm/projects/MSM_vibe-TR2-001-autonome/experiments/spi2_microsd_isolated/src/sd_spi.c.o
+[100%] Linking C executable test_sd_response
+[100%] Built target test_sd_response

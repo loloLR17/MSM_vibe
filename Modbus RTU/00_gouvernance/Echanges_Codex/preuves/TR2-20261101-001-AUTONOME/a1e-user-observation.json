@@ -1,0 +1,7 @@
+{
+  "observed_at_utc": "2026-11-01T22:52:18.874340+00:00",
+  "reported_by": "user",
+  "observation": "LD3 red blinking immediately after ST-LINK disconnected; user away five minutes",
+  "qualification": "No confirmed WAIT or USER or capture; power on CN15 requested preserved; no subsequent target observation. Distinguish LD3 from LD4 by next RAM reading.",
+  "last_debug_observation": "36: BOOT, error0, run0, no writes, SD free-count in progress; SPI2 divider8 readback."
+}

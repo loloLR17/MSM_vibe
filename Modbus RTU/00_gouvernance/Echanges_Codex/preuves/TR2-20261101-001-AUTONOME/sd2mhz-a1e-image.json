@@ -1,0 +1,12 @@
+{
+  "source_sha": "0751b0604108ccae780074feaf7513cebf2975bc",
+  "sha256": "c88e8c69622a33ab27de1e6b7c5cf3c94774adb998c616b8b58bfc7a169a99f0",
+  "bytes": 52448,
+  "duration_us": 60000000,
+  "prefix": "A1E",
+  "start": "USER only",
+  "SPI2_HSI16_divider": 8,
+  "SPI2_Hz": 2000000,
+  "SPI3_Hz": 8000000,
+  "changes": "SD divider, raw response telemetry, terminal digest preservation; acceptance and uncertainty guards unchanged"
+}

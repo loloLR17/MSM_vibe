@@ -4,7 +4,7 @@ status: IN_PROGRESS
 base_ref: main
 base_sha: a8817bf293c6e60a93ad824d279ee870b6a0ecf7
 initial_head: 79b952dbb949cb8eb2f208e3b2c5994f4ed1279f
-result_sha: c4f152ebcdcba1ec156809c6212b2e5165e01b4c
+result_sha: 0751b0604108ccae780074feaf7513cebf2975bc
 created_at_utc: 2026-11-01T16:57:14.405923+00:00
 author: Codex
 target_branch: main
@@ -14,7 +14,55 @@ allow_flash: true
 allow_debug: true
 ---
 
-# TR2-001 autonome ±16 g — checkpoint logiciel ; carte SD non initialisée
+# TR2-001 autonome ±16 g — checkpoint ; qualification sans ST-LINK en cours
+
+## Checkpoint A1D / A1E — refus SD reproduit sur secteur, données récupérées
+
+**IN_PROGRESS**, pas de firmware longue campagne déclaré prêt. A1A 3 s et A1C 60 s
+restent acquis avec lecture PC intégrale ; leurs essais réussis ne sont pas répétés.
+
+**A1D, secteur CN15 seul pendant la capture : échec réel après 10 804 000 µs MCU.**
+Le relevé 32 après reconnexion ST-LINK, sans reset, indique error95, writer SD_RESPONSE3,
+état6/bloc1 du groupe LBA257065, réponse non acceptée, uncertain/needs_power_cycle vrais.
+Aucun retry ni footer COMPLETE. FIFO arrêté, CS relâchée ; aucun nouvel ordre SD envoyé
+avant le cycle physique demandé. FIFO/horloge/rails/clips sans faute observée. La valeur
+brute du token n'était pas mémorisée dans cette image : aucune cause électrique ni
+erreur CRC sur le fil n'est établie. Ce refus sur secteur interdit d'attribuer tous les
+échecs à la powerbank.
+
+La copie native Windows intégrale A1D (2 Mio) est INCOMPLETE, 360 records CRC valides,
+28 080 XYZ, SHA du préfixe 32153cc8…e3058. Les huit records retenus en RAM et 54 XYZ
+partiels permettent de récupérer **tous les 28 758 XYZ filtrés produits**, 172 548 octets,
+SHA **be5cbd92b83411106b18eacc99a2ac0ea91f8362f844ffbaaa8a5f4c434d327c**,
+égal au hash producteur finalisé depuis son état RAM sauvegardé (finaliseur vérifié sur
+A1C). Pas 60 s, pas les natifs intégraux, pas de faux footer. A/B/C relus inchangés.
+Preuves publiques : extents utiles compressés D, suffixe XYZ de 4 068 octets, état de hash,
+file RAM et rapports ; les gros originaux sont conservés localement.
+
+**Candidat A1E**, code 0751b0604108ccae780074feaf7513cebf2975bc : SPI2 SD à **2 MHz**
+(diviseur8 au lieu4), SPI3 capteur inchangé8MHz, FS16/488µg, token de réponse conservé
+et digest/erreur conservés même en fin fautive, en RAM uniquement. Acceptation
+(r&31)==5 et arrêt sur incertitude inchangés. Option isolée 001, défaut002 inchangé.
+Test hôte ciblé des tokens acceptés/refusés et verrou de non-retry **PASS MODEL** ;
+build ARM candidat **PASS** ; compilation ARM profil historique par défaut **PASS**,
+sans flash/debug sur002. Résultats conservés, aucune répétition de ces validations.
+
+Septième flash standard : BIN52 448 octets, SHA
+**c88e8c69622a33ab27de1e6b7c5cf3c94774adb998c616b8b58bfc7a169a99f0**,
+préfixe neuf A1E, 60 s USER seulement. Relevé36 : UID001, WHO7B/FS04, calibration31µs,
+BOOT/error0/run0/write0, FAT32 monté/comptage libre en cours ; SPI2 CFG1=0x20070007
+confirme diviseur8, PG2/LD3 bas. Ce relevé précède le dernier retrait du ST-LINK :
+**l'utilisateur rapporte ensuite LD3 rouge clignotante dès retrait**. Pas de WAIT ni
+de USER confirmé ; observation à confronter au prochain relevé RAM, sans supposer
+que LD3/LD4 sont confondues ni que l'acquisition a démarré. Secteur demandé maintenu,
+aucun redémarrage/appui demandé pendant son absence.
+
+Reste : identifier cet état sans ST-LINK, qualifier A1E court en autonomie et relire
+intégralement son fichier PC si capture, puis seulement déployer l'image longue
+R1A au WAIT. Aucune acquisition longue déclenchée, aucune autonomie8h certifiée.
+Powerbank actuelle non qualifiée ; disponibilité de l'alimentation stable au réducteur
+à confirmer. TR2-002, FRAM, COM4, anciennes données, worktrees et stashes préservés.
+
 
 ## Reprise22UTC — 60s STLINK intégralement relues, alimentation autonome encore à résoudre
 
