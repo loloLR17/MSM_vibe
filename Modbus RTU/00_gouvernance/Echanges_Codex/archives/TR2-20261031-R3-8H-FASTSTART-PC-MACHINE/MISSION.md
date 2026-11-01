@@ -1,0 +1,59 @@
+---
+mission_id: TR2-20261031-R3-8H-FASTSTART-PC-MACHINE
+status: READY
+base_ref: main
+base_sha: f5850ad2de81a6b7639d947d54751305cde3e75b
+created_at_utc: 2026-10-31T17:55:00Z
+author: ChatGPT
+target_branch: main
+allow_commit: true
+allow_push: true
+allow_flash: true
+allow_debug: true
+---
+
+# MSM TR2-002 — préparer MAINTENANT, démarrer huit heures en UN message ce soir
+
+## Décision utilisateur et priorité
+
+L'utilisateur demande expressément : **« demande à Codex de préparer la campagne d'acquisition (8h) de ce soir. Je veux qu'en un seul message, il lance l'acquisition sans passer trois heure à tout qualifier. C'est important pour ne pas louper l'appareillage comme hier. L'emplacement sera identique à hier — plancher du PC machine. Le TR2-002 sera dans la même configuration avec sa carte SD insérée. Il ne sera pas nécessaire de refaire des vérifications. Si certaines sont nécessaires qu'il les fasse maintenant. »**
+
+**Objectif P0 : préparer tout ce qui est réutilisable immédiatement, avant l'appareillage ; après réception du seul signal utilisateur `LANCE 8H`, lancer la capture en priorité sans refaire les tests, puis libérer Codex.** Le signal utilisateur vaut confirmation que **le capteur est fixé au plancher du PC machine dans la même configuration que la campagne 6h et que le ST-LINK/alimentation T1000 reste branché pendant l'essai**. Ce message ne vaut pas START immédiat : ne lancer **ni long ni auto-start tant que l'utilisateur n'a pas envoyé `LANCE 8H`**. La préparation peut commencer dès que Codex lit cette mission. Ne pas demander à l'utilisateur d'exécuter Git/compilation.
+
+La mission R5-PDF précédente, `TR2-20261031-R5-RAPPORT-VIBRATIONS-ILLUSTRE-V2`, a un rapport Codex `DONE` et ses contrat/rapport sont archivés **à l'identique** sous `Echanges_Codex/archives/<ID>/`. Sa qualification éditoriale A-01 est distincte et ne retarde pas cette acquisition. Ne pas relancer cette mission ni les anciennes missions R3.
+
+## Baseline, choix déjà tranchés
+
+- **TR2-002 exclusivement**, ST-LINK attendu `0032001F3235510C37333439`, UID `001B0046/38425018/20333157`, IIS3DWB WHO 0x7B. MicroSD expérimentale FAT32 32 Go, CID attendu `0353445344333247858bf0923c01927b`, déjà utilisée avec succès 8h et 6h ; utilisateur annonce qu'elle **sera insérée dans TR2-002**. Vérifier l'état physique réel à l'étape appropriée, ne pas le supposer déjà sous tension ou déjà au poste.
+- **Même format expérimental v3 / XYZ int16 6 octets, FIR Q15 107 taps / décimation 10, coefficients, gain, ±8g logique, 244 µg/compte nominal, CRC/index/temps u64, garde du footer `rails/clips` et importeur strict INCHANGÉS.** Aucun v4/int32, aucun ajustement de gain/bande/rate, pas de modification V1 gelée. La campagne 8h précédente (`E8N0005.TR2`) et la 6h (`E6N0005.TR2`) ont des copies PC complètes ; la première avait un OUTPUT_CLIP, la seconde 0. Il s'agit d'une **collecte exploratoire** : si un clip survient, préserver les données et la qualité dégradée sans faux PASS.
+- Réutiliser en priorité la chaîne réellement éprouvée : source `experiments/r3_durable_fat32` sur `main`, configuration `R3_ENDURANCE_8H=ON`, `R3_QPC_WITNESS=ON`, `R3_ENDURANCE_1H=ON`, `R3_CAPTURE_DURATION_US=30600000000` (garde MCU nominale déjà démontrée pour au moins 8h QPC), FAT32 640 Mio, observateur Windows QPC **passif**. Le profil 6h a introduit le paramètre de durée et de préfixe à `c3cd40ce`. Ne pas « optimiser » la durée nominale à 28 800 s MCU : le rapport R3-8H démontre une marge d'horloge nécessaire.
+- Choisir un **préfixe 8.3 inédit** (candidat `N8A`, noms `N8A0003.TR2` gate et `N8A0005.TR2` long **seulement s'ils sont réellement absents**), contrôle anti-collision fail-closed ; ne toucher à aucun fichier E8/E6 ni aux historiques. La carte est assez grande selon campagnes antérieures, mais la place libre, le bon CID et la possibilité de préallocation doivent être contrôlés avant écriture.
+- Respecter `AGENTS.md`, la gouvernance A-06 et le protocole V2. `target_branch: main` et `allow_commit/push/flash/debug: true` ; aucun mass erase, Option Bytes, RDP, formatage, réparation FAT, suppression, changement FRAM, accès TR2-001/COM4/production, ni modification Windows de sécurité. Travaux Git préexistants intacts, sans force push ni résolution automatique d'une divergence.
+
+## Phase A — **PRÉPARER MAINTENANT**, hors fenêtre critique (sans START 8h)
+
+1. Contrôler une fois la référence Git, l'état des worktrees et les sources/scripts du dernier lancement 6h et du premier 8h. **Ne pas rejouer les validations qui ont déjà un PASS et portent sur du code inchangé** ; aucune revue R5/PSD/BV, aucune upload de données massives. Identifier le minimum incompressible pour réutiliser un profil 8h sûr.
+2. Construire/configurer **dès maintenant** l'image exacte v3/int16 8h avec un préfixe inédit, à partir de l'état réellement disponible. Vérifier build ARM ciblé, SHA BIN/ELF et compatibilité avec le banc. **Si TR2-002 est effectivement connecté, sûr et inactif, flasher maintenant de manière standard, vérifier l'image Flash/readback et laisser WAIT** ; si non connecté maintenant, conserver image prête et réserver le flash au tout premier instant d'accès, sans refaire le build. Ne pas flasher à l'aveugle ; réutiliser les méthodes qualifiées, ne pas créer de nouveau framework.
+3. Faire **maintenant** toute vérification testable de façon réutilisable : test court strictement pertinent seulement si nouvel image/profil l'impose, lecture/identification carte sans écriture inutile, présence des noms, capacité et libre, témoin QPC natif, scripts de START/STOP autonome préexistants, propriété du port, alimentation du T1000 et absence de veille. Les vérifications intrinsèquement périssables (identité raccordée, carte présente, absence de collision et alimentation juste avant START) seront **répétées de façon brève au lancement** ; rien d'autre. Si un gate court est vraiment requis, le réaliser pendant la préparation et en conserver les preuves ; ne jamais commencer le long par un gate de plusieurs minutes.
+4. Préparer un **lanceur simple et idempotent** sur T1000, réutilisant les scripts déjà validés (`start_detached.py`, témoin QPC, etc.) et un runbook local concis ; un seul `LANCE 8H` doit suffire à Codex pour l'exécuter, **sans compilation, flash ni nouvelle campagne d'essais au moment du signal si la phase A est `READY`**. Le lanceur refuse toute seconde invocation, un run déjà actif, un préfixe occupé, une cible/carte différente ou un défaut substantiel de sûreté/écriture ; il ne supprime rien. Une automatisation locale du départ ne doit pas créer un deuxième START.
+5. **Avant le créneau** publier un checkpoint léger `IN_PROGRESS` dans `DERNIER_RAPPORT.md` (Codex seul) et une note locale **`PRET_8H.md`** avec : profil/image/BIN SHA, cible identifiée ou préflight restant, CID ou vérification différée, nom long choisi, état FLASH/WAIT, tests réellement réutilisés/exécutés, lanceur exact, préconditions matérielles, causes éventuelles de `BLOCKED`. Push normal et relecture du checkpoint **maintenant**, pas après le signal. Si travaux préparatoires ne peuvent être achevés, publier l'état et l'obstacle concret, ne pas afficher `READY` fictif.
+
+## Phase B — **SUR LE SEUL SIGNAL `LANCE 8H`**, priorité absolue à l'appareillage
+
+1. Prendre la confirmation fournie par le signal comme confirmation du positionnement au **plancher du PC machine**, fixation immobile, alimentation et ST-LINK branchés. L'utilisateur fait les gestes physiques ; aucune demande répétitive sur ce qui est déjà déclaré. Si un problème matériel réel apparaît (câble absent, SD différente, machine en veille, montage manifestement non sûr), l'indiquer en une seule réponse concise, pas lancer dans le doute.
+2. **Préflight minimal automatisé**, non une requalification : identifier TR2-002/UID/SN et image 8h préparée, bon CID/FAT32/libre, fichier long absent, STOP/WAIT, alimentation et témoin QPC opérationnels. Si une image était déjà flashée et vérifiée durant A, ne pas la reflasher ; **aucune nouvelle compilation, suite de tests, recherche de bug, revue de sources, analyse R5, synchronisation Git coûteuse ou transfert GitHub avant START**. Ne pas sacrifier l'appareillage à une formalité.
+3. Lancer **une seule** capture 8h, nouveau fichier, établir par une courte observation `ACTIVE` avec premier groupe SD acquitté, heure de lancement / session / compteur et observateur QPC passif, puis **détacher GDB sans HALT/reset, terminer serveur et session Codex**. STM32 seul assure ≥8h physiques, STOP/flush, SD quiescente ; aucune session Codex ni PC/WSL/GDB ne commande la capture. Le T1000 peut alimenter le ST-LINK et porter un témoin passif, mais sa présence logicielle ne doit pas être une dépendance de mesure. L'alimentation USB et le sommeil sont à maîtriser sans modifier les politiques Windows inutilement.
+4. Publier un **checkpoint minimal après START** seulement si cela ne retarde pas le démarrage ; ne pas refaire la publication lourde de 285 Mo. Dire clairement `START confirmé` ou `BLOCKED` (avec raison), SHA image, nom de fichier, heure, session et consignes de ne pas couper l'alimentation. Aucune fausse qualification 8h avant lecture PC.
+
+## Phase C — récupération différée, hors chemin critique
+
+Après STOP confirmé/SD inactive, si possible récupérer **automatiquement et sans Codex** les diagnostics terminaux/digest producteur RAM dans une trace locale bornée, uniquement si une voie existante sûre le permet, **sans empêcher une campagne exploratoire de démarrer**. À défaut, expliquer clairement que la coupure d'alimentation avant le relevé détruit cette preuve volatile, mais **le fichier FAT32 peut rester exploitable** comme lors du 6h. Ne pas demander à l'utilisateur d'attendre Codex pour une campagne terminée si une indication de quiescence exploitable est disponible ; l'opération physique reste à lui. Une fois carte au PC, copie conservatoire puis lecture intégrale CRC/indices/temps/compte/footer/SHA, recherche de clips, comparaison au digest externe s'il a été réellement récupéré. Archives volumineuses **locales** sur T1000, GitHub seulement hashes, manifests, traces et extraits pertinents. Revue A-01 ChatGPT ultérieure, verdict séparé intégrité/qualité/métrologie ; pas de tag prématuré.
+
+## Critères d'acceptation et limites
+
+- **Préparation** : une image exploitable et vérifiée (ou obstacle matériel précis identifié), lanceur prêt, noms neufs, validations anciennes réutilisées, preuve `PRET_8H` publiée avant le créneau, aucun long START prématuré.
+- **Lancement** : depuis l'état PRET, **un message `LANCE 8H` → préflight bref → un seul START effectif et confirmé**, sans boucle de développements ; le temps de lancement doit être borné et documenté, ne pas annoncer une latence garantie non mesurée.
+- **Résultat** : archive 8h v3 sans perte masquée, ancien fichier intact, QPC actif suffisamment longtemps pour établir ≥28 800 secondes intérieures après fin si possible, diagnostics et intégrité évalués sans faux `COMPLETE` en cas de clips/rails.
+- **Priorité absolue** : campagne représentative de l'appareillage ; **les analyses, améliorations de confort, outillages non essentiels, lourdes publications et investigations du clip sont postérieures**. Le projet doit converger vers un START/STATUS/STOP/EXPORT autonome accessible à l'utilisateur, dans une tranche distincte. Ne pas ouvrir de refonte ni modifier l'interface normative gelée pour ce départ.
+
+**Cette mission est autorisée immédiatement pour la phase A. La phase B est expressément conditionnée au signal `LANCE 8H` de l'utilisateur au moment où le TR2 est installé.** Codex agit et publie ses preuves ; ChatGPT vérifiera ensuite son rapport indépendamment.
