@@ -1,0 +1,11 @@
+{
+  "remote_sha": "d60832013b01b5f4ae3709a564859eab264eee71",
+  "utc": "2026-11-01T06:16:46.970743+00:00",
+  "files_reread": 90,
+  "artifacts_verified": 80,
+  "all_identical": true,
+  "images_and_flash_readback_exact": true,
+  "report_status": "BLOCKED",
+  "mission_id": "TR2-20261031-R3-8H-FASTSTART-PC-MACHINE",
+  "no_new_hardware_operation": true
+}
