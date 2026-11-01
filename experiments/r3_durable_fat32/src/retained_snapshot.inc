@@ -6,6 +6,7 @@ typedef struct {
  char source_sha[40];Result result;SdGroup writer;CaptureQueue queue;
  R3Hash source_hash;uint8_t source_sha256[32],header[512],partial_frame[512];
  uint32_t frame_count,frame_seq,first_output,clock_fault;
+ FifoEventTime mapper;Bracket last_clock_bracket;
 } RetainedPayload;
 typedef struct {RetainedGuard guard;RetainedPayload payload;} RetainedSnapshot;
 RetainedSnapshot r3_retained __attribute__((section(".tr2_retained"),used,aligned(8)));
@@ -20,5 +21,6 @@ static void retain_capture(void)
  memcpy(p->header,r3_header,512);memcpy(p->partial_frame,frame,512);
  p->frame_count=durable_frame_count;p->frame_seq=durable_frame_seq;
  p->first_output=durable_first_output;p->clock_fault=r3_clock_fault;
+ p->mapper=mapper;p->last_clock_bracket=r3_last_clock_bracket;
  retained_seal(&r3_retained.guard,p,sizeof *p);__DSB();r3_retained_available=1;
 }

@@ -124,6 +124,7 @@ extern uint32_t _estack,_ebss;
 static uintptr_t stack_begin,stack_end;
 uint32_t r3_clock_fault;
 #if R3_TR2_001_AUTONOMOUS
+Bracket r3_last_clock_bracket;
 #include "retained_snapshot.inc"
 #endif
 static uint32_t last_irq_tick;
@@ -232,6 +233,9 @@ static int poll(uint64_t *previous,bool keep)
  reset_trace();uint64_t at=now();uint32_t start=cyc(),gap=*previous?(uint32_t)((at-*previous)*160u):0;*previous=at;
  if(!calibration&&(!mapper.initialized||at>=next_clock)){
   Bracket b;if(bracket(&b))return -2;
+#if R3_TR2_001_AUTONOMOUS
+  r3_last_clock_bracket=b;
+#endif
   Tr2Result r=mapper.initialized?fifo_event_time_track(&mapper,b.raw,b.before,b.after,100):
    fifo_event_time_init_sink(&mapper,&fifo,sink,NULL,b.raw,((uint64_t)b.before+b.after)/2u,r3_result.span_us,r3_result.span_ticks);
   r3_result.clock_checks++;if(r!=TR2_OK)return -3;next_clock=(uint64_t)b.after+100000u;
