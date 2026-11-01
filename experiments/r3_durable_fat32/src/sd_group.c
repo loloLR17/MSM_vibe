@@ -1,5 +1,11 @@
 #include "sd_group.h"
 #include <string.h>
+#if R3_TR2_001_AUTONOMOUS
+#include "tr2_001_card.h"
+#define CARD_ALLOWED(s) tr2_001_card_matches((s)->cid,(s)->sectors)
+#else
+#define CARD_ALLOWED(s) ((s)->sectors==62333952u)
+#endif
 static int fault(SdGroup *w,int e)
 {
  if(!w->error)w->error=(uint32_t)e;
@@ -22,7 +28,7 @@ static int cmd(SdGroup *w,uint8_t cmd,uint32_t arg)
 int sd_group_begin(SdGroup *w,SdSpi *s,uint32_t lba,const uint8_t *data,uint32_t blocks)
 {
  if(!w||w->active||!s||!data||!s->initialized||s->failed||!s->write_enabled)return SD_REFUSED;
- if(s->sectors!=62333952u||s->begin_lba||s->limit_lba!=s->sectors||!blocks||blocks>8||lba>=s->sectors||blocks>s->sectors-lba)return SD_RANGE;
+ if(!CARD_ALLOWED(s)||s->begin_lba||s->limit_lba!=s->sectors||!blocks||blocks>8||lba>=s->sectors||blocks>s->sectors-lba)return SD_RANGE;
  memset(w,0,sizeof *w);w->card=s;w->data=data;w->lba=lba;w->blocks=blocks;w->state=1;w->active=true;w->begin_us=s->io.us(s->io.context);w->deadline_us=w->begin_us+1000000;return 0;
 }
 static int wait_ready(SdGroup *w)

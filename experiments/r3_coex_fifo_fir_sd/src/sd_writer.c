@@ -1,5 +1,8 @@
 #include "sd_writer.h"
 #include <string.h>
+#if R3_TR2_001_AUTONOMOUS
+#include "tr2_001_card.h"
+#endif
 static int fault(SdWriter *w,int error)
 {
  if(!w->error)w->error=(uint32_t)error;
@@ -21,16 +24,24 @@ static int cmd(SdWriter *w,uint8_t command,uint32_t arg,uint8_t *r1)
 }
 int sd_writer_r3_gate(SdSpi *s)
 {
+ #if !R3_TR2_001_AUTONOMOUS
  static const uint8_t id[16]={3,0x53,0x44,0x53,0x44,0x33,0x32,0x47,0x85,0x8b,0xf0,0x92,0x3c,1,0x92,0x7b};
+ #endif
  if(!s||!s->initialized||s->failed)return SD_REFUSED;
  s->write_enabled=false;
+ #if R3_TR2_001_AUTONOMOUS
+ if(!tr2_001_card_matches(s->cid,s->sectors))return SD_IDENTITY;
+ #else
  if(s->sectors!=62333952u||memcmp(s->cid,id,16))return SD_IDENTITY;
+ #endif
  s->begin_lba=8192;s->limit_lba=40960;s->write_enabled=true;return 0;
 }
 int sd_writer_begin(SdWriter *w,SdSpi *s,uint32_t lba,const uint8_t b[512])
 {
  if(!w||!s||!b||w->active||!s->initialized||s->failed||!s->write_enabled)return SD_REFUSED;
-#ifdef R3_DURABLE_CARD_PROFILE
+#if R3_TR2_001_AUTONOMOUS
+ if(!tr2_001_card_matches(s->cid,s->sectors)||s->begin_lba||s->limit_lba!=s->sectors||lba>=s->sectors)return SD_RANGE;
+#elif defined(R3_DURABLE_CARD_PROFILE)
  if(s->begin_lba!=0||s->limit_lba!=62333952u||s->sectors!=62333952u||lba>=s->limit_lba)return SD_RANGE;
 #else
  if(s->begin_lba!=8192||s->limit_lba!=40960||lba<s->begin_lba||lba>=s->limit_lba)return SD_RANGE;

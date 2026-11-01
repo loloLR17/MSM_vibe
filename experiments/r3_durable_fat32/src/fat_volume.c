@@ -4,6 +4,11 @@
 #include "ff.h"
 #include "diskio.h"
 #include <string.h>
+#if R3_TR2_001_AUTONOMOUS
+#include "tr2_001_card.h"
+uint8_t tr2_001_mbr[512],tr2_001_boot[512];
+uint32_t tr2_001_partition_start,tr2_001_partition_sectors;
+#endif
 #ifndef R3_FILE_PREFIX
 #define R3_FILE_PREFIX "RUN"
 #endif
@@ -24,7 +29,13 @@ DRESULT disk_write(BYTE d,const BYTE *b,LBA_t lba,UINT count){if(d||!card)return
 DRESULT disk_ioctl(BYTE d,BYTE cmd,void *p){if(d||!card)return RES_NOTRDY;switch(cmd){case CTRL_SYNC:return sd_spi_quiesce(card)?RES_ERROR:RES_OK;case GET_SECTOR_COUNT:*(LBA_t*)p=card->sectors;return RES_OK;case GET_SECTOR_SIZE:*(WORD*)p=512;return RES_OK;case GET_BLOCK_SIZE:*(DWORD*)p=64;return RES_OK;default:return RES_PARERR;}}
 int durable_mount(SdSpi *s)
 {
- card=s;if(sd_writer_r3_gate(s))return failure(1);/* Original exact CID check. */
+ card=s;
+#if R3_TR2_001_AUTONOMOUS
+ if(!tr2_001_card_matches(s->cid,s->sectors)||sd_spi_read(s,0,tr2_001_mbr)||
+ !tr2_001_partition(tr2_001_mbr,s->sectors,&tr2_001_partition_start,&tr2_001_partition_sectors)||
+ sd_spi_read(s,tr2_001_partition_start,tr2_001_boot)||!tr2_001_bpb(tr2_001_boot,tr2_001_partition_start,tr2_001_partition_sectors))return failure(31);
+#endif
+ if(sd_writer_r3_gate(s))return failure(1);/* Original exact CID check. */
  s->begin_lba=0;s->limit_lba=s->sectors;
  FRESULT r=f_mount(&fs,"0:",1);durable_status.mounted=r==FR_OK;durable_status.fs_type=fs.fs_type;durable_status.cluster_sectors=fs.csize;
  if(r==FR_NO_FILESYSTEM)return 1;
@@ -32,6 +43,9 @@ int durable_mount(SdSpi *s)
 }
 int durable_format(void)
 {
+#if R3_TR2_001_AUTONOMOUS
+ return failure(32); /* No formatter exists in the autonomous target profile. */
+#else
  if(!card||card->failed||card->sectors!=62333952u||!card->write_enabled)return failure(3);
  MKFS_PARM m={.fmt=FM_FAT32,.n_fat=2,.align=2048,.n_root=0,.au_size=32768};
  if(f_mkfs("0:",&m,work,sizeof work)!=FR_OK||f_mount(&fs,"0:",1)!=FR_OK||fs.fs_type!=FS_FAT32)return failure(4);
@@ -39,6 +53,17 @@ int durable_format(void)
  static const char info[]="MSM TR2 R3-DURABLE experimental FAT32 test card\r\nCID SPI: 0353445344333247858bf0923c01927b\r\nOnly TR2-002; NOT PRODUCTION. No UTC clock asserted.\r\nFiles RUN0003.TR2, RUN0004.TR2, RUN0005.TR2 are preallocated only when their RAM trigger is submitted.\r\nUse the versioned Python importer, not file size, to determine completion and valid prefix.\r\n";
  UINT n=0;if(f_open(&file,"0:/TR2INFO.TXT",FA_WRITE|FA_CREATE_NEW)!=FR_OK||f_write(&file,info,sizeof info-1,&n)!=FR_OK||n!=sizeof info-1||f_sync(&file)!=FR_OK||f_close(&file)!=FR_OK)return failure(5);
  return sd_spi_quiesce(card)?failure(6):0;
+#endif
+}
+int durable_preflight(uint32_t run,uint32_t bytes)
+{
+ if(!durable_status.mounted||fs.fs_type!=FS_FAT32||run<3||run>5||bytes<2048||bytes%512)return failure(7);
+ DWORD free_clusters;FATFS *available;FILINFO info;
+ if(f_getfree("0:",&free_clusters,&available)!=FR_OK||available!=&fs)return failure(29);
+ durable_status.free_clusters=free_clusters;durable_status.required_clusters=(bytes/512+fs.csize-1u)/fs.csize;
+ if(free_clusters<durable_status.required_clusters)return failure(30);
+ char name[]="0:/" R3_FILE_PREFIX "0000.TR2";name[9]=(char)('0'+run);
+ return f_stat(name,&info)==FR_NO_FILE?0:failure(8);
 }
 int durable_prepare(uint32_t run,uint32_t bytes,uint64_t session,const uint8_t header[512])
 {

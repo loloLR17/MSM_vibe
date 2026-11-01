@@ -21,7 +21,8 @@ def verify(path):
         version=u32(h,8);requested=u64(h,168) if version==3 else u32(h,20)
         if version==3:require(u32(h,20)==0 and 0<requested<=86400000000 and h[176:508]==bytes(332),'v3 requested/reserved fields')
         run=u32(h,16);session=u64(h,152);num=u64(h,136);den=u64(h,144)
-        require(3<=run<=5 and num and den and u32(h,124)==8 and u32(h,128)==244 and u32(h,132)==10 and u32(h,160)==78 and u32(h,164)==0,'unsupported profile')
+        require(3<=run<=5 and num and den and (u32(h,124),u32(h,128)) in ((8,244),(16,488)) and u32(h,132)==10 and u32(h,160)==78 and u32(h,164)==0,'unsupported profile')
+        if u32(h,124)==16:require(version==3,'FS16 requires explicit v3 archive')
         stream.seek(max(512,size-512));tail=stream.read(512);stream.seek(512)
         committed=tail[:8]==b'TR2END01'
         seq=count=flags=0;first=last=None;digest=hashlib.sha256();short=False
@@ -62,20 +63,21 @@ def verify(path):
                 require(u64(footer,128)==u32(footer,88)+((u64(footer,128)>>32)<<32) and u64(footer,136)==u32(footer,92)+((u64(footer,136)>>32)<<32),'source endpoint low word')
                 require(u64(footer,128)==first and u64(footer,136)>=last and u64(footer,136)>=u64(footer,128),'source endpoints')
             complete=True;stop_reason='controlled STOP and full producer digest matched'
-        return dict(format_version=u32(h,8),requested_duration_us=requested,actual_duration_us=(u64(footer,144) if version==3 else u32(footer,44)) if complete else None,first_source_time_us=(u64(footer,128) if version>=2 else u32(footer,88)) if complete else None,last_source_time_us=(u64(footer,136) if version>=2 else u32(footer,92)) if complete else None,status='COMPLETE' if complete else 'INCOMPLETE',path=str(path),file_bytes=size,run=run,session=session,valid_records=seq,valid_xyz=count,payload_bytes=count*6,sha256=digest.hexdigest(),first_output_source_index=0 if count else None,last_output_source_index=(count-1)*10 if count else None,first_time_us=first,last_time_us=last,source_rate_num=num,source_rate_den=den,source_hz=num/den,output_hz=num/den/10,clock_ratio_scope='initial sensor/MCU calibration',observed_duration_us=(last-first if first is not None else None),observed_output_hz_between_endpoints=((count-1)*1000000/(last-first) if count>1 and last>first else None),logical_fs_g=8,sensitivity_ug_per_count=244,dc_preserved=True,quality_or=flags,utc=None,firmware_sha=h[52:92].decode('ascii'),coefficient_sha256=h[92:124].hex(),cid=h[36:52].hex(),uid=[u32(h,24+i*4) for i in range(3)],time_method='Actual DEC8 block endpoints; within-block interpolation approximate, not UTC',stop_reason=stop_reason,durability='CRC-valid sequential matching-session prefix only; physical survival after power loss and maximum lost tail are NOT guaranteed')
+        return dict(format_version=u32(h,8),requested_duration_us=requested,actual_duration_us=(u64(footer,144) if version==3 else u32(footer,44)) if complete else None,first_source_time_us=(u64(footer,128) if version>=2 else u32(footer,88)) if complete else None,last_source_time_us=(u64(footer,136) if version>=2 else u32(footer,92)) if complete else None,status='COMPLETE' if complete else 'INCOMPLETE',path=str(path),file_bytes=size,run=run,session=session,valid_records=seq,valid_xyz=count,payload_bytes=count*6,sha256=digest.hexdigest(),first_output_source_index=0 if count else None,last_output_source_index=(count-1)*10 if count else None,first_time_us=first,last_time_us=last,source_rate_num=num,source_rate_den=den,source_hz=num/den,output_hz=num/den/10,clock_ratio_scope='initial sensor/MCU calibration',observed_duration_us=(last-first if first is not None else None),observed_output_hz_between_endpoints=((count-1)*1000000/(last-first) if count>1 and last>first else None),logical_fs_g=u32(h,124),sensitivity_ug_per_count=u32(h,128),dc_preserved=True,quality_or=flags,utc=None,firmware_sha=h[52:92].decode('ascii'),coefficient_sha256=h[92:124].hex(),cid=h[36:52].hex(),uid=[u32(h,24+i*4) for i in range(3)],time_method='Actual DEC8 block endpoints; within-block interpolation approximate, not UTC',stop_reason=stop_reason,durability='CRC-valid sequential matching-session prefix only; physical survival after power loss and maximum lost tail are NOT guaranteed')
 def samples(path):
     """Yield verified-prefix XYZ with approximate block-interpolated event time.
     Call verify first; quality is an aggregate per block except FIR warmup, whose
     causal phase is known (output indices0..10). No UTC or physical calibration.
     """
     result=verify(path)
+    scale=result['sensitivity_ug_per_count']/1000000
     with path.open('rb') as stream:
         stream.seek(512)
         for _ in range(result['valid_records']):
             b=stream.read(512);n,quality=struct.unpack_from('<HH',b,36);first,last=u64(b,16),u64(b,24);index=u32(b,32)
             for j in range(n):
                 x,y,z=struct.unpack_from('<hhh',b,44+j*6);i=index+j
-                yield dict(output_index=i,source_index=10*i,time_us_interpolated=first+(last-first)*j//max(n-1,1),block_first_time_us=first,block_last_time_us=last,x_count=x,y_count=y,z_count=z,x_nominal_g=format(x*.000244,'.6f'),y_nominal_g=format(y*.000244,'.6f'),z_nominal_g=format(z*.000244,'.6f'),warmup=int(i<11),block_quality_flags=quality)
+                yield dict(output_index=i,source_index=10*i,time_us_interpolated=first+(last-first)*j//max(n-1,1),block_first_time_us=first,block_last_time_us=last,x_count=x,y_count=y,z_count=z,x_nominal_g=format(x*scale,'.6f'),y_nominal_g=format(y*scale,'.6f'),z_nominal_g=format(z*scale,'.6f'),warmup=int(i<11),block_quality_flags=quality)
 def write_csv(path,destination):
     rows=iter(samples(path));first=next(rows,None)
     if first is None: raise Invalid('no valid samples to export')

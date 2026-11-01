@@ -9,3 +9,6 @@ int durable_prepare(uint32_t,uint32_t,uint64_t,const uint8_t [512]);
 int durable_verify_last(const uint8_t [32]);
 int durable_sector(uint32_t,const uint8_t [512]);
 #endif
+
+/* Read-only free-space and name gate, before the USER button is armed. */
+int durable_preflight(uint32_t run,uint32_t bytes);

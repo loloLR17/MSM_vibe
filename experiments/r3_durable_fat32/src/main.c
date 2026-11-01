@@ -8,6 +8,20 @@
 #include "sd_group.h"
 #include "stream_hash.h"
 #include "capture_queue.h"
+#if R3_TR2_001_AUTONOMOUS
+#define SENSOR_FS 3
+#define SENSOR_G 16
+#define SENSOR_UG 488
+#define TARGET_UID0 0x004a003d
+#else
+#define SENSOR_FS 2
+#define SENSOR_G 8
+#define SENSOR_UG 244
+#define TARGET_UID0 0x001b0046
+#endif
+#if R3_TR2_001_AUTONOMOUS
+#include "standalone_board.inc"
+#endif
 #define HIST_BINS 5001u
 #define TRACE_COUNT 512u
 #define MAGIC 0x44335200u
@@ -19,7 +33,11 @@
 #endif
 #if R3_ENDURANCE_8H
 #define LONG_DURATION_US R3_CAPTURE_DURATION_US
+#if R3_TR2_001_AUTONOMOUS
+#define LONG_FILE_BYTES (R3_CAPTURE_DURATION_US<=5000000ull?131072u:R3_CAPTURE_DURATION_US<=60000000ull?2097152u:640u*1024u*1024u)
+#else
 #define LONG_FILE_BYTES (640u*1024u*1024u)
+#endif
 #define ARCHIVE_VERSION 3u
 #else
 #define ARCHIVE_VERSION 2u
@@ -115,7 +133,16 @@ uint64_t r3_now(void *unused){
 #define now() r3_now(NULL)
 static uint32_t cyc(void){__DSB();__ISB();return DWT->CYCCNT;}
 void SysTick_Handler(void){HAL_IncTick();r3_irqs++;}
-void Error_Handler(void){r3_result.error=r3_result.error?r3_result.error:1;r3_result.stage=99;for(;;)__WFI();}
+void Error_Handler(void){r3_result.error=r3_result.error?r3_result.error:1;r3_result.stage=99;
+#if R3_TR2_001_AUTONOMOUS
+ standalone_state=99;
+#endif
+ for(;;){
+#if R3_TR2_001_AUTONOMOUS
+ standalone_heartbeat();
+#endif
+ __WFI();}}
+
 __attribute__((noinline)) void r3_finished(void){__DSB();__ISB();}
 static void reset_trace(void){bench_trace_count=bench_payload_count=bench_preclose_count=0;bench_cleanup_mode=0;}
 static uint32_t hash(uint32_t h,const int16_t xyz[3]){for(unsigned j=0;j<3;j++){h^=(uint16_t)xyz[j];h*=16777619u;}return h;}
@@ -226,13 +253,16 @@ static int poll(uint64_t *previous,bool keep)
  r3_result.flags|=fifo.parser.flags_or;
  if(r||r3_clock_fault||bench_log_refused||bench_preclose_overflow)return -5;
  if(service>2500u*160u||gap>5000u*160u||consumer_cycles>1000u*160u||sd_cycles>1000u*160u)return -6;
+#if R3_TR2_001_AUTONOMOUS
+ standalone_heartbeat();
+#endif
  uint64_t end=now();while(now()-end<250u){}
  return 0;
 }
 static int calibrate(void)
 {
  calibration=true;uint64_t previous=0;anchors=0;cal_xyz=0;
- reset_trace();if(fifo_live_start(&fifo,1,1,1,7,2,now()/1000u))return -1;
+ reset_trace();if(fifo_live_start(&fifo,1,1,1,7,SENSOR_FS,now()/1000u))return -1;
  uint64_t start=now(),next=start;
  while(now()-start<2000000u){
   if(poll(&previous,false))return -2;
@@ -281,7 +311,7 @@ static int session(uint32_t run,uint64_t duration)
   if(ARCHIVE_VERSION==3)durable_put64(r3_header+168,duration);
   for(unsigned j=0;j<3;j++)put32(r3_header+24+j*4,r3_result.uid[j]);
   memcpy(r3_header+36,r3_card.cid,16);memcpy(r3_header+52,R3_CODE_SHA,40);
-  memcpy(r3_header+92,durable_coeff_sha,32);put32(r3_header+124,8);put32(r3_header+128,244);put32(r3_header+132,10);
+  memcpy(r3_header+92,durable_coeff_sha,32);put32(r3_header+124,SENSOR_G);put32(r3_header+128,SENSOR_UG);put32(r3_header+132,10);
   durable_put64(r3_header+136,cal_num);durable_put64(r3_header+144,cal_den);durable_put64(r3_header+152,durable_session);
   put32(r3_header+160,DURABLE_SAMPLES);put32(r3_header+164,0);/* UTC unknown; preserve DC. */
   put32(r3_header+508,crc32(r3_header,508));
@@ -290,7 +320,7 @@ static int session(uint32_t run,uint64_t duration)
  }
  memset(&mapper,0,sizeof mapper);fir_decimator10_init(&fir);next_clock=0;
  if(fir_decimator10_start(&fir,run,0,(FirDecimator10Clock){cal_num,cal_den,true})!=TR2_OK)return -1;
- reset_trace();if(fifo_live_start(&fifo,run,1,1,7,2,now()/1000u))return -2;
+ reset_trace();if(fifo_live_start(&fifo,run,1,1,7,SENSOR_FS,now()/1000u))return -2;
  begin_us=now();uint64_t previous=0;uint32_t irq_start=r3_irqs;int error=0;
  while(now()-begin_us<duration){if(r3_clock_fault){error=-12;break;}if((error=poll(&previous,true)))break;}
  r3_result.duration_us=now()-begin_us;if(r3_clock_fault&&!error)error=-12;r3_result.irqs=r3_irqs-irq_start;
@@ -332,12 +362,15 @@ static void stack_scan(void){uintptr_t p=stack_begin;while(p<stack_end&&*(volati
 int main(void)
 {
  r3_result.version=R3_ENDURANCE_8H?4:3;r3_result.stage=1;r3_result.uid[0]=HAL_GetUIDw0();r3_result.uid[1]=HAL_GetUIDw1();r3_result.uid[2]=HAL_GetUIDw2();
- if(r3_result.uid[0]!=0x001b0046||r3_result.uid[1]!=0x38425018||r3_result.uid[2]!=0x20333157)Error_Handler();
+ if(r3_result.uid[0]!=TARGET_UID0||r3_result.uid[1]!=0x38425018||r3_result.uid[2]!=0x20333157)Error_Handler();
  stmdev_ctx_t ctx;BenchClock clock;
  if(HAL_Init()!=HAL_OK)Error_Handler();
  HAL_PWREx_DisableUCPDDeadBattery();
  if(platform_init(&ctx,&clock)||bench_core_hz!=160000000u||r3_sd_prepare())Error_Handler();
  r3_result.clock=bench_core_hz;last_cycles=DWT->CYCCNT;
+#if R3_TR2_001_AUTONOMOUS
+ standalone_gpio();
+#endif
 #if R3_QPC_WITNESS
  if(witness_uart_init())Error_Handler();
 #endif
@@ -345,6 +378,43 @@ int main(void)
  if(r3_result.primask||r3_result.basepri||r3_result.faultmask)Error_Handler();
  if(fifo_live_init(&fifo,&ctx,5,consume,NULL)||fifo_live_set_poll_limit(&fifo,64))Error_Handler();
  fifo.cleanup_begin=clock.cleanup_begin;fifo.first_data_timeout_ms=20;stack_paint();r3_result.stage=2;
+#if R3_TR2_001_DISCOVERY
+ r3_command=MAGIC|1u;
+#endif
+#if R3_TR2_001_AUTONOMOUS && !R3_TR2_001_DISCOVERY
+ uint8_t who=0,ctrl=0;reset_trace();int r=iis3dwb_device_id_get(&ctx,&who);r3_result.who=who;
+ if(r||who!=0x7b)Error_Handler();
+ r3_result.who_ok=1;
+ if(iis3dwb_xl_full_scale_set(&ctx,IIS3DWB_16g)||iis3dwb_read_reg(&ctx,IIS3DWB_CTRL1_XL,&ctrl,1)||(ctrl&12u)!=4u)Error_Handler();
+ standalone_fs_readback=ctrl;
+ r=r3_sd_init(&r3_card);r3_result.sd_sectors=r3_card.sectors;
+ if(!r)r=durable_mount(&r3_card);
+ if(!r)r=calibrate();
+ if(!r)r=durable_preflight(5,LONG_FILE_BYTES);
+ if(r){r3_result.error=(uint32_t)(r<0?-r:r);Error_Handler();}
+ r3_sd_deselect();r3_result.run=1;r3_result.stage=2;standalone_state=2;
+ StandaloneButton button={0};
+ for(;;){
+  (void)now();standalone_heartbeat();
+  if(standalone_button(&button,HAL_GPIO_ReadPin(GPIOC,GPIO_PIN_13)==GPIO_PIN_SET,HAL_GetTick()))break;
+  __WFI();
+ }
+ if(r3_clock_fault)Error_Handler();
+ standalone_state=3;r3_result.stage=3;r=session(5,LONG_DURATION_US);
+ if(fifo.running){reset_trace();if(fifo_live_stop(&fifo)&&!r)r=-93;}
+ if(r3_writer.active)while(r3_writer.active){if(writer_step(false))break;}
+ if(r3_writer.needs_power_cycle){r3_result.error=95;r3_result.stage=98;standalone_state=98;}
+ else if((r3_writer.uncertain||r3_card.failed)&&sd_spi_quiesce(&r3_card)){r3_result.error=94;r3_result.stage=98;standalone_state=98;}
+ else{
+  r3_sd_deselect();r3_result.sd_error=r3_card.error;
+  if(r)r3_result.error=(uint32_t)(r<0?-r:r);
+  stack_scan();r3_result.stage=r3_result.error?99:4;standalone_state=r3_result.stage;
+ }
+ r3_finished();
+ /* Terminal latch: no repeated press or RAM command can restart. Reboot goes
+  * through initialization and refuses any existing filename (CREATE_NEW). */
+ for(;;){(void)now();standalone_heartbeat();__WFI();}
+#else
  for(;;){
   while(!r3_command){(void)now();
 #if R3_QPC_WITNESS
@@ -357,7 +427,16 @@ int main(void)
   }else if(cmd==(MAGIC|1u)&&r3_result.run==0){
    uint8_t who=0;reset_trace();r=iis3dwb_device_id_get(&ctx,&who);r3_result.who=who;
    if(!r&&who==0x7b){r3_result.who_ok=1;r=r3_sd_init(&r3_card);}else r=-91;
-   if(!r){r3_result.sd_sectors=r3_card.sectors;r=durable_mount(&r3_card);if(r==1&&!R3_ENDURANCE_1H){uint8_t marker[512];r=sd_spi_read(&r3_card,0,marker);if(!r&&memcmp(marker,"TR2 R2 SPI2 RAW TEST V1",23))r=-92;else if(!r)r3_result.marker_ok=1;}}
+   if(!r){r3_result.sd_sectors=r3_card.sectors;
+#if R3_TR2_001_DISCOVERY
+ r=sd_spi_read(&r3_card,0,r3_media_header);
+ if(!r)r=iis3dwb_xl_full_scale_set(&ctx,IIS3DWB_16g);
+ uint8_t ctrl=0;if(!r)r=iis3dwb_read_reg(&ctx,IIS3DWB_CTRL1_XL,&ctrl,1);r3_result.ctrl1=ctrl;
+ if(!r)r=-96; /* Read-only discovery deliberately stops before write gate. */
+#else
+ r=durable_mount(&r3_card);if(r==1&&!R3_ENDURANCE_1H){uint8_t marker[512];r=sd_spi_read(&r3_card,0,marker);if(!r&&memcmp(marker,"TR2 R2 SPI2 RAW TEST V1",23))r=-92;else if(!r)r3_result.marker_ok=1;}
+#endif
+ }
    if(!r){r=calibrate();r3_result.run=1;}
   }else if(cmd==(MAGIC|0x20u)&&r3_result.run==1&&!R3_ENDURANCE_1H&&r3_result.marker_ok&&!durable_status.mounted){r=durable_format();
   }else if((cmd==(MAGIC|2u)&&!R3_ENDURANCE_1H&&r3_result.run==1)||(cmd==(MAGIC|3u)&&r3_result.run==(R3_ENDURANCE_1H?1u:2u))||
@@ -376,10 +455,11 @@ int main(void)
   if(r)r3_result.error=(uint32_t)(r<0?-r:r);
   stack_scan();r3_result.stage=r3_result.error?99:4;r3_finished();
   if(r3_result.error)for(;;){(void)now();
-#if R3_ENDURANCE_8H
+#if R3_ENDURANCE_8H && R3_QPC_WITNESS
    /* Only reached after FIFO STOP and SD quiesce/deselect. Error is never COMPLETE. */
    (void)witness_uart_step(r3_result.uid,2u|(r3_result.run<<8),now(),durable_session,r3_result.accepted);
 #endif
    __WFI();}
  }
+#endif
 }
