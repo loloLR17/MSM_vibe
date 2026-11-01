@@ -1,0 +1,10 @@
+0x08002f48 in main () at /home/lolo/dev/msm/projects/MSM_vibe-TR2-001-autonome/experiments/r3_durable_fat32/src/main.c:420
+420	 for(;;){(void)now();standalone_heartbeat();__WFI();}
+0xbfa0700:	0x004a003d	0x38425018	0x20333157
+$1 = 217560
+$2 = 106706
+$3 = 258880
+$4 = 70419
+$5 = true
+$6 = false
+[Inferior 1 (Remote target) detached]

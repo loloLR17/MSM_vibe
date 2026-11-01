@@ -1,5 +1,8 @@
 # État courant MSM TR2 — synthèse opérationnelle
 
+**01/11/2026 — TR2-001 USER3s PASS cible, powerbank60s demandé/IN_PROGRESS.** A1A/source94cb :userWAITvert→USER→bleu→vertfixe ;3000012µsMCU/79576natifs/7958filtrés47748B SHA91a4ec48…72e6, FS16/488µg,0rails-clips-FIFO-SD-fileerreur.103records/header-footerRAMCRCconformes, readbackFlashentierexact, PASencorecontenuSDintégralPC. FAT32BPB512/cluster64/2FAT/root2/libre15617113clusters/4requis, A1A128KioLBA248192. Work666,9125/service1359,75/gap1618µs sousgardes ;FIFO48/file5120B/STOP134/drain12492µs,stoppedtrue/filevide/writeroff/nonincertain/CShaute/detach. QuatrièmeflashmissionA1B60s/source50e/BIN52416B99dc1f5f…d7e7, attenduserpassagehors tensionJP6USB[7–8]/CN15powerbank/STLINKoff/WAIT→USER→60s ; aucunPASSbankavantretour. CandidatprodR1Aboundcompilé/nonflashé ; nativePC2fichierspuisprodWAITrestants, aucunlonglancé. 002/FRAM/COM4intouchés.
+
+
 **01/11/2026 — TR2-001 gateUSER3s préparé/FAT32 monté, IN_PROGRESS.** Userfinirmission ; bindingSD512exact94cb3b95/contre-testsCID-capacitéPASS/ARM3sA1APASS, troisièmeflashstandard52420Bf343a813…d5c6/UID001-v/rst. Relevé18 :FAT32type3/deuxFAT/cluster64secteurs32Kio/volbase2048/fatbase3790/database247808/FAT122009secteurs ; calibration±16g198brackets6623ancres/résidu57µs<100/FIFOoff/WHO7B/FS04. Freecountencours~79%/reads96768,error0/clockfault0/writes0 ; LD2bleuefixeuser/BOOT1,pasencoreWAITniSTART. USERappui2sdemandéaprèsLD1verteclignotante seulement, attenteobservations avantGDBcapture. JP6trouvéuser5V-STLK ; changementUSBhors tension aprèsgatecollecté, aucunpourl'instant. Court3s/60sautonome+relecturePC+productionWAITencoreàprouver ; paslong. 002/FRAM/COM4préservés.
 
 

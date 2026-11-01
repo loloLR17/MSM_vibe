@@ -16,6 +16,35 @@ allow_debug: true
 
 # TR2-001 autonome ±16 g — checkpoint logiciel ; carte SD non initialisée
 
+## Gate USER3s terminé — résultats cible acquis, PC et powerbank à vérifier
+
+**OBSERVÉ cible/USER/LED : PASS borné3s, pas encore relecture nativePC.**
+User : LD1verteclignotante→appuiUSER→LD2bleueclignotante→LD1vertefixe.
+Relevé19/source94cb/BINf343…d5c6 : stage4/error0/standalone4,
+3000012µsMCUnominales pour3000000demandées,79576XYZnatifs→7958filtrés,
+47748B utiles/SHAproducteur **91a4ec489c07edbd34282b97d034568e0c4bcc417f5544301ebfe8d93d5c72e6**.
+A1A0005.TR2 préalloué131072B, premierLBA248192/256secteurs ; FS16/488µg,
+103records/0rails/0clips/0FIFO-SD-file-erreur. Freebefore15617113clusters,4requis.
+Marges cycles/160 : service1359,75µs/work666,9125/gap1618/SDquantum440,11875,
+seuils1000/2500/5000inchangés ; FIFO48/file5120B. STOP134µs/drain12492µs,
+FIFOstoppedtrue/writeroff/uncertainfalse/filevide/CShaute/GDBdétaché.
+CRC en-tête/footerRAM et digestconformes, Flashrelueentièreexacte. **Ce n'est pas encore
+une preuve du contenu du fichierSD entier** : relecture nativePC conservée obligatoire.
+
+BPB réel :512B/secteur,64secteurs/cluster,2FAT/122009secteursFAT,
+total999741376secteurs/root2 ; label du champBPB `NO NAME` (étiquette de volume
+racine/Windows non encore relue, ne pas la déduire de ce champ). Aucun formatage.
+
+Image autonome60s/A1B nouvellement chargée-v/rst aprèscollecte3s : source50e47473,
+BIN52416B **99dc1f5f01e9508445e0948153d4a46170a5e2cc2e82761c9881b51032fcd7e7**,
+quatrièmeflashstandardmission, mêmesfonctions/guards. Demande physique : attendreWAIT,
+couperalimentation, JP6de5V-STLKvers5V_USB_C[7–8] uniquement, powerbankUSB-A5V→CN15,
+STLINKdébranché ; aprèsnouveauWAIT, USER2s→60s→vertefixe et observationtension.
+**Retour utilisateur encore attendu : aucun résultat powerbank annoncé.** Aucun
+nouvelappui logiciel/GDB, pas de STARTlong. Lecture intégrale des deux fichiers sur
+lecteurPC puis firmwarelongR1A/WAIT restent àréaliser. Candidatlong compilé et conservé
+localement/nonflashé, source50e etpréfixeR1A, guards30600sMCU/640Mio inchangées.
+
 ## Reprise de qualification — FAT32 monté, gate USER3s en préparation
 
 Utilisateur demande de terminer la mission. Binding exactCID/capacité ajouté au commit
