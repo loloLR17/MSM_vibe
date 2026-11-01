@@ -16,6 +16,50 @@ allow_debug: true
 
 # TR2-001 autonome ±16 g — checkpoint logiciel ; carte SD non initialisée
 
+## Relecture PC acquise — 3s COMPLETE ; essai powerbank INCOMPLETE ; diagnostic A1C en cours
+
+**Natif Windows, lecteur USB Generic STORAGE DEVICE, disque2/D: à ce relevé**
+(et non supposition F:/ancien32Go) :511868665856B/MBR/offset1048576/partition511867584512B,
+volume **FAT32 «512 GO»/cluster32768**. Copies intégrales des deux fichiers et hash natifs
+source=copie exacts, pas de formatage/réparation/écriturefichieroriginal. Originaux locaux
+`native-pc-files`, données sourcepréservées, 32Go002 nonouverte paroutilcopie.
+
+- **A1A0005.TR2 COMPLETE** : tous103records/7958XYZ/47748B, CRC/séquence/session/temps/
+  profil16g488µg/footer vérifiés, SHAamontRAM91a4…72e6 exact ; fichierentierSHA
+  **1370b795a465f1c1df07a3fdeca9e16b1df967483534f94a43d26a9e27dc761e**.
+  Toutes7958sorties produites de ce court essai sont persistées. Conversion nominale
+  de tous les échantillonsréels hors11warmup disponible dans `physical-fs16-nominal-scale.json`
+  (DCconservée/vecteurmoyen proche1g, pas calibration absolue).
+- **A1B0005.TR2 INCOMPLETE** :168records valides/13104XYZ/78624B, intervalle des sorties
+  **4921139µsMCU**, aucunfooter ; SHA du seulpréfixe **2b3a5508335fc8fd673dfc3c24388f5a19c9e59cb727e6834bf18eb1c26da0c5**.
+  Fichierentier2MioSHA **9bb593f8ed83e972c685b2e49411df6429c1016659ddfeeca1051259b8139a16**.
+  Pas60s validées ni comparaisonàunSHAproducteurcomplet (RAMperdue/inaccessible),
+  pas de garantie de récupération de toutes les sorties initialement produites.
+
+User rapporte LD3rouge avant extinction, puis a réveillé la powerbank ; mesure ensuite
+**0Vaulecteur**, STLINKprésent maisMCUinaccessible (`22…No device found on target`).
+La première erreur et sa causalité (source d'alimentation/SPI/logiciel) restent inconnues ;
+ne pas attribuer automatiquement l'échec à une mise en veille de banque. Une seule
+powerbank disponible selonuser. Essai autonome60s **échoué/nonqualifié**, pasREADY8h.
+
+Preuves compactes lossless publiées : extents en-tête/recordsvalides/footer +descripteurs
+et zlib ; tousoctets inutilisés de préallocation sont exclus. Reconstruction clairsemée
+**dérivée**, pas prétention auSHAdufichieroriginalentier ; lecteurstrict relu surcesextents :
+A1ACOMPLETE/7958/SHAamontexact, A1BINCOMPLETE/13104/SHApréfixeexact. Deuxoriginaux
+entiers restent locaux. Cela permet le contrôleindépendant des données utiles publiées.
+
+**Diagnostic sousSTLINKstable** : userSDretour001/JP6STLK/CN15off ; nouveaupréfixeA1C,
+sourceC885e505, aucune modification ducode/gardes, ARM60sPASS, cinquièmeflashstandard
+-v/rst. Refus initial avantcalibration : CMD0/R1=0 au lieu1, SDerror3/writes0. Cardétait
+reluparancienfirmwarelorsduflash ; aprèscoupurecomplèteuser, **initSD/FAT32/calibration
+réussissent**, booterror0. Refus conservé distinct, aucune attente de réponse assouplie.
+L'observateurinitial25 a été fermé parSIGINT/GDBcode1 carattachéalorsqueError_Handler
+déjàatteint ; lecture26 a conservé lesfaits sansreset. Observateur27corrigé vérifie
+l'étatterminalavantcontinue, breaks matériels fintraitement/entréeError_Handler, aucun
+START, collectefinalepuisdetach. Actuellementarmé ; USERdemandéuniquementaprèsWAIT,
+STLINKmaintenu pour préserverle premierdéfaut. **Pasencorede résultatA1C annoncé.**
+C885checkpointgate précédent relu130fichiers/112empreintes à17:47:43UTC.
+
 ## Gate USER3s terminé — résultats cible acquis, PC et powerbank à vérifier
 
 **OBSERVÉ cible/USER/LED : PASS borné3s, pas encore relecture nativePC.**

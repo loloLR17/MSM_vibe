@@ -1,0 +1,22 @@
+{
+  "original_name": "A1B0005.TR2",
+  "original_file_bytes": 2097152,
+  "original_file_sha256": "9bb593f8ed83e972c685b2e49411df6429c1016659ddfeeca1051259b8139a16",
+  "compression": "zlib",
+  "uncompressed_valid_extent_bytes": 87040,
+  "uncompressed_sha256": "e4165e4fd1ac829e4d6d285a2b28d34bbfe09046a1e4e5f8671a79366eb651b4",
+  "ranges": [
+    {
+      "offset": 0,
+      "bytes": 86528
+    },
+    {
+      "offset": 2096640,
+      "bytes": 512
+    }
+  ],
+  "expected_reader_status": "INCOMPLETE",
+  "expected_valid_xyz": 13104,
+  "expected_payload_sha256": "2b3a5508335fc8fd673dfc3c24388f5a19c9e59cb727e6834bf18eb1c26da0c5",
+  "excluded": "Unused preallocated tail excluded; zero-filled sparse reconstruction is a derived file and does not assert original whole-file hash."
+}

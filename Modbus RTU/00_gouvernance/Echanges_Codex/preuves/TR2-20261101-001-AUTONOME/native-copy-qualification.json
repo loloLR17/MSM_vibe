@@ -1,0 +1,44 @@
+{
+    "Utc":  "2026-11-01T17:57:44.1798064Z",
+    "Disk":  {
+                 "Number":  2,
+                 "FriendlyName":  "Generic STORAGE DEVICE",
+                 "SerialNumber":  "000000000819",
+                 "Size":  511868665856,
+                 "PartitionStyle":  "MBR",
+                 "BusType":  "USB"
+             },
+    "Partition":  {
+                      "PartitionNumber":  1,
+                      "DriveLetter":  "D",
+                      "Offset":  1048576,
+                      "Size":  511867584512
+                  },
+    "Volume":  {
+                   "DriveLetter":  "D",
+                   "FileSystemLabel":  "512 GO",
+                   "FileSystem":  "FAT32",
+                   "Size":  511741755392,
+                   "SizeRemaining":  511739297792,
+                   "AllocationUnitSize":  32768
+               },
+    "Files":  [
+                  {
+                      "Name":  "A1A0005.TR2",
+                      "Length":  131072,
+                      "Source":  "D:\\A1A0005.TR2",
+                      "SourceSHA256":  "1370B795A465F1C1DF07A3FDECA9E16B1DF967483534F94A43D26A9E27DC761E",
+                      "Destination":  "\\\\wsl.localhost\\Debian\\home\\lolo\\dev\\msm\\reports\\TR2-001-autonome-reducteur-20261101\\native-pc-files\\A1A0005.TR2",
+                      "DestinationSHA256":  "1370B795A465F1C1DF07A3FDECA9E16B1DF967483534F94A43D26A9E27DC761E"
+                  },
+                  {
+                      "Name":  "A1B0005.TR2",
+                      "Length":  2097152,
+                      "Source":  "D:\\A1B0005.TR2",
+                      "SourceSHA256":  "9BB593F8ED83E972C685B2E49411DF6429C1016659DDFEECA1051259B8139A16",
+                      "Destination":  "\\\\wsl.localhost\\Debian\\home\\lolo\\dev\\msm\\reports\\TR2-001-autonome-reducteur-20261101\\native-pc-files\\A1B0005.TR2",
+                      "DestinationSHA256":  "9BB593F8ED83E972C685B2E49411DF6429C1016659DDFEECA1051259B8139A16"
+                  }
+              ],
+    "CardOperations":  "File reads only; no formatting, repair or source-file writes"
+}

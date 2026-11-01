@@ -1,0 +1,6 @@
+Error_Handler () at /home/lolo/dev/msm/projects/MSM_vibe-TR2-001-autonome/experiments/r3_durable_fat32/src/main.c:140
+140	 for(;;){
+0xbfa0700:	0x004a003d	0x38425018	0x20333157
+Hardware assisted breakpoint 1 at 0x8002434: file /home/lolo/dev/msm/projects/MSM_vibe-TR2-001-autonome/experiments/r3_durable_fat32/src/main.c, line 136.
+Hardware assisted breakpoint 2 at 0x800247c: file /home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/CMSIS/Include/cmsis_gcc.h, line 271.
+OBSERVER_ARMED_NO_START_COMMAND

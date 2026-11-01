@@ -1,0 +1,6 @@
+{
+  "utc": "2026-11-01T18:05:49.660977+00:00",
+  "pid": 730101,
+  "signal": "SIGINT to GDB",
+  "reason": "Already in Error_Handler when attached, continue waiting cannot reach entry breakpoint; interrupt for read-only diagnostics, no reset/flash"
+}

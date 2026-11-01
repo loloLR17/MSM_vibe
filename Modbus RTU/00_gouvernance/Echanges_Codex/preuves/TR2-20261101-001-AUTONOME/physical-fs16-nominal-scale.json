@@ -1,0 +1,18 @@
+{
+  "file": "A1A0005.TR2",
+  "excluded_warmup_outputs": 11,
+  "retained_outputs": 7947,
+  "mean_xyz_g_nominal": [
+    0.7331072877815528,
+    0.2877279194664653,
+    -0.6161575074871021
+  ],
+  "rms_xyz_g_nominal": [
+    0.7333280212760965,
+    0.28823269544952107,
+    0.6165076739483251
+  ],
+  "mean_vector_g_nominal": 0.9999418608457411,
+  "method": "All real valid samples read from native-PC copy; 488ug/count exactly as archive, DC retained",
+  "limit": "Not an absolute accelerometer calibration or suppression of gravity"
+}

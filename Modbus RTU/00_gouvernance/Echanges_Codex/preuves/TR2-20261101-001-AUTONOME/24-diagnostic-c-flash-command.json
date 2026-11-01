@@ -1,0 +1,17 @@
+{
+  "command": [
+    "/mnt/c/ST/STM32CubeCLT_1.22.0/STM32CubeProgrammer/bin/STM32_Programmer_CLI.exe",
+    "-c",
+    "port=SWD",
+    "sn=003500463235510B37333439",
+    "freq=8000",
+    "-w",
+    "\\\\wsl.localhost\\Debian\\home\\lolo\\dev\\msm\\reports\\TR2-001-autonome-reducteur-20261101\\diagnostic-a1c-image\\r3_coex.bin",
+    "0x08000000",
+    "-v",
+    "-rst"
+  ],
+  "code_sha": "c885e50588b48105d2e12853cda0a9f06f1eb10e",
+  "sha256": "c4f5d12266505428449d37c090e9ff695768b59f5e5f9891d70e46a421d665d3",
+  "normal_programming_only": true
+}

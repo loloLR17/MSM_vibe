@@ -1,0 +1,9 @@
+{
+  "source_sha": "c885e50588b48105d2e12853cda0a9f06f1eb10e",
+  "sha256": "c4f5d12266505428449d37c090e9ff695768b59f5e5f9891d70e46a421d665d3",
+  "bytes": 52416,
+  "duration_us": 60000000,
+  "prefix": "A1C",
+  "start": "USER only",
+  "power": "ST-LINK stable diagnostic"
+}
