@@ -1,0 +1,3 @@
+https://raw.githubusercontent.com/STMicroelectronics/stm32u5xx-nucleo-bsp/main/stm32u5xx_nucleo.h
+sha256 2908ff779bd284b4e13621947e756c126ace4cce00a8f68083406a58125125e0
+USE_NUCLEO_144: LD1 PC7; LD2 PB7; LD3 PG2; USER PC13 input

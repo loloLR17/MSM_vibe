@@ -1,0 +1,17 @@
+{
+  "command": [
+    "/mnt/c/ST/STM32CubeCLT_1.22.0/STM32CubeProgrammer/bin/STM32_Programmer_CLI.exe",
+    "-c",
+    "port=SWD",
+    "sn=003500463235510B37333439",
+    "freq=8000",
+    "-w",
+    "\\\\wsl.localhost\\Debian\\home\\lolo\\dev\\msm\\cache\\tr2-001-discovery\\r3_coex.bin",
+    "0x08000000",
+    "-v",
+    "-rst"
+  ],
+  "code_sha": "79b952d + isolated discovery diff (preserved)",
+  "sha256": "1283f70a60b68e7de03298014f3c23f79d987c72023dad1b26839a8b6eb224bc",
+  "normal_programming_only": true
+}

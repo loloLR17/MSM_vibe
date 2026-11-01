@@ -1,0 +1,16 @@
+{
+  "Backups": [
+    {
+      "Name": "TR2-001_Flash_lecture1.bin",
+      "Length": 2097152,
+      "SHA256": "31926EB263DB85917E7F4C04B95109C2FB174102100349A7DA532CA3BD9807C5"
+    },
+    {
+      "Name": "TR2-001_Flash_lecture2.bin",
+      "Length": 2097152,
+      "SHA256": "31926EB263DB85917E7F4C04B95109C2FB174102100349A7DA532CA3BD9807C5"
+    }
+  ],
+  "uid": "004A003D/38425018/20333157",
+  "sn": "003500463235510B37333439"
+}

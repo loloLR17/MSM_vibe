@@ -1,0 +1,59 @@
+{
+  "source_sha": "6c5ecb47e0c7bdbf83f9541d585a79d3dc9aaf24",
+  "utc": "2026-11-01T16:55:42.656589+00:00",
+  "images_not_flashed": {
+    "gate": {
+      "r3_coex.bin": {
+        "bytes": 51528,
+        "sha256": "707e8d4bb3d6afeb4222cbe702194a85fefa43e59aec010c7c1d5338f9b45219"
+      },
+      "r3_coex.elf": {
+        "bytes": 2150712,
+        "sha256": "94444d936e2f3f5e116e65a073ea4a2bb090dd317fbadddb74e119191209d430"
+      },
+      "r3_coex.map": {
+        "bytes": 663863,
+        "sha256": "0bc2ffaf69c4a7a1c7d551ddac78b0d68c72a9157cdac93490f5260105893dc3"
+      },
+      "CMakeCache.txt": {
+        "bytes": 16364,
+        "sha256": "5975acd32f5b17af003b393399c667028e93ece179c0b3379304c619a62b77d7"
+      },
+      "absence_in_linked_image": [
+        "f_mkfs",
+        "witness_uart*",
+        "r3_command"
+      ]
+    },
+    "long": {
+      "r3_coex.bin": {
+        "bytes": 51540,
+        "sha256": "5896c473e8d571c60bcddcdaec7779cfab17ab89e8a2d21773ed06f2e746ad40"
+      },
+      "r3_coex.elf": {
+        "bytes": 2150704,
+        "sha256": "0ebf727cfb862406028659b770725f79fd21a1642f2f171d4f9f7acb8472fe9a"
+      },
+      "r3_coex.map": {
+        "bytes": 663902,
+        "sha256": "4b052bd8b0ffafee6e89e239645f8ea606173636670e57b695b359cd2ddf839f"
+      },
+      "CMakeCache.txt": {
+        "bytes": 16368,
+        "sha256": "8da90939f20f88114455fb4fcde4bd58c8475b692cecd2eba37a55e1a31040ee"
+      },
+      "absence_in_linked_image": [
+        "f_mkfs",
+        "witness_uart*",
+        "r3_command"
+      ]
+    }
+  },
+  "physical_image": {
+    "bytes": 51068,
+    "sha256": "1283f70a60b68e7de03298014f3c23f79d987c72023dad1b26839a8b6eb224bc",
+    "source": "79b952d with initial uncommitted discovery adaptation; not the later autonomous source",
+    "write_enabled": false,
+    "sd_writes": 0
+  }
+}

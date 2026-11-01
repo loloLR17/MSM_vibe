@@ -1,0 +1,25 @@
+Internal ctest changing into directory: /home/lolo/dev/msm/cache/tr2-001-host
+UpdateCTestConfiguration  from :/home/lolo/dev/msm/cache/tr2-001-host/DartConfiguration.tcl
+UpdateCTestConfiguration  from :/home/lolo/dev/msm/cache/tr2-001-host/DartConfiguration.tcl
+Test project /home/lolo/dev/msm/cache/tr2-001-host
+Constructing a list of tests
+Done constructing a list of tests
+Updating test list for fixtures
+Added 0 tests to meet fixture requirements
+Checking test dependency graph...
+Checking test dependency graph end
+test 3
+    Start 3: tr2_001_fs16_reader
+
+3: Test command: /usr/bin/python3 "/home/lolo/dev/msm/projects/MSM_vibe-TR2-001-autonome/experiments/r3_durable_fat32/tests/test_fs16_reader.py"
+3: Working Directory: /home/lolo/dev/msm/cache/tr2-001-host
+3: Test timeout computed to be: 10000000
+3: {"profile_and_corruption_cases": 9, "old8g_retained": true, "fs16_scale_correct": true, "synthetic_only": true}
+1/1 Test #3: tr2_001_fs16_reader ..............   Passed    0.07 sec
+
+The following tests passed:
+	tr2_001_fs16_reader
+
+100% tests passed, 0 tests failed out of 1
+
+Total Test time (real) =   0.07 sec
