@@ -4,7 +4,7 @@ status: IN_PROGRESS
 base_ref: main
 base_sha: a8817bf293c6e60a93ad824d279ee870b6a0ecf7
 initial_head: 79b952dbb949cb8eb2f208e3b2c5994f4ed1279f
-result_sha: 6c5ecb47e0c7bdbf83f9541d585a79d3dc9aaf24
+result_sha: 56fa3b18e0ed9def3f67d19dfbe06f596b248e94
 created_at_utc: 2026-11-01T16:57:14.405923+00:00
 author: Codex
 target_branch: main
@@ -15,6 +15,49 @@ allow_debug: true
 ---
 
 # TR2-001 autonome ±16 g — checkpoint logiciel ; carte SD non initialisée
+
+## Dernière reprise — alimentation lecteur mesurée, silence SPI persistant
+
+**État actuel : pas prêt pour la campagne, contrôle de continuité utilisateur attendu.**
+Utilisateur : le fil **+3V** était déconnecté, reconnecté ; **3,28V entre3V/GND sur
+le lecteur Adafruit** ; brochage réaffirmé CLK CN7-5/SO CN9-10/SI CN9-8/CS CN7-20.
+L'utilisateur a ensuite débranché/rebranché le ST-LINK et remesuré3,28V. La tension
+pendant la coupure n'a pas été rapportée. Le silence persiste après ce redémarrage.
+
+Un second flash standard justifié pour obtenir une trace bornée du tout premier échange,
+source **56fa3b18e0ed9def3f67d19dfbe06f596b248e94**, BIN51640B SHA256
+`a64337db036a72b9636c2888077b27cbc273bdc5975e84c380eaefbc42df1caf`, CLI-v puis
+relectureGDB intégrale exacte. Aucun flash de l'image longue ni acquisition. Cette
+image distincte de découverte conserve les64premiers appels I/O, au plus16octets
+TX/RX par appel, hors boucleRX HAL. Aucun délai, contrôle ou protocole n'a été assoupli.
+
+**Observation actuelle capteur : WHO0x7B et CTRL1_XL=0x04**, donc champ FS±16g relu,
+ODRoff ; ce résultat lève la réserve de réglage physiqueFS16, pas la qualification
+d'une acquisition ou de l'échelle de données réellement enregistrées. Le lecteur
+Python/échelle488µg reste validé par fixtures seulement tant qu'aucun fichier n'existe.
+
+`12-discovery-io-result.log` et `13-after-confirmed-cold-boot.log` :
+CMD0 **40 00 00 00 00 95**, GPIOF_ODR PF12=0 pendant l'appel, HAL_OK, sixoctetsRXFF
+pendant la commande puis aucune R1 recevable ; error2/R1FF/writes0/CIDinconnu.
+Les10octets initiaux fournissent les80clocks demandées par le code avecCS haute.
+Ce sont des **buffers HAL et états MCU**, pas des captures électriques au logementSD :
+présence réelle de SCK/MOSI/CS au lecteur non démontrée, aucune conclusion matérielle
+exclusive. Décodeur du log natif, sans réinterprétation des caractèresWindows, dans
+`first-command-observation.json`. Aucun diagnosticN8G ni essai d'endurance.
+
+**Prochaine action physique demandée** : TR2-001 hors tension, contrôle au multimètre
+continuité lecteur→Nucleo CLK/CN7-5, SO/CN9-10, SI/CN9-8, CS/CN7-20, GND/CN8-11,
+carte verrouillée ; laisser hors tension et rapporter les coupures éventuelles.
+Le brochage annoncé est conforme au contrat, aucune modification n'a été prescrite.
+Débogueur détaché/SDsansécriture/ODRoff. Les validations hôte et les builds autonomes
+acquis n'ont pas été rejoués ; seul le build de ce diagnostic modifié a été réalisé.
+
+Checkpoint précédent **faa1f7b713c60737bffd3d92e24715a5aaa256f5** récupéré deGitHub et
+relu intégralement à2026-11-01T17:17:50.241886Z :66fichiers/49empreintes conformes,
+worktree alors propre. État courant publié ci-dessus ; les sections suivantes conservent
+l'historique des premiers checkpoints et leurs limites à leur date.
+
+## Historique du premier checkpoint
 
 **Pas prêt pour la campagne.** Logiciel autonome préparé et builds ARM courts/long
 réussis ; première découverte physique : WHO_AM_I **0x7B**, mais **CMD0 sans réponse

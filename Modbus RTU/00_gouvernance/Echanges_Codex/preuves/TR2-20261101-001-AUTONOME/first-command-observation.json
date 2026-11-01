@@ -1,0 +1,15 @@
+{
+  "source_log": "12-discovery-io-result.log",
+  "hal_status": 0,
+  "gpiof_odr_during_command": 0,
+  "tx_hex": "40 00 00 00 00 95",
+  "rx_during_command_hex": "ff ff ff ff ff ff",
+  "scope": "HAL buffers and MCU CS output latch, not an electrical capture at the SD socket",
+  "fs_ctrl1_readback": 4,
+  "who": 123,
+  "sd_writes": 0,
+  "user_voltage_v": 3.28,
+  "user_repaired_wire": "+3V disconnected, reconnected",
+  "user_confirmed_wiring": "CLK CN7-5, SO CN9-10, SI CN9-8, CS CN7-20",
+  "next": "Await confirmed complete power cut after reconnecting +3V; do not repeat firmware/software tests"
+}
