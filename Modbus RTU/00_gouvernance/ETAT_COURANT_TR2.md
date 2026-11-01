@@ -1,6 +1,9 @@
 # État courant MSM TR2 — synthèse opérationnelle
 
 
+**02/11/2026 — TransitionSTLINK : resetNRST démontré, pisteJP2 àqualifier.** User3,23VlecteurSTLINKoff/CN15maintenu puisreconnexionbleu. Relevé42 CSR04004400 contre4400en40 :nouveauPINRSTFseul/pasBOR/software/watchdog, IRQ38478<103846, nouveau bootSD/FAT32OK/cal27µs/WHO7B/FS16/error0/write0/f_getfreeencours. PasHardFaultniimagecorrompue ; frontretrait/reconnexionnonattribué. STUM2861Rev10Table5confirmeJP2T_NRST liaisonresetSTLINK↔MCU, pistehypothèse avantisolationphysique. RepérageJP2demandé sansmanipalimentée ; finSDpuisisolationhorstension/CN15seul/60scourt/PCrestants. Aucunflash/reset/STARTagent ni002/FRAM/COM4.
+
+
 **02/11/2026 locale — TR2-001 A1E refus au boot identifié, IN_PROGRESS.** Userbleu1s àreconnexionpuisrougepersistant. Relevé38 sansreset/flash :99/error2SD_TIMEOUT/CMD0-8OK puisACMD41idle répété/R1FF,0cal/capture/write/clockfault ; WHO7B/FS04. Nouveau démarrage depuis36, instant/causeinconnus.39Flash52448Bexactc88e8c69…99f0/CFSR-HFSR0/PG2haute, CSRcorrect0x46020cf4=0c004400BOR/PINcumulés (38adresse0x94=AHB3ENR,pasCSR).40sauvegarde puisclearflagsvolatileRMVF/readback4400/IRQ103846/error2/write0,détaché. UserdemandéSTLINKseuloff→mesure3V/GNDlecteur→on,CN15maintenu/sansUSER,pourattributionnouveauxresets. PasdepreuvebesoinSTLINKlogiciel niA1E60slancé ; aucunretry/flash/resetagent/long. Rapportetpreuvescheckpoint2800bc42déjàrelus53fichiers/213hashes ; nouveauxrelevésàpublier.002/FRAM/COM4préservés.
 
 

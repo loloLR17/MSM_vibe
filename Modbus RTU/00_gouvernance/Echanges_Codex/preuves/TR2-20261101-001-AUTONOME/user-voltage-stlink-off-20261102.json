@@ -1,0 +1,8 @@
+{
+  "reported_at_utc": "2026-11-01T23:05:42.460519+00:00",
+  "reported_by": "user",
+  "voltage_V": 3.23,
+  "measurement_context_requested": "3V/GND at SD reader, ST-LINK removed, CN15 mains maintained",
+  "limit": "Point measurement only; no transient voltage waveform or reset attribution established",
+  "next": "Reconnect ST-LINK without CN15 interruption, compare RCC_CSR baseline 0x4400 and IRQ count103846."
+}

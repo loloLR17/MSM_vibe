@@ -1,0 +1,30 @@
+0x08009696 in HAL_SPI_TransmitReceive (hspi=hspi@entry=0x20043570 <spi>, pTxData=<optimized out>, pRxData=0x20044894 <fs+48> "", Size=Size@entry=512, Timeout=<optimized out>, Timeout@entry=30) at /home/lolo/dev/msm/cache/tr2-001-sd2mhz60/generated/stm32u5xx_hal_spi_observed.c:1667
+1667	          if ((((HAL_GetTick() - tickstart) >=  Timeout) && (Timeout != HAL_MAX_DELAY)) || (Timeout == 0U))
+0xbfa0700:	0x004a003d	0x38425018	0x20333157
+$1 = 0x4004400
+$2 = 38478
+$3 = {version = 4, stage = 2, error = 0, uid = {4849725, 943869976, 540225879}, clock = 160000000, who = 123, run = 0, mode = 0, duration_us = 0, records = 0, span_us = 1896778, span_ticks = 151602, cal_residual = 27, cal_brackets = 198, cal_anchors = 6628, accepted = 0, outputs = 0, warmup = 0, rails = 0, clips = 0, source_hash = 0, output_hash = 0, first_us = 0, last_us = 0, residual = 0, clock_checks = 0, level = 16, flags = 0, stop_us = 0, stopped = 0, fifo_error = 0, stop_error = 0, trace_refused = 0, preclose_overflow = 0, irqs = 0, stack_deepest = 0, stack_floor = 0, primask = 0, basepri = 0, faultmask = 0, max_words = 16, raw_words = 2048, pending_xyz = 0, ctrl1 = 0, cal_xyz_span = 53016, cal_tick_span = 159048, sd_error = 0, sd_steps = 0, sd_peak_queue = 0, sd_completed = 0, sd_step_max = 0, sd_write_max_us = 0, sd_busy_max_us = 0, sd_total_bytes = 0, sd_lba = 0, sd_written = 0, drain_us = 0, header_written = 0, return_offset = 0, return_bytes = 0, returned = 0, sd_sectors = 999743488, marker_ok = 0, who_ok = 1, trace_count = 0, queue_overflows = 0, sd_pending_polls = 0}
+$4 = 1
+$5 = 4
+$6 = 0
+$7 = {mounted = 1, formatted = 0, error = 0, io_error = 0, io_uncertain = 0, io_writes = 0, first_lba = 0, sectors = 0, run = 0, fs_type = 3, cluster_sectors = 64, free_clusters = 0, required_clusters = 0, session = 0}
+$8 = 0
+$9 = 13245
+$10 = 17
+$11 = 0
+$12 = 12532
+$13 = 0
+$14 = false
+$15 = false
+$16 = 0x0
+#0  0x08009696 in HAL_SPI_TransmitReceive (hspi=hspi@entry=0x20043570 <spi>, pTxData=<optimized out>, pRxData=0x20044894 <fs+48> "", Size=Size@entry=512, Timeout=<optimized out>, Timeout@entry=30) at /home/lolo/dev/msm/cache/tr2-001-sd2mhz60/generated/stm32u5xx_hal_spi_observed.c:1667
+#1  0x080033ea in exchange (unused=<optimized out>, tx=<optimized out>, rx=<optimized out>, n=512) at /home/lolo/dev/msm/projects/MSM_vibe-TR2-001-autonome/experiments/r3_coex_fifo_fir_sd/src/board_sd.c:30
+#2  0x080060e6 in data (s=s@entry=0x2001d800 <r3_card>, out=out@entry=0x20044894 <fs+48> "", size=size@entry=512) at /home/lolo/dev/msm/projects/MSM_vibe-TR2-001-autonome/experiments/spi2_microsd_isolated/src/sd_spi.c:71
+#3  0x0800659c in sd_spi_read (s=0x2001d800 <r3_card>, lba=lba@entry=16317, out=out@entry=0x20044894 <fs+48> "") at /home/lolo/dev/msm/projects/MSM_vibe-TR2-001-autonome/experiments/spi2_microsd_isolated/src/sd_spi.c:112
+#4  0x08004246 in disk_read (d=<optimized out>, b=b@entry=0x20044894 <fs+48> "", lba=lba@entry=16317, count=count@entry=1) at /home/lolo/dev/msm/projects/MSM_vibe-TR2-001-autonome/experiments/r3_durable_fat32/src/fat_volume.c:20
+#5  0x080049b8 in move_window (fs=0x20044864 <fs>, sect=16317) at /home/lolo/dev/msm/projects/MSM_vibe-TR2-001-autonome/experiments/r3_durable_fat32/vendor/fatfs/ff.c:1095
+#6  move_window (fs=0x20044864 <fs>, sect=16317) at /home/lolo/dev/msm/projects/MSM_vibe-TR2-001-autonome/experiments/r3_durable_fat32/vendor/fatfs/ff.c:1082
+#7  0x08005a98 in f_getfree (path=<optimized out>, path@entry=0x800c898 "0:", nclst=nclst@entry=0x200bff08, fatfs=fatfs@entry=0x200bff0c) at /home/lolo/dev/msm/projects/MSM_vibe-TR2-001-autonome/experiments/r3_durable_fat32/vendor/fatfs/ff.c:5009
+#8  0x0800455e in durable_preflight (run=run@entry=5, bytes=bytes@entry=2097152) at /home/lolo/dev/msm/projects/MSM_vibe-TR2-001-autonome/experiments/r3_durable_fat32/src/fat_volume.c:62
+#9  0x08002a5a in main () at /home/lolo/dev/msm/projects/MSM_vibe-TR2-001-autonome/experiments/r3_durable_fat32/src/main.c:393
+[Inferior 1 (Remote target) detached]

@@ -1,0 +1,14 @@
+{
+  "previous_CSR": "0x00004400 after volatile reset-flag clear in40",
+  "new_CSR": "0x04004400 in42",
+  "new_flag": "PINRSTF only; no new BORRSTF, SFTRSTF or watchdog flag",
+  "IRQ_previous": 103846,
+  "IRQ_new": 38478,
+  "current_state": "BOOT/error0, SD initialized and FAT32 mounted, f_getfree in progress, cal27us/FS16/WHO7B, writes0",
+  "user_voltage_V": 3.23,
+  "limits": "reset occurred during physical ST-LINK removal/reconnection sequence; which edge and exact circuit cause not measured",
+  "hypothesis": "ST-LINK reset coupling via JP2 T_NRST; physical isolation not yet performed",
+  "official_source": "https://www.st.com/resource/en/user_manual/dm00789949.pdf",
+  "reference": "UM2861 Rev10 March2025 Table5 JP2 T_NRST ON: ST-LINK can reset target; OFF: cannot. External3V3 section separately recommends removingJP2 to avoid reset from unpowered ST-LINK; that section is NOT the current CN15 power mode.",
+  "next": "IdentifyJP2 then isolate reset path only powered off after SD quiet, confirm CN15-only start before short capture."
+}

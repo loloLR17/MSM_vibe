@@ -16,6 +16,28 @@ allow_debug: true
 
 # TR2-001 autonome ±16 g — checkpoint ; qualification sans ST-LINK en cours
 
+## Transition contrôlée — reset NRST démontré, couplage JP2 à vérifier
+
+Utilisateur : **3,23 V** au lecteur SD pendant le retrait du ST-LINK, CN15 conservé ;
+mesure ponctuelle, pas exclusion d'un transitoire. Reconnexion rapportée bleu clignotant
+puis fixe. Relevé42 : **CSR0x04004400**, comparé à0x00004400 remis à zéro en40 :
+**nouveau PINRSTF seulement**, aucun nouveau BOR/SOFTWARE/WATCHDOG. IRQ38478
+contre103846 avant transition, initialisation SD désormais réussie/999743488 secteurs,
+FAT32 monté, calibration27µs/198brackets/6628ancres, WHO7B/FS04, error0/write0 ;
+BOOT/f_getfree en cours, pas encore WAIT/START. Il y a eu un reset par NRST pendant
+la séquence physique de retrait/reconnexion ; son front exact n'est pas mesuré.
+
+Documentation officielle ST UM2861 Rev10, tableau5 : **JP2/T_NRST relie/isole le reset
+du ST-LINK à la cible**. C'est une hypothèse matérielle discriminante, pas une cause
+définitivement démontrée. Le passage sur l'alimentation externe3V3 recommande aussi
+son retrait contre les resets du ST-LINK non alimenté ; ce passage ne doit pas être
+confondu avec notre alimentation CN15. Source :
+https://www.st.com/resource/en/user_manual/dm00789949.pdf
+Prochaine action : repérage JP2 sans déplacement alimenté, fin contrôle SD puis
+isolation hors tension et contrôle CN15 seul avant essai court. Aucun firmware changé,
+aucun reset/flash/START/écriture SD commandé par l'agent pendant ces relevés.
+
+
 ## Reprise — rouge après reconnexion : refus SD avant acquisition
 
 Utilisateur : bleu environ une seconde à la reconnexion ST-LINK puis rouge clignotant
