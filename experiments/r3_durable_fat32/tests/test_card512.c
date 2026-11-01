@@ -16,7 +16,9 @@ int main(void){
  m[450]=7;assert(!tr2_001_partition(m,cap,&start,&length));
  uint8_t wrong[16]={3,0x53,0x44,0x53,0x44,0x33,0x32,0x47,0x85,0x8b,0xf0,0x92,0x3c,1,0x92,0x7b};
  assert(!tr2_001_card_matches(wrong,62333952u));
- if(TR2_001_CARD_SECTORS){assert(tr2_001_card_matches(tr2_001_card_cid,TR2_001_CARD_SECTORS));}
+ if(TR2_001_CARD_SECTORS){assert(tr2_001_card_matches(tr2_001_card_cid,TR2_001_CARD_SECTORS));
+  assert(!tr2_001_card_matches(tr2_001_card_cid,TR2_001_CARD_SECTORS-1));
+  uint8_t changed[16];memcpy(changed,tr2_001_card_cid,16);changed[8]^=1;assert(!tr2_001_card_matches(changed,TR2_001_CARD_SECTORS));}
  else{uint8_t zero[16]={0};assert(!tr2_001_card_matches(zero,0));}
  puts("PASS FAT32 sector/cluster/MBR/range/overflow/exFAT/old-card fail-closed (MODEL)");
 }

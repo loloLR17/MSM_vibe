@@ -1,12 +1,12 @@
-/* Exact card binding. Zero binding intentionally refuses discovery writes.
- * Replace only from preserved TR2-001 CID/CSD observations, never by capacity guess. */
+/* Exact TR2-001 card, observed after CLK replacement: 15-clk-replaced-reconnected.
+ * CID/CSD/sector0 CRC checked, 999743488 sectors; never a capacity-only fallback. */
 #ifndef TR2_001_CARD_H
 #define TR2_001_CARD_H
 #include <stdint.h>
 #include <stdbool.h>
 #include <string.h>
-#define TR2_001_CARD_SECTORS 0u
-static const uint8_t tr2_001_card_cid[16]={0};
+#define TR2_001_CARD_SECTORS 999743488u
+static const uint8_t tr2_001_card_cid[16]={0x03,0x53,0x44,0x53,0x44,0x35,0x31,0x32,0x85,0x62,0xe4,0x3c,0xf8,0x01,0x95,0xeb};
 static inline bool tr2_001_card_matches(const uint8_t cid[16],uint32_t sectors)
 {return TR2_001_CARD_SECTORS && sectors==TR2_001_CARD_SECTORS && !memcmp(cid,tr2_001_card_cid,16);}
 static inline uint32_t card_u32(const uint8_t *b)
