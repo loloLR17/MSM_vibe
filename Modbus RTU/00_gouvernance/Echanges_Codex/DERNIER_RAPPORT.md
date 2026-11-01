@@ -28,7 +28,7 @@ Calibration8MHz**24µs/198brackets/6577ancres**,WHO7B/CID/CSD/FAT32/nomsneufs/li
 
 Uneerreur dechemin d'unhelpercopié estsurvenue avantlecturehôte/avantgate ; corrigéeverscopiePSlocale, preuvePREPARATION_CORRECTION.json, aucuneprotection modifiée. DiffcheckconditionnementdesJSONWindowsCRLF corrigé parzlibsansperte danscommitdocumentairedecheckpoint ; contenuoriginalinchangé. AucunFRAM/COM4/001/serviceWindows touché danscettequalification, firmware001 conservéoff. Le capteurinitial002 resteNONVÉRIFIÉ ; deuxNucleo fonctionnentavec lemoduleprêté dansleursconditionsrespectives, pasdedéfautNucleo002démontré ni causalitéexclusivebreadboard.
 
-Rapport/journal/PRET_8H/preuvesactualisés, code/testsnormatifsinchangés. Travailisolépréservé, deuxstashesintacts, pushnormal/relecturedistanteàeffectuer ; SHAfinaldansréponse aprèsvérification. Lessectionsci-dessous sonthistoriquesetn'invalidentpaslapréparationcouranteN8F décriteici.
+Rapport/journal/PRET_8H/preuvesactualisés, code/testsnormatifsinchangés. Travailisolépréservé, deuxstashesintacts. **Résultats publiés aucommit5cd9193b01fa9f654fec4bb2a4db1d771da56e3b puis relus depuisorigin/main à07:09:26UTC :142fichiers intégraux identiques /134artefacts originaux vérifiés**, images etfichiercomplet conformes. Preuve `breadboard-qualified-N8F8MHz-20261101/remote-readback.json`. Cettepublicationqualifie lecheckpoint, paslendurance8h. Aucunmatériel/testsupplémentaire pendantrelecture ; bilanfinalàpublier/vérifier, SHAfinaldansréponse. Lessectionsci-dessous sonthistoriquesetn'invalidentpaslapréparationcouranteN8F décriteici.
 
 # Qualification du nouveau montage — calibration et fichier2s rétablis, marge4MHz à traiter
 
