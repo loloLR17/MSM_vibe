@@ -1,0 +1,26 @@
+{
+  "server": [
+    "/mnt/c/ST/STM32CubeCLT_1.22.0/STLink-gdb-server/bin/ST-LINK_gdbserver.exe",
+    "-d",
+    "-g",
+    "-i",
+    "003500463235510B37333439",
+    "--frequency",
+    "8000",
+    "-p",
+    "23336",
+    "-cp",
+    "C:\\ST\\STM32CubeCLT_1.22.0\\STM32CubeProgrammer\\bin"
+  ],
+  "gdb": [
+    "/mnt/c/ST/STM32CubeCLT_1.22.0/GNU-tools-for-STM32/bin/arm-none-eabi-gdb.exe",
+    "-nx",
+    "-q",
+    "-batch",
+    "-x",
+    "\\\\wsl.localhost\\Debian\\home\\lolo\\dev\\msm\\reports\\TR2-001-reference-readonly-20261101\\hardware\\TR2-001-final-RAM-state-only.gdb",
+    "\\\\wsl.localhost\\Debian\\home\\lolo\\dev\\msm\\reports\\TR2-accel-fs8g-ac\\firmware\\tr2-live-operator-NON-PRODUCTION.elf"
+  ],
+  "return_code": 0,
+  "utc": "2026-11-01T06:28:29.300697+00:00"
+}

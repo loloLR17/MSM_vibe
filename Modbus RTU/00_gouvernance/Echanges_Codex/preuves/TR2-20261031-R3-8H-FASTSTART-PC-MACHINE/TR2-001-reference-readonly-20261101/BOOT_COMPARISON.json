@@ -1,0 +1,56 @@
+{
+  "utc": "2026-11-01T06:27:39.143899+00:00",
+  "boot_calibration_observed": true,
+  "no_new_commanded_acquisition": true,
+  "approximate_nominal_calibration_duration_us": 2000195,
+  "total_XYZ": 52442,
+  "total_FIFO_words": 58998,
+  "anchors": 6556,
+  "brackets": 195,
+  "firmware_error": 0,
+  "counter_mismatch": 0,
+  "reserved_nonzero": 0,
+  "calibration_residual_us": 23,
+  "independent_recomputed_max_residual_us": 23,
+  "guard_us": 100,
+  "raw_prefix_words": 2048,
+  "raw_prefix_XYZ": 1820,
+  "raw_prefix_timestamps": 228,
+  "raw_prefix_parity_valid": true,
+  "complete_intertimestamp_intervals": 227,
+  "all_complete_intervals_8_XYZ": true,
+  "axis_min_counts": [
+    482,
+    -16896,
+    6152
+  ],
+  "axis_max_counts": [
+    1710,
+    -15768,
+    7379
+  ],
+  "axis_distinct_counts": [
+    332,
+    185,
+    375
+  ],
+  "raw_prefix_sha256": "1a6879310e0424533aa90f9ac497076fb0f94d3e1ca52c45ed86174190fc834d",
+  "configured_full_scale": "\u00b12g (code0), unchanged",
+  "SPI3_profile": "4MHz nominal / mode3 / existing duplex",
+  "observed_active_FIFO_CTRL4": "0x86",
+  "observed_stopped_FIFO_CTRL4": "0x80",
+  "WHO_from_retained_trace": "0x7B",
+  "sensor_identity": "same borrowed module according to user; WHO is not unique serial",
+  "limits": [
+    "Not \u00b18g qualified",
+    "Not long acquisition or SD coexistence",
+    "Board, wiring, power, software and full scale differ from TR2-002; MCU defect not isolated",
+    "Raw prefix only; not all native XYZ bytes retained",
+    "FRAM whole content not reread or hash-verified in this diagnostic"
+  ],
+  "TR2_001_SPI_CFG1": "0x10070007",
+  "TR2_001_SPI_CFG2": "0x87400000",
+  "TR2_002_N8E_SPI_CFG1": "0x10070007",
+  "TR2_002_N8E_SPI_CFG2": "0x87400000",
+  "same_nominal_SPI_mode_and_divider_observed": true
+}

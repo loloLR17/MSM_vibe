@@ -1,0 +1,17 @@
+{
+  "utc": "2026-11-01T06:25:27.243399+00:00",
+  "UID": "004A003D/38425018/20333157",
+  "SN": "003500463235510B37333439",
+  "bytes_read": 150976,
+  "sha256": "e1846c87017fd7667daf1b79cb440af1024346c5deae8d5065f8525c00aa7b80",
+  "matches_last_AC1_image": true,
+  "expected_code_sha": "72a7b57381f61e9f24c6bdcd20dd70a38dbc70de",
+  "expected_bin_sha": "e1846c87017fd7667daf1b79cb440af1024346c5deae8d5065f8525c00aa7b80",
+  "target_function_called": false,
+  "flash": false,
+  "reset": false,
+  "START_STOP": false,
+  "FRAM_access": false,
+  "GDB_detached": true,
+  "sensor_connections_not_yet_confirmed": true
+}

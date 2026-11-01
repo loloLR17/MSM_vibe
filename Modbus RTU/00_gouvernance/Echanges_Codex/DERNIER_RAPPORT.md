@@ -4,7 +4,7 @@ status: BLOCKED
 base_ref: main
 base_sha: f5850ad2de81a6b7639d947d54751305cde3e75b
 initial_head: d5af0828e370780320bda67fac5d537bf3fd5016
-result_sha: 4307b95cf1f85266266574a04beab96e2fc14b20
+result_sha: 72a7b57381f61e9f24c6bdcd20dd70a38dbc70de
 created_at_utc: 2026-10-31T18:24:20.286731+00:00
 author: Codex
 target_branch: main
@@ -13,6 +13,20 @@ allow_push: true
 allow_flash: true
 allow_debug: true
 ---
+
+# Extension humaine TR2-001 — capteur fonctionnel sur son banc de référence
+
+**Sous-test positif, mission8h toujours BLOCKED sur TR2-002.** L'utilisateur autorise explicitement le diagnostic TR2-001 en lecture/debug, sans flash/reset/START-STOP/écritureFRAM, puis confirme le retour du capteur emprunté sur001 hors tension/câblage d'origine et002 arrêté. Exception limitée documentée ; contrat ChatGPT non réécrit. [Preuves et analyse complètes](preuves/TR2-20261031-R3-8H-FASTSTART-PC-MACHINE/TR2-001-reference-readonly-20261101/README.md).
+
+SN001003500463235510B37333439 etUID004A003D/38425018/20333157 vérifiés ; Flash150976octets **entièrement identique** au firmware opérateur72a7b573, BINe1846c87017fd7667daf1b79cb440af1024346c5deae8d5065f8525c00aa7b80. Pas de restauration ni compilation. Config active3/gen3, **±2g/code0 inchangée**, SPI3nominal4MHz/mode3/duplex ; CFG1/CFG2 identiques au relevé N8E4MHz sur002, autres différences non éliminées.
+
+Le firmware conservé a réalisé de lui-même sa calibration FIFO au boot après remise sous tension utilisateur. Relevé RAM après achèvement, **aucune calibration relancée ni START envoyé par Codex** : **52442XYZ /6556timestamps /195brackets /résidu23µs<100**, erreurs0. Contre-calcul indépendant des195brackets :23µs exact. Préfixe2048mots,1820XYZ/228TS : parités correctes,227intervalles complets de8XYZ, axes variables ; pas de capture intégrale ni métrologieSI. Traces réelles : WHO7B/CTRL1A0/FIFO_CTRL4**86** en fin de calibration, puis **80** conservé à l'arrêt et relu après écriture80. Le champ défaillant sur002 fonctionne donc sur001 dans cette configuration.
+
+**Conclusion : le capteur emprunté n'est pas totalement défaillant.** Son fonctionnement borné sur001 est observé ; cela ne désigne pas la Nucleo002 seule comme cause. Carte/câblage/alimentation/firmware/état initial et plage±2g vs±8g restent confondus. Le capteur initial002 n'a pas été essayé sur001 ici. Aucun résultat de long/SD/AC1/Modbus ni ±8g qualifié. Le `result_sha` désigne maintenant le code001 réellement lu/évalué ; celui du candidat002 est4307b95c, toujours décrit ci-dessous.
+
+Dernier état001 vérifié : stage7/error0/work.error0, les deux FIFO arrêtés, config3/gen3/FS0, CS capteur haute ; dernier terminal RAM STOP5/25/run17/gen126 inchangé. Aucun appel de fonction cible, flash/reset/COM4/START-STOP/écritureFRAM ni accèsSD commandé ; FRAM entière non relue, pas de hash actuel inventé. Le compteur stops=1 relève du boot autonome, pas d'une commande agent. GDB détaché/serveurs terminés, firmware intact. La tentative002 préalable a échoué avant connexion car son ST-LINK venait d'être remplacé par001 ; logs préservés, aucun fallback cible et aucune nouvelle lecture002 prétendue.
+
+Prochaine étape proposée : comparer le capteur initial002 sur **ce même ensemble001**, sans changer firmware/config/câblage, après transfert hors tension confirmé selonAGENTS§9. Aucun nouvel essai ou geste demandé/exécuté avant publication de cette référence. START/STOP, flash et modification de plage restent hors extension actuelle. Journal actualisé ; code/tests inchangés non rejoués. Départ Git1f03cc94 propre/synchronisé, travaux historiques et stashes préservés. Rapport/preuves à publier et relire, SHA final dans la réponse ; état8hBLOCKED maintenu honnêtement.
 
 # N8E duplex 4 MHz — premier refus identifié, préparation 8h bloquée
 

@@ -1,0 +1,12 @@
+{
+  "utc": "2026-11-01T06:24:23.571922+00:00",
+  "user_answer": "oui je l\u2019autorise pour ce test",
+  "scope": "TR2-001 read/debug identification and state only",
+  "no_flash": true,
+  "no_reset": true,
+  "no_START_STOP": true,
+  "no_FRAM_write": true,
+  "original_mission": "TR2-20261031-R3-8H-FASTSTART-PC-MACHINE",
+  "explicit_exception": "TR2-001 readonly diagnostic; original mission otherwise unchanged",
+  "physical_transfer_not_yet_confirmed": true
+}

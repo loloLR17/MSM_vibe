@@ -1,0 +1,6 @@
+{
+  "user_report": "Capteur remis sur TR2-001 hors tension ; TR2-002 arrêté",
+  "reported_same_borrowed_sensor_returned_to_original_TR2_001_wiring": true,
+  "TR2_002_off_reported_by_user": true,
+  "no_new_physical_action_requested_after_confirmation": true
+}

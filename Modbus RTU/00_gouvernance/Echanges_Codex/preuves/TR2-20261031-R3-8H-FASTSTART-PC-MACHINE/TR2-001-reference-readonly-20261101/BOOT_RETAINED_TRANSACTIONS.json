@@ -1,0 +1,272 @@
+[
+  {
+    "index": 0,
+    "reg": "0x3a",
+    "n": 2,
+    "write": false,
+    "payload": "0900",
+    "status": 0,
+    "error": 0,
+    "valid": true
+  },
+  {
+    "index": 1,
+    "reg": "0x78",
+    "n": 63,
+    "write": false,
+    "payload": "14f70366bf591b177f046cc0e018112b032bbf3a1b121c051fc18b1814330338c0811a17ac03a2bf341a219c690200000a113a0328c01a1c12d904b4c1061a",
+    "status": 0,
+    "error": 0,
+    "valid": true
+  },
+  {
+    "index": 2,
+    "reg": "0x3a",
+    "n": 2,
+    "write": false,
+    "payload": "0500",
+    "status": 0,
+    "error": 0,
+    "valid": true
+  },
+  {
+    "index": 3,
+    "reg": "0x7",
+    "n": 4,
+    "write": false,
+    "payload": "00010a86",
+    "status": 0,
+    "error": 0,
+    "valid": true
+  },
+  {
+    "index": 4,
+    "reg": "0xf",
+    "n": 10,
+    "write": false,
+    "payload": "7ba000440000000000e0",
+    "status": 0,
+    "error": 0,
+    "valid": true
+  },
+  {
+    "index": 5,
+    "reg": "0x19",
+    "n": 1,
+    "write": false,
+    "payload": "20",
+    "status": 0,
+    "error": 0,
+    "valid": true
+  },
+  {
+    "index": 6,
+    "reg": "0x10",
+    "n": 1,
+    "write": false,
+    "payload": "a0",
+    "status": 0,
+    "error": 0,
+    "valid": true
+  },
+  {
+    "index": 7,
+    "reg": "0x10",
+    "n": 1,
+    "write": true,
+    "payload": "00",
+    "status": 0,
+    "error": 0,
+    "valid": true
+  },
+  {
+    "index": 8,
+    "reg": "0xa",
+    "n": 1,
+    "write": false,
+    "payload": "86",
+    "status": 0,
+    "error": 0,
+    "valid": true
+  },
+  {
+    "index": 9,
+    "reg": "0xa",
+    "n": 1,
+    "write": true,
+    "payload": "80",
+    "status": 0,
+    "error": 0,
+    "valid": true
+  },
+  {
+    "index": 10,
+    "reg": "0x19",
+    "n": 1,
+    "write": false,
+    "payload": "20",
+    "status": 0,
+    "error": 0,
+    "valid": true
+  },
+  {
+    "index": 11,
+    "reg": "0x19",
+    "n": 1,
+    "write": true,
+    "payload": "00",
+    "status": 0,
+    "error": 0,
+    "valid": true
+  },
+  {
+    "index": 12,
+    "reg": "0x7",
+    "n": 4,
+    "write": false,
+    "payload": "00010a80",
+    "status": 0,
+    "error": 0,
+    "valid": true
+  },
+  {
+    "index": 13,
+    "reg": "0xf",
+    "n": 10,
+    "write": false,
+    "payload": "7b0000440000000000e0",
+    "status": 0,
+    "error": 0,
+    "valid": true
+  },
+  {
+    "index": 14,
+    "reg": "0x19",
+    "n": 1,
+    "write": false,
+    "payload": "00",
+    "status": 0,
+    "error": 0,
+    "valid": true
+  },
+  {
+    "index": 15,
+    "reg": "0x10",
+    "n": 1,
+    "write": false,
+    "payload": "00",
+    "status": 0,
+    "error": 0,
+    "valid": true
+  },
+  {
+    "index": 16,
+    "reg": "0x10",
+    "n": 1,
+    "write": true,
+    "payload": "00",
+    "status": 0,
+    "error": 0,
+    "valid": true
+  },
+  {
+    "index": 17,
+    "reg": "0xa",
+    "n": 1,
+    "write": false,
+    "payload": "80",
+    "status": 0,
+    "error": 0,
+    "valid": true
+  },
+  {
+    "index": 18,
+    "reg": "0xa",
+    "n": 1,
+    "write": true,
+    "payload": "80",
+    "status": 0,
+    "error": 0,
+    "valid": true
+  },
+  {
+    "index": 19,
+    "reg": "0x19",
+    "n": 1,
+    "write": false,
+    "payload": "00",
+    "status": 0,
+    "error": 0,
+    "valid": true
+  },
+  {
+    "index": 20,
+    "reg": "0x19",
+    "n": 1,
+    "write": true,
+    "payload": "00",
+    "status": 0,
+    "error": 0,
+    "valid": true
+  },
+  {
+    "index": 21,
+    "reg": "0x7",
+    "n": 4,
+    "write": false,
+    "payload": "00010a80",
+    "status": 0,
+    "error": 0,
+    "valid": true
+  },
+  {
+    "index": 22,
+    "reg": "0xf",
+    "n": 10,
+    "write": false,
+    "payload": "7b0000440000000000e0",
+    "status": 0,
+    "error": 0,
+    "valid": true
+  },
+  {
+    "index": 23,
+    "reg": "0x19",
+    "n": 1,
+    "write": false,
+    "payload": "00",
+    "status": 0,
+    "error": 0,
+    "valid": true
+  },
+  {
+    "index": 24,
+    "reg": "0x7",
+    "n": 4,
+    "write": false,
+    "payload": "00010a80",
+    "status": 0,
+    "error": 0,
+    "valid": true
+  },
+  {
+    "index": 25,
+    "reg": "0xf",
+    "n": 10,
+    "write": false,
+    "payload": "7b0000440000000000e0",
+    "status": 0,
+    "error": 0,
+    "valid": true
+  },
+  {
+    "index": 26,
+    "reg": "0x19",
+    "n": 1,
+    "write": false,
+    "payload": "00",
+    "status": 0,
+    "error": 0,
+    "valid": true
+  }
+]

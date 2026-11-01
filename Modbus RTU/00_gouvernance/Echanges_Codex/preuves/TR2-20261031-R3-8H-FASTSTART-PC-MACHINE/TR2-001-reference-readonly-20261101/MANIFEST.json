@@ -1,0 +1,218 @@
+[
+  {
+    "file": "AUTHORIZATION.json",
+    "bytes": 462,
+    "sha256": "ae872d11e3be945b74a66ece82e93f8a58b9911f0b76089dd01094dbc307cff7",
+    "zlib": false
+  },
+  {
+    "file": "BOOT_COMPARISON.json",
+    "bytes": 1771,
+    "sha256": "f21a432bb7b1c67457f9304a367a35571e442a6970ed06004964a0dc50f5747d",
+    "zlib": false
+  },
+  {
+    "file": "BOOT_RETAINED_TRANSACTIONS.json",
+    "bytes": 4227,
+    "sha256": "1832f406afc61ddaf81aa1333a39ad6a68c1043525b288879f9b90d0f781a69c",
+    "zlib": false
+  },
+  {
+    "file": "IDENTITY_AND_IMAGE.json",
+    "bytes": 608,
+    "sha256": "eb68e49e58a5d70f61798bd62f9359be7a8a0ed1db991d6f632ae4ece786f564",
+    "zlib": false
+  },
+  {
+    "file": "PHYSICAL_CONFIRMATION.json",
+    "bytes": 261,
+    "sha256": "938e137caea7b568bc8583d0311cb24d8e167e2cd6a3f1bc4f5780e8fb10a1be",
+    "zlib": false
+  },
+  {
+    "file": "REFERENCE_ARTIFACT.json",
+    "bytes": 467,
+    "sha256": "dd304aab156cb2492b081c8c7501c55a518c995b664de107f3df25cd3d029329",
+    "zlib": false
+  },
+  {
+    "file": "REFERENCE_DEFINITIONS.txt.zlib",
+    "bytes": 890,
+    "sha256": "2aa89c087c7c80b787fc4e44b0350f3f4c2b30ea95ed3d44a05e46927672f6c7",
+    "zlib": true
+  },
+  {
+    "file": "STLINK_LIST_TR2_001.log.zlib",
+    "bytes": 506,
+    "sha256": "944d661571428454b8cbf1577533a917ff49105319364f2cd50c8384d7cf6155",
+    "zlib": true
+  },
+  {
+    "file": "analyze_boot.py",
+    "bytes": 3565,
+    "sha256": "a7c3adddb41e6c26896aac2292a09efb3a85ad4651ab0326d3077f2b83275617",
+    "zlib": false
+  },
+  {
+    "file": "boot-transport-payload.bin.zlib",
+    "bytes": 139,
+    "sha256": "90742440865fc09c9413ab8302e22db9aaf0c05e73db309f4d740521e4735cdf",
+    "zlib": true
+  },
+  {
+    "file": "boot-transport-trace.bin.zlib",
+    "bytes": 1080,
+    "sha256": "bac0b27eb0bcf2fe89d2de56023a1eb30202b281ac0f1c924c7dcb468b48b2fe",
+    "zlib": true
+  },
+  {
+    "file": "calibration-brackets.bin.zlib",
+    "bytes": 4680,
+    "sha256": "e4959d0f0d3497a52dac2096cc4c348667ab539c6f54dad17b442f8ad8eb77b5",
+    "zlib": true
+  },
+  {
+    "file": "calibration-first-raw.bin.zlib",
+    "bytes": 14336,
+    "sha256": "1a6879310e0424533aa90f9ac497076fb0f94d3e1ca52c45ed86174190fc834d",
+    "zlib": true
+  },
+  {
+    "file": "calibration-result.bin.zlib",
+    "bytes": 232,
+    "sha256": "c0c29a8464c64a49121e14d68e1d5b087ac6f2405902acd944d5c88bc50a7df1",
+    "zlib": true
+  },
+  {
+    "file": "final_readonly.py",
+    "bytes": 769,
+    "sha256": "9b3e337cdac11f541475f07e945d8f15f52fa2dcb5a6959b1a3fc5851ed22f28",
+    "zlib": false
+  },
+  {
+    "file": "hardware/TR2-001-boot-calibration-RAM-only-invocation.json",
+    "bytes": 779,
+    "sha256": "1198ccdf9ffc1df566e80109b7e95250eb9220114a23f98c3f14b1669c1ad5da",
+    "zlib": false
+  },
+  {
+    "file": "hardware/TR2-001-boot-calibration-RAM-only-server.log.zlib",
+    "bytes": 642,
+    "sha256": "01380640c83852663f54b1f99c004458ec08d3ca13f5261046c37d80cd3fb747",
+    "zlib": true
+  },
+  {
+    "file": "hardware/TR2-001-boot-calibration-RAM-only.gdb",
+    "bytes": 1981,
+    "sha256": "cc2a1f0a7808627b9583ffe9be653f69a14c416019af07c3e3fdb8bcb1ee1918",
+    "zlib": false
+  },
+  {
+    "file": "hardware/TR2-001-boot-calibration-RAM-only.log.zlib",
+    "bytes": 1595,
+    "sha256": "5b01a02ad6494a0375d154a4ed6f325ae591c387270f1104980f56383e5ec330",
+    "zlib": true
+  },
+  {
+    "file": "hardware/TR2-001-final-RAM-state-only-invocation.json",
+    "bytes": 774,
+    "sha256": "a9912906411bf1886f41d5fa715ce8790ba8bb155cf19b074fbd6a28b502647b",
+    "zlib": false
+  },
+  {
+    "file": "hardware/TR2-001-final-RAM-state-only-server.log.zlib",
+    "bytes": 642,
+    "sha256": "01380640c83852663f54b1f99c004458ec08d3ca13f5261046c37d80cd3fb747",
+    "zlib": true
+  },
+  {
+    "file": "hardware/TR2-001-final-RAM-state-only.gdb",
+    "bytes": 722,
+    "sha256": "63369fdb2b866b065d01e5b171227d28a41d4c52d6e1c6652a3c142b8c69b729",
+    "zlib": false
+  },
+  {
+    "file": "hardware/TR2-001-final-RAM-state-only.log.zlib",
+    "bytes": 897,
+    "sha256": "1f28803890e75d3831400c09e2bfaf56664401def5c6977c610bd922b76f38d2",
+    "zlib": true
+  },
+  {
+    "file": "hardware/TR2-001-flash-prefix.bin.zlib",
+    "bytes": 150976,
+    "sha256": "e1846c87017fd7667daf1b79cb440af1024346c5deae8d5065f8525c00aa7b80",
+    "zlib": true
+  },
+  {
+    "file": "hardware/TR2-001-identity-image-and-RAM-readonly-invocation.json",
+    "bytes": 785,
+    "sha256": "a5f57c163628cb906d81d4532f0e9c82adc25fbcfdd64c3a5848d00afaa670c1",
+    "zlib": false
+  },
+  {
+    "file": "hardware/TR2-001-identity-image-and-RAM-readonly-server.log.zlib",
+    "bytes": 642,
+    "sha256": "01380640c83852663f54b1f99c004458ec08d3ca13f5261046c37d80cd3fb747",
+    "zlib": true
+  },
+  {
+    "file": "hardware/TR2-001-identity-image-and-RAM-readonly.gdb",
+    "bytes": 726,
+    "sha256": "50f728fd826511364b4c5fbd58882ddfee87958a30b16fcbd89b26648ab0cf43",
+    "zlib": false
+  },
+  {
+    "file": "hardware/TR2-001-identity-image-and-RAM-readonly.log.zlib",
+    "bytes": 2633,
+    "sha256": "d71bbdef4b5558f4b44484c3d0719b17db70938e889cdd9987670aa34567fea2",
+    "zlib": true
+  },
+  {
+    "file": "hardware/TR2-002-before-requested-sensor-return-safe-state-invocation.json",
+    "bytes": 775,
+    "sha256": "6de553dcb83d635dc436815c3d67200f4f1bc448ac6de4886e7d0ffc657c6542",
+    "zlib": false
+  },
+  {
+    "file": "hardware/TR2-002-before-requested-sensor-return-safe-state-server.log.zlib",
+    "bytes": 531,
+    "sha256": "d83171684106978c11400eedc88b6c674ef3010519367a9e771f5a91707362f3",
+    "zlib": true
+  },
+  {
+    "file": "hardware/TR2-002-before-requested-sensor-return-safe-state.gdb",
+    "bytes": 544,
+    "sha256": "ed51503199dac9e59e62062a59d69d54bec48ebdbedc914d2bb4332c0929a330",
+    "zlib": false
+  },
+  {
+    "file": "hardware/TR2-002-before-requested-sensor-return-safe-state.log.zlib",
+    "bytes": 301,
+    "sha256": "87eae42db41986dbbde90bd727adadbf8b1f57b34aad64adfb3b72b224a155f0",
+    "zlib": true
+  },
+  {
+    "file": "hardware_primary_readonly.py",
+    "bytes": 1888,
+    "sha256": "d9a72a62ba796d1ae16336054708684108f529d8c66cdf818d2759f138bf6eda",
+    "zlib": false
+  },
+  {
+    "file": "qualified_helper_reference.py",
+    "bytes": 2401,
+    "sha256": "d82af0539d984e5c05c9a9d4b4364b68b5387ab29c705df01001d57580bc7bb9",
+    "zlib": false
+  },
+  {
+    "file": "read_boot_calibration.py",
+    "bytes": 2338,
+    "sha256": "16a98da6c4585391fc14350975820eee8fa4d24321b30a0eed9b06ff9b3be10f",
+    "zlib": false
+  },
+  {
+    "file": "read_identity.py",
+    "bytes": 2078,
+    "sha256": "1770e0bde0993e2dc2d177a76bea7da453d104f8eef3e385b79e78992022f3bc",
+    "zlib": false
+  }
+]
