@@ -1,0 +1,12 @@
+{
+  "snapshot_bytes": 67224,
+  "sha256": "701eb198ad55758d7774319a8b4b363e667c69ff6b8acacee180ad1c8bf978c9",
+  "magic": "0x31525452",
+  "version": 1,
+  "payload_bytes": 67208,
+  "stored_crc": "0xcd3c60eb",
+  "computed_crc": "0xcd3c60eb",
+  "valid": true,
+  "source_sha": "2a159954a7df0bc0e986985a7c93ff8793dfb435",
+  "observation": "Physical capture, not synthetic; validity and provenance require these checks"
+}

@@ -1,0 +1,26 @@
+HAL_GetTick () at /home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal.c:343
+343	  return uwTick;
+0xbfa0700:	0x004a003d	0x38425018	0x20333157
+$1 = 1
+$2 = {magic = 0x31525452, version = 0x1, bytes = 0x10688, crc = 0xcd3c60eb}
+$3 = "2a159954a7df0bc0e986985a7c93ff8793dfb435"
+$4 = {version = 4, stage = 99, error = 3, uid = {4849725, 943869976, 540225879}, clock = 160000000, who = 123, run = 5, mode = 1, duration_us = 11271195, records = 10798, span_us = 1895677, span_ticks = 151584, cal_residual = 56, cal_brackets = 198, cal_anchors = 6631, accepted = 299984, outputs = 29999, warmup = 11, rails = 0, clips = 0, source_hash = 2756152472, output_hash = 42563678, first_us = 391902769, last_us = 403162451, residual = 223259509, clock_checks = 113, level = 63, flags = 0, stop_us = 133, stopped = 1, fifo_error = 0, stop_error = 0, trace_refused = 0, preclose_overflow = 0, irqs = 11271, stack_deepest = 1104, stack_floor = 2992, primask = 0, basepri = 0, faultmask = 0, max_words = 63, raw_words = 2048, pending_xyz = 0, ctrl1 = 164, cal_xyz_span = 53040, cal_tick_span = 159120, sd_error = 0, sd_steps = 3237, sd_peak_queue = 5632, sd_completed = 48, sd_step_max = 83884, sd_write_max_us = 102564, sd_busy_max_us = 14736, sd_total_bytes = 179994, sd_lba = 264896, sd_written = 196608, drain_us = 0, header_written = 0, return_offset = 0, return_bytes = 0, returned = 0, sd_sectors = 999743488, marker_ok = 0, who_ok = 1, trace_count = 512, queue_overflows = 0, sd_pending_polls = 3237}
+$5 = {card = 0x2001d800 <r3_card>, data = 0x2001c4cc <q+61440> "", lba = 265273, blocks = 8, block = 8, offset = 0, state = 10, error = 0, begin_us = 403146235, deadline_us = 404181455, busy_begin_us = 403181491, busy_sum_us = 3927, complete_us = 403183167, max_busy_us = 2253, block_busy_us = {2253, 14, 15, 15, 15, 15, 14, 15, 1571}, crc = 12680, active = false, done = true, uncertain = false, needs_power_cycle = false, data_response = 229, data_response_seen = 1}
+$6 = 0
+$7 = 0
+$8 = 0
+$9 = 0
+$10 = 47
+$11 = 384
+$12 = 29952
+$13 = 0
+$14 = 179994
+$15 = {0xb3, 0x7e, 0xa7, 0x43, 0x13, 0x6, 0xd3, 0x2, 0xd6, 0xfc, 0x54, 0xab, 0x72, 0x48, 0xb9, 0x2, 0x6f, 0x74, 0x28, 0xcb, 0xe9, 0x2d, 0x45, 0x41, 0x68, 0x30, 0xb9, 0x50, 0xd7, 0x68, 0xef, 0xc7}
+$16 = {version = 4, stage = 2, error = 0, uid = {4849725, 943869976, 540225879}, clock = 160000000, who = 123, run = 0, mode = 0, duration_us = 0, records = 0, span_us = 1895401, span_ticks = 151501, cal_residual = 39, cal_brackets = 198, cal_anchors = 6628, accepted = 0, outputs = 0, warmup = 0, rails = 0, clips = 0, source_hash = 0, output_hash = 0, first_us = 0, last_us = 0, residual = 0, clock_checks = 0, level = 16, flags = 0, stop_us = 0, stopped = 0, fifo_error = 0, stop_error = 0, trace_refused = 0, preclose_overflow = 0, irqs = 0, stack_deepest = 0, stack_floor = 0, primask = 0, basepri = 0, faultmask = 0, max_words = 16, raw_words = 2048, pending_xyz = 0, ctrl1 = 0, cal_xyz_span = 53016, cal_tick_span = 159048, sd_error = 0, sd_steps = 0, sd_peak_queue = 0, sd_completed = 0, sd_step_max = 0, sd_write_max_us = 0, sd_busy_max_us = 0, sd_total_bytes = 0, sd_lba = 0, sd_written = 0, drain_us = 0, header_written = 0, return_offset = 0, return_bytes = 0, returned = 0, sd_sectors = 999743488, marker_ok = 0, who_ok = 1, trace_count = 0, queue_overflows = 0, sd_pending_polls = 0}
+$17 = 0
+$18 = 0
+$19 = 0
+$20 = false
+$21 = false
+$22 = 0x1c004400
+[Inferior 1 (Remote target) detached]

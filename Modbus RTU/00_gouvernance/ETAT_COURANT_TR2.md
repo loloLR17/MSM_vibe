@@ -1,6 +1,9 @@
 # État courant MSM TR2 — synthèse opérationnelle
 
 
+**02/11/2026 — A1F premierrefushorloge identifié, toutes sortiesrécupérées/IN_PROGRESS.** Snapshotréel50CRCcd3c60eb/SHA701eb198…78c9/source2a159954survitreconnexionreset ; ancien99/error3 à11,271195sMCU/113clockchecks/maxresidual223259509µs→fifo_event_time_track,garde100inchangée. SD0/writer0/tokenE5accepté/done/nonincertain/FIFO0/stoppedtrue/file0/rails-clips0/clockgap0. PasmêmecauseSD_RESPONSEA1D. 299984natifs→29999sorties179994B. CarteauPC/001offuser ; nativeF2MioSHA41247c94…bf726exact,A–Einchangés, strictINCOMPLETE384records29952XYZ. +47XYZRAM282B→SHAamontb37ea743…efc7exact :toutesfiltréesproduites sauvées,pas60s/fullnatifs. Mapper/dernierbrutnonretenusdonccausetimestamptransport/calculinconnue ; codee5277e9fajouteuniquementces2diagnostics/profile001/ARMcibléPASS/A1GpréparéNONFLASHÉ,pasalgorithme/seuilchangé. Prochaineflash/gatecourtaprèspréservationpreuves, paslongREADY.
+
+
 **02/11/2026 — A1F flashé/rétentionRAM synthétiquePASS, essai court demandé.** UserCN15+STLINK/JP2off/lecteurvide ; identité46, huitièmeflash47/source2a159954/BIN52940Bd4c7b699…2819d-v/-rst/readback48exact. FixtureexplicitementsynthétiqueRAM67224B→unmonitorresetlogiciel→lecture49CRCbootvalid/67224Boctetsexacts/SHA31c35115…2932e ; magic/availableeffacésensuite,0SDwrite/pasFRAM. QualifieNOLOADsurresetlogicieltesté,pasBOR/coupureni captureterminaleréelle. Détaché/SDabsenterefusattendu ; userdemandééjectionPC+carteremisehorstension/CN15seul/JP2off/WAIT→USERuniqueA1F60s, résultatattendu. Paslong/READY. Acquiscode+Epublic9b627669, nouveauxlogsàpublier-relire.
 
 

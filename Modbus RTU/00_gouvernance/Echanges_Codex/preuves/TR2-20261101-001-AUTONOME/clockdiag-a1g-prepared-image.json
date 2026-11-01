@@ -1,0 +1,11 @@
+{
+  "source_sha": "e5277e9faf30ea603fb3987f87936f232a590512",
+  "bytes": 53052,
+  "sha256": "7cc861f89349d3b7399624dcfb41c2aa5b4a10615adb7fcccffc41f7e4235979",
+  "prefix": "A1G",
+  "duration_us": 60000000,
+  "SPI2_Hz": 2000000,
+  "SPI3_Hz": 8000000,
+  "change": "Retain failed clock bracket and FifoEventTime state; no algorithm or threshold change",
+  "flashed": false
+}

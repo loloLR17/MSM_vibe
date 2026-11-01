@@ -1,0 +1,22 @@
+{
+  "original_name": "A1F0005.TR2",
+  "original_file_bytes": 2097152,
+  "original_file_sha256": "41247c94ed35071368c1f25928ec19aeb7733b1223983fc4d6c65263b0cbf726",
+  "compression": "zlib",
+  "uncompressed_valid_extent_bytes": 197632,
+  "uncompressed_sha256": "b2d2d66b4e3019a16f8a7867343b60eb24556e5f385de7bc8622819802b611d7",
+  "ranges": [
+    {
+      "offset": 0,
+      "bytes": 197120
+    },
+    {
+      "offset": 2096640,
+      "bytes": 512
+    }
+  ],
+  "expected_reader_status": "INCOMPLETE",
+  "expected_valid_xyz": 29952,
+  "expected_payload_sha256": "febf567b1cad7c1ee5d3c181255643987a8a9f127338efdd2b281560f1fb6cd7",
+  "excluded": "Unused preallocated tail excluded; sparse reconstruction derived; original full file retained locally."
+}

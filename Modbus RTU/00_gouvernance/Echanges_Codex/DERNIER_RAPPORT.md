@@ -16,6 +16,39 @@ allow_debug: true
 
 # TR2-001 autonome ±16 g — checkpoint ; qualification sans ST-LINK en cours
 
+## A1F réel — diagnostic conservé, premier refus localisé dans le suivi d'horloge
+
+User : rouge vers10s, CN15 conservé/JP2retiré puisST-LINK rebranché. Relevé50 :
+**snapshot réel valide67224B/CRCcd3c60eb recalculé identique**, source2a159954, SHA
+**701eb198ad55758d7774319a8b4b363e667c69ff6b8acacee180ad1c8bf978c9**.
+Le démarrage courant est revenu BOOT/run0/error0, mais la copie précédente a survécu.
+Ce sont des données de capture réelles, distinctes du test synthétique49.
+
+**Premier refus A1F : error3/stage99, après11271195µs MCU**, branchepoll -3 du
+`fifo_event_time_track`,113contrôles et écartmax **223259509µs**. La garde100µs reste
+inchangée. Le snapshot ne contient pas encore le couple brut/bracket ni le mapper :
+lecture timestamp incohérente ou défaut de calcul restent à discriminer ; aucune cause
+physique exclusive établie. FIFOerror0/stop0/stoppedtrue, rails/clips0/clockgapfault0.
+**SDerror0/writererror0, réponse brute0xE5 acceptée (bitsbas5), done/nonincertain**,
+filevide,48groupes384records confirmés. Ce défaut ne doit pas être appelé refusSD
+ni remplacer rétroactivement le diagnosticSD_RESPONSE réel d'A1D.
+
+Production299984natifs→**29999XYZ filtrés179994B**, partial47. Usercarte512auPC/001off
+confirmés ; copie native2Mio entière SHA
+**41247c94ed35071368c1f25928ec19aeb7733b1223983fc4d6c65263b0cbf726**
+exacte. A/B/C/D/E re-hachés inchangés. Lecteur strict **INCOMPLETE384records29952XYZ**
+CRC/session/séquence, SHApréfixe febf567b…6cd7. Ajout47XYZ partiels retenus (282B) :
+SHA **b37ea7431306d302d6fc54ab7248b9026f7428cbe92d45416830b950d768efc7**
+égal au digest producteur retenu : **toutes les sorties filtrées produites récupérées**.
+Pas60s/fullnatifs/COMPLETE/SI8h. Originaux localement ; extents utiles et suffixe publics.
+
+Suite préparée : ajout strictement001 du dernier bracket compteur brut/MCU et de
+l'état mapper au snapshot, **aucune correction algorithmique ni seuil assoupli**,
+préfixe neuf A1G pour un essai discriminant court. BuildARMcibléPASS, pas de tests
+réussis inchangés rejoués. Codepréparé **e5277e9f** nonencoreflashé à ce checkpoint.
+001 laissé hors tension/carteauPC ; autre cible, FRAM, COM4 et protections intouchés.
+
+
 ## A1F flashé — conservation RAM démontrée sur reset synthétique ; essai demandé
 
 Utilisateur confirme CN15 puisST-LINK/JP2retiré/lecteurTR2vide, SD512 auPC.
