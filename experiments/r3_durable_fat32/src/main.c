@@ -391,7 +391,11 @@ int main(void)
  if(!r)r=durable_mount(&r3_card);
  if(!r)r=calibrate();
  if(!r)r=durable_preflight(5,LONG_FILE_BYTES);
- if(r){r3_result.error=(uint32_t)(r<0?-r:r);Error_Handler();}
+ if(r){
+  if(fifo.running)(void)fifo_live_stop(&fifo);
+  r3_sd_deselect();r3_result.stopped=fifo.stopped;r3_result.fifo_error=fifo.error;r3_result.stop_error=fifo.stop_error;r3_result.sd_error=r3_card.error;
+  r3_result.error=(uint32_t)(r<0?-r:r);Error_Handler();
+ }
  r3_sd_deselect();r3_result.run=1;r3_result.stage=2;standalone_state=2;
  StandaloneButton button={0};
  for(;;){
@@ -401,7 +405,7 @@ int main(void)
  }
  if(r3_clock_fault)Error_Handler();
  standalone_state=3;r3_result.stage=3;r=session(5,LONG_DURATION_US);
- if(fifo.running){reset_trace();if(fifo_live_stop(&fifo)&&!r)r=-93;}
+ if(fifo.running){if(!r)reset_trace();if(fifo_live_stop(&fifo)&&!r)r=-93;}
  if(r3_writer.active)while(r3_writer.active){if(writer_step(false))break;}
  if(r3_writer.needs_power_cycle){r3_result.error=95;r3_result.stage=98;standalone_state=98;}
  else if((r3_writer.uncertain||r3_card.failed)&&sd_spi_quiesce(&r3_card)){r3_result.error=94;r3_result.stage=98;standalone_state=98;}

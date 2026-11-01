@@ -13,6 +13,8 @@ f=bytearray(512);f[:8]=b'TR2END01'
 for o,v in [(8,3),(12,1),(24,5),(28,78),(32,780),(36,1),(40,468),(48,1),(88,5000000),(92,5029212)]:put(f,o,v)
 for o,v in [(16,123),(56,5000000),(64,5028875),(128,5000000),(136,5029212),(144,3000029)]:put(f,o,v,'Q')
 f[96:128]=hashlib.sha256(payload).digest();crc(f)
+# Exhaustive int16 conversion regression for the old FS8 nominal CSV scale.
+for count in range(-32768,32768):assert format(count*.000244,'.6f')==format(count*(244/1000000),'.6f')
 cases=0
 with tempfile.TemporaryDirectory() as d:
  p=Path(d)/'fixture.TR2'
@@ -25,6 +27,12 @@ with tempfile.TemporaryDirectory() as d:
    row=next(reader.samples(p));assert row['x_nominal_g']==('0.244000' if fs==8 else '0.488000')
    assert result['sha256']==hashlib.sha256(payload).hexdigest()
   cases+=1
+ # Version1 cannot silently acquire a new FS16 interpretation.
+ put(h,124,16);put(h,128,488);put(h,8,1);crc(h);p.write_bytes(h+r+bytes(512)+f)
+ try:reader.verify(p)
+ except reader.Invalid:cases+=1
+ else:raise AssertionError('legacy version accepted FS16')
+ put(h,8,3)
  # CRC and quality guards remain strict for FS16.
  put(h,124,16);put(h,128,488);crc(h)
  for offset in [100,512+44,len(h+r+bytes(512)+f)-4]:
