@@ -407,6 +407,9 @@ int main(void)
  standalone_state=3;r3_result.stage=3;r=session(5,LONG_DURATION_US);
  if(fifo.running){if(!r)reset_trace();if(fifo_live_stop(&fifo)&&!r)r=-93;}
  if(r3_writer.active)while(r3_writer.active){if(writer_step(false))break;}
+ /* Preserve volatile diagnostics even when protocol uncertainty forbids all
+  * further SD commands. Finishing the producer hash never writes the card. */
+ r3_hash_finish(&source_hash,r3_source_sha);r3_result.sd_error=r3_card.error;
  if(r3_writer.needs_power_cycle){r3_result.error=95;r3_result.stage=98;standalone_state=98;}
  else if((r3_writer.uncertain||r3_card.failed)&&sd_spi_quiesce(&r3_card)){r3_result.error=94;r3_result.stage=98;standalone_state=98;}
  else{
