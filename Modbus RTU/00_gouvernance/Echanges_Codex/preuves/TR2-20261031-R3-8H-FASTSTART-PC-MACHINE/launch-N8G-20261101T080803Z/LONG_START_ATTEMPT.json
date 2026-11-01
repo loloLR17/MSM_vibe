@@ -1,0 +1,1 @@
+{"signal": "LANCE 8H", "utc": "2026-11-01T08:07:18.671291+00:00", "recovery_from": "N8F rejected before START because reboot", "new_card_insertion_confirmed_by_user": true, "fresh_init_and_strict_gate_passed": true, "preflight_reused_from_immediately_preceding_recovery": true}

@@ -4,7 +4,7 @@ status: IN_PROGRESS
 base_ref: main
 base_sha: f5850ad2de81a6b7639d947d54751305cde3e75b
 initial_head: d5af0828e370780320bda67fac5d537bf3fd5016
-result_sha: 7b815b103a49b7fb1a8ec681a65206312b0ec16b
+result_sha: fbbdde5d328de47922cba688b6e406a327eb13f9
 created_at_utc: 2026-10-31T18:24:20.286731+00:00
 author: Codex
 target_branch: main
@@ -13,6 +13,18 @@ allow_push: true
 allow_flash: true
 allow_debug: true
 ---
+
+# ACQUISITION8H DÉMARRÉE — N8G0005.TR2
+
+**START confirmé2026-11-01 à08:08:03UTC /09:08:03Paris**, ACTIVE1281/run5/session**8444550061762804**, premiergroupeSDacquitté/11904XYZ déjàacceptés. GDBdétaché/serveurfermé/script terminé ; STM32seulcontrôlemesure/STOP, uniquetémoinnatifpassifCOM5PID23340. AucunmonitorCodex/WSL/GDB8h. [Checkpointléger etchronologie](preuves/TR2-20261031-R3-8H-FASTSTART-PC-MACHINE/launch-N8G-20261101T080803Z/README.md). MissionIN_PROGRESS : pas8hvalidéeavantterminal/fichierfinal.
+
+SignalLANCE8H reçu. PréflightF refuseavantcommande : rebootWAIT2/run0/compteursnuls/carteuninitialized, étatprêtperdu ; aucunSTARTF envoyé, verrouF préservé/READYF invalidé. Réarmementnécessaire parnouveaupréfixeG/codefonctionnelinchangé, sansécraserF3 ni forcerRAM. Unflashstandard/resetnormal/readbackexact, puisSDCMD0/R1FF/timeout2 (WHO7B/0write) : interventioncartephysique demandée, utilisateur confirmeinsertion. Refusencore99avantcommande, unresetlogicielsûr nécessaire ; init/calibration/carte/noms/libre/hôte/gate2s ensuitePASS, collecteurinchangé/103sorties exactes. Aucunretrylongaveugle ni nouveauSTARTincertain. Réutilisationdirecte start_detached.start aprèspréflightimmédiatementprécédent etnouveauverrouG ; pasredoublementdepréflight. FirmwarevérifieCRC/SHAdugateGavantallocationrun5, passageconfirméparACTIVE.
+
+Cible002SN0032001F3235510C37333439/UID001B0046-38425018-20333157, **codefbbdde5d328de47922cba688b6e406a327eb13f9**, BIN**53032B/SHA61afdfa92f84f7d9a194490a1cda49647e3be1b4d75d023bcff57015d89c75f0**, N8Gduplex8MHz/FS8g/FIR107Q15/10/244µg/v3/garde30600sMCU/640MiB inchangés. NouveaugateetlongGneufs, anciensF/Econservés. N8GREADYdésormaispreparedfalse/long_never_startedfalse pourrefuserseconddépart ; verroupersistantGconservé. AucunFRAM/COM4/001/OptionBytes/protectionWindows modifié.
+
+TempsdepuispremierverrouF08:01:40→ACTIVE08:08:03 :**383,269s**, ycomprisreboot/pertepréparation/SD/intervention ; dernièrephasehôte+gate+START63,036s. Paslalatenced'unPRÊTconservé, aucunegarantieinventée. Tousartefacts locaux `/home/lolo/dev/msm/reports/TR2-N8G-launch-recovery-20261101T0802Z`; témoinWindows `%TEMP%\TR2-R3-N8G-20261101-n8g-long`. CheckpointlégeraprèsSTART, archivescomplètesaprèsfin ; aucunGitavantSTARTaprèsconstatd'urgence.
+
+**Consigne : conserveralimentation/STLINK, nepasretirercarte.** AttendreterminalQPC/SDquiet, pasuneheuremurale oufermeturedefenêtre. Aprèsfin : releverRAMdigestavantcoupuresipossible, puisvraietransfertlecteurPC/lectureintégraleCRC/index/footer/SHA/qualité. AucunSTART/flash/reset àlareprise, aucuncapturelonguequalifiéeanticipée. Journalactualisé ; push/relectureducheckpointàeffectuer, SHAfinaldansréponse.
 
 # Nouveau montage qualifié sur essai court8MHz — préparation8h rétablie
 

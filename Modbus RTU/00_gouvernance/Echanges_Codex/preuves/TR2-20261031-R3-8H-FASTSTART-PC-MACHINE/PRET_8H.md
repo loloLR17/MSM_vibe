@@ -1,3 +1,9 @@
+# DÉJÀ DÉMARRÉ — N8G0005.TR2, ne pas relancer
+
+ACTIVE confirmé le01/11/2026 à08:08:03UTC (09:08:03Paris), run5/session8444550061762804, premiergroupeSD acquitté. La préparationN8F ci-dessous esthistorique etinvalidée aprèsreboot. Les verrousF etG sontconservés, aucun nouveaudépart autorisé surcesfichiers. Voir [checkpointactif](launch-N8G-20261101T080803Z/README.md). Conserveralimentation/STLINK ; aucunreset/flash/GDBpendantlong. Attendreterminal/SDquiet avantrelevéRAMpuistransfertPC, pasde8hqualifiéeanticipée.
+
+---
+
 # PRÊT 8H — N8F duplex8MHz, montage breadboard qualifié sur gate2s
 
 Préparation du01/11/2026UTC, **aucun long lancé**. TR2-002 SN0032001F3235510C37333439/UID001B0046/38425018/20333157, module capteur emprunté001 et filsDupont via breadboard selon utilisateur. Carte FAT32 test CID0353445344333247858bf0923c01927b,62333952secteurs,cluster32768B ; secteurT1000/veilleAC0/hibernationAC0/COM5parent002 etouvertureexclusive vérifiés.

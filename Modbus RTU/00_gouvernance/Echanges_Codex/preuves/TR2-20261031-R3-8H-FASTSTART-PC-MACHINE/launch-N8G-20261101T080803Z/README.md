@@ -1,0 +1,19 @@
+# START8H confirmé — N8G0005.TR2
+
+**Acquisition EN COURS au premier relevé, pas de qualification8h anticipée.** SignalLANCE8H utilisateur explicite, pose/alimentation seloncontrat. ACTIVEobservé2026-11-01T08:08:03.580261Z (09:08:03Paris), run5/session8444550061762804/flags1281,11904XYZ déjà acceptés. Le firmware ne publieACTIVE qu'après au moins un groupeSD acquitté ; le premier cadre et son bracketQPC sont archivés. GDB détaché, serveur terminé ; le script de lancement a terminé. Seul témoinnatifpassifPID23340/COM5 est laissé, niCodex/WSL/GDB n'assurent le contrôle8h.
+
+Cible002SN0032001F3235510C37333439/UID001B0046-38425018-20333157, codefbbdde5d328de47922cba688b6e406a327eb13f9, BIN53032B/61afdfa92f84f7d9a194490a1cda49647e3be1b4d75d023bcff57015d89c75f0 ; prefixN8G/duplex8MHz/FS8g/FIR107Q15/10/gain244µg/v3/garde30600sMCU/640MiB inchangés. Nouveaupréfixe imposé par pertepréparationRAM, pas nouveauprogrammefonctionnel. SDK/voiebuild/flash qualifiés réutilisés ; seulbuildciblé deprovenance/préfixe, pasanciensPASSrejoués. Unflashstandard/resetnormal/readbackBINentierexact.
+
+## Reprise sans doubleSTART
+
+Le premier préflight N8F refuse **avant toute commande**, MCU revenuWAIT2/run0/compteurs0/carteuninitialized : rebootobservé, cause nonaffirmée. AncienverrouLONG_START_ATTEMPT conservé etREADYF invalidé. Reprise avecpréfixeGneuf pournepas écraserN8F0003 ouforcerunrunRAM. PremièreinitG WHO7B maisSDCMD0/R1FF/timeout2,0lecture/écriture ; pascal/gate/long. Interventioncarte/connexions demandéehorsalimentation, user répond «c'est bon elle est insérée essaye a nouveau». Première reprise refuse encorel'état99 avantcommande ; resetlogicielsûr démontrénécessaire aprèsvérificationidle/writes0, **un seul resetlogiciel supplémentaire**. NouvelinitG puisCID/CSD/FAT32/cal/noms/libre PASS, contrôlecourtGpassantvérificateurinchangé et103sortiesnumériques. Aucune boucleSTART8h aveugle.
+
+Après préflightcarte/noms/libre/image/UID immédiatementprécédent, secteur/veilleAC0/hibernationAC0 ettémoinCOM5lié002 validés, le wrapperexistant start_detached.start est réutilisé directement pourrun5, avecnouveauverroupersistantG avantcommandeunique. AncienverrouF conservé. Cela évite de refaire une deuxième fois les mêmes lecturesdans launch_8h après réarmement. Gardesd'admission toujoursactives ; **le firmware relit et vérifie intégralement CRC/SHA du gate G avant allocation/démarrage long**, donc ACTIVE prouve que cette garde a réussi. NiRAMmétierforcée, niacceptationd'unSTARTincertain. AucunSTARTF aété envoyé, unSTARTG observé ; l'échecinit n'aécritaucunfichierG.
+
+Délai enregistré depuispremierverrouN8F08:01:40UTC jusqu'àACTIVE08:08:03UTC :383,269s, incluantreboot/réarmement/blocageSD/intervention ; ce n'estpaslalatenced'unétatPRÊTconservé. Dernièrephasehôte+gate+START63,036s, pasledélaitotalutilisateur. Aucune latencegarantie rétroactive.
+
+## Conservation, fin et reprise
+
+Ne pasdébrancherSTLINK/alimentation ni retirercarte pendantcapture. LesanciensfichiersF/E restentpréservés ; N8G0003 et N8G0005 sontneufs/FA_CREATE_NEW. AucunFRAM/COM4/001/OptionBytes/Windowsprotection touché. Toutreste local sous `/home/lolo/dev/msm/reports/TR2-N8G-launch-recovery-20261101T0802Z`, images/builds/bruts compris ; seulcheckpointlégerestpubliéaprèsSTART. Preuvescomplètesàarchiveraprèsfin.
+
+TémoinQPC : `C:\Users\lolo\AppData\Local\Temp\TR2-R3-N8G-20261101-n8g-long`, minimum28801s intérieures puisattenteterminal. MCU30600snominales assureSTOP/flush ; nepasdéduireSDquiet d'uneheuremurale ou d'une fenêtrefermée. Attendreterminal, relevéRAMdigestavantcoupuresipossible (pasvoieautosaveSHAexistante), puistransfertSDauPC aprèsarrêtsûr/utilisateur etlecteurstrict. Clips/error : préserverdonnées/qualité sansfausseCOMPLETE. Reprise sansnouveauSTART/flash/reset ; interrogerd'abord journauxnatifs, pasGDBpendantlong. MissionIN_PROGRESS, pasDONE8h/production/métrologieSI.

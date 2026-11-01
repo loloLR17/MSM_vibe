@@ -1,0 +1,122 @@
+[
+  {
+    "file": "artifact.json",
+    "bytes": 564,
+    "sha256": "850f878639fca35fd152864c9fccb7ce9405a879e8378e5508f77c223c764b33",
+    "zlib": false
+  },
+  {
+    "file": "START_CHECKPOINT.json",
+    "bytes": 2300,
+    "sha256": "b0e0f3f43c6cb8d15f4cb28afdd59fb469880b273d1792a680c86aa7784253f9",
+    "zlib": false
+  },
+  {
+    "file": "INITIAL_ACTIVE.json",
+    "bytes": 1079,
+    "sha256": "2e20c033eba9771abc2d163bfd51c79ce0a13dc5e2fd87a9c54afef2eb741099",
+    "zlib": false
+  },
+  {
+    "file": "READY.json",
+    "bytes": 604,
+    "sha256": "4fe9830c9ff35501358524b2aec86c412a17ddc048cc02c4b29868a904db0bcb",
+    "zlib": false
+  },
+  {
+    "file": "LONG_START_ATTEMPT.json",
+    "bytes": 277,
+    "sha256": "43becc11fa398d19cd2fb04ad2ad6f09cb4cd2db9c80c81a652f7d480bbb99fb",
+    "zlib": false
+  },
+  {
+    "file": "RECOVERY_DECISION.json",
+    "bytes": 518,
+    "sha256": "8c62dba780c2d240c12c82d1067ccddd770160d5ed241d9ed5e372bd2db47f61",
+    "zlib": false
+  },
+  {
+    "file": "RECOVERY_START_LATENCY.json",
+    "bytes": 124,
+    "sha256": "39cdce3a5863884eba840ed71c8cb78c1f1640939a6e69634d4f7d5bc66bf893",
+    "zlib": false
+  },
+  {
+    "file": "old-N8F-LONG_START_ATTEMPT.json",
+    "bytes": 65,
+    "sha256": "d1f0357dfde83e2f416a145d6a3ea1e3bb583127f9266bf09a287abc97290343",
+    "zlib": false
+  },
+  {
+    "file": "old-N8F-preflight.log.zlib",
+    "bytes": 1934,
+    "sha256": "6af0082584351c1d2693150642f71890b0112984cb4bef78de6074a987e39b25",
+    "zlib": true
+  },
+  {
+    "file": "initial-SD-failure.json",
+    "bytes": 1284,
+    "sha256": "929d822a00f2b85a8ef6a8fe2be34617b7ce836b3d7810d2a28bf11d82c60cf5",
+    "zlib": false
+  },
+  {
+    "file": "initial-SD-failure.log.zlib",
+    "bytes": 3890,
+    "sha256": "7875fc11e5e0086db1063e1163e359f482eadf49c3410912c78cd2ebfcfa044d",
+    "zlib": true
+  },
+  {
+    "file": "calibration-after-insertion.json",
+    "bytes": 1322,
+    "sha256": "63649cf3cd55c44f64599e40f60179aa95cae0900558f0dc857debe4914baef6",
+    "zlib": false
+  },
+  {
+    "file": "gate-analysis.json",
+    "bytes": 5037,
+    "sha256": "42db91cb17802741d2bfdd61b1d7f4fb34b5f968b42f96278830b772c369183c",
+    "zlib": false
+  },
+  {
+    "file": "rearm-reset.gdb",
+    "bytes": 450,
+    "sha256": "bfd0d0f6aeddd7d924a489d24bccf1818a8527b3df06738d5e5efa522e48d08e",
+    "zlib": false
+  },
+  {
+    "file": "rearm-reset.log.zlib",
+    "bytes": 1366,
+    "sha256": "03c87f7577555a2ada3907bbe7b684b9a5156227fc148f0267e3643391f79e47",
+    "zlib": true
+  },
+  {
+    "file": "flash-command.json",
+    "bytes": 531,
+    "sha256": "24aea09ac2b311cfe830bb752d9794f78601995aaa346747c6d8103cc14ba247",
+    "zlib": false
+  },
+  {
+    "file": "flash.log.zlib",
+    "bytes": 1617,
+    "sha256": "4275f738acb5d9e3b9a262c6a463f0fc7a58a3f6c0f8f32f8aebaf70f08b6667",
+    "zlib": true
+  },
+  {
+    "file": "start-trigger.gdb",
+    "bytes": 537,
+    "sha256": "fb08cd8abeb44a3c570fcdbc683600c0fd78b59df4ab7e03eaabed17186b3b79",
+    "zlib": false
+  },
+  {
+    "file": "start-trigger.log.zlib",
+    "bytes": 1431,
+    "sha256": "7b01eadb0867360abaa8ff72497ac1f6ddd8afe057478c4a1e31a638fc39775e",
+    "zlib": true
+  },
+  {
+    "file": "start-trigger-invocation.json",
+    "bytes": 763,
+    "sha256": "d19a1a8bcfacdc68af3f22735bae5a6eacd8791017334bdadae675303dbd9f64",
+    "zlib": false
+  }
+]

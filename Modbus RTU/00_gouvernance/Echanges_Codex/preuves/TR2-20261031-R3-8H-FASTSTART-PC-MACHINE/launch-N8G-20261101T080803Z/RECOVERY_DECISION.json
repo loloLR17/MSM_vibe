@@ -1,0 +1,10 @@
+{
+  "reason": "Fresh preflight proved reboot before any trigger: WAIT2/run0/error0, card uninitialized, writes0",
+  "old_attempt_lock_preserved": "/home/lolo/dev/msm/reports/TR2-002-breadboard-N8F8MHz-20261101/LONG_START_ATTEMPT.json",
+  "old_gate_not_overwritten": "N8F0003.TR2",
+  "no_actual_long_STARTED": true,
+  "no_forced_business_RAM": true,
+  "new_prefix": "N8G",
+  "recovery": "new prefix image of unchanged functional source, calibration and short gate before one fresh start",
+  "user_signal": "LANCE 8H"
+}
