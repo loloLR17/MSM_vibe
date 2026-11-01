@@ -4,7 +4,7 @@ status: IN_PROGRESS
 base_ref: main
 base_sha: f5850ad2de81a6b7639d947d54751305cde3e75b
 initial_head: d5af0828e370780320bda67fac5d537bf3fd5016
-result_sha: 4307b95cf1f85266266574a04beab96e2fc14b20
+result_sha: 7b815b103a49b7fb1a8ec681a65206312b0ec16b
 created_at_utc: 2026-10-31T18:24:20.286731+00:00
 author: Codex
 target_branch: main
@@ -13,6 +13,22 @@ allow_push: true
 allow_flash: true
 allow_debug: true
 ---
+
+# Nouveau montage qualifié sur essai court8MHz — préparation8h rétablie
+
+**VALIDÉ PHYSIQUE BORNÉ : FIFO/FIR/SD2s avec module emprunté001, aucune endurance anticipée.** Le montage002 via breadboard fonctionne avec N8Fduplex8MHz. **PRÉPARÉ : lancement8h sur signalLANCE8H seulement**, aucun long lancé. Mission resteIN_PROGRESS enattente decesignal etdesrésultatslongs. [Preuves intégrales](preuves/TR2-20261031-R3-8H-FASTSTART-PC-MACHINE/breadboard-qualified-N8F8MHz-20261101/README.md), [runbook courant](preuves/TR2-20261031-R3-8H-FASTSTART-PC-MACHINE/breadboard-qualified-N8F8MHz-20261101/PRET_8H.md).
+
+Après calibration/file2s rétablis à4MHz maisfaiblemargeFIFO399/work983,775µs etrefusducollecteurbrut81, checkpoint**a7805d6dc2e768f2e04226d4c88f6815eab6fb38** publié puisrelu113fichiers/108artefacts exacts avantflash. Échec ducollecteur4MHz conservé, aucunegardeassouplie.16WHO8MHz corrects justifient leprofilde référence8MHz/N8F, avecnouveauxnoms. Aucunalgorithme ni gain/plage/FIR/ODR/v3/importeur/modèleV1 changé ; seuldiviseurprofil/préfixe/provenance, codeévalué7b815b10 déjàsurmain. BuildARMcibléPASS/anciensPASSinchangésréutilisés. Image**53032B/c2dd380de58f3581337b22f2957ce2265f0eb7f98c06cbeaab2d17bf64494c61**, text53008/data24/BSS549096, warningsnosys conservés. Unflashstandard/resetnormal/readbackBINentierexact aprèsSN/UID/imageEpréservée/étatsûr vérifiés ; aucunresetsupplémentaire/masserase/OptionBytes.
+
+Calibration8MHz**24µs/198brackets/6577ancres**,WHO7B/CID/CSD/FAT32/nomsneufs/libre conformes. UniquegateN8F0003.TR2 : **52592XYZ/5260sorties/31560B/68records**,2000143µsMCUnominales/QPCintérieur1,0390489s, aucuneduréeSI2s étalonnée. **0flags/FULL/OVR/rails/clips/FIFO/SD/fileoverflow**, collecteurinchangépass_references=true/103sortiesnumériques exactes. Workmax**641,10625µs/1000**, service**1348,51875/2500**, gap**1606/5000** ; FIFO**48**/file5120B, STOP133µs/drain8421µs.8XYZfinauxsansancrefuture explicitementnonémis, paspertemasquée. CTRL1AC/±8g configurés etcontrôlés, pascalibrationd'amplitude.
+
+**Relecture indépendante :** fichier131072B intégralementcopié enlectureseule parFatFs/GDB versfichierhôte, puislecteurPythonstrictinchangé :COMPLETE/tousCRC/index/session/footer/qualité/SHA exacts. PayloadSHA**30e0de232ceddbab4697a6a4768ea75b3bfcf88d012e4045c181c10dbf6939a3** égalauproducteurRAM ; SHAfileentier**e8227c336ef2e488b0dc12da807402dd1209f8268c44a0fe4ef1def6bfa54e6d**. Copie n'aécritaucunsecteur. PasuneextractionlecteurPC, tenueàcoupure etendurance nonqualifiées ; anciensfichiersnonremplacés/nonre-hachés, nouveauxE/F conservés.
+
+**READY local vérifié07:04:03UTC01/11 :** lanceurexistant `launch_8h.py --check-only` PASS, UID/image/CIDCMD10/FAT32/libre≥20480clusters/N8F0005absent, COM5parent002/libre/exclusif, secteur/veilleAC0/hibernationAC0. Carte resteN8Fstage4/run3/error0/FIFOoff/writeroff/queue0/SDquiet/CShaute/GDBdétaché. `python3 /home/lolo/dev/msm/reports/TR2-002-breadboard-N8F8MHz-20261101/launch_8h.py --signal 'LANCE 8H'` prêt **sans avoirétéexécuté**. Aucun locklong ni longcréé, garde30600sMCU/640MiB inchangée. Garderalimentation ; reboot/capteur/câblagechangé invalideprêt, pasforcerRAM ourejouergateoccupé. SignalLANCE8H resteconfirmationmontageauPCmachine/alimentation seloncontrat.
+
+Uneerreur dechemin d'unhelpercopié estsurvenue avantlecturehôte/avantgate ; corrigéeverscopiePSlocale, preuvePREPARATION_CORRECTION.json, aucuneprotection modifiée. DiffcheckconditionnementdesJSONWindowsCRLF corrigé parzlibsansperte danscommitdocumentairedecheckpoint ; contenuoriginalinchangé. AucunFRAM/COM4/001/serviceWindows touché danscettequalification, firmware001 conservéoff. Le capteurinitial002 resteNONVÉRIFIÉ ; deuxNucleo fonctionnentavec lemoduleprêté dansleursconditionsrespectives, pasdedéfautNucleo002démontré ni causalitéexclusivebreadboard.
+
+Rapport/journal/PRET_8H/preuvesactualisés, code/testsnormatifsinchangés. Travailisolépréservé, deuxstashesintacts, pushnormal/relecturedistanteàeffectuer ; SHAfinaldansréponse aprèsvérification. Lessectionsci-dessous sonthistoriquesetn'invalidentpaslapréparationcouranteN8F décriteici.
 
 # Qualification du nouveau montage — calibration et fichier2s rétablis, marge4MHz à traiter
 

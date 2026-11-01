@@ -1,0 +1,6 @@
+{
+  "initial_host_snapshot_failed_before_IO": "FileNotFoundError: copied helper referenced a nonexistent TR2-r3-N8F-duplex4 directory",
+  "correction": "Use local copy of the existing qualified read-only PowerShell metadata script",
+  "no_hardware_command_or_gate_triggered_by_failure": true,
+  "no_policy_modified": true
+}

@@ -1,0 +1,12 @@
+{
+  "UID": "001B0046/38425018/20333157",
+  "SN": "0032001F3235510C37333439",
+  "previous_N8E_entire_BIN_preserved": true,
+  "new_N8F_entire_BIN_identical": true,
+  "WAIT2": true,
+  "normal_programming_reset_only": true,
+  "no_extra_reset": true,
+  "no_mass_erase": true,
+  "no_OptionBytes": true,
+  "no_long": true
+}

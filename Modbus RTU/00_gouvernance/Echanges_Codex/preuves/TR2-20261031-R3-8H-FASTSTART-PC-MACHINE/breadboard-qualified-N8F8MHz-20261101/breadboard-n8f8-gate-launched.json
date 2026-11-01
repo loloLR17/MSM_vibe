@@ -1,0 +1,34 @@
+{
+  "utc_annotation": "2026-11-01T07:01:20.722905+00:00",
+  "code_sha": "7b815b103a49b7fb1a8ec681a65206312b0ec16b",
+  "run": 3,
+  "native_observer": {
+    "native_process": {
+      "ProcessId": 11332,
+      "ReturnValue": 0
+    },
+    "observer_sha256": "ff4cb076a1bdb40486ae704c6a721932c07e11f7f61b11e406ff5502e7a77251",
+    "output": "C:\\Users\\lolo\\AppData\\Local\\Temp\\TR2-R3-N8F-20261101-breadboard-n8f8-gate",
+    "expected_run": 3,
+    "minimum_QPC_s": 1,
+    "parent_has_exited": true,
+    "STM32_control": false
+  },
+  "initial_active_with_SD_group_ack": {
+    "sequence": 20,
+    "mcu_us": 105466730,
+    "flags": 769,
+    "session": 6755700193031844,
+    "accepted": 12664
+  },
+  "first_QPC_bracket": {
+    "receive_tick": 13801626649538,
+    "flags": 769,
+    "send_tick": 13801626021833,
+    "frame_hex": "5150433246001b001850423857313320140000006a4b49060000000001030000a4f63606460018007831000052939477"
+  },
+  "GDB_detached": true,
+  "Codex_must_end_after_launch_checkpoint": false,
+  "no_Codex_WSL_monitor": true,
+  "no_poweroff_until_postrun_RAM_digest_dump": true
+}

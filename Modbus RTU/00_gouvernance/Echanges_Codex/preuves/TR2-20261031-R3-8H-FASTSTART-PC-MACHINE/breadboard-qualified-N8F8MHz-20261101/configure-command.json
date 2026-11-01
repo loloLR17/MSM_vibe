@@ -1,0 +1,17 @@
+[
+  "cmake",
+  "-S",
+  "/home/lolo/dev/msm/projects/MSM_vibe-R3-8h-faststart/experiments/r3_durable_fat32",
+  "-B",
+  "/home/lolo/dev/msm/reports/TR2-002-breadboard-N8F8MHz-20261101/arm",
+  "-DCMAKE_TOOLCHAIN_FILE=/home/lolo/dev/msm/projects/MSM_vibe-R3-8h-faststart/Modbus RTU/05_Firmware/platform/stm32/cmake/arm-none-eabi-gcc.cmake",
+  "-DSTM32CUBE_U5_ROOT=/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0",
+  "-DR3_ENDURANCE_8H=ON",
+  "-DR3_QPC_WITNESS=ON",
+  "-DR3_ENDURANCE_1H=ON",
+  "-DR3_CAPTURE_DURATION_US=30600000000",
+  "-DR3_CAPTURE_PREFIX=N8F",
+  "-DR3_SPI_DUPLEX=ON",
+  "-DR3_SPI3_DIVIDER=2",
+  "-DR3_HOST_TESTS=OFF"
+]

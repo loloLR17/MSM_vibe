@@ -1,0 +1,17 @@
+{
+  "command": [
+    "/mnt/c/ST/STM32CubeCLT_1.22.0/STM32CubeProgrammer/bin/STM32_Programmer_CLI.exe",
+    "-c",
+    "port=SWD",
+    "sn=0032001F3235510C37333439",
+    "freq=8000",
+    "-w",
+    "\\\\wsl.localhost\\Debian\\home\\lolo\\dev\\msm\\reports\\TR2-002-breadboard-N8F8MHz-20261101\\arm\\r3_coex.bin",
+    "0x08000000",
+    "-v",
+    "-rst"
+  ],
+  "code_sha": "7b815b103a49b7fb1a8ec681a65206312b0ec16b",
+  "sha256": "c2dd380de58f3581337b22f2957ce2265f0eb7f98c06cbeaab2d17bf64494c61",
+  "normal_programming_only": true
+}

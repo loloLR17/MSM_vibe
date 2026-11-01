@@ -1,0 +1,806 @@
+[
+  {
+    "file": "CARD_PREFLIGHT.json",
+    "bytes": 307,
+    "sha256": "dee619164bf83679d95f89e103772e0308d109a20b66db9c3c0515fd6bf05f2d",
+    "zlib": false
+  },
+  {
+    "file": "FLASH_VERIFIED.json",
+    "bytes": 317,
+    "sha256": "ec9301f30b36d616fb14b650fb72aa03b013a427e7858ffbd84e9902de4d1f65",
+    "zlib": false
+  },
+  {
+    "file": "GATE_HOST_VERIFICATION.json",
+    "bytes": 1956,
+    "sha256": "376b09cb5c81d22d4ba9450843c749f0ced5c5f5449920b75dfb686a53c54098",
+    "zlib": false
+  },
+  {
+    "file": "N8F0003.TR2.zlib",
+    "bytes": 131072,
+    "sha256": "e8227c336ef2e488b0dc12da807402dd1209f8268c44a0fe4ef1def6bfa54e6d",
+    "zlib": true
+  },
+  {
+    "file": "PREPARATION_CORRECTION.json",
+    "bytes": 324,
+    "sha256": "a69b851b4080a12f7d24e8a172ac7f7f6949e2a2b053ccefff4302bf390ecf0d",
+    "zlib": false
+  },
+  {
+    "file": "PRET_8H.md",
+    "bytes": 3696,
+    "sha256": "6b2d7386bfdcd0dfa2f06236207278ce6f141cb5e33332ee31b63cd849affba4",
+    "zlib": false
+  },
+  {
+    "file": "READY.json",
+    "bytes": 822,
+    "sha256": "1a05f63e8b193007ce49d828fde1608be90f8f89e2d4b232649d0628b09bd387",
+    "zlib": false
+  },
+  {
+    "file": "STLINK-before-flash.log.zlib",
+    "bytes": 506,
+    "sha256": "a811f52d2c09b9827bc2d5f356a1202f12b45e8b7f159fa0944db690cf2ddb3d",
+    "zlib": true
+  },
+  {
+    "file": "analyze_capture.py",
+    "bytes": 4588,
+    "sha256": "4f46de4de763d32709b2f96b99bd5929e156115db50670088591a2995939c15a",
+    "zlib": false
+  },
+  {
+    "file": "arm/CMakeCache.txt.zlib",
+    "bytes": 16247,
+    "sha256": "6cee350aeea83fd175a3fb2f6f361d04719513feca84652dde61bef1cbadf705",
+    "zlib": true
+  },
+  {
+    "file": "arm/CMakeFiles/r3_coex.dir/flags.make.zlib",
+    "bytes": 3527,
+    "sha256": "06b313d1b7994b564b26f1452153585e420a5bdd3e65a636715aee4311cd105c",
+    "zlib": true
+  },
+  {
+    "file": "arm/CMakeFiles/r3_coex.dir/link.txt.zlib",
+    "bytes": 4754,
+    "sha256": "86ff27a9890eece958c7ea64650af3308394ac04da1ae8c7142c0fa5e12fff70",
+    "zlib": true
+  },
+  {
+    "file": "arm/r3_coex.bin.zlib",
+    "bytes": 53032,
+    "sha256": "c2dd380de58f3581337b22f2957ce2265f0eb7f98c06cbeaab2d17bf64494c61",
+    "zlib": true
+  },
+  {
+    "file": "arm/r3_coex.elf.zlib",
+    "bytes": 2156036,
+    "sha256": "2f503c2325398f8b840c4e3b1c02bfdf8a50490f6594be7a52de9b763987fa11",
+    "zlib": true
+  },
+  {
+    "file": "arm/r3_coex.map.zlib",
+    "bytes": 690608,
+    "sha256": "a1966123deaa4013bb91b4bb637dff1303ea3f65dfaadea3fa41c838f468329b",
+    "zlib": true
+  },
+  {
+    "file": "artifact.json",
+    "bytes": 853,
+    "sha256": "914a4631082ec49b015e1d3ddf98003e2349439105d66e141f2b5cd281a9b55c",
+    "zlib": false
+  },
+  {
+    "file": "breadboard-n8f8-gate-analysis.json",
+    "bytes": 679,
+    "sha256": "724e7eeb62bd115c99507e07104d0cf5eeefdcccc944f13cbd3f5570c5868193",
+    "zlib": false
+  },
+  {
+    "file": "breadboard-n8f8-gate-launched.json",
+    "bytes": 1086,
+    "sha256": "d403093bc2bd0df6df41fdbb54d394ebe5662861f9935c77dd05f3ed1283c0d1",
+    "zlib": false
+  },
+  {
+    "file": "breadboard-n8f8-gate-native-queries.jsonl.zlib",
+    "bytes": 4026,
+    "sha256": "7051290d334e182e70519ac57d8bea1ae0a40dd40969b819b8795381e88f9f7a",
+    "zlib": true
+  },
+  {
+    "file": "breadboard-n8f8-gate-native-ready.json.zlib",
+    "bytes": 360,
+    "sha256": "93eaa144b47890d688b33864bbf427496518c39578aaec3dc0336ce4fa122aff",
+    "zlib": true
+  },
+  {
+    "file": "breadboard-n8f8-gate-native-summary.json.zlib",
+    "bytes": 9580,
+    "sha256": "8d39025c218a1f31c2bcebc86be98062da962c8de5ddc9bd5c2f5921115d497f",
+    "zlib": true
+  },
+  {
+    "file": "breadboard-n8f8-gate-observer-launch.json",
+    "bytes": 357,
+    "sha256": "2362e02e82643cd6e49efaa086a8f7fbc97decb906e485931d0abb9e43d1fdd1",
+    "zlib": false
+  },
+  {
+    "file": "breadboard-n8f8-gate.json",
+    "bytes": 6116,
+    "sha256": "a5a616eb2fa0c29fa85745a4fd291c1c833a13be50631836e30105b37b1350b4",
+    "zlib": false
+  },
+  {
+    "file": "breadboard8-gate-collected/analysis.json",
+    "bytes": 5040,
+    "sha256": "521fd0233fa9a3e15623779250d587fdfa5800f22f5eb34d8b201c77f5b6a2ca",
+    "zlib": false
+  },
+  {
+    "file": "breadboard8-gate-collected/brackets.bin.zlib",
+    "bytes": 4752,
+    "sha256": "67f9a0e1be6339f0aef4d724d2d4821131c1220e7308537c0f63519f85dcdba7",
+    "zlib": true
+  },
+  {
+    "file": "breadboard8-gate-collected/busy-distributions.bin.zlib",
+    "bytes": 8048,
+    "sha256": "a791eb6c9287b5865d56a71b45f94f82431754fe5f12356b5f803332352229f7",
+    "zlib": true
+  },
+  {
+    "file": "breadboard8-gate-collected/card.bin.zlib",
+    "bytes": 5228,
+    "sha256": "68e4b1e4f4cfb3b99e418c88458ab63157221ebc60e1f526eff621a0eeb3a518",
+    "zlib": true
+  },
+  {
+    "file": "breadboard8-gate-collected/distributions.bin.zlib",
+    "bytes": 80096,
+    "sha256": "b578e05e1df103fb69f3fd71f2ea263d08e9c2b03b930a1ace7641a9668671a7",
+    "zlib": true
+  },
+  {
+    "file": "breadboard8-gate-collected/durable-footer.bin.zlib",
+    "bytes": 512,
+    "sha256": "b024a6a6df4b0cec706e4232efda3af11fc29e325a117723f39752c3a5910e7d",
+    "zlib": true
+  },
+  {
+    "file": "breadboard8-gate-collected/durable-status.bin.zlib",
+    "bytes": 64,
+    "sha256": "96bce3154f727d489fc7ab64f40d3f2eff8043b4952be2db909b302f50596e32",
+    "zlib": true
+  },
+  {
+    "file": "breadboard8-gate-collected/fifo-stop-payload.bin.zlib",
+    "bytes": 21,
+    "sha256": "aa447f6b853c0f8a1a88bb148357a7db3894cf51955c2fe110773183232aaad6",
+    "zlib": true
+  },
+  {
+    "file": "breadboard8-gate-collected/fifo-stop-trace.bin.zlib",
+    "bytes": 360,
+    "sha256": "2733ae9fd4350c0327695d4c85e39b6d7fb68dc899a6f455308110e5d0100b34",
+    "zlib": true
+  },
+  {
+    "file": "breadboard8-gate-collected/header.bin.zlib",
+    "bytes": 512,
+    "sha256": "5a05fe61be280648b18316b2ca39182299ebd8a2f1b4ad8002c82f345c4d5ee2",
+    "zlib": true
+  },
+  {
+    "file": "breadboard8-gate-collected/outputs.bin.zlib",
+    "bytes": 6144,
+    "sha256": "0a8c63665e457b0dc9df1186944cf66166f4d8df69a8aa191ce43c70b774eb56",
+    "zlib": true
+  },
+  {
+    "file": "breadboard8-gate-collected/raw.bin.zlib",
+    "bytes": 14336,
+    "sha256": "cc36643ab2f5c52528b11166ea3e122e4132015fe36de6bab8b3c01304f2fbaa",
+    "zlib": true
+  },
+  {
+    "file": "breadboard8-gate-collected/records.bin.zlib",
+    "bytes": 12288,
+    "sha256": "f911e3f65c38e89c32495278bf2f6b82d8d5e36651990b15d43df18f9d1b4365",
+    "zlib": true
+  },
+  {
+    "file": "breadboard8-gate-collected/result.bin.zlib",
+    "bytes": 296,
+    "sha256": "46d897920542f30e86f0c070788f2d415580c1d48211a7f4e1f1463dbacd73f5",
+    "zlib": true
+  },
+  {
+    "file": "breadboard8-gate-collected/result.json",
+    "bytes": 1420,
+    "sha256": "07fa8e1b715eecaf10e16bcb4eb4dc118a2e1f6328a0fff821d23d0e8fefb6a4",
+    "zlib": false
+  },
+  {
+    "file": "breadboard8-gate-collected/sd-distributions.bin.zlib",
+    "bytes": 8048,
+    "sha256": "51d7d2fe41f92185fcc046b30fdde94f255808b9890551a3cd16938c61a6dcef",
+    "zlib": true
+  },
+  {
+    "file": "breadboard8-gate-collected/sd-records.bin.zlib",
+    "bytes": 180,
+    "sha256": "099246f362d895bf76e901043d732e9202d9747a358f8d8e537c85773c1229f6",
+    "zlib": true
+  },
+  {
+    "file": "breadboard8-gate-collected/single-busy-max.bin.zlib",
+    "bytes": 4,
+    "sha256": "4be3a65742927eda552ab6bc45c9d7372591756806eaba3135458caf02e39d25",
+    "zlib": true
+  },
+  {
+    "file": "breadboard8-gate-collected/source-sha.bin.zlib",
+    "bytes": 32,
+    "sha256": "084c142fcf3ee8c135df0e41112c715cea58e5661984ae231d237f6cec8c8928",
+    "zlib": true
+  },
+  {
+    "file": "breadboard8-gate-collected/sources.bin.zlib",
+    "bytes": 24576,
+    "sha256": "75e5cfdd0559e31e6ef41500af1ee54ad48532e77ed03ea9b7eca463589e5001",
+    "zlib": true
+  },
+  {
+    "file": "breadboard8-gate-collected/spi2-config.bin.zlib",
+    "bytes": 8,
+    "sha256": "3b94b11cca9c930ed8faedbbf7c18e4fe7caaa1dea53f2d82f702b3b48c847b3",
+    "zlib": true
+  },
+  {
+    "file": "breadboard8-gate-collected/spi3-config.bin.zlib",
+    "bytes": 8,
+    "sha256": "7300bf9d3b35a3adf9e9d7736b2afa29919d858ce0131d2a589826cf8d86b315",
+    "zlib": true
+  },
+  {
+    "file": "build.log.zlib",
+    "bytes": 8183,
+    "sha256": "ec314c5098178595018153d1913a9730061ed4a476d15cf7c53df67bd9c6812b",
+    "zlib": true
+  },
+  {
+    "file": "collect-gate.log.zlib",
+    "bytes": 5093,
+    "sha256": "d53339f26d87af24f87dc2cc31aceff4ade72badf47154cf3342b874f7db0199",
+    "zlib": true
+  },
+  {
+    "file": "collect_after_terminal.py",
+    "bytes": 1483,
+    "sha256": "38968abd0868cddaef41d72be6ad1384c0142b7fe0f9bad9872490265a40f29e",
+    "zlib": false
+  },
+  {
+    "file": "configure-command.json",
+    "bytes": 629,
+    "sha256": "3f65b4d40366c58d37e6d2060a415087fcbdefcc8cff0ac36d4f6721ec76f501",
+    "zlib": false
+  },
+  {
+    "file": "configure.log.zlib",
+    "bytes": 597,
+    "sha256": "ddb9a721fa0b8d0d9d8ad79253a1091f67aa85afd32142044de4c338b1fdd277",
+    "zlib": true
+  },
+  {
+    "file": "extract-gate.log.zlib",
+    "bytes": 1994,
+    "sha256": "b4fb2a229e10953aa77a80ac38e72ca45bbf77408743a9febe2a1e24129247f6",
+    "zlib": true
+  },
+  {
+    "file": "extract_gate_readonly.py",
+    "bytes": 2542,
+    "sha256": "db6f96c50d9ff020442b5c514c15c3ad5e9c890aefa722a8740fac3b1d8f8536",
+    "zlib": false
+  },
+  {
+    "file": "flash-prepared.log.zlib",
+    "bytes": 170,
+    "sha256": "8c5d3c0f28a0d47ec3291b230871c52353f337fd57ba8971b3d3362438c73ad5",
+    "zlib": true
+  },
+  {
+    "file": "flash_prepared.py",
+    "bytes": 2479,
+    "sha256": "3cb0e2bd9723ee233643ae592207fd5dfa63aaf352be063ff95aa5366f66e095",
+    "zlib": false
+  },
+  {
+    "file": "hardware/N8F-readback-and-WAIT8MHz-invocation.json",
+    "bytes": 759,
+    "sha256": "4ceb4c3ed39cd54b8fb966cfadb12a42b517f97907a30f175f49896a143ec6a3",
+    "zlib": false
+  },
+  {
+    "file": "hardware/N8F-readback-and-WAIT8MHz-server.log.zlib",
+    "bytes": 642,
+    "sha256": "01380640c83852663f54b1f99c004458ec08d3ca13f5261046c37d80cd3fb747",
+    "zlib": true
+  },
+  {
+    "file": "hardware/N8F-readback-and-WAIT8MHz.gdb",
+    "bytes": 664,
+    "sha256": "93d6b2d5c9aaf00e95c462d11bd54b1de15895f09d41b219f47b8e37becc5351",
+    "zlib": false
+  },
+  {
+    "file": "hardware/N8F-readback-and-WAIT8MHz.log.zlib",
+    "bytes": 1304,
+    "sha256": "4e6caaf510d8718f50aee26a79f8bff3d5149ae724b424f47aef928a06b88869",
+    "zlib": true
+  },
+  {
+    "file": "hardware/N8F-readback.bin.zlib",
+    "bytes": 53032,
+    "sha256": "c2dd380de58f3581337b22f2957ce2265f0eb7f98c06cbeaab2d17bf64494c61",
+    "zlib": true
+  },
+  {
+    "file": "hardware/before-N8F-flash-image-and-stopped-state-invocation.json",
+    "bytes": 777,
+    "sha256": "639b04a6af9bee22dadd3720d0e33b15413837a58e6e3b6cf63273d4772859a1",
+    "zlib": false
+  },
+  {
+    "file": "hardware/before-N8F-flash-image-and-stopped-state-server.log.zlib",
+    "bytes": 674,
+    "sha256": "eb6b6e5f1edf9b507b71ef15f388ab33cc058c15926d679a1ed075e3a4e91818",
+    "zlib": true
+  },
+  {
+    "file": "hardware/before-N8F-flash-image-and-stopped-state.gdb",
+    "bytes": 1070,
+    "sha256": "43f42d0a7d94f810ff606f97c80da859356937024f43d1ce0d11f5f445253247",
+    "zlib": false
+  },
+  {
+    "file": "hardware/before-N8F-flash-image-and-stopped-state.log.zlib",
+    "bytes": 1546,
+    "sha256": "37718c10dd53693d81c645c25125928f6ce5b46afb25644a16fce87bdef5f360",
+    "zlib": true
+  },
+  {
+    "file": "hardware/breadboard-n8f8-gate-trigger-detach-invocation.json",
+    "bytes": 769,
+    "sha256": "b80c2ef1a728b64def334cae0eb42df01b4e3e5f57469d0d94cc9ca665e17771",
+    "zlib": false
+  },
+  {
+    "file": "hardware/breadboard-n8f8-gate-trigger-detach-server.log.zlib",
+    "bytes": 674,
+    "sha256": "eb6b6e5f1edf9b507b71ef15f388ab33cc058c15926d679a1ed075e3a4e91818",
+    "zlib": true
+  },
+  {
+    "file": "hardware/breadboard-n8f8-gate-trigger-detach.gdb",
+    "bytes": 537,
+    "sha256": "4677a1a9e221d133279ce478e783fdd142dafc58a1751c64c18ba3a66778c6f7",
+    "zlib": false
+  },
+  {
+    "file": "hardware/breadboard-n8f8-gate-trigger-detach.log.zlib",
+    "bytes": 1336,
+    "sha256": "436c378bcf03640d2d9ba4ab45dd4d699cf89dc0a323d696d04bc7060fc05042",
+    "zlib": true
+  },
+  {
+    "file": "hardware/breadboard8-gate-collected-collect-after-terminal-invocation.json",
+    "bytes": 783,
+    "sha256": "32f5a19fd7d24d613820285b86a9eb601faf2bd40d41889f7c0dfc316801c0f1",
+    "zlib": false
+  },
+  {
+    "file": "hardware/breadboard8-gate-collected-collect-after-terminal-server.log.zlib",
+    "bytes": 674,
+    "sha256": "eb6b6e5f1edf9b507b71ef15f388ab33cc058c15926d679a1ed075e3a4e91818",
+    "zlib": true
+  },
+  {
+    "file": "hardware/breadboard8-gate-collected-collect-after-terminal.gdb",
+    "bytes": 5279,
+    "sha256": "496060bd2273fce83a8b91070153407f4ad7b4ea567384893c3222a913951278",
+    "zlib": false
+  },
+  {
+    "file": "hardware/breadboard8-gate-collected-collect-after-terminal.log.zlib",
+    "bytes": 1869,
+    "sha256": "fa240c5b0ad9b79cb5ede54d83bcff1cb1c6e79865be9490da10131e42de464c",
+    "zlib": true
+  },
+  {
+    "file": "hardware/flash-prepared-N8F8MHz-command.json",
+    "bytes": 528,
+    "sha256": "e8bee25076f455d9d97087175727ecfbab97ed5361c67a5961de15955bf25dfd",
+    "zlib": false
+  },
+  {
+    "file": "hardware/flash-prepared-N8F8MHz.log.zlib",
+    "bytes": 1617,
+    "sha256": "ea7126c37f9b2b1da830d7c698ce9bc19330ef4c5b834a6968b10a6dc9fa01ff",
+    "zlib": true
+  },
+  {
+    "file": "hardware/gate-full-file-FatFs-readonly-copy-invocation.json",
+    "bytes": 768,
+    "sha256": "527d4e7120e2a730a9ceb9e4522e86d2ad31843aef65b88e88f7917c61816537",
+    "zlib": false
+  },
+  {
+    "file": "hardware/gate-full-file-FatFs-readonly-copy-server.log.zlib",
+    "bytes": 674,
+    "sha256": "eb6b6e5f1edf9b507b71ef15f388ab33cc058c15926d679a1ed075e3a4e91818",
+    "zlib": true
+  },
+  {
+    "file": "hardware/gate-full-file-FatFs-readonly-copy.gdb",
+    "bytes": 5582,
+    "sha256": "f3ba31e3c077a36996ed3fc93075ab7f22966dd26ba971c04d26bae553f0186d",
+    "zlib": false
+  },
+  {
+    "file": "hardware/gate-full-file-FatFs-readonly-copy.log.zlib",
+    "bytes": 371,
+    "sha256": "be0d49dbb6ed2c136bf04442779bb55a21a0769a1db30b698abd672b02b85b48",
+    "zlib": true
+  },
+  {
+    "file": "hardware/n8f-card-calibrate-invocation.json",
+    "bytes": 752,
+    "sha256": "911a6ce0dbed9e2996237dfb26d73e083e6d1983e6f38bfa996e379ae93a5baf",
+    "zlib": false
+  },
+  {
+    "file": "hardware/n8f-card-calibrate-server.log.zlib",
+    "bytes": 674,
+    "sha256": "eb6b6e5f1edf9b507b71ef15f388ab33cc058c15926d679a1ed075e3a4e91818",
+    "zlib": true
+  },
+  {
+    "file": "hardware/n8f-card-calibrate.gdb",
+    "bytes": 5372,
+    "sha256": "0a978b559e9d086028e3bb8f6da8da91f3b9cc166f669770ae7e19440090e24c",
+    "zlib": false
+  },
+  {
+    "file": "hardware/n8f-card-calibrate.log.zlib",
+    "bytes": 6157,
+    "sha256": "9ffbc0d573d5f9080dac6a424f2194ce9f21915c4d28bcb631abb3d7eef4b30d",
+    "zlib": true
+  },
+  {
+    "file": "hardware/n8f-card-names-and-free-readonly-invocation.json",
+    "bytes": 766,
+    "sha256": "46ec1e22a7dced0445ed6c79435a0ae08ba46a166ed0664e14801f2c500bc744",
+    "zlib": false
+  },
+  {
+    "file": "hardware/n8f-card-names-and-free-readonly-server.log.zlib",
+    "bytes": 674,
+    "sha256": "eb6b6e5f1edf9b507b71ef15f388ab33cc058c15926d679a1ed075e3a4e91818",
+    "zlib": true
+  },
+  {
+    "file": "hardware/n8f-card-names-and-free-readonly.gdb",
+    "bytes": 1180,
+    "sha256": "0a6d3fc3a216c5c9b2ec8011782ef6bb981661e639ec59bd7668c855fda9586a",
+    "zlib": false
+  },
+  {
+    "file": "hardware/n8f-card-names-and-free-readonly.log.zlib",
+    "bytes": 13114,
+    "sha256": "83ade53c4d224f4aabae54c198c5d07afd54e93c12a8b87bcbd5915956bcc102",
+    "zlib": true
+  },
+  {
+    "file": "hardware/prepare-final-image-readback.bin.zlib",
+    "bytes": 53032,
+    "sha256": "c2dd380de58f3581337b22f2957ce2265f0eb7f98c06cbeaab2d17bf64494c61",
+    "zlib": true
+  },
+  {
+    "file": "hardware/prepare-final-preflight-invocation.json",
+    "bytes": 757,
+    "sha256": "0dcf720b1390ba123e946112f711e482eb86b36ed42063e9974772b554550ff0",
+    "zlib": false
+  },
+  {
+    "file": "hardware/prepare-final-preflight-server.log.zlib",
+    "bytes": 674,
+    "sha256": "eb6b6e5f1edf9b507b71ef15f388ab33cc058c15926d679a1ed075e3a4e91818",
+    "zlib": true
+  },
+  {
+    "file": "hardware/prepare-final-preflight.gdb",
+    "bytes": 2091,
+    "sha256": "5991c1dc0d916105b55f235e163f5c86d42b0267c6f83b1426b3ff59fa852a6a",
+    "zlib": false
+  },
+  {
+    "file": "hardware/prepare-final-preflight.log.zlib",
+    "bytes": 14749,
+    "sha256": "aa0df8e6f6167dd13116c11ed28aef18a949c0d08b0d93c4992397aa377487f4",
+    "zlib": true
+  },
+  {
+    "file": "hardware/previous-N8E-readback.bin.zlib",
+    "bytes": 53036,
+    "sha256": "59e65cd66ecdfe76b7ace5f2ad0affb3c05ed871c804ec2549d11f6228fbc186",
+    "zlib": true
+  },
+  {
+    "file": "hardware_second.py",
+    "bytes": 2409,
+    "sha256": "93d9cfa5af9c28d0c5c87658a5b02907f8b962f08ca644ab623e5c313df172b7",
+    "zlib": false
+  },
+  {
+    "file": "hibernate-policy.txt.zlib",
+    "bytes": 718,
+    "sha256": "3812849455c26df899b4a486e02f1fcd8767f9708b102f557dfdd402a710c1e4",
+    "zlib": true
+  },
+  {
+    "file": "host-snapshot-short.ps1.zlib",
+    "bytes": 534,
+    "sha256": "5c91ff326fcdaa7a1a72c1d8e3042366a6e20a82c1609456d7c1f9464885945c",
+    "zlib": true
+  },
+  {
+    "file": "host-snapshot-short.stderr.zlib",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "zlib": true
+  },
+  {
+    "file": "host_snapshot_short.py",
+    "bytes": 720,
+    "sha256": "195e0902a89ead5bfc7e0787b26b598803ba354ea1e861c0c73b973512bade77",
+    "zlib": false
+  },
+  {
+    "file": "init-card.log.zlib",
+    "bytes": 1336,
+    "sha256": "eea2aa9aca5ba4551df2ae71f75f4106ef563ad007c1dcb2f9400308219e2d9e",
+    "zlib": true
+  },
+  {
+    "file": "init_card.py",
+    "bytes": 2007,
+    "sha256": "50b769849b9e3351ba265bb67a17fbd69d1dab28245b6a6a9973a123d4503b50",
+    "zlib": false
+  },
+  {
+    "file": "launch_8h.py",
+    "bytes": 4458,
+    "sha256": "b88b649726848fd99d863f40f6d0d37cb097acc5eecff963a0a1f64fe38eb39a",
+    "zlib": false
+  },
+  {
+    "file": "n8f-card-calibrate/body.gdb",
+    "bytes": 5264,
+    "sha256": "20329ba98722d6c7a475d29301fe4c982baca84f7c7ff614d0e434708d59cb0d",
+    "zlib": false
+  },
+  {
+    "file": "n8f-card-calibrate/brackets.bin.zlib",
+    "bytes": 4752,
+    "sha256": "67f9a0e1be6339f0aef4d724d2d4821131c1220e7308537c0f63519f85dcdba7",
+    "zlib": true
+  },
+  {
+    "file": "n8f-card-calibrate/busy-distributions.bin.zlib",
+    "bytes": 8048,
+    "sha256": "7e6740c91f7c21b361fbb73984f22afef3896b669f9e2a87d31f6e18e9a48432",
+    "zlib": true
+  },
+  {
+    "file": "n8f-card-calibrate/card.bin.zlib",
+    "bytes": 5228,
+    "sha256": "a5a8f7e98f8d94ee706a30a633b8502682a42fbec99c19d3d9ebde65f8e695ae",
+    "zlib": true
+  },
+  {
+    "file": "n8f-card-calibrate/distributions.bin.zlib",
+    "bytes": 80096,
+    "sha256": "ca61cc292aca487b0a45370be2db7dbf6ded99bcc597c934f15ce76b598cb8d3",
+    "zlib": true
+  },
+  {
+    "file": "n8f-card-calibrate/durable-footer.bin.zlib",
+    "bytes": 512,
+    "sha256": "076a27c79e5ace2a3d47f9dd2e83e4ff6ea8872b3c2218f66c92b89b55f36560",
+    "zlib": true
+  },
+  {
+    "file": "n8f-card-calibrate/durable-status.bin.zlib",
+    "bytes": 64,
+    "sha256": "a567e57e1a7f01b45c9bfdee65b727d767193ca4f2b885969262e1fb35519b79",
+    "zlib": true
+  },
+  {
+    "file": "n8f-card-calibrate/fifo-stop-payload.bin.zlib",
+    "bytes": 21,
+    "sha256": "aa447f6b853c0f8a1a88bb148357a7db3894cf51955c2fe110773183232aaad6",
+    "zlib": true
+  },
+  {
+    "file": "n8f-card-calibrate/fifo-stop-trace.bin.zlib",
+    "bytes": 360,
+    "sha256": "7ebe103263d248f5e1070962e2c8ff04156e7e7089639ebbb557fa48d7d57e82",
+    "zlib": true
+  },
+  {
+    "file": "n8f-card-calibrate/header.bin.zlib",
+    "bytes": 512,
+    "sha256": "076a27c79e5ace2a3d47f9dd2e83e4ff6ea8872b3c2218f66c92b89b55f36560",
+    "zlib": true
+  },
+  {
+    "file": "n8f-card-calibrate/outputs.bin.zlib",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "zlib": true
+  },
+  {
+    "file": "n8f-card-calibrate/raw.bin.zlib",
+    "bytes": 14336,
+    "sha256": "2705eb89d3148153d0701bdc2163cdbda8826c766804c04e214870c16afe1069",
+    "zlib": true
+  },
+  {
+    "file": "n8f-card-calibrate/records.bin.zlib",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "zlib": true
+  },
+  {
+    "file": "n8f-card-calibrate/result.bin.zlib",
+    "bytes": 296,
+    "sha256": "9bee1bf661bf0ddbb07a16bb82e4009e6170dd5701f9b1f92340382e5079a5af",
+    "zlib": true
+  },
+  {
+    "file": "n8f-card-calibrate/result.json",
+    "bytes": 1322,
+    "sha256": "120d53a8fb116dfadd2ea0f91c0c287a5295f8f297cb876740f762a4feda61e9",
+    "zlib": false
+  },
+  {
+    "file": "n8f-card-calibrate/sd-distributions.bin.zlib",
+    "bytes": 8048,
+    "sha256": "7e6740c91f7c21b361fbb73984f22afef3896b669f9e2a87d31f6e18e9a48432",
+    "zlib": true
+  },
+  {
+    "file": "n8f-card-calibrate/sd-records.bin.zlib",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "zlib": true
+  },
+  {
+    "file": "n8f-card-calibrate/single-busy-max.bin.zlib",
+    "bytes": 4,
+    "sha256": "df3f619804a92fdb4057192dc43dd748ea778adc52bc498ce80524c014b81119",
+    "zlib": true
+  },
+  {
+    "file": "n8f-card-calibrate/source-sha.bin.zlib",
+    "bytes": 32,
+    "sha256": "66687aadf862bd776c8fc18b8e9f8e20089714856ee233b3902a591d0d5f2925",
+    "zlib": true
+  },
+  {
+    "file": "n8f-card-calibrate/sources.bin.zlib",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "zlib": true
+  },
+  {
+    "file": "n8f-card-calibrate/spi2-config.bin.zlib",
+    "bytes": 8,
+    "sha256": "3b94b11cca9c930ed8faedbbf7c18e4fe7caaa1dea53f2d82f702b3b48c847b3",
+    "zlib": true
+  },
+  {
+    "file": "n8f-card-calibrate/spi3-config.bin.zlib",
+    "bytes": 8,
+    "sha256": "7300bf9d3b35a3adf9e9d7736b2afa29919d858ce0131d2a589826cf8d86b315",
+    "zlib": true
+  },
+  {
+    "file": "native-host.json.zlib",
+    "bytes": 794,
+    "sha256": "f24450258808b01d42fa67366f5256fbfeae3dc02d6ea2e306fc2e352a0308e1",
+    "zlib": true
+  },
+  {
+    "file": "native_host_snapshot.ps1.zlib",
+    "bytes": 534,
+    "sha256": "5c91ff326fcdaa7a1a72c1d8e3042366a6e20a82c1609456d7c1f9464885945c",
+    "zlib": true
+  },
+  {
+    "file": "prepare_ready.py",
+    "bytes": 1661,
+    "sha256": "9afe3d63eb0905cc80dd7bed2fa6694f6313ef52bca59a62ad904473c3d1d67a",
+    "zlib": false
+  },
+  {
+    "file": "read-host.ps1.zlib",
+    "bytes": 534,
+    "sha256": "5c91ff326fcdaa7a1a72c1d8e3042366a6e20a82c1609456d7c1f9464885945c",
+    "zlib": true
+  },
+  {
+    "file": "read-host.stderr.zlib",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "zlib": true
+  },
+  {
+    "file": "read_host.py",
+    "bytes": 1440,
+    "sha256": "8d1c488c2726d7766066104c7c05fc7a81ac20a8ee73be65fe86425391d20687",
+    "zlib": false
+  },
+  {
+    "file": "ready-preflight.log.zlib",
+    "bytes": 539,
+    "sha256": "ab5157d51e89e25279dbffb96e601773f82cde68d7b105f2068f88fcaf8a2105",
+    "zlib": true
+  },
+  {
+    "file": "run_capture.py",
+    "bytes": 4169,
+    "sha256": "df2d366ed99dbf5f433591eae0edc4df668f2cc37bebe04e459ae407b90d0b07",
+    "zlib": false
+  },
+  {
+    "file": "sleep-policy.txt.zlib",
+    "bytes": 696,
+    "sha256": "6e59cdbc1c2b85c92bb010a1db10695f1b0c7cf61c8d8d83247827fcb1af8466",
+    "zlib": true
+  },
+  {
+    "file": "start-gate.log.zlib",
+    "bytes": 1721,
+    "sha256": "a406250530f549eb1da8c581010d6d78e89fd5e8c51b213a18296b156b5f15ec",
+    "zlib": true
+  },
+  {
+    "file": "start_detached.py",
+    "bytes": 3973,
+    "sha256": "26b7b5181982610d0c2eb247781088ef4abfe30a59e5e69ea5ae0360da9cf37d",
+    "zlib": false
+  },
+  {
+    "file": "CALIBRATION_RECOMPUTED.json",
+    "bytes": 123,
+    "sha256": "45e7bb726c68e45272f1cf3bae42e6dcddf06acec9dd80c3ed21d2b292b9b65c",
+    "zlib": false
+  },
+  {
+    "file": "FINAL_CONTROL_TRANSACTIONS.json",
+    "bytes": 1289,
+    "sha256": "3fd977b4ec3bb2e2d4e4be54f77c8beb876e4d2371e89a9f41741d3153164670",
+    "zlib": false
+  }
+]

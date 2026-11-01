@@ -1,0 +1,19 @@
+{
+  "prepared": true,
+  "long_never_started": true,
+  "code_sha": "7b815b103a49b7fb1a8ec681a65206312b0ec16b",
+  "bin_sha256": "c2dd380de58f3581337b22f2957ce2265f0eb7f98c06cbeaab2d17bf64494c61",
+  "SPI3_Hz": 8000000,
+  "prefix": "N8F",
+  "short_file": "N8F0003.TR2",
+  "long_file": "N8F0005.TR2",
+  "gate_payload_bytes": 31560,
+  "gate_payload_sha256": "30e0de232ceddbab4697a6a4768ea75b3bfcf88d012e4045c181c10dbf6939a3",
+  "gate_file_sha256": "e8227c336ef2e488b0dc12da807402dd1209f8268c44a0fe4ef1def6bfa54e6d",
+  "full_gate_copied_and_verified": true,
+  "checked_scope": "two-second FIFO/FIR/SD gate, not endurance or SI metrology",
+  "sensor": "borrowed TR2-001 module per user",
+  "requires_explicit_signal": "LANCE 8H",
+  "preparation_preflight_complete": true,
+  "prepared_at_utc": "2026-11-01T07:04:03.064824+00:00"
+}
