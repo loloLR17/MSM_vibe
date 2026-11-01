@@ -46,6 +46,10 @@ if(R3_TR2_001_HOST_TESTS)
  target_compile_definitions(test_sd_response PRIVATE R3_TR2_001_AUTONOMOUS=1)
  target_compile_options(test_sd_response PRIVATE -O2 -Wall -Wextra -Werror -UNDEBUG)
  add_test(NAME tr2_001_sd_response COMMAND test_sd_response)
+ add_executable(test_retained_guard tests/test_retained_guard.c src/archive_format.c)
+ target_include_directories(test_retained_guard PRIVATE src)
+ target_compile_options(test_retained_guard PRIVATE -O2 -Wall -Wextra -Werror -UNDEBUG)
+ add_test(NAME tr2_001_retained_guard COMMAND test_retained_guard)
  add_test(NAME tr2_001_fs16_reader COMMAND ${Python3_EXECUTABLE} "${CMAKE_CURRENT_SOURCE_DIR}/tests/test_fs16_reader.py")
  return()
 endif()
@@ -119,7 +123,29 @@ endif()
 target_include_directories(r3_coex PRIVATE src vendor/fatfs ../r3_coex_fifo_fir_sd/src "${SDREF}/src" "${STREF}/src" "${STREF}/vendor/st" "${FW}/include" "${FW}/platform/stm32" "${HAL}/Inc" "${DEV}/Include" "${STM32CUBE_U5_ROOT}/Drivers/CMSIS/Include")
 target_compile_definitions(r3_coex PRIVATE R3_SPI2_DIVIDER=${R3_SPI2_DIVIDER} R3_TR2_001_AUTONOMOUS=$<BOOL:${R3_TR2_001_AUTONOMOUS}> R3_TR2_001_DISCOVERY=$<BOOL:${R3_TR2_001_DISCOVERY}> STM32U575xx USE_HAL_DRIVER BENCH_CORE_MHZ=160 BENCH_SPI_DIVIDER=${R3_SPI3_DIVIDER} BENCH_SPI_MODE3=1 BENCH_DUPLEX=$<BOOL:${R3_SPI_DUPLEX}> BENCH_SECOND_SPI_OBSERVER=1 R3_DURABLE_CARD_PROFILE=1 R3_ENDURANCE_8H=$<BOOL:${R3_ENDURANCE_8H}> R3_QPC_WITNESS=$<BOOL:${R3_QPC_WITNESS}> R3_ENDURANCE_1H=$<BOOL:${R3_ENDURANCE_1H}> R3_CAPTURE_DURATION_US=${R3_CAPTURE_DURATION_US}ull R3_FILE_PREFIX="$<IF:$<BOOL:${R3_ENDURANCE_8H}>,${R3_CAPTURE_PREFIX},$<IF:$<BOOL:${R3_QPC_WITNESS}>,Q1N,$<IF:$<BOOL:${R3_ENDURANCE_1H}>,H1N,R2N>>>")
 target_compile_options(r3_coex PRIVATE -mcpu=cortex-m33 -mthumb -O2 -g3 -Wall -Wextra -Werror -ffunction-sections -fdata-sections -fstack-usage)
-target_link_options(r3_coex PRIVATE -mcpu=cortex-m33 -mthumb --specs=nano.specs --specs=nosys.specs -Wl,--gc-sections -Wl,--build-id=none "-Wl,-Map=${CMAKE_CURRENT_BINARY_DIR}/r3_coex.map" "-T${FW}/platform/stm32/linker/STM32U575ZITXQ_FLASH.ld")
+set(R3_LINKER "${FW}/platform/stm32/linker/STM32U575ZITXQ_FLASH.ld")
+if(R3_TR2_001_AUTONOMOUS)
+ # Generate an isolated linker script; do not change the shared target layout.
+ file(READ "${R3_LINKER}" R3_LINKER_TEXT)
+ set(R3_HEAP_MARKER "    ._user_heap_stack (NOLOAD) :")
+ string(FIND "${R3_LINKER_TEXT}" "${R3_HEAP_MARKER}" R3_HEAP_POS)
+ if(R3_HEAP_POS LESS 0)
+  message(FATAL_ERROR "Qualified linker heap marker missing")
+ endif()
+ string(REPLACE "${R3_HEAP_MARKER}" "    .tr2_retained (NOLOAD) :
+    {
+        . = ALIGN(8);
+        __tr2_retained_start__ = .;
+        KEEP(*(.tr2_retained))
+        . = ALIGN(8);
+        __tr2_retained_end__ = .;
+    } > RAM
+
+${R3_HEAP_MARKER}" R3_LINKER_TEXT "${R3_LINKER_TEXT}")
+ set(R3_LINKER "${CMAKE_CURRENT_BINARY_DIR}/tr2_001_retained.ld")
+ file(WRITE "${R3_LINKER}" "${R3_LINKER_TEXT}")
+endif()
+target_link_options(r3_coex PRIVATE -mcpu=cortex-m33 -mthumb --specs=nano.specs --specs=nosys.specs -Wl,--gc-sections -Wl,--build-id=none "-Wl,-Map=${CMAKE_CURRENT_BINARY_DIR}/r3_coex.map" "-T${R3_LINKER}")
 set_target_properties(r3_coex PROPERTIES SUFFIX .elf)
 find_program(OBJCOPY arm-none-eabi-objcopy REQUIRED)
 find_program(SIZE arm-none-eabi-size REQUIRED)

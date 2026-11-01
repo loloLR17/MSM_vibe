@@ -123,6 +123,9 @@ extern volatile uint32_t bench_cleanup_mode,bench_log_refused;
 extern uint32_t _estack,_ebss;
 static uintptr_t stack_begin,stack_end;
 uint32_t r3_clock_fault;
+#if R3_TR2_001_AUTONOMOUS
+#include "retained_snapshot.inc"
+#endif
 static uint32_t last_irq_tick;
 static bool clock_observed;
 uint64_t r3_now(void *unused){
@@ -357,10 +360,18 @@ static int session(uint32_t run,uint64_t duration)
  }
  return 0;
 }
-static void stack_paint(void){stack_begin=(uintptr_t)&_estack-4096u;stack_end=(__get_MSP()-256u)&~3u;if(stack_begin<(uintptr_t)&_ebss+512u||stack_end<=stack_begin)Error_Handler();for(volatile uint32_t *p=(uint32_t *)stack_begin;(uintptr_t)p<stack_end;p++)*p=0xA53CC35Au;}
+static void stack_paint(void){stack_begin=(uintptr_t)&_estack-4096u;stack_end=(__get_MSP()-256u)&~3u;uintptr_t reserved_end=(uintptr_t)&_ebss;
+#if R3_TR2_001_AUTONOMOUS
+ if((uintptr_t)&__tr2_retained_end__>reserved_end)reserved_end=(uintptr_t)&__tr2_retained_end__;
+#endif
+ if(stack_begin<reserved_end+512u||stack_end<=stack_begin){Error_Handler();}
+ for(volatile uint32_t *p=(uint32_t *)stack_begin;(uintptr_t)p<stack_end;p++)*p=0xA53CC35Au;}
 static void stack_scan(void){uintptr_t p=stack_begin;while(p<stack_end&&*(volatile uint32_t *)p==0xA53CC35Au)p+=4;r3_result.stack_floor=(uint32_t)(p-stack_begin);r3_result.stack_deepest=p<stack_end?(uint32_t)((uintptr_t)&_estack-p):0;if(p==stack_begin)r3_result.error=91;}
 int main(void)
 {
+#if R3_TR2_001_AUTONOMOUS
+ r3_retained_available=retained_valid(&r3_retained.guard,&r3_retained.payload,sizeof r3_retained.payload);
+#endif
  r3_result.version=R3_ENDURANCE_8H?4:3;r3_result.stage=1;r3_result.uid[0]=HAL_GetUIDw0();r3_result.uid[1]=HAL_GetUIDw1();r3_result.uid[2]=HAL_GetUIDw2();
  if(r3_result.uid[0]!=TARGET_UID0||r3_result.uid[1]!=0x38425018||r3_result.uid[2]!=0x20333157)Error_Handler();
  stmdev_ctx_t ctx;BenchClock clock;
@@ -404,6 +415,7 @@ int main(void)
   __WFI();
  }
  if(r3_clock_fault)Error_Handler();
+ r3_retained.guard.magic=0;__atomic_thread_fence(__ATOMIC_SEQ_CST);r3_retained_available=0;
  standalone_state=3;r3_result.stage=3;r=session(5,LONG_DURATION_US);
  if(fifo.running){if(!r)reset_trace();if(fifo_live_stop(&fifo)&&!r)r=-93;}
  if(r3_writer.active)while(r3_writer.active){if(writer_step(false))break;}
@@ -417,6 +429,7 @@ int main(void)
   if(r)r3_result.error=(uint32_t)(r<0?-r:r);
   stack_scan();r3_result.stage=r3_result.error?99:4;standalone_state=r3_result.stage;
  }
+ retain_capture();
  r3_finished();
  /* Terminal latch: no repeated press or RAM command can restart. Reboot goes
   * through initialization and refuses any existing filename (CREATE_NEW). */
