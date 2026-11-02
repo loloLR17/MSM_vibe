@@ -48,6 +48,8 @@ SD avec fichierneuf et relectureintégralePC, puis10min ; aucun8hSTART pour l'in
 [Preuves D07 et plan CN15](preuves/TR2-20261101-001-AUTONOME/qualification-alimentation-20261102/last-cables-D07/D07_PASS_ET_SUITE_CN15.md).
 HEAD initial de tranche `6b20e0a489121e948c72295c3b84d9740674cd75`.
 Journal actualisé : succès borné, limites et nouvelle poursuiteCN15 demandée.
+Checkpoint `98fafa31b11c0a6149e27d0d88a050205af1b2f7` publié et relu : 24 fichiers identiques,
+693 empreintes conformes, worktree propre. Voir `last-cables-D07/remote-verification.json`.
 
 ---
 
