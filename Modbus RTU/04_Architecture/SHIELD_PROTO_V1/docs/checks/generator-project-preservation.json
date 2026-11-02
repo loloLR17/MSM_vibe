@@ -1,0 +1,7 @@
+{
+  "status": "PASS",
+  "checked_project_sha256": "8c077c4fc90dc8fe73b778e3fccfeb764cc4dca59667a8a04d85bc7cc1bb61f6",
+  "project_byte_identical_after_generation": true,
+  "schematic_byte_identical": true,
+  "regression_fixed": "Do not overwrite existing KiCad project configuration when generating symbols/schematic"
+}

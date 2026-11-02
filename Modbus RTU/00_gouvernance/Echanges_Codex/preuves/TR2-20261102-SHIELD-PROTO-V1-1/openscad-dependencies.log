@@ -1,0 +1,3 @@
+Get:1 https://deb.debian.org/debian trixie/main amd64 libharfbuzz0b amd64 10.2.0-1+deb13u1 [479 kB]
+Get:2 https://deb.debian.org/debian trixie/main amd64 libgpg-error0 amd64 1.51-4 [82.1 kB]
+Fetched 561 kB in 1s (617 kB/s)

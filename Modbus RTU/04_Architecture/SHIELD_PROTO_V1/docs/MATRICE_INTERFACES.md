@@ -1,4 +1,4 @@
-# Matrice électrique et orientations — candidat 0.1
+# Matrice électrique et orientations — candidat V1.1 (liaisons identiques à V1)
 
 Toutes les alimentations et E/S retenues sont **3,3 V**, GND logique commun. Aucune liaison à 5 V, VIN Nucleo, CN15 ou source externe n’est créée. L’alimentation actuelle du Nucleo et ses jumpers sont conservés ; le shield n’est pas un circuit de sélection de source.
 

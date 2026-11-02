@@ -18,3 +18,11 @@ Les empreintes sont des extractions/géométries de connexion, pas des copies de
 Attention : l’empreinte KiCad générique `ST_Morpho_Connector_144_STLink_MountingHoles` examinée contient un nombre de contacts différent ; elle n’a pas été utilisée comme gabarit C05. Les Zio sont reconstruits à partir de la documentation identifiée ; leur ajustement réel reste un gate. L’enveloppe MKIGIBV2 dans F.Fab est **provisoire**, non une cote constructeur prétendument obtenue.
 
 Observations utilisateur : MB1549-U575ZIQ-C05, FRAM MB85RS2, MIKROE3863, kit MKI208V1+MKIGIBV2 ; entraxe15,2mm mesuré ; pas breadboard2,54mm rapporté ; GND bas de JP2 à droite vue dessus, sans numérotation absolue lue. La correspondance globale13 est issue du schéma et distinguée du comptage local12.
+
+## Complément V1.1 — références nouvellement obtenues
+
+- [Socket Adafruit1660](https://www.adafruit.com/product/1660) : le fabricant l’identifie comme le composant `MICROSD` de sa bibliothèque, push-push ; [dessin 4UCON15882](https://cdn-shop.adafruit.com/datasheets/15882.pdf), feuille2/3 : positions de dépassement0,60/1,60/5,30mm. Orientation confirmée par vue d’éjection et transformation Eagle, non par photo seule.
+- [Modèles3D Adafruit4682](https://github.com/adafruit/Adafruit_CAD_Parts/tree/6c5cd9e3e65252bb5d5339608cf8d3cdabcef251/4682%20Micro%20SD%20Breakout), commit6c5cd9e3e65252bb5d5339608cf8d3cdabcef251. STEP/STL conservés dans le rapport local ; STL borné25,4×22,86×3,45mm. Ces modèles nominalement fabricants ne sont pas une mesure de la carte détenue.
+- [OpenSCAD2021.01 officiel](https://github.com/openscad/openscad/releases/tag/openscad-2021.01), AppImage Linux en cache régénérable uniquement ; dépendances Debian libharfbuzz0b/libgpg-error0/libgraphite2-3 extraites localement sans installation système, version CLI observée et hashes conservés. Aucun réglage Windows, firmware, sandbox ou système modifié. Deux chargements de dépendances manquantes résolus avant compilation des gabarits.
+
+Vues et cotes constructeur sont distinguées de nos réservations : bornes de bouche SD et zones opérateur sont conservatrices/provisoires ; centres LED/USER/CN15 exacts C05 non obtenus. Les modèles d’étriers sont nos géométries paramétriques de revue, sans certification fabricant.

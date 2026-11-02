@@ -1,4 +1,4 @@
-CANDIDAT 0.1 — FABRICATION BLOQUÉE
-Consulter ../../docs/ASSEMBLAGE_ET_RESERVES.md.
-ERC/DRC et exports cohérents ne prouvent ni ajustement C05, ni détrompage,
-ni retenue, ni isolation de l’assemblage réel. Ne pas envoyer au fabricant.
+CANDIDAT V1.1 — BLOCKED_FABRICATION / NE PAS COMMANDER
+Sources KiCad et exports electriques controles, mais empilage C05,
+MKI/Click reels, detrompage, ergonomie et materiaux non qualifies.
+Consulter docs/ASSEMBLAGE_ET_RESERVES.md et SURETE_CONNEXIONS_V1_1.md.

@@ -1,0 +1,4 @@
+GABARITS PARAMETRIQUES DE REVUE V1.1 — BLOCKED_FABRICATION
+Maillages compiles et fermes, mais hauteurs, surfaces d'appui, detrompage
+MKI, Click reel, tolerances et materiaux non qualifies. Ne pas employer
+ces STL comme pieces de campagne ni comme preuve de retention physique.

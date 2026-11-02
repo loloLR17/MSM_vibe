@@ -1,17 +1,21 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="160mm" height="140mm" viewBox="10 5 160 140">
-<rect x="10" y="5" width="160" height="140" fill="white"/>
-<g font-family="sans-serif" font-size="2.4" stroke-width="0.2">
-<text x="22" y="10">TR2 V1 — GABARIT CANDIDAT 1:1 / NON LIBERE</text>
-<rect x="20" y="17" width="90" height="100" fill="#f4fff4" stroke="black"/>
-<text x="22" y="121">PCB 90 x 100 mm — vue dessus</text>
-<rect x="42.46" y="56.46" width="25.4" height="17.78" fill="none" stroke="#993300" stroke-dasharray="1,0.6"/>
-<text x="42.46" y="55.46">J6: ADAFRUIT_4718</text>
-<rect x="23.68" y="83.14" width="22.86" height="25.4" fill="none" stroke="#993300" stroke-dasharray="1,0.6"/>
-<text x="23.68" y="82.14">J7: ADAFRUIT_4682</text>
-<rect x="42.46" y="21.46" width="20.32" height="33.02" fill="none" stroke="#993300" stroke-dasharray="1,0.6"/>
-<text x="42.46" y="20.46">J8: ST_MKIGIBV2</text>
-<rect x="83.41" y="78.73" width="57.15" height="25.4" fill="none" stroke="#993300" stroke-dasharray="1,0.6"/>
-<text x="83.41" y="77.73">J9: MIKROE_3863</text>
+<svg xmlns="http://www.w3.org/2000/svg" width="210mm" height="185mm" viewBox="-15 -25 210 185">
+<rect x="-15" y="-25" width="210" height="185" fill="white"/>
+<g font-family="sans-serif" font-size="2.4" stroke-width="0.25">
+<text x="-10" y="-19" fill="#111" font-size="3.2">TR2 SHIELD V1.1 - INTERFACES / ECHELLE 1:1</text>
+<text x="-10" y="-14" fill="#b00020" font-size="2.4">NE PAS FABRIQUER : geometrie C05, hauteurs et detrompage MKI non confirmes</text>
+<rect x="21.75" y="-6.75" width="70" height="133.34" fill="#fafafa" stroke="#888" stroke-dasharray="1.5,1"/>
+<text x="94" y="2" fill="#111" font-size="2.4">Nucleo : enveloppe UM2861</text>
+<text x="94" y="6" fill="#b06000" font-size="2.4">Reconstruction, pas CAO C05</text>
+<rect x="20" y="17" width="90" height="100" fill="#f0fff0" stroke="#174d28"/>
+<text x="89" y="18" fill="#111" font-size="2.4">90 x 100 mm</text>
+<rect x="42.46" y="56.46" width="25.4" height="17.78" fill="#dcecf3" stroke="#336070"/>
+<text x="42.46" y="55.46" fill="#111" font-size="2.4">J6 ADAFRUIT_4718</text>
+<rect x="20.18" y="83.14" width="22.86" height="25.4" fill="#dcecf3" stroke="#336070"/>
+<text x="20.18" y="82.14" fill="#111" font-size="2.4">J7 ADAFRUIT_4682</text>
+<rect x="42.46" y="21.46" width="20.32" height="33.02" fill="#fff1d6" stroke="#9a6100" stroke-dasharray="1.5,1"/>
+<text x="42.46" y="20.46" fill="#111" font-size="2.4">J8 ST_MKIGIBV2</text>
+<rect x="83.41" y="78.73" width="57.15" height="25.4" fill="#dcecf3" stroke="#336070"/>
+<text x="83.41" y="77.73" fill="#111" font-size="2.4">J9 MIKROE_3863</text>
 <circle cx="57.0" cy="99.0" r="0.5" fill="none" stroke="#1674a5"/>
 <circle cx="67.0" cy="30.0" r="0.5" fill="none" stroke="#1674a5"/>
 <circle cx="57.0" cy="79.0" r="0.5" fill="none" stroke="#1674a5"/>
@@ -28,8 +32,8 @@
 <circle cx="67.19" cy="76.0" r="0.4" fill="none" stroke="#1674a5"/>
 <circle cx="40.81" cy="31.0" r="0.4" fill="none" stroke="#1674a5"/>
 <circle cx="33.19" cy="31.0" r="0.4" fill="none" stroke="#1674a5"/>
-<circle cx="91.0" cy="108.0" r="1.5" fill="none" stroke="#555"/>
-<circle cx="91.0" cy="75.0" r="1.5" fill="none" stroke="#555"/>
+<circle cx="91.0" cy="108.0" r="1.6" fill="none" stroke="#333"/>
+<circle cx="91.0" cy="75.0" r="1.4" fill="none" stroke="#333"/>
 <circle cx="87.22" cy="102.86" r="0.5" fill="none" stroke="#1674a5"/>
 <circle cx="89.76" cy="102.86" r="0.5" fill="none" stroke="#1674a5"/>
 <circle cx="92.3" cy="102.86" r="0.5" fill="none" stroke="#1674a5"/>
@@ -46,9 +50,8 @@
 <circle cx="99.92" cy="80.0" r="0.5" fill="none" stroke="#1674a5"/>
 <circle cx="102.46" cy="80.0" r="0.5" fill="none" stroke="#1674a5"/>
 <circle cx="105.0" cy="80.0" r="0.5" fill="none" stroke="#1674a5"/>
-<text x="102.2" y="80.5" fill="red">1</text>
-<circle cx="66.0" cy="40.0" r="1.5" fill="none" stroke="#555"/>
-<circle cx="41.0" cy="40.0" r="1.5" fill="none" stroke="#555"/>
+<circle cx="71.0" cy="54.5" r="1.6" fill="none" stroke="#333"/>
+<circle cx="39.0" cy="20.0" r="1.4" fill="none" stroke="#333"/>
 <circle cx="60.24" cy="51.94" r="0.5" fill="none" stroke="#1674a5"/>
 <circle cx="60.24" cy="49.4" r="0.5" fill="none" stroke="#1674a5"/>
 <circle cx="60.24" cy="46.86" r="0.5" fill="none" stroke="#1674a5"/>
@@ -73,21 +76,19 @@
 <circle cx="45.0" cy="29.08" r="0.5" fill="none" stroke="#1674a5"/>
 <circle cx="45.0" cy="26.54" r="0.5" fill="none" stroke="#1674a5"/>
 <circle cx="45.0" cy="24.0" r="0.5" fill="none" stroke="#1674a5"/>
-<text x="42.2" y="24.5" fill="red">1</text>
-<circle cx="26.22" cy="85.68" r="1.35" fill="none" stroke="#555"/>
-<circle cx="26.22" cy="106.0" r="1.35" fill="none" stroke="#555"/>
-<circle cx="44.0" cy="85.68" r="0.5" fill="none" stroke="#1674a5"/>
-<circle cx="44.0" cy="88.22" r="0.5" fill="none" stroke="#1674a5"/>
-<circle cx="44.0" cy="90.76" r="0.5" fill="none" stroke="#1674a5"/>
-<circle cx="44.0" cy="93.3" r="0.5" fill="none" stroke="#1674a5"/>
-<circle cx="44.0" cy="95.84" r="0.5" fill="none" stroke="#1674a5"/>
-<circle cx="44.0" cy="98.38" r="0.5" fill="none" stroke="#1674a5"/>
-<circle cx="44.0" cy="100.92" r="0.5" fill="none" stroke="#1674a5"/>
-<circle cx="44.0" cy="103.46" r="0.5" fill="none" stroke="#1674a5"/>
-<circle cx="44.0" cy="106.0" r="0.5" fill="none" stroke="#1674a5"/>
-<text x="41.2" y="106.5" fill="red">1</text>
-<circle cx="65.32" cy="71.7" r="1.35" fill="none" stroke="#555"/>
-<circle cx="45.0" cy="71.7" r="1.35" fill="none" stroke="#555"/>
+<circle cx="22.72" cy="85.68" r="1.35" fill="none" stroke="#333"/>
+<circle cx="22.72" cy="106.0" r="1.35" fill="none" stroke="#333"/>
+<circle cx="40.5" cy="85.68" r="0.5" fill="none" stroke="#1674a5"/>
+<circle cx="40.5" cy="88.22" r="0.5" fill="none" stroke="#1674a5"/>
+<circle cx="40.5" cy="90.76" r="0.5" fill="none" stroke="#1674a5"/>
+<circle cx="40.5" cy="93.3" r="0.5" fill="none" stroke="#1674a5"/>
+<circle cx="40.5" cy="95.84" r="0.5" fill="none" stroke="#1674a5"/>
+<circle cx="40.5" cy="98.38" r="0.5" fill="none" stroke="#1674a5"/>
+<circle cx="40.5" cy="100.92" r="0.5" fill="none" stroke="#1674a5"/>
+<circle cx="40.5" cy="103.46" r="0.5" fill="none" stroke="#1674a5"/>
+<circle cx="40.5" cy="106.0" r="0.5" fill="none" stroke="#1674a5"/>
+<circle cx="65.32" cy="71.7" r="1.35" fill="none" stroke="#333"/>
+<circle cx="45.0" cy="71.7" r="1.35" fill="none" stroke="#333"/>
 <circle cx="65.32" cy="59.0" r="0.5" fill="none" stroke="#1674a5"/>
 <circle cx="62.78" cy="59.0" r="0.5" fill="none" stroke="#1674a5"/>
 <circle cx="60.24" cy="59.0" r="0.5" fill="none" stroke="#1674a5"/>
@@ -97,10 +98,9 @@
 <circle cx="50.08" cy="59.0" r="0.5" fill="none" stroke="#1674a5"/>
 <circle cx="47.54" cy="59.0" r="0.5" fill="none" stroke="#1674a5"/>
 <circle cx="45.0" cy="59.0" r="0.5" fill="none" stroke="#1674a5"/>
-<text x="42.2" y="59.5" fill="red">1</text>
 <circle cx="88.5" cy="111.36" r="0.5" fill="none" stroke="#1674a5"/>
 <circle cx="85.96" cy="111.36" r="0.5" fill="none" stroke="#1674a5"/>
-<text x="83.16" y="111.86" fill="red">1</text>
+<text x="82.96" y="110.36" fill="#111" font-size="1.8">J5-1</text>
 <circle cx="80.88" cy="93.58" r="0.5" fill="none" stroke="#1674a5"/>
 <circle cx="78.34" cy="93.58" r="0.5" fill="none" stroke="#1674a5"/>
 <circle cx="80.88" cy="91.04" r="0.5" fill="none" stroke="#1674a5"/>
@@ -135,7 +135,7 @@
 <circle cx="78.34" cy="55.48" r="0.5" fill="none" stroke="#1674a5"/>
 <circle cx="80.88" cy="52.94" r="0.5" fill="none" stroke="#1674a5"/>
 <circle cx="78.34" cy="52.94" r="0.5" fill="none" stroke="#1674a5"/>
-<text x="75.54" y="53.44" fill="red">1</text>
+<text x="75.34" y="51.94" fill="#111" font-size="1.8">J4-1</text>
 <circle cx="35.159999" cy="93.58" r="0.5" fill="none" stroke="#1674a5"/>
 <circle cx="32.619999" cy="93.58" r="0.5" fill="none" stroke="#1674a5"/>
 <circle cx="35.159999" cy="91.04" r="0.5" fill="none" stroke="#1674a5"/>
@@ -166,7 +166,7 @@
 <circle cx="32.619999" cy="60.56" r="0.5" fill="none" stroke="#1674a5"/>
 <circle cx="35.159999" cy="58.02" r="0.5" fill="none" stroke="#1674a5"/>
 <circle cx="32.619999" cy="58.02" r="0.5" fill="none" stroke="#1674a5"/>
-<text x="29.819999" y="58.52" fill="red">1</text>
+<text x="29.619999" y="57.02" fill="#111" font-size="1.8">J3-1</text>
 <circle cx="35.159999" cy="52.94" r="0.5" fill="none" stroke="#1674a5"/>
 <circle cx="32.619999" cy="52.94" r="0.5" fill="none" stroke="#1674a5"/>
 <circle cx="35.159999" cy="50.4" r="0.5" fill="none" stroke="#1674a5"/>
@@ -183,10 +183,10 @@
 <circle cx="32.619999" cy="37.7" r="0.5" fill="none" stroke="#1674a5"/>
 <circle cx="35.159999" cy="35.16" r="0.5" fill="none" stroke="#1674a5"/>
 <circle cx="32.619999" cy="35.16" r="0.5" fill="none" stroke="#1674a5"/>
-<text x="29.819999" y="35.66" fill="red">1</text>
-<circle cx="79.609999" cy="97.39" r="1.4" fill="none" stroke="#555"/>
-<circle cx="33.89" cy="97.39" r="1.4" fill="none" stroke="#555"/>
-<circle cx="32.62" cy="21.190001" r="1.4" fill="none" stroke="#555"/>
+<text x="29.619999" y="34.16" fill="#111" font-size="1.8">J2-1</text>
+<circle cx="79.609999" cy="97.39" r="1.4" fill="none" stroke="#333"/>
+<circle cx="33.89" cy="97.39" r="1.4" fill="none" stroke="#333"/>
+<circle cx="32.62" cy="21.190001" r="1.4" fill="none" stroke="#333"/>
 <circle cx="80.88" cy="47.86" r="0.5" fill="none" stroke="#1674a5"/>
 <circle cx="78.34" cy="47.86" r="0.5" fill="none" stroke="#1674a5"/>
 <circle cx="80.88" cy="45.32" r="0.5" fill="none" stroke="#1674a5"/>
@@ -207,11 +207,41 @@
 <circle cx="78.34" cy="27.54" r="0.5" fill="none" stroke="#1674a5"/>
 <circle cx="80.88" cy="25.0" r="0.5" fill="none" stroke="#1674a5"/>
 <circle cx="78.34" cy="25.0" r="0.5" fill="none" stroke="#1674a5"/>
-<text x="75.54" y="25.5" fill="red">1</text>
-<line x1="118.46" y1="79" x2="118.46" y2="105" stroke="red" stroke-dasharray="1,1"/>
-<text x="113" y="109" fill="red">ISO : projection v101 a confirmer</text>
-<text x="22" y="127">Pointilles : modules eleves, pas courtyards de sockets.</text>
-<text x="22" y="131">J8 : enveloppe provisoire ; verifier C05 et hauteurs.</text>
-<line x1="22" y1="137" x2="72" y2="137" stroke="black"/>
-<text x="75" y="138">Controle impression : 50 mm</text>
+<text x="75.34" y="24.0" fill="#111" font-size="1.8">J1-1</text>
+<rect x="0" y="83" width="27" height="26" fill="none" stroke="#0682b4" stroke-dasharray="1.5,1"/>
+<text x="-12" y="80" fill="#00678c" font-size="2.4">SD : poche doigts 27 x 26</text>
+<rect x="21.1" y="88.8" width="2" height="14.2" fill="none" stroke="#0682b4" stroke-dasharray="1.5,1"/>
+<path d="M22,95.9 L-8,95.9" stroke="#0682b4" fill="none"/>
+<text x="-12" y="113" fill="#00678c" font-size="2.4">Retrait -X / aucun etrier devant la carte</text>
+<text x="-12" y="117" fill="#111" font-size="2.1">Course fabricant : 0.6 / 1.6 / 5.3 mm</text>
+<rect x="140" y="79" width="35" height="26" fill="none" stroke="#8d2877" stroke-dasharray="1.5,1"/>
+<rect x="132" y="80" width="10" height="24" fill="none" stroke="#8d2877" stroke-dasharray="1.5,1"/>
+<text x="113" y="73" fill="#8d2877" font-size="2.4">RS485 : fils +X / tournevis par dessus</text>
+<path d="M143,92 L175,92" stroke="#8d2877" fill="none"/>
+<path d="M118.46,78 L118.46,105" stroke="#d00000" fill="none" stroke-dasharray="1,1"/>
+<text x="113" y="110" fill="#b00020" font-size="2.1">Barriere v101 / v102 a confirmer</text>
+<circle cx="154" cy="82" r="1.7" fill="none" stroke="#8d2877"/>
+<circle cx="154" cy="101" r="1.7" fill="none" stroke="#8d2877"/>
+<text x="148" y="115" fill="#111" font-size="2.4">Serre-cable sur boitier</text>
+<text x="148" y="119" fill="#111" font-size="2.4">Pas sur le Click</text>
+<rect x="46" y="-14" width="15" height="35" fill="none" stroke="#8b5a00" stroke-dasharray="1.5,1"/>
+<path d="M53.5,19 L53.5,-12" stroke="#8b5a00" fill="none"/>
+<text x="-10" y="0" fill="#8b5a00" font-size="2.4">Nappe 12 voies / sortie nord</text>
+<text x="-10" y="4" fill="#8b5a00" font-size="2.1">Selle independante, rayon a confirmer</text>
+<rect x="57" y="-12" width="21" height="17" fill="none" stroke="#666" stroke-dasharray="1.5,1"/>
+<text x="94" y="-5" fill="#111" font-size="2.4">USB ST-LINK : maintenance seulement</text>
+<rect x="22" y="117" width="70" height="14" fill="none" stroke="#f08300" stroke-dasharray="1.5,1"/>
+<text x="94" y="124" fill="#a06000" font-size="2.4">Baie LED1/2/3 + USER / RESET protege</text>
+<text x="94" y="128" fill="#b00020" font-size="2.1">Centres optiques et course a relever C05</text>
+<rect x="55" y="122" width="23" height="14" fill="none" stroke="#777" stroke-dasharray="1.5,1"/>
+<text x="82" y="136" fill="#111" font-size="2.4">CN15 : bloc externe secteur / USB5V + reprise</text>
+<path d="M55,137 L78,137" stroke="#777" fill="none"/>
+<text x="23" y="142" fill="#111" font-size="2.1">Deux bornes USB sont des ancrages de boitier proposes, pas des percages PCB</text>
+<text x="42" y="15" fill="#111" font-size="1.8">J8 M2.5</text>
+<text x="74" y="54.5" fill="#111" font-size="1.8">J8 M3</text>
+<text x="94" y="75" fill="#111" font-size="1.8">J9 M2.5</text>
+<text x="94" y="108" fill="#111" font-size="1.8">J9 M3</text>
+<text x="-10" y="149" fill="#111" font-size="2.3">Plein : enveloppes sources / PCB. Pointilles : hypotheses et volumes fonctionnels reserves.</text>
+<path d="M0,155 L50,155" stroke="#444" fill="none"/>
+<text x="53" y="156" fill="#111" font-size="2.3">Controle impression : 50 mm / imprimer100%</text>
 </g></svg>

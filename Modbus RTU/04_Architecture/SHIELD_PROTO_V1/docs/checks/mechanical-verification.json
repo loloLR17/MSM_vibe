@@ -1,0 +1,128 @@
+{
+  "status": "PASS_NOMINAL_ONLY",
+  "electrical_nets_equal_to_V1": true,
+  "nucleo_headers_and_anchors_unchanged": true,
+  "SD_shift_mm": [
+    -3.5,
+    0
+  ],
+  "retainer_holes_match_saved_PCB": true,
+  "nominal_pillar_module_clearance_mm": 3.0,
+  "positive_SD_fastener_card_corridor_check": "PASS for 5mm head design allowance and y89.5..102.3 card path",
+  "click_reversal_key": "interference predicted for v101 nominal body; actual revision/contact surface unverified",
+  "MKI_module_reversal_key": "BLOCKED: actual asymmetric connector/body features not measured",
+  "meshes": [
+    {
+      "name": "mki",
+      "triangles": 1576,
+      "closed_edges": true,
+      "connected_surface_components": 1,
+      "signed_volume_mm3": 1848.6329230632332,
+      "bbox_mm": [
+        [
+          36.0,
+          74.0
+        ],
+        [
+          17.0,
+          57.5
+        ],
+        [
+          0.0,
+          25.0
+        ]
+      ],
+      "sha256": "927271f852281187519a163aa614bbabbb21dbbb114b11b54cfa73b290825b86"
+    },
+    {
+      "name": "click",
+      "triangles": 1628,
+      "closed_edges": true,
+      "connected_surface_components": 1,
+      "signed_volume_mm3": 1654.759168172247,
+      "bbox_mm": [
+        [
+          81.0,
+          94.0
+        ],
+        [
+          72.0,
+          111.0
+        ],
+        [
+          0.0,
+          25.0
+        ]
+      ],
+      "sha256": "1fe31df4a68b6ac91abd1a4499399e12ce770cd64ae060e6e190c75892b10404"
+    },
+    {
+      "name": "flat_clamp",
+      "triangles": 420,
+      "closed_edges": true,
+      "connected_surface_components": 1,
+      "signed_volume_mm3": 1323.9473173378062,
+      "bbox_mm": [
+        [
+          -12.0,
+          12.0
+        ],
+        [
+          -4.0,
+          4.0
+        ],
+        [
+          0.0,
+          8.0
+        ]
+      ],
+      "sha256": "c5d418ea741b66a35ba527eacb9ed317011672daeca5c770caaa11e22fd6fb7c"
+    },
+    {
+      "name": "round_clamp",
+      "triangles": 512,
+      "closed_edges": true,
+      "connected_surface_components": 1,
+      "signed_volume_mm3": 1272.83162895868,
+      "bbox_mm": [
+        [
+          -12.0,
+          12.0
+        ],
+        [
+          -4.0,
+          4.0
+        ],
+        [
+          0.0,
+          8.0
+        ]
+      ],
+      "sha256": "f80f0810fbc6701789f9ae05959d46f0ab65aa8d135e2620dd36555398e126ef"
+    },
+    {
+      "name": "user_plunger",
+      "triangles": 380,
+      "closed_edges": true,
+      "connected_surface_components": 1,
+      "signed_volume_mm3": 184.82496779055515,
+      "bbox_mm": [
+        [
+          -4.0,
+          4.0
+        ],
+        [
+          -4.0,
+          4.0
+        ],
+        [
+          0.0,
+          14.0
+        ]
+      ],
+      "sha256": "6cd1e19f2819c427da7189fd70bef7a8d6f6af0b7eac441a3a2104ee125092bc"
+    }
+  ],
+  "physical_fit": "NOT_VERIFIED",
+  "manufacturing_release": "BLOCKED_FABRICATION"
+}

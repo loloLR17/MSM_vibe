@@ -1,0 +1,32 @@
+{
+  "4682 Micro SD Breakout.step": {
+    "bytes": 1164125,
+    "sha256": "195927fa6892b80caf19cd01887e84f1202026665b393f9c8c9f399fa6b4d6e8"
+  },
+  "4682 Micro SD Breakout.stl": {
+    "bytes": 505384,
+    "sha256": "cd081d2ae495346cb832c3f55f9988409153628ab1baf0123552f6ddb01938b2"
+  },
+  "4682 Micro SD Breakout.jpg": {
+    "bytes": 221152,
+    "sha256": "ca517997ff63cd96dfffb4812f4f280f8b3979254d0d9232c07a63503125acc4"
+  },
+  "microSD-socket-15882.pdf": {
+    "bytes": 223308,
+    "sha256": "958c02bfa495f05aecaf14f997822c8426cc6cbe5bfd870a0dfe54940bfb30ee"
+  },
+  "adafruit4682-photo.jpg": {
+    "bytes": 676905,
+    "sha256": "5b68850e43d149575d3f17d9eccc60faf1bcb895f0ac1c5ab17a8059e2ef3cd0"
+  },
+  "adafruit4682-angle.jpeg": {
+    "bytes": 145922,
+    "sha256": "ba89b26207584f83113bc149bb36084920f1b422376aee98cf9be3831dae1193"
+  },
+  "CAD_source_commit": "6c5cd9e3e65252bb5d5339608cf8d3cdabcef251",
+  "openscad": {
+    "url": "https://github.com/openscad/openscad/releases/download/openscad-2021.01/OpenSCAD-2021.01-x86_64.AppImage",
+    "bytes": 40759336,
+    "sha256": "f758528f2cd213f773c7a105fb63bf3b45bf754b0f586fbb7c9cd653ffcd0882"
+  }
+}

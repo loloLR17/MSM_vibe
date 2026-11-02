@@ -1,5 +1,5 @@
 Drill report for TR2_Shield_Proto_V1.kicad_pcb
-Created on 2026-11-02T22:23:51
+Created on 2026-11-03T00:24:19
 
 Copper Layer Stackup:
     =============================================================
@@ -21,7 +21,7 @@ Drill file 'TR2_Shield_Proto_V1-NPTH.drl' contains
     unplated through holes:
     =============================================================
     T1  2.700mm  0.1063"  (4 holes))
-    T2  2.800mm  0.1102"  (3 holes))
-    T3  3.000mm  0.1181"  (4 holes))
+    T2  2.800mm  0.1102"  (5 holes))
+    T3  3.200mm  0.1260"  (2 holes))
 
     Total unplated holes count 11

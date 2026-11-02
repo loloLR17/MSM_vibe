@@ -11,3 +11,9 @@ Les critères suivants restent à mesurer sous une nouvelle mission autorisant l
 7. Paliers 60 s puis 10 min, vérification intégrale des données, absence d’erreurs de transport et de perte ; campagne plus longue uniquement après ces critères. Contrôle des vibrations de montage/échauffement et reprise d’effort avant installation au réducteur.
 
 Chaque résultat devra distinguer compilation, transfert, exécution, observation GDB et qualification physique. Conserver le firmware actuellement fonctionnel et les données avant toute mission matérielle. Les anciens défauts d’écrêtage et les données OBE non récupérées ne sont pas résolus par ce shield.
+
+## Complément V1.1 — portes et alimentation autonome
+
+Avant tout essai en mouvement : démontrer à blanc, boîtier fermé, insertion/poussée/éjection/retrait SD sans démontage, accès conducteur et tournevis RS485, observabilité distincte des trois LED, USER sans RESET involontaire, liberté des fiches et absence d’effort sur connecteurs. Démontrer retrait/remise de chaque module sans soudure, impossibilité d’insertion inversée J8/J9 et absence de maintien de USER appuyé au repos. Vérifier les tolérances et freinages des fixations après transport/vibrations modérées, avec critères quantifiés à définir par revue.
+
+**Avenant V1.1-A :** qualifier le montage retenu secteur externe5V→CN15 : stabilité, pics d’écriture SD et durée complète, câble réel/reprise d’effort ; aucune arrivée230V dans TR2. Les powerbanks et l’alimentation du produit final sont différées, sans gate powerbank imposé à la CAO. Vérifier la fin propre du writer avant coupure ; aucun essai de perte de puissance ou corruption de média autorisé ici. Contrôler le bilan3V3 Nucleo+modules et la chute aux pics avant qualification simultanée SD/FRAM/RS485/FIFO.

@@ -75,8 +75,9 @@ for c in D['components']:
   ox,oy=c['xy_mm']
   for x,y in D['mounting_holes_mm']:pad(f,'',x-ox,y-oy,diameter=D['mounting_hole_diameter_mm'],drill=D['mounting_hole_diameter_mm'],npth=True)
  if c['ref']in('J8','J9'):
-  ox,oy=c['xy_mm'];holes=D['strap_holes_mm'][:2]if c['ref']=='J8'else D['strap_holes_mm'][2:]
-  for x,y in holes:pad(f,'',x-ox,y-oy,diameter=3,drill=3,npth=True)
+  ox,oy=c['xy_mm']
+  for h in D['retainer_mount_holes']:
+   if h['owner']==c['ref']:pad(f,'',h['xy'][0]-ox,h['xy'][1]-oy,diameter=h['diameter'],drill=h['diameter'],npth=True)
  f.Reference().SetVisible(False);f.Value().SetVisible(False)
  # Persist the editable custom geometry before placement; footprint and board match exactly.
  pcb.PCB_IO_MGR.FindPlugin(pcb.PCB_IO_MGR.KICAD_SEXP).FootprintSave(str(LIB),f)
@@ -84,7 +85,7 @@ for c in D['components']:
 for a,z in zip(D['board_outline_mm'],D['board_outline_mm'][1:]+D['board_outline_mm'][:1]):line(b,a,z,pcb.Edge_Cuts,0.05)
 def text(s,x,y,size=1,layer=pcb.F_SilkS):
  t=pcb.PCB_TEXT(b);t.SetText(s);t.SetPosition(V(x,y));t.SetTextSize(V(size,size));t.SetTextThickness(MM(0.15));t.SetLayer(layer);b.Add(t)
-text('TR2 SHIELD V1 - DRAFT',55,113.7,1);text('3V3 ONLY / PAS DE 5V',55,116,0.8)
+text('TR2 SHIELD V1.1 DRAFT',55,113.7,1);text('3V3 ONLY / PAS DE 5V',55,116,0.8)
 for c in D['components']:
  x,y=c['xy_mm'];text(c['ref'],x+2,y-3 if c['ref']in('C1','C2')else y-2,0.8)
 text('SD <',22,92,0.8);text('CAPTEUR / PIN1',51,19,0.8);text('CN12-69 PG4',80,115,0.8)

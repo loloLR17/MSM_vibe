@@ -1,0 +1,77 @@
+[
+  {
+    "part": "mki",
+    "returncode": 0,
+    "command": [
+      "/home/lolo/dev/msm/cache/openscad-shield-v1-1/squashfs-root/AppRun",
+      "--hardwarnings",
+      "--export-format",
+      "binstl",
+      "-D",
+      "part=\"mki\"",
+      "-o",
+      "/home/lolo/dev/msm/projects/MSM_vibe-SHIELD-PROTO-V1-1/Modbus RTU/04_Architecture/SHIELD_PROTO_V1/mechanical/REVIEW_ONLY/mki.stl",
+      "/home/lolo/dev/msm/projects/MSM_vibe-SHIELD-PROTO-V1-1/Modbus RTU/04_Architecture/SHIELD_PROTO_V1/mechanical/retainers.scad"
+    ]
+  },
+  {
+    "part": "click",
+    "returncode": 0,
+    "command": [
+      "/home/lolo/dev/msm/cache/openscad-shield-v1-1/squashfs-root/AppRun",
+      "--hardwarnings",
+      "--export-format",
+      "binstl",
+      "-D",
+      "part=\"click\"",
+      "-o",
+      "/home/lolo/dev/msm/projects/MSM_vibe-SHIELD-PROTO-V1-1/Modbus RTU/04_Architecture/SHIELD_PROTO_V1/mechanical/REVIEW_ONLY/click.stl",
+      "/home/lolo/dev/msm/projects/MSM_vibe-SHIELD-PROTO-V1-1/Modbus RTU/04_Architecture/SHIELD_PROTO_V1/mechanical/retainers.scad"
+    ]
+  },
+  {
+    "part": "flat_clamp",
+    "returncode": 0,
+    "command": [
+      "/home/lolo/dev/msm/cache/openscad-shield-v1-1/squashfs-root/AppRun",
+      "--hardwarnings",
+      "--export-format",
+      "binstl",
+      "-D",
+      "part=\"flat_clamp\"",
+      "-o",
+      "/home/lolo/dev/msm/projects/MSM_vibe-SHIELD-PROTO-V1-1/Modbus RTU/04_Architecture/SHIELD_PROTO_V1/mechanical/REVIEW_ONLY/flat_clamp.stl",
+      "/home/lolo/dev/msm/projects/MSM_vibe-SHIELD-PROTO-V1-1/Modbus RTU/04_Architecture/SHIELD_PROTO_V1/mechanical/retainers.scad"
+    ]
+  },
+  {
+    "part": "round_clamp",
+    "returncode": 0,
+    "command": [
+      "/home/lolo/dev/msm/cache/openscad-shield-v1-1/squashfs-root/AppRun",
+      "--hardwarnings",
+      "--export-format",
+      "binstl",
+      "-D",
+      "part=\"round_clamp\"",
+      "-o",
+      "/home/lolo/dev/msm/projects/MSM_vibe-SHIELD-PROTO-V1-1/Modbus RTU/04_Architecture/SHIELD_PROTO_V1/mechanical/REVIEW_ONLY/round_clamp.stl",
+      "/home/lolo/dev/msm/projects/MSM_vibe-SHIELD-PROTO-V1-1/Modbus RTU/04_Architecture/SHIELD_PROTO_V1/mechanical/retainers.scad"
+    ]
+  },
+  {
+    "part": "user_plunger",
+    "returncode": 0,
+    "command": [
+      "/home/lolo/dev/msm/cache/openscad-shield-v1-1/squashfs-root/AppRun",
+      "--hardwarnings",
+      "--export-format",
+      "binstl",
+      "-D",
+      "part=\"user_plunger\"",
+      "-o",
+      "/home/lolo/dev/msm/projects/MSM_vibe-SHIELD-PROTO-V1-1/Modbus RTU/04_Architecture/SHIELD_PROTO_V1/mechanical/REVIEW_ONLY/user_plunger.stl",
+      "/home/lolo/dev/msm/projects/MSM_vibe-SHIELD-PROTO-V1-1/Modbus RTU/04_Architecture/SHIELD_PROTO_V1/mechanical/retainers.scad"
+    ]
+  }
+]

@@ -1,0 +1,208 @@
+{
+  "revision": "1.1-A",
+  "release": "BLOCKED_FABRICATION",
+  "coordinates": "mm in KiCad top view, X right/Y down; Z=shield top; Z positive above shield",
+  "module_bottom_z_mm": {
+    "value": 11,
+    "status": "PROPOSED_STACK_HEIGHT_NOT_MEASURED"
+  },
+  "sd": {
+    "source": "4UCON15882 supplied by Adafruit1660 + pinned Eagle4682 R180 and AdafruitCAD model",
+    "orientation": "-X",
+    "mouth_x_interval_mm": [
+      21.1,
+      23.1
+    ],
+    "mouth_y_interval_mm": [
+      88.8,
+      103.0
+    ],
+    "mouth_z_interval_mm": [
+      12,
+      14.5
+    ],
+    "throat_intervals_status": "conservative nominal envelope, not measurement of actual installed module",
+    "manufacturer_card_overhang_mm": {
+      "pushed": 0.6,
+      "latched": 1.6,
+      "released": 5.3
+    },
+    "outer_wall_x_proposed_mm": 16,
+    "finger_keepout_xyz": [
+      [
+        0,
+        27
+      ],
+      [
+        83,
+        109
+      ],
+      [
+        10,
+        21
+      ]
+    ],
+    "extraction_keepout_xyz": [
+      [
+        -10,
+        23.1
+      ],
+      [
+        88.3,
+        103.5
+      ],
+      [
+        12,
+        15
+      ]
+    ],
+    "retention": "two existing module holes, support centers22.72/85.68 and22.72/106; no strap across slot"
+  },
+  "rs485": {
+    "manufacturer_rev": "v101 geometry / v102 schematic NOT mechanically equated",
+    "terminal_centres_v101_mm": [
+      [
+        137.385,
+        86.731
+      ],
+      [
+        137.385,
+        97.399
+      ]
+    ],
+    "wire_direction": "+X per v101 end layout, verify actual terminal",
+    "outer_wall_x_proposed_mm": 144,
+    "wire_keepout_xyz": [
+      [
+        140,
+        170
+      ],
+      [
+        79,
+        105
+      ],
+      [
+        11,
+        30
+      ]
+    ],
+    "screw_tool_keepout_xyz": [
+      [
+        132,
+        142
+      ],
+      [
+        80,
+        104
+      ],
+      [
+        12,
+        45
+      ]
+    ],
+    "enclosure_clamp_mounts_proposed_mm": [
+      [
+        154,
+        82
+      ],
+      [
+        154,
+        101
+      ]
+    ],
+    "isolation": "logic copper ends atX110; GND2/A/B stay solely on overhanging Click, no conductive structural bridge"
+  },
+  "ribbon": {
+    "exit_direction_proposed": "-Y",
+    "lane_xy_mm": [
+      [
+        46,
+        -14
+      ],
+      [
+        61,
+        21
+      ]
+    ],
+    "clamp_centre_proposed_mm": [
+      53.5,
+      5
+    ],
+    "nominal_width_mm": 7.62,
+    "design_bend_radius_proposal_mm": 10,
+    "minimum_radius_manufacturer_mm": null,
+    "connector_cote_confirmed": false
+  },
+  "operator": {
+    "nucleo_reference": "UM2861Rev4 image, C05 parity not demonstrated",
+    "nucleo_outline_reconstructed_xy": [
+      [
+        21.75,
+        -6.75
+      ],
+      [
+        91.75,
+        126.59
+      ]
+    ],
+    "outline_status": "drawing-derived reference only; not C05 manufacturing geometry",
+    "control_bay_xy": [
+      [
+        22,
+        117
+      ],
+      [
+        92,
+        131
+      ]
+    ],
+    "led_centres": null,
+    "user_centre": null,
+    "reset_centre": null,
+    "control_method": "clear window/light guides and captive purely mechanical USER plunger; keep RESET separately recessed",
+    "stlink_port_region_xy": [
+      [
+        57,
+        -12
+      ],
+      [
+        78,
+        5
+      ]
+    ],
+    "cn15_port_region_xy": [
+      [
+        55,
+        122
+      ],
+      [
+        78,
+        136
+      ]
+    ],
+    "port_regions_status": "functional reservation from manufacturer image; NOT connector dimensions/positions released for cutting"
+  },
+  "power": {
+    "source": "external existing5V mains adapter viaCN15; mains230V stays outside TR2 enclosure",
+    "usb_clamp_mounts_proposed_mm": [
+      [
+        54,
+        137
+      ],
+      [
+        78,
+        137
+      ]
+    ],
+    "inline_switch": "not required by V1.1-A; never substitutes clean STOP",
+    "pcb_new_rails": false,
+    "product_final_supply": "deferred independent study"
+  },
+  "missing": {
+    "C05": "Zio/PG4 anchor fit, LED/USER/jumper/USB locations and engagement heights",
+    "MKI": "body/connector envelope, top components and actual asymmetric key contact features",
+    "Click": "actual revision and edge contact clearances",
+    "SD": "actual throat height/recess and push/eject access in enclosure; nominal manufacturer model only",
+    "cables": "ribbon thickness/min bend and USB/RS485 actual diameters"
+  }
+}

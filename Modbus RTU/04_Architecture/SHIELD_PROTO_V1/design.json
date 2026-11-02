@@ -1,9 +1,9 @@
 {
-  "version": "0.1-draft",
-  "mission": "TR2-20261102-SHIELD-PROTO-V1",
+  "version": "1.1-candidate",
+  "mission": "TR2-20261102-SHIELD-PROTO-V1-1",
   "root_uuid": "8eb28e17-31a2-58df-b072-5cb49c8aa8e3",
-  "date": "2026-11-02",
-  "release": "BLOCKED_FABRICATION_PENDING_MECHANICAL_FIT",
+  "date": "2026-11-03",
+  "release": "BLOCKED_FABRICATION",
   "board_outline_mm": [
     [
       20,
@@ -209,7 +209,7 @@
       "kind": "sd",
       "n": 9,
       "xy_mm": [
-        44,
+        40.5,
         106
       ],
       "schematic_xy": [
@@ -234,7 +234,8 @@
       },
       "uuid": "c596d58a-1f93-5084-8de7-3914057baa72",
       "footprint": "TR2:J7_ADAFRUIT_4682",
-      "assembly_side": "TOP"
+      "assembly_side": "TOP",
+      "mechanical_note": "Socket push-push opening towards -X per 4UCON15882/Eagle R180; leftward shift3.5mm, actual throat/height gate remains"
     },
     {
       "ref": "J8",
@@ -540,32 +541,52 @@
     ]
   ],
   "mounting_hole_diameter_mm": 2.8,
-  "strap_holes_mm": [
-    [
-      41,
-      40
-    ],
-    [
-      66,
-      40
-    ],
-    [
-      91,
-      75
-    ],
-    [
-      91,
-      108
-    ]
-  ],
-  "strap_hole_diameter_mm": 3.0,
   "Nucleo_reference": "MB1549-C05 user confirmed; UM2861 Rev4 Fig6 and Rev10 connector tables; C05 CAD unavailable for independent mechanical parity",
-  "assembly_note": "Mating male headers on underside, modules in female sockets above, positive screws/straps; access USER/RESET/CN15 and ST-LINK outside shield envelope; three non-collinear M2.5 mounts, fourth Nucleo mount intentionally omitted near CN7",
+  "assembly_note": "V1.1: bottom mating headers; three Nucleo anchors; FRAM/SD two bolted standoffs each; J8/J9 asymmetric bolted retainers, provisional fit; cable clamps attach to future enclosure structure, no header traction",
   "protected": {
     "firmware": true,
     "CN0_GI0_OBE": true,
     "FRAM_SD": true
   },
   "sensor_ground_user_evidence": "PCB top view, JP2 on right, GND at bottom-right end; global JP2-13, not literal global12",
-  "sensor_row_pitch_user_measured_mm": 15.2
+  "sensor_row_pitch_user_measured_mm": 15.2,
+  "v1_source_commit": "1d2aa6683e972a3751f69229db4022283f55b3fb",
+  "retainer_mount_holes": [
+    {
+      "owner": "J8",
+      "xy": [
+        39,
+        20
+      ],
+      "diameter": 2.8,
+      "fastener": "M2.5"
+    },
+    {
+      "owner": "J8",
+      "xy": [
+        71,
+        54.5
+      ],
+      "diameter": 3.2,
+      "fastener": "M3"
+    },
+    {
+      "owner": "J9",
+      "xy": [
+        91,
+        75
+      ],
+      "diameter": 2.8,
+      "fastener": "M2.5"
+    },
+    {
+      "owner": "J9",
+      "xy": [
+        91,
+        108
+      ],
+      "diameter": 3.2,
+      "fastener": "M3"
+    }
+  ]
 }

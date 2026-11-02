@@ -1,0 +1,8 @@
+{
+  "old_worktree": "/home/lolo/dev/msm/projects/MSM_vibe-SHIELD-PROTO-V1-1",
+  "old_head": "d0433fb5352d857344d892ed86099df6a09a8f25",
+  "new_worktree": "/home/lolo/dev/msm/projects/MSM_vibe-SHIELD-PROTO-V1-1-publication",
+  "new_base": "77d67460b38f1152b97e6e5849db90fe2e140fb4",
+  "method": "new isolated worktree at current main; apply only uncommitted CAD/document changes; old worktree preserved; no local mission commits existed, no divergent history resolved",
+  "main_change": "77d67460 changes only mission: V1.1-A existing external mains5V/CN15, no powerbank/switch required"
+}

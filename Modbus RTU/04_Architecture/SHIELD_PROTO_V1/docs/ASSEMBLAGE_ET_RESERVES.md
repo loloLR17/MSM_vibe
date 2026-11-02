@@ -1,35 +1,29 @@
-# Assemblage préparé et réserves avant fabrication
+# V1.1 — assemblage et gates de libération
 
-**NON LIBÉRÉ. Aucun assemblage ni changement de banc exécuté.** Ce document prépare une opération ultérieure autorisée, il ne demande aucune manipulation immédiate.
+**BLOCKED_FABRICATION : ni PCB ni retenue imprimée autorisés pour campagne.** Sources V1 conservées au commit1d2aa668 ; la clôture ChatGPT n’a pas levé leurs réserves. La V1.1 remplace la simple proposition de sangles par des étriers paramétriques et précise les interfaces opérateur ; elle ne constitue pas un assemblage réalisé.
 
-## Empilage candidat
+## Séquence future, sans manipulation demandée maintenant
 
-Carte support FR4 1,6 mm, 90 × 100 mm ; origine CAO (20,17). J1–J5 mâles soudés côté B se branchent dans les connecteurs femelles Nucleo. J6–J9 sockets soudés côté F reçoivent les broches existantes des modules. Les trois ancrages Nucleo non alignés se situent en CAO (32,62;21,19), (33,89;97,39), (79,61;97,39), perçages 2,8 mm pour M2,5. Le quatrième trou voisin de CN7 est **omis volontairement** : sa tête de fixation entrerait dans le volume du connecteur. Aucun contact n’est utilisé comme fixation principale.
+1. Contrôler gabarit1:1 et cotes C05 ; figer hauteurs de sockets/entretoises, engagement et dégagement de soudure. Vérifier les trois ancrages non alignés (32,62;21,19), (33,89;97,39), (79,61;97,39), perçage2,8 pourM2,5. Le quatrième emplacement proche CN7 reste omis pour éviter une tête de vis dans le connecteur.
+2. Souder headers J1–J5 sous le shield, monter à blanc sans pression latérale ni flexion ; les entretoises portent l’effort. Vérifier la paire J5 en particulier. Déposer hors tension pour contrôle de continuité/isolation et nettoyage.
+3. Poser les sockets J6–J9 dessus ; queues sous les modules propres/courtes, pas de tête métallique ou carte voisine en contact avec un conducteur. Les courtyards sont ceux des sockets au niveau du support, les enveloppes élevées sont F.Fab. Hauteur11mm = cible, non mesure.
+4. Visser FRAM et SD dans leurs deux trous existants avec entretoises isolantes. Fixer d’abord l’ancrage Nucleo caché sous SD. Ne pas utiliser le serrage pour rattraper un défaut d’alignement ; appui sur butée de hauteur avant serrage. La SD sort vers-X, sans démonter le module.
+5. Adapter puis installer les étriers J8/J9 aux surfaces de rives et clés réellement vérifiées. La dissymétrie des vis ne remplace pas le détrompage du module. Contrôler leur démontabilité et le dégagement des composants/nappe/borniers. Ne pas imprimer les gabarits `REVIEW_ONLY` comme pièces de campagne sans cette revue.
+6. Installer les selles nappe/RS485/USB sur la structure du futur boîtier, jamais sur les connecteurs. Prévoir boucle de mou, arêtes arrondies, protection de la SD, fenêtre LED et USER captif avec butée ; RESET séparé et protégé. Aucun boîtier complet n’est défini ici.
+7. Après validation mécanique, exécuter le plan électrique/physique sous une mission dédiée autorisée ; arrêter avant de compromettre FRAM, SD et firmware existants.
 
-Cible de distance carte/module ≈11 mm avec socket H8,5 et embase mâle ≈2,5 mm ; **hauteur totale réelle à vérifier**, y compris longueurs d’engagement, corps et queue soudée. J6/J7 : deux entretoises M2,5 sous chaque module, centres extraits des PCB Adafruit, perçage support 2,7 mm. Fixer le support Nucleo avant de poser la SD qui masque un ancrage. Prévoir fixations isolantes PA66 et rondelles adaptées : pas de tête métallique en appui sur une piste ou de face soudée touchant une carte voisine. Leur tenue vibratoire/thermique n’est pas démontrée.
+## Réserves minimales restantes
 
-J8 et J9 : deux trous de sangle de 3 mm chacun pour reprise d’effort, hors des broches ; ne pas faire passer une sangle sur composants, connecteur de nappe ou bord coupant. Le Click dépasse le côté droit : son bornier isolé doit rester hors du cuivre et du Nucleo, sans vis conductrice entre domaines. Dans le CAD v101, le centre ADM2867E se projette vers X118,46 mm, contre bord support X110 mm ; c’est un **contrôle de disposition**, pas une validation d’isolement du module réel ni de la révision v102.
+| Élément extérieur nécessaire | Relevé minimum utile lors d’une intervention ultérieure autorisée | Ce qu’il permettra de figer |
+|---|---|---|
+| Nucleo C05 | Gabarit confronté ou CAO C05 ; vue dessus cotée des ports, LED, USER/RESET et ancrages ; hauteur engagée des connecteurs | Alignement sans flexion, standoffs, ouvertures/guides et longueur/course USER |
+| MKIGIBV2 | Longueur/largeur hors tout, hauteur et position/débord du connecteur, vue dessus/profil et rives sans composants | Enveloppe, patins et détrompage réellement asymétrique du module |
+| Click réel | Révision lisible et vue des borniers/rives ; vérifier concordance v101/v102 et hauteur | Contacts de l’étrier, butée de renversement et accès fils/outil sans pont d’isolation |
+| SD assemblée | Hauteur/retrait exact de la bouche et engagement dans les sockets choisis | Poche doigts, trappe et trajectoire de carte ; comparer aux positions0,6/1,6/5,3 de la fiche |
+| Câbles | Épaisseur nappe/rayon admissible ; diamètres et coques USB/RS485 utilisés | Gorges/selles, boucles de mou et ouvertures sans pincement |
 
-Les courtyards KiCad décrivent les **sockets au niveau du support** ; les corps des modules élevés sont sur F.Fab et dans le gabarit. Cette distinction corrige les faux conflits de queues traversantes sous un module élevé. Elle n’autorise aucun chevauchement matériel : queues des connecteurs Nucleo coupées proprement, dégagement vertical et tête des vis à contrôler au montage à blanc. La 3D fournie représente seulement le support nu ; elle ne prouve pas ces dégagements.
+**Ne pas redemander** l’entraxe MKIGIBV2 déjà mesuré15,2mm ni la position GND déjà rapportée en bas à droite deJP2 (global13). Les centres LED/USER ne sont pas déduits avec une fausse précision d’une photo. Ces inconnues sont matérialisées dans `mechanical/interfaces.json`.
 
-## Détrompage et retenue — réserve essentielle
+Même après ces cotes, le budget livré, la puissance disponible3V3 sous pics SD/Click, l’insertion sans flexion, l’accès opérateur, la tenue thermique/vibratoire et le transport devront être vérifiés. Le modèle v101 et la présence d’une zone hors cuivre ne certifient pas la tenue diélectrique du montage réel. Pas de fabrication libérée par un ERC/DRC vert.
 
-La nappe usine ST 12 voies utilise le connecteur Samtec FFSD au pas 1,27 mm et une longueur annoncée de 30 cm. Réemploi de la tête et de son interface existante ; pas de Dupont individuel ni d’IDC 2,54 mm substitué au 1,27 mm. La simple sérigraphie PIN1 et une sangle **ne constituent pas un détrompage mécanique**. Les sockets de modules actuels sont ouverts, réversibles lors de l’insertion ; les broches seules ne suffisent pas à la retenue.
-
-Avant libération, il faut définir un étrier isolant asymétrique pour le MKIGIBV2/Click, solidaire des trous de sangle, et le dispositif de maintien du connecteur de tête à partir de leurs enveloppes et accès réels. Son volume et ses points de contact ne sont **pas inventés** ici. Une variante soudée permanente peut être étudiée mais n’est pas considérée équivalente sans revue de réparabilité/hauteur. Les fichiers actuels ne satisfont donc pas encore le critère complet « détrompé et retenu ».
-
-## Réserves minimales à lever
-
-1. **Nucleo C05 :** confronter le gabarit à l’échelle à la carte réelle ou obtenir sa CAO fabricant C05. Vérifier positions CN7/8/9/10 et dernière paire CN12, les trois ancrages, et accès USER/RESET/LED/CN15/ST-LINK/jumpers avec module élevé. Le dessin UM2861 Rev4 et la table Rev10 ne constituent pas une parité CAO C05 indépendante. Un relevé/photo dessus coté, échelle visible, suffit à préparer cette revue ; ne pas déplacer le banc pour la présente mission.
-2. **MKIGIBV2 :** relever longueur/largeur hors tout, débord du connecteur de nappe, sens/pin1 et hauteur au-dessus des broches. L’entraxe **15,2 mm et le GND bas droit sont acquis comme observations utilisateur** ; ne pas les redemander. Ces cotes manquantes servent à l’enveloppe et à l’étrier détrompé. Une photo dessus et de profil avec règle, lors d’une prochaine intervention hors tension autorisée, est le minimum utile.
-3. **Empilage/Click et nomenclature :** contrôler la hauteur engagée des embases et le dégagement des queues/vis, le sens réel des modules réemployés, la révision du Click et la position de la barrière/borniers au-delà du support. Figer les références de passifs/fixations et la hauteur des sockets disponibles sans substitution de pas ; dimensionner et figer les retenues ; examiner ensuite le gabarit d’ensemble avant la commande.
-
-Aucune autre mesure électrique n’est demandée maintenant. Après ces contrôles, adapter les cotes et retenues, relancer ERC/DRC/parité/exports et lever explicitement l’interdiction de fabrication. Ni achat ni fabrication ne sont autorisés par ce dossier.
-
-## SPI3 et future tête
-
-Longueurs de cuivre du candidat : SCK environ37 mm, MOSI/MISO environ33 mm, CS environ29 mm (somme des branches quand TP/rappel présent, voir JSON exact). Deux plans GND, quatre vias au total sur le support ; pas d’impédance contrôlée revendiquée. Les résistances série existantes sur la tête ST ne sont pas supprimées. Éviter toute branche de câble inutile ; maintenir le retour GND dans la nappe et la reprise d’effort avant les contacts.
-
-**8 MHz non qualifié sur ce shield.** Les 30 cm de nappe ne sont pas déclarés fiables à cette fréquence par déduction. Commencer court, caractériser les lectures/configuration/FIFO sous la charge SD représentative ; toute réduction de fréquence serait une décision d’essai explicite, sans modifier silencieusement la référence firmware.
-
-Carter peint relevé à56,5°C : la fixation vissée/magnétique, le couplage mécanique à la machine, la protection électrique et l’antichute restent une étude séparée. Aucun aimant, adhésif ou plastique n’est déclaré qualifié pour cet environnement.
+SPI3 reste le pinout actuel, sans modification de fréquence, du filtre ou des formats. Les30cm de nappe et8MHz restent à qualifier après montage ; ne pas supprimer les résistances série existantes. Carter peint56,5°C, fixation de tête et antichute restent un chantier distinct.

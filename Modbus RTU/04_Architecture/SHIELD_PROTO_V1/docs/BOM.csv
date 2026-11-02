@@ -9,6 +9,9 @@ R1..R4,10k 1/4W 1% axial P7.62,pièces,8,,EUR,RoyalOhm MFR 1/4W ou équivalent,,
 C1,100nF ≥16V radial P2.5 X7R,pièces,2,,EUR,MLCC radial X7R 100nF ≥16V; reference exacte non figee,,P2.5 et enveloppe5.1x5mm a respecter; prix/reference restent a verifier
 C2,10uF ≥10V radial P2.5 diamètre≤5mm,pièces,2,,EUR,electrolytique radial10uF ≥10V; reference exacte non figee,,"P2.5 ou pattes preformees selon fabricant; diametre≤5mm; UVR1C100MDD ecarte (EOL, pas2mm)"
 MEC,entretoises isolantes M2.5 hauteur selon empilage,pièces,14,,EUR,PA66; 3 Nucleo+4 modules par appareil,,provision8EUR pour entretoises/28vis/rondelles; référence non figée
-RET,sangles isolantes et étriers détrompés,ensembles,2,,EUR,PA66/PETG haute tenue à qualifier,,provision4EUR; dessin retenue dépend des cotes bloquantes
 REEMPLOI,Nucleo+SD4682+FRAM4718+Click3863+kitST+nappe,ensembles,2,0,EUR,modules existants,,aucun nouveau module actif; pas de câbles Dupont
 PORT,PCB puis composants,envois,2,,EUR,transporteurs à deviser,,provision totale17EUR; pas de devis ni commande
+RET11,etrriers MKI+Click et selles cables; modeles REVIEW_ONLY,jeux,2,,EUR,SCAD local; materiau a qualifier,,provision5EUR impressionlocale pour2; aucune fabrication executee
+VIS11,fixations additionnelles etriers+selles,lots,1,,EUR,"M2.5/M3 isolants, ecrous freines, rondelles",,"provision5EUR; 8longs pour etriers et12pour selles, longueur a verifier"
+OPT,fenetre transparente + poussoirs mecaniques,jeux,2,,EUR,matiere et dimensions apres releve C05,,provision0.80EUR fenetre; poussoirs inclus imprime
+ALIM,bloc secteur externe5V et cable CN15 existants,jeux,2,0,EUR,reemploi selon avenant V1.1-A,,aucune powerbank ou switch requis; aucun230V dans TR2; utilisation simultanee a confirmer

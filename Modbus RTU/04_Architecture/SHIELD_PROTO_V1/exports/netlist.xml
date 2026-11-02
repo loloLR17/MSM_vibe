@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <export version="E">
   <design>
-    <source>\\wsl.localhost\Debian\home\lolo\dev\msm\projects\MSM_vibe-SHIELD-PROTO-V1\Modbus RTU\04_Architecture\SHIELD_PROTO_V1\cad\TR2_Shield_Proto_V1.kicad_sch</source>
-    <date>2026-11-02T22:23:49</date>
+    <source>\\wsl.localhost\Debian\home\lolo\dev\msm\projects\MSM_vibe-SHIELD-PROTO-V1-1\Modbus RTU\04_Architecture\SHIELD_PROTO_V1\cad\TR2_Shield_Proto_V1.kicad_sch</source>
+    <date>2026-11-03T00:24:18</date>
     <tool>Eeschema 10.0.6</tool>
     <sheet number="1" name="/" tstamps="/">
       <title_block>
         <title>TR2 shield prototype - interconnexion</title>
         <company>MSM TR2</company>
-        <rev>0.1 DRAFT</rev>
-        <date>2026-11-02</date>
+        <rev>1.1 DRAFT</rev>
+        <date>2026-11-03</date>
         <source>TR2_Shield_Proto_V1.kicad_sch</source>
         <comment number="1" value=""/>
         <comment number="2" value=""/>

@@ -637,3 +637,14 @@ Mission `TR2-20261102-SHIELD-PROTO-V1`, départ `ad924a3d`. **VALIDÉ logiciel C
 **BLOCKED fabrication** : contrôle du gabarit sur C05, enveloppe/hauteur MKIGIBV2, empilage/Click réel et retenues détrompées non figées. Les Gerber sont explicitement interdits de commande. Revue indépendante ChatGPT puis cotes minimales décrites dans `docs/ASSEMBLAGE_ET_RESERVES.md` ; ne pas redemander l’entraxe/GND déjà rapportés. 8MHz, tenue vibratoire/thermique, assemblage et coexistence physique restent NON VÉRIFIÉS.
 
 Aucun flash/debug ni accès aux deux bancs, FRAM, SD ou COM. Firmware CN0 de TR2-001 et archives CN0/GI0/C29/OBE conservés. Récupération TR2-002 toujours hors périmètre et non déclarée achevée. La mitigation d’écrêtage et la fixation de tête au carter56,5°C restent des missions séparées.
+
+
+## 2026-11-03 — Shield V1.1 : accès et retenues, fabrication toujours bloquée
+
+Mission `TR2-20261102-SHIELD-PROTO-V1-1`, départ `d0433fb5`. **VALIDÉ CAO** : J7 déplacé3,5mm vers-X, sens de fente confirmé par fiche4UCON15882 ; aucun net ni pad électrique hors déplacement SD modifié. ERC/DRC complets/parité et comparaison exports passent ; perçages d’étriers J8/J9 dissymétriques M2,5/M3, cinq modèles SCAD/STL compilés, maillages fermés/connexes et volumes positifs. Ce sont des contrôles nominaux, pas des essais matériels.
+
+**PRÉPARÉ** : plan1:1 des interfaces boîtier, poche doigts SD, accès fils/outil RS485, couloir nappe et selles sur structure, baie LED/USER et ports USB ; tableau J1–J9 et tous câbles. Étriers démontables, trois ancrages Nucleo et deux ancrages FRAM/SD ; détrompage MKI à adapter à une forme réelle, pas seulement aux vis. Avenant V1.1-A : bloc secteur externe5V existant viaCN15, aucun230V dans TR2, powerbank/switchUSB et alimentation du produit final différés ; aucun rail/batterie ajouté. Budget scénario53,27€ pour2shields (+8,16€ vsV1), cible50€ non tenue/non devisée ; sources externes à fournir et qualifier.
+
+**BLOCKED_FABRICATION** : ajustement/hauteurs C05, centres LED/USER/USB, enveloppe et clé réelle MKIGIBV2, Click réel v101/v102, gorges de câbles et ergonomie SD à vérifier. Pas de centres C05 inventés, pas de prétendue tenue vibratoire/thermique ni nappe30cm/SPI3à8MHz qualifiée. Ne pas redemander entraxe MKI15,2mm et GND bas droit déjà acquis. Plan d’assemblage et qualification mis à jour ; revue indépendante ChatGPT puis mesures minimales avant libération.
+
+Aucun flash/debug/COM/accès microSD/FRAM, manipulation de banc, achat ou fabrication. CN0/GI0/C29/OBE et états antérieurs protégés ; récupérationTR2-002 et écrêtage restent des missions distinctes. V1/sa clôture administrative conservées dans Git et archives.
