@@ -35,6 +35,8 @@ allow_debug: true
 
 [Preuves CN0, snapshot et lecteur PC](preuves/TR2-20261101-001-AUTONOME/qualification-alimentation-20261102/CN0-without-STLINK/recovery/RESULTATS.md).
 
+**Publication CN0 vérifiée le02/11/2026 à20:07:27UTC :** pushnormal surmain du bilan `b2afe9677386ae5b83aebb5f310b426a698ce21f`, SHA distant confirmé parls-remote puisfetch ; 34fichiers modifiés relus intégralement depuisla référence distante et identiquesauxlivrables, worktreepublicationpropre. Preuvescomplètes compactes/CRCmanifest1009entrées vérifiées avantpush. ContrôleindépendantChatGPT restant ; aucun nouvelaccèsmatériel aprèstransfert512.
+
 ## Historique conservé
 
 # CN0 — résultat RAM 2h sans erreur préservé ; récupération PC attendue

@@ -1,5 +1,8 @@
 # État courant MSM TR2 — synthèse opérationnelle
 
+**Publication CN0 vérifiée le02/11/2026 à20:07:27UTC :** pushnormal surmain du bilan `b2afe9677386ae5b83aebb5f310b426a698ce21f`, SHA distant confirmé parls-remote puisfetch ; 34fichiers modifiés relus intégralement depuisla référence distante et identiquesauxlivrables, worktreepublicationpropre. Preuvescomplètes compactes/CRCmanifest1009entrées vérifiées avantpush. ContrôleindépendantChatGPT restant ; aucun nouvelaccèsmatériel aprèstransfert512.
+
+
 **02/11/2026 — CN0 VALIDÉ PHYSIQUE BORNÉ2h, CN15seul/USER/STLINKdébranché :** vertfixeuser/snapshotCRC1d5a30e8 conforme/stage4error0/duréeMCU7200000537µs/19042924XYZ,railsclips0/FIFOSDSTOP0/résidu84µs/71622checks/filevide/nonincertain. ReconnexionSTLINK→nouveaubootobservé,snapshotconservé ; sansresetflash/START agent, bootlectureseuleachevé/CShaute/GDBdétaché avantretrait. PCfichierCN00005.TR2 671088640B SHAf86f0b90e5568921609ae6554bf2a6c7dcbbae12057f0b45767e52e2bad8ebe5,244141recordsCRCseqsessiontempspadding+footerCOMPLETEconformes,114257544B XYZ SHA600551ef…98f9a exactRAMproducteur. Source6633b015/BINd3186380 mêmefonctionGI0,aucunancienessairejoué.001hors tension/512auPC/CN0laisséFlash ;002FRAMCOM4/stashesintacts. PasqualificationSI8h/powerbank/réducteur/industrie,GI0clips1etC29zérodistincts,mitigationécrêtagedifférée ; rapportIN_PROGRESS/revueChatGPTpourclôtureetactivationshieldultérieure.
 
 
