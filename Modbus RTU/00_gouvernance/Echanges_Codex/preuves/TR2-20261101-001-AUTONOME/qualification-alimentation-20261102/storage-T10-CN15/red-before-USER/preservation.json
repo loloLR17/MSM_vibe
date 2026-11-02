@@ -1,0 +1,7 @@
+{
+  "flash_BIN_exact": true,
+  "snapshot_valid": false,
+  "snapshot_source_sha": null,
+  "no_agent_reset_flash_SD_command_or_START": true,
+  "snapshot_SHA256": "a68a04ac63f3f6ee7601a9ede48ca2a8bb9ca1622755edf8317887bfb55d6d49"
+}

@@ -1,0 +1,6 @@
+{
+  "RESET_accidental_before_USER_reported": true,
+  "user_waiting_SD_scan_without_USER_then_red_after_minutes": true,
+  "CN15_maintained_STLINK_reconnected_by_instruction": true,
+  "capture_10min_not_assumed": true
+}

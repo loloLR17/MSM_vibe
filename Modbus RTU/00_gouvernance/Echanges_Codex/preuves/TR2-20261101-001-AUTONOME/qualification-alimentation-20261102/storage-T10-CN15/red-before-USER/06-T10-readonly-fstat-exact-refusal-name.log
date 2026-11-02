@@ -1,0 +1,15 @@
+Error_Handler () at /home/lolo/dev/msm/projects/MSM_vibe-TR2-001-autonome/experiments/r3_durable_fat32/src/main.c:151
+151	 for(;;){
+0xbfa0700:	0x004a003d	0x38425018	0x20333157
+$1 = 24
+Restoring binary file \\wsl.localhost\Debian\home\lolo\dev\msm\reports\TR2-001-autonome-reducteur-20261101\qualification-alimentation-20261102\storage-T10-CN15\red-before-USER\filename-RAM.bin into memory (0x2001d6b4 to 0x2001d6c3)
+Note: automatically using hardware breakpoints for read-only addresses.
+FILE_STAT_RC=0
+FILE_SIZE=671088640 FILE_ATTR=32
+$2 = "T100005.TR2\000"
+Restoring binary file \\wsl.localhost\Debian\home\lolo\dev\msm\reports\TR2-001-autonome-reducteur-20261101\qualification-alimentation-20261102\storage-T10-CN15\red-before-USER\scratch-before.bin into memory (0x2001d524 to 0x2001d724)
+$3 = 0
+$4 = false
+$5 = false
+$6 = 0x1000
+[Inferior 1 (Remote target) detached]

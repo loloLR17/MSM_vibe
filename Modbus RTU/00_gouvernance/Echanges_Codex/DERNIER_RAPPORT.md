@@ -5,7 +5,7 @@ base_ref: main
 base_sha: a8817bf293c6e60a93ad824d279ee870b6a0ecf7
 initial_head: 79b952dbb949cb8eb2f208e3b2c5994f4ed1279f
 result_sha: d7bd4df001576d5fef9b0af034b1cb96c505859a
-created_at_utc: 2026-11-02T10:54:20.585959+00:00
+created_at_utc: 2026-11-02T11:16:56.560206+00:00
 author: Codex
 target_branch: main
 allow_commit: true
@@ -13,6 +13,41 @@ allow_push: true
 allow_flash: true
 allow_debug: true
 ---
+
+# T10 — refus confirmé de nom déjà présent, récupération du fichier requise
+
+**IN_PROGRESS : aucune conclusion sur les 10 min avant lecture du fichier.**
+User rapporte RESETaccidentel avantUSER, puis rouge pendantl'attente sansnouvelappuiUSER.
+Au premier relevéSN001/UIDexact/BIN T10 entierinchangé, démarragelectureFATencours,
+WHO7B/FS04/cal41µs, run0 et SDwrites0. **Aucun snapshotterminalvalide** : les valeurs
+retained.payload imprimées sont ininterprétables et ne sont pas des résultats.
+Le refus rouge antérieur n'est pas directement conservé ; rebootdereconnexion cohérent
+avec historique, causenonexclusive/CSRcumulé. AucunresetflashSTARTagent.
+
+Watchpointmatériel surchangementd'état pendantprécontrôle : **stage99/error1,
+durable_status.error8**, espace libre15596052clusters pour20480requis, zéroerreurSD/FIFO/IO,
+aucuneécriture. Ce8 est uncodeinterne de contrôledu nom, pas unFR_EXISTbrut.
+Vérificationf_stat cibléelectureseule avecscratchRAMrestauré : **FR_OK, `T100005.TR2`
+présent,671088640B (640MiB)**. Le refusactuel protège donc un fichier existant.
+
+La taille est une préallocation, pas une preuve de durée ou de données. Une tentative
+interrompue pourrait avoir créé le fichier avantceboot ; son origineexacte etsoncontenu
+restentàdéterminer. Aucunessai10min validé, aucunéchecpendantacquisition démontré.
+B02minuteCN15+SD COMPLETE etD07/D08 restentacquis, tousfichierspréservés.
+
+FIFO/writerarrêtés, uncertainfalse/needs_cyclefalse/SDwrites0/CShaute/GDBdétaché.
+UserinvitéàcouperCN15+STLINK ettransférer512GoPC, enattentederetour. Copieintégrale640MiB
+etlecture stricte àeffectuer, sanssuppression/réparation/formatage/écrasement ni002/FRAM/COM4.
+Aucun nouveautest ou nom contournantlaprotection avantrécupération.
+
+[Preuves du refus et limites](preuves/TR2-20261101-001-AUTONOME/qualification-alimentation-20261102/storage-T10-CN15/red-before-USER/REFUS_CONFIRME_ET_RECUPERATION.md).
+HEAD initial `c322a2fa55fd32e0970ab6a07daf17de4018817e`, sourceT10 d7bd4df0 inchangée ;
+aucunbuild/testancienrépété. Journal actualisé avec refus de nom et récupérationprioritaire.
+
+---
+
+## Historique jusqu'au checkpointc322a2fa
+
 
 # T10 chargé et relu — attente de carte et WAIT avant les 10 min
 

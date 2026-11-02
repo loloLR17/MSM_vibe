@@ -1,0 +1,10 @@
+{
+  "f_stat_return": 0,
+  "file_exists": true,
+  "file_bytes": 671088640,
+  "attribute": 32,
+  "scratch_RAM_restored_exact": true,
+  "operation": "metadata read only; no deletion or file write",
+  "current_preflight_error": "custom durable_status.error8, not raw FatFs FR_EXIST",
+  "no_START_reset_or_flash": true
+}
