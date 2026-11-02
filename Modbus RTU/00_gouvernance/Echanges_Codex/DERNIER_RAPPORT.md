@@ -58,6 +58,8 @@ Cette action physique n'est pas encore réalisée. Aucun8hREADY/longSTART.
 HEAD initial `1326e3953e9c0516740c443fd4b6c4d299036d6d`. Tranche observation/debug,
 sans code modifié : aucune compilation ou suite de tests inchangés relancée.
 Journal actualisé avec les deux lectures, le reset justifié, D06 et l'état final.
+Checkpoint `504408b01c00228d662549b814f4cf356bc44d73` publié et relu : 63 fichiers identiques, 671 empreintes conformes, worktree propre.
+Preuve : `dual-module-recheck/remote-verification.json`.
 
 ---
 
