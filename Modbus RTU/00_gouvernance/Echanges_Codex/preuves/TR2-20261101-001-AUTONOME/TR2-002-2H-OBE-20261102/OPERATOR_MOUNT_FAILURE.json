@@ -1,0 +1,13 @@
+{
+  "received_at_UTC": "2026-11-02T13:31:31.829387+00:00",
+  "source": "user report",
+  "bank": "TR2-002",
+  "file": "OBE0005.TR2",
+  "event": "sensor displaced and detached from support during acquisition",
+  "event_time_UTC": "unknown; receipt time is not event time",
+  "measurement_classification": "not usable as intended fixed-location vibration measurement, per user",
+  "digital_integrity_or_completion": "not determined by this report",
+  "no_qualification_of_an_earlier_prefix": true,
+  "no_agent_STOP_START_reset_flash_or_live_debug": true,
+  "TR2_001": "unchanged/unobserved; user-reported start12:12UTC remains unconfirmed"
+}

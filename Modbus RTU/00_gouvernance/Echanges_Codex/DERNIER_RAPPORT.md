@@ -14,6 +14,33 @@ allow_flash: true
 allow_debug: true
 ---
 
+# Mise à jour opérateur — fixation TR2-002 perdue pendant la campagne
+
+**TR2-002 : campagne déclarée non exploitable pour la mesure vibratoire prévue.**
+L'utilisateur rapporte que le capteur s'est déplacé et désolidarisé de son support
+pendant l'acquisition OBE0005.TR2. Heure du déplacement inconnue ; l'heure de réception
+du message dans OPERATOR_MOUNT_FAILURE.json ne constitue pas l'heure de l'événement.
+Aucune qualification d'un préfixe antérieur n'est déduite. L'intégrité numérique et
+la fin de l'enregistrement ne sont pas déterminées par ce constat mécanique.
+Le lancement ACTIVE/SDACK de12:30UTC reste une preuve de départ, pas de tenue de lafixation.
+
+AucunSTOP, nouveauSTART, reset, flash ou debugger sur les deux cibles. Aucune donnée
+supprimée. Le repère « passage sur mode constante »12:33UTC reste un témoignage séparé,
+sans lien temporel prouvé avec la perte de fixation. Pas de nouvelle analyse engagée.
+
+**TR2-001 reste non observé :** départ12:12UTC déclaréuser, LEDéteintes ; les succès
+D07/D08/B02 ne prouvent pas le départ effectif C29. Conserver CN15 au moins jusqu'à
+14:22UTC, sans bouton ni reconnexionSTLINK ; organiser ensuite récupération sans
+écrasement pour constater ce qui a réellement été enregistré. Aucune garantie dedonnées.
+
+[Constat opérateur](preuves/TR2-20261101-001-AUTONOME/TR2-002-2H-OBE-20261102/OPERATOR_MOUNT_FAILURE.json).
+Journal actualisé ; enregistrements et état logiciel laissés intacts.
+
+---
+
+## Historique avant le constat de fixation002
+
+
 # TR2-002 — 2 h lancées, ACTIVE et première écriture SD confirmés
 
 **IN_PROGRESS : lancement confirmé, fin nonobservée.** Extensionutilisateur explicite
