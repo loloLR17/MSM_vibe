@@ -1,0 +1,10 @@
+{
+  "source_sha": "65703ced5354d37724b2005bc0eba0fdad58d7dc",
+  "bytes": 53056,
+  "sha256": "76241cc81a5a3e18144de40157ee9719112476f299392c652be74a0b1faf0c70",
+  "exact_readback": true,
+  "SD_present": false,
+  "long_start": false,
+  "SPI3_CFG1_address_verified_CMSIS": "0x46002008",
+  "prior_attempt": "57 read wrong unmapped0x46003c08 and stopped; no extra flash/reset required"
+}

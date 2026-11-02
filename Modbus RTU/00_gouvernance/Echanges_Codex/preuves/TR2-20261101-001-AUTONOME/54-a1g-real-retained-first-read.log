@@ -1,0 +1,28 @@
+0x080063c8 in sd_crc16 (b=0x1021 <error: Cannot access memory at address 0x1021>, n=512) at /home/lolo/dev/msm/projects/MSM_vibe-TR2-001-autonome/experiments/spi2_microsd_isolated/src/sd_spi.c:17
+17	  for(unsigned k=0;k<8;k++)crc=(uint16_t)((crc<<1)^((crc&0x8000u)?0x1021u:0));
+0xbfa0700:	0x004a003d	0x38425018	0x20333157
+$1 = 1
+$2 = {magic = 0x31525452, version = 0x1, bytes = 0x10760, crc = 0x42550a05}
+$3 = "e5277e9faf30ea603fb3987f87936f232a590512"
+$4 = {version = 4, stage = 99, error = 3, uid = {4849725, 943869976, 540225879}, clock = 160000000, who = 123, run = 5, mode = 1, duration_us = 42023136, records = 39999, span_us = 1896965, span_ticks = 151677, cal_residual = 21, cal_brackets = 198, cal_anchors = 6630, accepted = 1119168, outputs = 111917, warmup = 11, rails = 0, clips = 0, source_hash = 2266240305, output_hash = 241242040, first_us = 358139436, last_us = 400150962, residual = 253053864, clock_checks = 419, level = 64, flags = 0, stop_us = 133, stopped = 1, fifo_error = 0, stop_error = 0, trace_refused = 0, preclose_overflow = 0, irqs = 42023, stack_deepest = 1112, stack_floor = 2984, primask = 0, basepri = 0, faultmask = 0, max_words = 64, raw_words = 2048, pending_xyz = 8, ctrl1 = 164, cal_xyz_span = 53032, cal_tick_span = 159096, sd_error = 0, sd_steps = 11868, sd_peak_queue = 5632, sd_completed = 179, sd_step_max = 83930, sd_write_max_us = 103262, sd_busy_max_us = 15325, sd_total_bytes = 671502, sd_lba = 268992, sd_written = 733184, drain_us = 0, header_written = 0, return_offset = 0, return_bytes = 0, returned = 0, sd_sectors = 999743488, marker_ok = 0, who_ok = 1, trace_count = 512, queue_overflows = 0, sd_pending_polls = 11868}
+$5 = {card = 0x2001d820 <r3_card>, data = 0x2000f4ec <q+8192> "", lba = 270417, blocks = 8, block = 8, offset = 0, state = 10, error = 0, begin_us = 400069027, deadline_us = 401155515, busy_begin_us = 400155551, busy_sum_us = 11510, complete_us = 400158240, max_busy_us = 2584, block_busy_us = {2315, 1198, 1198, 1189, 1363, 1216, 433, 14, 2584}, crc = 32390, active = false, done = true, uncertain = false, needs_power_cycle = false, data_response = 229, data_response_seen = 1}
+$6 = {fifo = 0x20000460 <fifo>, metric = 0x0, sink = 0x8001881 <sink>, sink_context = 0x0, base_us = 400051629, span_us = 100172, span_ticks = 8008, ticks = 7944, anchor_ticks = 7944, input_index = 1119176, emitted = 1119168, max_residual_us = 253053864, last_event_us = 400150962, first_event_us = 358139436, raw = 3518223, anchor_raw = 3518223, groups = 139896, calibration_raw = 3510360, calibration_us = 400052621, mapping_cycles = 0, metrology_cycles = 0, counter = 0 '\000', count = 8 '\b', xyz = {{773, 155, 1977}, {827, 231, 1888}, {767, 167, 1920}, {807, 209, 1870}, {781, 191, 1974}, {787, 217, 1922}, {788, 176, 1947}, {808, 213, 1916}}, initialized = true, anchor = true, fault = true}
+$7 = {before = 400152755, after = 400152773, raw = 23748123}
+$8 = 13312
+$9 = 12288
+$10 = 1024
+$11 = 0
+$12 = 65
+$13 = 1434
+$14 = 111852
+$15 = 0
+$16 = 671502
+$17 = {0x6b, 0xaf, 0x60, 0x89, 0xff, 0xe1, 0xb9, 0x10, 0xdc, 0xc3, 0x88, 0x30, 0xdb, 0x8a, 0x21, 0x97, 0xa0, 0x84, 0xd, 0x66, 0x28, 0x10, 0x3b, 0xab, 0x4c, 0x8b, 0xa5, 0xd5, 0xfa, 0xea, 0xae, 0xc0}
+$18 = {version = 4, stage = 2, error = 0, uid = {4849725, 943869976, 540225879}, clock = 160000000, who = 123, run = 0, mode = 0, duration_us = 0, records = 0, span_us = 1896680, span_ticks = 151590, cal_residual = 30, cal_brackets = 198, cal_anchors = 6627, accepted = 0, outputs = 0, warmup = 0, rails = 0, clips = 0, source_hash = 0, output_hash = 0, first_us = 0, last_us = 0, residual = 0, clock_checks = 0, level = 16, flags = 0, stop_us = 0, stopped = 0, fifo_error = 0, stop_error = 0, trace_refused = 0, preclose_overflow = 0, irqs = 0, stack_deepest = 0, stack_floor = 0, primask = 0, basepri = 0, faultmask = 0, max_words = 16, raw_words = 2048, pending_xyz = 0, ctrl1 = 0, cal_xyz_span = 53008, cal_tick_span = 159024, sd_error = 0, sd_steps = 0, sd_peak_queue = 0, sd_completed = 0, sd_step_max = 0, sd_write_max_us = 0, sd_busy_max_us = 0, sd_total_bytes = 0, sd_lba = 0, sd_written = 0, drain_us = 0, header_written = 0, return_offset = 0, return_bytes = 0, returned = 0, sd_sectors = 999743488, marker_ok = 0, who_ok = 1, trace_count = 0, queue_overflows = 0, sd_pending_polls = 0}
+$19 = 0
+$20 = 0
+$21 = 0
+$22 = false
+$23 = false
+$24 = 0x1c004400
+[Inferior 1 (Remote target) detached]

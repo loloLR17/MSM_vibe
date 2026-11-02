@@ -4,7 +4,7 @@ status: IN_PROGRESS
 base_ref: main
 base_sha: a8817bf293c6e60a93ad824d279ee870b6a0ecf7
 initial_head: 79b952dbb949cb8eb2f208e3b2c5994f4ed1279f
-result_sha: e5277e9faf30ea603fb3987f87936f232a590512
+result_sha: 65703ced5354d37724b2005bc0eba0fdad58d7dc
 created_at_utc: 2026-11-01T16:57:14.405923+00:00
 author: Codex
 target_branch: main
@@ -15,6 +15,43 @@ allow_debug: true
 ---
 
 # TR2-001 autonome ±16 g — checkpoint ; qualification sans ST-LINK en cours
+
+## A1G — compteur direct incohérent prouvé ; A1H SPI3 4MHz chargé
+
+Utilisateur estime erreur vers30s. Snapshot54 **CRC42550a05 conforme/sourcee5277e9f** :
+arrêt réel **42023136µs MCU**,99/error3/419clockchecks. SDerror0/writer0/tokenE5
+accepté/done/nonincertain/FIFO0/stoppedtrue/rails-clips0/clockgap0.
+Dernier FIFOraw **3518223**, précédent compteur direct **3510360**, compteur direct
+fautif **23748123**, bracket MCU **400152755–400152773µs** (largeur18µs).
+État mapper conservé : base400051629/span100172µs/8008ticks, ticks7944. Recalcul
+indépendant de la formule réelle : delta20229900ticks, prédiction653206637µs,
+**écart253053864µs exactement égal au rejet cible**, garde100µs inchangée.
+**Entrée compteur direct incohérente avec les dernières lectures ; rejet correct
+pour cette observation.** Pas de preuve de forme d'onde ni cause électrique exclusive,
+ni démonstration générale de tout le mapper. Aucun bit deviné/corrigé pour accepter.
+
+User512auPC/001off, copie native2MioSHA
+**02f28e6355c769a7b869375c1572b7b841a4e747406701f77705e6174e46c08a**
+source=destination ; A–F re-hachés inchangés. StrictINCOMPLETE1432records/111696XYZ ;
++2records RAM (CRC/session/séquence vérifiés)+65XYZpartiels =**111917sorties671502B**,
+SHA **6baf6089ffe1b910dcc38830db8a2197a0840d6628103bab4c8ba5d5faeaaec0**
+égal au digest producteur retenu : toutes filtrées produites sauvées. Pas60s/fullnatifs
+ni footerCOMPLETE. Extents utiles et suffixe1326B publics, gros originaux locaux.
+
+**A1H** utilise l'option SPI3diviseur4 existante : **4MHz au lieu8**, SD2MHz conservée,
+FS16/ODR/FIR/mapper/garde100µs/gardes temporelles inchangés. Test discriminant de
+dépendance à la vitesse, pas correction physique déclarée avant résultat. BuildARM
+cibléPASS, aucun test réussi inchangé rejoué, aucune source modifiée pour ce changement
+de configuration. Sourceimage **65703ced5354d37724b2005bc0eba0fdad58d7dc**,
+BIN53056B/SHA **76241cc81a5a3e18144de40157ee9719112476f299392c652be74a0b1faf0c70**.
+UserCN15puisSTLINK/lecteurvide/JP2off confirmé, identité55 ; **dixième flash standard**56
+-v/-rst. Lecture57 interrompue sur adresse erronée non mappée46003c08 dans scriptagent ;
+conservée comme échec. Adresse SPI3 CFG1 corrigée après contrôleCMSIS **46002008**,
+lecture58=10070007/diviseur4, CFSR/HFSR0, readbackFlashentier exact. Pas de reflash ni
+reset extra pour corriger ce script. SDabsente/WHO7B/FS04/errorSD2attendu/0write/détaché.
+Remise carte hors tension puis CN15seul/JP2off/WAIT→USER A1H60s demandée : **résultat
+non encore observé**. Aucun longSTART ni firmware huit heures déclaré prêt.
+
 
 ## A1G chargé — essai discriminant court en attente
 

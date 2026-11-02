@@ -1,6 +1,9 @@
 # État courant MSM TR2 — synthèse opérationnelle
 
 
+**02/11/2026 — A1G entréehorlogeincohérente prouvée ; A1H4MHz chargé/IN_PROGRESS.** Retenu54CRC42550a05/sourcee5277e9f :42,023136sMCU/error3/419checks, SD0/FIFO0/stopped/nonincertain. Directraw23748123 vsFIFO3518223/précédentlive3510360 ; bracket400152755–400152773, mapperbase400051629/span100172/8008/ticks7944 : recalculprédiction653206637/écart253053864exactaujet ; garde100inchangée, causeélectriqueexclusiveinconnue. NativeG2MioSHA02f28e63…6c08aexact/A–Finchangés ;1432SDrecords+2RAM+65partiels→111917sorties671502B/SHA6baf6089…aaec0exactproducteur,toutfiltréproduitsauvé,pas60s. A1HoptionSPI3existante4MHz/SD2/FS16/FIR/gardesinchangés,ARMcibléPASS ; source65703ced/BIN53056B76241cc8…af0c70. UserCN15STLINKlecteurvideJP2off/identité55/dixièmeflash56-v-rst ;57adresseerronéescriptagentcorrigée58CMSIS46002008/CFG110070007/CFSR-HFSR0/readbackexact,sansflashresetextra. Détaché/SDabsente0write ; userdemandécarteremisehorstension/CN15seul/JP2off/WAIT→USERA1H60s,résultatattendu,paslongREADY.
+
+
 **02/11/2026 — A1G chargé/essai court demandé, IN_PROGRESS.** UserCN15puisSTLINK/lecteurvide/JP2off. Identité51 ; neuvièmeflash52sourcee5277e9f/BIN53052B7cc861f8…35979-v/-rst/readback53exact, WHO7B/FS04/0write/refusSDabsenteattendu. Snapshot67440BNOLOAD20085b00–20096270/available0 ; ajoutebracket+mapperseulement,garde100µsinchangée. Détaché ; userdemandécarteremisehorstension/CN15seul/JP2off/WAIT→USERA1G60s/résultatattendu. A1F/29fichierspub3be1e1ae relusidentiques,toutes29999sortiessauvées ; aucunlong ni002/FRAM/COM4.
 
 

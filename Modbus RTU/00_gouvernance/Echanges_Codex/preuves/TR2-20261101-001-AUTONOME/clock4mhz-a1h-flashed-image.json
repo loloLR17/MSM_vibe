@@ -1,0 +1,13 @@
+{
+  "source_sha": "65703ced5354d37724b2005bc0eba0fdad58d7dc",
+  "bytes": 53056,
+  "sha256": "76241cc81a5a3e18144de40157ee9719112476f299392c652be74a0b1faf0c70",
+  "prefix": "A1H",
+  "duration_us": 60000000,
+  "SPI2_Hz": 2000000,
+  "SPI3_Hz": 4000000,
+  "change": "Existing SPI3 divider4 option; clock mapper/100us guard/FS16/ODR/FIR unchanged; retained diagnostic same asA1G",
+  "flashed": true,
+  "flash_evidence": "56-clock4mhz-h-standard-flash.log",
+  "readback_evidence": "58-clock4mhz-h-correct-register-readback.log"
+}

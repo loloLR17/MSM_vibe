@@ -1,0 +1,11 @@
+{
+  "status": "INCOMPLETE capture, all produced filtered XYZ recovered",
+  "xyz": 111917,
+  "bytes": 671502,
+  "sha256": "6baf6089ffe1b910dcc38830db8a2197a0840d6628103bab4c8ba5d5faeaaec0",
+  "matches_retained_producer_sha": true,
+  "construction": "1432 CRC/session/sequence-valid SD records +2 CRC/session/sequence-valid retained queue records +65 partial RAM XYZ",
+  "suffix_bytes": 1326,
+  "file_sha256": "02f28e6355c769a7b869375c1572b7b841a4e747406701f77705e6174e46c08a",
+  "not_claimed": "60s completion, native FIFO words not yet emitted, exact physical SI duration, or electrical cause"
+}

@@ -1,0 +1,18 @@
+{
+  "base_us": 400051629,
+  "span_us": 100172,
+  "span_ticks": 8008,
+  "ticks": 7944,
+  "fifo_raw": 3518223,
+  "previous_direct_raw": 3510360,
+  "direct_raw": 23748123,
+  "before_us": 400152755,
+  "after_us": 400152773,
+  "delta_raw": 20229900,
+  "predicted_us": 653206637,
+  "residual_us": 253053864,
+  "guard_us": 100,
+  "bracket_width_us": 18,
+  "conclusion": "Exact residual reproduced from retained raw input and state; fail-closed rejection correct for this observation. Direct read incompatible with recent FIFO and previous direct value.",
+  "limits": "No waveform captured, no exclusive electrical cause or broad proof of mapper correctness; no repairing guessed raw bits."
+}
