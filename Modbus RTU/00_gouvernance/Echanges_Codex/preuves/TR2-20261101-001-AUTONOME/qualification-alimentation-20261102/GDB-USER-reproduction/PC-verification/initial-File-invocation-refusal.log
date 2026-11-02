@@ -1,0 +1,6 @@
+Impossible de charger le fichier \\wsl.localhost\Debian\home\lolo\dev\msm\reports\TR2-001-autonome-reducteur-20261101\q
+ualification-alimentation-20261102\GDB-USER-reproduction\copy-GI0.ps1, car l'ex‚cution de scripts est d‚sactiv‚e sur 
+ce systŠme. Pour plus d'informations, consultez about_Execution_Policies … l'adresse 
+https://go.microsoft.com/fwlink/?LinkID=135170.
+    + CategoryInfo          : Erreur de s‚curit‚ÿ: (:) [], ParentContainsErrorRecordException
+    + FullyQualifiedErrorId : UnauthorizedAccess

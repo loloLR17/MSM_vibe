@@ -1,0 +1,42 @@
+{
+  "status": "INCOMPLETE_QUALITY_REJECTED",
+  "storage_payload_integrity": "ALL_XYZ_MATCH_INDEPENDENT_PRODUCER_RAM_SHA256",
+  "qualification_pass": false,
+  "file_bytes": 671088640,
+  "whole_file_SHA256": "46d2ad03588bb66bc84403374908a2cc92dd14c6671a3915f70dc532a3613f1f",
+  "source_stream_SHA256": "46d2ad03588bb66bc84403374908a2cc92dd14c6671a3915f70dc532a3613f1f",
+  "payload_SHA256": "fe2702106d36874a5e5d78a1db94550342badffb9c8b0b5eb4873ab064412611",
+  "records": 244041,
+  "XYZ": 19035188,
+  "payload_bytes": 114211128,
+  "all_record_CRC_sequence_session_padding_timestamps_verified": true,
+  "all_remaining_preallocated_bytes_zero": true,
+  "zero_tail_start": 124949504,
+  "zero_tail_bytes": 546139136,
+  "no_COMPLETE_footer": true,
+  "flagged_records": [
+    {
+      "record": 115808,
+      "quality_flags": 4,
+      "first_output_index": 9033024,
+      "count": 78,
+      "first_time_us": 3780027000,
+      "last_time_us": 3780056125,
+      "rail_value_candidates": [
+        {
+          "output_index": 9033033,
+          "source_index": 90330330,
+          "xyz_counts": [
+            -21594,
+            -32768,
+            32767
+          ],
+          "interpolated_MCU_us": 3780030404,
+          "approx_time_since_first_output_s": 3416.467734
+        }
+      ],
+      "scope": "Per-block flags; exact incident raw native samples not archived"
+    }
+  ],
+  "remaining_limits": "Raw incident sensor samples unavailable; clipping does not establish mechanical/electrical origin. Duration nominal MCU, not SI. Strict importer unchanged."
+}

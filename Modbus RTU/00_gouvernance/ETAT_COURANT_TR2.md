@@ -1,5 +1,8 @@
 # État courant MSM TR2 — synthèse opérationnelle
 
+**02/11/2026 — GI0 PC vérifié intégralement : intégrité stockage démontrée, qualité NON qualifiée.** 671088640B source/copieSHA46d2ad03…13f1f ; 244041records CRC/séquence/session/temps/padding conformes,19035188XYZ/114211128B SHAfe270210…12611 exact digest producteurRAM. Finpréallouée546139136B nulle/footerabsent/lecteurstrictINCOMPLETE. Deux heures MCU7200000768µs atteintes, refusfinal26/clips1/rails0 aprèsdrain. Bloc115808/sortie9033033/≈56min56,47sMCU : [-21594,-32768,32767], contexte sauvegardé ; natifsincidentabsents, origine nonétablie. Source171cefc3/GI0inchangé, aucunresetflash/nouveautest,001horstension/512auPC selonuser/GDBdétaché. 002OBE récupérationPCencoreàfaire, C29zéroXYZ préservé. Autorisationuser intégrationisolée sur ebae55e1, aucunacteshield. Rapport/preuvesmisàjour pourpublicationnormale/contrôleChatGPT.
+
+
 **02/11/2026 — GI0 terminal sous CN15+STLINK/GDB : durée MCU 7200000768µs atteinte, FAILED qualité finale error26/clips1/rails0.** USER reconnu/préparationSD saine ; 19035188 sorties/114211128B payload,244041records écrits, FIFO/STOP/SD0, résidu90µs/71620checks, queueoverflow0/filevide/writerinactifnonincertain/CShaute/GDBdétaché. CRCsnapshot9eec8339 conforme/digest producteur sauvé. Refus -26 après drain empêche footerCOMPLETE ; pas arrêt précoce ni causeSD démontrés. Copie PC512/CRCseqSHA intégral et bloc écrêté restent à vérifier, transfert physique demandé ; pas nouveau START/resetflash/002FRAMCOM4. Premièrewatchsession arrêtée WAIT parSIGTRAP outil, remplacée par breaksfonctions avantFIFO/aprèsSTOP. Source171cefc3/BINe4c3f044 inchangé.
 
 
