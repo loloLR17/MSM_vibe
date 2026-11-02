@@ -1,11 +1,11 @@
 ---
 mission_id: TR2-20261102-SHIELD-PROTO-V1-1
-status: IN_PROGRESS
+status: BLOCKED
 base_ref: main
 base_sha: a99d9be86e0e20e9fb8a1362315bb360c9ba2002
 initial_head: d0433fb5352d857344d892ed86099df6a09a8f25
 publication_base: 77d67460b38f1152b97e6e5849db90fe2e140fb4
-result_sha: null
+result_sha: d9b5416f000d68eeb5f4545be5aa1b65f80bb986
 created_at_utc: 2026-11-02T23:26:44Z
 author: Codex
 target_branch: main
@@ -17,7 +17,7 @@ allow_debug: false
 
 # Shield V1.1-A — candidat CAO, accès et retenues
 
-Révision KiCad réalisée, contrôles et exports obtenus ; publication/relecture distante encore à consigner (`IN_PROGRESS`). **Fabrication toujours BLOCKED_FABRICATION** : les dimensions C05, les contacts/détrompages réels des modules et l’ergonomie assemblée ne sont pas démontrés. Aucun banc sollicité.
+Révision KiCad candidate, modèles de retenue, plans, contrôles et exports **publiés et relus sur GitHub**. **Fabrication toujours BLOCKED_FABRICATION** : les dimensions C05, les contacts/détrompages réels des modules et l’ergonomie assemblée ne sont pas démontrés. Le statut de mission reste `BLOCKED`, sans faux DONE ; aucune intervention sur les bancs.
 
 ## Livrables
 
@@ -70,7 +70,7 @@ Les [réserves minimales](../../04_Architecture/SHIELD_PROTO_V1/docs/ASSEMBLAGE_
 2. Relever enveloppe/hauteur du MKIGIBV2, débord du raccord et rives utilisables pour le détrompage réel. **Ne pas redemander** entraxe 15,2 mm et GND bas droit déjà rapportés.
 3. Vérifier Click réellement détenu v101/v102, ses rives et bornes ; confirmer bouche/hauteur SD, épaisseur/rayon de nappe et diamètres des câbles avant de figer les retenues et découpes.
 
-Ce sont des obstacles réels à la **libération fabrication**, pas un motif de remplacer les livrables CAO par une simple étude. Les travaux indépendants possibles ont été réalisés. Mesures/photos minimales contextualisées dans la procédure, à obtenir lors d’une intervention ultérieure autorisée ; aucune manipulation demandée maintenant sous ce contrat sans matériel. Ni 8 MHz, tenue vibratoire/CEM/température, ergonomie réelle, powerbank, ni budget ferme qualifiés. Fixation de tête à 56,5 °C et écrêtage restent distincts.
+Ce sont des obstacles réels à la **libération fabrication**, pas un motif de remplacer les livrables CAO par une simple étude. Les travaux indépendants possibles ont été réalisés. Mesures/photos minimales contextualisées dans la procédure, à obtenir lors d’une intervention ultérieure autorisée ; aucune manipulation demandée maintenant sous ce contrat exclusivement CAO. Ni 8 MHz, tenue vibratoire/CEM/température, ergonomie réelle, powerbank, ni budget ferme qualifiés. Fixation de tête à 56,5 °C et écrêtage restent distincts.
 
 ## Git, préservation et journal
 
@@ -78,4 +78,6 @@ Départ `d0433fb5`, worktree isolé `MSM_vibe-SHIELD-PROTO-V1-1`. Avant créatio
 
 Publication depuis `codex/shield-proto-v1-1-publication` vers `main` autorisée. Dépôt principal inchangé à `82169af7`, deux stashes historiques préservés ; aucun nettoyage destructif. Contrat initial et avenant archivés séparément, archives V1 et CN0/GI0/C29/OBE intactes. Firmware, FRAM, cartes SD et deux cibles non sollicités, état matériel non relu sous cette mission. Récupération TR2-002 non déclarée achevée.
 
-Journal actualisé par append factuel : résultats CAO V1.1, réserves, budget et décision secteur V1.1-A ; aucune règle de gouvernance ou spécification normative changée. Revue indépendante ChatGPT attendue. SHA des commits, push et relecture distante à compléter après publication, sans référence circulaire.
+Journal actualisé par append factuel : résultats CAO V1.1, réserves, budget et décision secteur V1.1-A ; aucune règle de gouvernance ou spécification normative changée. Revue indépendante ChatGPT attendue. Commit CAO/checkpoint **`d9b5416f000d68eeb5f4545be5aa1b65f80bb986`**, « Shield V1.1-A checkpoint: external access, retention models and strict CAD checks », publié par push normal sur `main`. **Relecture distante effectuée à 2026-11-02T23:29:57.163964+00:00** : SHA recoupé avec `ls-remote`, **108 fichiers complets** récupérés par Git et comparés octet par octet aux fichiers publiés, y compris CAO, STL, PDF, CAM et rapport. [Preuve](preuves/TR2-20261102-SHIELD-PROTO-V1-1/remote-readback-checkpoint.json). Les empreintes du dossier sont dans `docs/artifact-hashes.json` ; cette relecture machine ne remplace pas la revue indépendante ChatGPT.
+
+Ce bilan et son archive consignent les limites au SHA CAO ci-dessus. Après le commit/push de ce bilan, le worktree de publication doit être propre ; les autres worktrees, dont la première préparation non committée, restent conservés. Le SHA final du bilan et sa vérification distante seront fournis séparément, sans référence circulaire. La fabrication n’est pas autorisée par la seule présence sur GitHub.
