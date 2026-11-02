@@ -697,6 +697,7 @@ e17cda5e74b51b26582202fe22cecb638af168487dad773103826360d866c00d  qualification-
 01380640c83852663f54b1f99c004458ec08d3ca13f5261046c37d80cd3fb747  qualification-alimentation-20261102/storage-B02-CN15/05-B02-wait-for-readonly-boot-and-safe-card-state-server.log
 7c36efdce03717c4f8bc08d43215cdbd978fc92432b6e07dbb34de986de7aa4f  qualification-alimentation-20261102/storage-B02-CN15/05-B02-wait-for-readonly-boot-and-safe-card-state.gdb
 5a747828435be814438d23d593cdbe3721a0c9d0c2d20a8a76b5057ea31a1f52  qualification-alimentation-20261102/storage-B02-CN15/05-B02-wait-for-readonly-boot-and-safe-card-state.log
+655969457909cacda54d297480e642aaf95e88346b8898f1632dddb3ca494c2d  qualification-alimentation-20261102/storage-B02-CN15/B02-PC-remote-verification.json
 dfa8af6d628540aca171135d79c3bff7e94a02ec8f4ae381aab241d618b86eb7  qualification-alimentation-20261102/storage-B02-CN15/B02-capture-summary.json
 87098773bc9d37af3e0b15f7b8e594d1a6a2fe2a12fd606fc79ca4564033ef4c  qualification-alimentation-20261102/storage-B02-CN15/B02-footer.bin
 8435554481e61142866a66423fbb61b79e085943171d14b4a7042e814eaf40f9  qualification-alimentation-20261102/storage-B02-CN15/B02-header.bin

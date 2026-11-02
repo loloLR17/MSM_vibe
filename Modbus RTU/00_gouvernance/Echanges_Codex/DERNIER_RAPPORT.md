@@ -49,6 +49,8 @@ Carte restantPC, il faut reconnecter001vide parCN15puisSTLINK pour charger l'ima
 
 [Preuves complètes, limites et artefactT10](preuves/TR2-20261101-001-AUTONOME/qualification-alimentation-20261102/storage-B02-CN15/B02_COMPLETE_PC_ET_SUITE_T10.md).
 HEAD initial de tranche `d7bd4df001576d5fef9b0af034b1cb96c505859a`, journal actualisé.
+Checkpoint `c4638d7103b6317822d61a0bb371792b2aaa1a7c` publié et relu : 34 fichiers identiques,
+754 empreintes conformes, worktree propre. Voir `storage-B02-CN15/B02-PC-remote-verification.json`.
 
 ---
 
