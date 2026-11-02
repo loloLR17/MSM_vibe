@@ -1,0 +1,19 @@
+{
+  "status": "COMPLETE_PHYSICAL_STANDALONE_BOUNDED",
+  "file": "CN00005.TR2",
+  "source_SHA": "6633b0154bf67b4c5437f1d259732fc1b1f21e4a",
+  "whole_file_bytes": 671088640,
+  "whole_file_SHA256": "f86f0b90e5568921609ae6554bf2a6c7dcbbae12057f0b45767e52e2bad8ebe5",
+  "source_stream_SHA256": "f86f0b90e5568921609ae6554bf2a6c7dcbbae12057f0b45767e52e2bad8ebe5",
+  "XYZ": 19042924,
+  "record_count": 244141,
+  "payload_bytes": 114257544,
+  "payload_SHA256": "600551ef5eb1e4ae7d4c70b78dc3724045a81ec9ca7cdaad3e4b0351c5298f9a",
+  "all_payload_equal_independent_RAM_producer": true,
+  "independent_second_pass_CRC_sequence_session_timestamps_padding_counts": true,
+  "zero_unused_bytes_before_footer": 546087424,
+  "actual_duration_nominal_MCU_us": 7200000537,
+  "clips": 0,
+  "rails": 0,
+  "scope": "2h nominal MCU, CN15 sector only, ST-LINK disconnected during capture, workshop setup; no SI duration, vibration calibration, reducer mounting or industrial robustness qualification"
+}

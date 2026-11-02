@@ -1,0 +1,8 @@
+{
+    "Source":  "D:\\CN00005.TR2",
+    "Destination":  "\\\\wsl.localhost\\Debian\\home\\lolo\\dev\\msm\\reports\\TR2-001-autonome-reducteur-20261101\\qualification-alimentation-20261102\\CN0-without-STLINK\\PC-copy\\CN00005.TR2",
+    "Bytes":  671088640,
+    "SourceStreamSHA256":  "f86f0b90e5568921609ae6554bf2a6c7dcbbae12057f0b45767e52e2bad8ebe5",
+    "SourceAccess":  "read only",
+    "NoRepairNoFormat":  true
+}
