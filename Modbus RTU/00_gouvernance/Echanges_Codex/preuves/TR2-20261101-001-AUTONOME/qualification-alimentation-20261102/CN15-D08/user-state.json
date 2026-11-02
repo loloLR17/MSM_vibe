@@ -1,0 +1,10 @@
+{
+  "CN15_only_STLINK_disconnected_JP6_USB_JP2_removed_WAIT_user_confirmed": true,
+  "VDD_V": 3.315,
+  "VDDIO_V": 3.315,
+  "USER_instructed_2s_then_release": true,
+  "user_terminal_LED": "vert fixe",
+  "user_STLINK_reconnected_with_CN15_maintained_by_instruction": true,
+  "same_module_B_and_replacement_wires": "unchanged by instruction",
+  "no_SD_capture_requested": true
+}

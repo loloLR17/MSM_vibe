@@ -1,0 +1,10 @@
+{
+  "snapshot_bytes": 67488,
+  "crc32": "b4bd1b0f",
+  "sha256": "5ec11cf108ce5c426ae3b3a388a916126f936a4627262f4c82849e613704ff27",
+  "valid": true,
+  "different_from_D07": true,
+  "source_sha": "acb142794570ded5abd15f6521eb5d8b644590e8",
+  "flash_BIN_entire_exact": true,
+  "no_reset_flash_START_by_agent": true
+}

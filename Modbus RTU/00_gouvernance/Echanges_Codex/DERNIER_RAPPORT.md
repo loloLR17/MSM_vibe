@@ -5,7 +5,7 @@ base_ref: main
 base_sha: a8817bf293c6e60a93ad824d279ee870b6a0ecf7
 initial_head: 79b952dbb949cb8eb2f208e3b2c5994f4ed1279f
 result_sha: acb142794570ded5abd15f6521eb5d8b644590e8
-created_at_utc: 2026-11-02T09:58:50.822492+00:00
+created_at_utc: 2026-11-02T10:08:49.397714+00:00
 author: Codex
 target_branch: main
 allow_commit: true
@@ -13,6 +13,45 @@ allow_push: true
 allow_flash: true
 allow_debug: true
 ---
+
+# D08 — minute autonome capteur/FIFO sous CN15 seul : PASS
+
+**IN_PROGRESS : alimentation CN15 et exécution autonome démontrées sur cette minute ;
+stockage encore à qualifier.** User confirme JP6USB/JP2retiré/STLINKoff/CN15secteur5V,
+VDD/VDDIO3,315V, WAIT puis USER et vertfixe. Aucun debugger pendant la capture.
+
+Snapshot récupéré sousSN001/UIDexact, **CRC b4bd1b0f valide**, différent deD07,
+source `acb142794570ded5abd15f6521eb5d8b644590e8`, SHA
+`5ec11cf108ce5c426ae3b3a388a916126f936a4627262f4c82849e613704ff27`.
+BIN D01 de50912B entièrement relu identique. Aucun build, flash, reset ou STARTagent.
+Première reconnexion dirigée au mauvaisbanc d'aprèsuser/énumération002seul ; aucun
+accèsMCU002, logs conservés, puis branchement001 corrigé pour le relevé.
+
+**PASS capturé :60,000079sMCU, stage4/error0,158576sortiescalculées,
+598contrôles temporels/résidumax20µs≤100**,0FIFO/STOP/rails/clips/flags/queue/budgetmask,
+STOPpropre133µs. FS16/SPI3 8MHz, FIR107Q15/dec10 et garde100µs inchangés.
+Profil sansSD : aucun fichiercréé/aucunXYZintégralementarchivé, digest etsnapshot
+sauvés ; writerinactif, SD0. Pas de qualification stockage/endurance/powerbank.
+
+Étatcourant à la lecture : WAIT2/run1/error0/calibration33µs, contre calibration41µs
+et résultatterminal danslesnapshot. **Nouveau démarrage observé entre essai et relevé**,
+cohérent avec l'historique de reconnexionSTLINK, causeexclusive nonprouvée/CSRcumulé.
+Le snapshot conservé permet bien de vérifier l'essai malgré les compteurscourants remis
+àzéro. GDBdétaché/FIFOoff/SDCShaute ; ne pas relancer D08 ni appuyerUSER à nouveau.
+
+Prochaine tranche autorisée : reprendre l'image stockage512Go B02 déjàpréparée,
+60s/FS16/SPI3 8MHz/SD4MHz, nomneuf/CREATE_NEW, préflightCID/capacité/espaceinchangés,
+puis relecturePCintégrale. Pas de formatage, pas de répétition des validationslogiciels
+inchangées. AprèsPASS seulement,10min ; aucunlongSTART. Àcecheckpoint B02 nonflashée.
+
+[Preuves D08 et limites](preuves/TR2-20261101-001-AUTONOME/qualification-alimentation-20261102/CN15-D08/D08_PASS_ET_SUITE_STOCKAGE.md).
+HEAD initial `44c663a634868c78c492ae3d67ef3b8935077dc2`, journal actualisé avec
+succèsCN15, observation de reboot/snapshotpréservé et prochaine étape stockage.
+
+---
+
+## Historique jusqu'au checkpoint44c663a6
+
 
 # D07 — TR2-001 réussit 60 s après remplacement des câbles
 
