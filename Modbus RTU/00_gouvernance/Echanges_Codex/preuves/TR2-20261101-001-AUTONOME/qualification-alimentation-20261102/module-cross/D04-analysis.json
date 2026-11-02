@@ -1,0 +1,64 @@
+{
+  "brackets": 198,
+  "stride_bytes": 24,
+  "baseline_index": 10,
+  "base_us": 102595,
+  "span_us": 1892949,
+  "span_ticks": 150070,
+  "bad_bracket_count": 4,
+  "outliers": [
+    {
+      "index": 136,
+      "before_us": 1378055,
+      "after_us": 1378074,
+      "raw": 16929951,
+      "predicted_us": 213551155,
+      "residual_us": 212173091,
+      "previous_raw": 108403,
+      "next_raw": 110008,
+      "raw_value_reencoded_little_endian_hex": "9f540201"
+    },
+    {
+      "index": 153,
+      "before_us": 1550133,
+      "after_us": 1550151,
+      "raw": 16957119,
+      "predicted_us": 213893846,
+      "residual_us": 212343704,
+      "previous_raw": 122045,
+      "next_raw": 123650,
+      "raw_value_reencoded_little_endian_hex": "bfbe0201"
+    },
+    {
+      "index": 173,
+      "before_us": 1752574,
+      "after_us": 1752592,
+      "raw": 17054864,
+      "predicted_us": 215126780,
+      "residual_us": 213374197,
+      "previous_raw": 138094,
+      "next_raw": 17056356,
+      "raw_value_reencoded_little_endian_hex": "903c0401"
+    },
+    {
+      "index": 174,
+      "before_us": 1762696,
+      "after_us": 1762714,
+      "raw": 17056356,
+      "predicted_us": 215145599,
+      "residual_us": 213382894,
+      "previous_raw": 17054864,
+      "next_raw": 140501,
+      "raw_value_reencoded_little_endian_hex": "64420401"
+    }
+  ],
+  "guard_us": 100,
+  "max_residual_us": 213382894,
+  "module": "B from 002 passing D02/D03 now on001 using001 wiring",
+  "acquisition_started": false,
+  "FIFO_stopped": true,
+  "SD_commands_reads_writes_zero": true,
+  "conclusion": "Known-passing module does not prevent calibration incoherence on001; no exclusive sensor-module fault established. Wiring/contacts/power/Nucleo or software interaction remain to separate.",
+  "SPI_fault_payload_preserved": false,
+  "SPI_trace_limit": "calibrate resets the trace before STOP; bracket values retained, not original SPI payload of offending calibration reads."
+}

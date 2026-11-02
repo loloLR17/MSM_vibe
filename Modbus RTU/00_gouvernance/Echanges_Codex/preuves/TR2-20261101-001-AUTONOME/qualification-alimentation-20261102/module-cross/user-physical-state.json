@@ -1,0 +1,13 @@
+{
+  "target": "TR2-001",
+  "module": "B, formerly on TR2-002 during D02/D03",
+  "user_confirmed_both_banks_powered_off_for_transfer": true,
+  "module_A_set_aside": true,
+  "wiring_of_TR2_001_retained": true,
+  "VDD_V": 3.315,
+  "VDDIO_V": 3.315,
+  "TR2_002_kept_off": "instructed after confirmed both banks off; no access performed",
+  "SD_reader_001_empty": "requested; no SD commands in flashed diagnostic",
+  "JP6_STLK_JP2_removed_CN15_disconnected": "requested unchanged",
+  "no_USER_requested_yet": true
+}

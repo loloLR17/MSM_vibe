@@ -1,0 +1,14 @@
+{
+  "entire_flash_BIN_exact": true,
+  "bytes": 50912,
+  "sha256": "6a00ec329c3b16cbf1c01fc3661014ad6f1fed05732a60fecbc338d6a7bb98d2",
+  "source_sha": "acb142794570ded5abd15f6521eb5d8b644590e8",
+  "preflight_passed": false,
+  "stage": 99,
+  "error": 7,
+  "WHO_AM_I": "0x7b",
+  "FS_readback": "0x04",
+  "calibration_max_residual_us": 213382894,
+  "calibration_brackets": 198,
+  "no_flash_reset_or_START": true
+}

@@ -4,8 +4,8 @@ status: IN_PROGRESS
 base_ref: main
 base_sha: a8817bf293c6e60a93ad824d279ee870b6a0ecf7
 initial_head: 79b952dbb949cb8eb2f208e3b2c5994f4ed1279f
-result_sha: 6be825d4681a17224000ae1f2b088a315ba328c0
-created_at_utc: 2026-11-02T08:17:12.147252+00:00
+result_sha: acb142794570ded5abd15f6521eb5d8b644590e8
+created_at_utc: 2026-11-02T08:32:49.076502+00:00
 author: Codex
 target_branch: main
 allow_commit: true
@@ -13,6 +13,52 @@ allow_push: true
 allow_flash: true
 allow_debug: true
 ---
+
+# TR2-001 — module B éprouvé sur TR2-002, calibration toujours refusée
+
+**IN_PROGRESS.** L'utilisateur confirme le transfert hors tension du module B,
+celui des deux essais réussis sur TR2-002, vers le câblage conservé de TR2-001.
+Module A mis à part ; VDD et VDDIO mesurés par l'utilisateur à **3,315 V**.
+
+Contrôle D04 sans flash, reset ni START : UID001 conforme, BIN D01 de 50 912 octets
+intégralement identique à l'image conservée, source **acb142794570ded5abd15f6521eb5d8b644590e8**,
+SHA-256 `6a00ec329c3b16cbf1c01fc3661014ad6f1fed05732a60fecbc338d6a7bb98d2`.
+WHO_AM_I `0x7B`, réglage ±16 g relu `0x04`, SPI3 8 MHz. Le démarrage est déjà
+arrêté sur **stage99/error7/run0 : refus de calibration**, avant le WAIT.
+**Aucun essai de 60 s lancé et aucun appui USER demandé.**
+
+Les 198 brackets de calibration sont sauvegardés : quatre lectures incohérentes,
+résidu maximal **213 382 894 µs**, recalculé exactement hors ligne, limite inchangée
+à 100 µs. Exemple : raw16 929 951 entre des voisins108 403 et110 008.
+Les octets SPI originaux de ces lectures ne sont pas disponibles : la trace est
+réinitialisée avant STOP dans calibrate(). Les valeurs sauvegardées démontrent
+l'incohérence, sans déterminer sa cause électrique ou logicielle exclusive.
+
+FIFO arrêté proprement, zéro erreur FIFO, writer inactif, CS SD haute,
+**zéro commande/lecture/écriture SD**, pilote non initialisé et gate écriture fermé.
+GDB détaché après préservation. Aucun accès TR2-002 dans cette tranche ; sa dernière
+restauration reste acquise. Aucun changement FRAM, COM4, firmware, protections ou SD.
+Aucun build ni test ancien relancé : tranche d'observation et d'analyse sans code modifié.
+
+**Le module B fonctionne sur002 mais ne suffit pas à faire fonctionner001.**
+Cela ne permet pas d'accuser le seul module A. Il reste à isoler fils/contacts,
+alimentation effective et Nucleo001, sans prétendre que son MCU est défectueux.
+L'ancien refus d'écriture SD est un problème distinct, non résolu par ce diagnostic.
+
+Prochaine étape proposée : garder B sur001 et remplacer uniquement la liaison
+capteur par les fils qui ont servi aux essais réussis sur002, hors tension,
+sans modifier les réglages, le lecteur SD ou les jumpers. Action physique utilisateur
+encore nécessaire ; aucun nouveau départ tant que le précontrôle n'est pas conforme.
+
+[Preuves D04 et limites](preuves/TR2-20261101-001-AUTONOME/qualification-alimentation-20261102/module-cross/D04_RESULTAT_ET_SUITE.md).
+HEAD de début de tranche : `c56872e1f0cc0cb83cf7d7269d999c702bf4c000`.
+Journal actualisé avec le transfert rapporté, le refus, les preuves et la suite.
+Publication et relecture distante à réaliser après ce rapport.
+
+---
+
+## Historique jusqu'au checkpoint c56872e1
+
 
 # TR2-001 — comparaison physique sans SD sur TR2-002
 
