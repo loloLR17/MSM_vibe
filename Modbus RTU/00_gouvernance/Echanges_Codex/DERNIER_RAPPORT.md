@@ -4,8 +4,8 @@ status: IN_PROGRESS
 base_ref: main
 base_sha: a8817bf293c6e60a93ad824d279ee870b6a0ecf7
 initial_head: 79b952dbb949cb8eb2f208e3b2c5994f4ed1279f
-result_sha: 3f803d77393c6853ed76d796367df443a0eb9eb9
-created_at_utc: 2026-11-02T10:48:00.836056+00:00
+result_sha: d7bd4df001576d5fef9b0af034b1cb96c505859a
+created_at_utc: 2026-11-02T10:54:20.585959+00:00
 author: Codex
 target_branch: main
 allow_commit: true
@@ -13,6 +13,34 @@ allow_push: true
 allow_flash: true
 allow_debug: true
 ---
+
+# T10 chargé et relu — attente de carte et WAIT avant les 10 min
+
+**IN_PROGRESS. B02 minute autonome CN15+SD reste qualifiée, T10 non démarré.**
+UserconfirmeCN15+STLINKconnectés après instruction de garder512GoauPC/lecteur001vide.
+UID001 et état sûr vérifiés, puis unflashstandard et readbackentier53340B exact.
+Source **d7bd4df001576d5fef9b0af034b1cb96c505859a**, SHA-256
+`8c4c12de78d54177bb99c564ce9acb8f803ff1576f0a50de55d8e598143b0948`.
+BuildARM déjàréussi réutilisé ; pas de recompilation ni de test ancien répété.
+
+Profil600000000µs/USERunique/nouveau `T100005.TR2`, FS16/488µgLSB,
+SPI3 8MHz/SD4MHz, mêmes gardes, préallocation640MiB existante compatibleespace.
+Bootsanscarte attendu99/error2/sd_error2/WHO7B ; FIFO/writeroff/nonincertains,
+CShaute/SDwrites0/GDBdétaché. Aucune acquisition10min, aucun002/FRAM/COM4/formatage.
+
+Transition physique encoreàfaire : éjecter512GoauPC, couperCN15+STLINK001/10s,
+insérer512Go, garderJP6USB/JP2retiré, CN15secteur5Vseul/STLINKoff, attendreWAITsansUSER.
+Aprèsconfirmationseulement, un départ10min puis diagnostics/relecturePCcomplète.
+Aucun8hSTART. La validation60sB02 n'est pas répétée.
+
+[Preuves flashT10](preuves/TR2-20261101-001-AUTONOME/qualification-alimentation-20261102/storage-T10-CN15/T10_FLASH_ET_TRANSITION.md).
+HEAD initial `6dc17d559fd7710bd0ea207503c53f164d698d2c`, journal actualisé avec imageactive,
+bootSDabsenteattendu et prochaineactionuser. B02/D07/D08 et brutes conservés.
+
+---
+
+## Historique jusqu'au checkpoint6dc17d55
+
 
 # B02 — minute autonome CN15 + SD, fichier COMPLETE vérifié intégralement
 
