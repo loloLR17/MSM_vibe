@@ -12,7 +12,11 @@
 #define SENSOR_FS 3
 #define SENSOR_G 16
 #define SENSOR_UG 488
+#if R3_SENSOR_COMPARE_002
+#define TARGET_UID0 0x001b0046
+#else
 #define TARGET_UID0 0x004a003d
+#endif
 #else
 #define SENSOR_FS 2
 #define SENSOR_G 8
@@ -434,6 +438,11 @@ int main(void)
  StandaloneButton button={0};
  for(;;){
   (void)now();standalone_heartbeat();
+#if R3_SENSOR_COMPARE_002
+  /* Explicit diagnostic-only RAM gate: no SD initialization or writer exists
+   * on this path. Never enables remote START in the autonomous 001 profile. */
+  if(r3_command==(MAGIC|2u)){r3_command=0;break;}
+#endif
   if(standalone_button(&button,HAL_GPIO_ReadPin(GPIOC,GPIO_PIN_13)==GPIO_PIN_SET,HAL_GetTick()))break;
   __WFI();
  }
