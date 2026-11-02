@@ -4,8 +4,8 @@ status: IN_PROGRESS
 base_ref: main
 base_sha: a8817bf293c6e60a93ad824d279ee870b6a0ecf7
 initial_head: 79b952dbb949cb8eb2f208e3b2c5994f4ed1279f
-result_sha: acb142794570ded5abd15f6521eb5d8b644590e8
-created_at_utc: 2026-11-02T06:40:32.196709+00:00
+result_sha: 6be825d4681a17224000ae1f2b088a315ba328c0
+created_at_utc: 2026-11-02T08:17:12.147252+00:00
 author: Codex
 target_branch: main
 allow_commit: true
@@ -13,6 +13,76 @@ allow_push: true
 allow_flash: true
 allow_debug: true
 ---
+
+# TR2-001 — comparaison physique sans SD sur TR2-002
+
+**IN_PROGRESS : comparaison terminée, localisation du défaut à poursuivre.**
+L’utilisateur a explicitement autorisé cette extension le 02/11/2026 et confirmé
+les deux bancs connectés en ST-LINK, avec la SD de TR2-002 insérée.
+La décision est consignée dans les preuves ; le contrat ChatGPT reste inchangé.
+
+| Diagnostic | Durée MCU | Sorties calculées | Contrôles temporels | Résidu maximal | Résultat |
+|---|---:|---:|---:|---:|---|
+| D01 / TR2-001, acquis | 16,659203 s | 44 288 | 167 | 228 049 169 µs | Refus error3 |
+| D02 / TR2-002 | 60,000645 s | 158 450 | 599 | 19 µs | PASS borné |
+| D03 / TR2-002 | 60,000639 s | 158 438 | 599 | 19 µs | PASS borné |
+
+Sur TR2-002, les deux essais respectent la garde temporelle de 100 µs, les budgets
+inchangés et les contrôles FIFO : zéro erreur FIFO, arrêt propre, zéro rail,
+saturation, débordement de file ou masque de dépassement budgétaire.
+**Aucune commande, lecture ou écriture SD**, pilote non initialisé et écriture
+interdite, avant et après chaque essai. Aucun fichier créé : les nombres ci-dessus
+sont des sorties calculées, pas des archives XYZ intégralement conservées.
+Les snapshots et les digests sont sauvegardés, leurs CRC vérifiés.
+
+Le profil comparateur conserve FS ±16 g, SPI3 à 8 MHz et FIR107 Q15/décimation 10.
+Seuls la sélection UID et le départ RAM dédié diffèrent du diagnostic D01 ;
+le profil autonome 001 conserve son appui USER obligatoire. GDB est armé au WAIT,
+puis le CPU tourne sans pause jusqu’au breakpoint terminal après STOP/snapshot.
+Deux essais au total, avec un reset logiciel entre eux pour vérifier la répétabilité.
+
+Source évaluée : **6be825d4681a17224000ae1f2b088a315ba328c0**.
+BIN : 50 928 octets, SHA-256
+`7886feb2371837ceef7e126f26b4dedb2d484538a6142b8df2ccd662cc0dfbaf`.
+Builds ARM comparateur et profil normal réussis ; configurations sans diagnostic
+sans SD ou dépassant 60 s refusées. Les symboles d’initialisation, montage,
+préflight et formatage SD sont absents de l’image liée. Pas de relance des anciennes
+suites hôte inchangées. Le vérificateur de logs a d’abord manqué un retour à la ligne
+CMake ; les refus effectifs ont été confirmés sans modification des contrôles.
+
+**Préservation vérifiée :** identité SN/UID de TR2-002 contrôlée, deux sauvegardes
+Flash complètes identiques et RAM initiale conservée. Image initiale N8G reconnue,
+source `fbbdde5d328de47922cba688b6e406a327eb13f9`, 53 032 octets. Après les essais,
+elle a été restaurée par flash standard. Le readback des **2 097 152 octets** de Flash
+est strictement identique à la sauvegarde initiale, SHA-256
+`113f54b740a2ee2be789ac42649becb8fe58b8a47d33890c587faabf405386e5`.
+État final TR2-002 : N8G au WAIT, stage2/run0/error0, FIFO et writer arrêtés,
+zéro commande SD, GDB détaché. Cette restauration ne requalifie pas N8G.
+TR2-001 est inchangé : BIN D01 intégralement identique, ancien état99/error3,
+FIFO et writer arrêtés ; aucun flash, reset ou START sur 001 durant la comparaison.
+Aucune intervention FRAM, COM4, formatage, Option Bytes ou protection Windows.
+
+**Conclusion limitée :** le défaut de compteur de TR2-001 n’est pas reproduit sur
+TR2-002 pendant deux fenêtres de 60 s. La carte SD et son trafic ne sont pas
+nécessaires à l’échec de TR2-001. Cela ne prouve ni une panne du MCU001, ni
+l’innocuité absolue du logiciel partagé : capteurs, fils et conditions des deux
+montages n’ont pas encore été croisés. Aucun signal électrique n’a été mesuré.
+Aucune qualification d’endurance ou de stockage n’est acquise par ces diagnostics.
+
+Prochaine étape proposée : échange croisé des modules capteurs, les deux bancs
+hors tension, en conservant les câblages propres aux Nucleo ; puis un diagnostic
+court sans SD sur 001. Cette intervention physique reste à effectuer par
+l’utilisateur. Aucun troisième essai 002 ni départ 8 h dans cette tranche.
+
+[Résultats détaillés et preuves](preuves/TR2-20261101-001-AUTONOME/qualification-alimentation-20261102/bank-comparison/RESULTATS_ET_SUITE.md).
+HEAD initial de tranche : `663df57b`. Journal actualisé avec les résultats,
+les limites, la restauration et la prochaine action. Commit et push normaux sur
+main autorisés ; relecture distante prévue après publication du présent rapport.
+
+---
+
+## Historique des acquis jusqu’au checkpoint663df57b (états précédents)
+
 
 # TR2-001 autonome — reprise de la qualification progressive des alimentations
 

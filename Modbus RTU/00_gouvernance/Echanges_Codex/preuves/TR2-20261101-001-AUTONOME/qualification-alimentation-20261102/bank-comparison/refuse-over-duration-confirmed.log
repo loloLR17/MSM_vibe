@@ -1,0 +1,6 @@
+-- Configuring incomplete, errors occurred!
+CMake Error at CMakeLists.txt:31 (message):
+  Sensor-only diagnostic requires explicit TR2-001, no discovery and at
+  most60seconds
+
+

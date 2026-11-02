@@ -1,0 +1,16 @@
+{
+  "negative_configurations": [
+    {
+      "case": "without-sensor",
+      "expected_refusal": true
+    },
+    {
+      "case": "over-duration",
+      "expected_refusal": true
+    }
+  ],
+  "sd_init_mount_format_preflight_symbols_absent": true,
+  "initial_flash_matches_N8G_image_prefix": true,
+  "initial_image_bytes": 53032,
+  "test_recorder_note": "Initial log matcher missed CMake line wrapping; rejection itself was correct. Both preserved outputs inspected and accepted without changing guards."
+}

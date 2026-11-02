@@ -1,0 +1,12 @@
+{
+  "source_sha": "6be825d4681a17224000ae1f2b088a315ba328c0",
+  "entire_bin_exact": true,
+  "target_sn": "0032001F3235510C37333439",
+  "uid": "001B0046/38425018/20333157",
+  "bytes": 50928,
+  "sha256": "7886feb2371837ceef7e126f26b4dedb2d484538a6142b8df2ccd662cc0dfbaf",
+  "FS_g": 16,
+  "sensor_spi_hz": 8000000,
+  "duration_us": 60000000,
+  "SD_commands_allowed": false
+}

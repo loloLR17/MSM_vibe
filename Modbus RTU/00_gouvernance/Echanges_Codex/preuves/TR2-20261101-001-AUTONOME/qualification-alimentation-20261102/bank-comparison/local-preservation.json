@@ -1,0 +1,10 @@
+{
+  "initial_RAM": {
+    "bytes": 786432,
+    "sha256": "01056dd91d19d16a2c12263e64c57a0a0a91cbf67bc69184b719ff90d2af64a1",
+    "local_only": "/home/lolo/dev/msm/reports/TR2-001-autonome-reducteur-20261101/qualification-alimentation-20261102/bank-comparison/initial-ram.bin"
+  },
+  "Flash_backups_local_only": "/home/lolo/dev/msm/reports/TR2-001-autonome-reducteur-20261101/qualification-alimentation-20261102/bank-comparison/initial-flash-1.bin",
+  "large_BIN_ELF_local_only": "/home/lolo/dev/msm/reports/TR2-001-autonome-reducteur-20261101/qualification-alimentation-20261102/bank-comparison/D02-image",
+  "diagnostic_does_not_archive_all_XYZ": true
+}

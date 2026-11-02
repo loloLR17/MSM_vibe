@@ -1,0 +1,17 @@
+{
+  "command": [
+    "/mnt/c/ST/STM32CubeCLT_1.22.0/STM32CubeProgrammer/bin/STM32_Programmer_CLI.exe",
+    "-c",
+    "port=SWD",
+    "sn=0032001F3235510C37333439",
+    "freq=8000",
+    "-w",
+    "\\\\wsl.localhost\\Debian\\home\\lolo\\dev\\msm\\reports\\TR2-001-autonome-reducteur-20261101\\qualification-alimentation-20261102\\bank-comparison\\initial-image-to-restore.bin",
+    "0x08000000",
+    "-v",
+    "-rst"
+  ],
+  "code_sha": "fbbdde5d328de47922cba688b6e406a327eb13f9",
+  "sha256": "61afdfa92f84f7d9a194490a1cda49647e3be1b4d75d023bcff57015d89c75f0",
+  "normal_programming_only": true
+}

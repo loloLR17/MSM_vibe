@@ -1,0 +1,5 @@
+-- Configuring incomplete, errors occurred!
+CMake Error at CMakeLists.txt:34 (message):
+  TR2-002 comparator requires sensor-only diagnostic and exactly60seconds
+
+

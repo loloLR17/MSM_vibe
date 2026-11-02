@@ -1,0 +1,51 @@
+[  2%] Building C object CMakeFiles/r3_coex.dir/src/sd_group.c.obj
+[ 13%] Building C object CMakeFiles/r3_coex.dir/src/main.c.obj
+[ 13%] Building C object CMakeFiles/r3_coex.dir/home/lolo/dev/msm/projects/MSM_vibe-TR2-001-autonome/experiments/r3_coex_fifo_fir_sd/src/board_sd.c.obj
+[ 13%] Building C object CMakeFiles/r3_coex.dir/home/lolo/dev/msm/projects/MSM_vibe-TR2-001-autonome/experiments/r3_coex_fifo_fir_sd/src/capture_queue.c.obj
+[ 13%] Building C object CMakeFiles/r3_coex.dir/home/lolo/dev/msm/projects/MSM_vibe-TR2-001-autonome/experiments/r3_coex_fifo_fir_sd/src/stream_hash.c.obj
+[ 16%] Building C object CMakeFiles/r3_coex.dir/home/lolo/dev/msm/projects/MSM_vibe-TR2-001-autonome/experiments/r3_coex_fifo_fir_sd/src/sd_writer.c.obj
+[ 19%] Building C object CMakeFiles/r3_coex.dir/src/archive_format.c.obj
+[ 22%] Building C object CMakeFiles/r3_coex.dir/src/fat_volume.c.obj
+[ 25%] Building C object CMakeFiles/r3_coex.dir/vendor/fatfs/ff.c.obj
+[ 27%] Building C object CMakeFiles/r3_coex.dir/home/lolo/dev/msm/projects/MSM_vibe-TR2-001-autonome/Modbus_RTU/05_Firmware/platform/stm32/fifo_event_time.c.obj
+[ 30%] Building C object CMakeFiles/r3_coex.dir/home/lolo/dev/msm/projects/MSM_vibe-TR2-001-autonome/experiments/spi2_microsd_isolated/src/sd_spi.c.obj
+[ 33%] Building C object CMakeFiles/r3_coex.dir/home/lolo/dev/msm/projects/MSM_vibe-TR2-001-autonome/Modbus_RTU/05_Firmware/src/domain/acquisition/fir_decimator10.c.obj
+[ 36%] Building C object CMakeFiles/r3_coex.dir/home/lolo/dev/msm/projects/MSM_vibe-TR2-001-autonome/Modbus_RTU/05_Firmware/src/application/live_metrology.c.obj
+[ 38%] Building C object CMakeFiles/r3_coex.dir/home/lolo/dev/msm/projects/MSM_vibe-TR2-001-autonome/Modbus_RTU/05_Firmware/src/application/live_dynamic.c.obj
+[ 41%] Building C object CMakeFiles/r3_coex.dir/home/lolo/dev/msm/projects/MSM_vibe-TR2-001-autonome/Modbus_RTU/05_Firmware/src/domain/acquisition/window_statistics.c.obj
+[ 44%] Building C object CMakeFiles/r3_coex.dir/home/lolo/dev/msm/projects/MSM_vibe-TR2-001-autonome/Modbus_RTU/05_Firmware/src/domain/supervision/indicator_calculator.c.obj
+[ 47%] Building C object CMakeFiles/r3_coex.dir/home/lolo/dev/msm/projects/MSM_vibe-TR2-001-autonome/Modbus_RTU/05_Firmware/src/common/cooperative_work.c.obj
+[ 50%] Building C object CMakeFiles/r3_coex.dir/home/lolo/dev/msm/projects/MSM_vibe-TR2-001-autonome/experiments/iis3dwb_st_reference/src/platform.c.obj
+[ 52%] Building C object CMakeFiles/r3_coex.dir/home/lolo/dev/msm/projects/MSM_vibe-TR2-001-autonome/experiments/iis3dwb_st_reference/src/spi_diagnostic.c.obj
+[ 55%] Building C object CMakeFiles/r3_coex.dir/home/lolo/dev/msm/projects/MSM_vibe-TR2-001-autonome/experiments/iis3dwb_st_reference/src/fifo_live.c.obj
+[ 58%] Building C object CMakeFiles/r3_coex.dir/home/lolo/dev/msm/projects/MSM_vibe-TR2-001-autonome/experiments/iis3dwb_st_reference/src/fifo_window.c.obj
+[ 61%] Building C object CMakeFiles/r3_coex.dir/home/lolo/dev/msm/projects/MSM_vibe-TR2-001-autonome/experiments/iis3dwb_st_reference/vendor/st/iis3dwb_reg.c.obj
+[ 63%] Building C object CMakeFiles/r3_coex.dir/generated/stm32u5xx_hal_spi_observed.c.obj
+[ 66%] Building C object CMakeFiles/r3_coex.dir/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal.c.obj
+[ 69%] Building C object CMakeFiles/r3_coex.dir/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_cortex.c.obj
+[ 72%] Building C object CMakeFiles/r3_coex.dir/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_dma.c.obj
+[ 75%] Building C object CMakeFiles/r3_coex.dir/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_flash.c.obj
+[ 77%] Building C object CMakeFiles/r3_coex.dir/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_flash_ex.c.obj
+[ 80%] Building C object CMakeFiles/r3_coex.dir/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_gpio.c.obj
+[ 83%] Building C object CMakeFiles/r3_coex.dir/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_pwr.c.obj
+[ 86%] Building C object CMakeFiles/r3_coex.dir/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_pwr_ex.c.obj
+[ 88%] Building C object CMakeFiles/r3_coex.dir/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rcc.c.obj
+[ 91%] Building C object CMakeFiles/r3_coex.dir/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/STM32U5xx_HAL_Driver/Src/stm32u5xx_hal_rcc_ex.c.obj
+[ 94%] Building ASM object CMakeFiles/r3_coex.dir/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/CMSIS/Device/ST/STM32U5xx/Source/Templates/gcc/startup_stm32u575xx.s.obj
+[ 97%] Building C object CMakeFiles/r3_coex.dir/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/CMSIS/Device/ST/STM32U5xx/Source/Templates/system_stm32u5xx.c.obj
+[100%] Linking C executable r3_coex.elf
+/usr/lib/gcc/arm-none-eabi/14.2.1/../../../arm-none-eabi/bin/ld: /usr/lib/gcc/arm-none-eabi/14.2.1/../../../arm-none-eabi/lib/thumb/v8-m.main/nofp/libc_nano.a(libc_a-closer.o): in function `_close_r':
+/build/reproducible-path/newlib-4.5.0.20241231/build_nano/arm-none-eabi/thumb/v8-m.main/nofp/newlib/../../../../../../newlib/libc/reent/closer.c:47:(.text+0xc): warning: _close is not implemented and will always fail
+/usr/lib/gcc/arm-none-eabi/14.2.1/../../../arm-none-eabi/bin/ld: /usr/lib/gcc/arm-none-eabi/14.2.1/../../../arm-none-eabi/lib/thumb/v8-m.main/nofp/libc_nano.a(libc_a-closer.o): note: the message above does not take linker garbage collection into account
+/usr/lib/gcc/arm-none-eabi/14.2.1/../../../arm-none-eabi/bin/ld: /usr/lib/gcc/arm-none-eabi/14.2.1/../../../arm-none-eabi/lib/thumb/v8-m.main/nofp/libc_nano.a(libc_a-lseekr.o): in function `_lseek_r':
+/build/reproducible-path/newlib-4.5.0.20241231/build_nano/arm-none-eabi/thumb/v8-m.main/nofp/newlib/../../../../../../newlib/libc/reent/lseekr.c:49:(.text+0x14): warning: _lseek is not implemented and will always fail
+/usr/lib/gcc/arm-none-eabi/14.2.1/../../../arm-none-eabi/bin/ld: /usr/lib/gcc/arm-none-eabi/14.2.1/../../../arm-none-eabi/lib/thumb/v8-m.main/nofp/libc_nano.a(libc_a-lseekr.o): note: the message above does not take linker garbage collection into account
+/usr/lib/gcc/arm-none-eabi/14.2.1/../../../arm-none-eabi/bin/ld: /usr/lib/gcc/arm-none-eabi/14.2.1/../../../arm-none-eabi/lib/thumb/v8-m.main/nofp/libc_nano.a(libc_a-readr.o): in function `_read_r':
+/build/reproducible-path/newlib-4.5.0.20241231/build_nano/arm-none-eabi/thumb/v8-m.main/nofp/newlib/../../../../../../newlib/libc/reent/readr.c:49:(.text+0x14): warning: _read is not implemented and will always fail
+/usr/lib/gcc/arm-none-eabi/14.2.1/../../../arm-none-eabi/bin/ld: /usr/lib/gcc/arm-none-eabi/14.2.1/../../../arm-none-eabi/lib/thumb/v8-m.main/nofp/libc_nano.a(libc_a-readr.o): note: the message above does not take linker garbage collection into account
+/usr/lib/gcc/arm-none-eabi/14.2.1/../../../arm-none-eabi/bin/ld: /usr/lib/gcc/arm-none-eabi/14.2.1/../../../arm-none-eabi/lib/thumb/v8-m.main/nofp/libc_nano.a(libc_a-writer.o): in function `_write_r':
+/build/reproducible-path/newlib-4.5.0.20241231/build_nano/arm-none-eabi/thumb/v8-m.main/nofp/newlib/../../../../../../newlib/libc/reent/writer.c:49:(.text+0x14): warning: _write is not implemented and will always fail
+/usr/lib/gcc/arm-none-eabi/14.2.1/../../../arm-none-eabi/bin/ld: /usr/lib/gcc/arm-none-eabi/14.2.1/../../../arm-none-eabi/lib/thumb/v8-m.main/nofp/libc_nano.a(libc_a-writer.o): note: the message above does not take linker garbage collection into account
+   text	   data	    bss	    dec	    hex	filename
+  50908	     20	 616612	 667540	  a2f94	/home/lolo/dev/msm/cache/tr2-002-sensor-comparison/r3_coex.elf
+[100%] Built target r3_coex
