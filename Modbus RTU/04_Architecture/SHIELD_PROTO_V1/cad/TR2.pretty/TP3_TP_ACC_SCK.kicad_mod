@@ -1,0 +1,101 @@
+(footprint "TP3_TP_ACC_SCK"
+	(version 20260206)
+	(generator "pcbnew")
+	(generator_version "10.0")
+	(layer "F.Cu")
+	(property "Reference" "TP3"
+		(at 0 0 0)
+		(layer "F.SilkS")
+		(hide yes)
+		(uuid "8d2fa060-0e6a-43f2-b114-4485d3b4be08")
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+	)
+	(property "Value" "TP_ACC_SCK"
+		(at 0 0 0)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "983e4b4e-47f3-4043-8272-3c83f8060a47")
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+	)
+	(property "Datasheet" ""
+		(at 0 0 0)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "925efd82-17a9-418d-9b07-fcc8a24559a5")
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+	)
+	(property "Description" ""
+		(at 0 0 0)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "39265303-aaa1-4cd3-b5bf-eddab1bb7e95")
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+	)
+	(attr through_hole)
+	(duplicate_pad_numbers_are_jumpers no)
+	(fp_line
+		(start -1.4 -1.4)
+		(end 1.4 -1.4)
+		(stroke
+			(width 0.05)
+			(type default)
+		)
+		(layer "F.CrtYd")
+		(uuid "e520fdff-2290-47e5-a5d3-d3e68cbaed6b")
+	)
+	(fp_line
+		(start -1.4 1.4)
+		(end -1.4 -1.4)
+		(stroke
+			(width 0.05)
+			(type default)
+		)
+		(layer "F.CrtYd")
+		(uuid "ae58579e-6783-4b37-8cc5-ccb4f0d3dc54")
+	)
+	(fp_line
+		(start 1.4 -1.4)
+		(end 1.4 1.4)
+		(stroke
+			(width 0.05)
+			(type default)
+		)
+		(layer "F.CrtYd")
+		(uuid "88359d41-d7c0-4dda-96b3-6ff8d0f0c6a9")
+	)
+	(fp_line
+		(start 1.4 1.4)
+		(end -1.4 1.4)
+		(stroke
+			(width 0.05)
+			(type default)
+		)
+		(layer "F.CrtYd")
+		(uuid "dcc07485-c1ed-498d-84c9-d8e4467e7bf4")
+	)
+	(pad "1" thru_hole circle
+		(at 0 0)
+		(size 1.7 1.7)
+		(drill 1)
+		(layers "*.Cu" "*.Mask")
+		(remove_unused_layers no)
+		(uuid "930dea6d-c466-45d1-b3a0-438e386a1176")
+	)
+	(embedded_fonts no)
+)

@@ -1,0 +1,927 @@
+{
+    "$schema": "https://schemas.kicad.org/drc.v1.json",
+    "coordinate_units": "mm",
+    "date": "2026-11-02T22:09:20",
+    "ignored_checks": [
+        {
+            "description": "Footprint has no courtyard defined",
+            "key": "missing_courtyard"
+        },
+        {
+            "description": "Track endpoint not centered on via",
+            "key": "track_not_centered_on_via"
+        },
+        {
+            "description": "Tuning profile track geometries",
+            "key": "tuning_profile_track_geometries"
+        },
+        {
+            "description": "Footprint doesn't match symbol's footprint filters",
+            "key": "footprint_filters_mismatch"
+        },
+        {
+            "description": "Footprint component type doesn't match footprint pads",
+            "key": "footprint_type_mismatch"
+        }
+    ],
+    "included_severities": [
+        "error",
+        "warning",
+        "exclusion"
+    ],
+    "kicad_version": "10.0.6",
+    "schematic_parity": [],
+    "source": "TR2_Shield_Proto_V1.kicad_pcb",
+    "unconnected_items": [],
+    "violations": [
+        {
+            "description": "Violation d'isolation ( isolation 0,2000 mm; réel 0,1100 mm)",
+            "items": [
+                {
+                    "description": "Piste [+3V3] sur F.Cu, long. 2,0000 mm",
+                    "pos": {
+                        "x": 34.0,
+                        "y": 46.25
+                    },
+                    "uuid": "333b173f-953a-4789-8d14-47bffb25cf9c"
+                },
+                {
+                    "description": "Pad métallisé 10 [ACC_MOSI] de J2",
+                    "pos": {
+                        "x": 35.159999,
+                        "y": 45.32
+                    },
+                    "uuid": "a9dd5ee8-0ad2-4d25-947a-4c624cc55fe2"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "Violation d'isolation des trous (configuration des contraintes des trous isolation 0,2500 mm; réel 0,2000 mm)",
+            "items": [
+                {
+                    "description": "Piste [FRAM_CS] sur B.Cu, long. 3,7500 mm",
+                    "pos": {
+                        "x": 66.25,
+                        "y": 70.0
+                    },
+                    "uuid": "5598ca90-821f-403d-831c-6b128321d3ea"
+                },
+                {
+                    "description": "Pad Non Métallisé de J6",
+                    "pos": {
+                        "x": 65.32,
+                        "y": 71.7
+                    },
+                    "uuid": "a7ef881e-1bb4-45f8-adb4-44102030b025"
+                }
+            ],
+            "severity": "error",
+            "type": "hole_clearance"
+        },
+        {
+            "description": "Violation d'isolation ( isolation 0,2000 mm; réel 0,1100 mm)",
+            "items": [
+                {
+                    "description": "Piste [RTU_DE] sur F.Cu, long. 10,7500 mm",
+                    "pos": {
+                        "x": 96.0,
+                        "y": 103.75
+                    },
+                    "uuid": "2e174d13-9347-4c53-a11a-f19e2c807871"
+                },
+                {
+                    "description": "Pad métallisé 12 [<no net>] de J9",
+                    "pos": {
+                        "x": 94.84,
+                        "y": 102.86
+                    },
+                    "uuid": "ac9ff33b-0676-445e-900d-5551fb2f34e1"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "Violation d'isolation ( isolation 0,2000 mm; réel 0,1500 mm)",
+            "items": [
+                {
+                    "description": "Pad métallisé 6 [<no net>] de J8",
+                    "pos": {
+                        "x": 45.0,
+                        "y": 36.7
+                    },
+                    "uuid": "3d747710-9fcb-431c-b94b-43588035eef9"
+                },
+                {
+                    "description": "Piste [ACC_MISO] sur B.Cu, long. 1,7500 mm",
+                    "pos": {
+                        "x": 45.75,
+                        "y": 35.5
+                    },
+                    "uuid": "db2274d7-e44a-4664-9c86-4ee9f6ba087c"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "Violation d'isolation ( isolation 0,2000 mm; réel 0,1100 mm)",
+            "items": [
+                {
+                    "description": "Pad métallisé 15 [<no net>] de J4",
+                    "pos": {
+                        "x": 78.34,
+                        "y": 70.72
+                    },
+                    "uuid": "c1b7ebb1-70e8-4bb5-a813-e8166982faae"
+                },
+                {
+                    "description": "Piste [RTU_TX] sur B.Cu, long. 4,0000 mm",
+                    "pos": {
+                        "x": 79.5,
+                        "y": 73.75
+                    },
+                    "uuid": "e9ae2e77-472f-43d9-9a8f-89d2ecf0172f"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "Violation d'isolation ( isolation 0,2000 mm; réel 0,1900 mm)",
+            "items": [
+                {
+                    "description": "Piste [RTU_TX] sur B.Cu, long. 1,7500 mm",
+                    "pos": {
+                        "x": 81.75,
+                        "y": 74.5
+                    },
+                    "uuid": "2c0dea7b-511b-42c5-bc8d-e6267b7164da"
+                },
+                {
+                    "description": "Pad métallisé 18 [<no net>] de J4",
+                    "pos": {
+                        "x": 80.88,
+                        "y": 73.26
+                    },
+                    "uuid": "ede2a304-caa8-4579-82cd-91fb31ef881b"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "Violation d'isolation ( isolation 0,2000 mm; réel 0,1900 mm)",
+            "items": [
+                {
+                    "description": "Piste [SD_SCK] sur B.Cu, long. 4,5000 mm",
+                    "pos": {
+                        "x": 59.0,
+                        "y": 59.75
+                    },
+                    "uuid": "5e488635-99b9-444b-8aea-4b42d69cf438"
+                },
+                {
+                    "description": "Pad métallisé 7 [GND] de J6",
+                    "pos": {
+                        "x": 60.24,
+                        "y": 59.0
+                    },
+                    "uuid": "e6757ff4-1eb6-461a-84e1-c58262a4abb4"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "Violation d'isolation ( isolation 0,2000 mm; réel 0,1200 mm)",
+            "items": [
+                {
+                    "description": "Pad métallisé 3 [<no net>] de J8",
+                    "pos": {
+                        "x": 45.0,
+                        "y": 29.08
+                    },
+                    "uuid": "415e13f9-93a6-48b1-8ccc-25db8a5334e0"
+                },
+                {
+                    "description": "Piste [ACC_CS] sur F.Cu, long. 11,7500 mm",
+                    "pos": {
+                        "x": 44.5,
+                        "y": 30.25
+                    },
+                    "uuid": "5b1b938c-c867-4763-82f9-0ea745ee3d03"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "Violation d'isolation ( isolation 0,2000 mm; réel 0,1900 mm)",
+            "items": [
+                {
+                    "description": "Piste [FRAM_SCK] sur B.Cu, long. 2,0000 mm",
+                    "pos": {
+                        "x": 77.25,
+                        "y": 39.0
+                    },
+                    "uuid": "5fd4be35-50f9-4245-9096-72a59470c502"
+                },
+                {
+                    "description": "Pad métallisé 13 [<no net>] de J1",
+                    "pos": {
+                        "x": 78.34,
+                        "y": 40.24
+                    },
+                    "uuid": "e2d25726-faaf-4a8e-b61c-4a61bcd6b0c5"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "Violation d'isolation ( isolation 0,2000 mm; réel 0,1100 mm)",
+            "items": [
+                {
+                    "description": "Pad métallisé 11 [<no net>] de J1",
+                    "pos": {
+                        "x": 78.34,
+                        "y": 37.7
+                    },
+                    "uuid": "0437c26b-a47b-445c-bbde-cbc9b822c27b"
+                },
+                {
+                    "description": "Piste [FRAM_SCK] sur B.Cu, long. 2,0000 mm",
+                    "pos": {
+                        "x": 79.5,
+                        "y": 38.75
+                    },
+                    "uuid": "fa3ddab2-c31c-4827-9815-c88c9db16fc6"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "Violation d'isolation ( isolation 0,2000 mm; réel 0,1900 mm)",
+            "items": [
+                {
+                    "description": "Piste [FRAM_MISO] sur F.Cu, long. 2,5000 mm",
+                    "pos": {
+                        "x": 77.25,
+                        "y": 39.0
+                    },
+                    "uuid": "36273509-36b7-4b82-a635-81f336e6d02c"
+                },
+                {
+                    "description": "Pad métallisé 13 [<no net>] de J1",
+                    "pos": {
+                        "x": 78.34,
+                        "y": 40.24
+                    },
+                    "uuid": "e2d25726-faaf-4a8e-b61c-4a61bcd6b0c5"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "Violation d'isolation ( isolation 0,2000 mm; réel 0,1900 mm)",
+            "items": [
+                {
+                    "description": "Pad métallisé 7 [GND] de J6",
+                    "pos": {
+                        "x": 60.24,
+                        "y": 59.0
+                    },
+                    "uuid": "e6757ff4-1eb6-461a-84e1-c58262a4abb4"
+                },
+                {
+                    "description": "Piste [FRAM_MOSI] sur F.Cu, long. 1,7500 mm",
+                    "pos": {
+                        "x": 59.0,
+                        "y": 59.75
+                    },
+                    "uuid": "f8849fec-2780-456d-a4d9-ee9c489d6811"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "Violation d'isolation ( isolation 0,2000 mm; réel 0,1100 mm)",
+            "items": [
+                {
+                    "description": "Piste [FRAM_CS] sur B.Cu, long. 4,5000 mm",
+                    "pos": {
+                        "x": 79.5,
+                        "y": 48.75
+                    },
+                    "uuid": "24ad2773-4bac-41fb-9504-e0ef07440d74"
+                },
+                {
+                    "description": "Pad métallisé 19 [<no net>] de J1",
+                    "pos": {
+                        "x": 78.34,
+                        "y": 47.86
+                    },
+                    "uuid": "9dcb1192-da5c-44ed-94b9-5be1abb7a8e2"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "Violation d'isolation ( isolation 0,2000 mm; réel 0,1500 mm)",
+            "items": [
+                {
+                    "description": "Piste [+3V3] sur B.Cu, long. 2,0000 mm",
+                    "pos": {
+                        "x": 77.75,
+                        "y": 77.0
+                    },
+                    "uuid": "33276bc5-463b-4e7b-8752-681c54312ca1"
+                },
+                {
+                    "description": "Pad métallisé 19 [<no net>] de J4",
+                    "pos": {
+                        "x": 78.34,
+                        "y": 75.8
+                    },
+                    "uuid": "d4e8a365-0d72-4d87-8466-765c9fdc8528"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "Violation d'isolation ( isolation 0,2000 mm; réel 0,1100 mm)",
+            "items": [
+                {
+                    "description": "Pad métallisé 2 [<no net>] de J3",
+                    "pos": {
+                        "x": 35.159999,
+                        "y": 58.02
+                    },
+                    "uuid": "d52d2ab5-5872-4e97-b9fc-274da8333cf3"
+                },
+                {
+                    "description": "Piste [+3V3] sur F.Cu, long. 14,7500 mm",
+                    "pos": {
+                        "x": 34.0,
+                        "y": 71.75
+                    },
+                    "uuid": "e648944f-97b4-4f41-9988-4655f101ccd2"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "Violation d'isolation ( isolation 0,2000 mm; réel 0,1300 mm)",
+            "items": [
+                {
+                    "description": "Pad métallisé 10 [ACC_MOSI] de J2",
+                    "pos": {
+                        "x": 35.159999,
+                        "y": 45.32
+                    },
+                    "uuid": "a9dd5ee8-0ad2-4d25-947a-4c624cc55fe2"
+                },
+                {
+                    "description": "Piste [+3V3] sur F.Cu, long. 1,7500 mm",
+                    "pos": {
+                        "x": 36.0,
+                        "y": 46.5
+                    },
+                    "uuid": "f667c9d1-7e75-4aee-bae7-003a22328d80"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "Violation d'isolation ( isolation 0,2000 mm; réel 0,1100 mm)",
+            "items": [
+                {
+                    "description": "Pad métallisé 6 [ACC_SCK] de J2",
+                    "pos": {
+                        "x": 35.159999,
+                        "y": 40.24
+                    },
+                    "uuid": "0b964c56-13bb-4e01-875a-2f7e3c565ea7"
+                },
+                {
+                    "description": "Piste [+3V3] sur F.Cu, long. 9,0000 mm",
+                    "pos": {
+                        "x": 34.0,
+                        "y": 40.75
+                    },
+                    "uuid": "aa2c8f00-067f-45b5-b6db-00aa22b6c527"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "Violation d'isolation ( isolation 0,2000 mm; réel 0,1500 mm)",
+            "items": [
+                {
+                    "description": "Piste [+3V3] sur F.Cu, long. 1,7500 mm",
+                    "pos": {
+                        "x": 79.75,
+                        "y": 77.0
+                    },
+                    "uuid": "0fb0b15f-52be-47fb-ae08-da907ca0b6d7"
+                },
+                {
+                    "description": "Pad métallisé 20 [<no net>] de J4",
+                    "pos": {
+                        "x": 80.88,
+                        "y": 75.8
+                    },
+                    "uuid": "ffc879d8-1e7c-4123-aa7a-617273199de1"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "Violation d'isolation ( isolation 0,2000 mm; réel 0,1100 mm)",
+            "items": [
+                {
+                    "description": "Piste [ACC_SCK] sur F.Cu, long. 1,5000 mm",
+                    "pos": {
+                        "x": 60.75,
+                        "y": 33.0
+                    },
+                    "uuid": "38b716b2-4483-4f17-8ed1-52610c00e10f"
+                },
+                {
+                    "description": "Pad métallisé 20 [<no net>] de J8",
+                    "pos": {
+                        "x": 60.24,
+                        "y": 34.16
+                    },
+                    "uuid": "971f9a53-c12f-4e7e-8ef6-30baf0a5b27f"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "Violation d'isolation ( isolation 0,2000 mm; réel 0,1900 mm)",
+            "items": [
+                {
+                    "description": "Piste [ACC_SCK] sur F.Cu, long. 5,7500 mm",
+                    "pos": {
+                        "x": 45.75,
+                        "y": 38.0
+                    },
+                    "uuid": "47d8272e-6f22-4d26-aef7-f6bebc62b49e"
+                },
+                {
+                    "description": "Pad métallisé 7 [<no net>] de J8",
+                    "pos": {
+                        "x": 45.0,
+                        "y": 39.24
+                    },
+                    "uuid": "9cb0e122-83da-4e02-a3b2-cb8fe2900684"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "Violation d'isolation des trous (configuration des contraintes des trous isolation 0,2500 mm; réel 0,0600 mm)",
+            "items": [
+                {
+                    "description": "Pad métallisé 2 [<no net>] de J1",
+                    "pos": {
+                        "x": 80.88,
+                        "y": 25.0
+                    },
+                    "uuid": "03684335-d99c-4e19-9812-d8dcd4dd4532"
+                },
+                {
+                    "description": "Pad Non Métallisé de J1",
+                    "pos": {
+                        "x": 80.879999,
+                        "y": 22.440001
+                    },
+                    "uuid": "586eebab-25ac-4a9e-9f97-c85104432504"
+                }
+            ],
+            "severity": "error",
+            "type": "hole_clearance"
+        },
+        {
+            "description": "Violation d'isolation des trous (configuration des contraintes des trous isolation 0,2500 mm; réel 0,0600 mm)",
+            "items": [
+                {
+                    "description": "Pad métallisé 2 [<no net>] de J1",
+                    "pos": {
+                        "x": 80.88,
+                        "y": 25.0
+                    },
+                    "uuid": "03684335-d99c-4e19-9812-d8dcd4dd4532"
+                },
+                {
+                    "description": "Pad Non Métallisé de J1",
+                    "pos": {
+                        "x": 80.879999,
+                        "y": 22.440001
+                    },
+                    "uuid": "586eebab-25ac-4a9e-9f97-c85104432504"
+                }
+            ],
+            "severity": "error",
+            "type": "hole_clearance"
+        },
+        {
+            "description": "PTH inside courtyard",
+            "items": [
+                {
+                    "description": "Pad métallisé 21 [<no net>] de J3",
+                    "pos": {
+                        "x": 32.619999,
+                        "y": 83.42
+                    },
+                    "uuid": "8a6f5b1d-dfac-4443-84e2-b9f5dcf351aa"
+                },
+                {
+                    "description": "Empreinte J7",
+                    "pos": {
+                        "x": 44.0,
+                        "y": 106.0
+                    },
+                    "uuid": "b7edb00a-d6e1-449a-bc03-881036e6647c"
+                }
+            ],
+            "severity": "error",
+            "type": "pth_inside_courtyard"
+        },
+        {
+            "description": "PTH inside courtyard",
+            "items": [
+                {
+                    "description": "Pad métallisé 22 [<no net>] de J3",
+                    "pos": {
+                        "x": 35.159999,
+                        "y": 83.42
+                    },
+                    "uuid": "b2f373e7-5af5-42bc-b120-f4589d62b230"
+                },
+                {
+                    "description": "Empreinte J7",
+                    "pos": {
+                        "x": 44.0,
+                        "y": 106.0
+                    },
+                    "uuid": "b7edb00a-d6e1-449a-bc03-881036e6647c"
+                }
+            ],
+            "severity": "error",
+            "type": "pth_inside_courtyard"
+        },
+        {
+            "description": "PTH inside courtyard",
+            "items": [
+                {
+                    "description": "Pad métallisé 23 [<no net>] de J3",
+                    "pos": {
+                        "x": 32.619999,
+                        "y": 85.96
+                    },
+                    "uuid": "d4d3f5a2-5a78-4f1e-855a-85381697dfdd"
+                },
+                {
+                    "description": "Empreinte J7",
+                    "pos": {
+                        "x": 44.0,
+                        "y": 106.0
+                    },
+                    "uuid": "b7edb00a-d6e1-449a-bc03-881036e6647c"
+                }
+            ],
+            "severity": "error",
+            "type": "pth_inside_courtyard"
+        },
+        {
+            "description": "PTH inside courtyard",
+            "items": [
+                {
+                    "description": "Pad métallisé 24 [<no net>] de J3",
+                    "pos": {
+                        "x": 35.159999,
+                        "y": 85.96
+                    },
+                    "uuid": "1f126fe8-e04d-43ea-821e-dbb50f814391"
+                },
+                {
+                    "description": "Empreinte J7",
+                    "pos": {
+                        "x": 44.0,
+                        "y": 106.0
+                    },
+                    "uuid": "b7edb00a-d6e1-449a-bc03-881036e6647c"
+                }
+            ],
+            "severity": "error",
+            "type": "pth_inside_courtyard"
+        },
+        {
+            "description": "PTH inside courtyard",
+            "items": [
+                {
+                    "description": "Pad métallisé 25 [<no net>] de J3",
+                    "pos": {
+                        "x": 32.619999,
+                        "y": 88.5
+                    },
+                    "uuid": "35dd9a9e-84d0-4441-8ca9-cbabfd878977"
+                },
+                {
+                    "description": "Empreinte J7",
+                    "pos": {
+                        "x": 44.0,
+                        "y": 106.0
+                    },
+                    "uuid": "b7edb00a-d6e1-449a-bc03-881036e6647c"
+                }
+            ],
+            "severity": "error",
+            "type": "pth_inside_courtyard"
+        },
+        {
+            "description": "PTH inside courtyard",
+            "items": [
+                {
+                    "description": "Pad métallisé 26 [<no net>] de J3",
+                    "pos": {
+                        "x": 35.159999,
+                        "y": 88.5
+                    },
+                    "uuid": "38ccaf37-8d2c-49aa-8470-aa3cc395486b"
+                },
+                {
+                    "description": "Empreinte J7",
+                    "pos": {
+                        "x": 44.0,
+                        "y": 106.0
+                    },
+                    "uuid": "b7edb00a-d6e1-449a-bc03-881036e6647c"
+                }
+            ],
+            "severity": "error",
+            "type": "pth_inside_courtyard"
+        },
+        {
+            "description": "PTH inside courtyard",
+            "items": [
+                {
+                    "description": "Pad métallisé 27 [<no net>] de J3",
+                    "pos": {
+                        "x": 32.619999,
+                        "y": 91.04
+                    },
+                    "uuid": "d1f46b0b-f94b-4288-8327-5766f2294809"
+                },
+                {
+                    "description": "Empreinte J7",
+                    "pos": {
+                        "x": 44.0,
+                        "y": 106.0
+                    },
+                    "uuid": "b7edb00a-d6e1-449a-bc03-881036e6647c"
+                }
+            ],
+            "severity": "error",
+            "type": "pth_inside_courtyard"
+        },
+        {
+            "description": "PTH inside courtyard",
+            "items": [
+                {
+                    "description": "Pad métallisé 28 [<no net>] de J3",
+                    "pos": {
+                        "x": 35.159999,
+                        "y": 91.04
+                    },
+                    "uuid": "ca9e79d0-a8c4-4b42-bdee-13949ceb43ed"
+                },
+                {
+                    "description": "Empreinte J7",
+                    "pos": {
+                        "x": 44.0,
+                        "y": 106.0
+                    },
+                    "uuid": "b7edb00a-d6e1-449a-bc03-881036e6647c"
+                }
+            ],
+            "severity": "error",
+            "type": "pth_inside_courtyard"
+        },
+        {
+            "description": "PTH inside courtyard",
+            "items": [
+                {
+                    "description": "Pad métallisé 29 [<no net>] de J3",
+                    "pos": {
+                        "x": 32.619999,
+                        "y": 93.58
+                    },
+                    "uuid": "19884193-e0ac-4ce5-b4cf-7eab1a56e3b2"
+                },
+                {
+                    "description": "Empreinte J7",
+                    "pos": {
+                        "x": 44.0,
+                        "y": 106.0
+                    },
+                    "uuid": "b7edb00a-d6e1-449a-bc03-881036e6647c"
+                }
+            ],
+            "severity": "error",
+            "type": "pth_inside_courtyard"
+        },
+        {
+            "description": "PTH inside courtyard",
+            "items": [
+                {
+                    "description": "Pad métallisé 30 [<no net>] de J3",
+                    "pos": {
+                        "x": 35.159999,
+                        "y": 93.58
+                    },
+                    "uuid": "0cdd6c13-9b70-44c3-9461-20e07261d804"
+                },
+                {
+                    "description": "Empreinte J7",
+                    "pos": {
+                        "x": 44.0,
+                        "y": 106.0
+                    },
+                    "uuid": "b7edb00a-d6e1-449a-bc03-881036e6647c"
+                }
+            ],
+            "severity": "error",
+            "type": "pth_inside_courtyard"
+        },
+        {
+            "description": "NPTH inside courtyard",
+            "items": [
+                {
+                    "description": "Pad Non Métallisé de J1",
+                    "pos": {
+                        "x": 33.89,
+                        "y": 97.39
+                    },
+                    "uuid": "4bdadf23-1133-4228-bf22-3998b67ad53a"
+                },
+                {
+                    "description": "Empreinte J7",
+                    "pos": {
+                        "x": 44.0,
+                        "y": 106.0
+                    },
+                    "uuid": "b7edb00a-d6e1-449a-bc03-881036e6647c"
+                }
+            ],
+            "severity": "error",
+            "type": "npth_inside_courtyard"
+        },
+        {
+            "description": "Courtyards overlap",
+            "items": [
+                {
+                    "description": "Empreinte R1",
+                    "pos": {
+                        "x": 37.0,
+                        "y": 31.0
+                    },
+                    "uuid": "af88fe0a-c7ad-4b8a-9085-446790bf42f2"
+                },
+                {
+                    "description": "Empreinte J8",
+                    "pos": {
+                        "x": 45.0,
+                        "y": 24.0
+                    },
+                    "uuid": "d2e112e7-d94e-4d57-a6cd-6032d5130a37"
+                }
+            ],
+            "severity": "error",
+            "type": "courtyards_overlap"
+        },
+        {
+            "description": "Connexion de frein thermique à la zone incomplète (couche F.Cu ; zone nbre min de rayons 2 ; réel 1)",
+            "items": [
+                {
+                    "description": "Zone [GND] sur F.Cu, priorité 0",
+                    "pos": {
+                        "x": 20.5,
+                        "y": 17.5
+                    },
+                    "uuid": "434387b0-000e-4ebf-ac7a-958826cebfc9"
+                },
+                {
+                    "description": "Pad métallisé 2 [GND] de C2",
+                    "pos": {
+                        "x": 40.5,
+                        "y": 78.0
+                    },
+                    "uuid": "6335becd-6f76-4bc4-9e94-035db78da208"
+                }
+            ],
+            "severity": "error",
+            "type": "starved_thermal"
+        },
+        {
+            "description": "Connexion de frein thermique à la zone incomplète (couche B.Cu ; zone nbre min de rayons 2 ; réel 1)",
+            "items": [
+                {
+                    "description": "Zone [GND] sur B.Cu, priorité 0",
+                    "pos": {
+                        "x": 20.5,
+                        "y": 17.5
+                    },
+                    "uuid": "3a2a1023-8002-43d8-9c3c-99c156fc3bca"
+                },
+                {
+                    "description": "Pad métallisé 2 [GND] de C2",
+                    "pos": {
+                        "x": 40.5,
+                        "y": 78.0
+                    },
+                    "uuid": "6335becd-6f76-4bc4-9e94-035db78da208"
+                }
+            ],
+            "severity": "error",
+            "type": "starved_thermal"
+        },
+        {
+            "description": "Hauteur de texte hors de plage (configuration des contraintes du PCB hauteur de texte sur sérigraphie hauteur min 0,8000 mm; réel 0,7000 mm)",
+            "items": [
+                {
+                    "description": "Texte PCB 'CN12-69 PG4' surF.Silkscreen",
+                    "pos": {
+                        "x": 80.0,
+                        "y": 115.0
+                    },
+                    "uuid": "6a0e9731-7288-4bce-b30f-f1c277dddf62"
+                }
+            ],
+            "severity": "warning",
+            "type": "text_height"
+        },
+        {
+            "description": "Silkscreen clipped by solder mask",
+            "items": [
+                {
+                    "description": "Texte PCB 'C2' surF.Silkscreen",
+                    "pos": {
+                        "x": 35.9,
+                        "y": 76.0
+                    },
+                    "uuid": "591ac14e-eba5-48f7-9b48-91894d7caedc"
+                },
+                {
+                    "description": "Pad métallisé 16 [<no net>] de J3",
+                    "pos": {
+                        "x": 35.159999,
+                        "y": 75.8
+                    },
+                    "uuid": "2b3e3cba-7680-42e7-85fc-48ea036e8f95"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_over_copper"
+        },
+        {
+            "description": "Silkscreen clipped by solder mask",
+            "items": [
+                {
+                    "description": "Texte PCB 'C1' surF.Silkscreen",
+                    "pos": {
+                        "x": 35.9,
+                        "y": 50.0
+                    },
+                    "uuid": "e9d4d40e-d7dc-431e-9eef-da55669d6d29"
+                },
+                {
+                    "description": "Pad métallisé 14 [<no net>] de J2",
+                    "pos": {
+                        "x": 35.159999,
+                        "y": 50.4
+                    },
+                    "uuid": "77f6e8bb-88f1-4128-8adf-40a6e32d0755"
+                }
+            ],
+            "severity": "warning",
+            "type": "silk_over_copper"
+        }
+    ]
+}

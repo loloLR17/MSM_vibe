@@ -1,0 +1,301 @@
+[
+  {
+    "file": "Adafruit-MicroSD-SPI-or-SDIO-card-breakout-PCB__Adafruit SDIO microSD.brd",
+    "SHA256": "0ec91e989f1004c85c203bc4539bb2652b8c33614cc18f624bd3bdac7cbf8c57",
+    "connector": {
+      "name": "JP1",
+      "library": "microbuilder",
+      "package": "1X09_ROUND_70",
+      "value": "",
+      "x": "12.7",
+      "y": "2.54",
+      "smashed": "yes"
+    },
+    "pads": [
+      {
+        "number": "1",
+        "net": "3.3V",
+        "relative_x_mm": -10.16,
+        "relative_y_mm": 0.0,
+        "drill_mm": 1.0
+      },
+      {
+        "number": "2",
+        "net": "GND",
+        "relative_x_mm": -7.62,
+        "relative_y_mm": 0.0,
+        "drill_mm": 1.0
+      },
+      {
+        "number": "3",
+        "net": "SCLK",
+        "relative_x_mm": -5.08,
+        "relative_y_mm": 0.0,
+        "drill_mm": 1.0
+      },
+      {
+        "number": "4",
+        "net": "DO",
+        "relative_x_mm": -2.54,
+        "relative_y_mm": 0.0,
+        "drill_mm": 1.0
+      },
+      {
+        "number": "5",
+        "net": "DI",
+        "relative_x_mm": 0.0,
+        "relative_y_mm": 0.0,
+        "drill_mm": 1.0
+      },
+      {
+        "number": "6",
+        "net": "CS",
+        "relative_x_mm": 2.54,
+        "relative_y_mm": 0.0,
+        "drill_mm": 1.0
+      },
+      {
+        "number": "7",
+        "net": "DAT1",
+        "relative_x_mm": 5.08,
+        "relative_y_mm": 0.0,
+        "drill_mm": 1.0
+      },
+      {
+        "number": "8",
+        "net": "DAT2",
+        "relative_x_mm": 7.62,
+        "relative_y_mm": 0.0,
+        "drill_mm": 1.0
+      },
+      {
+        "number": "9",
+        "net": "CARDDET",
+        "relative_x_mm": 10.16,
+        "relative_y_mm": 0.0,
+        "drill_mm": 1.0
+      }
+    ],
+    "outline_Eagle_mm": [
+      {
+        "x1": "25.4",
+        "y1": "20.32",
+        "x2": "25.4",
+        "y2": "2.54",
+        "width": "0",
+        "layer": "20"
+      },
+      {
+        "x1": "25.4",
+        "y1": "2.54",
+        "x2": "22.86",
+        "y2": "0",
+        "width": "0",
+        "layer": "20",
+        "curve": "-90"
+      },
+      {
+        "x1": "22.86",
+        "y1": "0",
+        "x2": "2.54",
+        "y2": "0",
+        "width": "0",
+        "layer": "20"
+      },
+      {
+        "x1": "2.54",
+        "y1": "0",
+        "x2": "0",
+        "y2": "2.54",
+        "width": "0",
+        "layer": "20",
+        "curve": "-90"
+      },
+      {
+        "x1": "0",
+        "y1": "2.54",
+        "x2": "0",
+        "y2": "20.32",
+        "width": "0",
+        "layer": "20"
+      },
+      {
+        "x1": "0",
+        "y1": "20.32",
+        "x2": "2.54",
+        "y2": "22.86",
+        "width": "0",
+        "layer": "20",
+        "curve": "-90"
+      },
+      {
+        "x1": "2.54",
+        "y1": "22.86",
+        "x2": "22.86",
+        "y2": "22.86",
+        "width": "0",
+        "layer": "20"
+      },
+      {
+        "x1": "22.86",
+        "y1": "22.86",
+        "x2": "25.4",
+        "y2": "20.32",
+        "width": "0",
+        "layer": "20",
+        "curve": "-90"
+      }
+    ],
+    "note": "Manufacturer CAD coordinates verified, physical revision remains assembly check; FRAM JP1 rotated180deg, SD JP1 unrotated; do not interchange pin orders"
+  },
+  {
+    "file": "Adafruit-FRAM-Breakout-PCB__SPI FRAM 2 and 4 Mbit.brd",
+    "SHA256": "861a05b686fcd5ad03a8f586ccf199ddb5163454c9b6663071ac254c937ece2f",
+    "connector": {
+      "name": "JP1",
+      "library": "microbuilder",
+      "package": "1X09_ROUND_70",
+      "value": "",
+      "x": "12.7",
+      "y": "2.54",
+      "smashed": "yes",
+      "rot": "R180"
+    },
+    "pads": [
+      {
+        "number": "1",
+        "net": "HOLD",
+        "relative_x_mm": -10.16,
+        "relative_y_mm": 0.0,
+        "drill_mm": 1.0
+      },
+      {
+        "number": "2",
+        "net": "WP",
+        "relative_x_mm": -7.62,
+        "relative_y_mm": 0.0,
+        "drill_mm": 1.0
+      },
+      {
+        "number": "3",
+        "net": "SS",
+        "relative_x_mm": -5.08,
+        "relative_y_mm": 0.0,
+        "drill_mm": 1.0
+      },
+      {
+        "number": "4",
+        "net": "MOSI",
+        "relative_x_mm": -2.54,
+        "relative_y_mm": 0.0,
+        "drill_mm": 1.0
+      },
+      {
+        "number": "5",
+        "net": "MISO_3.3V",
+        "relative_x_mm": 0.0,
+        "relative_y_mm": 0.0,
+        "drill_mm": 1.0
+      },
+      {
+        "number": "6",
+        "net": "SCK",
+        "relative_x_mm": 2.54,
+        "relative_y_mm": 0.0,
+        "drill_mm": 1.0
+      },
+      {
+        "number": "7",
+        "net": "GND",
+        "relative_x_mm": 5.08,
+        "relative_y_mm": 0.0,
+        "drill_mm": 1.0
+      },
+      {
+        "number": "8",
+        "net": "3.3V",
+        "relative_x_mm": 7.62,
+        "relative_y_mm": 0.0,
+        "drill_mm": 1.0
+      },
+      {
+        "number": "9",
+        "net": "VIN",
+        "relative_x_mm": 10.16,
+        "relative_y_mm": 0.0,
+        "drill_mm": 1.0
+      }
+    ],
+    "outline_Eagle_mm": [
+      {
+        "x1": "0",
+        "y1": "2.54",
+        "x2": "0",
+        "y2": "15.24",
+        "width": "0",
+        "layer": "20"
+      },
+      {
+        "x1": "0",
+        "y1": "15.24",
+        "x2": "2.54",
+        "y2": "17.78",
+        "width": "0",
+        "layer": "20",
+        "curve": "-90"
+      },
+      {
+        "x1": "2.54",
+        "y1": "17.78",
+        "x2": "22.86",
+        "y2": "17.78",
+        "width": "0",
+        "layer": "20"
+      },
+      {
+        "x1": "22.86",
+        "y1": "17.78",
+        "x2": "25.4",
+        "y2": "15.24",
+        "width": "0",
+        "layer": "20",
+        "curve": "-90"
+      },
+      {
+        "x1": "25.4",
+        "y1": "15.24",
+        "x2": "25.4",
+        "y2": "2.54",
+        "width": "0",
+        "layer": "20"
+      },
+      {
+        "x1": "25.4",
+        "y1": "2.54",
+        "x2": "22.86",
+        "y2": "0",
+        "width": "0",
+        "layer": "20",
+        "curve": "-90"
+      },
+      {
+        "x1": "22.86",
+        "y1": "0",
+        "x2": "2.54",
+        "y2": "0",
+        "width": "0",
+        "layer": "20"
+      },
+      {
+        "x1": "2.54",
+        "y1": "0",
+        "x2": "0",
+        "y2": "2.54",
+        "width": "0",
+        "layer": "20",
+        "curve": "-90"
+      }
+    ],
+    "note": "Manufacturer CAD coordinates verified, physical revision remains assembly check; FRAM JP1 rotated180deg, SD JP1 unrotated; do not interchange pin orders"
+  }
+]

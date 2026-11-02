@@ -626,3 +626,14 @@ Publication R3-B vérifiée : code1c5368f, preuves/rapport faf0f94 sur main relu
 - **REPRISE / NON VÉRIFIÉ** : faire autoriser la publication via le mécanisme prévu sur T1000, sans geste matériel nécessaire pour lever ce blocage. Puis smoke Windows, contrôle cible actuel, flash/readback, premier START/STOP, boot autonome et second run prolongé surveillé, preuves Edge/HTTP/SQLite vivant et état final STOP avec LIVE laissé en Flash si sain. Aucune qualification physique/endurance ou démo du20/10 revendiquée. [Reprise](../Supervision%20TR2/operator-demo/REPRISE.md). Ergonomie lot2 seulement proposée après lot1, contrôle indépendant ChatGPT distinct.
 
 - **PUBLICATION DU CHECKPOINT RELUE** : bilan `f5e640b6e31343adb77243c8f9d36b430a117eab` récupéré deGitHub à2026-10-19T10:25:47.035474+00:00,77 fichiers complets/59 empreintes/57 artefacts contrôlés. BLOCKED Windows demeure ; aucun flash/reset/Modbus COM4. Retry de push réussi après erreur RPC via tampon HTTP par commande, sans configuration permanente modifiée. Mission reprenable sous même identifiant/révision2, sans archive DONE fictive.
+
+
+## 2026-11-02 — Shield prototype V1, CAO candidate ; fabrication bloquée
+
+Mission `TR2-20261102-SHIELD-PROTO-V1`, départ `ad924a3d`. **VALIDÉ logiciel CAO** : projet KiCad10 éditable, PCB2couches90×100mm, ERC/DRC avec parité sans anomalie,59broches connectées/117NC, exports Gerber/Excellon/PDF/STEP carte nue et vérification netlist/PCB/CAM/perçages. Dossier `04_Architecture/SHIELD_PROTO_V1/` ; aucune qualification physique par ces contrôles.
+
+**Observations utilisateur** : modules FRAM MB85RS2, MIKROE3863, MKI208V1+MKIGIBV2, NucleoC05 ; MKIGIBV2 entraxe15,2mm mesuré, GND bas de JP2 à droite vue dessus (global13 du schéma, pas «pin12global»). **PRÉPARÉ** : matrice SPI1/2/3+LPUART/PG4, sockets/fixations et gabarit, budget scénario45,11€ pour2 équipements réemployant les modules. Budget livré≤50€ NON VÉRIFIÉ, plusieurs postes provisionnels.
+
+**BLOCKED fabrication** : contrôle du gabarit sur C05, enveloppe/hauteur MKIGIBV2, empilage/Click réel et retenues détrompées non figées. Les Gerber sont explicitement interdits de commande. Revue indépendante ChatGPT puis cotes minimales décrites dans `docs/ASSEMBLAGE_ET_RESERVES.md` ; ne pas redemander l’entraxe/GND déjà rapportés. 8MHz, tenue vibratoire/thermique, assemblage et coexistence physique restent NON VÉRIFIÉS.
+
+Aucun flash/debug ni accès aux deux bancs, FRAM, SD ou COM. Firmware CN0 de TR2-001 et archives CN0/GI0/C29/OBE conservés. Récupération TR2-002 toujours hors périmètre et non déclarée achevée. La mitigation d’écrêtage et la fixation de tête au carter56,5°C restent des missions séparées.

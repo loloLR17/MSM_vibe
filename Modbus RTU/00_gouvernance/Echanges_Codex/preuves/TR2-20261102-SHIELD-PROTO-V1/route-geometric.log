@@ -1,0 +1,24 @@
+ACC_CS R1.2 -> J2.4 points 8 visits 363
+ACC_CS R1.2 -> J8.21 points 13 visits 4816
+ACC_MISO J8.24 -> J2.8 points 14 visits 16217
+ACC_MOSI J8.23 -> J2.10 points 14 visits 26510
+ACC_SCK TP3.1 -> J8.22 points 5 visits 317
+ACC_SCK J8.22 -> J2.6 points 14 visits 29697
+SD_CS TP4.1 -> R3.2 points 9 visits 349
+SD_CS TP4.1 -> J7.6 points 11 visits 1586
+SD_CS TP4.1 -> J1.20 points 13 visits 9238
+SD_MISO J7.4 -> J3.10 points 14 visits 840
+SD_MOSI J7.5 -> J3.8 points 12 visits 1251
+SD_SCK J7.3 -> J1.5 points 20 visits 14129
+FRAM_CS R2.2 -> J6.3 points 10 visits 6289
+FRAM_CS R2.2 -> J1.16 points 18 visits 5548
+FRAM_MISO J6.5 -> J1.12 points 28 visits 78424
+FRAM_MOSI J6.4 -> J1.14 points 26 visits 88310
+Traceback (most recent call last):
+  File "/home/lolo/dev/msm/projects/MSM_vibe-SHIELD-PROTO-V1/Modbus RTU/04_Architecture/SHIELD_PROTO_V1/tools/route_board.py", line 96, in <module>
+    path,v=route(a,z,ids[name]);routes.append({'net':name,'from':a['ref']+'.'+a['number'],'to':z['ref']+'.'+z['number'],'points':path});connected.append(z);remaining.remove(z)
+           ~~~~~^^^^^^^^^^^^^^^
+  File "/home/lolo/dev/msm/projects/MSM_vibe-SHIELD-PROTO-V1/Modbus RTU/04_Architecture/SHIELD_PROTO_V1/tools/route_board.py", line 61, in route
+    if endstate is None:raise RuntimeError(f'No safe route {start["ref"]}.{start["number"]} to {end["ref"]}.{end["number"]}, visits={visits}')
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: No safe route J6.6 to J1.10, visits=367575

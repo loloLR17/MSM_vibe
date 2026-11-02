@@ -1,0 +1,1793 @@
+{
+    "$schema": "https://schemas.kicad.org/drc.v1.json",
+    "coordinate_units": "mm",
+    "date": "2026-11-02T22:18:06",
+    "ignored_checks": [
+        {
+            "description": "Footprint has no courtyard defined",
+            "key": "missing_courtyard"
+        },
+        {
+            "description": "Track endpoint not centered on via",
+            "key": "track_not_centered_on_via"
+        },
+        {
+            "description": "Tuning profile track geometries",
+            "key": "tuning_profile_track_geometries"
+        },
+        {
+            "description": "Footprint doesn't match symbol's footprint filters",
+            "key": "footprint_filters_mismatch"
+        },
+        {
+            "description": "Footprint component type doesn't match footprint pads",
+            "key": "footprint_type_mismatch"
+        }
+    ],
+    "included_severities": [
+        "error",
+        "warning",
+        "exclusion"
+    ],
+    "kicad_version": "10.0.6",
+    "schematic_parity": [
+        {
+            "description": "Le pad a le net manquant donné par la schématique (unconnected-(J1-NC-Pad1))",
+            "items": [
+                {
+                    "description": "Pad métallisé 1 [<no net>] de J1",
+                    "pos": {
+                        "x": 78.34,
+                        "y": 25.0
+                    },
+                    "uuid": "dd84506b-0421-4933-99e8-2161ceccf5dd"
+                }
+            ],
+            "severity": "warning",
+            "type": "net_conflict"
+        },
+        {
+            "description": "Le pad a le net manquant donné par la schématique (unconnected-(J1-NC-Pad2))",
+            "items": [
+                {
+                    "description": "Pad métallisé 2 [<no net>] de J1",
+                    "pos": {
+                        "x": 80.88,
+                        "y": 25.0
+                    },
+                    "uuid": "43349a76-70d8-4046-a675-3e38b3b12017"
+                }
+            ],
+            "severity": "warning",
+            "type": "net_conflict"
+        },
+        {
+            "description": "Le pad a le net manquant donné par la schématique (unconnected-(J1-NC-Pad3))",
+            "items": [
+                {
+                    "description": "Pad métallisé 3 [<no net>] de J1",
+                    "pos": {
+                        "x": 78.34,
+                        "y": 27.54
+                    },
+                    "uuid": "5da8a70b-f480-4332-900b-150e78786dfc"
+                }
+            ],
+            "severity": "warning",
+            "type": "net_conflict"
+        },
+        {
+            "description": "Le pad a le net manquant donné par la schématique (unconnected-(J1-NC-Pad4))",
+            "items": [
+                {
+                    "description": "Pad métallisé 4 [<no net>] de J1",
+                    "pos": {
+                        "x": 80.88,
+                        "y": 27.54
+                    },
+                    "uuid": "df255761-39ba-4644-9f4a-8b76ac62e416"
+                }
+            ],
+            "severity": "warning",
+            "type": "net_conflict"
+        },
+        {
+            "description": "Le pad a le net manquant donné par la schématique (unconnected-(J1-NC-Pad6))",
+            "items": [
+                {
+                    "description": "Pad métallisé 6 [<no net>] de J1",
+                    "pos": {
+                        "x": 80.88,
+                        "y": 30.08
+                    },
+                    "uuid": "2fa1b1d0-b065-49e5-9208-a3bfb81b768e"
+                }
+            ],
+            "severity": "warning",
+            "type": "net_conflict"
+        },
+        {
+            "description": "Le pad a le net manquant donné par la schématique (unconnected-(J1-NC-Pad7))",
+            "items": [
+                {
+                    "description": "Pad métallisé 7 [<no net>] de J1",
+                    "pos": {
+                        "x": 78.34,
+                        "y": 32.62
+                    },
+                    "uuid": "c0d0df68-677a-4aa0-a3f0-d269225649f7"
+                }
+            ],
+            "severity": "warning",
+            "type": "net_conflict"
+        },
+        {
+            "description": "Le pad a le net manquant donné par la schématique (unconnected-(J1-NC-Pad8))",
+            "items": [
+                {
+                    "description": "Pad métallisé 8 [<no net>] de J1",
+                    "pos": {
+                        "x": 80.88,
+                        "y": 32.62
+                    },
+                    "uuid": "bc06ed2a-e22a-4c56-a815-518bfc61ada1"
+                }
+            ],
+            "severity": "warning",
+            "type": "net_conflict"
+        },
+        {
+            "description": "Le pad a le net manquant donné par la schématique (unconnected-(J1-NC-Pad9))",
+            "items": [
+                {
+                    "description": "Pad métallisé 9 [<no net>] de J1",
+                    "pos": {
+                        "x": 78.34,
+                        "y": 35.16
+                    },
+                    "uuid": "b959025a-7ed8-4329-9883-32ad551d9657"
+                }
+            ],
+            "severity": "warning",
+            "type": "net_conflict"
+        },
+        {
+            "description": "Le pad a le net manquant donné par la schématique (unconnected-(J1-NC-Pad11))",
+            "items": [
+                {
+                    "description": "Pad métallisé 11 [<no net>] de J1",
+                    "pos": {
+                        "x": 78.34,
+                        "y": 37.7
+                    },
+                    "uuid": "412ece57-52f3-482a-bbdb-adadc12e6980"
+                }
+            ],
+            "severity": "warning",
+            "type": "net_conflict"
+        },
+        {
+            "description": "Le pad a le net manquant donné par la schématique (unconnected-(J1-NC-Pad13))",
+            "items": [
+                {
+                    "description": "Pad métallisé 13 [<no net>] de J1",
+                    "pos": {
+                        "x": 78.34,
+                        "y": 40.24
+                    },
+                    "uuid": "30fc5dc9-e52a-4cd3-94ef-36dded673b97"
+                }
+            ],
+            "severity": "warning",
+            "type": "net_conflict"
+        },
+        {
+            "description": "Le pad a le net manquant donné par la schématique (unconnected-(J1-NC-Pad15))",
+            "items": [
+                {
+                    "description": "Pad métallisé 15 [<no net>] de J1",
+                    "pos": {
+                        "x": 78.34,
+                        "y": 42.78
+                    },
+                    "uuid": "d13170e3-0bd9-4c21-a244-4fa28caf3cba"
+                }
+            ],
+            "severity": "warning",
+            "type": "net_conflict"
+        },
+        {
+            "description": "Le pad a le net manquant donné par la schématique (unconnected-(J1-NC-Pad17))",
+            "items": [
+                {
+                    "description": "Pad métallisé 17 [<no net>] de J1",
+                    "pos": {
+                        "x": 78.34,
+                        "y": 45.32
+                    },
+                    "uuid": "9ebd8faa-8e3e-466d-876a-24f465e1226e"
+                }
+            ],
+            "severity": "warning",
+            "type": "net_conflict"
+        },
+        {
+            "description": "Le pad a le net manquant donné par la schématique (unconnected-(J1-NC-Pad18))",
+            "items": [
+                {
+                    "description": "Pad métallisé 18 [<no net>] de J1",
+                    "pos": {
+                        "x": 80.88,
+                        "y": 45.32
+                    },
+                    "uuid": "ee1bae3b-9e1a-4342-8e0c-20a9b6e47453"
+                }
+            ],
+            "severity": "warning",
+            "type": "net_conflict"
+        },
+        {
+            "description": "Le pad a le net manquant donné par la schématique (unconnected-(J1-NC-Pad19))",
+            "items": [
+                {
+                    "description": "Pad métallisé 19 [<no net>] de J1",
+                    "pos": {
+                        "x": 78.34,
+                        "y": 47.86
+                    },
+                    "uuid": "eb4b6717-5f39-4719-b222-88602e72defd"
+                }
+            ],
+            "severity": "warning",
+            "type": "net_conflict"
+        },
+        {
+            "description": "Le pad a le net manquant donné par la schématique (unconnected-(J2-NC-Pad1))",
+            "items": [
+                {
+                    "description": "Pad métallisé 1 [<no net>] de J2",
+                    "pos": {
+                        "x": 32.619999,
+                        "y": 35.16
+                    },
+                    "uuid": "90f18761-b053-4b8b-bf61-3c007d1c5aca"
+                }
+            ],
+            "severity": "warning",
+            "type": "net_conflict"
+        },
+        {
+            "description": "Le pad a le net manquant donné par la schématique (unconnected-(J2-NC-Pad2))",
+            "items": [
+                {
+                    "description": "Pad métallisé 2 [<no net>] de J2",
+                    "pos": {
+                        "x": 35.159999,
+                        "y": 35.16
+                    },
+                    "uuid": "88484085-d49f-48f2-a2e6-5b2b3faa649e"
+                }
+            ],
+            "severity": "warning",
+            "type": "net_conflict"
+        },
+        {
+            "description": "Le pad a le net manquant donné par la schématique (unconnected-(J2-NC-Pad3))",
+            "items": [
+                {
+                    "description": "Pad métallisé 3 [<no net>] de J2",
+                    "pos": {
+                        "x": 32.619999,
+                        "y": 37.7
+                    },
+                    "uuid": "8f99f497-92b8-4f4a-ad48-2de768a22ebc"
+                }
+            ],
+            "severity": "warning",
+            "type": "net_conflict"
+        },
+        {
+            "description": "Le pad a le net manquant donné par la schématique (unconnected-(J2-NC-Pad5))",
+            "items": [
+                {
+                    "description": "Pad métallisé 5 [<no net>] de J2",
+                    "pos": {
+                        "x": 32.619999,
+                        "y": 40.24
+                    },
+                    "uuid": "27d75006-888e-4a49-98da-447b2c1a7e9c"
+                }
+            ],
+            "severity": "warning",
+            "type": "net_conflict"
+        },
+        {
+            "description": "Le pad a le net manquant donné par la schématique (unconnected-(J2-NC-Pad9))",
+            "items": [
+                {
+                    "description": "Pad métallisé 9 [<no net>] de J2",
+                    "pos": {
+                        "x": 32.619999,
+                        "y": 45.32
+                    },
+                    "uuid": "099bbbc4-59ed-46be-97b5-8338791626c0"
+                }
+            ],
+            "severity": "warning",
+            "type": "net_conflict"
+        },
+        {
+            "description": "Le pad a le net manquant donné par la schématique (unconnected-(J2-NC-Pad12))",
+            "items": [
+                {
+                    "description": "Pad métallisé 12 [<no net>] de J2",
+                    "pos": {
+                        "x": 35.159999,
+                        "y": 47.86
+                    },
+                    "uuid": "c0289d9a-311f-4443-9b41-4325103e1bd9"
+                }
+            ],
+            "severity": "warning",
+            "type": "net_conflict"
+        },
+        {
+            "description": "Le pad a le net manquant donné par la schématique (unconnected-(J2-NC-Pad14))",
+            "items": [
+                {
+                    "description": "Pad métallisé 14 [<no net>] de J2",
+                    "pos": {
+                        "x": 35.159999,
+                        "y": 50.4
+                    },
+                    "uuid": "25c1653b-e31b-4218-9d1d-c14b3c3a2f3d"
+                }
+            ],
+            "severity": "warning",
+            "type": "net_conflict"
+        },
+        {
+            "description": "Le pad a le net manquant donné par la schématique (unconnected-(J2-NC-Pad15))",
+            "items": [
+                {
+                    "description": "Pad métallisé 15 [<no net>] de J2",
+                    "pos": {
+                        "x": 32.619999,
+                        "y": 52.94
+                    },
+                    "uuid": "9a2377d0-c16b-48c0-9b72-0465c03bb82c"
+                }
+            ],
+            "severity": "warning",
+            "type": "net_conflict"
+        },
+        {
+            "description": "Le pad a le net manquant donné par la schématique (unconnected-(J2-NC-Pad16))",
+            "items": [
+                {
+                    "description": "Pad métallisé 16 [<no net>] de J2",
+                    "pos": {
+                        "x": 35.159999,
+                        "y": 52.94
+                    },
+                    "uuid": "e3d4087a-b19c-441f-b6bc-e93379c5f8cf"
+                }
+            ],
+            "severity": "warning",
+            "type": "net_conflict"
+        },
+        {
+            "description": "Le pad a le net manquant donné par la schématique (unconnected-(J3-NC-Pad1))",
+            "items": [
+                {
+                    "description": "Pad métallisé 1 [<no net>] de J3",
+                    "pos": {
+                        "x": 32.619999,
+                        "y": 58.02
+                    },
+                    "uuid": "fb3c76db-c694-4b6f-b15a-c514b1e91d6b"
+                }
+            ],
+            "severity": "warning",
+            "type": "net_conflict"
+        },
+        {
+            "description": "Le pad a le net manquant donné par la schématique (unconnected-(J3-NC-Pad2))",
+            "items": [
+                {
+                    "description": "Pad métallisé 2 [<no net>] de J3",
+                    "pos": {
+                        "x": 35.159999,
+                        "y": 58.02
+                    },
+                    "uuid": "648cb30f-a223-42f3-ae1b-c6ea7e5796ed"
+                }
+            ],
+            "severity": "warning",
+            "type": "net_conflict"
+        },
+        {
+            "description": "Le pad a le net manquant donné par la schématique (unconnected-(J3-NC-Pad3))",
+            "items": [
+                {
+                    "description": "Pad métallisé 3 [<no net>] de J3",
+                    "pos": {
+                        "x": 32.619999,
+                        "y": 60.56
+                    },
+                    "uuid": "197e8d03-b83e-45bf-a074-63cdd9c0f3a0"
+                }
+            ],
+            "severity": "warning",
+            "type": "net_conflict"
+        },
+        {
+            "description": "Le pad a le net manquant donné par la schématique (unconnected-(J3-NC-Pad4))",
+            "items": [
+                {
+                    "description": "Pad métallisé 4 [<no net>] de J3",
+                    "pos": {
+                        "x": 35.159999,
+                        "y": 60.56
+                    },
+                    "uuid": "b8c2d686-ec92-4e91-96bf-5d9eb9ef4b6e"
+                }
+            ],
+            "severity": "warning",
+            "type": "net_conflict"
+        },
+        {
+            "description": "Le pad a le net manquant donné par la schématique (unconnected-(J3-NC-Pad5))",
+            "items": [
+                {
+                    "description": "Pad métallisé 5 [<no net>] de J3",
+                    "pos": {
+                        "x": 32.619999,
+                        "y": 63.1
+                    },
+                    "uuid": "0d03adc0-0eb5-4abc-98cd-a6f4159f6090"
+                }
+            ],
+            "severity": "warning",
+            "type": "net_conflict"
+        },
+        {
+            "description": "Le pad a le net manquant donné par la schématique (unconnected-(J3-NC-Pad6))",
+            "items": [
+                {
+                    "description": "Pad métallisé 6 [<no net>] de J3",
+                    "pos": {
+                        "x": 35.159999,
+                        "y": 63.1
+                    },
+                    "uuid": "2ac27fca-38f8-4795-aa92-b433e3141197"
+                }
+            ],
+            "severity": "warning",
+            "type": "net_conflict"
+        },
+        {
+            "description": "Le pad a le net manquant donné par la schématique (unconnected-(J3-NC-Pad7))",
+            "items": [
+                {
+                    "description": "Pad métallisé 7 [<no net>] de J3",
+                    "pos": {
+                        "x": 32.619999,
+                        "y": 65.64
+                    },
+                    "uuid": "cf811605-a011-4674-979c-44017eccb050"
+                }
+            ],
+            "severity": "warning",
+            "type": "net_conflict"
+        },
+        {
+            "description": "Le pad a le net manquant donné par la schématique (unconnected-(J3-NC-Pad9))",
+            "items": [
+                {
+                    "description": "Pad métallisé 9 [<no net>] de J3",
+                    "pos": {
+                        "x": 32.619999,
+                        "y": 68.18
+                    },
+                    "uuid": "8541df6c-8a06-42f9-b73c-2cb8f6bc2276"
+                }
+            ],
+            "severity": "warning",
+            "type": "net_conflict"
+        },
+        {
+            "description": "Le pad a le net manquant donné par la schématique (unconnected-(J3-NC-Pad11))",
+            "items": [
+                {
+                    "description": "Pad métallisé 11 [<no net>] de J3",
+                    "pos": {
+                        "x": 32.619999,
+                        "y": 70.72
+                    },
+                    "uuid": "065cf39a-3699-49eb-9684-f2c2f91722bd"
+                }
+            ],
+            "severity": "warning",
+            "type": "net_conflict"
+        },
+        {
+            "description": "Le pad a le net manquant donné par la schématique (unconnected-(J3-NC-Pad12))",
+            "items": [
+                {
+                    "description": "Pad métallisé 12 [<no net>] de J3",
+                    "pos": {
+                        "x": 35.159999,
+                        "y": 70.72
+                    },
+                    "uuid": "91c9d341-f1a8-4079-85b3-672d8436933d"
+                }
+            ],
+            "severity": "warning",
+            "type": "net_conflict"
+        },
+        {
+            "description": "Le pad a le net manquant donné par la schématique (unconnected-(J3-NC-Pad13))",
+            "items": [
+                {
+                    "description": "Pad métallisé 13 [<no net>] de J3",
+                    "pos": {
+                        "x": 32.619999,
+                        "y": 73.26
+                    },
+                    "uuid": "8007ca8f-f597-4ee5-90a0-fea77d257ec1"
+                }
+            ],
+            "severity": "warning",
+            "type": "net_conflict"
+        },
+        {
+            "description": "Le pad a le net manquant donné par la schématique (unconnected-(J3-NC-Pad14))",
+            "items": [
+                {
+                    "description": "Pad métallisé 14 [<no net>] de J3",
+                    "pos": {
+                        "x": 35.159999,
+                        "y": 73.26
+                    },
+                    "uuid": "0e3880f6-e84d-4fd3-baff-8c16313a3013"
+                }
+            ],
+            "severity": "warning",
+            "type": "net_conflict"
+        },
+        {
+            "description": "Le pad a le net manquant donné par la schématique (unconnected-(J3-NC-Pad15))",
+            "items": [
+                {
+                    "description": "Pad métallisé 15 [<no net>] de J3",
+                    "pos": {
+                        "x": 32.619999,
+                        "y": 75.8
+                    },
+                    "uuid": "20029536-0e61-4ea3-bc03-970b477300e4"
+                }
+            ],
+            "severity": "warning",
+            "type": "net_conflict"
+        },
+        {
+            "description": "Le pad a le net manquant donné par la schématique (unconnected-(J3-NC-Pad16))",
+            "items": [
+                {
+                    "description": "Pad métallisé 16 [<no net>] de J3",
+                    "pos": {
+                        "x": 35.159999,
+                        "y": 75.8
+                    },
+                    "uuid": "d14f6673-9c76-493e-ab74-17f72ea79d02"
+                }
+            ],
+            "severity": "warning",
+            "type": "net_conflict"
+        },
+        {
+            "description": "Le pad a le net manquant donné par la schématique (unconnected-(J3-NC-Pad17))",
+            "items": [
+                {
+                    "description": "Pad métallisé 17 [<no net>] de J3",
+                    "pos": {
+                        "x": 32.619999,
+                        "y": 78.34
+                    },
+                    "uuid": "664b890d-8e7a-4777-9fef-db1a291cb267"
+                }
+            ],
+            "severity": "warning",
+            "type": "net_conflict"
+        },
+        {
+            "description": "Le pad a le net manquant donné par la schématique (unconnected-(J3-NC-Pad18))",
+            "items": [
+                {
+                    "description": "Pad métallisé 18 [<no net>] de J3",
+                    "pos": {
+                        "x": 35.159999,
+                        "y": 78.34
+                    },
+                    "uuid": "6a0c27a3-6531-4e5d-9eaf-a11bc76a2039"
+                }
+            ],
+            "severity": "warning",
+            "type": "net_conflict"
+        },
+        {
+            "description": "Le pad a le net manquant donné par la schématique (unconnected-(J3-NC-Pad19))",
+            "items": [
+                {
+                    "description": "Pad métallisé 19 [<no net>] de J3",
+                    "pos": {
+                        "x": 32.619999,
+                        "y": 80.88
+                    },
+                    "uuid": "f01a10d1-8d1b-4e4e-8d4b-5cff15917f5d"
+                }
+            ],
+            "severity": "warning",
+            "type": "net_conflict"
+        },
+        {
+            "description": "Le pad a le net manquant donné par la schématique (unconnected-(J3-NC-Pad20))",
+            "items": [
+                {
+                    "description": "Pad métallisé 20 [<no net>] de J3",
+                    "pos": {
+                        "x": 35.159999,
+                        "y": 80.88
+                    },
+                    "uuid": "6650f7d7-6995-4a59-bf44-5ebe2a9eae15"
+                }
+            ],
+            "severity": "warning",
+            "type": "net_conflict"
+        },
+        {
+            "description": "Le pad a le net manquant donné par la schématique (unconnected-(J3-NC-Pad21))",
+            "items": [
+                {
+                    "description": "Pad métallisé 21 [<no net>] de J3",
+                    "pos": {
+                        "x": 32.619999,
+                        "y": 83.42
+                    },
+                    "uuid": "b159144d-55a2-4b18-a807-1d716a5581e8"
+                }
+            ],
+            "severity": "warning",
+            "type": "net_conflict"
+        },
+        {
+            "description": "Le pad a le net manquant donné par la schématique (unconnected-(J3-NC-Pad22))",
+            "items": [
+                {
+                    "description": "Pad métallisé 22 [<no net>] de J3",
+                    "pos": {
+                        "x": 35.159999,
+                        "y": 83.42
+                    },
+                    "uuid": "f1e79735-3f4c-4be4-9e88-07a3574520ee"
+                }
+            ],
+            "severity": "warning",
+            "type": "net_conflict"
+        },
+        {
+            "description": "Le pad a le net manquant donné par la schématique (unconnected-(J3-NC-Pad23))",
+            "items": [
+                {
+                    "description": "Pad métallisé 23 [<no net>] de J3",
+                    "pos": {
+                        "x": 32.619999,
+                        "y": 85.96
+                    },
+                    "uuid": "8584cd2a-04f3-4f85-8d89-f74245b04d95"
+                }
+            ],
+            "severity": "warning",
+            "type": "net_conflict"
+        },
+        {
+            "description": "Le pad a le net manquant donné par la schématique (unconnected-(J3-NC-Pad24))",
+            "items": [
+                {
+                    "description": "Pad métallisé 24 [<no net>] de J3",
+                    "pos": {
+                        "x": 35.159999,
+                        "y": 85.96
+                    },
+                    "uuid": "29b8d65b-2c7a-413d-88dd-a042a7409df5"
+                }
+            ],
+            "severity": "warning",
+            "type": "net_conflict"
+        },
+        {
+            "description": "Le pad a le net manquant donné par la schématique (unconnected-(J3-NC-Pad25))",
+            "items": [
+                {
+                    "description": "Pad métallisé 25 [<no net>] de J3",
+                    "pos": {
+                        "x": 32.619999,
+                        "y": 88.5
+                    },
+                    "uuid": "71a101b8-f4ba-4677-bb3b-85286fab8f94"
+                }
+            ],
+            "severity": "warning",
+            "type": "net_conflict"
+        },
+        {
+            "description": "Le pad a le net manquant donné par la schématique (unconnected-(J3-NC-Pad26))",
+            "items": [
+                {
+                    "description": "Pad métallisé 26 [<no net>] de J3",
+                    "pos": {
+                        "x": 35.159999,
+                        "y": 88.5
+                    },
+                    "uuid": "576d9a4c-9124-4dea-95e8-075fabac0527"
+                }
+            ],
+            "severity": "warning",
+            "type": "net_conflict"
+        },
+        {
+            "description": "Le pad a le net manquant donné par la schématique (unconnected-(J3-NC-Pad27))",
+            "items": [
+                {
+                    "description": "Pad métallisé 27 [<no net>] de J3",
+                    "pos": {
+                        "x": 32.619999,
+                        "y": 91.04
+                    },
+                    "uuid": "c7348c65-0317-4bb8-a102-51a7fc64d67a"
+                }
+            ],
+            "severity": "warning",
+            "type": "net_conflict"
+        },
+        {
+            "description": "Le pad a le net manquant donné par la schématique (unconnected-(J3-NC-Pad28))",
+            "items": [
+                {
+                    "description": "Pad métallisé 28 [<no net>] de J3",
+                    "pos": {
+                        "x": 35.159999,
+                        "y": 91.04
+                    },
+                    "uuid": "7982a5c6-708f-4e60-abbb-b28579234a94"
+                }
+            ],
+            "severity": "warning",
+            "type": "net_conflict"
+        },
+        {
+            "description": "Le pad a le net manquant donné par la schématique (unconnected-(J3-NC-Pad29))",
+            "items": [
+                {
+                    "description": "Pad métallisé 29 [<no net>] de J3",
+                    "pos": {
+                        "x": 32.619999,
+                        "y": 93.58
+                    },
+                    "uuid": "0093fd00-6d30-4cb5-90dd-f939c27a5e00"
+                }
+            ],
+            "severity": "warning",
+            "type": "net_conflict"
+        },
+        {
+            "description": "Le pad a le net manquant donné par la schématique (unconnected-(J3-NC-Pad30))",
+            "items": [
+                {
+                    "description": "Pad métallisé 30 [<no net>] de J3",
+                    "pos": {
+                        "x": 35.159999,
+                        "y": 93.58
+                    },
+                    "uuid": "10676b50-c961-4554-b105-6938740f0a2e"
+                }
+            ],
+            "severity": "warning",
+            "type": "net_conflict"
+        },
+        {
+            "description": "Le pad a le net manquant donné par la schématique (unconnected-(J4-NC-Pad1))",
+            "items": [
+                {
+                    "description": "Pad métallisé 1 [<no net>] de J4",
+                    "pos": {
+                        "x": 78.34,
+                        "y": 52.94
+                    },
+                    "uuid": "566c7568-ddb9-4e46-94b3-bf2efac74b15"
+                }
+            ],
+            "severity": "warning",
+            "type": "net_conflict"
+        },
+        {
+            "description": "Le pad a le net manquant donné par la schématique (unconnected-(J4-NC-Pad2))",
+            "items": [
+                {
+                    "description": "Pad métallisé 2 [<no net>] de J4",
+                    "pos": {
+                        "x": 80.88,
+                        "y": 52.94
+                    },
+                    "uuid": "3cf91e57-f08c-4c72-b914-aa5ca32eb5cc"
+                }
+            ],
+            "severity": "warning",
+            "type": "net_conflict"
+        },
+        {
+            "description": "Le pad a le net manquant donné par la schématique (unconnected-(J4-NC-Pad3))",
+            "items": [
+                {
+                    "description": "Pad métallisé 3 [<no net>] de J4",
+                    "pos": {
+                        "x": 78.34,
+                        "y": 55.48
+                    },
+                    "uuid": "c462c3db-f7fe-46bc-89ed-a6f7f1cc92d2"
+                }
+            ],
+            "severity": "warning",
+            "type": "net_conflict"
+        },
+        {
+            "description": "Le pad a le net manquant donné par la schématique (unconnected-(J4-NC-Pad4))",
+            "items": [
+                {
+                    "description": "Pad métallisé 4 [<no net>] de J4",
+                    "pos": {
+                        "x": 80.88,
+                        "y": 55.48
+                    },
+                    "uuid": "48ac3340-6f48-4bbf-a37b-82a549e37f16"
+                }
+            ],
+            "severity": "warning",
+            "type": "net_conflict"
+        },
+        {
+            "description": "Le pad a le net manquant donné par la schématique (unconnected-(J4-NC-Pad5))",
+            "items": [
+                {
+                    "description": "Pad métallisé 5 [<no net>] de J4",
+                    "pos": {
+                        "x": 78.34,
+                        "y": 58.02
+                    },
+                    "uuid": "e70adc61-3391-487a-b5f2-d8ba276c5cf9"
+                }
+            ],
+            "severity": "warning",
+            "type": "net_conflict"
+        },
+        {
+            "description": "Le pad a le net manquant donné par la schématique (unconnected-(J4-NC-Pad6))",
+            "items": [
+                {
+                    "description": "Pad métallisé 6 [<no net>] de J4",
+                    "pos": {
+                        "x": 80.88,
+                        "y": 58.02
+                    },
+                    "uuid": "fefa9817-4eb9-466d-9c12-0a6c13152f43"
+                }
+            ],
+            "severity": "warning",
+            "type": "net_conflict"
+        },
+        {
+            "description": "Le pad a le net manquant donné par la schématique (unconnected-(J4-NC-Pad7))",
+            "items": [
+                {
+                    "description": "Pad métallisé 7 [<no net>] de J4",
+                    "pos": {
+                        "x": 78.34,
+                        "y": 60.56
+                    },
+                    "uuid": "d7c72ee4-9e30-4a37-8039-7188cf4a3bf9"
+                }
+            ],
+            "severity": "warning",
+            "type": "net_conflict"
+        },
+        {
+            "description": "Le pad a le net manquant donné par la schématique (unconnected-(J4-NC-Pad8))",
+            "items": [
+                {
+                    "description": "Pad métallisé 8 [<no net>] de J4",
+                    "pos": {
+                        "x": 80.88,
+                        "y": 60.56
+                    },
+                    "uuid": "cc23c0e3-277f-4d02-8795-33cfd547f70c"
+                }
+            ],
+            "severity": "warning",
+            "type": "net_conflict"
+        },
+        {
+            "description": "Le pad a le net manquant donné par la schématique (unconnected-(J4-NC-Pad9))",
+            "items": [
+                {
+                    "description": "Pad métallisé 9 [<no net>] de J4",
+                    "pos": {
+                        "x": 78.34,
+                        "y": 63.1
+                    },
+                    "uuid": "e51e1132-36e2-45a8-9638-078942006ee9"
+                }
+            ],
+            "severity": "warning",
+            "type": "net_conflict"
+        },
+        {
+            "description": "Le pad a le net manquant donné par la schématique (unconnected-(J4-NC-Pad10))",
+            "items": [
+                {
+                    "description": "Pad métallisé 10 [<no net>] de J4",
+                    "pos": {
+                        "x": 80.88,
+                        "y": 63.1
+                    },
+                    "uuid": "13ac438d-dc2f-4783-8029-8d327da0de43"
+                }
+            ],
+            "severity": "warning",
+            "type": "net_conflict"
+        },
+        {
+            "description": "Le pad a le net manquant donné par la schématique (unconnected-(J4-NC-Pad11))",
+            "items": [
+                {
+                    "description": "Pad métallisé 11 [<no net>] de J4",
+                    "pos": {
+                        "x": 78.34,
+                        "y": 65.64
+                    },
+                    "uuid": "983a04d9-8fc4-4c19-aa9a-49e2c8a5d778"
+                }
+            ],
+            "severity": "warning",
+            "type": "net_conflict"
+        },
+        {
+            "description": "Le pad a le net manquant donné par la schématique (unconnected-(J4-NC-Pad12))",
+            "items": [
+                {
+                    "description": "Pad métallisé 12 [<no net>] de J4",
+                    "pos": {
+                        "x": 80.88,
+                        "y": 65.64
+                    },
+                    "uuid": "3da9e23a-22e0-46de-8962-f29cd88866c0"
+                }
+            ],
+            "severity": "warning",
+            "type": "net_conflict"
+        },
+        {
+            "description": "Le pad a le net manquant donné par la schématique (unconnected-(J4-NC-Pad13))",
+            "items": [
+                {
+                    "description": "Pad métallisé 13 [<no net>] de J4",
+                    "pos": {
+                        "x": 78.34,
+                        "y": 68.18
+                    },
+                    "uuid": "35c7c2f4-7684-4baf-8ba3-df78806abb57"
+                }
+            ],
+            "severity": "warning",
+            "type": "net_conflict"
+        },
+        {
+            "description": "Le pad a le net manquant donné par la schématique (unconnected-(J4-NC-Pad15))",
+            "items": [
+                {
+                    "description": "Pad métallisé 15 [<no net>] de J4",
+                    "pos": {
+                        "x": 78.34,
+                        "y": 70.72
+                    },
+                    "uuid": "2b81da90-9405-4f9c-879c-5f4b855ecf5d"
+                }
+            ],
+            "severity": "warning",
+            "type": "net_conflict"
+        },
+        {
+            "description": "Le pad a le net manquant donné par la schématique (unconnected-(J4-NC-Pad17))",
+            "items": [
+                {
+                    "description": "Pad métallisé 17 [<no net>] de J4",
+                    "pos": {
+                        "x": 78.34,
+                        "y": 73.26
+                    },
+                    "uuid": "cd5d552d-ce3c-400c-94d7-7a85b4e679ff"
+                }
+            ],
+            "severity": "warning",
+            "type": "net_conflict"
+        },
+        {
+            "description": "Le pad a le net manquant donné par la schématique (unconnected-(J4-NC-Pad18))",
+            "items": [
+                {
+                    "description": "Pad métallisé 18 [<no net>] de J4",
+                    "pos": {
+                        "x": 80.88,
+                        "y": 73.26
+                    },
+                    "uuid": "6a808f89-314c-4705-942e-09faceb0bdcd"
+                }
+            ],
+            "severity": "warning",
+            "type": "net_conflict"
+        },
+        {
+            "description": "Le pad a le net manquant donné par la schématique (unconnected-(J4-NC-Pad19))",
+            "items": [
+                {
+                    "description": "Pad métallisé 19 [<no net>] de J4",
+                    "pos": {
+                        "x": 78.34,
+                        "y": 75.8
+                    },
+                    "uuid": "bfecdd95-e3ea-44dc-b379-a2087eb6d64c"
+                }
+            ],
+            "severity": "warning",
+            "type": "net_conflict"
+        },
+        {
+            "description": "Le pad a le net manquant donné par la schématique (unconnected-(J4-NC-Pad20))",
+            "items": [
+                {
+                    "description": "Pad métallisé 20 [<no net>] de J4",
+                    "pos": {
+                        "x": 80.88,
+                        "y": 75.8
+                    },
+                    "uuid": "e53e1455-6a0f-46d4-a104-d02e9d85fc06"
+                }
+            ],
+            "severity": "warning",
+            "type": "net_conflict"
+        },
+        {
+            "description": "Le pad a le net manquant donné par la schématique (unconnected-(J4-NC-Pad21))",
+            "items": [
+                {
+                    "description": "Pad métallisé 21 [<no net>] de J4",
+                    "pos": {
+                        "x": 78.34,
+                        "y": 78.34
+                    },
+                    "uuid": "00878826-7052-4ee3-a874-954f46878b41"
+                }
+            ],
+            "severity": "warning",
+            "type": "net_conflict"
+        },
+        {
+            "description": "Le pad a le net manquant donné par la schématique (unconnected-(J4-NC-Pad22))",
+            "items": [
+                {
+                    "description": "Pad métallisé 22 [<no net>] de J4",
+                    "pos": {
+                        "x": 80.88,
+                        "y": 78.34
+                    },
+                    "uuid": "1fa60e40-1483-430b-9ee6-7d78ca1f9431"
+                }
+            ],
+            "severity": "warning",
+            "type": "net_conflict"
+        },
+        {
+            "description": "Le pad a le net manquant donné par la schématique (unconnected-(J4-NC-Pad23))",
+            "items": [
+                {
+                    "description": "Pad métallisé 23 [<no net>] de J4",
+                    "pos": {
+                        "x": 78.34,
+                        "y": 80.88
+                    },
+                    "uuid": "37a3cafb-a9fb-4cd4-bf15-a9ecac22f2ae"
+                }
+            ],
+            "severity": "warning",
+            "type": "net_conflict"
+        },
+        {
+            "description": "Le pad a le net manquant donné par la schématique (unconnected-(J4-NC-Pad24))",
+            "items": [
+                {
+                    "description": "Pad métallisé 24 [<no net>] de J4",
+                    "pos": {
+                        "x": 80.88,
+                        "y": 80.88
+                    },
+                    "uuid": "19663907-ccf0-4230-9dad-e307304d989c"
+                }
+            ],
+            "severity": "warning",
+            "type": "net_conflict"
+        },
+        {
+            "description": "Le pad a le net manquant donné par la schématique (unconnected-(J4-NC-Pad25))",
+            "items": [
+                {
+                    "description": "Pad métallisé 25 [<no net>] de J4",
+                    "pos": {
+                        "x": 78.34,
+                        "y": 83.42
+                    },
+                    "uuid": "7ca9b9ec-00bd-4a5c-9b91-1ea24d3e277f"
+                }
+            ],
+            "severity": "warning",
+            "type": "net_conflict"
+        },
+        {
+            "description": "Le pad a le net manquant donné par la schématique (unconnected-(J4-NC-Pad26))",
+            "items": [
+                {
+                    "description": "Pad métallisé 26 [<no net>] de J4",
+                    "pos": {
+                        "x": 80.88,
+                        "y": 83.42
+                    },
+                    "uuid": "03074b78-04f6-4383-a3c6-6ffd8d4b9a4e"
+                }
+            ],
+            "severity": "warning",
+            "type": "net_conflict"
+        },
+        {
+            "description": "Le pad a le net manquant donné par la schématique (unconnected-(J4-NC-Pad27))",
+            "items": [
+                {
+                    "description": "Pad métallisé 27 [<no net>] de J4",
+                    "pos": {
+                        "x": 78.34,
+                        "y": 85.96
+                    },
+                    "uuid": "b3bbcf99-76fd-4db4-a0ab-42de6c06d340"
+                }
+            ],
+            "severity": "warning",
+            "type": "net_conflict"
+        },
+        {
+            "description": "Le pad a le net manquant donné par la schématique (unconnected-(J4-NC-Pad28))",
+            "items": [
+                {
+                    "description": "Pad métallisé 28 [<no net>] de J4",
+                    "pos": {
+                        "x": 80.88,
+                        "y": 85.96
+                    },
+                    "uuid": "16469c7a-6a03-4da1-b2d7-0654b791da92"
+                }
+            ],
+            "severity": "warning",
+            "type": "net_conflict"
+        },
+        {
+            "description": "Le pad a le net manquant donné par la schématique (unconnected-(J4-NC-Pad29))",
+            "items": [
+                {
+                    "description": "Pad métallisé 29 [<no net>] de J4",
+                    "pos": {
+                        "x": 78.34,
+                        "y": 88.5
+                    },
+                    "uuid": "fd6ec75e-c81c-4643-82e3-be1f8dd357f2"
+                }
+            ],
+            "severity": "warning",
+            "type": "net_conflict"
+        },
+        {
+            "description": "Le pad a le net manquant donné par la schématique (unconnected-(J4-NC-Pad30))",
+            "items": [
+                {
+                    "description": "Pad métallisé 30 [<no net>] de J4",
+                    "pos": {
+                        "x": 80.88,
+                        "y": 88.5
+                    },
+                    "uuid": "39cdb6ae-1c10-4ed0-af86-a6b1238d57dd"
+                }
+            ],
+            "severity": "warning",
+            "type": "net_conflict"
+        },
+        {
+            "description": "Le pad a le net manquant donné par la schématique (unconnected-(J4-NC-Pad31))",
+            "items": [
+                {
+                    "description": "Pad métallisé 31 [<no net>] de J4",
+                    "pos": {
+                        "x": 78.34,
+                        "y": 91.04
+                    },
+                    "uuid": "f4c5c5fa-aaf6-4dca-8772-9a24dac9d5c1"
+                }
+            ],
+            "severity": "warning",
+            "type": "net_conflict"
+        },
+        {
+            "description": "Le pad a le net manquant donné par la schématique (unconnected-(J4-NC-Pad32))",
+            "items": [
+                {
+                    "description": "Pad métallisé 32 [<no net>] de J4",
+                    "pos": {
+                        "x": 80.88,
+                        "y": 91.04
+                    },
+                    "uuid": "808b4ee5-77b3-4d78-b42b-634ad87aa5fc"
+                }
+            ],
+            "severity": "warning",
+            "type": "net_conflict"
+        },
+        {
+            "description": "Le pad a le net manquant donné par la schématique (unconnected-(J4-NC-Pad33))",
+            "items": [
+                {
+                    "description": "Pad métallisé 33 [<no net>] de J4",
+                    "pos": {
+                        "x": 78.34,
+                        "y": 93.58
+                    },
+                    "uuid": "5b2f4c3f-06a4-4d38-a92a-6a8e19ce7846"
+                }
+            ],
+            "severity": "warning",
+            "type": "net_conflict"
+        },
+        {
+            "description": "Le pad a le net manquant donné par la schématique (unconnected-(J4-NC-Pad34))",
+            "items": [
+                {
+                    "description": "Pad métallisé 34 [<no net>] de J4",
+                    "pos": {
+                        "x": 80.88,
+                        "y": 93.58
+                    },
+                    "uuid": "95fe007c-5905-44c3-ab59-6028eae941b0"
+                }
+            ],
+            "severity": "warning",
+            "type": "net_conflict"
+        },
+        {
+            "description": "Le pad a le net manquant donné par la schématique (unconnected-(J5-NC-Pad2))",
+            "items": [
+                {
+                    "description": "Pad métallisé 2 [<no net>] de J5",
+                    "pos": {
+                        "x": 88.5,
+                        "y": 111.36
+                    },
+                    "uuid": "f20df4e7-2639-44aa-96bd-cde925027abc"
+                }
+            ],
+            "severity": "warning",
+            "type": "net_conflict"
+        },
+        {
+            "description": "Le pad a le net manquant donné par la schématique (unconnected-(J6-NC-Pad1))",
+            "items": [
+                {
+                    "description": "Pad métallisé 1 [<no net>] de J6",
+                    "pos": {
+                        "x": 45.0,
+                        "y": 59.0
+                    },
+                    "uuid": "c564aa27-0612-4bf5-87f1-a0e163279ef0"
+                }
+            ],
+            "severity": "warning",
+            "type": "net_conflict"
+        },
+        {
+            "description": "Le pad a le net manquant donné par la schématique (unconnected-(J6-NC-Pad2))",
+            "items": [
+                {
+                    "description": "Pad métallisé 2 [<no net>] de J6",
+                    "pos": {
+                        "x": 47.54,
+                        "y": 59.0
+                    },
+                    "uuid": "73f92212-82b7-414c-a93b-1f4ebf366427"
+                }
+            ],
+            "severity": "warning",
+            "type": "net_conflict"
+        },
+        {
+            "description": "Le pad a le net manquant donné par la schématique (unconnected-(J6-NC-Pad8))",
+            "items": [
+                {
+                    "description": "Pad métallisé 8 [<no net>] de J6",
+                    "pos": {
+                        "x": 62.78,
+                        "y": 59.0
+                    },
+                    "uuid": "072b7e60-c02f-47e3-8730-1c3b8af99b98"
+                }
+            ],
+            "severity": "warning",
+            "type": "net_conflict"
+        },
+        {
+            "description": "Le pad a le net manquant donné par la schématique (unconnected-(J7-NC-Pad7))",
+            "items": [
+                {
+                    "description": "Pad métallisé 7 [<no net>] de J7",
+                    "pos": {
+                        "x": 44.0,
+                        "y": 90.76
+                    },
+                    "uuid": "bf03ca11-1126-4b4e-aad4-c96c0f2f5a8b"
+                }
+            ],
+            "severity": "warning",
+            "type": "net_conflict"
+        },
+        {
+            "description": "Le pad a le net manquant donné par la schématique (unconnected-(J7-NC-Pad8))",
+            "items": [
+                {
+                    "description": "Pad métallisé 8 [<no net>] de J7",
+                    "pos": {
+                        "x": 44.0,
+                        "y": 88.22
+                    },
+                    "uuid": "e84c06d3-7dfc-49c9-bb19-445ae2c84a9a"
+                }
+            ],
+            "severity": "warning",
+            "type": "net_conflict"
+        },
+        {
+            "description": "Le pad a le net manquant donné par la schématique (unconnected-(J7-NC-Pad9))",
+            "items": [
+                {
+                    "description": "Pad métallisé 9 [<no net>] de J7",
+                    "pos": {
+                        "x": 44.0,
+                        "y": 85.68
+                    },
+                    "uuid": "1ebea2f2-12ad-4df1-a289-45628b77843f"
+                }
+            ],
+            "severity": "warning",
+            "type": "net_conflict"
+        },
+        {
+            "description": "Le pad a le net manquant donné par la schématique (unconnected-(J8-NC-Pad3))",
+            "items": [
+                {
+                    "description": "Pad métallisé 3 [<no net>] de J8",
+                    "pos": {
+                        "x": 45.0,
+                        "y": 29.08
+                    },
+                    "uuid": "dbe7ae3a-ef23-4462-bca2-deeb5568cf62"
+                }
+            ],
+            "severity": "warning",
+            "type": "net_conflict"
+        },
+        {
+            "description": "Le pad a le net manquant donné par la schématique (unconnected-(J8-NC-Pad4))",
+            "items": [
+                {
+                    "description": "Pad métallisé 4 [<no net>] de J8",
+                    "pos": {
+                        "x": 45.0,
+                        "y": 31.62
+                    },
+                    "uuid": "65fbbad3-1fef-4bb6-9002-38c0c56733d9"
+                }
+            ],
+            "severity": "warning",
+            "type": "net_conflict"
+        },
+        {
+            "description": "Le pad a le net manquant donné par la schématique (unconnected-(J8-NC-Pad5))",
+            "items": [
+                {
+                    "description": "Pad métallisé 5 [<no net>] de J8",
+                    "pos": {
+                        "x": 45.0,
+                        "y": 34.16
+                    },
+                    "uuid": "eb5c80ca-e14e-4082-8063-1d858398be94"
+                }
+            ],
+            "severity": "warning",
+            "type": "net_conflict"
+        },
+        {
+            "description": "Le pad a le net manquant donné par la schématique (unconnected-(J8-NC-Pad6))",
+            "items": [
+                {
+                    "description": "Pad métallisé 6 [<no net>] de J8",
+                    "pos": {
+                        "x": 45.0,
+                        "y": 36.7
+                    },
+                    "uuid": "fc813193-9242-4eb0-a53b-e644d20b26ad"
+                }
+            ],
+            "severity": "warning",
+            "type": "net_conflict"
+        },
+        {
+            "description": "Le pad a le net manquant donné par la schématique (unconnected-(J8-NC-Pad7))",
+            "items": [
+                {
+                    "description": "Pad métallisé 7 [<no net>] de J8",
+                    "pos": {
+                        "x": 45.0,
+                        "y": 39.24
+                    },
+                    "uuid": "bb1894e8-a7f8-4b61-bd40-384a5acd54f6"
+                }
+            ],
+            "severity": "warning",
+            "type": "net_conflict"
+        },
+        {
+            "description": "Le pad a le net manquant donné par la schématique (unconnected-(J8-NC-Pad8))",
+            "items": [
+                {
+                    "description": "Pad métallisé 8 [<no net>] de J8",
+                    "pos": {
+                        "x": 45.0,
+                        "y": 41.78
+                    },
+                    "uuid": "887e6633-5344-4ae5-a836-f3547d69a29c"
+                }
+            ],
+            "severity": "warning",
+            "type": "net_conflict"
+        },
+        {
+            "description": "Le pad a le net manquant donné par la schématique (unconnected-(J8-NC-Pad9))",
+            "items": [
+                {
+                    "description": "Pad métallisé 9 [<no net>] de J8",
+                    "pos": {
+                        "x": 45.0,
+                        "y": 44.32
+                    },
+                    "uuid": "cb42346c-7181-401e-a4a4-2ff5b16743b1"
+                }
+            ],
+            "severity": "warning",
+            "type": "net_conflict"
+        },
+        {
+            "description": "Le pad a le net manquant donné par la schématique (unconnected-(J8-NC-Pad10))",
+            "items": [
+                {
+                    "description": "Pad métallisé 10 [<no net>] de J8",
+                    "pos": {
+                        "x": 45.0,
+                        "y": 46.86
+                    },
+                    "uuid": "f3fa3d8b-2b6f-4ab6-aa98-6bce7448dfcc"
+                }
+            ],
+            "severity": "warning",
+            "type": "net_conflict"
+        },
+        {
+            "description": "Le pad a le net manquant donné par la schématique (unconnected-(J8-NC-Pad11))",
+            "items": [
+                {
+                    "description": "Pad métallisé 11 [<no net>] de J8",
+                    "pos": {
+                        "x": 45.0,
+                        "y": 49.4
+                    },
+                    "uuid": "6ea592d7-f9df-4984-99b8-0100384fa0fd"
+                }
+            ],
+            "severity": "warning",
+            "type": "net_conflict"
+        },
+        {
+            "description": "Le pad a le net manquant donné par la schématique (unconnected-(J8-NC-Pad12))",
+            "items": [
+                {
+                    "description": "Pad métallisé 12 [<no net>] de J8",
+                    "pos": {
+                        "x": 45.0,
+                        "y": 51.94
+                    },
+                    "uuid": "b9d6c7cd-2fb3-4ca2-b31d-bf2af93ae63a"
+                }
+            ],
+            "severity": "warning",
+            "type": "net_conflict"
+        },
+        {
+            "description": "Le pad a le net manquant donné par la schématique (unconnected-(J8-NC-Pad14))",
+            "items": [
+                {
+                    "description": "Pad métallisé 14 [<no net>] de J8",
+                    "pos": {
+                        "x": 60.24,
+                        "y": 49.4
+                    },
+                    "uuid": "27a68166-08ec-4794-a5b6-28825df48c82"
+                }
+            ],
+            "severity": "warning",
+            "type": "net_conflict"
+        },
+        {
+            "description": "Le pad a le net manquant donné par la schématique (unconnected-(J8-NC-Pad15))",
+            "items": [
+                {
+                    "description": "Pad métallisé 15 [<no net>] de J8",
+                    "pos": {
+                        "x": 60.24,
+                        "y": 46.86
+                    },
+                    "uuid": "1e3013bc-a40d-4885-ba81-36243a0b16a6"
+                }
+            ],
+            "severity": "warning",
+            "type": "net_conflict"
+        },
+        {
+            "description": "Le pad a le net manquant donné par la schématique (unconnected-(J8-NC-Pad16))",
+            "items": [
+                {
+                    "description": "Pad métallisé 16 [<no net>] de J8",
+                    "pos": {
+                        "x": 60.24,
+                        "y": 44.32
+                    },
+                    "uuid": "8dd6d62b-315c-413a-8163-31107cf48d2b"
+                }
+            ],
+            "severity": "warning",
+            "type": "net_conflict"
+        },
+        {
+            "description": "Le pad a le net manquant donné par la schématique (unconnected-(J8-NC-Pad17))",
+            "items": [
+                {
+                    "description": "Pad métallisé 17 [<no net>] de J8",
+                    "pos": {
+                        "x": 60.24,
+                        "y": 41.78
+                    },
+                    "uuid": "6079fdcc-95d9-4063-b062-c99856c976e7"
+                }
+            ],
+            "severity": "warning",
+            "type": "net_conflict"
+        },
+        {
+            "description": "Le pad a le net manquant donné par la schématique (unconnected-(J8-NC-Pad18))",
+            "items": [
+                {
+                    "description": "Pad métallisé 18 [<no net>] de J8",
+                    "pos": {
+                        "x": 60.24,
+                        "y": 39.24
+                    },
+                    "uuid": "f0741d0e-ac09-4c82-ad75-353b76c28875"
+                }
+            ],
+            "severity": "warning",
+            "type": "net_conflict"
+        },
+        {
+            "description": "Le pad a le net manquant donné par la schématique (unconnected-(J8-NC-Pad19))",
+            "items": [
+                {
+                    "description": "Pad métallisé 19 [<no net>] de J8",
+                    "pos": {
+                        "x": 60.24,
+                        "y": 36.7
+                    },
+                    "uuid": "c1f440ff-feb2-42b8-a060-50f7cf5567c6"
+                }
+            ],
+            "severity": "warning",
+            "type": "net_conflict"
+        },
+        {
+            "description": "Le pad a le net manquant donné par la schématique (unconnected-(J8-NC-Pad20))",
+            "items": [
+                {
+                    "description": "Pad métallisé 20 [<no net>] de J8",
+                    "pos": {
+                        "x": 60.24,
+                        "y": 34.16
+                    },
+                    "uuid": "9dc8f6a1-80ad-492f-a674-9ef2ee5dd37c"
+                }
+            ],
+            "severity": "warning",
+            "type": "net_conflict"
+        },
+        {
+            "description": "Le pad a le net manquant donné par la schématique (unconnected-(J9-NC-Pad1))",
+            "items": [
+                {
+                    "description": "Pad métallisé 1 [<no net>] de J9",
+                    "pos": {
+                        "x": 105.0,
+                        "y": 80.0
+                    },
+                    "uuid": "89a795e6-c89d-4eb8-8971-091d68ad00e8"
+                }
+            ],
+            "severity": "warning",
+            "type": "net_conflict"
+        },
+        {
+            "description": "Le pad a le net manquant donné par la schématique (unconnected-(J9-NC-Pad2))",
+            "items": [
+                {
+                    "description": "Pad métallisé 2 [<no net>] de J9",
+                    "pos": {
+                        "x": 102.46,
+                        "y": 80.0
+                    },
+                    "uuid": "a0cbbf47-3bd5-4429-9b78-a8f967564dba"
+                }
+            ],
+            "severity": "warning",
+            "type": "net_conflict"
+        },
+        {
+            "description": "Le pad a le net manquant donné par la schématique (unconnected-(J9-NC-Pad4))",
+            "items": [
+                {
+                    "description": "Pad métallisé 4 [<no net>] de J9",
+                    "pos": {
+                        "x": 97.38,
+                        "y": 80.0
+                    },
+                    "uuid": "e8304e1f-949a-4020-beb8-f627b837af16"
+                }
+            ],
+            "severity": "warning",
+            "type": "net_conflict"
+        },
+        {
+            "description": "Le pad a le net manquant donné par la schématique (unconnected-(J9-NC-Pad5))",
+            "items": [
+                {
+                    "description": "Pad métallisé 5 [<no net>] de J9",
+                    "pos": {
+                        "x": 94.84,
+                        "y": 80.0
+                    },
+                    "uuid": "4044ebeb-3365-4927-942d-9b1e778488f4"
+                }
+            ],
+            "severity": "warning",
+            "type": "net_conflict"
+        },
+        {
+            "description": "Le pad a le net manquant donné par la schématique (unconnected-(J9-NC-Pad6))",
+            "items": [
+                {
+                    "description": "Pad métallisé 6 [<no net>] de J9",
+                    "pos": {
+                        "x": 92.3,
+                        "y": 80.0
+                    },
+                    "uuid": "6f126c29-62c1-4e5f-bc9d-c734817d8473"
+                }
+            ],
+            "severity": "warning",
+            "type": "net_conflict"
+        },
+        {
+            "description": "Le pad a le net manquant donné par la schématique (unconnected-(J9-NC-Pad10))",
+            "items": [
+                {
+                    "description": "Pad métallisé 10 [<no net>] de J9",
+                    "pos": {
+                        "x": 89.76,
+                        "y": 102.86
+                    },
+                    "uuid": "8a6fbdbf-dbd3-4077-a0f9-96711aa33337"
+                }
+            ],
+            "severity": "warning",
+            "type": "net_conflict"
+        },
+        {
+            "description": "Le pad a le net manquant donné par la schématique (unconnected-(J9-NC-Pad11))",
+            "items": [
+                {
+                    "description": "Pad métallisé 11 [<no net>] de J9",
+                    "pos": {
+                        "x": 92.3,
+                        "y": 102.86
+                    },
+                    "uuid": "d0a72c2e-8eb2-47a7-9410-9d497367658f"
+                }
+            ],
+            "severity": "warning",
+            "type": "net_conflict"
+        },
+        {
+            "description": "Le pad a le net manquant donné par la schématique (unconnected-(J9-NC-Pad12))",
+            "items": [
+                {
+                    "description": "Pad métallisé 12 [<no net>] de J9",
+                    "pos": {
+                        "x": 94.84,
+                        "y": 102.86
+                    },
+                    "uuid": "fabeb9be-bb08-4134-a2f7-af0ff0ab4ec3"
+                }
+            ],
+            "severity": "warning",
+            "type": "net_conflict"
+        },
+        {
+            "description": "Le pad a le net manquant donné par la schématique (unconnected-(J9-NC-Pad15))",
+            "items": [
+                {
+                    "description": "Pad métallisé 15 [<no net>] de J9",
+                    "pos": {
+                        "x": 102.46,
+                        "y": 102.86
+                    },
+                    "uuid": "e003211f-9dca-4794-bec2-f329c224d0ef"
+                }
+            ],
+            "severity": "warning",
+            "type": "net_conflict"
+        },
+        {
+            "description": "Le pad a le net manquant donné par la schématique (unconnected-(J9-NC-Pad16))",
+            "items": [
+                {
+                    "description": "Pad métallisé 16 [<no net>] de J9",
+                    "pos": {
+                        "x": 105.0,
+                        "y": 102.86
+                    },
+                    "uuid": "960eed4f-3554-415f-bd61-06142a82179d"
+                }
+            ],
+            "severity": "warning",
+            "type": "net_conflict"
+        }
+    ],
+    "source": "TR2_Shield_Proto_V1.kicad_pcb",
+    "unconnected_items": [],
+    "violations": []
+}

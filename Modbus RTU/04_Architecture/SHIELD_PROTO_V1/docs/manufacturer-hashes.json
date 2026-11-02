@@ -1,0 +1,30 @@
+{
+  "click-mechanical.zip": {
+    "bytes": 36158978,
+    "sha256": "b6dc14d1efcb375af236b7044dad34a0a219b3e179346be6fb35cff3af6d10f3"
+  },
+  "Adafruit-MicroSD-SPI-or-SDIO-card-breakout-PCB__Adafruit SDIO microSD.sch": {
+    "bytes": 329535,
+    "sha256": "2d6f148ef86f4478184cf76fbda9a9554ce3597025784223532577f4de9ebe8e"
+  },
+  "click-schematic.pdf": {
+    "bytes": 387120,
+    "sha256": "204f5c4ba323457f7e08c0c44c0f3a025cad8d06ca73ffc189fd46c73d8b716c"
+  },
+  "UM2861-STJapan.pdf": {
+    "bytes": 2786897,
+    "sha256": "816fb19217b4cef11aa7698c42f1c614474c15b04010b491258a51a308378294"
+  },
+  "Adafruit-MicroSD-SPI-or-SDIO-card-breakout-PCB__Adafruit SDIO microSD.brd": {
+    "bytes": 145734,
+    "sha256": "0ec91e989f1004c85c203bc4539bb2652b8c33614cc18f624bd3bdac7cbf8c57"
+  },
+  "Adafruit-FRAM-Breakout-PCB__SPI FRAM 2 and 4 Mbit.brd": {
+    "bytes": 140336,
+    "sha256": "861a05b686fcd5ad03a8f586ccf199ddb5163454c9b6663071ac254c937ece2f"
+  },
+  "Adafruit-FRAM-Breakout-PCB__SPI FRAM 2 and 4 Mbit.sch": {
+    "bytes": 120212,
+    "sha256": "a4c522e9101a4d2140a5c83a4feacb1d570743edc22ef30f10e0489b57391b26"
+  }
+}

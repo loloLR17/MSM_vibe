@@ -1,0 +1,157 @@
+[
+  {
+    "name": "ERC",
+    "args": [
+      "sch",
+      "erc",
+      "--format",
+      "json",
+      "--severity-all",
+      "--exit-code-violations",
+      "-o",
+      "/home/lolo/dev/msm/projects/MSM_vibe-SHIELD-PROTO-V1/Modbus RTU/04_Architecture/SHIELD_PROTO_V1/docs/checks/ERC.json",
+      "/home/lolo/dev/msm/projects/MSM_vibe-SHIELD-PROTO-V1/Modbus RTU/04_Architecture/SHIELD_PROTO_V1/cad/TR2_Shield_Proto_V1.kicad_sch"
+    ],
+    "returncode": 0
+  },
+  {
+    "name": "DRC",
+    "args": [
+      "pcb",
+      "drc",
+      "--schematic-parity",
+      "--all-track-errors",
+      "--format",
+      "json",
+      "--severity-all",
+      "--exit-code-violations",
+      "-o",
+      "/home/lolo/dev/msm/projects/MSM_vibe-SHIELD-PROTO-V1/Modbus RTU/04_Architecture/SHIELD_PROTO_V1/docs/checks/DRC.json",
+      "/home/lolo/dev/msm/projects/MSM_vibe-SHIELD-PROTO-V1/Modbus RTU/04_Architecture/SHIELD_PROTO_V1/cad/TR2_Shield_Proto_V1.kicad_pcb"
+    ],
+    "returncode": 0
+  },
+  {
+    "name": "schematic-pdf",
+    "args": [
+      "sch",
+      "export",
+      "pdf",
+      "-o",
+      "/home/lolo/dev/msm/projects/MSM_vibe-SHIELD-PROTO-V1/Modbus RTU/04_Architecture/SHIELD_PROTO_V1/exports/schema.pdf",
+      "/home/lolo/dev/msm/projects/MSM_vibe-SHIELD-PROTO-V1/Modbus RTU/04_Architecture/SHIELD_PROTO_V1/cad/TR2_Shield_Proto_V1.kicad_sch"
+    ],
+    "returncode": 0
+  },
+  {
+    "name": "netlist",
+    "args": [
+      "sch",
+      "export",
+      "netlist",
+      "--format",
+      "kicadxml",
+      "-o",
+      "/home/lolo/dev/msm/projects/MSM_vibe-SHIELD-PROTO-V1/Modbus RTU/04_Architecture/SHIELD_PROTO_V1/exports/netlist.xml",
+      "/home/lolo/dev/msm/projects/MSM_vibe-SHIELD-PROTO-V1/Modbus RTU/04_Architecture/SHIELD_PROTO_V1/cad/TR2_Shield_Proto_V1.kicad_sch"
+    ],
+    "returncode": 0
+  },
+  {
+    "name": "gerbers",
+    "args": [
+      "pcb",
+      "export",
+      "gerbers",
+      "--layers",
+      "F.Cu,B.Cu,F.Mask,B.Mask,F.Silkscreen,B.Silkscreen,Edge.Cuts",
+      "--check-zones",
+      "-o",
+      "/home/lolo/dev/msm/projects/MSM_vibe-SHIELD-PROTO-V1/Modbus RTU/04_Architecture/SHIELD_PROTO_V1/exports/BLOCKED_FABRICATION",
+      "/home/lolo/dev/msm/projects/MSM_vibe-SHIELD-PROTO-V1/Modbus RTU/04_Architecture/SHIELD_PROTO_V1/cad/TR2_Shield_Proto_V1.kicad_pcb"
+    ],
+    "returncode": 0
+  },
+  {
+    "name": "drill",
+    "args": [
+      "pcb",
+      "export",
+      "drill",
+      "--format",
+      "excellon",
+      "--excellon-separate-th",
+      "--generate-map",
+      "--generate-report",
+      "-o",
+      "/home/lolo/dev/msm/projects/MSM_vibe-SHIELD-PROTO-V1/Modbus RTU/04_Architecture/SHIELD_PROTO_V1/exports/BLOCKED_FABRICATION",
+      "/home/lolo/dev/msm/projects/MSM_vibe-SHIELD-PROTO-V1/Modbus RTU/04_Architecture/SHIELD_PROTO_V1/cad/TR2_Shield_Proto_V1.kicad_pcb"
+    ],
+    "returncode": 0
+  },
+  {
+    "name": "assembly-pdf",
+    "args": [
+      "pcb",
+      "export",
+      "pdf",
+      "--layers",
+      "F.Fab,F.Silkscreen,Edge.Cuts",
+      "--sketch-pads-on-fab-layers",
+      "--mode-single",
+      "-o",
+      "/home/lolo/dev/msm/projects/MSM_vibe-SHIELD-PROTO-V1/Modbus RTU/04_Architecture/SHIELD_PROTO_V1/exports/implantation-dessus.pdf",
+      "/home/lolo/dev/msm/projects/MSM_vibe-SHIELD-PROTO-V1/Modbus RTU/04_Architecture/SHIELD_PROTO_V1/cad/TR2_Shield_Proto_V1.kicad_pcb"
+    ],
+    "returncode": 0
+  },
+  {
+    "name": "bottom-pdf",
+    "args": [
+      "pcb",
+      "export",
+      "pdf",
+      "--layers",
+      "B.Cu,B.Silkscreen,Edge.Cuts",
+      "--mirror",
+      "--mode-single",
+      "-o",
+      "/home/lolo/dev/msm/projects/MSM_vibe-SHIELD-PROTO-V1/Modbus RTU/04_Architecture/SHIELD_PROTO_V1/exports/cuivre-dessous-miroir.pdf",
+      "/home/lolo/dev/msm/projects/MSM_vibe-SHIELD-PROTO-V1/Modbus RTU/04_Architecture/SHIELD_PROTO_V1/cad/TR2_Shield_Proto_V1.kicad_pcb"
+    ],
+    "returncode": 0
+  },
+  {
+    "name": "step-board-only",
+    "args": [
+      "pcb",
+      "export",
+      "step",
+      "--force",
+      "--board-only",
+      "-o",
+      "/home/lolo/dev/msm/projects/MSM_vibe-SHIELD-PROTO-V1/Modbus RTU/04_Architecture/SHIELD_PROTO_V1/exports/shield-nu.step",
+      "/home/lolo/dev/msm/projects/MSM_vibe-SHIELD-PROTO-V1/Modbus RTU/04_Architecture/SHIELD_PROTO_V1/cad/TR2_Shield_Proto_V1.kicad_pcb"
+    ],
+    "returncode": 0
+  },
+  {
+    "name": "3d-board-only",
+    "args": [
+      "pcb",
+      "render",
+      "--width",
+      "1400",
+      "--height",
+      "1100",
+      "--background",
+      "opaque",
+      "--rotate",
+      "-30,0,25",
+      "-o",
+      "/home/lolo/dev/msm/projects/MSM_vibe-SHIELD-PROTO-V1/Modbus RTU/04_Architecture/SHIELD_PROTO_V1/exports/shield-nu.png",
+      "/home/lolo/dev/msm/projects/MSM_vibe-SHIELD-PROTO-V1/Modbus RTU/04_Architecture/SHIELD_PROTO_V1/cad/TR2_Shield_Proto_V1.kicad_pcb"
+    ],
+    "returncode": 0
+  }
+]

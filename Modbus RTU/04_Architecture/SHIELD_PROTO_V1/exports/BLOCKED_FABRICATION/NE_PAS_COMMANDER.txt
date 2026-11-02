@@ -1,0 +1,4 @@
+CANDIDAT 0.1 — FABRICATION BLOQUÉE
+Consulter ../../docs/ASSEMBLAGE_ET_RESERVES.md.
+ERC/DRC et exports cohérents ne prouvent ni ajustement C05, ni détrompage,
+ni retenue, ni isolation de l’assemblage réel. Ne pas envoyer au fabricant.

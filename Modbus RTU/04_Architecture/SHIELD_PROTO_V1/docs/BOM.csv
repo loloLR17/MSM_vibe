@@ -1,0 +1,14 @@
+repere,description,unite,quantite_pour_deux,prix_unitaire_observe,devise,reference_fournisseur,source,reserve
+PCB,support90x100 FR4 2L 1.6mm 35um HASL,lot5,5,2.00,USD,JLCPCB,https://jlcpcb.com/help/article/how-do-i-place-an-order,prix d’appel seulement; DFM et port non devisés
+J1..J4,2x40 mâle2.54 à recouper: 2x10/2x8/2x15/2x17,barres,3,0.90,USD,Tayda A-5940,https://www.taydaelectronics.com/2-x-40-pin-male-2-54-mm-single-row-pin-header-break-away-round-pin-gold-plated.html,120 paires achetées pour100; dimensions engagement à confirmer
+J5+TP,1x40 mâle2.54 à recouper + boucles test,barre,1,0.15,USD,Tayda A-197,https://www.taydaelectronics.com/40-pin-2-54-mm-single-row-pin-header-strip.html,deux paires PG4 + huit points test; sockets Nucleo déjà présents
+J6+J7,socket1x9 H8.5,pièces,4,0.19,USD,Neltron2212S-09G-85 / Tayda A-7569,https://www.taydaelectronics.com/connectors-sockets/pin-headers.html,pas2.54; variante/engagement à vérifier
+J8,deux sockets1x12 H8.5 par shield,pièces,4,0.29,USD,Neltron2212S-12G-85 / Tayda A-7559,https://www.taydaelectronics.com/12-pin-2-54-mm-single-row-female-pin-header.html,indisponible lors consultation; alternatif A-8580 annoncé0.14USD à vérifier mécaniquement
+J9,deux sockets1x8 par shield,pièces,4,0.08,USD,Tayda A-1305 / alternatif Neltron2212S-08G-85,https://www.taydaelectronics.com/8-pin-2-54-mm-single-row-female-pin-header.html,H8.5 et engagement réel du substitut à confirmer avant achat
+R1..R4,10k 1/4W 1% axial P7.62,pièces,8,,EUR,RoyalOhm MFR 1/4W ou équivalent,,réserve budget globale passifs1.50EUR; encombrement corps ≤6.5mm
+C1,100nF ≥16V radial P2.5 X7R,pièces,2,,EUR,MLCC radial X7R 100nF ≥16V; reference exacte non figee,,P2.5 et enveloppe5.1x5mm a respecter; prix/reference restent a verifier
+C2,10uF ≥10V radial P2.5 diamètre≤5mm,pièces,2,,EUR,electrolytique radial10uF ≥10V; reference exacte non figee,,"P2.5 ou pattes preformees selon fabricant; diametre≤5mm; UVR1C100MDD ecarte (EOL, pas2mm)"
+MEC,entretoises isolantes M2.5 hauteur selon empilage,pièces,14,,EUR,PA66; 3 Nucleo+4 modules par appareil,,provision8EUR pour entretoises/28vis/rondelles; référence non figée
+RET,sangles isolantes et étriers détrompés,ensembles,2,,EUR,PA66/PETG haute tenue à qualifier,,provision4EUR; dessin retenue dépend des cotes bloquantes
+REEMPLOI,Nucleo+SD4682+FRAM4718+Click3863+kitST+nappe,ensembles,2,0,EUR,modules existants,,aucun nouveau module actif; pas de câbles Dupont
+PORT,PCB puis composants,envois,2,,EUR,transporteurs à deviser,,provision totale17EUR; pas de devis ni commande

@@ -1,0 +1,18 @@
+{
+  "mission": "TR2-20261102-SHIELD-PROTO-V1",
+  "initial_remote_main": "ad924a3d88ee9cd0908823aa333fec183c114dd3",
+  "user_confirmed_modules": {
+    "FRAM": "MB85RS2",
+    "RS485": "MIKROE-3863",
+    "sensor": "MKI208V1 + MKIGIBV2",
+    "Nucleo": "MB1549-U575ZIQ-C05"
+  },
+  "historic_fram_breakout": "Adafruit4718, hardware freeze H3D3C",
+  "KiCad": "10.0.6 Windows CLI and pcbnew API actually executed",
+  "permissions_exercised": "read sources and software tooling only; no flash/debug/STM32/SD/RS485",
+  "two_stashes": [
+    "6251b988e8b20f97997a8f98fd26d4d35a45a1b2",
+    "f3b829e6188f491920edf74a5f9ed0f559d08b87"
+  ],
+  "prior_acquisitions": "CN0/GI0/OBE untouched"
+}

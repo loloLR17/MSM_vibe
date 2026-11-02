@@ -1,0 +1,13 @@
+{
+  "type": "observations rapportees par utilisateur, aucune manipulation demandee ou executee dans cette mission",
+  "references": [
+    "FRAM MB85RS2",
+    "RS485 Isolator MIKROE-3863",
+    "kit MKI208V1 + MKIGIBV2",
+    "Nucleo MB1549-U575ZIQ-C05"
+  ],
+  "mki_row_spacing_measured_mm": 15.2,
+  "mki_pitch_reported_mm": 2.54,
+  "ground_description": "vue dessus, JP2 a droite, GND en bas a droite; numerotation absolue non connue de utilisateur",
+  "ground_schematic_correspondence": "JP2 global13, 12e position dans rangée24..13"
+}

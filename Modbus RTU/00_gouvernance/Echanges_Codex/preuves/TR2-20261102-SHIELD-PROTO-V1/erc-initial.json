@@ -1,0 +1,488 @@
+{
+    "$schema": "https://schemas.kicad.org/erc.v1.json",
+    "coordinate_units": "mm",
+    "date": "2026-11-02T21:58:13",
+    "ignored_checks": [
+        {
+            "description": "Global label only appears once in the schematic",
+            "key": "single_global_label"
+        },
+        {
+            "description": "Four connection points are joined together",
+            "key": "four_way_junction"
+        },
+        {
+            "description": "SPICE model issue",
+            "key": "simulation_model_issue"
+        },
+        {
+            "description": "Assigned footprint doesn't match footprint filters",
+            "key": "footprint_filter"
+        }
+    ],
+    "included_severities": [
+        "error",
+        "warning",
+        "exclusion"
+    ],
+    "kicad_version": "10.0.6",
+    "sheets": [
+        {
+            "path": "/",
+            "uuid_path": "/8eb28e17-31a2-58df-b072-5cb49c8aa8e3",
+            "violations": [
+                {
+                    "description": "La configuration actuelle n'inclut pas la librairie d'empreintes 'TR2'",
+                    "items": [
+                        {
+                            "description": "Symbole J1 [J1_NUCLEO_CN7]",
+                            "pos": {
+                                "x": 0.5588,
+                                "y": 0.4572
+                            },
+                            "uuid": "9b14ca82-d539-540a-9776-b6dbb139a5ee"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "footprint_link_issues"
+                },
+                {
+                    "description": "La configuration actuelle n'inclut pas la librairie de symboles 'TR2'",
+                    "items": [
+                        {
+                            "description": "Symbole J1 [J1_NUCLEO_CN7]",
+                            "pos": {
+                                "x": 0.5588,
+                                "y": 0.4572
+                            },
+                            "uuid": "9b14ca82-d539-540a-9776-b6dbb139a5ee"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "La configuration actuelle n'inclut pas la librairie d'empreintes 'TR2'",
+                    "items": [
+                        {
+                            "description": "Symbole J2 [J2_NUCLEO_CN8]",
+                            "pos": {
+                                "x": 0.5588,
+                                "y": 0.9652
+                            },
+                            "uuid": "fcdb1be0-3004-550a-96e0-09c3aee7d3ba"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "footprint_link_issues"
+                },
+                {
+                    "description": "La configuration actuelle n'inclut pas la librairie de symboles 'TR2'",
+                    "items": [
+                        {
+                            "description": "Symbole J2 [J2_NUCLEO_CN8]",
+                            "pos": {
+                                "x": 0.5588,
+                                "y": 0.9652
+                            },
+                            "uuid": "fcdb1be0-3004-550a-96e0-09c3aee7d3ba"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "La configuration actuelle n'inclut pas la librairie d'empreintes 'TR2'",
+                    "items": [
+                        {
+                            "description": "Symbole J3 [J3_NUCLEO_CN9]",
+                            "pos": {
+                                "x": 0.5588,
+                                "y": 1.5494
+                            },
+                            "uuid": "732b3b0b-58f2-58e9-831d-36e1be7d845f"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "footprint_link_issues"
+                },
+                {
+                    "description": "La configuration actuelle n'inclut pas la librairie de symboles 'TR2'",
+                    "items": [
+                        {
+                            "description": "Symbole J3 [J3_NUCLEO_CN9]",
+                            "pos": {
+                                "x": 0.5588,
+                                "y": 1.5494
+                            },
+                            "uuid": "732b3b0b-58f2-58e9-831d-36e1be7d845f"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "La configuration actuelle n'inclut pas la librairie d'empreintes 'TR2'",
+                    "items": [
+                        {
+                            "description": "Symbole J4 [J4_NUCLEO_CN10]",
+                            "pos": {
+                                "x": 0.5588,
+                                "y": 2.286
+                            },
+                            "uuid": "c83fa3f9-f86f-5747-8d28-c4e826b71b67"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "footprint_link_issues"
+                },
+                {
+                    "description": "La configuration actuelle n'inclut pas la librairie de symboles 'TR2'",
+                    "items": [
+                        {
+                            "description": "Symbole J4 [J4_NUCLEO_CN10]",
+                            "pos": {
+                                "x": 0.5588,
+                                "y": 2.286
+                            },
+                            "uuid": "c83fa3f9-f86f-5747-8d28-c4e826b71b67"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "La configuration actuelle n'inclut pas la librairie d'empreintes 'TR2'",
+                    "items": [
+                        {
+                            "description": "Symbole J5 [J5_CN12_69_70_PG4]",
+                            "pos": {
+                                "x": 1.6256,
+                                "y": 0.4826
+                            },
+                            "uuid": "0349d0d4-8512-5aa0-8312-66858bb4e6e1"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "footprint_link_issues"
+                },
+                {
+                    "description": "La configuration actuelle n'inclut pas la librairie de symboles 'TR2'",
+                    "items": [
+                        {
+                            "description": "Symbole J5 [J5_CN12_69_70_PG4]",
+                            "pos": {
+                                "x": 1.6256,
+                                "y": 0.4826
+                            },
+                            "uuid": "0349d0d4-8512-5aa0-8312-66858bb4e6e1"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "La configuration actuelle n'inclut pas la librairie d'empreintes 'TR2'",
+                    "items": [
+                        {
+                            "description": "Symbole J6 [J6_ADAFRUIT_4718]",
+                            "pos": {
+                                "x": 1.6256,
+                                "y": 1.016
+                            },
+                            "uuid": "6a242382-d935-5772-83f0-77bf04061899"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "footprint_link_issues"
+                },
+                {
+                    "description": "La configuration actuelle n'inclut pas la librairie de symboles 'TR2'",
+                    "items": [
+                        {
+                            "description": "Symbole J6 [J6_ADAFRUIT_4718]",
+                            "pos": {
+                                "x": 1.6256,
+                                "y": 1.016
+                            },
+                            "uuid": "6a242382-d935-5772-83f0-77bf04061899"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "La configuration actuelle n'inclut pas la librairie d'empreintes 'TR2'",
+                    "items": [
+                        {
+                            "description": "Symbole J7 [J7_ADAFRUIT_4682]",
+                            "pos": {
+                                "x": 1.6256,
+                                "y": 1.6002
+                            },
+                            "uuid": "c596d58a-1f93-5084-8de7-3914057baa72"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "footprint_link_issues"
+                },
+                {
+                    "description": "La configuration actuelle n'inclut pas la librairie de symboles 'TR2'",
+                    "items": [
+                        {
+                            "description": "Symbole J7 [J7_ADAFRUIT_4682]",
+                            "pos": {
+                                "x": 1.6256,
+                                "y": 1.6002
+                            },
+                            "uuid": "c596d58a-1f93-5084-8de7-3914057baa72"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "La configuration actuelle n'inclut pas la librairie d'empreintes 'TR2'",
+                    "items": [
+                        {
+                            "description": "Symbole R1 [R1_10k]",
+                            "pos": {
+                                "x": 2.6416,
+                                "y": 2.0574
+                            },
+                            "uuid": "66c4b8d6-4e88-55d6-acbd-7c7894683f3e"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "footprint_link_issues"
+                },
+                {
+                    "description": "La configuration actuelle n'inclut pas la librairie de symboles 'TR2'",
+                    "items": [
+                        {
+                            "description": "Symbole R1 [R1_10k]",
+                            "pos": {
+                                "x": 2.6416,
+                                "y": 2.0574
+                            },
+                            "uuid": "66c4b8d6-4e88-55d6-acbd-7c7894683f3e"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "La configuration actuelle n'inclut pas la librairie d'empreintes 'TR2'",
+                    "items": [
+                        {
+                            "description": "Symbole R2 [R2_10k]",
+                            "pos": {
+                                "x": 2.6416,
+                                "y": 2.2352
+                            },
+                            "uuid": "1db46d95-bbda-5074-b8ae-ebf5f384b0a4"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "footprint_link_issues"
+                },
+                {
+                    "description": "La configuration actuelle n'inclut pas la librairie de symboles 'TR2'",
+                    "items": [
+                        {
+                            "description": "Symbole R2 [R2_10k]",
+                            "pos": {
+                                "x": 2.6416,
+                                "y": 2.2352
+                            },
+                            "uuid": "1db46d95-bbda-5074-b8ae-ebf5f384b0a4"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "La configuration actuelle n'inclut pas la librairie d'empreintes 'TR2'",
+                    "items": [
+                        {
+                            "description": "Symbole R3 [R3_10k]",
+                            "pos": {
+                                "x": 2.6416,
+                                "y": 2.413
+                            },
+                            "uuid": "f23fa699-c673-5f4c-ae15-64a7b482ed60"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "footprint_link_issues"
+                },
+                {
+                    "description": "La configuration actuelle n'inclut pas la librairie de symboles 'TR2'",
+                    "items": [
+                        {
+                            "description": "Symbole R3 [R3_10k]",
+                            "pos": {
+                                "x": 2.6416,
+                                "y": 2.413
+                            },
+                            "uuid": "f23fa699-c673-5f4c-ae15-64a7b482ed60"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "La configuration actuelle n'inclut pas la librairie d'empreintes 'TR2'",
+                    "items": [
+                        {
+                            "description": "Symbole J8 [J8_ST_MKIGIBV2]",
+                            "pos": {
+                                "x": 2.8702,
+                                "y": 0.6604
+                            },
+                            "uuid": "2d6cb883-1cf0-5b3d-b297-864900a98bbc"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "footprint_link_issues"
+                },
+                {
+                    "description": "La configuration actuelle n'inclut pas la librairie de symboles 'TR2'",
+                    "items": [
+                        {
+                            "description": "Symbole J8 [J8_ST_MKIGIBV2]",
+                            "pos": {
+                                "x": 2.8702,
+                                "y": 0.6604
+                            },
+                            "uuid": "2d6cb883-1cf0-5b3d-b297-864900a98bbc"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "La configuration actuelle n'inclut pas la librairie d'empreintes 'TR2'",
+                    "items": [
+                        {
+                            "description": "Symbole J9 [J9_MIKROE_3863]",
+                            "pos": {
+                                "x": 2.8702,
+                                "y": 1.3208
+                            },
+                            "uuid": "de265aaa-28e0-5a72-89e1-9fac3d23e5c6"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "footprint_link_issues"
+                },
+                {
+                    "description": "La configuration actuelle n'inclut pas la librairie de symboles 'TR2'",
+                    "items": [
+                        {
+                            "description": "Symbole J9 [J9_MIKROE_3863]",
+                            "pos": {
+                                "x": 2.8702,
+                                "y": 1.3208
+                            },
+                            "uuid": "de265aaa-28e0-5a72-89e1-9fac3d23e5c6"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "La configuration actuelle n'inclut pas la librairie d'empreintes 'TR2'",
+                    "items": [
+                        {
+                            "description": "Symbole R4 [R4_10k]",
+                            "pos": {
+                                "x": 3.3782,
+                                "y": 2.0574
+                            },
+                            "uuid": "cec83182-8317-5fe4-bcfb-e68c76960341"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "footprint_link_issues"
+                },
+                {
+                    "description": "La configuration actuelle n'inclut pas la librairie de symboles 'TR2'",
+                    "items": [
+                        {
+                            "description": "Symbole R4 [R4_10k]",
+                            "pos": {
+                                "x": 3.3782,
+                                "y": 2.0574
+                            },
+                            "uuid": "cec83182-8317-5fe4-bcfb-e68c76960341"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "La configuration actuelle n'inclut pas la librairie d'empreintes 'TR2'",
+                    "items": [
+                        {
+                            "description": "Symbole C1 [C1_100n]",
+                            "pos": {
+                                "x": 3.3782,
+                                "y": 2.2352
+                            },
+                            "uuid": "464cee31-439c-535a-9350-a594a3190294"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "footprint_link_issues"
+                },
+                {
+                    "description": "La configuration actuelle n'inclut pas la librairie de symboles 'TR2'",
+                    "items": [
+                        {
+                            "description": "Symbole C1 [C1_100n]",
+                            "pos": {
+                                "x": 3.3782,
+                                "y": 2.2352
+                            },
+                            "uuid": "464cee31-439c-535a-9350-a594a3190294"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                },
+                {
+                    "description": "La configuration actuelle n'inclut pas la librairie d'empreintes 'TR2'",
+                    "items": [
+                        {
+                            "description": "Symbole C2 [C2_10u_10V]",
+                            "pos": {
+                                "x": 3.3782,
+                                "y": 2.413
+                            },
+                            "uuid": "2454dcf0-e4b4-5874-88ca-f883ddbdf9d7"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "footprint_link_issues"
+                },
+                {
+                    "description": "La configuration actuelle n'inclut pas la librairie de symboles 'TR2'",
+                    "items": [
+                        {
+                            "description": "Symbole C2 [C2_10u_10V]",
+                            "pos": {
+                                "x": 3.3782,
+                                "y": 2.413
+                            },
+                            "uuid": "2454dcf0-e4b4-5874-88ca-f883ddbdf9d7"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "lib_symbol_issues"
+                }
+            ]
+        }
+    ],
+    "source": "TR2_Shield_Proto_V1.kicad_sch"
+}
