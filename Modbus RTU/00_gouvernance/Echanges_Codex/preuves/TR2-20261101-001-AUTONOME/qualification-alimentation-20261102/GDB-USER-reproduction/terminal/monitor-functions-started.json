@@ -1,0 +1,9 @@
+{
+  "UTC": "2026-11-02T15:30:29.406855+00:00",
+  "target_SN": "003500463235510B37333439",
+  "no_agent_START": true,
+  "no_flash_in_monitor": true,
+  "optional_preUSER_reset_only_if_attach_caught_boot_calibration": true,
+  "breaks": "state writes before FIFO/afterSTOP, prepare entry, FIFO start entry, Error_Handler/r3_finished; never periodic halt during active FIFO",
+  "timeout_s": 10800
+}
