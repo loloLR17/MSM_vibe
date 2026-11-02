@@ -1,0 +1,8 @@
+{
+  "user_requests": "Dernier test apr\u00e8s remplacement des c\u00e2bles sur TR2-001 puis changement de strat\u00e9gie de mesure au r\u00e9ducteur",
+  "module": "B, unchanged by instruction",
+  "wiring_user_report": "cables remplac\u00e9s sur TR2-001, relance un test pour v\u00e9rification",
+  "physical_constraints_instructed": "replacement powered off, CN8-4/6/8/10; SD/jumpers unchanged; TR2-002 untouched",
+  "new_voltage_values_reported": false,
+  "bounded_test": "one 60s sensor-only trial if calibration passes; no retries"
+}

@@ -1,0 +1,18 @@
+0x0800337e in main () at /home/lolo/dev/msm/projects/MSM_vibe-TR2-001-autonome/experiments/r3_durable_fat32/src/main.c:469
+warning: Source file is more recent than executable.469	#if R3_TR2_001_SENSOR_ONLY
+
+0xbfa0700:	0x004a003d	0x38425018	0x20333157
+$1 = 4
+$2 = 0
+$3 = false
+$4 = true
+$5 = false
+$6 = 0
+$7 = 0
+$8 = 0
+$9 = false
+$10 = false
+$11 = 0x1000
+$12 = 1
+$13 = {magic = 0x31525452, version = 0x1, bytes = 0x10790, crc = 0x1779fd5f}
+[Inferior 1 (Remote target) detached]

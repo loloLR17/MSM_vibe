@@ -5,7 +5,7 @@ base_ref: main
 base_sha: a8817bf293c6e60a93ad824d279ee870b6a0ecf7
 initial_head: 79b952dbb949cb8eb2f208e3b2c5994f4ed1279f
 result_sha: acb142794570ded5abd15f6521eb5d8b644590e8
-created_at_utc: 2026-11-02T09:46:50.395933+00:00
+created_at_utc: 2026-11-02T09:58:50.822492+00:00
 author: Codex
 target_branch: main
 allow_commit: true
@@ -13,6 +13,46 @@ allow_push: true
 allow_flash: true
 allow_debug: true
 ---
+
+# D07 — TR2-001 réussit 60 s après remplacement des câbles
+
+**IN_PROGRESS, capteur/FIFO physiquement validé sur cette fenêtre sous ST-LINK.**
+L'utilisateur confirme câbles remplacés sur001, moduleB conservé, puis vert fixe.
+Il précise l'erreur passée après déplacement : CN8-6/8/10/12 au lieu de4/6/8/10,
+cohérente avec WHO00 deD05 ; elle était corrigée avantD06, qui échouait encore.
+
+PrécontrôleD07 : UID001/WHO7B, ±16g/FS04, SPI3 8MHz, calibration39µs≤100,
+WAITsans erreur, BIN D01 de50912B entièrement relu identique à l'image archivée.
+Source évaluée **acb142794570ded5abd15f6521eb5d8b644590e8**,
+BIN SHA `6a00ec329c3b16cbf1c01fc3661014ad6f1fed05732a60fecbc338d6a7bb98d2`.
+Aucun build, flash ou reset ; un seul essai après les nouveaux câbles.
+
+**PASS :60,000587sMCU, stage4/error0,158532sortiescalculées,599contrôles temporels,
+résidumax24µs pour une limite100µs.** Zéro erreurFIFO/STOP, rail, saturation,
+flagqualité ou débordement ; budgetmask0. FIFOarrêté proprement.
+Snapshot67488B/CRC1779fd5f validé, source et SHA conservés dans les preuves.
+**SDcommands/reads/writes0, initialized/write_enabledfalse**, writerinactif,
+CS SDhaute, GDBdétaché. Aucune archiveSD créée, tousXYZnonpersistés : c'est un
+diagnostic capteur/FIFO, pas une qualification du stockage. Aucun accès002/FRAM/COM4.
+
+Le changement de câbles est associé à ce succès ; cela appuie la piste liaison/
+contacts sans prouver une cause électrique exclusive ou identifier un fil défectueux.
+Les anciens échecs restent conservés. Aucune nouvelle endurance ou powerbank qualifiée.
+
+**Suite autorisée par l'utilisateur après le vert fixe : CN15 puis autonomie au
+réducteur.** Même firmware D01 pour60s sousCN15 seul/secteur5V stable, sansSD,
+afin d'isoler l'alimentation. Transition physique hors tension et USER parutilisateur.
+Pas de répétition du succèsSTLINK inchangé. Si conforme, reprise de l'enregistrement
+SD avec fichierneuf et relectureintégralePC, puis10min ; aucun8hSTART pour l'instant.
+
+[Preuves D07 et plan CN15](preuves/TR2-20261101-001-AUTONOME/qualification-alimentation-20261102/last-cables-D07/D07_PASS_ET_SUITE_CN15.md).
+HEAD initial de tranche `6b20e0a489121e948c72295c3b84d9740674cd75`.
+Journal actualisé : succès borné, limites et nouvelle poursuiteCN15 demandée.
+
+---
+
+## Historique jusqu'au checkpoint6b20e0a4
+
 
 # Contrôle des deux bancs — B/001 et A/002 identifiés, D06 refusé sur001
 
