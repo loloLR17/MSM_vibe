@@ -1,0 +1,52 @@
+[
+  {
+    "name": "snapshot.bin",
+    "bytes": 67488,
+    "SHA256": "b9e5d675a94b1f6fe6955d2a2cfba07cce2c7094a2ec1abc196afebdb4c6a36b"
+  },
+  {
+    "name": "result.json",
+    "bytes": 1399,
+    "SHA256": "f756164199e3adecd95d756361ad0d0904953a721caa3d02dd10b857d21af650"
+  },
+  {
+    "name": "writer.bin",
+    "bytes": 128,
+    "SHA256": "d4874f1d281e3062d21e41114fe8d06132197d8e1cff60c7ad69f1f2a73f3a54"
+  },
+  {
+    "name": "producer-sha.bin",
+    "bytes": 32,
+    "SHA256": "d432f386833b63e807e3dfdd07f279bd5cebde46697474404e47d86cc5b4fc5b"
+  },
+  {
+    "name": "summary.json",
+    "bytes": 2796,
+    "SHA256": "73cd572333dba75d9d8e8f1fd8cc39b1ab787f97c4ab86561d6fc6b5ac1f63b0"
+  },
+  {
+    "name": "header.bin",
+    "bytes": 512,
+    "SHA256": "513f8cf79a39896aca2d67cb01996198df30ad62e6625b253a0429359f1e9404"
+  },
+  {
+    "name": "validation.json",
+    "bytes": 370,
+    "SHA256": "c48c5e2ecea45c3b31a6f2f518a13b85a05f23c7b3928b1e5038de0b4b304764"
+  },
+  {
+    "name": "queue.bin",
+    "bytes": 65560,
+    "SHA256": "55e4579c43e0ee497fe343439e1b758c011dae401d770d5524370e88fc9d8a45"
+  },
+  {
+    "name": "result.bin",
+    "bytes": 296,
+    "SHA256": "fac3c2c9f617b07607b9263517d126ed38bbe1f9164e9155641dd69b1ec743b9"
+  },
+  {
+    "name": "partial-frame.bin",
+    "bytes": 512,
+    "SHA256": "d453badb5728a507af5fa94c5c07da8d8ad86368fd793df8f45aae1e6c0a536e"
+  }
+]

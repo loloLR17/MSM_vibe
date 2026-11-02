@@ -1,0 +1,9 @@
+{
+  "UTC": "2026-11-02T20:01:22.119828+00:00",
+  "valid": true,
+  "snapshot_SHA256": "b9e5d675a94b1f6fe6955d2a2cfba07cce2c7094a2ec1abc196afebdb4c6a36b",
+  "source_SHA": "6633b0154bf67b4c5437f1d259732fc1b1f21e4a",
+  "producer_SHA256": "600551ef5eb1e4ae7d4c70b78dc3724045a81ec9ca7cdaad3e4b0351c5298f9a",
+  "no_reset_flash_START_SD_command": true,
+  "GDB_detached": true
+}

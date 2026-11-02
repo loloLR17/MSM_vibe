@@ -1,0 +1,28 @@
+0x080099d0 in HAL_SPI_TransmitReceive (hspi=hspi@entry=0x200435b0 <spi>, pTxData=<optimized out>, pRxData=0x200448d4 <fs+48> "", Size=Size@entry=512, Timeout=<optimized out>, Timeout@entry=30) at /home/lolo/dev/msm/cache/tr2-001-CN0-autonomous/generated/stm32u5xx_hal_spi_observed.c:1661
+1661	          hspi->RxXferCount--;
+0xbfa0700:	0x004a003d	0x38425018	0x20333157
+pc             0x80099d0           0x80099d0 <HAL_SPI_TransmitReceive+788>
+$1 = {version = 4, stage = 2, error = 0, uid = {4849725, 943869976, 540225879}, clock = 160000000, who = 123, run = 0, mode = 0, duration_us = 0, records = 0, span_us = 1891793, span_ticks = 150122, cal_residual = 49, cal_brackets = 198, cal_anchors = 6581, accepted = 0, outputs = 0, warmup = 0, rails = 0, clips = 0, source_hash = 0, output_hash = 0, first_us = 0, last_us = 0, residual = 0, clock_checks = 0, level = 16, flags = 0, stop_us = 0, stopped = 0, fifo_error = 0, stop_error = 0, trace_refused = 0, preclose_overflow = 0, irqs = 0, stack_deepest = 0, stack_floor = 0, primask = 0, basepri = 0, faultmask = 0, max_words = 16, raw_words = 2048, pending_xyz = 0, ctrl1 = 0, cal_xyz_span = 52640, cal_tick_span = 157920, sd_error = 0, sd_steps = 0, sd_peak_queue = 0, sd_completed = 0, sd_step_max = 0, sd_write_max_us = 0, sd_busy_max_us = 0, sd_total_bytes = 0, sd_lba = 0, sd_written = 0, drain_us = 0, header_written = 0, return_offset = 0, return_bytes = 0, returned = 0, sd_sectors = 999743488, marker_ok = 0, who_ok = 1, trace_count = 0, queue_overflows = 0, sd_pending_polls = 0}
+$2 = 1
+$3 = 1
+$4 = {magic = 0x31525452, version = 0x1, bytes = 0x10790, crc = 0x1d5a30e8}
+$5 = "6633b0154bf67b4c5437f1d259732fc1"...
+RETAINED_RESULT_BEGIN$6 = {version = 4, stage = 4, error = 0, uid = {4849725, 943869976, 540225879}, clock = 160000000, who = 123, run = 5, mode = 1, duration_us = 7200000537, records = 7647549, span_us = 1891900, span_ticks = 150148, cal_residual = 17, cal_brackets = 198, cal_anchors = 6580, accepted = 190429232, outputs = 19042924, warmup = 11, rails = 0, clips = 0, source_hash = 617675089, output_hash = 3667274706, first_us = 282066223, last_us = 7482055780, residual = 84, clock_checks = 71622, level = 50, flags = 0, stop_us = 133, stopped = 1, fifo_error = 0, stop_error = 0, trace_refused = 0, preclose_overflow = 0, irqs = 7200000, stack_deepest = 1128, stack_floor = 2968, primask = 0, basepri = 0, faultmask = 0, max_words = 50, raw_words = 2048, pending_xyz = 4, ctrl1 = 164, cal_xyz_span = 52632, cal_tick_span = 157896, sd_error = 0, sd_steps = 2001082, sd_peak_queue = 6656, sd_completed = 30518, sd_step_max = 68917, sd_write_max_us = 160464, sd_busy_max_us = 91116, sd_total_bytes = 114257544, sd_lba = 5528256, sd_written = 125000192, drain_us = 10295, header_written = 1, return_offset = 0, return_bytes = 0, returned = 0, sd_sectors = 999743488, marker_ok = 0, who_ok = 1, trace_count = 512, queue_overflows = 0, sd_pending_polls = 2001082}
+RETAINED_RESULT_END$7 = {card = 0x2001d840 <r3_card>, data = 0x2001250c <q+20480> "", lba = 5772393, blocks = 5, block = 5, offset = 0, state = 10, error = 0, begin_us = 7482057305, deadline_us = 7483065625, busy_begin_us = 7482065652, busy_sum_us = 2184, complete_us = 7482067379, max_busy_us = 1654, block_busy_us = {479, 13, 13, 13, 12, 0, 0, 0, 1654}, crc = 43922, active = false, done = true, uncertain = false, needs_power_cycle = false, data_response = 229, data_response_seen = 1}
+$8 = {fifo = 0x20000480 <fifo>, metric = 0x0, sink = 0x8001881 <sink>, sink_context = 0x0, base_us = 7482012250, span_us = 101091, span_ticks = 8019, ticks = 3456, anchor_ticks = 3456, input_index = 190429236, emitted = 190429232, max_residual_us = 84, last_event_us = 7482055780, first_event_us = 282066223, raw = 571447222, anchor_raw = 571447222, groups = 23803654, calibration_raw = 571443876, calibration_us = 7482013644, mapping_cycles = 0, metrology_cycles = 0, counter = 0 '\000', count = 4 '\004', xyz = {{141, -134, 2013}, {130, -115, 2003}, {92, -171, 2041}, {129, -132, 2000}, {121, -151, 2067}, {129, -109, 2006}, {100, -153, 2041}, {76, -151, 2014}}, initialized = true, anchor = true, fault = false}
+$9 = {before = 7482013635, after = 7482013653, raw = 571443876}
+$10 = 0
+$11 = {228237, 112456, 269760, 68917}
+$12 = 23040
+$13 = 23040
+$14 = 0
+$15 = 0
+$16 = 244141
+$17 = 0
+$18 = false
+$19 = false
+$20 = false
+$21 = false
+$22 = 0
+$23 = 0x0
+[Inferior 1 (Remote target) detached]

@@ -1,5 +1,8 @@
 # État courant MSM TR2 — synthèse opérationnelle
 
+**02/11/2026 — ****CN0 — résultat RAM préservé, vérification PC en attente.** Vertfixe rapporté paruser, snapshotCRC1d5a30e8 conforme/source6633b015 : stage4/error0/run5,7200000537µsMCU,19042924XYZfiltrés,0rails/clips/FIFO-SD-stop/overflow,71622checks/résidu84µs,header_written1. Filevide/writerterminénonincertain/digest600551ef…98f9a sauvegardé. CaptureCN15seul/STLINKdébranché selonprocédureuser. ReconnexionSTLINK→nouveaubootobservé, NOLOADsnapshotconservé ; aucunresetflashSTARTagent. Bootcourantreadonly ensuiteError_Handler/error1/run0 (cause nonisolée, distinctdelacapture4/0) ; SDwrites0/FIFOwriteroff/CShaute/snapshotCRCinchangé/GDBdétaché. Demandephysique envoyée pourcoupureCN15STLINK/transfert512auPC ; aucunPC-COMPLETE niSHAarchive vérifié pourl'instant.001imageCN0inchangée/002FRAMCOM4préservés. PasqualificationSI/réducteur/8h/powerbank, missionIN_PROGRESS.
+
+
 **Actualisation départ CN0 — observation utilisateur reçue 2026-11-02T18:01:21.192588+00:00 :** après USER et une phase LED toutes éteintes, LD2 bleue clignotante rapportée. Cela correspond à la capture selon le code ; pas de lecture compteur ni preuve de fin/qualité. CN15 seul/ST-LINK débranché selon procédure, aucune reconnexion/debug/reset/flash/commande pendant la capture. Heure exacte USER/début FIFO inconnue ; horodatage ci-dessus = réception du constat, pas départ mesuré. Conserver CN15 à la fin avant toute récupération RAM.
 
 
