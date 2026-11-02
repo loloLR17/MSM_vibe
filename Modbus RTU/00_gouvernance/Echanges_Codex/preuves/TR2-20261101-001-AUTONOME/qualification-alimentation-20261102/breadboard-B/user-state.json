@@ -1,0 +1,9 @@
+{
+  "module": "B",
+  "same_sensor_wires": true,
+  "sensor_moved_to_breadboard": true,
+  "move_power_off_user_confirmed": true,
+  "currently_STLINK_user_confirmed": true,
+  "only_sensor_moved_SD_and_jumpers_unchanged_user_confirmed": true,
+  "no_new_voltage_measurement_reported": true
+}

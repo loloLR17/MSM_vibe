@@ -5,7 +5,7 @@ base_ref: main
 base_sha: a8817bf293c6e60a93ad824d279ee870b6a0ecf7
 initial_head: 79b952dbb949cb8eb2f208e3b2c5994f4ed1279f
 result_sha: acb142794570ded5abd15f6521eb5d8b644590e8
-created_at_utc: 2026-11-02T08:32:49.076502+00:00
+created_at_utc: 2026-11-02T08:55:54.965107+00:00
 author: Codex
 target_branch: main
 allow_commit: true
@@ -13,6 +13,41 @@ allow_push: true
 allow_flash: true
 allow_debug: true
 ---
+
+# TR2-001 — D05 après déplacement du module B sur breadboard
+
+**IN_PROGRESS, attente de mesures physiques.** L'utilisateur préfère préserver
+le câblage éprouvé de TR2-002. Il confirme avoir déplacé uniquement le module B
+sur breadboard, hors tension, en conservant les fils ; lecteur SD et jumpers
+inchangés, puis TR2-001 alimenté par ST-LINK. Aucun fil neuf ou provenant de002
+n'a donc été testé. Les mesures3,315V de D04 précèdent ce déplacement.
+
+Contrôle sans build, flash, reset ou START : UID001 exact, même BIN D01 de50912B
+relu intégralement à l'identique, source `acb142794570ded5abd15f6521eb5d8b644590e8`,
+SHA-256 `6a00ec329c3b16cbf1c01fc3661014ad6f1fed05732a60fecbc338d6a7bb98d2`.
+**WHO_AM_I reçu =0x00, attendu0x7B**. Une transaction SPI conservée : registre0x0F,
+longueur1, payload00, HALstatus/error0, RX/TXrestants0. Le succès HAL ne démontre
+pas la qualité électrique de la liaison.
+
+Arrêt99/error1/run0 avant réglage FS/calibration, zéro acquisition. FIFO jamais
+démarré, writer inactif, CS SD haute, commandes/lectures/écrituresSD0,
+pilote non initialisé/gate écriture fermé, GDB détaché. Aucun accès002/FRAM/COM4.
+Pas d'appui USER demandé, ni de60s forcé, ni de test ancien répété.
+
+Le défaut observé après déplacement diffère de D04 : l'identification échoue
+désormais avant la calibration. Pas de preuve de module ou MCU défectueux.
+**Prochaine action utilisateur demandée : mesurer VDD, VDDIO et GND du module par
+rapport à GND Nucleo**, sans modifier le montage alimenté ; attendus3,3/3,3/0V.
+Aucune nouvelle mesure n'est encore acquise. Le prochain contrôle dépend de ce retour.
+
+[Preuves D05](preuves/TR2-20261101-001-AUTONOME/qualification-alimentation-20261102/breadboard-B/D05_RESULTAT.md).
+HEAD initial de tranche `314ec12960635b814fe6bee3c5535fc59bc66d7c` ; documentation
+et preuves seulement, pas de modification firmware. Journal actualisé.
+
+---
+
+## Historique jusqu'au checkpoint314ec129
+
 
 # TR2-001 — module B éprouvé sur TR2-002, calibration toujours refusée
 
