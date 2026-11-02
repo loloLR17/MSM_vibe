@@ -1,0 +1,44 @@
+{
+  "target": "002",
+  "module": "A",
+  "fresh_SPI_reads": {
+    "WHO": {
+      "status": 0,
+      "value": 123
+    },
+    "CTRL": {
+      "status": 0,
+      "value": 0
+    }
+  },
+  "trace": [
+    {
+      "tick": 224527,
+      "reg": 15,
+      "len": 1,
+      "write": 0,
+      "status": 0,
+      "error": 0,
+      "rx_left": 0,
+      "tx_left": 0,
+      "offset": 0,
+      "valid": 1
+    },
+    {
+      "tick": 224527,
+      "reg": 16,
+      "len": 1,
+      "write": 0,
+      "status": 0,
+      "error": 0,
+      "rx_left": 0,
+      "tx_left": 0,
+      "offset": 1,
+      "valid": 1
+    }
+  ],
+  "received_bytes_hex": "7b00",
+  "no_register_write_SD_command_flash_reset_or_START": true,
+  "scratch_RAM_restored": true,
+  "GDB_detached": true
+}

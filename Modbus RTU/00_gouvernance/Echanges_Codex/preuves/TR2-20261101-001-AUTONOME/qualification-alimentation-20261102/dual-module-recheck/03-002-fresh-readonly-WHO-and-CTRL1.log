@@ -1,0 +1,15 @@
+0x080026f0 in main () at /home/lolo/dev/msm/projects/MSM_vibe-R3-8h-faststart/experiments/r3_durable_fat32/src/main.c:354
+354	   __WFI();}
+0xbfa0700:	0x001b0046	0x38425018	0x20333157
+Note: automatically using hardware breakpoints for read-only addresses.
+CURRENT_WHO_STATUS=0 CURRENT_WHO=0x7b
+CURRENT_CTRL_STATUS=0 CURRENT_CTRL1=0x00
+$1 = 2
+$2 = 2
+$3 = 2
+$4 = 0
+$5 = false
+$6 = false
+$7 = 0
+$8 = 0
+[Inferior 1 (Remote target) detached]

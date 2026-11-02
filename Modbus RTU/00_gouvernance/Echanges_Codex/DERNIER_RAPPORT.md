@@ -5,7 +5,7 @@ base_ref: main
 base_sha: a8817bf293c6e60a93ad824d279ee870b6a0ecf7
 initial_head: 79b952dbb949cb8eb2f208e3b2c5994f4ed1279f
 result_sha: acb142794570ded5abd15f6521eb5d8b644590e8
-created_at_utc: 2026-11-02T08:55:54.965107+00:00
+created_at_utc: 2026-11-02T09:46:50.395933+00:00
 author: Codex
 target_branch: main
 allow_commit: true
@@ -13,6 +13,56 @@ allow_push: true
 allow_flash: true
 allow_debug: true
 ---
+
+# Contrôle des deux bancs — B/001 et A/002 identifiés, D06 refusé sur001
+
+**IN_PROGRESS.** L'utilisateur signale une correction de montage, B surTR2-001,
+A surTR2-002, deux ST-LINK connectés ; nature exacte de l'erreur non précisée.
+Identités et images des deux cibles vérifiées séparément : D01/50912B sur001,
+N8G/53032B sur002, chaque BIN relu intégralement à l'identique. Aucun flash/build.
+
+**Lecture actuelle WHO_AM_I : 0x7B sur les deux bancs**, un appel ST de lecture par
+cible, puis CTRL1_XL=0x00 sur les deux (avant réarmement001). Traces HAL0/valides ;
+scratchRAM sauvé/restauré, aucun registre capteur écrit par ces contrôles.
+Le WHO0 de l'ancien arrêt001 était donc un résultat mémorisé, pas la lecture actuelle.
+Sur002, seulement ces lectures : aucune nouvelle qualification FIFO/60s du module A.
+
+Après préservation, **un reset logiciel001 justifié** pour quitter le refusWHO
+verrouillé ; aucun reset002. Calibration001 réussie : résidu24µs≤100,198brackets,
+6574ancres, WHO7B, ±16g relu04/SPI3 8MHz, WAIT2/run1/error0.
+Observateur armé, USER pressé/relâché confirméuser, puis rouge.
+
+**D06 échoue après3,010048sMCU : stage99/error3**, refus du compteur temporel.
+31contrôles,79256natifs/7926sortiescalculées ; dernierFIFO397142/précédentdirect389251,
+lecturefautive17571384 dans bracket73530397–73530415µs. Octets SPI reçus
+**38 1E 0C 01**, décodant exactement cette valeur ; HALstatus/error0 et transfertcomplet.
+Résidu216624521µs recalculé à l'identique, garde100µs inchangée. SnapshotCRCdb4f4cc4
+conforme, SHA `1898379fcb1222e56a44817398f8e4397b56d085d07766ef2f5cb568aa621ea1`.
+Source réellement évaluée001 `acb142794570ded5abd15f6521eb5d8b644590e8`.
+
+FIFOerror0/arrêtpropre, rails/clips/flags0, budgetmask0. **Zéro commande, lecture ou
+écriture SD**, pilote noninitialisé/gatefermé, writerinactif/CShaute/GDBdétaché.
+Aucune archiveXYZ complète créée ; les volumes sont calculés, seuls diagnostics et
+digests conservés. Aucun nouveau reset après le défaut. 002 reste auWAIT N8G,
+SDsanscommande, firmware inchangé ; aucun START/flash/reset002, aucuneFRAM/COM4.
+
+La correction rétablit l'identification et la calibration001 mais ne résout pas
+le refus pendant l'acquisition. B passe sur002 et échoue encore sur001 : remplacer
+le module seul ne suffit pas. Pas de preuve exclusive de MCU défectueux ou de cause
+électrique, ni de qualification stockage/endurance. Pas de relance identique.
+Prochaine étape proposée : remplacer les fils capteur001 par des fils courts du
+stockutilisateur, sans dépouiller002, tout le reste conservé et hors tension.
+Cette action physique n'est pas encore réalisée. Aucun8hREADY/longSTART.
+
+[Preuves et limites](preuves/TR2-20261101-001-AUTONOME/qualification-alimentation-20261102/dual-module-recheck/RESULTATS_D06_ET_CONTROLE_DOUBLE.md).
+HEAD initial `1326e3953e9c0516740c443fd4b6c4d299036d6d`. Tranche observation/debug,
+sans code modifié : aucune compilation ou suite de tests inchangés relancée.
+Journal actualisé avec les deux lectures, le reset justifié, D06 et l'état final.
+
+---
+
+## Historique jusqu'au checkpoint1326e395
+
 
 # TR2-001 — D05 après déplacement du module B sur breadboard
 

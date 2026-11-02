@@ -1,0 +1,6 @@
+{
+  "user_report": "Correction signal\u00e9e ; module A sur TR2-002, module B sur TR2-001, deux bancs connect\u00e9s en ST-LINK",
+  "module_A_transfer_poweroff_not_explicitly_reconfirmed": true,
+  "no_new_voltage_values_reported": true,
+  "no_acquisition_requested_in_this_check": true
+}

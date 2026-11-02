@@ -1,0 +1,16 @@
+Error_Handler () at /home/lolo/dev/msm/projects/MSM_vibe-TR2-001-autonome/experiments/r3_durable_fat32/src/main.c:147
+warning: Source file is more recent than executable.147	void Error_Handler(void){r3_result.error=r3_result.error?r3_result.error:1;r3_result.stage=99;
+
+0xbfa0700:	0x004a003d	0x38425018	0x20333157
+Note: automatically using hardware breakpoints for read-only addresses.
+CURRENT_WHO_STATUS=0 CURRENT_WHO=0x7b
+CURRENT_CTRL_STATUS=0 CURRENT_CTRL1=0x00
+$1 = 3
+$2 = 3
+$3 = 99
+$4 = 1
+$5 = false
+$6 = false
+$7 = 0
+$8 = 0
+[Inferior 1 (Remote target) detached]

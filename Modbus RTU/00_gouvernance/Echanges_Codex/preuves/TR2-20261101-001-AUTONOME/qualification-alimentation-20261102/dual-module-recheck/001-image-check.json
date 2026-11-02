@@ -1,0 +1,10 @@
+{
+  "target": "001",
+  "sn": "003500463235510B37333439",
+  "uid0": "004A003D",
+  "module": "B",
+  "BIN_bytes": 50912,
+  "BIN_sha256": "6a00ec329c3b16cbf1c01fc3661014ad6f1fed05732a60fecbc338d6a7bb98d2",
+  "entire_BIN_exact": true,
+  "no_reset_flash_or_START": true
+}
