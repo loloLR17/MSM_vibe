@@ -1,0 +1,9 @@
+{
+  "source_sha": "acb142794570ded5abd15f6521eb5d8b644590e8",
+  "bytes": 50912,
+  "sha256": "6a00ec329c3b16cbf1c01fc3661014ad6f1fed05732a60fecbc338d6a7bb98d2",
+  "exact_readback": true,
+  "SD_present": false,
+  "source_power_reported": "ST-LINK only, JP6STLK, JP2removed, CN15off",
+  "purpose": "Isolation diagnostic only, no SD archive"
+}

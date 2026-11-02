@@ -4,7 +4,7 @@ status: IN_PROGRESS
 base_ref: main
 base_sha: a8817bf293c6e60a93ad824d279ee870b6a0ecf7
 initial_head: 79b952dbb949cb8eb2f208e3b2c5994f4ed1279f
-result_sha: 3f803d77393c6853ed76d796367df443a0eb9eb9
+result_sha: acb142794570ded5abd15f6521eb5d8b644590e8
 created_at_utc: 2026-11-02T06:40:32.196709+00:00
 author: Codex
 target_branch: main
@@ -27,6 +27,46 @@ Plan : 2×60s sous ST-LINK seul, 1×60s CN15+ST-LINK avec GDB,
 Arrêt au premier échec ; pas d'acquisition longue8h. Accord et périmètre consignés
 sans modifier MISSION_EN_COURS.md dans
 `preuves/TR2-20261101-001-AUTONOME/qualification-alimentation-20261102/DECISION_ET_PLAN.md`.
+
+**Diagnostic D01 sans SD : même erreur de compteur reproduite.** À la demande de
+poursuite d'analyse et après proposition utilisateur d'échange de carte/banc,
+préparation puis essai borné sur001 uniquement. Aucun accès à002/sa carte32Go.
+Profil explicite `R3_TR2_001_SENSOR_ONLY`, OFFpar défaut, limité001/60s, excluant
+l'initialisation SD et utilisant la session existante non-writer/run2. PiloteSD
+noninitialisé et gateécriturefermée ; invariantzérocommande/lecture/écriture vérifié
+avant départ et après arrêt. Aucun contrôle du compteur ou des budgets affaibli.
+Cross-build du mode et du profil normal PASS ; configurations >60s/autrecible refusées.
+
+Source **acb142794570ded5abd15f6521eb5d8b644590e8**. Douzième flash standard66,
+BIN50912B/SHA **6a00ec329c3b16cbf1c01fc3661014ad6f1fed05732a60fecbc338d6a7bb98d2**,
+readback67 entier exact. WHO7B/FS04/calibration54µs/WAIT, capteur8MHz. USERphysique,
+ST-LINKseul/GDBarméavantdépart, carte512auPC/lecteurTR2vide, CN15absent/JP6STLK/JP2off.
+Breakpoint68 terminal seulement, après STOP/snapshot ; GDBdétaché puis lecture69.
+
+Arrêt **16,659203sMCU**,99/error3,167checks, FIFOerror0/stoppedtrue, maskbudget0.
+DernierFIFO **1489062**, précédentdirect **1481141**, lecturefautive **19689725** dans
+le bracket **178243551–178243569µs**. Trace reçue **FD 70 2C 01**, HAL0/transfertcomplet.
+Recalcul du résidu **228049169µs** exact/limite100. SnapshotCRC923a838d conforme,
+SHA **06567836ce84183315691b83e06b0a116e5aa2ec40ba33d5b25fd13fcf5a9ed0**.
+Lecture69 : **SDcommands=reads=writes=0, initialized=false, write_enabled=false**,
+sensor_only=1, writerinactif. Maxima polls complets : service702,525µs/2500,
+traitement373,16875/1000, intervalle962/5000 ; appel writer vide1,0125µs, pas transfertSD.
+442872natifs acceptés/44288sorties calculées, digestRAM conservé ; **aucune archive
+complète XYZ créée ou récupérée pour ce diagnostic sans stockage**.
+
+**La carte SD et son trafic ne sont donc pas nécessaires à cet échec de compteur.**
+Cela ne qualifie pas la512Go globalement ni ne résout le refusSD distinctA1D.
+Le breakout SD/fils/alimentation restent présents, aucune forme d'onde capturée :
+capteur, liaison, Nucleo et logiciel de transport ne sont pas départagés. Le driver
+et le format32bits sont conformes aux référencesST consultées ; pas de correction
+logicielle de bits ni de prétention de cause exclusive. Voir les preuves
+`sensor-isolation/RESULTAT_ET_COMPARAISON_PROPOSEE.md` et `D01-failure-analysis.json`.
+
+État final observé : 001 sousST-LINK seul, source arrêtée, GDBdétaché, lecteurvide,
+SD512auPC ; firmwareD01diagnostic enFlash. Pas B02/CN15/10min. Le testcomparatif002
+est maintenant pertinent, mais **le contrat l'interdit explicitement** : aucun flash,
+debug ou geste sur002 sans extension humaine de périmètre. Plan borné proposé et
+limites consignés dans la preuve précitée ; pas une qualification générale du firmware.
 
 **Palier1 : B01 en échec après 17,088670 s MCU, sous ST-LINK seul.** L'observateur
 est armé au WAIT (WHO7B/FS16, calibration16µs, capteur8MHz/SD4MHz), puis USER est

@@ -1,0 +1,12 @@
+{
+  "source_sha": "acb142794570ded5abd15f6521eb5d8b644590e8",
+  "unreachable_symbols_absent": [
+    "sd_spi_init",
+    "r3_sd_init",
+    "durable_mount",
+    "durable_preflight",
+    "durable_format"
+  ],
+  "limits": "Static link evidence; runtime SD counters and absence of card still require observation",
+  "normal_storage_profile": "Compiled separately, option defaultsOFF"
+}

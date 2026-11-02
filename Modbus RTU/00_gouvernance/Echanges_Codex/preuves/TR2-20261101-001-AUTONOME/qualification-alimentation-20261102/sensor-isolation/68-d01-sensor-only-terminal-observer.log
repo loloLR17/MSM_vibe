@@ -1,0 +1,41 @@
+main () at /home/lolo/dev/msm/projects/MSM_vibe-TR2-001-autonome/experiments/r3_durable_fat32/src/main.c:436
+436	  (void)now();standalone_heartbeat();
+0xbfa0700:	0x004a003d	0x38425018	0x20333157
+$1 = {version = 4, stage = 2, error = 0, uid = {4849725, 943869976, 540225879}, clock = 160000000, who = 123, run = 1, mode = 0, duration_us = 0, records = 0, span_us = 1897217, span_ticks = 151418, cal_residual = 54, cal_brackets = 198, cal_anchors = 6618, accepted = 0, outputs = 0, warmup = 0, rails = 0, clips = 0, source_hash = 0, output_hash = 0, first_us = 0, last_us = 0, residual = 0, clock_checks = 0, level = 16, flags = 0, stop_us = 0, stopped = 0, fifo_error = 0, stop_error = 0, trace_refused = 0, preclose_overflow = 0, irqs = 0, stack_deepest = 0, stack_floor = 0, primask = 0, basepri = 0, faultmask = 0, max_words = 16, raw_words = 2048, pending_xyz = 0, ctrl1 = 0, cal_xyz_span = 52936, cal_tick_span = 158808, sd_error = 0, sd_steps = 0, sd_peak_queue = 0, sd_completed = 0, sd_step_max = 0, sd_write_max_us = 0, sd_busy_max_us = 0, sd_total_bytes = 0, sd_lba = 0, sd_written = 0, drain_us = 0, header_written = 0, return_offset = 0, return_bytes = 0, returned = 0, sd_sectors = 0, marker_ok = 0, who_ok = 1, trace_count = 0, queue_overflows = 0, sd_pending_polls = 0}
+$2 = 2
+$3 = 0
+$4 = 0
+$5 = 0x70007
+$6 = 0x50070007
+Hardware assisted breakpoint 1 at 0x800254c: file /home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/CMSIS/Include/cmsis_gcc.h, line 271.
+Hardware assisted breakpoint 2 at 0x8002504: file /home/lolo/dev/msm/projects/MSM_vibe-TR2-001-autonome/experiments/r3_durable_fat32/src/main.c, line 143.
+OBSERVER_ARMED_WAITING_FOR_USER
+
+Temporary breakpoint 1, r3_finished () at /home/lolo/dev/msm/projects/MSM_vibe-TR2-001-autonome/experiments/r3_durable_fat32/src/main.c:153
+153	__attribute__((noinline)) void r3_finished(void){__DSB();__ISB();}
+$7 = {version = 4, stage = 99, error = 3, uid = {4849725, 943869976, 540225879}, clock = 160000000, who = 123, run = 2, mode = 0, duration_us = 16659203, records = 19777, span_us = 1897217, span_ticks = 151418, cal_residual = 54, cal_brackets = 198, cal_anchors = 6618, accepted = 442872, outputs = 44288, warmup = 11, rails = 0, clips = 0, source_hash = 94550066, output_hash = 3770946854, first_us = 161594183, last_us = 178242415, residual = 228049169, clock_checks = 167, level = 29, flags = 0, stop_us = 134, stopped = 1, fifo_error = 0, stop_error = 0, trace_refused = 0, preclose_overflow = 0, irqs = 16659, stack_deepest = 1112, stack_floor = 2984, primask = 0, basepri = 0, faultmask = 0, max_words = 29, raw_words = 2048, pending_xyz = 8, ctrl1 = 164, cal_xyz_span = 52936, cal_tick_span = 158808, sd_error = 0, sd_steps = 0, sd_peak_queue = 0, sd_completed = 0, sd_step_max = 162, sd_write_max_us = 0, sd_busy_max_us = 0, sd_total_bytes = 265728, sd_lba = 0, sd_written = 0, drain_us = 0, header_written = 0, return_offset = 0, return_bytes = 0, returned = 0, sd_sectors = 0, marker_ok = 0, who_ok = 1, trace_count = 512, queue_overflows = 0, sd_pending_polls = 0}
+$8 = 99
+$9 = 1
+$10 = {magic = 0x31525452, version = 0x1, bytes = 0x10790, crc = 0x923a838d}
+$11 = {version = 4, stage = 99, error = 3, uid = {4849725, 943869976, 540225879}, clock = 160000000, who = 123, run = 2, mode = 0, duration_us = 16659203, records = 19777, span_us = 1897217, span_ticks = 151418, cal_residual = 54, cal_brackets = 198, cal_anchors = 6618, accepted = 442872, outputs = 44288, warmup = 11, rails = 0, clips = 0, source_hash = 94550066, output_hash = 3770946854, first_us = 161594183, last_us = 178242415, residual = 228049169, clock_checks = 167, level = 29, flags = 0, stop_us = 134, stopped = 1, fifo_error = 0, stop_error = 0, trace_refused = 0, preclose_overflow = 0, irqs = 16659, stack_deepest = 1112, stack_floor = 2984, primask = 0, basepri = 0, faultmask = 0, max_words = 29, raw_words = 2048, pending_xyz = 8, ctrl1 = 164, cal_xyz_span = 52936, cal_tick_span = 158808, sd_error = 0, sd_steps = 0, sd_peak_queue = 0, sd_completed = 0, sd_step_max = 162, sd_write_max_us = 0, sd_busy_max_us = 0, sd_total_bytes = 265728, sd_lba = 0, sd_written = 0, drain_us = 0, header_written = 0, return_offset = 0, return_bytes = 0, returned = 0, sd_sectors = 0, marker_ok = 0, who_ok = 1, trace_count = 512, queue_overflows = 0, sd_pending_polls = 0}
+$12 = {card = 0x0, data = 0x0, lba = 0, blocks = 0, block = 0, offset = 0, state = 0, error = 0, begin_us = 0, deadline_us = 0, busy_begin_us = 0, busy_sum_us = 0, complete_us = 0, max_busy_us = 0, block_busy_us = {0, 0, 0, 0, 0, 0, 0, 0, 0}, crc = 0, active = false, done = false, uncertain = false, needs_power_cycle = false, data_response = 0, data_response_seen = 0}
+$13 = {fifo = 0x20000480 <fifo>, metric = 0x0, sink = 0x8001881 <sink>, sink_context = 0x0, base_us = 178142315, span_us = 100351, span_ticks = 8009, ticks = 7992, anchor_ticks = 7992, input_index = 442880, emitted = 442872, max_residual_us = 228049169, last_event_us = 178242415, first_event_us = 161594183, raw = 1489062, anchor_raw = 1489062, groups = 55359, calibration_raw = 1481141, calibration_us = 178143195, mapping_cycles = 0, metrology_cycles = 0, counter = 0 '\000', count = 8 '\b', xyz = {{427, 718, -1821}, {365, 695, -1806}, {394, 693, -1818}, {401, 742, -1795}, {418, 708, -1773}, {396, 726, -1819}, {405, 691, -1782}, {415, 695, -1798}}, initialized = true, anchor = true, fault = true}
+$14 = {before = 178243551, after = 178243569, raw = 19689725}
+$15 = 1
+$16 = 0
+$17 = {service = 0, work = 0, gap = 0, xyz = 0, sd_step = 0, queue = 0}
+$18 = {112404, 59707, 153920, 162}
+$19 = 0
+$20 = 0
+$21 = 0
+$22 = 0
+$23 = 0
+$24 = 0
+$25 = {0xfb, 0xd0, 0xca, 0x9d, 0x99, 0xc0, 0x46, 0xbb, 0x3f, 0xb9, 0xaf, 0x7, 0xc2, 0xd0, 0x6a, 0xc6, 0x76, 0xf6, 0x9c, 0x13, 0x27, 0x7a, 0x27, 0xe4, 0x32, 0xf3, 0x96, 0xea, 0x62, 0x4b, 0xc3, 0x56}
+$26 = false
+$27 = true
+$28 = false
+$29 = false
+$30 = false
+$31 = 0x1000
+[Inferior 1 (Remote target) detached]

@@ -1,0 +1,16 @@
+{
+  "source_sha": "acb142794570ded5abd15f6521eb5d8b644590e8",
+  "bytes": 50912,
+  "sha256": "6a00ec329c3b16cbf1c01fc3661014ad6f1fed05732a60fecbc338d6a7bb98d2",
+  "label": "D01 sensor/FIFO-only diagnostic",
+  "duration_us": 60000000,
+  "SPI3_Hz": 8000000,
+  "SD_card": "Absent; driver uninitialized, no commands/reads/writes; write gate closed",
+  "SD_archive": "None; not storage qualification and full produced XYZ not retained",
+  "sensor_fs_g": 16,
+  "sensitivity_ug": 488,
+  "start": "USER only, once",
+  "flashed": true,
+  "flash_evidence": "66-d01-sensor-isolation-standard-flash.log",
+  "readback_evidence": "67-d01-sensor-isolation-readback-and-boot.log"
+}

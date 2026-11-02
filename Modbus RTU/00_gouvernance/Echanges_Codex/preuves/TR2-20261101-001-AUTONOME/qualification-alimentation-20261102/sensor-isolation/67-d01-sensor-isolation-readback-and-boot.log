@@ -1,0 +1,16 @@
+main () at /home/lolo/dev/msm/projects/MSM_vibe-TR2-001-autonome/experiments/r3_durable_fat32/src/main.c:436
+436	  (void)now();standalone_heartbeat();
+0xbfa0700:	0x004a003d	0x38425018	0x20333157
+$1 = {version = 4, stage = 2, error = 0, uid = {4849725, 943869976, 540225879}, clock = 160000000, who = 123, run = 1, mode = 0, duration_us = 0, records = 0, span_us = 1897217, span_ticks = 151418, cal_residual = 54, cal_brackets = 198, cal_anchors = 6618, accepted = 0, outputs = 0, warmup = 0, rails = 0, clips = 0, source_hash = 0, output_hash = 0, first_us = 0, last_us = 0, residual = 0, clock_checks = 0, level = 16, flags = 0, stop_us = 0, stopped = 0, fifo_error = 0, stop_error = 0, trace_refused = 0, preclose_overflow = 0, irqs = 0, stack_deepest = 0, stack_floor = 0, primask = 0, basepri = 0, faultmask = 0, max_words = 16, raw_words = 2048, pending_xyz = 0, ctrl1 = 0, cal_xyz_span = 52936, cal_tick_span = 158808, sd_error = 0, sd_steps = 0, sd_peak_queue = 0, sd_completed = 0, sd_step_max = 0, sd_write_max_us = 0, sd_busy_max_us = 0, sd_total_bytes = 0, sd_lba = 0, sd_written = 0, drain_us = 0, header_written = 0, return_offset = 0, return_bytes = 0, returned = 0, sd_sectors = 0, marker_ok = 0, who_ok = 1, trace_count = 0, queue_overflows = 0, sd_pending_polls = 0}
+$2 = 2
+$3 = 4
+$4 = 0
+$5 = 0
+$6 = 0
+$7 = false
+$8 = false
+$9 = false
+$10 = 0
+$11 = 67488
+$12 = 0x70007
+[Inferior 1 (Remote target) detached]

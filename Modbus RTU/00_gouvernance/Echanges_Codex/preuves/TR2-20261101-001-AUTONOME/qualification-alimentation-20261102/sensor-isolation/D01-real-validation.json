@@ -1,0 +1,8 @@
+{
+  "source_sha": "acb142794570ded5abd15f6521eb5d8b644590e8",
+  "snapshot_bytes": 67488,
+  "sha256": "06567836ce84183315691b83e06b0a116e5aa2ec40ba33d5b25fd13fcf5a9ed0",
+  "CRC_valid": true,
+  "CRC_hex": "0x923a838d",
+  "capture_mode": "Sensor-only, no SD commands/storage; ST-LINK only, observer before physical USER, no halt until terminal breakpoint; no host START command"
+}
