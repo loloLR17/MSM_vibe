@@ -1,0 +1,31 @@
+main () at /home/lolo/dev/msm/projects/MSM_vibe-TR2-001-autonome/experiments/r3_durable_fat32/src/main.c:525
+525	  if(r3_result.error)for(;;){(void)now();
+0xbfa0700:	0x001b0046	0x38425018	0x20333157
+pc             0x8002588           0x8002588 <main+584>
+sp             0x200bff60          0x200bff60
+lr             0x8002587           134227335
+xpsr           0x61000000          1627389952
+$1 = 0x1c004400
+$2 = {version = 4, stage = 99, error = 3, uid = {1769542, 943869976, 540225879}, clock = 160000000, who = 123, run = 5, mode = 1, duration_us = 2855970262, records = 2997265, span_us = 1889727, span_ticks = 151005, cal_residual = 27, cal_brackets = 197, cal_anchors = 6626, accepted = 76055264, outputs = 7605527, warmup = 11, rails = 0, clips = 4, source_hash = 2529462018, output_hash = 3650851908, first_us = 207680830, last_us = 3063640028, residual = 131, clock_checks = 28426, level = 50, flags = 0, stop_us = 133, stopped = 1, fifo_error = 0, stop_error = 0, trace_refused = 0, preclose_overflow = 0, irqs = 2855970, stack_deepest = 1776, stack_floor = 2320, primask = 0, basepri = 0, faultmask = 0, max_words = 50, raw_words = 2048, pending_xyz = 4, ctrl1 = 172, cal_xyz_span = 53000, cal_tick_span = 159000, sd_error = 0, sd_steps = 799986, sd_peak_queue = 8192, sd_completed = 12188, sd_step_max = 68904, sd_write_max_us = 243136, sd_busy_max_us = 172870, sd_total_bytes = 45633162, sd_lba = 4304192, sd_written = 49922048, drain_us = 0, header_written = 0, return_offset = 0, return_bytes = 0, returned = 0, sd_sectors = 62333952, marker_ok = 0, who_ok = 1, trace_count = 512, queue_overflows = 0, sd_pending_polls = 799986}
+$3 = false
+$4 = true
+$5 = false
+$6 = false
+$7 = false
+$8 = {ctx = {write_reg = 0x8008375 <platform_write>, read_reg = 0x8008365 <platform_read>, mdelay = 0x8009921 <HAL_Delay>, handle = 0x20085628 <spi>, priv_data = 0x0}, parser = {target_xyz = 0, received = 0, xyz = 23, timestamps = 3, polls = 1, bursts = 0, first_tick = 0, last_tick = 0, max_level = 50, last_level = 8, flags_or = 0, reason = 0, previous_counter = 3, counter_valid = 1, previous_ts = 228486269, ts_valid = 1, since_ts = 4}, words = "\022‘\000\035ÿæ\016\024èÿ¸þ}\017\027B\000žþX\017!Mlž\r\000\n\021W\0003"..., run_id = 5, total_xyz = 76055268, total_ts = 9506909, last_ms = 3063640, last_data_ms = 3063640, config_id = 1, config_generation = 1, max_gap_ms = 5, first_data_timeout_ms = 20, poll_word_limit = 64, axes = 7, full_scale = 2, readback_sequence = 3003451, ctrl1_verified = 172 '¬', readback_valid = true, cleanup_begin = 0x80080cd <cleanup_begin>, consume = 0x800163d <consume>, consumer = 0x0, error = 0, stop_error = 0, initialized = true, running = false, stopped = true}
+$9 = {card = 0x2001d7f0 <r3_card>, data = 0x200184c4 <q+45056> "D3BKØ|\001", lba = 4401689, blocks = 8, block = 8, offset = 0, state = 10, error = 0, begin_us = 3063560876, deadline_us = 3064638209, busy_begin_us = 3063639211, busy_sum_us = 11658, complete_us = 3063641510, max_busy_us = 2227, block_busy_us = {1938, 1032, 1065, 1088, 1022, 1207, 1066, 1013, 2227}, crc = 59740, active = false, done = true, uncertain = false, needs_power_cycle = false}
+$10 = {io = {context = 0x0, exchange = 0x8003201 <exchange>, select = 0x80031ed <select_card>, us = 0x8001e5d <r3_now>}, cid = "\003SDSD32G…‹ð’<\001’{", csd = "@\016\0002[Y\000\000íÈ\177\200\n@@Ã", ocr = 3237969920, sectors = 62333952, error = 0, last_cmd = 13, last_r1 = 0, commands = 79071, reads = 29261, writes = 97907, max_busy_us = 161926, last_busy_us = 2227, timeouts = 0, crc_errors = 0, begin_lba = 0, limit_lba = 62333952, initialized = true, write_enabled = true, failed = false, trace = {{cmd = 0, arg = 0, r1 = 1, extra = 0, elapsed_us = 388}, {cmd = 8, arg = 426, r1 = 1, extra = 426, elapsed_us = 606}, {cmd = 55, arg = 0, r1 = 1, extra = 0, elapsed_us = 388}, {cmd = 41, arg = 1073741824, r1 = 1, extra = 0, elapsed_us = 388}, {cmd = 55, arg = 0, r1 = 1, extra = 0, elapsed_us = 388}, {cmd = 41, arg = 1073741824, r1 = 1, extra = 0, elapsed_us = 388}, {cmd = 55, arg = 0, r1 = 1, extra = 0, elapsed_us = 387}, {cmd = 41, arg = 1073741824, r1 = 1, extra = 0, elapsed_us = 388}, {cmd = 55, arg = 0, r1 = 1, extra = 0, elapsed_us = 388}, {cmd = 41, arg = 1073741824, r1 = 1, extra = 0, elapsed_us = 388}, {cmd = 55, arg = 0, r1 = 1, extra = 0, elapsed_us = 388}, {cmd = 41, arg = 1073741824, r1 = 1, extra = 0, elapsed_us = 388}, {cmd = 55, arg = 0, r1 = 1, extra = 0, elapsed_us = 388}, {cmd = 41, arg = 1073741824, r1 = 1, extra = 0, elapsed_us = 388}, {cmd = 55, arg = 0, r1 = 1, extra = 0, elapsed_us = 388}, {cmd = 41, arg = 1073741824, r1 = 1, extra = 0, elapsed_us = 388}, {cmd = 55, arg = 0, r1 = 1, extra = 0, elapsed_us = 388}, {cmd = 41, arg = 1073741824, r1 = 1, extra = 0, elapsed_us = 388}, {cmd = 55, arg = 0, r1 = 1, extra = 0, elapsed_us = 388}, {cmd = 41, arg = 1073741824, r1 = 1, extra = 0, elapsed_us = 388}, {cmd = 55, arg = 0, r1 = 1, extra = 0, elapsed_us = 388}, {cmd = 41, arg = 1073741824, r1 = 1, extra = 0, elapsed_us = 388}, {cmd = 55, arg = 0, r1 = 1, extra = 0, elapsed_us = 387}, {cmd = 41, arg = 1073741824, r1 = 1, extra = 0, elapsed_us = 388}, {cmd = 55, arg = 0, r1 = 1, extra = 0, elapsed_us = 388}, {cmd = 41, arg = 1073741824, r1 = 1, extra = 0, elapsed_us = 388}, {cmd = 55, arg = 0, r1 = 1, extra = 0, elapsed_us = 388}, {cmd = 41, arg = 1073741824, r1 = 1, extra = 0, elapsed_us = 388}, {cmd = 55, arg = 0, r1 = 1, extra = 0, elapsed_us = 388}, {cmd = 41, arg = 1073741824, r1 = 1, extra = 0, elapsed_us = 388}, {cmd = 55, arg = 0, r1 = 1, extra = 0, elapsed_us = 388}, {cmd = 41, arg = 1073741824, r1 = 1, extra = 0, elapsed_us = 388}...}}
+$11 = {mounted = 1, formatted = 0, error = 0, io_error = 0, io_uncertain = 0, io_writes = 335, first_lba = 4304192, sectors = 1310720, run = 5, fs_type = 3, cluster_sectors = 64, free_clusters = 906715, required_clusters = 20480, session = 8444550119014285}
+$12 = 0
+$13 = 50176
+$14 = 49152
+$15 = 1024
+$16 = 0
+$17 = 59
+$18 = 97506
+$19 = 7605468
+$20 = 0
+$21 = 3063618175
+$22 = 3063639915
+$23 = 0x1000
+[Inferior 1 (Remote target) detached]

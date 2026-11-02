@@ -1,0 +1,14 @@
+{
+  "prefix": "GI0",
+  "file": "GI00005.TR2",
+  "duration_us": 7200000000,
+  "preallocation_bytes": 671088640,
+  "source_sha": "171cefc3f8e6c02e37d58654e3ab05766f1a0241",
+  "no_functional_code_change": true,
+  "only_new_prefix_for_no_overwrite": true,
+  "BIN_bytes": 53340,
+  "BIN_SHA256": "e4c3f044d910d82722a468d2fd48726884c1dae10a27c387d1b9e8fc6e3bb0ce",
+  "flashed": true,
+  "programmer_verification_passed": true,
+  "no_START": true
+}

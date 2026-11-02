@@ -1,0 +1,9 @@
+{
+  "source": "user report",
+  "bank": "TR2-002",
+  "STLINK_connected": true,
+  "power_user_report": "CN15",
+  "observation": "plant\u00e9, LED rouge clignotante \u00e0 la r\u00e9ouverture du coffret",
+  "no_agent_reset_flash_STOP_or_START": true,
+  "UTC_received": "2026-11-02T14:34:57.338470+00:00"
+}

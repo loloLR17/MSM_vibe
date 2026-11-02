@@ -1,0 +1,99 @@
+{
+  "Disk": {
+    "Number": 2,
+    "FriendlyName": "Generic STORAGE DEVICE",
+    "Size": 511868665856,
+    "PartitionStyle": "MBR"
+  },
+  "Partition": {
+    "DriveLetter": "D",
+    "Offset": 1048576,
+    "Size": 511867584512
+  },
+  "Volume": {
+    "FileSystemLabel": "512 GO",
+    "FileSystem": "FAT32",
+    "AllocationUnitSize": 32768,
+    "SizeRemaining": 509709254656
+  },
+  "Files": [
+    {
+      "Name": "autorun.inf",
+      "Length": 200
+    },
+    {
+      "Name": "autorun.ico",
+      "Length": 34494
+    },
+    {
+      "Name": "A1A0005.TR2",
+      "Length": 131072
+    },
+    {
+      "Name": "A1B0005.TR2",
+      "Length": 2097152
+    },
+    {
+      "Name": "A1C0005.TR2",
+      "Length": 2097152
+    },
+    {
+      "Name": "A1D0005.TR2",
+      "Length": 2097152
+    },
+    {
+      "Name": "A1E0005.TR2",
+      "Length": 2097152
+    },
+    {
+      "Name": "A1F0005.TR2",
+      "Length": 2097152
+    },
+    {
+      "Name": "A1G0005.TR2",
+      "Length": 2097152
+    },
+    {
+      "Name": "A1H0005.TR2",
+      "Length": 2097152
+    },
+    {
+      "Name": "B010005.TR2",
+      "Length": 2097152
+    },
+    {
+      "Name": "B020005.TR2",
+      "Length": 2097152
+    },
+    {
+      "Name": "T100005.TR2",
+      "Length": 671088640
+    },
+    {
+      "Name": "H2A0005.TR2",
+      "Length": 671088640
+    },
+    {
+      "Name": "C290005.TR2",
+      "Length": 671088640
+    }
+  ],
+  "Candidates": [
+    {
+      "Name": "C290005.TR2",
+      "Exists": true,
+      "Length": 671088640
+    },
+    {
+      "Name": "H2A0005.TR2",
+      "Exists": true,
+      "Length": 671088640
+    },
+    {
+      "Name": "T100005.TR2",
+      "Exists": true,
+      "Length": 671088640
+    }
+  ],
+  "ReadOnlySource": true
+}

@@ -1,0 +1,34 @@
+{
+  "queue_head": 50176,
+  "queue_tail": 49152,
+  "queue_bytes": 1024,
+  "queue_borrowed": 0,
+  "full_pending_records": [
+    {
+      "seq": 97504,
+      "first_output": 7605312,
+      "XYZ": 78,
+      "flags": 0,
+      "CRC_valid": true
+    },
+    {
+      "seq": 97505,
+      "first_output": 7605390,
+      "XYZ": 78,
+      "flags": 0,
+      "CRC_valid": true
+    }
+  ],
+  "partial_frame_XYZ": 59,
+  "partial_first_output": 7605468,
+  "partial_first_time_us": 3063618175,
+  "partial_last_time_us": 3063639915,
+  "on_SD_data_records_expected": 97504,
+  "on_SD_XYZ_expected": 7605312,
+  "RAM_tail_XYZ": 215,
+  "all_produced_XYZ": 7605527,
+  "RAM_tail_SHA256": "c6c632934b31cf97b2f80b31db15a491c4cb7e4a0b54428e39944e1f7c0bd963",
+  "producer_RAM_SHA256": "2145aec1058fe502025df07da0640ea3fea390366f30c63733b5ee68c079b4fc",
+  "not_yet_compared_to_actual_SD_file": true,
+  "FIFO_stopped_SD_quiet_GDB_detached": true
+}

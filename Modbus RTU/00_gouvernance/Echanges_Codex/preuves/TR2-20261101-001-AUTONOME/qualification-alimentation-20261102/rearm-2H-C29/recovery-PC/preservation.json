@@ -1,0 +1,12 @@
+{
+  "target_SN": "003500463235510B37333439",
+  "UID": "004A003D/38425018/20333157",
+  "snapshot_valid": false,
+  "snapshot_crc32": "6d5fadec",
+  "snapshot_source_sha": null,
+  "snapshot_SHA256": "8045c68847db3ce8ea3be555d0e2f6834748a120110e01e14c4c2847dcc09c9b",
+  "current_BIN_matches_C29": true,
+  "full_SRAM_bytes": 786432,
+  "no_agent_reset_flash_or_card_command": true,
+  "GDB_detached": true
+}

@@ -1,0 +1,9 @@
+{
+  "full_SRAM_bytes": 786432,
+  "full_SRAM_SHA256": "5e218977dcafe85747bc722dd291f2feb5c718c8878afcac55b71e39ecd433c6",
+  "firmware_entire_BIN_exact": true,
+  "source_sha": "dd2f27ca3d886742b0ab37ab378cd524012a0370",
+  "producer_RAM_SHA256": "2145aec1058fe502025df07da0640ea3fea390366f30c63733b5ee68c079b4fc",
+  "no_agent_reset_flash_or_card_command": true,
+  "GDB_detached": true
+}

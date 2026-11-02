@@ -1,0 +1,9 @@
+{
+  "header_file": "C290005.header.bin",
+  "header_bytes": 512,
+  "zero_tail_bytes": 671088128,
+  "whole_file_bytes": 671088640,
+  "whole_file_SHA256": "f7ca815f74b78c9e6a90f29c4ce26d5bc8f4c99e2b810fba10b1df82f1fc1ade",
+  "lossless_representation_of_observed_file": true,
+  "reconstructed_digest_matches_original_native_copy": true
+}

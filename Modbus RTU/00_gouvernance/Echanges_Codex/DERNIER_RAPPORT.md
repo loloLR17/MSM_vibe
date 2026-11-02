@@ -4,8 +4,8 @@ status: IN_PROGRESS
 base_ref: main
 base_sha: a8817bf293c6e60a93ad824d279ee870b6a0ecf7
 initial_head: 79b952dbb949cb8eb2f208e3b2c5994f4ed1279f
-result_sha: dd2f27ca3d886742b0ab37ab378cd524012a0370
-created_at_utc: 2026-11-02T12:34:52.854300+00:00
+result_sha: 171cefc3f8e6c02e37d58654e3ab05766f1a0241
+created_at_utc: 2026-11-02T15:25:49.212791+00:00
 author: Codex
 target_branch: main
 allow_commit: true
@@ -13,6 +13,44 @@ allow_push: true
 allow_flash: true
 allow_debug: true
 ---
+
+# C29 récupéré sans données ; reproduction GDB001 préparée et chargée
+
+**IN_PROGRESS : récupération001 achevée, 2h NONqualifiées, nouveau diagnostic demandé.**
+Correctionuser : le coffretrouge était001/512Go. Les lecturesprécédentes avaient
+explicitement choisiSN002 et décrivent son arrêtindépendant :47min35,97sMCU/error3,
+résidu131µs>100/SD-FIFOerror0/4clips/7605527sorties, RAMet215XYZfin sauvés ; fichier
+002 encore àcopier pourcomparerauproducteur. Aucuneimputation de cesrésultatsà001.
+
+001 avait déjàété coupé pourdéplacementavantlecture. NouveaubootWHO0/run0/snapshot
+invalide ne décritpas la campagne ; diagnosticRAMhistorique perdu. Aucunresetflash
+pendantrecovery. 512Go copiéeenlectureseule, C290005.TR2 conservéentier671088640B,
+SHA source=copie : `f7ca815f74b78c9e6a90f29c4ce26d5bc8f4c99e2b810fba10b1df82f1fc1ade`.
+**En-têteCRCvalide, puis671088128octets tousnuls :0recordXYZ, aucunfooter.**
+LecteurstrictINCOMPLETE etscanintégral concordants. Aucune mesure récupérableC29,
+ni durée effective démontrée. Causeantérieure inconnue ; WHO0postcoupure n'est pas
+une preuve de l'erreurinitiale. H2A/T10 préalloués640MiB/headersetqueues512Bnuls,
+laissésintacts sansrevendiquerlescanscomplets. Taillepréallouée≠duréeenregistrée.
+Représentationpubliqueexacte de C29 : en-tête512B +zéros, hashreconstruit=original,
+bruteoriginale complèteconservée. Pas de suppression/formatage/réparation.
+
+**Suite demandée et autorisée : GDBpersisitant sur001/CN15/USER.** GI0 est chargé,
+programming-vvérifié, nouveau `GI00005.TR2` librePC ; source171cefc3/BIN53340B/SHA
+`e4c3f044d910d82722a468d2fd48726884c1dae10a27c387d1b9e8fc6e3bb0ce`.
+Même profil2h/640MiB/FS16/SPI3 8MHz/SD4MHz, aucunemodificationfonctionnelle.
+Bootlecteurvide99/error2/WHO7B attendu, FIFOwriteroff/SDwrites0/CShaute/GDBdétaché.
+Script prêt : observeUSER/entréepréparation/entréeFIFO etterminale ; pauses avantFIFO
+ouaprèsSTOP, pasdepollingGDBhaltpendantcapture. AucunSTARTagent. PasencorearméavecSD.
+Userinvitéàinsérer512horstension puisCN15+STLINKmaintenus sansUSER ; retourattendu.
+
+[Résultats, distinctiondescibles et preuves](preuves/TR2-20261101-001-AUTONOME/qualification-alimentation-20261102/rearm-2H-C29/recovery-PC/RESULTATS_ET_ATTRIBUTION.md).
+Journal actualisé ; module002/FRAM/COM4/anciensfichiers inchangés pourpréparationGI0.
+B02minute CN15+SD COMPLETE etD07D08 restentacquis, aucune2hmesure valide revendiquée.
+
+---
+
+## Historique avant récupérationC29 et préparationGI0
+
 
 # Mise à jour opérateur — fixation TR2-002 perdue pendant la campagne
 

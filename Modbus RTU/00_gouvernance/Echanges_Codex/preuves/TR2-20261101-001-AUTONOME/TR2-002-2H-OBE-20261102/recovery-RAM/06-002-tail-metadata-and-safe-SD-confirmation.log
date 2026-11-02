@@ -1,0 +1,25 @@
+main () at /home/lolo/dev/msm/projects/MSM_vibe-TR2-001-autonome/experiments/r3_durable_fat32/src/main.c:525
+525	  if(r3_result.error)for(;;){(void)now();
+0xbfa0700:	0x001b0046	0x38425018	0x20333157
+$1 = {fifo = 0x20000438 <fifo>, metric = 0x0, sink = 0x8001865 <sink>, sink_context = 0x0, base_us = 3063539911, span_us = 100192, span_ticks = 8019, ticks = 8016, anchor_ticks = 8016, input_index = 76055268, emitted = 76055264, max_residual_us = 131, last_event_us = 3063640028, first_event_us = 207680830, raw = 228486269, anchor_raw = 228486269, groups = 9506908, calibration_raw = 228478341, calibration_us = 3063541038, mapping_cycles = 0, metrology_cycles = 0, counter = 0 '\000', count = 4 '\004', xyz = {{277, 904, 3461}, {-40, 208, 4974}, {-497, -1098, 4655}, {-506, -1635, 3457}, {718, 350, 3961}, {1881, 1903, 4634}, {1996, 1758, 6670}, {1164, 1085, 4607}}, initialized = true, anchor = true, fault = true}
+$2 = 10
+$3 = 25
+$4 = 10
+$5 = 0
+$6 = 0
+$7 = 50176
+$8 = 49152
+$9 = 1024
+$10 = 0
+$11 = 59
+$12 = 97506
+$13 = 7605468
+$14 = 3063618175
+$15 = 3063639915
+$16 = false
+$17 = true
+$18 = false
+$19 = false
+$20 = false
+$21 = 0x1000
+[Inferior 1 (Remote target) detached]

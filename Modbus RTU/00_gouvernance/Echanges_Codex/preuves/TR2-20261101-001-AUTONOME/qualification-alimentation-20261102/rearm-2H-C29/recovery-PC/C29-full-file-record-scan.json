@@ -1,0 +1,11 @@
+{
+  "scan_bytes": 671088640,
+  "target_session": 22236785382831728,
+  "valid_current_session_records_anywhere": 0,
+  "valid_current_session_XYZ_anywhere": 0,
+  "other_session_CRC_valid_records": 0,
+  "aligned_D3BK_invalid_records": 0,
+  "all_file_scanned": true,
+  "source_unchanged": true,
+  "records": []
+}

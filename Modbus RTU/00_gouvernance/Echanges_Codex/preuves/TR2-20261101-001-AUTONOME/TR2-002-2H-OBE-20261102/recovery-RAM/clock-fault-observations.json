@@ -1,0 +1,23 @@
+{
+  "first_SPI_trace": {
+    "tick": 3063641,
+    "reg": 64,
+    "len": 4,
+    "write": 0,
+    "HAL_status": 0,
+    "HAL_error": 0,
+    "rx_left": 0,
+    "tx_left": 0,
+    "offset": 0,
+    "valid": 1
+  },
+  "faulty_direct_raw": 228486355,
+  "received_raw_bytes": "d36c9e0d",
+  "last_FIFO_raw": 228486269,
+  "previous_direct_raw": 228478341,
+  "mapped_predicted_us": 3063641140,
+  "reported_residual_us": 131,
+  "allowed_us": 100,
+  "actual_bracket_before_after_not_retained_in_nonautonomous002_profile": true,
+  "no_exclusive_root_cause_from_these_data": true
+}

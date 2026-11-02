@@ -1,0 +1,31 @@
+Error_Handler () at /home/lolo/dev/msm/projects/MSM_vibe-TR2-001-autonome/experiments/r3_durable_fat32/src/main.c:151
+151	 for(;;){
+0xbfa0700:	0x004a003d	0x38425018	0x20333157
+pc             0x800253a           0x800253a <Error_Handler+54>
+sp             0x200bff48          0x200bff48
+lr             0x8002523           134227235
+xpsr           0x89000000          -1996488704
+$1 = 0xc004400
+$2 = {version = 4, stage = 99, error = 1, uid = {4849725, 943869976, 540225879}, clock = 160000000, who = 0, run = 0, mode = 0, duration_us = 0, records = 0, span_us = 0, span_ticks = 0, cal_residual = 0, cal_brackets = 0, cal_anchors = 0, accepted = 0, outputs = 0, warmup = 0, rails = 0, clips = 0, source_hash = 0, output_hash = 0, first_us = 0, last_us = 0, residual = 0, clock_checks = 0, level = 0, flags = 0, stop_us = 0, stopped = 0, fifo_error = 0, stop_error = 0, trace_refused = 0, preclose_overflow = 0, irqs = 0, stack_deepest = 0, stack_floor = 0, primask = 0, basepri = 0, faultmask = 0, max_words = 0, raw_words = 0, pending_xyz = 0, ctrl1 = 0, cal_xyz_span = 0, cal_tick_span = 0, sd_error = 0, sd_steps = 0, sd_peak_queue = 0, sd_completed = 0, sd_step_max = 0, sd_write_max_us = 0, sd_busy_max_us = 0, sd_total_bytes = 0, sd_lba = 0, sd_written = 0, drain_us = 0, header_written = 0, return_offset = 0, return_bytes = 0, returned = 0, sd_sectors = 0, marker_ok = 0, who_ok = 0, trace_count = 0, queue_overflows = 0, sd_pending_polls = 0}
+$3 = 99
+$4 = 0
+$5 = {magic = 0x69fae7a7, version = 0x69ea5d36, bytes = 0x7bab685a, crc = 0x6d5fadec}
+$6 = false
+$7 = false
+$8 = "\r;¡b\004\025Ó\217ﬂÿ≈S„£<7ú`Ì\020ã\vuœJÍ`\005\215ïˆﬂ"...
+$9 = {version = 1941084420, stage = 4282491887, error = 1916345807, uid = {3575570223, 1453460962, 1838563055}, clock = 31625258, who = 1846300484, run = 1415004740, mode = 3733711727, duration_us = 9041464291496413836, records = 3607251185, span_us = 2640796229, span_ticks = 2041452836, cal_residual = 3955228266, cal_brackets = 2516711325, cal_anchors = 392054687, accepted = 3237070192, outputs = 1824857305, warmup = 3827569574, rails = 3903350533, clips = 1518452632, source_hash = 4101475306, output_hash = 2620288506, first_us = 6833719572002775968, last_us = 8527911998424694082, residual = 1258832652, clock_checks = 3417568951, level = 34292774, flags = 3105609487, stop_us = 2202950367, stopped = 4024335179, fifo_error = 3702851619, stop_error = 2902502540, trace_refused = 1421395446, preclose_overflow = 1146952277, irqs = 3151330894, stack_deepest = 2851696441, stack_floor = 726821272, primask = 1855416295, basepri = 1095786645, faultmask = 3756547167, max_words = 2848399684, raw_words = 2281781343, pending_xyz = 4041472916, ctrl1 = 1073626459, cal_xyz_span = 2833490436, cal_tick_span = 1217982801, sd_error = 3001554631, sd_steps = 3286896882, sd_peak_queue = 871106127, sd_completed = 1108298923, sd_step_max = 2484204038, sd_write_max_us = 3397301293, sd_busy_max_us = 3271362388, sd_total_bytes = 2469627831, sd_lba = 1355189356, sd_written = 1571013895, drain_us = 3458872265, header_written = 1096026984, return_offset = 1208436167, return_bytes = 598050655, returned = 1532105758, sd_sectors = 1413982141, marker_ok = 1721086052, who_ok = 292492145, trace_count = 3448213400, queue_overflows = 1860687102, sd_pending_polls = 2587365511}
+$10 = {card = 0x7e2bac0, data = 0xddbb4c81 <error: Cannot access memory at address 0xddbb4c81>, lba = 47957364, blocks = 4183497096, block = 170654114, offset = 3133704707, state = 39237075, error = 2513229403, begin_us = 6002707998996280606, deadline_us = 5061867067999056318, busy_begin_us = 17611682512629005172, busy_sum_us = 7912746118481751528, complete_us = 15566932817266360845, max_busy_us = 375095400, block_busy_us = {1959750108, 2463760598, 3872992752, 921633529, 2571730519, 3083924875, 3132244889, 1816388809, 3908488523}, crc = 61968, active = 87, done = 43, uncertain = 150, needs_power_cycle = 87, data_response = 1052573167, data_response_seen = 499850829}
+$11 = {fifo = 0x383fb92e, metric = 0xb213b679, sink = 0x1d1455b4, sink_context = 0x7f7fc794, base_us = 1151652098072447086, span_us = 8428464171766158410, span_ticks = 17256631470362813262, ticks = 8577817945006337871, anchor_ticks = 8327617215651507117, input_index = 17258351960788886693, emitted = 14518370162153087630, max_residual_us = 10556881354939829793, last_event_us = 12670437188902720333, first_event_us = 12612318979479565670, raw = 169637250, anchor_raw = 3067681040, groups = 3433144240, calibration_raw = 806397199, calibration_us = 14883792425577582081, mapping_cycles = 15649436895796845338, metrology_cycles = 3217796124353466615, counter = 41 ')', count = 227 '„', xyz = {{29157, -13146, 28837}, {5685, 15512, 18739}, {-31450, 31136, 7010}, {24318, -2918, 19546}, {11056, -23642, 24537}, {9758, -13509, -8490}, {-20765, -29817, 11160}, {-3278, 31298, -1328}}, initialized = 180, anchor = 253, fault = 92}
+$12 = {before = 14387849288765654380, after = 17448392324562782873, raw = 1906467458}
+$13 = 4016864331
+$14 = 3411768877
+$15 = 1737382762
+$16 = 355766026
+$17 = 259248623
+$18 = 1177185985
+$19 = {io = {context = 0x0, exchange = 0x0, select = 0x0, us = 0x0}, cid = '\000' <repeats 15 times>, csd = '\000' <repeats 15 times>, ocr = 0, sectors = 0, error = 0, last_cmd = 0, last_r1 = 0, commands = 0, reads = 0, writes = 0, max_busy_us = 0, last_busy_us = 0, timeouts = 0, crc_errors = 0, begin_lba = 0, limit_lba = 0, initialized = false, write_enabled = false, failed = false, trace = {{cmd = 0, arg = 0, r1 = 0, extra = 0, elapsed_us = 0} <repeats 256 times>}}
+$20 = {card = 0x0, data = 0x0, lba = 0, blocks = 0, block = 0, offset = 0, state = 0, error = 0, begin_us = 0, deadline_us = 0, busy_begin_us = 0, busy_sum_us = 0, complete_us = 0, max_busy_us = 0, block_busy_us = {0, 0, 0, 0, 0, 0, 0, 0, 0}, crc = 0, active = false, done = false, uncertain = false, needs_power_cycle = false, data_response = 0, data_response_seen = 0}
+$21 = {mounted = 0, formatted = 0, error = 0, io_error = 0, io_uncertain = 0, io_writes = 0, first_lba = 0, sectors = 0, run = 0, fs_type = 0, cluster_sectors = 0, free_clusters = 0, required_clusters = 0, session = 0}
+$22 = false
+$23 = 0x1000
+[Inferior 1 (Remote target) detached]

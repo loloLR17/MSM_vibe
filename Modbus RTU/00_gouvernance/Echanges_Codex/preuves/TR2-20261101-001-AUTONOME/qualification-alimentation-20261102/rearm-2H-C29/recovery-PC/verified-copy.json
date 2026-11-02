@@ -1,0 +1,10 @@
+{
+  "Source": "D:\\C290005.TR2",
+  "Destination": "\\\\wsl.localhost\\Debian\\home\\lolo\\dev\\msm\\reports\\TR2-001-autonome-reducteur-20261101\\qualification-alimentation-20261102\\rearm-2H-C29\\reported-red-recovery\\PC-copy\\C290005.TR2",
+  "Bytes": 671088640,
+  "SourceStreamSHA256": "f7ca815f74b78c9e6a90f29c4ce26d5bc8f4c99e2b810fba10b1df82f1fc1ade",
+  "SourceAccess": "read only",
+  "NoRepairNoFormat": true,
+  "DestinationSHA256": "f7ca815f74b78c9e6a90f29c4ce26d5bc8f4c99e2b810fba10b1df82f1fc1ade",
+  "ExactCopy": true
+}
