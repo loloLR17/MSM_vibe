@@ -1,0 +1,7 @@
+{
+  "received_UTC": "2026-11-02T17:51:13.951137+00:00",
+  "user_statement": "je pense que c’est moi qui ai volontairement bouger et frapper le capteur. Nous avons déjà vu ce problème d’ecrétage et tu avais proposer une solution. Nous verrons sa mise en place plus tard.",
+  "event_time_UTC": null,
+  "correlation_with_clipped_output": "PLAUSIBLE_NOT_ESTABLISHED",
+  "decision": "Clipping mitigation deferred by user; no code/quality-gate changes now"
+}

@@ -33,6 +33,8 @@ allow_debug: true
 
 Main a avancé de171cefc3 vers **ebae55e1** (projet shield uniquement). Autorisation explicite utilisateur d'intégration isolée : commits63d3846b et984d69c6 réappliqués dans un nouveau worktree baséebae55e1, dépôt/commits d'origine préservés. Branche locale `codex/tr2-001-GI0-publication`, destination autorisée `main`, push normal et relecture distante à contrôler. Rapport demeure IN_PROGRESS : essai GI0 terminé avec échec qualité, aucune campagne2h globalement qualifiée ni mission shield activée.
 
+**Observation utilisateur après récupération :** il pense avoir volontairement bougé et frappé le capteur pendant cet essai. Cela rend une origine mécanique plausible, mais sans heure d’intervention la correspondance avec la sortie écrêtée à≈56min56s n’est pas établie. L’utilisateur reporte la mise en place de la solution d’écrêtage évoquée antérieurement ; aucune modification, reconstitution de cette solution de mémoire ou nouveau test dans cette tranche.
+
 **Suite recommandée, non exécutée :** contrôle indépendant ChatGPT de ces résultats ; conserver l'incident et décider de la stratégie de robustesse/interconnexion. Un nouveau CN15 seul peut comparer l'influence du ST-LINK, mais n'est pas lancé et n'isolerait pas à lui seul l'origine de l'écrêtage. Aucune intervention physique supplémentaire demandée maintenant.
 
 [Preuves PC et contexte de l’incident](preuves/TR2-20261101-001-AUTONOME/qualification-alimentation-20261102/GDB-USER-reproduction/PC-verification/RESULTATS.md).

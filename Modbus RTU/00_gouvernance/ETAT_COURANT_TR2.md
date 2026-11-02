@@ -1,5 +1,8 @@
 # État courant MSM TR2 — synthèse opérationnelle
 
+**02/11/2026 — Observation utilisateur GI0 :** il pense avoir bougé/frappé volontairement le capteur ; horodatage absent, lien avec écrêtage≈56min56s plausible mais non démontré. Traitement d’écrêtage reporté explicitement, aucun changement de code/contrôle ni nouvel essai.
+
+
 **02/11/2026 — GI0 PC vérifié intégralement : intégrité stockage démontrée, qualité NON qualifiée.** 671088640B source/copieSHA46d2ad03…13f1f ; 244041records CRC/séquence/session/temps/padding conformes,19035188XYZ/114211128B SHAfe270210…12611 exact digest producteurRAM. Finpréallouée546139136B nulle/footerabsent/lecteurstrictINCOMPLETE. Deux heures MCU7200000768µs atteintes, refusfinal26/clips1/rails0 aprèsdrain. Bloc115808/sortie9033033/≈56min56,47sMCU : [-21594,-32768,32767], contexte sauvegardé ; natifsincidentabsents, origine nonétablie. Source171cefc3/GI0inchangé, aucunresetflash/nouveautest,001horstension/512auPC selonuser/GDBdétaché. 002OBE récupérationPCencoreàfaire, C29zéroXYZ préservé. Autorisationuser intégrationisolée sur ebae55e1, aucunacteshield. Rapport/preuvesmisàjour pourpublicationnormale/contrôleChatGPT.
 
 
