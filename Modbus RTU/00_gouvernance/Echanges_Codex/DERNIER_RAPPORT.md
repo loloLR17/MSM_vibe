@@ -77,7 +77,10 @@ l’utilisateur. Aucun troisième essai 002 ni départ 8 h dans cette tranche.
 [Résultats détaillés et preuves](preuves/TR2-20261101-001-AUTONOME/qualification-alimentation-20261102/bank-comparison/RESULTATS_ET_SUITE.md).
 HEAD initial de tranche : `663df57b`. Journal actualisé avec les résultats,
 les limites, la restauration et la prochaine action. Commit et push normaux sur
-main autorisés ; relecture distante prévue après publication du présent rapport.
+main réalisés : checkpoint `1195af35571e3b9d4041894bcc70e5ef57e71d18` publié et relu depuis origin/main,
+83 fichiers strictement identiques, 577 empreintes de preuves contrôlées,
+CRC et source des deux snapshots distants vérifiés. Worktree propre à ce contrôle.
+Preuve : `bank-comparison/remote-comparison-verification.json`.
 
 ---
 
