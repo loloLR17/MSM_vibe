@@ -53,7 +53,9 @@ encore nécessaire ; aucun nouveau départ tant que le précontrôle n'est pas c
 [Preuves D04 et limites](preuves/TR2-20261101-001-AUTONOME/qualification-alimentation-20261102/module-cross/D04_RESULTAT_ET_SUITE.md).
 HEAD de début de tranche : `c56872e1f0cc0cb83cf7d7269d999c702bf4c000`.
 Journal actualisé avec le transfert rapporté, le refus, les preuves et la suite.
-Publication et relecture distante à réaliser après ce rapport.
+Checkpoint `3631037dc3604d79a6b479d61ff7ba64a4824680` publié par push normal sur main
+et relu : 19 fichiers identiques, 594 empreintes de preuves contrôlées, worktree propre.
+Relecture consignée dans `module-cross/remote-verification.json`.
 
 ---
 
