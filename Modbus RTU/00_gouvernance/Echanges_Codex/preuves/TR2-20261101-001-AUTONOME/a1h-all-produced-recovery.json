@@ -1,0 +1,11 @@
+{
+  "status": "INCOMPLETE capture, all produced filtered XYZ recovered",
+  "xyz": 704,
+  "bytes": 4224,
+  "sha256": "50be04e0308460ae21e86dd2cef3c6901a643963007097307da6f3ed4919b1e6",
+  "matches_retained_producer_sha": true,
+  "construction": "8 verified SD records +1 verified retained queue record +2 partial RAM XYZ",
+  "suffix_bytes": 480,
+  "file_sha256": "97b90e1b77b2f9e38adaacfb4a41ae32efea21ffe7c7a64023b472eaf40eba6f",
+  "not_claimed": "60s completion, full native FIFO words, exact physical SI duration or root electrical cause"
+}

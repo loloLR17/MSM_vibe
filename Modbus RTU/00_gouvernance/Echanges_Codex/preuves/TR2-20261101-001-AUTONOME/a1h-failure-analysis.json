@@ -1,0 +1,43 @@
+{
+  "duration_us_mcu": 279495,
+  "stage": 99,
+  "error": 6,
+  "source_branch": "poll temporal-budget OR guard, not clock residual guard",
+  "limits_us": {
+    "service": 2500,
+    "gap": 5000,
+    "consumer": 1000,
+    "SD_quantum": 1000
+  },
+  "SD_quantum_max_cycles": 83847,
+  "clock_Hz": 160000000,
+  "SD_quantum_max_us": 524.04375,
+  "SD_quantum_limit_exceeded": false,
+  "exact_failed_remaining_guard": "Not saved: service, gap and consumer maxima/last values absent from retained payload; cannot distinguish these three without new evidence",
+  "clock_checks": 3,
+  "clock_max_residual_us": 63,
+  "clock_limit_us": 100,
+  "clock_mapper_fault": false,
+  "SD_error": 0,
+  "writer_error": 0,
+  "writer_done": true,
+  "writer_uncertain": false,
+  "writer_data_response_hex": "0xE5",
+  "FIFO_error": 0,
+  "FIFO_stop_error": 0,
+  "FIFO_stopped": true,
+  "FIFO_max_level": 149,
+  "queue_overflows": 0,
+  "rails": 0,
+  "clips": 0,
+  "native_accepted": 7032,
+  "filtered_produced": 704,
+  "capture_qualified_60s": false,
+  "conclusions": [
+    "A1H overall SPI3 4MHz did not meet short-capture acceptance under unchanged timing guards.",
+    "No evidence that 4MHz resolves sporadic timestamp inconsistency: only3 checks before stop.",
+    "Prior A1G raw clock anomaly and A1D SD response fault remain separate observed failures."
+  ],
+  "user_decision": "Finish analysis and publication; no new candidate flash or physical trial before discussing user ideas.",
+  "hardware_final_reported": "TR2-001 powered off;512Go in T1000 reader;JP2removed;JP6USB;A1H firmware retained. TR2-002 untouched."
+}
