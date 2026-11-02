@@ -1,0 +1,10 @@
+{
+  "UTC": "2026-11-02T17:52:27.054788+00:00",
+  "user_authorization": "New 2h acquisition without ST-LINK",
+  "file": "CN00005.TR2",
+  "source_SHA": "6633b0154bf67b4c5437f1d259732fc1b1f21e4a",
+  "duration_us": 7200000000,
+  "MCU": "TR2-001",
+  "START": "USER physical only after ST-LINK removed",
+  "no_quality_gate_change": true
+}

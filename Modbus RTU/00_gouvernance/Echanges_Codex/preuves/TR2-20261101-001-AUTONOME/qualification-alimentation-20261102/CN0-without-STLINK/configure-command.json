@@ -1,0 +1,23 @@
+[
+  "cmake",
+  "-S",
+  "/home/lolo/dev/msm/projects/MSM_vibe-TR2-001-GI0-publication/experiments/r3_durable_fat32",
+  "-B",
+  "/home/lolo/dev/msm/cache/tr2-001-CN0-autonomous",
+  "-DCMAKE_TOOLCHAIN_FILE=/home/lolo/dev/msm/projects/MSM_vibe-TR2-001-GI0-publication/Modbus RTU/05_Firmware/platform/stm32/cmake/arm-none-eabi-gcc.cmake",
+  "-DSTM32CUBE_U5_ROOT=/home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0",
+  "-DR3_CAPTURE_DURATION_US=7200000000",
+  "-DR3_CAPTURE_PREFIX=CN0",
+  "-DR3_ENDURANCE_1H=ON",
+  "-DR3_ENDURANCE_8H=ON",
+  "-DR3_HOST_TESTS=OFF",
+  "-DR3_QPC_WITNESS=OFF",
+  "-DR3_SENSOR_COMPARE_002=OFF",
+  "-DR3_SPI2_DIVIDER=4",
+  "-DR3_SPI3_DIVIDER=2",
+  "-DR3_SPI_DUPLEX=ON",
+  "-DR3_TR2_001_AUTONOMOUS=ON",
+  "-DR3_TR2_001_DISCOVERY=OFF",
+  "-DR3_TR2_001_HOST_TESTS=OFF",
+  "-DR3_TR2_001_SENSOR_ONLY=OFF"
+]

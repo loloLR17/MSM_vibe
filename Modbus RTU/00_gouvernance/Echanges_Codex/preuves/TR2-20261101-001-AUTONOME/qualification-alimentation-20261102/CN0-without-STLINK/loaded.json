@@ -1,0 +1,10 @@
+{
+  "UTC": "2026-11-02T17:53:55.170350+00:00",
+  "target_SN": "003500463235510B37333439",
+  "BIN_SHA256": "d31863809d62af9fc690e5ed1e8ef5fa2c3172c764774f0cb51f5e8e335cd396",
+  "source_SHA": "6633b0154bf67b4c5437f1d259732fc1b1f21e4a",
+  "standard_programming_verified": true,
+  "no_SD_during_flash": true,
+  "no_START": true,
+  "GDB_detached": true
+}

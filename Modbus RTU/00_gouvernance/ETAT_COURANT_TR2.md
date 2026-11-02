@@ -1,5 +1,8 @@
 # État courant MSM TR2 — synthèse opérationnelle
 
+**02/11/2026 — CN0 chargé, NON démarré :** userdemande2hCN15seulsansSTLINK. CN00005.TR2 librePC/SD512identifiée/509038264320Bdisponibles. ARMsource6633b015/BIN53340B SHAd3186380…cd396, comparaisoncomplèteGI0≡CN0 saufpréfixeetSHAembarqué ; mêmesFS16/7200000000µs/FIR/SPI/qualité. UID001vérifié/flashstandard-vPASS, bootsansSD99error2/WHO7B/SDwrites0/FIFOwriteroff/CShaute/GDBdétaché. Aucuntest/START ; userinvitéàéjecter512puiscoupure10s/réinsertion/CN15seul/STLINKdébranché/WAITvert sansbouton.002FRAMCOM4/protectionsinchangés, GI0etarchivesconservés.
+
+
 **02/11/2026 — Observation utilisateur GI0 :** il pense avoir bougé/frappé volontairement le capteur ; horodatage absent, lien avec écrêtage≈56min56s plausible mais non démontré. Traitement d’écrêtage reporté explicitement, aucun changement de code/contrôle ni nouvel essai.
 
 

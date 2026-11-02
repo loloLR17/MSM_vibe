@@ -1,0 +1,27 @@
+{
+  "BIN_equal_after_source_SHA_and_prefix_replacements_only": true,
+  "old_prefix": "GI0",
+  "new_prefix": "CN0",
+  "old_source_SHA": "171cefc3f8e6c02e37d58654e3ab05766f1a0241",
+  "new_source_SHA": "6633b0154bf67b4c5437f1d259732fc1b1f21e4a",
+  "bytes": 53340,
+  "differing_ranges": [
+    [
+      52144,
+      52155
+    ],
+    [
+      52156,
+      52182
+    ],
+    [
+      52183,
+      52184
+    ],
+    [
+      52251,
+      52253
+    ]
+  ],
+  "no_functional_binary_change": true
+}
