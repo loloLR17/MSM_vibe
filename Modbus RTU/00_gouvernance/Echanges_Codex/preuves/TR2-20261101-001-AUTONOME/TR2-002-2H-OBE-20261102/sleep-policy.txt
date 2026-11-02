@@ -1,0 +1,13 @@
+GUID du mode de gestion de l'alimentationÿ: 381b4222-f694-41f0-9685-ff5bb260df2e  (Utilisation normale)
+  Alias de GUIDÿ: SCHEME_BALANCED
+  GUID du sous-groupeÿ: 238c9fa8-0aad-41ed-83f4-97be242c8f20  (Veille)
+    Alias de GUIDÿ: SUB_SLEEP
+    GUID du paramŠtre d'alimentationÿ: 29f6c1db-86da-48c5-9fdb-f2b67b1f44da  (Veille aprŠs)
+      Alias de GUIDÿ: STANDBYIDLE
+      Valeur minimale possibleÿ: 0x00000000
+      Valeur maximale possibleÿ: 0xffffffff
+      Incr‚ment possible des paramŠtresÿ: 0x00000001
+      Unit‚s possibles des paramŠtresÿ: secondes
+    Index actuel du paramŠtre de courant alternatifÿ: 0x00000000
+    Index actuel du paramŠtre de courant continuÿ: 0x000004b0
+

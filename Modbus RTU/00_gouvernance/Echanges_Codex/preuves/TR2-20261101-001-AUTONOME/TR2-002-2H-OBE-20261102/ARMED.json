@@ -1,0 +1,22 @@
+{
+  "armed": true,
+  "short_gate_pass": true,
+  "gate_file_readback_producer_digest_pass": true,
+  "long_not_started": true,
+  "target_SN": "0032001F3235510C37333439",
+  "UID": "001B0046/38425018/20333157",
+  "prefix": "OBE",
+  "gate_file": "OBE0003.TR2",
+  "long_file": "OBE0005.TR2",
+  "duration_us": 7200000000,
+  "initial_flash_SHA256": "113f54b740a2ee2be789ac42649becb8fe58b8a47d33890c587faabf405386e5",
+  "initial_flash_bytes": 2097152,
+  "no_TR2_001_access": true,
+  "code_sha": "dd2f27ca3d886742b0ab37ab378cd524012a0370",
+  "BIN_bytes": 53032,
+  "BIN_SHA256": "20785017e36617d5b17c5fa1598cc51254388984bb293951fbca16fa484a9692",
+  "sensor_fs_g": 8,
+  "sensitivity_ug": 244,
+  "SPI3_Hz": 8000000,
+  "SPI2_Hz": 4000000
+}

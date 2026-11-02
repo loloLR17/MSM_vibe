@@ -1,0 +1,9 @@
+0x080026f0 in main () at /home/lolo/dev/msm/projects/MSM_vibe-TR2-001-autonome/experiments/r3_durable_fat32/src/main.c:486
+486	   __WFI();}
+0xbfa0700:	0x001b0046	0x38425018	0x20333157
+Note: automatically using hardware breakpoints for read-only addresses.
+$1 = 4
+$2 = 4
+$3 = 0
+$4 = 906719
+[Inferior 1 (Remote target) detached]

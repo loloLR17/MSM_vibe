@@ -1,0 +1,8 @@
+{
+  "user": "lance aussitot que tu es pret",
+  "target": "TR2-002 only",
+  "duration_MCU_us": 7200000000,
+  "QPC_active_interval_minimum_s": 7100,
+  "QPC_scope": "records an inner interval; no assertion of7200 SI seconds",
+  "UTC_before_trigger": "2026-11-02T12:29:27.632611+00:00"
+}

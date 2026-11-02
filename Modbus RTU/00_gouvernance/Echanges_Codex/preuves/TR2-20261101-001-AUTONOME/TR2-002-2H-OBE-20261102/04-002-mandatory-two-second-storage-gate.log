@@ -1,0 +1,15 @@
+0x080026f0 in main () at /home/lolo/dev/msm/projects/MSM_vibe-TR2-001-autonome/experiments/r3_durable_fat32/src/main.c:486
+486	   __WFI();}
+0xbfa0700:	0x001b0046	0x38425018	0x20333157
+Hardware assisted breakpoint 1 at 0x8002334: file /home/lolo/dev/msm/tools/STM32CubeU5-v1.9.0/Drivers/CMSIS/Include/cmsis_gcc.h, line 271.
+
+Temporary breakpoint 1, r3_finished () at /home/lolo/dev/msm/projects/MSM_vibe-TR2-001-autonome/experiments/r3_durable_fat32/src/main.c:157
+157	__attribute__((noinline)) void r3_finished(void){__DSB();__ISB();}
+$1 = {version = 4, stage = 4, error = 0, uid = {1769542, 943869976, 540225879}, clock = 160000000, who = 123, run = 3, mode = 1, duration_us = 2000216, records = 2140, span_us = 1889727, span_ticks = 151005, cal_residual = 27, cal_brackets = 197, cal_anchors = 6626, accepted = 52992, outputs = 5300, warmup = 11, rails = 0, clips = 0, source_hash = 4188181819, output_hash = 358772500, first_us = 121336017, last_us = 123325385, residual = 26, clock_checks = 20, level = 47, flags = 0, stop_us = 133, stopped = 1, fifo_error = 0, stop_error = 0, trace_refused = 0, preclose_overflow = 0, irqs = 2000, stack_deepest = 1104, stack_floor = 2992, primask = 0, basepri = 0, faultmask = 0, max_words = 47, raw_words = 2048, pending_xyz = 7, ctrl1 = 172, cal_xyz_span = 53000, cal_tick_span = 159000, sd_error = 0, sd_steps = 736, sd_peak_queue = 5120, sd_completed = 9, sd_step_max = 68904, sd_write_max_us = 84355, sd_busy_max_us = 14703, sd_total_bytes = 31800, sd_lba = 4303936, sd_written = 34816, drain_us = 8858, header_written = 1, return_offset = 0, return_bytes = 0, returned = 0, sd_sectors = 62333952, marker_ok = 0, who_ok = 1, trace_count = 512, queue_overflows = 0, sd_pending_polls = 736}
+$2 = {card = 0x2001d7f0 <r3_card>, data = 0x200154c4 <q+32768> "D3BK@", lba = 4304001, blocks = 4, block = 4, offset = 0, state = 10, error = 0, begin_us = 123326866, deadline_us = 124334372, busy_begin_us = 123334399, busy_sum_us = 2308, complete_us = 123335525, max_busy_us = 1215, block_busy_us = {1215, 13, 13, 13, 0, 0, 0, 0, 1054}, crc = 13299, active = false, done = true, uncertain = false, needs_power_cycle = false}
+$3 = {mounted = 1, formatted = 0, error = 0, io_error = 0, io_uncertain = 0, io_writes = 8, first_lba = 4303936, sectors = 256, run = 3, fs_type = 3, cluster_sectors = 64, free_clusters = 906719, required_clusters = 4, session = 6755700209086293}
+Note: automatically using hardware breakpoints for read-only addresses.
+GATE_FILE_DIGEST_VERIFY=0
+$4 = 0
+$5 = 0x1000
+[Inferior 1 (Remote target) detached]

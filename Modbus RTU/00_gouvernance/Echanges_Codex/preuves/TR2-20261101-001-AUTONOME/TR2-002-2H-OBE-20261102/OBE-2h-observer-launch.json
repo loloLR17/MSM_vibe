@@ -1,0 +1,12 @@
+{
+  "native_process": {
+    "ProcessId": 15364,
+    "ReturnValue": 0
+  },
+  "observer_sha256": "ff4cb076a1bdb40486ae704c6a721932c07e11f7f61b11e406ff5502e7a77251",
+  "output": "C:\\Users\\lolo\\AppData\\Local\\Temp\\TR2-R3-N8G-20261101-OBE-2h",
+  "expected_run": 5,
+  "minimum_QPC_s": 7100,
+  "parent_has_exited": true,
+  "STM32_control": false
+}

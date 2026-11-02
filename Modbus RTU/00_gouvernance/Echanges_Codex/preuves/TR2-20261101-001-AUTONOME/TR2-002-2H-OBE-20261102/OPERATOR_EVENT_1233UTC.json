@@ -1,0 +1,8 @@
+{
+  "UTC_reported": "2026-11-02T12:33:00Z",
+  "precision": "minute",
+  "label_verbatim": "passage sur mode constante",
+  "source": "user report",
+  "scope": "operational event; bank/machine scope not further specified",
+  "no_firmware_or_acquisition_change": true
+}

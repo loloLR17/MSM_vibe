@@ -1,0 +1,12 @@
+{
+  "target_SN": "0032001F3235510C37333439",
+  "UID": "001B0046/38425018/20333157",
+  "prefix": "OBE",
+  "gate_file": "OBE0003.TR2",
+  "long_file": "OBE0005.TR2",
+  "duration_us": 7200000000,
+  "initial_flash_SHA256": "113f54b740a2ee2be789ac42649becb8fe58b8a47d33890c587faabf405386e5",
+  "initial_flash_bytes": 2097152,
+  "no_TR2_001_access": true,
+  "long_not_started": true
+}

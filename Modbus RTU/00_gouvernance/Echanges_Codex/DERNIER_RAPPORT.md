@@ -4,8 +4,8 @@ status: IN_PROGRESS
 base_ref: main
 base_sha: a8817bf293c6e60a93ad824d279ee870b6a0ecf7
 initial_head: 79b952dbb949cb8eb2f208e3b2c5994f4ed1279f
-result_sha: 365b0ccfe3d3c80e0d0b894e7e99cf3e0f7b4a69
-created_at_utc: 2026-11-02T12:09:23.712391+00:00
+result_sha: dd2f27ca3d886742b0ab37ab378cd524012a0370
+created_at_utc: 2026-11-02T12:34:52.854300+00:00
 author: Codex
 target_branch: main
 allow_commit: true
@@ -13,6 +13,44 @@ allow_push: true
 allow_flash: true
 allow_debug: true
 ---
+
+# TR2-002 — 2 h lancées, ACTIVE et première écriture SD confirmés
+
+**IN_PROGRESS : lancement confirmé, fin nonobservée.** Extensionutilisateur explicite
+à002 (« arme[…]2h[…]STLINK », puis « lanceaussitot[…]prêt »), aucunaccès001.
+CibleSN0032001F3235510C37333439/UID001B0046/38425018/20333157. AncienneFlash2MiB
+sauvegardéeSHA113f54b7…386e5, FIFO/writerinactifs avantprogrammation. BuildARMcibléPASS,
+flashstandard vérifié ; source **dd2f27ca3d886742b0ab37ab378cd524012a0370**,
+profilhistorique002 **±8g/244µgLSB/SPI3 8MHz/SD4MHz/FIR107Q15dec10**, garde2hnominales
+7200000000µsMCU. Nouveau `OBE0005.TR2`/préallocation640MiB, gardesinchangées.
+
+Init/calibration etCID32Go/capacité62333952/FAT32conformes, noms0003/0005absents et
+906719clusterslibres pour20484requis. Gate2s requis unefois puisrelectureSDcontre
+producteurRAM `durable_verify_last=0`. Délai dûauscriptGDB appelantunsymbole nonlié,
+corrigé via procéduresmetadatahistoriques sansréinitialisationrépétée ; pas un blocage
+matériel. Aucun testancien relancé ni contrôleassoupli.
+
+**ACTIVErun5 et premiergroupeSDacquitté confirmés à12:30:12.839818UTC**, session
+8444550119014285/accepted12808/flags1281. OrdreSTARTunique, GDBdétaché ensuite.
+TémoinWindowsnatifindépendant PID15364/COM5 parent002, PCsecteur/veilleAC0 constatés.
+IntervalleQPCintérieur demandé7100s, pas unequalification2hSI ; capturegarde2hMCU.
+Journaux dans `C:\Users\lolo\AppData\Local\Temp\TR2-R3-N8G-20261101-OBE-2h`.
+ConserverSTLINK002/T1000allumé sursecteur ; aucuneinterventionGDBpendantcapture.
+Aprèsfin : vérifierterminal etSDquiet puis sauverdigestRAM avantcoupure/retraitSD.
+
+**Repèreuser : « passage sur mode constante » à12:33UTC**, précisionminute,
+conservételquel/scopephysique nonprécisé. Aucunchangementlogiciel pourcerepère.
+TR2-001 reste indépendant : départ12:12UTC déclaré, LEDéteintes/étatréelnonvérifié ;
+aucunelecture/reset/flash/commande sur001 pour ce lancement002. Ne pasfusionnerlespreuves.
+
+[Checkpoint et reprise](preuves/TR2-20261101-001-AUTONOME/TR2-002-2H-OBE-20261102/DEPART_2H_ET_REPRISE.md).
+HEAD initial `dd2f27ca3d886742b0ab37ab378cd524012a0370`, journal actualisé.
+Aucunformat/OB/FRAM/COM4/Windowssecurity/anciennecapture touché ; 2hNONterminées.
+
+---
+
+## Historique avant le départ OBE sur TR2-002
+
 
 # Réarmement 2 h — C290005.TR2 chargé, départ manuel attendu
 
