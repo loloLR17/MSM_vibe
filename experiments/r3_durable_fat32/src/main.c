@@ -124,7 +124,10 @@ extern uint32_t _estack,_ebss;
 static uintptr_t stack_begin,stack_end;
 uint32_t r3_clock_fault;
 #if R3_TR2_001_AUTONOMOUS
+#include "budget_diagnostic.h"
 Bracket r3_last_clock_bracket;
+uint32_t r3_budget_mask;
+Record r3_budget_record;
 #include "retained_snapshot.inc"
 #endif
 static uint32_t last_irq_tick;
@@ -259,7 +262,13 @@ static int poll(uint64_t *previous,bool keep)
  if(fifo.parser.max_level>r3_result.level)r3_result.level=fifo.parser.max_level;
  r3_result.flags|=fifo.parser.flags_or;
  if(r||r3_clock_fault||bench_log_refused||bench_preclose_overflow)return -5;
- if(service>2500u*160u||gap>5000u*160u||consumer_cycles>1000u*160u||sd_cycles>1000u*160u)return -6;
+ if(service>2500u*160u||gap>5000u*160u||consumer_cycles>1000u*160u||sd_cycles>1000u*160u){
+#if R3_TR2_001_AUTONOMOUS
+  r3_budget_mask=r3_budget_failure_bits(service,consumer_cycles,gap,sd_cycles);
+  r3_budget_record=(Record){service,consumer_cycles,gap,(uint32_t)(fifo.total_xyz-before),sd_cycles,q.count};
+#endif
+  return -6;
+ }
 #if R3_TR2_001_AUTONOMOUS
  standalone_heartbeat();
 #endif
@@ -301,6 +310,9 @@ static void put32(uint8_t *b,uint32_t v){for(unsigned i=0;i<4;i++)b[i]=(uint8_t)
 static const uint8_t durable_coeff_sha[32]={0xe,0x52,0x8c,0x6d,0x98,0x52,0x7,0xc2,0x65,0xcc,0xaa,0x4a,0x5d,0xf7,0x97,0xcc,0xdf,0xa5,0xcc,0xfe,0x93,0x8a,0xd9,0xa5,0x1a,0x6a,0x6a,0xd8,0xc9,0x4c,0xc1,0xb4};
 static int session(uint32_t run,uint64_t duration)
 {
+#if R3_TR2_001_AUTONOMOUS
+ r3_budget_mask=0;memset(&r3_budget_record,0,sizeof r3_budget_record);
+#endif
  calibration=false;mode=1;writer_enabled=run>=3;r3_result.mode=writer_enabled;r3_result.run=run;
  r3_result.accepted=r3_result.outputs=r3_result.warmup=r3_result.rails=r3_result.clips=0;
  r3_result.records=r3_result.raw_words=r3_result.max_words=r3_result.flags=r3_result.level=r3_result.clock_checks=0;

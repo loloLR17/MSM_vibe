@@ -7,6 +7,7 @@ typedef struct {
  R3Hash source_hash;uint8_t source_sha256[32],header[512],partial_frame[512];
  uint32_t frame_count,frame_seq,first_output,clock_fault;
  FifoEventTime mapper;Bracket last_clock_bracket;
+ uint32_t budget_mask,maximum_cycles[4];Record budget_record;
 } RetainedPayload;
 typedef struct {RetainedGuard guard;RetainedPayload payload;} RetainedSnapshot;
 RetainedSnapshot r3_retained __attribute__((section(".tr2_retained"),used,aligned(8)));
@@ -22,5 +23,7 @@ static void retain_capture(void)
  p->frame_count=durable_frame_count;p->frame_seq=durable_frame_seq;
  p->first_output=durable_first_output;p->clock_fault=r3_clock_fault;
  p->mapper=mapper;p->last_clock_bracket=r3_last_clock_bracket;
+ p->budget_mask=r3_budget_mask;p->budget_record=r3_budget_record;
+ for(unsigned i=0;i<4;i++)p->maximum_cycles[i]=r3_distributions[i].max;
  retained_seal(&r3_retained.guard,p,sizeof *p);__DSB();r3_retained_available=1;
 }
