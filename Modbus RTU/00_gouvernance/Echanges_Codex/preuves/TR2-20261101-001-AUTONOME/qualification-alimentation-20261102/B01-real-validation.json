@@ -1,0 +1,8 @@
+{
+  "source_sha": "3f803d77393c6853ed76d796367df443a0eb9eb9",
+  "snapshot_bytes": 67488,
+  "sha256": "c93226441712b19dfe8cdaa2f0141c5c67e19607104e8e18b132bf3cb2628492",
+  "CRC_valid": true,
+  "CRC_hex": "0xc25b500d",
+  "capture_mode": "ST-LINK only; observer armed before physical USER, no halt until terminal breakpoint; no host START command"
+}

@@ -28,13 +28,47 @@ Arrêt au premier échec ; pas d'acquisition longue8h. Accord et périmètre con
 sans modifier MISSION_EN_COURS.md dans
 `preuves/TR2-20261101-001-AUTONOME/qualification-alimentation-20261102/DECISION_ET_PLAN.md`.
 
-**B01 chargé, acquisition non encore lancée.** Utilisateur confirme CN15 débranché,
-JP6STLK [1–2], JP2 retiré, ST-LINK seul et lecteur TR2 vide. Identité/état sûr vérifiés
-au relevé60 ; onzième flash standard61 de mission, vérification-v/-rst puis readback62
-entier strictement identique : 53312octets/7d9f2b59…88d0. WHO7B/FS04, registre SPI3
-CFG1=00070007/diviseur2 ; SDabsente/refus2 attendu, aucune écriture. Snapshot67488B,
-available0. GDB détaché. Remise carte hors tension sous ST-LINK seul demandée, attente
-WAIT sans USER avant armement de l'observateur terminal. Aucun résultat60s B01 acquis.
+**Palier1 : B01 en échec après 17,088670 s MCU, sous ST-LINK seul.** L'observateur
+est armé au WAIT (WHO7B/FS16, calibration16µs, capteur8MHz/SD4MHz), puis USER est
+pressé physiquement. Le processeur tourne sans halt pendant la capture ; breakpoint
+matériel atteint uniquement à `r3_finished`, après STOP et snapshot. Pas de reset ni
+reconnexion du câble pour récupérer le résultat. Logs63/64 conservés.
+
+Le snapshot67488B est valide, CRCc25b500d/source3f803d77, SHA
+**c93226441712b19dfe8cdaa2f0141c5c67e19607104e8e18b132bf3cb2628492**.
+`stage99/error3` : refus de cohérence du compteur. Dernier FIFO **1523255**,
+précédent compteur direct **1515331**, lecture fautive **19823754** dans le bracket
+**1049006171–1049006189µs**. La trace originale préservée avant tout reset contient
+les octets reçus **8A 7C 2E 01**, qui décodent exactement cette valeur en little-endian.
+La conversion numérique n'invente donc pas ce saut. HALstatus/error0, RX/TXrestants0,
+cinq octets reçus incluant la commande, CSbas au contrôle avant fermeture ; ceci
+ne constitue pas une mesure de forme d'onde ni une cause électrique exclusive.
+Le recalcul indépendant reproduit **229404244µs** de résidu/limite100 inchangée.
+
+Masque budget **0**. Maxima enregistrés des polls complets : service1446,79375µs/2500,
+traitement720,75625/1000, intervalle1706/5000, SD456,39375/1000. Le passage fautif
+renvoie sur l'horloge avant le calcul final de ses budgets ; aucune valeur manquante
+n'est inventée. SDerror0/FIFOerror0/rails-clips0 ; STOP134µs, sourcearrêtée,
+writerterminé/nonincertain/CS_SDhaute. GDBdétaché. L'échec de compteur ne nécessite
+**ni CN15 ni l'absence de GDB** : l'hypothèse d'un défaut propre à CN15 est insuffisante.
+Cela n'explique pas rétroactivement le refusSD A1D ou le dépassement de budget A1H.
+
+Utilisateur transfère la512Go auPC et laisse001hors tension. Copie native complète
+B010005.TR2, 2Mio, SHA **944b50e38613f7d30fc345fb1f71605fbec62faa6cd6197b07ca9f192a7c48d7**,
+source=copie ; A1A–A1H re-hachés inchangés. Lecteur strict : INCOMPLETE576records/44928XYZ.
+Ajout6recordsRAM vérifiés et30XYZpartiels : **45426sorties272556B**, SHA
+**d1badcb64b64be828c97eaba5b03cf0f0e091168afce44329f9cbc498edc78a5**,
+égal au digest producteur. Toutes les sorties filtrées produites récupérées, pas60s
+ni tous les mots natifs. Preuves compactes, trace SPI active et suffixes publiables
+sous `qualification-alimentation-20261102/`, originaux locaux dans le dossier homonyme.
+
+**Arrêt de la comparaison au premier échec, conformément au plan.** B02 reste préparé,
+non flashé/non lancé ; nouveaux paliersCN15 et10min non lancés. FirmwareB01 laissé
+sur001 hors tension, JP6STLK/JP2retiré/CN15débranché, SD512 auPC selon utilisateur.
+Étape suivante : traiter la lecture directe du compteur avant de reprendre les
+comparaisons d'alimentation ; aucune garde supprimée/assouplie et aucune variante
+à vitesses mixtes implémentée à ce point. Mission globale IN_PROGRESS, campagne
+non qualifiée. Les états H/préparation ci-dessous sont historiques.
 
 **Préparation logicielle de B01/B02** : source
 **3f803d77393c6853ed76d796367df443a0eb9eb9**, diagnostic exact du budget temporel
@@ -50,7 +84,7 @@ B01 SHA **7d9f2b59c312407273dc08ba8daa1e4758339259996beb1321b73aede66888d0** ;
 B02 SHA **59a236ae0d8f3d8f6b492fc84914cbf33cc5eaa304aaf13eebdb4e222f41cffb**.
 Préflight natif SD512/FAT32/cluster32Kio et absence des deux noms vérifiés en lecture
 seule. Préparation physique demandée : SD auPC, lecteurTR2vide, CN15 débranché,
-JP6STLK1–2/JP2retiré, ST-LINK seul. Aucun résultat de capture B01 à ce point.
+JP6STLK1–2/JP2retiré, ST-LINK seul. B01 a depuis échoué ; voir le résultat en tête.
 Les informations de suspension/état matériel A1H ci-dessous sont celles du point
 précédent, pas un état imposé après cette nouvelle intervention.
 

@@ -1,0 +1,26 @@
+[
+  {
+    "file": "B01-spi-active-trace.bin",
+    "bytes": 400,
+    "sha256": "82acc65ad266ed30433d1f852c8aef5015f3428058a32c2e0ca5a61aee48c3a7",
+    "scope": "Active entries only from preserved MCU trace; unused stale capacity excluded"
+  },
+  {
+    "file": "B01-spi-active-payload.bin",
+    "bytes": 25,
+    "sha256": "611091de1d7bb0b17ddc916194e5b44e24ae8347b076435ee10370b6b8f13d7c",
+    "scope": "Active entries only from preserved MCU trace; unused stale capacity excluded"
+  },
+  {
+    "file": "B01-spi-active-command-rx.bin",
+    "bytes": 10,
+    "sha256": "b9fe4d6e86a1074da74aa494deef81388292b30bb3dc2c4950bb038bffc1e5ea",
+    "scope": "Active entries only from preserved MCU trace; unused stale capacity excluded"
+  },
+  {
+    "file": "B01-spi-active-preclose.bin",
+    "bytes": 760,
+    "sha256": "0d03d16a0f13bc4e570d29549aa3fa34c02d02019bc7a987727afe27e7dbf57f",
+    "scope": "Active entries only from preserved MCU trace; unused stale capacity excluded"
+  }
+]

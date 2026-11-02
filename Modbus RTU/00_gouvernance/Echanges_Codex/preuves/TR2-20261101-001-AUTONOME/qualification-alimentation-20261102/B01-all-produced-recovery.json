@@ -1,0 +1,11 @@
+{
+  "status": "INCOMPLETE capture, all produced filtered XYZ recovered",
+  "xyz": 45426,
+  "bytes": 272556,
+  "sha256": "d1badcb64b64be828c97eaba5b03cf0f0e091168afce44329f9cbc498edc78a5",
+  "matches_retained_producer_sha": true,
+  "construction": "576 verified SD records +6 verified retained RAM records +30 partial RAM XYZ",
+  "suffix_bytes": 2988,
+  "file_sha256": "944b50e38613f7d30fc345fb1f71605fbec62faa6cd6197b07ca9f192a7c48d7",
+  "not_claimed": "60s completion or full native FIFO words; baseline palier1 failed so B02 and CN15 stages not launched"
+}

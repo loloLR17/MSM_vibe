@@ -1,0 +1,30 @@
+{
+  "base_us": 1048904693,
+  "span_us": 100384,
+  "span_ticks": 8008,
+  "ticks": 8016,
+  "last_FIFO_raw": 1523255,
+  "previous_direct_raw": 1515331,
+  "faulty_direct_raw": 19823754,
+  "before_us": 1049006171,
+  "after_us": 1049006189,
+  "delta_raw": 18300499,
+  "predicted_us": 1278410433,
+  "residual_us": 229404244,
+  "guard_us": 100,
+  "raw_received_bytes": "8a 7c 2e 01",
+  "decoded_little_endian_matches_exactly": true,
+  "maximum_us": {
+    "service": 1446.79375,
+    "consumer": 720.75625,
+    "gap": 1706.0,
+    "SD_quantum": 456.39375
+  },
+  "budget_failure_mask": 0,
+  "SD_error": 0,
+  "FIFO_error": 0,
+  "all_budgets_below_limits": true,
+  "observer": "Hardware breakpoint hit only after terminal snapshot; no mid-capture halt, physical ST-LINK-only power",
+  "scope": "CN15 and debugger absence are not necessary conditions for this observed direct-counter failure. Not an exclusive electrical root-cause proof.",
+  "next": "Stop repeated/power-comparison tests at first failure per agreed plan; preserve and report raw transfer evidence."
+}
