@@ -1,0 +1,36 @@
+{
+  "Utc": "2026-11-02T10:44:21.7869164Z",
+  "Disk": {
+    "Number": 1,
+    "FriendlyName": "Generic STORAGE DEVICE",
+    "SerialNumber": "000000000819",
+    "Size": 511868665856,
+    "PartitionStyle": "MBR",
+    "BusType": "USB"
+  },
+  "Partition": {
+    "PartitionNumber": 1,
+    "DriveLetter": "D",
+    "Offset": 1048576,
+    "Size": 511867584512
+  },
+  "Volume": {
+    "DriveLetter": "D",
+    "FileSystemLabel": "512 GO",
+    "FileSystem": "FAT32",
+    "Size": 511741755392,
+    "SizeRemaining": 511722520576,
+    "AllocationUnitSize": 32768
+  },
+  "Files": [
+    {
+      "Name": "B020005.TR2",
+      "Length": 2097152,
+      "Source": "D:\\B020005.TR2",
+      "SourceSHA256": "D49DBD86954125C37563F0418E5AF4744EC2851B5A4ACF8C1AF7766F35B680D4",
+      "Destination": "\\\\wsl.localhost\\Debian\\home\\lolo\\dev\\msm\\reports\\TR2-001-autonome-reducteur-20261101\\qualification-alimentation-20261102\\storage-B02-CN15\\PC-files-B02\\B020005.TR2",
+      "DestinationSHA256": "D49DBD86954125C37563F0418E5AF4744EC2851B5A4ACF8C1AF7766F35B680D4"
+    }
+  ],
+  "CardOperations": "File reads only; no formatting, repair or source-file writes"
+}

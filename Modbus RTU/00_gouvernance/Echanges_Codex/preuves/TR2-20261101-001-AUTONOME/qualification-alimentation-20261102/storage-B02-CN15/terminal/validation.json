@@ -1,0 +1,12 @@
+{
+  "bytes": 67488,
+  "crc32": "50fbba78",
+  "sha256": "25d940c9aee32c56b11c2184420c25873cb3a0361ea704700c5dfb6bd0adefcd",
+  "source_sha": "3f803d77393c6853ed76d796367df443a0eb9eb9",
+  "valid": true,
+  "flash_entire_BIN_exact": true,
+  "no_agent_reset_flash_START": true,
+  "user_RESET_accidental_before_START_reported": true,
+  "user_WAIT_again_before_long_USER_reported": true,
+  "user_terminal_green_fixed": true
+}

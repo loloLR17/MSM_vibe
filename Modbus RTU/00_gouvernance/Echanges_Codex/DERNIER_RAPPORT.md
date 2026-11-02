@@ -5,7 +5,7 @@ base_ref: main
 base_sha: a8817bf293c6e60a93ad824d279ee870b6a0ecf7
 initial_head: 79b952dbb949cb8eb2f208e3b2c5994f4ed1279f
 result_sha: 3f803d77393c6853ed76d796367df443a0eb9eb9
-created_at_utc: 2026-11-02T10:12:04.051126+00:00
+created_at_utc: 2026-11-02T10:48:00.836056+00:00
 author: Codex
 target_branch: main
 allow_commit: true
@@ -13,6 +13,47 @@ allow_push: true
 allow_flash: true
 allow_debug: true
 ---
+
+# B02 — minute autonome CN15 + SD, fichier COMPLETE vérifié intégralement
+
+**IN_PROGRESS global ; PASS physique de la minute avec enregistrement et lecturePC.**
+Source réellement évaluée `3f803d77393c6853ed76d796367df443a0eb9eb9`, B02/FS16/SPI3 8MHz/
+SD4MHz, même BIN53312B entièrement relu identique. UserRESET accidentel avantSTART,
+retourWAIT puisUSERlong ; vertfixe, pas de reset pendantcapture rapporté.
+
+SnapshotCRC50fbba78 conforme : **60,000254sMCU,158520XYZproduits, error0**,
+597checks/résidumax28µs≤100,0FIFO/SD/STOP/rails/clips/flags/queueoverflow/budgetmask,
+writerterminé sansincertitude/filevide. Digest producteurRAM sauvegardé avantcoupure.
+Reconnexion suivie de reboot/scanFATlectureseule ; snapshotrestévalide. Attente de fin
+puis refus attenduFR_EXIST(8) du nomdéjàprésent. FIFO/writeroff/SDwrites0/CShaute,
+GDBdétaché avanttransfert physique. Pas de nouvelordreSDagent ni nouveauSTART.
+
+**B020005.TR2 relu COMPLETE surPC :2033records/158520XYZ, tous CRC, séquences,
+session, durée, UID/source et profilFS16/488µgLSB conformes.** Digest globalXYZ égal
+au producteurRAM : `d8afd2a04abc4a987577d8806f90e45896ab8c8bf1b49d44bda051737e2b0d69`.
+Copieintégrale2097152B/source-destinationSHAidentiques :
+`d49dbd86954125c37563f0418e5af4744ec2851b5a4acf8c1af7766f35b680d4`.
+Parcoursindépendant desoctets reproduit les2033CRC/séquences/comptes/digest.
+**Neufanciennescaptures A1A..H/B01 inchangées.** Aucunformat/réparation/suppression,
+aucune002/FRAM/COM4. Les données brutes restent localementT1000, preuvescompactes
+GitHub ; recontrôleindépendant exhaustif nécessite la copiebrute identifiée.
+
+État : 001hors tension,512GoauPC, B02enFlash. Capture60s seule qualifiée, pasendurance8h,
+powerbank ou implantation enmachine. Le format conserveDC ; aucune modificationnormative.
+
+**Prochaine tranche10min PRÉPARÉE, NONFLASHÉE/NONDÉMARRÉE :** buildARMcibléPASS,
+source `d7bd4df001576d5fef9b0af034b1cb96c505859a`, mêmes sourcesfonctionnelles normales001,
+optionsdiagnostiquesOFF, durée600000000µs/préfixeT10, nouveau `T100005.TR2` absent,
+préallocation640MiB existante compatibleespace. Aucunancien testhôte relancé.
+Carte restantPC, il faut reconnecter001vide parCN15puisSTLINK pour charger l'image.
+
+[Preuves complètes, limites et artefactT10](preuves/TR2-20261101-001-AUTONOME/qualification-alimentation-20261102/storage-B02-CN15/B02_COMPLETE_PC_ET_SUITE_T10.md).
+HEAD initial de tranche `d7bd4df001576d5fef9b0af034b1cb96c505859a`, journal actualisé.
+
+---
+
+## Historique jusqu'au checkpointd7bd4df0
+
 
 # Reprise stockage — B02 chargé, attente de carte et de WAIT sous CN15
 

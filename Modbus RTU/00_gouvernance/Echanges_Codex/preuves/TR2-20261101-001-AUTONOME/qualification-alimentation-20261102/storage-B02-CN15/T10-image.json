@@ -1,0 +1,20 @@
+{
+  "source_sha": "d7bd4df001576d5fef9b0af034b1cb96c505859a",
+  "bytes": 53340,
+  "sha256": "8c4c12de78d54177bb99c564ce9acb8f803ff1576f0a50de55d8e598143b0948",
+  "prefix": "T10",
+  "file": "T100005.TR2",
+  "duration_us": 600000000,
+  "file_preallocation_bytes": 671088640,
+  "SPI3_Hz": 8000000,
+  "SPI2_Hz": 4000000,
+  "sensor_fs_g": 16,
+  "sensitivity_ug": 488,
+  "sensor_only": false,
+  "comparator002": false,
+  "USER_required": true,
+  "flashed": false,
+  "ARM_build": "PASS",
+  "build_changes": "compile-time duration/prefix only relative to current normal001 source; diagnostic options OFF",
+  "no_old_host_tests_repeated": true
+}
