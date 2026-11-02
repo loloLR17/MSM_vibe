@@ -1,0 +1,14 @@
+{
+  "long_START_already_submitted": true,
+  "initial_ACTIVE_and_SD_ACK_confirmed": true,
+  "UTC_confirmation": "2026-11-02T12:30:12.839818+00:00",
+  "long_file": "OBE0005.TR2",
+  "session": 8444550119014285,
+  "no_retrigger_on_resume": true,
+  "prestart_ARMED_json_is_historical": true,
+  "do_not_debug_during_active_capture": true,
+  "native_observer_PID": 15364,
+  "native_observer_output": "C:\\Users\\lolo\\AppData\\Local\\Temp\\TR2-R3-N8G-20261101-OBE-2h",
+  "capture_end_not_yet_observed": true,
+  "operator_event": "passage sur mode constante,12:33UTC reported by user"
+}

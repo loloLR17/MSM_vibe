@@ -45,6 +45,9 @@ aucunelecture/reset/flash/commande sur001 pour ce lancement002. Ne pasfusionnerl
 
 [Checkpoint et reprise](preuves/TR2-20261101-001-AUTONOME/TR2-002-2H-OBE-20261102/DEPART_2H_ET_REPRISE.md).
 HEAD initial `dd2f27ca3d886742b0ab37ab378cd524012a0370`, journal actualisé.
+Publication `70a068a83f972005202b2362dd0c74f708058da4` relue :45fichiers identiques/839empreintes conformes,
+worktreepropre ; voir publication.json et LAUNCH_CHECKPOINT.json. ARMED.json décrit
+l’étapehistorique avantSTART, ne pasrejouer le lancement ou le gate lorsde la reprise.
 Aucunformat/OB/FRAM/COM4/Windowssecurity/anciennecapture touché ; 2hNONterminées.
 
 ---
