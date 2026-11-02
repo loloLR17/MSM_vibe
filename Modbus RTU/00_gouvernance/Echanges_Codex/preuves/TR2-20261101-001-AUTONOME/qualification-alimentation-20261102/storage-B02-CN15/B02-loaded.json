@@ -1,0 +1,19 @@
+{
+  "source_sha": "3f803d77393c6853ed76d796367df443a0eb9eb9",
+  "bytes": 53312,
+  "sha256": "59a236ae0d8f3d8f6b492fc84914cbf33cc5eaa304aaf13eebdb4e222f41cffb",
+  "prefix": "B02",
+  "duration_us": 60000000,
+  "SPI3_Hz": 8000000,
+  "SPI2_Hz": 4000000,
+  "sensor_fs_g": 16,
+  "sensitivity_ug": 488,
+  "start": "USER only, one-shot",
+  "flashed": true,
+  "entire_BIN_readback_exact": true,
+  "target_SN": "003500463235510B37333439",
+  "UID": "004A003D/38425018/20333157",
+  "card512_on_PC_at_flash": true,
+  "no_storage_START_yet": true,
+  "qualified_build_reused_no_rebuild": true
+}

@@ -4,8 +4,8 @@ status: IN_PROGRESS
 base_ref: main
 base_sha: a8817bf293c6e60a93ad824d279ee870b6a0ecf7
 initial_head: 79b952dbb949cb8eb2f208e3b2c5994f4ed1279f
-result_sha: acb142794570ded5abd15f6521eb5d8b644590e8
-created_at_utc: 2026-11-02T10:08:49.397714+00:00
+result_sha: 3f803d77393c6853ed76d796367df443a0eb9eb9
+created_at_utc: 2026-11-02T10:12:04.051126+00:00
 author: Codex
 target_branch: main
 allow_commit: true
@@ -13,6 +13,40 @@ allow_push: true
 allow_flash: true
 allow_debug: true
 ---
+
+# Reprise stockage — B02 chargé, attente de carte et de WAIT sous CN15
+
+**IN_PROGRESS. D08 sans SD est acquis, stockage pas encore qualifié.**
+Le checkpoint D08 `c0a847438496f77659309bbab6d1f3b84d1d7784` est publié et relu : 18 fichiers
+identiques/709empreintes conformes ; preuve `CN15-D08/remote-verification.json`.
+Résultat physique D08/sourceacb14279 conservé ci-dessous, aucun nouvel essai sansSD.
+
+Image stockage B02 préexistante réutilisée sans modification/rebuild : source
+**3f803d77393c6853ed76d796367df443a0eb9eb9**, 53312B, SHA
+`59a236ae0d8f3d8f6b492fc84914cbf33cc5eaa304aaf13eebdb4e222f41cffb`.
+FS16/488µgLSB, SPI3 8MHz/SD4MHz,60s/USERunique, archiveprévue `B020005.TR2`.
+UID001 vérifié puis flashstandard et readbackentier strictementidentique.
+Aucun ancien test/build relancé ; imagepréparée à l'avance et validations conservées.
+
+La512Go est encore auPC lors du flash : disqueUSB511868665856B/D:FAT32,
+partition1048576+511867584512, anciensA1A..H/B010005 présents et B020005 absent.
+Aprèsflash sanscarte, refusinitialisationSD attendu99/error2/sd_error2/WHO7B,
+writerinactif/nonincertain/FIFOoff/CShaute/GDBdétaché, zéroécriture. AucunSTART,
+pas de formatage/réparation/suppression ni002/FRAM/COM4. Pas de fauxWAIT/READY.
+
+**Transition physique demandée, encore en attente de retour :** éjecter512GoD:,
+couperCN15+STLINK001/attendre10s, insérer512Go sur001, garderJP6USB/JP2retiré,
+alimenterCN15secteur5Vseul/STLINKoff. AttendreWAITvert, ne pas presserUSERavant signal.
+Le contrôlelibre peut durer plusieursminutes. Après60s seulement : maintienduCN15,
+diagnosticretenu puiscopie/relecturePCintégrale ;10min seulement si conforme.
+
+[Preuves B02 et transition](preuves/TR2-20261101-001-AUTONOME/qualification-alimentation-20261102/storage-B02-CN15/PREPARATION_ET_TRANSITION.md).
+Journal actualisé avec firmwareactuelB02/absenceSDattendue, garanties et prochaineaction.
+
+---
+
+## Acquis D08 sous le firmware diagnostic D01
+
 
 # D08 — minute autonome capteur/FIFO sous CN15 seul : PASS
 
