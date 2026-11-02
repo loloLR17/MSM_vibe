@@ -43,6 +43,8 @@ Aucune nouvelle mesure n'est encore acquise. Le prochain contrôle dépend de ce
 [Preuves D05](preuves/TR2-20261101-001-AUTONOME/qualification-alimentation-20261102/breadboard-B/D05_RESULTAT.md).
 HEAD initial de tranche `314ec12960635b814fe6bee3c5535fc59bc66d7c` ; documentation
 et preuves seulement, pas de modification firmware. Journal actualisé.
+Checkpoint `871ce9c01645d4f3685e01e03ef7c637d08a5205` publié sur main et relu : 18 fichiers identiques,
+610 empreintes de preuves conformes, worktree propre. Voir `breadboard-B/remote-verification.json`.
 
 ---
 
