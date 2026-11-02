@@ -1,0 +1,15 @@
+{
+  "remote_sha": "788b02428b054929ce3fc7fd78da82ce6b2a716d",
+  "changed_files_read_back_identically": 27,
+  "proof_hashes_verified": 394,
+  "retained_snapshot_CRC_valid": true,
+  "source_provenance_valid": true,
+  "derived_H_archive_prefix_verified_records": 8,
+  "all_filtered_produced_xyz_reconstructed_from_remote_proofs": 704,
+  "reconstructed_raw_sha256": "50be04e0308460ae21e86dd2cef3c6901a643963007097307da6f3ed4919b1e6",
+  "matches_retained_producer_digest": true,
+  "historical_checkpoint_report_preserved_exactly": true,
+  "unused_preallocation_tail": "Excluded intentionally; derived reconstruction is not the original full file",
+  "utc": "2026-11-02T06:42:27.106918+00:00",
+  "status": "Analysis complete; overall mission IN_PROGRESS, physical trials suspended at user request"
+}

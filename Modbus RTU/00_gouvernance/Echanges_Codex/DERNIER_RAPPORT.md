@@ -159,10 +159,15 @@ Worktree de mission : `/home/lolo/dev/msm/projects/MSM_vibe-TR2-001-autonome`,
 branche locale `codex/tr2-001-autonome`, push autorisé vers `refs/heads/main`.
 HEAD avant ce point : **7fa56863b62f1c4be9c7c5e4fddc6cbf45dda27e**, relu depuis
 GitHub ; les preuves G publiques permettent aussi de reconstruire les sorties
-récupérées et leur digest. Le présent point doit être commité/poussé puis relu
-intégralement ; le SHA contenant ce rapport sera fourni dans la réponse Codex.
-Le statut restera IN_PROGRESS : critères de campagne non satisfaits, essais
-suspendus à la demande de l'utilisateur pour discussion.
+récupérées et leur digest. Le rapport d'analyse a été publié au commit
+**788b02428b054929ce3fc7fd78da82ce6b2a716d**, puis les 27 fichiers modifiés ont été
+relus intégralement depuis la référence récupérée de GitHub : octets identiques,
+394 empreintes de preuves conformes, CRC/provenance du snapshot vérifiés. La
+reconstruction des 704 XYZ depuis les seules preuves distantes retrouve exactement
+le digest producteur. Voir `remote-h-analysis-verification.json`. Le présent suivi
+consigne cette vérification ; son SHA publié et son état Git seront donnés dans
+la réponse Codex. Le statut reste IN_PROGRESS : critères de campagne non satisfaits,
+essais suspendus à la demande de l'utilisateur pour discussion.
 
 Les anciens worktrees et le dépôt principal (HEAD82169af7) sont préservés.
 Deux stashes toujours présents : 6251b988e8b20f97997a8f98fd26d4d35a45a1b2 et
