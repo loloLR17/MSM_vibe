@@ -4,8 +4,8 @@ status: IN_PROGRESS
 base_ref: main
 base_sha: a8817bf293c6e60a93ad824d279ee870b6a0ecf7
 initial_head: 79b952dbb949cb8eb2f208e3b2c5994f4ed1279f
-result_sha: d7bd4df001576d5fef9b0af034b1cb96c505859a
-created_at_utc: 2026-11-02T11:16:56.560206+00:00
+result_sha: 365b0ccfe3d3c80e0d0b894e7e99cf3e0f7b4a69
+created_at_utc: 2026-11-02T12:09:23.712391+00:00
 author: Codex
 target_branch: main
 allow_commit: true
@@ -13,6 +13,34 @@ allow_push: true
 allow_flash: true
 allow_debug: true
 ---
+
+# Réarmement 2 h — C290005.TR2 chargé, départ manuel attendu
+
+**IN_PROGRESS.** Sur demande expliciteutilisateur, réarmement seul : aucun essai ni
+analyse supplémentaire, contrôledeprogrammation obligatoire conservé.
+Cible001 SN/UIDvérifiés, FIFO/writerinactifs et nonincertains avantflash.
+Durée7200000000µsMCU, nouveaupréfixealéatoireC29/fichier **C290005.TR2**,
+FS16/SPI3 8MHz/SD4MHz, gardes etCREATE_NEWinchangés. Pasdegarantiecollisionparaléa
+seul : l'absence du nomn'a pas étéinterrogée surSD, antiecrasementtoujoursactif.
+
+Source **365b0ccfe3d3c80e0d0b894e7e99cf3e0f7b4a69**, BIN53340B,
+SHA `3a1ec9ceb5f851250965c291f9101d6653dd4f3e9c2a0e4a7cd8767b02230fde`.
+Unflashstandard avec-v/-rst etcontrôleprogrammateur réussi. AucunSTARTagent,
+pasdelectured'étatpostflash ni calibrationcommandée/testd'acquisition.
+Les BIN/ELF/MAP sontpréservéslocalement. Aucun002/FRAM/COM4/formatage/OB/suppression.
+
+DépartparUSER2s aprèsinstallation/carteenplace/WAITvertclignotant ; secteur5Vstable
+CN15 confirméprécédemment. Toutgestecarte/jumperhorstension. Ne pasutiliserRESETpendant
+capture ; maintenirCN15aprèsfin ouerreur. L'étatWAIT/ledépart etles2h ne sontpasencore
+observés. Qualification10minreportée paruser ; B02minuteCN15+SD COMPLETEpréservée.
+
+[Preuves du réarmement](preuves/TR2-20261101-001-AUTONOME/qualification-alimentation-20261102/rearm-2H-C29/REARMEMENT.md).
+Journal actualisé, aucun travailpréexistant écrasé ; mission et autorisations inchangées.
+
+---
+
+## Historique avant le réarmement C29
+
 
 # T10 — refus confirmé de nom déjà présent, récupération du fichier requise
 

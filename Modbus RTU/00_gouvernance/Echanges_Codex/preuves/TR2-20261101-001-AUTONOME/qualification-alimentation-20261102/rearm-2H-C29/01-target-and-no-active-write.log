@@ -1,0 +1,10 @@
+sd_crc16 (b=0x1021 <error: Cannot access memory at address 0x1021>, n=512) at /home/lolo/dev/msm/projects/MSM_vibe-TR2-001-autonome/experiments/spi2_microsd_isolated/src/sd_spi.c:17
+17	  for(unsigned k=0;k<8;k++)crc=(uint16_t)((crc<<1)^((crc&0x8000u)?0x1021u:0));
+0xbfa0700:	0x004a003d	0x38425018	0x20333157
+$1 = 2
+$2 = 0
+$3 = false
+$4 = false
+$5 = false
+$6 = false
+[Inferior 1 (Remote target) detached]

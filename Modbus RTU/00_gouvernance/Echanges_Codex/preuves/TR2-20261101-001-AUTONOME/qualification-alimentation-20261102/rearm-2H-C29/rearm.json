@@ -1,0 +1,9 @@
+{
+  "prefix": "C29",
+  "file": "C290005.TR2",
+  "duration_us": 7200000000,
+  "source_sha": "365b0ccfe3d3c80e0d0b894e7e99cf3e0f7b4a69",
+  "BIN_bytes": 53340,
+  "BIN_SHA256": "3a1ec9ceb5f851250965c291f9101d6653dd4f3e9c2a0e4a7cd8767b02230fde",
+  "no_test_or_analysis": true
+}
