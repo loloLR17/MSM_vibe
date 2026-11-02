@@ -1,0 +1,6 @@
+{
+  "same_source_sha": "3f803d77393c6853ed76d796367df443a0eb9eb9",
+  "same_size": 53312,
+  "only_difference": "Exactly one fresh filename prefix literal B01/B02; every other BIN byte identical",
+  "normalization_verified": true
+}

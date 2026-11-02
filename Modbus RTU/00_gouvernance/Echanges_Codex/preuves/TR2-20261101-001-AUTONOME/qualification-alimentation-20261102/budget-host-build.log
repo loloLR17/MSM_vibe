@@ -1,0 +1,3 @@
+[ 50%] Building C object CMakeFiles/test_budget_diagnostic.dir/tests/test_budget_diagnostic.c.o
+[100%] Linking C executable test_budget_diagnostic
+[100%] Built target test_budget_diagnostic

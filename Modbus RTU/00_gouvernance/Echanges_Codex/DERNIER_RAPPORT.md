@@ -14,15 +14,37 @@ allow_flash: true
 allow_debug: true
 ---
 
-# TR2-001 autonome — analyse A1H terminée, essais arrêtés à la demande utilisateur
+# TR2-001 autonome — reprise de la qualification progressive des alimentations
 
-**La campagne autonome n'est pas prête.** À SPI3 4 MHz, A1H s'arrête après
-**279 495 µs MCU nominales** sur une garde de budget temporel. Les **704 XYZ filtrés
-produits sont tous récupérés**, avec digest identique au producteur. Aucun nouvel
-essai, développement de variante ou flash n'est engagé après la demande utilisateur :
-« Terminons l'analyse de cet échec, puis […] quelques idées à challenger ».
-La mission reste IN_PROGRESS ; ce rapport est un point de reprise, pas une clôture
-technique ni un BLOCKED extérieur inventé.
+**IN_PROGRESS : essais repris sur accord explicite utilisateur du 02/11/2026**
+(« OK nous sommes alignés, tu peux débuter quand tu veux »), après discussion du plan.
+La campagne autonome reste non qualifiée. L'analyse A1H et ses preuves restent
+acquises ci-dessous ; la suspension qu'elle décrit est historique, levée par cet accord.
+
+Plan : 2×60s sous ST-LINK seul, 1×60s CN15+ST-LINK avec GDB,
+1×60s CN15+ST-LINK sans attachement GDB durant le démarrage,
+1×60s CN15 seul, puis10min sur la configuration finale seulement si tout passe.
+Arrêt au premier échec ; pas d'acquisition longue8h. Accord et périmètre consignés
+sans modifier MISSION_EN_COURS.md dans
+`preuves/TR2-20261101-001-AUTONOME/qualification-alimentation-20261102/DECISION_ET_PLAN.md`.
+
+**Tranche préparée, non encore flashée** : source
+**3f803d77393c6853ed76d796367df443a0eb9eb9**, diagnostic exact du budget temporel
+(masque service=1/traitement=2/intervalle=4/SD=8, valeurs fautives et maxima conservés).
+Expression OR de refus et seuils d'origine inchangés ; copie supplémentaire en RAM
+après STOP. Test hôte ciblé frontières/violations combinées PASS, ARM ciblé PASS ;
+aucune suite inchangée rejouée. Base commune de fréquences : **capteur8MHz/SD4MHz**,
+comme l'essai A1C réussi ; FS16, filtre et garde horloge inchangés.
+
+B01 et B02 : 60s USER, fichiers neufs B010005.TR2/B020005.TR2,
+BIN53312B chacun, strictement identiques après remplacement du seul préfixe.
+B01 SHA **7d9f2b59c312407273dc08ba8daa1e4758339259996beb1321b73aede66888d0** ;
+B02 SHA **59a236ae0d8f3d8f6b492fc84914cbf33cc5eaa304aaf13eebdb4e222f41cffb**.
+Préflight natif SD512/FAT32/cluster32Kio et absence des deux noms vérifiés en lecture
+seule. Préparation physique demandée : SD auPC, lecteurTR2vide, CN15 débranché,
+JP6STLK1–2/JP2retiré, ST-LINK seul. Aucun nouveau résultat physique B01 à ce point.
+Les informations de suspension/état matériel A1H ci-dessous sont celles du point
+précédent, pas un état imposé après cette nouvelle intervention.
 
 ## 1. Résultat précis A1H
 
@@ -166,8 +188,7 @@ relus intégralement depuis la référence récupérée de GitHub : octets ident
 reconstruction des 704 XYZ depuis les seules preuves distantes retrouve exactement
 le digest producteur. Voir `remote-h-analysis-verification.json`. Le présent suivi
 consigne cette vérification ; son SHA publié et son état Git seront donnés dans
-la réponse Codex. Le statut reste IN_PROGRESS : critères de campagne non satisfaits,
-essais suspendus à la demande de l'utilisateur pour discussion.
+la réponse Codex. Le statut de ce point historique restait IN_PROGRESS, avec essais suspendus pour discussion ; la reprise autorisée est décrite en tête du présent rapport.
 
 Les anciens worktrees et le dépôt principal (HEAD82169af7) sont préservés.
 Deux stashes toujours présents : 6251b988e8b20f97997a8f98fd26d4d35a45a1b2 et

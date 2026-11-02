@@ -1,0 +1,26 @@
+{
+    "Utc":  "2026-11-02T06:56:51.7523452Z",
+    "Disk":  {
+                 "Number":  1,
+                 "Size":  511868665856,
+                 "PartitionStyle":  "MBR",
+                 "FriendlyName":  "Generic STORAGE DEVICE"
+             },
+    "Volume":  {
+                   "DriveLetter":  "D",
+                   "FileSystem":  "FAT32",
+                   "AllocationUnitSize":  32768,
+                   "SizeRemaining":  511726714880
+               },
+    "NewFiles":  [
+                     {
+                         "Name":  "B010005.TR2",
+                         "Exists":  false
+                     },
+                     {
+                         "Name":  "B020005.TR2",
+                         "Exists":  false
+                     }
+                 ],
+    "Operations":  "Read only; no whole-card copy or source-file changes"
+}

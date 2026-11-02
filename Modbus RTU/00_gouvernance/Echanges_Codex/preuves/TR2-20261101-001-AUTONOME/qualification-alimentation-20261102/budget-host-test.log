@@ -1,0 +1,25 @@
+Internal ctest changing into directory: /home/lolo/dev/msm/cache/tr2-001-host
+UpdateCTestConfiguration  from :/home/lolo/dev/msm/cache/tr2-001-host/DartConfiguration.tcl
+UpdateCTestConfiguration  from :/home/lolo/dev/msm/cache/tr2-001-host/DartConfiguration.tcl
+Test project /home/lolo/dev/msm/cache/tr2-001-host
+Constructing a list of tests
+Done constructing a list of tests
+Updating test list for fixtures
+Added 0 tests to meet fixture requirements
+Checking test dependency graph...
+Checking test dependency graph end
+test 3
+    Start 3: tr2_001_budget_diagnostic
+
+3: Test command: /home/lolo/dev/msm/cache/tr2-001-host/test_budget_diagnostic
+3: Working Directory: /home/lolo/dev/msm/cache/tr2-001-host
+3: Test timeout computed to be: 10000000
+3: PASS exact boundaries, one-cycle violations, combined violations and observed non-SD A1H case
+1/1 Test #3: tr2_001_budget_diagnostic ........   Passed    0.00 sec
+
+The following tests passed:
+	tr2_001_budget_diagnostic
+
+100% tests passed, 0 tests failed out of 1
+
+Total Test time (real) =   0.00 sec
