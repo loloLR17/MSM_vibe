@@ -1,0 +1,10 @@
+{
+  "observation_received_UTC": "2026-11-02T18:01:21.192588+00:00",
+  "user_statement": "ok LD2 est bleu clignotante maintenant, j’attends la fin de l’acquisition",
+  "physical_START": "USER reported earlier, exact timestamp not recorded",
+  "state": "CAPTURE_LED_REPORTED_BY_USER",
+  "CN15_only_STLINK_disconnected": "per agreed procedure, no agent reconnection",
+  "MCU_counters_read": false,
+  "duration_or_quality_qualified": false,
+  "note": "LEDs initially all off during preparation; source has no LED heartbeat inside durable_prepare. Later blue blink reported; preparation duration not measured."
+}

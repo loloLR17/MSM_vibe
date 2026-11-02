@@ -14,6 +14,12 @@ allow_flash: true
 allow_debug: true
 ---
 
+# CN0 — capture signalée par LED bleue, CN15 seul / ST-LINK débranché
+
+**Actualisation départ CN0 — observation utilisateur reçue 2026-11-02T18:01:21.192588+00:00 :** après USER et une phase LED toutes éteintes, LD2 bleue clignotante rapportée. Cela correspond à la capture selon le code ; pas de lecture compteur ni preuve de fin/qualité. CN15 seul/ST-LINK débranché selon procédure, aucune reconnexion/debug/reset/flash/commande pendant la capture. Heure exacte USER/début FIFO inconnue ; horodatage ci-dessus = réception du constat, pas départ mesuré. Conserver CN15 à la fin avant toute récupération RAM.
+
+## Préparation et résultats antérieurs conservés
+
 # CN0 chargé — comparaison deux heures sous CN15 seul, départ USER en attente
 
 ## CN0 — nouvel essai comparatif CN15 seul, chargé mais NON démarré

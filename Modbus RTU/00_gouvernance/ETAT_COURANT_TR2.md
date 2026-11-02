@@ -1,5 +1,8 @@
 # État courant MSM TR2 — synthèse opérationnelle
 
+**Actualisation départ CN0 — observation utilisateur reçue 2026-11-02T18:01:21.192588+00:00 :** après USER et une phase LED toutes éteintes, LD2 bleue clignotante rapportée. Cela correspond à la capture selon le code ; pas de lecture compteur ni preuve de fin/qualité. CN15 seul/ST-LINK débranché selon procédure, aucune reconnexion/debug/reset/flash/commande pendant la capture. Heure exacte USER/début FIFO inconnue ; horodatage ci-dessus = réception du constat, pas départ mesuré. Conserver CN15 à la fin avant toute récupération RAM.
+
+
 **02/11/2026 — CN0 chargé, NON démarré :** userdemande2hCN15seulsansSTLINK. CN00005.TR2 librePC/SD512identifiée/509038264320Bdisponibles. ARMsource6633b015/BIN53340B SHAd3186380…cd396, comparaisoncomplèteGI0≡CN0 saufpréfixeetSHAembarqué ; mêmesFS16/7200000000µs/FIR/SPI/qualité. UID001vérifié/flashstandard-vPASS, bootsansSD99error2/WHO7B/SDwrites0/FIFOwriteroff/CShaute/GDBdétaché. Aucuntest/START ; userinvitéàéjecter512puiscoupure10s/réinsertion/CN15seul/STLINKdébranché/WAITvert sansbouton.002FRAMCOM4/protectionsinchangés, GI0etarchivesconservés.
 
 
