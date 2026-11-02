@@ -414,10 +414,17 @@ int main(void)
  r3_result.who_ok=1;
  if(iis3dwb_xl_full_scale_set(&ctx,IIS3DWB_16g)||iis3dwb_read_reg(&ctx,IIS3DWB_CTRL1_XL,&ctrl,1)||(ctrl&12u)!=4u)Error_Handler();
  standalone_fs_readback=ctrl;
+#if R3_TR2_001_SENSOR_ONLY
+ /* Diagnostic isolation: same sensor/FIFO/calibration/timing path, with the
+  * SD driver left uninitialized and its write gate closed. No file is made. */
+ r=calibrate();
+ if(!r&&(r3_card.commands||r3_card.reads||r3_card.writes||r3_card.initialized||r3_card.write_enabled))r=-96;
+#else
  r=r3_sd_init(&r3_card);r3_result.sd_sectors=r3_card.sectors;
  if(!r)r=durable_mount(&r3_card);
  if(!r)r=calibrate();
  if(!r)r=durable_preflight(5,LONG_FILE_BYTES);
+#endif
  if(r){
   if(fifo.running)(void)fifo_live_stop(&fifo);
   r3_sd_deselect();r3_result.stopped=fifo.stopped;r3_result.fifo_error=fifo.error;r3_result.stop_error=fifo.stop_error;r3_result.sd_error=r3_card.error;
@@ -432,7 +439,12 @@ int main(void)
  }
  if(r3_clock_fault)Error_Handler();
  r3_retained.guard.magic=0;__atomic_thread_fence(__ATOMIC_SEQ_CST);r3_retained_available=0;
- standalone_state=3;r3_result.stage=3;r=session(5,LONG_DURATION_US);
+ standalone_state=3;r3_result.stage=3;
+#if R3_TR2_001_SENSOR_ONLY
+ r=session(2,LONG_DURATION_US); /* Existing non-writer path; USER remains mandatory. */
+#else
+ r=session(5,LONG_DURATION_US);
+#endif
  if(fifo.running){if(!r)reset_trace();if(fifo_live_stop(&fifo)&&!r)r=-93;}
  if(r3_writer.active)while(r3_writer.active){if(writer_step(false))break;}
  /* Preserve volatile diagnostics even when protocol uncertainty forbids all
@@ -445,6 +457,11 @@ int main(void)
   if(r)r3_result.error=(uint32_t)(r<0?-r:r);
   stack_scan();r3_result.stage=r3_result.error?99:4;standalone_state=r3_result.stage;
  }
+#if R3_TR2_001_SENSOR_ONLY
+ if(r3_card.commands||r3_card.reads||r3_card.writes||r3_card.initialized||r3_card.write_enabled){
+  r3_result.error=96;r3_result.stage=98;standalone_state=98;
+ }
+#endif
  retain_capture();
  r3_finished();
  /* Terminal latch: no repeated press or RAM command can restart. Reboot goes
