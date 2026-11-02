@@ -1,0 +1,9 @@
+{
+  "source_sha": "3f803d77393c6853ed76d796367df443a0eb9eb9",
+  "bytes": 53312,
+  "sha256": "7d9f2b59c312407273dc08ba8daa1e4758339259996beb1321b73aede66888d0",
+  "exact_readback": true,
+  "SD_present": false,
+  "long_start": false,
+  "source_power_reported": "ST-LINK only, JP6STLK, JP2removed, CN15off"
+}

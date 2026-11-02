@@ -4,7 +4,7 @@ status: IN_PROGRESS
 base_ref: main
 base_sha: a8817bf293c6e60a93ad824d279ee870b6a0ecf7
 initial_head: 79b952dbb949cb8eb2f208e3b2c5994f4ed1279f
-result_sha: 65703ced5354d37724b2005bc0eba0fdad58d7dc
+result_sha: 3f803d77393c6853ed76d796367df443a0eb9eb9
 created_at_utc: 2026-11-02T06:40:32.196709+00:00
 author: Codex
 target_branch: main
@@ -28,7 +28,15 @@ Arrêt au premier échec ; pas d'acquisition longue8h. Accord et périmètre con
 sans modifier MISSION_EN_COURS.md dans
 `preuves/TR2-20261101-001-AUTONOME/qualification-alimentation-20261102/DECISION_ET_PLAN.md`.
 
-**Tranche préparée, non encore flashée** : source
+**B01 chargé, acquisition non encore lancée.** Utilisateur confirme CN15 débranché,
+JP6STLK [1–2], JP2 retiré, ST-LINK seul et lecteur TR2 vide. Identité/état sûr vérifiés
+au relevé60 ; onzième flash standard61 de mission, vérification-v/-rst puis readback62
+entier strictement identique : 53312octets/7d9f2b59…88d0. WHO7B/FS04, registre SPI3
+CFG1=00070007/diviseur2 ; SDabsente/refus2 attendu, aucune écriture. Snapshot67488B,
+available0. GDB détaché. Remise carte hors tension sous ST-LINK seul demandée, attente
+WAIT sans USER avant armement de l'observateur terminal. Aucun résultat60s B01 acquis.
+
+**Préparation logicielle de B01/B02** : source
 **3f803d77393c6853ed76d796367df443a0eb9eb9**, diagnostic exact du budget temporel
 (masque service=1/traitement=2/intervalle=4/SD=8, valeurs fautives et maxima conservés).
 Expression OR de refus et seuils d'origine inchangés ; copie supplémentaire en RAM
@@ -42,7 +50,7 @@ B01 SHA **7d9f2b59c312407273dc08ba8daa1e4758339259996beb1321b73aede66888d0** ;
 B02 SHA **59a236ae0d8f3d8f6b492fc84914cbf33cc5eaa304aaf13eebdb4e222f41cffb**.
 Préflight natif SD512/FAT32/cluster32Kio et absence des deux noms vérifiés en lecture
 seule. Préparation physique demandée : SD auPC, lecteurTR2vide, CN15 débranché,
-JP6STLK1–2/JP2retiré, ST-LINK seul. Aucun nouveau résultat physique B01 à ce point.
+JP6STLK1–2/JP2retiré, ST-LINK seul. Aucun résultat de capture B01 à ce point.
 Les informations de suspension/état matériel A1H ci-dessous sont celles du point
 précédent, pas un état imposé après cette nouvelle intervention.
 

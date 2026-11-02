@@ -1,0 +1,15 @@
+{
+  "source_sha": "3f803d77393c6853ed76d796367df443a0eb9eb9",
+  "bytes": 53312,
+  "sha256": "7d9f2b59c312407273dc08ba8daa1e4758339259996beb1321b73aede66888d0",
+  "prefix": "B01",
+  "duration_us": 60000000,
+  "SPI3_Hz": 8000000,
+  "SPI2_Hz": 4000000,
+  "sensor_fs_g": 16,
+  "sensitivity_ug": 488,
+  "start": "USER only, one-shot",
+  "flashed": true,
+  "flash_evidence": "61-b01-baseline-standard-flash.log",
+  "readback_evidence": "62-b01-baseline-flash-readback.log"
+}
