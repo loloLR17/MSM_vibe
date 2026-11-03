@@ -9,8 +9,8 @@
       "--severity-all",
       "--exit-code-violations",
       "-o",
-      "/home/lolo/dev/msm/projects/MSM_vibe-SHIELD-V12-PRECOMMANDE/Modbus RTU/04_Architecture/SHIELD_PROTO_V1/docs/checks/ERC.json",
-      "/home/lolo/dev/msm/projects/MSM_vibe-SHIELD-V12-PRECOMMANDE/Modbus RTU/04_Architecture/SHIELD_PROTO_V1/cad/TR2_Shield_Proto_V1.kicad_sch"
+      "/home/lolo/dev/msm/projects/MSM_vibe-SHIELD-V13-J5-BOM/Modbus RTU/04_Architecture/SHIELD_PROTO_V1/docs/checks/ERC.json",
+      "/home/lolo/dev/msm/projects/MSM_vibe-SHIELD-V13-J5-BOM/Modbus RTU/04_Architecture/SHIELD_PROTO_V1/cad/TR2_Shield_Proto_V1.kicad_sch"
     ],
     "returncode": 0
   },
@@ -26,8 +26,8 @@
       "--severity-all",
       "--exit-code-violations",
       "-o",
-      "/home/lolo/dev/msm/projects/MSM_vibe-SHIELD-V12-PRECOMMANDE/Modbus RTU/04_Architecture/SHIELD_PROTO_V1/docs/checks/DRC.json",
-      "/home/lolo/dev/msm/projects/MSM_vibe-SHIELD-V12-PRECOMMANDE/Modbus RTU/04_Architecture/SHIELD_PROTO_V1/cad/TR2_Shield_Proto_V1.kicad_pcb"
+      "/home/lolo/dev/msm/projects/MSM_vibe-SHIELD-V13-J5-BOM/Modbus RTU/04_Architecture/SHIELD_PROTO_V1/docs/checks/DRC.json",
+      "/home/lolo/dev/msm/projects/MSM_vibe-SHIELD-V13-J5-BOM/Modbus RTU/04_Architecture/SHIELD_PROTO_V1/cad/TR2_Shield_Proto_V1.kicad_pcb"
     ],
     "returncode": 0
   },
@@ -38,8 +38,8 @@
       "export",
       "pdf",
       "-o",
-      "/home/lolo/dev/msm/projects/MSM_vibe-SHIELD-V12-PRECOMMANDE/Modbus RTU/04_Architecture/SHIELD_PROTO_V1/exports/schema.pdf",
-      "/home/lolo/dev/msm/projects/MSM_vibe-SHIELD-V12-PRECOMMANDE/Modbus RTU/04_Architecture/SHIELD_PROTO_V1/cad/TR2_Shield_Proto_V1.kicad_sch"
+      "/home/lolo/dev/msm/projects/MSM_vibe-SHIELD-V13-J5-BOM/Modbus RTU/04_Architecture/SHIELD_PROTO_V1/exports/schema.pdf",
+      "/home/lolo/dev/msm/projects/MSM_vibe-SHIELD-V13-J5-BOM/Modbus RTU/04_Architecture/SHIELD_PROTO_V1/cad/TR2_Shield_Proto_V1.kicad_sch"
     ],
     "returncode": 0
   },
@@ -52,8 +52,8 @@
       "--format",
       "kicadxml",
       "-o",
-      "/home/lolo/dev/msm/projects/MSM_vibe-SHIELD-V12-PRECOMMANDE/Modbus RTU/04_Architecture/SHIELD_PROTO_V1/exports/netlist.xml",
-      "/home/lolo/dev/msm/projects/MSM_vibe-SHIELD-V12-PRECOMMANDE/Modbus RTU/04_Architecture/SHIELD_PROTO_V1/cad/TR2_Shield_Proto_V1.kicad_sch"
+      "/home/lolo/dev/msm/projects/MSM_vibe-SHIELD-V13-J5-BOM/Modbus RTU/04_Architecture/SHIELD_PROTO_V1/exports/netlist.xml",
+      "/home/lolo/dev/msm/projects/MSM_vibe-SHIELD-V13-J5-BOM/Modbus RTU/04_Architecture/SHIELD_PROTO_V1/cad/TR2_Shield_Proto_V1.kicad_sch"
     ],
     "returncode": 0
   },
@@ -67,8 +67,8 @@
       "F.Cu,B.Cu,F.Mask,B.Mask,F.Silkscreen,B.Silkscreen,Edge.Cuts",
       "--check-zones",
       "-o",
-      "/home/lolo/dev/msm/projects/MSM_vibe-SHIELD-V12-PRECOMMANDE/Modbus RTU/04_Architecture/SHIELD_PROTO_V1/exports/BLOCKED_FABRICATION",
-      "/home/lolo/dev/msm/projects/MSM_vibe-SHIELD-V12-PRECOMMANDE/Modbus RTU/04_Architecture/SHIELD_PROTO_V1/cad/TR2_Shield_Proto_V1.kicad_pcb"
+      "/home/lolo/dev/msm/projects/MSM_vibe-SHIELD-V13-J5-BOM/Modbus RTU/04_Architecture/SHIELD_PROTO_V1/exports/BLOCKED_FABRICATION",
+      "/home/lolo/dev/msm/projects/MSM_vibe-SHIELD-V13-J5-BOM/Modbus RTU/04_Architecture/SHIELD_PROTO_V1/cad/TR2_Shield_Proto_V1.kicad_pcb"
     ],
     "returncode": 0
   },
@@ -84,8 +84,8 @@
       "--generate-map",
       "--generate-report",
       "-o",
-      "/home/lolo/dev/msm/projects/MSM_vibe-SHIELD-V12-PRECOMMANDE/Modbus RTU/04_Architecture/SHIELD_PROTO_V1/exports/BLOCKED_FABRICATION",
-      "/home/lolo/dev/msm/projects/MSM_vibe-SHIELD-V12-PRECOMMANDE/Modbus RTU/04_Architecture/SHIELD_PROTO_V1/cad/TR2_Shield_Proto_V1.kicad_pcb"
+      "/home/lolo/dev/msm/projects/MSM_vibe-SHIELD-V13-J5-BOM/Modbus RTU/04_Architecture/SHIELD_PROTO_V1/exports/BLOCKED_FABRICATION",
+      "/home/lolo/dev/msm/projects/MSM_vibe-SHIELD-V13-J5-BOM/Modbus RTU/04_Architecture/SHIELD_PROTO_V1/cad/TR2_Shield_Proto_V1.kicad_pcb"
     ],
     "returncode": 0
   },
@@ -100,8 +100,8 @@
       "--sketch-pads-on-fab-layers",
       "--mode-single",
       "-o",
-      "/home/lolo/dev/msm/projects/MSM_vibe-SHIELD-V12-PRECOMMANDE/Modbus RTU/04_Architecture/SHIELD_PROTO_V1/exports/implantation-dessus.pdf",
-      "/home/lolo/dev/msm/projects/MSM_vibe-SHIELD-V12-PRECOMMANDE/Modbus RTU/04_Architecture/SHIELD_PROTO_V1/cad/TR2_Shield_Proto_V1.kicad_pcb"
+      "/home/lolo/dev/msm/projects/MSM_vibe-SHIELD-V13-J5-BOM/Modbus RTU/04_Architecture/SHIELD_PROTO_V1/exports/implantation-dessus.pdf",
+      "/home/lolo/dev/msm/projects/MSM_vibe-SHIELD-V13-J5-BOM/Modbus RTU/04_Architecture/SHIELD_PROTO_V1/cad/TR2_Shield_Proto_V1.kicad_pcb"
     ],
     "returncode": 0
   },
@@ -116,8 +116,8 @@
       "--mirror",
       "--mode-single",
       "-o",
-      "/home/lolo/dev/msm/projects/MSM_vibe-SHIELD-V12-PRECOMMANDE/Modbus RTU/04_Architecture/SHIELD_PROTO_V1/exports/cuivre-dessous-miroir.pdf",
-      "/home/lolo/dev/msm/projects/MSM_vibe-SHIELD-V12-PRECOMMANDE/Modbus RTU/04_Architecture/SHIELD_PROTO_V1/cad/TR2_Shield_Proto_V1.kicad_pcb"
+      "/home/lolo/dev/msm/projects/MSM_vibe-SHIELD-V13-J5-BOM/Modbus RTU/04_Architecture/SHIELD_PROTO_V1/exports/cuivre-dessous-miroir.pdf",
+      "/home/lolo/dev/msm/projects/MSM_vibe-SHIELD-V13-J5-BOM/Modbus RTU/04_Architecture/SHIELD_PROTO_V1/cad/TR2_Shield_Proto_V1.kicad_pcb"
     ],
     "returncode": 0
   },
@@ -130,8 +130,8 @@
       "--force",
       "--board-only",
       "-o",
-      "/home/lolo/dev/msm/projects/MSM_vibe-SHIELD-V12-PRECOMMANDE/Modbus RTU/04_Architecture/SHIELD_PROTO_V1/exports/shield-nu.step",
-      "/home/lolo/dev/msm/projects/MSM_vibe-SHIELD-V12-PRECOMMANDE/Modbus RTU/04_Architecture/SHIELD_PROTO_V1/cad/TR2_Shield_Proto_V1.kicad_pcb"
+      "/home/lolo/dev/msm/projects/MSM_vibe-SHIELD-V13-J5-BOM/Modbus RTU/04_Architecture/SHIELD_PROTO_V1/exports/shield-nu.step",
+      "/home/lolo/dev/msm/projects/MSM_vibe-SHIELD-V13-J5-BOM/Modbus RTU/04_Architecture/SHIELD_PROTO_V1/cad/TR2_Shield_Proto_V1.kicad_pcb"
     ],
     "returncode": 0
   },
@@ -149,8 +149,25 @@
       "--rotate",
       "-30,0,25",
       "-o",
-      "/home/lolo/dev/msm/projects/MSM_vibe-SHIELD-V12-PRECOMMANDE/Modbus RTU/04_Architecture/SHIELD_PROTO_V1/exports/shield-nu.png",
-      "/home/lolo/dev/msm/projects/MSM_vibe-SHIELD-V12-PRECOMMANDE/Modbus RTU/04_Architecture/SHIELD_PROTO_V1/cad/TR2_Shield_Proto_V1.kicad_pcb"
+      "/home/lolo/dev/msm/projects/MSM_vibe-SHIELD-V13-J5-BOM/Modbus RTU/04_Architecture/SHIELD_PROTO_V1/exports/shield-nu.png",
+      "/home/lolo/dev/msm/projects/MSM_vibe-SHIELD-V13-J5-BOM/Modbus RTU/04_Architecture/SHIELD_PROTO_V1/cad/TR2_Shield_Proto_V1.kicad_pcb"
+    ],
+    "returncode": 0
+  },
+  {
+    "name": "bottom-assembly-pdf",
+    "args": [
+      "pcb",
+      "export",
+      "pdf",
+      "--layers",
+      "B.Fab,B.CrtYd,B.Silkscreen,Edge.Cuts",
+      "--sketch-pads-on-fab-layers",
+      "--mirror",
+      "--mode-single",
+      "-o",
+      "\\\\wsl.localhost\\Debian\\home\\lolo\\dev\\msm\\projects\\MSM_vibe-SHIELD-V13-J5-BOM\\Modbus RTU\\04_Architecture\\SHIELD_PROTO_V1\\exports\\implantation-dessous.pdf",
+      "\\\\wsl.localhost\\Debian\\home\\lolo\\dev\\msm\\projects\\MSM_vibe-SHIELD-V13-J5-BOM\\Modbus RTU\\04_Architecture\\SHIELD_PROTO_V1\\cad\\TR2_Shield_Proto_V1.kicad_pcb"
     ],
     "returncode": 0
   }

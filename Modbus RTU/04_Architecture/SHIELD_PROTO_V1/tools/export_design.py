@@ -18,6 +18,7 @@ run('netlist',['sch','export','netlist','--format','kicadxml','-o',E/'netlist.xm
 run('gerbers',['pcb','export','gerbers','--layers','F.Cu,B.Cu,F.Mask,B.Mask,F.Silkscreen,B.Silkscreen,Edge.Cuts','--check-zones','-o',M,B])
 run('drill',['pcb','export','drill','--format','excellon','--excellon-separate-th','--generate-map','--generate-report','-o',M,B])
 run('assembly-pdf',['pcb','export','pdf','--layers','F.Fab,F.Silkscreen,Edge.Cuts','--sketch-pads-on-fab-layers','--mode-single','-o',E/'implantation-dessus.pdf',B])
+run('bottom-assembly-pdf',['pcb','export','pdf','--layers','B.Fab,B.CrtYd,B.Silkscreen,Edge.Cuts','--sketch-pads-on-fab-layers','--mirror','--mode-single','-o',E/'implantation-dessous.pdf',B])
 run('bottom-pdf',['pcb','export','pdf','--layers','B.Cu,B.Silkscreen,Edge.Cuts','--mirror','--mode-single','-o',E/'cuivre-dessous-miroir.pdf',B])
 run('step-board-only',['pcb','export','step','--force','--board-only','-o',E/'shield-nu.step',B],mandatory=False)
 run('3d-board-only',['pcb','render','--width','1400','--height','1100','--background','opaque','--rotate','-30,0,25','-o',E/'shield-nu.png',B],mandatory=False)

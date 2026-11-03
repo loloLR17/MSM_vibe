@@ -1,8 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="210mm" height="185mm" viewBox="-15 -25 210 185">
 <rect x="-15" y="-25" width="210" height="185" fill="white"/>
 <g font-family="sans-serif" font-size="2.4" stroke-width="0.25">
-<text x="-10" y="-19" fill="#111" font-size="3.2">TR2 SHIELD V1.2 - INTERFACES / ECHELLE 1:1</text>
-<text x="-10" y="-14" fill="#b00020" font-size="2.4">NE PAS FABRIQUER : C05 / J5 femelle Morpho et hauteurs a confirmer</text>
+<text x="-10" y="-19" fill="#111" font-size="3.2">TR2 SHIELD V1.3 - INTERFACES / ECHELLE 1:1</text>
+<text x="-10" y="-14" fill="#b00020" font-size="2.4">NE PAS FABRIQUER : C05 / J5 femelle sous shield : hauteur male existant a confirmer</text>
 <rect x="21.75" y="-6.75" width="70" height="133.34" fill="#fafafa" stroke="#888" stroke-dasharray="1.5,1"/>
 <text x="94" y="2" fill="#111" font-size="2.4">Nucleo : enveloppe UM2861</text>
 <text x="94" y="6" fill="#b06000" font-size="2.4">Reconstruction, pas CAO C05</text>
@@ -237,6 +237,7 @@
 <text x="82" y="136" fill="#111" font-size="2.4">CN15 : bloc externe secteur / USB5V + reprise</text>
 <path d="M55,137 L78,137" stroke="#777" fill="none"/>
 <text x="23" y="142" fill="#111" font-size="2.1">Deux bornes USB sont des ancrages de boitier proposes, pas des percages PCB</text>
+<text x="80" y="121" fill="#111" font-size="2.1">J5 FEMELLE DESSOUS / males Nucleo existants</text>
 <text x="42" y="15" fill="#111" font-size="1.8">J8 M2.5</text>
 <text x="74" y="54.5" fill="#111" font-size="1.8">J8 M3</text>
 <text x="94" y="75" fill="#111" font-size="1.8">J9 M2.5</text>

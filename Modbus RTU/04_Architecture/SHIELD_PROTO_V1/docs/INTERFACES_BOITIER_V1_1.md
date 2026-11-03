@@ -1,4 +1,4 @@
-> Historique V1.1 : pour la précommande courante, PRECOMMANDE_V1_2.md et ASSEMBLAGE_ET_RESERVES.md prévalent ; détrompage automatique et boîtier fini ne sont plus des gates PCB nus.
+> Historique V1.1 : pour la précommande courante, PRECOMMANDE_V1_3.md et ASSEMBLAGE_ET_RESERVES.md prévalent ; détrompage automatique et boîtier fini ne sont plus des gates PCB nus.
 
 # V1.1 — interfaces du futur boîtier, sans boîtier complet
 

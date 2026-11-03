@@ -1,21 +1,16 @@
-repere,description,quantite_pour_deux,MPN,source,prix_unitaire_observe_ou_lot,devise,reserve
-J1,2x10 male bas pas2.54 pin6.1mm,2,M20-9981045,https://www.harwin.com/products/M20-9981045,,USD,dessin constructeur; prix/stock exact avant achat; provision groupe12USD avecJ4/J5/TP
-J2,2x8 male bas pas2.54 pin6.1mm,2,M20-9980845,https://www.harwin.com/products/M20-9980845,,USD,dessin constructeur; prix/stock exact avant achat; provision groupe12USD avecJ4/J5/TP
-J3,2x15 male bas pas2.54 pin6.1mm,2,M20-9981545,https://www.harwin.com/products/M20-9981545,,USD,dessin constructeur; prix/stock exact avant achat; provision groupe12USD avecJ4/J5/TP
-J4,2x20 recoupé à2x17 par outil/procedure Harwin,2,M20-9982045,https://www.harwin.com/products/M20-9982045,,USD,M20-9981745 non retenu: variante non active dans dessin
-J5,male2 bas shield,2,M20-9990245,https://www.harwin.com/products/M20-9990245,,USD,aucun connecteur Morpho femelle suppose deja present
-J5-MATE-OFFBOARD,femelle2 A AJOUTER sur chaque Nucleo CN12-69/70,2,M20-7820242,https://www.digikey.com/en/products/detail/harwin-inc/M20-7820242/3727744,0.82,USD,1911 affichés; hors PCB shield/hors netlist; corps8.5±.15; inspectionC05 requise
-J6/J7,socket9 dessus H8.5,4,M20-7820942,https://www.digikey.com/en/products/detail/harwin-inc/M20-7820942/3919444,1.87,USD,1463 affichés; dessinM20-782; brochesmodules existantes à verifier
-J8,deux sockets12 dessus par shield H8.5,4,M20-7821242,https://www.digikey.com/en/products/detail/harwin-inc/M20-7821242/3727819,1.93,USD,2275 affichés au03/11; pas2.54; corps30.88x2.50; non recoupable; remplaceNeltron horsstock
-J9,deux sockets8 dessus par shield H8.5,4,M20-7820842,https://www.harwin.com/products/M20-7820842,1.76,USD,prix affiché associéDigiKey; stock exact8 non capturé; aucune substitution aveugle
-R1..R4,10k1% axial corps3.6x1.6; formerP7.62,8,MRS16000C1002FCT00,https://www.vishay.com/docs/28724/mrs16m25.pdf,0.21,USD,0.4W; source fabricant et Mouser13258 affiches; prix1pce conservateur; 0.5mm leads
-C1,100nF50VX7R radialP2.54,2,C315C104K5R5TA,https://search.kemet.com/component-documentation/download/specsheet/C315C104K5R5TA,,USD,corps max3.81x2.54 H3.14; lead0.51; pasPCBcorrige2.54; prixprovision passifs
-C2,10uF50V radialP2.00 diam5 H11,2,ECA1HM100,https://industrial.panasonic.com/ww/products/pt/aluminum-cap-lead/models/ECA1HM100,,USD,prendre reference SANS B: B=pas5mm incompatible; empreintecorrigeeP2.00; reserveDiammax5.5; prix/stockavantachat
-TP1..4,points test avec pinmale ou boucles,8,reemploi/barre male0.64,,,USD,inclus provision12USD headers; aucun fil Dupont de liaison
-MEC-N,"entretoise isolante M2.5, hauteur fonctionnelle selon emboitement C05",6,DIMENSIONAL_SPEC_NOT_FINAL,,,EUR,"candidat11mm+calageisole, ne jamais serrer pour flechir; tete+rondelleØ<=4.5; reference achat apreshauteur"
-MEC-M,entretoises isolantes modules FRAM/SD,8,DIMENSIONAL_SPEC_NOT_FINAL,,,EUR,Hfonctionnelle selon sockets+malesmodules; perçages2.7; provision8EUR avecMEC-N/viscourtes
-RET,etriers simples vissés J8/J9,4,mechanical/retainers.scad,,,EUR,"ancragesM2.5/M3 maintenus; matériau/contactàqualifier aprèsPCB; provision5EUR2jeux, pasdimpression"
-VIS,vis ecrous rondelles isolants etriers et selles,1,M2.5/M3 nylon; longueur selon assemblage,,,EUR,provision5EUR; reference exacte apreshauteurs; éviter pontisolantClick
-PCB,lot5 PCB nus90x100 2L1.6mm35um,5,FR4_STANDARD_CANDIDATE,https://jlcpcb.com/help/article/how-do-i-place-an-order,2,USD,2USD POUR LOT5 et nonparPCB; prixappel nondevis; DFMtoltrou1.02±.05 à confirmer; NE PASCOMMANDER
-REEMPLOI,Nucleo et quatre modules existants+nappe+bloc5V CN15,2,EXISTING,,0,EUR,"aucun achatnouveau, capteur/firmware/mediasintacts"
-MEC-VIS-N,vis nylon M2.5x6 teteØ4.5 longueur selon entretoise,12,SFE-M2-5-6-N,https://www.accu.co.uk/slotted-cheese-head-screws/427420-SFE-M2-5-6-N,,EUR,reference candidate; comprise provision8EUR; ne pas ajouter rondelleØ5
+repere,description,quantite_pour_deux,MPN,source,reserve
+J1..J4,connecteur standard; besoin et lot réel dans CONNECTEURS_ACHATS_V1_3.csv,3,DS1021-2*40SF11,https://www.tme.eu/en/details/zl202-80g/pin-headers/connfly/ds1021-2-40sf11/,stock/prix affichés non réservés; dimensions selon sources-v1-3; aucun achat
+J5,connecteur standard; besoin et lot réel dans CONNECTEURS_ACHATS_V1_3.csv,2,DS1023-1*2S21,https://www.tme.eu/en/details/zl262-2sg/pin-headers/connfly/ds1023-1-2s21/,stock/prix affichés non réservés; dimensions selon sources-v1-3; aucun achat
+J8,connecteur standard; besoin et lot réel dans CONNECTEURS_ACHATS_V1_3.csv,4,DS1023-1*12S21,https://www.tme.eu/en/details/zl262-12sg/pin-headers/connfly/ds1023-1-12s21/,stock/prix affichés non réservés; dimensions selon sources-v1-3; aucun achat
+J9,connecteur standard; besoin et lot réel dans CONNECTEURS_ACHATS_V1_3.csv,4,DS1023-1*8S21,https://www.tme.eu/en/details/zl262-8sg/pin-headers/connfly/ds1023-1-8s21/,stock/prix affichés non réservés; dimensions selon sources-v1-3; aucun achat
+J6/J7,connecteur standard; besoin et lot réel dans CONNECTEURS_ACHATS_V1_3.csv,4,2212S-09G-85,https://www.taydaelectronics.com/9-pin-2-54-mm-single-row-female-pin-header.html,stock/prix affichés non réservés; dimensions selon sources-v1-3; aucun achat
+R1..4,10k1% axial P7.62,8,MRS16000C1002FCT00,https://www.vishay.com/docs/28724/mrs16m25.pdf,conservéV1.2; pas et corps compatibles
+C1,100n50VX7R P2.54,2,C315C104K5R5TA,https://search.kemet.com/component-documentation/download/specsheet/C315C104K5R5TA,inchangé
+C2,10u50V diam5 P2.00,2,ECA1HM100,https://industrial.panasonic.com/ww/products/pt/aluminum-cap-lead/models/ECA1HM100,sansB; inchangé
+PCB,PCB nu90x100 2L1.6mm35um,5,LOT5_FR4,https://jlcpcb.com/help/article/how-do-i-place-an-order,2USD parlot5 prixappel seulement; NE PASCOMMANDER
+MEC-N,entretoises isolantesM2.5 OD<=4.0; hauteur selon emboitement réel,6,DIMENSIONAL_SPEC_NOT_FINAL,,no forced tightening; candidat11.0mm à contrôler; fournitureréelleaprèsmesures
+MEC-M,entretoises isolantes FRAM/SD; deux par module,8,DIMENSIONAL_SPEC_NOT_FINAL,,hauteur selonpinmodules; fixationpositiveconservée
+MEC-VIS,vis nylonM2.5 tête/rondelle<=4.5,12,SFE-M2-5-6-N candidate,https://www.accu.co.uk/slotted-cheese-head-screws/427420-SFE-M2-5-6-N,"longueur selonfiletage; têteshorsPCB, entretoises entrecartes<=4.0"
+RET,étriersJ8/J9M2.5/M3 et selles cable surstructure,2,mechanical/retainers.scad,,"inchangés; REVIEW_ONLY, pas de détrompageautomatique"
+TP1..4,boucles de test ou accès pads,8,reemploi,,"inclus provisionpassifs, aucunfilDupontliaison"
+REEMPLOI,Nucleo+quatre modules+nappe+bloc5V CN15,2,EXISTING,,aucunmâleCN12 à acheter/poser; aucunemodificationNucleo

@@ -1,3 +1,5 @@
+> Historique V1.2 conservé : pour les deux Nucleo réelles, J5_ET_EMPILEMENT_V1_3.md/PRECOMMANDE_V1_3.md remplacent le montage J5. Ne pas modifier les Nucleo.
+
 # J5 et empilage — définition nominale V1.2
 
 **Solution définie, montage réel NON VÉRIFIÉ.** UM2861Rev4 table19 p37 confirme PG4=CN12-69 et PG6=CN12-70 ; UM2861Rev10 §8.2, cité par le contrat/les décisions, décrit Morpho non équipé d'origine. Le PDF Rev10 n'a pas été retéléchargé pendant cette mission ; le Rev4 local a été réellement inspecté. Aucun Morpho femelle supposé présent.

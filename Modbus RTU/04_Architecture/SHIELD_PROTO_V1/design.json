@@ -1,6 +1,6 @@
 {
-  "version": "1.2-candidate",
-  "mission": "TR2-20261103-SHIELD-V12-PRECOMMANDE",
+  "version": "1.3-candidate",
+  "mission": "TR2-20261103-SHIELD-V13-J5-FEMELLE-BOM",
   "root_uuid": "8eb28e17-31a2-58df-b072-5cb49c8aa8e3",
   "date": "2026-11-03",
   "release": "BLOCKED_FABRICATION",
@@ -56,7 +56,9 @@
       "uuid": "9b14ca82-d539-540a-9776-b6dbb139a5ee",
       "footprint": "TR2:J1_NUCLEO_CN7",
       "assembly_side": "BOTTOM",
-      "candidate_mpn": "M20-9981045"
+      "candidate_mpn": "DS1021-2*40SF11 cut to 2x10",
+      "connector_gender": "MALE",
+      "socket_body_courtyard": "Connfly legacyDS1021 through TME, not DS1021-01 H4.3"
     },
     {
       "ref": "J2",
@@ -91,7 +93,9 @@
       "uuid": "fcdb1be0-3004-550a-96e0-09c3aee7d3ba",
       "footprint": "TR2:J2_NUCLEO_CN8",
       "assembly_side": "BOTTOM",
-      "candidate_mpn": "M20-9980845"
+      "candidate_mpn": "DS1021-2*40SF11 cut to 2x8",
+      "connector_gender": "MALE",
+      "socket_body_courtyard": "Connfly legacyDS1021 through TME, not DS1021-01 H4.3"
     },
     {
       "ref": "J3",
@@ -117,7 +121,9 @@
       "uuid": "732b3b0b-58f2-58e9-831d-36e1be7d845f",
       "footprint": "TR2:J3_NUCLEO_CN9",
       "assembly_side": "BOTTOM",
-      "candidate_mpn": "M20-9981545"
+      "candidate_mpn": "DS1021-2*40SF11 cut to 2x15",
+      "connector_gender": "MALE",
+      "socket_body_courtyard": "Connfly legacyDS1021 through TME, not DS1021-01 H4.3"
     },
     {
       "ref": "J4",
@@ -143,11 +149,13 @@
       "uuid": "c83fa3f9-f86f-5747-8d28-c4e826b71b67",
       "footprint": "TR2:J4_NUCLEO_CN10",
       "assembly_side": "BOTTOM",
-      "candidate_mpn": "M20-9982045 cut to 2x17 per manufacturer"
+      "candidate_mpn": "DS1021-2*40SF11 cut to 2x17",
+      "connector_gender": "MALE",
+      "socket_body_courtyard": "Connfly legacyDS1021 through TME, not DS1021-01 H4.3"
     },
     {
       "ref": "J5",
-      "value": "CN12_69_70_PG4",
+      "value": "CN12_69_70_PG4_FEMALE",
       "kind": "single",
       "n": 2,
       "xy_mm": [
@@ -165,13 +173,22 @@
         "1": "output"
       },
       "uuid": "0349d0d4-8512-5aa0-8312-66858bb4e6e1",
-      "footprint": "TR2:J5_CN12_69_70_PG4",
+      "footprint": "TR2:J5_CN12_69_70_PG4_FEMALE",
       "physical_pin_numbers": {
         "1": "CN12-69/PG4",
         "2": "CN12-70/PG6"
       },
       "assembly_side": "BOTTOM",
-      "candidate_mpn": "M20-9990245; mate M20-7820242 on Nucleo"
+      "candidate_mpn": "DS1023-1*2S21",
+      "connector_gender": "FEMALE",
+      "body_height_nominal_mm": 8.5,
+      "body_size_nominal_mm": [
+        5.58,
+        2.54
+      ],
+      "tail_length_mm": 3.2,
+      "mating_face": "DOWN_TO_EXISTING_NUCLEO_MALE",
+      "mechanical_note": "Female body below shield; tails soldered from shield top. Existing Nucleo male section/exposed length not measured. Do not substitute male J5 or modify Nucleo."
     },
     {
       "ref": "J6",
@@ -207,7 +224,8 @@
       "footprint": "TR2:J6_ADAFRUIT_4718",
       "assembly_side": "TOP",
       "power_note": "VIN/JP1-9 fed from Nucleo3V3 per manufacturer; regulator output JP1-8 NC",
-      "candidate_mpn": "M20-7820942"
+      "candidate_mpn": "2212S-09G-85",
+      "connector_gender": "FEMALE"
     },
     {
       "ref": "J7",
@@ -242,7 +260,8 @@
       "footprint": "TR2:J7_ADAFRUIT_4682",
       "assembly_side": "TOP",
       "mechanical_note": "Socket push-push opening towards -X per 4UCON15882/Eagle R180; leftward shift3.5mm, actual throat/height gate remains",
-      "candidate_mpn": "M20-7820942"
+      "candidate_mpn": "2212S-09G-85",
+      "connector_gender": "FEMALE"
     },
     {
       "ref": "J8",
@@ -281,7 +300,8 @@
       "row_pitch_mm": 15.24,
       "physical_entrance_measured_mm": 15.2,
       "release_gate": "Ground physically identified by user bottom-right JP2; nominal15.24mm from measured15.2mm, body envelope still requires assembly inspection",
-      "candidate_mpn": "2 x M20-7821242"
+      "candidate_mpn": "2 x DS1023-1*12S21",
+      "connector_gender": "FEMALE"
     },
     {
       "ref": "J9",
@@ -316,7 +336,8 @@
       "footprint": "TR2:J9_MIKROE_3863",
       "assembly_side": "TOP",
       "notes": "RE pin2 NC, existing module J2 common DE-/RE preserved; VCCSEL3V3. Secondary bus remains on overhanging module, no GND2 net on shield",
-      "candidate_mpn": "2 x M20-7820842"
+      "candidate_mpn": "2 x DS1023-1*8S21",
+      "connector_gender": "FEMALE"
     },
     {
       "ref": "R1",
@@ -560,7 +581,7 @@
   ],
   "mounting_hole_diameter_mm": 2.8,
   "Nucleo_reference": "MB1549-C05 user confirmed; UM2861 Rev4 Fig6 and Rev10 connector tables; C05 CAD unavailable for independent mechanical parity",
-  "assembly_note": "V1.2: J1-J5 bottom; female2 CN12-69/70 must be added to each Nucleo; positive bolted retention preserved, automatic keying waived for two prototypes; actual C05 stack remains a release gate",
+  "assembly_note": "V1.3: J5 female underneath shield receives existing male CN12-69/70 on both C05 (user report). No Nucleo modification. Standard economical headers and positive retention; actual mating/stack gate remains.",
   "protected": {
     "firmware": true,
     "CN0_GI0_OBE": true,
@@ -608,11 +629,12 @@
     }
   ],
   "nucleo_stack": {
-    "female_added_to_nucleo": "M20-7820242",
-    "nucleo_female_body_height_mm": 8.5,
-    "shield_male_insulator_mm": 2.54,
-    "shield_male_mating_pin_mm": 6.1,
-    "nominal_board_face_gap_mm": 11.04,
-    "status": "NOMINAL_ONLY: original C05 Zio height and CN12 hole accessibility not verified"
+    "existing_nucleo_male": "Confirmed by user for both C05 CN12-69/70; dimensions UNKNOWN",
+    "shield_J5_female": "DS1023-1*2S21 bottom, nominal height8.5,3.2tail",
+    "Zio_shield_male": "DS1021-2*40SF11 cut, legacydrawing body2.5/mating6.1/tail3.0",
+    "board_face_gap_if_nucleo_Zio_is_8p5_mm": 11.0,
+    "status": "CONDITIONAL_NOT_PHYSICALLY_VERIFIED",
+    "Nucleo_modification": "NONE",
+    "min_underboard_spacer_clearance_model": "OD4.0 candidate; do not treat outside screw heads as coplanar with bottom headers"
   }
 }

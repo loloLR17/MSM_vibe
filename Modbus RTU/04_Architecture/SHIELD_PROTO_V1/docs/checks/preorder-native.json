@@ -18,18 +18,32 @@
     {
       "header": "J3",
       "head_and_washer_max_diameter_mm": 4.5,
-      "nominal_clearance_to_enlarged_courtyard_mm": 0.04,
+      "spacer_max_diameter_mm": 4.0,
+      "nominal_spacer_clearance_to_enlarged_courtyard_mm": 0.04,
+      "head_underboard_overlap": "not coplanar; outside shield top and Nucleo underside",
       "C05_real_part": "NOT_VERIFIED"
     },
     {
       "header": "J4",
       "head_and_washer_max_diameter_mm": 4.5,
-      "nominal_clearance_to_enlarged_courtyard_mm": 0.04,
+      "spacer_max_diameter_mm": 4.0,
+      "nominal_spacer_clearance_to_enlarged_courtyard_mm": 0.04,
+      "head_underboard_overlap": "not coplanar; outside shield top and Nucleo underside",
       "C05_real_part": "NOT_VERIFIED"
     }
   ],
-  "routes_retained": 31,
-  "route_changed": "TP1.1-C2.1 +3V3 only",
+  "routes_retained": 32,
+  "route_changed": null,
+  "J5_gender": "FEMALE_BOTTOM",
+  "J5_actual_B_Fab_bounds_mm": [
+    84.44,
+    110.09,
+    90.019999,
+    112.63
+  ],
+  "bottom_J5_silk_is_mirrored": true,
+  "J5_body_height_nominal_mm": 8.5,
+  "Nucleo_modification": "NONE_USER_CONFIRMED_EXISTING_MALES",
   "strict_rules": {
     "min_clearance": 0.2,
     "min_track_width": 0.25,

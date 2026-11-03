@@ -1,0 +1,138 @@
+{
+  "date_utc": "2026-11-03T17:11:57.067056+00:00",
+  "mission": "TR2-20261103-SHIELD-V13-J5-FEMELLE-BOM",
+  "operator_observation": "Two C05 carry male contacts on69/70; no dimensions confirmed, no hardware inspected by Codex",
+  "primary_manufacturer_documents": [
+    {
+      "filename": "connfly-male-legacy.pdf",
+      "url": "https://www.tme.eu/Document/cc301e58a5da78cb543a94b5a5b7f06a/DS1021.pdf",
+      "bytes": 816219,
+      "sha256": "2c1c8e224109e1b519d60f18a8b84c91285f2f50048000765503f81940361116",
+      "local_path": "/home/lolo/dev/msm/reports/TR2-shield-v13-20261103/connfly-male-legacy.pdf",
+      "note": "Manufacturer drawing supplied by distributor for exact legacySKU; page3(double row) and tableA page4 consulted",
+      "redistribution": "original retained locally; no redistribution license assumed"
+    },
+    {
+      "filename": "connfly-female-legacy.pdf",
+      "url": "https://www.tme.eu/Document/efd0203e2d3a140765df98191085ea88/DS1023.pdf",
+      "bytes": 630700,
+      "sha256": "e22ad31e10b209ae19a74018c659aae474ce1de5aeadfada1629c931ab184bcb",
+      "local_path": "/home/lolo/dev/msm/reports/TR2-shield-v13-20261103/connfly-female-legacy.pdf",
+      "note": "Exact legacyDS1023 S21 code; H8.5, TME catalog tail3.2 vs drawing3.0, conservative upper bound3.2",
+      "redistribution": "original retained locally; no redistribution license assumed"
+    },
+    {
+      "filename": "neltron-female.pdf",
+      "url": "https://www.taydaelectronics.com/datasheets/files/7pin.pdf",
+      "bytes": 56502,
+      "sha256": "b3924cf1b5e656b178e2ecce63196862de7e22833f0b4c306b5a4f7f7ce6d51f",
+      "local_path": "/home/lolo/dev/msm/reports/TR2-shield-v13-20261103/neltron-female.pdf",
+      "note": "2212S drawing revisionE02Aug2022;9contactsA23.36/B20.32,H8.5,tail3.1\u00b1.3",
+      "redistribution": "original retained locally; no redistribution license assumed"
+    },
+    {
+      "filename": "DS1021-official.pdf",
+      "url": "https://en.connfly.com/static/upload/file/pdf/DS1021.pdf",
+      "bytes": 530753,
+      "sha256": "c3441d97ed7476cd1bbb97cfef9a7c1816cdc694f6fbc10ceb8373a4bfa07ee0",
+      "local_path": "/home/lolo/dev/msm/reports/TR2-shield-v13-20261103/DS1021-official.pdf",
+      "note": "Current manufacturer legacyseries,5pages; independent of DS1021-01 H4.3 which is NOT selected",
+      "redistribution": "original retained locally; no redistribution license assumed"
+    },
+    {
+      "filename": "DS1023-official.pdf",
+      "url": "https://en.connfly.com/static/upload/file/pdf/DS1023.pdf",
+      "bytes": 293981,
+      "sha256": "3ae996d1a0eb33f5f05a416054090b1fc6b73aff4ad6e9a652f042df14ee3be1",
+      "local_path": "/home/lolo/dev/msm/reports/TR2-shield-v13-20261103/DS1023-official.pdf",
+      "note": "Current manufacturer legacyseries, not equated to -01; section/mating depth realNucleo still unverified",
+      "redistribution": "original retained locally; no redistribution license assumed"
+    }
+  ],
+  "supplier_observations": [
+    {
+      "role": "male",
+      "MPN": "DS1021-2*40SF11",
+      "needed_for_two": 3,
+      "purchase_quantity": 3,
+      "MOQ": 2,
+      "multiple": 1,
+      "unit_USD_displayed": 0.6,
+      "stock_displayed": 54013,
+      "url": "https://www.tme.eu/en/details/zl202-80g/pin-headers/connfly/ds1021-2-40sf11/",
+      "caveat": "display only, not warehouse audit/reservation/shipping quote"
+    },
+    {
+      "role": "female2",
+      "MPN": "DS1023-1*2S21",
+      "needed_for_two": 2,
+      "purchase_quantity": 10,
+      "MOQ": 10,
+      "multiple": 10,
+      "unit_USD_displayed": 0.08,
+      "stock_displayed": 93280,
+      "url": "https://www.tme.eu/en/details/zl262-2sg/pin-headers/connfly/ds1023-1-2s21/",
+      "caveat": "display only, not warehouse audit/reservation/shipping quote"
+    },
+    {
+      "role": "female12",
+      "MPN": "DS1023-1*12S21",
+      "needed_for_two": 4,
+      "purchase_quantity": 10,
+      "MOQ": 10,
+      "multiple": 10,
+      "unit_USD_displayed": 0.12,
+      "stock_displayed": 13370,
+      "url": "https://www.tme.eu/en/details/zl262-12sg/pin-headers/connfly/ds1023-1-12s21/",
+      "caveat": "display only, not warehouse audit/reservation/shipping quote"
+    },
+    {
+      "role": "female8",
+      "MPN": "DS1023-1*8S21",
+      "needed_for_two": 4,
+      "purchase_quantity": 10,
+      "MOQ": 10,
+      "multiple": 10,
+      "unit_USD_displayed": 0.11,
+      "stock_displayed": 12840,
+      "url": "https://www.tme.eu/en/details/zl262-8sg/pin-headers/connfly/ds1023-1-8s21/",
+      "caveat": "display only, not warehouse audit/reservation/shipping quote"
+    },
+    {
+      "role": "female9",
+      "MPN": "2212S-09G-85",
+      "needed_for_two": 4,
+      "purchase_quantity": 4,
+      "MOQ": 1,
+      "multiple": 1,
+      "unit_USD_displayed": 0.19,
+      "stock_displayed": 3988888,
+      "url": "https://www.taydaelectronics.com/9-pin-2-54-mm-single-row-female-pin-header.html",
+      "caveat": "display only, not warehouse audit/reservation/shipping quote"
+    }
+  ],
+  "rejected_or_conditional": [
+    {
+      "MPN": "DS1023-1*9S21",
+      "stock_displayed": 0,
+      "unit_USD_at_MOQ10": 0.12,
+      "url": "https://www.tme.eu/en/details/zl262-9sg/pin-headers/connfly/ds1023-1-9s21/",
+      "reason": "not presented as currently available; possible single-vendor future option only after restock"
+    },
+    {
+      "family": "DS1021-01",
+      "reason": "H4.3 current series; do not substitute for legacyDS1021 body2.5 or claim same stack"
+    },
+    {
+      "type": "cut female strip",
+      "reason": "no verified cut method preserving adjacent femalecontacts; buy exact socket counts instead"
+    },
+    {
+      "alternative9": "PPTC091LFBN-RC",
+      "stock_displayed": 3889,
+      "unit_USD": 0.69,
+      "url": "https://www.digikey.com/en/products/detail/sullins-connector-solutions/PPTC091LFBN-RC/810148",
+      "reason": "available budget fallback; extra supplier/port and plating compatibility must be reviewed, not automatically substituted"
+    }
+  ]
+}

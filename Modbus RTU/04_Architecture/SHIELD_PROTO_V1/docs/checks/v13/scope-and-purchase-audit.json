@@ -1,0 +1,17 @@
+{
+  "base": "4fffb3a6f9445e124ab84955fc2781a2aaab8a73",
+  "component_nets_positions_UUIDs": "unchanged",
+  "all_pad_centres_and_drills": "verified native and CAM; comparison below",
+  "footprint_name_change_only": [
+    "J5"
+  ],
+  "route_file_byte_identical": true,
+  "project_byte_identical": true,
+  "rules_sha256": "8c077c4fc90dc8fe73b778e3fccfeb764cc4dca59667a8a04d85bc7cc1bb61f6",
+  "mechanical_SCAD_and_STLs": "byte identical, not recompiled needlessly",
+  "contour_and_all_anchors": "unchanged",
+  "gender_change": "J5 male to female underneath; no Nucleo modification",
+  "all187_pads_semantically_identical_to_base": true,
+  "purchase_quantity_check": "PASS",
+  "connectors_actual_MOQ_USD": 5.66
+}

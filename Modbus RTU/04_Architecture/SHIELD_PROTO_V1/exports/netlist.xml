@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <export version="E">
   <design>
-    <source>\\wsl.localhost\Debian\home\lolo\dev\msm\projects\MSM_vibe-SHIELD-V12-PRECOMMANDE\Modbus RTU\04_Architecture\SHIELD_PROTO_V1\cad\TR2_Shield_Proto_V1.kicad_sch</source>
-    <date>2026-11-03T17:08:50</date>
+    <source>\\wsl.localhost\Debian\home\lolo\dev\msm\projects\MSM_vibe-SHIELD-V13-J5-BOM\Modbus RTU\04_Architecture\SHIELD_PROTO_V1\cad\TR2_Shield_Proto_V1.kicad_sch</source>
+    <date>2026-11-03T18:07:06</date>
     <tool>Eeschema 10.0.6</tool>
     <sheet number="1" name="/" tstamps="/">
       <title_block>
         <title>TR2 shield prototype - interconnexion</title>
         <company>MSM TR2</company>
-        <rev>1.2 DRAFT</rev>
+        <rev>1.3 DRAFT</rev>
         <date>2026-11-03</date>
         <source>TR2_Shield_Proto_V1.kicad_sch</source>
         <comment number="1" value=""/>
@@ -249,14 +249,14 @@
       </units>
     </comp>
     <comp ref="J5">
-      <value>CN12_69_70_PG4</value>
-      <footprint>TR2:J5_CN12_69_70_PG4</footprint>
+      <value>CN12_69_70_PG4_FEMALE</value>
+      <footprint>TR2:J5_CN12_69_70_PG4_FEMALE</footprint>
       <fields>
-        <field name="Footprint">TR2:J5_CN12_69_70_PG4</field>
+        <field name="Footprint">TR2:J5_CN12_69_70_PG4_FEMALE</field>
         <field name="Datasheet"/>
         <field name="Description"/>
       </fields>
-      <libsource lib="TR2" part="J5_CN12_69_70_PG4" description=""/>
+      <libsource lib="TR2" part="J5_CN12_69_70_PG4_FEMALE" description=""/>
       <property name="Sheetname" value="TR2_Shield_Proto_V1"/>
       <property name="Sheetfile" value="TR2_Shield_Proto_V1.kicad_sch"/>
       <sheetpath names="/" tstamps="/"/>
@@ -752,11 +752,11 @@
         <pin num="34" name="NC" type="passive"/>
       </pins>
     </libpart>
-    <libpart lib="TR2" part="J5_CN12_69_70_PG4">
+    <libpart lib="TR2" part="J5_CN12_69_70_PG4_FEMALE">
       <fields>
         <field name="Reference">J</field>
-        <field name="Value">CN12_69_70_PG4</field>
-        <field name="Footprint">TR2:J5_CN12_69_70_PG4</field>
+        <field name="Value">CN12_69_70_PG4_FEMALE</field>
+        <field name="Footprint">TR2:J5_CN12_69_70_PG4_FEMALE</field>
         <field name="Datasheet"/>
         <field name="Description"/>
       </fields>

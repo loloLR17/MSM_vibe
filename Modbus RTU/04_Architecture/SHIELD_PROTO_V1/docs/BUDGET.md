@@ -1,22 +1,21 @@
-# Budget V1.2 — deux assemblages, cinq PCB nus
+# Budget V1.3 — deux shields, lot5 PCB nus, aucun achat
 
-Aucun achat, devis livré ou engagement. Stocks/prix publics consultés03/11/2026, non réservés. La BOM distingue MPN réel, quantité et spécification dimensionnelle non figée ; les refs de vis/entretoises ne peuvent être déclarées finales avant la hauteur C05.
+**Connectique standard sélectionnée :5,66USD hors transport/fiscalité**, quantités minimales réellement prises en compte. `CONNECTEURS_ACHATS_V1_3.csv` donne références, sources, prix et stocks affichés03/11/2026. Ce n'est pas un panier commandé ni un devis livré.
 
-| Poste | Base / provision |
-|---|---:|
-| Sockets12 :4×1,93USD, socket9 :4×1,87USD, socket8 :4×1,76USD |22,24USD|
-| Femelles2 nouvelles Nucleo :2×0,82USD |1,64USD|
-| Mâles J1–J5, recoupe et TP, prix pas tous capturés |12,00USD provision|
-| Lot5 PCB (2utilisés,3réserves) |2,00USD prix d'appel seulement|
-| Passifs |2,50EUR provision|
-| Entretoises/vis courtes FRAM/SD/Nucleo |8,00EUR provision|
-| Étriers/selles imprimés ultérieurement |5,00EUR provision|
-| Visserie additionnelle |5,00EUR provision|
-| Fenêtre simple |0,80EUR provision|
-| Deux transports PCB/composants |17,00EUR provision|
+| Poste | Besoin / quantité achetable | TotalUSD affiché |
+|---|---|---:|
+| Connfly mâle2×40 |3barres, MOQ2/multiple1 ;3×0,60|1,80|
+| J5 femelle2 |2nécessaires, achat10×0,08|0,80|
+| J8 femelles12 |4nécessaires, achat10×0,12|1,20|
+| J9 femelles8 |4nécessaires, achat10×0,11|1,10|
+| J6/J7 Neltron femelles9 |4×0,19|0,76|
+| **Connectique totale** |surplus inclus|**5,66**|
+| Lot5 PCB nus |2USD prix d'appel seulement, pas2USD/PCB|2,00indicatif|
 
-Scénario comptable **1USD=1EUR uniquement comme provision**, aucun cours de change prétendu :37,88+38,30=76,18EUR avant réserveTVA20%, soit **91,42EUR**. Budget50EUR non démontré et nettement dépassé avec ces sockets catalogue plus chers ; ne pas reprendre53,27EUR V1.1 comme coût actuel. Une source locale/commande groupée peut réduire les frais, sans garantie. Aucun devis n'a été négocié. La qualité d'engagement et les retenues ne sont pas sacrifiées pour afficher50EUR.
+Comparaison àV1.2 : provision connectique35,88USD (sockets23,88 + mâles/TP12)→5,66USD, soit−30,22USD dans les deux scénarios, **sans conclure à une économie livrée garantie**. Suppression des deux femelles à ajouter surNucleo et des mâlesJ5 devenus inutiles. Les fixations ne sont pas retirées pour réduire le budget.
 
-Les2USD sont une annonce **par lot5**, pas cinq fois2USD ; dimensions90×100, finition, tolérances de perçage, DFM, livraison et fiscalité restent à chiffrer. Le fabricant ne reçoit rien. PCB nus seuls, assemblages avec modules réemployés, et futur boîtier complet sont trois périmètres de coût distincts. Le boîtier final et fixation tête ne sont pas inclus ; bloc5V existant réemployé, aucune batterie ni230V sur PCB.
+Autres provisions conservées : passifs2,50EUR, fixationsNucleo/FRAM/SD8,00, retenues/selles5,00, visserieadditionnelle5,00, fenêtre0,80 =**21,30EUR**. Il y a désormais **trois envois potentiels** (PCB, TME, Tayda) : hypothèse prudente25EUR de transport au total, **pas un tarif observé**. Sous-total de scénario **46,30EUR +7,66USD**, avant fiscalité ; conserver les deux monnaies, **aucun taux de change inventé ni parité1USD=1EUR reprise**. RéserveTVA20% éventuelle :55,56EUR +9,19USD, encore sans montant livré garanti. Les taxes/ports applicables sont à relever lors d'une décision d'achat future.
 
-Référence12 disponible : [DigiKey M20-7821242](https://www.digikey.com/en/products/detail/harwin-inc/M20-7821242/3727819),2275 affichés et1,93USD à l'unité ; [socket9](https://www.digikey.com/en/products/detail/harwin-inc/M20-7820942/3919444),1463 et1,87USD ; [femelle2](https://www.digikey.com/en/products/detail/harwin-inc/M20-7820242/3727744),1911 et0,82USD. Harwin définit la géométrie ; le fournisseur définit uniquement le stock/prix affiché. Le8points à1,76USD est montré comme associé au12 ; son stock exact doit être recontrôlé avant un achat futur.
+Pour atteindre50EUR avec cette réserve20%, la somme *PCB/connecteurs convertis au taux réel du paiement + transports réels* doit rester≤**20,37EUR** (50/1,20−21,30). Le scénario prudent de transport25EUR ne satisfait pas ce seuil, même avant composants ; ne pas déclarer50EUR atteint. Achats groupés/approvisionnementlocal peuvent réduire le port, sans prix promis. DS1023-1*9S21TME0stock ne sert pas à inventer un scénario disponible à fournisseur unique ; si retour en stock, réexaminer prix/minimum/port et même géométrie avant substitution. AlternativeSullins9 à0,69USD augmente la ligne9 à2,76USD et ajoute son fournisseur si absent de la commande existante.
+
+Modules, Nucleo, nappe et bloc5V réemployés ; aucun nouveau module, alimentation230V embarquée ou powerbank. PCB nus, ensemble connecté et boîtier final sont des coûts différents. Boîtier fini et fixationtête restent séparés. Entretoises OD/hauteur et vis exactes restent conditionnées au fitC05 ; aucune référence mécanique incompatible achetée par anticipation.

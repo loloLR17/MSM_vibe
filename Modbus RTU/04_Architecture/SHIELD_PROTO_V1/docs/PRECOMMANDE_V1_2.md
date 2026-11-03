@@ -1,3 +1,5 @@
+> Historique V1.2 conservé : pour les deux Nucleo réelles, J5_ET_EMPILEMENT_V1_3.md/PRECOMMANDE_V1_3.md remplacent le montage J5. Ne pas modifier les Nucleo.
+
 # V1.2 — synthèse de libération des PCB nus
 
 Mission TR2-20261103-SHIELD-V12-PRECOMMANDE, 03/11/2026. **NE PAS COMMANDER.**

@@ -1,4 +1,4 @@
-> Plan d’essais futurs, aucune intervention matérielle autorisée dans la mission V1.2. Les gates PCB nus sont exclusivement dans PRECOMMANDE_V1_2.md ; aucune exigence de détrompage automatique, boîtier fini ou centres LED.
+> Plan d’essais futurs, aucune intervention matérielle autorisée dans la mission V1.2. Les gates PCB nus sont exclusivement dans PRECOMMANDE_V1_3.md ; aucune exigence de détrompage automatique, boîtier fini ou centres LED.
 
 # Plan après réception — aucune étape matérielle exécutée
 

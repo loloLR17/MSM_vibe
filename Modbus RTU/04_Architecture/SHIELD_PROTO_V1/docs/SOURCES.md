@@ -30,3 +30,7 @@ Vues et cotes constructeur sont distinguées de nos réservations : bornes de bo
 ## Complément V1.2 — 03/11/2026
 
 `sources-v1-2.json` donne les vrais hashes des dessins Harwin reçus et les échecs des ZIP ST : aucun fichier C05 inspecté ni hash d'archive connu. Aucun contenu C02/C03 n'est assimilé à C05. Choix M20-7821242 disponible, femelle2 M20-7820242 à ajouter sur Nucleo et mâles famille998/999 documentés dans J5_ET_EMPILEMENT_V1_2.md ; fiches passifs primaires dans la BOM. Le clic vers une archive binaire non prise en charge par l'outil documentaire ne vaut pas extraction. Les anciens hashes Adafruit et Click restent ceux des sources réellement utilisées ; révision mécaniqueClickv101 et schémav102 ne sont pas assimilées.
+
+## Complément V1.3
+
+`sources-v1-3.json` identifie les dessins ConnflyDS1021/DS1023 legacy et Neltron2212S réellement reçus, les variantes rejetées et le stock des références exactes. Les dessins DS1021-01H4,3 et DS1021H2,5 ne sont pas assimilés. Les mâles69/70 existants sont une observationutilisateur, pas une mesureCodex. Les essais STbornés n'ont reçu aucunearchive ; aucunhashC05 prétendu. Les originaux fabricants sont conservés localement, leurslicences ne sont pas supposées autoriser redistribution.
