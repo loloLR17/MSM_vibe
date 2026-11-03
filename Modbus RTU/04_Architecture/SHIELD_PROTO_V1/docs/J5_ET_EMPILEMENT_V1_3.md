@@ -9,7 +9,7 @@
 | Sens physique | Paire en travers des deux rangées Morpho ; pas2,54. Ne pas la déplacer vers69/67 ni inverser1/2 en regardant dessous |
 | Corps | Longueur nominale5,58 =2×2,54+0,50 ; largeur2,54, hauteur8,5 nominal. Courtyard conserve les tolérances du dessin, pas de hauteur Harwin±0,15 réutilisée |
 | Perçages |1,02mm shield, même nombre/centres/nets queV1.2 ; empreinte active **J5_CN12_69_70_PG4_FEMALE**, B.Cu/B.CrtYd/B.Fab |
-| Queues et soudure | Catalogue TME3,2mm, dessin legacy3,0mm et source actuelle3,0±0,2 : enveloppe3,2 retenue, jusqu'à1,6 au-dessus d'un PCB1,6. Ne pas présenter ces valeurs comme une mesure des pièces livrées. Souder côté dessus sans pression latérale |
+| Queues et soudure | Catalogue TME3,2mm, dessin legacy3,0mm et source actuelle3,0±0,2 : à3,2 nominal il resterait1,6 au-dessus d'un PCB1,6 ; **maximum garanti non établi**, réserver le dégagement selon la queue livrée et sa tolérance. Ne pas présenter ces valeurs comme une mesure des pièces livrées. Souder côté dessus sans pression latérale |
 | Broches existantes | Section, hauteur du corps et longueur exposée **inconnues** ; ne pas les déduire de «mâles soudés». Les cotes0,60×0,40 du dessin DS1023 sont celles des queues femelles, pas une plage garantie de pin mâle admissible |
 
 Le footprint et le symbole ont effectivement changé de nom/valeur ; un simple changement de texte dans la BOM ne suffirait pas. La face dessous est conservée sans retourner les coordonnées des pads. Le contour du boîtier et deux entrées sont surB.Fab, avec légende miroir «J5 FEM /1=69 PG4» dessous. Le gabarit pages1/2 est vu du dessus pour superposition, page3 est le miroir de contrôle, **pas à superposer** sur une Nucleo vue dessus.

@@ -1,6 +1,6 @@
 ---
 mission_id: TR2-20261103-SHIELD-V13-J5-FEMELLE-BOM
-status: IN_PROGRESS
+status: BLOCKED
 base_ref: main
 base_sha: e8cc6cc7cd895a62d5891b4e9410f0164abe9392
 initial_head: 4fffb3a6f9445e124ab84955fc2781a2aaab8a73
@@ -18,7 +18,7 @@ allow_debug: false
 
 **Candidat prêt pour revue documentaire ; NE PAS COMMANDER / BLOCKED_FABRICATION.** J5 est effectivement une **femelle sous le shield**, recevant les mâlesCN12-69/70 que l'utilisateur confirme présents sur les deuxNucleo. Aucun ajout/dessoudage/modification de Nucleo n'est demandé ni exécuté. Dimensions réelles de ces mâles et engagement simultané avec Zio restent inconnus ; ils ne sont pas déduits de leur présence.
 
-Le statut provisoire IN_PROGRESS concerne la publication/relecture distante encore en cours ; le blocage technique de libération est déjà explicité ci-dessous. Aucun achat, flash, debug, accès STM32/COM/FRAM/microSD, impression ou intervention physique.
+Publication et relecture distante réalisées. Le statut BLOCKED concerne les dimensions/fitC05 nécessaires à la libération en fabrication, pas une attente de publication. Aucun achat, flash, debug, accès STM32/COM/FRAM/microSD, impression ou intervention physique.
 
 ## Reprise et conservation
 
@@ -35,12 +35,12 @@ Dossier `Modbus RTU/04_Architecture/SHIELD_PROTO_V1/` ; nom de projet historique
 - **Coût vérifiable des quantités choisies :5,66USD de connecteurs pour deux shields**, horstransport/taxes, MOQ et surplus inclus. Male3×0,60 ; femelle2 achat10×0,08 ; femelle12 achat10×0,12 ; femelle8 achat10×0,11 ; femelle9 4×0,19. Connfly9TME affiché0stock : rejeté comme référence disponible. Stocks affichés des autres références tracés ; chiffreTayda très élevé est un affichage fournisseur, pas un audit d'entrepôt. AlternativeSullins9 disponible0,69USD documentée, pas substituée automatiquement.
 - **Coût livré NON DÉMONTRÉ** : connectique de scénario35,88USD V1.2→5,66USD V1.3, mais deux fournisseurscomposants(TME/Tayda)+PCB impliquent trois ports potentiels. Budgetprudent **46,30EUR +7,66USD avantfiscalité**, conservant deuxmonnaies ; aucun tauxinventé ni parité1USD=1EUR reprise. Cible50EUR non déclarée atteinte. Pour50EUR avec réserveTVA20%, composants/PCBconvertis+portsréels doivent tenir dans20,37EUR ; hypothèseport25EUR ne convient pas. Aucun devis livré ni achat.
 - **CAO minimale** : les187pads (nets, numéros, positions, diamètres et perçages), contour90×100, tous ancrages et fichier32trajets sont sémantiquement/structurellement inchangésV1.2. Seules enveloppes des connecteurs standard, genre/footprintJ5 et marquages révision ont changé.19empreintes,59brochesconnectées,4vias. C1/C2 conservés. MatriceSPI1FRAM/SPI2SD/SPI3IIS3DWB/LPUART/PG4 inchangée, aucun firmware modifié.
-- **Fixations positives conservées** : SCAD/STL des étriers et perçages strictement inchangés ; pas de recompile/impression inutile. Vérification séparée enZ : têtes/rondellesØ≤4,5 horsfacesPCB, entretoises candidatesØ≤4,0 dans l'espace entrecartes. Jeu0,04 nominal au courtyard majoré prèsZio inférieur ; **pas un fitréel ni une qualification mécanique**. Le plan3D de volumes et les cotesmécaniques effectives restent à vérifier ; ne pas utiliser le serrage pour forcer l'engagement. Détrompagecomplexe abandonné, contrôlemanuelbroche1 conservé.
+- **Fixations positives conservées** : SCAD/STL des étriers et perçages strictement inchangés ; pas de recompile/impression inutile. Vérification séparée enZ : têtes/rondellesØ≤4,5 horsfacesPCB, entretoises candidatesØ≤4,0 dans l'espace entrecartes. Jeu0,04 nominal au courtyard majoré prèsZio inférieur ; **pas un fitréel ni une qualification mécanique**. L’analyse des volumes enZ est nominale et les cotesmécaniques effectives restent à vérifier ; ne pas utiliser le serrage pour forcer l'engagement. Détrompagecomplexe abandonné, contrôlemanuelbroche1 conservé.
 - **Exports candidats réellement produits** : schéma, implantationdessus, nouvelle implantationdessous miroir, cuivredessousmiroir, GerberX2/Excellon en `BLOCKED_FABRICATION`, interfacesSVG/PDF, STEP/PNG **carte nue uniquement**, gabaritPDF3pages1:1 `gabarit-C05-V1_3.pdf`, CSV105centres. V1_2nommés restent historiques, explicitement signalés. CorpsJ5B.Fab et son repère ont été inspectés sur le plan-dessous ; premièrepagegabarit inspectée visuellement.
 
 ## Dimensions : ce qui est prouvé et ce qui manque
 
-Dessins fabricants Connflylegacy fournis pour les référencesTME et sourceactuelle constructeur ainsi que Neltron2212S réellement téléchargés/inspectés (y compris pagesimage). Pas2,54 ; trous1,02 ; mâlelegacy corps2,5 et type1 tail3,0/mating6,1 ; femelles nominalesH8,5. CatalogueDS1023tail3,2 vsdessin3,0 : enveloppeprudente3,2 retenue, pas une mesure des pièces livrées. Les cotes0,60×0,40 du dessin femelle sont ses queues, **pas la section admissible d'un mâle**. Section et profondeur de contact réelles restent à confronter à l'interface choisie ; aucune garantie d'engagement fabriquée.
+Dessins fabricants Connflylegacy fournis pour les référencesTME et sourceactuelle constructeur ainsi que Neltron2212S réellement téléchargés/inspectés (y compris pagesimage). Pas2,54 ; trous1,02 ; mâlelegacy corps2,5 et type1 tail3,0/mating6,1 ; femelles nominalesH8,5. CatalogueDS1023tail3,2 vsdessin3,0 : 3,2 est un nominalcatalogue et **pas un maximum garanti** ; queue livrée et tolérances à vérifier, aucune longueur de dégagement certifiée sans ces données. Les cotes0,60×0,40 du dessin femelle sont ses queues, **pas la section admissible d'un mâle**. Section et profondeur de contact réelles restent à confronter à l'interface choisie ; aucune garantie d'engagement fabriquée.
 
 Dans `J5_ET_EMPILEMENT_V1_3.md`, équation **I=hm+Lm−G+Hf**, avec hauteurcorpsmâlehm/longueurLm, écartentrePCB G et hauteurfemelleHf. Exemple exclusivement conditionnel G11,0/Hf8,5/hm2,5/Lm6,1 donneI6,1. Ni ces hm/Lm/G ni une profondeurIpositive ne sont une validation physique. Une autre hauteurmâle peut empêcher l'engagement simultanéZio/J5 ; ne pas accepter une flexion/insertionpartielle ni modifierNucleo pour masquer l'écart. Choisir autre hauteur de femelle vérifiée et mettre à jour CAO si nécessaire.
 
@@ -76,4 +76,6 @@ Journal ETAT_COURANT_TR2 actualisé factuellement : observationmâlesexistants, 
 
 ## Git et publication
 
-Commit CAO évalué `261a44e9bf1c18757f35fd69f03212aa952137ca` — `SHIELD V1.3: female bottom J5 and standard economical connector BOM`. Commit/push normal vers `refs/heads/main` autorisés ; aucune autre permission exercée. Publication du rapport et vérification distante à consigner après le push ; `DONE` non revendiqué faute des dimensions/fitC05 exigés. Le dossier technique est un candidat de revue ; il ne vaut ni bonàtirer ni permission d'achat.
+Commit CAO évalué `261a44e9bf1c18757f35fd69f03212aa952137ca` — `SHIELD V1.3: female bottom J5 and standard economical connector BOM`. Commit/push normal vers `refs/heads/main` autorisés ; aucune autre permission exercée. Push normal sur `refs/heads/main` réussi jusqu’à `d12017c21fa1c0ac7fe2a9e6f19eb81f6b695a92` ; fetch et ls-remote confirment ce SHA. Les102livrables modifiés ont été relus intégralement depuis la référence distante et comparés octetpour octet aux fichiers publiés ; preuve `archives/TR2-20261103-SHIELD-V13-J5-FEMELLE-BOM/REMOTE_READBACK.json`. `DONE` non revendiqué faute des dimensions/fitC05 exigés. Ce complément de clôture documentaire sera lui aussi relu après push ; son SHA final sera fourni dans la réponseCodex sans auto-référence. Le dossier technique est un candidat de revue ; il ne vaut ni bonàtirer ni permission d'achat.
+
+Après première publication : worktree dédié propre, HEAD=origin/main, dépôt principal historique et deuxstashes préservés. La clôture précise que le3,2mm ducatalogue n’est pas un maximum garanti ; aucun fichierPCB/net/route ni contrôle électrique n’est changé par cette précision. Aucun test acquis relancé pour les seules corrections documentaires.

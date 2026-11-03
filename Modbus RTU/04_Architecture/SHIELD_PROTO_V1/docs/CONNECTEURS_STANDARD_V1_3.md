@@ -12,7 +12,7 @@ Les dessins **constructeurs** Connfly legacyDS1021/DS1023 et Neltron2212S ont é
 
 Toutes les interfaces ont un pas2,54 et des queues traversantes avec trou1,02 nominal dans les dessins ; perçages PCB inchangés V1.2, fabricantPCB devra garantir le fini demandé. Les modules existants doivent conserver des mâles acceptés par ces sockets : inspection de leur section/longueur et absence d'usure à l'assemblage. Pas de fiche validant implicitement une nappe30cm/8MHz, tenue maritime ou endurancevibratoire. Le goldflash de barrettes standards ne remplace pas la retenue positive ; les vis, entretoises, étriers et reprises d'effort restent prévus.
 
-**Piège de référence écarté :** `DS1021-01` actuel H4,3mm n'est pas `DS1021` legacy H2,5 ; ne pas mélanger leurs tables de longueur. PourDS1023, le catalogue indique3,2mm de queue et le dessin3,0 : enveloppe prudente3,2 prise en compte, dimension livrée encore à vérifier. Les tolérances Harwin ne sont pas réutilisées pour Connfly.
+**Piège de référence écarté :** `DS1021-01` actuel H4,3mm n'est pas `DS1021` legacy H2,5 ; ne pas mélanger leurs tables de longueur. PourDS1023, le catalogue indique3,2mm de queue et le dessin3,0 : 3,2 est un nominalcatalogue, **pas un maximum garanti** ; longueur livrée et tolérance encore à vérifier avant libération. Les tolérances Harwin ne sont pas réutilisées pour Connfly.
 
 Plan de débit prudent des trois barrettes mâles40paires :
 

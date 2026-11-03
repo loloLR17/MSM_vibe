@@ -18,7 +18,7 @@
       "bytes": 630700,
       "sha256": "e22ad31e10b209ae19a74018c659aae474ce1de5aeadfada1629c931ab184bcb",
       "local_path": "/home/lolo/dev/msm/reports/TR2-shield-v13-20261103/connfly-female-legacy.pdf",
-      "note": "Exact legacyDS1023 S21 code; H8.5, TME catalog tail3.2 vs drawing3.0, conservative upper bound3.2",
+      "note": "Exact legacyDS1023 S21 code; H8.5; TME tail3.2 is catalog nominal, drawing3.0; no guaranteed maximum inferred; actual delivered tail dimension/tolerance to verify",
       "redistribution": "original retained locally; no redistribution license assumed"
     },
     {
