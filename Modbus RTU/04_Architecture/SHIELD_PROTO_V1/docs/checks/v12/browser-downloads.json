@@ -1,0 +1,30 @@
+{
+  "browser": "Edg/155.0.4283.45",
+  "results": [
+    {
+      "url": "https://www.st.com/resource/en/board_manufacturing_specification/mb1549-bdp.zip",
+      "navigation": {
+        "errorText": "net::ERR_HTTP2_PROTOCOL_ERROR",
+        "isDownload": false
+      },
+      "error": "No completed browser download within bounded deadline"
+    },
+    {
+      "url": "https://www.st.com/resource/en/board_manufacturing_specification/mb1549-manufacturing.zip",
+      "navigation": {
+        "errorText": "net::ERR_HTTP2_PROTOCOL_ERROR",
+        "isDownload": false
+      },
+      "error": "No completed browser download within bounded deadline"
+    },
+    {
+      "url": "https://www.st.com/resource/en/schematic_pack/mb1549-u575ziq-c05-schematic.pdf",
+      "navigation": {
+        "errorText": "net::ERR_HTTP2_PROTOCOL_ERROR",
+        "isDownload": false
+      },
+      "error": "No completed browser download within bounded deadline"
+    }
+  ],
+  "public_copy": "Only URL/result retained; original local browser log kept outside repository"
+}

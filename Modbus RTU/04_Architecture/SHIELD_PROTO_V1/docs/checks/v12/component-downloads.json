@@ -1,0 +1,19 @@
+[
+  {
+    "name": "Harwin-M20-782.pdf",
+    "url": "https://content.harwin.com/asset/53851ba8-b32e-4ac5-a0c5-09d9271c0c0a/DRG-00385-Technical-Drawing-Datasheet-M20-782-pdf.pdf",
+    "bytes": 69829,
+    "sha256": "dc63950fd4db62272f85d19d3c48739909c6909ae21502f38542ba9acfd2fcf5"
+  },
+  {
+    "name": "Harwin-M20-998.pdf",
+    "url": "https://content.harwin.com/asset/1590d228-db5c-4836-ab0c-0f146730b624/DRG-00478-Technical-Drawing-Datasheet-M20-998-pdf.pdf",
+    "bytes": 49082,
+    "sha256": "05d6377c688046aef738a839253496481ec748d5123445d4a8b0b38173232f86"
+  },
+  {
+    "name": "AP2112.pdf",
+    "url": "https://www.diodes.com/datasheet/download/AP2112.pdf",
+    "error": "HTTP Error 403: Forbidden"
+  }
+]

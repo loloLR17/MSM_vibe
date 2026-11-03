@@ -1,10 +1,11 @@
-// MSM TR2 shield V1.1 — REVIEW ONLY, NO FABRICATION RELEASE.
+// MSM TR2 shield V1.2 — REVIEW ONLY, NO FABRICATION RELEASE.
 // Coordinates and contact surfaces are nominal hypotheses, not measured C05/MKI geometry.
 // Caller selects part="mki", "click", "flat_clamp", "round_clamp", "user_plunger".
 // Modules remain replaceable after removing two insulating through-bolts.
+// Automatic keying is waived for these two prototypes; bolted positive retention remains.
 part="mki";
 review_only=true;
-assert(review_only,"Fabrication blocked: mechanical fit, key features and materials need review");
+assert(review_only,"Fabrication blocked: mechanical fit and materials need review");
 $fn=48;
 module_bottom=11; pcb_t=1.6; contact_z=module_bottom+pcb_t;
 roof_z=22; roof_t=3; foot_r=3;
@@ -23,8 +24,6 @@ module mki(){
    beam(mki_anchors,roof_z,roof_t);
    // Broad roof is above assumed component envelope; edge pads alone set the nominal contact height.
    for(p=[[43.1,24.3],[62.1,44.9]])translate([p[0]-.5,p[1]-1,contact_z])cube([1,2,roof_z-contact_z+.1]);
-   // Provisional keyed rim: final mating connector protrusion/notch remains UNMEASURED.
-   translate([41.5,22.7,10])cube([.6,3,roof_z-10]);
   }
   bore(mki_anchors[0],2.8);bore(mki_anchors[1],3.4);
   mark([55,37],"DRAFT");
@@ -36,8 +35,6 @@ module click(){
    for(p=click_anchors)support(p);
    beam(click_anchors,roof_z,roof_t);
    beam([[83,91.43],[91,91.43]],roof_z,roof_t,2);
-   // Key fence accepts v101 long isolated end to +X; reversed body conflicts with fence.
-   translate([82.5,89.43,10])cube([.4,4,roof_z-10]);
    translate([83.6,90.43,contact_z])cube([1,2,roof_z-contact_z+.1]);
   }
   bore(click_anchors[0],2.8);bore(click_anchors[1],3.4);

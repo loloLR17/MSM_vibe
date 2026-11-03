@@ -1,0 +1,6 @@
+{
+  "method": "Edge owned temporary profile; HTTPS retained; --disable-http2 protocol fallback",
+  "result": "Page.navigate TimeoutError on ST product page; no archive received",
+  "archive_content_inspected": false,
+  "archive_sha256": null
+}

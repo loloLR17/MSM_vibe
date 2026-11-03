@@ -1,0 +1,30 @@
+[
+  {
+    "args": [
+      "/home/lolo/dev/msm/cache/openscad-shield-v1-1/squashfs-root/AppRun",
+      "--hardwarnings",
+      "--export-format",
+      "binstl",
+      "-D",
+      "part=\"mki\"",
+      "-o",
+      "/home/lolo/dev/msm/projects/MSM_vibe-SHIELD-V12-PRECOMMANDE/Modbus RTU/04_Architecture/SHIELD_PROTO_V1/mechanical/REVIEW_ONLY/mki.stl",
+      "/home/lolo/dev/msm/projects/MSM_vibe-SHIELD-V12-PRECOMMANDE/Modbus RTU/04_Architecture/SHIELD_PROTO_V1/mechanical/retainers.scad"
+    ],
+    "returncode": 0
+  },
+  {
+    "args": [
+      "/home/lolo/dev/msm/cache/openscad-shield-v1-1/squashfs-root/AppRun",
+      "--hardwarnings",
+      "--export-format",
+      "binstl",
+      "-D",
+      "part=\"click\"",
+      "-o",
+      "/home/lolo/dev/msm/projects/MSM_vibe-SHIELD-V12-PRECOMMANDE/Modbus RTU/04_Architecture/SHIELD_PROTO_V1/mechanical/REVIEW_ONLY/click.stl",
+      "/home/lolo/dev/msm/projects/MSM_vibe-SHIELD-V12-PRECOMMANDE/Modbus RTU/04_Architecture/SHIELD_PROTO_V1/mechanical/retainers.scad"
+    ],
+    "returncode": 0
+  }
+]

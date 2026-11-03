@@ -1,6 +1,6 @@
 {
-  "version": "1.1-candidate",
-  "mission": "TR2-20261102-SHIELD-PROTO-V1-1",
+  "version": "1.2-candidate",
+  "mission": "TR2-20261103-SHIELD-V12-PRECOMMANDE",
   "root_uuid": "8eb28e17-31a2-58df-b072-5cb49c8aa8e3",
   "date": "2026-11-03",
   "release": "BLOCKED_FABRICATION",
@@ -55,7 +55,8 @@
       },
       "uuid": "9b14ca82-d539-540a-9776-b6dbb139a5ee",
       "footprint": "TR2:J1_NUCLEO_CN7",
-      "assembly_side": "BOTTOM"
+      "assembly_side": "BOTTOM",
+      "candidate_mpn": "M20-9981045"
     },
     {
       "ref": "J2",
@@ -89,7 +90,8 @@
       },
       "uuid": "fcdb1be0-3004-550a-96e0-09c3aee7d3ba",
       "footprint": "TR2:J2_NUCLEO_CN8",
-      "assembly_side": "BOTTOM"
+      "assembly_side": "BOTTOM",
+      "candidate_mpn": "M20-9980845"
     },
     {
       "ref": "J3",
@@ -114,7 +116,8 @@
       },
       "uuid": "732b3b0b-58f2-58e9-831d-36e1be7d845f",
       "footprint": "TR2:J3_NUCLEO_CN9",
-      "assembly_side": "BOTTOM"
+      "assembly_side": "BOTTOM",
+      "candidate_mpn": "M20-9981545"
     },
     {
       "ref": "J4",
@@ -139,7 +142,8 @@
       },
       "uuid": "c83fa3f9-f86f-5747-8d28-c4e826b71b67",
       "footprint": "TR2:J4_NUCLEO_CN10",
-      "assembly_side": "BOTTOM"
+      "assembly_side": "BOTTOM",
+      "candidate_mpn": "M20-9982045 cut to 2x17 per manufacturer"
     },
     {
       "ref": "J5",
@@ -166,7 +170,8 @@
         "1": "CN12-69/PG4",
         "2": "CN12-70/PG6"
       },
-      "assembly_side": "BOTTOM"
+      "assembly_side": "BOTTOM",
+      "candidate_mpn": "M20-9990245; mate M20-7820242 on Nucleo"
     },
     {
       "ref": "J6",
@@ -201,7 +206,8 @@
       "uuid": "6a242382-d935-5772-83f0-77bf04061899",
       "footprint": "TR2:J6_ADAFRUIT_4718",
       "assembly_side": "TOP",
-      "power_note": "VIN/JP1-9 fed from Nucleo3V3 per manufacturer; regulator output JP1-8 NC"
+      "power_note": "VIN/JP1-9 fed from Nucleo3V3 per manufacturer; regulator output JP1-8 NC",
+      "candidate_mpn": "M20-7820942"
     },
     {
       "ref": "J7",
@@ -235,7 +241,8 @@
       "uuid": "c596d58a-1f93-5084-8de7-3914057baa72",
       "footprint": "TR2:J7_ADAFRUIT_4682",
       "assembly_side": "TOP",
-      "mechanical_note": "Socket push-push opening towards -X per 4UCON15882/Eagle R180; leftward shift3.5mm, actual throat/height gate remains"
+      "mechanical_note": "Socket push-push opening towards -X per 4UCON15882/Eagle R180; leftward shift3.5mm, actual throat/height gate remains",
+      "candidate_mpn": "M20-7820942"
     },
     {
       "ref": "J8",
@@ -273,7 +280,8 @@
       "assembly_side": "TOP",
       "row_pitch_mm": 15.24,
       "physical_entrance_measured_mm": 15.2,
-      "release_gate": "Ground physically identified by user bottom-right JP2; nominal15.24mm from measured15.2mm, body envelope still requires assembly inspection"
+      "release_gate": "Ground physically identified by user bottom-right JP2; nominal15.24mm from measured15.2mm, body envelope still requires assembly inspection",
+      "candidate_mpn": "2 x M20-7821242"
     },
     {
       "ref": "J9",
@@ -307,7 +315,8 @@
       "uuid": "de265aaa-28e0-5a72-89e1-9fac3d23e5c6",
       "footprint": "TR2:J9_MIKROE_3863",
       "assembly_side": "TOP",
-      "notes": "RE pin2 NC, existing module J2 common DE-/RE preserved; VCCSEL3V3. Secondary bus remains on overhanging module, no GND2 net on shield"
+      "notes": "RE pin2 NC, existing module J2 common DE-/RE preserved; VCCSEL3V3. Secondary bus remains on overhanging module, no GND2 net on shield",
+      "candidate_mpn": "2 x M20-7820842"
     },
     {
       "ref": "R1",
@@ -329,7 +338,8 @@
       "pin_types": {},
       "uuid": "66c4b8d6-4e88-55d6-acbd-7c7894683f3e",
       "footprint": "TR2:R1_10k",
-      "assembly_side": "TOP"
+      "assembly_side": "TOP",
+      "candidate_mpn": "MRS16000C1002FCT00"
     },
     {
       "ref": "R2",
@@ -351,7 +361,8 @@
       "pin_types": {},
       "uuid": "1db46d95-bbda-5074-b8ae-ebf5f384b0a4",
       "footprint": "TR2:R2_10k",
-      "assembly_side": "TOP"
+      "assembly_side": "TOP",
+      "candidate_mpn": "MRS16000C1002FCT00"
     },
     {
       "ref": "R3",
@@ -373,7 +384,8 @@
       "pin_types": {},
       "uuid": "f23fa699-c673-5f4c-ae15-64a7b482ed60",
       "footprint": "TR2:R3_10k",
-      "assembly_side": "TOP"
+      "assembly_side": "TOP",
+      "candidate_mpn": "MRS16000C1002FCT00"
     },
     {
       "ref": "R4",
@@ -395,7 +407,8 @@
       "pin_types": {},
       "uuid": "cec83182-8317-5fe4-bcfb-e68c76960341",
       "footprint": "TR2:R4_10k",
-      "assembly_side": "TOP"
+      "assembly_side": "TOP",
+      "candidate_mpn": "MRS16000C1002FCT00"
     },
     {
       "ref": "C1",
@@ -417,7 +430,9 @@
       "pin_types": {},
       "uuid": "464cee31-439c-535a-9350-a594a3190294",
       "footprint": "TR2:C1_100n",
-      "assembly_side": "TOP"
+      "assembly_side": "TOP",
+      "candidate_mpn": "C315C104K5R5TA",
+      "lead_pitch_mm": 2.54
     },
     {
       "ref": "C2",
@@ -439,7 +454,10 @@
       "pin_types": {},
       "uuid": "2454dcf0-e4b4-5874-88ca-f883ddbdf9d7",
       "footprint": "TR2:C2_10u_10V",
-      "assembly_side": "TOP"
+      "assembly_side": "TOP",
+      "candidate_mpn": "ECA1HM100",
+      "lead_pitch_mm": 2.0,
+      "body_diameter_max_mm": 5.5
     },
     {
       "ref": "TP1",
@@ -542,7 +560,7 @@
   ],
   "mounting_hole_diameter_mm": 2.8,
   "Nucleo_reference": "MB1549-C05 user confirmed; UM2861 Rev4 Fig6 and Rev10 connector tables; C05 CAD unavailable for independent mechanical parity",
-  "assembly_note": "V1.1: bottom mating headers; three Nucleo anchors; FRAM/SD two bolted standoffs each; J8/J9 asymmetric bolted retainers, provisional fit; cable clamps attach to future enclosure structure, no header traction",
+  "assembly_note": "V1.2: J1-J5 bottom; female2 CN12-69/70 must be added to each Nucleo; positive bolted retention preserved, automatic keying waived for two prototypes; actual C05 stack remains a release gate",
   "protected": {
     "firmware": true,
     "CN0_GI0_OBE": true,
@@ -588,5 +606,13 @@
       "diameter": 3.2,
       "fastener": "M3"
     }
-  ]
+  ],
+  "nucleo_stack": {
+    "female_added_to_nucleo": "M20-7820242",
+    "nucleo_female_body_height_mm": 8.5,
+    "shield_male_insulator_mm": 2.54,
+    "shield_male_mating_pin_mm": 6.1,
+    "nominal_board_face_gap_mm": 11.04,
+    "status": "NOMINAL_ONLY: original C05 Zio height and CN12 hole accessibility not verified"
+  }
 }

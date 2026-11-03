@@ -26,3 +26,7 @@ Observations utilisateur : MB1549-U575ZIQ-C05, FRAM MB85RS2, MIKROE3863, kit MKI
 - [OpenSCAD2021.01 officiel](https://github.com/openscad/openscad/releases/tag/openscad-2021.01), AppImage Linux en cache régénérable uniquement ; dépendances Debian libharfbuzz0b/libgpg-error0/libgraphite2-3 extraites localement sans installation système, version CLI observée et hashes conservés. Aucun réglage Windows, firmware, sandbox ou système modifié. Deux chargements de dépendances manquantes résolus avant compilation des gabarits.
 
 Vues et cotes constructeur sont distinguées de nos réservations : bornes de bouche SD et zones opérateur sont conservatrices/provisoires ; centres LED/USER/CN15 exacts C05 non obtenus. Les modèles d’étriers sont nos géométries paramétriques de revue, sans certification fabricant.
+
+## Complément V1.2 — 03/11/2026
+
+`sources-v1-2.json` donne les vrais hashes des dessins Harwin reçus et les échecs des ZIP ST : aucun fichier C05 inspecté ni hash d'archive connu. Aucun contenu C02/C03 n'est assimilé à C05. Choix M20-7821242 disponible, femelle2 M20-7820242 à ajouter sur Nucleo et mâles famille998/999 documentés dans J5_ET_EMPILEMENT_V1_2.md ; fiches passifs primaires dans la BOM. Le clic vers une archive binaire non prise en charge par l'outil documentaire ne vaut pas extraction. Les anciens hashes Adafruit et Click restent ceux des sources réellement utilisées ; révision mécaniqueClickv101 et schémav102 ne sont pas assimilées.

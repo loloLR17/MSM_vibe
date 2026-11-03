@@ -1,0 +1,84 @@
+{
+    "$schema": "https://schemas.kicad.org/drc.v1.json",
+    "coordinate_units": "mm",
+    "date": "2026-11-03T17:05:47",
+    "ignored_checks": [
+        {
+            "description": "Footprint has no courtyard defined",
+            "key": "missing_courtyard"
+        },
+        {
+            "description": "Track endpoint not centered on via",
+            "key": "track_not_centered_on_via"
+        },
+        {
+            "description": "Tuning profile track geometries",
+            "key": "tuning_profile_track_geometries"
+        },
+        {
+            "description": "Footprint doesn't match symbol's footprint filters",
+            "key": "footprint_filters_mismatch"
+        },
+        {
+            "description": "Footprint component type doesn't match footprint pads",
+            "key": "footprint_type_mismatch"
+        }
+    ],
+    "included_severities": [
+        "error",
+        "warning",
+        "exclusion"
+    ],
+    "kicad_version": "10.0.6",
+    "schematic_parity": [],
+    "source": "TR2_Shield_Proto_V1.kicad_pcb",
+    "unconnected_items": [],
+    "violations": [
+        {
+            "description": "Violation d'isolation ( isolation 0,2000 mm; réel 0,0149 mm)",
+            "items": [
+                {
+                    "description": "Pad métallisé 2 [GND] de C2",
+                    "pos": {
+                        "x": 40.0,
+                        "y": 78.0
+                    },
+                    "uuid": "2ec20035-2e81-49d0-ab17-02e36f0941d1"
+                },
+                {
+                    "description": "Piste [+3V3] sur F.Cu, long. 0,6000 mm",
+                    "pos": {
+                        "x": 39.3,
+                        "y": 78.7
+                    },
+                    "uuid": "a5c60e58-36b8-4add-89f8-7bfaf3fba304"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "Violation d'isolation ( isolation 0,2000 mm; réel 0,0149 mm)",
+            "items": [
+                {
+                    "description": "Pad métallisé 2 [GND] de C2",
+                    "pos": {
+                        "x": 40.0,
+                        "y": 78.0
+                    },
+                    "uuid": "2ec20035-2e81-49d0-ab17-02e36f0941d1"
+                },
+                {
+                    "description": "Piste [+3V3] sur F.Cu, long. 0,7071 mm",
+                    "pos": {
+                        "x": 39.8,
+                        "y": 79.2
+                    },
+                    "uuid": "4344ca0f-79ba-4dcc-812e-1d2274aa12af"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        }
+    ]
+}

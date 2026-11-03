@@ -1,0 +1,59 @@
+{
+  "date_utc": "2026-11-03T16:13:23.580122+00:00",
+  "ST_MB1549": {
+    "BDP_publication_advertised": "4.0",
+    "manufacturing_publication_advertised": "3.4",
+    "archive_content": null,
+    "actual_board_revision": null,
+    "sha256": null,
+    "status": "DOWNLOAD_FAILED; do not equate package version with C05",
+    "sources": [
+      "https://www.st.com/resource/en/board_manufacturing_specification/mb1549-bdp.zip",
+      "https://www.st.com/resource/en/board_manufacturing_specification/mb1549-manufacturing.zip"
+    ]
+  },
+  "downloaded_primary_drawings": [
+    {
+      "filename": "Harwin-M20-782.pdf",
+      "url": "https://content.harwin.com/asset/53851ba8-b32e-4ac5-a0c5-09d9271c0c0a/DRG-00385-Technical-Drawing-Datasheet-M20-782-pdf.pdf",
+      "bytes": 69829,
+      "sha256": "dc63950fd4db62272f85d19d3c48739909c6909ae21502f38542ba9acfd2fcf5",
+      "local_path": "/home/lolo/dev/msm/reports/TR2-shield-v12-20261103/Harwin-M20-782.pdf",
+      "redistribution": "not copied to public repository; license not assumed"
+    },
+    {
+      "filename": "Harwin-M20-998.pdf",
+      "url": "https://content.harwin.com/asset/1590d228-db5c-4836-ab0c-0f146730b624/DRG-00478-Technical-Drawing-Datasheet-M20-998-pdf.pdf",
+      "bytes": 49082,
+      "sha256": "05d6377c688046aef738a839253496481ec748d5123445d4a8b0b38173232f86",
+      "local_path": "/home/lolo/dev/msm/reports/TR2-shield-v12-20261103/Harwin-M20-998.pdf",
+      "redistribution": "not copied to public repository; license not assumed"
+    }
+  ],
+  "supplier_observations": [
+    {
+      "MPN": "M20-7821242",
+      "stock_displayed": 2275,
+      "unit_USD": 1.93,
+      "url": "https://www.digikey.com/en/products/detail/harwin-inc/M20-7821242/3727819"
+    },
+    {
+      "MPN": "M20-7820942",
+      "stock_displayed": 1463,
+      "unit_USD": 1.87,
+      "url": "https://www.digikey.com/en/products/detail/harwin-inc/M20-7820942/3919444"
+    },
+    {
+      "MPN": "M20-7820242",
+      "stock_displayed": 1911,
+      "unit_USD": 0.82,
+      "url": "https://www.digikey.com/en/products/detail/harwin-inc/M20-7820242/3727744"
+    }
+  ],
+  "stock_caveat": "public rendered observations, not live warehouse proof or reservation; recheck before purchase",
+  "passives_primary": [
+    "https://search.kemet.com/component-documentation/download/specsheet/C315C104K5R5TA",
+    "https://industrial.panasonic.com/ww/products/pt/aluminum-cap-lead/models/ECA1HM100",
+    "https://www.vishay.com/docs/28724/mrs16m25.pdf"
+  ]
+}

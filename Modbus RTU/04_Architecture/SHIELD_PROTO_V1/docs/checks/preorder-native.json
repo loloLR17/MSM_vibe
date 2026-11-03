@@ -1,0 +1,40 @@
+{
+  "status": "PASS_NOMINAL_CAD_ONLY",
+  "bottom_headers": [
+    "J1",
+    "J2",
+    "J3",
+    "J4",
+    "J5"
+  ],
+  "J5_69_PG4": "RTU_DE",
+  "J5_70_PG6": "NC",
+  "header_drill_mm": 1.02,
+  "passive_pitch_mm": {
+    "C1": 2.54,
+    "C2": 2.0
+  },
+  "screw_clearances": [
+    {
+      "header": "J3",
+      "head_and_washer_max_diameter_mm": 4.5,
+      "nominal_clearance_to_enlarged_courtyard_mm": 0.04,
+      "C05_real_part": "NOT_VERIFIED"
+    },
+    {
+      "header": "J4",
+      "head_and_washer_max_diameter_mm": 4.5,
+      "nominal_clearance_to_enlarged_courtyard_mm": 0.04,
+      "C05_real_part": "NOT_VERIFIED"
+    }
+  ],
+  "routes_retained": 31,
+  "route_changed": "TP1.1-C2.1 +3V3 only",
+  "strict_rules": {
+    "min_clearance": 0.2,
+    "min_track_width": 0.25,
+    "min_via_diameter": 0.6
+  },
+  "C05_manufacturer_CAD": "NOT_RECEIVED",
+  "physical_mating": "NOT_VERIFIED"
+}

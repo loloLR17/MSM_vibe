@@ -1,26 +1,22 @@
-# Budget V1.1 pour deux shields réemployant les modules
+# Budget V1.2 — deux assemblages, cinq PCB nus
 
-Aucun devis livré ni achat. Les prix observés et sources de connecteurs repris du02/11/2026 sont conservés dans `BOM.csv` ; valeurs de V1 au commit1d2aa668. Conversion comptable1USD=1EUR = provision, pas cours de change. Les autres postes sont des hypothèses.
+Aucun achat, devis livré ou engagement. Stocks/prix publics consultés03/11/2026, non réservés. La BOM distingue MPN réel, quantité et spécification dimensionnelle non figée ; les refs de vis/entretoises ne peuvent être déclarées finales avant la hauteur C05.
 
-| Poste deux exemplaires | ProvisionEUR |
+| Poste | Base / provision |
 |---|---:|
-| Lot5PCB90×100 standard + connecteurs et points test | 7,09 |
-| Passifs | 1,50 |
-| Fixations Nucleo/FRAM/SD | 8,00 |
-| Pièces imprimées/selles/poussoirs, fabrication locale à confirmer | 5,00 |
-| Vis/écrous/rondelles additionnels étriers et selles | 5,00 |
-| Fenêtre transparente simple | 0,80 |
-| Deux transports PCB/composants | 17,00 |
-| Sous-total scénario | **44,39** |
-| RéserveTVA20% | 8,88 |
-| Total scénario | **53,27** |
+| Sockets12 :4×1,93USD, socket9 :4×1,87USD, socket8 :4×1,76USD |22,24USD|
+| Femelles2 nouvelles Nucleo :2×0,82USD |1,64USD|
+| Mâles J1–J5, recoupe et TP, prix pas tous capturés |12,00USD provision|
+| Lot5 PCB (2utilisés,3réserves) |2,00USD prix d'appel seulement|
+| Passifs |2,50EUR provision|
+| Entretoises/vis courtes FRAM/SD/Nucleo |8,00EUR provision|
+| Étriers/selles imprimés ultérieurement |5,00EUR provision|
+| Visserie additionnelle |5,00EUR provision|
+| Fenêtre simple |0,80EUR provision|
+| Deux transports PCB/composants |17,00EUR provision|
 
-Écart V1 :45,11→53,27€, soit **+8,16€**. Remplacement de la provision4€ de simples sangles par les retenues/selles et leur visserie, plus fenêtre. La cible≤50€ **n’est donc pas tenue dans ce scénario**, et demeure non démontrée sans devis. Variante minimale : ramener les deux ports à14€ par achat groupé/local réellement possible ; le calcul deviendrait49,67€, sans garantie. Ne pas supprimer la retenue ou l’isolation pour atteindre artificiellement50€.
+Scénario comptable **1USD=1EUR uniquement comme provision**, aucun cours de change prétendu :37,88+38,30=76,18EUR avant réserveTVA20%, soit **91,42EUR**. Budget50EUR non démontré et nettement dépassé avec ces sockets catalogue plus chers ; ne pas reprendre53,27EUR V1.1 comme coût actuel. Une source locale/commande groupée peut réduire les frais, sans garantie. Aucun devis n'a été négocié. La qualité d'engagement et les retenues ne sont pas sacrifiées pour afficher50EUR.
 
-**Avenant V1.1-A** : le bloc secteur externe5V et son câble existants sont réemployés pour CN15. Aucun nouvel interrupteur USB ni powerbank à acheter dans ce budget. Seul le5V entre dans TR2 ; rallonge230V et adaptateur restent hors boîtier, installation selon exigences du bord. L’alimentation du produit final est différée, sans coût batterie ajouté ni choix présumé. Le budget53,27€ est celui des deux shields/connectiques/retentions en réemploi ; disponibilité de deux blocs externes pour une utilisation simultanée à confirmer au besoin, sans achat dans cette mission.
+Les2USD sont une annonce **par lot5**, pas cinq fois2USD ; dimensions90×100, finition, tolérances de perçage, DFM, livraison et fiscalité restent à chiffrer. Le fabricant ne reçoit rien. PCB nus seuls, assemblages avec modules réemployés, et futur boîtier complet sont trois périmètres de coût distincts. Le boîtier final et fixation tête ne sont pas inclus ; bloc5V existant réemployé, aucune batterie ni230V sur PCB.
 
-Quantités de pièces : par appareil1étrierMKI,1Click,1selle plate,2selles rondes (RS485/CN15),1poussoir ; selle ST-LINK de maintenance optionnelle réutilisable. Les volumes exacts des modèles pleins sont dans `docs/checks/mechanical-verification.json` (~7,6cm³ par jeu, avant tolérances/supports/infill). Le calcul ne qualifie pas matériau, taux de remplissage ou résistance. PA66/PA12/PETG ne sont pas interchangeables sans revue thermique/mécanique ; aucun PLA déclaré apte à56,5°C.
-
-Stocks, hauteur des sockets, choix passifs/fixations et coûts de fabrication des pièces doivent être figés. Les sockets12 Neltron restaient hors stock au contrôleV1 ; un substitut au même pas ne prouve pas même hauteur. Prix d’appel PCB2USD/lot non devis DFM. Budget pour connectique et mécanique ; futur boîtier complet et étude fixation tête restent distincts.
-
-Sources : [PCB JLCPCB](https://jlcpcb.com/help/article/how-do-i-place-an-order), [Tayda doubleA-5940](https://www.taydaelectronics.com/2-x-40-pin-male-2-54-mm-single-row-pin-header-break-away-round-pin-gold-plated.html), [catalogue connecteurs](https://www.taydaelectronics.com/connectors-sockets/pin-headers.html), [socket12A-7559](https://www.taydaelectronics.com/12-pin-2-54-mm-single-row-female-pin-header.html), [socket8A-1305](https://www.taydaelectronics.com/8-pin-2-54-mm-single-row-female-pin-header.html). Prix de base conservés ; port, imprimés et fiscalité restent provisionnels.
+Référence12 disponible : [DigiKey M20-7821242](https://www.digikey.com/en/products/detail/harwin-inc/M20-7821242/3727819),2275 affichés et1,93USD à l'unité ; [socket9](https://www.digikey.com/en/products/detail/harwin-inc/M20-7820942/3919444),1463 et1,87USD ; [femelle2](https://www.digikey.com/en/products/detail/harwin-inc/M20-7820242/3727744),1911 et0,82USD. Harwin définit la géométrie ; le fournisseur définit uniquement le stock/prix affiché. Le8points à1,76USD est montré comme associé au12 ; son stock exact doit être recontrôlé avant un achat futur.

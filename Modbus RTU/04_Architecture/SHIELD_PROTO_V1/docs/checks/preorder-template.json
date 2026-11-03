@@ -1,0 +1,39 @@
+{
+  "status": "PASS_TEMPLATE_GENERATION_ONLY",
+  "pages": [
+    {
+      "page": 1,
+      "mirror": false,
+      "scale": 1,
+      "calibration_mm": [
+        100,
+        100
+      ],
+      "nucleo_numbered_pads": 102
+    },
+    {
+      "page": 2,
+      "mirror": false,
+      "scale": 1,
+      "calibration_mm": [
+        100,
+        100
+      ],
+      "nucleo_numbered_pads": 102
+    },
+    {
+      "page": 3,
+      "mirror": true,
+      "scale": 1,
+      "calibration_mm": [
+        100,
+        100
+      ],
+      "nucleo_numbered_pads": 102
+    }
+  ],
+  "manufacturer_coordinates_known": false,
+  "comparison_rows": 105,
+  "sha256": "a0b99b71e4484ec65547667d5621e12a690de45c38eb4569b412e2736dc6b2a8",
+  "physical_check": "NOT_PERFORMED"
+}

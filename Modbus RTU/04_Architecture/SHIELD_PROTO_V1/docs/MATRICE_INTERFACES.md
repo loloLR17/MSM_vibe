@@ -1,4 +1,4 @@
-# Matrice électrique et orientations — candidat V1.1 (liaisons identiques à V1)
+# Matrice électrique et orientations — candidat V1.2 (liaisons identiques à V1)
 
 Toutes les alimentations et E/S retenues sont **3,3 V**, GND logique commun. Aucune liaison à 5 V, VIN Nucleo, CN15 ou source externe n’est créée. L’alimentation actuelle du Nucleo et ses jumpers sont conservés ; le shield n’est pas un circuit de sélection de source.
 
@@ -40,3 +40,5 @@ R1/R2/R3 : rappels CS au +3V3 de 10 kΩ ; R4 : rappel DE au GND de 10 kΩ. Les r
 Références de code lues, inchangées : `05_Firmware/platform/stm32/main.c` (PD14/FRAM, PA5–7/SPI1, PC9–12/SPI3) et `experiments/spi2_microsd_isolated/src/main.c` / `experiments/r3_durable_fat32/` pour le banc SPI2 de la campagne CN0. Le firmware CN0 réellement qualifié ne pilote pas nécessairement simultanément FRAM et RS485 : leur présence sur le shield **ne qualifie pas la coexistence logicielle**.
 
 Retenus : Nucleo MB1549-U575ZIQ-C05, Adafruit4718/MB85RS2MTA, Adafruit4682, MKIGIBV2 + MKI208V1, RS485 Isolator2 Click MIKROE3863/ADM2867E. Références confirmées par l’utilisateur et gel matériel historique (précision suffixe MTA provenant du gel Adafruit4718, non d’une lecture de boîtier actuelle). Non présents dans ce candidat : anciennes EVAL RS485, Ethernet/PoE, SDMMC, nouveau MCU. Optionnel : boîtier futur et fixation de tête, sans ajout de fonctions électriques.
+
+V1.2 : la femelle deux points CN12-69/70 **doit être ajoutée** sur chaque Nucleo, et reste à vérifier sur C05 ; voir J5_ET_EMPILEMENT_V1_2.md. Aucun changement de net. Références passifsC1/C2 et pas2,54/2,00mm dans BOM.csv.

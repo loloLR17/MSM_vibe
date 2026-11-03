@@ -1,5 +1,5 @@
 {
-  "revision": "1.1-A",
+  "revision": "1.2",
   "release": "BLOCKED_FABRICATION",
   "coordinates": "mm in KiCad top view, X right/Y down; Z=shield top; Z positive above shield",
   "module_bottom_z_mm": {
@@ -199,10 +199,9 @@
     "product_final_supply": "deferred independent study"
   },
   "missing": {
-    "C05": "Zio/PG4 anchor fit, LED/USER/jumper/USB locations and engagement heights",
-    "MKI": "body/connector envelope, top components and actual asymmetric key contact features",
-    "Click": "actual revision and edge contact clearances",
-    "SD": "actual throat height/recess and push/eject access in enclosure; nominal manufacturer model only",
-    "cables": "ribbon thickness/min bend and USB/RS485 actual diameters"
-  }
+    "C05_PCB_GATE": "CAD C05 not retrieved: Zio/CN12 centres,3 anchors,underboard clearance; female2 CN12 absent by default, actual solder and mating height needed",
+    "module_PCB_GATE": "MKI nominal body envelope and actual Click revision must fit reserved socket/anchor/isolation zones; no new row-pitch/ground measurement requested",
+    "deferred_after_PCB": "exact clip pads, enclosure cuts, LED centres,USER plunger,cable saddles; no automatic-key gate"
+  },
+  "automatic_keying": "NOT_REQUIRED_BY_USER_FOR_TWO_PROTOTYPES"
 }

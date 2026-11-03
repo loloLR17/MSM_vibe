@@ -1,3 +1,5 @@
+> Historique V1.1 : pour la précommande courante, PRECOMMANDE_V1_2.md et ASSEMBLAGE_ET_RESERVES.md prévalent ; détrompage automatique et boîtier fini ne sont plus des gates PCB nus.
+
 # V1.1 — interfaces du futur boîtier, sans boîtier complet
 
 **BLOCKED_FABRICATION.** Plan1:1 `exports/interfaces-boitier.svg` et PDF associé ; positions numériques dans `mechanical/interfaces.json`. Axes du PCB KiCad : X droite, Y bas, Z au-dessus du support ; origineZ = face supérieure du shield. Les zones en pointillés sont des réservations fonctionnelles, **pas des découpes libérées**. Aucune mesure réelle C05 ni usinage n’a été effectué.

@@ -1,29 +1,14 @@
-# V1.1 — assemblage et gates de libération
+# V1.2 — assemblage futur et réserves PCB
 
-**BLOCKED_FABRICATION : ni PCB ni retenue imprimée autorisés pour campagne.** Sources V1 conservées au commit1d2aa668 ; la clôture ChatGPT n’a pas levé leurs réserves. La V1.1 remplace la simple proposition de sangles par des étriers paramétriques et précise les interfaces opérateur ; elle ne constitue pas un assemblage réalisé.
+Lire d'abord PRECOMMANDE_V1_2.md et J5_ET_EMPILEMENT_V1_2.md. **NE PAS COMMANDER**, aucune manipulation autorisée/exécutée dans cette mission.
 
-## Séquence future, sans manipulation demandée maintenant
+1. Sous mission d'assemblage dédiée, bancs hors tension : confirmer C05/gabarit/hauteurs et accessibilité Morpho. Ajouter une femelle deux points sur CN12-69/70 de chaque Nucleo. Repérer broche69/PG4, ne pas ponter PG6.
+2. Souder J1–J5 sous le shield, tous les corps dans le même plan. Vérifier au gabarit les numéros1 et la vue miroir. Engager à blanc l'ensemble sans force ; ajuster les entretoises à la hauteur réelle. Poser l'ancrage caché sous SD avant les modules. Les vis et entretoises portent les efforts.
+3. Souder J6–J9 dessus, orienter les sockets, nettoyer et examiner toutes les queues/bridges hors tension. FRAM JP1-9VIN→3V3 ; JP1-8sortieLDO NC. SD J7-1=3V3,2GND, fente-X. Aucun5V injecté.
+4. FRAM et SD : deux entretoises isolantes et vis chacune, dans trous existants. Pas de vis métallique contre cuivre, pas de serrage sur composants ni sur fente SD ; headsØ≤5mm dans les dégagements réservés.
+5. MKIGIBV2 : JP1 à gauche, broches globales1/2(VDDIO/VDD) en haut à gauche, JP2 à droite24(MISO) en haut,13(GND) en bas. Pas2,54/entraxe15,24 nominal dérivé du15,2 mesuré. Capteur et nappe vers-Y, boucle sans traction. Fixation positive par étrier simple aux deux ancrages, patins de rive ajustés aux composants réels, aucun appui sur contacts.
+6. Click : extrémité isolée et bornier+X, J9-1 marqué ; VCCSEL3V3 et liaison DE-/RE du module conformément au schéma retenu. Étrier simple et reprise de câble sur structure. Ne pas relier GND2/A/B au GND logique et ne pas traverser la barrière par une vis ou pièce conductrice.
+7. Le détrompage automatique est abandonné pour ces deux prototypes : remplacer sa promesse par repères lisibles et contrôle croisé du pinout hors tension avant insertion. Ne jamais utiliser le vissage pour rattraper inversion/décalage ou contacts non engagés. Modules démontables après dépose de la retenue.
+8. Après réception PCB : adapter boîtier, selles, fenêtres LED et poussoir USER captif, RESET protégé ; accès CN15/ST-LINK. Ces cotes finales sont différées, leurs volumes réservés restent libres. Aucune pièce REVIEW_ONLY n'est qualifiée à imprimer pour campagne sans revue de contact/matériau/thermique.
 
-1. Contrôler gabarit1:1 et cotes C05 ; figer hauteurs de sockets/entretoises, engagement et dégagement de soudure. Vérifier les trois ancrages non alignés (32,62;21,19), (33,89;97,39), (79,61;97,39), perçage2,8 pourM2,5. Le quatrième emplacement proche CN7 reste omis pour éviter une tête de vis dans le connecteur.
-2. Souder headers J1–J5 sous le shield, monter à blanc sans pression latérale ni flexion ; les entretoises portent l’effort. Vérifier la paire J5 en particulier. Déposer hors tension pour contrôle de continuité/isolation et nettoyage.
-3. Poser les sockets J6–J9 dessus ; queues sous les modules propres/courtes, pas de tête métallique ou carte voisine en contact avec un conducteur. Les courtyards sont ceux des sockets au niveau du support, les enveloppes élevées sont F.Fab. Hauteur11mm = cible, non mesure.
-4. Visser FRAM et SD dans leurs deux trous existants avec entretoises isolantes. Fixer d’abord l’ancrage Nucleo caché sous SD. Ne pas utiliser le serrage pour rattraper un défaut d’alignement ; appui sur butée de hauteur avant serrage. La SD sort vers-X, sans démonter le module.
-5. Adapter puis installer les étriers J8/J9 aux surfaces de rives et clés réellement vérifiées. La dissymétrie des vis ne remplace pas le détrompage du module. Contrôler leur démontabilité et le dégagement des composants/nappe/borniers. Ne pas imprimer les gabarits `REVIEW_ONLY` comme pièces de campagne sans cette revue.
-6. Installer les selles nappe/RS485/USB sur la structure du futur boîtier, jamais sur les connecteurs. Prévoir boucle de mou, arêtes arrondies, protection de la SD, fenêtre LED et USER captif avec butée ; RESET séparé et protégé. Aucun boîtier complet n’est défini ici.
-7. Après validation mécanique, exécuter le plan électrique/physique sous une mission dédiée autorisée ; arrêter avant de compromettre FRAM, SD et firmware existants.
-
-## Réserves minimales restantes
-
-| Élément extérieur nécessaire | Relevé minimum utile lors d’une intervention ultérieure autorisée | Ce qu’il permettra de figer |
-|---|---|---|
-| Nucleo C05 | Gabarit confronté ou CAO C05 ; vue dessus cotée des ports, LED, USER/RESET et ancrages ; hauteur engagée des connecteurs | Alignement sans flexion, standoffs, ouvertures/guides et longueur/course USER |
-| MKIGIBV2 | Longueur/largeur hors tout, hauteur et position/débord du connecteur, vue dessus/profil et rives sans composants | Enveloppe, patins et détrompage réellement asymétrique du module |
-| Click réel | Révision lisible et vue des borniers/rives ; vérifier concordance v101/v102 et hauteur | Contacts de l’étrier, butée de renversement et accès fils/outil sans pont d’isolation |
-| SD assemblée | Hauteur/retrait exact de la bouche et engagement dans les sockets choisis | Poche doigts, trappe et trajectoire de carte ; comparer aux positions0,6/1,6/5,3 de la fiche |
-| Câbles | Épaisseur nappe/rayon admissible ; diamètres et coques USB/RS485 utilisés | Gorges/selles, boucles de mou et ouvertures sans pincement |
-
-**Ne pas redemander** l’entraxe MKIGIBV2 déjà mesuré15,2mm ni la position GND déjà rapportée en bas à droite deJP2 (global13). Les centres LED/USER ne sont pas déduits avec une fausse précision d’une photo. Ces inconnues sont matérialisées dans `mechanical/interfaces.json`.
-
-Même après ces cotes, le budget livré, la puissance disponible3V3 sous pics SD/Click, l’insertion sans flexion, l’accès opérateur, la tenue thermique/vibratoire et le transport devront être vérifiés. Le modèle v101 et la présence d’une zone hors cuivre ne certifient pas la tenue diélectrique du montage réel. Pas de fabrication libérée par un ERC/DRC vert.
-
-SPI3 reste le pinout actuel, sans modification de fréquence, du filtre ou des formats. Les30cm de nappe et8MHz restent à qualifier après montage ; ne pas supprimer les résistances série existantes. Carter peint56,5°C, fixation de tête et antichute restent un chantier distinct.
+Les seuls relevés qui conditionnent encore le PCB sont listés dans PRECOMMANDE_V1_2.md : C05+J5 et comparaison enveloppes MKI/Click aux ancrages. Aucun nouveau relevé entraxe/GND MKI demandé. Le plan de qualification électrique/physique reste ultérieur ; ne pas déduire une tenue vibratoire d'un assemblage nominal ni du DRC.

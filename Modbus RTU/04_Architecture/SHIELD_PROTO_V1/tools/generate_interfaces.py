@@ -6,7 +6,7 @@ S=['<svg xmlns="http://www.w3.org/2000/svg" width="210mm" height="185mm" viewBox
 def rect(x,y,w,h,fill,stroke='#444',dash=False):S.append(f'<rect x="{x}" y="{y}" width="{w}" height="{h}" fill="{fill}" stroke="{stroke}"'+(' stroke-dasharray="1.5,1"'if dash else'')+'/>')
 def text(x,y,t,color='#111',size=2.4):S.append(f'<text x="{x}" y="{y}" fill="{color}" font-size="{size}">{html.escape(t)}</text>')
 def line(a,b,color='#444',dash=False):S.append(f'<path d="M{a[0]},{a[1]} L{b[0]},{b[1]}" stroke="{color}" fill="none"'+(' stroke-dasharray="1,1"'if dash else'')+'/>')
-text(-10,-19,'TR2 SHIELD V1.1 - INTERFACES / ECHELLE 1:1',size=3.2);text(-10,-14,'NE PAS FABRIQUER : geometrie C05, hauteurs et detrompage MKI non confirmes','#b00020')
+text(-10,-19,'TR2 SHIELD V1.2 - INTERFACES / ECHELLE 1:1',size=3.2);text(-10,-14,'NE PAS FABRIQUER : C05 / J5 femelle Morpho et hauteurs a confirmer','#b00020')
 rect(21.75,-6.75,70,133.34,'#fafafa','#888',True);text(94,2,'Nucleo : enveloppe UM2861');text(94,6,'Reconstruction, pas CAO C05','#b06000')
 rect(20,17,90,100,'#f0fff0','#174d28');text(89,18,'90 x 100 mm')
 # Known carrier/module footprint envelopes; the MKI body envelope is explicitly provisional.
@@ -36,7 +36,7 @@ for h in D['retainer_mount_holes']:
 text(-10,149,'Plein : enveloppes sources / PCB. Pointilles : hypotheses et volumes fonctionnels reserves.',size=2.3)
 line([0,155],[50,155]);text(53,156,'Controle impression : 50 mm / imprimer100%',size=2.3);S+=['</g></svg>'];svg='\n'.join(S)+'\n';(P/'exports/interfaces-boitier.svg').write_text(svg);(P/'exports/gabarit.svg').write_text(svg)
 # Standalone isometric views from the STL exports, not independent reverse-engineered CAD.
-S=['<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="720" viewBox="0 0 1200 720">','<rect width="1200" height="720" fill="#f7fafc"/>','<g font-family="sans-serif">','<text x="20" y="30" font-size="23">TR2 V1.1 - modeles de revue / NON LIBERES POUR IMPRESSION DE CAMPAGNE</text>']
+S=['<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="720" viewBox="0 0 1200 720">','<rect width="1200" height="720" fill="#f7fafc"/>','<g font-family="sans-serif">','<text x="20" y="30" font-size="23">TR2 V1.2 - modeles de revue / NON LIBERES POUR IMPRESSION DE CAMPAGNE</text>']
 for idx,name in enumerate(['mki','click','flat_clamp','round_clamp','user_plunger']):
  raw=(P/f'mechanical/REVIEW_ONLY/{name}.stl').read_bytes();n=struct.unpack_from('<I',raw,80)[0];triangles=[];pts=[]
  for i in range(n):

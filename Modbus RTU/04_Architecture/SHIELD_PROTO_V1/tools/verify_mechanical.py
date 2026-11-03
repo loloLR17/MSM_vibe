@@ -21,6 +21,7 @@ oldpads={(q['ref'],q['number']):q for q in base_pcb['pads']if q['number']}
 for q in B['pads']:
  if q['number']:
   oldpad=oldpads[q['ref'],q['number']];dx=-3.5 if q['ref']=='J7'else 0
+  if q['number']=='2' and q['ref'] in ('C1','C2'):dx={'C1':.04,'C2':-.5}[q['ref']]
   assert abs(q['x']-oldpad['x']-dx)<.0001 and abs(q['y']-oldpad['y'])<.0001,'Unexpected actual pad movement'
 assert not any(q['net']in('GND2','+5V','5V')for q in B['pads'])
 
@@ -37,8 +38,7 @@ def distance_rect(x,y,r):return math.hypot(max(r[0]-x,0,x-r[2]),max(r[1]-y,0,y-r
 for h in D['retainer_mount_holes']:
  for rect in [[42.46,21.46,62.78,54.48],[42.46,56.46,67.86,74.24],[20.18,83.14,43.04,108.54],[83.41,78.73,140.56,104.13]]:
   assert distance_rect(*h['xy'],rect)>3.0,'Nominal pillar intersects a module envelope'
-# v101 Click rotated180 at the same socket centre conflicts with the proposed left key fence.
-assert 51.66<82.7<108.81 and 82.9<83.41
+# Automatic keying is waived; no replacement of electrical or mechanical clearance checks.
 meshes=[]
 for name in ['mki','click','flat_clamp','round_clamp','user_plunger']:
  f=P/f'mechanical/REVIEW_ONLY/{name}.stl';raw=f.read_bytes();n=struct.unpack_from('<I',raw,80)[0];assert len(raw)==84+50*n
@@ -58,5 +58,5 @@ for name in ['mki','click','flat_clamp','round_clamp','user_plunger']:
  assert volume>0,(name,'mesh orientation/volume invalid')
  components=len({find(k)for k in parents});assert components==1,(name,'disconnected solids')
  meshes.append({'name':name,'triangles':n,'closed_edges':True,'connected_surface_components':components,'signed_volume_mm3':volume,'bbox_mm':[[min(x[j]for x in verts),max(x[j]for x in verts)]for j in range(3)],'sha256':hashlib.sha256(raw).hexdigest()})
-r={'status':'PASS_NOMINAL_ONLY','electrical_nets_equal_to_V1':True,'nucleo_headers_and_anchors_unchanged':True,'SD_shift_mm':[-3.5,0],'retainer_holes_match_saved_PCB':True,'nominal_pillar_module_clearance_mm':3.0,'positive_SD_fastener_card_corridor_check':'PASS for 5mm head design allowance and y89.5..102.3 card path','click_reversal_key':'interference predicted for v101 nominal body; actual revision/contact surface unverified','MKI_module_reversal_key':'BLOCKED: actual asymmetric connector/body features not measured','meshes':meshes,'physical_fit':'NOT_VERIFIED','manufacturing_release':'BLOCKED_FABRICATION'}
+r={'status':'PASS_NOMINAL_ONLY','electrical_nets_equal_to_V1':True,'nucleo_headers_and_anchors_unchanged':True,'SD_shift_mm':[-3.5,0],'passive_pad_pitch_mm':{'C1':2.54,'C2':2.0},'retainer_holes_match_saved_PCB':True,'nominal_pillar_module_clearance_mm':3.0,'positive_SD_fastener_card_corridor_check':'PASS for 5mm head design allowance and y89.5..102.3 card path','automatic_keying':'NOT_REQUIRED: user decision20261103; no claim of anti-inversion protection','meshes':meshes,'physical_fit':'NOT_VERIFIED','manufacturing_release':'BLOCKED_FABRICATION'}
 (P/'docs/checks/mechanical-verification.json').write_text(json.dumps(r,indent=2)+'\n');print(json.dumps(r,indent=2))

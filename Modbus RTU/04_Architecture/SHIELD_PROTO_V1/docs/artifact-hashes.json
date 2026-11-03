@@ -1,386 +1,274 @@
 {
-  "cad/routes.json": {
-    "bytes": 51028,
-    "sha256": "214d8badbc1a33aa3bbd46f3b4f8c8f79e10abcd9df21c205ffe20440ff9b125"
+  "cad/TR2.kicad_sym": {
+    "bytes": 38464,
+    "sha256": "fdd1b87ea8f60475e7712024631e1d037efbd0644dd19cabc6244b699dea6dde"
   },
-  "cad/fp-lib-table": {
-    "bytes": 162,
-    "sha256": "4be354bcbcb7c6486dd1990bb33b310386cd31467f3003cd47f3fd2bfa6dcaf7"
+  "cad/TR2.pretty/C1_100n.kicad_mod": {
+    "bytes": 2550,
+    "sha256": "9a18f16494a024158141f2dd7452bb773ddc3f2700de951c6bff2f211af7ceae"
   },
-  "cad/TR2_Shield_Proto_V1.kicad_sch": {
-    "bytes": 87703,
-    "sha256": "daa2a015049f4672d67b0dda825658e414fdee4b8e12410d19535e437e10e85b"
+  "cad/TR2.pretty/C2_10u_10V.kicad_mod": {
+    "bytes": 2533,
+    "sha256": "2c205062f13b3d209df37c0d5ae231ef1de22c7a2953d8a3a57eb897c26d51c0"
+  },
+  "cad/TR2.pretty/J1_NUCLEO_CN7.kicad_mod": {
+    "bytes": 5785,
+    "sha256": "60872d30c14d38e91c1cd384691c5860effee51ec2c117f5535de43c964e45a4"
+  },
+  "cad/TR2.pretty/J2_NUCLEO_CN8.kicad_mod": {
+    "bytes": 4566,
+    "sha256": "cfd754a183e85101b3ebef6daca88b11a4faace8dc37fcac9d8bc49a77dfe97a"
+  },
+  "cad/TR2.pretty/J3_NUCLEO_CN9.kicad_mod": {
+    "bytes": 7137,
+    "sha256": "cd29d3fc0535de5e34eaefbd459760b4d0e0aaf1a872abe8ffca2dc0c6ee9437"
+  },
+  "cad/TR2.pretty/J4_NUCLEO_CN10.kicad_mod": {
+    "bytes": 7871,
+    "sha256": "f588e0fe3337c6dcac9ee0497a5eb04e1777022b830443751dd7563d3e0947c8"
+  },
+  "cad/TR2.pretty/J5_CN12_69_70_PG4.kicad_mod": {
+    "bytes": 2020,
+    "sha256": "b4b01671ed350f43e585b83907380779bd36cd06b3b89a939b528e967f17e978"
+  },
+  "cad/TR2.pretty/J6_ADAFRUIT_4718.kicad_mod": {
+    "bytes": 4179,
+    "sha256": "9b04d8c7ecca3642d7fd6fa02072ffa5ee99f138d2a2fbc3131eba421fabd788"
+  },
+  "cad/TR2.pretty/J7_ADAFRUIT_4682.kicad_mod": {
+    "bytes": 4192,
+    "sha256": "e06591d858b372b4aaafba7d8256f3b0d3f766db2699917b769b95e3dfc94f90"
+  },
+  "cad/TR2.pretty/J8_ST_MKIGIBV2.kicad_mod": {
+    "bytes": 7612,
+    "sha256": "30266e4735648e993530181753021c7765a9c35d4cdeda7751104c2c490fcf1a"
+  },
+  "cad/TR2.pretty/J9_MIKROE_3863.kicad_mod": {
+    "bytes": 6168,
+    "sha256": "b0f2772831fcd1659038ed0046ef2f7e885c634eec2beec3337a936e2f5b00d1"
+  },
+  "cad/TR2.pretty/R1_10k.kicad_mod": {
+    "bytes": 1904,
+    "sha256": "874f60d705770bf4e56b49fa48eb0ca280addab05de0b1dbcedaeb591e98be40"
+  },
+  "cad/TR2.pretty/R2_10k.kicad_mod": {
+    "bytes": 1904,
+    "sha256": "3dac1c1b0e6dc81af8adb0fb14435534f9192b72ce46a46dbf9739fa51ab6aca"
+  },
+  "cad/TR2.pretty/R3_10k.kicad_mod": {
+    "bytes": 1904,
+    "sha256": "0064ad9e6e41f5ededdf3df83fccb80274914dcc8b6a6c0ff474c298cbd5918e"
+  },
+  "cad/TR2.pretty/R4_10k.kicad_mod": {
+    "bytes": 1904,
+    "sha256": "a19f606c8049cb45bcffe34191990fd6b61898939fa0da7fd7a9ea595d10b272"
+  },
+  "cad/TR2.pretty/TP1_TP_3V3.kicad_mod": {
+    "bytes": 1720,
+    "sha256": "3506e8188875747a6fc2b32a564c4a349b6e268e8c00beee856e2792f4336b82"
+  },
+  "cad/TR2.pretty/TP2_TP_GND.kicad_mod": {
+    "bytes": 1720,
+    "sha256": "5d3deb409cc6dd9cc60f01f163ae688f5a56a26dc59cbe6b097759c86991a38c"
+  },
+  "cad/TR2.pretty/TP3_TP_ACC_SCK.kicad_mod": {
+    "bytes": 1728,
+    "sha256": "80a8e040141dc4ca24b4f8299a93effbc967bf20bf07f512ba0d168b7a215f0c"
+  },
+  "cad/TR2.pretty/TP4_TP_SD_CS.kicad_mod": {
+    "bytes": 1724,
+    "sha256": "4d3a3040610179e38102dad1b81e8296dc492a5d1840c24a9751d39225f22e85"
+  },
+  "cad/TR2_Shield_Proto_V1.kicad_pcb": {
+    "bytes": 679711,
+    "sha256": "86af70ffe9aa16264a4658ad6e14ef6d7e3203b7472dee779853530bbf2c8ac4"
+  },
+  "cad/TR2_Shield_Proto_V1.kicad_prl": {
+    "bytes": 2306,
+    "sha256": "047a4a463238d79602cc0f9b8f53961f4fe476dcfbb04be3e794f2da23fbd65d"
   },
   "cad/TR2_Shield_Proto_V1.kicad_pro": {
     "bytes": 9555,
     "sha256": "8c077c4fc90dc8fe73b778e3fccfeb764cc4dca59667a8a04d85bc7cc1bb61f6"
   },
+  "cad/TR2_Shield_Proto_V1.kicad_sch": {
+    "bytes": 87703,
+    "sha256": "6fa7c50fe900d9aff4113246d719905fb08cac775d0d7b09c1ff1182dd3f98de"
+  },
+  "cad/fp-lib-table": {
+    "bytes": 162,
+    "sha256": "4be354bcbcb7c6486dd1990bb33b310386cd31467f3003cd47f3fd2bfa6dcaf7"
+  },
+  "cad/routes.json": {
+    "bytes": 50485,
+    "sha256": "79909a93b000d30e36e8af99e151d7ba04d3adcd1d9289a7cfee5dba07914e25"
+  },
   "cad/sym-lib-table": {
     "bytes": 146,
     "sha256": "1d685831c1974c27683e8e65c7cb638986d370db894b88180621db50361efe79"
   },
-  "cad/TR2_Shield_Proto_V1.kicad_pcb": {
-    "bytes": 681532,
-    "sha256": "33c8fd9e53c3dba9d46a051785ceb629a93a04a7c24e7509cd13fb7f996f07ef"
-  },
-  "cad/TR2.kicad_sym": {
-    "bytes": 38464,
-    "sha256": "fdd1b87ea8f60475e7712024631e1d037efbd0644dd19cabc6244b699dea6dde"
-  },
-  "cad/TR2.pretty/J5_CN12_69_70_PG4.kicad_mod": {
-    "bytes": 2002,
-    "sha256": "b64a474ceeb3dfed6095ad9c3a62e721f8a9d3dc99f1e5340f690566462f60bf"
-  },
-  "cad/TR2.pretty/R1_10k.kicad_mod": {
-    "bytes": 1904,
-    "sha256": "92621ddd0c8328b74b05d9280c0cec66c4c094ca74230aaab0392d2924bf4113"
-  },
-  "cad/TR2.pretty/J8_ST_MKIGIBV2.kicad_mod": {
-    "bytes": 7516,
-    "sha256": "f57bbf8befefdea9e53f6c8b83ffa537fa50d7fcb5a1c13ed2504771060c88da"
-  },
-  "cad/TR2.pretty/TP1_TP_3V3.kicad_mod": {
-    "bytes": 1720,
-    "sha256": "167bea54120f30ef2391db331104291c5966eb2ba751856d70a3fe8086f0b605"
-  },
-  "cad/TR2.pretty/TP2_TP_GND.kicad_mod": {
-    "bytes": 1720,
-    "sha256": "94f39c6a46554279f5c771924deda15783cbcc3b23f8c340ff32fbfcc64ccf96"
-  },
-  "cad/TR2.pretty/J7_ADAFRUIT_4682.kicad_mod": {
-    "bytes": 4149,
-    "sha256": "20859b2dcf3f4477eea75e41f3a6fb5ff331f2368766ad464340ee6f2ad04a5b"
-  },
-  "cad/TR2.pretty/R3_10k.kicad_mod": {
-    "bytes": 1904,
-    "sha256": "0a82c8653e968e7ceb372d701904a45a153427911d9d452cccf12b87fc50bdd7"
-  },
-  "cad/TR2.pretty/J4_NUCLEO_CN10.kicad_mod": {
-    "bytes": 7761,
-    "sha256": "dcd32c583dee46d82a7acdb95f11b7c855c5059182b7ffc1767ea093d4d70c3d"
-  },
-  "cad/TR2.pretty/J3_NUCLEO_CN9.kicad_mod": {
-    "bytes": 7039,
-    "sha256": "259d252bcc9b8193cf75f54032b04c211988072a91ff823ed1496172fcf1dc95"
-  },
-  "cad/TR2.pretty/C2_10u_10V.kicad_mod": {
-    "bytes": 2551,
-    "sha256": "8c471da5d81fc384188fd81b0a75b1fbbc2036122d25ab2ceb3a639c33904b47"
-  },
-  "cad/TR2.pretty/R4_10k.kicad_mod": {
-    "bytes": 1904,
-    "sha256": "faf95ba5b0c936f884c787d081514f2c26f9d827c3de396ab236ff6921f65c56"
-  },
-  "cad/TR2.pretty/C1_100n.kicad_mod": {
-    "bytes": 2545,
-    "sha256": "19a4e8567ee6bda84ad9bbae652ddc6270ac6c299494f85e4a8bfd0a090c3983"
-  },
-  "cad/TR2.pretty/R2_10k.kicad_mod": {
-    "bytes": 1904,
-    "sha256": "9e73f157c2ff03b58c75d77ad8194e040c307e01304237bb0cf59aeb3f63f567"
-  },
-  "cad/TR2.pretty/J1_NUCLEO_CN7.kicad_mod": {
-    "bytes": 5733,
-    "sha256": "9986bb2611f565c960cdcbe8025a11da010894b8dedfbc58169806a41748806b"
-  },
-  "cad/TR2.pretty/TP4_TP_SD_CS.kicad_mod": {
-    "bytes": 1724,
-    "sha256": "cbecd9148bda8062e604581e6652f408366fc727cb25c74a0502e6eeb79e0a04"
-  },
-  "cad/TR2.pretty/J9_MIKROE_3863.kicad_mod": {
-    "bytes": 6112,
-    "sha256": "51100b2cd09d161e68d6d88a82391c21d7d10032a8eb74d9b11d29e00a7867db"
-  },
-  "cad/TR2.pretty/J6_ADAFRUIT_4718.kicad_mod": {
-    "bytes": 4136,
-    "sha256": "9227f38357ec78ff52ca9da3fae7f56e5446972276ae92e56c00406af778f436"
-  },
-  "cad/TR2.pretty/TP3_TP_ACC_SCK.kicad_mod": {
-    "bytes": 1728,
-    "sha256": "62a48d783b9d3e1c72d1149602c854812fc5286dbea8c0e1fd199d4935ed2458"
-  },
-  "cad/TR2.pretty/J2_NUCLEO_CN8.kicad_mod": {
-    "bytes": 4514,
-    "sha256": "e6da3be17782eb3e46e61326042796af17aa5ce9435f28017d1cf4d8ea3b98aa"
-  },
-  "exports/implantation-dessus.pdf": {
-    "bytes": 48634,
-    "sha256": "2793c682adcfce9ac56104e58e8ca704294757807d99c1d1ee1b706039fbcb8b"
-  },
-  "exports/schema.pdf": {
-    "bytes": 104945,
-    "sha256": "4dd1fa2468745428df2d9fff11cca944257bb5b6f356a2960757a998904ed7cc"
-  },
-  "exports/cuivre-dessous-miroir.pdf": {
-    "bytes": 79310,
-    "sha256": "79f99cdba0eef679b2df96965b123b7301cb336fe82630885cfadda3473a58e5"
-  },
-  "exports/shield-nu.png": {
-    "bytes": 214615,
-    "sha256": "4dc7a9175b6a1f4fbe05c554e13f4508b3d3f0f23ed4caf1839ad936d46f8540"
-  },
-  "exports/TR2_Shield_Proto_V1-drill.rpt": {
-    "bytes": 835,
-    "sha256": "3b5b481668d79f6e58842db15fa221a50686328d016e2390d6cec7c2e16d778b"
-  },
-  "exports/retenues-isometriques.pdf": {
-    "bytes": 92477,
-    "sha256": "2fbaef5db952259a2542ab48506f8ddacadeaf23d1b77a0c327c3f20a0780965"
-  },
-  "exports/interfaces-boitier.pdf": {
-    "bytes": 43666,
-    "sha256": "23e948e1d426d1ebe2ce97e64ad6e3b0cd9b4d655f40a3973af8ee9d54267bb2"
-  },
-  "exports/retenues-isometriques.svg": {
-    "bytes": 508765,
-    "sha256": "6aa4c64a273eee8ab1c9881c6439e8f56741c4cf2b2d2bbefecb5dabae4a06d8"
-  },
-  "exports/interfaces-boitier.svg": {
-    "bytes": 18019,
-    "sha256": "afc565c7b6976899bf809ce6e39c1f20ee45b58b41b9df0e5f859f820283a385"
-  },
-  "exports/netlist.xml": {
-    "bytes": 57771,
-    "sha256": "e1841202611ad5f5d5f306b83ba5f10902248cae2373ea7be73f9fc9faa4d490"
-  },
-  "exports/shield-nu.step": {
-    "bytes": 304217,
-    "sha256": "95a81683a149d3e22680b1959e7881d846008e182e264264b41c2e7cf26aaaf3"
-  },
-  "exports/gabarit.svg": {
-    "bytes": 18019,
-    "sha256": "afc565c7b6976899bf809ce6e39c1f20ee45b58b41b9df0e5f859f820283a385"
-  },
-  "exports/BLOCKED_FABRICATION/TR2_Shield_Proto_V1-F_Silkscreen.gto": {
-    "bytes": 40083,
-    "sha256": "06d20b3f3d179ba2861552820729f18c7de820bfb74b84323a72947b91251f23"
+  "exports/BLOCKED_FABRICATION/NE_PAS_COMMANDER.txt": {
+    "bytes": 303,
+    "sha256": "982542bc91d3ebe9d963eb7582d0116ddad6a0fe520eb2930f75e0d35a809384"
   },
   "exports/BLOCKED_FABRICATION/TR2_Shield_Proto_V1-B_Cu.gbl": {
-    "bytes": 275991,
-    "sha256": "cb891de64a3b73fa93f826758b085729db13a2a70fde7cd26c7e087b5263dbde"
-  },
-  "exports/BLOCKED_FABRICATION/TR2_Shield_Proto_V1-NPTH-drl_map.pdf": {
-    "bytes": 13906,
-    "sha256": "a06b3c17e733ad0f684e97b816576c4f5ac21144af89a370c01e8e8580b5d40b"
-  },
-  "exports/BLOCKED_FABRICATION/TR2_Shield_Proto_V1-Edge_Cuts.gm1": {
-    "bytes": 694,
-    "sha256": "6bf2e72126c288b3be6e2d17184b59aab8702f8073cc7a290511a760a8186b33"
-  },
-  "exports/BLOCKED_FABRICATION/TR2_Shield_Proto_V1-F_Mask.gts": {
-    "bytes": 5449,
-    "sha256": "4d7313055e05ea9d65a6510d36b41c77c3e1c9c97cf236a455849098ebf6c516"
-  },
-  "exports/BLOCKED_FABRICATION/TR2_Shield_Proto_V1-F_Cu.gtl": {
-    "bytes": 273270,
-    "sha256": "3907cb6c325d18592d2bfc3ed88241ae935e57bef5145c691a015cfba976a87d"
-  },
-  "exports/BLOCKED_FABRICATION/TR2_Shield_Proto_V1-NPTH.drl": {
-    "bytes": 600,
-    "sha256": "1f85ab407cd830d3ba436b523d57c5d6d931f380c67fb5dc7cf4511fdea1a16a"
+    "bytes": 275922,
+    "sha256": "6a36382da369136cae074de8aff57a2277bfa98cc2fa32695f413effeacdb437"
   },
   "exports/BLOCKED_FABRICATION/TR2_Shield_Proto_V1-B_Mask.gbs": {
     "bytes": 5449,
-    "sha256": "17811829e0aab44dfb961a5ef38054c303d498b9a3cbba9c1214a911f8ca304c"
-  },
-  "exports/BLOCKED_FABRICATION/TR2_Shield_Proto_V1-job.gbrjob": {
-    "bytes": 2530,
-    "sha256": "60ebbb27996296ee0d35d5f2b14d0158d9cb82688ea627b51faf2f466c6a6b49"
-  },
-  "exports/BLOCKED_FABRICATION/TR2_Shield_Proto_V1-PTH-drl_map.pdf": {
-    "bytes": 17234,
-    "sha256": "56204be99763cbd79334384a7d2b4e49b7c27603a86badc3ae5a26be1f2a54c8"
-  },
-  "exports/BLOCKED_FABRICATION/NE_PAS_COMMANDER.txt": {
-    "bytes": 262,
-    "sha256": "75e46dc0019854e4d43ea220b365337ff91a1a220d581874eb48e4965878a65f"
-  },
-  "exports/BLOCKED_FABRICATION/TR2_Shield_Proto_V1-PTH.drl": {
-    "bytes": 2871,
-    "sha256": "34ec76d69548fe005bd9e544d5e06dec518f334811be37a00d63fd66f0e61ed0"
+    "sha256": "2d38440d7dc43e91e1c47861e866090460acb4ac531fa6c0f4bac0be65f27e9e"
   },
   "exports/BLOCKED_FABRICATION/TR2_Shield_Proto_V1-B_Silkscreen.gbo": {
     "bytes": 465,
-    "sha256": "680f0fef211cffaf51b13aebe3465cfc24157415c19f805b83d1cdaab8cec6d1"
+    "sha256": "c5e88ea6aad590ae15ae00c72413e293778d4525b5e3d17532c7400494af0da4"
   },
-  "docs/sources-v1-1.json": {
-    "bytes": 1153,
-    "sha256": "28bebb22a056d73a57367f7211fbfb4f2651e0c8d96bddd118e718042b6585ec"
+  "exports/BLOCKED_FABRICATION/TR2_Shield_Proto_V1-Edge_Cuts.gm1": {
+    "bytes": 694,
+    "sha256": "ff3fa23ade7cb57c7a0f79e21d16daea9cd16cdee571d4a513e3fcf315fc1ebe"
   },
-  "docs/SOURCES.md": {
-    "bytes": 5396,
-    "sha256": "3efdb768d3894863a36b48272532047740cb3fee841a878799587b5278f79864"
+  "exports/BLOCKED_FABRICATION/TR2_Shield_Proto_V1-F_Cu.gtl": {
+    "bytes": 271636,
+    "sha256": "ed381e2c8e27f5cd1e1c4f2d3997907533297398132afb9a6fc5d2293edede33"
   },
-  "docs/SURETE_CONNEXIONS_V1_1.md": {
-    "bytes": 6309,
-    "sha256": "346302c7271877e0cd1f60fa03563f14662a4c8f58a612c4b43352309b062355"
+  "exports/BLOCKED_FABRICATION/TR2_Shield_Proto_V1-F_Mask.gts": {
+    "bytes": 5449,
+    "sha256": "ed868680cbb4047fcdfdd0a147abb30e3e2ab6f702d58f2dc5316ce1621c89f6"
   },
-  "docs/MATRICE_INTERFACES.md": {
-    "bytes": 4916,
-    "sha256": "ad12e6f9f2cef94db3654166f3ae9501119e42ad89451da000aae47ed4ed516e"
+  "exports/BLOCKED_FABRICATION/TR2_Shield_Proto_V1-F_Silkscreen.gto": {
+    "bytes": 40333,
+    "sha256": "ff288e5800e689235b5550d8fb13e513e0dec600fbf7d7ceb138c3c8fc7d7085"
   },
-  "docs/initial_inventory.json": {
-    "bytes": 676,
-    "sha256": "2c5b115799ec56d0650bbb0213a31e1a77d83d472804cf960dc0323839b646be"
+  "exports/BLOCKED_FABRICATION/TR2_Shield_Proto_V1-NPTH-drl_map.pdf": {
+    "bytes": 13906,
+    "sha256": "e2ac98d83debcf1fd068c9a21461f734ef06dd2a223cdcc7150967d3c0196c6f"
   },
-  "docs/adafruit_interfaces.json": {
-    "bytes": 6410,
-    "sha256": "3980fc7419b783995882944929d2727da9aded7680815b1e6ea74dcb74742887"
+  "exports/BLOCKED_FABRICATION/TR2_Shield_Proto_V1-NPTH.drl": {
+    "bytes": 600,
+    "sha256": "ca2df03a6b00905a254f3d677db6909b8797c6c307df52b24cd012f9aa241141"
   },
-  "docs/ASSEMBLAGE_ET_RESERVES.md": {
-    "bytes": 4496,
-    "sha256": "180bad4b32cab038f263f2c6699d0e95bbd163ed3db90850aec29145d17ce19f"
+  "exports/BLOCKED_FABRICATION/TR2_Shield_Proto_V1-PTH-drl_map.pdf": {
+    "bytes": 17110,
+    "sha256": "38b3bfd47300339aeaf419081401aee24c76134a11c55cb3d64a8505702d4a3a"
   },
-  "docs/source_download_manifest.json": {
-    "bytes": 4486,
-    "sha256": "642bfc955d35c95a2a9c25a725f4af53404920d89e4ef1ada6d0c890de08a583"
+  "exports/BLOCKED_FABRICATION/TR2_Shield_Proto_V1-PTH.drl": {
+    "bytes": 2932,
+    "sha256": "7a2c6521ff0112412fe4971cf7a9916f3db5ec095cb2bf4c0f391f0398f2dbf3"
   },
-  "docs/BOM.csv": {
-    "bytes": 3129,
-    "sha256": "a3d2958ff3a9be163c36af5a32da254eb0b91fb14c00b6e0d47fd650f3ce98f0"
+  "exports/BLOCKED_FABRICATION/TR2_Shield_Proto_V1-job.gbrjob": {
+    "bytes": 2530,
+    "sha256": "396b69f91a7854a2330bd295cc0a16a080845ae0ba580db7b15e7df671d43a82"
   },
-  "docs/BUDGET.md": {
-    "bytes": 3371,
-    "sha256": "52908c5c28286fb4b9f928d08b87cf100214b191f9cce87e7eb3c4ce773369e6"
+  "exports/TR2_Shield_Proto_V1-drill.rpt": {
+    "bytes": 872,
+    "sha256": "780ef107029bdb679c5f3604557bbd063f22f8fd9bd4e464b76018727813191d"
   },
-  "docs/pcb_geometry.json": {
-    "bytes": 37730,
-    "sha256": "e38d2a1499ef5c0f7f9c7cf7a828817dae2b97fabc68d93771197338a5bef218"
+  "exports/cuivre-dessous-miroir.pdf": {
+    "bytes": 79280,
+    "sha256": "4fe3c96831b773a2e9595e9d7786a04cb33f3ff94f904a79a58b63844567e80b"
   },
-  "docs/manufacturer-hashes.json": {
-    "bytes": 1120,
-    "sha256": "76492df730186efb377dc6629d7790bdb0269f96e97da082b83a0c7929108f0d"
+  "exports/gabarit-C05-V1_2.pdf": {
+    "bytes": 137174,
+    "sha256": "a0b99b71e4484ec65547667d5621e12a690de45c38eb4569b412e2736dc6b2a8"
   },
-  "docs/INTERFACES_BOITIER_V1_1.md": {
-    "bytes": 7323,
-    "sha256": "8b2cab8b5038a0c629c7cb42ad71f8920efac42c24f4854b7641970ddda97a7a"
+  "exports/gabarit.svg": {
+    "bytes": 18172,
+    "sha256": "a594151f173a1386bd5c10f0ccdf759363e172b841a10d3cabc8fd27977390ef"
   },
-  "docs/PLAN_QUALIFICATION.md": {
-    "bytes": 3714,
-    "sha256": "3716fa10eb7cec6de378bbddc407607674534e4452de7db68ad41e818607cf9e"
+  "exports/implantation-dessus.pdf": {
+    "bytes": 48668,
+    "sha256": "02bd84d5c86fbc3dc9ac209d4089e5a0055b606ea731eec8421a7dfc9796e4ea"
   },
-  "docs/checks/3d-board-only.log": {
-    "bytes": 2454,
-    "sha256": "8f672f8a8eddeb2048c3a6ef6f515a0265b045cce69dafa67eeea773761b1fb8"
+  "exports/interfaces-boitier.pdf": {
+    "bytes": 44287,
+    "sha256": "bc255009696a4603f7cb41c7033a233cfe532c1bf085fbff7fe0029609efabec"
   },
-  "docs/checks/ERC.json": {
-    "bytes": 1013,
-    "sha256": "2118c37473358470d245e324f664bb259c321eba001252053ae6f2bf856d98ad"
+  "exports/interfaces-boitier.svg": {
+    "bytes": 18172,
+    "sha256": "a594151f173a1386bd5c10f0ccdf759363e172b841a10d3cabc8fd27977390ef"
   },
-  "docs/checks/gerbers.log": {
-    "bytes": 1348,
-    "sha256": "bcf6ee82836e66c831e5121113053fc2329f4f68d2a4ab1d0e05a1e4dcb0dc22"
+  "exports/netlist.xml": {
+    "bytes": 57776,
+    "sha256": "db329e7ca2d68f4ecf083865d1598d3c2fbd6a1f730209256d9219684667ea43"
   },
-  "docs/checks/export-verification.json": {
-    "bytes": 932,
-    "sha256": "64d3ebc8538c81f3a2074d861f0047de0068359beae2013e94f0dcc59c3688ad"
+  "exports/retenues-isometriques.pdf": {
+    "bytes": 91881,
+    "sha256": "12ee04b0c909da349ccbfd5998d0968634c863cb225ddff18a159d1670d73f3a"
   },
-  "docs/checks/mechanical-verification.json": {
-    "bytes": 2892,
-    "sha256": "b834e2b2c9003cc8b3f824188c06b5768251831534c4c4afcff69afbf803d824"
+  "exports/retenues-isometriques.svg": {
+    "bytes": 504267,
+    "sha256": "d8c110c8811d27fabc7d61539966b9895e94d8c37dde1399bcd7164608f60e20"
   },
-  "docs/checks/generator-project-preservation.json": {
-    "bytes": 319,
-    "sha256": "10b46d74da7b4a202436f1d48d98f07591749f0f3a079faab79075121abe4987"
+  "exports/schema.pdf": {
+    "bytes": 104935,
+    "sha256": "af7e70d298b38810eb79a53d614682657da58a3c5d079fb46cf04a9094787e23"
   },
-  "docs/checks/netlist.log": {
-    "bytes": 1,
-    "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+  "exports/shield-nu.png": {
+    "bytes": 215431,
+    "sha256": "2b7ab49974103c383107f11546962ab96c17a3d182159e9837ee65ccd60e616c"
   },
-  "docs/checks/step-board-only.log": {
-    "bytes": 185,
-    "sha256": "15a843ee676a5f65c2fc260154e392bef2afdd4082f0024770e2a52e1a8dfb34"
-  },
-  "docs/checks/DRC.log": {
-    "bytes": 275,
-    "sha256": "3eb3ab8c66f0fda9395b80c2bf8636862126be307ad2c257d220deb9b065ec8c"
-  },
-  "docs/checks/bottom-pdf.log": {
-    "bytes": 173,
-    "sha256": "075806e719b4626f7f8b313e8b0dde41089b0c75fa639a94b431ecd6a2557aa4"
-  },
-  "docs/checks/assembly-pdf.log": {
-    "bytes": 171,
-    "sha256": "ce9d5c949f496000e46d9bba666c199b7f9e318f738166cbc25dadc210bb78bf"
-  },
-  "docs/checks/drill.log": {
-    "bytes": 810,
-    "sha256": "184660795f9d6a571bd3ecffe4e236f896a60c965bdd6813f89c9e4ca64b297d"
-  },
-  "docs/checks/schematic-pdf.log": {
-    "bytes": 157,
-    "sha256": "28fef94446c157a382b5799b62aa37b96118b28f1dcd3975fa4502ffd66d0fb8"
-  },
-  "docs/checks/commands.json": {
-    "bytes": 4860,
-    "sha256": "9f4f2857f03a164f7fb1bf37e4d321a2caab49b1a5f436a6149135fbf7e44047"
-  },
-  "docs/checks/ERC.log": {
-    "bytes": 191,
-    "sha256": "62610bca58d17fa203967003c20a93ad532bcc1f896550f4de2b0515816d8bea"
-  },
-  "docs/checks/pcb-readback.json": {
-    "bytes": 93708,
-    "sha256": "cd1a9258fd38decb9f9fae83fed9d9106b17e6966d52f8d0970a833f5df0e908"
-  },
-  "docs/checks/DRC.json": {
-    "bytes": 1097,
-    "sha256": "deac044a15ffac25ae626265e954966a0e76589b3d606fbd8e8560d8c1fd3ce9"
-  },
-  "mechanical/retainers.scad": {
-    "bytes": 2969,
-    "sha256": "6a071d749618a310cf98fa4868bdc3ffbb17b5a895080ebabcd289e535135c22"
-  },
-  "mechanical/interfaces.json": {
-    "bytes": 4403,
-    "sha256": "38918eb60bd61c49bdfd1586be714d4c99b4148e5a5b41c780fb94b8b83aa50e"
+  "exports/shield-nu.step": {
+    "bytes": 305774,
+    "sha256": "62e7cb185538e76bc0fe5d85922846a3565722f8224405ed087017f91e99b918"
   },
   "mechanical/REVIEW_ONLY/NE_PAS_IMPRIMER_POUR_CAMPAGNE.txt": {
     "bytes": 279,
     "sha256": "aebfa83680148df46cc8163724737e2496eab951ffd38b04d95aed21436eaa39"
   },
-  "mechanical/REVIEW_ONLY/click.stl": {
-    "bytes": 81484,
-    "sha256": "1fe31df4a68b6ac91abd1a4499399e12ce770cd64ae060e6e190c75892b10404"
-  },
-  "mechanical/REVIEW_ONLY/user_plunger.stl": {
-    "bytes": 19084,
-    "sha256": "6cd1e19f2819c427da7189fd70bef7a8d6f6af0b7eac441a3a2104ee125092bc"
-  },
-  "mechanical/REVIEW_ONLY/user_plunger.log": {
-    "bytes": 345,
-    "sha256": "610b63b8d0e62ff5bd1b82578b1f6a466e632fb6e6deecb0879ace8a12b561c1"
-  },
-  "mechanical/REVIEW_ONLY/flat_clamp.stl": {
-    "bytes": 21084,
-    "sha256": "c5d418ea741b66a35ba527eacb9ed317011672daeca5c770caaa11e22fd6fb7c"
-  },
-  "mechanical/REVIEW_ONLY/round_clamp.stl": {
-    "bytes": 25684,
-    "sha256": "f80f0810fbc6701789f9ae05959d46f0ab65aa8d135e2620dd36555398e126ef"
-  },
-  "mechanical/REVIEW_ONLY/mki.log": {
+  "mechanical/REVIEW_ONLY/click.log": {
     "bytes": 348,
-    "sha256": "0b03cb8bd5cdb9a47bc3e71b273a147f08687ec3c870d94c0fff9a29736aa777"
+    "sha256": "d7dc02d18ec57e36d6e46668bf008e2511928965484fc2dd1755791111e8fa42"
+  },
+  "mechanical/REVIEW_ONLY/click.stl": {
+    "bytes": 80284,
+    "sha256": "6c2781b79e75c065b53ad1c197b64a10a2a3f97f4be04035a6c79c569d074419"
   },
   "mechanical/REVIEW_ONLY/commands.json": {
     "bytes": 2726,
     "sha256": "e00d539f1088ceed5bdcad6dbf133d76276b27b3c471ab92afc0540c11d4684b"
   },
-  "mechanical/REVIEW_ONLY/click.log": {
+  "mechanical/REVIEW_ONLY/flat_clamp.log": {
+    "bytes": 345,
+    "sha256": "aad40a189209924a9157b851a59a586770396114b935ecf6b673cead05e563af"
+  },
+  "mechanical/REVIEW_ONLY/flat_clamp.stl": {
+    "bytes": 21084,
+    "sha256": "c5d418ea741b66a35ba527eacb9ed317011672daeca5c770caaa11e22fd6fb7c"
+  },
+  "mechanical/REVIEW_ONLY/mki.log": {
     "bytes": 348,
-    "sha256": "24f60508e419102f52b1eb84e2c66a612cc58456c004f215431907b1b649a147"
+    "sha256": "f786e889b3207367111759f11dc301e08332ffb8257bbab51309036c08d2c6e0"
+  },
+  "mechanical/REVIEW_ONLY/mki.stl": {
+    "bytes": 78084,
+    "sha256": "1e107e7024c13b9ee8569b8e4599fd26ea1b82fdf0079034072f9d6fdbb23063"
   },
   "mechanical/REVIEW_ONLY/round_clamp.log": {
     "bytes": 346,
     "sha256": "c5d29a584da68fac277648aeacd0de60669b701e2bfb8fe539ccd9b51f8352a4"
   },
-  "mechanical/REVIEW_ONLY/flat_clamp.log": {
-    "bytes": 345,
-    "sha256": "aad40a189209924a9157b851a59a586770396114b935ecf6b673cead05e563af"
+  "mechanical/REVIEW_ONLY/round_clamp.stl": {
+    "bytes": 25684,
+    "sha256": "f80f0810fbc6701789f9ae05959d46f0ab65aa8d135e2620dd36555398e126ef"
   },
-  "mechanical/REVIEW_ONLY/mki.stl": {
-    "bytes": 78884,
-    "sha256": "927271f852281187519a163aa614bbabbb21dbbb114b11b54cfa73b290825b86"
+  "mechanical/REVIEW_ONLY/user_plunger.log": {
+    "bytes": 345,
+    "sha256": "610b63b8d0e62ff5bd1b82578b1f6a466e632fb6e6deecb0879ace8a12b561c1"
+  },
+  "mechanical/REVIEW_ONLY/user_plunger.stl": {
+    "bytes": 19084,
+    "sha256": "6cd1e19f2819c427da7189fd70bef7a8d6f6af0b7eac441a3a2104ee125092bc"
+  },
+  "mechanical/REVIEW_ONLY/v12-commands.json": {
+    "bytes": 1041,
+    "sha256": "90369ec5031c784ac9a7b47f091ce2d138004d59e94b7452b6d7816d4cb42f16"
+  },
+  "mechanical/interfaces.json": {
+    "bytes": 4502,
+    "sha256": "00ff014c4616bcc03745e96a6a1dbafb32051d4c4d0391092c779440fd1c4796"
+  },
+  "mechanical/retainers.scad": {
+    "bytes": 2762,
+    "sha256": "b39ea242833c2827b5ab3aa87bc06d846d94fb996fbd003ee03eb8dfaa457a32"
   }
 }

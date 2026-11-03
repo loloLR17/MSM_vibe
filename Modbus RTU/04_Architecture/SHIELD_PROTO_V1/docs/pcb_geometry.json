@@ -62,7 +62,7 @@
       "ref": "C2",
       "number": "2",
       "net": "GND",
-      "x": 40.5,
+      "x": 40.0,
       "y": 78.0,
       "diameter": 1.7,
       "drill": 0.8,
@@ -82,7 +82,7 @@
       "ref": "C1",
       "number": "2",
       "net": "GND",
-      "x": 40.5,
+      "x": 40.54,
       "y": 52.0,
       "diameter": 1.7,
       "drill": 0.8,
@@ -205,7 +205,7 @@
       "x": 87.22,
       "y": 102.86,
       "diameter": 1.7,
-      "drill": 1.0,
+      "drill": 1.02,
       "npth": false
     },
     {
@@ -215,7 +215,7 @@
       "x": 89.76,
       "y": 102.86,
       "diameter": 1.7,
-      "drill": 1.0,
+      "drill": 1.02,
       "npth": false
     },
     {
@@ -225,7 +225,7 @@
       "x": 92.3,
       "y": 102.86,
       "diameter": 1.7,
-      "drill": 1.0,
+      "drill": 1.02,
       "npth": false
     },
     {
@@ -235,7 +235,7 @@
       "x": 94.84,
       "y": 102.86,
       "diameter": 1.7,
-      "drill": 1.0,
+      "drill": 1.02,
       "npth": false
     },
     {
@@ -245,7 +245,7 @@
       "x": 97.38,
       "y": 102.86,
       "diameter": 1.7,
-      "drill": 1.0,
+      "drill": 1.02,
       "npth": false
     },
     {
@@ -255,7 +255,7 @@
       "x": 99.92,
       "y": 102.86,
       "diameter": 1.7,
-      "drill": 1.0,
+      "drill": 1.02,
       "npth": false
     },
     {
@@ -265,7 +265,7 @@
       "x": 102.46,
       "y": 102.86,
       "diameter": 1.7,
-      "drill": 1.0,
+      "drill": 1.02,
       "npth": false
     },
     {
@@ -275,7 +275,7 @@
       "x": 105.0,
       "y": 102.86,
       "diameter": 1.7,
-      "drill": 1.0,
+      "drill": 1.02,
       "npth": false
     },
     {
@@ -285,7 +285,7 @@
       "x": 87.22,
       "y": 80.0,
       "diameter": 1.7,
-      "drill": 1.0,
+      "drill": 1.02,
       "npth": false
     },
     {
@@ -295,7 +295,7 @@
       "x": 89.76,
       "y": 80.0,
       "diameter": 1.7,
-      "drill": 1.0,
+      "drill": 1.02,
       "npth": false
     },
     {
@@ -305,7 +305,7 @@
       "x": 92.3,
       "y": 80.0,
       "diameter": 1.7,
-      "drill": 1.0,
+      "drill": 1.02,
       "npth": false
     },
     {
@@ -315,7 +315,7 @@
       "x": 94.84,
       "y": 80.0,
       "diameter": 1.7,
-      "drill": 1.0,
+      "drill": 1.02,
       "npth": false
     },
     {
@@ -325,7 +325,7 @@
       "x": 97.38,
       "y": 80.0,
       "diameter": 1.7,
-      "drill": 1.0,
+      "drill": 1.02,
       "npth": false
     },
     {
@@ -335,7 +335,7 @@
       "x": 99.92,
       "y": 80.0,
       "diameter": 1.7,
-      "drill": 1.0,
+      "drill": 1.02,
       "npth": false
     },
     {
@@ -345,7 +345,7 @@
       "x": 102.46,
       "y": 80.0,
       "diameter": 1.7,
-      "drill": 1.0,
+      "drill": 1.02,
       "npth": false
     },
     {
@@ -355,7 +355,7 @@
       "x": 105.0,
       "y": 80.0,
       "diameter": 1.7,
-      "drill": 1.0,
+      "drill": 1.02,
       "npth": false
     },
     {
@@ -385,7 +385,7 @@
       "x": 60.24,
       "y": 51.94,
       "diameter": 1.7,
-      "drill": 1.0,
+      "drill": 1.02,
       "npth": false
     },
     {
@@ -395,7 +395,7 @@
       "x": 60.24,
       "y": 49.4,
       "diameter": 1.7,
-      "drill": 1.0,
+      "drill": 1.02,
       "npth": false
     },
     {
@@ -405,7 +405,7 @@
       "x": 60.24,
       "y": 46.86,
       "diameter": 1.7,
-      "drill": 1.0,
+      "drill": 1.02,
       "npth": false
     },
     {
@@ -415,7 +415,7 @@
       "x": 60.24,
       "y": 44.32,
       "diameter": 1.7,
-      "drill": 1.0,
+      "drill": 1.02,
       "npth": false
     },
     {
@@ -425,7 +425,7 @@
       "x": 60.24,
       "y": 41.78,
       "diameter": 1.7,
-      "drill": 1.0,
+      "drill": 1.02,
       "npth": false
     },
     {
@@ -435,7 +435,7 @@
       "x": 60.24,
       "y": 39.24,
       "diameter": 1.7,
-      "drill": 1.0,
+      "drill": 1.02,
       "npth": false
     },
     {
@@ -445,7 +445,7 @@
       "x": 60.24,
       "y": 36.7,
       "diameter": 1.7,
-      "drill": 1.0,
+      "drill": 1.02,
       "npth": false
     },
     {
@@ -455,7 +455,7 @@
       "x": 60.24,
       "y": 34.16,
       "diameter": 1.7,
-      "drill": 1.0,
+      "drill": 1.02,
       "npth": false
     },
     {
@@ -465,7 +465,7 @@
       "x": 60.24,
       "y": 31.62,
       "diameter": 1.7,
-      "drill": 1.0,
+      "drill": 1.02,
       "npth": false
     },
     {
@@ -475,7 +475,7 @@
       "x": 60.24,
       "y": 29.08,
       "diameter": 1.7,
-      "drill": 1.0,
+      "drill": 1.02,
       "npth": false
     },
     {
@@ -485,7 +485,7 @@
       "x": 60.24,
       "y": 26.54,
       "diameter": 1.7,
-      "drill": 1.0,
+      "drill": 1.02,
       "npth": false
     },
     {
@@ -495,7 +495,7 @@
       "x": 60.24,
       "y": 24.0,
       "diameter": 1.7,
-      "drill": 1.0,
+      "drill": 1.02,
       "npth": false
     },
     {
@@ -505,7 +505,7 @@
       "x": 45.0,
       "y": 51.94,
       "diameter": 1.7,
-      "drill": 1.0,
+      "drill": 1.02,
       "npth": false
     },
     {
@@ -515,7 +515,7 @@
       "x": 45.0,
       "y": 49.4,
       "diameter": 1.7,
-      "drill": 1.0,
+      "drill": 1.02,
       "npth": false
     },
     {
@@ -525,7 +525,7 @@
       "x": 45.0,
       "y": 46.86,
       "diameter": 1.7,
-      "drill": 1.0,
+      "drill": 1.02,
       "npth": false
     },
     {
@@ -535,7 +535,7 @@
       "x": 45.0,
       "y": 44.32,
       "diameter": 1.7,
-      "drill": 1.0,
+      "drill": 1.02,
       "npth": false
     },
     {
@@ -545,7 +545,7 @@
       "x": 45.0,
       "y": 41.78,
       "diameter": 1.7,
-      "drill": 1.0,
+      "drill": 1.02,
       "npth": false
     },
     {
@@ -555,7 +555,7 @@
       "x": 45.0,
       "y": 39.24,
       "diameter": 1.7,
-      "drill": 1.0,
+      "drill": 1.02,
       "npth": false
     },
     {
@@ -565,7 +565,7 @@
       "x": 45.0,
       "y": 36.7,
       "diameter": 1.7,
-      "drill": 1.0,
+      "drill": 1.02,
       "npth": false
     },
     {
@@ -575,7 +575,7 @@
       "x": 45.0,
       "y": 34.16,
       "diameter": 1.7,
-      "drill": 1.0,
+      "drill": 1.02,
       "npth": false
     },
     {
@@ -585,7 +585,7 @@
       "x": 45.0,
       "y": 31.62,
       "diameter": 1.7,
-      "drill": 1.0,
+      "drill": 1.02,
       "npth": false
     },
     {
@@ -595,7 +595,7 @@
       "x": 45.0,
       "y": 29.08,
       "diameter": 1.7,
-      "drill": 1.0,
+      "drill": 1.02,
       "npth": false
     },
     {
@@ -605,7 +605,7 @@
       "x": 45.0,
       "y": 26.54,
       "diameter": 1.7,
-      "drill": 1.0,
+      "drill": 1.02,
       "npth": false
     },
     {
@@ -615,7 +615,7 @@
       "x": 45.0,
       "y": 24.0,
       "diameter": 1.7,
-      "drill": 1.0,
+      "drill": 1.02,
       "npth": false
     },
     {
@@ -645,7 +645,7 @@
       "x": 40.5,
       "y": 85.68,
       "diameter": 1.7,
-      "drill": 1.0,
+      "drill": 1.02,
       "npth": false
     },
     {
@@ -655,7 +655,7 @@
       "x": 40.5,
       "y": 88.22,
       "diameter": 1.7,
-      "drill": 1.0,
+      "drill": 1.02,
       "npth": false
     },
     {
@@ -665,7 +665,7 @@
       "x": 40.5,
       "y": 90.76,
       "diameter": 1.7,
-      "drill": 1.0,
+      "drill": 1.02,
       "npth": false
     },
     {
@@ -675,7 +675,7 @@
       "x": 40.5,
       "y": 93.3,
       "diameter": 1.7,
-      "drill": 1.0,
+      "drill": 1.02,
       "npth": false
     },
     {
@@ -685,7 +685,7 @@
       "x": 40.5,
       "y": 95.84,
       "diameter": 1.7,
-      "drill": 1.0,
+      "drill": 1.02,
       "npth": false
     },
     {
@@ -695,7 +695,7 @@
       "x": 40.5,
       "y": 98.38,
       "diameter": 1.7,
-      "drill": 1.0,
+      "drill": 1.02,
       "npth": false
     },
     {
@@ -705,7 +705,7 @@
       "x": 40.5,
       "y": 100.92,
       "diameter": 1.7,
-      "drill": 1.0,
+      "drill": 1.02,
       "npth": false
     },
     {
@@ -715,7 +715,7 @@
       "x": 40.5,
       "y": 103.46,
       "diameter": 1.7,
-      "drill": 1.0,
+      "drill": 1.02,
       "npth": false
     },
     {
@@ -725,7 +725,7 @@
       "x": 40.5,
       "y": 106.0,
       "diameter": 1.7,
-      "drill": 1.0,
+      "drill": 1.02,
       "npth": false
     },
     {
@@ -755,7 +755,7 @@
       "x": 65.32,
       "y": 59.0,
       "diameter": 1.7,
-      "drill": 1.0,
+      "drill": 1.02,
       "npth": false
     },
     {
@@ -765,7 +765,7 @@
       "x": 62.78,
       "y": 59.0,
       "diameter": 1.7,
-      "drill": 1.0,
+      "drill": 1.02,
       "npth": false
     },
     {
@@ -775,7 +775,7 @@
       "x": 60.24,
       "y": 59.0,
       "diameter": 1.7,
-      "drill": 1.0,
+      "drill": 1.02,
       "npth": false
     },
     {
@@ -785,7 +785,7 @@
       "x": 57.7,
       "y": 59.0,
       "diameter": 1.7,
-      "drill": 1.0,
+      "drill": 1.02,
       "npth": false
     },
     {
@@ -795,7 +795,7 @@
       "x": 55.16,
       "y": 59.0,
       "diameter": 1.7,
-      "drill": 1.0,
+      "drill": 1.02,
       "npth": false
     },
     {
@@ -805,7 +805,7 @@
       "x": 52.62,
       "y": 59.0,
       "diameter": 1.7,
-      "drill": 1.0,
+      "drill": 1.02,
       "npth": false
     },
     {
@@ -815,7 +815,7 @@
       "x": 50.08,
       "y": 59.0,
       "diameter": 1.7,
-      "drill": 1.0,
+      "drill": 1.02,
       "npth": false
     },
     {
@@ -825,7 +825,7 @@
       "x": 47.54,
       "y": 59.0,
       "diameter": 1.7,
-      "drill": 1.0,
+      "drill": 1.02,
       "npth": false
     },
     {
@@ -835,7 +835,7 @@
       "x": 45.0,
       "y": 59.0,
       "diameter": 1.7,
-      "drill": 1.0,
+      "drill": 1.02,
       "npth": false
     },
     {
@@ -845,7 +845,7 @@
       "x": 88.5,
       "y": 111.36,
       "diameter": 1.7,
-      "drill": 1.0,
+      "drill": 1.02,
       "npth": false
     },
     {
@@ -855,7 +855,7 @@
       "x": 85.96,
       "y": 111.36,
       "diameter": 1.7,
-      "drill": 1.0,
+      "drill": 1.02,
       "npth": false
     },
     {
@@ -865,7 +865,7 @@
       "x": 80.88,
       "y": 93.58,
       "diameter": 1.7,
-      "drill": 1.0,
+      "drill": 1.02,
       "npth": false
     },
     {
@@ -875,7 +875,7 @@
       "x": 78.34,
       "y": 93.58,
       "diameter": 1.7,
-      "drill": 1.0,
+      "drill": 1.02,
       "npth": false
     },
     {
@@ -885,7 +885,7 @@
       "x": 80.88,
       "y": 91.04,
       "diameter": 1.7,
-      "drill": 1.0,
+      "drill": 1.02,
       "npth": false
     },
     {
@@ -895,7 +895,7 @@
       "x": 78.34,
       "y": 91.04,
       "diameter": 1.7,
-      "drill": 1.0,
+      "drill": 1.02,
       "npth": false
     },
     {
@@ -905,7 +905,7 @@
       "x": 80.88,
       "y": 88.5,
       "diameter": 1.7,
-      "drill": 1.0,
+      "drill": 1.02,
       "npth": false
     },
     {
@@ -915,7 +915,7 @@
       "x": 78.34,
       "y": 88.5,
       "diameter": 1.7,
-      "drill": 1.0,
+      "drill": 1.02,
       "npth": false
     },
     {
@@ -925,7 +925,7 @@
       "x": 80.88,
       "y": 85.96,
       "diameter": 1.7,
-      "drill": 1.0,
+      "drill": 1.02,
       "npth": false
     },
     {
@@ -935,7 +935,7 @@
       "x": 78.34,
       "y": 85.96,
       "diameter": 1.7,
-      "drill": 1.0,
+      "drill": 1.02,
       "npth": false
     },
     {
@@ -945,7 +945,7 @@
       "x": 80.88,
       "y": 83.42,
       "diameter": 1.7,
-      "drill": 1.0,
+      "drill": 1.02,
       "npth": false
     },
     {
@@ -955,7 +955,7 @@
       "x": 78.34,
       "y": 83.42,
       "diameter": 1.7,
-      "drill": 1.0,
+      "drill": 1.02,
       "npth": false
     },
     {
@@ -965,7 +965,7 @@
       "x": 80.88,
       "y": 80.88,
       "diameter": 1.7,
-      "drill": 1.0,
+      "drill": 1.02,
       "npth": false
     },
     {
@@ -975,7 +975,7 @@
       "x": 78.34,
       "y": 80.88,
       "diameter": 1.7,
-      "drill": 1.0,
+      "drill": 1.02,
       "npth": false
     },
     {
@@ -985,7 +985,7 @@
       "x": 80.88,
       "y": 78.34,
       "diameter": 1.7,
-      "drill": 1.0,
+      "drill": 1.02,
       "npth": false
     },
     {
@@ -995,7 +995,7 @@
       "x": 78.34,
       "y": 78.34,
       "diameter": 1.7,
-      "drill": 1.0,
+      "drill": 1.02,
       "npth": false
     },
     {
@@ -1005,7 +1005,7 @@
       "x": 80.88,
       "y": 75.8,
       "diameter": 1.7,
-      "drill": 1.0,
+      "drill": 1.02,
       "npth": false
     },
     {
@@ -1015,7 +1015,7 @@
       "x": 78.34,
       "y": 75.8,
       "diameter": 1.7,
-      "drill": 1.0,
+      "drill": 1.02,
       "npth": false
     },
     {
@@ -1025,7 +1025,7 @@
       "x": 80.88,
       "y": 73.26,
       "diameter": 1.7,
-      "drill": 1.0,
+      "drill": 1.02,
       "npth": false
     },
     {
@@ -1035,7 +1035,7 @@
       "x": 78.34,
       "y": 73.26,
       "diameter": 1.7,
-      "drill": 1.0,
+      "drill": 1.02,
       "npth": false
     },
     {
@@ -1045,7 +1045,7 @@
       "x": 80.88,
       "y": 70.72,
       "diameter": 1.7,
-      "drill": 1.0,
+      "drill": 1.02,
       "npth": false
     },
     {
@@ -1055,7 +1055,7 @@
       "x": 78.34,
       "y": 70.72,
       "diameter": 1.7,
-      "drill": 1.0,
+      "drill": 1.02,
       "npth": false
     },
     {
@@ -1065,7 +1065,7 @@
       "x": 80.88,
       "y": 68.18,
       "diameter": 1.7,
-      "drill": 1.0,
+      "drill": 1.02,
       "npth": false
     },
     {
@@ -1075,7 +1075,7 @@
       "x": 78.34,
       "y": 68.18,
       "diameter": 1.7,
-      "drill": 1.0,
+      "drill": 1.02,
       "npth": false
     },
     {
@@ -1085,7 +1085,7 @@
       "x": 80.88,
       "y": 65.64,
       "diameter": 1.7,
-      "drill": 1.0,
+      "drill": 1.02,
       "npth": false
     },
     {
@@ -1095,7 +1095,7 @@
       "x": 78.34,
       "y": 65.64,
       "diameter": 1.7,
-      "drill": 1.0,
+      "drill": 1.02,
       "npth": false
     },
     {
@@ -1105,7 +1105,7 @@
       "x": 80.88,
       "y": 63.1,
       "diameter": 1.7,
-      "drill": 1.0,
+      "drill": 1.02,
       "npth": false
     },
     {
@@ -1115,7 +1115,7 @@
       "x": 78.34,
       "y": 63.1,
       "diameter": 1.7,
-      "drill": 1.0,
+      "drill": 1.02,
       "npth": false
     },
     {
@@ -1125,7 +1125,7 @@
       "x": 80.88,
       "y": 60.56,
       "diameter": 1.7,
-      "drill": 1.0,
+      "drill": 1.02,
       "npth": false
     },
     {
@@ -1135,7 +1135,7 @@
       "x": 78.34,
       "y": 60.56,
       "diameter": 1.7,
-      "drill": 1.0,
+      "drill": 1.02,
       "npth": false
     },
     {
@@ -1145,7 +1145,7 @@
       "x": 80.88,
       "y": 58.02,
       "diameter": 1.7,
-      "drill": 1.0,
+      "drill": 1.02,
       "npth": false
     },
     {
@@ -1155,7 +1155,7 @@
       "x": 78.34,
       "y": 58.02,
       "diameter": 1.7,
-      "drill": 1.0,
+      "drill": 1.02,
       "npth": false
     },
     {
@@ -1165,7 +1165,7 @@
       "x": 80.88,
       "y": 55.48,
       "diameter": 1.7,
-      "drill": 1.0,
+      "drill": 1.02,
       "npth": false
     },
     {
@@ -1175,7 +1175,7 @@
       "x": 78.34,
       "y": 55.48,
       "diameter": 1.7,
-      "drill": 1.0,
+      "drill": 1.02,
       "npth": false
     },
     {
@@ -1185,7 +1185,7 @@
       "x": 80.88,
       "y": 52.94,
       "diameter": 1.7,
-      "drill": 1.0,
+      "drill": 1.02,
       "npth": false
     },
     {
@@ -1195,7 +1195,7 @@
       "x": 78.34,
       "y": 52.94,
       "diameter": 1.7,
-      "drill": 1.0,
+      "drill": 1.02,
       "npth": false
     },
     {
@@ -1205,7 +1205,7 @@
       "x": 35.159999,
       "y": 93.58,
       "diameter": 1.7,
-      "drill": 1.0,
+      "drill": 1.02,
       "npth": false
     },
     {
@@ -1215,7 +1215,7 @@
       "x": 32.619999,
       "y": 93.58,
       "diameter": 1.7,
-      "drill": 1.0,
+      "drill": 1.02,
       "npth": false
     },
     {
@@ -1225,7 +1225,7 @@
       "x": 35.159999,
       "y": 91.04,
       "diameter": 1.7,
-      "drill": 1.0,
+      "drill": 1.02,
       "npth": false
     },
     {
@@ -1235,7 +1235,7 @@
       "x": 32.619999,
       "y": 91.04,
       "diameter": 1.7,
-      "drill": 1.0,
+      "drill": 1.02,
       "npth": false
     },
     {
@@ -1245,7 +1245,7 @@
       "x": 35.159999,
       "y": 88.5,
       "diameter": 1.7,
-      "drill": 1.0,
+      "drill": 1.02,
       "npth": false
     },
     {
@@ -1255,7 +1255,7 @@
       "x": 32.619999,
       "y": 88.5,
       "diameter": 1.7,
-      "drill": 1.0,
+      "drill": 1.02,
       "npth": false
     },
     {
@@ -1265,7 +1265,7 @@
       "x": 35.159999,
       "y": 85.96,
       "diameter": 1.7,
-      "drill": 1.0,
+      "drill": 1.02,
       "npth": false
     },
     {
@@ -1275,7 +1275,7 @@
       "x": 32.619999,
       "y": 85.96,
       "diameter": 1.7,
-      "drill": 1.0,
+      "drill": 1.02,
       "npth": false
     },
     {
@@ -1285,7 +1285,7 @@
       "x": 35.159999,
       "y": 83.42,
       "diameter": 1.7,
-      "drill": 1.0,
+      "drill": 1.02,
       "npth": false
     },
     {
@@ -1295,7 +1295,7 @@
       "x": 32.619999,
       "y": 83.42,
       "diameter": 1.7,
-      "drill": 1.0,
+      "drill": 1.02,
       "npth": false
     },
     {
@@ -1305,7 +1305,7 @@
       "x": 35.159999,
       "y": 80.88,
       "diameter": 1.7,
-      "drill": 1.0,
+      "drill": 1.02,
       "npth": false
     },
     {
@@ -1315,7 +1315,7 @@
       "x": 32.619999,
       "y": 80.88,
       "diameter": 1.7,
-      "drill": 1.0,
+      "drill": 1.02,
       "npth": false
     },
     {
@@ -1325,7 +1325,7 @@
       "x": 35.159999,
       "y": 78.34,
       "diameter": 1.7,
-      "drill": 1.0,
+      "drill": 1.02,
       "npth": false
     },
     {
@@ -1335,7 +1335,7 @@
       "x": 32.619999,
       "y": 78.34,
       "diameter": 1.7,
-      "drill": 1.0,
+      "drill": 1.02,
       "npth": false
     },
     {
@@ -1345,7 +1345,7 @@
       "x": 35.159999,
       "y": 75.8,
       "diameter": 1.7,
-      "drill": 1.0,
+      "drill": 1.02,
       "npth": false
     },
     {
@@ -1355,7 +1355,7 @@
       "x": 32.619999,
       "y": 75.8,
       "diameter": 1.7,
-      "drill": 1.0,
+      "drill": 1.02,
       "npth": false
     },
     {
@@ -1365,7 +1365,7 @@
       "x": 35.159999,
       "y": 73.26,
       "diameter": 1.7,
-      "drill": 1.0,
+      "drill": 1.02,
       "npth": false
     },
     {
@@ -1375,7 +1375,7 @@
       "x": 32.619999,
       "y": 73.26,
       "diameter": 1.7,
-      "drill": 1.0,
+      "drill": 1.02,
       "npth": false
     },
     {
@@ -1385,7 +1385,7 @@
       "x": 35.159999,
       "y": 70.72,
       "diameter": 1.7,
-      "drill": 1.0,
+      "drill": 1.02,
       "npth": false
     },
     {
@@ -1395,7 +1395,7 @@
       "x": 32.619999,
       "y": 70.72,
       "diameter": 1.7,
-      "drill": 1.0,
+      "drill": 1.02,
       "npth": false
     },
     {
@@ -1405,7 +1405,7 @@
       "x": 35.159999,
       "y": 68.18,
       "diameter": 1.7,
-      "drill": 1.0,
+      "drill": 1.02,
       "npth": false
     },
     {
@@ -1415,7 +1415,7 @@
       "x": 32.619999,
       "y": 68.18,
       "diameter": 1.7,
-      "drill": 1.0,
+      "drill": 1.02,
       "npth": false
     },
     {
@@ -1425,7 +1425,7 @@
       "x": 35.159999,
       "y": 65.64,
       "diameter": 1.7,
-      "drill": 1.0,
+      "drill": 1.02,
       "npth": false
     },
     {
@@ -1435,7 +1435,7 @@
       "x": 32.619999,
       "y": 65.64,
       "diameter": 1.7,
-      "drill": 1.0,
+      "drill": 1.02,
       "npth": false
     },
     {
@@ -1445,7 +1445,7 @@
       "x": 35.159999,
       "y": 63.1,
       "diameter": 1.7,
-      "drill": 1.0,
+      "drill": 1.02,
       "npth": false
     },
     {
@@ -1455,7 +1455,7 @@
       "x": 32.619999,
       "y": 63.1,
       "diameter": 1.7,
-      "drill": 1.0,
+      "drill": 1.02,
       "npth": false
     },
     {
@@ -1465,7 +1465,7 @@
       "x": 35.159999,
       "y": 60.56,
       "diameter": 1.7,
-      "drill": 1.0,
+      "drill": 1.02,
       "npth": false
     },
     {
@@ -1475,7 +1475,7 @@
       "x": 32.619999,
       "y": 60.56,
       "diameter": 1.7,
-      "drill": 1.0,
+      "drill": 1.02,
       "npth": false
     },
     {
@@ -1485,7 +1485,7 @@
       "x": 35.159999,
       "y": 58.02,
       "diameter": 1.7,
-      "drill": 1.0,
+      "drill": 1.02,
       "npth": false
     },
     {
@@ -1495,7 +1495,7 @@
       "x": 32.619999,
       "y": 58.02,
       "diameter": 1.7,
-      "drill": 1.0,
+      "drill": 1.02,
       "npth": false
     },
     {
@@ -1505,7 +1505,7 @@
       "x": 35.159999,
       "y": 52.94,
       "diameter": 1.7,
-      "drill": 1.0,
+      "drill": 1.02,
       "npth": false
     },
     {
@@ -1515,7 +1515,7 @@
       "x": 32.619999,
       "y": 52.94,
       "diameter": 1.7,
-      "drill": 1.0,
+      "drill": 1.02,
       "npth": false
     },
     {
@@ -1525,7 +1525,7 @@
       "x": 35.159999,
       "y": 50.4,
       "diameter": 1.7,
-      "drill": 1.0,
+      "drill": 1.02,
       "npth": false
     },
     {
@@ -1535,7 +1535,7 @@
       "x": 32.619999,
       "y": 50.4,
       "diameter": 1.7,
-      "drill": 1.0,
+      "drill": 1.02,
       "npth": false
     },
     {
@@ -1545,7 +1545,7 @@
       "x": 35.159999,
       "y": 47.86,
       "diameter": 1.7,
-      "drill": 1.0,
+      "drill": 1.02,
       "npth": false
     },
     {
@@ -1555,7 +1555,7 @@
       "x": 32.619999,
       "y": 47.86,
       "diameter": 1.7,
-      "drill": 1.0,
+      "drill": 1.02,
       "npth": false
     },
     {
@@ -1565,7 +1565,7 @@
       "x": 35.159999,
       "y": 45.32,
       "diameter": 1.7,
-      "drill": 1.0,
+      "drill": 1.02,
       "npth": false
     },
     {
@@ -1575,7 +1575,7 @@
       "x": 32.619999,
       "y": 45.32,
       "diameter": 1.7,
-      "drill": 1.0,
+      "drill": 1.02,
       "npth": false
     },
     {
@@ -1585,7 +1585,7 @@
       "x": 35.159999,
       "y": 42.78,
       "diameter": 1.7,
-      "drill": 1.0,
+      "drill": 1.02,
       "npth": false
     },
     {
@@ -1595,7 +1595,7 @@
       "x": 32.619999,
       "y": 42.78,
       "diameter": 1.7,
-      "drill": 1.0,
+      "drill": 1.02,
       "npth": false
     },
     {
@@ -1605,7 +1605,7 @@
       "x": 35.159999,
       "y": 40.24,
       "diameter": 1.7,
-      "drill": 1.0,
+      "drill": 1.02,
       "npth": false
     },
     {
@@ -1615,7 +1615,7 @@
       "x": 32.619999,
       "y": 40.24,
       "diameter": 1.7,
-      "drill": 1.0,
+      "drill": 1.02,
       "npth": false
     },
     {
@@ -1625,7 +1625,7 @@
       "x": 35.159999,
       "y": 37.7,
       "diameter": 1.7,
-      "drill": 1.0,
+      "drill": 1.02,
       "npth": false
     },
     {
@@ -1635,7 +1635,7 @@
       "x": 32.619999,
       "y": 37.7,
       "diameter": 1.7,
-      "drill": 1.0,
+      "drill": 1.02,
       "npth": false
     },
     {
@@ -1645,7 +1645,7 @@
       "x": 35.159999,
       "y": 35.16,
       "diameter": 1.7,
-      "drill": 1.0,
+      "drill": 1.02,
       "npth": false
     },
     {
@@ -1655,7 +1655,7 @@
       "x": 32.619999,
       "y": 35.16,
       "diameter": 1.7,
-      "drill": 1.0,
+      "drill": 1.02,
       "npth": false
     },
     {
@@ -1695,7 +1695,7 @@
       "x": 80.88,
       "y": 47.86,
       "diameter": 1.7,
-      "drill": 1.0,
+      "drill": 1.02,
       "npth": false
     },
     {
@@ -1705,7 +1705,7 @@
       "x": 78.34,
       "y": 47.86,
       "diameter": 1.7,
-      "drill": 1.0,
+      "drill": 1.02,
       "npth": false
     },
     {
@@ -1715,7 +1715,7 @@
       "x": 80.88,
       "y": 45.32,
       "diameter": 1.7,
-      "drill": 1.0,
+      "drill": 1.02,
       "npth": false
     },
     {
@@ -1725,7 +1725,7 @@
       "x": 78.34,
       "y": 45.32,
       "diameter": 1.7,
-      "drill": 1.0,
+      "drill": 1.02,
       "npth": false
     },
     {
@@ -1735,7 +1735,7 @@
       "x": 80.88,
       "y": 42.78,
       "diameter": 1.7,
-      "drill": 1.0,
+      "drill": 1.02,
       "npth": false
     },
     {
@@ -1745,7 +1745,7 @@
       "x": 78.34,
       "y": 42.78,
       "diameter": 1.7,
-      "drill": 1.0,
+      "drill": 1.02,
       "npth": false
     },
     {
@@ -1755,7 +1755,7 @@
       "x": 80.88,
       "y": 40.24,
       "diameter": 1.7,
-      "drill": 1.0,
+      "drill": 1.02,
       "npth": false
     },
     {
@@ -1765,7 +1765,7 @@
       "x": 78.34,
       "y": 40.24,
       "diameter": 1.7,
-      "drill": 1.0,
+      "drill": 1.02,
       "npth": false
     },
     {
@@ -1775,7 +1775,7 @@
       "x": 80.88,
       "y": 37.7,
       "diameter": 1.7,
-      "drill": 1.0,
+      "drill": 1.02,
       "npth": false
     },
     {
@@ -1785,7 +1785,7 @@
       "x": 78.34,
       "y": 37.7,
       "diameter": 1.7,
-      "drill": 1.0,
+      "drill": 1.02,
       "npth": false
     },
     {
@@ -1795,7 +1795,7 @@
       "x": 80.88,
       "y": 35.16,
       "diameter": 1.7,
-      "drill": 1.0,
+      "drill": 1.02,
       "npth": false
     },
     {
@@ -1805,7 +1805,7 @@
       "x": 78.34,
       "y": 35.16,
       "diameter": 1.7,
-      "drill": 1.0,
+      "drill": 1.02,
       "npth": false
     },
     {
@@ -1815,7 +1815,7 @@
       "x": 80.88,
       "y": 32.62,
       "diameter": 1.7,
-      "drill": 1.0,
+      "drill": 1.02,
       "npth": false
     },
     {
@@ -1825,7 +1825,7 @@
       "x": 78.34,
       "y": 32.62,
       "diameter": 1.7,
-      "drill": 1.0,
+      "drill": 1.02,
       "npth": false
     },
     {
@@ -1835,7 +1835,7 @@
       "x": 80.88,
       "y": 30.08,
       "diameter": 1.7,
-      "drill": 1.0,
+      "drill": 1.02,
       "npth": false
     },
     {
@@ -1845,7 +1845,7 @@
       "x": 78.34,
       "y": 30.08,
       "diameter": 1.7,
-      "drill": 1.0,
+      "drill": 1.02,
       "npth": false
     },
     {
@@ -1855,7 +1855,7 @@
       "x": 80.88,
       "y": 27.54,
       "diameter": 1.7,
-      "drill": 1.0,
+      "drill": 1.02,
       "npth": false
     },
     {
@@ -1865,7 +1865,7 @@
       "x": 78.34,
       "y": 27.54,
       "diameter": 1.7,
-      "drill": 1.0,
+      "drill": 1.02,
       "npth": false
     },
     {
@@ -1875,7 +1875,7 @@
       "x": 80.88,
       "y": 25.0,
       "diameter": 1.7,
-      "drill": 1.0,
+      "drill": 1.02,
       "npth": false
     },
     {
@@ -1885,7 +1885,7 @@
       "x": 78.34,
       "y": 25.0,
       "diameter": 1.7,
-      "drill": 1.0,
+      "drill": 1.02,
       "npth": false
     }
   ],

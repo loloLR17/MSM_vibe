@@ -1,3 +1,5 @@
+> Historique V1.1 : pour la précommande courante, PRECOMMANDE_V1_2.md et ASSEMBLAGE_ET_RESERVES.md prévalent ; détrompage automatique et boîtier fini ne sont plus des gates PCB nus.
+
 # Sûreté connexion par connexion — candidat V1.1
 
 **Aucune ligne ci-dessous ne constitue une qualification physique.** CAO = géométrie/connexion candidate contrôlée ; BLOQUÉ = cote ou essai manquant. Toutes les pièces doivent se démonter sans dessouder un breakout. La sérigraphie ou la friction des sockets n’est jamais considérée comme retenue suffisante.

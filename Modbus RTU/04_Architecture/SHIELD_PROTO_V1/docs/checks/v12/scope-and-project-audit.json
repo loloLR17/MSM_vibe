@@ -1,0 +1,33 @@
+{
+  "base": "c32ca3ec43eadfd18df5191a9f3b43bcf1511574",
+  "checks": {
+    "component_nets_positions_UUIDs_footprint_names": "unchanged",
+    "mounting_holes_mm": "unchanged",
+    "retainer_mount_holes": "unchanged",
+    "board_outline_mm": "unchanged"
+  },
+  "project_byte_identical_to_base": true,
+  "project_sha256": "8c077c4fc90dc8fe73b778e3fccfeb764cc4dca59667a8a04d85bc7cc1bb61f6",
+  "existing_ignored_DRC_categories": [
+    {
+      "description": "Footprint has no courtyard defined",
+      "key": "missing_courtyard"
+    },
+    {
+      "description": "Track endpoint not centered on via",
+      "key": "track_not_centered_on_via"
+    },
+    {
+      "description": "Tuning profile track geometries",
+      "key": "tuning_profile_track_geometries"
+    },
+    {
+      "description": "Footprint doesn't match symbol's footprint filters",
+      "key": "footprint_filters_mismatch"
+    },
+    {
+      "description": "Footprint component type doesn't match footprint pads",
+      "key": "footprint_type_mismatch"
+    }
+  ]
+}
