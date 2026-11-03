@@ -1,11 +1,11 @@
 ---
-mission_id: TR2-20261103-SHIELD-V12-PRECOMMANDE
-status: BLOCKED
+mission_id: TR2-20261103-SHIELD-V13-J5-FEMELLE-BOM
+status: IN_PROGRESS
 base_ref: main
-base_sha: ebae78d21f1106ce0a4554f1399012478f8ffb59
-initial_head: c32ca3ec43eadfd18df5191a9f3b43bcf1511574
-result_sha: 55cfcf2c0eea9a158117c47f5af84b0fc740fdf1
-created_at_utc: 2026-11-03T16:16:14Z
+base_sha: e8cc6cc7cd895a62d5891b4e9410f0164abe9392
+initial_head: 4fffb3a6f9445e124ab84955fc2781a2aaab8a73
+result_sha: 261a44e9bf1c18757f35fd69f03212aa952137ca
+created_at_utc: 2026-11-03T17:22:29Z
 author: Codex
 target_branch: main
 allow_commit: true
@@ -14,65 +14,66 @@ allow_flash: false
 allow_debug: false
 ---
 
-# Shield V1.2 — dossier de revue produit, fabrication non libérée
+# Shield V1.3 — J5 femelle réalisé en CAO, connecteurs standard économiques
 
-Le candidat KiCad et CAM est prêt pour revue documentaire et comparaison gabarit. **BLOCKED_FABRICATION / NE PAS COMMANDER** : les ZIP officiels ST restent inaccessibles et la correspondance mécanique C05/engagement J5–Zio n'est pas démontrée. Ni le détrompage automatique abandonné ni le boîtier final ne constituent un blocage. Publication et relecture distante effectuées ; le statut BLOCKED porte sur les preuves extérieures C05/J5/enveloppes nécessaires à la libération, pas sur une attente de push.
+**Candidat prêt pour revue documentaire ; NE PAS COMMANDER / BLOCKED_FABRICATION.** J5 est effectivement une **femelle sous le shield**, recevant les mâlesCN12-69/70 que l'utilisateur confirme présents sur les deuxNucleo. Aucun ajout/dessoudage/modification de Nucleo n'est demandé ni exécuté. Dimensions réelles de ces mâles et engagement simultané avec Zio restent inconnus ; ils ne sont pas déduits de leur présence.
 
-## Référence et conservation
+Le statut provisoire IN_PROGRESS concerne la publication/relecture distante encore en cours ; le blocage technique de libération est déjà explicité ci-dessous. Aucun achat, flash, debug, accès STM32/COM/FRAM/microSD, impression ou intervention physique.
 
-Départ distant `c32ca3ec43eadfd18df5191a9f3b43bcf1511574`, contrat et décisions03/11 lus ; gouvernance V2-B3 et journal ETAT_COURANT_TR2 consultés. Travail isolé dans `/home/lolo/dev/msm/projects/MSM_vibe-SHIELD-V12-PRECOMMANDE`, branche locale `codex/shield-v12-precommande`, publication autorisée vers `main`.
+## Reprise et conservation
 
-Le dépôt principal est resté au commit historique `82169af7e76797731358852bec83bfb0ceb54ccf`, propre mais divergent ; aucun pull/reset/merge/rebase dessus. Worktrees antérieurs intacts. Deux stashes conservés : `6251b988e8b20f97997a8f98fd26d4d35a45a1b2` et `f3b829e6188f491920edf74a5f9ed0f559d08b87`. Ancienne archive V1.1 non écrasée ; contrat V1.2 copié dans sa nouvelle archive. Aucun changement de gouvernance ou de décision humaine.
+Source distante initiale `4fffb3a6f9445e124ab84955fc2781a2aaab8a73`, contratV1.3 et avenantopérateur lus surmain ; gouvernance/protocole/journal consultés. Le point3 initial des décisions parle encore de Morpho non équipé et de femelle à poser surNucleo : **l'avenantopérateur et le contratV1.3 le remplacent pour ces deux exemplaires**, sans modification silencieuse du document humain.
 
-## Résultats et modifications
+Worktree isolé `/home/lolo/dev/msm/projects/MSM_vibe-SHIELD-V13-J5-BOM`, branche locale `codex/shield-v13-j5-bom`. Dépôt principal historique `82169af7e76797731358852bec83bfb0ceb54ccf` préservé, aucun pull/merge/rebase/reset de sa divergence. V1.2 et tous worktrees/campagnes/archives conservés ; stashes `6251b988e8b20f97997a8f98fd26d4d35a45a1b2` et `f3b829e6188f491920edf74a5f9ed0f559d08b87` inchangés. ContratV1.3 copié dans sa nouvelle archive, aucun ancien rapport réécrit.
 
-Dossier : `Modbus RTU/04_Architecture/SHIELD_PROTO_V1/` ; noms de projet historiques conservés, cartouche/sérigraphie1.2.
+## Livrables réalisés
 
-- **J5 défini nominalement** : mâle inférieur Harwin M20-9990245 ; **femelle M20-7820242 à ajouter sur chaque Nucleo**, sur la dernière paire CN12-69/70, en travers des deux rangées. PG4/69→DE, PG6/70→NC ; aucune liaison entre les deux. UM2861Rev4 table19 p37 réellement inspectée, cohérente avec la numérotation du contrat Rev10 ; pas de PDF Rev10 prétendu retéléchargé. Hauteur femelle8,50±0,15mm, pin6,10, isolant2,54 ; empilage nominal11,04 entre dessusNucleo/dessousshield, **à confronter aux Zio C05 et trous/soudure/dégagement réels**. Voir `docs/J5_ET_EMPILEMENT_V1_2.md`.
-- **Pièces réelles identifiées** : sockets12 M20-7821242 affichées disponibles2275pces/1,93USD à l'unité ; sockets9 et femelles2 également sourcées. J1/J2/J3 famille998 aux tailles exactes ; J4 M20-9982045 recoupé2×17, variante1745 non retenue d'après liste fabricant. Prix/stock ne sont ni réservation ni devis. Vis nylon M2,5 candidates indiquées ; hauteur finale entretoises/longueurs et stock de toutes les autres pièces restent à figer avant achat.
-- **Corrections minimales CAO** : courtyards sockets agrandis selon enveloppes/tolérances Harwin, trous connecteurs1,02mm (tolérance trous finis±0,05 à demander au devis). C1 Kemet C315C104K5R5TA au pas2,54 ; C2 Panasonic ECA1HM100 **sans suffixeB** au pas2,00,Ø5 nominal/5,5 réservé,50V. Une branche3V3 TP1–C2 écartée du nouveau padGND après DRC ;31autres trajets conservés. Aucun net fonctionnel, position J1–J9, ancrage ou contour changé.19empreintes,187pads dont11NPTH,59broches connectées,4vias.
-- **Fixations préservées** : trois ancrages Nucleo, deux par FRAM/SD, quatre pour étriers J8/J9. Têtes **et rondelles** NucleoØ≤4,5mm :Ø5 laissait seulement0,04mm nominal au corps Zio inférieur ;Ø4,5 laisse0,29mm nominal au corps/0,04 au courtyard majoré. Cette déduction sur le modèle nominal ne remplace pas C05 réelle. Deux barrières de détrompage retirées du SCAD/STL, aucune retenue positive supprimée. Patins/hauteurs d'étrier restent réglables aprèsPCB, sans pression sur composants/contacts ; aucune pièce imprimée.
-- **FRAM3V3** : schéma Eagle Adafruit réel inspecté : VIN→AP2112K-3.3→FRAM/4050 ; MISO direct, sortie régulateurJP1-8NC. Le guide Adafruit supporteVIN/logique3V3. Pas d'injection5V ni de pont au LDO. Dropout, rail interne et marges dynamiques non mesurés ; qualification électrique réelle ultérieure, pas prétendue acquise. Voir `docs/ALIMENTATION_FRAM_V1_2.md`.
-- **Interfaces** : SD fente-X, RS485+X et reprise d'effort externe, nappe-Y ; cuivre shield arrêté avant domaine isolé du Click. Aucun netGND2/A/B/5V sur shield. GéométrieClickv101 et schémav102 ne sont pas assimilés. Nappe/borniers/CN15/ST-LINK/USER/RESET restent des accès à conserver. Boîtier/LED/poussoir finaux différés.
+Dossier `Modbus RTU/04_Architecture/SHIELD_PROTO_V1/` ; nom de projet historique conservé, cartouche et sérigraphie1.3.
 
-## CAO ST — faits et limites
+- **J5 changé dans symbole, empreinte, PCB et générateurs** : valeur `CN12_69_70_PG4_FEMALE`, empreinte `J5_CN12_69_70_PG4_FEMALE`, Connfly DS1023-1*2S21, traversant côtéB, corps/entrées B.Fab, courtyard et repère miroir. Padlocal1=(85,96;111,36)→69/PG4/RTU_DE ;2=(88,50;111,36)→70/PG6/NC. Ni transposition ni pont. Entrée versNucleo, queues vers dessusshield. Le vieux footprint sanssuffixe reste historique et n'est pas instancié.
+- **BOM standard** : mâles Connfly DS1021-2*40SF11 débités aux tailles J1–4 ; DS1023femelles2/12/8 pourJ5/J8/J9 ; Neltron2212S-09G-85 pourJ6/J7. Dessins réels et hashes dans `docs/sources-v1-3.json`, comparaison et plan de débit dans `CONNECTEURS_STANDARD_V1_3.md`. La famille legacyDS1021H2,5 n'est pas confondue avec DS1021-01H4,3. Femelles achetées à longueur exacte, pas de découpe femelle supposée sûre.
+- **Coût vérifiable des quantités choisies :5,66USD de connecteurs pour deux shields**, horstransport/taxes, MOQ et surplus inclus. Male3×0,60 ; femelle2 achat10×0,08 ; femelle12 achat10×0,12 ; femelle8 achat10×0,11 ; femelle9 4×0,19. Connfly9TME affiché0stock : rejeté comme référence disponible. Stocks affichés des autres références tracés ; chiffreTayda très élevé est un affichage fournisseur, pas un audit d'entrepôt. AlternativeSullins9 disponible0,69USD documentée, pas substituée automatiquement.
+- **Coût livré NON DÉMONTRÉ** : connectique de scénario35,88USD V1.2→5,66USD V1.3, mais deux fournisseurscomposants(TME/Tayda)+PCB impliquent trois ports potentiels. Budgetprudent **46,30EUR +7,66USD avantfiscalité**, conservant deuxmonnaies ; aucun tauxinventé ni parité1USD=1EUR reprise. Cible50EUR non déclarée atteinte. Pour50EUR avec réserveTVA20%, composants/PCBconvertis+portsréels doivent tenir dans20,37EUR ; hypothèseport25EUR ne convient pas. Aucun devis livré ni achat.
+- **CAO minimale** : les187pads (nets, numéros, positions, diamètres et perçages), contour90×100, tous ancrages et fichier32trajets sont sémantiquement/structurellement inchangésV1.2. Seules enveloppes des connecteurs standard, genre/footprintJ5 et marquages révision ont changé.19empreintes,59brochesconnectées,4vias. C1/C2 conservés. MatriceSPI1FRAM/SPI2SD/SPI3IIS3DWB/LPUART/PG4 inchangée, aucun firmware modifié.
+- **Fixations positives conservées** : SCAD/STL des étriers et perçages strictement inchangés ; pas de recompile/impression inutile. Vérification séparée enZ : têtes/rondellesØ≤4,5 horsfacesPCB, entretoises candidatesØ≤4,0 dans l'espace entrecartes. Jeu0,04 nominal au courtyard majoré prèsZio inférieur ; **pas un fitréel ni une qualification mécanique**. Le plan3D de volumes et les cotesmécaniques effectives restent à vérifier ; ne pas utiliser le serrage pour forcer l'engagement. Détrompagecomplexe abandonné, contrôlemanuelbroche1 conservé.
+- **Exports candidats réellement produits** : schéma, implantationdessus, nouvelle implantationdessous miroir, cuivredessousmiroir, GerberX2/Excellon en `BLOCKED_FABRICATION`, interfacesSVG/PDF, STEP/PNG **carte nue uniquement**, gabaritPDF3pages1:1 `gabarit-C05-V1_3.pdf`, CSV105centres. V1_2nommés restent historiques, explicitement signalés. CorpsJ5B.Fab et son repère ont été inspectés sur le plan-dessous ; premièrepagegabarit inspectée visuellement.
 
-Page primaire : https://www.st.com/en/evaluation-tools/nucleo-u575zi-q.html. Liens MB1549-BDP4.0 et Manufacturing3.4 publiés, **versions de paquets uniquement**. Les deux URL officiels ST et leurs homologues STChine expirent par HTTPS (~18s). curlWindows expire ; Edge à profil temporaire propre renvoie ERR_HTTP2_PROTOCOL_ERROR sur ZIP et schémaC05 ; repli protocolaireHTTP/1.1 normal également en timeout. Aucun certificat/protection/authentification contourné.
+## Dimensions : ce qui est prouvé et ce qui manque
 
-**Aucun ZIP reçu : contenu interne, formats, révision C05/C02/C03 et SHA des archives inconnus.** Les hashes des deux dessins Harwin réellement reçus figurent dans `docs/sources-v1-2.json` ; sources Adafruit/Click et hashes antérieurs conservés. L'outil documentaire ne décode pas les ZIP et n'en a pas vérifié le contenu. Logs publics réduits dans `docs/checks/v12/`, originaux locaux `/home/lolo/dev/msm/reports/TR2-shield-v12-20261103`. Aucune cote C05 inventée à partir d'une photo ni assimilée à une autre révision.
+Dessins fabricants Connflylegacy fournis pour les référencesTME et sourceactuelle constructeur ainsi que Neltron2212S réellement téléchargés/inspectés (y compris pagesimage). Pas2,54 ; trous1,02 ; mâlelegacy corps2,5 et type1 tail3,0/mating6,1 ; femelles nominalesH8,5. CatalogueDS1023tail3,2 vsdessin3,0 : enveloppeprudente3,2 retenue, pas une mesure des pièces livrées. Les cotes0,60×0,40 du dessin femelle sont ses queues, **pas la section admissible d'un mâle**. Section et profondeur de contact réelles restent à confronter à l'interface choisie ; aucune garantie d'engagement fabriquée.
 
-## Validations réellement exécutées
+Dans `J5_ET_EMPILEMENT_V1_3.md`, équation **I=hm+Lm−G+Hf**, avec hauteurcorpsmâlehm/longueurLm, écartentrePCB G et hauteurfemelleHf. Exemple exclusivement conditionnel G11,0/Hf8,5/hm2,5/Lm6,1 donneI6,1. Ni ces hm/Lm/G ni une profondeurIpositive ne sont une validation physique. Une autre hauteurmâle peut empêcher l'engagement simultanéZio/J5 ; ne pas accepter une flexion/insertionpartielle ni modifierNucleo pour masquer l'écart. Choisir autre hauteur de femelle vérifiée et mettre à jour CAO si nécessaire.
 
-| Contrôle | Résultat / preuve |
+Les deux ZIPofficielsST ont été réessayés raisonnablement par HTTPS, une fois chacun, borne8s : timeouts8,4s et aucune archive reçue. Logs `checks/v13/st-official-bounded-retry.json`. Aucune campagne navigateur identiqueV1.2 relancée. **Contenu/révisionC05/formats/hash inconnus** ; publication4.0/3.4 non assimilée àC05, aucune équivalenceC02/C03. Le gabarit provient du PCB sauvegardé et reconstructionUM2861Rev4, pas d'une CAO C05 réellement exploitée.
+
+## Vérifications effectives et erreurs traitées
+
+| Contrôle | Résultat et preuve |
 |---|---|
-| Génération schéma/PCB, application32trajets et recalcul zones | succès, `docs/checks/rebuild-v12.json` |
+| Génération native PCB, application32trajets, exports | succès, `checks/rebuild-v13.json` ; appel complémentaire implantationdessous tracé `commands.json` |
 | ERC KiCad10.0.6 `--severity-all --exit-code-violations` |0violation, `ERC.json/log` |
-| DRC `--schematic-parity --all-track-errors --severity-all --exit-code-violations` |0violation,0non-connecté,0parité ; `DRC.json/log` |
-| Projet strict préservé | octet pour octet identique à la base : minclearance0,20/mintrack0,25/minvia0,60 ; aucune sévérité/exclusion modifiée |
-| Netlist XML↔PCB↔attributsX2 des deux cuivres | PASS, `export-verification.json` |
-| Tous centres/diamètres PTH/NPTH/vias et contour CAM | PASS, même comparateur |
-| Face dessous J1–5, J5PG4/PG6, perçages et pas réels,31trajets conservés | PASS nominal, `preorder-native.json` ; aucun fit physique déduit |
-| Retenues SCAD modifiées | deux compilations OpenSCAD `--hardwarnings`, sortie0 ;5maillages fermés/connectés, volumes positifs, `mechanical-verification.json` (trois modèles inchangés réutilisés) |
-| Gabarit PDF3pages, A4, échelle1:1, barres100mm X/Y | PASS génération et réouverture PDF, page1 inspectée visuellement ; `preorder-template.json` |
-| Hashes artefacts |68fichiers CAD/exports/mécaniques relus et vérifiés ; `artifact-hashes.json` |
-| Gitdiff et périmètre | contrôlés avantcommit, aucun firmware/archives antérieures inclus |
+| DRCstrict `--schematic-parity --all-track-errors --severity-all --exit-code-violations` |0violation,0non-connecté,0parité, `DRC.json/log` |
+| Projet et routage V1.2 | fichiers octetpour octet identiques àla base ; minclearance0,20/mintrack0,25/minvia0,60 conservés, aucune sévérité/exclusion changée |
+| Netlist↔PCB↔attributsX2 des deuxcuivres, tous trous PTH/NPTH/vias et contourCAM | PASS, `export-verification.json` |
+| J5 sousshield réellementfemelle, corpsB.Fab, marquagemiroir, PG4/PG6 | PASS nominal, `preorder-native.json`, aucune équivalence avec assemblagephysique |
+|187pads/32trajets/contour/ancrages, SCAD/STL conservés ; seulsfootprintJ5/enveloppesautorisés | PASS `checks/v13/scope-and-purchase-audit.json` |
+| QuantitésMOQ/multiples et calcul5,66USD | PASS dans ce même audit ; prix/stock pas une garantie livrée |
+| PDFgabarit3pages A4/1:1/barres100mm X/Y | PASS génération et réouverture, `preorder-template.json` |
+| Hashes |71artefactsCAD/exports/mécaniques relus, `artifact-hashes.json` |
+| Diff/périmètreGit | inspectés, diffcheck0, aucun firmware/ancienrapport inclus |
 
-Erreur d'outillage traitée : `pcbnew.SaveBoard` réécrivait des règles projet aux défauts ; détection par assertion mécanique, correction des deux générateurs pour préserver le fichierprojet, puis exécution effective des contrôles stricts. Le DRC strict a ensuite détecté deux distances insuffisantes au nouveau C2 ; preuve conservée `checks/v12/DRC-C2-before-fix.json`, correction locale3V3 et DRC relancé avec succès. Aucune erreur masquée ni règle réduite. Les cinq catégories DRC déjà ignorées par le projet restent identiques à la base et sont listées dans `scope-and-project-audit.json` ; aucun contrôle supplémentaire désactivé.
+Incidentgénérateur corrigé : cette version depcbnew expose `SetLibDescription`, pas `SetDescription` ; API inspectée puis appel corrigé. Le premierDRC avait deux warnings pour textesJ5hauteur0,7mm : hauteur corrigée0,8 selon règle existante, preuve avant correction `checks/v13/DRC-before-silk-fix.json`, génération/DRC relancés avec succès. **Aucun contrôle abaissé**. L'évolution du contrôlevisserie sépare têtes horsPCB, queues traversantes et entretoises entrecartes selon leurs volumes ; elle n'autorise pas une collision physique et conserve le gateC05. Les catégoriesDRC ignorées de la base restent inchangées, pas d'exclusionajoutée.
 
-Normalisation des fins de ligne générées Windows→LF et espaces de fin insignifiants ; contrôles CAM reparsés ensuite. Cela ne remplace pas les contrôles natifs. Aucun `tr2_validate.sh`/cross-build firmware lancé : aucune source firmware modifiée, validation pertinente = CAO/CAM, pas essai physique ni qualification électrique/vibratoire.
+Normalisation textuelle CRLF→LF/espacesfin, comparateurCAM reparsé ensuite ; aucune modification sémantique des donnéesfab. Aucun testhôte/crossbuild `tr2_validate.sh` : aucune sourcefirmware/interface logicielle touchée, la validation pertinente est CAO/CAM. Aucun nouveau testphysique autorisé ou exécuté.
 
-## Coût, sortie et prochain contrôle minimal
+## Dernière étape extérieure et journal
 
-BOM et budget révisés : scénario **91,42EUR pour deux assemblages/lot5PCB**, modules/blocs5V réemployés, hors boîtier complet. Hypothèse comptable1USD=1EUR et réserveTVA20%, frais provisionnels, **aucun cours/devis livré**. Coût50EUR non démontré, ne pas reprendre53,27EUR historique. Aucun achat ou commande.
+**CAD_VERIFIED** désigne uniquement les contrôlesélectriques/CAM du candidat ; **READY_FOR_PHYSICAL_TEMPLATE_CHECK** le gabarit et le plan disponibles ; **BLOCKED_FABRICATION** la libération. Ni boîtierfini/LED/poussoir ni détrompageautomatique ne bloquent les PCB nus.
 
-`exports/gabarit-C05-V1_2.pdf` : pages1/2 pour chaqueC05, page3 dessous miroir ; `docs/comparaison-C05.csv`105centres avec colonnes constructeur **vides**. États distincts : **CAD_VERIFIED pour les contrôles électriques/CAM du candidat**, **READY_FOR_PHYSICAL_TEMPLATE_CHECK**, **BLOCKED_FABRICATION** pour la libération. Ne pas les fusionner en « fabricable ».
+Quand l'utilisateur sera disponible, regrouper en **une intervention physique ultérieure autorisée** : gabarit100% sur chacune des deuxC05 et photo/vueprofil avec règle des mâlesJ5 ; section/hauteurcorps/longueurexposée, hauteur naturelleZio et dégagement vis/entretoises/queues ; contours/révisionMKI/Click prèsancrages/isolation si nécessaire. **Aucune manipulation demandée maintenant**, ni répétitionentraxe15,2/GNDMKI déjà acquis. Cette seuleinspection ou sourceC05 et dimensionsmâles fiables doit précéder libération. Photosdessus seules ne prouvent pas leshauteurs.
 
-Une suite physique autorisée ou les ZIPST accessibles normalement doit démontrer : centres/contour/trois ancrages des deuxC05 ; paireMorpho69/70 libre/soudable et hauteur/engagement simultané sans flexion ni collision ; contoursMKI/Click réels compatibles avec les zones ancrages/isolation. Le gabarit et une vue avec règle suffisent pour la partie XY, **pas pour les hauteurs**. Aucun nouveau relevé de l'entraxe15,2 ou GNDMKI demandé. Détrompage, boîtier, patins définitifs, guidesLED et poussoir ne bloquent pas les PCB nus. Aucune manipulation demandée dans la mission présente.
+Journal ETAT_COURANT_TR2 actualisé factuellement : observationmâlesexistants, J5femelle, référencesstandard/coûtMOQ, contrôleseffectifs, distinctionvolumesvisserie, limites et prochain contrôle groupé. HistoriquescampagnesCN0/GI0/OBE et acquisition inchangés ; aucune conclusion nouvelle de qualification vibratoire.
 
-## Journal, Git et publication
+## Git et publication
 
-Journal ETAT_COURANT_TR2 **actualisé** : acquis CAO V1.2, J5 à ajouter, pièces/vis, budget, limites ST/C05 et suite minimale. Les historiques de campagne restent intacts ; aucune nouvelle conclusion vibratoire. Toutes les permissions exercées sont documentaires/logiciels, commit et push normaux autorisés ; flash/debug false respectés, aucun accès matériel/média.
-
-Commit CAO évalué `55cfcf2c0eea9a158117c47f5af84b0fc740fdf1` — `SHIELD V1.2: verify candidate CAD and define J5 pre-order integration`. Push normal sur `refs/heads/main` réussi ; référence distante `b4fedee0369521f72199291749c7c9ebdd56ec8d` obtenue par fetch et confirmée par ls-remote. Les109livrables modifiés ont été relus intégralement depuis cette référence et comparés octet pour octet aux fichiers publiés ; preuve `archives/TR2-20261103-SHIELD-V12-PRECOMMANDE/REMOTE_READBACK.json`. Statut final technique BLOCKED : sourceC05/contrôle physique nécessaire, pas de fauxDONE. Ce complément final sera vérifié à son tour après push ; son SHA sera fourni dans la réponse Codex, sans auto-référence. Le dépôt principal/stashes restent préservés ; aucun forcepush/merge/rebase. Ce rapport ne vaut ni qualification physique ni autorisation d'achat.
-
-État après première publication : worktree dédié propre, HEAD=origin/main ; dépôt principal historique préservé et stashes inchangés. Ce complément ne change ni CAO ni contrôles : aucun test matériel ou test déjà acquis relancé pour sa publication.
+Commit CAO évalué `261a44e9bf1c18757f35fd69f03212aa952137ca` — `SHIELD V1.3: female bottom J5 and standard economical connector BOM`. Commit/push normal vers `refs/heads/main` autorisés ; aucune autre permission exercée. Publication du rapport et vérification distante à consigner après le push ; `DONE` non revendiqué faute des dimensions/fitC05 exigés. Le dossier technique est un candidat de revue ; il ne vaut ni bonàtirer ni permission d'achat.
