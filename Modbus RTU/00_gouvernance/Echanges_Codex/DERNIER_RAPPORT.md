@@ -1,6 +1,6 @@
 ---
 mission_id: TR2-20261103-SHIELD-V12-PRECOMMANDE
-status: IN_PROGRESS
+status: BLOCKED
 base_ref: main
 base_sha: ebae78d21f1106ce0a4554f1399012478f8ffb59
 initial_head: c32ca3ec43eadfd18df5191a9f3b43bcf1511574
@@ -16,7 +16,7 @@ allow_debug: false
 
 # Shield V1.2 — dossier de revue produit, fabrication non libérée
 
-Le candidat KiCad et CAM est prêt pour revue documentaire et comparaison gabarit. **BLOCKED_FABRICATION / NE PAS COMMANDER** : les ZIP officiels ST restent inaccessibles et la correspondance mécanique C05/engagement J5–Zio n'est pas démontrée. Ni le détrompage automatique abandonné ni le boîtier final ne constituent un blocage. Le statut provisoire IN_PROGRESS porte uniquement sur la publication/relecture distante en cours ; la limite technique est décrite ci-dessous.
+Le candidat KiCad et CAM est prêt pour revue documentaire et comparaison gabarit. **BLOCKED_FABRICATION / NE PAS COMMANDER** : les ZIP officiels ST restent inaccessibles et la correspondance mécanique C05/engagement J5–Zio n'est pas démontrée. Ni le détrompage automatique abandonné ni le boîtier final ne constituent un blocage. Publication et relecture distante effectuées ; le statut BLOCKED porte sur les preuves extérieures C05/J5/enveloppes nécessaires à la libération, pas sur une attente de push.
 
 ## Référence et conservation
 
@@ -73,4 +73,6 @@ Une suite physique autorisée ou les ZIPST accessibles normalement doit démontr
 
 Journal ETAT_COURANT_TR2 **actualisé** : acquis CAO V1.2, J5 à ajouter, pièces/vis, budget, limites ST/C05 et suite minimale. Les historiques de campagne restent intacts ; aucune nouvelle conclusion vibratoire. Toutes les permissions exercées sont documentaires/logiciels, commit et push normaux autorisés ; flash/debug false respectés, aucun accès matériel/média.
 
-Commit CAO évalué `55cfcf2c0eea9a158117c47f5af84b0fc740fdf1` — `SHIELD V1.2: verify candidate CAD and define J5 pre-order integration`. Rapport provisoire préparé pour push explicite vers `refs/heads/main` ; relecture distante et statut final à consigner après publication. Le dépôt principal/stashes restent préservés ; aucun forcepush/merge/rebase. Ce rapport ne vaut ni qualification physique ni autorisation d'achat.
+Commit CAO évalué `55cfcf2c0eea9a158117c47f5af84b0fc740fdf1` — `SHIELD V1.2: verify candidate CAD and define J5 pre-order integration`. Push normal sur `refs/heads/main` réussi ; référence distante `b4fedee0369521f72199291749c7c9ebdd56ec8d` obtenue par fetch et confirmée par ls-remote. Les109livrables modifiés ont été relus intégralement depuis cette référence et comparés octet pour octet aux fichiers publiés ; preuve `archives/TR2-20261103-SHIELD-V12-PRECOMMANDE/REMOTE_READBACK.json`. Statut final technique BLOCKED : sourceC05/contrôle physique nécessaire, pas de fauxDONE. Ce complément final sera vérifié à son tour après push ; son SHA sera fourni dans la réponse Codex, sans auto-référence. Le dépôt principal/stashes restent préservés ; aucun forcepush/merge/rebase. Ce rapport ne vaut ni qualification physique ni autorisation d'achat.
+
+État après première publication : worktree dédié propre, HEAD=origin/main ; dépôt principal historique préservé et stashes inchangés. Ce complément ne change ni CAO ni contrôles : aucun test matériel ou test déjà acquis relancé pour sa publication.
