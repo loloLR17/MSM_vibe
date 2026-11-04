@@ -1,0 +1,100 @@
+{
+  "initial_head": "6d97906d32ec6b30a6db9caa140fc02481aa142d",
+  "files": [
+    {
+      "path": "Modbus RTU/04_Architecture/SHIELD_PROTO_V1/docs/ETUDE_LED_V1_6/01-plan.svg",
+      "bytes": 247930,
+      "sha256": "8065613f90ab643ec54f7e9aa46f5fbbd8448fe2b3ac32e01de6e79cb8015c99"
+    },
+    {
+      "path": "Modbus RTU/04_Architecture/SHIELD_PROTO_V1/docs/ETUDE_LED_V1_6/02-coupe.svg",
+      "bytes": 25190,
+      "sha256": "ef2cadc668e1bd862d60e91d37690b0d0cf8aa9a503dd4e96669d588e5bb1ce7"
+    },
+    {
+      "path": "Modbus RTU/04_Architecture/SHIELD_PROTO_V1/docs/ETUDE_LED_V1_6/03-principe-electrique.svg",
+      "bytes": 12879,
+      "sha256": "edb6e3d30c71ac2387c28ec20afb5975b901cd10ebdad2c2d8db54842a7e088c"
+    },
+    {
+      "path": "Modbus RTU/04_Architecture/SHIELD_PROTO_V1/docs/ETUDE_LED_V1_6/ANALYSE_DETAILLEE.md",
+      "bytes": 11147,
+      "sha256": "47c64004956eb90602416cd62c35625215c056b47443efd4b0e253596dc14198"
+    },
+    {
+      "path": "Modbus RTU/04_Architecture/SHIELD_PROTO_V1/docs/ETUDE_LED_V1_6/ETUDE_LED_V1_6.pdf",
+      "bytes": 69362,
+      "sha256": "32e7e475a22b4fd5b5752052536eedf22a9457ee00fab4736f013827f3902b68"
+    },
+    {
+      "path": "Modbus RTU/04_Architecture/SHIELD_PROTO_V1/docs/ETUDE_LED_V1_6/NOTE_ARBITRAGE.md",
+      "bytes": 4847,
+      "sha256": "65bc1f59bf48ec5d6fbcfc6007d17241e14b710812e4d75ee02e577ff509d13b"
+    },
+    {
+      "path": "Modbus RTU/04_Architecture/SHIELD_PROTO_V1/docs/ETUDE_LED_V1_6/SOURCES.md",
+      "bytes": 5508,
+      "sha256": "77bf7c16f9c5cd00ce7350f80f6f1301f3e8a47dfd1e1e6f98e5ea343f2be5ef"
+    },
+    {
+      "path": "Modbus RTU/04_Architecture/SHIELD_PROTO_V1/docs/ETUDE_LED_V1_6/analyse.py",
+      "bytes": 13893,
+      "sha256": "39e330c1d3655e65e61968891637dc9b04e3fd8b47428e0313f6a2ef1bce522b"
+    },
+    {
+      "path": "Modbus RTU/04_Architecture/SHIELD_PROTO_V1/docs/ETUDE_LED_V1_6/lire_pcb.py",
+      "bytes": 982,
+      "sha256": "236cf5f9ad5c164d422b5f500a09f671a2bb4fefa85c45124d8f9df88fe232c1"
+    },
+    {
+      "path": "Modbus RTU/04_Architecture/SHIELD_PROTO_V1/docs/ETUDE_LED_V1_6/preuves/PDF-Windows-access.json",
+      "bytes": 338,
+      "sha256": "f7975b7e5e7a9fcdd34a4369327bffaf71a3e96fc8fa6da147f5289927a7a657"
+    },
+    {
+      "path": "Modbus RTU/04_Architecture/SHIELD_PROTO_V1/docs/ETUDE_LED_V1_6/preuves/connecteurs_ST.json",
+      "bytes": 3400,
+      "sha256": "5576c012ffd56ee1f86789609130aee34d5f24ef8bdf8cd725bdbd80b0b07f4a"
+    },
+    {
+      "path": "Modbus RTU/04_Architecture/SHIELD_PROTO_V1/docs/ETUDE_LED_V1_6/preuves/conservation.json",
+      "bytes": 50174,
+      "sha256": "428eed01386e68ab6d34e027d11610c96c57f7056bb08a27aabd29db2913382a"
+    },
+    {
+      "path": "Modbus RTU/04_Architecture/SHIELD_PROTO_V1/docs/ETUDE_LED_V1_6/preuves/electrique.json",
+      "bytes": 1884,
+      "sha256": "2f9240dfe23684f3bcdbb5bb6836c7cfd3ab484c406888f4c6b275ca2ec519dc"
+    },
+    {
+      "path": "Modbus RTU/04_Architecture/SHIELD_PROTO_V1/docs/ETUDE_LED_V1_6/preuves/impact_ouverture_hypothetique.json",
+      "bytes": 2534,
+      "sha256": "6ae65db8bebef969bde5e9fc3773b444d907e952219ea745cb89af5fd66d39c1"
+    },
+    {
+      "path": "Modbus RTU/04_Architecture/SHIELD_PROTO_V1/docs/ETUDE_LED_V1_6/preuves/optique_conditionnelle.json",
+      "bytes": 2458,
+      "sha256": "0b0c0ac56c285c7f6a1ca4c6cb96e2759971113ac557b186f7ffcae7383aa12f"
+    },
+    {
+      "path": "Modbus RTU/04_Architecture/SHIELD_PROTO_V1/docs/ETUDE_LED_V1_6/preuves/pcb_natif_lecture_seule.json",
+      "bytes": 110316,
+      "sha256": "2b3f130596ed4482b346fb947a4c8b4a85a05cfddb2ae838654ef947d2b19e7e"
+    },
+    {
+      "path": "Modbus RTU/04_Architecture/SHIELD_PROTO_V1/docs/ETUDE_LED_V1_6/preuves/pdf-relecture.json",
+      "bytes": 112,
+      "sha256": "4fec174eeb50bc0cf932b689946cc8a7cb546365554f4528020f2c6fce716584"
+    },
+    {
+      "path": "Modbus RTU/04_Architecture/SHIELD_PROTO_V1/docs/ETUDE_LED_V1_6/preuves/validation-calculs.json",
+      "bytes": 251,
+      "sha256": "c20bc3936db1ea98a01f2d99de59eebcffa9a636c30a1199f81c4669a33641c4"
+    },
+    {
+      "path": "Modbus RTU/04_Architecture/SHIELD_PROTO_V1/docs/ETUDE_LED_V1_6/preuves/validation-finale.json",
+      "bytes": 1388,
+      "sha256": "809c4179431e46758af250db30fa02c795c122665bc78c0afb343314f50428e5"
+    }
+  ]
+}

@@ -1,0 +1,69 @@
+{
+  "source": "C05 schematic sheets3/5 text; UM2861 Rev8 p24/p37",
+  "active_high": true,
+  "Nucleo_LED_supply": "3V3",
+  "no_direct_LED_parallel": true,
+  "channels": [
+    {
+      "LED": "LD1",
+      "color": "green",
+      "GPIO": "PC7",
+      "Morpho": "CN12-19",
+      "Q": "Q3",
+      "Rb": "R49 47k",
+      "Rbe": "R45 100k",
+      "Rled": "R25 510",
+      "Vf_illustration": 2.0,
+      "R_ohm": 510,
+      "factory_current_example_mA": 2.3529411764705874,
+      "fallback_current_example_mA": 1.1999999999999997
+    },
+    {
+      "LED": "LD2",
+      "color": "blue",
+      "GPIO": "PB7",
+      "Morpho": "CN11-21",
+      "Q": "Q4",
+      "Rb": "R50 47k",
+      "Rbe": "R46 100k",
+      "Rled": "R23 680",
+      "Vf_illustration": 2.8,
+      "R_ohm": 680,
+      "factory_current_example_mA": 0.5882352941176471,
+      "fallback_current_example_mA": 0.4
+    },
+    {
+      "LED": "LD3",
+      "color": "red",
+      "GPIO": "PG2",
+      "Morpho": "CN11-42",
+      "Q": "Q5",
+      "Rb": "R51 47k",
+      "Rbe": "R47 100k",
+      "Rled": "R24 1000",
+      "Vf_illustration": 1.8,
+      "R_ohm": 1000,
+      "factory_current_example_mA": 1.3999999999999997,
+      "fallback_current_example_mA": 1.3999999999999997
+    }
+  ],
+  "fallback": {
+    "Rb_ohm": 4700,
+    "Rbe_ohm": 100000,
+    "Rled_candidate_ohm": 1000,
+    "tolerance": 0.05,
+    "extra_gpio_upper_mA": 0.8062709966405376,
+    "factory_gpio_upper_mA": 0.08062709966405375,
+    "extra_LED_branch_upper_mA": 3.7894736842105265,
+    "rail_upper_three_LED_and_bases_mA": 13.787234042553193,
+    "Rled_power_upper_mW": 13.642105263157896,
+    "parts_per_board": {
+      "LED": 3,
+      "NPN": 3,
+      "R": 9,
+      "new_mating_signal_pairs": 3
+    },
+    "status": "principle only, verify actual LED Vf/brightness, chosen BJT pinout and IO domain; not approved at 1.8V"
+  },
+  "current_examples_not_measurements": true
+}

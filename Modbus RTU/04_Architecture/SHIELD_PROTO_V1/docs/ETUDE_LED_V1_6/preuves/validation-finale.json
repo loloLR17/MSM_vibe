@@ -1,0 +1,35 @@
+{
+  "mission_id": "TR2-20261104-SHIELD-V16-ETUDE-LED",
+  "time_utc": "2026-11-04T14:30:48.638255+00:00",
+  "status": "PASS_STUDY_ONLY",
+  "checks": {
+    "native_PCB_read_only": {
+      "pads": 191,
+      "segments": 396,
+      "zones": 2
+    },
+    "rays_conditional": 1232,
+    "existing_shield_files_unchanged": 232,
+    "PDF_pages_reopened_rendered_and_visually_reviewed": 3,
+    "SVG_XML_reopened": 3,
+    "ST_Morpho_entries_parsed": 140,
+    "Zio_PC7_PB7_PG2_absent": true,
+    "actual_LED_positions_null": true,
+    "electrical_bounds_checked": true,
+    "firmware_build_and_ERC_DRC_CAM_repeated": false,
+    "hardware_access": false
+  },
+  "limits": [
+    "C05 coordinates unknown",
+    "photometry and real obstacles unverified",
+    "hypothetical G and envelopes",
+    "fabrication not released"
+  ],
+  "incidents": [
+    "Linux curl executable absent: no HTTP transfer in that attempted batch",
+    "one bounded normal Windows curl timed out; web text C05 accessible; no raw PDF or CAD received",
+    "initial plot legend moved off window; SVG/PDF regenerated and reviewed",
+    "source Bivar family corrected to maximum21.1mm; no inherited file modified",
+    "Pre-commit diff check found Matplotlib SVG trailing spaces and Windows JSON CRLF; normalized these text files only, identical token sequences; generators corrected, PDF and inherited binary exports untouched"
+  ]
+}

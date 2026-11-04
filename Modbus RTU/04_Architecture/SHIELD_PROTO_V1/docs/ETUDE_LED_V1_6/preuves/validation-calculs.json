@@ -1,0 +1,14 @@
+{
+  "status": "PASS_CONDITIONAL_MODEL",
+  "native_pads": 191,
+  "native_segments": 396,
+  "what_if_pads": 4,
+  "what_if_segments": 7,
+  "what_if_nets": [
+    "+3V3",
+    "ACC_MISO",
+    "ACC_MOSI"
+  ],
+  "rays": 1232,
+  "physical_validation": false
+}

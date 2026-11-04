@@ -1,0 +1,8 @@
+{
+  "url": "https://www.st.com/resource/en/schematic_pack/mb1549-u575ziq-c05-schematic.pdf",
+  "method": "normal Windows curl Schannel, no security flags/policy changed",
+  "returncode": 28,
+  "http": "000",
+  "error": "curl: (28) Operation timed out after 12009 milliseconds with 0 bytes received\n",
+  "elapsed_s": 12.120654137979727
+}

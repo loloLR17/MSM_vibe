@@ -1,0 +1,162 @@
+{
+  "rectangle_xy_mm": [
+    45,
+    17,
+    65,
+    28
+  ],
+  "status": "WHAT_IF_NOT_C05_NOT_A_CUT",
+  "pad_intersections_bbox": [
+    {
+      "ref": "J8",
+      "number": "1",
+      "net": "+3V3",
+      "xy": [
+        45.0,
+        24.0
+      ],
+      "diameter_mm": 1.7,
+      "drill_mm": 1.02
+    },
+    {
+      "ref": "J8",
+      "number": "2",
+      "net": "+3V3",
+      "xy": [
+        45.0,
+        26.54
+      ],
+      "diameter_mm": 1.7,
+      "drill_mm": 1.02
+    },
+    {
+      "ref": "J8",
+      "number": "23",
+      "net": "ACC_MOSI",
+      "xy": [
+        60.24,
+        26.54
+      ],
+      "diameter_mm": 1.7,
+      "drill_mm": 1.02
+    },
+    {
+      "ref": "J8",
+      "number": "24",
+      "net": "ACC_MISO",
+      "xy": [
+        60.24,
+        24.0
+      ],
+      "diameter_mm": 1.7,
+      "drill_mm": 1.02
+    }
+  ],
+  "track_intersections_inflated_rectangle": [
+    {
+      "net": "+3V3",
+      "layer": "F.Cu",
+      "start": [
+        44.2,
+        26.5
+      ],
+      "end": [
+        45.0,
+        26.5
+      ],
+      "width_mm": 0.25
+    },
+    {
+      "net": "+3V3",
+      "layer": "F.Cu",
+      "start": [
+        45.0,
+        26.5
+      ],
+      "end": [
+        45.0,
+        26.54
+      ],
+      "width_mm": 0.25
+    },
+    {
+      "net": "+3V3",
+      "layer": "F.Cu",
+      "start": [
+        45.0,
+        26.54
+      ],
+      "end": [
+        45.0,
+        24.0
+      ],
+      "width_mm": 0.25
+    },
+    {
+      "net": "ACC_MOSI",
+      "layer": "B.Cu",
+      "start": [
+        60.2,
+        26.5
+      ],
+      "end": [
+        55.8,
+        30.9
+      ],
+      "width_mm": 0.25
+    },
+    {
+      "net": "ACC_MOSI",
+      "layer": "B.Cu",
+      "start": [
+        60.24,
+        26.54
+      ],
+      "end": [
+        60.2,
+        26.5
+      ],
+      "width_mm": 0.25
+    },
+    {
+      "net": "ACC_MISO",
+      "layer": "B.Cu",
+      "start": [
+        60.2,
+        24.0
+      ],
+      "end": [
+        55.8,
+        28.4
+      ],
+      "width_mm": 0.25
+    },
+    {
+      "net": "ACC_MISO",
+      "layer": "B.Cu",
+      "start": [
+        60.24,
+        24.0
+      ],
+      "end": [
+        60.2,
+        24.0
+      ],
+      "width_mm": 0.25
+    }
+  ],
+  "nets": [
+    "+3V3",
+    "ACC_MISO",
+    "ACC_MOSI"
+  ],
+  "zones": 2,
+  "zone_note": "GND zones present: cut would require refill and isolation review",
+  "MKI_provisional_front_Y": 21.46,
+  "edge_to_MKI_mm": 4.460000000000001,
+  "guide_hole_mm": 3.0734,
+  "strip_centre_Y_with_half_mm_margins": [
+    19.0367,
+    19.4233
+  ]
+}

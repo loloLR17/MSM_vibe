@@ -1,0 +1,162 @@
+{
+  "status": "CONDITIONAL_GEOMETRY_ONLY_NOT_PHOTOMETRY_OR_C05",
+  "actual_LD1_XYZ": null,
+  "actual_LD2_XYZ": null,
+  "actual_LD3_XYZ": null,
+  "domain_is_design_hypothesis_not_tolerance": [
+    [
+      45,
+      18,
+      -12.6
+    ],
+    [
+      65,
+      21,
+      -9.6
+    ]
+  ],
+  "common_eye_xyz": [
+    220.0,
+    -80.0,
+    150.0
+  ],
+  "aperture_xy_mm": [
+    [
+      95,
+      -16
+    ],
+    [
+      118,
+      -6
+    ]
+  ],
+  "lid_z_mm": [
+    37,
+    40
+  ],
+  "proposed_clear_plate_mm": 1.5,
+  "tested_obstacle_boxes": {
+    "shield": [
+      [
+        20,
+        17,
+        -1.6
+      ],
+      [
+        110,
+        117,
+        0
+      ]
+    ],
+    "MKI_provisional": [
+      [
+        42.46,
+        21.46,
+        11
+      ],
+      [
+        62.78,
+        54.48,
+        21
+      ]
+    ],
+    "ribbon_reservation": [
+      [
+        46,
+        -14,
+        9
+      ],
+      [
+        61,
+        21,
+        22
+      ]
+    ],
+    "MKI_post_1_bbox": [
+      [
+        36,
+        17,
+        0
+      ],
+      [
+        42,
+        23,
+        25
+      ]
+    ],
+    "MKI_post_2_bbox": [
+      [
+        68,
+        51.5,
+        0
+      ],
+      [
+        74,
+        57.5,
+        25
+      ]
+    ],
+    "MKI_roof_bbox": [
+      [
+        36,
+        17,
+        22
+      ],
+      [
+        74,
+        57.5,
+        25
+      ]
+    ],
+    "STLINK_reservation_NOT_measured": [
+      [
+        55,
+        -12,
+        -17
+      ],
+      [
+        81,
+        5,
+        1
+      ]
+    ],
+    "J8_conservative_body": [
+      [
+        43.5,
+        23,
+        0
+      ],
+      [
+        61.5,
+        56,
+        11
+      ]
+    ]
+  },
+  "expanded_obstacles_margin_mm": 0.5,
+  "grid_rays": 1232,
+  "all_grid_rays_clear": true,
+  "window_crossing_min": [
+    96.09649122807018,
+    -13.702337023370237,
+    37.0
+  ],
+  "window_crossing_max": [
+    115.14145141451414,
+    -8.489974937343362,
+    40.0
+  ],
+  "view_angle_from_vertical_deg": [
+    48.43745655537807,
+    51.69528287462873
+  ],
+  "analytical_worst_ray_Y_at_expanded_shield_bottom": 16.25375939849624,
+  "clearance_to_expanded_shield_north_edge_mm": 0.24624060150376081,
+  "unknowns": "actual LED emitting area/height/orientation/brightness, C05 north components, natural G, actual ribbon and access to eye position",
+  "not_exhaustive_CAD_collision_check": true,
+  "vertical_gap_to_lid_inner_mm": [
+    46.6,
+    49.6
+  ],
+  "Bivar_longest_in_consulted_PLP1_family_mm": 21.1
+}
