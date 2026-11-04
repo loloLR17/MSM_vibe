@@ -1,6 +1,6 @@
 ---
 mission_id: TR2-20261104-SHIELD-V18-REVUE-PRECOMMANDE
-status: IN_PROGRESS
+status: DONE
 base_ref: main
 base_sha: 6c4b6b7de20cdd5d4def23db4891f532a7e65c6d
 initial_head: 6d6417a86d7bdb2a725bd5557bbd4dcac413b7f8
@@ -16,7 +16,7 @@ allow_debug: false
 
 # V1.8 — audit terminé, NO-GO provisoire pour la commande
 
-**L’audit autonome est terminé avec NO-GO physique précis, autorisé par le contrat ; la publication et sa relecture restent en cours.** L’utilisateur reporte les impressions et vérifications à demain. Aucun résultat physique n’est prétendu acquis. Il n’est pas nécessaire de recommencer les campagnes firmware ou de reconcevoir le shield pour préparer ce contrôle. Le statut provisoire concerne la relecture distante à effectuer.
+**L’audit autonome est terminé et publié avec NO-GO physique précis, autorisé par le contrat.** L’utilisateur reporte les impressions et vérifications à demain. Aucun résultat physique n’est prétendu acquis. Il n’est pas nécessaire de recommencer les campagnes firmware ou de reconcevoir le shield pour préparer ce contrôle. La relecture distante décrite ci-dessous est réussie.
 
 ## Résultats et décision
 
@@ -54,6 +54,6 @@ Validation proportionnée : audit CAO/documentaire uniquement ; aucun nouveau te
 
 Commit évalué **7a09a88050aebe8be262247657057679222b3f5e — Audit shield V18 release gates, candidate CAM and France procurement**. ZIP candidat `TR2_SHIELD_V14_NON_LIBERE_V18.zip`, SHA256 **9a094784ce8553649b8074dbff70ee0df75b3f4a953b3f5982524949ea0322ed**. Worktree isolé `MSM_vibe-SHIELD-V18-REVUE-PRECOMMANDE`, branche locale `codex/shield-v18-revue-precommande`, cible autorisée main. Dépôt principal propre82169af7, deux stashes historiques6251b988…/f3b829e6… et autresworktrees préservés. Pas de résolution automatique de divergence.
 
-Journal `ETAT_COURANT_TR2.md` actualisé : résultats électriques/CAM, NO-GO physique et report à demain, USERsimple, budget estimatif et suites. À transmettre à ChatGPT : revoir les gates et les résultats demain, figerG/fixations avant décision humaine de commande ; total rendu et stocks finaux à confirmer. **DONE à venir signifie audit complet avec NO-GO, jamais READY_TO_ORDER.** Permissions exercées : lecture, documentation/outillage d’audit/CAM candidat, journal, commits/push normaux seulement. Mission inchangée et archivée ; aucune permission matérielle exercée.
+Journal `ETAT_COURANT_TR2.md` actualisé : résultats électriques/CAM, NO-GO physique et report à demain, USERsimple, budget estimatif et suites. À transmettre à ChatGPT : revoir les gates et les résultats demain, figerG/fixations avant décision humaine de commande ; total rendu et stocks finaux à confirmer. **DONE signifie audit complet avec NO-GO, jamais READY_TO_ORDER.** Permissions exercées : lecture, documentation/outillage d’audit/CAM candidat, journal, commits/push normaux seulement. Mission inchangée et archivée ; aucune permission matérielle exercée.
 
-Publication et relecture distante : en cours, seront consignées avant clôture.
+Publication normale sur main réussie : **67ab4f06a8563c247c968a907140c694bf074160**, confirmée par fetch et ls-remote. **331fichiers relus intégralement depuis origin/main et comparés octet pour octet**, couvrant les livrables, le journal, les sources historiques du shield, le contrat et la gouvernance ; preuve `archives/TR2-20261104-SHIELD-V18-REVUE-PRECOMMANDE/REMOTE_READBACK.json`. Worktree propre après ce premier push. La présente clôture documentaire et son archive sont publiées par un dernier commit/push normal puis relues ; SHA final fourni après vérification dans la réponse utilisateur. Aucun résultat physique ajouté.
