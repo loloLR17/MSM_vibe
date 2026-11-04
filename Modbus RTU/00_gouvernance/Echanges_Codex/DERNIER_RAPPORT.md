@@ -1,11 +1,11 @@
 ---
-mission_id: TR2-20261104-SHIELD-V14-J5-2X2
-status: BLOCKED
+mission_id: TR2-20261104-SHIELD-V15-INTEGRATION-3D
+status: IN_PROGRESS
 base_ref: main
-base_sha: fa49923a124607bed2c3a4e9b40d86bec98eadd9
-initial_head: 5890556a512de816a2251c77e2bc128578ba6750
-result_sha: 5d5bc5f8d118eebea9267fc2dfe6bd6d7be0bdbe
-created_at_utc: 2026-11-04T10:21:56Z
+base_sha: 3b91ef05b318a12d9796e4c87de23b24c8888580
+initial_head: 10c6e0f22cd09f203ab79aedd79e7e5ebda3637f
+result_sha: 95e95b51445ae387c4a2a3cb4ca4d0719c8d0e4a
+created_at_utc: 2026-11-04T11:53:50Z
 author: Codex
 target_branch: main
 allow_commit: true
@@ -14,82 +14,83 @@ allow_flash: false
 allow_debug: false
 ---
 
-# Shield V1.4 — J5 femelle 2 × 3 autorisée, candidat vérifié
+# Shield V1.5 — assemblage éditable préparé, interfaces C05 encore bloquantes
 
-**CAD_VERIFIED (nominal), READY_FOR_PHYSICAL_TEMPLATE_CHECK, BLOCKED_FABRICATION. NE PAS COMMANDER.** Le format 2 × 3 et le déplacement de l’ancrage Click sont intégrés conformément à la décision explicite de l’utilisateur. Seule CN12-69/PG4 rejoint RTU_DE ; les cinq autres contacts sont NC indépendants côté shield. Aucune modification des Nucleo.
+**READY_FOR_PHYSICAL_CHECK / BLOCKED_FABRICATION — NE PAS COMMANDER.** L’assemblage 3D, les coupes, une proposition de boîtier et les contrôles nominaux sont produits. **La visibilité réelle des trois LED et l’actionnement du vrai USER boîtier fermé ne sont pas démontrés.** Les critères correspondants de la mission ne sont donc pas satisfaits ; pas de DONE ni de fabrication libérée.
 
-Publication et relecture distante effectuées sur `118363431d3eda9cce9943eda82bf3d46c293e7e` : les 107 fichiers modifiés ont été relus intégralement depuis la référence récupérée de GitHub et comparés octet pour octet aux fichiers locaux. Preuve : `archives/TR2-20261104-SHIELD-V14-J5-2X2/REMOTE_READBACK.json`. Le statut BLOCKED concerne exclusivement la libération en fabrication : hauteur naturelle Zio, ajustement sur les deux C05, enveloppes et tolérances non démontrés physiquement. La tranche logicielle autorisée est terminée ; aucune validation physique n’est revendiquée.
+Rapport provisoire IN_PROGRESS : publication et relecture distante restent à effectuer. Le blocage technique extérieur est distinct : centres/hauteurs réels C05, G naturel Zio et enveloppes des modules ne sont pas disponibles ; la mission interdit toute intervention physique et aucune CAO de fabrication C05 exploitable n’a été obtenue. Les opérations logicielles réalisables sont terminées.
 
-## Contradiction résolue et autorisation
+## Résultat principal avant PCB
 
-ST UM2861 Rev8, tableau 19 p37 et figure 4 p10, reçu et inspecté : CN12 se présente par paires 65/66, 67/68, 69/70. Fonctions respectives : PD10, PG8, PG7, PG5, PG4, PG6. Les positions 66/67/68/69 ne forment pas un carré 2 × 2. L’utilisateur précise deux barrettes en quinconce 67/69 et 66/68 ; les positions 65/70 restent vides.
+**Le plan V1.4 réservait à tort une baie commune LED/USER au sud.** ST UM2861 Rev8 figure4 situe LD1/LD2/LD3 au **nord**, USER B1 et RESET B2 au **sud**. Le générateur et le plan d’interfaces courant sont corrigés, sans réécrire les archives. Le code prototype conservé confirme LD1 verte/PC7, LD2 bleue/PB7, LD3 rouge/PG2, B1/PC13 ; ce ne sont pas LD4/5/7. C’est une lecture documentaire et du code, pas une observation matérielle nouvelle.
 
-Une proposition isolée a été préparée avant escalade. L’utilisateur a ensuite approuvé explicitement « Oui, 2 × 3 et ancrage déplacé ; poursuite autonome », en réponse à la proposition femelle couvrant 65..70 et ancrage (94,5 ;112,5). Décision archivée dans `archives/TR2-20261104-SHIELD-V14-J5-2X2/DECISION_UTILISATEUR_2X3.md`. L’identifiant historique 2X2 est conservé ; le contrat et les décisions de pilotage, propriété ChatGPT, ne sont pas réécrits. L’adaptation ne nécessite plus d’approbation de format.
+Le secteur d’inspection nord recoupe le contour du shield Y17..117 et partiellement le MKI provisoire. Cela révèle un **risque d’obstruction optique** ; ce secteur n’est ni une cote de LED ni une preuve de collision localisée sur C05. Un guide droit vers le couvercle n’est pas déclaré libre. **Aucune découpe PCB n’est pratiquée faute de position démontrée ; cela ne prouve pas qu’aucune découpe ne sera nécessaire.** Le report systématique de LED/USER après PCB n’est plus applicable à la décision V1.5.
 
-## Modifications réalisées
+## Livrables éditables et vues
 
-Dossier `Modbus RTU/04_Architecture/SHIELD_PROTO_V1/`. Nom de projet KiCad historique conservé, cartouche et sérigraphie 1.4. Sources et générateurs, schéma, PCB, matrice, nomenclature, budget, calcul Z, plans et exports actualisés.
+Dossier `Modbus RTU/04_Architecture/SHIELD_PROTO_V1/` :
 
-- J5 `CN12_65_70_2X3_FEMALE`, empreinte `TR2:J5_CN12_65_70_2X3_FEMALE`, **Samtec SSW-103-01-F-D**, sous le shield, entrée vers Nucleo ; corps B.Fab et marquage miroir. Numéros locaux 1..6 = CN12-65..70. Local 5 seul connecté à DE. Les anciens footprints J5 conservés sont historiques, non instanciés.
-- Positions globales nominales en mm, vues depuis le dessus du PCB shield :
+- `mechanical/V1_5/README.md`, `parameters.json`, `requirements.txt`, `tools/build_integration_v15.py` et `tools/review_integration_v15.py` : sources CadQuery/Python et paramètres, provenance et reproduction sans matériel. X CAD=X KiCad, Y CAD=−Y KiCad, Z=0 dessus shield. Les centres LED/USER/RESET/USB inconnus restent **null**, sans remplacement par un point inventé. Les détails de coupon/inserts sont éditables dans le script, pas tous pilotés automatiquement par JSON.
+- `mechanical/V1_5/REVIEW_ONLY/assembly-review.step` : **67 objets nommés, 171 solides relus**, incluant Nucleo reconstruite, PCB shield perforé exact, J1–J9 et contreparties nominales, FRAM/SD/MKI/Click, entretoises, retenues, boîtier et réservations fonctionnelles. Le PCB reste V1.4 : J5 femelle 2×3 sous shield, seul pad5=69/PG4→DE et cinq NC, ancrage Click94,5/112,5.
+- `assembly-views-and-sections.pdf` : **huit pages** dessus/dessous/profil/isométrique/éclatée/boîtier/coupes ; neuf PNG avec le coupon. `section-X60.step` et `section-Y92.step` sont de vrais demi-assemblages par intersection BRep, non des plans de fabrication libérés.
+- **15 fichiers STEP et 14 STL** contrôlés : assemblage, demi-coupes, pièces séparées du boîtier, coupon USER/3 guides et fenêtre alternative. STL fermés, connexes et volumes positifs ; leur validité ne prouve ni le fit ni l’imprimabilité sans supports.
+- `operator-principle-NOT-C05.step/pdf/png` : coupon captif indépendant de la Nucleo. TigeØ5/guideØ5,5, brideØ12, têteØ10, jeu fictif0,6 et butée1 mm ; porte-guide à montants et traverse démontable, fixations au panneau pour le retour des efforts de butée vers la structure. Vérifications de non-intersection aux deux positions, **sans qualification de la force/course réelle B1**. Rappel et embout compliant restent à dimensionner.
+- `window-alternative-NOT-OPTICAL-VALIDATION.step` : fenêtre PC/PMMA1,5 mm et cadre démontable. Ce sont les pièces de construction d’une fenêtre ; **pas la preuve qu’on voit les LED derrière le shield**.
+- `CONTROLE_PHYSIQUE_MINIMAL_2P.pdf` : **deux pages**, secteurs, origine CN8-4, profil G et photos/mesures minimales à prévoir ultérieurement. Aucun geste physique demandé dans cette mission. Les relevés acquis8,22/2,40 et15,2 ne sont pas redemandés.
+- Notes séparées `docs/DECISION_LIBERATION_PCB_V1_5.md`, `MATURITE_BOITIER_V1_5.md`, `OPTIQUE_USER_V1_5.md` et matrice `MATRICE_INTERFERENCES_V1_5.csv` : verdicts PASS/RESERVE/BLOCKED explicitement bornés au modèle, décision PCB distincte de la maturité du boîtier.
 
-| Pad local | CN12 / fonction | X | Y | Côté shield / mâle utilisateur |
-|---|---|---:|---:|---|
-|1|65 / PD10|85,96|106,28|NC / absent|
-|2|66 / PG8|88,50|106,28|NC / présent|
-|3|67 / PG7|85,96|108,82|NC / présent|
-|4|68 / PG5|88,50|108,82|NC / présent|
-|5|69 / PG4|85,96|111,36|RTU_DE / présent|
-|6|70 / PG6|88,50|111,36|NC / absent|
+## Fidélité et provenance des modèles
 
-- Quatre nouveaux trous J5 aux positions 65..68, perçages J5 1,04 mm conformément au dessin recommandé Samtec ; autres connecteurs 1,02 mm inchangés. Position de DE conservée. **32 trajets géométriques et nets inchangés**, seul libellé d’extrémité J5.1→J5.5. 19 empreintes, 191 pads dont 11 NPTH et 180 numérotés, 59 connectés / 121 NC, quatre vias ; contour 90 × 100 mm.
-- Un seul ancrage Click inférieur déplacé de (91 ;108) vers **(94,5 ;112,5)**, après collision avec le nouveau J5. Étrier Click SCAD/STL adapté ; autres ancrages Nucleo, modules et retenues positives conservés. Pas de détrompage automatique réintroduit. Fixations restent nécessaires ; aucune qualification mécanique déduite.
-- Exports candidats réels : schéma, implantation dessus et dessous miroir, cuivre dessous miroir, Gerber X2 et Excellon dans `exports/BLOCKED_FABRICATION`, STEP/PNG **carte nue seulement**, gabarit A4 1:1 V1_4 trois pages et CSV de 109 centres, interfaces et retenues SVG/PDF. Les fichiers nommés V1_2/V1_3 restent historiques. Régénération par les outils mise à jour, sans retour à J5 1 × 2.
+Adafruit4682 : STEP fabricant réutilisé au commit `6c5cd9e3e65252bb5d5339608cf8d3cdabcef251`, transformation rigide +90°Z puis (43,04;−108,54;11). **Neuf pads et deux trous alignés** sur les coordonnées KiCad sans miroir du solide. Modèle nominal fabricant, pas une mesure de la carte détenue. Attribution et CC BY-SA3.0 conservées. SHA du téléchargement original195927fa…d6e8, copie textuellement normalisée e220bfb8…a924, valeurs complètes dans `sources-v1-5.json` ; tous les tokens STEP sont inchangés.
 
-## Empilage : données et limites
+FRAM : contour/trous issus de l’Eagle fabricant, hauteur de composants hypothétique. MKI : enveloppe de corps/IDC **provisoire**, non un modèle ST obtenu. Click : enveloppes simplifiées fondées sur v101 (PCB57,15×25,4×1,59 ; terminal jusqu’à8,5 au-dessus du PCB) ; son STEP163solides a été inspecté comme source dimensionnelle, **pas intégré comme modèle détaillé v102**. La révision utilisateur reste inconnue. J1–J9 : enveloppes de catalogue, pas contacts électromécaniques détaillés qualifiés. Nucleo : reconstruction documentaire UM2861 ; **aucun fichier de fabrication C05 reçu**.
 
-Cotes opérateur acquises : pointe à **8,22 mm**, plastique à **2,40 mm**, métal exposé **5,82 mm** ; approximations au pied à coulisse, incertitude non fournie. Aucun nouveau relevé de ces dimensions ni de l’entraxe MKI 15,2 mm n’est demandé.
+Les pistes officielles alternatives ont été recherchées sans répétition longue des échecs antérieurs : page STJapan liée au téléchargement renvoie404, deux transferts ST.cn (schéma/BDP) expirent après ~18,74/14,38s incluant les phases réseau. L’index documentaire du schéma C05 a pu être consulté, mais pas reçu comme placement CAO ; le schéma ne donne pas les centres mécaniques. Les archives/révisions/formats C05 restent inconnus. La notice ST mentionne des changements d’obsolescence dont LED pour C05 : pas de déduction de parité mécanique complète depuis C03. Sources et échecs tracés dans `docs/sources-v1-5.json` et `docs/checks/v15/`.
 
-Catalogue Samtec SSW traversant réellement reçu : mâle nominal carré .025 pouce (~0,635 mm), hauteur femelle 8,51 mm, queues style 01 de 2,64 mm, plage d’insertion **3,68..6,35 mm**, corps double 4,95 mm de large et 8,13 mm de long pour trois positions. Dessin de perçage double reçu : pas 2,54 mm, trou recommandé 1,04 mm. URLs, tailles et SHA-256 dans `docs/sources-v1-4.json` et `docs/checks/v14/independent-findings.json` ; originaux locaux conservés sous `/home/lolo/dev/msm/reports/TR2-shield-v14-20261104/`.
+Le STEP KiCad carte nue hérité présente un cœur de1,51 mm (observation OCCT), tandis que le PCB déclare1,6 mm. La maquette utilise l’enveloppe nominale1,6 et ses trous sauvegardés, et signale cette différence de représentation ; elle ne change pas le circuit pour la masquer. G=11 et module_bottom=11 restent des hypothèses, non des cotes mesurées. J5 àG11 garde seulement **0,09 mm** entre plastiques et5,73 d’insertion ; aucune marge/tolérance ou qualification acquise.
 
-Avec G = distance entre dessus du PCB Nucleo et dessous du shield, insertion **I = 8,22 − G + 8,51**, jeu entre corps **C = G − 8,51 − 2,40**. À G = 11,00 mm, hypothèse **non mesurée**, I = 5,73 et C = **0,09 mm seulement**. L’intervalle nominal résultant de l’insertion constructeur et de l’absence de collision plastique est **10,91 ≤ G ≤ 13,05 mm**, sans marges ni tolérances. Il ne prouve pas le montage. G réel, section/tolérances des mâles et dégagements corps/queues/entretoises restent à confronter à l’assemblage naturel Zio/J5 ; ne jamais rattraper un écart en serrant ou en fléchissant les cartes.
+## Boîtier et accès
 
-Les deux ZIP ST MB1549 ont fait l’objet d’une tentative HTTPS bornée à 8 s chacun : timeout ~8,24 s, **aucune archive reçue** (`checks/v14/ST-bounded-retry-v14.json`). Contenu, formats, révision C05 et hash inconnus ; aucune équivalence entre numéros de publication et révision PCB supposée. Le manuel vérifie les noms et paires, pas le fit mécanique C05 ; la géométrie reste un candidat issu de la reconstruction documentaire antérieure.
+Proposition PETG opaque, extérieur **158×166×64 mm**, fond/couvercle/parois3 mm, quatre vis de couvercle, supports isolants et modules remplaçables. CN15 au sud, ST-LINK au nord, microSD à l’ouest, RS485 à l’est et outil par capot local, nappe au nord à une hauteur distincte de ST-LINK. Inserts et panneaux vissés sont **aveugles** tant que les prises et organes réels ne sont pas positionnés : le modèle fermé n’est donc pas un boîtier d’exploitation fonctionnel prêt à imprimer. RESET n’a pas d’accès extérieur. Joints/colliers et jeux finaux restent à dimensionner ; aucune certification IP.
 
-## Nomenclature et budget
+Contrôles limités réussis : pas de collision des corps électroniques **modélisés** avec fond/couvercle, balayage rectangulaire SD libre des parties fixes après retrait de sa trappe, couloir outil RS485 libre après retrait du capot local. La SD éjectée reste environ5 mm derrière la face intérieure de paroi : accès aux doigts réel non qualifié. Les volumes USB sont des réservations et non les corps cotés des prises/fiches. L’IDC et la trajectoire complète de la nappe depuis MKI ne sont pas inventés. A/B/GND2 restent côté isolé Click, aucune liaison conductrice ajoutée vers GND logique et aucun GND2 ajouté au PCB.
 
-Référence choisie SSW-103-01-F-D : affichage constructeur **1,349 USD/unité**, minimum 1, deux unités nécessaires, stock affiché 4 597 au relevé. Ce sont des affichages, pas une réservation ni un devis livré. Sources référencées dans `docs/SOURCES.md`. Les autres connecteurs standard économiques V1.3 sont conservés. Total connectique pour deux shields : **7,558 USD**, contre 5,66 USD en V1.3 ; surcoût 1,898 USD pour disposer des données d’engagement.
+Le PETG et les parties vissées sont une proposition : supports de ponts/fenêtres latérales, retrait, jeux, fluage/température et résistance mécanique non vérifiés par impression. Aucun essai thermique/vibratoire ni tenue8h déduit. Le bloc secteur5V externe viaCN15 demeure prévu ; aucun230V, batterie ou powerbank ajouté.
 
-Alternative Connfly DS1023-2*3S21 : minimum 10 × 0,10 USD, total connectique hypothétique 5,86 USD ; non sélectionnée car limites d’insertion non trouvées. Les dimensions Samtec ne sont pas transférées à Connfly. La femelle 2 × 2 est incompatible avec le quinconce.
+## LED/USER : choix standard examinés, critères non acquis
 
-Budget prudent : **54,30 EUR + 9,558 USD avant fiscalité**, comprenant provisions mécaniques 21,30 EUR, hypothèse de quatre ports 33 EUR et appel PCB 2 USD. Ni ports réels, ni devis livré, ni conversion de devise inventés. **Cible 50 EUR livrée non démontrée.** Aucun achat ni commande.
+Trois Bivar **PLP1-250-F** transparents individuels sont dimensionnés sur le coupon : longueur6,4, guideØ3, brideØ3,8, panneau2 mm et montage selon dessin fabricant. **Ils ne sont pas couplés aux LED Nucleo.** Leur longueur est celle du coupon, pas un choix définitif pour le TR2. Option déportée MENTOR1216.1001 (fibre150mm, rayon>9) et1002 (80mm, rayon>20) examinée : fixation par ergots sur PCB et boîtiers d’entréeØ11 non vérifiés compatibles avec Nucleo/entraxe des LED. Aucune Nucleo percée ni adaptation présumée conforme. Fenêtre rapportée possible comme pièce, mais ligne de vue non démontrée. Aucun tube opaque ne sert de guide.
 
-## Validations effectivement observées
+Tarif Bivar affiché **0,69USD**, six pour deux ensembles=**4,14USD horsport/taxes**, option non qualifiée, sans réservation/devis. Ressort/embout/joints/fenêtre/impression non chiffrés à zéro : inconnus. BOM électrique V1.4 conservée, budget livré50EUR toujours non démontré.
 
-| Contrôle | Résultat / preuve sous docs/checks |
+USER : centre/hauteur/capuchon, course et effort admissibles B1 manquent. Le coupon démontre un principe mécanique, pas un actionnement sûr du bouton réel ; la butée ne remplace pas le dimensionnement du jeu/compliance et du rappel. Le secteur sud est généralement hors shield mais **ne constitue pas un volume balayé mesuré** ; pas de preuve suffisante d’absence de découpe. C’est un gate avantPCB, avec RESET séparé.
+
+## Vérifications, incidents et conservation des preuves
+
+| Contrôle réellement exécuté | Résultat / preuve `docs/checks/v15/` |
 |---|---|
-| generate_schematic.py, generate_board.py, apply_routes.py, export_design.py, read_board.py | sorties réelles 0 ; `rebuild-v14.json`, `commands.json` |
-| ERC KiCad 10.0.6, severity-all et exit-code-violations | zéro violation ; `ERC.json/log` |
-| DRC strict avec schematic-parity, all-track-errors, severity-all et exit-code-violations | zéro violation, zéro non-connecté, zéro écart de parité ; `DRC.json/log` |
-| verify_exports.py : netlist/PCB, attributs X2 des deux cuivres, tous Excellon, contour CAM | PASS ; `export-verification.json` ; pas d’audit indépendant de toute la topologie cuivre CAM ni d’impédance |
-| verify_preorder.py natif : J5 face B, corps, miroir, local 5 DE et cinq îlots NC, trous, routage | PASS nominal ; `preorder-native.json` |
-| verify_mechanical.py : géométrie, ancrages, corridors, cinq maillages | PASS nominal ; `mechanical-verification.json` |
-| Étrier Click déplacé, compilation OpenSCAD et maillage | succès, 1 604 triangles, fermé et connexe, volume positif ; `v14/retainer-new-anchor.json`, click.log/STL |
-| generate_preorder.py / generate_interfaces.py | succès ; `preorder-template.json`, `v14/interface-pdf-generation.json` ; gabarit et plan dessous inspectés visuellement |
-| Comparaison ciblée à 5890556a | PASS ; `v14/scope-audit.json` : autres pads inchangés sauf un NPTH autorisé, 32 géométries conservées |
-| Règles projet et hashes | fichier .kicad_pro octet pour octet conservé, SHA-256 8c077c4fc90dc8fe73b778e3fccfeb764cc4dca59667a8a04d85bc7cc1bb61f6 ; 73 artefacts relus selon artifact-hashes.json |
-| Diff Git / périmètre | diff --check réussi ; aucune source firmware ni document humain actif modifié |
+|Génération CadQuery2.8/OCCT, export puis vérification après correction de format|succès ; `export-binary-STL-final.log`, `integration-validation.json`|
+|15STEP relus ;14STL binaires relus/maillages fermés/connexes/volume positif|PASS ; `final-STEP-and-coupon-readback.json` ; les14STL sont **identiques octet pour octet à ceux validés dans7bcf3505**|
+|Alignement SD9contacts/2trous, J5hypothétique, inconnuesnull|PASS nominal dans `integration-validation.json` ; aucun fit matériel|
+|Fond/couvercle vs corps électroniques modélisés, SD et outil|PASS borné ; `access-clearance-checks.json` ; pas un audit exhaustif des cartes réelles ni de tous les contacts d’assemblage|
+|État PCB/CAM initial|44fichiers protégés comparés exactement à10c6e0f2 ; `protected-PCB-CAM.json` ; aucun déplacement/trou/routage modifié|
+|ERC/DRC strict/parité/CAM V1.4|preuves réutilisées après conservation exacte des sources/exports ; pas de relance inutile sur PCB inchangé|
+|Vues et checklist|PDF8pages + coupon1page + fiche2pages réouverts,9PNG réouverts et vues inspectées ; `views-readback.json`|
+|Hashes|48fichiers V1.5 lus et72artefacts courants ; `artifacts.json` et `docs/artifact-hashes.json`|
+|Diff/périmètre|diff --check final réussi, aucune modification firmware/contrat humain/ancienne archive ; contrôles avant push|
 
-Erreurs conservées : la première proposition 2 × 3 causait trois erreurs DRC autour du NPTH Click (jeu 0,181 < 0,25 mm et courtyard). L’ancrage approuvé a été déplacé ; textes déplacés/redimensionnés à 0,8 mm pour supprimer les avertissements de sérigraphie, DRC final strict réussi. `DRC-before-retainer-move.json` garde l’échec initial. Le contrôle mécanique a d’abord lu la mauvaise base historique V1, dépourvue de retainer_mount_holes (KeyError) ; il lit désormais la V1.3 pour cette comparaison et passe. Aucun seuil, aucune sévérité ou exclusion abaissés. Les quatre maillages inchangés ont été réutilisés et relus, sans recompilation inutile. Les UUID KiCad régénérés expliquent une part du diff sans changement de géométrie fonctionnelle.
+Incidents résolus consignés dans `incidents.json` : absence ensurepip contournée par l’outil pip existant dans un **venv de cache**, sans installation système ; syntaxe initiale du générateur corrigée ; erreur de rendu Matplotlib analysée/corrigée ; tête du coupon initialement trop proche du panneau remontée1mm et tests de course ajoutés. Le premier commit local7bcf3505 a été créé malgré des alertes de format : **aucun push à ce stade**. La normalisation a été restreinte au texte STEP/CSV ; une tentative locale inadaptée sur STL binaires a été détectée par la relecture et l’écart de longueur84+50N. Tous les STL ont été régénérés et contrôlés identiques aux versions initialement valides, sans installer une dépendance pour masquer le défaut. Aucun contrôle géométrique/mesh n’a été abaissé. Le commit correctif conserve le commit initial et précède la publication.
 
-Validation proportionnée : mission purement CAO/documentaire, aucun changement firmware ; tr2_validate/build STM32 et campagnes physiques ne fourniraient pas de preuve utile ici et n’ont pas été exécutés. Compilation OpenSCAD, contrôles CAO et inspection documentaire ne constituent pas une qualification physique.
+**Manifeste hérité réconcilié** : ses73entrées incluaient un `.kicad_prl` de préférences locales ignoré/non versionné, absent de cette référence Git. Il n’est pas fabriqué/importé. Le manifeste courant contient72fichiers réels, avec quatre changements intentionnels (trois vues du plan et interfaces.json). L’entrée manquante et son ancien hash sont conservés dans `legacy-manifest-reconciliation.json`. Aucun rapport ni archive V1.4 n’est réécrit. La question de traçabilité est transmise à ChatGPT ; aucune anomalie du PCB n’en est déduite.
 
-## Conservation, publication et suite
+Validation proportionnée : pas de build STM32 ni test firmware, car aucune source firmware/interface électrique modifiée et aucun accès matériel permis. Les validations CAD et les maillages ne sont pas des essais physiques ni une autorisation de fabrication.
 
-Dépôt principal historique propre à `82169af7e76797731358852bec83bfb0ceb54ccf` préservé ; aucun reset, merge, rebase ou nettoyage. Worktree isolé `MSM_vibe-SHIELD-V14-J5-2X2`, branche locale `codex/shield-v14-j5-2x2`, cible autorisée main, départ réel `5890556a512de816a2251c77e2bc128578ba6750`. Stashes `6251b988e8b20f97997a8f98fd26d4d35a45a1b2` et `f3b829e6188f491920edf74a5f9ed0f559d08b87`, autres worktrees, archives et campagnes préservés. Contrat copié dans la nouvelle archive de mission ; décision opérateur archivée. Aucun accès matériel, flash, debug, FRAM, microSD ou COM ; aucune soudure, impression ou commande.
+## État Git, limites et suite
 
-Commit de sources évaluées : `5d5bc5f8d118eebea9267fc2dfe6bd6d7be0bdbe`, « Shield V1.4: adapt authorized staggered CN12 connection to female 2x3 ». Le journal `ETAT_COURANT_TR2.md` est actualisé : rectification du quinconce, décision 2 × 3/ancrage, validations nominales, cotes acquises, budget et réserves C05. Permissions exercées : modifications, contrôles logiciels et commits ; push normal réalisé vers main puis relecture distante complète à `118363431d3eda9cce9943eda82bf3d46c293e7e`, jamais force push. État du worktree propre après cette publication ; la présente clôture documentaire fait l’objet d’un dernier commit/push normal avec contrôle distant et SHA fourni dans la réponse finale. Le dépôt principal reste propre à son HEAD historique, ses deux stashes inchangés.
+Source mécanique initiale7bcf35059f6b5d05995c2702b6b2990561f30f29, correction de format et source évaluée **95e95b51445ae387c4a2a3cb4ca4d0719c8d0e4a**. PCB électrique hérité de5d5bc5f8 reste inchangé. Worktree `MSM_vibe-SHIELD-V15-INTEGRATION-3D`, branche locale `codex/shield-v15-integration-3d`, cible autorisée main. Dépôt principal propre au HEAD historique82169af7 préservé, sans pull/merge/rebase/reset ; anciens worktrees/campagnes/archives intacts et deux stashes6251b988… etf3b829e6… conservés. Le contrat est copié dans la nouvelle archive de mission. Journal `ETAT_COURANT_TR2.md` actualisé : assemblage nominal, rectification LED nord, gates avantPCB, réserves et correction de traçabilité.
 
-L’unique contrôle physique groupé restant avant libération : **gabarit 100 % sur les deux C05, emboîtement naturel Zio/J5 avec mesure de G et vue de profil**, puis dégagement des corps, queues, vis/entretoises et volumes MKIGIBV2/Click. À effectuer dans une intervention ultérieure autorisée ; pas de manipulation demandée dans cette mission. Les relevés 8,22/2,40 et 15,2 ne sont pas à refaire. Enveloppe de boîtier, guides LED, poussoir et détrompage automatique ne constituent pas des gates supplémentaires pour les PCB nus.
+Permissions exercées : développement/documentation/contrôles logiciels et commits, push normal prévu avec relecture distante. **Aucun achat, commande, impression, flash/debug/GDB, accès STM32/COM/FRAM/microSD ni intervention physique.** L’état matériel n’a pas été relu et aucune nouvelle qualification du firmware n’est revendiquée.
 
-Les livrables candidats sont prêts pour revue indépendante ChatGPT. La fabrication reste suspendue à ce contrôle réel ; aucun fichier candidat n’est déclaré bon pour commande.
+Pour poursuivre : utiliser la fiche physique2pages dans une intervention ultérieure autorisée, obtenir une seule série de photos dessus/profil et les cotes réellement manquantes, puis placer les organes réels, établir chaque trajet optique et le poussoir, décider les seuls passages PCB nécessaires et relancer alors ERC/DRC/CAM si circuit modifié. Gabarit/ajustement sur **les deuxC05**, engagement Zio/J5 sans force, enveloppes MKI/Click et prises restent requis. Ni les mesures8,22/2,40/15,2, ni les campagnes firmware réussies ne sont à refaire.
+
+La poursuite dépend maintenant de ces données extérieures, pas d’une validation intermédiaire des opérations logicielles. Revue indépendante ChatGPT et décision humaine restent nécessaires avant commande. Les détails de boîtier adaptables et la fixation de tête capteur constituent des travaux distincts ; aucune exigence industrielle/détrompage supplémentaire ajoutée.
