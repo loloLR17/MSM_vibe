@@ -1,7 +1,12 @@
 {
   "status": "PASS_NOMINAL_ONLY",
-  "electrical_nets_equal_to_V1": true,
-  "nucleo_headers_and_anchors_unchanged": true,
+  "functional_nets_equal_to_V1_with_J5_local_pad5_as_PG4": true,
+  "Zio_headers_and_Nucleo_mounting_anchors_unchanged": true,
+  "J5_format": "authorized2x3",
+  "Click_lower_anchor_mm": [
+    94.5,
+    112.5
+  ],
   "SD_shift_mm": [
     -3.5,
     0
@@ -42,22 +47,22 @@
       "triangles": 1604,
       "closed_edges": true,
       "connected_surface_components": 1,
-      "signed_volume_mm3": 1635.5590937671868,
+      "signed_volume_mm3": 1737.2786405516022,
       "bbox_mm": [
         [
           81.0,
-          94.0
+          97.5
         ],
         [
           72.0,
-          111.0
+          115.5
         ],
         [
           0.0,
           25.0
         ]
       ],
-      "sha256": "6c2781b79e75c065b53ad1c197b64a10a2a3f97f4be04035a6c79c569d074419"
+      "sha256": "8e7c22cfa619b1284496c0a4cf5518d9feb51893de6136b9fd03c296af6c4689"
     },
     {
       "name": "flat_clamp",

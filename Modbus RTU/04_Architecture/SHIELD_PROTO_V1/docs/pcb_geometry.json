@@ -182,8 +182,8 @@
       "ref": "J9",
       "number": "",
       "net": "",
-      "x": 91.0,
-      "y": 108.0,
+      "x": 94.5,
+      "y": 112.5,
       "diameter": 3.2,
       "drill": 3.2,
       "npth": true
@@ -840,22 +840,62 @@
     },
     {
       "ref": "J5",
-      "number": "2",
-      "net": "unconnected-(J5-NC-Pad2)",
+      "number": "6",
+      "net": "unconnected-(J5-NC-Pad6)",
       "x": 88.5,
       "y": 111.36,
       "diameter": 1.7,
-      "drill": 1.02,
+      "drill": 1.04,
+      "npth": false
+    },
+    {
+      "ref": "J5",
+      "number": "5",
+      "net": "RTU_DE",
+      "x": 85.96,
+      "y": 111.36,
+      "diameter": 1.7,
+      "drill": 1.04,
+      "npth": false
+    },
+    {
+      "ref": "J5",
+      "number": "4",
+      "net": "unconnected-(J5-NC-Pad4)",
+      "x": 88.5,
+      "y": 108.82,
+      "diameter": 1.7,
+      "drill": 1.04,
+      "npth": false
+    },
+    {
+      "ref": "J5",
+      "number": "3",
+      "net": "unconnected-(J5-NC-Pad3)",
+      "x": 85.96,
+      "y": 108.82,
+      "diameter": 1.7,
+      "drill": 1.04,
+      "npth": false
+    },
+    {
+      "ref": "J5",
+      "number": "2",
+      "net": "unconnected-(J5-NC-Pad2)",
+      "x": 88.5,
+      "y": 106.28,
+      "diameter": 1.7,
+      "drill": 1.04,
       "npth": false
     },
     {
       "ref": "J5",
       "number": "1",
-      "net": "RTU_DE",
+      "net": "unconnected-(J5-NC-Pad1)",
       "x": 85.96,
-      "y": 111.36,
+      "y": 106.28,
       "diameter": 1.7,
-      "drill": 1.02,
+      "drill": 1.04,
       "npth": false
     },
     {
@@ -2018,10 +2058,10 @@
     },
     {
       "ref": "J5",
-      "value": "CN12_69_70_PG4_FEMALE",
+      "value": "CN12_65_70_2X3_FEMALE",
       "position": [
         85.96,
-        111.36
+        106.28
       ],
       "side": "B"
     },

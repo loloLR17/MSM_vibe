@@ -1,3 +1,5 @@
+> Historique V1.3 : les mâles enquinconce66/67/68/69 et l’accord2×3 invalident le raccord1×2 ; PRECOMMANDE_V1_4.md/PINOUT_ET_Z_V1_4.md prévalent.
+
 # V1.3 — synthèse de précommande
 
 Mission TR2-20261103-SHIELD-V13-J5-FEMELLE-BOM. **NE PAS COMMANDER / BLOCKED_FABRICATION.**

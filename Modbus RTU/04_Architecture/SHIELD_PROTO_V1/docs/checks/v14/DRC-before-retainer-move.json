@@ -1,0 +1,107 @@
+{
+    "$schema": "https://schemas.kicad.org/drc.v1.json",
+    "coordinate_units": "mm",
+    "date": "2026-11-04T10:53:28",
+    "ignored_checks": [
+        {
+            "description": "Footprint has no courtyard defined",
+            "key": "missing_courtyard"
+        },
+        {
+            "description": "Track endpoint not centered on via",
+            "key": "track_not_centered_on_via"
+        },
+        {
+            "description": "Tuning profile track geometries",
+            "key": "tuning_profile_track_geometries"
+        },
+        {
+            "description": "Footprint doesn't match symbol's footprint filters",
+            "key": "footprint_filters_mismatch"
+        },
+        {
+            "description": "Footprint component type doesn't match footprint pads",
+            "key": "footprint_type_mismatch"
+        }
+    ],
+    "included_severities": [
+        "error",
+        "warning",
+        "exclusion"
+    ],
+    "kicad_version": "10.0.6",
+    "schematic_parity": [],
+    "source": "TR2_Shield_Proto_V1.kicad_pcb",
+    "unconnected_items": [],
+    "violations": [
+        {
+            "description": "Violation d'isolation des trous (configuration des contraintes des trous isolation 0,2500 mm; réel 0,1810 mm)",
+            "items": [
+                {
+                    "description": "Pad métallisé 4 [unconnected-(J5-NC-Pad4)] de J5",
+                    "pos": {
+                        "x": 88.5,
+                        "y": 108.82
+                    },
+                    "uuid": "c8e61494-0f48-4b70-ab66-3c4bbbcc9d80"
+                },
+                {
+                    "description": "Pad Non Métallisé de J9",
+                    "pos": {
+                        "x": 91.0,
+                        "y": 108.0
+                    },
+                    "uuid": "10340b52-2c3c-43b6-a749-0d14f92de44e"
+                }
+            ],
+            "severity": "error",
+            "type": "hole_clearance"
+        },
+        {
+            "description": "Violation d'isolation des trous (configuration des contraintes des trous isolation 0,2500 mm; réel 0,1810 mm)",
+            "items": [
+                {
+                    "description": "Pad métallisé 4 [unconnected-(J5-NC-Pad4)] de J5",
+                    "pos": {
+                        "x": 88.5,
+                        "y": 108.82
+                    },
+                    "uuid": "c8e61494-0f48-4b70-ab66-3c4bbbcc9d80"
+                },
+                {
+                    "description": "Pad Non Métallisé de J9",
+                    "pos": {
+                        "x": 91.0,
+                        "y": 108.0
+                    },
+                    "uuid": "10340b52-2c3c-43b6-a749-0d14f92de44e"
+                }
+            ],
+            "severity": "error",
+            "type": "hole_clearance"
+        },
+        {
+            "description": "NPTH inside courtyard",
+            "items": [
+                {
+                    "description": "Pad Non Métallisé de J9",
+                    "pos": {
+                        "x": 91.0,
+                        "y": 108.0
+                    },
+                    "uuid": "10340b52-2c3c-43b6-a749-0d14f92de44e"
+                },
+                {
+                    "description": "Empreinte J5",
+                    "pos": {
+                        "x": 85.96,
+                        "y": 106.28
+                    },
+                    "uuid": "74a4d8a6-9c74-4477-9c86-9c3a26be2f0a"
+                }
+            ],
+            "severity": "error",
+            "type": "npth_inside_courtyard"
+        }
+    ]
+}

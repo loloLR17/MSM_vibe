@@ -1,8 +1,8 @@
 {
-  "version": "1.3-candidate",
-  "mission": "TR2-20261103-SHIELD-V13-J5-FEMELLE-BOM",
+  "version": "1.4-candidate",
+  "mission": "TR2-20261104-SHIELD-V14-J5-2X2",
   "root_uuid": "8eb28e17-31a2-58df-b072-5cb49c8aa8e3",
-  "date": "2026-11-03",
+  "date": "2026-11-04",
   "release": "BLOCKED_FABRICATION",
   "board_outline_mm": [
     [
@@ -155,40 +155,53 @@
     },
     {
       "ref": "J5",
-      "value": "CN12_69_70_PG4_FEMALE",
-      "kind": "single",
-      "n": 2,
+      "value": "CN12_65_70_2X3_FEMALE",
+      "kind": "dual",
+      "n": 3,
       "xy_mm": [
         85.96,
-        111.36
+        106.28
       ],
       "schematic_xy": [
         162.56,
         48.26
       ],
       "nets": {
-        "1": "RTU_DE"
+        "5": "RTU_DE"
       },
       "pin_types": {
-        "1": "output"
+        "5": "output"
       },
       "uuid": "0349d0d4-8512-5aa0-8312-66858bb4e6e1",
-      "footprint": "TR2:J5_CN12_69_70_PG4_FEMALE",
+      "footprint": "TR2:J5_CN12_65_70_2X3_FEMALE",
       "physical_pin_numbers": {
-        "1": "CN12-69/PG4",
-        "2": "CN12-70/PG6"
+        "1": "CN12-65/PD10 NC empty",
+        "2": "CN12-66/PG8 NC male",
+        "3": "CN12-67/PG7 NC male",
+        "4": "CN12-68/PG5 NC male",
+        "5": "CN12-69/PG4 RTU_DE male",
+        "6": "CN12-70/PG6 NC empty"
       },
       "assembly_side": "BOTTOM",
-      "candidate_mpn": "DS1023-1*2S21",
+      "candidate_mpn": "SSW-103-01-F-D",
       "connector_gender": "FEMALE",
-      "body_height_nominal_mm": 8.5,
-      "body_size_nominal_mm": [
-        5.58,
-        2.54
-      ],
-      "tail_length_mm": 3.2,
+      "body_height_nominal_mm": 8.51,
+      "tail_length_mm": 2.64,
       "mating_face": "DOWN_TO_EXISTING_NUCLEO_MALE",
-      "mechanical_note": "Female body below shield; tails soldered from shield top. Existing Nucleo male section/exposed length not measured. Do not substitute male J5 or modify Nucleo."
+      "mechanical_note": "Samtec SSW10301FD underneath,0.025inch square matingpost, existing males staggered66..69; measured tip8.22/body2.40; actual Zio stack still unverified",
+      "operator_populated_pins": [
+        66,
+        67,
+        68,
+        69
+      ],
+      "body_size_nominal_mm": [
+        4.95,
+        8.13
+      ],
+      "mating_insertion_min_mm": 3.68,
+      "mating_insertion_max_mm": 6.35,
+      "male_section_nominal_mm": 0.635
     },
     {
       "ref": "J6",
@@ -581,7 +594,7 @@
   ],
   "mounting_hole_diameter_mm": 2.8,
   "Nucleo_reference": "MB1549-C05 user confirmed; UM2861 Rev4 Fig6 and Rev10 connector tables; C05 CAD unavailable for independent mechanical parity",
-  "assembly_note": "V1.3: J5 female underneath shield receives existing male CN12-69/70 on both C05 (user report). No Nucleo modification. Standard economical headers and positive retention; actual mating/stack gate remains.",
+  "assembly_note": "V1.4 authorized2x3 female underneath; existing staggered male66/67/68/69. Only69PG4=RTU_DE, all five other contacts NC. LowerClick retainer anchor94.5/112.5; other mounts preserved.",
   "protected": {
     "firmware": true,
     "CN0_GI0_OBE": true,
@@ -621,20 +634,29 @@
     {
       "owner": "J9",
       "xy": [
-        91,
-        108
+        94.5,
+        112.5
       ],
       "diameter": 3.2,
       "fastener": "M3"
     }
   ],
   "nucleo_stack": {
-    "existing_nucleo_male": "Confirmed by user for both C05 CN12-69/70; dimensions UNKNOWN",
-    "shield_J5_female": "DS1023-1*2S21 bottom, nominal height8.5,3.2tail",
-    "Zio_shield_male": "DS1021-2*40SF11 cut, legacydrawing body2.5/mating6.1/tail3.0",
-    "board_face_gap_if_nucleo_Zio_is_8p5_mm": 11.0,
-    "status": "CONDITIONAL_NOT_PHYSICALLY_VERIFIED",
-    "Nucleo_modification": "NONE",
-    "min_underboard_spacer_clearance_model": "OD4.0 candidate; do not treat outside screw heads as coplanar with bottom headers"
-  }
+    "operator_confirmed_tip_from_PCB_mm": 8.22,
+    "operator_confirmed_plastic_from_PCB_mm": 2.4,
+    "exposed_male_mm": 5.82,
+    "J5_female": "SSW-103-01-F-D",
+    "Hfemale_mm": 8.51,
+    "G_Zio_actual_mm": null,
+    "G_example_not_measured_mm": 11,
+    "insertion_example_mm": 5.73,
+    "body_gap_example_mm": 0.09,
+    "G_nominal_acceptable_interval_mm": [
+      10.91,
+      13.05
+    ],
+    "status": "NOMINAL_NOT_PHYSICALLY_QUALIFIED; user caliper uncertainty unknown",
+    "Nucleo_modification": "NONE"
+  },
+  "format_authorization": "User20261104: approved2x3 covering65..70 and lowerClick anchor94.5/112.5; no Nucleo modification"
 }

@@ -1,0 +1,45 @@
+{
+  "mission_id": "TR2-20261104-SHIELD-V14-J5-2X2",
+  "date_utc": "2026-11-04T10:16:13.477988+00:00",
+  "initial_head": "5890556a512de816a2251c77e2bc128578ba6750",
+  "documents_received": [
+    {
+      "name": "UM2861-Rev8-STJapan.pdf",
+      "url": "https://www.stmcu.jp/wp/wp-content/uploads/2021/10/UM2861_Rev8.pdf",
+      "bytes": 3831522,
+      "sha256": "1eb153334dfffe947972ecd3065b36dfe7f0ddb294e30aa0bde252e72e5f35dd",
+      "local_file": "/home/lolo/dev/msm/reports/TR2-shield-v14-20261104/UM2861-Rev8-STJapan.pdf"
+    },
+    {
+      "name": "Samtec-SSW-through-hole.pdf",
+      "url": "https://suddendocs.samtec.com/catalog_english/ssw_th.pdf",
+      "bytes": 471452,
+      "sha256": "6d89f5c186a49e0f52f37d7bf7b5095081aff8f98e5ba18a85b0811caaf6f509",
+      "local_file": "/home/lolo/dev/msm/reports/TR2-shield-v14-20261104/Samtec-SSW-through-hole.pdf"
+    },
+    {
+      "name": "Samtec-SSW-double-footprint.pdf",
+      "url": "https://suddendocs.samtec.com/prints/ssw-d.pdf",
+      "bytes": 13001,
+      "sha256": "e47be52ac32ad6ab48b471f1fb7891cddf01e1795538dd3b6ec4c84e3323ca3f",
+      "local_file": "/home/lolo/dev/msm/reports/TR2-shield-v14-20261104/Samtec-SSW-double-footprint.pdf"
+    }
+  ],
+  "selected_product_url": "https://www.samtec.com/products/ssw-103-01-f-d",
+  "selected_price_USD": 1.349,
+  "quantity": 2,
+  "stock_displayed": 4597,
+  "pricing_caveat": "OEM public offer, not shipping quote or reservation",
+  "Connfly_alternative": {
+    "MPN": "DS1023-2*3S21",
+    "MOQ": 10,
+    "unit_USD": 0.1,
+    "stock_displayed": 14410,
+    "connectors_total_two_USD": 5.86,
+    "contact_insertion_limits_verified": false
+  },
+  "operator_confirmation": "staggered67/69 and66/68; tip8.22/plastic2.40",
+  "user_decision": "approved2x3 and retainer94.5/112.5, autonomous continuation",
+  "ST_C05_archives": "none received; no actual internal revision or hash",
+  "sources_are_not_physical_qualification": true
+}

@@ -34,3 +34,7 @@ Vues et cotes constructeur sont distinguées de nos réservations : bornes de bo
 ## Complément V1.3
 
 `sources-v1-3.json` identifie les dessins ConnflyDS1021/DS1023 legacy et Neltron2212S réellement reçus, les variantes rejetées et le stock des références exactes. Les dessins DS1021-01H4,3 et DS1021H2,5 ne sont pas assimilés. Les mâles69/70 existants sont une observationutilisateur, pas une mesureCodex. Les essais STbornés n'ont reçu aucunearchive ; aucunhashC05 prétendu. Les originaux fabricants sont conservés localement, leurslicences ne sont pas supposées autoriser redistribution.
+
+## Complément V1.4
+
+`sources-v1-4.json` et `checks/v14/independent-findings.json` distinguent le manuelSTRev8 réellement reçu (table19p37/vuefigure4p10), les observations utilisateur du quinconce et ses hauteurs, la décision autorisant2×3/ancrage déplacé, les dessinsSamtec et les prixaffichés. Les profondeursSamtec ne sont pas attribuées àConnfly. Aucune CAOC05Zip reçue ni cote photogrammétrique inventée.

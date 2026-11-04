@@ -7,11 +7,16 @@ base=json.loads(subprocess.check_output(['git','show','1d2aa6683e972a3751f69229d
 project=json.loads((P/'cad/TR2_Shield_Proto_V1.kicad_pro').read_text())
 rules=project['board']['design_settings']['rules']
 assert rules['min_clearance']>=.2 and rules['min_track_width']>=.25 and rules['min_via_diameter']>=.6,'Preserved V1 DRC thresholds were weakened'
-assert {c['ref']:c['nets']for c in D['components']}=={c['ref']:c['nets']for c in base['components']},'Unapproved net change'
+expected_nets={c['ref']:c['nets']for c in base['components']};expected_nets['J5']={'5':'RTU_DE'}
+assert {c['ref']:c['nets']for c in D['components']}==expected_nets,'Unapproved net change'
 old={c['ref']:c for c in base['components']}
 for c in D['components']:
- if c['ref']!='J7':assert c['xy_mm']==old[c['ref']]['xy_mm'],c['ref']
+ if c['ref']not in('J7','J5'):assert c['xy_mm']==old[c['ref']]['xy_mm'],c['ref']
 assert D['mounting_holes_mm']==base['mounting_holes_mm']
+assert next(c for c in D['components']if c['ref']=='J5')['xy_mm']==[85.96,106.28]
+baseline_v13=json.loads(subprocess.check_output(['git','show','5890556a512de816a2251c77e2bc128578ba6750:Modbus RTU/04_Architecture/SHIELD_PROTO_V1/design.json']))
+expected_retainer=[dict(h,xy=[94.5,112.5])if h['owner']=='J9'and h['xy']==[91,108]else h for h in baseline_v13['retainer_mount_holes']]
+assert D['retainer_mount_holes']==expected_retainer
 scad=(P/'mechanical/retainers.scad').read_text()
 for name,owner in [('mki','J8'),('click','J9')]:
  anchors=json.loads(re.search(name+r'_anchors=(\[.*?\]);',scad).group(1))
@@ -20,6 +25,9 @@ base_pcb=json.loads(subprocess.check_output(['git','show','1d2aa6683e972a3751f69
 oldpads={(q['ref'],q['number']):q for q in base_pcb['pads']if q['number']}
 for q in B['pads']:
  if q['number']:
+  if q['ref']=='J5':
+   n=int(q['number']);assert abs(q['x']-(85.96+(n-1)%2*2.54))<.0001 and abs(q['y']-(106.28+(n-1)//2*2.54))<.0001
+   continue
   oldpad=oldpads[q['ref'],q['number']];dx=-3.5 if q['ref']=='J7'else 0
   if q['number']=='2' and q['ref'] in ('C1','C2'):dx={'C1':.04,'C2':-.5}[q['ref']]
   assert abs(q['x']-oldpad['x']-dx)<.0001 and abs(q['y']-oldpad['y'])<.0001,'Unexpected actual pad movement'
@@ -58,5 +66,5 @@ for name in ['mki','click','flat_clamp','round_clamp','user_plunger']:
  assert volume>0,(name,'mesh orientation/volume invalid')
  components=len({find(k)for k in parents});assert components==1,(name,'disconnected solids')
  meshes.append({'name':name,'triangles':n,'closed_edges':True,'connected_surface_components':components,'signed_volume_mm3':volume,'bbox_mm':[[min(x[j]for x in verts),max(x[j]for x in verts)]for j in range(3)],'sha256':hashlib.sha256(raw).hexdigest()})
-r={'status':'PASS_NOMINAL_ONLY','electrical_nets_equal_to_V1':True,'nucleo_headers_and_anchors_unchanged':True,'SD_shift_mm':[-3.5,0],'passive_pad_pitch_mm':{'C1':2.54,'C2':2.0},'retainer_holes_match_saved_PCB':True,'nominal_pillar_module_clearance_mm':3.0,'positive_SD_fastener_card_corridor_check':'PASS for 5mm head design allowance and y89.5..102.3 card path','automatic_keying':'NOT_REQUIRED: user decision20261103; no claim of anti-inversion protection','meshes':meshes,'physical_fit':'NOT_VERIFIED','manufacturing_release':'BLOCKED_FABRICATION'}
+r={'status':'PASS_NOMINAL_ONLY','functional_nets_equal_to_V1_with_J5_local_pad5_as_PG4':True,'Zio_headers_and_Nucleo_mounting_anchors_unchanged':True,'J5_format':'authorized2x3','Click_lower_anchor_mm':[94.5,112.5],'SD_shift_mm':[-3.5,0],'passive_pad_pitch_mm':{'C1':2.54,'C2':2.0},'retainer_holes_match_saved_PCB':True,'nominal_pillar_module_clearance_mm':3.0,'positive_SD_fastener_card_corridor_check':'PASS for 5mm head design allowance and y89.5..102.3 card path','automatic_keying':'NOT_REQUIRED: user decision20261103; no claim of anti-inversion protection','meshes':meshes,'physical_fit':'NOT_VERIFIED','manufacturing_release':'BLOCKED_FABRICATION'}
 (P/'docs/checks/mechanical-verification.json').write_text(json.dumps(r,indent=2)+'\n');print(json.dumps(r,indent=2))

@@ -1,0 +1,14 @@
+[
+  {
+    "url": "https://www.st.com/resource/en/board_manufacturing_specification/mb1549-bdp.zip",
+    "error": "The read operation timed out",
+    "elapsed_s": 8.24,
+    "received": false
+  },
+  {
+    "url": "https://www.st.com/resource/en/board_manufacturing_specification/mb1549-manufacturing.zip",
+    "error": "The read operation timed out",
+    "elapsed_s": 8.24,
+    "received": false
+  }
+]

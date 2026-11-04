@@ -1849,7 +1849,7 @@
     {
       "net": "RTU_DE",
       "from": "R4.1",
-      "to": "J5.1",
+      "to": "J5.5",
       "points": [
         {
           "layer": 0,

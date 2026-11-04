@@ -1,8 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="210mm" height="185mm" viewBox="-15 -25 210 185">
 <rect x="-15" y="-25" width="210" height="185" fill="white"/>
 <g font-family="sans-serif" font-size="2.4" stroke-width="0.25">
-<text x="-10" y="-19" fill="#111" font-size="3.2">TR2 SHIELD V1.3 - INTERFACES / ECHELLE 1:1</text>
-<text x="-10" y="-14" fill="#b00020" font-size="2.4">NE PAS FABRIQUER : C05 / J5 femelle sous shield : hauteur male existant a confirmer</text>
+<text x="-10" y="-19" fill="#111" font-size="3.2">TR2 SHIELD V1.4 - INTERFACES / ECHELLE 1:1</text>
+<text x="-10" y="-14" fill="#b00020" font-size="2.4">NE PAS FABRIQUER : C05 / empilage Zio a confirmer; hauteurs male8,22/2,40 acquises</text>
 <rect x="21.75" y="-6.75" width="70" height="133.34" fill="#fafafa" stroke="#888" stroke-dasharray="1.5,1"/>
 <text x="94" y="2" fill="#111" font-size="2.4">Nucleo : enveloppe UM2861</text>
 <text x="94" y="6" fill="#b06000" font-size="2.4">Reconstruction, pas CAO C05</text>
@@ -32,7 +32,7 @@
 <circle cx="67.19" cy="76.0" r="0.4" fill="none" stroke="#1674a5"/>
 <circle cx="40.81" cy="31.0" r="0.4" fill="none" stroke="#1674a5"/>
 <circle cx="33.19" cy="31.0" r="0.4" fill="none" stroke="#1674a5"/>
-<circle cx="91.0" cy="108.0" r="1.6" fill="none" stroke="#333"/>
+<circle cx="94.5" cy="112.5" r="1.6" fill="none" stroke="#333"/>
 <circle cx="91.0" cy="75.0" r="1.4" fill="none" stroke="#333"/>
 <circle cx="87.22" cy="102.86" r="0.51" fill="none" stroke="#1674a5"/>
 <circle cx="89.76" cy="102.86" r="0.51" fill="none" stroke="#1674a5"/>
@@ -98,9 +98,13 @@
 <circle cx="50.08" cy="59.0" r="0.51" fill="none" stroke="#1674a5"/>
 <circle cx="47.54" cy="59.0" r="0.51" fill="none" stroke="#1674a5"/>
 <circle cx="45.0" cy="59.0" r="0.51" fill="none" stroke="#1674a5"/>
-<circle cx="88.5" cy="111.36" r="0.51" fill="none" stroke="#1674a5"/>
-<circle cx="85.96" cy="111.36" r="0.51" fill="none" stroke="#1674a5"/>
-<text x="82.96" y="110.36" fill="#111" font-size="1.8">J5-1</text>
+<circle cx="88.5" cy="111.36" r="0.52" fill="none" stroke="#1674a5"/>
+<circle cx="85.96" cy="111.36" r="0.52" fill="none" stroke="#1674a5"/>
+<circle cx="88.5" cy="108.82" r="0.52" fill="none" stroke="#1674a5"/>
+<circle cx="85.96" cy="108.82" r="0.52" fill="none" stroke="#1674a5"/>
+<circle cx="88.5" cy="106.28" r="0.52" fill="none" stroke="#1674a5"/>
+<circle cx="85.96" cy="106.28" r="0.52" fill="none" stroke="#1674a5"/>
+<text x="82.96" y="105.28" fill="#111" font-size="1.8">J5-1</text>
 <circle cx="80.88" cy="93.58" r="0.51" fill="none" stroke="#1674a5"/>
 <circle cx="78.34" cy="93.58" r="0.51" fill="none" stroke="#1674a5"/>
 <circle cx="80.88" cy="91.04" r="0.51" fill="none" stroke="#1674a5"/>
@@ -237,11 +241,11 @@
 <text x="82" y="136" fill="#111" font-size="2.4">CN15 : bloc externe secteur / USB5V + reprise</text>
 <path d="M55,137 L78,137" stroke="#777" fill="none"/>
 <text x="23" y="142" fill="#111" font-size="2.1">Deux bornes USB sont des ancrages de boitier proposes, pas des percages PCB</text>
-<text x="80" y="121" fill="#111" font-size="2.1">J5 FEMELLE DESSOUS / males Nucleo existants</text>
+<text x="80" y="121" fill="#111" font-size="2.1">J5 FEM2x3 DESSOUS / PG4 local5 / males en quinconce</text>
 <text x="42" y="15" fill="#111" font-size="1.8">J8 M2.5</text>
 <text x="74" y="54.5" fill="#111" font-size="1.8">J8 M3</text>
 <text x="94" y="75" fill="#111" font-size="1.8">J9 M2.5</text>
-<text x="94" y="108" fill="#111" font-size="1.8">J9 M3</text>
+<text x="97.5" y="112.5" fill="#111" font-size="1.8">J9 M3</text>
 <text x="-10" y="149" fill="#111" font-size="2.3">Plein : enveloppes sources / PCB. Pointilles : hypotheses et volumes fonctionnels reserves.</text>
 <path d="M0,155 L50,155" stroke="#444" fill="none"/>
 <text x="53" y="156" fill="#111" font-size="2.3">Controle impression : 50 mm / imprimer100%</text>

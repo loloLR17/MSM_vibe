@@ -3,29 +3,29 @@
   "scope": "connectivity + both copper X2 pad attributes + all Excellon holes + rectangular CAM outline; no independent CAM copper topology/impedance or physical fit qualification",
   "connected_pins": 59,
   "footprints": 19,
-  "pads": 187,
+  "pads": 191,
   "vias": 4,
   "outline_mm": [
     90,
     100
   ],
   "track_lengths_per_net_mm": {
-    "+3V3": 180.44249734686633,
-    "ACC_CS": 29.249903014004257,
-    "ACC_SCK": 36.91657442429024,
-    "ACC_MOSI": 32.88850576908853,
-    "ACC_MISO": 32.871937226593616,
-    "RTU_DE": 40.065911960090084,
-    "RTU_TX": 43.32884975351317,
-    "RTU_RX": 40.14306331588626,
-    "SD_CS": 88.6610272180652,
+    "RTU_DE": 40.06591196009008,
     "FRAM_CS": 67.53661785495987,
     "FRAM_MOSI": 37.89183531948652,
-    "FRAM_MISO": 34.582748585653775,
+    "FRAM_MISO": 34.58274858565377,
     "FRAM_SCK": 34.567470238096924,
-    "SD_SCK": 86.521994017253,
+    "+3V3": 180.4424973468664,
+    "SD_CS": 88.6610272180652,
+    "ACC_CS": 29.249903014004257,
+    "ACC_SCK": 36.91657442429023,
+    "ACC_MOSI": 32.88850576908853,
+    "ACC_MISO": 32.87193722659361,
+    "SD_SCK": 86.52199401725298,
     "SD_MISO": 32.46005413455683,
-    "SD_MOSI": 32.491902544394435
+    "SD_MOSI": 32.491902544394435,
+    "RTU_TX": 43.32884975351317,
+    "RTU_RX": 40.143063315886266
   },
   "manufacturing_release": "BLOCKED"
 }

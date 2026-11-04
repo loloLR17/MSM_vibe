@@ -1,0 +1,24 @@
+{
+  "status": "PASS_MESH_ONLY",
+  "part": "Click retainer with proposed lower anchor94.5/112.5",
+  "command": [
+    "/home/lolo/dev/msm/cache/openscad-shield-v1-1/squashfs-root/AppRun",
+    "--hardwarnings",
+    "--export-format",
+    "binstl",
+    "-D",
+    "part=\"click\"",
+    "-o",
+    "/home/lolo/dev/msm/projects/MSM_vibe-SHIELD-V14-J5-2X2/Modbus RTU/04_Architecture/SHIELD_PROTO_V1/review/V1_4_FORMAT_NON_ADOPTE/mechanical/REVIEW_ONLY/click.stl",
+    "/home/lolo/dev/msm/projects/MSM_vibe-SHIELD-V14-J5-2X2/Modbus RTU/04_Architecture/SHIELD_PROTO_V1/review/V1_4_FORMAT_NON_ADOPTE/mechanical/retainers.scad"
+  ],
+  "returncode": 0,
+  "triangles": 1604,
+  "closed": true,
+  "connected": true,
+  "volume_mm3": 1737.279381217407,
+  "physical_strength_and_contact_fit": "NOT_VERIFIED",
+  "no_print_order": true,
+  "current_SCAD_sha256": "7b78dc64bcef4fce6b730fa278c558e845666c2d0ccf460642f7b08b2fac7515",
+  "current_source_differs_from_compiled_source_only_by_comment_revision": true
+}

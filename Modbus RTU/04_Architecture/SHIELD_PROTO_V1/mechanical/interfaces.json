@@ -1,5 +1,5 @@
 {
-  "revision": "1.3",
+  "revision": "1.4",
   "release": "BLOCKED_FABRICATION",
   "coordinates": "mm in KiCad top view, X right/Y down; Z=shield top; Z positive above shield",
   "module_bottom_z_mm": {
@@ -199,21 +199,30 @@
     "product_final_supply": "deferred independent study"
   },
   "missing": {
-    "C05_PCB_GATE": "C05 Zio/header/anchor centres and underboard clearance; actual existing male69/70 dimensions and female engagement simultaneous with Zio",
+    "C05_PCB_GATE": "Exact C05 centres and natural Zio stack/clearances still unverified; male tip8.22/body2.40 user measurements acquired, do not repeat",
     "module_PCB_GATE": "MKI nominal body envelope and actual Click revision must fit reserved socket/anchor/isolation zones; no new row-pitch/ground measurement requested",
     "deferred_after_PCB": "exact clip pads, enclosure cuts, LED centres,USER plunger,cable saddles; no automatic-key gate"
   },
   "automatic_keying": "NOT_REQUIRED_BY_USER_FOR_TWO_PROTOTYPES",
   "J5": {
     "side": "BOTTOM",
-    "gender": "FEMALE",
-    "part": "DS1023-1*2S21",
-    "user_observation": "both Nucleo already carry male69/70; no modification",
-    "unknown": [
-      "actual square section",
-      "male tip/body height",
-      "actual mated Zio board gap"
+    "gender": "FEMALE2x3",
+    "part": "SSW-103-01-F-D",
+    "user_populated_CN12": [
+      66,
+      67,
+      68,
+      69
     ],
-    "nominal_female_height_mm": 8.5
+    "empty_socket_CN12": [
+      65,
+      70
+    ],
+    "local_pin5": "CN12-69 PG4 RTU_DE",
+    "all_other_pins": "NC independently",
+    "operator_tip_height_mm": 8.22,
+    "operator_plastic_height_mm": 2.4,
+    "nominal_female_height_mm": 8.51,
+    "actual_Zio_stack": "UNKNOWN"
   }
 }

@@ -1,9 +1,9 @@
 repere,description,quantite_pour_deux,MPN,source,reserve
-J1..J4,connecteur standard; besoin et lot réel dans CONNECTEURS_ACHATS_V1_3.csv,3,DS1021-2*40SF11,https://www.tme.eu/en/details/zl202-80g/pin-headers/connfly/ds1021-2-40sf11/,stock/prix affichés non réservés; dimensions selon sources-v1-3; aucun achat
-J5,connecteur standard; besoin et lot réel dans CONNECTEURS_ACHATS_V1_3.csv,2,DS1023-1*2S21,https://www.tme.eu/en/details/zl262-2sg/pin-headers/connfly/ds1023-1-2s21/,stock/prix affichés non réservés; dimensions selon sources-v1-3; aucun achat
-J8,connecteur standard; besoin et lot réel dans CONNECTEURS_ACHATS_V1_3.csv,4,DS1023-1*12S21,https://www.tme.eu/en/details/zl262-12sg/pin-headers/connfly/ds1023-1-12s21/,stock/prix affichés non réservés; dimensions selon sources-v1-3; aucun achat
-J9,connecteur standard; besoin et lot réel dans CONNECTEURS_ACHATS_V1_3.csv,4,DS1023-1*8S21,https://www.tme.eu/en/details/zl262-8sg/pin-headers/connfly/ds1023-1-8s21/,stock/prix affichés non réservés; dimensions selon sources-v1-3; aucun achat
-J6/J7,connecteur standard; besoin et lot réel dans CONNECTEURS_ACHATS_V1_3.csv,4,2212S-09G-85,https://www.taydaelectronics.com/9-pin-2-54-mm-single-row-female-pin-header.html,stock/prix affichés non réservés; dimensions selon sources-v1-3; aucun achat
+J1..J4,connecteur standard; besoin et lot réel dans CONNECTEURS_ACHATS_V1_4.csv,3,DS1021-2*40SF11,https://www.tme.eu/en/details/zl202-80g/pin-headers/connfly/ds1021-2-40sf11/,stock/prix affichés non réservés; dimensions selon sources-v1-3; aucun achat
+J5,"femelle2x3 sousshield; local5=CN12-69DE, autresNC",2,SSW-103-01-F-D,https://www.samtec.com/products/ssw-103-01-f-d,"2pieces; profondeur3.68..6.35, H8.51, queue2.64, trou1.04; physiquement non qualifiée"
+J8,connecteur standard; besoin et lot réel dans CONNECTEURS_ACHATS_V1_4.csv,4,DS1023-1*12S21,https://www.tme.eu/en/details/zl262-12sg/pin-headers/connfly/ds1023-1-12s21/,stock/prix affichés non réservés; dimensions selon sources-v1-3; aucun achat
+J9,connecteur standard; besoin et lot réel dans CONNECTEURS_ACHATS_V1_4.csv,4,DS1023-1*8S21,https://www.tme.eu/en/details/zl262-8sg/pin-headers/connfly/ds1023-1-8s21/,stock/prix affichés non réservés; dimensions selon sources-v1-3; aucun achat
+J6/J7,connecteur standard; besoin et lot réel dans CONNECTEURS_ACHATS_V1_4.csv,4,2212S-09G-85,https://www.taydaelectronics.com/9-pin-2-54-mm-single-row-female-pin-header.html,stock/prix affichés non réservés; dimensions selon sources-v1-3; aucun achat
 R1..4,10k1% axial P7.62,8,MRS16000C1002FCT00,https://www.vishay.com/docs/28724/mrs16m25.pdf,conservéV1.2; pas et corps compatibles
 C1,100n50VX7R P2.54,2,C315C104K5R5TA,https://search.kemet.com/component-documentation/download/specsheet/C315C104K5R5TA,inchangé
 C2,10u50V diam5 P2.00,2,ECA1HM100,https://industrial.panasonic.com/ww/products/pt/aluminum-cap-lead/models/ECA1HM100,sansB; inchangé
@@ -11,6 +11,6 @@ PCB,PCB nu90x100 2L1.6mm35um,5,LOT5_FR4,https://jlcpcb.com/help/article/how-do-i
 MEC-N,entretoises isolantesM2.5 OD<=4.0; hauteur selon emboitement réel,6,DIMENSIONAL_SPEC_NOT_FINAL,,no forced tightening; candidat11.0mm à contrôler; fournitureréelleaprèsmesures
 MEC-M,entretoises isolantes FRAM/SD; deux par module,8,DIMENSIONAL_SPEC_NOT_FINAL,,hauteur selonpinmodules; fixationpositiveconservée
 MEC-VIS,vis nylonM2.5 tête/rondelle<=4.5,12,SFE-M2-5-6-N candidate,https://www.accu.co.uk/slotted-cheese-head-screws/427420-SFE-M2-5-6-N,"longueur selonfiletage; têteshorsPCB, entretoises entrecartes<=4.0"
-RET,étriersJ8/J9M2.5/M3 et selles cable surstructure,2,mechanical/retainers.scad,,"inchangés; REVIEW_ONLY, pas de détrompageautomatique"
+RET,étriersJ8/J9M2.5/M3 et selles cable surstructure,2,mechanical/retainers.scad,,"ancrageClick inférieur94.5/112.5, STL modifié; fixations conservées, REVIEW_ONLY"
 TP1..4,boucles de test ou accès pads,8,reemploi,,"inclus provisionpassifs, aucunfilDupontliaison"
 REEMPLOI,Nucleo+quatre modules+nappe+bloc5V CN15,2,EXISTING,,aucunmâleCN12 à acheter/poser; aucunemodificationNucleo

@@ -1,0 +1,12 @@
+[
+  {
+    "source": "interfaces-boitier.svg",
+    "output": "interfaces-boitier.pdf",
+    "method": "PyMuPDF convert_to_pdf"
+  },
+  {
+    "source": "retenues-isometriques.svg",
+    "output": "retenues-isometriques.pdf",
+    "method": "PyMuPDF convert_to_pdf"
+  }
+]

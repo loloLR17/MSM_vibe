@@ -9,7 +9,7 @@
         100,
         100
       ],
-      "nucleo_numbered_pads": 102
+      "nucleo_numbered_pads": 106
     },
     {
       "page": 2,
@@ -19,7 +19,7 @@
         100,
         100
       ],
-      "nucleo_numbered_pads": 102
+      "nucleo_numbered_pads": 106
     },
     {
       "page": 3,
@@ -29,11 +29,26 @@
         100,
         100
       ],
-      "nucleo_numbered_pads": 102
+      "nucleo_numbered_pads": 106
     }
   ],
   "manufacturer_coordinates_known": false,
-  "comparison_rows": 105,
-  "sha256": "88d711f9fded28b8d5d50f61b69343199d50cc03645864cf4fe202ef1ffd868b",
+  "comparison_rows": 109,
+  "J5_global_pins": [
+    65,
+    66,
+    67,
+    68,
+    69,
+    70
+  ],
+  "J5_populated_males": [
+    66,
+    67,
+    68,
+    69
+  ],
+  "J5_DE_local_pin": 5,
+  "sha256": "2ac2961a5adf79ad174aa4f79b3bfca2f43b3b1a5a28199b66064e26bd932142",
   "physical_check": "NOT_PERFORMED"
 }

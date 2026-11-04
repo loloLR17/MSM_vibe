@@ -1,4 +1,4 @@
-// MSM TR2 shield V1.2 — REVIEW ONLY, NO FABRICATION RELEASE.
+// MSM TR2 shield V1.4 — REVIEW ONLY, NO FABRICATION RELEASE.
 // Coordinates and contact surfaces are nominal hypotheses, not measured C05/MKI geometry.
 // Caller selects part="mki", "click", "flat_clamp", "round_clamp", "user_plunger".
 // Modules remain replaceable after removing two insulating through-bolts.
@@ -10,7 +10,7 @@ $fn=48;
 module_bottom=11; pcb_t=1.6; contact_z=module_bottom+pcb_t;
 roof_z=22; roof_t=3; foot_r=3;
 mki_anchors=[[39,20],[71,54.5]];
-click_anchors=[[91,75],[91,108]];
+click_anchors=[[91,75],[94.5,112.5]];
 // MKI body below is the explicitly provisional envelope from V1, not a ST dimension.
 mki_body=[42.46,21.46,62.78,54.48];
 module bore(p,d,h=30){translate([p[0],p[1],-1])cylinder(d=d,h=h);}

@@ -1,4 +1,4 @@
-# Matrice électrique et orientations — candidat V1.3 (liaisons identiques à V1)
+# Matrice électrique et orientations — candidat V1.4 (liaisons identiques à V1)
 
 Toutes les alimentations et E/S retenues sont **3,3 V**, GND logique commun. Aucune liaison à 5 V, VIN Nucleo, CN15 ou source externe n’est créée. L’alimentation actuelle du Nucleo et ses jumpers sont conservés ; le shield n’est pas un circuit de sélection de source.
 
@@ -22,10 +22,10 @@ Toutes les alimentations et E/S retenues sont **3,3 V**, GND logique commun. Auc
 | FRAM alimentation | +3V3 / GND | J6-9 / J6-7 | **VIN** / GND |
 | LPUART TX | PG7 / CN10-14 | J4-14 → J9-13 | Click TX, entrée transceiver |
 | LPUART RX | PG8 / CN10-16 | J4-16 → J9-14 | Click RX, sortie transceiver |
-| Direction RS485 | PG4 / CN12-69 | J5-1 → J9-3 | Click PWM / DE |
+| Direction RS485 | PG4 / CN12-69 | J5-5 → J9-3 | Click PWM / DE |
 | Click alimentation | +3V3 / GND | J9-7 / J9-8 et 9 | VCCSEL sur 3V3 requis |
 
-J5-1 est le **numéro local du connecteur shield** correspondant à CN12-69 ; J5-2 correspond à CN12-70/PG6 et est NC. Ne pas lire J5-1 comme CN12-1. CN12/Morpho retenu uniquement pour PG4 ; PC9 reste sur Zio CN8 pour ne pas dépendre de SB22.
+J5 est maintenant une femelle2×3 sousshield, après accord utilisateur : local1/2/3/4/5/6→CN12-65/66/67/68/69/70. Seul local5/PG4 rejointRTU_DE ; les cinq autres contacts sontNC. Mâlesexistants66/67/68/69 enquinconce,65/70 absents. Voir PINOUT_ET_Z_V1_4.md ; aucune modificationNucleo.
 
 J6 : 1 HOLD, 2 WP, 3 CS, 4 MOSI, 5 MISO, 6 SCK, 7 GND, 8 sortie régulateur 3V3, 9 VIN. **J6-8 reste non connecté.** L’ancien libellé de banc « FRAM 3V3 » ne permet pas de conclure quel point avait été utilisé : la proposition respecte l’entrée VIN du fabricant et ne relie pas sa sortie régulateur au rail Nucleo. Ne pas transposer automatiquement une ancienne consigne ambiguë.
 
@@ -41,4 +41,4 @@ Références de code lues, inchangées : `05_Firmware/platform/stm32/main.c` (PD
 
 Retenus : Nucleo MB1549-U575ZIQ-C05, Adafruit4718/MB85RS2MTA, Adafruit4682, MKIGIBV2 + MKI208V1, RS485 Isolator2 Click MIKROE3863/ADM2867E. Références confirmées par l’utilisateur et gel matériel historique (précision suffixe MTA provenant du gel Adafruit4718, non d’une lecture de boîtier actuelle). Non présents dans ce candidat : anciennes EVAL RS485, Ethernet/PoE, SDMMC, nouveau MCU. Optionnel : boîtier futur et fixation de tête, sans ajout de fonctions électriques.
 
-V1.3 : les deux Nucleo portent déjà des mâles69/70 selon l’utilisateur. **J5 femelle sous shield**, aucune modificationNucleo ; voir J5_ET_EMPILEMENT_V1_3.md. Aucun changement de net. Références passifsC1/C2 et pas2,54/2,00mm dans BOM.csv.
+V1.4 : confirmationopérateur des deux barrettes enquinconce67/69 et66/68 ; format2×3 autorisé. Mesures8,22/2,40 acquises, empilageZio réel encore inconnu.

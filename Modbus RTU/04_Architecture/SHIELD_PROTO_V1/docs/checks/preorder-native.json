@@ -8,7 +8,15 @@
     "J5"
   ],
   "J5_69_PG4": "RTU_DE",
-  "J5_70_PG6": "NC",
+  "J5_local_pad_to_global": {
+    "1": 65,
+    "2": 66,
+    "3": 67,
+    "4": 68,
+    "5": 69,
+    "6": 70
+  },
+  "J5_five_other_pins": "independent NC",
   "header_drill_mm": 1.02,
   "passive_pitch_mm": {
     "C1": 2.54,
@@ -33,17 +41,22 @@
     }
   ],
   "routes_retained": 32,
-  "route_changed": null,
+  "route_geometry_changed": false,
+  "route_endpoint_label_changed": "J5.1 to J5.5",
   "J5_gender": "FEMALE_BOTTOM",
   "J5_actual_B_Fab_bounds_mm": [
-    84.44,
-    110.09,
-    90.019999,
-    112.63
+    84.755,
+    104.755,
+    89.705,
+    112.885
   ],
   "bottom_J5_silk_is_mirrored": true,
-  "J5_body_height_nominal_mm": 8.5,
-  "Nucleo_modification": "NONE_USER_CONFIRMED_EXISTING_MALES",
+  "J5_body_height_nominal_mm": 8.51,
+  "J5_MPN": "SSW-103-01-F-D",
+  "J5_drill_mm": 1.04,
+  "male_tip_user_mm": 8.22,
+  "male_plastic_user_mm": 2.4,
+  "Nucleo_modification": "NONE_USER_CONFIRMED_STAGGERED_MALES_66_67_68_69",
   "strict_rules": {
     "min_clearance": 0.2,
     "min_track_width": 0.25,

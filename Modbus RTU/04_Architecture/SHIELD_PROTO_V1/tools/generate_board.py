@@ -47,7 +47,7 @@ for c in D['components']:
  path=pcb.KIID_PATH();path.push_back(pcb.KIID(D['root_uuid']));path.push_back(pcb.KIID(c['uuid']));f.SetPath(path)
  side=pcb.B_Cu if c.get('assembly_side')=='BOTTOM'else pcb.F_Cu;f.SetLayer(side);court=pcb.B_CrtYd if side==pcb.B_Cu else pcb.F_CrtYd
  pts=local_pads(c)
- for num,x,y in pts:pad(f,num,x,y,c['nets'].get(num,''),drill=0.8 if c['kind']in('resistor','capacitor')else (1.0 if c['kind']=='testpoint' else 1.02))
+ for num,x,y in pts:pad(f,num,x,y,c['nets'].get(num,''),drill=1.04 if c['ref']=='J5' else (0.8 if c['kind']in('resistor','capacitor')else (1.0 if c['kind']=='testpoint' else 1.02)))
  xs=[x for _,x,y in pts];ys=[y for _,x,y in pts];box=[min(xs)-1.4,min(ys)-1.4,max(xs)+1.4,max(ys)+1.4]
  if c['kind']=='fram':
   rect(f,-2.54,-2.54,22.86,15.24,pcb.F_Fab)
@@ -78,11 +78,12 @@ for c in D['components']:
  else:
   if c['kind']=='dual':box=[min(xs)-1.605,min(ys)-1.77,max(xs)+1.605,max(ys)+1.77]
   if c['ref']=='J5':
-   box=[-1.92,-1.645,4.46,1.645]
-   rect(f,-1.52,-1.27,4.06,1.27,pcb.B_Fab)
+   box=[-1.605,-1.92,4.145,7.0]
+   rect(f,-1.205,-1.525,3.745,6.605,pcb.B_Fab)
    # Female receptacle entry outline and pin1 on underside; XY/pad numbering never flipped.
-   for xx in [0,2.54]:rect(f,xx-.45,-.45,xx+.45,.45,pcb.B_Fab)
-   f.SetLibDescription('J5 FEMALE DS1023-1*2S21 bottom; receive existing Nucleo69/70 male; no Nucleo modification')
+   for xx in [0,2.54]:
+    for yy in [0,2.54,5.08]:rect(f,xx-.45,yy-.45,xx+.45,yy+.45,pcb.B_Fab)
+   f.SetLibDescription('J5 FEMALE SSW-103-01-F-D bottom; receive existing staggered Nucleo66/67/68/69 males; no Nucleo modification')
   rect(f,*box,court,0.05)
  if c['ref']=='J1':
   ox,oy=c['xy_mm']
@@ -100,11 +101,11 @@ def text(s,x,y,size=1,layer=pcb.F_SilkS):
  t=pcb.PCB_TEXT(b);t.SetText(s);t.SetPosition(V(x,y));t.SetTextSize(V(size,size));t.SetTextThickness(MM(0.15));t.SetLayer(layer)
  if layer==pcb.B_SilkS:t.SetMirrored(True)
  b.Add(t)
-text('TR2 SHIELD V1.3 DRAFT',55,113.7,1);text('3V3 ONLY / PAS DE 5V',55,116,0.8)
+text('TR2 SHIELD V1.4 DRAFT',55,113.7,1);text('3V3 ONLY / PAS DE 5V',55,116,0.8)
 for c in D['components']:
  x,y=c['xy_mm'];text(c['ref'],x+2,y-3 if c['ref']in('C1','C2')else y-2,0.8)
-text('SD <',22,92,0.8);text('CAPTEUR / PIN1',51,19,0.8);text('CN12-69 PG4',80,115,0.8);text('J5 FEM / PIN1=69',94,114,0.8)
-text('J5 FEM / 1=69 PG4',89,114,0.8,pcb.B_SilkS)
+text('SD <',22,92,0.8);text('CAPTEUR / PIN1',51,19,0.8);text('CN12-69 PG4',80,115,0.8);text('J5 2X3 / DE=5',100,115.2,0.8)
+text('J5 2X3 / 5=69 PG4',89,115.2,0.8,pcb.B_SilkS)
 text('STLINK / USB / USER / RESET: KEEP ACCESS',55,14.5,0.8,pcb.Dwgs_User)
 # Dimensioned interface extraction consumed by independent router and mechanical review.
 result={'outline':D['board_outline_mm'],'pads':[],'footprints':[]}

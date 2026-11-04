@@ -1,0 +1,30 @@
+{
+  "status": "PASS",
+  "base": "5890556a512de816a2251c77e2bc128578ba6750",
+  "all_non_J5_pads_unchanged_except_one_authorized_Click_NPTH": true,
+  "J5_ST_mapping": {
+    "1": 65,
+    "2": 66,
+    "3": 67,
+    "4": 68,
+    "5": 69,
+    "6": 70
+  },
+  "J5_only_local_pin5_connected": "RTU_DE",
+  "five_NC_islands_independent": true,
+  "J5_drills_mm": 1.04,
+  "Click_NPTH_moved_mm": {
+    "from": [
+      91,
+      108
+    ],
+    "to": [
+      94.5,
+      112.5
+    ]
+  },
+  "all32_route_geometries_unchanged": true,
+  "strict_project_byte_identical": true,
+  "pads": 191,
+  "physical_fit": "NOT_VERIFIED"
+}

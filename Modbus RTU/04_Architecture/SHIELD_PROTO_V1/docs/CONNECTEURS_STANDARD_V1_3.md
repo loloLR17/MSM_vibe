@@ -1,3 +1,5 @@
+> Historique V1.3 : les mâles enquinconce66/67/68/69 et l’accord2×3 invalident le raccord1×2 ; PRECOMMANDE_V1_4.md/PINOUT_ET_Z_V1_4.md prévalent.
+
 # Connecteurs standard économiques — sélection V1.3
 
 Les dessins **constructeurs** Connfly legacyDS1021/DS1023 et Neltron2212S ont été réellement téléchargés et inspectés, y compris les images des pages non textuelles. Sources/hashes dans sources-v1-3.json. Les prix/stock proviennent des distributeurs, ne sont ni un devis ni une preuve de stock physique.

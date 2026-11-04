@@ -1,0 +1,6 @@
+repere,MPN,besoin_deux,quantite_achat_minimale,MOQ,multiple,prix_unitaire_USD_affiche,cout_ligne_USD,stock_affiche,source,reserve
+J1..J4,DS1021-2*40SF11,3,3,2,1,0.6,1.80,54013,https://www.tme.eu/en/details/zl202-80g/pin-headers/connfly/ds1021-2-40sf11/,stock/prix affichés non réservés; dimensions selon sources-v1-3; aucun achat
+J5,SSW-103-01-F-D,2,2,1,1,1.349,2.698,4597,https://www.samtec.com/products/ssw-103-01-f-d,"prixOEM affiché palier1, stockconstructeur, livraison/taxes inconnues; aucune commande"
+J8,DS1023-1*12S21,4,10,10,10,0.12,1.20,13370,https://www.tme.eu/en/details/zl262-12sg/pin-headers/connfly/ds1023-1-12s21/,stock/prix affichés non réservés; dimensions selon sources-v1-3; aucun achat
+J9,DS1023-1*8S21,4,10,10,10,0.11,1.10,12840,https://www.tme.eu/en/details/zl262-8sg/pin-headers/connfly/ds1023-1-8s21/,stock/prix affichés non réservés; dimensions selon sources-v1-3; aucun achat
+J6/J7,2212S-09G-85,4,4,1,1,0.19,0.76,3988888,https://www.taydaelectronics.com/9-pin-2-54-mm-single-row-female-pin-header.html,stock/prix affichés non réservés; dimensions selon sources-v1-3; aucun achat

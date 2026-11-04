@@ -1,0 +1,135 @@
+{
+  "source": "ST UM2861 Rev8 table19 p37; top-layout fig4 p10",
+  "ST_pin_functions": {
+    "65": "PD10",
+    "66": "PG8",
+    "67": "PG7",
+    "68": "PG5",
+    "69": "PG4",
+    "70": "PG6"
+  },
+  "physical_pairs": [
+    [
+      65,
+      66
+    ],
+    [
+      67,
+      68
+    ],
+    [
+      69,
+      70
+    ]
+  ],
+  "operator_confirmed_populated": [
+    66,
+    67,
+    68,
+    69
+  ],
+  "operator_geometry": "two staggered 1x2 strips 67/69 and66/68; clarification in conversation20261104",
+  "rectangle_2x2_possible": false,
+  "proposal_2x3_global_pins": [
+    65,
+    66,
+    67,
+    68,
+    69,
+    70
+  ],
+  "proposed_local_DE_pin": 5,
+  "proposed_local_NC_pins": [
+    1,
+    2,
+    3,
+    4,
+    6
+  ],
+  "format_approval": "APPROVED_USER20261104",
+  "operator_heights_mm": {
+    "tip_from_PCB": 8.22,
+    "plastic_from_PCB": 2.4,
+    "exposed_metal": 5.82
+  },
+  "measured_uncertainty": "not stated; approximate user caliper observations",
+  "Samtec_Z_nominal": {
+    "Hfemale": 8.51,
+    "G_Zio_example_not_measured": 11.0,
+    "insertion_example": 5.73,
+    "body_gap_example": 0.09,
+    "manufacturer_insertion_min": 3.68,
+    "manufacturer_insertion_max": 6.35,
+    "G_min_no_body_collision": 10.91,
+    "G_max_from_minimum_insertion": 13.05
+  },
+  "Connfly_Z_nominal": {
+    "Hfemale": 8.5,
+    "insertion_if_G11": 5.72,
+    "body_gap_if_G11": 0.1,
+    "insertion_limits": "not found; not borrowed from Samtec"
+  },
+  "retainer_adjustment_proposal": {
+    "owner": "J9",
+    "old_mm": [
+      91,
+      108
+    ],
+    "new_mm": [
+      94.5,
+      112.5
+    ],
+    "reason": "initial 2x3 collides with lower retainer NPTH; strict DRC after adjustment passes"
+  },
+  "parts": {
+    "Connfly_2x2": {
+      "MPN": "DS1023-2*2S21",
+      "MOQ": 10,
+      "unit_USD": 0.09,
+      "stock_displayed": 38135,
+      "selected": false,
+      "reason": "rectangle cannot receive staggered pins"
+    },
+    "Connfly_2x3": {
+      "MPN": "DS1023-2*3S21",
+      "MOQ": 10,
+      "unit_USD": 0.1,
+      "stock_displayed": 14410,
+      "connectors_total_two_USD": 5.86,
+      "contact_insertion_limits_verified": false
+    },
+    "Samtec_2x3": {
+      "MPN": "SSW-103-01-F-D",
+      "MOQ": 1,
+      "unit_USD_manufacturer": 1.349,
+      "stock_displayed": 4597,
+      "connectors_total_two_USD": 7.558,
+      "contact_insertion_limits_verified": true,
+      "additional_supplier_shipping": "unknown; do not claim delivered price"
+    }
+  },
+  "documents_received": [
+    {
+      "name": "UM2861-Rev8-STJapan.pdf",
+      "url": "https://www.stmcu.jp/wp/wp-content/uploads/2021/10/UM2861_Rev8.pdf",
+      "bytes": 3831522,
+      "sha256": "1eb153334dfffe947972ecd3065b36dfe7f0ddb294e30aa0bde252e72e5f35dd",
+      "local_file": "/home/lolo/dev/msm/reports/TR2-shield-v14-20261104/UM2861-Rev8-STJapan.pdf"
+    },
+    {
+      "name": "Samtec-SSW-through-hole.pdf",
+      "url": "https://suddendocs.samtec.com/catalog_english/ssw_th.pdf",
+      "bytes": 471452,
+      "sha256": "6d89f5c186a49e0f52f37d7bf7b5095081aff8f98e5ba18a85b0811caaf6f509",
+      "local_file": "/home/lolo/dev/msm/reports/TR2-shield-v14-20261104/Samtec-SSW-through-hole.pdf"
+    },
+    {
+      "name": "Samtec-SSW-double-footprint.pdf",
+      "url": "https://suddendocs.samtec.com/prints/ssw-d.pdf",
+      "bytes": 13001,
+      "sha256": "e47be52ac32ad6ab48b471f1fb7891cddf01e1795538dd3b6ec4c84e3323ca3f",
+      "local_file": "/home/lolo/dev/msm/reports/TR2-shield-v14-20261104/Samtec-SSW-double-footprint.pdf"
+    }
+  ],
+  "selected_J5": "SSW-103-01-F-D"
+}

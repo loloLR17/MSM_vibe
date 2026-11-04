@@ -7,7 +7,7 @@
 		(at 0 0 0)
 		(layer "F.SilkS")
 		(hide yes)
-		(uuid "fa1eff1a-e72a-4b32-9df3-04c0de2779a4")
+		(uuid "bd53c1c4-003b-4d50-948b-c6a6acd4446e")
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -18,7 +18,7 @@
 		(at 0 0 0)
 		(layer "F.Fab")
 		(hide yes)
-		(uuid "5ab72a73-531d-4f9f-a565-a40466ffd235")
+		(uuid "fb04517e-8411-44e8-8e78-a721aaf1554f")
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -29,7 +29,7 @@
 		(at 0 0 0)
 		(layer "F.Fab")
 		(hide yes)
-		(uuid "1b96b2d6-540f-40ca-9dfb-52df63724748")
+		(uuid "29e5fe3a-cf89-4628-84ae-b661cfbdb6ac")
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -40,7 +40,7 @@
 		(at 0 0 0)
 		(layer "F.Fab")
 		(hide yes)
-		(uuid "13438de3-2573-47ea-9be5-57dc458f296a")
+		(uuid "b30859f5-9bf3-4894-9497-3bd661c24fc3")
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -57,7 +57,7 @@
 			(type default)
 		)
 		(layer "F.CrtYd")
-		(uuid "61dade2b-d42d-42c2-8bff-5223228bef4f")
+		(uuid "08791842-400f-449b-8dbe-0d83def98b4a")
 	)
 	(fp_line
 		(start -5.21 1.4)
@@ -67,7 +67,7 @@
 			(type default)
 		)
 		(layer "F.CrtYd")
-		(uuid "c424e838-500c-405b-81fb-c69276d5d28c")
+		(uuid "00bd74b4-51a1-4730-b338-311afb8e7bb4")
 	)
 	(fp_line
 		(start 5.21 -1.4)
@@ -77,7 +77,7 @@
 			(type default)
 		)
 		(layer "F.CrtYd")
-		(uuid "20357210-3e95-4218-b786-6d8ea7c62e21")
+		(uuid "11017bfc-31d0-4a1a-9297-974ab283d233")
 	)
 	(fp_line
 		(start 5.21 1.4)
@@ -87,7 +87,7 @@
 			(type default)
 		)
 		(layer "F.CrtYd")
-		(uuid "a502a2ca-af8b-4887-ab32-6c3a8f91a9a3")
+		(uuid "820f3464-3c53-4323-82bc-ee43ea0f3cfb")
 	)
 	(pad "1" thru_hole circle
 		(at -3.81 0)
@@ -95,7 +95,7 @@
 		(drill 0.8)
 		(layers "*.Cu" "*.Mask")
 		(remove_unused_layers no)
-		(uuid "fb57ad0b-8524-4254-a30f-860833578d6c")
+		(uuid "52efac23-457e-4617-b603-16e7532bdaa7")
 	)
 	(pad "2" thru_hole circle
 		(at 3.81 0)
@@ -103,7 +103,7 @@
 		(drill 0.8)
 		(layers "*.Cu" "*.Mask")
 		(remove_unused_layers no)
-		(uuid "20c61eeb-52a4-4e90-ae99-9aad6d452a77")
+		(uuid "399b98fb-d4aa-468d-929c-900c767c0009")
 	)
 	(embedded_fonts no)
 )

@@ -1,3 +1,5 @@
+> Historique V1.3 : les mâles enquinconce66/67/68/69 et l’accord2×3 invalident le raccord1×2 ; PRECOMMANDE_V1_4.md/PINOUT_ET_Z_V1_4.md prévalent.
+
 # J5 V1.3 — femelle sous shield, mâles Nucleo conservés
 
 **Fait rapporté par l'utilisateur03/11 :** les deux NucleoC05 portent déjà des mâles sur CN12-69/70. Aucune cote ni photo/contrôle physique recueilli par Codex. La recommandation V1.2 de modifier les Nucleo est périmée pour ces deux cartes. Aucun dessoudage, ajout de femelle ou autre intervention sur Nucleo.

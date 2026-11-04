@@ -1,5 +1,5 @@
 Drill report for TR2_Shield_Proto_V1.kicad_pcb
-Created on 2026-11-03T18:07:08
+Created on 2026-11-04T11:08:58
 
 Copper Layer Stackup:
     =============================================================
@@ -13,9 +13,10 @@ Drill file 'TR2_Shield_Proto_V1-PTH.drl' contains
     T1  0.300mm  0.0118"  (4 holes))
     T2  0.800mm  0.0315"  (12 holes))
     T3  1.000mm  0.0394"  (4 holes))
-    T4  1.020mm  0.0402"  (160 holes))
+    T4  1.020mm  0.0402"  (158 holes))
+    T5  1.040mm  0.0409"  (6 holes))
 
-    Total plated holes count 180
+    Total plated holes count 184
 
 
 Drill file 'TR2_Shield_Proto_V1-NPTH.drl' contains

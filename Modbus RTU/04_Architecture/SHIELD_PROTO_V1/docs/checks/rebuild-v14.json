@@ -1,0 +1,90 @@
+[
+  {
+    "script": "generate_schematic.py",
+    "args": [
+      "python3",
+      "/home/lolo/dev/msm/projects/MSM_vibe-SHIELD-V14-J5-2X2/Modbus RTU/04_Architecture/SHIELD_PROTO_V1/tools/generate_schematic.py"
+    ],
+    "returncode": 0,
+    "project_byte_identical": true
+  },
+  {
+    "script": "generate_board.py",
+    "args": [
+      "/mnt/c/Program Files/KiCad/10.0/bin/python.exe",
+      "\\\\wsl.localhost\\Debian\\home\\lolo\\dev\\msm\\projects\\MSM_vibe-SHIELD-V14-J5-2X2\\Modbus RTU\\04_Architecture\\SHIELD_PROTO_V1\\tools\\generate_board.py",
+      "\\\\wsl.localhost\\Debian\\home\\lolo\\dev\\msm\\projects\\MSM_vibe-SHIELD-V14-J5-2X2\\Modbus RTU\\04_Architecture\\SHIELD_PROTO_V1"
+    ],
+    "returncode": 0,
+    "project_byte_identical": true
+  },
+  {
+    "script": "apply_routes.py",
+    "args": [
+      "/mnt/c/Program Files/KiCad/10.0/bin/python.exe",
+      "\\\\wsl.localhost\\Debian\\home\\lolo\\dev\\msm\\projects\\MSM_vibe-SHIELD-V14-J5-2X2\\Modbus RTU\\04_Architecture\\SHIELD_PROTO_V1\\tools\\apply_routes.py",
+      "\\\\wsl.localhost\\Debian\\home\\lolo\\dev\\msm\\projects\\MSM_vibe-SHIELD-V14-J5-2X2\\Modbus RTU\\04_Architecture\\SHIELD_PROTO_V1"
+    ],
+    "returncode": 0,
+    "project_byte_identical": true
+  },
+  {
+    "script": "export_design.py",
+    "args": [
+      "python3",
+      "/home/lolo/dev/msm/projects/MSM_vibe-SHIELD-V14-J5-2X2/Modbus RTU/04_Architecture/SHIELD_PROTO_V1/tools/export_design.py"
+    ],
+    "returncode": 0,
+    "project_byte_identical": true
+  },
+  {
+    "script": "read_board.py",
+    "args": [
+      "/mnt/c/Program Files/KiCad/10.0/bin/python.exe",
+      "\\\\wsl.localhost\\Debian\\home\\lolo\\dev\\msm\\projects\\MSM_vibe-SHIELD-V14-J5-2X2\\Modbus RTU\\04_Architecture\\SHIELD_PROTO_V1\\tools\\read_board.py",
+      "\\\\wsl.localhost\\Debian\\home\\lolo\\dev\\msm\\projects\\MSM_vibe-SHIELD-V14-J5-2X2\\Modbus RTU\\04_Architecture\\SHIELD_PROTO_V1"
+    ],
+    "returncode": 0,
+    "project_byte_identical": true
+  },
+  {
+    "script": "verify_exports.py",
+    "args": [
+      "python3",
+      "/home/lolo/dev/msm/projects/MSM_vibe-SHIELD-V14-J5-2X2/Modbus RTU/04_Architecture/SHIELD_PROTO_V1/tools/verify_exports.py"
+    ],
+    "returncode": 0,
+    "project_byte_identical": true
+  },
+  {
+    "script": "verify_mechanical.py",
+    "args": [
+      "python3",
+      "/home/lolo/dev/msm/projects/MSM_vibe-SHIELD-V14-J5-2X2/Modbus RTU/04_Architecture/SHIELD_PROTO_V1/tools/verify_mechanical.py"
+    ],
+    "returncode": 1,
+    "project_byte_identical": true
+  },
+  {
+    "script": "verify_mechanical.py",
+    "returncode": 0,
+    "phase": "follow-up after fixing retainer-history baseline toV1.3",
+    "project_byte_identical": true
+  },
+  {
+    "script": "verify_preorder.py",
+    "returncode": 0,
+    "phase": "native follow-up",
+    "project_byte_identical": true
+  },
+  {
+    "script": "generate_preorder.py",
+    "returncode": 0,
+    "pages": 3,
+    "comparison_rows": 109
+  },
+  {
+    "script": "generate_interfaces.py",
+    "returncode": 0
+  }
+]

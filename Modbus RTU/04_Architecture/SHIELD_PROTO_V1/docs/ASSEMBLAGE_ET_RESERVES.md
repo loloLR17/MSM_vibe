@@ -1,13 +1,11 @@
-# Assemblage futur V1.3 — aucune manipulation dans cette mission
+# Assemblage futur V1.4 — quinconce reçu par une femelle2×3
 
-Lire PRECOMMANDE_V1_3.md et J5_ET_EMPILEMENT_V1_3.md. **NE PAS COMMANDER.** Les deuxNucleo gardent leurs mâlesCN12-69/70 ; ne rien dessouder ni ajouter dessus.
+Aucune manipulation physique dans la mission actuelle. **NE PAS COMMANDER**, vérifier d'abord PRECOMMANDE_V1_4.md et PINOUT_ET_Z_V1_4.md.
 
-1. Après autorisationd'assemblage et contrôle C05/hauteurs, banc hors tension : souder J1–4 **mâles dessous** puisJ5 **femelle dessous**, queues dirigées vers le dessusshield, tous corps selon leur hauteur propre. Les cinq connecteurs ne sont pas du même genre, ne pas souderJ5 comme un cinquième mâle. Numérotation vue dessus1→69PG4DE,2→70PG6NC.
-2. Contrôler visuellement soudures/décalages et continuité DE sans pontPG6/voisins. Emboîter sans force ni flexion, comparer l'engagement naturel J1–5 ; entretoises à hauteur réelle, OD≤4mm candidat dans l'espaceentre cartes, têtes/rondelles≤4,5mm horsfacesPCB. Pas de serrage pour tirer un contact partiellement engagé.
-3. Poser sockets femelles J6–J9 **dessus**, à longueurs exactes. Vérifier queues propres/absence de court. FRAMJ6-9VIN3V3/J6-8sortieLDO NC, J7-1=3V3/2=GND. Garder découplage, SPI1/2/3 et PG4DE, aucun5V injecté.
-4. Poser fixation Nucleo cachée avantSD. FRAM etSD chacun deux entretoises/vis isolantes existantes ; aucune fixation ne sert de butée électrique, aucun appui sur composants. SD sort-X, pas de sangle devantfente.
-5. MKIGIBV2 JP1gauche1/2en haut(VDDIO/VDD), JP2droite24en haut(MISO)/13en basGND. Entraxe15,24nominal issu du15,2utilisateur ; nappe-Y avec reprise d'effort. Click côtéisolé/borniers+X, VCCSEL3V3 et pontDE-/RE conservés, aucun pontGND2/GNDlogique ou visconductrice traversantbarrière.
-6. Fixer étriersJ8/J9 aux ancrages conservés, patins ajustables sur rives libres, pas surcontacts/composants. Tous modules restent démontables. Détrompageautomatique non requis : repèresbroche1 et contrôle manuel hors tension obligatoires.
-7. Adapter ultérieurement selles/boîtier, accès CN15/ST-LINK/LED/USER, RESET protégé. Aucun230V surshield. Les modèlesSTL restent REVIEW_ONLY inchangés deV1.2, aucune impression ni tenuevibratoire qualifiée ici.
-
-Dernier relevé nécessaire : gabaritdeuxC05 + cotesmâlesJ5/engagementZio + enveloppesMKI/Click, regroupés ultérieurement. Pas de mesureshistoriquesMKI redemandées. Une qualification électrique/thermique/vibratoire surprototyperéel exigera sa mission et ses autorisations propres.
+1. Les Nucleo gardent leurs deux paires mâles décalées67/69 et66/68. Ne pas ajouter65/70 ni dessouder de contacts. J5femelle2×3 se soude **sous** shield, queues dessus ; J1–J4 restent mâles dessous, J6–J9 femelles dessus.
+2. Repère local1=CN12-65, local5=CN12-69/PG4/DE ; local1/2/3/4/6NC. Entrées65/70 vides côté Nucleo. Contrôle croisé vue dessus/miroir et soudures sans pont ; aucune broche décalée ne doit être forcée dans une2×2.
+3. Après autorisation d'assemblage, emboîter les cinq connecteurs naturellement et mesurer G une fois. Les mesures mâles8,22/2,40 sont acquises. Ajuster les entretoises à la hauteur compatible, jamais tirer les contacts par serrage. Vérifier section/entrée réelle et dégagement sous carte. Têtes/rondellesØ≤4,5 horsPCB ; entretoises entrecartes candidatesØ≤4.
+4. Garder les trois ancragesNucleo et poser celui caché sousSD avant modules. FRAM/SD restent vissées chacune sur leurs deux entretoises. J5 queues2,64 nominal dépasse d'environ1,04 au-dessus d'unPCB1,6 ; tolérances et composants réels à contrôler.
+5. L'ancrage inférieurClick autorisé est maintenant94,5/112,5, perçage3,2 ; supérieur91/75 conservé. Utiliser l'étrierV1.4, pas le STL antérieur. Patins sur rives libres, aucun appui sur contacts/composants. Nouveau modèle REVIEW_ONLY non qualifié thermiquement/mécaniquement et aucune impression commandée.
+6. FRAM VIN3V3 et sortieLDO NC ; microSD fente-X, Click/borniers+X, nappe-Y avec reprises d'effort. Garder GND2/A/B isolés du GNDlogique. Aucun5V nouveau ni230V dans le shield. Détrompeurs automatiques non requis, repérage manuel hors tension obligatoire.
+7. Préserver CN15, ST-LINK, USER/LED et RESET protégé ; boîtier/poussoir/guides finis différés. Toute qualification électrique/thermique/vibratoire exige le prototype réel et sa mission propre.

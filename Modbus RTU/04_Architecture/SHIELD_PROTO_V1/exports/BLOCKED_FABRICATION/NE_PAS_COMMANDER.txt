@@ -1,5 +1,5 @@
-V1.3 CANDIDAT — NE PAS COMMANDER.
-J5 femelle SOUS SHIELD, mâles69/70 déjà surNucleo, ne pas modifierNucleo.
-C05/hauteurs-mâles-J5/engagementsimultanéZio non démontrés.
-Voir docs/PRECOMMANDE_V1_3.md et J5_ET_EMPILEMENT_V1_3.md.
-Aucun achat ou assemblage autorisé par cette mission.
+V1.4 CANDIDAT — NE PAS COMMANDER.
+Femelle2x3 autorisée, seuleCN12-69/PG4/local5 reliéeDE.
+Males66/67/68/69 enquinconce,65/70vides, aucune modificationNucleo.
+GZio, gabaritdeuxC05 et dégagementréel/tolérances non démontrés.
+Voir docs/PRECOMMANDE_V1_4.md ; aucun ordredefabrication autorisé.
