@@ -1,0 +1,109 @@
+{
+  "status": "TEXT_STEP_CSV_TOKEN_IDENTITY_ONLY",
+  "files": [
+    {
+      "file": "mechanical/V1_5/models/Adafruit_4682.step",
+      "old_sha256": "195927fa6892b80caf19cd01887e84f1202026665b393f9c8c9f399fa6b4d6e8",
+      "new_sha256": "e220bfb89865c170a709f1cb273fc33550e6ce20c9ab93238ad8b60c2eb1a924",
+      "all_whitespace_separated_tokens_identical": true
+    },
+    {
+      "file": "mechanical/V1_5/REVIEW_ONLY/section-X60.step",
+      "old_sha256": "9ab5a6569a4611fb1675488af53e33c644ac30e3c62eeb77cb428fc1190f3180",
+      "new_sha256": "2906b6c8ccf503545b200a9358ccc15891f0b6404404617a0245b99015112b9e",
+      "all_whitespace_separated_tokens_identical": true
+    },
+    {
+      "file": "mechanical/V1_5/REVIEW_ONLY/assembly-review.step",
+      "old_sha256": "946c5bf6982597e3de7f86eda70765a1ed75e694e86f13d425466e4bbaee6358",
+      "new_sha256": "9263b0ea6c84cd1c8a5933ac0229781c587a11e15559f9fb15f43d6dcf811389",
+      "all_whitespace_separated_tokens_identical": true
+    },
+    {
+      "file": "mechanical/V1_5/REVIEW_ONLY/Case_base_PETG_CONCEPT.step",
+      "old_sha256": "52ebdfa25a3b682ab09f546e3d81303f504baf42c71f5ad3d12762bc0335d6d9",
+      "new_sha256": "c64f3cef4ac9464a6a62e63f7ce1c11139eebe5cbd3560e6c0f3d524fe5e3ae4",
+      "all_whitespace_separated_tokens_identical": true
+    },
+    {
+      "file": "mechanical/V1_5/REVIEW_ONLY/window-alternative-NOT-OPTICAL-VALIDATION.step",
+      "old_sha256": "3d31c940fe25424239b67ddda427ebc4f9d096c57945d33cacaa5204c328f409",
+      "new_sha256": "74280dfeea2127c2b23d135041bf8caebd1987713b5165c3b2b32a27b80acdd7",
+      "all_whitespace_separated_tokens_identical": true
+    },
+    {
+      "file": "mechanical/V1_5/REVIEW_ONLY/USER_panel_blank.step",
+      "old_sha256": "41af01dd4ae5b05bdb4c66ecba658987360607611f14f84d624f337a3c323ffc",
+      "new_sha256": "81d536ec62dfcfc7c58a8ef0de0c0e7353ddea0296c52175ebc51ca278a3154e",
+      "all_whitespace_separated_tokens_identical": true
+    },
+    {
+      "file": "mechanical/V1_5/REVIEW_ONLY/Insert_RS485_wire_BLANK.step",
+      "old_sha256": "c28212b19d10ac4b6a051a909adb1bf5b02b0e3d97a76202d0721f98f9d34293",
+      "new_sha256": "0bc04bddf895c2bf5f595e1782f53e6c8b40346c4e4b6523ca5d237007a35e19",
+      "all_whitespace_separated_tokens_identical": true
+    },
+    {
+      "file": "mechanical/V1_5/REVIEW_ONLY/Insert_CN1_STLINK_BLANK.step",
+      "old_sha256": "ecc4186e27b62d168176d68de740608da7c1180db1b98dd4546bde20ec9206c5",
+      "new_sha256": "cbd3f5f994e4b992449b7218dc887a2231a934b5ade12a7c212518a18f22bd4a",
+      "all_whitespace_separated_tokens_identical": true
+    },
+    {
+      "file": "mechanical/V1_5/REVIEW_ONLY/operator-principle-NOT-C05.step",
+      "old_sha256": "1bbe4ab5109321212df054d903fe4b14a2e6cb886644d863205b8aae2471ced4",
+      "new_sha256": "9334017db1f4d3f95c731310fb0af6c408f92783480c9dc824e2700d75702e74",
+      "all_whitespace_separated_tokens_identical": true
+    },
+    {
+      "file": "mechanical/V1_5/REVIEW_ONLY/Insert_ribbon_BLANK.step",
+      "old_sha256": "0f64e0dd52ba228a9ec3e1986d961a227d4cc6147dcbc00d0b9f13824c0dc303",
+      "new_sha256": "fff80f896cd239906330948794aef26ae746c80c9ff5c04537676ea270061636",
+      "all_whitespace_separated_tokens_identical": true
+    },
+    {
+      "file": "mechanical/V1_5/REVIEW_ONLY/LED_panel_blank.step",
+      "old_sha256": "b8369349f80fead90a7e6215a1a3e2d84c52c2574d1adc0cd5d02f3fb17bcc3c",
+      "new_sha256": "f71dbcd2e5457f71cd51d0b61c293483fc595449b3e89d2688ef25de3866cafb",
+      "all_whitespace_separated_tokens_identical": true
+    },
+    {
+      "file": "mechanical/V1_5/REVIEW_ONLY/section-Y92.step",
+      "old_sha256": "e2fe03323b0b1060b3f94e1a4621449622f1e7ca68a8a5656e231ba95b15f9b9",
+      "new_sha256": "286d7d9608f9632591a6558b98d6332f9b9d3cb5c850fb8b6c3edfb088a35c2a",
+      "all_whitespace_separated_tokens_identical": true
+    },
+    {
+      "file": "mechanical/V1_5/REVIEW_ONLY/Insert_microSD_BLANK.step",
+      "old_sha256": "5cd546aa12d68463359948be1526dc7ce1d3bcdf324eda03ccaa75d0de33f093",
+      "new_sha256": "f6ecffa2175ca83e37e3479bfa36e17ec03c1fe69e116f639b0287211e403544",
+      "all_whitespace_separated_tokens_identical": true
+    },
+    {
+      "file": "mechanical/V1_5/REVIEW_ONLY/Case_lid_PETG_CONCEPT.step",
+      "old_sha256": "6996e239f78002c30ced0ae85eac53971b0bbfd06bf61181ff12cf25d8a591a2",
+      "new_sha256": "e4144d25a4bf570ca137e1efd6bdb655ff2f153318d08e85dafaea310c1e3eb9",
+      "all_whitespace_separated_tokens_identical": true
+    },
+    {
+      "file": "mechanical/V1_5/REVIEW_ONLY/RS485_tool_cover.step",
+      "old_sha256": "d5a4016ecf2d66f302c8dbff76314ec7357c1c3ed508b7f8899b3e0891b48a79",
+      "new_sha256": "8e31a6ad0920c7e36a48aa9e5c0fef2987fac0cbebed6c0b8d12f787565d7579",
+      "all_whitespace_separated_tokens_identical": true
+    },
+    {
+      "file": "mechanical/V1_5/REVIEW_ONLY/Insert_CN15_5V_BLANK.step",
+      "old_sha256": "11b6094c8e2cda0c1fa2ba66509d763f0871bb0d96e8343ca755dd6fde0aed0d",
+      "new_sha256": "5fd007377cf56092a9868cc0dab0b7cc64d60d029bec0699ae64b745100cae3b",
+      "all_whitespace_separated_tokens_identical": true
+    },
+    {
+      "file": "docs/MATRICE_INTERFERENCES_V1_5.csv",
+      "old_sha256": "794d422291b20954571e3d389ec4f86d421f0f5ecb0913502b116654525d3a06",
+      "new_sha256": "dfe704a506a76327b9e15411fe3b70fda9571c917588e02af98702340237d79a",
+      "all_whitespace_separated_tokens_identical": true
+    }
+  ],
+  "original_vendor_bytes_preserved": "local reports and first local source commit, no geometric token modified",
+  "rejected_binary_STL_attempt": "binary STL must not be processed as text; length84+50*n mismatch detected locally; all STL regenerated from CAD and rechecked before publication"
+}

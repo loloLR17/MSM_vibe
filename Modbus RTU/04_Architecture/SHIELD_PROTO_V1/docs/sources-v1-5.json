@@ -90,8 +90,10 @@
   "Adafruit_SD_STEP": {
     "path": "mechanical/V1_5/models/Adafruit_4682.step",
     "source_url": "https://github.com/adafruit/Adafruit_CAD_Parts/tree/6c5cd9e3e65252bb5d5339608cf8d3cdabcef251/4682%20Micro%20SD%20Breakout",
-    "sha256": "195927fa6892b80caf19cd01887e84f1202026665b393f9c8c9f399fa6b4d6e8",
-    "license": "CC-BY-SA3.0; root shield license retained"
+    "license": "CC-BY-SA3.0; root shield license retained",
+    "original_download_sha256": "195927fa6892b80caf19cd01887e84f1202026665b393f9c8c9f399fa6b4d6e8",
+    "normalized_file_sha256": "e220bfb89865c170a709f1cb273fc33550e6ce20c9ab93238ad8b60c2eb1a924",
+    "normalization": "line endings/trailing spaces only, exact token identity verified"
   },
   "Click_original_STEP_inspection": {
     "source_local": "/home/lolo/dev/msm/reports/TR2-shield-proto-v1-20261102/sources/click-mechanical/RS485_Isolator_2_click_v101.step",

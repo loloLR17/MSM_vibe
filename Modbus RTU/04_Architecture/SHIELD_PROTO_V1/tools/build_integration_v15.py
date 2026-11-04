@@ -178,6 +178,8 @@ def export():
  window.add(pane,name='clear_PC_or_PMMA_1p5',color=cq.Color(.55,.85,.95,.5));window.add(frame,name='opaque_screwed_frame',color=cq.Color(.25,.27,.28));window.export(str(O/'window-alternative-NOT-OPTICAL-VALIDATION.step'))
  for n,s in coupon:
   if n in ['plate','rod','guide','stop']:cq.exporters.export(s,str(O/('principle-'+n+'.stl')),tolerance=.10,angularTolerance=.15)
+ for f in O.glob('*.step'):
+  raw=f.read_bytes();clean=b'\n'.join(line.rstrip(b' \t\r')for line in raw.splitlines())+b'\n';assert raw.split()==clean.split();f.write_bytes(clean)
  (Q/'assembly-parts.json').write_text(json.dumps([{'name':p['name'],'origin':p['origin'],'group':p['group'],'status':p['status'],'volume_mm3':p['shape'].Volume(),'solids':len(p['shape'].Solids()),'bbox_CAD_xyz':[[getattr(p['shape'].BoundingBox(),k+'min'),getattr(p['shape'].BoundingBox(),k+'max')]for k in 'xyz']}for p in parts],ensure_ascii=False,indent=2)+'\n')
  print('Exported editable STEP assembly',len(parts),'named parts; case STEP/STL and separate mechanism coupon')
 def render():

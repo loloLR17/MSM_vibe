@@ -1,0 +1,29 @@
+Exported editable STEP assembly 67 named parts; case STEP/STL and separate mechanism coupon
+{
+  "status": "PASS_GENERATED_NOMINAL_SOLIDS_ONLY",
+  "release": "READY_FOR_PHYSICAL_CHECK / BLOCKED_FABRICATION",
+  "assembly_named_parts": 67,
+  "STEP_readback_solids": 171,
+  "J5_G11_example": {
+    "gap_mm": 0.08999999999999986,
+    "insertion_mm": 5.73,
+    "G_actual": null
+  },
+  "LED_sector_shield_projection_overlap_xy": [
+    45,
+    17,
+    65,
+    28
+  ],
+  "LED_verdict": "BLOCKED: north sector intersects shield; exact C05 centres and clear path unknown. No PCB cut justified at exact coordinates yet.",
+  "USER_verdict": "BLOCKED: south sector generally beyond shield, but exact cap swept volume/centre/stroke unknown",
+  "coupon_only": {
+    "rest_gap_mm": 0.6,
+    "hard_stop_travel_mm": 1,
+    "diametral_guide_clearance_mm": 0.5,
+    "actual_button_force_stroke": "UNKNOWN; return spring and compliant tip still to size"
+  },
+  "all_physical_fit": "NOT_TESTED",
+  "no_CAD_files_changed": "verified separately against initial HEAD",
+  "intentional_contacts": "pins/socket, board/supports, mating and covers; no claim of global collision-free assembly"
+}

@@ -77,6 +77,92 @@
       "valid": true
     }
   ],
-  "coupon_rod_clear_of_carrier_and_plate_at_rest_and_1mm": true,
+  "binary_STL": [
+    {
+      "file": "Case_base_PETG_CONCEPT.stl",
+      "binary_length_valid": true,
+      "bytes_equal_to_original_validated_STL_commit": "7bcf35059f6b5d05995c2702b6b2990561f30f29",
+      "sha256": "0d46029ef8802dac2ef8c4d0eeed737021a937e795517061f953a1d7801d6aab"
+    },
+    {
+      "file": "Case_lid_PETG_CONCEPT.stl",
+      "binary_length_valid": true,
+      "bytes_equal_to_original_validated_STL_commit": "7bcf35059f6b5d05995c2702b6b2990561f30f29",
+      "sha256": "8c550100bd54438af398931c14c7245c70c9cc4a32516691e412e60790d6cb38"
+    },
+    {
+      "file": "Insert_CN15_5V_BLANK.stl",
+      "binary_length_valid": true,
+      "bytes_equal_to_original_validated_STL_commit": "7bcf35059f6b5d05995c2702b6b2990561f30f29",
+      "sha256": "96cd8b5eaf564ba7723380c098ccdd27db9260c790b42f03799d8923de8f0c02"
+    },
+    {
+      "file": "Insert_CN1_STLINK_BLANK.stl",
+      "binary_length_valid": true,
+      "bytes_equal_to_original_validated_STL_commit": "7bcf35059f6b5d05995c2702b6b2990561f30f29",
+      "sha256": "274e25b80e542f8e156e333def68a33d4da160a9176ac0345d062bbc17a75c3a"
+    },
+    {
+      "file": "Insert_RS485_wire_BLANK.stl",
+      "binary_length_valid": true,
+      "bytes_equal_to_original_validated_STL_commit": "7bcf35059f6b5d05995c2702b6b2990561f30f29",
+      "sha256": "f474450ea096af151bbca68b89bebd99527f0a7c7546c486ffc67cce090388de"
+    },
+    {
+      "file": "Insert_microSD_BLANK.stl",
+      "binary_length_valid": true,
+      "bytes_equal_to_original_validated_STL_commit": "7bcf35059f6b5d05995c2702b6b2990561f30f29",
+      "sha256": "00769b9e8ee6095d37c49f645383b5d0c19abdb793ecb92a0987943d6c80bd3d"
+    },
+    {
+      "file": "Insert_ribbon_BLANK.stl",
+      "binary_length_valid": true,
+      "bytes_equal_to_original_validated_STL_commit": "7bcf35059f6b5d05995c2702b6b2990561f30f29",
+      "sha256": "f70c9b23de05f0ad31b73e5eebb100e348e2dd2b4824136a9352899de965088c"
+    },
+    {
+      "file": "LED_panel_blank.stl",
+      "binary_length_valid": true,
+      "bytes_equal_to_original_validated_STL_commit": "7bcf35059f6b5d05995c2702b6b2990561f30f29",
+      "sha256": "7b4fe52fe88c1ee3a721d9de1f40121a11b98f6d465d7849f689302863cf262d"
+    },
+    {
+      "file": "RS485_tool_cover.stl",
+      "binary_length_valid": true,
+      "bytes_equal_to_original_validated_STL_commit": "7bcf35059f6b5d05995c2702b6b2990561f30f29",
+      "sha256": "54293ef15b3e993759dc175aef0b2e425d95b04b709e90cf7fb4024cf481f817"
+    },
+    {
+      "file": "USER_panel_blank.stl",
+      "binary_length_valid": true,
+      "bytes_equal_to_original_validated_STL_commit": "7bcf35059f6b5d05995c2702b6b2990561f30f29",
+      "sha256": "2babe389a2d8f73d1550cc24c2e690ef783b5a1ac4ad7414cb2e693f54cbcb79"
+    },
+    {
+      "file": "principle-guide.stl",
+      "binary_length_valid": true,
+      "bytes_equal_to_original_validated_STL_commit": "7bcf35059f6b5d05995c2702b6b2990561f30f29",
+      "sha256": "64829a170687c53fae6157c78798009b539b1489c82ab0bea4ed442384372c81"
+    },
+    {
+      "file": "principle-plate.stl",
+      "binary_length_valid": true,
+      "bytes_equal_to_original_validated_STL_commit": "7bcf35059f6b5d05995c2702b6b2990561f30f29",
+      "sha256": "fc2e85aee11d07af6275db70b17a5fdc49e32b2fe9eafe296cbb96fbeecdf2a5"
+    },
+    {
+      "file": "principle-rod.stl",
+      "binary_length_valid": true,
+      "bytes_equal_to_original_validated_STL_commit": "7bcf35059f6b5d05995c2702b6b2990561f30f29",
+      "sha256": "3fd50150285436ce2e87da4a867181266208c2be9eb33b6a78f8d617e7965c8c"
+    },
+    {
+      "file": "principle-stop.stl",
+      "binary_length_valid": true,
+      "bytes_equal_to_original_validated_STL_commit": "7bcf35059f6b5d05995c2702b6b2990561f30f29",
+      "sha256": "89ced1b91d1c03b7b020eaeaecee9bfc262737c829b687f3d3a162158254c2b2"
+    }
+  ],
+  "coupon_clear_at_rest_and1mm": true,
   "actual_C05_fit": "NOT_TESTED"
 }

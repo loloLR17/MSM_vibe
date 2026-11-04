@@ -24,6 +24,11 @@
       "operation": "final proof readback",
       "failure": "system Python had no Pillow; inherited manifest referenced ignored/unversioned .prl absent in new worktree; initial expected-change list omitted intended interfaces.json update",
       "resolution": "tool venv used; current manifest reconciled to72 real files with4 intended changes, missing local-preference record preserved explicitly; no historical report rewritten"
+    },
+    {
+      "operation": "artifact whitespace normalization",
+      "failure": "first local source commit was created despite diff-check whitespace warnings. Initial text-normalization loop also added bytes to binary STL, causing binary length mismatch and parser fallback. No push or print occurred.",
+      "resolution": "normalization limited to STEP and CSV; all binary STL regenerated from CAD, native tests passed,14STL byte-identical to initially validated commit7bcf3505. Original vendor STEP hash and whitespace-normalized hash distinguished. Git diff-check enforced by checked subprocess before next commit."
     }
   ],
   "unresolved": [

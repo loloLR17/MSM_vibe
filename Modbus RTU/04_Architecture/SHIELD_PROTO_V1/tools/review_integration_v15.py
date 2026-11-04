@@ -63,7 +63,7 @@ matrix=[
  ('Trous/ancrages','RESERVE','Centres PCB inchangés, trois supports et étriers représentés','Gabarit100% sur deux C05; OD4 entrecartes et têtes<=4,5 horsPCB'),
  ('Fond/couvercle/vis','PASS','Solides valides, STL fermés; modules modélisés sans collision avec fond/couvercle','PASS géométrique nominal; tolérances/PETG/température/supports impression RESERVE')]
 with (P/'docs/MATRICE_INTERFERENCES_V1_5.csv').open('w')as f:
- w=csv.writer(f);w.writerow(['interface','verdict','preuve_limitee','reste_a_faire']);w.writerows(matrix)
+ w=csv.writer(f,lineterminator="\n");w.writerow(['interface','verdict','preuve_limitee','reste_a_faire']);w.writerows(matrix)
 # Print-ready 2-page checklist. The regions are intentionally not false exact component centres.
 with PdfPages(O/'CONTROLE_PHYSIQUE_MINIMAL_2P.pdf')as pdf:
  fig,ax=plt.subplots(figsize=(8.27,11.69));fig.subplots_adjust(top=.90,bottom=.27,left=.12,right=.93)

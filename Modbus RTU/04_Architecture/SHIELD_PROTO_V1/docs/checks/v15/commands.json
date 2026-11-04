@@ -31,5 +31,16 @@
     "returncode": 0,
     "proof": "render-published.log",
     "scope": "final readable views; PDF pages/PNG reopen passed in views-readback.json"
+  },
+  {
+    "command": "import build_integration_v15 as m; m.export(); m.verify()",
+    "returncode": 0,
+    "proof": "export-binary-STL-final.log",
+    "scope": "STEP text normalization and untouched binary STL, regeneration + native tests"
+  },
+  {
+    "command": "OCCT reread15 STEP + byte comparison14 binary STL to7bcf3505 + coupon plate/carrier/stop",
+    "returncode": 0,
+    "proof": "final-STEP-and-coupon-readback.json"
   }
 ]
