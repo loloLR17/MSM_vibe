@@ -1,0 +1,463 @@
+{
+  "consultation_date": "2026-11-04",
+  "scope": "5 PCB nus, 2 jeux composants avec marge; aucun achat ni panier cree",
+  "exchange": {
+    "EUR_USD": 1.1267,
+    "date": "2026-11-04",
+    "source": "https://www.ecb.europa.eu/stats/policy_and_exchange_rates/euro_reference_exchange_rates/html/eurofxref-graph-usd.en.html",
+    "status": "reference BCE lue, pas taux de facturation fournisseur/banque"
+  },
+  "VAT_budget": 0.2,
+  "destination": "France metropolitaine, adresse/code postal et statut fiscal non fournis; aucun prix rendu ferme",
+  "stock_caveat": "Stocks affiches sur pages consultees via web/index; pas de reservation ni acces entrepot en temps reel. Caches de pages parfois ages de plusieurs semaines/mois, signales dans sources.md. Relecture panier necessaire avant decision achat.",
+  "items": [
+    {
+      "ref": "J1..J4",
+      "mpn": "DS1021-2*40SF11",
+      "supplier": "TME",
+      "qty_need": 3,
+      "qty_buy": 3,
+      "unit_USD": 0.6,
+      "stock_displayed": 53674,
+      "MOQ": 2,
+      "multiple": 1,
+      "source": "https://www.tme.eu/en/details/zl202-80g/pin-headers/connfly/ds1021-2-40sf11/",
+      "scenario": "commun",
+      "note": "3 barrettes2x40 a couper en 2 jeux10/8/15/17; 100 colonnes utilisees,20 en reserve; corps/queues legacy verifies, pas DS1021-01"
+    },
+    {
+      "ref": "J5",
+      "mpn": "SSW-103-01-F-D",
+      "supplier": "DigiKey",
+      "qty_need": 2,
+      "qty_buy": 3,
+      "unit_USD": 1.3,
+      "stock_displayed": 186,
+      "factory_stock_separate": 3297,
+      "MOQ": 1,
+      "multiple": 1,
+      "source": "https://www.digikey.com/en/products/detail/samtec-inc/SSW-103-01-F-D/6678753",
+      "scenario": "commun",
+      "note": "1 secours; exact -01-F-D sans suffixe; 4 semaines reappro fabricant n'est PAS delai du stock affiche; cache indique2mois"
+    },
+    {
+      "ref": "J8",
+      "mpn": "DS1023-1*12S21",
+      "supplier": "TME",
+      "qty_need": 4,
+      "qty_buy": 10,
+      "unit_USD": 0.14,
+      "stock_displayed": 8850,
+      "MOQ": 10,
+      "multiple": 10,
+      "source": "https://www.tme.eu/en/details/zl262-12sg/pin-headers/connfly/ds1023-1-12s21/",
+      "scenario": "commun",
+      "note": "2 rangs par MKI; excedent6 impose par conditionnement"
+    },
+    {
+      "ref": "J9",
+      "mpn": "DS1023-1*8S21",
+      "supplier": "TME",
+      "qty_need": 4,
+      "qty_buy": 10,
+      "unit_USD": 0.1,
+      "stock_displayed": 6560,
+      "MOQ": 10,
+      "multiple": 10,
+      "source": "https://www.tme.eu/en/details/zl262-8sg/pin-headers/connfly/ds1023-1-8s21/",
+      "scenario": "commun",
+      "note": "2 rangs par Click; excedent6 impose par conditionnement"
+    },
+    {
+      "ref": "J6/J7",
+      "mpn": "M20-7820946",
+      "supplier": "DigiKey",
+      "qty_need": 4,
+      "qty_buy": 5,
+      "unit_USD": 1.33,
+      "stock_displayed": 4368,
+      "MOQ": 1,
+      "multiple": 1,
+      "source": "https://www.digikey.com/en/products/detail/harwin-inc/M20-7820946/3728253",
+      "scenario": "rapide_2_distributeurs",
+      "note": "VARIANTE PROPOSEE, pas substitution adoptee: Harwin9contacts H8.50, pas2.54, trou1.02; enveloppe nominale compatible, engagement des modules a verifier; etain au lieu or; non coupable"
+    },
+    {
+      "ref": "J6/J7",
+      "mpn": "2212S-09G-85",
+      "supplier": "Tayda",
+      "qty_need": 4,
+      "qty_buy": 5,
+      "unit_USD": 0.19,
+      "stock_displayed": 3988888,
+      "MOQ": 1,
+      "multiple": 1,
+      "source": "https://www.taydaelectronics.com/9-pin-2-54-mm-single-row-female-pin-header.html",
+      "scenario": "economique_3_distributeurs",
+      "note": "reference active conservee; enorme quantite affichee non auditable, delai et port France NON VERIFIES; pas selectionnee rapide"
+    },
+    {
+      "ref": "R1..R4",
+      "mpn": "MRS16000C1002FCT00",
+      "supplier": "TME",
+      "qty_need": 8,
+      "qty_buy": 10,
+      "unit_USD": 0.16,
+      "stock_displayed": 988,
+      "MOQ": 1,
+      "multiple": 1,
+      "source": "https://www.tme.eu/en/details/mrs16000c1002fct00/tht-resistors/vishay/",
+      "scenario": "commun",
+      "note": "10k1%, axialP7.62; 2 secours, palier10 moins cher que8 au prix unitaire1"
+    },
+    {
+      "ref": "C1",
+      "mpn": "C315C104K5R5TA",
+      "supplier": "DigiKey",
+      "qty_need": 2,
+      "qty_buy": 3,
+      "unit_USD": 0.79,
+      "stock_displayed": 6903,
+      "MOQ": 1,
+      "multiple": 1,
+      "source": "https://www.digikey.com/en/products/detail/kemet/C315C104K5R5TA/12701330",
+      "scenario": "commun",
+      "note": "100n50VX7R, pas2.54; 1 secours; cache indique1mois; reappro fabricant20semaines n'est pas le delai stock"
+    },
+    {
+      "ref": "C2",
+      "mpn": "EEUFR1H100",
+      "supplier": "TME",
+      "qty_need": 2,
+      "qty_buy": 3,
+      "unit_USD": 0.32,
+      "stock_displayed": 30900,
+      "MOQ": 1,
+      "multiple": 1,
+      "source": "https://www.tme.eu/en/details/eeufr1h100/tht-electrolytic-capacitors/panasonic/",
+      "scenario": "commun",
+      "note": "VARIANTE PROPOSEE du ECA1HM100, non montee ni adoptee silencieusement; Panasonic confirme10u50V, pas2.0, diam5/long11; basseimpedance, 105C; conserver polarite. DigiKey meme MPN stock0, arrivee16/11/2026: ne pas compter ancien resultat recherche6151"
+    }
+  ],
+  "shipping": [
+    {
+      "supplier": "TME",
+      "method": "economique routier",
+      "price_EUR_HT": 5.9,
+      "price_EUR_TTC": 7.08,
+      "delay_FR": "2-4 jours ouvrables de transport pour petit colis; a partir envoi paiement si prepayement; preparation non garantie",
+      "source": "https://www.tme.eu/fr/how-to-buy/7307/Moyens-et-couts-de-transport/"
+    },
+    {
+      "supplier": "TME",
+      "method": "standard aerien",
+      "price_EUR_HT": 10.9,
+      "price_EUR_TTC": 13.08,
+      "delay_FR": "1-2 jours ouvrables transport; preparation non garantie",
+      "source": "https://www.tme.eu/fr/how-to-buy/7307/Moyens-et-couts-de-transport/"
+    },
+    {
+      "supplier": "DigiKey",
+      "method": "UPS DDP, facturationEUR preferee",
+      "price_EUR_displayed": 25.0,
+      "price_EUR_TTC_final": null,
+      "VAT_status_of_displayed_shipping": "NON VERIFIE: budget entre25 et30TTC, aucun devis panier",
+      "free_shipping_threshold_EUR": 75,
+      "delay_FR": "generalement3jours apres expedition, dedouanement peut retarder; date de reception NON VERIFIEE",
+      "source": "https://www.digikey.fr/fr/help-support/delivery-information/delivery-time-and-cost"
+    },
+    {
+      "supplier": "Tayda",
+      "method": "NON VERIFIE",
+      "price_EUR_TTC": null,
+      "delay_FR": "NON VERIFIE",
+      "source": "https://www.taydaelectronics.com/9-pin-2-54-mm-single-row-female-pin-header.html"
+    }
+  ],
+  "PCB_options": {
+    "qty": 5,
+    "layers": 2,
+    "material": "FR4",
+    "size_mm": [
+      90,
+      100
+    ],
+    "thickness_mm": 1.6,
+    "copper_oz": 1,
+    "finish_suggested": "HASL sans plomb, prix de cette option NON VERIFIE",
+    "mask": "vert deuxfaces",
+    "silkscreen": "blanc deuxfaces",
+    "assembly": false,
+    "stencil": false,
+    "panelization": false,
+    "impedance_control": false,
+    "vias": "traversants0.3/0.6; pas de microvia ni via-in-pad",
+    "JLC_advertised_start_USD_per_5": 2,
+    "JLC_actual_90x100_configuration_quote_TTC": null,
+    "shipping_FR_TTC": null,
+    "receipt_date_FR": null,
+    "source": "https://jlcpcb.com/help/article/how-do-i-place-an-order",
+    "quote_URL": "https://cart.jlcpcb.com/quote/?fromDemo=yes",
+    "alternative": "https://www.pcbway.com/orderonline.aspx",
+    "reason_no_firm_quote": "configurateurs interactifs: aucun calcul rendu specifique obtenu, aucune adresse/checkout ni fichier televerse, aucune commande; ne pas confondre tarifappel et devis90x100 sansplomb livre",
+    "public_estimate": {
+      "date": "2026-11-04",
+      "source": "https://cart.jlcpcb.com/fr/quote",
+      "method": "public anonymous calculator, isolated Edge profile; no Gerber upload/cart/account/order",
+      "country": "France",
+      "currency": "USD",
+      "dimensions_mm": [
+        90,
+        100
+      ],
+      "quantity": 5,
+      "selected_options": [
+        {
+          "text": "Jusqu'à 20 couches, Impédance contrôlée, PCB rigide à fabrication rapide, Coût relativement bas. FR-4",
+          "value": "1"
+        },
+        {
+          "text": "2",
+          "value": ""
+        },
+        {
+          "text": "5",
+          "value": ""
+        },
+        {
+          "text": "Électronique industrielle/consommateur",
+          "value": "1"
+        },
+        {
+          "text": "1",
+          "value": "1"
+        },
+        {
+          "text": "PCB unique",
+          "value": "1"
+        },
+        {
+          "text": "1.6mm",
+          "value": ""
+        },
+        {
+          "text": "Vert",
+          "value": ""
+        },
+        {
+          "text": "Blanc",
+          "value": "White"
+        },
+        {
+          "text": "FR4 TG135",
+          "value": ""
+        },
+        {
+          "text": "HASL sans plomb",
+          "value": "LeadFree HASL-RoHS"
+        },
+        {
+          "text": "1 oz",
+          "value": "2"
+        },
+        {
+          "text": "PI:12,5 um/AD:15 um",
+          "value": ""
+        },
+        {
+          "text": "Non",
+          "value": ""
+        },
+        {
+          "text": "Autre",
+          "value": ""
+        },
+        {
+          "text": "Sans.",
+          "value": "NO"
+        },
+        {
+          "text": "Sans",
+          "value": ""
+        },
+        {
+          "text": "Découpe laser",
+          "value": ""
+        },
+        {
+          "text": "Masqué",
+          "value": "1"
+        },
+        {
+          "text": "Not Specified",
+          "value": ""
+        },
+        {
+          "text": "0.3 mm/(0.4/0.45 mm)",
+          "value": ""
+        },
+        {
+          "text": "±0,2 mm (Régulier)",
+          "value": ""
+        },
+        {
+          "text": "Non",
+          "value": ""
+        },
+        {
+          "text": "Retirer la marque",
+          "value": "2"
+        },
+        {
+          "text": "Test complet par sonde volante",
+          "value": ""
+        },
+        {
+          "text": "Non",
+          "value": "0"
+        },
+        {
+          "text": "Non",
+          "value": ""
+        },
+        {
+          "text": "Non",
+          "value": ""
+        },
+        {
+          "text": "Non",
+          "value": ""
+        },
+        {
+          "text": "Non",
+          "value": ""
+        },
+        {
+          "text": "No",
+          "value": ""
+        }
+      ],
+      "fabrication_USD": 5.3,
+      "production_days_announced": 2,
+      "shipping_options": [
+        {
+          "method": "DHL Express (DDP)",
+          "USD": 23.44,
+          "business_days": [
+            2,
+            4
+          ]
+        },
+        {
+          "method": "EuroPacket",
+          "USD": 16.11,
+          "business_days": [
+            6,
+            9
+          ]
+        },
+        {
+          "method": "Global Standard Direct Line",
+          "USD": 7.33,
+          "business_days": [
+            10,
+            12
+          ]
+        }
+      ],
+      "evidence_shipping_table": [
+        "France\n\tMéthode d'expédition\tCoûts \tDélai de livraison\tÉvaluation\tRestriction\t\n\t\nDHL Express\n\t\n$23.44\n\t\n2-4 business days\n\t\n--\n\t\n≤10000kg\n≤295x195cm\n\n\n\t\nUPS Worldwide Express Saver\n\t\n$25.14\n\t\n2-5 business days\n\t\n--\n\t\n≤10000kg\n≤270cm\n\n\n\t\nFedEx Express\n\t\n$22.59\n\t\n3-5 business days\n\t\n--\n\t\n≤10000kg\n≤270cm\n\n\n\t\nDHL Express (DDP)\n\t\n$23.44\n\t\n2-4 business days\n\t\n--\n\t\n≤10000kg\n≤295x195cm\n\n\n\t\nFedEx Express （DDP)\n\t\n$23.79\n\t\n3-5 business days\n\t\n--\n\t\n≤10000kg\n≤270cm\n\n\n\t\nEuroPacket\n\t\n$16.11\n\t\n6-9 business days\n\t\n--\n\t\n≤20kg\n≤60x60cm\n\n\n\t\nMy UPS Account\n\t\n$2.00\n\t\n\t\n--\n\t\n≤10000kg\n≤270cm\n\n\n\t\nGlobal Standard Direct Line\n\t\n$7.33\n\t\n10-12 business days\n\t\n--\n\t\n≤1.5kg\n≤$150\n≤55x40cm\n\n\n\t\nMy DHL Account\n\t\n$2.00\n\t\n\t\n--\n\t\n≤10000kg\n≤295x195cm\n\n\n\t\nMy FedEx Account\n\t\n$2.00\n\t\n\t\n--\n\t\n≤10000kg\n≤270cm\n\n\n\t\nSea Shipment\n\t\n—\n\t\n—\n\t\n--\n\t\n100-10000kg"
+      ],
+      "tax_final_quote": null,
+      "limits": "country quote without postcode or uploaded Gerber; no final VAT/import checkout, transit not guaranteed arrival; available DDP option is not proof of final tax invoice"
+    }
+  },
+  "other_costs": [
+    {
+      "ref": "MEC-N",
+      "qty_need": 6,
+      "spec": "entretoise isolante OD<=4.0, longueur selonG reel; jeu nominal procheZio0.04 seulement",
+      "candidate": "NYFAST BMSPR-400-260-011 siG11 confirme",
+      "stock": null,
+      "unit_TTC": null,
+      "delay_FR": null,
+      "source": "https://nyfast.com/metric-nylon-spacers/10526-special-metric-nylon-spacers-M2-5",
+      "note": "spec4/2.6/11 reperee, page directe expire: devis/stock/delai NON VERIFIES; un tube lisse n'est pas une entretoise taraudee"
+    },
+    {
+      "ref": "MEC-M",
+      "qty_need": 8,
+      "spec": "supports isolants FRAM/SD, longueur apres choix connecteurs",
+      "unit_TTC": null,
+      "stock": null,
+      "delay_FR": null
+    },
+    {
+      "ref": "MEC-FIX",
+      "qty_need": 6,
+      "spec": "6 fixations completes Nucleo/shield: soit12vis avec entretoises FF, soit6vis traversantes+6ecrous avec tubes; têtes/rondelles<=4.5 et degagement sousNucleo a verifier",
+      "unit_TTC": null,
+      "stock": null,
+      "delay_FR": null
+    },
+    {
+      "ref": "RET-MKI",
+      "qty_need": 2,
+      "spec": "2 etriers imprimes J8, sources existantes; pas d'impression pendant mission",
+      "unit_TTC": null
+    },
+    {
+      "ref": "RET-CLICK",
+      "qty_need": 2,
+      "spec": "2 etriers imprimes J9, ancrage94.5/112.5; pas2etriers au total pour4modules",
+      "unit_TTC": null
+    },
+    {
+      "ref": "RET-FIX",
+      "qty_need": 8,
+      "spec": "4 assemblagesM2.5 +4M3 pour ancragesMKI/Click des2shields; quincaillerie/longueur a figer",
+      "unit_TTC": null
+    },
+    {
+      "ref": "BOITIER-USER",
+      "qty_need": 2,
+      "spec": "acces protege direct B1 par petite trappe coteCN15, ou piece unique a collerette seulement si utile; pas cage/ressort imposes",
+      "unit_TTC": null
+    },
+    {
+      "ref": "BOITIER-VITRE",
+      "qty_need": 2,
+      "spec": "PC1.5/cadre/joint coteSTLINK, dimensions finales apres controle physique",
+      "unit_TTC": null
+    },
+    {
+      "ref": "REEMPLOI",
+      "qty_need": 2,
+      "spec": "Nucleo+4modules+nappe+alimentation5VCN15 parprototype; disponibilite de2jeux et males modules a inventorier, aucun achat neuf suppose",
+      "unit_TTC": null,
+      "note": "budget ci-dessus incremental seulement, pas prix d'achat de deux TR2 complets"
+    }
+  ],
+  "rejected": [
+    {
+      "part": "Lyn-Tron NY5003-25-11.0-00",
+      "reason": "OD4.5 depasse<=4.0 et stock0, fabrication13semaines; rejete",
+      "source": "https://www.lyntron.com/4.5mm-nylon-round-spacer-unplated/pn/NY5003-25-11.0-00"
+    },
+    {
+      "part": "SSW-103-01-F-D RS1800182",
+      "reason": "page conditionnement1000 + rupture, pas un lot de2a3; rejete",
+      "source": "https://fr.rs-online.com/web/p/connecteurs-femelles-pour-ci/1800182"
+    },
+    {
+      "part": "ECA1HM100",
+      "reason": "reference active conservee, TME stock0 affiche; recherche exactFrance non suffisante; variantePanasonicFR proposee en stock chezTME",
+      "source": "https://www.tme.eu/pl/details/eca1hm100/kondensatory-elektrolityczne-tht/panasonic/"
+    },
+    {
+      "part": "Harwin M20-7820946 chezTME",
+      "reason": "stock0 et palier5016, ne pas choisir ce canal pour5pieces",
+      "source": "https://www.tme.eu/en/details/m20-7820946/raster-signal-connectors-2-54mm/harwin/"
+    }
+  ]
+}

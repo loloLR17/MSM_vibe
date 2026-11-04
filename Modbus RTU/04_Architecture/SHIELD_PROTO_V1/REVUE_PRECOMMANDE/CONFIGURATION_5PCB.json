@@ -1,0 +1,198 @@
+{
+  "qty": 5,
+  "layers": 2,
+  "material": "FR4",
+  "size_mm": [
+    90,
+    100
+  ],
+  "thickness_mm": 1.6,
+  "copper_oz": 1,
+  "finish_suggested": "HASL sans plomb, prix de cette option NON VERIFIE",
+  "mask": "vert deuxfaces",
+  "silkscreen": "blanc deuxfaces",
+  "assembly": false,
+  "stencil": false,
+  "panelization": false,
+  "impedance_control": false,
+  "vias": "traversants0.3/0.6; pas de microvia ni via-in-pad",
+  "JLC_advertised_start_USD_per_5": 2,
+  "JLC_actual_90x100_configuration_quote_TTC": null,
+  "shipping_FR_TTC": null,
+  "receipt_date_FR": null,
+  "source": "https://jlcpcb.com/help/article/how-do-i-place-an-order",
+  "quote_URL": "https://cart.jlcpcb.com/quote/?fromDemo=yes",
+  "alternative": "https://www.pcbway.com/orderonline.aspx",
+  "reason_no_firm_quote": "configurateurs interactifs: aucun calcul rendu specifique obtenu, aucune adresse/checkout ni fichier televerse, aucune commande; ne pas confondre tarifappel et devis90x100 sansplomb livre",
+  "public_estimate": {
+    "date": "2026-11-04",
+    "source": "https://cart.jlcpcb.com/fr/quote",
+    "method": "public anonymous calculator, isolated Edge profile; no Gerber upload/cart/account/order",
+    "country": "France",
+    "currency": "USD",
+    "dimensions_mm": [
+      90,
+      100
+    ],
+    "quantity": 5,
+    "selected_options": [
+      {
+        "text": "Jusqu'à 20 couches, Impédance contrôlée, PCB rigide à fabrication rapide, Coût relativement bas. FR-4",
+        "value": "1"
+      },
+      {
+        "text": "2",
+        "value": ""
+      },
+      {
+        "text": "5",
+        "value": ""
+      },
+      {
+        "text": "Électronique industrielle/consommateur",
+        "value": "1"
+      },
+      {
+        "text": "1",
+        "value": "1"
+      },
+      {
+        "text": "PCB unique",
+        "value": "1"
+      },
+      {
+        "text": "1.6mm",
+        "value": ""
+      },
+      {
+        "text": "Vert",
+        "value": ""
+      },
+      {
+        "text": "Blanc",
+        "value": "White"
+      },
+      {
+        "text": "FR4 TG135",
+        "value": ""
+      },
+      {
+        "text": "HASL sans plomb",
+        "value": "LeadFree HASL-RoHS"
+      },
+      {
+        "text": "1 oz",
+        "value": "2"
+      },
+      {
+        "text": "PI:12,5 um/AD:15 um",
+        "value": ""
+      },
+      {
+        "text": "Non",
+        "value": ""
+      },
+      {
+        "text": "Autre",
+        "value": ""
+      },
+      {
+        "text": "Sans.",
+        "value": "NO"
+      },
+      {
+        "text": "Sans",
+        "value": ""
+      },
+      {
+        "text": "Découpe laser",
+        "value": ""
+      },
+      {
+        "text": "Masqué",
+        "value": "1"
+      },
+      {
+        "text": "Not Specified",
+        "value": ""
+      },
+      {
+        "text": "0.3 mm/(0.4/0.45 mm)",
+        "value": ""
+      },
+      {
+        "text": "±0,2 mm (Régulier)",
+        "value": ""
+      },
+      {
+        "text": "Non",
+        "value": ""
+      },
+      {
+        "text": "Retirer la marque",
+        "value": "2"
+      },
+      {
+        "text": "Test complet par sonde volante",
+        "value": ""
+      },
+      {
+        "text": "Non",
+        "value": "0"
+      },
+      {
+        "text": "Non",
+        "value": ""
+      },
+      {
+        "text": "Non",
+        "value": ""
+      },
+      {
+        "text": "Non",
+        "value": ""
+      },
+      {
+        "text": "Non",
+        "value": ""
+      },
+      {
+        "text": "No",
+        "value": ""
+      }
+    ],
+    "fabrication_USD": 5.3,
+    "production_days_announced": 2,
+    "shipping_options": [
+      {
+        "method": "DHL Express (DDP)",
+        "USD": 23.44,
+        "business_days": [
+          2,
+          4
+        ]
+      },
+      {
+        "method": "EuroPacket",
+        "USD": 16.11,
+        "business_days": [
+          6,
+          9
+        ]
+      },
+      {
+        "method": "Global Standard Direct Line",
+        "USD": 7.33,
+        "business_days": [
+          10,
+          12
+        ]
+      }
+    ],
+    "evidence_shipping_table": [
+      "France\n\tMéthode d'expédition\tCoûts \tDélai de livraison\tÉvaluation\tRestriction\t\n\t\nDHL Express\n\t\n$23.44\n\t\n2-4 business days\n\t\n--\n\t\n≤10000kg\n≤295x195cm\n\n\n\t\nUPS Worldwide Express Saver\n\t\n$25.14\n\t\n2-5 business days\n\t\n--\n\t\n≤10000kg\n≤270cm\n\n\n\t\nFedEx Express\n\t\n$22.59\n\t\n3-5 business days\n\t\n--\n\t\n≤10000kg\n≤270cm\n\n\n\t\nDHL Express (DDP)\n\t\n$23.44\n\t\n2-4 business days\n\t\n--\n\t\n≤10000kg\n≤295x195cm\n\n\n\t\nFedEx Express （DDP)\n\t\n$23.79\n\t\n3-5 business days\n\t\n--\n\t\n≤10000kg\n≤270cm\n\n\n\t\nEuroPacket\n\t\n$16.11\n\t\n6-9 business days\n\t\n--\n\t\n≤20kg\n≤60x60cm\n\n\n\t\nMy UPS Account\n\t\n$2.00\n\t\n\t\n--\n\t\n≤10000kg\n≤270cm\n\n\n\t\nGlobal Standard Direct Line\n\t\n$7.33\n\t\n10-12 business days\n\t\n--\n\t\n≤1.5kg\n≤$150\n≤55x40cm\n\n\n\t\nMy DHL Account\n\t\n$2.00\n\t\n\t\n--\n\t\n≤10000kg\n≤295x195cm\n\n\n\t\nMy FedEx Account\n\t\n$2.00\n\t\n\t\n--\n\t\n≤10000kg\n≤270cm\n\n\n\t\nSea Shipment\n\t\n—\n\t\n—\n\t\n--\n\t\n100-10000kg"
+    ],
+    "tax_final_quote": null,
+    "limits": "country quote without postcode or uploaded Gerber; no final VAT/import checkout, transit not guaranteed arrival; available DDP option is not proof of final tax invoice"
+  }
+}

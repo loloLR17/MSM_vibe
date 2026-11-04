@@ -1,0 +1,67 @@
+{
+  "status": "PASS_NOMINAL_CAD_ONLY",
+  "bottom_headers": [
+    "J1",
+    "J2",
+    "J3",
+    "J4",
+    "J5"
+  ],
+  "J5_69_PG4": "RTU_DE",
+  "J5_local_pad_to_global": {
+    "1": 65,
+    "2": 66,
+    "3": 67,
+    "4": 68,
+    "5": 69,
+    "6": 70
+  },
+  "J5_five_other_pins": "independent NC",
+  "header_drill_mm": 1.02,
+  "passive_pitch_mm": {
+    "C1": 2.54,
+    "C2": 2.0
+  },
+  "screw_clearances": [
+    {
+      "header": "J3",
+      "head_and_washer_max_diameter_mm": 4.5,
+      "spacer_max_diameter_mm": 4.0,
+      "nominal_spacer_clearance_to_enlarged_courtyard_mm": 0.04,
+      "head_underboard_overlap": "not coplanar; outside shield top and Nucleo underside",
+      "C05_real_part": "NOT_VERIFIED"
+    },
+    {
+      "header": "J4",
+      "head_and_washer_max_diameter_mm": 4.5,
+      "spacer_max_diameter_mm": 4.0,
+      "nominal_spacer_clearance_to_enlarged_courtyard_mm": 0.04,
+      "head_underboard_overlap": "not coplanar; outside shield top and Nucleo underside",
+      "C05_real_part": "NOT_VERIFIED"
+    }
+  ],
+  "routes_retained": 32,
+  "route_geometry_changed": false,
+  "route_endpoint_label_changed": "J5.1 to J5.5",
+  "J5_gender": "FEMALE_BOTTOM",
+  "J5_actual_B_Fab_bounds_mm": [
+    84.755,
+    104.755,
+    89.705,
+    112.885
+  ],
+  "bottom_J5_silk_is_mirrored": true,
+  "J5_body_height_nominal_mm": 8.51,
+  "J5_MPN": "SSW-103-01-F-D",
+  "J5_drill_mm": 1.04,
+  "male_tip_user_mm": 8.22,
+  "male_plastic_user_mm": 2.4,
+  "Nucleo_modification": "NONE_USER_CONFIRMED_STAGGERED_MALES_66_67_68_69",
+  "strict_rules": {
+    "min_clearance": 0.2,
+    "min_track_width": 0.25,
+    "min_via_diameter": 0.6
+  },
+  "C05_manufacturer_CAD": "NOT_RECEIVED",
+  "physical_mating": "NOT_VERIFIED"
+}

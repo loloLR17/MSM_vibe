@@ -1,0 +1,11 @@
+{
+  "JSON": "parsed all",
+  "Python": "all AST parsed, native commands results preserved",
+  "CSV_rows": 36,
+  "PDF": "3 A4 pages reopened; instruction page rendered and visually checked; historical gabarits unscaled",
+  "firmware_tests": "not run: unchanged and outside scope",
+  "physical": "deferred by user until tomorrow; NOT_VERIFIED",
+  "incident_float": "distance tolerance one native grid unit 1e-6 mm, no CAD change",
+  "incident_native_API": "GetWidth() VIA missing layer caused modal assertion; own process stopped, corrected GetWidth(layer); failure log retained",
+  "incident_via_probe": "overstrict intermediate-vertex criterion failed; actual both-layer centered-entry check PASS for all4; both evidence retained"
+}

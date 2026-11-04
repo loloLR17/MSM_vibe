@@ -1,0 +1,32 @@
+{
+  "Harwin_M20_7820946": {
+    "source": "https://www.harwin.com/products/M20-7820946",
+    "drawing": "https://content.harwin.com/asset/53851ba8-b32e-4ac5-a0c5-09d9271c0c0a/DRG-00385-Technical-Drawing-Datasheet-M20-782-pdf.pdf",
+    "contacts": 9,
+    "pitch_mm": 2.54,
+    "height_mm": [
+      8.35,
+      8.65
+    ],
+    "body_length_max_mm": 23.61,
+    "body_width_max_mm": 2.65,
+    "existing_reserved_body_length_width_mm": [
+      24.16,
+      3.29
+    ],
+    "recommended_hole_mm": 1.02,
+    "saved_hole_mm": 1.02,
+    "status": "nominal PCB footprint fit; module engagement/plating choice NOT physically qualified; proposed purchasing option only"
+  },
+  "Panasonic_EEUFR1H100": {
+    "source": "https://industrial.panasonic.com/ww/products/pt/aluminum-cap-lead/models/EEUFR1H100",
+    "capacitance_uF": 10,
+    "voltage_V": 50,
+    "pitch_mm": 2.0,
+    "body_diameter_mm": 5.0,
+    "body_length_mm": 11,
+    "saved_C2_body_envelope_diameter_mm": 5.5,
+    "saved_pitch_mm": 2.0,
+    "status": "value/polarity/nominal footprint compatible; proposed alternative to ECA1HM100, no assembly or lifetime qualification"
+  }
+}

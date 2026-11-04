@@ -1,0 +1,57 @@
+{
+  "source_head": "6d6417a86d7bdb2a725bd5557bbd4dcac413b7f8",
+  "CAD_source_PCB_sha256": "3891bcf41b2d3a3c30e58c9ce1fb7d797025e37fbaae25dc9e049500f0d935e7",
+  "status": "NON_LIBERE",
+  "files": [
+    {
+      "file": "TR2_Shield_Proto_V1-B_Cu.gbl",
+      "bytes": 281856,
+      "sha256": "6b67c1904065c3f25aeba49b81a461c574b103960bd452265eeb025b552a8400"
+    },
+    {
+      "file": "TR2_Shield_Proto_V1-B_Mask.gbs",
+      "bytes": 5549,
+      "sha256": "58770184f0a6ddb41a38c0f82b17827aa0ed2ca88b68dfd03321653a10e1babe"
+    },
+    {
+      "file": "TR2_Shield_Proto_V1-B_Silkscreen.gbo",
+      "bytes": 7189,
+      "sha256": "6201b2b2e7103e92963af1f34672a3afc09d1c2bd723755eef73d89f16e24717"
+    },
+    {
+      "file": "TR2_Shield_Proto_V1-Edge_Cuts.gm1",
+      "bytes": 694,
+      "sha256": "5a4847ad11f198044017f801b8afaf7dbe503c2c40b9c4883b754bc239191bd7"
+    },
+    {
+      "file": "TR2_Shield_Proto_V1-F_Cu.gtl",
+      "bytes": 278745,
+      "sha256": "c14d159e24359ca14e9ff4a97aecc19684931f104f14780614b01875a84fc3b0"
+    },
+    {
+      "file": "TR2_Shield_Proto_V1-F_Mask.gts",
+      "bytes": 5549,
+      "sha256": "d99cd62d8ddd288cf45daad88c23cc713001d911b4681135c36c0c2d7479bfea"
+    },
+    {
+      "file": "TR2_Shield_Proto_V1-F_Silkscreen.gto",
+      "bytes": 44001,
+      "sha256": "7699e8778f52550a1d414f78e79567c1900bf10e4db20f52d9e699375062c661"
+    },
+    {
+      "file": "TR2_Shield_Proto_V1-NPTH.drl",
+      "bytes": 600,
+      "sha256": "b926483f352b1992418032dd77258ec8c0d8fb18e3fde8e49ee920112c0233fc"
+    },
+    {
+      "file": "TR2_Shield_Proto_V1-PTH.drl",
+      "bytes": 3050,
+      "sha256": "ba214e2985a8b17916a159ac83714ae636963ddec1aa94e9df96a30ba03059e4"
+    },
+    {
+      "file": "TR2_Shield_Proto_V1-job.gbrjob",
+      "bytes": 2530,
+      "sha256": "a2c85d5934e92e9ba0c618867798d7326e320981fb7180cdd442c261c5e6eb2c"
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "date_recorded_UTC": "2026-11-04T17:19:29.409954+00:00",
+  "status": "DEFERRED_BY_USER_UNTIL_TOMORROW",
+  "user_statement": "je ne pourrai faire les impressions et les verifications que demain",
+  "promised_action_is_not_a_result": true,
+  "C05_template_001": null,
+  "C05_template_002": null,
+  "natural_G_mm": null,
+  "G_uncertainty_mm": null,
+  "three_LED_common_view_equipped": null,
+  "USER_corridor_real": null,
+  "MKI_Click_envelopes_and_ports": null,
+  "no_hardware_access_by_Codex": true
+}

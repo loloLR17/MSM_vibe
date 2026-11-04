@@ -1,0 +1,4 @@
+Traceback (most recent call last):
+  File "\\wsl.localhost\Debian\home\lolo\dev\msm\projects\MSM_vibe-SHIELD-V18-REVUE-PRECOMMANDE\Modbus RTU\04_Architecture\SHIELD_PROTO_V1\REVUE_PRECOMMANDE\preuves\supplement-KiCad.py", line 14, in <module>
+    assert not off
+AssertionError

@@ -1,0 +1,3 @@
+from pathlib import Path
+import sys,json,pcbnew as pcb
+p=Path(sys.argv[1]);b=pcb.LoadBoard(str(p/'cad/TR2_Shield_Proto_V1.kicad_pcb'));d=b.GetDesignSettings();r={'copper_layer_count':b.GetCopperLayerCount(),'board_thickness_mm':pcb.ToMM(d.GetBoardThickness()),'track_widths_mm':sorted(set(pcb.ToMM(t.GetWidth()) for t in b.GetTracks() if t.GetClass()!='PCB_VIA')),'footprints':len(list(b.GetFootprints())),'netnames':sorted(str(n.GetNetname()) for n in b.GetNetInfo().NetsByNetcode().values())};assert r['copper_layer_count']==2 and r['board_thickness_mm']==1.6 and min(r['track_widths_mm'])>=.25;assert not any('GND2' in n for n in r['netnames']);out=p/'REVUE_PRECOMMANDE/preuves/native-geometry.json';out.write_bytes((json.dumps(r,indent=2)+'\n').encode());print(json.dumps(r))

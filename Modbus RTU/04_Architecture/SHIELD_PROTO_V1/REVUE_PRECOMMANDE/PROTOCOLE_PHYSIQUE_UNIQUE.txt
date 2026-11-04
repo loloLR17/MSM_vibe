@@ -1,0 +1,46 @@
+V1.8 - CONTROLE UNIQUE AVANT COMMANDE - NON LIBERE
+But : verifier ce que le logiciel ne peut pas certifier sur les deux C05.
+Responsable des gestes : utilisateur. Aucun flash/debug, achat ou soudure.
+
+1. HORS TENSION : debrancher toutes les alimentations du banc concerne.
+Ne pas deplacer les fils/modules valides. Ne jamais poser un outil conducteur
+sur une carte alimentee. Arreter si le controle impose de debrancher le montage.
+
+2. IMPRIMER les deux gabarits suivants a 100%, sans ajustement. Les barres
+horizontale ET verticale doivent mesurer 100mm. Noter le resultat pour chaque
+TR2. Vue dessus seulement : pas de miroir. Approcher sans appuyer sur les
+composants ; aucune broche ne doit etre pliee pour correspondre au papier.
+Controler CN7/8/9/10, CN12 males66/67/68/69, trous et espaces aux fixations.
+Critere : tous alignes sans deplacement/force ; C05 confirme sur les deux.
+Le papier ne valide pas l'epaisseur ni la hauteur des connecteurs.
+
+3. G = dessus PCB Nucleo -> dessous futur shield. Si des connecteurs temoins
+EXACTS sont deja disponibles, constater leur emboitement naturel sans force,
+sans fabriquer ni serrer une fausse carte. Sinon noter NON MESURABLE :
+ne pas acheter de composant pour cette seule verification.
+Donner G et precision/methode, ainsi que les jeux aux plastiques et queues.
+Intervalle nominal J5 : 10,91..13,05mm ; aG11, jeu seulement0,09mm.
+Ce n'est pas un intervalle de securite avec tolerances. Accepter seulement
+jeu positif au pire des incertitudes et engagement dans3,68..6,35mm.
+Ne pas remesurer pointe8,22/corps2,40 ou entraxeMKI15,2 deja acquis.
+
+4. MODULES/ACCES : confronter leurs contours et fixations au gabarit,
+notamment MKI et Click/zone isolee. USB ST-LINK branche, CN15, SD extractible,
+RS485/outil et nappe doivent avoir un passage qui peut etre ajuste dans le
+PETG sans decouper le shield. Ne pas retirer/reinserer une SD sous tension.
+USER : verifier un couloir au vrai B1 hors shield pour un acces direct protege ;
+RESET reste hors de ce couloir. Pas de poussoir complexe, ni nouvel appui de force.
+
+5. LED : seulement si une observation sans toucher ni contraindre le banc est
+possible, conserver la fiche ST-LINK et confronter la vue laterale horizontale
+a un gabarit OPAQUE tenu independamment au niveau G. Ne pas couvrir les LEDs.
+Identifier LD1 verte/LD2 bleue/LD3 rouge depuis une MEME zone de vue, distinctes
+des voyants ST-LINK/alimentation. Confronter MKI/retenue/nappe au trajet.
+Sans G connu ou modele realiste, noter NON VERIFIE ; pas de pseudo-validation.
+
+UN SEUL RETOUR SUFFIT (texte) :
+001/002 : C05 et gabarit OK/ecart ; G+precision ou NON MESURABLE ;
+MKI/Click/fixations+ports OK/ecart ; 3LED et couloir USER OK/non verifie/ecart.
+Si un point n'est pas accessible sans risque, ne pas insister : le signaler.
+Les deux pages historiques suivantes sont reutilisees sans changer leur echelle.
+Leurs anciennes mentions de mission documentaire ne demandent aucun autre geste.

@@ -1,0 +1,65 @@
+{
+  "status": "PASS_ELECTRICAL_CAD_ONLY",
+  "ERC_violations": 0,
+  "DRC_violations": 0,
+  "unconnected": 0,
+  "schematic_parity_errors": 0,
+  "connected_pins": 59,
+  "all_pads": 191,
+  "NC_numbered_pads": 121,
+  "NPTH": 11,
+  "vias": 4,
+  "outline_mm": [
+    90,
+    100
+  ],
+  "thickness_mm": 1.6,
+  "layers": 2,
+  "J5_pad5": "CN12-69/PG4=RTU_DE",
+  "J5_other5": "independent NC",
+  "physical_fit": "NOT_VERIFIED",
+  "fabrication_release": "NO_GO_PENDING_SINGLE_PHYSICAL_CHECK",
+  "initial_strict_vertex_probe": "FAIL_EXPLAINED_INTERMEDIATE_VERTEX_NOT_A_VIA_ENTRY",
+  "actual_via_centered_entry_both_layers": "PASS",
+  "all_footprints_have_courtyard": true,
+  "ERC_default_ignored_checks": [
+    {
+      "description": "Global label only appears once in the schematic",
+      "key": "single_global_label"
+    },
+    {
+      "description": "Four connection points are joined together",
+      "key": "four_way_junction"
+    },
+    {
+      "description": "SPICE model issue",
+      "key": "simulation_model_issue"
+    },
+    {
+      "description": "Assigned footprint doesn't match footprint filters",
+      "key": "footprint_filter"
+    }
+  ],
+  "DRC_default_ignored_checks": [
+    {
+      "description": "Footprint has no courtyard defined",
+      "key": "missing_courtyard"
+    },
+    {
+      "description": "Track endpoint not centered on via",
+      "key": "track_not_centered_on_via"
+    },
+    {
+      "description": "Tuning profile track geometries",
+      "key": "tuning_profile_track_geometries"
+    },
+    {
+      "description": "Footprint doesn't match symbol's footprint filters",
+      "key": "footprint_filters_mismatch"
+    },
+    {
+      "description": "Footprint component type doesn't match footprint pads",
+      "key": "footprint_type_mismatch"
+    }
+  ]
+}
