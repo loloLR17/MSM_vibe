@@ -1,11 +1,11 @@
 ---
-mission_id: TR2-20261104-SHIELD-V17-VITRAGE-USER
-status: DONE
+mission_id: TR2-20261104-SHIELD-V18-REVUE-PRECOMMANDE
+status: IN_PROGRESS
 base_ref: main
-base_sha: 4717839a68016bb840598bd37180106e978e2ae3
-initial_head: 39c33c69a502d19c6590adffac0ccf847d9f0e34
-result_sha: 80ec70effab4a12709c988401e19de8d8294be30
-created_at_utc: 2026-11-04T15:46:58Z
+base_sha: 6c4b6b7de20cdd5d4def23db4891f532a7e65c6d
+initial_head: 6d6417a86d7bdb2a725bd5557bbd4dcac413b7f8
+result_sha: 7a09a88050aebe8be262247657057679222b3f5e
+created_at_utc: 2026-11-04T17:29:19.132016+00:00
 author: Codex
 target_branch: main
 allow_commit: true
@@ -14,50 +14,46 @@ allow_flash: false
 allow_debug: false
 ---
 
-# V1.7 — vitrage latéral et USER : étude conditionnelle, aucune fabrication libérée
+# V1.8 — audit terminé, NO-GO provisoire pour la commande
 
-**Solution prioritaire proposée : petite vitre fermée dans la paroi verticale côté ST-LINK, sous le shield et à côté du port USB.** La correction utilisateur pendant l’exécution est intégrée : la visée observée est **latérale quasi horizontale**, pas une vue depuis le dessus. La photo est décrite comme montrant plusieurs LED ; je ne prétends pas l’avoir inspectée ni y avoir identifié les trois LD1/LD2/LD3 dans l’empilage équipé. Les conclusions, modèles et checklist d’étude sont publiés ; référence `2e7bccdba8c5581be8b830af753f596a472e3c44` récupérée de GitHub et **282fichiers relus intégralement et comparés octet pour octet**, incluant tous les livrables modifiés et251fichiers antérieurs du shield. Preuve dans `archives/TR2-20261104-SHIELD-V17-VITRAGE-USER/REMOTE_READBACK.json`. **DONE concerne l’étude conditionnelle, pas une qualification physique.** **La visibilité des trois voyants et l’actionnement USER réels ne sont pas qualifiés. NE PAS COMMANDER.**
+**L’audit autonome est terminé avec NO-GO physique précis, autorisé par le contrat ; la publication et sa relecture restent en cours.** L’utilisateur reporte les impressions et vérifications à demain. Aucun résultat physique n’est prétendu acquis. Il n’est pas nécessaire de recommencer les campagnes firmware ou de reconcevoir le shield pour préparer ce contrôle. Le statut provisoire concerne la relecture distante à effectuer.
 
-## Résultats et réserves décisives
+## Résultats et décision
 
-**Vitre candidate16×8mm utiles**, X29..45/Z−11..−3, paroi nordY−20..−17 dans le repère V1.5 (Z0=dessus shield, YCAD=−YKiCad). Plaque PC1,5mm, cadre démontable26×18mm, quatre fixations réservées et joint simple0,8mm/comprimé0,6hypothétique. Cadre à2mm nominaux des inserts ST-LINK et nappe existants ; l’ouverture utile est à10mm enX de la réservation USB. Ces valeurs concernent les enveloppes V1.5, pas des fiches/câbles réels mesurés. Aucune classe IP revendiquée.
+Document unique de décision : [DECISION_PRECOMMANDE.md](../../04_Architecture/SHIELD_PROTO_V1/REVUE_PRECOMMANDE/DECISION_PRECOMMANDE.md). Dossier complet : `Modbus RTU/04_Architecture/SHIELD_PROTO_V1/REVUE_PRECOMMANDE/`.
 
-**Calcul XYZ nouveau** :3 564rayons pour297points d’un domaine de conception et12observateurs,976passages dans la fenêtre évitant les obstacles majorés de1,5mm, angles0,11..4,26° de l’horizontale. Les rayons passent sous shield/MKI/retenue/nappe dans ce scénario ;1146coupent la réservationSTLINK et d’autres ratent l’ouverture. Aucun pourcentage ne prouve la visibilité de troisLED : centres réels toujoursnull, domaine non métrique, aucun point fictif attribué à LD1/2/3. Composants C05 bas non modélisés, vraies fiches, tolérances et photométrie restent à vérifier depuis une zone d’observation commune. La petite vitre constitue une piste réaliste à vérifier, pas une ligne de vue physique déclarée validée.
+- **ERC0, DRC0, non-connectés0, parité schéma/PCB0**, sur KiCad natif10.0.6, toutes sévérités des contrôles activés. Les listes de contrôles ignorés par défaut sont conservées dans les preuves ; aucune règle projet désactivée pour obtenir le résultat.
+- 19empreintes,191pads dont59connectés/121NC/11NPTH,4vias, contour90×100mm,2couches,1,6mm ; J5 local5=CN12-69/PG4→DE, cinqNC indépendants. Les quatre vias ont une arrivée au centre sur chacune des deux couches, vérifiée séparément. Tous les courtyards sont présents.
+- Nouveau jeu CAM **NON LIBÉRÉ** :7Gerber,2Excellon PTH/NPTH et job. Netlist/pads/cuivre déclaré X2/perçages/contour réconciliés, ZIP réouvert et empreintes de chaque membre comparées. Ce contrôle ne remplace pas un DFM fournisseur ni une qualification d’assemblage.
+- **Aucun PCB, schéma, empreinte ou fichier historique modifié** :271fichiers antérieurs du shield comparés octet pour octet au HEADinitial. Aucun défaut prouvé ne nécessite de correction PCB.
+- **USER simplifié** : accès direct protégé au B1 d’origine, RESET séparément protégé. Pas de cage/ressort multi-pièces imposé. Vitrage latéral PC conservé ; ajustements de coffret différables après compatibilité réelle.
 
-La fenêtre nord-est du toit V1.6 est comparée en réutilisant ses résultats, sans répétition des tests inchangés. Sa marge0,246mm n’est pas considérée robuste. **Pas de nécessité de modifier le shield démontrée ici**, mais pas davantage de preuve suffisante pour libérer le PCB : trois trajets réels et couloirUSER doivent être confrontés à l’empilage avant commande. Si le vitrage latéral échoue, conserver le repli électriqueV1.6 viaMorpho sans l’exécuter automatiquement. Aucun guide/fibre compliqué ni nouvelle électronique.
+**Seule preuve physique regroupée avant libération** : alignement sur les deuxC05, empilageG naturel si témoins exacts déjà disponibles, engagementJ5 et jeux/queues/fixations/modules, couloirUSER, accèsUSB/SD/RS485/nappe et visibilité commune des troisLD1/2/3. G11reste hypothétique : insertion5,73mm mais seulement0,09mm entre plastiques ; entretoiseØ4 prèsZio, jeu nominal0,04mm. Les calculs nominaux et l’observation sur carte nue ne prouvent pas cet empilage.
 
-**USER : mesures acquises intégrées**,10,2mm au repos et≈0,4mm au premierclic selon complément humain39c33c69. G11hypothétique donne sommetB1z−2,4 ; jeu cible0,6→pointe z−1,8, distance souscouvercle→pointe38,8. TigeØ4 / deux guidesØ4,4, cage en deux demi-coques/bride captive, butée structurelle à1,6mm de course externe, réglage de pointe proposé±2mm. La tête garde0,4mm au panneau en butée, après correction de sa hauteur lors de la revue géométrique. La charge d’appui supplémentaire du doigt passe à la cage puis au panneau ; versB1, le patin reste compliant.
+[CONTROLE_UNIQUE_C05.pdf](../../04_Architecture/SHIELD_PROTO_V1/REVUE_PRECOMMANDE/CONTROLE_UNIQUE_C05.pdf) :3pagesA4, consignes compactes et deux gabarits historiques réutilisés sans changement d’échelle, impression100%, barres100mm à contrôler. **Utilisateur disponible demain ; résultats null dans `preuves/controle-physique.json`.** Sans témoins exacts, noterGnonmesurable ; ne pas forcer ni commander des composants pour fabriquer une pseudo-preuve. Pas de nouvelle mesure des cotes déjà acquises demandée.
 
-**La limitation d’effort n’est pas qualifiée.** Les scénarios jeu0,45..0,75/clic0,3..0,5/course1,5..1,7 donnent une compression0,25..0,95 aprèsclic ; siB1 ne bouge pas, jusqu’à1,25mm, réserve ressort proposée≥1,5 avanttalonnage. Il faut sélectionner F0/k pour satisfaire simultanément force de clic et effort admissible, avec frottement et tolérances ; ces efforts restent inconnus. Le schémaST C05 désigneB1=`SW_BLUE` etHW17=`BLUEHAT`, pas un MPN donnant sa courbe mécanique. Aucun k/force sûr inventé. Rappel indépendant, filetage/contre-écrou, fixations de cage et pointe souple restent des détails de réalisation. Modèle rigide de principe sur axeXYhypothétique(34;124), jamais présenté comme position réelle deB1 ; RESET inaccessible. **Aucune nouvelle mesure utilisateur demandée**, la course au clic est déjà publiée ; ne jamais chercher une butée interne en forçant.
+## Approvisionnement : coûts obtenus et limites
 
-## Livrables publiables
+[BOM deux jeux + marges](../../04_Architecture/SHIELD_PROTO_V1/REVUE_PRECOMMANDE/BOM_2_PROTOTYPES.csv), [sources datées et limites](../../04_Architecture/SHIELD_PROTO_V1/REVUE_PRECOMMANDE/SOURCES_ET_COUTS.md), `approvisionnement.json` et `budget-TTC.json` distinguent quantités/MOQ, stocks affichés non réservés, port et montants inconnus. Budget incrémental sur modules/Nucleo existants, pas coût d’achat de deuxTR2 complets.
 
-Dossier `Modbus RTU/04_Architecture/SHIELD_PROTO_V1/` :
+Scénario privilégié TME+DigiKey : **53,04..58,04EUR TTC indicatifs pour composants et leurs ports**, conversion BCE1EUR=1,1267USD/TVA20%, sous réserve prixFrance et traitement de portDigiKey. Références économiques standard conservées ; variantes **HarwinM20-7820946 et PanasonicEEUFR1H100 proposées**, compatibilité nominale d’empreinte vérifiée, **pas de substitution silencieuse de la BOM active**. J5Samtec exact inchangé. Le scénarioTayda baisse les articles mais ajoute un troisième port/import inconnu, donc économie rendue non démontrée.
 
-- `docs/ETUDE_VITRAGE_USER_V1_7/NOTE_DECISION.md`, `CHECKLIST.md`, `SOURCES.md` : arbitrage, réserves, contrôles physiques futurs ciblés, provenance et comparaisonV1.6.
-- Résultats `optique.json`, `chaine_USER.json`, `interfaces-nord.json`, `CAO-controles.json`, `validation-finale.json`, `conservation.json` : faits calculés distincts des observations rapportées.
-- `mechanical/V1_7/parameters.json`, `README.md`, `tools/study_v17.py` : sources éditables. Tous les détails ne sont pas pilotés par JSON : des constantes de construction sont éditables dans le script, limitation documentée.
-- `mechanical/V1_7/REVIEW_ONLY/` : **troisSTEP rouverts**, assemblage d’étude18solides, fenêtre4solides, mécanismeUSER6solides ; **PDF4pages** avec vue3D/coupe/chaîneUSER/face nord et rayons enplan, quatreSVG. Le sous-assemblage reprend les contours/perçages exacts et dimensionsV1.5 ; il n’est pas la maquette complète67objets ni la géométrie C05 qualifiée. Les anciens fichiers restent intacts. **Aucun STL de fabrication.**
-- Archive V1.7 : contrat copié exactement dans `MISSION.md`, correction de direction dans `OBSERVATIONS_EXECUTION.md`, empreintes des20artefacts dans `ARTEFACTS.json`. Le complément humain de course est inchangé. Rapport final copié dans `RAPPORT.md` et preuve de relecture dans `REMOTE_READBACK.json`.
+Calculateur public JLCPCB, **destinationFrance effectivement sélectionnée**,90×100/5PCB/2couches/1,6mm/1oz/vert-blanc/HASLsansplomb : **5,30USD fabrication**, production2jours annoncés. Transports affichés :7,33USD/10–12jours ouvrables,16,11/6–9,23,44/2–4 (optionDHL-DDP disponible). Preuve structurée `preuves/devis-public-France.json`. Configuration saisie dans un profil Edge temporaire isolé ; **aucun Gerber envoyé, panier, compte ou commande créé**. Les montants ne sont pas une facture finale TVA/droits incluse ; pas de date garantie de réception.
 
-## Contrôles effectivement exécutés
+Repère partiel composants+PCB rapide viaDHL : **83,65..88,65EUR** avec TVA budgétaire appliquée à l’estimationPCB, **hors quincaillerie/coffrets et ajustements fiscaux**. Le **total TTC livré complet reste NON VÉRIFIÉ/null**, sans inconnus mis à zéro. Longueurs/références des fixations dépendent deG. Taxes et régimeDDP à réconcilier au devis final, sans double comptage ni ancienne hypothèse d’exonération systématique sous150EUR.
 
-| Contrôle | Résultat et portée |
-|---|---|
-|`tools/study_v17.py`, environnement CadQuery2.8/numpy/matplotlib existant|Succès : calculs nouveaux, exports, intersections tige/guide/panneau nulles au repos et enbutée ; cadre/plaque/joint sans recouvrement volumique. Ni simulation élastique ni qualification de mécanisme.|
-|STEP, PDF et SVG|3STEP valides/volumes positifs relus ;4pagesPDF réouvertes/rendues et inspectées,4SVG XML relus.|
-|Conservation initiale|**251fichiers antérieurs du dossier shield comparés octet pour octet à39c33c69**, empreintes consignées. Aucun PCB/schéma/Gerber/firmware/V1.5/V1.6 modifié.|
-|Sources et liens|SchémaST C05 textuel consulté, UM2861Rev8§6.6 relu localement ; complément0,4 et revueV1.6 lus ; liens locaux vérifiés ; sourcePython parsée et formule paramétrée comparée aux résultats.|
-|Git|Diff indexé et périmètre examinés ; `git diff --cached --check` réussi avant commit.|
+## Contrôles réellement exécutés
 
-Les évolutions locales avant validation finale sont tracées : priorité corrigée vers la paroi latérale à la demande utilisateur ; cadre déplacé2mm pour garder le jeu aux inserts ; tête relevée pour ne pas rencontrer le panneau avant butée ; capture haute et cage ouvrable ajoutées pour la captivité/assemblage. Aucune ancienne preuve réécrite et aucun contrôle affaibli.
+KiCad `sch erc --format json --severity-all --exit-code-violations`, `pcb drc --schematic-parity --all-track-errors --format json --severity-all --exit-code-violations` réussis ; commandes exactes et sorties dans `preuves/commands.json`, `ERC.json`, `DRC.json`. Nouveaux exports dans une copie isolée d’audit, scripts existants `read_board.py`, `verify_preorder.py`, `verify_exports.py` réussis ; `CAM-commands.json` et logs conservés. `verifier_dossier.py` réussi : conservation271fichiers, intégrité10CAM/ZIP, calculs/BOM, pinout et dimensions. JSON/CSV/Python parsés, PDF3pages rouvert et page de consignes rendue/inspectée. Diff indexé vérifié avant commit.
 
-Validation proportionnée : pas de nouvelle campagne firmware/build/flash, ERC/DRC/CAM ou testsV1.6 sur code inchangé. Les nouveaux calculs et contrôles portent uniquement sur l’étude mécanique. Aucun accès STM32/GDB/COM/FRAM/microSD, achat, impression ni manipulation physique ; aucune protectionWindows modifiée.
+Incidents tracés : première mesure flottante20,319999999999993 corrigée par tolérance d’une unité de grille1nm ; appel natifVIA.GetWidth sans couche ayant provoqué une assertion, seul processus d’audit arrêté puis appel corrigé avec couche explicite. Une sonde trop stricte échoue sur un **sommet intermédiaire**ACC_SCK à0,1mm du via ; la route continue jusqu’au centre. Échec/logs conservés, contrôle approprié des entrées centrées sur chaque couche **PASS pour4vias**. Aucun résultat attendu ni réglageKiCad affaibli, aucun PCB corrigé pour masquer ces incidents.
 
-## Git, journal et suite
+Validation proportionnée : audit CAO/documentaire uniquement ; aucun nouveau test hôte/build/flash/debug/GDB/COM/FRAM/microSD. CampagnesV1.5–V1.7 conservées sans répétition sur code inchangé. Aucun achat, impression ou geste physique effectué, aucune protectionWindows modifiée.
 
-Source évaluée **80ec70effab4a12709c988401e19de8d8294be30 — Study lateral ST-LINK glazing and adjustable captive USER mechanism**. Worktree isolé `MSM_vibe-SHIELD-V17-VITRAGE-USER`, branche locale `codex/shield-v17-vitrage-user`, cible autorisée main. HEADinitial39c33c69 comprend déjà la donnée de course. Dépôt principal propre à82169af7, autresworktrees et deuxstashes6251b988…/f3b829e6… préservés ; aucune résolution automatique de divergence, reset ou nettoyage.
+## Traçabilité et suite
 
-Journal `ETAT_COURANT_TR2.md` actualisé par ajout factuelV1.7 : direction corrigée, nouvelles cotes/acquis, vitrage candidat, USERajustable, résultats et réserves. À transmettre à ChatGPT : vérifier trois identités/trajetsLED et couloirB1 sur l’empilage réel, identifier les effortsB1 puis sélectionner le mécanisme compliant ; finaliser ensuite les seules piècesboîtier nécessaires. Les découpesboîtier peuvent attendre cette compatibilité ; gatesJ5/Zio/modules/LED/USER avantcommande demeurent.
+Commit évalué **7a09a88050aebe8be262247657057679222b3f5e — Audit shield V18 release gates, candidate CAM and France procurement**. ZIP candidat `TR2_SHIELD_V14_NON_LIBERE_V18.zip`, SHA256 **9a094784ce8553649b8074dbff70ee0df75b3f4a953b3f5982524949ea0322ed**. Worktree isolé `MSM_vibe-SHIELD-V18-REVUE-PRECOMMANDE`, branche locale `codex/shield-v18-revue-precommande`, cible autorisée main. Dépôt principal propre82169af7, deux stashes historiques6251b988…/f3b829e6… et autresworktrees préservés. Pas de résolution automatique de divergence.
 
-Permissions exercées : documentation, calculs/CAO d’étude, journal et commits. Push normal réussi sur main : `2e7bccdba8c5581be8b830af753f596a472e3c44`, confirmé par fetch et ls-remote ; relecture complète de282fichiers réussie, manifeste des20artefacts vérifié. Worktree propre après cette publication. Cette clôture documentaire DONE est publiée par un dernier commit/push normal, puis vérifiée ; son SHA final et l’état Git sont fournis dans la réponse après contrôle, sans auto-référence dans ce commit. **La conception n’est pas libérée pour fabrication ni déclarée fonctionnelle sur C05 réelle.**
+Journal `ETAT_COURANT_TR2.md` actualisé : résultats électriques/CAM, NO-GO physique et report à demain, USERsimple, budget estimatif et suites. À transmettre à ChatGPT : revoir les gates et les résultats demain, figerG/fixations avant décision humaine de commande ; total rendu et stocks finaux à confirmer. **DONE à venir signifie audit complet avec NO-GO, jamais READY_TO_ORDER.** Permissions exercées : lecture, documentation/outillage d’audit/CAM candidat, journal, commits/push normaux seulement. Mission inchangée et archivée ; aucune permission matérielle exercée.
+
+Publication et relecture distante : en cours, seront consignées avant clôture.
