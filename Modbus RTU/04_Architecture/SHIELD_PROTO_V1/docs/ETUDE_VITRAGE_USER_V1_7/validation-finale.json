@@ -1,0 +1,35 @@
+{
+  "mission_id": "TR2-20261104-SHIELD-V17-VITRAGE-USER",
+  "time_utc": "2026-11-04T15:44:51.951725+00:00",
+  "status": "PASS_STUDY_ONLY",
+  "new_calculations": {
+    "rays": 3564,
+    "conditional_clear": 976,
+    "reserve_mm": 1.5,
+    "mechanical_STEP_files_reopened": 3,
+    "solids_in_main_study": 18,
+    "PDF_pages_reopened_rendered_visually_reviewed": 4,
+    "SVG_XML_parsed": 4,
+    "rod_guide_head_panel_rest_and_stop_intersections_zero": true,
+    "structural_stop_external_travel_mm": 1.6,
+    "head_clearance_at_stop_mm": 0.4
+  },
+  "unchanged_prior_shield_files": 251,
+  "prior_tests_not_repeated": true,
+  "hardware_access": false,
+  "optical_three_LED_qualification": false,
+  "USER_force_or_fit_qualification": false,
+  "review_corrections": [
+    "user corrected near-normal interpretation to lateral horizontal; all final candidates lateral",
+    "moved frame2mm left to preserve2mm gap to existing STLINK and ribbon inserts",
+    "raised head1mm before final checks to avoid hitting panel before structural stop; tested rest/stop",
+    "added upper capture ring and split cage so captive flange can be assembled"
+  ],
+  "limits": [
+    "actual LD1/LD2/LD3 and B1 centres null",
+    "actual connectors and C05 components not fully modelled",
+    "force curve, exact B1 MPN, spring and return details unresolved",
+    "no optical or USER physical qualification",
+    "no fabrication release"
+  ]
+}

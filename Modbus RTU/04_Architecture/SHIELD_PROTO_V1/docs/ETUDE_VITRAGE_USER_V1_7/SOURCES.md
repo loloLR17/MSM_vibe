@@ -1,0 +1,18 @@
+# Sources V1.7 — provenance et limites
+
+Référence initiale `39c33c69a502d19c6590adffac0ccf847d9f0e34`, contrat `base_sha: 4717839a68016bb840598bd37180106e978e2ae3`. Mission active et complément USER lus depuis main ; clôture/revue V1.6 et rapport final conservés.
+
+**Observations utilisateur** : hauteur B1=10,2mm ; course jusqu’au clic≈0,4mm publiée dans `archives/TR2-20261104-SHIELD-V17-VITRAGE-USER/MESURE_USER_COMPLEMENTAIRE_20261104.md`. Incertitude, force et course totale inconnues. Pendant l’exécution, l’utilisateur précise explicitement une **vue latérale quasi horizontale côté ST-LINK**, puis décrit une photo montrant plusieurs LED sous tension. Cette correction de direction prévaut sur la formulation «presque perpendiculaire au plan» antérieure. Le fichier photo n’est pas disponible comme source métrique dans cette référence ; aucune image ni coordonnée photogrammétrique n’a été fabriquée. La photo décrite ne démontre pas les trois identités utiles dans le boîtier équipé. Trace dans la nouvelle archive `OBSERVATIONS_EXECUTION.md`.
+
+**Documents primaires consultés le04/11/2026** :
+
+- [ST, schéma MB1549-U575ZIQ-C05, 12/07/2023, feuille3](https://www.st.com/resource/en/schematic_pack/mb1549-u575ziq-c05-schematic.pdf) : index textuel accessible, B1 désigné `SW_BLUE`, capuchon HW17 `BLUEHAT`. Cette désignation générique n’identifie pas le fournisseur ni la courbe d’effort/course. Recherche bornée du schéma et de la BOM publique, pas de référence mécanique qualifiée obtenue. Les résultats C02/C03 n’ont pas servi à inventer une référence C05. Aucun nouvel essai de téléchargement des archives ST déjà indisponibles n’était nécessaire pour cette étude.
+- [ST UM2861 Rev8, §6.6 et figure4](https://www.stmcu.jp/wp/wp-content/uploads/2021/10/UM2861_Rev8.pdf) : boutons USER/RESET et capuchons démontables ; pas de force/course fabricant identifiée. Exemplaire complet local SHA256 `1eb153334dfffe947972ecd3065b36dfe7f0ddb294e30aa0bde252e72e5f35dd`. Ne pas retirer le capuchon : la cote10,2mm lui est attachée.
+
+**Sources internes réutilisées sans relance de tests acquis** :
+
+- V1.5 `mechanical/V1_5/parameters.json`, `tools/build_integration_v15.py`, `docs/pcb_geometry.json` : géométrie de référence, passages des câbles et construction des inserts. Les données J5 et MKI acquises sont conservées. Le nouveau script lit ces données, **n’exécute pas le générateur V1.5**.
+- V1.6 `docs/ETUDE_LED_V1_6/` : résultat conditionnel nord-est, absence de coordonnées C05 et planBélectrique Morpho. Le résultat antérieur0,246mm n’est pas utilisé comme marge robuste et ses tests inchangés ne sont pas répétés.
+- Journal technique versionné rechargé intégralement et vérifié identique à ecfc0ddc avant ajout :180672octets, SHA256 `5955e7d2d6ffd30c1444f43cee0f35f3f547225f2d4d069b361965527a7392af`. Consultation précédente réutilisée, nouveau paragraphe V1.7 ajouté, aucune ancienne entrée réécrite.
+
+**Nouveaux calculs** : scénarios de rayons point source/œil en XYZ, enveloppes V1.5 majorées de1,5mm, passage dans les deux faces de la paroi et fenêtre. Aucun calcul photométrique/réfraction/tolérances optiques réelles, aucune visibilité LD1/2/3 déduite d’un point fictif. La cage USER est un modèle rigide ; les force/raideur/filetage/rappel restent à définir. Fichiers et validations dans `optique.json`, `chaine_USER.json`, `CAO-controles.json`, `interfaces-nord.json` et preuve de conservation. Aucune dépendance installée, aucun matériel accédé, aucun prix fournisseur nouvellement qualifié. Le coût plausible du vitrage reste une provision V1.6 de2–6EUR/boîtier hors impression/port ; pas un devis livré ni un achat.

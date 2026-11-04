@@ -1,0 +1,2631 @@
+{
+  "status": "CONDITIONAL_SCAN_NOT_C05_VALIDATION",
+  "source_domain_NOT_LED_positions": [
+    [
+      45,
+      12,
+      -12.6
+    ],
+    [
+      65,
+      28,
+      -9.6
+    ]
+  ],
+  "eyes_region_mm": [
+    [
+      -40,
+      -160,
+      -10
+    ],
+    [
+      40,
+      -90,
+      -5
+    ]
+  ],
+  "eyes": 12,
+  "sources": 297,
+  "rays": 3564,
+  "conditional_clear_rays": 976,
+  "conditional_clear_angles_from_horizontal_deg": [
+    0.10643102856163285,
+    4.25613154966703
+  ],
+  "source_points_with_some_clear_view": 230,
+  "source_points_clear_for_all_eyes": 0,
+  "per_eye_clear_source_points": [
+    {
+      "eye": [
+        -40,
+        -160,
+        -10
+      ],
+      "clear_sources": 114
+    },
+    {
+      "eye": [
+        -40,
+        -160,
+        -5
+      ],
+      "clear_sources": 140
+    },
+    {
+      "eye": [
+        -40,
+        -90,
+        -10
+      ],
+      "clear_sources": 0
+    },
+    {
+      "eye": [
+        -40,
+        -90,
+        -5
+      ],
+      "clear_sources": 0
+    },
+    {
+      "eye": [
+        0,
+        -160,
+        -10
+      ],
+      "clear_sources": 114
+    },
+    {
+      "eye": [
+        0,
+        -160,
+        -5
+      ],
+      "clear_sources": 143
+    },
+    {
+      "eye": [
+        0,
+        -90,
+        -10
+      ],
+      "clear_sources": 136
+    },
+    {
+      "eye": [
+        0,
+        -90,
+        -5
+      ],
+      "clear_sources": 204
+    },
+    {
+      "eye": [
+        40,
+        -160,
+        -10
+      ],
+      "clear_sources": 18
+    },
+    {
+      "eye": [
+        40,
+        -160,
+        -5
+      ],
+      "clear_sources": 22
+    },
+    {
+      "eye": [
+        40,
+        -90,
+        -10
+      ],
+      "clear_sources": 34
+    },
+    {
+      "eye": [
+        40,
+        -90,
+        -5
+      ],
+      "clear_sources": 51
+    }
+  ],
+  "obstacle_reserve_mm": 1.5,
+  "obstacle_boxes": {
+    "shield": [
+      [
+        20,
+        17,
+        -1.6
+      ],
+      [
+        110,
+        117,
+        0
+      ]
+    ],
+    "MKI_provisional": [
+      [
+        42.46,
+        21.46,
+        11
+      ],
+      [
+        62.78,
+        54.48,
+        21
+      ]
+    ],
+    "ribbon_reservation": [
+      [
+        46,
+        -14,
+        9
+      ],
+      [
+        61,
+        21,
+        22
+      ]
+    ],
+    "MKI_retainer_roof_conservative": [
+      [
+        36,
+        17,
+        22
+      ],
+      [
+        74,
+        57.5,
+        25
+      ]
+    ],
+    "MKI_post_1": [
+      [
+        36,
+        17,
+        0
+      ],
+      [
+        42,
+        23,
+        25
+      ]
+    ],
+    "MKI_post_2": [
+      [
+        68,
+        51.5,
+        0
+      ],
+      [
+        74,
+        57.5,
+        25
+      ]
+    ],
+    "J8_conservative": [
+      [
+        43.3,
+        22,
+        0
+      ],
+      [
+        62,
+        56,
+        11
+      ]
+    ],
+    "STLINK_port_reservation_NOT_actual": [
+      [
+        55,
+        -12,
+        -17
+      ],
+      [
+        81,
+        5,
+        1
+      ]
+    ]
+  },
+  "obstruction_counts_nonexclusive": {
+    "shield": 0,
+    "MKI_provisional": 0,
+    "ribbon_reservation": 0,
+    "MKI_retainer_roof_conservative": 0,
+    "MKI_post_1": 0,
+    "MKI_post_2": 0,
+    "J8_conservative": 0,
+    "STLINK_port_reservation_NOT_actual": 1146
+  },
+  "side_wall_Y_mm": -20,
+  "old_near_normal_interpretation_REJECTED_after_user_correction": true,
+  "side_wall_min_angle_from_vertical_for_previously_assumed_top_view_deg": 34.47720241160828,
+  "individual_source_scan": [
+    {
+      "source_xyz_NOT_LED": [
+        45.0,
+        12.0,
+        -12.6
+      ],
+      "clear_eyes": 2
+    },
+    {
+      "source_xyz_NOT_LED": [
+        45.0,
+        12.0,
+        -11.1
+      ],
+      "clear_eyes": 10
+    },
+    {
+      "source_xyz_NOT_LED": [
+        45.0,
+        12.0,
+        -9.6
+      ],
+      "clear_eyes": 10
+    },
+    {
+      "source_xyz_NOT_LED": [
+        45.0,
+        14.0,
+        -12.6
+      ],
+      "clear_eyes": 2
+    },
+    {
+      "source_xyz_NOT_LED": [
+        45.0,
+        14.0,
+        -11.1
+      ],
+      "clear_eyes": 8
+    },
+    {
+      "source_xyz_NOT_LED": [
+        45.0,
+        14.0,
+        -9.6
+      ],
+      "clear_eyes": 8
+    },
+    {
+      "source_xyz_NOT_LED": [
+        45.0,
+        16.0,
+        -12.6
+      ],
+      "clear_eyes": 2
+    },
+    {
+      "source_xyz_NOT_LED": [
+        45.0,
+        16.0,
+        -11.1
+      ],
+      "clear_eyes": 8
+    },
+    {
+      "source_xyz_NOT_LED": [
+        45.0,
+        16.0,
+        -9.6
+      ],
+      "clear_eyes": 8
+    },
+    {
+      "source_xyz_NOT_LED": [
+        45.0,
+        18.0,
+        -12.6
+      ],
+      "clear_eyes": 2
+    },
+    {
+      "source_xyz_NOT_LED": [
+        45.0,
+        18.0,
+        -11.1
+      ],
+      "clear_eyes": 8
+    },
+    {
+      "source_xyz_NOT_LED": [
+        45.0,
+        18.0,
+        -9.6
+      ],
+      "clear_eyes": 8
+    },
+    {
+      "source_xyz_NOT_LED": [
+        45.0,
+        20.0,
+        -12.6
+      ],
+      "clear_eyes": 1
+    },
+    {
+      "source_xyz_NOT_LED": [
+        45.0,
+        20.0,
+        -11.1
+      ],
+      "clear_eyes": 6
+    },
+    {
+      "source_xyz_NOT_LED": [
+        45.0,
+        20.0,
+        -9.6
+      ],
+      "clear_eyes": 6
+    },
+    {
+      "source_xyz_NOT_LED": [
+        45.0,
+        22.0,
+        -12.6
+      ],
+      "clear_eyes": 3
+    },
+    {
+      "source_xyz_NOT_LED": [
+        45.0,
+        22.0,
+        -11.1
+      ],
+      "clear_eyes": 6
+    },
+    {
+      "source_xyz_NOT_LED": [
+        45.0,
+        22.0,
+        -9.6
+      ],
+      "clear_eyes": 6
+    },
+    {
+      "source_xyz_NOT_LED": [
+        45.0,
+        24.0,
+        -12.6
+      ],
+      "clear_eyes": 3
+    },
+    {
+      "source_xyz_NOT_LED": [
+        45.0,
+        24.0,
+        -11.1
+      ],
+      "clear_eyes": 6
+    },
+    {
+      "source_xyz_NOT_LED": [
+        45.0,
+        24.0,
+        -9.6
+      ],
+      "clear_eyes": 6
+    },
+    {
+      "source_xyz_NOT_LED": [
+        45.0,
+        26.0,
+        -12.6
+      ],
+      "clear_eyes": 3
+    },
+    {
+      "source_xyz_NOT_LED": [
+        45.0,
+        26.0,
+        -11.1
+      ],
+      "clear_eyes": 6
+    },
+    {
+      "source_xyz_NOT_LED": [
+        45.0,
+        26.0,
+        -9.6
+      ],
+      "clear_eyes": 6
+    },
+    {
+      "source_xyz_NOT_LED": [
+        45.0,
+        28.0,
+        -12.6
+      ],
+      "clear_eyes": 3
+    },
+    {
+      "source_xyz_NOT_LED": [
+        45.0,
+        28.0,
+        -11.1
+      ],
+      "clear_eyes": 6
+    },
+    {
+      "source_xyz_NOT_LED": [
+        45.0,
+        28.0,
+        -9.6
+      ],
+      "clear_eyes": 6
+    },
+    {
+      "source_xyz_NOT_LED": [
+        47.0,
+        12.0,
+        -12.6
+      ],
+      "clear_eyes": 1
+    },
+    {
+      "source_xyz_NOT_LED": [
+        47.0,
+        12.0,
+        -11.1
+      ],
+      "clear_eyes": 6
+    },
+    {
+      "source_xyz_NOT_LED": [
+        47.0,
+        12.0,
+        -9.6
+      ],
+      "clear_eyes": 6
+    },
+    {
+      "source_xyz_NOT_LED": [
+        47.0,
+        14.0,
+        -12.6
+      ],
+      "clear_eyes": 2
+    },
+    {
+      "source_xyz_NOT_LED": [
+        47.0,
+        14.0,
+        -11.1
+      ],
+      "clear_eyes": 8
+    },
+    {
+      "source_xyz_NOT_LED": [
+        47.0,
+        14.0,
+        -9.6
+      ],
+      "clear_eyes": 8
+    },
+    {
+      "source_xyz_NOT_LED": [
+        47.0,
+        16.0,
+        -12.6
+      ],
+      "clear_eyes": 2
+    },
+    {
+      "source_xyz_NOT_LED": [
+        47.0,
+        16.0,
+        -11.1
+      ],
+      "clear_eyes": 8
+    },
+    {
+      "source_xyz_NOT_LED": [
+        47.0,
+        16.0,
+        -9.6
+      ],
+      "clear_eyes": 8
+    },
+    {
+      "source_xyz_NOT_LED": [
+        47.0,
+        18.0,
+        -12.6
+      ],
+      "clear_eyes": 2
+    },
+    {
+      "source_xyz_NOT_LED": [
+        47.0,
+        18.0,
+        -11.1
+      ],
+      "clear_eyes": 6
+    },
+    {
+      "source_xyz_NOT_LED": [
+        47.0,
+        18.0,
+        -9.6
+      ],
+      "clear_eyes": 6
+    },
+    {
+      "source_xyz_NOT_LED": [
+        47.0,
+        20.0,
+        -12.6
+      ],
+      "clear_eyes": 2
+    },
+    {
+      "source_xyz_NOT_LED": [
+        47.0,
+        20.0,
+        -11.1
+      ],
+      "clear_eyes": 6
+    },
+    {
+      "source_xyz_NOT_LED": [
+        47.0,
+        20.0,
+        -9.6
+      ],
+      "clear_eyes": 6
+    },
+    {
+      "source_xyz_NOT_LED": [
+        47.0,
+        22.0,
+        -12.6
+      ],
+      "clear_eyes": 3
+    },
+    {
+      "source_xyz_NOT_LED": [
+        47.0,
+        22.0,
+        -11.1
+      ],
+      "clear_eyes": 6
+    },
+    {
+      "source_xyz_NOT_LED": [
+        47.0,
+        22.0,
+        -9.6
+      ],
+      "clear_eyes": 6
+    },
+    {
+      "source_xyz_NOT_LED": [
+        47.0,
+        24.0,
+        -12.6
+      ],
+      "clear_eyes": 2
+    },
+    {
+      "source_xyz_NOT_LED": [
+        47.0,
+        24.0,
+        -11.1
+      ],
+      "clear_eyes": 4
+    },
+    {
+      "source_xyz_NOT_LED": [
+        47.0,
+        24.0,
+        -9.6
+      ],
+      "clear_eyes": 4
+    },
+    {
+      "source_xyz_NOT_LED": [
+        47.0,
+        26.0,
+        -12.6
+      ],
+      "clear_eyes": 2
+    },
+    {
+      "source_xyz_NOT_LED": [
+        47.0,
+        26.0,
+        -11.1
+      ],
+      "clear_eyes": 4
+    },
+    {
+      "source_xyz_NOT_LED": [
+        47.0,
+        26.0,
+        -9.6
+      ],
+      "clear_eyes": 4
+    },
+    {
+      "source_xyz_NOT_LED": [
+        47.0,
+        28.0,
+        -12.6
+      ],
+      "clear_eyes": 2
+    },
+    {
+      "source_xyz_NOT_LED": [
+        47.0,
+        28.0,
+        -11.1
+      ],
+      "clear_eyes": 4
+    },
+    {
+      "source_xyz_NOT_LED": [
+        47.0,
+        28.0,
+        -9.6
+      ],
+      "clear_eyes": 4
+    },
+    {
+      "source_xyz_NOT_LED": [
+        49.0,
+        12.0,
+        -12.6
+      ],
+      "clear_eyes": 1
+    },
+    {
+      "source_xyz_NOT_LED": [
+        49.0,
+        12.0,
+        -11.1
+      ],
+      "clear_eyes": 6
+    },
+    {
+      "source_xyz_NOT_LED": [
+        49.0,
+        12.0,
+        -9.6
+      ],
+      "clear_eyes": 6
+    },
+    {
+      "source_xyz_NOT_LED": [
+        49.0,
+        14.0,
+        -12.6
+      ],
+      "clear_eyes": 1
+    },
+    {
+      "source_xyz_NOT_LED": [
+        49.0,
+        14.0,
+        -11.1
+      ],
+      "clear_eyes": 6
+    },
+    {
+      "source_xyz_NOT_LED": [
+        49.0,
+        14.0,
+        -9.6
+      ],
+      "clear_eyes": 6
+    },
+    {
+      "source_xyz_NOT_LED": [
+        49.0,
+        16.0,
+        -12.6
+      ],
+      "clear_eyes": 1
+    },
+    {
+      "source_xyz_NOT_LED": [
+        49.0,
+        16.0,
+        -11.1
+      ],
+      "clear_eyes": 6
+    },
+    {
+      "source_xyz_NOT_LED": [
+        49.0,
+        16.0,
+        -9.6
+      ],
+      "clear_eyes": 6
+    },
+    {
+      "source_xyz_NOT_LED": [
+        49.0,
+        18.0,
+        -12.6
+      ],
+      "clear_eyes": 1
+    },
+    {
+      "source_xyz_NOT_LED": [
+        49.0,
+        18.0,
+        -11.1
+      ],
+      "clear_eyes": 6
+    },
+    {
+      "source_xyz_NOT_LED": [
+        49.0,
+        18.0,
+        -9.6
+      ],
+      "clear_eyes": 6
+    },
+    {
+      "source_xyz_NOT_LED": [
+        49.0,
+        20.0,
+        -12.6
+      ],
+      "clear_eyes": 1
+    },
+    {
+      "source_xyz_NOT_LED": [
+        49.0,
+        20.0,
+        -11.1
+      ],
+      "clear_eyes": 6
+    },
+    {
+      "source_xyz_NOT_LED": [
+        49.0,
+        20.0,
+        -9.6
+      ],
+      "clear_eyes": 6
+    },
+    {
+      "source_xyz_NOT_LED": [
+        49.0,
+        22.0,
+        -12.6
+      ],
+      "clear_eyes": 2
+    },
+    {
+      "source_xyz_NOT_LED": [
+        49.0,
+        22.0,
+        -11.1
+      ],
+      "clear_eyes": 4
+    },
+    {
+      "source_xyz_NOT_LED": [
+        49.0,
+        22.0,
+        -9.6
+      ],
+      "clear_eyes": 4
+    },
+    {
+      "source_xyz_NOT_LED": [
+        49.0,
+        24.0,
+        -12.6
+      ],
+      "clear_eyes": 2
+    },
+    {
+      "source_xyz_NOT_LED": [
+        49.0,
+        24.0,
+        -11.1
+      ],
+      "clear_eyes": 4
+    },
+    {
+      "source_xyz_NOT_LED": [
+        49.0,
+        24.0,
+        -9.6
+      ],
+      "clear_eyes": 4
+    },
+    {
+      "source_xyz_NOT_LED": [
+        49.0,
+        26.0,
+        -12.6
+      ],
+      "clear_eyes": 2
+    },
+    {
+      "source_xyz_NOT_LED": [
+        49.0,
+        26.0,
+        -11.1
+      ],
+      "clear_eyes": 4
+    },
+    {
+      "source_xyz_NOT_LED": [
+        49.0,
+        26.0,
+        -9.6
+      ],
+      "clear_eyes": 4
+    },
+    {
+      "source_xyz_NOT_LED": [
+        49.0,
+        28.0,
+        -12.6
+      ],
+      "clear_eyes": 2
+    },
+    {
+      "source_xyz_NOT_LED": [
+        49.0,
+        28.0,
+        -11.1
+      ],
+      "clear_eyes": 4
+    },
+    {
+      "source_xyz_NOT_LED": [
+        49.0,
+        28.0,
+        -9.6
+      ],
+      "clear_eyes": 4
+    },
+    {
+      "source_xyz_NOT_LED": [
+        51.0,
+        12.0,
+        -12.6
+      ],
+      "clear_eyes": 1
+    },
+    {
+      "source_xyz_NOT_LED": [
+        51.0,
+        12.0,
+        -11.1
+      ],
+      "clear_eyes": 6
+    },
+    {
+      "source_xyz_NOT_LED": [
+        51.0,
+        12.0,
+        -9.6
+      ],
+      "clear_eyes": 6
+    },
+    {
+      "source_xyz_NOT_LED": [
+        51.0,
+        14.0,
+        -12.6
+      ],
+      "clear_eyes": 1
+    },
+    {
+      "source_xyz_NOT_LED": [
+        51.0,
+        14.0,
+        -11.1
+      ],
+      "clear_eyes": 6
+    },
+    {
+      "source_xyz_NOT_LED": [
+        51.0,
+        14.0,
+        -9.6
+      ],
+      "clear_eyes": 6
+    },
+    {
+      "source_xyz_NOT_LED": [
+        51.0,
+        16.0,
+        -12.6
+      ],
+      "clear_eyes": 1
+    },
+    {
+      "source_xyz_NOT_LED": [
+        51.0,
+        16.0,
+        -11.1
+      ],
+      "clear_eyes": 6
+    },
+    {
+      "source_xyz_NOT_LED": [
+        51.0,
+        16.0,
+        -9.6
+      ],
+      "clear_eyes": 6
+    },
+    {
+      "source_xyz_NOT_LED": [
+        51.0,
+        18.0,
+        -12.6
+      ],
+      "clear_eyes": 1
+    },
+    {
+      "source_xyz_NOT_LED": [
+        51.0,
+        18.0,
+        -11.1
+      ],
+      "clear_eyes": 6
+    },
+    {
+      "source_xyz_NOT_LED": [
+        51.0,
+        18.0,
+        -9.6
+      ],
+      "clear_eyes": 6
+    },
+    {
+      "source_xyz_NOT_LED": [
+        51.0,
+        20.0,
+        -12.6
+      ],
+      "clear_eyes": 1
+    },
+    {
+      "source_xyz_NOT_LED": [
+        51.0,
+        20.0,
+        -11.1
+      ],
+      "clear_eyes": 6
+    },
+    {
+      "source_xyz_NOT_LED": [
+        51.0,
+        20.0,
+        -9.6
+      ],
+      "clear_eyes": 6
+    },
+    {
+      "source_xyz_NOT_LED": [
+        51.0,
+        22.0,
+        -12.6
+      ],
+      "clear_eyes": 3
+    },
+    {
+      "source_xyz_NOT_LED": [
+        51.0,
+        22.0,
+        -11.1
+      ],
+      "clear_eyes": 6
+    },
+    {
+      "source_xyz_NOT_LED": [
+        51.0,
+        22.0,
+        -9.6
+      ],
+      "clear_eyes": 6
+    },
+    {
+      "source_xyz_NOT_LED": [
+        51.0,
+        24.0,
+        -12.6
+      ],
+      "clear_eyes": 3
+    },
+    {
+      "source_xyz_NOT_LED": [
+        51.0,
+        24.0,
+        -11.1
+      ],
+      "clear_eyes": 6
+    },
+    {
+      "source_xyz_NOT_LED": [
+        51.0,
+        24.0,
+        -9.6
+      ],
+      "clear_eyes": 6
+    },
+    {
+      "source_xyz_NOT_LED": [
+        51.0,
+        26.0,
+        -12.6
+      ],
+      "clear_eyes": 2
+    },
+    {
+      "source_xyz_NOT_LED": [
+        51.0,
+        26.0,
+        -11.1
+      ],
+      "clear_eyes": 4
+    },
+    {
+      "source_xyz_NOT_LED": [
+        51.0,
+        26.0,
+        -9.6
+      ],
+      "clear_eyes": 4
+    },
+    {
+      "source_xyz_NOT_LED": [
+        51.0,
+        28.0,
+        -12.6
+      ],
+      "clear_eyes": 2
+    },
+    {
+      "source_xyz_NOT_LED": [
+        51.0,
+        28.0,
+        -11.1
+      ],
+      "clear_eyes": 4
+    },
+    {
+      "source_xyz_NOT_LED": [
+        51.0,
+        28.0,
+        -9.6
+      ],
+      "clear_eyes": 4
+    },
+    {
+      "source_xyz_NOT_LED": [
+        53.0,
+        12.0,
+        -12.6
+      ],
+      "clear_eyes": 1
+    },
+    {
+      "source_xyz_NOT_LED": [
+        53.0,
+        12.0,
+        -11.1
+      ],
+      "clear_eyes": 6
+    },
+    {
+      "source_xyz_NOT_LED": [
+        53.0,
+        12.0,
+        -9.6
+      ],
+      "clear_eyes": 6
+    },
+    {
+      "source_xyz_NOT_LED": [
+        53.0,
+        14.0,
+        -12.6
+      ],
+      "clear_eyes": 1
+    },
+    {
+      "source_xyz_NOT_LED": [
+        53.0,
+        14.0,
+        -11.1
+      ],
+      "clear_eyes": 6
+    },
+    {
+      "source_xyz_NOT_LED": [
+        53.0,
+        14.0,
+        -9.6
+      ],
+      "clear_eyes": 6
+    },
+    {
+      "source_xyz_NOT_LED": [
+        53.0,
+        16.0,
+        -12.6
+      ],
+      "clear_eyes": 1
+    },
+    {
+      "source_xyz_NOT_LED": [
+        53.0,
+        16.0,
+        -11.1
+      ],
+      "clear_eyes": 6
+    },
+    {
+      "source_xyz_NOT_LED": [
+        53.0,
+        16.0,
+        -9.6
+      ],
+      "clear_eyes": 6
+    },
+    {
+      "source_xyz_NOT_LED": [
+        53.0,
+        18.0,
+        -12.6
+      ],
+      "clear_eyes": 1
+    },
+    {
+      "source_xyz_NOT_LED": [
+        53.0,
+        18.0,
+        -11.1
+      ],
+      "clear_eyes": 6
+    },
+    {
+      "source_xyz_NOT_LED": [
+        53.0,
+        18.0,
+        -9.6
+      ],
+      "clear_eyes": 6
+    },
+    {
+      "source_xyz_NOT_LED": [
+        53.0,
+        20.0,
+        -12.6
+      ],
+      "clear_eyes": 1
+    },
+    {
+      "source_xyz_NOT_LED": [
+        53.0,
+        20.0,
+        -11.1
+      ],
+      "clear_eyes": 6
+    },
+    {
+      "source_xyz_NOT_LED": [
+        53.0,
+        20.0,
+        -9.6
+      ],
+      "clear_eyes": 6
+    },
+    {
+      "source_xyz_NOT_LED": [
+        53.0,
+        22.0,
+        -12.6
+      ],
+      "clear_eyes": 3
+    },
+    {
+      "source_xyz_NOT_LED": [
+        53.0,
+        22.0,
+        -11.1
+      ],
+      "clear_eyes": 6
+    },
+    {
+      "source_xyz_NOT_LED": [
+        53.0,
+        22.0,
+        -9.6
+      ],
+      "clear_eyes": 6
+    },
+    {
+      "source_xyz_NOT_LED": [
+        53.0,
+        24.0,
+        -12.6
+      ],
+      "clear_eyes": 3
+    },
+    {
+      "source_xyz_NOT_LED": [
+        53.0,
+        24.0,
+        -11.1
+      ],
+      "clear_eyes": 6
+    },
+    {
+      "source_xyz_NOT_LED": [
+        53.0,
+        24.0,
+        -9.6
+      ],
+      "clear_eyes": 6
+    },
+    {
+      "source_xyz_NOT_LED": [
+        53.0,
+        26.0,
+        -12.6
+      ],
+      "clear_eyes": 3
+    },
+    {
+      "source_xyz_NOT_LED": [
+        53.0,
+        26.0,
+        -11.1
+      ],
+      "clear_eyes": 6
+    },
+    {
+      "source_xyz_NOT_LED": [
+        53.0,
+        26.0,
+        -9.6
+      ],
+      "clear_eyes": 6
+    },
+    {
+      "source_xyz_NOT_LED": [
+        53.0,
+        28.0,
+        -12.6
+      ],
+      "clear_eyes": 3
+    },
+    {
+      "source_xyz_NOT_LED": [
+        53.0,
+        28.0,
+        -11.1
+      ],
+      "clear_eyes": 6
+    },
+    {
+      "source_xyz_NOT_LED": [
+        53.0,
+        28.0,
+        -9.6
+      ],
+      "clear_eyes": 6
+    },
+    {
+      "source_xyz_NOT_LED": [
+        55.0,
+        12.0,
+        -12.6
+      ],
+      "clear_eyes": 1
+    },
+    {
+      "source_xyz_NOT_LED": [
+        55.0,
+        12.0,
+        -11.1
+      ],
+      "clear_eyes": 4
+    },
+    {
+      "source_xyz_NOT_LED": [
+        55.0,
+        12.0,
+        -9.6
+      ],
+      "clear_eyes": 4
+    },
+    {
+      "source_xyz_NOT_LED": [
+        55.0,
+        14.0,
+        -12.6
+      ],
+      "clear_eyes": 1
+    },
+    {
+      "source_xyz_NOT_LED": [
+        55.0,
+        14.0,
+        -11.1
+      ],
+      "clear_eyes": 4
+    },
+    {
+      "source_xyz_NOT_LED": [
+        55.0,
+        14.0,
+        -9.6
+      ],
+      "clear_eyes": 4
+    },
+    {
+      "source_xyz_NOT_LED": [
+        55.0,
+        16.0,
+        -12.6
+      ],
+      "clear_eyes": 1
+    },
+    {
+      "source_xyz_NOT_LED": [
+        55.0,
+        16.0,
+        -11.1
+      ],
+      "clear_eyes": 6
+    },
+    {
+      "source_xyz_NOT_LED": [
+        55.0,
+        16.0,
+        -9.6
+      ],
+      "clear_eyes": 6
+    },
+    {
+      "source_xyz_NOT_LED": [
+        55.0,
+        18.0,
+        -12.6
+      ],
+      "clear_eyes": 1
+    },
+    {
+      "source_xyz_NOT_LED": [
+        55.0,
+        18.0,
+        -11.1
+      ],
+      "clear_eyes": 6
+    },
+    {
+      "source_xyz_NOT_LED": [
+        55.0,
+        18.0,
+        -9.6
+      ],
+      "clear_eyes": 6
+    },
+    {
+      "source_xyz_NOT_LED": [
+        55.0,
+        20.0,
+        -12.6
+      ],
+      "clear_eyes": 1
+    },
+    {
+      "source_xyz_NOT_LED": [
+        55.0,
+        20.0,
+        -11.1
+      ],
+      "clear_eyes": 6
+    },
+    {
+      "source_xyz_NOT_LED": [
+        55.0,
+        20.0,
+        -9.6
+      ],
+      "clear_eyes": 6
+    },
+    {
+      "source_xyz_NOT_LED": [
+        55.0,
+        22.0,
+        -12.6
+      ],
+      "clear_eyes": 3
+    },
+    {
+      "source_xyz_NOT_LED": [
+        55.0,
+        22.0,
+        -11.1
+      ],
+      "clear_eyes": 6
+    },
+    {
+      "source_xyz_NOT_LED": [
+        55.0,
+        22.0,
+        -9.6
+      ],
+      "clear_eyes": 6
+    },
+    {
+      "source_xyz_NOT_LED": [
+        55.0,
+        24.0,
+        -12.6
+      ],
+      "clear_eyes": 3
+    },
+    {
+      "source_xyz_NOT_LED": [
+        55.0,
+        24.0,
+        -11.1
+      ],
+      "clear_eyes": 6
+    },
+    {
+      "source_xyz_NOT_LED": [
+        55.0,
+        24.0,
+        -9.6
+      ],
+      "clear_eyes": 6
+    },
+    {
+      "source_xyz_NOT_LED": [
+        55.0,
+        26.0,
+        -12.6
+      ],
+      "clear_eyes": 3
+    },
+    {
+      "source_xyz_NOT_LED": [
+        55.0,
+        26.0,
+        -11.1
+      ],
+      "clear_eyes": 6
+    },
+    {
+      "source_xyz_NOT_LED": [
+        55.0,
+        26.0,
+        -9.6
+      ],
+      "clear_eyes": 6
+    },
+    {
+      "source_xyz_NOT_LED": [
+        55.0,
+        28.0,
+        -12.6
+      ],
+      "clear_eyes": 3
+    },
+    {
+      "source_xyz_NOT_LED": [
+        55.0,
+        28.0,
+        -11.1
+      ],
+      "clear_eyes": 6
+    },
+    {
+      "source_xyz_NOT_LED": [
+        55.0,
+        28.0,
+        -9.6
+      ],
+      "clear_eyes": 6
+    },
+    {
+      "source_xyz_NOT_LED": [
+        57.0,
+        12.0,
+        -12.6
+      ],
+      "clear_eyes": 0
+    },
+    {
+      "source_xyz_NOT_LED": [
+        57.0,
+        12.0,
+        -11.1
+      ],
+      "clear_eyes": 0
+    },
+    {
+      "source_xyz_NOT_LED": [
+        57.0,
+        12.0,
+        -9.6
+      ],
+      "clear_eyes": 0
+    },
+    {
+      "source_xyz_NOT_LED": [
+        57.0,
+        14.0,
+        -12.6
+      ],
+      "clear_eyes": 1
+    },
+    {
+      "source_xyz_NOT_LED": [
+        57.0,
+        14.0,
+        -11.1
+      ],
+      "clear_eyes": 4
+    },
+    {
+      "source_xyz_NOT_LED": [
+        57.0,
+        14.0,
+        -9.6
+      ],
+      "clear_eyes": 4
+    },
+    {
+      "source_xyz_NOT_LED": [
+        57.0,
+        16.0,
+        -12.6
+      ],
+      "clear_eyes": 1
+    },
+    {
+      "source_xyz_NOT_LED": [
+        57.0,
+        16.0,
+        -11.1
+      ],
+      "clear_eyes": 4
+    },
+    {
+      "source_xyz_NOT_LED": [
+        57.0,
+        16.0,
+        -9.6
+      ],
+      "clear_eyes": 4
+    },
+    {
+      "source_xyz_NOT_LED": [
+        57.0,
+        18.0,
+        -12.6
+      ],
+      "clear_eyes": 1
+    },
+    {
+      "source_xyz_NOT_LED": [
+        57.0,
+        18.0,
+        -11.1
+      ],
+      "clear_eyes": 4
+    },
+    {
+      "source_xyz_NOT_LED": [
+        57.0,
+        18.0,
+        -9.6
+      ],
+      "clear_eyes": 4
+    },
+    {
+      "source_xyz_NOT_LED": [
+        57.0,
+        20.0,
+        -12.6
+      ],
+      "clear_eyes": 1
+    },
+    {
+      "source_xyz_NOT_LED": [
+        57.0,
+        20.0,
+        -11.1
+      ],
+      "clear_eyes": 4
+    },
+    {
+      "source_xyz_NOT_LED": [
+        57.0,
+        20.0,
+        -9.6
+      ],
+      "clear_eyes": 4
+    },
+    {
+      "source_xyz_NOT_LED": [
+        57.0,
+        22.0,
+        -12.6
+      ],
+      "clear_eyes": 3
+    },
+    {
+      "source_xyz_NOT_LED": [
+        57.0,
+        22.0,
+        -11.1
+      ],
+      "clear_eyes": 6
+    },
+    {
+      "source_xyz_NOT_LED": [
+        57.0,
+        22.0,
+        -9.6
+      ],
+      "clear_eyes": 6
+    },
+    {
+      "source_xyz_NOT_LED": [
+        57.0,
+        24.0,
+        -12.6
+      ],
+      "clear_eyes": 3
+    },
+    {
+      "source_xyz_NOT_LED": [
+        57.0,
+        24.0,
+        -11.1
+      ],
+      "clear_eyes": 6
+    },
+    {
+      "source_xyz_NOT_LED": [
+        57.0,
+        24.0,
+        -9.6
+      ],
+      "clear_eyes": 6
+    },
+    {
+      "source_xyz_NOT_LED": [
+        57.0,
+        26.0,
+        -12.6
+      ],
+      "clear_eyes": 3
+    },
+    {
+      "source_xyz_NOT_LED": [
+        57.0,
+        26.0,
+        -11.1
+      ],
+      "clear_eyes": 6
+    },
+    {
+      "source_xyz_NOT_LED": [
+        57.0,
+        26.0,
+        -9.6
+      ],
+      "clear_eyes": 6
+    },
+    {
+      "source_xyz_NOT_LED": [
+        57.0,
+        28.0,
+        -12.6
+      ],
+      "clear_eyes": 3
+    },
+    {
+      "source_xyz_NOT_LED": [
+        57.0,
+        28.0,
+        -11.1
+      ],
+      "clear_eyes": 6
+    },
+    {
+      "source_xyz_NOT_LED": [
+        57.0,
+        28.0,
+        -9.6
+      ],
+      "clear_eyes": 6
+    },
+    {
+      "source_xyz_NOT_LED": [
+        59.0,
+        12.0,
+        -12.6
+      ],
+      "clear_eyes": 0
+    },
+    {
+      "source_xyz_NOT_LED": [
+        59.0,
+        12.0,
+        -11.1
+      ],
+      "clear_eyes": 0
+    },
+    {
+      "source_xyz_NOT_LED": [
+        59.0,
+        12.0,
+        -9.6
+      ],
+      "clear_eyes": 0
+    },
+    {
+      "source_xyz_NOT_LED": [
+        59.0,
+        14.0,
+        -12.6
+      ],
+      "clear_eyes": 0
+    },
+    {
+      "source_xyz_NOT_LED": [
+        59.0,
+        14.0,
+        -11.1
+      ],
+      "clear_eyes": 0
+    },
+    {
+      "source_xyz_NOT_LED": [
+        59.0,
+        14.0,
+        -9.6
+      ],
+      "clear_eyes": 0
+    },
+    {
+      "source_xyz_NOT_LED": [
+        59.0,
+        16.0,
+        -12.6
+      ],
+      "clear_eyes": 0
+    },
+    {
+      "source_xyz_NOT_LED": [
+        59.0,
+        16.0,
+        -11.1
+      ],
+      "clear_eyes": 0
+    },
+    {
+      "source_xyz_NOT_LED": [
+        59.0,
+        16.0,
+        -9.6
+      ],
+      "clear_eyes": 0
+    },
+    {
+      "source_xyz_NOT_LED": [
+        59.0,
+        18.0,
+        -12.6
+      ],
+      "clear_eyes": 1
+    },
+    {
+      "source_xyz_NOT_LED": [
+        59.0,
+        18.0,
+        -11.1
+      ],
+      "clear_eyes": 4
+    },
+    {
+      "source_xyz_NOT_LED": [
+        59.0,
+        18.0,
+        -9.6
+      ],
+      "clear_eyes": 4
+    },
+    {
+      "source_xyz_NOT_LED": [
+        59.0,
+        20.0,
+        -12.6
+      ],
+      "clear_eyes": 1
+    },
+    {
+      "source_xyz_NOT_LED": [
+        59.0,
+        20.0,
+        -11.1
+      ],
+      "clear_eyes": 4
+    },
+    {
+      "source_xyz_NOT_LED": [
+        59.0,
+        20.0,
+        -9.6
+      ],
+      "clear_eyes": 4
+    },
+    {
+      "source_xyz_NOT_LED": [
+        59.0,
+        22.0,
+        -12.6
+      ],
+      "clear_eyes": 2
+    },
+    {
+      "source_xyz_NOT_LED": [
+        59.0,
+        22.0,
+        -11.1
+      ],
+      "clear_eyes": 4
+    },
+    {
+      "source_xyz_NOT_LED": [
+        59.0,
+        22.0,
+        -9.6
+      ],
+      "clear_eyes": 4
+    },
+    {
+      "source_xyz_NOT_LED": [
+        59.0,
+        24.0,
+        -12.6
+      ],
+      "clear_eyes": 2
+    },
+    {
+      "source_xyz_NOT_LED": [
+        59.0,
+        24.0,
+        -11.1
+      ],
+      "clear_eyes": 4
+    },
+    {
+      "source_xyz_NOT_LED": [
+        59.0,
+        24.0,
+        -9.6
+      ],
+      "clear_eyes": 4
+    },
+    {
+      "source_xyz_NOT_LED": [
+        59.0,
+        26.0,
+        -12.6
+      ],
+      "clear_eyes": 2
+    },
+    {
+      "source_xyz_NOT_LED": [
+        59.0,
+        26.0,
+        -11.1
+      ],
+      "clear_eyes": 4
+    },
+    {
+      "source_xyz_NOT_LED": [
+        59.0,
+        26.0,
+        -9.6
+      ],
+      "clear_eyes": 4
+    },
+    {
+      "source_xyz_NOT_LED": [
+        59.0,
+        28.0,
+        -12.6
+      ],
+      "clear_eyes": 3
+    },
+    {
+      "source_xyz_NOT_LED": [
+        59.0,
+        28.0,
+        -11.1
+      ],
+      "clear_eyes": 6
+    },
+    {
+      "source_xyz_NOT_LED": [
+        59.0,
+        28.0,
+        -9.6
+      ],
+      "clear_eyes": 6
+    },
+    {
+      "source_xyz_NOT_LED": [
+        61.0,
+        12.0,
+        -12.6
+      ],
+      "clear_eyes": 0
+    },
+    {
+      "source_xyz_NOT_LED": [
+        61.0,
+        12.0,
+        -11.1
+      ],
+      "clear_eyes": 0
+    },
+    {
+      "source_xyz_NOT_LED": [
+        61.0,
+        12.0,
+        -9.6
+      ],
+      "clear_eyes": 0
+    },
+    {
+      "source_xyz_NOT_LED": [
+        61.0,
+        14.0,
+        -12.6
+      ],
+      "clear_eyes": 0
+    },
+    {
+      "source_xyz_NOT_LED": [
+        61.0,
+        14.0,
+        -11.1
+      ],
+      "clear_eyes": 0
+    },
+    {
+      "source_xyz_NOT_LED": [
+        61.0,
+        14.0,
+        -9.6
+      ],
+      "clear_eyes": 0
+    },
+    {
+      "source_xyz_NOT_LED": [
+        61.0,
+        16.0,
+        -12.6
+      ],
+      "clear_eyes": 0
+    },
+    {
+      "source_xyz_NOT_LED": [
+        61.0,
+        16.0,
+        -11.1
+      ],
+      "clear_eyes": 0
+    },
+    {
+      "source_xyz_NOT_LED": [
+        61.0,
+        16.0,
+        -9.6
+      ],
+      "clear_eyes": 0
+    },
+    {
+      "source_xyz_NOT_LED": [
+        61.0,
+        18.0,
+        -12.6
+      ],
+      "clear_eyes": 0
+    },
+    {
+      "source_xyz_NOT_LED": [
+        61.0,
+        18.0,
+        -11.1
+      ],
+      "clear_eyes": 0
+    },
+    {
+      "source_xyz_NOT_LED": [
+        61.0,
+        18.0,
+        -9.6
+      ],
+      "clear_eyes": 0
+    },
+    {
+      "source_xyz_NOT_LED": [
+        61.0,
+        20.0,
+        -12.6
+      ],
+      "clear_eyes": 0
+    },
+    {
+      "source_xyz_NOT_LED": [
+        61.0,
+        20.0,
+        -11.1
+      ],
+      "clear_eyes": 2
+    },
+    {
+      "source_xyz_NOT_LED": [
+        61.0,
+        20.0,
+        -9.6
+      ],
+      "clear_eyes": 2
+    },
+    {
+      "source_xyz_NOT_LED": [
+        61.0,
+        22.0,
+        -12.6
+      ],
+      "clear_eyes": 2
+    },
+    {
+      "source_xyz_NOT_LED": [
+        61.0,
+        22.0,
+        -11.1
+      ],
+      "clear_eyes": 4
+    },
+    {
+      "source_xyz_NOT_LED": [
+        61.0,
+        22.0,
+        -9.6
+      ],
+      "clear_eyes": 4
+    },
+    {
+      "source_xyz_NOT_LED": [
+        61.0,
+        24.0,
+        -12.6
+      ],
+      "clear_eyes": 2
+    },
+    {
+      "source_xyz_NOT_LED": [
+        61.0,
+        24.0,
+        -11.1
+      ],
+      "clear_eyes": 4
+    },
+    {
+      "source_xyz_NOT_LED": [
+        61.0,
+        24.0,
+        -9.6
+      ],
+      "clear_eyes": 4
+    },
+    {
+      "source_xyz_NOT_LED": [
+        61.0,
+        26.0,
+        -12.6
+      ],
+      "clear_eyes": 2
+    },
+    {
+      "source_xyz_NOT_LED": [
+        61.0,
+        26.0,
+        -11.1
+      ],
+      "clear_eyes": 4
+    },
+    {
+      "source_xyz_NOT_LED": [
+        61.0,
+        26.0,
+        -9.6
+      ],
+      "clear_eyes": 4
+    },
+    {
+      "source_xyz_NOT_LED": [
+        61.0,
+        28.0,
+        -12.6
+      ],
+      "clear_eyes": 2
+    },
+    {
+      "source_xyz_NOT_LED": [
+        61.0,
+        28.0,
+        -11.1
+      ],
+      "clear_eyes": 4
+    },
+    {
+      "source_xyz_NOT_LED": [
+        61.0,
+        28.0,
+        -9.6
+      ],
+      "clear_eyes": 4
+    },
+    {
+      "source_xyz_NOT_LED": [
+        63.0,
+        12.0,
+        -12.6
+      ],
+      "clear_eyes": 0
+    },
+    {
+      "source_xyz_NOT_LED": [
+        63.0,
+        12.0,
+        -11.1
+      ],
+      "clear_eyes": 0
+    },
+    {
+      "source_xyz_NOT_LED": [
+        63.0,
+        12.0,
+        -9.6
+      ],
+      "clear_eyes": 0
+    },
+    {
+      "source_xyz_NOT_LED": [
+        63.0,
+        14.0,
+        -12.6
+      ],
+      "clear_eyes": 0
+    },
+    {
+      "source_xyz_NOT_LED": [
+        63.0,
+        14.0,
+        -11.1
+      ],
+      "clear_eyes": 0
+    },
+    {
+      "source_xyz_NOT_LED": [
+        63.0,
+        14.0,
+        -9.6
+      ],
+      "clear_eyes": 0
+    },
+    {
+      "source_xyz_NOT_LED": [
+        63.0,
+        16.0,
+        -12.6
+      ],
+      "clear_eyes": 0
+    },
+    {
+      "source_xyz_NOT_LED": [
+        63.0,
+        16.0,
+        -11.1
+      ],
+      "clear_eyes": 0
+    },
+    {
+      "source_xyz_NOT_LED": [
+        63.0,
+        16.0,
+        -9.6
+      ],
+      "clear_eyes": 0
+    },
+    {
+      "source_xyz_NOT_LED": [
+        63.0,
+        18.0,
+        -12.6
+      ],
+      "clear_eyes": 0
+    },
+    {
+      "source_xyz_NOT_LED": [
+        63.0,
+        18.0,
+        -11.1
+      ],
+      "clear_eyes": 0
+    },
+    {
+      "source_xyz_NOT_LED": [
+        63.0,
+        18.0,
+        -9.6
+      ],
+      "clear_eyes": 0
+    },
+    {
+      "source_xyz_NOT_LED": [
+        63.0,
+        20.0,
+        -12.6
+      ],
+      "clear_eyes": 0
+    },
+    {
+      "source_xyz_NOT_LED": [
+        63.0,
+        20.0,
+        -11.1
+      ],
+      "clear_eyes": 0
+    },
+    {
+      "source_xyz_NOT_LED": [
+        63.0,
+        20.0,
+        -9.6
+      ],
+      "clear_eyes": 0
+    },
+    {
+      "source_xyz_NOT_LED": [
+        63.0,
+        22.0,
+        -12.6
+      ],
+      "clear_eyes": 0
+    },
+    {
+      "source_xyz_NOT_LED": [
+        63.0,
+        22.0,
+        -11.1
+      ],
+      "clear_eyes": 0
+    },
+    {
+      "source_xyz_NOT_LED": [
+        63.0,
+        22.0,
+        -9.6
+      ],
+      "clear_eyes": 0
+    },
+    {
+      "source_xyz_NOT_LED": [
+        63.0,
+        24.0,
+        -12.6
+      ],
+      "clear_eyes": 2
+    },
+    {
+      "source_xyz_NOT_LED": [
+        63.0,
+        24.0,
+        -11.1
+      ],
+      "clear_eyes": 4
+    },
+    {
+      "source_xyz_NOT_LED": [
+        63.0,
+        24.0,
+        -9.6
+      ],
+      "clear_eyes": 4
+    },
+    {
+      "source_xyz_NOT_LED": [
+        63.0,
+        26.0,
+        -12.6
+      ],
+      "clear_eyes": 2
+    },
+    {
+      "source_xyz_NOT_LED": [
+        63.0,
+        26.0,
+        -11.1
+      ],
+      "clear_eyes": 4
+    },
+    {
+      "source_xyz_NOT_LED": [
+        63.0,
+        26.0,
+        -9.6
+      ],
+      "clear_eyes": 4
+    },
+    {
+      "source_xyz_NOT_LED": [
+        63.0,
+        28.0,
+        -12.6
+      ],
+      "clear_eyes": 2
+    },
+    {
+      "source_xyz_NOT_LED": [
+        63.0,
+        28.0,
+        -11.1
+      ],
+      "clear_eyes": 4
+    },
+    {
+      "source_xyz_NOT_LED": [
+        63.0,
+        28.0,
+        -9.6
+      ],
+      "clear_eyes": 4
+    },
+    {
+      "source_xyz_NOT_LED": [
+        65.0,
+        12.0,
+        -12.6
+      ],
+      "clear_eyes": 0
+    },
+    {
+      "source_xyz_NOT_LED": [
+        65.0,
+        12.0,
+        -11.1
+      ],
+      "clear_eyes": 0
+    },
+    {
+      "source_xyz_NOT_LED": [
+        65.0,
+        12.0,
+        -9.6
+      ],
+      "clear_eyes": 0
+    },
+    {
+      "source_xyz_NOT_LED": [
+        65.0,
+        14.0,
+        -12.6
+      ],
+      "clear_eyes": 0
+    },
+    {
+      "source_xyz_NOT_LED": [
+        65.0,
+        14.0,
+        -11.1
+      ],
+      "clear_eyes": 0
+    },
+    {
+      "source_xyz_NOT_LED": [
+        65.0,
+        14.0,
+        -9.6
+      ],
+      "clear_eyes": 0
+    },
+    {
+      "source_xyz_NOT_LED": [
+        65.0,
+        16.0,
+        -12.6
+      ],
+      "clear_eyes": 0
+    },
+    {
+      "source_xyz_NOT_LED": [
+        65.0,
+        16.0,
+        -11.1
+      ],
+      "clear_eyes": 0
+    },
+    {
+      "source_xyz_NOT_LED": [
+        65.0,
+        16.0,
+        -9.6
+      ],
+      "clear_eyes": 0
+    },
+    {
+      "source_xyz_NOT_LED": [
+        65.0,
+        18.0,
+        -12.6
+      ],
+      "clear_eyes": 0
+    },
+    {
+      "source_xyz_NOT_LED": [
+        65.0,
+        18.0,
+        -11.1
+      ],
+      "clear_eyes": 0
+    },
+    {
+      "source_xyz_NOT_LED": [
+        65.0,
+        18.0,
+        -9.6
+      ],
+      "clear_eyes": 0
+    },
+    {
+      "source_xyz_NOT_LED": [
+        65.0,
+        20.0,
+        -12.6
+      ],
+      "clear_eyes": 0
+    },
+    {
+      "source_xyz_NOT_LED": [
+        65.0,
+        20.0,
+        -11.1
+      ],
+      "clear_eyes": 0
+    },
+    {
+      "source_xyz_NOT_LED": [
+        65.0,
+        20.0,
+        -9.6
+      ],
+      "clear_eyes": 0
+    },
+    {
+      "source_xyz_NOT_LED": [
+        65.0,
+        22.0,
+        -12.6
+      ],
+      "clear_eyes": 0
+    },
+    {
+      "source_xyz_NOT_LED": [
+        65.0,
+        22.0,
+        -11.1
+      ],
+      "clear_eyes": 0
+    },
+    {
+      "source_xyz_NOT_LED": [
+        65.0,
+        22.0,
+        -9.6
+      ],
+      "clear_eyes": 0
+    },
+    {
+      "source_xyz_NOT_LED": [
+        65.0,
+        24.0,
+        -12.6
+      ],
+      "clear_eyes": 0
+    },
+    {
+      "source_xyz_NOT_LED": [
+        65.0,
+        24.0,
+        -11.1
+      ],
+      "clear_eyes": 0
+    },
+    {
+      "source_xyz_NOT_LED": [
+        65.0,
+        24.0,
+        -9.6
+      ],
+      "clear_eyes": 0
+    },
+    {
+      "source_xyz_NOT_LED": [
+        65.0,
+        26.0,
+        -12.6
+      ],
+      "clear_eyes": 0
+    },
+    {
+      "source_xyz_NOT_LED": [
+        65.0,
+        26.0,
+        -11.1
+      ],
+      "clear_eyes": 0
+    },
+    {
+      "source_xyz_NOT_LED": [
+        65.0,
+        26.0,
+        -9.6
+      ],
+      "clear_eyes": 0
+    },
+    {
+      "source_xyz_NOT_LED": [
+        65.0,
+        28.0,
+        -12.6
+      ],
+      "clear_eyes": 2
+    },
+    {
+      "source_xyz_NOT_LED": [
+        65.0,
+        28.0,
+        -11.1
+      ],
+      "clear_eyes": 4
+    },
+    {
+      "source_xyz_NOT_LED": [
+        65.0,
+        28.0,
+        -9.6
+      ],
+      "clear_eyes": 4
+    }
+  ],
+  "photometry_and_real_C05": false,
+  "notes": [
+    "no three LD positions assigned",
+    "point rays only, finite source and refraction not qualified",
+    "failure over hypothetical domain is not actual LED obstruction proof"
+  ]
+}

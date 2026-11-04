@@ -1,0 +1,105 @@
+{
+  "initial_head": "39c33c69a502d19c6590adffac0ccf847d9f0e34",
+  "files": [
+    {
+      "path": "Modbus RTU/04_Architecture/SHIELD_PROTO_V1/docs/ETUDE_VITRAGE_USER_V1_7/CAO-controles.json",
+      "bytes": 641,
+      "sha256": "2c4a8bc6e10e55dd498d116ecb88436762eb9c63c276e61c9cfe158c10d7c34c"
+    },
+    {
+      "path": "Modbus RTU/04_Architecture/SHIELD_PROTO_V1/docs/ETUDE_VITRAGE_USER_V1_7/CHECKLIST.md",
+      "bytes": 3161,
+      "sha256": "0b8a20cde6d5eeb395efdc441a91f131c1a8cce0342d9afffcf9830e9689397a"
+    },
+    {
+      "path": "Modbus RTU/04_Architecture/SHIELD_PROTO_V1/docs/ETUDE_VITRAGE_USER_V1_7/NOTE_DECISION.md",
+      "bytes": 6398,
+      "sha256": "7eb3331f3f921ea52e0ab2b74c6515e7633c832de277a5fb7dcb1eb16e3aa67a"
+    },
+    {
+      "path": "Modbus RTU/04_Architecture/SHIELD_PROTO_V1/docs/ETUDE_VITRAGE_USER_V1_7/SOURCES.md",
+      "bytes": 3785,
+      "sha256": "02361c869c582027176d94a75d1e8cae82d9b12a89140bcf97305d650cb26b0b"
+    },
+    {
+      "path": "Modbus RTU/04_Architecture/SHIELD_PROTO_V1/docs/ETUDE_VITRAGE_USER_V1_7/chaine_USER.json",
+      "bytes": 846,
+      "sha256": "416bd6d929850a18b031005689e453775a0818c52d6b2a48062c581d436344b1"
+    },
+    {
+      "path": "Modbus RTU/04_Architecture/SHIELD_PROTO_V1/docs/ETUDE_VITRAGE_USER_V1_7/conservation.json",
+      "bytes": 54253,
+      "sha256": "d529f03cf3932b13abcc91a29d2f9fe76ec7937c9be97b1c1d7c3e81c7cea795"
+    },
+    {
+      "path": "Modbus RTU/04_Architecture/SHIELD_PROTO_V1/docs/ETUDE_VITRAGE_USER_V1_7/interfaces-nord.json",
+      "bytes": 523,
+      "sha256": "0a94872ad87a4dc070903035211bc50ea1beb6bce4d80a9422bb97dadc0162d7"
+    },
+    {
+      "path": "Modbus RTU/04_Architecture/SHIELD_PROTO_V1/docs/ETUDE_VITRAGE_USER_V1_7/optique.json",
+      "bytes": 38075,
+      "sha256": "d7eb6ab1c58de016ffbf42568326686a2e46a1d50d3ee5b3cce6be452e30e30d"
+    },
+    {
+      "path": "Modbus RTU/04_Architecture/SHIELD_PROTO_V1/docs/ETUDE_VITRAGE_USER_V1_7/validation-finale.json",
+      "bytes": 1416,
+      "sha256": "fb0f806a78fc3729c54c4579c698233ffddc4d644384a2fd9d23d66d5099324a"
+    },
+    {
+      "path": "Modbus RTU/04_Architecture/SHIELD_PROTO_V1/mechanical/V1_7/README.md",
+      "bytes": 3381,
+      "sha256": "81250b041cf2b23ba154a25caa63590782c3a5eb20bd900901f45964679a24cd"
+    },
+    {
+      "path": "Modbus RTU/04_Architecture/SHIELD_PROTO_V1/mechanical/V1_7/REVIEW_ONLY/user-principle.step",
+      "bytes": 297401,
+      "sha256": "bdbcaa0f2c476910e641a28f68e6eb56c81461da6c86bef84f8ab9e7cdf34bf9"
+    },
+    {
+      "path": "Modbus RTU/04_Architecture/SHIELD_PROTO_V1/mechanical/V1_7/REVIEW_ONLY/v17-study.step",
+      "bytes": 1598906,
+      "sha256": "db0716ee0de660d11b00a917ae591e868e17eec8a8d7ff1acbb9268f5c97c6e7"
+    },
+    {
+      "path": "Modbus RTU/04_Architecture/SHIELD_PROTO_V1/mechanical/V1_7/REVIEW_ONLY/v17-vues-coupes.pdf",
+      "bytes": 342821,
+      "sha256": "0e6db8d5712339e77adb77e27511ef704bb4f5df0f9ca5b3de448d5a513371b8"
+    },
+    {
+      "path": "Modbus RTU/04_Architecture/SHIELD_PROTO_V1/mechanical/V1_7/REVIEW_ONLY/vue-1.svg",
+      "bytes": 3836396,
+      "sha256": "528039f72b2c2cdfc7d86b413057a41650be9ba9b3b03c1f83ea6c22fb9a1c54"
+    },
+    {
+      "path": "Modbus RTU/04_Architecture/SHIELD_PROTO_V1/mechanical/V1_7/REVIEW_ONLY/vue-2.svg",
+      "bytes": 20868,
+      "sha256": "2053de676e97a1916e5ae36584d2b389ca4ba69ca9333cf0b48b1de4be48f606"
+    },
+    {
+      "path": "Modbus RTU/04_Architecture/SHIELD_PROTO_V1/mechanical/V1_7/REVIEW_ONLY/vue-3.svg",
+      "bytes": 23034,
+      "sha256": "7254c7860b68b0f78dd8f7566756c41b977be5955651a9ed9f31fa7f8b433e2c"
+    },
+    {
+      "path": "Modbus RTU/04_Architecture/SHIELD_PROTO_V1/mechanical/V1_7/REVIEW_ONLY/vue-4.svg",
+      "bytes": 35364,
+      "sha256": "1b971a9cd0b7eb7e016b8fc921abe48614d58214a3d140dcbca2191bf363ae73"
+    },
+    {
+      "path": "Modbus RTU/04_Architecture/SHIELD_PROTO_V1/mechanical/V1_7/REVIEW_ONLY/window-principle.step",
+      "bytes": 166824,
+      "sha256": "c3afec0a24d001e8e84ccb01f5ce3102f6321486286fd9566f8611aee1df696f"
+    },
+    {
+      "path": "Modbus RTU/04_Architecture/SHIELD_PROTO_V1/mechanical/V1_7/parameters.json",
+      "bytes": 2568,
+      "sha256": "38178486c9dbebf43cff55f658377121bf2e06eb19a92478a62f62504676f954"
+    },
+    {
+      "path": "Modbus RTU/04_Architecture/SHIELD_PROTO_V1/tools/study_v17.py",
+      "bytes": 16187,
+      "sha256": "42a26840ce3bff827974ce221a2b1c30b49777c49584a24599e6145f3ff9fb90"
+    }
+  ]
+}

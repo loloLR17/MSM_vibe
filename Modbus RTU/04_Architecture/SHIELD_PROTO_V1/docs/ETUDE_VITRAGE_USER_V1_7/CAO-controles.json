@@ -1,0 +1,26 @@
+{
+  "STEP_reopened": [
+    {
+      "path": "window-principle.step",
+      "solids": 4,
+      "volume": 3014.3468408963763
+    },
+    {
+      "path": "user-principle.step",
+      "solids": 6,
+      "volume": 2314.3653051066326
+    },
+    {
+      "path": "v17-study.step",
+      "solids": 18,
+      "volume": 62229.41389531557
+    }
+  ],
+  "parts": 18,
+  "rod_guide_rest_and_stop_volume_overlap_zero": true,
+  "head_panel_rest_and_stop_volume_overlap_zero": true,
+  "head_to_panel_clearance_at_stop_mm": 0.4,
+  "frame_plate_gasket_overlap_zero": true,
+  "physical_fit": false,
+  "spring_and_adjustment_threads_not_manufacturing_model": true
+}

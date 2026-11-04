@@ -1,0 +1,147 @@
+{
+  "mission_id": "TR2-20261104-SHIELD-V17-VITRAGE-USER",
+  "status": "STUDY_ONLY_NOT_FOR_MANUFACTURE",
+  "coordinates": "X/Y KiCad, north Y decreasing; Z=0 shield top; CAD Y=-Y",
+  "observations_user": {
+    "B1_top_above_Nucleo_mm": 10.2,
+    "B1_first_click_travel_approx_mm": 0.4,
+    "LED_lateral_nearly_horizontal_visible_without_shield_on_TR2_001": true,
+    "photograph_reported_several_LED_not_available_as_calibrated_file": true
+  },
+  "actual_C05_centres": {
+    "LD1": null,
+    "LD2": null,
+    "LD3": null,
+    "B1": null
+  },
+  "scenario": {
+    "G_Zio_mm": 11,
+    "shield_thickness_mm": 1.6,
+    "lid_z_mm": [
+      37,
+      40
+    ],
+    "source_domain_NOT_LED_positions": [
+      [
+        45,
+        12,
+        -12.6
+      ],
+      [
+        65,
+        28,
+        -9.6
+      ]
+    ],
+    "required_obstacle_reserve_mm": 1.5
+  },
+  "window_candidate": {
+    "wall": "north_STLINK_vertical",
+    "aperture_xz_mm": [
+      [
+        29,
+        -11
+      ],
+      [
+        45,
+        -3
+      ]
+    ],
+    "plate_xz_mm": [
+      [
+        27,
+        -13
+      ],
+      [
+        47,
+        -1
+      ]
+    ],
+    "frame_xz_mm": [
+      [
+        24,
+        -16
+      ],
+      [
+        50,
+        2
+      ]
+    ],
+    "wall_y_mm": [
+      -20,
+      -17
+    ],
+    "plate_thickness_mm": 1.5,
+    "gasket_free_mm": 0.8,
+    "gasket_compressed_scenario_mm": 0.6,
+    "screw_centres_xz_mm": [
+      [
+        25.5,
+        -14.5
+      ],
+      [
+        48.5,
+        -14.5
+      ],
+      [
+        25.5,
+        0.5
+      ],
+      [
+        48.5,
+        0.5
+      ]
+    ],
+    "screw_hole_mm": 2.2,
+    "status": "LATERAL_CANDIDATE_ONLY_OPTICAL_PATH_UNCONFIRMED"
+  },
+  "USER_principle": {
+    "actual_XY": null,
+    "illustration_axis_NOT_B1_xy": [
+      34,
+      124
+    ],
+    "corridor_xy_mm": [
+      [
+        28,
+        119
+      ],
+      [
+        40,
+        130
+      ]
+    ],
+    "rest_gap_target_mm": 0.6,
+    "rest_gap_scenario_mm": [
+      0.45,
+      0.75
+    ],
+    "external_stroke_target_mm": 1.6,
+    "external_stroke_scenario_mm": [
+      1.5,
+      1.7
+    ],
+    "activation_travel_scenario_NOT_tolerance_mm": [
+      0.3,
+      0.5
+    ],
+    "tip_spring_available_compression_target_mm": 1.5,
+    "shaft_diameter_mm": 4,
+    "guide_bore_mm": 4.4,
+    "two_guide_z_mm": [
+      [
+        0,
+        4
+      ],
+      [
+        33,
+        37
+      ]
+    ],
+    "axial_adjustment_plus_minus_mm": 2,
+    "F0_N": null,
+    "k_N_per_mm": null,
+    "B1_allowed_force_N": null,
+    "B1_manufacturer_part_number": null
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "Nucleo_top_z": -12.6,
+  "B1_top_z_from_user_height": -2.4000000000000004,
+  "rest_contact_tip_z": -1.8000000000000003,
+  "lid_inner_to_tip_mm": 38.8,
+  "external_travel_to_first_click_nominal_mm": 1.0,
+  "remaining_spring_compression_at_nominal_click_and_stop_mm": 0.6,
+  "remaining_compression_scenario_min_mm": 0.25,
+  "remaining_compression_scenario_max_mm": 0.95,
+  "worst_spring_compression_if_B1_does_not_move_mm": 1.25,
+  "spring_travel_reserve_mm": 0.25,
+  "gap_actual_must_be_adjusted_not_print_tolerance": true,
+  "force_conditions": [
+    "F0+k*(s_min-g_max-a_max) >= F_click_max, with friction allowance",
+    "F0+k*(s_max-g_min) <= F_allowed_min",
+    "compression_max < spring_available_travel; no hard bottom or coil bind"
+  ],
+  "F0_and_k_unknown_not_qualified": true,
+  "B1_MPN_force_curve_and_total_travel_unknown": true
+}

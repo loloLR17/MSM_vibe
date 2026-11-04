@@ -1,0 +1,36 @@
+{
+  "window_frame_xz": [
+    [
+      24,
+      -16
+    ],
+    [
+      50,
+      2
+    ]
+  ],
+  "STLINK_existing_blank_insert_xz": [
+    [
+      52,
+      -20
+    ],
+    [
+      84,
+      4
+    ]
+  ],
+  "ribbon_existing_blank_insert_xz": [
+    [
+      41,
+      4
+    ],
+    [
+      66,
+      25
+    ]
+  ],
+  "frame_to_STLINK_insert_horizontal_gap_mm": 2,
+  "frame_to_ribbon_insert_vertical_gap_mm": 2,
+  "aperture_to_STLINK_reserved_port_horizontal_gap_mm": 10,
+  "status": "NOMINAL_V15_ENVELOPES_ONLY_NOT_REAL_PLUG_FIT"
+}
