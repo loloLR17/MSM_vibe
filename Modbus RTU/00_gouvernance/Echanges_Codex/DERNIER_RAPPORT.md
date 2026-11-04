@@ -1,6 +1,6 @@
 ---
 mission_id: TR2-20261104-SHIELD-V14-J5-2X2
-status: IN_PROGRESS
+status: BLOCKED
 base_ref: main
 base_sha: fa49923a124607bed2c3a4e9b40d86bec98eadd9
 initial_head: 5890556a512de816a2251c77e2bc128578ba6750
@@ -18,7 +18,7 @@ allow_debug: false
 
 **CAD_VERIFIED (nominal), READY_FOR_PHYSICAL_TEMPLATE_CHECK, BLOCKED_FABRICATION. NE PAS COMMANDER.** Le format 2 × 3 et le déplacement de l’ancrage Click sont intégrés conformément à la décision explicite de l’utilisateur. Seule CN12-69/PG4 rejoint RTU_DE ; les cinq autres contacts sont NC indépendants côté shield. Aucune modification des Nucleo.
 
-Rapport provisoire IN_PROGRESS : publication et relecture distante restent à réaliser. Le blocage de fabrication est distinct : hauteur naturelle Zio, ajustement sur les deux C05, enveloppes et tolérances non démontrés physiquement.
+Publication et relecture distante effectuées sur `118363431d3eda9cce9943eda82bf3d46c293e7e` : les 107 fichiers modifiés ont été relus intégralement depuis la référence récupérée de GitHub et comparés octet pour octet aux fichiers locaux. Preuve : `archives/TR2-20261104-SHIELD-V14-J5-2X2/REMOTE_READBACK.json`. Le statut BLOCKED concerne exclusivement la libération en fabrication : hauteur naturelle Zio, ajustement sur les deux C05, enveloppes et tolérances non démontrés physiquement. La tranche logicielle autorisée est terminée ; aucune validation physique n’est revendiquée.
 
 ## Contradiction résolue et autorisation
 
@@ -88,7 +88,7 @@ Validation proportionnée : mission purement CAO/documentaire, aucun changement 
 
 Dépôt principal historique propre à `82169af7e76797731358852bec83bfb0ceb54ccf` préservé ; aucun reset, merge, rebase ou nettoyage. Worktree isolé `MSM_vibe-SHIELD-V14-J5-2X2`, branche locale `codex/shield-v14-j5-2x2`, cible autorisée main, départ réel `5890556a512de816a2251c77e2bc128578ba6750`. Stashes `6251b988e8b20f97997a8f98fd26d4d35a45a1b2` et `f3b829e6188f491920edf74a5f9ed0f559d08b87`, autres worktrees, archives et campagnes préservés. Contrat copié dans la nouvelle archive de mission ; décision opérateur archivée. Aucun accès matériel, flash, debug, FRAM, microSD ou COM ; aucune soudure, impression ou commande.
 
-Commit de sources évaluées : `5d5bc5f8d118eebea9267fc2dfe6bd6d7be0bdbe`, « Shield V1.4: adapt authorized staggered CN12 connection to female 2x3 ». Le journal `ETAT_COURANT_TR2.md` est actualisé : rectification du quinconce, décision 2 × 3/ancrage, validations nominales, cotes acquises, budget et réserves C05. Permissions exercées : modifications, contrôles logiciels et commits ; push normal et relecture distante prévus ci-dessous, jamais force push.
+Commit de sources évaluées : `5d5bc5f8d118eebea9267fc2dfe6bd6d7be0bdbe`, « Shield V1.4: adapt authorized staggered CN12 connection to female 2x3 ». Le journal `ETAT_COURANT_TR2.md` est actualisé : rectification du quinconce, décision 2 × 3/ancrage, validations nominales, cotes acquises, budget et réserves C05. Permissions exercées : modifications, contrôles logiciels et commits ; push normal réalisé vers main puis relecture distante complète à `118363431d3eda9cce9943eda82bf3d46c293e7e`, jamais force push. État du worktree propre après cette publication ; la présente clôture documentaire fait l’objet d’un dernier commit/push normal avec contrôle distant et SHA fourni dans la réponse finale. Le dépôt principal reste propre à son HEAD historique, ses deux stashes inchangés.
 
 L’unique contrôle physique groupé restant avant libération : **gabarit 100 % sur les deux C05, emboîtement naturel Zio/J5 avec mesure de G et vue de profil**, puis dégagement des corps, queues, vis/entretoises et volumes MKIGIBV2/Click. À effectuer dans une intervention ultérieure autorisée ; pas de manipulation demandée dans cette mission. Les relevés 8,22/2,40 et 15,2 ne sont pas à refaire. Enveloppe de boîtier, guides LED, poussoir et détrompage automatique ne constituent pas des gates supplémentaires pour les PCB nus.
 
