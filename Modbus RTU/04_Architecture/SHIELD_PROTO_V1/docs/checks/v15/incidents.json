@@ -1,0 +1,36 @@
+{
+  "resolved": [
+    {
+      "operation": "Python environment creation",
+      "failure": "ensurepip unavailable in system Python3.13",
+      "resolution": "existing pip.pyz used in isolated cache venv; install log successful, no system package installed"
+    },
+    {
+      "operation": "first editable generator parse",
+      "failure": "missing keyword whitespace and literal newline in inserted string",
+      "resolution": "syntax corrected before successful complete exports and BRep/mesh tests; no validation removed"
+    },
+    {
+      "operation": "plot readability pass",
+      "failure": "Matplotlib shade=True + edgecolors=none raised broadcasting ValueError",
+      "resolution": "edge-color override removed, zero linewidth used; final PDF/image readback required after rerender"
+    },
+    {
+      "operation": "USER coupon review",
+      "failure": "initial head was flush at panel, preventing demonstrated travel",
+      "resolution": "head raised1mm; independent rest/stop positive-volume intersection assertions added; carrier supports added, no actual B1 qualification"
+    },
+    {
+      "operation": "final proof readback",
+      "failure": "system Python had no Pillow; inherited manifest referenced ignored/unversioned .prl absent in new worktree; initial expected-change list omitted intended interfaces.json update",
+      "resolution": "tool venv used; current manifest reconciled to72 real files with4 intended changes, missing local-preference record preserved explicitly; no historical report rewritten"
+    }
+  ],
+  "unresolved": [
+    {
+      "operation": "C05 manufacturing CAD",
+      "failure": "STJapan link404; ST.cn alternate schematic/ZIP download timeouts; no archive or placement received",
+      "impact": "C05 LED/USER/ports and real fit remain unknown"
+    }
+  ]
+}

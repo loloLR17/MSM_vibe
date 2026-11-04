@@ -1,0 +1,2 @@
+CadQuery 2.8.0 / cadquery-ocp 7.9.3.1.1; matplotlib 3.11.2; trimesh 5.2.0
+Cache-only Python environment; python3 -m venv lacked ensurepip, resolved using existing pip.pyz in isolated venv. No system installation or Windows policy change.

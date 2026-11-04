@@ -1,3 +1,5 @@
+> **Complément V1.5 prioritaire** : LED au nord, USER/RESET au sud ; centres inconnus. L’assemblage 3D est dans mechanical/V1_5. L’accès optique et USER susceptible d’impacter le PCB est désormais un gate AVANT commande, voir DECISION_LIBERATION_PCB_V1_5.md. Les anciennes mentions de report ergonomique après PCB ne valent plus pour ces interfaces.
+
 # Assemblage futur V1.4 — quinconce reçu par une femelle2×3
 
 Aucune manipulation physique dans la mission actuelle. **NE PAS COMMANDER**, vérifier d'abord PRECOMMANDE_V1_4.md et PINOUT_ET_Z_V1_4.md.

@@ -1,3 +1,5 @@
+> **Intégration mécanique V1.5 disponible** : [assemblage éditable et vues](mechanical/V1_5/README.md), [décision avant PCB](docs/DECISION_LIBERATION_PCB_V1_5.md), [maturité du boîtier](docs/MATURITE_BOITIER_V1_5.md), [LED/USER](docs/OPTIQUE_USER_V1_5.md). Le PCB reste V1.4 inchangé. **READY_FOR_PHYSICAL_CHECK / BLOCKED_FABRICATION** : les guides LED/USER doivent être vérifiés AVANT commande s’ils impactent la géométrie du shield. Cette règle V1.5 remplace les phrases antérieures qui reportaient toute ergonomie après PCB. Aucune fabrication autorisée.
+
 # Shield TR2 V1.4 — femelle2×3 pour mâles CN12 en quinconce
 
 **BLOCKED_FABRICATION / NE PAS COMMANDER.** Mission `TR2-20261104-SHIELD-V14-J5-2X2` ; malgré son identifiant initial, le format2×3 et le déplacement de fixation ont été **autorisés par l'utilisateur durant l'exécution**. Aucun changementNucleo, achat, flash ou accèsmédia.

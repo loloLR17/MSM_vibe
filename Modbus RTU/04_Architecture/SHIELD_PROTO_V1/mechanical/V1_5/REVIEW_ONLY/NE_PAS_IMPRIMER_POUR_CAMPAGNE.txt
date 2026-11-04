@@ -1,0 +1,7 @@
+CONCEPT V1.5 — READY_FOR_PHYSICAL_CHECK / BLOCKED_FABRICATION
+NE PAS COMMANDER LE PCB, NE PAS IMPRIMER POUR UNE CAMPAGNE.
+Les fichiers STL sont des solides nominalement valides, pas un kit de boîtier fonctionnel libéré.
+Panneaux USER/LED et inserts de câble volontairement aveugles.
+Le coupon USER/3 guides est séparé de la Nucleo; aucun centre C05 ni trajet optique inventé.
+Dimensions réelles C05, G Zio, LED/USER, ports/modules et effort/course B1 à vérifier.
+Lire README et les notes de décision/maturité. Aucun achat/flash/manipulation permis dans cette mission.

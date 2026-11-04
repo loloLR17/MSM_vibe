@@ -1,0 +1,82 @@
+{
+  "status": "PASS",
+  "STEP_files": [
+    {
+      "file": "Case_base_PETG_CONCEPT.step",
+      "solids": 1,
+      "valid": true
+    },
+    {
+      "file": "Case_lid_PETG_CONCEPT.step",
+      "solids": 1,
+      "valid": true
+    },
+    {
+      "file": "Insert_CN15_5V_BLANK.step",
+      "solids": 1,
+      "valid": true
+    },
+    {
+      "file": "Insert_CN1_STLINK_BLANK.step",
+      "solids": 1,
+      "valid": true
+    },
+    {
+      "file": "Insert_RS485_wire_BLANK.step",
+      "solids": 1,
+      "valid": true
+    },
+    {
+      "file": "Insert_microSD_BLANK.step",
+      "solids": 1,
+      "valid": true
+    },
+    {
+      "file": "Insert_ribbon_BLANK.step",
+      "solids": 1,
+      "valid": true
+    },
+    {
+      "file": "LED_panel_blank.step",
+      "solids": 1,
+      "valid": true
+    },
+    {
+      "file": "RS485_tool_cover.step",
+      "solids": 1,
+      "valid": true
+    },
+    {
+      "file": "USER_panel_blank.step",
+      "solids": 1,
+      "valid": true
+    },
+    {
+      "file": "assembly-review.step",
+      "solids": 171,
+      "valid": true
+    },
+    {
+      "file": "operator-principle-NOT-C05.step",
+      "solids": 8,
+      "valid": true
+    },
+    {
+      "file": "section-X60.step",
+      "solids": 90,
+      "valid": true
+    },
+    {
+      "file": "section-Y92.step",
+      "solids": 46,
+      "valid": true
+    },
+    {
+      "file": "window-alternative-NOT-OPTICAL-VALIDATION.step",
+      "solids": 2,
+      "valid": true
+    }
+  ],
+  "coupon_rod_clear_of_carrier_and_plate_at_rest_and_1mm": true,
+  "actual_C05_fit": "NOT_TESTED"
+}

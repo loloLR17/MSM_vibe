@@ -131,7 +131,9 @@
     "nominal_width_mm": 7.62,
     "design_bend_radius_proposal_mm": 10,
     "minimum_radius_manufacturer_mm": null,
-    "connector_cote_confirmed": false
+    "connector_cote_confirmed": false,
+    "cable_source_v15": "ST indexedMKI208BOM:3M3749/12,12wires,0.635mm pitch,30cm; titleMKI209 discrepancy preserved",
+    "connector_source_v15": "SamtecFFSD-06-01-N,2x6/1.27mm catalogue11.81x5.08 body, actualposeunknown"
   },
   "operator": {
     "nucleo_reference": "UM2861Rev4 image, C05 parity not demonstrated",
@@ -180,7 +182,19 @@
         136
       ]
     ],
-    "port_regions_status": "functional reservation from manufacturer image; NOT connector dimensions/positions released for cutting"
+    "port_regions_status": "functional reservation from manufacturer image; NOT connector dimensions/positions released for cutting",
+    "control_bay_xy_note": "USER/RESET south only; LD1/2/3 are NORTH per UM2861Rev8Fig4. Previous common bay label was incorrect.",
+    "led_inspection_region_xy": [
+      [
+        45,
+        12
+      ],
+      [
+        65,
+        28
+      ]
+    ],
+    "led_region_status": "broad inspection sector only, not actual LED centres or tolerances"
   },
   "power": {
     "source": "external existing5V mains adapter viaCN15; mains230V stays outside TR2 enclosure",
@@ -201,7 +215,8 @@
   "missing": {
     "C05_PCB_GATE": "Exact C05 centres and natural Zio stack/clearances still unverified; male tip8.22/body2.40 user measurements acquired, do not repeat",
     "module_PCB_GATE": "MKI nominal body envelope and actual Click revision must fit reserved socket/anchor/isolation zones; no new row-pitch/ground measurement requested",
-    "deferred_after_PCB": "exact clip pads, enclosure cuts, LED centres,USER plunger,cable saddles; no automatic-key gate"
+    "deferred_after_PCB": "superseded by V1.5: actual LED/USER routes affecting PCB geometry must be resolved BEFORE ordering; only final case detail sizes may be deferred",
+    "operator_PCB_GATE": "C05 LED/USER centres null; north LED sector may be covered by shield/MKI. Cannot assert no PCB opening necessary."
   },
   "automatic_keying": "NOT_REQUIRED_BY_USER_FOR_TWO_PROTOTYPES",
   "J5": {
@@ -224,5 +239,6 @@
     "operator_plastic_height_mm": 2.4,
     "nominal_female_height_mm": 8.51,
     "actual_Zio_stack": "UNKNOWN"
-  }
+  },
+  "integration_review_revision": "1.5"
 }

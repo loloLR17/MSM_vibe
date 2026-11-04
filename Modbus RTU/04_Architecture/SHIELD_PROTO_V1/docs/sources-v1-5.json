@@ -1,0 +1,102 @@
+{
+  "mission_id": "TR2-20261104-SHIELD-V15-INTEGRATION-3D",
+  "read_at_utc": "2026-11-04T11:35:02.546248+00:00",
+  "C05_manufacturing_CAD": "NOT_RECEIVED",
+  "new_download_attempts": [
+    {
+      "name": "ST-C05-schematic.pdf",
+      "url": "https://www.st.com.cn/resource/en/schematic_pack/mb1549-u575ziq-c05-schematic.pdf",
+      "error": "The read operation timed out",
+      "seconds": 18.74
+    },
+    {
+      "name": "ST-C05-bdp.zip",
+      "url": "https://www.st.com.cn/resource/en/board_manufacturing_specification/mb1549-bdp.zip",
+      "error": "<urlopen error _ssl.c:1012: The handshake operation timed out>",
+      "seconds": 14.38
+    },
+    {
+      "name": "Bivar-PLP5.pdf",
+      "url": "https://www.bivar.com/parts_content/Datasheets/PLP5-XXX.pdf",
+      "error": "HTTP Error 403: Forbidden",
+      "seconds": 9.53
+    }
+  ],
+  "optical_documents_received": [
+    {
+      "name": "Mentor-ll14-61.pdf",
+      "url": "https://www.mentor.de.com/productpdfs/ll/ll14-61.pdf",
+      "bytes": 181204,
+      "sha256": "9abaa0855732f4bfb27fa816d4ffce10082e31f6ab06393433cfe7f702c66d13"
+    },
+    {
+      "name": "Bivar-PLP1-mirror.pdf",
+      "url": "https://media.digikey.com/pdf/Data%20Sheets/Bivar%20Inc%20PDFs/PLP1.pdf",
+      "bytes": 427171,
+      "sha256": "ab49f61d8b1f0df7660d1df784db8fbbe5638f2288d2d79e91adae4e7c0b9e47"
+    }
+  ],
+  "primary_documentation_consulted": [
+    {
+      "url": "https://www.stmcu.jp/design/hwdevelop/other/87426/",
+      "result": "official STJapan design-project page links to download?dlid=87426_en, returned404; no alternative ZIP received"
+    },
+    {
+      "url": "https://www.st.com/resource/en/schematic_pack/mb1549-u575ziq-c05-schematic.pdf",
+      "result": "web text/index consulted, C05 title/date and B1 PC13, CN15 identification; local raw PDF transfer did not succeed. Schematic is not placement CAD."
+    },
+    {
+      "url": "https://www.st.com/resource/en/user_manual/dm00789949.pdf",
+      "result": "indexed Rev10 revision history: C05 obsolescence updates including LEDs; not a mechanical parity proof"
+    },
+    {
+      "url": "https://www.st.com/resource/en/bill_of_materials/steval-mki208v1k_bom.pdf",
+      "result": "indexed ST BOM names FFSD-06-01-N and30cm0.635pitch12wire3M3749/12. Header saysMKI209 while body itemMKI208; do not silently infer module geometry from it."
+    },
+    {
+      "url": "https://suddendocs.samtec.com/catalog_english/ffsd.pdf",
+      "result": "catalogue consulted; sixpositions body nominal6*1.27+4.19=11.81mm, no actual IDC centre on MKI obtained"
+    },
+    {
+      "url": "https://www.bivar.com/parts_content/Datasheets/PLP1-XXX-F.pdf",
+      "result": "web index/drawing consulted, direct PLP5 file403 is distinct; manufacturer catalogue mirror received forPLP1"
+    },
+    {
+      "url": "https://www.mentor.de.com/bauelemente/en/product/en-1216-1002/",
+      "result": "product page + manufacturer drawing; drawing governs hole3.6 for1002,4 for1001; do not confuse dimensions"
+    }
+  ],
+  "price_option": {
+    "mpn": "PLP1-250-F",
+    "url": "https://www.digikey.com/en/products/detail/bivar-inc/PLP1-250-F/586481",
+    "currency": "USD",
+    "unit": 0.69,
+    "qty_for_two": 6,
+    "total": 4.14,
+    "displayed_stock": 54821,
+    "qualified_for_TR2": false,
+    "shipping_tax": "unknown, not reserved"
+  },
+  "reused_manifests": [
+    "sources-v1-1.json",
+    "sources-v1-3.json",
+    "sources-v1-4.json"
+  ],
+  "firmware_read_only_reference": {
+    "path": "experiments/r3_durable_fat32/src/standalone_board.inc",
+    "sha256": "b887b667fc5186ea3bfe4fd5df4e46b662a14739cc805fce8d756ff3eb744355",
+    "claims": "PC7/PB7/PG2 output states, PC13 user input; no hardware read or firmware change"
+  },
+  "Adafruit_SD_STEP": {
+    "path": "mechanical/V1_5/models/Adafruit_4682.step",
+    "source_url": "https://github.com/adafruit/Adafruit_CAD_Parts/tree/6c5cd9e3e65252bb5d5339608cf8d3cdabcef251/4682%20Micro%20SD%20Breakout",
+    "sha256": "195927fa6892b80caf19cd01887e84f1202026665b393f9c8c9f399fa6b4d6e8",
+    "license": "CC-BY-SA3.0; root shield license retained"
+  },
+  "Click_original_STEP_inspection": {
+    "source_local": "/home/lolo/dev/msm/reports/TR2-shield-proto-v1-20261102/sources/click-mechanical/RS485_Isolator_2_click_v101.step",
+    "sha256": "ff4eed56c5ac02656b4a2f14e99e96460be65ddf18da9a824a52051984cf608e",
+    "solids": 163,
+    "result": "v101 PCB57.15x25.4x1.59, total163solids, terminal up to8.5 above PCB top. Used as dimensional source for simplified envelopes; not a v102 detailed model."
+  }
+}

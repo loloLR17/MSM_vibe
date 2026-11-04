@@ -1,0 +1,120 @@
+{
+  "status": "PASS_GENERATED_NOMINAL_SOLIDS_ONLY",
+  "release": "READY_FOR_PHYSICAL_CHECK / BLOCKED_FABRICATION",
+  "assembly_named_parts": 67,
+  "STEP_readback_solids": 171,
+  "assertions": [
+    "critical unknowns remain null; no LED/USER part placed on Nucleo",
+    "Adafruit STEP/Eagle rigid transform:9 numbered pads +2 mounting centres match saved PCB",
+    "G11 example: J5 body gap0.09 and insertion5.73; no tolerance/physical PASS",
+    "isolated USER coupon: head has1mm travel before panel; no positive-volume plate/stop interference at rest and at1mm stop"
+  ],
+  "J5_G11_example": {
+    "gap_mm": 0.08999999999999986,
+    "insertion_mm": 5.73,
+    "G_actual": null
+  },
+  "LED_sector_shield_projection_overlap_xy": [
+    45,
+    17,
+    65,
+    28
+  ],
+  "LED_verdict": "BLOCKED: north sector intersects shield; exact C05 centres and clear path unknown. No PCB cut justified at exact coordinates yet.",
+  "USER_verdict": "BLOCKED: south sector generally beyond shield, but exact cap swept volume/centre/stroke unknown",
+  "coupon_only": {
+    "rest_gap_mm": 0.6,
+    "hard_stop_travel_mm": 1,
+    "diametral_guide_clearance_mm": 0.5,
+    "actual_button_force_stroke": "UNKNOWN; return spring and compliant tip still to size"
+  },
+  "STL_meshes": [
+    {
+      "file": "Insert_CN1_STLINK_BLANK.stl",
+      "watertight": true,
+      "positive_volume_mm3": 1520.8088610969037,
+      "connected_components": 1
+    },
+    {
+      "file": "USER_panel_blank.stl",
+      "watertight": true,
+      "positive_volume_mm3": 884.8088786165463,
+      "connected_components": 1
+    },
+    {
+      "file": "Insert_CN15_5V_BLANK.stl",
+      "watertight": true,
+      "positive_volume_mm3": 1664.8088610969037,
+      "connected_components": 1
+    },
+    {
+      "file": "Case_lid_PETG_CONCEPT.stl",
+      "watertight": true,
+      "positive_volume_mm3": 75055.88095579116,
+      "connected_components": 1
+    },
+    {
+      "file": "principle-guide.stl",
+      "watertight": true,
+      "positive_volume_mm3": 1546.7103323802346,
+      "connected_components": 1
+    },
+    {
+      "file": "principle-stop.stl",
+      "watertight": true,
+      "positive_volume_mm3": 469.3365758648088,
+      "connected_components": 1
+    },
+    {
+      "file": "Insert_RS485_wire_BLANK.stl",
+      "watertight": true,
+      "positive_volume_mm3": 2056.808856467464,
+      "connected_components": 1
+    },
+    {
+      "file": "Insert_ribbon_BLANK.stl",
+      "watertight": true,
+      "positive_volume_mm3": 1034.8088618168113,
+      "connected_components": 1
+    },
+    {
+      "file": "principle-plate.stl",
+      "watertight": true,
+      "positive_volume_mm3": 2004.8658472631116,
+      "connected_components": 1
+    },
+    {
+      "file": "Insert_microSD_BLANK.stl",
+      "watertight": true,
+      "positive_volume_mm3": 1344.8088586066806,
+      "connected_components": 1
+    },
+    {
+      "file": "RS485_tool_cover.stl",
+      "watertight": true,
+      "positive_volume_mm3": 944.8088929904625,
+      "connected_components": 1
+    },
+    {
+      "file": "LED_panel_blank.stl",
+      "watertight": true,
+      "positive_volume_mm3": 1492.808860943056,
+      "connected_components": 1
+    },
+    {
+      "file": "principle-rod.stl",
+      "watertight": true,
+      "positive_volume_mm3": 689.3290714979092,
+      "connected_components": 1
+    },
+    {
+      "file": "Case_base_PETG_CONCEPT.stl",
+      "watertight": true,
+      "positive_volume_mm3": 187727.67514761895,
+      "connected_components": 1
+    }
+  ],
+  "all_physical_fit": "NOT_TESTED",
+  "no_CAD_files_changed": "verified separately against initial HEAD",
+  "intentional_contacts": "pins/socket, board/supports, mating and covers; no claim of global collision-free assembly"
+}

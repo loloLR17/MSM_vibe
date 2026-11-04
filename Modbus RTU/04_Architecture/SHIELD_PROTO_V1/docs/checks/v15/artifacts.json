@@ -1,0 +1,205 @@
+{
+  "status": "PASS_READ_ALL",
+  "files_count": 48,
+  "files": {
+    "mechanical/V1_5/README.md": {
+      "bytes": 5032,
+      "sha256": "61a09e0e6717d5c4e7760a7a517346038d6b30eca26437aa487049c774e58d7a"
+    },
+    "mechanical/V1_5/REVIEW_ONLY/CONTROLE_PHYSIQUE_MINIMAL_2P.pdf": {
+      "bytes": 38088,
+      "sha256": "f1cf00dc15ffbca4dbc01b44912578710e89455766d8e53dca29e6cef725474f"
+    },
+    "mechanical/V1_5/REVIEW_ONLY/Case_base_PETG_CONCEPT.step": {
+      "bytes": 235891,
+      "sha256": "52ebdfa25a3b682ab09f546e3d81303f504baf42c71f5ad3d12762bc0335d6d9"
+    },
+    "mechanical/V1_5/REVIEW_ONLY/Case_base_PETG_CONCEPT.stl": {
+      "bytes": 391684,
+      "sha256": "0d46029ef8802dac2ef8c4d0eeed737021a937e795517061f953a1d7801d6aab"
+    },
+    "mechanical/V1_5/REVIEW_ONLY/Case_lid_PETG_CONCEPT.step": {
+      "bytes": 124970,
+      "sha256": "6996e239f78002c30ced0ae85eac53971b0bbfd06bf61181ff12cf25d8a591a2"
+    },
+    "mechanical/V1_5/REVIEW_ONLY/Case_lid_PETG_CONCEPT.stl": {
+      "bytes": 147284,
+      "sha256": "8c550100bd54438af398931c14c7245c70c9cc4a32516691e412e60790d6cb38"
+    },
+    "mechanical/V1_5/REVIEW_ONLY/Insert_CN15_5V_BLANK.step": {
+      "bytes": 22777,
+      "sha256": "11b6094c8e2cda0c1fa2ba66509d763f0871bb0d96e8343ca755dd6fde0aed0d"
+    },
+    "mechanical/V1_5/REVIEW_ONLY/Insert_CN15_5V_BLANK.stl": {
+      "bytes": 34684,
+      "sha256": "96cd8b5eaf564ba7723380c098ccdd27db9260c790b42f03799d8923de8f0c02"
+    },
+    "mechanical/V1_5/REVIEW_ONLY/Insert_CN1_STLINK_BLANK.step": {
+      "bytes": 22699,
+      "sha256": "ecc4186e27b62d168176d68de740608da7c1180db1b98dd4546bde20ec9206c5"
+    },
+    "mechanical/V1_5/REVIEW_ONLY/Insert_CN1_STLINK_BLANK.stl": {
+      "bytes": 34684,
+      "sha256": "274e25b80e542f8e156e333def68a33d4da160a9176ac0345d062bbc17a75c3a"
+    },
+    "mechanical/V1_5/REVIEW_ONLY/Insert_RS485_wire_BLANK.step": {
+      "bytes": 22773,
+      "sha256": "c28212b19d10ac4b6a051a909adb1bf5b02b0e3d97a76202d0721f98f9d34293"
+    },
+    "mechanical/V1_5/REVIEW_ONLY/Insert_RS485_wire_BLANK.stl": {
+      "bytes": 34684,
+      "sha256": "f474450ea096af151bbca68b89bebd99527f0a7c7546c486ffc67cce090388de"
+    },
+    "mechanical/V1_5/REVIEW_ONLY/Insert_microSD_BLANK.step": {
+      "bytes": 22697,
+      "sha256": "5cd546aa12d68463359948be1526dc7ce1d3bcdf324eda03ccaa75d0de33f093"
+    },
+    "mechanical/V1_5/REVIEW_ONLY/Insert_microSD_BLANK.stl": {
+      "bytes": 34684,
+      "sha256": "00769b9e8ee6095d37c49f645383b5d0c19abdb793ecb92a0987943d6c80bd3d"
+    },
+    "mechanical/V1_5/REVIEW_ONLY/Insert_ribbon_BLANK.step": {
+      "bytes": 22670,
+      "sha256": "0f64e0dd52ba228a9ec3e1986d961a227d4cc6147dcbc00d0b9f13824c0dc303"
+    },
+    "mechanical/V1_5/REVIEW_ONLY/Insert_ribbon_BLANK.stl": {
+      "bytes": 34684,
+      "sha256": "f70c9b23de05f0ad31b73e5eebb100e348e2dd2b4824136a9352899de965088c"
+    },
+    "mechanical/V1_5/REVIEW_ONLY/LED_panel_blank.step": {
+      "bytes": 24976,
+      "sha256": "b8369349f80fead90a7e6215a1a3e2d84c52c2574d1adc0cd5d02f3fb17bcc3c"
+    },
+    "mechanical/V1_5/REVIEW_ONLY/LED_panel_blank.stl": {
+      "bytes": 34684,
+      "sha256": "7b4fe52fe88c1ee3a721d9de1f40121a11b98f6d465d7849f689302863cf262d"
+    },
+    "mechanical/V1_5/REVIEW_ONLY/NE_PAS_IMPRIMER_POUR_CAMPAGNE.txt": {
+      "bytes": 582,
+      "sha256": "134ca031f107b571944cf05b6db6e120b39833e2172d18f052d5605e8060e1cc"
+    },
+    "mechanical/V1_5/REVIEW_ONLY/RS485_tool_cover.step": {
+      "bytes": 25052,
+      "sha256": "d5a4016ecf2d66f302c8dbff76314ec7357c1c3ed508b7f8899b3e0891b48a79"
+    },
+    "mechanical/V1_5/REVIEW_ONLY/RS485_tool_cover.stl": {
+      "bytes": 34684,
+      "sha256": "54293ef15b3e993759dc175aef0b2e425d95b04b709e90cf7fb4024cf481f817"
+    },
+    "mechanical/V1_5/REVIEW_ONLY/USER_panel_blank.step": {
+      "bytes": 25029,
+      "sha256": "41af01dd4ae5b05bdb4c66ecba658987360607611f14f84d624f337a3c323ffc"
+    },
+    "mechanical/V1_5/REVIEW_ONLY/USER_panel_blank.stl": {
+      "bytes": 34684,
+      "sha256": "2babe389a2d8f73d1550cc24c2e690ef783b5a1ac4ad7414cb2e693f54cbcb79"
+    },
+    "mechanical/V1_5/REVIEW_ONLY/assembly-bottom.png": {
+      "bytes": 87678,
+      "sha256": "369984930b31b6fdd8e31fe7976bbe13601d459fe36254b07f64844ac3a0b88b"
+    },
+    "mechanical/V1_5/REVIEW_ONLY/assembly-exploded.png": {
+      "bytes": 319608,
+      "sha256": "890541892931f17220cda4df8d33a9d0cdfc1c11486dc73d0089c283c1c75296"
+    },
+    "mechanical/V1_5/REVIEW_ONLY/assembly-isometric.png": {
+      "bytes": 214406,
+      "sha256": "24ff68833224afcd85b9dc52b6dcd38b8b690ca0c916d2d5ad49d5797cacb176"
+    },
+    "mechanical/V1_5/REVIEW_ONLY/assembly-profile.png": {
+      "bytes": 81647,
+      "sha256": "f1a0716081c9685e428a1e9c94e396182be8335735995a56cfdc0e46a5270b84"
+    },
+    "mechanical/V1_5/REVIEW_ONLY/assembly-review.step": {
+      "bytes": 7662542,
+      "sha256": "946c5bf6982597e3de7f86eda70765a1ed75e694e86f13d425466e4bbaee6358"
+    },
+    "mechanical/V1_5/REVIEW_ONLY/assembly-top.png": {
+      "bytes": 135481,
+      "sha256": "97ca40a7439f05da4d75dd12f13655c3529a8abe03bee14a5da7eb6425184752"
+    },
+    "mechanical/V1_5/REVIEW_ONLY/assembly-views-and-sections.pdf": {
+      "bytes": 5245493,
+      "sha256": "39092eaaaa19bee2c827b0ea0532a8fb67aa20135adc6e50da1bb3397cc33e98"
+    },
+    "mechanical/V1_5/REVIEW_ONLY/case-closed.png": {
+      "bytes": 157485,
+      "sha256": "559c2481a5cfbfe602d3f247149448ba6616ec5ab23b873a29bc62a43d7fd567"
+    },
+    "mechanical/V1_5/REVIEW_ONLY/operator-principle-NOT-C05.pdf": {
+      "bytes": 104138,
+      "sha256": "0194257e1564e57a53587b5a93208c1a9a2dbd6daf00d2dea14d625e259bd86c"
+    },
+    "mechanical/V1_5/REVIEW_ONLY/operator-principle-NOT-C05.png": {
+      "bytes": 156387,
+      "sha256": "5a22a3fa074c7de7411891aff467bc5c726e329aa8baed98eab5799540fd1dea"
+    },
+    "mechanical/V1_5/REVIEW_ONLY/operator-principle-NOT-C05.step": {
+      "bytes": 225977,
+      "sha256": "1bbe4ab5109321212df054d903fe4b14a2e6cb886644d863205b8aae2471ced4"
+    },
+    "mechanical/V1_5/REVIEW_ONLY/principle-guide.stl": {
+      "bytes": 78484,
+      "sha256": "64829a170687c53fae6157c78798009b539b1489c82ab0bea4ed442384372c81"
+    },
+    "mechanical/V1_5/REVIEW_ONLY/principle-plate.stl": {
+      "bytes": 102684,
+      "sha256": "fc2e85aee11d07af6275db70b17a5fdc49e32b2fe9eafe296cbb96fbeecdf2a5"
+    },
+    "mechanical/V1_5/REVIEW_ONLY/principle-rod.stl": {
+      "bytes": 67084,
+      "sha256": "3fd50150285436ce2e87da4a867181266208c2be9eb33b6a78f8d617e7965c8c"
+    },
+    "mechanical/V1_5/REVIEW_ONLY/principle-stop.stl": {
+      "bytes": 51684,
+      "sha256": "89ced1b91d1c03b7b020eaeaecee9bfc262737c829b687f3d3a162158254c2b2"
+    },
+    "mechanical/V1_5/REVIEW_ONLY/section-X60.png": {
+      "bytes": 192041,
+      "sha256": "391e0985ef28160f5fb799698e5b3bf13dcae335a9c74100349565780c64eb55"
+    },
+    "mechanical/V1_5/REVIEW_ONLY/section-X60.step": {
+      "bytes": 5740782,
+      "sha256": "9ab5a6569a4611fb1675488af53e33c644ac30e3c62eeb77cb428fc1190f3180"
+    },
+    "mechanical/V1_5/REVIEW_ONLY/section-Y92.png": {
+      "bytes": 162610,
+      "sha256": "f5777ea1884919b7e2358c63fccb0592093bfb7a42fbb6403c37843c0db49a4c"
+    },
+    "mechanical/V1_5/REVIEW_ONLY/section-Y92.step": {
+      "bytes": 3664160,
+      "sha256": "e2fe03323b0b1060b3f94e1a4621449622f1e7ca68a8a5656e231ba95b15f9b9"
+    },
+    "mechanical/V1_5/REVIEW_ONLY/window-alternative-NOT-OPTICAL-VALIDATION.step": {
+      "bytes": 73310,
+      "sha256": "3d31c940fe25424239b67ddda427ebc4f9d096c57945d33cacaa5204c328f409"
+    },
+    "mechanical/V1_5/models/Adafruit_4682.step": {
+      "bytes": 1164125,
+      "sha256": "195927fa6892b80caf19cd01887e84f1202026665b393f9c8c9f399fa6b4d6e8"
+    },
+    "mechanical/V1_5/parameters.json": {
+      "bytes": 6971,
+      "sha256": "dbc257faf8ef4e7b4847cdfef2fcd5498b079b3fcc844e22262c81ff98753ae5"
+    },
+    "mechanical/V1_5/requirements.txt": {
+      "bytes": 50,
+      "sha256": "085ec7fbad66f1faa35f513525185f28791dc5dbcc61dd8c3c75a01a43a4ca1a"
+    },
+    "tools/build_integration_v15.py": {
+      "bytes": 21749,
+      "sha256": "618e94b75a234e1ac4924c772fd564f8b300b9498bb2b9ee75f816190c81e910"
+    },
+    "tools/review_integration_v15.py": {
+      "bytes": 11366,
+      "sha256": "8aa0ba48ac2691005e309e7f8e3a5c8bd94fd237194b41c8af6bd91a0a8e58b4"
+    }
+  },
+  "legacy_current_artifacts": 72,
+  "legacy_only_changed": [
+    "exports/gabarit.svg",
+    "exports/interfaces-boitier.pdf",
+    "exports/interfaces-boitier.svg",
+    "mechanical/interfaces.json"
+  ]
+}

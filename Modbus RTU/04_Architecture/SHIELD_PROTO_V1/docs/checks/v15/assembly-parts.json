@@ -1,0 +1,1476 @@
+[
+  {
+    "name": "Shield_V14_exact_saved_outline_holes",
+    "origin": "saved PCB geometry + general thickness1.6",
+    "group": "electronics",
+    "status": "NOMINAL_NOT_PHYSICAL",
+    "volume_mm3": 14058.957749313138,
+    "solids": 1,
+    "bbox_CAD_xyz": [
+      [
+        20.0,
+        110.0
+      ],
+      [
+        -117.0,
+        -17.0
+      ],
+      [
+        -1.6,
+        0.0
+      ]
+    ]
+  },
+  {
+    "name": "Nucleo_OUTLINE_REFERENCE_NOT_C05",
+    "origin": "UM2861 prior reconstruction, mounting parity not proven",
+    "group": "electronics",
+    "status": "REFERENCE_OUTLINE_ONLY",
+    "volume_mm3": 14904.523896315024,
+    "solids": 1,
+    "bbox_CAD_xyz": [
+      [
+        21.75,
+        91.75
+      ],
+      [
+        -126.59,
+        6.75
+      ],
+      [
+        -14.2,
+        -12.6
+      ]
+    ]
+  },
+  {
+    "name": "J1_male_shield_body",
+    "origin": "Connfly body nominal",
+    "group": "electronics",
+    "status": "NOMINAL_NOT_PHYSICAL",
+    "volume_mm3": 322.57999999999987,
+    "solids": 1,
+    "bbox_CAD_xyz": [
+      [
+        77.07000000000001,
+        82.15
+      ],
+      [
+        -49.13,
+        -23.73
+      ],
+      [
+        -4.1,
+        -1.6
+      ]
+    ]
+  },
+  {
+    "name": "J1_Zio_socket_Nucleo",
+    "origin": "nominal socket8.5, real Zio unknown",
+    "group": "electronics",
+    "status": "NOMINAL_NOT_PHYSICAL",
+    "volume_mm3": 1096.7719999999997,
+    "solids": 1,
+    "bbox_CAD_xyz": [
+      [
+        77.07000000000001,
+        82.15
+      ],
+      [
+        -49.13,
+        -23.73
+      ],
+      [
+        -12.6,
+        -4.1
+      ]
+    ]
+  },
+  {
+    "name": "J1_mating_posts_nominal",
+    "origin": "nominal .635 posts; intentional socket overlap",
+    "group": "electronics",
+    "status": "NOMINAL_NOT_PHYSICAL",
+    "volume_mm3": 93.548199999999,
+    "solids": 20,
+    "bbox_CAD_xyz": [
+      [
+        78.02250000000001,
+        81.1975
+      ],
+      [
+        -48.1775,
+        -24.6825
+      ],
+      [
+        -10.2,
+        1.4000000000000004
+      ]
+    ]
+  },
+  {
+    "name": "J2_male_shield_body",
+    "origin": "Connfly body nominal",
+    "group": "electronics",
+    "status": "NOMINAL_NOT_PHYSICAL",
+    "volume_mm3": 258.06400000000014,
+    "solids": 1,
+    "bbox_CAD_xyz": [
+      [
+        31.349999999999998,
+        36.43
+      ],
+      [
+        -54.21,
+        -33.88999999999999
+      ],
+      [
+        -4.1,
+        -1.6
+      ]
+    ]
+  },
+  {
+    "name": "J2_Zio_socket_Nucleo",
+    "origin": "nominal socket8.5, real Zio unknown",
+    "group": "electronics",
+    "status": "NOMINAL_NOT_PHYSICAL",
+    "volume_mm3": 877.4176000000007,
+    "solids": 1,
+    "bbox_CAD_xyz": [
+      [
+        31.349999999999998,
+        36.43
+      ],
+      [
+        -54.21,
+        -33.88999999999999
+      ],
+      [
+        -12.6,
+        -4.1
+      ]
+    ]
+  },
+  {
+    "name": "J2_mating_posts_nominal",
+    "origin": "nominal .635 posts; intentional socket overlap",
+    "group": "electronics",
+    "status": "NOMINAL_NOT_PHYSICAL",
+    "volume_mm3": 74.83856000000122,
+    "solids": 16,
+    "bbox_CAD_xyz": [
+      [
+        32.302499999999995,
+        35.4775
+      ],
+      [
+        -53.2575,
+        -34.842499999999994
+      ],
+      [
+        -10.2,
+        1.4000000000000004
+      ]
+    ]
+  },
+  {
+    "name": "J3_male_shield_body",
+    "origin": "Connfly body nominal",
+    "group": "electronics",
+    "status": "NOMINAL_NOT_PHYSICAL",
+    "volume_mm3": 483.8700000000002,
+    "solids": 1,
+    "bbox_CAD_xyz": [
+      [
+        31.349999999999998,
+        36.43
+      ],
+      [
+        -94.85000000000001,
+        -56.75
+      ],
+      [
+        -4.1,
+        -1.6
+      ]
+    ]
+  },
+  {
+    "name": "J3_Zio_socket_Nucleo",
+    "origin": "nominal socket8.5, real Zio unknown",
+    "group": "electronics",
+    "status": "NOMINAL_NOT_PHYSICAL",
+    "volume_mm3": 1645.158000000001,
+    "solids": 1,
+    "bbox_CAD_xyz": [
+      [
+        31.349999999999998,
+        36.43
+      ],
+      [
+        -94.85000000000001,
+        -56.75
+      ],
+      [
+        -12.6,
+        -4.1
+      ]
+    ]
+  },
+  {
+    "name": "J3_mating_posts_nominal",
+    "origin": "nominal .635 posts; intentional socket overlap",
+    "group": "electronics",
+    "status": "NOMINAL_NOT_PHYSICAL",
+    "volume_mm3": 140.3222999999997,
+    "solids": 30,
+    "bbox_CAD_xyz": [
+      [
+        32.302499999999995,
+        35.4775
+      ],
+      [
+        -93.89750000000001,
+        -57.7025
+      ],
+      [
+        -10.2,
+        1.4000000000000004
+      ]
+    ]
+  },
+  {
+    "name": "J4_male_shield_body",
+    "origin": "Connfly body nominal",
+    "group": "electronics",
+    "status": "NOMINAL_NOT_PHYSICAL",
+    "volume_mm3": 548.3859999999997,
+    "solids": 1,
+    "bbox_CAD_xyz": [
+      [
+        77.07000000000001,
+        82.15
+      ],
+      [
+        -94.85,
+        -51.669999999999995
+      ],
+      [
+        -4.1,
+        -1.6
+      ]
+    ]
+  },
+  {
+    "name": "J4_Zio_socket_Nucleo",
+    "origin": "nominal socket8.5, real Zio unknown",
+    "group": "electronics",
+    "status": "NOMINAL_NOT_PHYSICAL",
+    "volume_mm3": 1864.5123999999994,
+    "solids": 1,
+    "bbox_CAD_xyz": [
+      [
+        77.07000000000001,
+        82.15
+      ],
+      [
+        -94.85,
+        -51.669999999999995
+      ],
+      [
+        -12.6,
+        -4.1
+      ]
+    ]
+  },
+  {
+    "name": "J4_mating_posts_nominal",
+    "origin": "nominal .635 posts; intentional socket overlap",
+    "group": "electronics",
+    "status": "NOMINAL_NOT_PHYSICAL",
+    "volume_mm3": 159.03193999999672,
+    "solids": 34,
+    "bbox_CAD_xyz": [
+      [
+        78.02250000000001,
+        81.1975
+      ],
+      [
+        -93.8975,
+        -52.622499999999995
+      ],
+      [
+        -10.2,
+        1.4000000000000004
+      ]
+    ]
+  },
+  {
+    "name": "J5_female_2x3_BOTTOM",
+    "origin": "Samtec SSW10301FD catalogue;5=69PG4",
+    "group": "electronics",
+    "status": "NOMINAL_NOT_PHYSICAL",
+    "volume_mm3": 342.4721850000006,
+    "solids": 1,
+    "bbox_CAD_xyz": [
+      [
+        84.755,
+        89.705
+      ],
+      [
+        -112.885,
+        -104.755
+      ],
+      [
+        -10.11,
+        -1.5999999999999996
+      ]
+    ]
+  },
+  {
+    "name": "CN12_existing_staggered_males_66_67_68_69",
+    "origin": "user heights8.22/2.40, nominal .635 square",
+    "group": "electronics",
+    "status": "NOMINAL_NOT_PHYSICAL",
+    "volume_mm3": 9.387077999999729,
+    "solids": 4,
+    "bbox_CAD_xyz": [
+      [
+        85.6425,
+        88.8175
+      ],
+      [
+        -111.6775,
+        -105.9625
+      ],
+      [
+        -10.2,
+        -4.379999999999999
+      ]
+    ]
+  },
+  {
+    "name": "CN12_plastic_85.96",
+    "origin": "user plastic2.40; body lateral footprint nominal",
+    "group": "electronics",
+    "status": "NOMINAL_NOT_PHYSICAL",
+    "volume_mm3": 30.240000000000038,
+    "solids": 1,
+    "bbox_CAD_xyz": [
+      [
+        84.71,
+        87.21
+      ],
+      [
+        -112.61,
+        -107.57
+      ],
+      [
+        -12.6,
+        -10.2
+      ]
+    ]
+  },
+  {
+    "name": "CN12_plastic_88.5",
+    "origin": "user plastic2.40; body lateral footprint nominal",
+    "group": "electronics",
+    "status": "NOMINAL_NOT_PHYSICAL",
+    "volume_mm3": 30.240000000000038,
+    "solids": 1,
+    "bbox_CAD_xyz": [
+      [
+        87.25,
+        89.75
+      ],
+      [
+        -112.61,
+        -107.57
+      ],
+      [
+        -12.6,
+        -10.2
+      ]
+    ]
+  },
+  {
+    "name": "J6_socket_0",
+    "origin": "V1.4 chosen female catalogue body8.5; actual mating unknown",
+    "group": "electronics",
+    "status": "NOMINAL_NOT_PHYSICAL",
+    "volume_mm3": 675.6344000000012,
+    "solids": 1,
+    "bbox_CAD_xyz": [
+      [
+        43.08,
+        67.24
+      ],
+      [
+        -60.645,
+        -57.355
+      ],
+      [
+        0.0,
+        8.5
+      ]
+    ]
+  },
+  {
+    "name": "J6_module_male_spacer_0",
+    "origin": "nominal male plastic2.5 to module bottom11",
+    "group": "electronics",
+    "status": "NOMINAL_NOT_PHYSICAL",
+    "volume_mm3": 198.71600000000035,
+    "solids": 1,
+    "bbox_CAD_xyz": [
+      [
+        43.08,
+        67.24
+      ],
+      [
+        -60.645,
+        -57.355
+      ],
+      [
+        8.5,
+        11.0
+      ]
+    ]
+  },
+  {
+    "name": "J7_socket_0",
+    "origin": "V1.4 chosen female catalogue body8.5; actual mating unknown",
+    "group": "electronics",
+    "status": "NOMINAL_NOT_PHYSICAL",
+    "volume_mm3": 675.6344000000013,
+    "solids": 1,
+    "bbox_CAD_xyz": [
+      [
+        38.855,
+        42.145
+      ],
+      [
+        -107.92,
+        -83.76
+      ],
+      [
+        0.0,
+        8.5
+      ]
+    ]
+  },
+  {
+    "name": "J7_module_male_spacer_0",
+    "origin": "nominal male plastic2.5 to module bottom11",
+    "group": "electronics",
+    "status": "NOMINAL_NOT_PHYSICAL",
+    "volume_mm3": 198.71600000000038,
+    "solids": 1,
+    "bbox_CAD_xyz": [
+      [
+        38.855,
+        42.145
+      ],
+      [
+        -107.92,
+        -83.76
+      ],
+      [
+        8.5,
+        11.0
+      ]
+    ]
+  },
+  {
+    "name": "J8_socket_0",
+    "origin": "V1.4 chosen female catalogue body8.5; actual mating unknown",
+    "group": "electronics",
+    "status": "NOMINAL_NOT_PHYSICAL",
+    "volume_mm3": 888.7277000000016,
+    "solids": 1,
+    "bbox_CAD_xyz": [
+      [
+        43.355,
+        46.645
+      ],
+      [
+        -53.86,
+        -22.08
+      ],
+      [
+        0.0,
+        8.5
+      ]
+    ]
+  },
+  {
+    "name": "J8_module_male_spacer_0",
+    "origin": "nominal male plastic2.5 to module bottom11",
+    "group": "electronics",
+    "status": "NOMINAL_NOT_PHYSICAL",
+    "volume_mm3": 261.3905000000005,
+    "solids": 1,
+    "bbox_CAD_xyz": [
+      [
+        43.355,
+        46.645
+      ],
+      [
+        -53.86,
+        -22.08
+      ],
+      [
+        8.5,
+        11.0
+      ]
+    ]
+  },
+  {
+    "name": "J8_socket_1",
+    "origin": "V1.4 chosen female catalogue body8.5; actual mating unknown",
+    "group": "electronics",
+    "status": "NOMINAL_NOT_PHYSICAL",
+    "volume_mm3": 888.7277000000017,
+    "solids": 1,
+    "bbox_CAD_xyz": [
+      [
+        58.595,
+        61.885000000000005
+      ],
+      [
+        -53.86,
+        -22.08
+      ],
+      [
+        0.0,
+        8.5
+      ]
+    ]
+  },
+  {
+    "name": "J8_module_male_spacer_1",
+    "origin": "nominal male plastic2.5 to module bottom11",
+    "group": "electronics",
+    "status": "NOMINAL_NOT_PHYSICAL",
+    "volume_mm3": 261.3905000000005,
+    "solids": 1,
+    "bbox_CAD_xyz": [
+      [
+        58.595,
+        61.885000000000005
+      ],
+      [
+        -53.86,
+        -22.08
+      ],
+      [
+        8.5,
+        11.0
+      ]
+    ]
+  },
+  {
+    "name": "J9_socket_0",
+    "origin": "V1.4 chosen female catalogue body8.5; actual mating unknown",
+    "group": "electronics",
+    "status": "NOMINAL_NOT_PHYSICAL",
+    "volume_mm3": 604.6032999999986,
+    "solids": 1,
+    "bbox_CAD_xyz": [
+      [
+        85.3,
+        106.92
+      ],
+      [
+        -81.645,
+        -78.355
+      ],
+      [
+        0.0,
+        8.5
+      ]
+    ]
+  },
+  {
+    "name": "J9_module_male_spacer_0",
+    "origin": "nominal male plastic2.5 to module bottom11",
+    "group": "electronics",
+    "status": "NOMINAL_NOT_PHYSICAL",
+    "volume_mm3": 177.82449999999963,
+    "solids": 1,
+    "bbox_CAD_xyz": [
+      [
+        85.3,
+        106.92
+      ],
+      [
+        -81.645,
+        -78.355
+      ],
+      [
+        8.5,
+        11.0
+      ]
+    ]
+  },
+  {
+    "name": "J9_socket_1",
+    "origin": "V1.4 chosen female catalogue body8.5; actual mating unknown",
+    "group": "electronics",
+    "status": "NOMINAL_NOT_PHYSICAL",
+    "volume_mm3": 604.6032999999986,
+    "solids": 1,
+    "bbox_CAD_xyz": [
+      [
+        85.3,
+        106.92
+      ],
+      [
+        -104.505,
+        -101.215
+      ],
+      [
+        0.0,
+        8.5
+      ]
+    ]
+  },
+  {
+    "name": "J9_module_male_spacer_1",
+    "origin": "nominal male plastic2.5 to module bottom11",
+    "group": "electronics",
+    "status": "NOMINAL_NOT_PHYSICAL",
+    "volume_mm3": 177.8244999999996,
+    "solids": 1,
+    "bbox_CAD_xyz": [
+      [
+        85.3,
+        106.92
+      ],
+      [
+        -104.505,
+        -101.215
+      ],
+      [
+        8.5,
+        11.0
+      ]
+    ]
+  },
+  {
+    "name": "Adafruit_4682_manufacturer_STEP",
+    "origin": "AdafruitCAD pinned6c5cd9e3; model thickness1.57; nominal not measured",
+    "group": "electronics",
+    "status": "NOMINAL_NOT_PHYSICAL",
+    "volume_mm3": 1064.2820260962578,
+    "solids": 6,
+    "bbox_CAD_xyz": [
+      [
+        20.18,
+        43.04
+      ],
+      [
+        -108.54,
+        -83.14
+      ],
+      [
+        11.0,
+        14.450000000000077
+      ]
+    ]
+  },
+  {
+    "name": "Adafruit_4718_PCB_from_Eagle",
+    "origin": "pinned Adafruit Eagle outline/holes; body heights not measured",
+    "group": "electronics",
+    "status": "NOMINAL_NOT_PHYSICAL",
+    "volume_mm3": 706.8712367320505,
+    "solids": 1,
+    "bbox_CAD_xyz": [
+      [
+        42.46,
+        67.86
+      ],
+      [
+        -74.24,
+        -56.46
+      ],
+      [
+        11.0,
+        12.6
+      ]
+    ]
+  },
+  {
+    "name": "FRAM_component_keep_envelope",
+    "origin": "PROVISIONAL component height envelope",
+    "group": "envelope",
+    "status": "PROVISIONAL",
+    "volume_mm3": 432.0,
+    "solids": 1,
+    "bbox_CAD_xyz": [
+      [
+        47.0,
+        63.0
+      ],
+      [
+        -70.0,
+        -61.0
+      ],
+      [
+        12.6,
+        15.6
+      ]
+    ]
+  },
+  {
+    "name": "MKIGIBV2_PCB_PROVISIONAL",
+    "origin": "only DIL24 pitch/row known; board outline provisional",
+    "group": "electronics",
+    "status": "PROVISIONAL",
+    "volume_mm3": 1073.5462399999997,
+    "solids": 1,
+    "bbox_CAD_xyz": [
+      [
+        42.46,
+        62.78
+      ],
+      [
+        -54.48,
+        -21.46
+      ],
+      [
+        11.0,
+        12.6
+      ]
+    ]
+  },
+  {
+    "name": "MKI_IDC_component_ENVELOPE_UNKNOWN",
+    "origin": "reserve only; not a supplier shape or height",
+    "group": "envelope",
+    "status": "PROVISIONAL",
+    "volume_mm3": 3931.2,
+    "solids": 1,
+    "bbox_CAD_xyz": [
+      [
+        43.5,
+        61.5
+      ],
+      [
+        -50.0,
+        -24.0
+      ],
+      [
+        12.6,
+        21.0
+      ]
+    ]
+  },
+  {
+    "name": "Click_v101_PCB_reference",
+    "origin": "v101 CAD board57.15x25.4x1.59; user revision unverified",
+    "group": "electronics",
+    "status": "NOMINAL_NOT_PHYSICAL",
+    "volume_mm3": 2308.059899999999,
+    "solids": 1,
+    "bbox_CAD_xyz": [
+      [
+        83.41,
+        140.56
+      ],
+      [
+        -104.13,
+        -78.73
+      ],
+      [
+        11.0,
+        12.59
+      ]
+    ]
+  },
+  {
+    "name": "Click_terminal_envelope_0",
+    "origin": "v101 terminal centre with conservative STEP envelope; port not verified",
+    "group": "electronics",
+    "status": "NOMINAL_NOT_PHYSICAL",
+    "volume_mm3": 284.8945000000001,
+    "solids": 1,
+    "bbox_CAD_xyz": [
+      [
+        134.45,
+        140.5
+      ],
+      [
+        -89.50099999999999,
+        -83.961
+      ],
+      [
+        12.59,
+        21.09
+      ]
+    ]
+  },
+  {
+    "name": "Click_terminal_envelope_1",
+    "origin": "v101 terminal centre with conservative STEP envelope; port not verified",
+    "group": "electronics",
+    "status": "NOMINAL_NOT_PHYSICAL",
+    "volume_mm3": 284.89450000000016,
+    "solids": 1,
+    "bbox_CAD_xyz": [
+      [
+        134.45,
+        140.5
+      ],
+      [
+        -100.169,
+        -94.629
+      ],
+      [
+        12.59,
+        21.09
+      ]
+    ]
+  },
+  {
+    "name": "Click_logic_isolator_ENVELOPE",
+    "origin": "PROVISIONAL component envelope; not full imported part model",
+    "group": "envelope",
+    "status": "PROVISIONAL",
+    "volume_mm3": 2242.38,
+    "solids": 1,
+    "bbox_CAD_xyz": [
+      [
+        88.0,
+        130.0
+      ],
+      [
+        -101.0,
+        -82.0
+      ],
+      [
+        12.59,
+        15.4
+      ]
+    ]
+  },
+  {
+    "name": "Nucleo_Shield_spacer_0",
+    "origin": "insulating OD4 nominal; G must be measured",
+    "group": "structure",
+    "status": "NOMINAL_NOT_PHYSICAL",
+    "volume_mm3": 70.49733914655499,
+    "solids": 1,
+    "bbox_CAD_xyz": [
+      [
+        30.619999999999997,
+        34.62
+      ],
+      [
+        -23.19,
+        -19.19
+      ],
+      [
+        -12.6,
+        -1.5999999999999996
+      ]
+    ]
+  },
+  {
+    "name": "Nucleo_Shield_spacer_1",
+    "origin": "insulating OD4 nominal; G must be measured",
+    "group": "structure",
+    "status": "NOMINAL_NOT_PHYSICAL",
+    "volume_mm3": 70.49733914655492,
+    "solids": 1,
+    "bbox_CAD_xyz": [
+      [
+        31.89,
+        35.89
+      ],
+      [
+        -99.39,
+        -95.39
+      ],
+      [
+        -12.6,
+        -1.5999999999999996
+      ]
+    ]
+  },
+  {
+    "name": "Nucleo_Shield_spacer_2",
+    "origin": "insulating OD4 nominal; G must be measured",
+    "group": "structure",
+    "status": "NOMINAL_NOT_PHYSICAL",
+    "volume_mm3": 70.49733914655482,
+    "solids": 1,
+    "bbox_CAD_xyz": [
+      [
+        77.61,
+        81.61
+      ],
+      [
+        -99.39,
+        -95.39
+      ],
+      [
+        -12.6,
+        -1.5999999999999996
+      ]
+    ]
+  },
+  {
+    "name": "Module_spacer_0",
+    "origin": "nominal insulating support; height conditional on mating",
+    "group": "structure",
+    "status": "NOMINAL_NOT_PHYSICAL",
+    "volume_mm3": 70.49733914655494,
+    "solids": 1,
+    "bbox_CAD_xyz": [
+      [
+        43.0,
+        47.0
+      ],
+      [
+        -73.7,
+        -69.7
+      ],
+      [
+        0.0,
+        11.0
+      ]
+    ]
+  },
+  {
+    "name": "Module_spacer_1",
+    "origin": "nominal insulating support; height conditional on mating",
+    "group": "structure",
+    "status": "NOMINAL_NOT_PHYSICAL",
+    "volume_mm3": 70.4973391465549,
+    "solids": 1,
+    "bbox_CAD_xyz": [
+      [
+        63.31999999999999,
+        67.32
+      ],
+      [
+        -73.7,
+        -69.7
+      ],
+      [
+        0.0,
+        11.0
+      ]
+    ]
+  },
+  {
+    "name": "Module_spacer_2",
+    "origin": "nominal insulating support; height conditional on mating",
+    "group": "structure",
+    "status": "NOMINAL_NOT_PHYSICAL",
+    "volume_mm3": 70.49733914655488,
+    "solids": 1,
+    "bbox_CAD_xyz": [
+      [
+        20.72,
+        24.72
+      ],
+      [
+        -87.68,
+        -83.68
+      ],
+      [
+        0.0,
+        11.0
+      ]
+    ]
+  },
+  {
+    "name": "Module_spacer_3",
+    "origin": "nominal insulating support; height conditional on mating",
+    "group": "structure",
+    "status": "NOMINAL_NOT_PHYSICAL",
+    "volume_mm3": 70.49733914655488,
+    "solids": 1,
+    "bbox_CAD_xyz": [
+      [
+        20.72,
+        24.72
+      ],
+      [
+        -108.0,
+        -104.0
+      ],
+      [
+        0.0,
+        11.0
+      ]
+    ]
+  },
+  {
+    "name": "MKI_retainer_SCAD_geometry_no_text",
+    "origin": "analytical recreation of V1.4 SCAD without engraved text; fit not demonstrated",
+    "group": "structure",
+    "status": "NOMINAL_NOT_PHYSICAL",
+    "volume_mm3": 1832.5803057577293,
+    "solids": 1,
+    "bbox_CAD_xyz": [
+      [
+        36.0,
+        74.0
+      ],
+      [
+        -57.5,
+        -17.0
+      ],
+      [
+        0.0,
+        25.0
+      ]
+    ]
+  },
+  {
+    "name": "Click_retainer_SCAD_geometry_no_text",
+    "origin": "analytical recreation of V1.4 SCAD without engraved text; fit not demonstrated",
+    "group": "structure",
+    "status": "NOMINAL_NOT_PHYSICAL",
+    "volume_mm3": 1741.8039042081398,
+    "solids": 1,
+    "bbox_CAD_xyz": [
+      [
+        81.0,
+        97.5
+      ],
+      [
+        -115.5,
+        -72.0
+      ],
+      [
+        0.0,
+        25.0
+      ]
+    ]
+  },
+  {
+    "name": "Case_base_PETG_CONCEPT",
+    "origin": "own design; openings reserved, insert cable cuts pending",
+    "group": "case",
+    "status": "NOMINAL_NOT_PHYSICAL",
+    "volume_mm3": 187730.3741131192,
+    "solids": 1,
+    "bbox_CAD_xyz": [
+      [
+        7.999230675267227,
+        166.00076932473277
+      ],
+      [
+        -146.00076932473277,
+        20.000769324732772
+      ],
+      [
+        -24.001188901859752,
+        37.00279728084645
+      ]
+    ]
+  },
+  {
+    "name": "LED_panel_blank",
+    "origin": "blank screwed panel; LED/USER centres still unknown",
+    "group": "case",
+    "status": "NOT_FUNCTIONALLY_RELEASED",
+    "volume_mm3": 1492.7946915566254,
+    "solids": 1,
+    "bbox_CAD_xyz": [
+      [
+        40.999999899999985,
+        70.00000010000001
+      ],
+      [
+        -30.000000100000015,
+        -3.9999998999999855
+      ],
+      [
+        39.99923067526723,
+        42.00076932473277
+      ]
+    ]
+  },
+  {
+    "name": "USER_panel_blank",
+    "origin": "blank screwed panel; LED/USER centres still unknown",
+    "group": "case",
+    "status": "NOT_FUNCTIONALLY_RELEASED",
+    "volume_mm3": 884.7946915566254,
+    "solids": 1,
+    "bbox_CAD_xyz": [
+      [
+        21.99999989999997,
+        47.00000010000003
+      ],
+      [
+        -136.00000010000002,
+        -117.99999989999998
+      ],
+      [
+        39.99923067526723,
+        42.00076932473277
+      ]
+    ]
+  },
+  {
+    "name": "RS485_tool_cover",
+    "origin": "blank screwed panel; LED/USER centres still unknown",
+    "group": "case",
+    "status": "NOT_FUNCTIONALLY_RELEASED",
+    "volume_mm3": 944.7946915566254,
+    "solids": 1,
+    "bbox_CAD_xyz": [
+      [
+        129.99999989999998,
+        146.00000010000002
+      ],
+      [
+        -107.00000010000004,
+        -76.99999989999996
+      ],
+      [
+        39.99923067526722,
+        42.00076932473278
+      ]
+    ]
+  },
+  {
+    "name": "Case_lid_PETG_CONCEPT",
+    "origin": "own design, no external RESET hole",
+    "group": "case",
+    "status": "NOMINAL_NOT_PHYSICAL",
+    "volume_mm3": 75055.73165077643,
+    "solids": 1,
+    "bbox_CAD_xyz": [
+      [
+        7.999999899998763,
+        166.00000010000124
+      ],
+      [
+        -146.00000010000124,
+        20.000000100001238
+      ],
+      [
+        36.998811098140244,
+        40.001188901859756
+      ]
+    ]
+  },
+  {
+    "name": "Insert_CN1_STLINK_BLANK",
+    "origin": "screwed removable plate, cable-specific sealing cut pending",
+    "group": "case",
+    "status": "NOT_RELEASED_FOR_CABLE_FIT",
+    "volume_mm3": 1520.7946915566254,
+    "solids": 1,
+    "bbox_CAD_xyz": [
+      [
+        51.999999899999985,
+        84.00000010000001
+      ],
+      [
+        19.999230675267228,
+        22.000769324732772
+      ],
+      [
+        -20.000000100000015,
+        4.000000100000015
+      ]
+    ]
+  },
+  {
+    "name": "Insert_CN15_5V_BLANK",
+    "origin": "screwed removable plate, cable-specific sealing cut pending",
+    "group": "case",
+    "status": "NOT_RELEASED_FOR_CABLE_FIT",
+    "volume_mm3": 1664.7946915566254,
+    "solids": 1,
+    "bbox_CAD_xyz": [
+      [
+        49.999999899999985,
+        85.00000010000001
+      ],
+      [
+        -148.00076932473277,
+        -145.99923067526723
+      ],
+      [
+        -20.000000100000015,
+        4.000000100000015
+      ]
+    ]
+  },
+  {
+    "name": "Insert_microSD_BLANK",
+    "origin": "screwed removable plate, cable-specific sealing cut pending",
+    "group": "case",
+    "status": "NOT_RELEASED_FOR_CABLE_FIT",
+    "volume_mm3": 1344.7946915566254,
+    "solids": 1,
+    "bbox_CAD_xyz": [
+      [
+        5.999230675267227,
+        8.000769324732774
+      ],
+      [
+        -113.00000010000002,
+        -78.99999989999998
+      ],
+      [
+        5.999999899999971,
+        26.00000010000003
+      ]
+    ]
+  },
+  {
+    "name": "Insert_RS485_wire_BLANK",
+    "origin": "screwed removable plate, cable-specific sealing cut pending",
+    "group": "case",
+    "status": "NOT_RELEASED_FOR_CABLE_FIT",
+    "volume_mm3": 2056.7946915566254,
+    "solids": 1,
+    "bbox_CAD_xyz": [
+      [
+        165.99923067526723,
+        168.00076932473277
+      ],
+      [
+        -111.00000010000002,
+        -73.99999989999998
+      ],
+      [
+        5.99999989999997,
+        34.00000010000003
+      ]
+    ]
+  },
+  {
+    "name": "Insert_ribbon_BLANK",
+    "origin": "screwed removable plate, cable-specific sealing cut pending",
+    "group": "case",
+    "status": "NOT_RELEASED_FOR_CABLE_FIT",
+    "volume_mm3": 1034.7946915566254,
+    "solids": 1,
+    "bbox_CAD_xyz": [
+      [
+        40.999999899999985,
+        66.00000010000001
+      ],
+      [
+        19.999230675267228,
+        22.000769324732772
+      ],
+      [
+        3.9999998999999855,
+        25.000000100000015
+      ]
+    ]
+  },
+  {
+    "name": "RESERVED_CN1_STLINK",
+    "origin": "functional keep-out; RESERVATION_NOT_CONNECTOR_CENTRE",
+    "group": "keepout",
+    "status": "RESERVATION_NOT_ACTUAL_CABLE",
+    "volume_mm3": 3276.0,
+    "solids": 1,
+    "bbox_CAD_xyz": [
+      [
+        55.0,
+        81.0
+      ],
+      [
+        15.0,
+        22.0
+      ],
+      [
+        -17.0,
+        1.0
+      ]
+    ]
+  },
+  {
+    "name": "RESERVED_CN15_5V",
+    "origin": "functional keep-out; RESERVATION_NOT_CONNECTOR_CENTRE",
+    "group": "keepout",
+    "status": "RESERVATION_NOT_ACTUAL_CABLE",
+    "volume_mm3": 3654.0,
+    "solids": 1,
+    "bbox_CAD_xyz": [
+      [
+        53.0,
+        82.0
+      ],
+      [
+        -148.0,
+        -141.0
+      ],
+      [
+        -17.0,
+        1.0
+      ]
+    ]
+  },
+  {
+    "name": "RESERVED_microSD",
+    "origin": "functional keep-out; nominal envelope accommodates SD and finger service; actual neck and held card require check",
+    "group": "keepout",
+    "status": "RESERVATION_NOT_ACTUAL_CABLE",
+    "volume_mm3": 3136.000000000001,
+    "solids": 1,
+    "bbox_CAD_xyz": [
+      [
+        6.0,
+        14.0
+      ],
+      [
+        -110.0,
+        -82.0
+      ],
+      [
+        9.0,
+        23.0
+      ]
+    ]
+  },
+  {
+    "name": "RESERVED_RS485_wire",
+    "origin": "functional keep-out; nominal wire service opening; final cable insert unknown",
+    "group": "keepout",
+    "status": "RESERVATION_NOT_ACTUAL_CABLE",
+    "volume_mm3": 4774.0,
+    "solids": 1,
+    "bbox_CAD_xyz": [
+      [
+        161.0,
+        168.0
+      ],
+      [
+        -108.0,
+        -77.0
+      ],
+      [
+        9.0,
+        31.0
+      ]
+    ]
+  },
+  {
+    "name": "RESERVED_ribbon",
+    "origin": "functional keep-out; ribbon outer width/IDC actual unknown",
+    "group": "keepout",
+    "status": "RESERVATION_NOT_ACTUAL_CABLE",
+    "volume_mm3": 1995.0,
+    "solids": 1,
+    "bbox_CAD_xyz": [
+      [
+        44.0,
+        63.0
+      ],
+      [
+        15.0,
+        22.0
+      ],
+      [
+        7.0,
+        22.0
+      ]
+    ]
+  },
+  {
+    "name": "RESERVED_RS485_tool",
+    "origin": "functional keep-out; screwdriver access with separate screwed cover; closed normally",
+    "group": "keepout",
+    "status": "RESERVATION_NOT_ACTUAL_CABLE",
+    "volume_mm3": 2352.0,
+    "solids": 1,
+    "bbox_CAD_xyz": [
+      [
+        131.0,
+        145.0
+      ],
+      [
+        -106.0,
+        -78.0
+      ],
+      [
+        36.0,
+        42.0
+      ]
+    ]
+  },
+  {
+    "name": "RESERVED_SD_CARD_EXTRACTION",
+    "origin": "functional keep-out; NOMINAL_NEGATIVE_X",
+    "group": "keepout",
+    "status": "RESERVATION_NOT_ACTUAL_CABLE",
+    "volume_mm3": 1509.3600000000001,
+    "solids": 1,
+    "bbox_CAD_xyz": [
+      [
+        -10.0,
+        23.1
+      ],
+      [
+        -103.5,
+        -88.3
+      ],
+      [
+        12.0,
+        15.0
+      ]
+    ]
+  },
+  {
+    "name": "RESERVED_RS485_DRIVER",
+    "origin": "functional keep-out; NOMINAL_TOOL_VOLUME",
+    "group": "keepout",
+    "status": "RESERVATION_NOT_ACTUAL_CABLE",
+    "volume_mm3": 7920.0,
+    "solids": 1,
+    "bbox_CAD_xyz": [
+      [
+        132.0,
+        142.0
+      ],
+      [
+        -104.0,
+        -80.0
+      ],
+      [
+        12.0,
+        45.0
+      ]
+    ]
+  },
+  {
+    "name": "RESERVED_RIBBON_LANE",
+    "origin": "functional keep-out; BEND_RADIUS_AND_IDC_UNKNOWN",
+    "group": "keepout",
+    "status": "RESERVATION_NOT_ACTUAL_CABLE",
+    "volume_mm3": 6825.0,
+    "solids": 1,
+    "bbox_CAD_xyz": [
+      [
+        46.0,
+        61.0
+      ],
+      [
+        -21.0,
+        14.0
+      ],
+      [
+        9.0,
+        22.0
+      ]
+    ]
+  }
+]

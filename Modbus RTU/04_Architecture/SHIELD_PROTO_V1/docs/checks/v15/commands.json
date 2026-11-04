@@ -1,0 +1,35 @@
+[
+  {
+    "command": "cache venv Python + existing shield-pip.pyz install cadquery matplotlib trimesh pymupdf",
+    "returncode": 0,
+    "scope": "cache tools only"
+  },
+  {
+    "command": "python tools/build_integration_v15.py",
+    "returncode": 0,
+    "proof": "build-integration-release-candidate.log",
+    "outputs": "STEP assembly/sections/case/STL/coupon/window, views, native geometry and mesh checks"
+  },
+  {
+    "command": "python tools/review_integration_v15.py",
+    "returncode": 0,
+    "proof": "review-integration.log",
+    "outputs": "PCB scope check, bounded case/SD/tool clearances, matrix and2-page checklist"
+  },
+  {
+    "command": "python tools/generate_interfaces.py + SVG-to-PDF",
+    "returncode": 0,
+    "outputs": "corrected north LED / south USER regions, no PCB change"
+  },
+  {
+    "command": "read all15 STEP files through OCCT + coupon carrier/plate checks",
+    "returncode": 0,
+    "proof": "final-STEP-and-coupon-readback.json"
+  },
+  {
+    "command": "python tools/build_integration_v15.py --render-only",
+    "returncode": 0,
+    "proof": "render-published.log",
+    "scope": "final readable views; PDF pages/PNG reopen passed in views-readback.json"
+  }
+]

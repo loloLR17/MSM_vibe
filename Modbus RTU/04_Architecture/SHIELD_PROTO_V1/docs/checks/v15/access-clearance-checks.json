@@ -1,0 +1,154 @@
+{
+  "status": "PASS_BOUNDED_NOMINAL_MODEL_CHECKS",
+  "electronics_vs_base_lid": [
+    {
+      "object": "Shield_V14_exact_saved_outline_holes",
+      "modeled_case_overlap_mm3": 0.0
+    },
+    {
+      "object": "Nucleo_OUTLINE_REFERENCE_NOT_C05",
+      "modeled_case_overlap_mm3": 0.0
+    },
+    {
+      "object": "J1_male_shield_body",
+      "modeled_case_overlap_mm3": 0.0
+    },
+    {
+      "object": "J1_Zio_socket_Nucleo",
+      "modeled_case_overlap_mm3": 0.0
+    },
+    {
+      "object": "J1_mating_posts_nominal",
+      "modeled_case_overlap_mm3": 0.0
+    },
+    {
+      "object": "J2_male_shield_body",
+      "modeled_case_overlap_mm3": 0.0
+    },
+    {
+      "object": "J2_Zio_socket_Nucleo",
+      "modeled_case_overlap_mm3": 0.0
+    },
+    {
+      "object": "J2_mating_posts_nominal",
+      "modeled_case_overlap_mm3": 0.0
+    },
+    {
+      "object": "J3_male_shield_body",
+      "modeled_case_overlap_mm3": 0.0
+    },
+    {
+      "object": "J3_Zio_socket_Nucleo",
+      "modeled_case_overlap_mm3": 0.0
+    },
+    {
+      "object": "J3_mating_posts_nominal",
+      "modeled_case_overlap_mm3": 0.0
+    },
+    {
+      "object": "J4_male_shield_body",
+      "modeled_case_overlap_mm3": 0.0
+    },
+    {
+      "object": "J4_Zio_socket_Nucleo",
+      "modeled_case_overlap_mm3": 0.0
+    },
+    {
+      "object": "J4_mating_posts_nominal",
+      "modeled_case_overlap_mm3": 0.0
+    },
+    {
+      "object": "J5_female_2x3_BOTTOM",
+      "modeled_case_overlap_mm3": 0.0
+    },
+    {
+      "object": "CN12_existing_staggered_males_66_67_68_69",
+      "modeled_case_overlap_mm3": 0.0
+    },
+    {
+      "object": "CN12_plastic_85.96",
+      "modeled_case_overlap_mm3": 0.0
+    },
+    {
+      "object": "CN12_plastic_88.5",
+      "modeled_case_overlap_mm3": 0.0
+    },
+    {
+      "object": "J6_socket_0",
+      "modeled_case_overlap_mm3": 0.0
+    },
+    {
+      "object": "J6_module_male_spacer_0",
+      "modeled_case_overlap_mm3": 0.0
+    },
+    {
+      "object": "J7_socket_0",
+      "modeled_case_overlap_mm3": 0.0
+    },
+    {
+      "object": "J7_module_male_spacer_0",
+      "modeled_case_overlap_mm3": 0.0
+    },
+    {
+      "object": "J8_socket_0",
+      "modeled_case_overlap_mm3": 0.0
+    },
+    {
+      "object": "J8_module_male_spacer_0",
+      "modeled_case_overlap_mm3": 0.0
+    },
+    {
+      "object": "J8_socket_1",
+      "modeled_case_overlap_mm3": 0.0
+    },
+    {
+      "object": "J8_module_male_spacer_1",
+      "modeled_case_overlap_mm3": 0.0
+    },
+    {
+      "object": "J9_socket_0",
+      "modeled_case_overlap_mm3": 0.0
+    },
+    {
+      "object": "J9_module_male_spacer_0",
+      "modeled_case_overlap_mm3": 0.0
+    },
+    {
+      "object": "J9_socket_1",
+      "modeled_case_overlap_mm3": 0.0
+    },
+    {
+      "object": "J9_module_male_spacer_1",
+      "modeled_case_overlap_mm3": 0.0
+    },
+    {
+      "object": "Adafruit_4682_manufacturer_STEP",
+      "modeled_case_overlap_mm3": 0.0
+    },
+    {
+      "object": "Adafruit_4718_PCB_from_Eagle",
+      "modeled_case_overlap_mm3": 0.0
+    },
+    {
+      "object": "MKIGIBV2_PCB_PROVISIONAL",
+      "modeled_case_overlap_mm3": 0.0
+    },
+    {
+      "object": "Click_v101_PCB_reference",
+      "modeled_case_overlap_mm3": 0.0
+    },
+    {
+      "object": "Click_terminal_envelope_0",
+      "modeled_case_overlap_mm3": 0.0
+    },
+    {
+      "object": "Click_terminal_envelope_1",
+      "modeled_case_overlap_mm3": 0.0
+    }
+  ],
+  "SD_card_rectangular_sweep": "no modelled fixed case/structure intersection with SD door removed; does not test finger ergonomics or actual ejection",
+  "RS485_tool_corridor": "no modelled case intersection with local tool cap removed; actual terminal type/driver still unverified",
+  "LED_north_sector": "intersects shield projection; requires actual C05 positions before deciding PCB passage",
+  "USER_south_sector": "not a measured button swept volume; no guarantee of shield clearance",
+  "all_actual_C05_fit": "NOT_VERIFIED"
+}

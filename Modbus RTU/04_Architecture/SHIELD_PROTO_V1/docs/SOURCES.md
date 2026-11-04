@@ -38,3 +38,7 @@ Vues et cotes constructeur sont distinguées de nos réservations : bornes de bo
 ## Complément V1.4
 
 `sources-v1-4.json` et `checks/v14/independent-findings.json` distinguent le manuelSTRev8 réellement reçu (table19p37/vuefigure4p10), les observations utilisateur du quinconce et ses hauteurs, la décision autorisant2×3/ancrage déplacé, les dessinsSamtec et les prixaffichés. Les profondeursSamtec ne sont pas attribuées àConnfly. Aucune CAOC05Zip reçue ni cote photogrammétrique inventée.
+
+## Complément V1.5 — intégration 3D
+
+Voir `sources-v1-5.json` : modèle SD fabricant réutilisé et transformé sans miroir, inspection dimensionnelle Clickv101, dessinateurs et catalogues Bivar/MENTOR reçus ou indexés, échec des pistes ST alternatives sans ZIP C05. Les régions LED/USER proviennent de la localisation générale de la figureST, pas d’une extraction de coordonnées. Le STEP assemblé ne transforme pas les modèles approchés en géométries constructeur. La notice de licence Adafruit est conservée et citée dans mechanical/V1_5/README.md.

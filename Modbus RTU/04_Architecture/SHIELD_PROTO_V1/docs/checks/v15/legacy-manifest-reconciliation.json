@@ -1,0 +1,23 @@
+{
+  "status": "RECONCILED_CURRENT_MANIFEST_ONLY",
+  "initial_count": 73,
+  "current_existing_versionable": 72,
+  "removed_missing_non_artifacts": [
+    {
+      "path": "cad/TR2_Shield_Proto_V1.kicad_prl",
+      "previous_record": {
+        "bytes": 2306,
+        "sha256": "047a4a463238d79602cc0f9b8f53961f4fe476dcfbb04be3e794f2da23fbd65d"
+      },
+      "reason": "ignored unversioned KiCad local preferences; absent in initial Git reference; not a manufacturing artifact"
+    }
+  ],
+  "actual_changed_artifacts": [
+    "exports/gabarit.svg",
+    "exports/interfaces-boitier.pdf",
+    "exports/interfaces-boitier.svg",
+    "mechanical/interfaces.json"
+  ],
+  "git_ignore_rule": ".gitignore:2 *.kicad_prl",
+  "historical_reports_and_archives": "NOT_REWRITTEN"
+}

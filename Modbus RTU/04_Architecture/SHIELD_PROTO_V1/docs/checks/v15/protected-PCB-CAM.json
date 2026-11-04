@@ -1,0 +1,229 @@
+{
+  "status": "PASS",
+  "base": "10c6e0f22cd09f203ab79aedd79e7e5ebda3637f",
+  "checked_files": 44,
+  "files": [
+    {
+      "path": "Modbus RTU/04_Architecture/SHIELD_PROTO_V1/cad/TR2.kicad_sym",
+      "bytes": 39097,
+      "sha256": "8a72bdacb1b2d39c27d130fcd2b6f9aa39fe122281adea464f13a70216a792d2"
+    },
+    {
+      "path": "Modbus RTU/04_Architecture/SHIELD_PROTO_V1/cad/TR2.pretty/C1_100n.kicad_mod",
+      "bytes": 2550,
+      "sha256": "ffcf63c1ce76599e719ab33218e2eb790cfdbb06474c644415fea3b49ae3b929"
+    },
+    {
+      "path": "Modbus RTU/04_Architecture/SHIELD_PROTO_V1/cad/TR2.pretty/C2_10u_10V.kicad_mod",
+      "bytes": 2533,
+      "sha256": "a8a0fe75d916278136e692db54c1cf249ec9bbb45f9ff55ce4ae4df9484da2aa"
+    },
+    {
+      "path": "Modbus RTU/04_Architecture/SHIELD_PROTO_V1/cad/TR2.pretty/J1_NUCLEO_CN7.kicad_mod",
+      "bytes": 5805,
+      "sha256": "bd9da0824b7d8dcfac254b8a031fb20e4b630153b81ee556c3c9505558cf8705"
+    },
+    {
+      "path": "Modbus RTU/04_Architecture/SHIELD_PROTO_V1/cad/TR2.pretty/J2_NUCLEO_CN8.kicad_mod",
+      "bytes": 4590,
+      "sha256": "20cfb7dee81de2a8cd3b437ceecf32f3d24ff61ebbbbdf1a76c53044d1de08e4"
+    },
+    {
+      "path": "Modbus RTU/04_Architecture/SHIELD_PROTO_V1/cad/TR2.pretty/J3_NUCLEO_CN9.kicad_mod",
+      "bytes": 7157,
+      "sha256": "33d73f542179e1162457aa50327ea01dee54fcc4c393ce9d9c250d25b60d25da"
+    },
+    {
+      "path": "Modbus RTU/04_Architecture/SHIELD_PROTO_V1/cad/TR2.pretty/J4_NUCLEO_CN10.kicad_mod",
+      "bytes": 7891,
+      "sha256": "a17b28eff752cf6d5bfef0ce123453bc3243c9c265f5889647b77d3a22aec882"
+    },
+    {
+      "path": "Modbus RTU/04_Architecture/SHIELD_PROTO_V1/cad/TR2.pretty/J5_CN12_65_70_2X3_FEMALE.kicad_mod",
+      "bytes": 7663,
+      "sha256": "bd92564b9885cdfd7c1136184f76d3911a06f544023f0f206f9256aafff6c7a7"
+    },
+    {
+      "path": "Modbus RTU/04_Architecture/SHIELD_PROTO_V1/cad/TR2.pretty/J5_CN12_69_70_PG4.kicad_mod",
+      "bytes": 2020,
+      "sha256": "b4b01671ed350f43e585b83907380779bd36cd06b3b89a939b528e967f17e978"
+    },
+    {
+      "path": "Modbus RTU/04_Architecture/SHIELD_PROTO_V1/cad/TR2.pretty/J5_CN12_69_70_PG4_FEMALE.kicad_mod",
+      "bytes": 4175,
+      "sha256": "dc19d6bee634f9a8121fc89e61b338190fa789e8a0f492106e519e6ca1215e3f"
+    },
+    {
+      "path": "Modbus RTU/04_Architecture/SHIELD_PROTO_V1/cad/TR2.pretty/J6_ADAFRUIT_4718.kicad_mod",
+      "bytes": 4183,
+      "sha256": "7dc2533ccb1f2c448c5a0d5f2f2c4339293b683ff562d99d36f27c711fc0dfbd"
+    },
+    {
+      "path": "Modbus RTU/04_Architecture/SHIELD_PROTO_V1/cad/TR2.pretty/J7_ADAFRUIT_4682.kicad_mod",
+      "bytes": 4192,
+      "sha256": "86d9eb357e825479b502be48043ba59cce912a08bfb78dffe760184e6a5f471a"
+    },
+    {
+      "path": "Modbus RTU/04_Architecture/SHIELD_PROTO_V1/cad/TR2.pretty/J8_ST_MKIGIBV2.kicad_mod",
+      "bytes": 7620,
+      "sha256": "4d7bdaaace7fd47130aff76221b6d2e8b032c173584d94cd26a1a1018d7b52c3"
+    },
+    {
+      "path": "Modbus RTU/04_Architecture/SHIELD_PROTO_V1/cad/TR2.pretty/J9_MIKROE_3863.kicad_mod",
+      "bytes": 6172,
+      "sha256": "7ef9541af16ae94e471dfe68349ebf92df95151d52bed869d151cb8be32b8137"
+    },
+    {
+      "path": "Modbus RTU/04_Architecture/SHIELD_PROTO_V1/cad/TR2.pretty/R1_10k.kicad_mod",
+      "bytes": 1904,
+      "sha256": "bf7eb1e4a657eee22cef5e6e946cfa13c69b59b819fba8fc029c24360d05f637"
+    },
+    {
+      "path": "Modbus RTU/04_Architecture/SHIELD_PROTO_V1/cad/TR2.pretty/R2_10k.kicad_mod",
+      "bytes": 1904,
+      "sha256": "f0eba0a3f7ef03f2828f3293fed378e5470e57d5d4e504ff67db986ad5abac83"
+    },
+    {
+      "path": "Modbus RTU/04_Architecture/SHIELD_PROTO_V1/cad/TR2.pretty/R3_10k.kicad_mod",
+      "bytes": 1904,
+      "sha256": "9ee85fa3f3acab49c90f5430f1a28be7045ca64e69b8e80c85ef9c8764da4f52"
+    },
+    {
+      "path": "Modbus RTU/04_Architecture/SHIELD_PROTO_V1/cad/TR2.pretty/R4_10k.kicad_mod",
+      "bytes": 1904,
+      "sha256": "726ed0ec744bc55bd3f35efbac974e94c38b00ffb0848dbe154afc8a41074199"
+    },
+    {
+      "path": "Modbus RTU/04_Architecture/SHIELD_PROTO_V1/cad/TR2.pretty/TP1_TP_3V3.kicad_mod",
+      "bytes": 1720,
+      "sha256": "4d7791f6867a00aadd63e1d41bfbf2f34331d62867e7f9a6c41b33d017492cf5"
+    },
+    {
+      "path": "Modbus RTU/04_Architecture/SHIELD_PROTO_V1/cad/TR2.pretty/TP2_TP_GND.kicad_mod",
+      "bytes": 1720,
+      "sha256": "705c0a1db67676fc42379765e4167db97bb734eaa14c2bc9d753af1424f2e14a"
+    },
+    {
+      "path": "Modbus RTU/04_Architecture/SHIELD_PROTO_V1/cad/TR2.pretty/TP3_TP_ACC_SCK.kicad_mod",
+      "bytes": 1728,
+      "sha256": "a3a6252fe8180d31c8f387be7e6a4e3678c0ed286b397c4d896e23b5d88ee633"
+    },
+    {
+      "path": "Modbus RTU/04_Architecture/SHIELD_PROTO_V1/cad/TR2.pretty/TP4_TP_SD_CS.kicad_mod",
+      "bytes": 1724,
+      "sha256": "9aba9084ede5fc9971e80c58859eb46088c1015cfa517c338cff1dccc1ad5682"
+    },
+    {
+      "path": "Modbus RTU/04_Architecture/SHIELD_PROTO_V1/cad/TR2_Shield_Proto_V1.kicad_pcb",
+      "bytes": 699480,
+      "sha256": "3891bcf41b2d3a3c30e58c9ce1fb7d797025e37fbaae25dc9e049500f0d935e7"
+    },
+    {
+      "path": "Modbus RTU/04_Architecture/SHIELD_PROTO_V1/cad/TR2_Shield_Proto_V1.kicad_pro",
+      "bytes": 9555,
+      "sha256": "8c077c4fc90dc8fe73b778e3fccfeb764cc4dca59667a8a04d85bc7cc1bb61f6"
+    },
+    {
+      "path": "Modbus RTU/04_Architecture/SHIELD_PROTO_V1/cad/TR2_Shield_Proto_V1.kicad_sch",
+      "bytes": 88885,
+      "sha256": "4df1a12fcfc61e1f33cc7fcdbc7f10788115462052d1302df6c9d7a9c3d1c644"
+    },
+    {
+      "path": "Modbus RTU/04_Architecture/SHIELD_PROTO_V1/cad/fp-lib-table",
+      "bytes": 162,
+      "sha256": "4be354bcbcb7c6486dd1990bb33b310386cd31467f3003cd47f3fd2bfa6dcaf7"
+    },
+    {
+      "path": "Modbus RTU/04_Architecture/SHIELD_PROTO_V1/cad/routes.json",
+      "bytes": 50485,
+      "sha256": "ff8e26875ee7747e91823788ac7a0310384c90d71c2f5643bef840bd3857a070"
+    },
+    {
+      "path": "Modbus RTU/04_Architecture/SHIELD_PROTO_V1/cad/sym-lib-table",
+      "bytes": 146,
+      "sha256": "1d685831c1974c27683e8e65c7cb638986d370db894b88180621db50361efe79"
+    },
+    {
+      "path": "Modbus RTU/04_Architecture/SHIELD_PROTO_V1/design.json",
+      "bytes": 15049,
+      "sha256": "e6adfdde2cbf48af652a482e96ab0a92f517e3ac6203d1d378fea95023e55e5b"
+    },
+    {
+      "path": "Modbus RTU/04_Architecture/SHIELD_PROTO_V1/docs/pcb_geometry.json",
+      "bytes": 38676,
+      "sha256": "0089a3e0a90e81c1b6240e037bbfcbf73d51c4f79bab9b9e1c031760c4d4c366"
+    },
+    {
+      "path": "Modbus RTU/04_Architecture/SHIELD_PROTO_V1/exports/BLOCKED_FABRICATION/NE_PAS_COMMANDER.txt",
+      "bytes": 300,
+      "sha256": "c1f17031b9bfdee6537c54c89e9fa2c0ccea7f316691eb260cfbb1ac0f19e1dc"
+    },
+    {
+      "path": "Modbus RTU/04_Architecture/SHIELD_PROTO_V1/exports/BLOCKED_FABRICATION/TR2_Shield_Proto_V1-B_Cu.gbl",
+      "bytes": 281856,
+      "sha256": "64cf6ec944ad81b0aae2c4921f4d18d1fce208a0095c19e86114a2b5268081fa"
+    },
+    {
+      "path": "Modbus RTU/04_Architecture/SHIELD_PROTO_V1/exports/BLOCKED_FABRICATION/TR2_Shield_Proto_V1-B_Mask.gbs",
+      "bytes": 5549,
+      "sha256": "3fca145058e5b875cd0af1ee0dd7e563b0f38d12b03ee34fd6be0fe437695f36"
+    },
+    {
+      "path": "Modbus RTU/04_Architecture/SHIELD_PROTO_V1/exports/BLOCKED_FABRICATION/TR2_Shield_Proto_V1-B_Silkscreen.gbo",
+      "bytes": 7189,
+      "sha256": "a5e5e5e14bcd81ba6f7b4c8ad1f571ee81b8777879c802703d9e382c537fa181"
+    },
+    {
+      "path": "Modbus RTU/04_Architecture/SHIELD_PROTO_V1/exports/BLOCKED_FABRICATION/TR2_Shield_Proto_V1-Edge_Cuts.gm1",
+      "bytes": 694,
+      "sha256": "f4e9d8be286280fcfa68ee6822496bd3be787bc6ad5181efcecb9bba25240ce0"
+    },
+    {
+      "path": "Modbus RTU/04_Architecture/SHIELD_PROTO_V1/exports/BLOCKED_FABRICATION/TR2_Shield_Proto_V1-F_Cu.gtl",
+      "bytes": 278745,
+      "sha256": "623552ce4cc18f12901843ae28646b379d4b6260748d8436bcd74d15655cda1f"
+    },
+    {
+      "path": "Modbus RTU/04_Architecture/SHIELD_PROTO_V1/exports/BLOCKED_FABRICATION/TR2_Shield_Proto_V1-F_Mask.gts",
+      "bytes": 5549,
+      "sha256": "2f560600ca53fa5eb69b5d90023fbbe44ba8ceabf207ad890ef0005b2bef8624"
+    },
+    {
+      "path": "Modbus RTU/04_Architecture/SHIELD_PROTO_V1/exports/BLOCKED_FABRICATION/TR2_Shield_Proto_V1-F_Silkscreen.gto",
+      "bytes": 44001,
+      "sha256": "58f0add5d17c9a22fd1d309904278d7b6b439ea214562645b6b3b3bd40ac1c2f"
+    },
+    {
+      "path": "Modbus RTU/04_Architecture/SHIELD_PROTO_V1/exports/BLOCKED_FABRICATION/TR2_Shield_Proto_V1-NPTH-drl_map.pdf",
+      "bytes": 13908,
+      "sha256": "2893bf4f1f40214709ef5ded97a2ed7a5ed17fe94227b1e895fd9eded0c32a41"
+    },
+    {
+      "path": "Modbus RTU/04_Architecture/SHIELD_PROTO_V1/exports/BLOCKED_FABRICATION/TR2_Shield_Proto_V1-NPTH.drl",
+      "bytes": 600,
+      "sha256": "caf038ae8d62dab6aecfc964d192e69c8171f2a11ec7a27bc40a2792b662da7f"
+    },
+    {
+      "path": "Modbus RTU/04_Architecture/SHIELD_PROTO_V1/exports/BLOCKED_FABRICATION/TR2_Shield_Proto_V1-PTH-drl_map.pdf",
+      "bytes": 17349,
+      "sha256": "308f9f63622def44335de86b67adeacda456c29e9ef8cc1c7ccef56a84ce23e4"
+    },
+    {
+      "path": "Modbus RTU/04_Architecture/SHIELD_PROTO_V1/exports/BLOCKED_FABRICATION/TR2_Shield_Proto_V1-PTH.drl",
+      "bytes": 3050,
+      "sha256": "c47510e425dd93fb70fee2009807facece991b0e25a4a1eb7da8a226eee019b6"
+    },
+    {
+      "path": "Modbus RTU/04_Architecture/SHIELD_PROTO_V1/exports/BLOCKED_FABRICATION/TR2_Shield_Proto_V1-job.gbrjob",
+      "bytes": 2530,
+      "sha256": "6aa2c925e057300b07331a6277ebc0f360653538d4d18ea2cd30ef13d103eaba"
+    },
+    {
+      "path": "Modbus RTU/04_Architecture/SHIELD_PROTO_V1/exports/shield-nu.step",
+      "bytes": 312218,
+      "sha256": "b610a75fb564c6805d0b330e325233ad48289b3c0baeace812ec7c4d0f2d95ac"
+    }
+  ],
+  "ERC_DRC_V14_reused": "PCB/schematic/project/CAM byte-identical; new electrical run not justified",
+  "hardware_access": "NONE"
+}

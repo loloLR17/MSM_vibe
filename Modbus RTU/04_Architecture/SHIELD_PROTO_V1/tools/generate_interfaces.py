@@ -6,7 +6,7 @@ S=['<svg xmlns="http://www.w3.org/2000/svg" width="210mm" height="185mm" viewBox
 def rect(x,y,w,h,fill,stroke='#444',dash=False):S.append(f'<rect x="{x}" y="{y}" width="{w}" height="{h}" fill="{fill}" stroke="{stroke}"'+(' stroke-dasharray="1.5,1"'if dash else'')+'/>')
 def text(x,y,t,color='#111',size=2.4):S.append(f'<text x="{x}" y="{y}" fill="{color}" font-size="{size}">{html.escape(t)}</text>')
 def line(a,b,color='#444',dash=False):S.append(f'<path d="M{a[0]},{a[1]} L{b[0]},{b[1]}" stroke="{color}" fill="none"'+(' stroke-dasharray="1,1"'if dash else'')+'/>')
-text(-10,-19,'TR2 SHIELD V1.4 - INTERFACES / ECHELLE 1:1',size=3.2);text(-10,-14,'NE PAS FABRIQUER : C05 / empilage Zio a confirmer; hauteurs male8,22/2,40 acquises','#b00020')
+text(-10,-19,'TR2 PCB V1.4 / INTEGRATION V1.5 - INTERFACES 1:1',size=3.2);text(-10,-14,'NE PAS FABRIQUER : C05 / empilage Zio a confirmer; hauteurs male8,22/2,40 acquises','#b00020')
 rect(21.75,-6.75,70,133.34,'#fafafa','#888',True);text(94,2,'Nucleo : enveloppe UM2861');text(94,6,'Reconstruction, pas CAO C05','#b06000')
 rect(20,17,90,100,'#f0fff0','#174d28');text(89,18,'90 x 100 mm')
 # Known carrier/module footprint envelopes; the MKI body envelope is explicitly provisional.
@@ -27,7 +27,8 @@ for y in [82,101]:S.append(f'<circle cx="154" cy="{y}" r="1.7" fill="none" strok
 text(148,115,'Serre-cable sur boitier');text(148,119,'Pas sur le Click')
 rect(46,-14,15,35,'none','#8b5a00',True);line([53.5,19],[53.5,-12],'#8b5a00');text(-10,0,'Nappe 12 voies / sortie nord','#8b5a00');text(-10,4,'Selle independante, rayon a confirmer','#8b5a00',2.1)
 rect(57,-12,21,17,'none','#666',True);text(94,-5,'USB ST-LINK : maintenance seulement')
-rect(22,117,70,14,'none','#f08300',True);text(94,124,'Baie LED1/2/3 + USER / RESET protege','#a06000');text(94,128,'Centres optiques et course a relever C05','#b00020',2.1)
+rect(45,12,20,16,'none','#b00020',True);text(94,12,'LED1/2/3 : secteur NORD, centres inconnus','#b00020');text(94,16,'Risque de couverture shield/MKI : gate avant PCB','#b00020',2.1)
+rect(22,117,70,14,'none','#f08300',True);text(94,124,'Baie USER / RESET protege (pas les LED)','#a06000');text(94,128,'USER/RESET : centres et course inconnus C05','#b00020',2.1)
 rect(55,122,23,14,'none','#777',True);text(82,136,'CN15 : bloc externe secteur / USB5V + reprise')
 line([55,137],[78,137],'#777');text(23,142,'Deux bornes USB sont des ancrages de boitier proposes, pas des percages PCB',size=2.1)
 text(80,121,'J5 FEM2x3 DESSOUS / PG4 local5 / males en quinconce',size=2.1)

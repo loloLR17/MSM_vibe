@@ -91,10 +91,6 @@
     "bytes": 699480,
     "sha256": "3891bcf41b2d3a3c30e58c9ce1fb7d797025e37fbaae25dc9e049500f0d935e7"
   },
-  "cad/TR2_Shield_Proto_V1.kicad_prl": {
-    "bytes": 2306,
-    "sha256": "047a4a463238d79602cc0f9b8f53961f4fe476dcfbb04be3e794f2da23fbd65d"
-  },
   "cad/TR2_Shield_Proto_V1.kicad_pro": {
     "bytes": 9555,
     "sha256": "8c077c4fc90dc8fe73b778e3fccfeb764cc4dca59667a8a04d85bc7cc1bb61f6"
@@ -188,8 +184,8 @@
     "sha256": "2ac2961a5adf79ad174aa4f79b3bfca2f43b3b1a5a28199b66064e26bd932142"
   },
   "exports/gabarit.svg": {
-    "bytes": 18582,
-    "sha256": "26e5364f043955d0792ec5c480a4cb141b3c418eeb1dbc93aca27a443a50112e"
+    "bytes": 18900,
+    "sha256": "1f5795ab24190b4c8d7b3b2b8b20b53ab670d6ad42bd92e24e0f12eb631af17b"
   },
   "exports/implantation-dessous.pdf": {
     "bytes": 38569,
@@ -200,12 +196,12 @@
     "sha256": "1960c4ebba70d11a21f7904b06daaacdfc14af65c56b8ef35e0b31c0c65419e7"
   },
   "exports/interfaces-boitier.pdf": {
-    "bytes": 44592,
-    "sha256": "885ea3a9d1120a47d5c3a4ea556005e4f2936ea3c248f4b2dabfc6e818184526"
+    "bytes": 44695,
+    "sha256": "5923ffd31264260e828113eea7763f25fc66a6a020e5c3242afff05859f78005"
   },
   "exports/interfaces-boitier.svg": {
-    "bytes": 18582,
-    "sha256": "26e5364f043955d0792ec5c480a4cb141b3c418eeb1dbc93aca27a443a50112e"
+    "bytes": 18900,
+    "sha256": "1f5795ab24190b4c8d7b3b2b8b20b53ab670d6ad42bd92e24e0f12eb631af17b"
   },
   "exports/netlist.xml": {
     "bytes": 58756,
@@ -284,8 +280,8 @@
     "sha256": "90369ec5031c784ac9a7b47f091ce2d138004d59e94b7452b6d7816d4cb42f16"
   },
   "mechanical/interfaces.json": {
-    "bytes": 4943,
-    "sha256": "a653d9b633dd599e2fb5155b12e763747bb06d7a7ba338f6bf7852a1bc699711"
+    "bytes": 5746,
+    "sha256": "d3f3b3210226025bb9ca23b7d4440cf1834d69db9aa4e2b09f05b33b390bcfa4"
   },
   "mechanical/retainers.scad": {
     "bytes": 2766,

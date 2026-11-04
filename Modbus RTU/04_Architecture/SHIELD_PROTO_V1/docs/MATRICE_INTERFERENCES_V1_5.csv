@@ -1,0 +1,16 @@
+interface,verdict,preuve_limitee,reste_a_faire
+J5/Zio,BLOCKED,"G real inconnu; exemple G11: jeu0,09mm, insertion5,73mm","G naturel + profil engagement et tolérances; pas de nouvelle cote8,22/2,40"
+LD1 verte PC7,BLOCKED,"Secteur nord; centre/hauteur inconnus, shield/MKI potentiellement au-dessus",Centre/hauteur + trajet optique 3D; ne pas percer sur secteur approximatif
+LD2 bleue PB7,BLOCKED,Même secteur; pas de guide effectivement couplé,Même photo cotée que LD1
+LD3 rouge PG2,BLOCKED,Même secteur; ne pas confondre avec LD4 ST-LINK,Même photo cotée que LD1
+USER B1 PC13,BLOCKED,Principe captif démontré sur coupon seulement; centre/course/force inconnus,"XY et hauteur B1/capuchon, course/datasheet; appui au repos interdit"
+RESET B2,RESERVE,Pas de trou externe; panneau USER reste aveugle,Éloignement réel du futur actionneur à contrôler sur photo
+CN15 USB-C 5V,RESERVE,Ouverture et insert démontable modélisés au sud; centre réel inconnu,"Position prise + enveloppe fiche/câble existant, jeu et retenue"
+CN1 ST-LINK,RESERVE,Réservation nord séparée en Z de la nappe; pas une découpe cotée C05,Photo profil prise + fiche maintenance réelle
+microSD,PASS,Géométrie fabricant alignée 9pads/2trous; balayage carte libre du boîtier sans trappe,PASS nominal seulement; poussée/doigts et carte réelle restent RESERVE
+RS485 fils/outil,PASS,Couloir outil au-dessus bornier v101 et capot distinct; passage +X libre nominal,"PASS nominal seulement; version bornier, outil/fils/gland réels RESERVE"
+Nappe 12voies30cm,BLOCKED,"Couloir réservé, pas de raccordement inventé à un IDC MKI inconnu",Photo connecteur/orientation/hauteur; rayon et fixation de nappe
+MKIGIBV2,BLOCKED,"Pitch15,24 nominal/15,2 acquis; corps/IDC restent approximatifs","Enveloppe/profil et pose étrier, sans redemander entraxe"
+Click / isolement,RESERVE,Modèle v101; aucun ajout conducteur GND2-GND logique; structure plastique côté logique,Révision réelle + hauteur/composants/appui étrier; ne pas rapprocher masse isolée
+Trous/ancrages,RESERVE,"Centres PCB inchangés, trois supports et étriers représentés","Gabarit100% sur deux C05; OD4 entrecartes et têtes<=4,5 horsPCB"
+Fond/couvercle/vis,PASS,"Solides valides, STL fermés; modules modélisés sans collision avec fond/couvercle",PASS géométrique nominal; tolérances/PETG/température/supports impression RESERVE

@@ -1,0 +1,25 @@
+{
+  "status": "PASS",
+  "PDFs": [
+    {
+      "file": "assembly-views-and-sections.pdf",
+      "pages": 8,
+      "bytes": 5245493,
+      "sha256": "39092eaaaa19bee2c827b0ea0532a8fb67aa20135adc6e50da1bb3397cc33e98"
+    },
+    {
+      "file": "operator-principle-NOT-C05.pdf",
+      "pages": 1,
+      "bytes": 104138,
+      "sha256": "0194257e1564e57a53587b5a93208c1a9a2dbd6daf00d2dea14d625e259bd86c"
+    },
+    {
+      "file": "CONTROLE_PHYSIQUE_MINIMAL_2P.pdf",
+      "pages": 2,
+      "bytes": 38088,
+      "sha256": "f1cf00dc15ffbca4dbc01b44912578710e89455766d8e53dca29e6cef725474f"
+    }
+  ],
+  "PNG_files_reopened": 9,
+  "visual_review": "assembly isometric, exact X section, case closed, operator coupon, physical checklist inspected; nominal source labels retained"
+}

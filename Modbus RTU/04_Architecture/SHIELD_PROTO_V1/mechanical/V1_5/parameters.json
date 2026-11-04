@@ -1,0 +1,308 @@
+{
+  "mission_id": "TR2-20261104-SHIELD-V15-INTEGRATION-3D",
+  "version": "1.5-REVIEW_ONLY",
+  "release": "READY_FOR_PHYSICAL_CHECK / BLOCKED_FABRICATION",
+  "coordinates": "CAD X=KiCad X; CAD Y=-KiCad Y; Z=0 shield top; Z positive above. JSON XY boxes below are KiCad view unless marked CAD.",
+  "critical_unknowns": {
+    "G_Zio_actual_mm": null,
+    "LD1_XYZ_mm": null,
+    "LD2_XYZ_mm": null,
+    "LD3_XYZ_mm": null,
+    "USER_XYZ_mm": null,
+    "USER_stroke_force_max_overtravel": null,
+    "RESET_XYZ_mm": null,
+    "CN1_XYZ_mm": null,
+    "CN15_XYZ_mm": null,
+    "MKI_actual_body_height_mm": null,
+    "Click_actual_revision": null
+  },
+  "scenario": {
+    "G_Zio_mm": 11.0,
+    "shield_thickness_mm": 1.6,
+    "Nucleo_thickness_mm": 1.6,
+    "module_bottom_mm": 11.0,
+    "status": "UNMEASURED_LAYOUT_HYPOTHESES_NOT_C05"
+  },
+  "Nucleo": {
+    "xy_box": [
+      [
+        21.75,
+        -6.75
+      ],
+      [
+        91.75,
+        126.59
+      ]
+    ],
+    "provenance": "UM2861 prior reconstruction, not C05 manufacturing CAD"
+  },
+  "control_regions": {
+    "LED_north_inspection_xy": [
+      [
+        45,
+        12
+      ],
+      [
+        65,
+        28
+      ]
+    ],
+    "USER_south_inspection_xy": [
+      [
+        22,
+        117
+      ],
+      [
+        44,
+        131
+      ]
+    ],
+    "RESET_south_inspection_xy": [
+      [
+        76,
+        117
+      ],
+      [
+        92,
+        131
+      ]
+    ],
+    "status": "BROAD_INSPECTION_SECTORS_FROM_UM2861_REV8_FIG4; not component centres; sectors are not tolerances or metrology"
+  },
+  "enclosure": {
+    "outer_xy": [
+      [
+        8,
+        -20
+      ],
+      [
+        166,
+        146
+      ]
+    ],
+    "base_z": [
+      -24,
+      37
+    ],
+    "lid_z": [
+      37,
+      40
+    ],
+    "wall_mm": 3,
+    "floor_mm": 3,
+    "lid_screw_centres_xy": [
+      [
+        13,
+        -15
+      ],
+      [
+        161,
+        -15
+      ],
+      [
+        13,
+        141
+      ],
+      [
+        161,
+        141
+      ]
+    ],
+    "lid_screw_clearance_mm": 3.4,
+    "nominal_material": "PETG opaque; heat, warpage and creep not qualified",
+    "seal": "removable panels + nominal silicone 1mm flat gasket; no IP claim"
+  },
+  "ports": {
+    "CN1_STLINK": {
+      "wall": "north",
+      "opening_xy_z": [
+        [
+          55,
+          -22,
+          -17
+        ],
+        [
+          81,
+          -15,
+          1
+        ]
+      ],
+      "status": "RESERVATION_NOT_CONNECTOR_CENTRE"
+    },
+    "CN15_5V": {
+      "wall": "south",
+      "opening_xy_z": [
+        [
+          53,
+          141,
+          -17
+        ],
+        [
+          82,
+          148,
+          1
+        ]
+      ],
+      "status": "RESERVATION_NOT_CONNECTOR_CENTRE"
+    },
+    "microSD": {
+      "wall": "west",
+      "opening_xy_z": [
+        [
+          6,
+          82,
+          9
+        ],
+        [
+          14,
+          110,
+          23
+        ]
+      ],
+      "status": "nominal envelope accommodates SD and finger service; actual neck and held card require check"
+    },
+    "RS485_wire": {
+      "wall": "east",
+      "opening_xy_z": [
+        [
+          161,
+          77,
+          9
+        ],
+        [
+          168,
+          108,
+          31
+        ]
+      ],
+      "status": "nominal wire service opening; final cable insert unknown"
+    },
+    "ribbon": {
+      "wall": "north",
+      "opening_xy_z": [
+        [
+          44,
+          -22,
+          7
+        ],
+        [
+          63,
+          -15,
+          22
+        ]
+      ],
+      "status": "ribbon outer width/IDC actual unknown"
+    },
+    "RS485_tool": {
+      "wall": "lid",
+      "opening_xy_z": [
+        [
+          131,
+          78,
+          36
+        ],
+        [
+          145,
+          106,
+          42
+        ]
+      ],
+      "status": "screwdriver access with separate screwed cover; closed normally"
+    }
+  },
+  "guide_candidates": [
+    {
+      "mpn": "PLP1-250-F",
+      "manufacturer": "Bivar",
+      "type": "rigid rear panel pressfit; three independent channels",
+      "length_mm": 6.4,
+      "lens_diameter_mm": 3,
+      "flange_diameter_mm": 3.8,
+      "panel_thickness_mm": [
+        1.1938,
+        2.3622
+      ],
+      "mount_hole_nominal_mm": 3.0734,
+      "status": "dimensioned standalone coupon ONLY; no line of sight to actual Nucleo demonstrated"
+    },
+    {
+      "mpn": "1216.1001",
+      "manufacturer": "MENTOR",
+      "type": "flexible optical fibre with PCB pickup housing and lens",
+      "length_mm": 150,
+      "core_um": 1000,
+      "min_bend_radius_exclusive_mm": 9,
+      "pickup_housing_diameter_mm": 11,
+      "pickup_housing_height_mm": 7,
+      "lens_hole_mm": 4,
+      "status": "not drop-in: PCB press-in lugs incompatible without checking Nucleo; three Ø11 pickups may conflict; no drilling Nucleo authorised"
+    },
+    {
+      "mpn": "1216.1002",
+      "manufacturer": "MENTOR",
+      "length_mm": 80,
+      "core_um": 2000,
+      "min_bend_radius_exclusive_mm": 20,
+      "status": "not selected: larger bend radius and same PCB-lug issue"
+    }
+  ],
+  "USER_principle": {
+    "placed_on_Nucleo": false,
+    "nominal_rest_gap_mm": 0.6,
+    "prototype_stop_travel_mm": 1.0,
+    "shaft_diameter_mm": 5.0,
+    "guide_bore_mm": 5.5,
+    "head_diameter_mm": 10,
+    "captive_flange_diameter_mm": 12,
+    "required_actual_stroke_mm": null,
+    "force_limiter": "compliant tip and return spring/diaphragm required; force and deflection unknown, not qualified"
+  },
+  "window_fallback": {
+    "material": "clear PC or PMMA sheet, not printed",
+    "thickness_proposal_mm": 1.5,
+    "mounting": "screwed frame + 1mm silicone gasket; removable",
+    "status": "closed window feasible as a case part, actual direct line-of-sight under shield NOT DEMONSTRATED; not substitute for optical validation"
+  },
+  "models": {
+    "Adafruit_4682": {
+      "source_commit": "6c5cd9e3e65252bb5d5339608cf8d3cdabcef251",
+      "sha256": "195927fa6892b80caf19cd01887e84f1202026665b393f9c8c9f399fa6b4d6e8",
+      "status": "manufacturer STEP imported; nominal, not measured user module",
+      "rigid_transform_CAD": {
+        "rotation_Z_deg": 90,
+        "translation": [
+          43.04,
+          -108.54,
+          11.0
+        ]
+      }
+    },
+    "Click": {
+      "status": "parametric board/envelope from existing v101 CAD; not claimed identical to user v102",
+      "source_STEP_bbox_mm": [
+        [
+          -1.396991002,
+          24.382994975
+        ],
+        [
+          -3.81,
+          53.34
+        ],
+        [
+          -10.110199354,
+          8.500000055
+        ]
+      ],
+      "body_height_above_top_mm": 8.5
+    },
+    "MKI": {
+      "status": "PROVISIONAL bounding body only; top component and IDC envelope not verified"
+    },
+    "FRAM": {
+      "status": "manufacturer Eagle PCB outline/holes; height envelope provisional"
+    },
+    "J1_J9": {
+      "status": "catalogue connector body envelopes; sockets/pins nominal, mating not qualified"
+    }
+  }
+}
