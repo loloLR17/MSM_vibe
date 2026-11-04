@@ -1,6 +1,6 @@
 ---
 mission_id: TR2-20261104-SHIELD-V16-ETUDE-LED
-status: IN_PROGRESS
+status: DONE
 base_ref: main
 base_sha: ee947e532fbd418cd787246d95f2237452198126
 initial_head: 6d97906d32ec6b30a6db9caa140fc02481aa142d
@@ -14,9 +14,9 @@ allow_flash: false
 allow_debug: false
 ---
 
-# V1.6 — étude de visibilité LED terminée, publication en cours
+# V1.6 — étude de visibilité LED terminée et publiée
 
-**L’étude aboutit à une recommandation conditionnelle, recevable selon le contrat : fenêtre fermée en priorité ; trois LED déportées avec buffers via Morpho en seul repli.** Les contrôles logiciels et documents sont terminés. IN_PROGRESS concerne uniquement le cycle de publication/relecture distante, pas un blocage technique. **Aucune qualification physique ni libération de fabrication.** La V1.5 administrativement clôturée conserve son rapport BLOCKED et ses réserves.
+**L’étude aboutit à une recommandation conditionnelle, recevable selon le contrat : fenêtre fermée en priorité ; trois LED déportées avec buffers via Morpho en seul repli.** Les contrôles logiciels et documents sont terminés ; publication `6e9017ea1ed99375f8904fd47ee21a73fb3fac1e` récupérée de GitHub et relue intégralement : **260 fichiers comparés octet pour octet**, dont tous les livrables modifiés et les232fichiers antérieurs du shield. Preuve dans `archives/TR2-20261104-SHIELD-V16-ETUDE-LED/REMOTE_READBACK.json`. **Aucune qualification physique ni libération de fabrication.** La V1.5 administrativement clôturée conserve son rapport BLOCKED et ses réserves.
 
 ## Arbitrage
 
@@ -38,7 +38,7 @@ Sous `Modbus RTU/04_Architecture/SHIELD_PROTO_V1/docs/ETUDE_LED_V1_6/` :
 - `ETUDE_LED_V1_6.pdf` : trois pages plan coté, coupe projetée et schéma de principe ; sources éditables `01-plan.svg`, `02-coupe.svg`, `03-principe-electrique.svg`. **Ce sont des documents d’étude, pas des fichiers de fabrication.**
 - `analyse.py` et `lire_pcb.py` : calculs et extraction native KiCad en lecture seule ; aucun SaveBoard. `SOURCES.md` : liens primaires, accès et reproductibilité.
 - `preuves/pcb_natif_lecture_seule.json`, `impact_ouverture_hypothetique.json`, `optique_conditionnelle.json`, `electrique.json`, `connecteurs_ST.json`, `conservation.json`, `validation-calculs.json`, `pdf-relecture.json`, `validation-finale.json` : résultats effectifs et hypothèses.
-- Archive de mission : contrat exact dans `archives/TR2-20261104-SHIELD-V16-ETUDE-LED/MISSION.md`, empreintes des19fichiers d’étude dans `ARTEFACTS.json`. Le rapport final et la preuve distante y seront ajoutés après relecture.
+- Archive de mission : contrat exact dans `archives/TR2-20261104-SHIELD-V16-ETUDE-LED/MISSION.md`, empreintes des19fichiers d’étude dans `ARTEFACTS.json`. Le rapport final est copié dans `RAPPORT.md` et la preuve distante dans `REMOTE_READBACK.json`.
 
 ## Validation réellement exécutée
 
@@ -65,4 +65,4 @@ Une vue dessus cotée des surfaces émettrices LD1/2/3 relativement à CN8-4 et 
 
 Journal `ETAT_COURANT_TR2.md` actualisé : distinction étude/qualification, proposition optique conditionnelle, signauxMorpho et repli, contrôles réussis, prochaines preuves requises ; aucune ancienne décision réécrite. À transmettre à ChatGPT : arbitrer la fenêtre après vérification minimale ou mandater le repli électrique, avant fabrication.
 
-Permissions exercées : lecture, nouvelles pièces documentaires/calculs, journal et commits logiciels. Push normal et relecture distante encore à effectuer ; après leur réussite, publication de DONE d’étude avec SHA relu et état Git, sans confondre publication et qualification matérielle. Le SHA final du commit contenant le rapport sera donné dans la réponse après vérification.
+Permissions exercées : lecture, nouvelles pièces documentaires/calculs, journal et commits logiciels. Push normal vers main réussi : `6e9017ea1ed99375f8904fd47ee21a73fb3fac1e`, SHA confirmé par ls-remote et fetch ; relecture complète réussie sur260fichiers, manifeste des19artefacts vérifié. Worktree propre après cette publication. Cette clôture DONE concerne **l’étude conditionnelle**, pas une validation matérielle ; elle est publiée par un dernier commit/push normal puis relue. Le SHA final du commit contenant le rapport et l’état Git sont fournis dans la réponse après cette vérification, sans auto-référence dans le commit.
