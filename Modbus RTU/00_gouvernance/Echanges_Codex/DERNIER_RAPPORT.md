@@ -1,6 +1,6 @@
 ---
 mission_id: TR2-20261104-SHIELD-V17-VITRAGE-USER
-status: IN_PROGRESS
+status: DONE
 base_ref: main
 base_sha: 4717839a68016bb840598bd37180106e978e2ae3
 initial_head: 39c33c69a502d19c6590adffac0ccf847d9f0e34
@@ -16,7 +16,7 @@ allow_debug: false
 
 # V1.7 — vitrage latéral et USER : étude conditionnelle, aucune fabrication libérée
 
-**Solution prioritaire proposée : petite vitre fermée dans la paroi verticale côté ST-LINK, sous le shield et à côté du port USB.** La correction utilisateur pendant l’exécution est intégrée : la visée observée est **latérale quasi horizontale**, pas une vue depuis le dessus. La photo est décrite comme montrant plusieurs LED ; je ne prétends pas l’avoir inspectée ni y avoir identifié les trois LD1/LD2/LD3 dans l’empilage équipé. Les conclusions, modèles et checklist d’étude sont prêts ; IN_PROGRESS concerne la publication/relecture distante restante. **La visibilité des trois voyants et l’actionnement USER réels ne sont pas qualifiés. NE PAS COMMANDER.**
+**Solution prioritaire proposée : petite vitre fermée dans la paroi verticale côté ST-LINK, sous le shield et à côté du port USB.** La correction utilisateur pendant l’exécution est intégrée : la visée observée est **latérale quasi horizontale**, pas une vue depuis le dessus. La photo est décrite comme montrant plusieurs LED ; je ne prétends pas l’avoir inspectée ni y avoir identifié les trois LD1/LD2/LD3 dans l’empilage équipé. Les conclusions, modèles et checklist d’étude sont publiés ; référence `2e7bccdba8c5581be8b830af753f596a472e3c44` récupérée de GitHub et **282fichiers relus intégralement et comparés octet pour octet**, incluant tous les livrables modifiés et251fichiers antérieurs du shield. Preuve dans `archives/TR2-20261104-SHIELD-V17-VITRAGE-USER/REMOTE_READBACK.json`. **DONE concerne l’étude conditionnelle, pas une qualification physique.** **La visibilité des trois voyants et l’actionnement USER réels ne sont pas qualifiés. NE PAS COMMANDER.**
 
 ## Résultats et réserves décisives
 
@@ -38,7 +38,7 @@ Dossier `Modbus RTU/04_Architecture/SHIELD_PROTO_V1/` :
 - Résultats `optique.json`, `chaine_USER.json`, `interfaces-nord.json`, `CAO-controles.json`, `validation-finale.json`, `conservation.json` : faits calculés distincts des observations rapportées.
 - `mechanical/V1_7/parameters.json`, `README.md`, `tools/study_v17.py` : sources éditables. Tous les détails ne sont pas pilotés par JSON : des constantes de construction sont éditables dans le script, limitation documentée.
 - `mechanical/V1_7/REVIEW_ONLY/` : **troisSTEP rouverts**, assemblage d’étude18solides, fenêtre4solides, mécanismeUSER6solides ; **PDF4pages** avec vue3D/coupe/chaîneUSER/face nord et rayons enplan, quatreSVG. Le sous-assemblage reprend les contours/perçages exacts et dimensionsV1.5 ; il n’est pas la maquette complète67objets ni la géométrie C05 qualifiée. Les anciens fichiers restent intacts. **Aucun STL de fabrication.**
-- Archive V1.7 : contrat copié exactement dans `MISSION.md`, correction de direction dans `OBSERVATIONS_EXECUTION.md`, empreintes des20artefacts dans `ARTEFACTS.json`. Le complément humain de course est inchangé. Rapport final/preuve distante à ajouter après relecture.
+- Archive V1.7 : contrat copié exactement dans `MISSION.md`, correction de direction dans `OBSERVATIONS_EXECUTION.md`, empreintes des20artefacts dans `ARTEFACTS.json`. Le complément humain de course est inchangé. Rapport final copié dans `RAPPORT.md` et preuve de relecture dans `REMOTE_READBACK.json`.
 
 ## Contrôles effectivement exécutés
 
@@ -60,4 +60,4 @@ Source évaluée **80ec70effab4a12709c988401e19de8d8294be30 — Study lateral ST
 
 Journal `ETAT_COURANT_TR2.md` actualisé par ajout factuelV1.7 : direction corrigée, nouvelles cotes/acquis, vitrage candidat, USERajustable, résultats et réserves. À transmettre à ChatGPT : vérifier trois identités/trajetsLED et couloirB1 sur l’empilage réel, identifier les effortsB1 puis sélectionner le mécanisme compliant ; finaliser ensuite les seules piècesboîtier nécessaires. Les découpesboîtier peuvent attendre cette compatibilité ; gatesJ5/Zio/modules/LED/USER avantcommande demeurent.
 
-Permissions exercées : documentation, calculs/CAO d’étude, journal et commits. Push normal/relecture distante encore à effectuer ; le statut final sera publié après comparaison complète depuis GitHub. Le SHA final et l’état Git seront fournis après vérification, sans auto-référence dans le commit contenant le rapport.
+Permissions exercées : documentation, calculs/CAO d’étude, journal et commits. Push normal réussi sur main : `2e7bccdba8c5581be8b830af753f596a472e3c44`, confirmé par fetch et ls-remote ; relecture complète de282fichiers réussie, manifeste des20artefacts vérifié. Worktree propre après cette publication. Cette clôture documentaire DONE est publiée par un dernier commit/push normal, puis vérifiée ; son SHA final et l’état Git sont fournis dans la réponse après contrôle, sans auto-référence dans ce commit. **La conception n’est pas libérée pour fabrication ni déclarée fonctionnelle sur C05 réelle.**
