@@ -1,6 +1,6 @@
 ---
 mission_id: TR2-20261104-SHIELD-V15-INTEGRATION-3D
-status: IN_PROGRESS
+status: BLOCKED
 base_ref: main
 base_sha: 3b91ef05b318a12d9796e4c87de23b24c8888580
 initial_head: 10c6e0f22cd09f203ab79aedd79e7e5ebda3637f
@@ -18,7 +18,7 @@ allow_debug: false
 
 **READY_FOR_PHYSICAL_CHECK / BLOCKED_FABRICATION — NE PAS COMMANDER.** L’assemblage 3D, les coupes, une proposition de boîtier et les contrôles nominaux sont produits. **La visibilité réelle des trois LED et l’actionnement du vrai USER boîtier fermé ne sont pas démontrés.** Les critères correspondants de la mission ne sont donc pas satisfaits ; pas de DONE ni de fabrication libérée.
 
-Rapport provisoire IN_PROGRESS : publication et relecture distante restent à effectuer. Le blocage technique extérieur est distinct : centres/hauteurs réels C05, G naturel Zio et enveloppes des modules ne sont pas disponibles ; la mission interdit toute intervention physique et aucune CAO de fabrication C05 exploitable n’a été obtenue. Les opérations logicielles réalisables sont terminées.
+Publication et relecture distante effectuées sur `4a20f5b122d159fe27034bd11951c333ef4b6298` : **152 fichiers relus intégralement** depuis GitHub (tous les fichiers modifiés et les artefacts référencés), comparés octet pour octet. Preuve dans `archives/TR2-20261104-SHIELD-V15-INTEGRATION-3D/REMOTE_READBACK.json`. **BLOCKED concerne les critères techniques non satisfaits**, pas une attente de publication : centres/hauteurs réels C05, G naturel Zio et enveloppes des modules manquent ; la mission interdit toute intervention physique et aucune CAO de fabrication C05 exploitable n’a été obtenue. Les opérations logicielles réalisables sont terminées. Les panneaux aveugles et le coupon séparé ne sont pas présentés comme une démonstration réelle LED/USER.
 
 ## Résultat principal avant PCB
 
@@ -89,7 +89,7 @@ Validation proportionnée : pas de build STM32 ni test firmware, car aucune sour
 
 Source mécanique initiale7bcf35059f6b5d05995c2702b6b2990561f30f29, correction de format et source évaluée **95e95b51445ae387c4a2a3cb4ca4d0719c8d0e4a**. PCB électrique hérité de5d5bc5f8 reste inchangé. Worktree `MSM_vibe-SHIELD-V15-INTEGRATION-3D`, branche locale `codex/shield-v15-integration-3d`, cible autorisée main. Dépôt principal propre au HEAD historique82169af7 préservé, sans pull/merge/rebase/reset ; anciens worktrees/campagnes/archives intacts et deux stashes6251b988… etf3b829e6… conservés. Le contrat est copié dans la nouvelle archive de mission. Journal `ETAT_COURANT_TR2.md` actualisé : assemblage nominal, rectification LED nord, gates avantPCB, réserves et correction de traçabilité.
 
-Permissions exercées : développement/documentation/contrôles logiciels et commits, push normal prévu avec relecture distante. **Aucun achat, commande, impression, flash/debug/GDB, accès STM32/COM/FRAM/microSD ni intervention physique.** L’état matériel n’a pas été relu et aucune nouvelle qualification du firmware n’est revendiquée.
+Permissions exercées : développement/documentation/contrôles logiciels et commits, push normal réalisé vers main, publication `4a20f5b122d159fe27034bd11951c333ef4b6298` récupérée et relue intégralement. Worktree propre après cette publication ; cette clôture documentaire est publiée par un dernier commit/push normal, puis contrôlée à distance. Le SHA final est fourni dans la réponse, sans autoréférence dans ce commit. **Aucun achat, commande, impression, flash/debug/GDB, accès STM32/COM/FRAM/microSD ni intervention physique.** L’état matériel n’a pas été relu et aucune nouvelle qualification du firmware n’est revendiquée.
 
 Pour poursuivre : utiliser la fiche physique2pages dans une intervention ultérieure autorisée, obtenir une seule série de photos dessus/profil et les cotes réellement manquantes, puis placer les organes réels, établir chaque trajet optique et le poussoir, décider les seuls passages PCB nécessaires et relancer alors ERC/DRC/CAM si circuit modifié. Gabarit/ajustement sur **les deuxC05**, engagement Zio/J5 sans force, enveloppes MKI/Click et prises restent requis. Ni les mesures8,22/2,40/15,2, ni les campagnes firmware réussies ne sont à refaire.
 
