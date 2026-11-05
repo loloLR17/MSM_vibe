@@ -1,6 +1,6 @@
 ---
 mission_id: TR2-20261105-SHIELD-V20-EMBOITEMENT-3D
-status: IN_PROGRESS
+status: DONE
 base_ref: main
 base_sha: 0ba0df1653bf8f7cac33f8b30ec0dba06517643a
 initial_head: ce531d1e106affd3546a425947d0fb55cb185213
@@ -16,7 +16,7 @@ allow_debug: false
 
 # V2.0 — emboîtement possible sous bornes, NO-GO de libération
 
-**GO numériqueXY conservé ; faisabilité Z conditionnelle autour deG12,25mm ; gatephysiqueBLOCKED et fabricationNO-GO. Aucune nouvelle impression demandée.** Le papier ne lèverait pas l’engagementZ, les tolérances et les efforts. Étude terminée, publication/relecture en cours ; aucune commande, interventionmatérielle ou modificationPCB.
+**GO numériqueXY conservé ; faisabilité Z conditionnelle autour deG12,25mm ; gatephysiqueBLOCKED et fabricationNO-GO. Aucune nouvelle impression demandée.** Le papier ne lèverait pas l’engagementZ, les tolérances et les efforts. Étude terminée, publiée et relue depuisGitHub ; aucune commande, interventionmatérielle ou modificationPCB.
 
 [Décision courte et argumentée](../../04_Architecture/SHIELD_PROTO_V1/V2_0_EMBOITEMENT/DECISION.md), [sources exactes](../../04_Architecture/SHIELD_PROTO_V1/V2_0_EMBOITEMENT/SOURCES.md), [coupes dimensionnées et plan](../../04_Architecture/SHIELD_PROTO_V1/V2_0_EMBOITEMENT/cad/assemblage-et-coupes.pdf). Dossier : `Modbus RTU/04_Architecture/SHIELD_PROTO_V1/V2_0_EMBOITEMENT/`.
 
@@ -53,4 +53,4 @@ Un premierarticle àrisque peut être examiné **après décisionhumaine distinc
 
 Sourceévaluée **0854d7c71ee3946ae7d1b2ced962cd87a9a7722e — Study V20 C05 3D mating, tolerance interval and unresolved physical gates**. Worktreeisolé`MSM_vibe-SHIELD-V20-EMBOITEMENT`, branchelocale`codex/shield-v20-emboitement`, ciblemain. HEADinitialce531d1e, basecontrat0ba0df16 danshistorique. Dépôtprincipalpropre82169af7, deuxstashes6251b988…/f3b829e6… et autresworktrees préservés. Journal `ETAT_COURANT_TR2.md` actualisé : XYconservé, Zconditionnel, tolérances/fixations/optique et suite. À transmettre àChatGPT : revue des bornes et de la décisionderisque, pas une libérationautomatique. Permissions exercées : étudeCAO/calculs/documentation/journal/commit/pushnormal seulement, aucunSTM32/COM/FRAM/SD/impression/achat.
 
-Publication et relecture distante : en cours ; IN_PROGRESS concerne cette attente. DONE désignera l’étude publiée avec limites et portesnonlevées, pas READY_TO_ORDER.
+Publicationnormale sur main **29c3d304c933e9d8ee76bb4297d431273bf82d1a** réussie, confirmée parfetch/ls-remote. **471fichiers relus intégralement depuisorigin/main et comparés octetpour octet**, livrables, preuves, historique du shield, contrat et gouvernance inclus ; preuve `REMOTE_READBACK.json` dansarchiveV20. Worktreepropre après ce premierpush. La présenteclôture et sonarchive sont publiées par derniercommit/pushnormal puis relues ; SHAfinal communiqué après vérification. **DONE signifie étude livrée, gatephysiqueBLOCKED et fabricationNO-GO maintenus, pas READY_TO_ORDER.**
