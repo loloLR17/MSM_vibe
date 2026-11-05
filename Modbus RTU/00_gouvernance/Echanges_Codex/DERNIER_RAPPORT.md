@@ -1,11 +1,11 @@
 ---
-mission_id: TR2-20261105-SHIELD-V19-C05-OFFICIAL-CAD
-status: DONE
+mission_id: TR2-20261105-SHIELD-V20-EMBOITEMENT-3D
+status: IN_PROGRESS
 base_ref: main
-base_sha: 63451b2b4f87a1be0547406d76877b60114bdb20
-initial_head: ad4b698f42a7b174e92227a88ce68d8c9c8935b1
-result_sha: ca1a2484d735cfe8a4443e54bb80148fb8105152
-created_at_utc: 2026-11-05T11:56:37.709851+00:00
+base_sha: 0ba0df1653bf8f7cac33f8b30ec0dba06517643a
+initial_head: ce531d1e106affd3546a425947d0fb55cb185213
+result_sha: 0854d7c71ee3946ae7d1b2ced962cd87a9a7722e
+created_at_utc: 2026-11-05T12:24:21.743129+00:00
 author: Codex
 target_branch: main
 allow_commit: true
@@ -14,66 +14,43 @@ allow_flash: false
 allow_debug: false
 ---
 
-# V1.9 — coordonnées ST C05 obtenues, CN7 corrigé, fabrication toujours NO-GO
+# V2.0 — emboîtement possible sous bornes, NO-GO de libération
 
-**L’erreur relative démontrée concerne CN7/J1 : correctionY+1,016mm.** CN8/CN9/CN10 sont cohérents avecST dans un même repère. J5 est recaléY+0,025001mm et un centre de fixation de moins de0,005mm. Ce n’est pas une translation globale ni un changement d’échelle ; nous ne prétendons pas attribuer entièrement le constat qualitatif utilisateur de «plusieursmm» à cette seule erreur. Le candidatV1.9, ses gabarits et les preuves sont publiés et relus depuisGitHub. **Fabrication NO-GO : l’ancien papier ne valide pas le nouveau PCB.**
+**GO numériqueXY conservé ; faisabilité Z conditionnelle autour deG12,25mm ; gatephysiqueBLOCKED et fabricationNO-GO. Aucune nouvelle impression demandée.** Le papier ne lèverait pas l’engagementZ, les tolérances et les efforts. Étude terminée, publication/relecture en cours ; aucune commande, interventionmatérielle ou modificationPCB.
 
-Dossier : [V1_9_C05/README.md](../../04_Architecture/SHIELD_PROTO_V1/V1_9_C05/README.md). [Décision technique et portes séparées](../../04_Architecture/SHIELD_PROTO_V1/V1_9_C05/DECISION_V19.md), [provenance](../../04_Architecture/SHIELD_PROTO_V1/V1_9_C05/PROVENANCE.md), [comparaison106contacts](../../04_Architecture/SHIELD_PROTO_V1/V1_9_C05/comparaison-C05.csv), [comparaison des trous](../../04_Architecture/SHIELD_PROTO_V1/V1_9_C05/comparaison-trous-C05.csv).
+[Décision courte et argumentée](../../04_Architecture/SHIELD_PROTO_V1/V2_0_EMBOITEMENT/DECISION.md), [sources exactes](../../04_Architecture/SHIELD_PROTO_V1/V2_0_EMBOITEMENT/SOURCES.md), [coupes dimensionnées et plan](../../04_Architecture/SHIELD_PROTO_V1/V2_0_EMBOITEMENT/cad/assemblage-et-coupes.pdf). Dossier : `Modbus RTU/04_Architecture/SHIELD_PROTO_V1/V2_0_EMBOITEMENT/`.
 
-## Sources exactes réellement reçues
+## Résultats et limites
 
-Archives officielles ST téléchargées et ZIP/CRC contrôlés : **BDP4.0**,11 019 805octets, SHA256`ba9ce5359d9b5f81ca61423b11d6432d76e438e28af98259a64ab1eba5447f4c` ; **Manufacturing3.4**,30 596 347octets, SHA256`ecd9d543fa90b384ce741696ededc6d388f2d9154e4ef0bc626bece68c59c31f`. [ST annonce ces ressources](https://www.st.com/en/evaluation-tools/nucleo-u575zi-q.html). Inventaires et manifestes des membres conservés, sources complètes horsGit sous `/home/lolo/dev/msm/reports/TR2-shield-v19-20261105/`.
+STEP officielC05 réellement importé,1060solides, PCBZ−1,6..0 et socketsZio8,51. ZIPSTBDP4.0/Manufacturing3.4 **rehachés**, conformes aux empreintesV1.9 ba9ce535…/ecd9d543… ; révisionC/assembly05 et coordonnéessources reprises sans contestation. Le nouveau dessinSamtec révisionCM a été téléchargé et consulté, empreinte conservée : hauteur.335in8,51±.005in≈0,13mm ; jeu d’insertion catalogue3,68..6,35. Dessin exactConnflylegacy type1 : corps2,5±0,38, post6,10±0,25, queue3,00, section0,64. Pas d’assimilation au DS1021-01 différent.
 
-Le projetAltium déclare **Board_PCB_Revision=C / Board_Assembly_Revision=05**, date12July2023 ; manufacturing comprend `MB1549-U575ZIQ-C05.step` et `MB1549-C05_PCAD.NET`. Les dates2020 d’ODB/placement et2021 du PcbDoc sont signalées : pas une identificationC05 par leur seul nom. Le readmeBDP garde un ancien en-tête3.1, son historique annonce4.0/C05 ; celuimanufacturing3.4 corrige le nom de variante duMechanical. Aucune assimilation aveugleC02/C03/C05.
+G=dessusNucleo→dessousshield, épaisseurshield1,6 déclarée, repèreX/Y constructeur converti rigidement commeV1.9. **Aucun changementXY/PCB/empreinte/schéma/routage/Gerber**,442fichiers historiques du shield identiques. Pas de nouvelERC/DRC ni testfirmware sur codeinchangé ; résultatsV1.9 réutilisés.
 
-**Extraction métrique nativeCFB/Pads6** en1e-4mil, origineBoard6, ordre de broches et noms de nets natifs ; **240positions** deCN7/8/9/10/11/12 recoupées individuellement àl’ODB++ST (conversionpouces25,4), concordance à la précision des fichiers. PG4 deCN12-69 vérifié directementPads6→Nets6. Le STEP spécifiqueC05 a été réellement ouvert :**1060solides valides**, preuve `STEP-officiel-controle.json`, aucune preuve d’emboîtement déduite. Les originaux ne sont pas republiés massivement : readmeOPLA identifié, endpointlicence intégrale non relu avec succès, limite explicitée sans réattribuer les fichiersST.
+Calculsreproductibles : `I5=tipCN12+H5−G`, `C5=G−H5−bodyCN12`, `Iz=Hz+b+p−G`, `Cz=G−b−Hz`. Réserveplastique0,30 ; budgetG±0,10 et incertitudesCN12±0,10 explicitement **hypothétiques**. Intervalle admissible duGnominal **11,92..12,57mm sous ces bornes**, proposition12,25±0,10, aucune référence d’entretoise figée. À12,25 : **I5=4,15..4,81 / C5min1,01 ; Iz=4,00..5,72 / Czmin0,63mm**. À11,00 : jeuxnominalC5=0,09 etCz=−0,01, donc non robuste. L’intervalle ne vaut pas garantie de tous les montages réels ; mesuresCN12, assises/planéité, contacts et contreparties restent à qualifier.
 
-Les premiers téléchargementsLinux/Windows expirent, Edge échoueHTTP2 ; miroirSTjaponais inspecté, liensJS renvoyant àST, chemins/download404. Nouveaux accès publics hôte/query réussis, HTTP200ZIP et mêmehashBDP par deux chemins. Ni protectionWindows, ni compte ou politique modifié. Un import natifKiCadAltium expire après correction de sa signature d’appel : aucune sortie partielle utilisée. FormatPads6 recoupé au code officielKiCad10 ; extraction directe et contrôleODB évitent de déduire des coordonnées d’une image.
+**Entretoises** : bord du corpsZioSTEP et axe donnent0,285mm nominal pourØ4, plus que l’ancien0,04 facecourtyard. Mais pirecasbudgété−0,040 ; Ø3,5 donne0,535nominal/0,235 sous mêmes budgets. Le dessinSamtec autorise une bavuremax0,38 : le pirecasØ3,5 descend alorsà−0,145. **Pas deGO toutes tolérances**. Réductiondiamètre/formenonconductrice et contrôle des contreparties sont des pistes à qualifier, pas une substitutionBOM adoptée. Têtes≤4,5 horsfacesPCB, longueurvis/écrous/filetage/parois minces non libérés. Aucun trou déplacé.
 
-## Identification et correction minimale
+## Assemblage et preuves réellement exécutées
 
-En vue dessus STXdroite/Yhaut, shieldXdroite/Ybas : `Xshield=XST+21,74999888 ; Yshield=126,60113030−YST`, ancreCN8-1/J2-1(32,62;35,16). **Distances relatives avant alignement** : CN7-1/CN8-1, ΔX45,72mm identique, ΔY9,144mmST contre10,16mmshield. La correction est donc relative àCN7, pas un recalage de toute la carte. Face inférieure des connecteurs ne signifie pas miroirXY du gabarit dessus.
+`tools/build_assembly.py`, calculs `tolerances.py`, `sd_check.py`, `optical_probe.py`, `views.py`, `validate_study.py`, CadQuery2.8/OCCT/PyMuPDF. Deuxscénarios G12 puis12,25 étudiés, aucuncontactcaché déclaré acceptable par un testgéométrique.
 
-|Élément|Correction nominale|
-|---|---|
-|CN7/J1 broche1|(78,34;25)→(78,34;26,016), soit+1,016mmY|
-|CN8/J2,CN9/J3,CN10/J4|Positions conservées ; écart numérique éventuel1nm de conversionKiCad, pas déplacement mécanique|
-|J5local1/global65|(85,96;106,28)→(85,96;106,305001),+0,025001Y|
-|Premier ancrage|(32,62;21,19)→(32,616;21,192131), déplacement0,004532mm|
-|Deux ancrages bas|Inchangés (33,89/79,61;97,39)|
+- Aucune intersection volumique indésirable entre pièces sousshield testées et **sourceST complète**, àG12 et12,25, après filtrage spatial puis booléensOCCT. Post/socket sont des emboîtements intentionnels ; les corps/cavités sont des enveloppes, pas des ressorts de contact. DeuxvolumesMorpho du modèle ne correspondent pas à la population rapportée : affichage filtré et quatre mâles66/67/68/69 reconstitués selon mesures, **mais résultat d’intersection sourcecomplète conservé aussi**.
+- Retenues analytiquesV1.5 inchangéesXY contre sockets/enveloppesPCBmodules : aucune intersectionpositive. **SD4682 réelle fabricant** placée avec transformationV1.5 contre deuxretenues : aucune. FRAM/MKI/Click et leurs composants partiellementprovisoires, révisionClick réelle inconnue ; pas de preuveglobale d’absencecollisions ni de résistancevibratoire/isolationGND2.
+- STEPpropres éditables réouverts : **129solides et6solides**, valides ; PDF2pages rouvert/textes vérifiés, vueZ inspectée. Ces coupes sont des **enveloppes dimensionnées**, pas une section exacte de contacts internes. JSON et sourcesPython parsés. Normalisation whitespace des nouveauxSTEP sans changement de tokens.
+- Troisrayons horizontaux candidatsversLED, au-dessus du modèleémissif et1mm au nord des origines, sont **obstrués par des objetsST**. Cela ne démontre pas l’invisibilité latérale oblique observée par l’utilisateur ni l’impossibilité d’un vitrage. Le cônecommun d’observation et la photométrie ne sont pas qualifiés. Aucun perçagePCB justifié par ces seulsrayons.
 
-**106centres de contact du PCB final comparés àST : écartmax1nm calculé**, seuil de vérification2nm. C’est une concordance numérique de données, pas une tolérance de fabrication ni preuve physique. Trois centres de fixation recoupés ; trousshield2,8 face trousNucleoST3,2, deux autres trousST non ajoutés au shield.
+Fichiers et résultatsdétaillés dans `preuves/validation-finale.json`, `C05-collisions-G12p25.json`, `SD4682-contre-retenues.json`, `rayons-LED.json`, `tolerances.json`. Incidentdocumentairecorrigé : variable de liste des géométriesST écrasée par une liste de sockets dans le générateur ; métadonnées1060solides rétablies depuis la première inspection de la même source, scriptcorrigé, **résultatsbooléens inchangés**. Aucune règle ni test ancien affaibli.
 
-CAO éditable dans `V1_9_C05/cad/`, ancien candidat conservé. Schéma et projet/règles inchangés octetpour octet, modules/contour90×100/retenuesMKI/Click inchangés. J5femelle2×3 dessous inchangé électriquement : local5=69/PG4/DE, cinqNCindépendants, quatre mâles66/67/68/69 et65/70vides. Six fins de pistesCN7 adaptées en préservant les préfixes ; finDE ajustée25µm pour conserver l’espacement auNC. **25/32routes exactes**, dont toutes celles du capteur. Les sources/CAM/analyses antérieurs restent conservés :**324fichiers historiques identiques**, READMEparent seul complété par lienV1.9, contenu historique conservé.
+AssemblagecompletST éditable conservé horsGit : `/home/lolo/dev/msm/reports/TR2-shield-v20-20261105/full-C05-G12p25-review.step`, hash dans `sources-locales.json`. Il comprend des enveloppes de modules, non de faux modèlesconstructeur complets. La SDexacte placée est fournie séparément. STEPtiers/propriétairesST et dessinSamtec ne sont pas redistribués intégralement ; scripts/STEPpropres/provenances versionnés. LecacheBREP local permet de reproduire sans répéter l’importSTEP original ; instruction de reconstruction dansSOURCES.
 
-## Résultats observés et portée
+## Décision opérationnelle
 
-**KiCad10.0.6 : ERC0, DRC0, non-connectés0, parité0**,19empreintes/191pads/4vias. Toutes sévérités des contrôles activés, listes de contrôles ignorés héritées conservées ; aucun réglage assoupli. Commandes effectives `sch erc --severity-all --exit-code-violations`, `pcb drc --schematic-parity --all-track-errors --severity-all --exit-code-violations`, exportPDF/netlist/Gerber/Excellon/STEP/rendu, `read_board.py`, `verify_exports.py`, `verify_v19.py`, `generate_templates.py` ; arguments/sorties dans `docs/checks/commands.json` et logs.
+**Pas de deuxième papier par automatisme.** Si les contreparties exactes sont déjà disponibles, un seul montageàblanc hors tension vérifierait ensemble emboîtement sans force, G/parallelisme, jeux auxplastiques/entretoises/soudures, accès et troisLED depuis une zonecommune. Aucune nouvelle mesure des8,22/2,40/15,2/10,2/0,4 demandée. Sans ces pièces, **aucune intervention demandée maintenant** ; ne pas acheter uniquement pour créer une pseudo-preuve.
 
-Netlist/PCB/X2cuivre et tous les perçages/contour comparés ; Excellon apparié un-à-un à la résolution1µm, erreurcentremax0,000131mm ; aucun arrondi du modèle natifST. ZIP10fichiers neuf **NON LIBÉRÉ** réouvert et chaque membre comparé, SHA256**ddc0d5c45569dd48a3d06bd6a8ea0604a629c0ebb40b639d449320fa60acdbdd**. Gabarits2pagesA4 avec barres vectoriellesX/Y100mm rouverts, dimensions et longueurs vérifiées, premièrepage rendue et inspectée visuellement. JSON/Python parsés ; STEP du shield nu normalisé sans changement de tokens et rouvert valide.
+Un premierarticle àrisque peut être examiné **après décisionhumaine distincte**, puis un seulshield assemblé/contrôlé àfroid avant alimentation. Ce serait une dépense avec risquedereprisePCB, **pas une qualification acquise ni commandeautorisée ici**. USER reste accèsdirectprotégé, RESETprotégé, vitragePC latéral ; CN15/STLINK/SD/RS485/nappe nécessitent encore les vraisfiches/efforts/rayons. Pas de défautdémontré imposant un changementPCB ; réservescoffret et gatephysique explicités, aucune classeIP ou robustesse industrielle revendiquée.
 
-**Échecs analysés et conservés** : retrait de zonesSWIG non exposé, corrigé par retrait des seuls noeudscuivre du candidat ; première adaptation de pistes remontant7violationsDRC, corrigée par contrainte de couche au raccord des préfixes et déplacement cohérentDE ; première comparaisonExcellon demandant4décimales à un format3décimales, lecteur corrigé et contrôlequantification ajouté. Aucune suppression de test ni modification des contrôles historiques. Validation proportionnée à la CAO ; pas de build/testsfirmware, flash/debug, COM ou média.
+## Traçabilité
 
-## Contrôles physiques restant nécessaires
+Sourceévaluée **0854d7c71ee3946ae7d1b2ced962cd87a9a7722e — Study V20 C05 3D mating, tolerance interval and unresolved physical gates**. Worktreeisolé`MSM_vibe-SHIELD-V20-EMBOITEMENT`, branchelocale`codex/shield-v20-emboitement`, ciblemain. HEADinitialce531d1e, basecontrat0ba0df16 danshistorique. Dépôtprincipalpropre82169af7, deuxstashes6251b988…/f3b829e6… et autresworktrees préservés. Journal `ETAT_COURANT_TR2.md` actualisé : XYconservé, Zconditionnel, tolérances/fixations/optique et suite. À transmettre àChatGPT : revue des bornes et de la décisionderisque, pas une libérationautomatique. Permissions exercées : étudeCAO/calculs/documentation/journal/commit/pushnormal seulement, aucunSTM32/COM/FRAM/SD/impression/achat.
 
-[Nouveaux gabarits 100%](../../04_Architecture/SHIELD_PROTO_V1/V1_9_C05/exports/GABARITS_C05_V19_100POURCENT.pdf) : deuxpages, uneparC05, **vue dessus sans miroir**, barresX/Y100mm. Contrôle unique hors tension, sans déplacement de fils : cinqinterfaces, troisancrages et contour, sans force. Retour compact, sans relevé de toutes les broches ; si écart, localisation par une photo orthogonale du papier. Aucune nouvelle impression ni vérification réelle effectuée parCodex.
-
-**Z/J5/G naturel reste séparément NON VÉRIFIÉ** : pointe8,22/corps2,40, MKI15,2 etUSER10,2/course0,4 restent acquis ; ne pas remplacer ces mesures par une hauteurCAO. Si témoins exacts déjà disponibles, contrôlerG/engagement et jeux, sinon noter nonmesurable. **USER simple accès protégé/RESET protégé**, vitragePC latéral conservés.
-
-Les originesempreintes C05 sont désormais connues : LD3/LD2/LD1X51,72/54,92/58,12,Y20,92 ; B1(29,5212;120,3262), B2(84,2074;120,3262) hors contourshieldY117. Ces origines ne prouvent ni émission lumineuse ni effort bouton. Les calculsV1.7 fondés sur un domainehypothétique ne qualifient pas ces troispositions. CN1/CN15 sont localisés aux extrémités ; accèsUSB-C/STLINK, extractionSD,RS485,nappe,fixations/modules/isolement et visibilité dans le vraiempilage restent à confronter. Aucun conflit incontournable justifiant une autre découpePCB démontré ; ajustements du coffret après compatibilité, sans réouvrir une conception générale.
-
-**NO-GO fabrication et aucun envoiGerber/achat** jusqu’au nouveau contrôle physique approprié et revue indépendanteChatGPT/décisionhumaine.
-
-## Git, journal et publication
-
-Code évalué **ca1a2484d735cfe8a4443e54bb80148fb8105152 — Correct shield V19 CN7 alignment using official ST C05 CAD**. Worktree `MSM_vibe-SHIELD-V19-C05-OFFICIAL-CAD`, branche locale`codex/shield-v19-c05-official-cad`, ciblemain. DépartHEADdistantad4b698f ; basecontractuelle63451b2b dans l’historique. Dépôtprincipal propre82169af7, deuxstashes6251b988…/f3b829e6… et autresworktrees préservés, pas de reset/merge/rebase/forcepush. Permissions exercées : logicielsCAO, documentation, journal, commits et pushnormaux ; aucune permission matérielle.
-
-Journal `ETAT_COURANT_TR2.md` actualisé : constat papier, sourcesC05 effectives, correctionCN7/J5/ancrage, résultats et distinctionXYnumérique/XYphysique/Z/accès. À transmettre àChatGPT : contrôler indépendamment sourceetrepère, nouvellescomparaisons, gabarits et résultats physiques futurs, puis statuer sur libération. Archives de mission et rapport prévues sans toucher aux anciennes.
-
-**Publication normale réussie sur main a820d1852af54dd16c5cebde3babe0cd1d3595c5**, confirmée par fetch/ls-remote ; **453fichiers relus intégralement depuis origin/main et comparés octetpour octet**, dont les livrables, preuves, historique du shield, trois ajouts humains, contrat et gouvernance. Preuve `REMOTE_READBACK.json` dans l’archiveV1.9. La présente clôture et son archive sont publiées par un dernier commit/push normal puis relues ; SHA final fourni à l’utilisateur après vérification. **DONE concerne analyse/correction/exports publiés, jamais libération de fabrication ni contrôle physique.**
-
-## Mise à jour avant publication — main concurrent préservé
-
-Pendant la préparation du push, origin/main a avancé de ad4b698f vers **7c184bc871c867533785ce3a4e7e77f9776e6182**, par trois compléments humains (rectification des accèsST, observation des espaces et descriptions de photos). Le push n’a pas été tenté. Les trois documents ont été lus, sans les modifier. La source métrique désormais obtenue établit **5,080mm côtéCN8/CN9 contre4,064mm côtéCN7/CN10 entre centres extrêmes**, corroborant l’hypothèse terrain d’environ1mm ; aucune mesure photographique prétendue. Un comptage8+17 dans la description photo est signalé : CN9natif est2×15, la photo n’est pas utilisée comme cote. Source et preuves dans `dissymetrie-recoupee.json`.
-
-AGENTS.md§7 impose l’escalade de divergence ; commits locaux et worktree intégralement préservés, pas de merge/rebase/reset/pushforcé. **Autorisation utilisateur explicite reçue** pour intégration isolée et publication. Les trois commits sont réappliqués dans `MSM_vibe-SHIELD-V19-C05-PUBLICATION` basé sur7c184bc871c867533785ce3a4e7e77f9776e6182, branche `codex/shield-v19-c05-publication`. Le code corrigé correspond àca1a2484d735cfe8a4443e54bb80148fb8105152, identique octetpour octet au code testé7557cce1 ; tout le dossier et les preuves au checkpointac61190a sont identiques (442fichiers). Les trois ajouts humains restent intacts, les worktrees/commits originaux aussi. Preuve `INTEGRATION_AUTORISEE.json`. Aucun nouveau test électrique répété. Intégration et relecture terminées ; statutDONE de livraison logicielle, NO-GO physique inchangé.
+Publication et relecture distante : en cours ; IN_PROGRESS concerne cette attente. DONE désignera l’étude publiée avec limites et portesnonlevées, pas READY_TO_ORDER.
