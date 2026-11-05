@@ -1,0 +1,47 @@
+{
+  "date": "2026-11-05",
+  "items": [
+    {
+      "ref": "84PA220_25",
+      "supplier": "SAM Screws and more",
+      "qty_need": 8,
+      "buy": 25,
+      "pack_EUR_TTC_displayed": 5.39,
+      "stock": "available displayed, count not provided/not reserved",
+      "source": "https://www.screwsandmore.de/25-stueck-zylinderkopfschrauben-din-84-polyamid-m2x20/84pa220-25",
+      "delivery": "1-3days announced, not guaranteed specifically France"
+    },
+    {
+      "ref": "934PA2_9451",
+      "supplier": "SAM Screws and more",
+      "qty_need": 16,
+      "buy": 25,
+      "pack_EUR_TTC_displayed": 5.39,
+      "stock": "available displayed, count not provided/not reserved",
+      "source": "https://www.screwsandmore.de/25-stueck-sechskantmuttern-din-934-polyamid-m2/934pa2-9451",
+      "delivery": "1-3days announced, not guaranteed specifically France"
+    }
+  ],
+  "shipping_Europe_EUR_VAT19_displayed": 14.9,
+  "shipping_source": "https://www.screwsandmore.de/en/25-pieces-button-head-screws-din-7985-polyamide-m2x20/7985pa220-25",
+  "one_fastener_supplier_subtotal_VAT19": 25.68,
+  "VAT20_budget_corrected": 25.9,
+  "France_checkout_quote": null,
+  "printed_D126_supports": {
+    "quantity": 8,
+    "used": 6,
+    "spares": 2,
+    "price_delivered": null,
+    "stock": null,
+    "France_lead_time": null,
+    "candidate_material": "dense PETG prototype; PA66 machined/PA12SLS alternatives not qualified",
+    "raw_material_mass_g_estimate": 1.477989424,
+    "raw_filament_cost_at30EURkg": 0.044339682719999995,
+    "warning": "raw material cost only, not a fabrication quotation or proof of access to a printer"
+  },
+  "complete_delivered_total_TTC": null,
+  "number_suppliers": "1 fastener supplier plus local/contract part fabrication not confirmed",
+  "alternative_standard": "Pololu12mm/OD4/ID2.7 pack25 5.40EUR displayed, 5-7days Opencircuit, geometry/tolerance not accepted",
+  "source_alternative": "https://opencircuit.fr/produit/nylon-spacer-12mm-length-4mm-od-2.7mm-id-25",
+  "purchase_or_contact_sent": false
+}

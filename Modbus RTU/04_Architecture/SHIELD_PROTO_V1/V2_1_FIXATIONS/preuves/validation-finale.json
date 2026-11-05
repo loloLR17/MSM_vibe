@@ -1,0 +1,81 @@
+{
+  "status": "PASS_BOUNDED_GEOMETRY_ONLY",
+  "STEPs": [
+    {
+      "file": "implantation-3-supports.step",
+      "solids": 3,
+      "valid": true,
+      "sha256": "ff3b9b9b34df85611f4d4e4e13c875fccb873c2926d25c85310338913f8e6c8a",
+      "whitespace_tokens_preserved": true
+    },
+    {
+      "file": "D126-support.step",
+      "solids": 1,
+      "valid": true,
+      "sha256": "a5d30880dc220977211dca7b8066b84a7c7a43a53dc802c458633cf69eef91ab",
+      "whitespace_tokens_preserved": true
+    },
+    {
+      "file": "visserie-nominale.step",
+      "solids": 9,
+      "valid": true,
+      "sha256": "f7dfafa3af21835f2967dbe75a8f193ee4501ee80fcba7a0cd9676bb6c6fb66b",
+      "whitespace_tokens_preserved": true
+    }
+  ],
+  "STL": {
+    "watertight": true,
+    "volume": 145.43311067707072,
+    "one_component": true
+  },
+  "support_cases": 9,
+  "support_positive_intersections": 0,
+  "fastener_unexpected_intersections": 0,
+  "intentional_head_bearing_contacts": [
+    {
+      "anchor": 0,
+      "hits": [
+        {
+          "part": "nylon_bolt_head_below",
+          "ST_solid": 0,
+          "mm3": 1.4580131506059046e-05,
+          "z_extent": 4.42000000022702e-06,
+          "z_max": -1.5999999999999999,
+          "classification": "INTENTIONAL_HEAD_TO_PCB_BEARING_NUMERICAL_FACE_TOLERANCE"
+        }
+      ]
+    },
+    {
+      "anchor": 1,
+      "hits": [
+        {
+          "part": "nylon_bolt_head_below",
+          "ST_solid": 0,
+          "mm3": 1.4580131506059022e-05,
+          "z_extent": 4.42000000022702e-06,
+          "z_max": -1.5999999999999999,
+          "classification": "INTENTIONAL_HEAD_TO_PCB_BEARING_NUMERICAL_FACE_TOLERANCE"
+        }
+      ]
+    },
+    {
+      "anchor": 2,
+      "hits": [
+        {
+          "part": "nylon_bolt_head_below",
+          "ST_solid": 0,
+          "mm3": 1.4580131506059073e-05,
+          "z_extent": 4.42000000022702e-06,
+          "z_max": -1.5999999999999999,
+          "classification": "INTENTIONAL_HEAD_TO_PCB_BEARING_NUMERICAL_FACE_TOLERANCE"
+        }
+      ]
+    }
+  ],
+  "head_contact_explanation": "source PCB to nominal head bearing coincident surface, z extent4.42nm, volume1.458e-5mm3 each; retained and classified by location+depth, no blanket collision threshold raised",
+  "worst_gap_mm": 0.32033833804041123,
+  "PDF": "one page reopened, text verified; envelope diagram, not an actual print",
+  "physical": "NOT_TESTED",
+  "supplier_complete_quote": false,
+  "no_PCB_CAM_hardware_or_policy_changes": true
+}

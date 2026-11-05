@@ -1,0 +1,123 @@
+{
+  "source": "official C05 BREP from V20,1060solids; original STEP chain unchanged",
+  "tests": [
+    {
+      "hole": 0,
+      "xy": [
+        32.616,
+        21.192131
+      ],
+      "case": "nominal",
+      "hits": []
+    },
+    {
+      "hole": 0,
+      "xy": [
+        32.616,
+        21.192131
+      ],
+      "case": "limit_m5",
+      "hits": []
+    },
+    {
+      "hole": 0,
+      "xy": [
+        32.616,
+        21.192131
+      ],
+      "case": "limit_p5",
+      "hits": []
+    },
+    {
+      "hole": 1,
+      "xy": [
+        33.89,
+        97.39
+      ],
+      "case": "nominal",
+      "hits": []
+    },
+    {
+      "hole": 1,
+      "xy": [
+        33.89,
+        97.39
+      ],
+      "case": "limit_m5",
+      "hits": []
+    },
+    {
+      "hole": 1,
+      "xy": [
+        33.89,
+        97.39
+      ],
+      "case": "limit_p5",
+      "hits": []
+    },
+    {
+      "hole": 2,
+      "xy": [
+        79.61,
+        97.39
+      ],
+      "case": "nominal",
+      "hits": []
+    },
+    {
+      "hole": 2,
+      "xy": [
+        79.61,
+        97.39
+      ],
+      "case": "limit_m5",
+      "hits": []
+    },
+    {
+      "hole": 2,
+      "xy": [
+        79.61,
+        97.39
+      ],
+      "case": "limit_p5",
+      "hits": []
+    }
+  ],
+  "nominal_shape": {
+    "name": "D126",
+    "outer_radius": 3,
+    "bore_diameter": 2.4,
+    "height_G": 12.25,
+    "opening": "half annulus, flat at bore axis; no thin north wall",
+    "minimum_radial_ligament": 1.8,
+    "compression_area_mm2": 11.875220230569418,
+    "volume_mm3": 145.47144782447538,
+    "valid": true
+  },
+  "tolerance_model": {
+    "Nucleo_hole_max_budget": 3.33,
+    "shield_hole_max_budget": 2.93,
+    "shaft_min_acceptance": 1.9,
+    "relative_hole_center_bound": 0.15,
+    "bore_max_acceptance": 2.6,
+    "max_free_float": 1.0150000000000001,
+    "profile_Rmax": 3.1,
+    "flat_forward_max": 0.1,
+    "rotation_max_deg": 5,
+    "front_projection_max": 0.36966166195958894,
+    "socket_end_length_allowance": 0.125,
+    "socket_flash_allowance": 0.38,
+    "Nucleo_anchor_to_socket_position_allowance": 0.075,
+    "worst_gap": 0.32033833804041123,
+    "guard": 0.2,
+    "all_actual_parts_within_bounds": "NOT_VERIFIED"
+  },
+  "strength": {
+    "engineering_clamp_load_per_bolt_N": 5,
+    "average_stress_at5N_MPa": 0.42104482299443213,
+    "allowable_stress": "NOT_QUALIFIED material/layer/temperature/creep dependent; 5N is a target not a certified capacity or torque"
+  },
+  "orientation": "opening south at anchor0, north at1/2; maintainwithin5deg atassembly, no demonstrated vibration retention",
+  "physical": "NOT_TESTED",
+  "fabrication": "NON_LIBERE"
+}

@@ -1,0 +1,51 @@
+{
+  "cases": [
+    {
+      "anchor": 0,
+      "hits": [
+        {
+          "part": "nylon_bolt_head_below",
+          "ST_solid": 0,
+          "mm3": 1.4580131506059046e-05,
+          "z_extent": 4.42000000022702e-06,
+          "z_max": -1.5999999999999999,
+          "classification": "INTENTIONAL_HEAD_TO_PCB_BEARING_NUMERICAL_FACE_TOLERANCE"
+        }
+      ]
+    },
+    {
+      "anchor": 1,
+      "hits": [
+        {
+          "part": "nylon_bolt_head_below",
+          "ST_solid": 0,
+          "mm3": 1.4580131506059022e-05,
+          "z_extent": 4.42000000022702e-06,
+          "z_max": -1.5999999999999999,
+          "classification": "INTENTIONAL_HEAD_TO_PCB_BEARING_NUMERICAL_FACE_TOLERANCE"
+        }
+      ]
+    },
+    {
+      "anchor": 2,
+      "hits": [
+        {
+          "part": "nylon_bolt_head_below",
+          "ST_solid": 0,
+          "mm3": 1.4580131506059073e-05,
+          "z_extent": 4.42000000022702e-06,
+          "z_max": -1.5999999999999999,
+          "classification": "INTENTIONAL_HEAD_TO_PCB_BEARING_NUMERICAL_FACE_TOLERANCE"
+        }
+      ]
+    }
+  ],
+  "head_diameter": 3.8,
+  "nut_AF": 4,
+  "nut_corner_diameter": 4.618802153517007,
+  "head_position": "below Nucleo",
+  "nylon_nuts": "two on top shield; upper end17.05mm, screw end18.4, modulebottom24.85",
+  "shaft_length_under_head": 20,
+  "remaining_above_nuts": 1.35,
+  "model": "nominal catalogue acceptance dimensions, no threads/strength model or complete positional tolerance proof"
+}
